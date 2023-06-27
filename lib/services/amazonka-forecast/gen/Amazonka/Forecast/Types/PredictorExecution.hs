@@ -81,7 +81,8 @@ instance Data.FromJSON PredictorExecution where
 
 instance Prelude.Hashable PredictorExecution where
   hashWithSalt _salt PredictorExecution' {..} =
-    _salt `Prelude.hashWithSalt` algorithmArn
+    _salt
+      `Prelude.hashWithSalt` algorithmArn
       `Prelude.hashWithSalt` testWindows
 
 instance Prelude.NFData PredictorExecution where

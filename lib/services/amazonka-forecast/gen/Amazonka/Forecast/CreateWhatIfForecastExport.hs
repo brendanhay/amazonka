@@ -29,10 +29,9 @@
 -- The \<ExportTimestamp> component is in Java SimpleDateFormat
 -- (yyyy-MM-ddTHH-mm-ssZ).
 --
--- You must specify a DataDestination object that includes an AWS Identity
--- and Access Management (IAM) role that Amazon Forecast can assume to
--- access the Amazon S3 bucket. For more information, see
--- aws-forecast-iam-roles.
+-- You must specify a DataDestination object that includes an Identity and
+-- Access Management (IAM) role that Amazon Forecast can assume to access
+-- the Amazon S3 bucket. For more information, see aws-forecast-iam-roles.
 --
 -- For more information, see howitworks-forecast.
 --
@@ -84,11 +83,11 @@ data CreateWhatIfForecastExport = CreateWhatIfForecastExport'
     whatIfForecastExportName :: Prelude.Text,
     -- | The list of what-if forecast Amazon Resource Names (ARNs) to export.
     whatIfForecastArns :: Prelude.NonEmpty Prelude.Text,
-    -- | The location where you want to save the forecast and an AWS Identity and
+    -- | The location where you want to save the forecast and an Identity and
     -- Access Management (IAM) role that Amazon Forecast can assume to access
     -- the location. The forecast must be exported to an Amazon S3 bucket.
     --
-    -- If encryption is used, @Destination@ must include an AWS Key Management
+    -- If encryption is used, @Destination@ must include an Key Management
     -- Service (KMS) key. The IAM role must allow Amazon Forecast permission to
     -- access the key.
     destination :: DataDestination
@@ -113,11 +112,11 @@ data CreateWhatIfForecastExport = CreateWhatIfForecastExport'
 --
 -- 'whatIfForecastArns', 'createWhatIfForecastExport_whatIfForecastArns' - The list of what-if forecast Amazon Resource Names (ARNs) to export.
 --
--- 'destination', 'createWhatIfForecastExport_destination' - The location where you want to save the forecast and an AWS Identity and
+-- 'destination', 'createWhatIfForecastExport_destination' - The location where you want to save the forecast and an Identity and
 -- Access Management (IAM) role that Amazon Forecast can assume to access
 -- the location. The forecast must be exported to an Amazon S3 bucket.
 --
--- If encryption is used, @Destination@ must include an AWS Key Management
+-- If encryption is used, @Destination@ must include an Key Management
 -- Service (KMS) key. The IAM role must allow Amazon Forecast permission to
 -- access the key.
 newCreateWhatIfForecastExport ::
@@ -161,11 +160,11 @@ createWhatIfForecastExport_whatIfForecastExportName = Lens.lens (\CreateWhatIfFo
 createWhatIfForecastExport_whatIfForecastArns :: Lens.Lens' CreateWhatIfForecastExport (Prelude.NonEmpty Prelude.Text)
 createWhatIfForecastExport_whatIfForecastArns = Lens.lens (\CreateWhatIfForecastExport' {whatIfForecastArns} -> whatIfForecastArns) (\s@CreateWhatIfForecastExport' {} a -> s {whatIfForecastArns = a} :: CreateWhatIfForecastExport) Prelude.. Lens.coerced
 
--- | The location where you want to save the forecast and an AWS Identity and
+-- | The location where you want to save the forecast and an Identity and
 -- Access Management (IAM) role that Amazon Forecast can assume to access
 -- the location. The forecast must be exported to an Amazon S3 bucket.
 --
--- If encryption is used, @Destination@ must include an AWS Key Management
+-- If encryption is used, @Destination@ must include an Key Management
 -- Service (KMS) key. The IAM role must allow Amazon Forecast permission to
 -- access the key.
 createWhatIfForecastExport_destination :: Lens.Lens' CreateWhatIfForecastExport DataDestination
@@ -187,7 +186,8 @@ instance Core.AWSRequest CreateWhatIfForecastExport where
 
 instance Prelude.Hashable CreateWhatIfForecastExport where
   hashWithSalt _salt CreateWhatIfForecastExport' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` whatIfForecastExportName
       `Prelude.hashWithSalt` whatIfForecastArns

@@ -29,10 +29,9 @@
 -- where the \<ExportTimestamp> component is in Java SimpleDateFormat
 -- (yyyy-MM-ddTHH-mm-ssZ).
 --
--- You must specify a DataDestination object that includes an AWS Identity
--- and Access Management (IAM) role that Amazon Forecast can assume to
--- access the Amazon S3 bucket. For more information, see
--- aws-forecast-iam-roles.
+-- You must specify a DataDestination object that includes an Identity and
+-- Access Management (IAM) role that Amazon Forecast can assume to access
+-- the Amazon S3 bucket. For more information, see aws-forecast-iam-roles.
 --
 -- For more information, see howitworks-forecast.
 --
@@ -101,22 +100,22 @@ data CreateForecastExportJob = CreateForecastExportJob'
     -- -   Tag keys and values are case sensitive.
     --
     -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
-    --     such as a prefix for keys as it is reserved for AWS use. You cannot
-    --     edit or delete tag keys with this prefix. Values can have this
-    --     prefix. If a tag value has @aws@ as its prefix but the key does not,
-    --     then Forecast considers it to be a user tag and will count against
-    --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
-    --     count against your tags per resource limit.
+    --     such as a prefix for keys as it is reserved for Amazon Web Services
+    --     use. You cannot edit or delete tag keys with this prefix. Values can
+    --     have this prefix. If a tag value has @aws@ as its prefix but the key
+    --     does not, then Forecast considers it to be a user tag and will count
+    --     against the limit of 50 tags. Tags with only the key prefix of @aws@
+    --     do not count against your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
     -- | The name for the forecast export job.
     forecastExportJobName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the forecast that you want to export.
     forecastArn :: Prelude.Text,
-    -- | The location where you want to save the forecast and an AWS Identity and
+    -- | The location where you want to save the forecast and an Identity and
     -- Access Management (IAM) role that Amazon Forecast can assume to access
     -- the location. The forecast must be exported to an Amazon S3 bucket.
     --
-    -- If encryption is used, @Destination@ must include an AWS Key Management
+    -- If encryption is used, @Destination@ must include an Key Management
     -- Service (KMS) key. The IAM role must allow Amazon Forecast permission to
     -- access the key.
     destination :: DataDestination
@@ -158,22 +157,22 @@ data CreateForecastExportJob = CreateForecastExportJob'
 -- -   Tag keys and values are case sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for keys as it is reserved for AWS use. You cannot
---     edit or delete tag keys with this prefix. Values can have this
---     prefix. If a tag value has @aws@ as its prefix but the key does not,
---     then Forecast considers it to be a user tag and will count against
---     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
---     count against your tags per resource limit.
+--     such as a prefix for keys as it is reserved for Amazon Web Services
+--     use. You cannot edit or delete tag keys with this prefix. Values can
+--     have this prefix. If a tag value has @aws@ as its prefix but the key
+--     does not, then Forecast considers it to be a user tag and will count
+--     against the limit of 50 tags. Tags with only the key prefix of @aws@
+--     do not count against your tags per resource limit.
 --
 -- 'forecastExportJobName', 'createForecastExportJob_forecastExportJobName' - The name for the forecast export job.
 --
 -- 'forecastArn', 'createForecastExportJob_forecastArn' - The Amazon Resource Name (ARN) of the forecast that you want to export.
 --
--- 'destination', 'createForecastExportJob_destination' - The location where you want to save the forecast and an AWS Identity and
+-- 'destination', 'createForecastExportJob_destination' - The location where you want to save the forecast and an Identity and
 -- Access Management (IAM) role that Amazon Forecast can assume to access
 -- the location. The forecast must be exported to an Amazon S3 bucket.
 --
--- If encryption is used, @Destination@ must include an AWS Key Management
+-- If encryption is used, @Destination@ must include an Key Management
 -- Service (KMS) key. The IAM role must allow Amazon Forecast permission to
 -- access the key.
 newCreateForecastExportJob ::
@@ -225,12 +224,12 @@ createForecastExportJob_format = Lens.lens (\CreateForecastExportJob' {format} -
 -- -   Tag keys and values are case sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for keys as it is reserved for AWS use. You cannot
---     edit or delete tag keys with this prefix. Values can have this
---     prefix. If a tag value has @aws@ as its prefix but the key does not,
---     then Forecast considers it to be a user tag and will count against
---     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
---     count against your tags per resource limit.
+--     such as a prefix for keys as it is reserved for Amazon Web Services
+--     use. You cannot edit or delete tag keys with this prefix. Values can
+--     have this prefix. If a tag value has @aws@ as its prefix but the key
+--     does not, then Forecast considers it to be a user tag and will count
+--     against the limit of 50 tags. Tags with only the key prefix of @aws@
+--     do not count against your tags per resource limit.
 createForecastExportJob_tags :: Lens.Lens' CreateForecastExportJob (Prelude.Maybe [Tag])
 createForecastExportJob_tags = Lens.lens (\CreateForecastExportJob' {tags} -> tags) (\s@CreateForecastExportJob' {} a -> s {tags = a} :: CreateForecastExportJob) Prelude.. Lens.mapping Lens.coerced
 
@@ -242,11 +241,11 @@ createForecastExportJob_forecastExportJobName = Lens.lens (\CreateForecastExport
 createForecastExportJob_forecastArn :: Lens.Lens' CreateForecastExportJob Prelude.Text
 createForecastExportJob_forecastArn = Lens.lens (\CreateForecastExportJob' {forecastArn} -> forecastArn) (\s@CreateForecastExportJob' {} a -> s {forecastArn = a} :: CreateForecastExportJob)
 
--- | The location where you want to save the forecast and an AWS Identity and
+-- | The location where you want to save the forecast and an Identity and
 -- Access Management (IAM) role that Amazon Forecast can assume to access
 -- the location. The forecast must be exported to an Amazon S3 bucket.
 --
--- If encryption is used, @Destination@ must include an AWS Key Management
+-- If encryption is used, @Destination@ must include an Key Management
 -- Service (KMS) key. The IAM role must allow Amazon Forecast permission to
 -- access the key.
 createForecastExportJob_destination :: Lens.Lens' CreateForecastExportJob DataDestination
@@ -268,7 +267,8 @@ instance Core.AWSRequest CreateForecastExportJob where
 
 instance Prelude.Hashable CreateForecastExportJob where
   hashWithSalt _salt CreateForecastExportJob' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` forecastExportJobName
       `Prelude.hashWithSalt` forecastArn

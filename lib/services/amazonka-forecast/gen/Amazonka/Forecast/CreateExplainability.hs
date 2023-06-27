@@ -132,8 +132,8 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateExplainability' smart constructor.
 data CreateExplainability = CreateExplainability'
   { dataSource :: Prelude.Maybe DataSource,
-    -- | Create an Explainability visualization that is viewable within the AWS
-    -- console.
+    -- | Create an Explainability visualization that is viewable within the
+    -- Amazon Web Services console.
     enableVisualization :: Prelude.Maybe Prelude.Bool,
     -- | If @TimePointGranularity@ is set to @SPECIFIC@, define the last time
     -- point for the Explainability.
@@ -196,8 +196,8 @@ data CreateExplainability = CreateExplainability'
 --
 -- 'dataSource', 'createExplainability_dataSource' - Undocumented member.
 --
--- 'enableVisualization', 'createExplainability_enableVisualization' - Create an Explainability visualization that is viewable within the AWS
--- console.
+-- 'enableVisualization', 'createExplainability_enableVisualization' - Create an Explainability visualization that is viewable within the
+-- Amazon Web Services console.
 --
 -- 'endDateTime', 'createExplainability_endDateTime' - If @TimePointGranularity@ is set to @SPECIFIC@, define the last time
 -- point for the Explainability.
@@ -275,8 +275,8 @@ newCreateExplainability
 createExplainability_dataSource :: Lens.Lens' CreateExplainability (Prelude.Maybe DataSource)
 createExplainability_dataSource = Lens.lens (\CreateExplainability' {dataSource} -> dataSource) (\s@CreateExplainability' {} a -> s {dataSource = a} :: CreateExplainability)
 
--- | Create an Explainability visualization that is viewable within the AWS
--- console.
+-- | Create an Explainability visualization that is viewable within the
+-- Amazon Web Services console.
 createExplainability_enableVisualization :: Lens.Lens' CreateExplainability (Prelude.Maybe Prelude.Bool)
 createExplainability_enableVisualization = Lens.lens (\CreateExplainability' {enableVisualization} -> enableVisualization) (\s@CreateExplainability' {} a -> s {enableVisualization = a} :: CreateExplainability)
 
@@ -359,7 +359,8 @@ instance Core.AWSRequest CreateExplainability where
 
 instance Prelude.Hashable CreateExplainability where
   hashWithSalt _salt CreateExplainability' {..} =
-    _salt `Prelude.hashWithSalt` dataSource
+    _salt
+      `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` enableVisualization
       `Prelude.hashWithSalt` endDateTime
       `Prelude.hashWithSalt` schema

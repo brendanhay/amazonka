@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | An AWS Key Management Service (KMS) key and an AWS Identity and Access
+-- | An Key Management Service (KMS) key and an Identity and Access
 -- Management (IAM) role that Amazon Forecast can assume to access the key.
 -- You can specify this optional object in the CreateDataset and
 -- CreatePredictor requests.
@@ -32,10 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEncryptionConfig' smart constructor.
 data EncryptionConfig = EncryptionConfig'
   { -- | The ARN of the IAM role that Amazon Forecast can assume to access the
-    -- AWS KMS key.
+    -- KMS key.
     --
-    -- Passing a role across AWS accounts is not allowed. If you pass a role
-    -- that isn\'t in your account, you get an @InvalidInputException@ error.
+    -- Passing a role across Amazon Web Services accounts is not allowed. If
+    -- you pass a role that isn\'t in your account, you get an
+    -- @InvalidInputException@ error.
     roleArn :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the KMS key.
     kmsKeyArn :: Prelude.Text
@@ -51,10 +52,11 @@ data EncryptionConfig = EncryptionConfig'
 -- for backwards compatibility:
 --
 -- 'roleArn', 'encryptionConfig_roleArn' - The ARN of the IAM role that Amazon Forecast can assume to access the
--- AWS KMS key.
+-- KMS key.
 --
--- Passing a role across AWS accounts is not allowed. If you pass a role
--- that isn\'t in your account, you get an @InvalidInputException@ error.
+-- Passing a role across Amazon Web Services accounts is not allowed. If
+-- you pass a role that isn\'t in your account, you get an
+-- @InvalidInputException@ error.
 --
 -- 'kmsKeyArn', 'encryptionConfig_kmsKeyArn' - The Amazon Resource Name (ARN) of the KMS key.
 newEncryptionConfig ::
@@ -70,10 +72,11 @@ newEncryptionConfig pRoleArn_ pKMSKeyArn_ =
     }
 
 -- | The ARN of the IAM role that Amazon Forecast can assume to access the
--- AWS KMS key.
+-- KMS key.
 --
--- Passing a role across AWS accounts is not allowed. If you pass a role
--- that isn\'t in your account, you get an @InvalidInputException@ error.
+-- Passing a role across Amazon Web Services accounts is not allowed. If
+-- you pass a role that isn\'t in your account, you get an
+-- @InvalidInputException@ error.
 encryptionConfig_roleArn :: Lens.Lens' EncryptionConfig Prelude.Text
 encryptionConfig_roleArn = Lens.lens (\EncryptionConfig' {roleArn} -> roleArn) (\s@EncryptionConfig' {} a -> s {roleArn = a} :: EncryptionConfig)
 
@@ -93,7 +96,8 @@ instance Data.FromJSON EncryptionConfig where
 
 instance Prelude.Hashable EncryptionConfig where
   hashWithSalt _salt EncryptionConfig' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` kmsKeyArn
 
 instance Prelude.NFData EncryptionConfig where

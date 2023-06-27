@@ -513,12 +513,14 @@ instance Data.FromJSON SupplementaryFeature where
       "SupplementaryFeature"
       ( \x ->
           SupplementaryFeature'
-            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable SupplementaryFeature where
   hashWithSalt _salt SupplementaryFeature' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData SupplementaryFeature where

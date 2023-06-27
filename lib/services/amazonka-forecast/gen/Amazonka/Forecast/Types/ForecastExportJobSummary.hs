@@ -198,7 +198,8 @@ instance Data.FromJSON ForecastExportJobSummary where
 
 instance Prelude.Hashable ForecastExportJobSummary where
   hashWithSalt _salt ForecastExportJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` forecastExportJobArn
       `Prelude.hashWithSalt` forecastExportJobName

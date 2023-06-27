@@ -96,12 +96,12 @@ data CreateDatasetGroup = CreateDatasetGroup'
     -- -   Tag keys and values are case sensitive.
     --
     -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
-    --     such as a prefix for keys as it is reserved for AWS use. You cannot
-    --     edit or delete tag keys with this prefix. Values can have this
-    --     prefix. If a tag value has @aws@ as its prefix but the key does not,
-    --     then Forecast considers it to be a user tag and will count against
-    --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
-    --     count against your tags per resource limit.
+    --     such as a prefix for keys as it is reserved for Amazon Web Services
+    --     use. You cannot edit or delete tag keys with this prefix. Values can
+    --     have this prefix. If a tag value has @aws@ as its prefix but the key
+    --     does not, then Forecast considers it to be a user tag and will count
+    --     against the limit of 50 tags. Tags with only the key prefix of @aws@
+    --     do not count against your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
     -- | A name for the dataset group.
     datasetGroupName :: Prelude.Text,
@@ -156,12 +156,12 @@ data CreateDatasetGroup = CreateDatasetGroup'
 -- -   Tag keys and values are case sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for keys as it is reserved for AWS use. You cannot
---     edit or delete tag keys with this prefix. Values can have this
---     prefix. If a tag value has @aws@ as its prefix but the key does not,
---     then Forecast considers it to be a user tag and will count against
---     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
---     count against your tags per resource limit.
+--     such as a prefix for keys as it is reserved for Amazon Web Services
+--     use. You cannot edit or delete tag keys with this prefix. Values can
+--     have this prefix. If a tag value has @aws@ as its prefix but the key
+--     does not, then Forecast considers it to be a user tag and will count
+--     against the limit of 50 tags. Tags with only the key prefix of @aws@
+--     do not count against your tags per resource limit.
 --
 -- 'datasetGroupName', 'createDatasetGroup_datasetGroupName' - A name for the dataset group.
 --
@@ -220,12 +220,12 @@ createDatasetGroup_datasetArns = Lens.lens (\CreateDatasetGroup' {datasetArns} -
 -- -   Tag keys and values are case sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for keys as it is reserved for AWS use. You cannot
---     edit or delete tag keys with this prefix. Values can have this
---     prefix. If a tag value has @aws@ as its prefix but the key does not,
---     then Forecast considers it to be a user tag and will count against
---     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
---     count against your tags per resource limit.
+--     such as a prefix for keys as it is reserved for Amazon Web Services
+--     use. You cannot edit or delete tag keys with this prefix. Values can
+--     have this prefix. If a tag value has @aws@ as its prefix but the key
+--     does not, then Forecast considers it to be a user tag and will count
+--     against the limit of 50 tags. Tags with only the key prefix of @aws@
+--     do not count against your tags per resource limit.
 createDatasetGroup_tags :: Lens.Lens' CreateDatasetGroup (Prelude.Maybe [Tag])
 createDatasetGroup_tags = Lens.lens (\CreateDatasetGroup' {tags} -> tags) (\s@CreateDatasetGroup' {} a -> s {tags = a} :: CreateDatasetGroup) Prelude.. Lens.mapping Lens.coerced
 
@@ -264,7 +264,8 @@ instance Core.AWSRequest CreateDatasetGroup where
 
 instance Prelude.Hashable CreateDatasetGroup where
   hashWithSalt _salt CreateDatasetGroup' {..} =
-    _salt `Prelude.hashWithSalt` datasetArns
+    _salt
+      `Prelude.hashWithSalt` datasetArns
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` datasetGroupName
       `Prelude.hashWithSalt` domain

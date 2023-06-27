@@ -90,7 +90,8 @@ instance Data.FromJSON WeightedQuantileLoss where
 
 instance Prelude.Hashable WeightedQuantileLoss where
   hashWithSalt _salt WeightedQuantileLoss' {..} =
-    _salt `Prelude.hashWithSalt` lossValue
+    _salt
+      `Prelude.hashWithSalt` lossValue
       `Prelude.hashWithSalt` quantile
 
 instance Prelude.NFData WeightedQuantileLoss where

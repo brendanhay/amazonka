@@ -522,7 +522,8 @@ instance Data.FromJSON AdditionalDataset where
 
 instance Prelude.Hashable AdditionalDataset where
   hashWithSalt _salt AdditionalDataset' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AdditionalDataset where

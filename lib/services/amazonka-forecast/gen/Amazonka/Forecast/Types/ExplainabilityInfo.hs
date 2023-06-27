@@ -99,7 +99,8 @@ instance Data.FromJSON ExplainabilityInfo where
 
 instance Prelude.Hashable ExplainabilityInfo where
   hashWithSalt _salt ExplainabilityInfo' {..} =
-    _salt `Prelude.hashWithSalt` explainabilityArn
+    _salt
+      `Prelude.hashWithSalt` explainabilityArn
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ExplainabilityInfo where

@@ -114,12 +114,12 @@ data CreateForecast = CreateForecast'
     -- -   Tag keys and values are case sensitive.
     --
     -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
-    --     such as a prefix for keys as it is reserved for AWS use. You cannot
-    --     edit or delete tag keys with this prefix. Values can have this
-    --     prefix. If a tag value has @aws@ as its prefix but the key does not,
-    --     then Forecast considers it to be a user tag and will count against
-    --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
-    --     count against your tags per resource limit.
+    --     such as a prefix for keys as it is reserved for Amazon Web Services
+    --     use. You cannot edit or delete tag keys with this prefix. Values can
+    --     have this prefix. If a tag value has @aws@ as its prefix but the key
+    --     does not, then Forecast considers it to be a user tag and will count
+    --     against the limit of 50 tags. Tags with only the key prefix of @aws@
+    --     do not count against your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
     -- | Defines the set of time series that are used to create the forecasts in
     -- a @TimeSeriesIdentifiers@ object.
@@ -182,12 +182,12 @@ data CreateForecast = CreateForecast'
 -- -   Tag keys and values are case sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for keys as it is reserved for AWS use. You cannot
---     edit or delete tag keys with this prefix. Values can have this
---     prefix. If a tag value has @aws@ as its prefix but the key does not,
---     then Forecast considers it to be a user tag and will count against
---     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
---     count against your tags per resource limit.
+--     such as a prefix for keys as it is reserved for Amazon Web Services
+--     use. You cannot edit or delete tag keys with this prefix. Values can
+--     have this prefix. If a tag value has @aws@ as its prefix but the key
+--     does not, then Forecast considers it to be a user tag and will count
+--     against the limit of 50 tags. Tags with only the key prefix of @aws@
+--     do not count against your tags per resource limit.
 --
 -- 'timeSeriesSelector', 'createForecast_timeSeriesSelector' - Defines the set of time series that are used to create the forecasts in
 -- a @TimeSeriesIdentifiers@ object.
@@ -255,12 +255,12 @@ createForecast_forecastTypes = Lens.lens (\CreateForecast' {forecastTypes} -> fo
 -- -   Tag keys and values are case sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for keys as it is reserved for AWS use. You cannot
---     edit or delete tag keys with this prefix. Values can have this
---     prefix. If a tag value has @aws@ as its prefix but the key does not,
---     then Forecast considers it to be a user tag and will count against
---     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
---     count against your tags per resource limit.
+--     such as a prefix for keys as it is reserved for Amazon Web Services
+--     use. You cannot edit or delete tag keys with this prefix. Values can
+--     have this prefix. If a tag value has @aws@ as its prefix but the key
+--     does not, then Forecast considers it to be a user tag and will count
+--     against the limit of 50 tags. Tags with only the key prefix of @aws@
+--     do not count against your tags per resource limit.
 createForecast_tags :: Lens.Lens' CreateForecast (Prelude.Maybe [Tag])
 createForecast_tags = Lens.lens (\CreateForecast' {tags} -> tags) (\s@CreateForecast' {} a -> s {tags = a} :: CreateForecast) Prelude.. Lens.mapping Lens.coerced
 
@@ -302,7 +302,8 @@ instance Core.AWSRequest CreateForecast where
 
 instance Prelude.Hashable CreateForecast where
   hashWithSalt _salt CreateForecast' {..} =
-    _salt `Prelude.hashWithSalt` forecastTypes
+    _salt
+      `Prelude.hashWithSalt` forecastTypes
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` timeSeriesSelector
       `Prelude.hashWithSalt` forecastName

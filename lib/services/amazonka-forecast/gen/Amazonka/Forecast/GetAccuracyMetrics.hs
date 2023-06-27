@@ -110,7 +110,8 @@ instance Core.AWSRequest GetAccuracyMetrics where
             Prelude.<$> (x Data..?> "AutoMLOverrideStrategy")
             Prelude.<*> (x Data..?> "IsAutoPredictor")
             Prelude.<*> (x Data..?> "OptimizationMetric")
-            Prelude.<*> ( x Data..?> "PredictorEvaluationResults"
+            Prelude.<*> ( x
+                            Data..?> "PredictorEvaluationResults"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -155,8 +156,8 @@ instance Data.ToQuery GetAccuracyMetrics where
 -- | /See:/ 'newGetAccuracyMetricsResponse' smart constructor.
 data GetAccuracyMetricsResponse = GetAccuracyMetricsResponse'
   { -- | The @LatencyOptimized@ AutoML override strategy is only available in
-    -- private beta. Contact AWS Support or your account manager to learn more
-    -- about access privileges.
+    -- private beta. Contact Amazon Web Services Support or your account
+    -- manager to learn more about access privileges.
     --
     -- The AutoML strategy used to train the predictor. Unless
     -- @LatencyOptimized@ is specified, the AutoML strategy optimizes predictor
@@ -184,8 +185,8 @@ data GetAccuracyMetricsResponse = GetAccuracyMetricsResponse'
 -- for backwards compatibility:
 --
 -- 'autoMLOverrideStrategy', 'getAccuracyMetricsResponse_autoMLOverrideStrategy' - The @LatencyOptimized@ AutoML override strategy is only available in
--- private beta. Contact AWS Support or your account manager to learn more
--- about access privileges.
+-- private beta. Contact Amazon Web Services Support or your account
+-- manager to learn more about access privileges.
 --
 -- The AutoML strategy used to train the predictor. Unless
 -- @LatencyOptimized@ is specified, the AutoML strategy optimizes predictor
@@ -215,8 +216,8 @@ newGetAccuracyMetricsResponse pHttpStatus_ =
     }
 
 -- | The @LatencyOptimized@ AutoML override strategy is only available in
--- private beta. Contact AWS Support or your account manager to learn more
--- about access privileges.
+-- private beta. Contact Amazon Web Services Support or your account
+-- manager to learn more about access privileges.
 --
 -- The AutoML strategy used to train the predictor. Unless
 -- @LatencyOptimized@ is specified, the AutoML strategy optimizes predictor

@@ -144,6 +144,7 @@ library
     Amazonka.Forecast.Types.ForecastExportJobSummary
     Amazonka.Forecast.Types.ForecastSummary
     Amazonka.Forecast.Types.HyperParameterTuningJobConfig
+    Amazonka.Forecast.Types.ImportMode
     Amazonka.Forecast.Types.InputDataConfig
     Amazonka.Forecast.Types.IntegerParameterRange
     Amazonka.Forecast.Types.MetricResult

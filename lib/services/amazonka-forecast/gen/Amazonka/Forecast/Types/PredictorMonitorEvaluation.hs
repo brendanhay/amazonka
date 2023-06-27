@@ -186,7 +186,8 @@ instance Data.FromJSON PredictorMonitorEvaluation where
 
 instance Prelude.Hashable PredictorMonitorEvaluation where
   hashWithSalt _salt PredictorMonitorEvaluation' {..} =
-    _salt `Prelude.hashWithSalt` evaluationState
+    _salt
+      `Prelude.hashWithSalt` evaluationState
       `Prelude.hashWithSalt` evaluationTime
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` metricResults

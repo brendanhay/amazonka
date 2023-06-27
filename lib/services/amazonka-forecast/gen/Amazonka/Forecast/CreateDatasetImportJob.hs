@@ -27,10 +27,10 @@
 --
 -- You must specify a
 -- <https://docs.aws.amazon.com/forecast/latest/dg/API_DataSource.html DataSource>
--- object that includes an AWS Identity and Access Management (IAM) role
--- that Amazon Forecast can assume to access the data, as Amazon Forecast
--- makes a copy of your data and processes it in an internal AWS system.
--- For more information, see
+-- object that includes an Identity and Access Management (IAM) role that
+-- Amazon Forecast can assume to access the data, as Amazon Forecast makes
+-- a copy of your data and processes it in an internal Amazon Web Services
+-- system. For more information, see
 -- <https://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-iam-roles.html Set up permissions>.
 --
 -- The training data must be in CSV or Parquet format. The delimiter must
@@ -58,6 +58,7 @@ module Amazonka.Forecast.CreateDatasetImportJob
     -- * Request Lenses
     createDatasetImportJob_format,
     createDatasetImportJob_geolocationFormat,
+    createDatasetImportJob_importMode,
     createDatasetImportJob_tags,
     createDatasetImportJob_timeZone,
     createDatasetImportJob_timestampFormat,
@@ -98,6 +99,11 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
     -- -   @CC_POSTALCODE@ (US Only) - the country code (US), followed by the
     --     5-digit ZIP code (Example: US_98121).
     geolocationFormat :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the dataset import job is a @FULL@ or @INCREMENTAL@
+    -- import. A @FULL@ dataset import replaces all of the existing data with
+    -- the newly imported data. An @INCREMENTAL@ import appends the imported
+    -- data to the existing data.
+    importMode :: Prelude.Maybe ImportMode,
     -- | The optional metadata that you apply to the dataset import job to help
     -- you categorize and organize them. Each tag consists of a key and an
     -- optional value, both of which you define.
@@ -122,12 +128,12 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
     -- -   Tag keys and values are case sensitive.
     --
     -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
-    --     such as a prefix for keys as it is reserved for AWS use. You cannot
-    --     edit or delete tag keys with this prefix. Values can have this
-    --     prefix. If a tag value has @aws@ as its prefix but the key does not,
-    --     then Forecast considers it to be a user tag and will count against
-    --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
-    --     count against your tags per resource limit.
+    --     such as a prefix for keys as it is reserved for Amazon Web Services
+    --     use. You cannot edit or delete tag keys with this prefix. Values can
+    --     have this prefix. If a tag value has @aws@ as its prefix but the key
+    --     does not, then Forecast considers it to be a user tag and will count
+    --     against the limit of 50 tags. Tags with only the key prefix of @aws@
+    --     do not count against your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
     -- | A single time zone for every item in your dataset. This option is ideal
     -- for datasets with all timestamps within a single time zone, or if all
@@ -164,11 +170,11 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
     -- | The Amazon Resource Name (ARN) of the Amazon Forecast dataset that you
     -- want to import data to.
     datasetArn :: Prelude.Text,
-    -- | The location of the training data to import and an AWS Identity and
-    -- Access Management (IAM) role that Amazon Forecast can assume to access
-    -- the data. The training data must be stored in an Amazon S3 bucket.
+    -- | The location of the training data to import and an Identity and Access
+    -- Management (IAM) role that Amazon Forecast can assume to access the
+    -- data. The training data must be stored in an Amazon S3 bucket.
     --
-    -- If encryption is used, @DataSource@ must include an AWS Key Management
+    -- If encryption is used, @DataSource@ must include an Key Management
     -- Service (KMS) key and the IAM role must allow Amazon Forecast permission
     -- to access the key. The KMS key and IAM role must match those specified
     -- in the @EncryptionConfig@ parameter of the
@@ -198,6 +204,11 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
 -- -   @CC_POSTALCODE@ (US Only) - the country code (US), followed by the
 --     5-digit ZIP code (Example: US_98121).
 --
+-- 'importMode', 'createDatasetImportJob_importMode' - Specifies whether the dataset import job is a @FULL@ or @INCREMENTAL@
+-- import. A @FULL@ dataset import replaces all of the existing data with
+-- the newly imported data. An @INCREMENTAL@ import appends the imported
+-- data to the existing data.
+--
 -- 'tags', 'createDatasetImportJob_tags' - The optional metadata that you apply to the dataset import job to help
 -- you categorize and organize them. Each tag consists of a key and an
 -- optional value, both of which you define.
@@ -222,12 +233,12 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
 -- -   Tag keys and values are case sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for keys as it is reserved for AWS use. You cannot
---     edit or delete tag keys with this prefix. Values can have this
---     prefix. If a tag value has @aws@ as its prefix but the key does not,
---     then Forecast considers it to be a user tag and will count against
---     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
---     count against your tags per resource limit.
+--     such as a prefix for keys as it is reserved for Amazon Web Services
+--     use. You cannot edit or delete tag keys with this prefix. Values can
+--     have this prefix. If a tag value has @aws@ as its prefix but the key
+--     does not, then Forecast considers it to be a user tag and will count
+--     against the limit of 50 tags. Tags with only the key prefix of @aws@
+--     do not count against your tags per resource limit.
 --
 -- 'timeZone', 'createDatasetImportJob_timeZone' - A single time zone for every item in your dataset. This option is ideal
 -- for datasets with all timestamps within a single time zone, or if all
@@ -264,11 +275,11 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
 -- 'datasetArn', 'createDatasetImportJob_datasetArn' - The Amazon Resource Name (ARN) of the Amazon Forecast dataset that you
 -- want to import data to.
 --
--- 'dataSource', 'createDatasetImportJob_dataSource' - The location of the training data to import and an AWS Identity and
--- Access Management (IAM) role that Amazon Forecast can assume to access
--- the data. The training data must be stored in an Amazon S3 bucket.
+-- 'dataSource', 'createDatasetImportJob_dataSource' - The location of the training data to import and an Identity and Access
+-- Management (IAM) role that Amazon Forecast can assume to access the
+-- data. The training data must be stored in an Amazon S3 bucket.
 --
--- If encryption is used, @DataSource@ must include an AWS Key Management
+-- If encryption is used, @DataSource@ must include an Key Management
 -- Service (KMS) key and the IAM role must allow Amazon Forecast permission
 -- to access the key. The KMS key and IAM role must match those specified
 -- in the @EncryptionConfig@ parameter of the
@@ -289,6 +300,7 @@ newCreateDatasetImportJob
     CreateDatasetImportJob'
       { format = Prelude.Nothing,
         geolocationFormat = Prelude.Nothing,
+        importMode = Prelude.Nothing,
         tags = Prelude.Nothing,
         timeZone = Prelude.Nothing,
         timestampFormat = Prelude.Nothing,
@@ -314,6 +326,13 @@ createDatasetImportJob_format = Lens.lens (\CreateDatasetImportJob' {format} -> 
 createDatasetImportJob_geolocationFormat :: Lens.Lens' CreateDatasetImportJob (Prelude.Maybe Prelude.Text)
 createDatasetImportJob_geolocationFormat = Lens.lens (\CreateDatasetImportJob' {geolocationFormat} -> geolocationFormat) (\s@CreateDatasetImportJob' {} a -> s {geolocationFormat = a} :: CreateDatasetImportJob)
 
+-- | Specifies whether the dataset import job is a @FULL@ or @INCREMENTAL@
+-- import. A @FULL@ dataset import replaces all of the existing data with
+-- the newly imported data. An @INCREMENTAL@ import appends the imported
+-- data to the existing data.
+createDatasetImportJob_importMode :: Lens.Lens' CreateDatasetImportJob (Prelude.Maybe ImportMode)
+createDatasetImportJob_importMode = Lens.lens (\CreateDatasetImportJob' {importMode} -> importMode) (\s@CreateDatasetImportJob' {} a -> s {importMode = a} :: CreateDatasetImportJob)
+
 -- | The optional metadata that you apply to the dataset import job to help
 -- you categorize and organize them. Each tag consists of a key and an
 -- optional value, both of which you define.
@@ -338,12 +357,12 @@ createDatasetImportJob_geolocationFormat = Lens.lens (\CreateDatasetImportJob' {
 -- -   Tag keys and values are case sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for keys as it is reserved for AWS use. You cannot
---     edit or delete tag keys with this prefix. Values can have this
---     prefix. If a tag value has @aws@ as its prefix but the key does not,
---     then Forecast considers it to be a user tag and will count against
---     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
---     count against your tags per resource limit.
+--     such as a prefix for keys as it is reserved for Amazon Web Services
+--     use. You cannot edit or delete tag keys with this prefix. Values can
+--     have this prefix. If a tag value has @aws@ as its prefix but the key
+--     does not, then Forecast considers it to be a user tag and will count
+--     against the limit of 50 tags. Tags with only the key prefix of @aws@
+--     do not count against your tags per resource limit.
 createDatasetImportJob_tags :: Lens.Lens' CreateDatasetImportJob (Prelude.Maybe [Tag])
 createDatasetImportJob_tags = Lens.lens (\CreateDatasetImportJob' {tags} -> tags) (\s@CreateDatasetImportJob' {} a -> s {tags = a} :: CreateDatasetImportJob) Prelude.. Lens.mapping Lens.coerced
 
@@ -392,11 +411,11 @@ createDatasetImportJob_datasetImportJobName = Lens.lens (\CreateDatasetImportJob
 createDatasetImportJob_datasetArn :: Lens.Lens' CreateDatasetImportJob Prelude.Text
 createDatasetImportJob_datasetArn = Lens.lens (\CreateDatasetImportJob' {datasetArn} -> datasetArn) (\s@CreateDatasetImportJob' {} a -> s {datasetArn = a} :: CreateDatasetImportJob)
 
--- | The location of the training data to import and an AWS Identity and
--- Access Management (IAM) role that Amazon Forecast can assume to access
--- the data. The training data must be stored in an Amazon S3 bucket.
+-- | The location of the training data to import and an Identity and Access
+-- Management (IAM) role that Amazon Forecast can assume to access the
+-- data. The training data must be stored in an Amazon S3 bucket.
 --
--- If encryption is used, @DataSource@ must include an AWS Key Management
+-- If encryption is used, @DataSource@ must include an Key Management
 -- Service (KMS) key and the IAM role must allow Amazon Forecast permission
 -- to access the key. The KMS key and IAM role must match those specified
 -- in the @EncryptionConfig@ parameter of the
@@ -421,8 +440,10 @@ instance Core.AWSRequest CreateDatasetImportJob where
 
 instance Prelude.Hashable CreateDatasetImportJob where
   hashWithSalt _salt CreateDatasetImportJob' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` geolocationFormat
+      `Prelude.hashWithSalt` importMode
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` timeZone
       `Prelude.hashWithSalt` timestampFormat
@@ -435,6 +456,7 @@ instance Prelude.NFData CreateDatasetImportJob where
   rnf CreateDatasetImportJob' {..} =
     Prelude.rnf format
       `Prelude.seq` Prelude.rnf geolocationFormat
+      `Prelude.seq` Prelude.rnf importMode
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf timeZone
       `Prelude.seq` Prelude.rnf timestampFormat
@@ -465,6 +487,7 @@ instance Data.ToJSON CreateDatasetImportJob where
           [ ("Format" Data..=) Prelude.<$> format,
             ("GeolocationFormat" Data..=)
               Prelude.<$> geolocationFormat,
+            ("ImportMode" Data..=) Prelude.<$> importMode,
             ("Tags" Data..=) Prelude.<$> tags,
             ("TimeZone" Data..=) Prelude.<$> timeZone,
             ("TimestampFormat" Data..=)

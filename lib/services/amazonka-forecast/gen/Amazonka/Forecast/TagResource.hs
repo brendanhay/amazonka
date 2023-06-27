@@ -77,12 +77,12 @@ data TagResource = TagResource'
     -- -   Tag keys and values are case sensitive.
     --
     -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
-    --     such as a prefix for keys as it is reserved for AWS use. You cannot
-    --     edit or delete tag keys with this prefix. Values can have this
-    --     prefix. If a tag value has @aws@ as its prefix but the key does not,
-    --     then Forecast considers it to be a user tag and will count against
-    --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
-    --     count against your tags per resource limit.
+    --     such as a prefix for keys as it is reserved for Amazon Web Services
+    --     use. You cannot edit or delete tag keys with this prefix. Values can
+    --     have this prefix. If a tag value has @aws@ as its prefix but the key
+    --     does not, then Forecast considers it to be a user tag and will count
+    --     against the limit of 50 tags. Tags with only the key prefix of @aws@
+    --     do not count against your tags per resource limit.
     tags :: [Tag]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -120,12 +120,12 @@ data TagResource = TagResource'
 -- -   Tag keys and values are case sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for keys as it is reserved for AWS use. You cannot
---     edit or delete tag keys with this prefix. Values can have this
---     prefix. If a tag value has @aws@ as its prefix but the key does not,
---     then Forecast considers it to be a user tag and will count against
---     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
---     count against your tags per resource limit.
+--     such as a prefix for keys as it is reserved for Amazon Web Services
+--     use. You cannot edit or delete tag keys with this prefix. Values can
+--     have this prefix. If a tag value has @aws@ as its prefix but the key
+--     does not, then Forecast considers it to be a user tag and will count
+--     against the limit of 50 tags. Tags with only the key prefix of @aws@
+--     do not count against your tags per resource limit.
 newTagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -163,12 +163,12 @@ tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn)
 -- -   Tag keys and values are case sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for keys as it is reserved for AWS use. You cannot
---     edit or delete tag keys with this prefix. Values can have this
---     prefix. If a tag value has @aws@ as its prefix but the key does not,
---     then Forecast considers it to be a user tag and will count against
---     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
---     count against your tags per resource limit.
+--     such as a prefix for keys as it is reserved for Amazon Web Services
+--     use. You cannot edit or delete tag keys with this prefix. Values can
+--     have this prefix. If a tag value has @aws@ as its prefix but the key
+--     does not, then Forecast considers it to be a user tag and will count
+--     against the limit of 50 tags. Tags with only the key prefix of @aws@
+--     do not count against your tags per resource limit.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 
@@ -185,7 +185,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

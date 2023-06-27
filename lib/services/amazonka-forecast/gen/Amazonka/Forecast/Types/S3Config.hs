@@ -25,27 +25,27 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The path to the file(s) in an Amazon Simple Storage Service (Amazon S3)
--- bucket, and an AWS Identity and Access Management (IAM) role that Amazon
--- Forecast can assume to access the file(s). Optionally, includes an AWS
--- Key Management Service (KMS) key. This object is part of the DataSource
+-- bucket, and an Identity and Access Management (IAM) role that Amazon
+-- Forecast can assume to access the file(s). Optionally, includes an Key
+-- Management Service (KMS) key. This object is part of the DataSource
 -- object that is submitted in the CreateDatasetImportJob request, and part
 -- of the DataDestination object.
 --
 -- /See:/ 'newS3Config' smart constructor.
 data S3Config = S3Config'
-  { -- | The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS)
-    -- key.
+  { -- | The Amazon Resource Name (ARN) of an Key Management Service (KMS) key.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The path to an Amazon Simple Storage Service (Amazon S3) bucket or
     -- file(s) in an Amazon S3 bucket.
     path :: Prelude.Text,
-    -- | The ARN of the AWS Identity and Access Management (IAM) role that Amazon
+    -- | The ARN of the Identity and Access Management (IAM) role that Amazon
     -- Forecast can assume to access the Amazon S3 bucket or files. If you
     -- provide a value for the @KMSKeyArn@ key, the role must allow access to
     -- the key.
     --
-    -- Passing a role across AWS accounts is not allowed. If you pass a role
-    -- that isn\'t in your account, you get an @InvalidInputException@ error.
+    -- Passing a role across Amazon Web Services accounts is not allowed. If
+    -- you pass a role that isn\'t in your account, you get an
+    -- @InvalidInputException@ error.
     roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,19 +58,19 @@ data S3Config = S3Config'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyArn', 's3Config_kmsKeyArn' - The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS)
--- key.
+-- 'kmsKeyArn', 's3Config_kmsKeyArn' - The Amazon Resource Name (ARN) of an Key Management Service (KMS) key.
 --
 -- 'path', 's3Config_path' - The path to an Amazon Simple Storage Service (Amazon S3) bucket or
 -- file(s) in an Amazon S3 bucket.
 --
--- 'roleArn', 's3Config_roleArn' - The ARN of the AWS Identity and Access Management (IAM) role that Amazon
+-- 'roleArn', 's3Config_roleArn' - The ARN of the Identity and Access Management (IAM) role that Amazon
 -- Forecast can assume to access the Amazon S3 bucket or files. If you
 -- provide a value for the @KMSKeyArn@ key, the role must allow access to
 -- the key.
 --
--- Passing a role across AWS accounts is not allowed. If you pass a role
--- that isn\'t in your account, you get an @InvalidInputException@ error.
+-- Passing a role across Amazon Web Services accounts is not allowed. If
+-- you pass a role that isn\'t in your account, you get an
+-- @InvalidInputException@ error.
 newS3Config ::
   -- | 'path'
   Prelude.Text ->
@@ -84,8 +84,7 @@ newS3Config pPath_ pRoleArn_ =
       roleArn = pRoleArn_
     }
 
--- | The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS)
--- key.
+-- | The Amazon Resource Name (ARN) of an Key Management Service (KMS) key.
 s3Config_kmsKeyArn :: Lens.Lens' S3Config (Prelude.Maybe Prelude.Text)
 s3Config_kmsKeyArn = Lens.lens (\S3Config' {kmsKeyArn} -> kmsKeyArn) (\s@S3Config' {} a -> s {kmsKeyArn = a} :: S3Config)
 
@@ -94,13 +93,14 @@ s3Config_kmsKeyArn = Lens.lens (\S3Config' {kmsKeyArn} -> kmsKeyArn) (\s@S3Confi
 s3Config_path :: Lens.Lens' S3Config Prelude.Text
 s3Config_path = Lens.lens (\S3Config' {path} -> path) (\s@S3Config' {} a -> s {path = a} :: S3Config)
 
--- | The ARN of the AWS Identity and Access Management (IAM) role that Amazon
+-- | The ARN of the Identity and Access Management (IAM) role that Amazon
 -- Forecast can assume to access the Amazon S3 bucket or files. If you
 -- provide a value for the @KMSKeyArn@ key, the role must allow access to
 -- the key.
 --
--- Passing a role across AWS accounts is not allowed. If you pass a role
--- that isn\'t in your account, you get an @InvalidInputException@ error.
+-- Passing a role across Amazon Web Services accounts is not allowed. If
+-- you pass a role that isn\'t in your account, you get an
+-- @InvalidInputException@ error.
 s3Config_roleArn :: Lens.Lens' S3Config Prelude.Text
 s3Config_roleArn = Lens.lens (\S3Config' {roleArn} -> roleArn) (\s@S3Config' {} a -> s {roleArn = a} :: S3Config)
 
@@ -117,7 +117,8 @@ instance Data.FromJSON S3Config where
 
 instance Prelude.Hashable S3Config where
   hashWithSalt _salt S3Config' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyArn
+    _salt
+      `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` roleArn
 

@@ -165,20 +165,23 @@ instance Core.AWSPager ListMonitors where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listMonitorsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listMonitorsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listMonitorsResponse_monitors Prelude.. Lens._Just
+            Lens.^? listMonitorsResponse_monitors
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listMonitors_nextToken
           Lens..~ rs
-          Lens.^? listMonitorsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listMonitorsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMonitors where
   type AWSResponse ListMonitors = ListMonitorsResponse
@@ -195,7 +198,8 @@ instance Core.AWSRequest ListMonitors where
 
 instance Prelude.Hashable ListMonitors where
   hashWithSalt _salt ListMonitors' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

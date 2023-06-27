@@ -155,22 +155,22 @@ instance Core.AWSPager ListExplainabilityExports where
     | Core.stop
         ( rs
             Lens.^? listExplainabilityExportsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listExplainabilityExportsResponse_explainabilityExports
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listExplainabilityExports_nextToken
           Lens..~ rs
           Lens.^? listExplainabilityExportsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListExplainabilityExports where
   type
@@ -182,7 +182,8 @@ instance Core.AWSRequest ListExplainabilityExports where
     Response.receiveJSON
       ( \s h x ->
           ListExplainabilityExportsResponse'
-            Prelude.<$> ( x Data..?> "ExplainabilityExports"
+            Prelude.<$> ( x
+                            Data..?> "ExplainabilityExports"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -191,7 +192,8 @@ instance Core.AWSRequest ListExplainabilityExports where
 
 instance Prelude.Hashable ListExplainabilityExports where
   hashWithSalt _salt ListExplainabilityExports' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

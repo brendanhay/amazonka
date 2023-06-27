@@ -63,9 +63,10 @@ data CreateWhatIfForecast = CreateWhatIfForecast'
     -- want to change in the related time series dataset. A replacement time
     -- series does not need to contain all rows that are in the baseline
     -- related time series. Include only the rows (measure-dimension
-    -- combinations) that you want to include in the what-if forecast. This
-    -- dataset is merged with the original time series to create a transformed
-    -- dataset that is used for the what-if analysis.
+    -- combinations) that you want to include in the what-if forecast.
+    --
+    -- This dataset is merged with the original time series to create a
+    -- transformed dataset that is used for the what-if analysis.
     --
     -- This dataset should contain the items to modify (such as item_id or
     -- workforce_type), any relevant dimensions, the timestamp column, and at
@@ -104,9 +105,10 @@ data CreateWhatIfForecast = CreateWhatIfForecast'
 -- want to change in the related time series dataset. A replacement time
 -- series does not need to contain all rows that are in the baseline
 -- related time series. Include only the rows (measure-dimension
--- combinations) that you want to include in the what-if forecast. This
--- dataset is merged with the original time series to create a transformed
--- dataset that is used for the what-if analysis.
+-- combinations) that you want to include in the what-if forecast.
+--
+-- This dataset is merged with the original time series to create a
+-- transformed dataset that is used for the what-if analysis.
 --
 -- This dataset should contain the items to modify (such as item_id or
 -- workforce_type), any relevant dimensions, the timestamp column, and at
@@ -152,9 +154,10 @@ createWhatIfForecast_tags = Lens.lens (\CreateWhatIfForecast' {tags} -> tags) (\
 -- want to change in the related time series dataset. A replacement time
 -- series does not need to contain all rows that are in the baseline
 -- related time series. Include only the rows (measure-dimension
--- combinations) that you want to include in the what-if forecast. This
--- dataset is merged with the original time series to create a transformed
--- dataset that is used for the what-if analysis.
+-- combinations) that you want to include in the what-if forecast.
+--
+-- This dataset is merged with the original time series to create a
+-- transformed dataset that is used for the what-if analysis.
 --
 -- This dataset should contain the items to modify (such as item_id or
 -- workforce_type), any relevant dimensions, the timestamp column, and at
@@ -198,7 +201,8 @@ instance Core.AWSRequest CreateWhatIfForecast where
 
 instance Prelude.Hashable CreateWhatIfForecast where
   hashWithSalt _salt CreateWhatIfForecast' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` timeSeriesReplacementsDataSource
       `Prelude.hashWithSalt` timeSeriesTransformations
       `Prelude.hashWithSalt` whatIfForecastName

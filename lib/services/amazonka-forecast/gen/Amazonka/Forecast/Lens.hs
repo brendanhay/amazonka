@@ -53,6 +53,7 @@ module Amazonka.Forecast.Lens
     -- ** CreateDatasetImportJob
     createDatasetImportJob_format,
     createDatasetImportJob_geolocationFormat,
+    createDatasetImportJob_importMode,
     createDatasetImportJob_tags,
     createDatasetImportJob_timeZone,
     createDatasetImportJob_timestampFormat,
@@ -266,6 +267,7 @@ module Amazonka.Forecast.Lens
     describeDatasetImportJobResponse_fieldStatistics,
     describeDatasetImportJobResponse_format,
     describeDatasetImportJobResponse_geolocationFormat,
+    describeDatasetImportJobResponse_importMode,
     describeDatasetImportJobResponse_lastModificationTime,
     describeDatasetImportJobResponse_message,
     describeDatasetImportJobResponse_status,
@@ -630,6 +632,7 @@ module Amazonka.Forecast.Lens
     datasetImportJobSummary_dataSource,
     datasetImportJobSummary_datasetImportJobArn,
     datasetImportJobSummary_datasetImportJobName,
+    datasetImportJobSummary_importMode,
     datasetImportJobSummary_lastModificationTime,
     datasetImportJobSummary_message,
     datasetImportJobSummary_status,

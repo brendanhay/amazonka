@@ -120,7 +120,8 @@ instance Core.AWSRequest DescribeWhatIfForecastExport where
             Prelude.<*> (x Data..?> "LastModificationTime")
             Prelude.<*> (x Data..?> "Message")
             Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> ( x Data..?> "WhatIfForecastArns"
+            Prelude.<*> ( x
+                            Data..?> "WhatIfForecastArns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "WhatIfForecastExportArn")

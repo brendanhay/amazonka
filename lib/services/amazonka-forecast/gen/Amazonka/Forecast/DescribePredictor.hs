@@ -132,12 +132,14 @@ instance Core.AWSRequest DescribePredictor where
       ( \s h x ->
           DescribePredictorResponse'
             Prelude.<$> (x Data..?> "AlgorithmArn")
-            Prelude.<*> ( x Data..?> "AutoMLAlgorithmArns"
+            Prelude.<*> ( x
+                            Data..?> "AutoMLAlgorithmArns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "AutoMLOverrideStrategy")
             Prelude.<*> (x Data..?> "CreationTime")
-            Prelude.<*> ( x Data..?> "DatasetImportJobArns"
+            Prelude.<*> ( x
+                            Data..?> "DatasetImportJobArns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "EncryptionConfig")
@@ -158,7 +160,8 @@ instance Core.AWSRequest DescribePredictor where
             Prelude.<*> (x Data..?> "PredictorExecutionDetails")
             Prelude.<*> (x Data..?> "PredictorName")
             Prelude.<*> (x Data..?> "Status")
-            Prelude.<*> ( x Data..?> "TrainingParameters"
+            Prelude.<*> ( x
+                            Data..?> "TrainingParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -206,8 +209,8 @@ data DescribePredictorResponse = DescribePredictorResponse'
     -- | When @PerformAutoML@ is specified, the ARN of the chosen algorithm.
     autoMLAlgorithmArns :: Prelude.Maybe [Prelude.Text],
     -- | The @LatencyOptimized@ AutoML override strategy is only available in
-    -- private beta. Contact AWS Support or your account manager to learn more
-    -- about access privileges.
+    -- private beta. Contact Amazon Web Services Support or your account
+    -- manager to learn more about access privileges.
     --
     -- The AutoML strategy used to train the predictor. Unless
     -- @LatencyOptimized@ is specified, the AutoML strategy optimizes predictor
@@ -220,7 +223,7 @@ data DescribePredictorResponse = DescribePredictorResponse'
     -- | An array of the ARNs of the dataset import jobs used to import training
     -- data for the predictor.
     datasetImportJobArns :: Prelude.Maybe [Prelude.Text],
-    -- | An AWS Key Management Service (KMS) key and the AWS Identity and Access
+    -- | An Key Management Service (KMS) key and the Identity and Access
     -- Management (IAM) role that Amazon Forecast can assume to access the key.
     encryptionConfig :: Prelude.Maybe EncryptionConfig,
     -- | The estimated time remaining in minutes for the predictor training job
@@ -312,8 +315,8 @@ data DescribePredictorResponse = DescribePredictorResponse'
 -- 'autoMLAlgorithmArns', 'describePredictorResponse_autoMLAlgorithmArns' - When @PerformAutoML@ is specified, the ARN of the chosen algorithm.
 --
 -- 'autoMLOverrideStrategy', 'describePredictorResponse_autoMLOverrideStrategy' - The @LatencyOptimized@ AutoML override strategy is only available in
--- private beta. Contact AWS Support or your account manager to learn more
--- about access privileges.
+-- private beta. Contact Amazon Web Services Support or your account
+-- manager to learn more about access privileges.
 --
 -- The AutoML strategy used to train the predictor. Unless
 -- @LatencyOptimized@ is specified, the AutoML strategy optimizes predictor
@@ -326,7 +329,7 @@ data DescribePredictorResponse = DescribePredictorResponse'
 -- 'datasetImportJobArns', 'describePredictorResponse_datasetImportJobArns' - An array of the ARNs of the dataset import jobs used to import training
 -- data for the predictor.
 --
--- 'encryptionConfig', 'describePredictorResponse_encryptionConfig' - An AWS Key Management Service (KMS) key and the AWS Identity and Access
+-- 'encryptionConfig', 'describePredictorResponse_encryptionConfig' - An Key Management Service (KMS) key and the Identity and Access
 -- Management (IAM) role that Amazon Forecast can assume to access the key.
 --
 -- 'estimatedTimeRemainingInMinutes', 'describePredictorResponse_estimatedTimeRemainingInMinutes' - The estimated time remaining in minutes for the predictor training job
@@ -445,8 +448,8 @@ describePredictorResponse_autoMLAlgorithmArns :: Lens.Lens' DescribePredictorRes
 describePredictorResponse_autoMLAlgorithmArns = Lens.lens (\DescribePredictorResponse' {autoMLAlgorithmArns} -> autoMLAlgorithmArns) (\s@DescribePredictorResponse' {} a -> s {autoMLAlgorithmArns = a} :: DescribePredictorResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @LatencyOptimized@ AutoML override strategy is only available in
--- private beta. Contact AWS Support or your account manager to learn more
--- about access privileges.
+-- private beta. Contact Amazon Web Services Support or your account
+-- manager to learn more about access privileges.
 --
 -- The AutoML strategy used to train the predictor. Unless
 -- @LatencyOptimized@ is specified, the AutoML strategy optimizes predictor
@@ -465,7 +468,7 @@ describePredictorResponse_creationTime = Lens.lens (\DescribePredictorResponse' 
 describePredictorResponse_datasetImportJobArns :: Lens.Lens' DescribePredictorResponse (Prelude.Maybe [Prelude.Text])
 describePredictorResponse_datasetImportJobArns = Lens.lens (\DescribePredictorResponse' {datasetImportJobArns} -> datasetImportJobArns) (\s@DescribePredictorResponse' {} a -> s {datasetImportJobArns = a} :: DescribePredictorResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | An AWS Key Management Service (KMS) key and the AWS Identity and Access
+-- | An Key Management Service (KMS) key and the Identity and Access
 -- Management (IAM) role that Amazon Forecast can assume to access the key.
 describePredictorResponse_encryptionConfig :: Lens.Lens' DescribePredictorResponse (Prelude.Maybe EncryptionConfig)
 describePredictorResponse_encryptionConfig = Lens.lens (\DescribePredictorResponse' {encryptionConfig} -> encryptionConfig) (\s@DescribePredictorResponse' {} a -> s {encryptionConfig = a} :: DescribePredictorResponse)

@@ -25,7 +25,7 @@
 -- Service (Amazon S3) bucket.
 --
 -- You must specify a DataDestination object that includes an Amazon S3
--- bucket and an AWS Identity and Access Management (IAM) role that Amazon
+-- bucket and an Identity and Access Management (IAM) role that Amazon
 -- Forecast can assume to access the Amazon S3 bucket. For more
 -- information, see aws-forecast-iam-roles.
 --
@@ -226,7 +226,8 @@ instance Core.AWSRequest CreateExplainabilityExport where
 
 instance Prelude.Hashable CreateExplainabilityExport where
   hashWithSalt _salt CreateExplainabilityExport' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` explainabilityExportName
       `Prelude.hashWithSalt` explainabilityArn

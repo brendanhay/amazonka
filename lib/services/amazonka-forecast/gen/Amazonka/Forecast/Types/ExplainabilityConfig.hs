@@ -123,7 +123,8 @@ instance Data.FromJSON ExplainabilityConfig where
 
 instance Prelude.Hashable ExplainabilityConfig where
   hashWithSalt _salt ExplainabilityConfig' {..} =
-    _salt `Prelude.hashWithSalt` timeSeriesGranularity
+    _salt
+      `Prelude.hashWithSalt` timeSeriesGranularity
       `Prelude.hashWithSalt` timePointGranularity
 
 instance Prelude.NFData ExplainabilityConfig where

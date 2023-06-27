@@ -171,7 +171,7 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
     datasetType :: Prelude.Maybe DatasetType,
     -- | The domain associated with the dataset.
     domain :: Prelude.Maybe Domain,
-    -- | The AWS Key Management Service (KMS) key and the AWS Identity and Access
+    -- | The Key Management Service (KMS) key and the Identity and Access
     -- Management (IAM) role that Amazon Forecast can assume to access the key.
     encryptionConfig :: Prelude.Maybe EncryptionConfig,
     -- | When you create a dataset, @LastModificationTime@ is the same as
@@ -235,7 +235,7 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
 --
 -- 'domain', 'describeDatasetResponse_domain' - The domain associated with the dataset.
 --
--- 'encryptionConfig', 'describeDatasetResponse_encryptionConfig' - The AWS Key Management Service (KMS) key and the AWS Identity and Access
+-- 'encryptionConfig', 'describeDatasetResponse_encryptionConfig' - The Key Management Service (KMS) key and the Identity and Access
 -- Management (IAM) role that Amazon Forecast can assume to access the key.
 --
 -- 'lastModificationTime', 'describeDatasetResponse_lastModificationTime' - When you create a dataset, @LastModificationTime@ is the same as
@@ -319,7 +319,7 @@ describeDatasetResponse_datasetType = Lens.lens (\DescribeDatasetResponse' {data
 describeDatasetResponse_domain :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Domain)
 describeDatasetResponse_domain = Lens.lens (\DescribeDatasetResponse' {domain} -> domain) (\s@DescribeDatasetResponse' {} a -> s {domain = a} :: DescribeDatasetResponse)
 
--- | The AWS Key Management Service (KMS) key and the AWS Identity and Access
+-- | The Key Management Service (KMS) key and the Identity and Access
 -- Management (IAM) role that Amazon Forecast can assume to access the key.
 describeDatasetResponse_encryptionConfig :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe EncryptionConfig)
 describeDatasetResponse_encryptionConfig = Lens.lens (\DescribeDatasetResponse' {encryptionConfig} -> encryptionConfig) (\s@DescribeDatasetResponse' {} a -> s {encryptionConfig = a} :: DescribeDatasetResponse)

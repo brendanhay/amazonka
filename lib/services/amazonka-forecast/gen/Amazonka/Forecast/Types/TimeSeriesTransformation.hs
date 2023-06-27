@@ -85,14 +85,16 @@ instance Data.FromJSON TimeSeriesTransformation where
       ( \x ->
           TimeSeriesTransformation'
             Prelude.<$> (x Data..:? "Action")
-            Prelude.<*> ( x Data..:? "TimeSeriesConditions"
+            Prelude.<*> ( x
+                            Data..:? "TimeSeriesConditions"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable TimeSeriesTransformation where
   hashWithSalt _salt TimeSeriesTransformation' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` timeSeriesConditions
 
 instance Prelude.NFData TimeSeriesTransformation where

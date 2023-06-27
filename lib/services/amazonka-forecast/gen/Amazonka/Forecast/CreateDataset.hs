@@ -90,12 +90,30 @@ data CreateDataset = CreateDataset'
   { -- | The frequency of data collection. This parameter is required for
     -- RELATED_TIME_SERIES datasets.
     --
-    -- Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour),
-    -- 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5
-    -- minutes), and 1min (1 minute). For example, \"D\" indicates every day
-    -- and \"15min\" indicates every 15 minutes.
+    -- Valid intervals are an integer followed by Y (Year), M (Month), W
+    -- (Week), D (Day), H (Hour), and min (Minute). For example, \"1D\"
+    -- indicates every day and \"15min\" indicates every 15 minutes. You cannot
+    -- specify a value that would overlap with the next larger frequency. That
+    -- means, for example, you cannot specify a frequency of 60 minutes,
+    -- because that is equivalent to 1 hour. The valid values for each
+    -- frequency are the following:
+    --
+    -- -   Minute - 1-59
+    --
+    -- -   Hour - 1-23
+    --
+    -- -   Day - 1-6
+    --
+    -- -   Week - 1-4
+    --
+    -- -   Month - 1-11
+    --
+    -- -   Year - 1
+    --
+    -- Thus, if you want every other week forecasts, specify \"2W\". Or, if you
+    -- want quarterly forecasts, you specify \"3M\".
     dataFrequency :: Prelude.Maybe Prelude.Text,
-    -- | An AWS Key Management Service (KMS) key and the AWS Identity and Access
+    -- | An Key Management Service (KMS) key and the Identity and Access
     -- Management (IAM) role that Amazon Forecast can assume to access the key.
     encryptionConfig :: Prelude.Maybe EncryptionConfig,
     -- | The optional metadata that you apply to the dataset to help you
@@ -122,12 +140,12 @@ data CreateDataset = CreateDataset'
     -- -   Tag keys and values are case sensitive.
     --
     -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
-    --     such as a prefix for keys as it is reserved for AWS use. You cannot
-    --     edit or delete tag keys with this prefix. Values can have this
-    --     prefix. If a tag value has @aws@ as its prefix but the key does not,
-    --     then Forecast considers it to be a user tag and will count against
-    --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
-    --     count against your tags per resource limit.
+    --     such as a prefix for keys as it is reserved for Amazon Web Services
+    --     use. You cannot edit or delete tag keys with this prefix. Values can
+    --     have this prefix. If a tag value has @aws@ as its prefix but the key
+    --     does not, then Forecast considers it to be a user tag and will count
+    --     against the limit of 50 tags. Tags with only the key prefix of @aws@
+    --     do not count against your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
     -- | A name for the dataset.
     datasetName :: Prelude.Text,
@@ -167,12 +185,30 @@ data CreateDataset = CreateDataset'
 -- 'dataFrequency', 'createDataset_dataFrequency' - The frequency of data collection. This parameter is required for
 -- RELATED_TIME_SERIES datasets.
 --
--- Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour),
--- 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5
--- minutes), and 1min (1 minute). For example, \"D\" indicates every day
--- and \"15min\" indicates every 15 minutes.
+-- Valid intervals are an integer followed by Y (Year), M (Month), W
+-- (Week), D (Day), H (Hour), and min (Minute). For example, \"1D\"
+-- indicates every day and \"15min\" indicates every 15 minutes. You cannot
+-- specify a value that would overlap with the next larger frequency. That
+-- means, for example, you cannot specify a frequency of 60 minutes,
+-- because that is equivalent to 1 hour. The valid values for each
+-- frequency are the following:
 --
--- 'encryptionConfig', 'createDataset_encryptionConfig' - An AWS Key Management Service (KMS) key and the AWS Identity and Access
+-- -   Minute - 1-59
+--
+-- -   Hour - 1-23
+--
+-- -   Day - 1-6
+--
+-- -   Week - 1-4
+--
+-- -   Month - 1-11
+--
+-- -   Year - 1
+--
+-- Thus, if you want every other week forecasts, specify \"2W\". Or, if you
+-- want quarterly forecasts, you specify \"3M\".
+--
+-- 'encryptionConfig', 'createDataset_encryptionConfig' - An Key Management Service (KMS) key and the Identity and Access
 -- Management (IAM) role that Amazon Forecast can assume to access the key.
 --
 -- 'tags', 'createDataset_tags' - The optional metadata that you apply to the dataset to help you
@@ -199,12 +235,12 @@ data CreateDataset = CreateDataset'
 -- -   Tag keys and values are case sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for keys as it is reserved for AWS use. You cannot
---     edit or delete tag keys with this prefix. Values can have this
---     prefix. If a tag value has @aws@ as its prefix but the key does not,
---     then Forecast considers it to be a user tag and will count against
---     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
---     count against your tags per resource limit.
+--     such as a prefix for keys as it is reserved for Amazon Web Services
+--     use. You cannot edit or delete tag keys with this prefix. Values can
+--     have this prefix. If a tag value has @aws@ as its prefix but the key
+--     does not, then Forecast considers it to be a user tag and will count
+--     against the limit of 50 tags. Tags with only the key prefix of @aws@
+--     do not count against your tags per resource limit.
 --
 -- 'datasetName', 'createDataset_datasetName' - A name for the dataset.
 --
@@ -257,14 +293,32 @@ newCreateDataset
 -- | The frequency of data collection. This parameter is required for
 -- RELATED_TIME_SERIES datasets.
 --
--- Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour),
--- 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5
--- minutes), and 1min (1 minute). For example, \"D\" indicates every day
--- and \"15min\" indicates every 15 minutes.
+-- Valid intervals are an integer followed by Y (Year), M (Month), W
+-- (Week), D (Day), H (Hour), and min (Minute). For example, \"1D\"
+-- indicates every day and \"15min\" indicates every 15 minutes. You cannot
+-- specify a value that would overlap with the next larger frequency. That
+-- means, for example, you cannot specify a frequency of 60 minutes,
+-- because that is equivalent to 1 hour. The valid values for each
+-- frequency are the following:
+--
+-- -   Minute - 1-59
+--
+-- -   Hour - 1-23
+--
+-- -   Day - 1-6
+--
+-- -   Week - 1-4
+--
+-- -   Month - 1-11
+--
+-- -   Year - 1
+--
+-- Thus, if you want every other week forecasts, specify \"2W\". Or, if you
+-- want quarterly forecasts, you specify \"3M\".
 createDataset_dataFrequency :: Lens.Lens' CreateDataset (Prelude.Maybe Prelude.Text)
 createDataset_dataFrequency = Lens.lens (\CreateDataset' {dataFrequency} -> dataFrequency) (\s@CreateDataset' {} a -> s {dataFrequency = a} :: CreateDataset)
 
--- | An AWS Key Management Service (KMS) key and the AWS Identity and Access
+-- | An Key Management Service (KMS) key and the Identity and Access
 -- Management (IAM) role that Amazon Forecast can assume to access the key.
 createDataset_encryptionConfig :: Lens.Lens' CreateDataset (Prelude.Maybe EncryptionConfig)
 createDataset_encryptionConfig = Lens.lens (\CreateDataset' {encryptionConfig} -> encryptionConfig) (\s@CreateDataset' {} a -> s {encryptionConfig = a} :: CreateDataset)
@@ -293,12 +347,12 @@ createDataset_encryptionConfig = Lens.lens (\CreateDataset' {encryptionConfig} -
 -- -   Tag keys and values are case sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for keys as it is reserved for AWS use. You cannot
---     edit or delete tag keys with this prefix. Values can have this
---     prefix. If a tag value has @aws@ as its prefix but the key does not,
---     then Forecast considers it to be a user tag and will count against
---     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
---     count against your tags per resource limit.
+--     such as a prefix for keys as it is reserved for Amazon Web Services
+--     use. You cannot edit or delete tag keys with this prefix. Values can
+--     have this prefix. If a tag value has @aws@ as its prefix but the key
+--     does not, then Forecast considers it to be a user tag and will count
+--     against the limit of 50 tags. Tags with only the key prefix of @aws@
+--     do not count against your tags per resource limit.
 createDataset_tags :: Lens.Lens' CreateDataset (Prelude.Maybe [Tag])
 createDataset_tags = Lens.lens (\CreateDataset' {tags} -> tags) (\s@CreateDataset' {} a -> s {tags = a} :: CreateDataset) Prelude.. Lens.mapping Lens.coerced
 
@@ -350,7 +404,8 @@ instance Core.AWSRequest CreateDataset where
 
 instance Prelude.Hashable CreateDataset where
   hashWithSalt _salt CreateDataset' {..} =
-    _salt `Prelude.hashWithSalt` dataFrequency
+    _salt
+      `Prelude.hashWithSalt` dataFrequency
       `Prelude.hashWithSalt` encryptionConfig
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` datasetName

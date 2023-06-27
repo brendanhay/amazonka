@@ -175,7 +175,8 @@ instance Data.FromJSON FeaturizationMethod where
       "FeaturizationMethod"
       ( \x ->
           FeaturizationMethod'
-            Prelude.<$> ( x Data..:? "FeaturizationMethodParameters"
+            Prelude.<$> ( x
+                            Data..:? "FeaturizationMethodParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "FeaturizationMethodName")

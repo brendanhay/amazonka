@@ -112,7 +112,8 @@ instance Data.FromJSON TimeAlignmentBoundary where
 
 instance Prelude.Hashable TimeAlignmentBoundary where
   hashWithSalt _salt TimeAlignmentBoundary' {..} =
-    _salt `Prelude.hashWithSalt` dayOfMonth
+    _salt
+      `Prelude.hashWithSalt` dayOfMonth
       `Prelude.hashWithSalt` dayOfWeek
       `Prelude.hashWithSalt` hour
       `Prelude.hashWithSalt` month

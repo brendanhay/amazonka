@@ -33,7 +33,7 @@
 -- (yyyy-MM-ddTHH-mm-ssZ).
 --
 -- You must specify a DataDestination object that includes an Amazon S3
--- bucket and an AWS Identity and Access Management (IAM) role that Amazon
+-- bucket and an Identity and Access Management (IAM) role that Amazon
 -- Forecast can assume to access the Amazon S3 bucket. For more
 -- information, see aws-forecast-iam-roles.
 --
@@ -245,7 +245,8 @@ instance
   hashWithSalt
     _salt
     CreatePredictorBacktestExportJob' {..} =
-      _salt `Prelude.hashWithSalt` format
+      _salt
+        `Prelude.hashWithSalt` format
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` predictorBacktestExportJobName
         `Prelude.hashWithSalt` predictorArn

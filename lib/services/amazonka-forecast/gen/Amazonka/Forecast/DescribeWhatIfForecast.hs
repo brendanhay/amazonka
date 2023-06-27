@@ -120,7 +120,8 @@ instance Core.AWSRequest DescribeWhatIfForecast where
             Prelude.<*> (x Data..?> "Message")
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (x Data..?> "TimeSeriesReplacementsDataSource")
-            Prelude.<*> ( x Data..?> "TimeSeriesTransformations"
+            Prelude.<*> ( x
+                            Data..?> "TimeSeriesTransformations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "WhatIfAnalysisArn")
@@ -175,7 +176,7 @@ data DescribeWhatIfForecastResponse = DescribeWhatIfForecastResponse'
     -- minutes.
     estimatedTimeRemainingInMinutes :: Prelude.Maybe Prelude.Integer,
     -- | The quantiles at which probabilistic forecasts are generated. You can
-    -- specify up to 5 quantiles per what-if forecast in the
+    -- specify up to five quantiles per what-if forecast in the
     -- CreateWhatIfForecast operation. If you didn\'t specify quantiles, the
     -- default values are @[\"0.1\", \"0.5\", \"0.9\"]@.
     forecastTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
@@ -239,7 +240,7 @@ data DescribeWhatIfForecastResponse = DescribeWhatIfForecastResponse'
 -- minutes.
 --
 -- 'forecastTypes', 'describeWhatIfForecastResponse_forecastTypes' - The quantiles at which probabilistic forecasts are generated. You can
--- specify up to 5 quantiles per what-if forecast in the
+-- specify up to five quantiles per what-if forecast in the
 -- CreateWhatIfForecast operation. If you didn\'t specify quantiles, the
 -- default values are @[\"0.1\", \"0.5\", \"0.9\"]@.
 --
@@ -318,7 +319,7 @@ describeWhatIfForecastResponse_estimatedTimeRemainingInMinutes :: Lens.Lens' Des
 describeWhatIfForecastResponse_estimatedTimeRemainingInMinutes = Lens.lens (\DescribeWhatIfForecastResponse' {estimatedTimeRemainingInMinutes} -> estimatedTimeRemainingInMinutes) (\s@DescribeWhatIfForecastResponse' {} a -> s {estimatedTimeRemainingInMinutes = a} :: DescribeWhatIfForecastResponse)
 
 -- | The quantiles at which probabilistic forecasts are generated. You can
--- specify up to 5 quantiles per what-if forecast in the
+-- specify up to five quantiles per what-if forecast in the
 -- CreateWhatIfForecast operation. If you didn\'t specify quantiles, the
 -- default values are @[\"0.1\", \"0.5\", \"0.9\"]@.
 describeWhatIfForecastResponse_forecastTypes :: Lens.Lens' DescribeWhatIfForecastResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))

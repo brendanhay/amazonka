@@ -25,9 +25,9 @@ import qualified Amazonka.Data as Data
 import Amazonka.Forecast.Types.S3Config
 import qualified Amazonka.Prelude as Prelude
 
--- | The source of your data, an AWS Identity and Access Management (IAM)
--- role that allows Amazon Forecast to access the data and, optionally, an
--- AWS Key Management Service (KMS) key.
+-- | The source of your data, an Identity and Access Management (IAM) role
+-- that allows Amazon Forecast to access the data and, optionally, an Key
+-- Management Service (KMS) key.
 --
 -- /See:/ 'newDataSource' smart constructor.
 data DataSource = DataSource'

@@ -136,8 +136,8 @@ data CreatePredictor = CreatePredictor'
     -- -   @arn:aws:forecast:::algorithm\/Prophet@
     algorithmArn :: Prelude.Maybe Prelude.Text,
     -- | The @LatencyOptimized@ AutoML override strategy is only available in
-    -- private beta. Contact AWS Support or your account manager to learn more
-    -- about access privileges.
+    -- private beta. Contact Amazon Web Services Support or your account
+    -- manager to learn more about access privileges.
     --
     -- Used to overide the default AutoML strategy, which is to optimize
     -- predictor accuracy. To apply an AutoML strategy that minimizes training
@@ -145,7 +145,7 @@ data CreatePredictor = CreatePredictor'
     --
     -- This parameter is only valid for predictors trained using AutoML.
     autoMLOverrideStrategy :: Prelude.Maybe AutoMLOverrideStrategy,
-    -- | An AWS Key Management Service (KMS) key and the AWS Identity and Access
+    -- | An Key Management Service (KMS) key and the Identity and Access
     -- Management (IAM) role that Amazon Forecast can assume to access the key.
     encryptionConfig :: Prelude.Maybe EncryptionConfig,
     -- | Used to override the default evaluation parameters of the specified
@@ -226,12 +226,12 @@ data CreatePredictor = CreatePredictor'
     -- -   Tag keys and values are case sensitive.
     --
     -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
-    --     such as a prefix for keys as it is reserved for AWS use. You cannot
-    --     edit or delete tag keys with this prefix. Values can have this
-    --     prefix. If a tag value has @aws@ as its prefix but the key does not,
-    --     then Forecast considers it to be a user tag and will count against
-    --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
-    --     count against your tags per resource limit.
+    --     such as a prefix for keys as it is reserved for Amazon Web Services
+    --     use. You cannot edit or delete tag keys with this prefix. Values can
+    --     have this prefix. If a tag value has @aws@ as its prefix but the key
+    --     does not, then Forecast considers it to be a user tag and will count
+    --     against the limit of 50 tags. Tags with only the key prefix of @aws@
+    --     do not count against your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
     -- | The hyperparameters to override for model training. The hyperparameters
     -- that you can override are listed in the individual algorithms. For the
@@ -283,8 +283,8 @@ data CreatePredictor = CreatePredictor'
 -- -   @arn:aws:forecast:::algorithm\/Prophet@
 --
 -- 'autoMLOverrideStrategy', 'createPredictor_autoMLOverrideStrategy' - The @LatencyOptimized@ AutoML override strategy is only available in
--- private beta. Contact AWS Support or your account manager to learn more
--- about access privileges.
+-- private beta. Contact Amazon Web Services Support or your account
+-- manager to learn more about access privileges.
 --
 -- Used to overide the default AutoML strategy, which is to optimize
 -- predictor accuracy. To apply an AutoML strategy that minimizes training
@@ -292,7 +292,7 @@ data CreatePredictor = CreatePredictor'
 --
 -- This parameter is only valid for predictors trained using AutoML.
 --
--- 'encryptionConfig', 'createPredictor_encryptionConfig' - An AWS Key Management Service (KMS) key and the AWS Identity and Access
+-- 'encryptionConfig', 'createPredictor_encryptionConfig' - An Key Management Service (KMS) key and the Identity and Access
 -- Management (IAM) role that Amazon Forecast can assume to access the key.
 --
 -- 'evaluationParameters', 'createPredictor_evaluationParameters' - Used to override the default evaluation parameters of the specified
@@ -373,12 +373,12 @@ data CreatePredictor = CreatePredictor'
 -- -   Tag keys and values are case sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for keys as it is reserved for AWS use. You cannot
---     edit or delete tag keys with this prefix. Values can have this
---     prefix. If a tag value has @aws@ as its prefix but the key does not,
---     then Forecast considers it to be a user tag and will count against
---     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
---     count against your tags per resource limit.
+--     such as a prefix for keys as it is reserved for Amazon Web Services
+--     use. You cannot edit or delete tag keys with this prefix. Values can
+--     have this prefix. If a tag value has @aws@ as its prefix but the key
+--     does not, then Forecast considers it to be a user tag and will count
+--     against the limit of 50 tags. Tags with only the key prefix of @aws@
+--     do not count against your tags per resource limit.
 --
 -- 'trainingParameters', 'createPredictor_trainingParameters' - The hyperparameters to override for model training. The hyperparameters
 -- that you can override are listed in the individual algorithms. For the
@@ -453,8 +453,8 @@ createPredictor_algorithmArn :: Lens.Lens' CreatePredictor (Prelude.Maybe Prelud
 createPredictor_algorithmArn = Lens.lens (\CreatePredictor' {algorithmArn} -> algorithmArn) (\s@CreatePredictor' {} a -> s {algorithmArn = a} :: CreatePredictor)
 
 -- | The @LatencyOptimized@ AutoML override strategy is only available in
--- private beta. Contact AWS Support or your account manager to learn more
--- about access privileges.
+-- private beta. Contact Amazon Web Services Support or your account
+-- manager to learn more about access privileges.
 --
 -- Used to overide the default AutoML strategy, which is to optimize
 -- predictor accuracy. To apply an AutoML strategy that minimizes training
@@ -464,7 +464,7 @@ createPredictor_algorithmArn = Lens.lens (\CreatePredictor' {algorithmArn} -> al
 createPredictor_autoMLOverrideStrategy :: Lens.Lens' CreatePredictor (Prelude.Maybe AutoMLOverrideStrategy)
 createPredictor_autoMLOverrideStrategy = Lens.lens (\CreatePredictor' {autoMLOverrideStrategy} -> autoMLOverrideStrategy) (\s@CreatePredictor' {} a -> s {autoMLOverrideStrategy = a} :: CreatePredictor)
 
--- | An AWS Key Management Service (KMS) key and the AWS Identity and Access
+-- | An Key Management Service (KMS) key and the Identity and Access
 -- Management (IAM) role that Amazon Forecast can assume to access the key.
 createPredictor_encryptionConfig :: Lens.Lens' CreatePredictor (Prelude.Maybe EncryptionConfig)
 createPredictor_encryptionConfig = Lens.lens (\CreatePredictor' {encryptionConfig} -> encryptionConfig) (\s@CreatePredictor' {} a -> s {encryptionConfig = a} :: CreatePredictor)
@@ -559,12 +559,12 @@ createPredictor_performHPO = Lens.lens (\CreatePredictor' {performHPO} -> perfor
 -- -   Tag keys and values are case sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for keys as it is reserved for AWS use. You cannot
---     edit or delete tag keys with this prefix. Values can have this
---     prefix. If a tag value has @aws@ as its prefix but the key does not,
---     then Forecast considers it to be a user tag and will count against
---     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
---     count against your tags per resource limit.
+--     such as a prefix for keys as it is reserved for Amazon Web Services
+--     use. You cannot edit or delete tag keys with this prefix. Values can
+--     have this prefix. If a tag value has @aws@ as its prefix but the key
+--     does not, then Forecast considers it to be a user tag and will count
+--     against the limit of 50 tags. Tags with only the key prefix of @aws@
+--     do not count against your tags per resource limit.
 createPredictor_tags :: Lens.Lens' CreatePredictor (Prelude.Maybe [Tag])
 createPredictor_tags = Lens.lens (\CreatePredictor' {tags} -> tags) (\s@CreatePredictor' {} a -> s {tags = a} :: CreatePredictor) Prelude.. Lens.mapping Lens.coerced
 
@@ -615,7 +615,8 @@ instance Core.AWSRequest CreatePredictor where
 
 instance Prelude.Hashable CreatePredictor where
   hashWithSalt _salt CreatePredictor' {..} =
-    _salt `Prelude.hashWithSalt` algorithmArn
+    _salt
+      `Prelude.hashWithSalt` algorithmArn
       `Prelude.hashWithSalt` autoMLOverrideStrategy
       `Prelude.hashWithSalt` encryptionConfig
       `Prelude.hashWithSalt` evaluationParameters

@@ -450,6 +450,9 @@ module Amazonka.Forecast
     -- ** FilterConditionString
     FilterConditionString (..),
 
+    -- ** ImportMode
+    ImportMode (..),
+
     -- ** Month
     Month (..),
 

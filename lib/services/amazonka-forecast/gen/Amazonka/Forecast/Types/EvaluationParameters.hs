@@ -105,7 +105,8 @@ instance Data.FromJSON EvaluationParameters where
 
 instance Prelude.Hashable EvaluationParameters where
   hashWithSalt _salt EvaluationParameters' {..} =
-    _salt `Prelude.hashWithSalt` backTestWindowOffset
+    _salt
+      `Prelude.hashWithSalt` backTestWindowOffset
       `Prelude.hashWithSalt` numberOfBacktestWindows
 
 instance Prelude.NFData EvaluationParameters where

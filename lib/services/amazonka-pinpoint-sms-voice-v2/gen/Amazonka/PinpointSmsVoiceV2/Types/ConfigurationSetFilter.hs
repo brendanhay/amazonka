@@ -69,7 +69,8 @@ configurationSetFilter_values = Lens.lens (\ConfigurationSetFilter' {values} -> 
 
 instance Prelude.Hashable ConfigurationSetFilter where
   hashWithSalt _salt ConfigurationSetFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData ConfigurationSetFilter where

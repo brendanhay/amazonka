@@ -146,22 +146,22 @@ instance Core.AWSPager DescribeOptedOutNumbers where
     | Core.stop
         ( rs
             Lens.^? describeOptedOutNumbersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeOptedOutNumbersResponse_optedOutNumbers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeOptedOutNumbers_nextToken
           Lens..~ rs
           Lens.^? describeOptedOutNumbersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeOptedOutNumbers where
   type
@@ -176,7 +176,8 @@ instance Core.AWSRequest DescribeOptedOutNumbers where
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "OptOutListArn")
             Prelude.<*> (x Data..?> "OptOutListName")
-            Prelude.<*> ( x Data..?> "OptedOutNumbers"
+            Prelude.<*> ( x
+                            Data..?> "OptedOutNumbers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -184,7 +185,8 @@ instance Core.AWSRequest DescribeOptedOutNumbers where
 
 instance Prelude.Hashable DescribeOptedOutNumbers where
   hashWithSalt _salt DescribeOptedOutNumbers' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` optedOutNumbers

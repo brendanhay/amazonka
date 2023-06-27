@@ -301,7 +301,8 @@ instance Data.FromJSON PhoneNumberInformation where
 
 instance Prelude.Hashable PhoneNumberInformation where
   hashWithSalt _salt PhoneNumberInformation' {..} =
-    _salt `Prelude.hashWithSalt` phoneNumberId
+    _salt
+      `Prelude.hashWithSalt` phoneNumberId
       `Prelude.hashWithSalt` poolId
       `Prelude.hashWithSalt` twoWayChannelArn
       `Prelude.hashWithSalt` phoneNumberArn

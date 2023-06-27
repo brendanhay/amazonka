@@ -71,12 +71,14 @@ instance Data.FromJSON AccountAttribute where
       "AccountAttribute"
       ( \x ->
           AccountAttribute'
-            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable AccountAttribute where
   hashWithSalt _salt AccountAttribute' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData AccountAttribute where

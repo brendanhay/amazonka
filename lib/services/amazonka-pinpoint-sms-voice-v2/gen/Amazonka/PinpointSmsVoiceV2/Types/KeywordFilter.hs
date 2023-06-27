@@ -69,7 +69,8 @@ keywordFilter_values = Lens.lens (\KeywordFilter' {values} -> values) (\s@Keywor
 
 instance Prelude.Hashable KeywordFilter where
   hashWithSalt _salt KeywordFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData KeywordFilter where

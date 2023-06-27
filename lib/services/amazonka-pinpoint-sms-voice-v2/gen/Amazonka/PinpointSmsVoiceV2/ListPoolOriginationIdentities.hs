@@ -129,22 +129,22 @@ instance Core.AWSPager ListPoolOriginationIdentities where
     | Core.stop
         ( rs
             Lens.^? listPoolOriginationIdentitiesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPoolOriginationIdentitiesResponse_originationIdentities
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPoolOriginationIdentities_nextToken
           Lens..~ rs
           Lens.^? listPoolOriginationIdentitiesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -160,7 +160,8 @@ instance
       ( \s h x ->
           ListPoolOriginationIdentitiesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "OriginationIdentities"
+            Prelude.<*> ( x
+                            Data..?> "OriginationIdentities"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "PoolArn")
@@ -173,7 +174,8 @@ instance
     ListPoolOriginationIdentities
   where
   hashWithSalt _salt ListPoolOriginationIdentities' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` poolId

@@ -169,7 +169,8 @@ instance
     AssociateOriginationIdentity
   where
   hashWithSalt _salt AssociateOriginationIdentity' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` poolId
       `Prelude.hashWithSalt` originationIdentity
       `Prelude.hashWithSalt` isoCountryCode

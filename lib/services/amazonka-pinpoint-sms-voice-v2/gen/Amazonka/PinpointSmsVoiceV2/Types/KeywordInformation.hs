@@ -94,7 +94,8 @@ instance Data.FromJSON KeywordInformation where
 
 instance Prelude.Hashable KeywordInformation where
   hashWithSalt _salt KeywordInformation' {..} =
-    _salt `Prelude.hashWithSalt` keyword
+    _salt
+      `Prelude.hashWithSalt` keyword
       `Prelude.hashWithSalt` keywordMessage
       `Prelude.hashWithSalt` keywordAction
 

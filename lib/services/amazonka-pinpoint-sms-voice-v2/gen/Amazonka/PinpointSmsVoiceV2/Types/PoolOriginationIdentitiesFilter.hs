@@ -75,7 +75,8 @@ instance
   hashWithSalt
     _salt
     PoolOriginationIdentitiesFilter' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` values
 
 instance

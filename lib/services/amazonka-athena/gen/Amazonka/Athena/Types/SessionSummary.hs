@@ -26,7 +26,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains summary information about a notebook session.
+-- | Contains summary information about a session.
 --
 -- /See:/ 'newSessionSummary' smart constructor.
 data SessionSummary = SessionSummary'
@@ -109,7 +109,8 @@ instance Data.FromJSON SessionSummary where
 
 instance Prelude.Hashable SessionSummary where
   hashWithSalt _salt SessionSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` notebookVersion
       `Prelude.hashWithSalt` sessionId

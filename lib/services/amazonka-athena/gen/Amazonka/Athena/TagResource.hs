@@ -21,13 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds one or more tags to an Athena resource. A tag is a label that you
--- assign to a resource. In Athena, a resource can be a workgroup or data
--- catalog. Each tag consists of a key and an optional value, both of which
--- you define. For example, you can use tags to categorize Athena
--- workgroups or data catalogs by purpose, owner, or environment. Use a
--- consistent set of tag keys to make it easier to search and filter
--- workgroups or data catalogs in your account. For best practices, see
--- <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ Tagging Best Practices>.
+-- assign to a resource. Each tag consists of a key and an optional value,
+-- both of which you define. For example, you can use tags to categorize
+-- Athena workgroups, data catalogs, or capacity reservations by purpose,
+-- owner, or environment. Use a consistent set of tag keys to make it
+-- easier to search and filter the resources in your account. For best
+-- practices, see
+-- <https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html Tagging Best Practices>.
 -- Tag keys can be from 1 to 128 UTF-8 Unicode characters, and tag values
 -- can be from 0 to 256 UTF-8 Unicode characters. Tags can use letters and
 -- numbers representable in UTF-8, and the following characters: + - = . _
@@ -61,11 +61,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { -- | Specifies the ARN of the Athena resource (workgroup or data catalog) to
-    -- which tags are to be added.
+  { -- | Specifies the ARN of the Athena resource to which tags are to be added.
     resourceARN :: Prelude.Text,
     -- | A collection of one or more tags, separated by commas, to be added to an
-    -- Athena workgroup or data catalog resource.
+    -- Athena resource.
     tags :: [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,11 +77,10 @@ data TagResource = TagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceARN', 'tagResource_resourceARN' - Specifies the ARN of the Athena resource (workgroup or data catalog) to
--- which tags are to be added.
+-- 'resourceARN', 'tagResource_resourceARN' - Specifies the ARN of the Athena resource to which tags are to be added.
 --
 -- 'tags', 'tagResource_tags' - A collection of one or more tags, separated by commas, to be added to an
--- Athena workgroup or data catalog resource.
+-- Athena resource.
 newTagResource ::
   -- | 'resourceARN'
   Prelude.Text ->
@@ -93,13 +91,12 @@ newTagResource pResourceARN_ =
       tags = Prelude.mempty
     }
 
--- | Specifies the ARN of the Athena resource (workgroup or data catalog) to
--- which tags are to be added.
+-- | Specifies the ARN of the Athena resource to which tags are to be added.
 tagResource_resourceARN :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceARN = Lens.lens (\TagResource' {resourceARN} -> resourceARN) (\s@TagResource' {} a -> s {resourceARN = a} :: TagResource)
 
 -- | A collection of one or more tags, separated by commas, to be added to an
--- Athena workgroup or data catalog resource.
+-- Athena resource.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 
@@ -116,7 +113,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceARN
+    _salt
+      `Prelude.hashWithSalt` resourceARN
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

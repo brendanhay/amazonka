@@ -162,7 +162,8 @@ instance Core.AWSRequest ImportNotebook where
 
 instance Prelude.Hashable ImportNotebook where
   hashWithSalt _salt ImportNotebook' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` workGroup
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` payload
@@ -212,7 +213,7 @@ instance Data.ToQuery ImportNotebook where
 
 -- | /See:/ 'newImportNotebookResponse' smart constructor.
 data ImportNotebookResponse = ImportNotebookResponse'
-  { -- | The ID of the notebook to import.
+  { -- | The ID assigned to the imported notebook.
     notebookId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -227,7 +228,7 @@ data ImportNotebookResponse = ImportNotebookResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notebookId', 'importNotebookResponse_notebookId' - The ID of the notebook to import.
+-- 'notebookId', 'importNotebookResponse_notebookId' - The ID assigned to the imported notebook.
 --
 -- 'httpStatus', 'importNotebookResponse_httpStatus' - The response's http status code.
 newImportNotebookResponse ::
@@ -241,7 +242,7 @@ newImportNotebookResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The ID of the notebook to import.
+-- | The ID assigned to the imported notebook.
 importNotebookResponse_notebookId :: Lens.Lens' ImportNotebookResponse (Prelude.Maybe Prelude.Text)
 importNotebookResponse_notebookId = Lens.lens (\ImportNotebookResponse' {notebookId} -> notebookId) (\s@ImportNotebookResponse' {} a -> s {notebookId = a} :: ImportNotebookResponse)
 

@@ -25,7 +25,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains information about the status of a notebook session.
+-- | Contains information about the status of a session.
 --
 -- /See:/ 'newSessionStatus' smart constructor.
 data SessionStatus = SessionStatus'
@@ -178,7 +178,8 @@ instance Data.FromJSON SessionStatus where
 
 instance Prelude.Hashable SessionStatus where
   hashWithSalt _salt SessionStatus' {..} =
-    _salt `Prelude.hashWithSalt` endDateTime
+    _salt
+      `Prelude.hashWithSalt` endDateTime
       `Prelude.hashWithSalt` idleSinceDateTime
       `Prelude.hashWithSalt` lastModifiedDateTime
       `Prelude.hashWithSalt` startDateTime

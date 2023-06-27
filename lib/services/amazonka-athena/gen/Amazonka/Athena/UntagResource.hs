@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes one or more tags from a data catalog or workgroup resource.
+-- Removes one or more tags from an Athena resource.
 module Amazonka.Athena.UntagResource
   ( -- * Creating a Request
     UntagResource (..),
@@ -103,7 +103,8 @@ instance Core.AWSRequest UntagResource where
 
 instance Prelude.Hashable UntagResource where
   hashWithSalt _salt UntagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceARN
+    _salt
+      `Prelude.hashWithSalt` resourceARN
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagResource where

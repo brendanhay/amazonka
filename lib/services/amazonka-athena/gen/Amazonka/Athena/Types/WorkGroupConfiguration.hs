@@ -28,13 +28,13 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration of the workgroup, which includes the location in
--- Amazon S3 where query results are stored, the encryption option, if any,
--- used for query results, whether the Amazon CloudWatch Metrics are
--- enabled for the workgroup and whether workgroup settings override query
--- settings, and the data usage limits for the amount of data scanned per
--- query or per workgroup. The workgroup settings override is specified in
--- @EnforceWorkGroupConfiguration@ (true\/false) in the
--- @WorkGroupConfiguration@. See
+-- Amazon S3 where query and calculation results are stored, the encryption
+-- option, if any, used for query and calculation results, whether the
+-- Amazon CloudWatch Metrics are enabled for the workgroup and whether
+-- workgroup settings override query settings, and the data usage limits
+-- for the amount of data scanned per query or per workgroup. The workgroup
+-- settings override is specified in @EnforceWorkGroupConfiguration@
+-- (true\/false) in the @WorkGroupConfiguration@. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
 --
 -- /See:/ 'newWorkGroupConfiguration' smart constructor.
@@ -46,8 +46,19 @@ data WorkGroupConfiguration = WorkGroupConfiguration'
     -- query in a workgroup is allowed to scan.
     bytesScannedCutoffPerQuery :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the KMS key that is used to encrypt the user\'s data stores in
-    -- Athena.
+    -- Athena. This setting does not apply to Athena SQL workgroups.
     customerContentEncryptionConfiguration :: Prelude.Maybe CustomerContentEncryptionConfiguration,
+    -- | Enforces a minimal level of encryption for the workgroup for query and
+    -- calculation results that are written to Amazon S3. When enabled,
+    -- workgroup users can set encryption only to the minimum level set by the
+    -- administrator or higher when they submit queries.
+    --
+    -- The @EnforceWorkGroupConfiguration@ setting takes precedence over the
+    -- @EnableMinimumEncryptionConfiguration@ flag. This means that if
+    -- @EnforceWorkGroupConfiguration@ is true, the
+    -- @EnableMinimumEncryptionConfiguration@ flag is ignored, and the
+    -- workgroup configuration for encryption is used.
+    enableMinimumEncryptionConfiguration :: Prelude.Maybe Prelude.Bool,
     -- | If set to \"true\", the settings for the workgroup override client-side
     -- settings. If set to \"false\", client-side settings are used. For more
     -- information, see
@@ -57,7 +68,7 @@ data WorkGroupConfiguration = WorkGroupConfiguration'
     -- Queries on the @AmazonAthenaPreviewFunctionality@ workgroup run on the
     -- preview engine regardless of this setting.
     engineVersion :: Prelude.Maybe EngineVersion,
-    -- | Role used in a notebook session for accessing the user\'s resources.
+    -- | Role used in a session for accessing the user\'s resources.
     executionRole :: Prelude.Maybe Prelude.Text,
     -- | Indicates that the Amazon CloudWatch metrics are enabled for the
     -- workgroup.
@@ -72,14 +83,14 @@ data WorkGroupConfiguration = WorkGroupConfiguration'
     -- in the /Amazon Simple Storage Service Developer Guide/.
     requesterPaysEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The configuration for the workgroup, which includes the location in
-    -- Amazon S3 where query results are stored and the encryption option, if
-    -- any, used for query results. To run the query, you must specify the
-    -- query results location using one of the ways: either in the workgroup
-    -- using this setting, or for individual queries (client-side), using
-    -- ResultConfiguration$OutputLocation. If none of them is set, Athena
-    -- issues an error that no output location is provided. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Query Results>.
+    -- Amazon S3 where query and calculation results are stored and the
+    -- encryption option, if any, used for query and calculation results. To
+    -- run the query, you must specify the query results location using one of
+    -- the ways: either in the workgroup using this setting, or for individual
+    -- queries (client-side), using ResultConfiguration$OutputLocation. If none
+    -- of them is set, Athena issues an error that no output location is
+    -- provided. For more information, see
+    -- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Working with query results, recent queries, and output files>.
     resultConfiguration :: Prelude.Maybe ResultConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -99,7 +110,18 @@ data WorkGroupConfiguration = WorkGroupConfiguration'
 -- query in a workgroup is allowed to scan.
 --
 -- 'customerContentEncryptionConfiguration', 'workGroupConfiguration_customerContentEncryptionConfiguration' - Specifies the KMS key that is used to encrypt the user\'s data stores in
--- Athena.
+-- Athena. This setting does not apply to Athena SQL workgroups.
+--
+-- 'enableMinimumEncryptionConfiguration', 'workGroupConfiguration_enableMinimumEncryptionConfiguration' - Enforces a minimal level of encryption for the workgroup for query and
+-- calculation results that are written to Amazon S3. When enabled,
+-- workgroup users can set encryption only to the minimum level set by the
+-- administrator or higher when they submit queries.
+--
+-- The @EnforceWorkGroupConfiguration@ setting takes precedence over the
+-- @EnableMinimumEncryptionConfiguration@ flag. This means that if
+-- @EnforceWorkGroupConfiguration@ is true, the
+-- @EnableMinimumEncryptionConfiguration@ flag is ignored, and the
+-- workgroup configuration for encryption is used.
 --
 -- 'enforceWorkGroupConfiguration', 'workGroupConfiguration_enforceWorkGroupConfiguration' - If set to \"true\", the settings for the workgroup override client-side
 -- settings. If set to \"false\", client-side settings are used. For more
@@ -110,7 +132,7 @@ data WorkGroupConfiguration = WorkGroupConfiguration'
 -- Queries on the @AmazonAthenaPreviewFunctionality@ workgroup run on the
 -- preview engine regardless of this setting.
 --
--- 'executionRole', 'workGroupConfiguration_executionRole' - Role used in a notebook session for accessing the user\'s resources.
+-- 'executionRole', 'workGroupConfiguration_executionRole' - Role used in a session for accessing the user\'s resources.
 --
 -- 'publishCloudWatchMetricsEnabled', 'workGroupConfiguration_publishCloudWatchMetricsEnabled' - Indicates that the Amazon CloudWatch metrics are enabled for the
 -- workgroup.
@@ -125,14 +147,14 @@ data WorkGroupConfiguration = WorkGroupConfiguration'
 -- in the /Amazon Simple Storage Service Developer Guide/.
 --
 -- 'resultConfiguration', 'workGroupConfiguration_resultConfiguration' - The configuration for the workgroup, which includes the location in
--- Amazon S3 where query results are stored and the encryption option, if
--- any, used for query results. To run the query, you must specify the
--- query results location using one of the ways: either in the workgroup
--- using this setting, or for individual queries (client-side), using
--- ResultConfiguration$OutputLocation. If none of them is set, Athena
--- issues an error that no output location is provided. For more
--- information, see
--- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Query Results>.
+-- Amazon S3 where query and calculation results are stored and the
+-- encryption option, if any, used for query and calculation results. To
+-- run the query, you must specify the query results location using one of
+-- the ways: either in the workgroup using this setting, or for individual
+-- queries (client-side), using ResultConfiguration$OutputLocation. If none
+-- of them is set, Athena issues an error that no output location is
+-- provided. For more information, see
+-- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Working with query results, recent queries, and output files>.
 newWorkGroupConfiguration ::
   WorkGroupConfiguration
 newWorkGroupConfiguration =
@@ -141,6 +163,8 @@ newWorkGroupConfiguration =
         Prelude.Nothing,
       bytesScannedCutoffPerQuery = Prelude.Nothing,
       customerContentEncryptionConfiguration =
+        Prelude.Nothing,
+      enableMinimumEncryptionConfiguration =
         Prelude.Nothing,
       enforceWorkGroupConfiguration = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
@@ -161,9 +185,22 @@ workGroupConfiguration_bytesScannedCutoffPerQuery :: Lens.Lens' WorkGroupConfigu
 workGroupConfiguration_bytesScannedCutoffPerQuery = Lens.lens (\WorkGroupConfiguration' {bytesScannedCutoffPerQuery} -> bytesScannedCutoffPerQuery) (\s@WorkGroupConfiguration' {} a -> s {bytesScannedCutoffPerQuery = a} :: WorkGroupConfiguration)
 
 -- | Specifies the KMS key that is used to encrypt the user\'s data stores in
--- Athena.
+-- Athena. This setting does not apply to Athena SQL workgroups.
 workGroupConfiguration_customerContentEncryptionConfiguration :: Lens.Lens' WorkGroupConfiguration (Prelude.Maybe CustomerContentEncryptionConfiguration)
 workGroupConfiguration_customerContentEncryptionConfiguration = Lens.lens (\WorkGroupConfiguration' {customerContentEncryptionConfiguration} -> customerContentEncryptionConfiguration) (\s@WorkGroupConfiguration' {} a -> s {customerContentEncryptionConfiguration = a} :: WorkGroupConfiguration)
+
+-- | Enforces a minimal level of encryption for the workgroup for query and
+-- calculation results that are written to Amazon S3. When enabled,
+-- workgroup users can set encryption only to the minimum level set by the
+-- administrator or higher when they submit queries.
+--
+-- The @EnforceWorkGroupConfiguration@ setting takes precedence over the
+-- @EnableMinimumEncryptionConfiguration@ flag. This means that if
+-- @EnforceWorkGroupConfiguration@ is true, the
+-- @EnableMinimumEncryptionConfiguration@ flag is ignored, and the
+-- workgroup configuration for encryption is used.
+workGroupConfiguration_enableMinimumEncryptionConfiguration :: Lens.Lens' WorkGroupConfiguration (Prelude.Maybe Prelude.Bool)
+workGroupConfiguration_enableMinimumEncryptionConfiguration = Lens.lens (\WorkGroupConfiguration' {enableMinimumEncryptionConfiguration} -> enableMinimumEncryptionConfiguration) (\s@WorkGroupConfiguration' {} a -> s {enableMinimumEncryptionConfiguration = a} :: WorkGroupConfiguration)
 
 -- | If set to \"true\", the settings for the workgroup override client-side
 -- settings. If set to \"false\", client-side settings are used. For more
@@ -178,7 +215,7 @@ workGroupConfiguration_enforceWorkGroupConfiguration = Lens.lens (\WorkGroupConf
 workGroupConfiguration_engineVersion :: Lens.Lens' WorkGroupConfiguration (Prelude.Maybe EngineVersion)
 workGroupConfiguration_engineVersion = Lens.lens (\WorkGroupConfiguration' {engineVersion} -> engineVersion) (\s@WorkGroupConfiguration' {} a -> s {engineVersion = a} :: WorkGroupConfiguration)
 
--- | Role used in a notebook session for accessing the user\'s resources.
+-- | Role used in a session for accessing the user\'s resources.
 workGroupConfiguration_executionRole :: Lens.Lens' WorkGroupConfiguration (Prelude.Maybe Prelude.Text)
 workGroupConfiguration_executionRole = Lens.lens (\WorkGroupConfiguration' {executionRole} -> executionRole) (\s@WorkGroupConfiguration' {} a -> s {executionRole = a} :: WorkGroupConfiguration)
 
@@ -199,14 +236,14 @@ workGroupConfiguration_requesterPaysEnabled :: Lens.Lens' WorkGroupConfiguration
 workGroupConfiguration_requesterPaysEnabled = Lens.lens (\WorkGroupConfiguration' {requesterPaysEnabled} -> requesterPaysEnabled) (\s@WorkGroupConfiguration' {} a -> s {requesterPaysEnabled = a} :: WorkGroupConfiguration)
 
 -- | The configuration for the workgroup, which includes the location in
--- Amazon S3 where query results are stored and the encryption option, if
--- any, used for query results. To run the query, you must specify the
--- query results location using one of the ways: either in the workgroup
--- using this setting, or for individual queries (client-side), using
--- ResultConfiguration$OutputLocation. If none of them is set, Athena
--- issues an error that no output location is provided. For more
--- information, see
--- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Query Results>.
+-- Amazon S3 where query and calculation results are stored and the
+-- encryption option, if any, used for query and calculation results. To
+-- run the query, you must specify the query results location using one of
+-- the ways: either in the workgroup using this setting, or for individual
+-- queries (client-side), using ResultConfiguration$OutputLocation. If none
+-- of them is set, Athena issues an error that no output location is
+-- provided. For more information, see
+-- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Working with query results, recent queries, and output files>.
 workGroupConfiguration_resultConfiguration :: Lens.Lens' WorkGroupConfiguration (Prelude.Maybe ResultConfiguration)
 workGroupConfiguration_resultConfiguration = Lens.lens (\WorkGroupConfiguration' {resultConfiguration} -> resultConfiguration) (\s@WorkGroupConfiguration' {} a -> s {resultConfiguration = a} :: WorkGroupConfiguration)
 
@@ -219,6 +256,7 @@ instance Data.FromJSON WorkGroupConfiguration where
             Prelude.<$> (x Data..:? "AdditionalConfiguration")
             Prelude.<*> (x Data..:? "BytesScannedCutoffPerQuery")
             Prelude.<*> (x Data..:? "CustomerContentEncryptionConfiguration")
+            Prelude.<*> (x Data..:? "EnableMinimumEncryptionConfiguration")
             Prelude.<*> (x Data..:? "EnforceWorkGroupConfiguration")
             Prelude.<*> (x Data..:? "EngineVersion")
             Prelude.<*> (x Data..:? "ExecutionRole")
@@ -233,6 +271,7 @@ instance Prelude.Hashable WorkGroupConfiguration where
       `Prelude.hashWithSalt` additionalConfiguration
       `Prelude.hashWithSalt` bytesScannedCutoffPerQuery
       `Prelude.hashWithSalt` customerContentEncryptionConfiguration
+      `Prelude.hashWithSalt` enableMinimumEncryptionConfiguration
       `Prelude.hashWithSalt` enforceWorkGroupConfiguration
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` executionRole
@@ -245,6 +284,7 @@ instance Prelude.NFData WorkGroupConfiguration where
     Prelude.rnf additionalConfiguration
       `Prelude.seq` Prelude.rnf bytesScannedCutoffPerQuery
       `Prelude.seq` Prelude.rnf customerContentEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf enableMinimumEncryptionConfiguration
       `Prelude.seq` Prelude.rnf enforceWorkGroupConfiguration
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf executionRole
@@ -262,6 +302,8 @@ instance Data.ToJSON WorkGroupConfiguration where
               Prelude.<$> bytesScannedCutoffPerQuery,
             ("CustomerContentEncryptionConfiguration" Data..=)
               Prelude.<$> customerContentEncryptionConfiguration,
+            ("EnableMinimumEncryptionConfiguration" Data..=)
+              Prelude.<$> enableMinimumEncryptionConfiguration,
             ("EnforceWorkGroupConfiguration" Data..=)
               Prelude.<$> enforceWorkGroupConfiguration,
             ("EngineVersion" Data..=) Prelude.<$> engineVersion,

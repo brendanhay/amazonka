@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newApplicationDPUSizes' smart constructor.
 data ApplicationDPUSizes = ApplicationDPUSizes'
   { -- | The name of the supported application runtime (for example,
-    -- @Jupyter 1.0@).
+    -- @Athena notebook version 1@).
     applicationRuntimeId :: Prelude.Maybe Prelude.Text,
     -- | A list of the supported DPU sizes that the application runtime supports.
     supportedDPUSizes :: Prelude.Maybe [Prelude.Int]
@@ -45,7 +45,7 @@ data ApplicationDPUSizes = ApplicationDPUSizes'
 -- for backwards compatibility:
 --
 -- 'applicationRuntimeId', 'applicationDPUSizes_applicationRuntimeId' - The name of the supported application runtime (for example,
--- @Jupyter 1.0@).
+-- @Athena notebook version 1@).
 --
 -- 'supportedDPUSizes', 'applicationDPUSizes_supportedDPUSizes' - A list of the supported DPU sizes that the application runtime supports.
 newApplicationDPUSizes ::
@@ -58,7 +58,7 @@ newApplicationDPUSizes =
     }
 
 -- | The name of the supported application runtime (for example,
--- @Jupyter 1.0@).
+-- @Athena notebook version 1@).
 applicationDPUSizes_applicationRuntimeId :: Lens.Lens' ApplicationDPUSizes (Prelude.Maybe Prelude.Text)
 applicationDPUSizes_applicationRuntimeId = Lens.lens (\ApplicationDPUSizes' {applicationRuntimeId} -> applicationRuntimeId) (\s@ApplicationDPUSizes' {} a -> s {applicationRuntimeId = a} :: ApplicationDPUSizes)
 
@@ -73,14 +73,16 @@ instance Data.FromJSON ApplicationDPUSizes where
       ( \x ->
           ApplicationDPUSizes'
             Prelude.<$> (x Data..:? "ApplicationRuntimeId")
-            Prelude.<*> ( x Data..:? "SupportedDPUSizes"
+            Prelude.<*> ( x
+                            Data..:? "SupportedDPUSizes"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ApplicationDPUSizes where
   hashWithSalt _salt ApplicationDPUSizes' {..} =
-    _salt `Prelude.hashWithSalt` applicationRuntimeId
+    _salt
+      `Prelude.hashWithSalt` applicationRuntimeId
       `Prelude.hashWithSalt` supportedDPUSizes
 
 instance Prelude.NFData ApplicationDPUSizes where

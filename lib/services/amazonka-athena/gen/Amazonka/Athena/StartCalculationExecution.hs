@@ -21,8 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Submits calculations for execution within a session. You can supply the
--- code to run as an inline code block within the request or as an Amazon
--- S3 URL.
+-- code to run as an inline code block within the request.
 module Amazonka.Athena.StartCalculationExecution
   ( -- * Creating a Request
     StartCalculationExecution (..),

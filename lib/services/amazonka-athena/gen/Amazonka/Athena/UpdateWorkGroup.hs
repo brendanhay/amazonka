@@ -21,11 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the workgroup with the specified name. The workgroup\'s name
--- cannot be changed. Only one of @ConfigurationsUpdates@ or
--- @ConfigurationUpdates@ can be specified; @ConfigurationsUpdates@ for a
--- workgroup with multi engine support (for example, an Apache Spark
--- enabled workgroup) or @ConfigurationUpdates@ for an Athena SQL
--- workgroup.
+-- cannot be changed. Only @ConfigurationUpdates@ can be specified.
 module Amazonka.Athena.UpdateWorkGroup
   ( -- * Creating a Request
     UpdateWorkGroup (..),
@@ -126,7 +122,8 @@ instance Core.AWSRequest UpdateWorkGroup where
 
 instance Prelude.Hashable UpdateWorkGroup where
   hashWithSalt _salt UpdateWorkGroup' {..} =
-    _salt `Prelude.hashWithSalt` configurationUpdates
+    _salt
+      `Prelude.hashWithSalt` configurationUpdates
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` workGroup

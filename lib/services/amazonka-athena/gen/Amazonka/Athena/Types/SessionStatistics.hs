@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains statistics for a notebook session.
+-- | Contains statistics for a session.
 --
 -- /See:/ 'newSessionStatistics' smart constructor.
 data SessionStatistics = SessionStatistics'

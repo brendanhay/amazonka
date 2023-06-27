@@ -118,7 +118,8 @@ instance Core.AWSRequest ListPreparedStatements where
       ( \s h x ->
           ListPreparedStatementsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "PreparedStatements"
+            Prelude.<*> ( x
+                            Data..?> "PreparedStatements"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -126,7 +127,8 @@ instance Core.AWSRequest ListPreparedStatements where
 
 instance Prelude.Hashable ListPreparedStatements where
   hashWithSalt _salt ListPreparedStatements' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workGroup
 

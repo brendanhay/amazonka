@@ -91,7 +91,8 @@ instance Data.FromJSON UnprocessedNamedQueryId where
 
 instance Prelude.Hashable UnprocessedNamedQueryId where
   hashWithSalt _salt UnprocessedNamedQueryId' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` namedQueryId
 

@@ -28,11 +28,12 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The configuration information that will be updated for this workgroup,
--- which includes the location in Amazon S3 where query results are stored,
--- the encryption option, if any, used for query results, whether the
--- Amazon CloudWatch Metrics are enabled for the workgroup, whether the
--- workgroup settings override the client-side settings, and the data usage
--- limit for the amount of bytes scanned per query, if it is specified.
+-- which includes the location in Amazon S3 where query and calculation
+-- results are stored, the encryption option, if any, used for query
+-- results, whether the Amazon CloudWatch Metrics are enabled for the
+-- workgroup, whether the workgroup settings override the client-side
+-- settings, and the data usage limit for the amount of bytes scanned per
+-- query, if it is specified.
 --
 -- /See:/ 'newWorkGroupConfigurationUpdates' smart constructor.
 data WorkGroupConfigurationUpdates = WorkGroupConfigurationUpdates'
@@ -43,6 +44,18 @@ data WorkGroupConfigurationUpdates = WorkGroupConfigurationUpdates'
     -- workgroup is allowed to scan.
     bytesScannedCutoffPerQuery :: Prelude.Maybe Prelude.Natural,
     customerContentEncryptionConfiguration :: Prelude.Maybe CustomerContentEncryptionConfiguration,
+    -- | Enforces a minimal level of encryption for the workgroup for query and
+    -- calculation results that are written to Amazon S3. When enabled,
+    -- workgroup users can set encryption only to the minimum level set by the
+    -- administrator or higher when they submit queries. This setting does not
+    -- apply to Spark-enabled workgroups.
+    --
+    -- The @EnforceWorkGroupConfiguration@ setting takes precedence over the
+    -- @EnableMinimumEncryptionConfiguration@ flag. This means that if
+    -- @EnforceWorkGroupConfiguration@ is true, the
+    -- @EnableMinimumEncryptionConfiguration@ flag is ignored, and the
+    -- workgroup configuration for encryption is used.
+    enableMinimumEncryptionConfiguration :: Prelude.Maybe Prelude.Bool,
     -- | If set to \"true\", the settings for the workgroup override client-side
     -- settings. If set to \"false\" client-side settings are used. For more
     -- information, see
@@ -62,7 +75,8 @@ data WorkGroupConfigurationUpdates = WorkGroupConfigurationUpdates'
     -- | Indicates that the data usage control limit per query is removed.
     -- WorkGroupConfiguration$BytesScannedCutoffPerQuery
     removeBytesScannedCutoffPerQuery :: Prelude.Maybe Prelude.Bool,
-    -- | Removes content encryption configuration for a workgroup.
+    -- | Removes content encryption configuration from an Apache Spark-enabled
+    -- Athena workgroup.
     removeCustomerContentEncryptionConfiguration :: Prelude.Maybe Prelude.Bool,
     -- | If set to @true@, allows members assigned to a workgroup to specify
     -- Amazon S3 Requester Pays buckets in queries. If set to @false@,
@@ -96,6 +110,18 @@ data WorkGroupConfigurationUpdates = WorkGroupConfigurationUpdates'
 --
 -- 'customerContentEncryptionConfiguration', 'workGroupConfigurationUpdates_customerContentEncryptionConfiguration' - Undocumented member.
 --
+-- 'enableMinimumEncryptionConfiguration', 'workGroupConfigurationUpdates_enableMinimumEncryptionConfiguration' - Enforces a minimal level of encryption for the workgroup for query and
+-- calculation results that are written to Amazon S3. When enabled,
+-- workgroup users can set encryption only to the minimum level set by the
+-- administrator or higher when they submit queries. This setting does not
+-- apply to Spark-enabled workgroups.
+--
+-- The @EnforceWorkGroupConfiguration@ setting takes precedence over the
+-- @EnableMinimumEncryptionConfiguration@ flag. This means that if
+-- @EnforceWorkGroupConfiguration@ is true, the
+-- @EnableMinimumEncryptionConfiguration@ flag is ignored, and the
+-- workgroup configuration for encryption is used.
+--
 -- 'enforceWorkGroupConfiguration', 'workGroupConfigurationUpdates_enforceWorkGroupConfiguration' - If set to \"true\", the settings for the workgroup override client-side
 -- settings. If set to \"false\" client-side settings are used. For more
 -- information, see
@@ -115,7 +141,8 @@ data WorkGroupConfigurationUpdates = WorkGroupConfigurationUpdates'
 -- 'removeBytesScannedCutoffPerQuery', 'workGroupConfigurationUpdates_removeBytesScannedCutoffPerQuery' - Indicates that the data usage control limit per query is removed.
 -- WorkGroupConfiguration$BytesScannedCutoffPerQuery
 --
--- 'removeCustomerContentEncryptionConfiguration', 'workGroupConfigurationUpdates_removeCustomerContentEncryptionConfiguration' - Removes content encryption configuration for a workgroup.
+-- 'removeCustomerContentEncryptionConfiguration', 'workGroupConfigurationUpdates_removeCustomerContentEncryptionConfiguration' - Removes content encryption configuration from an Apache Spark-enabled
+-- Athena workgroup.
 --
 -- 'requesterPaysEnabled', 'workGroupConfigurationUpdates_requesterPaysEnabled' - If set to @true@, allows members assigned to a workgroup to specify
 -- Amazon S3 Requester Pays buckets in queries. If set to @false@,
@@ -137,6 +164,8 @@ newWorkGroupConfigurationUpdates =
         Prelude.Nothing,
       bytesScannedCutoffPerQuery = Prelude.Nothing,
       customerContentEncryptionConfiguration =
+        Prelude.Nothing,
+      enableMinimumEncryptionConfiguration =
         Prelude.Nothing,
       enforceWorkGroupConfiguration =
         Prelude.Nothing,
@@ -165,6 +194,20 @@ workGroupConfigurationUpdates_bytesScannedCutoffPerQuery = Lens.lens (\WorkGroup
 -- | Undocumented member.
 workGroupConfigurationUpdates_customerContentEncryptionConfiguration :: Lens.Lens' WorkGroupConfigurationUpdates (Prelude.Maybe CustomerContentEncryptionConfiguration)
 workGroupConfigurationUpdates_customerContentEncryptionConfiguration = Lens.lens (\WorkGroupConfigurationUpdates' {customerContentEncryptionConfiguration} -> customerContentEncryptionConfiguration) (\s@WorkGroupConfigurationUpdates' {} a -> s {customerContentEncryptionConfiguration = a} :: WorkGroupConfigurationUpdates)
+
+-- | Enforces a minimal level of encryption for the workgroup for query and
+-- calculation results that are written to Amazon S3. When enabled,
+-- workgroup users can set encryption only to the minimum level set by the
+-- administrator or higher when they submit queries. This setting does not
+-- apply to Spark-enabled workgroups.
+--
+-- The @EnforceWorkGroupConfiguration@ setting takes precedence over the
+-- @EnableMinimumEncryptionConfiguration@ flag. This means that if
+-- @EnforceWorkGroupConfiguration@ is true, the
+-- @EnableMinimumEncryptionConfiguration@ flag is ignored, and the
+-- workgroup configuration for encryption is used.
+workGroupConfigurationUpdates_enableMinimumEncryptionConfiguration :: Lens.Lens' WorkGroupConfigurationUpdates (Prelude.Maybe Prelude.Bool)
+workGroupConfigurationUpdates_enableMinimumEncryptionConfiguration = Lens.lens (\WorkGroupConfigurationUpdates' {enableMinimumEncryptionConfiguration} -> enableMinimumEncryptionConfiguration) (\s@WorkGroupConfigurationUpdates' {} a -> s {enableMinimumEncryptionConfiguration = a} :: WorkGroupConfigurationUpdates)
 
 -- | If set to \"true\", the settings for the workgroup override client-side
 -- settings. If set to \"false\" client-side settings are used. For more
@@ -195,7 +238,8 @@ workGroupConfigurationUpdates_publishCloudWatchMetricsEnabled = Lens.lens (\Work
 workGroupConfigurationUpdates_removeBytesScannedCutoffPerQuery :: Lens.Lens' WorkGroupConfigurationUpdates (Prelude.Maybe Prelude.Bool)
 workGroupConfigurationUpdates_removeBytesScannedCutoffPerQuery = Lens.lens (\WorkGroupConfigurationUpdates' {removeBytesScannedCutoffPerQuery} -> removeBytesScannedCutoffPerQuery) (\s@WorkGroupConfigurationUpdates' {} a -> s {removeBytesScannedCutoffPerQuery = a} :: WorkGroupConfigurationUpdates)
 
--- | Removes content encryption configuration for a workgroup.
+-- | Removes content encryption configuration from an Apache Spark-enabled
+-- Athena workgroup.
 workGroupConfigurationUpdates_removeCustomerContentEncryptionConfiguration :: Lens.Lens' WorkGroupConfigurationUpdates (Prelude.Maybe Prelude.Bool)
 workGroupConfigurationUpdates_removeCustomerContentEncryptionConfiguration = Lens.lens (\WorkGroupConfigurationUpdates' {removeCustomerContentEncryptionConfiguration} -> removeCustomerContentEncryptionConfiguration) (\s@WorkGroupConfigurationUpdates' {} a -> s {removeCustomerContentEncryptionConfiguration = a} :: WorkGroupConfigurationUpdates)
 
@@ -225,6 +269,7 @@ instance
       `Prelude.hashWithSalt` additionalConfiguration
       `Prelude.hashWithSalt` bytesScannedCutoffPerQuery
       `Prelude.hashWithSalt` customerContentEncryptionConfiguration
+      `Prelude.hashWithSalt` enableMinimumEncryptionConfiguration
       `Prelude.hashWithSalt` enforceWorkGroupConfiguration
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` executionRole
@@ -239,6 +284,7 @@ instance Prelude.NFData WorkGroupConfigurationUpdates where
     Prelude.rnf additionalConfiguration
       `Prelude.seq` Prelude.rnf bytesScannedCutoffPerQuery
       `Prelude.seq` Prelude.rnf customerContentEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf enableMinimumEncryptionConfiguration
       `Prelude.seq` Prelude.rnf enforceWorkGroupConfiguration
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf executionRole
@@ -259,6 +305,8 @@ instance Data.ToJSON WorkGroupConfigurationUpdates where
               Prelude.<$> bytesScannedCutoffPerQuery,
             ("CustomerContentEncryptionConfiguration" Data..=)
               Prelude.<$> customerContentEncryptionConfiguration,
+            ("EnableMinimumEncryptionConfiguration" Data..=)
+              Prelude.<$> enableMinimumEncryptionConfiguration,
             ("EnforceWorkGroupConfiguration" Data..=)
               Prelude.<$> enforceWorkGroupConfiguration,
             ("EngineVersion" Data..=) Prelude.<$> engineVersion,

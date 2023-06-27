@@ -144,7 +144,8 @@ instance Core.AWSRequest CreateNotebook where
 
 instance Prelude.Hashable CreateNotebook where
   hashWithSalt _salt CreateNotebook' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` workGroup
       `Prelude.hashWithSalt` name
 

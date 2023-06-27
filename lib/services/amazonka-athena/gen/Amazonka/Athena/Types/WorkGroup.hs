@@ -41,12 +41,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newWorkGroup' smart constructor.
 data WorkGroup = WorkGroup'
   { -- | The configuration of the workgroup, which includes the location in
-    -- Amazon S3 where query results are stored, the encryption configuration,
-    -- if any, used for query results; whether the Amazon CloudWatch Metrics
-    -- are enabled for the workgroup; whether workgroup settings override
-    -- client-side settings; and the data usage limits for the amount of data
-    -- scanned per query or per workgroup. The workgroup settings override is
-    -- specified in @EnforceWorkGroupConfiguration@ (true\/false) in the
+    -- Amazon S3 where query and calculation results are stored, the encryption
+    -- configuration, if any, used for query and calculation results; whether
+    -- the Amazon CloudWatch Metrics are enabled for the workgroup; whether
+    -- workgroup settings override client-side settings; and the data usage
+    -- limits for the amount of data scanned per query or per workgroup. The
+    -- workgroup settings override is specified in
+    -- @EnforceWorkGroupConfiguration@ (true\/false) in the
     -- @WorkGroupConfiguration@. See
     -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
     configuration :: Prelude.Maybe WorkGroupConfiguration,
@@ -70,12 +71,13 @@ data WorkGroup = WorkGroup'
 -- for backwards compatibility:
 --
 -- 'configuration', 'workGroup_configuration' - The configuration of the workgroup, which includes the location in
--- Amazon S3 where query results are stored, the encryption configuration,
--- if any, used for query results; whether the Amazon CloudWatch Metrics
--- are enabled for the workgroup; whether workgroup settings override
--- client-side settings; and the data usage limits for the amount of data
--- scanned per query or per workgroup. The workgroup settings override is
--- specified in @EnforceWorkGroupConfiguration@ (true\/false) in the
+-- Amazon S3 where query and calculation results are stored, the encryption
+-- configuration, if any, used for query and calculation results; whether
+-- the Amazon CloudWatch Metrics are enabled for the workgroup; whether
+-- workgroup settings override client-side settings; and the data usage
+-- limits for the amount of data scanned per query or per workgroup. The
+-- workgroup settings override is specified in
+-- @EnforceWorkGroupConfiguration@ (true\/false) in the
 -- @WorkGroupConfiguration@. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
 --
@@ -100,12 +102,13 @@ newWorkGroup pName_ =
     }
 
 -- | The configuration of the workgroup, which includes the location in
--- Amazon S3 where query results are stored, the encryption configuration,
--- if any, used for query results; whether the Amazon CloudWatch Metrics
--- are enabled for the workgroup; whether workgroup settings override
--- client-side settings; and the data usage limits for the amount of data
--- scanned per query or per workgroup. The workgroup settings override is
--- specified in @EnforceWorkGroupConfiguration@ (true\/false) in the
+-- Amazon S3 where query and calculation results are stored, the encryption
+-- configuration, if any, used for query and calculation results; whether
+-- the Amazon CloudWatch Metrics are enabled for the workgroup; whether
+-- workgroup settings override client-side settings; and the data usage
+-- limits for the amount of data scanned per query or per workgroup. The
+-- workgroup settings override is specified in
+-- @EnforceWorkGroupConfiguration@ (true\/false) in the
 -- @WorkGroupConfiguration@. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
 workGroup_configuration :: Lens.Lens' WorkGroup (Prelude.Maybe WorkGroupConfiguration)
@@ -142,7 +145,8 @@ instance Data.FromJSON WorkGroup where
 
 instance Prelude.Hashable WorkGroup where
   hashWithSalt _salt WorkGroup' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` state

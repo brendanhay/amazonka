@@ -33,6 +33,16 @@ module Amazonka.Athena.Lens
     batchGetQueryExecutionResponse_unprocessedQueryExecutionIds,
     batchGetQueryExecutionResponse_httpStatus,
 
+    -- ** CancelCapacityReservation
+    cancelCapacityReservation_name,
+    cancelCapacityReservationResponse_httpStatus,
+
+    -- ** CreateCapacityReservation
+    createCapacityReservation_tags,
+    createCapacityReservation_targetDpus,
+    createCapacityReservation_name,
+    createCapacityReservationResponse_httpStatus,
+
     -- ** CreateDataCatalog
     createDataCatalog_description,
     createDataCatalog_parameters,
@@ -78,6 +88,10 @@ module Amazonka.Athena.Lens
     createWorkGroup_tags,
     createWorkGroup_name,
     createWorkGroupResponse_httpStatus,
+
+    -- ** DeleteCapacityReservation
+    deleteCapacityReservation_name,
+    deleteCapacityReservationResponse_httpStatus,
 
     -- ** DeleteDataCatalog
     deleteDataCatalog_name,
@@ -128,6 +142,16 @@ module Amazonka.Athena.Lens
     getCalculationExecutionStatusResponse_statistics,
     getCalculationExecutionStatusResponse_status,
     getCalculationExecutionStatusResponse_httpStatus,
+
+    -- ** GetCapacityAssignmentConfiguration
+    getCapacityAssignmentConfiguration_capacityReservationName,
+    getCapacityAssignmentConfigurationResponse_httpStatus,
+    getCapacityAssignmentConfigurationResponse_capacityAssignmentConfiguration,
+
+    -- ** GetCapacityReservation
+    getCapacityReservation_name,
+    getCapacityReservationResponse_httpStatus,
+    getCapacityReservationResponse_capacityReservation,
 
     -- ** GetDataCatalog
     getDataCatalog_name,
@@ -230,6 +254,13 @@ module Amazonka.Athena.Lens
     listCalculationExecutionsResponse_calculations,
     listCalculationExecutionsResponse_nextToken,
     listCalculationExecutionsResponse_httpStatus,
+
+    -- ** ListCapacityReservations
+    listCapacityReservations_maxResults,
+    listCapacityReservations_nextToken,
+    listCapacityReservationsResponse_nextToken,
+    listCapacityReservationsResponse_httpStatus,
+    listCapacityReservationsResponse_capacityReservations,
 
     -- ** ListDataCatalogs
     listDataCatalogs_maxResults,
@@ -338,6 +369,11 @@ module Amazonka.Athena.Lens
     listWorkGroupsResponse_workGroups,
     listWorkGroupsResponse_httpStatus,
 
+    -- ** PutCapacityAssignmentConfiguration
+    putCapacityAssignmentConfiguration_capacityReservationName,
+    putCapacityAssignmentConfiguration_capacityAssignments,
+    putCapacityAssignmentConfigurationResponse_httpStatus,
+
     -- ** StartCalculationExecution
     startCalculationExecution_calculationConfiguration,
     startCalculationExecution_clientRequestToken,
@@ -393,6 +429,11 @@ module Amazonka.Athena.Lens
     untagResource_resourceARN,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
+
+    -- ** UpdateCapacityReservation
+    updateCapacityReservation_targetDpus,
+    updateCapacityReservation_name,
+    updateCapacityReservationResponse_httpStatus,
 
     -- ** UpdateDataCatalog
     updateDataCatalog_description,
@@ -475,6 +516,28 @@ module Amazonka.Athena.Lens
     calculationSummary_description,
     calculationSummary_status,
 
+    -- ** CapacityAllocation
+    capacityAllocation_requestCompletionTime,
+    capacityAllocation_statusMessage,
+    capacityAllocation_status,
+    capacityAllocation_requestTime,
+
+    -- ** CapacityAssignment
+    capacityAssignment_workGroupNames,
+
+    -- ** CapacityAssignmentConfiguration
+    capacityAssignmentConfiguration_capacityAssignments,
+    capacityAssignmentConfiguration_capacityReservationName,
+
+    -- ** CapacityReservation
+    capacityReservation_lastAllocation,
+    capacityReservation_lastSuccessfulAllocationTime,
+    capacityReservation_name,
+    capacityReservation_status,
+    capacityReservation_targetDpus,
+    capacityReservation_allocatedDpus,
+    capacityReservation_creationTime,
+
     -- ** Column
     column_comment,
     column_type,
@@ -521,6 +584,7 @@ module Amazonka.Athena.Lens
     engineConfiguration_additionalConfigs,
     engineConfiguration_coordinatorDpuSize,
     engineConfiguration_defaultExecutorDpuSize,
+    engineConfiguration_sparkProperties,
     engineConfiguration_maxConcurrentDpus,
 
     -- ** EngineVersion
@@ -580,6 +644,7 @@ module Amazonka.Athena.Lens
     queryExecution_statementType,
     queryExecution_statistics,
     queryExecution_status,
+    queryExecution_substatementType,
     queryExecution_workGroup,
 
     -- ** QueryExecutionContext
@@ -737,6 +802,7 @@ module Amazonka.Athena.Lens
     workGroupConfiguration_additionalConfiguration,
     workGroupConfiguration_bytesScannedCutoffPerQuery,
     workGroupConfiguration_customerContentEncryptionConfiguration,
+    workGroupConfiguration_enableMinimumEncryptionConfiguration,
     workGroupConfiguration_enforceWorkGroupConfiguration,
     workGroupConfiguration_engineVersion,
     workGroupConfiguration_executionRole,
@@ -748,6 +814,7 @@ module Amazonka.Athena.Lens
     workGroupConfigurationUpdates_additionalConfiguration,
     workGroupConfigurationUpdates_bytesScannedCutoffPerQuery,
     workGroupConfigurationUpdates_customerContentEncryptionConfiguration,
+    workGroupConfigurationUpdates_enableMinimumEncryptionConfiguration,
     workGroupConfigurationUpdates_enforceWorkGroupConfiguration,
     workGroupConfigurationUpdates_engineVersion,
     workGroupConfigurationUpdates_executionRole,
@@ -769,12 +836,15 @@ where
 import Amazonka.Athena.BatchGetNamedQuery
 import Amazonka.Athena.BatchGetPreparedStatement
 import Amazonka.Athena.BatchGetQueryExecution
+import Amazonka.Athena.CancelCapacityReservation
+import Amazonka.Athena.CreateCapacityReservation
 import Amazonka.Athena.CreateDataCatalog
 import Amazonka.Athena.CreateNamedQuery
 import Amazonka.Athena.CreateNotebook
 import Amazonka.Athena.CreatePreparedStatement
 import Amazonka.Athena.CreatePresignedNotebookUrl
 import Amazonka.Athena.CreateWorkGroup
+import Amazonka.Athena.DeleteCapacityReservation
 import Amazonka.Athena.DeleteDataCatalog
 import Amazonka.Athena.DeleteNamedQuery
 import Amazonka.Athena.DeleteNotebook
@@ -784,6 +854,8 @@ import Amazonka.Athena.ExportNotebook
 import Amazonka.Athena.GetCalculationExecution
 import Amazonka.Athena.GetCalculationExecutionCode
 import Amazonka.Athena.GetCalculationExecutionStatus
+import Amazonka.Athena.GetCapacityAssignmentConfiguration
+import Amazonka.Athena.GetCapacityReservation
 import Amazonka.Athena.GetDataCatalog
 import Amazonka.Athena.GetDatabase
 import Amazonka.Athena.GetNamedQuery
@@ -799,6 +871,7 @@ import Amazonka.Athena.GetWorkGroup
 import Amazonka.Athena.ImportNotebook
 import Amazonka.Athena.ListApplicationDPUSizes
 import Amazonka.Athena.ListCalculationExecutions
+import Amazonka.Athena.ListCapacityReservations
 import Amazonka.Athena.ListDataCatalogs
 import Amazonka.Athena.ListDatabases
 import Amazonka.Athena.ListEngineVersions
@@ -812,6 +885,7 @@ import Amazonka.Athena.ListSessions
 import Amazonka.Athena.ListTableMetadata
 import Amazonka.Athena.ListTagsForResource
 import Amazonka.Athena.ListWorkGroups
+import Amazonka.Athena.PutCapacityAssignmentConfiguration
 import Amazonka.Athena.StartCalculationExecution
 import Amazonka.Athena.StartQueryExecution
 import Amazonka.Athena.StartSession
@@ -827,6 +901,10 @@ import Amazonka.Athena.Types.CalculationResult
 import Amazonka.Athena.Types.CalculationStatistics
 import Amazonka.Athena.Types.CalculationStatus
 import Amazonka.Athena.Types.CalculationSummary
+import Amazonka.Athena.Types.CapacityAllocation
+import Amazonka.Athena.Types.CapacityAssignment
+import Amazonka.Athena.Types.CapacityAssignmentConfiguration
+import Amazonka.Athena.Types.CapacityReservation
 import Amazonka.Athena.Types.Column
 import Amazonka.Athena.Types.ColumnInfo
 import Amazonka.Athena.Types.CustomerContentEncryptionConfiguration
@@ -875,6 +953,7 @@ import Amazonka.Athena.Types.WorkGroupConfiguration
 import Amazonka.Athena.Types.WorkGroupConfigurationUpdates
 import Amazonka.Athena.Types.WorkGroupSummary
 import Amazonka.Athena.UntagResource
+import Amazonka.Athena.UpdateCapacityReservation
 import Amazonka.Athena.UpdateDataCatalog
 import Amazonka.Athena.UpdateNamedQuery
 import Amazonka.Athena.UpdateNotebook

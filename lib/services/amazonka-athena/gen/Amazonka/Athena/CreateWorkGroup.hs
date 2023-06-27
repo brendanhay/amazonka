@@ -20,10 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a workgroup with the specified name. Only one of
--- @Configurations@ or @Configuration@ can be specified; @Configurations@
--- for a workgroup with multi engine support (for example, an Apache Spark
--- enabled workgroup) or @Configuration@ for an Athena SQL workgroup.
+-- Creates a workgroup with the specified name. A workgroup can be an
+-- Apache Spark enabled workgroup or an Athena SQL workgroup.
 module Amazonka.Athena.CreateWorkGroup
   ( -- * Creating a Request
     CreateWorkGroup (..),
@@ -54,12 +52,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateWorkGroup' smart constructor.
 data CreateWorkGroup = CreateWorkGroup'
-  { -- | Contains configuration information for creating an Athena SQL workgroup,
-    -- which includes the location in Amazon S3 where query results are stored,
-    -- the encryption configuration, if any, used for encrypting query results,
-    -- whether the Amazon CloudWatch Metrics are enabled for the workgroup, the
-    -- limit for the amount of bytes scanned (cutoff) per query, if it is
-    -- specified, and whether workgroup\'s settings (specified with
+  { -- | Contains configuration information for creating an Athena SQL workgroup
+    -- or Spark enabled Athena workgroup. Athena SQL workgroup configuration
+    -- includes the location in Amazon S3 where query and calculation results
+    -- are stored, the encryption configuration, if any, used for encrypting
+    -- query results, whether the Amazon CloudWatch Metrics are enabled for the
+    -- workgroup, the limit for the amount of bytes scanned (cutoff) per query,
+    -- if it is specified, and whether workgroup\'s settings (specified with
     -- @EnforceWorkGroupConfiguration@) in the @WorkGroupConfiguration@
     -- override client-side settings. See
     -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
@@ -81,12 +80,13 @@ data CreateWorkGroup = CreateWorkGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configuration', 'createWorkGroup_configuration' - Contains configuration information for creating an Athena SQL workgroup,
--- which includes the location in Amazon S3 where query results are stored,
--- the encryption configuration, if any, used for encrypting query results,
--- whether the Amazon CloudWatch Metrics are enabled for the workgroup, the
--- limit for the amount of bytes scanned (cutoff) per query, if it is
--- specified, and whether workgroup\'s settings (specified with
+-- 'configuration', 'createWorkGroup_configuration' - Contains configuration information for creating an Athena SQL workgroup
+-- or Spark enabled Athena workgroup. Athena SQL workgroup configuration
+-- includes the location in Amazon S3 where query and calculation results
+-- are stored, the encryption configuration, if any, used for encrypting
+-- query results, whether the Amazon CloudWatch Metrics are enabled for the
+-- workgroup, the limit for the amount of bytes scanned (cutoff) per query,
+-- if it is specified, and whether workgroup\'s settings (specified with
 -- @EnforceWorkGroupConfiguration@) in the @WorkGroupConfiguration@
 -- override client-side settings. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
@@ -108,12 +108,13 @@ newCreateWorkGroup pName_ =
       name = pName_
     }
 
--- | Contains configuration information for creating an Athena SQL workgroup,
--- which includes the location in Amazon S3 where query results are stored,
--- the encryption configuration, if any, used for encrypting query results,
--- whether the Amazon CloudWatch Metrics are enabled for the workgroup, the
--- limit for the amount of bytes scanned (cutoff) per query, if it is
--- specified, and whether workgroup\'s settings (specified with
+-- | Contains configuration information for creating an Athena SQL workgroup
+-- or Spark enabled Athena workgroup. Athena SQL workgroup configuration
+-- includes the location in Amazon S3 where query and calculation results
+-- are stored, the encryption configuration, if any, used for encrypting
+-- query results, whether the Amazon CloudWatch Metrics are enabled for the
+-- workgroup, the limit for the amount of bytes scanned (cutoff) per query,
+-- if it is specified, and whether workgroup\'s settings (specified with
 -- @EnforceWorkGroupConfiguration@) in the @WorkGroupConfiguration@
 -- override client-side settings. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
@@ -147,7 +148,8 @@ instance Core.AWSRequest CreateWorkGroup where
 
 instance Prelude.Hashable CreateWorkGroup where
   hashWithSalt _salt CreateWorkGroup' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

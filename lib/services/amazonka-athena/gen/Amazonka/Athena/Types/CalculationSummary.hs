@@ -86,7 +86,8 @@ instance Data.FromJSON CalculationSummary where
 
 instance Prelude.Hashable CalculationSummary where
   hashWithSalt _salt CalculationSummary' {..} =
-    _salt `Prelude.hashWithSalt` calculationExecutionId
+    _salt
+      `Prelude.hashWithSalt` calculationExecutionId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` status
 

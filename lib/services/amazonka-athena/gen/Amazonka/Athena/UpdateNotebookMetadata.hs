@@ -134,7 +134,8 @@ instance Core.AWSRequest UpdateNotebookMetadata where
 
 instance Prelude.Hashable UpdateNotebookMetadata where
   hashWithSalt _salt UpdateNotebookMetadata' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` notebookId
       `Prelude.hashWithSalt` name
 

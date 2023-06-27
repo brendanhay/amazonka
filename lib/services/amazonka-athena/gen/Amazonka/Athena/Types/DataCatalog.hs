@@ -28,6 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 -- | Contains information about a data catalog in an Amazon Web Services
 -- account.
 --
+-- In the Athena console, data catalogs are listed as \"data sources\" on
+-- the __Data sources__ page under the __Data source name__ column.
+--
 -- /See:/ 'newDataCatalog' smart constructor.
 data DataCatalog = DataCatalog'
   { -- | An optional description of the data catalog.
@@ -40,7 +43,7 @@ data DataCatalog = DataCatalog'
     --     parameter is optional and defaults to the currently supported
     --     version.
     --
-    --     @metadata-function=lambda_arn, sdk-version=version_number @
+    --     @metadata-function=@/@lambda_arn@/@, sdk-version=@/@version_number@/@ @
     --
     -- -   For the @LAMBDA@ data catalog type, use one of the following sets of
     --     required parameters, but not both.
@@ -49,19 +52,19 @@ data DataCatalog = DataCatalog'
     --         another for reading the actual data, use the following syntax.
     --         Both parameters are required.
     --
-    --         @metadata-function=lambda_arn, record-function=lambda_arn @
+    --         @metadata-function=@/@lambda_arn@/@, record-function=@/@lambda_arn@/@ @
     --
     --     -   If you have a composite Lambda function that processes both
     --         metadata and data, use the following syntax to specify your
     --         Lambda function.
     --
-    --         @function=lambda_arn @
+    --         @function=@/@lambda_arn@/@ @
     --
     -- -   The @GLUE@ type takes a catalog ID parameter and is required. The
-    --     @ catalog_id @ is the account ID of the Amazon Web Services account
-    --     to which the Glue catalog belongs.
+    --     @ @/@catalog_id@/@ @ is the account ID of the Amazon Web Services
+    --     account to which the Glue catalog belongs.
     --
-    --     @catalog-id=catalog_id @
+    --     @catalog-id=@/@catalog_id@/@ @
     --
     --     -   The @GLUE@ data catalog type also applies to the default
     --         @AwsDataCatalog@ that already exists in your account, of which
@@ -100,7 +103,7 @@ data DataCatalog = DataCatalog'
 --     parameter is optional and defaults to the currently supported
 --     version.
 --
---     @metadata-function=lambda_arn, sdk-version=version_number @
+--     @metadata-function=@/@lambda_arn@/@, sdk-version=@/@version_number@/@ @
 --
 -- -   For the @LAMBDA@ data catalog type, use one of the following sets of
 --     required parameters, but not both.
@@ -109,19 +112,19 @@ data DataCatalog = DataCatalog'
 --         another for reading the actual data, use the following syntax.
 --         Both parameters are required.
 --
---         @metadata-function=lambda_arn, record-function=lambda_arn @
+--         @metadata-function=@/@lambda_arn@/@, record-function=@/@lambda_arn@/@ @
 --
 --     -   If you have a composite Lambda function that processes both
 --         metadata and data, use the following syntax to specify your
 --         Lambda function.
 --
---         @function=lambda_arn @
+--         @function=@/@lambda_arn@/@ @
 --
 -- -   The @GLUE@ type takes a catalog ID parameter and is required. The
---     @ catalog_id @ is the account ID of the Amazon Web Services account
---     to which the Glue catalog belongs.
+--     @ @/@catalog_id@/@ @ is the account ID of the Amazon Web Services
+--     account to which the Glue catalog belongs.
 --
---     @catalog-id=catalog_id @
+--     @catalog-id=@/@catalog_id@/@ @
 --
 --     -   The @GLUE@ data catalog type also applies to the default
 --         @AwsDataCatalog@ that already exists in your account, of which
@@ -164,7 +167,7 @@ dataCatalog_description = Lens.lens (\DataCatalog' {description} -> description)
 --     parameter is optional and defaults to the currently supported
 --     version.
 --
---     @metadata-function=lambda_arn, sdk-version=version_number @
+--     @metadata-function=@/@lambda_arn@/@, sdk-version=@/@version_number@/@ @
 --
 -- -   For the @LAMBDA@ data catalog type, use one of the following sets of
 --     required parameters, but not both.
@@ -173,19 +176,19 @@ dataCatalog_description = Lens.lens (\DataCatalog' {description} -> description)
 --         another for reading the actual data, use the following syntax.
 --         Both parameters are required.
 --
---         @metadata-function=lambda_arn, record-function=lambda_arn @
+--         @metadata-function=@/@lambda_arn@/@, record-function=@/@lambda_arn@/@ @
 --
 --     -   If you have a composite Lambda function that processes both
 --         metadata and data, use the following syntax to specify your
 --         Lambda function.
 --
---         @function=lambda_arn @
+--         @function=@/@lambda_arn@/@ @
 --
 -- -   The @GLUE@ type takes a catalog ID parameter and is required. The
---     @ catalog_id @ is the account ID of the Amazon Web Services account
---     to which the Glue catalog belongs.
+--     @ @/@catalog_id@/@ @ is the account ID of the Amazon Web Services
+--     account to which the Glue catalog belongs.
 --
---     @catalog-id=catalog_id @
+--     @catalog-id=@/@catalog_id@/@ @
 --
 --     -   The @GLUE@ data catalog type also applies to the default
 --         @AwsDataCatalog@ that already exists in your account, of which
@@ -223,7 +226,8 @@ instance Data.FromJSON DataCatalog where
 
 instance Prelude.Hashable DataCatalog where
   hashWithSalt _salt DataCatalog' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'

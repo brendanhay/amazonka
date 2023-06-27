@@ -23,7 +23,7 @@
 -- Streams the results of a single query execution specified by
 -- @QueryExecutionId@ from the Athena query results location in Amazon S3.
 -- For more information, see
--- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Query Results>
+-- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Working with query results, recent queries, and output files>
 -- in the /Amazon Athena User Guide/. This request does not execute the
 -- query but returns results. Use StartQueryExecution to run a query.
 --
@@ -129,24 +129,24 @@ instance Core.AWSPager GetQueryResults where
     | Core.stop
         ( rs
             Lens.^? getQueryResultsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getQueryResultsResponse_resultSet
-              Prelude.. Lens._Just
-              Prelude.. resultSet_rows
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
+            Prelude.. resultSet_rows
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getQueryResults_nextToken
           Lens..~ rs
           Lens.^? getQueryResultsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetQueryResults where
   type
@@ -166,7 +166,8 @@ instance Core.AWSRequest GetQueryResults where
 
 instance Prelude.Hashable GetQueryResults where
   hashWithSalt _salt GetQueryResults' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` queryExecutionId
 

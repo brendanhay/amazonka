@@ -36,6 +36,12 @@ import Test.Tasty
 --         , requestBatchGetQueryExecution $
 --             newBatchGetQueryExecution
 --
+--         , requestCancelCapacityReservation $
+--             newCancelCapacityReservation
+--
+--         , requestCreateCapacityReservation $
+--             newCreateCapacityReservation
+--
 --         , requestCreateDataCatalog $
 --             newCreateDataCatalog
 --
@@ -53,6 +59,9 @@ import Test.Tasty
 --
 --         , requestCreateWorkGroup $
 --             newCreateWorkGroup
+--
+--         , requestDeleteCapacityReservation $
+--             newDeleteCapacityReservation
 --
 --         , requestDeleteDataCatalog $
 --             newDeleteDataCatalog
@@ -80,6 +89,12 @@ import Test.Tasty
 --
 --         , requestGetCalculationExecutionStatus $
 --             newGetCalculationExecutionStatus
+--
+--         , requestGetCapacityAssignmentConfiguration $
+--             newGetCapacityAssignmentConfiguration
+--
+--         , requestGetCapacityReservation $
+--             newGetCapacityReservation
 --
 --         , requestGetDataCatalog $
 --             newGetDataCatalog
@@ -126,6 +141,9 @@ import Test.Tasty
 --         , requestListCalculationExecutions $
 --             newListCalculationExecutions
 --
+--         , requestListCapacityReservations $
+--             newListCapacityReservations
+--
 --         , requestListDataCatalogs $
 --             newListDataCatalogs
 --
@@ -165,6 +183,9 @@ import Test.Tasty
 --         , requestListWorkGroups $
 --             newListWorkGroups
 --
+--         , requestPutCapacityAssignmentConfiguration $
+--             newPutCapacityAssignmentConfiguration
+--
 --         , requestStartCalculationExecution $
 --             newStartCalculationExecution
 --
@@ -188,6 +209,9 @@ import Test.Tasty
 --
 --         , requestUntagResource $
 --             newUntagResource
+--
+--         , requestUpdateCapacityReservation $
+--             newUpdateCapacityReservation
 --
 --         , requestUpdateDataCatalog $
 --             newUpdateDataCatalog
@@ -219,6 +243,12 @@ import Test.Tasty
 --         , responseBatchGetQueryExecution $
 --             newBatchGetQueryExecutionResponse
 --
+--         , responseCancelCapacityReservation $
+--             newCancelCapacityReservationResponse
+--
+--         , responseCreateCapacityReservation $
+--             newCreateCapacityReservationResponse
+--
 --         , responseCreateDataCatalog $
 --             newCreateDataCatalogResponse
 --
@@ -236,6 +266,9 @@ import Test.Tasty
 --
 --         , responseCreateWorkGroup $
 --             newCreateWorkGroupResponse
+--
+--         , responseDeleteCapacityReservation $
+--             newDeleteCapacityReservationResponse
 --
 --         , responseDeleteDataCatalog $
 --             newDeleteDataCatalogResponse
@@ -263,6 +296,12 @@ import Test.Tasty
 --
 --         , responseGetCalculationExecutionStatus $
 --             newGetCalculationExecutionStatusResponse
+--
+--         , responseGetCapacityAssignmentConfiguration $
+--             newGetCapacityAssignmentConfigurationResponse
+--
+--         , responseGetCapacityReservation $
+--             newGetCapacityReservationResponse
 --
 --         , responseGetDataCatalog $
 --             newGetDataCatalogResponse
@@ -309,6 +348,9 @@ import Test.Tasty
 --         , responseListCalculationExecutions $
 --             newListCalculationExecutionsResponse
 --
+--         , responseListCapacityReservations $
+--             newListCapacityReservationsResponse
+--
 --         , responseListDataCatalogs $
 --             newListDataCatalogsResponse
 --
@@ -348,6 +390,9 @@ import Test.Tasty
 --         , responseListWorkGroups $
 --             newListWorkGroupsResponse
 --
+--         , responsePutCapacityAssignmentConfiguration $
+--             newPutCapacityAssignmentConfigurationResponse
+--
 --         , responseStartCalculationExecution $
 --             newStartCalculationExecutionResponse
 --
@@ -371,6 +416,9 @@ import Test.Tasty
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
+--
+--         , responseUpdateCapacityReservation $
+--             newUpdateCapacityReservationResponse
 --
 --         , responseUpdateDataCatalog $
 --             newUpdateDataCatalogResponse
@@ -413,6 +461,18 @@ requestBatchGetQueryExecution =
     "BatchGetQueryExecution"
     "fixture/BatchGetQueryExecution.yaml"
 
+requestCancelCapacityReservation :: CancelCapacityReservation -> TestTree
+requestCancelCapacityReservation =
+  req
+    "CancelCapacityReservation"
+    "fixture/CancelCapacityReservation.yaml"
+
+requestCreateCapacityReservation :: CreateCapacityReservation -> TestTree
+requestCreateCapacityReservation =
+  req
+    "CreateCapacityReservation"
+    "fixture/CreateCapacityReservation.yaml"
+
 requestCreateDataCatalog :: CreateDataCatalog -> TestTree
 requestCreateDataCatalog =
   req
@@ -448,6 +508,12 @@ requestCreateWorkGroup =
   req
     "CreateWorkGroup"
     "fixture/CreateWorkGroup.yaml"
+
+requestDeleteCapacityReservation :: DeleteCapacityReservation -> TestTree
+requestDeleteCapacityReservation =
+  req
+    "DeleteCapacityReservation"
+    "fixture/DeleteCapacityReservation.yaml"
 
 requestDeleteDataCatalog :: DeleteDataCatalog -> TestTree
 requestDeleteDataCatalog =
@@ -502,6 +568,18 @@ requestGetCalculationExecutionStatus =
   req
     "GetCalculationExecutionStatus"
     "fixture/GetCalculationExecutionStatus.yaml"
+
+requestGetCapacityAssignmentConfiguration :: GetCapacityAssignmentConfiguration -> TestTree
+requestGetCapacityAssignmentConfiguration =
+  req
+    "GetCapacityAssignmentConfiguration"
+    "fixture/GetCapacityAssignmentConfiguration.yaml"
+
+requestGetCapacityReservation :: GetCapacityReservation -> TestTree
+requestGetCapacityReservation =
+  req
+    "GetCapacityReservation"
+    "fixture/GetCapacityReservation.yaml"
 
 requestGetDataCatalog :: GetDataCatalog -> TestTree
 requestGetDataCatalog =
@@ -593,6 +671,12 @@ requestListCalculationExecutions =
     "ListCalculationExecutions"
     "fixture/ListCalculationExecutions.yaml"
 
+requestListCapacityReservations :: ListCapacityReservations -> TestTree
+requestListCapacityReservations =
+  req
+    "ListCapacityReservations"
+    "fixture/ListCapacityReservations.yaml"
+
 requestListDataCatalogs :: ListDataCatalogs -> TestTree
 requestListDataCatalogs =
   req
@@ -671,6 +755,12 @@ requestListWorkGroups =
     "ListWorkGroups"
     "fixture/ListWorkGroups.yaml"
 
+requestPutCapacityAssignmentConfiguration :: PutCapacityAssignmentConfiguration -> TestTree
+requestPutCapacityAssignmentConfiguration =
+  req
+    "PutCapacityAssignmentConfiguration"
+    "fixture/PutCapacityAssignmentConfiguration.yaml"
+
 requestStartCalculationExecution :: StartCalculationExecution -> TestTree
 requestStartCalculationExecution =
   req
@@ -718,6 +808,12 @@ requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
+
+requestUpdateCapacityReservation :: UpdateCapacityReservation -> TestTree
+requestUpdateCapacityReservation =
+  req
+    "UpdateCapacityReservation"
+    "fixture/UpdateCapacityReservation.yaml"
 
 requestUpdateDataCatalog :: UpdateDataCatalog -> TestTree
 requestUpdateDataCatalog =
@@ -781,6 +877,22 @@ responseBatchGetQueryExecution =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchGetQueryExecution)
 
+responseCancelCapacityReservation :: CancelCapacityReservationResponse -> TestTree
+responseCancelCapacityReservation =
+  res
+    "CancelCapacityReservationResponse"
+    "fixture/CancelCapacityReservationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CancelCapacityReservation)
+
+responseCreateCapacityReservation :: CreateCapacityReservationResponse -> TestTree
+responseCreateCapacityReservation =
+  res
+    "CreateCapacityReservationResponse"
+    "fixture/CreateCapacityReservationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateCapacityReservation)
+
 responseCreateDataCatalog :: CreateDataCatalogResponse -> TestTree
 responseCreateDataCatalog =
   res
@@ -828,6 +940,14 @@ responseCreateWorkGroup =
     "fixture/CreateWorkGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateWorkGroup)
+
+responseDeleteCapacityReservation :: DeleteCapacityReservationResponse -> TestTree
+responseDeleteCapacityReservation =
+  res
+    "DeleteCapacityReservationResponse"
+    "fixture/DeleteCapacityReservationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteCapacityReservation)
 
 responseDeleteDataCatalog :: DeleteDataCatalogResponse -> TestTree
 responseDeleteDataCatalog =
@@ -900,6 +1020,22 @@ responseGetCalculationExecutionStatus =
     "fixture/GetCalculationExecutionStatusResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetCalculationExecutionStatus)
+
+responseGetCapacityAssignmentConfiguration :: GetCapacityAssignmentConfigurationResponse -> TestTree
+responseGetCapacityAssignmentConfiguration =
+  res
+    "GetCapacityAssignmentConfigurationResponse"
+    "fixture/GetCapacityAssignmentConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetCapacityAssignmentConfiguration)
+
+responseGetCapacityReservation :: GetCapacityReservationResponse -> TestTree
+responseGetCapacityReservation =
+  res
+    "GetCapacityReservationResponse"
+    "fixture/GetCapacityReservationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetCapacityReservation)
 
 responseGetDataCatalog :: GetDataCatalogResponse -> TestTree
 responseGetDataCatalog =
@@ -1021,6 +1157,14 @@ responseListCalculationExecutions =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListCalculationExecutions)
 
+responseListCapacityReservations :: ListCapacityReservationsResponse -> TestTree
+responseListCapacityReservations =
+  res
+    "ListCapacityReservationsResponse"
+    "fixture/ListCapacityReservationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCapacityReservations)
+
 responseListDataCatalogs :: ListDataCatalogsResponse -> TestTree
 responseListDataCatalogs =
   res
@@ -1125,6 +1269,14 @@ responseListWorkGroups =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListWorkGroups)
 
+responsePutCapacityAssignmentConfiguration :: PutCapacityAssignmentConfigurationResponse -> TestTree
+responsePutCapacityAssignmentConfiguration =
+  res
+    "PutCapacityAssignmentConfigurationResponse"
+    "fixture/PutCapacityAssignmentConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutCapacityAssignmentConfiguration)
+
 responseStartCalculationExecution :: StartCalculationExecutionResponse -> TestTree
 responseStartCalculationExecution =
   res
@@ -1188,6 +1340,14 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateCapacityReservation :: UpdateCapacityReservationResponse -> TestTree
+responseUpdateCapacityReservation =
+  res
+    "UpdateCapacityReservationResponse"
+    "fixture/UpdateCapacityReservationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateCapacityReservation)
 
 responseUpdateDataCatalog :: UpdateDataCatalogResponse -> TestTree
 responseUpdateDataCatalog =

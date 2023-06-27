@@ -22,7 +22,9 @@
 --
 -- Gets an authentication token and the URL at which the notebook can be
 -- accessed. During programmatic access, @CreatePresignedNotebookUrl@ must
--- be called every 10 minutes to refresh the authentication token.
+-- be called every 10 minutes to refresh the authentication token. For
+-- information about granting programmatic access, see
+-- <https://docs.aws.amazon.com/athena/latest/ug/setting-up.html#setting-up-grant-programmatic-access Grant programmatic access>.
 module Amazonka.Athena.CreatePresignedNotebookUrl
   ( -- * Creating a Request
     CreatePresignedNotebookUrl (..),

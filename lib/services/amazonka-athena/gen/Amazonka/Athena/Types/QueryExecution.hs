@@ -39,7 +39,8 @@ data QueryExecution = QueryExecution'
     engineVersion :: Prelude.Maybe EngineVersion,
     -- | A list of values for the parameters in a query. The values are applied
     -- sequentially to the parameters in the query in the order in which the
-    -- parameters occur.
+    -- parameters occur. The list of parameters is not returned in the
+    -- response.
     executionParameters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The SQL query statements which the query execution ran.
     query :: Prelude.Maybe Prelude.Text,
@@ -47,11 +48,12 @@ data QueryExecution = QueryExecution'
     queryExecutionContext :: Prelude.Maybe QueryExecutionContext,
     -- | The unique identifier for each query execution.
     queryExecutionId :: Prelude.Maybe Prelude.Text,
-    -- | The location in Amazon S3 where query results were stored and the
-    -- encryption option, if any, used for query results. These are known as
-    -- \"client-side settings\". If workgroup settings override client-side
-    -- settings, then the query uses the location for the query results and the
-    -- encryption configuration that are specified for the workgroup.
+    -- | The location in Amazon S3 where query and calculation results are stored
+    -- and the encryption option, if any, used for query results. These are
+    -- known as \"client-side settings\". If workgroup settings override
+    -- client-side settings, then the query uses the location for the query
+    -- results and the encryption configuration that are specified for the
+    -- workgroup.
     resultConfiguration :: Prelude.Maybe ResultConfiguration,
     -- | Specifies the query result reuse behavior that was used for the query.
     resultReuseConfiguration :: Prelude.Maybe ResultReuseConfiguration,
@@ -68,6 +70,8 @@ data QueryExecution = QueryExecution'
     -- | The completion date, current state, submission time, and state change
     -- reason (if applicable) for the query execution.
     status :: Prelude.Maybe QueryExecutionStatus,
+    -- | The kind of query statement that was run.
+    substatementType :: Prelude.Maybe Prelude.Text,
     -- | The name of the workgroup in which the query ran.
     workGroup :: Prelude.Maybe Prelude.Text
   }
@@ -85,7 +89,8 @@ data QueryExecution = QueryExecution'
 --
 -- 'executionParameters', 'queryExecution_executionParameters' - A list of values for the parameters in a query. The values are applied
 -- sequentially to the parameters in the query in the order in which the
--- parameters occur.
+-- parameters occur. The list of parameters is not returned in the
+-- response.
 --
 -- 'query', 'queryExecution_query' - The SQL query statements which the query execution ran.
 --
@@ -93,11 +98,12 @@ data QueryExecution = QueryExecution'
 --
 -- 'queryExecutionId', 'queryExecution_queryExecutionId' - The unique identifier for each query execution.
 --
--- 'resultConfiguration', 'queryExecution_resultConfiguration' - The location in Amazon S3 where query results were stored and the
--- encryption option, if any, used for query results. These are known as
--- \"client-side settings\". If workgroup settings override client-side
--- settings, then the query uses the location for the query results and the
--- encryption configuration that are specified for the workgroup.
+-- 'resultConfiguration', 'queryExecution_resultConfiguration' - The location in Amazon S3 where query and calculation results are stored
+-- and the encryption option, if any, used for query results. These are
+-- known as \"client-side settings\". If workgroup settings override
+-- client-side settings, then the query uses the location for the query
+-- results and the encryption configuration that are specified for the
+-- workgroup.
 --
 -- 'resultReuseConfiguration', 'queryExecution_resultReuseConfiguration' - Specifies the query result reuse behavior that was used for the query.
 --
@@ -114,6 +120,8 @@ data QueryExecution = QueryExecution'
 -- 'status', 'queryExecution_status' - The completion date, current state, submission time, and state change
 -- reason (if applicable) for the query execution.
 --
+-- 'substatementType', 'queryExecution_substatementType' - The kind of query statement that was run.
+--
 -- 'workGroup', 'queryExecution_workGroup' - The name of the workgroup in which the query ran.
 newQueryExecution ::
   QueryExecution
@@ -129,6 +137,7 @@ newQueryExecution =
       statementType = Prelude.Nothing,
       statistics = Prelude.Nothing,
       status = Prelude.Nothing,
+      substatementType = Prelude.Nothing,
       workGroup = Prelude.Nothing
     }
 
@@ -138,7 +147,8 @@ queryExecution_engineVersion = Lens.lens (\QueryExecution' {engineVersion} -> en
 
 -- | A list of values for the parameters in a query. The values are applied
 -- sequentially to the parameters in the query in the order in which the
--- parameters occur.
+-- parameters occur. The list of parameters is not returned in the
+-- response.
 queryExecution_executionParameters :: Lens.Lens' QueryExecution (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 queryExecution_executionParameters = Lens.lens (\QueryExecution' {executionParameters} -> executionParameters) (\s@QueryExecution' {} a -> s {executionParameters = a} :: QueryExecution) Prelude.. Lens.mapping Lens.coerced
 
@@ -154,11 +164,12 @@ queryExecution_queryExecutionContext = Lens.lens (\QueryExecution' {queryExecuti
 queryExecution_queryExecutionId :: Lens.Lens' QueryExecution (Prelude.Maybe Prelude.Text)
 queryExecution_queryExecutionId = Lens.lens (\QueryExecution' {queryExecutionId} -> queryExecutionId) (\s@QueryExecution' {} a -> s {queryExecutionId = a} :: QueryExecution)
 
--- | The location in Amazon S3 where query results were stored and the
--- encryption option, if any, used for query results. These are known as
--- \"client-side settings\". If workgroup settings override client-side
--- settings, then the query uses the location for the query results and the
--- encryption configuration that are specified for the workgroup.
+-- | The location in Amazon S3 where query and calculation results are stored
+-- and the encryption option, if any, used for query results. These are
+-- known as \"client-side settings\". If workgroup settings override
+-- client-side settings, then the query uses the location for the query
+-- results and the encryption configuration that are specified for the
+-- workgroup.
 queryExecution_resultConfiguration :: Lens.Lens' QueryExecution (Prelude.Maybe ResultConfiguration)
 queryExecution_resultConfiguration = Lens.lens (\QueryExecution' {resultConfiguration} -> resultConfiguration) (\s@QueryExecution' {} a -> s {resultConfiguration = a} :: QueryExecution)
 
@@ -185,6 +196,10 @@ queryExecution_statistics = Lens.lens (\QueryExecution' {statistics} -> statisti
 queryExecution_status :: Lens.Lens' QueryExecution (Prelude.Maybe QueryExecutionStatus)
 queryExecution_status = Lens.lens (\QueryExecution' {status} -> status) (\s@QueryExecution' {} a -> s {status = a} :: QueryExecution)
 
+-- | The kind of query statement that was run.
+queryExecution_substatementType :: Lens.Lens' QueryExecution (Prelude.Maybe Prelude.Text)
+queryExecution_substatementType = Lens.lens (\QueryExecution' {substatementType} -> substatementType) (\s@QueryExecution' {} a -> s {substatementType = a} :: QueryExecution)
+
 -- | The name of the workgroup in which the query ran.
 queryExecution_workGroup :: Lens.Lens' QueryExecution (Prelude.Maybe Prelude.Text)
 queryExecution_workGroup = Lens.lens (\QueryExecution' {workGroup} -> workGroup) (\s@QueryExecution' {} a -> s {workGroup = a} :: QueryExecution)
@@ -205,12 +220,14 @@ instance Data.FromJSON QueryExecution where
             Prelude.<*> (x Data..:? "StatementType")
             Prelude.<*> (x Data..:? "Statistics")
             Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "SubstatementType")
             Prelude.<*> (x Data..:? "WorkGroup")
       )
 
 instance Prelude.Hashable QueryExecution where
   hashWithSalt _salt QueryExecution' {..} =
-    _salt `Prelude.hashWithSalt` engineVersion
+    _salt
+      `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` executionParameters
       `Prelude.hashWithSalt` query
       `Prelude.hashWithSalt` queryExecutionContext
@@ -220,6 +237,7 @@ instance Prelude.Hashable QueryExecution where
       `Prelude.hashWithSalt` statementType
       `Prelude.hashWithSalt` statistics
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` substatementType
       `Prelude.hashWithSalt` workGroup
 
 instance Prelude.NFData QueryExecution where
@@ -234,4 +252,5 @@ instance Prelude.NFData QueryExecution where
       `Prelude.seq` Prelude.rnf statementType
       `Prelude.seq` Prelude.rnf statistics
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf substatementType
       `Prelude.seq` Prelude.rnf workGroup

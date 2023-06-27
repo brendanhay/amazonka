@@ -94,7 +94,8 @@ instance Data.FromJSON QueryRuntimeStatistics where
 
 instance Prelude.Hashable QueryRuntimeStatistics where
   hashWithSalt _salt QueryRuntimeStatistics' {..} =
-    _salt `Prelude.hashWithSalt` outputStage
+    _salt
+      `Prelude.hashWithSalt` outputStage
       `Prelude.hashWithSalt` rows
       `Prelude.hashWithSalt` timeline
 

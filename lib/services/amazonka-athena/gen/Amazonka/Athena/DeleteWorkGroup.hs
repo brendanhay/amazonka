@@ -51,7 +51,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeleteWorkGroup' smart constructor.
 data DeleteWorkGroup = DeleteWorkGroup'
   { -- | The option to delete the workgroup and its contents even if the
-    -- workgroup contains any named queries or query executions.
+    -- workgroup contains any named queries, query executions, or notebooks.
     recursiveDeleteOption :: Prelude.Maybe Prelude.Bool,
     -- | The unique name of the workgroup to delete.
     workGroup :: Prelude.Text
@@ -67,7 +67,7 @@ data DeleteWorkGroup = DeleteWorkGroup'
 -- for backwards compatibility:
 --
 -- 'recursiveDeleteOption', 'deleteWorkGroup_recursiveDeleteOption' - The option to delete the workgroup and its contents even if the
--- workgroup contains any named queries or query executions.
+-- workgroup contains any named queries, query executions, or notebooks.
 --
 -- 'workGroup', 'deleteWorkGroup_workGroup' - The unique name of the workgroup to delete.
 newDeleteWorkGroup ::
@@ -82,7 +82,7 @@ newDeleteWorkGroup pWorkGroup_ =
     }
 
 -- | The option to delete the workgroup and its contents even if the
--- workgroup contains any named queries or query executions.
+-- workgroup contains any named queries, query executions, or notebooks.
 deleteWorkGroup_recursiveDeleteOption :: Lens.Lens' DeleteWorkGroup (Prelude.Maybe Prelude.Bool)
 deleteWorkGroup_recursiveDeleteOption = Lens.lens (\DeleteWorkGroup' {recursiveDeleteOption} -> recursiveDeleteOption) (\s@DeleteWorkGroup' {} a -> s {recursiveDeleteOption = a} :: DeleteWorkGroup)
 
@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteWorkGroup where
 
 instance Prelude.Hashable DeleteWorkGroup where
   hashWithSalt _salt DeleteWorkGroup' {..} =
-    _salt `Prelude.hashWithSalt` recursiveDeleteOption
+    _salt
+      `Prelude.hashWithSalt` recursiveDeleteOption
       `Prelude.hashWithSalt` workGroup
 
 instance Prelude.NFData DeleteWorkGroup where

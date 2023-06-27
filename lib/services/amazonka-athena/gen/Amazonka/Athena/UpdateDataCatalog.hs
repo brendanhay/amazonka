@@ -61,7 +61,7 @@ data UpdateDataCatalog = UpdateDataCatalog'
     --     parameter is optional and defaults to the currently supported
     --     version.
     --
-    --     @metadata-function=lambda_arn, sdk-version=version_number @
+    --     @metadata-function=@/@lambda_arn@/@, sdk-version=@/@version_number@/@ @
     --
     -- -   For the @LAMBDA@ data catalog type, use one of the following sets of
     --     required parameters, but not both.
@@ -70,13 +70,13 @@ data UpdateDataCatalog = UpdateDataCatalog'
     --         another for reading the actual data, use the following syntax.
     --         Both parameters are required.
     --
-    --         @metadata-function=lambda_arn, record-function=lambda_arn @
+    --         @metadata-function=@/@lambda_arn@/@, record-function=@/@lambda_arn@/@ @
     --
     --     -   If you have a composite Lambda function that processes both
     --         metadata and data, use the following syntax to specify your
     --         Lambda function.
     --
-    --         @function=lambda_arn @
+    --         @function=@/@lambda_arn@/@ @
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the data catalog to update. The catalog name must be unique
     -- for the Amazon Web Services account and can use a maximum of 127
@@ -108,7 +108,7 @@ data UpdateDataCatalog = UpdateDataCatalog'
 --     parameter is optional and defaults to the currently supported
 --     version.
 --
---     @metadata-function=lambda_arn, sdk-version=version_number @
+--     @metadata-function=@/@lambda_arn@/@, sdk-version=@/@version_number@/@ @
 --
 -- -   For the @LAMBDA@ data catalog type, use one of the following sets of
 --     required parameters, but not both.
@@ -117,13 +117,13 @@ data UpdateDataCatalog = UpdateDataCatalog'
 --         another for reading the actual data, use the following syntax.
 --         Both parameters are required.
 --
---         @metadata-function=lambda_arn, record-function=lambda_arn @
+--         @metadata-function=@/@lambda_arn@/@, record-function=@/@lambda_arn@/@ @
 --
 --     -   If you have a composite Lambda function that processes both
 --         metadata and data, use the following syntax to specify your
 --         Lambda function.
 --
---         @function=lambda_arn @
+--         @function=@/@lambda_arn@/@ @
 --
 -- 'name', 'updateDataCatalog_name' - The name of the data catalog to update. The catalog name must be unique
 -- for the Amazon Web Services account and can use a maximum of 127
@@ -159,7 +159,7 @@ updateDataCatalog_description = Lens.lens (\UpdateDataCatalog' {description} -> 
 --     parameter is optional and defaults to the currently supported
 --     version.
 --
---     @metadata-function=lambda_arn, sdk-version=version_number @
+--     @metadata-function=@/@lambda_arn@/@, sdk-version=@/@version_number@/@ @
 --
 -- -   For the @LAMBDA@ data catalog type, use one of the following sets of
 --     required parameters, but not both.
@@ -168,13 +168,13 @@ updateDataCatalog_description = Lens.lens (\UpdateDataCatalog' {description} -> 
 --         another for reading the actual data, use the following syntax.
 --         Both parameters are required.
 --
---         @metadata-function=lambda_arn, record-function=lambda_arn @
+--         @metadata-function=@/@lambda_arn@/@, record-function=@/@lambda_arn@/@ @
 --
 --     -   If you have a composite Lambda function that processes both
 --         metadata and data, use the following syntax to specify your
 --         Lambda function.
 --
---         @function=lambda_arn @
+--         @function=@/@lambda_arn@/@ @
 updateDataCatalog_parameters :: Lens.Lens' UpdateDataCatalog (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateDataCatalog_parameters = Lens.lens (\UpdateDataCatalog' {parameters} -> parameters) (\s@UpdateDataCatalog' {} a -> s {parameters = a} :: UpdateDataCatalog) Prelude.. Lens.mapping Lens.coerced
 
@@ -206,7 +206,8 @@ instance Core.AWSRequest UpdateDataCatalog where
 
 instance Prelude.Hashable UpdateDataCatalog where
   hashWithSalt _salt UpdateDataCatalog' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'

@@ -38,8 +38,8 @@ data EngineVersion = EngineVersion'
     -- @EffectiveEngineVersion@ field is ignored.
     effectiveEngineVersion :: Prelude.Maybe Prelude.Text,
     -- | The engine version requested by the user. Possible values are determined
-    -- by the output of @ListEngineVersions@, including Auto. The default is
-    -- Auto.
+    -- by the output of @ListEngineVersions@, including AUTO. The default is
+    -- AUTO.
     selectedEngineVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,8 +61,8 @@ data EngineVersion = EngineVersion'
 -- @EffectiveEngineVersion@ field is ignored.
 --
 -- 'selectedEngineVersion', 'engineVersion_selectedEngineVersion' - The engine version requested by the user. Possible values are determined
--- by the output of @ListEngineVersions@, including Auto. The default is
--- Auto.
+-- by the output of @ListEngineVersions@, including AUTO. The default is
+-- AUTO.
 newEngineVersion ::
   EngineVersion
 newEngineVersion =
@@ -83,8 +83,8 @@ engineVersion_effectiveEngineVersion :: Lens.Lens' EngineVersion (Prelude.Maybe 
 engineVersion_effectiveEngineVersion = Lens.lens (\EngineVersion' {effectiveEngineVersion} -> effectiveEngineVersion) (\s@EngineVersion' {} a -> s {effectiveEngineVersion = a} :: EngineVersion)
 
 -- | The engine version requested by the user. Possible values are determined
--- by the output of @ListEngineVersions@, including Auto. The default is
--- Auto.
+-- by the output of @ListEngineVersions@, including AUTO. The default is
+-- AUTO.
 engineVersion_selectedEngineVersion :: Lens.Lens' EngineVersion (Prelude.Maybe Prelude.Text)
 engineVersion_selectedEngineVersion = Lens.lens (\EngineVersion' {selectedEngineVersion} -> selectedEngineVersion) (\s@EngineVersion' {} a -> s {selectedEngineVersion = a} :: EngineVersion)
 
@@ -100,7 +100,8 @@ instance Data.FromJSON EngineVersion where
 
 instance Prelude.Hashable EngineVersion where
   hashWithSalt _salt EngineVersion' {..} =
-    _salt `Prelude.hashWithSalt` effectiveEngineVersion
+    _salt
+      `Prelude.hashWithSalt` effectiveEngineVersion
       `Prelude.hashWithSalt` selectedEngineVersion
 
 instance Prelude.NFData EngineVersion where

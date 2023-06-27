@@ -138,7 +138,8 @@ instance Data.FromJSON QueryExecutionStatus where
 
 instance Prelude.Hashable QueryExecutionStatus where
   hashWithSalt _salt QueryExecutionStatus' {..} =
-    _salt `Prelude.hashWithSalt` athenaError
+    _salt
+      `Prelude.hashWithSalt` athenaError
       `Prelude.hashWithSalt` completionDateTime
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` stateChangeReason

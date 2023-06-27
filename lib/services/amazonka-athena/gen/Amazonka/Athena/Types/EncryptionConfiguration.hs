@@ -25,8 +25,9 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | If query results are encrypted in Amazon S3, indicates the encryption
--- option used (for example, @SSE_KMS@ or @CSE_KMS@) and key information.
+-- | If query and calculation results are encrypted in Amazon S3, indicates
+-- the encryption option used (for example, @SSE_KMS@ or @CSE_KMS@) and key
+-- information.
 --
 -- /See:/ 'newEncryptionConfiguration' smart constructor.
 data EncryptionConfiguration = EncryptionConfiguration'
@@ -102,7 +103,8 @@ instance Data.FromJSON EncryptionConfiguration where
 
 instance Prelude.Hashable EncryptionConfiguration where
   hashWithSalt _salt EncryptionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` kmsKey
+    _salt
+      `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` encryptionOption
 
 instance Prelude.NFData EncryptionConfiguration where

@@ -79,6 +79,18 @@ module Amazonka.Athena
     BatchGetQueryExecutionResponse (BatchGetQueryExecutionResponse'),
     newBatchGetQueryExecutionResponse,
 
+    -- ** CancelCapacityReservation
+    CancelCapacityReservation (CancelCapacityReservation'),
+    newCancelCapacityReservation,
+    CancelCapacityReservationResponse (CancelCapacityReservationResponse'),
+    newCancelCapacityReservationResponse,
+
+    -- ** CreateCapacityReservation
+    CreateCapacityReservation (CreateCapacityReservation'),
+    newCreateCapacityReservation,
+    CreateCapacityReservationResponse (CreateCapacityReservationResponse'),
+    newCreateCapacityReservationResponse,
+
     -- ** CreateDataCatalog
     CreateDataCatalog (CreateDataCatalog'),
     newCreateDataCatalog,
@@ -114,6 +126,12 @@ module Amazonka.Athena
     newCreateWorkGroup,
     CreateWorkGroupResponse (CreateWorkGroupResponse'),
     newCreateWorkGroupResponse,
+
+    -- ** DeleteCapacityReservation
+    DeleteCapacityReservation (DeleteCapacityReservation'),
+    newDeleteCapacityReservation,
+    DeleteCapacityReservationResponse (DeleteCapacityReservationResponse'),
+    newDeleteCapacityReservationResponse,
 
     -- ** DeleteDataCatalog
     DeleteDataCatalog (DeleteDataCatalog'),
@@ -168,6 +186,18 @@ module Amazonka.Athena
     newGetCalculationExecutionStatus,
     GetCalculationExecutionStatusResponse (GetCalculationExecutionStatusResponse'),
     newGetCalculationExecutionStatusResponse,
+
+    -- ** GetCapacityAssignmentConfiguration
+    GetCapacityAssignmentConfiguration (GetCapacityAssignmentConfiguration'),
+    newGetCapacityAssignmentConfiguration,
+    GetCapacityAssignmentConfigurationResponse (GetCapacityAssignmentConfigurationResponse'),
+    newGetCapacityAssignmentConfigurationResponse,
+
+    -- ** GetCapacityReservation
+    GetCapacityReservation (GetCapacityReservation'),
+    newGetCapacityReservation,
+    GetCapacityReservationResponse (GetCapacityReservationResponse'),
+    newGetCapacityReservationResponse,
 
     -- ** GetDataCatalog
     GetDataCatalog (GetDataCatalog'),
@@ -259,6 +289,12 @@ module Amazonka.Athena
     ListCalculationExecutionsResponse (ListCalculationExecutionsResponse'),
     newListCalculationExecutionsResponse,
 
+    -- ** ListCapacityReservations
+    ListCapacityReservations (ListCapacityReservations'),
+    newListCapacityReservations,
+    ListCapacityReservationsResponse (ListCapacityReservationsResponse'),
+    newListCapacityReservationsResponse,
+
     -- ** ListDataCatalogs (Paginated)
     ListDataCatalogs (ListDataCatalogs'),
     newListDataCatalogs,
@@ -337,6 +373,12 @@ module Amazonka.Athena
     ListWorkGroupsResponse (ListWorkGroupsResponse'),
     newListWorkGroupsResponse,
 
+    -- ** PutCapacityAssignmentConfiguration
+    PutCapacityAssignmentConfiguration (PutCapacityAssignmentConfiguration'),
+    newPutCapacityAssignmentConfiguration,
+    PutCapacityAssignmentConfigurationResponse (PutCapacityAssignmentConfigurationResponse'),
+    newPutCapacityAssignmentConfigurationResponse,
+
     -- ** StartCalculationExecution
     StartCalculationExecution (StartCalculationExecution'),
     newStartCalculationExecution,
@@ -385,6 +427,12 @@ module Amazonka.Athena
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
+    -- ** UpdateCapacityReservation
+    UpdateCapacityReservation (UpdateCapacityReservation'),
+    newUpdateCapacityReservation,
+    UpdateCapacityReservationResponse (UpdateCapacityReservationResponse'),
+    newUpdateCapacityReservationResponse,
+
     -- ** UpdateDataCatalog
     UpdateDataCatalog (UpdateDataCatalog'),
     newUpdateDataCatalog,
@@ -425,6 +473,12 @@ module Amazonka.Athena
 
     -- ** CalculationExecutionState
     CalculationExecutionState (..),
+
+    -- ** CapacityAllocationStatus
+    CapacityAllocationStatus (..),
+
+    -- ** CapacityReservationStatus
+    CapacityReservationStatus (..),
 
     -- ** ColumnNullable
     ColumnNullable (..),
@@ -490,6 +544,22 @@ module Amazonka.Athena
     -- ** CalculationSummary
     CalculationSummary (CalculationSummary'),
     newCalculationSummary,
+
+    -- ** CapacityAllocation
+    CapacityAllocation (CapacityAllocation'),
+    newCapacityAllocation,
+
+    -- ** CapacityAssignment
+    CapacityAssignment (CapacityAssignment'),
+    newCapacityAssignment,
+
+    -- ** CapacityAssignmentConfiguration
+    CapacityAssignmentConfiguration (CapacityAssignmentConfiguration'),
+    newCapacityAssignmentConfiguration,
+
+    -- ** CapacityReservation
+    CapacityReservation (CapacityReservation'),
+    newCapacityReservation,
 
     -- ** Column
     Column (Column'),
@@ -684,12 +754,15 @@ where
 import Amazonka.Athena.BatchGetNamedQuery
 import Amazonka.Athena.BatchGetPreparedStatement
 import Amazonka.Athena.BatchGetQueryExecution
+import Amazonka.Athena.CancelCapacityReservation
+import Amazonka.Athena.CreateCapacityReservation
 import Amazonka.Athena.CreateDataCatalog
 import Amazonka.Athena.CreateNamedQuery
 import Amazonka.Athena.CreateNotebook
 import Amazonka.Athena.CreatePreparedStatement
 import Amazonka.Athena.CreatePresignedNotebookUrl
 import Amazonka.Athena.CreateWorkGroup
+import Amazonka.Athena.DeleteCapacityReservation
 import Amazonka.Athena.DeleteDataCatalog
 import Amazonka.Athena.DeleteNamedQuery
 import Amazonka.Athena.DeleteNotebook
@@ -699,6 +772,8 @@ import Amazonka.Athena.ExportNotebook
 import Amazonka.Athena.GetCalculationExecution
 import Amazonka.Athena.GetCalculationExecutionCode
 import Amazonka.Athena.GetCalculationExecutionStatus
+import Amazonka.Athena.GetCapacityAssignmentConfiguration
+import Amazonka.Athena.GetCapacityReservation
 import Amazonka.Athena.GetDataCatalog
 import Amazonka.Athena.GetDatabase
 import Amazonka.Athena.GetNamedQuery
@@ -715,6 +790,7 @@ import Amazonka.Athena.ImportNotebook
 import Amazonka.Athena.Lens
 import Amazonka.Athena.ListApplicationDPUSizes
 import Amazonka.Athena.ListCalculationExecutions
+import Amazonka.Athena.ListCapacityReservations
 import Amazonka.Athena.ListDataCatalogs
 import Amazonka.Athena.ListDatabases
 import Amazonka.Athena.ListEngineVersions
@@ -728,6 +804,7 @@ import Amazonka.Athena.ListSessions
 import Amazonka.Athena.ListTableMetadata
 import Amazonka.Athena.ListTagsForResource
 import Amazonka.Athena.ListWorkGroups
+import Amazonka.Athena.PutCapacityAssignmentConfiguration
 import Amazonka.Athena.StartCalculationExecution
 import Amazonka.Athena.StartQueryExecution
 import Amazonka.Athena.StartSession
@@ -737,6 +814,7 @@ import Amazonka.Athena.TagResource
 import Amazonka.Athena.TerminateSession
 import Amazonka.Athena.Types
 import Amazonka.Athena.UntagResource
+import Amazonka.Athena.UpdateCapacityReservation
 import Amazonka.Athena.UpdateDataCatalog
 import Amazonka.Athena.UpdateNamedQuery
 import Amazonka.Athena.UpdateNotebook

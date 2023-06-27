@@ -96,10 +96,12 @@ instance Core.AWSRequest BatchGetQueryExecution where
     Response.receiveJSON
       ( \s h x ->
           BatchGetQueryExecutionResponse'
-            Prelude.<$> ( x Data..?> "QueryExecutions"
+            Prelude.<$> ( x
+                            Data..?> "QueryExecutions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "UnprocessedQueryExecutionIds"
+            Prelude.<*> ( x
+                            Data..?> "UnprocessedQueryExecutionIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

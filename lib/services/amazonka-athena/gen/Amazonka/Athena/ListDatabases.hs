@@ -112,21 +112,23 @@ instance Core.AWSPager ListDatabases where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listDatabasesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listDatabasesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDatabasesResponse_databaseList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDatabases_nextToken
           Lens..~ rs
-          Lens.^? listDatabasesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listDatabasesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDatabases where
   type
@@ -145,7 +147,8 @@ instance Core.AWSRequest ListDatabases where
 
 instance Prelude.Hashable ListDatabases where
   hashWithSalt _salt ListDatabases' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` catalogName
 

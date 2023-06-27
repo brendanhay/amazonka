@@ -61,7 +61,8 @@ data UpdateNotebook = UpdateNotebook'
     -- Amazon Web Services CLI, you must provide this token or the action will
     -- fail.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the session in which the notebook will be updated.
+    -- | The active notebook session ID. Required if the notebook has an active
+    -- session.
     sessionId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the notebook to update.
     notebookId :: Prelude.Text,
@@ -89,7 +90,8 @@ data UpdateNotebook = UpdateNotebook'
 -- Amazon Web Services CLI, you must provide this token or the action will
 -- fail.
 --
--- 'sessionId', 'updateNotebook_sessionId' - The ID of the session in which the notebook will be updated.
+-- 'sessionId', 'updateNotebook_sessionId' - The active notebook session ID. Required if the notebook has an active
+-- session.
 --
 -- 'notebookId', 'updateNotebook_notebookId' - The ID of the notebook to update.
 --
@@ -125,7 +127,8 @@ newUpdateNotebook pNotebookId_ pPayload_ pType_ =
 updateNotebook_clientRequestToken :: Lens.Lens' UpdateNotebook (Prelude.Maybe Prelude.Text)
 updateNotebook_clientRequestToken = Lens.lens (\UpdateNotebook' {clientRequestToken} -> clientRequestToken) (\s@UpdateNotebook' {} a -> s {clientRequestToken = a} :: UpdateNotebook)
 
--- | The ID of the session in which the notebook will be updated.
+-- | The active notebook session ID. Required if the notebook has an active
+-- session.
 updateNotebook_sessionId :: Lens.Lens' UpdateNotebook (Prelude.Maybe Prelude.Text)
 updateNotebook_sessionId = Lens.lens (\UpdateNotebook' {sessionId} -> sessionId) (\s@UpdateNotebook' {} a -> s {sessionId = a} :: UpdateNotebook)
 
@@ -156,7 +159,8 @@ instance Core.AWSRequest UpdateNotebook where
 
 instance Prelude.Hashable UpdateNotebook where
   hashWithSalt _salt UpdateNotebook' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` notebookId
       `Prelude.hashWithSalt` payload

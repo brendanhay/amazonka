@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists, in descending order, the executors that have been submitted to a
--- session. Newer executors are listed first; older executors are listed
--- later. The result can be optionally filtered by state.
+-- Lists, in descending order, the executors that joined a session. Newer
+-- executors are listed first; older executors are listed later. The result
+-- can be optionally filtered by state.
 module Amazonka.Athena.ListExecutors
   ( -- * Creating a Request
     ListExecutors (..),
@@ -172,7 +172,8 @@ instance Core.AWSRequest ListExecutors where
     Response.receiveJSON
       ( \s h x ->
           ListExecutorsResponse'
-            Prelude.<$> ( x Data..?> "ExecutorsSummary"
+            Prelude.<$> ( x
+                            Data..?> "ExecutorsSummary"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -182,7 +183,8 @@ instance Core.AWSRequest ListExecutors where
 
 instance Prelude.Hashable ListExecutors where
   hashWithSalt _salt ListExecutors' {..} =
-    _salt `Prelude.hashWithSalt` executorStateFilter
+    _salt
+      `Prelude.hashWithSalt` executorStateFilter
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sessionId

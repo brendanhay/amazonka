@@ -182,7 +182,8 @@ instance Core.AWSRequest CreateNamedQuery where
 
 instance Prelude.Hashable CreateNamedQuery where
   hashWithSalt _salt CreateNamedQuery' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` workGroup
       `Prelude.hashWithSalt` name

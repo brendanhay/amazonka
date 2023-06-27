@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a pre-signed URL to a copy of the code that was executed for
--- the calculation.
+-- Retrieves the unencrypted code that was executed for the calculation.
 module Amazonka.Athena.GetCalculationExecutionCode
   ( -- * Creating a Request
     GetCalculationExecutionCode (..),
@@ -135,7 +134,7 @@ instance Data.ToQuery GetCalculationExecutionCode where
 
 -- | /See:/ 'newGetCalculationExecutionCodeResponse' smart constructor.
 data GetCalculationExecutionCodeResponse = GetCalculationExecutionCodeResponse'
-  { -- | A pre-signed URL to the code that executed the calculation.
+  { -- | The unencrypted code that was executed for the calculation.
     codeBlock :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -150,7 +149,7 @@ data GetCalculationExecutionCodeResponse = GetCalculationExecutionCodeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'codeBlock', 'getCalculationExecutionCodeResponse_codeBlock' - A pre-signed URL to the code that executed the calculation.
+-- 'codeBlock', 'getCalculationExecutionCodeResponse_codeBlock' - The unencrypted code that was executed for the calculation.
 --
 -- 'httpStatus', 'getCalculationExecutionCodeResponse_httpStatus' - The response's http status code.
 newGetCalculationExecutionCodeResponse ::
@@ -164,7 +163,7 @@ newGetCalculationExecutionCodeResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A pre-signed URL to the code that executed the calculation.
+-- | The unencrypted code that was executed for the calculation.
 getCalculationExecutionCodeResponse_codeBlock :: Lens.Lens' GetCalculationExecutionCodeResponse (Prelude.Maybe Prelude.Text)
 getCalculationExecutionCodeResponse_codeBlock = Lens.lens (\GetCalculationExecutionCodeResponse' {codeBlock} -> codeBlock) (\s@GetCalculationExecutionCodeResponse' {} a -> s {codeBlock = a} :: GetCalculationExecutionCodeResponse)
 

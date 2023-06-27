@@ -24,14 +24,13 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | A label that you assign to a resource. In Athena, a resource can be a
--- workgroup or data catalog. Each tag consists of a key and an optional
--- value, both of which you define. For example, you can use tags to
--- categorize Athena workgroups or data catalogs by purpose, owner, or
+-- | A label that you assign to a resource. Athena resources include
+-- workgroups, data catalogs, and capacity reservations. Each tag consists
+-- of a key and an optional value, both of which you define. For example,
+-- you can use tags to categorize Athena resources by purpose, owner, or
 -- environment. Use a consistent set of tag keys to make it easier to
--- search and filter workgroups or data catalogs in your account. For best
--- practices, see
--- <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ Tagging Best Practices>.
+-- search and filter the resources in your account. For best practices, see
+-- <https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html Tagging Best Practices>.
 -- Tag keys can be from 1 to 128 UTF-8 Unicode characters, and tag values
 -- can be from 0 to 256 UTF-8 Unicode characters. Tags can use letters and
 -- numbers representable in UTF-8, and the following characters: + - = . _
@@ -95,12 +94,14 @@ instance Data.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Data..:? "Key") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Tag where

@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the KMS key that is used to encrypt the user\'s data stores in
--- Athena.
+-- Athena. This setting does not apply to Athena SQL workgroups.
 --
 -- /See:/ 'newCustomerContentEncryptionConfiguration' smart constructor.
 data CustomerContentEncryptionConfiguration = CustomerContentEncryptionConfiguration'

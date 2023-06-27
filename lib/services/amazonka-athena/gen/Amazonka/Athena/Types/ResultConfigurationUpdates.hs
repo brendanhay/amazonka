@@ -33,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 data ResultConfigurationUpdates = ResultConfigurationUpdates'
   { -- | The ACL configuration for the query results.
     aclConfiguration :: Prelude.Maybe AclConfiguration,
-    -- | The encryption configuration for the query results.
+    -- | The encryption configuration for query and calculation results.
     encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
     -- | The Amazon Web Services account ID that you expect to be the owner of
     -- the Amazon S3 bucket specified by ResultConfiguration$OutputLocation. If
@@ -49,9 +49,10 @@ data ResultConfigurationUpdates = ResultConfigurationUpdates'
     -- workgroup. See WorkGroupConfiguration$EnforceWorkGroupConfiguration and
     -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    -- | The location in Amazon S3 where your query results are stored, such as
-    -- @s3:\/\/path\/to\/query\/bucket\/@. For more information, see
-    -- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Query Results>
+    -- | The location in Amazon S3 where your query and calculation results are
+    -- stored, such as @s3:\/\/path\/to\/query\/bucket\/@. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Working with query results, recent queries, and output files>.
     -- If workgroup settings override client-side settings, then the query uses
     -- the location for the query results and the encryption configuration that
     -- are specified for the workgroup. The \"workgroup settings override\" is
@@ -107,7 +108,7 @@ data ResultConfigurationUpdates = ResultConfigurationUpdates'
 --
 -- 'aclConfiguration', 'resultConfigurationUpdates_aclConfiguration' - The ACL configuration for the query results.
 --
--- 'encryptionConfiguration', 'resultConfigurationUpdates_encryptionConfiguration' - The encryption configuration for the query results.
+-- 'encryptionConfiguration', 'resultConfigurationUpdates_encryptionConfiguration' - The encryption configuration for query and calculation results.
 --
 -- 'expectedBucketOwner', 'resultConfigurationUpdates_expectedBucketOwner' - The Amazon Web Services account ID that you expect to be the owner of
 -- the Amazon S3 bucket specified by ResultConfiguration$OutputLocation. If
@@ -123,9 +124,10 @@ data ResultConfigurationUpdates = ResultConfigurationUpdates'
 -- workgroup. See WorkGroupConfiguration$EnforceWorkGroupConfiguration and
 -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
 --
--- 'outputLocation', 'resultConfigurationUpdates_outputLocation' - The location in Amazon S3 where your query results are stored, such as
--- @s3:\/\/path\/to\/query\/bucket\/@. For more information, see
--- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Query Results>
+-- 'outputLocation', 'resultConfigurationUpdates_outputLocation' - The location in Amazon S3 where your query and calculation results are
+-- stored, such as @s3:\/\/path\/to\/query\/bucket\/@. For more
+-- information, see
+-- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Working with query results, recent queries, and output files>.
 -- If workgroup settings override client-side settings, then the query uses
 -- the location for the query results and the encryption configuration that
 -- are specified for the workgroup. The \"workgroup settings override\" is
@@ -186,7 +188,7 @@ newResultConfigurationUpdates =
 resultConfigurationUpdates_aclConfiguration :: Lens.Lens' ResultConfigurationUpdates (Prelude.Maybe AclConfiguration)
 resultConfigurationUpdates_aclConfiguration = Lens.lens (\ResultConfigurationUpdates' {aclConfiguration} -> aclConfiguration) (\s@ResultConfigurationUpdates' {} a -> s {aclConfiguration = a} :: ResultConfigurationUpdates)
 
--- | The encryption configuration for the query results.
+-- | The encryption configuration for query and calculation results.
 resultConfigurationUpdates_encryptionConfiguration :: Lens.Lens' ResultConfigurationUpdates (Prelude.Maybe EncryptionConfiguration)
 resultConfigurationUpdates_encryptionConfiguration = Lens.lens (\ResultConfigurationUpdates' {encryptionConfiguration} -> encryptionConfiguration) (\s@ResultConfigurationUpdates' {} a -> s {encryptionConfiguration = a} :: ResultConfigurationUpdates)
 
@@ -206,9 +208,10 @@ resultConfigurationUpdates_encryptionConfiguration = Lens.lens (\ResultConfigura
 resultConfigurationUpdates_expectedBucketOwner :: Lens.Lens' ResultConfigurationUpdates (Prelude.Maybe Prelude.Text)
 resultConfigurationUpdates_expectedBucketOwner = Lens.lens (\ResultConfigurationUpdates' {expectedBucketOwner} -> expectedBucketOwner) (\s@ResultConfigurationUpdates' {} a -> s {expectedBucketOwner = a} :: ResultConfigurationUpdates)
 
--- | The location in Amazon S3 where your query results are stored, such as
--- @s3:\/\/path\/to\/query\/bucket\/@. For more information, see
--- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Query Results>
+-- | The location in Amazon S3 where your query and calculation results are
+-- stored, such as @s3:\/\/path\/to\/query\/bucket\/@. For more
+-- information, see
+-- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Working with query results, recent queries, and output files>.
 -- If workgroup settings override client-side settings, then the query uses
 -- the location for the query results and the encryption configuration that
 -- are specified for the workgroup. The \"workgroup settings override\" is
@@ -263,7 +266,8 @@ resultConfigurationUpdates_removeOutputLocation = Lens.lens (\ResultConfiguratio
 
 instance Prelude.Hashable ResultConfigurationUpdates where
   hashWithSalt _salt ResultConfigurationUpdates' {..} =
-    _salt `Prelude.hashWithSalt` aclConfiguration
+    _salt
+      `Prelude.hashWithSalt` aclConfiguration
       `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` outputLocation

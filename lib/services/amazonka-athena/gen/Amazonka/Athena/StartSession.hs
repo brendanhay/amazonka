@@ -70,9 +70,12 @@ data StartSession = StartSession'
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The session description.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The notebook version. This value is required only when requesting that a
-    -- notebook server be started for the session. The only valid notebook
-    -- version is @Jupyter1.0@.
+    -- | The notebook version. This value is supplied automatically for notebook
+    -- sessions in the Athena console and is not required for programmatic
+    -- session access. The only valid notebook version is
+    -- @Athena notebook version 1@. If you specify a value for
+    -- @NotebookVersion@, you must also specify a value for @NotebookId@. See
+    -- EngineConfiguration$AdditionalConfigs.
     notebookVersion :: Prelude.Maybe Prelude.Text,
     -- | The idle timeout in minutes for the session.
     sessionIdleTimeoutInMinutes :: Prelude.Maybe Prelude.Natural,
@@ -106,9 +109,12 @@ data StartSession = StartSession'
 --
 -- 'description', 'startSession_description' - The session description.
 --
--- 'notebookVersion', 'startSession_notebookVersion' - The notebook version. This value is required only when requesting that a
--- notebook server be started for the session. The only valid notebook
--- version is @Jupyter1.0@.
+-- 'notebookVersion', 'startSession_notebookVersion' - The notebook version. This value is supplied automatically for notebook
+-- sessions in the Athena console and is not required for programmatic
+-- session access. The only valid notebook version is
+-- @Athena notebook version 1@. If you specify a value for
+-- @NotebookVersion@, you must also specify a value for @NotebookId@. See
+-- EngineConfiguration$AdditionalConfigs.
 --
 -- 'sessionIdleTimeoutInMinutes', 'startSession_sessionIdleTimeoutInMinutes' - The idle timeout in minutes for the session.
 --
@@ -150,9 +156,12 @@ startSession_clientRequestToken = Lens.lens (\StartSession' {clientRequestToken}
 startSession_description :: Lens.Lens' StartSession (Prelude.Maybe Prelude.Text)
 startSession_description = Lens.lens (\StartSession' {description} -> description) (\s@StartSession' {} a -> s {description = a} :: StartSession)
 
--- | The notebook version. This value is required only when requesting that a
--- notebook server be started for the session. The only valid notebook
--- version is @Jupyter1.0@.
+-- | The notebook version. This value is supplied automatically for notebook
+-- sessions in the Athena console and is not required for programmatic
+-- session access. The only valid notebook version is
+-- @Athena notebook version 1@. If you specify a value for
+-- @NotebookVersion@, you must also specify a value for @NotebookId@. See
+-- EngineConfiguration$AdditionalConfigs.
 startSession_notebookVersion :: Lens.Lens' StartSession (Prelude.Maybe Prelude.Text)
 startSession_notebookVersion = Lens.lens (\StartSession' {notebookVersion} -> notebookVersion) (\s@StartSession' {} a -> s {notebookVersion = a} :: StartSession)
 
@@ -184,7 +193,8 @@ instance Core.AWSRequest StartSession where
 
 instance Prelude.Hashable StartSession where
   hashWithSalt _salt StartSession' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` notebookVersion
       `Prelude.hashWithSalt` sessionIdleTimeoutInMinutes

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the supported DPU sizes for the supported application runtimes
--- (for example, @Jupyter 1.0@).
+-- (for example, @Athena notebook version 1@).
 module Amazonka.Athena.ListApplicationDPUSizes
   ( -- * Creating a Request
     ListApplicationDPUSizes (..),
@@ -100,7 +100,8 @@ instance Core.AWSRequest ListApplicationDPUSizes where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationDPUSizesResponse'
-            Prelude.<$> ( x Data..?> "ApplicationDPUSizes"
+            Prelude.<$> ( x
+                            Data..?> "ApplicationDPUSizes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -109,7 +110,8 @@ instance Core.AWSRequest ListApplicationDPUSizes where
 
 instance Prelude.Hashable ListApplicationDPUSizes where
   hashWithSalt _salt ListApplicationDPUSizes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListApplicationDPUSizes where

@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the tags associated with an Athena workgroup or data catalog
--- resource.
+-- Lists the tags associated with an Athena resource.
 --
 -- This operation returns paginated results.
 module Amazonka.Athena.ListTagsForResource
@@ -114,22 +113,22 @@ instance Core.AWSPager ListTagsForResource where
     | Core.stop
         ( rs
             Lens.^? listTagsForResourceResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTagsForResourceResponse_tags
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTagsForResource_nextToken
           Lens..~ rs
           Lens.^? listTagsForResourceResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTagsForResource where
   type
@@ -148,7 +147,8 @@ instance Core.AWSRequest ListTagsForResource where
 
 instance Prelude.Hashable ListTagsForResource where
   hashWithSalt _salt ListTagsForResource' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceARN
 

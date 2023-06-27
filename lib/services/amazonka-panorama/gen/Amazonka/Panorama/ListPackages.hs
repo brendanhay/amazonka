@@ -103,7 +103,8 @@ instance Core.AWSRequest ListPackages where
 
 instance Prelude.Hashable ListPackages where
   hashWithSalt _salt ListPackages' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPackages where

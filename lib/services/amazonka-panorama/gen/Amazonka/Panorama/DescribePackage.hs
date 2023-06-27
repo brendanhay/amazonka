@@ -91,10 +91,12 @@ instance Core.AWSRequest DescribePackage where
     Response.receiveJSON
       ( \s h x ->
           DescribePackageResponse'
-            Prelude.<$> ( x Data..?> "ReadAccessPrincipalArns"
+            Prelude.<$> ( x
+                            Data..?> "ReadAccessPrincipalArns"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "WriteAccessPrincipalArns"
+            Prelude.<*> ( x
+                            Data..?> "WriteAccessPrincipalArns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

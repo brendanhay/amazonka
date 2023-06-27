@@ -100,14 +100,14 @@ instance
       ( \s h x ->
           DescribeApplicationInstanceDetailsResponse'
             Prelude.<$> (x Data..?> "ApplicationInstanceId")
-              Prelude.<*> (x Data..?> "ApplicationInstanceIdToReplace")
-              Prelude.<*> (x Data..?> "CreatedTime")
-              Prelude.<*> (x Data..?> "DefaultRuntimeContextDevice")
-              Prelude.<*> (x Data..?> "Description")
-              Prelude.<*> (x Data..?> "ManifestOverridesPayload")
-              Prelude.<*> (x Data..?> "ManifestPayload")
-              Prelude.<*> (x Data..?> "Name")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "ApplicationInstanceIdToReplace")
+            Prelude.<*> (x Data..?> "CreatedTime")
+            Prelude.<*> (x Data..?> "DefaultRuntimeContextDevice")
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "ManifestOverridesPayload")
+            Prelude.<*> (x Data..?> "ManifestPayload")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

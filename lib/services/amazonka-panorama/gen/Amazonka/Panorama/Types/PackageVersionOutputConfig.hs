@@ -91,7 +91,8 @@ instance Data.FromJSON PackageVersionOutputConfig where
 
 instance Prelude.Hashable PackageVersionOutputConfig where
   hashWithSalt _salt PackageVersionOutputConfig' {..} =
-    _salt `Prelude.hashWithSalt` markLatest
+    _salt
+      `Prelude.hashWithSalt` markLatest
       `Prelude.hashWithSalt` packageName
       `Prelude.hashWithSalt` packageVersion
 

@@ -93,7 +93,8 @@ instance Data.FromJSON PackageObject where
 
 instance Prelude.Hashable PackageObject where
   hashWithSalt _salt PackageObject' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` packageVersion
       `Prelude.hashWithSalt` patchVersion
 

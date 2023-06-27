@@ -104,7 +104,8 @@ instance Data.FromJSON StaticIpConnectionInfo where
 
 instance Prelude.Hashable StaticIpConnectionInfo where
   hashWithSalt _salt StaticIpConnectionInfo' {..} =
-    _salt `Prelude.hashWithSalt` defaultGateway
+    _salt
+      `Prelude.hashWithSalt` defaultGateway
       `Prelude.hashWithSalt` dns
       `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` mask

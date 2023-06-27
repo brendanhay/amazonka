@@ -103,7 +103,8 @@ instance Core.AWSRequest DescribeDevice where
     Response.receiveJSON
       ( \s h x ->
           DescribeDeviceResponse'
-            Prelude.<$> ( x Data..?> "AlternateSoftwares"
+            Prelude.<$> ( x
+                            Data..?> "AlternateSoftwares"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Arn")

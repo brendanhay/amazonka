@@ -110,7 +110,8 @@ instance Data.FromJSON ReportedRuntimeContextState where
 
 instance Prelude.Hashable ReportedRuntimeContextState where
   hashWithSalt _salt ReportedRuntimeContextState' {..} =
-    _salt `Prelude.hashWithSalt` desiredState
+    _salt
+      `Prelude.hashWithSalt` desiredState
       `Prelude.hashWithSalt` deviceReportedStatus
       `Prelude.hashWithSalt` deviceReportedTime
       `Prelude.hashWithSalt` runtimeContextName

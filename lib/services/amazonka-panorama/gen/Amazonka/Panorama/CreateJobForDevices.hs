@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a job to run on one or more devices. A job can update a
--- device\'s software or reboot it.
+-- Creates a job to run on a device. A job can update a device\'s software
+-- or reboot it.
 module Amazonka.Panorama.CreateJobForDevices
   ( -- * Creating a Request
     CreateJobForDevices (..),
@@ -54,7 +54,7 @@ import qualified Amazonka.Response as Response
 data CreateJobForDevices = CreateJobForDevices'
   { -- | Configuration settings for a software update job.
     deviceJobConfig :: Prelude.Maybe DeviceJobConfig,
-    -- | IDs of target devices.
+    -- | ID of target device.
     deviceIds :: Prelude.NonEmpty Prelude.Text,
     -- | The type of job to run.
     jobType :: JobType
@@ -71,7 +71,7 @@ data CreateJobForDevices = CreateJobForDevices'
 --
 -- 'deviceJobConfig', 'createJobForDevices_deviceJobConfig' - Configuration settings for a software update job.
 --
--- 'deviceIds', 'createJobForDevices_deviceIds' - IDs of target devices.
+-- 'deviceIds', 'createJobForDevices_deviceIds' - ID of target device.
 --
 -- 'jobType', 'createJobForDevices_jobType' - The type of job to run.
 newCreateJobForDevices ::
@@ -92,7 +92,7 @@ newCreateJobForDevices pDeviceIds_ pJobType_ =
 createJobForDevices_deviceJobConfig :: Lens.Lens' CreateJobForDevices (Prelude.Maybe DeviceJobConfig)
 createJobForDevices_deviceJobConfig = Lens.lens (\CreateJobForDevices' {deviceJobConfig} -> deviceJobConfig) (\s@CreateJobForDevices' {} a -> s {deviceJobConfig = a} :: CreateJobForDevices)
 
--- | IDs of target devices.
+-- | ID of target device.
 createJobForDevices_deviceIds :: Lens.Lens' CreateJobForDevices (Prelude.NonEmpty Prelude.Text)
 createJobForDevices_deviceIds = Lens.lens (\CreateJobForDevices' {deviceIds} -> deviceIds) (\s@CreateJobForDevices' {} a -> s {deviceIds = a} :: CreateJobForDevices) Prelude.. Lens.coerced
 
@@ -116,7 +116,8 @@ instance Core.AWSRequest CreateJobForDevices where
 
 instance Prelude.Hashable CreateJobForDevices where
   hashWithSalt _salt CreateJobForDevices' {..} =
-    _salt `Prelude.hashWithSalt` deviceJobConfig
+    _salt
+      `Prelude.hashWithSalt` deviceJobConfig
       `Prelude.hashWithSalt` deviceIds
       `Prelude.hashWithSalt` jobType
 

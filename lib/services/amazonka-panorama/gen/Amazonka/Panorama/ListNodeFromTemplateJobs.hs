@@ -104,14 +104,16 @@ instance Core.AWSRequest ListNodeFromTemplateJobs where
           ListNodeFromTemplateJobsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "NodeFromTemplateJobs"
+            Prelude.<*> ( x
+                            Data..?> "NodeFromTemplateJobs"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListNodeFromTemplateJobs where
   hashWithSalt _salt ListNodeFromTemplateJobs' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListNodeFromTemplateJobs where

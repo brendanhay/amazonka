@@ -85,7 +85,8 @@ instance Data.FromJSON NtpStatus where
 
 instance Prelude.Hashable NtpStatus where
   hashWithSalt _salt NtpStatus' {..} =
-    _salt `Prelude.hashWithSalt` connectionStatus
+    _salt
+      `Prelude.hashWithSalt` connectionStatus
       `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` ntpServerName
 

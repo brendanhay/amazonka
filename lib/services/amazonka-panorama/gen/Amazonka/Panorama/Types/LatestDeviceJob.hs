@@ -86,7 +86,8 @@ instance Data.FromJSON LatestDeviceJob where
 
 instance Prelude.Hashable LatestDeviceJob where
   hashWithSalt _salt LatestDeviceJob' {..} =
-    _salt `Prelude.hashWithSalt` imageVersion
+    _salt
+      `Prelude.hashWithSalt` imageVersion
       `Prelude.hashWithSalt` jobType
       `Prelude.hashWithSalt` status
 

@@ -106,7 +106,8 @@ instance Core.AWSRequest DeletePackage where
 
 instance Prelude.Hashable DeletePackage where
   hashWithSalt _salt DeletePackage' {..} =
-    _salt `Prelude.hashWithSalt` forceDelete
+    _salt
+      `Prelude.hashWithSalt` forceDelete
       `Prelude.hashWithSalt` packageId
 
 instance Prelude.NFData DeletePackage where

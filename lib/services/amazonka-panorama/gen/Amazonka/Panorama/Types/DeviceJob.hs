@@ -105,7 +105,8 @@ instance Data.FromJSON DeviceJob where
 
 instance Prelude.Hashable DeviceJob where
   hashWithSalt _salt DeviceJob' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` jobId

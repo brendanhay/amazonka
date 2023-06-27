@@ -85,7 +85,8 @@ instance Data.FromJSON NodeOutputPort where
 
 instance Prelude.Hashable NodeOutputPort where
   hashWithSalt _salt NodeOutputPort' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 

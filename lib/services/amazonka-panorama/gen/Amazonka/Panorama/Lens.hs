@@ -496,6 +496,7 @@ module Amazonka.Panorama.Lens
     ntpStatus_ntpServerName,
 
     -- ** OTAJobConfig
+    oTAJobConfig_allowMajorVersionUpdate,
     oTAJobConfig_imageVersion,
 
     -- ** OutPutS3Location

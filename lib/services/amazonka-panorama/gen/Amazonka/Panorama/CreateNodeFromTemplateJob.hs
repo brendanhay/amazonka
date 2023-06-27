@@ -163,7 +163,8 @@ instance Core.AWSRequest CreateNodeFromTemplateJob where
 
 instance Prelude.Hashable CreateNodeFromTemplateJob where
   hashWithSalt _salt CreateNodeFromTemplateJob' {..} =
-    _salt `Prelude.hashWithSalt` jobTags
+    _salt
+      `Prelude.hashWithSalt` jobTags
       `Prelude.hashWithSalt` nodeDescription
       `Prelude.hashWithSalt` nodeName
       `Prelude.hashWithSalt` outputPackageName

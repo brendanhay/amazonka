@@ -106,7 +106,8 @@ instance Core.AWSRequest DescribeNodeFromTemplateJob where
             Prelude.<*> (x Data..:> "OutputPackageVersion")
             Prelude.<*> (x Data..:> "Status")
             Prelude.<*> (x Data..:> "StatusMessage")
-            Prelude.<*> ( x Data..?> "TemplateParameters"
+            Prelude.<*> ( x
+                            Data..?> "TemplateParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..:> "TemplateType")

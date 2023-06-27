@@ -190,7 +190,8 @@ instance Data.FromJSON Node where
 
 instance Prelude.Hashable Node where
   hashWithSalt _salt Node' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` ownerAccount
       `Prelude.hashWithSalt` packageArn
       `Prelude.hashWithSalt` category

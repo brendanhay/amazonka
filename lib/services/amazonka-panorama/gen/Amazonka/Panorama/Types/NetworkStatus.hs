@@ -96,7 +96,8 @@ instance Data.FromJSON NetworkStatus where
 
 instance Prelude.Hashable NetworkStatus where
   hashWithSalt _salt NetworkStatus' {..} =
-    _salt `Prelude.hashWithSalt` ethernet0Status
+    _salt
+      `Prelude.hashWithSalt` ethernet0Status
       `Prelude.hashWithSalt` ethernet1Status
       `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` ntpStatus

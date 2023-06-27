@@ -292,7 +292,8 @@ instance Data.FromJSON NetworkBinding where
 
 instance Prelude.Hashable NetworkBinding where
   hashWithSalt _salt NetworkBinding' {..} =
-    _salt `Prelude.hashWithSalt` bindIP
+    _salt
+      `Prelude.hashWithSalt` bindIP
       `Prelude.hashWithSalt` containerPort
       `Prelude.hashWithSalt` containerPortRange
       `Prelude.hashWithSalt` hostPort

@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.AwsVpcConfiguration
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing the network configuration for a task or service.
+-- | The network configuration for a task or service.
 --
 -- /See:/ 'newNetworkConfiguration' smart constructor.
 data NetworkConfiguration = NetworkConfiguration'

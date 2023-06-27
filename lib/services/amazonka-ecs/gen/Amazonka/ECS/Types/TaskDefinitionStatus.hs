@@ -21,6 +21,7 @@ module Amazonka.ECS.Types.TaskDefinitionStatus
   ( TaskDefinitionStatus
       ( ..,
         TaskDefinitionStatus_ACTIVE,
+        TaskDefinitionStatus_DELETE_IN_PROGRESS,
         TaskDefinitionStatus_INACTIVE
       ),
   )
@@ -61,11 +62,15 @@ newtype TaskDefinitionStatus = TaskDefinitionStatus'
 pattern TaskDefinitionStatus_ACTIVE :: TaskDefinitionStatus
 pattern TaskDefinitionStatus_ACTIVE = TaskDefinitionStatus' "ACTIVE"
 
+pattern TaskDefinitionStatus_DELETE_IN_PROGRESS :: TaskDefinitionStatus
+pattern TaskDefinitionStatus_DELETE_IN_PROGRESS = TaskDefinitionStatus' "DELETE_IN_PROGRESS"
+
 pattern TaskDefinitionStatus_INACTIVE :: TaskDefinitionStatus
 pattern TaskDefinitionStatus_INACTIVE = TaskDefinitionStatus' "INACTIVE"
 
 {-# COMPLETE
   TaskDefinitionStatus_ACTIVE,
+  TaskDefinitionStatus_DELETE_IN_PROGRESS,
   TaskDefinitionStatus_INACTIVE,
   TaskDefinitionStatus'
   #-}

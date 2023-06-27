@@ -182,6 +182,12 @@ module Amazonka.ECS
     DeleteServiceResponse (DeleteServiceResponse'),
     newDeleteServiceResponse,
 
+    -- ** DeleteTaskDefinitions
+    DeleteTaskDefinitions (DeleteTaskDefinitions'),
+    newDeleteTaskDefinitions,
+    DeleteTaskDefinitionsResponse (DeleteTaskDefinitionsResponse'),
+    newDeleteTaskDefinitionsResponse,
+
     -- ** DeleteTaskSet
     DeleteTaskSet (DeleteTaskSet'),
     newDeleteTaskSet,
@@ -997,6 +1003,7 @@ import Amazonka.ECS.DeleteAttributes
 import Amazonka.ECS.DeleteCapacityProvider
 import Amazonka.ECS.DeleteCluster
 import Amazonka.ECS.DeleteService
+import Amazonka.ECS.DeleteTaskDefinitions
 import Amazonka.ECS.DeleteTaskSet
 import Amazonka.ECS.DeregisterContainerInstance
 import Amazonka.ECS.DeregisterTaskDefinition

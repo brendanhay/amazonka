@@ -23,6 +23,15 @@
 -- Starts a new task from the specified task definition on the specified
 -- container instance or instances.
 --
+-- Starting April 15, 2023, Amazon Web Services will not onboard new
+-- customers to Amazon Elastic Inference (EI), and will help current
+-- customers migrate their workloads to options that offer better price and
+-- performance. After April 15, 2023, new customers will not be able to
+-- launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon
+-- ECS, or Amazon EC2. However, customers who have used Amazon EI at least
+-- once during the past 30-day period are considered current customers and
+-- will be able to continue using the service.
+--
 -- Alternatively, you can use RunTask to place tasks for you. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html Scheduling Tasks>
@@ -76,8 +85,8 @@ data StartTask = StartTask'
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     enableECSManagedTags :: Prelude.Maybe Prelude.Bool,
-    -- | Whether or not the execute command functionality is enabled for the
-    -- task. If @true@, this enables execute command functionality on all
+    -- | Whether or not the execute command functionality is turned on for the
+    -- task. If @true@, this turns on the execute command functionality on all
     -- containers in the task.
     enableExecuteCommand :: Prelude.Maybe Prelude.Bool,
     -- | The name of the task group to associate with the task. The default value
@@ -173,8 +182,8 @@ data StartTask = StartTask'
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- 'enableExecuteCommand', 'startTask_enableExecuteCommand' - Whether or not the execute command functionality is enabled for the
--- task. If @true@, this enables execute command functionality on all
+-- 'enableExecuteCommand', 'startTask_enableExecuteCommand' - Whether or not the execute command functionality is turned on for the
+-- task. If @true@, this turns on the execute command functionality on all
 -- containers in the task.
 --
 -- 'group'', 'startTask_group' - The name of the task group to associate with the task. The default value
@@ -282,8 +291,8 @@ startTask_cluster = Lens.lens (\StartTask' {cluster} -> cluster) (\s@StartTask' 
 startTask_enableECSManagedTags :: Lens.Lens' StartTask (Prelude.Maybe Prelude.Bool)
 startTask_enableECSManagedTags = Lens.lens (\StartTask' {enableECSManagedTags} -> enableECSManagedTags) (\s@StartTask' {} a -> s {enableECSManagedTags = a} :: StartTask)
 
--- | Whether or not the execute command functionality is enabled for the
--- task. If @true@, this enables execute command functionality on all
+-- | Whether or not the execute command functionality is turned on for the
+-- task. If @true@, this turns on the execute command functionality on all
 -- containers in the task.
 startTask_enableExecuteCommand :: Lens.Lens' StartTask (Prelude.Maybe Prelude.Bool)
 startTask_enableExecuteCommand = Lens.lens (\StartTask' {enableExecuteCommand} -> enableExecuteCommand) (\s@StartTask' {} a -> s {enableExecuteCommand = a} :: StartTask)
@@ -394,7 +403,8 @@ instance Core.AWSRequest StartTask where
 
 instance Prelude.Hashable StartTask where
   hashWithSalt _salt StartTask' {..} =
-    _salt `Prelude.hashWithSalt` cluster
+    _salt
+      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` enableECSManagedTags
       `Prelude.hashWithSalt` enableExecuteCommand
       `Prelude.hashWithSalt` group'

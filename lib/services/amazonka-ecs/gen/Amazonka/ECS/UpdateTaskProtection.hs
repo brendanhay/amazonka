@@ -28,7 +28,7 @@
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html deployments>.
 --
 -- Task-protection, by default, expires after 2 hours at which point Amazon
--- ECS unsets the @protectionEnabled@ property making the task eligible for
+-- ECS clears the @protectionEnabled@ property making the task eligible for
 -- termination by a subsequent scale-in event.
 --
 -- You can specify a custom expiration period for task protection from 1
@@ -187,7 +187,8 @@ instance Core.AWSRequest UpdateTaskProtection where
 
 instance Prelude.Hashable UpdateTaskProtection where
   hashWithSalt _salt UpdateTaskProtection' {..} =
-    _salt `Prelude.hashWithSalt` expiresInMinutes
+    _salt
+      `Prelude.hashWithSalt` expiresInMinutes
       `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` tasks
       `Prelude.hashWithSalt` protectionEnabled
@@ -242,8 +243,8 @@ data UpdateTaskProtectionResponse = UpdateTaskProtectionResponse'
     -- -   @taskArn@: The task ARN.
     --
     -- -   @protectionEnabled@: The protection status of the task. If scale-in
-    --     protection is enabled for a task, the value is @true@. Otherwise, it
-    --     is @false@.
+    --     protection is turned on for a task, the value is @true@. Otherwise,
+    --     it is @false@.
     --
     -- -   @expirationDate@: The epoch time when protection for the task will
     --     expire.
@@ -268,8 +269,8 @@ data UpdateTaskProtectionResponse = UpdateTaskProtectionResponse'
 -- -   @taskArn@: The task ARN.
 --
 -- -   @protectionEnabled@: The protection status of the task. If scale-in
---     protection is enabled for a task, the value is @true@. Otherwise, it
---     is @false@.
+--     protection is turned on for a task, the value is @true@. Otherwise,
+--     it is @false@.
 --
 -- -   @expirationDate@: The epoch time when protection for the task will
 --     expire.
@@ -296,8 +297,8 @@ updateTaskProtectionResponse_failures = Lens.lens (\UpdateTaskProtectionResponse
 -- -   @taskArn@: The task ARN.
 --
 -- -   @protectionEnabled@: The protection status of the task. If scale-in
---     protection is enabled for a task, the value is @true@. Otherwise, it
---     is @false@.
+--     protection is turned on for a task, the value is @true@. Otherwise,
+--     it is @false@.
 --
 -- -   @expirationDate@: The epoch time when protection for the task will
 --     expire.

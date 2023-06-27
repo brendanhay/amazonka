@@ -92,7 +92,8 @@ managedAgentStateChange_status = Lens.lens (\ManagedAgentStateChange' {status} -
 
 instance Prelude.Hashable ManagedAgentStateChange where
   hashWithSalt _salt ManagedAgentStateChange' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` containerName
       `Prelude.hashWithSalt` managedAgentName
       `Prelude.hashWithSalt` status

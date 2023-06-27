@@ -83,9 +83,9 @@ data ListAccountSettings = ListAccountSettings'
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the principal, which can be an IAM user, IAM role, or the
-    -- root user. If this field is omitted, the account settings are listed
-    -- only for the authenticated user.
+    -- | The ARN of the principal, which can be a user, role, or the root user.
+    -- If this field is omitted, the account settings are listed only for the
+    -- authenticated user.
     --
     -- Federated users assume the account setting of the root user and can\'t
     -- have explicit account settings set for them.
@@ -130,9 +130,9 @@ data ListAccountSettings = ListAccountSettings'
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
 --
--- 'principalArn', 'listAccountSettings_principalArn' - The ARN of the principal, which can be an IAM user, IAM role, or the
--- root user. If this field is omitted, the account settings are listed
--- only for the authenticated user.
+-- 'principalArn', 'listAccountSettings_principalArn' - The ARN of the principal, which can be a user, role, or the root user.
+-- If this field is omitted, the account settings are listed only for the
+-- authenticated user.
 --
 -- Federated users assume the account setting of the root user and can\'t
 -- have explicit account settings set for them.
@@ -186,9 +186,9 @@ listAccountSettings_name = Lens.lens (\ListAccountSettings' {name} -> name) (\s@
 listAccountSettings_nextToken :: Lens.Lens' ListAccountSettings (Prelude.Maybe Prelude.Text)
 listAccountSettings_nextToken = Lens.lens (\ListAccountSettings' {nextToken} -> nextToken) (\s@ListAccountSettings' {} a -> s {nextToken = a} :: ListAccountSettings)
 
--- | The ARN of the principal, which can be an IAM user, IAM role, or the
--- root user. If this field is omitted, the account settings are listed
--- only for the authenticated user.
+-- | The ARN of the principal, which can be a user, role, or the root user.
+-- If this field is omitted, the account settings are listed only for the
+-- authenticated user.
 --
 -- Federated users assume the account setting of the root user and can\'t
 -- have explicit account settings set for them.
@@ -205,22 +205,22 @@ instance Core.AWSPager ListAccountSettings where
     | Core.stop
         ( rs
             Lens.^? listAccountSettingsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAccountSettingsResponse_settings
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAccountSettings_nextToken
           Lens..~ rs
           Lens.^? listAccountSettingsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccountSettings where
   type
@@ -239,7 +239,8 @@ instance Core.AWSRequest ListAccountSettings where
 
 instance Prelude.Hashable ListAccountSettings where
   hashWithSalt _salt ListAccountSettings' {..} =
-    _salt `Prelude.hashWithSalt` effectiveSettings
+    _salt
+      `Prelude.hashWithSalt` effectiveSettings
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken

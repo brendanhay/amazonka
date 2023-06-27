@@ -46,7 +46,7 @@ data EFSVolumeConfiguration = EFSVolumeConfiguration'
     rootDirectory :: Prelude.Maybe Prelude.Text,
     -- | Determines whether to use encryption for Amazon EFS data in transit
     -- between the Amazon ECS host and the Amazon EFS server. Transit
-    -- encryption must be enabled if Amazon EFS IAM authorization is used. If
+    -- encryption must be turned on if Amazon EFS IAM authorization is used. If
     -- this parameter is omitted, the default value of @DISABLED@ is used. For
     -- more information, see
     -- <https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html Encrypting data in transit>
@@ -85,7 +85,7 @@ data EFSVolumeConfiguration = EFSVolumeConfiguration'
 --
 -- 'transitEncryption', 'eFSVolumeConfiguration_transitEncryption' - Determines whether to use encryption for Amazon EFS data in transit
 -- between the Amazon ECS host and the Amazon EFS server. Transit
--- encryption must be enabled if Amazon EFS IAM authorization is used. If
+-- encryption must be turned on if Amazon EFS IAM authorization is used. If
 -- this parameter is omitted, the default value of @DISABLED@ is used. For
 -- more information, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html Encrypting data in transit>
@@ -130,7 +130,7 @@ eFSVolumeConfiguration_rootDirectory = Lens.lens (\EFSVolumeConfiguration' {root
 
 -- | Determines whether to use encryption for Amazon EFS data in transit
 -- between the Amazon ECS host and the Amazon EFS server. Transit
--- encryption must be enabled if Amazon EFS IAM authorization is used. If
+-- encryption must be turned on if Amazon EFS IAM authorization is used. If
 -- this parameter is omitted, the default value of @DISABLED@ is used. For
 -- more information, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html Encrypting data in transit>
@@ -166,7 +166,8 @@ instance Data.FromJSON EFSVolumeConfiguration where
 
 instance Prelude.Hashable EFSVolumeConfiguration where
   hashWithSalt _salt EFSVolumeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` authorizationConfig
+    _salt
+      `Prelude.hashWithSalt` authorizationConfig
       `Prelude.hashWithSalt` rootDirectory
       `Prelude.hashWithSalt` transitEncryption
       `Prelude.hashWithSalt` transitEncryptionPort

@@ -49,10 +49,8 @@ data ServiceConnectServiceResource = ServiceConnectServiceResource'
     -- can include lowercase letters, numbers, underscores (_), and hyphens
     -- (-). The name can\'t start with a hyphen.
     --
-    -- If this parameter isn\'t specified, the default value of
-    -- @discoveryName.namespace@ is used. If the @discoveryName@ isn\'t
-    -- specified, the port mapping name from the task definition is used in
-    -- @portName.namespace@.
+    -- If the @discoveryName@ isn\'t specified, the port mapping name from the
+    -- task definition is used in @portName.namespace@.
     discoveryName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,10 +76,8 @@ data ServiceConnectServiceResource = ServiceConnectServiceResource'
 -- can include lowercase letters, numbers, underscores (_), and hyphens
 -- (-). The name can\'t start with a hyphen.
 --
--- If this parameter isn\'t specified, the default value of
--- @discoveryName.namespace@ is used. If the @discoveryName@ isn\'t
--- specified, the port mapping name from the task definition is used in
--- @portName.namespace@.
+-- If the @discoveryName@ isn\'t specified, the port mapping name from the
+-- task definition is used in @portName.namespace@.
 newServiceConnectServiceResource ::
   ServiceConnectServiceResource
 newServiceConnectServiceResource =
@@ -106,10 +102,8 @@ serviceConnectServiceResource_discoveryArn = Lens.lens (\ServiceConnectServiceRe
 -- can include lowercase letters, numbers, underscores (_), and hyphens
 -- (-). The name can\'t start with a hyphen.
 --
--- If this parameter isn\'t specified, the default value of
--- @discoveryName.namespace@ is used. If the @discoveryName@ isn\'t
--- specified, the port mapping name from the task definition is used in
--- @portName.namespace@.
+-- If the @discoveryName@ isn\'t specified, the port mapping name from the
+-- task definition is used in @portName.namespace@.
 serviceConnectServiceResource_discoveryName :: Lens.Lens' ServiceConnectServiceResource (Prelude.Maybe Prelude.Text)
 serviceConnectServiceResource_discoveryName = Lens.lens (\ServiceConnectServiceResource' {discoveryName} -> discoveryName) (\s@ServiceConnectServiceResource' {} a -> s {discoveryName = a} :: ServiceConnectServiceResource)
 
@@ -128,7 +122,8 @@ instance
     ServiceConnectServiceResource
   where
   hashWithSalt _salt ServiceConnectServiceResource' {..} =
-    _salt `Prelude.hashWithSalt` discoveryArn
+    _salt
+      `Prelude.hashWithSalt` discoveryArn
       `Prelude.hashWithSalt` discoveryName
 
 instance Prelude.NFData ServiceConnectServiceResource where

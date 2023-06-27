@@ -84,7 +84,7 @@ data Deployment = Deployment'
     -- The rollout state of the deployment. When a service deployment is
     -- started, it begins in an @IN_PROGRESS@ state. When the service reaches a
     -- steady state, the deployment transitions to a @COMPLETED@ state. If the
-    -- service fails to reach a steady state and circuit breaker is enabled,
+    -- service fails to reach a steady state and circuit breaker is turned on,
     -- the deployment transitions to a @FAILED@ state. A deployment in @FAILED@
     -- state doesn\'t launch any new tasks. For more information, see
     -- DeploymentCircuitBreaker.
@@ -192,7 +192,7 @@ data Deployment = Deployment'
 -- The rollout state of the deployment. When a service deployment is
 -- started, it begins in an @IN_PROGRESS@ state. When the service reaches a
 -- steady state, the deployment transitions to a @COMPLETED@ state. If the
--- service fails to reach a steady state and circuit breaker is enabled,
+-- service fails to reach a steady state and circuit breaker is turned on,
 -- the deployment transitions to a @FAILED@ state. A deployment in @FAILED@
 -- state doesn\'t launch any new tasks. For more information, see
 -- DeploymentCircuitBreaker.
@@ -333,7 +333,7 @@ deployment_platformVersion = Lens.lens (\Deployment' {platformVersion} -> platfo
 -- The rollout state of the deployment. When a service deployment is
 -- started, it begins in an @IN_PROGRESS@ state. When the service reaches a
 -- steady state, the deployment transitions to a @COMPLETED@ state. If the
--- service fails to reach a steady state and circuit breaker is enabled,
+-- service fails to reach a steady state and circuit breaker is turned on,
 -- the deployment transitions to a @FAILED@ state. A deployment in @FAILED@
 -- state doesn\'t launch any new tasks. For more information, see
 -- DeploymentCircuitBreaker.
@@ -403,7 +403,8 @@ instance Data.FromJSON Deployment where
       "Deployment"
       ( \x ->
           Deployment'
-            Prelude.<$> ( x Data..:? "capacityProviderStrategy"
+            Prelude.<$> ( x
+                            Data..:? "capacityProviderStrategy"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "createdAt")
@@ -419,7 +420,8 @@ instance Data.FromJSON Deployment where
             Prelude.<*> (x Data..:? "rolloutStateReason")
             Prelude.<*> (x Data..:? "runningCount")
             Prelude.<*> (x Data..:? "serviceConnectConfiguration")
-            Prelude.<*> ( x Data..:? "serviceConnectResources"
+            Prelude.<*> ( x
+                            Data..:? "serviceConnectResources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "status")

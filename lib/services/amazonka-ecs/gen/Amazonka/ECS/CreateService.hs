@@ -26,6 +26,15 @@
 -- specified cluster. To update an existing service, see the UpdateService
 -- action.
 --
+-- Starting April 15, 2023, Amazon Web Services will not onboard new
+-- customers to Amazon Elastic Inference (EI), and will help current
+-- customers migrate their workloads to options that offer better price and
+-- performance. After April 15, 2023, new customers will not be able to
+-- launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon
+-- ECS, or Amazon EC2. However, customers who have used Amazon EI at least
+-- once during the past 30-day period are considered current customers and
+-- will be able to continue using the service.
+--
 -- In addition to maintaining the desired count of tasks in your service,
 -- you can optionally run your service behind one or more load balancers.
 -- The load balancers distribute traffic across the tasks that are
@@ -194,7 +203,7 @@ data CreateService = CreateService'
     -- controller is specified, the default value of @ECS@ is used.
     deploymentController :: Prelude.Maybe DeploymentController,
     -- | The number of instantiations of the specified task definition to place
-    -- and keep running on your cluster.
+    -- and keep running in your service.
     --
     -- This is required if @schedulingStrategy@ is @REPLICA@ or isn\'t
     -- specified. If @schedulingStrategy@ is @DAEMON@ then this isn\'t
@@ -204,10 +213,13 @@ data CreateService = CreateService'
     -- within the service. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging your Amazon ECS resources>
     -- in the /Amazon Elastic Container Service Developer Guide/.
+    --
+    -- When you use Amazon ECS managed tags, you need to set the
+    -- @propagateTags@ request parameter.
     enableECSManagedTags :: Prelude.Maybe Prelude.Bool,
-    -- | Determines whether the execute command functionality is enabled for the
-    -- service. If @true@, this enables execute command functionality on all
-    -- containers in the service tasks.
+    -- | Determines whether the execute command functionality is turned on for
+    -- the service. If @true@, this enables execute command functionality on
+    -- all containers in the service tasks.
     enableExecuteCommand :: Prelude.Maybe Prelude.Bool,
     -- | The period of time, in seconds, that the Amazon ECS service scheduler
     -- ignores unhealthy Elastic Load Balancing target health checks after a
@@ -327,7 +339,11 @@ data CreateService = CreateService'
     -- | Specifies whether to propagate the tags from the task definition to the
     -- task. If no value is specified, the tags aren\'t propagated. Tags can
     -- only be propagated to the task during task creation. To add tags to a
-    -- task after task creation, use the TagResource API action.
+    -- task after task creation, use the
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html TagResource>
+    -- API action.
+    --
+    -- The default is @NONE@.
     propagateTags :: Prelude.Maybe PropagateTags,
     -- | The name or full Amazon Resource Name (ARN) of the IAM role that allows
     -- Amazon ECS to make calls to your load balancer on your behalf. This
@@ -436,6 +452,9 @@ data CreateService = CreateService'
     --
     -- A task definition must be specified if the service uses either the @ECS@
     -- or @CODE_DEPLOY@ deployment controllers.
+    --
+    -- For more information about deployment types, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html Amazon ECS deployment types>.
     taskDefinition :: Prelude.Maybe Prelude.Text,
     -- | The name of your service. Up to 255 letters (uppercase and lowercase),
     -- numbers, underscores, and hyphens are allowed. Service names must be
@@ -478,7 +497,7 @@ data CreateService = CreateService'
 -- controller is specified, the default value of @ECS@ is used.
 --
 -- 'desiredCount', 'createService_desiredCount' - The number of instantiations of the specified task definition to place
--- and keep running on your cluster.
+-- and keep running in your service.
 --
 -- This is required if @schedulingStrategy@ is @REPLICA@ or isn\'t
 -- specified. If @schedulingStrategy@ is @DAEMON@ then this isn\'t
@@ -489,9 +508,12 @@ data CreateService = CreateService'
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging your Amazon ECS resources>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- 'enableExecuteCommand', 'createService_enableExecuteCommand' - Determines whether the execute command functionality is enabled for the
--- service. If @true@, this enables execute command functionality on all
--- containers in the service tasks.
+-- When you use Amazon ECS managed tags, you need to set the
+-- @propagateTags@ request parameter.
+--
+-- 'enableExecuteCommand', 'createService_enableExecuteCommand' - Determines whether the execute command functionality is turned on for
+-- the service. If @true@, this enables execute command functionality on
+-- all containers in the service tasks.
 --
 -- 'healthCheckGracePeriodSeconds', 'createService_healthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler
 -- ignores unhealthy Elastic Load Balancing target health checks after a
@@ -611,7 +633,11 @@ data CreateService = CreateService'
 -- 'propagateTags', 'createService_propagateTags' - Specifies whether to propagate the tags from the task definition to the
 -- task. If no value is specified, the tags aren\'t propagated. Tags can
 -- only be propagated to the task during task creation. To add tags to a
--- task after task creation, use the TagResource API action.
+-- task after task creation, use the
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html TagResource>
+-- API action.
+--
+-- The default is @NONE@.
 --
 -- 'role'', 'createService_role' - The name or full Amazon Resource Name (ARN) of the IAM role that allows
 -- Amazon ECS to make calls to your load balancer on your behalf. This
@@ -721,6 +747,9 @@ data CreateService = CreateService'
 -- A task definition must be specified if the service uses either the @ECS@
 -- or @CODE_DEPLOY@ deployment controllers.
 --
+-- For more information about deployment types, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html Amazon ECS deployment types>.
+--
 -- 'serviceName', 'createService_serviceName' - The name of your service. Up to 255 letters (uppercase and lowercase),
 -- numbers, underscores, and hyphens are allowed. Service names must be
 -- unique within a cluster, but you can have similarly named services in
@@ -792,7 +821,7 @@ createService_deploymentController :: Lens.Lens' CreateService (Prelude.Maybe De
 createService_deploymentController = Lens.lens (\CreateService' {deploymentController} -> deploymentController) (\s@CreateService' {} a -> s {deploymentController = a} :: CreateService)
 
 -- | The number of instantiations of the specified task definition to place
--- and keep running on your cluster.
+-- and keep running in your service.
 --
 -- This is required if @schedulingStrategy@ is @REPLICA@ or isn\'t
 -- specified. If @schedulingStrategy@ is @DAEMON@ then this isn\'t
@@ -804,12 +833,15 @@ createService_desiredCount = Lens.lens (\CreateService' {desiredCount} -> desire
 -- within the service. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging your Amazon ECS resources>
 -- in the /Amazon Elastic Container Service Developer Guide/.
+--
+-- When you use Amazon ECS managed tags, you need to set the
+-- @propagateTags@ request parameter.
 createService_enableECSManagedTags :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Bool)
 createService_enableECSManagedTags = Lens.lens (\CreateService' {enableECSManagedTags} -> enableECSManagedTags) (\s@CreateService' {} a -> s {enableECSManagedTags = a} :: CreateService)
 
--- | Determines whether the execute command functionality is enabled for the
--- service. If @true@, this enables execute command functionality on all
--- containers in the service tasks.
+-- | Determines whether the execute command functionality is turned on for
+-- the service. If @true@, this enables execute command functionality on
+-- all containers in the service tasks.
 createService_enableExecuteCommand :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Bool)
 createService_enableExecuteCommand = Lens.lens (\CreateService' {enableExecuteCommand} -> enableExecuteCommand) (\s@CreateService' {} a -> s {enableExecuteCommand = a} :: CreateService)
 
@@ -945,7 +977,11 @@ createService_platformVersion = Lens.lens (\CreateService' {platformVersion} -> 
 -- | Specifies whether to propagate the tags from the task definition to the
 -- task. If no value is specified, the tags aren\'t propagated. Tags can
 -- only be propagated to the task during task creation. To add tags to a
--- task after task creation, use the TagResource API action.
+-- task after task creation, use the
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html TagResource>
+-- API action.
+--
+-- The default is @NONE@.
 createService_propagateTags :: Lens.Lens' CreateService (Prelude.Maybe PropagateTags)
 createService_propagateTags = Lens.lens (\CreateService' {propagateTags} -> propagateTags) (\s@CreateService' {} a -> s {propagateTags = a} :: CreateService)
 
@@ -1066,6 +1102,9 @@ createService_tags = Lens.lens (\CreateService' {tags} -> tags) (\s@CreateServic
 --
 -- A task definition must be specified if the service uses either the @ECS@
 -- or @CODE_DEPLOY@ deployment controllers.
+--
+-- For more information about deployment types, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html Amazon ECS deployment types>.
 createService_taskDefinition :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
 createService_taskDefinition = Lens.lens (\CreateService' {taskDefinition} -> taskDefinition) (\s@CreateService' {} a -> s {taskDefinition = a} :: CreateService)
 

@@ -105,6 +105,12 @@ module Amazonka.ECS.Lens
     deleteServiceResponse_service,
     deleteServiceResponse_httpStatus,
 
+    -- ** DeleteTaskDefinitions
+    deleteTaskDefinitions_taskDefinitions,
+    deleteTaskDefinitionsResponse_failures,
+    deleteTaskDefinitionsResponse_taskDefinitions,
+    deleteTaskDefinitionsResponse_httpStatus,
+
     -- ** DeleteTaskSet
     deleteTaskSet_force,
     deleteTaskSet_cluster,
@@ -1192,6 +1198,7 @@ import Amazonka.ECS.DeleteAttributes
 import Amazonka.ECS.DeleteCapacityProvider
 import Amazonka.ECS.DeleteCluster
 import Amazonka.ECS.DeleteService
+import Amazonka.ECS.DeleteTaskDefinitions
 import Amazonka.ECS.DeleteTaskSet
 import Amazonka.ECS.DeregisterContainerInstance
 import Amazonka.ECS.DeregisterTaskDefinition

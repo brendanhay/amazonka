@@ -34,6 +34,17 @@ import qualified Amazonka.Prelude as Prelude
 -- mode, specify the exposed ports using @containerPort@. The @hostPort@
 -- can be left blank or it must be the same value as the @containerPort@.
 --
+-- Most fields of this parameter (@containerPort@, @hostPort@, @protocol@)
+-- maps to @PortBindings@ in the
+-- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
+-- section of the
+-- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
+-- @--publish@ option to
+-- <https://docs.docker.com/engine/reference/commandline/run/ docker run> .
+-- If the network mode of a task definition is set to @host@, host ports
+-- must either be undefined or match the container port in the port
+-- mapping.
+--
 -- You can\'t expose the same container port for multiple protocols. If you
 -- attempt this, an error is returned.
 --
@@ -144,7 +155,7 @@ data PortMapping = PortMapping'
     --     a static mapping strategy.
     --
     -- -   For containers in a task with the @bridge@ network mode, the Amazon
-    --     ECS agent finds open ports on the host and automaticaly binds them
+    --     ECS agent finds open ports on the host and automatically binds them
     --     to the container ports. This is a dynamic mapping strategy.
     --
     -- If you use containers in a task with the @awsvpc@ or @host@ network
@@ -171,10 +182,11 @@ data PortMapping = PortMapping'
     -- port that was previously specified in a running task is also reserved
     -- while the task is running. That is, after a task stops, the host port is
     -- released. The current reserved ports are displayed in the
-    -- @remainingResources@ of DescribeContainerInstances output. A container
-    -- instance can have up to 100 reserved ports at a time. This number
-    -- includes the default reserved ports. Automatically assigned ports
-    -- aren\'t included in the 100 reserved ports quota.
+    -- @remainingResources@ of
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html DescribeContainerInstances>
+    -- output. A container instance can have up to 100 reserved ports at a
+    -- time. This number includes the default reserved ports. Automatically
+    -- assigned ports aren\'t included in the 100 reserved ports quota.
     hostPort :: Prelude.Maybe Prelude.Int,
     -- | The name that\'s used for the port mapping. This parameter only applies
     -- to Service Connect. This parameter is the name that you use in the
@@ -301,7 +313,7 @@ data PortMapping = PortMapping'
 --     a static mapping strategy.
 --
 -- -   For containers in a task with the @bridge@ network mode, the Amazon
---     ECS agent finds open ports on the host and automaticaly binds them
+--     ECS agent finds open ports on the host and automatically binds them
 --     to the container ports. This is a dynamic mapping strategy.
 --
 -- If you use containers in a task with the @awsvpc@ or @host@ network
@@ -328,10 +340,11 @@ data PortMapping = PortMapping'
 -- port that was previously specified in a running task is also reserved
 -- while the task is running. That is, after a task stops, the host port is
 -- released. The current reserved ports are displayed in the
--- @remainingResources@ of DescribeContainerInstances output. A container
--- instance can have up to 100 reserved ports at a time. This number
--- includes the default reserved ports. Automatically assigned ports
--- aren\'t included in the 100 reserved ports quota.
+-- @remainingResources@ of
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html DescribeContainerInstances>
+-- output. A container instance can have up to 100 reserved ports at a
+-- time. This number includes the default reserved ports. Automatically
+-- assigned ports aren\'t included in the 100 reserved ports quota.
 --
 -- 'name', 'portMapping_name' - The name that\'s used for the port mapping. This parameter only applies
 -- to Service Connect. This parameter is the name that you use in the
@@ -464,7 +477,7 @@ portMapping_containerPortRange = Lens.lens (\PortMapping' {containerPortRange} -
 --     a static mapping strategy.
 --
 -- -   For containers in a task with the @bridge@ network mode, the Amazon
---     ECS agent finds open ports on the host and automaticaly binds them
+--     ECS agent finds open ports on the host and automatically binds them
 --     to the container ports. This is a dynamic mapping strategy.
 --
 -- If you use containers in a task with the @awsvpc@ or @host@ network
@@ -491,10 +504,11 @@ portMapping_containerPortRange = Lens.lens (\PortMapping' {containerPortRange} -
 -- port that was previously specified in a running task is also reserved
 -- while the task is running. That is, after a task stops, the host port is
 -- released. The current reserved ports are displayed in the
--- @remainingResources@ of DescribeContainerInstances output. A container
--- instance can have up to 100 reserved ports at a time. This number
--- includes the default reserved ports. Automatically assigned ports
--- aren\'t included in the 100 reserved ports quota.
+-- @remainingResources@ of
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html DescribeContainerInstances>
+-- output. A container instance can have up to 100 reserved ports at a
+-- time. This number includes the default reserved ports. Automatically
+-- assigned ports aren\'t included in the 100 reserved ports quota.
 portMapping_hostPort :: Lens.Lens' PortMapping (Prelude.Maybe Prelude.Int)
 portMapping_hostPort = Lens.lens (\PortMapping' {hostPort} -> hostPort) (\s@PortMapping' {} a -> s {hostPort = a} :: PortMapping)
 
@@ -531,7 +545,8 @@ instance Data.FromJSON PortMapping where
 
 instance Prelude.Hashable PortMapping where
   hashWithSalt _salt PortMapping' {..} =
-    _salt `Prelude.hashWithSalt` appProtocol
+    _salt
+      `Prelude.hashWithSalt` appProtocol
       `Prelude.hashWithSalt` containerPort
       `Prelude.hashWithSalt` containerPortRange
       `Prelude.hashWithSalt` hostPort

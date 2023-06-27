@@ -90,7 +90,8 @@ instance Data.FromJSON Session where
 
 instance Prelude.Hashable Session where
   hashWithSalt _salt Session' {..} =
-    _salt `Prelude.hashWithSalt` sessionId
+    _salt
+      `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` streamUrl
       `Prelude.hashWithSalt` tokenValue
 

@@ -99,7 +99,8 @@ instance Data.FromJSON SystemControl where
 
 instance Prelude.Hashable SystemControl where
   hashWithSalt _salt SystemControl' {..} =
-    _salt `Prelude.hashWithSalt` namespace
+    _salt
+      `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData SystemControl where

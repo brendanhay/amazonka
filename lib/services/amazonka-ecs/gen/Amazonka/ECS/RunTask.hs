@@ -31,6 +31,15 @@
 -- Alternatively, you can use StartTask to use your own scheduler or place
 -- tasks manually on specific container instances.
 --
+-- Starting April 15, 2023, Amazon Web Services will not onboard new
+-- customers to Amazon Elastic Inference (EI), and will help current
+-- customers migrate their workloads to options that offer better price and
+-- performance. After April 15, 2023, new customers will not be able to
+-- launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon
+-- ECS, or Amazon EC2. However, customers who have used Amazon EI at least
+-- once during the past 30-day period are considered current customers and
+-- will be able to continue using the service.
+--
 -- The Amazon ECS API follows an eventual consistency model. This is
 -- because of the distributed nature of the system supporting the API. This
 -- means that the result of an API command you run that affects your Amazon
@@ -245,11 +254,11 @@ data RunTask = RunTask'
     -- definition to run. If a @revision@ isn\'t specified, the latest @ACTIVE@
     -- revision is used.
     --
-    -- When you create an IAM policy for run-task, you can set the resource to
-    -- be the latest task definition revision, or a specific revision.
+    -- When you create a policy for run-task, you can set the resource to be
+    -- the latest task definition revision, or a specific revision.
     --
     -- The full ARN value must match the value that you specified as the
-    -- @Resource@ of the IAM principal\'s permissions policy.
+    -- @Resource@ of the principal\'s permissions policy.
     --
     -- When you specify the policy resource as the latest task definition
     -- version (by setting the @Resource@ in the policy to
@@ -428,11 +437,11 @@ data RunTask = RunTask'
 -- definition to run. If a @revision@ isn\'t specified, the latest @ACTIVE@
 -- revision is used.
 --
--- When you create an IAM policy for run-task, you can set the resource to
--- be the latest task definition revision, or a specific revision.
+-- When you create a policy for run-task, you can set the resource to be
+-- the latest task definition revision, or a specific revision.
 --
 -- The full ARN value must match the value that you specified as the
--- @Resource@ of the IAM principal\'s permissions policy.
+-- @Resource@ of the principal\'s permissions policy.
 --
 -- When you specify the policy resource as the latest task definition
 -- version (by setting the @Resource@ in the policy to
@@ -657,11 +666,11 @@ runTask_tags = Lens.lens (\RunTask' {tags} -> tags) (\s@RunTask' {} a -> s {tags
 -- definition to run. If a @revision@ isn\'t specified, the latest @ACTIVE@
 -- revision is used.
 --
--- When you create an IAM policy for run-task, you can set the resource to
--- be the latest task definition revision, or a specific revision.
+-- When you create a policy for run-task, you can set the resource to be
+-- the latest task definition revision, or a specific revision.
 --
 -- The full ARN value must match the value that you specified as the
--- @Resource@ of the IAM principal\'s permissions policy.
+-- @Resource@ of the principal\'s permissions policy.
 --
 -- When you specify the policy resource as the latest task definition
 -- version (by setting the @Resource@ in the policy to

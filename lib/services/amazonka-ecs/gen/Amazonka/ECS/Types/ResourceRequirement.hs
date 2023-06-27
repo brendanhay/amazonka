@@ -44,7 +44,9 @@ data ResourceRequirement = ResourceRequirement'
     -- launched on.
     --
     -- If the @InferenceAccelerator@ type is used, the @value@ matches the
-    -- @deviceName@ for an InferenceAccelerator specified in a task definition.
+    -- @deviceName@ for an
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html InferenceAccelerator>
+    -- specified in a task definition.
     value :: Prelude.Text,
     -- | The type of resource to assign to a container. The supported values are
     -- @GPU@ or @InferenceAccelerator@.
@@ -69,7 +71,9 @@ data ResourceRequirement = ResourceRequirement'
 -- launched on.
 --
 -- If the @InferenceAccelerator@ type is used, the @value@ matches the
--- @deviceName@ for an InferenceAccelerator specified in a task definition.
+-- @deviceName@ for an
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html InferenceAccelerator>
+-- specified in a task definition.
 --
 -- 'type'', 'resourceRequirement_type' - The type of resource to assign to a container. The supported values are
 -- @GPU@ or @InferenceAccelerator@.
@@ -94,7 +98,9 @@ newResourceRequirement pValue_ pType_ =
 -- launched on.
 --
 -- If the @InferenceAccelerator@ type is used, the @value@ matches the
--- @deviceName@ for an InferenceAccelerator specified in a task definition.
+-- @deviceName@ for an
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_InferenceAccelerator.html InferenceAccelerator>
+-- specified in a task definition.
 resourceRequirement_value :: Lens.Lens' ResourceRequirement Prelude.Text
 resourceRequirement_value = Lens.lens (\ResourceRequirement' {value} -> value) (\s@ResourceRequirement' {} a -> s {value = a} :: ResourceRequirement)
 
@@ -109,12 +115,14 @@ instance Data.FromJSON ResourceRequirement where
       "ResourceRequirement"
       ( \x ->
           ResourceRequirement'
-            Prelude.<$> (x Data..: "value") Prelude.<*> (x Data..: "type")
+            Prelude.<$> (x Data..: "value")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable ResourceRequirement where
   hashWithSalt _salt ResourceRequirement' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ResourceRequirement where

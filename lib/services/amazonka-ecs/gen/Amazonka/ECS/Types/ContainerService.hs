@@ -39,7 +39,7 @@ import Amazonka.ECS.Types.Tag
 import Amazonka.ECS.Types.TaskSet
 import qualified Amazonka.Prelude as Prelude
 
--- | Details on a service within a cluster
+-- | Details on a service within a cluster.
 --
 -- /See:/ 'newContainerService' smart constructor.
 data ContainerService = ContainerService'
@@ -69,9 +69,9 @@ data ContainerService = ContainerService'
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     enableECSManagedTags :: Prelude.Maybe Prelude.Bool,
-    -- | Determines whether the execute command functionality is enabled for the
-    -- service. If @true@, the execute command functionality is enabled for all
-    -- containers in tasks as part of the service.
+    -- | Determines whether the execute command functionality is turned on for
+    -- the service. If @true@, the execute command functionality is turned on
+    -- for all containers in tasks as part of the service.
     enableExecuteCommand :: Prelude.Maybe Prelude.Bool,
     -- | The event stream for your service. A maximum of 100 of the latest events
     -- are displayed.
@@ -234,9 +234,9 @@ data ContainerService = ContainerService'
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- 'enableExecuteCommand', 'containerService_enableExecuteCommand' - Determines whether the execute command functionality is enabled for the
--- service. If @true@, the execute command functionality is enabled for all
--- containers in tasks as part of the service.
+-- 'enableExecuteCommand', 'containerService_enableExecuteCommand' - Determines whether the execute command functionality is turned on for
+-- the service. If @true@, the execute command functionality is turned on
+-- for all containers in tasks as part of the service.
 --
 -- 'events', 'containerService_events' - The event stream for your service. A maximum of 100 of the latest events
 -- are displayed.
@@ -443,9 +443,9 @@ containerService_desiredCount = Lens.lens (\ContainerService' {desiredCount} -> 
 containerService_enableECSManagedTags :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Bool)
 containerService_enableECSManagedTags = Lens.lens (\ContainerService' {enableECSManagedTags} -> enableECSManagedTags) (\s@ContainerService' {} a -> s {enableECSManagedTags = a} :: ContainerService)
 
--- | Determines whether the execute command functionality is enabled for the
--- service. If @true@, the execute command functionality is enabled for all
--- containers in tasks as part of the service.
+-- | Determines whether the execute command functionality is turned on for
+-- the service. If @true@, the execute command functionality is turned on
+-- for all containers in tasks as part of the service.
 containerService_enableExecuteCommand :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Bool)
 containerService_enableExecuteCommand = Lens.lens (\ContainerService' {enableExecuteCommand} -> enableExecuteCommand) (\s@ContainerService' {} a -> s {enableExecuteCommand = a} :: ContainerService)
 
@@ -621,7 +621,8 @@ instance Data.FromJSON ContainerService where
       "ContainerService"
       ( \x ->
           ContainerService'
-            Prelude.<$> ( x Data..:? "capacityProviderStrategy"
+            Prelude.<$> ( x
+                            Data..:? "capacityProviderStrategy"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "clusterArn")
@@ -639,10 +640,12 @@ instance Data.FromJSON ContainerService where
             Prelude.<*> (x Data..:? "loadBalancers" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "networkConfiguration")
             Prelude.<*> (x Data..:? "pendingCount")
-            Prelude.<*> ( x Data..:? "placementConstraints"
+            Prelude.<*> ( x
+                            Data..:? "placementConstraints"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "placementStrategy"
+            Prelude.<*> ( x
+                            Data..:? "placementStrategy"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "platformFamily")
@@ -653,7 +656,8 @@ instance Data.FromJSON ContainerService where
             Prelude.<*> (x Data..:? "schedulingStrategy")
             Prelude.<*> (x Data..:? "serviceArn")
             Prelude.<*> (x Data..:? "serviceName")
-            Prelude.<*> ( x Data..:? "serviceRegistries"
+            Prelude.<*> ( x
+                            Data..:? "serviceRegistries"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "status")

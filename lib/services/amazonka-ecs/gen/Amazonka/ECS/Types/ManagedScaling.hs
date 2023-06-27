@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | The managed scaling settings for the Auto Scaling group capacity
 -- provider.
 --
--- When managed scaling is enabled, Amazon ECS manages the scale-in and
+-- When managed scaling is turned on, Amazon ECS manages the scale-in and
 -- scale-out actions of the Auto Scaling group. Amazon ECS manages a target
 -- tracking scaling policy using an Amazon ECS managed CloudWatch metric
 -- with the specified @targetCapacity@ value as the target value for the
@@ -36,8 +36,8 @@ import qualified Amazonka.Prelude as Prelude
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/asg-capacity-providers.html#asg-capacity-providers-managed-scaling Using managed scaling>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- If managed scaling is disabled, the user must manage the scaling of the
--- Auto Scaling group.
+-- If managed scaling is off, the user must manage the scaling of the Auto
+-- Scaling group.
 --
 -- /See:/ 'newManagedScaling' smart constructor.
 data ManagedScaling = ManagedScaling'
@@ -65,10 +65,13 @@ data ManagedScaling = ManagedScaling'
     minimumScalingStepSize :: Prelude.Maybe Prelude.Natural,
     -- | Determines whether to use managed scaling for the capacity provider.
     status :: Prelude.Maybe ManagedScalingStatus,
-    -- | The target capacity value for the capacity provider. The specified value
-    -- must be greater than @0@ and less than or equal to @100@. A value of
-    -- @100@ results in the Amazon EC2 instances in your Auto Scaling group
-    -- being completely used.
+    -- | The target capacity utilization as a percentage for the capacity
+    -- provider. The specified value must be greater than @0@ and less than or
+    -- equal to @100@. For example, if you want the capacity provider to
+    -- maintain 10% spare capacity, then that means the utilization is 90%, so
+    -- use a @targetCapacity@ of @90@. The default value of @100@ percent
+    -- results in the Amazon EC2 instances in your Auto Scaling group being
+    -- completely used.
     targetCapacity :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -105,10 +108,13 @@ data ManagedScaling = ManagedScaling'
 --
 -- 'status', 'managedScaling_status' - Determines whether to use managed scaling for the capacity provider.
 --
--- 'targetCapacity', 'managedScaling_targetCapacity' - The target capacity value for the capacity provider. The specified value
--- must be greater than @0@ and less than or equal to @100@. A value of
--- @100@ results in the Amazon EC2 instances in your Auto Scaling group
--- being completely used.
+-- 'targetCapacity', 'managedScaling_targetCapacity' - The target capacity utilization as a percentage for the capacity
+-- provider. The specified value must be greater than @0@ and less than or
+-- equal to @100@. For example, if you want the capacity provider to
+-- maintain 10% spare capacity, then that means the utilization is 90%, so
+-- use a @targetCapacity@ of @90@. The default value of @100@ percent
+-- results in the Amazon EC2 instances in your Auto Scaling group being
+-- completely used.
 newManagedScaling ::
   ManagedScaling
 newManagedScaling =
@@ -153,10 +159,13 @@ managedScaling_minimumScalingStepSize = Lens.lens (\ManagedScaling' {minimumScal
 managedScaling_status :: Lens.Lens' ManagedScaling (Prelude.Maybe ManagedScalingStatus)
 managedScaling_status = Lens.lens (\ManagedScaling' {status} -> status) (\s@ManagedScaling' {} a -> s {status = a} :: ManagedScaling)
 
--- | The target capacity value for the capacity provider. The specified value
--- must be greater than @0@ and less than or equal to @100@. A value of
--- @100@ results in the Amazon EC2 instances in your Auto Scaling group
--- being completely used.
+-- | The target capacity utilization as a percentage for the capacity
+-- provider. The specified value must be greater than @0@ and less than or
+-- equal to @100@. For example, if you want the capacity provider to
+-- maintain 10% spare capacity, then that means the utilization is 90%, so
+-- use a @targetCapacity@ of @90@. The default value of @100@ percent
+-- results in the Amazon EC2 instances in your Auto Scaling group being
+-- completely used.
 managedScaling_targetCapacity :: Lens.Lens' ManagedScaling (Prelude.Maybe Prelude.Natural)
 managedScaling_targetCapacity = Lens.lens (\ManagedScaling' {targetCapacity} -> targetCapacity) (\s@ManagedScaling' {} a -> s {targetCapacity = a} :: ManagedScaling)
 
@@ -175,7 +184,8 @@ instance Data.FromJSON ManagedScaling where
 
 instance Prelude.Hashable ManagedScaling where
   hashWithSalt _salt ManagedScaling' {..} =
-    _salt `Prelude.hashWithSalt` instanceWarmupPeriod
+    _salt
+      `Prelude.hashWithSalt` instanceWarmupPeriod
       `Prelude.hashWithSalt` maximumScalingStepSize
       `Prelude.hashWithSalt` minimumScalingStepSize
       `Prelude.hashWithSalt` status

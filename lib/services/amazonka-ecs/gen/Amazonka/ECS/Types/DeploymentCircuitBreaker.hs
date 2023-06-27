@@ -25,14 +25,13 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The deployment circuit breaker can only be used for services using the
--- rolling update (@ECS@) deployment type that aren\'t behind a Classic
--- Load Balancer.
+-- rolling update (@ECS@) deployment type.
 --
 -- The __deployment circuit breaker__ determines whether a service
--- deployment will fail if the service can\'t reach a steady state. If
--- enabled, a service deployment will transition to a failed state and stop
--- launching new tasks. You can also configure Amazon ECS to roll back your
--- service to the last completed deployment after a failure. For more
+-- deployment will fail if the service can\'t reach a steady state. If it
+-- is turned on, a service deployment will transition to a failed state and
+-- stop launching new tasks. You can also configure Amazon ECS to roll back
+-- your service to the last completed deployment after a failure. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html Rolling update>
 -- in the /Amazon Elastic Container Service Developer Guide/.
@@ -101,7 +100,8 @@ instance Data.FromJSON DeploymentCircuitBreaker where
 
 instance Prelude.Hashable DeploymentCircuitBreaker where
   hashWithSalt _salt DeploymentCircuitBreaker' {..} =
-    _salt `Prelude.hashWithSalt` enable
+    _salt
+      `Prelude.hashWithSalt` enable
       `Prelude.hashWithSalt` rollback
 
 instance Prelude.NFData DeploymentCircuitBreaker where

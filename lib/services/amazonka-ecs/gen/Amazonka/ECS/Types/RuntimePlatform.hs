@@ -92,7 +92,8 @@ instance Data.FromJSON RuntimePlatform where
 
 instance Prelude.Hashable RuntimePlatform where
   hashWithSalt _salt RuntimePlatform' {..} =
-    _salt `Prelude.hashWithSalt` cpuArchitecture
+    _salt
+      `Prelude.hashWithSalt` cpuArchitecture
       `Prelude.hashWithSalt` operatingSystemFamily
 
 instance Prelude.NFData RuntimePlatform where

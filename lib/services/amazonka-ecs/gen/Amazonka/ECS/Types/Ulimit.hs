@@ -31,7 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 -- set by the operating system with the exception of the @nofile@ resource
 -- limit parameter which Fargate overrides. The @nofile@ resource limit
 -- sets a restriction on the number of open files that a container can use.
--- The default @nofile@ soft limit is @1024@ and hard limit is @4096@.
+-- The default @nofile@ soft limit is @1024@ and the default hard limit is
+-- @4096@.
+--
+-- You can specify the @ulimit@ settings for a container in a task
+-- definition.
 --
 -- /See:/ 'newUlimit' smart constructor.
 data Ulimit = Ulimit'
@@ -97,7 +101,8 @@ instance Data.FromJSON Ulimit where
 
 instance Prelude.Hashable Ulimit where
   hashWithSalt _salt Ulimit' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` softLimit
       `Prelude.hashWithSalt` hardLimit
 

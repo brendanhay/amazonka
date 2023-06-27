@@ -23,7 +23,9 @@ module Amazonka.ECS.Types.SettingName
         SettingName_AwsvpcTrunking,
         SettingName_ContainerInsights,
         SettingName_ContainerInstanceLongArnFormat,
+        SettingName_FargateFIPSMode,
         SettingName_ServiceLongArnFormat,
+        SettingName_TagResourceAuthorization,
         SettingName_TaskLongArnFormat
       ),
   )
@@ -70,8 +72,14 @@ pattern SettingName_ContainerInsights = SettingName' "containerInsights"
 pattern SettingName_ContainerInstanceLongArnFormat :: SettingName
 pattern SettingName_ContainerInstanceLongArnFormat = SettingName' "containerInstanceLongArnFormat"
 
+pattern SettingName_FargateFIPSMode :: SettingName
+pattern SettingName_FargateFIPSMode = SettingName' "fargateFIPSMode"
+
 pattern SettingName_ServiceLongArnFormat :: SettingName
 pattern SettingName_ServiceLongArnFormat = SettingName' "serviceLongArnFormat"
+
+pattern SettingName_TagResourceAuthorization :: SettingName
+pattern SettingName_TagResourceAuthorization = SettingName' "tagResourceAuthorization"
 
 pattern SettingName_TaskLongArnFormat :: SettingName
 pattern SettingName_TaskLongArnFormat = SettingName' "taskLongArnFormat"
@@ -80,7 +88,9 @@ pattern SettingName_TaskLongArnFormat = SettingName' "taskLongArnFormat"
   SettingName_AwsvpcTrunking,
   SettingName_ContainerInsights,
   SettingName_ContainerInstanceLongArnFormat,
+  SettingName_FargateFIPSMode,
   SettingName_ServiceLongArnFormat,
+  SettingName_TagResourceAuthorization,
   SettingName_TaskLongArnFormat,
   SettingName'
   #-}

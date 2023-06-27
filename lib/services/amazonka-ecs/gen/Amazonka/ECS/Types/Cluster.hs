@@ -98,7 +98,7 @@ data Cluster = Cluster'
     -- in the /Amazon Elastic Container Service Developer Guide/.
     serviceConnectDefaults :: Prelude.Maybe ClusterServiceConnectDefaults,
     -- | The settings for the cluster. This parameter indicates whether
-    -- CloudWatch Container Insights is enabled or disabled for a cluster.
+    -- CloudWatch Container Insights is on or off for a cluster.
     settings :: Prelude.Maybe [ClusterSetting],
     -- | Additional information about your clusters that are separated by launch
     -- type. They include the following:
@@ -245,7 +245,7 @@ data Cluster = Cluster'
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- 'settings', 'cluster_settings' - The settings for the cluster. This parameter indicates whether
--- CloudWatch Container Insights is enabled or disabled for a cluster.
+-- CloudWatch Container Insights is on or off for a cluster.
 --
 -- 'statistics', 'cluster_statistics' - Additional information about your clusters that are separated by launch
 -- type. They include the following:
@@ -426,7 +426,7 @@ cluster_serviceConnectDefaults :: Lens.Lens' Cluster (Prelude.Maybe ClusterServi
 cluster_serviceConnectDefaults = Lens.lens (\Cluster' {serviceConnectDefaults} -> serviceConnectDefaults) (\s@Cluster' {} a -> s {serviceConnectDefaults = a} :: Cluster)
 
 -- | The settings for the cluster. This parameter indicates whether
--- CloudWatch Container Insights is enabled or disabled for a cluster.
+-- CloudWatch Container Insights is on or off for a cluster.
 cluster_settings :: Lens.Lens' Cluster (Prelude.Maybe [ClusterSetting])
 cluster_settings = Lens.lens (\Cluster' {settings} -> settings) (\s@Cluster' {} a -> s {settings = a} :: Cluster) Prelude.. Lens.mapping Lens.coerced
 
@@ -519,13 +519,15 @@ instance Data.FromJSON Cluster where
             Prelude.<$> (x Data..:? "activeServicesCount")
             Prelude.<*> (x Data..:? "attachments" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "attachmentsStatus")
-            Prelude.<*> ( x Data..:? "capacityProviders"
+            Prelude.<*> ( x
+                            Data..:? "capacityProviders"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "clusterArn")
             Prelude.<*> (x Data..:? "clusterName")
             Prelude.<*> (x Data..:? "configuration")
-            Prelude.<*> ( x Data..:? "defaultCapacityProviderStrategy"
+            Prelude.<*> ( x
+                            Data..:? "defaultCapacityProviderStrategy"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "pendingTasksCount")
@@ -540,7 +542,8 @@ instance Data.FromJSON Cluster where
 
 instance Prelude.Hashable Cluster where
   hashWithSalt _salt Cluster' {..} =
-    _salt `Prelude.hashWithSalt` activeServicesCount
+    _salt
+      `Prelude.hashWithSalt` activeServicesCount
       `Prelude.hashWithSalt` attachments
       `Prelude.hashWithSalt` attachmentsStatus
       `Prelude.hashWithSalt` capacityProviders

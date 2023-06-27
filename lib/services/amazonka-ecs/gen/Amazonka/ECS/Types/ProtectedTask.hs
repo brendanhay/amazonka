@@ -32,8 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 data ProtectedTask = ProtectedTask'
   { -- | The epoch time when protection for the task will expire.
     expirationDate :: Prelude.Maybe Data.POSIX,
-    -- | The protection status of the task. If scale-in protection is enabled for
-    -- a task, the value is @true@. Otherwise, it is @false@.
+    -- | The protection status of the task. If scale-in protection is on for a
+    -- task, the value is @true@. Otherwise, it is @false@.
     protectionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The task ARN.
     taskArn :: Prelude.Maybe Prelude.Text
@@ -50,8 +50,8 @@ data ProtectedTask = ProtectedTask'
 --
 -- 'expirationDate', 'protectedTask_expirationDate' - The epoch time when protection for the task will expire.
 --
--- 'protectionEnabled', 'protectedTask_protectionEnabled' - The protection status of the task. If scale-in protection is enabled for
--- a task, the value is @true@. Otherwise, it is @false@.
+-- 'protectionEnabled', 'protectedTask_protectionEnabled' - The protection status of the task. If scale-in protection is on for a
+-- task, the value is @true@. Otherwise, it is @false@.
 --
 -- 'taskArn', 'protectedTask_taskArn' - The task ARN.
 newProtectedTask ::
@@ -67,8 +67,8 @@ newProtectedTask =
 protectedTask_expirationDate :: Lens.Lens' ProtectedTask (Prelude.Maybe Prelude.UTCTime)
 protectedTask_expirationDate = Lens.lens (\ProtectedTask' {expirationDate} -> expirationDate) (\s@ProtectedTask' {} a -> s {expirationDate = a} :: ProtectedTask) Prelude.. Lens.mapping Data._Time
 
--- | The protection status of the task. If scale-in protection is enabled for
--- a task, the value is @true@. Otherwise, it is @false@.
+-- | The protection status of the task. If scale-in protection is on for a
+-- task, the value is @true@. Otherwise, it is @false@.
 protectedTask_protectionEnabled :: Lens.Lens' ProtectedTask (Prelude.Maybe Prelude.Bool)
 protectedTask_protectionEnabled = Lens.lens (\ProtectedTask' {protectionEnabled} -> protectionEnabled) (\s@ProtectedTask' {} a -> s {protectionEnabled = a} :: ProtectedTask)
 
@@ -89,7 +89,8 @@ instance Data.FromJSON ProtectedTask where
 
 instance Prelude.Hashable ProtectedTask where
   hashWithSalt _salt ProtectedTask' {..} =
-    _salt `Prelude.hashWithSalt` expirationDate
+    _salt
+      `Prelude.hashWithSalt` expirationDate
       `Prelude.hashWithSalt` protectionEnabled
       `Prelude.hashWithSalt` taskArn
 

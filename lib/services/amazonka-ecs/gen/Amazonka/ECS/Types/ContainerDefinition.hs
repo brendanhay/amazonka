@@ -136,8 +136,8 @@ data ContainerDefinition = ContainerDefinition'
     --
     -- -   Windows platform version @1.0.0@ or later.
     dependsOn :: Prelude.Maybe [ContainerDependency],
-    -- | When this parameter is true, networking is disabled within the
-    -- container. This parameter maps to @NetworkDisabled@ in the
+    -- | When this parameter is true, networking is off within the container.
+    -- This parameter maps to @NetworkDisabled@ in the
     -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
     -- section of the
     -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API>.
@@ -177,14 +177,21 @@ data ContainerDefinition = ContainerDefinition'
     -- following command:
     -- @sudo docker version --format \'{{.Server.APIVersion}}\'@
     dockerLabels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A list of strings to provide custom labels for SELinux and AppArmor
-    -- multi-level security systems. This field isn\'t valid for containers in
-    -- tasks using the Fargate launch type.
+    -- | A list of strings to provide custom configuration for multiple security
+    -- systems. For more information about valid values, see
+    -- <https://docs.docker.com/engine/reference/run/#security-configuration Docker Run Security Configuration>.
+    -- This field isn\'t valid for containers in tasks using the Fargate launch
+    -- type.
     --
-    -- With Windows containers, this parameter can be used to reference a
-    -- credential spec file when configuring a container for Active Directory
+    -- For Linux tasks on EC2, this parameter can be used to reference custom
+    -- labels for SELinux and AppArmor multi-level security systems.
+    --
+    -- For any tasks on EC2, this parameter can be used to reference a
+    -- credential spec file that configures a container for Active Directory
     -- authentication. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html Using gMSAs for Windows Containers>
+    -- and
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html Using gMSAs for Linux Containers>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     --
     -- This parameter maps to @SecurityOpt@ in the
@@ -309,10 +316,11 @@ data ContainerDefinition = ContainerDefinition'
     -- | The image used to start a container. This string is passed directly to
     -- the Docker daemon. By default, images in the Docker Hub registry are
     -- available. Other repositories are specified with either
-    -- @ repository-url\/image:tag @ or @ repository-url\/image\@digest @. Up
-    -- to 255 letters (uppercase and lowercase), numbers, hyphens, underscores,
-    -- colons, periods, forward slashes, and number signs are allowed. This
-    -- parameter maps to @Image@ in the
+    -- @ @/@repository-url@/@\/@/@image@/@:@/@tag@/@ @ or
+    -- @ @/@repository-url@/@\/@/@image@/@\@@/@digest@/@ @. Up to 255 letters
+    -- (uppercase and lowercase), numbers, hyphens, underscores, colons,
+    -- periods, forward slashes, and number signs are allowed. This parameter
+    -- maps to @Image@ in the
     -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
     -- section of the
     -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
@@ -669,7 +677,8 @@ data ContainerDefinition = ContainerDefinition'
     -- set by the operating system with the exception of the @nofile@ resource
     -- limit parameter which Fargate overrides. The @nofile@ resource limit
     -- sets a restriction on the number of open files that a container can use.
-    -- The default @nofile@ soft limit is @1024@ and hard limit is @4096@.
+    -- The default @nofile@ soft limit is @1024@ and the default hard limit is
+    -- @4096@.
     --
     -- This parameter requires version 1.18 of the Docker Remote API or greater
     -- on your container instance. To check the Docker Remote API version on
@@ -826,8 +835,8 @@ data ContainerDefinition = ContainerDefinition'
 --
 -- -   Windows platform version @1.0.0@ or later.
 --
--- 'disableNetworking', 'containerDefinition_disableNetworking' - When this parameter is true, networking is disabled within the
--- container. This parameter maps to @NetworkDisabled@ in the
+-- 'disableNetworking', 'containerDefinition_disableNetworking' - When this parameter is true, networking is off within the container.
+-- This parameter maps to @NetworkDisabled@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API>.
@@ -867,14 +876,21 @@ data ContainerDefinition = ContainerDefinition'
 -- following command:
 -- @sudo docker version --format \'{{.Server.APIVersion}}\'@
 --
--- 'dockerSecurityOptions', 'containerDefinition_dockerSecurityOptions' - A list of strings to provide custom labels for SELinux and AppArmor
--- multi-level security systems. This field isn\'t valid for containers in
--- tasks using the Fargate launch type.
+-- 'dockerSecurityOptions', 'containerDefinition_dockerSecurityOptions' - A list of strings to provide custom configuration for multiple security
+-- systems. For more information about valid values, see
+-- <https://docs.docker.com/engine/reference/run/#security-configuration Docker Run Security Configuration>.
+-- This field isn\'t valid for containers in tasks using the Fargate launch
+-- type.
 --
--- With Windows containers, this parameter can be used to reference a
--- credential spec file when configuring a container for Active Directory
+-- For Linux tasks on EC2, this parameter can be used to reference custom
+-- labels for SELinux and AppArmor multi-level security systems.
+--
+-- For any tasks on EC2, this parameter can be used to reference a
+-- credential spec file that configures a container for Active Directory
 -- authentication. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html Using gMSAs for Windows Containers>
+-- and
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html Using gMSAs for Linux Containers>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- This parameter maps to @SecurityOpt@ in the
@@ -999,10 +1015,11 @@ data ContainerDefinition = ContainerDefinition'
 -- 'image', 'containerDefinition_image' - The image used to start a container. This string is passed directly to
 -- the Docker daemon. By default, images in the Docker Hub registry are
 -- available. Other repositories are specified with either
--- @ repository-url\/image:tag @ or @ repository-url\/image\@digest @. Up
--- to 255 letters (uppercase and lowercase), numbers, hyphens, underscores,
--- colons, periods, forward slashes, and number signs are allowed. This
--- parameter maps to @Image@ in the
+-- @ @/@repository-url@/@\/@/@image@/@:@/@tag@/@ @ or
+-- @ @/@repository-url@/@\/@/@image@/@\@@/@digest@/@ @. Up to 255 letters
+-- (uppercase and lowercase), numbers, hyphens, underscores, colons,
+-- periods, forward slashes, and number signs are allowed. This parameter
+-- maps to @Image@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
@@ -1359,7 +1376,8 @@ data ContainerDefinition = ContainerDefinition'
 -- set by the operating system with the exception of the @nofile@ resource
 -- limit parameter which Fargate overrides. The @nofile@ resource limit
 -- sets a restriction on the number of open files that a container can use.
--- The default @nofile@ soft limit is @1024@ and hard limit is @4096@.
+-- The default @nofile@ soft limit is @1024@ and the default hard limit is
+-- @4096@.
 --
 -- This parameter requires version 1.18 of the Docker Remote API or greater
 -- on your container instance. To check the Docker Remote API version on
@@ -1555,8 +1573,8 @@ containerDefinition_cpu = Lens.lens (\ContainerDefinition' {cpu} -> cpu) (\s@Con
 containerDefinition_dependsOn :: Lens.Lens' ContainerDefinition (Prelude.Maybe [ContainerDependency])
 containerDefinition_dependsOn = Lens.lens (\ContainerDefinition' {dependsOn} -> dependsOn) (\s@ContainerDefinition' {} a -> s {dependsOn = a} :: ContainerDefinition) Prelude.. Lens.mapping Lens.coerced
 
--- | When this parameter is true, networking is disabled within the
--- container. This parameter maps to @NetworkDisabled@ in the
+-- | When this parameter is true, networking is off within the container.
+-- This parameter maps to @NetworkDisabled@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API>.
@@ -1604,14 +1622,21 @@ containerDefinition_dnsServers = Lens.lens (\ContainerDefinition' {dnsServers} -
 containerDefinition_dockerLabels :: Lens.Lens' ContainerDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 containerDefinition_dockerLabels = Lens.lens (\ContainerDefinition' {dockerLabels} -> dockerLabels) (\s@ContainerDefinition' {} a -> s {dockerLabels = a} :: ContainerDefinition) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of strings to provide custom labels for SELinux and AppArmor
--- multi-level security systems. This field isn\'t valid for containers in
--- tasks using the Fargate launch type.
+-- | A list of strings to provide custom configuration for multiple security
+-- systems. For more information about valid values, see
+-- <https://docs.docker.com/engine/reference/run/#security-configuration Docker Run Security Configuration>.
+-- This field isn\'t valid for containers in tasks using the Fargate launch
+-- type.
 --
--- With Windows containers, this parameter can be used to reference a
--- credential spec file when configuring a container for Active Directory
+-- For Linux tasks on EC2, this parameter can be used to reference custom
+-- labels for SELinux and AppArmor multi-level security systems.
+--
+-- For any tasks on EC2, this parameter can be used to reference a
+-- credential spec file that configures a container for Active Directory
 -- authentication. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html Using gMSAs for Windows Containers>
+-- and
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/linux-gmsa.html Using gMSAs for Linux Containers>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- This parameter maps to @SecurityOpt@ in the
@@ -1754,10 +1779,11 @@ containerDefinition_hostname = Lens.lens (\ContainerDefinition' {hostname} -> ho
 -- | The image used to start a container. This string is passed directly to
 -- the Docker daemon. By default, images in the Docker Hub registry are
 -- available. Other repositories are specified with either
--- @ repository-url\/image:tag @ or @ repository-url\/image\@digest @. Up
--- to 255 letters (uppercase and lowercase), numbers, hyphens, underscores,
--- colons, periods, forward slashes, and number signs are allowed. This
--- parameter maps to @Image@ in the
+-- @ @/@repository-url@/@\/@/@image@/@:@/@tag@/@ @ or
+-- @ @/@repository-url@/@\/@/@image@/@\@@/@digest@/@ @. Up to 255 letters
+-- (uppercase and lowercase), numbers, hyphens, underscores, colons,
+-- periods, forward slashes, and number signs are allowed. This parameter
+-- maps to @Image@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
@@ -2152,7 +2178,8 @@ containerDefinition_systemControls = Lens.lens (\ContainerDefinition' {systemCon
 -- set by the operating system with the exception of the @nofile@ resource
 -- limit parameter which Fargate overrides. The @nofile@ resource limit
 -- sets a restriction on the number of open files that a container can use.
--- The default @nofile@ soft limit is @1024@ and hard limit is @4096@.
+-- The default @nofile@ soft limit is @1024@ and the default hard limit is
+-- @4096@.
 --
 -- This parameter requires version 1.18 of the Docker Remote API or greater
 -- on your container instance. To check the Docker Remote API version on
@@ -2225,17 +2252,20 @@ instance Data.FromJSON ContainerDefinition where
             Prelude.<*> (x Data..:? "cpu")
             Prelude.<*> (x Data..:? "dependsOn" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "disableNetworking")
-            Prelude.<*> ( x Data..:? "dnsSearchDomains"
+            Prelude.<*> ( x
+                            Data..:? "dnsSearchDomains"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "dnsServers" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "dockerLabels" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "dockerSecurityOptions"
+            Prelude.<*> ( x
+                            Data..:? "dockerSecurityOptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "entryPoint" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "environment" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "environmentFiles"
+            Prelude.<*> ( x
+                            Data..:? "environmentFiles"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "essential")
@@ -2257,7 +2287,8 @@ instance Data.FromJSON ContainerDefinition where
             Prelude.<*> (x Data..:? "pseudoTerminal")
             Prelude.<*> (x Data..:? "readonlyRootFilesystem")
             Prelude.<*> (x Data..:? "repositoryCredentials")
-            Prelude.<*> ( x Data..:? "resourceRequirements"
+            Prelude.<*> ( x
+                            Data..:? "resourceRequirements"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "secrets" Data..!= Prelude.mempty)
@@ -2272,7 +2303,8 @@ instance Data.FromJSON ContainerDefinition where
 
 instance Prelude.Hashable ContainerDefinition where
   hashWithSalt _salt ContainerDefinition' {..} =
-    _salt `Prelude.hashWithSalt` command
+    _salt
+      `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` cpu
       `Prelude.hashWithSalt` dependsOn
       `Prelude.hashWithSalt` disableNetworking

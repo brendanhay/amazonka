@@ -217,7 +217,8 @@ instance Data.FromJSON LogConfiguration where
 
 instance Prelude.Hashable LogConfiguration where
   hashWithSalt _salt LogConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` secretOptions
       `Prelude.hashWithSalt` logDriver
 

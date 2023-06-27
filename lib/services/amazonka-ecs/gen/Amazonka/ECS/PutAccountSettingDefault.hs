@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies an account setting for all IAM users on an account for whom no
+-- Modifies an account setting for all users on an account for whom no
 -- individual account setting has been specified. Account settings are set
 -- on a per-Region basis.
 module Amazonka.ECS.PutAccountSettingDefault
@@ -60,16 +60,22 @@ data PutAccountSettingDefault = PutAccountSettingDefault'
     -- for your Amazon ECS container instances is affected. If @awsvpcTrunking@
     -- is specified, the ENI limit for your Amazon ECS container instances is
     -- affected. If @containerInsights@ is specified, the default setting for
-    -- CloudWatch Container Insights for your clusters is affected.
-    --
-    -- Fargate is transitioning from task count-based quotas to vCPU-based
-    -- quotas. You can set the name to @fargateVCPULimit@ to opt in or opt out
-    -- of the vCPU-based quotas. For information about the opt in timeline, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#fargate-quota-timeline Fargate vCPU-based quotas timeline>
+    -- Amazon Web Services CloudWatch Container Insights for your clusters is
+    -- affected. If @tagResourceAuthorization@ is specified, the opt-in option
+    -- for tagging resources on creation is affected. For information about the
+    -- opt-in timeline, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#tag-resources Tagging authorization timeline>
     -- in the /Amazon ECS Developer Guide/.
+    --
+    -- When you specify @fargateFIPSMode@ for the @name@ and @enabled@ for the
+    -- @value@, Fargate uses FIPS-140 compliant cryptographic algorithms on
+    -- your tasks. For more information about FIPS-140 compliance with Fargate,
+    -- see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-fips-compliance.html Amazon Web Services Fargate Federal Information Processing Standard (FIPS) 140-2 compliance>
+    -- in the /Amazon Elastic Container Service Developer Guide/.
     name :: SettingName,
     -- | The account setting value for the specified principal ARN. Accepted
-    -- values are @enabled@ and @disabled@.
+    -- values are @enabled@, @disabled@, @on@, and @off@.
     value :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -90,16 +96,22 @@ data PutAccountSettingDefault = PutAccountSettingDefault'
 -- for your Amazon ECS container instances is affected. If @awsvpcTrunking@
 -- is specified, the ENI limit for your Amazon ECS container instances is
 -- affected. If @containerInsights@ is specified, the default setting for
--- CloudWatch Container Insights for your clusters is affected.
---
--- Fargate is transitioning from task count-based quotas to vCPU-based
--- quotas. You can set the name to @fargateVCPULimit@ to opt in or opt out
--- of the vCPU-based quotas. For information about the opt in timeline, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#fargate-quota-timeline Fargate vCPU-based quotas timeline>
+-- Amazon Web Services CloudWatch Container Insights for your clusters is
+-- affected. If @tagResourceAuthorization@ is specified, the opt-in option
+-- for tagging resources on creation is affected. For information about the
+-- opt-in timeline, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#tag-resources Tagging authorization timeline>
 -- in the /Amazon ECS Developer Guide/.
 --
+-- When you specify @fargateFIPSMode@ for the @name@ and @enabled@ for the
+-- @value@, Fargate uses FIPS-140 compliant cryptographic algorithms on
+-- your tasks. For more information about FIPS-140 compliance with Fargate,
+-- see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-fips-compliance.html Amazon Web Services Fargate Federal Information Processing Standard (FIPS) 140-2 compliance>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+--
 -- 'value', 'putAccountSettingDefault_value' - The account setting value for the specified principal ARN. Accepted
--- values are @enabled@ and @disabled@.
+-- values are @enabled@, @disabled@, @on@, and @off@.
 newPutAccountSettingDefault ::
   -- | 'name'
   SettingName ->
@@ -120,18 +132,24 @@ newPutAccountSettingDefault pName_ pValue_ =
 -- for your Amazon ECS container instances is affected. If @awsvpcTrunking@
 -- is specified, the ENI limit for your Amazon ECS container instances is
 -- affected. If @containerInsights@ is specified, the default setting for
--- CloudWatch Container Insights for your clusters is affected.
---
--- Fargate is transitioning from task count-based quotas to vCPU-based
--- quotas. You can set the name to @fargateVCPULimit@ to opt in or opt out
--- of the vCPU-based quotas. For information about the opt in timeline, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#fargate-quota-timeline Fargate vCPU-based quotas timeline>
+-- Amazon Web Services CloudWatch Container Insights for your clusters is
+-- affected. If @tagResourceAuthorization@ is specified, the opt-in option
+-- for tagging resources on creation is affected. For information about the
+-- opt-in timeline, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#tag-resources Tagging authorization timeline>
 -- in the /Amazon ECS Developer Guide/.
+--
+-- When you specify @fargateFIPSMode@ for the @name@ and @enabled@ for the
+-- @value@, Fargate uses FIPS-140 compliant cryptographic algorithms on
+-- your tasks. For more information about FIPS-140 compliance with Fargate,
+-- see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-fips-compliance.html Amazon Web Services Fargate Federal Information Processing Standard (FIPS) 140-2 compliance>
+-- in the /Amazon Elastic Container Service Developer Guide/.
 putAccountSettingDefault_name :: Lens.Lens' PutAccountSettingDefault SettingName
 putAccountSettingDefault_name = Lens.lens (\PutAccountSettingDefault' {name} -> name) (\s@PutAccountSettingDefault' {} a -> s {name = a} :: PutAccountSettingDefault)
 
 -- | The account setting value for the specified principal ARN. Accepted
--- values are @enabled@ and @disabled@.
+-- values are @enabled@, @disabled@, @on@, and @off@.
 putAccountSettingDefault_value :: Lens.Lens' PutAccountSettingDefault Prelude.Text
 putAccountSettingDefault_value = Lens.lens (\PutAccountSettingDefault' {value} -> value) (\s@PutAccountSettingDefault' {} a -> s {value = a} :: PutAccountSettingDefault)
 
@@ -151,7 +169,8 @@ instance Core.AWSRequest PutAccountSettingDefault where
 
 instance Prelude.Hashable PutAccountSettingDefault where
   hashWithSalt _salt PutAccountSettingDefault' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData PutAccountSettingDefault where

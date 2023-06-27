@@ -50,10 +50,8 @@ data ServiceConnectService = ServiceConnectService'
     -- can include lowercase letters, numbers, underscores (_), and hyphens
     -- (-). The name can\'t start with a hyphen.
     --
-    -- If this parameter isn\'t specified, the default value of
-    -- @discoveryName.namespace@ is used. If the @discoveryName@ isn\'t
-    -- specified, the port mapping name from the task definition is used in
-    -- @portName.namespace@.
+    -- If the @discoveryName@ isn\'t specified, the port mapping name from the
+    -- task definition is used in @portName.namespace@.
     discoveryName :: Prelude.Maybe Prelude.Text,
     -- | The port number for the Service Connect proxy to listen on.
     --
@@ -99,10 +97,8 @@ data ServiceConnectService = ServiceConnectService'
 -- can include lowercase letters, numbers, underscores (_), and hyphens
 -- (-). The name can\'t start with a hyphen.
 --
--- If this parameter isn\'t specified, the default value of
--- @discoveryName.namespace@ is used. If the @discoveryName@ isn\'t
--- specified, the port mapping name from the task definition is used in
--- @portName.namespace@.
+-- If the @discoveryName@ isn\'t specified, the port mapping name from the
+-- task definition is used in @portName.namespace@.
 --
 -- 'ingressPortOverride', 'serviceConnectService_ingressPortOverride' - The port number for the Service Connect proxy to listen on.
 --
@@ -151,10 +147,8 @@ serviceConnectService_clientAliases = Lens.lens (\ServiceConnectService' {client
 -- can include lowercase letters, numbers, underscores (_), and hyphens
 -- (-). The name can\'t start with a hyphen.
 --
--- If this parameter isn\'t specified, the default value of
--- @discoveryName.namespace@ is used. If the @discoveryName@ isn\'t
--- specified, the port mapping name from the task definition is used in
--- @portName.namespace@.
+-- If the @discoveryName@ isn\'t specified, the port mapping name from the
+-- task definition is used in @portName.namespace@.
 serviceConnectService_discoveryName :: Lens.Lens' ServiceConnectService (Prelude.Maybe Prelude.Text)
 serviceConnectService_discoveryName = Lens.lens (\ServiceConnectService' {discoveryName} -> discoveryName) (\s@ServiceConnectService' {} a -> s {discoveryName = a} :: ServiceConnectService)
 
@@ -191,7 +185,8 @@ instance Data.FromJSON ServiceConnectService where
 
 instance Prelude.Hashable ServiceConnectService where
   hashWithSalt _salt ServiceConnectService' {..} =
-    _salt `Prelude.hashWithSalt` clientAliases
+    _salt
+      `Prelude.hashWithSalt` clientAliases
       `Prelude.hashWithSalt` discoveryName
       `Prelude.hashWithSalt` ingressPortOverride
       `Prelude.hashWithSalt` portName

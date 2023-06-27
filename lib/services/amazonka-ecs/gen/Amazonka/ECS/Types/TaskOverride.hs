@@ -44,8 +44,8 @@ data TaskOverride = TaskOverride'
     --
     -- -   Windows platform version @1.0.0@ or later.
     ephemeralStorage :: Prelude.Maybe EphemeralStorage,
-    -- | The Amazon Resource Name (ARN) of the task execution IAM role override
-    -- for the task. For more information, see
+    -- | The Amazon Resource Name (ARN) of the task execution role override for
+    -- the task. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html Amazon ECS task execution IAM role>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     executionRoleArn :: Prelude.Maybe Prelude.Text,
@@ -53,9 +53,9 @@ data TaskOverride = TaskOverride'
     inferenceAcceleratorOverrides :: Prelude.Maybe [InferenceAcceleratorOverride],
     -- | The memory override for the task.
     memory :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM role that containers in this
-    -- task can assume. All containers in this task are granted the permissions
-    -- that are specified in this role. For more information, see
+    -- | The Amazon Resource Name (ARN) of the role that containers in this task
+    -- can assume. All containers in this task are granted the permissions that
+    -- are specified in this role. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Role for Tasks>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     taskRoleArn :: Prelude.Maybe Prelude.Text
@@ -83,8 +83,8 @@ data TaskOverride = TaskOverride'
 --
 -- -   Windows platform version @1.0.0@ or later.
 --
--- 'executionRoleArn', 'taskOverride_executionRoleArn' - The Amazon Resource Name (ARN) of the task execution IAM role override
--- for the task. For more information, see
+-- 'executionRoleArn', 'taskOverride_executionRoleArn' - The Amazon Resource Name (ARN) of the task execution role override for
+-- the task. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html Amazon ECS task execution IAM role>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
@@ -92,9 +92,9 @@ data TaskOverride = TaskOverride'
 --
 -- 'memory', 'taskOverride_memory' - The memory override for the task.
 --
--- 'taskRoleArn', 'taskOverride_taskRoleArn' - The Amazon Resource Name (ARN) of the IAM role that containers in this
--- task can assume. All containers in this task are granted the permissions
--- that are specified in this role. For more information, see
+-- 'taskRoleArn', 'taskOverride_taskRoleArn' - The Amazon Resource Name (ARN) of the role that containers in this task
+-- can assume. All containers in this task are granted the permissions that
+-- are specified in this role. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Role for Tasks>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 newTaskOverride ::
@@ -129,8 +129,8 @@ taskOverride_cpu = Lens.lens (\TaskOverride' {cpu} -> cpu) (\s@TaskOverride' {} 
 taskOverride_ephemeralStorage :: Lens.Lens' TaskOverride (Prelude.Maybe EphemeralStorage)
 taskOverride_ephemeralStorage = Lens.lens (\TaskOverride' {ephemeralStorage} -> ephemeralStorage) (\s@TaskOverride' {} a -> s {ephemeralStorage = a} :: TaskOverride)
 
--- | The Amazon Resource Name (ARN) of the task execution IAM role override
--- for the task. For more information, see
+-- | The Amazon Resource Name (ARN) of the task execution role override for
+-- the task. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html Amazon ECS task execution IAM role>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 taskOverride_executionRoleArn :: Lens.Lens' TaskOverride (Prelude.Maybe Prelude.Text)
@@ -144,9 +144,9 @@ taskOverride_inferenceAcceleratorOverrides = Lens.lens (\TaskOverride' {inferenc
 taskOverride_memory :: Lens.Lens' TaskOverride (Prelude.Maybe Prelude.Text)
 taskOverride_memory = Lens.lens (\TaskOverride' {memory} -> memory) (\s@TaskOverride' {} a -> s {memory = a} :: TaskOverride)
 
--- | The Amazon Resource Name (ARN) of the IAM role that containers in this
--- task can assume. All containers in this task are granted the permissions
--- that are specified in this role. For more information, see
+-- | The Amazon Resource Name (ARN) of the role that containers in this task
+-- can assume. All containers in this task are granted the permissions that
+-- are specified in this role. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Role for Tasks>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 taskOverride_taskRoleArn :: Lens.Lens' TaskOverride (Prelude.Maybe Prelude.Text)
@@ -158,13 +158,15 @@ instance Data.FromJSON TaskOverride where
       "TaskOverride"
       ( \x ->
           TaskOverride'
-            Prelude.<$> ( x Data..:? "containerOverrides"
+            Prelude.<$> ( x
+                            Data..:? "containerOverrides"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "cpu")
             Prelude.<*> (x Data..:? "ephemeralStorage")
             Prelude.<*> (x Data..:? "executionRoleArn")
-            Prelude.<*> ( x Data..:? "inferenceAcceleratorOverrides"
+            Prelude.<*> ( x
+                            Data..:? "inferenceAcceleratorOverrides"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "memory")
@@ -173,7 +175,8 @@ instance Data.FromJSON TaskOverride where
 
 instance Prelude.Hashable TaskOverride where
   hashWithSalt _salt TaskOverride' {..} =
-    _salt `Prelude.hashWithSalt` containerOverrides
+    _salt
+      `Prelude.hashWithSalt` containerOverrides
       `Prelude.hashWithSalt` cpu
       `Prelude.hashWithSalt` ephemeralStorage
       `Prelude.hashWithSalt` executionRoleArn

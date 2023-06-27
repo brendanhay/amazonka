@@ -27,7 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 -- | An object representing a container health check. Health check parameters
 -- that are specified in a container definition override any Docker health
 -- checks that exist in the container image (such as those specified in a
--- parent image or from the image\'s Dockerfile).
+-- parent image or from the image\'s Dockerfile). This configuration maps
+-- to the @HEALTHCHECK@ parameter of
+-- <https://docs.docker.com/engine/reference/run/ docker run>.
 --
 -- The Amazon ECS container agent only monitors and reports on the health
 -- checks specified in the task definition. Amazon ECS does not monitor
@@ -51,9 +53,8 @@ import qualified Amazonka.Prelude as Prelude
 --     no container health check defined.
 --
 -- The following describes the possible @healthStatus@ values for a task.
--- The container health check status of nonessential containers only
--- affects the health status of a task if no essential containers have
--- health checks defined.
+-- The container health check status of non-essential containers don\'t
+-- have an effect on the health status of a task.
 --
 -- -   @HEALTHY@-All essential containers within the task have passed their
 --     health checks.
@@ -62,20 +63,14 @@ import qualified Amazonka.Prelude as Prelude
 --     health check.
 --
 -- -   @UNKNOWN@-The essential containers within the task are still having
---     their health checks evaluated or there are only nonessential
---     containers with health checks defined.
+--     their health checks evaluated, there are only nonessential
+--     containers with health checks defined, or there are no container
+--     health checks defined.
 --
 -- If a task is run manually, and not as part of a service, the task will
 -- continue its lifecycle regardless of its health status. For tasks that
 -- are part of a service, if the task reports as unhealthy then the task
 -- will be stopped and the service scheduler will replace it.
---
--- For tasks that are a part of a service and the service uses the @ECS@
--- rolling deployment type, the deployment is paused while the new tasks
--- have the @UNKNOWN@ task health check status. For example, tasks that
--- define health checks for nonessential containers when no essential
--- containers have health checks will have the @UNKNOWN@ health check
--- status indefinitely which prevents the deployment from completing.
 --
 -- The following are notes about container health check support:
 --
@@ -102,7 +97,7 @@ data HealthCheck = HealthCheck'
     -- | The optional grace period to provide containers time to bootstrap before
     -- failed health checks count towards the maximum number of retries. You
     -- can specify between 0 and 300 seconds. By default, the @startPeriod@ is
-    -- disabled.
+    -- off.
     --
     -- If a health check succeeds within the @startPeriod@, then the container
     -- is considered healthy and any subsequent failures count toward the
@@ -119,14 +114,14 @@ data HealthCheck = HealthCheck'
     --
     -- When you use the Amazon Web Services Management Console JSON panel, the
     -- Command Line Interface, or the APIs, enclose the list of commands in
-    -- brackets.
+    -- double quotes and brackets.
     --
     -- @[ \"CMD-SHELL\", \"curl -f http:\/\/localhost\/ || exit 1\" ]@
     --
-    -- You don\'t need to include the brackets when you use the Amazon Web
-    -- Services Management Console.
+    -- You don\'t include the double quotes and brackets when you use the
+    -- Amazon Web Services Management Console.
     --
-    -- @ \"CMD-SHELL\", \"curl -f http:\/\/localhost\/ || exit 1\" @
+    -- @ CMD-SHELL, curl -f http:\/\/localhost\/ || exit 1@
     --
     -- An exit code of 0 indicates success, and non-zero exit code indicates
     -- failure. For more information, see @HealthCheck@ in the
@@ -155,7 +150,7 @@ data HealthCheck = HealthCheck'
 -- 'startPeriod', 'healthCheck_startPeriod' - The optional grace period to provide containers time to bootstrap before
 -- failed health checks count towards the maximum number of retries. You
 -- can specify between 0 and 300 seconds. By default, the @startPeriod@ is
--- disabled.
+-- off.
 --
 -- If a health check succeeds within the @startPeriod@, then the container
 -- is considered healthy and any subsequent failures count toward the
@@ -172,14 +167,14 @@ data HealthCheck = HealthCheck'
 --
 -- When you use the Amazon Web Services Management Console JSON panel, the
 -- Command Line Interface, or the APIs, enclose the list of commands in
--- brackets.
+-- double quotes and brackets.
 --
 -- @[ \"CMD-SHELL\", \"curl -f http:\/\/localhost\/ || exit 1\" ]@
 --
--- You don\'t need to include the brackets when you use the Amazon Web
--- Services Management Console.
+-- You don\'t include the double quotes and brackets when you use the
+-- Amazon Web Services Management Console.
 --
--- @ \"CMD-SHELL\", \"curl -f http:\/\/localhost\/ || exit 1\" @
+-- @ CMD-SHELL, curl -f http:\/\/localhost\/ || exit 1@
 --
 -- An exit code of 0 indicates success, and non-zero exit code indicates
 -- failure. For more information, see @HealthCheck@ in the
@@ -211,7 +206,7 @@ healthCheck_retries = Lens.lens (\HealthCheck' {retries} -> retries) (\s@HealthC
 -- | The optional grace period to provide containers time to bootstrap before
 -- failed health checks count towards the maximum number of retries. You
 -- can specify between 0 and 300 seconds. By default, the @startPeriod@ is
--- disabled.
+-- off.
 --
 -- If a health check succeeds within the @startPeriod@, then the container
 -- is considered healthy and any subsequent failures count toward the
@@ -232,14 +227,14 @@ healthCheck_timeout = Lens.lens (\HealthCheck' {timeout} -> timeout) (\s@HealthC
 --
 -- When you use the Amazon Web Services Management Console JSON panel, the
 -- Command Line Interface, or the APIs, enclose the list of commands in
--- brackets.
+-- double quotes and brackets.
 --
 -- @[ \"CMD-SHELL\", \"curl -f http:\/\/localhost\/ || exit 1\" ]@
 --
--- You don\'t need to include the brackets when you use the Amazon Web
--- Services Management Console.
+-- You don\'t include the double quotes and brackets when you use the
+-- Amazon Web Services Management Console.
 --
--- @ \"CMD-SHELL\", \"curl -f http:\/\/localhost\/ || exit 1\" @
+-- @ CMD-SHELL, curl -f http:\/\/localhost\/ || exit 1@
 --
 -- An exit code of 0 indicates success, and non-zero exit code indicates
 -- failure. For more information, see @HealthCheck@ in the
@@ -264,7 +259,8 @@ instance Data.FromJSON HealthCheck where
 
 instance Prelude.Hashable HealthCheck where
   hashWithSalt _salt HealthCheck' {..} =
-    _salt `Prelude.hashWithSalt` interval
+    _salt
+      `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` retries
       `Prelude.hashWithSalt` startPeriod
       `Prelude.hashWithSalt` timeout

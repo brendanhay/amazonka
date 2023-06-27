@@ -183,7 +183,8 @@ instance Data.FromJSON ProxyConfiguration where
 
 instance Prelude.Hashable ProxyConfiguration where
   hashWithSalt _salt ProxyConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` properties
+    _salt
+      `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` containerName
 

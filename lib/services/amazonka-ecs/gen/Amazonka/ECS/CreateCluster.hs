@@ -28,7 +28,7 @@
 -- When you call the CreateCluster API operation, Amazon ECS attempts to
 -- create the Amazon ECS service-linked role for your account. This is so
 -- that it can manage required resources in other Amazon Web Services
--- services on your behalf. However, if the IAM user that makes the call
+-- services on your behalf. However, if the user that makes the call
 -- doesn\'t have permissions to create the service-linked role, it isn\'t
 -- created. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html Using service-linked roles for Amazon ECS>
@@ -71,21 +71,27 @@ data CreateCluster = CreateCluster'
     -- cluster. A capacity provider must be associated with a cluster before it
     -- can be included as part of the default capacity provider strategy of the
     -- cluster or used in a capacity provider strategy when calling the
-    -- CreateService or RunTask actions.
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html CreateService>
+    -- or
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html RunTask>
+    -- actions.
     --
     -- If specifying a capacity provider that uses an Auto Scaling group, the
     -- capacity provider must be created but not associated with another
     -- cluster. New Auto Scaling group capacity providers can be created with
-    -- the CreateCapacityProvider API operation.
+    -- the
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProvider.html CreateCapacityProvider>
+    -- API operation.
     --
     -- To use a Fargate capacity provider, specify either the @FARGATE@ or
     -- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
     -- available to all accounts and only need to be associated with a cluster
     -- to be used.
     --
-    -- The PutClusterCapacityProviders API operation is used to update the list
-    -- of available capacity providers for a cluster after the cluster is
-    -- created.
+    -- The
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProvider.html PutCapacityProvider>
+    -- API operation is used to update the list of available capacity providers
+    -- for a cluster after the cluster is created.
     capacityProviders :: Prelude.Maybe [Prelude.Text],
     -- | The name of your cluster. If you don\'t specify a name for your cluster,
     -- you create a cluster that\'s named @default@. Up to 255 letters
@@ -96,9 +102,12 @@ data CreateCluster = CreateCluster'
     configuration :: Prelude.Maybe ClusterConfiguration,
     -- | The capacity provider strategy to set as the default for the cluster.
     -- After a default capacity provider strategy is set for a cluster, when
-    -- you call the RunTask or CreateService APIs with no capacity provider
-    -- strategy or launch type specified, the default capacity provider
-    -- strategy for the cluster is used.
+    -- you call the
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html CreateService>
+    -- or
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html RunTask>
+    -- APIs with no capacity provider strategy or launch type specified, the
+    -- default capacity provider strategy for the cluster is used.
     --
     -- If a default capacity provider strategy isn\'t defined for a cluster
     -- when it was created, it can be defined later with the
@@ -171,21 +180,27 @@ data CreateCluster = CreateCluster'
 -- cluster. A capacity provider must be associated with a cluster before it
 -- can be included as part of the default capacity provider strategy of the
 -- cluster or used in a capacity provider strategy when calling the
--- CreateService or RunTask actions.
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html CreateService>
+-- or
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html RunTask>
+-- actions.
 --
 -- If specifying a capacity provider that uses an Auto Scaling group, the
 -- capacity provider must be created but not associated with another
 -- cluster. New Auto Scaling group capacity providers can be created with
--- the CreateCapacityProvider API operation.
+-- the
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProvider.html CreateCapacityProvider>
+-- API operation.
 --
 -- To use a Fargate capacity provider, specify either the @FARGATE@ or
 -- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
 -- available to all accounts and only need to be associated with a cluster
 -- to be used.
 --
--- The PutClusterCapacityProviders API operation is used to update the list
--- of available capacity providers for a cluster after the cluster is
--- created.
+-- The
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProvider.html PutCapacityProvider>
+-- API operation is used to update the list of available capacity providers
+-- for a cluster after the cluster is created.
 --
 -- 'clusterName', 'createCluster_clusterName' - The name of your cluster. If you don\'t specify a name for your cluster,
 -- you create a cluster that\'s named @default@. Up to 255 letters
@@ -196,9 +211,12 @@ data CreateCluster = CreateCluster'
 --
 -- 'defaultCapacityProviderStrategy', 'createCluster_defaultCapacityProviderStrategy' - The capacity provider strategy to set as the default for the cluster.
 -- After a default capacity provider strategy is set for a cluster, when
--- you call the RunTask or CreateService APIs with no capacity provider
--- strategy or launch type specified, the default capacity provider
--- strategy for the cluster is used.
+-- you call the
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html CreateService>
+-- or
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html RunTask>
+-- APIs with no capacity provider strategy or launch type specified, the
+-- default capacity provider strategy for the cluster is used.
 --
 -- If a default capacity provider strategy isn\'t defined for a cluster
 -- when it was created, it can be defined later with the
@@ -272,21 +290,27 @@ newCreateCluster =
 -- cluster. A capacity provider must be associated with a cluster before it
 -- can be included as part of the default capacity provider strategy of the
 -- cluster or used in a capacity provider strategy when calling the
--- CreateService or RunTask actions.
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html CreateService>
+-- or
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html RunTask>
+-- actions.
 --
 -- If specifying a capacity provider that uses an Auto Scaling group, the
 -- capacity provider must be created but not associated with another
 -- cluster. New Auto Scaling group capacity providers can be created with
--- the CreateCapacityProvider API operation.
+-- the
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProvider.html CreateCapacityProvider>
+-- API operation.
 --
 -- To use a Fargate capacity provider, specify either the @FARGATE@ or
 -- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
 -- available to all accounts and only need to be associated with a cluster
 -- to be used.
 --
--- The PutClusterCapacityProviders API operation is used to update the list
--- of available capacity providers for a cluster after the cluster is
--- created.
+-- The
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProvider.html PutCapacityProvider>
+-- API operation is used to update the list of available capacity providers
+-- for a cluster after the cluster is created.
 createCluster_capacityProviders :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
 createCluster_capacityProviders = Lens.lens (\CreateCluster' {capacityProviders} -> capacityProviders) (\s@CreateCluster' {} a -> s {capacityProviders = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
 
@@ -303,9 +327,12 @@ createCluster_configuration = Lens.lens (\CreateCluster' {configuration} -> conf
 
 -- | The capacity provider strategy to set as the default for the cluster.
 -- After a default capacity provider strategy is set for a cluster, when
--- you call the RunTask or CreateService APIs with no capacity provider
--- strategy or launch type specified, the default capacity provider
--- strategy for the cluster is used.
+-- you call the
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html CreateService>
+-- or
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html RunTask>
+-- APIs with no capacity provider strategy or launch type specified, the
+-- default capacity provider strategy for the cluster is used.
 --
 -- If a default capacity provider strategy isn\'t defined for a cluster
 -- when it was created, it can be defined later with the
@@ -387,7 +414,8 @@ instance Core.AWSRequest CreateCluster where
 
 instance Prelude.Hashable CreateCluster where
   hashWithSalt _salt CreateCluster' {..} =
-    _salt `Prelude.hashWithSalt` capacityProviders
+    _salt
+      `Prelude.hashWithSalt` capacityProviders
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` defaultCapacityProviderStrategy

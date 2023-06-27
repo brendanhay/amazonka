@@ -53,6 +53,7 @@ library
     Amazonka.ECS.DeleteCapacityProvider
     Amazonka.ECS.DeleteCluster
     Amazonka.ECS.DeleteService
+    Amazonka.ECS.DeleteTaskDefinitions
     Amazonka.ECS.DeleteTaskSet
     Amazonka.ECS.DeregisterContainerInstance
     Amazonka.ECS.DeregisterTaskDefinition

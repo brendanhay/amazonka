@@ -73,12 +73,14 @@ instance Data.FromJSON Scale where
       "Scale"
       ( \x ->
           Scale'
-            Prelude.<$> (x Data..:? "unit") Prelude.<*> (x Data..:? "value")
+            Prelude.<$> (x Data..:? "unit")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable Scale where
   hashWithSalt _salt Scale' {..} =
-    _salt `Prelude.hashWithSalt` unit
+    _salt
+      `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Scale where

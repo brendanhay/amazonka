@@ -187,7 +187,8 @@ instance Core.AWSRequest SubmitTaskStateChange where
 
 instance Prelude.Hashable SubmitTaskStateChange where
   hashWithSalt _salt SubmitTaskStateChange' {..} =
-    _salt `Prelude.hashWithSalt` attachments
+    _salt
+      `Prelude.hashWithSalt` attachments
       `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` containers
       `Prelude.hashWithSalt` executionStoppedAt

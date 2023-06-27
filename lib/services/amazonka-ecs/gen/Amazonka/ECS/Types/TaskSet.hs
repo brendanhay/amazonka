@@ -539,7 +539,8 @@ instance Data.FromJSON TaskSet where
       "TaskSet"
       ( \x ->
           TaskSet'
-            Prelude.<$> ( x Data..:? "capacityProviderStrategy"
+            Prelude.<$> ( x
+                            Data..:? "capacityProviderStrategy"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "clusterArn")
@@ -556,7 +557,8 @@ instance Data.FromJSON TaskSet where
             Prelude.<*> (x Data..:? "runningCount")
             Prelude.<*> (x Data..:? "scale")
             Prelude.<*> (x Data..:? "serviceArn")
-            Prelude.<*> ( x Data..:? "serviceRegistries"
+            Prelude.<*> ( x
+                            Data..:? "serviceRegistries"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "stabilityStatus")

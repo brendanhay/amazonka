@@ -31,7 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newInferenceAccelerator' smart constructor.
 data InferenceAccelerator = InferenceAccelerator'
   { -- | The Elastic Inference accelerator device name. The @deviceName@ must
-    -- also be referenced in a container definition as a ResourceRequirement.
+    -- also be referenced in a container definition as a
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ResourceRequirement.html ResourceRequirement>.
     deviceName :: Prelude.Text,
     -- | The Elastic Inference accelerator type to use.
     deviceType :: Prelude.Text
@@ -47,7 +48,8 @@ data InferenceAccelerator = InferenceAccelerator'
 -- for backwards compatibility:
 --
 -- 'deviceName', 'inferenceAccelerator_deviceName' - The Elastic Inference accelerator device name. The @deviceName@ must
--- also be referenced in a container definition as a ResourceRequirement.
+-- also be referenced in a container definition as a
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ResourceRequirement.html ResourceRequirement>.
 --
 -- 'deviceType', 'inferenceAccelerator_deviceType' - The Elastic Inference accelerator type to use.
 newInferenceAccelerator ::
@@ -63,7 +65,8 @@ newInferenceAccelerator pDeviceName_ pDeviceType_ =
     }
 
 -- | The Elastic Inference accelerator device name. The @deviceName@ must
--- also be referenced in a container definition as a ResourceRequirement.
+-- also be referenced in a container definition as a
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ResourceRequirement.html ResourceRequirement>.
 inferenceAccelerator_deviceName :: Lens.Lens' InferenceAccelerator Prelude.Text
 inferenceAccelerator_deviceName = Lens.lens (\InferenceAccelerator' {deviceName} -> deviceName) (\s@InferenceAccelerator' {} a -> s {deviceName = a} :: InferenceAccelerator)
 
@@ -83,7 +86,8 @@ instance Data.FromJSON InferenceAccelerator where
 
 instance Prelude.Hashable InferenceAccelerator where
   hashWithSalt _salt InferenceAccelerator' {..} =
-    _salt `Prelude.hashWithSalt` deviceName
+    _salt
+      `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` deviceType
 
 instance Prelude.NFData InferenceAccelerator where

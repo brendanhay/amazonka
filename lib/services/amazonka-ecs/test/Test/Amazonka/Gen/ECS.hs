@@ -54,6 +54,9 @@ import Test.Tasty
 --         , requestDeleteService $
 --             newDeleteService
 --
+--         , requestDeleteTaskDefinitions $
+--             newDeleteTaskDefinitions
+--
 --         , requestDeleteTaskSet $
 --             newDeleteTaskSet
 --
@@ -221,6 +224,9 @@ import Test.Tasty
 --
 --         , responseDeleteService $
 --             newDeleteServiceResponse
+--
+--         , responseDeleteTaskDefinitions $
+--             newDeleteTaskDefinitionsResponse
 --
 --         , responseDeleteTaskSet $
 --             newDeleteTaskSetResponse
@@ -418,6 +424,12 @@ requestDeleteService =
   req
     "DeleteService"
     "fixture/DeleteService.yaml"
+
+requestDeleteTaskDefinitions :: DeleteTaskDefinitions -> TestTree
+requestDeleteTaskDefinitions =
+  req
+    "DeleteTaskDefinitions"
+    "fixture/DeleteTaskDefinitions.yaml"
 
 requestDeleteTaskSet :: DeleteTaskSet -> TestTree
 requestDeleteTaskSet =
@@ -768,6 +780,14 @@ responseDeleteService =
     "fixture/DeleteServiceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteService)
+
+responseDeleteTaskDefinitions :: DeleteTaskDefinitionsResponse -> TestTree
+responseDeleteTaskDefinitions =
+  res
+    "DeleteTaskDefinitionsResponse"
+    "fixture/DeleteTaskDefinitionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteTaskDefinitions)
 
 responseDeleteTaskSet :: DeleteTaskSetResponse -> TestTree
 responseDeleteTaskSet =

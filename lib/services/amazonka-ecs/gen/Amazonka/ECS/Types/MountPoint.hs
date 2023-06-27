@@ -24,7 +24,8 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Details for a volume mount point that\'s used in a container definition.
+-- | The details for a volume mount point that\'s used in a container
+-- definition.
 --
 -- /See:/ 'newMountPoint' smart constructor.
 data MountPoint = MountPoint'
@@ -93,7 +94,8 @@ instance Data.FromJSON MountPoint where
 
 instance Prelude.Hashable MountPoint where
   hashWithSalt _salt MountPoint' {..} =
-    _salt `Prelude.hashWithSalt` containerPath
+    _salt
+      `Prelude.hashWithSalt` containerPath
       `Prelude.hashWithSalt` readOnly
       `Prelude.hashWithSalt` sourceVolume
 

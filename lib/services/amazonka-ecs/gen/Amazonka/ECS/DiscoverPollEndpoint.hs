@@ -119,7 +119,8 @@ instance Core.AWSRequest DiscoverPollEndpoint where
 
 instance Prelude.Hashable DiscoverPollEndpoint where
   hashWithSalt _salt DiscoverPollEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` cluster
+    _salt
+      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` containerInstance
 
 instance Prelude.NFData DiscoverPollEndpoint where

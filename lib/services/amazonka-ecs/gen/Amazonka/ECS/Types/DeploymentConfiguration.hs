@@ -37,11 +37,14 @@ data DeploymentConfiguration = DeploymentConfiguration'
     -- rolling update (@ECS@) deployment type.
     --
     -- The __deployment circuit breaker__ determines whether a service
-    -- deployment will fail if the service can\'t reach a steady state. If
-    -- deployment circuit breaker is enabled, a service deployment will
-    -- transition to a failed state and stop launching new tasks. If rollback
-    -- is enabled, when a service deployment fails, the service is rolled back
-    -- to the last deployment that completed successfully.
+    -- deployment will fail if the service can\'t reach a steady state. If you
+    -- use the deployment circuit breaker, a service deployment will transition
+    -- to a failed state and stop launching new tasks. If you use the rollback
+    -- option, when a service deployment fails, the service is rolled back to
+    -- the last deployment that completed successfully. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html Rolling update>
+    -- in the /Amazon Elastic Container Service Developer Guide/
     deploymentCircuitBreaker :: Prelude.Maybe DeploymentCircuitBreaker,
     -- | If a service is using the rolling update (@ECS@) deployment type, the
     -- @maximumPercent@ parameter represents an upper limit on the number of
@@ -136,11 +139,14 @@ data DeploymentConfiguration = DeploymentConfiguration'
 -- rolling update (@ECS@) deployment type.
 --
 -- The __deployment circuit breaker__ determines whether a service
--- deployment will fail if the service can\'t reach a steady state. If
--- deployment circuit breaker is enabled, a service deployment will
--- transition to a failed state and stop launching new tasks. If rollback
--- is enabled, when a service deployment fails, the service is rolled back
--- to the last deployment that completed successfully.
+-- deployment will fail if the service can\'t reach a steady state. If you
+-- use the deployment circuit breaker, a service deployment will transition
+-- to a failed state and stop launching new tasks. If you use the rollback
+-- option, when a service deployment fails, the service is rolled back to
+-- the last deployment that completed successfully. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html Rolling update>
+-- in the /Amazon Elastic Container Service Developer Guide/
 --
 -- 'maximumPercent', 'deploymentConfiguration_maximumPercent' - If a service is using the rolling update (@ECS@) deployment type, the
 -- @maximumPercent@ parameter represents an upper limit on the number of
@@ -235,11 +241,14 @@ deploymentConfiguration_alarms = Lens.lens (\DeploymentConfiguration' {alarms} -
 -- rolling update (@ECS@) deployment type.
 --
 -- The __deployment circuit breaker__ determines whether a service
--- deployment will fail if the service can\'t reach a steady state. If
--- deployment circuit breaker is enabled, a service deployment will
--- transition to a failed state and stop launching new tasks. If rollback
--- is enabled, when a service deployment fails, the service is rolled back
--- to the last deployment that completed successfully.
+-- deployment will fail if the service can\'t reach a steady state. If you
+-- use the deployment circuit breaker, a service deployment will transition
+-- to a failed state and stop launching new tasks. If you use the rollback
+-- option, when a service deployment fails, the service is rolled back to
+-- the last deployment that completed successfully. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html Rolling update>
+-- in the /Amazon Elastic Container Service Developer Guide/
 deploymentConfiguration_deploymentCircuitBreaker :: Lens.Lens' DeploymentConfiguration (Prelude.Maybe DeploymentCircuitBreaker)
 deploymentConfiguration_deploymentCircuitBreaker = Lens.lens (\DeploymentConfiguration' {deploymentCircuitBreaker} -> deploymentCircuitBreaker) (\s@DeploymentConfiguration' {} a -> s {deploymentCircuitBreaker = a} :: DeploymentConfiguration)
 
@@ -337,7 +346,8 @@ instance Data.FromJSON DeploymentConfiguration where
 
 instance Prelude.Hashable DeploymentConfiguration where
   hashWithSalt _salt DeploymentConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` alarms
+    _salt
+      `Prelude.hashWithSalt` alarms
       `Prelude.hashWithSalt` deploymentCircuitBreaker
       `Prelude.hashWithSalt` maximumPercent
       `Prelude.hashWithSalt` minimumHealthyPercent

@@ -97,7 +97,8 @@ instance Data.FromJSON Tmpfs where
 
 instance Prelude.Hashable Tmpfs where
   hashWithSalt _salt Tmpfs' {..} =
-    _salt `Prelude.hashWithSalt` mountOptions
+    _salt
+      `Prelude.hashWithSalt` mountOptions
       `Prelude.hashWithSalt` containerPath
       `Prelude.hashWithSalt` size
 

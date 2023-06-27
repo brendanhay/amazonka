@@ -167,7 +167,8 @@ instance Core.AWSRequest SubmitContainerStateChange where
 
 instance Prelude.Hashable SubmitContainerStateChange where
   hashWithSalt _salt SubmitContainerStateChange' {..} =
-    _salt `Prelude.hashWithSalt` cluster
+    _salt
+      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` containerName
       `Prelude.hashWithSalt` exitCode
       `Prelude.hashWithSalt` networkBindings

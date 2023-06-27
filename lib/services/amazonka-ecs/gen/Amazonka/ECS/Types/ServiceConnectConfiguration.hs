@@ -47,8 +47,8 @@ data ServiceConnectConfiguration = ServiceConnectConfiguration'
     -- same Amazon Web Services Region as the Amazon ECS service and cluster.
     -- The type of namespace doesn\'t affect Service Connect. For more
     -- information about Cloud Map, see
-    -- <https://docs.aws.amazon.com/ Working with Services> in the /Cloud Map
-    -- Developer Guide/.
+    -- <https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html Working with Services>
+    -- in the /Cloud Map Developer Guide/.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The list of Service Connect service objects. These are names and aliases
     -- (also known as endpoints) that are used by other Amazon ECS services to
@@ -84,8 +84,8 @@ data ServiceConnectConfiguration = ServiceConnectConfiguration'
 -- same Amazon Web Services Region as the Amazon ECS service and cluster.
 -- The type of namespace doesn\'t affect Service Connect. For more
 -- information about Cloud Map, see
--- <https://docs.aws.amazon.com/ Working with Services> in the /Cloud Map
--- Developer Guide/.
+-- <https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html Working with Services>
+-- in the /Cloud Map Developer Guide/.
 --
 -- 'services', 'serviceConnectConfiguration_services' - The list of Service Connect service objects. These are names and aliases
 -- (also known as endpoints) that are used by other Amazon ECS services to
@@ -124,8 +124,8 @@ serviceConnectConfiguration_logConfiguration = Lens.lens (\ServiceConnectConfigu
 -- same Amazon Web Services Region as the Amazon ECS service and cluster.
 -- The type of namespace doesn\'t affect Service Connect. For more
 -- information about Cloud Map, see
--- <https://docs.aws.amazon.com/ Working with Services> in the /Cloud Map
--- Developer Guide/.
+-- <https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html Working with Services>
+-- in the /Cloud Map Developer Guide/.
 serviceConnectConfiguration_namespace :: Lens.Lens' ServiceConnectConfiguration (Prelude.Maybe Prelude.Text)
 serviceConnectConfiguration_namespace = Lens.lens (\ServiceConnectConfiguration' {namespace} -> namespace) (\s@ServiceConnectConfiguration' {} a -> s {namespace = a} :: ServiceConnectConfiguration)
 
@@ -163,7 +163,8 @@ instance Data.FromJSON ServiceConnectConfiguration where
 
 instance Prelude.Hashable ServiceConnectConfiguration where
   hashWithSalt _salt ServiceConnectConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` logConfiguration
+    _salt
+      `Prelude.hashWithSalt` logConfiguration
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` services
       `Prelude.hashWithSalt` enabled

@@ -34,7 +34,7 @@ data ManagedAgent = ManagedAgent'
     -- | The last known status of the managed agent.
     lastStatus :: Prelude.Maybe Prelude.Text,
     -- | The name of the managed agent. When the execute command feature is
-    -- enabled, the managed agent name is @ExecuteCommandAgent@.
+    -- turned on, the managed agent name is @ExecuteCommandAgent@.
     name :: Prelude.Maybe ManagedAgentName,
     -- | The reason for why the managed agent is in the state it is in.
     reason :: Prelude.Maybe Prelude.Text
@@ -54,7 +54,7 @@ data ManagedAgent = ManagedAgent'
 -- 'lastStatus', 'managedAgent_lastStatus' - The last known status of the managed agent.
 --
 -- 'name', 'managedAgent_name' - The name of the managed agent. When the execute command feature is
--- enabled, the managed agent name is @ExecuteCommandAgent@.
+-- turned on, the managed agent name is @ExecuteCommandAgent@.
 --
 -- 'reason', 'managedAgent_reason' - The reason for why the managed agent is in the state it is in.
 newManagedAgent ::
@@ -76,7 +76,7 @@ managedAgent_lastStatus :: Lens.Lens' ManagedAgent (Prelude.Maybe Prelude.Text)
 managedAgent_lastStatus = Lens.lens (\ManagedAgent' {lastStatus} -> lastStatus) (\s@ManagedAgent' {} a -> s {lastStatus = a} :: ManagedAgent)
 
 -- | The name of the managed agent. When the execute command feature is
--- enabled, the managed agent name is @ExecuteCommandAgent@.
+-- turned on, the managed agent name is @ExecuteCommandAgent@.
 managedAgent_name :: Lens.Lens' ManagedAgent (Prelude.Maybe ManagedAgentName)
 managedAgent_name = Lens.lens (\ManagedAgent' {name} -> name) (\s@ManagedAgent' {} a -> s {name = a} :: ManagedAgent)
 
@@ -98,7 +98,8 @@ instance Data.FromJSON ManagedAgent where
 
 instance Prelude.Hashable ManagedAgent where
   hashWithSalt _salt ManagedAgent' {..} =
-    _salt `Prelude.hashWithSalt` lastStartedAt
+    _salt
+      `Prelude.hashWithSalt` lastStartedAt
       `Prelude.hashWithSalt` lastStatus
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` reason

@@ -27,11 +27,11 @@
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- You can specify an IAM role for your task with the @taskRoleArn@
--- parameter. When you specify an IAM role for a task, its containers can
--- then use the latest versions of the CLI or SDKs to make API requests to
--- the Amazon Web Services services that are specified in the IAM policy
--- that\'s associated with the role. For more information, see
+-- You can specify a role for your task with the @taskRoleArn@ parameter.
+-- When you specify a role for a task, its containers can then use the
+-- latest versions of the CLI or SDKs to make API requests to the Amazon
+-- Web Services services that are specified in the policy that\'s
+-- associated with the role. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Roles for Tasks>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
@@ -143,10 +143,12 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     -- <https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html Fargate task storage>
     -- in the /Amazon ECS User Guide for Fargate/.
     --
-    -- This parameter is only supported for tasks hosted on Fargate using the
-    -- following platform versions:
+    -- For tasks using the Fargate launch type, the task requires the following
+    -- platforms:
     --
     -- -   Linux platform version @1.4.0@ or later.
+    --
+    -- -   Windows platform version @1.0.0@ or later.
     ephemeralStorage :: Prelude.Maybe EphemeralStorage,
     -- | The Amazon Resource Name (ARN) of the task execution role that grants
     -- the Amazon ECS container agent permission to make Amazon Web Services
@@ -429,10 +431,12 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 -- <https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html Fargate task storage>
 -- in the /Amazon ECS User Guide for Fargate/.
 --
--- This parameter is only supported for tasks hosted on Fargate using the
--- following platform versions:
+-- For tasks using the Fargate launch type, the task requires the following
+-- platforms:
 --
 -- -   Linux platform version @1.4.0@ or later.
+--
+-- -   Windows platform version @1.0.0@ or later.
 --
 -- 'executionRoleArn', 'registerTaskDefinition_executionRoleArn' - The Amazon Resource Name (ARN) of the task execution role that grants
 -- the Amazon ECS container agent permission to make Amazon Web Services
@@ -730,10 +734,12 @@ registerTaskDefinition_cpu = Lens.lens (\RegisterTaskDefinition' {cpu} -> cpu) (
 -- <https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html Fargate task storage>
 -- in the /Amazon ECS User Guide for Fargate/.
 --
--- This parameter is only supported for tasks hosted on Fargate using the
--- following platform versions:
+-- For tasks using the Fargate launch type, the task requires the following
+-- platforms:
 --
 -- -   Linux platform version @1.4.0@ or later.
+--
+-- -   Windows platform version @1.0.0@ or later.
 registerTaskDefinition_ephemeralStorage :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe EphemeralStorage)
 registerTaskDefinition_ephemeralStorage = Lens.lens (\RegisterTaskDefinition' {ephemeralStorage} -> ephemeralStorage) (\s@RegisterTaskDefinition' {} a -> s {ephemeralStorage = a} :: RegisterTaskDefinition)
 
@@ -1001,7 +1007,8 @@ instance Core.AWSRequest RegisterTaskDefinition where
 
 instance Prelude.Hashable RegisterTaskDefinition where
   hashWithSalt _salt RegisterTaskDefinition' {..} =
-    _salt `Prelude.hashWithSalt` cpu
+    _salt
+      `Prelude.hashWithSalt` cpu
       `Prelude.hashWithSalt` ephemeralStorage
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` inferenceAccelerators

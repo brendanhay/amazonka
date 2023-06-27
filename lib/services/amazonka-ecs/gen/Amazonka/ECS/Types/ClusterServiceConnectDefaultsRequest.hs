@@ -66,8 +66,8 @@ data ClusterServiceConnectDefaultsRequest = ClusterServiceConnectDefaultsRequest
     -- separately.
     --
     -- For more information about Cloud Map, see
-    -- <https://docs.aws.amazon.com/ Working with Services> in the /Cloud Map
-    -- Developer Guide/.
+    -- <https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html Working with Services>
+    -- in the /Cloud Map Developer Guide/.
     namespace :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -102,8 +102,8 @@ data ClusterServiceConnectDefaultsRequest = ClusterServiceConnectDefaultsRequest
 -- separately.
 --
 -- For more information about Cloud Map, see
--- <https://docs.aws.amazon.com/ Working with Services> in the /Cloud Map
--- Developer Guide/.
+-- <https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html Working with Services>
+-- in the /Cloud Map Developer Guide/.
 newClusterServiceConnectDefaultsRequest ::
   -- | 'namespace'
   Prelude.Text ->
@@ -136,8 +136,8 @@ newClusterServiceConnectDefaultsRequest pNamespace_ =
 -- separately.
 --
 -- For more information about Cloud Map, see
--- <https://docs.aws.amazon.com/ Working with Services> in the /Cloud Map
--- Developer Guide/.
+-- <https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html Working with Services>
+-- in the /Cloud Map Developer Guide/.
 clusterServiceConnectDefaultsRequest_namespace :: Lens.Lens' ClusterServiceConnectDefaultsRequest Prelude.Text
 clusterServiceConnectDefaultsRequest_namespace = Lens.lens (\ClusterServiceConnectDefaultsRequest' {namespace} -> namespace) (\s@ClusterServiceConnectDefaultsRequest' {} a -> s {namespace = a} :: ClusterServiceConnectDefaultsRequest)
 

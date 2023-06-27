@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newExecuteCommandLogConfiguration' smart constructor.
 data ExecuteCommandLogConfiguration = ExecuteCommandLogConfiguration'
   { -- | Determines whether to use encryption on the CloudWatch logs. If not
-    -- specified, encryption will be disabled.
+    -- specified, encryption will be off.
     cloudWatchEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the CloudWatch log group to send logs to.
     --
@@ -57,7 +57,7 @@ data ExecuteCommandLogConfiguration = ExecuteCommandLogConfiguration'
 -- for backwards compatibility:
 --
 -- 'cloudWatchEncryptionEnabled', 'executeCommandLogConfiguration_cloudWatchEncryptionEnabled' - Determines whether to use encryption on the CloudWatch logs. If not
--- specified, encryption will be disabled.
+-- specified, encryption will be off.
 --
 -- 'cloudWatchLogGroupName', 'executeCommandLogConfiguration_cloudWatchLogGroupName' - The name of the CloudWatch log group to send logs to.
 --
@@ -84,7 +84,7 @@ newExecuteCommandLogConfiguration =
     }
 
 -- | Determines whether to use encryption on the CloudWatch logs. If not
--- specified, encryption will be disabled.
+-- specified, encryption will be off.
 executeCommandLogConfiguration_cloudWatchEncryptionEnabled :: Lens.Lens' ExecuteCommandLogConfiguration (Prelude.Maybe Prelude.Bool)
 executeCommandLogConfiguration_cloudWatchEncryptionEnabled = Lens.lens (\ExecuteCommandLogConfiguration' {cloudWatchEncryptionEnabled} -> cloudWatchEncryptionEnabled) (\s@ExecuteCommandLogConfiguration' {} a -> s {cloudWatchEncryptionEnabled = a} :: ExecuteCommandLogConfiguration)
 

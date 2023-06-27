@@ -272,9 +272,10 @@ data TaskDefinition = TaskDefinition'
     --
     -- This parameter isn\'t supported for tasks run on Fargate.
     requiresAttributes :: Prelude.Maybe [Attribute],
-    -- | The task launch types the task definition was validated against. To
-    -- determine which task launch types the task definition is validated for,
-    -- see the TaskDefinition$compatibilities parameter.
+    -- | The task launch types the task definition was validated against. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS launch types>
+    -- in the /Amazon Elastic Container Service Developer Guide/.
     requiresCompatibilities :: Prelude.Maybe [Compatibility],
     -- | The revision of the task in a particular family. The revision is a
     -- version number of a task definition in a family. When you register a
@@ -553,9 +554,10 @@ data TaskDefinition = TaskDefinition'
 --
 -- This parameter isn\'t supported for tasks run on Fargate.
 --
--- 'requiresCompatibilities', 'taskDefinition_requiresCompatibilities' - The task launch types the task definition was validated against. To
--- determine which task launch types the task definition is validated for,
--- see the TaskDefinition$compatibilities parameter.
+-- 'requiresCompatibilities', 'taskDefinition_requiresCompatibilities' - The task launch types the task definition was validated against. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS launch types>
+-- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- 'revision', 'taskDefinition_revision' - The revision of the task in a particular family. The revision is a
 -- version number of a task definition in a family. When you register a
@@ -886,9 +888,10 @@ taskDefinition_registeredBy = Lens.lens (\TaskDefinition' {registeredBy} -> regi
 taskDefinition_requiresAttributes :: Lens.Lens' TaskDefinition (Prelude.Maybe [Attribute])
 taskDefinition_requiresAttributes = Lens.lens (\TaskDefinition' {requiresAttributes} -> requiresAttributes) (\s@TaskDefinition' {} a -> s {requiresAttributes = a} :: TaskDefinition) Prelude.. Lens.mapping Lens.coerced
 
--- | The task launch types the task definition was validated against. To
--- determine which task launch types the task definition is validated for,
--- see the TaskDefinition$compatibilities parameter.
+-- | The task launch types the task definition was validated against. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS launch types>
+-- in the /Amazon Elastic Container Service Developer Guide/.
 taskDefinition_requiresCompatibilities :: Lens.Lens' TaskDefinition (Prelude.Maybe [Compatibility])
 taskDefinition_requiresCompatibilities = Lens.lens (\TaskDefinition' {requiresCompatibilities} -> requiresCompatibilities) (\s@TaskDefinition' {} a -> s {requiresCompatibilities = a} :: TaskDefinition) Prelude.. Lens.mapping Lens.coerced
 
@@ -949,10 +952,12 @@ instance Data.FromJSON TaskDefinition where
       "TaskDefinition"
       ( \x ->
           TaskDefinition'
-            Prelude.<$> ( x Data..:? "compatibilities"
+            Prelude.<$> ( x
+                            Data..:? "compatibilities"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "containerDefinitions"
+            Prelude.<*> ( x
+                            Data..:? "containerDefinitions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "cpu")
@@ -960,23 +965,27 @@ instance Data.FromJSON TaskDefinition where
             Prelude.<*> (x Data..:? "ephemeralStorage")
             Prelude.<*> (x Data..:? "executionRoleArn")
             Prelude.<*> (x Data..:? "family")
-            Prelude.<*> ( x Data..:? "inferenceAccelerators"
+            Prelude.<*> ( x
+                            Data..:? "inferenceAccelerators"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ipcMode")
             Prelude.<*> (x Data..:? "memory")
             Prelude.<*> (x Data..:? "networkMode")
             Prelude.<*> (x Data..:? "pidMode")
-            Prelude.<*> ( x Data..:? "placementConstraints"
+            Prelude.<*> ( x
+                            Data..:? "placementConstraints"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "proxyConfiguration")
             Prelude.<*> (x Data..:? "registeredAt")
             Prelude.<*> (x Data..:? "registeredBy")
-            Prelude.<*> ( x Data..:? "requiresAttributes"
+            Prelude.<*> ( x
+                            Data..:? "requiresAttributes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "requiresCompatibilities"
+            Prelude.<*> ( x
+                            Data..:? "requiresCompatibilities"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "revision")
@@ -989,7 +998,8 @@ instance Data.FromJSON TaskDefinition where
 
 instance Prelude.Hashable TaskDefinition where
   hashWithSalt _salt TaskDefinition' {..} =
-    _salt `Prelude.hashWithSalt` compatibilities
+    _salt
+      `Prelude.hashWithSalt` compatibilities
       `Prelude.hashWithSalt` containerDefinitions
       `Prelude.hashWithSalt` cpu
       `Prelude.hashWithSalt` deregisteredAt

@@ -25,8 +25,8 @@ import qualified Amazonka.Data as Data
 import Amazonka.ECS.Types.TaskDefinitionPlacementConstraintType
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing a constraint on task placement in the task
--- definition. For more information, see
+-- | The constraint on task placement in the task definition. For more
+-- information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html Task placement constraints>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     TaskDefinitionPlacementConstraint' {..} =
-      _salt `Prelude.hashWithSalt` expression
+      _salt
+        `Prelude.hashWithSalt` expression
         `Prelude.hashWithSalt` type'
 
 instance

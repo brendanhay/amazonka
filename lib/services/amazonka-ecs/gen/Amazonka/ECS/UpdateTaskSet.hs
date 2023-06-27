@@ -147,7 +147,8 @@ instance Core.AWSRequest UpdateTaskSet where
 
 instance Prelude.Hashable UpdateTaskSet where
   hashWithSalt _salt UpdateTaskSet' {..} =
-    _salt `Prelude.hashWithSalt` cluster
+    _salt
+      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` service
       `Prelude.hashWithSalt` taskSet
       `Prelude.hashWithSalt` scale

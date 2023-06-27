@@ -226,7 +226,8 @@ instance Core.AWSRequest PutClusterCapacityProviders where
 
 instance Prelude.Hashable PutClusterCapacityProviders where
   hashWithSalt _salt PutClusterCapacityProviders' {..} =
-    _salt `Prelude.hashWithSalt` cluster
+    _salt
+      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` capacityProviders
       `Prelude.hashWithSalt` defaultCapacityProviderStrategy
 

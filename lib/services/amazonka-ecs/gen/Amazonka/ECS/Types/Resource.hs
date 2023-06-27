@@ -132,7 +132,8 @@ instance Data.FromJSON Resource where
 
 instance Prelude.Hashable Resource where
   hashWithSalt _salt Resource' {..} =
-    _salt `Prelude.hashWithSalt` doubleValue
+    _salt
+      `Prelude.hashWithSalt` doubleValue
       `Prelude.hashWithSalt` integerValue
       `Prelude.hashWithSalt` longValue
       `Prelude.hashWithSalt` name

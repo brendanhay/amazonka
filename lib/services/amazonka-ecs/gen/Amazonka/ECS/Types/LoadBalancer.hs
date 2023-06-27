@@ -26,10 +26,6 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | The load balancer configuration to use with a service or task set.
 --
--- For specific notes and restrictions regarding the use of load balancers
--- with services and task sets, see the CreateService and CreateTaskSet
--- actions.
---
 -- When you add, update, or remove a load balancer configuration, Amazon
 -- ECS starts a new deployment with the updated Elastic Load Balancing
 -- configuration. This causes tasks to register to and deregister from load
@@ -207,7 +203,8 @@ instance Data.FromJSON LoadBalancer where
 
 instance Prelude.Hashable LoadBalancer where
   hashWithSalt _salt LoadBalancer' {..} =
-    _salt `Prelude.hashWithSalt` containerName
+    _salt
+      `Prelude.hashWithSalt` containerName
       `Prelude.hashWithSalt` containerPort
       `Prelude.hashWithSalt` loadBalancerName
       `Prelude.hashWithSalt` targetGroupArn

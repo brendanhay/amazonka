@@ -142,7 +142,8 @@ instance Core.AWSRequest DeleteTaskSet where
 
 instance Prelude.Hashable DeleteTaskSet where
   hashWithSalt _salt DeleteTaskSet' {..} =
-    _salt `Prelude.hashWithSalt` force
+    _salt
+      `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` service
       `Prelude.hashWithSalt` taskSet

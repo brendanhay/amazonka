@@ -27,8 +27,9 @@ import Amazonka.ECS.Types.KernelCapabilities
 import Amazonka.ECS.Types.Tmpfs
 import qualified Amazonka.Prelude as Prelude
 
--- | Linux-specific options that are applied to the container, such as Linux
--- KernelCapabilities.
+-- | The Linux-specific options that are applied to the container, such as
+-- Linux
+-- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html KernelCapabilities>.
 --
 -- /See:/ 'newLinuxParameters' smart constructor.
 data LinuxParameters = LinuxParameters'
@@ -73,6 +74,9 @@ data LinuxParameters = LinuxParameters'
     --
     -- If you\'re using tasks that use the Fargate launch type, the @maxSwap@
     -- parameter isn\'t supported.
+    --
+    -- If you\'re using tasks on Amazon Linux 2023 the @swappiness@ parameter
+    -- isn\'t supported.
     maxSwap :: Prelude.Maybe Prelude.Int,
     -- | The value for the size (in MiB) of the @\/dev\/shm@ volume. This
     -- parameter maps to the @--shm-size@ option to
@@ -93,6 +97,9 @@ data LinuxParameters = LinuxParameters'
     --
     -- If you\'re using tasks that use the Fargate launch type, the
     -- @swappiness@ parameter isn\'t supported.
+    --
+    -- If you\'re using tasks on Amazon Linux 2023 the @swappiness@ parameter
+    -- isn\'t supported.
     swappiness :: Prelude.Maybe Prelude.Int,
     -- | The container path, mount options, and size (in MiB) of the tmpfs mount.
     -- This parameter maps to the @--tmpfs@ option to
@@ -154,6 +161,9 @@ data LinuxParameters = LinuxParameters'
 -- If you\'re using tasks that use the Fargate launch type, the @maxSwap@
 -- parameter isn\'t supported.
 --
+-- If you\'re using tasks on Amazon Linux 2023 the @swappiness@ parameter
+-- isn\'t supported.
+--
 -- 'sharedMemorySize', 'linuxParameters_sharedMemorySize' - The value for the size (in MiB) of the @\/dev\/shm@ volume. This
 -- parameter maps to the @--shm-size@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
@@ -173,6 +183,9 @@ data LinuxParameters = LinuxParameters'
 --
 -- If you\'re using tasks that use the Fargate launch type, the
 -- @swappiness@ parameter isn\'t supported.
+--
+-- If you\'re using tasks on Amazon Linux 2023 the @swappiness@ parameter
+-- isn\'t supported.
 --
 -- 'tmpfs', 'linuxParameters_tmpfs' - The container path, mount options, and size (in MiB) of the tmpfs mount.
 -- This parameter maps to the @--tmpfs@ option to
@@ -240,6 +253,9 @@ linuxParameters_initProcessEnabled = Lens.lens (\LinuxParameters' {initProcessEn
 --
 -- If you\'re using tasks that use the Fargate launch type, the @maxSwap@
 -- parameter isn\'t supported.
+--
+-- If you\'re using tasks on Amazon Linux 2023 the @swappiness@ parameter
+-- isn\'t supported.
 linuxParameters_maxSwap :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
 linuxParameters_maxSwap = Lens.lens (\LinuxParameters' {maxSwap} -> maxSwap) (\s@LinuxParameters' {} a -> s {maxSwap = a} :: LinuxParameters)
 
@@ -264,6 +280,9 @@ linuxParameters_sharedMemorySize = Lens.lens (\LinuxParameters' {sharedMemorySiz
 --
 -- If you\'re using tasks that use the Fargate launch type, the
 -- @swappiness@ parameter isn\'t supported.
+--
+-- If you\'re using tasks on Amazon Linux 2023 the @swappiness@ parameter
+-- isn\'t supported.
 linuxParameters_swappiness :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
 linuxParameters_swappiness = Lens.lens (\LinuxParameters' {swappiness} -> swappiness) (\s@LinuxParameters' {} a -> s {swappiness = a} :: LinuxParameters)
 
@@ -293,7 +312,8 @@ instance Data.FromJSON LinuxParameters where
 
 instance Prelude.Hashable LinuxParameters where
   hashWithSalt _salt LinuxParameters' {..} =
-    _salt `Prelude.hashWithSalt` capabilities
+    _salt
+      `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` devices
       `Prelude.hashWithSalt` initProcessEnabled
       `Prelude.hashWithSalt` maxSwap

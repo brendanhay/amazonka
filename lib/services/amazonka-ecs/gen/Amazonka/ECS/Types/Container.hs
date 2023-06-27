@@ -49,9 +49,6 @@ data Container = Container'
     -- | The image used for the container.
     image :: Prelude.Maybe Prelude.Text,
     -- | The container image manifest digest.
-    --
-    -- The @imageDigest@ is only returned if the container is using an image
-    -- hosted in Amazon ECR, otherwise it is omitted.
     imageDigest :: Prelude.Maybe Prelude.Text,
     -- | The last known status of the container.
     lastStatus :: Prelude.Maybe Prelude.Text,
@@ -103,9 +100,6 @@ data Container = Container'
 -- 'image', 'container_image' - The image used for the container.
 --
 -- 'imageDigest', 'container_imageDigest' - The container image manifest digest.
---
--- The @imageDigest@ is only returned if the container is using an image
--- hosted in Amazon ECR, otherwise it is omitted.
 --
 -- 'lastStatus', 'container_lastStatus' - The last known status of the container.
 --
@@ -180,9 +174,6 @@ container_image :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_image = Lens.lens (\Container' {image} -> image) (\s@Container' {} a -> s {image = a} :: Container)
 
 -- | The container image manifest digest.
---
--- The @imageDigest@ is only returned if the container is using an image
--- hosted in Amazon ECR, otherwise it is omitted.
 container_imageDigest :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_imageDigest = Lens.lens (\Container' {imageDigest} -> imageDigest) (\s@Container' {} a -> s {imageDigest = a} :: Container)
 
@@ -246,10 +237,12 @@ instance Data.FromJSON Container where
             Prelude.<*> (x Data..:? "memory")
             Prelude.<*> (x Data..:? "memoryReservation")
             Prelude.<*> (x Data..:? "name")
-            Prelude.<*> ( x Data..:? "networkBindings"
+            Prelude.<*> ( x
+                            Data..:? "networkBindings"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "networkInterfaces"
+            Prelude.<*> ( x
+                            Data..:? "networkInterfaces"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "reason")
@@ -259,7 +252,8 @@ instance Data.FromJSON Container where
 
 instance Prelude.Hashable Container where
   hashWithSalt _salt Container' {..} =
-    _salt `Prelude.hashWithSalt` containerArn
+    _salt
+      `Prelude.hashWithSalt` containerArn
       `Prelude.hashWithSalt` cpu
       `Prelude.hashWithSalt` exitCode
       `Prelude.hashWithSalt` gpuIds

@@ -104,7 +104,8 @@ instance Data.FromJSON InstanceHealthCheckResult where
 
 instance Prelude.Hashable InstanceHealthCheckResult where
   hashWithSalt _salt InstanceHealthCheckResult' {..} =
-    _salt `Prelude.hashWithSalt` lastStatusChange
+    _salt
+      `Prelude.hashWithSalt` lastStatusChange
       `Prelude.hashWithSalt` lastUpdated
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` type'

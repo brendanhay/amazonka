@@ -109,8 +109,8 @@ data Task = Task'
     -- | The desired status of the task. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-lifecycle.html Task Lifecycle>.
     desiredStatus :: Prelude.Maybe Prelude.Text,
-    -- | Determines whether execute command functionality is enabled for this
-    -- task. If @true@, execute command functionality is enabled on all the
+    -- | Determines whether execute command functionality is turned on for this
+    -- task. If @true@, execute command functionality is turned on all the
     -- containers in the task.
     enableExecuteCommand :: Prelude.Maybe Prelude.Bool,
     -- | The ephemeral storage settings for the task.
@@ -355,8 +355,8 @@ data Task = Task'
 -- 'desiredStatus', 'task_desiredStatus' - The desired status of the task. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-lifecycle.html Task Lifecycle>.
 --
--- 'enableExecuteCommand', 'task_enableExecuteCommand' - Determines whether execute command functionality is enabled for this
--- task. If @true@, execute command functionality is enabled on all the
+-- 'enableExecuteCommand', 'task_enableExecuteCommand' - Determines whether execute command functionality is turned on for this
+-- task. If @true@, execute command functionality is turned on all the
 -- containers in the task.
 --
 -- 'ephemeralStorage', 'task_ephemeralStorage' - The ephemeral storage settings for the task.
@@ -655,8 +655,8 @@ task_createdAt = Lens.lens (\Task' {createdAt} -> createdAt) (\s@Task' {} a -> s
 task_desiredStatus :: Lens.Lens' Task (Prelude.Maybe Prelude.Text)
 task_desiredStatus = Lens.lens (\Task' {desiredStatus} -> desiredStatus) (\s@Task' {} a -> s {desiredStatus = a} :: Task)
 
--- | Determines whether execute command functionality is enabled for this
--- task. If @true@, execute command functionality is enabled on all the
+-- | Determines whether execute command functionality is turned on for this
+-- task. If @true@, execute command functionality is turned on all the
 -- containers in the task.
 task_enableExecuteCommand :: Lens.Lens' Task (Prelude.Maybe Prelude.Bool)
 task_enableExecuteCommand = Lens.lens (\Task' {enableExecuteCommand} -> enableExecuteCommand) (\s@Task' {} a -> s {enableExecuteCommand = a} :: Task)
@@ -891,7 +891,8 @@ instance Data.FromJSON Task where
             Prelude.<*> (x Data..:? "executionStoppedAt")
             Prelude.<*> (x Data..:? "group")
             Prelude.<*> (x Data..:? "healthStatus")
-            Prelude.<*> ( x Data..:? "inferenceAccelerators"
+            Prelude.<*> ( x
+                            Data..:? "inferenceAccelerators"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "lastStatus")
@@ -916,7 +917,8 @@ instance Data.FromJSON Task where
 
 instance Prelude.Hashable Task where
   hashWithSalt _salt Task' {..} =
-    _salt `Prelude.hashWithSalt` attachments
+    _salt
+      `Prelude.hashWithSalt` attachments
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` capacityProviderName

@@ -74,7 +74,7 @@ data StopTask = StopTask'
     -- subsequent DescribeTasks API operations on this task. Up to 255
     -- characters are allowed in this message.
     reason :: Prelude.Maybe Prelude.Text,
-    -- | The task ID or full Amazon Resource Name (ARN) of the task to stop.
+    -- | The task ID of the task to stop.
     task :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -97,7 +97,7 @@ data StopTask = StopTask'
 -- subsequent DescribeTasks API operations on this task. Up to 255
 -- characters are allowed in this message.
 --
--- 'task', 'stopTask_task' - The task ID or full Amazon Resource Name (ARN) of the task to stop.
+-- 'task', 'stopTask_task' - The task ID of the task to stop.
 newStopTask ::
   -- | 'task'
   Prelude.Text ->
@@ -123,7 +123,7 @@ stopTask_cluster = Lens.lens (\StopTask' {cluster} -> cluster) (\s@StopTask' {} 
 stopTask_reason :: Lens.Lens' StopTask (Prelude.Maybe Prelude.Text)
 stopTask_reason = Lens.lens (\StopTask' {reason} -> reason) (\s@StopTask' {} a -> s {reason = a} :: StopTask)
 
--- | The task ID or full Amazon Resource Name (ARN) of the task to stop.
+-- | The task ID of the task to stop.
 stopTask_task :: Lens.Lens' StopTask Prelude.Text
 stopTask_task = Lens.lens (\StopTask' {task} -> task) (\s@StopTask' {} a -> s {task = a} :: StopTask)
 
@@ -141,7 +141,8 @@ instance Core.AWSRequest StopTask where
 
 instance Prelude.Hashable StopTask where
   hashWithSalt _salt StopTask' {..} =
-    _salt `Prelude.hashWithSalt` cluster
+    _salt
+      `Prelude.hashWithSalt` cluster
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` task
 

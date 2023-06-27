@@ -137,22 +137,22 @@ instance Core.AWSPager GetBuiltinSlotTypes where
     | Core.stop
         ( rs
             Lens.^? getBuiltinSlotTypesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getBuiltinSlotTypesResponse_slotTypes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getBuiltinSlotTypes_nextToken
           Lens..~ rs
           Lens.^? getBuiltinSlotTypesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBuiltinSlotTypes where
   type
@@ -171,7 +171,8 @@ instance Core.AWSRequest GetBuiltinSlotTypes where
 
 instance Prelude.Hashable GetBuiltinSlotTypes where
   hashWithSalt _salt GetBuiltinSlotTypes' {..} =
-    _salt `Prelude.hashWithSalt` locale
+    _salt
+      `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` signatureContains

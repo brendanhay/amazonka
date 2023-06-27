@@ -211,7 +211,8 @@ instance Core.AWSRequest PutBotAlias where
 
 instance Prelude.Hashable PutBotAlias where
   hashWithSalt _salt PutBotAlias' {..} =
-    _salt `Prelude.hashWithSalt` checksum
+    _salt
+      `Prelude.hashWithSalt` checksum
       `Prelude.hashWithSalt` conversationLogs
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags

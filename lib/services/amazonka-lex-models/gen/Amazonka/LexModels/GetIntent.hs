@@ -129,7 +129,8 @@ instance Core.AWSRequest GetIntent where
             Prelude.<*> (x Data..?> "outputContexts" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "parentIntentSignature")
             Prelude.<*> (x Data..?> "rejectionStatement")
-            Prelude.<*> ( x Data..?> "sampleUtterances"
+            Prelude.<*> ( x
+                            Data..?> "sampleUtterances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "slots" Core..!@ Prelude.mempty)
@@ -139,7 +140,8 @@ instance Core.AWSRequest GetIntent where
 
 instance Prelude.Hashable GetIntent where
   hashWithSalt _salt GetIntent' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData GetIntent where

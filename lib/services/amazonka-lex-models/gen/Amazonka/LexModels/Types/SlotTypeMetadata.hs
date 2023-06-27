@@ -107,7 +107,8 @@ instance Data.FromJSON SlotTypeMetadata where
 
 instance Prelude.Hashable SlotTypeMetadata where
   hashWithSalt _salt SlotTypeMetadata' {..} =
-    _salt `Prelude.hashWithSalt` createdDate
+    _salt
+      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastUpdatedDate
       `Prelude.hashWithSalt` name

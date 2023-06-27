@@ -107,7 +107,8 @@ instance Data.FromJSON UtteranceData where
 
 instance Prelude.Hashable UtteranceData where
   hashWithSalt _salt UtteranceData' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` distinctUsers
       `Prelude.hashWithSalt` firstUtteredDate
       `Prelude.hashWithSalt` lastUtteredDate

@@ -108,7 +108,8 @@ instance Data.FromJSON Prompt where
 
 instance Prelude.Hashable Prompt where
   hashWithSalt _salt Prompt' {..} =
-    _salt `Prelude.hashWithSalt` responseCard
+    _salt
+      `Prelude.hashWithSalt` responseCard
       `Prelude.hashWithSalt` messages
       `Prelude.hashWithSalt` maxAttempts
 

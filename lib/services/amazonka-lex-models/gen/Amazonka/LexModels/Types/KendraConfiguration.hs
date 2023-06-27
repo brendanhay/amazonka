@@ -129,7 +129,8 @@ instance Data.FromJSON KendraConfiguration where
 
 instance Prelude.Hashable KendraConfiguration where
   hashWithSalt _salt KendraConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` queryFilterString
+    _salt
+      `Prelude.hashWithSalt` queryFilterString
       `Prelude.hashWithSalt` kendraIndex
       `Prelude.hashWithSalt` role'
 

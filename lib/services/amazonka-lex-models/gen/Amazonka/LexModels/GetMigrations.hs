@@ -153,7 +153,8 @@ instance Core.AWSRequest GetMigrations where
     Response.receiveJSON
       ( \s h x ->
           GetMigrationsResponse'
-            Prelude.<$> ( x Data..?> "migrationSummaries"
+            Prelude.<$> ( x
+                            Data..?> "migrationSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -162,7 +163,8 @@ instance Core.AWSRequest GetMigrations where
 
 instance Prelude.Hashable GetMigrations where
   hashWithSalt _salt GetMigrations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` migrationStatusEquals
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortByAttribute

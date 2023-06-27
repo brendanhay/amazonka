@@ -86,7 +86,8 @@ conversationLogsRequest_iamRoleArn = Lens.lens (\ConversationLogsRequest' {iamRo
 
 instance Prelude.Hashable ConversationLogsRequest where
   hashWithSalt _salt ConversationLogsRequest' {..} =
-    _salt `Prelude.hashWithSalt` logSettings
+    _salt
+      `Prelude.hashWithSalt` logSettings
       `Prelude.hashWithSalt` iamRoleArn
 
 instance Prelude.NFData ConversationLogsRequest where

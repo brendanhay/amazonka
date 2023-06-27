@@ -332,13 +332,15 @@ instance Core.AWSRequest PutSlotType where
             Prelude.<*> (x Data..?> "createVersion")
             Prelude.<*> (x Data..?> "createdDate")
             Prelude.<*> (x Data..?> "description")
-            Prelude.<*> ( x Data..?> "enumerationValues"
+            Prelude.<*> ( x
+                            Data..?> "enumerationValues"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "lastUpdatedDate")
             Prelude.<*> (x Data..?> "name")
             Prelude.<*> (x Data..?> "parentSlotTypeSignature")
-            Prelude.<*> ( x Data..?> "slotTypeConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "slotTypeConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "valueSelectionStrategy")
@@ -348,7 +350,8 @@ instance Core.AWSRequest PutSlotType where
 
 instance Prelude.Hashable PutSlotType where
   hashWithSalt _salt PutSlotType' {..} =
-    _salt `Prelude.hashWithSalt` checksum
+    _salt
+      `Prelude.hashWithSalt` checksum
       `Prelude.hashWithSalt` createVersion
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` enumerationValues

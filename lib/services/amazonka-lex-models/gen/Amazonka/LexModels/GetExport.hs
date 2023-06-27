@@ -142,7 +142,8 @@ instance Core.AWSRequest GetExport where
 
 instance Prelude.Hashable GetExport where
   hashWithSalt _salt GetExport' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` exportType

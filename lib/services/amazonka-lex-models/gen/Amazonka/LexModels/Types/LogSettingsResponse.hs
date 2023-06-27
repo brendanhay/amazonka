@@ -121,7 +121,8 @@ instance Data.FromJSON LogSettingsResponse where
 
 instance Prelude.Hashable LogSettingsResponse where
   hashWithSalt _salt LogSettingsResponse' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` logType
       `Prelude.hashWithSalt` resourceArn

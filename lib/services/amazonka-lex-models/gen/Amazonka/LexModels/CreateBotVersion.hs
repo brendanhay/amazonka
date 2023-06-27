@@ -163,7 +163,8 @@ instance Core.AWSRequest CreateBotVersion where
 
 instance Prelude.Hashable CreateBotVersion where
   hashWithSalt _salt CreateBotVersion' {..} =
-    _salt `Prelude.hashWithSalt` checksum
+    _salt
+      `Prelude.hashWithSalt` checksum
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateBotVersion where

@@ -139,7 +139,8 @@ instance Core.AWSRequest GetBot where
 
 instance Prelude.Hashable GetBot where
   hashWithSalt _salt GetBot' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` versionOrAlias
 
 instance Prelude.NFData GetBot where

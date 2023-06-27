@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteSlotTypeVersion where
 
 instance Prelude.Hashable DeleteSlotTypeVersion where
   hashWithSalt _salt DeleteSlotTypeVersion' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData DeleteSlotTypeVersion where

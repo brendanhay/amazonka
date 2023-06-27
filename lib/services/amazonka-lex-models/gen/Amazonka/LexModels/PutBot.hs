@@ -25,9 +25,9 @@
 -- a locale, and whether the bot is directed toward children under age 13.
 -- You can use this to add intents later, or to remove intents from an
 -- existing bot. When you create a bot with the minimum information, the
--- bot is created or updated but Amazon Lex returns the @@ response
--- @FAILED@. You can build the bot after you add one or more intents. For
--- more information about Amazon Lex bots, see how-it-works.
+-- bot is created or updated but Amazon Lex returns the response @FAILED@.
+-- You can build the bot after you add one or more intents. For more
+-- information about Amazon Lex bots, see how-it-works.
 --
 -- If you specify the name of an existing bot, the fields in the request
 -- replace the existing values in the @$LATEST@ version of the bot. Amazon
@@ -839,7 +839,8 @@ instance Core.AWSRequest PutBot where
 
 instance Prelude.Hashable PutBot where
   hashWithSalt _salt PutBot' {..} =
-    _salt `Prelude.hashWithSalt` abortStatement
+    _salt
+      `Prelude.hashWithSalt` abortStatement
       `Prelude.hashWithSalt` checksum
       `Prelude.hashWithSalt` clarificationPrompt
       `Prelude.hashWithSalt` createVersion

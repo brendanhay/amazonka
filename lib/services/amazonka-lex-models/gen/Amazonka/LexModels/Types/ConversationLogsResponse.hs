@@ -82,7 +82,8 @@ instance Data.FromJSON ConversationLogsResponse where
 
 instance Prelude.Hashable ConversationLogsResponse where
   hashWithSalt _salt ConversationLogsResponse' {..} =
-    _salt `Prelude.hashWithSalt` iamRoleArn
+    _salt
+      `Prelude.hashWithSalt` iamRoleArn
       `Prelude.hashWithSalt` logSettings
 
 instance Prelude.NFData ConversationLogsResponse where

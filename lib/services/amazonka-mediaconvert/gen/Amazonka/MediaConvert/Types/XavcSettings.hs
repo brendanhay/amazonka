@@ -74,16 +74,17 @@ data XavcSettings = XavcSettings'
     -- FramerateDenominator.
     framerateControl :: Prelude.Maybe XavcFramerateControl,
     -- | Choose the method that you want MediaConvert to use when increasing or
-    -- decreasing the frame rate. We recommend using drop duplicate
-    -- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
-    -- 30 fps. For numerically complex conversions, you can use interpolate
-    -- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but
-    -- might introduce undesirable video artifacts. For complex frame rate
-    -- conversions, especially if your source video has already been converted
-    -- from its original cadence, use FrameFormer (FRAMEFORMER) to do
-    -- motion-compensated interpolation. FrameFormer chooses the best
-    -- conversion method frame by frame. Note that using FrameFormer increases
-    -- the transcoding time and incurs a significant add-on cost.
+    -- decreasing the frame rate. For numerically simple conversions, such as
+    -- 60 fps to 30 fps: We recommend that you keep the default value, Drop
+    -- duplicate. For numerically complex conversions, to avoid stutter: Choose
+    -- Interpolate. This results in a smooth picture, but might introduce
+    -- undesirable video artifacts. For complex frame rate conversions,
+    -- especially if your source video has already been converted from its
+    -- original cadence: Choose FrameFormer to do motion-compensated
+    -- interpolation. FrameFormer uses the best conversion method frame by
+    -- frame. Note that using FrameFormer increases the transcoding time and
+    -- incurs a significant add-on cost. When you choose FrameFormer, your
+    -- input video resolution must be at least 128x96.
     framerateConversionAlgorithm :: Prelude.Maybe XavcFramerateConversionAlgorithm,
     -- | When you use the API for transcode jobs that use frame rate conversion,
     -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
@@ -232,16 +233,17 @@ data XavcSettings = XavcSettings'
 -- FramerateDenominator.
 --
 -- 'framerateConversionAlgorithm', 'xavcSettings_framerateConversionAlgorithm' - Choose the method that you want MediaConvert to use when increasing or
--- decreasing the frame rate. We recommend using drop duplicate
--- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
--- 30 fps. For numerically complex conversions, you can use interpolate
--- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but
--- might introduce undesirable video artifacts. For complex frame rate
--- conversions, especially if your source video has already been converted
--- from its original cadence, use FrameFormer (FRAMEFORMER) to do
--- motion-compensated interpolation. FrameFormer chooses the best
--- conversion method frame by frame. Note that using FrameFormer increases
--- the transcoding time and incurs a significant add-on cost.
+-- decreasing the frame rate. For numerically simple conversions, such as
+-- 60 fps to 30 fps: We recommend that you keep the default value, Drop
+-- duplicate. For numerically complex conversions, to avoid stutter: Choose
+-- Interpolate. This results in a smooth picture, but might introduce
+-- undesirable video artifacts. For complex frame rate conversions,
+-- especially if your source video has already been converted from its
+-- original cadence: Choose FrameFormer to do motion-compensated
+-- interpolation. FrameFormer uses the best conversion method frame by
+-- frame. Note that using FrameFormer increases the transcoding time and
+-- incurs a significant add-on cost. When you choose FrameFormer, your
+-- input video resolution must be at least 128x96.
 --
 -- 'framerateDenominator', 'xavcSettings_framerateDenominator' - When you use the API for transcode jobs that use frame rate conversion,
 -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
@@ -407,16 +409,17 @@ xavcSettings_framerateControl :: Lens.Lens' XavcSettings (Prelude.Maybe XavcFram
 xavcSettings_framerateControl = Lens.lens (\XavcSettings' {framerateControl} -> framerateControl) (\s@XavcSettings' {} a -> s {framerateControl = a} :: XavcSettings)
 
 -- | Choose the method that you want MediaConvert to use when increasing or
--- decreasing the frame rate. We recommend using drop duplicate
--- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
--- 30 fps. For numerically complex conversions, you can use interpolate
--- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but
--- might introduce undesirable video artifacts. For complex frame rate
--- conversions, especially if your source video has already been converted
--- from its original cadence, use FrameFormer (FRAMEFORMER) to do
--- motion-compensated interpolation. FrameFormer chooses the best
--- conversion method frame by frame. Note that using FrameFormer increases
--- the transcoding time and incurs a significant add-on cost.
+-- decreasing the frame rate. For numerically simple conversions, such as
+-- 60 fps to 30 fps: We recommend that you keep the default value, Drop
+-- duplicate. For numerically complex conversions, to avoid stutter: Choose
+-- Interpolate. This results in a smooth picture, but might introduce
+-- undesirable video artifacts. For complex frame rate conversions,
+-- especially if your source video has already been converted from its
+-- original cadence: Choose FrameFormer to do motion-compensated
+-- interpolation. FrameFormer uses the best conversion method frame by
+-- frame. Note that using FrameFormer increases the transcoding time and
+-- incurs a significant add-on cost. When you choose FrameFormer, your
+-- input video resolution must be at least 128x96.
 xavcSettings_framerateConversionAlgorithm :: Lens.Lens' XavcSettings (Prelude.Maybe XavcFramerateConversionAlgorithm)
 xavcSettings_framerateConversionAlgorithm = Lens.lens (\XavcSettings' {framerateConversionAlgorithm} -> framerateConversionAlgorithm) (\s@XavcSettings' {} a -> s {framerateConversionAlgorithm = a} :: XavcSettings)
 
@@ -574,7 +577,8 @@ instance Data.FromJSON XavcSettings where
 
 instance Prelude.Hashable XavcSettings where
   hashWithSalt _salt XavcSettings' {..} =
-    _salt `Prelude.hashWithSalt` adaptiveQuantization
+    _salt
+      `Prelude.hashWithSalt` adaptiveQuantization
       `Prelude.hashWithSalt` entropyEncoding
       `Prelude.hashWithSalt` framerateControl
       `Prelude.hashWithSalt` framerateConversionAlgorithm

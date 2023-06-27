@@ -293,7 +293,8 @@ instance Data.FromJSON XavcHdProfileSettings where
 
 instance Prelude.Hashable XavcHdProfileSettings where
   hashWithSalt _salt XavcHdProfileSettings' {..} =
-    _salt `Prelude.hashWithSalt` bitrateClass
+    _salt
+      `Prelude.hashWithSalt` bitrateClass
       `Prelude.hashWithSalt` flickerAdaptiveQuantization
       `Prelude.hashWithSalt` gopBReference
       `Prelude.hashWithSalt` gopClosedCadence

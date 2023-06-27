@@ -26,6 +26,7 @@ module Amazonka.MediaConvert.Types.VideoCodec
         VideoCodec_H_264,
         VideoCodec_H_265,
         VideoCodec_MPEG2,
+        VideoCodec_PASSTHROUGH,
         VideoCodec_PRORES,
         VideoCodec_VC3,
         VideoCodec_VP8,
@@ -86,6 +87,9 @@ pattern VideoCodec_H_265 = VideoCodec' "H_265"
 pattern VideoCodec_MPEG2 :: VideoCodec
 pattern VideoCodec_MPEG2 = VideoCodec' "MPEG2"
 
+pattern VideoCodec_PASSTHROUGH :: VideoCodec
+pattern VideoCodec_PASSTHROUGH = VideoCodec' "PASSTHROUGH"
+
 pattern VideoCodec_PRORES :: VideoCodec
 pattern VideoCodec_PRORES = VideoCodec' "PRORES"
 
@@ -108,6 +112,7 @@ pattern VideoCodec_XAVC = VideoCodec' "XAVC"
   VideoCodec_H_264,
   VideoCodec_H_265,
   VideoCodec_MPEG2,
+  VideoCodec_PASSTHROUGH,
   VideoCodec_PRORES,
   VideoCodec_VC3,
   VideoCodec_VP8,

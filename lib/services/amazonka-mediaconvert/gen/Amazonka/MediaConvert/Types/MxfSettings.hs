@@ -129,7 +129,8 @@ instance Data.FromJSON MxfSettings where
 
 instance Prelude.Hashable MxfSettings where
   hashWithSalt _salt MxfSettings' {..} =
-    _salt `Prelude.hashWithSalt` afdSignaling
+    _salt
+      `Prelude.hashWithSalt` afdSignaling
       `Prelude.hashWithSalt` profile
       `Prelude.hashWithSalt` xavcProfileSettings
 

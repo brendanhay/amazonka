@@ -116,7 +116,8 @@ instance Data.FromJSON MxfXavcProfileSettings where
 
 instance Prelude.Hashable MxfXavcProfileSettings where
   hashWithSalt _salt MxfXavcProfileSettings' {..} =
-    _salt `Prelude.hashWithSalt` durationMode
+    _salt
+      `Prelude.hashWithSalt` durationMode
       `Prelude.hashWithSalt` maxAncDataSize
 
 instance Prelude.NFData MxfXavcProfileSettings where

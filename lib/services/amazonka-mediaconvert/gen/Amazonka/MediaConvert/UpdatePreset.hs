@@ -120,7 +120,8 @@ instance Core.AWSRequest UpdatePreset where
 
 instance Prelude.Hashable UpdatePreset where
   hashWithSalt _salt UpdatePreset' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` name

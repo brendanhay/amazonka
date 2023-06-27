@@ -239,6 +239,10 @@ module Amazonka.MediaConvert.Lens
     -- ** AccelerationSettings
     accelerationSettings_mode,
 
+    -- ** AdvancedInputFilterSettings
+    advancedInputFilterSettings_addTexture,
+    advancedInputFilterSettings_sharpening,
+
     -- ** AiffSettings
     aiffSettings_bitDepth,
     aiffSettings_channels,
@@ -290,6 +294,7 @@ module Amazonka.MediaConvert.Lens
     audioNormalizationSettings_loudnessLogging,
     audioNormalizationSettings_peakCalculation,
     audioNormalizationSettings_targetLkfs,
+    audioNormalizationSettings_truePeakLimiterThreshold,
 
     -- ** AudioSelector
     audioSelector_audioDurationCorrection,
@@ -361,6 +366,10 @@ module Amazonka.MediaConvert.Lens
     -- ** AvcIntraUhdSettings
     avcIntraUhdSettings_qualityTuningLevel,
 
+    -- ** BandwidthReductionFilter
+    bandwidthReductionFilter_sharpening,
+    bandwidthReductionFilter_strength,
+
     -- ** BurninDestinationSettings
     burninDestinationSettings_alignment,
     burninDestinationSettings_applyFontColor,
@@ -431,6 +440,12 @@ module Amazonka.MediaConvert.Lens
     -- ** ChannelMapping
     channelMapping_outputChannels,
 
+    -- ** ClipLimits
+    clipLimits_maximumRGBTolerance,
+    clipLimits_maximumYUV,
+    clipLimits_minimumRGBTolerance,
+    clipLimits_minimumYUV,
+
     -- ** CmafAdditionalManifest
     cmafAdditionalManifest_manifestNameModifier,
     cmafAdditionalManifest_selectedOutputs,
@@ -448,6 +463,7 @@ module Amazonka.MediaConvert.Lens
     cmafGroupSettings_baseUrl,
     cmafGroupSettings_clientCache,
     cmafGroupSettings_codecSpecification,
+    cmafGroupSettings_dashManifestStyle,
     cmafGroupSettings_destination,
     cmafGroupSettings_destinationSettings,
     cmafGroupSettings_encryption,
@@ -497,9 +513,11 @@ module Amazonka.MediaConvert.Lens
 
     -- ** ColorCorrector
     colorCorrector_brightness,
+    colorCorrector_clipLimits,
     colorCorrector_colorSpaceConversion,
     colorCorrector_contrast,
     colorCorrector_hdr10Metadata,
+    colorCorrector_hdrToSdrToneMapper,
     colorCorrector_hue,
     colorCorrector_sampleRangeConversion,
     colorCorrector_saturation,
@@ -528,6 +546,7 @@ module Amazonka.MediaConvert.Lens
     dashIsoGroupSettings_additionalManifests,
     dashIsoGroupSettings_audioChannelConfigSchemeIdUri,
     dashIsoGroupSettings_baseUrl,
+    dashIsoGroupSettings_dashManifestStyle,
     dashIsoGroupSettings_destination,
     dashIsoGroupSettings_destinationSettings,
     dashIsoGroupSettings_encryption,
@@ -697,6 +716,7 @@ module Amazonka.MediaConvert.Lens
 
     -- ** FileSourceSettings
     fileSourceSettings_convert608To708,
+    fileSourceSettings_convertPaintToPop,
     fileSourceSettings_framerate,
     fileSourceSettings_sourceFile,
     fileSourceSettings_timeDelta,
@@ -719,6 +739,7 @@ module Amazonka.MediaConvert.Lens
 
     -- ** H264Settings
     h264Settings_adaptiveQuantization,
+    h264Settings_bandwidthReductionFilter,
     h264Settings_bitrate,
     h264Settings_codecLevel,
     h264Settings_codecProfile,
@@ -768,6 +789,7 @@ module Amazonka.MediaConvert.Lens
     -- ** H265Settings
     h265Settings_adaptiveQuantization,
     h265Settings_alternateTransferFunctionSei,
+    h265Settings_bandwidthReductionFilter,
     h265Settings_bitrate,
     h265Settings_codecLevel,
     h265Settings_codecProfile,
@@ -868,6 +890,7 @@ module Amazonka.MediaConvert.Lens
     hlsGroupSettings_outputSelection,
     hlsGroupSettings_programDateTime,
     hlsGroupSettings_programDateTimePeriod,
+    hlsGroupSettings_progressiveWriteHlsManifest,
     hlsGroupSettings_segmentControl,
     hlsGroupSettings_segmentLength,
     hlsGroupSettings_segmentLengthControl,
@@ -918,6 +941,8 @@ module Amazonka.MediaConvert.Lens
     imscDestinationSettings_stylePassthrough,
 
     -- ** Input
+    input_advancedInputFilter,
+    input_advancedInputFilterSettings,
     input_audioSelectorGroups,
     input_audioSelectors,
     input_captionSelectors,
@@ -952,6 +977,8 @@ module Amazonka.MediaConvert.Lens
     inputDecryptionSettings_kmsKeyRegion,
 
     -- ** InputTemplate
+    inputTemplate_advancedInputFilter,
+    inputTemplate_advancedInputFilterSettings,
     inputTemplate_audioSelectorGroups,
     inputTemplate_audioSelectors,
     inputTemplate_captionSelectors,
@@ -992,6 +1019,7 @@ module Amazonka.MediaConvert.Lens
     job_accelerationStatus,
     job_arn,
     job_billingTagsSource,
+    job_clientRequestToken,
     job_createdAt,
     job_currentPhase,
     job_errorCode,
@@ -1011,8 +1039,9 @@ module Amazonka.MediaConvert.Lens
     job_statusUpdateInterval,
     job_timing,
     job_userMetadata,
-    job_role,
+    job_warnings,
     job_settings,
+    job_role,
 
     -- ** JobMessages
     jobMessages_info,
@@ -1611,6 +1640,10 @@ module Amazonka.MediaConvert.Lens
     vp9Settings_qualityTuningLevel,
     vp9Settings_rateControlMode,
 
+    -- ** WarningGroup
+    warningGroup_count,
+    warningGroup_code,
+
     -- ** WavSettings
     wavSettings_bitDepth,
     wavSettings_channels,
@@ -1703,6 +1736,7 @@ import Amazonka.MediaConvert.TagResource
 import Amazonka.MediaConvert.Types.AacSettings
 import Amazonka.MediaConvert.Types.Ac3Settings
 import Amazonka.MediaConvert.Types.AccelerationSettings
+import Amazonka.MediaConvert.Types.AdvancedInputFilterSettings
 import Amazonka.MediaConvert.Types.AiffSettings
 import Amazonka.MediaConvert.Types.AllowedRenditionSize
 import Amazonka.MediaConvert.Types.AncillarySourceSettings
@@ -1720,6 +1754,7 @@ import Amazonka.MediaConvert.Types.Av1Settings
 import Amazonka.MediaConvert.Types.AvailBlanking
 import Amazonka.MediaConvert.Types.AvcIntraSettings
 import Amazonka.MediaConvert.Types.AvcIntraUhdSettings
+import Amazonka.MediaConvert.Types.BandwidthReductionFilter
 import Amazonka.MediaConvert.Types.BurninDestinationSettings
 import Amazonka.MediaConvert.Types.CaptionDescription
 import Amazonka.MediaConvert.Types.CaptionDescriptionPreset
@@ -1728,6 +1763,7 @@ import Amazonka.MediaConvert.Types.CaptionSelector
 import Amazonka.MediaConvert.Types.CaptionSourceFramerate
 import Amazonka.MediaConvert.Types.CaptionSourceSettings
 import Amazonka.MediaConvert.Types.ChannelMapping
+import Amazonka.MediaConvert.Types.ClipLimits
 import Amazonka.MediaConvert.Types.CmafAdditionalManifest
 import Amazonka.MediaConvert.Types.CmafEncryptionSettings
 import Amazonka.MediaConvert.Types.CmafGroupSettings
@@ -1862,6 +1898,7 @@ import Amazonka.MediaConvert.Types.VideoSelector
 import Amazonka.MediaConvert.Types.VorbisSettings
 import Amazonka.MediaConvert.Types.Vp8Settings
 import Amazonka.MediaConvert.Types.Vp9Settings
+import Amazonka.MediaConvert.Types.WarningGroup
 import Amazonka.MediaConvert.Types.WavSettings
 import Amazonka.MediaConvert.Types.WebvttDestinationSettings
 import Amazonka.MediaConvert.Types.WebvttHlsSourceSettings

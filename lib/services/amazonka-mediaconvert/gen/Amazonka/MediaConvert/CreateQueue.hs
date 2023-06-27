@@ -166,7 +166,8 @@ instance Core.AWSRequest CreateQueue where
 
 instance Prelude.Hashable CreateQueue where
   hashWithSalt _salt CreateQueue' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` reservationPlanSettings
       `Prelude.hashWithSalt` status

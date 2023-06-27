@@ -131,7 +131,8 @@ instance Data.FromJSON Av1QvbrSettings where
 
 instance Prelude.Hashable Av1QvbrSettings where
   hashWithSalt _salt Av1QvbrSettings' {..} =
-    _salt `Prelude.hashWithSalt` qvbrQualityLevel
+    _salt
+      `Prelude.hashWithSalt` qvbrQualityLevel
       `Prelude.hashWithSalt` qvbrQualityLevelFineTune
 
 instance Prelude.NFData Av1QvbrSettings where

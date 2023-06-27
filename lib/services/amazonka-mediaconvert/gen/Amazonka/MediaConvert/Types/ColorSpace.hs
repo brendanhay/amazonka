@@ -23,6 +23,7 @@ module Amazonka.MediaConvert.Types.ColorSpace
         ColorSpace_FOLLOW,
         ColorSpace_HDR10,
         ColorSpace_HLG_2020,
+        ColorSpace_P3D65_HDR,
         ColorSpace_P3D65_SDR,
         ColorSpace_P3DCI,
         ColorSpace_REC_601,
@@ -36,18 +37,21 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | If your input video has accurate color space metadata, or if you don\'t
--- know about color space, leave this set to the default value Follow. The
--- service will automatically detect your input color space. If your input
--- video has metadata indicating the wrong color space, specify the
--- accurate color space here. If your input video is HDR 10 and the SMPTE
--- ST 2086 Mastering Display Color Volume static metadata isn\'t present in
--- your video stream, or if that metadata is present but not accurate,
--- choose Force HDR 10 here and specify correct values in the input HDR 10
--- metadata settings. For more information about MediaConvert HDR jobs, see
--- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr. Select P3D65
--- (SDR) to set the input color space metadata to the following: * Color
--- primaries: Display P3 * Transfer characteristics: SMPTE 428M * Matrix
--- coefficients: BT.709
+-- know about color space: Keep the default value, Follow. MediaConvert
+-- will automatically detect your input color space. If your input video
+-- has metadata indicating the wrong color space, or has missing metadata:
+-- Specify the accurate color space here. If your input video is HDR 10 and
+-- the SMPTE ST 2086 Mastering Display Color Volume static metadata isn\'t
+-- present in your video stream, or if that metadata is present but not
+-- accurate: Choose Force HDR 10. Specify correct values in the input HDR
+-- 10 metadata settings. For more information about HDR jobs, see
+-- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr. When you
+-- specify an input color space, MediaConvert uses the following color
+-- space metadata, which includes color primaries, transfer
+-- characteristics, and matrix coefficients: * HDR 10: BT.2020, PQ, BT.2020
+-- non-constant * HLG 2020: BT.2020, HLG, BT.2020 non-constant * P3DCI
+-- (Theater): DCIP3, SMPTE 428M, BT.709 * P3D65 (SDR): Display P3, sRGB,
+-- BT.709 * P3D65 (HDR): Display P3, PQ, BT.709
 newtype ColorSpace = ColorSpace'
   { fromColorSpace ::
       Data.Text
@@ -85,6 +89,9 @@ pattern ColorSpace_HDR10 = ColorSpace' "HDR10"
 pattern ColorSpace_HLG_2020 :: ColorSpace
 pattern ColorSpace_HLG_2020 = ColorSpace' "HLG_2020"
 
+pattern ColorSpace_P3D65_HDR :: ColorSpace
+pattern ColorSpace_P3D65_HDR = ColorSpace' "P3D65_HDR"
+
 pattern ColorSpace_P3D65_SDR :: ColorSpace
 pattern ColorSpace_P3D65_SDR = ColorSpace' "P3D65_SDR"
 
@@ -101,6 +108,7 @@ pattern ColorSpace_REC_709 = ColorSpace' "REC_709"
   ColorSpace_FOLLOW,
   ColorSpace_HDR10,
   ColorSpace_HLG_2020,
+  ColorSpace_P3D65_HDR,
   ColorSpace_P3D65_SDR,
   ColorSpace_P3DCI,
   ColorSpace_REC_601,

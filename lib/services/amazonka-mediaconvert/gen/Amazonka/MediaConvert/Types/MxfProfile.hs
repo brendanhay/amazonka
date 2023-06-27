@@ -23,7 +23,8 @@ module Amazonka.MediaConvert.Types.MxfProfile
         MxfProfile_D_10,
         MxfProfile_OP1A,
         MxfProfile_XAVC,
-        MxfProfile_XDCAM
+        MxfProfile_XDCAM,
+        MxfProfile_XDCAM_RDD9
       ),
   )
 where
@@ -78,10 +79,14 @@ pattern MxfProfile_XAVC = MxfProfile' "XAVC"
 pattern MxfProfile_XDCAM :: MxfProfile
 pattern MxfProfile_XDCAM = MxfProfile' "XDCAM"
 
+pattern MxfProfile_XDCAM_RDD9 :: MxfProfile
+pattern MxfProfile_XDCAM_RDD9 = MxfProfile' "XDCAM_RDD9"
+
 {-# COMPLETE
   MxfProfile_D_10,
   MxfProfile_OP1A,
   MxfProfile_XAVC,
   MxfProfile_XDCAM,
+  MxfProfile_XDCAM_RDD9,
   MxfProfile'
   #-}

@@ -35,6 +35,7 @@ import Amazonka.MediaConvert.Types.DashIsoSegmentControl
 import Amazonka.MediaConvert.Types.DashIsoSegmentLengthControl
 import Amazonka.MediaConvert.Types.DashIsoVideoCompositionOffsets
 import Amazonka.MediaConvert.Types.DashIsoWriteSegmentTimelineInRepresentation
+import Amazonka.MediaConvert.Types.DashManifestStyle
 import Amazonka.MediaConvert.Types.DestinationSettings
 import qualified Amazonka.Prelude as Prelude
 
@@ -67,6 +68,15 @@ data DashIsoGroupSettings = DashIsoGroupSettings'
     -- top level BaseURL element. Can be used if streams are delivered from a
     -- different URL than the manifest file.
     baseUrl :: Prelude.Maybe Prelude.Text,
+    -- | Specify how MediaConvert writes SegmentTimeline in your output DASH
+    -- manifest. To write a SegmentTimeline in each video Representation: Keep
+    -- the default value, Basic. To write a common SegmentTimeline in the video
+    -- AdaptationSet: Choose Compact. Note that MediaConvert will still write a
+    -- SegmentTimeline in any Representation that does not share a common
+    -- timeline. To write a video AdaptationSet for each different output
+    -- framerate, and a common SegmentTimeline in each AdaptationSet: Choose
+    -- Distinct.
+    dashManifestStyle :: Prelude.Maybe DashManifestStyle,
     -- | Use Destination (Destination) to specify the S3 output location and the
     -- output filename base. Destination accepts format identifiers. If you do
     -- not specify the base filename in the URI, the service will use the
@@ -211,6 +221,15 @@ data DashIsoGroupSettings = DashIsoGroupSettings'
 -- top level BaseURL element. Can be used if streams are delivered from a
 -- different URL than the manifest file.
 --
+-- 'dashManifestStyle', 'dashIsoGroupSettings_dashManifestStyle' - Specify how MediaConvert writes SegmentTimeline in your output DASH
+-- manifest. To write a SegmentTimeline in each video Representation: Keep
+-- the default value, Basic. To write a common SegmentTimeline in the video
+-- AdaptationSet: Choose Compact. Note that MediaConvert will still write a
+-- SegmentTimeline in any Representation that does not share a common
+-- timeline. To write a video AdaptationSet for each different output
+-- framerate, and a common SegmentTimeline in each AdaptationSet: Choose
+-- Distinct.
+--
 -- 'destination', 'dashIsoGroupSettings_destination' - Use Destination (Destination) to specify the S3 output location and the
 -- output filename base. Destination accepts format identifiers. If you do
 -- not specify the base filename in the URI, the service will use the
@@ -330,6 +349,7 @@ newDashIsoGroupSettings =
         Prelude.Nothing,
       audioChannelConfigSchemeIdUri = Prelude.Nothing,
       baseUrl = Prelude.Nothing,
+      dashManifestStyle = Prelude.Nothing,
       destination = Prelude.Nothing,
       destinationSettings = Prelude.Nothing,
       encryption = Prelude.Nothing,
@@ -376,6 +396,17 @@ dashIsoGroupSettings_audioChannelConfigSchemeIdUri = Lens.lens (\DashIsoGroupSet
 -- different URL than the manifest file.
 dashIsoGroupSettings_baseUrl :: Lens.Lens' DashIsoGroupSettings (Prelude.Maybe Prelude.Text)
 dashIsoGroupSettings_baseUrl = Lens.lens (\DashIsoGroupSettings' {baseUrl} -> baseUrl) (\s@DashIsoGroupSettings' {} a -> s {baseUrl = a} :: DashIsoGroupSettings)
+
+-- | Specify how MediaConvert writes SegmentTimeline in your output DASH
+-- manifest. To write a SegmentTimeline in each video Representation: Keep
+-- the default value, Basic. To write a common SegmentTimeline in the video
+-- AdaptationSet: Choose Compact. Note that MediaConvert will still write a
+-- SegmentTimeline in any Representation that does not share a common
+-- timeline. To write a video AdaptationSet for each different output
+-- framerate, and a common SegmentTimeline in each AdaptationSet: Choose
+-- Distinct.
+dashIsoGroupSettings_dashManifestStyle :: Lens.Lens' DashIsoGroupSettings (Prelude.Maybe DashManifestStyle)
+dashIsoGroupSettings_dashManifestStyle = Lens.lens (\DashIsoGroupSettings' {dashManifestStyle} -> dashManifestStyle) (\s@DashIsoGroupSettings' {} a -> s {dashManifestStyle = a} :: DashIsoGroupSettings)
 
 -- | Use Destination (Destination) to specify the S3 output location and the
 -- output filename base. Destination accepts format identifiers. If you do
@@ -529,11 +560,13 @@ instance Data.FromJSON DashIsoGroupSettings where
       "DashIsoGroupSettings"
       ( \x ->
           DashIsoGroupSettings'
-            Prelude.<$> ( x Data..:? "additionalManifests"
+            Prelude.<$> ( x
+                            Data..:? "additionalManifests"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "audioChannelConfigSchemeIdUri")
             Prelude.<*> (x Data..:? "baseUrl")
+            Prelude.<*> (x Data..:? "dashManifestStyle")
             Prelude.<*> (x Data..:? "destination")
             Prelude.<*> (x Data..:? "destinationSettings")
             Prelude.<*> (x Data..:? "encryption")
@@ -555,9 +588,11 @@ instance Data.FromJSON DashIsoGroupSettings where
 
 instance Prelude.Hashable DashIsoGroupSettings where
   hashWithSalt _salt DashIsoGroupSettings' {..} =
-    _salt `Prelude.hashWithSalt` additionalManifests
+    _salt
+      `Prelude.hashWithSalt` additionalManifests
       `Prelude.hashWithSalt` audioChannelConfigSchemeIdUri
       `Prelude.hashWithSalt` baseUrl
+      `Prelude.hashWithSalt` dashManifestStyle
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` destinationSettings
       `Prelude.hashWithSalt` encryption
@@ -581,6 +616,7 @@ instance Prelude.NFData DashIsoGroupSettings where
     Prelude.rnf additionalManifests
       `Prelude.seq` Prelude.rnf audioChannelConfigSchemeIdUri
       `Prelude.seq` Prelude.rnf baseUrl
+      `Prelude.seq` Prelude.rnf dashManifestStyle
       `Prelude.seq` Prelude.rnf destination
       `Prelude.seq` Prelude.rnf destinationSettings
       `Prelude.seq` Prelude.rnf encryption
@@ -592,7 +628,8 @@ instance Prelude.NFData DashIsoGroupSettings where
       `Prelude.seq` Prelude.rnf minFinalSegmentLength
       `Prelude.seq` Prelude.rnf mpdManifestBandwidthType
       `Prelude.seq` Prelude.rnf mpdProfile
-      `Prelude.seq` Prelude.rnf ptsOffsetHandlingForBFrames
+      `Prelude.seq` Prelude.rnf
+        ptsOffsetHandlingForBFrames
       `Prelude.seq` Prelude.rnf segmentControl
       `Prelude.seq` Prelude.rnf segmentLength
       `Prelude.seq` Prelude.rnf segmentLengthControl
@@ -610,6 +647,8 @@ instance Data.ToJSON DashIsoGroupSettings where
             ("audioChannelConfigSchemeIdUri" Data..=)
               Prelude.<$> audioChannelConfigSchemeIdUri,
             ("baseUrl" Data..=) Prelude.<$> baseUrl,
+            ("dashManifestStyle" Data..=)
+              Prelude.<$> dashManifestStyle,
             ("destination" Data..=) Prelude.<$> destination,
             ("destinationSettings" Data..=)
               Prelude.<$> destinationSettings,

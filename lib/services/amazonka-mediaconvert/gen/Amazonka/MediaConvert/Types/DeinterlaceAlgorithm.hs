@@ -23,7 +23,8 @@ module Amazonka.MediaConvert.Types.DeinterlaceAlgorithm
         DeinterlaceAlgorithm_BLEND,
         DeinterlaceAlgorithm_BLEND_TICKER,
         DeinterlaceAlgorithm_INTERPOLATE,
-        DeinterlaceAlgorithm_INTERPOLATE_TICKER
+        DeinterlaceAlgorithm_INTERPOLATE_TICKER,
+        DeinterlaceAlgorithm_LINEAR_INTERPOLATION
       ),
   )
 where
@@ -32,12 +33,12 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Only applies when you set Deinterlacer (DeinterlaceMode) to Deinterlace
--- (DEINTERLACE) or Adaptive (ADAPTIVE). Motion adaptive interpolate
--- (INTERPOLATE) produces sharper pictures, while blend (BLEND) produces
--- smoother motion. Use (INTERPOLATE_TICKER) OR (BLEND_TICKER) if your
--- source file includes a ticker, such as a scrolling headline at the
--- bottom of the frame.
+-- | Only applies when you set Deinterlace mode to Deinterlace or Adaptive.
+-- Interpolate produces sharper pictures, while blend produces smoother
+-- motion. If your source file includes a ticker, such as a scrolling
+-- headline at the bottom of the frame: Choose Interpolate ticker or Blend
+-- ticker. To apply field doubling: Choose Linear interpolation. Note that
+-- Linear interpolation may introduce video artifacts into your output.
 newtype DeinterlaceAlgorithm = DeinterlaceAlgorithm'
   { fromDeinterlaceAlgorithm ::
       Data.Text
@@ -78,10 +79,14 @@ pattern DeinterlaceAlgorithm_INTERPOLATE = DeinterlaceAlgorithm' "INTERPOLATE"
 pattern DeinterlaceAlgorithm_INTERPOLATE_TICKER :: DeinterlaceAlgorithm
 pattern DeinterlaceAlgorithm_INTERPOLATE_TICKER = DeinterlaceAlgorithm' "INTERPOLATE_TICKER"
 
+pattern DeinterlaceAlgorithm_LINEAR_INTERPOLATION :: DeinterlaceAlgorithm
+pattern DeinterlaceAlgorithm_LINEAR_INTERPOLATION = DeinterlaceAlgorithm' "LINEAR_INTERPOLATION"
+
 {-# COMPLETE
   DeinterlaceAlgorithm_BLEND,
   DeinterlaceAlgorithm_BLEND_TICKER,
   DeinterlaceAlgorithm_INTERPOLATE,
   DeinterlaceAlgorithm_INTERPOLATE_TICKER,
+  DeinterlaceAlgorithm_LINEAR_INTERPOLATION,
   DeinterlaceAlgorithm'
   #-}

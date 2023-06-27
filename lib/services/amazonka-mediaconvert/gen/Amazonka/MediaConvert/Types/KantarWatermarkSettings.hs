@@ -265,7 +265,8 @@ instance Data.FromJSON KantarWatermarkSettings where
 
 instance Prelude.Hashable KantarWatermarkSettings where
   hashWithSalt _salt KantarWatermarkSettings' {..} =
-    _salt `Prelude.hashWithSalt` channelName
+    _salt
+      `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` contentReference
       `Prelude.hashWithSalt` credentialsSecretName
       `Prelude.hashWithSalt` fileOffset

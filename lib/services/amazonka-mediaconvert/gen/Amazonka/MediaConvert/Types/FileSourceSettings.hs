@@ -22,6 +22,7 @@ module Amazonka.MediaConvert.Types.FileSourceSettings where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.MediaConvert.Types.CaptionSourceConvertPaintOnToPopOn
 import Amazonka.MediaConvert.Types.CaptionSourceFramerate
 import Amazonka.MediaConvert.Types.FileSourceConvert608To708
 import Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits
@@ -40,6 +41,12 @@ data FileSourceSettings = FileSourceSettings'
     -- data through using the 608 compatibility bytes fields of the 708
     -- wrapper, and it also translates the 608 data into 708.
     convert608To708 :: Prelude.Maybe FileSourceConvert608To708,
+    -- | Choose the presentation style of your input SCC captions. To use the
+    -- same presentation style as your input: Keep the default value, Disabled.
+    -- To convert paint-on captions to pop-on: Choose Enabled. We also
+    -- recommend that you choose Enabled if you notice additional repeated
+    -- lines in your output captions.
+    convertPaintToPop :: Prelude.Maybe CaptionSourceConvertPaintOnToPopOn,
     -- | Ignore this setting unless your input captions format is SCC. To have
     -- the service compensate for differing frame rates between your input
     -- captions and input video, specify the frame rate of the captions file.
@@ -92,6 +99,12 @@ data FileSourceSettings = FileSourceSettings'
 -- data through using the 608 compatibility bytes fields of the 708
 -- wrapper, and it also translates the 608 data into 708.
 --
+-- 'convertPaintToPop', 'fileSourceSettings_convertPaintToPop' - Choose the presentation style of your input SCC captions. To use the
+-- same presentation style as your input: Keep the default value, Disabled.
+-- To convert paint-on captions to pop-on: Choose Enabled. We also
+-- recommend that you choose Enabled if you notice additional repeated
+-- lines in your output captions.
+--
 -- 'framerate', 'fileSourceSettings_framerate' - Ignore this setting unless your input captions format is SCC. To have
 -- the service compensate for differing frame rates between your input
 -- captions and input video, specify the frame rate of the captions file.
@@ -132,6 +145,7 @@ newFileSourceSettings =
   FileSourceSettings'
     { convert608To708 =
         Prelude.Nothing,
+      convertPaintToPop = Prelude.Nothing,
       framerate = Prelude.Nothing,
       sourceFile = Prelude.Nothing,
       timeDelta = Prelude.Nothing,
@@ -145,6 +159,14 @@ newFileSourceSettings =
 -- wrapper, and it also translates the 608 data into 708.
 fileSourceSettings_convert608To708 :: Lens.Lens' FileSourceSettings (Prelude.Maybe FileSourceConvert608To708)
 fileSourceSettings_convert608To708 = Lens.lens (\FileSourceSettings' {convert608To708} -> convert608To708) (\s@FileSourceSettings' {} a -> s {convert608To708 = a} :: FileSourceSettings)
+
+-- | Choose the presentation style of your input SCC captions. To use the
+-- same presentation style as your input: Keep the default value, Disabled.
+-- To convert paint-on captions to pop-on: Choose Enabled. We also
+-- recommend that you choose Enabled if you notice additional repeated
+-- lines in your output captions.
+fileSourceSettings_convertPaintToPop :: Lens.Lens' FileSourceSettings (Prelude.Maybe CaptionSourceConvertPaintOnToPopOn)
+fileSourceSettings_convertPaintToPop = Lens.lens (\FileSourceSettings' {convertPaintToPop} -> convertPaintToPop) (\s@FileSourceSettings' {} a -> s {convertPaintToPop = a} :: FileSourceSettings)
 
 -- | Ignore this setting unless your input captions format is SCC. To have
 -- the service compensate for differing frame rates between your input
@@ -196,6 +218,7 @@ instance Data.FromJSON FileSourceSettings where
       ( \x ->
           FileSourceSettings'
             Prelude.<$> (x Data..:? "convert608To708")
+            Prelude.<*> (x Data..:? "convertPaintToPop")
             Prelude.<*> (x Data..:? "framerate")
             Prelude.<*> (x Data..:? "sourceFile")
             Prelude.<*> (x Data..:? "timeDelta")
@@ -204,7 +227,9 @@ instance Data.FromJSON FileSourceSettings where
 
 instance Prelude.Hashable FileSourceSettings where
   hashWithSalt _salt FileSourceSettings' {..} =
-    _salt `Prelude.hashWithSalt` convert608To708
+    _salt
+      `Prelude.hashWithSalt` convert608To708
+      `Prelude.hashWithSalt` convertPaintToPop
       `Prelude.hashWithSalt` framerate
       `Prelude.hashWithSalt` sourceFile
       `Prelude.hashWithSalt` timeDelta
@@ -213,6 +238,7 @@ instance Prelude.Hashable FileSourceSettings where
 instance Prelude.NFData FileSourceSettings where
   rnf FileSourceSettings' {..} =
     Prelude.rnf convert608To708
+      `Prelude.seq` Prelude.rnf convertPaintToPop
       `Prelude.seq` Prelude.rnf framerate
       `Prelude.seq` Prelude.rnf sourceFile
       `Prelude.seq` Prelude.rnf timeDelta
@@ -224,6 +250,8 @@ instance Data.ToJSON FileSourceSettings where
       ( Prelude.catMaybes
           [ ("convert608To708" Data..=)
               Prelude.<$> convert608To708,
+            ("convertPaintToPop" Data..=)
+              Prelude.<$> convertPaintToPop,
             ("framerate" Data..=) Prelude.<$> framerate,
             ("sourceFile" Data..=) Prelude.<$> sourceFile,
             ("timeDelta" Data..=) Prelude.<$> timeDelta,

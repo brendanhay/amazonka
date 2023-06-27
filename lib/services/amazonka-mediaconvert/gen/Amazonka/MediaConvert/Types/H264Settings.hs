@@ -22,6 +22,7 @@ module Amazonka.MediaConvert.Types.H264Settings where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.MediaConvert.Types.BandwidthReductionFilter
 import Amazonka.MediaConvert.Types.H264AdaptiveQuantization
 import Amazonka.MediaConvert.Types.H264CodecLevel
 import Amazonka.MediaConvert.Types.H264CodecProfile
@@ -66,6 +67,16 @@ data H264Settings = H264Settings'
     -- H264FlickerAdaptiveQuantization, H264SpatialAdaptiveQuantization, and
     -- H264TemporalAdaptiveQuantization.
     adaptiveQuantization :: Prelude.Maybe H264AdaptiveQuantization,
+    -- | The Bandwidth reduction filter increases the video quality of your
+    -- output relative to its bitrate. Use to lower the bitrate of your
+    -- constant quality QVBR output, with little or no perceptual decrease in
+    -- quality. Or, use to increase the video quality of outputs with other
+    -- rate control modes relative to the bitrate that you specify. Bandwidth
+    -- reduction increases further when your input is low quality or noisy.
+    -- Outputs that use this feature incur pro-tier pricing. When you include
+    -- Bandwidth reduction filter, you cannot include the Noise reducer
+    -- preprocessor.
+    bandwidthReductionFilter :: Prelude.Maybe BandwidthReductionFilter,
     -- | Specify the average bitrate in bits per second. Required for VBR and
     -- CBR. For MS Smooth outputs, bitrates must be unique when rounded down to
     -- the nearest multiple of 1000.
@@ -76,12 +87,14 @@ data H264Settings = H264Settings'
     -- | H.264 Profile. High 4:2:2 and 10-bit profiles are only available with
     -- the AVC-I License.
     codecProfile :: Prelude.Maybe H264CodecProfile,
-    -- | Choose Adaptive to improve subjective video quality for high-motion
-    -- content. This will cause the service to use fewer B-frames (which infer
-    -- information based on other frames) for high-motion portions of the video
-    -- and more B-frames for low-motion portions. The maximum number of
-    -- B-frames is limited by the value you provide for the setting B frames
-    -- between reference frames (numberBFramesBetweenReferenceFrames).
+    -- | Specify whether to allow the number of B-frames in your output GOP
+    -- structure to vary or not depending on your input video content. To
+    -- improve the subjective video quality of your output that has high-motion
+    -- content: Leave blank or keep the default value Adaptive. MediaConvert
+    -- will use fewer B-frames for high-motion video content than low-motion
+    -- content. The maximum number of B- frames is limited by the value that
+    -- you choose for B-frames between reference frames. To use the same number
+    -- B-frames for all types of content: Choose Static.
     dynamicSubGop :: Prelude.Maybe H264DynamicSubGop,
     -- | Entropy encoding mode. Use CABAC (must be in Main or High profile) or
     -- CAVLC.
@@ -122,16 +135,17 @@ data H264Settings = H264Settings'
     -- FramerateDenominator.
     framerateControl :: Prelude.Maybe H264FramerateControl,
     -- | Choose the method that you want MediaConvert to use when increasing or
-    -- decreasing the frame rate. We recommend using drop duplicate
-    -- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
-    -- 30 fps. For numerically complex conversions, you can use interpolate
-    -- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but
-    -- might introduce undesirable video artifacts. For complex frame rate
-    -- conversions, especially if your source video has already been converted
-    -- from its original cadence, use FrameFormer (FRAMEFORMER) to do
-    -- motion-compensated interpolation. FrameFormer chooses the best
-    -- conversion method frame by frame. Note that using FrameFormer increases
-    -- the transcoding time and incurs a significant add-on cost.
+    -- decreasing the frame rate. For numerically simple conversions, such as
+    -- 60 fps to 30 fps: We recommend that you keep the default value, Drop
+    -- duplicate. For numerically complex conversions, to avoid stutter: Choose
+    -- Interpolate. This results in a smooth picture, but might introduce
+    -- undesirable video artifacts. For complex frame rate conversions,
+    -- especially if your source video has already been converted from its
+    -- original cadence: Choose FrameFormer to do motion-compensated
+    -- interpolation. FrameFormer uses the best conversion method frame by
+    -- frame. Note that using FrameFormer increases the transcoding time and
+    -- incurs a significant add-on cost. When you choose FrameFormer, your
+    -- input video resolution must be at least 128x96.
     framerateConversionAlgorithm :: Prelude.Maybe H264FramerateConversionAlgorithm,
     -- | When you use the API for transcode jobs that use frame rate conversion,
     -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
@@ -149,8 +163,11 @@ data H264Settings = H264Settings'
     -- frame rate conversion, provide the value as a decimal number for
     -- Framerate. In this example, specify 23.976.
     framerateNumerator :: Prelude.Maybe Prelude.Natural,
-    -- | If enable, use reference B frames for GOP structures that have B frames
-    -- > 1.
+    -- | Specify whether to allow B-frames to be referenced by other frame types.
+    -- To use reference B-frames when your GOP structure has 1 or more
+    -- B-frames: Leave blank or keep the default value Enabled. We recommend
+    -- that you choose Enabled to help improve the video quality of your output
+    -- relative to its bitrate. To not use reference B-frames: Choose Disabled.
     gopBReference :: Prelude.Maybe H264GopBReference,
     -- | Specify the relative frequency of open to closed GOPs in this output.
     -- For example, if you want to allow four open GOPs and then require a
@@ -231,14 +248,11 @@ data H264Settings = H264Settings'
     -- leaves all I-frames in place and the GOPs surrounding the scene change
     -- are smaller than the usual cadence GOPs.
     minIInterval :: Prelude.Maybe Prelude.Natural,
-    -- | This setting to determines the number of B-frames that MediaConvert puts
-    -- between reference frames in this output. We recommend that you use
-    -- automatic behavior to allow the transcoder to choose the best value
-    -- based on characteristics of your input video. In the console, choose
-    -- AUTO to select this automatic behavior. When you manually edit your JSON
-    -- job specification, leave this setting out to choose automatic behavior.
-    -- When you want to specify this number explicitly, choose a whole number
-    -- from 0 through 7.
+    -- | Specify the number of B-frames between reference frames in this output.
+    -- For the best video quality: Leave blank. MediaConvert automatically
+    -- determines the number of B-frames to use based on the characteristics of
+    -- your input video. To manually specify the number of B-frames between
+    -- reference frames: Enter an integer from 0 to 7.
     numberBFramesBetweenReferenceFrames :: Prelude.Maybe Prelude.Natural,
     -- | Number of reference frames to use. The encoder may use more than
     -- requested if using B-frames and\/or interlaced encoding.
@@ -266,9 +280,14 @@ data H264Settings = H264Settings'
     -- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
     -- In this example, the value for parNumerator is 40.
     parNumerator :: Prelude.Maybe Prelude.Natural,
-    -- | Optional. Use Quality tuning level (qualityTuningLevel) to choose how
-    -- you want to trade off encoding speed for output video quality. The
-    -- default behavior is faster, lower quality, single-pass encoding.
+    -- | The Quality tuning level you choose represents a trade-off between the
+    -- encoding speed of your job and the output video quality. For the fastest
+    -- encoding speed at the cost of video quality: Choose Single pass. For a
+    -- good balance between encoding speed and video quality: Leave blank or
+    -- keep the default value Single pass HQ. For the best video quality, at
+    -- the cost of encoding speed: Choose Multi pass HQ. MediaConvert performs
+    -- an analysis pass on your input followed by an encoding pass. Outputs
+    -- that use this feature incur pro-tier pricing.
     qualityTuningLevel :: Prelude.Maybe H264QualityTuningLevel,
     -- | Settings for quality-defined variable bitrate encoding with the H.265
     -- codec. Use these settings only when you set QVBR for Rate control mode
@@ -419,6 +438,16 @@ data H264Settings = H264Settings'
 -- H264FlickerAdaptiveQuantization, H264SpatialAdaptiveQuantization, and
 -- H264TemporalAdaptiveQuantization.
 --
+-- 'bandwidthReductionFilter', 'h264Settings_bandwidthReductionFilter' - The Bandwidth reduction filter increases the video quality of your
+-- output relative to its bitrate. Use to lower the bitrate of your
+-- constant quality QVBR output, with little or no perceptual decrease in
+-- quality. Or, use to increase the video quality of outputs with other
+-- rate control modes relative to the bitrate that you specify. Bandwidth
+-- reduction increases further when your input is low quality or noisy.
+-- Outputs that use this feature incur pro-tier pricing. When you include
+-- Bandwidth reduction filter, you cannot include the Noise reducer
+-- preprocessor.
+--
 -- 'bitrate', 'h264Settings_bitrate' - Specify the average bitrate in bits per second. Required for VBR and
 -- CBR. For MS Smooth outputs, bitrates must be unique when rounded down to
 -- the nearest multiple of 1000.
@@ -429,12 +458,14 @@ data H264Settings = H264Settings'
 -- 'codecProfile', 'h264Settings_codecProfile' - H.264 Profile. High 4:2:2 and 10-bit profiles are only available with
 -- the AVC-I License.
 --
--- 'dynamicSubGop', 'h264Settings_dynamicSubGop' - Choose Adaptive to improve subjective video quality for high-motion
--- content. This will cause the service to use fewer B-frames (which infer
--- information based on other frames) for high-motion portions of the video
--- and more B-frames for low-motion portions. The maximum number of
--- B-frames is limited by the value you provide for the setting B frames
--- between reference frames (numberBFramesBetweenReferenceFrames).
+-- 'dynamicSubGop', 'h264Settings_dynamicSubGop' - Specify whether to allow the number of B-frames in your output GOP
+-- structure to vary or not depending on your input video content. To
+-- improve the subjective video quality of your output that has high-motion
+-- content: Leave blank or keep the default value Adaptive. MediaConvert
+-- will use fewer B-frames for high-motion video content than low-motion
+-- content. The maximum number of B- frames is limited by the value that
+-- you choose for B-frames between reference frames. To use the same number
+-- B-frames for all types of content: Choose Static.
 --
 -- 'entropyEncoding', 'h264Settings_entropyEncoding' - Entropy encoding mode. Use CABAC (must be in Main or High profile) or
 -- CAVLC.
@@ -475,16 +506,17 @@ data H264Settings = H264Settings'
 -- FramerateDenominator.
 --
 -- 'framerateConversionAlgorithm', 'h264Settings_framerateConversionAlgorithm' - Choose the method that you want MediaConvert to use when increasing or
--- decreasing the frame rate. We recommend using drop duplicate
--- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
--- 30 fps. For numerically complex conversions, you can use interpolate
--- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but
--- might introduce undesirable video artifacts. For complex frame rate
--- conversions, especially if your source video has already been converted
--- from its original cadence, use FrameFormer (FRAMEFORMER) to do
--- motion-compensated interpolation. FrameFormer chooses the best
--- conversion method frame by frame. Note that using FrameFormer increases
--- the transcoding time and incurs a significant add-on cost.
+-- decreasing the frame rate. For numerically simple conversions, such as
+-- 60 fps to 30 fps: We recommend that you keep the default value, Drop
+-- duplicate. For numerically complex conversions, to avoid stutter: Choose
+-- Interpolate. This results in a smooth picture, but might introduce
+-- undesirable video artifacts. For complex frame rate conversions,
+-- especially if your source video has already been converted from its
+-- original cadence: Choose FrameFormer to do motion-compensated
+-- interpolation. FrameFormer uses the best conversion method frame by
+-- frame. Note that using FrameFormer increases the transcoding time and
+-- incurs a significant add-on cost. When you choose FrameFormer, your
+-- input video resolution must be at least 128x96.
 --
 -- 'framerateDenominator', 'h264Settings_framerateDenominator' - When you use the API for transcode jobs that use frame rate conversion,
 -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
@@ -502,8 +534,11 @@ data H264Settings = H264Settings'
 -- frame rate conversion, provide the value as a decimal number for
 -- Framerate. In this example, specify 23.976.
 --
--- 'gopBReference', 'h264Settings_gopBReference' - If enable, use reference B frames for GOP structures that have B frames
--- > 1.
+-- 'gopBReference', 'h264Settings_gopBReference' - Specify whether to allow B-frames to be referenced by other frame types.
+-- To use reference B-frames when your GOP structure has 1 or more
+-- B-frames: Leave blank or keep the default value Enabled. We recommend
+-- that you choose Enabled to help improve the video quality of your output
+-- relative to its bitrate. To not use reference B-frames: Choose Disabled.
 --
 -- 'gopClosedCadence', 'h264Settings_gopClosedCadence' - Specify the relative frequency of open to closed GOPs in this output.
 -- For example, if you want to allow four open GOPs and then require a
@@ -584,14 +619,11 @@ data H264Settings = H264Settings'
 -- leaves all I-frames in place and the GOPs surrounding the scene change
 -- are smaller than the usual cadence GOPs.
 --
--- 'numberBFramesBetweenReferenceFrames', 'h264Settings_numberBFramesBetweenReferenceFrames' - This setting to determines the number of B-frames that MediaConvert puts
--- between reference frames in this output. We recommend that you use
--- automatic behavior to allow the transcoder to choose the best value
--- based on characteristics of your input video. In the console, choose
--- AUTO to select this automatic behavior. When you manually edit your JSON
--- job specification, leave this setting out to choose automatic behavior.
--- When you want to specify this number explicitly, choose a whole number
--- from 0 through 7.
+-- 'numberBFramesBetweenReferenceFrames', 'h264Settings_numberBFramesBetweenReferenceFrames' - Specify the number of B-frames between reference frames in this output.
+-- For the best video quality: Leave blank. MediaConvert automatically
+-- determines the number of B-frames to use based on the characteristics of
+-- your input video. To manually specify the number of B-frames between
+-- reference frames: Enter an integer from 0 to 7.
 --
 -- 'numberReferenceFrames', 'h264Settings_numberReferenceFrames' - Number of reference frames to use. The encoder may use more than
 -- requested if using B-frames and\/or interlaced encoding.
@@ -619,9 +651,14 @@ data H264Settings = H264Settings'
 -- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
 -- In this example, the value for parNumerator is 40.
 --
--- 'qualityTuningLevel', 'h264Settings_qualityTuningLevel' - Optional. Use Quality tuning level (qualityTuningLevel) to choose how
--- you want to trade off encoding speed for output video quality. The
--- default behavior is faster, lower quality, single-pass encoding.
+-- 'qualityTuningLevel', 'h264Settings_qualityTuningLevel' - The Quality tuning level you choose represents a trade-off between the
+-- encoding speed of your job and the output video quality. For the fastest
+-- encoding speed at the cost of video quality: Choose Single pass. For a
+-- good balance between encoding speed and video quality: Leave blank or
+-- keep the default value Single pass HQ. For the best video quality, at
+-- the cost of encoding speed: Choose Multi pass HQ. MediaConvert performs
+-- an analysis pass on your input followed by an encoding pass. Outputs
+-- that use this feature incur pro-tier pricing.
 --
 -- 'qvbrSettings', 'h264Settings_qvbrSettings' - Settings for quality-defined variable bitrate encoding with the H.265
 -- codec. Use these settings only when you set QVBR for Rate control mode
@@ -754,6 +791,7 @@ newH264Settings =
   H264Settings'
     { adaptiveQuantization =
         Prelude.Nothing,
+      bandwidthReductionFilter = Prelude.Nothing,
       bitrate = Prelude.Nothing,
       codecLevel = Prelude.Nothing,
       codecProfile = Prelude.Nothing,
@@ -811,6 +849,18 @@ newH264Settings =
 h264Settings_adaptiveQuantization :: Lens.Lens' H264Settings (Prelude.Maybe H264AdaptiveQuantization)
 h264Settings_adaptiveQuantization = Lens.lens (\H264Settings' {adaptiveQuantization} -> adaptiveQuantization) (\s@H264Settings' {} a -> s {adaptiveQuantization = a} :: H264Settings)
 
+-- | The Bandwidth reduction filter increases the video quality of your
+-- output relative to its bitrate. Use to lower the bitrate of your
+-- constant quality QVBR output, with little or no perceptual decrease in
+-- quality. Or, use to increase the video quality of outputs with other
+-- rate control modes relative to the bitrate that you specify. Bandwidth
+-- reduction increases further when your input is low quality or noisy.
+-- Outputs that use this feature incur pro-tier pricing. When you include
+-- Bandwidth reduction filter, you cannot include the Noise reducer
+-- preprocessor.
+h264Settings_bandwidthReductionFilter :: Lens.Lens' H264Settings (Prelude.Maybe BandwidthReductionFilter)
+h264Settings_bandwidthReductionFilter = Lens.lens (\H264Settings' {bandwidthReductionFilter} -> bandwidthReductionFilter) (\s@H264Settings' {} a -> s {bandwidthReductionFilter = a} :: H264Settings)
+
 -- | Specify the average bitrate in bits per second. Required for VBR and
 -- CBR. For MS Smooth outputs, bitrates must be unique when rounded down to
 -- the nearest multiple of 1000.
@@ -827,12 +877,14 @@ h264Settings_codecLevel = Lens.lens (\H264Settings' {codecLevel} -> codecLevel) 
 h264Settings_codecProfile :: Lens.Lens' H264Settings (Prelude.Maybe H264CodecProfile)
 h264Settings_codecProfile = Lens.lens (\H264Settings' {codecProfile} -> codecProfile) (\s@H264Settings' {} a -> s {codecProfile = a} :: H264Settings)
 
--- | Choose Adaptive to improve subjective video quality for high-motion
--- content. This will cause the service to use fewer B-frames (which infer
--- information based on other frames) for high-motion portions of the video
--- and more B-frames for low-motion portions. The maximum number of
--- B-frames is limited by the value you provide for the setting B frames
--- between reference frames (numberBFramesBetweenReferenceFrames).
+-- | Specify whether to allow the number of B-frames in your output GOP
+-- structure to vary or not depending on your input video content. To
+-- improve the subjective video quality of your output that has high-motion
+-- content: Leave blank or keep the default value Adaptive. MediaConvert
+-- will use fewer B-frames for high-motion video content than low-motion
+-- content. The maximum number of B- frames is limited by the value that
+-- you choose for B-frames between reference frames. To use the same number
+-- B-frames for all types of content: Choose Static.
 h264Settings_dynamicSubGop :: Lens.Lens' H264Settings (Prelude.Maybe H264DynamicSubGop)
 h264Settings_dynamicSubGop = Lens.lens (\H264Settings' {dynamicSubGop} -> dynamicSubGop) (\s@H264Settings' {} a -> s {dynamicSubGop = a} :: H264Settings)
 
@@ -883,16 +935,17 @@ h264Settings_framerateControl :: Lens.Lens' H264Settings (Prelude.Maybe H264Fram
 h264Settings_framerateControl = Lens.lens (\H264Settings' {framerateControl} -> framerateControl) (\s@H264Settings' {} a -> s {framerateControl = a} :: H264Settings)
 
 -- | Choose the method that you want MediaConvert to use when increasing or
--- decreasing the frame rate. We recommend using drop duplicate
--- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
--- 30 fps. For numerically complex conversions, you can use interpolate
--- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but
--- might introduce undesirable video artifacts. For complex frame rate
--- conversions, especially if your source video has already been converted
--- from its original cadence, use FrameFormer (FRAMEFORMER) to do
--- motion-compensated interpolation. FrameFormer chooses the best
--- conversion method frame by frame. Note that using FrameFormer increases
--- the transcoding time and incurs a significant add-on cost.
+-- decreasing the frame rate. For numerically simple conversions, such as
+-- 60 fps to 30 fps: We recommend that you keep the default value, Drop
+-- duplicate. For numerically complex conversions, to avoid stutter: Choose
+-- Interpolate. This results in a smooth picture, but might introduce
+-- undesirable video artifacts. For complex frame rate conversions,
+-- especially if your source video has already been converted from its
+-- original cadence: Choose FrameFormer to do motion-compensated
+-- interpolation. FrameFormer uses the best conversion method frame by
+-- frame. Note that using FrameFormer increases the transcoding time and
+-- incurs a significant add-on cost. When you choose FrameFormer, your
+-- input video resolution must be at least 128x96.
 h264Settings_framerateConversionAlgorithm :: Lens.Lens' H264Settings (Prelude.Maybe H264FramerateConversionAlgorithm)
 h264Settings_framerateConversionAlgorithm = Lens.lens (\H264Settings' {framerateConversionAlgorithm} -> framerateConversionAlgorithm) (\s@H264Settings' {} a -> s {framerateConversionAlgorithm = a} :: H264Settings)
 
@@ -916,8 +969,11 @@ h264Settings_framerateDenominator = Lens.lens (\H264Settings' {framerateDenomina
 h264Settings_framerateNumerator :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
 h264Settings_framerateNumerator = Lens.lens (\H264Settings' {framerateNumerator} -> framerateNumerator) (\s@H264Settings' {} a -> s {framerateNumerator = a} :: H264Settings)
 
--- | If enable, use reference B frames for GOP structures that have B frames
--- > 1.
+-- | Specify whether to allow B-frames to be referenced by other frame types.
+-- To use reference B-frames when your GOP structure has 1 or more
+-- B-frames: Leave blank or keep the default value Enabled. We recommend
+-- that you choose Enabled to help improve the video quality of your output
+-- relative to its bitrate. To not use reference B-frames: Choose Disabled.
 h264Settings_gopBReference :: Lens.Lens' H264Settings (Prelude.Maybe H264GopBReference)
 h264Settings_gopBReference = Lens.lens (\H264Settings' {gopBReference} -> gopBReference) (\s@H264Settings' {} a -> s {gopBReference = a} :: H264Settings)
 
@@ -1018,14 +1074,11 @@ h264Settings_maxBitrate = Lens.lens (\H264Settings' {maxBitrate} -> maxBitrate) 
 h264Settings_minIInterval :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
 h264Settings_minIInterval = Lens.lens (\H264Settings' {minIInterval} -> minIInterval) (\s@H264Settings' {} a -> s {minIInterval = a} :: H264Settings)
 
--- | This setting to determines the number of B-frames that MediaConvert puts
--- between reference frames in this output. We recommend that you use
--- automatic behavior to allow the transcoder to choose the best value
--- based on characteristics of your input video. In the console, choose
--- AUTO to select this automatic behavior. When you manually edit your JSON
--- job specification, leave this setting out to choose automatic behavior.
--- When you want to specify this number explicitly, choose a whole number
--- from 0 through 7.
+-- | Specify the number of B-frames between reference frames in this output.
+-- For the best video quality: Leave blank. MediaConvert automatically
+-- determines the number of B-frames to use based on the characteristics of
+-- your input video. To manually specify the number of B-frames between
+-- reference frames: Enter an integer from 0 to 7.
 h264Settings_numberBFramesBetweenReferenceFrames :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
 h264Settings_numberBFramesBetweenReferenceFrames = Lens.lens (\H264Settings' {numberBFramesBetweenReferenceFrames} -> numberBFramesBetweenReferenceFrames) (\s@H264Settings' {} a -> s {numberBFramesBetweenReferenceFrames = a} :: H264Settings)
 
@@ -1063,9 +1116,14 @@ h264Settings_parDenominator = Lens.lens (\H264Settings' {parDenominator} -> parD
 h264Settings_parNumerator :: Lens.Lens' H264Settings (Prelude.Maybe Prelude.Natural)
 h264Settings_parNumerator = Lens.lens (\H264Settings' {parNumerator} -> parNumerator) (\s@H264Settings' {} a -> s {parNumerator = a} :: H264Settings)
 
--- | Optional. Use Quality tuning level (qualityTuningLevel) to choose how
--- you want to trade off encoding speed for output video quality. The
--- default behavior is faster, lower quality, single-pass encoding.
+-- | The Quality tuning level you choose represents a trade-off between the
+-- encoding speed of your job and the output video quality. For the fastest
+-- encoding speed at the cost of video quality: Choose Single pass. For a
+-- good balance between encoding speed and video quality: Leave blank or
+-- keep the default value Single pass HQ. For the best video quality, at
+-- the cost of encoding speed: Choose Multi pass HQ. MediaConvert performs
+-- an analysis pass on your input followed by an encoding pass. Outputs
+-- that use this feature incur pro-tier pricing.
 h264Settings_qualityTuningLevel :: Lens.Lens' H264Settings (Prelude.Maybe H264QualityTuningLevel)
 h264Settings_qualityTuningLevel = Lens.lens (\H264Settings' {qualityTuningLevel} -> qualityTuningLevel) (\s@H264Settings' {} a -> s {qualityTuningLevel = a} :: H264Settings)
 
@@ -1228,6 +1286,7 @@ instance Data.FromJSON H264Settings where
       ( \x ->
           H264Settings'
             Prelude.<$> (x Data..:? "adaptiveQuantization")
+            Prelude.<*> (x Data..:? "bandwidthReductionFilter")
             Prelude.<*> (x Data..:? "bitrate")
             Prelude.<*> (x Data..:? "codecLevel")
             Prelude.<*> (x Data..:? "codecProfile")
@@ -1272,7 +1331,9 @@ instance Data.FromJSON H264Settings where
 
 instance Prelude.Hashable H264Settings where
   hashWithSalt _salt H264Settings' {..} =
-    _salt `Prelude.hashWithSalt` adaptiveQuantization
+    _salt
+      `Prelude.hashWithSalt` adaptiveQuantization
+      `Prelude.hashWithSalt` bandwidthReductionFilter
       `Prelude.hashWithSalt` bitrate
       `Prelude.hashWithSalt` codecLevel
       `Prelude.hashWithSalt` codecProfile
@@ -1317,6 +1378,7 @@ instance Prelude.Hashable H264Settings where
 instance Prelude.NFData H264Settings where
   rnf H264Settings' {..} =
     Prelude.rnf adaptiveQuantization
+      `Prelude.seq` Prelude.rnf bandwidthReductionFilter
       `Prelude.seq` Prelude.rnf bitrate
       `Prelude.seq` Prelude.rnf codecLevel
       `Prelude.seq` Prelude.rnf codecProfile
@@ -1385,6 +1447,8 @@ instance Data.ToJSON H264Settings where
       ( Prelude.catMaybes
           [ ("adaptiveQuantization" Data..=)
               Prelude.<$> adaptiveQuantization,
+            ("bandwidthReductionFilter" Data..=)
+              Prelude.<$> bandwidthReductionFilter,
             ("bitrate" Data..=) Prelude.<$> bitrate,
             ("codecLevel" Data..=) Prelude.<$> codecLevel,
             ("codecProfile" Data..=) Prelude.<$> codecProfile,

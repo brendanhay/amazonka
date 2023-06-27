@@ -36,7 +36,10 @@ import qualified Amazonka.Prelude as Prelude
 -- same value that you specify for ID3 metadata scheme ID URI. For SCTE35
 -- event messages, the InbandEventStream element schemeIdUri will be
 -- \"urn:scte:scte35:2013:bin\". To leave these elements out of your output
--- MPD manifest, set Manifest metadata signaling to Disabled.
+-- MPD manifest, set Manifest metadata signaling to Disabled. To enable
+-- Manifest metadata signaling, you must also set SCTE-35 source to
+-- Passthrough, ESAM SCTE-35 to insert, or ID3 metadata (TimedMetadata) to
+-- Passthrough.
 newtype MpdManifestMetadataSignaling = MpdManifestMetadataSignaling'
   { fromMpdManifestMetadataSignaling ::
       Data.Text

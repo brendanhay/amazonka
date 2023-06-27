@@ -47,11 +47,11 @@ data MovSettings = MovSettings'
     -- editors and players, but may decrease compatibility with other players.
     -- Only applicable when the video codec is MPEG2.
     mpeg2FourCCControl :: Prelude.Maybe MovMpeg2FourCCControl,
-    -- | To make this output compatible with Omenon, keep the default value,
-    -- OMNEON. Unless you need Omneon compatibility, set this value to NONE.
-    -- When you keep the default value, OMNEON, MediaConvert increases the
-    -- length of the edit list atom. This might cause file rejections when a
-    -- recipient of the output file doesn\'t expct this extra padding.
+    -- | Unless you need Omneon compatibility: Keep the default value, None. To
+    -- make this output compatible with Omneon: Choose Omneon. When you do,
+    -- MediaConvert increases the length of the \'elst\' edit list atom. Note
+    -- that this might cause file rejections when a recipient of the output
+    -- file doesn\'t expect this extra padding.
     paddingControl :: Prelude.Maybe MovPaddingControl,
     -- | Always keep the default value (SELF_CONTAINED) for this setting.
     reference :: Prelude.Maybe MovReference
@@ -80,11 +80,11 @@ data MovSettings = MovSettings'
 -- editors and players, but may decrease compatibility with other players.
 -- Only applicable when the video codec is MPEG2.
 --
--- 'paddingControl', 'movSettings_paddingControl' - To make this output compatible with Omenon, keep the default value,
--- OMNEON. Unless you need Omneon compatibility, set this value to NONE.
--- When you keep the default value, OMNEON, MediaConvert increases the
--- length of the edit list atom. This might cause file rejections when a
--- recipient of the output file doesn\'t expct this extra padding.
+-- 'paddingControl', 'movSettings_paddingControl' - Unless you need Omneon compatibility: Keep the default value, None. To
+-- make this output compatible with Omneon: Choose Omneon. When you do,
+-- MediaConvert increases the length of the \'elst\' edit list atom. Note
+-- that this might cause file rejections when a recipient of the output
+-- file doesn\'t expect this extra padding.
 --
 -- 'reference', 'movSettings_reference' - Always keep the default value (SELF_CONTAINED) for this setting.
 newMovSettings ::
@@ -118,11 +118,11 @@ movSettings_cslgAtom = Lens.lens (\MovSettings' {cslgAtom} -> cslgAtom) (\s@MovS
 movSettings_mpeg2FourCCControl :: Lens.Lens' MovSettings (Prelude.Maybe MovMpeg2FourCCControl)
 movSettings_mpeg2FourCCControl = Lens.lens (\MovSettings' {mpeg2FourCCControl} -> mpeg2FourCCControl) (\s@MovSettings' {} a -> s {mpeg2FourCCControl = a} :: MovSettings)
 
--- | To make this output compatible with Omenon, keep the default value,
--- OMNEON. Unless you need Omneon compatibility, set this value to NONE.
--- When you keep the default value, OMNEON, MediaConvert increases the
--- length of the edit list atom. This might cause file rejections when a
--- recipient of the output file doesn\'t expct this extra padding.
+-- | Unless you need Omneon compatibility: Keep the default value, None. To
+-- make this output compatible with Omneon: Choose Omneon. When you do,
+-- MediaConvert increases the length of the \'elst\' edit list atom. Note
+-- that this might cause file rejections when a recipient of the output
+-- file doesn\'t expect this extra padding.
 movSettings_paddingControl :: Lens.Lens' MovSettings (Prelude.Maybe MovPaddingControl)
 movSettings_paddingControl = Lens.lens (\MovSettings' {paddingControl} -> paddingControl) (\s@MovSettings' {} a -> s {paddingControl = a} :: MovSettings)
 
@@ -145,7 +145,8 @@ instance Data.FromJSON MovSettings where
 
 instance Prelude.Hashable MovSettings where
   hashWithSalt _salt MovSettings' {..} =
-    _salt `Prelude.hashWithSalt` clapAtom
+    _salt
+      `Prelude.hashWithSalt` clapAtom
       `Prelude.hashWithSalt` cslgAtom
       `Prelude.hashWithSalt` mpeg2FourCCControl
       `Prelude.hashWithSalt` paddingControl

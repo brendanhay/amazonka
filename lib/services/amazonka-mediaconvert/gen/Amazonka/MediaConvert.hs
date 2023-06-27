@@ -261,6 +261,15 @@ module Amazonka.MediaConvert
     -- ** AccelerationStatus
     AccelerationStatus (..),
 
+    -- ** AdvancedInputFilter
+    AdvancedInputFilter (..),
+
+    -- ** AdvancedInputFilterAddTexture
+    AdvancedInputFilterAddTexture (..),
+
+    -- ** AdvancedInputFilterSharpen
+    AdvancedInputFilterSharpen (..),
+
     -- ** AfdSignaling
     AfdSignaling (..),
 
@@ -351,6 +360,12 @@ module Amazonka.MediaConvert
     -- ** AvcIntraUhdQualityTuningLevel
     AvcIntraUhdQualityTuningLevel (..),
 
+    -- ** BandwidthReductionFilterSharpening
+    BandwidthReductionFilterSharpening (..),
+
+    -- ** BandwidthReductionFilterStrength
+    BandwidthReductionFilterStrength (..),
+
     -- ** BillingTagsSource
     BillingTagsSource (..),
 
@@ -383,6 +398,9 @@ module Amazonka.MediaConvert
 
     -- ** CaptionDestinationType
     CaptionDestinationType (..),
+
+    -- ** CaptionSourceConvertPaintOnToPopOn
+    CaptionSourceConvertPaintOnToPopOn (..),
 
     -- ** CaptionSourceType
     CaptionSourceType (..),
@@ -533,6 +551,9 @@ module Amazonka.MediaConvert
 
     -- ** DashIsoWriteSegmentTimelineInRepresentation
     DashIsoWriteSegmentTimelineInRepresentation (..),
+
+    -- ** DashManifestStyle
+    DashManifestStyle (..),
 
     -- ** DecryptionMode
     DecryptionMode (..),
@@ -834,6 +855,9 @@ module Amazonka.MediaConvert
     -- ** H265WriteMp4PackagingType
     H265WriteMp4PackagingType (..),
 
+    -- ** HDRToSDRToneMapper
+    HDRToSDRToneMapper (..),
+
     -- ** HlsAdMarkers
     HlsAdMarkers (..),
 
@@ -896,6 +920,9 @@ module Amazonka.MediaConvert
 
     -- ** HlsProgramDateTime
     HlsProgramDateTime (..),
+
+    -- ** HlsProgressiveWriteHlsManifest
+    HlsProgressiveWriteHlsManifest (..),
 
     -- ** HlsSegmentControl
     HlsSegmentControl (..),
@@ -1422,6 +1449,10 @@ module Amazonka.MediaConvert
     AccelerationSettings (AccelerationSettings'),
     newAccelerationSettings,
 
+    -- ** AdvancedInputFilterSettings
+    AdvancedInputFilterSettings (AdvancedInputFilterSettings'),
+    newAdvancedInputFilterSettings,
+
     -- ** AiffSettings
     AiffSettings (AiffSettings'),
     newAiffSettings,
@@ -1490,6 +1521,10 @@ module Amazonka.MediaConvert
     AvcIntraUhdSettings (AvcIntraUhdSettings'),
     newAvcIntraUhdSettings,
 
+    -- ** BandwidthReductionFilter
+    BandwidthReductionFilter (BandwidthReductionFilter'),
+    newBandwidthReductionFilter,
+
     -- ** BurninDestinationSettings
     BurninDestinationSettings (BurninDestinationSettings'),
     newBurninDestinationSettings,
@@ -1521,6 +1556,10 @@ module Amazonka.MediaConvert
     -- ** ChannelMapping
     ChannelMapping (ChannelMapping'),
     newChannelMapping,
+
+    -- ** ClipLimits
+    ClipLimits (ClipLimits'),
+    newClipLimits,
 
     -- ** CmafAdditionalManifest
     CmafAdditionalManifest (CmafAdditionalManifest'),
@@ -2057,6 +2096,10 @@ module Amazonka.MediaConvert
     -- ** Vp9Settings
     Vp9Settings (Vp9Settings'),
     newVp9Settings,
+
+    -- ** WarningGroup
+    WarningGroup (WarningGroup'),
+    newWarningGroup,
 
     -- ** WavSettings
     WavSettings (WavSettings'),

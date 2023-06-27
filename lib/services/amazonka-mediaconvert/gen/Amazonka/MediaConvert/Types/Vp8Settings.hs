@@ -52,16 +52,17 @@ data Vp8Settings = Vp8Settings'
     -- FramerateDenominator.
     framerateControl :: Prelude.Maybe Vp8FramerateControl,
     -- | Choose the method that you want MediaConvert to use when increasing or
-    -- decreasing the frame rate. We recommend using drop duplicate
-    -- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
-    -- 30 fps. For numerically complex conversions, you can use interpolate
-    -- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but
-    -- might introduce undesirable video artifacts. For complex frame rate
-    -- conversions, especially if your source video has already been converted
-    -- from its original cadence, use FrameFormer (FRAMEFORMER) to do
-    -- motion-compensated interpolation. FrameFormer chooses the best
-    -- conversion method frame by frame. Note that using FrameFormer increases
-    -- the transcoding time and incurs a significant add-on cost.
+    -- decreasing the frame rate. For numerically simple conversions, such as
+    -- 60 fps to 30 fps: We recommend that you keep the default value, Drop
+    -- duplicate. For numerically complex conversions, to avoid stutter: Choose
+    -- Interpolate. This results in a smooth picture, but might introduce
+    -- undesirable video artifacts. For complex frame rate conversions,
+    -- especially if your source video has already been converted from its
+    -- original cadence: Choose FrameFormer to do motion-compensated
+    -- interpolation. FrameFormer uses the best conversion method frame by
+    -- frame. Note that using FrameFormer increases the transcoding time and
+    -- incurs a significant add-on cost. When you choose FrameFormer, your
+    -- input video resolution must be at least 128x96.
     framerateConversionAlgorithm :: Prelude.Maybe Vp8FramerateConversionAlgorithm,
     -- | When you use the API for transcode jobs that use frame rate conversion,
     -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
@@ -148,16 +149,17 @@ data Vp8Settings = Vp8Settings'
 -- FramerateDenominator.
 --
 -- 'framerateConversionAlgorithm', 'vp8Settings_framerateConversionAlgorithm' - Choose the method that you want MediaConvert to use when increasing or
--- decreasing the frame rate. We recommend using drop duplicate
--- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
--- 30 fps. For numerically complex conversions, you can use interpolate
--- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but
--- might introduce undesirable video artifacts. For complex frame rate
--- conversions, especially if your source video has already been converted
--- from its original cadence, use FrameFormer (FRAMEFORMER) to do
--- motion-compensated interpolation. FrameFormer chooses the best
--- conversion method frame by frame. Note that using FrameFormer increases
--- the transcoding time and incurs a significant add-on cost.
+-- decreasing the frame rate. For numerically simple conversions, such as
+-- 60 fps to 30 fps: We recommend that you keep the default value, Drop
+-- duplicate. For numerically complex conversions, to avoid stutter: Choose
+-- Interpolate. This results in a smooth picture, but might introduce
+-- undesirable video artifacts. For complex frame rate conversions,
+-- especially if your source video has already been converted from its
+-- original cadence: Choose FrameFormer to do motion-compensated
+-- interpolation. FrameFormer uses the best conversion method frame by
+-- frame. Note that using FrameFormer increases the transcoding time and
+-- incurs a significant add-on cost. When you choose FrameFormer, your
+-- input video resolution must be at least 128x96.
 --
 -- 'framerateDenominator', 'vp8Settings_framerateDenominator' - When you use the API for transcode jobs that use frame rate conversion,
 -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
@@ -255,16 +257,17 @@ vp8Settings_framerateControl :: Lens.Lens' Vp8Settings (Prelude.Maybe Vp8Framera
 vp8Settings_framerateControl = Lens.lens (\Vp8Settings' {framerateControl} -> framerateControl) (\s@Vp8Settings' {} a -> s {framerateControl = a} :: Vp8Settings)
 
 -- | Choose the method that you want MediaConvert to use when increasing or
--- decreasing the frame rate. We recommend using drop duplicate
--- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
--- 30 fps. For numerically complex conversions, you can use interpolate
--- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but
--- might introduce undesirable video artifacts. For complex frame rate
--- conversions, especially if your source video has already been converted
--- from its original cadence, use FrameFormer (FRAMEFORMER) to do
--- motion-compensated interpolation. FrameFormer chooses the best
--- conversion method frame by frame. Note that using FrameFormer increases
--- the transcoding time and incurs a significant add-on cost.
+-- decreasing the frame rate. For numerically simple conversions, such as
+-- 60 fps to 30 fps: We recommend that you keep the default value, Drop
+-- duplicate. For numerically complex conversions, to avoid stutter: Choose
+-- Interpolate. This results in a smooth picture, but might introduce
+-- undesirable video artifacts. For complex frame rate conversions,
+-- especially if your source video has already been converted from its
+-- original cadence: Choose FrameFormer to do motion-compensated
+-- interpolation. FrameFormer uses the best conversion method frame by
+-- frame. Note that using FrameFormer increases the transcoding time and
+-- incurs a significant add-on cost. When you choose FrameFormer, your
+-- input video resolution must be at least 128x96.
 vp8Settings_framerateConversionAlgorithm :: Lens.Lens' Vp8Settings (Prelude.Maybe Vp8FramerateConversionAlgorithm)
 vp8Settings_framerateConversionAlgorithm = Lens.lens (\Vp8Settings' {framerateConversionAlgorithm} -> framerateConversionAlgorithm) (\s@Vp8Settings' {} a -> s {framerateConversionAlgorithm = a} :: Vp8Settings)
 
@@ -367,7 +370,8 @@ instance Data.FromJSON Vp8Settings where
 
 instance Prelude.Hashable Vp8Settings where
   hashWithSalt _salt Vp8Settings' {..} =
-    _salt `Prelude.hashWithSalt` bitrate
+    _salt
+      `Prelude.hashWithSalt` bitrate
       `Prelude.hashWithSalt` framerateControl
       `Prelude.hashWithSalt` framerateConversionAlgorithm
       `Prelude.hashWithSalt` framerateDenominator

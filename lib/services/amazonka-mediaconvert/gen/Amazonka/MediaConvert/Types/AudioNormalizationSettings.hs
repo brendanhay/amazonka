@@ -62,7 +62,13 @@ data AudioNormalizationSettings = AudioNormalizationSettings'
     -- algorithm that you choose for Algorithm (algorithm). If you choose
     -- algorithm 1770-1, the encoder will choose -24 LKFS; otherwise, the
     -- encoder will choose -23 LKFS.
-    targetLkfs :: Prelude.Maybe Prelude.Double
+    targetLkfs :: Prelude.Maybe Prelude.Double,
+    -- | Specify the True-peak limiter threshold in decibels relative to full
+    -- scale (dBFS). The peak inter-audio sample loudness in your output will
+    -- be limited to the value that you specify, without affecting the overall
+    -- target LKFS. Enter a value from 0 to -8. Leave blank to use the default
+    -- value 0.
+    truePeakLimiterThreshold :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,6 +109,12 @@ data AudioNormalizationSettings = AudioNormalizationSettings'
 -- algorithm that you choose for Algorithm (algorithm). If you choose
 -- algorithm 1770-1, the encoder will choose -24 LKFS; otherwise, the
 -- encoder will choose -23 LKFS.
+--
+-- 'truePeakLimiterThreshold', 'audioNormalizationSettings_truePeakLimiterThreshold' - Specify the True-peak limiter threshold in decibels relative to full
+-- scale (dBFS). The peak inter-audio sample loudness in your output will
+-- be limited to the value that you specify, without affecting the overall
+-- target LKFS. Enter a value from 0 to -8. Leave blank to use the default
+-- value 0.
 newAudioNormalizationSettings ::
   AudioNormalizationSettings
 newAudioNormalizationSettings =
@@ -113,7 +125,8 @@ newAudioNormalizationSettings =
       correctionGateLevel = Prelude.Nothing,
       loudnessLogging = Prelude.Nothing,
       peakCalculation = Prelude.Nothing,
-      targetLkfs = Prelude.Nothing
+      targetLkfs = Prelude.Nothing,
+      truePeakLimiterThreshold = Prelude.Nothing
     }
 
 -- | Choose one of the following audio normalization algorithms: ITU-R
@@ -158,6 +171,14 @@ audioNormalizationSettings_peakCalculation = Lens.lens (\AudioNormalizationSetti
 audioNormalizationSettings_targetLkfs :: Lens.Lens' AudioNormalizationSettings (Prelude.Maybe Prelude.Double)
 audioNormalizationSettings_targetLkfs = Lens.lens (\AudioNormalizationSettings' {targetLkfs} -> targetLkfs) (\s@AudioNormalizationSettings' {} a -> s {targetLkfs = a} :: AudioNormalizationSettings)
 
+-- | Specify the True-peak limiter threshold in decibels relative to full
+-- scale (dBFS). The peak inter-audio sample loudness in your output will
+-- be limited to the value that you specify, without affecting the overall
+-- target LKFS. Enter a value from 0 to -8. Leave blank to use the default
+-- value 0.
+audioNormalizationSettings_truePeakLimiterThreshold :: Lens.Lens' AudioNormalizationSettings (Prelude.Maybe Prelude.Double)
+audioNormalizationSettings_truePeakLimiterThreshold = Lens.lens (\AudioNormalizationSettings' {truePeakLimiterThreshold} -> truePeakLimiterThreshold) (\s@AudioNormalizationSettings' {} a -> s {truePeakLimiterThreshold = a} :: AudioNormalizationSettings)
+
 instance Data.FromJSON AudioNormalizationSettings where
   parseJSON =
     Data.withObject
@@ -170,16 +191,19 @@ instance Data.FromJSON AudioNormalizationSettings where
             Prelude.<*> (x Data..:? "loudnessLogging")
             Prelude.<*> (x Data..:? "peakCalculation")
             Prelude.<*> (x Data..:? "targetLkfs")
+            Prelude.<*> (x Data..:? "truePeakLimiterThreshold")
       )
 
 instance Prelude.Hashable AudioNormalizationSettings where
   hashWithSalt _salt AudioNormalizationSettings' {..} =
-    _salt `Prelude.hashWithSalt` algorithm
+    _salt
+      `Prelude.hashWithSalt` algorithm
       `Prelude.hashWithSalt` algorithmControl
       `Prelude.hashWithSalt` correctionGateLevel
       `Prelude.hashWithSalt` loudnessLogging
       `Prelude.hashWithSalt` peakCalculation
       `Prelude.hashWithSalt` targetLkfs
+      `Prelude.hashWithSalt` truePeakLimiterThreshold
 
 instance Prelude.NFData AudioNormalizationSettings where
   rnf AudioNormalizationSettings' {..} =
@@ -189,6 +213,7 @@ instance Prelude.NFData AudioNormalizationSettings where
       `Prelude.seq` Prelude.rnf loudnessLogging
       `Prelude.seq` Prelude.rnf peakCalculation
       `Prelude.seq` Prelude.rnf targetLkfs
+      `Prelude.seq` Prelude.rnf truePeakLimiterThreshold
 
 instance Data.ToJSON AudioNormalizationSettings where
   toJSON AudioNormalizationSettings' {..} =
@@ -203,6 +228,8 @@ instance Data.ToJSON AudioNormalizationSettings where
               Prelude.<$> loudnessLogging,
             ("peakCalculation" Data..=)
               Prelude.<$> peakCalculation,
-            ("targetLkfs" Data..=) Prelude.<$> targetLkfs
+            ("targetLkfs" Data..=) Prelude.<$> targetLkfs,
+            ("truePeakLimiterThreshold" Data..=)
+              Prelude.<$> truePeakLimiterThreshold
           ]
       )

@@ -88,7 +88,8 @@ instance Data.FromJSON ImageInserter where
       "ImageInserter"
       ( \x ->
           ImageInserter'
-            Prelude.<$> ( x Data..:? "insertableImages"
+            Prelude.<$> ( x
+                            Data..:? "insertableImages"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "sdrReferenceWhiteLevel")
@@ -96,7 +97,8 @@ instance Data.FromJSON ImageInserter where
 
 instance Prelude.Hashable ImageInserter where
   hashWithSalt _salt ImageInserter' {..} =
-    _salt `Prelude.hashWithSalt` insertableImages
+    _salt
+      `Prelude.hashWithSalt` insertableImages
       `Prelude.hashWithSalt` sdrReferenceWhiteLevel
 
 instance Prelude.NFData ImageInserter where

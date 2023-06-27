@@ -209,7 +209,8 @@ instance Core.AWSRequest UpdateJobTemplate where
 
 instance Prelude.Hashable UpdateJobTemplate where
   hashWithSalt _salt UpdateJobTemplate' {..} =
-    _salt `Prelude.hashWithSalt` accelerationSettings
+    _salt
+      `Prelude.hashWithSalt` accelerationSettings
       `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` hopDestinations

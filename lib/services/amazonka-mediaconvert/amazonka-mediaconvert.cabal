@@ -89,6 +89,10 @@ library
     Amazonka.MediaConvert.Types.AccelerationMode
     Amazonka.MediaConvert.Types.AccelerationSettings
     Amazonka.MediaConvert.Types.AccelerationStatus
+    Amazonka.MediaConvert.Types.AdvancedInputFilter
+    Amazonka.MediaConvert.Types.AdvancedInputFilterAddTexture
+    Amazonka.MediaConvert.Types.AdvancedInputFilterSettings
+    Amazonka.MediaConvert.Types.AdvancedInputFilterSharpen
     Amazonka.MediaConvert.Types.AfdSignaling
     Amazonka.MediaConvert.Types.AiffSettings
     Amazonka.MediaConvert.Types.AllowedRenditionSize
@@ -136,6 +140,9 @@ library
     Amazonka.MediaConvert.Types.AvcIntraTelecine
     Amazonka.MediaConvert.Types.AvcIntraUhdQualityTuningLevel
     Amazonka.MediaConvert.Types.AvcIntraUhdSettings
+    Amazonka.MediaConvert.Types.BandwidthReductionFilter
+    Amazonka.MediaConvert.Types.BandwidthReductionFilterSharpening
+    Amazonka.MediaConvert.Types.BandwidthReductionFilterStrength
     Amazonka.MediaConvert.Types.BillingTagsSource
     Amazonka.MediaConvert.Types.BurninDestinationSettings
     Amazonka.MediaConvert.Types.BurninSubtitleAlignment
@@ -152,10 +159,12 @@ library
     Amazonka.MediaConvert.Types.CaptionDestinationSettings
     Amazonka.MediaConvert.Types.CaptionDestinationType
     Amazonka.MediaConvert.Types.CaptionSelector
+    Amazonka.MediaConvert.Types.CaptionSourceConvertPaintOnToPopOn
     Amazonka.MediaConvert.Types.CaptionSourceFramerate
     Amazonka.MediaConvert.Types.CaptionSourceSettings
     Amazonka.MediaConvert.Types.CaptionSourceType
     Amazonka.MediaConvert.Types.ChannelMapping
+    Amazonka.MediaConvert.Types.ClipLimits
     Amazonka.MediaConvert.Types.CmafAdditionalManifest
     Amazonka.MediaConvert.Types.CmafClientCache
     Amazonka.MediaConvert.Types.CmafCodecSpecification
@@ -216,6 +225,7 @@ library
     Amazonka.MediaConvert.Types.DashIsoSegmentLengthControl
     Amazonka.MediaConvert.Types.DashIsoVideoCompositionOffsets
     Amazonka.MediaConvert.Types.DashIsoWriteSegmentTimelineInRepresentation
+    Amazonka.MediaConvert.Types.DashManifestStyle
     Amazonka.MediaConvert.Types.DecryptionMode
     Amazonka.MediaConvert.Types.DeinterlaceAlgorithm
     Amazonka.MediaConvert.Types.Deinterlacer
@@ -345,6 +355,7 @@ library
     Amazonka.MediaConvert.Types.H265WriteMp4PackagingType
     Amazonka.MediaConvert.Types.Hdr10Metadata
     Amazonka.MediaConvert.Types.Hdr10Plus
+    Amazonka.MediaConvert.Types.HDRToSDRToneMapper
     Amazonka.MediaConvert.Types.HlsAdditionalManifest
     Amazonka.MediaConvert.Types.HlsAdMarkers
     Amazonka.MediaConvert.Types.HlsAudioOnlyContainer
@@ -371,6 +382,7 @@ library
     Amazonka.MediaConvert.Types.HlsOfflineEncrypted
     Amazonka.MediaConvert.Types.HlsOutputSelection
     Amazonka.MediaConvert.Types.HlsProgramDateTime
+    Amazonka.MediaConvert.Types.HlsProgressiveWriteHlsManifest
     Amazonka.MediaConvert.Types.HlsRenditionGroupSettings
     Amazonka.MediaConvert.Types.HlsSegmentControl
     Amazonka.MediaConvert.Types.HlsSegmentLengthControl
@@ -607,6 +619,7 @@ library
     Amazonka.MediaConvert.Types.Vp9QualityTuningLevel
     Amazonka.MediaConvert.Types.Vp9RateControlMode
     Amazonka.MediaConvert.Types.Vp9Settings
+    Amazonka.MediaConvert.Types.WarningGroup
     Amazonka.MediaConvert.Types.WatermarkingStrength
     Amazonka.MediaConvert.Types.WavFormat
     Amazonka.MediaConvert.Types.WavSettings

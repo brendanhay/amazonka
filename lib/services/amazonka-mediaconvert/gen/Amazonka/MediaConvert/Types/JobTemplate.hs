@@ -210,7 +210,8 @@ instance Data.FromJSON JobTemplate where
             Prelude.<*> (x Data..:? "category")
             Prelude.<*> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "description")
-            Prelude.<*> ( x Data..:? "hopDestinations"
+            Prelude.<*> ( x
+                            Data..:? "hopDestinations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "lastUpdated")
@@ -224,7 +225,8 @@ instance Data.FromJSON JobTemplate where
 
 instance Prelude.Hashable JobTemplate where
   hashWithSalt _salt JobTemplate' {..} =
-    _salt `Prelude.hashWithSalt` accelerationSettings
+    _salt
+      `Prelude.hashWithSalt` accelerationSettings
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` createdAt

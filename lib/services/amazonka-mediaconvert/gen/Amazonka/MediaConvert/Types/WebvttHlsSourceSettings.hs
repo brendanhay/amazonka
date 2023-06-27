@@ -94,7 +94,8 @@ instance Data.FromJSON WebvttHlsSourceSettings where
 
 instance Prelude.Hashable WebvttHlsSourceSettings where
   hashWithSalt _salt WebvttHlsSourceSettings' {..} =
-    _salt `Prelude.hashWithSalt` renditionGroupId
+    _salt
+      `Prelude.hashWithSalt` renditionGroupId
       `Prelude.hashWithSalt` renditionLanguageCode
       `Prelude.hashWithSalt` renditionName
 

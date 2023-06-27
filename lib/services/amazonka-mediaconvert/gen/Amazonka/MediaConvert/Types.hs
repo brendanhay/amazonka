@@ -73,6 +73,15 @@ module Amazonka.MediaConvert.Types
     -- * AccelerationStatus
     AccelerationStatus (..),
 
+    -- * AdvancedInputFilter
+    AdvancedInputFilter (..),
+
+    -- * AdvancedInputFilterAddTexture
+    AdvancedInputFilterAddTexture (..),
+
+    -- * AdvancedInputFilterSharpen
+    AdvancedInputFilterSharpen (..),
+
     -- * AfdSignaling
     AfdSignaling (..),
 
@@ -163,6 +172,12 @@ module Amazonka.MediaConvert.Types
     -- * AvcIntraUhdQualityTuningLevel
     AvcIntraUhdQualityTuningLevel (..),
 
+    -- * BandwidthReductionFilterSharpening
+    BandwidthReductionFilterSharpening (..),
+
+    -- * BandwidthReductionFilterStrength
+    BandwidthReductionFilterStrength (..),
+
     -- * BillingTagsSource
     BillingTagsSource (..),
 
@@ -195,6 +210,9 @@ module Amazonka.MediaConvert.Types
 
     -- * CaptionDestinationType
     CaptionDestinationType (..),
+
+    -- * CaptionSourceConvertPaintOnToPopOn
+    CaptionSourceConvertPaintOnToPopOn (..),
 
     -- * CaptionSourceType
     CaptionSourceType (..),
@@ -345,6 +363,9 @@ module Amazonka.MediaConvert.Types
 
     -- * DashIsoWriteSegmentTimelineInRepresentation
     DashIsoWriteSegmentTimelineInRepresentation (..),
+
+    -- * DashManifestStyle
+    DashManifestStyle (..),
 
     -- * DecryptionMode
     DecryptionMode (..),
@@ -646,6 +667,9 @@ module Amazonka.MediaConvert.Types
     -- * H265WriteMp4PackagingType
     H265WriteMp4PackagingType (..),
 
+    -- * HDRToSDRToneMapper
+    HDRToSDRToneMapper (..),
+
     -- * HlsAdMarkers
     HlsAdMarkers (..),
 
@@ -708,6 +732,9 @@ module Amazonka.MediaConvert.Types
 
     -- * HlsProgramDateTime
     HlsProgramDateTime (..),
+
+    -- * HlsProgressiveWriteHlsManifest
+    HlsProgressiveWriteHlsManifest (..),
 
     -- * HlsSegmentControl
     HlsSegmentControl (..),
@@ -1254,6 +1281,12 @@ module Amazonka.MediaConvert.Types
     newAccelerationSettings,
     accelerationSettings_mode,
 
+    -- * AdvancedInputFilterSettings
+    AdvancedInputFilterSettings (..),
+    newAdvancedInputFilterSettings,
+    advancedInputFilterSettings_addTexture,
+    advancedInputFilterSettings_sharpening,
+
     -- * AiffSettings
     AiffSettings (..),
     newAiffSettings,
@@ -1319,6 +1352,7 @@ module Amazonka.MediaConvert.Types
     audioNormalizationSettings_loudnessLogging,
     audioNormalizationSettings_peakCalculation,
     audioNormalizationSettings_targetLkfs,
+    audioNormalizationSettings_truePeakLimiterThreshold,
 
     -- * AudioSelector
     AudioSelector (..),
@@ -1410,6 +1444,12 @@ module Amazonka.MediaConvert.Types
     newAvcIntraUhdSettings,
     avcIntraUhdSettings_qualityTuningLevel,
 
+    -- * BandwidthReductionFilter
+    BandwidthReductionFilter (..),
+    newBandwidthReductionFilter,
+    bandwidthReductionFilter_sharpening,
+    bandwidthReductionFilter_strength,
+
     -- * BurninDestinationSettings
     BurninDestinationSettings (..),
     newBurninDestinationSettings,
@@ -1496,6 +1536,14 @@ module Amazonka.MediaConvert.Types
     newChannelMapping,
     channelMapping_outputChannels,
 
+    -- * ClipLimits
+    ClipLimits (..),
+    newClipLimits,
+    clipLimits_maximumRGBTolerance,
+    clipLimits_maximumYUV,
+    clipLimits_minimumRGBTolerance,
+    clipLimits_minimumYUV,
+
     -- * CmafAdditionalManifest
     CmafAdditionalManifest (..),
     newCmafAdditionalManifest,
@@ -1519,6 +1567,7 @@ module Amazonka.MediaConvert.Types
     cmafGroupSettings_baseUrl,
     cmafGroupSettings_clientCache,
     cmafGroupSettings_codecSpecification,
+    cmafGroupSettings_dashManifestStyle,
     cmafGroupSettings_destination,
     cmafGroupSettings_destinationSettings,
     cmafGroupSettings_encryption,
@@ -1574,9 +1623,11 @@ module Amazonka.MediaConvert.Types
     ColorCorrector (..),
     newColorCorrector,
     colorCorrector_brightness,
+    colorCorrector_clipLimits,
     colorCorrector_colorSpaceConversion,
     colorCorrector_contrast,
     colorCorrector_hdr10Metadata,
+    colorCorrector_hdrToSdrToneMapper,
     colorCorrector_hue,
     colorCorrector_sampleRangeConversion,
     colorCorrector_saturation,
@@ -1613,6 +1664,7 @@ module Amazonka.MediaConvert.Types
     dashIsoGroupSettings_additionalManifests,
     dashIsoGroupSettings_audioChannelConfigSchemeIdUri,
     dashIsoGroupSettings_baseUrl,
+    dashIsoGroupSettings_dashManifestStyle,
     dashIsoGroupSettings_destination,
     dashIsoGroupSettings_destinationSettings,
     dashIsoGroupSettings_encryption,
@@ -1826,6 +1878,7 @@ module Amazonka.MediaConvert.Types
     FileSourceSettings (..),
     newFileSourceSettings,
     fileSourceSettings_convert608To708,
+    fileSourceSettings_convertPaintToPop,
     fileSourceSettings_framerate,
     fileSourceSettings_sourceFile,
     fileSourceSettings_timeDelta,
@@ -1856,6 +1909,7 @@ module Amazonka.MediaConvert.Types
     H264Settings (..),
     newH264Settings,
     h264Settings_adaptiveQuantization,
+    h264Settings_bandwidthReductionFilter,
     h264Settings_bitrate,
     h264Settings_codecLevel,
     h264Settings_codecProfile,
@@ -1909,6 +1963,7 @@ module Amazonka.MediaConvert.Types
     newH265Settings,
     h265Settings_adaptiveQuantization,
     h265Settings_alternateTransferFunctionSei,
+    h265Settings_bandwidthReductionFilter,
     h265Settings_bitrate,
     h265Settings_codecLevel,
     h265Settings_codecProfile,
@@ -2021,6 +2076,7 @@ module Amazonka.MediaConvert.Types
     hlsGroupSettings_outputSelection,
     hlsGroupSettings_programDateTime,
     hlsGroupSettings_programDateTimePeriod,
+    hlsGroupSettings_progressiveWriteHlsManifest,
     hlsGroupSettings_segmentControl,
     hlsGroupSettings_segmentLength,
     hlsGroupSettings_segmentLengthControl,
@@ -2087,6 +2143,8 @@ module Amazonka.MediaConvert.Types
     -- * Input
     Input (..),
     newInput,
+    input_advancedInputFilter,
+    input_advancedInputFilterSettings,
     input_audioSelectorGroups,
     input_audioSelectors,
     input_captionSelectors,
@@ -2127,6 +2185,8 @@ module Amazonka.MediaConvert.Types
     -- * InputTemplate
     InputTemplate (..),
     newInputTemplate,
+    inputTemplate_advancedInputFilter,
+    inputTemplate_advancedInputFilterSettings,
     inputTemplate_audioSelectorGroups,
     inputTemplate_audioSelectors,
     inputTemplate_captionSelectors,
@@ -2173,6 +2233,7 @@ module Amazonka.MediaConvert.Types
     job_accelerationStatus,
     job_arn,
     job_billingTagsSource,
+    job_clientRequestToken,
     job_createdAt,
     job_currentPhase,
     job_errorCode,
@@ -2192,8 +2253,9 @@ module Amazonka.MediaConvert.Types
     job_statusUpdateInterval,
     job_timing,
     job_userMetadata,
-    job_role,
+    job_warnings,
     job_settings,
+    job_role,
 
     -- * JobMessages
     JobMessages (..),
@@ -2944,6 +3006,12 @@ module Amazonka.MediaConvert.Types
     vp9Settings_qualityTuningLevel,
     vp9Settings_rateControlMode,
 
+    -- * WarningGroup
+    WarningGroup (..),
+    newWarningGroup,
+    warningGroup_count,
+    warningGroup_code,
+
     -- * WavSettings
     WavSettings (..),
     newWavSettings,
@@ -3048,6 +3116,10 @@ import Amazonka.MediaConvert.Types.Ac3Settings
 import Amazonka.MediaConvert.Types.AccelerationMode
 import Amazonka.MediaConvert.Types.AccelerationSettings
 import Amazonka.MediaConvert.Types.AccelerationStatus
+import Amazonka.MediaConvert.Types.AdvancedInputFilter
+import Amazonka.MediaConvert.Types.AdvancedInputFilterAddTexture
+import Amazonka.MediaConvert.Types.AdvancedInputFilterSettings
+import Amazonka.MediaConvert.Types.AdvancedInputFilterSharpen
 import Amazonka.MediaConvert.Types.AfdSignaling
 import Amazonka.MediaConvert.Types.AiffSettings
 import Amazonka.MediaConvert.Types.AllowedRenditionSize
@@ -3095,6 +3167,9 @@ import Amazonka.MediaConvert.Types.AvcIntraSlowPal
 import Amazonka.MediaConvert.Types.AvcIntraTelecine
 import Amazonka.MediaConvert.Types.AvcIntraUhdQualityTuningLevel
 import Amazonka.MediaConvert.Types.AvcIntraUhdSettings
+import Amazonka.MediaConvert.Types.BandwidthReductionFilter
+import Amazonka.MediaConvert.Types.BandwidthReductionFilterSharpening
+import Amazonka.MediaConvert.Types.BandwidthReductionFilterStrength
 import Amazonka.MediaConvert.Types.BillingTagsSource
 import Amazonka.MediaConvert.Types.BurnInSubtitleStylePassthrough
 import Amazonka.MediaConvert.Types.BurninDestinationSettings
@@ -3111,10 +3186,12 @@ import Amazonka.MediaConvert.Types.CaptionDescriptionPreset
 import Amazonka.MediaConvert.Types.CaptionDestinationSettings
 import Amazonka.MediaConvert.Types.CaptionDestinationType
 import Amazonka.MediaConvert.Types.CaptionSelector
+import Amazonka.MediaConvert.Types.CaptionSourceConvertPaintOnToPopOn
 import Amazonka.MediaConvert.Types.CaptionSourceFramerate
 import Amazonka.MediaConvert.Types.CaptionSourceSettings
 import Amazonka.MediaConvert.Types.CaptionSourceType
 import Amazonka.MediaConvert.Types.ChannelMapping
+import Amazonka.MediaConvert.Types.ClipLimits
 import Amazonka.MediaConvert.Types.CmafAdditionalManifest
 import Amazonka.MediaConvert.Types.CmafClientCache
 import Amazonka.MediaConvert.Types.CmafCodecSpecification
@@ -3175,6 +3252,7 @@ import Amazonka.MediaConvert.Types.DashIsoSegmentControl
 import Amazonka.MediaConvert.Types.DashIsoSegmentLengthControl
 import Amazonka.MediaConvert.Types.DashIsoVideoCompositionOffsets
 import Amazonka.MediaConvert.Types.DashIsoWriteSegmentTimelineInRepresentation
+import Amazonka.MediaConvert.Types.DashManifestStyle
 import Amazonka.MediaConvert.Types.DecryptionMode
 import Amazonka.MediaConvert.Types.DeinterlaceAlgorithm
 import Amazonka.MediaConvert.Types.Deinterlacer
@@ -3302,6 +3380,7 @@ import Amazonka.MediaConvert.Types.H265TemporalIds
 import Amazonka.MediaConvert.Types.H265Tiles
 import Amazonka.MediaConvert.Types.H265UnregisteredSeiTimecode
 import Amazonka.MediaConvert.Types.H265WriteMp4PackagingType
+import Amazonka.MediaConvert.Types.HDRToSDRToneMapper
 import Amazonka.MediaConvert.Types.Hdr10Metadata
 import Amazonka.MediaConvert.Types.Hdr10Plus
 import Amazonka.MediaConvert.Types.HlsAdMarkers
@@ -3330,6 +3409,7 @@ import Amazonka.MediaConvert.Types.HlsManifestDurationFormat
 import Amazonka.MediaConvert.Types.HlsOfflineEncrypted
 import Amazonka.MediaConvert.Types.HlsOutputSelection
 import Amazonka.MediaConvert.Types.HlsProgramDateTime
+import Amazonka.MediaConvert.Types.HlsProgressiveWriteHlsManifest
 import Amazonka.MediaConvert.Types.HlsRenditionGroupSettings
 import Amazonka.MediaConvert.Types.HlsSegmentControl
 import Amazonka.MediaConvert.Types.HlsSegmentLengthControl
@@ -3566,6 +3646,7 @@ import Amazonka.MediaConvert.Types.Vp9ParControl
 import Amazonka.MediaConvert.Types.Vp9QualityTuningLevel
 import Amazonka.MediaConvert.Types.Vp9RateControlMode
 import Amazonka.MediaConvert.Types.Vp9Settings
+import Amazonka.MediaConvert.Types.WarningGroup
 import Amazonka.MediaConvert.Types.WatermarkingStrength
 import Amazonka.MediaConvert.Types.WavFormat
 import Amazonka.MediaConvert.Types.WavSettings
@@ -3628,53 +3709,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The service can\'t process your request because of a problem in the
 -- request. Please check your request form and syntax.
-_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BadRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -3683,7 +3764,7 @@ _BadRequestException =
 
 -- | The service couldn\'t complete your request because there is a conflict
 -- with the current state of the resource.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -3692,7 +3773,7 @@ _ConflictException =
 
 -- | You don\'t have permissions for this action with the credentials you
 -- sent.
-_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ForbiddenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -3701,7 +3782,7 @@ _ForbiddenException =
 
 -- | The service encountered an unexpected condition and can\'t fulfill your
 -- request.
-_InternalServerErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerErrorException =
   Core._MatchServiceError
     defaultService
@@ -3709,7 +3790,7 @@ _InternalServerErrorException =
     Prelude.. Core.hasStatus 500
 
 -- | The resource you requested doesn\'t exist.
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -3718,7 +3799,7 @@ _NotFoundException =
 
 -- | Too many requests have been sent in too short of a time. The service
 -- limits the rate at which it will accept requests.
-_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyRequestsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService

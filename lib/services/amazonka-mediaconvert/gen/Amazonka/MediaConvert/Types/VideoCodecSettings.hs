@@ -59,7 +59,11 @@ data VideoCodecSettings = VideoCodecSettings'
     -- https:\/\/pro-av.panasonic.net\/en\/avc-ultra\/AVC-ULTRAoverview.pdf.
     avcIntraSettings :: Prelude.Maybe AvcIntraSettings,
     -- | Specifies the video codec. This must be equal to one of the enum values
-    -- defined by the object VideoCodec.
+    -- defined by the object VideoCodec. To passthrough the video stream of
+    -- your input JPEG2000, VC-3, AVC-INTRA or Apple ProRes video without any
+    -- video encoding: Choose Passthrough. If you have multiple input videos,
+    -- note that they must have identical encoding attributes. When you choose
+    -- Passthrough, your output container must be MXF or QuickTime MOV.
     codec :: Prelude.Maybe VideoCodec,
     -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings)
     -- to the value FRAME_CAPTURE.
@@ -109,7 +113,11 @@ data VideoCodecSettings = VideoCodecSettings'
 -- https:\/\/pro-av.panasonic.net\/en\/avc-ultra\/AVC-ULTRAoverview.pdf.
 --
 -- 'codec', 'videoCodecSettings_codec' - Specifies the video codec. This must be equal to one of the enum values
--- defined by the object VideoCodec.
+-- defined by the object VideoCodec. To passthrough the video stream of
+-- your input JPEG2000, VC-3, AVC-INTRA or Apple ProRes video without any
+-- video encoding: Choose Passthrough. If you have multiple input videos,
+-- note that they must have identical encoding attributes. When you choose
+-- Passthrough, your output container must be MXF or QuickTime MOV.
 --
 -- 'frameCaptureSettings', 'videoCodecSettings_frameCaptureSettings' - Required when you set (Codec) under (VideoDescription)>(CodecSettings)
 -- to the value FRAME_CAPTURE.
@@ -169,7 +177,11 @@ videoCodecSettings_avcIntraSettings :: Lens.Lens' VideoCodecSettings (Prelude.Ma
 videoCodecSettings_avcIntraSettings = Lens.lens (\VideoCodecSettings' {avcIntraSettings} -> avcIntraSettings) (\s@VideoCodecSettings' {} a -> s {avcIntraSettings = a} :: VideoCodecSettings)
 
 -- | Specifies the video codec. This must be equal to one of the enum values
--- defined by the object VideoCodec.
+-- defined by the object VideoCodec. To passthrough the video stream of
+-- your input JPEG2000, VC-3, AVC-INTRA or Apple ProRes video without any
+-- video encoding: Choose Passthrough. If you have multiple input videos,
+-- note that they must have identical encoding attributes. When you choose
+-- Passthrough, your output container must be MXF or QuickTime MOV.
 videoCodecSettings_codec :: Lens.Lens' VideoCodecSettings (Prelude.Maybe VideoCodec)
 videoCodecSettings_codec = Lens.lens (\VideoCodecSettings' {codec} -> codec) (\s@VideoCodecSettings' {} a -> s {codec = a} :: VideoCodecSettings)
 
@@ -239,7 +251,8 @@ instance Data.FromJSON VideoCodecSettings where
 
 instance Prelude.Hashable VideoCodecSettings where
   hashWithSalt _salt VideoCodecSettings' {..} =
-    _salt `Prelude.hashWithSalt` av1Settings
+    _salt
+      `Prelude.hashWithSalt` av1Settings
       `Prelude.hashWithSalt` avcIntraSettings
       `Prelude.hashWithSalt` codec
       `Prelude.hashWithSalt` frameCaptureSettings

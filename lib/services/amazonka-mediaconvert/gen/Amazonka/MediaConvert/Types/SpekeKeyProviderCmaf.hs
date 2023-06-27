@@ -136,10 +136,12 @@ instance Data.FromJSON SpekeKeyProviderCmaf where
       ( \x ->
           SpekeKeyProviderCmaf'
             Prelude.<$> (x Data..:? "certificateArn")
-            Prelude.<*> ( x Data..:? "dashSignaledSystemIds"
+            Prelude.<*> ( x
+                            Data..:? "dashSignaledSystemIds"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "hlsSignaledSystemIds"
+            Prelude.<*> ( x
+                            Data..:? "hlsSignaledSystemIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "resourceId")
@@ -148,7 +150,8 @@ instance Data.FromJSON SpekeKeyProviderCmaf where
 
 instance Prelude.Hashable SpekeKeyProviderCmaf where
   hashWithSalt _salt SpekeKeyProviderCmaf' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` dashSignaledSystemIds
       `Prelude.hashWithSalt` hlsSignaledSystemIds
       `Prelude.hashWithSalt` resourceId

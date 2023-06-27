@@ -131,7 +131,10 @@ data CmfcSettings = CmfcSettings'
     -- same value that you specify for ID3 metadata scheme ID URI. For SCTE35
     -- event messages, the InbandEventStream element schemeIdUri will be
     -- \"urn:scte:scte35:2013:bin\". To leave these elements out of your output
-    -- MPD manifest, set Manifest metadata signaling to Disabled.
+    -- MPD manifest, set Manifest metadata signaling to Disabled. To enable
+    -- Manifest metadata signaling, you must also set SCTE-35 source to
+    -- Passthrough, ESAM SCTE-35 to insert, or ID3 metadata (TimedMetadata) to
+    -- Passthrough.
     manifestMetadataSignaling :: Prelude.Maybe CmfcManifestMetadataSignaling,
     -- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose
     -- INSERT to put SCTE-35 markers in this output at the insertion points
@@ -157,14 +160,14 @@ data CmfcSettings = CmfcSettings'
     -- Passthrough.
     timedMetadataBoxVersion :: Prelude.Maybe CmfcTimedMetadataBoxVersion,
     -- | Specify the event message box (eMSG) scheme ID URI (scheme_id_uri) for
-    -- ID3 timed metadata in your output. For more informaiton, see ISO\/IEC
+    -- ID3 timed metadata in your output. For more information, see ISO\/IEC
     -- 23009-1:2022 section 5.10.3.3.4 Semantics. Leave blank to use the
     -- default value: https:\/\/aomedia.org\/emsg\/ID3 When you specify a value
     -- for ID3 metadata scheme ID URI, you must also set ID3 metadata
     -- (timedMetadata) to Passthrough.
     timedMetadataSchemeIdUri :: Prelude.Maybe Prelude.Text,
     -- | Specify the event message box (eMSG) value for ID3 timed metadata in
-    -- your output. For more informaiton, see ISO\/IEC 23009-1:2022 section
+    -- your output. For more information, see ISO\/IEC 23009-1:2022 section
     -- 5.10.3.3.4 Semantics. When you specify a value for ID3 Metadata Value,
     -- you must also set ID3 metadata (timedMetadata) to Passthrough.
     timedMetadataValue :: Prelude.Maybe Prelude.Text
@@ -271,7 +274,10 @@ data CmfcSettings = CmfcSettings'
 -- same value that you specify for ID3 metadata scheme ID URI. For SCTE35
 -- event messages, the InbandEventStream element schemeIdUri will be
 -- \"urn:scte:scte35:2013:bin\". To leave these elements out of your output
--- MPD manifest, set Manifest metadata signaling to Disabled.
+-- MPD manifest, set Manifest metadata signaling to Disabled. To enable
+-- Manifest metadata signaling, you must also set SCTE-35 source to
+-- Passthrough, ESAM SCTE-35 to insert, or ID3 metadata (TimedMetadata) to
+-- Passthrough.
 --
 -- 'scte35Esam', 'cmfcSettings_scte35Esam' - Use this setting only when you specify SCTE-35 markers from ESAM. Choose
 -- INSERT to put SCTE-35 markers in this output at the insertion points
@@ -297,14 +303,14 @@ data CmfcSettings = CmfcSettings'
 -- Passthrough.
 --
 -- 'timedMetadataSchemeIdUri', 'cmfcSettings_timedMetadataSchemeIdUri' - Specify the event message box (eMSG) scheme ID URI (scheme_id_uri) for
--- ID3 timed metadata in your output. For more informaiton, see ISO\/IEC
+-- ID3 timed metadata in your output. For more information, see ISO\/IEC
 -- 23009-1:2022 section 5.10.3.3.4 Semantics. Leave blank to use the
 -- default value: https:\/\/aomedia.org\/emsg\/ID3 When you specify a value
 -- for ID3 metadata scheme ID URI, you must also set ID3 metadata
 -- (timedMetadata) to Passthrough.
 --
 -- 'timedMetadataValue', 'cmfcSettings_timedMetadataValue' - Specify the event message box (eMSG) value for ID3 timed metadata in
--- your output. For more informaiton, see ISO\/IEC 23009-1:2022 section
+-- your output. For more information, see ISO\/IEC 23009-1:2022 section
 -- 5.10.3.3.4 Semantics. When you specify a value for ID3 Metadata Value,
 -- you must also set ID3 metadata (timedMetadata) to Passthrough.
 newCmfcSettings ::
@@ -433,7 +439,10 @@ cmfcSettings_klvMetadata = Lens.lens (\CmfcSettings' {klvMetadata} -> klvMetadat
 -- same value that you specify for ID3 metadata scheme ID URI. For SCTE35
 -- event messages, the InbandEventStream element schemeIdUri will be
 -- \"urn:scte:scte35:2013:bin\". To leave these elements out of your output
--- MPD manifest, set Manifest metadata signaling to Disabled.
+-- MPD manifest, set Manifest metadata signaling to Disabled. To enable
+-- Manifest metadata signaling, you must also set SCTE-35 source to
+-- Passthrough, ESAM SCTE-35 to insert, or ID3 metadata (TimedMetadata) to
+-- Passthrough.
 cmfcSettings_manifestMetadataSignaling :: Lens.Lens' CmfcSettings (Prelude.Maybe CmfcManifestMetadataSignaling)
 cmfcSettings_manifestMetadataSignaling = Lens.lens (\CmfcSettings' {manifestMetadataSignaling} -> manifestMetadataSignaling) (\s@CmfcSettings' {} a -> s {manifestMetadataSignaling = a} :: CmfcSettings)
 
@@ -469,7 +478,7 @@ cmfcSettings_timedMetadataBoxVersion :: Lens.Lens' CmfcSettings (Prelude.Maybe C
 cmfcSettings_timedMetadataBoxVersion = Lens.lens (\CmfcSettings' {timedMetadataBoxVersion} -> timedMetadataBoxVersion) (\s@CmfcSettings' {} a -> s {timedMetadataBoxVersion = a} :: CmfcSettings)
 
 -- | Specify the event message box (eMSG) scheme ID URI (scheme_id_uri) for
--- ID3 timed metadata in your output. For more informaiton, see ISO\/IEC
+-- ID3 timed metadata in your output. For more information, see ISO\/IEC
 -- 23009-1:2022 section 5.10.3.3.4 Semantics. Leave blank to use the
 -- default value: https:\/\/aomedia.org\/emsg\/ID3 When you specify a value
 -- for ID3 metadata scheme ID URI, you must also set ID3 metadata
@@ -478,7 +487,7 @@ cmfcSettings_timedMetadataSchemeIdUri :: Lens.Lens' CmfcSettings (Prelude.Maybe 
 cmfcSettings_timedMetadataSchemeIdUri = Lens.lens (\CmfcSettings' {timedMetadataSchemeIdUri} -> timedMetadataSchemeIdUri) (\s@CmfcSettings' {} a -> s {timedMetadataSchemeIdUri = a} :: CmfcSettings)
 
 -- | Specify the event message box (eMSG) value for ID3 timed metadata in
--- your output. For more informaiton, see ISO\/IEC 23009-1:2022 section
+-- your output. For more information, see ISO\/IEC 23009-1:2022 section
 -- 5.10.3.3.4 Semantics. When you specify a value for ID3 Metadata Value,
 -- you must also set ID3 metadata (timedMetadata) to Passthrough.
 cmfcSettings_timedMetadataValue :: Lens.Lens' CmfcSettings (Prelude.Maybe Prelude.Text)
@@ -508,7 +517,8 @@ instance Data.FromJSON CmfcSettings where
 
 instance Prelude.Hashable CmfcSettings where
   hashWithSalt _salt CmfcSettings' {..} =
-    _salt `Prelude.hashWithSalt` audioDuration
+    _salt
+      `Prelude.hashWithSalt` audioDuration
       `Prelude.hashWithSalt` audioGroupId
       `Prelude.hashWithSalt` audioRenditionSets
       `Prelude.hashWithSalt` audioTrackType

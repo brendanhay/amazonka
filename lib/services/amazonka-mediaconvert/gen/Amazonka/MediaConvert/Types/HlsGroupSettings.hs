@@ -39,6 +39,7 @@ import Amazonka.MediaConvert.Types.HlsManifestCompression
 import Amazonka.MediaConvert.Types.HlsManifestDurationFormat
 import Amazonka.MediaConvert.Types.HlsOutputSelection
 import Amazonka.MediaConvert.Types.HlsProgramDateTime
+import Amazonka.MediaConvert.Types.HlsProgressiveWriteHlsManifest
 import Amazonka.MediaConvert.Types.HlsSegmentControl
 import Amazonka.MediaConvert.Types.HlsSegmentLengthControl
 import Amazonka.MediaConvert.Types.HlsStreamInfResolution
@@ -161,6 +162,18 @@ data HlsGroupSettings = HlsGroupSettings'
     programDateTime :: Prelude.Maybe HlsProgramDateTime,
     -- | Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
     programDateTimePeriod :: Prelude.Maybe Prelude.Natural,
+    -- | Specify whether MediaConvert generates HLS manifests while your job is
+    -- running or when your job is complete. To generate HLS manifests while
+    -- your job is running: Choose Enabled. Use if you want to play back your
+    -- content as soon as it\'s available. MediaConvert writes the parent and
+    -- child manifests after the first three media segments are written to your
+    -- destination S3 bucket. It then writes new updated manifests after each
+    -- additional segment is written. The parent manifest includes the latest
+    -- BANDWIDTH and AVERAGE-BANDWIDTH attributes, and child manifests include
+    -- the latest available media segment. When your job completes, the final
+    -- child playlists include an EXT-X-ENDLIST tag. To generate HLS manifests
+    -- only when your job completes: Choose Disabled.
+    progressiveWriteHlsManifest :: Prelude.Maybe HlsProgressiveWriteHlsManifest,
     -- | When set to SINGLE_FILE, emits program as a single media resource (.ts)
     -- file, uses #EXT-X-BYTERANGE tags to index segment for playback.
     segmentControl :: Prelude.Maybe HlsSegmentControl,
@@ -178,9 +191,9 @@ data HlsGroupSettings = HlsGroupSettings'
     -- result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have
     -- the encoder round up the segment lengths to match the next GOP boundary.
     segmentLengthControl :: Prelude.Maybe HlsSegmentLengthControl,
-    -- | Number of segments to write to a subdirectory before starting a new one.
-    -- directoryStructure must be SINGLE_DIRECTORY for this setting to have an
-    -- effect.
+    -- | Specify the number of segments to write to a subdirectory before
+    -- starting a new one. You must also set Directory structure to
+    -- Subdirectory per stream for this setting to have an effect.
     segmentsPerSubdirectory :: Prelude.Maybe Prelude.Natural,
     -- | Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF
     -- tag of variant manifest.
@@ -329,6 +342,18 @@ data HlsGroupSettings = HlsGroupSettings'
 --
 -- 'programDateTimePeriod', 'hlsGroupSettings_programDateTimePeriod' - Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
 --
+-- 'progressiveWriteHlsManifest', 'hlsGroupSettings_progressiveWriteHlsManifest' - Specify whether MediaConvert generates HLS manifests while your job is
+-- running or when your job is complete. To generate HLS manifests while
+-- your job is running: Choose Enabled. Use if you want to play back your
+-- content as soon as it\'s available. MediaConvert writes the parent and
+-- child manifests after the first three media segments are written to your
+-- destination S3 bucket. It then writes new updated manifests after each
+-- additional segment is written. The parent manifest includes the latest
+-- BANDWIDTH and AVERAGE-BANDWIDTH attributes, and child manifests include
+-- the latest available media segment. When your job completes, the final
+-- child playlists include an EXT-X-ENDLIST tag. To generate HLS manifests
+-- only when your job completes: Choose Disabled.
+--
 -- 'segmentControl', 'hlsGroupSettings_segmentControl' - When set to SINGLE_FILE, emits program as a single media resource (.ts)
 -- file, uses #EXT-X-BYTERANGE tags to index segment for playback.
 --
@@ -346,9 +371,9 @@ data HlsGroupSettings = HlsGroupSettings'
 -- result in extra I-frames. Choose Multiple of GOP (GOP_MULTIPLE) to have
 -- the encoder round up the segment lengths to match the next GOP boundary.
 --
--- 'segmentsPerSubdirectory', 'hlsGroupSettings_segmentsPerSubdirectory' - Number of segments to write to a subdirectory before starting a new one.
--- directoryStructure must be SINGLE_DIRECTORY for this setting to have an
--- effect.
+-- 'segmentsPerSubdirectory', 'hlsGroupSettings_segmentsPerSubdirectory' - Specify the number of segments to write to a subdirectory before
+-- starting a new one. You must also set Directory structure to
+-- Subdirectory per stream for this setting to have an effect.
 --
 -- 'streamInfResolution', 'hlsGroupSettings_streamInfResolution' - Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF
 -- tag of variant manifest.
@@ -404,6 +429,7 @@ newHlsGroupSettings =
       outputSelection = Prelude.Nothing,
       programDateTime = Prelude.Nothing,
       programDateTimePeriod = Prelude.Nothing,
+      progressiveWriteHlsManifest = Prelude.Nothing,
       segmentControl = Prelude.Nothing,
       segmentLength = Prelude.Nothing,
       segmentLengthControl = Prelude.Nothing,
@@ -566,6 +592,20 @@ hlsGroupSettings_programDateTime = Lens.lens (\HlsGroupSettings' {programDateTim
 hlsGroupSettings_programDateTimePeriod :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Natural)
 hlsGroupSettings_programDateTimePeriod = Lens.lens (\HlsGroupSettings' {programDateTimePeriod} -> programDateTimePeriod) (\s@HlsGroupSettings' {} a -> s {programDateTimePeriod = a} :: HlsGroupSettings)
 
+-- | Specify whether MediaConvert generates HLS manifests while your job is
+-- running or when your job is complete. To generate HLS manifests while
+-- your job is running: Choose Enabled. Use if you want to play back your
+-- content as soon as it\'s available. MediaConvert writes the parent and
+-- child manifests after the first three media segments are written to your
+-- destination S3 bucket. It then writes new updated manifests after each
+-- additional segment is written. The parent manifest includes the latest
+-- BANDWIDTH and AVERAGE-BANDWIDTH attributes, and child manifests include
+-- the latest available media segment. When your job completes, the final
+-- child playlists include an EXT-X-ENDLIST tag. To generate HLS manifests
+-- only when your job completes: Choose Disabled.
+hlsGroupSettings_progressiveWriteHlsManifest :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsProgressiveWriteHlsManifest)
+hlsGroupSettings_progressiveWriteHlsManifest = Lens.lens (\HlsGroupSettings' {progressiveWriteHlsManifest} -> progressiveWriteHlsManifest) (\s@HlsGroupSettings' {} a -> s {progressiveWriteHlsManifest = a} :: HlsGroupSettings)
+
 -- | When set to SINGLE_FILE, emits program as a single media resource (.ts)
 -- file, uses #EXT-X-BYTERANGE tags to index segment for playback.
 hlsGroupSettings_segmentControl :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsSegmentControl)
@@ -589,9 +629,9 @@ hlsGroupSettings_segmentLength = Lens.lens (\HlsGroupSettings' {segmentLength} -
 hlsGroupSettings_segmentLengthControl :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsSegmentLengthControl)
 hlsGroupSettings_segmentLengthControl = Lens.lens (\HlsGroupSettings' {segmentLengthControl} -> segmentLengthControl) (\s@HlsGroupSettings' {} a -> s {segmentLengthControl = a} :: HlsGroupSettings)
 
--- | Number of segments to write to a subdirectory before starting a new one.
--- directoryStructure must be SINGLE_DIRECTORY for this setting to have an
--- effect.
+-- | Specify the number of segments to write to a subdirectory before
+-- starting a new one. You must also set Directory structure to
+-- Subdirectory per stream for this setting to have an effect.
 hlsGroupSettings_segmentsPerSubdirectory :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Natural)
 hlsGroupSettings_segmentsPerSubdirectory = Lens.lens (\HlsGroupSettings' {segmentsPerSubdirectory} -> segmentsPerSubdirectory) (\s@HlsGroupSettings' {} a -> s {segmentsPerSubdirectory = a} :: HlsGroupSettings)
 
@@ -641,12 +681,14 @@ instance Data.FromJSON HlsGroupSettings where
       ( \x ->
           HlsGroupSettings'
             Prelude.<$> (x Data..:? "adMarkers" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "additionalManifests"
+            Prelude.<*> ( x
+                            Data..:? "additionalManifests"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "audioOnlyHeader")
             Prelude.<*> (x Data..:? "baseUrl")
-            Prelude.<*> ( x Data..:? "captionLanguageMappings"
+            Prelude.<*> ( x
+                            Data..:? "captionLanguageMappings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "captionLanguageSetting")
@@ -666,6 +708,7 @@ instance Data.FromJSON HlsGroupSettings where
             Prelude.<*> (x Data..:? "outputSelection")
             Prelude.<*> (x Data..:? "programDateTime")
             Prelude.<*> (x Data..:? "programDateTimePeriod")
+            Prelude.<*> (x Data..:? "progressiveWriteHlsManifest")
             Prelude.<*> (x Data..:? "segmentControl")
             Prelude.<*> (x Data..:? "segmentLength")
             Prelude.<*> (x Data..:? "segmentLengthControl")
@@ -679,7 +722,8 @@ instance Data.FromJSON HlsGroupSettings where
 
 instance Prelude.Hashable HlsGroupSettings where
   hashWithSalt _salt HlsGroupSettings' {..} =
-    _salt `Prelude.hashWithSalt` adMarkers
+    _salt
+      `Prelude.hashWithSalt` adMarkers
       `Prelude.hashWithSalt` additionalManifests
       `Prelude.hashWithSalt` audioOnlyHeader
       `Prelude.hashWithSalt` baseUrl
@@ -701,6 +745,7 @@ instance Prelude.Hashable HlsGroupSettings where
       `Prelude.hashWithSalt` outputSelection
       `Prelude.hashWithSalt` programDateTime
       `Prelude.hashWithSalt` programDateTimePeriod
+      `Prelude.hashWithSalt` progressiveWriteHlsManifest
       `Prelude.hashWithSalt` segmentControl
       `Prelude.hashWithSalt` segmentLength
       `Prelude.hashWithSalt` segmentLengthControl
@@ -736,6 +781,8 @@ instance Prelude.NFData HlsGroupSettings where
       `Prelude.seq` Prelude.rnf programDateTime
       `Prelude.seq` Prelude.rnf
         programDateTimePeriod
+      `Prelude.seq` Prelude.rnf
+        progressiveWriteHlsManifest
       `Prelude.seq` Prelude.rnf
         segmentControl
       `Prelude.seq` Prelude.rnf
@@ -798,6 +845,8 @@ instance Data.ToJSON HlsGroupSettings where
               Prelude.<$> programDateTime,
             ("programDateTimePeriod" Data..=)
               Prelude.<$> programDateTimePeriod,
+            ("progressiveWriteHlsManifest" Data..=)
+              Prelude.<$> progressiveWriteHlsManifest,
             ("segmentControl" Data..=)
               Prelude.<$> segmentControl,
             ("segmentLength" Data..=) Prelude.<$> segmentLength,

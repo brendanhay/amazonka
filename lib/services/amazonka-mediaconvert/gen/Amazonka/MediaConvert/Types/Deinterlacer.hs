@@ -31,12 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeinterlacer' smart constructor.
 data Deinterlacer = Deinterlacer'
-  { -- | Only applies when you set Deinterlacer (DeinterlaceMode) to Deinterlace
-    -- (DEINTERLACE) or Adaptive (ADAPTIVE). Motion adaptive interpolate
-    -- (INTERPOLATE) produces sharper pictures, while blend (BLEND) produces
-    -- smoother motion. Use (INTERPOLATE_TICKER) OR (BLEND_TICKER) if your
-    -- source file includes a ticker, such as a scrolling headline at the
-    -- bottom of the frame.
+  { -- | Only applies when you set Deinterlace mode to Deinterlace or Adaptive.
+    -- Interpolate produces sharper pictures, while blend produces smoother
+    -- motion. If your source file includes a ticker, such as a scrolling
+    -- headline at the bottom of the frame: Choose Interpolate ticker or Blend
+    -- ticker. To apply field doubling: Choose Linear interpolation. Note that
+    -- Linear interpolation may introduce video artifacts into your output.
     algorithm :: Prelude.Maybe DeinterlaceAlgorithm,
     -- | - When set to NORMAL (default), the deinterlacer does not convert frames
     -- that are tagged in metadata as progressive. It will only convert those
@@ -65,12 +65,12 @@ data Deinterlacer = Deinterlacer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'algorithm', 'deinterlacer_algorithm' - Only applies when you set Deinterlacer (DeinterlaceMode) to Deinterlace
--- (DEINTERLACE) or Adaptive (ADAPTIVE). Motion adaptive interpolate
--- (INTERPOLATE) produces sharper pictures, while blend (BLEND) produces
--- smoother motion. Use (INTERPOLATE_TICKER) OR (BLEND_TICKER) if your
--- source file includes a ticker, such as a scrolling headline at the
--- bottom of the frame.
+-- 'algorithm', 'deinterlacer_algorithm' - Only applies when you set Deinterlace mode to Deinterlace or Adaptive.
+-- Interpolate produces sharper pictures, while blend produces smoother
+-- motion. If your source file includes a ticker, such as a scrolling
+-- headline at the bottom of the frame: Choose Interpolate ticker or Blend
+-- ticker. To apply field doubling: Choose Linear interpolation. Note that
+-- Linear interpolation may introduce video artifacts into your output.
 --
 -- 'control', 'deinterlacer_control' - - When set to NORMAL (default), the deinterlacer does not convert frames
 -- that are tagged in metadata as progressive. It will only convert those
@@ -96,12 +96,12 @@ newDeinterlacer =
       mode = Prelude.Nothing
     }
 
--- | Only applies when you set Deinterlacer (DeinterlaceMode) to Deinterlace
--- (DEINTERLACE) or Adaptive (ADAPTIVE). Motion adaptive interpolate
--- (INTERPOLATE) produces sharper pictures, while blend (BLEND) produces
--- smoother motion. Use (INTERPOLATE_TICKER) OR (BLEND_TICKER) if your
--- source file includes a ticker, such as a scrolling headline at the
--- bottom of the frame.
+-- | Only applies when you set Deinterlace mode to Deinterlace or Adaptive.
+-- Interpolate produces sharper pictures, while blend produces smoother
+-- motion. If your source file includes a ticker, such as a scrolling
+-- headline at the bottom of the frame: Choose Interpolate ticker or Blend
+-- ticker. To apply field doubling: Choose Linear interpolation. Note that
+-- Linear interpolation may introduce video artifacts into your output.
 deinterlacer_algorithm :: Lens.Lens' Deinterlacer (Prelude.Maybe DeinterlaceAlgorithm)
 deinterlacer_algorithm = Lens.lens (\Deinterlacer' {algorithm} -> algorithm) (\s@Deinterlacer' {} a -> s {algorithm = a} :: Deinterlacer)
 
@@ -138,7 +138,8 @@ instance Data.FromJSON Deinterlacer where
 
 instance Prelude.Hashable Deinterlacer where
   hashWithSalt _salt Deinterlacer' {..} =
-    _salt `Prelude.hashWithSalt` algorithm
+    _salt
+      `Prelude.hashWithSalt` algorithm
       `Prelude.hashWithSalt` control
       `Prelude.hashWithSalt` mode
 

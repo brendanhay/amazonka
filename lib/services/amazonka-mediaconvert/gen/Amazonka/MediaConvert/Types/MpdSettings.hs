@@ -80,7 +80,10 @@ data MpdSettings = MpdSettings'
     -- same value that you specify for ID3 metadata scheme ID URI. For SCTE35
     -- event messages, the InbandEventStream element schemeIdUri will be
     -- \"urn:scte:scte35:2013:bin\". To leave these elements out of your output
-    -- MPD manifest, set Manifest metadata signaling to Disabled.
+    -- MPD manifest, set Manifest metadata signaling to Disabled. To enable
+    -- Manifest metadata signaling, you must also set SCTE-35 source to
+    -- Passthrough, ESAM SCTE-35 to insert, or ID3 metadata (TimedMetadata) to
+    -- Passthrough.
     manifestMetadataSignaling :: Prelude.Maybe MpdManifestMetadataSignaling,
     -- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose
     -- INSERT to put SCTE-35 markers in this output at the insertion points
@@ -106,14 +109,14 @@ data MpdSettings = MpdSettings'
     -- Passthrough.
     timedMetadataBoxVersion :: Prelude.Maybe MpdTimedMetadataBoxVersion,
     -- | Specify the event message box (eMSG) scheme ID URI (scheme_id_uri) for
-    -- ID3 timed metadata in your output. For more informaiton, see ISO\/IEC
+    -- ID3 timed metadata in your output. For more information, see ISO\/IEC
     -- 23009-1:2022 section 5.10.3.3.4 Semantics. Leave blank to use the
     -- default value: https:\/\/aomedia.org\/emsg\/ID3 When you specify a value
     -- for ID3 metadata scheme ID URI, you must also set ID3 metadata
     -- (timedMetadata) to Passthrough.
     timedMetadataSchemeIdUri :: Prelude.Maybe Prelude.Text,
     -- | Specify the event message box (eMSG) value for ID3 timed metadata in
-    -- your output. For more informaiton, see ISO\/IEC 23009-1:2022 section
+    -- your output. For more information, see ISO\/IEC 23009-1:2022 section
     -- 5.10.3.3.4 Semantics. When you specify a value for ID3 Metadata Value,
     -- you must also set ID3 metadata (timedMetadata) to Passthrough.
     timedMetadataValue :: Prelude.Maybe Prelude.Text
@@ -170,7 +173,10 @@ data MpdSettings = MpdSettings'
 -- same value that you specify for ID3 metadata scheme ID URI. For SCTE35
 -- event messages, the InbandEventStream element schemeIdUri will be
 -- \"urn:scte:scte35:2013:bin\". To leave these elements out of your output
--- MPD manifest, set Manifest metadata signaling to Disabled.
+-- MPD manifest, set Manifest metadata signaling to Disabled. To enable
+-- Manifest metadata signaling, you must also set SCTE-35 source to
+-- Passthrough, ESAM SCTE-35 to insert, or ID3 metadata (TimedMetadata) to
+-- Passthrough.
 --
 -- 'scte35Esam', 'mpdSettings_scte35Esam' - Use this setting only when you specify SCTE-35 markers from ESAM. Choose
 -- INSERT to put SCTE-35 markers in this output at the insertion points
@@ -196,14 +202,14 @@ data MpdSettings = MpdSettings'
 -- Passthrough.
 --
 -- 'timedMetadataSchemeIdUri', 'mpdSettings_timedMetadataSchemeIdUri' - Specify the event message box (eMSG) scheme ID URI (scheme_id_uri) for
--- ID3 timed metadata in your output. For more informaiton, see ISO\/IEC
+-- ID3 timed metadata in your output. For more information, see ISO\/IEC
 -- 23009-1:2022 section 5.10.3.3.4 Semantics. Leave blank to use the
 -- default value: https:\/\/aomedia.org\/emsg\/ID3 When you specify a value
 -- for ID3 metadata scheme ID URI, you must also set ID3 metadata
 -- (timedMetadata) to Passthrough.
 --
 -- 'timedMetadataValue', 'mpdSettings_timedMetadataValue' - Specify the event message box (eMSG) value for ID3 timed metadata in
--- your output. For more informaiton, see ISO\/IEC 23009-1:2022 section
+-- your output. For more information, see ISO\/IEC 23009-1:2022 section
 -- 5.10.3.3.4 Semantics. When you specify a value for ID3 Metadata Value,
 -- you must also set ID3 metadata (timedMetadata) to Passthrough.
 newMpdSettings ::
@@ -274,7 +280,10 @@ mpdSettings_klvMetadata = Lens.lens (\MpdSettings' {klvMetadata} -> klvMetadata)
 -- same value that you specify for ID3 metadata scheme ID URI. For SCTE35
 -- event messages, the InbandEventStream element schemeIdUri will be
 -- \"urn:scte:scte35:2013:bin\". To leave these elements out of your output
--- MPD manifest, set Manifest metadata signaling to Disabled.
+-- MPD manifest, set Manifest metadata signaling to Disabled. To enable
+-- Manifest metadata signaling, you must also set SCTE-35 source to
+-- Passthrough, ESAM SCTE-35 to insert, or ID3 metadata (TimedMetadata) to
+-- Passthrough.
 mpdSettings_manifestMetadataSignaling :: Lens.Lens' MpdSettings (Prelude.Maybe MpdManifestMetadataSignaling)
 mpdSettings_manifestMetadataSignaling = Lens.lens (\MpdSettings' {manifestMetadataSignaling} -> manifestMetadataSignaling) (\s@MpdSettings' {} a -> s {manifestMetadataSignaling = a} :: MpdSettings)
 
@@ -310,7 +319,7 @@ mpdSettings_timedMetadataBoxVersion :: Lens.Lens' MpdSettings (Prelude.Maybe Mpd
 mpdSettings_timedMetadataBoxVersion = Lens.lens (\MpdSettings' {timedMetadataBoxVersion} -> timedMetadataBoxVersion) (\s@MpdSettings' {} a -> s {timedMetadataBoxVersion = a} :: MpdSettings)
 
 -- | Specify the event message box (eMSG) scheme ID URI (scheme_id_uri) for
--- ID3 timed metadata in your output. For more informaiton, see ISO\/IEC
+-- ID3 timed metadata in your output. For more information, see ISO\/IEC
 -- 23009-1:2022 section 5.10.3.3.4 Semantics. Leave blank to use the
 -- default value: https:\/\/aomedia.org\/emsg\/ID3 When you specify a value
 -- for ID3 metadata scheme ID URI, you must also set ID3 metadata
@@ -319,7 +328,7 @@ mpdSettings_timedMetadataSchemeIdUri :: Lens.Lens' MpdSettings (Prelude.Maybe Pr
 mpdSettings_timedMetadataSchemeIdUri = Lens.lens (\MpdSettings' {timedMetadataSchemeIdUri} -> timedMetadataSchemeIdUri) (\s@MpdSettings' {} a -> s {timedMetadataSchemeIdUri = a} :: MpdSettings)
 
 -- | Specify the event message box (eMSG) value for ID3 timed metadata in
--- your output. For more informaiton, see ISO\/IEC 23009-1:2022 section
+-- your output. For more information, see ISO\/IEC 23009-1:2022 section
 -- 5.10.3.3.4 Semantics. When you specify a value for ID3 Metadata Value,
 -- you must also set ID3 metadata (timedMetadata) to Passthrough.
 mpdSettings_timedMetadataValue :: Lens.Lens' MpdSettings (Prelude.Maybe Prelude.Text)

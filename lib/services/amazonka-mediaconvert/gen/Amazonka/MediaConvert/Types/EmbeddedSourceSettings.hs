@@ -124,7 +124,8 @@ instance Data.FromJSON EmbeddedSourceSettings where
 
 instance Prelude.Hashable EmbeddedSourceSettings where
   hashWithSalt _salt EmbeddedSourceSettings' {..} =
-    _salt `Prelude.hashWithSalt` convert608To708
+    _salt
+      `Prelude.hashWithSalt` convert608To708
       `Prelude.hashWithSalt` source608ChannelNumber
       `Prelude.hashWithSalt` source608TrackNumber
       `Prelude.hashWithSalt` terminateCaptions

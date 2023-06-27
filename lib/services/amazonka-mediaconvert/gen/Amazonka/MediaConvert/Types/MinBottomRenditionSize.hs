@@ -86,7 +86,8 @@ instance Data.FromJSON MinBottomRenditionSize where
 
 instance Prelude.Hashable MinBottomRenditionSize where
   hashWithSalt _salt MinBottomRenditionSize' {..} =
-    _salt `Prelude.hashWithSalt` height
+    _salt
+      `Prelude.hashWithSalt` height
       `Prelude.hashWithSalt` width
 
 instance Prelude.NFData MinBottomRenditionSize where

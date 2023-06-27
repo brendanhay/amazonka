@@ -27,7 +27,7 @@ import Amazonka.MediaConvert.Types.LanguageCode
 import qualified Amazonka.Prelude as Prelude
 
 -- | Use captions selectors to specify the captions data from your input that
--- you use in your outputs. You can use up to 20 captions selectors per
+-- you use in your outputs. You can use up to 100 captions selectors per
 -- input.
 --
 -- /See:/ 'newCaptionSelector' smart constructor.
@@ -134,7 +134,8 @@ instance Data.FromJSON CaptionSelector where
 
 instance Prelude.Hashable CaptionSelector where
   hashWithSalt _salt CaptionSelector' {..} =
-    _salt `Prelude.hashWithSalt` customLanguageCode
+    _salt
+      `Prelude.hashWithSalt` customLanguageCode
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` sourceSettings
 

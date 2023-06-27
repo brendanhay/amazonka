@@ -30,8 +30,11 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | If enable, use reference B frames for GOP structures that have B frames
--- > 1.
+-- | Specify whether to allow B-frames to be referenced by other frame types.
+-- To use reference B-frames when your GOP structure has 1 or more
+-- B-frames: Leave blank or keep the default value Enabled. We recommend
+-- that you choose Enabled to help improve the video quality of your output
+-- relative to its bitrate. To not use reference B-frames: Choose Disabled.
 newtype H264GopBReference = H264GopBReference'
   { fromH264GopBReference ::
       Data.Text

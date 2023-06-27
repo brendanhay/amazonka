@@ -102,7 +102,8 @@ instance Data.FromJSON HlsCaptionLanguageMapping where
 
 instance Prelude.Hashable HlsCaptionLanguageMapping where
   hashWithSalt _salt HlsCaptionLanguageMapping' {..} =
-    _salt `Prelude.hashWithSalt` captionChannel
+    _salt
+      `Prelude.hashWithSalt` captionChannel
       `Prelude.hashWithSalt` customLanguageCode
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` languageDescription

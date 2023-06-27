@@ -52,16 +52,17 @@ data Vp9Settings = Vp9Settings'
     -- FramerateDenominator.
     framerateControl :: Prelude.Maybe Vp9FramerateControl,
     -- | Choose the method that you want MediaConvert to use when increasing or
-    -- decreasing the frame rate. We recommend using drop duplicate
-    -- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
-    -- 30 fps. For numerically complex conversions, you can use interpolate
-    -- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but
-    -- might introduce undesirable video artifacts. For complex frame rate
-    -- conversions, especially if your source video has already been converted
-    -- from its original cadence, use FrameFormer (FRAMEFORMER) to do
-    -- motion-compensated interpolation. FrameFormer chooses the best
-    -- conversion method frame by frame. Note that using FrameFormer increases
-    -- the transcoding time and incurs a significant add-on cost.
+    -- decreasing the frame rate. For numerically simple conversions, such as
+    -- 60 fps to 30 fps: We recommend that you keep the default value, Drop
+    -- duplicate. For numerically complex conversions, to avoid stutter: Choose
+    -- Interpolate. This results in a smooth picture, but might introduce
+    -- undesirable video artifacts. For complex frame rate conversions,
+    -- especially if your source video has already been converted from its
+    -- original cadence: Choose FrameFormer to do motion-compensated
+    -- interpolation. FrameFormer uses the best conversion method frame by
+    -- frame. Note that using FrameFormer increases the transcoding time and
+    -- incurs a significant add-on cost. When you choose FrameFormer, your
+    -- input video resolution must be at least 128x96.
     framerateConversionAlgorithm :: Prelude.Maybe Vp9FramerateConversionAlgorithm,
     -- | When you use the API for transcode jobs that use frame rate conversion,
     -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
@@ -143,16 +144,17 @@ data Vp9Settings = Vp9Settings'
 -- FramerateDenominator.
 --
 -- 'framerateConversionAlgorithm', 'vp9Settings_framerateConversionAlgorithm' - Choose the method that you want MediaConvert to use when increasing or
--- decreasing the frame rate. We recommend using drop duplicate
--- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
--- 30 fps. For numerically complex conversions, you can use interpolate
--- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but
--- might introduce undesirable video artifacts. For complex frame rate
--- conversions, especially if your source video has already been converted
--- from its original cadence, use FrameFormer (FRAMEFORMER) to do
--- motion-compensated interpolation. FrameFormer chooses the best
--- conversion method frame by frame. Note that using FrameFormer increases
--- the transcoding time and incurs a significant add-on cost.
+-- decreasing the frame rate. For numerically simple conversions, such as
+-- 60 fps to 30 fps: We recommend that you keep the default value, Drop
+-- duplicate. For numerically complex conversions, to avoid stutter: Choose
+-- Interpolate. This results in a smooth picture, but might introduce
+-- undesirable video artifacts. For complex frame rate conversions,
+-- especially if your source video has already been converted from its
+-- original cadence: Choose FrameFormer to do motion-compensated
+-- interpolation. FrameFormer uses the best conversion method frame by
+-- frame. Note that using FrameFormer increases the transcoding time and
+-- incurs a significant add-on cost. When you choose FrameFormer, your
+-- input video resolution must be at least 128x96.
 --
 -- 'framerateDenominator', 'vp9Settings_framerateDenominator' - When you use the API for transcode jobs that use frame rate conversion,
 -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
@@ -245,16 +247,17 @@ vp9Settings_framerateControl :: Lens.Lens' Vp9Settings (Prelude.Maybe Vp9Framera
 vp9Settings_framerateControl = Lens.lens (\Vp9Settings' {framerateControl} -> framerateControl) (\s@Vp9Settings' {} a -> s {framerateControl = a} :: Vp9Settings)
 
 -- | Choose the method that you want MediaConvert to use when increasing or
--- decreasing the frame rate. We recommend using drop duplicate
--- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
--- 30 fps. For numerically complex conversions, you can use interpolate
--- (INTERPOLATE) to avoid stutter. This results in a smooth picture, but
--- might introduce undesirable video artifacts. For complex frame rate
--- conversions, especially if your source video has already been converted
--- from its original cadence, use FrameFormer (FRAMEFORMER) to do
--- motion-compensated interpolation. FrameFormer chooses the best
--- conversion method frame by frame. Note that using FrameFormer increases
--- the transcoding time and incurs a significant add-on cost.
+-- decreasing the frame rate. For numerically simple conversions, such as
+-- 60 fps to 30 fps: We recommend that you keep the default value, Drop
+-- duplicate. For numerically complex conversions, to avoid stutter: Choose
+-- Interpolate. This results in a smooth picture, but might introduce
+-- undesirable video artifacts. For complex frame rate conversions,
+-- especially if your source video has already been converted from its
+-- original cadence: Choose FrameFormer to do motion-compensated
+-- interpolation. FrameFormer uses the best conversion method frame by
+-- frame. Note that using FrameFormer increases the transcoding time and
+-- incurs a significant add-on cost. When you choose FrameFormer, your
+-- input video resolution must be at least 128x96.
 vp9Settings_framerateConversionAlgorithm :: Lens.Lens' Vp9Settings (Prelude.Maybe Vp9FramerateConversionAlgorithm)
 vp9Settings_framerateConversionAlgorithm = Lens.lens (\Vp9Settings' {framerateConversionAlgorithm} -> framerateConversionAlgorithm) (\s@Vp9Settings' {} a -> s {framerateConversionAlgorithm = a} :: Vp9Settings)
 
@@ -352,7 +355,8 @@ instance Data.FromJSON Vp9Settings where
 
 instance Prelude.Hashable Vp9Settings where
   hashWithSalt _salt Vp9Settings' {..} =
-    _salt `Prelude.hashWithSalt` bitrate
+    _salt
+      `Prelude.hashWithSalt` bitrate
       `Prelude.hashWithSalt` framerateControl
       `Prelude.hashWithSalt` framerateConversionAlgorithm
       `Prelude.hashWithSalt` framerateDenominator

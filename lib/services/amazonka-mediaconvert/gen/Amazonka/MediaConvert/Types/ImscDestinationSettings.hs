@@ -36,15 +36,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newImscDestinationSettings' smart constructor.
 data ImscDestinationSettings = ImscDestinationSettings'
-  { -- | Set Accessibility subtitles to Enabled if the ISMC or WebVTT captions
-    -- track is intended to provide accessibility for people who are deaf or
-    -- hard of hearing. When you enable this feature, MediaConvert adds the
-    -- following attributes under EXT-X-MEDIA in the HLS or CMAF manifest for
-    -- this track:
+  { -- | If the IMSC captions track is intended to provide accessibility for
+    -- people who are deaf or hard of hearing: Set Accessibility subtitles to
+    -- Enabled. When you do, MediaConvert adds accessibility attributes to your
+    -- output HLS or DASH manifest. For HLS manifests, MediaConvert adds the
+    -- following accessibility attributes under EXT-X-MEDIA for this track:
     -- CHARACTERISTICS=\"public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound\"
-    -- and AUTOSELECT=\"YES\". Keep the default value, Disabled, if the
-    -- captions track is not intended to provide such accessibility.
-    -- MediaConvert will not add the above attributes.
+    -- and AUTOSELECT=\"YES\". For DASH manifests, MediaConvert adds the
+    -- following in the adaptation set for this track: . If the captions track
+    -- is not intended to provide such accessibility: Keep the default value,
+    -- Disabled. When you do, for DASH manifests, MediaConvert instead adds the
+    -- following in the adaptation set for this track: .
     accessibility :: Prelude.Maybe ImscAccessibilitySubs,
     -- | Keep this setting enabled to have MediaConvert use the font style and
     -- position information from the captions source in the output. This option
@@ -62,15 +64,17 @@ data ImscDestinationSettings = ImscDestinationSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessibility', 'imscDestinationSettings_accessibility' - Set Accessibility subtitles to Enabled if the ISMC or WebVTT captions
--- track is intended to provide accessibility for people who are deaf or
--- hard of hearing. When you enable this feature, MediaConvert adds the
--- following attributes under EXT-X-MEDIA in the HLS or CMAF manifest for
--- this track:
+-- 'accessibility', 'imscDestinationSettings_accessibility' - If the IMSC captions track is intended to provide accessibility for
+-- people who are deaf or hard of hearing: Set Accessibility subtitles to
+-- Enabled. When you do, MediaConvert adds accessibility attributes to your
+-- output HLS or DASH manifest. For HLS manifests, MediaConvert adds the
+-- following accessibility attributes under EXT-X-MEDIA for this track:
 -- CHARACTERISTICS=\"public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound\"
--- and AUTOSELECT=\"YES\". Keep the default value, Disabled, if the
--- captions track is not intended to provide such accessibility.
--- MediaConvert will not add the above attributes.
+-- and AUTOSELECT=\"YES\". For DASH manifests, MediaConvert adds the
+-- following in the adaptation set for this track: . If the captions track
+-- is not intended to provide such accessibility: Keep the default value,
+-- Disabled. When you do, for DASH manifests, MediaConvert instead adds the
+-- following in the adaptation set for this track: .
 --
 -- 'stylePassthrough', 'imscDestinationSettings_stylePassthrough' - Keep this setting enabled to have MediaConvert use the font style and
 -- position information from the captions source in the output. This option
@@ -85,15 +89,17 @@ newImscDestinationSettings =
       stylePassthrough = Prelude.Nothing
     }
 
--- | Set Accessibility subtitles to Enabled if the ISMC or WebVTT captions
--- track is intended to provide accessibility for people who are deaf or
--- hard of hearing. When you enable this feature, MediaConvert adds the
--- following attributes under EXT-X-MEDIA in the HLS or CMAF manifest for
--- this track:
+-- | If the IMSC captions track is intended to provide accessibility for
+-- people who are deaf or hard of hearing: Set Accessibility subtitles to
+-- Enabled. When you do, MediaConvert adds accessibility attributes to your
+-- output HLS or DASH manifest. For HLS manifests, MediaConvert adds the
+-- following accessibility attributes under EXT-X-MEDIA for this track:
 -- CHARACTERISTICS=\"public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound\"
--- and AUTOSELECT=\"YES\". Keep the default value, Disabled, if the
--- captions track is not intended to provide such accessibility.
--- MediaConvert will not add the above attributes.
+-- and AUTOSELECT=\"YES\". For DASH manifests, MediaConvert adds the
+-- following in the adaptation set for this track: . If the captions track
+-- is not intended to provide such accessibility: Keep the default value,
+-- Disabled. When you do, for DASH manifests, MediaConvert instead adds the
+-- following in the adaptation set for this track: .
 imscDestinationSettings_accessibility :: Lens.Lens' ImscDestinationSettings (Prelude.Maybe ImscAccessibilitySubs)
 imscDestinationSettings_accessibility = Lens.lens (\ImscDestinationSettings' {accessibility} -> accessibility) (\s@ImscDestinationSettings' {} a -> s {accessibility = a} :: ImscDestinationSettings)
 
@@ -116,7 +122,8 @@ instance Data.FromJSON ImscDestinationSettings where
 
 instance Prelude.Hashable ImscDestinationSettings where
   hashWithSalt _salt ImscDestinationSettings' {..} =
-    _salt `Prelude.hashWithSalt` accessibility
+    _salt
+      `Prelude.hashWithSalt` accessibility
       `Prelude.hashWithSalt` stylePassthrough
 
 instance Prelude.NFData ImscDestinationSettings where

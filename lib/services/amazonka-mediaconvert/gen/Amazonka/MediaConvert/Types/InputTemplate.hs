@@ -22,6 +22,8 @@ module Amazonka.MediaConvert.Types.InputTemplate where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.MediaConvert.Types.AdvancedInputFilter
+import Amazonka.MediaConvert.Types.AdvancedInputFilterSettings
 import Amazonka.MediaConvert.Types.AudioSelector
 import Amazonka.MediaConvert.Types.AudioSelectorGroup
 import Amazonka.MediaConvert.Types.CaptionSelector
@@ -41,7 +43,23 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInputTemplate' smart constructor.
 data InputTemplate = InputTemplate'
-  { -- | Use audio selector groups to combine multiple sidecar audio inputs so
+  { -- | Use to remove noise, blocking, blurriness, or ringing from your input as
+    -- a pre-filter step before encoding. The Advanced input filter removes
+    -- more types of compression artifacts and is an improvement when compared
+    -- to basic Deblock and Denoise filters. To remove video compression
+    -- artifacts from your input and improve the video quality: Choose Enabled.
+    -- Additionally, this filter can help increase the video quality of your
+    -- output relative to its bitrate, since noisy inputs are more complex and
+    -- require more bits to encode. To help restore loss of detail after
+    -- applying the filter, you can optionally add texture or sharpening as an
+    -- additional step. Jobs that use this feature incur pro-tier pricing. To
+    -- not apply advanced input filtering: Choose Disabled. Note that you can
+    -- still apply basic filtering with Deblock and Denoise.
+    advancedInputFilter :: Prelude.Maybe AdvancedInputFilter,
+    -- | Optional settings for Advanced input filter when you set Advanced input
+    -- filter to Enabled.
+    advancedInputFilterSettings :: Prelude.Maybe AdvancedInputFilterSettings,
+    -- | Use audio selector groups to combine multiple sidecar audio inputs so
     -- that you can assign them to a single output audio tab
     -- (AudioDescription). Note that, if you\'re working with embedded audio,
     -- it\'s simpler to assign multiple input tracks into a single audio
@@ -52,7 +70,7 @@ data InputTemplate = InputTemplate'
     -- Audio selectors per input.
     audioSelectors :: Prelude.Maybe (Prelude.HashMap Prelude.Text AudioSelector),
     -- | Use captions selectors to specify the captions data from your input that
-    -- you use in your outputs. You can use up to 20 captions selectors per
+    -- you use in your outputs. You can use up to 100 captions selectors per
     -- input.
     captionSelectors :: Prelude.Maybe (Prelude.HashMap Prelude.Text CaptionSelector),
     -- | Use Cropping selection (crop) to specify the video area that the service
@@ -79,19 +97,20 @@ data InputTemplate = InputTemplate'
     -- permissions to this file. For more information, see
     -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/iam-role.html.
     dolbyVisionMetadataXml :: Prelude.Maybe Prelude.Text,
-    -- | Specify how the transcoding service applies the denoise and deblock
-    -- filters. You must also enable the filters separately, with Denoise
-    -- (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The
-    -- transcoding service determines whether to apply filtering, depending on
-    -- input type and quality. * Disable - The input is not filtered. This is
-    -- true even if you use the API to enable them in (InputDeblockFilter) and
-    -- (InputDeblockFilter). * Force - The input is filtered regardless of
-    -- input type.
+    -- | Specify whether to apply input filtering to improve the video quality of
+    -- your input. To apply filtering depending on your input type and quality:
+    -- Choose Auto. To apply no filtering: Choose Disable. To apply filtering
+    -- regardless of your input type and quality: Choose Force. When you do,
+    -- you must also specify a value for Filter strength.
     filterEnable :: Prelude.Maybe InputFilterEnable,
-    -- | Use Filter strength (FilterStrength) to adjust the magnitude the input
-    -- filter settings (Deblock and Denoise). The range is -5 to 5. Default is
-    -- 0.
-    filterStrength :: Prelude.Maybe Prelude.Int,
+    -- | Specify the strength of the input filter. To apply an automatic amount
+    -- of filtering based the compression artifacts measured in your input: We
+    -- recommend that you leave Filter strength blank and set Filter enable to
+    -- Auto. To manually apply filtering: Enter a value from 1 to 5, where 1 is
+    -- the least amount of filtering and 5 is the most. The value that you
+    -- enter applies to the strength of the Deblock or Denoise filters, or to
+    -- the strength of the Advanced input filter.
+    filterStrength :: Prelude.Maybe Prelude.Natural,
     -- | Enable the image inserter feature to include a graphic overlay on your
     -- video. Enable or disable this feature for each input individually. This
     -- setting is disabled by default.
@@ -165,6 +184,22 @@ data InputTemplate = InputTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'advancedInputFilter', 'inputTemplate_advancedInputFilter' - Use to remove noise, blocking, blurriness, or ringing from your input as
+-- a pre-filter step before encoding. The Advanced input filter removes
+-- more types of compression artifacts and is an improvement when compared
+-- to basic Deblock and Denoise filters. To remove video compression
+-- artifacts from your input and improve the video quality: Choose Enabled.
+-- Additionally, this filter can help increase the video quality of your
+-- output relative to its bitrate, since noisy inputs are more complex and
+-- require more bits to encode. To help restore loss of detail after
+-- applying the filter, you can optionally add texture or sharpening as an
+-- additional step. Jobs that use this feature incur pro-tier pricing. To
+-- not apply advanced input filtering: Choose Disabled. Note that you can
+-- still apply basic filtering with Deblock and Denoise.
+--
+-- 'advancedInputFilterSettings', 'inputTemplate_advancedInputFilterSettings' - Optional settings for Advanced input filter when you set Advanced input
+-- filter to Enabled.
+--
 -- 'audioSelectorGroups', 'inputTemplate_audioSelectorGroups' - Use audio selector groups to combine multiple sidecar audio inputs so
 -- that you can assign them to a single output audio tab
 -- (AudioDescription). Note that, if you\'re working with embedded audio,
@@ -176,7 +211,7 @@ data InputTemplate = InputTemplate'
 -- Audio selectors per input.
 --
 -- 'captionSelectors', 'inputTemplate_captionSelectors' - Use captions selectors to specify the captions data from your input that
--- you use in your outputs. You can use up to 20 captions selectors per
+-- you use in your outputs. You can use up to 100 captions selectors per
 -- input.
 --
 -- 'crop', 'inputTemplate_crop' - Use Cropping selection (crop) to specify the video area that the service
@@ -203,18 +238,19 @@ data InputTemplate = InputTemplate'
 -- permissions to this file. For more information, see
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/iam-role.html.
 --
--- 'filterEnable', 'inputTemplate_filterEnable' - Specify how the transcoding service applies the denoise and deblock
--- filters. You must also enable the filters separately, with Denoise
--- (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The
--- transcoding service determines whether to apply filtering, depending on
--- input type and quality. * Disable - The input is not filtered. This is
--- true even if you use the API to enable them in (InputDeblockFilter) and
--- (InputDeblockFilter). * Force - The input is filtered regardless of
--- input type.
+-- 'filterEnable', 'inputTemplate_filterEnable' - Specify whether to apply input filtering to improve the video quality of
+-- your input. To apply filtering depending on your input type and quality:
+-- Choose Auto. To apply no filtering: Choose Disable. To apply filtering
+-- regardless of your input type and quality: Choose Force. When you do,
+-- you must also specify a value for Filter strength.
 --
--- 'filterStrength', 'inputTemplate_filterStrength' - Use Filter strength (FilterStrength) to adjust the magnitude the input
--- filter settings (Deblock and Denoise). The range is -5 to 5. Default is
--- 0.
+-- 'filterStrength', 'inputTemplate_filterStrength' - Specify the strength of the input filter. To apply an automatic amount
+-- of filtering based the compression artifacts measured in your input: We
+-- recommend that you leave Filter strength blank and set Filter enable to
+-- Auto. To manually apply filtering: Enter a value from 1 to 5, where 1 is
+-- the least amount of filtering and 5 is the most. The value that you
+-- enter applies to the strength of the Deblock or Denoise filters, or to
+-- the strength of the Advanced input filter.
 --
 -- 'imageInserter', 'inputTemplate_imageInserter' - Enable the image inserter feature to include a graphic overlay on your
 -- video. Enable or disable this feature for each input individually. This
@@ -281,8 +317,10 @@ newInputTemplate ::
   InputTemplate
 newInputTemplate =
   InputTemplate'
-    { audioSelectorGroups =
+    { advancedInputFilter =
         Prelude.Nothing,
+      advancedInputFilterSettings = Prelude.Nothing,
+      audioSelectorGroups = Prelude.Nothing,
       audioSelectors = Prelude.Nothing,
       captionSelectors = Prelude.Nothing,
       crop = Prelude.Nothing,
@@ -302,6 +340,26 @@ newInputTemplate =
       videoSelector = Prelude.Nothing
     }
 
+-- | Use to remove noise, blocking, blurriness, or ringing from your input as
+-- a pre-filter step before encoding. The Advanced input filter removes
+-- more types of compression artifacts and is an improvement when compared
+-- to basic Deblock and Denoise filters. To remove video compression
+-- artifacts from your input and improve the video quality: Choose Enabled.
+-- Additionally, this filter can help increase the video quality of your
+-- output relative to its bitrate, since noisy inputs are more complex and
+-- require more bits to encode. To help restore loss of detail after
+-- applying the filter, you can optionally add texture or sharpening as an
+-- additional step. Jobs that use this feature incur pro-tier pricing. To
+-- not apply advanced input filtering: Choose Disabled. Note that you can
+-- still apply basic filtering with Deblock and Denoise.
+inputTemplate_advancedInputFilter :: Lens.Lens' InputTemplate (Prelude.Maybe AdvancedInputFilter)
+inputTemplate_advancedInputFilter = Lens.lens (\InputTemplate' {advancedInputFilter} -> advancedInputFilter) (\s@InputTemplate' {} a -> s {advancedInputFilter = a} :: InputTemplate)
+
+-- | Optional settings for Advanced input filter when you set Advanced input
+-- filter to Enabled.
+inputTemplate_advancedInputFilterSettings :: Lens.Lens' InputTemplate (Prelude.Maybe AdvancedInputFilterSettings)
+inputTemplate_advancedInputFilterSettings = Lens.lens (\InputTemplate' {advancedInputFilterSettings} -> advancedInputFilterSettings) (\s@InputTemplate' {} a -> s {advancedInputFilterSettings = a} :: InputTemplate)
+
 -- | Use audio selector groups to combine multiple sidecar audio inputs so
 -- that you can assign them to a single output audio tab
 -- (AudioDescription). Note that, if you\'re working with embedded audio,
@@ -317,7 +375,7 @@ inputTemplate_audioSelectors :: Lens.Lens' InputTemplate (Prelude.Maybe (Prelude
 inputTemplate_audioSelectors = Lens.lens (\InputTemplate' {audioSelectors} -> audioSelectors) (\s@InputTemplate' {} a -> s {audioSelectors = a} :: InputTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | Use captions selectors to specify the captions data from your input that
--- you use in your outputs. You can use up to 20 captions selectors per
+-- you use in your outputs. You can use up to 100 captions selectors per
 -- input.
 inputTemplate_captionSelectors :: Lens.Lens' InputTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text CaptionSelector))
 inputTemplate_captionSelectors = Lens.lens (\InputTemplate' {captionSelectors} -> captionSelectors) (\s@InputTemplate' {} a -> s {captionSelectors = a} :: InputTemplate) Prelude.. Lens.mapping Lens.coerced
@@ -354,21 +412,22 @@ inputTemplate_denoiseFilter = Lens.lens (\InputTemplate' {denoiseFilter} -> deno
 inputTemplate_dolbyVisionMetadataXml :: Lens.Lens' InputTemplate (Prelude.Maybe Prelude.Text)
 inputTemplate_dolbyVisionMetadataXml = Lens.lens (\InputTemplate' {dolbyVisionMetadataXml} -> dolbyVisionMetadataXml) (\s@InputTemplate' {} a -> s {dolbyVisionMetadataXml = a} :: InputTemplate)
 
--- | Specify how the transcoding service applies the denoise and deblock
--- filters. You must also enable the filters separately, with Denoise
--- (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The
--- transcoding service determines whether to apply filtering, depending on
--- input type and quality. * Disable - The input is not filtered. This is
--- true even if you use the API to enable them in (InputDeblockFilter) and
--- (InputDeblockFilter). * Force - The input is filtered regardless of
--- input type.
+-- | Specify whether to apply input filtering to improve the video quality of
+-- your input. To apply filtering depending on your input type and quality:
+-- Choose Auto. To apply no filtering: Choose Disable. To apply filtering
+-- regardless of your input type and quality: Choose Force. When you do,
+-- you must also specify a value for Filter strength.
 inputTemplate_filterEnable :: Lens.Lens' InputTemplate (Prelude.Maybe InputFilterEnable)
 inputTemplate_filterEnable = Lens.lens (\InputTemplate' {filterEnable} -> filterEnable) (\s@InputTemplate' {} a -> s {filterEnable = a} :: InputTemplate)
 
--- | Use Filter strength (FilterStrength) to adjust the magnitude the input
--- filter settings (Deblock and Denoise). The range is -5 to 5. Default is
--- 0.
-inputTemplate_filterStrength :: Lens.Lens' InputTemplate (Prelude.Maybe Prelude.Int)
+-- | Specify the strength of the input filter. To apply an automatic amount
+-- of filtering based the compression artifacts measured in your input: We
+-- recommend that you leave Filter strength blank and set Filter enable to
+-- Auto. To manually apply filtering: Enter a value from 1 to 5, where 1 is
+-- the least amount of filtering and 5 is the most. The value that you
+-- enter applies to the strength of the Deblock or Denoise filters, or to
+-- the strength of the Advanced input filter.
+inputTemplate_filterStrength :: Lens.Lens' InputTemplate (Prelude.Maybe Prelude.Natural)
 inputTemplate_filterStrength = Lens.lens (\InputTemplate' {filterStrength} -> filterStrength) (\s@InputTemplate' {} a -> s {filterStrength = a} :: InputTemplate)
 
 -- | Enable the image inserter feature to include a graphic overlay on your
@@ -457,11 +516,15 @@ instance Data.FromJSON InputTemplate where
       "InputTemplate"
       ( \x ->
           InputTemplate'
-            Prelude.<$> ( x Data..:? "audioSelectorGroups"
+            Prelude.<$> (x Data..:? "advancedInputFilter")
+            Prelude.<*> (x Data..:? "advancedInputFilterSettings")
+            Prelude.<*> ( x
+                            Data..:? "audioSelectorGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "audioSelectors" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "captionSelectors"
+            Prelude.<*> ( x
+                            Data..:? "captionSelectors"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "crop")
@@ -483,7 +546,10 @@ instance Data.FromJSON InputTemplate where
 
 instance Prelude.Hashable InputTemplate where
   hashWithSalt _salt InputTemplate' {..} =
-    _salt `Prelude.hashWithSalt` audioSelectorGroups
+    _salt
+      `Prelude.hashWithSalt` advancedInputFilter
+      `Prelude.hashWithSalt` advancedInputFilterSettings
+      `Prelude.hashWithSalt` audioSelectorGroups
       `Prelude.hashWithSalt` audioSelectors
       `Prelude.hashWithSalt` captionSelectors
       `Prelude.hashWithSalt` crop
@@ -504,7 +570,9 @@ instance Prelude.Hashable InputTemplate where
 
 instance Prelude.NFData InputTemplate where
   rnf InputTemplate' {..} =
-    Prelude.rnf audioSelectorGroups
+    Prelude.rnf advancedInputFilter
+      `Prelude.seq` Prelude.rnf advancedInputFilterSettings
+      `Prelude.seq` Prelude.rnf audioSelectorGroups
       `Prelude.seq` Prelude.rnf audioSelectors
       `Prelude.seq` Prelude.rnf captionSelectors
       `Prelude.seq` Prelude.rnf crop
@@ -527,7 +595,11 @@ instance Data.ToJSON InputTemplate where
   toJSON InputTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("audioSelectorGroups" Data..=)
+          [ ("advancedInputFilter" Data..=)
+              Prelude.<$> advancedInputFilter,
+            ("advancedInputFilterSettings" Data..=)
+              Prelude.<$> advancedInputFilterSettings,
+            ("audioSelectorGroups" Data..=)
               Prelude.<$> audioSelectorGroups,
             ("audioSelectors" Data..=)
               Prelude.<$> audioSelectors,

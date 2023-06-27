@@ -75,7 +75,12 @@ data CreateJob = CreateJob'
     -- valid value for this field, your job outputs will appear on the billing
     -- report unsorted.
     billingTagsSource :: Prelude.Maybe BillingTagsSource,
-    -- | Optional. Idempotency token for CreateJob operation.
+    -- | Prevent duplicate jobs from being created and ensure idempotency for
+    -- your requests. A client request token can be any string that includes up
+    -- to 64 ASCII characters. If you reuse a client request token within one
+    -- minute of a successful request, the API returns the job details of the
+    -- original request instead. For more information see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/apireference\/idempotency.html.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Optional. Use queue hopping to avoid overly long waits in the backlog of
     -- the queue that you submit your job to. Specify an alternate queue and
@@ -148,7 +153,12 @@ data CreateJob = CreateJob'
 -- valid value for this field, your job outputs will appear on the billing
 -- report unsorted.
 --
--- 'clientRequestToken', 'createJob_clientRequestToken' - Optional. Idempotency token for CreateJob operation.
+-- 'clientRequestToken', 'createJob_clientRequestToken' - Prevent duplicate jobs from being created and ensure idempotency for
+-- your requests. A client request token can be any string that includes up
+-- to 64 ASCII characters. If you reuse a client request token within one
+-- minute of a successful request, the API returns the job details of the
+-- original request instead. For more information see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/apireference\/idempotency.html.
 --
 -- 'hopDestinations', 'createJob_hopDestinations' - Optional. Use queue hopping to avoid overly long waits in the backlog of
 -- the queue that you submit your job to. Specify an alternate queue and
@@ -236,7 +246,12 @@ createJob_accelerationSettings = Lens.lens (\CreateJob' {accelerationSettings} -
 createJob_billingTagsSource :: Lens.Lens' CreateJob (Prelude.Maybe BillingTagsSource)
 createJob_billingTagsSource = Lens.lens (\CreateJob' {billingTagsSource} -> billingTagsSource) (\s@CreateJob' {} a -> s {billingTagsSource = a} :: CreateJob)
 
--- | Optional. Idempotency token for CreateJob operation.
+-- | Prevent duplicate jobs from being created and ensure idempotency for
+-- your requests. A client request token can be any string that includes up
+-- to 64 ASCII characters. If you reuse a client request token within one
+-- minute of a successful request, the API returns the job details of the
+-- original request instead. For more information see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/apireference\/idempotency.html.
 createJob_clientRequestToken :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
 createJob_clientRequestToken = Lens.lens (\CreateJob' {clientRequestToken} -> clientRequestToken) (\s@CreateJob' {} a -> s {clientRequestToken = a} :: CreateJob)
 
@@ -322,7 +337,8 @@ instance Core.AWSRequest CreateJob where
 
 instance Prelude.Hashable CreateJob where
   hashWithSalt _salt CreateJob' {..} =
-    _salt `Prelude.hashWithSalt` accelerationSettings
+    _salt
+      `Prelude.hashWithSalt` accelerationSettings
       `Prelude.hashWithSalt` billingTagsSource
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` hopDestinations

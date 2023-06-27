@@ -41,6 +41,7 @@ import Amazonka.MediaConvert.Types.CmafVideoCompositionOffsets
 import Amazonka.MediaConvert.Types.CmafWriteDASHManifest
 import Amazonka.MediaConvert.Types.CmafWriteHLSManifest
 import Amazonka.MediaConvert.Types.CmafWriteSegmentTimelineInRepresentation
+import Amazonka.MediaConvert.Types.DashManifestStyle
 import Amazonka.MediaConvert.Types.DestinationSettings
 import qualified Amazonka.Prelude as Prelude
 
@@ -72,6 +73,15 @@ data CmafGroupSettings = CmafGroupSettings'
     -- | Specification to use (RFC-6381 or the default RFC-4281) during m3u8
     -- playlist generation.
     codecSpecification :: Prelude.Maybe CmafCodecSpecification,
+    -- | Specify how MediaConvert writes SegmentTimeline in your output DASH
+    -- manifest. To write a SegmentTimeline in each video Representation: Keep
+    -- the default value, Basic. To write a common SegmentTimeline in the video
+    -- AdaptationSet: Choose Compact. Note that MediaConvert will still write a
+    -- SegmentTimeline in any Representation that does not share a common
+    -- timeline. To write a video AdaptationSet for each different output
+    -- framerate, and a common SegmentTimeline in each AdaptationSet: Choose
+    -- Distinct.
+    dashManifestStyle :: Prelude.Maybe DashManifestStyle,
     -- | Use Destination (Destination) to specify the S3 output location and the
     -- output filename base. Destination accepts format identifiers. If you do
     -- not specify the base filename in the URI, the service will use the
@@ -239,6 +249,15 @@ data CmafGroupSettings = CmafGroupSettings'
 -- 'codecSpecification', 'cmafGroupSettings_codecSpecification' - Specification to use (RFC-6381 or the default RFC-4281) during m3u8
 -- playlist generation.
 --
+-- 'dashManifestStyle', 'cmafGroupSettings_dashManifestStyle' - Specify how MediaConvert writes SegmentTimeline in your output DASH
+-- manifest. To write a SegmentTimeline in each video Representation: Keep
+-- the default value, Basic. To write a common SegmentTimeline in the video
+-- AdaptationSet: Choose Compact. Note that MediaConvert will still write a
+-- SegmentTimeline in any Representation that does not share a common
+-- timeline. To write a video AdaptationSet for each different output
+-- framerate, and a common SegmentTimeline in each AdaptationSet: Choose
+-- Distinct.
+--
 -- 'destination', 'cmafGroupSettings_destination' - Use Destination (Destination) to specify the S3 output location and the
 -- output filename base. Destination accepts format identifiers. If you do
 -- not specify the base filename in the URI, the service will use the
@@ -383,6 +402,7 @@ newCmafGroupSettings =
       baseUrl = Prelude.Nothing,
       clientCache = Prelude.Nothing,
       codecSpecification = Prelude.Nothing,
+      dashManifestStyle = Prelude.Nothing,
       destination = Prelude.Nothing,
       destinationSettings = Prelude.Nothing,
       encryption = Prelude.Nothing,
@@ -435,6 +455,17 @@ cmafGroupSettings_clientCache = Lens.lens (\CmafGroupSettings' {clientCache} -> 
 -- playlist generation.
 cmafGroupSettings_codecSpecification :: Lens.Lens' CmafGroupSettings (Prelude.Maybe CmafCodecSpecification)
 cmafGroupSettings_codecSpecification = Lens.lens (\CmafGroupSettings' {codecSpecification} -> codecSpecification) (\s@CmafGroupSettings' {} a -> s {codecSpecification = a} :: CmafGroupSettings)
+
+-- | Specify how MediaConvert writes SegmentTimeline in your output DASH
+-- manifest. To write a SegmentTimeline in each video Representation: Keep
+-- the default value, Basic. To write a common SegmentTimeline in the video
+-- AdaptationSet: Choose Compact. Note that MediaConvert will still write a
+-- SegmentTimeline in any Representation that does not share a common
+-- timeline. To write a video AdaptationSet for each different output
+-- framerate, and a common SegmentTimeline in each AdaptationSet: Choose
+-- Distinct.
+cmafGroupSettings_dashManifestStyle :: Lens.Lens' CmafGroupSettings (Prelude.Maybe DashManifestStyle)
+cmafGroupSettings_dashManifestStyle = Lens.lens (\CmafGroupSettings' {dashManifestStyle} -> dashManifestStyle) (\s@CmafGroupSettings' {} a -> s {dashManifestStyle = a} :: CmafGroupSettings)
 
 -- | Use Destination (Destination) to specify the S3 output location and the
 -- output filename base. Destination accepts format identifiers. If you do
@@ -622,12 +653,14 @@ instance Data.FromJSON CmafGroupSettings where
       "CmafGroupSettings"
       ( \x ->
           CmafGroupSettings'
-            Prelude.<$> ( x Data..:? "additionalManifests"
+            Prelude.<$> ( x
+                            Data..:? "additionalManifests"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "baseUrl")
             Prelude.<*> (x Data..:? "clientCache")
             Prelude.<*> (x Data..:? "codecSpecification")
+            Prelude.<*> (x Data..:? "dashManifestStyle")
             Prelude.<*> (x Data..:? "destination")
             Prelude.<*> (x Data..:? "destinationSettings")
             Prelude.<*> (x Data..:? "encryption")
@@ -654,10 +687,12 @@ instance Data.FromJSON CmafGroupSettings where
 
 instance Prelude.Hashable CmafGroupSettings where
   hashWithSalt _salt CmafGroupSettings' {..} =
-    _salt `Prelude.hashWithSalt` additionalManifests
+    _salt
+      `Prelude.hashWithSalt` additionalManifests
       `Prelude.hashWithSalt` baseUrl
       `Prelude.hashWithSalt` clientCache
       `Prelude.hashWithSalt` codecSpecification
+      `Prelude.hashWithSalt` dashManifestStyle
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` destinationSettings
       `Prelude.hashWithSalt` encryption
@@ -687,6 +722,7 @@ instance Prelude.NFData CmafGroupSettings where
       `Prelude.seq` Prelude.rnf baseUrl
       `Prelude.seq` Prelude.rnf clientCache
       `Prelude.seq` Prelude.rnf codecSpecification
+      `Prelude.seq` Prelude.rnf dashManifestStyle
       `Prelude.seq` Prelude.rnf destination
       `Prelude.seq` Prelude.rnf destinationSettings
       `Prelude.seq` Prelude.rnf encryption
@@ -728,6 +764,8 @@ instance Data.ToJSON CmafGroupSettings where
             ("clientCache" Data..=) Prelude.<$> clientCache,
             ("codecSpecification" Data..=)
               Prelude.<$> codecSpecification,
+            ("dashManifestStyle" Data..=)
+              Prelude.<$> dashManifestStyle,
             ("destination" Data..=) Prelude.<$> destination,
             ("destinationSettings" Data..=)
               Prelude.<$> destinationSettings,

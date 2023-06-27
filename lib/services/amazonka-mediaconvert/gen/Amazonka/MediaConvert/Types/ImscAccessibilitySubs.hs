@@ -30,15 +30,17 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Set Accessibility subtitles to Enabled if the ISMC or WebVTT captions
--- track is intended to provide accessibility for people who are deaf or
--- hard of hearing. When you enable this feature, MediaConvert adds the
--- following attributes under EXT-X-MEDIA in the HLS or CMAF manifest for
--- this track:
+-- | If the IMSC captions track is intended to provide accessibility for
+-- people who are deaf or hard of hearing: Set Accessibility subtitles to
+-- Enabled. When you do, MediaConvert adds accessibility attributes to your
+-- output HLS or DASH manifest. For HLS manifests, MediaConvert adds the
+-- following accessibility attributes under EXT-X-MEDIA for this track:
 -- CHARACTERISTICS=\"public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound\"
--- and AUTOSELECT=\"YES\". Keep the default value, Disabled, if the
--- captions track is not intended to provide such accessibility.
--- MediaConvert will not add the above attributes.
+-- and AUTOSELECT=\"YES\". For DASH manifests, MediaConvert adds the
+-- following in the adaptation set for this track: . If the captions track
+-- is not intended to provide such accessibility: Keep the default value,
+-- Disabled. When you do, for DASH manifests, MediaConvert instead adds the
+-- following in the adaptation set for this track: .
 newtype ImscAccessibilitySubs = ImscAccessibilitySubs'
   { fromImscAccessibilitySubs ::
       Data.Text

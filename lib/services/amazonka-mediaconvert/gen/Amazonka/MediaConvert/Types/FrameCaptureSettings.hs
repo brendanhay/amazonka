@@ -126,7 +126,8 @@ instance Data.FromJSON FrameCaptureSettings where
 
 instance Prelude.Hashable FrameCaptureSettings where
   hashWithSalt _salt FrameCaptureSettings' {..} =
-    _salt `Prelude.hashWithSalt` framerateDenominator
+    _salt
+      `Prelude.hashWithSalt` framerateDenominator
       `Prelude.hashWithSalt` framerateNumerator
       `Prelude.hashWithSalt` maxCaptures
       `Prelude.hashWithSalt` quality

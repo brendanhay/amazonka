@@ -70,7 +70,7 @@ data AacSettings = AacSettings'
     -- each coding mode. * 1.0 Audio Description (Receiver Mix): One channel,
     -- C. Includes audio description data from your stereo input. For more
     -- information see ETSI TS 101 154 Annex E. * 1.0 Mono: One channel, C. *
-    -- 2.0 Stereo: Two channels, L, R. * 5.1 Surround: Five channels, C, L, R,
+    -- 2.0 Stereo: Two channels, L, R. * 5.1 Surround: Six channels, C, L, R,
     -- Ls, Rs, LFE.
     codingMode :: Prelude.Maybe AacCodingMode,
     -- | Rate Control Mode.
@@ -133,7 +133,7 @@ data AacSettings = AacSettings'
 -- each coding mode. * 1.0 Audio Description (Receiver Mix): One channel,
 -- C. Includes audio description data from your stereo input. For more
 -- information see ETSI TS 101 154 Annex E. * 1.0 Mono: One channel, C. *
--- 2.0 Stereo: Two channels, L, R. * 5.1 Surround: Five channels, C, L, R,
+-- 2.0 Stereo: Two channels, L, R. * 5.1 Surround: Six channels, C, L, R,
 -- Ls, Rs, LFE.
 --
 -- 'rateControlMode', 'aacSettings_rateControlMode' - Rate Control Mode.
@@ -206,7 +206,7 @@ aacSettings_codecProfile = Lens.lens (\AacSettings' {codecProfile} -> codecProfi
 -- each coding mode. * 1.0 Audio Description (Receiver Mix): One channel,
 -- C. Includes audio description data from your stereo input. For more
 -- information see ETSI TS 101 154 Annex E. * 1.0 Mono: One channel, C. *
--- 2.0 Stereo: Two channels, L, R. * 5.1 Surround: Five channels, C, L, R,
+-- 2.0 Stereo: Two channels, L, R. * 5.1 Surround: Six channels, C, L, R,
 -- Ls, Rs, LFE.
 aacSettings_codingMode :: Lens.Lens' AacSettings (Prelude.Maybe AacCodingMode)
 aacSettings_codingMode = Lens.lens (\AacSettings' {codingMode} -> codingMode) (\s@AacSettings' {} a -> s {codingMode = a} :: AacSettings)

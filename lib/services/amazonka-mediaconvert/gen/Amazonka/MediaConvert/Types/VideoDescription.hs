@@ -81,9 +81,11 @@ data VideoDescription = VideoDescription'
     -- Use Fixed (FixedAfd) to specify a four-bit AFD value which the service
     -- will write on all frames of this video output.
     fixedAfd :: Prelude.Maybe Prelude.Natural,
-    -- | Use the Height (Height) setting to define the video resolution height
-    -- for this output. Specify in pixels. If you don\'t provide a value here,
-    -- the service will use the input height.
+    -- | Use Height to define the video resolution height, in pixels, for this
+    -- output. To use the same resolution as your input: Leave both Width and
+    -- Height blank. To evenly scale from your input resolution: Leave Height
+    -- blank and enter a value for Width. For example, if your input is
+    -- 1920x1080 and you set Width to 1280, your output will be 1280x720.
     height :: Prelude.Maybe Prelude.Natural,
     -- | Use Selection placement (position) to define the video area in your
     -- output frame. The area outside of the rectangle that you specify here is
@@ -129,9 +131,11 @@ data VideoDescription = VideoDescription'
     -- (VideoPreprocessors). Enable the features at each output individually.
     -- These features are disabled by default.
     videoPreprocessors :: Prelude.Maybe VideoPreprocessor,
-    -- | Use Width (Width) to define the video resolution width, in pixels, for
-    -- this output. If you don\'t provide a value here, the service will use
-    -- the input width.
+    -- | Use Width to define the video resolution width, in pixels, for this
+    -- output. To use the same resolution as your input: Leave both Width and
+    -- Height blank. To evenly scale from your input resolution: Leave Width
+    -- blank and enter a value for Height. For example, if your input is
+    -- 1920x1080 and you set Height to 720, your output will be 1280x720.
     width :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -184,9 +188,11 @@ data VideoDescription = VideoDescription'
 -- Use Fixed (FixedAfd) to specify a four-bit AFD value which the service
 -- will write on all frames of this video output.
 --
--- 'height', 'videoDescription_height' - Use the Height (Height) setting to define the video resolution height
--- for this output. Specify in pixels. If you don\'t provide a value here,
--- the service will use the input height.
+-- 'height', 'videoDescription_height' - Use Height to define the video resolution height, in pixels, for this
+-- output. To use the same resolution as your input: Leave both Width and
+-- Height blank. To evenly scale from your input resolution: Leave Height
+-- blank and enter a value for Width. For example, if your input is
+-- 1920x1080 and you set Width to 1280, your output will be 1280x720.
 --
 -- 'position', 'videoDescription_position' - Use Selection placement (position) to define the video area in your
 -- output frame. The area outside of the rectangle that you specify here is
@@ -232,9 +238,11 @@ data VideoDescription = VideoDescription'
 -- (VideoPreprocessors). Enable the features at each output individually.
 -- These features are disabled by default.
 --
--- 'width', 'videoDescription_width' - Use Width (Width) to define the video resolution width, in pixels, for
--- this output. If you don\'t provide a value here, the service will use
--- the input width.
+-- 'width', 'videoDescription_width' - Use Width to define the video resolution width, in pixels, for this
+-- output. To use the same resolution as your input: Leave both Width and
+-- Height blank. To evenly scale from your input resolution: Leave Width
+-- blank and enter a value for Height. For example, if your input is
+-- 1920x1080 and you set Height to 720, your output will be 1280x720.
 newVideoDescription ::
   VideoDescription
 newVideoDescription =
@@ -310,9 +318,11 @@ videoDescription_dropFrameTimecode = Lens.lens (\VideoDescription' {dropFrameTim
 videoDescription_fixedAfd :: Lens.Lens' VideoDescription (Prelude.Maybe Prelude.Natural)
 videoDescription_fixedAfd = Lens.lens (\VideoDescription' {fixedAfd} -> fixedAfd) (\s@VideoDescription' {} a -> s {fixedAfd = a} :: VideoDescription)
 
--- | Use the Height (Height) setting to define the video resolution height
--- for this output. Specify in pixels. If you don\'t provide a value here,
--- the service will use the input height.
+-- | Use Height to define the video resolution height, in pixels, for this
+-- output. To use the same resolution as your input: Leave both Width and
+-- Height blank. To evenly scale from your input resolution: Leave Height
+-- blank and enter a value for Width. For example, if your input is
+-- 1920x1080 and you set Width to 1280, your output will be 1280x720.
 videoDescription_height :: Lens.Lens' VideoDescription (Prelude.Maybe Prelude.Natural)
 videoDescription_height = Lens.lens (\VideoDescription' {height} -> height) (\s@VideoDescription' {} a -> s {height = a} :: VideoDescription)
 
@@ -372,9 +382,11 @@ videoDescription_timecodeInsertion = Lens.lens (\VideoDescription' {timecodeInse
 videoDescription_videoPreprocessors :: Lens.Lens' VideoDescription (Prelude.Maybe VideoPreprocessor)
 videoDescription_videoPreprocessors = Lens.lens (\VideoDescription' {videoPreprocessors} -> videoPreprocessors) (\s@VideoDescription' {} a -> s {videoPreprocessors = a} :: VideoDescription)
 
--- | Use Width (Width) to define the video resolution width, in pixels, for
--- this output. If you don\'t provide a value here, the service will use
--- the input width.
+-- | Use Width to define the video resolution width, in pixels, for this
+-- output. To use the same resolution as your input: Leave both Width and
+-- Height blank. To evenly scale from your input resolution: Leave Width
+-- blank and enter a value for Height. For example, if your input is
+-- 1920x1080 and you set Height to 720, your output will be 1280x720.
 videoDescription_width :: Lens.Lens' VideoDescription (Prelude.Maybe Prelude.Natural)
 videoDescription_width = Lens.lens (\VideoDescription' {width} -> width) (\s@VideoDescription' {} a -> s {width = a} :: VideoDescription)
 
@@ -403,7 +415,8 @@ instance Data.FromJSON VideoDescription where
 
 instance Prelude.Hashable VideoDescription where
   hashWithSalt _salt VideoDescription' {..} =
-    _salt `Prelude.hashWithSalt` afdSignaling
+    _salt
+      `Prelude.hashWithSalt` afdSignaling
       `Prelude.hashWithSalt` antiAlias
       `Prelude.hashWithSalt` codecSettings
       `Prelude.hashWithSalt` colorMetadata

@@ -35,6 +35,7 @@ import Amazonka.MediaConvert.Types.QueueTransition
 import Amazonka.MediaConvert.Types.SimulateReservedQueue
 import Amazonka.MediaConvert.Types.StatusUpdateInterval
 import Amazonka.MediaConvert.Types.Timing
+import Amazonka.MediaConvert.Types.WarningGroup
 import qualified Amazonka.Prelude as Prelude
 
 -- | Each job converts an input file into an output file or files. For more
@@ -65,6 +66,13 @@ data Job = Job'
     -- | The tag type that AWS Billing and Cost Management will use to sort your
     -- AWS Elemental MediaConvert costs on any billing report that you set up.
     billingTagsSource :: Prelude.Maybe BillingTagsSource,
+    -- | Prevent duplicate jobs from being created and ensure idempotency for
+    -- your requests. A client request token can be any string that includes up
+    -- to 64 ASCII characters. If you reuse a client request token within one
+    -- minute of a successful request, the API returns the job details of the
+    -- original request instead. For more information see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/apireference\/idempotency.html.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The time, in Unix epoch format in seconds, when the job got created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | A job\'s phase can be PROBING, TRANSCODING OR UPLOADING
@@ -129,12 +137,17 @@ data Job = Job'
     -- | User-defined metadata that you want to associate with an MediaConvert
     -- job. You specify metadata in key\/value pairs.
     userMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Contains any warning messages for the job. Use to help identify
+    -- potential issues with your input, output, or job. For more information,
+    -- see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/warning_codes.html
+    warnings :: Prelude.Maybe [WarningGroup],
+    -- | JobSettings contains all the transcode settings for a job.
+    settings :: JobSettings,
     -- | The IAM role you use for creating this job. For details about
     -- permissions, see the User Guide topic at the User Guide at
     -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/iam-role.html
-    role' :: Prelude.Text,
-    -- | JobSettings contains all the transcode settings for a job.
-    settings :: JobSettings
+    role' :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -167,6 +180,13 @@ data Job = Job'
 --
 -- 'billingTagsSource', 'job_billingTagsSource' - The tag type that AWS Billing and Cost Management will use to sort your
 -- AWS Elemental MediaConvert costs on any billing report that you set up.
+--
+-- 'clientRequestToken', 'job_clientRequestToken' - Prevent duplicate jobs from being created and ensure idempotency for
+-- your requests. A client request token can be any string that includes up
+-- to 64 ASCII characters. If you reuse a client request token within one
+-- minute of a successful request, the API returns the job details of the
+-- original request instead. For more information see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/apireference\/idempotency.html.
 --
 -- 'createdAt', 'job_createdAt' - The time, in Unix epoch format in seconds, when the job got created.
 --
@@ -232,23 +252,29 @@ data Job = Job'
 -- 'userMetadata', 'job_userMetadata' - User-defined metadata that you want to associate with an MediaConvert
 -- job. You specify metadata in key\/value pairs.
 --
+-- 'warnings', 'job_warnings' - Contains any warning messages for the job. Use to help identify
+-- potential issues with your input, output, or job. For more information,
+-- see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/warning_codes.html
+--
+-- 'settings', 'job_settings' - JobSettings contains all the transcode settings for a job.
+--
 -- 'role'', 'job_role' - The IAM role you use for creating this job. For details about
 -- permissions, see the User Guide topic at the User Guide at
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/iam-role.html
---
--- 'settings', 'job_settings' - JobSettings contains all the transcode settings for a job.
 newJob ::
-  -- | 'role''
-  Prelude.Text ->
   -- | 'settings'
   JobSettings ->
+  -- | 'role''
+  Prelude.Text ->
   Job
-newJob pRole_ pSettings_ =
+newJob pSettings_ pRole_ =
   Job'
     { accelerationSettings = Prelude.Nothing,
       accelerationStatus = Prelude.Nothing,
       arn = Prelude.Nothing,
       billingTagsSource = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
       createdAt = Prelude.Nothing,
       currentPhase = Prelude.Nothing,
       errorCode = Prelude.Nothing,
@@ -268,8 +294,9 @@ newJob pRole_ pSettings_ =
       statusUpdateInterval = Prelude.Nothing,
       timing = Prelude.Nothing,
       userMetadata = Prelude.Nothing,
-      role' = pRole_,
-      settings = pSettings_
+      warnings = Prelude.Nothing,
+      settings = pSettings_,
+      role' = pRole_
     }
 
 -- | Accelerated transcoding can significantly speed up jobs with long,
@@ -301,6 +328,15 @@ job_arn = Lens.lens (\Job' {arn} -> arn) (\s@Job' {} a -> s {arn = a} :: Job)
 -- AWS Elemental MediaConvert costs on any billing report that you set up.
 job_billingTagsSource :: Lens.Lens' Job (Prelude.Maybe BillingTagsSource)
 job_billingTagsSource = Lens.lens (\Job' {billingTagsSource} -> billingTagsSource) (\s@Job' {} a -> s {billingTagsSource = a} :: Job)
+
+-- | Prevent duplicate jobs from being created and ensure idempotency for
+-- your requests. A client request token can be any string that includes up
+-- to 64 ASCII characters. If you reuse a client request token within one
+-- minute of a successful request, the API returns the job details of the
+-- original request instead. For more information see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/apireference\/idempotency.html.
+job_clientRequestToken :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
+job_clientRequestToken = Lens.lens (\Job' {clientRequestToken} -> clientRequestToken) (\s@Job' {} a -> s {clientRequestToken = a} :: Job)
 
 -- | The time, in Unix epoch format in seconds, when the job got created.
 job_createdAt :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
@@ -404,15 +440,22 @@ job_timing = Lens.lens (\Job' {timing} -> timing) (\s@Job' {} a -> s {timing = a
 job_userMetadata :: Lens.Lens' Job (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 job_userMetadata = Lens.lens (\Job' {userMetadata} -> userMetadata) (\s@Job' {} a -> s {userMetadata = a} :: Job) Prelude.. Lens.mapping Lens.coerced
 
+-- | Contains any warning messages for the job. Use to help identify
+-- potential issues with your input, output, or job. For more information,
+-- see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/warning_codes.html
+job_warnings :: Lens.Lens' Job (Prelude.Maybe [WarningGroup])
+job_warnings = Lens.lens (\Job' {warnings} -> warnings) (\s@Job' {} a -> s {warnings = a} :: Job) Prelude.. Lens.mapping Lens.coerced
+
+-- | JobSettings contains all the transcode settings for a job.
+job_settings :: Lens.Lens' Job JobSettings
+job_settings = Lens.lens (\Job' {settings} -> settings) (\s@Job' {} a -> s {settings = a} :: Job)
+
 -- | The IAM role you use for creating this job. For details about
 -- permissions, see the User Guide topic at the User Guide at
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/iam-role.html
 job_role :: Lens.Lens' Job Prelude.Text
 job_role = Lens.lens (\Job' {role'} -> role') (\s@Job' {} a -> s {role' = a} :: Job)
-
--- | JobSettings contains all the transcode settings for a job.
-job_settings :: Lens.Lens' Job JobSettings
-job_settings = Lens.lens (\Job' {settings} -> settings) (\s@Job' {} a -> s {settings = a} :: Job)
 
 instance Data.FromJSON Job where
   parseJSON =
@@ -424,23 +467,27 @@ instance Data.FromJSON Job where
             Prelude.<*> (x Data..:? "accelerationStatus")
             Prelude.<*> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "billingTagsSource")
+            Prelude.<*> (x Data..:? "clientRequestToken")
             Prelude.<*> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "currentPhase")
             Prelude.<*> (x Data..:? "errorCode")
             Prelude.<*> (x Data..:? "errorMessage")
-            Prelude.<*> ( x Data..:? "hopDestinations"
+            Prelude.<*> ( x
+                            Data..:? "hopDestinations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "jobPercentComplete")
             Prelude.<*> (x Data..:? "jobTemplate")
             Prelude.<*> (x Data..:? "messages")
-            Prelude.<*> ( x Data..:? "outputGroupDetails"
+            Prelude.<*> ( x
+                            Data..:? "outputGroupDetails"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "priority")
             Prelude.<*> (x Data..:? "queue")
-            Prelude.<*> ( x Data..:? "queueTransitions"
+            Prelude.<*> ( x
+                            Data..:? "queueTransitions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "retryCount")
@@ -449,16 +496,19 @@ instance Data.FromJSON Job where
             Prelude.<*> (x Data..:? "statusUpdateInterval")
             Prelude.<*> (x Data..:? "timing")
             Prelude.<*> (x Data..:? "userMetadata" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..: "role")
+            Prelude.<*> (x Data..:? "warnings" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "settings")
+            Prelude.<*> (x Data..: "role")
       )
 
 instance Prelude.Hashable Job where
   hashWithSalt _salt Job' {..} =
-    _salt `Prelude.hashWithSalt` accelerationSettings
+    _salt
+      `Prelude.hashWithSalt` accelerationSettings
       `Prelude.hashWithSalt` accelerationStatus
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` billingTagsSource
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` currentPhase
       `Prelude.hashWithSalt` errorCode
@@ -478,8 +528,9 @@ instance Prelude.Hashable Job where
       `Prelude.hashWithSalt` statusUpdateInterval
       `Prelude.hashWithSalt` timing
       `Prelude.hashWithSalt` userMetadata
-      `Prelude.hashWithSalt` role'
+      `Prelude.hashWithSalt` warnings
       `Prelude.hashWithSalt` settings
+      `Prelude.hashWithSalt` role'
 
 instance Prelude.NFData Job where
   rnf Job' {..} =
@@ -487,6 +538,7 @@ instance Prelude.NFData Job where
       `Prelude.seq` Prelude.rnf accelerationStatus
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf billingTagsSource
+      `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf currentPhase
       `Prelude.seq` Prelude.rnf errorCode
@@ -507,6 +559,10 @@ instance Prelude.NFData Job where
       `Prelude.seq` Prelude.rnf
         statusUpdateInterval
       `Prelude.seq` Prelude.rnf timing
-      `Prelude.seq` Prelude.rnf userMetadata
-      `Prelude.seq` Prelude.rnf role'
-      `Prelude.seq` Prelude.rnf settings
+      `Prelude.seq` Prelude.rnf
+        userMetadata
+      `Prelude.seq` Prelude.rnf warnings
+      `Prelude.seq` Prelude.rnf
+        settings
+      `Prelude.seq` Prelude.rnf
+        role'

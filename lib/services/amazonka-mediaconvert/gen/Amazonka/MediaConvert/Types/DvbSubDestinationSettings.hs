@@ -78,20 +78,16 @@ data DvbSubDestinationSettings = DvbSubDestinationSettings'
     -- your job settings, all of your DVB-Sub settings must be identical.
     backgroundOpacity :: Prelude.Maybe Prelude.Natural,
     -- | Specify how MediaConvert handles the display definition segment (DDS).
-    -- Keep the default, None (NONE), to exclude the DDS from this set of
-    -- captions. Choose No display window (NO_DISPLAY_WINDOW) to have
-    -- MediaConvert include the DDS but not include display window data. In
-    -- this case, MediaConvert writes that information to the page composition
-    -- segment (PCS) instead. Choose Specify (SPECIFIED) to have MediaConvert
-    -- set up the display window based on the values that you specify in
-    -- related job settings. For video resolutions that are 576 pixels or
-    -- smaller in height, MediaConvert doesn\'t include the DDS, regardless of
-    -- the value you choose for DDS handling (ddsHandling). In this case, it
-    -- doesn\'t write the display window data to the PCS either. Related
-    -- settings: Use the settings DDS x-coordinate (ddsXCoordinate) and DDS
-    -- y-coordinate (ddsYCoordinate) to specify the offset between the top left
-    -- corner of the display window and the top left corner of the video frame.
-    -- All burn-in and DVB-Sub font settings must match.
+    -- To exclude the DDS from this set of captions: Keep the default, None. To
+    -- include the DDS: Choose Specified. When you do, also specify the offset
+    -- coordinates of the display window with DDS x-coordinate and DDS
+    -- y-coordinate. To include the DDS, but not include display window data:
+    -- Choose No display window. When you do, you can write position metadata
+    -- to the page composition segment (PCS) with DDS x-coordinate and DDS
+    -- y-coordinate. For video resolutions with a height of 576 pixels or less,
+    -- MediaConvert doesn\'t include the DDS, regardless of the value you
+    -- choose for DDS handling. All burn-in and DVB-Sub font settings must
+    -- match.
     ddsHandling :: Prelude.Maybe DvbddsHandling,
     -- | Use this setting, along with DDS y-coordinate (ddsYCoordinate), to
     -- specify the upper left corner of the display definition segment (DDS)
@@ -282,20 +278,16 @@ data DvbSubDestinationSettings = DvbSubDestinationSettings'
 -- your job settings, all of your DVB-Sub settings must be identical.
 --
 -- 'ddsHandling', 'dvbSubDestinationSettings_ddsHandling' - Specify how MediaConvert handles the display definition segment (DDS).
--- Keep the default, None (NONE), to exclude the DDS from this set of
--- captions. Choose No display window (NO_DISPLAY_WINDOW) to have
--- MediaConvert include the DDS but not include display window data. In
--- this case, MediaConvert writes that information to the page composition
--- segment (PCS) instead. Choose Specify (SPECIFIED) to have MediaConvert
--- set up the display window based on the values that you specify in
--- related job settings. For video resolutions that are 576 pixels or
--- smaller in height, MediaConvert doesn\'t include the DDS, regardless of
--- the value you choose for DDS handling (ddsHandling). In this case, it
--- doesn\'t write the display window data to the PCS either. Related
--- settings: Use the settings DDS x-coordinate (ddsXCoordinate) and DDS
--- y-coordinate (ddsYCoordinate) to specify the offset between the top left
--- corner of the display window and the top left corner of the video frame.
--- All burn-in and DVB-Sub font settings must match.
+-- To exclude the DDS from this set of captions: Keep the default, None. To
+-- include the DDS: Choose Specified. When you do, also specify the offset
+-- coordinates of the display window with DDS x-coordinate and DDS
+-- y-coordinate. To include the DDS, but not include display window data:
+-- Choose No display window. When you do, you can write position metadata
+-- to the page composition segment (PCS) with DDS x-coordinate and DDS
+-- y-coordinate. For video resolutions with a height of 576 pixels or less,
+-- MediaConvert doesn\'t include the DDS, regardless of the value you
+-- choose for DDS handling. All burn-in and DVB-Sub font settings must
+-- match.
 --
 -- 'ddsXCoordinate', 'dvbSubDestinationSettings_ddsXCoordinate' - Use this setting, along with DDS y-coordinate (ddsYCoordinate), to
 -- specify the upper left corner of the display definition segment (DDS)
@@ -516,20 +508,16 @@ dvbSubDestinationSettings_backgroundOpacity :: Lens.Lens' DvbSubDestinationSetti
 dvbSubDestinationSettings_backgroundOpacity = Lens.lens (\DvbSubDestinationSettings' {backgroundOpacity} -> backgroundOpacity) (\s@DvbSubDestinationSettings' {} a -> s {backgroundOpacity = a} :: DvbSubDestinationSettings)
 
 -- | Specify how MediaConvert handles the display definition segment (DDS).
--- Keep the default, None (NONE), to exclude the DDS from this set of
--- captions. Choose No display window (NO_DISPLAY_WINDOW) to have
--- MediaConvert include the DDS but not include display window data. In
--- this case, MediaConvert writes that information to the page composition
--- segment (PCS) instead. Choose Specify (SPECIFIED) to have MediaConvert
--- set up the display window based on the values that you specify in
--- related job settings. For video resolutions that are 576 pixels or
--- smaller in height, MediaConvert doesn\'t include the DDS, regardless of
--- the value you choose for DDS handling (ddsHandling). In this case, it
--- doesn\'t write the display window data to the PCS either. Related
--- settings: Use the settings DDS x-coordinate (ddsXCoordinate) and DDS
--- y-coordinate (ddsYCoordinate) to specify the offset between the top left
--- corner of the display window and the top left corner of the video frame.
--- All burn-in and DVB-Sub font settings must match.
+-- To exclude the DDS from this set of captions: Keep the default, None. To
+-- include the DDS: Choose Specified. When you do, also specify the offset
+-- coordinates of the display window with DDS x-coordinate and DDS
+-- y-coordinate. To include the DDS, but not include display window data:
+-- Choose No display window. When you do, you can write position metadata
+-- to the page composition segment (PCS) with DDS x-coordinate and DDS
+-- y-coordinate. For video resolutions with a height of 576 pixels or less,
+-- MediaConvert doesn\'t include the DDS, regardless of the value you
+-- choose for DDS handling. All burn-in and DVB-Sub font settings must
+-- match.
 dvbSubDestinationSettings_ddsHandling :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe DvbddsHandling)
 dvbSubDestinationSettings_ddsHandling = Lens.lens (\DvbSubDestinationSettings' {ddsHandling} -> ddsHandling) (\s@DvbSubDestinationSettings' {} a -> s {ddsHandling = a} :: DvbSubDestinationSettings)
 
@@ -759,7 +747,8 @@ instance Data.FromJSON DvbSubDestinationSettings where
 
 instance Prelude.Hashable DvbSubDestinationSettings where
   hashWithSalt _salt DvbSubDestinationSettings' {..} =
-    _salt `Prelude.hashWithSalt` alignment
+    _salt
+      `Prelude.hashWithSalt` alignment
       `Prelude.hashWithSalt` applyFontColor
       `Prelude.hashWithSalt` backgroundColor
       `Prelude.hashWithSalt` backgroundOpacity

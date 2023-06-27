@@ -42,7 +42,7 @@ data HopDestination = HopDestination'
     queue :: Prelude.Maybe Prelude.Text,
     -- | Required for setting up a job to use queue hopping. Minimum wait time in
     -- minutes until the job can hop to the destination queue. Valid range is 1
-    -- to 1440 minutes, inclusive.
+    -- to 4320 minutes, inclusive.
     waitMinutes :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,7 +68,7 @@ data HopDestination = HopDestination'
 --
 -- 'waitMinutes', 'hopDestination_waitMinutes' - Required for setting up a job to use queue hopping. Minimum wait time in
 -- minutes until the job can hop to the destination queue. Valid range is 1
--- to 1440 minutes, inclusive.
+-- to 4320 minutes, inclusive.
 newHopDestination ::
   HopDestination
 newHopDestination =
@@ -95,7 +95,7 @@ hopDestination_queue = Lens.lens (\HopDestination' {queue} -> queue) (\s@HopDest
 
 -- | Required for setting up a job to use queue hopping. Minimum wait time in
 -- minutes until the job can hop to the destination queue. Valid range is 1
--- to 1440 minutes, inclusive.
+-- to 4320 minutes, inclusive.
 hopDestination_waitMinutes :: Lens.Lens' HopDestination (Prelude.Maybe Prelude.Int)
 hopDestination_waitMinutes = Lens.lens (\HopDestination' {waitMinutes} -> waitMinutes) (\s@HopDestination' {} a -> s {waitMinutes = a} :: HopDestination)
 
@@ -112,7 +112,8 @@ instance Data.FromJSON HopDestination where
 
 instance Prelude.Hashable HopDestination where
   hashWithSalt _salt HopDestination' {..} =
-    _salt `Prelude.hashWithSalt` priority
+    _salt
+      `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` queue
       `Prelude.hashWithSalt` waitMinutes
 

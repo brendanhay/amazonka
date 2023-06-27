@@ -148,7 +148,8 @@ instance Data.FromJSON RemixSettings where
 
 instance Prelude.Hashable RemixSettings where
   hashWithSalt _salt RemixSettings' {..} =
-    _salt `Prelude.hashWithSalt` channelMapping
+    _salt
+      `Prelude.hashWithSalt` channelMapping
       `Prelude.hashWithSalt` channelsIn
       `Prelude.hashWithSalt` channelsOut
 

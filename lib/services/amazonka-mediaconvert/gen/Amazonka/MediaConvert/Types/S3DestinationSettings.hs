@@ -86,7 +86,8 @@ instance Data.FromJSON S3DestinationSettings where
 
 instance Prelude.Hashable S3DestinationSettings where
   hashWithSalt _salt S3DestinationSettings' {..} =
-    _salt `Prelude.hashWithSalt` accessControl
+    _salt
+      `Prelude.hashWithSalt` accessControl
       `Prelude.hashWithSalt` encryption
 
 instance Prelude.NFData S3DestinationSettings where

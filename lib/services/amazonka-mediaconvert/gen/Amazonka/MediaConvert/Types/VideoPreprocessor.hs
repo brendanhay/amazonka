@@ -55,9 +55,12 @@ data VideoPreprocessor = VideoPreprocessor'
     -- overlay on your video. Enable or disable this feature for each output
     -- individually. This setting is disabled by default.
     imageInserter :: Prelude.Maybe ImageInserter,
-    -- | Enable the Noise reducer (NoiseReducer) feature to remove noise from
-    -- your video output if necessary. Enable or disable this feature for each
-    -- output individually. This setting is disabled by default.
+    -- | Enable the Noise reducer feature to remove noise from your video output
+    -- if necessary. Enable or disable this feature for each output
+    -- individually. This setting is disabled by default. When you enable Noise
+    -- reducer, you must also select a value for Noise reducer filter. For AVC
+    -- outputs, when you include Noise reducer, you cannot include the
+    -- Bandwidth reduction filter.
     noiseReducer :: Prelude.Maybe NoiseReducer,
     -- | If you work with a third party video watermarking partner, use the group
     -- of settings that correspond with your watermarking partner to include
@@ -94,9 +97,12 @@ data VideoPreprocessor = VideoPreprocessor'
 -- overlay on your video. Enable or disable this feature for each output
 -- individually. This setting is disabled by default.
 --
--- 'noiseReducer', 'videoPreprocessor_noiseReducer' - Enable the Noise reducer (NoiseReducer) feature to remove noise from
--- your video output if necessary. Enable or disable this feature for each
--- output individually. This setting is disabled by default.
+-- 'noiseReducer', 'videoPreprocessor_noiseReducer' - Enable the Noise reducer feature to remove noise from your video output
+-- if necessary. Enable or disable this feature for each output
+-- individually. This setting is disabled by default. When you enable Noise
+-- reducer, you must also select a value for Noise reducer filter. For AVC
+-- outputs, when you include Noise reducer, you cannot include the
+-- Bandwidth reduction filter.
 --
 -- 'partnerWatermarking', 'videoPreprocessor_partnerWatermarking' - If you work with a third party video watermarking partner, use the group
 -- of settings that correspond with your watermarking partner to include
@@ -146,9 +152,12 @@ videoPreprocessor_hdr10Plus = Lens.lens (\VideoPreprocessor' {hdr10Plus} -> hdr1
 videoPreprocessor_imageInserter :: Lens.Lens' VideoPreprocessor (Prelude.Maybe ImageInserter)
 videoPreprocessor_imageInserter = Lens.lens (\VideoPreprocessor' {imageInserter} -> imageInserter) (\s@VideoPreprocessor' {} a -> s {imageInserter = a} :: VideoPreprocessor)
 
--- | Enable the Noise reducer (NoiseReducer) feature to remove noise from
--- your video output if necessary. Enable or disable this feature for each
--- output individually. This setting is disabled by default.
+-- | Enable the Noise reducer feature to remove noise from your video output
+-- if necessary. Enable or disable this feature for each output
+-- individually. This setting is disabled by default. When you enable Noise
+-- reducer, you must also select a value for Noise reducer filter. For AVC
+-- outputs, when you include Noise reducer, you cannot include the
+-- Bandwidth reduction filter.
 videoPreprocessor_noiseReducer :: Lens.Lens' VideoPreprocessor (Prelude.Maybe NoiseReducer)
 videoPreprocessor_noiseReducer = Lens.lens (\VideoPreprocessor' {noiseReducer} -> noiseReducer) (\s@VideoPreprocessor' {} a -> s {noiseReducer = a} :: VideoPreprocessor)
 
@@ -181,7 +190,8 @@ instance Data.FromJSON VideoPreprocessor where
 
 instance Prelude.Hashable VideoPreprocessor where
   hashWithSalt _salt VideoPreprocessor' {..} =
-    _salt `Prelude.hashWithSalt` colorCorrector
+    _salt
+      `Prelude.hashWithSalt` colorCorrector
       `Prelude.hashWithSalt` deinterlacer
       `Prelude.hashWithSalt` dolbyVision
       `Prelude.hashWithSalt` hdr10Plus

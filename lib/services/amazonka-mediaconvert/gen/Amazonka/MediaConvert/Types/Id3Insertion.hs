@@ -81,7 +81,8 @@ instance Data.FromJSON Id3Insertion where
 
 instance Prelude.Hashable Id3Insertion where
   hashWithSalt _salt Id3Insertion' {..} =
-    _salt `Prelude.hashWithSalt` id3
+    _salt
+      `Prelude.hashWithSalt` id3
       `Prelude.hashWithSalt` timecode
 
 instance Prelude.NFData Id3Insertion where

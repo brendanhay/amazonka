@@ -75,7 +75,8 @@ instance Data.FromJSON ChannelMapping where
       "ChannelMapping"
       ( \x ->
           ChannelMapping'
-            Prelude.<$> ( x Data..:? "outputChannels"
+            Prelude.<$> ( x
+                            Data..:? "outputChannels"
                             Data..!= Prelude.mempty
                         )
       )

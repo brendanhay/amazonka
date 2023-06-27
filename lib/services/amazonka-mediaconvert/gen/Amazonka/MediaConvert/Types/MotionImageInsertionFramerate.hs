@@ -87,7 +87,8 @@ instance
     MotionImageInsertionFramerate
   where
   hashWithSalt _salt MotionImageInsertionFramerate' {..} =
-    _salt `Prelude.hashWithSalt` framerateDenominator
+    _salt
+      `Prelude.hashWithSalt` framerateDenominator
       `Prelude.hashWithSalt` framerateNumerator
 
 instance Prelude.NFData MotionImageInsertionFramerate where

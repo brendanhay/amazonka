@@ -133,7 +133,8 @@ instance Core.AWSRequest PutEvents where
 
 instance Prelude.Hashable PutEvents where
   hashWithSalt _salt PutEvents' {..} =
-    _salt `Prelude.hashWithSalt` userId
+    _salt
+      `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` trackingId
       `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` eventList

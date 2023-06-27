@@ -84,7 +84,8 @@ instance Data.FromJSON ImportDestination where
 
 instance Prelude.Hashable ImportDestination where
   hashWithSalt _salt ImportDestination' {..} =
-    _salt `Prelude.hashWithSalt` contactListDestination
+    _salt
+      `Prelude.hashWithSalt` contactListDestination
       `Prelude.hashWithSalt` suppressionListDestination
 
 instance Prelude.NFData ImportDestination where

@@ -117,7 +117,8 @@ instance Data.FromJSON ImportJobSummary where
 
 instance Prelude.Hashable ImportJobSummary where
   hashWithSalt _salt ImportJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdTimestamp
+    _salt
+      `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` failedRecordsCount
       `Prelude.hashWithSalt` importDestination
       `Prelude.hashWithSalt` jobId

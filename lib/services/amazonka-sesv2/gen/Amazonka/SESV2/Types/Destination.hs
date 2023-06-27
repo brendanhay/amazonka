@@ -91,7 +91,8 @@ destination_toAddresses = Lens.lens (\Destination' {toAddresses} -> toAddresses)
 
 instance Prelude.Hashable Destination where
   hashWithSalt _salt Destination' {..} =
-    _salt `Prelude.hashWithSalt` bccAddresses
+    _salt
+      `Prelude.hashWithSalt` bccAddresses
       `Prelude.hashWithSalt` ccAddresses
       `Prelude.hashWithSalt` toAddresses
 

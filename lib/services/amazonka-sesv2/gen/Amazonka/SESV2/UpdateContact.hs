@@ -63,7 +63,7 @@ data UpdateContact = UpdateContact'
     unsubscribeAll :: Prelude.Maybe Prelude.Bool,
     -- | The name of the contact list.
     contactListName :: Prelude.Text,
-    -- | The contact\'s email addres.
+    -- | The contact\'s email address.
     emailAddress :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -85,7 +85,7 @@ data UpdateContact = UpdateContact'
 --
 -- 'contactListName', 'updateContact_contactListName' - The name of the contact list.
 --
--- 'emailAddress', 'updateContact_emailAddress' - The contact\'s email addres.
+-- 'emailAddress', 'updateContact_emailAddress' - The contact\'s email address.
 newUpdateContact ::
   -- | 'contactListName'
   Prelude.Text ->
@@ -118,7 +118,7 @@ updateContact_unsubscribeAll = Lens.lens (\UpdateContact' {unsubscribeAll} -> un
 updateContact_contactListName :: Lens.Lens' UpdateContact Prelude.Text
 updateContact_contactListName = Lens.lens (\UpdateContact' {contactListName} -> contactListName) (\s@UpdateContact' {} a -> s {contactListName = a} :: UpdateContact)
 
--- | The contact\'s email addres.
+-- | The contact\'s email address.
 updateContact_emailAddress :: Lens.Lens' UpdateContact Prelude.Text
 updateContact_emailAddress = Lens.lens (\UpdateContact' {emailAddress} -> emailAddress) (\s@UpdateContact' {} a -> s {emailAddress = a} :: UpdateContact)
 
@@ -137,7 +137,8 @@ instance Core.AWSRequest UpdateContact where
 
 instance Prelude.Hashable UpdateContact where
   hashWithSalt _salt UpdateContact' {..} =
-    _salt `Prelude.hashWithSalt` attributesData
+    _salt
+      `Prelude.hashWithSalt` attributesData
       `Prelude.hashWithSalt` topicPreferences
       `Prelude.hashWithSalt` unsubscribeAll
       `Prelude.hashWithSalt` contactListName

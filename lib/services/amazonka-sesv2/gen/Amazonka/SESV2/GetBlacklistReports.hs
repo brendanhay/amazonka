@@ -96,7 +96,8 @@ instance Core.AWSRequest GetBlacklistReports where
       ( \s h x ->
           GetBlacklistReportsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "BlacklistReport"
+            Prelude.<*> ( x
+                            Data..?> "BlacklistReport"
                             Core..!@ Prelude.mempty
                         )
       )

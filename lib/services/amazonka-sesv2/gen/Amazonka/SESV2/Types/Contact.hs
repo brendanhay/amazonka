@@ -101,10 +101,12 @@ instance Data.FromJSON Contact where
           Contact'
             Prelude.<$> (x Data..:? "EmailAddress")
             Prelude.<*> (x Data..:? "LastUpdatedTimestamp")
-            Prelude.<*> ( x Data..:? "TopicDefaultPreferences"
+            Prelude.<*> ( x
+                            Data..:? "TopicDefaultPreferences"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "TopicPreferences"
+            Prelude.<*> ( x
+                            Data..:? "TopicPreferences"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "UnsubscribeAll")
@@ -112,7 +114,8 @@ instance Data.FromJSON Contact where
 
 instance Prelude.Hashable Contact where
   hashWithSalt _salt Contact' {..} =
-    _salt `Prelude.hashWithSalt` emailAddress
+    _salt
+      `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` lastUpdatedTimestamp
       `Prelude.hashWithSalt` topicDefaultPreferences
       `Prelude.hashWithSalt` topicPreferences

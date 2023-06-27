@@ -147,7 +147,8 @@ emailContent_template = Lens.lens (\EmailContent' {template} -> template) (\s@Em
 
 instance Prelude.Hashable EmailContent where
   hashWithSalt _salt EmailContent' {..} =
-    _salt `Prelude.hashWithSalt` raw
+    _salt
+      `Prelude.hashWithSalt` raw
       `Prelude.hashWithSalt` simple
       `Prelude.hashWithSalt` template
 

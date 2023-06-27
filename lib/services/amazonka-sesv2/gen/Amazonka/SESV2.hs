@@ -469,6 +469,12 @@ module Amazonka.SESV2
     PutDedicatedIpInPoolResponse (PutDedicatedIpInPoolResponse'),
     newPutDedicatedIpInPoolResponse,
 
+    -- ** PutDedicatedIpPoolScalingAttributes
+    PutDedicatedIpPoolScalingAttributes (PutDedicatedIpPoolScalingAttributes'),
+    newPutDedicatedIpPoolScalingAttributes,
+    PutDedicatedIpPoolScalingAttributesResponse (PutDedicatedIpPoolScalingAttributesResponse'),
+    newPutDedicatedIpPoolScalingAttributesResponse,
+
     -- ** PutDedicatedIpWarmupAttributes
     PutDedicatedIpWarmupAttributes (PutDedicatedIpWarmupAttributes'),
     newPutDedicatedIpWarmupAttributes,
@@ -1066,6 +1072,7 @@ import Amazonka.SESV2.PutConfigurationSetSuppressionOptions
 import Amazonka.SESV2.PutConfigurationSetTrackingOptions
 import Amazonka.SESV2.PutConfigurationSetVdmOptions
 import Amazonka.SESV2.PutDedicatedIpInPool
+import Amazonka.SESV2.PutDedicatedIpPoolScalingAttributes
 import Amazonka.SESV2.PutDedicatedIpWarmupAttributes
 import Amazonka.SESV2.PutDeliverabilityDashboardOption
 import Amazonka.SESV2.PutEmailIdentityConfigurationSetAttributes

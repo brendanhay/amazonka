@@ -75,7 +75,8 @@ instance Data.FromJSON ContactList where
 
 instance Prelude.Hashable ContactList where
   hashWithSalt _salt ContactList' {..} =
-    _salt `Prelude.hashWithSalt` contactListName
+    _salt
+      `Prelude.hashWithSalt` contactListName
       `Prelude.hashWithSalt` lastUpdatedTimestamp
 
 instance Prelude.NFData ContactList where

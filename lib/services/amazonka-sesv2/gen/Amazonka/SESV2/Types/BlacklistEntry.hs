@@ -89,7 +89,8 @@ instance Data.FromJSON BlacklistEntry where
 
 instance Prelude.Hashable BlacklistEntry where
   hashWithSalt _salt BlacklistEntry' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` listingTime
       `Prelude.hashWithSalt` rblName
 

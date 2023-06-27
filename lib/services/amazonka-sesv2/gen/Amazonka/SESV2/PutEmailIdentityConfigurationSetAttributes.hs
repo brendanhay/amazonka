@@ -113,7 +113,8 @@ instance
   hashWithSalt
     _salt
     PutEmailIdentityConfigurationSetAttributes' {..} =
-      _salt `Prelude.hashWithSalt` configurationSetName
+      _salt
+        `Prelude.hashWithSalt` configurationSetName
         `Prelude.hashWithSalt` emailIdentity
 
 instance

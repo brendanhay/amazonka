@@ -20,6 +20,7 @@
 module Amazonka.SESV2.Types.RecommendationType
   ( RecommendationType
       ( ..,
+        RecommendationType_BIMI,
         RecommendationType_DKIM,
         RecommendationType_DMARC,
         RecommendationType_SPF
@@ -59,6 +60,9 @@ newtype RecommendationType = RecommendationType'
       Data.ToXML
     )
 
+pattern RecommendationType_BIMI :: RecommendationType
+pattern RecommendationType_BIMI = RecommendationType' "BIMI"
+
 pattern RecommendationType_DKIM :: RecommendationType
 pattern RecommendationType_DKIM = RecommendationType' "DKIM"
 
@@ -69,6 +73,7 @@ pattern RecommendationType_SPF :: RecommendationType
 pattern RecommendationType_SPF = RecommendationType' "SPF"
 
 {-# COMPLETE
+  RecommendationType_BIMI,
   RecommendationType_DKIM,
   RecommendationType_DMARC,
   RecommendationType_SPF,

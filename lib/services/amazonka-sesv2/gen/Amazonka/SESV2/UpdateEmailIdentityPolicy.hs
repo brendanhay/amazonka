@@ -157,7 +157,8 @@ instance Core.AWSRequest UpdateEmailIdentityPolicy where
 
 instance Prelude.Hashable UpdateEmailIdentityPolicy where
   hashWithSalt _salt UpdateEmailIdentityPolicy' {..} =
-    _salt `Prelude.hashWithSalt` emailIdentity
+    _salt
+      `Prelude.hashWithSalt` emailIdentity
       `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` policy
 

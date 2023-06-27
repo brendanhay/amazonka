@@ -272,14 +272,16 @@ instance Core.AWSRequest SendBulkEmail where
       ( \s h x ->
           SendBulkEmailResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "BulkEmailEntryResults"
+            Prelude.<*> ( x
+                            Data..?> "BulkEmailEntryResults"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable SendBulkEmail where
   hashWithSalt _salt SendBulkEmail' {..} =
-    _salt `Prelude.hashWithSalt` configurationSetName
+    _salt
+      `Prelude.hashWithSalt` configurationSetName
       `Prelude.hashWithSalt` defaultEmailTags
       `Prelude.hashWithSalt` feedbackForwardingEmailAddress
       `Prelude.hashWithSalt` feedbackForwardingEmailAddressIdentityArn

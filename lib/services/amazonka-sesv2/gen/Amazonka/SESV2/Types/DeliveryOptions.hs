@@ -90,7 +90,8 @@ instance Data.FromJSON DeliveryOptions where
 
 instance Prelude.Hashable DeliveryOptions where
   hashWithSalt _salt DeliveryOptions' {..} =
-    _salt `Prelude.hashWithSalt` sendingPoolName
+    _salt
+      `Prelude.hashWithSalt` sendingPoolName
       `Prelude.hashWithSalt` tlsPolicy
 
 instance Prelude.NFData DeliveryOptions where

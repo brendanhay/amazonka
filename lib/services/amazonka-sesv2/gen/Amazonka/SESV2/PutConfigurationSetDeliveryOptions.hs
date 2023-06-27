@@ -140,7 +140,8 @@ instance
   hashWithSalt
     _salt
     PutConfigurationSetDeliveryOptions' {..} =
-      _salt `Prelude.hashWithSalt` sendingPoolName
+      _salt
+        `Prelude.hashWithSalt` sendingPoolName
         `Prelude.hashWithSalt` tlsPolicy
         `Prelude.hashWithSalt` configurationSetName
 

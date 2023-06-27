@@ -119,7 +119,8 @@ instance Data.FromJSON SuppressedDestination where
 
 instance Prelude.Hashable SuppressedDestination where
   hashWithSalt _salt SuppressedDestination' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` lastUpdateTime

@@ -104,7 +104,8 @@ instance Data.FromJSON MetricDataError where
 
 instance Prelude.Hashable MetricDataError where
   hashWithSalt _salt MetricDataError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` message
 

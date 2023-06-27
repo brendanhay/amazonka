@@ -46,7 +46,8 @@ data Recommendation = Recommendation'
     resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The recommendation status, with values like @OPEN@ or @FIXED@.
     status :: Prelude.Maybe RecommendationStatus,
-    -- | The recommendation type, with values like @DKIM@, @SPF@ or @DMARC@.
+    -- | The recommendation type, with values like @DKIM@, @SPF@, @DMARC@ or
+    -- @BIMI@.
     type' :: Prelude.Maybe RecommendationType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,7 +75,8 @@ data Recommendation = Recommendation'
 --
 -- 'status', 'recommendation_status' - The recommendation status, with values like @OPEN@ or @FIXED@.
 --
--- 'type'', 'recommendation_type' - The recommendation type, with values like @DKIM@, @SPF@ or @DMARC@.
+-- 'type'', 'recommendation_type' - The recommendation type, with values like @DKIM@, @SPF@, @DMARC@ or
+-- @BIMI@.
 newRecommendation ::
   Recommendation
 newRecommendation =
@@ -115,7 +117,8 @@ recommendation_resourceArn = Lens.lens (\Recommendation' {resourceArn} -> resour
 recommendation_status :: Lens.Lens' Recommendation (Prelude.Maybe RecommendationStatus)
 recommendation_status = Lens.lens (\Recommendation' {status} -> status) (\s@Recommendation' {} a -> s {status = a} :: Recommendation)
 
--- | The recommendation type, with values like @DKIM@, @SPF@ or @DMARC@.
+-- | The recommendation type, with values like @DKIM@, @SPF@, @DMARC@ or
+-- @BIMI@.
 recommendation_type :: Lens.Lens' Recommendation (Prelude.Maybe RecommendationType)
 recommendation_type = Lens.lens (\Recommendation' {type'} -> type') (\s@Recommendation' {} a -> s {type' = a} :: Recommendation)
 
@@ -136,7 +139,8 @@ instance Data.FromJSON Recommendation where
 
 instance Prelude.Hashable Recommendation where
   hashWithSalt _salt Recommendation' {..} =
-    _salt `Prelude.hashWithSalt` createdTimestamp
+    _salt
+      `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` impact
       `Prelude.hashWithSalt` lastUpdatedTimestamp

@@ -160,7 +160,8 @@ eventDestinationDefinition_snsDestination = Lens.lens (\EventDestinationDefiniti
 
 instance Prelude.Hashable EventDestinationDefinition where
   hashWithSalt _salt EventDestinationDefinition' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchDestination
+    _salt
+      `Prelude.hashWithSalt` cloudWatchDestination
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` kinesisFirehoseDestination
       `Prelude.hashWithSalt` matchingEventTypes

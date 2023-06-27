@@ -462,6 +462,11 @@ module Amazonka.SESV2.Lens
     putDedicatedIpInPool_destinationPoolName,
     putDedicatedIpInPoolResponse_httpStatus,
 
+    -- ** PutDedicatedIpPoolScalingAttributes
+    putDedicatedIpPoolScalingAttributes_poolName,
+    putDedicatedIpPoolScalingAttributes_scalingMode,
+    putDedicatedIpPoolScalingAttributesResponse_httpStatus,
+
     -- ** PutDedicatedIpWarmupAttributes
     putDedicatedIpWarmupAttributes_ip,
     putDedicatedIpWarmupAttributes_warmupPercentage,
@@ -1041,6 +1046,7 @@ import Amazonka.SESV2.PutConfigurationSetSuppressionOptions
 import Amazonka.SESV2.PutConfigurationSetTrackingOptions
 import Amazonka.SESV2.PutConfigurationSetVdmOptions
 import Amazonka.SESV2.PutDedicatedIpInPool
+import Amazonka.SESV2.PutDedicatedIpPoolScalingAttributes
 import Amazonka.SESV2.PutDedicatedIpWarmupAttributes
 import Amazonka.SESV2.PutDeliverabilityDashboardOption
 import Amazonka.SESV2.PutEmailIdentityConfigurationSetAttributes

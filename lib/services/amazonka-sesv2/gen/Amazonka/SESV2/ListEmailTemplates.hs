@@ -122,7 +122,8 @@ instance Core.AWSRequest ListEmailTemplates where
       ( \s h x ->
           ListEmailTemplatesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "TemplatesMetadata"
+            Prelude.<*> ( x
+                            Data..?> "TemplatesMetadata"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -130,7 +131,8 @@ instance Core.AWSRequest ListEmailTemplates where
 
 instance Prelude.Hashable ListEmailTemplates where
   hashWithSalt _salt ListEmailTemplates' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
 
 instance Prelude.NFData ListEmailTemplates where

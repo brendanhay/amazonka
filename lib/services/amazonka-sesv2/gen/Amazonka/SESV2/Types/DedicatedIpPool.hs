@@ -33,11 +33,11 @@ data DedicatedIpPool = DedicatedIpPool'
     poolName :: Prelude.Text,
     -- | The type of the dedicated IP pool.
     --
-    -- -   @STANDARD@ – A dedicated IP pool where the customer can control
-    --     which IPs are part of the pool.
+    -- -   @STANDARD@ – A dedicated IP pool where you can control which IPs are
+    --     part of the pool.
     --
     -- -   @MANAGED@ – A dedicated IP pool where the reputation and number of
-    --     IPs is automatically managed by Amazon SES.
+    --     IPs are automatically managed by Amazon SES.
     scalingMode :: ScalingMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -54,11 +54,11 @@ data DedicatedIpPool = DedicatedIpPool'
 --
 -- 'scalingMode', 'dedicatedIpPool_scalingMode' - The type of the dedicated IP pool.
 --
--- -   @STANDARD@ – A dedicated IP pool where the customer can control
---     which IPs are part of the pool.
+-- -   @STANDARD@ – A dedicated IP pool where you can control which IPs are
+--     part of the pool.
 --
 -- -   @MANAGED@ – A dedicated IP pool where the reputation and number of
---     IPs is automatically managed by Amazon SES.
+--     IPs are automatically managed by Amazon SES.
 newDedicatedIpPool ::
   -- | 'poolName'
   Prelude.Text ->
@@ -77,11 +77,11 @@ dedicatedIpPool_poolName = Lens.lens (\DedicatedIpPool' {poolName} -> poolName) 
 
 -- | The type of the dedicated IP pool.
 --
--- -   @STANDARD@ – A dedicated IP pool where the customer can control
---     which IPs are part of the pool.
+-- -   @STANDARD@ – A dedicated IP pool where you can control which IPs are
+--     part of the pool.
 --
 -- -   @MANAGED@ – A dedicated IP pool where the reputation and number of
---     IPs is automatically managed by Amazon SES.
+--     IPs are automatically managed by Amazon SES.
 dedicatedIpPool_scalingMode :: Lens.Lens' DedicatedIpPool ScalingMode
 dedicatedIpPool_scalingMode = Lens.lens (\DedicatedIpPool' {scalingMode} -> scalingMode) (\s@DedicatedIpPool' {} a -> s {scalingMode = a} :: DedicatedIpPool)
 
@@ -97,7 +97,8 @@ instance Data.FromJSON DedicatedIpPool where
 
 instance Prelude.Hashable DedicatedIpPool where
   hashWithSalt _salt DedicatedIpPool' {..} =
-    _salt `Prelude.hashWithSalt` poolName
+    _salt
+      `Prelude.hashWithSalt` poolName
       `Prelude.hashWithSalt` scalingMode
 
 instance Prelude.NFData DedicatedIpPool where

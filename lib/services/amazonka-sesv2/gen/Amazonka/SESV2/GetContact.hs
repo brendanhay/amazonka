@@ -59,7 +59,7 @@ import Amazonka.SESV2.Types
 data GetContact = GetContact'
   { -- | The name of the contact list to which the contact belongs.
     contactListName :: Prelude.Text,
-    -- | The contact\'s email addres.
+    -- | The contact\'s email address.
     emailAddress :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,7 +74,7 @@ data GetContact = GetContact'
 --
 -- 'contactListName', 'getContact_contactListName' - The name of the contact list to which the contact belongs.
 --
--- 'emailAddress', 'getContact_emailAddress' - The contact\'s email addres.
+-- 'emailAddress', 'getContact_emailAddress' - The contact\'s email address.
 newGetContact ::
   -- | 'contactListName'
   Prelude.Text ->
@@ -91,7 +91,7 @@ newGetContact pContactListName_ pEmailAddress_ =
 getContact_contactListName :: Lens.Lens' GetContact Prelude.Text
 getContact_contactListName = Lens.lens (\GetContact' {contactListName} -> contactListName) (\s@GetContact' {} a -> s {contactListName = a} :: GetContact)
 
--- | The contact\'s email addres.
+-- | The contact\'s email address.
 getContact_emailAddress :: Lens.Lens' GetContact Prelude.Text
 getContact_emailAddress = Lens.lens (\GetContact' {emailAddress} -> emailAddress) (\s@GetContact' {} a -> s {emailAddress = a} :: GetContact)
 
@@ -108,10 +108,12 @@ instance Core.AWSRequest GetContact where
             Prelude.<*> (x Data..?> "CreatedTimestamp")
             Prelude.<*> (x Data..?> "EmailAddress")
             Prelude.<*> (x Data..?> "LastUpdatedTimestamp")
-            Prelude.<*> ( x Data..?> "TopicDefaultPreferences"
+            Prelude.<*> ( x
+                            Data..?> "TopicDefaultPreferences"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "TopicPreferences"
+            Prelude.<*> ( x
+                            Data..?> "TopicPreferences"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "UnsubscribeAll")
@@ -120,7 +122,8 @@ instance Core.AWSRequest GetContact where
 
 instance Prelude.Hashable GetContact where
   hashWithSalt _salt GetContact' {..} =
-    _salt `Prelude.hashWithSalt` contactListName
+    _salt
+      `Prelude.hashWithSalt` contactListName
       `Prelude.hashWithSalt` emailAddress
 
 instance Prelude.NFData GetContact where
@@ -159,7 +162,7 @@ data GetContactResponse = GetContactResponse'
     contactListName :: Prelude.Maybe Prelude.Text,
     -- | A timestamp noting when the contact was created.
     createdTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The contact\'s email addres.
+    -- | The contact\'s email address.
     emailAddress :: Prelude.Maybe Prelude.Text,
     -- | A timestamp noting the last time the contact\'s information was updated.
     lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
@@ -190,7 +193,7 @@ data GetContactResponse = GetContactResponse'
 --
 -- 'createdTimestamp', 'getContactResponse_createdTimestamp' - A timestamp noting when the contact was created.
 --
--- 'emailAddress', 'getContactResponse_emailAddress' - The contact\'s email addres.
+-- 'emailAddress', 'getContactResponse_emailAddress' - The contact\'s email address.
 --
 -- 'lastUpdatedTimestamp', 'getContactResponse_lastUpdatedTimestamp' - A timestamp noting the last time the contact\'s information was updated.
 --
@@ -233,7 +236,7 @@ getContactResponse_contactListName = Lens.lens (\GetContactResponse' {contactLis
 getContactResponse_createdTimestamp :: Lens.Lens' GetContactResponse (Prelude.Maybe Prelude.UTCTime)
 getContactResponse_createdTimestamp = Lens.lens (\GetContactResponse' {createdTimestamp} -> createdTimestamp) (\s@GetContactResponse' {} a -> s {createdTimestamp = a} :: GetContactResponse) Prelude.. Lens.mapping Data._Time
 
--- | The contact\'s email addres.
+-- | The contact\'s email address.
 getContactResponse_emailAddress :: Lens.Lens' GetContactResponse (Prelude.Maybe Prelude.Text)
 getContactResponse_emailAddress = Lens.lens (\GetContactResponse' {emailAddress} -> emailAddress) (\s@GetContactResponse' {} a -> s {emailAddress = a} :: GetContactResponse)
 

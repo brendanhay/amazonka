@@ -111,6 +111,7 @@ library
     Amazonka.SESV2.PutConfigurationSetTrackingOptions
     Amazonka.SESV2.PutConfigurationSetVdmOptions
     Amazonka.SESV2.PutDedicatedIpInPool
+    Amazonka.SESV2.PutDedicatedIpPoolScalingAttributes
     Amazonka.SESV2.PutDedicatedIpWarmupAttributes
     Amazonka.SESV2.PutDeliverabilityDashboardOption
     Amazonka.SESV2.PutEmailIdentityConfigurationSetAttributes

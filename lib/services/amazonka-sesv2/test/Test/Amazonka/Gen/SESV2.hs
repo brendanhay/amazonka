@@ -225,6 +225,9 @@ import Test.Tasty
 --         , requestPutDedicatedIpInPool $
 --             newPutDedicatedIpInPool
 --
+--         , requestPutDedicatedIpPoolScalingAttributes $
+--             newPutDedicatedIpPoolScalingAttributes
+--
 --         , requestPutDedicatedIpWarmupAttributes $
 --             newPutDedicatedIpWarmupAttributes
 --
@@ -485,6 +488,9 @@ import Test.Tasty
 --
 --         , responsePutDedicatedIpInPool $
 --             newPutDedicatedIpInPoolResponse
+--
+--         , responsePutDedicatedIpPoolScalingAttributes $
+--             newPutDedicatedIpPoolScalingAttributesResponse
 --
 --         , responsePutDedicatedIpWarmupAttributes $
 --             newPutDedicatedIpWarmupAttributesResponse
@@ -946,6 +952,12 @@ requestPutDedicatedIpInPool =
   req
     "PutDedicatedIpInPool"
     "fixture/PutDedicatedIpInPool.yaml"
+
+requestPutDedicatedIpPoolScalingAttributes :: PutDedicatedIpPoolScalingAttributes -> TestTree
+requestPutDedicatedIpPoolScalingAttributes =
+  req
+    "PutDedicatedIpPoolScalingAttributes"
+    "fixture/PutDedicatedIpPoolScalingAttributes.yaml"
 
 requestPutDedicatedIpWarmupAttributes :: PutDedicatedIpWarmupAttributes -> TestTree
 requestPutDedicatedIpWarmupAttributes =
@@ -1596,6 +1608,14 @@ responsePutDedicatedIpInPool =
     "fixture/PutDedicatedIpInPoolResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutDedicatedIpInPool)
+
+responsePutDedicatedIpPoolScalingAttributes :: PutDedicatedIpPoolScalingAttributesResponse -> TestTree
+responsePutDedicatedIpPoolScalingAttributes =
+  res
+    "PutDedicatedIpPoolScalingAttributesResponse"
+    "fixture/PutDedicatedIpPoolScalingAttributesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutDedicatedIpPoolScalingAttributes)
 
 responsePutDedicatedIpWarmupAttributes :: PutDedicatedIpWarmupAttributesResponse -> TestTree
 responsePutDedicatedIpWarmupAttributes =

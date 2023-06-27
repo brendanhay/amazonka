@@ -70,7 +70,8 @@ topicFilter_useDefaultIfPreferenceUnavailable = Lens.lens (\TopicFilter' {useDef
 
 instance Prelude.Hashable TopicFilter where
   hashWithSalt _salt TopicFilter' {..} =
-    _salt `Prelude.hashWithSalt` topicName
+    _salt
+      `Prelude.hashWithSalt` topicName
       `Prelude.hashWithSalt` useDefaultIfPreferenceUnavailable
 
 instance Prelude.NFData TopicFilter where

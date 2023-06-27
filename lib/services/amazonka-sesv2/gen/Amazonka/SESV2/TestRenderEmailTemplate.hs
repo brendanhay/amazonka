@@ -119,7 +119,8 @@ instance Core.AWSRequest TestRenderEmailTemplate where
 
 instance Prelude.Hashable TestRenderEmailTemplate where
   hashWithSalt _salt TestRenderEmailTemplate' {..} =
-    _salt `Prelude.hashWithSalt` templateName
+    _salt
+      `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` templateData
 
 instance Prelude.NFData TestRenderEmailTemplate where

@@ -34,8 +34,8 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | The @ListRecommendations@ filter type. This can be one of the following:
 --
--- -   @TYPE@ – The recommendation type, with values like @DKIM@, @SPF@ or
---     @DMARC@.
+-- -   @TYPE@ – The recommendation type, with values like @DKIM@, @SPF@,
+--     @DMARC@ or @BIMI@.
 --
 -- -   @IMPACT@ – The recommendation impact, with values like @HIGH@ or
 --     @LOW@.

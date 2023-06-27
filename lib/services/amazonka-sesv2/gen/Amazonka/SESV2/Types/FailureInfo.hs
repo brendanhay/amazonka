@@ -77,7 +77,8 @@ instance Data.FromJSON FailureInfo where
 
 instance Prelude.Hashable FailureInfo where
   hashWithSalt _salt FailureInfo' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
+    _salt
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` failedRecordsS3Url
 
 instance Prelude.NFData FailureInfo where

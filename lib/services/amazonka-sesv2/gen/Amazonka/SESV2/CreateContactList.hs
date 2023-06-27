@@ -123,7 +123,8 @@ instance Core.AWSRequest CreateContactList where
 
 instance Prelude.Hashable CreateContactList where
   hashWithSalt _salt CreateContactList' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` topics
       `Prelude.hashWithSalt` contactListName

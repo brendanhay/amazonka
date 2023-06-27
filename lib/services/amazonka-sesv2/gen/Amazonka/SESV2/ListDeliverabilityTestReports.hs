@@ -131,7 +131,8 @@ instance
           ListDeliverabilityTestReportsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "DeliverabilityTestReports"
+            Prelude.<*> ( x
+                            Data..?> "DeliverabilityTestReports"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -141,7 +142,8 @@ instance
     ListDeliverabilityTestReports
   where
   hashWithSalt _salt ListDeliverabilityTestReports' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
 
 instance Prelude.NFData ListDeliverabilityTestReports where

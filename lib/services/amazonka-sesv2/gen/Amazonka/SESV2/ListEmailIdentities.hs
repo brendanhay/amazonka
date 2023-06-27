@@ -125,7 +125,8 @@ instance Core.AWSRequest ListEmailIdentities where
     Response.receiveJSON
       ( \s h x ->
           ListEmailIdentitiesResponse'
-            Prelude.<$> ( x Data..?> "EmailIdentities"
+            Prelude.<$> ( x
+                            Data..?> "EmailIdentities"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -134,7 +135,8 @@ instance Core.AWSRequest ListEmailIdentities where
 
 instance Prelude.Hashable ListEmailIdentities where
   hashWithSalt _salt ListEmailIdentities' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
 
 instance Prelude.NFData ListEmailIdentities where

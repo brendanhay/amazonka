@@ -114,7 +114,8 @@ instance
     PutConfigurationSetVdmOptions
   where
   hashWithSalt _salt PutConfigurationSetVdmOptions' {..} =
-    _salt `Prelude.hashWithSalt` vdmOptions
+    _salt
+      `Prelude.hashWithSalt` vdmOptions
       `Prelude.hashWithSalt` configurationSetName
 
 instance Prelude.NFData PutConfigurationSetVdmOptions where

@@ -134,7 +134,8 @@ instance Core.AWSRequest SendCustomVerificationEmail where
 
 instance Prelude.Hashable SendCustomVerificationEmail where
   hashWithSalt _salt SendCustomVerificationEmail' {..} =
-    _salt `Prelude.hashWithSalt` configurationSetName
+    _salt
+      `Prelude.hashWithSalt` configurationSetName
       `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` templateName
 

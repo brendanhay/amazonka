@@ -160,7 +160,8 @@ instance
   hashWithSalt
     _salt
     CloudWatchDimensionConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` dimensionName
+      _salt
+        `Prelude.hashWithSalt` dimensionName
         `Prelude.hashWithSalt` dimensionValueSource
         `Prelude.hashWithSalt` defaultDimensionValue
 

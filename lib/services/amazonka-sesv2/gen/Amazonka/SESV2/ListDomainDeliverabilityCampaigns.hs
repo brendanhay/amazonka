@@ -171,10 +171,11 @@ instance
       ( \s h x ->
           ListDomainDeliverabilityCampaignsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Data..?> "DomainDeliverabilityCampaigns"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "DomainDeliverabilityCampaigns"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
 instance
@@ -184,7 +185,8 @@ instance
   hashWithSalt
     _salt
     ListDomainDeliverabilityCampaigns' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` pageSize
         `Prelude.hashWithSalt` startDate
         `Prelude.hashWithSalt` endDate

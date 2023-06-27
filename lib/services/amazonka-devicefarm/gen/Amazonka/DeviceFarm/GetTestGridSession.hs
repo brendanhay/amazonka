@@ -121,7 +121,8 @@ instance Core.AWSRequest GetTestGridSession where
 
 instance Prelude.Hashable GetTestGridSession where
   hashWithSalt _salt GetTestGridSession' {..} =
-    _salt `Prelude.hashWithSalt` projectArn
+    _salt
+      `Prelude.hashWithSalt` projectArn
       `Prelude.hashWithSalt` sessionArn
       `Prelude.hashWithSalt` sessionId
 

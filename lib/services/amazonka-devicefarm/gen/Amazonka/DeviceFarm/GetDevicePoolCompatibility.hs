@@ -250,10 +250,12 @@ instance Core.AWSRequest GetDevicePoolCompatibility where
     Response.receiveJSON
       ( \s h x ->
           GetDevicePoolCompatibilityResponse'
-            Prelude.<$> ( x Data..?> "compatibleDevices"
+            Prelude.<$> ( x
+                            Data..?> "compatibleDevices"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "incompatibleDevices"
+            Prelude.<*> ( x
+                            Data..?> "incompatibleDevices"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -261,7 +263,8 @@ instance Core.AWSRequest GetDevicePoolCompatibility where
 
 instance Prelude.Hashable GetDevicePoolCompatibility where
   hashWithSalt _salt GetDevicePoolCompatibility' {..} =
-    _salt `Prelude.hashWithSalt` appArn
+    _salt
+      `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` test
       `Prelude.hashWithSalt` testType

@@ -214,7 +214,8 @@ instance Data.FromJSON Sample where
 
 instance Prelude.Hashable Sample where
   hashWithSalt _salt Sample' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` url
 

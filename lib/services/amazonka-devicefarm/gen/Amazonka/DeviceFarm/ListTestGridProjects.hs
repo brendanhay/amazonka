@@ -96,7 +96,8 @@ instance Core.AWSRequest ListTestGridProjects where
       ( \s h x ->
           ListTestGridProjectsResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "testGridProjects"
+            Prelude.<*> ( x
+                            Data..?> "testGridProjects"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -104,7 +105,8 @@ instance Core.AWSRequest ListTestGridProjects where
 
 instance Prelude.Hashable ListTestGridProjects where
   hashWithSalt _salt ListTestGridProjects' {..} =
-    _salt `Prelude.hashWithSalt` maxResult
+    _salt
+      `Prelude.hashWithSalt` maxResult
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListTestGridProjects where

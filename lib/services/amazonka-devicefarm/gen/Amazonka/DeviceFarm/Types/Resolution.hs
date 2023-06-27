@@ -75,7 +75,8 @@ instance Data.FromJSON Resolution where
 
 instance Prelude.Hashable Resolution where
   hashWithSalt _salt Resolution' {..} =
-    _salt `Prelude.hashWithSalt` height
+    _salt
+      `Prelude.hashWithSalt` height
       `Prelude.hashWithSalt` width
 
 instance Prelude.NFData Resolution where

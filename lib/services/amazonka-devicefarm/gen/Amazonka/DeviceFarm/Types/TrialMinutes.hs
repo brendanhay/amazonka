@@ -75,7 +75,8 @@ instance Data.FromJSON TrialMinutes where
 
 instance Prelude.Hashable TrialMinutes where
   hashWithSalt _salt TrialMinutes' {..} =
-    _salt `Prelude.hashWithSalt` remaining
+    _salt
+      `Prelude.hashWithSalt` remaining
       `Prelude.hashWithSalt` total
 
 instance Prelude.NFData TrialMinutes where

@@ -124,7 +124,8 @@ instance Data.FromJSON InstanceProfile where
           InstanceProfile'
             Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "description")
-            Prelude.<*> ( x Data..:? "excludeAppPackagesFromCleanup"
+            Prelude.<*> ( x
+                            Data..:? "excludeAppPackagesFromCleanup"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "name")
@@ -134,7 +135,8 @@ instance Data.FromJSON InstanceProfile where
 
 instance Prelude.Hashable InstanceProfile where
   hashWithSalt _salt InstanceProfile' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` excludeAppPackagesFromCleanup
       `Prelude.hashWithSalt` name

@@ -157,7 +157,8 @@ instance Core.AWSRequest CreateDevicePool where
 
 instance Prelude.Hashable CreateDevicePool where
   hashWithSalt _salt CreateDevicePool' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` maxDevices
       `Prelude.hashWithSalt` projectArn
       `Prelude.hashWithSalt` name

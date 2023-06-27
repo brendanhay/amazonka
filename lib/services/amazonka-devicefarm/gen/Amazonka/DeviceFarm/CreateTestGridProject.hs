@@ -114,7 +114,8 @@ instance Core.AWSRequest CreateTestGridProject where
 
 instance Prelude.Hashable CreateTestGridProject where
   hashWithSalt _salt CreateTestGridProject' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` vpcConfig
       `Prelude.hashWithSalt` name
 

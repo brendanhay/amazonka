@@ -109,7 +109,8 @@ instance Data.FromJSON Project where
 
 instance Prelude.Hashable Project where
   hashWithSalt _salt Project' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` defaultJobTimeoutMinutes
       `Prelude.hashWithSalt` name

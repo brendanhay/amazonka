@@ -68,12 +68,14 @@ instance Data.FromJSON ProblemDetail where
       "ProblemDetail"
       ( \x ->
           ProblemDetail'
-            Prelude.<$> (x Data..:? "arn") Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable ProblemDetail where
   hashWithSalt _salt ProblemDetail' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ProblemDetail where

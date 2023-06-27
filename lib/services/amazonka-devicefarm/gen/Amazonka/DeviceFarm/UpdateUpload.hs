@@ -129,7 +129,8 @@ instance Core.AWSRequest UpdateUpload where
 
 instance Prelude.Hashable UpdateUpload where
   hashWithSalt _salt UpdateUpload' {..} =
-    _salt `Prelude.hashWithSalt` contentType
+    _salt
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` editContent
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` arn

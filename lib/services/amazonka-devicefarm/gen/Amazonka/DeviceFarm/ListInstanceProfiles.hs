@@ -101,22 +101,22 @@ instance Core.AWSPager ListInstanceProfiles where
     | Core.stop
         ( rs
             Lens.^? listInstanceProfilesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listInstanceProfilesResponse_instanceProfiles
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listInstanceProfiles_nextToken
           Lens..~ rs
           Lens.^? listInstanceProfilesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInstanceProfiles where
   type
@@ -128,7 +128,8 @@ instance Core.AWSRequest ListInstanceProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListInstanceProfilesResponse'
-            Prelude.<$> ( x Data..?> "instanceProfiles"
+            Prelude.<$> ( x
+                            Data..?> "instanceProfiles"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -137,7 +138,8 @@ instance Core.AWSRequest ListInstanceProfiles where
 
 instance Prelude.Hashable ListInstanceProfiles where
   hashWithSalt _salt ListInstanceProfiles' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListInstanceProfiles where

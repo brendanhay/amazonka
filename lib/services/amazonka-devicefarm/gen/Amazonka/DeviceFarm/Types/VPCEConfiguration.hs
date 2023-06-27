@@ -116,7 +116,8 @@ instance Data.FromJSON VPCEConfiguration where
 
 instance Prelude.Hashable VPCEConfiguration where
   hashWithSalt _salt VPCEConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` serviceDnsName
       `Prelude.hashWithSalt` vpceConfigurationDescription
       `Prelude.hashWithSalt` vpceConfigurationName

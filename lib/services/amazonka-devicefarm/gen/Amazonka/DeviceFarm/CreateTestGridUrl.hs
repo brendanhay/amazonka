@@ -110,7 +110,8 @@ instance Core.AWSRequest CreateTestGridUrl where
 
 instance Prelude.Hashable CreateTestGridUrl where
   hashWithSalt _salt CreateTestGridUrl' {..} =
-    _salt `Prelude.hashWithSalt` projectArn
+    _salt
+      `Prelude.hashWithSalt` projectArn
       `Prelude.hashWithSalt` expiresInSeconds
 
 instance Prelude.NFData CreateTestGridUrl where

@@ -407,7 +407,8 @@ instance Data.FromJSON Upload where
 
 instance Prelude.Hashable Upload where
   hashWithSalt _salt Upload' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` created

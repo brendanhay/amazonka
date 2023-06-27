@@ -316,7 +316,8 @@ instance
     DeviceSelectionConfiguration
   where
   hashWithSalt _salt DeviceSelectionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxDevices
 
 instance Prelude.NFData DeviceSelectionConfiguration where

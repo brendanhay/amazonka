@@ -725,66 +725,66 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An invalid argument was specified.
-_ArgumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ArgumentException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ArgumentException =
   Core._MatchServiceError
     defaultService
     "ArgumentException"
 
 -- | The requested object could not be deleted.
-_CannotDeleteException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CannotDeleteException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CannotDeleteException =
   Core._MatchServiceError
     defaultService
     "CannotDeleteException"
 
 -- | An entity with the same name already exists.
-_IdempotencyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IdempotencyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IdempotencyException =
   Core._MatchServiceError
     defaultService
@@ -793,7 +793,7 @@ _IdempotencyException =
 -- | An internal exception was raised in the service. Contact
 -- <mailto:aws-devicefarm-support@amazon.com aws-devicefarm-support\@amazon.com>
 -- if you see this error.
-_InternalServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServiceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServiceException =
   Core._MatchServiceError
     defaultService
@@ -801,14 +801,14 @@ _InternalServiceException =
 
 -- | There was an error with the update request, or you do not have
 -- sufficient permissions to update this VPC endpoint configuration.
-_InvalidOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidOperationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidOperationException =
   Core._MatchServiceError
     defaultService
     "InvalidOperationException"
 
 -- | A limit was exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -816,28 +816,28 @@ _LimitExceededException =
 
 -- | Exception gets thrown when a user is not eligible to perform the
 -- specified transaction.
-_NotEligibleException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotEligibleException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotEligibleException =
   Core._MatchServiceError
     defaultService
     "NotEligibleException"
 
 -- | The specified entity was not found.
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
     "NotFoundException"
 
 -- | There was a problem with the service account.
-_ServiceAccountException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceAccountException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceAccountException =
   Core._MatchServiceError
     defaultService
     "ServiceAccountException"
 
 -- | The operation was not successful. Try again.
-_TagOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TagOperationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TagOperationException =
   Core._MatchServiceError
     defaultService
@@ -845,7 +845,7 @@ _TagOperationException =
 
 -- | The request doesn\'t comply with the AWS Identity and Access Management
 -- (IAM) tag policy. Correct your request and then retry it.
-_TagPolicyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TagPolicyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TagPolicyException =
   Core._MatchServiceError
     defaultService
@@ -853,7 +853,7 @@ _TagPolicyException =
 
 -- | The list of tags on the repository is over the limit. The maximum number
 -- of tags that can be applied to a repository is 50.
-_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyTagsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService

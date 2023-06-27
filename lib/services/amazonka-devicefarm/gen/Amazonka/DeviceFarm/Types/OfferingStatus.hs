@@ -96,7 +96,8 @@ instance Data.FromJSON OfferingStatus where
 
 instance Prelude.Hashable OfferingStatus where
   hashWithSalt _salt OfferingStatus' {..} =
-    _salt `Prelude.hashWithSalt` effectiveOn
+    _salt
+      `Prelude.hashWithSalt` effectiveOn
       `Prelude.hashWithSalt` offering
       `Prelude.hashWithSalt` quantity
       `Prelude.hashWithSalt` type'

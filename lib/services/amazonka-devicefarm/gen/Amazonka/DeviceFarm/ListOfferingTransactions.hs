@@ -96,22 +96,22 @@ instance Core.AWSPager ListOfferingTransactions where
     | Core.stop
         ( rs
             Lens.^? listOfferingTransactionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listOfferingTransactionsResponse_offeringTransactions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listOfferingTransactions_nextToken
           Lens..~ rs
           Lens.^? listOfferingTransactionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOfferingTransactions where
   type
@@ -124,7 +124,8 @@ instance Core.AWSRequest ListOfferingTransactions where
       ( \s h x ->
           ListOfferingTransactionsResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "offeringTransactions"
+            Prelude.<*> ( x
+                            Data..?> "offeringTransactions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

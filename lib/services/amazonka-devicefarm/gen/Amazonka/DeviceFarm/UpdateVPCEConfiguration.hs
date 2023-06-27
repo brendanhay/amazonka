@@ -149,7 +149,8 @@ instance Core.AWSRequest UpdateVPCEConfiguration where
 
 instance Prelude.Hashable UpdateVPCEConfiguration where
   hashWithSalt _salt UpdateVPCEConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` serviceDnsName
+    _salt
+      `Prelude.hashWithSalt` serviceDnsName
       `Prelude.hashWithSalt` vpceConfigurationDescription
       `Prelude.hashWithSalt` vpceConfigurationName
       `Prelude.hashWithSalt` vpceServiceName

@@ -239,7 +239,8 @@ instance Core.AWSRequest UpdateNetworkProfile where
 
 instance Prelude.Hashable UpdateNetworkProfile where
   hashWithSalt _salt UpdateNetworkProfile' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` downlinkBandwidthBits
       `Prelude.hashWithSalt` downlinkDelayMs
       `Prelude.hashWithSalt` downlinkJitterMs

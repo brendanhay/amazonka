@@ -88,7 +88,8 @@ instance Data.FromJSON CPU where
 
 instance Prelude.Hashable CPU where
   hashWithSalt _salt CPU' {..} =
-    _salt `Prelude.hashWithSalt` architecture
+    _salt
+      `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` clock
       `Prelude.hashWithSalt` frequency
 

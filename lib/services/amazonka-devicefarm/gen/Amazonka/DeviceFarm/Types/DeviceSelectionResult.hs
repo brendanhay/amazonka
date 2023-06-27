@@ -90,7 +90,8 @@ instance Data.FromJSON DeviceSelectionResult where
 
 instance Prelude.Hashable DeviceSelectionResult where
   hashWithSalt _salt DeviceSelectionResult' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` matchedDevicesCount
       `Prelude.hashWithSalt` maxDevices
 

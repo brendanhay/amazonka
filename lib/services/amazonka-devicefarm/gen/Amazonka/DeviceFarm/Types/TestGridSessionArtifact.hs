@@ -90,7 +90,8 @@ instance Data.FromJSON TestGridSessionArtifact where
 
 instance Prelude.Hashable TestGridSessionArtifact where
   hashWithSalt _salt TestGridSessionArtifact' {..} =
-    _salt `Prelude.hashWithSalt` filename
+    _salt
+      `Prelude.hashWithSalt` filename
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` url
 

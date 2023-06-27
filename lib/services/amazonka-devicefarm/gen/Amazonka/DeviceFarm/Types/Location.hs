@@ -81,7 +81,8 @@ instance Data.FromJSON Location where
 
 instance Prelude.Hashable Location where
   hashWithSalt _salt Location' {..} =
-    _salt `Prelude.hashWithSalt` latitude
+    _salt
+      `Prelude.hashWithSalt` latitude
       `Prelude.hashWithSalt` longitude
 
 instance Prelude.NFData Location where

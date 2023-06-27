@@ -62,6 +62,12 @@ module Amazonka.WorkSpacesWeb
     AssociateBrowserSettingsResponse (AssociateBrowserSettingsResponse'),
     newAssociateBrowserSettingsResponse,
 
+    -- ** AssociateIpAccessSettings
+    AssociateIpAccessSettings (AssociateIpAccessSettings'),
+    newAssociateIpAccessSettings,
+    AssociateIpAccessSettingsResponse (AssociateIpAccessSettingsResponse'),
+    newAssociateIpAccessSettingsResponse,
+
     -- ** AssociateNetworkSettings
     AssociateNetworkSettings (AssociateNetworkSettings'),
     newAssociateNetworkSettings,
@@ -97,6 +103,12 @@ module Amazonka.WorkSpacesWeb
     newCreateIdentityProvider,
     CreateIdentityProviderResponse (CreateIdentityProviderResponse'),
     newCreateIdentityProviderResponse,
+
+    -- ** CreateIpAccessSettings
+    CreateIpAccessSettings (CreateIpAccessSettings'),
+    newCreateIpAccessSettings,
+    CreateIpAccessSettingsResponse (CreateIpAccessSettingsResponse'),
+    newCreateIpAccessSettingsResponse,
 
     -- ** CreateNetworkSettings
     CreateNetworkSettings (CreateNetworkSettings'),
@@ -140,6 +152,12 @@ module Amazonka.WorkSpacesWeb
     DeleteIdentityProviderResponse (DeleteIdentityProviderResponse'),
     newDeleteIdentityProviderResponse,
 
+    -- ** DeleteIpAccessSettings
+    DeleteIpAccessSettings (DeleteIpAccessSettings'),
+    newDeleteIpAccessSettings,
+    DeleteIpAccessSettingsResponse (DeleteIpAccessSettingsResponse'),
+    newDeleteIpAccessSettingsResponse,
+
     -- ** DeleteNetworkSettings
     DeleteNetworkSettings (DeleteNetworkSettings'),
     newDeleteNetworkSettings,
@@ -176,6 +194,12 @@ module Amazonka.WorkSpacesWeb
     DisassociateBrowserSettingsResponse (DisassociateBrowserSettingsResponse'),
     newDisassociateBrowserSettingsResponse,
 
+    -- ** DisassociateIpAccessSettings
+    DisassociateIpAccessSettings (DisassociateIpAccessSettings'),
+    newDisassociateIpAccessSettings,
+    DisassociateIpAccessSettingsResponse (DisassociateIpAccessSettingsResponse'),
+    newDisassociateIpAccessSettingsResponse,
+
     -- ** DisassociateNetworkSettings
     DisassociateNetworkSettings (DisassociateNetworkSettings'),
     newDisassociateNetworkSettings,
@@ -211,6 +235,12 @@ module Amazonka.WorkSpacesWeb
     newGetIdentityProvider,
     GetIdentityProviderResponse (GetIdentityProviderResponse'),
     newGetIdentityProviderResponse,
+
+    -- ** GetIpAccessSettings
+    GetIpAccessSettings (GetIpAccessSettings'),
+    newGetIpAccessSettings,
+    GetIpAccessSettingsResponse (GetIpAccessSettingsResponse'),
+    newGetIpAccessSettingsResponse,
 
     -- ** GetNetworkSettings
     GetNetworkSettings (GetNetworkSettings'),
@@ -265,6 +295,12 @@ module Amazonka.WorkSpacesWeb
     newListIdentityProviders,
     ListIdentityProvidersResponse (ListIdentityProvidersResponse'),
     newListIdentityProvidersResponse,
+
+    -- ** ListIpAccessSettings
+    ListIpAccessSettings (ListIpAccessSettings'),
+    newListIpAccessSettings,
+    ListIpAccessSettingsResponse (ListIpAccessSettingsResponse'),
+    newListIpAccessSettingsResponse,
 
     -- ** ListNetworkSettings
     ListNetworkSettings (ListNetworkSettings'),
@@ -332,6 +368,12 @@ module Amazonka.WorkSpacesWeb
     UpdateIdentityProviderResponse (UpdateIdentityProviderResponse'),
     newUpdateIdentityProviderResponse,
 
+    -- ** UpdateIpAccessSettings
+    UpdateIpAccessSettings (UpdateIpAccessSettings'),
+    newUpdateIpAccessSettings,
+    UpdateIpAccessSettingsResponse (UpdateIpAccessSettingsResponse'),
+    newUpdateIpAccessSettingsResponse,
+
     -- ** UpdateNetworkSettings
     UpdateNetworkSettings (UpdateNetworkSettings'),
     newUpdateNetworkSettings,
@@ -363,6 +405,9 @@ module Amazonka.WorkSpacesWeb
     newUpdateUserSettingsResponse,
 
     -- * Types
+
+    -- ** AuthenticationType
+    AuthenticationType (..),
 
     -- ** BrowserType
     BrowserType (..),
@@ -402,6 +447,18 @@ module Amazonka.WorkSpacesWeb
     -- ** IdentityProviderSummary
     IdentityProviderSummary (IdentityProviderSummary'),
     newIdentityProviderSummary,
+
+    -- ** IpAccessSettings
+    IpAccessSettings (IpAccessSettings'),
+    newIpAccessSettings,
+
+    -- ** IpAccessSettingsSummary
+    IpAccessSettingsSummary (IpAccessSettingsSummary'),
+    newIpAccessSettingsSummary,
+
+    -- ** IpRule
+    IpRule (IpRule'),
+    newIpRule,
 
     -- ** NetworkSettings
     NetworkSettings (NetworkSettings'),
@@ -450,12 +507,14 @@ module Amazonka.WorkSpacesWeb
 where
 
 import Amazonka.WorkSpacesWeb.AssociateBrowserSettings
+import Amazonka.WorkSpacesWeb.AssociateIpAccessSettings
 import Amazonka.WorkSpacesWeb.AssociateNetworkSettings
 import Amazonka.WorkSpacesWeb.AssociateTrustStore
 import Amazonka.WorkSpacesWeb.AssociateUserAccessLoggingSettings
 import Amazonka.WorkSpacesWeb.AssociateUserSettings
 import Amazonka.WorkSpacesWeb.CreateBrowserSettings
 import Amazonka.WorkSpacesWeb.CreateIdentityProvider
+import Amazonka.WorkSpacesWeb.CreateIpAccessSettings
 import Amazonka.WorkSpacesWeb.CreateNetworkSettings
 import Amazonka.WorkSpacesWeb.CreatePortal
 import Amazonka.WorkSpacesWeb.CreateTrustStore
@@ -463,18 +522,21 @@ import Amazonka.WorkSpacesWeb.CreateUserAccessLoggingSettings
 import Amazonka.WorkSpacesWeb.CreateUserSettings
 import Amazonka.WorkSpacesWeb.DeleteBrowserSettings
 import Amazonka.WorkSpacesWeb.DeleteIdentityProvider
+import Amazonka.WorkSpacesWeb.DeleteIpAccessSettings
 import Amazonka.WorkSpacesWeb.DeleteNetworkSettings
 import Amazonka.WorkSpacesWeb.DeletePortal
 import Amazonka.WorkSpacesWeb.DeleteTrustStore
 import Amazonka.WorkSpacesWeb.DeleteUserAccessLoggingSettings
 import Amazonka.WorkSpacesWeb.DeleteUserSettings
 import Amazonka.WorkSpacesWeb.DisassociateBrowserSettings
+import Amazonka.WorkSpacesWeb.DisassociateIpAccessSettings
 import Amazonka.WorkSpacesWeb.DisassociateNetworkSettings
 import Amazonka.WorkSpacesWeb.DisassociateTrustStore
 import Amazonka.WorkSpacesWeb.DisassociateUserAccessLoggingSettings
 import Amazonka.WorkSpacesWeb.DisassociateUserSettings
 import Amazonka.WorkSpacesWeb.GetBrowserSettings
 import Amazonka.WorkSpacesWeb.GetIdentityProvider
+import Amazonka.WorkSpacesWeb.GetIpAccessSettings
 import Amazonka.WorkSpacesWeb.GetNetworkSettings
 import Amazonka.WorkSpacesWeb.GetPortal
 import Amazonka.WorkSpacesWeb.GetPortalServiceProviderMetadata
@@ -485,6 +547,7 @@ import Amazonka.WorkSpacesWeb.GetUserSettings
 import Amazonka.WorkSpacesWeb.Lens
 import Amazonka.WorkSpacesWeb.ListBrowserSettings
 import Amazonka.WorkSpacesWeb.ListIdentityProviders
+import Amazonka.WorkSpacesWeb.ListIpAccessSettings
 import Amazonka.WorkSpacesWeb.ListNetworkSettings
 import Amazonka.WorkSpacesWeb.ListPortals
 import Amazonka.WorkSpacesWeb.ListTagsForResource
@@ -497,6 +560,7 @@ import Amazonka.WorkSpacesWeb.Types
 import Amazonka.WorkSpacesWeb.UntagResource
 import Amazonka.WorkSpacesWeb.UpdateBrowserSettings
 import Amazonka.WorkSpacesWeb.UpdateIdentityProvider
+import Amazonka.WorkSpacesWeb.UpdateIpAccessSettings
 import Amazonka.WorkSpacesWeb.UpdateNetworkSettings
 import Amazonka.WorkSpacesWeb.UpdatePortal
 import Amazonka.WorkSpacesWeb.UpdateTrustStore

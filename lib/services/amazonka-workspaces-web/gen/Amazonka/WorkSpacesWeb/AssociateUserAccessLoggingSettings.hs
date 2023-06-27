@@ -107,8 +107,8 @@ instance
       ( \s h x ->
           AssociateUserAccessLoggingSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "portalArn")
-              Prelude.<*> (x Data..:> "userAccessLoggingSettingsArn")
+            Prelude.<*> (x Data..:> "portalArn")
+            Prelude.<*> (x Data..:> "userAccessLoggingSettingsArn")
       )
 
 instance
@@ -118,7 +118,8 @@ instance
   hashWithSalt
     _salt
     AssociateUserAccessLoggingSettings' {..} =
-      _salt `Prelude.hashWithSalt` portalArn
+      _salt
+        `Prelude.hashWithSalt` portalArn
         `Prelude.hashWithSalt` userAccessLoggingSettingsArn
 
 instance

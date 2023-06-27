@@ -144,7 +144,8 @@ instance Core.AWSRequest UpdateTrustStore where
 
 instance Prelude.Hashable UpdateTrustStore where
   hashWithSalt _salt UpdateTrustStore' {..} =
-    _salt `Prelude.hashWithSalt` certificatesToAdd
+    _salt
+      `Prelude.hashWithSalt` certificatesToAdd
       `Prelude.hashWithSalt` certificatesToDelete
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` trustStoreArn

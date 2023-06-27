@@ -112,7 +112,8 @@ instance Core.AWSRequest ListTrustStoreCertificates where
     Response.receiveJSON
       ( \s h x ->
           ListTrustStoreCertificatesResponse'
-            Prelude.<$> ( x Data..?> "certificateList"
+            Prelude.<$> ( x
+                            Data..?> "certificateList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -122,7 +123,8 @@ instance Core.AWSRequest ListTrustStoreCertificates where
 
 instance Prelude.Hashable ListTrustStoreCertificates where
   hashWithSalt _salt ListTrustStoreCertificates' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` trustStoreArn
 

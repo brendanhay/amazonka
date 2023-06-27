@@ -233,7 +233,8 @@ instance Core.AWSRequest CreateUserSettings where
 
 instance Prelude.Hashable CreateUserSettings where
   hashWithSalt _salt CreateUserSettings' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` disconnectTimeoutInMinutes
       `Prelude.hashWithSalt` idleDisconnectTimeoutInMinutes
       `Prelude.hashWithSalt` tags

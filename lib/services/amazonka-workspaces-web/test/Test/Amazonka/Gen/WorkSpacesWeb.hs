@@ -30,6 +30,9 @@ import Test.Tasty
 --         [ requestAssociateBrowserSettings $
 --             newAssociateBrowserSettings
 --
+--         , requestAssociateIpAccessSettings $
+--             newAssociateIpAccessSettings
+--
 --         , requestAssociateNetworkSettings $
 --             newAssociateNetworkSettings
 --
@@ -47,6 +50,9 @@ import Test.Tasty
 --
 --         , requestCreateIdentityProvider $
 --             newCreateIdentityProvider
+--
+--         , requestCreateIpAccessSettings $
+--             newCreateIpAccessSettings
 --
 --         , requestCreateNetworkSettings $
 --             newCreateNetworkSettings
@@ -69,6 +75,9 @@ import Test.Tasty
 --         , requestDeleteIdentityProvider $
 --             newDeleteIdentityProvider
 --
+--         , requestDeleteIpAccessSettings $
+--             newDeleteIpAccessSettings
+--
 --         , requestDeleteNetworkSettings $
 --             newDeleteNetworkSettings
 --
@@ -87,6 +96,9 @@ import Test.Tasty
 --         , requestDisassociateBrowserSettings $
 --             newDisassociateBrowserSettings
 --
+--         , requestDisassociateIpAccessSettings $
+--             newDisassociateIpAccessSettings
+--
 --         , requestDisassociateNetworkSettings $
 --             newDisassociateNetworkSettings
 --
@@ -104,6 +116,9 @@ import Test.Tasty
 --
 --         , requestGetIdentityProvider $
 --             newGetIdentityProvider
+--
+--         , requestGetIpAccessSettings $
+--             newGetIpAccessSettings
 --
 --         , requestGetNetworkSettings $
 --             newGetNetworkSettings
@@ -131,6 +146,9 @@ import Test.Tasty
 --
 --         , requestListIdentityProviders $
 --             newListIdentityProviders
+--
+--         , requestListIpAccessSettings $
+--             newListIpAccessSettings
 --
 --         , requestListNetworkSettings $
 --             newListNetworkSettings
@@ -165,6 +183,9 @@ import Test.Tasty
 --         , requestUpdateIdentityProvider $
 --             newUpdateIdentityProvider
 --
+--         , requestUpdateIpAccessSettings $
+--             newUpdateIpAccessSettings
+--
 --         , requestUpdateNetworkSettings $
 --             newUpdateNetworkSettings
 --
@@ -186,6 +207,9 @@ import Test.Tasty
 --         [ responseAssociateBrowserSettings $
 --             newAssociateBrowserSettingsResponse
 --
+--         , responseAssociateIpAccessSettings $
+--             newAssociateIpAccessSettingsResponse
+--
 --         , responseAssociateNetworkSettings $
 --             newAssociateNetworkSettingsResponse
 --
@@ -203,6 +227,9 @@ import Test.Tasty
 --
 --         , responseCreateIdentityProvider $
 --             newCreateIdentityProviderResponse
+--
+--         , responseCreateIpAccessSettings $
+--             newCreateIpAccessSettingsResponse
 --
 --         , responseCreateNetworkSettings $
 --             newCreateNetworkSettingsResponse
@@ -225,6 +252,9 @@ import Test.Tasty
 --         , responseDeleteIdentityProvider $
 --             newDeleteIdentityProviderResponse
 --
+--         , responseDeleteIpAccessSettings $
+--             newDeleteIpAccessSettingsResponse
+--
 --         , responseDeleteNetworkSettings $
 --             newDeleteNetworkSettingsResponse
 --
@@ -243,6 +273,9 @@ import Test.Tasty
 --         , responseDisassociateBrowserSettings $
 --             newDisassociateBrowserSettingsResponse
 --
+--         , responseDisassociateIpAccessSettings $
+--             newDisassociateIpAccessSettingsResponse
+--
 --         , responseDisassociateNetworkSettings $
 --             newDisassociateNetworkSettingsResponse
 --
@@ -260,6 +293,9 @@ import Test.Tasty
 --
 --         , responseGetIdentityProvider $
 --             newGetIdentityProviderResponse
+--
+--         , responseGetIpAccessSettings $
+--             newGetIpAccessSettingsResponse
 --
 --         , responseGetNetworkSettings $
 --             newGetNetworkSettingsResponse
@@ -287,6 +323,9 @@ import Test.Tasty
 --
 --         , responseListIdentityProviders $
 --             newListIdentityProvidersResponse
+--
+--         , responseListIpAccessSettings $
+--             newListIpAccessSettingsResponse
 --
 --         , responseListNetworkSettings $
 --             newListNetworkSettingsResponse
@@ -321,6 +360,9 @@ import Test.Tasty
 --         , responseUpdateIdentityProvider $
 --             newUpdateIdentityProviderResponse
 --
+--         , responseUpdateIpAccessSettings $
+--             newUpdateIpAccessSettingsResponse
+--
 --         , responseUpdateNetworkSettings $
 --             newUpdateNetworkSettingsResponse
 --
@@ -346,6 +388,12 @@ requestAssociateBrowserSettings =
   req
     "AssociateBrowserSettings"
     "fixture/AssociateBrowserSettings.yaml"
+
+requestAssociateIpAccessSettings :: AssociateIpAccessSettings -> TestTree
+requestAssociateIpAccessSettings =
+  req
+    "AssociateIpAccessSettings"
+    "fixture/AssociateIpAccessSettings.yaml"
 
 requestAssociateNetworkSettings :: AssociateNetworkSettings -> TestTree
 requestAssociateNetworkSettings =
@@ -382,6 +430,12 @@ requestCreateIdentityProvider =
   req
     "CreateIdentityProvider"
     "fixture/CreateIdentityProvider.yaml"
+
+requestCreateIpAccessSettings :: CreateIpAccessSettings -> TestTree
+requestCreateIpAccessSettings =
+  req
+    "CreateIpAccessSettings"
+    "fixture/CreateIpAccessSettings.yaml"
 
 requestCreateNetworkSettings :: CreateNetworkSettings -> TestTree
 requestCreateNetworkSettings =
@@ -425,6 +479,12 @@ requestDeleteIdentityProvider =
     "DeleteIdentityProvider"
     "fixture/DeleteIdentityProvider.yaml"
 
+requestDeleteIpAccessSettings :: DeleteIpAccessSettings -> TestTree
+requestDeleteIpAccessSettings =
+  req
+    "DeleteIpAccessSettings"
+    "fixture/DeleteIpAccessSettings.yaml"
+
 requestDeleteNetworkSettings :: DeleteNetworkSettings -> TestTree
 requestDeleteNetworkSettings =
   req
@@ -461,6 +521,12 @@ requestDisassociateBrowserSettings =
     "DisassociateBrowserSettings"
     "fixture/DisassociateBrowserSettings.yaml"
 
+requestDisassociateIpAccessSettings :: DisassociateIpAccessSettings -> TestTree
+requestDisassociateIpAccessSettings =
+  req
+    "DisassociateIpAccessSettings"
+    "fixture/DisassociateIpAccessSettings.yaml"
+
 requestDisassociateNetworkSettings :: DisassociateNetworkSettings -> TestTree
 requestDisassociateNetworkSettings =
   req
@@ -496,6 +562,12 @@ requestGetIdentityProvider =
   req
     "GetIdentityProvider"
     "fixture/GetIdentityProvider.yaml"
+
+requestGetIpAccessSettings :: GetIpAccessSettings -> TestTree
+requestGetIpAccessSettings =
+  req
+    "GetIpAccessSettings"
+    "fixture/GetIpAccessSettings.yaml"
 
 requestGetNetworkSettings :: GetNetworkSettings -> TestTree
 requestGetNetworkSettings =
@@ -550,6 +622,12 @@ requestListIdentityProviders =
   req
     "ListIdentityProviders"
     "fixture/ListIdentityProviders.yaml"
+
+requestListIpAccessSettings :: ListIpAccessSettings -> TestTree
+requestListIpAccessSettings =
+  req
+    "ListIpAccessSettings"
+    "fixture/ListIpAccessSettings.yaml"
 
 requestListNetworkSettings :: ListNetworkSettings -> TestTree
 requestListNetworkSettings =
@@ -617,6 +695,12 @@ requestUpdateIdentityProvider =
     "UpdateIdentityProvider"
     "fixture/UpdateIdentityProvider.yaml"
 
+requestUpdateIpAccessSettings :: UpdateIpAccessSettings -> TestTree
+requestUpdateIpAccessSettings =
+  req
+    "UpdateIpAccessSettings"
+    "fixture/UpdateIpAccessSettings.yaml"
+
 requestUpdateNetworkSettings :: UpdateNetworkSettings -> TestTree
 requestUpdateNetworkSettings =
   req
@@ -656,6 +740,14 @@ responseAssociateBrowserSettings =
     "fixture/AssociateBrowserSettingsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateBrowserSettings)
+
+responseAssociateIpAccessSettings :: AssociateIpAccessSettingsResponse -> TestTree
+responseAssociateIpAccessSettings =
+  res
+    "AssociateIpAccessSettingsResponse"
+    "fixture/AssociateIpAccessSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateIpAccessSettings)
 
 responseAssociateNetworkSettings :: AssociateNetworkSettingsResponse -> TestTree
 responseAssociateNetworkSettings =
@@ -704,6 +796,14 @@ responseCreateIdentityProvider =
     "fixture/CreateIdentityProviderResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateIdentityProvider)
+
+responseCreateIpAccessSettings :: CreateIpAccessSettingsResponse -> TestTree
+responseCreateIpAccessSettings =
+  res
+    "CreateIpAccessSettingsResponse"
+    "fixture/CreateIpAccessSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateIpAccessSettings)
 
 responseCreateNetworkSettings :: CreateNetworkSettingsResponse -> TestTree
 responseCreateNetworkSettings =
@@ -761,6 +861,14 @@ responseDeleteIdentityProvider =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteIdentityProvider)
 
+responseDeleteIpAccessSettings :: DeleteIpAccessSettingsResponse -> TestTree
+responseDeleteIpAccessSettings =
+  res
+    "DeleteIpAccessSettingsResponse"
+    "fixture/DeleteIpAccessSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteIpAccessSettings)
+
 responseDeleteNetworkSettings :: DeleteNetworkSettingsResponse -> TestTree
 responseDeleteNetworkSettings =
   res
@@ -809,6 +917,14 @@ responseDisassociateBrowserSettings =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateBrowserSettings)
 
+responseDisassociateIpAccessSettings :: DisassociateIpAccessSettingsResponse -> TestTree
+responseDisassociateIpAccessSettings =
+  res
+    "DisassociateIpAccessSettingsResponse"
+    "fixture/DisassociateIpAccessSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateIpAccessSettings)
+
 responseDisassociateNetworkSettings :: DisassociateNetworkSettingsResponse -> TestTree
 responseDisassociateNetworkSettings =
   res
@@ -856,6 +972,14 @@ responseGetIdentityProvider =
     "fixture/GetIdentityProviderResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetIdentityProvider)
+
+responseGetIpAccessSettings :: GetIpAccessSettingsResponse -> TestTree
+responseGetIpAccessSettings =
+  res
+    "GetIpAccessSettingsResponse"
+    "fixture/GetIpAccessSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetIpAccessSettings)
 
 responseGetNetworkSettings :: GetNetworkSettingsResponse -> TestTree
 responseGetNetworkSettings =
@@ -928,6 +1052,14 @@ responseListIdentityProviders =
     "fixture/ListIdentityProvidersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListIdentityProviders)
+
+responseListIpAccessSettings :: ListIpAccessSettingsResponse -> TestTree
+responseListIpAccessSettings =
+  res
+    "ListIpAccessSettingsResponse"
+    "fixture/ListIpAccessSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListIpAccessSettings)
 
 responseListNetworkSettings :: ListNetworkSettingsResponse -> TestTree
 responseListNetworkSettings =
@@ -1016,6 +1148,14 @@ responseUpdateIdentityProvider =
     "fixture/UpdateIdentityProviderResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateIdentityProvider)
+
+responseUpdateIpAccessSettings :: UpdateIpAccessSettingsResponse -> TestTree
+responseUpdateIpAccessSettings =
+  res
+    "UpdateIpAccessSettingsResponse"
+    "fixture/UpdateIpAccessSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateIpAccessSettings)
 
 responseUpdateNetworkSettings :: UpdateNetworkSettingsResponse -> TestTree
 responseUpdateNetworkSettings =

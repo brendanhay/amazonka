@@ -108,7 +108,8 @@ instance Core.AWSRequest AssociateUserSettings where
 
 instance Prelude.Hashable AssociateUserSettings where
   hashWithSalt _salt AssociateUserSettings' {..} =
-    _salt `Prelude.hashWithSalt` portalArn
+    _salt
+      `Prelude.hashWithSalt` portalArn
       `Prelude.hashWithSalt` userSettingsArn
 
 instance Prelude.NFData AssociateUserSettings where

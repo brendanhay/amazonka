@@ -176,7 +176,8 @@ instance Core.AWSRequest CreateNetworkSettings where
 
 instance Prelude.Hashable CreateNetworkSettings where
   hashWithSalt _salt CreateNetworkSettings' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds

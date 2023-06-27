@@ -27,6 +27,7 @@ module Amazonka.WorkSpacesWeb.UpdatePortal
     newUpdatePortal,
 
     -- * Request Lenses
+    updatePortal_authenticationType,
     updatePortal_displayName,
     updatePortal_portalArn,
 
@@ -50,7 +51,22 @@ import Amazonka.WorkSpacesWeb.Types
 
 -- | /See:/ 'newUpdatePortal' smart constructor.
 data UpdatePortal = UpdatePortal'
-  { -- | The name of the web portal. This is not visible to users who log into
+  { -- | The type of authentication integration points used when signing into the
+    -- web portal. Defaults to @Standard@.
+    --
+    -- @Standard@ web portals are authenticated directly through your identity
+    -- provider. You need to call @CreateIdentityProvider@ to integrate your
+    -- identity provider with your web portal. User and group access to your
+    -- web portal is controlled through your identity provider.
+    --
+    -- @IAM_Identity_Center@ web portals are authenticated through AWS IAM
+    -- Identity Center (successor to AWS Single Sign-On). They provide
+    -- additional features, such as IdP-initiated authentication. Identity
+    -- sources (including external identity provider integration), plus user
+    -- and group access to your web portal, can be configured in the IAM
+    -- Identity Center.
+    authenticationType :: Prelude.Maybe AuthenticationType,
+    -- | The name of the web portal. This is not visible to users who log into
     -- the web portal.
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the web portal.
@@ -66,6 +82,21 @@ data UpdatePortal = UpdatePortal'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'authenticationType', 'updatePortal_authenticationType' - The type of authentication integration points used when signing into the
+-- web portal. Defaults to @Standard@.
+--
+-- @Standard@ web portals are authenticated directly through your identity
+-- provider. You need to call @CreateIdentityProvider@ to integrate your
+-- identity provider with your web portal. User and group access to your
+-- web portal is controlled through your identity provider.
+--
+-- @IAM_Identity_Center@ web portals are authenticated through AWS IAM
+-- Identity Center (successor to AWS Single Sign-On). They provide
+-- additional features, such as IdP-initiated authentication. Identity
+-- sources (including external identity provider integration), plus user
+-- and group access to your web portal, can be configured in the IAM
+-- Identity Center.
+--
 -- 'displayName', 'updatePortal_displayName' - The name of the web portal. This is not visible to users who log into
 -- the web portal.
 --
@@ -76,9 +107,27 @@ newUpdatePortal ::
   UpdatePortal
 newUpdatePortal pPortalArn_ =
   UpdatePortal'
-    { displayName = Prelude.Nothing,
+    { authenticationType = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       portalArn = pPortalArn_
     }
+
+-- | The type of authentication integration points used when signing into the
+-- web portal. Defaults to @Standard@.
+--
+-- @Standard@ web portals are authenticated directly through your identity
+-- provider. You need to call @CreateIdentityProvider@ to integrate your
+-- identity provider with your web portal. User and group access to your
+-- web portal is controlled through your identity provider.
+--
+-- @IAM_Identity_Center@ web portals are authenticated through AWS IAM
+-- Identity Center (successor to AWS Single Sign-On). They provide
+-- additional features, such as IdP-initiated authentication. Identity
+-- sources (including external identity provider integration), plus user
+-- and group access to your web portal, can be configured in the IAM
+-- Identity Center.
+updatePortal_authenticationType :: Lens.Lens' UpdatePortal (Prelude.Maybe AuthenticationType)
+updatePortal_authenticationType = Lens.lens (\UpdatePortal' {authenticationType} -> authenticationType) (\s@UpdatePortal' {} a -> s {authenticationType = a} :: UpdatePortal)
 
 -- | The name of the web portal. This is not visible to users who log into
 -- the web portal.
@@ -103,12 +152,15 @@ instance Core.AWSRequest UpdatePortal where
 
 instance Prelude.Hashable UpdatePortal where
   hashWithSalt _salt UpdatePortal' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` authenticationType
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` portalArn
 
 instance Prelude.NFData UpdatePortal where
   rnf UpdatePortal' {..} =
-    Prelude.rnf displayName
+    Prelude.rnf authenticationType
+      `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf portalArn
 
 instance Data.ToHeaders UpdatePortal where
@@ -126,7 +178,10 @@ instance Data.ToJSON UpdatePortal where
   toJSON UpdatePortal' {..} =
     Data.object
       ( Prelude.catMaybes
-          [("displayName" Data..=) Prelude.<$> displayName]
+          [ ("authenticationType" Data..=)
+              Prelude.<$> authenticationType,
+            ("displayName" Data..=) Prelude.<$> displayName
+          ]
       )
 
 instance Data.ToPath UpdatePortal where

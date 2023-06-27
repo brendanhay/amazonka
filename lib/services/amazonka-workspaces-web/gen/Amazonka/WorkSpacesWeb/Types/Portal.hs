@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.WorkSpacesWeb.Types.AuthenticationType
 import Amazonka.WorkSpacesWeb.Types.BrowserType
 import Amazonka.WorkSpacesWeb.Types.PortalStatus
 import Amazonka.WorkSpacesWeb.Types.RendererType
@@ -31,7 +32,22 @@ import Amazonka.WorkSpacesWeb.Types.RendererType
 --
 -- /See:/ 'newPortal' smart constructor.
 data Portal = Portal'
-  { -- | The ARN of the browser settings that is associated with this web portal.
+  { -- | The type of authentication integration points used when signing into the
+    -- web portal. Defaults to @Standard@.
+    --
+    -- @Standard@ web portals are authenticated directly through your identity
+    -- provider. You need to call @CreateIdentityProvider@ to integrate your
+    -- identity provider with your web portal. User and group access to your
+    -- web portal is controlled through your identity provider.
+    --
+    -- @IAM_Identity_Center@ web portals are authenticated through AWS IAM
+    -- Identity Center (successor to AWS Single Sign-On). They provide
+    -- additional features, such as IdP-initiated authentication. Identity
+    -- sources (including external identity provider integration), plus user
+    -- and group access to your web portal, can be configured in the IAM
+    -- Identity Center.
+    authenticationType :: Prelude.Maybe AuthenticationType,
+    -- | The ARN of the browser settings that is associated with this web portal.
     browserSettingsArn :: Prelude.Maybe Prelude.Text,
     -- | The browser that users see when using a streaming session.
     browserType :: Prelude.Maybe BrowserType,
@@ -39,6 +55,8 @@ data Portal = Portal'
     creationDate :: Prelude.Maybe Data.POSIX,
     -- | The name of the web portal.
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The ARN of the IP access settings.
+    ipAccessSettingsArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the network settings that is associated with the web portal.
     networkSettingsArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the web portal.
@@ -70,6 +88,21 @@ data Portal = Portal'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'authenticationType', 'portal_authenticationType' - The type of authentication integration points used when signing into the
+-- web portal. Defaults to @Standard@.
+--
+-- @Standard@ web portals are authenticated directly through your identity
+-- provider. You need to call @CreateIdentityProvider@ to integrate your
+-- identity provider with your web portal. User and group access to your
+-- web portal is controlled through your identity provider.
+--
+-- @IAM_Identity_Center@ web portals are authenticated through AWS IAM
+-- Identity Center (successor to AWS Single Sign-On). They provide
+-- additional features, such as IdP-initiated authentication. Identity
+-- sources (including external identity provider integration), plus user
+-- and group access to your web portal, can be configured in the IAM
+-- Identity Center.
+--
 -- 'browserSettingsArn', 'portal_browserSettingsArn' - The ARN of the browser settings that is associated with this web portal.
 --
 -- 'browserType', 'portal_browserType' - The browser that users see when using a streaming session.
@@ -77,6 +110,8 @@ data Portal = Portal'
 -- 'creationDate', 'portal_creationDate' - The creation date of the web portal.
 --
 -- 'displayName', 'portal_displayName' - The name of the web portal.
+--
+-- 'ipAccessSettingsArn', 'portal_ipAccessSettingsArn' - The ARN of the IP access settings.
 --
 -- 'networkSettingsArn', 'portal_networkSettingsArn' - The ARN of the network settings that is associated with the web portal.
 --
@@ -101,10 +136,12 @@ newPortal ::
   Portal
 newPortal =
   Portal'
-    { browserSettingsArn = Prelude.Nothing,
+    { authenticationType = Prelude.Nothing,
+      browserSettingsArn = Prelude.Nothing,
       browserType = Prelude.Nothing,
       creationDate = Prelude.Nothing,
       displayName = Prelude.Nothing,
+      ipAccessSettingsArn = Prelude.Nothing,
       networkSettingsArn = Prelude.Nothing,
       portalArn = Prelude.Nothing,
       portalEndpoint = Prelude.Nothing,
@@ -115,6 +152,23 @@ newPortal =
       userAccessLoggingSettingsArn = Prelude.Nothing,
       userSettingsArn = Prelude.Nothing
     }
+
+-- | The type of authentication integration points used when signing into the
+-- web portal. Defaults to @Standard@.
+--
+-- @Standard@ web portals are authenticated directly through your identity
+-- provider. You need to call @CreateIdentityProvider@ to integrate your
+-- identity provider with your web portal. User and group access to your
+-- web portal is controlled through your identity provider.
+--
+-- @IAM_Identity_Center@ web portals are authenticated through AWS IAM
+-- Identity Center (successor to AWS Single Sign-On). They provide
+-- additional features, such as IdP-initiated authentication. Identity
+-- sources (including external identity provider integration), plus user
+-- and group access to your web portal, can be configured in the IAM
+-- Identity Center.
+portal_authenticationType :: Lens.Lens' Portal (Prelude.Maybe AuthenticationType)
+portal_authenticationType = Lens.lens (\Portal' {authenticationType} -> authenticationType) (\s@Portal' {} a -> s {authenticationType = a} :: Portal)
 
 -- | The ARN of the browser settings that is associated with this web portal.
 portal_browserSettingsArn :: Lens.Lens' Portal (Prelude.Maybe Prelude.Text)
@@ -131,6 +185,10 @@ portal_creationDate = Lens.lens (\Portal' {creationDate} -> creationDate) (\s@Po
 -- | The name of the web portal.
 portal_displayName :: Lens.Lens' Portal (Prelude.Maybe Prelude.Text)
 portal_displayName = Lens.lens (\Portal' {displayName} -> displayName) (\s@Portal' {} a -> s {displayName = a} :: Portal) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The ARN of the IP access settings.
+portal_ipAccessSettingsArn :: Lens.Lens' Portal (Prelude.Maybe Prelude.Text)
+portal_ipAccessSettingsArn = Lens.lens (\Portal' {ipAccessSettingsArn} -> ipAccessSettingsArn) (\s@Portal' {} a -> s {ipAccessSettingsArn = a} :: Portal)
 
 -- | The ARN of the network settings that is associated with the web portal.
 portal_networkSettingsArn :: Lens.Lens' Portal (Prelude.Maybe Prelude.Text)
@@ -176,10 +234,12 @@ instance Data.FromJSON Portal where
       "Portal"
       ( \x ->
           Portal'
-            Prelude.<$> (x Data..:? "browserSettingsArn")
+            Prelude.<$> (x Data..:? "authenticationType")
+            Prelude.<*> (x Data..:? "browserSettingsArn")
             Prelude.<*> (x Data..:? "browserType")
             Prelude.<*> (x Data..:? "creationDate")
             Prelude.<*> (x Data..:? "displayName")
+            Prelude.<*> (x Data..:? "ipAccessSettingsArn")
             Prelude.<*> (x Data..:? "networkSettingsArn")
             Prelude.<*> (x Data..:? "portalArn")
             Prelude.<*> (x Data..:? "portalEndpoint")
@@ -193,10 +253,13 @@ instance Data.FromJSON Portal where
 
 instance Prelude.Hashable Portal where
   hashWithSalt _salt Portal' {..} =
-    _salt `Prelude.hashWithSalt` browserSettingsArn
+    _salt
+      `Prelude.hashWithSalt` authenticationType
+      `Prelude.hashWithSalt` browserSettingsArn
       `Prelude.hashWithSalt` browserType
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` displayName
+      `Prelude.hashWithSalt` ipAccessSettingsArn
       `Prelude.hashWithSalt` networkSettingsArn
       `Prelude.hashWithSalt` portalArn
       `Prelude.hashWithSalt` portalEndpoint
@@ -209,10 +272,12 @@ instance Prelude.Hashable Portal where
 
 instance Prelude.NFData Portal where
   rnf Portal' {..} =
-    Prelude.rnf browserSettingsArn
+    Prelude.rnf authenticationType
+      `Prelude.seq` Prelude.rnf browserSettingsArn
       `Prelude.seq` Prelude.rnf browserType
       `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf displayName
+      `Prelude.seq` Prelude.rnf ipAccessSettingsArn
       `Prelude.seq` Prelude.rnf networkSettingsArn
       `Prelude.seq` Prelude.rnf portalArn
       `Prelude.seq` Prelude.rnf portalEndpoint

@@ -45,12 +45,14 @@ library
   exposed-modules:
     Amazonka.WorkSpacesWeb
     Amazonka.WorkSpacesWeb.AssociateBrowserSettings
+    Amazonka.WorkSpacesWeb.AssociateIpAccessSettings
     Amazonka.WorkSpacesWeb.AssociateNetworkSettings
     Amazonka.WorkSpacesWeb.AssociateTrustStore
     Amazonka.WorkSpacesWeb.AssociateUserAccessLoggingSettings
     Amazonka.WorkSpacesWeb.AssociateUserSettings
     Amazonka.WorkSpacesWeb.CreateBrowserSettings
     Amazonka.WorkSpacesWeb.CreateIdentityProvider
+    Amazonka.WorkSpacesWeb.CreateIpAccessSettings
     Amazonka.WorkSpacesWeb.CreateNetworkSettings
     Amazonka.WorkSpacesWeb.CreatePortal
     Amazonka.WorkSpacesWeb.CreateTrustStore
@@ -58,18 +60,21 @@ library
     Amazonka.WorkSpacesWeb.CreateUserSettings
     Amazonka.WorkSpacesWeb.DeleteBrowserSettings
     Amazonka.WorkSpacesWeb.DeleteIdentityProvider
+    Amazonka.WorkSpacesWeb.DeleteIpAccessSettings
     Amazonka.WorkSpacesWeb.DeleteNetworkSettings
     Amazonka.WorkSpacesWeb.DeletePortal
     Amazonka.WorkSpacesWeb.DeleteTrustStore
     Amazonka.WorkSpacesWeb.DeleteUserAccessLoggingSettings
     Amazonka.WorkSpacesWeb.DeleteUserSettings
     Amazonka.WorkSpacesWeb.DisassociateBrowserSettings
+    Amazonka.WorkSpacesWeb.DisassociateIpAccessSettings
     Amazonka.WorkSpacesWeb.DisassociateNetworkSettings
     Amazonka.WorkSpacesWeb.DisassociateTrustStore
     Amazonka.WorkSpacesWeb.DisassociateUserAccessLoggingSettings
     Amazonka.WorkSpacesWeb.DisassociateUserSettings
     Amazonka.WorkSpacesWeb.GetBrowserSettings
     Amazonka.WorkSpacesWeb.GetIdentityProvider
+    Amazonka.WorkSpacesWeb.GetIpAccessSettings
     Amazonka.WorkSpacesWeb.GetNetworkSettings
     Amazonka.WorkSpacesWeb.GetPortal
     Amazonka.WorkSpacesWeb.GetPortalServiceProviderMetadata
@@ -80,6 +85,7 @@ library
     Amazonka.WorkSpacesWeb.Lens
     Amazonka.WorkSpacesWeb.ListBrowserSettings
     Amazonka.WorkSpacesWeb.ListIdentityProviders
+    Amazonka.WorkSpacesWeb.ListIpAccessSettings
     Amazonka.WorkSpacesWeb.ListNetworkSettings
     Amazonka.WorkSpacesWeb.ListPortals
     Amazonka.WorkSpacesWeb.ListTagsForResource
@@ -89,6 +95,7 @@ library
     Amazonka.WorkSpacesWeb.ListUserSettings
     Amazonka.WorkSpacesWeb.TagResource
     Amazonka.WorkSpacesWeb.Types
+    Amazonka.WorkSpacesWeb.Types.AuthenticationType
     Amazonka.WorkSpacesWeb.Types.BrowserSettings
     Amazonka.WorkSpacesWeb.Types.BrowserSettingsSummary
     Amazonka.WorkSpacesWeb.Types.BrowserType
@@ -98,6 +105,9 @@ library
     Amazonka.WorkSpacesWeb.Types.IdentityProvider
     Amazonka.WorkSpacesWeb.Types.IdentityProviderSummary
     Amazonka.WorkSpacesWeb.Types.IdentityProviderType
+    Amazonka.WorkSpacesWeb.Types.IpAccessSettings
+    Amazonka.WorkSpacesWeb.Types.IpAccessSettingsSummary
+    Amazonka.WorkSpacesWeb.Types.IpRule
     Amazonka.WorkSpacesWeb.Types.NetworkSettings
     Amazonka.WorkSpacesWeb.Types.NetworkSettingsSummary
     Amazonka.WorkSpacesWeb.Types.Portal
@@ -114,6 +124,7 @@ library
     Amazonka.WorkSpacesWeb.UntagResource
     Amazonka.WorkSpacesWeb.UpdateBrowserSettings
     Amazonka.WorkSpacesWeb.UpdateIdentityProvider
+    Amazonka.WorkSpacesWeb.UpdateIpAccessSettings
     Amazonka.WorkSpacesWeb.UpdateNetworkSettings
     Amazonka.WorkSpacesWeb.UpdatePortal
     Amazonka.WorkSpacesWeb.UpdateTrustStore

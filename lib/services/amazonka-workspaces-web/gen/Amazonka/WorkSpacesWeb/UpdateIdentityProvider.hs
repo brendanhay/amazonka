@@ -337,7 +337,8 @@ instance Core.AWSRequest UpdateIdentityProvider where
 
 instance Prelude.Hashable UpdateIdentityProvider where
   hashWithSalt _salt UpdateIdentityProvider' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` identityProviderDetails
       `Prelude.hashWithSalt` identityProviderName
       `Prelude.hashWithSalt` identityProviderType

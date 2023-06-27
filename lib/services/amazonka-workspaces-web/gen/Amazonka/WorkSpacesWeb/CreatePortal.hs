@@ -28,6 +28,7 @@ module Amazonka.WorkSpacesWeb.CreatePortal
 
     -- * Request Lenses
     createPortal_additionalEncryptionContext,
+    createPortal_authenticationType,
     createPortal_clientToken,
     createPortal_customerManagedKey,
     createPortal_displayName,
@@ -56,6 +57,21 @@ import Amazonka.WorkSpacesWeb.Types
 data CreatePortal = CreatePortal'
   { -- | The additional encryption context of the portal.
     additionalEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The type of authentication integration points used when signing into the
+    -- web portal. Defaults to @Standard@.
+    --
+    -- @Standard@ web portals are authenticated directly through your identity
+    -- provider. You need to call @CreateIdentityProvider@ to integrate your
+    -- identity provider with your web portal. User and group access to your
+    -- web portal is controlled through your identity provider.
+    --
+    -- @IAM_Identity_Center@ web portals are authenticated through AWS IAM
+    -- Identity Center (successor to AWS Single Sign-On). They provide
+    -- additional features, such as IdP-initiated authentication. Identity
+    -- sources (including external identity provider integration), plus user
+    -- and group access to your web portal, can be configured in the IAM
+    -- Identity Center.
+    authenticationType :: Prelude.Maybe AuthenticationType,
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. Idempotency ensures that an API request
     -- completes only once. With an idempotent request, if the original request
@@ -85,6 +101,21 @@ data CreatePortal = CreatePortal'
 --
 -- 'additionalEncryptionContext', 'createPortal_additionalEncryptionContext' - The additional encryption context of the portal.
 --
+-- 'authenticationType', 'createPortal_authenticationType' - The type of authentication integration points used when signing into the
+-- web portal. Defaults to @Standard@.
+--
+-- @Standard@ web portals are authenticated directly through your identity
+-- provider. You need to call @CreateIdentityProvider@ to integrate your
+-- identity provider with your web portal. User and group access to your
+-- web portal is controlled through your identity provider.
+--
+-- @IAM_Identity_Center@ web portals are authenticated through AWS IAM
+-- Identity Center (successor to AWS Single Sign-On). They provide
+-- additional features, such as IdP-initiated authentication. Identity
+-- sources (including external identity provider integration), plus user
+-- and group access to your web portal, can be configured in the IAM
+-- Identity Center.
+--
 -- 'clientToken', 'createPortal_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Idempotency ensures that an API request
 -- completes only once. With an idempotent request, if the original request
@@ -106,6 +137,7 @@ newCreatePortal =
   CreatePortal'
     { additionalEncryptionContext =
         Prelude.Nothing,
+      authenticationType = Prelude.Nothing,
       clientToken = Prelude.Nothing,
       customerManagedKey = Prelude.Nothing,
       displayName = Prelude.Nothing,
@@ -115,6 +147,23 @@ newCreatePortal =
 -- | The additional encryption context of the portal.
 createPortal_additionalEncryptionContext :: Lens.Lens' CreatePortal (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createPortal_additionalEncryptionContext = Lens.lens (\CreatePortal' {additionalEncryptionContext} -> additionalEncryptionContext) (\s@CreatePortal' {} a -> s {additionalEncryptionContext = a} :: CreatePortal) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of authentication integration points used when signing into the
+-- web portal. Defaults to @Standard@.
+--
+-- @Standard@ web portals are authenticated directly through your identity
+-- provider. You need to call @CreateIdentityProvider@ to integrate your
+-- identity provider with your web portal. User and group access to your
+-- web portal is controlled through your identity provider.
+--
+-- @IAM_Identity_Center@ web portals are authenticated through AWS IAM
+-- Identity Center (successor to AWS Single Sign-On). They provide
+-- additional features, such as IdP-initiated authentication. Identity
+-- sources (including external identity provider integration), plus user
+-- and group access to your web portal, can be configured in the IAM
+-- Identity Center.
+createPortal_authenticationType :: Lens.Lens' CreatePortal (Prelude.Maybe AuthenticationType)
+createPortal_authenticationType = Lens.lens (\CreatePortal' {authenticationType} -> authenticationType) (\s@CreatePortal' {} a -> s {authenticationType = a} :: CreatePortal)
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Idempotency ensures that an API request
@@ -157,6 +206,7 @@ instance Prelude.Hashable CreatePortal where
   hashWithSalt _salt CreatePortal' {..} =
     _salt
       `Prelude.hashWithSalt` additionalEncryptionContext
+      `Prelude.hashWithSalt` authenticationType
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` customerManagedKey
       `Prelude.hashWithSalt` displayName
@@ -165,6 +215,7 @@ instance Prelude.Hashable CreatePortal where
 instance Prelude.NFData CreatePortal where
   rnf CreatePortal' {..} =
     Prelude.rnf additionalEncryptionContext
+      `Prelude.seq` Prelude.rnf authenticationType
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf customerManagedKey
       `Prelude.seq` Prelude.rnf displayName
@@ -187,6 +238,8 @@ instance Data.ToJSON CreatePortal where
       ( Prelude.catMaybes
           [ ("additionalEncryptionContext" Data..=)
               Prelude.<$> additionalEncryptionContext,
+            ("authenticationType" Data..=)
+              Prelude.<$> authenticationType,
             ("clientToken" Data..=) Prelude.<$> clientToken,
             ("customerManagedKey" Data..=)
               Prelude.<$> customerManagedKey,

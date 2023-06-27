@@ -163,7 +163,8 @@ instance Core.AWSRequest UpdateNetworkSettings where
 
 instance Prelude.Hashable UpdateNetworkSettings where
   hashWithSalt _salt UpdateNetworkSettings' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` vpcId

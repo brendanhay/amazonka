@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     FailedServiceActionAssociation' {..} =
-      _salt `Prelude.hashWithSalt` errorCode
+      _salt
+        `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` productId
         `Prelude.hashWithSalt` provisioningArtifactId

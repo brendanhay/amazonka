@@ -51,8 +51,6 @@ import Amazonka.ServiceCatalog.Types
 data DeleteServiceAction = DeleteServiceAction'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -72,8 +70,6 @@ data DeleteServiceAction = DeleteServiceAction'
 --
 -- 'acceptLanguage', 'deleteServiceAction_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -91,8 +87,6 @@ newDeleteServiceAction pId_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -119,7 +113,8 @@ instance Core.AWSRequest DeleteServiceAction where
 
 instance Prelude.Hashable DeleteServiceAction where
   hashWithSalt _salt DeleteServiceAction' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteServiceAction where

@@ -54,8 +54,6 @@ import Amazonka.ServiceCatalog.Types
 data DescribeCopyProductStatus = DescribeCopyProductStatus'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -76,8 +74,6 @@ data DescribeCopyProductStatus = DescribeCopyProductStatus'
 --
 -- 'acceptLanguage', 'describeCopyProductStatus_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -96,8 +92,6 @@ newDescribeCopyProductStatus pCopyProductToken_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -128,7 +122,8 @@ instance Core.AWSRequest DescribeCopyProductStatus where
 
 instance Prelude.Hashable DescribeCopyProductStatus where
   hashWithSalt _salt DescribeCopyProductStatus' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` copyProductToken
 
 instance Prelude.NFData DescribeCopyProductStatus where

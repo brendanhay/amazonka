@@ -64,7 +64,8 @@ provisioningParameter_value = Lens.lens (\ProvisioningParameter' {value} -> valu
 
 instance Prelude.Hashable ProvisioningParameter where
   hashWithSalt _salt ProvisioningParameter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ProvisioningParameter where

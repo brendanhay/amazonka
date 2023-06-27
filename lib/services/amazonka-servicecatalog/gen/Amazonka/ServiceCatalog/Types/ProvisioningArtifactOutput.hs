@@ -75,7 +75,8 @@ instance Data.FromJSON ProvisioningArtifactOutput where
 
 instance Prelude.Hashable ProvisioningArtifactOutput where
   hashWithSalt _salt ProvisioningArtifactOutput' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData ProvisioningArtifactOutput where

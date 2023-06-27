@@ -58,8 +58,6 @@ import Amazonka.ServiceCatalog.Types
 data DeleteProvisioningArtifact = DeleteProvisioningArtifact'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -80,8 +78,6 @@ data DeleteProvisioningArtifact = DeleteProvisioningArtifact'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'deleteProvisioningArtifact_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -108,8 +104,6 @@ newDeleteProvisioningArtifact
       }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -140,7 +134,8 @@ instance Core.AWSRequest DeleteProvisioningArtifact where
 
 instance Prelude.Hashable DeleteProvisioningArtifact where
   hashWithSalt _salt DeleteProvisioningArtifact' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` productId
       `Prelude.hashWithSalt` provisioningArtifactId
 

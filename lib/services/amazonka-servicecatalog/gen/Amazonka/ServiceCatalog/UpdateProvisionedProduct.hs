@@ -71,8 +71,6 @@ import Amazonka.ServiceCatalog.Types
 data UpdateProvisionedProduct = UpdateProvisionedProduct'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -123,8 +121,6 @@ data UpdateProvisionedProduct = UpdateProvisionedProduct'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'updateProvisionedProduct_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -186,8 +182,6 @@ newUpdateProvisionedProduct pUpdateToken_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -269,7 +263,8 @@ instance Core.AWSRequest UpdateProvisionedProduct where
 
 instance Prelude.Hashable UpdateProvisionedProduct where
   hashWithSalt _salt UpdateProvisionedProduct' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` pathId
       `Prelude.hashWithSalt` pathName
       `Prelude.hashWithSalt` productId

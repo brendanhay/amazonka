@@ -109,10 +109,12 @@ instance
       "ProvisioningArtifactPreferences"
       ( \x ->
           ProvisioningArtifactPreferences'
-            Prelude.<$> ( x Data..:? "StackSetAccounts"
+            Prelude.<$> ( x
+                            Data..:? "StackSetAccounts"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "StackSetRegions"
+            Prelude.<*> ( x
+                            Data..:? "StackSetRegions"
                             Data..!= Prelude.mempty
                         )
       )
@@ -124,7 +126,8 @@ instance
   hashWithSalt
     _salt
     ProvisioningArtifactPreferences' {..} =
-      _salt `Prelude.hashWithSalt` stackSetAccounts
+      _salt
+        `Prelude.hashWithSalt` stackSetAccounts
         `Prelude.hashWithSalt` stackSetRegions
 
 instance

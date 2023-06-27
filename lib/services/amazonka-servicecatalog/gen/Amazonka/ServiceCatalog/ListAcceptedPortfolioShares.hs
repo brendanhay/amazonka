@@ -60,8 +60,6 @@ import Amazonka.ServiceCatalog.Types
 data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -96,8 +94,6 @@ data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
 --
 -- 'acceptLanguage', 'listAcceptedPortfolioShares_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -130,8 +126,6 @@ newListAcceptedPortfolioShares =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -167,22 +161,22 @@ instance Core.AWSPager ListAcceptedPortfolioShares where
     | Core.stop
         ( rs
             Lens.^? listAcceptedPortfolioSharesResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAcceptedPortfolioSharesResponse_portfolioDetails
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAcceptedPortfolioShares_pageToken
           Lens..~ rs
           Lens.^? listAcceptedPortfolioSharesResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAcceptedPortfolioShares where
   type
@@ -195,7 +189,8 @@ instance Core.AWSRequest ListAcceptedPortfolioShares where
       ( \s h x ->
           ListAcceptedPortfolioSharesResponse'
             Prelude.<$> (x Data..?> "NextPageToken")
-            Prelude.<*> ( x Data..?> "PortfolioDetails"
+            Prelude.<*> ( x
+                            Data..?> "PortfolioDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -203,7 +198,8 @@ instance Core.AWSRequest ListAcceptedPortfolioShares where
 
 instance Prelude.Hashable ListAcceptedPortfolioShares where
   hashWithSalt _salt ListAcceptedPortfolioShares' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` portfolioShareType

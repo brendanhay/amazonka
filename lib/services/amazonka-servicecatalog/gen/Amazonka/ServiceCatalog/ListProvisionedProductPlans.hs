@@ -59,8 +59,6 @@ import Amazonka.ServiceCatalog.Types
 data ListProvisionedProductPlans = ListProvisionedProductPlans'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -87,8 +85,6 @@ data ListProvisionedProductPlans = ListProvisionedProductPlans'
 --
 -- 'acceptLanguage', 'listProvisionedProductPlans_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -114,8 +110,6 @@ newListProvisionedProductPlans =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -145,22 +139,22 @@ instance Core.AWSPager ListProvisionedProductPlans where
     | Core.stop
         ( rs
             Lens.^? listProvisionedProductPlansResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listProvisionedProductPlansResponse_provisionedProductPlans
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listProvisionedProductPlans_pageToken
           Lens..~ rs
           Lens.^? listProvisionedProductPlansResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProvisionedProductPlans where
   type
@@ -173,7 +167,8 @@ instance Core.AWSRequest ListProvisionedProductPlans where
       ( \s h x ->
           ListProvisionedProductPlansResponse'
             Prelude.<$> (x Data..?> "NextPageToken")
-            Prelude.<*> ( x Data..?> "ProvisionedProductPlans"
+            Prelude.<*> ( x
+                            Data..?> "ProvisionedProductPlans"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -181,7 +176,8 @@ instance Core.AWSRequest ListProvisionedProductPlans where
 
 instance Prelude.Hashable ListProvisionedProductPlans where
   hashWithSalt _salt ListProvisionedProductPlans' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` accessLevelFilter
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` pageToken

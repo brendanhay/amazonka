@@ -33,6 +33,17 @@
 -- enabled: after disassociating a principal, share recipient accounts will
 -- no longer be able to provision products in this portfolio using a role
 -- matching the name of the associated principal.
+--
+-- For more information, review
+-- <https://docs.aws.amazon.com/cli/latest/reference/servicecatalog/associate-principal-with-portfolio.html#options associate-principal-with-portfolio>
+-- in the Amazon Web Services CLI Command Reference.
+--
+-- If you disassociate a principal from a portfolio, with PrincipalType as
+-- @IAM@, the same principal will still have access to the portfolio if it
+-- matches one of the associated principals of type @IAM_PATTERN@. To fully
+-- remove access for a principal, verify all the associated Principals of
+-- type @IAM_PATTERN@, and then ensure you disassociate any @IAM_PATTERN@
+-- principals that match the principal whose access you are removing.
 module Amazonka.ServiceCatalog.DisassociatePrincipalFromPortfolio
   ( -- * Creating a Request
     DisassociatePrincipalFromPortfolio (..),
@@ -65,19 +76,19 @@ import Amazonka.ServiceCatalog.Types
 data DisassociatePrincipalFromPortfolio = DisassociatePrincipalFromPortfolio'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The supported value is @IAM@ if you use a fully defined ARN, or
-    -- @IAM_PATTERN@ if you use no @accountID@.
+    -- @IAM_PATTERN@ if you specify an @IAM@ ARN with no AccountId, with or
+    -- without wildcard characters.
     principalType :: Prelude.Maybe PrincipalType,
     -- | The portfolio identifier.
     portfolioId :: Prelude.Text,
-    -- | The ARN of the principal (IAM user, role, or group). This field allows
-    -- an ARN with no @accountID@ if @PrincipalType@ is @IAM_PATTERN@.
+    -- | The ARN of the principal (user, role, or group). This field allows an
+    -- ARN with no @accountID@ with or without wildcard characters if
+    -- @PrincipalType@ is @IAM_PATTERN@.
     principalARN :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -92,19 +103,19 @@ data DisassociatePrincipalFromPortfolio = DisassociatePrincipalFromPortfolio'
 --
 -- 'acceptLanguage', 'disassociatePrincipalFromPortfolio_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
 --
 -- 'principalType', 'disassociatePrincipalFromPortfolio_principalType' - The supported value is @IAM@ if you use a fully defined ARN, or
--- @IAM_PATTERN@ if you use no @accountID@.
+-- @IAM_PATTERN@ if you specify an @IAM@ ARN with no AccountId, with or
+-- without wildcard characters.
 --
 -- 'portfolioId', 'disassociatePrincipalFromPortfolio_portfolioId' - The portfolio identifier.
 --
--- 'principalARN', 'disassociatePrincipalFromPortfolio_principalARN' - The ARN of the principal (IAM user, role, or group). This field allows
--- an ARN with no @accountID@ if @PrincipalType@ is @IAM_PATTERN@.
+-- 'principalARN', 'disassociatePrincipalFromPortfolio_principalARN' - The ARN of the principal (user, role, or group). This field allows an
+-- ARN with no @accountID@ with or without wildcard characters if
+-- @PrincipalType@ is @IAM_PATTERN@.
 newDisassociatePrincipalFromPortfolio ::
   -- | 'portfolioId'
   Prelude.Text ->
@@ -124,8 +135,6 @@ newDisassociatePrincipalFromPortfolio
 
 -- | The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -133,7 +142,8 @@ disassociatePrincipalFromPortfolio_acceptLanguage :: Lens.Lens' DisassociatePrin
 disassociatePrincipalFromPortfolio_acceptLanguage = Lens.lens (\DisassociatePrincipalFromPortfolio' {acceptLanguage} -> acceptLanguage) (\s@DisassociatePrincipalFromPortfolio' {} a -> s {acceptLanguage = a} :: DisassociatePrincipalFromPortfolio)
 
 -- | The supported value is @IAM@ if you use a fully defined ARN, or
--- @IAM_PATTERN@ if you use no @accountID@.
+-- @IAM_PATTERN@ if you specify an @IAM@ ARN with no AccountId, with or
+-- without wildcard characters.
 disassociatePrincipalFromPortfolio_principalType :: Lens.Lens' DisassociatePrincipalFromPortfolio (Prelude.Maybe PrincipalType)
 disassociatePrincipalFromPortfolio_principalType = Lens.lens (\DisassociatePrincipalFromPortfolio' {principalType} -> principalType) (\s@DisassociatePrincipalFromPortfolio' {} a -> s {principalType = a} :: DisassociatePrincipalFromPortfolio)
 
@@ -141,8 +151,9 @@ disassociatePrincipalFromPortfolio_principalType = Lens.lens (\DisassociatePrinc
 disassociatePrincipalFromPortfolio_portfolioId :: Lens.Lens' DisassociatePrincipalFromPortfolio Prelude.Text
 disassociatePrincipalFromPortfolio_portfolioId = Lens.lens (\DisassociatePrincipalFromPortfolio' {portfolioId} -> portfolioId) (\s@DisassociatePrincipalFromPortfolio' {} a -> s {portfolioId = a} :: DisassociatePrincipalFromPortfolio)
 
--- | The ARN of the principal (IAM user, role, or group). This field allows
--- an ARN with no @accountID@ if @PrincipalType@ is @IAM_PATTERN@.
+-- | The ARN of the principal (user, role, or group). This field allows an
+-- ARN with no @accountID@ with or without wildcard characters if
+-- @PrincipalType@ is @IAM_PATTERN@.
 disassociatePrincipalFromPortfolio_principalARN :: Lens.Lens' DisassociatePrincipalFromPortfolio Prelude.Text
 disassociatePrincipalFromPortfolio_principalARN = Lens.lens (\DisassociatePrincipalFromPortfolio' {principalARN} -> principalARN) (\s@DisassociatePrincipalFromPortfolio' {} a -> s {principalARN = a} :: DisassociatePrincipalFromPortfolio)
 
@@ -169,7 +180,8 @@ instance
   hashWithSalt
     _salt
     DisassociatePrincipalFromPortfolio' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` principalType
         `Prelude.hashWithSalt` portfolioId
         `Prelude.hashWithSalt` principalARN

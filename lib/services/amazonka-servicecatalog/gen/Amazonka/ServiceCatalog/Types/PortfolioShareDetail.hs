@@ -147,7 +147,8 @@ instance Data.FromJSON PortfolioShareDetail where
 
 instance Prelude.Hashable PortfolioShareDetail where
   hashWithSalt _salt PortfolioShareDetail' {..} =
-    _salt `Prelude.hashWithSalt` accepted
+    _salt
+      `Prelude.hashWithSalt` accepted
       `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` sharePrincipals
       `Prelude.hashWithSalt` shareTagOptions

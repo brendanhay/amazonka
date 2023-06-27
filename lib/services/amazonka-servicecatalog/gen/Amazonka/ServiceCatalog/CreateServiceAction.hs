@@ -56,8 +56,6 @@ import Amazonka.ServiceCatalog.Types
 data CreateServiceAction = CreateServiceAction'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -112,8 +110,6 @@ data CreateServiceAction = CreateServiceAction'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'createServiceAction_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -179,8 +175,6 @@ newCreateServiceAction
       }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -252,7 +246,8 @@ instance Core.AWSRequest CreateServiceAction where
 
 instance Prelude.Hashable CreateServiceAction where
   hashWithSalt _salt CreateServiceAction' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` definitionType

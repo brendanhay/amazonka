@@ -61,8 +61,6 @@ import Amazonka.ServiceCatalog.Types
 data TerminateProvisionedProduct = TerminateProvisionedProduct'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -99,8 +97,6 @@ data TerminateProvisionedProduct = TerminateProvisionedProduct'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'terminateProvisionedProduct_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -141,8 +137,6 @@ newTerminateProvisionedProduct pTerminateToken_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -196,7 +190,8 @@ instance Core.AWSRequest TerminateProvisionedProduct where
 
 instance Prelude.Hashable TerminateProvisionedProduct where
   hashWithSalt _salt TerminateProvisionedProduct' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` ignoreErrors
       `Prelude.hashWithSalt` provisionedProductId
       `Prelude.hashWithSalt` provisionedProductName

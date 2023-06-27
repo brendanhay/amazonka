@@ -110,10 +110,9 @@ data ProvisionedProductAttribute = ProvisionedProductAttribute'
     -- | The type of provisioned product. The supported values are @CFN_STACK@
     -- and @CFN_STACKSET@.
     type' :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM user.
+    -- | The Amazon Resource Name (ARN) of the user.
     userArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the IAM user in the session. This ARN might contain a session
-    -- ID.
+    -- | The ARN of the user in the session. This ARN might contain a session ID.
     userArnSession :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -206,10 +205,9 @@ data ProvisionedProductAttribute = ProvisionedProductAttribute'
 -- 'type'', 'provisionedProductAttribute_type' - The type of provisioned product. The supported values are @CFN_STACK@
 -- and @CFN_STACKSET@.
 --
--- 'userArn', 'provisionedProductAttribute_userArn' - The Amazon Resource Name (ARN) of the IAM user.
+-- 'userArn', 'provisionedProductAttribute_userArn' - The Amazon Resource Name (ARN) of the user.
 --
--- 'userArnSession', 'provisionedProductAttribute_userArnSession' - The ARN of the IAM user in the session. This ARN might contain a session
--- ID.
+-- 'userArnSession', 'provisionedProductAttribute_userArnSession' - The ARN of the user in the session. This ARN might contain a session ID.
 newProvisionedProductAttribute ::
   ProvisionedProductAttribute
 newProvisionedProductAttribute =
@@ -350,12 +348,11 @@ provisionedProductAttribute_tags = Lens.lens (\ProvisionedProductAttribute' {tag
 provisionedProductAttribute_type :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_type = Lens.lens (\ProvisionedProductAttribute' {type'} -> type') (\s@ProvisionedProductAttribute' {} a -> s {type' = a} :: ProvisionedProductAttribute)
 
--- | The Amazon Resource Name (ARN) of the IAM user.
+-- | The Amazon Resource Name (ARN) of the user.
 provisionedProductAttribute_userArn :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_userArn = Lens.lens (\ProvisionedProductAttribute' {userArn} -> userArn) (\s@ProvisionedProductAttribute' {} a -> s {userArn = a} :: ProvisionedProductAttribute)
 
--- | The ARN of the IAM user in the session. This ARN might contain a session
--- ID.
+-- | The ARN of the user in the session. This ARN might contain a session ID.
 provisionedProductAttribute_userArnSession :: Lens.Lens' ProvisionedProductAttribute (Prelude.Maybe Prelude.Text)
 provisionedProductAttribute_userArnSession = Lens.lens (\ProvisionedProductAttribute' {userArnSession} -> userArnSession) (\s@ProvisionedProductAttribute' {} a -> s {userArnSession = a} :: ProvisionedProductAttribute)
 
@@ -388,7 +385,8 @@ instance Data.FromJSON ProvisionedProductAttribute where
 
 instance Prelude.Hashable ProvisionedProductAttribute where
   hashWithSalt _salt ProvisionedProductAttribute' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` idempotencyToken

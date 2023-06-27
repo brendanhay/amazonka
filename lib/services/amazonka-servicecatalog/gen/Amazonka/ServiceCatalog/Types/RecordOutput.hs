@@ -86,7 +86,8 @@ instance Data.FromJSON RecordOutput where
 
 instance Prelude.Hashable RecordOutput where
   hashWithSalt _salt RecordOutput' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` outputKey
       `Prelude.hashWithSalt` outputValue
 
@@ -95,3 +96,13 @@ instance Prelude.NFData RecordOutput where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf outputKey
       `Prelude.seq` Prelude.rnf outputValue
+
+instance Data.ToJSON RecordOutput where
+  toJSON RecordOutput' {..} =
+    Data.object
+      ( Prelude.catMaybes
+          [ ("Description" Data..=) Prelude.<$> description,
+            ("OutputKey" Data..=) Prelude.<$> outputKey,
+            ("OutputValue" Data..=) Prelude.<$> outputValue
+          ]
+      )

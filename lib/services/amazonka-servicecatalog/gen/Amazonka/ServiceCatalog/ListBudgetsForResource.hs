@@ -55,8 +55,6 @@ import Amazonka.ServiceCatalog.Types
 data ListBudgetsForResource = ListBudgetsForResource'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -80,8 +78,6 @@ data ListBudgetsForResource = ListBudgetsForResource'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'listBudgetsForResource_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -107,8 +103,6 @@ newListBudgetsForResource pResourceId_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -146,7 +140,8 @@ instance Core.AWSRequest ListBudgetsForResource where
 
 instance Prelude.Hashable ListBudgetsForResource where
   hashWithSalt _salt ListBudgetsForResource' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` resourceId

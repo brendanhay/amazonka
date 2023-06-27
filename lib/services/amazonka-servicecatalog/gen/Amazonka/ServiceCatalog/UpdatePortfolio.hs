@@ -60,8 +60,6 @@ import Amazonka.ServiceCatalog.Types
 data UpdatePortfolio = UpdatePortfolio'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -90,8 +88,6 @@ data UpdatePortfolio = UpdatePortfolio'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'updatePortfolio_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -124,8 +120,6 @@ newUpdatePortfolio pId_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -174,7 +168,8 @@ instance Core.AWSRequest UpdatePortfolio where
 
 instance Prelude.Hashable UpdatePortfolio where
   hashWithSalt _salt UpdatePortfolio' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` addTags
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName

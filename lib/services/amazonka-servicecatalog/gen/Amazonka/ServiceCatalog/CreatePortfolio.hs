@@ -59,8 +59,6 @@ import Amazonka.ServiceCatalog.Types
 data CreatePortfolio = CreatePortfolio'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -89,8 +87,6 @@ data CreatePortfolio = CreatePortfolio'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'createPortfolio_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -129,8 +125,6 @@ newCreatePortfolio
       }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -177,7 +171,8 @@ instance Core.AWSRequest CreatePortfolio where
 
 instance Prelude.Hashable CreatePortfolio where
   hashWithSalt _salt CreatePortfolio' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` displayName

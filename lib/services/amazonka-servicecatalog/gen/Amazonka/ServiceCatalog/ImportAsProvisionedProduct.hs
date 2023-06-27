@@ -22,19 +22,24 @@
 --
 -- Requests the import of a resource as an Service Catalog provisioned
 -- product that is associated to an Service Catalog product and
--- provisioning artifact. Once imported, all supported Service Catalog
--- governance actions are supported on the provisioned product.
+-- provisioning artifact. Once imported, all supported governance actions
+-- are supported on the provisioned product.
 --
 -- Resource import only supports CloudFormation stack ARNs. CloudFormation
--- StackSets and non-root nested stacks are not supported.
+-- StackSets, and non-root nested stacks are not supported.
 --
 -- The CloudFormation stack must have one of the following statuses to be
 -- imported: @CREATE_COMPLETE@, @UPDATE_COMPLETE@,
--- @UPDATE_ROLLBACK_COMPLETE@, @IMPORT_COMPLETE@,
+-- @UPDATE_ROLLBACK_COMPLETE@, @IMPORT_COMPLETE@, and
 -- @IMPORT_ROLLBACK_COMPLETE@.
 --
 -- Import of the resource requires that the CloudFormation stack template
 -- matches the associated Service Catalog product provisioning artifact.
+--
+-- When you import an existing CloudFormation stack into a portfolio,
+-- constraints that are associated with the product aren\'t applied during
+-- the import process. The constraints are applied after you call
+-- @UpdateProvisionedProduct@ for the provisioned product.
 --
 -- The user or role that performs this operation must have the
 -- @cloudformation:GetTemplate@ and @cloudformation:DescribeStacks@ IAM
@@ -74,8 +79,6 @@ import Amazonka.ServiceCatalog.Types
 data ImportAsProvisionedProduct = ImportAsProvisionedProduct'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -107,8 +110,6 @@ data ImportAsProvisionedProduct = ImportAsProvisionedProduct'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'importAsProvisionedProduct_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -160,8 +161,6 @@ newImportAsProvisionedProduct
 
 -- | The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -209,7 +208,8 @@ instance Core.AWSRequest ImportAsProvisionedProduct where
 
 instance Prelude.Hashable ImportAsProvisionedProduct where
   hashWithSalt _salt ImportAsProvisionedProduct' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` productId
       `Prelude.hashWithSalt` provisioningArtifactId
       `Prelude.hashWithSalt` provisionedProductName

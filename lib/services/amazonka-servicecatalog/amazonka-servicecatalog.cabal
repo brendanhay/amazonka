@@ -116,6 +116,9 @@ library
     Amazonka.ServiceCatalog.ListServiceActionsForProvisioningArtifact
     Amazonka.ServiceCatalog.ListStackInstancesForProvisionedProduct
     Amazonka.ServiceCatalog.ListTagOptions
+    Amazonka.ServiceCatalog.NotifyProvisionProductEngineWorkflowResult
+    Amazonka.ServiceCatalog.NotifyTerminateProvisionedProductEngineWorkflowResult
+    Amazonka.ServiceCatalog.NotifyUpdateProvisionedProductEngineWorkflowResult
     Amazonka.ServiceCatalog.ProvisionProduct
     Amazonka.ServiceCatalog.RejectPortfolioShare
     Amazonka.ServiceCatalog.ScanProvisionedProducts
@@ -136,6 +139,8 @@ library
     Amazonka.ServiceCatalog.Types.CopyOption
     Amazonka.ServiceCatalog.Types.CopyProductStatus
     Amazonka.ServiceCatalog.Types.DescribePortfolioShareType
+    Amazonka.ServiceCatalog.Types.EngineWorkflowResourceIdentifier
+    Amazonka.ServiceCatalog.Types.EngineWorkflowStatus
     Amazonka.ServiceCatalog.Types.EvaluationType
     Amazonka.ServiceCatalog.Types.ExecutionParameter
     Amazonka.ServiceCatalog.Types.FailedServiceActionAssociation
@@ -215,6 +220,7 @@ library
     Amazonka.ServiceCatalog.Types.Tag
     Amazonka.ServiceCatalog.Types.TagOptionDetail
     Amazonka.ServiceCatalog.Types.TagOptionSummary
+    Amazonka.ServiceCatalog.Types.UniqueTagResourceIdentifier
     Amazonka.ServiceCatalog.Types.UpdateProvisioningParameter
     Amazonka.ServiceCatalog.Types.UpdateProvisioningPreferences
     Amazonka.ServiceCatalog.Types.UsageInstruction

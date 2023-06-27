@@ -61,8 +61,6 @@ import Amazonka.ServiceCatalog.Types
 data CreateConstraint = CreateConstraint'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -161,8 +159,6 @@ data CreateConstraint = CreateConstraint'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'createConstraint_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -278,8 +274,6 @@ newCreateConstraint
       }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -399,7 +393,8 @@ instance Core.AWSRequest CreateConstraint where
 
 instance Prelude.Hashable CreateConstraint where
   hashWithSalt _salt CreateConstraint' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` portfolioId
       `Prelude.hashWithSalt` productId

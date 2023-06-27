@@ -22,7 +22,8 @@ module Amazonka.ServiceCatalog.Types.ProvisioningArtifactType
       ( ..,
         ProvisioningArtifactType_CLOUD_FORMATION_TEMPLATE,
         ProvisioningArtifactType_MARKETPLACE_AMI,
-        ProvisioningArtifactType_MARKETPLACE_CAR
+        ProvisioningArtifactType_MARKETPLACE_CAR,
+        ProvisioningArtifactType_TERRAFORM_OPEN_SOURCE
       ),
   )
 where
@@ -68,9 +69,13 @@ pattern ProvisioningArtifactType_MARKETPLACE_AMI = ProvisioningArtifactType' "MA
 pattern ProvisioningArtifactType_MARKETPLACE_CAR :: ProvisioningArtifactType
 pattern ProvisioningArtifactType_MARKETPLACE_CAR = ProvisioningArtifactType' "MARKETPLACE_CAR"
 
+pattern ProvisioningArtifactType_TERRAFORM_OPEN_SOURCE :: ProvisioningArtifactType
+pattern ProvisioningArtifactType_TERRAFORM_OPEN_SOURCE = ProvisioningArtifactType' "TERRAFORM_OPEN_SOURCE"
+
 {-# COMPLETE
   ProvisioningArtifactType_CLOUD_FORMATION_TEMPLATE,
   ProvisioningArtifactType_MARKETPLACE_AMI,
   ProvisioningArtifactType_MARKETPLACE_CAR,
+  ProvisioningArtifactType_TERRAFORM_OPEN_SOURCE,
   ProvisioningArtifactType'
   #-}

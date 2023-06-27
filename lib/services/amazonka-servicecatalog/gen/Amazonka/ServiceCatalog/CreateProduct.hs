@@ -72,8 +72,6 @@ import Amazonka.ServiceCatalog.Types
 data CreateProduct = CreateProduct'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -125,8 +123,6 @@ data CreateProduct = CreateProduct'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'createProduct_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -198,8 +194,6 @@ newCreateProduct
       }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -284,7 +278,8 @@ instance Core.AWSRequest CreateProduct where
 
 instance Prelude.Hashable CreateProduct where
   hashWithSalt _salt CreateProduct' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` distributor
       `Prelude.hashWithSalt` provisioningArtifactParameters

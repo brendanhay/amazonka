@@ -104,14 +104,16 @@ instance Data.FromJSON ProvisioningArtifactSummary where
             Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> ( x Data..:? "ProvisioningArtifactMetadata"
+            Prelude.<*> ( x
+                            Data..:? "ProvisioningArtifactMetadata"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ProvisioningArtifactSummary where
   hashWithSalt _salt ProvisioningArtifactSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name

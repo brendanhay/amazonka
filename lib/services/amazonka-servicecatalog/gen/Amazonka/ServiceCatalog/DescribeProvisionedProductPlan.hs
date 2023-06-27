@@ -56,8 +56,6 @@ import Amazonka.ServiceCatalog.Types
 data DescribeProvisionedProductPlan = DescribeProvisionedProductPlan'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -81,8 +79,6 @@ data DescribeProvisionedProductPlan = DescribeProvisionedProductPlan'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'describeProvisionedProductPlan_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -108,8 +104,6 @@ newDescribeProvisionedProductPlan pPlanId_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -145,7 +139,8 @@ instance
           DescribeProvisionedProductPlanResponse'
             Prelude.<$> (x Data..?> "NextPageToken")
             Prelude.<*> (x Data..?> "ProvisionedProductPlanDetails")
-            Prelude.<*> ( x Data..?> "ResourceChanges"
+            Prelude.<*> ( x
+                            Data..?> "ResourceChanges"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -158,7 +153,8 @@ instance
   hashWithSalt
     _salt
     DescribeProvisionedProductPlan' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` pageSize
         `Prelude.hashWithSalt` pageToken
         `Prelude.hashWithSalt` planId

@@ -98,7 +98,8 @@ instance Data.FromJSON ConstraintSummary where
 
 instance Prelude.Hashable ConstraintSummary where
   hashWithSalt _salt ConstraintSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ConstraintSummary where

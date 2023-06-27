@@ -56,8 +56,6 @@ import Amazonka.ServiceCatalog.Types
 data DeletePortfolio = DeletePortfolio'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -77,8 +75,6 @@ data DeletePortfolio = DeletePortfolio'
 --
 -- 'acceptLanguage', 'deletePortfolio_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -95,8 +91,6 @@ newDeletePortfolio pId_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -123,7 +117,8 @@ instance Core.AWSRequest DeletePortfolio where
 
 instance Prelude.Hashable DeletePortfolio where
   hashWithSalt _salt DeletePortfolio' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeletePortfolio where

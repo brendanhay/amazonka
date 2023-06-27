@@ -52,8 +52,6 @@ import Amazonka.ServiceCatalog.Types
 data DescribeServiceAction = DescribeServiceAction'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -73,8 +71,6 @@ data DescribeServiceAction = DescribeServiceAction'
 --
 -- 'acceptLanguage', 'describeServiceAction_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -92,8 +88,6 @@ newDescribeServiceAction pId_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -121,7 +115,8 @@ instance Core.AWSRequest DescribeServiceAction where
 
 instance Prelude.Hashable DescribeServiceAction where
   hashWithSalt _salt DescribeServiceAction' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DescribeServiceAction where

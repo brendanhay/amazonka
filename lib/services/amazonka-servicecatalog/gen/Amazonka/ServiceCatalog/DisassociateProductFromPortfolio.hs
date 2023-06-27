@@ -54,8 +54,6 @@ import Amazonka.ServiceCatalog.Types
 data DisassociateProductFromPortfolio = DisassociateProductFromPortfolio'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -76,8 +74,6 @@ data DisassociateProductFromPortfolio = DisassociateProductFromPortfolio'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'disassociateProductFromPortfolio_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -103,8 +99,6 @@ newDisassociateProductFromPortfolio
       }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -143,7 +137,8 @@ instance
   hashWithSalt
     _salt
     DisassociateProductFromPortfolio' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` productId
         `Prelude.hashWithSalt` portfolioId
 

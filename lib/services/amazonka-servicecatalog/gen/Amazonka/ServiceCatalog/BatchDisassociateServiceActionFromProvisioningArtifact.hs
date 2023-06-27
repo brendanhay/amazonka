@@ -53,8 +53,6 @@ import Amazonka.ServiceCatalog.Types
 data BatchDisassociateServiceActionFromProvisioningArtifact = BatchDisassociateServiceActionFromProvisioningArtifact'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -74,8 +72,6 @@ data BatchDisassociateServiceActionFromProvisioningArtifact = BatchDisassociateS
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'batchDisassociateServiceActionFromProvisioningArtifact_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -98,8 +94,6 @@ newBatchDisassociateServiceActionFromProvisioningArtifact
       }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -126,10 +120,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchDisassociateServiceActionFromProvisioningArtifactResponse'
-            Prelude.<$> ( x Data..?> "FailedServiceActionAssociations"
+            Prelude.<$> ( x
+                            Data..?> "FailedServiceActionAssociations"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -139,7 +134,8 @@ instance
   hashWithSalt
     _salt
     BatchDisassociateServiceActionFromProvisioningArtifact' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` serviceActionAssociations
 
 instance

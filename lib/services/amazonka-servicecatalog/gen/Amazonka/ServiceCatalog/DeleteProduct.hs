@@ -56,8 +56,6 @@ import Amazonka.ServiceCatalog.Types
 data DeleteProduct = DeleteProduct'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -77,8 +75,6 @@ data DeleteProduct = DeleteProduct'
 --
 -- 'acceptLanguage', 'deleteProduct_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -95,8 +91,6 @@ newDeleteProduct pId_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -123,7 +117,8 @@ instance Core.AWSRequest DeleteProduct where
 
 instance Prelude.Hashable DeleteProduct where
   hashWithSalt _salt DeleteProduct' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteProduct where

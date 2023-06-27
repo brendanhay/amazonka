@@ -481,6 +481,24 @@ module Amazonka.ServiceCatalog
     ListTagOptionsResponse (ListTagOptionsResponse'),
     newListTagOptionsResponse,
 
+    -- ** NotifyProvisionProductEngineWorkflowResult
+    NotifyProvisionProductEngineWorkflowResult (NotifyProvisionProductEngineWorkflowResult'),
+    newNotifyProvisionProductEngineWorkflowResult,
+    NotifyProvisionProductEngineWorkflowResultResponse (NotifyProvisionProductEngineWorkflowResultResponse'),
+    newNotifyProvisionProductEngineWorkflowResultResponse,
+
+    -- ** NotifyTerminateProvisionedProductEngineWorkflowResult
+    NotifyTerminateProvisionedProductEngineWorkflowResult (NotifyTerminateProvisionedProductEngineWorkflowResult'),
+    newNotifyTerminateProvisionedProductEngineWorkflowResult,
+    NotifyTerminateProvisionedProductEngineWorkflowResultResponse (NotifyTerminateProvisionedProductEngineWorkflowResultResponse'),
+    newNotifyTerminateProvisionedProductEngineWorkflowResultResponse,
+
+    -- ** NotifyUpdateProvisionedProductEngineWorkflowResult
+    NotifyUpdateProvisionedProductEngineWorkflowResult (NotifyUpdateProvisionedProductEngineWorkflowResult'),
+    newNotifyUpdateProvisionedProductEngineWorkflowResult,
+    NotifyUpdateProvisionedProductEngineWorkflowResultResponse (NotifyUpdateProvisionedProductEngineWorkflowResultResponse'),
+    newNotifyUpdateProvisionedProductEngineWorkflowResultResponse,
+
     -- ** ProvisionProduct
     ProvisionProduct (ProvisionProduct'),
     newProvisionProduct,
@@ -597,6 +615,9 @@ module Amazonka.ServiceCatalog
     -- ** DescribePortfolioShareType
     DescribePortfolioShareType (..),
 
+    -- ** EngineWorkflowStatus
+    EngineWorkflowStatus (..),
+
     -- ** EvaluationType
     EvaluationType (..),
 
@@ -710,6 +731,10 @@ module Amazonka.ServiceCatalog
     -- ** ConstraintSummary
     ConstraintSummary (ConstraintSummary'),
     newConstraintSummary,
+
+    -- ** EngineWorkflowResourceIdentifier
+    EngineWorkflowResourceIdentifier (EngineWorkflowResourceIdentifier'),
+    newEngineWorkflowResourceIdentifier,
 
     -- ** ExecutionParameter
     ExecutionParameter (ExecutionParameter'),
@@ -907,6 +932,10 @@ module Amazonka.ServiceCatalog
     TagOptionSummary (TagOptionSummary'),
     newTagOptionSummary,
 
+    -- ** UniqueTagResourceIdentifier
+    UniqueTagResourceIdentifier (UniqueTagResourceIdentifier'),
+    newUniqueTagResourceIdentifier,
+
     -- ** UpdateProvisioningParameter
     UpdateProvisioningParameter (UpdateProvisioningParameter'),
     newUpdateProvisioningParameter,
@@ -993,6 +1022,9 @@ import Amazonka.ServiceCatalog.ListServiceActions
 import Amazonka.ServiceCatalog.ListServiceActionsForProvisioningArtifact
 import Amazonka.ServiceCatalog.ListStackInstancesForProvisionedProduct
 import Amazonka.ServiceCatalog.ListTagOptions
+import Amazonka.ServiceCatalog.NotifyProvisionProductEngineWorkflowResult
+import Amazonka.ServiceCatalog.NotifyTerminateProvisionedProductEngineWorkflowResult
+import Amazonka.ServiceCatalog.NotifyUpdateProvisionedProductEngineWorkflowResult
 import Amazonka.ServiceCatalog.ProvisionProduct
 import Amazonka.ServiceCatalog.RejectPortfolioShare
 import Amazonka.ServiceCatalog.ScanProvisionedProducts

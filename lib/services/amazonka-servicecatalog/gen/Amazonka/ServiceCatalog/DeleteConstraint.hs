@@ -53,8 +53,6 @@ import Amazonka.ServiceCatalog.Types
 data DeleteConstraint = DeleteConstraint'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -74,8 +72,6 @@ data DeleteConstraint = DeleteConstraint'
 --
 -- 'acceptLanguage', 'deleteConstraint_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -92,8 +88,6 @@ newDeleteConstraint pId_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -120,7 +114,8 @@ instance Core.AWSRequest DeleteConstraint where
 
 instance Prelude.Hashable DeleteConstraint where
   hashWithSalt _salt DeleteConstraint' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteConstraint where

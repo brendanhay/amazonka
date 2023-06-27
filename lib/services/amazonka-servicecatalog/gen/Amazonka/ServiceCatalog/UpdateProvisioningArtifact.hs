@@ -63,8 +63,6 @@ import Amazonka.ServiceCatalog.Types
 data UpdateProvisioningArtifact = UpdateProvisioningArtifact'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -105,8 +103,6 @@ data UpdateProvisioningArtifact = UpdateProvisioningArtifact'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'updateProvisioningArtifact_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -157,8 +153,6 @@ newUpdateProvisioningArtifact
       }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -220,7 +214,8 @@ instance Core.AWSRequest UpdateProvisioningArtifact where
 
 instance Prelude.Hashable UpdateProvisioningArtifact where
   hashWithSalt _salt UpdateProvisioningArtifact' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` guidance

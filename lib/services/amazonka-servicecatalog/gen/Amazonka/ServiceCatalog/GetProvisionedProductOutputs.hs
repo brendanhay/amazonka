@@ -59,8 +59,6 @@ import Amazonka.ServiceCatalog.Types
 data GetProvisionedProductOutputs = GetProvisionedProductOutputs'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -91,8 +89,6 @@ data GetProvisionedProductOutputs = GetProvisionedProductOutputs'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'getProvisionedProductOutputs_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -125,8 +121,6 @@ newGetProvisionedProductOutputs =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -178,7 +172,8 @@ instance
     GetProvisionedProductOutputs
   where
   hashWithSalt _salt GetProvisionedProductOutputs' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` outputKeys
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` pageToken

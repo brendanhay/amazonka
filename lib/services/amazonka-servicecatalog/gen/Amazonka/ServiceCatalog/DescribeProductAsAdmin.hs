@@ -59,8 +59,6 @@ import Amazonka.ServiceCatalog.Types
 data DescribeProductAsAdmin = DescribeProductAsAdmin'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -91,8 +89,6 @@ data DescribeProductAsAdmin = DescribeProductAsAdmin'
 --
 -- 'acceptLanguage', 'describeProductAsAdmin_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -121,8 +117,6 @@ newDescribeProductAsAdmin =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -161,7 +155,8 @@ instance Core.AWSRequest DescribeProductAsAdmin where
           DescribeProductAsAdminResponse'
             Prelude.<$> (x Data..?> "Budgets" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "ProductViewDetail")
-            Prelude.<*> ( x Data..?> "ProvisioningArtifactSummaries"
+            Prelude.<*> ( x
+                            Data..?> "ProvisioningArtifactSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "TagOptions" Core..!@ Prelude.mempty)
@@ -171,7 +166,8 @@ instance Core.AWSRequest DescribeProductAsAdmin where
 
 instance Prelude.Hashable DescribeProductAsAdmin where
   hashWithSalt _salt DescribeProductAsAdmin' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sourcePortfolioId

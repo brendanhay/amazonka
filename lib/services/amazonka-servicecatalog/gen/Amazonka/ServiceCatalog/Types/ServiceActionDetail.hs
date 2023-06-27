@@ -76,7 +76,8 @@ instance Data.FromJSON ServiceActionDetail where
 
 instance Prelude.Hashable ServiceActionDetail where
   hashWithSalt _salt ServiceActionDetail' {..} =
-    _salt `Prelude.hashWithSalt` definition
+    _salt
+      `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` serviceActionSummary
 
 instance Prelude.NFData ServiceActionDetail where

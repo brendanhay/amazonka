@@ -52,8 +52,6 @@ import Amazonka.ServiceCatalog.Types
 data DeleteProvisionedProductPlan = DeleteProvisionedProductPlan'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -76,8 +74,6 @@ data DeleteProvisionedProductPlan = DeleteProvisionedProductPlan'
 --
 -- 'acceptLanguage', 'deleteProvisionedProductPlan_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -99,8 +95,6 @@ newDeleteProvisionedProductPlan pPlanId_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -135,7 +129,8 @@ instance
     DeleteProvisionedProductPlan
   where
   hashWithSalt _salt DeleteProvisionedProductPlan' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` ignoreErrors
       `Prelude.hashWithSalt` planId
 

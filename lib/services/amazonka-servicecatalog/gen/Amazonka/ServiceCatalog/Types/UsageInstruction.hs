@@ -68,12 +68,14 @@ instance Data.FromJSON UsageInstruction where
       "UsageInstruction"
       ( \x ->
           UsageInstruction'
-            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable UsageInstruction where
   hashWithSalt _salt UsageInstruction' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData UsageInstruction where

@@ -22,6 +22,7 @@ module Amazonka.ServiceCatalog.Types.ServiceActionAssociationErrorCode
       ( ..,
         ServiceActionAssociationErrorCode_DUPLICATE_RESOURCE,
         ServiceActionAssociationErrorCode_INTERNAL_FAILURE,
+        ServiceActionAssociationErrorCode_INVALID_PARAMETER,
         ServiceActionAssociationErrorCode_LIMIT_EXCEEDED,
         ServiceActionAssociationErrorCode_RESOURCE_NOT_FOUND,
         ServiceActionAssociationErrorCode_THROTTLING
@@ -67,6 +68,9 @@ pattern ServiceActionAssociationErrorCode_DUPLICATE_RESOURCE = ServiceActionAsso
 pattern ServiceActionAssociationErrorCode_INTERNAL_FAILURE :: ServiceActionAssociationErrorCode
 pattern ServiceActionAssociationErrorCode_INTERNAL_FAILURE = ServiceActionAssociationErrorCode' "INTERNAL_FAILURE"
 
+pattern ServiceActionAssociationErrorCode_INVALID_PARAMETER :: ServiceActionAssociationErrorCode
+pattern ServiceActionAssociationErrorCode_INVALID_PARAMETER = ServiceActionAssociationErrorCode' "INVALID_PARAMETER"
+
 pattern ServiceActionAssociationErrorCode_LIMIT_EXCEEDED :: ServiceActionAssociationErrorCode
 pattern ServiceActionAssociationErrorCode_LIMIT_EXCEEDED = ServiceActionAssociationErrorCode' "LIMIT_EXCEEDED"
 
@@ -79,6 +83,7 @@ pattern ServiceActionAssociationErrorCode_THROTTLING = ServiceActionAssociationE
 {-# COMPLETE
   ServiceActionAssociationErrorCode_DUPLICATE_RESOURCE,
   ServiceActionAssociationErrorCode_INTERNAL_FAILURE,
+  ServiceActionAssociationErrorCode_INVALID_PARAMETER,
   ServiceActionAssociationErrorCode_LIMIT_EXCEEDED,
   ServiceActionAssociationErrorCode_RESOURCE_NOT_FOUND,
   ServiceActionAssociationErrorCode_THROTTLING,

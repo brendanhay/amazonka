@@ -55,8 +55,6 @@ import Amazonka.ServiceCatalog.Types
 data AssociateProductWithPortfolio = AssociateProductWithPortfolio'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -79,8 +77,6 @@ data AssociateProductWithPortfolio = AssociateProductWithPortfolio'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'associateProductWithPortfolio_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -109,8 +105,6 @@ newAssociateProductWithPortfolio
       }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -151,7 +145,8 @@ instance
     AssociateProductWithPortfolio
   where
   hashWithSalt _salt AssociateProductWithPortfolio' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` sourcePortfolioId
       `Prelude.hashWithSalt` productId
       `Prelude.hashWithSalt` portfolioId

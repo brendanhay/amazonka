@@ -20,9 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the paths to the specified product. A path is how the user has
--- access to a specified product, and is necessary when provisioning a
--- product. A path also determines the constraints put on the product.
+-- Lists the paths to the specified product. A path describes how the user
+-- gets access to a specified product and is necessary when provisioning a
+-- product. A path also determines the constraints that are put on a
+-- product. A path is dependent on a specific product, porfolio, and
+-- principal.
+--
+-- When provisioning a product that\'s been added to a portfolio, you must
+-- grant your user, group, or role access to the portfolio. For more
+-- information, see
+-- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_portfolios_users.html Granting users access>
+-- in the /Service Catalog User Guide/.
 --
 -- This operation returns paginated results.
 module Amazonka.ServiceCatalog.ListLaunchPaths
@@ -59,8 +67,6 @@ import Amazonka.ServiceCatalog.Types
 data ListLaunchPaths = ListLaunchPaths'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -84,8 +90,6 @@ data ListLaunchPaths = ListLaunchPaths'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'listLaunchPaths_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -111,8 +115,6 @@ newListLaunchPaths pProductId_ =
 
 -- | The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -137,22 +139,22 @@ instance Core.AWSPager ListLaunchPaths where
     | Core.stop
         ( rs
             Lens.^? listLaunchPathsResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listLaunchPathsResponse_launchPathSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listLaunchPaths_pageToken
           Lens..~ rs
           Lens.^? listLaunchPathsResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLaunchPaths where
   type
@@ -164,7 +166,8 @@ instance Core.AWSRequest ListLaunchPaths where
     Response.receiveJSON
       ( \s h x ->
           ListLaunchPathsResponse'
-            Prelude.<$> ( x Data..?> "LaunchPathSummaries"
+            Prelude.<$> ( x
+                            Data..?> "LaunchPathSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextPageToken")
@@ -173,7 +176,8 @@ instance Core.AWSRequest ListLaunchPaths where
 
 instance Prelude.Hashable ListLaunchPaths where
   hashWithSalt _salt ListLaunchPaths' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` productId

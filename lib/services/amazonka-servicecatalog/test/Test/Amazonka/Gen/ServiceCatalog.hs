@@ -240,6 +240,15 @@ import Test.Tasty
 --         , requestListTagOptions $
 --             newListTagOptions
 --
+--         , requestNotifyProvisionProductEngineWorkflowResult $
+--             newNotifyProvisionProductEngineWorkflowResult
+--
+--         , requestNotifyTerminateProvisionedProductEngineWorkflowResult $
+--             newNotifyTerminateProvisionedProductEngineWorkflowResult
+--
+--         , requestNotifyUpdateProvisionedProductEngineWorkflowResult $
+--             newNotifyUpdateProvisionedProductEngineWorkflowResult
+--
 --         , requestProvisionProduct $
 --             newProvisionProduct
 --
@@ -503,6 +512,15 @@ import Test.Tasty
 --
 --         , responseListTagOptions $
 --             newListTagOptionsResponse
+--
+--         , responseNotifyProvisionProductEngineWorkflowResult $
+--             newNotifyProvisionProductEngineWorkflowResultResponse
+--
+--         , responseNotifyTerminateProvisionedProductEngineWorkflowResult $
+--             newNotifyTerminateProvisionedProductEngineWorkflowResultResponse
+--
+--         , responseNotifyUpdateProvisionedProductEngineWorkflowResult $
+--             newNotifyUpdateProvisionedProductEngineWorkflowResultResponse
 --
 --         , responseProvisionProduct $
 --             newProvisionProductResponse
@@ -982,6 +1000,24 @@ requestListTagOptions =
   req
     "ListTagOptions"
     "fixture/ListTagOptions.yaml"
+
+requestNotifyProvisionProductEngineWorkflowResult :: NotifyProvisionProductEngineWorkflowResult -> TestTree
+requestNotifyProvisionProductEngineWorkflowResult =
+  req
+    "NotifyProvisionProductEngineWorkflowResult"
+    "fixture/NotifyProvisionProductEngineWorkflowResult.yaml"
+
+requestNotifyTerminateProvisionedProductEngineWorkflowResult :: NotifyTerminateProvisionedProductEngineWorkflowResult -> TestTree
+requestNotifyTerminateProvisionedProductEngineWorkflowResult =
+  req
+    "NotifyTerminateProvisionedProductEngineWorkflowResult"
+    "fixture/NotifyTerminateProvisionedProductEngineWorkflowResult.yaml"
+
+requestNotifyUpdateProvisionedProductEngineWorkflowResult :: NotifyUpdateProvisionedProductEngineWorkflowResult -> TestTree
+requestNotifyUpdateProvisionedProductEngineWorkflowResult =
+  req
+    "NotifyUpdateProvisionedProductEngineWorkflowResult"
+    "fixture/NotifyUpdateProvisionedProductEngineWorkflowResult.yaml"
 
 requestProvisionProduct :: ProvisionProduct -> TestTree
 requestProvisionProduct =
@@ -1648,6 +1684,30 @@ responseListTagOptions =
     "fixture/ListTagOptionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagOptions)
+
+responseNotifyProvisionProductEngineWorkflowResult :: NotifyProvisionProductEngineWorkflowResultResponse -> TestTree
+responseNotifyProvisionProductEngineWorkflowResult =
+  res
+    "NotifyProvisionProductEngineWorkflowResultResponse"
+    "fixture/NotifyProvisionProductEngineWorkflowResultResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy NotifyProvisionProductEngineWorkflowResult)
+
+responseNotifyTerminateProvisionedProductEngineWorkflowResult :: NotifyTerminateProvisionedProductEngineWorkflowResultResponse -> TestTree
+responseNotifyTerminateProvisionedProductEngineWorkflowResult =
+  res
+    "NotifyTerminateProvisionedProductEngineWorkflowResultResponse"
+    "fixture/NotifyTerminateProvisionedProductEngineWorkflowResultResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy NotifyTerminateProvisionedProductEngineWorkflowResult)
+
+responseNotifyUpdateProvisionedProductEngineWorkflowResult :: NotifyUpdateProvisionedProductEngineWorkflowResultResponse -> TestTree
+responseNotifyUpdateProvisionedProductEngineWorkflowResult =
+  res
+    "NotifyUpdateProvisionedProductEngineWorkflowResultResponse"
+    "fixture/NotifyUpdateProvisionedProductEngineWorkflowResultResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy NotifyUpdateProvisionedProductEngineWorkflowResult)
 
 responseProvisionProduct :: ProvisionProductResponse -> TestTree
 responseProvisionProduct =

@@ -66,8 +66,6 @@ import Amazonka.ServiceCatalog.Types
 data CopyProduct = CopyProduct'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -103,8 +101,6 @@ data CopyProduct = CopyProduct'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'copyProduct_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -147,8 +143,6 @@ newCopyProduct pSourceProductArn_ pIdempotencyToken_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -201,7 +195,8 @@ instance Core.AWSRequest CopyProduct where
 
 instance Prelude.Hashable CopyProduct where
   hashWithSalt _salt CopyProduct' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` copyOptions
       `Prelude.hashWithSalt` sourceProvisioningArtifactIdentifiers
       `Prelude.hashWithSalt` targetProductId

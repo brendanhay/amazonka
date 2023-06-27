@@ -86,8 +86,6 @@ import Amazonka.ServiceCatalog.Types
 data CreatePortfolioShare = CreatePortfolioShare'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -127,8 +125,6 @@ data CreatePortfolioShare = CreatePortfolioShare'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'createPortfolioShare_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -172,8 +168,6 @@ newCreatePortfolioShare pPortfolioId_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -230,7 +224,8 @@ instance Core.AWSRequest CreatePortfolioShare where
 
 instance Prelude.Hashable CreatePortfolioShare where
   hashWithSalt _salt CreatePortfolioShare' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` organizationNode
       `Prelude.hashWithSalt` sharePrincipals

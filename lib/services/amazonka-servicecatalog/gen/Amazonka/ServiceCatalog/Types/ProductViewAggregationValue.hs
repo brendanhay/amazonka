@@ -76,7 +76,8 @@ instance Data.FromJSON ProductViewAggregationValue where
 
 instance Prelude.Hashable ProductViewAggregationValue where
   hashWithSalt _salt ProductViewAggregationValue' {..} =
-    _salt `Prelude.hashWithSalt` approximateCount
+    _salt
+      `Prelude.hashWithSalt` approximateCount
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ProductViewAggregationValue where

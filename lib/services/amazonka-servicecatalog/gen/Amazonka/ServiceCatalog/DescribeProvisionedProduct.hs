@@ -59,8 +59,6 @@ import Amazonka.ServiceCatalog.Types
 data DescribeProvisionedProduct = DescribeProvisionedProduct'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -90,8 +88,6 @@ data DescribeProvisionedProduct = DescribeProvisionedProduct'
 --
 -- 'acceptLanguage', 'describeProvisionedProduct_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -118,8 +114,6 @@ newDescribeProvisionedProduct =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -153,7 +147,8 @@ instance Core.AWSRequest DescribeProvisionedProduct where
     Response.receiveJSON
       ( \s h x ->
           DescribeProvisionedProductResponse'
-            Prelude.<$> ( x Data..?> "CloudWatchDashboards"
+            Prelude.<$> ( x
+                            Data..?> "CloudWatchDashboards"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "ProvisionedProductDetail")
@@ -162,7 +157,8 @@ instance Core.AWSRequest DescribeProvisionedProduct where
 
 instance Prelude.Hashable DescribeProvisionedProduct where
   hashWithSalt _salt DescribeProvisionedProduct' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 

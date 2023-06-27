@@ -29,12 +29,17 @@ import Amazonka.ServiceCatalog.Types.PrincipalType
 --
 -- /See:/ 'newPrincipal' smart constructor.
 data Principal = Principal'
-  { -- | The ARN of the principal (IAM user, role, or group). This field allows
-    -- for an ARN with no @accountID@ if the @PrincipalType@ is an
-    -- @IAM_PATTERN@.
+  { -- | The ARN of the principal (user, role, or group). This field allows for
+    -- an ARN with no @accountID@, with or without wildcard characters if the
+    -- @PrincipalType@ is an @IAM_PATTERN@.
+    --
+    -- For more information, review
+    -- <https://docs.aws.amazon.com/cli/latest/reference/servicecatalog/associate-principal-with-portfolio.html#options associate-principal-with-portfolio>
+    -- in the Amazon Web Services CLI Command Reference.
     principalARN :: Prelude.Maybe Prelude.Text,
     -- | The principal type. The supported value is @IAM@ if you use a fully
-    -- defined ARN, or @IAM_PATTERN@ if you use an ARN with no @accountID@.
+    -- defined ARN, or @IAM_PATTERN@ if you use an ARN with no @accountID@,
+    -- with or without wildcard characters.
     principalType :: Prelude.Maybe PrincipalType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,12 +52,17 @@ data Principal = Principal'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principalARN', 'principal_principalARN' - The ARN of the principal (IAM user, role, or group). This field allows
--- for an ARN with no @accountID@ if the @PrincipalType@ is an
--- @IAM_PATTERN@.
+-- 'principalARN', 'principal_principalARN' - The ARN of the principal (user, role, or group). This field allows for
+-- an ARN with no @accountID@, with or without wildcard characters if the
+-- @PrincipalType@ is an @IAM_PATTERN@.
+--
+-- For more information, review
+-- <https://docs.aws.amazon.com/cli/latest/reference/servicecatalog/associate-principal-with-portfolio.html#options associate-principal-with-portfolio>
+-- in the Amazon Web Services CLI Command Reference.
 --
 -- 'principalType', 'principal_principalType' - The principal type. The supported value is @IAM@ if you use a fully
--- defined ARN, or @IAM_PATTERN@ if you use an ARN with no @accountID@.
+-- defined ARN, or @IAM_PATTERN@ if you use an ARN with no @accountID@,
+-- with or without wildcard characters.
 newPrincipal ::
   Principal
 newPrincipal =
@@ -61,14 +71,19 @@ newPrincipal =
       principalType = Prelude.Nothing
     }
 
--- | The ARN of the principal (IAM user, role, or group). This field allows
--- for an ARN with no @accountID@ if the @PrincipalType@ is an
--- @IAM_PATTERN@.
+-- | The ARN of the principal (user, role, or group). This field allows for
+-- an ARN with no @accountID@, with or without wildcard characters if the
+-- @PrincipalType@ is an @IAM_PATTERN@.
+--
+-- For more information, review
+-- <https://docs.aws.amazon.com/cli/latest/reference/servicecatalog/associate-principal-with-portfolio.html#options associate-principal-with-portfolio>
+-- in the Amazon Web Services CLI Command Reference.
 principal_principalARN :: Lens.Lens' Principal (Prelude.Maybe Prelude.Text)
 principal_principalARN = Lens.lens (\Principal' {principalARN} -> principalARN) (\s@Principal' {} a -> s {principalARN = a} :: Principal)
 
 -- | The principal type. The supported value is @IAM@ if you use a fully
--- defined ARN, or @IAM_PATTERN@ if you use an ARN with no @accountID@.
+-- defined ARN, or @IAM_PATTERN@ if you use an ARN with no @accountID@,
+-- with or without wildcard characters.
 principal_principalType :: Lens.Lens' Principal (Prelude.Maybe PrincipalType)
 principal_principalType = Lens.lens (\Principal' {principalType} -> principalType) (\s@Principal' {} a -> s {principalType = a} :: Principal)
 
@@ -84,7 +99,8 @@ instance Data.FromJSON Principal where
 
 instance Prelude.Hashable Principal where
   hashWithSalt _salt Principal' {..} =
-    _salt `Prelude.hashWithSalt` principalARN
+    _salt
+      `Prelude.hashWithSalt` principalARN
       `Prelude.hashWithSalt` principalType
 
 instance Prelude.NFData Principal where

@@ -29,6 +29,7 @@ module Amazonka.ServiceCatalog.DescribeProvisioningArtifact
 
     -- * Request Lenses
     describeProvisioningArtifact_acceptLanguage,
+    describeProvisioningArtifact_includeProvisioningArtifactParameters,
     describeProvisioningArtifact_productId,
     describeProvisioningArtifact_productName,
     describeProvisioningArtifact_provisioningArtifactId,
@@ -42,6 +43,7 @@ module Amazonka.ServiceCatalog.DescribeProvisioningArtifact
     -- * Response Lenses
     describeProvisioningArtifactResponse_info,
     describeProvisioningArtifactResponse_provisioningArtifactDetail,
+    describeProvisioningArtifactResponse_provisioningArtifactParameters,
     describeProvisioningArtifactResponse_status,
     describeProvisioningArtifactResponse_httpStatus,
   )
@@ -59,12 +61,13 @@ import Amazonka.ServiceCatalog.Types
 data DescribeProvisioningArtifact = DescribeProvisioningArtifact'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | Indicates if the API call response does or does not include additional
+    -- details about the provisioning parameters.
+    includeProvisioningArtifactParameters :: Prelude.Maybe Prelude.Bool,
     -- | The product identifier.
     productId :: Prelude.Maybe Prelude.Text,
     -- | The product name.
@@ -88,11 +91,12 @@ data DescribeProvisioningArtifact = DescribeProvisioningArtifact'
 --
 -- 'acceptLanguage', 'describeProvisioningArtifact_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'includeProvisioningArtifactParameters', 'describeProvisioningArtifact_includeProvisioningArtifactParameters' - Indicates if the API call response does or does not include additional
+-- details about the provisioning parameters.
 --
 -- 'productId', 'describeProvisioningArtifact_productId' - The product identifier.
 --
@@ -109,6 +113,8 @@ newDescribeProvisioningArtifact =
   DescribeProvisioningArtifact'
     { acceptLanguage =
         Prelude.Nothing,
+      includeProvisioningArtifactParameters =
+        Prelude.Nothing,
       productId = Prelude.Nothing,
       productName = Prelude.Nothing,
       provisioningArtifactId = Prelude.Nothing,
@@ -118,13 +124,16 @@ newDescribeProvisioningArtifact =
 
 -- | The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
 describeProvisioningArtifact_acceptLanguage :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Text)
 describeProvisioningArtifact_acceptLanguage = Lens.lens (\DescribeProvisioningArtifact' {acceptLanguage} -> acceptLanguage) (\s@DescribeProvisioningArtifact' {} a -> s {acceptLanguage = a} :: DescribeProvisioningArtifact)
+
+-- | Indicates if the API call response does or does not include additional
+-- details about the provisioning parameters.
+describeProvisioningArtifact_includeProvisioningArtifactParameters :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Bool)
+describeProvisioningArtifact_includeProvisioningArtifactParameters = Lens.lens (\DescribeProvisioningArtifact' {includeProvisioningArtifactParameters} -> includeProvisioningArtifactParameters) (\s@DescribeProvisioningArtifact' {} a -> s {includeProvisioningArtifactParameters = a} :: DescribeProvisioningArtifact)
 
 -- | The product identifier.
 describeProvisioningArtifact_productId :: Lens.Lens' DescribeProvisioningArtifact (Prelude.Maybe Prelude.Text)
@@ -158,6 +167,10 @@ instance Core.AWSRequest DescribeProvisioningArtifact where
           DescribeProvisioningArtifactResponse'
             Prelude.<$> (x Data..?> "Info" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "ProvisioningArtifactDetail")
+            Prelude.<*> ( x
+                            Data..?> "ProvisioningArtifactParameters"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -167,7 +180,9 @@ instance
     DescribeProvisioningArtifact
   where
   hashWithSalt _salt DescribeProvisioningArtifact' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
+      `Prelude.hashWithSalt` includeProvisioningArtifactParameters
       `Prelude.hashWithSalt` productId
       `Prelude.hashWithSalt` productName
       `Prelude.hashWithSalt` provisioningArtifactId
@@ -177,6 +192,7 @@ instance
 instance Prelude.NFData DescribeProvisioningArtifact where
   rnf DescribeProvisioningArtifact' {..} =
     Prelude.rnf acceptLanguage
+      `Prelude.seq` Prelude.rnf includeProvisioningArtifactParameters
       `Prelude.seq` Prelude.rnf productId
       `Prelude.seq` Prelude.rnf productName
       `Prelude.seq` Prelude.rnf provisioningArtifactId
@@ -204,6 +220,8 @@ instance Data.ToJSON DescribeProvisioningArtifact where
       ( Prelude.catMaybes
           [ ("AcceptLanguage" Data..=)
               Prelude.<$> acceptLanguage,
+            ("IncludeProvisioningArtifactParameters" Data..=)
+              Prelude.<$> includeProvisioningArtifactParameters,
             ("ProductId" Data..=) Prelude.<$> productId,
             ("ProductName" Data..=) Prelude.<$> productName,
             ("ProvisioningArtifactId" Data..=)
@@ -227,6 +245,8 @@ data DescribeProvisioningArtifactResponse = DescribeProvisioningArtifactResponse
     info :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Information about the provisioning artifact.
     provisioningArtifactDetail :: Prelude.Maybe ProvisioningArtifactDetail,
+    -- | Information about the parameters used to provision the product.
+    provisioningArtifactParameters :: Prelude.Maybe [ProvisioningArtifactParameter],
     -- | The status of the current request.
     status :: Prelude.Maybe RequestStatus,
     -- | The response's http status code.
@@ -247,6 +267,8 @@ data DescribeProvisioningArtifactResponse = DescribeProvisioningArtifactResponse
 --
 -- 'provisioningArtifactDetail', 'describeProvisioningArtifactResponse_provisioningArtifactDetail' - Information about the provisioning artifact.
 --
+-- 'provisioningArtifactParameters', 'describeProvisioningArtifactResponse_provisioningArtifactParameters' - Information about the parameters used to provision the product.
+--
 -- 'status', 'describeProvisioningArtifactResponse_status' - The status of the current request.
 --
 -- 'httpStatus', 'describeProvisioningArtifactResponse_httpStatus' - The response's http status code.
@@ -260,6 +282,8 @@ newDescribeProvisioningArtifactResponse pHttpStatus_ =
         Prelude.Nothing,
       provisioningArtifactDetail =
         Prelude.Nothing,
+      provisioningArtifactParameters =
+        Prelude.Nothing,
       status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -272,6 +296,10 @@ describeProvisioningArtifactResponse_info = Lens.lens (\DescribeProvisioningArti
 -- | Information about the provisioning artifact.
 describeProvisioningArtifactResponse_provisioningArtifactDetail :: Lens.Lens' DescribeProvisioningArtifactResponse (Prelude.Maybe ProvisioningArtifactDetail)
 describeProvisioningArtifactResponse_provisioningArtifactDetail = Lens.lens (\DescribeProvisioningArtifactResponse' {provisioningArtifactDetail} -> provisioningArtifactDetail) (\s@DescribeProvisioningArtifactResponse' {} a -> s {provisioningArtifactDetail = a} :: DescribeProvisioningArtifactResponse)
+
+-- | Information about the parameters used to provision the product.
+describeProvisioningArtifactResponse_provisioningArtifactParameters :: Lens.Lens' DescribeProvisioningArtifactResponse (Prelude.Maybe [ProvisioningArtifactParameter])
+describeProvisioningArtifactResponse_provisioningArtifactParameters = Lens.lens (\DescribeProvisioningArtifactResponse' {provisioningArtifactParameters} -> provisioningArtifactParameters) (\s@DescribeProvisioningArtifactResponse' {} a -> s {provisioningArtifactParameters = a} :: DescribeProvisioningArtifactResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The status of the current request.
 describeProvisioningArtifactResponse_status :: Lens.Lens' DescribeProvisioningArtifactResponse (Prelude.Maybe RequestStatus)
@@ -288,5 +316,6 @@ instance
   rnf DescribeProvisioningArtifactResponse' {..} =
     Prelude.rnf info
       `Prelude.seq` Prelude.rnf provisioningArtifactDetail
+      `Prelude.seq` Prelude.rnf provisioningArtifactParameters
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

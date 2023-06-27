@@ -55,8 +55,6 @@ import Amazonka.ServiceCatalog.Types
 data DescribeServiceActionExecutionParameters = DescribeServiceActionExecutionParameters'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -77,8 +75,6 @@ data DescribeServiceActionExecutionParameters = DescribeServiceActionExecutionPa
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'describeServiceActionExecutionParameters_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -106,8 +102,6 @@ newDescribeServiceActionExecutionParameters
       }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -137,10 +131,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeServiceActionExecutionParametersResponse'
-            Prelude.<$> ( x Data..?> "ServiceActionParameters"
+            Prelude.<$> ( x
+                            Data..?> "ServiceActionParameters"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -150,7 +145,8 @@ instance
   hashWithSalt
     _salt
     DescribeServiceActionExecutionParameters' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` provisionedProductId
         `Prelude.hashWithSalt` serviceActionId
 

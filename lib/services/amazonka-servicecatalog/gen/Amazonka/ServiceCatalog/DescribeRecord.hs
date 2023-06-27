@@ -67,8 +67,6 @@ import Amazonka.ServiceCatalog.Types
 data DescribeRecord = DescribeRecord'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -94,8 +92,6 @@ data DescribeRecord = DescribeRecord'
 --
 -- 'acceptLanguage', 'describeRecord_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -120,8 +116,6 @@ newDescribeRecord pId_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -161,7 +155,8 @@ instance Core.AWSRequest DescribeRecord where
 
 instance Prelude.Hashable DescribeRecord where
   hashWithSalt _salt DescribeRecord' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` id

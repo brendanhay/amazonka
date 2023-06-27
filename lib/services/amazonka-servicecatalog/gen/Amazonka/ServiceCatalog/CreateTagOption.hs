@@ -101,7 +101,8 @@ instance Core.AWSRequest CreateTagOption where
 
 instance Prelude.Hashable CreateTagOption where
   hashWithSalt _salt CreateTagOption' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData CreateTagOption where

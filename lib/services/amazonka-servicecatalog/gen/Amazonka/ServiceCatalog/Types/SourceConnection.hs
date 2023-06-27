@@ -73,7 +73,8 @@ sourceConnection_connectionParameters = Lens.lens (\SourceConnection' {connectio
 
 instance Prelude.Hashable SourceConnection where
   hashWithSalt _salt SourceConnection' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` connectionParameters
 
 instance Prelude.NFData SourceConnection where

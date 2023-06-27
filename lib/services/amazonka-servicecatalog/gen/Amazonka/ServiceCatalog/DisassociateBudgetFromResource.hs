@@ -116,7 +116,8 @@ instance
   hashWithSalt
     _salt
     DisassociateBudgetFromResource' {..} =
-      _salt `Prelude.hashWithSalt` budgetName
+      _salt
+        `Prelude.hashWithSalt` budgetName
         `Prelude.hashWithSalt` resourceId
 
 instance

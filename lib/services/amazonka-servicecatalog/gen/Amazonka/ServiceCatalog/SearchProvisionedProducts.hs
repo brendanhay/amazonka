@@ -22,13 +22,6 @@
 --
 -- Gets information about the provisioned products that meet the specified
 -- criteria.
---
--- To ensure a complete list of provisioned products and remove duplicate
--- products, use @sort-by createdTime@.
---
--- Here is a CLI example: @ @
---
--- @aws servicecatalog search-provisioned-products --sort-by createdTime @
 module Amazonka.ServiceCatalog.SearchProvisionedProducts
   ( -- * Creating a Request
     SearchProvisionedProducts (..),
@@ -66,8 +59,6 @@ import Amazonka.ServiceCatalog.Types
 -- | /See:/ 'newSearchProvisionedProducts' smart constructor.
 data SearchProvisionedProducts = SearchProvisionedProducts'
   { -- | The language code.
-    --
-    -- -   @en@ - English (default)
     --
     -- -   @jp@ - Japanese
     --
@@ -108,8 +99,6 @@ data SearchProvisionedProducts = SearchProvisionedProducts'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'searchProvisionedProducts_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -152,8 +141,6 @@ newSearchProvisionedProducts =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -207,7 +194,8 @@ instance Core.AWSRequest SearchProvisionedProducts where
       ( \s h x ->
           SearchProvisionedProductsResponse'
             Prelude.<$> (x Data..?> "NextPageToken")
-            Prelude.<*> ( x Data..?> "ProvisionedProducts"
+            Prelude.<*> ( x
+                            Data..?> "ProvisionedProducts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "TotalResultsCount")
@@ -216,7 +204,8 @@ instance Core.AWSRequest SearchProvisionedProducts where
 
 instance Prelude.Hashable SearchProvisionedProducts where
   hashWithSalt _salt SearchProvisionedProducts' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` accessLevelFilter
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` pageSize

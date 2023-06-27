@@ -77,8 +77,6 @@ import Amazonka.ServiceCatalog.Types
 data CreateProvisionedProductPlan = CreateProvisionedProductPlan'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -127,8 +125,6 @@ data CreateProvisionedProductPlan = CreateProvisionedProductPlan'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'createProvisionedProductPlan_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -204,8 +200,6 @@ newCreateProvisionedProductPlan
       }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -288,7 +282,8 @@ instance
     CreateProvisionedProductPlan
   where
   hashWithSalt _salt CreateProvisionedProductPlan' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` notificationArns
       `Prelude.hashWithSalt` pathId
       `Prelude.hashWithSalt` provisioningParameters

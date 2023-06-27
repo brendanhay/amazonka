@@ -321,7 +321,8 @@ provisioningPreferences_stackSetRegions = Lens.lens (\ProvisioningPreferences' {
 
 instance Prelude.Hashable ProvisioningPreferences where
   hashWithSalt _salt ProvisioningPreferences' {..} =
-    _salt `Prelude.hashWithSalt` stackSetAccounts
+    _salt
+      `Prelude.hashWithSalt` stackSetAccounts
       `Prelude.hashWithSalt` stackSetFailureToleranceCount
       `Prelude.hashWithSalt` stackSetFailureTolerancePercentage
       `Prelude.hashWithSalt` stackSetMaxConcurrencyCount

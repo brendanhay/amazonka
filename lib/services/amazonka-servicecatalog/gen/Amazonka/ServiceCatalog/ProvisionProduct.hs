@@ -23,14 +23,20 @@
 -- Provisions the specified product.
 --
 -- A provisioned product is a resourced instance of a product. For example,
--- provisioning a product based on a CloudFormation template launches a
--- CloudFormation stack and its underlying resources. You can check the
--- status of this request using DescribeRecord.
+-- provisioning a product that\'s based on an CloudFormation template
+-- launches an CloudFormation stack and its underlying resources. You can
+-- check the status of this request using DescribeRecord.
 --
--- If the request contains a tag key with an empty list of values, there is
--- a tag conflict for that key. Do not include conflicted keys as tags, or
--- this causes the error \"Parameter validation failed: Missing required
--- parameter in Tags[/N/]:/Value/\".
+-- If the request contains a tag key with an empty list of values, there\'s
+-- a tag conflict for that key. Don\'t include conflicted keys as tags, or
+-- this will cause the error \"Parameter validation failed: Missing
+-- required parameter in Tags[/N/]:/Value/\".
+--
+-- When provisioning a product that\'s been added to a portfolio, you must
+-- grant your user, group, or role access to the portfolio. For more
+-- information, see
+-- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_portfolios_users.html Granting users access>
+-- in the /Service Catalog User Guide/.
 module Amazonka.ServiceCatalog.ProvisionProduct
   ( -- * Creating a Request
     ProvisionProduct (..),
@@ -72,8 +78,6 @@ import Amazonka.ServiceCatalog.Types
 -- | /See:/ 'newProvisionProduct' smart constructor.
 data ProvisionProduct = ProvisionProduct'
   { -- | The language code.
-    --
-    -- -   @en@ - English (default)
     --
     -- -   @jp@ - Japanese
     --
@@ -125,8 +129,6 @@ data ProvisionProduct = ProvisionProduct'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'provisionProduct_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -191,8 +193,6 @@ newProvisionProduct
       }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -274,7 +274,8 @@ instance Core.AWSRequest ProvisionProduct where
 
 instance Prelude.Hashable ProvisionProduct where
   hashWithSalt _salt ProvisionProduct' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` notificationArns
       `Prelude.hashWithSalt` pathId
       `Prelude.hashWithSalt` pathName

@@ -65,8 +65,6 @@ import Amazonka.ServiceCatalog.Types
 data CreateProvisioningArtifact = CreateProvisioningArtifact'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -91,8 +89,6 @@ data CreateProvisioningArtifact = CreateProvisioningArtifact'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'createProvisioningArtifact_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -126,8 +122,6 @@ newCreateProvisioningArtifact
       }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -167,7 +161,8 @@ instance Core.AWSRequest CreateProvisioningArtifact where
 
 instance Prelude.Hashable CreateProvisioningArtifact where
   hashWithSalt _salt CreateProvisioningArtifact' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` productId
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` idempotencyToken

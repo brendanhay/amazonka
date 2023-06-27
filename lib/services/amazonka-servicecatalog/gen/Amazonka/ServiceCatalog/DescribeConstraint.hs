@@ -54,8 +54,6 @@ import Amazonka.ServiceCatalog.Types
 data DescribeConstraint = DescribeConstraint'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -75,8 +73,6 @@ data DescribeConstraint = DescribeConstraint'
 --
 -- 'acceptLanguage', 'describeConstraint_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -94,8 +90,6 @@ newDescribeConstraint pId_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -125,7 +119,8 @@ instance Core.AWSRequest DescribeConstraint where
 
 instance Prelude.Hashable DescribeConstraint where
   hashWithSalt _salt DescribeConstraint' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DescribeConstraint where

@@ -60,6 +60,8 @@ data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
     --
     -- -   @MARKETPLACE_CAR@ - Amazon Web Services Marketplace Clusters and
     --     Amazon Web Services Resources
+    --
+    -- -   @TERRAFORM_OPEN_SOURCE@ - Terraform open source configuration file
     type' :: Prelude.Maybe ProvisioningArtifactType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -102,6 +104,8 @@ data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
 --
 -- -   @MARKETPLACE_CAR@ - Amazon Web Services Marketplace Clusters and
 --     Amazon Web Services Resources
+--
+-- -   @TERRAFORM_OPEN_SOURCE@ - Terraform open source configuration file
 newProvisioningArtifactProperties ::
   ProvisioningArtifactProperties
 newProvisioningArtifactProperties =
@@ -152,6 +156,8 @@ provisioningArtifactProperties_name = Lens.lens (\ProvisioningArtifactProperties
 --
 -- -   @MARKETPLACE_CAR@ - Amazon Web Services Marketplace Clusters and
 --     Amazon Web Services Resources
+--
+-- -   @TERRAFORM_OPEN_SOURCE@ - Terraform open source configuration file
 provisioningArtifactProperties_type :: Lens.Lens' ProvisioningArtifactProperties (Prelude.Maybe ProvisioningArtifactType)
 provisioningArtifactProperties_type = Lens.lens (\ProvisioningArtifactProperties' {type'} -> type') (\s@ProvisioningArtifactProperties' {} a -> s {type' = a} :: ProvisioningArtifactProperties)
 
@@ -162,7 +168,8 @@ instance
   hashWithSalt
     _salt
     ProvisioningArtifactProperties' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` disableTemplateValidation
         `Prelude.hashWithSalt` info
         `Prelude.hashWithSalt` name

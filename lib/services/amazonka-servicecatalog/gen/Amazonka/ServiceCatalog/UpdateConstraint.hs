@@ -56,8 +56,6 @@ import Amazonka.ServiceCatalog.Types
 data UpdateConstraint = UpdateConstraint'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -139,8 +137,6 @@ data UpdateConstraint = UpdateConstraint'
 --
 -- 'acceptLanguage', 'updateConstraint_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -221,8 +217,6 @@ newUpdateConstraint pId_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -318,7 +312,8 @@ instance Core.AWSRequest UpdateConstraint where
 
 instance Prelude.Hashable UpdateConstraint where
   hashWithSalt _salt UpdateConstraint' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` id

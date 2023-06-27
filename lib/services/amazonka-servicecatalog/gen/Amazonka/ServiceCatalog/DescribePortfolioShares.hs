@@ -167,7 +167,8 @@ instance Core.AWSRequest DescribePortfolioShares where
       ( \s h x ->
           DescribePortfolioSharesResponse'
             Prelude.<$> (x Data..?> "NextPageToken")
-            Prelude.<*> ( x Data..?> "PortfolioShareDetails"
+            Prelude.<*> ( x
+                            Data..?> "PortfolioShareDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -175,7 +176,8 @@ instance Core.AWSRequest DescribePortfolioShares where
 
 instance Prelude.Hashable DescribePortfolioShares where
   hashWithSalt _salt DescribePortfolioShares' {..} =
-    _salt `Prelude.hashWithSalt` pageSize
+    _salt
+      `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` portfolioId
       `Prelude.hashWithSalt` type'

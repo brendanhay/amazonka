@@ -55,8 +55,6 @@ import Amazonka.ServiceCatalog.Types
 data ExecuteProvisionedProductServiceAction = ExecuteProvisionedProductServiceAction'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -86,8 +84,6 @@ data ExecuteProvisionedProductServiceAction = ExecuteProvisionedProductServiceAc
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'executeProvisionedProductServiceAction_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -128,8 +124,6 @@ newExecuteProvisionedProductServiceAction
       }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -173,7 +167,7 @@ instance
       ( \s h x ->
           ExecuteProvisionedProductServiceActionResponse'
             Prelude.<$> (x Data..?> "RecordDetail")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -183,7 +177,8 @@ instance
   hashWithSalt
     _salt
     ExecuteProvisionedProductServiceAction' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` parameters
         `Prelude.hashWithSalt` provisionedProductId
         `Prelude.hashWithSalt` serviceActionId

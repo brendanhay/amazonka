@@ -60,8 +60,6 @@ import Amazonka.ServiceCatalog.Types
 data ListPortfolioAccess = ListPortfolioAccess'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -89,8 +87,6 @@ data ListPortfolioAccess = ListPortfolioAccess'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'listPortfolioAccess_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -121,8 +117,6 @@ newListPortfolioAccess pPortfolioId_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -166,7 +160,8 @@ instance Core.AWSRequest ListPortfolioAccess where
 
 instance Prelude.Hashable ListPortfolioAccess where
   hashWithSalt _salt ListPortfolioAccess' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` organizationParentId
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` pageToken

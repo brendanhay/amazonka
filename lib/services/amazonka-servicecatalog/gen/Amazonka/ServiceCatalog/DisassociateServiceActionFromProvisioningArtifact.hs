@@ -54,8 +54,6 @@ import Amazonka.ServiceCatalog.Types
 data DisassociateServiceActionFromProvisioningArtifact = DisassociateServiceActionFromProvisioningArtifact'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -79,8 +77,6 @@ data DisassociateServiceActionFromProvisioningArtifact = DisassociateServiceActi
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'disassociateServiceActionFromProvisioningArtifact_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -115,8 +111,6 @@ newDisassociateServiceActionFromProvisioningArtifact
       }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -161,7 +155,8 @@ instance
   hashWithSalt
     _salt
     DisassociateServiceActionFromProvisioningArtifact' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` productId
         `Prelude.hashWithSalt` provisioningArtifactId
         `Prelude.hashWithSalt` serviceActionId

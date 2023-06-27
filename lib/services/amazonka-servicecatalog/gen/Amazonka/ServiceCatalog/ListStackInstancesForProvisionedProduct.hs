@@ -58,8 +58,6 @@ import Amazonka.ServiceCatalog.Types
 data ListStackInstancesForProvisionedProduct = ListStackInstancesForProvisionedProduct'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -83,8 +81,6 @@ data ListStackInstancesForProvisionedProduct = ListStackInstancesForProvisionedP
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'listStackInstancesForProvisionedProduct_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -112,8 +108,6 @@ newListStackInstancesForProvisionedProduct
       }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -149,8 +143,8 @@ instance
       ( \s h x ->
           ListStackInstancesForProvisionedProductResponse'
             Prelude.<$> (x Data..?> "NextPageToken")
-              Prelude.<*> (x Data..?> "StackInstances" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "StackInstances" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -160,7 +154,8 @@ instance
   hashWithSalt
     _salt
     ListStackInstancesForProvisionedProduct' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` pageSize
         `Prelude.hashWithSalt` pageToken
         `Prelude.hashWithSalt` provisionedProductId

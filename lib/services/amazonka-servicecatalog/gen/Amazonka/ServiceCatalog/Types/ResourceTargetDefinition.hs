@@ -93,7 +93,8 @@ instance Data.FromJSON ResourceTargetDefinition where
 
 instance Prelude.Hashable ResourceTargetDefinition where
   hashWithSalt _salt ResourceTargetDefinition' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` requiresRecreation
 

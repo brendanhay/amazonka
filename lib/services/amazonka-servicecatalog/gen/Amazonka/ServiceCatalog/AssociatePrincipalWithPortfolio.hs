@@ -74,24 +74,69 @@ import Amazonka.ServiceCatalog.Types
 data AssociatePrincipalWithPortfolio = AssociatePrincipalWithPortfolio'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | The portfolio identifier.
     portfolioId :: Prelude.Text,
-    -- | The ARN of the principal (IAM user, role, or group). This field allows
-    -- an ARN with no @accountID@ if @PrincipalType@ is @IAM_PATTERN@.
+    -- | The ARN of the principal (user, role, or group). If the @PrincipalType@
+    -- is @IAM@, the supported value is a fully defined
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM Amazon Resource Name (ARN)>.
+    -- If the @PrincipalType@ is @IAM_PATTERN@, the supported value is an @IAM@
+    -- ARN /without an AccountID/ in the following format:
     --
-    -- You can associate multiple @IAM@ patterns even if the account has no
-    -- principal with that name. This is useful in Principal Name Sharing if
-    -- you want to share a principal without creating it in the account that
-    -- owns the portfolio.
+    -- /arn:partition:iam:::resource-type\/resource-id/
+    --
+    -- The ARN resource-id can be either:
+    --
+    -- -   A fully formed resource-id. For example,
+    --     /arn:aws:iam:::role\/resource-name/ or
+    --     /arn:aws:iam:::role\/resource-path\/resource-name/
+    --
+    -- -   A wildcard ARN. The wildcard ARN accepts @IAM_PATTERN@ values with a
+    --     \"*\" or \"?\" in the resource-id segment of the ARN. For example
+    --     /arn:partition:service:::resource-type\/resource-path\/resource-name/.
+    --     The new symbols are exclusive to the __resource-path__ and
+    --     __resource-name__ and cannot replace the __resource-type__ or other
+    --     ARN values.
+    --
+    --     The ARN path and principal name allow unlimited wildcard characters.
+    --
+    -- Examples of an __acceptable__ wildcard ARN:
+    --
+    -- -   arn:aws:iam:::role\/ResourceName_*
+    --
+    -- -   arn:aws:iam:::role\/*\/ResourceName_?
+    --
+    -- Examples of an __unacceptable__ wildcard ARN:
+    --
+    -- -   arn:aws:iam:::*\/ResourceName
+    --
+    -- You can associate multiple @IAM_PATTERN@s even if the account has no
+    -- principal with that name.
+    --
+    -- The \"?\" wildcard character matches zero or one of any character. This
+    -- is similar to \".?\" in regular regex context. The \"*\" wildcard
+    -- character matches any number of any characters. This is similar to
+    -- \".*\" in regular regex context.
+    --
+    -- In the IAM Principal ARN format
+    -- (/arn:partition:iam:::resource-type\/resource-path\/resource-name/),
+    -- valid resource-type values include __user\/__, __group\/__, or
+    -- __role\/__. The \"?\" and \"*\" characters are allowed only after the
+    -- resource-type in the resource-id segment. You can use special characters
+    -- anywhere within the resource-id.
+    --
+    -- The \"*\" character also matches the \"\/\" character, allowing paths to
+    -- be formed /within/ the resource-id. For example,
+    -- /arn:aws:iam:::role\/__*__\/ResourceName_?/ matches both
+    -- /arn:aws:iam:::role\/pathA\/pathB\/ResourceName_1/ and
+    -- /arn:aws:iam:::role\/pathA\/ResourceName_1/.
     principalARN :: Prelude.Text,
     -- | The principal type. The supported value is @IAM@ if you use a fully
-    -- defined ARN, or @IAM_PATTERN@ if you use an ARN with no @accountID@.
+    -- defined Amazon Resource Name (ARN), or @IAM_PATTERN@ if you use an ARN
+    -- with no @accountID@, with or without wildcard characters.
     principalType :: PrincipalType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -106,24 +151,69 @@ data AssociatePrincipalWithPortfolio = AssociatePrincipalWithPortfolio'
 --
 -- 'acceptLanguage', 'associatePrincipalWithPortfolio_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
 --
 -- 'portfolioId', 'associatePrincipalWithPortfolio_portfolioId' - The portfolio identifier.
 --
--- 'principalARN', 'associatePrincipalWithPortfolio_principalARN' - The ARN of the principal (IAM user, role, or group). This field allows
--- an ARN with no @accountID@ if @PrincipalType@ is @IAM_PATTERN@.
+-- 'principalARN', 'associatePrincipalWithPortfolio_principalARN' - The ARN of the principal (user, role, or group). If the @PrincipalType@
+-- is @IAM@, the supported value is a fully defined
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM Amazon Resource Name (ARN)>.
+-- If the @PrincipalType@ is @IAM_PATTERN@, the supported value is an @IAM@
+-- ARN /without an AccountID/ in the following format:
 --
--- You can associate multiple @IAM@ patterns even if the account has no
--- principal with that name. This is useful in Principal Name Sharing if
--- you want to share a principal without creating it in the account that
--- owns the portfolio.
+-- /arn:partition:iam:::resource-type\/resource-id/
+--
+-- The ARN resource-id can be either:
+--
+-- -   A fully formed resource-id. For example,
+--     /arn:aws:iam:::role\/resource-name/ or
+--     /arn:aws:iam:::role\/resource-path\/resource-name/
+--
+-- -   A wildcard ARN. The wildcard ARN accepts @IAM_PATTERN@ values with a
+--     \"*\" or \"?\" in the resource-id segment of the ARN. For example
+--     /arn:partition:service:::resource-type\/resource-path\/resource-name/.
+--     The new symbols are exclusive to the __resource-path__ and
+--     __resource-name__ and cannot replace the __resource-type__ or other
+--     ARN values.
+--
+--     The ARN path and principal name allow unlimited wildcard characters.
+--
+-- Examples of an __acceptable__ wildcard ARN:
+--
+-- -   arn:aws:iam:::role\/ResourceName_*
+--
+-- -   arn:aws:iam:::role\/*\/ResourceName_?
+--
+-- Examples of an __unacceptable__ wildcard ARN:
+--
+-- -   arn:aws:iam:::*\/ResourceName
+--
+-- You can associate multiple @IAM_PATTERN@s even if the account has no
+-- principal with that name.
+--
+-- The \"?\" wildcard character matches zero or one of any character. This
+-- is similar to \".?\" in regular regex context. The \"*\" wildcard
+-- character matches any number of any characters. This is similar to
+-- \".*\" in regular regex context.
+--
+-- In the IAM Principal ARN format
+-- (/arn:partition:iam:::resource-type\/resource-path\/resource-name/),
+-- valid resource-type values include __user\/__, __group\/__, or
+-- __role\/__. The \"?\" and \"*\" characters are allowed only after the
+-- resource-type in the resource-id segment. You can use special characters
+-- anywhere within the resource-id.
+--
+-- The \"*\" character also matches the \"\/\" character, allowing paths to
+-- be formed /within/ the resource-id. For example,
+-- /arn:aws:iam:::role\/__*__\/ResourceName_?/ matches both
+-- /arn:aws:iam:::role\/pathA\/pathB\/ResourceName_1/ and
+-- /arn:aws:iam:::role\/pathA\/ResourceName_1/.
 --
 -- 'principalType', 'associatePrincipalWithPortfolio_principalType' - The principal type. The supported value is @IAM@ if you use a fully
--- defined ARN, or @IAM_PATTERN@ if you use an ARN with no @accountID@.
+-- defined Amazon Resource Name (ARN), or @IAM_PATTERN@ if you use an ARN
+-- with no @accountID@, with or without wildcard characters.
 newAssociatePrincipalWithPortfolio ::
   -- | 'portfolioId'
   Prelude.Text ->
@@ -146,8 +236,6 @@ newAssociatePrincipalWithPortfolio
 
 -- | The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -158,18 +246,65 @@ associatePrincipalWithPortfolio_acceptLanguage = Lens.lens (\AssociatePrincipalW
 associatePrincipalWithPortfolio_portfolioId :: Lens.Lens' AssociatePrincipalWithPortfolio Prelude.Text
 associatePrincipalWithPortfolio_portfolioId = Lens.lens (\AssociatePrincipalWithPortfolio' {portfolioId} -> portfolioId) (\s@AssociatePrincipalWithPortfolio' {} a -> s {portfolioId = a} :: AssociatePrincipalWithPortfolio)
 
--- | The ARN of the principal (IAM user, role, or group). This field allows
--- an ARN with no @accountID@ if @PrincipalType@ is @IAM_PATTERN@.
+-- | The ARN of the principal (user, role, or group). If the @PrincipalType@
+-- is @IAM@, the supported value is a fully defined
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM Amazon Resource Name (ARN)>.
+-- If the @PrincipalType@ is @IAM_PATTERN@, the supported value is an @IAM@
+-- ARN /without an AccountID/ in the following format:
 --
--- You can associate multiple @IAM@ patterns even if the account has no
--- principal with that name. This is useful in Principal Name Sharing if
--- you want to share a principal without creating it in the account that
--- owns the portfolio.
+-- /arn:partition:iam:::resource-type\/resource-id/
+--
+-- The ARN resource-id can be either:
+--
+-- -   A fully formed resource-id. For example,
+--     /arn:aws:iam:::role\/resource-name/ or
+--     /arn:aws:iam:::role\/resource-path\/resource-name/
+--
+-- -   A wildcard ARN. The wildcard ARN accepts @IAM_PATTERN@ values with a
+--     \"*\" or \"?\" in the resource-id segment of the ARN. For example
+--     /arn:partition:service:::resource-type\/resource-path\/resource-name/.
+--     The new symbols are exclusive to the __resource-path__ and
+--     __resource-name__ and cannot replace the __resource-type__ or other
+--     ARN values.
+--
+--     The ARN path and principal name allow unlimited wildcard characters.
+--
+-- Examples of an __acceptable__ wildcard ARN:
+--
+-- -   arn:aws:iam:::role\/ResourceName_*
+--
+-- -   arn:aws:iam:::role\/*\/ResourceName_?
+--
+-- Examples of an __unacceptable__ wildcard ARN:
+--
+-- -   arn:aws:iam:::*\/ResourceName
+--
+-- You can associate multiple @IAM_PATTERN@s even if the account has no
+-- principal with that name.
+--
+-- The \"?\" wildcard character matches zero or one of any character. This
+-- is similar to \".?\" in regular regex context. The \"*\" wildcard
+-- character matches any number of any characters. This is similar to
+-- \".*\" in regular regex context.
+--
+-- In the IAM Principal ARN format
+-- (/arn:partition:iam:::resource-type\/resource-path\/resource-name/),
+-- valid resource-type values include __user\/__, __group\/__, or
+-- __role\/__. The \"?\" and \"*\" characters are allowed only after the
+-- resource-type in the resource-id segment. You can use special characters
+-- anywhere within the resource-id.
+--
+-- The \"*\" character also matches the \"\/\" character, allowing paths to
+-- be formed /within/ the resource-id. For example,
+-- /arn:aws:iam:::role\/__*__\/ResourceName_?/ matches both
+-- /arn:aws:iam:::role\/pathA\/pathB\/ResourceName_1/ and
+-- /arn:aws:iam:::role\/pathA\/ResourceName_1/.
 associatePrincipalWithPortfolio_principalARN :: Lens.Lens' AssociatePrincipalWithPortfolio Prelude.Text
 associatePrincipalWithPortfolio_principalARN = Lens.lens (\AssociatePrincipalWithPortfolio' {principalARN} -> principalARN) (\s@AssociatePrincipalWithPortfolio' {} a -> s {principalARN = a} :: AssociatePrincipalWithPortfolio)
 
 -- | The principal type. The supported value is @IAM@ if you use a fully
--- defined ARN, or @IAM_PATTERN@ if you use an ARN with no @accountID@.
+-- defined Amazon Resource Name (ARN), or @IAM_PATTERN@ if you use an ARN
+-- with no @accountID@, with or without wildcard characters.
 associatePrincipalWithPortfolio_principalType :: Lens.Lens' AssociatePrincipalWithPortfolio PrincipalType
 associatePrincipalWithPortfolio_principalType = Lens.lens (\AssociatePrincipalWithPortfolio' {principalType} -> principalType) (\s@AssociatePrincipalWithPortfolio' {} a -> s {principalType = a} :: AssociatePrincipalWithPortfolio)
 
@@ -196,7 +331,8 @@ instance
   hashWithSalt
     _salt
     AssociatePrincipalWithPortfolio' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` portfolioId
         `Prelude.hashWithSalt` principalARN
         `Prelude.hashWithSalt` principalType

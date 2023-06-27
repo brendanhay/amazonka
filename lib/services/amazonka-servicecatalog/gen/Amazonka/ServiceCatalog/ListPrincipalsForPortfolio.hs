@@ -58,8 +58,6 @@ import Amazonka.ServiceCatalog.Types
 data ListPrincipalsForPortfolio = ListPrincipalsForPortfolio'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -83,8 +81,6 @@ data ListPrincipalsForPortfolio = ListPrincipalsForPortfolio'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'listPrincipalsForPortfolio_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -111,8 +107,6 @@ newListPrincipalsForPortfolio pPortfolioId_ =
 
 -- | The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -137,22 +131,22 @@ instance Core.AWSPager ListPrincipalsForPortfolio where
     | Core.stop
         ( rs
             Lens.^? listPrincipalsForPortfolioResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPrincipalsForPortfolioResponse_principals
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPrincipalsForPortfolio_pageToken
           Lens..~ rs
           Lens.^? listPrincipalsForPortfolioResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPrincipalsForPortfolio where
   type
@@ -171,7 +165,8 @@ instance Core.AWSRequest ListPrincipalsForPortfolio where
 
 instance Prelude.Hashable ListPrincipalsForPortfolio where
   hashWithSalt _salt ListPrincipalsForPortfolio' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` portfolioId

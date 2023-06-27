@@ -308,6 +308,7 @@ module Amazonka.ServiceCatalog.Lens
 
     -- ** DescribeProvisioningArtifact
     describeProvisioningArtifact_acceptLanguage,
+    describeProvisioningArtifact_includeProvisioningArtifactParameters,
     describeProvisioningArtifact_productId,
     describeProvisioningArtifact_productName,
     describeProvisioningArtifact_provisioningArtifactId,
@@ -315,6 +316,7 @@ module Amazonka.ServiceCatalog.Lens
     describeProvisioningArtifact_verbose,
     describeProvisioningArtifactResponse_info,
     describeProvisioningArtifactResponse_provisioningArtifactDetail,
+    describeProvisioningArtifactResponse_provisioningArtifactParameters,
     describeProvisioningArtifactResponse_status,
     describeProvisioningArtifactResponse_httpStatus,
 
@@ -603,6 +605,33 @@ module Amazonka.ServiceCatalog.Lens
     listTagOptionsResponse_tagOptionDetails,
     listTagOptionsResponse_httpStatus,
 
+    -- ** NotifyProvisionProductEngineWorkflowResult
+    notifyProvisionProductEngineWorkflowResult_failureReason,
+    notifyProvisionProductEngineWorkflowResult_outputs,
+    notifyProvisionProductEngineWorkflowResult_resourceIdentifier,
+    notifyProvisionProductEngineWorkflowResult_workflowToken,
+    notifyProvisionProductEngineWorkflowResult_recordId,
+    notifyProvisionProductEngineWorkflowResult_status,
+    notifyProvisionProductEngineWorkflowResult_idempotencyToken,
+    notifyProvisionProductEngineWorkflowResultResponse_httpStatus,
+
+    -- ** NotifyTerminateProvisionedProductEngineWorkflowResult
+    notifyTerminateProvisionedProductEngineWorkflowResult_failureReason,
+    notifyTerminateProvisionedProductEngineWorkflowResult_workflowToken,
+    notifyTerminateProvisionedProductEngineWorkflowResult_recordId,
+    notifyTerminateProvisionedProductEngineWorkflowResult_status,
+    notifyTerminateProvisionedProductEngineWorkflowResult_idempotencyToken,
+    notifyTerminateProvisionedProductEngineWorkflowResultResponse_httpStatus,
+
+    -- ** NotifyUpdateProvisionedProductEngineWorkflowResult
+    notifyUpdateProvisionedProductEngineWorkflowResult_failureReason,
+    notifyUpdateProvisionedProductEngineWorkflowResult_outputs,
+    notifyUpdateProvisionedProductEngineWorkflowResult_workflowToken,
+    notifyUpdateProvisionedProductEngineWorkflowResult_recordId,
+    notifyUpdateProvisionedProductEngineWorkflowResult_status,
+    notifyUpdateProvisionedProductEngineWorkflowResult_idempotencyToken,
+    notifyUpdateProvisionedProductEngineWorkflowResultResponse_httpStatus,
+
     -- ** ProvisionProduct
     provisionProduct_acceptLanguage,
     provisionProduct_notificationArns,
@@ -819,6 +848,9 @@ module Amazonka.ServiceCatalog.Lens
     -- ** ConstraintSummary
     constraintSummary_description,
     constraintSummary_type,
+
+    -- ** EngineWorkflowResourceIdentifier
+    engineWorkflowResourceIdentifier_uniqueTag,
 
     -- ** ExecutionParameter
     executionParameter_defaultValues,
@@ -1150,6 +1182,10 @@ module Amazonka.ServiceCatalog.Lens
     tagOptionSummary_key,
     tagOptionSummary_values,
 
+    -- ** UniqueTagResourceIdentifier
+    uniqueTagResourceIdentifier_key,
+    uniqueTagResourceIdentifier_value,
+
     -- ** UpdateProvisioningParameter
     updateProvisioningParameter_key,
     updateProvisioningParameter_usePreviousValue,
@@ -1241,6 +1277,9 @@ import Amazonka.ServiceCatalog.ListServiceActions
 import Amazonka.ServiceCatalog.ListServiceActionsForProvisioningArtifact
 import Amazonka.ServiceCatalog.ListStackInstancesForProvisionedProduct
 import Amazonka.ServiceCatalog.ListTagOptions
+import Amazonka.ServiceCatalog.NotifyProvisionProductEngineWorkflowResult
+import Amazonka.ServiceCatalog.NotifyTerminateProvisionedProductEngineWorkflowResult
+import Amazonka.ServiceCatalog.NotifyUpdateProvisionedProductEngineWorkflowResult
 import Amazonka.ServiceCatalog.ProvisionProduct
 import Amazonka.ServiceCatalog.RejectPortfolioShare
 import Amazonka.ServiceCatalog.ScanProvisionedProducts
@@ -1254,6 +1293,7 @@ import Amazonka.ServiceCatalog.Types.CloudWatchDashboard
 import Amazonka.ServiceCatalog.Types.CodeStarParameters
 import Amazonka.ServiceCatalog.Types.ConstraintDetail
 import Amazonka.ServiceCatalog.Types.ConstraintSummary
+import Amazonka.ServiceCatalog.Types.EngineWorkflowResourceIdentifier
 import Amazonka.ServiceCatalog.Types.ExecutionParameter
 import Amazonka.ServiceCatalog.Types.FailedServiceActionAssociation
 import Amazonka.ServiceCatalog.Types.LastSync
@@ -1303,6 +1343,7 @@ import Amazonka.ServiceCatalog.Types.StackInstance
 import Amazonka.ServiceCatalog.Types.Tag
 import Amazonka.ServiceCatalog.Types.TagOptionDetail
 import Amazonka.ServiceCatalog.Types.TagOptionSummary
+import Amazonka.ServiceCatalog.Types.UniqueTagResourceIdentifier
 import Amazonka.ServiceCatalog.Types.UpdateProvisioningParameter
 import Amazonka.ServiceCatalog.Types.UpdateProvisioningPreferences
 import Amazonka.ServiceCatalog.Types.UsageInstruction

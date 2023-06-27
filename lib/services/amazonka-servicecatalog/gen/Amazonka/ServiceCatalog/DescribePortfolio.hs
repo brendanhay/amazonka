@@ -57,8 +57,6 @@ import Amazonka.ServiceCatalog.Types
 data DescribePortfolio = DescribePortfolio'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -78,8 +76,6 @@ data DescribePortfolio = DescribePortfolio'
 --
 -- 'acceptLanguage', 'describePortfolio_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -97,8 +93,6 @@ newDescribePortfolio pId_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -129,7 +123,8 @@ instance Core.AWSRequest DescribePortfolio where
 
 instance Prelude.Hashable DescribePortfolio where
   hashWithSalt _salt DescribePortfolio' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DescribePortfolio where

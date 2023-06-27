@@ -143,7 +143,8 @@ instance Data.FromJSON ProductViewDetail where
 
 instance Prelude.Hashable ProductViewDetail where
   hashWithSalt _salt ProductViewDetail' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` productARN
       `Prelude.hashWithSalt` productViewSummary
       `Prelude.hashWithSalt` sourceConnection

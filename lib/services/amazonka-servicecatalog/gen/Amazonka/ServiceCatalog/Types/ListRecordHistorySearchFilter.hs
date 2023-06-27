@@ -86,7 +86,8 @@ instance
     ListRecordHistorySearchFilter
   where
   hashWithSalt _salt ListRecordHistorySearchFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ListRecordHistorySearchFilter where

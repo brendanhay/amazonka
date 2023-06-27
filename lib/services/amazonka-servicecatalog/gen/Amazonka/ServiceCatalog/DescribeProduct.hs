@@ -21,6 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the specified product.
+--
+-- Running this operation with administrator access results in a failure.
+-- DescribeProductAsAdmin should be used instead.
 module Amazonka.ServiceCatalog.DescribeProduct
   ( -- * Creating a Request
     DescribeProduct (..),
@@ -56,8 +59,6 @@ import Amazonka.ServiceCatalog.Types
 data DescribeProduct = DescribeProduct'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -79,8 +80,6 @@ data DescribeProduct = DescribeProduct'
 --
 -- 'acceptLanguage', 'describeProduct_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -98,8 +97,6 @@ newDescribeProduct =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -128,7 +125,8 @@ instance Core.AWSRequest DescribeProduct where
             Prelude.<$> (x Data..?> "Budgets" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "LaunchPaths" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "ProductViewSummary")
-            Prelude.<*> ( x Data..?> "ProvisioningArtifacts"
+            Prelude.<*> ( x
+                            Data..?> "ProvisioningArtifacts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -136,7 +134,8 @@ instance Core.AWSRequest DescribeProduct where
 
 instance Prelude.Hashable DescribeProduct where
   hashWithSalt _salt DescribeProduct' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 

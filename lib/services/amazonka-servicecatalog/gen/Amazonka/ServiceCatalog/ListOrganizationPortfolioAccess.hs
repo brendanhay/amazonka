@@ -63,8 +63,6 @@ import Amazonka.ServiceCatalog.Types
 data ListOrganizationPortfolioAccess = ListOrganizationPortfolioAccess'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -98,8 +96,6 @@ data ListOrganizationPortfolioAccess = ListOrganizationPortfolioAccess'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'listOrganizationPortfolioAccess_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -142,8 +138,6 @@ newListOrganizationPortfolioAccess
 
 -- | The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -183,22 +177,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listOrganizationPortfolioAccessResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listOrganizationPortfolioAccessResponse_organizationNodes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listOrganizationPortfolioAccess_pageToken
           Lens..~ rs
           Lens.^? listOrganizationPortfolioAccessResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -214,7 +208,8 @@ instance
       ( \s h x ->
           ListOrganizationPortfolioAccessResponse'
             Prelude.<$> (x Data..?> "NextPageToken")
-            Prelude.<*> ( x Data..?> "OrganizationNodes"
+            Prelude.<*> ( x
+                            Data..?> "OrganizationNodes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -227,7 +222,8 @@ instance
   hashWithSalt
     _salt
     ListOrganizationPortfolioAccess' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` pageSize
         `Prelude.hashWithSalt` pageToken
         `Prelude.hashWithSalt` portfolioId

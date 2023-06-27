@@ -57,8 +57,6 @@ import Amazonka.ServiceCatalog.Types
 data UpdateProvisionedProductProperties = UpdateProvisionedProductProperties'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -75,10 +73,9 @@ data UpdateProvisionedProductProperties = UpdateProvisionedProductProperties'
     -- @ExecuteProvisionedProductServiceAction@. Only a role ARN is valid. A
     -- user ARN is invalid.
     --
-    -- The @OWNER@ key accepts IAM user ARNs, IAM role ARNs, and STS
-    -- assumed-role ARNs. The owner is the user that has permission to see,
-    -- update, terminate, and execute service actions in the provisioned
-    -- product.
+    -- The @OWNER@ key accepts user ARNs, IAM role ARNs, and STS assumed-role
+    -- ARNs. The owner is the user that has permission to see, update,
+    -- terminate, and execute service actions in the provisioned product.
     --
     -- The administrator can change the owner of a provisioned product to
     -- another IAM or STS entity within the same account. Both end user owners
@@ -111,8 +108,6 @@ data UpdateProvisionedProductProperties = UpdateProvisionedProductProperties'
 --
 -- 'acceptLanguage', 'updateProvisionedProductProperties_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -129,10 +124,9 @@ data UpdateProvisionedProductProperties = UpdateProvisionedProductProperties'
 -- @ExecuteProvisionedProductServiceAction@. Only a role ARN is valid. A
 -- user ARN is invalid.
 --
--- The @OWNER@ key accepts IAM user ARNs, IAM role ARNs, and STS
--- assumed-role ARNs. The owner is the user that has permission to see,
--- update, terminate, and execute service actions in the provisioned
--- product.
+-- The @OWNER@ key accepts user ARNs, IAM role ARNs, and STS assumed-role
+-- ARNs. The owner is the user that has permission to see, update,
+-- terminate, and execute service actions in the provisioned product.
 --
 -- The administrator can change the owner of a provisioned product to
 -- another IAM or STS entity within the same account. Both end user owners
@@ -172,8 +166,6 @@ newUpdateProvisionedProductProperties
 
 -- | The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -194,10 +186,9 @@ updateProvisionedProductProperties_provisionedProductId = Lens.lens (\UpdateProv
 -- @ExecuteProvisionedProductServiceAction@. Only a role ARN is valid. A
 -- user ARN is invalid.
 --
--- The @OWNER@ key accepts IAM user ARNs, IAM role ARNs, and STS
--- assumed-role ARNs. The owner is the user that has permission to see,
--- update, terminate, and execute service actions in the provisioned
--- product.
+-- The @OWNER@ key accepts user ARNs, IAM role ARNs, and STS assumed-role
+-- ARNs. The owner is the user that has permission to see, update,
+-- terminate, and execute service actions in the provisioned product.
 --
 -- The administrator can change the owner of a provisioned product to
 -- another IAM or STS entity within the same account. Both end user owners
@@ -235,12 +226,13 @@ instance
       ( \s h x ->
           UpdateProvisionedProductPropertiesResponse'
             Prelude.<$> (x Data..?> "ProvisionedProductId")
-              Prelude.<*> ( x Data..?> "ProvisionedProductProperties"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (x Data..?> "RecordId")
-              Prelude.<*> (x Data..?> "Status")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "ProvisionedProductProperties"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Data..?> "RecordId")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -250,7 +242,8 @@ instance
   hashWithSalt
     _salt
     UpdateProvisionedProductProperties' {..} =
-      _salt `Prelude.hashWithSalt` acceptLanguage
+      _salt
+        `Prelude.hashWithSalt` acceptLanguage
         `Prelude.hashWithSalt` provisionedProductId
         `Prelude.hashWithSalt` provisionedProductProperties
         `Prelude.hashWithSalt` idempotencyToken

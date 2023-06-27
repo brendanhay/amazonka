@@ -52,8 +52,6 @@ import Amazonka.ServiceCatalog.Types
 data RejectPortfolioShare = RejectPortfolioShare'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -87,8 +85,6 @@ data RejectPortfolioShare = RejectPortfolioShare'
 --
 -- 'acceptLanguage', 'rejectPortfolioShare_acceptLanguage' - The language code.
 --
--- -   @en@ - English (default)
---
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
@@ -121,8 +117,6 @@ newRejectPortfolioShare pPortfolioId_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -165,7 +159,8 @@ instance Core.AWSRequest RejectPortfolioShare where
 
 instance Prelude.Hashable RejectPortfolioShare where
   hashWithSalt _salt RejectPortfolioShare' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` portfolioShareType
       `Prelude.hashWithSalt` portfolioId
 

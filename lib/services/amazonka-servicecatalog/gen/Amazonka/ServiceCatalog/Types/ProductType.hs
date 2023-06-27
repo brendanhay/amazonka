@@ -21,7 +21,8 @@ module Amazonka.ServiceCatalog.Types.ProductType
   ( ProductType
       ( ..,
         ProductType_CLOUD_FORMATION_TEMPLATE,
-        ProductType_MARKETPLACE
+        ProductType_MARKETPLACE,
+        ProductType_TERRAFORM_OPEN_SOURCE
       ),
   )
 where
@@ -64,8 +65,12 @@ pattern ProductType_CLOUD_FORMATION_TEMPLATE = ProductType' "CLOUD_FORMATION_TEM
 pattern ProductType_MARKETPLACE :: ProductType
 pattern ProductType_MARKETPLACE = ProductType' "MARKETPLACE"
 
+pattern ProductType_TERRAFORM_OPEN_SOURCE :: ProductType
+pattern ProductType_TERRAFORM_OPEN_SOURCE = ProductType' "TERRAFORM_OPEN_SOURCE"
+
 {-# COMPLETE
   ProductType_CLOUD_FORMATION_TEMPLATE,
   ProductType_MARKETPLACE,
+  ProductType_TERRAFORM_OPEN_SOURCE,
   ProductType'
   #-}

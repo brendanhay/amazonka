@@ -55,8 +55,6 @@ import Amazonka.ServiceCatalog.Types
 data UpdateServiceAction = UpdateServiceAction'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -81,8 +79,6 @@ data UpdateServiceAction = UpdateServiceAction'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'updateServiceAction_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -110,8 +106,6 @@ newUpdateServiceAction pId_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -151,7 +145,8 @@ instance Core.AWSRequest UpdateServiceAction where
 
 instance Prelude.Hashable UpdateServiceAction where
   hashWithSalt _salt UpdateServiceAction' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name

@@ -54,8 +54,6 @@ import Amazonka.ServiceCatalog.Types
 data ExecuteProvisionedProductPlan = ExecuteProvisionedProductPlan'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -78,8 +76,6 @@ data ExecuteProvisionedProductPlan = ExecuteProvisionedProductPlan'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'executeProvisionedProductPlan_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -107,8 +103,6 @@ newExecuteProvisionedProductPlan
       }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -148,7 +142,8 @@ instance
     ExecuteProvisionedProductPlan
   where
   hashWithSalt _salt ExecuteProvisionedProductPlan' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` planId
       `Prelude.hashWithSalt` idempotencyToken
 

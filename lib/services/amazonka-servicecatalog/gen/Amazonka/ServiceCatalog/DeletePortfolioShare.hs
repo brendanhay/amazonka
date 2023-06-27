@@ -60,8 +60,6 @@ import Amazonka.ServiceCatalog.Types
 data DeletePortfolioShare = DeletePortfolioShare'
   { -- | The language code.
     --
-    -- -   @en@ - English (default)
-    --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
@@ -84,8 +82,6 @@ data DeletePortfolioShare = DeletePortfolioShare'
 -- for backwards compatibility:
 --
 -- 'acceptLanguage', 'deletePortfolioShare_acceptLanguage' - The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -110,8 +106,6 @@ newDeletePortfolioShare pPortfolioId_ =
     }
 
 -- | The language code.
---
--- -   @en@ - English (default)
 --
 -- -   @jp@ - Japanese
 --
@@ -147,7 +141,8 @@ instance Core.AWSRequest DeletePortfolioShare where
 
 instance Prelude.Hashable DeletePortfolioShare where
   hashWithSalt _salt DeletePortfolioShare' {..} =
-    _salt `Prelude.hashWithSalt` acceptLanguage
+    _salt
+      `Prelude.hashWithSalt` acceptLanguage
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` organizationNode
       `Prelude.hashWithSalt` portfolioId

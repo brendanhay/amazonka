@@ -145,7 +145,8 @@ instance Data.FromJSON EnvironmentMember where
 
 instance Prelude.Hashable EnvironmentMember where
   hashWithSalt _salt EnvironmentMember' {..} =
-    _salt `Prelude.hashWithSalt` lastAccess
+    _salt
+      `Prelude.hashWithSalt` lastAccess
       `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` userArn

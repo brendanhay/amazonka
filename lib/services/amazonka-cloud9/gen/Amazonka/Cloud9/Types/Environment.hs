@@ -235,7 +235,8 @@ instance Data.FromJSON Environment where
 
 instance Prelude.Hashable Environment where
   hashWithSalt _salt Environment' {..} =
-    _salt `Prelude.hashWithSalt` connectionType
+    _salt
+      `Prelude.hashWithSalt` connectionType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lifecycle

@@ -63,7 +63,7 @@ import qualified Amazonka.Response as Response
 data CreateEnvironmentEC2 = CreateEnvironmentEC2'
   { -- | The number of minutes until the running instance is shut down after the
     -- environment has last been used.
-    automaticStopTimeMinutes :: Prelude.Maybe Prelude.Int,
+    automaticStopTimeMinutes :: Prelude.Maybe Prelude.Natural,
     -- | A unique, case-sensitive string that helps Cloud9 to ensure this
     -- operation completes no more than one time.
     --
@@ -243,7 +243,7 @@ newCreateEnvironmentEC2 pName_ pInstanceType_ =
 
 -- | The number of minutes until the running instance is shut down after the
 -- environment has last been used.
-createEnvironmentEC2_automaticStopTimeMinutes :: Lens.Lens' CreateEnvironmentEC2 (Prelude.Maybe Prelude.Int)
+createEnvironmentEC2_automaticStopTimeMinutes :: Lens.Lens' CreateEnvironmentEC2 (Prelude.Maybe Prelude.Natural)
 createEnvironmentEC2_automaticStopTimeMinutes = Lens.lens (\CreateEnvironmentEC2' {automaticStopTimeMinutes} -> automaticStopTimeMinutes) (\s@CreateEnvironmentEC2' {} a -> s {automaticStopTimeMinutes = a} :: CreateEnvironmentEC2)
 
 -- | A unique, case-sensitive string that helps Cloud9 to ensure this

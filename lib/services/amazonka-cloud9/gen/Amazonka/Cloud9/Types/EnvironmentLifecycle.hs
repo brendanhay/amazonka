@@ -120,7 +120,8 @@ instance Data.FromJSON EnvironmentLifecycle where
 
 instance Prelude.Hashable EnvironmentLifecycle where
   hashWithSalt _salt EnvironmentLifecycle' {..} =
-    _salt `Prelude.hashWithSalt` failureResource
+    _salt
+      `Prelude.hashWithSalt` failureResource
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` status
 

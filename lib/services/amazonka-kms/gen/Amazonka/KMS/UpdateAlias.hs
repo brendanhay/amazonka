@@ -105,6 +105,9 @@ data UpdateAlias = UpdateAlias'
     -- with @alias\/@ followed by the alias name, such as
     -- @alias\/ExampleAlias@. You cannot use @UpdateAlias@ to change the alias
     -- name.
+    --
+    -- Do not include confidential or sensitive information in this field. This
+    -- field may be displayed in plaintext in CloudTrail logs and other output.
     aliasName :: Prelude.Text,
     -- | Identifies the
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk customer managed key>
@@ -148,6 +151,9 @@ data UpdateAlias = UpdateAlias'
 -- @alias\/ExampleAlias@. You cannot use @UpdateAlias@ to change the alias
 -- name.
 --
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
+--
 -- 'targetKeyId', 'updateAlias_targetKeyId' - Identifies the
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk customer managed key>
 -- to associate with the alias. You don\'t have permission to associate an
@@ -189,6 +195,9 @@ newUpdateAlias pAliasName_ pTargetKeyId_ =
 -- with @alias\/@ followed by the alias name, such as
 -- @alias\/ExampleAlias@. You cannot use @UpdateAlias@ to change the alias
 -- name.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 updateAlias_aliasName :: Lens.Lens' UpdateAlias Prelude.Text
 updateAlias_aliasName = Lens.lens (\UpdateAlias' {aliasName} -> aliasName) (\s@UpdateAlias' {} a -> s {aliasName = a} :: UpdateAlias)
 
@@ -228,7 +237,8 @@ instance Core.AWSRequest UpdateAlias where
 
 instance Prelude.Hashable UpdateAlias where
   hashWithSalt _salt UpdateAlias' {..} =
-    _salt `Prelude.hashWithSalt` aliasName
+    _salt
+      `Prelude.hashWithSalt` aliasName
       `Prelude.hashWithSalt` targetKeyId
 
 instance Prelude.NFData UpdateAlias where

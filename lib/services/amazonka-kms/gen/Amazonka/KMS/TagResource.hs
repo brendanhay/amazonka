@@ -113,10 +113,11 @@ data TagResource = TagResource'
     -- To get the key ID and key ARN for a KMS key, use ListKeys or
     -- DescribeKey.
     keyId :: Prelude.Text,
-    -- | One or more tags.
+    -- | One or more tags. Each tag consists of a tag key and a tag value. The
+    -- tag value can be an empty (null) string.
     --
-    -- Each tag consists of a tag key and a tag value. The tag value can be an
-    -- empty (null) string.
+    -- Do not include confidential or sensitive information in this field. This
+    -- field may be displayed in plaintext in CloudTrail logs and other output.
     --
     -- You cannot have more than one tag on a KMS key with the same tag key. If
     -- you specify an existing tag key with a different tag value, KMS replaces
@@ -147,10 +148,11 @@ data TagResource = TagResource'
 -- To get the key ID and key ARN for a KMS key, use ListKeys or
 -- DescribeKey.
 --
--- 'tags', 'tagResource_tags' - One or more tags.
+-- 'tags', 'tagResource_tags' - One or more tags. Each tag consists of a tag key and a tag value. The
+-- tag value can be an empty (null) string.
 --
--- Each tag consists of a tag key and a tag value. The tag value can be an
--- empty (null) string.
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- You cannot have more than one tag on a KMS key with the same tag key. If
 -- you specify an existing tag key with a different tag value, KMS replaces
@@ -181,10 +183,11 @@ newTagResource pKeyId_ =
 tagResource_keyId :: Lens.Lens' TagResource Prelude.Text
 tagResource_keyId = Lens.lens (\TagResource' {keyId} -> keyId) (\s@TagResource' {} a -> s {keyId = a} :: TagResource)
 
--- | One or more tags.
+-- | One or more tags. Each tag consists of a tag key and a tag value. The
+-- tag value can be an empty (null) string.
 --
--- Each tag consists of a tag key and a tag value. The tag value can be an
--- empty (null) string.
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- You cannot have more than one tag on a KMS key with the same tag key. If
 -- you specify an existing tag key with a different tag value, KMS replaces
@@ -200,7 +203,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` keyId
+    _salt
+      `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

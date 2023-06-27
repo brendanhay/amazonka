@@ -113,20 +113,14 @@ import qualified Amazonka.Response as Response
 data CreateGrant = CreateGrant'
   { -- | Specifies a grant constraint.
     --
-    -- KMS supports the @EncryptionContextEquals@ and @EncryptionContextSubset@
-    -- grant constraints. Each constraint value can include up to 8 encryption
-    -- context pairs. The encryption context value in each constraint cannot
-    -- exceed 384 characters. For information about grant constraints, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints Using grant constraints>
-    -- in the /Key Management Service Developer Guide/. For more information
-    -- about encryption context, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
-    -- in the //Key Management Service Developer Guide// .
+    -- Do not include confidential or sensitive information in this field. This
+    -- field may be displayed in plaintext in CloudTrail logs and other output.
     --
-    -- The encryption context grant constraints allow the permissions in the
-    -- grant only when the encryption context in the request matches
+    -- KMS supports the @EncryptionContextEquals@ and @EncryptionContextSubset@
+    -- grant constraints, which allow the permissions in the grant only when
+    -- the encryption context in the request matches
     -- (@EncryptionContextEquals@) or includes (@EncryptionContextSubset@) the
-    -- encryption context specified in this structure.
+    -- encryption context specified in the constraint.
     --
     -- The encryption context grant constraints are supported only on
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations grant operations>
@@ -139,8 +133,17 @@ data CreateGrant = CreateGrant'
     -- an equally strict or stricter encryption context constraint.
     --
     -- You cannot use an encryption context grant constraint for cryptographic
-    -- operations with asymmetric KMS keys or HMAC KMS keys. These keys don\'t
-    -- support an encryption context.
+    -- operations with asymmetric KMS keys or HMAC KMS keys. Operations with
+    -- these keys don\'t support an encryption context.
+    --
+    -- Each constraint value can include up to 8 encryption context pairs. The
+    -- encryption context value in each constraint cannot exceed 384
+    -- characters. For information about grant constraints, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints Using grant constraints>
+    -- in the /Key Management Service Developer Guide/. For more information
+    -- about encryption context, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
+    -- in the //Key Management Service Developer Guide// .
     constraints :: Prelude.Maybe GrantConstraints,
     -- | A list of grant tokens.
     --
@@ -154,6 +157,9 @@ data CreateGrant = CreateGrant'
     grantTokens :: Prelude.Maybe [Prelude.Text],
     -- | A friendly name for the grant. Use this value to prevent the unintended
     -- creation of duplicate grants when retrying this request.
+    --
+    -- Do not include confidential or sensitive information in this field. This
+    -- field may be displayed in plaintext in CloudTrail logs and other output.
     --
     -- When this value is absent, all @CreateGrant@ requests result in a new
     -- grant with a unique @GrantId@ even if all the supplied parameters are
@@ -172,13 +178,11 @@ data CreateGrant = CreateGrant'
     --
     -- To specify the principal, use the
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
-    -- of an Amazon Web Services principal. Valid Amazon Web Services
-    -- principals include Amazon Web Services accounts (root), IAM users,
-    -- federated users, and assumed role users. For examples of the ARN syntax
-    -- to use for specifying a principal, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM)>
-    -- in the Example ARNs section of the /Amazon Web Services General
-    -- Reference/.
+    -- of an Amazon Web Services principal. Valid principals include Amazon Web
+    -- Services accounts, IAM users, IAM roles, federated users, and assumed
+    -- role users. For help with the ARN syntax for a principal, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>
+    -- in the //Identity and Access Management User Guide// .
     --
     -- The grant determines the retiring principal. Other principals might have
     -- permission to retire the grant or revoke the grant. For details, see
@@ -204,15 +208,12 @@ data CreateGrant = CreateGrant'
     keyId :: Prelude.Text,
     -- | The identity that gets the permissions specified in the grant.
     --
-    -- To specify the principal, use the
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
-    -- of an Amazon Web Services principal. Valid Amazon Web Services
-    -- principals include Amazon Web Services accounts (root), IAM users, IAM
-    -- roles, federated users, and assumed role users. For examples of the ARN
-    -- syntax to use for specifying a principal, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM)>
-    -- in the Example ARNs section of the /Amazon Web Services General
-    -- Reference/.
+    -- To specify the grantee principal, use the Amazon Resource Name (ARN) of
+    -- an Amazon Web Services principal. Valid principals include Amazon Web
+    -- Services accounts, IAM users, IAM roles, federated users, and assumed
+    -- role users. For help with the ARN syntax for a principal, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>
+    -- in the //Identity and Access Management User Guide// .
     granteePrincipal :: Prelude.Text,
     -- | A list of operations that the grant permits.
     --
@@ -238,20 +239,14 @@ data CreateGrant = CreateGrant'
 --
 -- 'constraints', 'createGrant_constraints' - Specifies a grant constraint.
 --
--- KMS supports the @EncryptionContextEquals@ and @EncryptionContextSubset@
--- grant constraints. Each constraint value can include up to 8 encryption
--- context pairs. The encryption context value in each constraint cannot
--- exceed 384 characters. For information about grant constraints, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints Using grant constraints>
--- in the /Key Management Service Developer Guide/. For more information
--- about encryption context, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
--- in the //Key Management Service Developer Guide// .
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
--- The encryption context grant constraints allow the permissions in the
--- grant only when the encryption context in the request matches
+-- KMS supports the @EncryptionContextEquals@ and @EncryptionContextSubset@
+-- grant constraints, which allow the permissions in the grant only when
+-- the encryption context in the request matches
 -- (@EncryptionContextEquals@) or includes (@EncryptionContextSubset@) the
--- encryption context specified in this structure.
+-- encryption context specified in the constraint.
 --
 -- The encryption context grant constraints are supported only on
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations grant operations>
@@ -264,8 +259,17 @@ data CreateGrant = CreateGrant'
 -- an equally strict or stricter encryption context constraint.
 --
 -- You cannot use an encryption context grant constraint for cryptographic
--- operations with asymmetric KMS keys or HMAC KMS keys. These keys don\'t
--- support an encryption context.
+-- operations with asymmetric KMS keys or HMAC KMS keys. Operations with
+-- these keys don\'t support an encryption context.
+--
+-- Each constraint value can include up to 8 encryption context pairs. The
+-- encryption context value in each constraint cannot exceed 384
+-- characters. For information about grant constraints, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints Using grant constraints>
+-- in the /Key Management Service Developer Guide/. For more information
+-- about encryption context, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
+-- in the //Key Management Service Developer Guide// .
 --
 -- 'grantTokens', 'createGrant_grantTokens' - A list of grant tokens.
 --
@@ -279,6 +283,9 @@ data CreateGrant = CreateGrant'
 --
 -- 'name', 'createGrant_name' - A friendly name for the grant. Use this value to prevent the unintended
 -- creation of duplicate grants when retrying this request.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- When this value is absent, all @CreateGrant@ requests result in a new
 -- grant with a unique @GrantId@ even if all the supplied parameters are
@@ -297,13 +304,11 @@ data CreateGrant = CreateGrant'
 --
 -- To specify the principal, use the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
--- of an Amazon Web Services principal. Valid Amazon Web Services
--- principals include Amazon Web Services accounts (root), IAM users,
--- federated users, and assumed role users. For examples of the ARN syntax
--- to use for specifying a principal, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM)>
--- in the Example ARNs section of the /Amazon Web Services General
--- Reference/.
+-- of an Amazon Web Services principal. Valid principals include Amazon Web
+-- Services accounts, IAM users, IAM roles, federated users, and assumed
+-- role users. For help with the ARN syntax for a principal, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>
+-- in the //Identity and Access Management User Guide// .
 --
 -- The grant determines the retiring principal. Other principals might have
 -- permission to retire the grant or revoke the grant. For details, see
@@ -329,15 +334,12 @@ data CreateGrant = CreateGrant'
 --
 -- 'granteePrincipal', 'createGrant_granteePrincipal' - The identity that gets the permissions specified in the grant.
 --
--- To specify the principal, use the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
--- of an Amazon Web Services principal. Valid Amazon Web Services
--- principals include Amazon Web Services accounts (root), IAM users, IAM
--- roles, federated users, and assumed role users. For examples of the ARN
--- syntax to use for specifying a principal, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM)>
--- in the Example ARNs section of the /Amazon Web Services General
--- Reference/.
+-- To specify the grantee principal, use the Amazon Resource Name (ARN) of
+-- an Amazon Web Services principal. Valid principals include Amazon Web
+-- Services accounts, IAM users, IAM roles, federated users, and assumed
+-- role users. For help with the ARN syntax for a principal, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>
+-- in the //Identity and Access Management User Guide// .
 --
 -- 'operations', 'createGrant_operations' - A list of operations that the grant permits.
 --
@@ -368,20 +370,14 @@ newCreateGrant pKeyId_ pGranteePrincipal_ =
 
 -- | Specifies a grant constraint.
 --
--- KMS supports the @EncryptionContextEquals@ and @EncryptionContextSubset@
--- grant constraints. Each constraint value can include up to 8 encryption
--- context pairs. The encryption context value in each constraint cannot
--- exceed 384 characters. For information about grant constraints, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints Using grant constraints>
--- in the /Key Management Service Developer Guide/. For more information
--- about encryption context, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
--- in the //Key Management Service Developer Guide// .
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
--- The encryption context grant constraints allow the permissions in the
--- grant only when the encryption context in the request matches
+-- KMS supports the @EncryptionContextEquals@ and @EncryptionContextSubset@
+-- grant constraints, which allow the permissions in the grant only when
+-- the encryption context in the request matches
 -- (@EncryptionContextEquals@) or includes (@EncryptionContextSubset@) the
--- encryption context specified in this structure.
+-- encryption context specified in the constraint.
 --
 -- The encryption context grant constraints are supported only on
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations grant operations>
@@ -394,8 +390,17 @@ newCreateGrant pKeyId_ pGranteePrincipal_ =
 -- an equally strict or stricter encryption context constraint.
 --
 -- You cannot use an encryption context grant constraint for cryptographic
--- operations with asymmetric KMS keys or HMAC KMS keys. These keys don\'t
--- support an encryption context.
+-- operations with asymmetric KMS keys or HMAC KMS keys. Operations with
+-- these keys don\'t support an encryption context.
+--
+-- Each constraint value can include up to 8 encryption context pairs. The
+-- encryption context value in each constraint cannot exceed 384
+-- characters. For information about grant constraints, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints Using grant constraints>
+-- in the /Key Management Service Developer Guide/. For more information
+-- about encryption context, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
+-- in the //Key Management Service Developer Guide// .
 createGrant_constraints :: Lens.Lens' CreateGrant (Prelude.Maybe GrantConstraints)
 createGrant_constraints = Lens.lens (\CreateGrant' {constraints} -> constraints) (\s@CreateGrant' {} a -> s {constraints = a} :: CreateGrant)
 
@@ -413,6 +418,9 @@ createGrant_grantTokens = Lens.lens (\CreateGrant' {grantTokens} -> grantTokens)
 
 -- | A friendly name for the grant. Use this value to prevent the unintended
 -- creation of duplicate grants when retrying this request.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- When this value is absent, all @CreateGrant@ requests result in a new
 -- grant with a unique @GrantId@ even if all the supplied parameters are
@@ -433,13 +441,11 @@ createGrant_name = Lens.lens (\CreateGrant' {name} -> name) (\s@CreateGrant' {} 
 --
 -- To specify the principal, use the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
--- of an Amazon Web Services principal. Valid Amazon Web Services
--- principals include Amazon Web Services accounts (root), IAM users,
--- federated users, and assumed role users. For examples of the ARN syntax
--- to use for specifying a principal, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM)>
--- in the Example ARNs section of the /Amazon Web Services General
--- Reference/.
+-- of an Amazon Web Services principal. Valid principals include Amazon Web
+-- Services accounts, IAM users, IAM roles, federated users, and assumed
+-- role users. For help with the ARN syntax for a principal, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>
+-- in the //Identity and Access Management User Guide// .
 --
 -- The grant determines the retiring principal. Other principals might have
 -- permission to retire the grant or revoke the grant. For details, see
@@ -469,15 +475,12 @@ createGrant_keyId = Lens.lens (\CreateGrant' {keyId} -> keyId) (\s@CreateGrant' 
 
 -- | The identity that gets the permissions specified in the grant.
 --
--- To specify the principal, use the
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
--- of an Amazon Web Services principal. Valid Amazon Web Services
--- principals include Amazon Web Services accounts (root), IAM users, IAM
--- roles, federated users, and assumed role users. For examples of the ARN
--- syntax to use for specifying a principal, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM)>
--- in the Example ARNs section of the /Amazon Web Services General
--- Reference/.
+-- To specify the grantee principal, use the Amazon Resource Name (ARN) of
+-- an Amazon Web Services principal. Valid principals include Amazon Web
+-- Services accounts, IAM users, IAM roles, federated users, and assumed
+-- role users. For help with the ARN syntax for a principal, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>
+-- in the //Identity and Access Management User Guide// .
 createGrant_granteePrincipal :: Lens.Lens' CreateGrant Prelude.Text
 createGrant_granteePrincipal = Lens.lens (\CreateGrant' {granteePrincipal} -> granteePrincipal) (\s@CreateGrant' {} a -> s {granteePrincipal = a} :: CreateGrant)
 
@@ -509,7 +512,8 @@ instance Core.AWSRequest CreateGrant where
 
 instance Prelude.Hashable CreateGrant where
   hashWithSalt _salt CreateGrant' {..} =
-    _salt `Prelude.hashWithSalt` constraints
+    _salt
+      `Prelude.hashWithSalt` constraints
       `Prelude.hashWithSalt` grantTokens
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` retiringPrincipal

@@ -37,10 +37,10 @@
 -- @KeySpec@ or @NumberOfBytes@ parameters (but not both). For 128-bit and
 -- 256-bit data keys, use the @KeySpec@ parameter.
 --
--- To generate an SM4 data key (China Regions only), specify a @KeySpec@
--- value of @AES_128@ or @NumberOfBytes@ value of @128@. The symmetric
--- encryption key used in China Regions to encrypt your data key is an SM4
--- encryption key.
+-- To generate a 128-bit SM4 data key (China Regions only), specify a
+-- @KeySpec@ value of @AES_128@ or a @NumberOfBytes@ value of @16@. The
+-- symmetric encryption key used in China Regions to encrypt your data key
+-- is an SM4 encryption key.
 --
 -- To get only an encrypted copy of the data key, use
 -- GenerateDataKeyWithoutPlaintext. To generate an asymmetric data key
@@ -57,12 +57,20 @@
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
 -- in the /Key Management Service Developer Guide/.
 --
--- Applications in Amazon Web Services Nitro Enclaves can call this
--- operation by using the
--- <https://github.com/aws/aws-nitro-enclaves-sdk-c Amazon Web Services Nitro Enclaves Development Kit>.
--- For information about the supporting parameters, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves use KMS>
--- in the /Key Management Service Developer Guide/.
+-- @GenerateDataKey@ also supports
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html Amazon Web Services Nitro Enclaves>,
+-- which provide an isolated compute environment in Amazon EC2. To call
+-- @GenerateDataKey@ for an Amazon Web Services Nitro enclave, use the
+-- <https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk Amazon Web Services Nitro Enclaves SDK>
+-- or any Amazon Web Services SDK. Use the @Recipient@ parameter to provide
+-- the attestation document for the enclave. @GenerateDataKey@ returns a
+-- copy of the data key encrypted under the specified KMS key, as usual.
+-- But instead of a plaintext copy of the data key, the response includes a
+-- copy of the data key encrypted under the public key from the attestation
+-- document (@CiphertextForRecipient@). For information about the
+-- interaction between KMS and Amazon Web Services Nitro Enclaves, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+-- in the /Key Management Service Developer Guide/..
 --
 -- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
@@ -129,6 +137,7 @@ module Amazonka.KMS.GenerateDataKey
     generateDataKey_grantTokens,
     generateDataKey_keySpec,
     generateDataKey_numberOfBytes,
+    generateDataKey_recipient,
     generateDataKey_keyId,
 
     -- * Destructuring the Response
@@ -136,6 +145,7 @@ module Amazonka.KMS.GenerateDataKey
     newGenerateDataKeyResponse,
 
     -- * Response Lenses
+    generateDataKeyResponse_ciphertextForRecipient,
     generateDataKeyResponse_httpStatus,
     generateDataKeyResponse_keyId,
     generateDataKeyResponse_plaintext,
@@ -155,6 +165,9 @@ import qualified Amazonka.Response as Response
 data GenerateDataKey = GenerateDataKey'
   { -- | Specifies the encryption context that will be used when encrypting the
     -- data key.
+    --
+    -- Do not include confidential or sensitive information in this field. This
+    -- field may be displayed in plaintext in CloudTrail logs and other output.
     --
     -- An /encryption context/ is a collection of non-secret key-value pairs
     -- that represent additional authenticated data. When you use an encryption
@@ -192,6 +205,31 @@ data GenerateDataKey = GenerateDataKey'
     -- You must specify either the @KeySpec@ or the @NumberOfBytes@ parameter
     -- (but not both) in every @GenerateDataKey@ request.
     numberOfBytes :: Prelude.Maybe Prelude.Natural,
+    -- | A signed
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc attestation document>
+    -- from an Amazon Web Services Nitro enclave and the encryption algorithm
+    -- to use with the enclave\'s public key. The only valid encryption
+    -- algorithm is @RSAES_OAEP_SHA_256@.
+    --
+    -- This parameter only supports attestation documents for Amazon Web
+    -- Services Nitro Enclaves. To include this parameter, use the
+    -- <https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk Amazon Web Services Nitro Enclaves SDK>
+    -- or any Amazon Web Services SDK.
+    --
+    -- When you use this parameter, instead of returning the plaintext data
+    -- key, KMS encrypts the plaintext data key under the public key in the
+    -- attestation document, and returns the resulting ciphertext in the
+    -- @CiphertextForRecipient@ field in the response. This ciphertext can be
+    -- decrypted only with the private key in the enclave. The @CiphertextBlob@
+    -- field in the response contains a copy of the data key encrypted under
+    -- the KMS key specified by the @KeyId@ parameter. The @Plaintext@ field in
+    -- the response is null or empty.
+    --
+    -- For information about the interaction between KMS and Amazon Web
+    -- Services Nitro Enclaves, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+    -- in the /Key Management Service Developer Guide/.
+    recipient :: Prelude.Maybe RecipientInfo,
     -- | Specifies the symmetric encryption KMS key that encrypts the data key.
     -- You cannot specify an asymmetric KMS key or a KMS key in a custom key
     -- store. To get the type and origin of your KMS key, use the DescribeKey
@@ -230,6 +268,9 @@ data GenerateDataKey = GenerateDataKey'
 -- 'encryptionContext', 'generateDataKey_encryptionContext' - Specifies the encryption context that will be used when encrypting the
 -- data key.
 --
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
+--
 -- An /encryption context/ is a collection of non-secret key-value pairs
 -- that represent additional authenticated data. When you use an encryption
 -- context to encrypt data, you must specify the same (an exact
@@ -266,6 +307,31 @@ data GenerateDataKey = GenerateDataKey'
 -- You must specify either the @KeySpec@ or the @NumberOfBytes@ parameter
 -- (but not both) in every @GenerateDataKey@ request.
 --
+-- 'recipient', 'generateDataKey_recipient' - A signed
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc attestation document>
+-- from an Amazon Web Services Nitro enclave and the encryption algorithm
+-- to use with the enclave\'s public key. The only valid encryption
+-- algorithm is @RSAES_OAEP_SHA_256@.
+--
+-- This parameter only supports attestation documents for Amazon Web
+-- Services Nitro Enclaves. To include this parameter, use the
+-- <https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk Amazon Web Services Nitro Enclaves SDK>
+-- or any Amazon Web Services SDK.
+--
+-- When you use this parameter, instead of returning the plaintext data
+-- key, KMS encrypts the plaintext data key under the public key in the
+-- attestation document, and returns the resulting ciphertext in the
+-- @CiphertextForRecipient@ field in the response. This ciphertext can be
+-- decrypted only with the private key in the enclave. The @CiphertextBlob@
+-- field in the response contains a copy of the data key encrypted under
+-- the KMS key specified by the @KeyId@ parameter. The @Plaintext@ field in
+-- the response is null or empty.
+--
+-- For information about the interaction between KMS and Amazon Web
+-- Services Nitro Enclaves, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+-- in the /Key Management Service Developer Guide/.
+--
 -- 'keyId', 'generateDataKey_keyId' - Specifies the symmetric encryption KMS key that encrypts the data key.
 -- You cannot specify an asymmetric KMS key or a KMS key in a custom key
 -- store. To get the type and origin of your KMS key, use the DescribeKey
@@ -300,11 +366,15 @@ newGenerateDataKey pKeyId_ =
       grantTokens = Prelude.Nothing,
       keySpec = Prelude.Nothing,
       numberOfBytes = Prelude.Nothing,
+      recipient = Prelude.Nothing,
       keyId = pKeyId_
     }
 
 -- | Specifies the encryption context that will be used when encrypting the
 -- data key.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- An /encryption context/ is a collection of non-secret key-value pairs
 -- that represent additional authenticated data. When you use an encryption
@@ -350,6 +420,33 @@ generateDataKey_keySpec = Lens.lens (\GenerateDataKey' {keySpec} -> keySpec) (\s
 generateDataKey_numberOfBytes :: Lens.Lens' GenerateDataKey (Prelude.Maybe Prelude.Natural)
 generateDataKey_numberOfBytes = Lens.lens (\GenerateDataKey' {numberOfBytes} -> numberOfBytes) (\s@GenerateDataKey' {} a -> s {numberOfBytes = a} :: GenerateDataKey)
 
+-- | A signed
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc attestation document>
+-- from an Amazon Web Services Nitro enclave and the encryption algorithm
+-- to use with the enclave\'s public key. The only valid encryption
+-- algorithm is @RSAES_OAEP_SHA_256@.
+--
+-- This parameter only supports attestation documents for Amazon Web
+-- Services Nitro Enclaves. To include this parameter, use the
+-- <https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk Amazon Web Services Nitro Enclaves SDK>
+-- or any Amazon Web Services SDK.
+--
+-- When you use this parameter, instead of returning the plaintext data
+-- key, KMS encrypts the plaintext data key under the public key in the
+-- attestation document, and returns the resulting ciphertext in the
+-- @CiphertextForRecipient@ field in the response. This ciphertext can be
+-- decrypted only with the private key in the enclave. The @CiphertextBlob@
+-- field in the response contains a copy of the data key encrypted under
+-- the KMS key specified by the @KeyId@ parameter. The @Plaintext@ field in
+-- the response is null or empty.
+--
+-- For information about the interaction between KMS and Amazon Web
+-- Services Nitro Enclaves, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+-- in the /Key Management Service Developer Guide/.
+generateDataKey_recipient :: Lens.Lens' GenerateDataKey (Prelude.Maybe RecipientInfo)
+generateDataKey_recipient = Lens.lens (\GenerateDataKey' {recipient} -> recipient) (\s@GenerateDataKey' {} a -> s {recipient = a} :: GenerateDataKey)
+
 -- | Specifies the symmetric encryption KMS key that encrypts the data key.
 -- You cannot specify an asymmetric KMS key or a KMS key in a custom key
 -- store. To get the type and origin of your KMS key, use the DescribeKey
@@ -386,7 +483,8 @@ instance Core.AWSRequest GenerateDataKey where
     Response.receiveJSON
       ( \s h x ->
           GenerateDataKeyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (x Data..?> "CiphertextForRecipient")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "KeyId")
             Prelude.<*> (x Data..:> "Plaintext")
             Prelude.<*> (x Data..:> "CiphertextBlob")
@@ -394,10 +492,12 @@ instance Core.AWSRequest GenerateDataKey where
 
 instance Prelude.Hashable GenerateDataKey where
   hashWithSalt _salt GenerateDataKey' {..} =
-    _salt `Prelude.hashWithSalt` encryptionContext
+    _salt
+      `Prelude.hashWithSalt` encryptionContext
       `Prelude.hashWithSalt` grantTokens
       `Prelude.hashWithSalt` keySpec
       `Prelude.hashWithSalt` numberOfBytes
+      `Prelude.hashWithSalt` recipient
       `Prelude.hashWithSalt` keyId
 
 instance Prelude.NFData GenerateDataKey where
@@ -406,6 +506,7 @@ instance Prelude.NFData GenerateDataKey where
       `Prelude.seq` Prelude.rnf grantTokens
       `Prelude.seq` Prelude.rnf keySpec
       `Prelude.seq` Prelude.rnf numberOfBytes
+      `Prelude.seq` Prelude.rnf recipient
       `Prelude.seq` Prelude.rnf keyId
 
 instance Data.ToHeaders GenerateDataKey where
@@ -432,6 +533,7 @@ instance Data.ToJSON GenerateDataKey where
             ("GrantTokens" Data..=) Prelude.<$> grantTokens,
             ("KeySpec" Data..=) Prelude.<$> keySpec,
             ("NumberOfBytes" Data..=) Prelude.<$> numberOfBytes,
+            ("Recipient" Data..=) Prelude.<$> recipient,
             Prelude.Just ("KeyId" Data..= keyId)
           ]
       )
@@ -444,7 +546,18 @@ instance Data.ToQuery GenerateDataKey where
 
 -- | /See:/ 'newGenerateDataKeyResponse' smart constructor.
 data GenerateDataKeyResponse = GenerateDataKeyResponse'
-  { -- | The response's http status code.
+  { -- | The plaintext data key encrypted with the public key from the Nitro
+    -- enclave. This ciphertext can be decrypted only by using a private key in
+    -- the Nitro enclave.
+    --
+    -- This field is included in the response only when the @Recipient@
+    -- parameter in the request includes a valid attestation document from an
+    -- Amazon Web Services Nitro enclave. For information about the interaction
+    -- between KMS and Amazon Web Services Nitro Enclaves, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+    -- in the /Key Management Service Developer Guide/.
+    ciphertextForRecipient :: Prelude.Maybe Data.Base64,
+    -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
@@ -454,6 +567,9 @@ data GenerateDataKeyResponse = GenerateDataKeyResponse'
     -- Services CLI, the value is Base64-encoded. Otherwise, it is not
     -- Base64-encoded. Use this data key to encrypt your data outside of KMS.
     -- Then, remove it from memory as soon as possible.
+    --
+    -- If the response includes the @CiphertextForRecipient@ field, the
+    -- @Plaintext@ field is null or empty.
     plaintext :: Data.Sensitive Data.Base64,
     -- | The encrypted copy of the data key. When you use the HTTP API or the
     -- Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is
@@ -470,6 +586,21 @@ data GenerateDataKeyResponse = GenerateDataKeyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ciphertextForRecipient', 'generateDataKeyResponse_ciphertextForRecipient' - The plaintext data key encrypted with the public key from the Nitro
+-- enclave. This ciphertext can be decrypted only by using a private key in
+-- the Nitro enclave.
+--
+-- This field is included in the response only when the @Recipient@
+-- parameter in the request includes a valid attestation document from an
+-- Amazon Web Services Nitro enclave. For information about the interaction
+-- between KMS and Amazon Web Services Nitro Enclaves, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+-- in the /Key Management Service Developer Guide/.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+--
 -- 'httpStatus', 'generateDataKeyResponse_httpStatus' - The response's http status code.
 --
 -- 'keyId', 'generateDataKeyResponse_keyId' - The Amazon Resource Name
@@ -479,7 +610,10 @@ data GenerateDataKeyResponse = GenerateDataKeyResponse'
 -- 'plaintext', 'generateDataKeyResponse_plaintext' - The plaintext data key. When you use the HTTP API or the Amazon Web
 -- Services CLI, the value is Base64-encoded. Otherwise, it is not
 -- Base64-encoded. Use this data key to encrypt your data outside of KMS.
--- Then, remove it from memory as soon as possible.--
+-- Then, remove it from memory as soon as possible.
+--
+-- If the response includes the @CiphertextForRecipient@ field, the
+-- @Plaintext@ field is null or empty.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -508,14 +642,34 @@ newGenerateDataKeyResponse
   pPlaintext_
   pCiphertextBlob_ =
     GenerateDataKeyResponse'
-      { httpStatus = pHttpStatus_,
+      { ciphertextForRecipient =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_,
         keyId = pKeyId_,
         plaintext =
-          Data._Sensitive Prelude.. Data._Base64
+          Data._Sensitive
+            Prelude.. Data._Base64
             Lens.# pPlaintext_,
         ciphertextBlob =
           Data._Base64 Lens.# pCiphertextBlob_
       }
+
+-- | The plaintext data key encrypted with the public key from the Nitro
+-- enclave. This ciphertext can be decrypted only by using a private key in
+-- the Nitro enclave.
+--
+-- This field is included in the response only when the @Recipient@
+-- parameter in the request includes a valid attestation document from an
+-- Amazon Web Services Nitro enclave. For information about the interaction
+-- between KMS and Amazon Web Services Nitro Enclaves, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+-- in the /Key Management Service Developer Guide/.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+generateDataKeyResponse_ciphertextForRecipient :: Lens.Lens' GenerateDataKeyResponse (Prelude.Maybe Prelude.ByteString)
+generateDataKeyResponse_ciphertextForRecipient = Lens.lens (\GenerateDataKeyResponse' {ciphertextForRecipient} -> ciphertextForRecipient) (\s@GenerateDataKeyResponse' {} a -> s {ciphertextForRecipient = a} :: GenerateDataKeyResponse) Prelude.. Lens.mapping Data._Base64
 
 -- | The response's http status code.
 generateDataKeyResponse_httpStatus :: Lens.Lens' GenerateDataKeyResponse Prelude.Int
@@ -530,7 +684,10 @@ generateDataKeyResponse_keyId = Lens.lens (\GenerateDataKeyResponse' {keyId} -> 
 -- | The plaintext data key. When you use the HTTP API or the Amazon Web
 -- Services CLI, the value is Base64-encoded. Otherwise, it is not
 -- Base64-encoded. Use this data key to encrypt your data outside of KMS.
--- Then, remove it from memory as soon as possible.--
+-- Then, remove it from memory as soon as possible.
+--
+-- If the response includes the @CiphertextForRecipient@ field, the
+-- @Plaintext@ field is null or empty.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -550,7 +707,8 @@ generateDataKeyResponse_ciphertextBlob = Lens.lens (\GenerateDataKeyResponse' {c
 
 instance Prelude.NFData GenerateDataKeyResponse where
   rnf GenerateDataKeyResponse' {..} =
-    Prelude.rnf httpStatus
+    Prelude.rnf ciphertextForRecipient
+      `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf plaintext
       `Prelude.seq` Prelude.rnf ciphertextBlob

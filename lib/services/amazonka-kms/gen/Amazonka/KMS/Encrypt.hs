@@ -153,6 +153,9 @@ data Encrypt = Encrypt'
     -- algorithms and HMAC algorithms that KMS uses do not support an
     -- encryption context.
     --
+    -- Do not include confidential or sensitive information in this field. This
+    -- field may be displayed in plaintext in CloudTrail logs and other output.
+    --
     -- An /encryption context/ is a collection of non-secret key-value pairs
     -- that represent additional authenticated data. When you use an encryption
     -- context to encrypt data, you must specify the same (an exact
@@ -229,6 +232,9 @@ data Encrypt = Encrypt'
 -- algorithms and HMAC algorithms that KMS uses do not support an
 -- encryption context.
 --
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
+--
 -- An /encryption context/ is a collection of non-secret key-value pairs
 -- that represent additional authenticated data. When you use an encryption
 -- context to encrypt data, you must specify the same (an exact
@@ -292,7 +298,8 @@ newEncrypt pKeyId_ pPlaintext_ =
       grantTokens = Prelude.Nothing,
       keyId = pKeyId_,
       plaintext =
-        Data._Sensitive Prelude.. Data._Base64
+        Data._Sensitive
+          Prelude.. Data._Base64
           Lens.# pPlaintext_
     }
 
@@ -315,6 +322,9 @@ encrypt_encryptionAlgorithm = Lens.lens (\Encrypt' {encryptionAlgorithm} -> encr
 -- with a symmetric encryption KMS key. The standard asymmetric encryption
 -- algorithms and HMAC algorithms that KMS uses do not support an
 -- encryption context.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- An /encryption context/ is a collection of non-secret key-value pairs
 -- that represent additional authenticated data. When you use an encryption
@@ -391,7 +401,8 @@ instance Core.AWSRequest Encrypt where
 
 instance Prelude.Hashable Encrypt where
   hashWithSalt _salt Encrypt' {..} =
-    _salt `Prelude.hashWithSalt` encryptionAlgorithm
+    _salt
+      `Prelude.hashWithSalt` encryptionAlgorithm
       `Prelude.hashWithSalt` encryptionContext
       `Prelude.hashWithSalt` grantTokens
       `Prelude.hashWithSalt` keyId

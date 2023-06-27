@@ -104,6 +104,9 @@ data CreateAlias = CreateAlias'
   { -- | Specifies the alias name. This value must begin with @alias\/@ followed
     -- by a name, such as @alias\/ExampleAlias@.
     --
+    -- Do not include confidential or sensitive information in this field. This
+    -- field may be displayed in plaintext in CloudTrail logs and other output.
+    --
     -- The @AliasName@ value must be string of 1-256 characters. It can contain
     -- only alphanumeric characters, forward slashes (\/), underscores (_), and
     -- dashes (-). The alias name cannot begin with @alias\/aws\/@. The
@@ -146,6 +149,9 @@ data CreateAlias = CreateAlias'
 --
 -- 'aliasName', 'createAlias_aliasName' - Specifies the alias name. This value must begin with @alias\/@ followed
 -- by a name, such as @alias\/ExampleAlias@.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- The @AliasName@ value must be string of 1-256 characters. It can contain
 -- only alphanumeric characters, forward slashes (\/), underscores (_), and
@@ -190,6 +196,9 @@ newCreateAlias pAliasName_ pTargetKeyId_ =
 -- | Specifies the alias name. This value must begin with @alias\/@ followed
 -- by a name, such as @alias\/ExampleAlias@.
 --
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
+--
 -- The @AliasName@ value must be string of 1-256 characters. It can contain
 -- only alphanumeric characters, forward slashes (\/), underscores (_), and
 -- dashes (-). The alias name cannot begin with @alias\/aws\/@. The
@@ -231,7 +240,8 @@ instance Core.AWSRequest CreateAlias where
 
 instance Prelude.Hashable CreateAlias where
   hashWithSalt _salt CreateAlias' {..} =
-    _salt `Prelude.hashWithSalt` aliasName
+    _salt
+      `Prelude.hashWithSalt` aliasName
       `Prelude.hashWithSalt` targetKeyId
 
 instance Prelude.NFData CreateAlias where

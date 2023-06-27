@@ -29,11 +29,18 @@
 -- byte string in the CloudHSM cluster associated with an CloudHSM key
 -- store, use the @CustomKeyStoreId@ parameter.
 --
--- Applications in Amazon Web Services Nitro Enclaves can call this
--- operation by using the
--- <https://github.com/aws/aws-nitro-enclaves-sdk-c Amazon Web Services Nitro Enclaves Development Kit>.
--- For information about the supporting parameters, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves use KMS>
+-- @GenerateRandom@ also supports
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html Amazon Web Services Nitro Enclaves>,
+-- which provide an isolated compute environment in Amazon EC2. To call
+-- @GenerateRandom@ for a Nitro enclave, use the
+-- <https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk Amazon Web Services Nitro Enclaves SDK>
+-- or any Amazon Web Services SDK. Use the @Recipient@ parameter to provide
+-- the attestation document for the enclave. Instead of plaintext bytes,
+-- the response includes the plaintext bytes encrypted under the public key
+-- from the attestation document (@CiphertextForRecipient@).For information
+-- about the interaction between KMS and Amazon Web Services Nitro
+-- Enclaves, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
 -- in the /Key Management Service Developer Guide/.
 --
 -- For more information about entropy and random number generation, see
@@ -53,12 +60,14 @@ module Amazonka.KMS.GenerateRandom
     -- * Request Lenses
     generateRandom_customKeyStoreId,
     generateRandom_numberOfBytes,
+    generateRandom_recipient,
 
     -- * Destructuring the Response
     GenerateRandomResponse (..),
     newGenerateRandomResponse,
 
     -- * Response Lenses
+    generateRandomResponse_ciphertextForRecipient,
     generateRandomResponse_plaintext,
     generateRandomResponse_httpStatus,
   )
@@ -83,7 +92,30 @@ data GenerateRandom = GenerateRandom'
     -- @UnsupportedOperationException@.
     customKeyStoreId :: Prelude.Maybe Prelude.Text,
     -- | The length of the random byte string. This parameter is required.
-    numberOfBytes :: Prelude.Maybe Prelude.Natural
+    numberOfBytes :: Prelude.Maybe Prelude.Natural,
+    -- | A signed
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc attestation document>
+    -- from an Amazon Web Services Nitro enclave and the encryption algorithm
+    -- to use with the enclave\'s public key. The only valid encryption
+    -- algorithm is @RSAES_OAEP_SHA_256@.
+    --
+    -- This parameter only supports attestation documents for Amazon Web
+    -- Services Nitro Enclaves. To include this parameter, use the
+    -- <https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk Amazon Web Services Nitro Enclaves SDK>
+    -- or any Amazon Web Services SDK.
+    --
+    -- When you use this parameter, instead of returning plaintext bytes, KMS
+    -- encrypts the plaintext bytes under the public key in the attestation
+    -- document, and returns the resulting ciphertext in the
+    -- @CiphertextForRecipient@ field in the response. This ciphertext can be
+    -- decrypted only with the private key in the enclave. The @Plaintext@
+    -- field in the response is null or empty.
+    --
+    -- For information about the interaction between KMS and Amazon Web
+    -- Services Nitro Enclaves, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+    -- in the /Key Management Service Developer Guide/.
+    recipient :: Prelude.Maybe RecipientInfo
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -104,12 +136,36 @@ data GenerateRandom = GenerateRandom'
 -- @UnsupportedOperationException@.
 --
 -- 'numberOfBytes', 'generateRandom_numberOfBytes' - The length of the random byte string. This parameter is required.
+--
+-- 'recipient', 'generateRandom_recipient' - A signed
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc attestation document>
+-- from an Amazon Web Services Nitro enclave and the encryption algorithm
+-- to use with the enclave\'s public key. The only valid encryption
+-- algorithm is @RSAES_OAEP_SHA_256@.
+--
+-- This parameter only supports attestation documents for Amazon Web
+-- Services Nitro Enclaves. To include this parameter, use the
+-- <https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk Amazon Web Services Nitro Enclaves SDK>
+-- or any Amazon Web Services SDK.
+--
+-- When you use this parameter, instead of returning plaintext bytes, KMS
+-- encrypts the plaintext bytes under the public key in the attestation
+-- document, and returns the resulting ciphertext in the
+-- @CiphertextForRecipient@ field in the response. This ciphertext can be
+-- decrypted only with the private key in the enclave. The @Plaintext@
+-- field in the response is null or empty.
+--
+-- For information about the interaction between KMS and Amazon Web
+-- Services Nitro Enclaves, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+-- in the /Key Management Service Developer Guide/.
 newGenerateRandom ::
   GenerateRandom
 newGenerateRandom =
   GenerateRandom'
     { customKeyStoreId = Prelude.Nothing,
-      numberOfBytes = Prelude.Nothing
+      numberOfBytes = Prelude.Nothing,
+      recipient = Prelude.Nothing
     }
 
 -- | Generates the random byte string in the CloudHSM cluster that is
@@ -126,6 +182,31 @@ generateRandom_customKeyStoreId = Lens.lens (\GenerateRandom' {customKeyStoreId}
 generateRandom_numberOfBytes :: Lens.Lens' GenerateRandom (Prelude.Maybe Prelude.Natural)
 generateRandom_numberOfBytes = Lens.lens (\GenerateRandom' {numberOfBytes} -> numberOfBytes) (\s@GenerateRandom' {} a -> s {numberOfBytes = a} :: GenerateRandom)
 
+-- | A signed
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc attestation document>
+-- from an Amazon Web Services Nitro enclave and the encryption algorithm
+-- to use with the enclave\'s public key. The only valid encryption
+-- algorithm is @RSAES_OAEP_SHA_256@.
+--
+-- This parameter only supports attestation documents for Amazon Web
+-- Services Nitro Enclaves. To include this parameter, use the
+-- <https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk Amazon Web Services Nitro Enclaves SDK>
+-- or any Amazon Web Services SDK.
+--
+-- When you use this parameter, instead of returning plaintext bytes, KMS
+-- encrypts the plaintext bytes under the public key in the attestation
+-- document, and returns the resulting ciphertext in the
+-- @CiphertextForRecipient@ field in the response. This ciphertext can be
+-- decrypted only with the private key in the enclave. The @Plaintext@
+-- field in the response is null or empty.
+--
+-- For information about the interaction between KMS and Amazon Web
+-- Services Nitro Enclaves, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+-- in the /Key Management Service Developer Guide/.
+generateRandom_recipient :: Lens.Lens' GenerateRandom (Prelude.Maybe RecipientInfo)
+generateRandom_recipient = Lens.lens (\GenerateRandom' {recipient} -> recipient) (\s@GenerateRandom' {} a -> s {recipient = a} :: GenerateRandom)
+
 instance Core.AWSRequest GenerateRandom where
   type
     AWSResponse GenerateRandom =
@@ -136,19 +217,23 @@ instance Core.AWSRequest GenerateRandom where
     Response.receiveJSON
       ( \s h x ->
           GenerateRandomResponse'
-            Prelude.<$> (x Data..?> "Plaintext")
+            Prelude.<$> (x Data..?> "CiphertextForRecipient")
+            Prelude.<*> (x Data..?> "Plaintext")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GenerateRandom where
   hashWithSalt _salt GenerateRandom' {..} =
-    _salt `Prelude.hashWithSalt` customKeyStoreId
+    _salt
+      `Prelude.hashWithSalt` customKeyStoreId
       `Prelude.hashWithSalt` numberOfBytes
+      `Prelude.hashWithSalt` recipient
 
 instance Prelude.NFData GenerateRandom where
   rnf GenerateRandom' {..} =
     Prelude.rnf customKeyStoreId
       `Prelude.seq` Prelude.rnf numberOfBytes
+      `Prelude.seq` Prelude.rnf recipient
 
 instance Data.ToHeaders GenerateRandom where
   toHeaders =
@@ -171,7 +256,8 @@ instance Data.ToJSON GenerateRandom where
       ( Prelude.catMaybes
           [ ("CustomKeyStoreId" Data..=)
               Prelude.<$> customKeyStoreId,
-            ("NumberOfBytes" Data..=) Prelude.<$> numberOfBytes
+            ("NumberOfBytes" Data..=) Prelude.<$> numberOfBytes,
+            ("Recipient" Data..=) Prelude.<$> recipient
           ]
       )
 
@@ -183,9 +269,23 @@ instance Data.ToQuery GenerateRandom where
 
 -- | /See:/ 'newGenerateRandomResponse' smart constructor.
 data GenerateRandomResponse = GenerateRandomResponse'
-  { -- | The random byte string. When you use the HTTP API or the Amazon Web
+  { -- | The plaintext random bytes encrypted with the public key from the Nitro
+    -- enclave. This ciphertext can be decrypted only by using a private key in
+    -- the Nitro enclave.
+    --
+    -- This field is included in the response only when the @Recipient@
+    -- parameter in the request includes a valid attestation document from an
+    -- Amazon Web Services Nitro enclave. For information about the interaction
+    -- between KMS and Amazon Web Services Nitro Enclaves, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+    -- in the /Key Management Service Developer Guide/.
+    ciphertextForRecipient :: Prelude.Maybe Data.Base64,
+    -- | The random byte string. When you use the HTTP API or the Amazon Web
     -- Services CLI, the value is Base64-encoded. Otherwise, it is not
     -- Base64-encoded.
+    --
+    -- If the response includes the @CiphertextForRecipient@ field, the
+    -- @Plaintext@ field is null or empty.
     plaintext :: Prelude.Maybe (Data.Sensitive Data.Base64),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -200,9 +300,27 @@ data GenerateRandomResponse = GenerateRandomResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ciphertextForRecipient', 'generateRandomResponse_ciphertextForRecipient' - The plaintext random bytes encrypted with the public key from the Nitro
+-- enclave. This ciphertext can be decrypted only by using a private key in
+-- the Nitro enclave.
+--
+-- This field is included in the response only when the @Recipient@
+-- parameter in the request includes a valid attestation document from an
+-- Amazon Web Services Nitro enclave. For information about the interaction
+-- between KMS and Amazon Web Services Nitro Enclaves, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+-- in the /Key Management Service Developer Guide/.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+--
 -- 'plaintext', 'generateRandomResponse_plaintext' - The random byte string. When you use the HTTP API or the Amazon Web
 -- Services CLI, the value is Base64-encoded. Otherwise, it is not
--- Base64-encoded.--
+-- Base64-encoded.
+--
+-- If the response includes the @CiphertextForRecipient@ field, the
+-- @Plaintext@ field is null or empty.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -215,14 +333,35 @@ newGenerateRandomResponse ::
   GenerateRandomResponse
 newGenerateRandomResponse pHttpStatus_ =
   GenerateRandomResponse'
-    { plaintext =
+    { ciphertextForRecipient =
         Prelude.Nothing,
+      plaintext = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
+-- | The plaintext random bytes encrypted with the public key from the Nitro
+-- enclave. This ciphertext can be decrypted only by using a private key in
+-- the Nitro enclave.
+--
+-- This field is included in the response only when the @Recipient@
+-- parameter in the request includes a valid attestation document from an
+-- Amazon Web Services Nitro enclave. For information about the interaction
+-- between KMS and Amazon Web Services Nitro Enclaves, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+-- in the /Key Management Service Developer Guide/.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+generateRandomResponse_ciphertextForRecipient :: Lens.Lens' GenerateRandomResponse (Prelude.Maybe Prelude.ByteString)
+generateRandomResponse_ciphertextForRecipient = Lens.lens (\GenerateRandomResponse' {ciphertextForRecipient} -> ciphertextForRecipient) (\s@GenerateRandomResponse' {} a -> s {ciphertextForRecipient = a} :: GenerateRandomResponse) Prelude.. Lens.mapping Data._Base64
+
 -- | The random byte string. When you use the HTTP API or the Amazon Web
 -- Services CLI, the value is Base64-encoded. Otherwise, it is not
--- Base64-encoded.--
+-- Base64-encoded.
+--
+-- If the response includes the @CiphertextForRecipient@ field, the
+-- @Plaintext@ field is null or empty.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -236,5 +375,6 @@ generateRandomResponse_httpStatus = Lens.lens (\GenerateRandomResponse' {httpSta
 
 instance Prelude.NFData GenerateRandomResponse where
   rnf GenerateRandomResponse' {..} =
-    Prelude.rnf plaintext
+    Prelude.rnf ciphertextForRecipient
+      `Prelude.seq` Prelude.rnf plaintext
       `Prelude.seq` Prelude.rnf httpStatus

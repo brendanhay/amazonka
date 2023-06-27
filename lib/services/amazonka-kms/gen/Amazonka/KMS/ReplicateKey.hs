@@ -151,24 +151,25 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newReplicateKey' smart constructor.
 data ReplicateKey = ReplicateKey'
-  { -- | A flag to indicate whether to bypass the key policy lockout safety
-    -- check.
+  { -- | Skips (\"bypasses\") the key policy lockout safety check. The default
+    -- value is false.
     --
     -- Setting this value to true increases the risk that the KMS key becomes
     -- unmanageable. Do not set this value to true indiscriminately.
     --
-    -- For more information, refer to the scenario in the
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
-    -- section in the /Key Management Service Developer Guide/.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key Default key policy>
+    -- in the /Key Management Service Developer Guide/.
     --
     -- Use this parameter only when you intend to prevent the principal that is
-    -- making the request from making a subsequent @PutKeyPolicy@ request on
-    -- the KMS key.
-    --
-    -- The default value is false.
+    -- making the request from making a subsequent PutKeyPolicy request on the
+    -- KMS key.
     bypassPolicyLockoutSafetyCheck :: Prelude.Maybe Prelude.Bool,
     -- | A description of the KMS key. The default value is an empty string (no
     -- description).
+    --
+    -- Do not include confidential or sensitive information in this field. This
+    -- field may be displayed in plaintext in CloudTrail logs and other output.
     --
     -- The description is not a shared property of multi-Region keys. You can
     -- specify the same description or a different description for each key in
@@ -187,22 +188,22 @@ data ReplicateKey = ReplicateKey'
     --
     -- If you provide a key policy, it must meet the following criteria:
     --
-    -- -   If you don\'t set @BypassPolicyLockoutSafetyCheck@ to true, the key
-    --     policy must give the caller @kms:PutKeyPolicy@ permission on the
-    --     replica key. This reduces the risk that the KMS key becomes
-    --     unmanageable. For more information, refer to the scenario in the
-    --     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
-    --     section of the //Key Management Service Developer Guide// .
+    -- -   The key policy must allow the calling principal to make a subsequent
+    --     @PutKeyPolicy@ request on the KMS key. This reduces the risk that
+    --     the KMS key becomes unmanageable. For more information, see
+    --     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key Default key policy>
+    --     in the /Key Management Service Developer Guide/. (To omit this
+    --     condition, set @BypassPolicyLockoutSafetyCheck@ to true.)
     --
     -- -   Each statement in the key policy must contain one or more
     --     principals. The principals in the key policy must exist and be
-    --     visible to KMS. When you create a new Amazon Web Services principal
-    --     (for example, an IAM user or role), you might need to enforce a
-    --     delay before including the new principal in a key policy because the
-    --     new principal might not be immediately visible to KMS. For more
-    --     information, see
+    --     visible to KMS. When you create a new Amazon Web Services principal,
+    --     you might need to enforce a delay before including the new principal
+    --     in a key policy because the new principal might not be immediately
+    --     visible to KMS. For more information, see
     --     <https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible>
-    --     in the //Identity and Access Management User Guide// .
+    --     in the /Amazon Web Services Identity and Access Management User
+    --     Guide/.
     --
     -- A key policy document can include only the following characters:
     --
@@ -225,6 +226,9 @@ data ReplicateKey = ReplicateKey'
     -- | Assigns one or more tags to the replica key. Use this parameter to tag
     -- the KMS key when it is created. To tag an existing KMS key, use the
     -- TagResource operation.
+    --
+    -- Do not include confidential or sensitive information in this field. This
+    -- field may be displayed in plaintext in CloudTrail logs and other output.
     --
     -- Tagging or untagging a KMS key can allow or deny permission to the KMS
     -- key. For details, see
@@ -308,24 +312,25 @@ data ReplicateKey = ReplicateKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bypassPolicyLockoutSafetyCheck', 'replicateKey_bypassPolicyLockoutSafetyCheck' - A flag to indicate whether to bypass the key policy lockout safety
--- check.
+-- 'bypassPolicyLockoutSafetyCheck', 'replicateKey_bypassPolicyLockoutSafetyCheck' - Skips (\"bypasses\") the key policy lockout safety check. The default
+-- value is false.
 --
 -- Setting this value to true increases the risk that the KMS key becomes
 -- unmanageable. Do not set this value to true indiscriminately.
 --
--- For more information, refer to the scenario in the
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
--- section in the /Key Management Service Developer Guide/.
+-- For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key Default key policy>
+-- in the /Key Management Service Developer Guide/.
 --
 -- Use this parameter only when you intend to prevent the principal that is
--- making the request from making a subsequent @PutKeyPolicy@ request on
--- the KMS key.
---
--- The default value is false.
+-- making the request from making a subsequent PutKeyPolicy request on the
+-- KMS key.
 --
 -- 'description', 'replicateKey_description' - A description of the KMS key. The default value is an empty string (no
 -- description).
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- The description is not a shared property of multi-Region keys. You can
 -- specify the same description or a different description for each key in
@@ -344,22 +349,22 @@ data ReplicateKey = ReplicateKey'
 --
 -- If you provide a key policy, it must meet the following criteria:
 --
--- -   If you don\'t set @BypassPolicyLockoutSafetyCheck@ to true, the key
---     policy must give the caller @kms:PutKeyPolicy@ permission on the
---     replica key. This reduces the risk that the KMS key becomes
---     unmanageable. For more information, refer to the scenario in the
---     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
---     section of the //Key Management Service Developer Guide// .
+-- -   The key policy must allow the calling principal to make a subsequent
+--     @PutKeyPolicy@ request on the KMS key. This reduces the risk that
+--     the KMS key becomes unmanageable. For more information, see
+--     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key Default key policy>
+--     in the /Key Management Service Developer Guide/. (To omit this
+--     condition, set @BypassPolicyLockoutSafetyCheck@ to true.)
 --
 -- -   Each statement in the key policy must contain one or more
 --     principals. The principals in the key policy must exist and be
---     visible to KMS. When you create a new Amazon Web Services principal
---     (for example, an IAM user or role), you might need to enforce a
---     delay before including the new principal in a key policy because the
---     new principal might not be immediately visible to KMS. For more
---     information, see
+--     visible to KMS. When you create a new Amazon Web Services principal,
+--     you might need to enforce a delay before including the new principal
+--     in a key policy because the new principal might not be immediately
+--     visible to KMS. For more information, see
 --     <https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible>
---     in the //Identity and Access Management User Guide// .
+--     in the /Amazon Web Services Identity and Access Management User
+--     Guide/.
 --
 -- A key policy document can include only the following characters:
 --
@@ -382,6 +387,9 @@ data ReplicateKey = ReplicateKey'
 -- 'tags', 'replicateKey_tags' - Assigns one or more tags to the replica key. Use this parameter to tag
 -- the KMS key when it is created. To tag an existing KMS key, use the
 -- TagResource operation.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- Tagging or untagging a KMS key can allow or deny permission to the KMS
 -- key. For details, see
@@ -470,26 +478,27 @@ newReplicateKey pKeyId_ pReplicaRegion_ =
       replicaRegion = pReplicaRegion_
     }
 
--- | A flag to indicate whether to bypass the key policy lockout safety
--- check.
+-- | Skips (\"bypasses\") the key policy lockout safety check. The default
+-- value is false.
 --
 -- Setting this value to true increases the risk that the KMS key becomes
 -- unmanageable. Do not set this value to true indiscriminately.
 --
--- For more information, refer to the scenario in the
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
--- section in the /Key Management Service Developer Guide/.
+-- For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key Default key policy>
+-- in the /Key Management Service Developer Guide/.
 --
 -- Use this parameter only when you intend to prevent the principal that is
--- making the request from making a subsequent @PutKeyPolicy@ request on
--- the KMS key.
---
--- The default value is false.
+-- making the request from making a subsequent PutKeyPolicy request on the
+-- KMS key.
 replicateKey_bypassPolicyLockoutSafetyCheck :: Lens.Lens' ReplicateKey (Prelude.Maybe Prelude.Bool)
 replicateKey_bypassPolicyLockoutSafetyCheck = Lens.lens (\ReplicateKey' {bypassPolicyLockoutSafetyCheck} -> bypassPolicyLockoutSafetyCheck) (\s@ReplicateKey' {} a -> s {bypassPolicyLockoutSafetyCheck = a} :: ReplicateKey)
 
 -- | A description of the KMS key. The default value is an empty string (no
 -- description).
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- The description is not a shared property of multi-Region keys. You can
 -- specify the same description or a different description for each key in
@@ -510,22 +519,22 @@ replicateKey_description = Lens.lens (\ReplicateKey' {description} -> descriptio
 --
 -- If you provide a key policy, it must meet the following criteria:
 --
--- -   If you don\'t set @BypassPolicyLockoutSafetyCheck@ to true, the key
---     policy must give the caller @kms:PutKeyPolicy@ permission on the
---     replica key. This reduces the risk that the KMS key becomes
---     unmanageable. For more information, refer to the scenario in the
---     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
---     section of the //Key Management Service Developer Guide// .
+-- -   The key policy must allow the calling principal to make a subsequent
+--     @PutKeyPolicy@ request on the KMS key. This reduces the risk that
+--     the KMS key becomes unmanageable. For more information, see
+--     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key Default key policy>
+--     in the /Key Management Service Developer Guide/. (To omit this
+--     condition, set @BypassPolicyLockoutSafetyCheck@ to true.)
 --
 -- -   Each statement in the key policy must contain one or more
 --     principals. The principals in the key policy must exist and be
---     visible to KMS. When you create a new Amazon Web Services principal
---     (for example, an IAM user or role), you might need to enforce a
---     delay before including the new principal in a key policy because the
---     new principal might not be immediately visible to KMS. For more
---     information, see
+--     visible to KMS. When you create a new Amazon Web Services principal,
+--     you might need to enforce a delay before including the new principal
+--     in a key policy because the new principal might not be immediately
+--     visible to KMS. For more information, see
 --     <https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible>
---     in the //Identity and Access Management User Guide// .
+--     in the /Amazon Web Services Identity and Access Management User
+--     Guide/.
 --
 -- A key policy document can include only the following characters:
 --
@@ -550,6 +559,9 @@ replicateKey_policy = Lens.lens (\ReplicateKey' {policy} -> policy) (\s@Replicat
 -- | Assigns one or more tags to the replica key. Use this parameter to tag
 -- the KMS key when it is created. To tag an existing KMS key, use the
 -- TagResource operation.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- Tagging or untagging a KMS key can allow or deny permission to the KMS
 -- key. For details, see

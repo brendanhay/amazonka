@@ -55,7 +55,7 @@
 -- 256-bit data keys, use the @KeySpec@ parameter.
 --
 -- To generate an SM4 data key (China Regions only), specify a @KeySpec@
--- value of @AES_128@ or @NumberOfBytes@ value of @128@. The symmetric
+-- value of @AES_128@ or @NumberOfBytes@ value of @16@. The symmetric
 -- encryption key used in China Regions to encrypt your data key is an SM4
 -- encryption key.
 --
@@ -131,6 +131,9 @@ data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'
   { -- | Specifies the encryption context that will be used when encrypting the
     -- data key.
     --
+    -- Do not include confidential or sensitive information in this field. This
+    -- field may be displayed in plaintext in CloudTrail logs and other output.
+    --
     -- An /encryption context/ is a collection of non-secret key-value pairs
     -- that represent additional authenticated data. When you use an encryption
     -- context to encrypt data, you must specify the same (an exact
@@ -198,6 +201,9 @@ data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'
 --
 -- 'encryptionContext', 'generateDataKeyWithoutPlaintext_encryptionContext' - Specifies the encryption context that will be used when encrypting the
 -- data key.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- An /encryption context/ is a collection of non-secret key-value pairs
 -- that represent additional authenticated data. When you use an encryption
@@ -268,6 +274,9 @@ newGenerateDataKeyWithoutPlaintext pKeyId_ =
 
 -- | Specifies the encryption context that will be used when encrypting the
 -- data key.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- An /encryption context/ is a collection of non-secret key-value pairs
 -- that represent additional authenticated data. When you use an encryption
@@ -358,7 +367,8 @@ instance
   hashWithSalt
     _salt
     GenerateDataKeyWithoutPlaintext' {..} =
-      _salt `Prelude.hashWithSalt` encryptionContext
+      _salt
+        `Prelude.hashWithSalt` encryptionContext
         `Prelude.hashWithSalt` grantTokens
         `Prelude.hashWithSalt` keySpec
         `Prelude.hashWithSalt` numberOfBytes

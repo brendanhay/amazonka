@@ -146,7 +146,8 @@ instance Data.FromJSON XksProxyConfigurationType where
 
 instance Prelude.Hashable XksProxyConfigurationType where
   hashWithSalt _salt XksProxyConfigurationType' {..} =
-    _salt `Prelude.hashWithSalt` accessKeyId
+    _salt
+      `Prelude.hashWithSalt` accessKeyId
       `Prelude.hashWithSalt` connectivity
       `Prelude.hashWithSalt` uriEndpoint
       `Prelude.hashWithSalt` uriPath

@@ -36,9 +36,11 @@
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Asymmetric KMS keys>
 -- in the /Key Management Service Developer Guide/.
 --
--- To verify a digital signature, you can use the @Verify@ operation.
--- Specify the same asymmetric KMS key, message, and signing algorithm that
--- were used to produce the signature.
+-- To use the @Verify@ operation, specify the same asymmetric KMS key,
+-- message, and signing algorithm that were used to produce the signature.
+-- The message type does not need to be the same as the one used for
+-- signing, but it must indicate whether the value of the @Message@
+-- parameter should be hashed as part of the verification process.
 --
 -- You can also verify the digital signature by using the public key of the
 -- KMS key outside of KMS. Use the GetPublicKey operation to download the
@@ -114,13 +116,41 @@ data Verify = Verify'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
     -- in the /Key Management Service Developer Guide/.
     grantTokens :: Prelude.Maybe [Prelude.Text],
-    -- | Tells KMS whether the value of the @Message@ parameter is a message or
-    -- message digest. The default value, RAW, indicates a message. To indicate
-    -- a message digest, enter @DIGEST@.
+    -- | Tells KMS whether the value of the @Message@ parameter should be hashed
+    -- as part of the signing algorithm. Use @RAW@ for unhashed messages; use
+    -- @DIGEST@ for message digests, which are already hashed.
+    --
+    -- When the value of @MessageType@ is @RAW@, KMS uses the standard signing
+    -- algorithm, which begins with a hash function. When the value is
+    -- @DIGEST@, KMS skips the hashing step in the signing algorithm.
     --
     -- Use the @DIGEST@ value only when the value of the @Message@ parameter is
-    -- a message digest. If you use the @DIGEST@ value with a raw message, the
-    -- security of the verification operation can be compromised.
+    -- a message digest. If you use the @DIGEST@ value with an unhashed
+    -- message, the security of the verification operation can be compromised.
+    --
+    -- When the value of @MessageType@is @DIGEST@, the length of the @Message@
+    -- value must match the length of hashed messages for the specified signing
+    -- algorithm.
+    --
+    -- You can submit a message digest and omit the @MessageType@ or specify
+    -- @RAW@ so the digest is hashed again while signing. However, if the
+    -- signed message is hashed once while signing, but twice while verifying,
+    -- verification fails, even when the message hasn\'t changed.
+    --
+    -- The hashing algorithm in that @Verify@ uses is based on the
+    -- @SigningAlgorithm@ value.
+    --
+    -- -   Signing algorithms that end in SHA_256 use the SHA_256 hashing
+    --     algorithm.
+    --
+    -- -   Signing algorithms that end in SHA_384 use the SHA_384 hashing
+    --     algorithm.
+    --
+    -- -   Signing algorithms that end in SHA_512 use the SHA_512 hashing
+    --     algorithm.
+    --
+    -- -   SM2DSA uses the SM3 hashing algorithm. For details, see
+    --     <https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification Offline verification with SM2 key pairs>.
     messageType :: Prelude.Maybe MessageType,
     -- | Identifies the asymmetric KMS key that will be used to verify the
     -- signature. This must be the same KMS key that was used to generate the
@@ -180,13 +210,41 @@ data Verify = Verify'
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
 -- in the /Key Management Service Developer Guide/.
 --
--- 'messageType', 'verify_messageType' - Tells KMS whether the value of the @Message@ parameter is a message or
--- message digest. The default value, RAW, indicates a message. To indicate
--- a message digest, enter @DIGEST@.
+-- 'messageType', 'verify_messageType' - Tells KMS whether the value of the @Message@ parameter should be hashed
+-- as part of the signing algorithm. Use @RAW@ for unhashed messages; use
+-- @DIGEST@ for message digests, which are already hashed.
+--
+-- When the value of @MessageType@ is @RAW@, KMS uses the standard signing
+-- algorithm, which begins with a hash function. When the value is
+-- @DIGEST@, KMS skips the hashing step in the signing algorithm.
 --
 -- Use the @DIGEST@ value only when the value of the @Message@ parameter is
--- a message digest. If you use the @DIGEST@ value with a raw message, the
--- security of the verification operation can be compromised.
+-- a message digest. If you use the @DIGEST@ value with an unhashed
+-- message, the security of the verification operation can be compromised.
+--
+-- When the value of @MessageType@is @DIGEST@, the length of the @Message@
+-- value must match the length of hashed messages for the specified signing
+-- algorithm.
+--
+-- You can submit a message digest and omit the @MessageType@ or specify
+-- @RAW@ so the digest is hashed again while signing. However, if the
+-- signed message is hashed once while signing, but twice while verifying,
+-- verification fails, even when the message hasn\'t changed.
+--
+-- The hashing algorithm in that @Verify@ uses is based on the
+-- @SigningAlgorithm@ value.
+--
+-- -   Signing algorithms that end in SHA_256 use the SHA_256 hashing
+--     algorithm.
+--
+-- -   Signing algorithms that end in SHA_384 use the SHA_384 hashing
+--     algorithm.
+--
+-- -   Signing algorithms that end in SHA_512 use the SHA_512 hashing
+--     algorithm.
+--
+-- -   SM2DSA uses the SM3 hashing algorithm. For details, see
+--     <https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification Offline verification with SM2 key pairs>.
 --
 -- 'keyId', 'verify_keyId' - Identifies the asymmetric KMS key that will be used to verify the
 -- signature. This must be the same KMS key that was used to generate the
@@ -252,7 +310,8 @@ newVerify
         messageType = Prelude.Nothing,
         keyId = pKeyId_,
         message =
-          Data._Sensitive Prelude.. Data._Base64
+          Data._Sensitive
+            Prelude.. Data._Base64
             Lens.# pMessage_,
         signature = Data._Base64 Lens.# pSignature_,
         signingAlgorithm = pSigningAlgorithm_
@@ -270,13 +329,41 @@ newVerify
 verify_grantTokens :: Lens.Lens' Verify (Prelude.Maybe [Prelude.Text])
 verify_grantTokens = Lens.lens (\Verify' {grantTokens} -> grantTokens) (\s@Verify' {} a -> s {grantTokens = a} :: Verify) Prelude.. Lens.mapping Lens.coerced
 
--- | Tells KMS whether the value of the @Message@ parameter is a message or
--- message digest. The default value, RAW, indicates a message. To indicate
--- a message digest, enter @DIGEST@.
+-- | Tells KMS whether the value of the @Message@ parameter should be hashed
+-- as part of the signing algorithm. Use @RAW@ for unhashed messages; use
+-- @DIGEST@ for message digests, which are already hashed.
+--
+-- When the value of @MessageType@ is @RAW@, KMS uses the standard signing
+-- algorithm, which begins with a hash function. When the value is
+-- @DIGEST@, KMS skips the hashing step in the signing algorithm.
 --
 -- Use the @DIGEST@ value only when the value of the @Message@ parameter is
--- a message digest. If you use the @DIGEST@ value with a raw message, the
--- security of the verification operation can be compromised.
+-- a message digest. If you use the @DIGEST@ value with an unhashed
+-- message, the security of the verification operation can be compromised.
+--
+-- When the value of @MessageType@is @DIGEST@, the length of the @Message@
+-- value must match the length of hashed messages for the specified signing
+-- algorithm.
+--
+-- You can submit a message digest and omit the @MessageType@ or specify
+-- @RAW@ so the digest is hashed again while signing. However, if the
+-- signed message is hashed once while signing, but twice while verifying,
+-- verification fails, even when the message hasn\'t changed.
+--
+-- The hashing algorithm in that @Verify@ uses is based on the
+-- @SigningAlgorithm@ value.
+--
+-- -   Signing algorithms that end in SHA_256 use the SHA_256 hashing
+--     algorithm.
+--
+-- -   Signing algorithms that end in SHA_384 use the SHA_384 hashing
+--     algorithm.
+--
+-- -   Signing algorithms that end in SHA_512 use the SHA_512 hashing
+--     algorithm.
+--
+-- -   SM2DSA uses the SM3 hashing algorithm. For details, see
+--     <https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification Offline verification with SM2 key pairs>.
 verify_messageType :: Lens.Lens' Verify (Prelude.Maybe MessageType)
 verify_messageType = Lens.lens (\Verify' {messageType} -> messageType) (\s@Verify' {} a -> s {messageType = a} :: Verify)
 
@@ -349,7 +436,8 @@ instance Core.AWSRequest Verify where
 
 instance Prelude.Hashable Verify where
   hashWithSalt _salt Verify' {..} =
-    _salt `Prelude.hashWithSalt` grantTokens
+    _salt
+      `Prelude.hashWithSalt` grantTokens
       `Prelude.hashWithSalt` messageType
       `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` message

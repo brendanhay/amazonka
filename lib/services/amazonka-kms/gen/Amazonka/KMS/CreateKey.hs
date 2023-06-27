@@ -94,14 +94,6 @@
 --     You can use HMAC keys to generate (GenerateMac) and verify
 --     (VerifyMac) HMAC codes for messages up to 4096 bytes.
 --
---     HMAC KMS keys are not supported in all Amazon Web Services Regions.
---     If you try to create an HMAC KMS key in an Amazon Web Services
---     Region in which HMAC keys are not supported, the @CreateKey@
---     operation returns an @UnsupportedOperationException@. For a list of
---     Regions in which HMAC KMS keys are supported, see
---     <https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html HMAC keys in KMS>
---     in the /Key Management Service Developer Guide/.
---
 -- [Multi-Region primary keys
 -- Imported key material]
 --     To create a multi-Region /primary key/ in the local Amazon Web
@@ -130,18 +122,20 @@
 --     in the /Key Management Service Developer Guide/.
 --
 --     To import your own key material into a KMS key, begin by creating a
---     symmetric encryption KMS key with no key material. To do this, use
---     the @Origin@ parameter of @CreateKey@ with a value of @EXTERNAL@.
---     Next, use GetParametersForImport operation to get a public key and
---     import token, and use the public key to encrypt your key material.
+--     KMS key with no key material. To do this, use the @Origin@ parameter
+--     of @CreateKey@ with a value of @EXTERNAL@. Next, use
+--     GetParametersForImport operation to get a public key and import
+--     token. Use the wrapping public key to encrypt your key material.
 --     Then, use ImportKeyMaterial with your import token to import the key
 --     material. For step-by-step instructions, see
 --     <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material>
 --     in the //Key Management Service Developer Guide// .
 --
---     This feature supports only symmetric encryption KMS keys, including
---     multi-Region symmetric encryption KMS keys. You cannot import key
---     material into any other type of KMS key.
+--     You can import key material into KMS keys of all supported KMS key
+--     types: symmetric encryption KMS keys, HMAC KMS keys, asymmetric
+--     encryption KMS keys, and asymmetric signing KMS keys. You can also
+--     create multi-Region keys with imported key material. However, you
+--     can\'t import key material into a KMS key in a custom key store.
 --
 --     To create a multi-Region primary key with imported key material, use
 --     the @Origin@ parameter of @CreateKey@ with a value of @EXTERNAL@ and
@@ -261,21 +255,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateKey' smart constructor.
 data CreateKey = CreateKey'
-  { -- | A flag to indicate whether to bypass the key policy lockout safety
-    -- check.
+  { -- | Skips (\"bypasses\") the key policy lockout safety check. The default
+    -- value is false.
     --
     -- Setting this value to true increases the risk that the KMS key becomes
     -- unmanageable. Do not set this value to true indiscriminately.
     --
-    -- For more information, refer to the scenario in the
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
-    -- section in the //Key Management Service Developer Guide// .
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key Default key policy>
+    -- in the /Key Management Service Developer Guide/.
     --
-    -- Use this parameter only when you include a policy in the request and you
-    -- intend to prevent the principal that is making the request from making a
-    -- subsequent PutKeyPolicy request on the KMS key.
-    --
-    -- The default value is false.
+    -- Use this parameter only when you intend to prevent the principal that is
+    -- making the request from making a subsequent PutKeyPolicy request on the
+    -- KMS key.
     bypassPolicyLockoutSafetyCheck :: Prelude.Maybe Prelude.Bool,
     -- | Creates the KMS key in the specified
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
@@ -300,11 +292,12 @@ data CreateKey = CreateKey'
     -- your code. However, to avoid breaking changes, KMS supports both
     -- parameters.
     customerMasterKeySpec :: Prelude.Maybe CustomerMasterKeySpec,
-    -- | A description of the KMS key.
+    -- | A description of the KMS key. Use a description that helps you decide
+    -- whether the KMS key is appropriate for a task. The default value is an
+    -- empty string (no description).
     --
-    -- Use a description that helps you decide whether the KMS key is
-    -- appropriate for a task. The default value is an empty string (no
-    -- description).
+    -- Do not include confidential or sensitive information in this field. This
+    -- field may be displayed in plaintext in CloudTrail logs and other output.
     --
     -- To set or change the description after the key is created, use
     -- UpdateKeyDescription.
@@ -453,28 +446,26 @@ data CreateKey = CreateKey'
     --
     -- If you provide a key policy, it must meet the following criteria:
     --
-    -- -   If you don\'t set @BypassPolicyLockoutSafetyCheck@ to true, the key
-    --     policy must allow the principal that is making the @CreateKey@
-    --     request to make a subsequent PutKeyPolicy request on the KMS key.
-    --     This reduces the risk that the KMS key becomes unmanageable. For
-    --     more information, refer to the scenario in the
-    --     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
-    --     section of the //Key Management Service Developer Guide// .
+    -- -   The key policy must allow the calling principal to make a subsequent
+    --     @PutKeyPolicy@ request on the KMS key. This reduces the risk that
+    --     the KMS key becomes unmanageable. For more information, see
+    --     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key Default key policy>
+    --     in the /Key Management Service Developer Guide/. (To omit this
+    --     condition, set @BypassPolicyLockoutSafetyCheck@ to true.)
     --
     -- -   Each statement in the key policy must contain one or more
     --     principals. The principals in the key policy must exist and be
-    --     visible to KMS. When you create a new Amazon Web Services principal
-    --     (for example, an IAM user or role), you might need to enforce a
-    --     delay before including the new principal in a key policy because the
-    --     new principal might not be immediately visible to KMS. For more
-    --     information, see
+    --     visible to KMS. When you create a new Amazon Web Services principal,
+    --     you might need to enforce a delay before including the new principal
+    --     in a key policy because the new principal might not be immediately
+    --     visible to KMS. For more information, see
     --     <https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible>
     --     in the /Amazon Web Services Identity and Access Management User
     --     Guide/.
     --
     -- If you do not provide a key policy, KMS attaches a default key policy to
     -- the KMS key. For more information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default Default Key Policy>
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default Default key policy>
     -- in the /Key Management Service Developer Guide/.
     --
     -- The key policy size quota is 32 kilobytes (32768 bytes).
@@ -486,6 +477,9 @@ data CreateKey = CreateKey'
     -- | Assigns one or more tags to the KMS key. Use this parameter to tag the
     -- KMS key when it is created. To tag an existing KMS key, use the
     -- TagResource operation.
+    --
+    -- Do not include confidential or sensitive information in this field. This
+    -- field may be displayed in plaintext in CloudTrail logs and other output.
     --
     -- Tagging or untagging a KMS key can allow or deny permission to the KMS
     -- key. For details, see
@@ -551,21 +545,19 @@ data CreateKey = CreateKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bypassPolicyLockoutSafetyCheck', 'createKey_bypassPolicyLockoutSafetyCheck' - A flag to indicate whether to bypass the key policy lockout safety
--- check.
+-- 'bypassPolicyLockoutSafetyCheck', 'createKey_bypassPolicyLockoutSafetyCheck' - Skips (\"bypasses\") the key policy lockout safety check. The default
+-- value is false.
 --
 -- Setting this value to true increases the risk that the KMS key becomes
 -- unmanageable. Do not set this value to true indiscriminately.
 --
--- For more information, refer to the scenario in the
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
--- section in the //Key Management Service Developer Guide// .
+-- For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key Default key policy>
+-- in the /Key Management Service Developer Guide/.
 --
--- Use this parameter only when you include a policy in the request and you
--- intend to prevent the principal that is making the request from making a
--- subsequent PutKeyPolicy request on the KMS key.
---
--- The default value is false.
+-- Use this parameter only when you intend to prevent the principal that is
+-- making the request from making a subsequent PutKeyPolicy request on the
+-- KMS key.
 --
 -- 'customKeyStoreId', 'createKey_customKeyStoreId' - Creates the KMS key in the specified
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
@@ -590,11 +582,12 @@ data CreateKey = CreateKey'
 -- your code. However, to avoid breaking changes, KMS supports both
 -- parameters.
 --
--- 'description', 'createKey_description' - A description of the KMS key.
+-- 'description', 'createKey_description' - A description of the KMS key. Use a description that helps you decide
+-- whether the KMS key is appropriate for a task. The default value is an
+-- empty string (no description).
 --
--- Use a description that helps you decide whether the KMS key is
--- appropriate for a task. The default value is an empty string (no
--- description).
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- To set or change the description after the key is created, use
 -- UpdateKeyDescription.
@@ -743,28 +736,26 @@ data CreateKey = CreateKey'
 --
 -- If you provide a key policy, it must meet the following criteria:
 --
--- -   If you don\'t set @BypassPolicyLockoutSafetyCheck@ to true, the key
---     policy must allow the principal that is making the @CreateKey@
---     request to make a subsequent PutKeyPolicy request on the KMS key.
---     This reduces the risk that the KMS key becomes unmanageable. For
---     more information, refer to the scenario in the
---     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
---     section of the //Key Management Service Developer Guide// .
+-- -   The key policy must allow the calling principal to make a subsequent
+--     @PutKeyPolicy@ request on the KMS key. This reduces the risk that
+--     the KMS key becomes unmanageable. For more information, see
+--     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key Default key policy>
+--     in the /Key Management Service Developer Guide/. (To omit this
+--     condition, set @BypassPolicyLockoutSafetyCheck@ to true.)
 --
 -- -   Each statement in the key policy must contain one or more
 --     principals. The principals in the key policy must exist and be
---     visible to KMS. When you create a new Amazon Web Services principal
---     (for example, an IAM user or role), you might need to enforce a
---     delay before including the new principal in a key policy because the
---     new principal might not be immediately visible to KMS. For more
---     information, see
+--     visible to KMS. When you create a new Amazon Web Services principal,
+--     you might need to enforce a delay before including the new principal
+--     in a key policy because the new principal might not be immediately
+--     visible to KMS. For more information, see
 --     <https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible>
 --     in the /Amazon Web Services Identity and Access Management User
 --     Guide/.
 --
 -- If you do not provide a key policy, KMS attaches a default key policy to
 -- the KMS key. For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default Default Key Policy>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default Default key policy>
 -- in the /Key Management Service Developer Guide/.
 --
 -- The key policy size quota is 32 kilobytes (32768 bytes).
@@ -776,6 +767,9 @@ data CreateKey = CreateKey'
 -- 'tags', 'createKey_tags' - Assigns one or more tags to the KMS key. Use this parameter to tag the
 -- KMS key when it is created. To tag an existing KMS key, use the
 -- TagResource operation.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- Tagging or untagging a KMS key can allow or deny permission to the KMS
 -- key. For details, see
@@ -847,21 +841,19 @@ newCreateKey =
       xksKeyId = Prelude.Nothing
     }
 
--- | A flag to indicate whether to bypass the key policy lockout safety
--- check.
+-- | Skips (\"bypasses\") the key policy lockout safety check. The default
+-- value is false.
 --
 -- Setting this value to true increases the risk that the KMS key becomes
 -- unmanageable. Do not set this value to true indiscriminately.
 --
--- For more information, refer to the scenario in the
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
--- section in the //Key Management Service Developer Guide// .
+-- For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key Default key policy>
+-- in the /Key Management Service Developer Guide/.
 --
--- Use this parameter only when you include a policy in the request and you
--- intend to prevent the principal that is making the request from making a
--- subsequent PutKeyPolicy request on the KMS key.
---
--- The default value is false.
+-- Use this parameter only when you intend to prevent the principal that is
+-- making the request from making a subsequent PutKeyPolicy request on the
+-- KMS key.
 createKey_bypassPolicyLockoutSafetyCheck :: Lens.Lens' CreateKey (Prelude.Maybe Prelude.Bool)
 createKey_bypassPolicyLockoutSafetyCheck = Lens.lens (\CreateKey' {bypassPolicyLockoutSafetyCheck} -> bypassPolicyLockoutSafetyCheck) (\s@CreateKey' {} a -> s {bypassPolicyLockoutSafetyCheck = a} :: CreateKey)
 
@@ -892,11 +884,12 @@ createKey_customKeyStoreId = Lens.lens (\CreateKey' {customKeyStoreId} -> custom
 createKey_customerMasterKeySpec :: Lens.Lens' CreateKey (Prelude.Maybe CustomerMasterKeySpec)
 createKey_customerMasterKeySpec = Lens.lens (\CreateKey' {customerMasterKeySpec} -> customerMasterKeySpec) (\s@CreateKey' {} a -> s {customerMasterKeySpec = a} :: CreateKey)
 
--- | A description of the KMS key.
+-- | A description of the KMS key. Use a description that helps you decide
+-- whether the KMS key is appropriate for a task. The default value is an
+-- empty string (no description).
 --
--- Use a description that helps you decide whether the KMS key is
--- appropriate for a task. The default value is an empty string (no
--- description).
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- To set or change the description after the key is created, use
 -- UpdateKeyDescription.
@@ -1055,28 +1048,26 @@ createKey_origin = Lens.lens (\CreateKey' {origin} -> origin) (\s@CreateKey' {} 
 --
 -- If you provide a key policy, it must meet the following criteria:
 --
--- -   If you don\'t set @BypassPolicyLockoutSafetyCheck@ to true, the key
---     policy must allow the principal that is making the @CreateKey@
---     request to make a subsequent PutKeyPolicy request on the KMS key.
---     This reduces the risk that the KMS key becomes unmanageable. For
---     more information, refer to the scenario in the
---     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
---     section of the //Key Management Service Developer Guide// .
+-- -   The key policy must allow the calling principal to make a subsequent
+--     @PutKeyPolicy@ request on the KMS key. This reduces the risk that
+--     the KMS key becomes unmanageable. For more information, see
+--     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key Default key policy>
+--     in the /Key Management Service Developer Guide/. (To omit this
+--     condition, set @BypassPolicyLockoutSafetyCheck@ to true.)
 --
 -- -   Each statement in the key policy must contain one or more
 --     principals. The principals in the key policy must exist and be
---     visible to KMS. When you create a new Amazon Web Services principal
---     (for example, an IAM user or role), you might need to enforce a
---     delay before including the new principal in a key policy because the
---     new principal might not be immediately visible to KMS. For more
---     information, see
+--     visible to KMS. When you create a new Amazon Web Services principal,
+--     you might need to enforce a delay before including the new principal
+--     in a key policy because the new principal might not be immediately
+--     visible to KMS. For more information, see
 --     <https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible>
 --     in the /Amazon Web Services Identity and Access Management User
 --     Guide/.
 --
 -- If you do not provide a key policy, KMS attaches a default key policy to
 -- the KMS key. For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default Default Key Policy>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default Default key policy>
 -- in the /Key Management Service Developer Guide/.
 --
 -- The key policy size quota is 32 kilobytes (32768 bytes).
@@ -1090,6 +1081,9 @@ createKey_policy = Lens.lens (\CreateKey' {policy} -> policy) (\s@CreateKey' {} 
 -- | Assigns one or more tags to the KMS key. Use this parameter to tag the
 -- KMS key when it is created. To tag an existing KMS key, use the
 -- TagResource operation.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- Tagging or untagging a KMS key can allow or deny permission to the KMS
 -- key. For details, see

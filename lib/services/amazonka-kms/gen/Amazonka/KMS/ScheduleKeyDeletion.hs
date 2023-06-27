@@ -32,8 +32,11 @@
 --
 -- Deleting a KMS key is a destructive and potentially dangerous operation.
 -- When a KMS key is deleted, all data that was encrypted under the KMS key
--- is unrecoverable. (The only exception is a multi-Region replica key.) To
--- prevent the use of a KMS key without deleting it, use DisableKey.
+-- is unrecoverable. (The only exception is a
+-- <kms/latest/developerguide/multi-region-keys-delete.html multi-Region replica key>,
+-- or an asymmetric or HMAC KMS key with imported key material[BUGBUG-link
+-- to importing-keys-managing.html#import-delete-key.) To prevent the use
+-- of a KMS key without deleting it, use DisableKey.
 --
 -- You can schedule the deletion of a multi-Region primary key and its
 -- replica keys at any time. However, KMS will not delete a multi-Region
@@ -120,7 +123,11 @@ data ScheduleKeyDeletion = ScheduleKeyDeletion'
     -- Otherwise, the waiting period begins immediately.
     --
     -- This value is optional. If you include a value, it must be between 7 and
-    -- 30, inclusive. If you do not include a value, it defaults to 30.
+    -- 30, inclusive. If you do not include a value, it defaults to 30. You can
+    -- use the
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-pending-deletion-window kms:ScheduleKeyDeletionPendingWindowInDays>
+    -- condition key to further constrain the values that principals can
+    -- specify in the @PendingWindowInDays@ parameter.
     pendingWindowInDays :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier of the KMS key to delete.
     --
@@ -155,7 +162,11 @@ data ScheduleKeyDeletion = ScheduleKeyDeletion'
 -- Otherwise, the waiting period begins immediately.
 --
 -- This value is optional. If you include a value, it must be between 7 and
--- 30, inclusive. If you do not include a value, it defaults to 30.
+-- 30, inclusive. If you do not include a value, it defaults to 30. You can
+-- use the
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-pending-deletion-window kms:ScheduleKeyDeletionPendingWindowInDays>
+-- condition key to further constrain the values that principals can
+-- specify in the @PendingWindowInDays@ parameter.
 --
 -- 'keyId', 'scheduleKeyDeletion_keyId' - The unique identifier of the KMS key to delete.
 --
@@ -189,7 +200,11 @@ newScheduleKeyDeletion pKeyId_ =
 -- Otherwise, the waiting period begins immediately.
 --
 -- This value is optional. If you include a value, it must be between 7 and
--- 30, inclusive. If you do not include a value, it defaults to 30.
+-- 30, inclusive. If you do not include a value, it defaults to 30. You can
+-- use the
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-pending-deletion-window kms:ScheduleKeyDeletionPendingWindowInDays>
+-- condition key to further constrain the values that principals can
+-- specify in the @PendingWindowInDays@ parameter.
 scheduleKeyDeletion_pendingWindowInDays :: Lens.Lens' ScheduleKeyDeletion (Prelude.Maybe Prelude.Natural)
 scheduleKeyDeletion_pendingWindowInDays = Lens.lens (\ScheduleKeyDeletion' {pendingWindowInDays} -> pendingWindowInDays) (\s@ScheduleKeyDeletion' {} a -> s {pendingWindowInDays = a} :: ScheduleKeyDeletion)
 
@@ -228,7 +243,8 @@ instance Core.AWSRequest ScheduleKeyDeletion where
 
 instance Prelude.Hashable ScheduleKeyDeletion where
   hashWithSalt _salt ScheduleKeyDeletion' {..} =
-    _salt `Prelude.hashWithSalt` pendingWindowInDays
+    _salt
+      `Prelude.hashWithSalt` pendingWindowInDays
       `Prelude.hashWithSalt` keyId
 
 instance Prelude.NFData ScheduleKeyDeletion where

@@ -178,6 +178,9 @@ data UpdateCustomKeyStore = UpdateCustomKeyStore'
     -- specify. The custom key store name must be unique in the Amazon Web
     -- Services account.
     --
+    -- Do not include confidential or sensitive information in this field. This
+    -- field may be displayed in plaintext in CloudTrail logs and other output.
+    --
     -- To change this value, an CloudHSM key store must be disconnected. An
     -- external key store can be connected or disconnected.
     newCustomKeyStoreName' :: Prelude.Maybe Prelude.Text,
@@ -237,7 +240,7 @@ data UpdateCustomKeyStore = UpdateCustomKeyStore'
     -- The value must start with @\/@ and must end with @\/kms\/xks\/v1@, where
     -- @v1@ represents the version of the KMS external key store proxy API. You
     -- can include an optional prefix between the required elements such as
-    -- @\/example\/kms\/xks\/v1@.
+    -- @\/@/@example@/@\/kms\/xks\/v1@.
     --
     -- The combined @XksProxyUriEndpoint@ and @XksProxyUriPath@ values must be
     -- unique in the Amazon Web Services account and Region.
@@ -299,6 +302,9 @@ data UpdateCustomKeyStore = UpdateCustomKeyStore'
 -- specify. The custom key store name must be unique in the Amazon Web
 -- Services account.
 --
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
+--
 -- To change this value, an CloudHSM key store must be disconnected. An
 -- external key store can be connected or disconnected.
 --
@@ -358,7 +364,7 @@ data UpdateCustomKeyStore = UpdateCustomKeyStore'
 -- The value must start with @\/@ and must end with @\/kms\/xks\/v1@, where
 -- @v1@ represents the version of the KMS external key store proxy API. You
 -- can include an optional prefix between the required elements such as
--- @\/example\/kms\/xks\/v1@.
+-- @\/@/@example@/@\/kms\/xks\/v1@.
 --
 -- The combined @XksProxyUriEndpoint@ and @XksProxyUriPath@ values must be
 -- unique in the Amazon Web Services account and Region.
@@ -430,6 +436,9 @@ updateCustomKeyStore_keyStorePassword = Lens.lens (\UpdateCustomKeyStore' {keySt
 -- specify. The custom key store name must be unique in the Amazon Web
 -- Services account.
 --
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
+--
 -- To change this value, an CloudHSM key store must be disconnected. An
 -- external key store can be connected or disconnected.
 updateCustomKeyStore_newCustomKeyStoreName :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe Prelude.Text)
@@ -497,7 +506,7 @@ updateCustomKeyStore_xksProxyUriEndpoint = Lens.lens (\UpdateCustomKeyStore' {xk
 -- The value must start with @\/@ and must end with @\/kms\/xks\/v1@, where
 -- @v1@ represents the version of the KMS external key store proxy API. You
 -- can include an optional prefix between the required elements such as
--- @\/example\/kms\/xks\/v1@.
+-- @\/@/@example@/@\/kms\/xks\/v1@.
 --
 -- The combined @XksProxyUriEndpoint@ and @XksProxyUriPath@ values must be
 -- unique in the Amazon Web Services account and Region.
@@ -537,7 +546,8 @@ instance Core.AWSRequest UpdateCustomKeyStore where
 
 instance Prelude.Hashable UpdateCustomKeyStore where
   hashWithSalt _salt UpdateCustomKeyStore' {..} =
-    _salt `Prelude.hashWithSalt` cloudHsmClusterId
+    _salt
+      `Prelude.hashWithSalt` cloudHsmClusterId
       `Prelude.hashWithSalt` keyStorePassword
       `Prelude.hashWithSalt` newCustomKeyStoreName'
       `Prelude.hashWithSalt` xksProxyAuthenticationCredential

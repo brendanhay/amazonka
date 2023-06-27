@@ -218,22 +218,22 @@ instance Core.AWSPager DescribeCustomKeyStores where
     | Core.stop
         ( rs
             Lens.^? describeCustomKeyStoresResponse_truncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? describeCustomKeyStoresResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeCustomKeyStores_marker
           Lens..~ rs
           Lens.^? describeCustomKeyStoresResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCustomKeyStores where
   type
@@ -245,7 +245,8 @@ instance Core.AWSRequest DescribeCustomKeyStores where
     Response.receiveJSON
       ( \s h x ->
           DescribeCustomKeyStoresResponse'
-            Prelude.<$> ( x Data..?> "CustomKeyStores"
+            Prelude.<$> ( x
+                            Data..?> "CustomKeyStores"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextMarker")
@@ -255,7 +256,8 @@ instance Core.AWSRequest DescribeCustomKeyStores where
 
 instance Prelude.Hashable DescribeCustomKeyStores where
   hashWithSalt _salt DescribeCustomKeyStores' {..} =
-    _salt `Prelude.hashWithSalt` customKeyStoreId
+    _salt
+      `Prelude.hashWithSalt` customKeyStoreId
       `Prelude.hashWithSalt` customKeyStoreName
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker

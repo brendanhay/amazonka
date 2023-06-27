@@ -80,6 +80,9 @@ data UpdateKeyDescription = UpdateKeyDescription'
     -- DescribeKey.
     keyId :: Prelude.Text,
     -- | New description for the KMS key.
+    --
+    -- Do not include confidential or sensitive information in this field. This
+    -- field may be displayed in plaintext in CloudTrail logs and other output.
     description :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -107,6 +110,9 @@ data UpdateKeyDescription = UpdateKeyDescription'
 -- DescribeKey.
 --
 -- 'description', 'updateKeyDescription_description' - New description for the KMS key.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 newUpdateKeyDescription ::
   -- | 'keyId'
   Prelude.Text ->
@@ -136,6 +142,9 @@ updateKeyDescription_keyId :: Lens.Lens' UpdateKeyDescription Prelude.Text
 updateKeyDescription_keyId = Lens.lens (\UpdateKeyDescription' {keyId} -> keyId) (\s@UpdateKeyDescription' {} a -> s {keyId = a} :: UpdateKeyDescription)
 
 -- | New description for the KMS key.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 updateKeyDescription_description :: Lens.Lens' UpdateKeyDescription Prelude.Text
 updateKeyDescription_description = Lens.lens (\UpdateKeyDescription' {description} -> description) (\s@UpdateKeyDescription' {} a -> s {description = a} :: UpdateKeyDescription)
 
@@ -150,7 +159,8 @@ instance Core.AWSRequest UpdateKeyDescription where
 
 instance Prelude.Hashable UpdateKeyDescription where
   hashWithSalt _salt UpdateKeyDescription' {..} =
-    _salt `Prelude.hashWithSalt` keyId
+    _salt
+      `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData UpdateKeyDescription where

@@ -124,9 +124,41 @@ data Sign = Sign'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
     -- in the /Key Management Service Developer Guide/.
     grantTokens :: Prelude.Maybe [Prelude.Text],
-    -- | Tells KMS whether the value of the @Message@ parameter is a message or
-    -- message digest. The default value, RAW, indicates a message. To indicate
-    -- a message digest, enter @DIGEST@.
+    -- | Tells KMS whether the value of the @Message@ parameter should be hashed
+    -- as part of the signing algorithm. Use @RAW@ for unhashed messages; use
+    -- @DIGEST@ for message digests, which are already hashed.
+    --
+    -- When the value of @MessageType@ is @RAW@, KMS uses the standard signing
+    -- algorithm, which begins with a hash function. When the value is
+    -- @DIGEST@, KMS skips the hashing step in the signing algorithm.
+    --
+    -- Use the @DIGEST@ value only when the value of the @Message@ parameter is
+    -- a message digest. If you use the @DIGEST@ value with an unhashed
+    -- message, the security of the signing operation can be compromised.
+    --
+    -- When the value of @MessageType@is @DIGEST@, the length of the @Message@
+    -- value must match the length of hashed messages for the specified signing
+    -- algorithm.
+    --
+    -- You can submit a message digest and omit the @MessageType@ or specify
+    -- @RAW@ so the digest is hashed again while signing. However, this can
+    -- cause verification failures when verifying with a system that assumes a
+    -- single hash.
+    --
+    -- The hashing algorithm in that @Sign@ uses is based on the
+    -- @SigningAlgorithm@ value.
+    --
+    -- -   Signing algorithms that end in SHA_256 use the SHA_256 hashing
+    --     algorithm.
+    --
+    -- -   Signing algorithms that end in SHA_384 use the SHA_384 hashing
+    --     algorithm.
+    --
+    -- -   Signing algorithms that end in SHA_512 use the SHA_512 hashing
+    --     algorithm.
+    --
+    -- -   SM2DSA uses the SM3 hashing algorithm. For details, see
+    --     <https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification Offline verification with SM2 key pairs>.
     messageType :: Prelude.Maybe MessageType,
     -- | Identifies an asymmetric KMS key. KMS uses the private key in the
     -- asymmetric KMS key to sign the message. The @KeyUsage@ type of the KMS
@@ -153,15 +185,17 @@ data Sign = Sign'
     -- DescribeKey. To get the alias name and alias ARN, use ListAliases.
     keyId :: Prelude.Text,
     -- | Specifies the message or message digest to sign. Messages can be 0-4096
-    -- bytes. To sign a larger message, provide the message digest.
+    -- bytes. To sign a larger message, provide a message digest.
     --
-    -- If you provide a message, KMS generates a hash digest of the message and
-    -- then signs it.
+    -- If you provide a message digest, use the @DIGEST@ value of @MessageType@
+    -- to prevent the digest from being hashed again while signing.
     message :: Data.Sensitive Data.Base64,
     -- | Specifies the signing algorithm to use when signing the message.
     --
     -- Choose an algorithm that is compatible with the type and size of the
-    -- specified asymmetric KMS key.
+    -- specified asymmetric KMS key. When signing with RSA key pairs,
+    -- RSASSA-PSS algorithms are preferred. We include RSASSA-PKCS1-v1_5
+    -- algorithms for compatibility with existing applications.
     signingAlgorithm :: SigningAlgorithmSpec
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -184,9 +218,41 @@ data Sign = Sign'
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
 -- in the /Key Management Service Developer Guide/.
 --
--- 'messageType', 'sign_messageType' - Tells KMS whether the value of the @Message@ parameter is a message or
--- message digest. The default value, RAW, indicates a message. To indicate
--- a message digest, enter @DIGEST@.
+-- 'messageType', 'sign_messageType' - Tells KMS whether the value of the @Message@ parameter should be hashed
+-- as part of the signing algorithm. Use @RAW@ for unhashed messages; use
+-- @DIGEST@ for message digests, which are already hashed.
+--
+-- When the value of @MessageType@ is @RAW@, KMS uses the standard signing
+-- algorithm, which begins with a hash function. When the value is
+-- @DIGEST@, KMS skips the hashing step in the signing algorithm.
+--
+-- Use the @DIGEST@ value only when the value of the @Message@ parameter is
+-- a message digest. If you use the @DIGEST@ value with an unhashed
+-- message, the security of the signing operation can be compromised.
+--
+-- When the value of @MessageType@is @DIGEST@, the length of the @Message@
+-- value must match the length of hashed messages for the specified signing
+-- algorithm.
+--
+-- You can submit a message digest and omit the @MessageType@ or specify
+-- @RAW@ so the digest is hashed again while signing. However, this can
+-- cause verification failures when verifying with a system that assumes a
+-- single hash.
+--
+-- The hashing algorithm in that @Sign@ uses is based on the
+-- @SigningAlgorithm@ value.
+--
+-- -   Signing algorithms that end in SHA_256 use the SHA_256 hashing
+--     algorithm.
+--
+-- -   Signing algorithms that end in SHA_384 use the SHA_384 hashing
+--     algorithm.
+--
+-- -   Signing algorithms that end in SHA_512 use the SHA_512 hashing
+--     algorithm.
+--
+-- -   SM2DSA uses the SM3 hashing algorithm. For details, see
+--     <https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification Offline verification with SM2 key pairs>.
 --
 -- 'keyId', 'sign_keyId' - Identifies an asymmetric KMS key. KMS uses the private key in the
 -- asymmetric KMS key to sign the message. The @KeyUsage@ type of the KMS
@@ -213,10 +279,10 @@ data Sign = Sign'
 -- DescribeKey. To get the alias name and alias ARN, use ListAliases.
 --
 -- 'message', 'sign_message' - Specifies the message or message digest to sign. Messages can be 0-4096
--- bytes. To sign a larger message, provide the message digest.
+-- bytes. To sign a larger message, provide a message digest.
 --
--- If you provide a message, KMS generates a hash digest of the message and
--- then signs it.--
+-- If you provide a message digest, use the @DIGEST@ value of @MessageType@
+-- to prevent the digest from being hashed again while signing.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -225,7 +291,9 @@ data Sign = Sign'
 -- 'signingAlgorithm', 'sign_signingAlgorithm' - Specifies the signing algorithm to use when signing the message.
 --
 -- Choose an algorithm that is compatible with the type and size of the
--- specified asymmetric KMS key.
+-- specified asymmetric KMS key. When signing with RSA key pairs,
+-- RSASSA-PSS algorithms are preferred. We include RSASSA-PKCS1-v1_5
+-- algorithms for compatibility with existing applications.
 newSign ::
   -- | 'keyId'
   Prelude.Text ->
@@ -240,7 +308,8 @@ newSign pKeyId_ pMessage_ pSigningAlgorithm_ =
       messageType = Prelude.Nothing,
       keyId = pKeyId_,
       message =
-        Data._Sensitive Prelude.. Data._Base64
+        Data._Sensitive
+          Prelude.. Data._Base64
           Lens.# pMessage_,
       signingAlgorithm = pSigningAlgorithm_
     }
@@ -257,9 +326,41 @@ newSign pKeyId_ pMessage_ pSigningAlgorithm_ =
 sign_grantTokens :: Lens.Lens' Sign (Prelude.Maybe [Prelude.Text])
 sign_grantTokens = Lens.lens (\Sign' {grantTokens} -> grantTokens) (\s@Sign' {} a -> s {grantTokens = a} :: Sign) Prelude.. Lens.mapping Lens.coerced
 
--- | Tells KMS whether the value of the @Message@ parameter is a message or
--- message digest. The default value, RAW, indicates a message. To indicate
--- a message digest, enter @DIGEST@.
+-- | Tells KMS whether the value of the @Message@ parameter should be hashed
+-- as part of the signing algorithm. Use @RAW@ for unhashed messages; use
+-- @DIGEST@ for message digests, which are already hashed.
+--
+-- When the value of @MessageType@ is @RAW@, KMS uses the standard signing
+-- algorithm, which begins with a hash function. When the value is
+-- @DIGEST@, KMS skips the hashing step in the signing algorithm.
+--
+-- Use the @DIGEST@ value only when the value of the @Message@ parameter is
+-- a message digest. If you use the @DIGEST@ value with an unhashed
+-- message, the security of the signing operation can be compromised.
+--
+-- When the value of @MessageType@is @DIGEST@, the length of the @Message@
+-- value must match the length of hashed messages for the specified signing
+-- algorithm.
+--
+-- You can submit a message digest and omit the @MessageType@ or specify
+-- @RAW@ so the digest is hashed again while signing. However, this can
+-- cause verification failures when verifying with a system that assumes a
+-- single hash.
+--
+-- The hashing algorithm in that @Sign@ uses is based on the
+-- @SigningAlgorithm@ value.
+--
+-- -   Signing algorithms that end in SHA_256 use the SHA_256 hashing
+--     algorithm.
+--
+-- -   Signing algorithms that end in SHA_384 use the SHA_384 hashing
+--     algorithm.
+--
+-- -   Signing algorithms that end in SHA_512 use the SHA_512 hashing
+--     algorithm.
+--
+-- -   SM2DSA uses the SM3 hashing algorithm. For details, see
+--     <https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification Offline verification with SM2 key pairs>.
 sign_messageType :: Lens.Lens' Sign (Prelude.Maybe MessageType)
 sign_messageType = Lens.lens (\Sign' {messageType} -> messageType) (\s@Sign' {} a -> s {messageType = a} :: Sign)
 
@@ -290,10 +391,10 @@ sign_keyId :: Lens.Lens' Sign Prelude.Text
 sign_keyId = Lens.lens (\Sign' {keyId} -> keyId) (\s@Sign' {} a -> s {keyId = a} :: Sign)
 
 -- | Specifies the message or message digest to sign. Messages can be 0-4096
--- bytes. To sign a larger message, provide the message digest.
+-- bytes. To sign a larger message, provide a message digest.
 --
--- If you provide a message, KMS generates a hash digest of the message and
--- then signs it.--
+-- If you provide a message digest, use the @DIGEST@ value of @MessageType@
+-- to prevent the digest from being hashed again while signing.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -304,7 +405,9 @@ sign_message = Lens.lens (\Sign' {message} -> message) (\s@Sign' {} a -> s {mess
 -- | Specifies the signing algorithm to use when signing the message.
 --
 -- Choose an algorithm that is compatible with the type and size of the
--- specified asymmetric KMS key.
+-- specified asymmetric KMS key. When signing with RSA key pairs,
+-- RSASSA-PSS algorithms are preferred. We include RSASSA-PKCS1-v1_5
+-- algorithms for compatibility with existing applications.
 sign_signingAlgorithm :: Lens.Lens' Sign SigningAlgorithmSpec
 sign_signingAlgorithm = Lens.lens (\Sign' {signingAlgorithm} -> signingAlgorithm) (\s@Sign' {} a -> s {signingAlgorithm = a} :: Sign)
 
@@ -324,7 +427,8 @@ instance Core.AWSRequest Sign where
 
 instance Prelude.Hashable Sign where
   hashWithSalt _salt Sign' {..} =
-    _salt `Prelude.hashWithSalt` grantTokens
+    _salt
+      `Prelude.hashWithSalt` grantTokens
       `Prelude.hashWithSalt` messageType
       `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` message
@@ -384,7 +488,7 @@ data SignResponse = SignResponse'
     --
     -- -   When used with the @ECDSA_SHA_256@, @ECDSA_SHA_384@, or
     --     @ECDSA_SHA_512@ signing algorithms, this value is a DER-encoded
-    --     object as defined by ANS X9.62–2005 and
+    --     object as defined by ANSI X9.62–2005 and
     --     <https://tools.ietf.org/html/rfc3279#section-2.2.3 RFC 3279 Section 2.2.3>.
     --     This is the most commonly used signature format and is appropriate
     --     for most uses.
@@ -419,7 +523,7 @@ data SignResponse = SignResponse'
 --
 -- -   When used with the @ECDSA_SHA_256@, @ECDSA_SHA_384@, or
 --     @ECDSA_SHA_512@ signing algorithms, this value is a DER-encoded
---     object as defined by ANS X9.62–2005 and
+--     object as defined by ANSI X9.62–2005 and
 --     <https://tools.ietf.org/html/rfc3279#section-2.2.3 RFC 3279 Section 2.2.3>.
 --     This is the most commonly used signature format and is appropriate
 --     for most uses.
@@ -460,7 +564,7 @@ signResponse_keyId = Lens.lens (\SignResponse' {keyId} -> keyId) (\s@SignRespons
 --
 -- -   When used with the @ECDSA_SHA_256@, @ECDSA_SHA_384@, or
 --     @ECDSA_SHA_512@ signing algorithms, this value is a DER-encoded
---     object as defined by ANS X9.62–2005 and
+--     object as defined by ANSI X9.62–2005 and
 --     <https://tools.ietf.org/html/rfc3279#section-2.2.3 RFC 3279 Section 2.2.3>.
 --     This is the most commonly used signature format and is appropriate
 --     for most uses.

@@ -20,18 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes key material that you previously imported. This operation makes
--- the specified KMS key unusable. For more information about importing key
--- material into KMS, see
+-- Deletes key material that was previously imported. This operation makes
+-- the specified KMS key temporarily unusable. To restore the usability of
+-- the KMS key, reimport the same key material. For more information about
+-- importing key material into KMS, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material>
 -- in the /Key Management Service Developer Guide/.
 --
 -- When the specified KMS key is in the @PendingDeletion@ state, this
 -- operation does not change the KMS key\'s state. Otherwise, it changes
 -- the KMS key\'s state to @PendingImport@.
---
--- After you delete key material, you can use ImportKeyMaterial to reimport
--- the same key material into the KMS key.
 --
 -- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see

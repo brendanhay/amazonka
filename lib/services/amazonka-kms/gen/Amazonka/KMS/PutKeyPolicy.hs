@@ -67,21 +67,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutKeyPolicy' smart constructor.
 data PutKeyPolicy = PutKeyPolicy'
-  { -- | A flag to indicate whether to bypass the key policy lockout safety
-    -- check.
+  { -- | Skips (\"bypasses\") the key policy lockout safety check. The default
+    -- value is false.
     --
     -- Setting this value to true increases the risk that the KMS key becomes
     -- unmanageable. Do not set this value to true indiscriminately.
     --
-    -- For more information, refer to the scenario in the
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
-    -- section in the /Key Management Service Developer Guide/.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key Default key policy>
+    -- in the /Key Management Service Developer Guide/.
     --
     -- Use this parameter only when you intend to prevent the principal that is
-    -- making the request from making a subsequent @PutKeyPolicy@ request on
-    -- the KMS key.
-    --
-    -- The default value is false.
+    -- making the request from making a subsequent PutKeyPolicy request on the
+    -- KMS key.
     bypassPolicyLockoutSafetyCheck :: Prelude.Maybe Prelude.Bool,
     -- | Sets the key policy on the specified KMS key.
     --
@@ -103,21 +101,19 @@ data PutKeyPolicy = PutKeyPolicy'
     --
     -- The key policy must meet the following criteria:
     --
-    -- -   If you don\'t set @BypassPolicyLockoutSafetyCheck@ to true, the key
-    --     policy must allow the principal that is making the @PutKeyPolicy@
-    --     request to make a subsequent @PutKeyPolicy@ request on the KMS key.
-    --     This reduces the risk that the KMS key becomes unmanageable. For
-    --     more information, refer to the scenario in the
-    --     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
-    --     section of the /Key Management Service Developer Guide/.
+    -- -   The key policy must allow the calling principal to make a subsequent
+    --     @PutKeyPolicy@ request on the KMS key. This reduces the risk that
+    --     the KMS key becomes unmanageable. For more information, see
+    --     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key Default key policy>
+    --     in the /Key Management Service Developer Guide/. (To omit this
+    --     condition, set @BypassPolicyLockoutSafetyCheck@ to true.)
     --
     -- -   Each statement in the key policy must contain one or more
     --     principals. The principals in the key policy must exist and be
-    --     visible to KMS. When you create a new Amazon Web Services principal
-    --     (for example, an IAM user or role), you might need to enforce a
-    --     delay before including the new principal in a key policy because the
-    --     new principal might not be immediately visible to KMS. For more
-    --     information, see
+    --     visible to KMS. When you create a new Amazon Web Services principal,
+    --     you might need to enforce a delay before including the new principal
+    --     in a key policy because the new principal might not be immediately
+    --     visible to KMS. For more information, see
     --     <https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible>
     --     in the /Amazon Web Services Identity and Access Management User
     --     Guide/.
@@ -151,21 +147,19 @@ data PutKeyPolicy = PutKeyPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bypassPolicyLockoutSafetyCheck', 'putKeyPolicy_bypassPolicyLockoutSafetyCheck' - A flag to indicate whether to bypass the key policy lockout safety
--- check.
+-- 'bypassPolicyLockoutSafetyCheck', 'putKeyPolicy_bypassPolicyLockoutSafetyCheck' - Skips (\"bypasses\") the key policy lockout safety check. The default
+-- value is false.
 --
 -- Setting this value to true increases the risk that the KMS key becomes
 -- unmanageable. Do not set this value to true indiscriminately.
 --
--- For more information, refer to the scenario in the
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
--- section in the /Key Management Service Developer Guide/.
+-- For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key Default key policy>
+-- in the /Key Management Service Developer Guide/.
 --
 -- Use this parameter only when you intend to prevent the principal that is
--- making the request from making a subsequent @PutKeyPolicy@ request on
--- the KMS key.
---
--- The default value is false.
+-- making the request from making a subsequent PutKeyPolicy request on the
+-- KMS key.
 --
 -- 'keyId', 'putKeyPolicy_keyId' - Sets the key policy on the specified KMS key.
 --
@@ -187,21 +181,19 @@ data PutKeyPolicy = PutKeyPolicy'
 --
 -- The key policy must meet the following criteria:
 --
--- -   If you don\'t set @BypassPolicyLockoutSafetyCheck@ to true, the key
---     policy must allow the principal that is making the @PutKeyPolicy@
---     request to make a subsequent @PutKeyPolicy@ request on the KMS key.
---     This reduces the risk that the KMS key becomes unmanageable. For
---     more information, refer to the scenario in the
---     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
---     section of the /Key Management Service Developer Guide/.
+-- -   The key policy must allow the calling principal to make a subsequent
+--     @PutKeyPolicy@ request on the KMS key. This reduces the risk that
+--     the KMS key becomes unmanageable. For more information, see
+--     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key Default key policy>
+--     in the /Key Management Service Developer Guide/. (To omit this
+--     condition, set @BypassPolicyLockoutSafetyCheck@ to true.)
 --
 -- -   Each statement in the key policy must contain one or more
 --     principals. The principals in the key policy must exist and be
---     visible to KMS. When you create a new Amazon Web Services principal
---     (for example, an IAM user or role), you might need to enforce a
---     delay before including the new principal in a key policy because the
---     new principal might not be immediately visible to KMS. For more
---     information, see
+--     visible to KMS. When you create a new Amazon Web Services principal,
+--     you might need to enforce a delay before including the new principal
+--     in a key policy because the new principal might not be immediately
+--     visible to KMS. For more information, see
 --     <https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible>
 --     in the /Amazon Web Services Identity and Access Management User
 --     Guide/.
@@ -240,21 +232,19 @@ newPutKeyPolicy pKeyId_ pPolicyName_ pPolicy_ =
       policy = pPolicy_
     }
 
--- | A flag to indicate whether to bypass the key policy lockout safety
--- check.
+-- | Skips (\"bypasses\") the key policy lockout safety check. The default
+-- value is false.
 --
 -- Setting this value to true increases the risk that the KMS key becomes
 -- unmanageable. Do not set this value to true indiscriminately.
 --
--- For more information, refer to the scenario in the
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
--- section in the /Key Management Service Developer Guide/.
+-- For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key Default key policy>
+-- in the /Key Management Service Developer Guide/.
 --
 -- Use this parameter only when you intend to prevent the principal that is
--- making the request from making a subsequent @PutKeyPolicy@ request on
--- the KMS key.
---
--- The default value is false.
+-- making the request from making a subsequent PutKeyPolicy request on the
+-- KMS key.
 putKeyPolicy_bypassPolicyLockoutSafetyCheck :: Lens.Lens' PutKeyPolicy (Prelude.Maybe Prelude.Bool)
 putKeyPolicy_bypassPolicyLockoutSafetyCheck = Lens.lens (\PutKeyPolicy' {bypassPolicyLockoutSafetyCheck} -> bypassPolicyLockoutSafetyCheck) (\s@PutKeyPolicy' {} a -> s {bypassPolicyLockoutSafetyCheck = a} :: PutKeyPolicy)
 
@@ -282,21 +272,19 @@ putKeyPolicy_policyName = Lens.lens (\PutKeyPolicy' {policyName} -> policyName) 
 --
 -- The key policy must meet the following criteria:
 --
--- -   If you don\'t set @BypassPolicyLockoutSafetyCheck@ to true, the key
---     policy must allow the principal that is making the @PutKeyPolicy@
---     request to make a subsequent @PutKeyPolicy@ request on the KMS key.
---     This reduces the risk that the KMS key becomes unmanageable. For
---     more information, refer to the scenario in the
---     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy>
---     section of the /Key Management Service Developer Guide/.
+-- -   The key policy must allow the calling principal to make a subsequent
+--     @PutKeyPolicy@ request on the KMS key. This reduces the risk that
+--     the KMS key becomes unmanageable. For more information, see
+--     <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key Default key policy>
+--     in the /Key Management Service Developer Guide/. (To omit this
+--     condition, set @BypassPolicyLockoutSafetyCheck@ to true.)
 --
 -- -   Each statement in the key policy must contain one or more
 --     principals. The principals in the key policy must exist and be
---     visible to KMS. When you create a new Amazon Web Services principal
---     (for example, an IAM user or role), you might need to enforce a
---     delay before including the new principal in a key policy because the
---     new principal might not be immediately visible to KMS. For more
---     information, see
+--     visible to KMS. When you create a new Amazon Web Services principal,
+--     you might need to enforce a delay before including the new principal
+--     in a key policy because the new principal might not be immediately
+--     visible to KMS. For more information, see
 --     <https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible>
 --     in the /Amazon Web Services Identity and Access Management User
 --     Guide/.

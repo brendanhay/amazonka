@@ -22,7 +22,9 @@ module Amazonka.KMS.Types.AlgorithmSpec
       ( ..,
         AlgorithmSpec_RSAES_OAEP_SHA_1,
         AlgorithmSpec_RSAES_OAEP_SHA_256,
-        AlgorithmSpec_RSAES_PKCS1_V1_5
+        AlgorithmSpec_RSAES_PKCS1_V1_5,
+        AlgorithmSpec_RSA_AES_KEY_WRAP_SHA_1,
+        AlgorithmSpec_RSA_AES_KEY_WRAP_SHA_256
       ),
   )
 where
@@ -68,9 +70,17 @@ pattern AlgorithmSpec_RSAES_OAEP_SHA_256 = AlgorithmSpec' "RSAES_OAEP_SHA_256"
 pattern AlgorithmSpec_RSAES_PKCS1_V1_5 :: AlgorithmSpec
 pattern AlgorithmSpec_RSAES_PKCS1_V1_5 = AlgorithmSpec' "RSAES_PKCS1_V1_5"
 
+pattern AlgorithmSpec_RSA_AES_KEY_WRAP_SHA_1 :: AlgorithmSpec
+pattern AlgorithmSpec_RSA_AES_KEY_WRAP_SHA_1 = AlgorithmSpec' "RSA_AES_KEY_WRAP_SHA_1"
+
+pattern AlgorithmSpec_RSA_AES_KEY_WRAP_SHA_256 :: AlgorithmSpec
+pattern AlgorithmSpec_RSA_AES_KEY_WRAP_SHA_256 = AlgorithmSpec' "RSA_AES_KEY_WRAP_SHA_256"
+
 {-# COMPLETE
   AlgorithmSpec_RSAES_OAEP_SHA_1,
   AlgorithmSpec_RSAES_OAEP_SHA_256,
   AlgorithmSpec_RSAES_PKCS1_V1_5,
+  AlgorithmSpec_RSA_AES_KEY_WRAP_SHA_1,
+  AlgorithmSpec_RSA_AES_KEY_WRAP_SHA_256,
   AlgorithmSpec'
   #-}

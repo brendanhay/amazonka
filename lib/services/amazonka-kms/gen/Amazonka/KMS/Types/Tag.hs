@@ -28,6 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 -- and tag values are both required, but tag values can be empty (null)
 -- strings.
 --
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
+--
 -- For information about the rules that apply to tag keys and tag values,
 -- see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html User-Defined Tag Restrictions>
@@ -82,7 +85,8 @@ instance Data.FromJSON Tag where
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =
-    _salt `Prelude.hashWithSalt` tagKey
+    _salt
+      `Prelude.hashWithSalt` tagKey
       `Prelude.hashWithSalt` tagValue
 
 instance Prelude.NFData Tag where

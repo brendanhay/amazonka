@@ -11,18 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.KMS.Types.WrappingKeySpec
+-- Module      : Amazonka.KMS.Types.KeyEncryptionMechanism
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.KMS.Types.WrappingKeySpec
-  ( WrappingKeySpec
+module Amazonka.KMS.Types.KeyEncryptionMechanism
+  ( KeyEncryptionMechanism
       ( ..,
-        WrappingKeySpec_RSA_2048,
-        WrappingKeySpec_RSA_3072,
-        WrappingKeySpec_RSA_4096
+        KeyEncryptionMechanism_RSAES_OAEP_SHA_256
       ),
   )
 where
@@ -31,8 +29,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype WrappingKeySpec = WrappingKeySpec'
-  { fromWrappingKeySpec ::
+newtype KeyEncryptionMechanism = KeyEncryptionMechanism'
+  { fromKeyEncryptionMechanism ::
       Data.Text
   }
   deriving stock
@@ -59,18 +57,10 @@ newtype WrappingKeySpec = WrappingKeySpec'
       Data.ToXML
     )
 
-pattern WrappingKeySpec_RSA_2048 :: WrappingKeySpec
-pattern WrappingKeySpec_RSA_2048 = WrappingKeySpec' "RSA_2048"
-
-pattern WrappingKeySpec_RSA_3072 :: WrappingKeySpec
-pattern WrappingKeySpec_RSA_3072 = WrappingKeySpec' "RSA_3072"
-
-pattern WrappingKeySpec_RSA_4096 :: WrappingKeySpec
-pattern WrappingKeySpec_RSA_4096 = WrappingKeySpec' "RSA_4096"
+pattern KeyEncryptionMechanism_RSAES_OAEP_SHA_256 :: KeyEncryptionMechanism
+pattern KeyEncryptionMechanism_RSAES_OAEP_SHA_256 = KeyEncryptionMechanism' "RSAES_OAEP_SHA_256"
 
 {-# COMPLETE
-  WrappingKeySpec_RSA_2048,
-  WrappingKeySpec_RSA_3072,
-  WrappingKeySpec_RSA_4096,
-  WrappingKeySpec'
+  KeyEncryptionMechanism_RSAES_OAEP_SHA_256,
+  KeyEncryptionMechanism'
   #-}

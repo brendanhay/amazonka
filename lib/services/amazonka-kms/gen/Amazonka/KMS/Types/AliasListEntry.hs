@@ -113,7 +113,8 @@ instance Data.FromJSON AliasListEntry where
 
 instance Prelude.Hashable AliasListEntry where
   hashWithSalt _salt AliasListEntry' {..} =
-    _salt `Prelude.hashWithSalt` aliasArn
+    _salt
+      `Prelude.hashWithSalt` aliasArn
       `Prelude.hashWithSalt` aliasName
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` lastUpdatedDate

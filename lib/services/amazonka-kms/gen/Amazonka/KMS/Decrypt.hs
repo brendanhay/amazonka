@@ -64,8 +64,8 @@
 -- intend.
 --
 -- Whenever possible, use key policies to give users permission to call the
--- @Decrypt@ operation on a particular KMS key, instead of using IAM
--- policies. Otherwise, you might create an IAM user policy that gives the
+-- @Decrypt@ operation on a particular KMS key, instead of using &IAM;
+-- policies. Otherwise, you might create an &IAM; policy that gives the
 -- user @Decrypt@ permission on all KMS keys. This user could decrypt
 -- ciphertext that was encrypted by KMS keys in other accounts if the key
 -- policy for the cross-account KMS key permits it. If you must use an IAM
@@ -74,21 +74,28 @@
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#iam-policies-best-practices Best practices for IAM policies>
 -- in the /Key Management Service Developer Guide/.
 --
--- Applications in Amazon Web Services Nitro Enclaves can call this
--- operation by using the
--- <https://github.com/aws/aws-nitro-enclaves-sdk-c Amazon Web Services Nitro Enclaves Development Kit>.
--- For information about the supporting parameters, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves use KMS>
--- in the /Key Management Service Developer Guide/.
+-- @Decrypt@ also supports
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html Amazon Web Services Nitro Enclaves>,
+-- which provide an isolated compute environment in Amazon EC2. To call
+-- @Decrypt@ for a Nitro enclave, use the
+-- <https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk Amazon Web Services Nitro Enclaves SDK>
+-- or any Amazon Web Services SDK. Use the @Recipient@ parameter to provide
+-- the attestation document for the enclave. Instead of the plaintext data,
+-- the response includes the plaintext data encrypted with the public key
+-- from the attestation document (@CiphertextForRecipient@).For information
+-- about the interaction between KMS and Amazon Web Services Nitro
+-- Enclaves, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+-- in the /Key Management Service Developer Guide/..
 --
 -- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
 -- in the /Key Management Service Developer Guide/.
 --
--- __Cross-account use__: Yes. To perform this operation with a KMS key in
--- a different Amazon Web Services account, specify the key ARN or alias
--- ARN in the value of the @KeyId@ parameter.
+-- __Cross-account use__: Yes. If you use the @KeyId@ parameter to identify
+-- a KMS key in a different Amazon Web Services account, specify the key
+-- ARN or the alias ARN of the KMS key.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:Decrypt>
@@ -113,6 +120,7 @@ module Amazonka.KMS.Decrypt
     decrypt_encryptionContext,
     decrypt_grantTokens,
     decrypt_keyId,
+    decrypt_recipient,
     decrypt_ciphertextBlob,
 
     -- * Destructuring the Response
@@ -120,6 +128,7 @@ module Amazonka.KMS.Decrypt
     newDecryptResponse,
 
     -- * Response Lenses
+    decryptResponse_ciphertextForRecipient,
     decryptResponse_encryptionAlgorithm,
     decryptResponse_keyId,
     decryptResponse_plaintext,
@@ -207,6 +216,29 @@ data Decrypt = Decrypt'
     -- To get the key ID and key ARN for a KMS key, use ListKeys or
     -- DescribeKey. To get the alias name and alias ARN, use ListAliases.
     keyId :: Prelude.Maybe Prelude.Text,
+    -- | A signed
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc attestation document>
+    -- from an Amazon Web Services Nitro enclave and the encryption algorithm
+    -- to use with the enclave\'s public key. The only valid encryption
+    -- algorithm is @RSAES_OAEP_SHA_256@.
+    --
+    -- This parameter only supports attestation documents for Amazon Web
+    -- Services Nitro Enclaves. To include this parameter, use the
+    -- <https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk Amazon Web Services Nitro Enclaves SDK>
+    -- or any Amazon Web Services SDK.
+    --
+    -- When you use this parameter, instead of returning the plaintext data,
+    -- KMS encrypts the plaintext data with the public key in the attestation
+    -- document, and returns the resulting ciphertext in the
+    -- @CiphertextForRecipient@ field in the response. This ciphertext can be
+    -- decrypted only with the private key in the enclave. The @Plaintext@
+    -- field in the response is null or empty.
+    --
+    -- For information about the interaction between KMS and Amazon Web
+    -- Services Nitro Enclaves, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+    -- in the /Key Management Service Developer Guide/.
+    recipient :: Prelude.Maybe RecipientInfo,
     -- | Ciphertext to be decrypted. The blob includes metadata.
     ciphertextBlob :: Data.Base64
   }
@@ -290,6 +322,29 @@ data Decrypt = Decrypt'
 -- To get the key ID and key ARN for a KMS key, use ListKeys or
 -- DescribeKey. To get the alias name and alias ARN, use ListAliases.
 --
+-- 'recipient', 'decrypt_recipient' - A signed
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc attestation document>
+-- from an Amazon Web Services Nitro enclave and the encryption algorithm
+-- to use with the enclave\'s public key. The only valid encryption
+-- algorithm is @RSAES_OAEP_SHA_256@.
+--
+-- This parameter only supports attestation documents for Amazon Web
+-- Services Nitro Enclaves. To include this parameter, use the
+-- <https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk Amazon Web Services Nitro Enclaves SDK>
+-- or any Amazon Web Services SDK.
+--
+-- When you use this parameter, instead of returning the plaintext data,
+-- KMS encrypts the plaintext data with the public key in the attestation
+-- document, and returns the resulting ciphertext in the
+-- @CiphertextForRecipient@ field in the response. This ciphertext can be
+-- decrypted only with the private key in the enclave. The @Plaintext@
+-- field in the response is null or empty.
+--
+-- For information about the interaction between KMS and Amazon Web
+-- Services Nitro Enclaves, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+-- in the /Key Management Service Developer Guide/.
+--
 -- 'ciphertextBlob', 'decrypt_ciphertextBlob' - Ciphertext to be decrypted. The blob includes metadata.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
@@ -305,6 +360,7 @@ newDecrypt pCiphertextBlob_ =
       encryptionContext = Prelude.Nothing,
       grantTokens = Prelude.Nothing,
       keyId = Prelude.Nothing,
+      recipient = Prelude.Nothing,
       ciphertextBlob =
         Data._Base64 Lens.# pCiphertextBlob_
     }
@@ -387,6 +443,31 @@ decrypt_grantTokens = Lens.lens (\Decrypt' {grantTokens} -> grantTokens) (\s@Dec
 decrypt_keyId :: Lens.Lens' Decrypt (Prelude.Maybe Prelude.Text)
 decrypt_keyId = Lens.lens (\Decrypt' {keyId} -> keyId) (\s@Decrypt' {} a -> s {keyId = a} :: Decrypt)
 
+-- | A signed
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc attestation document>
+-- from an Amazon Web Services Nitro enclave and the encryption algorithm
+-- to use with the enclave\'s public key. The only valid encryption
+-- algorithm is @RSAES_OAEP_SHA_256@.
+--
+-- This parameter only supports attestation documents for Amazon Web
+-- Services Nitro Enclaves. To include this parameter, use the
+-- <https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk Amazon Web Services Nitro Enclaves SDK>
+-- or any Amazon Web Services SDK.
+--
+-- When you use this parameter, instead of returning the plaintext data,
+-- KMS encrypts the plaintext data with the public key in the attestation
+-- document, and returns the resulting ciphertext in the
+-- @CiphertextForRecipient@ field in the response. This ciphertext can be
+-- decrypted only with the private key in the enclave. The @Plaintext@
+-- field in the response is null or empty.
+--
+-- For information about the interaction between KMS and Amazon Web
+-- Services Nitro Enclaves, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+-- in the /Key Management Service Developer Guide/.
+decrypt_recipient :: Lens.Lens' Decrypt (Prelude.Maybe RecipientInfo)
+decrypt_recipient = Lens.lens (\Decrypt' {recipient} -> recipient) (\s@Decrypt' {} a -> s {recipient = a} :: Decrypt)
+
 -- | Ciphertext to be decrypted. The blob includes metadata.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
@@ -403,7 +484,8 @@ instance Core.AWSRequest Decrypt where
     Response.receiveJSON
       ( \s h x ->
           DecryptResponse'
-            Prelude.<$> (x Data..?> "EncryptionAlgorithm")
+            Prelude.<$> (x Data..?> "CiphertextForRecipient")
+            Prelude.<*> (x Data..?> "EncryptionAlgorithm")
             Prelude.<*> (x Data..?> "KeyId")
             Prelude.<*> (x Data..?> "Plaintext")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -411,10 +493,12 @@ instance Core.AWSRequest Decrypt where
 
 instance Prelude.Hashable Decrypt where
   hashWithSalt _salt Decrypt' {..} =
-    _salt `Prelude.hashWithSalt` encryptionAlgorithm
+    _salt
+      `Prelude.hashWithSalt` encryptionAlgorithm
       `Prelude.hashWithSalt` encryptionContext
       `Prelude.hashWithSalt` grantTokens
       `Prelude.hashWithSalt` keyId
+      `Prelude.hashWithSalt` recipient
       `Prelude.hashWithSalt` ciphertextBlob
 
 instance Prelude.NFData Decrypt where
@@ -423,6 +507,7 @@ instance Prelude.NFData Decrypt where
       `Prelude.seq` Prelude.rnf encryptionContext
       `Prelude.seq` Prelude.rnf grantTokens
       `Prelude.seq` Prelude.rnf keyId
+      `Prelude.seq` Prelude.rnf recipient
       `Prelude.seq` Prelude.rnf ciphertextBlob
 
 instance Data.ToHeaders Decrypt where
@@ -448,6 +533,7 @@ instance Data.ToJSON Decrypt where
               Prelude.<$> encryptionContext,
             ("GrantTokens" Data..=) Prelude.<$> grantTokens,
             ("KeyId" Data..=) Prelude.<$> keyId,
+            ("Recipient" Data..=) Prelude.<$> recipient,
             Prelude.Just
               ("CiphertextBlob" Data..= ciphertextBlob)
           ]
@@ -461,7 +547,17 @@ instance Data.ToQuery Decrypt where
 
 -- | /See:/ 'newDecryptResponse' smart constructor.
 data DecryptResponse = DecryptResponse'
-  { -- | The encryption algorithm that was used to decrypt the ciphertext.
+  { -- | The plaintext data encrypted with the public key in the attestation
+    -- document.
+    --
+    -- This field is included in the response only when the @Recipient@
+    -- parameter in the request includes a valid attestation document from an
+    -- Amazon Web Services Nitro enclave. For information about the interaction
+    -- between KMS and Amazon Web Services Nitro Enclaves, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+    -- in the /Key Management Service Developer Guide/.
+    ciphertextForRecipient :: Prelude.Maybe Data.Base64,
+    -- | The encryption algorithm that was used to decrypt the ciphertext.
     encryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
@@ -470,6 +566,9 @@ data DecryptResponse = DecryptResponse'
     -- | Decrypted plaintext data. When you use the HTTP API or the Amazon Web
     -- Services CLI, the value is Base64-encoded. Otherwise, it is not
     -- Base64-encoded.
+    --
+    -- If the response includes the @CiphertextForRecipient@ field, the
+    -- @Plaintext@ field is null or empty.
     plaintext :: Prelude.Maybe (Data.Sensitive Data.Base64),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -484,6 +583,20 @@ data DecryptResponse = DecryptResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ciphertextForRecipient', 'decryptResponse_ciphertextForRecipient' - The plaintext data encrypted with the public key in the attestation
+-- document.
+--
+-- This field is included in the response only when the @Recipient@
+-- parameter in the request includes a valid attestation document from an
+-- Amazon Web Services Nitro enclave. For information about the interaction
+-- between KMS and Amazon Web Services Nitro Enclaves, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+-- in the /Key Management Service Developer Guide/.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+--
 -- 'encryptionAlgorithm', 'decryptResponse_encryptionAlgorithm' - The encryption algorithm that was used to decrypt the ciphertext.
 --
 -- 'keyId', 'decryptResponse_keyId' - The Amazon Resource Name
@@ -492,7 +605,10 @@ data DecryptResponse = DecryptResponse'
 --
 -- 'plaintext', 'decryptResponse_plaintext' - Decrypted plaintext data. When you use the HTTP API or the Amazon Web
 -- Services CLI, the value is Base64-encoded. Otherwise, it is not
--- Base64-encoded.--
+-- Base64-encoded.
+--
+-- If the response includes the @CiphertextForRecipient@ field, the
+-- @Plaintext@ field is null or empty.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -505,12 +621,29 @@ newDecryptResponse ::
   DecryptResponse
 newDecryptResponse pHttpStatus_ =
   DecryptResponse'
-    { encryptionAlgorithm =
+    { ciphertextForRecipient =
         Prelude.Nothing,
+      encryptionAlgorithm = Prelude.Nothing,
       keyId = Prelude.Nothing,
       plaintext = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The plaintext data encrypted with the public key in the attestation
+-- document.
+--
+-- This field is included in the response only when the @Recipient@
+-- parameter in the request includes a valid attestation document from an
+-- Amazon Web Services Nitro enclave. For information about the interaction
+-- between KMS and Amazon Web Services Nitro Enclaves, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html How Amazon Web Services Nitro Enclaves uses KMS>
+-- in the /Key Management Service Developer Guide/.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+decryptResponse_ciphertextForRecipient :: Lens.Lens' DecryptResponse (Prelude.Maybe Prelude.ByteString)
+decryptResponse_ciphertextForRecipient = Lens.lens (\DecryptResponse' {ciphertextForRecipient} -> ciphertextForRecipient) (\s@DecryptResponse' {} a -> s {ciphertextForRecipient = a} :: DecryptResponse) Prelude.. Lens.mapping Data._Base64
 
 -- | The encryption algorithm that was used to decrypt the ciphertext.
 decryptResponse_encryptionAlgorithm :: Lens.Lens' DecryptResponse (Prelude.Maybe EncryptionAlgorithmSpec)
@@ -524,7 +657,10 @@ decryptResponse_keyId = Lens.lens (\DecryptResponse' {keyId} -> keyId) (\s@Decry
 
 -- | Decrypted plaintext data. When you use the HTTP API or the Amazon Web
 -- Services CLI, the value is Base64-encoded. Otherwise, it is not
--- Base64-encoded.--
+-- Base64-encoded.
+--
+-- If the response includes the @CiphertextForRecipient@ field, the
+-- @Plaintext@ field is null or empty.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -538,7 +674,8 @@ decryptResponse_httpStatus = Lens.lens (\DecryptResponse' {httpStatus} -> httpSt
 
 instance Prelude.NFData DecryptResponse where
   rnf DecryptResponse' {..} =
-    Prelude.rnf encryptionAlgorithm
+    Prelude.rnf ciphertextForRecipient
+      `Prelude.seq` Prelude.rnf encryptionAlgorithm
       `Prelude.seq` Prelude.rnf keyId
       `Prelude.seq` Prelude.rnf plaintext
       `Prelude.seq` Prelude.rnf httpStatus

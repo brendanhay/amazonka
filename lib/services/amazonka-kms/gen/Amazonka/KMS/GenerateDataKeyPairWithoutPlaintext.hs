@@ -121,6 +121,9 @@ data GenerateDataKeyPairWithoutPlaintext = GenerateDataKeyPairWithoutPlaintext'
   { -- | Specifies the encryption context that will be used when encrypting the
     -- private key in the data key pair.
     --
+    -- Do not include confidential or sensitive information in this field. This
+    -- field may be displayed in plaintext in CloudTrail logs and other output.
+    --
     -- An /encryption context/ is a collection of non-secret key-value pairs
     -- that represent additional authenticated data. When you use an encryption
     -- context to encrypt data, you must specify the same (an exact
@@ -188,6 +191,9 @@ data GenerateDataKeyPairWithoutPlaintext = GenerateDataKeyPairWithoutPlaintext'
 --
 -- 'encryptionContext', 'generateDataKeyPairWithoutPlaintext_encryptionContext' - Specifies the encryption context that will be used when encrypting the
 -- private key in the data key pair.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- An /encryption context/ is a collection of non-secret key-value pairs
 -- that represent additional authenticated data. When you use an encryption
@@ -261,6 +267,9 @@ newGenerateDataKeyPairWithoutPlaintext
 
 -- | Specifies the encryption context that will be used when encrypting the
 -- private key in the data key pair.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- An /encryption context/ is a collection of non-secret key-value pairs
 -- that represent additional authenticated data. When you use an encryption
@@ -338,10 +347,10 @@ instance
       ( \s h x ->
           GenerateDataKeyPairWithoutPlaintextResponse'
             Prelude.<$> (x Data..?> "KeyId")
-              Prelude.<*> (x Data..?> "KeyPairSpec")
-              Prelude.<*> (x Data..?> "PrivateKeyCiphertextBlob")
-              Prelude.<*> (x Data..?> "PublicKey")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "KeyPairSpec")
+            Prelude.<*> (x Data..?> "PrivateKeyCiphertextBlob")
+            Prelude.<*> (x Data..?> "PublicKey")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -351,7 +360,8 @@ instance
   hashWithSalt
     _salt
     GenerateDataKeyPairWithoutPlaintext' {..} =
-      _salt `Prelude.hashWithSalt` encryptionContext
+      _salt
+        `Prelude.hashWithSalt` encryptionContext
         `Prelude.hashWithSalt` grantTokens
         `Prelude.hashWithSalt` keyId
         `Prelude.hashWithSalt` keyPairSpec

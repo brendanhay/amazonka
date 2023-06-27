@@ -73,7 +73,9 @@ module Amazonka.KMS.Lens
     decrypt_encryptionContext,
     decrypt_grantTokens,
     decrypt_keyId,
+    decrypt_recipient,
     decrypt_ciphertextBlob,
+    decryptResponse_ciphertextForRecipient,
     decryptResponse_encryptionAlgorithm,
     decryptResponse_keyId,
     decryptResponse_plaintext,
@@ -137,7 +139,9 @@ module Amazonka.KMS.Lens
     generateDataKey_grantTokens,
     generateDataKey_keySpec,
     generateDataKey_numberOfBytes,
+    generateDataKey_recipient,
     generateDataKey_keyId,
+    generateDataKeyResponse_ciphertextForRecipient,
     generateDataKeyResponse_httpStatus,
     generateDataKeyResponse_keyId,
     generateDataKeyResponse_plaintext,
@@ -146,8 +150,10 @@ module Amazonka.KMS.Lens
     -- ** GenerateDataKeyPair
     generateDataKeyPair_encryptionContext,
     generateDataKeyPair_grantTokens,
+    generateDataKeyPair_recipient,
     generateDataKeyPair_keyId,
     generateDataKeyPair_keyPairSpec,
+    generateDataKeyPairResponse_ciphertextForRecipient,
     generateDataKeyPairResponse_keyId,
     generateDataKeyPairResponse_keyPairSpec,
     generateDataKeyPairResponse_privateKeyCiphertextBlob,
@@ -189,6 +195,8 @@ module Amazonka.KMS.Lens
     -- ** GenerateRandom
     generateRandom_customKeyStoreId,
     generateRandom_numberOfBytes,
+    generateRandom_recipient,
+    generateRandomResponse_ciphertextForRecipient,
     generateRandomResponse_plaintext,
     generateRandomResponse_httpStatus,
 
@@ -483,6 +491,10 @@ module Amazonka.KMS.Lens
     multiRegionKey_arn,
     multiRegionKey_region,
 
+    -- ** RecipientInfo
+    recipientInfo_attestationDocument,
+    recipientInfo_keyEncryptionAlgorithm,
+
     -- ** Tag
     tag_tagKey,
     tag_tagValue,
@@ -555,6 +567,7 @@ import Amazonka.KMS.Types.KeyMetadata
 import Amazonka.KMS.Types.ListGrantsResponse
 import Amazonka.KMS.Types.MultiRegionConfiguration
 import Amazonka.KMS.Types.MultiRegionKey
+import Amazonka.KMS.Types.RecipientInfo
 import Amazonka.KMS.Types.Tag
 import Amazonka.KMS.Types.XksKeyConfigurationType
 import Amazonka.KMS.Types.XksProxyAuthenticationCredentialType

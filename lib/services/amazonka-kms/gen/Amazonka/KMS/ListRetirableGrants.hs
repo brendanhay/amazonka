@@ -103,13 +103,11 @@ data ListRetirableGrants = ListRetirableGrants'
     --
     -- To specify the retiring principal, use the
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
-    -- of an Amazon Web Services principal. Valid Amazon Web Services
-    -- principals include Amazon Web Services accounts (root), IAM users,
-    -- federated users, and assumed role users. For examples of the ARN syntax
-    -- for specifying a principal, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM)>
-    -- in the Example ARNs section of the /Amazon Web Services General
-    -- Reference/.
+    -- of an Amazon Web Services principal. Valid principals include Amazon Web
+    -- Services accounts, IAM users, IAM roles, federated users, and assumed
+    -- role users. For help with the ARN syntax for a principal, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>
+    -- in the //Identity and Access Management User Guide// .
     retiringPrincipal :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -138,13 +136,11 @@ data ListRetirableGrants = ListRetirableGrants'
 --
 -- To specify the retiring principal, use the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
--- of an Amazon Web Services principal. Valid Amazon Web Services
--- principals include Amazon Web Services accounts (root), IAM users,
--- federated users, and assumed role users. For examples of the ARN syntax
--- for specifying a principal, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM)>
--- in the Example ARNs section of the /Amazon Web Services General
--- Reference/.
+-- of an Amazon Web Services principal. Valid principals include Amazon Web
+-- Services accounts, IAM users, IAM roles, federated users, and assumed
+-- role users. For help with the ARN syntax for a principal, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>
+-- in the //Identity and Access Management User Guide// .
 newListRetirableGrants ::
   -- | 'retiringPrincipal'
   Prelude.Text ->
@@ -176,13 +172,11 @@ listRetirableGrants_marker = Lens.lens (\ListRetirableGrants' {marker} -> marker
 --
 -- To specify the retiring principal, use the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
--- of an Amazon Web Services principal. Valid Amazon Web Services
--- principals include Amazon Web Services accounts (root), IAM users,
--- federated users, and assumed role users. For examples of the ARN syntax
--- for specifying a principal, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam Amazon Web Services Identity and Access Management (IAM)>
--- in the Example ARNs section of the /Amazon Web Services General
--- Reference/.
+-- of an Amazon Web Services principal. Valid principals include Amazon Web
+-- Services accounts, IAM users, IAM roles, federated users, and assumed
+-- role users. For help with the ARN syntax for a principal, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>
+-- in the //Identity and Access Management User Guide// .
 listRetirableGrants_retiringPrincipal :: Lens.Lens' ListRetirableGrants Prelude.Text
 listRetirableGrants_retiringPrincipal = Lens.lens (\ListRetirableGrants' {retiringPrincipal} -> retiringPrincipal) (\s@ListRetirableGrants' {} a -> s {retiringPrincipal = a} :: ListRetirableGrants)
 
@@ -190,20 +184,23 @@ instance Core.AWSPager ListRetirableGrants where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listGrantsResponse_truncated Prelude.. Lens._Just
+            Lens.^? listGrantsResponse_truncated
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
-            Lens.^? listGrantsResponse_nextMarker Prelude.. Lens._Just
+            Lens.^? listGrantsResponse_nextMarker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRetirableGrants_marker
           Lens..~ rs
-          Lens.^? listGrantsResponse_nextMarker Prelude.. Lens._Just
+          Lens.^? listGrantsResponse_nextMarker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRetirableGrants where
   type
@@ -217,7 +214,8 @@ instance Core.AWSRequest ListRetirableGrants where
 
 instance Prelude.Hashable ListRetirableGrants where
   hashWithSalt _salt ListRetirableGrants' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` retiringPrincipal
 

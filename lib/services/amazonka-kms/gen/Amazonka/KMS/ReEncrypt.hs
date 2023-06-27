@@ -169,6 +169,9 @@ data ReEncrypt = ReEncrypt'
     destinationEncryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
     -- | Specifies that encryption context to use when the reencrypting the data.
     --
+    -- Do not include confidential or sensitive information in this field. This
+    -- field may be displayed in plaintext in CloudTrail logs and other output.
+    --
     -- A destination encryption context is valid only when the destination KMS
     -- key is a symmetric encryption KMS key. The standard ciphertext format
     -- for asymmetric KMS keys does not include fields for metadata.
@@ -299,6 +302,9 @@ data ReEncrypt = ReEncrypt'
 -- asymmetric KMS key.
 --
 -- 'destinationEncryptionContext', 'reEncrypt_destinationEncryptionContext' - Specifies that encryption context to use when the reencrypting the data.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- A destination encryption context is valid only when the destination KMS
 -- key is a symmetric encryption KMS key. The standard ciphertext format
@@ -444,6 +450,9 @@ reEncrypt_destinationEncryptionAlgorithm :: Lens.Lens' ReEncrypt (Prelude.Maybe 
 reEncrypt_destinationEncryptionAlgorithm = Lens.lens (\ReEncrypt' {destinationEncryptionAlgorithm} -> destinationEncryptionAlgorithm) (\s@ReEncrypt' {} a -> s {destinationEncryptionAlgorithm = a} :: ReEncrypt)
 
 -- | Specifies that encryption context to use when the reencrypting the data.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 --
 -- A destination encryption context is valid only when the destination KMS
 -- key is a symmetric encryption KMS key. The standard ciphertext format

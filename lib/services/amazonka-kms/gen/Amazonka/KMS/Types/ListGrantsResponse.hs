@@ -95,7 +95,8 @@ instance Data.FromJSON ListGrantsResponse where
 
 instance Prelude.Hashable ListGrantsResponse where
   hashWithSalt _salt ListGrantsResponse' {..} =
-    _salt `Prelude.hashWithSalt` grants
+    _salt
+      `Prelude.hashWithSalt` grants
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` truncated
 

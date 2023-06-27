@@ -278,7 +278,7 @@ data CreateCustomKeyStore = CreateCustomKeyStore'
     -- The value must start with @\/@ and must end with @\/kms\/xks\/v1@ where
     -- @v1@ represents the version of the KMS external key store proxy API.
     -- This path can include an optional prefix between the required elements
-    -- such as @\/prefix\/kms\/xks\/v1@.
+    -- such as @\/@/@prefix@/@\/kms\/xks\/v1@.
     --
     -- __Uniqueness requirements:__
     --
@@ -304,6 +304,9 @@ data CreateCustomKeyStore = CreateCustomKeyStore'
     -- | Specifies a friendly name for the custom key store. The name must be
     -- unique in your Amazon Web Services account and Region. This parameter is
     -- required for all custom key stores.
+    --
+    -- Do not include confidential or sensitive information in this field. This
+    -- field may be displayed in plaintext in CloudTrail logs and other output.
     customKeyStoreName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -445,7 +448,7 @@ data CreateCustomKeyStore = CreateCustomKeyStore'
 -- The value must start with @\/@ and must end with @\/kms\/xks\/v1@ where
 -- @v1@ represents the version of the KMS external key store proxy API.
 -- This path can include an optional prefix between the required elements
--- such as @\/prefix\/kms\/xks\/v1@.
+-- such as @\/@/@prefix@/@\/kms\/xks\/v1@.
 --
 -- __Uniqueness requirements:__
 --
@@ -471,6 +474,9 @@ data CreateCustomKeyStore = CreateCustomKeyStore'
 -- 'customKeyStoreName', 'createCustomKeyStore_customKeyStoreName' - Specifies a friendly name for the custom key store. The name must be
 -- unique in your Amazon Web Services account and Region. This parameter is
 -- required for all custom key stores.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 newCreateCustomKeyStore ::
   -- | 'customKeyStoreName'
   Prelude.Text ->
@@ -633,7 +639,7 @@ createCustomKeyStore_xksProxyUriEndpoint = Lens.lens (\CreateCustomKeyStore' {xk
 -- The value must start with @\/@ and must end with @\/kms\/xks\/v1@ where
 -- @v1@ represents the version of the KMS external key store proxy API.
 -- This path can include an optional prefix between the required elements
--- such as @\/prefix\/kms\/xks\/v1@.
+-- such as @\/@/@prefix@/@\/kms\/xks\/v1@.
 --
 -- __Uniqueness requirements:__
 --
@@ -663,6 +669,9 @@ createCustomKeyStore_xksProxyVpcEndpointServiceName = Lens.lens (\CreateCustomKe
 -- | Specifies a friendly name for the custom key store. The name must be
 -- unique in your Amazon Web Services account and Region. This parameter is
 -- required for all custom key stores.
+--
+-- Do not include confidential or sensitive information in this field. This
+-- field may be displayed in plaintext in CloudTrail logs and other output.
 createCustomKeyStore_customKeyStoreName :: Lens.Lens' CreateCustomKeyStore Prelude.Text
 createCustomKeyStore_customKeyStoreName = Lens.lens (\CreateCustomKeyStore' {customKeyStoreName} -> customKeyStoreName) (\s@CreateCustomKeyStore' {} a -> s {customKeyStoreName = a} :: CreateCustomKeyStore)
 
@@ -682,7 +691,8 @@ instance Core.AWSRequest CreateCustomKeyStore where
 
 instance Prelude.Hashable CreateCustomKeyStore where
   hashWithSalt _salt CreateCustomKeyStore' {..} =
-    _salt `Prelude.hashWithSalt` cloudHsmClusterId
+    _salt
+      `Prelude.hashWithSalt` cloudHsmClusterId
       `Prelude.hashWithSalt` customKeyStoreType
       `Prelude.hashWithSalt` keyStorePassword
       `Prelude.hashWithSalt` trustAnchorCertificate

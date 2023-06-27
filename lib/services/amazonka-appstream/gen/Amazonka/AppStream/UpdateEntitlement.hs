@@ -134,7 +134,8 @@ instance Core.AWSRequest UpdateEntitlement where
 
 instance Prelude.Hashable UpdateEntitlement where
   hashWithSalt _salt UpdateEntitlement' {..} =
-    _salt `Prelude.hashWithSalt` appVisibility
+    _salt
+      `Prelude.hashWithSalt` appVisibility
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name

@@ -100,7 +100,8 @@ instance Data.FromJSON ApplicationSettingsResponse where
 
 instance Prelude.Hashable ApplicationSettingsResponse where
   hashWithSalt _salt ApplicationSettingsResponse' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` s3BucketName
       `Prelude.hashWithSalt` settingsGroup
 

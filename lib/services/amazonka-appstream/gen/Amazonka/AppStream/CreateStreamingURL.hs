@@ -175,7 +175,8 @@ instance Core.AWSRequest CreateStreamingURL where
 
 instance Prelude.Hashable CreateStreamingURL where
   hashWithSalt _salt CreateStreamingURL' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` sessionContext
       `Prelude.hashWithSalt` validity
       `Prelude.hashWithSalt` stackName

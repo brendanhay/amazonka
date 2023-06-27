@@ -158,7 +158,8 @@ instance Core.AWSRequest CreateAppBlock where
 
 instance Prelude.Hashable CreateAppBlock where
   hashWithSalt _salt CreateAppBlock' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

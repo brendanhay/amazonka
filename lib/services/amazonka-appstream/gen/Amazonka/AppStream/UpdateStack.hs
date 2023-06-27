@@ -240,7 +240,8 @@ instance Core.AWSRequest UpdateStack where
 
 instance Prelude.Hashable UpdateStack where
   hashWithSalt _salt UpdateStack' {..} =
-    _salt `Prelude.hashWithSalt` accessEndpoints
+    _salt
+      `Prelude.hashWithSalt` accessEndpoints
       `Prelude.hashWithSalt` applicationSettings
       `Prelude.hashWithSalt` attributesToDelete
       `Prelude.hashWithSalt` deleteStorageConnectors

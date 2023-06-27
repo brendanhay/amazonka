@@ -108,7 +108,8 @@ instance
     DisassociateApplicationFleet
   where
   hashWithSalt _salt DisassociateApplicationFleet' {..} =
-    _salt `Prelude.hashWithSalt` fleetName
+    _salt
+      `Prelude.hashWithSalt` fleetName
       `Prelude.hashWithSalt` applicationArn
 
 instance Prelude.NFData DisassociateApplicationFleet where

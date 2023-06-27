@@ -127,7 +127,8 @@ instance
   hashWithSalt
     _salt
     AssociateApplicationToEntitlement' {..} =
-      _salt `Prelude.hashWithSalt` stackName
+      _salt
+        `Prelude.hashWithSalt` stackName
         `Prelude.hashWithSalt` entitlementName
         `Prelude.hashWithSalt` applicationIdentifier
 

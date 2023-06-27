@@ -116,7 +116,8 @@ instance
   hashWithSalt
     _salt
     CreateImageBuilderStreamingURL' {..} =
-      _salt `Prelude.hashWithSalt` validity
+      _salt
+        `Prelude.hashWithSalt` validity
         `Prelude.hashWithSalt` name
 
 instance

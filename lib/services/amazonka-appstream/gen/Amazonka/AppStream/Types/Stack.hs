@@ -215,7 +215,8 @@ instance Data.FromJSON Stack where
             Prelude.<*> (x Data..:? "FeedbackURL")
             Prelude.<*> (x Data..:? "RedirectURL")
             Prelude.<*> (x Data..:? "StackErrors" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "StorageConnectors"
+            Prelude.<*> ( x
+                            Data..:? "StorageConnectors"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StreamingExperienceSettings")
@@ -225,7 +226,8 @@ instance Data.FromJSON Stack where
 
 instance Prelude.Hashable Stack where
   hashWithSalt _salt Stack' {..} =
-    _salt `Prelude.hashWithSalt` accessEndpoints
+    _salt
+      `Prelude.hashWithSalt` accessEndpoints
       `Prelude.hashWithSalt` applicationSettings
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime

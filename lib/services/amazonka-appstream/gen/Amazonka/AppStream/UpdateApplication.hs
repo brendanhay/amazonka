@@ -178,7 +178,8 @@ instance Core.AWSRequest UpdateApplication where
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =
-    _salt `Prelude.hashWithSalt` appBlockArn
+    _salt
+      `Prelude.hashWithSalt` appBlockArn
       `Prelude.hashWithSalt` attributesToDelete
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName

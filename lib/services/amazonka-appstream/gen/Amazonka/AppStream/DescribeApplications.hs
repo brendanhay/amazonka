@@ -115,7 +115,8 @@ instance Core.AWSRequest DescribeApplications where
 
 instance Prelude.Hashable DescribeApplications where
   hashWithSalt _salt DescribeApplications' {..} =
-    _salt `Prelude.hashWithSalt` arns
+    _salt
+      `Prelude.hashWithSalt` arns
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteEntitlement where
 
 instance Prelude.Hashable DeleteEntitlement where
   hashWithSalt _salt DeleteEntitlement' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` stackName
 
 instance Prelude.NFData DeleteEntitlement where

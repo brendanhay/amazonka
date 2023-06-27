@@ -125,7 +125,8 @@ instance Core.AWSRequest ListEntitledApplications where
     Response.receiveJSON
       ( \s h x ->
           ListEntitledApplicationsResponse'
-            Prelude.<$> ( x Data..?> "EntitledApplications"
+            Prelude.<$> ( x
+                            Data..?> "EntitledApplications"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -134,7 +135,8 @@ instance Core.AWSRequest ListEntitledApplications where
 
 instance Prelude.Hashable ListEntitledApplications where
   hashWithSalt _salt ListEntitledApplications' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stackName
       `Prelude.hashWithSalt` entitlementName

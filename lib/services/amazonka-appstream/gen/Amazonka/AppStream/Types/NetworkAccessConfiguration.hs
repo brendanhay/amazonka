@@ -84,7 +84,8 @@ instance Data.FromJSON NetworkAccessConfiguration where
 
 instance Prelude.Hashable NetworkAccessConfiguration where
   hashWithSalt _salt NetworkAccessConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` eniId
+    _salt
+      `Prelude.hashWithSalt` eniId
       `Prelude.hashWithSalt` eniPrivateIpAddress
 
 instance Prelude.NFData NetworkAccessConfiguration where

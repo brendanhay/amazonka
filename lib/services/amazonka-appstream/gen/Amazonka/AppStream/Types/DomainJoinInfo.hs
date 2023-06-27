@@ -79,7 +79,8 @@ instance Data.FromJSON DomainJoinInfo where
 
 instance Prelude.Hashable DomainJoinInfo where
   hashWithSalt _salt DomainJoinInfo' {..} =
-    _salt `Prelude.hashWithSalt` directoryName
+    _salt
+      `Prelude.hashWithSalt` directoryName
       `Prelude.hashWithSalt` organizationalUnitDistinguishedName
 
 instance Prelude.NFData DomainJoinInfo where

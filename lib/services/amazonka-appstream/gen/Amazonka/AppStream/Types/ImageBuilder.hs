@@ -471,7 +471,8 @@ instance Data.FromJSON ImageBuilder where
             Prelude.<*> (x Data..:? "EnableDefaultInternetAccess")
             Prelude.<*> (x Data..:? "IamRoleArn")
             Prelude.<*> (x Data..:? "ImageArn")
-            Prelude.<*> ( x Data..:? "ImageBuilderErrors"
+            Prelude.<*> ( x
+                            Data..:? "ImageBuilderErrors"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "InstanceType")
@@ -485,7 +486,8 @@ instance Data.FromJSON ImageBuilder where
 
 instance Prelude.Hashable ImageBuilder where
   hashWithSalt _salt ImageBuilder' {..} =
-    _salt `Prelude.hashWithSalt` accessEndpoints
+    _salt
+      `Prelude.hashWithSalt` accessEndpoints
       `Prelude.hashWithSalt` appstreamAgentVersion
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime

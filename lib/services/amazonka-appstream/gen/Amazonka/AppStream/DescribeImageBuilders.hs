@@ -108,22 +108,22 @@ instance Core.AWSPager DescribeImageBuilders where
     | Core.stop
         ( rs
             Lens.^? describeImageBuildersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeImageBuildersResponse_imageBuilders
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeImageBuilders_nextToken
           Lens..~ rs
           Lens.^? describeImageBuildersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeImageBuilders where
   type
@@ -142,7 +142,8 @@ instance Core.AWSRequest DescribeImageBuilders where
 
 instance Prelude.Hashable DescribeImageBuilders where
   hashWithSalt _salt DescribeImageBuilders' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` names
       `Prelude.hashWithSalt` nextToken
 

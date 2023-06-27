@@ -109,7 +109,8 @@ instance Core.AWSRequest DisableUser where
 
 instance Prelude.Hashable DisableUser where
   hashWithSalt _salt DisableUser' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` authenticationType
 
 instance Prelude.NFData DisableUser where

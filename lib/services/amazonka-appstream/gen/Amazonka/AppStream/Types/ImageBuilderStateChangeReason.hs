@@ -79,7 +79,8 @@ instance
     ImageBuilderStateChangeReason
   where
   hashWithSalt _salt ImageBuilderStateChangeReason' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ImageBuilderStateChangeReason where

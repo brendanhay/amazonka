@@ -116,7 +116,8 @@ instance Data.FromJSON UsageReportSubscription where
             Prelude.<$> (x Data..:? "LastGeneratedReportDate")
             Prelude.<*> (x Data..:? "S3BucketName")
             Prelude.<*> (x Data..:? "Schedule")
-            Prelude.<*> ( x Data..:? "SubscriptionErrors"
+            Prelude.<*> ( x
+                            Data..:? "SubscriptionErrors"
                             Data..!= Prelude.mempty
                         )
       )

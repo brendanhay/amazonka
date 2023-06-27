@@ -75,7 +75,8 @@ instance Data.FromJSON StackError where
 
 instance Prelude.Hashable StackError where
   hashWithSalt _salt StackError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
 
 instance Prelude.NFData StackError where

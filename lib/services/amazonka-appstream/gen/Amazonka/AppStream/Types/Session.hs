@@ -197,7 +197,8 @@ instance Data.FromJSON Session where
 
 instance Prelude.Hashable Session where
   hashWithSalt _salt Session' {..} =
-    _salt `Prelude.hashWithSalt` authenticationType
+    _salt
+      `Prelude.hashWithSalt` authenticationType
       `Prelude.hashWithSalt` connectionState
       `Prelude.hashWithSalt` maxExpirationTime
       `Prelude.hashWithSalt` networkAccessConfiguration

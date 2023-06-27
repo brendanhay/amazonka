@@ -127,20 +127,22 @@ instance Core.AWSPager DescribeImages where
     | Core.stop
         ( rs
             Lens.^? describeImagesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeImagesResponse_images Prelude.. Lens._Just
+            Lens.^? describeImagesResponse_images
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeImages_nextToken
           Lens..~ rs
-          Lens.^? describeImagesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeImagesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeImages where
   type
@@ -159,7 +161,8 @@ instance Core.AWSRequest DescribeImages where
 
 instance Prelude.Hashable DescribeImages where
   hashWithSalt _salt DescribeImages' {..} =
-    _salt `Prelude.hashWithSalt` arns
+    _salt
+      `Prelude.hashWithSalt` arns
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` names
       `Prelude.hashWithSalt` nextToken

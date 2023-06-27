@@ -211,7 +211,8 @@ instance Core.AWSRequest CreateUpdatedImage where
 
 instance Prelude.Hashable CreateUpdatedImage where
   hashWithSalt _salt CreateUpdatedImage' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` newImageDescription'
       `Prelude.hashWithSalt` newImageDisplayName'
       `Prelude.hashWithSalt` newImageTags'

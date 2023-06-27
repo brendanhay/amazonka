@@ -33,7 +33,7 @@ newFleetStarted =
       Core.delay = 30,
       Core.acceptors =
         [ Core.matchAll
-            "ACTIVE"
+            "RUNNING"
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
@@ -43,7 +43,7 @@ newFleetStarted =
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
-            "PENDING_DEACTIVATE"
+            "STOPPING"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
@@ -53,7 +53,7 @@ newFleetStarted =
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
-            "INACTIVE"
+            "STOPPED"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
@@ -74,7 +74,7 @@ newFleetStopped =
       Core.delay = 30,
       Core.acceptors =
         [ Core.matchAll
-            "INACTIVE"
+            "STOPPED"
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
@@ -84,7 +84,7 @@ newFleetStopped =
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
-            "PENDING_ACTIVATE"
+            "STARTING"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
@@ -94,7 +94,7 @@ newFleetStopped =
                 Prelude.. Lens.to Data.toTextCI
             ),
           Core.matchAny
-            "ACTIVE"
+            "RUNNING"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf

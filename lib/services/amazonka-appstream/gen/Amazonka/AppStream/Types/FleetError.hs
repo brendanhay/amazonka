@@ -75,7 +75,8 @@ instance Data.FromJSON FleetError where
 
 instance Prelude.Hashable FleetError where
   hashWithSalt _salt FleetError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
 
 instance Prelude.NFData FleetError where

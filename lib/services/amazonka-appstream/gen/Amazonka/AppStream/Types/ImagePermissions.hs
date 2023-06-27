@@ -74,7 +74,8 @@ instance Data.FromJSON ImagePermissions where
 
 instance Prelude.Hashable ImagePermissions where
   hashWithSalt _salt ImagePermissions' {..} =
-    _salt `Prelude.hashWithSalt` allowFleet
+    _salt
+      `Prelude.hashWithSalt` allowFleet
       `Prelude.hashWithSalt` allowImageBuilder
 
 instance Prelude.NFData ImagePermissions where

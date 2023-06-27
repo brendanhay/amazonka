@@ -99,7 +99,8 @@ instance Data.FromJSON ComputeCapacityStatus where
 
 instance Prelude.Hashable ComputeCapacityStatus where
   hashWithSalt _salt ComputeCapacityStatus' {..} =
-    _salt `Prelude.hashWithSalt` available
+    _salt
+      `Prelude.hashWithSalt` available
       `Prelude.hashWithSalt` inUse
       `Prelude.hashWithSalt` running
       `Prelude.hashWithSalt` desired

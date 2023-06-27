@@ -78,7 +78,8 @@ instance Data.FromJSON UnprocessedAccount where
 
 instance Prelude.Hashable UnprocessedAccount where
   hashWithSalt _salt UnprocessedAccount' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData UnprocessedAccount where

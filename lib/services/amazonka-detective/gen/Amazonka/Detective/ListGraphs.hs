@@ -118,7 +118,8 @@ instance Core.AWSRequest ListGraphs where
 
 instance Prelude.Hashable ListGraphs where
   hashWithSalt _salt ListGraphs' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListGraphs where

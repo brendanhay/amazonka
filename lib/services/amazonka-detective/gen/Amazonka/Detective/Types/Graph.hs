@@ -77,7 +77,8 @@ instance Data.FromJSON Graph where
 
 instance Prelude.Hashable Graph where
   hashWithSalt _salt Graph' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
 
 instance Prelude.NFData Graph where

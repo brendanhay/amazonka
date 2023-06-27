@@ -20,6 +20,7 @@
 module Amazonka.Detective.Types.DatasourcePackage
   ( DatasourcePackage
       ( ..,
+        DatasourcePackage_ASFF_SECURITYHUB_FINDING,
         DatasourcePackage_DETECTIVE_CORE,
         DatasourcePackage_EKS_AUDIT
       ),
@@ -58,6 +59,9 @@ newtype DatasourcePackage = DatasourcePackage'
       Data.ToXML
     )
 
+pattern DatasourcePackage_ASFF_SECURITYHUB_FINDING :: DatasourcePackage
+pattern DatasourcePackage_ASFF_SECURITYHUB_FINDING = DatasourcePackage' "ASFF_SECURITYHUB_FINDING"
+
 pattern DatasourcePackage_DETECTIVE_CORE :: DatasourcePackage
 pattern DatasourcePackage_DETECTIVE_CORE = DatasourcePackage' "DETECTIVE_CORE"
 
@@ -65,6 +69,7 @@ pattern DatasourcePackage_EKS_AUDIT :: DatasourcePackage
 pattern DatasourcePackage_EKS_AUDIT = DatasourcePackage' "EKS_AUDIT"
 
 {-# COMPLETE
+  DatasourcePackage_ASFF_SECURITYHUB_FINDING,
   DatasourcePackage_DETECTIVE_CORE,
   DatasourcePackage_EKS_AUDIT,
   DatasourcePackage'

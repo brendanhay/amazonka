@@ -77,7 +77,8 @@ instance Data.FromJSON UnprocessedGraph where
 
 instance Prelude.Hashable UnprocessedGraph where
   hashWithSalt _salt UnprocessedGraph' {..} =
-    _salt `Prelude.hashWithSalt` graphArn
+    _salt
+      `Prelude.hashWithSalt` graphArn
       `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData UnprocessedGraph where

@@ -108,7 +108,8 @@ instance
   hashWithSalt
     _salt
     UpdateOrganizationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` autoEnable
+      _salt
+        `Prelude.hashWithSalt` autoEnable
         `Prelude.hashWithSalt` graphArn
 
 instance

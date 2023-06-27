@@ -123,7 +123,8 @@ instance Core.AWSRequest ListInvitations where
 
 instance Prelude.Hashable ListInvitations where
   hashWithSalt _salt ListInvitations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListInvitations where

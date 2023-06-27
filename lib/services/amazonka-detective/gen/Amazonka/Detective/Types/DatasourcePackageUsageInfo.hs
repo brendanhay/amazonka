@@ -84,7 +84,8 @@ instance Data.FromJSON DatasourcePackageUsageInfo where
 
 instance Prelude.Hashable DatasourcePackageUsageInfo where
   hashWithSalt _salt DatasourcePackageUsageInfo' {..} =
-    _salt `Prelude.hashWithSalt` volumeUsageInBytes
+    _salt
+      `Prelude.hashWithSalt` volumeUsageInBytes
       `Prelude.hashWithSalt` volumeUsageUpdateTime
 
 instance Prelude.NFData DatasourcePackageUsageInfo where

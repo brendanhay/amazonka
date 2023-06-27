@@ -33,13 +33,11 @@ import Amazonka.QuickSight.Types.ScatterPlotUnaggregatedFieldWells
 --
 -- /See:/ 'newScatterPlotFieldWells' smart constructor.
 data ScatterPlotFieldWells = ScatterPlotFieldWells'
-  { -- | The aggregated field wells of a scatter plot. Scatter plots that have a
-    -- field in the category (group\/color) field will have aggregated field
-    -- wells. The x and y-axes of these scatter plots are aggregated by
-    -- category.
+  { -- | The aggregated field wells of a scatter plot. The x and y-axes of
+    -- scatter plots with aggregated field wells are aggregated by category,
+    -- label, or both.
     scatterPlotCategoricallyAggregatedFieldWells :: Prelude.Maybe ScatterPlotCategoricallyAggregatedFieldWells,
-    -- | The unaggregated field wells of a scatter plot. Scatter plots without a
-    -- category field well have unaggregated field wells. The x and y-axes of
+    -- | The unaggregated field wells of a scatter plot. The x and y-axes of
     -- these scatter plots are unaggregated.
     scatterPlotUnaggregatedFieldWells :: Prelude.Maybe ScatterPlotUnaggregatedFieldWells
   }
@@ -53,13 +51,11 @@ data ScatterPlotFieldWells = ScatterPlotFieldWells'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scatterPlotCategoricallyAggregatedFieldWells', 'scatterPlotFieldWells_scatterPlotCategoricallyAggregatedFieldWells' - The aggregated field wells of a scatter plot. Scatter plots that have a
--- field in the category (group\/color) field will have aggregated field
--- wells. The x and y-axes of these scatter plots are aggregated by
--- category.
+-- 'scatterPlotCategoricallyAggregatedFieldWells', 'scatterPlotFieldWells_scatterPlotCategoricallyAggregatedFieldWells' - The aggregated field wells of a scatter plot. The x and y-axes of
+-- scatter plots with aggregated field wells are aggregated by category,
+-- label, or both.
 --
--- 'scatterPlotUnaggregatedFieldWells', 'scatterPlotFieldWells_scatterPlotUnaggregatedFieldWells' - The unaggregated field wells of a scatter plot. Scatter plots without a
--- category field well have unaggregated field wells. The x and y-axes of
+-- 'scatterPlotUnaggregatedFieldWells', 'scatterPlotFieldWells_scatterPlotUnaggregatedFieldWells' - The unaggregated field wells of a scatter plot. The x and y-axes of
 -- these scatter plots are unaggregated.
 newScatterPlotFieldWells ::
   ScatterPlotFieldWells
@@ -70,15 +66,13 @@ newScatterPlotFieldWells =
       scatterPlotUnaggregatedFieldWells = Prelude.Nothing
     }
 
--- | The aggregated field wells of a scatter plot. Scatter plots that have a
--- field in the category (group\/color) field will have aggregated field
--- wells. The x and y-axes of these scatter plots are aggregated by
--- category.
+-- | The aggregated field wells of a scatter plot. The x and y-axes of
+-- scatter plots with aggregated field wells are aggregated by category,
+-- label, or both.
 scatterPlotFieldWells_scatterPlotCategoricallyAggregatedFieldWells :: Lens.Lens' ScatterPlotFieldWells (Prelude.Maybe ScatterPlotCategoricallyAggregatedFieldWells)
 scatterPlotFieldWells_scatterPlotCategoricallyAggregatedFieldWells = Lens.lens (\ScatterPlotFieldWells' {scatterPlotCategoricallyAggregatedFieldWells} -> scatterPlotCategoricallyAggregatedFieldWells) (\s@ScatterPlotFieldWells' {} a -> s {scatterPlotCategoricallyAggregatedFieldWells = a} :: ScatterPlotFieldWells)
 
--- | The unaggregated field wells of a scatter plot. Scatter plots without a
--- category field well have unaggregated field wells. The x and y-axes of
+-- | The unaggregated field wells of a scatter plot. The x and y-axes of
 -- these scatter plots are unaggregated.
 scatterPlotFieldWells_scatterPlotUnaggregatedFieldWells :: Lens.Lens' ScatterPlotFieldWells (Prelude.Maybe ScatterPlotUnaggregatedFieldWells)
 scatterPlotFieldWells_scatterPlotUnaggregatedFieldWells = Lens.lens (\ScatterPlotFieldWells' {scatterPlotUnaggregatedFieldWells} -> scatterPlotUnaggregatedFieldWells) (\s@ScatterPlotFieldWells' {} a -> s {scatterPlotUnaggregatedFieldWells = a} :: ScatterPlotFieldWells)

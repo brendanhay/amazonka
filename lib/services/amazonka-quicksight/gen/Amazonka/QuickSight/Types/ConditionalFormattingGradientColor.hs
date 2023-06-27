@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     ConditionalFormattingGradientColor' {..} =
-      _salt `Prelude.hashWithSalt` expression
+      _salt
+        `Prelude.hashWithSalt` expression
         `Prelude.hashWithSalt` color
 
 instance

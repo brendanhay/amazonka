@@ -423,7 +423,8 @@ instance Core.AWSRequest CreateAccountSubscription where
 
 instance Prelude.Hashable CreateAccountSubscription where
   hashWithSalt _salt CreateAccountSubscription' {..} =
-    _salt `Prelude.hashWithSalt` activeDirectoryName
+    _salt
+      `Prelude.hashWithSalt` activeDirectoryName
       `Prelude.hashWithSalt` adminGroup
       `Prelude.hashWithSalt` authorGroup
       `Prelude.hashWithSalt` contactNumber

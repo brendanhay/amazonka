@@ -86,7 +86,8 @@ instance
     WordCloudAggregatedFieldWells
   where
   hashWithSalt _salt WordCloudAggregatedFieldWells' {..} =
-    _salt `Prelude.hashWithSalt` groupBy
+    _salt
+      `Prelude.hashWithSalt` groupBy
       `Prelude.hashWithSalt` size
 
 instance Prelude.NFData WordCloudAggregatedFieldWells where

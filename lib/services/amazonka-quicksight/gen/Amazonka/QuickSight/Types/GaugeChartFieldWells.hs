@@ -76,7 +76,8 @@ instance Data.FromJSON GaugeChartFieldWells where
 
 instance Prelude.Hashable GaugeChartFieldWells where
   hashWithSalt _salt GaugeChartFieldWells' {..} =
-    _salt `Prelude.hashWithSalt` targetValues
+    _salt
+      `Prelude.hashWithSalt` targetValues
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData GaugeChartFieldWells where

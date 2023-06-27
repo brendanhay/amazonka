@@ -72,8 +72,8 @@ data CreateIAMPolicyAssignment = CreateIAMPolicyAssignment'
     -- | The ID of the Amazon Web Services account where you want to assign an
     -- IAM policy to Amazon QuickSight users or groups.
     awsAccountId :: Prelude.Text,
-    -- | The name of the assignment, also called a rule. It must be unique within
-    -- an Amazon Web Services account.
+    -- | The name of the assignment, also called a rule. The name must be unique
+    -- within the Amazon Web Services account.
     assignmentName :: Prelude.Text,
     -- | The status of the assignment. Possible values are as follows:
     --
@@ -108,8 +108,8 @@ data CreateIAMPolicyAssignment = CreateIAMPolicyAssignment'
 -- 'awsAccountId', 'createIAMPolicyAssignment_awsAccountId' - The ID of the Amazon Web Services account where you want to assign an
 -- IAM policy to Amazon QuickSight users or groups.
 --
--- 'assignmentName', 'createIAMPolicyAssignment_assignmentName' - The name of the assignment, also called a rule. It must be unique within
--- an Amazon Web Services account.
+-- 'assignmentName', 'createIAMPolicyAssignment_assignmentName' - The name of the assignment, also called a rule. The name must be unique
+-- within the Amazon Web Services account.
 --
 -- 'assignmentStatus', 'createIAMPolicyAssignment_assignmentStatus' - The status of the assignment. Possible values are as follows:
 --
@@ -163,8 +163,8 @@ createIAMPolicyAssignment_policyArn = Lens.lens (\CreateIAMPolicyAssignment' {po
 createIAMPolicyAssignment_awsAccountId :: Lens.Lens' CreateIAMPolicyAssignment Prelude.Text
 createIAMPolicyAssignment_awsAccountId = Lens.lens (\CreateIAMPolicyAssignment' {awsAccountId} -> awsAccountId) (\s@CreateIAMPolicyAssignment' {} a -> s {awsAccountId = a} :: CreateIAMPolicyAssignment)
 
--- | The name of the assignment, also called a rule. It must be unique within
--- an Amazon Web Services account.
+-- | The name of the assignment, also called a rule. The name must be unique
+-- within the Amazon Web Services account.
 createIAMPolicyAssignment_assignmentName :: Lens.Lens' CreateIAMPolicyAssignment Prelude.Text
 createIAMPolicyAssignment_assignmentName = Lens.lens (\CreateIAMPolicyAssignment' {assignmentName} -> assignmentName) (\s@CreateIAMPolicyAssignment' {} a -> s {assignmentName = a} :: CreateIAMPolicyAssignment)
 
@@ -206,7 +206,8 @@ instance Core.AWSRequest CreateIAMPolicyAssignment where
 
 instance Prelude.Hashable CreateIAMPolicyAssignment where
   hashWithSalt _salt CreateIAMPolicyAssignment' {..} =
-    _salt `Prelude.hashWithSalt` identities
+    _salt
+      `Prelude.hashWithSalt` identities
       `Prelude.hashWithSalt` policyArn
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` assignmentName
@@ -263,7 +264,7 @@ instance Data.ToQuery CreateIAMPolicyAssignment where
 data CreateIAMPolicyAssignmentResponse = CreateIAMPolicyAssignmentResponse'
   { -- | The ID for the assignment.
     assignmentId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the assignment. This name must be unique within the Amazon
+    -- | The name of the assignment. The name must be unique within the Amazon
     -- Web Services account.
     assignmentName :: Prelude.Maybe Prelude.Text,
     -- | The status of the assignment. Possible values are as follows:
@@ -300,7 +301,7 @@ data CreateIAMPolicyAssignmentResponse = CreateIAMPolicyAssignmentResponse'
 --
 -- 'assignmentId', 'createIAMPolicyAssignmentResponse_assignmentId' - The ID for the assignment.
 --
--- 'assignmentName', 'createIAMPolicyAssignmentResponse_assignmentName' - The name of the assignment. This name must be unique within the Amazon
+-- 'assignmentName', 'createIAMPolicyAssignmentResponse_assignmentName' - The name of the assignment. The name must be unique within the Amazon
 -- Web Services account.
 --
 -- 'assignmentStatus', 'createIAMPolicyAssignmentResponse_assignmentStatus' - The status of the assignment. Possible values are as follows:
@@ -343,7 +344,7 @@ newCreateIAMPolicyAssignmentResponse pStatus_ =
 createIAMPolicyAssignmentResponse_assignmentId :: Lens.Lens' CreateIAMPolicyAssignmentResponse (Prelude.Maybe Prelude.Text)
 createIAMPolicyAssignmentResponse_assignmentId = Lens.lens (\CreateIAMPolicyAssignmentResponse' {assignmentId} -> assignmentId) (\s@CreateIAMPolicyAssignmentResponse' {} a -> s {assignmentId = a} :: CreateIAMPolicyAssignmentResponse)
 
--- | The name of the assignment. This name must be unique within the Amazon
+-- | The name of the assignment. The name must be unique within the Amazon
 -- Web Services account.
 createIAMPolicyAssignmentResponse_assignmentName :: Lens.Lens' CreateIAMPolicyAssignmentResponse (Prelude.Maybe Prelude.Text)
 createIAMPolicyAssignmentResponse_assignmentName = Lens.lens (\CreateIAMPolicyAssignmentResponse' {assignmentName} -> assignmentName) (\s@CreateIAMPolicyAssignmentResponse' {} a -> s {assignmentName = a} :: CreateIAMPolicyAssignmentResponse)

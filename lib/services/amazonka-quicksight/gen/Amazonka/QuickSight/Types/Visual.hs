@@ -39,6 +39,7 @@ import Amazonka.QuickSight.Types.KPIVisual
 import Amazonka.QuickSight.Types.LineChartVisual
 import Amazonka.QuickSight.Types.PieChartVisual
 import Amazonka.QuickSight.Types.PivotTableVisual
+import Amazonka.QuickSight.Types.RadarChartVisual
 import Amazonka.QuickSight.Types.SankeyDiagramVisual
 import Amazonka.QuickSight.Types.ScatterPlotVisual
 import Amazonka.QuickSight.Types.TableVisual
@@ -145,6 +146,12 @@ data Visual = Visual'
     -- <https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html Using pivot tables>
     -- in the /Amazon QuickSight User Guide/.
     pivotTableVisual :: Prelude.Maybe PivotTableVisual,
+    -- | A radar chart visual.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html Using radar charts>
+    -- in the /Amazon QuickSight User Guide/.
+    radarChartVisual :: Prelude.Maybe RadarChartVisual,
     -- | A sankey diagram.
     --
     -- For more information, see
@@ -284,6 +291,12 @@ data Visual = Visual'
 -- <https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html Using pivot tables>
 -- in the /Amazon QuickSight User Guide/.
 --
+-- 'radarChartVisual', 'visual_radarChartVisual' - A radar chart visual.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html Using radar charts>
+-- in the /Amazon QuickSight User Guide/.
+--
 -- 'sankeyDiagramVisual', 'visual_sankeyDiagramVisual' - A sankey diagram.
 --
 -- For more information, see
@@ -339,6 +352,7 @@ newVisual =
       lineChartVisual = Prelude.Nothing,
       pieChartVisual = Prelude.Nothing,
       pivotTableVisual = Prelude.Nothing,
+      radarChartVisual = Prelude.Nothing,
       sankeyDiagramVisual = Prelude.Nothing,
       scatterPlotVisual = Prelude.Nothing,
       tableVisual = Prelude.Nothing,
@@ -471,6 +485,14 @@ visual_pieChartVisual = Lens.lens (\Visual' {pieChartVisual} -> pieChartVisual) 
 visual_pivotTableVisual :: Lens.Lens' Visual (Prelude.Maybe PivotTableVisual)
 visual_pivotTableVisual = Lens.lens (\Visual' {pivotTableVisual} -> pivotTableVisual) (\s@Visual' {} a -> s {pivotTableVisual = a} :: Visual)
 
+-- | A radar chart visual.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html Using radar charts>
+-- in the /Amazon QuickSight User Guide/.
+visual_radarChartVisual :: Lens.Lens' Visual (Prelude.Maybe RadarChartVisual)
+visual_radarChartVisual = Lens.lens (\Visual' {radarChartVisual} -> radarChartVisual) (\s@Visual' {} a -> s {radarChartVisual = a} :: Visual)
+
 -- | A sankey diagram.
 --
 -- For more information, see
@@ -541,6 +563,7 @@ instance Data.FromJSON Visual where
             Prelude.<*> (x Data..:? "LineChartVisual")
             Prelude.<*> (x Data..:? "PieChartVisual")
             Prelude.<*> (x Data..:? "PivotTableVisual")
+            Prelude.<*> (x Data..:? "RadarChartVisual")
             Prelude.<*> (x Data..:? "SankeyDiagramVisual")
             Prelude.<*> (x Data..:? "ScatterPlotVisual")
             Prelude.<*> (x Data..:? "TableVisual")
@@ -551,7 +574,8 @@ instance Data.FromJSON Visual where
 
 instance Prelude.Hashable Visual where
   hashWithSalt _salt Visual' {..} =
-    _salt `Prelude.hashWithSalt` barChartVisual
+    _salt
+      `Prelude.hashWithSalt` barChartVisual
       `Prelude.hashWithSalt` boxPlotVisual
       `Prelude.hashWithSalt` comboChartVisual
       `Prelude.hashWithSalt` customContentVisual
@@ -567,6 +591,7 @@ instance Prelude.Hashable Visual where
       `Prelude.hashWithSalt` lineChartVisual
       `Prelude.hashWithSalt` pieChartVisual
       `Prelude.hashWithSalt` pivotTableVisual
+      `Prelude.hashWithSalt` radarChartVisual
       `Prelude.hashWithSalt` sankeyDiagramVisual
       `Prelude.hashWithSalt` scatterPlotVisual
       `Prelude.hashWithSalt` tableVisual
@@ -592,11 +617,13 @@ instance Prelude.NFData Visual where
       `Prelude.seq` Prelude.rnf lineChartVisual
       `Prelude.seq` Prelude.rnf pieChartVisual
       `Prelude.seq` Prelude.rnf pivotTableVisual
+      `Prelude.seq` Prelude.rnf radarChartVisual
       `Prelude.seq` Prelude.rnf sankeyDiagramVisual
       `Prelude.seq` Prelude.rnf scatterPlotVisual
       `Prelude.seq` Prelude.rnf tableVisual
       `Prelude.seq` Prelude.rnf treeMapVisual
-      `Prelude.seq` Prelude.rnf waterfallVisual
+      `Prelude.seq` Prelude.rnf
+        waterfallVisual
       `Prelude.seq` Prelude.rnf
         wordCloudVisual
 
@@ -631,6 +658,8 @@ instance Data.ToJSON Visual where
               Prelude.<$> pieChartVisual,
             ("PivotTableVisual" Data..=)
               Prelude.<$> pivotTableVisual,
+            ("RadarChartVisual" Data..=)
+              Prelude.<$> radarChartVisual,
             ("SankeyDiagramVisual" Data..=)
               Prelude.<$> sankeyDiagramVisual,
             ("ScatterPlotVisual" Data..=)

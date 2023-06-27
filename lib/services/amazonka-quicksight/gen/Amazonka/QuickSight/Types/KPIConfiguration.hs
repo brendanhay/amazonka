@@ -87,7 +87,8 @@ instance Data.FromJSON KPIConfiguration where
 
 instance Prelude.Hashable KPIConfiguration where
   hashWithSalt _salt KPIConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` fieldWells
+    _salt
+      `Prelude.hashWithSalt` fieldWells
       `Prelude.hashWithSalt` kPIOptions
       `Prelude.hashWithSalt` sortConfiguration
 

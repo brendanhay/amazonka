@@ -55,6 +55,15 @@ newExportToCSVOption =
 exportToCSVOption_availabilityStatus :: Lens.Lens' ExportToCSVOption (Prelude.Maybe DashboardBehavior)
 exportToCSVOption_availabilityStatus = Lens.lens (\ExportToCSVOption' {availabilityStatus} -> availabilityStatus) (\s@ExportToCSVOption' {} a -> s {availabilityStatus = a} :: ExportToCSVOption)
 
+instance Data.FromJSON ExportToCSVOption where
+  parseJSON =
+    Data.withObject
+      "ExportToCSVOption"
+      ( \x ->
+          ExportToCSVOption'
+            Prelude.<$> (x Data..:? "AvailabilityStatus")
+      )
+
 instance Prelude.Hashable ExportToCSVOption where
   hashWithSalt _salt ExportToCSVOption' {..} =
     _salt `Prelude.hashWithSalt` availabilityStatus

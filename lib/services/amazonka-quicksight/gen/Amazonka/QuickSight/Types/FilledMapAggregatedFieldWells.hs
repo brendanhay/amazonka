@@ -86,7 +86,8 @@ instance
     FilledMapAggregatedFieldWells
   where
   hashWithSalt _salt FilledMapAggregatedFieldWells' {..} =
-    _salt `Prelude.hashWithSalt` geospatial
+    _salt
+      `Prelude.hashWithSalt` geospatial
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData FilledMapAggregatedFieldWells where

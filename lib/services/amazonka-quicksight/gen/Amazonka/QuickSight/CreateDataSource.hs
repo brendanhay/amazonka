@@ -228,7 +228,8 @@ instance Core.AWSRequest CreateDataSource where
 
 instance Prelude.Hashable CreateDataSource where
   hashWithSalt _salt CreateDataSource' {..} =
-    _salt `Prelude.hashWithSalt` credentials
+    _salt
+      `Prelude.hashWithSalt` credentials
       `Prelude.hashWithSalt` dataSourceParameters
       `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` sslProperties

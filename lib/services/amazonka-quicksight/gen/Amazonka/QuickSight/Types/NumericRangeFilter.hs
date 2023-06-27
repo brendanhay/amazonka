@@ -195,7 +195,8 @@ instance Data.FromJSON NumericRangeFilter where
 
 instance Prelude.Hashable NumericRangeFilter where
   hashWithSalt _salt NumericRangeFilter' {..} =
-    _salt `Prelude.hashWithSalt` aggregationFunction
+    _salt
+      `Prelude.hashWithSalt` aggregationFunction
       `Prelude.hashWithSalt` includeMaximum
       `Prelude.hashWithSalt` includeMinimum
       `Prelude.hashWithSalt` rangeMaximum

@@ -114,7 +114,8 @@ instance Data.FromJSON FilterTextAreaControl where
 
 instance Prelude.Hashable FilterTextAreaControl where
   hashWithSalt _salt FilterTextAreaControl' {..} =
-    _salt `Prelude.hashWithSalt` delimiter
+    _salt
+      `Prelude.hashWithSalt` delimiter
       `Prelude.hashWithSalt` displayOptions
       `Prelude.hashWithSalt` filterControlId
       `Prelude.hashWithSalt` title

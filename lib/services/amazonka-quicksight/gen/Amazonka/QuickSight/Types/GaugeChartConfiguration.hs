@@ -110,7 +110,8 @@ instance Data.FromJSON GaugeChartConfiguration where
 
 instance Prelude.Hashable GaugeChartConfiguration where
   hashWithSalt _salt GaugeChartConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` dataLabels
+    _salt
+      `Prelude.hashWithSalt` dataLabels
       `Prelude.hashWithSalt` fieldWells
       `Prelude.hashWithSalt` gaugeChartOptions
       `Prelude.hashWithSalt` tooltipOptions

@@ -78,7 +78,8 @@ instance Data.FromJSON TwitterParameters where
 
 instance Prelude.Hashable TwitterParameters where
   hashWithSalt _salt TwitterParameters' {..} =
-    _salt `Prelude.hashWithSalt` query
+    _salt
+      `Prelude.hashWithSalt` query
       `Prelude.hashWithSalt` maxRows
 
 instance Prelude.NFData TwitterParameters where

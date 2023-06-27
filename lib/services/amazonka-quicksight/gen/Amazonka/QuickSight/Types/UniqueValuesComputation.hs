@@ -89,7 +89,8 @@ instance Data.FromJSON UniqueValuesComputation where
 
 instance Prelude.Hashable UniqueValuesComputation where
   hashWithSalt _salt UniqueValuesComputation' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` computationId
       `Prelude.hashWithSalt` category
 

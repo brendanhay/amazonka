@@ -33,7 +33,8 @@
 -- replaces the previous value for that tag.
 --
 -- You can associate as many as 50 tags with a resource. Amazon QuickSight
--- supports tagging on data set, data source, dashboard, and template.
+-- supports tagging on data set, data source, dashboard, template, and
+-- topic.
 --
 -- Tagging for Amazon QuickSight works in a similar way to tagging for
 -- other Amazon Web Services services, except for the following:
@@ -129,7 +130,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

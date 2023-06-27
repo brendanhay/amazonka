@@ -85,7 +85,8 @@ instance
     ConditionalFormattingIconSet
   where
   hashWithSalt _salt ConditionalFormattingIconSet' {..} =
-    _salt `Prelude.hashWithSalt` iconSetType
+    _salt
+      `Prelude.hashWithSalt` iconSetType
       `Prelude.hashWithSalt` expression
 
 instance Prelude.NFData ConditionalFormattingIconSet where

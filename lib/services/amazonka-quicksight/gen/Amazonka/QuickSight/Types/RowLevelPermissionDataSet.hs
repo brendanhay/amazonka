@@ -149,7 +149,8 @@ instance Data.FromJSON RowLevelPermissionDataSet where
 
 instance Prelude.Hashable RowLevelPermissionDataSet where
   hashWithSalt _salt RowLevelPermissionDataSet' {..} =
-    _salt `Prelude.hashWithSalt` formatVersion
+    _salt
+      `Prelude.hashWithSalt` formatVersion
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` arn

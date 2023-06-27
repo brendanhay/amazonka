@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists IAM policy assignments in the current Amazon QuickSight account.
+-- Lists the IAM policy assignments in the current Amazon QuickSight
+-- account.
 module Amazonka.QuickSight.ListIAMPolicyAssignments
   ( -- * Creating a Request
     ListIAMPolicyAssignments (..),
@@ -139,7 +140,8 @@ instance Core.AWSRequest ListIAMPolicyAssignments where
     Response.receiveJSON
       ( \s h x ->
           ListIAMPolicyAssignmentsResponse'
-            Prelude.<$> ( x Data..?> "IAMPolicyAssignments"
+            Prelude.<$> ( x
+                            Data..?> "IAMPolicyAssignments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -149,7 +151,8 @@ instance Core.AWSRequest ListIAMPolicyAssignments where
 
 instance Prelude.Hashable ListIAMPolicyAssignments where
   hashWithSalt _salt ListIAMPolicyAssignments' {..} =
-    _salt `Prelude.hashWithSalt` assignmentStatus
+    _salt
+      `Prelude.hashWithSalt` assignmentStatus
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
@@ -181,13 +184,14 @@ instance Data.ToPath ListIAMPolicyAssignments where
         Data.toBS awsAccountId,
         "/namespaces/",
         Data.toBS namespace,
-        "/iam-policy-assignments"
+        "/v2/iam-policy-assignments"
       ]
 
 instance Data.ToQuery ListIAMPolicyAssignments where
   toQuery ListIAMPolicyAssignments' {..} =
     Prelude.mconcat
-      [ "max-results" Data.=: maxResults,
+      [ "assignment-status" Data.=: assignmentStatus,
+        "max-results" Data.=: maxResults,
         "next-token" Data.=: nextToken
       ]
 

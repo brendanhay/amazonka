@@ -86,7 +86,8 @@ instance Data.FromJSON GradientStop where
 
 instance Prelude.Hashable GradientStop where
   hashWithSalt _salt GradientStop' {..} =
-    _salt `Prelude.hashWithSalt` color
+    _salt
+      `Prelude.hashWithSalt` color
       `Prelude.hashWithSalt` dataValue
       `Prelude.hashWithSalt` gradientOffset
 

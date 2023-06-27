@@ -128,7 +128,8 @@ instance Core.AWSRequest DeleteUserByPrincipalId where
 
 instance Prelude.Hashable DeleteUserByPrincipalId where
   hashWithSalt _salt DeleteUserByPrincipalId' {..} =
-    _salt `Prelude.hashWithSalt` principalId
+    _salt
+      `Prelude.hashWithSalt` principalId
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` namespace
 

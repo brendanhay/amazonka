@@ -90,7 +90,8 @@ instance Data.FromJSON AuroraParameters where
 
 instance Prelude.Hashable AuroraParameters where
   hashWithSalt _salt AuroraParameters' {..} =
-    _salt `Prelude.hashWithSalt` host
+    _salt
+      `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` database
 

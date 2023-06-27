@@ -77,7 +77,8 @@ instance Data.FromJSON TableFieldURLConfiguration where
 
 instance Prelude.Hashable TableFieldURLConfiguration where
   hashWithSalt _salt TableFieldURLConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` imageConfiguration
+    _salt
+      `Prelude.hashWithSalt` imageConfiguration
       `Prelude.hashWithSalt` linkConfiguration
 
 instance Prelude.NFData TableFieldURLConfiguration where

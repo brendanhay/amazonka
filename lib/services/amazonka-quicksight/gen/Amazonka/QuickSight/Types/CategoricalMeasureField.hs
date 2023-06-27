@@ -102,7 +102,8 @@ instance Data.FromJSON CategoricalMeasureField where
 
 instance Prelude.Hashable CategoricalMeasureField where
   hashWithSalt _salt CategoricalMeasureField' {..} =
-    _salt `Prelude.hashWithSalt` aggregationFunction
+    _salt
+      `Prelude.hashWithSalt` aggregationFunction
       `Prelude.hashWithSalt` formatConfiguration
       `Prelude.hashWithSalt` fieldId
       `Prelude.hashWithSalt` column

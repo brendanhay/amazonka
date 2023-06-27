@@ -82,7 +82,8 @@ instance Data.FromJSON ColumnLevelPermissionRule where
 
 instance Prelude.Hashable ColumnLevelPermissionRule where
   hashWithSalt _salt ColumnLevelPermissionRule' {..} =
-    _salt `Prelude.hashWithSalt` columnNames
+    _salt
+      `Prelude.hashWithSalt` columnNames
       `Prelude.hashWithSalt` principals
 
 instance Prelude.NFData ColumnLevelPermissionRule where

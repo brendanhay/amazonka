@@ -20,9 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an Amazon QuickSight user, whose identity is associated with the
+-- Creates an Amazon QuickSight user whose identity is associated with the
 -- Identity and Access Management (IAM) identity or role specified in the
--- request.
+-- request. When you register a new user from the Amazon QuickSight API,
+-- Amazon QuickSight generates a registration URL. The user accesses this
+-- registration URL to create their account. Amazon QuickSight doesn\'t
+-- send a registration email to users who are registered from the Amazon
+-- QuickSight API. If you want new users to receive a registration email,
+-- then add those users in the Amazon QuickSight console. For more
+-- information on registering a new user in the Amazon QuickSight console,
+-- see
+-- <https://docs.aws.amazon.com/quicksight/latest/user/managing-users.html#inviting-users Inviting users to access Amazon QuickSight>.
 module Amazonka.QuickSight.RegisterUser
   ( -- * Creating a Request
     RegisterUser (..),
@@ -83,7 +91,8 @@ data RegisterUser = RegisterUser'
     --
     -- -   Subscribe to email reports
     --
-    -- To add custom permissions to an existing user, use @ UpdateUser @
+    -- To add custom permissions to an existing user, use
+    -- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html UpdateUser>@ @
     -- instead.
     --
     -- A set of custom permissions includes any combination of these
@@ -192,7 +201,8 @@ data RegisterUser = RegisterUser'
 --
 -- -   Subscribe to email reports
 --
--- To add custom permissions to an existing user, use @ UpdateUser @
+-- To add custom permissions to an existing user, use
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html UpdateUser>@ @
 -- instead.
 --
 -- A set of custom permissions includes any combination of these
@@ -326,7 +336,8 @@ registerUser_customFederationProviderUrl = Lens.lens (\RegisterUser' {customFede
 --
 -- -   Subscribe to email reports
 --
--- To add custom permissions to an existing user, use @ UpdateUser @
+-- To add custom permissions to an existing user, use
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html UpdateUser>@ @
 -- instead.
 --
 -- A set of custom permissions includes any combination of these

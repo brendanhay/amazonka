@@ -170,7 +170,8 @@ instance Core.AWSRequest UpdateTheme where
 
 instance Prelude.Hashable UpdateTheme where
   hashWithSalt _salt UpdateTheme' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` versionDescription
       `Prelude.hashWithSalt` awsAccountId

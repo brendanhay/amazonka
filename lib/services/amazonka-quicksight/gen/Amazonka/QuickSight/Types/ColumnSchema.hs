@@ -84,7 +84,8 @@ instance Data.FromJSON ColumnSchema where
 
 instance Prelude.Hashable ColumnSchema where
   hashWithSalt _salt ColumnSchema' {..} =
-    _salt `Prelude.hashWithSalt` dataType
+    _salt
+      `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` geographicRole
       `Prelude.hashWithSalt` name
 

@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.QuickSight.Types.ColumnIdentifier
 import Amazonka.QuickSight.Types.CustomValuesConfiguration
 import Amazonka.QuickSight.Types.SelectAllValueOptions
 
@@ -38,6 +39,7 @@ data DestinationParameterValueConfiguration = DestinationParameterValueConfigura
     customValuesConfiguration :: Prelude.Maybe CustomValuesConfiguration,
     -- | The configuration that selects all options.
     selectAllValueOptions :: Prelude.Maybe SelectAllValueOptions,
+    sourceColumn :: Prelude.Maybe ColumnIdentifier,
     -- | The source field ID of the destination parameter.
     sourceField :: Prelude.Maybe Prelude.Text,
     -- | The source parameter name of the destination parameter.
@@ -58,6 +60,8 @@ data DestinationParameterValueConfiguration = DestinationParameterValueConfigura
 --
 -- 'selectAllValueOptions', 'destinationParameterValueConfiguration_selectAllValueOptions' - The configuration that selects all options.
 --
+-- 'sourceColumn', 'destinationParameterValueConfiguration_sourceColumn' - Undocumented member.
+--
 -- 'sourceField', 'destinationParameterValueConfiguration_sourceField' - The source field ID of the destination parameter.
 --
 -- 'sourceParameterName', 'destinationParameterValueConfiguration_sourceParameterName' - The source parameter name of the destination parameter.
@@ -69,6 +73,7 @@ newDestinationParameterValueConfiguration =
         Prelude.Nothing,
       selectAllValueOptions =
         Prelude.Nothing,
+      sourceColumn = Prelude.Nothing,
       sourceField = Prelude.Nothing,
       sourceParameterName =
         Prelude.Nothing
@@ -82,6 +87,10 @@ destinationParameterValueConfiguration_customValuesConfiguration = Lens.lens (\D
 -- | The configuration that selects all options.
 destinationParameterValueConfiguration_selectAllValueOptions :: Lens.Lens' DestinationParameterValueConfiguration (Prelude.Maybe SelectAllValueOptions)
 destinationParameterValueConfiguration_selectAllValueOptions = Lens.lens (\DestinationParameterValueConfiguration' {selectAllValueOptions} -> selectAllValueOptions) (\s@DestinationParameterValueConfiguration' {} a -> s {selectAllValueOptions = a} :: DestinationParameterValueConfiguration)
+
+-- | Undocumented member.
+destinationParameterValueConfiguration_sourceColumn :: Lens.Lens' DestinationParameterValueConfiguration (Prelude.Maybe ColumnIdentifier)
+destinationParameterValueConfiguration_sourceColumn = Lens.lens (\DestinationParameterValueConfiguration' {sourceColumn} -> sourceColumn) (\s@DestinationParameterValueConfiguration' {} a -> s {sourceColumn = a} :: DestinationParameterValueConfiguration)
 
 -- | The source field ID of the destination parameter.
 destinationParameterValueConfiguration_sourceField :: Lens.Lens' DestinationParameterValueConfiguration (Prelude.Maybe Prelude.Text)
@@ -102,6 +111,7 @@ instance
           DestinationParameterValueConfiguration'
             Prelude.<$> (x Data..:? "CustomValuesConfiguration")
             Prelude.<*> (x Data..:? "SelectAllValueOptions")
+            Prelude.<*> (x Data..:? "SourceColumn")
             Prelude.<*> (x Data..:? "SourceField")
             Prelude.<*> (x Data..:? "SourceParameterName")
       )
@@ -116,6 +126,7 @@ instance
       _salt
         `Prelude.hashWithSalt` customValuesConfiguration
         `Prelude.hashWithSalt` selectAllValueOptions
+        `Prelude.hashWithSalt` sourceColumn
         `Prelude.hashWithSalt` sourceField
         `Prelude.hashWithSalt` sourceParameterName
 
@@ -126,6 +137,7 @@ instance
   rnf DestinationParameterValueConfiguration' {..} =
     Prelude.rnf customValuesConfiguration
       `Prelude.seq` Prelude.rnf selectAllValueOptions
+      `Prelude.seq` Prelude.rnf sourceColumn
       `Prelude.seq` Prelude.rnf sourceField
       `Prelude.seq` Prelude.rnf sourceParameterName
 
@@ -140,6 +152,7 @@ instance
               Prelude.<$> customValuesConfiguration,
             ("SelectAllValueOptions" Data..=)
               Prelude.<$> selectAllValueOptions,
+            ("SourceColumn" Data..=) Prelude.<$> sourceColumn,
             ("SourceField" Data..=) Prelude.<$> sourceField,
             ("SourceParameterName" Data..=)
               Prelude.<$> sourceParameterName

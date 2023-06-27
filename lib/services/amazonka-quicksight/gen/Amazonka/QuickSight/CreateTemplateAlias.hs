@@ -143,7 +143,8 @@ instance Core.AWSRequest CreateTemplateAlias where
 
 instance Prelude.Hashable CreateTemplateAlias where
   hashWithSalt _salt CreateTemplateAlias' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` templateId
       `Prelude.hashWithSalt` aliasName
       `Prelude.hashWithSalt` templateVersionNumber

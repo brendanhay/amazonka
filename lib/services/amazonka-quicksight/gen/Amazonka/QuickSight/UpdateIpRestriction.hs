@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the content and status of IP rules. To use this operation, you
--- need to provide the entire map of rules. You can use the
+-- must provide the entire map of rules. You can use the
 -- @DescribeIpRestriction@ operation to get the current rule map.
 module Amazonka.QuickSight.UpdateIpRestriction
   ( -- * Creating a Request
@@ -119,7 +119,8 @@ instance Core.AWSRequest UpdateIpRestriction where
 
 instance Prelude.Hashable UpdateIpRestriction where
   hashWithSalt _salt UpdateIpRestriction' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` ipRestrictionRuleMap
       `Prelude.hashWithSalt` awsAccountId
 

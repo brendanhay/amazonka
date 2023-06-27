@@ -139,7 +139,8 @@ instance Data.FromJSON KPIOptions where
 
 instance Prelude.Hashable KPIOptions where
   hashWithSalt _salt KPIOptions' {..} =
-    _salt `Prelude.hashWithSalt` comparison
+    _salt
+      `Prelude.hashWithSalt` comparison
       `Prelude.hashWithSalt` primaryValueDisplayType
       `Prelude.hashWithSalt` primaryValueFontConfiguration
       `Prelude.hashWithSalt` progressBar

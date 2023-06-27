@@ -31,6 +31,7 @@ module Amazonka.QuickSight.Types.IngestionErrorType
         IngestionErrorType_DATA_SOURCE_CONNECTION_FAILED,
         IngestionErrorType_DATA_SOURCE_NOT_FOUND,
         IngestionErrorType_DATA_TOLERANCE_EXCEPTION,
+        IngestionErrorType_DUPLICATE_COLUMN_NAMES_FOUND,
         IngestionErrorType_ELASTICSEARCH_CURSOR_NOT_ENABLED,
         IngestionErrorType_FAILURE_TO_ASSUME_ROLE,
         IngestionErrorType_FAILURE_TO_PROCESS_JSON_FILE,
@@ -132,6 +133,9 @@ pattern IngestionErrorType_DATA_SOURCE_NOT_FOUND = IngestionErrorType' "DATA_SOU
 
 pattern IngestionErrorType_DATA_TOLERANCE_EXCEPTION :: IngestionErrorType
 pattern IngestionErrorType_DATA_TOLERANCE_EXCEPTION = IngestionErrorType' "DATA_TOLERANCE_EXCEPTION"
+
+pattern IngestionErrorType_DUPLICATE_COLUMN_NAMES_FOUND :: IngestionErrorType
+pattern IngestionErrorType_DUPLICATE_COLUMN_NAMES_FOUND = IngestionErrorType' "DUPLICATE_COLUMN_NAMES_FOUND"
 
 pattern IngestionErrorType_ELASTICSEARCH_CURSOR_NOT_ENABLED :: IngestionErrorType
 pattern IngestionErrorType_ELASTICSEARCH_CURSOR_NOT_ENABLED = IngestionErrorType' "ELASTICSEARCH_CURSOR_NOT_ENABLED"
@@ -244,6 +248,7 @@ pattern IngestionErrorType_UNROUTABLE_HOST = IngestionErrorType' "UNROUTABLE_HOS
   IngestionErrorType_DATA_SOURCE_CONNECTION_FAILED,
   IngestionErrorType_DATA_SOURCE_NOT_FOUND,
   IngestionErrorType_DATA_TOLERANCE_EXCEPTION,
+  IngestionErrorType_DUPLICATE_COLUMN_NAMES_FOUND,
   IngestionErrorType_ELASTICSEARCH_CURSOR_NOT_ENABLED,
   IngestionErrorType_FAILURE_TO_ASSUME_ROLE,
   IngestionErrorType_FAILURE_TO_PROCESS_JSON_FILE,

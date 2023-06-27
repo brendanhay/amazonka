@@ -106,7 +106,8 @@ instance Core.AWSRequest DescribeFolder where
 
 instance Prelude.Hashable DescribeFolder where
   hashWithSalt _salt DescribeFolder' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` folderId
 
 instance Prelude.NFData DescribeFolder where

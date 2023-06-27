@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.TableFieldOptions
 import Amazonka.QuickSight.Types.TableFieldWells
+import Amazonka.QuickSight.Types.TableInlineVisualization
 import Amazonka.QuickSight.Types.TableOptions
 import Amazonka.QuickSight.Types.TablePaginatedReportOptions
 import Amazonka.QuickSight.Types.TableSortConfiguration
@@ -42,6 +43,8 @@ data TableConfiguration = TableConfiguration'
     paginatedReportOptions :: Prelude.Maybe TablePaginatedReportOptions,
     -- | The sort configuration for a @TableVisual@.
     sortConfiguration :: Prelude.Maybe TableSortConfiguration,
+    -- | A collection of inline visualizations to display within a chart.
+    tableInlineVisualizations :: Prelude.Maybe [TableInlineVisualization],
     -- | The table options for a table visual.
     tableOptions :: Prelude.Maybe TableOptions,
     -- | The total options for a table visual.
@@ -65,6 +68,8 @@ data TableConfiguration = TableConfiguration'
 --
 -- 'sortConfiguration', 'tableConfiguration_sortConfiguration' - The sort configuration for a @TableVisual@.
 --
+-- 'tableInlineVisualizations', 'tableConfiguration_tableInlineVisualizations' - A collection of inline visualizations to display within a chart.
+--
 -- 'tableOptions', 'tableConfiguration_tableOptions' - The table options for a table visual.
 --
 -- 'totalOptions', 'tableConfiguration_totalOptions' - The total options for a table visual.
@@ -76,6 +81,7 @@ newTableConfiguration =
       fieldWells = Prelude.Nothing,
       paginatedReportOptions = Prelude.Nothing,
       sortConfiguration = Prelude.Nothing,
+      tableInlineVisualizations = Prelude.Nothing,
       tableOptions = Prelude.Nothing,
       totalOptions = Prelude.Nothing
     }
@@ -96,6 +102,10 @@ tableConfiguration_paginatedReportOptions = Lens.lens (\TableConfiguration' {pag
 tableConfiguration_sortConfiguration :: Lens.Lens' TableConfiguration (Prelude.Maybe TableSortConfiguration)
 tableConfiguration_sortConfiguration = Lens.lens (\TableConfiguration' {sortConfiguration} -> sortConfiguration) (\s@TableConfiguration' {} a -> s {sortConfiguration = a} :: TableConfiguration)
 
+-- | A collection of inline visualizations to display within a chart.
+tableConfiguration_tableInlineVisualizations :: Lens.Lens' TableConfiguration (Prelude.Maybe [TableInlineVisualization])
+tableConfiguration_tableInlineVisualizations = Lens.lens (\TableConfiguration' {tableInlineVisualizations} -> tableInlineVisualizations) (\s@TableConfiguration' {} a -> s {tableInlineVisualizations = a} :: TableConfiguration) Prelude.. Lens.mapping Lens.coerced
+
 -- | The table options for a table visual.
 tableConfiguration_tableOptions :: Lens.Lens' TableConfiguration (Prelude.Maybe TableOptions)
 tableConfiguration_tableOptions = Lens.lens (\TableConfiguration' {tableOptions} -> tableOptions) (\s@TableConfiguration' {} a -> s {tableOptions = a} :: TableConfiguration)
@@ -114,16 +124,22 @@ instance Data.FromJSON TableConfiguration where
             Prelude.<*> (x Data..:? "FieldWells")
             Prelude.<*> (x Data..:? "PaginatedReportOptions")
             Prelude.<*> (x Data..:? "SortConfiguration")
+            Prelude.<*> ( x
+                            Data..:? "TableInlineVisualizations"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "TableOptions")
             Prelude.<*> (x Data..:? "TotalOptions")
       )
 
 instance Prelude.Hashable TableConfiguration where
   hashWithSalt _salt TableConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` fieldOptions
+    _salt
+      `Prelude.hashWithSalt` fieldOptions
       `Prelude.hashWithSalt` fieldWells
       `Prelude.hashWithSalt` paginatedReportOptions
       `Prelude.hashWithSalt` sortConfiguration
+      `Prelude.hashWithSalt` tableInlineVisualizations
       `Prelude.hashWithSalt` tableOptions
       `Prelude.hashWithSalt` totalOptions
 
@@ -133,6 +149,7 @@ instance Prelude.NFData TableConfiguration where
       `Prelude.seq` Prelude.rnf fieldWells
       `Prelude.seq` Prelude.rnf paginatedReportOptions
       `Prelude.seq` Prelude.rnf sortConfiguration
+      `Prelude.seq` Prelude.rnf tableInlineVisualizations
       `Prelude.seq` Prelude.rnf tableOptions
       `Prelude.seq` Prelude.rnf totalOptions
 
@@ -146,6 +163,8 @@ instance Data.ToJSON TableConfiguration where
               Prelude.<$> paginatedReportOptions,
             ("SortConfiguration" Data..=)
               Prelude.<$> sortConfiguration,
+            ("TableInlineVisualizations" Data..=)
+              Prelude.<$> tableInlineVisualizations,
             ("TableOptions" Data..=) Prelude.<$> tableOptions,
             ("TotalOptions" Data..=) Prelude.<$> totalOptions
           ]

@@ -185,7 +185,8 @@ instance Data.FromJSON BoxPlotChartConfiguration where
 
 instance Prelude.Hashable BoxPlotChartConfiguration where
   hashWithSalt _salt BoxPlotChartConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` boxPlotOptions
+    _salt
+      `Prelude.hashWithSalt` boxPlotOptions
       `Prelude.hashWithSalt` categoryAxis
       `Prelude.hashWithSalt` categoryLabelOptions
       `Prelude.hashWithSalt` fieldWells

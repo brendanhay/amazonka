@@ -20,8 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a template from an existing Amazon QuickSight analysis or
--- template. You can use the resulting template to create a dashboard.
+-- Creates a template either from a @TemplateDefinition@ or from an
+-- existing Amazon QuickSight analysis or template. You can use the
+-- resulting template to create additional dashboards, templates, or
+-- analyses.
 --
 -- A /template/ is an entity in Amazon QuickSight that encapsulates the
 -- metadata required to create an analysis and that you can use to create s
@@ -73,6 +75,9 @@ data CreateTemplate = CreateTemplate'
     --
     -- A definition is the data model of all features in a Dashboard, Template,
     -- or Analysis.
+    --
+    -- Either a @SourceEntity@ or a @Definition@ must be provided in order for
+    -- the request to be valid.
     definition :: Prelude.Maybe TemplateVersionDefinition,
     -- | A display name for the template.
     name :: Prelude.Maybe Prelude.Text,
@@ -91,6 +96,9 @@ data CreateTemplate = CreateTemplate'
     -- @SourceAnalysis@ to list the replacement datasets for the placeholders
     -- listed in the original. The schema in each dataset must match its
     -- placeholder.
+    --
+    -- Either a @SourceEntity@ or a @Definition@ must be provided in order for
+    -- the request to be valid.
     sourceEntity :: Prelude.Maybe TemplateSourceEntity,
     -- | Contains a map of the key-value pairs for the resource tag or tags
     -- assigned to the resource.
@@ -124,6 +132,9 @@ data CreateTemplate = CreateTemplate'
 -- A definition is the data model of all features in a Dashboard, Template,
 -- or Analysis.
 --
+-- Either a @SourceEntity@ or a @Definition@ must be provided in order for
+-- the request to be valid.
+--
 -- 'name', 'createTemplate_name' - A display name for the template.
 --
 -- 'permissions', 'createTemplate_permissions' - A list of resource permissions to be set on the template.
@@ -141,6 +152,9 @@ data CreateTemplate = CreateTemplate'
 -- @SourceAnalysis@ to list the replacement datasets for the placeholders
 -- listed in the original. The schema in each dataset must match its
 -- placeholder.
+--
+-- Either a @SourceEntity@ or a @Definition@ must be provided in order for
+-- the request to be valid.
 --
 -- 'tags', 'createTemplate_tags' - Contains a map of the key-value pairs for the resource tag or tags
 -- assigned to the resource.
@@ -179,6 +193,9 @@ newCreateTemplate pAwsAccountId_ pTemplateId_ =
 --
 -- A definition is the data model of all features in a Dashboard, Template,
 -- or Analysis.
+--
+-- Either a @SourceEntity@ or a @Definition@ must be provided in order for
+-- the request to be valid.
 createTemplate_definition :: Lens.Lens' CreateTemplate (Prelude.Maybe TemplateVersionDefinition)
 createTemplate_definition = Lens.lens (\CreateTemplate' {definition} -> definition) (\s@CreateTemplate' {} a -> s {definition = a} :: CreateTemplate)
 
@@ -203,6 +220,9 @@ createTemplate_permissions = Lens.lens (\CreateTemplate' {permissions} -> permis
 -- @SourceAnalysis@ to list the replacement datasets for the placeholders
 -- listed in the original. The schema in each dataset must match its
 -- placeholder.
+--
+-- Either a @SourceEntity@ or a @Definition@ must be provided in order for
+-- the request to be valid.
 createTemplate_sourceEntity :: Lens.Lens' CreateTemplate (Prelude.Maybe TemplateSourceEntity)
 createTemplate_sourceEntity = Lens.lens (\CreateTemplate' {sourceEntity} -> sourceEntity) (\s@CreateTemplate' {} a -> s {sourceEntity = a} :: CreateTemplate)
 
@@ -250,7 +270,8 @@ instance Core.AWSRequest CreateTemplate where
 
 instance Prelude.Hashable CreateTemplate where
   hashWithSalt _salt CreateTemplate' {..} =
-    _salt `Prelude.hashWithSalt` definition
+    _salt
+      `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` sourceEntity

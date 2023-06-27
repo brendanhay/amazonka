@@ -155,7 +155,8 @@ instance
     NumericalAggregationFunction
   where
   hashWithSalt _salt NumericalAggregationFunction' {..} =
-    _salt `Prelude.hashWithSalt` percentileAggregation
+    _salt
+      `Prelude.hashWithSalt` percentileAggregation
       `Prelude.hashWithSalt` simpleNumericalAggregation
 
 instance Prelude.NFData NumericalAggregationFunction where

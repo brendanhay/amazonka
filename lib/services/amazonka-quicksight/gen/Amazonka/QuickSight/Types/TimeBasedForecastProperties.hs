@@ -130,7 +130,8 @@ instance Data.FromJSON TimeBasedForecastProperties where
 
 instance Prelude.Hashable TimeBasedForecastProperties where
   hashWithSalt _salt TimeBasedForecastProperties' {..} =
-    _salt `Prelude.hashWithSalt` lowerBoundary
+    _salt
+      `Prelude.hashWithSalt` lowerBoundary
       `Prelude.hashWithSalt` periodsBackward
       `Prelude.hashWithSalt` periodsForward
       `Prelude.hashWithSalt` predictionInterval

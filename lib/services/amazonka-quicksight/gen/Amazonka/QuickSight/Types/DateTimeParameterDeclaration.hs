@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DateTimeDefaultValues
 import Amazonka.QuickSight.Types.DateTimeValueWhenUnsetConfiguration
+import Amazonka.QuickSight.Types.MappedDataSetParameter
 import Amazonka.QuickSight.Types.TimeGranularity
 
 -- | A parameter declaration for the @DateTime@ data type.
@@ -34,6 +35,7 @@ data DateTimeParameterDeclaration = DateTimeParameterDeclaration'
   { -- | The default values of a parameter. If the parameter is a single-value
     -- parameter, a maximum of one default value can be provided.
     defaultValues :: Prelude.Maybe DateTimeDefaultValues,
+    mappedDataSetParameters :: Prelude.Maybe [MappedDataSetParameter],
     -- | The level of time precision that is used to aggregate @DateTime@ values.
     timeGranularity :: Prelude.Maybe TimeGranularity,
     -- | The configuration that defines the default value of a @DateTime@
@@ -55,6 +57,8 @@ data DateTimeParameterDeclaration = DateTimeParameterDeclaration'
 -- 'defaultValues', 'dateTimeParameterDeclaration_defaultValues' - The default values of a parameter. If the parameter is a single-value
 -- parameter, a maximum of one default value can be provided.
 --
+-- 'mappedDataSetParameters', 'dateTimeParameterDeclaration_mappedDataSetParameters' - Undocumented member.
+--
 -- 'timeGranularity', 'dateTimeParameterDeclaration_timeGranularity' - The level of time precision that is used to aggregate @DateTime@ values.
 --
 -- 'valueWhenUnset', 'dateTimeParameterDeclaration_valueWhenUnset' - The configuration that defines the default value of a @DateTime@
@@ -69,6 +73,7 @@ newDateTimeParameterDeclaration pName_ =
   DateTimeParameterDeclaration'
     { defaultValues =
         Prelude.Nothing,
+      mappedDataSetParameters = Prelude.Nothing,
       timeGranularity = Prelude.Nothing,
       valueWhenUnset = Prelude.Nothing,
       name = pName_
@@ -78,6 +83,10 @@ newDateTimeParameterDeclaration pName_ =
 -- parameter, a maximum of one default value can be provided.
 dateTimeParameterDeclaration_defaultValues :: Lens.Lens' DateTimeParameterDeclaration (Prelude.Maybe DateTimeDefaultValues)
 dateTimeParameterDeclaration_defaultValues = Lens.lens (\DateTimeParameterDeclaration' {defaultValues} -> defaultValues) (\s@DateTimeParameterDeclaration' {} a -> s {defaultValues = a} :: DateTimeParameterDeclaration)
+
+-- | Undocumented member.
+dateTimeParameterDeclaration_mappedDataSetParameters :: Lens.Lens' DateTimeParameterDeclaration (Prelude.Maybe [MappedDataSetParameter])
+dateTimeParameterDeclaration_mappedDataSetParameters = Lens.lens (\DateTimeParameterDeclaration' {mappedDataSetParameters} -> mappedDataSetParameters) (\s@DateTimeParameterDeclaration' {} a -> s {mappedDataSetParameters = a} :: DateTimeParameterDeclaration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The level of time precision that is used to aggregate @DateTime@ values.
 dateTimeParameterDeclaration_timeGranularity :: Lens.Lens' DateTimeParameterDeclaration (Prelude.Maybe TimeGranularity)
@@ -99,6 +108,10 @@ instance Data.FromJSON DateTimeParameterDeclaration where
       ( \x ->
           DateTimeParameterDeclaration'
             Prelude.<$> (x Data..:? "DefaultValues")
+            Prelude.<*> ( x
+                            Data..:? "MappedDataSetParameters"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "TimeGranularity")
             Prelude.<*> (x Data..:? "ValueWhenUnset")
             Prelude.<*> (x Data..: "Name")
@@ -109,7 +122,9 @@ instance
     DateTimeParameterDeclaration
   where
   hashWithSalt _salt DateTimeParameterDeclaration' {..} =
-    _salt `Prelude.hashWithSalt` defaultValues
+    _salt
+      `Prelude.hashWithSalt` defaultValues
+      `Prelude.hashWithSalt` mappedDataSetParameters
       `Prelude.hashWithSalt` timeGranularity
       `Prelude.hashWithSalt` valueWhenUnset
       `Prelude.hashWithSalt` name
@@ -117,6 +132,7 @@ instance
 instance Prelude.NFData DateTimeParameterDeclaration where
   rnf DateTimeParameterDeclaration' {..} =
     Prelude.rnf defaultValues
+      `Prelude.seq` Prelude.rnf mappedDataSetParameters
       `Prelude.seq` Prelude.rnf timeGranularity
       `Prelude.seq` Prelude.rnf valueWhenUnset
       `Prelude.seq` Prelude.rnf name
@@ -126,6 +142,8 @@ instance Data.ToJSON DateTimeParameterDeclaration where
     Data.object
       ( Prelude.catMaybes
           [ ("DefaultValues" Data..=) Prelude.<$> defaultValues,
+            ("MappedDataSetParameters" Data..=)
+              Prelude.<$> mappedDataSetParameters,
             ("TimeGranularity" Data..=)
               Prelude.<$> timeGranularity,
             ("ValueWhenUnset" Data..=)

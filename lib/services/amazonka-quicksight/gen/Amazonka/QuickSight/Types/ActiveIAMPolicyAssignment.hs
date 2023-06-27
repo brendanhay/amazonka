@@ -75,7 +75,8 @@ instance Data.FromJSON ActiveIAMPolicyAssignment where
 
 instance Prelude.Hashable ActiveIAMPolicyAssignment where
   hashWithSalt _salt ActiveIAMPolicyAssignment' {..} =
-    _salt `Prelude.hashWithSalt` assignmentName
+    _salt
+      `Prelude.hashWithSalt` assignmentName
       `Prelude.hashWithSalt` policyArn
 
 instance Prelude.NFData ActiveIAMPolicyAssignment where

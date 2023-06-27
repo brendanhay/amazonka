@@ -80,7 +80,8 @@ instance Data.FromJSON GridLayoutConfiguration where
 
 instance Prelude.Hashable GridLayoutConfiguration where
   hashWithSalt _salt GridLayoutConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` canvasSizeOptions
+    _salt
+      `Prelude.hashWithSalt` canvasSizeOptions
       `Prelude.hashWithSalt` elements
 
 instance Prelude.NFData GridLayoutConfiguration where

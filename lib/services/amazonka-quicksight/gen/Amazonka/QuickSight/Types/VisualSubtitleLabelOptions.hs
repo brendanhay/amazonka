@@ -80,7 +80,8 @@ instance Data.FromJSON VisualSubtitleLabelOptions where
 
 instance Prelude.Hashable VisualSubtitleLabelOptions where
   hashWithSalt _salt VisualSubtitleLabelOptions' {..} =
-    _salt `Prelude.hashWithSalt` formatText
+    _salt
+      `Prelude.hashWithSalt` formatText
       `Prelude.hashWithSalt` visibility
 
 instance Prelude.NFData VisualSubtitleLabelOptions where

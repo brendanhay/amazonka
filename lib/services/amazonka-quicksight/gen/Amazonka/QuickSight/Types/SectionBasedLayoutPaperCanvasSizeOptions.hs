@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     SectionBasedLayoutPaperCanvasSizeOptions' {..} =
-      _salt `Prelude.hashWithSalt` paperMargin
+      _salt
+        `Prelude.hashWithSalt` paperMargin
         `Prelude.hashWithSalt` paperOrientation
         `Prelude.hashWithSalt` paperSize
 

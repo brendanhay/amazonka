@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     SankeyDiagramAggregatedFieldWells' {..} =
-      _salt `Prelude.hashWithSalt` destination
+      _salt
+        `Prelude.hashWithSalt` destination
         `Prelude.hashWithSalt` source
         `Prelude.hashWithSalt` weight
 

@@ -149,7 +149,8 @@ instance Data.FromJSON FilterGroup where
 
 instance Prelude.Hashable FilterGroup where
   hashWithSalt _salt FilterGroup' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` filterGroupId
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` scopeConfiguration

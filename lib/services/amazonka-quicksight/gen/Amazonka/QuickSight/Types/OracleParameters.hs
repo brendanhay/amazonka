@@ -30,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 data OracleParameters = OracleParameters'
   { -- | An Oracle host.
     host :: Prelude.Text,
-    -- | Port.
+    -- | The port.
     port :: Prelude.Natural,
-    -- | Database.
+    -- | The database.
     database :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,9 +47,9 @@ data OracleParameters = OracleParameters'
 --
 -- 'host', 'oracleParameters_host' - An Oracle host.
 --
--- 'port', 'oracleParameters_port' - Port.
+-- 'port', 'oracleParameters_port' - The port.
 --
--- 'database', 'oracleParameters_database' - Database.
+-- 'database', 'oracleParameters_database' - The database.
 newOracleParameters ::
   -- | 'host'
   Prelude.Text ->
@@ -69,11 +69,11 @@ newOracleParameters pHost_ pPort_ pDatabase_ =
 oracleParameters_host :: Lens.Lens' OracleParameters Prelude.Text
 oracleParameters_host = Lens.lens (\OracleParameters' {host} -> host) (\s@OracleParameters' {} a -> s {host = a} :: OracleParameters)
 
--- | Port.
+-- | The port.
 oracleParameters_port :: Lens.Lens' OracleParameters Prelude.Natural
 oracleParameters_port = Lens.lens (\OracleParameters' {port} -> port) (\s@OracleParameters' {} a -> s {port = a} :: OracleParameters)
 
--- | Database.
+-- | The database.
 oracleParameters_database :: Lens.Lens' OracleParameters Prelude.Text
 oracleParameters_database = Lens.lens (\OracleParameters' {database} -> database) (\s@OracleParameters' {} a -> s {database = a} :: OracleParameters)
 
@@ -90,7 +90,8 @@ instance Data.FromJSON OracleParameters where
 
 instance Prelude.Hashable OracleParameters where
   hashWithSalt _salt OracleParameters' {..} =
-    _salt `Prelude.hashWithSalt` host
+    _salt
+      `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` database
 

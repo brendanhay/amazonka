@@ -210,7 +210,8 @@ instance Core.AWSRequest UpdateTemplate where
 
 instance Prelude.Hashable UpdateTemplate where
   hashWithSalt _salt UpdateTemplate' {..} =
-    _salt `Prelude.hashWithSalt` definition
+    _salt
+      `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sourceEntity
       `Prelude.hashWithSalt` versionDescription

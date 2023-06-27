@@ -143,7 +143,8 @@ instance Core.AWSRequest UpdateAccountCustomization where
 
 instance Prelude.Hashable UpdateAccountCustomization where
   hashWithSalt _salt UpdateAccountCustomization' {..} =
-    _salt `Prelude.hashWithSalt` namespace
+    _salt
+      `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` accountCustomization
 

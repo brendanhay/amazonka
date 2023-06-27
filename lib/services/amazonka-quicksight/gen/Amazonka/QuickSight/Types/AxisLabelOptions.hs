@@ -87,7 +87,8 @@ instance Data.FromJSON AxisLabelOptions where
 
 instance Prelude.Hashable AxisLabelOptions where
   hashWithSalt _salt AxisLabelOptions' {..} =
-    _salt `Prelude.hashWithSalt` applyTo
+    _salt
+      `Prelude.hashWithSalt` applyTo
       `Prelude.hashWithSalt` customLabel
       `Prelude.hashWithSalt` fontConfiguration
 

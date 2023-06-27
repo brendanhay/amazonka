@@ -67,9 +67,9 @@ data UpdateAccountSettings = UpdateAccountSettings'
     -- QuickSight settings that you want to list.
     awsAccountId :: Prelude.Text,
     -- | The default namespace for this Amazon Web Services account. Currently,
-    -- the default is @default@. Identity and Access Management (IAM) users
-    -- that register for the first time with Amazon QuickSight provide an email
-    -- address that becomes associated with the default namespace.
+    -- the default is @default@. IAM users that register for the first time
+    -- with Amazon QuickSight provide an email address that becomes associated
+    -- with the default namespace.
     defaultNamespace :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -96,9 +96,9 @@ data UpdateAccountSettings = UpdateAccountSettings'
 -- QuickSight settings that you want to list.
 --
 -- 'defaultNamespace', 'updateAccountSettings_defaultNamespace' - The default namespace for this Amazon Web Services account. Currently,
--- the default is @default@. Identity and Access Management (IAM) users
--- that register for the first time with Amazon QuickSight provide an email
--- address that becomes associated with the default namespace.
+-- the default is @default@. IAM users that register for the first time
+-- with Amazon QuickSight provide an email address that becomes associated
+-- with the default namespace.
 newUpdateAccountSettings ::
   -- | 'awsAccountId'
   Prelude.Text ->
@@ -136,9 +136,9 @@ updateAccountSettings_awsAccountId :: Lens.Lens' UpdateAccountSettings Prelude.T
 updateAccountSettings_awsAccountId = Lens.lens (\UpdateAccountSettings' {awsAccountId} -> awsAccountId) (\s@UpdateAccountSettings' {} a -> s {awsAccountId = a} :: UpdateAccountSettings)
 
 -- | The default namespace for this Amazon Web Services account. Currently,
--- the default is @default@. Identity and Access Management (IAM) users
--- that register for the first time with Amazon QuickSight provide an email
--- address that becomes associated with the default namespace.
+-- the default is @default@. IAM users that register for the first time
+-- with Amazon QuickSight provide an email address that becomes associated
+-- with the default namespace.
 updateAccountSettings_defaultNamespace :: Lens.Lens' UpdateAccountSettings Prelude.Text
 updateAccountSettings_defaultNamespace = Lens.lens (\UpdateAccountSettings' {defaultNamespace} -> defaultNamespace) (\s@UpdateAccountSettings' {} a -> s {defaultNamespace = a} :: UpdateAccountSettings)
 
@@ -158,7 +158,8 @@ instance Core.AWSRequest UpdateAccountSettings where
 
 instance Prelude.Hashable UpdateAccountSettings where
   hashWithSalt _salt UpdateAccountSettings' {..} =
-    _salt `Prelude.hashWithSalt` notificationEmail
+    _salt
+      `Prelude.hashWithSalt` notificationEmail
       `Prelude.hashWithSalt` terminationProtectionEnabled
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` defaultNamespace

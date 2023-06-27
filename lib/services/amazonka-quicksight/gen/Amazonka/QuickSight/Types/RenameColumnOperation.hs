@@ -78,7 +78,8 @@ instance Data.FromJSON RenameColumnOperation where
 
 instance Prelude.Hashable RenameColumnOperation where
   hashWithSalt _salt RenameColumnOperation' {..} =
-    _salt `Prelude.hashWithSalt` columnName
+    _salt
+      `Prelude.hashWithSalt` columnName
       `Prelude.hashWithSalt` newColumnName'
 
 instance Prelude.NFData RenameColumnOperation where

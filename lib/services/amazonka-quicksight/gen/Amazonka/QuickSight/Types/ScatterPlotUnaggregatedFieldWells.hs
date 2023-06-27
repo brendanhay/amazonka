@@ -30,7 +30,11 @@ import Amazonka.QuickSight.Types.MeasureField
 --
 -- /See:/ 'newScatterPlotUnaggregatedFieldWells' smart constructor.
 data ScatterPlotUnaggregatedFieldWells = ScatterPlotUnaggregatedFieldWells'
-  { -- | The size field well of a scatter plot.
+  { -- | The category field well of a scatter plot.
+    category :: Prelude.Maybe [DimensionField],
+    -- | The label field well of a scatter plot.
+    label :: Prelude.Maybe [DimensionField],
+    -- | The size field well of a scatter plot.
     size :: Prelude.Maybe [MeasureField],
     -- | The x-axis field well of a scatter plot.
     --
@@ -51,6 +55,10 @@ data ScatterPlotUnaggregatedFieldWells = ScatterPlotUnaggregatedFieldWells'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'category', 'scatterPlotUnaggregatedFieldWells_category' - The category field well of a scatter plot.
+--
+-- 'label', 'scatterPlotUnaggregatedFieldWells_label' - The label field well of a scatter plot.
+--
 -- 'size', 'scatterPlotUnaggregatedFieldWells_size' - The size field well of a scatter plot.
 --
 -- 'xAxis', 'scatterPlotUnaggregatedFieldWells_xAxis' - The x-axis field well of a scatter plot.
@@ -64,11 +72,21 @@ newScatterPlotUnaggregatedFieldWells ::
   ScatterPlotUnaggregatedFieldWells
 newScatterPlotUnaggregatedFieldWells =
   ScatterPlotUnaggregatedFieldWells'
-    { size =
+    { category =
         Prelude.Nothing,
+      label = Prelude.Nothing,
+      size = Prelude.Nothing,
       xAxis = Prelude.Nothing,
       yAxis = Prelude.Nothing
     }
+
+-- | The category field well of a scatter plot.
+scatterPlotUnaggregatedFieldWells_category :: Lens.Lens' ScatterPlotUnaggregatedFieldWells (Prelude.Maybe [DimensionField])
+scatterPlotUnaggregatedFieldWells_category = Lens.lens (\ScatterPlotUnaggregatedFieldWells' {category} -> category) (\s@ScatterPlotUnaggregatedFieldWells' {} a -> s {category = a} :: ScatterPlotUnaggregatedFieldWells) Prelude.. Lens.mapping Lens.coerced
+
+-- | The label field well of a scatter plot.
+scatterPlotUnaggregatedFieldWells_label :: Lens.Lens' ScatterPlotUnaggregatedFieldWells (Prelude.Maybe [DimensionField])
+scatterPlotUnaggregatedFieldWells_label = Lens.lens (\ScatterPlotUnaggregatedFieldWells' {label} -> label) (\s@ScatterPlotUnaggregatedFieldWells' {} a -> s {label = a} :: ScatterPlotUnaggregatedFieldWells) Prelude.. Lens.mapping Lens.coerced
 
 -- | The size field well of a scatter plot.
 scatterPlotUnaggregatedFieldWells_size :: Lens.Lens' ScatterPlotUnaggregatedFieldWells (Prelude.Maybe [MeasureField])
@@ -95,7 +113,9 @@ instance
       "ScatterPlotUnaggregatedFieldWells"
       ( \x ->
           ScatterPlotUnaggregatedFieldWells'
-            Prelude.<$> (x Data..:? "Size" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "Category" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Label" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Size" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "XAxis" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "YAxis" Data..!= Prelude.mempty)
       )
@@ -107,7 +127,10 @@ instance
   hashWithSalt
     _salt
     ScatterPlotUnaggregatedFieldWells' {..} =
-      _salt `Prelude.hashWithSalt` size
+      _salt
+        `Prelude.hashWithSalt` category
+        `Prelude.hashWithSalt` label
+        `Prelude.hashWithSalt` size
         `Prelude.hashWithSalt` xAxis
         `Prelude.hashWithSalt` yAxis
 
@@ -116,7 +139,9 @@ instance
     ScatterPlotUnaggregatedFieldWells
   where
   rnf ScatterPlotUnaggregatedFieldWells' {..} =
-    Prelude.rnf size
+    Prelude.rnf category
+      `Prelude.seq` Prelude.rnf label
+      `Prelude.seq` Prelude.rnf size
       `Prelude.seq` Prelude.rnf xAxis
       `Prelude.seq` Prelude.rnf yAxis
 
@@ -127,7 +152,9 @@ instance
   toJSON ScatterPlotUnaggregatedFieldWells' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Size" Data..=) Prelude.<$> size,
+          [ ("Category" Data..=) Prelude.<$> category,
+            ("Label" Data..=) Prelude.<$> label,
+            ("Size" Data..=) Prelude.<$> size,
             ("XAxis" Data..=) Prelude.<$> xAxis,
             ("YAxis" Data..=) Prelude.<$> yAxis
           ]

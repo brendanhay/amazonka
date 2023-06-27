@@ -32,6 +32,8 @@ import Amazonka.QuickSight.Types.TextConditionalFormat
 data PivotTableCellConditionalFormatting = PivotTableCellConditionalFormatting'
   { -- | The scope of the cell for conditional formatting.
     scope :: Prelude.Maybe PivotTableConditionalFormattingScope,
+    -- | A list of cell scopes for conditional formatting.
+    scopes :: Prelude.Maybe [PivotTableConditionalFormattingScope],
     -- | The text format of the cell for conditional formatting.
     textFormat :: Prelude.Maybe TextConditionalFormat,
     -- | The field ID of the cell for conditional formatting.
@@ -49,6 +51,8 @@ data PivotTableCellConditionalFormatting = PivotTableCellConditionalFormatting'
 --
 -- 'scope', 'pivotTableCellConditionalFormatting_scope' - The scope of the cell for conditional formatting.
 --
+-- 'scopes', 'pivotTableCellConditionalFormatting_scopes' - A list of cell scopes for conditional formatting.
+--
 -- 'textFormat', 'pivotTableCellConditionalFormatting_textFormat' - The text format of the cell for conditional formatting.
 --
 -- 'fieldId', 'pivotTableCellConditionalFormatting_fieldId' - The field ID of the cell for conditional formatting.
@@ -60,6 +64,7 @@ newPivotTableCellConditionalFormatting pFieldId_ =
   PivotTableCellConditionalFormatting'
     { scope =
         Prelude.Nothing,
+      scopes = Prelude.Nothing,
       textFormat = Prelude.Nothing,
       fieldId = pFieldId_
     }
@@ -67,6 +72,10 @@ newPivotTableCellConditionalFormatting pFieldId_ =
 -- | The scope of the cell for conditional formatting.
 pivotTableCellConditionalFormatting_scope :: Lens.Lens' PivotTableCellConditionalFormatting (Prelude.Maybe PivotTableConditionalFormattingScope)
 pivotTableCellConditionalFormatting_scope = Lens.lens (\PivotTableCellConditionalFormatting' {scope} -> scope) (\s@PivotTableCellConditionalFormatting' {} a -> s {scope = a} :: PivotTableCellConditionalFormatting)
+
+-- | A list of cell scopes for conditional formatting.
+pivotTableCellConditionalFormatting_scopes :: Lens.Lens' PivotTableCellConditionalFormatting (Prelude.Maybe [PivotTableConditionalFormattingScope])
+pivotTableCellConditionalFormatting_scopes = Lens.lens (\PivotTableCellConditionalFormatting' {scopes} -> scopes) (\s@PivotTableCellConditionalFormatting' {} a -> s {scopes = a} :: PivotTableCellConditionalFormatting) Prelude.. Lens.mapping Lens.coerced
 
 -- | The text format of the cell for conditional formatting.
 pivotTableCellConditionalFormatting_textFormat :: Lens.Lens' PivotTableCellConditionalFormatting (Prelude.Maybe TextConditionalFormat)
@@ -86,6 +95,7 @@ instance
       ( \x ->
           PivotTableCellConditionalFormatting'
             Prelude.<$> (x Data..:? "Scope")
+            Prelude.<*> (x Data..:? "Scopes" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "TextFormat")
             Prelude.<*> (x Data..: "FieldId")
       )
@@ -97,7 +107,9 @@ instance
   hashWithSalt
     _salt
     PivotTableCellConditionalFormatting' {..} =
-      _salt `Prelude.hashWithSalt` scope
+      _salt
+        `Prelude.hashWithSalt` scope
+        `Prelude.hashWithSalt` scopes
         `Prelude.hashWithSalt` textFormat
         `Prelude.hashWithSalt` fieldId
 
@@ -107,6 +119,7 @@ instance
   where
   rnf PivotTableCellConditionalFormatting' {..} =
     Prelude.rnf scope
+      `Prelude.seq` Prelude.rnf scopes
       `Prelude.seq` Prelude.rnf textFormat
       `Prelude.seq` Prelude.rnf fieldId
 
@@ -118,6 +131,7 @@ instance
     Data.object
       ( Prelude.catMaybes
           [ ("Scope" Data..=) Prelude.<$> scope,
+            ("Scopes" Data..=) Prelude.<$> scopes,
             ("TextFormat" Data..=) Prelude.<$> textFormat,
             Prelude.Just ("FieldId" Data..= fieldId)
           ]

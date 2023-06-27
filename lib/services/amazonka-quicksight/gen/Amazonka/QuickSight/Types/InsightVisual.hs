@@ -132,7 +132,8 @@ instance Data.FromJSON InsightVisual where
 
 instance Prelude.Hashable InsightVisual where
   hashWithSalt _salt InsightVisual' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` insightConfiguration
       `Prelude.hashWithSalt` subtitle
       `Prelude.hashWithSalt` title

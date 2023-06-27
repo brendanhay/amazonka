@@ -61,7 +61,8 @@ instance Data.FromJSON PivotTableSortConfiguration where
       "PivotTableSortConfiguration"
       ( \x ->
           PivotTableSortConfiguration'
-            Prelude.<$> ( x Data..:? "FieldSortOptions"
+            Prelude.<$> ( x
+                            Data..:? "FieldSortOptions"
                             Data..!= Prelude.mempty
                         )
       )

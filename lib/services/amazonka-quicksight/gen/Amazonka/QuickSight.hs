@@ -172,6 +172,12 @@ module Amazonka.QuickSight
     CreateNamespaceResponse (CreateNamespaceResponse'),
     newCreateNamespaceResponse,
 
+    -- ** CreateRefreshSchedule
+    CreateRefreshSchedule (CreateRefreshSchedule'),
+    newCreateRefreshSchedule,
+    CreateRefreshScheduleResponse (CreateRefreshScheduleResponse'),
+    newCreateRefreshScheduleResponse,
+
     -- ** CreateTemplate
     CreateTemplate (CreateTemplate'),
     newCreateTemplate,
@@ -195,6 +201,24 @@ module Amazonka.QuickSight
     newCreateThemeAlias,
     CreateThemeAliasResponse (CreateThemeAliasResponse'),
     newCreateThemeAliasResponse,
+
+    -- ** CreateTopic
+    CreateTopic (CreateTopic'),
+    newCreateTopic,
+    CreateTopicResponse (CreateTopicResponse'),
+    newCreateTopicResponse,
+
+    -- ** CreateTopicRefreshSchedule
+    CreateTopicRefreshSchedule (CreateTopicRefreshSchedule'),
+    newCreateTopicRefreshSchedule,
+    CreateTopicRefreshScheduleResponse (CreateTopicRefreshScheduleResponse'),
+    newCreateTopicRefreshScheduleResponse,
+
+    -- ** CreateVPCConnection
+    CreateVPCConnection (CreateVPCConnection'),
+    newCreateVPCConnection,
+    CreateVPCConnectionResponse (CreateVPCConnectionResponse'),
+    newCreateVPCConnectionResponse,
 
     -- ** DeleteAccountCustomization
     DeleteAccountCustomization (DeleteAccountCustomization'),
@@ -225,6 +249,12 @@ module Amazonka.QuickSight
     newDeleteDataSet,
     DeleteDataSetResponse (DeleteDataSetResponse'),
     newDeleteDataSetResponse,
+
+    -- ** DeleteDataSetRefreshProperties
+    DeleteDataSetRefreshProperties (DeleteDataSetRefreshProperties'),
+    newDeleteDataSetRefreshProperties,
+    DeleteDataSetRefreshPropertiesResponse (DeleteDataSetRefreshPropertiesResponse'),
+    newDeleteDataSetRefreshPropertiesResponse,
 
     -- ** DeleteDataSource
     DeleteDataSource (DeleteDataSource'),
@@ -268,6 +298,12 @@ module Amazonka.QuickSight
     DeleteNamespaceResponse (DeleteNamespaceResponse'),
     newDeleteNamespaceResponse,
 
+    -- ** DeleteRefreshSchedule
+    DeleteRefreshSchedule (DeleteRefreshSchedule'),
+    newDeleteRefreshSchedule,
+    DeleteRefreshScheduleResponse (DeleteRefreshScheduleResponse'),
+    newDeleteRefreshScheduleResponse,
+
     -- ** DeleteTemplate
     DeleteTemplate (DeleteTemplate'),
     newDeleteTemplate,
@@ -292,6 +328,18 @@ module Amazonka.QuickSight
     DeleteThemeAliasResponse (DeleteThemeAliasResponse'),
     newDeleteThemeAliasResponse,
 
+    -- ** DeleteTopic
+    DeleteTopic (DeleteTopic'),
+    newDeleteTopic,
+    DeleteTopicResponse (DeleteTopicResponse'),
+    newDeleteTopicResponse,
+
+    -- ** DeleteTopicRefreshSchedule
+    DeleteTopicRefreshSchedule (DeleteTopicRefreshSchedule'),
+    newDeleteTopicRefreshSchedule,
+    DeleteTopicRefreshScheduleResponse (DeleteTopicRefreshScheduleResponse'),
+    newDeleteTopicRefreshScheduleResponse,
+
     -- ** DeleteUser
     DeleteUser (DeleteUser'),
     newDeleteUser,
@@ -303,6 +351,12 @@ module Amazonka.QuickSight
     newDeleteUserByPrincipalId,
     DeleteUserByPrincipalIdResponse (DeleteUserByPrincipalIdResponse'),
     newDeleteUserByPrincipalIdResponse,
+
+    -- ** DeleteVPCConnection
+    DeleteVPCConnection (DeleteVPCConnection'),
+    newDeleteVPCConnection,
+    DeleteVPCConnectionResponse (DeleteVPCConnectionResponse'),
+    newDeleteVPCConnectionResponse,
 
     -- ** DescribeAccountCustomization
     DescribeAccountCustomization (DescribeAccountCustomization'),
@@ -340,6 +394,18 @@ module Amazonka.QuickSight
     DescribeAnalysisPermissionsResponse (DescribeAnalysisPermissionsResponse'),
     newDescribeAnalysisPermissionsResponse,
 
+    -- ** DescribeAssetBundleExportJob
+    DescribeAssetBundleExportJob (DescribeAssetBundleExportJob'),
+    newDescribeAssetBundleExportJob,
+    DescribeAssetBundleExportJobResponse (DescribeAssetBundleExportJobResponse'),
+    newDescribeAssetBundleExportJobResponse,
+
+    -- ** DescribeAssetBundleImportJob
+    DescribeAssetBundleImportJob (DescribeAssetBundleImportJob'),
+    newDescribeAssetBundleImportJob,
+    DescribeAssetBundleImportJobResponse (DescribeAssetBundleImportJobResponse'),
+    newDescribeAssetBundleImportJobResponse,
+
     -- ** DescribeDashboard
     DescribeDashboard (DescribeDashboard'),
     newDescribeDashboard,
@@ -369,6 +435,12 @@ module Amazonka.QuickSight
     newDescribeDataSetPermissions,
     DescribeDataSetPermissionsResponse (DescribeDataSetPermissionsResponse'),
     newDescribeDataSetPermissionsResponse,
+
+    -- ** DescribeDataSetRefreshProperties
+    DescribeDataSetRefreshProperties (DescribeDataSetRefreshProperties'),
+    newDescribeDataSetRefreshProperties,
+    DescribeDataSetRefreshPropertiesResponse (DescribeDataSetRefreshPropertiesResponse'),
+    newDescribeDataSetRefreshPropertiesResponse,
 
     -- ** DescribeDataSource
     DescribeDataSource (DescribeDataSource'),
@@ -436,6 +508,12 @@ module Amazonka.QuickSight
     DescribeNamespaceResponse (DescribeNamespaceResponse'),
     newDescribeNamespaceResponse,
 
+    -- ** DescribeRefreshSchedule
+    DescribeRefreshSchedule (DescribeRefreshSchedule'),
+    newDescribeRefreshSchedule,
+    DescribeRefreshScheduleResponse (DescribeRefreshScheduleResponse'),
+    newDescribeRefreshScheduleResponse,
+
     -- ** DescribeTemplate
     DescribeTemplate (DescribeTemplate'),
     newDescribeTemplate,
@@ -478,11 +556,41 @@ module Amazonka.QuickSight
     DescribeThemePermissionsResponse (DescribeThemePermissionsResponse'),
     newDescribeThemePermissionsResponse,
 
+    -- ** DescribeTopic
+    DescribeTopic (DescribeTopic'),
+    newDescribeTopic,
+    DescribeTopicResponse (DescribeTopicResponse'),
+    newDescribeTopicResponse,
+
+    -- ** DescribeTopicPermissions
+    DescribeTopicPermissions (DescribeTopicPermissions'),
+    newDescribeTopicPermissions,
+    DescribeTopicPermissionsResponse (DescribeTopicPermissionsResponse'),
+    newDescribeTopicPermissionsResponse,
+
+    -- ** DescribeTopicRefresh
+    DescribeTopicRefresh (DescribeTopicRefresh'),
+    newDescribeTopicRefresh,
+    DescribeTopicRefreshResponse (DescribeTopicRefreshResponse'),
+    newDescribeTopicRefreshResponse,
+
+    -- ** DescribeTopicRefreshSchedule
+    DescribeTopicRefreshSchedule (DescribeTopicRefreshSchedule'),
+    newDescribeTopicRefreshSchedule,
+    DescribeTopicRefreshScheduleResponse (DescribeTopicRefreshScheduleResponse'),
+    newDescribeTopicRefreshScheduleResponse,
+
     -- ** DescribeUser
     DescribeUser (DescribeUser'),
     newDescribeUser,
     DescribeUserResponse (DescribeUserResponse'),
     newDescribeUserResponse,
+
+    -- ** DescribeVPCConnection
+    DescribeVPCConnection (DescribeVPCConnection'),
+    newDescribeVPCConnection,
+    DescribeVPCConnectionResponse (DescribeVPCConnectionResponse'),
+    newDescribeVPCConnectionResponse,
 
     -- ** GenerateEmbedUrlForAnonymousUser
     GenerateEmbedUrlForAnonymousUser (GenerateEmbedUrlForAnonymousUser'),
@@ -513,6 +621,18 @@ module Amazonka.QuickSight
     newListAnalyses,
     ListAnalysesResponse (ListAnalysesResponse'),
     newListAnalysesResponse,
+
+    -- ** ListAssetBundleExportJobs (Paginated)
+    ListAssetBundleExportJobs (ListAssetBundleExportJobs'),
+    newListAssetBundleExportJobs,
+    ListAssetBundleExportJobsResponse (ListAssetBundleExportJobsResponse'),
+    newListAssetBundleExportJobsResponse,
+
+    -- ** ListAssetBundleImportJobs (Paginated)
+    ListAssetBundleImportJobs (ListAssetBundleImportJobs'),
+    newListAssetBundleImportJobs,
+    ListAssetBundleImportJobsResponse (ListAssetBundleImportJobsResponse'),
+    newListAssetBundleImportJobsResponse,
 
     -- ** ListDashboardVersions (Paginated)
     ListDashboardVersions (ListDashboardVersions'),
@@ -586,6 +706,12 @@ module Amazonka.QuickSight
     ListNamespacesResponse (ListNamespacesResponse'),
     newListNamespacesResponse,
 
+    -- ** ListRefreshSchedules
+    ListRefreshSchedules (ListRefreshSchedules'),
+    newListRefreshSchedules,
+    ListRefreshSchedulesResponse (ListRefreshSchedulesResponse'),
+    newListRefreshSchedulesResponse,
+
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
@@ -628,6 +754,18 @@ module Amazonka.QuickSight
     ListThemesResponse (ListThemesResponse'),
     newListThemesResponse,
 
+    -- ** ListTopicRefreshSchedules
+    ListTopicRefreshSchedules (ListTopicRefreshSchedules'),
+    newListTopicRefreshSchedules,
+    ListTopicRefreshSchedulesResponse (ListTopicRefreshSchedulesResponse'),
+    newListTopicRefreshSchedulesResponse,
+
+    -- ** ListTopics
+    ListTopics (ListTopics'),
+    newListTopics,
+    ListTopicsResponse (ListTopicsResponse'),
+    newListTopicsResponse,
+
     -- ** ListUserGroups
     ListUserGroups (ListUserGroups'),
     newListUserGroups,
@@ -639,6 +777,18 @@ module Amazonka.QuickSight
     newListUsers,
     ListUsersResponse (ListUsersResponse'),
     newListUsersResponse,
+
+    -- ** ListVPCConnections
+    ListVPCConnections (ListVPCConnections'),
+    newListVPCConnections,
+    ListVPCConnectionsResponse (ListVPCConnectionsResponse'),
+    newListVPCConnectionsResponse,
+
+    -- ** PutDataSetRefreshProperties
+    PutDataSetRefreshProperties (PutDataSetRefreshProperties'),
+    newPutDataSetRefreshProperties,
+    PutDataSetRefreshPropertiesResponse (PutDataSetRefreshPropertiesResponse'),
+    newPutDataSetRefreshPropertiesResponse,
 
     -- ** RegisterUser
     RegisterUser (RegisterUser'),
@@ -687,6 +837,18 @@ module Amazonka.QuickSight
     newSearchGroups,
     SearchGroupsResponse (SearchGroupsResponse'),
     newSearchGroupsResponse,
+
+    -- ** StartAssetBundleExportJob
+    StartAssetBundleExportJob (StartAssetBundleExportJob'),
+    newStartAssetBundleExportJob,
+    StartAssetBundleExportJobResponse (StartAssetBundleExportJobResponse'),
+    newStartAssetBundleExportJobResponse,
+
+    -- ** StartAssetBundleImportJob
+    StartAssetBundleImportJob (StartAssetBundleImportJob'),
+    newStartAssetBundleImportJob,
+    StartAssetBundleImportJobResponse (StartAssetBundleImportJobResponse'),
+    newStartAssetBundleImportJobResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -802,6 +964,12 @@ module Amazonka.QuickSight
     UpdatePublicSharingSettingsResponse (UpdatePublicSharingSettingsResponse'),
     newUpdatePublicSharingSettingsResponse,
 
+    -- ** UpdateRefreshSchedule
+    UpdateRefreshSchedule (UpdateRefreshSchedule'),
+    newUpdateRefreshSchedule,
+    UpdateRefreshScheduleResponse (UpdateRefreshScheduleResponse'),
+    newUpdateRefreshScheduleResponse,
+
     -- ** UpdateTemplate
     UpdateTemplate (UpdateTemplate'),
     newUpdateTemplate,
@@ -838,11 +1006,35 @@ module Amazonka.QuickSight
     UpdateThemePermissionsResponse (UpdateThemePermissionsResponse'),
     newUpdateThemePermissionsResponse,
 
+    -- ** UpdateTopic
+    UpdateTopic (UpdateTopic'),
+    newUpdateTopic,
+    UpdateTopicResponse (UpdateTopicResponse'),
+    newUpdateTopicResponse,
+
+    -- ** UpdateTopicPermissions
+    UpdateTopicPermissions (UpdateTopicPermissions'),
+    newUpdateTopicPermissions,
+    UpdateTopicPermissionsResponse (UpdateTopicPermissionsResponse'),
+    newUpdateTopicPermissionsResponse,
+
+    -- ** UpdateTopicRefreshSchedule
+    UpdateTopicRefreshSchedule (UpdateTopicRefreshSchedule'),
+    newUpdateTopicRefreshSchedule,
+    UpdateTopicRefreshScheduleResponse (UpdateTopicRefreshScheduleResponse'),
+    newUpdateTopicRefreshScheduleResponse,
+
     -- ** UpdateUser
     UpdateUser (UpdateUser'),
     newUpdateUser,
     UpdateUserResponse (UpdateUserResponse'),
     newUpdateUserResponse,
+
+    -- ** UpdateVPCConnection
+    UpdateVPCConnection (UpdateVPCConnection'),
+    newUpdateVPCConnection,
+    UpdateVPCConnectionResponse (UpdateVPCConnectionResponse'),
+    newUpdateVPCConnectionResponse,
 
     -- * Types
 
@@ -861,11 +1053,47 @@ module Amazonka.QuickSight
     -- ** ArcThicknessOptions
     ArcThicknessOptions (..),
 
+    -- ** AssetBundleExportFormat
+    AssetBundleExportFormat (..),
+
+    -- ** AssetBundleExportJobAnalysisPropertyToOverride
+    AssetBundleExportJobAnalysisPropertyToOverride (..),
+
+    -- ** AssetBundleExportJobDashboardPropertyToOverride
+    AssetBundleExportJobDashboardPropertyToOverride (..),
+
+    -- ** AssetBundleExportJobDataSetPropertyToOverride
+    AssetBundleExportJobDataSetPropertyToOverride (..),
+
+    -- ** AssetBundleExportJobDataSourcePropertyToOverride
+    AssetBundleExportJobDataSourcePropertyToOverride (..),
+
+    -- ** AssetBundleExportJobRefreshSchedulePropertyToOverride
+    AssetBundleExportJobRefreshSchedulePropertyToOverride (..),
+
+    -- ** AssetBundleExportJobStatus
+    AssetBundleExportJobStatus (..),
+
+    -- ** AssetBundleExportJobThemePropertyToOverride
+    AssetBundleExportJobThemePropertyToOverride (..),
+
+    -- ** AssetBundleExportJobVPCConnectionPropertyToOverride
+    AssetBundleExportJobVPCConnectionPropertyToOverride (..),
+
+    -- ** AssetBundleImportFailureAction
+    AssetBundleImportFailureAction (..),
+
+    -- ** AssetBundleImportJobStatus
+    AssetBundleImportJobStatus (..),
+
     -- ** AssignmentStatus
     AssignmentStatus (..),
 
     -- ** AuthenticationMethodOption
     AuthenticationMethodOption (..),
+
+    -- ** AuthorSpecifiedAggregation
+    AuthorSpecifiedAggregation (..),
 
     -- ** AxisBinding
     AxisBinding (..),
@@ -885,17 +1113,29 @@ module Amazonka.QuickSight
     -- ** CategoricalAggregationFunction
     CategoricalAggregationFunction (..),
 
+    -- ** CategoryFilterFunction
+    CategoryFilterFunction (..),
+
     -- ** CategoryFilterMatchOperator
     CategoryFilterMatchOperator (..),
 
     -- ** CategoryFilterSelectAllOptions
     CategoryFilterSelectAllOptions (..),
 
+    -- ** CategoryFilterType
+    CategoryFilterType (..),
+
     -- ** ColorFillType
     ColorFillType (..),
 
+    -- ** ColumnDataRole
+    ColumnDataRole (..),
+
     -- ** ColumnDataType
     ColumnDataType (..),
+
+    -- ** ColumnOrderingType
+    ColumnOrderingType (..),
 
     -- ** ColumnRole
     ColumnRole (..),
@@ -911,6 +1151,9 @@ module Amazonka.QuickSight
 
     -- ** ConditionalFormattingIconSetType
     ConditionalFormattingIconSetType (..),
+
+    -- ** ConstantType
+    ConstantType (..),
 
     -- ** CrossDatasetTypes
     CrossDatasetTypes (..),
@@ -957,8 +1200,20 @@ module Amazonka.QuickSight
     -- ** DataSourceType
     DataSourceType (..),
 
+    -- ** DatasetParameterValueType
+    DatasetParameterValueType (..),
+
     -- ** DateAggregationFunction
     DateAggregationFunction (..),
+
+    -- ** DayOfWeek
+    DayOfWeek (..),
+
+    -- ** DefaultAggregation
+    DefaultAggregation (..),
+
+    -- ** DisplayFormat
+    DisplayFormat (..),
 
     -- ** Edition
     Edition (..),
@@ -968,6 +1223,9 @@ module Amazonka.QuickSight
 
     -- ** FileFormat
     FileFormat (..),
+
+    -- ** FilterClass
+    FilterClass (..),
 
     -- ** FilterNullOption
     FilterNullOption (..),
@@ -1068,6 +1326,9 @@ module Amazonka.QuickSight
     -- ** LineInterpolation
     LineInterpolation (..),
 
+    -- ** LookbackWindowSizeUnit
+    LookbackWindowSizeUnit (..),
+
     -- ** MapZoomMode
     MapZoomMode (..),
 
@@ -1080,6 +1341,15 @@ module Amazonka.QuickSight
     -- ** MissingDataTreatmentOption
     MissingDataTreatmentOption (..),
 
+    -- ** NamedEntityAggType
+    NamedEntityAggType (..),
+
+    -- ** NamedFilterAggType
+    NamedFilterAggType (..),
+
+    -- ** NamedFilterType
+    NamedFilterType (..),
+
     -- ** NamespaceErrorType
     NamespaceErrorType (..),
 
@@ -1088,6 +1358,9 @@ module Amazonka.QuickSight
 
     -- ** NegativeValueDisplayMode
     NegativeValueDisplayMode (..),
+
+    -- ** NetworkInterfaceStatus
+    NetworkInterfaceStatus (..),
 
     -- ** NumberScale
     NumberScale (..),
@@ -1119,6 +1392,9 @@ module Amazonka.QuickSight
     -- ** PivotTableConditionalFormattingScopeRole
     PivotTableConditionalFormattingScopeRole (..),
 
+    -- ** PivotTableFieldCollapseState
+    PivotTableFieldCollapseState (..),
+
     -- ** PivotTableMetricPlacement
     PivotTableMetricPlacement (..),
 
@@ -1127,6 +1403,18 @@ module Amazonka.QuickSight
 
     -- ** PrimaryValueDisplayType
     PrimaryValueDisplayType (..),
+
+    -- ** PropertyRole
+    PropertyRole (..),
+
+    -- ** PropertyUsage
+    PropertyUsage (..),
+
+    -- ** RadarChartAxesRangeScale
+    RadarChartAxesRangeScale (..),
+
+    -- ** RadarChartShape
+    RadarChartShape (..),
 
     -- ** ReferenceLineLabelHorizontalPosition
     ReferenceLineLabelHorizontalPosition (..),
@@ -1139,6 +1427,9 @@ module Amazonka.QuickSight
 
     -- ** ReferenceLineValueLabelRelativePosition
     ReferenceLineValueLabelRelativePosition (..),
+
+    -- ** RefreshInterval
+    RefreshInterval (..),
 
     -- ** RelativeDateType
     RelativeDateType (..),
@@ -1239,11 +1530,35 @@ module Amazonka.QuickSight
     -- ** TopBottomSortOrder
     TopBottomSortOrder (..),
 
+    -- ** TopicNumericSeparatorSymbol
+    TopicNumericSeparatorSymbol (..),
+
+    -- ** TopicRefreshStatus
+    TopicRefreshStatus (..),
+
+    -- ** TopicRelativeDateFilterFunction
+    TopicRelativeDateFilterFunction (..),
+
+    -- ** TopicScheduleType
+    TopicScheduleType (..),
+
+    -- ** TopicTimeGranularity
+    TopicTimeGranularity (..),
+
     -- ** URLTargetConfiguration
     URLTargetConfiguration (..),
 
+    -- ** UndefinedSpecifiedValueType
+    UndefinedSpecifiedValueType (..),
+
     -- ** UserRole
     UserRole (..),
+
+    -- ** VPCConnectionAvailabilityStatus
+    VPCConnectionAvailabilityStatus (..),
+
+    -- ** VPCConnectionResourceStatus
+    VPCConnectionResourceStatus (..),
 
     -- ** ValueWhenUnsetOption
     ValueWhenUnsetOption (..),
@@ -1379,6 +1694,110 @@ module Amazonka.QuickSight
     ArcOptions (ArcOptions'),
     newArcOptions,
 
+    -- ** AssetBundleCloudFormationOverridePropertyConfiguration
+    AssetBundleCloudFormationOverridePropertyConfiguration (AssetBundleCloudFormationOverridePropertyConfiguration'),
+    newAssetBundleCloudFormationOverridePropertyConfiguration,
+
+    -- ** AssetBundleExportJobAnalysisOverrideProperties
+    AssetBundleExportJobAnalysisOverrideProperties (AssetBundleExportJobAnalysisOverrideProperties'),
+    newAssetBundleExportJobAnalysisOverrideProperties,
+
+    -- ** AssetBundleExportJobDashboardOverrideProperties
+    AssetBundleExportJobDashboardOverrideProperties (AssetBundleExportJobDashboardOverrideProperties'),
+    newAssetBundleExportJobDashboardOverrideProperties,
+
+    -- ** AssetBundleExportJobDataSetOverrideProperties
+    AssetBundleExportJobDataSetOverrideProperties (AssetBundleExportJobDataSetOverrideProperties'),
+    newAssetBundleExportJobDataSetOverrideProperties,
+
+    -- ** AssetBundleExportJobDataSourceOverrideProperties
+    AssetBundleExportJobDataSourceOverrideProperties (AssetBundleExportJobDataSourceOverrideProperties'),
+    newAssetBundleExportJobDataSourceOverrideProperties,
+
+    -- ** AssetBundleExportJobError
+    AssetBundleExportJobError (AssetBundleExportJobError'),
+    newAssetBundleExportJobError,
+
+    -- ** AssetBundleExportJobRefreshScheduleOverrideProperties
+    AssetBundleExportJobRefreshScheduleOverrideProperties (AssetBundleExportJobRefreshScheduleOverrideProperties'),
+    newAssetBundleExportJobRefreshScheduleOverrideProperties,
+
+    -- ** AssetBundleExportJobResourceIdOverrideConfiguration
+    AssetBundleExportJobResourceIdOverrideConfiguration (AssetBundleExportJobResourceIdOverrideConfiguration'),
+    newAssetBundleExportJobResourceIdOverrideConfiguration,
+
+    -- ** AssetBundleExportJobSummary
+    AssetBundleExportJobSummary (AssetBundleExportJobSummary'),
+    newAssetBundleExportJobSummary,
+
+    -- ** AssetBundleExportJobThemeOverrideProperties
+    AssetBundleExportJobThemeOverrideProperties (AssetBundleExportJobThemeOverrideProperties'),
+    newAssetBundleExportJobThemeOverrideProperties,
+
+    -- ** AssetBundleExportJobVPCConnectionOverrideProperties
+    AssetBundleExportJobVPCConnectionOverrideProperties (AssetBundleExportJobVPCConnectionOverrideProperties'),
+    newAssetBundleExportJobVPCConnectionOverrideProperties,
+
+    -- ** AssetBundleImportJobAnalysisOverrideParameters
+    AssetBundleImportJobAnalysisOverrideParameters (AssetBundleImportJobAnalysisOverrideParameters'),
+    newAssetBundleImportJobAnalysisOverrideParameters,
+
+    -- ** AssetBundleImportJobDashboardOverrideParameters
+    AssetBundleImportJobDashboardOverrideParameters (AssetBundleImportJobDashboardOverrideParameters'),
+    newAssetBundleImportJobDashboardOverrideParameters,
+
+    -- ** AssetBundleImportJobDataSetOverrideParameters
+    AssetBundleImportJobDataSetOverrideParameters (AssetBundleImportJobDataSetOverrideParameters'),
+    newAssetBundleImportJobDataSetOverrideParameters,
+
+    -- ** AssetBundleImportJobDataSourceCredentialPair
+    AssetBundleImportJobDataSourceCredentialPair (AssetBundleImportJobDataSourceCredentialPair'),
+    newAssetBundleImportJobDataSourceCredentialPair,
+
+    -- ** AssetBundleImportJobDataSourceCredentials
+    AssetBundleImportJobDataSourceCredentials (AssetBundleImportJobDataSourceCredentials'),
+    newAssetBundleImportJobDataSourceCredentials,
+
+    -- ** AssetBundleImportJobDataSourceOverrideParameters
+    AssetBundleImportJobDataSourceOverrideParameters (AssetBundleImportJobDataSourceOverrideParameters'),
+    newAssetBundleImportJobDataSourceOverrideParameters,
+
+    -- ** AssetBundleImportJobError
+    AssetBundleImportJobError (AssetBundleImportJobError'),
+    newAssetBundleImportJobError,
+
+    -- ** AssetBundleImportJobOverrideParameters
+    AssetBundleImportJobOverrideParameters (AssetBundleImportJobOverrideParameters'),
+    newAssetBundleImportJobOverrideParameters,
+
+    -- ** AssetBundleImportJobRefreshScheduleOverrideParameters
+    AssetBundleImportJobRefreshScheduleOverrideParameters (AssetBundleImportJobRefreshScheduleOverrideParameters'),
+    newAssetBundleImportJobRefreshScheduleOverrideParameters,
+
+    -- ** AssetBundleImportJobResourceIdOverrideConfiguration
+    AssetBundleImportJobResourceIdOverrideConfiguration (AssetBundleImportJobResourceIdOverrideConfiguration'),
+    newAssetBundleImportJobResourceIdOverrideConfiguration,
+
+    -- ** AssetBundleImportJobSummary
+    AssetBundleImportJobSummary (AssetBundleImportJobSummary'),
+    newAssetBundleImportJobSummary,
+
+    -- ** AssetBundleImportJobThemeOverrideParameters
+    AssetBundleImportJobThemeOverrideParameters (AssetBundleImportJobThemeOverrideParameters'),
+    newAssetBundleImportJobThemeOverrideParameters,
+
+    -- ** AssetBundleImportJobVPCConnectionOverrideParameters
+    AssetBundleImportJobVPCConnectionOverrideParameters (AssetBundleImportJobVPCConnectionOverrideParameters'),
+    newAssetBundleImportJobVPCConnectionOverrideParameters,
+
+    -- ** AssetBundleImportSource
+    AssetBundleImportSource (AssetBundleImportSource'),
+    newAssetBundleImportSource,
+
+    -- ** AssetBundleImportSourceDescription
+    AssetBundleImportSourceDescription (AssetBundleImportSourceDescription'),
+    newAssetBundleImportSourceDescription,
+
     -- ** AthenaParameters
     AthenaParameters (AthenaParameters'),
     newAthenaParameters,
@@ -1475,6 +1894,10 @@ module Amazonka.QuickSight
     BodySectionContent (BodySectionContent'),
     newBodySectionContent,
 
+    -- ** BookmarksConfigurations
+    BookmarksConfigurations (BookmarksConfigurations'),
+    newBookmarksConfigurations,
+
     -- ** BorderStyle
     BorderStyle (BorderStyle'),
     newBorderStyle,
@@ -1551,6 +1974,10 @@ module Amazonka.QuickSight
     CategoryFilterConfiguration (CategoryFilterConfiguration'),
     newCategoryFilterConfiguration,
 
+    -- ** CellValueSynonym
+    CellValueSynonym (CellValueSynonym'),
+    newCellValueSynonym,
+
     -- ** ChartAxisLabelOptions
     ChartAxisLabelOptions (ChartAxisLabelOptions'),
     newChartAxisLabelOptions,
@@ -1562,6 +1989,10 @@ module Amazonka.QuickSight
     -- ** ClusterMarkerConfiguration
     ClusterMarkerConfiguration (ClusterMarkerConfiguration'),
     newClusterMarkerConfiguration,
+
+    -- ** CollectiveConstant
+    CollectiveConstant (CollectiveConstant'),
+    newCollectiveConstant,
 
     -- ** ColorScale
     ColorScale (ColorScale'),
@@ -1634,6 +2065,10 @@ module Amazonka.QuickSight
     -- ** ComboChartVisual
     ComboChartVisual (ComboChartVisual'),
     newComboChartVisual,
+
+    -- ** ComparativeOrder
+    ComparativeOrder (ComparativeOrder'),
+    newComparativeOrder,
 
     -- ** ComparisonConfiguration
     ComparisonConfiguration (ComparisonConfiguration'),
@@ -1791,6 +2226,14 @@ module Amazonka.QuickSight
     DashboardVisualPublishOptions (DashboardVisualPublishOptions'),
     newDashboardVisualPublishOptions,
 
+    -- ** DataAggregation
+    DataAggregation (DataAggregation'),
+    newDataAggregation,
+
+    -- ** DataBarsOptions
+    DataBarsOptions (DataBarsOptions'),
+    newDataBarsOptions,
+
     -- ** DataColor
     DataColor (DataColor'),
     newDataColor,
@@ -1827,6 +2270,18 @@ module Amazonka.QuickSight
     DataPathValue (DataPathValue'),
     newDataPathValue,
 
+    -- ** DataPointDrillUpDownOption
+    DataPointDrillUpDownOption (DataPointDrillUpDownOption'),
+    newDataPointDrillUpDownOption,
+
+    -- ** DataPointMenuLabelOption
+    DataPointMenuLabelOption (DataPointMenuLabelOption'),
+    newDataPointMenuLabelOption,
+
+    -- ** DataPointTooltipOption
+    DataPointTooltipOption (DataPointTooltipOption'),
+    newDataPointTooltipOption,
+
     -- ** DataSet
     DataSet (DataSet'),
     newDataSet,
@@ -1842,6 +2297,10 @@ module Amazonka.QuickSight
     -- ** DataSetReference
     DataSetReference (DataSetReference'),
     newDataSetReference,
+
+    -- ** DataSetRefreshProperties
+    DataSetRefreshProperties (DataSetRefreshProperties'),
+    newDataSetRefreshProperties,
 
     -- ** DataSetSchema
     DataSetSchema (DataSetSchema'),
@@ -1887,6 +2346,14 @@ module Amazonka.QuickSight
     DatabricksParameters (DatabricksParameters'),
     newDatabricksParameters,
 
+    -- ** DatasetMetadata
+    DatasetMetadata (DatasetMetadata'),
+    newDatasetMetadata,
+
+    -- ** DatasetParameter
+    DatasetParameter (DatasetParameter'),
+    newDatasetParameter,
+
     -- ** DateAxisOptions
     DateAxisOptions (DateAxisOptions'),
     newDateAxisOptions,
@@ -1898,6 +2365,14 @@ module Amazonka.QuickSight
     -- ** DateMeasureField
     DateMeasureField (DateMeasureField'),
     newDateMeasureField,
+
+    -- ** DateTimeDatasetParameter
+    DateTimeDatasetParameter (DateTimeDatasetParameter'),
+    newDateTimeDatasetParameter,
+
+    -- ** DateTimeDatasetParameterDefaultValues
+    DateTimeDatasetParameterDefaultValues (DateTimeDatasetParameterDefaultValues'),
+    newDateTimeDatasetParameterDefaultValues,
 
     -- ** DateTimeDefaultValues
     DateTimeDefaultValues (DateTimeDefaultValues'),
@@ -1927,6 +2402,14 @@ module Amazonka.QuickSight
     DateTimeValueWhenUnsetConfiguration (DateTimeValueWhenUnsetConfiguration'),
     newDateTimeValueWhenUnsetConfiguration,
 
+    -- ** DecimalDatasetParameter
+    DecimalDatasetParameter (DecimalDatasetParameter'),
+    newDecimalDatasetParameter,
+
+    -- ** DecimalDatasetParameterDefaultValues
+    DecimalDatasetParameterDefaultValues (DecimalDatasetParameterDefaultValues'),
+    newDecimalDatasetParameterDefaultValues,
+
     -- ** DecimalDefaultValues
     DecimalDefaultValues (DecimalDefaultValues'),
     newDecimalDefaultValues,
@@ -1946,6 +2429,10 @@ module Amazonka.QuickSight
     -- ** DecimalValueWhenUnsetConfiguration
     DecimalValueWhenUnsetConfiguration (DecimalValueWhenUnsetConfiguration'),
     newDecimalValueWhenUnsetConfiguration,
+
+    -- ** DefaultFormatting
+    DefaultFormatting (DefaultFormatting'),
+    newDefaultFormatting,
 
     -- ** DefaultFreeFormLayoutConfiguration
     DefaultFreeFormLayoutConfiguration (DefaultFreeFormLayoutConfiguration'),
@@ -1978,6 +2465,10 @@ module Amazonka.QuickSight
     -- ** DimensionField
     DimensionField (DimensionField'),
     newDimensionField,
+
+    -- ** DisplayFormatOptions
+    DisplayFormatOptions (DisplayFormatOptions'),
+    newDisplayFormatOptions,
 
     -- ** DonutCenterOptions
     DonutCenterOptions (DonutCenterOptions'),
@@ -2030,6 +2521,10 @@ module Amazonka.QuickSight
     -- ** ExportToCSVOption
     ExportToCSVOption (ExportToCSVOption'),
     newExportToCSVOption,
+
+    -- ** ExportWithHiddenFieldsOption
+    ExportWithHiddenFieldsOption (ExportWithHiddenFieldsOption'),
+    newExportWithHiddenFieldsOption,
 
     -- ** FieldBasedTooltip
     FieldBasedTooltip (FieldBasedTooltip'),
@@ -2295,6 +2790,18 @@ module Amazonka.QuickSight
     GeospatialCoordinateBounds (GeospatialCoordinateBounds'),
     newGeospatialCoordinateBounds,
 
+    -- ** GeospatialHeatmapColorScale
+    GeospatialHeatmapColorScale (GeospatialHeatmapColorScale'),
+    newGeospatialHeatmapColorScale,
+
+    -- ** GeospatialHeatmapConfiguration
+    GeospatialHeatmapConfiguration (GeospatialHeatmapConfiguration'),
+    newGeospatialHeatmapConfiguration,
+
+    -- ** GeospatialHeatmapDataColor
+    GeospatialHeatmapDataColor (GeospatialHeatmapDataColor'),
+    newGeospatialHeatmapDataColor,
+
     -- ** GeospatialMapAggregatedFieldWells
     GeospatialMapAggregatedFieldWells (GeospatialMapAggregatedFieldWells'),
     newGeospatialMapAggregatedFieldWells,
@@ -2423,6 +2930,10 @@ module Amazonka.QuickSight
     IAMPolicyAssignmentSummary (IAMPolicyAssignmentSummary'),
     newIAMPolicyAssignmentSummary,
 
+    -- ** IncrementalRefresh
+    IncrementalRefresh (IncrementalRefresh'),
+    newIncrementalRefresh,
+
     -- ** Ingestion
     Ingestion (Ingestion'),
     newIngestion,
@@ -2438,6 +2949,14 @@ module Amazonka.QuickSight
     -- ** InsightVisual
     InsightVisual (InsightVisual'),
     newInsightVisual,
+
+    -- ** IntegerDatasetParameter
+    IntegerDatasetParameter (IntegerDatasetParameter'),
+    newIntegerDatasetParameter,
+
+    -- ** IntegerDatasetParameterDefaultValues
+    IntegerDatasetParameterDefaultValues (IntegerDatasetParameterDefaultValues'),
+    newIntegerDatasetParameterDefaultValues,
 
     -- ** IntegerDefaultValues
     IntegerDefaultValues (IntegerDefaultValues'),
@@ -2599,9 +3118,17 @@ module Amazonka.QuickSight
     LongFormatText (LongFormatText'),
     newLongFormatText,
 
+    -- ** LookbackWindow
+    LookbackWindow (LookbackWindow'),
+    newLookbackWindow,
+
     -- ** ManifestFileLocation
     ManifestFileLocation (ManifestFileLocation'),
     newManifestFileLocation,
+
+    -- ** MappedDataSetParameter
+    MappedDataSetParameter (MappedDataSetParameter'),
+    newMappedDataSetParameter,
 
     -- ** MarginStyle
     MarginStyle (MarginStyle'),
@@ -2643,6 +3170,14 @@ module Amazonka.QuickSight
     MySqlParameters (MySqlParameters'),
     newMySqlParameters,
 
+    -- ** NamedEntityDefinition
+    NamedEntityDefinition (NamedEntityDefinition'),
+    newNamedEntityDefinition,
+
+    -- ** NamedEntityDefinitionMetric
+    NamedEntityDefinitionMetric (NamedEntityDefinitionMetric'),
+    newNamedEntityDefinitionMetric,
+
     -- ** NamespaceError
     NamespaceError (NamespaceError'),
     newNamespaceError,
@@ -2651,9 +3186,21 @@ module Amazonka.QuickSight
     NamespaceInfoV2 (NamespaceInfoV2'),
     newNamespaceInfoV2,
 
+    -- ** NegativeFormat
+    NegativeFormat (NegativeFormat'),
+    newNegativeFormat,
+
     -- ** NegativeValueConfiguration
     NegativeValueConfiguration (NegativeValueConfiguration'),
     newNegativeValueConfiguration,
+
+    -- ** NetworkInterface
+    NetworkInterface (NetworkInterface'),
+    newNetworkInterface,
+
+    -- ** NewDefaultValues
+    NewDefaultValues (NewDefaultValues'),
+    newNewDefaultValues,
 
     -- ** NullValueFormatConfiguration
     NullValueFormatConfiguration (NullValueFormatConfiguration'),
@@ -2714,6 +3261,10 @@ module Amazonka.QuickSight
     -- ** OutputColumn
     OutputColumn (OutputColumn'),
     newOutputColumn,
+
+    -- ** OverrideDatasetParameterOperation
+    OverrideDatasetParameterOperation (OverrideDatasetParameterOperation'),
+    newOverrideDatasetParameterOperation,
 
     -- ** PaginationConfiguration
     PaginationConfiguration (PaginationConfiguration'),
@@ -2843,6 +3394,14 @@ module Amazonka.QuickSight
     PivotTableDataPathOption (PivotTableDataPathOption'),
     newPivotTableDataPathOption,
 
+    -- ** PivotTableFieldCollapseStateOption
+    PivotTableFieldCollapseStateOption (PivotTableFieldCollapseStateOption'),
+    newPivotTableFieldCollapseStateOption,
+
+    -- ** PivotTableFieldCollapseStateTarget
+    PivotTableFieldCollapseStateTarget (PivotTableFieldCollapseStateTarget'),
+    newPivotTableFieldCollapseStateTarget,
+
     -- ** PivotTableFieldOption
     PivotTableFieldOption (PivotTableFieldOption'),
     newPivotTableFieldOption,
@@ -2911,6 +3470,38 @@ module Amazonka.QuickSight
     QueueInfo (QueueInfo'),
     newQueueInfo,
 
+    -- ** RadarChartAggregatedFieldWells
+    RadarChartAggregatedFieldWells (RadarChartAggregatedFieldWells'),
+    newRadarChartAggregatedFieldWells,
+
+    -- ** RadarChartAreaStyleSettings
+    RadarChartAreaStyleSettings (RadarChartAreaStyleSettings'),
+    newRadarChartAreaStyleSettings,
+
+    -- ** RadarChartConfiguration
+    RadarChartConfiguration (RadarChartConfiguration'),
+    newRadarChartConfiguration,
+
+    -- ** RadarChartFieldWells
+    RadarChartFieldWells (RadarChartFieldWells'),
+    newRadarChartFieldWells,
+
+    -- ** RadarChartSeriesSettings
+    RadarChartSeriesSettings (RadarChartSeriesSettings'),
+    newRadarChartSeriesSettings,
+
+    -- ** RadarChartSortConfiguration
+    RadarChartSortConfiguration (RadarChartSortConfiguration'),
+    newRadarChartSortConfiguration,
+
+    -- ** RadarChartVisual
+    RadarChartVisual (RadarChartVisual'),
+    newRadarChartVisual,
+
+    -- ** RangeConstant
+    RangeConstant (RangeConstant'),
+    newRangeConstant,
+
     -- ** RangeEndsLabelType
     RangeEndsLabelType (RangeEndsLabelType'),
     newRangeEndsLabelType,
@@ -2955,9 +3546,29 @@ module Amazonka.QuickSight
     ReferenceLineValueLabelConfiguration (ReferenceLineValueLabelConfiguration'),
     newReferenceLineValueLabelConfiguration,
 
+    -- ** RefreshConfiguration
+    RefreshConfiguration (RefreshConfiguration'),
+    newRefreshConfiguration,
+
+    -- ** RefreshFrequency
+    RefreshFrequency (RefreshFrequency'),
+    newRefreshFrequency,
+
+    -- ** RefreshSchedule
+    RefreshSchedule (RefreshSchedule'),
+    newRefreshSchedule,
+
+    -- ** RegisteredUserConsoleFeatureConfigurations
+    RegisteredUserConsoleFeatureConfigurations (RegisteredUserConsoleFeatureConfigurations'),
+    newRegisteredUserConsoleFeatureConfigurations,
+
     -- ** RegisteredUserDashboardEmbeddingConfiguration
     RegisteredUserDashboardEmbeddingConfiguration (RegisteredUserDashboardEmbeddingConfiguration'),
     newRegisteredUserDashboardEmbeddingConfiguration,
+
+    -- ** RegisteredUserDashboardFeatureConfigurations
+    RegisteredUserDashboardFeatureConfigurations (RegisteredUserDashboardFeatureConfigurations'),
+    newRegisteredUserDashboardFeatureConfigurations,
 
     -- ** RegisteredUserDashboardVisualEmbeddingConfiguration
     RegisteredUserDashboardVisualEmbeddingConfiguration (RegisteredUserDashboardVisualEmbeddingConfiguration'),
@@ -3071,6 +3682,10 @@ module Amazonka.QuickSight
     ScatterPlotVisual (ScatterPlotVisual'),
     newScatterPlotVisual,
 
+    -- ** ScheduleRefreshOnEntity
+    ScheduleRefreshOnEntity (ScheduleRefreshOnEntity'),
+    newScheduleRefreshOnEntity,
+
     -- ** ScrollBarOptions
     ScrollBarOptions (ScrollBarOptions'),
     newScrollBarOptions,
@@ -3110,6 +3725,14 @@ module Amazonka.QuickSight
     -- ** SelectedSheetsFilterScopeConfiguration
     SelectedSheetsFilterScopeConfiguration (SelectedSheetsFilterScopeConfiguration'),
     newSelectedSheetsFilterScopeConfiguration,
+
+    -- ** SemanticEntityType
+    SemanticEntityType (SemanticEntityType'),
+    newSemanticEntityType,
+
+    -- ** SemanticType
+    SemanticType (SemanticType'),
+    newSemanticType,
 
     -- ** SeriesItem
     SeriesItem (SeriesItem'),
@@ -3158,6 +3781,10 @@ module Amazonka.QuickSight
     -- ** SheetElementRenderingRule
     SheetElementRenderingRule (SheetElementRenderingRule'),
     newSheetElementRenderingRule,
+
+    -- ** SheetLayoutElementMaximizationOption
+    SheetLayoutElementMaximizationOption (SheetLayoutElementMaximizationOption'),
+    newSheetLayoutElementMaximizationOption,
 
     -- ** SheetStyle
     SheetStyle (SheetStyle'),
@@ -3210,6 +3837,18 @@ module Amazonka.QuickSight
     -- ** SslProperties
     SslProperties (SslProperties'),
     newSslProperties,
+
+    -- ** StatePersistenceConfigurations
+    StatePersistenceConfigurations (StatePersistenceConfigurations'),
+    newStatePersistenceConfigurations,
+
+    -- ** StringDatasetParameter
+    StringDatasetParameter (StringDatasetParameter'),
+    newStringDatasetParameter,
+
+    -- ** StringDatasetParameterDefaultValues
+    StringDatasetParameterDefaultValues (StringDatasetParameterDefaultValues'),
+    newStringDatasetParameterDefaultValues,
 
     -- ** StringDefaultValues
     StringDefaultValues (StringDefaultValues'),
@@ -3302,6 +3941,10 @@ module Amazonka.QuickSight
     -- ** TableFieldWells
     TableFieldWells (TableFieldWells'),
     newTableFieldWells,
+
+    -- ** TableInlineVisualization
+    TableInlineVisualization (TableInlineVisualization'),
+    newTableInlineVisualization,
 
     -- ** TableOptions
     TableOptions (TableOptions'),
@@ -3479,6 +4122,74 @@ module Amazonka.QuickSight
     TopBottomRankedComputation (TopBottomRankedComputation'),
     newTopBottomRankedComputation,
 
+    -- ** TopicCalculatedField
+    TopicCalculatedField (TopicCalculatedField'),
+    newTopicCalculatedField,
+
+    -- ** TopicCategoryFilter
+    TopicCategoryFilter (TopicCategoryFilter'),
+    newTopicCategoryFilter,
+
+    -- ** TopicCategoryFilterConstant
+    TopicCategoryFilterConstant (TopicCategoryFilterConstant'),
+    newTopicCategoryFilterConstant,
+
+    -- ** TopicColumn
+    TopicColumn (TopicColumn'),
+    newTopicColumn,
+
+    -- ** TopicDateRangeFilter
+    TopicDateRangeFilter (TopicDateRangeFilter'),
+    newTopicDateRangeFilter,
+
+    -- ** TopicDetails
+    TopicDetails (TopicDetails'),
+    newTopicDetails,
+
+    -- ** TopicFilter
+    TopicFilter (TopicFilter'),
+    newTopicFilter,
+
+    -- ** TopicNamedEntity
+    TopicNamedEntity (TopicNamedEntity'),
+    newTopicNamedEntity,
+
+    -- ** TopicNumericEqualityFilter
+    TopicNumericEqualityFilter (TopicNumericEqualityFilter'),
+    newTopicNumericEqualityFilter,
+
+    -- ** TopicNumericRangeFilter
+    TopicNumericRangeFilter (TopicNumericRangeFilter'),
+    newTopicNumericRangeFilter,
+
+    -- ** TopicRangeFilterConstant
+    TopicRangeFilterConstant (TopicRangeFilterConstant'),
+    newTopicRangeFilterConstant,
+
+    -- ** TopicRefreshDetails
+    TopicRefreshDetails (TopicRefreshDetails'),
+    newTopicRefreshDetails,
+
+    -- ** TopicRefreshSchedule
+    TopicRefreshSchedule (TopicRefreshSchedule'),
+    newTopicRefreshSchedule,
+
+    -- ** TopicRefreshScheduleSummary
+    TopicRefreshScheduleSummary (TopicRefreshScheduleSummary'),
+    newTopicRefreshScheduleSummary,
+
+    -- ** TopicRelativeDateFilter
+    TopicRelativeDateFilter (TopicRelativeDateFilter'),
+    newTopicRelativeDateFilter,
+
+    -- ** TopicSingularFilterConstant
+    TopicSingularFilterConstant (TopicSingularFilterConstant'),
+    newTopicSingularFilterConstant,
+
+    -- ** TopicSummary
+    TopicSummary (TopicSummary'),
+    newTopicSummary,
+
     -- ** TotalAggregationComputation
     TotalAggregationComputation (TotalAggregationComputation'),
     newTotalAggregationComputation,
@@ -3547,6 +4258,14 @@ module Amazonka.QuickSight
     User (User'),
     newUser,
 
+    -- ** VPCConnection
+    VPCConnection (VPCConnection'),
+    newVPCConnection,
+
+    -- ** VPCConnectionSummary
+    VPCConnectionSummary (VPCConnectionSummary'),
+    newVPCConnectionSummary,
+
     -- ** VisibleRangeOptions
     VisibleRangeOptions (VisibleRangeOptions'),
     newVisibleRangeOptions,
@@ -3555,6 +4274,10 @@ module Amazonka.QuickSight
     Visual (Visual'),
     newVisual,
 
+    -- ** VisualAxisSortOption
+    VisualAxisSortOption (VisualAxisSortOption'),
+    newVisualAxisSortOption,
+
     -- ** VisualCustomAction
     VisualCustomAction (VisualCustomAction'),
     newVisualCustomAction,
@@ -3562,6 +4285,10 @@ module Amazonka.QuickSight
     -- ** VisualCustomActionOperation
     VisualCustomActionOperation (VisualCustomActionOperation'),
     newVisualCustomActionOperation,
+
+    -- ** VisualMenuOption
+    VisualMenuOption (VisualMenuOption'),
+    newVisualMenuOption,
 
     -- ** VisualPalette
     VisualPalette (VisualPalette'),
@@ -3651,15 +4378,20 @@ import Amazonka.QuickSight.CreateGroupMembership
 import Amazonka.QuickSight.CreateIAMPolicyAssignment
 import Amazonka.QuickSight.CreateIngestion
 import Amazonka.QuickSight.CreateNamespace
+import Amazonka.QuickSight.CreateRefreshSchedule
 import Amazonka.QuickSight.CreateTemplate
 import Amazonka.QuickSight.CreateTemplateAlias
 import Amazonka.QuickSight.CreateTheme
 import Amazonka.QuickSight.CreateThemeAlias
+import Amazonka.QuickSight.CreateTopic
+import Amazonka.QuickSight.CreateTopicRefreshSchedule
+import Amazonka.QuickSight.CreateVPCConnection
 import Amazonka.QuickSight.DeleteAccountCustomization
 import Amazonka.QuickSight.DeleteAccountSubscription
 import Amazonka.QuickSight.DeleteAnalysis
 import Amazonka.QuickSight.DeleteDashboard
 import Amazonka.QuickSight.DeleteDataSet
+import Amazonka.QuickSight.DeleteDataSetRefreshProperties
 import Amazonka.QuickSight.DeleteDataSource
 import Amazonka.QuickSight.DeleteFolder
 import Amazonka.QuickSight.DeleteFolderMembership
@@ -3667,23 +4399,30 @@ import Amazonka.QuickSight.DeleteGroup
 import Amazonka.QuickSight.DeleteGroupMembership
 import Amazonka.QuickSight.DeleteIAMPolicyAssignment
 import Amazonka.QuickSight.DeleteNamespace
+import Amazonka.QuickSight.DeleteRefreshSchedule
 import Amazonka.QuickSight.DeleteTemplate
 import Amazonka.QuickSight.DeleteTemplateAlias
 import Amazonka.QuickSight.DeleteTheme
 import Amazonka.QuickSight.DeleteThemeAlias
+import Amazonka.QuickSight.DeleteTopic
+import Amazonka.QuickSight.DeleteTopicRefreshSchedule
 import Amazonka.QuickSight.DeleteUser
 import Amazonka.QuickSight.DeleteUserByPrincipalId
+import Amazonka.QuickSight.DeleteVPCConnection
 import Amazonka.QuickSight.DescribeAccountCustomization
 import Amazonka.QuickSight.DescribeAccountSettings
 import Amazonka.QuickSight.DescribeAccountSubscription
 import Amazonka.QuickSight.DescribeAnalysis
 import Amazonka.QuickSight.DescribeAnalysisDefinition
 import Amazonka.QuickSight.DescribeAnalysisPermissions
+import Amazonka.QuickSight.DescribeAssetBundleExportJob
+import Amazonka.QuickSight.DescribeAssetBundleImportJob
 import Amazonka.QuickSight.DescribeDashboard
 import Amazonka.QuickSight.DescribeDashboardDefinition
 import Amazonka.QuickSight.DescribeDashboardPermissions
 import Amazonka.QuickSight.DescribeDataSet
 import Amazonka.QuickSight.DescribeDataSetPermissions
+import Amazonka.QuickSight.DescribeDataSetRefreshProperties
 import Amazonka.QuickSight.DescribeDataSource
 import Amazonka.QuickSight.DescribeDataSourcePermissions
 import Amazonka.QuickSight.DescribeFolder
@@ -3695,6 +4434,7 @@ import Amazonka.QuickSight.DescribeIAMPolicyAssignment
 import Amazonka.QuickSight.DescribeIngestion
 import Amazonka.QuickSight.DescribeIpRestriction
 import Amazonka.QuickSight.DescribeNamespace
+import Amazonka.QuickSight.DescribeRefreshSchedule
 import Amazonka.QuickSight.DescribeTemplate
 import Amazonka.QuickSight.DescribeTemplateAlias
 import Amazonka.QuickSight.DescribeTemplateDefinition
@@ -3702,13 +4442,20 @@ import Amazonka.QuickSight.DescribeTemplatePermissions
 import Amazonka.QuickSight.DescribeTheme
 import Amazonka.QuickSight.DescribeThemeAlias
 import Amazonka.QuickSight.DescribeThemePermissions
+import Amazonka.QuickSight.DescribeTopic
+import Amazonka.QuickSight.DescribeTopicPermissions
+import Amazonka.QuickSight.DescribeTopicRefresh
+import Amazonka.QuickSight.DescribeTopicRefreshSchedule
 import Amazonka.QuickSight.DescribeUser
+import Amazonka.QuickSight.DescribeVPCConnection
 import Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser
 import Amazonka.QuickSight.GenerateEmbedUrlForRegisteredUser
 import Amazonka.QuickSight.GetDashboardEmbedUrl
 import Amazonka.QuickSight.GetSessionEmbedUrl
 import Amazonka.QuickSight.Lens
 import Amazonka.QuickSight.ListAnalyses
+import Amazonka.QuickSight.ListAssetBundleExportJobs
+import Amazonka.QuickSight.ListAssetBundleImportJobs
 import Amazonka.QuickSight.ListDashboardVersions
 import Amazonka.QuickSight.ListDashboards
 import Amazonka.QuickSight.ListDataSets
@@ -3721,6 +4468,7 @@ import Amazonka.QuickSight.ListIAMPolicyAssignments
 import Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser
 import Amazonka.QuickSight.ListIngestions
 import Amazonka.QuickSight.ListNamespaces
+import Amazonka.QuickSight.ListRefreshSchedules
 import Amazonka.QuickSight.ListTagsForResource
 import Amazonka.QuickSight.ListTemplateAliases
 import Amazonka.QuickSight.ListTemplateVersions
@@ -3728,8 +4476,12 @@ import Amazonka.QuickSight.ListTemplates
 import Amazonka.QuickSight.ListThemeAliases
 import Amazonka.QuickSight.ListThemeVersions
 import Amazonka.QuickSight.ListThemes
+import Amazonka.QuickSight.ListTopicRefreshSchedules
+import Amazonka.QuickSight.ListTopics
 import Amazonka.QuickSight.ListUserGroups
 import Amazonka.QuickSight.ListUsers
+import Amazonka.QuickSight.ListVPCConnections
+import Amazonka.QuickSight.PutDataSetRefreshProperties
 import Amazonka.QuickSight.RegisterUser
 import Amazonka.QuickSight.RestoreAnalysis
 import Amazonka.QuickSight.SearchAnalyses
@@ -3738,6 +4490,8 @@ import Amazonka.QuickSight.SearchDataSets
 import Amazonka.QuickSight.SearchDataSources
 import Amazonka.QuickSight.SearchFolders
 import Amazonka.QuickSight.SearchGroups
+import Amazonka.QuickSight.StartAssetBundleExportJob
+import Amazonka.QuickSight.StartAssetBundleImportJob
 import Amazonka.QuickSight.TagResource
 import Amazonka.QuickSight.Types
 import Amazonka.QuickSight.UntagResource
@@ -3758,13 +4512,18 @@ import Amazonka.QuickSight.UpdateGroup
 import Amazonka.QuickSight.UpdateIAMPolicyAssignment
 import Amazonka.QuickSight.UpdateIpRestriction
 import Amazonka.QuickSight.UpdatePublicSharingSettings
+import Amazonka.QuickSight.UpdateRefreshSchedule
 import Amazonka.QuickSight.UpdateTemplate
 import Amazonka.QuickSight.UpdateTemplateAlias
 import Amazonka.QuickSight.UpdateTemplatePermissions
 import Amazonka.QuickSight.UpdateTheme
 import Amazonka.QuickSight.UpdateThemeAlias
 import Amazonka.QuickSight.UpdateThemePermissions
+import Amazonka.QuickSight.UpdateTopic
+import Amazonka.QuickSight.UpdateTopicPermissions
+import Amazonka.QuickSight.UpdateTopicRefreshSchedule
 import Amazonka.QuickSight.UpdateUser
+import Amazonka.QuickSight.UpdateVPCConnection
 import Amazonka.QuickSight.Waiters
 
 -- $errors

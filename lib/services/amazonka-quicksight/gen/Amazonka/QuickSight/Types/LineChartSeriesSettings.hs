@@ -78,7 +78,8 @@ instance Data.FromJSON LineChartSeriesSettings where
 
 instance Prelude.Hashable LineChartSeriesSettings where
   hashWithSalt _salt LineChartSeriesSettings' {..} =
-    _salt `Prelude.hashWithSalt` lineStyleSettings
+    _salt
+      `Prelude.hashWithSalt` lineStyleSettings
       `Prelude.hashWithSalt` markerStyleSettings
 
 instance Prelude.NFData LineChartSeriesSettings where

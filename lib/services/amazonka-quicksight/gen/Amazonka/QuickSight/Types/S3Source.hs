@@ -99,7 +99,8 @@ instance Data.FromJSON S3Source where
 
 instance Prelude.Hashable S3Source where
   hashWithSalt _salt S3Source' {..} =
-    _salt `Prelude.hashWithSalt` uploadSettings
+    _salt
+      `Prelude.hashWithSalt` uploadSettings
       `Prelude.hashWithSalt` dataSourceArn
       `Prelude.hashWithSalt` inputColumns
 

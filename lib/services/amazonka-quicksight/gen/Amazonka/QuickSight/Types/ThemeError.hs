@@ -75,7 +75,8 @@ instance Data.FromJSON ThemeError where
 
 instance Prelude.Hashable ThemeError where
   hashWithSalt _salt ThemeError' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ThemeError where

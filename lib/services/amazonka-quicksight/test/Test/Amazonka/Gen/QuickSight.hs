@@ -69,6 +69,9 @@ import Test.Tasty
 --         , requestCreateNamespace $
 --             newCreateNamespace
 --
+--         , requestCreateRefreshSchedule $
+--             newCreateRefreshSchedule
+--
 --         , requestCreateTemplate $
 --             newCreateTemplate
 --
@@ -80,6 +83,15 @@ import Test.Tasty
 --
 --         , requestCreateThemeAlias $
 --             newCreateThemeAlias
+--
+--         , requestCreateTopic $
+--             newCreateTopic
+--
+--         , requestCreateTopicRefreshSchedule $
+--             newCreateTopicRefreshSchedule
+--
+--         , requestCreateVPCConnection $
+--             newCreateVPCConnection
 --
 --         , requestDeleteAccountCustomization $
 --             newDeleteAccountCustomization
@@ -95,6 +107,9 @@ import Test.Tasty
 --
 --         , requestDeleteDataSet $
 --             newDeleteDataSet
+--
+--         , requestDeleteDataSetRefreshProperties $
+--             newDeleteDataSetRefreshProperties
 --
 --         , requestDeleteDataSource $
 --             newDeleteDataSource
@@ -117,6 +132,9 @@ import Test.Tasty
 --         , requestDeleteNamespace $
 --             newDeleteNamespace
 --
+--         , requestDeleteRefreshSchedule $
+--             newDeleteRefreshSchedule
+--
 --         , requestDeleteTemplate $
 --             newDeleteTemplate
 --
@@ -129,11 +147,20 @@ import Test.Tasty
 --         , requestDeleteThemeAlias $
 --             newDeleteThemeAlias
 --
+--         , requestDeleteTopic $
+--             newDeleteTopic
+--
+--         , requestDeleteTopicRefreshSchedule $
+--             newDeleteTopicRefreshSchedule
+--
 --         , requestDeleteUser $
 --             newDeleteUser
 --
 --         , requestDeleteUserByPrincipalId $
 --             newDeleteUserByPrincipalId
+--
+--         , requestDeleteVPCConnection $
+--             newDeleteVPCConnection
 --
 --         , requestDescribeAccountCustomization $
 --             newDescribeAccountCustomization
@@ -153,6 +180,12 @@ import Test.Tasty
 --         , requestDescribeAnalysisPermissions $
 --             newDescribeAnalysisPermissions
 --
+--         , requestDescribeAssetBundleExportJob $
+--             newDescribeAssetBundleExportJob
+--
+--         , requestDescribeAssetBundleImportJob $
+--             newDescribeAssetBundleImportJob
+--
 --         , requestDescribeDashboard $
 --             newDescribeDashboard
 --
@@ -167,6 +200,9 @@ import Test.Tasty
 --
 --         , requestDescribeDataSetPermissions $
 --             newDescribeDataSetPermissions
+--
+--         , requestDescribeDataSetRefreshProperties $
+--             newDescribeDataSetRefreshProperties
 --
 --         , requestDescribeDataSource $
 --             newDescribeDataSource
@@ -201,6 +237,9 @@ import Test.Tasty
 --         , requestDescribeNamespace $
 --             newDescribeNamespace
 --
+--         , requestDescribeRefreshSchedule $
+--             newDescribeRefreshSchedule
+--
 --         , requestDescribeTemplate $
 --             newDescribeTemplate
 --
@@ -222,8 +261,23 @@ import Test.Tasty
 --         , requestDescribeThemePermissions $
 --             newDescribeThemePermissions
 --
+--         , requestDescribeTopic $
+--             newDescribeTopic
+--
+--         , requestDescribeTopicPermissions $
+--             newDescribeTopicPermissions
+--
+--         , requestDescribeTopicRefresh $
+--             newDescribeTopicRefresh
+--
+--         , requestDescribeTopicRefreshSchedule $
+--             newDescribeTopicRefreshSchedule
+--
 --         , requestDescribeUser $
 --             newDescribeUser
+--
+--         , requestDescribeVPCConnection $
+--             newDescribeVPCConnection
 --
 --         , requestGenerateEmbedUrlForAnonymousUser $
 --             newGenerateEmbedUrlForAnonymousUser
@@ -239,6 +293,12 @@ import Test.Tasty
 --
 --         , requestListAnalyses $
 --             newListAnalyses
+--
+--         , requestListAssetBundleExportJobs $
+--             newListAssetBundleExportJobs
+--
+--         , requestListAssetBundleImportJobs $
+--             newListAssetBundleImportJobs
 --
 --         , requestListDashboardVersions $
 --             newListDashboardVersions
@@ -276,6 +336,9 @@ import Test.Tasty
 --         , requestListNamespaces $
 --             newListNamespaces
 --
+--         , requestListRefreshSchedules $
+--             newListRefreshSchedules
+--
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
@@ -297,11 +360,23 @@ import Test.Tasty
 --         , requestListThemes $
 --             newListThemes
 --
+--         , requestListTopicRefreshSchedules $
+--             newListTopicRefreshSchedules
+--
+--         , requestListTopics $
+--             newListTopics
+--
 --         , requestListUserGroups $
 --             newListUserGroups
 --
 --         , requestListUsers $
 --             newListUsers
+--
+--         , requestListVPCConnections $
+--             newListVPCConnections
+--
+--         , requestPutDataSetRefreshProperties $
+--             newPutDataSetRefreshProperties
 --
 --         , requestRegisterUser $
 --             newRegisterUser
@@ -326,6 +401,12 @@ import Test.Tasty
 --
 --         , requestSearchGroups $
 --             newSearchGroups
+--
+--         , requestStartAssetBundleExportJob $
+--             newStartAssetBundleExportJob
+--
+--         , requestStartAssetBundleImportJob $
+--             newStartAssetBundleImportJob
 --
 --         , requestTagResource $
 --             newTagResource
@@ -384,6 +465,9 @@ import Test.Tasty
 --         , requestUpdatePublicSharingSettings $
 --             newUpdatePublicSharingSettings
 --
+--         , requestUpdateRefreshSchedule $
+--             newUpdateRefreshSchedule
+--
 --         , requestUpdateTemplate $
 --             newUpdateTemplate
 --
@@ -402,8 +486,20 @@ import Test.Tasty
 --         , requestUpdateThemePermissions $
 --             newUpdateThemePermissions
 --
+--         , requestUpdateTopic $
+--             newUpdateTopic
+--
+--         , requestUpdateTopicPermissions $
+--             newUpdateTopicPermissions
+--
+--         , requestUpdateTopicRefreshSchedule $
+--             newUpdateTopicRefreshSchedule
+--
 --         , requestUpdateUser $
 --             newUpdateUser
+--
+--         , requestUpdateVPCConnection $
+--             newUpdateVPCConnection
 --
 --           ]
 
@@ -450,6 +546,9 @@ import Test.Tasty
 --         , responseCreateNamespace $
 --             newCreateNamespaceResponse
 --
+--         , responseCreateRefreshSchedule $
+--             newCreateRefreshScheduleResponse
+--
 --         , responseCreateTemplate $
 --             newCreateTemplateResponse
 --
@@ -461,6 +560,15 @@ import Test.Tasty
 --
 --         , responseCreateThemeAlias $
 --             newCreateThemeAliasResponse
+--
+--         , responseCreateTopic $
+--             newCreateTopicResponse
+--
+--         , responseCreateTopicRefreshSchedule $
+--             newCreateTopicRefreshScheduleResponse
+--
+--         , responseCreateVPCConnection $
+--             newCreateVPCConnectionResponse
 --
 --         , responseDeleteAccountCustomization $
 --             newDeleteAccountCustomizationResponse
@@ -476,6 +584,9 @@ import Test.Tasty
 --
 --         , responseDeleteDataSet $
 --             newDeleteDataSetResponse
+--
+--         , responseDeleteDataSetRefreshProperties $
+--             newDeleteDataSetRefreshPropertiesResponse
 --
 --         , responseDeleteDataSource $
 --             newDeleteDataSourceResponse
@@ -498,6 +609,9 @@ import Test.Tasty
 --         , responseDeleteNamespace $
 --             newDeleteNamespaceResponse
 --
+--         , responseDeleteRefreshSchedule $
+--             newDeleteRefreshScheduleResponse
+--
 --         , responseDeleteTemplate $
 --             newDeleteTemplateResponse
 --
@@ -510,11 +624,20 @@ import Test.Tasty
 --         , responseDeleteThemeAlias $
 --             newDeleteThemeAliasResponse
 --
+--         , responseDeleteTopic $
+--             newDeleteTopicResponse
+--
+--         , responseDeleteTopicRefreshSchedule $
+--             newDeleteTopicRefreshScheduleResponse
+--
 --         , responseDeleteUser $
 --             newDeleteUserResponse
 --
 --         , responseDeleteUserByPrincipalId $
 --             newDeleteUserByPrincipalIdResponse
+--
+--         , responseDeleteVPCConnection $
+--             newDeleteVPCConnectionResponse
 --
 --         , responseDescribeAccountCustomization $
 --             newDescribeAccountCustomizationResponse
@@ -534,6 +657,12 @@ import Test.Tasty
 --         , responseDescribeAnalysisPermissions $
 --             newDescribeAnalysisPermissionsResponse
 --
+--         , responseDescribeAssetBundleExportJob $
+--             newDescribeAssetBundleExportJobResponse
+--
+--         , responseDescribeAssetBundleImportJob $
+--             newDescribeAssetBundleImportJobResponse
+--
 --         , responseDescribeDashboard $
 --             newDescribeDashboardResponse
 --
@@ -548,6 +677,9 @@ import Test.Tasty
 --
 --         , responseDescribeDataSetPermissions $
 --             newDescribeDataSetPermissionsResponse
+--
+--         , responseDescribeDataSetRefreshProperties $
+--             newDescribeDataSetRefreshPropertiesResponse
 --
 --         , responseDescribeDataSource $
 --             newDescribeDataSourceResponse
@@ -582,6 +714,9 @@ import Test.Tasty
 --         , responseDescribeNamespace $
 --             newDescribeNamespaceResponse
 --
+--         , responseDescribeRefreshSchedule $
+--             newDescribeRefreshScheduleResponse
+--
 --         , responseDescribeTemplate $
 --             newDescribeTemplateResponse
 --
@@ -603,8 +738,23 @@ import Test.Tasty
 --         , responseDescribeThemePermissions $
 --             newDescribeThemePermissionsResponse
 --
+--         , responseDescribeTopic $
+--             newDescribeTopicResponse
+--
+--         , responseDescribeTopicPermissions $
+--             newDescribeTopicPermissionsResponse
+--
+--         , responseDescribeTopicRefresh $
+--             newDescribeTopicRefreshResponse
+--
+--         , responseDescribeTopicRefreshSchedule $
+--             newDescribeTopicRefreshScheduleResponse
+--
 --         , responseDescribeUser $
 --             newDescribeUserResponse
+--
+--         , responseDescribeVPCConnection $
+--             newDescribeVPCConnectionResponse
 --
 --         , responseGenerateEmbedUrlForAnonymousUser $
 --             newGenerateEmbedUrlForAnonymousUserResponse
@@ -620,6 +770,12 @@ import Test.Tasty
 --
 --         , responseListAnalyses $
 --             newListAnalysesResponse
+--
+--         , responseListAssetBundleExportJobs $
+--             newListAssetBundleExportJobsResponse
+--
+--         , responseListAssetBundleImportJobs $
+--             newListAssetBundleImportJobsResponse
 --
 --         , responseListDashboardVersions $
 --             newListDashboardVersionsResponse
@@ -657,6 +813,9 @@ import Test.Tasty
 --         , responseListNamespaces $
 --             newListNamespacesResponse
 --
+--         , responseListRefreshSchedules $
+--             newListRefreshSchedulesResponse
+--
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
@@ -678,11 +837,23 @@ import Test.Tasty
 --         , responseListThemes $
 --             newListThemesResponse
 --
+--         , responseListTopicRefreshSchedules $
+--             newListTopicRefreshSchedulesResponse
+--
+--         , responseListTopics $
+--             newListTopicsResponse
+--
 --         , responseListUserGroups $
 --             newListUserGroupsResponse
 --
 --         , responseListUsers $
 --             newListUsersResponse
+--
+--         , responseListVPCConnections $
+--             newListVPCConnectionsResponse
+--
+--         , responsePutDataSetRefreshProperties $
+--             newPutDataSetRefreshPropertiesResponse
 --
 --         , responseRegisterUser $
 --             newRegisterUserResponse
@@ -707,6 +878,12 @@ import Test.Tasty
 --
 --         , responseSearchGroups $
 --             newSearchGroupsResponse
+--
+--         , responseStartAssetBundleExportJob $
+--             newStartAssetBundleExportJobResponse
+--
+--         , responseStartAssetBundleImportJob $
+--             newStartAssetBundleImportJobResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -765,6 +942,9 @@ import Test.Tasty
 --         , responseUpdatePublicSharingSettings $
 --             newUpdatePublicSharingSettingsResponse
 --
+--         , responseUpdateRefreshSchedule $
+--             newUpdateRefreshScheduleResponse
+--
 --         , responseUpdateTemplate $
 --             newUpdateTemplateResponse
 --
@@ -783,8 +963,20 @@ import Test.Tasty
 --         , responseUpdateThemePermissions $
 --             newUpdateThemePermissionsResponse
 --
+--         , responseUpdateTopic $
+--             newUpdateTopicResponse
+--
+--         , responseUpdateTopicPermissions $
+--             newUpdateTopicPermissionsResponse
+--
+--         , responseUpdateTopicRefreshSchedule $
+--             newUpdateTopicRefreshScheduleResponse
+--
 --         , responseUpdateUser $
 --             newUpdateUserResponse
+--
+--         , responseUpdateVPCConnection $
+--             newUpdateVPCConnectionResponse
 --
 --           ]
 --     ]
@@ -875,6 +1067,12 @@ requestCreateNamespace =
     "CreateNamespace"
     "fixture/CreateNamespace.yaml"
 
+requestCreateRefreshSchedule :: CreateRefreshSchedule -> TestTree
+requestCreateRefreshSchedule =
+  req
+    "CreateRefreshSchedule"
+    "fixture/CreateRefreshSchedule.yaml"
+
 requestCreateTemplate :: CreateTemplate -> TestTree
 requestCreateTemplate =
   req
@@ -898,6 +1096,24 @@ requestCreateThemeAlias =
   req
     "CreateThemeAlias"
     "fixture/CreateThemeAlias.yaml"
+
+requestCreateTopic :: CreateTopic -> TestTree
+requestCreateTopic =
+  req
+    "CreateTopic"
+    "fixture/CreateTopic.yaml"
+
+requestCreateTopicRefreshSchedule :: CreateTopicRefreshSchedule -> TestTree
+requestCreateTopicRefreshSchedule =
+  req
+    "CreateTopicRefreshSchedule"
+    "fixture/CreateTopicRefreshSchedule.yaml"
+
+requestCreateVPCConnection :: CreateVPCConnection -> TestTree
+requestCreateVPCConnection =
+  req
+    "CreateVPCConnection"
+    "fixture/CreateVPCConnection.yaml"
 
 requestDeleteAccountCustomization :: DeleteAccountCustomization -> TestTree
 requestDeleteAccountCustomization =
@@ -928,6 +1144,12 @@ requestDeleteDataSet =
   req
     "DeleteDataSet"
     "fixture/DeleteDataSet.yaml"
+
+requestDeleteDataSetRefreshProperties :: DeleteDataSetRefreshProperties -> TestTree
+requestDeleteDataSetRefreshProperties =
+  req
+    "DeleteDataSetRefreshProperties"
+    "fixture/DeleteDataSetRefreshProperties.yaml"
 
 requestDeleteDataSource :: DeleteDataSource -> TestTree
 requestDeleteDataSource =
@@ -971,6 +1193,12 @@ requestDeleteNamespace =
     "DeleteNamespace"
     "fixture/DeleteNamespace.yaml"
 
+requestDeleteRefreshSchedule :: DeleteRefreshSchedule -> TestTree
+requestDeleteRefreshSchedule =
+  req
+    "DeleteRefreshSchedule"
+    "fixture/DeleteRefreshSchedule.yaml"
+
 requestDeleteTemplate :: DeleteTemplate -> TestTree
 requestDeleteTemplate =
   req
@@ -995,6 +1223,18 @@ requestDeleteThemeAlias =
     "DeleteThemeAlias"
     "fixture/DeleteThemeAlias.yaml"
 
+requestDeleteTopic :: DeleteTopic -> TestTree
+requestDeleteTopic =
+  req
+    "DeleteTopic"
+    "fixture/DeleteTopic.yaml"
+
+requestDeleteTopicRefreshSchedule :: DeleteTopicRefreshSchedule -> TestTree
+requestDeleteTopicRefreshSchedule =
+  req
+    "DeleteTopicRefreshSchedule"
+    "fixture/DeleteTopicRefreshSchedule.yaml"
+
 requestDeleteUser :: DeleteUser -> TestTree
 requestDeleteUser =
   req
@@ -1006,6 +1246,12 @@ requestDeleteUserByPrincipalId =
   req
     "DeleteUserByPrincipalId"
     "fixture/DeleteUserByPrincipalId.yaml"
+
+requestDeleteVPCConnection :: DeleteVPCConnection -> TestTree
+requestDeleteVPCConnection =
+  req
+    "DeleteVPCConnection"
+    "fixture/DeleteVPCConnection.yaml"
 
 requestDescribeAccountCustomization :: DescribeAccountCustomization -> TestTree
 requestDescribeAccountCustomization =
@@ -1043,6 +1289,18 @@ requestDescribeAnalysisPermissions =
     "DescribeAnalysisPermissions"
     "fixture/DescribeAnalysisPermissions.yaml"
 
+requestDescribeAssetBundleExportJob :: DescribeAssetBundleExportJob -> TestTree
+requestDescribeAssetBundleExportJob =
+  req
+    "DescribeAssetBundleExportJob"
+    "fixture/DescribeAssetBundleExportJob.yaml"
+
+requestDescribeAssetBundleImportJob :: DescribeAssetBundleImportJob -> TestTree
+requestDescribeAssetBundleImportJob =
+  req
+    "DescribeAssetBundleImportJob"
+    "fixture/DescribeAssetBundleImportJob.yaml"
+
 requestDescribeDashboard :: DescribeDashboard -> TestTree
 requestDescribeDashboard =
   req
@@ -1072,6 +1330,12 @@ requestDescribeDataSetPermissions =
   req
     "DescribeDataSetPermissions"
     "fixture/DescribeDataSetPermissions.yaml"
+
+requestDescribeDataSetRefreshProperties :: DescribeDataSetRefreshProperties -> TestTree
+requestDescribeDataSetRefreshProperties =
+  req
+    "DescribeDataSetRefreshProperties"
+    "fixture/DescribeDataSetRefreshProperties.yaml"
 
 requestDescribeDataSource :: DescribeDataSource -> TestTree
 requestDescribeDataSource =
@@ -1139,6 +1403,12 @@ requestDescribeNamespace =
     "DescribeNamespace"
     "fixture/DescribeNamespace.yaml"
 
+requestDescribeRefreshSchedule :: DescribeRefreshSchedule -> TestTree
+requestDescribeRefreshSchedule =
+  req
+    "DescribeRefreshSchedule"
+    "fixture/DescribeRefreshSchedule.yaml"
+
 requestDescribeTemplate :: DescribeTemplate -> TestTree
 requestDescribeTemplate =
   req
@@ -1181,11 +1451,41 @@ requestDescribeThemePermissions =
     "DescribeThemePermissions"
     "fixture/DescribeThemePermissions.yaml"
 
+requestDescribeTopic :: DescribeTopic -> TestTree
+requestDescribeTopic =
+  req
+    "DescribeTopic"
+    "fixture/DescribeTopic.yaml"
+
+requestDescribeTopicPermissions :: DescribeTopicPermissions -> TestTree
+requestDescribeTopicPermissions =
+  req
+    "DescribeTopicPermissions"
+    "fixture/DescribeTopicPermissions.yaml"
+
+requestDescribeTopicRefresh :: DescribeTopicRefresh -> TestTree
+requestDescribeTopicRefresh =
+  req
+    "DescribeTopicRefresh"
+    "fixture/DescribeTopicRefresh.yaml"
+
+requestDescribeTopicRefreshSchedule :: DescribeTopicRefreshSchedule -> TestTree
+requestDescribeTopicRefreshSchedule =
+  req
+    "DescribeTopicRefreshSchedule"
+    "fixture/DescribeTopicRefreshSchedule.yaml"
+
 requestDescribeUser :: DescribeUser -> TestTree
 requestDescribeUser =
   req
     "DescribeUser"
     "fixture/DescribeUser.yaml"
+
+requestDescribeVPCConnection :: DescribeVPCConnection -> TestTree
+requestDescribeVPCConnection =
+  req
+    "DescribeVPCConnection"
+    "fixture/DescribeVPCConnection.yaml"
 
 requestGenerateEmbedUrlForAnonymousUser :: GenerateEmbedUrlForAnonymousUser -> TestTree
 requestGenerateEmbedUrlForAnonymousUser =
@@ -1216,6 +1516,18 @@ requestListAnalyses =
   req
     "ListAnalyses"
     "fixture/ListAnalyses.yaml"
+
+requestListAssetBundleExportJobs :: ListAssetBundleExportJobs -> TestTree
+requestListAssetBundleExportJobs =
+  req
+    "ListAssetBundleExportJobs"
+    "fixture/ListAssetBundleExportJobs.yaml"
+
+requestListAssetBundleImportJobs :: ListAssetBundleImportJobs -> TestTree
+requestListAssetBundleImportJobs =
+  req
+    "ListAssetBundleImportJobs"
+    "fixture/ListAssetBundleImportJobs.yaml"
 
 requestListDashboardVersions :: ListDashboardVersions -> TestTree
 requestListDashboardVersions =
@@ -1289,6 +1601,12 @@ requestListNamespaces =
     "ListNamespaces"
     "fixture/ListNamespaces.yaml"
 
+requestListRefreshSchedules :: ListRefreshSchedules -> TestTree
+requestListRefreshSchedules =
+  req
+    "ListRefreshSchedules"
+    "fixture/ListRefreshSchedules.yaml"
+
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
   req
@@ -1331,6 +1649,18 @@ requestListThemes =
     "ListThemes"
     "fixture/ListThemes.yaml"
 
+requestListTopicRefreshSchedules :: ListTopicRefreshSchedules -> TestTree
+requestListTopicRefreshSchedules =
+  req
+    "ListTopicRefreshSchedules"
+    "fixture/ListTopicRefreshSchedules.yaml"
+
+requestListTopics :: ListTopics -> TestTree
+requestListTopics =
+  req
+    "ListTopics"
+    "fixture/ListTopics.yaml"
+
 requestListUserGroups :: ListUserGroups -> TestTree
 requestListUserGroups =
   req
@@ -1342,6 +1672,18 @@ requestListUsers =
   req
     "ListUsers"
     "fixture/ListUsers.yaml"
+
+requestListVPCConnections :: ListVPCConnections -> TestTree
+requestListVPCConnections =
+  req
+    "ListVPCConnections"
+    "fixture/ListVPCConnections.yaml"
+
+requestPutDataSetRefreshProperties :: PutDataSetRefreshProperties -> TestTree
+requestPutDataSetRefreshProperties =
+  req
+    "PutDataSetRefreshProperties"
+    "fixture/PutDataSetRefreshProperties.yaml"
 
 requestRegisterUser :: RegisterUser -> TestTree
 requestRegisterUser =
@@ -1390,6 +1732,18 @@ requestSearchGroups =
   req
     "SearchGroups"
     "fixture/SearchGroups.yaml"
+
+requestStartAssetBundleExportJob :: StartAssetBundleExportJob -> TestTree
+requestStartAssetBundleExportJob =
+  req
+    "StartAssetBundleExportJob"
+    "fixture/StartAssetBundleExportJob.yaml"
+
+requestStartAssetBundleImportJob :: StartAssetBundleImportJob -> TestTree
+requestStartAssetBundleImportJob =
+  req
+    "StartAssetBundleImportJob"
+    "fixture/StartAssetBundleImportJob.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -1505,6 +1859,12 @@ requestUpdatePublicSharingSettings =
     "UpdatePublicSharingSettings"
     "fixture/UpdatePublicSharingSettings.yaml"
 
+requestUpdateRefreshSchedule :: UpdateRefreshSchedule -> TestTree
+requestUpdateRefreshSchedule =
+  req
+    "UpdateRefreshSchedule"
+    "fixture/UpdateRefreshSchedule.yaml"
+
 requestUpdateTemplate :: UpdateTemplate -> TestTree
 requestUpdateTemplate =
   req
@@ -1541,11 +1901,35 @@ requestUpdateThemePermissions =
     "UpdateThemePermissions"
     "fixture/UpdateThemePermissions.yaml"
 
+requestUpdateTopic :: UpdateTopic -> TestTree
+requestUpdateTopic =
+  req
+    "UpdateTopic"
+    "fixture/UpdateTopic.yaml"
+
+requestUpdateTopicPermissions :: UpdateTopicPermissions -> TestTree
+requestUpdateTopicPermissions =
+  req
+    "UpdateTopicPermissions"
+    "fixture/UpdateTopicPermissions.yaml"
+
+requestUpdateTopicRefreshSchedule :: UpdateTopicRefreshSchedule -> TestTree
+requestUpdateTopicRefreshSchedule =
+  req
+    "UpdateTopicRefreshSchedule"
+    "fixture/UpdateTopicRefreshSchedule.yaml"
+
 requestUpdateUser :: UpdateUser -> TestTree
 requestUpdateUser =
   req
     "UpdateUser"
     "fixture/UpdateUser.yaml"
+
+requestUpdateVPCConnection :: UpdateVPCConnection -> TestTree
+requestUpdateVPCConnection =
+  req
+    "UpdateVPCConnection"
+    "fixture/UpdateVPCConnection.yaml"
 
 -- Responses
 
@@ -1661,6 +2045,14 @@ responseCreateNamespace =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateNamespace)
 
+responseCreateRefreshSchedule :: CreateRefreshScheduleResponse -> TestTree
+responseCreateRefreshSchedule =
+  res
+    "CreateRefreshScheduleResponse"
+    "fixture/CreateRefreshScheduleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateRefreshSchedule)
+
 responseCreateTemplate :: CreateTemplateResponse -> TestTree
 responseCreateTemplate =
   res
@@ -1692,6 +2084,30 @@ responseCreateThemeAlias =
     "fixture/CreateThemeAliasResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateThemeAlias)
+
+responseCreateTopic :: CreateTopicResponse -> TestTree
+responseCreateTopic =
+  res
+    "CreateTopicResponse"
+    "fixture/CreateTopicResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateTopic)
+
+responseCreateTopicRefreshSchedule :: CreateTopicRefreshScheduleResponse -> TestTree
+responseCreateTopicRefreshSchedule =
+  res
+    "CreateTopicRefreshScheduleResponse"
+    "fixture/CreateTopicRefreshScheduleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateTopicRefreshSchedule)
+
+responseCreateVPCConnection :: CreateVPCConnectionResponse -> TestTree
+responseCreateVPCConnection =
+  res
+    "CreateVPCConnectionResponse"
+    "fixture/CreateVPCConnectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateVPCConnection)
 
 responseDeleteAccountCustomization :: DeleteAccountCustomizationResponse -> TestTree
 responseDeleteAccountCustomization =
@@ -1732,6 +2148,14 @@ responseDeleteDataSet =
     "fixture/DeleteDataSetResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteDataSet)
+
+responseDeleteDataSetRefreshProperties :: DeleteDataSetRefreshPropertiesResponse -> TestTree
+responseDeleteDataSetRefreshProperties =
+  res
+    "DeleteDataSetRefreshPropertiesResponse"
+    "fixture/DeleteDataSetRefreshPropertiesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataSetRefreshProperties)
 
 responseDeleteDataSource :: DeleteDataSourceResponse -> TestTree
 responseDeleteDataSource =
@@ -1789,6 +2213,14 @@ responseDeleteNamespace =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteNamespace)
 
+responseDeleteRefreshSchedule :: DeleteRefreshScheduleResponse -> TestTree
+responseDeleteRefreshSchedule =
+  res
+    "DeleteRefreshScheduleResponse"
+    "fixture/DeleteRefreshScheduleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRefreshSchedule)
+
 responseDeleteTemplate :: DeleteTemplateResponse -> TestTree
 responseDeleteTemplate =
   res
@@ -1821,6 +2253,22 @@ responseDeleteThemeAlias =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteThemeAlias)
 
+responseDeleteTopic :: DeleteTopicResponse -> TestTree
+responseDeleteTopic =
+  res
+    "DeleteTopicResponse"
+    "fixture/DeleteTopicResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteTopic)
+
+responseDeleteTopicRefreshSchedule :: DeleteTopicRefreshScheduleResponse -> TestTree
+responseDeleteTopicRefreshSchedule =
+  res
+    "DeleteTopicRefreshScheduleResponse"
+    "fixture/DeleteTopicRefreshScheduleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteTopicRefreshSchedule)
+
 responseDeleteUser :: DeleteUserResponse -> TestTree
 responseDeleteUser =
   res
@@ -1836,6 +2284,14 @@ responseDeleteUserByPrincipalId =
     "fixture/DeleteUserByPrincipalIdResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteUserByPrincipalId)
+
+responseDeleteVPCConnection :: DeleteVPCConnectionResponse -> TestTree
+responseDeleteVPCConnection =
+  res
+    "DeleteVPCConnectionResponse"
+    "fixture/DeleteVPCConnectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVPCConnection)
 
 responseDescribeAccountCustomization :: DescribeAccountCustomizationResponse -> TestTree
 responseDescribeAccountCustomization =
@@ -1885,6 +2341,22 @@ responseDescribeAnalysisPermissions =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAnalysisPermissions)
 
+responseDescribeAssetBundleExportJob :: DescribeAssetBundleExportJobResponse -> TestTree
+responseDescribeAssetBundleExportJob =
+  res
+    "DescribeAssetBundleExportJobResponse"
+    "fixture/DescribeAssetBundleExportJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAssetBundleExportJob)
+
+responseDescribeAssetBundleImportJob :: DescribeAssetBundleImportJobResponse -> TestTree
+responseDescribeAssetBundleImportJob =
+  res
+    "DescribeAssetBundleImportJobResponse"
+    "fixture/DescribeAssetBundleImportJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAssetBundleImportJob)
+
 responseDescribeDashboard :: DescribeDashboardResponse -> TestTree
 responseDescribeDashboard =
   res
@@ -1924,6 +2396,14 @@ responseDescribeDataSetPermissions =
     "fixture/DescribeDataSetPermissionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeDataSetPermissions)
+
+responseDescribeDataSetRefreshProperties :: DescribeDataSetRefreshPropertiesResponse -> TestTree
+responseDescribeDataSetRefreshProperties =
+  res
+    "DescribeDataSetRefreshPropertiesResponse"
+    "fixture/DescribeDataSetRefreshPropertiesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataSetRefreshProperties)
 
 responseDescribeDataSource :: DescribeDataSourceResponse -> TestTree
 responseDescribeDataSource =
@@ -2013,6 +2493,14 @@ responseDescribeNamespace =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeNamespace)
 
+responseDescribeRefreshSchedule :: DescribeRefreshScheduleResponse -> TestTree
+responseDescribeRefreshSchedule =
+  res
+    "DescribeRefreshScheduleResponse"
+    "fixture/DescribeRefreshScheduleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeRefreshSchedule)
+
 responseDescribeTemplate :: DescribeTemplateResponse -> TestTree
 responseDescribeTemplate =
   res
@@ -2069,6 +2557,38 @@ responseDescribeThemePermissions =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeThemePermissions)
 
+responseDescribeTopic :: DescribeTopicResponse -> TestTree
+responseDescribeTopic =
+  res
+    "DescribeTopicResponse"
+    "fixture/DescribeTopicResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTopic)
+
+responseDescribeTopicPermissions :: DescribeTopicPermissionsResponse -> TestTree
+responseDescribeTopicPermissions =
+  res
+    "DescribeTopicPermissionsResponse"
+    "fixture/DescribeTopicPermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTopicPermissions)
+
+responseDescribeTopicRefresh :: DescribeTopicRefreshResponse -> TestTree
+responseDescribeTopicRefresh =
+  res
+    "DescribeTopicRefreshResponse"
+    "fixture/DescribeTopicRefreshResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTopicRefresh)
+
+responseDescribeTopicRefreshSchedule :: DescribeTopicRefreshScheduleResponse -> TestTree
+responseDescribeTopicRefreshSchedule =
+  res
+    "DescribeTopicRefreshScheduleResponse"
+    "fixture/DescribeTopicRefreshScheduleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTopicRefreshSchedule)
+
 responseDescribeUser :: DescribeUserResponse -> TestTree
 responseDescribeUser =
   res
@@ -2076,6 +2596,14 @@ responseDescribeUser =
     "fixture/DescribeUserResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeUser)
+
+responseDescribeVPCConnection :: DescribeVPCConnectionResponse -> TestTree
+responseDescribeVPCConnection =
+  res
+    "DescribeVPCConnectionResponse"
+    "fixture/DescribeVPCConnectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeVPCConnection)
 
 responseGenerateEmbedUrlForAnonymousUser :: GenerateEmbedUrlForAnonymousUserResponse -> TestTree
 responseGenerateEmbedUrlForAnonymousUser =
@@ -2116,6 +2644,22 @@ responseListAnalyses =
     "fixture/ListAnalysesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAnalyses)
+
+responseListAssetBundleExportJobs :: ListAssetBundleExportJobsResponse -> TestTree
+responseListAssetBundleExportJobs =
+  res
+    "ListAssetBundleExportJobsResponse"
+    "fixture/ListAssetBundleExportJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAssetBundleExportJobs)
+
+responseListAssetBundleImportJobs :: ListAssetBundleImportJobsResponse -> TestTree
+responseListAssetBundleImportJobs =
+  res
+    "ListAssetBundleImportJobsResponse"
+    "fixture/ListAssetBundleImportJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAssetBundleImportJobs)
 
 responseListDashboardVersions :: ListDashboardVersionsResponse -> TestTree
 responseListDashboardVersions =
@@ -2213,6 +2757,14 @@ responseListNamespaces =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListNamespaces)
 
+responseListRefreshSchedules :: ListRefreshSchedulesResponse -> TestTree
+responseListRefreshSchedules =
+  res
+    "ListRefreshSchedulesResponse"
+    "fixture/ListRefreshSchedulesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRefreshSchedules)
+
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
   res
@@ -2269,6 +2821,22 @@ responseListThemes =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListThemes)
 
+responseListTopicRefreshSchedules :: ListTopicRefreshSchedulesResponse -> TestTree
+responseListTopicRefreshSchedules =
+  res
+    "ListTopicRefreshSchedulesResponse"
+    "fixture/ListTopicRefreshSchedulesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTopicRefreshSchedules)
+
+responseListTopics :: ListTopicsResponse -> TestTree
+responseListTopics =
+  res
+    "ListTopicsResponse"
+    "fixture/ListTopicsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTopics)
+
 responseListUserGroups :: ListUserGroupsResponse -> TestTree
 responseListUserGroups =
   res
@@ -2284,6 +2852,22 @@ responseListUsers =
     "fixture/ListUsersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListUsers)
+
+responseListVPCConnections :: ListVPCConnectionsResponse -> TestTree
+responseListVPCConnections =
+  res
+    "ListVPCConnectionsResponse"
+    "fixture/ListVPCConnectionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVPCConnections)
+
+responsePutDataSetRefreshProperties :: PutDataSetRefreshPropertiesResponse -> TestTree
+responsePutDataSetRefreshProperties =
+  res
+    "PutDataSetRefreshPropertiesResponse"
+    "fixture/PutDataSetRefreshPropertiesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutDataSetRefreshProperties)
 
 responseRegisterUser :: RegisterUserResponse -> TestTree
 responseRegisterUser =
@@ -2348,6 +2932,22 @@ responseSearchGroups =
     "fixture/SearchGroupsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SearchGroups)
+
+responseStartAssetBundleExportJob :: StartAssetBundleExportJobResponse -> TestTree
+responseStartAssetBundleExportJob =
+  res
+    "StartAssetBundleExportJobResponse"
+    "fixture/StartAssetBundleExportJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartAssetBundleExportJob)
+
+responseStartAssetBundleImportJob :: StartAssetBundleImportJobResponse -> TestTree
+responseStartAssetBundleImportJob =
+  res
+    "StartAssetBundleImportJobResponse"
+    "fixture/StartAssetBundleImportJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartAssetBundleImportJob)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -2501,6 +3101,14 @@ responseUpdatePublicSharingSettings =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdatePublicSharingSettings)
 
+responseUpdateRefreshSchedule :: UpdateRefreshScheduleResponse -> TestTree
+responseUpdateRefreshSchedule =
+  res
+    "UpdateRefreshScheduleResponse"
+    "fixture/UpdateRefreshScheduleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRefreshSchedule)
+
 responseUpdateTemplate :: UpdateTemplateResponse -> TestTree
 responseUpdateTemplate =
   res
@@ -2549,6 +3157,30 @@ responseUpdateThemePermissions =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateThemePermissions)
 
+responseUpdateTopic :: UpdateTopicResponse -> TestTree
+responseUpdateTopic =
+  res
+    "UpdateTopicResponse"
+    "fixture/UpdateTopicResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateTopic)
+
+responseUpdateTopicPermissions :: UpdateTopicPermissionsResponse -> TestTree
+responseUpdateTopicPermissions =
+  res
+    "UpdateTopicPermissionsResponse"
+    "fixture/UpdateTopicPermissionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateTopicPermissions)
+
+responseUpdateTopicRefreshSchedule :: UpdateTopicRefreshScheduleResponse -> TestTree
+responseUpdateTopicRefreshSchedule =
+  res
+    "UpdateTopicRefreshScheduleResponse"
+    "fixture/UpdateTopicRefreshScheduleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateTopicRefreshSchedule)
+
 responseUpdateUser :: UpdateUserResponse -> TestTree
 responseUpdateUser =
   res
@@ -2556,3 +3188,11 @@ responseUpdateUser =
     "fixture/UpdateUserResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateUser)
+
+responseUpdateVPCConnection :: UpdateVPCConnectionResponse -> TestTree
+responseUpdateVPCConnection =
+  res
+    "UpdateVPCConnectionResponse"
+    "fixture/UpdateVPCConnectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateVPCConnection)

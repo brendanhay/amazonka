@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.QuickSight.Types.MappedDataSetParameter
 import Amazonka.QuickSight.Types.ParameterValueType
 import Amazonka.QuickSight.Types.StringDefaultValues
 import Amazonka.QuickSight.Types.StringValueWhenUnsetConfiguration
@@ -34,6 +35,7 @@ data StringParameterDeclaration = StringParameterDeclaration'
   { -- | The default values of a parameter. If the parameter is a single-value
     -- parameter, a maximum of one default value can be provided.
     defaultValues :: Prelude.Maybe StringDefaultValues,
+    mappedDataSetParameters :: Prelude.Maybe [MappedDataSetParameter],
     -- | The configuration that defines the default value of a @String@ parameter
     -- when a value has not been set.
     valueWhenUnset :: Prelude.Maybe StringValueWhenUnsetConfiguration,
@@ -56,6 +58,8 @@ data StringParameterDeclaration = StringParameterDeclaration'
 -- 'defaultValues', 'stringParameterDeclaration_defaultValues' - The default values of a parameter. If the parameter is a single-value
 -- parameter, a maximum of one default value can be provided.
 --
+-- 'mappedDataSetParameters', 'stringParameterDeclaration_mappedDataSetParameters' - Undocumented member.
+--
 -- 'valueWhenUnset', 'stringParameterDeclaration_valueWhenUnset' - The configuration that defines the default value of a @String@ parameter
 -- when a value has not been set.
 --
@@ -75,6 +79,7 @@ newStringParameterDeclaration
     StringParameterDeclaration'
       { defaultValues =
           Prelude.Nothing,
+        mappedDataSetParameters = Prelude.Nothing,
         valueWhenUnset = Prelude.Nothing,
         parameterValueType = pParameterValueType_,
         name = pName_
@@ -84,6 +89,10 @@ newStringParameterDeclaration
 -- parameter, a maximum of one default value can be provided.
 stringParameterDeclaration_defaultValues :: Lens.Lens' StringParameterDeclaration (Prelude.Maybe StringDefaultValues)
 stringParameterDeclaration_defaultValues = Lens.lens (\StringParameterDeclaration' {defaultValues} -> defaultValues) (\s@StringParameterDeclaration' {} a -> s {defaultValues = a} :: StringParameterDeclaration)
+
+-- | Undocumented member.
+stringParameterDeclaration_mappedDataSetParameters :: Lens.Lens' StringParameterDeclaration (Prelude.Maybe [MappedDataSetParameter])
+stringParameterDeclaration_mappedDataSetParameters = Lens.lens (\StringParameterDeclaration' {mappedDataSetParameters} -> mappedDataSetParameters) (\s@StringParameterDeclaration' {} a -> s {mappedDataSetParameters = a} :: StringParameterDeclaration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The configuration that defines the default value of a @String@ parameter
 -- when a value has not been set.
@@ -106,6 +115,10 @@ instance Data.FromJSON StringParameterDeclaration where
       ( \x ->
           StringParameterDeclaration'
             Prelude.<$> (x Data..:? "DefaultValues")
+            Prelude.<*> ( x
+                            Data..:? "MappedDataSetParameters"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "ValueWhenUnset")
             Prelude.<*> (x Data..: "ParameterValueType")
             Prelude.<*> (x Data..: "Name")
@@ -113,7 +126,9 @@ instance Data.FromJSON StringParameterDeclaration where
 
 instance Prelude.Hashable StringParameterDeclaration where
   hashWithSalt _salt StringParameterDeclaration' {..} =
-    _salt `Prelude.hashWithSalt` defaultValues
+    _salt
+      `Prelude.hashWithSalt` defaultValues
+      `Prelude.hashWithSalt` mappedDataSetParameters
       `Prelude.hashWithSalt` valueWhenUnset
       `Prelude.hashWithSalt` parameterValueType
       `Prelude.hashWithSalt` name
@@ -121,6 +136,7 @@ instance Prelude.Hashable StringParameterDeclaration where
 instance Prelude.NFData StringParameterDeclaration where
   rnf StringParameterDeclaration' {..} =
     Prelude.rnf defaultValues
+      `Prelude.seq` Prelude.rnf mappedDataSetParameters
       `Prelude.seq` Prelude.rnf valueWhenUnset
       `Prelude.seq` Prelude.rnf parameterValueType
       `Prelude.seq` Prelude.rnf name
@@ -130,6 +146,8 @@ instance Data.ToJSON StringParameterDeclaration where
     Data.object
       ( Prelude.catMaybes
           [ ("DefaultValues" Data..=) Prelude.<$> defaultValues,
+            ("MappedDataSetParameters" Data..=)
+              Prelude.<$> mappedDataSetParameters,
             ("ValueWhenUnset" Data..=)
               Prelude.<$> valueWhenUnset,
             Prelude.Just

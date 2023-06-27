@@ -107,7 +107,8 @@ instance Data.FromJSON GeospatialCoordinateBounds where
 
 instance Prelude.Hashable GeospatialCoordinateBounds where
   hashWithSalt _salt GeospatialCoordinateBounds' {..} =
-    _salt `Prelude.hashWithSalt` north
+    _salt
+      `Prelude.hashWithSalt` north
       `Prelude.hashWithSalt` south
       `Prelude.hashWithSalt` west
       `Prelude.hashWithSalt` east

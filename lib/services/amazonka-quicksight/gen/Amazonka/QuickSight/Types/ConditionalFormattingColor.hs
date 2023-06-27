@@ -77,7 +77,8 @@ instance Data.FromJSON ConditionalFormattingColor where
 
 instance Prelude.Hashable ConditionalFormattingColor where
   hashWithSalt _salt ConditionalFormattingColor' {..} =
-    _salt `Prelude.hashWithSalt` gradient
+    _salt
+      `Prelude.hashWithSalt` gradient
       `Prelude.hashWithSalt` solid
 
 instance Prelude.NFData ConditionalFormattingColor where

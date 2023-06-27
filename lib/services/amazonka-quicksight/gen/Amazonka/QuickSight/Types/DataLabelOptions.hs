@@ -50,6 +50,8 @@ data DataLabelOptions = DataLabelOptions'
     overlap :: Prelude.Maybe DataLabelOverlap,
     -- | Determines the position of the data labels.
     position :: Prelude.Maybe DataLabelPosition,
+    -- | Determines the visibility of the total.
+    totalsVisibility :: Prelude.Maybe Visibility,
     -- | Determines the visibility of the data labels.
     visibility :: Prelude.Maybe Visibility
   }
@@ -79,6 +81,8 @@ data DataLabelOptions = DataLabelOptions'
 --
 -- 'position', 'dataLabelOptions_position' - Determines the position of the data labels.
 --
+-- 'totalsVisibility', 'dataLabelOptions_totalsVisibility' - Determines the visibility of the total.
+--
 -- 'visibility', 'dataLabelOptions_visibility' - Determines the visibility of the data labels.
 newDataLabelOptions ::
   DataLabelOptions
@@ -93,6 +97,7 @@ newDataLabelOptions =
       measureLabelVisibility = Prelude.Nothing,
       overlap = Prelude.Nothing,
       position = Prelude.Nothing,
+      totalsVisibility = Prelude.Nothing,
       visibility = Prelude.Nothing
     }
 
@@ -128,6 +133,10 @@ dataLabelOptions_overlap = Lens.lens (\DataLabelOptions' {overlap} -> overlap) (
 dataLabelOptions_position :: Lens.Lens' DataLabelOptions (Prelude.Maybe DataLabelPosition)
 dataLabelOptions_position = Lens.lens (\DataLabelOptions' {position} -> position) (\s@DataLabelOptions' {} a -> s {position = a} :: DataLabelOptions)
 
+-- | Determines the visibility of the total.
+dataLabelOptions_totalsVisibility :: Lens.Lens' DataLabelOptions (Prelude.Maybe Visibility)
+dataLabelOptions_totalsVisibility = Lens.lens (\DataLabelOptions' {totalsVisibility} -> totalsVisibility) (\s@DataLabelOptions' {} a -> s {totalsVisibility = a} :: DataLabelOptions)
+
 -- | Determines the visibility of the data labels.
 dataLabelOptions_visibility :: Lens.Lens' DataLabelOptions (Prelude.Maybe Visibility)
 dataLabelOptions_visibility = Lens.lens (\DataLabelOptions' {visibility} -> visibility) (\s@DataLabelOptions' {} a -> s {visibility = a} :: DataLabelOptions)
@@ -146,6 +155,7 @@ instance Data.FromJSON DataLabelOptions where
             Prelude.<*> (x Data..:? "MeasureLabelVisibility")
             Prelude.<*> (x Data..:? "Overlap")
             Prelude.<*> (x Data..:? "Position")
+            Prelude.<*> (x Data..:? "TotalsVisibility")
             Prelude.<*> (x Data..:? "Visibility")
       )
 
@@ -160,6 +170,7 @@ instance Prelude.Hashable DataLabelOptions where
       `Prelude.hashWithSalt` measureLabelVisibility
       `Prelude.hashWithSalt` overlap
       `Prelude.hashWithSalt` position
+      `Prelude.hashWithSalt` totalsVisibility
       `Prelude.hashWithSalt` visibility
 
 instance Prelude.NFData DataLabelOptions where
@@ -172,6 +183,7 @@ instance Prelude.NFData DataLabelOptions where
       `Prelude.seq` Prelude.rnf measureLabelVisibility
       `Prelude.seq` Prelude.rnf overlap
       `Prelude.seq` Prelude.rnf position
+      `Prelude.seq` Prelude.rnf totalsVisibility
       `Prelude.seq` Prelude.rnf visibility
 
 instance Data.ToJSON DataLabelOptions where
@@ -190,6 +202,8 @@ instance Data.ToJSON DataLabelOptions where
               Prelude.<$> measureLabelVisibility,
             ("Overlap" Data..=) Prelude.<$> overlap,
             ("Position" Data..=) Prelude.<$> position,
+            ("TotalsVisibility" Data..=)
+              Prelude.<$> totalsVisibility,
             ("Visibility" Data..=) Prelude.<$> visibility
           ]
       )

@@ -110,7 +110,8 @@ instance
   hashWithSalt
     _salt
     SheetVisualScopingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` visualIds
+      _salt
+        `Prelude.hashWithSalt` visualIds
         `Prelude.hashWithSalt` sheetId
         `Prelude.hashWithSalt` scope
 

@@ -76,7 +76,8 @@ instance Data.FromJSON SheetStyle where
 
 instance Prelude.Hashable SheetStyle where
   hashWithSalt _salt SheetStyle' {..} =
-    _salt `Prelude.hashWithSalt` tile
+    _salt
+      `Prelude.hashWithSalt` tile
       `Prelude.hashWithSalt` tileLayout
 
 instance Prelude.NFData SheetStyle where

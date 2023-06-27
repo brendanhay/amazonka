@@ -81,8 +81,8 @@ data UpdateIAMPolicyAssignment = UpdateIAMPolicyAssignment'
     -- | The ID of the Amazon Web Services account that contains the IAM policy
     -- assignment.
     awsAccountId :: Prelude.Text,
-    -- | The name of the assignment, also called a rule. This name must be unique
-    -- within an Amazon Web Services account.
+    -- | The name of the assignment, also called a rule. The name must be unique
+    -- within the Amazon Web Services account.
     assignmentName :: Prelude.Text,
     -- | The namespace of the assignment.
     namespace :: Prelude.Text
@@ -117,8 +117,8 @@ data UpdateIAMPolicyAssignment = UpdateIAMPolicyAssignment'
 -- 'awsAccountId', 'updateIAMPolicyAssignment_awsAccountId' - The ID of the Amazon Web Services account that contains the IAM policy
 -- assignment.
 --
--- 'assignmentName', 'updateIAMPolicyAssignment_assignmentName' - The name of the assignment, also called a rule. This name must be unique
--- within an Amazon Web Services account.
+-- 'assignmentName', 'updateIAMPolicyAssignment_assignmentName' - The name of the assignment, also called a rule. The name must be unique
+-- within the Amazon Web Services account.
 --
 -- 'namespace', 'updateIAMPolicyAssignment_namespace' - The namespace of the assignment.
 newUpdateIAMPolicyAssignment ::
@@ -171,8 +171,8 @@ updateIAMPolicyAssignment_policyArn = Lens.lens (\UpdateIAMPolicyAssignment' {po
 updateIAMPolicyAssignment_awsAccountId :: Lens.Lens' UpdateIAMPolicyAssignment Prelude.Text
 updateIAMPolicyAssignment_awsAccountId = Lens.lens (\UpdateIAMPolicyAssignment' {awsAccountId} -> awsAccountId) (\s@UpdateIAMPolicyAssignment' {} a -> s {awsAccountId = a} :: UpdateIAMPolicyAssignment)
 
--- | The name of the assignment, also called a rule. This name must be unique
--- within an Amazon Web Services account.
+-- | The name of the assignment, also called a rule. The name must be unique
+-- within the Amazon Web Services account.
 updateIAMPolicyAssignment_assignmentName :: Lens.Lens' UpdateIAMPolicyAssignment Prelude.Text
 updateIAMPolicyAssignment_assignmentName = Lens.lens (\UpdateIAMPolicyAssignment' {assignmentName} -> assignmentName) (\s@UpdateIAMPolicyAssignment' {} a -> s {assignmentName = a} :: UpdateIAMPolicyAssignment)
 
@@ -201,7 +201,8 @@ instance Core.AWSRequest UpdateIAMPolicyAssignment where
 
 instance Prelude.Hashable UpdateIAMPolicyAssignment where
   hashWithSalt _salt UpdateIAMPolicyAssignment' {..} =
-    _salt `Prelude.hashWithSalt` assignmentStatus
+    _salt
+      `Prelude.hashWithSalt` assignmentStatus
       `Prelude.hashWithSalt` identities
       `Prelude.hashWithSalt` policyArn
       `Prelude.hashWithSalt` awsAccountId

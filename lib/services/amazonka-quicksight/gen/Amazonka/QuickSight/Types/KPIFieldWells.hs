@@ -86,7 +86,8 @@ instance Data.FromJSON KPIFieldWells where
 
 instance Prelude.Hashable KPIFieldWells where
   hashWithSalt _salt KPIFieldWells' {..} =
-    _salt `Prelude.hashWithSalt` targetValues
+    _salt
+      `Prelude.hashWithSalt` targetValues
       `Prelude.hashWithSalt` trendGroups
       `Prelude.hashWithSalt` values
 

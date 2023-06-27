@@ -112,7 +112,8 @@ instance Core.AWSRequest DeleteDataSource where
 
 instance Prelude.Hashable DeleteDataSource where
   hashWithSalt _salt DeleteDataSource' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dataSourceId
 
 instance Prelude.NFData DeleteDataSource where

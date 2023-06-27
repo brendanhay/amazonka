@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     FreeFormLayoutElementBorderStyle' {..} =
-      _salt `Prelude.hashWithSalt` color
+      _salt
+        `Prelude.hashWithSalt` color
         `Prelude.hashWithSalt` visibility
 
 instance

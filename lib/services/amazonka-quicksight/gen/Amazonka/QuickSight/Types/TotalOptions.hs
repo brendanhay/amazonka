@@ -108,7 +108,8 @@ instance Data.FromJSON TotalOptions where
 
 instance Prelude.Hashable TotalOptions where
   hashWithSalt _salt TotalOptions' {..} =
-    _salt `Prelude.hashWithSalt` customLabel
+    _salt
+      `Prelude.hashWithSalt` customLabel
       `Prelude.hashWithSalt` placement
       `Prelude.hashWithSalt` scrollStatus
       `Prelude.hashWithSalt` totalCellStyle

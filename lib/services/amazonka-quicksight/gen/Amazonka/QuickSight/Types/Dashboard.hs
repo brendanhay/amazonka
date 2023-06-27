@@ -125,7 +125,8 @@ instance Data.FromJSON Dashboard where
 
 instance Prelude.Hashable Dashboard where
   hashWithSalt _salt Dashboard' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` dashboardId
       `Prelude.hashWithSalt` lastPublishedTime

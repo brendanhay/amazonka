@@ -75,7 +75,8 @@ instance Data.FromJSON NamespaceError where
 
 instance Prelude.Hashable NamespaceError where
   hashWithSalt _salt NamespaceError' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData NamespaceError where

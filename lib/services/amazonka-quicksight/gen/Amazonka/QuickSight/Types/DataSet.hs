@@ -27,6 +27,7 @@ import Amazonka.QuickSight.Types.ColumnGroup
 import Amazonka.QuickSight.Types.ColumnLevelPermissionRule
 import Amazonka.QuickSight.Types.DataSetImportMode
 import Amazonka.QuickSight.Types.DataSetUsageConfiguration
+import Amazonka.QuickSight.Types.DatasetParameter
 import Amazonka.QuickSight.Types.FieldFolder
 import Amazonka.QuickSight.Types.LogicalTable
 import Amazonka.QuickSight.Types.OutputColumn
@@ -43,7 +44,8 @@ data DataSet = DataSet'
     -- | Groupings of columns that work together in certain Amazon QuickSight
     -- features. Currently, only geospatial hierarchy is supported.
     columnGroups :: Prelude.Maybe (Prelude.NonEmpty ColumnGroup),
-    -- | A set of one or more definitions of a @ ColumnLevelPermissionRule @.
+    -- | A set of one or more definitions of a
+    -- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html ColumnLevelPermissionRule>@ @.
     columnLevelPermissionRules :: Prelude.Maybe (Prelude.NonEmpty ColumnLevelPermissionRule),
     -- | The amount of SPICE capacity used by this dataset. This is 0 if the
     -- dataset isn\'t imported into SPICE.
@@ -55,6 +57,8 @@ data DataSet = DataSet'
     -- | The usage configuration to apply to child datasets that reference this
     -- dataset as a source.
     dataSetUsageConfiguration :: Prelude.Maybe DataSetUsageConfiguration,
+    -- | The parameters that are declared in a dataset.
+    datasetParameters :: Prelude.Maybe (Prelude.NonEmpty DatasetParameter),
     -- | The folder that contains fields and nested subfolders for your dataset.
     fieldFolders :: Prelude.Maybe (Prelude.HashMap Prelude.Text FieldFolder),
     -- | A value that indicates whether you want to import the data into SPICE.
@@ -92,7 +96,8 @@ data DataSet = DataSet'
 -- 'columnGroups', 'dataSet_columnGroups' - Groupings of columns that work together in certain Amazon QuickSight
 -- features. Currently, only geospatial hierarchy is supported.
 --
--- 'columnLevelPermissionRules', 'dataSet_columnLevelPermissionRules' - A set of one or more definitions of a @ ColumnLevelPermissionRule @.
+-- 'columnLevelPermissionRules', 'dataSet_columnLevelPermissionRules' - A set of one or more definitions of a
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html ColumnLevelPermissionRule>@ @.
 --
 -- 'consumedSpiceCapacityInBytes', 'dataSet_consumedSpiceCapacityInBytes' - The amount of SPICE capacity used by this dataset. This is 0 if the
 -- dataset isn\'t imported into SPICE.
@@ -103,6 +108,8 @@ data DataSet = DataSet'
 --
 -- 'dataSetUsageConfiguration', 'dataSet_dataSetUsageConfiguration' - The usage configuration to apply to child datasets that reference this
 -- dataset as a source.
+--
+-- 'datasetParameters', 'dataSet_datasetParameters' - The parameters that are declared in a dataset.
 --
 -- 'fieldFolders', 'dataSet_fieldFolders' - The folder that contains fields and nested subfolders for your dataset.
 --
@@ -135,6 +142,7 @@ newDataSet =
       createdTime = Prelude.Nothing,
       dataSetId = Prelude.Nothing,
       dataSetUsageConfiguration = Prelude.Nothing,
+      datasetParameters = Prelude.Nothing,
       fieldFolders = Prelude.Nothing,
       importMode = Prelude.Nothing,
       lastUpdatedTime = Prelude.Nothing,
@@ -155,7 +163,8 @@ dataSet_arn = Lens.lens (\DataSet' {arn} -> arn) (\s@DataSet' {} a -> s {arn = a
 dataSet_columnGroups :: Lens.Lens' DataSet (Prelude.Maybe (Prelude.NonEmpty ColumnGroup))
 dataSet_columnGroups = Lens.lens (\DataSet' {columnGroups} -> columnGroups) (\s@DataSet' {} a -> s {columnGroups = a} :: DataSet) Prelude.. Lens.mapping Lens.coerced
 
--- | A set of one or more definitions of a @ ColumnLevelPermissionRule @.
+-- | A set of one or more definitions of a
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html ColumnLevelPermissionRule>@ @.
 dataSet_columnLevelPermissionRules :: Lens.Lens' DataSet (Prelude.Maybe (Prelude.NonEmpty ColumnLevelPermissionRule))
 dataSet_columnLevelPermissionRules = Lens.lens (\DataSet' {columnLevelPermissionRules} -> columnLevelPermissionRules) (\s@DataSet' {} a -> s {columnLevelPermissionRules = a} :: DataSet) Prelude.. Lens.mapping Lens.coerced
 
@@ -176,6 +185,10 @@ dataSet_dataSetId = Lens.lens (\DataSet' {dataSetId} -> dataSetId) (\s@DataSet' 
 -- dataset as a source.
 dataSet_dataSetUsageConfiguration :: Lens.Lens' DataSet (Prelude.Maybe DataSetUsageConfiguration)
 dataSet_dataSetUsageConfiguration = Lens.lens (\DataSet' {dataSetUsageConfiguration} -> dataSetUsageConfiguration) (\s@DataSet' {} a -> s {dataSetUsageConfiguration = a} :: DataSet)
+
+-- | The parameters that are declared in a dataset.
+dataSet_datasetParameters :: Lens.Lens' DataSet (Prelude.Maybe (Prelude.NonEmpty DatasetParameter))
+dataSet_datasetParameters = Lens.lens (\DataSet' {datasetParameters} -> datasetParameters) (\s@DataSet' {} a -> s {datasetParameters = a} :: DataSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The folder that contains fields and nested subfolders for your dataset.
 dataSet_fieldFolders :: Lens.Lens' DataSet (Prelude.Maybe (Prelude.HashMap Prelude.Text FieldFolder))
@@ -229,15 +242,18 @@ instance Data.FromJSON DataSet where
             Prelude.<*> (x Data..:? "CreatedTime")
             Prelude.<*> (x Data..:? "DataSetId")
             Prelude.<*> (x Data..:? "DataSetUsageConfiguration")
+            Prelude.<*> (x Data..:? "DatasetParameters")
             Prelude.<*> (x Data..:? "FieldFolders" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ImportMode")
             Prelude.<*> (x Data..:? "LastUpdatedTime")
-            Prelude.<*> ( x Data..:? "LogicalTableMap"
+            Prelude.<*> ( x
+                            Data..:? "LogicalTableMap"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "OutputColumns" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "PhysicalTableMap"
+            Prelude.<*> ( x
+                            Data..:? "PhysicalTableMap"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RowLevelPermissionDataSet")
@@ -246,13 +262,15 @@ instance Data.FromJSON DataSet where
 
 instance Prelude.Hashable DataSet where
   hashWithSalt _salt DataSet' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` columnGroups
       `Prelude.hashWithSalt` columnLevelPermissionRules
       `Prelude.hashWithSalt` consumedSpiceCapacityInBytes
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` dataSetUsageConfiguration
+      `Prelude.hashWithSalt` datasetParameters
       `Prelude.hashWithSalt` fieldFolders
       `Prelude.hashWithSalt` importMode
       `Prelude.hashWithSalt` lastUpdatedTime
@@ -272,6 +290,7 @@ instance Prelude.NFData DataSet where
       `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf dataSetUsageConfiguration
+      `Prelude.seq` Prelude.rnf datasetParameters
       `Prelude.seq` Prelude.rnf fieldFolders
       `Prelude.seq` Prelude.rnf importMode
       `Prelude.seq` Prelude.rnf lastUpdatedTime

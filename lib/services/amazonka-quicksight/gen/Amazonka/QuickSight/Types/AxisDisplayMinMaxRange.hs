@@ -74,7 +74,8 @@ instance Data.FromJSON AxisDisplayMinMaxRange where
 
 instance Prelude.Hashable AxisDisplayMinMaxRange where
   hashWithSalt _salt AxisDisplayMinMaxRange' {..} =
-    _salt `Prelude.hashWithSalt` maximum
+    _salt
+      `Prelude.hashWithSalt` maximum
       `Prelude.hashWithSalt` minimum
 
 instance Prelude.NFData AxisDisplayMinMaxRange where

@@ -102,7 +102,8 @@ instance Data.FromJSON WordCloudChartConfiguration where
 
 instance Prelude.Hashable WordCloudChartConfiguration where
   hashWithSalt _salt WordCloudChartConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` categoryLabelOptions
+    _salt
+      `Prelude.hashWithSalt` categoryLabelOptions
       `Prelude.hashWithSalt` fieldWells
       `Prelude.hashWithSalt` sortConfiguration
       `Prelude.hashWithSalt` wordCloudOptions

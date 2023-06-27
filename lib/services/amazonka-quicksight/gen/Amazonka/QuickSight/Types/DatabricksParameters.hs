@@ -94,7 +94,8 @@ instance Data.FromJSON DatabricksParameters where
 
 instance Prelude.Hashable DatabricksParameters where
   hashWithSalt _salt DatabricksParameters' {..} =
-    _salt `Prelude.hashWithSalt` host
+    _salt
+      `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` sqlEndpointPath
 

@@ -173,7 +173,8 @@ instance Core.AWSRequest UpdateThemePermissions where
 
 instance Prelude.Hashable UpdateThemePermissions where
   hashWithSalt _salt UpdateThemePermissions' {..} =
-    _salt `Prelude.hashWithSalt` grantPermissions
+    _salt
+      `Prelude.hashWithSalt` grantPermissions
       `Prelude.hashWithSalt` revokePermissions
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` themeId

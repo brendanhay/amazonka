@@ -126,7 +126,8 @@ instance Data.FromJSON ComboChartVisual where
           ComboChartVisual'
             Prelude.<$> (x Data..:? "Actions" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ChartConfiguration")
-            Prelude.<*> ( x Data..:? "ColumnHierarchies"
+            Prelude.<*> ( x
+                            Data..:? "ColumnHierarchies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Subtitle")
@@ -136,7 +137,8 @@ instance Data.FromJSON ComboChartVisual where
 
 instance Prelude.Hashable ComboChartVisual where
   hashWithSalt _salt ComboChartVisual' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` chartConfiguration
       `Prelude.hashWithSalt` columnHierarchies
       `Prelude.hashWithSalt` subtitle

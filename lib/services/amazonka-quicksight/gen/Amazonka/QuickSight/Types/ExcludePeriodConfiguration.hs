@@ -103,7 +103,8 @@ instance Data.FromJSON ExcludePeriodConfiguration where
 
 instance Prelude.Hashable ExcludePeriodConfiguration where
   hashWithSalt _salt ExcludePeriodConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` amount
       `Prelude.hashWithSalt` granularity
 

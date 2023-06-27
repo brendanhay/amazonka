@@ -131,7 +131,8 @@ instance Data.FromJSON PivotTableVisual where
 
 instance Prelude.Hashable PivotTableVisual where
   hashWithSalt _salt PivotTableVisual' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` chartConfiguration
       `Prelude.hashWithSalt` conditionalFormatting
       `Prelude.hashWithSalt` subtitle

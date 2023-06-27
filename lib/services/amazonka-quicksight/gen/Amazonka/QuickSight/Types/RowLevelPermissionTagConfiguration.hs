@@ -33,6 +33,11 @@ data RowLevelPermissionTagConfiguration = RowLevelPermissionTagConfiguration'
   { -- | The status of row-level security tags. If enabled, the status is
     -- @ENABLED@. If disabled, the status is @DISABLED@.
     status :: Prelude.Maybe Status,
+    -- | A list of tag configuration rules to apply to a dataset. All tag
+    -- configurations have the OR condition. Tags within each tile will be
+    -- joined (AND). At least one rule in this structure must have all tag
+    -- values assigned to it to apply Row-level security (RLS) to the dataset.
+    tagRuleConfigurations :: Prelude.Maybe (Prelude.NonEmpty (Prelude.NonEmpty Prelude.Text)),
     -- | A set of rules associated with row-level security, such as the tag names
     -- and columns that they are assigned to.
     tagRules :: Prelude.NonEmpty RowLevelPermissionTagRule
@@ -50,6 +55,11 @@ data RowLevelPermissionTagConfiguration = RowLevelPermissionTagConfiguration'
 -- 'status', 'rowLevelPermissionTagConfiguration_status' - The status of row-level security tags. If enabled, the status is
 -- @ENABLED@. If disabled, the status is @DISABLED@.
 --
+-- 'tagRuleConfigurations', 'rowLevelPermissionTagConfiguration_tagRuleConfigurations' - A list of tag configuration rules to apply to a dataset. All tag
+-- configurations have the OR condition. Tags within each tile will be
+-- joined (AND). At least one rule in this structure must have all tag
+-- values assigned to it to apply Row-level security (RLS) to the dataset.
+--
 -- 'tagRules', 'rowLevelPermissionTagConfiguration_tagRules' - A set of rules associated with row-level security, such as the tag names
 -- and columns that they are assigned to.
 newRowLevelPermissionTagConfiguration ::
@@ -60,6 +70,7 @@ newRowLevelPermissionTagConfiguration pTagRules_ =
   RowLevelPermissionTagConfiguration'
     { status =
         Prelude.Nothing,
+      tagRuleConfigurations = Prelude.Nothing,
       tagRules =
         Lens.coerced Lens.# pTagRules_
     }
@@ -68,6 +79,13 @@ newRowLevelPermissionTagConfiguration pTagRules_ =
 -- @ENABLED@. If disabled, the status is @DISABLED@.
 rowLevelPermissionTagConfiguration_status :: Lens.Lens' RowLevelPermissionTagConfiguration (Prelude.Maybe Status)
 rowLevelPermissionTagConfiguration_status = Lens.lens (\RowLevelPermissionTagConfiguration' {status} -> status) (\s@RowLevelPermissionTagConfiguration' {} a -> s {status = a} :: RowLevelPermissionTagConfiguration)
+
+-- | A list of tag configuration rules to apply to a dataset. All tag
+-- configurations have the OR condition. Tags within each tile will be
+-- joined (AND). At least one rule in this structure must have all tag
+-- values assigned to it to apply Row-level security (RLS) to the dataset.
+rowLevelPermissionTagConfiguration_tagRuleConfigurations :: Lens.Lens' RowLevelPermissionTagConfiguration (Prelude.Maybe (Prelude.NonEmpty (Prelude.NonEmpty Prelude.Text)))
+rowLevelPermissionTagConfiguration_tagRuleConfigurations = Lens.lens (\RowLevelPermissionTagConfiguration' {tagRuleConfigurations} -> tagRuleConfigurations) (\s@RowLevelPermissionTagConfiguration' {} a -> s {tagRuleConfigurations = a} :: RowLevelPermissionTagConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | A set of rules associated with row-level security, such as the tag names
 -- and columns that they are assigned to.
@@ -84,6 +102,7 @@ instance
       ( \x ->
           RowLevelPermissionTagConfiguration'
             Prelude.<$> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "TagRuleConfigurations")
             Prelude.<*> (x Data..: "TagRules")
       )
 
@@ -94,7 +113,9 @@ instance
   hashWithSalt
     _salt
     RowLevelPermissionTagConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` status
+      _salt
+        `Prelude.hashWithSalt` status
+        `Prelude.hashWithSalt` tagRuleConfigurations
         `Prelude.hashWithSalt` tagRules
 
 instance
@@ -103,6 +124,7 @@ instance
   where
   rnf RowLevelPermissionTagConfiguration' {..} =
     Prelude.rnf status
+      `Prelude.seq` Prelude.rnf tagRuleConfigurations
       `Prelude.seq` Prelude.rnf tagRules
 
 instance
@@ -113,6 +135,8 @@ instance
     Data.object
       ( Prelude.catMaybes
           [ ("Status" Data..=) Prelude.<$> status,
+            ("TagRuleConfigurations" Data..=)
+              Prelude.<$> tagRuleConfigurations,
             Prelude.Just ("TagRules" Data..= tagRules)
           ]
       )

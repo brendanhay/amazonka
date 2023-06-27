@@ -102,7 +102,8 @@ instance Data.FromJSON NumericalMeasureField where
 
 instance Prelude.Hashable NumericalMeasureField where
   hashWithSalt _salt NumericalMeasureField' {..} =
-    _salt `Prelude.hashWithSalt` aggregationFunction
+    _salt
+      `Prelude.hashWithSalt` aggregationFunction
       `Prelude.hashWithSalt` formatConfiguration
       `Prelude.hashWithSalt` fieldId
       `Prelude.hashWithSalt` column

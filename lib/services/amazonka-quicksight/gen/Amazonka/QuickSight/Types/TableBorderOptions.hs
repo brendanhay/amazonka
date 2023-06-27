@@ -85,7 +85,8 @@ instance Data.FromJSON TableBorderOptions where
 
 instance Prelude.Hashable TableBorderOptions where
   hashWithSalt _salt TableBorderOptions' {..} =
-    _salt `Prelude.hashWithSalt` color
+    _salt
+      `Prelude.hashWithSalt` color
       `Prelude.hashWithSalt` style
       `Prelude.hashWithSalt` thickness
 

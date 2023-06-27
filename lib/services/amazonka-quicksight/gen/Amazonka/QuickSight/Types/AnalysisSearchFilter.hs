@@ -216,7 +216,8 @@ analysisSearchFilter_value = Lens.lens (\AnalysisSearchFilter' {value} -> value)
 
 instance Prelude.Hashable AnalysisSearchFilter where
   hashWithSalt _salt AnalysisSearchFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` operator
       `Prelude.hashWithSalt` value
 

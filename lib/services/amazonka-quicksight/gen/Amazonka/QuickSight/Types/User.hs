@@ -31,7 +31,7 @@ import Amazonka.QuickSight.Types.UserRole
 -- /See:/ 'newUser' smart constructor.
 data User = User'
   { -- | The active status of user. When you create an Amazon QuickSight user
-    -- that’s not an IAM user or an Active Directory user, that user is
+    -- that\'s not an IAM user or an Active Directory user, that user is
     -- inactive until they sign in and provide a password.
     active :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) for the user.
@@ -89,7 +89,7 @@ data User = User'
 -- for backwards compatibility:
 --
 -- 'active', 'user_active' - The active status of user. When you create an Amazon QuickSight user
--- that’s not an IAM user or an Active Directory user, that user is
+-- that\'s not an IAM user or an Active Directory user, that user is
 -- inactive until they sign in and provide a password.
 --
 -- 'arn', 'user_arn' - The Amazon Resource Name (ARN) for the user.
@@ -153,7 +153,7 @@ newUser =
     }
 
 -- | The active status of user. When you create an Amazon QuickSight user
--- that’s not an IAM user or an Active Directory user, that user is
+-- that\'s not an IAM user or an Active Directory user, that user is
 -- inactive until they sign in and provide a password.
 user_active :: Lens.Lens' User (Prelude.Maybe Prelude.Bool)
 user_active = Lens.lens (\User' {active} -> active) (\s@User' {} a -> s {active = a} :: User)
@@ -242,7 +242,8 @@ instance Data.FromJSON User where
 
 instance Prelude.Hashable User where
   hashWithSalt _salt User' {..} =
-    _salt `Prelude.hashWithSalt` active
+    _salt
+      `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` customPermissionsName
       `Prelude.hashWithSalt` email

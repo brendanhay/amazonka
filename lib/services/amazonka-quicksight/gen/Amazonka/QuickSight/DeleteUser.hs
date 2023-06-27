@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the Amazon QuickSight user that is associated with the identity
--- of the Identity and Access Management (IAM) user or role that\'s making
--- the call. The IAM user isn\'t deleted as a result of this call.
+-- of the IAM user or role that\'s making the call. The IAM user isn\'t
+-- deleted as a result of this call.
 module Amazonka.QuickSight.DeleteUser
   ( -- * Creating a Request
     DeleteUser (..),
@@ -122,7 +122,8 @@ instance Core.AWSRequest DeleteUser where
 
 instance Prelude.Hashable DeleteUser where
   hashWithSalt _salt DeleteUser' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` namespace
 

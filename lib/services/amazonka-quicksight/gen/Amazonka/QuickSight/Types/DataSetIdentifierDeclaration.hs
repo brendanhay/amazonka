@@ -84,7 +84,8 @@ instance
     DataSetIdentifierDeclaration
   where
   hashWithSalt _salt DataSetIdentifierDeclaration' {..} =
-    _salt `Prelude.hashWithSalt` identifier
+    _salt
+      `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` dataSetArn
 
 instance Prelude.NFData DataSetIdentifierDeclaration where

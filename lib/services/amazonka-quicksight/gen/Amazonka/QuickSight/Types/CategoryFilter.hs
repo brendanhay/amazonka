@@ -34,13 +34,13 @@ import Amazonka.QuickSight.Types.ColumnIdentifier
 --
 -- /See:/ 'newCategoryFilter' smart constructor.
 data CategoryFilter = CategoryFilter'
-  { -- | The configuration for a @CategoryFilter@.
-    configuration :: Prelude.Maybe CategoryFilterConfiguration,
-    -- | An identifier that uniquely identifies a filter within a dashboard,
+  { -- | An identifier that uniquely identifies a filter within a dashboard,
     -- analysis, or template.
     filterId :: Prelude.Text,
     -- | The column that the filter is applied to.
-    column :: ColumnIdentifier
+    column :: ColumnIdentifier,
+    -- | The configuration for a @CategoryFilter@.
+    configuration :: CategoryFilterConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,28 +52,26 @@ data CategoryFilter = CategoryFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configuration', 'categoryFilter_configuration' - The configuration for a @CategoryFilter@.
---
 -- 'filterId', 'categoryFilter_filterId' - An identifier that uniquely identifies a filter within a dashboard,
 -- analysis, or template.
 --
 -- 'column', 'categoryFilter_column' - The column that the filter is applied to.
+--
+-- 'configuration', 'categoryFilter_configuration' - The configuration for a @CategoryFilter@.
 newCategoryFilter ::
   -- | 'filterId'
   Prelude.Text ->
   -- | 'column'
   ColumnIdentifier ->
+  -- | 'configuration'
+  CategoryFilterConfiguration ->
   CategoryFilter
-newCategoryFilter pFilterId_ pColumn_ =
+newCategoryFilter pFilterId_ pColumn_ pConfiguration_ =
   CategoryFilter'
-    { configuration = Prelude.Nothing,
-      filterId = pFilterId_,
-      column = pColumn_
+    { filterId = pFilterId_,
+      column = pColumn_,
+      configuration = pConfiguration_
     }
-
--- | The configuration for a @CategoryFilter@.
-categoryFilter_configuration :: Lens.Lens' CategoryFilter (Prelude.Maybe CategoryFilterConfiguration)
-categoryFilter_configuration = Lens.lens (\CategoryFilter' {configuration} -> configuration) (\s@CategoryFilter' {} a -> s {configuration = a} :: CategoryFilter)
 
 -- | An identifier that uniquely identifies a filter within a dashboard,
 -- analysis, or template.
@@ -84,35 +82,41 @@ categoryFilter_filterId = Lens.lens (\CategoryFilter' {filterId} -> filterId) (\
 categoryFilter_column :: Lens.Lens' CategoryFilter ColumnIdentifier
 categoryFilter_column = Lens.lens (\CategoryFilter' {column} -> column) (\s@CategoryFilter' {} a -> s {column = a} :: CategoryFilter)
 
+-- | The configuration for a @CategoryFilter@.
+categoryFilter_configuration :: Lens.Lens' CategoryFilter CategoryFilterConfiguration
+categoryFilter_configuration = Lens.lens (\CategoryFilter' {configuration} -> configuration) (\s@CategoryFilter' {} a -> s {configuration = a} :: CategoryFilter)
+
 instance Data.FromJSON CategoryFilter where
   parseJSON =
     Data.withObject
       "CategoryFilter"
       ( \x ->
           CategoryFilter'
-            Prelude.<$> (x Data..:? "Configuration")
-            Prelude.<*> (x Data..: "FilterId")
+            Prelude.<$> (x Data..: "FilterId")
             Prelude.<*> (x Data..: "Column")
+            Prelude.<*> (x Data..: "Configuration")
       )
 
 instance Prelude.Hashable CategoryFilter where
   hashWithSalt _salt CategoryFilter' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
       `Prelude.hashWithSalt` filterId
       `Prelude.hashWithSalt` column
+      `Prelude.hashWithSalt` configuration
 
 instance Prelude.NFData CategoryFilter where
   rnf CategoryFilter' {..} =
-    Prelude.rnf configuration
-      `Prelude.seq` Prelude.rnf filterId
+    Prelude.rnf filterId
       `Prelude.seq` Prelude.rnf column
+      `Prelude.seq` Prelude.rnf configuration
 
 instance Data.ToJSON CategoryFilter where
   toJSON CategoryFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Configuration" Data..=) Prelude.<$> configuration,
-            Prelude.Just ("FilterId" Data..= filterId),
-            Prelude.Just ("Column" Data..= column)
+          [ Prelude.Just ("FilterId" Data..= filterId),
+            Prelude.Just ("Column" Data..= column),
+            Prelude.Just
+              ("Configuration" Data..= configuration)
           ]
       )

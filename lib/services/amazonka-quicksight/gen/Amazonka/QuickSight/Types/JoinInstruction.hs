@@ -129,7 +129,8 @@ instance Data.FromJSON JoinInstruction where
 
 instance Prelude.Hashable JoinInstruction where
   hashWithSalt _salt JoinInstruction' {..} =
-    _salt `Prelude.hashWithSalt` leftJoinKeyProperties
+    _salt
+      `Prelude.hashWithSalt` leftJoinKeyProperties
       `Prelude.hashWithSalt` rightJoinKeyProperties
       `Prelude.hashWithSalt` leftOperand
       `Prelude.hashWithSalt` rightOperand

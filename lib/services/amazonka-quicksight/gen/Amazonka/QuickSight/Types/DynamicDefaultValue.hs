@@ -88,7 +88,8 @@ instance Data.FromJSON DynamicDefaultValue where
 
 instance Prelude.Hashable DynamicDefaultValue where
   hashWithSalt _salt DynamicDefaultValue' {..} =
-    _salt `Prelude.hashWithSalt` groupNameColumn
+    _salt
+      `Prelude.hashWithSalt` groupNameColumn
       `Prelude.hashWithSalt` userNameColumn
       `Prelude.hashWithSalt` defaultValueColumn
 

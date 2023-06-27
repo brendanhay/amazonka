@@ -20,8 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a dashboard from a template. To first create a template, see the
--- @ CreateTemplate @ API operation.
+-- Creates a dashboard from either a template or directly with a
+-- @DashboardDefinition@. To first create a template, see the
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html CreateTemplate>@ @
+-- API operation.
 --
 -- A dashboard is an entity in Amazon QuickSight that identifies Amazon
 -- QuickSight reports, created from analyses. You can share Amazon
@@ -92,6 +94,9 @@ data CreateDashboard = CreateDashboard'
     --
     -- A definition is the data model of all features in a Dashboard, Template,
     -- or Analysis.
+    --
+    -- Either a @SourceEntity@ or a @Definition@ must be provided in order for
+    -- the request to be valid.
     definition :: Prelude.Maybe DashboardVersionDefinition,
     -- | The parameters for the creation of the dashboard, which you want to use
     -- to override the default settings. A dashboard can have any type of
@@ -108,14 +113,18 @@ data CreateDashboard = CreateDashboard'
     -- source. You can only create a dashboard from a template, so you use a
     -- @SourceTemplate@ entity. If you need to create a dashboard from an
     -- analysis, first convert the analysis to a template by using the
-    -- @ CreateTemplate @ API operation. For @SourceTemplate@, specify the
-    -- Amazon Resource Name (ARN) of the source template. The
-    -- @SourceTemplate@ARN can contain any Amazon Web Services account and any
-    -- Amazon QuickSight-supported Amazon Web Services Region.
+    -- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html CreateTemplate>@ @
+    -- API operation. For @SourceTemplate@, specify the Amazon Resource Name
+    -- (ARN) of the source template. The @SourceTemplate@ARN can contain any
+    -- Amazon Web Services account and any Amazon QuickSight-supported Amazon
+    -- Web Services Region.
     --
     -- Use the @DataSetReferences@ entity within @SourceTemplate@ to list the
     -- replacement datasets for the placeholders listed in the original. The
     -- schema in each dataset must match its placeholder.
+    --
+    -- Either a @SourceEntity@ or a @Definition@ must be provided in order for
+    -- the request to be valid.
     sourceEntity :: Prelude.Maybe DashboardSourceEntity,
     -- | Contains a map of the key-value pairs for the resource tag or tags
     -- assigned to the dashboard.
@@ -167,6 +176,9 @@ data CreateDashboard = CreateDashboard'
 -- A definition is the data model of all features in a Dashboard, Template,
 -- or Analysis.
 --
+-- Either a @SourceEntity@ or a @Definition@ must be provided in order for
+-- the request to be valid.
+--
 -- 'parameters', 'createDashboard_parameters' - The parameters for the creation of the dashboard, which you want to use
 -- to override the default settings. A dashboard can have any type of
 -- parameters, and some parameters might accept multiple values.
@@ -182,14 +194,18 @@ data CreateDashboard = CreateDashboard'
 -- source. You can only create a dashboard from a template, so you use a
 -- @SourceTemplate@ entity. If you need to create a dashboard from an
 -- analysis, first convert the analysis to a template by using the
--- @ CreateTemplate @ API operation. For @SourceTemplate@, specify the
--- Amazon Resource Name (ARN) of the source template. The
--- @SourceTemplate@ARN can contain any Amazon Web Services account and any
--- Amazon QuickSight-supported Amazon Web Services Region.
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html CreateTemplate>@ @
+-- API operation. For @SourceTemplate@, specify the Amazon Resource Name
+-- (ARN) of the source template. The @SourceTemplate@ARN can contain any
+-- Amazon Web Services account and any Amazon QuickSight-supported Amazon
+-- Web Services Region.
 --
 -- Use the @DataSetReferences@ entity within @SourceTemplate@ to list the
 -- replacement datasets for the placeholders listed in the original. The
 -- schema in each dataset must match its placeholder.
+--
+-- Either a @SourceEntity@ or a @Definition@ must be provided in order for
+-- the request to be valid.
 --
 -- 'tags', 'createDashboard_tags' - Contains a map of the key-value pairs for the resource tag or tags
 -- assigned to the dashboard.
@@ -257,6 +273,9 @@ createDashboard_dashboardPublishOptions = Lens.lens (\CreateDashboard' {dashboar
 --
 -- A definition is the data model of all features in a Dashboard, Template,
 -- or Analysis.
+--
+-- Either a @SourceEntity@ or a @Definition@ must be provided in order for
+-- the request to be valid.
 createDashboard_definition :: Lens.Lens' CreateDashboard (Prelude.Maybe DashboardVersionDefinition)
 createDashboard_definition = Lens.lens (\CreateDashboard' {definition} -> definition) (\s@CreateDashboard' {} a -> s {definition = a} :: CreateDashboard)
 
@@ -279,14 +298,18 @@ createDashboard_permissions = Lens.lens (\CreateDashboard' {permissions} -> perm
 -- source. You can only create a dashboard from a template, so you use a
 -- @SourceTemplate@ entity. If you need to create a dashboard from an
 -- analysis, first convert the analysis to a template by using the
--- @ CreateTemplate @ API operation. For @SourceTemplate@, specify the
--- Amazon Resource Name (ARN) of the source template. The
--- @SourceTemplate@ARN can contain any Amazon Web Services account and any
--- Amazon QuickSight-supported Amazon Web Services Region.
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html CreateTemplate>@ @
+-- API operation. For @SourceTemplate@, specify the Amazon Resource Name
+-- (ARN) of the source template. The @SourceTemplate@ARN can contain any
+-- Amazon Web Services account and any Amazon QuickSight-supported Amazon
+-- Web Services Region.
 --
 -- Use the @DataSetReferences@ entity within @SourceTemplate@ to list the
 -- replacement datasets for the placeholders listed in the original. The
 -- schema in each dataset must match its placeholder.
+--
+-- Either a @SourceEntity@ or a @Definition@ must be provided in order for
+-- the request to be valid.
 createDashboard_sourceEntity :: Lens.Lens' CreateDashboard (Prelude.Maybe DashboardSourceEntity)
 createDashboard_sourceEntity = Lens.lens (\CreateDashboard' {sourceEntity} -> sourceEntity) (\s@CreateDashboard' {} a -> s {sourceEntity = a} :: CreateDashboard)
 

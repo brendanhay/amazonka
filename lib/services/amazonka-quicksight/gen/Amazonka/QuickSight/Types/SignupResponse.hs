@@ -104,7 +104,8 @@ instance Data.FromJSON SignupResponse where
 
 instance Prelude.Hashable SignupResponse where
   hashWithSalt _salt SignupResponse' {..} =
-    _salt `Prelude.hashWithSalt` iAMUser
+    _salt
+      `Prelude.hashWithSalt` iAMUser
       `Prelude.hashWithSalt` accountName
       `Prelude.hashWithSalt` directoryType
       `Prelude.hashWithSalt` userLoginName

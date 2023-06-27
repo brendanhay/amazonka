@@ -126,7 +126,8 @@ instance Core.AWSRequest DescribeIAMPolicyAssignment where
 
 instance Prelude.Hashable DescribeIAMPolicyAssignment where
   hashWithSalt _salt DescribeIAMPolicyAssignment' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` assignmentName
       `Prelude.hashWithSalt` namespace
 

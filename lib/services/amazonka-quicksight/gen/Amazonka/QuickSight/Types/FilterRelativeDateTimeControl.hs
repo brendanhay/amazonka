@@ -108,7 +108,8 @@ instance
     FilterRelativeDateTimeControl
   where
   hashWithSalt _salt FilterRelativeDateTimeControl' {..} =
-    _salt `Prelude.hashWithSalt` displayOptions
+    _salt
+      `Prelude.hashWithSalt` displayOptions
       `Prelude.hashWithSalt` filterControlId
       `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` sourceFilterId

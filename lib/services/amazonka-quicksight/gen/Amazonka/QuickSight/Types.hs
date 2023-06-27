@@ -53,11 +53,47 @@ module Amazonka.QuickSight.Types
     -- * ArcThicknessOptions
     ArcThicknessOptions (..),
 
+    -- * AssetBundleExportFormat
+    AssetBundleExportFormat (..),
+
+    -- * AssetBundleExportJobAnalysisPropertyToOverride
+    AssetBundleExportJobAnalysisPropertyToOverride (..),
+
+    -- * AssetBundleExportJobDashboardPropertyToOverride
+    AssetBundleExportJobDashboardPropertyToOverride (..),
+
+    -- * AssetBundleExportJobDataSetPropertyToOverride
+    AssetBundleExportJobDataSetPropertyToOverride (..),
+
+    -- * AssetBundleExportJobDataSourcePropertyToOverride
+    AssetBundleExportJobDataSourcePropertyToOverride (..),
+
+    -- * AssetBundleExportJobRefreshSchedulePropertyToOverride
+    AssetBundleExportJobRefreshSchedulePropertyToOverride (..),
+
+    -- * AssetBundleExportJobStatus
+    AssetBundleExportJobStatus (..),
+
+    -- * AssetBundleExportJobThemePropertyToOverride
+    AssetBundleExportJobThemePropertyToOverride (..),
+
+    -- * AssetBundleExportJobVPCConnectionPropertyToOverride
+    AssetBundleExportJobVPCConnectionPropertyToOverride (..),
+
+    -- * AssetBundleImportFailureAction
+    AssetBundleImportFailureAction (..),
+
+    -- * AssetBundleImportJobStatus
+    AssetBundleImportJobStatus (..),
+
     -- * AssignmentStatus
     AssignmentStatus (..),
 
     -- * AuthenticationMethodOption
     AuthenticationMethodOption (..),
+
+    -- * AuthorSpecifiedAggregation
+    AuthorSpecifiedAggregation (..),
 
     -- * AxisBinding
     AxisBinding (..),
@@ -77,17 +113,29 @@ module Amazonka.QuickSight.Types
     -- * CategoricalAggregationFunction
     CategoricalAggregationFunction (..),
 
+    -- * CategoryFilterFunction
+    CategoryFilterFunction (..),
+
     -- * CategoryFilterMatchOperator
     CategoryFilterMatchOperator (..),
 
     -- * CategoryFilterSelectAllOptions
     CategoryFilterSelectAllOptions (..),
 
+    -- * CategoryFilterType
+    CategoryFilterType (..),
+
     -- * ColorFillType
     ColorFillType (..),
 
+    -- * ColumnDataRole
+    ColumnDataRole (..),
+
     -- * ColumnDataType
     ColumnDataType (..),
+
+    -- * ColumnOrderingType
+    ColumnOrderingType (..),
 
     -- * ColumnRole
     ColumnRole (..),
@@ -103,6 +151,9 @@ module Amazonka.QuickSight.Types
 
     -- * ConditionalFormattingIconSetType
     ConditionalFormattingIconSetType (..),
+
+    -- * ConstantType
+    ConstantType (..),
 
     -- * CrossDatasetTypes
     CrossDatasetTypes (..),
@@ -149,8 +200,20 @@ module Amazonka.QuickSight.Types
     -- * DataSourceType
     DataSourceType (..),
 
+    -- * DatasetParameterValueType
+    DatasetParameterValueType (..),
+
     -- * DateAggregationFunction
     DateAggregationFunction (..),
+
+    -- * DayOfWeek
+    DayOfWeek (..),
+
+    -- * DefaultAggregation
+    DefaultAggregation (..),
+
+    -- * DisplayFormat
+    DisplayFormat (..),
 
     -- * Edition
     Edition (..),
@@ -160,6 +223,9 @@ module Amazonka.QuickSight.Types
 
     -- * FileFormat
     FileFormat (..),
+
+    -- * FilterClass
+    FilterClass (..),
 
     -- * FilterNullOption
     FilterNullOption (..),
@@ -260,6 +326,9 @@ module Amazonka.QuickSight.Types
     -- * LineInterpolation
     LineInterpolation (..),
 
+    -- * LookbackWindowSizeUnit
+    LookbackWindowSizeUnit (..),
+
     -- * MapZoomMode
     MapZoomMode (..),
 
@@ -272,6 +341,15 @@ module Amazonka.QuickSight.Types
     -- * MissingDataTreatmentOption
     MissingDataTreatmentOption (..),
 
+    -- * NamedEntityAggType
+    NamedEntityAggType (..),
+
+    -- * NamedFilterAggType
+    NamedFilterAggType (..),
+
+    -- * NamedFilterType
+    NamedFilterType (..),
+
     -- * NamespaceErrorType
     NamespaceErrorType (..),
 
@@ -280,6 +358,9 @@ module Amazonka.QuickSight.Types
 
     -- * NegativeValueDisplayMode
     NegativeValueDisplayMode (..),
+
+    -- * NetworkInterfaceStatus
+    NetworkInterfaceStatus (..),
 
     -- * NumberScale
     NumberScale (..),
@@ -311,6 +392,9 @@ module Amazonka.QuickSight.Types
     -- * PivotTableConditionalFormattingScopeRole
     PivotTableConditionalFormattingScopeRole (..),
 
+    -- * PivotTableFieldCollapseState
+    PivotTableFieldCollapseState (..),
+
     -- * PivotTableMetricPlacement
     PivotTableMetricPlacement (..),
 
@@ -319,6 +403,18 @@ module Amazonka.QuickSight.Types
 
     -- * PrimaryValueDisplayType
     PrimaryValueDisplayType (..),
+
+    -- * PropertyRole
+    PropertyRole (..),
+
+    -- * PropertyUsage
+    PropertyUsage (..),
+
+    -- * RadarChartAxesRangeScale
+    RadarChartAxesRangeScale (..),
+
+    -- * RadarChartShape
+    RadarChartShape (..),
 
     -- * ReferenceLineLabelHorizontalPosition
     ReferenceLineLabelHorizontalPosition (..),
@@ -331,6 +427,9 @@ module Amazonka.QuickSight.Types
 
     -- * ReferenceLineValueLabelRelativePosition
     ReferenceLineValueLabelRelativePosition (..),
+
+    -- * RefreshInterval
+    RefreshInterval (..),
 
     -- * RelativeDateType
     RelativeDateType (..),
@@ -431,11 +530,35 @@ module Amazonka.QuickSight.Types
     -- * TopBottomSortOrder
     TopBottomSortOrder (..),
 
+    -- * TopicNumericSeparatorSymbol
+    TopicNumericSeparatorSymbol (..),
+
+    -- * TopicRefreshStatus
+    TopicRefreshStatus (..),
+
+    -- * TopicRelativeDateFilterFunction
+    TopicRelativeDateFilterFunction (..),
+
+    -- * TopicScheduleType
+    TopicScheduleType (..),
+
+    -- * TopicTimeGranularity
+    TopicTimeGranularity (..),
+
     -- * URLTargetConfiguration
     URLTargetConfiguration (..),
 
+    -- * UndefinedSpecifiedValueType
+    UndefinedSpecifiedValueType (..),
+
     -- * UserRole
     UserRole (..),
+
+    -- * VPCConnectionAvailabilityStatus
+    VPCConnectionAvailabilityStatus (..),
+
+    -- * VPCConnectionResourceStatus
+    VPCConnectionResourceStatus (..),
 
     -- * ValueWhenUnsetOption
     ValueWhenUnsetOption (..),
@@ -643,6 +766,190 @@ module Amazonka.QuickSight.Types
     newArcOptions,
     arcOptions_arcThickness,
 
+    -- * AssetBundleCloudFormationOverridePropertyConfiguration
+    AssetBundleCloudFormationOverridePropertyConfiguration (..),
+    newAssetBundleCloudFormationOverridePropertyConfiguration,
+    assetBundleCloudFormationOverridePropertyConfiguration_analyses,
+    assetBundleCloudFormationOverridePropertyConfiguration_dashboards,
+    assetBundleCloudFormationOverridePropertyConfiguration_dataSets,
+    assetBundleCloudFormationOverridePropertyConfiguration_dataSources,
+    assetBundleCloudFormationOverridePropertyConfiguration_refreshSchedules,
+    assetBundleCloudFormationOverridePropertyConfiguration_resourceIdOverrideConfiguration,
+    assetBundleCloudFormationOverridePropertyConfiguration_themes,
+    assetBundleCloudFormationOverridePropertyConfiguration_vPCConnections,
+
+    -- * AssetBundleExportJobAnalysisOverrideProperties
+    AssetBundleExportJobAnalysisOverrideProperties (..),
+    newAssetBundleExportJobAnalysisOverrideProperties,
+    assetBundleExportJobAnalysisOverrideProperties_arn,
+    assetBundleExportJobAnalysisOverrideProperties_properties,
+
+    -- * AssetBundleExportJobDashboardOverrideProperties
+    AssetBundleExportJobDashboardOverrideProperties (..),
+    newAssetBundleExportJobDashboardOverrideProperties,
+    assetBundleExportJobDashboardOverrideProperties_arn,
+    assetBundleExportJobDashboardOverrideProperties_properties,
+
+    -- * AssetBundleExportJobDataSetOverrideProperties
+    AssetBundleExportJobDataSetOverrideProperties (..),
+    newAssetBundleExportJobDataSetOverrideProperties,
+    assetBundleExportJobDataSetOverrideProperties_arn,
+    assetBundleExportJobDataSetOverrideProperties_properties,
+
+    -- * AssetBundleExportJobDataSourceOverrideProperties
+    AssetBundleExportJobDataSourceOverrideProperties (..),
+    newAssetBundleExportJobDataSourceOverrideProperties,
+    assetBundleExportJobDataSourceOverrideProperties_arn,
+    assetBundleExportJobDataSourceOverrideProperties_properties,
+
+    -- * AssetBundleExportJobError
+    AssetBundleExportJobError (..),
+    newAssetBundleExportJobError,
+    assetBundleExportJobError_arn,
+    assetBundleExportJobError_message,
+    assetBundleExportJobError_type,
+
+    -- * AssetBundleExportJobRefreshScheduleOverrideProperties
+    AssetBundleExportJobRefreshScheduleOverrideProperties (..),
+    newAssetBundleExportJobRefreshScheduleOverrideProperties,
+    assetBundleExportJobRefreshScheduleOverrideProperties_arn,
+    assetBundleExportJobRefreshScheduleOverrideProperties_properties,
+
+    -- * AssetBundleExportJobResourceIdOverrideConfiguration
+    AssetBundleExportJobResourceIdOverrideConfiguration (..),
+    newAssetBundleExportJobResourceIdOverrideConfiguration,
+    assetBundleExportJobResourceIdOverrideConfiguration_prefixForAllResources,
+
+    -- * AssetBundleExportJobSummary
+    AssetBundleExportJobSummary (..),
+    newAssetBundleExportJobSummary,
+    assetBundleExportJobSummary_arn,
+    assetBundleExportJobSummary_assetBundleExportJobId,
+    assetBundleExportJobSummary_createdTime,
+    assetBundleExportJobSummary_exportFormat,
+    assetBundleExportJobSummary_includeAllDependencies,
+    assetBundleExportJobSummary_jobStatus,
+
+    -- * AssetBundleExportJobThemeOverrideProperties
+    AssetBundleExportJobThemeOverrideProperties (..),
+    newAssetBundleExportJobThemeOverrideProperties,
+    assetBundleExportJobThemeOverrideProperties_arn,
+    assetBundleExportJobThemeOverrideProperties_properties,
+
+    -- * AssetBundleExportJobVPCConnectionOverrideProperties
+    AssetBundleExportJobVPCConnectionOverrideProperties (..),
+    newAssetBundleExportJobVPCConnectionOverrideProperties,
+    assetBundleExportJobVPCConnectionOverrideProperties_arn,
+    assetBundleExportJobVPCConnectionOverrideProperties_properties,
+
+    -- * AssetBundleImportJobAnalysisOverrideParameters
+    AssetBundleImportJobAnalysisOverrideParameters (..),
+    newAssetBundleImportJobAnalysisOverrideParameters,
+    assetBundleImportJobAnalysisOverrideParameters_name,
+    assetBundleImportJobAnalysisOverrideParameters_analysisId,
+
+    -- * AssetBundleImportJobDashboardOverrideParameters
+    AssetBundleImportJobDashboardOverrideParameters (..),
+    newAssetBundleImportJobDashboardOverrideParameters,
+    assetBundleImportJobDashboardOverrideParameters_name,
+    assetBundleImportJobDashboardOverrideParameters_dashboardId,
+
+    -- * AssetBundleImportJobDataSetOverrideParameters
+    AssetBundleImportJobDataSetOverrideParameters (..),
+    newAssetBundleImportJobDataSetOverrideParameters,
+    assetBundleImportJobDataSetOverrideParameters_name,
+    assetBundleImportJobDataSetOverrideParameters_dataSetId,
+
+    -- * AssetBundleImportJobDataSourceCredentialPair
+    AssetBundleImportJobDataSourceCredentialPair (..),
+    newAssetBundleImportJobDataSourceCredentialPair,
+    assetBundleImportJobDataSourceCredentialPair_username,
+    assetBundleImportJobDataSourceCredentialPair_password,
+
+    -- * AssetBundleImportJobDataSourceCredentials
+    AssetBundleImportJobDataSourceCredentials (..),
+    newAssetBundleImportJobDataSourceCredentials,
+    assetBundleImportJobDataSourceCredentials_credentialPair,
+    assetBundleImportJobDataSourceCredentials_secretArn,
+
+    -- * AssetBundleImportJobDataSourceOverrideParameters
+    AssetBundleImportJobDataSourceOverrideParameters (..),
+    newAssetBundleImportJobDataSourceOverrideParameters,
+    assetBundleImportJobDataSourceOverrideParameters_credentials,
+    assetBundleImportJobDataSourceOverrideParameters_dataSourceParameters,
+    assetBundleImportJobDataSourceOverrideParameters_name,
+    assetBundleImportJobDataSourceOverrideParameters_sslProperties,
+    assetBundleImportJobDataSourceOverrideParameters_vpcConnectionProperties,
+    assetBundleImportJobDataSourceOverrideParameters_dataSourceId,
+
+    -- * AssetBundleImportJobError
+    AssetBundleImportJobError (..),
+    newAssetBundleImportJobError,
+    assetBundleImportJobError_arn,
+    assetBundleImportJobError_message,
+    assetBundleImportJobError_type,
+
+    -- * AssetBundleImportJobOverrideParameters
+    AssetBundleImportJobOverrideParameters (..),
+    newAssetBundleImportJobOverrideParameters,
+    assetBundleImportJobOverrideParameters_analyses,
+    assetBundleImportJobOverrideParameters_dashboards,
+    assetBundleImportJobOverrideParameters_dataSets,
+    assetBundleImportJobOverrideParameters_dataSources,
+    assetBundleImportJobOverrideParameters_refreshSchedules,
+    assetBundleImportJobOverrideParameters_resourceIdOverrideConfiguration,
+    assetBundleImportJobOverrideParameters_themes,
+    assetBundleImportJobOverrideParameters_vPCConnections,
+
+    -- * AssetBundleImportJobRefreshScheduleOverrideParameters
+    AssetBundleImportJobRefreshScheduleOverrideParameters (..),
+    newAssetBundleImportJobRefreshScheduleOverrideParameters,
+    assetBundleImportJobRefreshScheduleOverrideParameters_startAfterDateTime,
+    assetBundleImportJobRefreshScheduleOverrideParameters_dataSetId,
+    assetBundleImportJobRefreshScheduleOverrideParameters_scheduleId,
+
+    -- * AssetBundleImportJobResourceIdOverrideConfiguration
+    AssetBundleImportJobResourceIdOverrideConfiguration (..),
+    newAssetBundleImportJobResourceIdOverrideConfiguration,
+    assetBundleImportJobResourceIdOverrideConfiguration_prefixForAllResources,
+
+    -- * AssetBundleImportJobSummary
+    AssetBundleImportJobSummary (..),
+    newAssetBundleImportJobSummary,
+    assetBundleImportJobSummary_arn,
+    assetBundleImportJobSummary_assetBundleImportJobId,
+    assetBundleImportJobSummary_createdTime,
+    assetBundleImportJobSummary_failureAction,
+    assetBundleImportJobSummary_jobStatus,
+
+    -- * AssetBundleImportJobThemeOverrideParameters
+    AssetBundleImportJobThemeOverrideParameters (..),
+    newAssetBundleImportJobThemeOverrideParameters,
+    assetBundleImportJobThemeOverrideParameters_name,
+    assetBundleImportJobThemeOverrideParameters_themeId,
+
+    -- * AssetBundleImportJobVPCConnectionOverrideParameters
+    AssetBundleImportJobVPCConnectionOverrideParameters (..),
+    newAssetBundleImportJobVPCConnectionOverrideParameters,
+    assetBundleImportJobVPCConnectionOverrideParameters_dnsResolvers,
+    assetBundleImportJobVPCConnectionOverrideParameters_name,
+    assetBundleImportJobVPCConnectionOverrideParameters_roleArn,
+    assetBundleImportJobVPCConnectionOverrideParameters_securityGroupIds,
+    assetBundleImportJobVPCConnectionOverrideParameters_subnetIds,
+    assetBundleImportJobVPCConnectionOverrideParameters_vPCConnectionId,
+
+    -- * AssetBundleImportSource
+    AssetBundleImportSource (..),
+    newAssetBundleImportSource,
+    assetBundleImportSource_body,
+    assetBundleImportSource_s3Uri,
+
+    -- * AssetBundleImportSourceDescription
+    AssetBundleImportSourceDescription (..),
+    newAssetBundleImportSourceDescription,
+    assetBundleImportSourceDescription_body,
+    assetBundleImportSourceDescription_s3Uri,
+
     -- * AthenaParameters
     AthenaParameters (..),
     newAthenaParameters,
@@ -813,6 +1120,11 @@ module Amazonka.QuickSight.Types
     newBodySectionContent,
     bodySectionContent_layout,
 
+    -- * BookmarksConfigurations
+    BookmarksConfigurations (..),
+    newBookmarksConfigurations,
+    bookmarksConfigurations_enabled,
+
     -- * BorderStyle
     BorderStyle (..),
     newBorderStyle,
@@ -935,9 +1247,9 @@ module Amazonka.QuickSight.Types
     -- * CategoryFilter
     CategoryFilter (..),
     newCategoryFilter,
-    categoryFilter_configuration,
     categoryFilter_filterId,
     categoryFilter_column,
+    categoryFilter_configuration,
 
     -- * CategoryFilterConfiguration
     CategoryFilterConfiguration (..),
@@ -945,6 +1257,12 @@ module Amazonka.QuickSight.Types
     categoryFilterConfiguration_customFilterConfiguration,
     categoryFilterConfiguration_customFilterListConfiguration,
     categoryFilterConfiguration_filterListConfiguration,
+
+    -- * CellValueSynonym
+    CellValueSynonym (..),
+    newCellValueSynonym,
+    cellValueSynonym_cellValue,
+    cellValueSynonym_synonyms,
 
     -- * ChartAxisLabelOptions
     ChartAxisLabelOptions (..),
@@ -962,6 +1280,11 @@ module Amazonka.QuickSight.Types
     ClusterMarkerConfiguration (..),
     newClusterMarkerConfiguration,
     clusterMarkerConfiguration_clusterMarker,
+
+    -- * CollectiveConstant
+    CollectiveConstant (..),
+    newCollectiveConstant,
+    collectiveConstant_valueList,
 
     -- * ColorScale
     ColorScale (..),
@@ -1095,6 +1418,13 @@ module Amazonka.QuickSight.Types
     comboChartVisual_subtitle,
     comboChartVisual_title,
     comboChartVisual_visualId,
+
+    -- * ComparativeOrder
+    ComparativeOrder (..),
+    newComparativeOrder,
+    comparativeOrder_specifedOrder,
+    comparativeOrder_treatUndefinedSpecifiedValues,
+    comparativeOrder_useOrdering,
 
     -- * ComparisonConfiguration
     ComparisonConfiguration (..),
@@ -1306,8 +1636,15 @@ module Amazonka.QuickSight.Types
     DashboardPublishOptions (..),
     newDashboardPublishOptions,
     dashboardPublishOptions_adHocFilteringOption,
+    dashboardPublishOptions_dataPointDrillUpDownOption,
+    dashboardPublishOptions_dataPointMenuLabelOption,
+    dashboardPublishOptions_dataPointTooltipOption,
     dashboardPublishOptions_exportToCSVOption,
+    dashboardPublishOptions_exportWithHiddenFieldsOption,
     dashboardPublishOptions_sheetControlsOption,
+    dashboardPublishOptions_sheetLayoutElementMaximizationOption,
+    dashboardPublishOptions_visualAxisSortOption,
+    dashboardPublishOptions_visualMenuOption,
     dashboardPublishOptions_visualPublishOptions,
 
     -- * DashboardSearchFilter
@@ -1386,6 +1723,19 @@ module Amazonka.QuickSight.Types
     newDashboardVisualPublishOptions,
     dashboardVisualPublishOptions_exportHiddenFieldsOption,
 
+    -- * DataAggregation
+    DataAggregation (..),
+    newDataAggregation,
+    dataAggregation_datasetRowDateGranularity,
+    dataAggregation_defaultDateColumnName,
+
+    -- * DataBarsOptions
+    DataBarsOptions (..),
+    newDataBarsOptions,
+    dataBarsOptions_negativeColor,
+    dataBarsOptions_positiveColor,
+    dataBarsOptions_fieldId,
+
     -- * DataColor
     DataColor (..),
     newDataColor,
@@ -1418,6 +1768,7 @@ module Amazonka.QuickSight.Types
     dataLabelOptions_measureLabelVisibility,
     dataLabelOptions_overlap,
     dataLabelOptions_position,
+    dataLabelOptions_totalsVisibility,
     dataLabelOptions_visibility,
 
     -- * DataLabelType
@@ -1455,6 +1806,21 @@ module Amazonka.QuickSight.Types
     dataPathValue_fieldId,
     dataPathValue_fieldValue,
 
+    -- * DataPointDrillUpDownOption
+    DataPointDrillUpDownOption (..),
+    newDataPointDrillUpDownOption,
+    dataPointDrillUpDownOption_availabilityStatus,
+
+    -- * DataPointMenuLabelOption
+    DataPointMenuLabelOption (..),
+    newDataPointMenuLabelOption,
+    dataPointMenuLabelOption_availabilityStatus,
+
+    -- * DataPointTooltipOption
+    DataPointTooltipOption (..),
+    newDataPointTooltipOption,
+    dataPointTooltipOption_availabilityStatus,
+
     -- * DataSet
     DataSet (..),
     newDataSet,
@@ -1465,6 +1831,7 @@ module Amazonka.QuickSight.Types
     dataSet_createdTime,
     dataSet_dataSetId,
     dataSet_dataSetUsageConfiguration,
+    dataSet_datasetParameters,
     dataSet_fieldFolders,
     dataSet_importMode,
     dataSet_lastUpdatedTime,
@@ -1493,6 +1860,11 @@ module Amazonka.QuickSight.Types
     newDataSetReference,
     dataSetReference_dataSetPlaceholder,
     dataSetReference_dataSetArn,
+
+    -- * DataSetRefreshProperties
+    DataSetRefreshProperties (..),
+    newDataSetRefreshProperties,
+    dataSetRefreshProperties_refreshConfiguration,
 
     -- * DataSetSchema
     DataSetSchema (..),
@@ -1606,6 +1978,26 @@ module Amazonka.QuickSight.Types
     databricksParameters_port,
     databricksParameters_sqlEndpointPath,
 
+    -- * DatasetMetadata
+    DatasetMetadata (..),
+    newDatasetMetadata,
+    datasetMetadata_calculatedFields,
+    datasetMetadata_columns,
+    datasetMetadata_dataAggregation,
+    datasetMetadata_datasetDescription,
+    datasetMetadata_datasetName,
+    datasetMetadata_filters,
+    datasetMetadata_namedEntities,
+    datasetMetadata_datasetArn,
+
+    -- * DatasetParameter
+    DatasetParameter (..),
+    newDatasetParameter,
+    datasetParameter_dateTimeDatasetParameter,
+    datasetParameter_decimalDatasetParameter,
+    datasetParameter_integerDatasetParameter,
+    datasetParameter_stringDatasetParameter,
+
     -- * DateAxisOptions
     DateAxisOptions (..),
     newDateAxisOptions,
@@ -1627,6 +2019,20 @@ module Amazonka.QuickSight.Types
     dateMeasureField_formatConfiguration,
     dateMeasureField_fieldId,
     dateMeasureField_column,
+
+    -- * DateTimeDatasetParameter
+    DateTimeDatasetParameter (..),
+    newDateTimeDatasetParameter,
+    dateTimeDatasetParameter_defaultValues,
+    dateTimeDatasetParameter_timeGranularity,
+    dateTimeDatasetParameter_id,
+    dateTimeDatasetParameter_name,
+    dateTimeDatasetParameter_valueType,
+
+    -- * DateTimeDatasetParameterDefaultValues
+    DateTimeDatasetParameterDefaultValues (..),
+    newDateTimeDatasetParameterDefaultValues,
+    dateTimeDatasetParameterDefaultValues_staticValues,
 
     -- * DateTimeDefaultValues
     DateTimeDefaultValues (..),
@@ -1658,6 +2064,7 @@ module Amazonka.QuickSight.Types
     DateTimeParameterDeclaration (..),
     newDateTimeParameterDeclaration,
     dateTimeParameterDeclaration_defaultValues,
+    dateTimeParameterDeclaration_mappedDataSetParameters,
     dateTimeParameterDeclaration_timeGranularity,
     dateTimeParameterDeclaration_valueWhenUnset,
     dateTimeParameterDeclaration_name,
@@ -1673,6 +2080,19 @@ module Amazonka.QuickSight.Types
     newDateTimeValueWhenUnsetConfiguration,
     dateTimeValueWhenUnsetConfiguration_customValue,
     dateTimeValueWhenUnsetConfiguration_valueWhenUnsetOption,
+
+    -- * DecimalDatasetParameter
+    DecimalDatasetParameter (..),
+    newDecimalDatasetParameter,
+    decimalDatasetParameter_defaultValues,
+    decimalDatasetParameter_id,
+    decimalDatasetParameter_name,
+    decimalDatasetParameter_valueType,
+
+    -- * DecimalDatasetParameterDefaultValues
+    DecimalDatasetParameterDefaultValues (..),
+    newDecimalDatasetParameterDefaultValues,
+    decimalDatasetParameterDefaultValues_staticValues,
 
     -- * DecimalDefaultValues
     DecimalDefaultValues (..),
@@ -1690,6 +2110,7 @@ module Amazonka.QuickSight.Types
     DecimalParameterDeclaration (..),
     newDecimalParameterDeclaration,
     decimalParameterDeclaration_defaultValues,
+    decimalParameterDeclaration_mappedDataSetParameters,
     decimalParameterDeclaration_valueWhenUnset,
     decimalParameterDeclaration_parameterValueType,
     decimalParameterDeclaration_name,
@@ -1704,6 +2125,12 @@ module Amazonka.QuickSight.Types
     newDecimalValueWhenUnsetConfiguration,
     decimalValueWhenUnsetConfiguration_customValue,
     decimalValueWhenUnsetConfiguration_valueWhenUnsetOption,
+
+    -- * DefaultFormatting
+    DefaultFormatting (..),
+    newDefaultFormatting,
+    defaultFormatting_displayFormat,
+    defaultFormatting_displayFormatOptions,
 
     -- * DefaultFreeFormLayoutConfiguration
     DefaultFreeFormLayoutConfiguration (..),
@@ -1743,6 +2170,7 @@ module Amazonka.QuickSight.Types
     newDestinationParameterValueConfiguration,
     destinationParameterValueConfiguration_customValuesConfiguration,
     destinationParameterValueConfiguration_selectAllValueOptions,
+    destinationParameterValueConfiguration_sourceColumn,
     destinationParameterValueConfiguration_sourceField,
     destinationParameterValueConfiguration_sourceParameterName,
 
@@ -1752,6 +2180,22 @@ module Amazonka.QuickSight.Types
     dimensionField_categoricalDimensionField,
     dimensionField_dateDimensionField,
     dimensionField_numericalDimensionField,
+
+    -- * DisplayFormatOptions
+    DisplayFormatOptions (..),
+    newDisplayFormatOptions,
+    displayFormatOptions_blankCellFormat,
+    displayFormatOptions_currencySymbol,
+    displayFormatOptions_dateFormat,
+    displayFormatOptions_decimalSeparator,
+    displayFormatOptions_fractionDigits,
+    displayFormatOptions_groupingSeparator,
+    displayFormatOptions_negativeFormat,
+    displayFormatOptions_prefix,
+    displayFormatOptions_suffix,
+    displayFormatOptions_unitScaler,
+    displayFormatOptions_useBlankCellFormat,
+    displayFormatOptions_useGrouping,
 
     -- * DonutCenterOptions
     DonutCenterOptions (..),
@@ -1831,6 +2275,11 @@ module Amazonka.QuickSight.Types
     ExportToCSVOption (..),
     newExportToCSVOption,
     exportToCSVOption_availabilityStatus,
+
+    -- * ExportWithHiddenFieldsOption
+    ExportWithHiddenFieldsOption (..),
+    newExportWithHiddenFieldsOption,
+    exportWithHiddenFieldsOption_availabilityStatus,
 
     -- * FieldBasedTooltip
     FieldBasedTooltip (..),
@@ -2007,6 +2456,7 @@ module Amazonka.QuickSight.Types
     -- * FilterOperationSelectedFieldsConfiguration
     FilterOperationSelectedFieldsConfiguration (..),
     newFilterOperationSelectedFieldsConfiguration,
+    filterOperationSelectedFieldsConfiguration_selectedColumns,
     filterOperationSelectedFieldsConfiguration_selectedFieldOptions,
     filterOperationSelectedFieldsConfiguration_selectedFields,
 
@@ -2323,6 +2773,21 @@ module Amazonka.QuickSight.Types
     geospatialCoordinateBounds_west,
     geospatialCoordinateBounds_east,
 
+    -- * GeospatialHeatmapColorScale
+    GeospatialHeatmapColorScale (..),
+    newGeospatialHeatmapColorScale,
+    geospatialHeatmapColorScale_colors,
+
+    -- * GeospatialHeatmapConfiguration
+    GeospatialHeatmapConfiguration (..),
+    newGeospatialHeatmapConfiguration,
+    geospatialHeatmapConfiguration_heatmapColor,
+
+    -- * GeospatialHeatmapDataColor
+    GeospatialHeatmapDataColor (..),
+    newGeospatialHeatmapDataColor,
+    geospatialHeatmapDataColor_color,
+
     -- * GeospatialMapAggregatedFieldWells
     GeospatialMapAggregatedFieldWells (..),
     newGeospatialMapAggregatedFieldWells,
@@ -2365,6 +2830,7 @@ module Amazonka.QuickSight.Types
     GeospatialPointStyleOptions (..),
     newGeospatialPointStyleOptions,
     geospatialPointStyleOptions_clusterMarkerConfiguration,
+    geospatialPointStyleOptions_heatmapConfiguration,
     geospatialPointStyleOptions_selectedPointStyle,
 
     -- * GeospatialWindowOptions
@@ -2557,6 +3023,11 @@ module Amazonka.QuickSight.Types
     iAMPolicyAssignmentSummary_assignmentName,
     iAMPolicyAssignmentSummary_assignmentStatus,
 
+    -- * IncrementalRefresh
+    IncrementalRefresh (..),
+    newIncrementalRefresh,
+    incrementalRefresh_lookbackWindow,
+
     -- * Ingestion
     Ingestion (..),
     newIngestion,
@@ -2594,6 +3065,19 @@ module Amazonka.QuickSight.Types
     insightVisual_visualId,
     insightVisual_dataSetIdentifier,
 
+    -- * IntegerDatasetParameter
+    IntegerDatasetParameter (..),
+    newIntegerDatasetParameter,
+    integerDatasetParameter_defaultValues,
+    integerDatasetParameter_id,
+    integerDatasetParameter_name,
+    integerDatasetParameter_valueType,
+
+    -- * IntegerDatasetParameterDefaultValues
+    IntegerDatasetParameterDefaultValues (..),
+    newIntegerDatasetParameterDefaultValues,
+    integerDatasetParameterDefaultValues_staticValues,
+
     -- * IntegerDefaultValues
     IntegerDefaultValues (..),
     newIntegerDefaultValues,
@@ -2610,6 +3094,7 @@ module Amazonka.QuickSight.Types
     IntegerParameterDeclaration (..),
     newIntegerParameterDeclaration,
     integerParameterDeclaration_defaultValues,
+    integerParameterDeclaration_mappedDataSetParameters,
     integerParameterDeclaration_valueWhenUnset,
     integerParameterDeclaration_parameterValueType,
     integerParameterDeclaration_name,
@@ -2879,11 +3364,24 @@ module Amazonka.QuickSight.Types
     longFormatText_plainText,
     longFormatText_richText,
 
+    -- * LookbackWindow
+    LookbackWindow (..),
+    newLookbackWindow,
+    lookbackWindow_columnName,
+    lookbackWindow_size,
+    lookbackWindow_sizeUnit,
+
     -- * ManifestFileLocation
     ManifestFileLocation (..),
     newManifestFileLocation,
     manifestFileLocation_bucket,
     manifestFileLocation_key,
+
+    -- * MappedDataSetParameter
+    MappedDataSetParameter (..),
+    newMappedDataSetParameter,
+    mappedDataSetParameter_dataSetIdentifier,
+    mappedDataSetParameter_dataSetParameterName,
 
     -- * MarginStyle
     MarginStyle (..),
@@ -2951,6 +3449,21 @@ module Amazonka.QuickSight.Types
     mySqlParameters_port,
     mySqlParameters_database,
 
+    -- * NamedEntityDefinition
+    NamedEntityDefinition (..),
+    newNamedEntityDefinition,
+    namedEntityDefinition_fieldName,
+    namedEntityDefinition_metric,
+    namedEntityDefinition_propertyName,
+    namedEntityDefinition_propertyRole,
+    namedEntityDefinition_propertyUsage,
+
+    -- * NamedEntityDefinitionMetric
+    NamedEntityDefinitionMetric (..),
+    newNamedEntityDefinitionMetric,
+    namedEntityDefinitionMetric_aggregation,
+    namedEntityDefinitionMetric_aggregationFunctionParameters,
+
     -- * NamespaceError
     NamespaceError (..),
     newNamespaceError,
@@ -2967,10 +3480,33 @@ module Amazonka.QuickSight.Types
     namespaceInfoV2_name,
     namespaceInfoV2_namespaceError,
 
+    -- * NegativeFormat
+    NegativeFormat (..),
+    newNegativeFormat,
+    negativeFormat_prefix,
+    negativeFormat_suffix,
+
     -- * NegativeValueConfiguration
     NegativeValueConfiguration (..),
     newNegativeValueConfiguration,
     negativeValueConfiguration_displayMode,
+
+    -- * NetworkInterface
+    NetworkInterface (..),
+    newNetworkInterface,
+    networkInterface_availabilityZone,
+    networkInterface_errorMessage,
+    networkInterface_networkInterfaceId,
+    networkInterface_status,
+    networkInterface_subnetId,
+
+    -- * NewDefaultValues
+    NewDefaultValues (..),
+    newNewDefaultValues,
+    newDefaultValues_dateTimeStaticValues,
+    newDefaultValues_decimalStaticValues,
+    newDefaultValues_integerStaticValues,
+    newDefaultValues_stringStaticValues,
 
     -- * NullValueFormatConfiguration
     NullValueFormatConfiguration (..),
@@ -3084,6 +3620,13 @@ module Amazonka.QuickSight.Types
     outputColumn_description,
     outputColumn_name,
     outputColumn_type,
+
+    -- * OverrideDatasetParameterOperation
+    OverrideDatasetParameterOperation (..),
+    newOverrideDatasetParameterOperation,
+    overrideDatasetParameterOperation_newDefaultValues,
+    overrideDatasetParameterOperation_newParameterName,
+    overrideDatasetParameterOperation_parameterName,
 
     -- * PaginationConfiguration
     PaginationConfiguration (..),
@@ -3308,6 +3851,7 @@ module Amazonka.QuickSight.Types
     PivotTableCellConditionalFormatting (..),
     newPivotTableCellConditionalFormatting,
     pivotTableCellConditionalFormatting_scope,
+    pivotTableCellConditionalFormatting_scopes,
     pivotTableCellConditionalFormatting_textFormat,
     pivotTableCellConditionalFormatting_fieldId,
 
@@ -3342,6 +3886,18 @@ module Amazonka.QuickSight.Types
     pivotTableDataPathOption_width,
     pivotTableDataPathOption_dataPathList,
 
+    -- * PivotTableFieldCollapseStateOption
+    PivotTableFieldCollapseStateOption (..),
+    newPivotTableFieldCollapseStateOption,
+    pivotTableFieldCollapseStateOption_state,
+    pivotTableFieldCollapseStateOption_target,
+
+    -- * PivotTableFieldCollapseStateTarget
+    PivotTableFieldCollapseStateTarget (..),
+    newPivotTableFieldCollapseStateTarget,
+    pivotTableFieldCollapseStateTarget_fieldDataPathValues,
+    pivotTableFieldCollapseStateTarget_fieldId,
+
     -- * PivotTableFieldOption
     PivotTableFieldOption (..),
     newPivotTableFieldOption,
@@ -3352,6 +3908,7 @@ module Amazonka.QuickSight.Types
     -- * PivotTableFieldOptions
     PivotTableFieldOptions (..),
     newPivotTableFieldOptions,
+    pivotTableFieldOptions_collapseStateOptions,
     pivotTableFieldOptions_dataPathOptions,
     pivotTableFieldOptions_selectedFieldOptions,
 
@@ -3369,6 +3926,7 @@ module Amazonka.QuickSight.Types
     PivotTableOptions (..),
     newPivotTableOptions,
     pivotTableOptions_cellStyle,
+    pivotTableOptions_collapsedRowDimensionsVisibility,
     pivotTableOptions_columnHeaderStyle,
     pivotTableOptions_columnNamesVisibility,
     pivotTableOptions_metricPlacement,
@@ -3462,6 +4020,71 @@ module Amazonka.QuickSight.Types
     queueInfo_waitingOnIngestion,
     queueInfo_queuedIngestion,
 
+    -- * RadarChartAggregatedFieldWells
+    RadarChartAggregatedFieldWells (..),
+    newRadarChartAggregatedFieldWells,
+    radarChartAggregatedFieldWells_category,
+    radarChartAggregatedFieldWells_color,
+    radarChartAggregatedFieldWells_values,
+
+    -- * RadarChartAreaStyleSettings
+    RadarChartAreaStyleSettings (..),
+    newRadarChartAreaStyleSettings,
+    radarChartAreaStyleSettings_visibility,
+
+    -- * RadarChartConfiguration
+    RadarChartConfiguration (..),
+    newRadarChartConfiguration,
+    radarChartConfiguration_alternateBandColorsVisibility,
+    radarChartConfiguration_alternateBandEvenColor,
+    radarChartConfiguration_alternateBandOddColor,
+    radarChartConfiguration_axesRangeScale,
+    radarChartConfiguration_baseSeriesSettings,
+    radarChartConfiguration_categoryAxis,
+    radarChartConfiguration_categoryLabelOptions,
+    radarChartConfiguration_colorAxis,
+    radarChartConfiguration_colorLabelOptions,
+    radarChartConfiguration_fieldWells,
+    radarChartConfiguration_legend,
+    radarChartConfiguration_shape,
+    radarChartConfiguration_sortConfiguration,
+    radarChartConfiguration_startAngle,
+    radarChartConfiguration_visualPalette,
+
+    -- * RadarChartFieldWells
+    RadarChartFieldWells (..),
+    newRadarChartFieldWells,
+    radarChartFieldWells_radarChartAggregatedFieldWells,
+
+    -- * RadarChartSeriesSettings
+    RadarChartSeriesSettings (..),
+    newRadarChartSeriesSettings,
+    radarChartSeriesSettings_areaStyleSettings,
+
+    -- * RadarChartSortConfiguration
+    RadarChartSortConfiguration (..),
+    newRadarChartSortConfiguration,
+    radarChartSortConfiguration_categoryItemsLimit,
+    radarChartSortConfiguration_categorySort,
+    radarChartSortConfiguration_colorItemsLimit,
+    radarChartSortConfiguration_colorSort,
+
+    -- * RadarChartVisual
+    RadarChartVisual (..),
+    newRadarChartVisual,
+    radarChartVisual_actions,
+    radarChartVisual_chartConfiguration,
+    radarChartVisual_columnHierarchies,
+    radarChartVisual_subtitle,
+    radarChartVisual_title,
+    radarChartVisual_visualId,
+
+    -- * RangeConstant
+    RangeConstant (..),
+    newRangeConstant,
+    rangeConstant_maximum,
+    rangeConstant_minimum,
+
     -- * RangeEndsLabelType
     RangeEndsLabelType (..),
     newRangeEndsLabelType,
@@ -3504,8 +4127,8 @@ module Amazonka.QuickSight.Types
     -- * ReferenceLineDynamicDataConfiguration
     ReferenceLineDynamicDataConfiguration (..),
     newReferenceLineDynamicDataConfiguration,
-    referenceLineDynamicDataConfiguration_column,
     referenceLineDynamicDataConfiguration_measureAggregationFunction,
+    referenceLineDynamicDataConfiguration_column,
     referenceLineDynamicDataConfiguration_calculation,
 
     -- * ReferenceLineLabelConfiguration
@@ -3535,10 +4158,44 @@ module Amazonka.QuickSight.Types
     referenceLineValueLabelConfiguration_formatConfiguration,
     referenceLineValueLabelConfiguration_relativePosition,
 
+    -- * RefreshConfiguration
+    RefreshConfiguration (..),
+    newRefreshConfiguration,
+    refreshConfiguration_incrementalRefresh,
+
+    -- * RefreshFrequency
+    RefreshFrequency (..),
+    newRefreshFrequency,
+    refreshFrequency_refreshOnDay,
+    refreshFrequency_timeOfTheDay,
+    refreshFrequency_timezone,
+    refreshFrequency_interval,
+
+    -- * RefreshSchedule
+    RefreshSchedule (..),
+    newRefreshSchedule,
+    refreshSchedule_arn,
+    refreshSchedule_startAfterDateTime,
+    refreshSchedule_scheduleId,
+    refreshSchedule_scheduleFrequency,
+    refreshSchedule_refreshType,
+
+    -- * RegisteredUserConsoleFeatureConfigurations
+    RegisteredUserConsoleFeatureConfigurations (..),
+    newRegisteredUserConsoleFeatureConfigurations,
+    registeredUserConsoleFeatureConfigurations_statePersistence,
+
     -- * RegisteredUserDashboardEmbeddingConfiguration
     RegisteredUserDashboardEmbeddingConfiguration (..),
     newRegisteredUserDashboardEmbeddingConfiguration,
+    registeredUserDashboardEmbeddingConfiguration_featureConfigurations,
     registeredUserDashboardEmbeddingConfiguration_initialDashboardId,
+
+    -- * RegisteredUserDashboardFeatureConfigurations
+    RegisteredUserDashboardFeatureConfigurations (..),
+    newRegisteredUserDashboardFeatureConfigurations,
+    registeredUserDashboardFeatureConfigurations_bookmarks,
+    registeredUserDashboardFeatureConfigurations_statePersistence,
 
     -- * RegisteredUserDashboardVisualEmbeddingConfiguration
     RegisteredUserDashboardVisualEmbeddingConfiguration (..),
@@ -3561,6 +4218,7 @@ module Amazonka.QuickSight.Types
     -- * RegisteredUserQuickSightConsoleEmbeddingConfiguration
     RegisteredUserQuickSightConsoleEmbeddingConfiguration (..),
     newRegisteredUserQuickSightConsoleEmbeddingConfiguration,
+    registeredUserQuickSightConsoleEmbeddingConfiguration_featureConfigurations,
     registeredUserQuickSightConsoleEmbeddingConfiguration_initialPath,
 
     -- * RelationalTable
@@ -3636,6 +4294,7 @@ module Amazonka.QuickSight.Types
     RowLevelPermissionTagConfiguration (..),
     newRowLevelPermissionTagConfiguration,
     rowLevelPermissionTagConfiguration_status,
+    rowLevelPermissionTagConfiguration_tagRuleConfigurations,
     rowLevelPermissionTagConfiguration_tagRules,
 
     -- * RowLevelPermissionTagRule
@@ -3649,6 +4308,7 @@ module Amazonka.QuickSight.Types
     -- * S3Parameters
     S3Parameters (..),
     newS3Parameters,
+    s3Parameters_roleArn,
     s3Parameters_manifestFileLocation,
 
     -- * S3Source
@@ -3703,6 +4363,7 @@ module Amazonka.QuickSight.Types
     ScatterPlotCategoricallyAggregatedFieldWells (..),
     newScatterPlotCategoricallyAggregatedFieldWells,
     scatterPlotCategoricallyAggregatedFieldWells_category,
+    scatterPlotCategoricallyAggregatedFieldWells_label,
     scatterPlotCategoricallyAggregatedFieldWells_size,
     scatterPlotCategoricallyAggregatedFieldWells_xAxis,
     scatterPlotCategoricallyAggregatedFieldWells_yAxis,
@@ -3729,6 +4390,8 @@ module Amazonka.QuickSight.Types
     -- * ScatterPlotUnaggregatedFieldWells
     ScatterPlotUnaggregatedFieldWells (..),
     newScatterPlotUnaggregatedFieldWells,
+    scatterPlotUnaggregatedFieldWells_category,
+    scatterPlotUnaggregatedFieldWells_label,
     scatterPlotUnaggregatedFieldWells_size,
     scatterPlotUnaggregatedFieldWells_xAxis,
     scatterPlotUnaggregatedFieldWells_yAxis,
@@ -3742,6 +4405,12 @@ module Amazonka.QuickSight.Types
     scatterPlotVisual_subtitle,
     scatterPlotVisual_title,
     scatterPlotVisual_visualId,
+
+    -- * ScheduleRefreshOnEntity
+    ScheduleRefreshOnEntity (..),
+    newScheduleRefreshOnEntity,
+    scheduleRefreshOnEntity_dayOfMonth,
+    scheduleRefreshOnEntity_dayOfWeek,
 
     -- * ScrollBarOptions
     ScrollBarOptions (..),
@@ -3799,6 +4468,24 @@ module Amazonka.QuickSight.Types
     SelectedSheetsFilterScopeConfiguration (..),
     newSelectedSheetsFilterScopeConfiguration,
     selectedSheetsFilterScopeConfiguration_sheetVisualScopingConfigurations,
+
+    -- * SemanticEntityType
+    SemanticEntityType (..),
+    newSemanticEntityType,
+    semanticEntityType_subTypeName,
+    semanticEntityType_typeName,
+    semanticEntityType_typeParameters,
+
+    -- * SemanticType
+    SemanticType (..),
+    newSemanticType,
+    semanticType_falseyCellValue,
+    semanticType_falseyCellValueSynonyms,
+    semanticType_subTypeName,
+    semanticType_truthyCellValue,
+    semanticType_truthyCellValueSynonyms,
+    semanticType_typeName,
+    semanticType_typeParameters,
 
     -- * SeriesItem
     SeriesItem (..),
@@ -3874,6 +4561,11 @@ module Amazonka.QuickSight.Types
     newSheetElementRenderingRule,
     sheetElementRenderingRule_expression,
     sheetElementRenderingRule_configurationOverrides,
+
+    -- * SheetLayoutElementMaximizationOption
+    SheetLayoutElementMaximizationOption (..),
+    newSheetLayoutElementMaximizationOption,
+    sheetLayoutElementMaximizationOption_availabilityStatus,
 
     -- * SheetStyle
     SheetStyle (..),
@@ -3958,6 +4650,24 @@ module Amazonka.QuickSight.Types
     newSslProperties,
     sslProperties_disableSsl,
 
+    -- * StatePersistenceConfigurations
+    StatePersistenceConfigurations (..),
+    newStatePersistenceConfigurations,
+    statePersistenceConfigurations_enabled,
+
+    -- * StringDatasetParameter
+    StringDatasetParameter (..),
+    newStringDatasetParameter,
+    stringDatasetParameter_defaultValues,
+    stringDatasetParameter_id,
+    stringDatasetParameter_name,
+    stringDatasetParameter_valueType,
+
+    -- * StringDatasetParameterDefaultValues
+    StringDatasetParameterDefaultValues (..),
+    newStringDatasetParameterDefaultValues,
+    stringDatasetParameterDefaultValues_staticValues,
+
     -- * StringDefaultValues
     StringDefaultValues (..),
     newStringDefaultValues,
@@ -3980,6 +4690,7 @@ module Amazonka.QuickSight.Types
     StringParameterDeclaration (..),
     newStringParameterDeclaration,
     stringParameterDeclaration_defaultValues,
+    stringParameterDeclaration_mappedDataSetParameters,
     stringParameterDeclaration_valueWhenUnset,
     stringParameterDeclaration_parameterValueType,
     stringParameterDeclaration_name,
@@ -4055,6 +4766,7 @@ module Amazonka.QuickSight.Types
     tableConfiguration_fieldWells,
     tableConfiguration_paginatedReportOptions,
     tableConfiguration_sortConfiguration,
+    tableConfiguration_tableInlineVisualizations,
     tableConfiguration_tableOptions,
     tableConfiguration_totalOptions,
 
@@ -4112,6 +4824,11 @@ module Amazonka.QuickSight.Types
     newTableFieldWells,
     tableFieldWells_tableAggregatedFieldWells,
     tableFieldWells_tableUnaggregatedFieldWells,
+
+    -- * TableInlineVisualization
+    TableInlineVisualization (..),
+    newTableInlineVisualization,
+    tableInlineVisualization_dataBars,
 
     -- * TableOptions
     TableOptions (..),
@@ -4463,6 +5180,162 @@ module Amazonka.QuickSight.Types
     topBottomRankedComputation_category,
     topBottomRankedComputation_type,
 
+    -- * TopicCalculatedField
+    TopicCalculatedField (..),
+    newTopicCalculatedField,
+    topicCalculatedField_aggregation,
+    topicCalculatedField_allowedAggregations,
+    topicCalculatedField_calculatedFieldDescription,
+    topicCalculatedField_calculatedFieldSynonyms,
+    topicCalculatedField_cellValueSynonyms,
+    topicCalculatedField_columnDataRole,
+    topicCalculatedField_comparativeOrder,
+    topicCalculatedField_defaultFormatting,
+    topicCalculatedField_disableIndexing,
+    topicCalculatedField_isIncludedInTopic,
+    topicCalculatedField_neverAggregateInFilter,
+    topicCalculatedField_notAllowedAggregations,
+    topicCalculatedField_semanticType,
+    topicCalculatedField_timeGranularity,
+    topicCalculatedField_calculatedFieldName,
+    topicCalculatedField_expression,
+
+    -- * TopicCategoryFilter
+    TopicCategoryFilter (..),
+    newTopicCategoryFilter,
+    topicCategoryFilter_categoryFilterFunction,
+    topicCategoryFilter_categoryFilterType,
+    topicCategoryFilter_constant,
+    topicCategoryFilter_inverse,
+
+    -- * TopicCategoryFilterConstant
+    TopicCategoryFilterConstant (..),
+    newTopicCategoryFilterConstant,
+    topicCategoryFilterConstant_collectiveConstant,
+    topicCategoryFilterConstant_constantType,
+    topicCategoryFilterConstant_singularConstant,
+
+    -- * TopicColumn
+    TopicColumn (..),
+    newTopicColumn,
+    topicColumn_aggregation,
+    topicColumn_allowedAggregations,
+    topicColumn_cellValueSynonyms,
+    topicColumn_columnDataRole,
+    topicColumn_columnDescription,
+    topicColumn_columnFriendlyName,
+    topicColumn_columnSynonyms,
+    topicColumn_comparativeOrder,
+    topicColumn_defaultFormatting,
+    topicColumn_disableIndexing,
+    topicColumn_isIncludedInTopic,
+    topicColumn_neverAggregateInFilter,
+    topicColumn_notAllowedAggregations,
+    topicColumn_semanticType,
+    topicColumn_timeGranularity,
+    topicColumn_columnName,
+
+    -- * TopicDateRangeFilter
+    TopicDateRangeFilter (..),
+    newTopicDateRangeFilter,
+    topicDateRangeFilter_constant,
+    topicDateRangeFilter_inclusive,
+
+    -- * TopicDetails
+    TopicDetails (..),
+    newTopicDetails,
+    topicDetails_dataSets,
+    topicDetails_description,
+    topicDetails_name,
+
+    -- * TopicFilter
+    TopicFilter (..),
+    newTopicFilter,
+    topicFilter_categoryFilter,
+    topicFilter_dateRangeFilter,
+    topicFilter_filterClass,
+    topicFilter_filterDescription,
+    topicFilter_filterSynonyms,
+    topicFilter_filterType,
+    topicFilter_numericEqualityFilter,
+    topicFilter_numericRangeFilter,
+    topicFilter_relativeDateFilter,
+    topicFilter_filterName,
+    topicFilter_operandFieldName,
+
+    -- * TopicNamedEntity
+    TopicNamedEntity (..),
+    newTopicNamedEntity,
+    topicNamedEntity_definition,
+    topicNamedEntity_entityDescription,
+    topicNamedEntity_entitySynonyms,
+    topicNamedEntity_semanticEntityType,
+    topicNamedEntity_entityName,
+
+    -- * TopicNumericEqualityFilter
+    TopicNumericEqualityFilter (..),
+    newTopicNumericEqualityFilter,
+    topicNumericEqualityFilter_aggregation,
+    topicNumericEqualityFilter_constant,
+
+    -- * TopicNumericRangeFilter
+    TopicNumericRangeFilter (..),
+    newTopicNumericRangeFilter,
+    topicNumericRangeFilter_aggregation,
+    topicNumericRangeFilter_constant,
+    topicNumericRangeFilter_inclusive,
+
+    -- * TopicRangeFilterConstant
+    TopicRangeFilterConstant (..),
+    newTopicRangeFilterConstant,
+    topicRangeFilterConstant_constantType,
+    topicRangeFilterConstant_rangeConstant,
+
+    -- * TopicRefreshDetails
+    TopicRefreshDetails (..),
+    newTopicRefreshDetails,
+    topicRefreshDetails_refreshArn,
+    topicRefreshDetails_refreshId,
+    topicRefreshDetails_refreshStatus,
+
+    -- * TopicRefreshSchedule
+    TopicRefreshSchedule (..),
+    newTopicRefreshSchedule,
+    topicRefreshSchedule_repeatAt,
+    topicRefreshSchedule_startingAt,
+    topicRefreshSchedule_timezone,
+    topicRefreshSchedule_topicScheduleType,
+    topicRefreshSchedule_isEnabled,
+    topicRefreshSchedule_basedOnSpiceSchedule,
+
+    -- * TopicRefreshScheduleSummary
+    TopicRefreshScheduleSummary (..),
+    newTopicRefreshScheduleSummary,
+    topicRefreshScheduleSummary_datasetArn,
+    topicRefreshScheduleSummary_datasetId,
+    topicRefreshScheduleSummary_datasetName,
+    topicRefreshScheduleSummary_refreshSchedule,
+
+    -- * TopicRelativeDateFilter
+    TopicRelativeDateFilter (..),
+    newTopicRelativeDateFilter,
+    topicRelativeDateFilter_constant,
+    topicRelativeDateFilter_relativeDateFilterFunction,
+    topicRelativeDateFilter_timeGranularity,
+
+    -- * TopicSingularFilterConstant
+    TopicSingularFilterConstant (..),
+    newTopicSingularFilterConstant,
+    topicSingularFilterConstant_constantType,
+    topicSingularFilterConstant_singularConstant,
+
+    -- * TopicSummary
+    TopicSummary (..),
+    newTopicSummary,
+    topicSummary_arn,
+    topicSummary_name,
+    topicSummary_topicId,
+
     -- * TotalAggregationComputation
     TotalAggregationComputation (..),
     newTotalAggregationComputation,
@@ -4485,6 +5358,7 @@ module Amazonka.QuickSight.Types
     transformOperation_castColumnTypeOperation,
     transformOperation_createColumnsOperation,
     transformOperation_filterOperation,
+    transformOperation_overrideDatasetParameterOperation,
     transformOperation_projectOperation,
     transformOperation_renameColumnOperation,
     transformOperation_tagColumnOperation,
@@ -4611,6 +5485,38 @@ module Amazonka.QuickSight.Types
     user_role,
     user_userName,
 
+    -- * VPCConnection
+    VPCConnection (..),
+    newVPCConnection,
+    vPCConnection_arn,
+    vPCConnection_availabilityStatus,
+    vPCConnection_createdTime,
+    vPCConnection_dnsResolvers,
+    vPCConnection_lastUpdatedTime,
+    vPCConnection_name,
+    vPCConnection_networkInterfaces,
+    vPCConnection_roleArn,
+    vPCConnection_securityGroupIds,
+    vPCConnection_status,
+    vPCConnection_vPCConnectionId,
+    vPCConnection_vPCId,
+
+    -- * VPCConnectionSummary
+    VPCConnectionSummary (..),
+    newVPCConnectionSummary,
+    vPCConnectionSummary_arn,
+    vPCConnectionSummary_availabilityStatus,
+    vPCConnectionSummary_createdTime,
+    vPCConnectionSummary_dnsResolvers,
+    vPCConnectionSummary_lastUpdatedTime,
+    vPCConnectionSummary_name,
+    vPCConnectionSummary_networkInterfaces,
+    vPCConnectionSummary_roleArn,
+    vPCConnectionSummary_securityGroupIds,
+    vPCConnectionSummary_status,
+    vPCConnectionSummary_vPCConnectionId,
+    vPCConnectionSummary_vPCId,
+
     -- * VisibleRangeOptions
     VisibleRangeOptions (..),
     newVisibleRangeOptions,
@@ -4635,12 +5541,18 @@ module Amazonka.QuickSight.Types
     visual_lineChartVisual,
     visual_pieChartVisual,
     visual_pivotTableVisual,
+    visual_radarChartVisual,
     visual_sankeyDiagramVisual,
     visual_scatterPlotVisual,
     visual_tableVisual,
     visual_treeMapVisual,
     visual_waterfallVisual,
     visual_wordCloudVisual,
+
+    -- * VisualAxisSortOption
+    VisualAxisSortOption (..),
+    newVisualAxisSortOption,
+    visualAxisSortOption_availabilityStatus,
 
     -- * VisualCustomAction
     VisualCustomAction (..),
@@ -4658,6 +5570,11 @@ module Amazonka.QuickSight.Types
     visualCustomActionOperation_navigationOperation,
     visualCustomActionOperation_setParametersOperation,
     visualCustomActionOperation_uRLOperation,
+
+    -- * VisualMenuOption
+    VisualMenuOption (..),
+    newVisualMenuOption,
+    visualMenuOption_availabilityStatus,
 
     -- * VisualPalette
     VisualPalette (..),
@@ -4823,11 +5740,49 @@ import Amazonka.QuickSight.Types.ArcConfiguration
 import Amazonka.QuickSight.Types.ArcOptions
 import Amazonka.QuickSight.Types.ArcThickness
 import Amazonka.QuickSight.Types.ArcThicknessOptions
+import Amazonka.QuickSight.Types.AssetBundleCloudFormationOverridePropertyConfiguration
+import Amazonka.QuickSight.Types.AssetBundleExportFormat
+import Amazonka.QuickSight.Types.AssetBundleExportJobAnalysisOverrideProperties
+import Amazonka.QuickSight.Types.AssetBundleExportJobAnalysisPropertyToOverride
+import Amazonka.QuickSight.Types.AssetBundleExportJobDashboardOverrideProperties
+import Amazonka.QuickSight.Types.AssetBundleExportJobDashboardPropertyToOverride
+import Amazonka.QuickSight.Types.AssetBundleExportJobDataSetOverrideProperties
+import Amazonka.QuickSight.Types.AssetBundleExportJobDataSetPropertyToOverride
+import Amazonka.QuickSight.Types.AssetBundleExportJobDataSourceOverrideProperties
+import Amazonka.QuickSight.Types.AssetBundleExportJobDataSourcePropertyToOverride
+import Amazonka.QuickSight.Types.AssetBundleExportJobError
+import Amazonka.QuickSight.Types.AssetBundleExportJobRefreshScheduleOverrideProperties
+import Amazonka.QuickSight.Types.AssetBundleExportJobRefreshSchedulePropertyToOverride
+import Amazonka.QuickSight.Types.AssetBundleExportJobResourceIdOverrideConfiguration
+import Amazonka.QuickSight.Types.AssetBundleExportJobStatus
+import Amazonka.QuickSight.Types.AssetBundleExportJobSummary
+import Amazonka.QuickSight.Types.AssetBundleExportJobThemeOverrideProperties
+import Amazonka.QuickSight.Types.AssetBundleExportJobThemePropertyToOverride
+import Amazonka.QuickSight.Types.AssetBundleExportJobVPCConnectionOverrideProperties
+import Amazonka.QuickSight.Types.AssetBundleExportJobVPCConnectionPropertyToOverride
+import Amazonka.QuickSight.Types.AssetBundleImportFailureAction
+import Amazonka.QuickSight.Types.AssetBundleImportJobAnalysisOverrideParameters
+import Amazonka.QuickSight.Types.AssetBundleImportJobDashboardOverrideParameters
+import Amazonka.QuickSight.Types.AssetBundleImportJobDataSetOverrideParameters
+import Amazonka.QuickSight.Types.AssetBundleImportJobDataSourceCredentialPair
+import Amazonka.QuickSight.Types.AssetBundleImportJobDataSourceCredentials
+import Amazonka.QuickSight.Types.AssetBundleImportJobDataSourceOverrideParameters
+import Amazonka.QuickSight.Types.AssetBundleImportJobError
+import Amazonka.QuickSight.Types.AssetBundleImportJobOverrideParameters
+import Amazonka.QuickSight.Types.AssetBundleImportJobRefreshScheduleOverrideParameters
+import Amazonka.QuickSight.Types.AssetBundleImportJobResourceIdOverrideConfiguration
+import Amazonka.QuickSight.Types.AssetBundleImportJobStatus
+import Amazonka.QuickSight.Types.AssetBundleImportJobSummary
+import Amazonka.QuickSight.Types.AssetBundleImportJobThemeOverrideParameters
+import Amazonka.QuickSight.Types.AssetBundleImportJobVPCConnectionOverrideParameters
+import Amazonka.QuickSight.Types.AssetBundleImportSource
+import Amazonka.QuickSight.Types.AssetBundleImportSourceDescription
 import Amazonka.QuickSight.Types.AssignmentStatus
 import Amazonka.QuickSight.Types.AthenaParameters
 import Amazonka.QuickSight.Types.AuroraParameters
 import Amazonka.QuickSight.Types.AuroraPostgreSqlParameters
 import Amazonka.QuickSight.Types.AuthenticationMethodOption
+import Amazonka.QuickSight.Types.AuthorSpecifiedAggregation
 import Amazonka.QuickSight.Types.AwsIotAnalyticsParameters
 import Amazonka.QuickSight.Types.AxisBinding
 import Amazonka.QuickSight.Types.AxisDataOptions
@@ -4853,6 +5808,7 @@ import Amazonka.QuickSight.Types.BinCountOptions
 import Amazonka.QuickSight.Types.BinWidthOptions
 import Amazonka.QuickSight.Types.BodySectionConfiguration
 import Amazonka.QuickSight.Types.BodySectionContent
+import Amazonka.QuickSight.Types.BookmarksConfigurations
 import Amazonka.QuickSight.Types.BorderStyle
 import Amazonka.QuickSight.Types.BoxPlotAggregatedFieldWells
 import Amazonka.QuickSight.Types.BoxPlotChartConfiguration
@@ -4874,14 +5830,19 @@ import Amazonka.QuickSight.Types.CategoricalMeasureField
 import Amazonka.QuickSight.Types.CategoryDrillDownFilter
 import Amazonka.QuickSight.Types.CategoryFilter
 import Amazonka.QuickSight.Types.CategoryFilterConfiguration
+import Amazonka.QuickSight.Types.CategoryFilterFunction
 import Amazonka.QuickSight.Types.CategoryFilterMatchOperator
 import Amazonka.QuickSight.Types.CategoryFilterSelectAllOptions
+import Amazonka.QuickSight.Types.CategoryFilterType
+import Amazonka.QuickSight.Types.CellValueSynonym
 import Amazonka.QuickSight.Types.ChartAxisLabelOptions
 import Amazonka.QuickSight.Types.ClusterMarker
 import Amazonka.QuickSight.Types.ClusterMarkerConfiguration
+import Amazonka.QuickSight.Types.CollectiveConstant
 import Amazonka.QuickSight.Types.ColorFillType
 import Amazonka.QuickSight.Types.ColorScale
 import Amazonka.QuickSight.Types.ColumnConfiguration
+import Amazonka.QuickSight.Types.ColumnDataRole
 import Amazonka.QuickSight.Types.ColumnDataType
 import Amazonka.QuickSight.Types.ColumnDescription
 import Amazonka.QuickSight.Types.ColumnGroup
@@ -4890,6 +5851,7 @@ import Amazonka.QuickSight.Types.ColumnGroupSchema
 import Amazonka.QuickSight.Types.ColumnHierarchy
 import Amazonka.QuickSight.Types.ColumnIdentifier
 import Amazonka.QuickSight.Types.ColumnLevelPermissionRule
+import Amazonka.QuickSight.Types.ColumnOrderingType
 import Amazonka.QuickSight.Types.ColumnRole
 import Amazonka.QuickSight.Types.ColumnSchema
 import Amazonka.QuickSight.Types.ColumnSort
@@ -4901,6 +5863,7 @@ import Amazonka.QuickSight.Types.ComboChartConfiguration
 import Amazonka.QuickSight.Types.ComboChartFieldWells
 import Amazonka.QuickSight.Types.ComboChartSortConfiguration
 import Amazonka.QuickSight.Types.ComboChartVisual
+import Amazonka.QuickSight.Types.ComparativeOrder
 import Amazonka.QuickSight.Types.ComparisonConfiguration
 import Amazonka.QuickSight.Types.ComparisonFormatConfiguration
 import Amazonka.QuickSight.Types.ComparisonMethod
@@ -4915,6 +5878,7 @@ import Amazonka.QuickSight.Types.ConditionalFormattingIconDisplayOption
 import Amazonka.QuickSight.Types.ConditionalFormattingIconSet
 import Amazonka.QuickSight.Types.ConditionalFormattingIconSetType
 import Amazonka.QuickSight.Types.ConditionalFormattingSolidColor
+import Amazonka.QuickSight.Types.ConstantType
 import Amazonka.QuickSight.Types.ContributionAnalysisDefault
 import Amazonka.QuickSight.Types.CreateColumnsOperation
 import Amazonka.QuickSight.Types.CredentialPair
@@ -4950,6 +5914,8 @@ import Amazonka.QuickSight.Types.DashboardVersionDefinition
 import Amazonka.QuickSight.Types.DashboardVersionSummary
 import Amazonka.QuickSight.Types.DashboardVisualId
 import Amazonka.QuickSight.Types.DashboardVisualPublishOptions
+import Amazonka.QuickSight.Types.DataAggregation
+import Amazonka.QuickSight.Types.DataBarsOptions
 import Amazonka.QuickSight.Types.DataColor
 import Amazonka.QuickSight.Types.DataColorPalette
 import Amazonka.QuickSight.Types.DataFieldSeriesItem
@@ -4962,12 +5928,16 @@ import Amazonka.QuickSight.Types.DataPathColor
 import Amazonka.QuickSight.Types.DataPathLabelType
 import Amazonka.QuickSight.Types.DataPathSort
 import Amazonka.QuickSight.Types.DataPathValue
+import Amazonka.QuickSight.Types.DataPointDrillUpDownOption
+import Amazonka.QuickSight.Types.DataPointMenuLabelOption
+import Amazonka.QuickSight.Types.DataPointTooltipOption
 import Amazonka.QuickSight.Types.DataSet
 import Amazonka.QuickSight.Types.DataSetConfiguration
 import Amazonka.QuickSight.Types.DataSetFilterAttribute
 import Amazonka.QuickSight.Types.DataSetIdentifierDeclaration
 import Amazonka.QuickSight.Types.DataSetImportMode
 import Amazonka.QuickSight.Types.DataSetReference
+import Amazonka.QuickSight.Types.DataSetRefreshProperties
 import Amazonka.QuickSight.Types.DataSetSchema
 import Amazonka.QuickSight.Types.DataSetSearchFilter
 import Amazonka.QuickSight.Types.DataSetSummary
@@ -4982,10 +5952,15 @@ import Amazonka.QuickSight.Types.DataSourceSearchFilter
 import Amazonka.QuickSight.Types.DataSourceSummary
 import Amazonka.QuickSight.Types.DataSourceType
 import Amazonka.QuickSight.Types.DatabricksParameters
+import Amazonka.QuickSight.Types.DatasetMetadata
+import Amazonka.QuickSight.Types.DatasetParameter
+import Amazonka.QuickSight.Types.DatasetParameterValueType
 import Amazonka.QuickSight.Types.DateAggregationFunction
 import Amazonka.QuickSight.Types.DateAxisOptions
 import Amazonka.QuickSight.Types.DateDimensionField
 import Amazonka.QuickSight.Types.DateMeasureField
+import Amazonka.QuickSight.Types.DateTimeDatasetParameter
+import Amazonka.QuickSight.Types.DateTimeDatasetParameterDefaultValues
 import Amazonka.QuickSight.Types.DateTimeDefaultValues
 import Amazonka.QuickSight.Types.DateTimeFormatConfiguration
 import Amazonka.QuickSight.Types.DateTimeHierarchy
@@ -4993,11 +5968,16 @@ import Amazonka.QuickSight.Types.DateTimeParameter
 import Amazonka.QuickSight.Types.DateTimeParameterDeclaration
 import Amazonka.QuickSight.Types.DateTimePickerControlDisplayOptions
 import Amazonka.QuickSight.Types.DateTimeValueWhenUnsetConfiguration
+import Amazonka.QuickSight.Types.DayOfWeek
+import Amazonka.QuickSight.Types.DecimalDatasetParameter
+import Amazonka.QuickSight.Types.DecimalDatasetParameterDefaultValues
 import Amazonka.QuickSight.Types.DecimalDefaultValues
 import Amazonka.QuickSight.Types.DecimalParameter
 import Amazonka.QuickSight.Types.DecimalParameterDeclaration
 import Amazonka.QuickSight.Types.DecimalPlacesConfiguration
 import Amazonka.QuickSight.Types.DecimalValueWhenUnsetConfiguration
+import Amazonka.QuickSight.Types.DefaultAggregation
+import Amazonka.QuickSight.Types.DefaultFormatting
 import Amazonka.QuickSight.Types.DefaultFreeFormLayoutConfiguration
 import Amazonka.QuickSight.Types.DefaultGridLayoutConfiguration
 import Amazonka.QuickSight.Types.DefaultInteractiveLayoutConfiguration
@@ -5006,6 +5986,8 @@ import Amazonka.QuickSight.Types.DefaultPaginatedLayoutConfiguration
 import Amazonka.QuickSight.Types.DefaultSectionBasedLayoutConfiguration
 import Amazonka.QuickSight.Types.DestinationParameterValueConfiguration
 import Amazonka.QuickSight.Types.DimensionField
+import Amazonka.QuickSight.Types.DisplayFormat
+import Amazonka.QuickSight.Types.DisplayFormatOptions
 import Amazonka.QuickSight.Types.DonutCenterOptions
 import Amazonka.QuickSight.Types.DonutOptions
 import Amazonka.QuickSight.Types.DrillDownFilter
@@ -5021,6 +6003,7 @@ import Amazonka.QuickSight.Types.ExcludePeriodConfiguration
 import Amazonka.QuickSight.Types.ExplicitHierarchy
 import Amazonka.QuickSight.Types.ExportHiddenFieldsOption
 import Amazonka.QuickSight.Types.ExportToCSVOption
+import Amazonka.QuickSight.Types.ExportWithHiddenFieldsOption
 import Amazonka.QuickSight.Types.FieldBasedTooltip
 import Amazonka.QuickSight.Types.FieldFolder
 import Amazonka.QuickSight.Types.FieldLabelType
@@ -5038,6 +6021,7 @@ import Amazonka.QuickSight.Types.FilledMapShapeConditionalFormatting
 import Amazonka.QuickSight.Types.FilledMapSortConfiguration
 import Amazonka.QuickSight.Types.FilledMapVisual
 import Amazonka.QuickSight.Types.Filter
+import Amazonka.QuickSight.Types.FilterClass
 import Amazonka.QuickSight.Types.FilterControl
 import Amazonka.QuickSight.Types.FilterDateTimePickerControl
 import Amazonka.QuickSight.Types.FilterDropDownControl
@@ -5100,6 +6084,9 @@ import Amazonka.QuickSight.Types.GeoSpatialColumnGroup
 import Amazonka.QuickSight.Types.GeoSpatialCountryCode
 import Amazonka.QuickSight.Types.GeoSpatialDataRole
 import Amazonka.QuickSight.Types.GeospatialCoordinateBounds
+import Amazonka.QuickSight.Types.GeospatialHeatmapColorScale
+import Amazonka.QuickSight.Types.GeospatialHeatmapConfiguration
+import Amazonka.QuickSight.Types.GeospatialHeatmapDataColor
 import Amazonka.QuickSight.Types.GeospatialMapAggregatedFieldWells
 import Amazonka.QuickSight.Types.GeospatialMapConfiguration
 import Amazonka.QuickSight.Types.GeospatialMapFieldWells
@@ -5140,6 +6127,7 @@ import Amazonka.QuickSight.Types.IAMPolicyAssignmentSummary
 import Amazonka.QuickSight.Types.Icon
 import Amazonka.QuickSight.Types.IdentityStore
 import Amazonka.QuickSight.Types.IdentityType
+import Amazonka.QuickSight.Types.IncrementalRefresh
 import Amazonka.QuickSight.Types.Ingestion
 import Amazonka.QuickSight.Types.IngestionErrorType
 import Amazonka.QuickSight.Types.IngestionRequestSource
@@ -5150,6 +6138,8 @@ import Amazonka.QuickSight.Types.InputColumn
 import Amazonka.QuickSight.Types.InputColumnDataType
 import Amazonka.QuickSight.Types.InsightConfiguration
 import Amazonka.QuickSight.Types.InsightVisual
+import Amazonka.QuickSight.Types.IntegerDatasetParameter
+import Amazonka.QuickSight.Types.IntegerDatasetParameterDefaultValues
 import Amazonka.QuickSight.Types.IntegerDefaultValues
 import Amazonka.QuickSight.Types.IntegerParameter
 import Amazonka.QuickSight.Types.IntegerParameterDeclaration
@@ -5197,8 +6187,11 @@ import Amazonka.QuickSight.Types.LocalNavigationConfiguration
 import Amazonka.QuickSight.Types.LogicalTable
 import Amazonka.QuickSight.Types.LogicalTableSource
 import Amazonka.QuickSight.Types.LongFormatText
+import Amazonka.QuickSight.Types.LookbackWindow
+import Amazonka.QuickSight.Types.LookbackWindowSizeUnit
 import Amazonka.QuickSight.Types.ManifestFileLocation
 import Amazonka.QuickSight.Types.MapZoomMode
+import Amazonka.QuickSight.Types.MappedDataSetParameter
 import Amazonka.QuickSight.Types.MarginStyle
 import Amazonka.QuickSight.Types.MariaDbParameters
 import Amazonka.QuickSight.Types.MaximumLabelType
@@ -5212,12 +6205,21 @@ import Amazonka.QuickSight.Types.MinimumLabelType
 import Amazonka.QuickSight.Types.MissingDataConfiguration
 import Amazonka.QuickSight.Types.MissingDataTreatmentOption
 import Amazonka.QuickSight.Types.MySqlParameters
+import Amazonka.QuickSight.Types.NamedEntityAggType
+import Amazonka.QuickSight.Types.NamedEntityDefinition
+import Amazonka.QuickSight.Types.NamedEntityDefinitionMetric
+import Amazonka.QuickSight.Types.NamedFilterAggType
+import Amazonka.QuickSight.Types.NamedFilterType
 import Amazonka.QuickSight.Types.NamespaceError
 import Amazonka.QuickSight.Types.NamespaceErrorType
 import Amazonka.QuickSight.Types.NamespaceInfoV2
 import Amazonka.QuickSight.Types.NamespaceStatus
+import Amazonka.QuickSight.Types.NegativeFormat
 import Amazonka.QuickSight.Types.NegativeValueConfiguration
 import Amazonka.QuickSight.Types.NegativeValueDisplayMode
+import Amazonka.QuickSight.Types.NetworkInterface
+import Amazonka.QuickSight.Types.NetworkInterfaceStatus
+import Amazonka.QuickSight.Types.NewDefaultValues
 import Amazonka.QuickSight.Types.NullValueFormatConfiguration
 import Amazonka.QuickSight.Types.NumberDisplayFormatConfiguration
 import Amazonka.QuickSight.Types.NumberFormatConfiguration
@@ -5238,6 +6240,7 @@ import Amazonka.QuickSight.Types.NumericalMeasureField
 import Amazonka.QuickSight.Types.OracleParameters
 import Amazonka.QuickSight.Types.OtherCategories
 import Amazonka.QuickSight.Types.OutputColumn
+import Amazonka.QuickSight.Types.OverrideDatasetParameterOperation
 import Amazonka.QuickSight.Types.PaginationConfiguration
 import Amazonka.QuickSight.Types.PanelBorderStyle
 import Amazonka.QuickSight.Types.PanelConfiguration
@@ -5275,6 +6278,9 @@ import Amazonka.QuickSight.Types.PivotTableConditionalFormattingScope
 import Amazonka.QuickSight.Types.PivotTableConditionalFormattingScopeRole
 import Amazonka.QuickSight.Types.PivotTableConfiguration
 import Amazonka.QuickSight.Types.PivotTableDataPathOption
+import Amazonka.QuickSight.Types.PivotTableFieldCollapseState
+import Amazonka.QuickSight.Types.PivotTableFieldCollapseStateOption
+import Amazonka.QuickSight.Types.PivotTableFieldCollapseStateTarget
 import Amazonka.QuickSight.Types.PivotTableFieldOption
 import Amazonka.QuickSight.Types.PivotTableFieldOptions
 import Amazonka.QuickSight.Types.PivotTableFieldSubtotalOptions
@@ -5294,7 +6300,19 @@ import Amazonka.QuickSight.Types.PrestoParameters
 import Amazonka.QuickSight.Types.PrimaryValueDisplayType
 import Amazonka.QuickSight.Types.ProgressBarOptions
 import Amazonka.QuickSight.Types.ProjectOperation
+import Amazonka.QuickSight.Types.PropertyRole
+import Amazonka.QuickSight.Types.PropertyUsage
 import Amazonka.QuickSight.Types.QueueInfo
+import Amazonka.QuickSight.Types.RadarChartAggregatedFieldWells
+import Amazonka.QuickSight.Types.RadarChartAreaStyleSettings
+import Amazonka.QuickSight.Types.RadarChartAxesRangeScale
+import Amazonka.QuickSight.Types.RadarChartConfiguration
+import Amazonka.QuickSight.Types.RadarChartFieldWells
+import Amazonka.QuickSight.Types.RadarChartSeriesSettings
+import Amazonka.QuickSight.Types.RadarChartShape
+import Amazonka.QuickSight.Types.RadarChartSortConfiguration
+import Amazonka.QuickSight.Types.RadarChartVisual
+import Amazonka.QuickSight.Types.RangeConstant
 import Amazonka.QuickSight.Types.RangeEndsLabelType
 import Amazonka.QuickSight.Types.RdsParameters
 import Amazonka.QuickSight.Types.RedshiftParameters
@@ -5310,7 +6328,13 @@ import Amazonka.QuickSight.Types.ReferenceLineStaticDataConfiguration
 import Amazonka.QuickSight.Types.ReferenceLineStyleConfiguration
 import Amazonka.QuickSight.Types.ReferenceLineValueLabelConfiguration
 import Amazonka.QuickSight.Types.ReferenceLineValueLabelRelativePosition
+import Amazonka.QuickSight.Types.RefreshConfiguration
+import Amazonka.QuickSight.Types.RefreshFrequency
+import Amazonka.QuickSight.Types.RefreshInterval
+import Amazonka.QuickSight.Types.RefreshSchedule
+import Amazonka.QuickSight.Types.RegisteredUserConsoleFeatureConfigurations
 import Amazonka.QuickSight.Types.RegisteredUserDashboardEmbeddingConfiguration
+import Amazonka.QuickSight.Types.RegisteredUserDashboardFeatureConfigurations
 import Amazonka.QuickSight.Types.RegisteredUserDashboardVisualEmbeddingConfiguration
 import Amazonka.QuickSight.Types.RegisteredUserEmbeddingExperienceConfiguration
 import Amazonka.QuickSight.Types.RegisteredUserQSearchBarEmbeddingConfiguration
@@ -5345,6 +6369,7 @@ import Amazonka.QuickSight.Types.ScatterPlotConfiguration
 import Amazonka.QuickSight.Types.ScatterPlotFieldWells
 import Amazonka.QuickSight.Types.ScatterPlotUnaggregatedFieldWells
 import Amazonka.QuickSight.Types.ScatterPlotVisual
+import Amazonka.QuickSight.Types.ScheduleRefreshOnEntity
 import Amazonka.QuickSight.Types.ScrollBarOptions
 import Amazonka.QuickSight.Types.SecondaryValueOptions
 import Amazonka.QuickSight.Types.SectionAfterPageBreak
@@ -5359,6 +6384,8 @@ import Amazonka.QuickSight.Types.SelectAllValueOptions
 import Amazonka.QuickSight.Types.SelectedFieldOptions
 import Amazonka.QuickSight.Types.SelectedSheetsFilterScopeConfiguration
 import Amazonka.QuickSight.Types.SelectedTooltipType
+import Amazonka.QuickSight.Types.SemanticEntityType
+import Amazonka.QuickSight.Types.SemanticType
 import Amazonka.QuickSight.Types.SeriesItem
 import Amazonka.QuickSight.Types.ServiceNowParameters
 import Amazonka.QuickSight.Types.SessionTag
@@ -5375,6 +6402,7 @@ import Amazonka.QuickSight.Types.SheetControlsOption
 import Amazonka.QuickSight.Types.SheetDefinition
 import Amazonka.QuickSight.Types.SheetElementConfigurationOverrides
 import Amazonka.QuickSight.Types.SheetElementRenderingRule
+import Amazonka.QuickSight.Types.SheetLayoutElementMaximizationOption
 import Amazonka.QuickSight.Types.SheetStyle
 import Amazonka.QuickSight.Types.SheetTextBox
 import Amazonka.QuickSight.Types.SheetVisualScopingConfiguration
@@ -5390,7 +6418,10 @@ import Amazonka.QuickSight.Types.Spacing
 import Amazonka.QuickSight.Types.SparkParameters
 import Amazonka.QuickSight.Types.SqlServerParameters
 import Amazonka.QuickSight.Types.SslProperties
+import Amazonka.QuickSight.Types.StatePersistenceConfigurations
 import Amazonka.QuickSight.Types.Status
+import Amazonka.QuickSight.Types.StringDatasetParameter
+import Amazonka.QuickSight.Types.StringDatasetParameterDefaultValues
 import Amazonka.QuickSight.Types.StringDefaultValues
 import Amazonka.QuickSight.Types.StringFormatConfiguration
 import Amazonka.QuickSight.Types.StringParameter
@@ -5417,6 +6448,7 @@ import Amazonka.QuickSight.Types.TableFieldOption
 import Amazonka.QuickSight.Types.TableFieldOptions
 import Amazonka.QuickSight.Types.TableFieldURLConfiguration
 import Amazonka.QuickSight.Types.TableFieldWells
+import Amazonka.QuickSight.Types.TableInlineVisualization
 import Amazonka.QuickSight.Types.TableOptions
 import Amazonka.QuickSight.Types.TableOrientation
 import Amazonka.QuickSight.Types.TablePaginatedReportOptions
@@ -5474,6 +6506,28 @@ import Amazonka.QuickSight.Types.TopBottomFilter
 import Amazonka.QuickSight.Types.TopBottomMoversComputation
 import Amazonka.QuickSight.Types.TopBottomRankedComputation
 import Amazonka.QuickSight.Types.TopBottomSortOrder
+import Amazonka.QuickSight.Types.TopicCalculatedField
+import Amazonka.QuickSight.Types.TopicCategoryFilter
+import Amazonka.QuickSight.Types.TopicCategoryFilterConstant
+import Amazonka.QuickSight.Types.TopicColumn
+import Amazonka.QuickSight.Types.TopicDateRangeFilter
+import Amazonka.QuickSight.Types.TopicDetails
+import Amazonka.QuickSight.Types.TopicFilter
+import Amazonka.QuickSight.Types.TopicNamedEntity
+import Amazonka.QuickSight.Types.TopicNumericEqualityFilter
+import Amazonka.QuickSight.Types.TopicNumericRangeFilter
+import Amazonka.QuickSight.Types.TopicNumericSeparatorSymbol
+import Amazonka.QuickSight.Types.TopicRangeFilterConstant
+import Amazonka.QuickSight.Types.TopicRefreshDetails
+import Amazonka.QuickSight.Types.TopicRefreshSchedule
+import Amazonka.QuickSight.Types.TopicRefreshScheduleSummary
+import Amazonka.QuickSight.Types.TopicRefreshStatus
+import Amazonka.QuickSight.Types.TopicRelativeDateFilter
+import Amazonka.QuickSight.Types.TopicRelativeDateFilterFunction
+import Amazonka.QuickSight.Types.TopicScheduleType
+import Amazonka.QuickSight.Types.TopicSingularFilterConstant
+import Amazonka.QuickSight.Types.TopicSummary
+import Amazonka.QuickSight.Types.TopicTimeGranularity
 import Amazonka.QuickSight.Types.TotalAggregationComputation
 import Amazonka.QuickSight.Types.TotalOptions
 import Amazonka.QuickSight.Types.TransformOperation
@@ -5488,19 +6542,26 @@ import Amazonka.QuickSight.Types.Typography
 import Amazonka.QuickSight.Types.UIColorPalette
 import Amazonka.QuickSight.Types.URLTargetConfiguration
 import Amazonka.QuickSight.Types.UnaggregatedField
+import Amazonka.QuickSight.Types.UndefinedSpecifiedValueType
 import Amazonka.QuickSight.Types.UniqueValuesComputation
 import Amazonka.QuickSight.Types.UntagColumnOperation
 import Amazonka.QuickSight.Types.UploadSettings
 import Amazonka.QuickSight.Types.User
 import Amazonka.QuickSight.Types.UserRole
+import Amazonka.QuickSight.Types.VPCConnection
+import Amazonka.QuickSight.Types.VPCConnectionAvailabilityStatus
+import Amazonka.QuickSight.Types.VPCConnectionResourceStatus
+import Amazonka.QuickSight.Types.VPCConnectionSummary
 import Amazonka.QuickSight.Types.ValueWhenUnsetOption
 import Amazonka.QuickSight.Types.VerticalTextAlignment
 import Amazonka.QuickSight.Types.Visibility
 import Amazonka.QuickSight.Types.VisibleRangeOptions
 import Amazonka.QuickSight.Types.Visual
+import Amazonka.QuickSight.Types.VisualAxisSortOption
 import Amazonka.QuickSight.Types.VisualCustomAction
 import Amazonka.QuickSight.Types.VisualCustomActionOperation
 import Amazonka.QuickSight.Types.VisualCustomActionTrigger
+import Amazonka.QuickSight.Types.VisualMenuOption
 import Amazonka.QuickSight.Types.VisualPalette
 import Amazonka.QuickSight.Types.VisualSubtitleLabelOptions
 import Amazonka.QuickSight.Types.VisualTitleLabelOptions
@@ -5553,56 +6614,56 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have access to this item. The provided credentials couldn\'t
 -- be validated. You might not be authorized to carry out the request. Make
 -- sure that your account is authorized to use the Amazon QuickSight
 -- service, that your policies have the correct permissions, and that you
--- are using the correct access keys.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- are using the correct credentials.
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -5611,7 +6672,7 @@ _AccessDeniedException =
 
 -- | A resource is already in a state that indicates an operation is
 -- happening that must complete before a new update can be applied.
-_ConcurrentUpdatingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConcurrentUpdatingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConcurrentUpdatingException =
   Core._MatchServiceError
     defaultService
@@ -5619,7 +6680,7 @@ _ConcurrentUpdatingException =
     Prelude.. Core.hasStatus 500
 
 -- | Updating or deleting a resource can cause an inconsistent state.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -5629,7 +6690,7 @@ _ConflictException =
 -- | The domain specified isn\'t on the allow list. All domains for embedded
 -- dashboards must be added to the approved list by an Amazon QuickSight
 -- admin.
-_DomainNotWhitelistedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DomainNotWhitelistedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DomainNotWhitelistedException =
   Core._MatchServiceError
     defaultService
@@ -5638,7 +6699,7 @@ _DomainNotWhitelistedException =
 
 -- | The identity type specified isn\'t supported. Supported identity types
 -- include @IAM@ and @QUICKSIGHT@.
-_IdentityTypeNotSupportedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IdentityTypeNotSupportedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IdentityTypeNotSupportedException =
   Core._MatchServiceError
     defaultService
@@ -5646,7 +6707,7 @@ _IdentityTypeNotSupportedException =
     Prelude.. Core.hasStatus 403
 
 -- | An internal failure occurred.
-_InternalFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalFailureException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalFailureException =
   Core._MatchServiceError
     defaultService
@@ -5654,7 +6715,7 @@ _InternalFailureException =
     Prelude.. Core.hasStatus 500
 
 -- | The @NextToken@ value isn\'t valid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNextTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
@@ -5662,7 +6723,7 @@ _InvalidNextTokenException =
     Prelude.. Core.hasStatus 400
 
 -- | One or more parameters has a value that isn\'t valid.
-_InvalidParameterValueException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterValueException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
@@ -5671,7 +6732,7 @@ _InvalidParameterValueException =
 
 -- | You don\'t have this feature activated for your account. To fix this
 -- issue, contact Amazon Web Services support.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -5679,7 +6740,7 @@ _InvalidRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | A limit is exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -5687,7 +6748,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 409
 
 -- | One or more preconditions aren\'t met.
-_PreconditionNotMetException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PreconditionNotMetException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PreconditionNotMetException =
   Core._MatchServiceError
     defaultService
@@ -5697,7 +6758,7 @@ _PreconditionNotMetException =
 -- | The user with the provided name isn\'t found. This error can happen in
 -- any operation that requires finding a user based on a provided user
 -- name, such as @DeleteUser@, @DescribeUser@, and so on.
-_QuickSightUserNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_QuickSightUserNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _QuickSightUserNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -5705,7 +6766,7 @@ _QuickSightUserNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The resource specified already exists.
-_ResourceExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceExistsException =
   Core._MatchServiceError
     defaultService
@@ -5713,7 +6774,7 @@ _ResourceExistsException =
     Prelude.. Core.hasStatus 409
 
 -- | One or more resources can\'t be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -5721,7 +6782,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | This resource is currently unavailable.
-_ResourceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -5730,7 +6791,7 @@ _ResourceUnavailableException =
 
 -- | The number of minutes specified for the lifetime of a session isn\'t
 -- valid. The session lifetime must be 15-600 minutes.
-_SessionLifetimeInMinutesInvalidException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SessionLifetimeInMinutesInvalidException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SessionLifetimeInMinutesInvalidException =
   Core._MatchServiceError
     defaultService
@@ -5738,7 +6799,7 @@ _SessionLifetimeInMinutesInvalidException =
     Prelude.. Core.hasStatus 400
 
 -- | Access is throttled.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -5752,9 +6813,9 @@ _ThrottlingException =
 -- QuickSight. You can do this on the __Manage Amazon QuickSight__ page.
 --
 -- After capacity pricing is added, you can use the
--- @ GetDashboardEmbedUrl @ API operation with the
--- @--identity-type ANONYMOUS@ option.
-_UnsupportedPricingPlanException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html GetDashboardEmbedUrl>@ @
+-- API operation with the @--identity-type ANONYMOUS@ option.
+_UnsupportedPricingPlanException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedPricingPlanException =
   Core._MatchServiceError
     defaultService
@@ -5766,7 +6827,7 @@ _UnsupportedPricingPlanException =
 -- that operation. Amazon Amazon QuickSight currently has Standard Edition
 -- and Enterprise Edition. Not every operation and capability is available
 -- in every edition.
-_UnsupportedUserEditionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedUserEditionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedUserEditionException =
   Core._MatchServiceError
     defaultService

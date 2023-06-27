@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.GeospatialSelectedPointStyle
   ( GeospatialSelectedPointStyle
       ( ..,
         GeospatialSelectedPointStyle_CLUSTER,
+        GeospatialSelectedPointStyle_HEATMAP,
         GeospatialSelectedPointStyle_POINT
       ),
   )
@@ -61,11 +62,15 @@ newtype GeospatialSelectedPointStyle = GeospatialSelectedPointStyle'
 pattern GeospatialSelectedPointStyle_CLUSTER :: GeospatialSelectedPointStyle
 pattern GeospatialSelectedPointStyle_CLUSTER = GeospatialSelectedPointStyle' "CLUSTER"
 
+pattern GeospatialSelectedPointStyle_HEATMAP :: GeospatialSelectedPointStyle
+pattern GeospatialSelectedPointStyle_HEATMAP = GeospatialSelectedPointStyle' "HEATMAP"
+
 pattern GeospatialSelectedPointStyle_POINT :: GeospatialSelectedPointStyle
 pattern GeospatialSelectedPointStyle_POINT = GeospatialSelectedPointStyle' "POINT"
 
 {-# COMPLETE
   GeospatialSelectedPointStyle_CLUSTER,
+  GeospatialSelectedPointStyle_HEATMAP,
   GeospatialSelectedPointStyle_POINT,
   GeospatialSelectedPointStyle'
   #-}

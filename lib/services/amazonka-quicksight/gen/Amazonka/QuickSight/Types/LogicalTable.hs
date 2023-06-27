@@ -34,7 +34,8 @@ import Amazonka.QuickSight.Types.TransformOperation
 --
 -- /See:/ 'newLogicalTable' smart constructor.
 data LogicalTable = LogicalTable'
-  { -- | Transform operations that act on this logical table.
+  { -- | Transform operations that act on this logical table. For this structure
+    -- to be valid, only one of the attributes can be non-null.
     dataTransforms :: Prelude.Maybe (Prelude.NonEmpty TransformOperation),
     -- | A display name for the logical table.
     alias :: Prelude.Text,
@@ -51,7 +52,8 @@ data LogicalTable = LogicalTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataTransforms', 'logicalTable_dataTransforms' - Transform operations that act on this logical table.
+-- 'dataTransforms', 'logicalTable_dataTransforms' - Transform operations that act on this logical table. For this structure
+-- to be valid, only one of the attributes can be non-null.
 --
 -- 'alias', 'logicalTable_alias' - A display name for the logical table.
 --
@@ -69,7 +71,8 @@ newLogicalTable pAlias_ pSource_ =
       source = pSource_
     }
 
--- | Transform operations that act on this logical table.
+-- | Transform operations that act on this logical table. For this structure
+-- to be valid, only one of the attributes can be non-null.
 logicalTable_dataTransforms :: Lens.Lens' LogicalTable (Prelude.Maybe (Prelude.NonEmpty TransformOperation))
 logicalTable_dataTransforms = Lens.lens (\LogicalTable' {dataTransforms} -> dataTransforms) (\s@LogicalTable' {} a -> s {dataTransforms = a} :: LogicalTable) Prelude.. Lens.mapping Lens.coerced
 
@@ -94,7 +97,8 @@ instance Data.FromJSON LogicalTable where
 
 instance Prelude.Hashable LogicalTable where
   hashWithSalt _salt LogicalTable' {..} =
-    _salt `Prelude.hashWithSalt` dataTransforms
+    _salt
+      `Prelude.hashWithSalt` dataTransforms
       `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` source
 

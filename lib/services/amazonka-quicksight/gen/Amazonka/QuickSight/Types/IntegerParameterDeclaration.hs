@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.IntegerDefaultValues
 import Amazonka.QuickSight.Types.IntegerValueWhenUnsetConfiguration
+import Amazonka.QuickSight.Types.MappedDataSetParameter
 import Amazonka.QuickSight.Types.ParameterValueType
 
 -- | A parameter declaration for the @Integer@ data type.
@@ -34,6 +35,7 @@ data IntegerParameterDeclaration = IntegerParameterDeclaration'
   { -- | The default values of a parameter. If the parameter is a single-value
     -- parameter, a maximum of one default value can be provided.
     defaultValues :: Prelude.Maybe IntegerDefaultValues,
+    mappedDataSetParameters :: Prelude.Maybe [MappedDataSetParameter],
     -- | A parameter declaration for the @Integer@ data type.
     valueWhenUnset :: Prelude.Maybe IntegerValueWhenUnsetConfiguration,
     -- | The value type determines whether the parameter is a single-value or
@@ -55,6 +57,8 @@ data IntegerParameterDeclaration = IntegerParameterDeclaration'
 -- 'defaultValues', 'integerParameterDeclaration_defaultValues' - The default values of a parameter. If the parameter is a single-value
 -- parameter, a maximum of one default value can be provided.
 --
+-- 'mappedDataSetParameters', 'integerParameterDeclaration_mappedDataSetParameters' - Undocumented member.
+--
 -- 'valueWhenUnset', 'integerParameterDeclaration_valueWhenUnset' - A parameter declaration for the @Integer@ data type.
 --
 -- 'parameterValueType', 'integerParameterDeclaration_parameterValueType' - The value type determines whether the parameter is a single-value or
@@ -73,6 +77,7 @@ newIntegerParameterDeclaration
     IntegerParameterDeclaration'
       { defaultValues =
           Prelude.Nothing,
+        mappedDataSetParameters = Prelude.Nothing,
         valueWhenUnset = Prelude.Nothing,
         parameterValueType = pParameterValueType_,
         name = pName_
@@ -82,6 +87,10 @@ newIntegerParameterDeclaration
 -- parameter, a maximum of one default value can be provided.
 integerParameterDeclaration_defaultValues :: Lens.Lens' IntegerParameterDeclaration (Prelude.Maybe IntegerDefaultValues)
 integerParameterDeclaration_defaultValues = Lens.lens (\IntegerParameterDeclaration' {defaultValues} -> defaultValues) (\s@IntegerParameterDeclaration' {} a -> s {defaultValues = a} :: IntegerParameterDeclaration)
+
+-- | Undocumented member.
+integerParameterDeclaration_mappedDataSetParameters :: Lens.Lens' IntegerParameterDeclaration (Prelude.Maybe [MappedDataSetParameter])
+integerParameterDeclaration_mappedDataSetParameters = Lens.lens (\IntegerParameterDeclaration' {mappedDataSetParameters} -> mappedDataSetParameters) (\s@IntegerParameterDeclaration' {} a -> s {mappedDataSetParameters = a} :: IntegerParameterDeclaration) Prelude.. Lens.mapping Lens.coerced
 
 -- | A parameter declaration for the @Integer@ data type.
 integerParameterDeclaration_valueWhenUnset :: Lens.Lens' IntegerParameterDeclaration (Prelude.Maybe IntegerValueWhenUnsetConfiguration)
@@ -103,6 +112,10 @@ instance Data.FromJSON IntegerParameterDeclaration where
       ( \x ->
           IntegerParameterDeclaration'
             Prelude.<$> (x Data..:? "DefaultValues")
+            Prelude.<*> ( x
+                            Data..:? "MappedDataSetParameters"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "ValueWhenUnset")
             Prelude.<*> (x Data..: "ParameterValueType")
             Prelude.<*> (x Data..: "Name")
@@ -110,7 +123,9 @@ instance Data.FromJSON IntegerParameterDeclaration where
 
 instance Prelude.Hashable IntegerParameterDeclaration where
   hashWithSalt _salt IntegerParameterDeclaration' {..} =
-    _salt `Prelude.hashWithSalt` defaultValues
+    _salt
+      `Prelude.hashWithSalt` defaultValues
+      `Prelude.hashWithSalt` mappedDataSetParameters
       `Prelude.hashWithSalt` valueWhenUnset
       `Prelude.hashWithSalt` parameterValueType
       `Prelude.hashWithSalt` name
@@ -118,6 +133,7 @@ instance Prelude.Hashable IntegerParameterDeclaration where
 instance Prelude.NFData IntegerParameterDeclaration where
   rnf IntegerParameterDeclaration' {..} =
     Prelude.rnf defaultValues
+      `Prelude.seq` Prelude.rnf mappedDataSetParameters
       `Prelude.seq` Prelude.rnf valueWhenUnset
       `Prelude.seq` Prelude.rnf parameterValueType
       `Prelude.seq` Prelude.rnf name
@@ -127,6 +143,8 @@ instance Data.ToJSON IntegerParameterDeclaration where
     Data.object
       ( Prelude.catMaybes
           [ ("DefaultValues" Data..=) Prelude.<$> defaultValues,
+            ("MappedDataSetParameters" Data..=)
+              Prelude.<$> mappedDataSetParameters,
             ("ValueWhenUnset" Data..=)
               Prelude.<$> valueWhenUnset,
             Prelude.Just

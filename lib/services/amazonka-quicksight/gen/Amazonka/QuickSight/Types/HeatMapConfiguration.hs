@@ -141,7 +141,8 @@ instance Data.FromJSON HeatMapConfiguration where
 
 instance Prelude.Hashable HeatMapConfiguration where
   hashWithSalt _salt HeatMapConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` colorScale
+    _salt
+      `Prelude.hashWithSalt` colorScale
       `Prelude.hashWithSalt` columnLabelOptions
       `Prelude.hashWithSalt` dataLabels
       `Prelude.hashWithSalt` fieldWells

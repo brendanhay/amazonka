@@ -31,10 +31,10 @@ import Amazonka.QuickSight.Types.NumericalAggregationFunction
 --
 -- /See:/ 'newReferenceLineDynamicDataConfiguration' smart constructor.
 data ReferenceLineDynamicDataConfiguration = ReferenceLineDynamicDataConfiguration'
-  { -- | The column that the dynamic data targets.
+  { -- | The aggregation function that is used in the dynamic data.
+    measureAggregationFunction :: Prelude.Maybe AggregationFunction,
+    -- | The column that the dynamic data targets.
     column :: ColumnIdentifier,
-    -- | The aggregation function that is used in the dynamic data.
-    measureAggregationFunction :: AggregationFunction,
     -- | The calculation that is used in the dynamic data.
     calculation :: NumericalAggregationFunction
   }
@@ -48,38 +48,34 @@ data ReferenceLineDynamicDataConfiguration = ReferenceLineDynamicDataConfigurati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'column', 'referenceLineDynamicDataConfiguration_column' - The column that the dynamic data targets.
---
 -- 'measureAggregationFunction', 'referenceLineDynamicDataConfiguration_measureAggregationFunction' - The aggregation function that is used in the dynamic data.
+--
+-- 'column', 'referenceLineDynamicDataConfiguration_column' - The column that the dynamic data targets.
 --
 -- 'calculation', 'referenceLineDynamicDataConfiguration_calculation' - The calculation that is used in the dynamic data.
 newReferenceLineDynamicDataConfiguration ::
   -- | 'column'
   ColumnIdentifier ->
-  -- | 'measureAggregationFunction'
-  AggregationFunction ->
   -- | 'calculation'
   NumericalAggregationFunction ->
   ReferenceLineDynamicDataConfiguration
 newReferenceLineDynamicDataConfiguration
   pColumn_
-  pMeasureAggregationFunction_
   pCalculation_ =
     ReferenceLineDynamicDataConfiguration'
-      { column =
-          pColumn_,
-        measureAggregationFunction =
-          pMeasureAggregationFunction_,
+      { measureAggregationFunction =
+          Prelude.Nothing,
+        column = pColumn_,
         calculation = pCalculation_
       }
+
+-- | The aggregation function that is used in the dynamic data.
+referenceLineDynamicDataConfiguration_measureAggregationFunction :: Lens.Lens' ReferenceLineDynamicDataConfiguration (Prelude.Maybe AggregationFunction)
+referenceLineDynamicDataConfiguration_measureAggregationFunction = Lens.lens (\ReferenceLineDynamicDataConfiguration' {measureAggregationFunction} -> measureAggregationFunction) (\s@ReferenceLineDynamicDataConfiguration' {} a -> s {measureAggregationFunction = a} :: ReferenceLineDynamicDataConfiguration)
 
 -- | The column that the dynamic data targets.
 referenceLineDynamicDataConfiguration_column :: Lens.Lens' ReferenceLineDynamicDataConfiguration ColumnIdentifier
 referenceLineDynamicDataConfiguration_column = Lens.lens (\ReferenceLineDynamicDataConfiguration' {column} -> column) (\s@ReferenceLineDynamicDataConfiguration' {} a -> s {column = a} :: ReferenceLineDynamicDataConfiguration)
-
--- | The aggregation function that is used in the dynamic data.
-referenceLineDynamicDataConfiguration_measureAggregationFunction :: Lens.Lens' ReferenceLineDynamicDataConfiguration AggregationFunction
-referenceLineDynamicDataConfiguration_measureAggregationFunction = Lens.lens (\ReferenceLineDynamicDataConfiguration' {measureAggregationFunction} -> measureAggregationFunction) (\s@ReferenceLineDynamicDataConfiguration' {} a -> s {measureAggregationFunction = a} :: ReferenceLineDynamicDataConfiguration)
 
 -- | The calculation that is used in the dynamic data.
 referenceLineDynamicDataConfiguration_calculation :: Lens.Lens' ReferenceLineDynamicDataConfiguration NumericalAggregationFunction
@@ -94,8 +90,8 @@ instance
       "ReferenceLineDynamicDataConfiguration"
       ( \x ->
           ReferenceLineDynamicDataConfiguration'
-            Prelude.<$> (x Data..: "Column")
-            Prelude.<*> (x Data..: "MeasureAggregationFunction")
+            Prelude.<$> (x Data..:? "MeasureAggregationFunction")
+            Prelude.<*> (x Data..: "Column")
             Prelude.<*> (x Data..: "Calculation")
       )
 
@@ -106,8 +102,9 @@ instance
   hashWithSalt
     _salt
     ReferenceLineDynamicDataConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` column
+      _salt
         `Prelude.hashWithSalt` measureAggregationFunction
+        `Prelude.hashWithSalt` column
         `Prelude.hashWithSalt` calculation
 
 instance
@@ -115,8 +112,8 @@ instance
     ReferenceLineDynamicDataConfiguration
   where
   rnf ReferenceLineDynamicDataConfiguration' {..} =
-    Prelude.rnf column
-      `Prelude.seq` Prelude.rnf measureAggregationFunction
+    Prelude.rnf measureAggregationFunction
+      `Prelude.seq` Prelude.rnf column
       `Prelude.seq` Prelude.rnf calculation
 
 instance
@@ -126,11 +123,9 @@ instance
   toJSON ReferenceLineDynamicDataConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Column" Data..= column),
-            Prelude.Just
-              ( "MeasureAggregationFunction"
-                  Data..= measureAggregationFunction
-              ),
+          [ ("MeasureAggregationFunction" Data..=)
+              Prelude.<$> measureAggregationFunction,
+            Prelude.Just ("Column" Data..= column),
             Prelude.Just ("Calculation" Data..= calculation)
           ]
       )

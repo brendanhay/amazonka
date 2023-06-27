@@ -121,7 +121,8 @@ instance Core.AWSRequest UpdateFolder where
 
 instance Prelude.Hashable UpdateFolder where
   hashWithSalt _salt UpdateFolder' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` folderId
       `Prelude.hashWithSalt` name
 

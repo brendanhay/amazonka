@@ -85,7 +85,8 @@ instance
   hashWithSalt
     _salt
     KPIPrimaryValueConditionalFormatting' {..} =
-      _salt `Prelude.hashWithSalt` icon
+      _salt
+        `Prelude.hashWithSalt` icon
         `Prelude.hashWithSalt` textColor
 
 instance

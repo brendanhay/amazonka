@@ -115,7 +115,8 @@ instance Data.FromJSON TableSideBorderOptions where
 
 instance Prelude.Hashable TableSideBorderOptions where
   hashWithSalt _salt TableSideBorderOptions' {..} =
-    _salt `Prelude.hashWithSalt` bottom
+    _salt
+      `Prelude.hashWithSalt` bottom
       `Prelude.hashWithSalt` innerHorizontal
       `Prelude.hashWithSalt` innerVertical
       `Prelude.hashWithSalt` left

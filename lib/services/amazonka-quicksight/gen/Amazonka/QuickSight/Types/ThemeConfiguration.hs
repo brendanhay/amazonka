@@ -102,7 +102,8 @@ instance Data.FromJSON ThemeConfiguration where
 
 instance Prelude.Hashable ThemeConfiguration where
   hashWithSalt _salt ThemeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` dataColorPalette
+    _salt
+      `Prelude.hashWithSalt` dataColorPalette
       `Prelude.hashWithSalt` sheet
       `Prelude.hashWithSalt` typography
       `Prelude.hashWithSalt` uIColorPalette

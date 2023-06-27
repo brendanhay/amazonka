@@ -88,7 +88,8 @@ instance Data.FromJSON PanelTitleOptions where
 
 instance Prelude.Hashable PanelTitleOptions where
   hashWithSalt _salt PanelTitleOptions' {..} =
-    _salt `Prelude.hashWithSalt` fontConfiguration
+    _salt
+      `Prelude.hashWithSalt` fontConfiguration
       `Prelude.hashWithSalt` horizontalTextAlignment
       `Prelude.hashWithSalt` visibility
 

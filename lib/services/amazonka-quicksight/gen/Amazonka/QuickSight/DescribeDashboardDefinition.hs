@@ -44,6 +44,7 @@ module Amazonka.QuickSight.DescribeDashboardDefinition
 
     -- * Response Lenses
     describeDashboardDefinitionResponse_dashboardId,
+    describeDashboardDefinitionResponse_dashboardPublishOptions,
     describeDashboardDefinitionResponse_definition,
     describeDashboardDefinitionResponse_errors,
     describeDashboardDefinitionResponse_name,
@@ -140,6 +141,7 @@ instance Core.AWSRequest DescribeDashboardDefinition where
       ( \s h x ->
           DescribeDashboardDefinitionResponse'
             Prelude.<$> (x Data..?> "DashboardId")
+            Prelude.<*> (x Data..?> "DashboardPublishOptions")
             Prelude.<*> (x Data..?> "Definition")
             Prelude.<*> (x Data..?> "Errors")
             Prelude.<*> (x Data..?> "Name")
@@ -151,7 +153,8 @@ instance Core.AWSRequest DescribeDashboardDefinition where
 
 instance Prelude.Hashable DescribeDashboardDefinition where
   hashWithSalt _salt DescribeDashboardDefinition' {..} =
-    _salt `Prelude.hashWithSalt` aliasName
+    _salt
+      `Prelude.hashWithSalt` aliasName
       `Prelude.hashWithSalt` versionNumber
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dashboardId
@@ -195,6 +198,23 @@ instance Data.ToQuery DescribeDashboardDefinition where
 data DescribeDashboardDefinitionResponse = DescribeDashboardDefinitionResponse'
   { -- | The ID of the dashboard described.
     dashboardId :: Prelude.Maybe Prelude.Text,
+    -- | Options for publishing the dashboard:
+    --
+    -- -   @AvailabilityStatus@ for @AdHocFilteringOption@ - This status can be
+    --     either @ENABLED@ or @DISABLED@. When this is set to @DISABLED@,
+    --     Amazon QuickSight disables the left filter pane on the published
+    --     dashboard, which can be used for ad hoc (one-time) filtering. This
+    --     option is @ENABLED@ by default.
+    --
+    -- -   @AvailabilityStatus@ for @ExportToCSVOption@ - This status can be
+    --     either @ENABLED@ or @DISABLED@. The visual option to export data to
+    --     .CSV format isn\'t enabled when this is set to @DISABLED@. This
+    --     option is @ENABLED@ by default.
+    --
+    -- -   @VisibilityState@ for @SheetControlsOption@ - This visibility state
+    --     can be either @COLLAPSED@ or @EXPANDED@. This option is @COLLAPSED@
+    --     by default.
+    dashboardPublishOptions :: Prelude.Maybe DashboardPublishOptions,
     -- | The definition of a dashboard.
     --
     -- A definition is the data model of all features in a Dashboard, Template,
@@ -239,6 +259,23 @@ data DescribeDashboardDefinitionResponse = DescribeDashboardDefinitionResponse'
 --
 -- 'dashboardId', 'describeDashboardDefinitionResponse_dashboardId' - The ID of the dashboard described.
 --
+-- 'dashboardPublishOptions', 'describeDashboardDefinitionResponse_dashboardPublishOptions' - Options for publishing the dashboard:
+--
+-- -   @AvailabilityStatus@ for @AdHocFilteringOption@ - This status can be
+--     either @ENABLED@ or @DISABLED@. When this is set to @DISABLED@,
+--     Amazon QuickSight disables the left filter pane on the published
+--     dashboard, which can be used for ad hoc (one-time) filtering. This
+--     option is @ENABLED@ by default.
+--
+-- -   @AvailabilityStatus@ for @ExportToCSVOption@ - This status can be
+--     either @ENABLED@ or @DISABLED@. The visual option to export data to
+--     .CSV format isn\'t enabled when this is set to @DISABLED@. This
+--     option is @ENABLED@ by default.
+--
+-- -   @VisibilityState@ for @SheetControlsOption@ - This visibility state
+--     can be either @COLLAPSED@ or @EXPANDED@. This option is @COLLAPSED@
+--     by default.
+--
 -- 'definition', 'describeDashboardDefinitionResponse_definition' - The definition of a dashboard.
 --
 -- A definition is the data model of all features in a Dashboard, Template,
@@ -277,6 +314,8 @@ newDescribeDashboardDefinitionResponse pStatus_ =
   DescribeDashboardDefinitionResponse'
     { dashboardId =
         Prelude.Nothing,
+      dashboardPublishOptions =
+        Prelude.Nothing,
       definition = Prelude.Nothing,
       errors = Prelude.Nothing,
       name = Prelude.Nothing,
@@ -289,6 +328,25 @@ newDescribeDashboardDefinitionResponse pStatus_ =
 -- | The ID of the dashboard described.
 describeDashboardDefinitionResponse_dashboardId :: Lens.Lens' DescribeDashboardDefinitionResponse (Prelude.Maybe Prelude.Text)
 describeDashboardDefinitionResponse_dashboardId = Lens.lens (\DescribeDashboardDefinitionResponse' {dashboardId} -> dashboardId) (\s@DescribeDashboardDefinitionResponse' {} a -> s {dashboardId = a} :: DescribeDashboardDefinitionResponse)
+
+-- | Options for publishing the dashboard:
+--
+-- -   @AvailabilityStatus@ for @AdHocFilteringOption@ - This status can be
+--     either @ENABLED@ or @DISABLED@. When this is set to @DISABLED@,
+--     Amazon QuickSight disables the left filter pane on the published
+--     dashboard, which can be used for ad hoc (one-time) filtering. This
+--     option is @ENABLED@ by default.
+--
+-- -   @AvailabilityStatus@ for @ExportToCSVOption@ - This status can be
+--     either @ENABLED@ or @DISABLED@. The visual option to export data to
+--     .CSV format isn\'t enabled when this is set to @DISABLED@. This
+--     option is @ENABLED@ by default.
+--
+-- -   @VisibilityState@ for @SheetControlsOption@ - This visibility state
+--     can be either @COLLAPSED@ or @EXPANDED@. This option is @COLLAPSED@
+--     by default.
+describeDashboardDefinitionResponse_dashboardPublishOptions :: Lens.Lens' DescribeDashboardDefinitionResponse (Prelude.Maybe DashboardPublishOptions)
+describeDashboardDefinitionResponse_dashboardPublishOptions = Lens.lens (\DescribeDashboardDefinitionResponse' {dashboardPublishOptions} -> dashboardPublishOptions) (\s@DescribeDashboardDefinitionResponse' {} a -> s {dashboardPublishOptions = a} :: DescribeDashboardDefinitionResponse)
 
 -- | The definition of a dashboard.
 --
@@ -341,6 +399,7 @@ instance
   where
   rnf DescribeDashboardDefinitionResponse' {..} =
     Prelude.rnf dashboardId
+      `Prelude.seq` Prelude.rnf dashboardPublishOptions
       `Prelude.seq` Prelude.rnf definition
       `Prelude.seq` Prelude.rnf errors
       `Prelude.seq` Prelude.rnf name

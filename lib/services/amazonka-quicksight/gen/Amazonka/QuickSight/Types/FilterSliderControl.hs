@@ -168,7 +168,8 @@ instance Data.FromJSON FilterSliderControl where
 
 instance Prelude.Hashable FilterSliderControl where
   hashWithSalt _salt FilterSliderControl' {..} =
-    _salt `Prelude.hashWithSalt` displayOptions
+    _salt
+      `Prelude.hashWithSalt` displayOptions
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` filterControlId
       `Prelude.hashWithSalt` title

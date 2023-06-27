@@ -78,7 +78,8 @@ instance Data.FromJSON CalculatedMeasureField where
 
 instance Prelude.Hashable CalculatedMeasureField where
   hashWithSalt _salt CalculatedMeasureField' {..} =
-    _salt `Prelude.hashWithSalt` fieldId
+    _salt
+      `Prelude.hashWithSalt` fieldId
       `Prelude.hashWithSalt` expression
 
 instance Prelude.NFData CalculatedMeasureField where

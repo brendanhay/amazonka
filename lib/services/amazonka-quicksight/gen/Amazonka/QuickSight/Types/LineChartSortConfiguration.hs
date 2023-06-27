@@ -106,7 +106,8 @@ instance Data.FromJSON LineChartSortConfiguration where
             Prelude.<*> (x Data..:? "CategorySort" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ColorItemsLimitConfiguration")
             Prelude.<*> (x Data..:? "SmallMultiplesLimitConfiguration")
-            Prelude.<*> ( x Data..:? "SmallMultiplesSort"
+            Prelude.<*> ( x
+                            Data..:? "SmallMultiplesSort"
                             Data..!= Prelude.mempty
                         )
       )

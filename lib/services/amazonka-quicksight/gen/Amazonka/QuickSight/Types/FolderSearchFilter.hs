@@ -231,7 +231,8 @@ folderSearchFilter_value = Lens.lens (\FolderSearchFilter' {value} -> value) (\s
 
 instance Prelude.Hashable FolderSearchFilter where
   hashWithSalt _salt FolderSearchFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` operator
       `Prelude.hashWithSalt` value
 

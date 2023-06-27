@@ -83,7 +83,8 @@ instance Data.FromJSON SheetElementRenderingRule where
 
 instance Prelude.Hashable SheetElementRenderingRule where
   hashWithSalt _salt SheetElementRenderingRule' {..} =
-    _salt `Prelude.hashWithSalt` expression
+    _salt
+      `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` configurationOverrides
 
 instance Prelude.NFData SheetElementRenderingRule where

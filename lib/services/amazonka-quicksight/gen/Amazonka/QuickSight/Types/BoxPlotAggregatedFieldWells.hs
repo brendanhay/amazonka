@@ -83,7 +83,8 @@ instance Data.FromJSON BoxPlotAggregatedFieldWells where
 
 instance Prelude.Hashable BoxPlotAggregatedFieldWells where
   hashWithSalt _salt BoxPlotAggregatedFieldWells' {..} =
-    _salt `Prelude.hashWithSalt` groupBy
+    _salt
+      `Prelude.hashWithSalt` groupBy
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData BoxPlotAggregatedFieldWells where

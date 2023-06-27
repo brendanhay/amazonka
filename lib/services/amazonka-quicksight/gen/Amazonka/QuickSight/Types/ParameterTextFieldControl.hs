@@ -105,7 +105,8 @@ instance Data.FromJSON ParameterTextFieldControl where
 
 instance Prelude.Hashable ParameterTextFieldControl where
   hashWithSalt _salt ParameterTextFieldControl' {..} =
-    _salt `Prelude.hashWithSalt` displayOptions
+    _salt
+      `Prelude.hashWithSalt` displayOptions
       `Prelude.hashWithSalt` parameterControlId
       `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` sourceParameterName

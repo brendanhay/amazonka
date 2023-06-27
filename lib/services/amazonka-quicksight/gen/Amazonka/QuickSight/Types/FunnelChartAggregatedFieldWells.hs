@@ -91,7 +91,8 @@ instance
   hashWithSalt
     _salt
     FunnelChartAggregatedFieldWells' {..} =
-      _salt `Prelude.hashWithSalt` category
+      _salt
+        `Prelude.hashWithSalt` category
         `Prelude.hashWithSalt` values
 
 instance

@@ -80,7 +80,8 @@ instance Data.FromJSON DataSetConfiguration where
       "DataSetConfiguration"
       ( \x ->
           DataSetConfiguration'
-            Prelude.<$> ( x Data..:? "ColumnGroupSchemaList"
+            Prelude.<$> ( x
+                            Data..:? "ColumnGroupSchemaList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DataSetSchema")
@@ -89,7 +90,8 @@ instance Data.FromJSON DataSetConfiguration where
 
 instance Prelude.Hashable DataSetConfiguration where
   hashWithSalt _salt DataSetConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` columnGroupSchemaList
+    _salt
+      `Prelude.hashWithSalt` columnGroupSchemaList
       `Prelude.hashWithSalt` dataSetSchema
       `Prelude.hashWithSalt` placeholder
 

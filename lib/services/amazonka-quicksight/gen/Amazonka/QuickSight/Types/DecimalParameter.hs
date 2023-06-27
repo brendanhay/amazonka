@@ -66,7 +66,8 @@ decimalParameter_values = Lens.lens (\DecimalParameter' {values} -> values) (\s@
 
 instance Prelude.Hashable DecimalParameter where
   hashWithSalt _salt DecimalParameter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData DecimalParameter where

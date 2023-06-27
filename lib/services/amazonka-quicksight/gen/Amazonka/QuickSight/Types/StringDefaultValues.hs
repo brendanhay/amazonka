@@ -79,7 +79,8 @@ instance Data.FromJSON StringDefaultValues where
 
 instance Prelude.Hashable StringDefaultValues where
   hashWithSalt _salt StringDefaultValues' {..} =
-    _salt `Prelude.hashWithSalt` dynamicValue
+    _salt
+      `Prelude.hashWithSalt` dynamicValue
       `Prelude.hashWithSalt` staticValues
 
 instance Prelude.NFData StringDefaultValues where

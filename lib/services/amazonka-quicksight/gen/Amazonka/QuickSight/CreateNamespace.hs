@@ -159,7 +159,8 @@ instance Core.AWSRequest CreateNamespace where
 
 instance Prelude.Hashable CreateNamespace where
   hashWithSalt _salt CreateNamespace' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` identityStore

@@ -111,7 +111,8 @@ instance Data.FromJSON FontConfiguration where
 
 instance Prelude.Hashable FontConfiguration where
   hashWithSalt _salt FontConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` fontColor
+    _salt
+      `Prelude.hashWithSalt` fontColor
       `Prelude.hashWithSalt` fontDecoration
       `Prelude.hashWithSalt` fontSize
       `Prelude.hashWithSalt` fontStyle

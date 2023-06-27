@@ -26,6 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.CastColumnTypeOperation
 import Amazonka.QuickSight.Types.CreateColumnsOperation
 import Amazonka.QuickSight.Types.FilterOperation
+import Amazonka.QuickSight.Types.OverrideDatasetParameterOperation
 import Amazonka.QuickSight.Types.ProjectOperation
 import Amazonka.QuickSight.Types.RenameColumnOperation
 import Amazonka.QuickSight.Types.TagColumnOperation
@@ -44,6 +45,7 @@ data TransformOperation = TransformOperation'
     createColumnsOperation :: Prelude.Maybe CreateColumnsOperation,
     -- | An operation that filters rows based on some condition.
     filterOperation :: Prelude.Maybe FilterOperation,
+    overrideDatasetParameterOperation :: Prelude.Maybe OverrideDatasetParameterOperation,
     -- | An operation that projects columns. Operations that come after a
     -- projection can only refer to projected columns.
     projectOperation :: Prelude.Maybe ProjectOperation,
@@ -70,6 +72,8 @@ data TransformOperation = TransformOperation'
 --
 -- 'filterOperation', 'transformOperation_filterOperation' - An operation that filters rows based on some condition.
 --
+-- 'overrideDatasetParameterOperation', 'transformOperation_overrideDatasetParameterOperation' - Undocumented member.
+--
 -- 'projectOperation', 'transformOperation_projectOperation' - An operation that projects columns. Operations that come after a
 -- projection can only refer to projected columns.
 --
@@ -86,6 +90,7 @@ newTransformOperation =
         Prelude.Nothing,
       createColumnsOperation = Prelude.Nothing,
       filterOperation = Prelude.Nothing,
+      overrideDatasetParameterOperation = Prelude.Nothing,
       projectOperation = Prelude.Nothing,
       renameColumnOperation = Prelude.Nothing,
       tagColumnOperation = Prelude.Nothing,
@@ -104,6 +109,10 @@ transformOperation_createColumnsOperation = Lens.lens (\TransformOperation' {cre
 -- | An operation that filters rows based on some condition.
 transformOperation_filterOperation :: Lens.Lens' TransformOperation (Prelude.Maybe FilterOperation)
 transformOperation_filterOperation = Lens.lens (\TransformOperation' {filterOperation} -> filterOperation) (\s@TransformOperation' {} a -> s {filterOperation = a} :: TransformOperation)
+
+-- | Undocumented member.
+transformOperation_overrideDatasetParameterOperation :: Lens.Lens' TransformOperation (Prelude.Maybe OverrideDatasetParameterOperation)
+transformOperation_overrideDatasetParameterOperation = Lens.lens (\TransformOperation' {overrideDatasetParameterOperation} -> overrideDatasetParameterOperation) (\s@TransformOperation' {} a -> s {overrideDatasetParameterOperation = a} :: TransformOperation)
 
 -- | An operation that projects columns. Operations that come after a
 -- projection can only refer to projected columns.
@@ -131,6 +140,7 @@ instance Data.FromJSON TransformOperation where
             Prelude.<$> (x Data..:? "CastColumnTypeOperation")
             Prelude.<*> (x Data..:? "CreateColumnsOperation")
             Prelude.<*> (x Data..:? "FilterOperation")
+            Prelude.<*> (x Data..:? "OverrideDatasetParameterOperation")
             Prelude.<*> (x Data..:? "ProjectOperation")
             Prelude.<*> (x Data..:? "RenameColumnOperation")
             Prelude.<*> (x Data..:? "TagColumnOperation")
@@ -143,6 +153,7 @@ instance Prelude.Hashable TransformOperation where
       `Prelude.hashWithSalt` castColumnTypeOperation
       `Prelude.hashWithSalt` createColumnsOperation
       `Prelude.hashWithSalt` filterOperation
+      `Prelude.hashWithSalt` overrideDatasetParameterOperation
       `Prelude.hashWithSalt` projectOperation
       `Prelude.hashWithSalt` renameColumnOperation
       `Prelude.hashWithSalt` tagColumnOperation
@@ -153,6 +164,7 @@ instance Prelude.NFData TransformOperation where
     Prelude.rnf castColumnTypeOperation
       `Prelude.seq` Prelude.rnf createColumnsOperation
       `Prelude.seq` Prelude.rnf filterOperation
+      `Prelude.seq` Prelude.rnf overrideDatasetParameterOperation
       `Prelude.seq` Prelude.rnf projectOperation
       `Prelude.seq` Prelude.rnf renameColumnOperation
       `Prelude.seq` Prelude.rnf tagColumnOperation
@@ -168,6 +180,8 @@ instance Data.ToJSON TransformOperation where
               Prelude.<$> createColumnsOperation,
             ("FilterOperation" Data..=)
               Prelude.<$> filterOperation,
+            ("OverrideDatasetParameterOperation" Data..=)
+              Prelude.<$> overrideDatasetParameterOperation,
             ("ProjectOperation" Data..=)
               Prelude.<$> projectOperation,
             ("RenameColumnOperation" Data..=)

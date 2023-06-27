@@ -25,11 +25,12 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DashboardBehavior
 
--- |
+-- | Determines if hidden fields are included in an exported dashboard.
 --
 -- /See:/ 'newExportHiddenFieldsOption' smart constructor.
 data ExportHiddenFieldsOption = ExportHiddenFieldsOption'
-  { availabilityStatus :: Prelude.Maybe DashboardBehavior
+  { -- | The status of the export hidden fields options of a dashbaord.
+    availabilityStatus :: Prelude.Maybe DashboardBehavior
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -41,7 +42,7 @@ data ExportHiddenFieldsOption = ExportHiddenFieldsOption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'availabilityStatus', 'exportHiddenFieldsOption_availabilityStatus' -
+-- 'availabilityStatus', 'exportHiddenFieldsOption_availabilityStatus' - The status of the export hidden fields options of a dashbaord.
 newExportHiddenFieldsOption ::
   ExportHiddenFieldsOption
 newExportHiddenFieldsOption =
@@ -50,9 +51,18 @@ newExportHiddenFieldsOption =
         Prelude.Nothing
     }
 
--- |
+-- | The status of the export hidden fields options of a dashbaord.
 exportHiddenFieldsOption_availabilityStatus :: Lens.Lens' ExportHiddenFieldsOption (Prelude.Maybe DashboardBehavior)
 exportHiddenFieldsOption_availabilityStatus = Lens.lens (\ExportHiddenFieldsOption' {availabilityStatus} -> availabilityStatus) (\s@ExportHiddenFieldsOption' {} a -> s {availabilityStatus = a} :: ExportHiddenFieldsOption)
+
+instance Data.FromJSON ExportHiddenFieldsOption where
+  parseJSON =
+    Data.withObject
+      "ExportHiddenFieldsOption"
+      ( \x ->
+          ExportHiddenFieldsOption'
+            Prelude.<$> (x Data..:? "AvailabilityStatus")
+      )
 
 instance Prelude.Hashable ExportHiddenFieldsOption where
   hashWithSalt _salt ExportHiddenFieldsOption' {..} =

@@ -31,6 +31,7 @@ module Amazonka.QuickSight.CreateDataSet
     createDataSet_columnGroups,
     createDataSet_columnLevelPermissionRules,
     createDataSet_dataSetUsageConfiguration,
+    createDataSet_datasetParameters,
     createDataSet_fieldFolders,
     createDataSet_logicalTableMap,
     createDataSet_permissions,
@@ -70,9 +71,12 @@ data CreateDataSet = CreateDataSet'
   { -- | Groupings of columns that work together in certain Amazon QuickSight
     -- features. Currently, only geospatial hierarchy is supported.
     columnGroups :: Prelude.Maybe (Prelude.NonEmpty ColumnGroup),
-    -- | A set of one or more definitions of a @ ColumnLevelPermissionRule @.
+    -- | A set of one or more definitions of a
+    -- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html ColumnLevelPermissionRule>@ @.
     columnLevelPermissionRules :: Prelude.Maybe (Prelude.NonEmpty ColumnLevelPermissionRule),
     dataSetUsageConfiguration :: Prelude.Maybe DataSetUsageConfiguration,
+    -- | The parameter declarations of the dataset.
+    datasetParameters :: Prelude.Maybe (Prelude.NonEmpty DatasetParameter),
     -- | The folder that contains fields and nested subfolders for your dataset.
     fieldFolders :: Prelude.Maybe (Prelude.HashMap Prelude.Text FieldFolder),
     -- | Configures the combination and transformation of the data from the
@@ -116,9 +120,12 @@ data CreateDataSet = CreateDataSet'
 -- 'columnGroups', 'createDataSet_columnGroups' - Groupings of columns that work together in certain Amazon QuickSight
 -- features. Currently, only geospatial hierarchy is supported.
 --
--- 'columnLevelPermissionRules', 'createDataSet_columnLevelPermissionRules' - A set of one or more definitions of a @ ColumnLevelPermissionRule @.
+-- 'columnLevelPermissionRules', 'createDataSet_columnLevelPermissionRules' - A set of one or more definitions of a
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html ColumnLevelPermissionRule>@ @.
 --
 -- 'dataSetUsageConfiguration', 'createDataSet_dataSetUsageConfiguration' - Undocumented member.
+--
+-- 'datasetParameters', 'createDataSet_datasetParameters' - The parameter declarations of the dataset.
 --
 -- 'fieldFolders', 'createDataSet_fieldFolders' - The folder that contains fields and nested subfolders for your dataset.
 --
@@ -167,6 +174,7 @@ newCreateDataSet
       { columnGroups = Prelude.Nothing,
         columnLevelPermissionRules = Prelude.Nothing,
         dataSetUsageConfiguration = Prelude.Nothing,
+        datasetParameters = Prelude.Nothing,
         fieldFolders = Prelude.Nothing,
         logicalTableMap = Prelude.Nothing,
         permissions = Prelude.Nothing,
@@ -185,13 +193,18 @@ newCreateDataSet
 createDataSet_columnGroups :: Lens.Lens' CreateDataSet (Prelude.Maybe (Prelude.NonEmpty ColumnGroup))
 createDataSet_columnGroups = Lens.lens (\CreateDataSet' {columnGroups} -> columnGroups) (\s@CreateDataSet' {} a -> s {columnGroups = a} :: CreateDataSet) Prelude.. Lens.mapping Lens.coerced
 
--- | A set of one or more definitions of a @ ColumnLevelPermissionRule @.
+-- | A set of one or more definitions of a
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html ColumnLevelPermissionRule>@ @.
 createDataSet_columnLevelPermissionRules :: Lens.Lens' CreateDataSet (Prelude.Maybe (Prelude.NonEmpty ColumnLevelPermissionRule))
 createDataSet_columnLevelPermissionRules = Lens.lens (\CreateDataSet' {columnLevelPermissionRules} -> columnLevelPermissionRules) (\s@CreateDataSet' {} a -> s {columnLevelPermissionRules = a} :: CreateDataSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createDataSet_dataSetUsageConfiguration :: Lens.Lens' CreateDataSet (Prelude.Maybe DataSetUsageConfiguration)
 createDataSet_dataSetUsageConfiguration = Lens.lens (\CreateDataSet' {dataSetUsageConfiguration} -> dataSetUsageConfiguration) (\s@CreateDataSet' {} a -> s {dataSetUsageConfiguration = a} :: CreateDataSet)
+
+-- | The parameter declarations of the dataset.
+createDataSet_datasetParameters :: Lens.Lens' CreateDataSet (Prelude.Maybe (Prelude.NonEmpty DatasetParameter))
+createDataSet_datasetParameters = Lens.lens (\CreateDataSet' {datasetParameters} -> datasetParameters) (\s@CreateDataSet' {} a -> s {datasetParameters = a} :: CreateDataSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The folder that contains fields and nested subfolders for your dataset.
 createDataSet_fieldFolders :: Lens.Lens' CreateDataSet (Prelude.Maybe (Prelude.HashMap Prelude.Text FieldFolder))
@@ -264,9 +277,11 @@ instance Core.AWSRequest CreateDataSet where
 
 instance Prelude.Hashable CreateDataSet where
   hashWithSalt _salt CreateDataSet' {..} =
-    _salt `Prelude.hashWithSalt` columnGroups
+    _salt
+      `Prelude.hashWithSalt` columnGroups
       `Prelude.hashWithSalt` columnLevelPermissionRules
       `Prelude.hashWithSalt` dataSetUsageConfiguration
+      `Prelude.hashWithSalt` datasetParameters
       `Prelude.hashWithSalt` fieldFolders
       `Prelude.hashWithSalt` logicalTableMap
       `Prelude.hashWithSalt` permissions
@@ -284,6 +299,7 @@ instance Prelude.NFData CreateDataSet where
     Prelude.rnf columnGroups
       `Prelude.seq` Prelude.rnf columnLevelPermissionRules
       `Prelude.seq` Prelude.rnf dataSetUsageConfiguration
+      `Prelude.seq` Prelude.rnf datasetParameters
       `Prelude.seq` Prelude.rnf fieldFolders
       `Prelude.seq` Prelude.rnf logicalTableMap
       `Prelude.seq` Prelude.rnf permissions
@@ -316,6 +332,8 @@ instance Data.ToJSON CreateDataSet where
               Prelude.<$> columnLevelPermissionRules,
             ("DataSetUsageConfiguration" Data..=)
               Prelude.<$> dataSetUsageConfiguration,
+            ("DatasetParameters" Data..=)
+              Prelude.<$> datasetParameters,
             ("FieldFolders" Data..=) Prelude.<$> fieldFolders,
             ("LogicalTableMap" Data..=)
               Prelude.<$> logicalTableMap,

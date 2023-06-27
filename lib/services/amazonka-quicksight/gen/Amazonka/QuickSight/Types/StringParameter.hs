@@ -66,7 +66,8 @@ stringParameter_values = Lens.lens (\StringParameter' {values} -> values) (\s@St
 
 instance Prelude.Hashable StringParameter where
   hashWithSalt _salt StringParameter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData StringParameter where

@@ -34,6 +34,11 @@ import Amazonka.QuickSight.Types.Visibility
 data PivotTableOptions = PivotTableOptions'
   { -- | The table cell style of cells.
     cellStyle :: Prelude.Maybe TableCellStyle,
+    -- | The visibility setting of a pivot table\'s collapsed row dimension
+    -- fields. If the value of this structure is @HIDDEN@, all collapsed
+    -- columns in a pivot table are automatically hidden. The default value is
+    -- @VISIBLE@.
+    collapsedRowDimensionsVisibility :: Prelude.Maybe Visibility,
     -- | The table cell style of the column header.
     columnHeaderStyle :: Prelude.Maybe TableCellStyle,
     -- | The visibility of the column names.
@@ -63,6 +68,11 @@ data PivotTableOptions = PivotTableOptions'
 --
 -- 'cellStyle', 'pivotTableOptions_cellStyle' - The table cell style of cells.
 --
+-- 'collapsedRowDimensionsVisibility', 'pivotTableOptions_collapsedRowDimensionsVisibility' - The visibility setting of a pivot table\'s collapsed row dimension
+-- fields. If the value of this structure is @HIDDEN@, all collapsed
+-- columns in a pivot table are automatically hidden. The default value is
+-- @VISIBLE@.
+--
 -- 'columnHeaderStyle', 'pivotTableOptions_columnHeaderStyle' - The table cell style of the column header.
 --
 -- 'columnNamesVisibility', 'pivotTableOptions_columnNamesVisibility' - The visibility of the column names.
@@ -83,6 +93,7 @@ newPivotTableOptions ::
 newPivotTableOptions =
   PivotTableOptions'
     { cellStyle = Prelude.Nothing,
+      collapsedRowDimensionsVisibility = Prelude.Nothing,
       columnHeaderStyle = Prelude.Nothing,
       columnNamesVisibility = Prelude.Nothing,
       metricPlacement = Prelude.Nothing,
@@ -96,6 +107,13 @@ newPivotTableOptions =
 -- | The table cell style of cells.
 pivotTableOptions_cellStyle :: Lens.Lens' PivotTableOptions (Prelude.Maybe TableCellStyle)
 pivotTableOptions_cellStyle = Lens.lens (\PivotTableOptions' {cellStyle} -> cellStyle) (\s@PivotTableOptions' {} a -> s {cellStyle = a} :: PivotTableOptions)
+
+-- | The visibility setting of a pivot table\'s collapsed row dimension
+-- fields. If the value of this structure is @HIDDEN@, all collapsed
+-- columns in a pivot table are automatically hidden. The default value is
+-- @VISIBLE@.
+pivotTableOptions_collapsedRowDimensionsVisibility :: Lens.Lens' PivotTableOptions (Prelude.Maybe Visibility)
+pivotTableOptions_collapsedRowDimensionsVisibility = Lens.lens (\PivotTableOptions' {collapsedRowDimensionsVisibility} -> collapsedRowDimensionsVisibility) (\s@PivotTableOptions' {} a -> s {collapsedRowDimensionsVisibility = a} :: PivotTableOptions)
 
 -- | The table cell style of the column header.
 pivotTableOptions_columnHeaderStyle :: Lens.Lens' PivotTableOptions (Prelude.Maybe TableCellStyle)
@@ -136,6 +154,7 @@ instance Data.FromJSON PivotTableOptions where
       ( \x ->
           PivotTableOptions'
             Prelude.<$> (x Data..:? "CellStyle")
+            Prelude.<*> (x Data..:? "CollapsedRowDimensionsVisibility")
             Prelude.<*> (x Data..:? "ColumnHeaderStyle")
             Prelude.<*> (x Data..:? "ColumnNamesVisibility")
             Prelude.<*> (x Data..:? "MetricPlacement")
@@ -148,7 +167,9 @@ instance Data.FromJSON PivotTableOptions where
 
 instance Prelude.Hashable PivotTableOptions where
   hashWithSalt _salt PivotTableOptions' {..} =
-    _salt `Prelude.hashWithSalt` cellStyle
+    _salt
+      `Prelude.hashWithSalt` cellStyle
+      `Prelude.hashWithSalt` collapsedRowDimensionsVisibility
       `Prelude.hashWithSalt` columnHeaderStyle
       `Prelude.hashWithSalt` columnNamesVisibility
       `Prelude.hashWithSalt` metricPlacement
@@ -161,6 +182,7 @@ instance Prelude.Hashable PivotTableOptions where
 instance Prelude.NFData PivotTableOptions where
   rnf PivotTableOptions' {..} =
     Prelude.rnf cellStyle
+      `Prelude.seq` Prelude.rnf collapsedRowDimensionsVisibility
       `Prelude.seq` Prelude.rnf columnHeaderStyle
       `Prelude.seq` Prelude.rnf columnNamesVisibility
       `Prelude.seq` Prelude.rnf metricPlacement
@@ -175,6 +197,8 @@ instance Data.ToJSON PivotTableOptions where
     Data.object
       ( Prelude.catMaybes
           [ ("CellStyle" Data..=) Prelude.<$> cellStyle,
+            ("CollapsedRowDimensionsVisibility" Data..=)
+              Prelude.<$> collapsedRowDimensionsVisibility,
             ("ColumnHeaderStyle" Data..=)
               Prelude.<$> columnHeaderStyle,
             ("ColumnNamesVisibility" Data..=)

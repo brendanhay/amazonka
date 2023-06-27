@@ -30,7 +30,7 @@ import Amazonka.QuickSight.Types.ClusterMarker
 --
 -- /See:/ 'newClusterMarkerConfiguration' smart constructor.
 data ClusterMarkerConfiguration = ClusterMarkerConfiguration'
-  { -- | The cluster marker that is a part of the cluster marker configuration
+  { -- | The cluster marker that is a part of the cluster marker configuration.
     clusterMarker :: Prelude.Maybe ClusterMarker
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,7 +43,7 @@ data ClusterMarkerConfiguration = ClusterMarkerConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clusterMarker', 'clusterMarkerConfiguration_clusterMarker' - The cluster marker that is a part of the cluster marker configuration
+-- 'clusterMarker', 'clusterMarkerConfiguration_clusterMarker' - The cluster marker that is a part of the cluster marker configuration.
 newClusterMarkerConfiguration ::
   ClusterMarkerConfiguration
 newClusterMarkerConfiguration =
@@ -52,7 +52,7 @@ newClusterMarkerConfiguration =
         Prelude.Nothing
     }
 
--- | The cluster marker that is a part of the cluster marker configuration
+-- | The cluster marker that is a part of the cluster marker configuration.
 clusterMarkerConfiguration_clusterMarker :: Lens.Lens' ClusterMarkerConfiguration (Prelude.Maybe ClusterMarker)
 clusterMarkerConfiguration_clusterMarker = Lens.lens (\ClusterMarkerConfiguration' {clusterMarker} -> clusterMarker) (\s@ClusterMarkerConfiguration' {} a -> s {clusterMarker = a} :: ClusterMarkerConfiguration)
 

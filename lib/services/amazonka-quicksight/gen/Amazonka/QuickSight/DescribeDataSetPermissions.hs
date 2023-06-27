@@ -119,7 +119,8 @@ instance Core.AWSRequest DescribeDataSetPermissions where
 
 instance Prelude.Hashable DescribeDataSetPermissions where
   hashWithSalt _salt DescribeDataSetPermissions' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dataSetId
 
 instance Prelude.NFData DescribeDataSetPermissions where

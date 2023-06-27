@@ -24,7 +24,8 @@
 --
 -- Updating a Dashboard creates a new dashboard version but does not
 -- immediately publish the new version. You can update the published
--- version of a dashboard by using the @ UpdateDashboardPublishedVersion @
+-- version of a dashboard by using the
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateDashboardPublishedVersion.html UpdateDashboardPublishedVersion>@ @
 -- API operation.
 module Amazonka.QuickSight.UpdateDashboard
   ( -- * Creating a Request
@@ -98,10 +99,11 @@ data UpdateDashboard = UpdateDashboard'
     -- source. You can only update a dashboard from a template, so you use a
     -- @SourceTemplate@ entity. If you need to update a dashboard from an
     -- analysis, first convert the analysis to a template by using the
-    -- @ CreateTemplate @ API operation. For @SourceTemplate@, specify the
-    -- Amazon Resource Name (ARN) of the source template. The @SourceTemplate@
-    -- ARN can contain any Amazon Web Services account and any Amazon
-    -- QuickSight-supported Amazon Web Services Region.
+    -- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html CreateTemplate>@ @
+    -- API operation. For @SourceTemplate@, specify the Amazon Resource Name
+    -- (ARN) of the source template. The @SourceTemplate@ ARN can contain any
+    -- Amazon Web Services account and any Amazon QuickSight-supported Amazon
+    -- Web Services Region.
     --
     -- Use the @DataSetReferences@ entity within @SourceTemplate@ to list the
     -- replacement datasets for the placeholders listed in the original. The
@@ -163,10 +165,11 @@ data UpdateDashboard = UpdateDashboard'
 -- source. You can only update a dashboard from a template, so you use a
 -- @SourceTemplate@ entity. If you need to update a dashboard from an
 -- analysis, first convert the analysis to a template by using the
--- @ CreateTemplate @ API operation. For @SourceTemplate@, specify the
--- Amazon Resource Name (ARN) of the source template. The @SourceTemplate@
--- ARN can contain any Amazon Web Services account and any Amazon
--- QuickSight-supported Amazon Web Services Region.
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html CreateTemplate>@ @
+-- API operation. For @SourceTemplate@, specify the Amazon Resource Name
+-- (ARN) of the source template. The @SourceTemplate@ ARN can contain any
+-- Amazon Web Services account and any Amazon QuickSight-supported Amazon
+-- Web Services Region.
 --
 -- Use the @DataSetReferences@ entity within @SourceTemplate@ to list the
 -- replacement datasets for the placeholders listed in the original. The
@@ -247,10 +250,11 @@ updateDashboard_parameters = Lens.lens (\UpdateDashboard' {parameters} -> parame
 -- source. You can only update a dashboard from a template, so you use a
 -- @SourceTemplate@ entity. If you need to update a dashboard from an
 -- analysis, first convert the analysis to a template by using the
--- @ CreateTemplate @ API operation. For @SourceTemplate@, specify the
--- Amazon Resource Name (ARN) of the source template. The @SourceTemplate@
--- ARN can contain any Amazon Web Services account and any Amazon
--- QuickSight-supported Amazon Web Services Region.
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html CreateTemplate>@ @
+-- API operation. For @SourceTemplate@, specify the Amazon Resource Name
+-- (ARN) of the source template. The @SourceTemplate@ ARN can contain any
+-- Amazon Web Services account and any Amazon QuickSight-supported Amazon
+-- Web Services Region.
 --
 -- Use the @DataSetReferences@ entity within @SourceTemplate@ to list the
 -- replacement datasets for the placeholders listed in the original. The

@@ -75,14 +75,16 @@ instance Data.FromJSON CategoryDrillDownFilter where
       ( \x ->
           CategoryDrillDownFilter'
             Prelude.<$> (x Data..: "Column")
-            Prelude.<*> ( x Data..:? "CategoryValues"
+            Prelude.<*> ( x
+                            Data..:? "CategoryValues"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable CategoryDrillDownFilter where
   hashWithSalt _salt CategoryDrillDownFilter' {..} =
-    _salt `Prelude.hashWithSalt` column
+    _salt
+      `Prelude.hashWithSalt` column
       `Prelude.hashWithSalt` categoryValues
 
 instance Prelude.NFData CategoryDrillDownFilter where

@@ -100,7 +100,8 @@ instance Data.FromJSON ComboChartSortConfiguration where
 
 instance Prelude.Hashable ComboChartSortConfiguration where
   hashWithSalt _salt ComboChartSortConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` categoryItemsLimit
+    _salt
+      `Prelude.hashWithSalt` categoryItemsLimit
       `Prelude.hashWithSalt` categorySort
       `Prelude.hashWithSalt` colorItemsLimit
       `Prelude.hashWithSalt` colorSort

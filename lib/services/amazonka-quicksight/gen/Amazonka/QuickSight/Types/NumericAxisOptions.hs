@@ -76,7 +76,8 @@ instance Data.FromJSON NumericAxisOptions where
 
 instance Prelude.Hashable NumericAxisOptions where
   hashWithSalt _salt NumericAxisOptions' {..} =
-    _salt `Prelude.hashWithSalt` range
+    _salt
+      `Prelude.hashWithSalt` range
       `Prelude.hashWithSalt` scale
 
 instance Prelude.NFData NumericAxisOptions where

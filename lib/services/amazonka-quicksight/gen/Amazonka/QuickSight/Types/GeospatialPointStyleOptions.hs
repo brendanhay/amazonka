@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ClusterMarkerConfiguration
+import Amazonka.QuickSight.Types.GeospatialHeatmapConfiguration
 import Amazonka.QuickSight.Types.GeospatialSelectedPointStyle
 
 -- | The point style of the geospatial map.
@@ -32,6 +33,8 @@ import Amazonka.QuickSight.Types.GeospatialSelectedPointStyle
 data GeospatialPointStyleOptions = GeospatialPointStyleOptions'
   { -- | The cluster marker configuration of the geospatial point style.
     clusterMarkerConfiguration :: Prelude.Maybe ClusterMarkerConfiguration,
+    -- | The heatmap configuration of the geospatial point style.
+    heatmapConfiguration :: Prelude.Maybe GeospatialHeatmapConfiguration,
     -- | The selected point styles (point, cluster) of the geospatial map.
     selectedPointStyle :: Prelude.Maybe GeospatialSelectedPointStyle
   }
@@ -47,6 +50,8 @@ data GeospatialPointStyleOptions = GeospatialPointStyleOptions'
 --
 -- 'clusterMarkerConfiguration', 'geospatialPointStyleOptions_clusterMarkerConfiguration' - The cluster marker configuration of the geospatial point style.
 --
+-- 'heatmapConfiguration', 'geospatialPointStyleOptions_heatmapConfiguration' - The heatmap configuration of the geospatial point style.
+--
 -- 'selectedPointStyle', 'geospatialPointStyleOptions_selectedPointStyle' - The selected point styles (point, cluster) of the geospatial map.
 newGeospatialPointStyleOptions ::
   GeospatialPointStyleOptions
@@ -54,12 +59,17 @@ newGeospatialPointStyleOptions =
   GeospatialPointStyleOptions'
     { clusterMarkerConfiguration =
         Prelude.Nothing,
+      heatmapConfiguration = Prelude.Nothing,
       selectedPointStyle = Prelude.Nothing
     }
 
 -- | The cluster marker configuration of the geospatial point style.
 geospatialPointStyleOptions_clusterMarkerConfiguration :: Lens.Lens' GeospatialPointStyleOptions (Prelude.Maybe ClusterMarkerConfiguration)
 geospatialPointStyleOptions_clusterMarkerConfiguration = Lens.lens (\GeospatialPointStyleOptions' {clusterMarkerConfiguration} -> clusterMarkerConfiguration) (\s@GeospatialPointStyleOptions' {} a -> s {clusterMarkerConfiguration = a} :: GeospatialPointStyleOptions)
+
+-- | The heatmap configuration of the geospatial point style.
+geospatialPointStyleOptions_heatmapConfiguration :: Lens.Lens' GeospatialPointStyleOptions (Prelude.Maybe GeospatialHeatmapConfiguration)
+geospatialPointStyleOptions_heatmapConfiguration = Lens.lens (\GeospatialPointStyleOptions' {heatmapConfiguration} -> heatmapConfiguration) (\s@GeospatialPointStyleOptions' {} a -> s {heatmapConfiguration = a} :: GeospatialPointStyleOptions)
 
 -- | The selected point styles (point, cluster) of the geospatial map.
 geospatialPointStyleOptions_selectedPointStyle :: Lens.Lens' GeospatialPointStyleOptions (Prelude.Maybe GeospatialSelectedPointStyle)
@@ -72,6 +82,7 @@ instance Data.FromJSON GeospatialPointStyleOptions where
       ( \x ->
           GeospatialPointStyleOptions'
             Prelude.<$> (x Data..:? "ClusterMarkerConfiguration")
+            Prelude.<*> (x Data..:? "HeatmapConfiguration")
             Prelude.<*> (x Data..:? "SelectedPointStyle")
       )
 
@@ -79,11 +90,13 @@ instance Prelude.Hashable GeospatialPointStyleOptions where
   hashWithSalt _salt GeospatialPointStyleOptions' {..} =
     _salt
       `Prelude.hashWithSalt` clusterMarkerConfiguration
+      `Prelude.hashWithSalt` heatmapConfiguration
       `Prelude.hashWithSalt` selectedPointStyle
 
 instance Prelude.NFData GeospatialPointStyleOptions where
   rnf GeospatialPointStyleOptions' {..} =
     Prelude.rnf clusterMarkerConfiguration
+      `Prelude.seq` Prelude.rnf heatmapConfiguration
       `Prelude.seq` Prelude.rnf selectedPointStyle
 
 instance Data.ToJSON GeospatialPointStyleOptions where
@@ -92,6 +105,8 @@ instance Data.ToJSON GeospatialPointStyleOptions where
       ( Prelude.catMaybes
           [ ("ClusterMarkerConfiguration" Data..=)
               Prelude.<$> clusterMarkerConfiguration,
+            ("HeatmapConfiguration" Data..=)
+              Prelude.<$> heatmapConfiguration,
             ("SelectedPointStyle" Data..=)
               Prelude.<$> selectedPointStyle
           ]

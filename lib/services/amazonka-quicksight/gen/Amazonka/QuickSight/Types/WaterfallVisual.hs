@@ -123,7 +123,8 @@ instance Data.FromJSON WaterfallVisual where
           WaterfallVisual'
             Prelude.<$> (x Data..:? "Actions" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ChartConfiguration")
-            Prelude.<*> ( x Data..:? "ColumnHierarchies"
+            Prelude.<*> ( x
+                            Data..:? "ColumnHierarchies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Subtitle")
@@ -133,7 +134,8 @@ instance Data.FromJSON WaterfallVisual where
 
 instance Prelude.Hashable WaterfallVisual where
   hashWithSalt _salt WaterfallVisual' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` chartConfiguration
       `Prelude.hashWithSalt` columnHierarchies
       `Prelude.hashWithSalt` subtitle

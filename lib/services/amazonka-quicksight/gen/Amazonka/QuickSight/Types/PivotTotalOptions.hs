@@ -128,7 +128,8 @@ instance Data.FromJSON PivotTotalOptions where
 
 instance Prelude.Hashable PivotTotalOptions where
   hashWithSalt _salt PivotTotalOptions' {..} =
-    _salt `Prelude.hashWithSalt` customLabel
+    _salt
+      `Prelude.hashWithSalt` customLabel
       `Prelude.hashWithSalt` metricHeaderCellStyle
       `Prelude.hashWithSalt` placement
       `Prelude.hashWithSalt` scrollStatus

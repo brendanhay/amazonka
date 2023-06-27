@@ -25,11 +25,12 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ExportHiddenFieldsOption
 
--- |
+-- | The visual publish options of a visual in a dashboard
 --
 -- /See:/ 'newDashboardVisualPublishOptions' smart constructor.
 data DashboardVisualPublishOptions = DashboardVisualPublishOptions'
-  { exportHiddenFieldsOption :: Prelude.Maybe ExportHiddenFieldsOption
+  { -- | Determines if hidden fields are included in an exported dashboard.
+    exportHiddenFieldsOption :: Prelude.Maybe ExportHiddenFieldsOption
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -41,7 +42,7 @@ data DashboardVisualPublishOptions = DashboardVisualPublishOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'exportHiddenFieldsOption', 'dashboardVisualPublishOptions_exportHiddenFieldsOption' -
+-- 'exportHiddenFieldsOption', 'dashboardVisualPublishOptions_exportHiddenFieldsOption' - Determines if hidden fields are included in an exported dashboard.
 newDashboardVisualPublishOptions ::
   DashboardVisualPublishOptions
 newDashboardVisualPublishOptions =
@@ -50,9 +51,18 @@ newDashboardVisualPublishOptions =
         Prelude.Nothing
     }
 
--- |
+-- | Determines if hidden fields are included in an exported dashboard.
 dashboardVisualPublishOptions_exportHiddenFieldsOption :: Lens.Lens' DashboardVisualPublishOptions (Prelude.Maybe ExportHiddenFieldsOption)
 dashboardVisualPublishOptions_exportHiddenFieldsOption = Lens.lens (\DashboardVisualPublishOptions' {exportHiddenFieldsOption} -> exportHiddenFieldsOption) (\s@DashboardVisualPublishOptions' {} a -> s {exportHiddenFieldsOption = a} :: DashboardVisualPublishOptions)
+
+instance Data.FromJSON DashboardVisualPublishOptions where
+  parseJSON =
+    Data.withObject
+      "DashboardVisualPublishOptions"
+      ( \x ->
+          DashboardVisualPublishOptions'
+            Prelude.<$> (x Data..:? "ExportHiddenFieldsOption")
+      )
 
 instance
   Prelude.Hashable

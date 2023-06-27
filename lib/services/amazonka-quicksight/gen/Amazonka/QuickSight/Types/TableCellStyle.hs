@@ -143,7 +143,8 @@ instance Data.FromJSON TableCellStyle where
 
 instance Prelude.Hashable TableCellStyle where
   hashWithSalt _salt TableCellStyle' {..} =
-    _salt `Prelude.hashWithSalt` backgroundColor
+    _salt
+      `Prelude.hashWithSalt` backgroundColor
       `Prelude.hashWithSalt` border
       `Prelude.hashWithSalt` fontConfiguration
       `Prelude.hashWithSalt` height

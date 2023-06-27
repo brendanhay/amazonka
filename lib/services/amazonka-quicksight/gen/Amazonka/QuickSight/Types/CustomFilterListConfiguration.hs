@@ -137,7 +137,8 @@ instance
     CustomFilterListConfiguration
   where
   hashWithSalt _salt CustomFilterListConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` categoryValues
+    _salt
+      `Prelude.hashWithSalt` categoryValues
       `Prelude.hashWithSalt` selectAllOptions
       `Prelude.hashWithSalt` matchOperator
       `Prelude.hashWithSalt` nullOption

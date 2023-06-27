@@ -108,7 +108,8 @@ instance Data.FromJSON VisualCustomActionOperation where
 
 instance Prelude.Hashable VisualCustomActionOperation where
   hashWithSalt _salt VisualCustomActionOperation' {..} =
-    _salt `Prelude.hashWithSalt` filterOperation
+    _salt
+      `Prelude.hashWithSalt` filterOperation
       `Prelude.hashWithSalt` navigationOperation
       `Prelude.hashWithSalt` setParametersOperation
       `Prelude.hashWithSalt` uRLOperation

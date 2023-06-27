@@ -29,7 +29,14 @@ import Amazonka.QuickSight.Types.ManifestFileLocation
 --
 -- /See:/ 'newS3Parameters' smart constructor.
 data S3Parameters = S3Parameters'
-  { -- | Location of the Amazon S3 manifest file. This is NULL if the manifest
+  { -- | Use the @RoleArn@ structure to override an account-wide role for a
+    -- specific S3 data source. For example, say an account administrator has
+    -- turned off all S3 access with an account-wide role. The administrator
+    -- can then use @RoleArn@ to bypass the account-wide role and allow S3
+    -- access for the single S3 data source that is specified in the structure,
+    -- even if the account-wide role forbidding S3 access is still active.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | Location of the Amazon S3 manifest file. This is NULL if the manifest
     -- file was uploaded into Amazon QuickSight.
     manifestFileLocation :: ManifestFileLocation
   }
@@ -43,6 +50,13 @@ data S3Parameters = S3Parameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'roleArn', 's3Parameters_roleArn' - Use the @RoleArn@ structure to override an account-wide role for a
+-- specific S3 data source. For example, say an account administrator has
+-- turned off all S3 access with an account-wide role. The administrator
+-- can then use @RoleArn@ to bypass the account-wide role and allow S3
+-- access for the single S3 data source that is specified in the structure,
+-- even if the account-wide role forbidding S3 access is still active.
+--
 -- 'manifestFileLocation', 's3Parameters_manifestFileLocation' - Location of the Amazon S3 manifest file. This is NULL if the manifest
 -- file was uploaded into Amazon QuickSight.
 newS3Parameters ::
@@ -51,9 +65,18 @@ newS3Parameters ::
   S3Parameters
 newS3Parameters pManifestFileLocation_ =
   S3Parameters'
-    { manifestFileLocation =
-        pManifestFileLocation_
+    { roleArn = Prelude.Nothing,
+      manifestFileLocation = pManifestFileLocation_
     }
+
+-- | Use the @RoleArn@ structure to override an account-wide role for a
+-- specific S3 data source. For example, say an account administrator has
+-- turned off all S3 access with an account-wide role. The administrator
+-- can then use @RoleArn@ to bypass the account-wide role and allow S3
+-- access for the single S3 data source that is specified in the structure,
+-- even if the account-wide role forbidding S3 access is still active.
+s3Parameters_roleArn :: Lens.Lens' S3Parameters (Prelude.Maybe Prelude.Text)
+s3Parameters_roleArn = Lens.lens (\S3Parameters' {roleArn} -> roleArn) (\s@S3Parameters' {} a -> s {roleArn = a} :: S3Parameters)
 
 -- | Location of the Amazon S3 manifest file. This is NULL if the manifest
 -- file was uploaded into Amazon QuickSight.
@@ -66,22 +89,27 @@ instance Data.FromJSON S3Parameters where
       "S3Parameters"
       ( \x ->
           S3Parameters'
-            Prelude.<$> (x Data..: "ManifestFileLocation")
+            Prelude.<$> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..: "ManifestFileLocation")
       )
 
 instance Prelude.Hashable S3Parameters where
   hashWithSalt _salt S3Parameters' {..} =
-    _salt `Prelude.hashWithSalt` manifestFileLocation
+    _salt
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` manifestFileLocation
 
 instance Prelude.NFData S3Parameters where
   rnf S3Parameters' {..} =
-    Prelude.rnf manifestFileLocation
+    Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf manifestFileLocation
 
 instance Data.ToJSON S3Parameters where
   toJSON S3Parameters' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("RoleArn" Data..=) Prelude.<$> roleArn,
+            Prelude.Just
               ( "ManifestFileLocation"
                   Data..= manifestFileLocation
               )

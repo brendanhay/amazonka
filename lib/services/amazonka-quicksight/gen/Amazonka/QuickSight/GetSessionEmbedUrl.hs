@@ -27,7 +27,10 @@
 -- The users who access an embedded Amazon QuickSight console need belong
 -- to the author or admin security cohort. If you want to restrict
 -- permissions to some of these features, add a custom permissions profile
--- to the user with the @ UpdateUser @ API operation. Use @ RegisterUser @
+-- to the user with the
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html UpdateUser>@ @
+-- API operation. Use
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html RegisterUser>@ @
 -- API operation to add a new user with a custom permission profile
 -- attached. For more information, see the following sections in the
 -- /Amazon QuickSight User Guide/:
@@ -78,11 +81,12 @@ data GetSessionEmbedUrl = GetSessionEmbedUrl'
     --
     -- -   @\/start\/favorites@
     --
-    -- -   @\/dashboards\/DashboardId @ - where @DashboardId@ is the actual ID
-    --     key from the Amazon QuickSight console URL of the dashboard
+    -- -   @\/dashboards\/@/@DashboardId@/@ @ - where @DashboardId@ is the
+    --     actual ID key from the Amazon QuickSight console URL of the
+    --     dashboard
     --
-    -- -   @\/analyses\/AnalysisId @ - where @AnalysisId@ is the actual ID key
-    --     from the Amazon QuickSight console URL of the analysis
+    -- -   @\/analyses\/@/@AnalysisId@/@ @ - where @AnalysisId@ is the actual
+    --     ID key from the Amazon QuickSight console URL of the analysis
     entryPoint :: Prelude.Maybe Prelude.Text,
     -- | How many minutes the session is valid. The session lifetime must be
     -- 15-600 minutes.
@@ -96,9 +100,9 @@ data GetSessionEmbedUrl = GetSessionEmbedUrl'
     --
     -- 2.  Invited nonfederated users
     --
-    -- 3.  Identity and Access Management (IAM) users and IAM role-based
-    --     sessions authenticated through Federated Single Sign-On using SAML,
-    --     OpenID Connect, or IAM federation
+    -- 3.  IAM users and IAM role-based sessions authenticated through
+    --     Federated Single Sign-On using SAML, OpenID Connect, or IAM
+    --     federation
     --
     -- Omit this parameter for users in the third group, IAM users and IAM
     -- role-based sessions.
@@ -128,11 +132,12 @@ data GetSessionEmbedUrl = GetSessionEmbedUrl'
 --
 -- -   @\/start\/favorites@
 --
--- -   @\/dashboards\/DashboardId @ - where @DashboardId@ is the actual ID
---     key from the Amazon QuickSight console URL of the dashboard
+-- -   @\/dashboards\/@/@DashboardId@/@ @ - where @DashboardId@ is the
+--     actual ID key from the Amazon QuickSight console URL of the
+--     dashboard
 --
--- -   @\/analyses\/AnalysisId @ - where @AnalysisId@ is the actual ID key
---     from the Amazon QuickSight console URL of the analysis
+-- -   @\/analyses\/@/@AnalysisId@/@ @ - where @AnalysisId@ is the actual
+--     ID key from the Amazon QuickSight console URL of the analysis
 --
 -- 'sessionLifetimeInMinutes', 'getSessionEmbedUrl_sessionLifetimeInMinutes' - How many minutes the session is valid. The session lifetime must be
 -- 15-600 minutes.
@@ -146,9 +151,9 @@ data GetSessionEmbedUrl = GetSessionEmbedUrl'
 --
 -- 2.  Invited nonfederated users
 --
--- 3.  Identity and Access Management (IAM) users and IAM role-based
---     sessions authenticated through Federated Single Sign-On using SAML,
---     OpenID Connect, or IAM federation
+-- 3.  IAM users and IAM role-based sessions authenticated through
+--     Federated Single Sign-On using SAML, OpenID Connect, or IAM
+--     federation
 --
 -- Omit this parameter for users in the third group, IAM users and IAM
 -- role-based sessions.
@@ -178,11 +183,12 @@ newGetSessionEmbedUrl pAwsAccountId_ =
 --
 -- -   @\/start\/favorites@
 --
--- -   @\/dashboards\/DashboardId @ - where @DashboardId@ is the actual ID
---     key from the Amazon QuickSight console URL of the dashboard
+-- -   @\/dashboards\/@/@DashboardId@/@ @ - where @DashboardId@ is the
+--     actual ID key from the Amazon QuickSight console URL of the
+--     dashboard
 --
--- -   @\/analyses\/AnalysisId @ - where @AnalysisId@ is the actual ID key
---     from the Amazon QuickSight console URL of the analysis
+-- -   @\/analyses\/@/@AnalysisId@/@ @ - where @AnalysisId@ is the actual
+--     ID key from the Amazon QuickSight console URL of the analysis
 getSessionEmbedUrl_entryPoint :: Lens.Lens' GetSessionEmbedUrl (Prelude.Maybe Prelude.Text)
 getSessionEmbedUrl_entryPoint = Lens.lens (\GetSessionEmbedUrl' {entryPoint} -> entryPoint) (\s@GetSessionEmbedUrl' {} a -> s {entryPoint = a} :: GetSessionEmbedUrl)
 
@@ -200,9 +206,9 @@ getSessionEmbedUrl_sessionLifetimeInMinutes = Lens.lens (\GetSessionEmbedUrl' {s
 --
 -- 2.  Invited nonfederated users
 --
--- 3.  Identity and Access Management (IAM) users and IAM role-based
---     sessions authenticated through Federated Single Sign-On using SAML,
---     OpenID Connect, or IAM federation
+-- 3.  IAM users and IAM role-based sessions authenticated through
+--     Federated Single Sign-On using SAML, OpenID Connect, or IAM
+--     federation
 --
 -- Omit this parameter for users in the third group, IAM users and IAM
 -- role-based sessions.
@@ -231,7 +237,8 @@ instance Core.AWSRequest GetSessionEmbedUrl where
 
 instance Prelude.Hashable GetSessionEmbedUrl where
   hashWithSalt _salt GetSessionEmbedUrl' {..} =
-    _salt `Prelude.hashWithSalt` entryPoint
+    _salt
+      `Prelude.hashWithSalt` entryPoint
       `Prelude.hashWithSalt` sessionLifetimeInMinutes
       `Prelude.hashWithSalt` userArn
       `Prelude.hashWithSalt` awsAccountId

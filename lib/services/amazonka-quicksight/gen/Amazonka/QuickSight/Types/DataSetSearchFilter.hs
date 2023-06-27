@@ -222,7 +222,8 @@ dataSetSearchFilter_value = Lens.lens (\DataSetSearchFilter' {value} -> value) (
 
 instance Prelude.Hashable DataSetSearchFilter where
   hashWithSalt _salt DataSetSearchFilter' {..} =
-    _salt `Prelude.hashWithSalt` operator
+    _salt
+      `Prelude.hashWithSalt` operator
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 

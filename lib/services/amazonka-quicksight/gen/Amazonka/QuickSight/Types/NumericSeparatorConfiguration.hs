@@ -80,7 +80,8 @@ instance
     NumericSeparatorConfiguration
   where
   hashWithSalt _salt NumericSeparatorConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` decimalSeparator
+    _salt
+      `Prelude.hashWithSalt` decimalSeparator
       `Prelude.hashWithSalt` thousandsSeparator
 
 instance Prelude.NFData NumericSeparatorConfiguration where

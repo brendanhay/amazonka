@@ -85,7 +85,8 @@ instance Data.FromJSON TagColumnOperation where
 
 instance Prelude.Hashable TagColumnOperation where
   hashWithSalt _salt TagColumnOperation' {..} =
-    _salt `Prelude.hashWithSalt` columnName
+    _salt
+      `Prelude.hashWithSalt` columnName
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagColumnOperation where

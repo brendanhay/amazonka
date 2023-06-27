@@ -108,7 +108,8 @@ instance Data.FromJSON TimeRangeDrillDownFilter where
 
 instance Prelude.Hashable TimeRangeDrillDownFilter where
   hashWithSalt _salt TimeRangeDrillDownFilter' {..} =
-    _salt `Prelude.hashWithSalt` column
+    _salt
+      `Prelude.hashWithSalt` column
       `Prelude.hashWithSalt` rangeMinimum
       `Prelude.hashWithSalt` rangeMaximum
       `Prelude.hashWithSalt` timeGranularity

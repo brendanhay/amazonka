@@ -82,7 +82,8 @@ instance Data.FromJSON QueueInfo where
 
 instance Prelude.Hashable QueueInfo where
   hashWithSalt _salt QueueInfo' {..} =
-    _salt `Prelude.hashWithSalt` waitingOnIngestion
+    _salt
+      `Prelude.hashWithSalt` waitingOnIngestion
       `Prelude.hashWithSalt` queuedIngestion
 
 instance Prelude.NFData QueueInfo where

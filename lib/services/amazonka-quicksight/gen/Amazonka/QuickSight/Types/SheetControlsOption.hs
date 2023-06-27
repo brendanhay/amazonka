@@ -55,6 +55,15 @@ newSheetControlsOption =
 sheetControlsOption_visibilityState :: Lens.Lens' SheetControlsOption (Prelude.Maybe DashboardUIState)
 sheetControlsOption_visibilityState = Lens.lens (\SheetControlsOption' {visibilityState} -> visibilityState) (\s@SheetControlsOption' {} a -> s {visibilityState = a} :: SheetControlsOption)
 
+instance Data.FromJSON SheetControlsOption where
+  parseJSON =
+    Data.withObject
+      "SheetControlsOption"
+      ( \x ->
+          SheetControlsOption'
+            Prelude.<$> (x Data..:? "VisibilityState")
+      )
+
 instance Prelude.Hashable SheetControlsOption where
   hashWithSalt _salt SheetControlsOption' {..} =
     _salt `Prelude.hashWithSalt` visibilityState

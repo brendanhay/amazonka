@@ -111,7 +111,8 @@ instance Data.FromJSON SmallMultiplesOptions where
 
 instance Prelude.Hashable SmallMultiplesOptions where
   hashWithSalt _salt SmallMultiplesOptions' {..} =
-    _salt `Prelude.hashWithSalt` maxVisibleColumns
+    _salt
+      `Prelude.hashWithSalt` maxVisibleColumns
       `Prelude.hashWithSalt` maxVisibleRows
       `Prelude.hashWithSalt` panelConfiguration
 

@@ -152,7 +152,8 @@ instance Data.FromJSON DataSetSummary where
 
 instance Prelude.Hashable DataSetSummary where
   hashWithSalt _salt DataSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` columnLevelPermissionRulesApplied
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` dataSetId

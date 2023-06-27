@@ -61,7 +61,8 @@ instance Data.FromJSON KPISortConfiguration where
       "KPISortConfiguration"
       ( \x ->
           KPISortConfiguration'
-            Prelude.<$> ( x Data..:? "TrendGroupSort"
+            Prelude.<$> ( x
+                            Data..:? "TrendGroupSort"
                             Data..!= Prelude.mempty
                         )
       )

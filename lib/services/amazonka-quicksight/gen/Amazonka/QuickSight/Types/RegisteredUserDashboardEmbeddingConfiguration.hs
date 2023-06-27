@@ -23,12 +23,15 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.QuickSight.Types.RegisteredUserDashboardFeatureConfigurations
 
 -- | Information about the dashboard you want to embed.
 --
 -- /See:/ 'newRegisteredUserDashboardEmbeddingConfiguration' smart constructor.
 data RegisteredUserDashboardEmbeddingConfiguration = RegisteredUserDashboardEmbeddingConfiguration'
-  { -- | The dashboard ID for the dashboard that you want the user to see first.
+  { -- | The feature configurations of an embbedded Amazon QuickSight dashboard.
+    featureConfigurations :: Prelude.Maybe RegisteredUserDashboardFeatureConfigurations,
+    -- | The dashboard ID for the dashboard that you want the user to see first.
     -- This ID is included in the output URL. When the URL in response is
     -- accessed, Amazon QuickSight renders this dashboard if the user has
     -- permissions to view it.
@@ -47,6 +50,8 @@ data RegisteredUserDashboardEmbeddingConfiguration = RegisteredUserDashboardEmbe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'featureConfigurations', 'registeredUserDashboardEmbeddingConfiguration_featureConfigurations' - The feature configurations of an embbedded Amazon QuickSight dashboard.
+--
 -- 'initialDashboardId', 'registeredUserDashboardEmbeddingConfiguration_initialDashboardId' - The dashboard ID for the dashboard that you want the user to see first.
 -- This ID is included in the output URL. When the URL in response is
 -- accessed, Amazon QuickSight renders this dashboard if the user has
@@ -61,9 +66,15 @@ newRegisteredUserDashboardEmbeddingConfiguration ::
 newRegisteredUserDashboardEmbeddingConfiguration
   pInitialDashboardId_ =
     RegisteredUserDashboardEmbeddingConfiguration'
-      { initialDashboardId =
+      { featureConfigurations =
+          Prelude.Nothing,
+        initialDashboardId =
           pInitialDashboardId_
       }
+
+-- | The feature configurations of an embbedded Amazon QuickSight dashboard.
+registeredUserDashboardEmbeddingConfiguration_featureConfigurations :: Lens.Lens' RegisteredUserDashboardEmbeddingConfiguration (Prelude.Maybe RegisteredUserDashboardFeatureConfigurations)
+registeredUserDashboardEmbeddingConfiguration_featureConfigurations = Lens.lens (\RegisteredUserDashboardEmbeddingConfiguration' {featureConfigurations} -> featureConfigurations) (\s@RegisteredUserDashboardEmbeddingConfiguration' {} a -> s {featureConfigurations = a} :: RegisteredUserDashboardEmbeddingConfiguration)
 
 -- | The dashboard ID for the dashboard that you want the user to see first.
 -- This ID is included in the output URL. When the URL in response is
@@ -82,7 +93,9 @@ instance
   hashWithSalt
     _salt
     RegisteredUserDashboardEmbeddingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` initialDashboardId
+      _salt
+        `Prelude.hashWithSalt` featureConfigurations
+        `Prelude.hashWithSalt` initialDashboardId
 
 instance
   Prelude.NFData
@@ -90,7 +103,8 @@ instance
   where
   rnf
     RegisteredUserDashboardEmbeddingConfiguration' {..} =
-      Prelude.rnf initialDashboardId
+      Prelude.rnf featureConfigurations
+        `Prelude.seq` Prelude.rnf initialDashboardId
 
 instance
   Data.ToJSON
@@ -100,7 +114,9 @@ instance
     RegisteredUserDashboardEmbeddingConfiguration' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ Prelude.Just
+            [ ("FeatureConfigurations" Data..=)
+                Prelude.<$> featureConfigurations,
+              Prelude.Just
                 ("InitialDashboardId" Data..= initialDashboardId)
             ]
         )

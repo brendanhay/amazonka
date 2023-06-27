@@ -80,7 +80,8 @@ instance
     DropDownControlDisplayOptions
   where
   hashWithSalt _salt DropDownControlDisplayOptions' {..} =
-    _salt `Prelude.hashWithSalt` selectAllOptions
+    _salt
+      `Prelude.hashWithSalt` selectAllOptions
       `Prelude.hashWithSalt` titleOptions
 
 instance Prelude.NFData DropDownControlDisplayOptions where

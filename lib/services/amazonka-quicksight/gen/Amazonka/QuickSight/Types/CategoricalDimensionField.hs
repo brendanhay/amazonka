@@ -101,7 +101,8 @@ instance Data.FromJSON CategoricalDimensionField where
 
 instance Prelude.Hashable CategoricalDimensionField where
   hashWithSalt _salt CategoricalDimensionField' {..} =
-    _salt `Prelude.hashWithSalt` formatConfiguration
+    _salt
+      `Prelude.hashWithSalt` formatConfiguration
       `Prelude.hashWithSalt` hierarchyId
       `Prelude.hashWithSalt` fieldId
       `Prelude.hashWithSalt` column

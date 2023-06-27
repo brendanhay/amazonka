@@ -24,13 +24,16 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.PivotTableDataPathOption
+import Amazonka.QuickSight.Types.PivotTableFieldCollapseStateOption
 import Amazonka.QuickSight.Types.PivotTableFieldOption
 
 -- | The field options for a pivot table visual.
 --
 -- /See:/ 'newPivotTableFieldOptions' smart constructor.
 data PivotTableFieldOptions = PivotTableFieldOptions'
-  { -- | The data path options for the pivot table field options.
+  { -- | The collapse state options for the pivot table field options.
+    collapseStateOptions :: Prelude.Maybe [PivotTableFieldCollapseStateOption],
+    -- | The data path options for the pivot table field options.
     dataPathOptions :: Prelude.Maybe [PivotTableDataPathOption],
     -- | The selected field options for the pivot table field options.
     selectedFieldOptions :: Prelude.Maybe [PivotTableFieldOption]
@@ -45,6 +48,8 @@ data PivotTableFieldOptions = PivotTableFieldOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'collapseStateOptions', 'pivotTableFieldOptions_collapseStateOptions' - The collapse state options for the pivot table field options.
+--
 -- 'dataPathOptions', 'pivotTableFieldOptions_dataPathOptions' - The data path options for the pivot table field options.
 --
 -- 'selectedFieldOptions', 'pivotTableFieldOptions_selectedFieldOptions' - The selected field options for the pivot table field options.
@@ -52,10 +57,15 @@ newPivotTableFieldOptions ::
   PivotTableFieldOptions
 newPivotTableFieldOptions =
   PivotTableFieldOptions'
-    { dataPathOptions =
+    { collapseStateOptions =
         Prelude.Nothing,
+      dataPathOptions = Prelude.Nothing,
       selectedFieldOptions = Prelude.Nothing
     }
+
+-- | The collapse state options for the pivot table field options.
+pivotTableFieldOptions_collapseStateOptions :: Lens.Lens' PivotTableFieldOptions (Prelude.Maybe [PivotTableFieldCollapseStateOption])
+pivotTableFieldOptions_collapseStateOptions = Lens.lens (\PivotTableFieldOptions' {collapseStateOptions} -> collapseStateOptions) (\s@PivotTableFieldOptions' {} a -> s {collapseStateOptions = a} :: PivotTableFieldOptions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The data path options for the pivot table field options.
 pivotTableFieldOptions_dataPathOptions :: Lens.Lens' PivotTableFieldOptions (Prelude.Maybe [PivotTableDataPathOption])
@@ -71,29 +81,40 @@ instance Data.FromJSON PivotTableFieldOptions where
       "PivotTableFieldOptions"
       ( \x ->
           PivotTableFieldOptions'
-            Prelude.<$> ( x Data..:? "DataPathOptions"
+            Prelude.<$> ( x
+                            Data..:? "CollapseStateOptions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "SelectedFieldOptions"
+            Prelude.<*> ( x
+                            Data..:? "DataPathOptions"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "SelectedFieldOptions"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable PivotTableFieldOptions where
   hashWithSalt _salt PivotTableFieldOptions' {..} =
-    _salt `Prelude.hashWithSalt` dataPathOptions
+    _salt
+      `Prelude.hashWithSalt` collapseStateOptions
+      `Prelude.hashWithSalt` dataPathOptions
       `Prelude.hashWithSalt` selectedFieldOptions
 
 instance Prelude.NFData PivotTableFieldOptions where
   rnf PivotTableFieldOptions' {..} =
-    Prelude.rnf dataPathOptions
+    Prelude.rnf collapseStateOptions
+      `Prelude.seq` Prelude.rnf dataPathOptions
       `Prelude.seq` Prelude.rnf selectedFieldOptions
 
 instance Data.ToJSON PivotTableFieldOptions where
   toJSON PivotTableFieldOptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("DataPathOptions" Data..=)
+          [ ("CollapseStateOptions" Data..=)
+              Prelude.<$> collapseStateOptions,
+            ("DataPathOptions" Data..=)
               Prelude.<$> dataPathOptions,
             ("SelectedFieldOptions" Data..=)
               Prelude.<$> selectedFieldOptions

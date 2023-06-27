@@ -100,7 +100,8 @@ instance
   hashWithSalt
     _salt
     DateTimeValueWhenUnsetConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` customValue
+      _salt
+        `Prelude.hashWithSalt` customValue
         `Prelude.hashWithSalt` valueWhenUnsetOption
 
 instance

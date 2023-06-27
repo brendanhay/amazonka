@@ -100,7 +100,8 @@ instance
   hashWithSalt
     _salt
     ReferenceLineValueLabelConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` formatConfiguration
+      _salt
+        `Prelude.hashWithSalt` formatConfiguration
         `Prelude.hashWithSalt` relativePosition
 
 instance

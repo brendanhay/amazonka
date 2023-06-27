@@ -23,12 +23,15 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.QuickSight.Types.RegisteredUserConsoleFeatureConfigurations
 
 -- | Information about the Amazon QuickSight console that you want to embed.
 --
 -- /See:/ 'newRegisteredUserQuickSightConsoleEmbeddingConfiguration' smart constructor.
 data RegisteredUserQuickSightConsoleEmbeddingConfiguration = RegisteredUserQuickSightConsoleEmbeddingConfiguration'
-  { -- | The initial URL path for the Amazon QuickSight console. @InitialPath@ is
+  { -- | The embedding configuration of an embedded Amazon QuickSight console.
+    featureConfigurations :: Prelude.Maybe RegisteredUserConsoleFeatureConfigurations,
+    -- | The initial URL path for the Amazon QuickSight console. @InitialPath@ is
     -- required.
     --
     -- The entry point URL is constrained to the following paths:
@@ -58,6 +61,8 @@ data RegisteredUserQuickSightConsoleEmbeddingConfiguration = RegisteredUserQuick
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'featureConfigurations', 'registeredUserQuickSightConsoleEmbeddingConfiguration_featureConfigurations' - The embedding configuration of an embedded Amazon QuickSight console.
+--
 -- 'initialPath', 'registeredUserQuickSightConsoleEmbeddingConfiguration_initialPath' - The initial URL path for the Amazon QuickSight console. @InitialPath@ is
 -- required.
 --
@@ -80,9 +85,15 @@ newRegisteredUserQuickSightConsoleEmbeddingConfiguration ::
   RegisteredUserQuickSightConsoleEmbeddingConfiguration
 newRegisteredUserQuickSightConsoleEmbeddingConfiguration =
   RegisteredUserQuickSightConsoleEmbeddingConfiguration'
-    { initialPath =
+    { featureConfigurations =
+        Prelude.Nothing,
+      initialPath =
         Prelude.Nothing
     }
+
+-- | The embedding configuration of an embedded Amazon QuickSight console.
+registeredUserQuickSightConsoleEmbeddingConfiguration_featureConfigurations :: Lens.Lens' RegisteredUserQuickSightConsoleEmbeddingConfiguration (Prelude.Maybe RegisteredUserConsoleFeatureConfigurations)
+registeredUserQuickSightConsoleEmbeddingConfiguration_featureConfigurations = Lens.lens (\RegisteredUserQuickSightConsoleEmbeddingConfiguration' {featureConfigurations} -> featureConfigurations) (\s@RegisteredUserQuickSightConsoleEmbeddingConfiguration' {} a -> s {featureConfigurations = a} :: RegisteredUserQuickSightConsoleEmbeddingConfiguration)
 
 -- | The initial URL path for the Amazon QuickSight console. @InitialPath@ is
 -- required.
@@ -112,7 +123,9 @@ instance
   hashWithSalt
     _salt
     RegisteredUserQuickSightConsoleEmbeddingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` initialPath
+      _salt
+        `Prelude.hashWithSalt` featureConfigurations
+        `Prelude.hashWithSalt` initialPath
 
 instance
   Prelude.NFData
@@ -120,7 +133,8 @@ instance
   where
   rnf
     RegisteredUserQuickSightConsoleEmbeddingConfiguration' {..} =
-      Prelude.rnf initialPath
+      Prelude.rnf featureConfigurations
+        `Prelude.seq` Prelude.rnf initialPath
 
 instance
   Data.ToJSON
@@ -130,5 +144,8 @@ instance
     RegisteredUserQuickSightConsoleEmbeddingConfiguration' {..} =
       Data.object
         ( Prelude.catMaybes
-            [("InitialPath" Data..=) Prelude.<$> initialPath]
+            [ ("FeatureConfigurations" Data..=)
+                Prelude.<$> featureConfigurations,
+              ("InitialPath" Data..=) Prelude.<$> initialPath
+            ]
         )

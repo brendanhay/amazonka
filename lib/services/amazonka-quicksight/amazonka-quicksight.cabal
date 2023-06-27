@@ -58,15 +58,20 @@ library
     Amazonka.QuickSight.CreateIAMPolicyAssignment
     Amazonka.QuickSight.CreateIngestion
     Amazonka.QuickSight.CreateNamespace
+    Amazonka.QuickSight.CreateRefreshSchedule
     Amazonka.QuickSight.CreateTemplate
     Amazonka.QuickSight.CreateTemplateAlias
     Amazonka.QuickSight.CreateTheme
     Amazonka.QuickSight.CreateThemeAlias
+    Amazonka.QuickSight.CreateTopic
+    Amazonka.QuickSight.CreateTopicRefreshSchedule
+    Amazonka.QuickSight.CreateVPCConnection
     Amazonka.QuickSight.DeleteAccountCustomization
     Amazonka.QuickSight.DeleteAccountSubscription
     Amazonka.QuickSight.DeleteAnalysis
     Amazonka.QuickSight.DeleteDashboard
     Amazonka.QuickSight.DeleteDataSet
+    Amazonka.QuickSight.DeleteDataSetRefreshProperties
     Amazonka.QuickSight.DeleteDataSource
     Amazonka.QuickSight.DeleteFolder
     Amazonka.QuickSight.DeleteFolderMembership
@@ -74,23 +79,30 @@ library
     Amazonka.QuickSight.DeleteGroupMembership
     Amazonka.QuickSight.DeleteIAMPolicyAssignment
     Amazonka.QuickSight.DeleteNamespace
+    Amazonka.QuickSight.DeleteRefreshSchedule
     Amazonka.QuickSight.DeleteTemplate
     Amazonka.QuickSight.DeleteTemplateAlias
     Amazonka.QuickSight.DeleteTheme
     Amazonka.QuickSight.DeleteThemeAlias
+    Amazonka.QuickSight.DeleteTopic
+    Amazonka.QuickSight.DeleteTopicRefreshSchedule
     Amazonka.QuickSight.DeleteUser
     Amazonka.QuickSight.DeleteUserByPrincipalId
+    Amazonka.QuickSight.DeleteVPCConnection
     Amazonka.QuickSight.DescribeAccountCustomization
     Amazonka.QuickSight.DescribeAccountSettings
     Amazonka.QuickSight.DescribeAccountSubscription
     Amazonka.QuickSight.DescribeAnalysis
     Amazonka.QuickSight.DescribeAnalysisDefinition
     Amazonka.QuickSight.DescribeAnalysisPermissions
+    Amazonka.QuickSight.DescribeAssetBundleExportJob
+    Amazonka.QuickSight.DescribeAssetBundleImportJob
     Amazonka.QuickSight.DescribeDashboard
     Amazonka.QuickSight.DescribeDashboardDefinition
     Amazonka.QuickSight.DescribeDashboardPermissions
     Amazonka.QuickSight.DescribeDataSet
     Amazonka.QuickSight.DescribeDataSetPermissions
+    Amazonka.QuickSight.DescribeDataSetRefreshProperties
     Amazonka.QuickSight.DescribeDataSource
     Amazonka.QuickSight.DescribeDataSourcePermissions
     Amazonka.QuickSight.DescribeFolder
@@ -102,6 +114,7 @@ library
     Amazonka.QuickSight.DescribeIngestion
     Amazonka.QuickSight.DescribeIpRestriction
     Amazonka.QuickSight.DescribeNamespace
+    Amazonka.QuickSight.DescribeRefreshSchedule
     Amazonka.QuickSight.DescribeTemplate
     Amazonka.QuickSight.DescribeTemplateAlias
     Amazonka.QuickSight.DescribeTemplateDefinition
@@ -109,13 +122,20 @@ library
     Amazonka.QuickSight.DescribeTheme
     Amazonka.QuickSight.DescribeThemeAlias
     Amazonka.QuickSight.DescribeThemePermissions
+    Amazonka.QuickSight.DescribeTopic
+    Amazonka.QuickSight.DescribeTopicPermissions
+    Amazonka.QuickSight.DescribeTopicRefresh
+    Amazonka.QuickSight.DescribeTopicRefreshSchedule
     Amazonka.QuickSight.DescribeUser
+    Amazonka.QuickSight.DescribeVPCConnection
     Amazonka.QuickSight.GenerateEmbedUrlForAnonymousUser
     Amazonka.QuickSight.GenerateEmbedUrlForRegisteredUser
     Amazonka.QuickSight.GetDashboardEmbedUrl
     Amazonka.QuickSight.GetSessionEmbedUrl
     Amazonka.QuickSight.Lens
     Amazonka.QuickSight.ListAnalyses
+    Amazonka.QuickSight.ListAssetBundleExportJobs
+    Amazonka.QuickSight.ListAssetBundleImportJobs
     Amazonka.QuickSight.ListDashboards
     Amazonka.QuickSight.ListDashboardVersions
     Amazonka.QuickSight.ListDataSets
@@ -128,6 +148,7 @@ library
     Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser
     Amazonka.QuickSight.ListIngestions
     Amazonka.QuickSight.ListNamespaces
+    Amazonka.QuickSight.ListRefreshSchedules
     Amazonka.QuickSight.ListTagsForResource
     Amazonka.QuickSight.ListTemplateAliases
     Amazonka.QuickSight.ListTemplates
@@ -135,8 +156,12 @@ library
     Amazonka.QuickSight.ListThemeAliases
     Amazonka.QuickSight.ListThemes
     Amazonka.QuickSight.ListThemeVersions
+    Amazonka.QuickSight.ListTopicRefreshSchedules
+    Amazonka.QuickSight.ListTopics
     Amazonka.QuickSight.ListUserGroups
     Amazonka.QuickSight.ListUsers
+    Amazonka.QuickSight.ListVPCConnections
+    Amazonka.QuickSight.PutDataSetRefreshProperties
     Amazonka.QuickSight.RegisterUser
     Amazonka.QuickSight.RestoreAnalysis
     Amazonka.QuickSight.SearchAnalyses
@@ -145,6 +170,8 @@ library
     Amazonka.QuickSight.SearchDataSources
     Amazonka.QuickSight.SearchFolders
     Amazonka.QuickSight.SearchGroups
+    Amazonka.QuickSight.StartAssetBundleExportJob
+    Amazonka.QuickSight.StartAssetBundleImportJob
     Amazonka.QuickSight.TagResource
     Amazonka.QuickSight.Types
     Amazonka.QuickSight.Types.AccountCustomization
@@ -178,11 +205,49 @@ library
     Amazonka.QuickSight.Types.ArcOptions
     Amazonka.QuickSight.Types.ArcThickness
     Amazonka.QuickSight.Types.ArcThicknessOptions
+    Amazonka.QuickSight.Types.AssetBundleCloudFormationOverridePropertyConfiguration
+    Amazonka.QuickSight.Types.AssetBundleExportFormat
+    Amazonka.QuickSight.Types.AssetBundleExportJobAnalysisOverrideProperties
+    Amazonka.QuickSight.Types.AssetBundleExportJobAnalysisPropertyToOverride
+    Amazonka.QuickSight.Types.AssetBundleExportJobDashboardOverrideProperties
+    Amazonka.QuickSight.Types.AssetBundleExportJobDashboardPropertyToOverride
+    Amazonka.QuickSight.Types.AssetBundleExportJobDataSetOverrideProperties
+    Amazonka.QuickSight.Types.AssetBundleExportJobDataSetPropertyToOverride
+    Amazonka.QuickSight.Types.AssetBundleExportJobDataSourceOverrideProperties
+    Amazonka.QuickSight.Types.AssetBundleExportJobDataSourcePropertyToOverride
+    Amazonka.QuickSight.Types.AssetBundleExportJobError
+    Amazonka.QuickSight.Types.AssetBundleExportJobRefreshScheduleOverrideProperties
+    Amazonka.QuickSight.Types.AssetBundleExportJobRefreshSchedulePropertyToOverride
+    Amazonka.QuickSight.Types.AssetBundleExportJobResourceIdOverrideConfiguration
+    Amazonka.QuickSight.Types.AssetBundleExportJobStatus
+    Amazonka.QuickSight.Types.AssetBundleExportJobSummary
+    Amazonka.QuickSight.Types.AssetBundleExportJobThemeOverrideProperties
+    Amazonka.QuickSight.Types.AssetBundleExportJobThemePropertyToOverride
+    Amazonka.QuickSight.Types.AssetBundleExportJobVPCConnectionOverrideProperties
+    Amazonka.QuickSight.Types.AssetBundleExportJobVPCConnectionPropertyToOverride
+    Amazonka.QuickSight.Types.AssetBundleImportFailureAction
+    Amazonka.QuickSight.Types.AssetBundleImportJobAnalysisOverrideParameters
+    Amazonka.QuickSight.Types.AssetBundleImportJobDashboardOverrideParameters
+    Amazonka.QuickSight.Types.AssetBundleImportJobDataSetOverrideParameters
+    Amazonka.QuickSight.Types.AssetBundleImportJobDataSourceCredentialPair
+    Amazonka.QuickSight.Types.AssetBundleImportJobDataSourceCredentials
+    Amazonka.QuickSight.Types.AssetBundleImportJobDataSourceOverrideParameters
+    Amazonka.QuickSight.Types.AssetBundleImportJobError
+    Amazonka.QuickSight.Types.AssetBundleImportJobOverrideParameters
+    Amazonka.QuickSight.Types.AssetBundleImportJobRefreshScheduleOverrideParameters
+    Amazonka.QuickSight.Types.AssetBundleImportJobResourceIdOverrideConfiguration
+    Amazonka.QuickSight.Types.AssetBundleImportJobStatus
+    Amazonka.QuickSight.Types.AssetBundleImportJobSummary
+    Amazonka.QuickSight.Types.AssetBundleImportJobThemeOverrideParameters
+    Amazonka.QuickSight.Types.AssetBundleImportJobVPCConnectionOverrideParameters
+    Amazonka.QuickSight.Types.AssetBundleImportSource
+    Amazonka.QuickSight.Types.AssetBundleImportSourceDescription
     Amazonka.QuickSight.Types.AssignmentStatus
     Amazonka.QuickSight.Types.AthenaParameters
     Amazonka.QuickSight.Types.AuroraParameters
     Amazonka.QuickSight.Types.AuroraPostgreSqlParameters
     Amazonka.QuickSight.Types.AuthenticationMethodOption
+    Amazonka.QuickSight.Types.AuthorSpecifiedAggregation
     Amazonka.QuickSight.Types.AwsIotAnalyticsParameters
     Amazonka.QuickSight.Types.AxisBinding
     Amazonka.QuickSight.Types.AxisDataOptions
@@ -208,6 +273,7 @@ library
     Amazonka.QuickSight.Types.BinWidthOptions
     Amazonka.QuickSight.Types.BodySectionConfiguration
     Amazonka.QuickSight.Types.BodySectionContent
+    Amazonka.QuickSight.Types.BookmarksConfigurations
     Amazonka.QuickSight.Types.BorderStyle
     Amazonka.QuickSight.Types.BoxPlotAggregatedFieldWells
     Amazonka.QuickSight.Types.BoxPlotChartConfiguration
@@ -229,14 +295,19 @@ library
     Amazonka.QuickSight.Types.CategoryDrillDownFilter
     Amazonka.QuickSight.Types.CategoryFilter
     Amazonka.QuickSight.Types.CategoryFilterConfiguration
+    Amazonka.QuickSight.Types.CategoryFilterFunction
     Amazonka.QuickSight.Types.CategoryFilterMatchOperator
     Amazonka.QuickSight.Types.CategoryFilterSelectAllOptions
+    Amazonka.QuickSight.Types.CategoryFilterType
+    Amazonka.QuickSight.Types.CellValueSynonym
     Amazonka.QuickSight.Types.ChartAxisLabelOptions
     Amazonka.QuickSight.Types.ClusterMarker
     Amazonka.QuickSight.Types.ClusterMarkerConfiguration
+    Amazonka.QuickSight.Types.CollectiveConstant
     Amazonka.QuickSight.Types.ColorFillType
     Amazonka.QuickSight.Types.ColorScale
     Amazonka.QuickSight.Types.ColumnConfiguration
+    Amazonka.QuickSight.Types.ColumnDataRole
     Amazonka.QuickSight.Types.ColumnDataType
     Amazonka.QuickSight.Types.ColumnDescription
     Amazonka.QuickSight.Types.ColumnGroup
@@ -245,6 +316,7 @@ library
     Amazonka.QuickSight.Types.ColumnHierarchy
     Amazonka.QuickSight.Types.ColumnIdentifier
     Amazonka.QuickSight.Types.ColumnLevelPermissionRule
+    Amazonka.QuickSight.Types.ColumnOrderingType
     Amazonka.QuickSight.Types.ColumnRole
     Amazonka.QuickSight.Types.ColumnSchema
     Amazonka.QuickSight.Types.ColumnSort
@@ -256,6 +328,7 @@ library
     Amazonka.QuickSight.Types.ComboChartFieldWells
     Amazonka.QuickSight.Types.ComboChartSortConfiguration
     Amazonka.QuickSight.Types.ComboChartVisual
+    Amazonka.QuickSight.Types.ComparativeOrder
     Amazonka.QuickSight.Types.ComparisonConfiguration
     Amazonka.QuickSight.Types.ComparisonFormatConfiguration
     Amazonka.QuickSight.Types.ComparisonMethod
@@ -270,6 +343,7 @@ library
     Amazonka.QuickSight.Types.ConditionalFormattingIconSet
     Amazonka.QuickSight.Types.ConditionalFormattingIconSetType
     Amazonka.QuickSight.Types.ConditionalFormattingSolidColor
+    Amazonka.QuickSight.Types.ConstantType
     Amazonka.QuickSight.Types.ContributionAnalysisDefault
     Amazonka.QuickSight.Types.CreateColumnsOperation
     Amazonka.QuickSight.Types.CredentialPair
@@ -305,6 +379,8 @@ library
     Amazonka.QuickSight.Types.DashboardVersionSummary
     Amazonka.QuickSight.Types.DashboardVisualId
     Amazonka.QuickSight.Types.DashboardVisualPublishOptions
+    Amazonka.QuickSight.Types.DataAggregation
+    Amazonka.QuickSight.Types.DataBarsOptions
     Amazonka.QuickSight.Types.DatabricksParameters
     Amazonka.QuickSight.Types.DataColor
     Amazonka.QuickSight.Types.DataColorPalette
@@ -318,12 +394,19 @@ library
     Amazonka.QuickSight.Types.DataPathLabelType
     Amazonka.QuickSight.Types.DataPathSort
     Amazonka.QuickSight.Types.DataPathValue
+    Amazonka.QuickSight.Types.DataPointDrillUpDownOption
+    Amazonka.QuickSight.Types.DataPointMenuLabelOption
+    Amazonka.QuickSight.Types.DataPointTooltipOption
     Amazonka.QuickSight.Types.DataSet
     Amazonka.QuickSight.Types.DataSetConfiguration
     Amazonka.QuickSight.Types.DataSetFilterAttribute
     Amazonka.QuickSight.Types.DataSetIdentifierDeclaration
     Amazonka.QuickSight.Types.DataSetImportMode
+    Amazonka.QuickSight.Types.DatasetMetadata
+    Amazonka.QuickSight.Types.DatasetParameter
+    Amazonka.QuickSight.Types.DatasetParameterValueType
     Amazonka.QuickSight.Types.DataSetReference
+    Amazonka.QuickSight.Types.DataSetRefreshProperties
     Amazonka.QuickSight.Types.DataSetSchema
     Amazonka.QuickSight.Types.DataSetSearchFilter
     Amazonka.QuickSight.Types.DataSetSummary
@@ -341,6 +424,8 @@ library
     Amazonka.QuickSight.Types.DateAxisOptions
     Amazonka.QuickSight.Types.DateDimensionField
     Amazonka.QuickSight.Types.DateMeasureField
+    Amazonka.QuickSight.Types.DateTimeDatasetParameter
+    Amazonka.QuickSight.Types.DateTimeDatasetParameterDefaultValues
     Amazonka.QuickSight.Types.DateTimeDefaultValues
     Amazonka.QuickSight.Types.DateTimeFormatConfiguration
     Amazonka.QuickSight.Types.DateTimeHierarchy
@@ -348,11 +433,16 @@ library
     Amazonka.QuickSight.Types.DateTimeParameterDeclaration
     Amazonka.QuickSight.Types.DateTimePickerControlDisplayOptions
     Amazonka.QuickSight.Types.DateTimeValueWhenUnsetConfiguration
+    Amazonka.QuickSight.Types.DayOfWeek
+    Amazonka.QuickSight.Types.DecimalDatasetParameter
+    Amazonka.QuickSight.Types.DecimalDatasetParameterDefaultValues
     Amazonka.QuickSight.Types.DecimalDefaultValues
     Amazonka.QuickSight.Types.DecimalParameter
     Amazonka.QuickSight.Types.DecimalParameterDeclaration
     Amazonka.QuickSight.Types.DecimalPlacesConfiguration
     Amazonka.QuickSight.Types.DecimalValueWhenUnsetConfiguration
+    Amazonka.QuickSight.Types.DefaultAggregation
+    Amazonka.QuickSight.Types.DefaultFormatting
     Amazonka.QuickSight.Types.DefaultFreeFormLayoutConfiguration
     Amazonka.QuickSight.Types.DefaultGridLayoutConfiguration
     Amazonka.QuickSight.Types.DefaultInteractiveLayoutConfiguration
@@ -361,6 +451,8 @@ library
     Amazonka.QuickSight.Types.DefaultSectionBasedLayoutConfiguration
     Amazonka.QuickSight.Types.DestinationParameterValueConfiguration
     Amazonka.QuickSight.Types.DimensionField
+    Amazonka.QuickSight.Types.DisplayFormat
+    Amazonka.QuickSight.Types.DisplayFormatOptions
     Amazonka.QuickSight.Types.DonutCenterOptions
     Amazonka.QuickSight.Types.DonutOptions
     Amazonka.QuickSight.Types.DrillDownFilter
@@ -376,6 +468,7 @@ library
     Amazonka.QuickSight.Types.ExplicitHierarchy
     Amazonka.QuickSight.Types.ExportHiddenFieldsOption
     Amazonka.QuickSight.Types.ExportToCSVOption
+    Amazonka.QuickSight.Types.ExportWithHiddenFieldsOption
     Amazonka.QuickSight.Types.FieldBasedTooltip
     Amazonka.QuickSight.Types.FieldFolder
     Amazonka.QuickSight.Types.FieldLabelType
@@ -393,6 +486,7 @@ library
     Amazonka.QuickSight.Types.FilledMapSortConfiguration
     Amazonka.QuickSight.Types.FilledMapVisual
     Amazonka.QuickSight.Types.Filter
+    Amazonka.QuickSight.Types.FilterClass
     Amazonka.QuickSight.Types.FilterControl
     Amazonka.QuickSight.Types.FilterDateTimePickerControl
     Amazonka.QuickSight.Types.FilterDropDownControl
@@ -455,6 +549,9 @@ library
     Amazonka.QuickSight.Types.GeospatialCoordinateBounds
     Amazonka.QuickSight.Types.GeoSpatialCountryCode
     Amazonka.QuickSight.Types.GeoSpatialDataRole
+    Amazonka.QuickSight.Types.GeospatialHeatmapColorScale
+    Amazonka.QuickSight.Types.GeospatialHeatmapConfiguration
+    Amazonka.QuickSight.Types.GeospatialHeatmapDataColor
     Amazonka.QuickSight.Types.GeospatialMapAggregatedFieldWells
     Amazonka.QuickSight.Types.GeospatialMapConfiguration
     Amazonka.QuickSight.Types.GeospatialMapFieldWells
@@ -495,6 +592,7 @@ library
     Amazonka.QuickSight.Types.Icon
     Amazonka.QuickSight.Types.IdentityStore
     Amazonka.QuickSight.Types.IdentityType
+    Amazonka.QuickSight.Types.IncrementalRefresh
     Amazonka.QuickSight.Types.Ingestion
     Amazonka.QuickSight.Types.IngestionErrorType
     Amazonka.QuickSight.Types.IngestionRequestSource
@@ -505,6 +603,8 @@ library
     Amazonka.QuickSight.Types.InputColumnDataType
     Amazonka.QuickSight.Types.InsightConfiguration
     Amazonka.QuickSight.Types.InsightVisual
+    Amazonka.QuickSight.Types.IntegerDatasetParameter
+    Amazonka.QuickSight.Types.IntegerDatasetParameterDefaultValues
     Amazonka.QuickSight.Types.IntegerDefaultValues
     Amazonka.QuickSight.Types.IntegerParameter
     Amazonka.QuickSight.Types.IntegerParameterDeclaration
@@ -552,7 +652,10 @@ library
     Amazonka.QuickSight.Types.LogicalTable
     Amazonka.QuickSight.Types.LogicalTableSource
     Amazonka.QuickSight.Types.LongFormatText
+    Amazonka.QuickSight.Types.LookbackWindow
+    Amazonka.QuickSight.Types.LookbackWindowSizeUnit
     Amazonka.QuickSight.Types.ManifestFileLocation
+    Amazonka.QuickSight.Types.MappedDataSetParameter
     Amazonka.QuickSight.Types.MapZoomMode
     Amazonka.QuickSight.Types.MarginStyle
     Amazonka.QuickSight.Types.MariaDbParameters
@@ -567,12 +670,21 @@ library
     Amazonka.QuickSight.Types.MissingDataConfiguration
     Amazonka.QuickSight.Types.MissingDataTreatmentOption
     Amazonka.QuickSight.Types.MySqlParameters
+    Amazonka.QuickSight.Types.NamedEntityAggType
+    Amazonka.QuickSight.Types.NamedEntityDefinition
+    Amazonka.QuickSight.Types.NamedEntityDefinitionMetric
+    Amazonka.QuickSight.Types.NamedFilterAggType
+    Amazonka.QuickSight.Types.NamedFilterType
     Amazonka.QuickSight.Types.NamespaceError
     Amazonka.QuickSight.Types.NamespaceErrorType
     Amazonka.QuickSight.Types.NamespaceInfoV2
     Amazonka.QuickSight.Types.NamespaceStatus
+    Amazonka.QuickSight.Types.NegativeFormat
     Amazonka.QuickSight.Types.NegativeValueConfiguration
     Amazonka.QuickSight.Types.NegativeValueDisplayMode
+    Amazonka.QuickSight.Types.NetworkInterface
+    Amazonka.QuickSight.Types.NetworkInterfaceStatus
+    Amazonka.QuickSight.Types.NewDefaultValues
     Amazonka.QuickSight.Types.NullValueFormatConfiguration
     Amazonka.QuickSight.Types.NumberDisplayFormatConfiguration
     Amazonka.QuickSight.Types.NumberFormatConfiguration
@@ -593,6 +705,7 @@ library
     Amazonka.QuickSight.Types.OracleParameters
     Amazonka.QuickSight.Types.OtherCategories
     Amazonka.QuickSight.Types.OutputColumn
+    Amazonka.QuickSight.Types.OverrideDatasetParameterOperation
     Amazonka.QuickSight.Types.PaginationConfiguration
     Amazonka.QuickSight.Types.PanelBorderStyle
     Amazonka.QuickSight.Types.PanelConfiguration
@@ -630,6 +743,9 @@ library
     Amazonka.QuickSight.Types.PivotTableConditionalFormattingScopeRole
     Amazonka.QuickSight.Types.PivotTableConfiguration
     Amazonka.QuickSight.Types.PivotTableDataPathOption
+    Amazonka.QuickSight.Types.PivotTableFieldCollapseState
+    Amazonka.QuickSight.Types.PivotTableFieldCollapseStateOption
+    Amazonka.QuickSight.Types.PivotTableFieldCollapseStateTarget
     Amazonka.QuickSight.Types.PivotTableFieldOption
     Amazonka.QuickSight.Types.PivotTableFieldOptions
     Amazonka.QuickSight.Types.PivotTableFieldSubtotalOptions
@@ -649,7 +765,19 @@ library
     Amazonka.QuickSight.Types.PrimaryValueDisplayType
     Amazonka.QuickSight.Types.ProgressBarOptions
     Amazonka.QuickSight.Types.ProjectOperation
+    Amazonka.QuickSight.Types.PropertyRole
+    Amazonka.QuickSight.Types.PropertyUsage
     Amazonka.QuickSight.Types.QueueInfo
+    Amazonka.QuickSight.Types.RadarChartAggregatedFieldWells
+    Amazonka.QuickSight.Types.RadarChartAreaStyleSettings
+    Amazonka.QuickSight.Types.RadarChartAxesRangeScale
+    Amazonka.QuickSight.Types.RadarChartConfiguration
+    Amazonka.QuickSight.Types.RadarChartFieldWells
+    Amazonka.QuickSight.Types.RadarChartSeriesSettings
+    Amazonka.QuickSight.Types.RadarChartShape
+    Amazonka.QuickSight.Types.RadarChartSortConfiguration
+    Amazonka.QuickSight.Types.RadarChartVisual
+    Amazonka.QuickSight.Types.RangeConstant
     Amazonka.QuickSight.Types.RangeEndsLabelType
     Amazonka.QuickSight.Types.RdsParameters
     Amazonka.QuickSight.Types.RedshiftParameters
@@ -665,7 +793,13 @@ library
     Amazonka.QuickSight.Types.ReferenceLineStyleConfiguration
     Amazonka.QuickSight.Types.ReferenceLineValueLabelConfiguration
     Amazonka.QuickSight.Types.ReferenceLineValueLabelRelativePosition
+    Amazonka.QuickSight.Types.RefreshConfiguration
+    Amazonka.QuickSight.Types.RefreshFrequency
+    Amazonka.QuickSight.Types.RefreshInterval
+    Amazonka.QuickSight.Types.RefreshSchedule
+    Amazonka.QuickSight.Types.RegisteredUserConsoleFeatureConfigurations
     Amazonka.QuickSight.Types.RegisteredUserDashboardEmbeddingConfiguration
+    Amazonka.QuickSight.Types.RegisteredUserDashboardFeatureConfigurations
     Amazonka.QuickSight.Types.RegisteredUserDashboardVisualEmbeddingConfiguration
     Amazonka.QuickSight.Types.RegisteredUserEmbeddingExperienceConfiguration
     Amazonka.QuickSight.Types.RegisteredUserQSearchBarEmbeddingConfiguration
@@ -700,6 +834,7 @@ library
     Amazonka.QuickSight.Types.ScatterPlotFieldWells
     Amazonka.QuickSight.Types.ScatterPlotUnaggregatedFieldWells
     Amazonka.QuickSight.Types.ScatterPlotVisual
+    Amazonka.QuickSight.Types.ScheduleRefreshOnEntity
     Amazonka.QuickSight.Types.ScrollBarOptions
     Amazonka.QuickSight.Types.SecondaryValueOptions
     Amazonka.QuickSight.Types.SectionAfterPageBreak
@@ -714,6 +849,8 @@ library
     Amazonka.QuickSight.Types.SelectedFieldOptions
     Amazonka.QuickSight.Types.SelectedSheetsFilterScopeConfiguration
     Amazonka.QuickSight.Types.SelectedTooltipType
+    Amazonka.QuickSight.Types.SemanticEntityType
+    Amazonka.QuickSight.Types.SemanticType
     Amazonka.QuickSight.Types.SeriesItem
     Amazonka.QuickSight.Types.ServiceNowParameters
     Amazonka.QuickSight.Types.SessionTag
@@ -730,6 +867,7 @@ library
     Amazonka.QuickSight.Types.SheetDefinition
     Amazonka.QuickSight.Types.SheetElementConfigurationOverrides
     Amazonka.QuickSight.Types.SheetElementRenderingRule
+    Amazonka.QuickSight.Types.SheetLayoutElementMaximizationOption
     Amazonka.QuickSight.Types.SheetStyle
     Amazonka.QuickSight.Types.SheetTextBox
     Amazonka.QuickSight.Types.SheetVisualScopingConfiguration
@@ -745,7 +883,10 @@ library
     Amazonka.QuickSight.Types.SparkParameters
     Amazonka.QuickSight.Types.SqlServerParameters
     Amazonka.QuickSight.Types.SslProperties
+    Amazonka.QuickSight.Types.StatePersistenceConfigurations
     Amazonka.QuickSight.Types.Status
+    Amazonka.QuickSight.Types.StringDatasetParameter
+    Amazonka.QuickSight.Types.StringDatasetParameterDefaultValues
     Amazonka.QuickSight.Types.StringDefaultValues
     Amazonka.QuickSight.Types.StringFormatConfiguration
     Amazonka.QuickSight.Types.StringParameter
@@ -772,6 +913,7 @@ library
     Amazonka.QuickSight.Types.TableFieldOptions
     Amazonka.QuickSight.Types.TableFieldURLConfiguration
     Amazonka.QuickSight.Types.TableFieldWells
+    Amazonka.QuickSight.Types.TableInlineVisualization
     Amazonka.QuickSight.Types.TableOptions
     Amazonka.QuickSight.Types.TableOrientation
     Amazonka.QuickSight.Types.TablePaginatedReportOptions
@@ -829,6 +971,28 @@ library
     Amazonka.QuickSight.Types.TopBottomMoversComputation
     Amazonka.QuickSight.Types.TopBottomRankedComputation
     Amazonka.QuickSight.Types.TopBottomSortOrder
+    Amazonka.QuickSight.Types.TopicCalculatedField
+    Amazonka.QuickSight.Types.TopicCategoryFilter
+    Amazonka.QuickSight.Types.TopicCategoryFilterConstant
+    Amazonka.QuickSight.Types.TopicColumn
+    Amazonka.QuickSight.Types.TopicDateRangeFilter
+    Amazonka.QuickSight.Types.TopicDetails
+    Amazonka.QuickSight.Types.TopicFilter
+    Amazonka.QuickSight.Types.TopicNamedEntity
+    Amazonka.QuickSight.Types.TopicNumericEqualityFilter
+    Amazonka.QuickSight.Types.TopicNumericRangeFilter
+    Amazonka.QuickSight.Types.TopicNumericSeparatorSymbol
+    Amazonka.QuickSight.Types.TopicRangeFilterConstant
+    Amazonka.QuickSight.Types.TopicRefreshDetails
+    Amazonka.QuickSight.Types.TopicRefreshSchedule
+    Amazonka.QuickSight.Types.TopicRefreshScheduleSummary
+    Amazonka.QuickSight.Types.TopicRefreshStatus
+    Amazonka.QuickSight.Types.TopicRelativeDateFilter
+    Amazonka.QuickSight.Types.TopicRelativeDateFilterFunction
+    Amazonka.QuickSight.Types.TopicScheduleType
+    Amazonka.QuickSight.Types.TopicSingularFilterConstant
+    Amazonka.QuickSight.Types.TopicSummary
+    Amazonka.QuickSight.Types.TopicTimeGranularity
     Amazonka.QuickSight.Types.TotalAggregationComputation
     Amazonka.QuickSight.Types.TotalOptions
     Amazonka.QuickSight.Types.TransformOperation
@@ -842,6 +1006,7 @@ library
     Amazonka.QuickSight.Types.Typography
     Amazonka.QuickSight.Types.UIColorPalette
     Amazonka.QuickSight.Types.UnaggregatedField
+    Amazonka.QuickSight.Types.UndefinedSpecifiedValueType
     Amazonka.QuickSight.Types.UniqueValuesComputation
     Amazonka.QuickSight.Types.UntagColumnOperation
     Amazonka.QuickSight.Types.UploadSettings
@@ -853,13 +1018,19 @@ library
     Amazonka.QuickSight.Types.Visibility
     Amazonka.QuickSight.Types.VisibleRangeOptions
     Amazonka.QuickSight.Types.Visual
+    Amazonka.QuickSight.Types.VisualAxisSortOption
     Amazonka.QuickSight.Types.VisualCustomAction
     Amazonka.QuickSight.Types.VisualCustomActionOperation
     Amazonka.QuickSight.Types.VisualCustomActionTrigger
+    Amazonka.QuickSight.Types.VisualMenuOption
     Amazonka.QuickSight.Types.VisualPalette
     Amazonka.QuickSight.Types.VisualSubtitleLabelOptions
     Amazonka.QuickSight.Types.VisualTitleLabelOptions
+    Amazonka.QuickSight.Types.VPCConnection
+    Amazonka.QuickSight.Types.VPCConnectionAvailabilityStatus
     Amazonka.QuickSight.Types.VpcConnectionProperties
+    Amazonka.QuickSight.Types.VPCConnectionResourceStatus
+    Amazonka.QuickSight.Types.VPCConnectionSummary
     Amazonka.QuickSight.Types.WaterfallChartAggregatedFieldWells
     Amazonka.QuickSight.Types.WaterfallChartConfiguration
     Amazonka.QuickSight.Types.WaterfallChartFieldWells
@@ -898,13 +1069,18 @@ library
     Amazonka.QuickSight.UpdateIAMPolicyAssignment
     Amazonka.QuickSight.UpdateIpRestriction
     Amazonka.QuickSight.UpdatePublicSharingSettings
+    Amazonka.QuickSight.UpdateRefreshSchedule
     Amazonka.QuickSight.UpdateTemplate
     Amazonka.QuickSight.UpdateTemplateAlias
     Amazonka.QuickSight.UpdateTemplatePermissions
     Amazonka.QuickSight.UpdateTheme
     Amazonka.QuickSight.UpdateThemeAlias
     Amazonka.QuickSight.UpdateThemePermissions
+    Amazonka.QuickSight.UpdateTopic
+    Amazonka.QuickSight.UpdateTopicPermissions
+    Amazonka.QuickSight.UpdateTopicRefreshSchedule
     Amazonka.QuickSight.UpdateUser
+    Amazonka.QuickSight.UpdateVPCConnection
     Amazonka.QuickSight.Waiters
 
   build-depends:

@@ -96,7 +96,8 @@ instance Data.FromJSON TreeMapAggregatedFieldWells where
 
 instance Prelude.Hashable TreeMapAggregatedFieldWells where
   hashWithSalt _salt TreeMapAggregatedFieldWells' {..} =
-    _salt `Prelude.hashWithSalt` colors
+    _salt
+      `Prelude.hashWithSalt` colors
       `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` sizes
 

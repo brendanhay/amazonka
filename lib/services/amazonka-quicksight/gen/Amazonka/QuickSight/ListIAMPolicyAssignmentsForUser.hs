@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all the IAM policy assignments, including the Amazon Resource
--- Names (ARNs) for the IAM policies assigned to the specified user and
--- group or groups that the user belongs to.
+-- Lists all of the IAM policy assignments, including the Amazon Resource
+-- Names (ARNs), for the IAM policies assigned to the specified user and
+-- group, or groups that the user belongs to.
 module Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser
   ( -- * Creating a Request
     ListIAMPolicyAssignmentsForUser (..),
@@ -144,7 +144,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListIAMPolicyAssignmentsForUserResponse'
-            Prelude.<$> ( x Data..?> "ActiveAssignments"
+            Prelude.<$> ( x
+                            Data..?> "ActiveAssignments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -159,7 +160,8 @@ instance
   hashWithSalt
     _salt
     ListIAMPolicyAssignmentsForUser' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` awsAccountId
         `Prelude.hashWithSalt` userName

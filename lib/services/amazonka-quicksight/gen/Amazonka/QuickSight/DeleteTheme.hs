@@ -128,7 +128,8 @@ instance Core.AWSRequest DeleteTheme where
 
 instance Prelude.Hashable DeleteTheme where
   hashWithSalt _salt DeleteTheme' {..} =
-    _salt `Prelude.hashWithSalt` versionNumber
+    _salt
+      `Prelude.hashWithSalt` versionNumber
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` themeId
 

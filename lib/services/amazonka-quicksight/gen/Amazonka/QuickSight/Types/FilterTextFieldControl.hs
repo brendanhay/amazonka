@@ -105,7 +105,8 @@ instance Data.FromJSON FilterTextFieldControl where
 
 instance Prelude.Hashable FilterTextFieldControl where
   hashWithSalt _salt FilterTextFieldControl' {..} =
-    _salt `Prelude.hashWithSalt` displayOptions
+    _salt
+      `Prelude.hashWithSalt` displayOptions
       `Prelude.hashWithSalt` filterControlId
       `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` sourceFilterId

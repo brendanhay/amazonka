@@ -87,7 +87,8 @@ instance Data.FromJSON FieldTooltipItem where
 
 instance Prelude.Hashable FieldTooltipItem where
   hashWithSalt _salt FieldTooltipItem' {..} =
-    _salt `Prelude.hashWithSalt` label
+    _salt
+      `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` visibility
       `Prelude.hashWithSalt` fieldId
 

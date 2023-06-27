@@ -48,7 +48,21 @@ data TemplateVersion = TemplateVersion'
     -- | The Amazon Resource Name (ARN) of an analysis or template that was used
     -- to create this template.
     sourceEntityArn :: Prelude.Maybe Prelude.Text,
-    -- | The HTTP status of the request.
+    -- | The status that is associated with the template.
+    --
+    -- -   @CREATION_IN_PROGRESS@
+    --
+    -- -   @CREATION_SUCCESSFUL@
+    --
+    -- -   @CREATION_FAILED@
+    --
+    -- -   @UPDATE_IN_PROGRESS@
+    --
+    -- -   @UPDATE_SUCCESSFUL@
+    --
+    -- -   @UPDATE_FAILED@
+    --
+    -- -   @DELETED@
     status :: Prelude.Maybe ResourceStatus,
     -- | The ARN of the theme associated with this version of the template.
     themeArn :: Prelude.Maybe Prelude.Text,
@@ -81,7 +95,21 @@ data TemplateVersion = TemplateVersion'
 -- 'sourceEntityArn', 'templateVersion_sourceEntityArn' - The Amazon Resource Name (ARN) of an analysis or template that was used
 -- to create this template.
 --
--- 'status', 'templateVersion_status' - The HTTP status of the request.
+-- 'status', 'templateVersion_status' - The status that is associated with the template.
+--
+-- -   @CREATION_IN_PROGRESS@
+--
+-- -   @CREATION_SUCCESSFUL@
+--
+-- -   @CREATION_FAILED@
+--
+-- -   @UPDATE_IN_PROGRESS@
+--
+-- -   @UPDATE_SUCCESSFUL@
+--
+-- -   @UPDATE_FAILED@
+--
+-- -   @DELETED@
 --
 -- 'themeArn', 'templateVersion_themeArn' - The ARN of the theme associated with this version of the template.
 --
@@ -129,7 +157,21 @@ templateVersion_sheets = Lens.lens (\TemplateVersion' {sheets} -> sheets) (\s@Te
 templateVersion_sourceEntityArn :: Lens.Lens' TemplateVersion (Prelude.Maybe Prelude.Text)
 templateVersion_sourceEntityArn = Lens.lens (\TemplateVersion' {sourceEntityArn} -> sourceEntityArn) (\s@TemplateVersion' {} a -> s {sourceEntityArn = a} :: TemplateVersion)
 
--- | The HTTP status of the request.
+-- | The status that is associated with the template.
+--
+-- -   @CREATION_IN_PROGRESS@
+--
+-- -   @CREATION_SUCCESSFUL@
+--
+-- -   @CREATION_FAILED@
+--
+-- -   @UPDATE_IN_PROGRESS@
+--
+-- -   @UPDATE_SUCCESSFUL@
+--
+-- -   @UPDATE_FAILED@
+--
+-- -   @DELETED@
 templateVersion_status :: Lens.Lens' TemplateVersion (Prelude.Maybe ResourceStatus)
 templateVersion_status = Lens.lens (\TemplateVersion' {status} -> status) (\s@TemplateVersion' {} a -> s {status = a} :: TemplateVersion)
 
@@ -148,7 +190,8 @@ instance Data.FromJSON TemplateVersion where
       ( \x ->
           TemplateVersion'
             Prelude.<$> (x Data..:? "CreatedTime")
-            Prelude.<*> ( x Data..:? "DataSetConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "DataSetConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Description")
@@ -162,7 +205,8 @@ instance Data.FromJSON TemplateVersion where
 
 instance Prelude.Hashable TemplateVersion where
   hashWithSalt _salt TemplateVersion' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` dataSetConfigurations
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` errors

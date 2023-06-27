@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.QuickSight.Types.ColumnIdentifier
 import Amazonka.QuickSight.Types.SelectedFieldOptions
 
 -- | The configuration of selected fields in
@@ -33,7 +34,9 @@ import Amazonka.QuickSight.Types.SelectedFieldOptions
 --
 -- /See:/ 'newFilterOperationSelectedFieldsConfiguration' smart constructor.
 data FilterOperationSelectedFieldsConfiguration = FilterOperationSelectedFieldsConfiguration'
-  { -- | A structure that contains the options that choose which fields are
+  { -- | The selected columns of a dataset.
+    selectedColumns :: Prelude.Maybe [ColumnIdentifier],
+    -- | A structure that contains the options that choose which fields are
     -- filtered in the @CustomActionFilterOperation@.
     --
     -- Valid values are defined as follows:
@@ -53,6 +56,8 @@ data FilterOperationSelectedFieldsConfiguration = FilterOperationSelectedFieldsC
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'selectedColumns', 'filterOperationSelectedFieldsConfiguration_selectedColumns' - The selected columns of a dataset.
+--
 -- 'selectedFieldOptions', 'filterOperationSelectedFieldsConfiguration_selectedFieldOptions' - A structure that contains the options that choose which fields are
 -- filtered in the @CustomActionFilterOperation@.
 --
@@ -65,11 +70,17 @@ newFilterOperationSelectedFieldsConfiguration ::
   FilterOperationSelectedFieldsConfiguration
 newFilterOperationSelectedFieldsConfiguration =
   FilterOperationSelectedFieldsConfiguration'
-    { selectedFieldOptions =
+    { selectedColumns =
+        Prelude.Nothing,
+      selectedFieldOptions =
         Prelude.Nothing,
       selectedFields =
         Prelude.Nothing
     }
+
+-- | The selected columns of a dataset.
+filterOperationSelectedFieldsConfiguration_selectedColumns :: Lens.Lens' FilterOperationSelectedFieldsConfiguration (Prelude.Maybe [ColumnIdentifier])
+filterOperationSelectedFieldsConfiguration_selectedColumns = Lens.lens (\FilterOperationSelectedFieldsConfiguration' {selectedColumns} -> selectedColumns) (\s@FilterOperationSelectedFieldsConfiguration' {} a -> s {selectedColumns = a} :: FilterOperationSelectedFieldsConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | A structure that contains the options that choose which fields are
 -- filtered in the @CustomActionFilterOperation@.
@@ -93,8 +104,12 @@ instance
       "FilterOperationSelectedFieldsConfiguration"
       ( \x ->
           FilterOperationSelectedFieldsConfiguration'
-            Prelude.<$> (x Data..:? "SelectedFieldOptions")
-              Prelude.<*> (x Data..:? "SelectedFields")
+            Prelude.<$> ( x
+                            Data..:? "SelectedColumns"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "SelectedFieldOptions")
+            Prelude.<*> (x Data..:? "SelectedFields")
       )
 
 instance
@@ -104,7 +119,9 @@ instance
   hashWithSalt
     _salt
     FilterOperationSelectedFieldsConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` selectedFieldOptions
+      _salt
+        `Prelude.hashWithSalt` selectedColumns
+        `Prelude.hashWithSalt` selectedFieldOptions
         `Prelude.hashWithSalt` selectedFields
 
 instance
@@ -112,7 +129,8 @@ instance
     FilterOperationSelectedFieldsConfiguration
   where
   rnf FilterOperationSelectedFieldsConfiguration' {..} =
-    Prelude.rnf selectedFieldOptions
+    Prelude.rnf selectedColumns
+      `Prelude.seq` Prelude.rnf selectedFieldOptions
       `Prelude.seq` Prelude.rnf selectedFields
 
 instance
@@ -123,7 +141,9 @@ instance
     FilterOperationSelectedFieldsConfiguration' {..} =
       Data.object
         ( Prelude.catMaybes
-            [ ("SelectedFieldOptions" Data..=)
+            [ ("SelectedColumns" Data..=)
+                Prelude.<$> selectedColumns,
+              ("SelectedFieldOptions" Data..=)
                 Prelude.<$> selectedFieldOptions,
               ("SelectedFields" Data..=)
                 Prelude.<$> selectedFields

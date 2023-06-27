@@ -65,7 +65,8 @@ instance Data.FromJSON CascadingControlConfiguration where
       "CascadingControlConfiguration"
       ( \x ->
           CascadingControlConfiguration'
-            Prelude.<$> ( x Data..:? "SourceControls"
+            Prelude.<$> ( x
+                            Data..:? "SourceControls"
                             Data..!= Prelude.mempty
                         )
       )

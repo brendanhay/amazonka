@@ -33,7 +33,7 @@ data OutputColumn = OutputColumn'
     description :: Prelude.Maybe Prelude.Text,
     -- | A display name for the dataset.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Type.
+    -- | The type.
     type' :: Prelude.Maybe ColumnDataType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,7 +50,7 @@ data OutputColumn = OutputColumn'
 --
 -- 'name', 'outputColumn_name' - A display name for the dataset.
 --
--- 'type'', 'outputColumn_type' - Type.
+-- 'type'', 'outputColumn_type' - The type.
 newOutputColumn ::
   OutputColumn
 newOutputColumn =
@@ -68,7 +68,7 @@ outputColumn_description = Lens.lens (\OutputColumn' {description} -> descriptio
 outputColumn_name :: Lens.Lens' OutputColumn (Prelude.Maybe Prelude.Text)
 outputColumn_name = Lens.lens (\OutputColumn' {name} -> name) (\s@OutputColumn' {} a -> s {name = a} :: OutputColumn)
 
--- | Type.
+-- | The type.
 outputColumn_type :: Lens.Lens' OutputColumn (Prelude.Maybe ColumnDataType)
 outputColumn_type = Lens.lens (\OutputColumn' {type'} -> type') (\s@OutputColumn' {} a -> s {type' = a} :: OutputColumn)
 
@@ -85,7 +85,8 @@ instance Data.FromJSON OutputColumn where
 
 instance Prelude.Hashable OutputColumn where
   hashWithSalt _salt OutputColumn' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 

@@ -76,7 +76,8 @@ instance Data.FromJSON IAMPolicyAssignmentSummary where
 
 instance Prelude.Hashable IAMPolicyAssignmentSummary where
   hashWithSalt _salt IAMPolicyAssignmentSummary' {..} =
-    _salt `Prelude.hashWithSalt` assignmentName
+    _salt
+      `Prelude.hashWithSalt` assignmentName
       `Prelude.hashWithSalt` assignmentStatus
 
 instance Prelude.NFData IAMPolicyAssignmentSummary where

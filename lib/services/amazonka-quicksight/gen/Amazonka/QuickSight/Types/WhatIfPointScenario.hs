@@ -73,12 +73,14 @@ instance Data.FromJSON WhatIfPointScenario where
       "WhatIfPointScenario"
       ( \x ->
           WhatIfPointScenario'
-            Prelude.<$> (x Data..: "Date") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Date")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable WhatIfPointScenario where
   hashWithSalt _salt WhatIfPointScenario' {..} =
-    _salt `Prelude.hashWithSalt` date
+    _salt
+      `Prelude.hashWithSalt` date
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData WhatIfPointScenario where

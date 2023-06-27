@@ -64,7 +64,8 @@ instance
       "GaugeChartConditionalFormatting"
       ( \x ->
           GaugeChartConditionalFormatting'
-            Prelude.<$> ( x Data..:? "ConditionalFormattingOptions"
+            Prelude.<$> ( x
+                            Data..:? "ConditionalFormattingOptions"
                             Data..!= Prelude.mempty
                         )
       )

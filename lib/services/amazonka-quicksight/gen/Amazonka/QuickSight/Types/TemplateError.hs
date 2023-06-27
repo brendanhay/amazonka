@@ -34,6 +34,7 @@ data TemplateError = TemplateError'
     message :: Prelude.Maybe Prelude.Text,
     -- | Type of error.
     type' :: Prelude.Maybe TemplateErrorType,
+    -- | An error path that shows which entities caused the template error.
     violatedEntities :: Prelude.Maybe [Entity]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,7 +51,7 @@ data TemplateError = TemplateError'
 --
 -- 'type'', 'templateError_type' - Type of error.
 --
--- 'violatedEntities', 'templateError_violatedEntities' -
+-- 'violatedEntities', 'templateError_violatedEntities' - An error path that shows which entities caused the template error.
 newTemplateError ::
   TemplateError
 newTemplateError =
@@ -68,7 +69,7 @@ templateError_message = Lens.lens (\TemplateError' {message} -> message) (\s@Tem
 templateError_type :: Lens.Lens' TemplateError (Prelude.Maybe TemplateErrorType)
 templateError_type = Lens.lens (\TemplateError' {type'} -> type') (\s@TemplateError' {} a -> s {type' = a} :: TemplateError)
 
--- |
+-- | An error path that shows which entities caused the template error.
 templateError_violatedEntities :: Lens.Lens' TemplateError (Prelude.Maybe [Entity])
 templateError_violatedEntities = Lens.lens (\TemplateError' {violatedEntities} -> violatedEntities) (\s@TemplateError' {} a -> s {violatedEntities = a} :: TemplateError) Prelude.. Lens.mapping Lens.coerced
 
@@ -80,14 +81,16 @@ instance Data.FromJSON TemplateError where
           TemplateError'
             Prelude.<$> (x Data..:? "Message")
             Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> ( x Data..:? "ViolatedEntities"
+            Prelude.<*> ( x
+                            Data..:? "ViolatedEntities"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable TemplateError where
   hashWithSalt _salt TemplateError' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` violatedEntities
 

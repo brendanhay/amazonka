@@ -99,7 +99,8 @@ instance Data.FromJSON ColumnTooltipItem where
 
 instance Prelude.Hashable ColumnTooltipItem where
   hashWithSalt _salt ColumnTooltipItem' {..} =
-    _salt `Prelude.hashWithSalt` aggregation
+    _salt
+      `Prelude.hashWithSalt` aggregation
       `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` visibility
       `Prelude.hashWithSalt` column

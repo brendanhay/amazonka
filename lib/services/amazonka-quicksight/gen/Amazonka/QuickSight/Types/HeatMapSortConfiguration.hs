@@ -94,11 +94,13 @@ instance Data.FromJSON HeatMapSortConfiguration where
       ( \x ->
           HeatMapSortConfiguration'
             Prelude.<$> (x Data..:? "HeatMapColumnItemsLimitConfiguration")
-            Prelude.<*> ( x Data..:? "HeatMapColumnSort"
+            Prelude.<*> ( x
+                            Data..:? "HeatMapColumnSort"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "HeatMapRowItemsLimitConfiguration")
-            Prelude.<*> ( x Data..:? "HeatMapRowSort"
+            Prelude.<*> ( x
+                            Data..:? "HeatMapRowSort"
                             Data..!= Prelude.mempty
                         )
       )

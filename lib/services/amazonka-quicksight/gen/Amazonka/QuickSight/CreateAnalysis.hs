@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an analysis in Amazon QuickSight.
+-- Creates an analysis in Amazon QuickSight. Analyses can be created either
+-- from a template or from an @AnalysisDefinition@.
 module Amazonka.QuickSight.CreateAnalysis
   ( -- * Creating a Request
     CreateAnalysis (..),
@@ -64,6 +65,9 @@ data CreateAnalysis = CreateAnalysis'
     --
     -- A definition is the data model of all features in a Dashboard, Template,
     -- or Analysis.
+    --
+    -- Either a @SourceEntity@ or a @Definition@ must be provided in order for
+    -- the request to be valid.
     definition :: Prelude.Maybe AnalysisDefinition,
     -- | The parameter names and override values that you want to use. An
     -- analysis can have any parameter type, and some parameters might accept
@@ -80,6 +84,9 @@ data CreateAnalysis = CreateAnalysis'
     -- | A source entity to use for the analysis that you\'re creating. This
     -- metadata structure contains details that describe a source template and
     -- one or more datasets.
+    --
+    -- Either a @SourceEntity@ or a @Definition@ must be provided in order for
+    -- the request to be valid.
     sourceEntity :: Prelude.Maybe AnalysisSourceEntity,
     -- | Contains a map of the key-value pairs for the resource tag or tags
     -- assigned to the analysis.
@@ -113,6 +120,9 @@ data CreateAnalysis = CreateAnalysis'
 -- A definition is the data model of all features in a Dashboard, Template,
 -- or Analysis.
 --
+-- Either a @SourceEntity@ or a @Definition@ must be provided in order for
+-- the request to be valid.
+--
 -- 'parameters', 'createAnalysis_parameters' - The parameter names and override values that you want to use. An
 -- analysis can have any parameter type, and some parameters might accept
 -- multiple values.
@@ -128,6 +138,9 @@ data CreateAnalysis = CreateAnalysis'
 -- 'sourceEntity', 'createAnalysis_sourceEntity' - A source entity to use for the analysis that you\'re creating. This
 -- metadata structure contains details that describe a source template and
 -- one or more datasets.
+--
+-- Either a @SourceEntity@ or a @Definition@ must be provided in order for
+-- the request to be valid.
 --
 -- 'tags', 'createAnalysis_tags' - Contains a map of the key-value pairs for the resource tag or tags
 -- assigned to the analysis.
@@ -169,6 +182,9 @@ newCreateAnalysis pAwsAccountId_ pAnalysisId_ pName_ =
 --
 -- A definition is the data model of all features in a Dashboard, Template,
 -- or Analysis.
+--
+-- Either a @SourceEntity@ or a @Definition@ must be provided in order for
+-- the request to be valid.
 createAnalysis_definition :: Lens.Lens' CreateAnalysis (Prelude.Maybe AnalysisDefinition)
 createAnalysis_definition = Lens.lens (\CreateAnalysis' {definition} -> definition) (\s@CreateAnalysis' {} a -> s {definition = a} :: CreateAnalysis)
 
@@ -191,6 +207,9 @@ createAnalysis_permissions = Lens.lens (\CreateAnalysis' {permissions} -> permis
 -- | A source entity to use for the analysis that you\'re creating. This
 -- metadata structure contains details that describe a source template and
 -- one or more datasets.
+--
+-- Either a @SourceEntity@ or a @Definition@ must be provided in order for
+-- the request to be valid.
 createAnalysis_sourceEntity :: Lens.Lens' CreateAnalysis (Prelude.Maybe AnalysisSourceEntity)
 createAnalysis_sourceEntity = Lens.lens (\CreateAnalysis' {sourceEntity} -> sourceEntity) (\s@CreateAnalysis' {} a -> s {sourceEntity = a} :: CreateAnalysis)
 
@@ -239,7 +258,8 @@ instance Core.AWSRequest CreateAnalysis where
 
 instance Prelude.Hashable CreateAnalysis where
   hashWithSalt _salt CreateAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` definition
+    _salt
+      `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` sourceEntity

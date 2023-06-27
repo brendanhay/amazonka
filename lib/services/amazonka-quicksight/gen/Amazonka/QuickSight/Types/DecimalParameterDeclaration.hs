@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.DecimalDefaultValues
 import Amazonka.QuickSight.Types.DecimalValueWhenUnsetConfiguration
+import Amazonka.QuickSight.Types.MappedDataSetParameter
 import Amazonka.QuickSight.Types.ParameterValueType
 
 -- | A parameter declaration for the @Decimal@ data type.
@@ -34,6 +35,7 @@ data DecimalParameterDeclaration = DecimalParameterDeclaration'
   { -- | The default values of a parameter. If the parameter is a single-value
     -- parameter, a maximum of one default value can be provided.
     defaultValues :: Prelude.Maybe DecimalDefaultValues,
+    mappedDataSetParameters :: Prelude.Maybe [MappedDataSetParameter],
     -- | The configuration that defines the default value of a @Decimal@
     -- parameter when a value has not been set.
     valueWhenUnset :: Prelude.Maybe DecimalValueWhenUnsetConfiguration,
@@ -56,6 +58,8 @@ data DecimalParameterDeclaration = DecimalParameterDeclaration'
 -- 'defaultValues', 'decimalParameterDeclaration_defaultValues' - The default values of a parameter. If the parameter is a single-value
 -- parameter, a maximum of one default value can be provided.
 --
+-- 'mappedDataSetParameters', 'decimalParameterDeclaration_mappedDataSetParameters' - Undocumented member.
+--
 -- 'valueWhenUnset', 'decimalParameterDeclaration_valueWhenUnset' - The configuration that defines the default value of a @Decimal@
 -- parameter when a value has not been set.
 --
@@ -75,6 +79,7 @@ newDecimalParameterDeclaration
     DecimalParameterDeclaration'
       { defaultValues =
           Prelude.Nothing,
+        mappedDataSetParameters = Prelude.Nothing,
         valueWhenUnset = Prelude.Nothing,
         parameterValueType = pParameterValueType_,
         name = pName_
@@ -84,6 +89,10 @@ newDecimalParameterDeclaration
 -- parameter, a maximum of one default value can be provided.
 decimalParameterDeclaration_defaultValues :: Lens.Lens' DecimalParameterDeclaration (Prelude.Maybe DecimalDefaultValues)
 decimalParameterDeclaration_defaultValues = Lens.lens (\DecimalParameterDeclaration' {defaultValues} -> defaultValues) (\s@DecimalParameterDeclaration' {} a -> s {defaultValues = a} :: DecimalParameterDeclaration)
+
+-- | Undocumented member.
+decimalParameterDeclaration_mappedDataSetParameters :: Lens.Lens' DecimalParameterDeclaration (Prelude.Maybe [MappedDataSetParameter])
+decimalParameterDeclaration_mappedDataSetParameters = Lens.lens (\DecimalParameterDeclaration' {mappedDataSetParameters} -> mappedDataSetParameters) (\s@DecimalParameterDeclaration' {} a -> s {mappedDataSetParameters = a} :: DecimalParameterDeclaration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The configuration that defines the default value of a @Decimal@
 -- parameter when a value has not been set.
@@ -106,6 +115,10 @@ instance Data.FromJSON DecimalParameterDeclaration where
       ( \x ->
           DecimalParameterDeclaration'
             Prelude.<$> (x Data..:? "DefaultValues")
+            Prelude.<*> ( x
+                            Data..:? "MappedDataSetParameters"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "ValueWhenUnset")
             Prelude.<*> (x Data..: "ParameterValueType")
             Prelude.<*> (x Data..: "Name")
@@ -113,7 +126,9 @@ instance Data.FromJSON DecimalParameterDeclaration where
 
 instance Prelude.Hashable DecimalParameterDeclaration where
   hashWithSalt _salt DecimalParameterDeclaration' {..} =
-    _salt `Prelude.hashWithSalt` defaultValues
+    _salt
+      `Prelude.hashWithSalt` defaultValues
+      `Prelude.hashWithSalt` mappedDataSetParameters
       `Prelude.hashWithSalt` valueWhenUnset
       `Prelude.hashWithSalt` parameterValueType
       `Prelude.hashWithSalt` name
@@ -121,6 +136,7 @@ instance Prelude.Hashable DecimalParameterDeclaration where
 instance Prelude.NFData DecimalParameterDeclaration where
   rnf DecimalParameterDeclaration' {..} =
     Prelude.rnf defaultValues
+      `Prelude.seq` Prelude.rnf mappedDataSetParameters
       `Prelude.seq` Prelude.rnf valueWhenUnset
       `Prelude.seq` Prelude.rnf parameterValueType
       `Prelude.seq` Prelude.rnf name
@@ -130,6 +146,8 @@ instance Data.ToJSON DecimalParameterDeclaration where
     Data.object
       ( Prelude.catMaybes
           [ ("DefaultValues" Data..=) Prelude.<$> defaultValues,
+            ("MappedDataSetParameters" Data..=)
+              Prelude.<$> mappedDataSetParameters,
             ("ValueWhenUnset" Data..=)
               Prelude.<$> valueWhenUnset,
             Prelude.Just

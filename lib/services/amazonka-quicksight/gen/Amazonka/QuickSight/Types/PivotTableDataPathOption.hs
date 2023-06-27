@@ -75,7 +75,8 @@ instance Data.FromJSON PivotTableDataPathOption where
 
 instance Prelude.Hashable PivotTableDataPathOption where
   hashWithSalt _salt PivotTableDataPathOption' {..} =
-    _salt `Prelude.hashWithSalt` width
+    _salt
+      `Prelude.hashWithSalt` width
       `Prelude.hashWithSalt` dataPathList
 
 instance Prelude.NFData PivotTableDataPathOption where

@@ -22,8 +22,8 @@
 --
 -- Adds one or more tags to the specified resource.
 --
--- The WorkloadArn parameter can be either a workload ARN or a custom lens
--- ARN.
+-- The WorkloadArn parameter can be a workload ARN, a custom lens ARN, or a
+-- profile ARN.
 module Amazonka.WellArchitected.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -100,7 +100,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` workloadArn
+    _salt
+      `Prelude.hashWithSalt` workloadArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

@@ -30,15 +30,22 @@ import Amazonka.WellArchitected.Types.ChoiceContent
 --
 -- /See:/ 'newChoice' smart constructor.
 data Choice = Choice'
-  { -- | The additional resources for a choice. A choice can have up to two
-    -- additional resources: one of type @HELPFUL_RESOURCE@, one of type
-    -- @IMPROVEMENT_PLAN@, or both.
+  { -- | The additional resources for a choice in a custom lens.
+    --
+    -- A choice can have up to two additional resources: one of type
+    -- @HELPFUL_RESOURCE@, one of type @IMPROVEMENT_PLAN@, or both.
     additionalResources :: Prelude.Maybe [AdditionalResources],
     choiceId :: Prelude.Maybe Prelude.Text,
     description :: Prelude.Maybe Prelude.Text,
-    -- | The choice level helpful resource.
+    -- | The helpful resource (both text and URL) for a particular choice.
+    --
+    -- This field only applies to custom lenses. Each choice can have only one
+    -- helpful resource.
     helpfulResource :: Prelude.Maybe ChoiceContent,
-    -- | The choice level improvement plan.
+    -- | The improvement plan (both text and URL) for a particular choice.
+    --
+    -- This field only applies to custom lenses. Each choice can have only one
+    -- improvement plan.
     improvementPlan :: Prelude.Maybe ChoiceContent,
     title :: Prelude.Maybe Prelude.Text
   }
@@ -52,17 +59,24 @@ data Choice = Choice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'additionalResources', 'choice_additionalResources' - The additional resources for a choice. A choice can have up to two
--- additional resources: one of type @HELPFUL_RESOURCE@, one of type
--- @IMPROVEMENT_PLAN@, or both.
+-- 'additionalResources', 'choice_additionalResources' - The additional resources for a choice in a custom lens.
+--
+-- A choice can have up to two additional resources: one of type
+-- @HELPFUL_RESOURCE@, one of type @IMPROVEMENT_PLAN@, or both.
 --
 -- 'choiceId', 'choice_choiceId' - Undocumented member.
 --
 -- 'description', 'choice_description' - Undocumented member.
 --
--- 'helpfulResource', 'choice_helpfulResource' - The choice level helpful resource.
+-- 'helpfulResource', 'choice_helpfulResource' - The helpful resource (both text and URL) for a particular choice.
 --
--- 'improvementPlan', 'choice_improvementPlan' - The choice level improvement plan.
+-- This field only applies to custom lenses. Each choice can have only one
+-- helpful resource.
+--
+-- 'improvementPlan', 'choice_improvementPlan' - The improvement plan (both text and URL) for a particular choice.
+--
+-- This field only applies to custom lenses. Each choice can have only one
+-- improvement plan.
 --
 -- 'title', 'choice_title' - Undocumented member.
 newChoice ::
@@ -77,9 +91,10 @@ newChoice =
       title = Prelude.Nothing
     }
 
--- | The additional resources for a choice. A choice can have up to two
--- additional resources: one of type @HELPFUL_RESOURCE@, one of type
--- @IMPROVEMENT_PLAN@, or both.
+-- | The additional resources for a choice in a custom lens.
+--
+-- A choice can have up to two additional resources: one of type
+-- @HELPFUL_RESOURCE@, one of type @IMPROVEMENT_PLAN@, or both.
 choice_additionalResources :: Lens.Lens' Choice (Prelude.Maybe [AdditionalResources])
 choice_additionalResources = Lens.lens (\Choice' {additionalResources} -> additionalResources) (\s@Choice' {} a -> s {additionalResources = a} :: Choice) Prelude.. Lens.mapping Lens.coerced
 
@@ -91,11 +106,17 @@ choice_choiceId = Lens.lens (\Choice' {choiceId} -> choiceId) (\s@Choice' {} a -
 choice_description :: Lens.Lens' Choice (Prelude.Maybe Prelude.Text)
 choice_description = Lens.lens (\Choice' {description} -> description) (\s@Choice' {} a -> s {description = a} :: Choice)
 
--- | The choice level helpful resource.
+-- | The helpful resource (both text and URL) for a particular choice.
+--
+-- This field only applies to custom lenses. Each choice can have only one
+-- helpful resource.
 choice_helpfulResource :: Lens.Lens' Choice (Prelude.Maybe ChoiceContent)
 choice_helpfulResource = Lens.lens (\Choice' {helpfulResource} -> helpfulResource) (\s@Choice' {} a -> s {helpfulResource = a} :: Choice)
 
--- | The choice level improvement plan.
+-- | The improvement plan (both text and URL) for a particular choice.
+--
+-- This field only applies to custom lenses. Each choice can have only one
+-- improvement plan.
 choice_improvementPlan :: Lens.Lens' Choice (Prelude.Maybe ChoiceContent)
 choice_improvementPlan = Lens.lens (\Choice' {improvementPlan} -> improvementPlan) (\s@Choice' {} a -> s {improvementPlan = a} :: Choice)
 
@@ -109,7 +130,8 @@ instance Data.FromJSON Choice where
       "Choice"
       ( \x ->
           Choice'
-            Prelude.<$> ( x Data..:? "AdditionalResources"
+            Prelude.<$> ( x
+                            Data..:? "AdditionalResources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ChoiceId")
@@ -121,7 +143,8 @@ instance Data.FromJSON Choice where
 
 instance Prelude.Hashable Choice where
   hashWithSalt _salt Choice' {..} =
-    _salt `Prelude.hashWithSalt` additionalResources
+    _salt
+      `Prelude.hashWithSalt` additionalResources
       `Prelude.hashWithSalt` choiceId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` helpfulResource

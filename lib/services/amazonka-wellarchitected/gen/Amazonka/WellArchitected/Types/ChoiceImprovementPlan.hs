@@ -82,7 +82,8 @@ instance Data.FromJSON ChoiceImprovementPlan where
 
 instance Prelude.Hashable ChoiceImprovementPlan where
   hashWithSalt _salt ChoiceImprovementPlan' {..} =
-    _salt `Prelude.hashWithSalt` choiceId
+    _salt
+      `Prelude.hashWithSalt` choiceId
       `Prelude.hashWithSalt` displayText
       `Prelude.hashWithSalt` improvementPlanUrl
 

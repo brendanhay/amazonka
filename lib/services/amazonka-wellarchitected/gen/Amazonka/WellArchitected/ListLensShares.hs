@@ -127,7 +127,8 @@ instance Core.AWSRequest ListLensShares where
     Response.receiveJSON
       ( \s h x ->
           ListLensSharesResponse'
-            Prelude.<$> ( x Data..?> "LensShareSummaries"
+            Prelude.<$> ( x
+                            Data..?> "LensShareSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -136,7 +137,8 @@ instance Core.AWSRequest ListLensShares where
 
 instance Prelude.Hashable ListLensShares where
   hashWithSalt _salt ListLensShares' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sharedWithPrefix
       `Prelude.hashWithSalt` status

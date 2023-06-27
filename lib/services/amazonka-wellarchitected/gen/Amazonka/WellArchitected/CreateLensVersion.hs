@@ -24,9 +24,10 @@
 --
 -- A lens can have up to 100 versions.
 --
--- After a lens has been imported, create a new lens version to publish it.
+-- Use this operation to publish a new lens version after you have imported
+-- a lens. The @LensAlias@ is used to identify the lens to be published.
 -- The owner of a lens can share the lens with other Amazon Web Services
--- accounts and IAM users in the same Amazon Web Services Region. Only the
+-- accounts and users in the same Amazon Web Services Region. Only the
 -- owner of a lens can delete it.
 module Amazonka.WellArchitected.CreateLensVersion
   ( -- * Creating a Request
@@ -137,7 +138,8 @@ instance Core.AWSRequest CreateLensVersion where
 
 instance Prelude.Hashable CreateLensVersion where
   hashWithSalt _salt CreateLensVersion' {..} =
-    _salt `Prelude.hashWithSalt` isMajorVersion
+    _salt
+      `Prelude.hashWithSalt` isMajorVersion
       `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` lensVersion
       `Prelude.hashWithSalt` clientRequestToken

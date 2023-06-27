@@ -20,10 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Import a new lens.
+-- Import a new custom lens or update an existing custom lens.
 --
--- The lens cannot be applied to workloads or shared with other Amazon Web
--- Services accounts until it\'s published with CreateLensVersion
+-- To update an existing custom lens, specify its ARN as the @LensAlias@.
+-- If no ARN is specified, a new custom lens is created.
+--
+-- The new or updated lens will have a status of @DRAFT@. The lens cannot
+-- be applied to workloads or shared with other Amazon Web Services
+-- accounts until it\'s published with CreateLensVersion.
 --
 -- Lenses are defined in JSON. For more information, see
 -- <https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html JSON format specification>
@@ -141,7 +145,8 @@ instance Core.AWSRequest ImportLens where
 
 instance Prelude.Hashable ImportLens where
   hashWithSalt _salt ImportLens' {..} =
-    _salt `Prelude.hashWithSalt` lensAlias
+    _salt
+      `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` jSONString
       `Prelude.hashWithSalt` clientRequestToken
@@ -184,7 +189,7 @@ instance Data.ToQuery ImportLens where
 
 -- | /See:/ 'newImportLensResponse' smart constructor.
 data ImportLensResponse = ImportLensResponse'
-  { -- | The ARN for the lens.
+  { -- | The ARN for the lens that was created or updated.
     lensArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the imported lens.
     status :: Prelude.Maybe ImportLensStatus,
@@ -201,7 +206,7 @@ data ImportLensResponse = ImportLensResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lensArn', 'importLensResponse_lensArn' - The ARN for the lens.
+-- 'lensArn', 'importLensResponse_lensArn' - The ARN for the lens that was created or updated.
 --
 -- 'status', 'importLensResponse_status' - The status of the imported lens.
 --
@@ -217,7 +222,7 @@ newImportLensResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The ARN for the lens.
+-- | The ARN for the lens that was created or updated.
 importLensResponse_lensArn :: Lens.Lens' ImportLensResponse (Prelude.Maybe Prelude.Text)
 importLensResponse_lensArn = Lens.lens (\ImportLensResponse' {lensArn} -> lensArn) (\s@ImportLensResponse' {} a -> s {lensArn = a} :: ImportLensResponse)
 

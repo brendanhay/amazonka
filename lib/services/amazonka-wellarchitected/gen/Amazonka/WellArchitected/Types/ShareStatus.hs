@@ -36,7 +36,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The status of a workload share.
+-- | The status of the share request.
 newtype ShareStatus = ShareStatus'
   { fromShareStatus ::
       Data.Text

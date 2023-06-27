@@ -60,6 +60,12 @@ module Amazonka.WellArchitected
     AssociateLensesResponse (AssociateLensesResponse'),
     newAssociateLensesResponse,
 
+    -- ** AssociateProfiles
+    AssociateProfiles (AssociateProfiles'),
+    newAssociateProfiles,
+    AssociateProfilesResponse (AssociateProfilesResponse'),
+    newAssociateProfilesResponse,
+
     -- ** CreateLensShare
     CreateLensShare (CreateLensShare'),
     newCreateLensShare,
@@ -77,6 +83,18 @@ module Amazonka.WellArchitected
     newCreateMilestone,
     CreateMilestoneResponse (CreateMilestoneResponse'),
     newCreateMilestoneResponse,
+
+    -- ** CreateProfile
+    CreateProfile (CreateProfile'),
+    newCreateProfile,
+    CreateProfileResponse (CreateProfileResponse'),
+    newCreateProfileResponse,
+
+    -- ** CreateProfileShare
+    CreateProfileShare (CreateProfileShare'),
+    newCreateProfileShare,
+    CreateProfileShareResponse (CreateProfileShareResponse'),
+    newCreateProfileShareResponse,
 
     -- ** CreateWorkload
     CreateWorkload (CreateWorkload'),
@@ -102,6 +120,18 @@ module Amazonka.WellArchitected
     DeleteLensShareResponse (DeleteLensShareResponse'),
     newDeleteLensShareResponse,
 
+    -- ** DeleteProfile
+    DeleteProfile (DeleteProfile'),
+    newDeleteProfile,
+    DeleteProfileResponse (DeleteProfileResponse'),
+    newDeleteProfileResponse,
+
+    -- ** DeleteProfileShare
+    DeleteProfileShare (DeleteProfileShare'),
+    newDeleteProfileShare,
+    DeleteProfileShareResponse (DeleteProfileShareResponse'),
+    newDeleteProfileShareResponse,
+
     -- ** DeleteWorkload
     DeleteWorkload (DeleteWorkload'),
     newDeleteWorkload,
@@ -120,6 +150,12 @@ module Amazonka.WellArchitected
     DisassociateLensesResponse (DisassociateLensesResponse'),
     newDisassociateLensesResponse,
 
+    -- ** DisassociateProfiles
+    DisassociateProfiles (DisassociateProfiles'),
+    newDisassociateProfiles,
+    DisassociateProfilesResponse (DisassociateProfilesResponse'),
+    newDisassociateProfilesResponse,
+
     -- ** ExportLens
     ExportLens (ExportLens'),
     newExportLens,
@@ -131,6 +167,12 @@ module Amazonka.WellArchitected
     newGetAnswer,
     GetAnswerResponse (GetAnswerResponse'),
     newGetAnswerResponse,
+
+    -- ** GetConsolidatedReport
+    GetConsolidatedReport (GetConsolidatedReport'),
+    newGetConsolidatedReport,
+    GetConsolidatedReportResponse (GetConsolidatedReportResponse'),
+    newGetConsolidatedReportResponse,
 
     -- ** GetLens
     GetLens (GetLens'),
@@ -161,6 +203,18 @@ module Amazonka.WellArchitected
     newGetMilestone,
     GetMilestoneResponse (GetMilestoneResponse'),
     newGetMilestoneResponse,
+
+    -- ** GetProfile
+    GetProfile (GetProfile'),
+    newGetProfile,
+    GetProfileResponse (GetProfileResponse'),
+    newGetProfileResponse,
+
+    -- ** GetProfileTemplate
+    GetProfileTemplate (GetProfileTemplate'),
+    newGetProfileTemplate,
+    GetProfileTemplateResponse (GetProfileTemplateResponse'),
+    newGetProfileTemplateResponse,
 
     -- ** GetWorkload
     GetWorkload (GetWorkload'),
@@ -228,6 +282,24 @@ module Amazonka.WellArchitected
     ListNotificationsResponse (ListNotificationsResponse'),
     newListNotificationsResponse,
 
+    -- ** ListProfileNotifications
+    ListProfileNotifications (ListProfileNotifications'),
+    newListProfileNotifications,
+    ListProfileNotificationsResponse (ListProfileNotificationsResponse'),
+    newListProfileNotificationsResponse,
+
+    -- ** ListProfileShares
+    ListProfileShares (ListProfileShares'),
+    newListProfileShares,
+    ListProfileSharesResponse (ListProfileSharesResponse'),
+    newListProfileSharesResponse,
+
+    -- ** ListProfiles
+    ListProfiles (ListProfiles'),
+    newListProfiles,
+    ListProfilesResponse (ListProfilesResponse'),
+    newListProfilesResponse,
+
     -- ** ListShareInvitations
     ListShareInvitations (ListShareInvitations'),
     newListShareInvitations,
@@ -282,6 +354,12 @@ module Amazonka.WellArchitected
     UpdateLensReviewResponse (UpdateLensReviewResponse'),
     newUpdateLensReviewResponse,
 
+    -- ** UpdateProfile
+    UpdateProfile (UpdateProfile'),
+    newUpdateProfile,
+    UpdateProfileResponse (UpdateProfileResponse'),
+    newUpdateProfileResponse,
+
     -- ** UpdateShareInvitation
     UpdateShareInvitation (UpdateShareInvitation'),
     newUpdateShareInvitation,
@@ -306,6 +384,12 @@ module Amazonka.WellArchitected
     UpgradeLensReviewResponse (UpgradeLensReviewResponse'),
     newUpgradeLensReviewResponse,
 
+    -- ** UpgradeProfileVersion
+    UpgradeProfileVersion (UpgradeProfileVersion'),
+    newUpgradeProfileVersion,
+    UpgradeProfileVersionResponse (UpgradeProfileVersionResponse'),
+    newUpgradeProfileVersionResponse,
+
     -- * Types
 
     -- ** AdditionalResourceType
@@ -329,8 +413,14 @@ module Amazonka.WellArchitected
     -- ** ChoiceStatus
     ChoiceStatus (..),
 
+    -- ** DefinitionType
+    DefinitionType (..),
+
     -- ** DifferenceStatus
     DifferenceStatus (..),
+
+    -- ** DiscoveryIntegrationStatus
+    DiscoveryIntegrationStatus (..),
 
     -- ** ImportLensStatus
     ImportLensStatus (..),
@@ -344,6 +434,9 @@ module Amazonka.WellArchitected
     -- ** LensType
     LensType (..),
 
+    -- ** MetricType
+    MetricType (..),
+
     -- ** NotificationType
     NotificationType (..),
 
@@ -352,6 +445,21 @@ module Amazonka.WellArchitected
 
     -- ** PermissionType
     PermissionType (..),
+
+    -- ** ProfileNotificationType
+    ProfileNotificationType (..),
+
+    -- ** ProfileOwnerType
+    ProfileOwnerType (..),
+
+    -- ** QuestionPriority
+    QuestionPriority (..),
+
+    -- ** QuestionType
+    QuestionType (..),
+
+    -- ** ReportFormat
+    ReportFormat (..),
 
     -- ** Risk
     Risk (..),
@@ -386,6 +494,10 @@ module Amazonka.WellArchitected
     AnswerSummary (AnswerSummary'),
     newAnswerSummary,
 
+    -- ** BestPractice
+    BestPractice (BestPractice'),
+    newBestPractice,
+
     -- ** CheckDetail
     CheckDetail (CheckDetail'),
     newCheckDetail,
@@ -418,6 +530,10 @@ module Amazonka.WellArchitected
     ChoiceUpdate (ChoiceUpdate'),
     newChoiceUpdate,
 
+    -- ** ConsolidatedReportMetric
+    ConsolidatedReportMetric (ConsolidatedReportMetric'),
+    newConsolidatedReportMetric,
+
     -- ** ImprovementSummary
     ImprovementSummary (ImprovementSummary'),
     newImprovementSummary,
@@ -425,6 +541,10 @@ module Amazonka.WellArchitected
     -- ** Lens
     Lens (Lens'),
     newLens,
+
+    -- ** LensMetric
+    LensMetric (LensMetric'),
+    newLensMetric,
 
     -- ** LensReview
     LensReview (LensReview'),
@@ -466,13 +586,61 @@ module Amazonka.WellArchitected
     PillarDifference (PillarDifference'),
     newPillarDifference,
 
+    -- ** PillarMetric
+    PillarMetric (PillarMetric'),
+    newPillarMetric,
+
     -- ** PillarReviewSummary
     PillarReviewSummary (PillarReviewSummary'),
     newPillarReviewSummary,
 
+    -- ** Profile
+    Profile (Profile'),
+    newProfile,
+
+    -- ** ProfileChoice
+    ProfileChoice (ProfileChoice'),
+    newProfileChoice,
+
+    -- ** ProfileNotificationSummary
+    ProfileNotificationSummary (ProfileNotificationSummary'),
+    newProfileNotificationSummary,
+
+    -- ** ProfileQuestion
+    ProfileQuestion (ProfileQuestion'),
+    newProfileQuestion,
+
+    -- ** ProfileQuestionUpdate
+    ProfileQuestionUpdate (ProfileQuestionUpdate'),
+    newProfileQuestionUpdate,
+
+    -- ** ProfileShareSummary
+    ProfileShareSummary (ProfileShareSummary'),
+    newProfileShareSummary,
+
+    -- ** ProfileSummary
+    ProfileSummary (ProfileSummary'),
+    newProfileSummary,
+
+    -- ** ProfileTemplate
+    ProfileTemplate (ProfileTemplate'),
+    newProfileTemplate,
+
+    -- ** ProfileTemplateChoice
+    ProfileTemplateChoice (ProfileTemplateChoice'),
+    newProfileTemplateChoice,
+
+    -- ** ProfileTemplateQuestion
+    ProfileTemplateQuestion (ProfileTemplateQuestion'),
+    newProfileTemplateQuestion,
+
     -- ** QuestionDifference
     QuestionDifference (QuestionDifference'),
     newQuestionDifference,
+
+    -- ** QuestionMetric
+    QuestionMetric (QuestionMetric'),
+    newQuestionMetric,
 
     -- ** ShareInvitation
     ShareInvitation (ShareInvitation'),
@@ -494,6 +662,10 @@ module Amazonka.WellArchitected
     WorkloadDiscoveryConfig (WorkloadDiscoveryConfig'),
     newWorkloadDiscoveryConfig,
 
+    -- ** WorkloadProfile
+    WorkloadProfile (WorkloadProfile'),
+    newWorkloadProfile,
+
     -- ** WorkloadShare
     WorkloadShare (WorkloadShare'),
     newWorkloadShare,
@@ -509,23 +681,32 @@ module Amazonka.WellArchitected
 where
 
 import Amazonka.WellArchitected.AssociateLenses
+import Amazonka.WellArchitected.AssociateProfiles
 import Amazonka.WellArchitected.CreateLensShare
 import Amazonka.WellArchitected.CreateLensVersion
 import Amazonka.WellArchitected.CreateMilestone
+import Amazonka.WellArchitected.CreateProfile
+import Amazonka.WellArchitected.CreateProfileShare
 import Amazonka.WellArchitected.CreateWorkload
 import Amazonka.WellArchitected.CreateWorkloadShare
 import Amazonka.WellArchitected.DeleteLens
 import Amazonka.WellArchitected.DeleteLensShare
+import Amazonka.WellArchitected.DeleteProfile
+import Amazonka.WellArchitected.DeleteProfileShare
 import Amazonka.WellArchitected.DeleteWorkload
 import Amazonka.WellArchitected.DeleteWorkloadShare
 import Amazonka.WellArchitected.DisassociateLenses
+import Amazonka.WellArchitected.DisassociateProfiles
 import Amazonka.WellArchitected.ExportLens
 import Amazonka.WellArchitected.GetAnswer
+import Amazonka.WellArchitected.GetConsolidatedReport
 import Amazonka.WellArchitected.GetLens
 import Amazonka.WellArchitected.GetLensReview
 import Amazonka.WellArchitected.GetLensReviewReport
 import Amazonka.WellArchitected.GetLensVersionDifference
 import Amazonka.WellArchitected.GetMilestone
+import Amazonka.WellArchitected.GetProfile
+import Amazonka.WellArchitected.GetProfileTemplate
 import Amazonka.WellArchitected.GetWorkload
 import Amazonka.WellArchitected.ImportLens
 import Amazonka.WellArchitected.Lens
@@ -538,6 +719,9 @@ import Amazonka.WellArchitected.ListLensShares
 import Amazonka.WellArchitected.ListLenses
 import Amazonka.WellArchitected.ListMilestones
 import Amazonka.WellArchitected.ListNotifications
+import Amazonka.WellArchitected.ListProfileNotifications
+import Amazonka.WellArchitected.ListProfileShares
+import Amazonka.WellArchitected.ListProfiles
 import Amazonka.WellArchitected.ListShareInvitations
 import Amazonka.WellArchitected.ListTagsForResource
 import Amazonka.WellArchitected.ListWorkloadShares
@@ -548,10 +732,12 @@ import Amazonka.WellArchitected.UntagResource
 import Amazonka.WellArchitected.UpdateAnswer
 import Amazonka.WellArchitected.UpdateGlobalSettings
 import Amazonka.WellArchitected.UpdateLensReview
+import Amazonka.WellArchitected.UpdateProfile
 import Amazonka.WellArchitected.UpdateShareInvitation
 import Amazonka.WellArchitected.UpdateWorkload
 import Amazonka.WellArchitected.UpdateWorkloadShare
 import Amazonka.WellArchitected.UpgradeLensReview
+import Amazonka.WellArchitected.UpgradeProfileVersion
 import Amazonka.WellArchitected.Waiters
 
 -- $errors

@@ -26,6 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.LensStatus
 import Amazonka.WellArchitected.Types.PillarReviewSummary
 import Amazonka.WellArchitected.Types.Risk
+import Amazonka.WellArchitected.Types.WorkloadProfile
 
 -- | A lens review of a question.
 --
@@ -42,6 +43,9 @@ data LensReview = LensReview'
     nextToken :: Prelude.Maybe Prelude.Text,
     notes :: Prelude.Maybe Prelude.Text,
     pillarReviewSummaries :: Prelude.Maybe [PillarReviewSummary],
+    prioritizedRiskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural),
+    -- | The profiles associated with the workload.
+    profiles :: Prelude.Maybe [WorkloadProfile],
     riskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural),
     updatedAt :: Prelude.Maybe Data.POSIX
   }
@@ -71,6 +75,10 @@ data LensReview = LensReview'
 --
 -- 'pillarReviewSummaries', 'lensReview_pillarReviewSummaries' - Undocumented member.
 --
+-- 'prioritizedRiskCounts', 'lensReview_prioritizedRiskCounts' - Undocumented member.
+--
+-- 'profiles', 'lensReview_profiles' - The profiles associated with the workload.
+--
 -- 'riskCounts', 'lensReview_riskCounts' - Undocumented member.
 --
 -- 'updatedAt', 'lensReview_updatedAt' - Undocumented member.
@@ -86,6 +94,8 @@ newLensReview =
       nextToken = Prelude.Nothing,
       notes = Prelude.Nothing,
       pillarReviewSummaries = Prelude.Nothing,
+      prioritizedRiskCounts = Prelude.Nothing,
+      profiles = Prelude.Nothing,
       riskCounts = Prelude.Nothing,
       updatedAt = Prelude.Nothing
     }
@@ -123,6 +133,14 @@ lensReview_pillarReviewSummaries :: Lens.Lens' LensReview (Prelude.Maybe [Pillar
 lensReview_pillarReviewSummaries = Lens.lens (\LensReview' {pillarReviewSummaries} -> pillarReviewSummaries) (\s@LensReview' {} a -> s {pillarReviewSummaries = a} :: LensReview) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
+lensReview_prioritizedRiskCounts :: Lens.Lens' LensReview (Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural))
+lensReview_prioritizedRiskCounts = Lens.lens (\LensReview' {prioritizedRiskCounts} -> prioritizedRiskCounts) (\s@LensReview' {} a -> s {prioritizedRiskCounts = a} :: LensReview) Prelude.. Lens.mapping Lens.coerced
+
+-- | The profiles associated with the workload.
+lensReview_profiles :: Lens.Lens' LensReview (Prelude.Maybe [WorkloadProfile])
+lensReview_profiles = Lens.lens (\LensReview' {profiles} -> profiles) (\s@LensReview' {} a -> s {profiles = a} :: LensReview) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
 lensReview_riskCounts :: Lens.Lens' LensReview (Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural))
 lensReview_riskCounts = Lens.lens (\LensReview' {riskCounts} -> riskCounts) (\s@LensReview' {} a -> s {riskCounts = a} :: LensReview) Prelude.. Lens.mapping Lens.coerced
 
@@ -143,16 +161,23 @@ instance Data.FromJSON LensReview where
             Prelude.<*> (x Data..:? "LensVersion")
             Prelude.<*> (x Data..:? "NextToken")
             Prelude.<*> (x Data..:? "Notes")
-            Prelude.<*> ( x Data..:? "PillarReviewSummaries"
+            Prelude.<*> ( x
+                            Data..:? "PillarReviewSummaries"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> ( x
+                            Data..:? "PrioritizedRiskCounts"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "Profiles" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "RiskCounts" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable LensReview where
   hashWithSalt _salt LensReview' {..} =
-    _salt `Prelude.hashWithSalt` lensAlias
+    _salt
+      `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` lensArn
       `Prelude.hashWithSalt` lensName
       `Prelude.hashWithSalt` lensStatus
@@ -160,6 +185,8 @@ instance Prelude.Hashable LensReview where
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` notes
       `Prelude.hashWithSalt` pillarReviewSummaries
+      `Prelude.hashWithSalt` prioritizedRiskCounts
+      `Prelude.hashWithSalt` profiles
       `Prelude.hashWithSalt` riskCounts
       `Prelude.hashWithSalt` updatedAt
 
@@ -173,5 +200,7 @@ instance Prelude.NFData LensReview where
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf notes
       `Prelude.seq` Prelude.rnf pillarReviewSummaries
+      `Prelude.seq` Prelude.rnf prioritizedRiskCounts
+      `Prelude.seq` Prelude.rnf profiles
       `Prelude.seq` Prelude.rnf riskCounts
       `Prelude.seq` Prelude.rnf updatedAt

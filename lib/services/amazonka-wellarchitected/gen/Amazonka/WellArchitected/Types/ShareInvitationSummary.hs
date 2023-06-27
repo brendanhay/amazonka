@@ -34,6 +34,10 @@ data ShareInvitationSummary = ShareInvitationSummary'
     lensArn :: Prelude.Maybe Prelude.Text,
     lensName :: Prelude.Maybe Prelude.Text,
     permissionType :: Prelude.Maybe PermissionType,
+    -- | The profile ARN.
+    profileArn :: Prelude.Maybe Prelude.Text,
+    -- | The profile name.
+    profileName :: Prelude.Maybe Prelude.Text,
     -- | The ID assigned to the share invitation.
     shareInvitationId :: Prelude.Maybe Prelude.Text,
     -- | The resource type of the share invitation.
@@ -59,6 +63,10 @@ data ShareInvitationSummary = ShareInvitationSummary'
 --
 -- 'permissionType', 'shareInvitationSummary_permissionType' - Undocumented member.
 --
+-- 'profileArn', 'shareInvitationSummary_profileArn' - The profile ARN.
+--
+-- 'profileName', 'shareInvitationSummary_profileName' - The profile name.
+--
 -- 'shareInvitationId', 'shareInvitationSummary_shareInvitationId' - The ID assigned to the share invitation.
 --
 -- 'shareResourceType', 'shareInvitationSummary_shareResourceType' - The resource type of the share invitation.
@@ -77,6 +85,8 @@ newShareInvitationSummary =
     { lensArn = Prelude.Nothing,
       lensName = Prelude.Nothing,
       permissionType = Prelude.Nothing,
+      profileArn = Prelude.Nothing,
+      profileName = Prelude.Nothing,
       shareInvitationId = Prelude.Nothing,
       shareResourceType = Prelude.Nothing,
       sharedBy = Prelude.Nothing,
@@ -96,6 +106,14 @@ shareInvitationSummary_lensName = Lens.lens (\ShareInvitationSummary' {lensName}
 -- | Undocumented member.
 shareInvitationSummary_permissionType :: Lens.Lens' ShareInvitationSummary (Prelude.Maybe PermissionType)
 shareInvitationSummary_permissionType = Lens.lens (\ShareInvitationSummary' {permissionType} -> permissionType) (\s@ShareInvitationSummary' {} a -> s {permissionType = a} :: ShareInvitationSummary)
+
+-- | The profile ARN.
+shareInvitationSummary_profileArn :: Lens.Lens' ShareInvitationSummary (Prelude.Maybe Prelude.Text)
+shareInvitationSummary_profileArn = Lens.lens (\ShareInvitationSummary' {profileArn} -> profileArn) (\s@ShareInvitationSummary' {} a -> s {profileArn = a} :: ShareInvitationSummary)
+
+-- | The profile name.
+shareInvitationSummary_profileName :: Lens.Lens' ShareInvitationSummary (Prelude.Maybe Prelude.Text)
+shareInvitationSummary_profileName = Lens.lens (\ShareInvitationSummary' {profileName} -> profileName) (\s@ShareInvitationSummary' {} a -> s {profileName = a} :: ShareInvitationSummary)
 
 -- | The ID assigned to the share invitation.
 shareInvitationSummary_shareInvitationId :: Lens.Lens' ShareInvitationSummary (Prelude.Maybe Prelude.Text)
@@ -130,6 +148,8 @@ instance Data.FromJSON ShareInvitationSummary where
             Prelude.<$> (x Data..:? "LensArn")
             Prelude.<*> (x Data..:? "LensName")
             Prelude.<*> (x Data..:? "PermissionType")
+            Prelude.<*> (x Data..:? "ProfileArn")
+            Prelude.<*> (x Data..:? "ProfileName")
             Prelude.<*> (x Data..:? "ShareInvitationId")
             Prelude.<*> (x Data..:? "ShareResourceType")
             Prelude.<*> (x Data..:? "SharedBy")
@@ -140,9 +160,12 @@ instance Data.FromJSON ShareInvitationSummary where
 
 instance Prelude.Hashable ShareInvitationSummary where
   hashWithSalt _salt ShareInvitationSummary' {..} =
-    _salt `Prelude.hashWithSalt` lensArn
+    _salt
+      `Prelude.hashWithSalt` lensArn
       `Prelude.hashWithSalt` lensName
       `Prelude.hashWithSalt` permissionType
+      `Prelude.hashWithSalt` profileArn
+      `Prelude.hashWithSalt` profileName
       `Prelude.hashWithSalt` shareInvitationId
       `Prelude.hashWithSalt` shareResourceType
       `Prelude.hashWithSalt` sharedBy
@@ -155,6 +178,8 @@ instance Prelude.NFData ShareInvitationSummary where
     Prelude.rnf lensArn
       `Prelude.seq` Prelude.rnf lensName
       `Prelude.seq` Prelude.rnf permissionType
+      `Prelude.seq` Prelude.rnf profileArn
+      `Prelude.seq` Prelude.rnf profileName
       `Prelude.seq` Prelude.rnf shareInvitationId
       `Prelude.seq` Prelude.rnf shareResourceType
       `Prelude.seq` Prelude.rnf sharedBy

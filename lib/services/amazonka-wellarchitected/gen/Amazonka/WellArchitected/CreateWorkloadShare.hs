@@ -23,12 +23,14 @@
 -- Create a workload share.
 --
 -- The owner of a workload can share it with other Amazon Web Services
--- accounts and IAM users in the same Amazon Web Services Region. Shared
--- access to a workload is not removed until the workload invitation is
--- deleted.
+-- accounts and users in the same Amazon Web Services Region. Shared access
+-- to a workload is not removed until the workload invitation is deleted.
+--
+-- If you share a workload with an organization or OU, all accounts in the
+-- organization or OU are granted access to the workload.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-sharing.html Sharing a Workload>
+-- <https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-sharing.html Sharing a workload>
 -- in the /Well-Architected Tool User Guide/.
 module Amazonka.WellArchitected.CreateWorkloadShare
   ( -- * Creating a Request
@@ -141,7 +143,8 @@ instance Core.AWSRequest CreateWorkloadShare where
 
 instance Prelude.Hashable CreateWorkloadShare where
   hashWithSalt _salt CreateWorkloadShare' {..} =
-    _salt `Prelude.hashWithSalt` workloadId
+    _salt
+      `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` sharedWith
       `Prelude.hashWithSalt` permissionType
       `Prelude.hashWithSalt` clientRequestToken

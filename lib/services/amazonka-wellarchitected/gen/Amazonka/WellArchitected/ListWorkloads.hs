@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List workloads. Paginated.
+-- Paginated list of workloads.
 module Amazonka.WellArchitected.ListWorkloads
   ( -- * Creating a Request
     ListWorkloads (..),
@@ -106,7 +106,8 @@ instance Core.AWSRequest ListWorkloads where
       ( \s h x ->
           ListWorkloadsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "WorkloadSummaries"
+            Prelude.<*> ( x
+                            Data..?> "WorkloadSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -114,7 +115,8 @@ instance Core.AWSRequest ListWorkloads where
 
 instance Prelude.Hashable ListWorkloads where
   hashWithSalt _salt ListWorkloads' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workloadNamePrefix
 

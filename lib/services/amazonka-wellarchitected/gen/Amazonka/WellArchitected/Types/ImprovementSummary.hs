@@ -103,7 +103,8 @@ instance Data.FromJSON ImprovementSummary where
       ( \x ->
           ImprovementSummary'
             Prelude.<$> (x Data..:? "ImprovementPlanUrl")
-            Prelude.<*> ( x Data..:? "ImprovementPlans"
+            Prelude.<*> ( x
+                            Data..:? "ImprovementPlans"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PillarId")
@@ -114,7 +115,8 @@ instance Data.FromJSON ImprovementSummary where
 
 instance Prelude.Hashable ImprovementSummary where
   hashWithSalt _salt ImprovementSummary' {..} =
-    _salt `Prelude.hashWithSalt` improvementPlanUrl
+    _salt
+      `Prelude.hashWithSalt` improvementPlanUrl
       `Prelude.hashWithSalt` improvementPlans
       `Prelude.hashWithSalt` pillarId
       `Prelude.hashWithSalt` questionId

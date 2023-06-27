@@ -30,7 +30,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Permission granted on a workload share.
+-- | Permission granted on a share request.
 newtype PermissionType = PermissionType'
   { fromPermissionType ::
       Data.Text

@@ -129,7 +129,8 @@ instance Core.AWSRequest ListLenses where
 
 instance Prelude.Hashable ListLenses where
   hashWithSalt _salt ListLenses' {..} =
-    _salt `Prelude.hashWithSalt` lensName
+    _salt
+      `Prelude.hashWithSalt` lensName
       `Prelude.hashWithSalt` lensStatus
       `Prelude.hashWithSalt` lensType
       `Prelude.hashWithSalt` maxResults

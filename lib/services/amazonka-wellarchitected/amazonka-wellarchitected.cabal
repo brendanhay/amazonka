@@ -45,23 +45,32 @@ library
   exposed-modules:
     Amazonka.WellArchitected
     Amazonka.WellArchitected.AssociateLenses
+    Amazonka.WellArchitected.AssociateProfiles
     Amazonka.WellArchitected.CreateLensShare
     Amazonka.WellArchitected.CreateLensVersion
     Amazonka.WellArchitected.CreateMilestone
+    Amazonka.WellArchitected.CreateProfile
+    Amazonka.WellArchitected.CreateProfileShare
     Amazonka.WellArchitected.CreateWorkload
     Amazonka.WellArchitected.CreateWorkloadShare
     Amazonka.WellArchitected.DeleteLens
     Amazonka.WellArchitected.DeleteLensShare
+    Amazonka.WellArchitected.DeleteProfile
+    Amazonka.WellArchitected.DeleteProfileShare
     Amazonka.WellArchitected.DeleteWorkload
     Amazonka.WellArchitected.DeleteWorkloadShare
     Amazonka.WellArchitected.DisassociateLenses
+    Amazonka.WellArchitected.DisassociateProfiles
     Amazonka.WellArchitected.ExportLens
     Amazonka.WellArchitected.GetAnswer
+    Amazonka.WellArchitected.GetConsolidatedReport
     Amazonka.WellArchitected.GetLens
     Amazonka.WellArchitected.GetLensReview
     Amazonka.WellArchitected.GetLensReviewReport
     Amazonka.WellArchitected.GetLensVersionDifference
     Amazonka.WellArchitected.GetMilestone
+    Amazonka.WellArchitected.GetProfile
+    Amazonka.WellArchitected.GetProfileTemplate
     Amazonka.WellArchitected.GetWorkload
     Amazonka.WellArchitected.ImportLens
     Amazonka.WellArchitected.Lens
@@ -74,6 +83,9 @@ library
     Amazonka.WellArchitected.ListLensShares
     Amazonka.WellArchitected.ListMilestones
     Amazonka.WellArchitected.ListNotifications
+    Amazonka.WellArchitected.ListProfileNotifications
+    Amazonka.WellArchitected.ListProfiles
+    Amazonka.WellArchitected.ListProfileShares
     Amazonka.WellArchitected.ListShareInvitations
     Amazonka.WellArchitected.ListTagsForResource
     Amazonka.WellArchitected.ListWorkloads
@@ -85,6 +97,7 @@ library
     Amazonka.WellArchitected.Types.Answer
     Amazonka.WellArchitected.Types.AnswerReason
     Amazonka.WellArchitected.Types.AnswerSummary
+    Amazonka.WellArchitected.Types.BestPractice
     Amazonka.WellArchitected.Types.CheckDetail
     Amazonka.WellArchitected.Types.CheckFailureReason
     Amazonka.WellArchitected.Types.CheckProvider
@@ -98,10 +111,14 @@ library
     Amazonka.WellArchitected.Types.ChoiceReason
     Amazonka.WellArchitected.Types.ChoiceStatus
     Amazonka.WellArchitected.Types.ChoiceUpdate
+    Amazonka.WellArchitected.Types.ConsolidatedReportMetric
+    Amazonka.WellArchitected.Types.DefinitionType
     Amazonka.WellArchitected.Types.DifferenceStatus
+    Amazonka.WellArchitected.Types.DiscoveryIntegrationStatus
     Amazonka.WellArchitected.Types.ImportLensStatus
     Amazonka.WellArchitected.Types.ImprovementSummary
     Amazonka.WellArchitected.Types.Lens
+    Amazonka.WellArchitected.Types.LensMetric
     Amazonka.WellArchitected.Types.LensReview
     Amazonka.WellArchitected.Types.LensReviewReport
     Amazonka.WellArchitected.Types.LensReviewSummary
@@ -111,6 +128,7 @@ library
     Amazonka.WellArchitected.Types.LensSummary
     Amazonka.WellArchitected.Types.LensType
     Amazonka.WellArchitected.Types.LensUpgradeSummary
+    Amazonka.WellArchitected.Types.MetricType
     Amazonka.WellArchitected.Types.Milestone
     Amazonka.WellArchitected.Types.MilestoneSummary
     Amazonka.WellArchitected.Types.NotificationSummary
@@ -118,8 +136,25 @@ library
     Amazonka.WellArchitected.Types.OrganizationSharingStatus
     Amazonka.WellArchitected.Types.PermissionType
     Amazonka.WellArchitected.Types.PillarDifference
+    Amazonka.WellArchitected.Types.PillarMetric
     Amazonka.WellArchitected.Types.PillarReviewSummary
+    Amazonka.WellArchitected.Types.Profile
+    Amazonka.WellArchitected.Types.ProfileChoice
+    Amazonka.WellArchitected.Types.ProfileNotificationSummary
+    Amazonka.WellArchitected.Types.ProfileNotificationType
+    Amazonka.WellArchitected.Types.ProfileOwnerType
+    Amazonka.WellArchitected.Types.ProfileQuestion
+    Amazonka.WellArchitected.Types.ProfileQuestionUpdate
+    Amazonka.WellArchitected.Types.ProfileShareSummary
+    Amazonka.WellArchitected.Types.ProfileSummary
+    Amazonka.WellArchitected.Types.ProfileTemplate
+    Amazonka.WellArchitected.Types.ProfileTemplateChoice
+    Amazonka.WellArchitected.Types.ProfileTemplateQuestion
     Amazonka.WellArchitected.Types.QuestionDifference
+    Amazonka.WellArchitected.Types.QuestionMetric
+    Amazonka.WellArchitected.Types.QuestionPriority
+    Amazonka.WellArchitected.Types.QuestionType
+    Amazonka.WellArchitected.Types.ReportFormat
     Amazonka.WellArchitected.Types.Risk
     Amazonka.WellArchitected.Types.ShareInvitation
     Amazonka.WellArchitected.Types.ShareInvitationAction
@@ -132,6 +167,7 @@ library
     Amazonka.WellArchitected.Types.WorkloadDiscoveryConfig
     Amazonka.WellArchitected.Types.WorkloadEnvironment
     Amazonka.WellArchitected.Types.WorkloadImprovementStatus
+    Amazonka.WellArchitected.Types.WorkloadProfile
     Amazonka.WellArchitected.Types.WorkloadShare
     Amazonka.WellArchitected.Types.WorkloadShareSummary
     Amazonka.WellArchitected.Types.WorkloadSummary
@@ -139,10 +175,12 @@ library
     Amazonka.WellArchitected.UpdateAnswer
     Amazonka.WellArchitected.UpdateGlobalSettings
     Amazonka.WellArchitected.UpdateLensReview
+    Amazonka.WellArchitected.UpdateProfile
     Amazonka.WellArchitected.UpdateShareInvitation
     Amazonka.WellArchitected.UpdateWorkload
     Amazonka.WellArchitected.UpdateWorkloadShare
     Amazonka.WellArchitected.UpgradeLensReview
+    Amazonka.WellArchitected.UpgradeProfileVersion
     Amazonka.WellArchitected.Waiters
 
   build-depends:

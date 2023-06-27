@@ -21,13 +21,14 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates whether the Amazon Web Services account is opted into
--- organization sharing features.
+-- organization sharing and discovery integration features.
 module Amazonka.WellArchitected.UpdateGlobalSettings
   ( -- * Creating a Request
     UpdateGlobalSettings (..),
     newUpdateGlobalSettings,
 
     -- * Request Lenses
+    updateGlobalSettings_discoveryIntegrationStatus,
     updateGlobalSettings_organizationSharingStatus,
 
     -- * Destructuring the Response
@@ -46,7 +47,9 @@ import Amazonka.WellArchitected.Types
 
 -- | /See:/ 'newUpdateGlobalSettings' smart constructor.
 data UpdateGlobalSettings = UpdateGlobalSettings'
-  { -- | The status of organization sharing settings.
+  { -- | The status of discovery support settings.
+    discoveryIntegrationStatus :: Prelude.Maybe DiscoveryIntegrationStatus,
+    -- | The status of organization sharing settings.
     organizationSharingStatus :: Prelude.Maybe OrganizationSharingStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,14 +62,21 @@ data UpdateGlobalSettings = UpdateGlobalSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'discoveryIntegrationStatus', 'updateGlobalSettings_discoveryIntegrationStatus' - The status of discovery support settings.
+--
 -- 'organizationSharingStatus', 'updateGlobalSettings_organizationSharingStatus' - The status of organization sharing settings.
 newUpdateGlobalSettings ::
   UpdateGlobalSettings
 newUpdateGlobalSettings =
   UpdateGlobalSettings'
-    { organizationSharingStatus =
-        Prelude.Nothing
+    { discoveryIntegrationStatus =
+        Prelude.Nothing,
+      organizationSharingStatus = Prelude.Nothing
     }
+
+-- | The status of discovery support settings.
+updateGlobalSettings_discoveryIntegrationStatus :: Lens.Lens' UpdateGlobalSettings (Prelude.Maybe DiscoveryIntegrationStatus)
+updateGlobalSettings_discoveryIntegrationStatus = Lens.lens (\UpdateGlobalSettings' {discoveryIntegrationStatus} -> discoveryIntegrationStatus) (\s@UpdateGlobalSettings' {} a -> s {discoveryIntegrationStatus = a} :: UpdateGlobalSettings)
 
 -- | The status of organization sharing settings.
 updateGlobalSettings_organizationSharingStatus :: Lens.Lens' UpdateGlobalSettings (Prelude.Maybe OrganizationSharingStatus)
@@ -84,11 +94,13 @@ instance Core.AWSRequest UpdateGlobalSettings where
 instance Prelude.Hashable UpdateGlobalSettings where
   hashWithSalt _salt UpdateGlobalSettings' {..} =
     _salt
+      `Prelude.hashWithSalt` discoveryIntegrationStatus
       `Prelude.hashWithSalt` organizationSharingStatus
 
 instance Prelude.NFData UpdateGlobalSettings where
   rnf UpdateGlobalSettings' {..} =
-    Prelude.rnf organizationSharingStatus
+    Prelude.rnf discoveryIntegrationStatus
+      `Prelude.seq` Prelude.rnf organizationSharingStatus
 
 instance Data.ToHeaders UpdateGlobalSettings where
   toHeaders =
@@ -105,7 +117,9 @@ instance Data.ToJSON UpdateGlobalSettings where
   toJSON UpdateGlobalSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("OrganizationSharingStatus" Data..=)
+          [ ("DiscoveryIntegrationStatus" Data..=)
+              Prelude.<$> discoveryIntegrationStatus,
+            ("OrganizationSharingStatus" Data..=)
               Prelude.<$> organizationSharingStatus
           ]
       )

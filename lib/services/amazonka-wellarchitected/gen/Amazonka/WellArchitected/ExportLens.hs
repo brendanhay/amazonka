@@ -22,10 +22,12 @@
 --
 -- Export an existing lens.
 --
+-- Only the owner of a lens can export it. Lenses provided by Amazon Web
+-- Services (Amazon Web Services Official Content) cannot be exported.
+--
 -- Lenses are defined in JSON. For more information, see
 -- <https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html JSON format specification>
--- in the /Well-Architected Tool User Guide/. Only the owner of a lens can
--- export it.
+-- in the /Well-Architected Tool User Guide/.
 --
 -- __Disclaimer__
 --
@@ -114,7 +116,8 @@ instance Core.AWSRequest ExportLens where
 
 instance Prelude.Hashable ExportLens where
   hashWithSalt _salt ExportLens' {..} =
-    _salt `Prelude.hashWithSalt` lensVersion
+    _salt
+      `Prelude.hashWithSalt` lensVersion
       `Prelude.hashWithSalt` lensAlias
 
 instance Prelude.NFData ExportLens where
@@ -144,7 +147,7 @@ instance Data.ToQuery ExportLens where
 
 -- | /See:/ 'newExportLensResponse' smart constructor.
 data ExportLensResponse = ExportLensResponse'
-  { -- | The JSON for the lens.
+  { -- | The JSON representation of a lens.
     lensJSON :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -159,7 +162,7 @@ data ExportLensResponse = ExportLensResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lensJSON', 'exportLensResponse_lensJSON' - The JSON for the lens.
+-- 'lensJSON', 'exportLensResponse_lensJSON' - The JSON representation of a lens.
 --
 -- 'httpStatus', 'exportLensResponse_httpStatus' - The response's http status code.
 newExportLensResponse ::
@@ -172,7 +175,7 @@ newExportLensResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The JSON for the lens.
+-- | The JSON representation of a lens.
 exportLensResponse_lensJSON :: Lens.Lens' ExportLensResponse (Prelude.Maybe Prelude.Text)
 exportLensResponse_lensJSON = Lens.lens (\ExportLensResponse' {lensJSON} -> lensJSON) (\s@ExportLensResponse' {} a -> s {lensJSON = a} :: ExportLensResponse)
 

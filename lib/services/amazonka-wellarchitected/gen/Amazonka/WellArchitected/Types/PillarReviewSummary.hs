@@ -32,6 +32,7 @@ data PillarReviewSummary = PillarReviewSummary'
   { notes :: Prelude.Maybe Prelude.Text,
     pillarId :: Prelude.Maybe Prelude.Text,
     pillarName :: Prelude.Maybe Prelude.Text,
+    prioritizedRiskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural),
     riskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,6 +51,8 @@ data PillarReviewSummary = PillarReviewSummary'
 --
 -- 'pillarName', 'pillarReviewSummary_pillarName' - Undocumented member.
 --
+-- 'prioritizedRiskCounts', 'pillarReviewSummary_prioritizedRiskCounts' - Undocumented member.
+--
 -- 'riskCounts', 'pillarReviewSummary_riskCounts' - Undocumented member.
 newPillarReviewSummary ::
   PillarReviewSummary
@@ -58,6 +61,7 @@ newPillarReviewSummary =
     { notes = Prelude.Nothing,
       pillarId = Prelude.Nothing,
       pillarName = Prelude.Nothing,
+      prioritizedRiskCounts = Prelude.Nothing,
       riskCounts = Prelude.Nothing
     }
 
@@ -74,6 +78,10 @@ pillarReviewSummary_pillarName :: Lens.Lens' PillarReviewSummary (Prelude.Maybe 
 pillarReviewSummary_pillarName = Lens.lens (\PillarReviewSummary' {pillarName} -> pillarName) (\s@PillarReviewSummary' {} a -> s {pillarName = a} :: PillarReviewSummary)
 
 -- | Undocumented member.
+pillarReviewSummary_prioritizedRiskCounts :: Lens.Lens' PillarReviewSummary (Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural))
+pillarReviewSummary_prioritizedRiskCounts = Lens.lens (\PillarReviewSummary' {prioritizedRiskCounts} -> prioritizedRiskCounts) (\s@PillarReviewSummary' {} a -> s {prioritizedRiskCounts = a} :: PillarReviewSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
 pillarReviewSummary_riskCounts :: Lens.Lens' PillarReviewSummary (Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural))
 pillarReviewSummary_riskCounts = Lens.lens (\PillarReviewSummary' {riskCounts} -> riskCounts) (\s@PillarReviewSummary' {} a -> s {riskCounts = a} :: PillarReviewSummary) Prelude.. Lens.mapping Lens.coerced
 
@@ -86,14 +94,20 @@ instance Data.FromJSON PillarReviewSummary where
             Prelude.<$> (x Data..:? "Notes")
             Prelude.<*> (x Data..:? "PillarId")
             Prelude.<*> (x Data..:? "PillarName")
+            Prelude.<*> ( x
+                            Data..:? "PrioritizedRiskCounts"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "RiskCounts" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable PillarReviewSummary where
   hashWithSalt _salt PillarReviewSummary' {..} =
-    _salt `Prelude.hashWithSalt` notes
+    _salt
+      `Prelude.hashWithSalt` notes
       `Prelude.hashWithSalt` pillarId
       `Prelude.hashWithSalt` pillarName
+      `Prelude.hashWithSalt` prioritizedRiskCounts
       `Prelude.hashWithSalt` riskCounts
 
 instance Prelude.NFData PillarReviewSummary where
@@ -101,4 +115,5 @@ instance Prelude.NFData PillarReviewSummary where
     Prelude.rnf notes
       `Prelude.seq` Prelude.rnf pillarId
       `Prelude.seq` Prelude.rnf pillarName
+      `Prelude.seq` Prelude.rnf prioritizedRiskCounts
       `Prelude.seq` Prelude.rnf riskCounts

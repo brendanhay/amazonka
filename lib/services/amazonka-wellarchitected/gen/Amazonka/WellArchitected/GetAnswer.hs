@@ -130,7 +130,8 @@ instance Core.AWSRequest GetAnswer where
 
 instance Prelude.Hashable GetAnswer where
   hashWithSalt _salt GetAnswer' {..} =
-    _salt `Prelude.hashWithSalt` milestoneNumber
+    _salt
+      `Prelude.hashWithSalt` milestoneNumber
       `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` questionId

@@ -22,10 +22,10 @@
 --
 -- Delete a lens share.
 --
--- After the lens share is deleted, Amazon Web Services accounts, IAM
--- users, organizations, and organizational units (OUs) that you shared the
--- lens with can continue to use it, but they will no longer be able to
--- apply it to new workloads.
+-- After the lens share is deleted, Amazon Web Services accounts, users,
+-- organizations, and organizational units (OUs) that you shared the lens
+-- with can continue to use it, but they will no longer be able to apply it
+-- to new workloads.
 --
 -- __Disclaimer__
 --
@@ -121,7 +121,8 @@ instance Core.AWSRequest DeleteLensShare where
 
 instance Prelude.Hashable DeleteLensShare where
   hashWithSalt _salt DeleteLensShare' {..} =
-    _salt `Prelude.hashWithSalt` shareId
+    _salt
+      `Prelude.hashWithSalt` shareId
       `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` clientRequestToken
 

@@ -35,7 +35,9 @@ data Answer = Answer'
   { -- | A list of selected choices to a question in your workload.
     choiceAnswers :: Prelude.Maybe [ChoiceAnswer],
     choices :: Prelude.Maybe [Choice],
-    -- | The helpful resource text to be displayed.
+    -- | The helpful resource text to be displayed for a custom lens.
+    --
+    -- This field does not apply to Amazon Web Services official lenses.
     helpfulResourceDisplayText :: Prelude.Maybe Prelude.Text,
     helpfulResourceUrl :: Prelude.Maybe Prelude.Text,
     improvementPlanUrl :: Prelude.Maybe Prelude.Text,
@@ -64,7 +66,9 @@ data Answer = Answer'
 --
 -- 'choices', 'answer_choices' - Undocumented member.
 --
--- 'helpfulResourceDisplayText', 'answer_helpfulResourceDisplayText' - The helpful resource text to be displayed.
+-- 'helpfulResourceDisplayText', 'answer_helpfulResourceDisplayText' - The helpful resource text to be displayed for a custom lens.
+--
+-- This field does not apply to Amazon Web Services official lenses.
 --
 -- 'helpfulResourceUrl', 'answer_helpfulResourceUrl' - Undocumented member.
 --
@@ -115,7 +119,9 @@ answer_choiceAnswers = Lens.lens (\Answer' {choiceAnswers} -> choiceAnswers) (\s
 answer_choices :: Lens.Lens' Answer (Prelude.Maybe [Choice])
 answer_choices = Lens.lens (\Answer' {choices} -> choices) (\s@Answer' {} a -> s {choices = a} :: Answer) Prelude.. Lens.mapping Lens.coerced
 
--- | The helpful resource text to be displayed.
+-- | The helpful resource text to be displayed for a custom lens.
+--
+-- This field does not apply to Amazon Web Services official lenses.
 answer_helpfulResourceDisplayText :: Lens.Lens' Answer (Prelude.Maybe Prelude.Text)
 answer_helpfulResourceDisplayText = Lens.lens (\Answer' {helpfulResourceDisplayText} -> helpfulResourceDisplayText) (\s@Answer' {} a -> s {helpfulResourceDisplayText = a} :: Answer)
 
@@ -182,14 +188,16 @@ instance Data.FromJSON Answer where
             Prelude.<*> (x Data..:? "QuestionTitle")
             Prelude.<*> (x Data..:? "Reason")
             Prelude.<*> (x Data..:? "Risk")
-            Prelude.<*> ( x Data..:? "SelectedChoices"
+            Prelude.<*> ( x
+                            Data..:? "SelectedChoices"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Answer where
   hashWithSalt _salt Answer' {..} =
-    _salt `Prelude.hashWithSalt` choiceAnswers
+    _salt
+      `Prelude.hashWithSalt` choiceAnswers
       `Prelude.hashWithSalt` choices
       `Prelude.hashWithSalt` helpfulResourceDisplayText
       `Prelude.hashWithSalt` helpfulResourceUrl

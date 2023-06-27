@@ -122,7 +122,8 @@ instance Core.AWSRequest GetLensVersionDifference where
 
 instance Prelude.Hashable GetLensVersionDifference where
   hashWithSalt _salt GetLensVersionDifference' {..} =
-    _salt `Prelude.hashWithSalt` baseLensVersion
+    _salt
+      `Prelude.hashWithSalt` baseLensVersion
       `Prelude.hashWithSalt` targetLensVersion
       `Prelude.hashWithSalt` lensAlias
 

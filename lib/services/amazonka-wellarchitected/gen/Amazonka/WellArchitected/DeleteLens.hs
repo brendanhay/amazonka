@@ -23,9 +23,9 @@
 -- Delete an existing lens.
 --
 -- Only the owner of a lens can delete it. After the lens is deleted,
--- Amazon Web Services accounts and IAM users that you shared the lens with
--- can continue to use it, but they will no longer be able to apply it to
--- new workloads.
+-- Amazon Web Services accounts and users that you shared the lens with can
+-- continue to use it, but they will no longer be able to apply it to new
+-- workloads.
 --
 -- __Disclaimer__
 --
@@ -119,7 +119,8 @@ instance Core.AWSRequest DeleteLens where
 
 instance Prelude.Hashable DeleteLens where
   hashWithSalt _salt DeleteLens' {..} =
-    _salt `Prelude.hashWithSalt` lensAlias
+    _salt
+      `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` lensStatus
 

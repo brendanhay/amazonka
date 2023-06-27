@@ -22,8 +22,8 @@
 --
 -- Deletes specified tags from a resource.
 --
--- The WorkloadArn parameter can be either a workload ARN or a custom lens
--- ARN.
+-- The WorkloadArn parameter can be a workload ARN, a custom lens ARN, or a
+-- profile ARN.
 --
 -- To specify multiple tags, use separate __tagKeys__ parameters, for
 -- example:
@@ -112,7 +112,8 @@ instance Core.AWSRequest UntagResource where
 
 instance Prelude.Hashable UntagResource where
   hashWithSalt _salt UntagResource' {..} =
-    _salt `Prelude.hashWithSalt` workloadArn
+    _salt
+      `Prelude.hashWithSalt` workloadArn
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagResource where

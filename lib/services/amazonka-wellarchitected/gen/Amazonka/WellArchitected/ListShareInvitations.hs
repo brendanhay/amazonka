@@ -30,6 +30,7 @@ module Amazonka.WellArchitected.ListShareInvitations
     listShareInvitations_lensNamePrefix,
     listShareInvitations_maxResults,
     listShareInvitations_nextToken,
+    listShareInvitations_profileNamePrefix,
     listShareInvitations_shareResourceType,
     listShareInvitations_workloadNamePrefix,
 
@@ -62,6 +63,8 @@ data ListShareInvitations = ListShareInvitations'
     -- | The maximum number of results to return for this request.
     maxResults :: Prelude.Maybe Prelude.Natural,
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Profile name prefix.
+    profileNamePrefix :: Prelude.Maybe Prelude.Text,
     -- | The type of share invitations to be returned.
     shareResourceType :: Prelude.Maybe ShareResourceType,
     workloadNamePrefix :: Prelude.Maybe Prelude.Text
@@ -83,6 +86,8 @@ data ListShareInvitations = ListShareInvitations'
 --
 -- 'nextToken', 'listShareInvitations_nextToken' - Undocumented member.
 --
+-- 'profileNamePrefix', 'listShareInvitations_profileNamePrefix' - Profile name prefix.
+--
 -- 'shareResourceType', 'listShareInvitations_shareResourceType' - The type of share invitations to be returned.
 --
 -- 'workloadNamePrefix', 'listShareInvitations_workloadNamePrefix' - Undocumented member.
@@ -94,6 +99,7 @@ newListShareInvitations =
         Prelude.Nothing,
       maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      profileNamePrefix = Prelude.Nothing,
       shareResourceType = Prelude.Nothing,
       workloadNamePrefix = Prelude.Nothing
     }
@@ -110,6 +116,10 @@ listShareInvitations_maxResults = Lens.lens (\ListShareInvitations' {maxResults}
 -- | Undocumented member.
 listShareInvitations_nextToken :: Lens.Lens' ListShareInvitations (Prelude.Maybe Prelude.Text)
 listShareInvitations_nextToken = Lens.lens (\ListShareInvitations' {nextToken} -> nextToken) (\s@ListShareInvitations' {} a -> s {nextToken = a} :: ListShareInvitations)
+
+-- | Profile name prefix.
+listShareInvitations_profileNamePrefix :: Lens.Lens' ListShareInvitations (Prelude.Maybe Prelude.Text)
+listShareInvitations_profileNamePrefix = Lens.lens (\ListShareInvitations' {profileNamePrefix} -> profileNamePrefix) (\s@ListShareInvitations' {} a -> s {profileNamePrefix = a} :: ListShareInvitations)
 
 -- | The type of share invitations to be returned.
 listShareInvitations_shareResourceType :: Lens.Lens' ListShareInvitations (Prelude.Maybe ShareResourceType)
@@ -130,7 +140,8 @@ instance Core.AWSRequest ListShareInvitations where
       ( \s h x ->
           ListShareInvitationsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ShareInvitationSummaries"
+            Prelude.<*> ( x
+                            Data..?> "ShareInvitationSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -138,9 +149,11 @@ instance Core.AWSRequest ListShareInvitations where
 
 instance Prelude.Hashable ListShareInvitations where
   hashWithSalt _salt ListShareInvitations' {..} =
-    _salt `Prelude.hashWithSalt` lensNamePrefix
+    _salt
+      `Prelude.hashWithSalt` lensNamePrefix
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` profileNamePrefix
       `Prelude.hashWithSalt` shareResourceType
       `Prelude.hashWithSalt` workloadNamePrefix
 
@@ -149,6 +162,7 @@ instance Prelude.NFData ListShareInvitations where
     Prelude.rnf lensNamePrefix
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf profileNamePrefix
       `Prelude.seq` Prelude.rnf shareResourceType
       `Prelude.seq` Prelude.rnf workloadNamePrefix
 
@@ -172,6 +186,7 @@ instance Data.ToQuery ListShareInvitations where
       [ "LensNamePrefix" Data.=: lensNamePrefix,
         "MaxResults" Data.=: maxResults,
         "NextToken" Data.=: nextToken,
+        "ProfileNamePrefix" Data.=: profileNamePrefix,
         "ShareResourceType" Data.=: shareResourceType,
         "WorkloadNamePrefix" Data.=: workloadNamePrefix
       ]

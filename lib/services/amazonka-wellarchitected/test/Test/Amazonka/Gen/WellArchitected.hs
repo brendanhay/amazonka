@@ -30,6 +30,9 @@ import Test.Tasty
 --         [ requestAssociateLenses $
 --             newAssociateLenses
 --
+--         , requestAssociateProfiles $
+--             newAssociateProfiles
+--
 --         , requestCreateLensShare $
 --             newCreateLensShare
 --
@@ -38,6 +41,12 @@ import Test.Tasty
 --
 --         , requestCreateMilestone $
 --             newCreateMilestone
+--
+--         , requestCreateProfile $
+--             newCreateProfile
+--
+--         , requestCreateProfileShare $
+--             newCreateProfileShare
 --
 --         , requestCreateWorkload $
 --             newCreateWorkload
@@ -51,6 +60,12 @@ import Test.Tasty
 --         , requestDeleteLensShare $
 --             newDeleteLensShare
 --
+--         , requestDeleteProfile $
+--             newDeleteProfile
+--
+--         , requestDeleteProfileShare $
+--             newDeleteProfileShare
+--
 --         , requestDeleteWorkload $
 --             newDeleteWorkload
 --
@@ -60,11 +75,17 @@ import Test.Tasty
 --         , requestDisassociateLenses $
 --             newDisassociateLenses
 --
+--         , requestDisassociateProfiles $
+--             newDisassociateProfiles
+--
 --         , requestExportLens $
 --             newExportLens
 --
 --         , requestGetAnswer $
 --             newGetAnswer
+--
+--         , requestGetConsolidatedReport $
+--             newGetConsolidatedReport
 --
 --         , requestGetLens $
 --             newGetLens
@@ -80,6 +101,12 @@ import Test.Tasty
 --
 --         , requestGetMilestone $
 --             newGetMilestone
+--
+--         , requestGetProfile $
+--             newGetProfile
+--
+--         , requestGetProfileTemplate $
+--             newGetProfileTemplate
 --
 --         , requestGetWorkload $
 --             newGetWorkload
@@ -114,6 +141,15 @@ import Test.Tasty
 --         , requestListNotifications $
 --             newListNotifications
 --
+--         , requestListProfileNotifications $
+--             newListProfileNotifications
+--
+--         , requestListProfileShares $
+--             newListProfileShares
+--
+--         , requestListProfiles $
+--             newListProfiles
+--
 --         , requestListShareInvitations $
 --             newListShareInvitations
 --
@@ -141,6 +177,9 @@ import Test.Tasty
 --         , requestUpdateLensReview $
 --             newUpdateLensReview
 --
+--         , requestUpdateProfile $
+--             newUpdateProfile
+--
 --         , requestUpdateShareInvitation $
 --             newUpdateShareInvitation
 --
@@ -153,11 +192,17 @@ import Test.Tasty
 --         , requestUpgradeLensReview $
 --             newUpgradeLensReview
 --
+--         , requestUpgradeProfileVersion $
+--             newUpgradeProfileVersion
+--
 --           ]
 
 --     , testGroup "response"
 --         [ responseAssociateLenses $
 --             newAssociateLensesResponse
+--
+--         , responseAssociateProfiles $
+--             newAssociateProfilesResponse
 --
 --         , responseCreateLensShare $
 --             newCreateLensShareResponse
@@ -167,6 +212,12 @@ import Test.Tasty
 --
 --         , responseCreateMilestone $
 --             newCreateMilestoneResponse
+--
+--         , responseCreateProfile $
+--             newCreateProfileResponse
+--
+--         , responseCreateProfileShare $
+--             newCreateProfileShareResponse
 --
 --         , responseCreateWorkload $
 --             newCreateWorkloadResponse
@@ -180,6 +231,12 @@ import Test.Tasty
 --         , responseDeleteLensShare $
 --             newDeleteLensShareResponse
 --
+--         , responseDeleteProfile $
+--             newDeleteProfileResponse
+--
+--         , responseDeleteProfileShare $
+--             newDeleteProfileShareResponse
+--
 --         , responseDeleteWorkload $
 --             newDeleteWorkloadResponse
 --
@@ -189,11 +246,17 @@ import Test.Tasty
 --         , responseDisassociateLenses $
 --             newDisassociateLensesResponse
 --
+--         , responseDisassociateProfiles $
+--             newDisassociateProfilesResponse
+--
 --         , responseExportLens $
 --             newExportLensResponse
 --
 --         , responseGetAnswer $
 --             newGetAnswerResponse
+--
+--         , responseGetConsolidatedReport $
+--             newGetConsolidatedReportResponse
 --
 --         , responseGetLens $
 --             newGetLensResponse
@@ -209,6 +272,12 @@ import Test.Tasty
 --
 --         , responseGetMilestone $
 --             newGetMilestoneResponse
+--
+--         , responseGetProfile $
+--             newGetProfileResponse
+--
+--         , responseGetProfileTemplate $
+--             newGetProfileTemplateResponse
 --
 --         , responseGetWorkload $
 --             newGetWorkloadResponse
@@ -243,6 +312,15 @@ import Test.Tasty
 --         , responseListNotifications $
 --             newListNotificationsResponse
 --
+--         , responseListProfileNotifications $
+--             newListProfileNotificationsResponse
+--
+--         , responseListProfileShares $
+--             newListProfileSharesResponse
+--
+--         , responseListProfiles $
+--             newListProfilesResponse
+--
 --         , responseListShareInvitations $
 --             newListShareInvitationsResponse
 --
@@ -270,6 +348,9 @@ import Test.Tasty
 --         , responseUpdateLensReview $
 --             newUpdateLensReviewResponse
 --
+--         , responseUpdateProfile $
+--             newUpdateProfileResponse
+--
 --         , responseUpdateShareInvitation $
 --             newUpdateShareInvitationResponse
 --
@@ -282,6 +363,9 @@ import Test.Tasty
 --         , responseUpgradeLensReview $
 --             newUpgradeLensReviewResponse
 --
+--         , responseUpgradeProfileVersion $
+--             newUpgradeProfileVersionResponse
+--
 --           ]
 --     ]
 
@@ -292,6 +376,12 @@ requestAssociateLenses =
   req
     "AssociateLenses"
     "fixture/AssociateLenses.yaml"
+
+requestAssociateProfiles :: AssociateProfiles -> TestTree
+requestAssociateProfiles =
+  req
+    "AssociateProfiles"
+    "fixture/AssociateProfiles.yaml"
 
 requestCreateLensShare :: CreateLensShare -> TestTree
 requestCreateLensShare =
@@ -310,6 +400,18 @@ requestCreateMilestone =
   req
     "CreateMilestone"
     "fixture/CreateMilestone.yaml"
+
+requestCreateProfile :: CreateProfile -> TestTree
+requestCreateProfile =
+  req
+    "CreateProfile"
+    "fixture/CreateProfile.yaml"
+
+requestCreateProfileShare :: CreateProfileShare -> TestTree
+requestCreateProfileShare =
+  req
+    "CreateProfileShare"
+    "fixture/CreateProfileShare.yaml"
 
 requestCreateWorkload :: CreateWorkload -> TestTree
 requestCreateWorkload =
@@ -335,6 +437,18 @@ requestDeleteLensShare =
     "DeleteLensShare"
     "fixture/DeleteLensShare.yaml"
 
+requestDeleteProfile :: DeleteProfile -> TestTree
+requestDeleteProfile =
+  req
+    "DeleteProfile"
+    "fixture/DeleteProfile.yaml"
+
+requestDeleteProfileShare :: DeleteProfileShare -> TestTree
+requestDeleteProfileShare =
+  req
+    "DeleteProfileShare"
+    "fixture/DeleteProfileShare.yaml"
+
 requestDeleteWorkload :: DeleteWorkload -> TestTree
 requestDeleteWorkload =
   req
@@ -353,6 +467,12 @@ requestDisassociateLenses =
     "DisassociateLenses"
     "fixture/DisassociateLenses.yaml"
 
+requestDisassociateProfiles :: DisassociateProfiles -> TestTree
+requestDisassociateProfiles =
+  req
+    "DisassociateProfiles"
+    "fixture/DisassociateProfiles.yaml"
+
 requestExportLens :: ExportLens -> TestTree
 requestExportLens =
   req
@@ -364,6 +484,12 @@ requestGetAnswer =
   req
     "GetAnswer"
     "fixture/GetAnswer.yaml"
+
+requestGetConsolidatedReport :: GetConsolidatedReport -> TestTree
+requestGetConsolidatedReport =
+  req
+    "GetConsolidatedReport"
+    "fixture/GetConsolidatedReport.yaml"
 
 requestGetLens :: GetLens -> TestTree
 requestGetLens =
@@ -394,6 +520,18 @@ requestGetMilestone =
   req
     "GetMilestone"
     "fixture/GetMilestone.yaml"
+
+requestGetProfile :: GetProfile -> TestTree
+requestGetProfile =
+  req
+    "GetProfile"
+    "fixture/GetProfile.yaml"
+
+requestGetProfileTemplate :: GetProfileTemplate -> TestTree
+requestGetProfileTemplate =
+  req
+    "GetProfileTemplate"
+    "fixture/GetProfileTemplate.yaml"
 
 requestGetWorkload :: GetWorkload -> TestTree
 requestGetWorkload =
@@ -461,6 +599,24 @@ requestListNotifications =
     "ListNotifications"
     "fixture/ListNotifications.yaml"
 
+requestListProfileNotifications :: ListProfileNotifications -> TestTree
+requestListProfileNotifications =
+  req
+    "ListProfileNotifications"
+    "fixture/ListProfileNotifications.yaml"
+
+requestListProfileShares :: ListProfileShares -> TestTree
+requestListProfileShares =
+  req
+    "ListProfileShares"
+    "fixture/ListProfileShares.yaml"
+
+requestListProfiles :: ListProfiles -> TestTree
+requestListProfiles =
+  req
+    "ListProfiles"
+    "fixture/ListProfiles.yaml"
+
 requestListShareInvitations :: ListShareInvitations -> TestTree
 requestListShareInvitations =
   req
@@ -515,6 +671,12 @@ requestUpdateLensReview =
     "UpdateLensReview"
     "fixture/UpdateLensReview.yaml"
 
+requestUpdateProfile :: UpdateProfile -> TestTree
+requestUpdateProfile =
+  req
+    "UpdateProfile"
+    "fixture/UpdateProfile.yaml"
+
 requestUpdateShareInvitation :: UpdateShareInvitation -> TestTree
 requestUpdateShareInvitation =
   req
@@ -539,6 +701,12 @@ requestUpgradeLensReview =
     "UpgradeLensReview"
     "fixture/UpgradeLensReview.yaml"
 
+requestUpgradeProfileVersion :: UpgradeProfileVersion -> TestTree
+requestUpgradeProfileVersion =
+  req
+    "UpgradeProfileVersion"
+    "fixture/UpgradeProfileVersion.yaml"
+
 -- Responses
 
 responseAssociateLenses :: AssociateLensesResponse -> TestTree
@@ -548,6 +716,14 @@ responseAssociateLenses =
     "fixture/AssociateLensesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateLenses)
+
+responseAssociateProfiles :: AssociateProfilesResponse -> TestTree
+responseAssociateProfiles =
+  res
+    "AssociateProfilesResponse"
+    "fixture/AssociateProfilesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateProfiles)
 
 responseCreateLensShare :: CreateLensShareResponse -> TestTree
 responseCreateLensShare =
@@ -572,6 +748,22 @@ responseCreateMilestone =
     "fixture/CreateMilestoneResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateMilestone)
+
+responseCreateProfile :: CreateProfileResponse -> TestTree
+responseCreateProfile =
+  res
+    "CreateProfileResponse"
+    "fixture/CreateProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateProfile)
+
+responseCreateProfileShare :: CreateProfileShareResponse -> TestTree
+responseCreateProfileShare =
+  res
+    "CreateProfileShareResponse"
+    "fixture/CreateProfileShareResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateProfileShare)
 
 responseCreateWorkload :: CreateWorkloadResponse -> TestTree
 responseCreateWorkload =
@@ -605,6 +797,22 @@ responseDeleteLensShare =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteLensShare)
 
+responseDeleteProfile :: DeleteProfileResponse -> TestTree
+responseDeleteProfile =
+  res
+    "DeleteProfileResponse"
+    "fixture/DeleteProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteProfile)
+
+responseDeleteProfileShare :: DeleteProfileShareResponse -> TestTree
+responseDeleteProfileShare =
+  res
+    "DeleteProfileShareResponse"
+    "fixture/DeleteProfileShareResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteProfileShare)
+
 responseDeleteWorkload :: DeleteWorkloadResponse -> TestTree
 responseDeleteWorkload =
   res
@@ -629,6 +837,14 @@ responseDisassociateLenses =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateLenses)
 
+responseDisassociateProfiles :: DisassociateProfilesResponse -> TestTree
+responseDisassociateProfiles =
+  res
+    "DisassociateProfilesResponse"
+    "fixture/DisassociateProfilesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateProfiles)
+
 responseExportLens :: ExportLensResponse -> TestTree
 responseExportLens =
   res
@@ -644,6 +860,14 @@ responseGetAnswer =
     "fixture/GetAnswerResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetAnswer)
+
+responseGetConsolidatedReport :: GetConsolidatedReportResponse -> TestTree
+responseGetConsolidatedReport =
+  res
+    "GetConsolidatedReportResponse"
+    "fixture/GetConsolidatedReportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetConsolidatedReport)
 
 responseGetLens :: GetLensResponse -> TestTree
 responseGetLens =
@@ -684,6 +908,22 @@ responseGetMilestone =
     "fixture/GetMilestoneResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetMilestone)
+
+responseGetProfile :: GetProfileResponse -> TestTree
+responseGetProfile =
+  res
+    "GetProfileResponse"
+    "fixture/GetProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetProfile)
+
+responseGetProfileTemplate :: GetProfileTemplateResponse -> TestTree
+responseGetProfileTemplate =
+  res
+    "GetProfileTemplateResponse"
+    "fixture/GetProfileTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetProfileTemplate)
 
 responseGetWorkload :: GetWorkloadResponse -> TestTree
 responseGetWorkload =
@@ -773,6 +1013,30 @@ responseListNotifications =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListNotifications)
 
+responseListProfileNotifications :: ListProfileNotificationsResponse -> TestTree
+responseListProfileNotifications =
+  res
+    "ListProfileNotificationsResponse"
+    "fixture/ListProfileNotificationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListProfileNotifications)
+
+responseListProfileShares :: ListProfileSharesResponse -> TestTree
+responseListProfileShares =
+  res
+    "ListProfileSharesResponse"
+    "fixture/ListProfileSharesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListProfileShares)
+
+responseListProfiles :: ListProfilesResponse -> TestTree
+responseListProfiles =
+  res
+    "ListProfilesResponse"
+    "fixture/ListProfilesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListProfiles)
+
 responseListShareInvitations :: ListShareInvitationsResponse -> TestTree
 responseListShareInvitations =
   res
@@ -845,6 +1109,14 @@ responseUpdateLensReview =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateLensReview)
 
+responseUpdateProfile :: UpdateProfileResponse -> TestTree
+responseUpdateProfile =
+  res
+    "UpdateProfileResponse"
+    "fixture/UpdateProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateProfile)
+
 responseUpdateShareInvitation :: UpdateShareInvitationResponse -> TestTree
 responseUpdateShareInvitation =
   res
@@ -876,3 +1148,11 @@ responseUpgradeLensReview =
     "fixture/UpgradeLensReviewResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpgradeLensReview)
+
+responseUpgradeProfileVersion :: UpgradeProfileVersionResponse -> TestTree
+responseUpgradeProfileVersion =
+  res
+    "UpgradeProfileVersionResponse"
+    "fixture/UpgradeProfileVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpgradeProfileVersion)

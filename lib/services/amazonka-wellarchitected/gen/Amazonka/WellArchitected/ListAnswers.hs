@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List of answers.
+-- List of answers for a particular workload and lens.
 module Amazonka.WellArchitected.ListAnswers
   ( -- * Creating a Request
     ListAnswers (..),
@@ -31,6 +31,7 @@ module Amazonka.WellArchitected.ListAnswers
     listAnswers_milestoneNumber,
     listAnswers_nextToken,
     listAnswers_pillarId,
+    listAnswers_questionPriority,
     listAnswers_workloadId,
     listAnswers_lensAlias,
 
@@ -66,6 +67,8 @@ data ListAnswers = ListAnswers'
     milestoneNumber :: Prelude.Maybe Prelude.Natural,
     nextToken :: Prelude.Maybe Prelude.Text,
     pillarId :: Prelude.Maybe Prelude.Text,
+    -- | The priority of the question.
+    questionPriority :: Prelude.Maybe QuestionPriority,
     workloadId :: Prelude.Text,
     lensAlias :: Prelude.Text
   }
@@ -87,6 +90,8 @@ data ListAnswers = ListAnswers'
 --
 -- 'pillarId', 'listAnswers_pillarId' - Undocumented member.
 --
+-- 'questionPriority', 'listAnswers_questionPriority' - The priority of the question.
+--
 -- 'workloadId', 'listAnswers_workloadId' - Undocumented member.
 --
 -- 'lensAlias', 'listAnswers_lensAlias' - Undocumented member.
@@ -102,6 +107,7 @@ newListAnswers pWorkloadId_ pLensAlias_ =
       milestoneNumber = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       pillarId = Prelude.Nothing,
+      questionPriority = Prelude.Nothing,
       workloadId = pWorkloadId_,
       lensAlias = pLensAlias_
     }
@@ -122,6 +128,10 @@ listAnswers_nextToken = Lens.lens (\ListAnswers' {nextToken} -> nextToken) (\s@L
 listAnswers_pillarId :: Lens.Lens' ListAnswers (Prelude.Maybe Prelude.Text)
 listAnswers_pillarId = Lens.lens (\ListAnswers' {pillarId} -> pillarId) (\s@ListAnswers' {} a -> s {pillarId = a} :: ListAnswers)
 
+-- | The priority of the question.
+listAnswers_questionPriority :: Lens.Lens' ListAnswers (Prelude.Maybe QuestionPriority)
+listAnswers_questionPriority = Lens.lens (\ListAnswers' {questionPriority} -> questionPriority) (\s@ListAnswers' {} a -> s {questionPriority = a} :: ListAnswers)
+
 -- | Undocumented member.
 listAnswers_workloadId :: Lens.Lens' ListAnswers Prelude.Text
 listAnswers_workloadId = Lens.lens (\ListAnswers' {workloadId} -> workloadId) (\s@ListAnswers' {} a -> s {workloadId = a} :: ListAnswers)
@@ -138,7 +148,8 @@ instance Core.AWSRequest ListAnswers where
     Response.receiveJSON
       ( \s h x ->
           ListAnswersResponse'
-            Prelude.<$> ( x Data..?> "AnswerSummaries"
+            Prelude.<$> ( x
+                            Data..?> "AnswerSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "LensAlias")
@@ -151,10 +162,12 @@ instance Core.AWSRequest ListAnswers where
 
 instance Prelude.Hashable ListAnswers where
   hashWithSalt _salt ListAnswers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` milestoneNumber
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pillarId
+      `Prelude.hashWithSalt` questionPriority
       `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` lensAlias
 
@@ -164,6 +177,7 @@ instance Prelude.NFData ListAnswers where
       `Prelude.seq` Prelude.rnf milestoneNumber
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf pillarId
+      `Prelude.seq` Prelude.rnf questionPriority
       `Prelude.seq` Prelude.rnf workloadId
       `Prelude.seq` Prelude.rnf lensAlias
 
@@ -194,7 +208,8 @@ instance Data.ToQuery ListAnswers where
       [ "MaxResults" Data.=: maxResults,
         "MilestoneNumber" Data.=: milestoneNumber,
         "NextToken" Data.=: nextToken,
-        "PillarId" Data.=: pillarId
+        "PillarId" Data.=: pillarId,
+        "QuestionPriority" Data.=: questionPriority
       ]
 
 -- | Output of a list answers call.

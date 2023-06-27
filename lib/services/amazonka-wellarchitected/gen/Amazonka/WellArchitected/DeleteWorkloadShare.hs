@@ -109,7 +109,8 @@ instance Core.AWSRequest DeleteWorkloadShare where
 
 instance Prelude.Hashable DeleteWorkloadShare where
   hashWithSalt _salt DeleteWorkloadShare' {..} =
-    _salt `Prelude.hashWithSalt` shareId
+    _salt
+      `Prelude.hashWithSalt` shareId
       `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` clientRequestToken
 

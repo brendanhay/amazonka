@@ -23,13 +23,19 @@
 -- Create a new workload.
 --
 -- The owner of a workload can share the workload with other Amazon Web
--- Services accounts, IAM users, an organization, and organizational units
+-- Services accounts, users, an organization, and organizational units
 -- (OUs) in the same Amazon Web Services Region. Only the owner of a
 -- workload can delete it.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html Defining a Workload>
 -- in the /Well-Architected Tool User Guide/.
+--
+-- Either @AwsRegions@, @NonAwsRegions@, or both must be specified when
+-- creating a workload.
+--
+-- You also must specify @ReviewOwner@, even though the parameter is listed
+-- as not being required in the following section.
 module Amazonka.WellArchitected.CreateWorkload
   ( -- * Creating a Request
     CreateWorkload (..),
@@ -46,6 +52,7 @@ module Amazonka.WellArchitected.CreateWorkload
     createWorkload_nonAwsRegions,
     createWorkload_notes,
     createWorkload_pillarPriorities,
+    createWorkload_profileArns,
     createWorkload_reviewOwner,
     createWorkload_tags,
     createWorkload_workloadName,
@@ -90,6 +97,8 @@ data CreateWorkload = CreateWorkload'
     nonAwsRegions :: Prelude.Maybe [Prelude.Text],
     notes :: Prelude.Maybe Prelude.Text,
     pillarPriorities :: Prelude.Maybe [Prelude.Text],
+    -- | The list of profile ARNs associated with the workload.
+    profileArns :: Prelude.Maybe [Prelude.Text],
     reviewOwner :: Prelude.Maybe Prelude.Text,
     -- | The tags to be associated with the workload.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -130,6 +139,8 @@ data CreateWorkload = CreateWorkload'
 --
 -- 'pillarPriorities', 'createWorkload_pillarPriorities' - Undocumented member.
 --
+-- 'profileArns', 'createWorkload_profileArns' - The list of profile ARNs associated with the workload.
+--
 -- 'reviewOwner', 'createWorkload_reviewOwner' - Undocumented member.
 --
 -- 'tags', 'createWorkload_tags' - The tags to be associated with the workload.
@@ -169,6 +180,7 @@ newCreateWorkload
         nonAwsRegions = Prelude.Nothing,
         notes = Prelude.Nothing,
         pillarPriorities = Prelude.Nothing,
+        profileArns = Prelude.Nothing,
         reviewOwner = Prelude.Nothing,
         tags = Prelude.Nothing,
         workloadName = pWorkloadName_,
@@ -219,6 +231,10 @@ createWorkload_notes = Lens.lens (\CreateWorkload' {notes} -> notes) (\s@CreateW
 createWorkload_pillarPriorities :: Lens.Lens' CreateWorkload (Prelude.Maybe [Prelude.Text])
 createWorkload_pillarPriorities = Lens.lens (\CreateWorkload' {pillarPriorities} -> pillarPriorities) (\s@CreateWorkload' {} a -> s {pillarPriorities = a} :: CreateWorkload) Prelude.. Lens.mapping Lens.coerced
 
+-- | The list of profile ARNs associated with the workload.
+createWorkload_profileArns :: Lens.Lens' CreateWorkload (Prelude.Maybe [Prelude.Text])
+createWorkload_profileArns = Lens.lens (\CreateWorkload' {profileArns} -> profileArns) (\s@CreateWorkload' {} a -> s {profileArns = a} :: CreateWorkload) Prelude.. Lens.mapping Lens.coerced
+
 -- | Undocumented member.
 createWorkload_reviewOwner :: Lens.Lens' CreateWorkload (Prelude.Maybe Prelude.Text)
 createWorkload_reviewOwner = Lens.lens (\CreateWorkload' {reviewOwner} -> reviewOwner) (\s@CreateWorkload' {} a -> s {reviewOwner = a} :: CreateWorkload)
@@ -264,7 +280,8 @@ instance Core.AWSRequest CreateWorkload where
 
 instance Prelude.Hashable CreateWorkload where
   hashWithSalt _salt CreateWorkload' {..} =
-    _salt `Prelude.hashWithSalt` accountIds
+    _salt
+      `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` applications
       `Prelude.hashWithSalt` architecturalDesign
       `Prelude.hashWithSalt` awsRegions
@@ -274,6 +291,7 @@ instance Prelude.Hashable CreateWorkload where
       `Prelude.hashWithSalt` nonAwsRegions
       `Prelude.hashWithSalt` notes
       `Prelude.hashWithSalt` pillarPriorities
+      `Prelude.hashWithSalt` profileArns
       `Prelude.hashWithSalt` reviewOwner
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` workloadName
@@ -294,6 +312,7 @@ instance Prelude.NFData CreateWorkload where
       `Prelude.seq` Prelude.rnf nonAwsRegions
       `Prelude.seq` Prelude.rnf notes
       `Prelude.seq` Prelude.rnf pillarPriorities
+      `Prelude.seq` Prelude.rnf profileArns
       `Prelude.seq` Prelude.rnf reviewOwner
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf workloadName
@@ -330,6 +349,7 @@ instance Data.ToJSON CreateWorkload where
             ("Notes" Data..=) Prelude.<$> notes,
             ("PillarPriorities" Data..=)
               Prelude.<$> pillarPriorities,
+            ("ProfileArns" Data..=) Prelude.<$> profileArns,
             ("ReviewOwner" Data..=) Prelude.<$> reviewOwner,
             ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("WorkloadName" Data..= workloadName),

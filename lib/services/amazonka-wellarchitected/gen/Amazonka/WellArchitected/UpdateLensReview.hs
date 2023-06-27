@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Update lens review.
+-- Update lens review for a particular workload.
 module Amazonka.WellArchitected.UpdateLensReview
   ( -- * Creating a Request
     UpdateLensReview (..),
@@ -124,7 +124,8 @@ instance Core.AWSRequest UpdateLensReview where
 
 instance Prelude.Hashable UpdateLensReview where
   hashWithSalt _salt UpdateLensReview' {..} =
-    _salt `Prelude.hashWithSalt` lensNotes
+    _salt
+      `Prelude.hashWithSalt` lensNotes
       `Prelude.hashWithSalt` pillarNotes
       `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` lensAlias

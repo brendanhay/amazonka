@@ -74,7 +74,8 @@ instance Data.FromJSON ChoiceContent where
 
 instance Prelude.Hashable ChoiceContent where
   hashWithSalt _salt ChoiceContent' {..} =
-    _salt `Prelude.hashWithSalt` displayText
+    _salt
+      `Prelude.hashWithSalt` displayText
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData ChoiceContent where

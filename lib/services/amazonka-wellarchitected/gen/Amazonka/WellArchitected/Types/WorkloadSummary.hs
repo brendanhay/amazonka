@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.Risk
 import Amazonka.WellArchitected.Types.WorkloadImprovementStatus
+import Amazonka.WellArchitected.Types.WorkloadProfile
 
 -- | A workload summary return object.
 --
@@ -33,6 +34,9 @@ data WorkloadSummary = WorkloadSummary'
   { improvementStatus :: Prelude.Maybe WorkloadImprovementStatus,
     lenses :: Prelude.Maybe [Prelude.Text],
     owner :: Prelude.Maybe Prelude.Text,
+    prioritizedRiskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural),
+    -- | Profile associated with a workload.
+    profiles :: Prelude.Maybe [WorkloadProfile],
     riskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural),
     updatedAt :: Prelude.Maybe Data.POSIX,
     workloadArn :: Prelude.Maybe Prelude.Text,
@@ -55,6 +59,10 @@ data WorkloadSummary = WorkloadSummary'
 --
 -- 'owner', 'workloadSummary_owner' - Undocumented member.
 --
+-- 'prioritizedRiskCounts', 'workloadSummary_prioritizedRiskCounts' - Undocumented member.
+--
+-- 'profiles', 'workloadSummary_profiles' - Profile associated with a workload.
+--
 -- 'riskCounts', 'workloadSummary_riskCounts' - Undocumented member.
 --
 -- 'updatedAt', 'workloadSummary_updatedAt' - Undocumented member.
@@ -72,6 +80,8 @@ newWorkloadSummary =
         Prelude.Nothing,
       lenses = Prelude.Nothing,
       owner = Prelude.Nothing,
+      prioritizedRiskCounts = Prelude.Nothing,
+      profiles = Prelude.Nothing,
       riskCounts = Prelude.Nothing,
       updatedAt = Prelude.Nothing,
       workloadArn = Prelude.Nothing,
@@ -90,6 +100,14 @@ workloadSummary_lenses = Lens.lens (\WorkloadSummary' {lenses} -> lenses) (\s@Wo
 -- | Undocumented member.
 workloadSummary_owner :: Lens.Lens' WorkloadSummary (Prelude.Maybe Prelude.Text)
 workloadSummary_owner = Lens.lens (\WorkloadSummary' {owner} -> owner) (\s@WorkloadSummary' {} a -> s {owner = a} :: WorkloadSummary)
+
+-- | Undocumented member.
+workloadSummary_prioritizedRiskCounts :: Lens.Lens' WorkloadSummary (Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural))
+workloadSummary_prioritizedRiskCounts = Lens.lens (\WorkloadSummary' {prioritizedRiskCounts} -> prioritizedRiskCounts) (\s@WorkloadSummary' {} a -> s {prioritizedRiskCounts = a} :: WorkloadSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | Profile associated with a workload.
+workloadSummary_profiles :: Lens.Lens' WorkloadSummary (Prelude.Maybe [WorkloadProfile])
+workloadSummary_profiles = Lens.lens (\WorkloadSummary' {profiles} -> profiles) (\s@WorkloadSummary' {} a -> s {profiles = a} :: WorkloadSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 workloadSummary_riskCounts :: Lens.Lens' WorkloadSummary (Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural))
@@ -120,6 +138,11 @@ instance Data.FromJSON WorkloadSummary where
             Prelude.<$> (x Data..:? "ImprovementStatus")
             Prelude.<*> (x Data..:? "Lenses" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Owner")
+            Prelude.<*> ( x
+                            Data..:? "PrioritizedRiskCounts"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "Profiles" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "RiskCounts" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "UpdatedAt")
             Prelude.<*> (x Data..:? "WorkloadArn")
@@ -129,9 +152,12 @@ instance Data.FromJSON WorkloadSummary where
 
 instance Prelude.Hashable WorkloadSummary where
   hashWithSalt _salt WorkloadSummary' {..} =
-    _salt `Prelude.hashWithSalt` improvementStatus
+    _salt
+      `Prelude.hashWithSalt` improvementStatus
       `Prelude.hashWithSalt` lenses
       `Prelude.hashWithSalt` owner
+      `Prelude.hashWithSalt` prioritizedRiskCounts
+      `Prelude.hashWithSalt` profiles
       `Prelude.hashWithSalt` riskCounts
       `Prelude.hashWithSalt` updatedAt
       `Prelude.hashWithSalt` workloadArn
@@ -143,6 +169,8 @@ instance Prelude.NFData WorkloadSummary where
     Prelude.rnf improvementStatus
       `Prelude.seq` Prelude.rnf lenses
       `Prelude.seq` Prelude.rnf owner
+      `Prelude.seq` Prelude.rnf prioritizedRiskCounts
+      `Prelude.seq` Prelude.rnf profiles
       `Prelude.seq` Prelude.rnf riskCounts
       `Prelude.seq` Prelude.rnf updatedAt
       `Prelude.seq` Prelude.rnf workloadArn

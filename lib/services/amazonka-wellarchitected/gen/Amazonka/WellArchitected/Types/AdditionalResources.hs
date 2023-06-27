@@ -26,14 +26,17 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.AdditionalResourceType
 import Amazonka.WellArchitected.Types.ChoiceContent
 
--- | The choice level additional resources.
+-- | The choice level additional resources for a custom lens.
+--
+-- This field does not apply to Amazon Web Services official lenses.
 --
 -- /See:/ 'newAdditionalResources' smart constructor.
 data AdditionalResources = AdditionalResources'
   { -- | The URLs for additional resources, either helpful resources or
-    -- improvement plans. Up to five additional URLs can be specified.
+    -- improvement plans, for a custom lens. Up to five additional URLs can be
+    -- specified.
     content :: Prelude.Maybe [ChoiceContent],
-    -- | Type of additional resource.
+    -- | Type of additional resource for a custom lens.
     type' :: Prelude.Maybe AdditionalResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,9 +50,10 @@ data AdditionalResources = AdditionalResources'
 -- for backwards compatibility:
 --
 -- 'content', 'additionalResources_content' - The URLs for additional resources, either helpful resources or
--- improvement plans. Up to five additional URLs can be specified.
+-- improvement plans, for a custom lens. Up to five additional URLs can be
+-- specified.
 --
--- 'type'', 'additionalResources_type' - Type of additional resource.
+-- 'type'', 'additionalResources_type' - Type of additional resource for a custom lens.
 newAdditionalResources ::
   AdditionalResources
 newAdditionalResources =
@@ -59,11 +63,12 @@ newAdditionalResources =
     }
 
 -- | The URLs for additional resources, either helpful resources or
--- improvement plans. Up to five additional URLs can be specified.
+-- improvement plans, for a custom lens. Up to five additional URLs can be
+-- specified.
 additionalResources_content :: Lens.Lens' AdditionalResources (Prelude.Maybe [ChoiceContent])
 additionalResources_content = Lens.lens (\AdditionalResources' {content} -> content) (\s@AdditionalResources' {} a -> s {content = a} :: AdditionalResources) Prelude.. Lens.mapping Lens.coerced
 
--- | Type of additional resource.
+-- | Type of additional resource for a custom lens.
 additionalResources_type :: Lens.Lens' AdditionalResources (Prelude.Maybe AdditionalResourceType)
 additionalResources_type = Lens.lens (\AdditionalResources' {type'} -> type') (\s@AdditionalResources' {} a -> s {type' = a} :: AdditionalResources)
 
@@ -79,7 +84,8 @@ instance Data.FromJSON AdditionalResources where
 
 instance Prelude.Hashable AdditionalResources where
   hashWithSalt _salt AdditionalResources' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData AdditionalResources where

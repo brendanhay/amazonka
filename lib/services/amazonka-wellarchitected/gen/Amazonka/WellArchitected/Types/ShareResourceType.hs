@@ -21,6 +21,7 @@ module Amazonka.WellArchitected.Types.ShareResourceType
   ( ShareResourceType
       ( ..,
         ShareResourceType_LENS,
+        ShareResourceType_PROFILE,
         ShareResourceType_WORKLOAD
       ),
   )
@@ -61,11 +62,15 @@ newtype ShareResourceType = ShareResourceType'
 pattern ShareResourceType_LENS :: ShareResourceType
 pattern ShareResourceType_LENS = ShareResourceType' "LENS"
 
+pattern ShareResourceType_PROFILE :: ShareResourceType
+pattern ShareResourceType_PROFILE = ShareResourceType' "PROFILE"
+
 pattern ShareResourceType_WORKLOAD :: ShareResourceType
 pattern ShareResourceType_WORKLOAD = ShareResourceType' "WORKLOAD"
 
 {-# COMPLETE
   ShareResourceType_LENS,
+  ShareResourceType_PROFILE,
   ShareResourceType_WORKLOAD,
   ShareResourceType'
   #-}

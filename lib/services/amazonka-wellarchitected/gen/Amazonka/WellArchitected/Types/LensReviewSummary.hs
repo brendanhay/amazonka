@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.LensStatus
 import Amazonka.WellArchitected.Types.Risk
+import Amazonka.WellArchitected.Types.WorkloadProfile
 
 -- | A lens review summary of a workload.
 --
@@ -38,6 +39,9 @@ data LensReviewSummary = LensReviewSummary'
     lensStatus :: Prelude.Maybe LensStatus,
     -- | The version of the lens.
     lensVersion :: Prelude.Maybe Prelude.Text,
+    prioritizedRiskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural),
+    -- | The profiles associated with the workload.
+    profiles :: Prelude.Maybe [WorkloadProfile],
     riskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural),
     updatedAt :: Prelude.Maybe Data.POSIX
   }
@@ -61,6 +65,10 @@ data LensReviewSummary = LensReviewSummary'
 --
 -- 'lensVersion', 'lensReviewSummary_lensVersion' - The version of the lens.
 --
+-- 'prioritizedRiskCounts', 'lensReviewSummary_prioritizedRiskCounts' - Undocumented member.
+--
+-- 'profiles', 'lensReviewSummary_profiles' - The profiles associated with the workload.
+--
 -- 'riskCounts', 'lensReviewSummary_riskCounts' - Undocumented member.
 --
 -- 'updatedAt', 'lensReviewSummary_updatedAt' - Undocumented member.
@@ -73,6 +81,8 @@ newLensReviewSummary =
       lensName = Prelude.Nothing,
       lensStatus = Prelude.Nothing,
       lensVersion = Prelude.Nothing,
+      prioritizedRiskCounts = Prelude.Nothing,
+      profiles = Prelude.Nothing,
       riskCounts = Prelude.Nothing,
       updatedAt = Prelude.Nothing
     }
@@ -98,6 +108,14 @@ lensReviewSummary_lensVersion :: Lens.Lens' LensReviewSummary (Prelude.Maybe Pre
 lensReviewSummary_lensVersion = Lens.lens (\LensReviewSummary' {lensVersion} -> lensVersion) (\s@LensReviewSummary' {} a -> s {lensVersion = a} :: LensReviewSummary)
 
 -- | Undocumented member.
+lensReviewSummary_prioritizedRiskCounts :: Lens.Lens' LensReviewSummary (Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural))
+lensReviewSummary_prioritizedRiskCounts = Lens.lens (\LensReviewSummary' {prioritizedRiskCounts} -> prioritizedRiskCounts) (\s@LensReviewSummary' {} a -> s {prioritizedRiskCounts = a} :: LensReviewSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | The profiles associated with the workload.
+lensReviewSummary_profiles :: Lens.Lens' LensReviewSummary (Prelude.Maybe [WorkloadProfile])
+lensReviewSummary_profiles = Lens.lens (\LensReviewSummary' {profiles} -> profiles) (\s@LensReviewSummary' {} a -> s {profiles = a} :: LensReviewSummary) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
 lensReviewSummary_riskCounts :: Lens.Lens' LensReviewSummary (Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural))
 lensReviewSummary_riskCounts = Lens.lens (\LensReviewSummary' {riskCounts} -> riskCounts) (\s@LensReviewSummary' {} a -> s {riskCounts = a} :: LensReviewSummary) Prelude.. Lens.mapping Lens.coerced
 
@@ -116,17 +134,25 @@ instance Data.FromJSON LensReviewSummary where
             Prelude.<*> (x Data..:? "LensName")
             Prelude.<*> (x Data..:? "LensStatus")
             Prelude.<*> (x Data..:? "LensVersion")
+            Prelude.<*> ( x
+                            Data..:? "PrioritizedRiskCounts"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "Profiles" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "RiskCounts" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance Prelude.Hashable LensReviewSummary where
   hashWithSalt _salt LensReviewSummary' {..} =
-    _salt `Prelude.hashWithSalt` lensAlias
+    _salt
+      `Prelude.hashWithSalt` lensAlias
       `Prelude.hashWithSalt` lensArn
       `Prelude.hashWithSalt` lensName
       `Prelude.hashWithSalt` lensStatus
       `Prelude.hashWithSalt` lensVersion
+      `Prelude.hashWithSalt` prioritizedRiskCounts
+      `Prelude.hashWithSalt` profiles
       `Prelude.hashWithSalt` riskCounts
       `Prelude.hashWithSalt` updatedAt
 
@@ -137,5 +163,7 @@ instance Prelude.NFData LensReviewSummary where
       `Prelude.seq` Prelude.rnf lensName
       `Prelude.seq` Prelude.rnf lensStatus
       `Prelude.seq` Prelude.rnf lensVersion
+      `Prelude.seq` Prelude.rnf prioritizedRiskCounts
+      `Prelude.seq` Prelude.rnf profiles
       `Prelude.seq` Prelude.rnf riskCounts
       `Prelude.seq` Prelude.rnf updatedAt

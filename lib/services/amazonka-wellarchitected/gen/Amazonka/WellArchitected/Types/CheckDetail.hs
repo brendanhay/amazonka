@@ -183,7 +183,8 @@ instance Data.FromJSON CheckDetail where
 
 instance Prelude.Hashable CheckDetail where
   hashWithSalt _salt CheckDetail' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` choiceId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` flaggedResources

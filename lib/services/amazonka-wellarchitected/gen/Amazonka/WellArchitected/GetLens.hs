@@ -99,7 +99,8 @@ instance Core.AWSRequest GetLens where
 
 instance Prelude.Hashable GetLens where
   hashWithSalt _salt GetLens' {..} =
-    _salt `Prelude.hashWithSalt` lensVersion
+    _salt
+      `Prelude.hashWithSalt` lensVersion
       `Prelude.hashWithSalt` lensAlias
 
 instance Prelude.NFData GetLens where

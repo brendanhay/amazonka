@@ -162,7 +162,8 @@ instance Core.AWSRequest ListCheckDetails where
 
 instance Prelude.Hashable ListCheckDetails where
   hashWithSalt _salt ListCheckDetails' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` lensArn

@@ -27,6 +27,7 @@ import Amazonka.WellArchitected.Types.Risk
 import Amazonka.WellArchitected.Types.WorkloadDiscoveryConfig
 import Amazonka.WellArchitected.Types.WorkloadEnvironment
 import Amazonka.WellArchitected.Types.WorkloadImprovementStatus
+import Amazonka.WellArchitected.Types.WorkloadProfile
 
 -- | A workload return object.
 --
@@ -56,6 +57,9 @@ data Workload = Workload'
     notes :: Prelude.Maybe Prelude.Text,
     owner :: Prelude.Maybe Prelude.Text,
     pillarPriorities :: Prelude.Maybe [Prelude.Text],
+    prioritizedRiskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural),
+    -- | Profile associated with a workload.
+    profiles :: Prelude.Maybe [WorkloadProfile],
     reviewOwner :: Prelude.Maybe Prelude.Text,
     reviewRestrictionDate :: Prelude.Maybe Data.POSIX,
     riskCounts :: Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural),
@@ -115,6 +119,10 @@ data Workload = Workload'
 --
 -- 'pillarPriorities', 'workload_pillarPriorities' - Undocumented member.
 --
+-- 'prioritizedRiskCounts', 'workload_prioritizedRiskCounts' - Undocumented member.
+--
+-- 'profiles', 'workload_profiles' - Profile associated with a workload.
+--
 -- 'reviewOwner', 'workload_reviewOwner' - Undocumented member.
 --
 -- 'reviewRestrictionDate', 'workload_reviewRestrictionDate' - Undocumented member.
@@ -152,6 +160,8 @@ newWorkload =
       notes = Prelude.Nothing,
       owner = Prelude.Nothing,
       pillarPriorities = Prelude.Nothing,
+      prioritizedRiskCounts = Prelude.Nothing,
+      profiles = Prelude.Nothing,
       reviewOwner = Prelude.Nothing,
       reviewRestrictionDate = Prelude.Nothing,
       riskCounts = Prelude.Nothing,
@@ -233,6 +243,14 @@ workload_pillarPriorities :: Lens.Lens' Workload (Prelude.Maybe [Prelude.Text])
 workload_pillarPriorities = Lens.lens (\Workload' {pillarPriorities} -> pillarPriorities) (\s@Workload' {} a -> s {pillarPriorities = a} :: Workload) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
+workload_prioritizedRiskCounts :: Lens.Lens' Workload (Prelude.Maybe (Prelude.HashMap Risk Prelude.Natural))
+workload_prioritizedRiskCounts = Lens.lens (\Workload' {prioritizedRiskCounts} -> prioritizedRiskCounts) (\s@Workload' {} a -> s {prioritizedRiskCounts = a} :: Workload) Prelude.. Lens.mapping Lens.coerced
+
+-- | Profile associated with a workload.
+workload_profiles :: Lens.Lens' Workload (Prelude.Maybe [WorkloadProfile])
+workload_profiles = Lens.lens (\Workload' {profiles} -> profiles) (\s@Workload' {} a -> s {profiles = a} :: Workload) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
 workload_reviewOwner :: Lens.Lens' Workload (Prelude.Maybe Prelude.Text)
 workload_reviewOwner = Lens.lens (\Workload' {reviewOwner} -> reviewOwner) (\s@Workload' {} a -> s {reviewOwner = a} :: Workload)
 
@@ -289,9 +307,15 @@ instance Data.FromJSON Workload where
             Prelude.<*> (x Data..:? "NonAwsRegions" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Notes")
             Prelude.<*> (x Data..:? "Owner")
-            Prelude.<*> ( x Data..:? "PillarPriorities"
+            Prelude.<*> ( x
+                            Data..:? "PillarPriorities"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> ( x
+                            Data..:? "PrioritizedRiskCounts"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "Profiles" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ReviewOwner")
             Prelude.<*> (x Data..:? "ReviewRestrictionDate")
             Prelude.<*> (x Data..:? "RiskCounts" Data..!= Prelude.mempty)
@@ -305,7 +329,8 @@ instance Data.FromJSON Workload where
 
 instance Prelude.Hashable Workload where
   hashWithSalt _salt Workload' {..} =
-    _salt `Prelude.hashWithSalt` accountIds
+    _salt
+      `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` applications
       `Prelude.hashWithSalt` architecturalDesign
       `Prelude.hashWithSalt` awsRegions
@@ -321,6 +346,8 @@ instance Prelude.Hashable Workload where
       `Prelude.hashWithSalt` notes
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` pillarPriorities
+      `Prelude.hashWithSalt` prioritizedRiskCounts
+      `Prelude.hashWithSalt` profiles
       `Prelude.hashWithSalt` reviewOwner
       `Prelude.hashWithSalt` reviewRestrictionDate
       `Prelude.hashWithSalt` riskCounts
@@ -349,13 +376,19 @@ instance Prelude.NFData Workload where
       `Prelude.seq` Prelude.rnf notes
       `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf pillarPriorities
+      `Prelude.seq` Prelude.rnf prioritizedRiskCounts
+      `Prelude.seq` Prelude.rnf profiles
       `Prelude.seq` Prelude.rnf reviewOwner
-      `Prelude.seq` Prelude.rnf reviewRestrictionDate
+      `Prelude.seq` Prelude.rnf
+        reviewRestrictionDate
       `Prelude.seq` Prelude.rnf riskCounts
-      `Prelude.seq` Prelude.rnf shareInvitationId
+      `Prelude.seq` Prelude.rnf
+        shareInvitationId
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf updatedAt
-      `Prelude.seq` Prelude.rnf workloadArn
-      `Prelude.seq` Prelude.rnf workloadId
+      `Prelude.seq` Prelude.rnf
+        workloadArn
+      `Prelude.seq` Prelude.rnf
+        workloadId
       `Prelude.seq` Prelude.rnf
         workloadName

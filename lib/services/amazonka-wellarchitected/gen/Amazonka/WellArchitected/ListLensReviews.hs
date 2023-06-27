@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List lens reviews.
+-- List lens reviews for a particular workload.
 module Amazonka.WellArchitected.ListLensReviews
   ( -- * Creating a Request
     ListLensReviews (..),
@@ -117,7 +117,8 @@ instance Core.AWSRequest ListLensReviews where
     Response.receiveJSON
       ( \s h x ->
           ListLensReviewsResponse'
-            Prelude.<$> ( x Data..?> "LensReviewSummaries"
+            Prelude.<$> ( x
+                            Data..?> "LensReviewSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "MilestoneNumber")
@@ -128,7 +129,8 @@ instance Core.AWSRequest ListLensReviews where
 
 instance Prelude.Hashable ListLensReviews where
   hashWithSalt _salt ListLensReviews' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` milestoneNumber
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workloadId

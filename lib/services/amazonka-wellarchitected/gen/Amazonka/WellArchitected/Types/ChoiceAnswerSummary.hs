@@ -88,7 +88,8 @@ instance Data.FromJSON ChoiceAnswerSummary where
 
 instance Prelude.Hashable ChoiceAnswerSummary where
   hashWithSalt _salt ChoiceAnswerSummary' {..} =
-    _salt `Prelude.hashWithSalt` choiceId
+    _salt
+      `Prelude.hashWithSalt` choiceId
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` status
 

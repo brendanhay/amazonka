@@ -77,7 +77,8 @@ instance Data.FromJSON NotificationSummary where
 
 instance Prelude.Hashable NotificationSummary where
   hashWithSalt _salt NotificationSummary' {..} =
-    _salt `Prelude.hashWithSalt` lensUpgradeSummary
+    _salt
+      `Prelude.hashWithSalt` lensUpgradeSummary
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData NotificationSummary where

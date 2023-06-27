@@ -26,6 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.WellArchitected.Types.AnswerReason
 import Amazonka.WellArchitected.Types.Choice
 import Amazonka.WellArchitected.Types.ChoiceAnswerSummary
+import Amazonka.WellArchitected.Types.QuestionType
 import Amazonka.WellArchitected.Types.Risk
 
 -- | An answer summary of a lens review in a workload.
@@ -39,6 +40,8 @@ data AnswerSummary = AnswerSummary'
     pillarId :: Prelude.Maybe Prelude.Text,
     questionId :: Prelude.Maybe Prelude.Text,
     questionTitle :: Prelude.Maybe Prelude.Text,
+    -- | The type of the question.
+    questionType :: Prelude.Maybe QuestionType,
     -- | The reason why a choice is non-applicable to a question in your
     -- workload.
     reason :: Prelude.Maybe AnswerReason,
@@ -67,6 +70,8 @@ data AnswerSummary = AnswerSummary'
 --
 -- 'questionTitle', 'answerSummary_questionTitle' - Undocumented member.
 --
+-- 'questionType', 'answerSummary_questionType' - The type of the question.
+--
 -- 'reason', 'answerSummary_reason' - The reason why a choice is non-applicable to a question in your
 -- workload.
 --
@@ -84,6 +89,7 @@ newAnswerSummary =
       pillarId = Prelude.Nothing,
       questionId = Prelude.Nothing,
       questionTitle = Prelude.Nothing,
+      questionType = Prelude.Nothing,
       reason = Prelude.Nothing,
       risk = Prelude.Nothing,
       selectedChoices = Prelude.Nothing
@@ -113,6 +119,10 @@ answerSummary_questionId = Lens.lens (\AnswerSummary' {questionId} -> questionId
 answerSummary_questionTitle :: Lens.Lens' AnswerSummary (Prelude.Maybe Prelude.Text)
 answerSummary_questionTitle = Lens.lens (\AnswerSummary' {questionTitle} -> questionTitle) (\s@AnswerSummary' {} a -> s {questionTitle = a} :: AnswerSummary)
 
+-- | The type of the question.
+answerSummary_questionType :: Lens.Lens' AnswerSummary (Prelude.Maybe QuestionType)
+answerSummary_questionType = Lens.lens (\AnswerSummary' {questionType} -> questionType) (\s@AnswerSummary' {} a -> s {questionType = a} :: AnswerSummary)
+
 -- | The reason why a choice is non-applicable to a question in your
 -- workload.
 answerSummary_reason :: Lens.Lens' AnswerSummary (Prelude.Maybe AnswerReason)
@@ -132,7 +142,8 @@ instance Data.FromJSON AnswerSummary where
       "AnswerSummary"
       ( \x ->
           AnswerSummary'
-            Prelude.<$> ( x Data..:? "ChoiceAnswerSummaries"
+            Prelude.<$> ( x
+                            Data..:? "ChoiceAnswerSummaries"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Choices" Data..!= Prelude.mempty)
@@ -140,21 +151,25 @@ instance Data.FromJSON AnswerSummary where
             Prelude.<*> (x Data..:? "PillarId")
             Prelude.<*> (x Data..:? "QuestionId")
             Prelude.<*> (x Data..:? "QuestionTitle")
+            Prelude.<*> (x Data..:? "QuestionType")
             Prelude.<*> (x Data..:? "Reason")
             Prelude.<*> (x Data..:? "Risk")
-            Prelude.<*> ( x Data..:? "SelectedChoices"
+            Prelude.<*> ( x
+                            Data..:? "SelectedChoices"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AnswerSummary where
   hashWithSalt _salt AnswerSummary' {..} =
-    _salt `Prelude.hashWithSalt` choiceAnswerSummaries
+    _salt
+      `Prelude.hashWithSalt` choiceAnswerSummaries
       `Prelude.hashWithSalt` choices
       `Prelude.hashWithSalt` isApplicable
       `Prelude.hashWithSalt` pillarId
       `Prelude.hashWithSalt` questionId
       `Prelude.hashWithSalt` questionTitle
+      `Prelude.hashWithSalt` questionType
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` risk
       `Prelude.hashWithSalt` selectedChoices
@@ -167,6 +182,7 @@ instance Prelude.NFData AnswerSummary where
       `Prelude.seq` Prelude.rnf pillarId
       `Prelude.seq` Prelude.rnf questionId
       `Prelude.seq` Prelude.rnf questionTitle
+      `Prelude.seq` Prelude.rnf questionType
       `Prelude.seq` Prelude.rnf reason
       `Prelude.seq` Prelude.rnf risk
       `Prelude.seq` Prelude.rnf selectedChoices

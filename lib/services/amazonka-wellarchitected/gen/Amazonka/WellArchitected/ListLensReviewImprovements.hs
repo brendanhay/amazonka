@@ -31,6 +31,7 @@ module Amazonka.WellArchitected.ListLensReviewImprovements
     listLensReviewImprovements_milestoneNumber,
     listLensReviewImprovements_nextToken,
     listLensReviewImprovements_pillarId,
+    listLensReviewImprovements_questionPriority,
     listLensReviewImprovements_workloadId,
     listLensReviewImprovements_lensAlias,
 
@@ -66,6 +67,8 @@ data ListLensReviewImprovements = ListLensReviewImprovements'
     milestoneNumber :: Prelude.Maybe Prelude.Natural,
     nextToken :: Prelude.Maybe Prelude.Text,
     pillarId :: Prelude.Maybe Prelude.Text,
+    -- | The priority of the question.
+    questionPriority :: Prelude.Maybe QuestionPriority,
     workloadId :: Prelude.Text,
     lensAlias :: Prelude.Text
   }
@@ -87,6 +90,8 @@ data ListLensReviewImprovements = ListLensReviewImprovements'
 --
 -- 'pillarId', 'listLensReviewImprovements_pillarId' - Undocumented member.
 --
+-- 'questionPriority', 'listLensReviewImprovements_questionPriority' - The priority of the question.
+--
 -- 'workloadId', 'listLensReviewImprovements_workloadId' - Undocumented member.
 --
 -- 'lensAlias', 'listLensReviewImprovements_lensAlias' - Undocumented member.
@@ -105,6 +110,7 @@ newListLensReviewImprovements
         milestoneNumber = Prelude.Nothing,
         nextToken = Prelude.Nothing,
         pillarId = Prelude.Nothing,
+        questionPriority = Prelude.Nothing,
         workloadId = pWorkloadId_,
         lensAlias = pLensAlias_
       }
@@ -125,6 +131,10 @@ listLensReviewImprovements_nextToken = Lens.lens (\ListLensReviewImprovements' {
 listLensReviewImprovements_pillarId :: Lens.Lens' ListLensReviewImprovements (Prelude.Maybe Prelude.Text)
 listLensReviewImprovements_pillarId = Lens.lens (\ListLensReviewImprovements' {pillarId} -> pillarId) (\s@ListLensReviewImprovements' {} a -> s {pillarId = a} :: ListLensReviewImprovements)
 
+-- | The priority of the question.
+listLensReviewImprovements_questionPriority :: Lens.Lens' ListLensReviewImprovements (Prelude.Maybe QuestionPriority)
+listLensReviewImprovements_questionPriority = Lens.lens (\ListLensReviewImprovements' {questionPriority} -> questionPriority) (\s@ListLensReviewImprovements' {} a -> s {questionPriority = a} :: ListLensReviewImprovements)
+
 -- | Undocumented member.
 listLensReviewImprovements_workloadId :: Lens.Lens' ListLensReviewImprovements Prelude.Text
 listLensReviewImprovements_workloadId = Lens.lens (\ListLensReviewImprovements' {workloadId} -> workloadId) (\s@ListLensReviewImprovements' {} a -> s {workloadId = a} :: ListLensReviewImprovements)
@@ -143,7 +153,8 @@ instance Core.AWSRequest ListLensReviewImprovements where
     Response.receiveJSON
       ( \s h x ->
           ListLensReviewImprovementsResponse'
-            Prelude.<$> ( x Data..?> "ImprovementSummaries"
+            Prelude.<$> ( x
+                            Data..?> "ImprovementSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "LensAlias")
@@ -156,10 +167,12 @@ instance Core.AWSRequest ListLensReviewImprovements where
 
 instance Prelude.Hashable ListLensReviewImprovements where
   hashWithSalt _salt ListLensReviewImprovements' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` milestoneNumber
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pillarId
+      `Prelude.hashWithSalt` questionPriority
       `Prelude.hashWithSalt` workloadId
       `Prelude.hashWithSalt` lensAlias
 
@@ -169,6 +182,7 @@ instance Prelude.NFData ListLensReviewImprovements where
       `Prelude.seq` Prelude.rnf milestoneNumber
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf pillarId
+      `Prelude.seq` Prelude.rnf questionPriority
       `Prelude.seq` Prelude.rnf workloadId
       `Prelude.seq` Prelude.rnf lensAlias
 
@@ -199,7 +213,8 @@ instance Data.ToQuery ListLensReviewImprovements where
       [ "MaxResults" Data.=: maxResults,
         "MilestoneNumber" Data.=: milestoneNumber,
         "NextToken" Data.=: nextToken,
-        "PillarId" Data.=: pillarId
+        "PillarId" Data.=: pillarId,
+        "QuestionPriority" Data.=: questionPriority
       ]
 
 -- | Output of a list lens review improvements call.

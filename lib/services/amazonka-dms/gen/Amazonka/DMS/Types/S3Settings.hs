@@ -47,8 +47,9 @@ data S3Settings = S3Settings'
     addTrailingPaddingCharacter :: Prelude.Maybe Prelude.Bool,
     -- | An optional parameter to set a folder name in the S3 bucket. If
     -- provided, tables are created in the path
-    -- @ bucketFolder\/schema_name\/table_name\/@. If this parameter isn\'t
-    -- specified, then the path used is @ schema_name\/table_name\/@.
+    -- @ @/@bucketFolder@/@\/@/@schema_name@/@\/@/@table_name@/@\/@. If this
+    -- parameter isn\'t specified, then the path used is
+    -- @ @/@schema_name@/@\/@/@table_name@/@\/@.
     bucketFolder :: Prelude.Maybe Prelude.Text,
     -- | The name of the S3 bucket.
     bucketName :: Prelude.Maybe Prelude.Text,
@@ -225,7 +226,7 @@ data S3Settings = S3Settings'
     -- when @DatePartitionedEnabled@ is set to @true@, as shown in the
     -- following example.
     --
-    -- @s3-settings=\'{\"DatePartitionEnabled\": true, \"DatePartitionSequence\": \"YYYYMMDDHH\", \"DatePartitionDelimiter\": \"SLASH\", \"DatePartitionTimezone\":\"Asia\/Seoul\", \"BucketName\": \"dms-nattarat-test\"}\'@
+    -- @s3-settings=\'{\"DatePartitionEnabled\": true, \"DatePartitionSequence\": \"YYYYMMDDHH\", \"DatePartitionDelimiter\": \"SLASH\", \"DatePartitionTimezone\":\"@/@Asia\/Seoul@/@\", \"BucketName\": \"dms-nattarat-test\"}\'@
     datePartitionTimezone :: Prelude.Maybe Prelude.Text,
     -- | The maximum size of an encoded dictionary page of a column. If the
     -- dictionary page exceeds this, this column is stored using an encoding
@@ -289,7 +290,7 @@ data S3Settings = S3Settings'
     -- @ExpectedBucketOwner@ endpoint setting.
     --
     -- Example:
-    -- @--s3-settings=\'{\"ExpectedBucketOwner\": \"AWS_Account_ID\"}\'@
+    -- @--s3-settings=\'{\"ExpectedBucketOwner\": \"@/@AWS_Account_ID@/@\"}\'@
     --
     -- When you make a request to test a connection or perform a migration, S3
     -- checks the account ID of the bucket owner against the specified
@@ -297,6 +298,9 @@ data S3Settings = S3Settings'
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Specifies how tables are defined in the S3 source files only.
     externalTableDefinition :: Prelude.Maybe Prelude.Text,
+    -- | When true, allows Glue to catalog your S3 bucket. Creating an Glue
+    -- catalog lets you use Athena to query your data.
+    glueCatalogGeneration :: Prelude.Maybe Prelude.Bool,
     -- | When this value is set to 1, DMS ignores the first row header in a .csv
     -- file. A value of 1 turns on the feature; a value of 0 turns off the
     -- feature.
@@ -394,7 +398,7 @@ data S3Settings = S3Settings'
     -- and Access Management (IAM) user permissions and allows use of the key.
     --
     -- Here is a CLI example:
-    -- @aws dms create-endpoint --endpoint-identifier value --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=value,BucketFolder=value,BucketName=value,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=value @
+    -- @aws dms create-endpoint --endpoint-identifier @/@value@/@ --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=@/@value@/@,BucketFolder=@/@value@/@,BucketName=@/@value@/@,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=@/@value@/@ @
     serverSideEncryptionKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) used by the service to access the IAM
     -- role. The role must allow the @iam:PassRole@ action. It is a required
@@ -467,8 +471,9 @@ data S3Settings = S3Settings'
 --
 -- 'bucketFolder', 's3Settings_bucketFolder' - An optional parameter to set a folder name in the S3 bucket. If
 -- provided, tables are created in the path
--- @ bucketFolder\/schema_name\/table_name\/@. If this parameter isn\'t
--- specified, then the path used is @ schema_name\/table_name\/@.
+-- @ @/@bucketFolder@/@\/@/@schema_name@/@\/@/@table_name@/@\/@. If this
+-- parameter isn\'t specified, then the path used is
+-- @ @/@schema_name@/@\/@/@table_name@/@\/@.
 --
 -- 'bucketName', 's3Settings_bucketName' - The name of the S3 bucket.
 --
@@ -645,7 +650,7 @@ data S3Settings = S3Settings'
 -- when @DatePartitionedEnabled@ is set to @true@, as shown in the
 -- following example.
 --
--- @s3-settings=\'{\"DatePartitionEnabled\": true, \"DatePartitionSequence\": \"YYYYMMDDHH\", \"DatePartitionDelimiter\": \"SLASH\", \"DatePartitionTimezone\":\"Asia\/Seoul\", \"BucketName\": \"dms-nattarat-test\"}\'@
+-- @s3-settings=\'{\"DatePartitionEnabled\": true, \"DatePartitionSequence\": \"YYYYMMDDHH\", \"DatePartitionDelimiter\": \"SLASH\", \"DatePartitionTimezone\":\"@/@Asia\/Seoul@/@\", \"BucketName\": \"dms-nattarat-test\"}\'@
 --
 -- 'dictPageSizeLimit', 's3Settings_dictPageSizeLimit' - The maximum size of an encoded dictionary page of a column. If the
 -- dictionary page exceeds this, this column is stored using an encoding
@@ -709,13 +714,16 @@ data S3Settings = S3Settings'
 -- @ExpectedBucketOwner@ endpoint setting.
 --
 -- Example:
--- @--s3-settings=\'{\"ExpectedBucketOwner\": \"AWS_Account_ID\"}\'@
+-- @--s3-settings=\'{\"ExpectedBucketOwner\": \"@/@AWS_Account_ID@/@\"}\'@
 --
 -- When you make a request to test a connection or perform a migration, S3
 -- checks the account ID of the bucket owner against the specified
 -- parameter.
 --
 -- 'externalTableDefinition', 's3Settings_externalTableDefinition' - Specifies how tables are defined in the S3 source files only.
+--
+-- 'glueCatalogGeneration', 's3Settings_glueCatalogGeneration' - When true, allows Glue to catalog your S3 bucket. Creating an Glue
+-- catalog lets you use Athena to query your data.
 --
 -- 'ignoreHeaderRows', 's3Settings_ignoreHeaderRows' - When this value is set to 1, DMS ignores the first row header in a .csv
 -- file. A value of 1 turns on the feature; a value of 0 turns off the
@@ -814,7 +822,7 @@ data S3Settings = S3Settings'
 -- and Access Management (IAM) user permissions and allows use of the key.
 --
 -- Here is a CLI example:
--- @aws dms create-endpoint --endpoint-identifier value --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=value,BucketFolder=value,BucketName=value,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=value @
+-- @aws dms create-endpoint --endpoint-identifier @/@value@/@ --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=@/@value@/@,BucketFolder=@/@value@/@,BucketName=@/@value@/@,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=@/@value@/@ @
 --
 -- 'serviceAccessRoleArn', 's3Settings_serviceAccessRoleArn' - The Amazon Resource Name (ARN) used by the service to access the IAM
 -- role. The role must allow the @iam:PassRole@ action. It is a required
@@ -895,6 +903,7 @@ newS3Settings =
       encryptionMode = Prelude.Nothing,
       expectedBucketOwner = Prelude.Nothing,
       externalTableDefinition = Prelude.Nothing,
+      glueCatalogGeneration = Prelude.Nothing,
       ignoreHeaderRows = Prelude.Nothing,
       includeOpForFullLoad = Prelude.Nothing,
       maxFileSize = Prelude.Nothing,
@@ -926,8 +935,9 @@ s3Settings_addTrailingPaddingCharacter = Lens.lens (\S3Settings' {addTrailingPad
 
 -- | An optional parameter to set a folder name in the S3 bucket. If
 -- provided, tables are created in the path
--- @ bucketFolder\/schema_name\/table_name\/@. If this parameter isn\'t
--- specified, then the path used is @ schema_name\/table_name\/@.
+-- @ @/@bucketFolder@/@\/@/@schema_name@/@\/@/@table_name@/@\/@. If this
+-- parameter isn\'t specified, then the path used is
+-- @ @/@schema_name@/@\/@/@table_name@/@\/@.
 s3Settings_bucketFolder :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Text)
 s3Settings_bucketFolder = Lens.lens (\S3Settings' {bucketFolder} -> bucketFolder) (\s@S3Settings' {} a -> s {bucketFolder = a} :: S3Settings)
 
@@ -1140,7 +1150,7 @@ s3Settings_datePartitionSequence = Lens.lens (\S3Settings' {datePartitionSequenc
 -- when @DatePartitionedEnabled@ is set to @true@, as shown in the
 -- following example.
 --
--- @s3-settings=\'{\"DatePartitionEnabled\": true, \"DatePartitionSequence\": \"YYYYMMDDHH\", \"DatePartitionDelimiter\": \"SLASH\", \"DatePartitionTimezone\":\"Asia\/Seoul\", \"BucketName\": \"dms-nattarat-test\"}\'@
+-- @s3-settings=\'{\"DatePartitionEnabled\": true, \"DatePartitionSequence\": \"YYYYMMDDHH\", \"DatePartitionDelimiter\": \"SLASH\", \"DatePartitionTimezone\":\"@/@Asia\/Seoul@/@\", \"BucketName\": \"dms-nattarat-test\"}\'@
 s3Settings_datePartitionTimezone :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Text)
 s3Settings_datePartitionTimezone = Lens.lens (\S3Settings' {datePartitionTimezone} -> datePartitionTimezone) (\s@S3Settings' {} a -> s {datePartitionTimezone = a} :: S3Settings)
 
@@ -1214,7 +1224,7 @@ s3Settings_encryptionMode = Lens.lens (\S3Settings' {encryptionMode} -> encrypti
 -- @ExpectedBucketOwner@ endpoint setting.
 --
 -- Example:
--- @--s3-settings=\'{\"ExpectedBucketOwner\": \"AWS_Account_ID\"}\'@
+-- @--s3-settings=\'{\"ExpectedBucketOwner\": \"@/@AWS_Account_ID@/@\"}\'@
 --
 -- When you make a request to test a connection or perform a migration, S3
 -- checks the account ID of the bucket owner against the specified
@@ -1225,6 +1235,11 @@ s3Settings_expectedBucketOwner = Lens.lens (\S3Settings' {expectedBucketOwner} -
 -- | Specifies how tables are defined in the S3 source files only.
 s3Settings_externalTableDefinition :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Text)
 s3Settings_externalTableDefinition = Lens.lens (\S3Settings' {externalTableDefinition} -> externalTableDefinition) (\s@S3Settings' {} a -> s {externalTableDefinition = a} :: S3Settings)
+
+-- | When true, allows Glue to catalog your S3 bucket. Creating an Glue
+-- catalog lets you use Athena to query your data.
+s3Settings_glueCatalogGeneration :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Bool)
+s3Settings_glueCatalogGeneration = Lens.lens (\S3Settings' {glueCatalogGeneration} -> glueCatalogGeneration) (\s@S3Settings' {} a -> s {glueCatalogGeneration = a} :: S3Settings)
 
 -- | When this value is set to 1, DMS ignores the first row header in a .csv
 -- file. A value of 1 turns on the feature; a value of 0 turns off the
@@ -1339,7 +1354,7 @@ s3Settings_rowGroupLength = Lens.lens (\S3Settings' {rowGroupLength} -> rowGroup
 -- and Access Management (IAM) user permissions and allows use of the key.
 --
 -- Here is a CLI example:
--- @aws dms create-endpoint --endpoint-identifier value --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=value,BucketFolder=value,BucketName=value,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=value @
+-- @aws dms create-endpoint --endpoint-identifier @/@value@/@ --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=@/@value@/@,BucketFolder=@/@value@/@,BucketName=@/@value@/@,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=@/@value@/@ @
 s3Settings_serverSideEncryptionKmsKeyId :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Text)
 s3Settings_serverSideEncryptionKmsKeyId = Lens.lens (\S3Settings' {serverSideEncryptionKmsKeyId} -> serverSideEncryptionKmsKeyId) (\s@S3Settings' {} a -> s {serverSideEncryptionKmsKeyId = a} :: S3Settings)
 
@@ -1433,6 +1448,7 @@ instance Data.FromJSON S3Settings where
             Prelude.<*> (x Data..:? "EncryptionMode")
             Prelude.<*> (x Data..:? "ExpectedBucketOwner")
             Prelude.<*> (x Data..:? "ExternalTableDefinition")
+            Prelude.<*> (x Data..:? "GlueCatalogGeneration")
             Prelude.<*> (x Data..:? "IgnoreHeaderRows")
             Prelude.<*> (x Data..:? "IncludeOpForFullLoad")
             Prelude.<*> (x Data..:? "MaxFileSize")
@@ -1450,7 +1466,8 @@ instance Data.FromJSON S3Settings where
 
 instance Prelude.Hashable S3Settings where
   hashWithSalt _salt S3Settings' {..} =
-    _salt `Prelude.hashWithSalt` addColumnName
+    _salt
+      `Prelude.hashWithSalt` addColumnName
       `Prelude.hashWithSalt` addTrailingPaddingCharacter
       `Prelude.hashWithSalt` bucketFolder
       `Prelude.hashWithSalt` bucketName
@@ -1477,6 +1494,7 @@ instance Prelude.Hashable S3Settings where
       `Prelude.hashWithSalt` encryptionMode
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` externalTableDefinition
+      `Prelude.hashWithSalt` glueCatalogGeneration
       `Prelude.hashWithSalt` ignoreHeaderRows
       `Prelude.hashWithSalt` includeOpForFullLoad
       `Prelude.hashWithSalt` maxFileSize
@@ -1528,6 +1546,8 @@ instance Prelude.NFData S3Settings where
         expectedBucketOwner
       `Prelude.seq` Prelude.rnf
         externalTableDefinition
+      `Prelude.seq` Prelude.rnf
+        glueCatalogGeneration
       `Prelude.seq` Prelude.rnf
         ignoreHeaderRows
       `Prelude.seq` Prelude.rnf
@@ -1603,6 +1623,8 @@ instance Data.ToJSON S3Settings where
               Prelude.<$> expectedBucketOwner,
             ("ExternalTableDefinition" Data..=)
               Prelude.<$> externalTableDefinition,
+            ("GlueCatalogGeneration" Data..=)
+              Prelude.<$> glueCatalogGeneration,
             ("IgnoreHeaderRows" Data..=)
               Prelude.<$> ignoreHeaderRows,
             ("IncludeOpForFullLoad" Data..=)

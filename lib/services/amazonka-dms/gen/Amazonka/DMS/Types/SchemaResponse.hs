@@ -161,7 +161,8 @@ instance Data.FromJSON SchemaResponse where
 
 instance Prelude.Hashable SchemaResponse where
   hashWithSalt _salt SchemaResponse' {..} =
-    _salt `Prelude.hashWithSalt` codeLineCount
+    _salt
+      `Prelude.hashWithSalt` codeLineCount
       `Prelude.hashWithSalt` codeSize
       `Prelude.hashWithSalt` complexity
       `Prelude.hashWithSalt` databaseInstance

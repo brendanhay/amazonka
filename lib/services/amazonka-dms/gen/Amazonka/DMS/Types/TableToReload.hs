@@ -68,7 +68,8 @@ tableToReload_tableName = Lens.lens (\TableToReload' {tableName} -> tableName) (
 
 instance Prelude.Hashable TableToReload where
   hashWithSalt _salt TableToReload' {..} =
-    _salt `Prelude.hashWithSalt` schemaName
+    _salt
+      `Prelude.hashWithSalt` schemaName
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData TableToReload where

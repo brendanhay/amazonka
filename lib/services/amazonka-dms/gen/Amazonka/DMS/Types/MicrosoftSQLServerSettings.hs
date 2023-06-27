@@ -22,6 +22,7 @@ module Amazonka.DMS.Types.MicrosoftSQLServerSettings where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.DMS.Types.SafeguardPolicy
+import Amazonka.DMS.Types.TlogAccessMode
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
@@ -39,6 +40,8 @@ data MicrosoftSQLServerSettings = MicrosoftSQLServerSettings'
     controlTablesFileGroup :: Prelude.Maybe Prelude.Text,
     -- | Database name for the endpoint.
     databaseName :: Prelude.Maybe Prelude.Text,
+    -- | Forces LOB lookup on inline LOB.
+    forceLobLookup :: Prelude.Maybe Prelude.Bool,
     -- | Endpoint connection password.
     password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Endpoint TCP port.
@@ -93,8 +96,15 @@ data MicrosoftSQLServerSettings = MicrosoftSQLServerSettings'
     -- @SecretsManagerSecret@ that contains the SQL Server endpoint connection
     -- details.
     secretsManagerSecretId :: Prelude.Maybe Prelude.Text,
-    -- | Fully qualified domain name of the endpoint.
+    -- | Fully qualified domain name of the endpoint. For an Amazon RDS SQL
+    -- Server instance, this is the output of
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html DescribeDBInstances>,
+    -- in the
+    -- @ @<https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html Endpoint>@.Address@
+    -- field.
     serverName :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the mode used to fetch CDC data.
+    tlogAccessMode :: Prelude.Maybe TlogAccessMode,
     -- | Use the @TrimSpaceInChar@ source endpoint setting to trim data on CHAR
     -- and NCHAR data types during migration. The default value is @true@.
     trimSpaceInChar :: Prelude.Maybe Prelude.Bool,
@@ -128,6 +138,8 @@ data MicrosoftSQLServerSettings = MicrosoftSQLServerSettings'
 -- specified file group.
 --
 -- 'databaseName', 'microsoftSQLServerSettings_databaseName' - Database name for the endpoint.
+--
+-- 'forceLobLookup', 'microsoftSQLServerSettings_forceLobLookup' - Forces LOB lookup on inline LOB.
 --
 -- 'password', 'microsoftSQLServerSettings_password' - Endpoint connection password.
 --
@@ -183,7 +195,14 @@ data MicrosoftSQLServerSettings = MicrosoftSQLServerSettings'
 -- @SecretsManagerSecret@ that contains the SQL Server endpoint connection
 -- details.
 --
--- 'serverName', 'microsoftSQLServerSettings_serverName' - Fully qualified domain name of the endpoint.
+-- 'serverName', 'microsoftSQLServerSettings_serverName' - Fully qualified domain name of the endpoint. For an Amazon RDS SQL
+-- Server instance, this is the output of
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html DescribeDBInstances>,
+-- in the
+-- @ @<https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html Endpoint>@.Address@
+-- field.
+--
+-- 'tlogAccessMode', 'microsoftSQLServerSettings_tlogAccessMode' - Indicates the mode used to fetch CDC data.
 --
 -- 'trimSpaceInChar', 'microsoftSQLServerSettings_trimSpaceInChar' - Use the @TrimSpaceInChar@ source endpoint setting to trim data on CHAR
 -- and NCHAR data types during migration. The default value is @true@.
@@ -205,6 +224,7 @@ newMicrosoftSQLServerSettings =
         Prelude.Nothing,
       controlTablesFileGroup = Prelude.Nothing,
       databaseName = Prelude.Nothing,
+      forceLobLookup = Prelude.Nothing,
       password = Prelude.Nothing,
       port = Prelude.Nothing,
       querySingleAlwaysOnNode = Prelude.Nothing,
@@ -213,6 +233,7 @@ newMicrosoftSQLServerSettings =
       secretsManagerAccessRoleArn = Prelude.Nothing,
       secretsManagerSecretId = Prelude.Nothing,
       serverName = Prelude.Nothing,
+      tlogAccessMode = Prelude.Nothing,
       trimSpaceInChar = Prelude.Nothing,
       useBcpFullLoad = Prelude.Nothing,
       useThirdPartyBackupDevice = Prelude.Nothing,
@@ -234,6 +255,10 @@ microsoftSQLServerSettings_controlTablesFileGroup = Lens.lens (\MicrosoftSQLServ
 -- | Database name for the endpoint.
 microsoftSQLServerSettings_databaseName :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Text)
 microsoftSQLServerSettings_databaseName = Lens.lens (\MicrosoftSQLServerSettings' {databaseName} -> databaseName) (\s@MicrosoftSQLServerSettings' {} a -> s {databaseName = a} :: MicrosoftSQLServerSettings)
+
+-- | Forces LOB lookup on inline LOB.
+microsoftSQLServerSettings_forceLobLookup :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Bool)
+microsoftSQLServerSettings_forceLobLookup = Lens.lens (\MicrosoftSQLServerSettings' {forceLobLookup} -> forceLobLookup) (\s@MicrosoftSQLServerSettings' {} a -> s {forceLobLookup = a} :: MicrosoftSQLServerSettings)
 
 -- | Endpoint connection password.
 microsoftSQLServerSettings_password :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Text)
@@ -303,9 +328,18 @@ microsoftSQLServerSettings_secretsManagerAccessRoleArn = Lens.lens (\MicrosoftSQ
 microsoftSQLServerSettings_secretsManagerSecretId :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Text)
 microsoftSQLServerSettings_secretsManagerSecretId = Lens.lens (\MicrosoftSQLServerSettings' {secretsManagerSecretId} -> secretsManagerSecretId) (\s@MicrosoftSQLServerSettings' {} a -> s {secretsManagerSecretId = a} :: MicrosoftSQLServerSettings)
 
--- | Fully qualified domain name of the endpoint.
+-- | Fully qualified domain name of the endpoint. For an Amazon RDS SQL
+-- Server instance, this is the output of
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html DescribeDBInstances>,
+-- in the
+-- @ @<https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html Endpoint>@.Address@
+-- field.
 microsoftSQLServerSettings_serverName :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Text)
 microsoftSQLServerSettings_serverName = Lens.lens (\MicrosoftSQLServerSettings' {serverName} -> serverName) (\s@MicrosoftSQLServerSettings' {} a -> s {serverName = a} :: MicrosoftSQLServerSettings)
+
+-- | Indicates the mode used to fetch CDC data.
+microsoftSQLServerSettings_tlogAccessMode :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe TlogAccessMode)
+microsoftSQLServerSettings_tlogAccessMode = Lens.lens (\MicrosoftSQLServerSettings' {tlogAccessMode} -> tlogAccessMode) (\s@MicrosoftSQLServerSettings' {} a -> s {tlogAccessMode = a} :: MicrosoftSQLServerSettings)
 
 -- | Use the @TrimSpaceInChar@ source endpoint setting to trim data on CHAR
 -- and NCHAR data types during migration. The default value is @true@.
@@ -337,6 +371,7 @@ instance Data.FromJSON MicrosoftSQLServerSettings where
             Prelude.<$> (x Data..:? "BcpPacketSize")
             Prelude.<*> (x Data..:? "ControlTablesFileGroup")
             Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "ForceLobLookup")
             Prelude.<*> (x Data..:? "Password")
             Prelude.<*> (x Data..:? "Port")
             Prelude.<*> (x Data..:? "QuerySingleAlwaysOnNode")
@@ -345,6 +380,7 @@ instance Data.FromJSON MicrosoftSQLServerSettings where
             Prelude.<*> (x Data..:? "SecretsManagerAccessRoleArn")
             Prelude.<*> (x Data..:? "SecretsManagerSecretId")
             Prelude.<*> (x Data..:? "ServerName")
+            Prelude.<*> (x Data..:? "TlogAccessMode")
             Prelude.<*> (x Data..:? "TrimSpaceInChar")
             Prelude.<*> (x Data..:? "UseBcpFullLoad")
             Prelude.<*> (x Data..:? "UseThirdPartyBackupDevice")
@@ -353,9 +389,11 @@ instance Data.FromJSON MicrosoftSQLServerSettings where
 
 instance Prelude.Hashable MicrosoftSQLServerSettings where
   hashWithSalt _salt MicrosoftSQLServerSettings' {..} =
-    _salt `Prelude.hashWithSalt` bcpPacketSize
+    _salt
+      `Prelude.hashWithSalt` bcpPacketSize
       `Prelude.hashWithSalt` controlTablesFileGroup
       `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` forceLobLookup
       `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` querySingleAlwaysOnNode
@@ -364,6 +402,7 @@ instance Prelude.Hashable MicrosoftSQLServerSettings where
       `Prelude.hashWithSalt` secretsManagerAccessRoleArn
       `Prelude.hashWithSalt` secretsManagerSecretId
       `Prelude.hashWithSalt` serverName
+      `Prelude.hashWithSalt` tlogAccessMode
       `Prelude.hashWithSalt` trimSpaceInChar
       `Prelude.hashWithSalt` useBcpFullLoad
       `Prelude.hashWithSalt` useThirdPartyBackupDevice
@@ -374,6 +413,7 @@ instance Prelude.NFData MicrosoftSQLServerSettings where
     Prelude.rnf bcpPacketSize
       `Prelude.seq` Prelude.rnf controlTablesFileGroup
       `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf forceLobLookup
       `Prelude.seq` Prelude.rnf password
       `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf querySingleAlwaysOnNode
@@ -382,6 +422,7 @@ instance Prelude.NFData MicrosoftSQLServerSettings where
       `Prelude.seq` Prelude.rnf secretsManagerAccessRoleArn
       `Prelude.seq` Prelude.rnf secretsManagerSecretId
       `Prelude.seq` Prelude.rnf serverName
+      `Prelude.seq` Prelude.rnf tlogAccessMode
       `Prelude.seq` Prelude.rnf trimSpaceInChar
       `Prelude.seq` Prelude.rnf useBcpFullLoad
       `Prelude.seq` Prelude.rnf useThirdPartyBackupDevice
@@ -395,6 +436,8 @@ instance Data.ToJSON MicrosoftSQLServerSettings where
             ("ControlTablesFileGroup" Data..=)
               Prelude.<$> controlTablesFileGroup,
             ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("ForceLobLookup" Data..=)
+              Prelude.<$> forceLobLookup,
             ("Password" Data..=) Prelude.<$> password,
             ("Port" Data..=) Prelude.<$> port,
             ("QuerySingleAlwaysOnNode" Data..=)
@@ -408,6 +451,8 @@ instance Data.ToJSON MicrosoftSQLServerSettings where
             ("SecretsManagerSecretId" Data..=)
               Prelude.<$> secretsManagerSecretId,
             ("ServerName" Data..=) Prelude.<$> serverName,
+            ("TlogAccessMode" Data..=)
+              Prelude.<$> tlogAccessMode,
             ("TrimSpaceInChar" Data..=)
               Prelude.<$> trimSpaceInChar,
             ("UseBcpFullLoad" Data..=)

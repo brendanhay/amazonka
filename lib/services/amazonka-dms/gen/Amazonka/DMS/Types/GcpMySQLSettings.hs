@@ -36,10 +36,10 @@ data GcpMySQLSettings = GcpMySQLSettings'
     -- For this parameter, provide the code of the script itself, not the name
     -- of a file containing the script.
     afterConnectScript :: Prelude.Maybe Prelude.Text,
-    -- | Adjusts the behavior of DMS when migrating from an SQL Server source
-    -- database that is hosted as part of an Always On availability group
-    -- cluster. If you need DMS to poll all the nodes in the Always On cluster
-    -- for transaction backups, set this attribute to @false@.
+    -- | Cleans and recreates table metadata information on the replication
+    -- instance when a mismatch occurs. For example, in a situation where
+    -- running an alter DDL on the table could result in different information
+    -- about the table cached in the replication instance.
     cleanSourceMetadataOnMismatch :: Prelude.Maybe Prelude.Bool,
     -- | Database name for the endpoint. For a MySQL source or target endpoint,
     -- don\'t explicitly specify the database using the @DatabaseName@ request
@@ -72,6 +72,7 @@ data GcpMySQLSettings = GcpMySQLSettings'
     parallelLoadThreads :: Prelude.Maybe Prelude.Int,
     -- | Endpoint connection password.
     password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Endpoint TCP port.
     port :: Prelude.Maybe Prelude.Int,
     -- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
     -- as the trusted entity and grants the required permissions to access the
@@ -92,7 +93,7 @@ data GcpMySQLSettings = GcpMySQLSettings'
     -- @SecretsManagerSecret@ that contains the MySQL endpoint connection
     -- details.
     secretsManagerSecretId :: Prelude.Maybe Prelude.Text,
-    -- | Endpoint TCP port.
+    -- | The MySQL host name.
     serverName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the time zone for the source MySQL database.
     --
@@ -125,10 +126,10 @@ data GcpMySQLSettings = GcpMySQLSettings'
 -- For this parameter, provide the code of the script itself, not the name
 -- of a file containing the script.
 --
--- 'cleanSourceMetadataOnMismatch', 'gcpMySQLSettings_cleanSourceMetadataOnMismatch' - Adjusts the behavior of DMS when migrating from an SQL Server source
--- database that is hosted as part of an Always On availability group
--- cluster. If you need DMS to poll all the nodes in the Always On cluster
--- for transaction backups, set this attribute to @false@.
+-- 'cleanSourceMetadataOnMismatch', 'gcpMySQLSettings_cleanSourceMetadataOnMismatch' - Cleans and recreates table metadata information on the replication
+-- instance when a mismatch occurs. For example, in a situation where
+-- running an alter DDL on the table could result in different information
+-- about the table cached in the replication instance.
 --
 -- 'databaseName', 'gcpMySQLSettings_databaseName' - Database name for the endpoint. For a MySQL source or target endpoint,
 -- don\'t explicitly specify the database using the @DatabaseName@ request
@@ -161,7 +162,7 @@ data GcpMySQLSettings = GcpMySQLSettings'
 --
 -- 'password', 'gcpMySQLSettings_password' - Endpoint connection password.
 --
--- 'port', 'gcpMySQLSettings_port' -
+-- 'port', 'gcpMySQLSettings_port' - Endpoint TCP port.
 --
 -- 'secretsManagerAccessRoleArn', 'gcpMySQLSettings_secretsManagerAccessRoleArn' - The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
 -- as the trusted entity and grants the required permissions to access the
@@ -182,7 +183,7 @@ data GcpMySQLSettings = GcpMySQLSettings'
 -- @SecretsManagerSecret@ that contains the MySQL endpoint connection
 -- details.
 --
--- 'serverName', 'gcpMySQLSettings_serverName' - Endpoint TCP port.
+-- 'serverName', 'gcpMySQLSettings_serverName' - The MySQL host name.
 --
 -- 'serverTimezone', 'gcpMySQLSettings_serverTimezone' - Specifies the time zone for the source MySQL database.
 --
@@ -226,10 +227,10 @@ newGcpMySQLSettings =
 gcpMySQLSettings_afterConnectScript :: Lens.Lens' GcpMySQLSettings (Prelude.Maybe Prelude.Text)
 gcpMySQLSettings_afterConnectScript = Lens.lens (\GcpMySQLSettings' {afterConnectScript} -> afterConnectScript) (\s@GcpMySQLSettings' {} a -> s {afterConnectScript = a} :: GcpMySQLSettings)
 
--- | Adjusts the behavior of DMS when migrating from an SQL Server source
--- database that is hosted as part of an Always On availability group
--- cluster. If you need DMS to poll all the nodes in the Always On cluster
--- for transaction backups, set this attribute to @false@.
+-- | Cleans and recreates table metadata information on the replication
+-- instance when a mismatch occurs. For example, in a situation where
+-- running an alter DDL on the table could result in different information
+-- about the table cached in the replication instance.
 gcpMySQLSettings_cleanSourceMetadataOnMismatch :: Lens.Lens' GcpMySQLSettings (Prelude.Maybe Prelude.Bool)
 gcpMySQLSettings_cleanSourceMetadataOnMismatch = Lens.lens (\GcpMySQLSettings' {cleanSourceMetadataOnMismatch} -> cleanSourceMetadataOnMismatch) (\s@GcpMySQLSettings' {} a -> s {cleanSourceMetadataOnMismatch = a} :: GcpMySQLSettings)
 
@@ -274,7 +275,7 @@ gcpMySQLSettings_parallelLoadThreads = Lens.lens (\GcpMySQLSettings' {parallelLo
 gcpMySQLSettings_password :: Lens.Lens' GcpMySQLSettings (Prelude.Maybe Prelude.Text)
 gcpMySQLSettings_password = Lens.lens (\GcpMySQLSettings' {password} -> password) (\s@GcpMySQLSettings' {} a -> s {password = a} :: GcpMySQLSettings) Prelude.. Lens.mapping Data._Sensitive
 
--- |
+-- | Endpoint TCP port.
 gcpMySQLSettings_port :: Lens.Lens' GcpMySQLSettings (Prelude.Maybe Prelude.Int)
 gcpMySQLSettings_port = Lens.lens (\GcpMySQLSettings' {port} -> port) (\s@GcpMySQLSettings' {} a -> s {port = a} :: GcpMySQLSettings)
 
@@ -301,7 +302,7 @@ gcpMySQLSettings_secretsManagerAccessRoleArn = Lens.lens (\GcpMySQLSettings' {se
 gcpMySQLSettings_secretsManagerSecretId :: Lens.Lens' GcpMySQLSettings (Prelude.Maybe Prelude.Text)
 gcpMySQLSettings_secretsManagerSecretId = Lens.lens (\GcpMySQLSettings' {secretsManagerSecretId} -> secretsManagerSecretId) (\s@GcpMySQLSettings' {} a -> s {secretsManagerSecretId = a} :: GcpMySQLSettings)
 
--- | Endpoint TCP port.
+-- | The MySQL host name.
 gcpMySQLSettings_serverName :: Lens.Lens' GcpMySQLSettings (Prelude.Maybe Prelude.Text)
 gcpMySQLSettings_serverName = Lens.lens (\GcpMySQLSettings' {serverName} -> serverName) (\s@GcpMySQLSettings' {} a -> s {serverName = a} :: GcpMySQLSettings)
 
@@ -348,7 +349,8 @@ instance Data.FromJSON GcpMySQLSettings where
 
 instance Prelude.Hashable GcpMySQLSettings where
   hashWithSalt _salt GcpMySQLSettings' {..} =
-    _salt `Prelude.hashWithSalt` afterConnectScript
+    _salt
+      `Prelude.hashWithSalt` afterConnectScript
       `Prelude.hashWithSalt` cleanSourceMetadataOnMismatch
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` eventsPollInterval

@@ -120,7 +120,8 @@ instance Data.FromJSON ReplicationSubnetGroup where
             Prelude.<*> (x Data..:? "ReplicationSubnetGroupIdentifier")
             Prelude.<*> (x Data..:? "SubnetGroupStatus")
             Prelude.<*> (x Data..:? "Subnets" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "SupportedNetworkTypes"
+            Prelude.<*> ( x
+                            Data..:? "SupportedNetworkTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "VpcId")

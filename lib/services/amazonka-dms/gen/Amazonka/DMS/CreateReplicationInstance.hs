@@ -81,6 +81,15 @@ data CreateReplicationInstance = CreateReplicationInstance'
     -- This parameter defaults to @true@.
     --
     -- Default: @true@
+    --
+    -- When @AutoMinorVersionUpgrade@ is enabled, DMS uses the current default
+    -- engine version when you create a replication instance. For example, if
+    -- you set @EngineVersion@ to a lower version number than the current
+    -- default version, DMS uses the default version.
+    --
+    -- If @AutoMinorVersionUpgrade@ /isn’t/ enabled when you create a
+    -- replication instance, DMS uses the engine version specified by the
+    -- @EngineVersion@ parameter.
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The Availability Zone where the replication instance will be created.
     -- The default value is a random, system-chosen Availability Zone in the
@@ -193,6 +202,15 @@ data CreateReplicationInstance = CreateReplicationInstance'
 -- This parameter defaults to @true@.
 --
 -- Default: @true@
+--
+-- When @AutoMinorVersionUpgrade@ is enabled, DMS uses the current default
+-- engine version when you create a replication instance. For example, if
+-- you set @EngineVersion@ to a lower version number than the current
+-- default version, DMS uses the default version.
+--
+-- If @AutoMinorVersionUpgrade@ /isn’t/ enabled when you create a
+-- replication instance, DMS uses the engine version specified by the
+-- @EngineVersion@ parameter.
 --
 -- 'availabilityZone', 'createReplicationInstance_availabilityZone' - The Availability Zone where the replication instance will be created.
 -- The default value is a random, system-chosen Availability Zone in the
@@ -327,6 +345,15 @@ createReplicationInstance_allocatedStorage = Lens.lens (\CreateReplicationInstan
 -- This parameter defaults to @true@.
 --
 -- Default: @true@
+--
+-- When @AutoMinorVersionUpgrade@ is enabled, DMS uses the current default
+-- engine version when you create a replication instance. For example, if
+-- you set @EngineVersion@ to a lower version number than the current
+-- default version, DMS uses the default version.
+--
+-- If @AutoMinorVersionUpgrade@ /isn’t/ enabled when you create a
+-- replication instance, DMS uses the engine version specified by the
+-- @EngineVersion@ parameter.
 createReplicationInstance_autoMinorVersionUpgrade :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Bool)
 createReplicationInstance_autoMinorVersionUpgrade = Lens.lens (\CreateReplicationInstance' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CreateReplicationInstance' {} a -> s {autoMinorVersionUpgrade = a} :: CreateReplicationInstance)
 
@@ -466,7 +493,8 @@ instance Core.AWSRequest CreateReplicationInstance where
 
 instance Prelude.Hashable CreateReplicationInstance where
   hashWithSalt _salt CreateReplicationInstance' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` dnsNameServers

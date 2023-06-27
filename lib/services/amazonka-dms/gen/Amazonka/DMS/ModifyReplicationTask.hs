@@ -99,7 +99,7 @@ data ModifyReplicationTask = ModifyReplicationTask'
     -- “server_time:2018-02-09T12:12:12”
     --
     -- Commit time example: --cdc-stop-position “commit_time:
-    -- 2018-02-09T12:12:12 “
+    -- 2018-02-09T12:12:12“
     cdcStopPosition :: Prelude.Maybe Prelude.Text,
     -- | The migration type. Valid values: @full-load@ | @cdc@ |
     -- @full-load-and-cdc@
@@ -173,7 +173,7 @@ data ModifyReplicationTask = ModifyReplicationTask'
 -- “server_time:2018-02-09T12:12:12”
 --
 -- Commit time example: --cdc-stop-position “commit_time:
--- 2018-02-09T12:12:12 “
+-- 2018-02-09T12:12:12“
 --
 -- 'migrationType', 'modifyReplicationTask_migrationType' - The migration type. Valid values: @full-load@ | @cdc@ |
 -- @full-load-and-cdc@
@@ -257,7 +257,7 @@ modifyReplicationTask_cdcStartTime = Lens.lens (\ModifyReplicationTask' {cdcStar
 -- “server_time:2018-02-09T12:12:12”
 --
 -- Commit time example: --cdc-stop-position “commit_time:
--- 2018-02-09T12:12:12 “
+-- 2018-02-09T12:12:12“
 modifyReplicationTask_cdcStopPosition :: Lens.Lens' ModifyReplicationTask (Prelude.Maybe Prelude.Text)
 modifyReplicationTask_cdcStopPosition = Lens.lens (\ModifyReplicationTask' {cdcStopPosition} -> cdcStopPosition) (\s@ModifyReplicationTask' {} a -> s {cdcStopPosition = a} :: ModifyReplicationTask)
 
@@ -317,7 +317,8 @@ instance Core.AWSRequest ModifyReplicationTask where
 
 instance Prelude.Hashable ModifyReplicationTask where
   hashWithSalt _salt ModifyReplicationTask' {..} =
-    _salt `Prelude.hashWithSalt` cdcStartPosition
+    _salt
+      `Prelude.hashWithSalt` cdcStartPosition
       `Prelude.hashWithSalt` cdcStartTime
       `Prelude.hashWithSalt` cdcStopPosition
       `Prelude.hashWithSalt` migrationType

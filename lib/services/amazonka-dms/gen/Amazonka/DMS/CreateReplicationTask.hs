@@ -96,7 +96,7 @@ data CreateReplicationTask = CreateReplicationTask'
     -- “server_time:2018-02-09T12:12:12”
     --
     -- Commit time example: --cdc-stop-position “commit_time:
-    -- 2018-02-09T12:12:12 “
+    -- 2018-02-09T12:12:12“
     cdcStopPosition :: Prelude.Maybe Prelude.Text,
     -- | Overall settings for the task, in JSON format. For more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html Specifying Task Settings for Database Migration Service Tasks>
@@ -190,7 +190,7 @@ data CreateReplicationTask = CreateReplicationTask'
 -- “server_time:2018-02-09T12:12:12”
 --
 -- Commit time example: --cdc-stop-position “commit_time:
--- 2018-02-09T12:12:12 “
+-- 2018-02-09T12:12:12“
 --
 -- 'replicationTaskSettings', 'createReplicationTask_replicationTaskSettings' - Overall settings for the task, in JSON format. For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html Specifying Task Settings for Database Migration Service Tasks>
@@ -315,7 +315,7 @@ createReplicationTask_cdcStartTime = Lens.lens (\CreateReplicationTask' {cdcStar
 -- “server_time:2018-02-09T12:12:12”
 --
 -- Commit time example: --cdc-stop-position “commit_time:
--- 2018-02-09T12:12:12 “
+-- 2018-02-09T12:12:12“
 createReplicationTask_cdcStopPosition :: Lens.Lens' CreateReplicationTask (Prelude.Maybe Prelude.Text)
 createReplicationTask_cdcStopPosition = Lens.lens (\CreateReplicationTask' {cdcStopPosition} -> cdcStopPosition) (\s@CreateReplicationTask' {} a -> s {cdcStopPosition = a} :: CreateReplicationTask)
 
@@ -403,7 +403,8 @@ instance Core.AWSRequest CreateReplicationTask where
 
 instance Prelude.Hashable CreateReplicationTask where
   hashWithSalt _salt CreateReplicationTask' {..} =
-    _salt `Prelude.hashWithSalt` cdcStartPosition
+    _salt
+      `Prelude.hashWithSalt` cdcStartPosition
       `Prelude.hashWithSalt` cdcStartTime
       `Prelude.hashWithSalt` cdcStopPosition
       `Prelude.hashWithSalt` replicationTaskSettings

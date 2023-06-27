@@ -164,22 +164,22 @@ instance Core.AWSPager DescribeTableStatistics where
     | Core.stop
         ( rs
             Lens.^? describeTableStatisticsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeTableStatisticsResponse_tableStatistics
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeTableStatistics_marker
           Lens..~ rs
           Lens.^? describeTableStatisticsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTableStatistics where
   type
@@ -193,7 +193,8 @@ instance Core.AWSRequest DescribeTableStatistics where
           DescribeTableStatisticsResponse'
             Prelude.<$> (x Data..?> "Marker")
             Prelude.<*> (x Data..?> "ReplicationTaskArn")
-            Prelude.<*> ( x Data..?> "TableStatistics"
+            Prelude.<*> ( x
+                            Data..?> "TableStatistics"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -201,7 +202,8 @@ instance Core.AWSRequest DescribeTableStatistics where
 
 instance Prelude.Hashable DescribeTableStatistics where
   hashWithSalt _salt DescribeTableStatistics' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` replicationTaskArn

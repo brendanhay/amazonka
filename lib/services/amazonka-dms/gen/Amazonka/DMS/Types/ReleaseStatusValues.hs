@@ -20,7 +20,8 @@
 module Amazonka.DMS.Types.ReleaseStatusValues
   ( ReleaseStatusValues
       ( ..,
-        ReleaseStatusValues_Beta
+        ReleaseStatusValues_Beta,
+        ReleaseStatusValues_Prod
       ),
   )
 where
@@ -60,7 +61,11 @@ newtype ReleaseStatusValues = ReleaseStatusValues'
 pattern ReleaseStatusValues_Beta :: ReleaseStatusValues
 pattern ReleaseStatusValues_Beta = ReleaseStatusValues' "beta"
 
+pattern ReleaseStatusValues_Prod :: ReleaseStatusValues
+pattern ReleaseStatusValues_Prod = ReleaseStatusValues' "prod"
+
 {-# COMPLETE
   ReleaseStatusValues_Beta,
+  ReleaseStatusValues_Prod,
   ReleaseStatusValues'
   #-}

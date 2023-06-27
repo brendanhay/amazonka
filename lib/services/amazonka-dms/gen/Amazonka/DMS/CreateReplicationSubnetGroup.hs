@@ -157,7 +157,8 @@ instance
     CreateReplicationSubnetGroup
   where
   hashWithSalt _salt CreateReplicationSubnetGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` replicationSubnetGroupIdentifier
       `Prelude.hashWithSalt` replicationSubnetGroupDescription
       `Prelude.hashWithSalt` subnetIds

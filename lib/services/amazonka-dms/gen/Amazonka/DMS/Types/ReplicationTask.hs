@@ -51,7 +51,7 @@ data ReplicationTask = ReplicationTask'
     -- “server_time:2018-02-09T12:12:12”
     --
     -- Commit time example: --cdc-stop-position “commit_time:
-    -- 2018-02-09T12:12:12 “
+    -- 2018-02-09T12:12:12“
     cdcStopPosition :: Prelude.Maybe Prelude.Text,
     -- | The last error (failure) message generated for the replication task.
     lastFailureMessage :: Prelude.Maybe Prelude.Text,
@@ -244,7 +244,7 @@ data ReplicationTask = ReplicationTask'
 -- “server_time:2018-02-09T12:12:12”
 --
 -- Commit time example: --cdc-stop-position “commit_time:
--- 2018-02-09T12:12:12 “
+-- 2018-02-09T12:12:12“
 --
 -- 'lastFailureMessage', 'replicationTask_lastFailureMessage' - The last error (failure) message generated for the replication task.
 --
@@ -453,7 +453,7 @@ replicationTask_cdcStartPosition = Lens.lens (\ReplicationTask' {cdcStartPositio
 -- “server_time:2018-02-09T12:12:12”
 --
 -- Commit time example: --cdc-stop-position “commit_time:
--- 2018-02-09T12:12:12 “
+-- 2018-02-09T12:12:12“
 replicationTask_cdcStopPosition :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
 replicationTask_cdcStopPosition = Lens.lens (\ReplicationTask' {cdcStopPosition} -> cdcStopPosition) (\s@ReplicationTask' {} a -> s {cdcStopPosition = a} :: ReplicationTask)
 
@@ -680,7 +680,8 @@ instance Data.FromJSON ReplicationTask where
 
 instance Prelude.Hashable ReplicationTask where
   hashWithSalt _salt ReplicationTask' {..} =
-    _salt `Prelude.hashWithSalt` cdcStartPosition
+    _salt
+      `Prelude.hashWithSalt` cdcStartPosition
       `Prelude.hashWithSalt` cdcStopPosition
       `Prelude.hashWithSalt` lastFailureMessage
       `Prelude.hashWithSalt` migrationType

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all metadata tags attached to an DMS resource, including
--- replication instance, endpoint, security group, and migration task. For
+-- replication instance, endpoint, subnet group, and migration task. For
 -- more information, see
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html Tag>
 -- data type description.
@@ -121,7 +121,8 @@ instance Core.AWSRequest ListTagsForResource where
 
 instance Prelude.Hashable ListTagsForResource where
   hashWithSalt _salt ListTagsForResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` resourceArnList
 
 instance Prelude.NFData ListTagsForResource where

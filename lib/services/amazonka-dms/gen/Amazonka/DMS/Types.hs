@@ -83,6 +83,9 @@ module Amazonka.DMS.Types
     -- * EndpointSettingTypeValue
     EndpointSettingTypeValue (..),
 
+    -- * KafkaSaslMechanism
+    KafkaSaslMechanism (..),
+
     -- * KafkaSecurityProtocol
     KafkaSecurityProtocol (..),
 
@@ -131,6 +134,9 @@ module Amazonka.DMS.Types
     -- * TargetDbType
     TargetDbType (..),
 
+    -- * TlogAccessMode
+    TlogAccessMode (..),
+
     -- * VersionStatus
     VersionStatus (..),
 
@@ -145,6 +151,13 @@ module Amazonka.DMS.Types
     AvailabilityZone (..),
     newAvailabilityZone,
     availabilityZone_name,
+
+    -- * BatchStartRecommendationsErrorEntry
+    BatchStartRecommendationsErrorEntry (..),
+    newBatchStartRecommendationsErrorEntry,
+    batchStartRecommendationsErrorEntry_code,
+    batchStartRecommendationsErrorEntry_databaseId,
+    batchStartRecommendationsErrorEntry_message,
 
     -- * Certificate
     Certificate (..),
@@ -418,6 +431,7 @@ module Amazonka.DMS.Types
     kafkaSettings_messageMaxBytes,
     kafkaSettings_noHexPrefix,
     kafkaSettings_partitionIncludeSchemaTable,
+    kafkaSettings_saslMechanism,
     kafkaSettings_saslPassword,
     kafkaSettings_saslUsername,
     kafkaSettings_securityProtocol,
@@ -441,12 +455,23 @@ module Amazonka.DMS.Types
     kinesisSettings_serviceAccessRoleArn,
     kinesisSettings_streamArn,
 
+    -- * Limitation
+    Limitation (..),
+    newLimitation,
+    limitation_databaseId,
+    limitation_description,
+    limitation_engineName,
+    limitation_impact,
+    limitation_name,
+    limitation_type,
+
     -- * MicrosoftSQLServerSettings
     MicrosoftSQLServerSettings (..),
     newMicrosoftSQLServerSettings,
     microsoftSQLServerSettings_bcpPacketSize,
     microsoftSQLServerSettings_controlTablesFileGroup,
     microsoftSQLServerSettings_databaseName,
+    microsoftSQLServerSettings_forceLobLookup,
     microsoftSQLServerSettings_password,
     microsoftSQLServerSettings_port,
     microsoftSQLServerSettings_querySingleAlwaysOnNode,
@@ -455,6 +480,7 @@ module Amazonka.DMS.Types
     microsoftSQLServerSettings_secretsManagerAccessRoleArn,
     microsoftSQLServerSettings_secretsManagerSecretId,
     microsoftSQLServerSettings_serverName,
+    microsoftSQLServerSettings_tlogAccessMode,
     microsoftSQLServerSettings_trimSpaceInChar,
     microsoftSQLServerSettings_useBcpFullLoad,
     microsoftSQLServerSettings_useThirdPartyBackupDevice,
@@ -520,6 +546,7 @@ module Amazonka.DMS.Types
     oracleSettings_asmServer,
     oracleSettings_asmUser,
     oracleSettings_charLengthSemantics,
+    oracleSettings_convertTimestampWithZoneToUTC,
     oracleSettings_databaseName,
     oracleSettings_directPathNoLog,
     oracleSettings_directPathParallelLoad,
@@ -587,6 +614,7 @@ module Amazonka.DMS.Types
     postgreSQLSettings_heartbeatEnable,
     postgreSQLSettings_heartbeatFrequency,
     postgreSQLSettings_heartbeatSchema,
+    postgreSQLSettings_mapBooleanAsBoolean,
     postgreSQLSettings_maxFileSize,
     postgreSQLSettings_password,
     postgreSQLSettings_pluginName,
@@ -597,6 +625,56 @@ module Amazonka.DMS.Types
     postgreSQLSettings_slotName,
     postgreSQLSettings_trimSpaceInChar,
     postgreSQLSettings_username,
+
+    -- * RdsConfiguration
+    RdsConfiguration (..),
+    newRdsConfiguration,
+    rdsConfiguration_deploymentOption,
+    rdsConfiguration_engineEdition,
+    rdsConfiguration_instanceMemory,
+    rdsConfiguration_instanceType,
+    rdsConfiguration_instanceVcpu,
+    rdsConfiguration_storageIops,
+    rdsConfiguration_storageSize,
+    rdsConfiguration_storageType,
+
+    -- * RdsRecommendation
+    RdsRecommendation (..),
+    newRdsRecommendation,
+    rdsRecommendation_requirementsToTarget,
+    rdsRecommendation_targetConfiguration,
+
+    -- * RdsRequirements
+    RdsRequirements (..),
+    newRdsRequirements,
+    rdsRequirements_deploymentOption,
+    rdsRequirements_engineEdition,
+    rdsRequirements_instanceMemory,
+    rdsRequirements_instanceVcpu,
+    rdsRequirements_storageIops,
+    rdsRequirements_storageSize,
+
+    -- * Recommendation
+    Recommendation (..),
+    newRecommendation,
+    recommendation_createdDate,
+    recommendation_data,
+    recommendation_databaseId,
+    recommendation_engineName,
+    recommendation_preferred,
+    recommendation_settings,
+    recommendation_status,
+
+    -- * RecommendationData
+    RecommendationData (..),
+    newRecommendationData,
+    recommendationData_rdsEngine,
+
+    -- * RecommendationSettings
+    RecommendationSettings (..),
+    newRecommendationSettings,
+    recommendationSettings_instanceSizingType,
+    recommendationSettings_workloadType,
 
     -- * RedisSettings
     RedisSettings (..),
@@ -626,6 +704,7 @@ module Amazonka.DMS.Types
     redshiftSettings_explicitIds,
     redshiftSettings_fileTransferUploadStreams,
     redshiftSettings_loadTimeout,
+    redshiftSettings_mapBooleanAsBoolean,
     redshiftSettings_maxFileSize,
     redshiftSettings_password,
     redshiftSettings_port,
@@ -823,6 +902,7 @@ module Amazonka.DMS.Types
     s3Settings_encryptionMode,
     s3Settings_expectedBucketOwner,
     s3Settings_externalTableDefinition,
+    s3Settings_glueCatalogGeneration,
     s3Settings_ignoreHeaderRows,
     s3Settings_includeOpForFullLoad,
     s3Settings_maxFileSize,
@@ -865,6 +945,12 @@ module Amazonka.DMS.Types
     serverShortInfoResponse_ipAddress,
     serverShortInfoResponse_serverId,
     serverShortInfoResponse_serverName,
+
+    -- * StartRecommendationsRequestEntry
+    StartRecommendationsRequestEntry (..),
+    newStartRecommendationsRequestEntry,
+    startRecommendationsRequestEntry_databaseId,
+    startRecommendationsRequestEntry_settings,
 
     -- * Subnet
     Subnet (..),
@@ -947,6 +1033,7 @@ import Amazonka.DMS.Types.AccountQuota
 import Amazonka.DMS.Types.AuthMechanismValue
 import Amazonka.DMS.Types.AuthTypeValue
 import Amazonka.DMS.Types.AvailabilityZone
+import Amazonka.DMS.Types.BatchStartRecommendationsErrorEntry
 import Amazonka.DMS.Types.CannedAclForObjectsValue
 import Amazonka.DMS.Types.Certificate
 import Amazonka.DMS.Types.CharLengthSemantics
@@ -981,9 +1068,11 @@ import Amazonka.DMS.Types.FleetAdvisorSchemaObjectResponse
 import Amazonka.DMS.Types.GcpMySQLSettings
 import Amazonka.DMS.Types.IBMDb2Settings
 import Amazonka.DMS.Types.InventoryData
+import Amazonka.DMS.Types.KafkaSaslMechanism
 import Amazonka.DMS.Types.KafkaSecurityProtocol
 import Amazonka.DMS.Types.KafkaSettings
 import Amazonka.DMS.Types.KinesisSettings
+import Amazonka.DMS.Types.Limitation
 import Amazonka.DMS.Types.MessageFormatValue
 import Amazonka.DMS.Types.MicrosoftSQLServerSettings
 import Amazonka.DMS.Types.MigrationTypeValue
@@ -997,6 +1086,12 @@ import Amazonka.DMS.Types.ParquetVersionValue
 import Amazonka.DMS.Types.PendingMaintenanceAction
 import Amazonka.DMS.Types.PluginNameValue
 import Amazonka.DMS.Types.PostgreSQLSettings
+import Amazonka.DMS.Types.RdsConfiguration
+import Amazonka.DMS.Types.RdsRecommendation
+import Amazonka.DMS.Types.RdsRequirements
+import Amazonka.DMS.Types.Recommendation
+import Amazonka.DMS.Types.RecommendationData
+import Amazonka.DMS.Types.RecommendationSettings
 import Amazonka.DMS.Types.RedisAuthTypeValue
 import Amazonka.DMS.Types.RedisSettings
 import Amazonka.DMS.Types.RedshiftSettings
@@ -1023,6 +1118,7 @@ import Amazonka.DMS.Types.SchemaShortInfoResponse
 import Amazonka.DMS.Types.ServerShortInfoResponse
 import Amazonka.DMS.Types.SourceType
 import Amazonka.DMS.Types.SslSecurityProtocolValue
+import Amazonka.DMS.Types.StartRecommendationsRequestEntry
 import Amazonka.DMS.Types.StartReplicationTaskTypeValue
 import Amazonka.DMS.Types.Subnet
 import Amazonka.DMS.Types.SupportedEndpointType
@@ -1031,6 +1127,7 @@ import Amazonka.DMS.Types.TableStatistics
 import Amazonka.DMS.Types.TableToReload
 import Amazonka.DMS.Types.Tag
 import Amazonka.DMS.Types.TargetDbType
+import Amazonka.DMS.Types.TlogAccessMode
 import Amazonka.DMS.Types.VersionStatus
 import Amazonka.DMS.Types.VpcSecurityGroupMembership
 import qualified Amazonka.Prelude as Prelude
@@ -1062,81 +1159,81 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | DMS was denied access to the endpoint. Check that the role is correctly
 -- configured.
-_AccessDeniedFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedFault =
   Core._MatchServiceError
     defaultService
     "AccessDeniedFault"
 
 -- | The specified collector doesn\'t exist.
-_CollectorNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CollectorNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CollectorNotFoundFault =
   Core._MatchServiceError
     defaultService
     "CollectorNotFoundFault"
 
 -- | There are not enough resources allocated to the database migration.
-_InsufficientResourceCapacityFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InsufficientResourceCapacityFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InsufficientResourceCapacityFault =
   Core._MatchServiceError
     defaultService
     "InsufficientResourceCapacityFault"
 
 -- | The certificate was not valid.
-_InvalidCertificateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidCertificateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidCertificateFault =
   Core._MatchServiceError
     defaultService
     "InvalidCertificateFault"
 
 -- | The action or operation requested isn\'t valid.
-_InvalidOperationFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidOperationFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidOperationFault =
   Core._MatchServiceError
     defaultService
@@ -1144,14 +1241,14 @@ _InvalidOperationFault =
 
 -- | The resource is in a state that prevents it from being used for database
 -- migration.
-_InvalidResourceStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidResourceStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidResourceStateFault =
   Core._MatchServiceError
     defaultService
     "InvalidResourceStateFault"
 
 -- | The subnet provided is invalid.
-_InvalidSubnet :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidSubnet :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidSubnet =
   Core._MatchServiceError
     defaultService
@@ -1159,47 +1256,47 @@ _InvalidSubnet =
 
 -- | The ciphertext references a key that doesn\'t exist or that the DMS
 -- account doesn\'t have access to.
-_KMSAccessDeniedFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_KMSAccessDeniedFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _KMSAccessDeniedFault =
   Core._MatchServiceError
     defaultService
     "KMSAccessDeniedFault"
 
 -- | The specified KMS key isn\'t enabled.
-_KMSDisabledFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_KMSDisabledFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _KMSDisabledFault =
   Core._MatchServiceError
     defaultService
     "KMSDisabledFault"
 
 -- | An Key Management Service (KMS) error is preventing access to KMS.
-_KMSFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_KMSFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _KMSFault =
   Core._MatchServiceError defaultService "KMSFault"
 
 -- | The state of the specified KMS resource isn\'t valid for this request.
-_KMSInvalidStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_KMSInvalidStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _KMSInvalidStateFault =
   Core._MatchServiceError
     defaultService
     "KMSInvalidStateFault"
 
 -- | DMS cannot access the KMS key.
-_KMSKeyNotAccessibleFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_KMSKeyNotAccessibleFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _KMSKeyNotAccessibleFault =
   Core._MatchServiceError
     defaultService
     "KMSKeyNotAccessibleFault"
 
 -- | The specified KMS entity or resource can\'t be found.
-_KMSNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_KMSNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _KMSNotFoundFault =
   Core._MatchServiceError
     defaultService
     "KMSNotFoundFault"
 
 -- | This request triggered KMS request throttling.
-_KMSThrottlingFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_KMSThrottlingFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _KMSThrottlingFault =
   Core._MatchServiceError
     defaultService
@@ -1207,35 +1304,35 @@ _KMSThrottlingFault =
 
 -- | The replication subnet group does not cover enough Availability Zones
 -- (AZs). Edit the replication subnet group and add more AZs.
-_ReplicationSubnetGroupDoesNotCoverEnoughAZs :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ReplicationSubnetGroupDoesNotCoverEnoughAZs :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ReplicationSubnetGroupDoesNotCoverEnoughAZs =
   Core._MatchServiceError
     defaultService
     "ReplicationSubnetGroupDoesNotCoverEnoughAZs"
 
 -- | The resource you are attempting to create already exists.
-_ResourceAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceAlreadyExistsFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
     "ResourceAlreadyExistsFault"
 
 -- | The resource could not be found.
-_ResourceNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundFault =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundFault"
 
 -- | The quota for this resource quota has been exceeded.
-_ResourceQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceQuotaExceededFault =
   Core._MatchServiceError
     defaultService
     "ResourceQuotaExceededFault"
 
 -- | Insufficient privileges are preventing access to an Amazon S3 object.
-_S3AccessDeniedFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_S3AccessDeniedFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _S3AccessDeniedFault =
   Core._MatchServiceError
     defaultService
@@ -1243,42 +1340,42 @@ _S3AccessDeniedFault =
 
 -- | A specified Amazon S3 bucket, bucket folder, or other object can\'t be
 -- found.
-_S3ResourceNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_S3ResourceNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _S3ResourceNotFoundFault =
   Core._MatchServiceError
     defaultService
     "S3ResourceNotFoundFault"
 
 -- | The SNS topic is invalid.
-_SNSInvalidTopicFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SNSInvalidTopicFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SNSInvalidTopicFault =
   Core._MatchServiceError
     defaultService
     "SNSInvalidTopicFault"
 
 -- | You are not authorized for the SNS subscription.
-_SNSNoAuthorizationFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SNSNoAuthorizationFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SNSNoAuthorizationFault =
   Core._MatchServiceError
     defaultService
     "SNSNoAuthorizationFault"
 
 -- | The storage quota has been exceeded.
-_StorageQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_StorageQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _StorageQuotaExceededFault =
   Core._MatchServiceError
     defaultService
     "StorageQuotaExceededFault"
 
 -- | The specified subnet is already in use.
-_SubnetAlreadyInUse :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SubnetAlreadyInUse :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SubnetAlreadyInUse =
   Core._MatchServiceError
     defaultService
     "SubnetAlreadyInUse"
 
 -- | An upgrade dependency is preventing the database migration.
-_UpgradeDependencyFailureFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UpgradeDependencyFailureFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UpgradeDependencyFailureFault =
   Core._MatchServiceError
     defaultService

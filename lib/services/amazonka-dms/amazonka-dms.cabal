@@ -46,6 +46,7 @@ library
     Amazonka.DMS
     Amazonka.DMS.AddTagsToResource
     Amazonka.DMS.ApplyPendingMaintenanceAction
+    Amazonka.DMS.BatchStartRecommendations
     Amazonka.DMS.CancelReplicationTaskAssessmentRun
     Amazonka.DMS.CreateEndpoint
     Amazonka.DMS.CreateEventSubscription
@@ -80,6 +81,8 @@ library
     Amazonka.DMS.DescribeFleetAdvisorSchemas
     Amazonka.DMS.DescribeOrderableReplicationInstances
     Amazonka.DMS.DescribePendingMaintenanceActions
+    Amazonka.DMS.DescribeRecommendationLimitations
+    Amazonka.DMS.DescribeRecommendations
     Amazonka.DMS.DescribeRefreshSchemasStatus
     Amazonka.DMS.DescribeReplicationInstances
     Amazonka.DMS.DescribeReplicationInstanceTaskLogs
@@ -104,6 +107,7 @@ library
     Amazonka.DMS.ReloadTables
     Amazonka.DMS.RemoveTagsFromResource
     Amazonka.DMS.RunFleetAdvisorLsaAnalysis
+    Amazonka.DMS.StartRecommendations
     Amazonka.DMS.StartReplicationTask
     Amazonka.DMS.StartReplicationTaskAssessment
     Amazonka.DMS.StartReplicationTaskAssessmentRun
@@ -114,6 +118,7 @@ library
     Amazonka.DMS.Types.AuthMechanismValue
     Amazonka.DMS.Types.AuthTypeValue
     Amazonka.DMS.Types.AvailabilityZone
+    Amazonka.DMS.Types.BatchStartRecommendationsErrorEntry
     Amazonka.DMS.Types.CannedAclForObjectsValue
     Amazonka.DMS.Types.Certificate
     Amazonka.DMS.Types.CharLengthSemantics
@@ -148,9 +153,11 @@ library
     Amazonka.DMS.Types.GcpMySQLSettings
     Amazonka.DMS.Types.IBMDb2Settings
     Amazonka.DMS.Types.InventoryData
+    Amazonka.DMS.Types.KafkaSaslMechanism
     Amazonka.DMS.Types.KafkaSecurityProtocol
     Amazonka.DMS.Types.KafkaSettings
     Amazonka.DMS.Types.KinesisSettings
+    Amazonka.DMS.Types.Limitation
     Amazonka.DMS.Types.MessageFormatValue
     Amazonka.DMS.Types.MicrosoftSQLServerSettings
     Amazonka.DMS.Types.MigrationTypeValue
@@ -164,6 +171,12 @@ library
     Amazonka.DMS.Types.PendingMaintenanceAction
     Amazonka.DMS.Types.PluginNameValue
     Amazonka.DMS.Types.PostgreSQLSettings
+    Amazonka.DMS.Types.RdsConfiguration
+    Amazonka.DMS.Types.RdsRecommendation
+    Amazonka.DMS.Types.RdsRequirements
+    Amazonka.DMS.Types.Recommendation
+    Amazonka.DMS.Types.RecommendationData
+    Amazonka.DMS.Types.RecommendationSettings
     Amazonka.DMS.Types.RedisAuthTypeValue
     Amazonka.DMS.Types.RedisSettings
     Amazonka.DMS.Types.RedshiftSettings
@@ -190,6 +203,7 @@ library
     Amazonka.DMS.Types.ServerShortInfoResponse
     Amazonka.DMS.Types.SourceType
     Amazonka.DMS.Types.SslSecurityProtocolValue
+    Amazonka.DMS.Types.StartRecommendationsRequestEntry
     Amazonka.DMS.Types.StartReplicationTaskTypeValue
     Amazonka.DMS.Types.Subnet
     Amazonka.DMS.Types.SupportedEndpointType
@@ -198,6 +212,7 @@ library
     Amazonka.DMS.Types.TableToReload
     Amazonka.DMS.Types.Tag
     Amazonka.DMS.Types.TargetDbType
+    Amazonka.DMS.Types.TlogAccessMode
     Amazonka.DMS.Types.VersionStatus
     Amazonka.DMS.Types.VpcSecurityGroupMembership
     Amazonka.DMS.UpdateSubscriptionsToEventBridge

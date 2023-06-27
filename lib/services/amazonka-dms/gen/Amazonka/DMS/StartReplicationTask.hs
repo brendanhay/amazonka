@@ -92,21 +92,28 @@ data StartReplicationTask = StartReplicationTask'
     -- “server_time:2018-02-09T12:12:12”
     --
     -- Commit time example: --cdc-stop-position “commit_time:
-    -- 2018-02-09T12:12:12 “
+    -- 2018-02-09T12:12:12“
     cdcStopPosition :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the replication task to be started.
     replicationTaskArn :: Prelude.Text,
     -- | The type of replication task to start.
     --
     -- When the migration type is @full-load@ or @full-load-and-cdc@, the only
-    -- valid value for the first run of the task is @start-replication@. You
-    -- use @reload-target@ to restart the task and @resume-processing@ to
-    -- resume the task.
+    -- valid value for the first run of the task is @start-replication@. This
+    -- option will start the migration.
     --
-    -- When the migration type is @cdc@, you use @start-replication@ to start
-    -- or restart the task, and @resume-processing@ to resume the task.
-    -- @reload-target@ is not a valid value for a task with migration type of
-    -- @cdc@.
+    -- You can also use ReloadTables to reload specific tables that failed
+    -- during migration instead of restarting the task.
+    --
+    -- The @resume-processing@ option isn\'t applicable for a full-load task,
+    -- because you can\'t resume partially loaded tables during the full load
+    -- phase.
+    --
+    -- For a @full-load-and-cdc@ task, DMS migrates table data, and then
+    -- applies data changes that occur on the source. To load all the tables
+    -- again, and start capturing source changes, use @reload-target@.
+    -- Otherwise use @resume-processing@, to replicate the changes from the
+    -- last stop position.
     startReplicationTaskType :: StartReplicationTaskTypeValue
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -152,21 +159,28 @@ data StartReplicationTask = StartReplicationTask'
 -- “server_time:2018-02-09T12:12:12”
 --
 -- Commit time example: --cdc-stop-position “commit_time:
--- 2018-02-09T12:12:12 “
+-- 2018-02-09T12:12:12“
 --
 -- 'replicationTaskArn', 'startReplicationTask_replicationTaskArn' - The Amazon Resource Name (ARN) of the replication task to be started.
 --
 -- 'startReplicationTaskType', 'startReplicationTask_startReplicationTaskType' - The type of replication task to start.
 --
 -- When the migration type is @full-load@ or @full-load-and-cdc@, the only
--- valid value for the first run of the task is @start-replication@. You
--- use @reload-target@ to restart the task and @resume-processing@ to
--- resume the task.
+-- valid value for the first run of the task is @start-replication@. This
+-- option will start the migration.
 --
--- When the migration type is @cdc@, you use @start-replication@ to start
--- or restart the task, and @resume-processing@ to resume the task.
--- @reload-target@ is not a valid value for a task with migration type of
--- @cdc@.
+-- You can also use ReloadTables to reload specific tables that failed
+-- during migration instead of restarting the task.
+--
+-- The @resume-processing@ option isn\'t applicable for a full-load task,
+-- because you can\'t resume partially loaded tables during the full load
+-- phase.
+--
+-- For a @full-load-and-cdc@ task, DMS migrates table data, and then
+-- applies data changes that occur on the source. To load all the tables
+-- again, and start capturing source changes, use @reload-target@.
+-- Otherwise use @resume-processing@, to replicate the changes from the
+-- last stop position.
 newStartReplicationTask ::
   -- | 'replicationTaskArn'
   Prelude.Text ->
@@ -223,7 +237,7 @@ startReplicationTask_cdcStartTime = Lens.lens (\StartReplicationTask' {cdcStartT
 -- “server_time:2018-02-09T12:12:12”
 --
 -- Commit time example: --cdc-stop-position “commit_time:
--- 2018-02-09T12:12:12 “
+-- 2018-02-09T12:12:12“
 startReplicationTask_cdcStopPosition :: Lens.Lens' StartReplicationTask (Prelude.Maybe Prelude.Text)
 startReplicationTask_cdcStopPosition = Lens.lens (\StartReplicationTask' {cdcStopPosition} -> cdcStopPosition) (\s@StartReplicationTask' {} a -> s {cdcStopPosition = a} :: StartReplicationTask)
 
@@ -234,14 +248,21 @@ startReplicationTask_replicationTaskArn = Lens.lens (\StartReplicationTask' {rep
 -- | The type of replication task to start.
 --
 -- When the migration type is @full-load@ or @full-load-and-cdc@, the only
--- valid value for the first run of the task is @start-replication@. You
--- use @reload-target@ to restart the task and @resume-processing@ to
--- resume the task.
+-- valid value for the first run of the task is @start-replication@. This
+-- option will start the migration.
 --
--- When the migration type is @cdc@, you use @start-replication@ to start
--- or restart the task, and @resume-processing@ to resume the task.
--- @reload-target@ is not a valid value for a task with migration type of
--- @cdc@.
+-- You can also use ReloadTables to reload specific tables that failed
+-- during migration instead of restarting the task.
+--
+-- The @resume-processing@ option isn\'t applicable for a full-load task,
+-- because you can\'t resume partially loaded tables during the full load
+-- phase.
+--
+-- For a @full-load-and-cdc@ task, DMS migrates table data, and then
+-- applies data changes that occur on the source. To load all the tables
+-- again, and start capturing source changes, use @reload-target@.
+-- Otherwise use @resume-processing@, to replicate the changes from the
+-- last stop position.
 startReplicationTask_startReplicationTaskType :: Lens.Lens' StartReplicationTask StartReplicationTaskTypeValue
 startReplicationTask_startReplicationTaskType = Lens.lens (\StartReplicationTask' {startReplicationTaskType} -> startReplicationTaskType) (\s@StartReplicationTask' {} a -> s {startReplicationTaskType = a} :: StartReplicationTask)
 
@@ -261,7 +282,8 @@ instance Core.AWSRequest StartReplicationTask where
 
 instance Prelude.Hashable StartReplicationTask where
   hashWithSalt _salt StartReplicationTask' {..} =
-    _salt `Prelude.hashWithSalt` cdcStartPosition
+    _salt
+      `Prelude.hashWithSalt` cdcStartPosition
       `Prelude.hashWithSalt` cdcStartTime
       `Prelude.hashWithSalt` cdcStopPosition
       `Prelude.hashWithSalt` replicationTaskArn

@@ -130,7 +130,8 @@ instance Data.FromJSON DatabaseResponse where
 
 instance Prelude.Hashable DatabaseResponse where
   hashWithSalt _salt DatabaseResponse' {..} =
-    _salt `Prelude.hashWithSalt` collectors
+    _salt
+      `Prelude.hashWithSalt` collectors
       `Prelude.hashWithSalt` databaseId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` ipAddress

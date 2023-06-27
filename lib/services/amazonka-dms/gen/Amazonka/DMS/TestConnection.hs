@@ -112,7 +112,8 @@ instance Core.AWSRequest TestConnection where
 
 instance Prelude.Hashable TestConnection where
   hashWithSalt _salt TestConnection' {..} =
-    _salt `Prelude.hashWithSalt` replicationInstanceArn
+    _salt
+      `Prelude.hashWithSalt` replicationInstanceArn
       `Prelude.hashWithSalt` endpointArn
 
 instance Prelude.NFData TestConnection where

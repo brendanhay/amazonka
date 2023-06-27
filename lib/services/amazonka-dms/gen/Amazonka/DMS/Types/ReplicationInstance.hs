@@ -511,28 +511,33 @@ instance Data.FromJSON ReplicationInstance where
             Prelude.<*> (x Data..:? "ReplicationInstanceArn")
             Prelude.<*> (x Data..:? "ReplicationInstanceClass")
             Prelude.<*> (x Data..:? "ReplicationInstanceIdentifier")
-            Prelude.<*> ( x Data..:? "ReplicationInstanceIpv6Addresses"
+            Prelude.<*> ( x
+                            Data..:? "ReplicationInstanceIpv6Addresses"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ReplicationInstancePrivateIpAddress")
-            Prelude.<*> ( x Data..:? "ReplicationInstancePrivateIpAddresses"
+            Prelude.<*> ( x
+                            Data..:? "ReplicationInstancePrivateIpAddresses"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ReplicationInstancePublicIpAddress")
-            Prelude.<*> ( x Data..:? "ReplicationInstancePublicIpAddresses"
+            Prelude.<*> ( x
+                            Data..:? "ReplicationInstancePublicIpAddresses"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ReplicationInstanceStatus")
             Prelude.<*> (x Data..:? "ReplicationSubnetGroup")
             Prelude.<*> (x Data..:? "SecondaryAvailabilityZone")
-            Prelude.<*> ( x Data..:? "VpcSecurityGroups"
+            Prelude.<*> ( x
+                            Data..:? "VpcSecurityGroups"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ReplicationInstance where
   hashWithSalt _salt ReplicationInstance' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` dnsNameServers

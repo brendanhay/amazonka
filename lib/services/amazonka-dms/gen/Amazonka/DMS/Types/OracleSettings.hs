@@ -68,10 +68,11 @@ data OracleSettings = OracleSettings'
     -- (ASM) only, the DMS user account needs to be granted ASM privileges.
     archivedLogsOnly :: Prelude.Maybe Prelude.Bool,
     -- | For an Oracle source endpoint, your Oracle Automatic Storage Management
-    -- (ASM) password. You can set this value from the @ asm_user_password @
-    -- value. You set this value as part of the comma-separated value that you
-    -- set to the @Password@ request parameter when you create the endpoint to
-    -- access transaction logs using Binary Reader. For more information, see
+    -- (ASM) password. You can set this value from the
+    -- @ @/@asm_user_password@/@ @ value. You set this value as part of the
+    -- comma-separated value that you set to the @Password@ request parameter
+    -- when you create the endpoint to access transaction logs using Binary
+    -- Reader. For more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration Configuration for change data capture (CDC) on an Oracle source database>.
     asmPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | For an Oracle source endpoint, your ASM server address. You can set this
@@ -93,6 +94,9 @@ data OracleSettings = OracleSettings'
     --
     -- Example: @charLengthSemantics=CHAR;@
     charLengthSemantics :: Prelude.Maybe CharLengthSemantics,
+    -- | When true, converts timestamps with the @timezone@ datatype to their UTC
+    -- value.
+    convertTimestampWithZoneToUTC :: Prelude.Maybe Prelude.Bool,
     -- | Database name for the endpoint.
     databaseName :: Prelude.Maybe Prelude.Text,
     -- | When set to @true@, this attribute helps to increase the commit rate on
@@ -222,7 +226,7 @@ data OracleSettings = OracleSettings'
     secretsManagerSecretId :: Prelude.Maybe Prelude.Text,
     -- | For an Oracle source endpoint, the transparent data encryption (TDE)
     -- password required by AWM DMS to access Oracle redo logs encrypted by TDE
-    -- using Binary Reader. It is also the @ TDE_Password @ part of the
+    -- using Binary Reader. It is also the @ @/@TDE_Password@/@ @ part of the
     -- comma-separated value you set to the @Password@ request parameter when
     -- you create the endpoint. The @SecurityDbEncryptian@ setting is related
     -- to this @SecurityDbEncryptionName@ setting. For more information, see
@@ -240,6 +244,12 @@ data OracleSettings = OracleSettings'
     -- in the /Database Migration Service User Guide/.
     securityDbEncryptionName :: Prelude.Maybe Prelude.Text,
     -- | Fully qualified domain name of the endpoint.
+    --
+    -- For an Amazon RDS Oracle instance, this is the output of
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html DescribeDBInstances>,
+    -- in the
+    -- @ @<https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html Endpoint>@.Address@
+    -- field.
     serverName :: Prelude.Maybe Prelude.Text,
     -- | Use this attribute to convert @SDO_GEOMETRY@ to @GEOJSON@ format. By
     -- default, DMS calls the @SDO2GEOJSON@ custom function if present and
@@ -342,10 +352,11 @@ data OracleSettings = OracleSettings'
 -- (ASM) only, the DMS user account needs to be granted ASM privileges.
 --
 -- 'asmPassword', 'oracleSettings_asmPassword' - For an Oracle source endpoint, your Oracle Automatic Storage Management
--- (ASM) password. You can set this value from the @ asm_user_password @
--- value. You set this value as part of the comma-separated value that you
--- set to the @Password@ request parameter when you create the endpoint to
--- access transaction logs using Binary Reader. For more information, see
+-- (ASM) password. You can set this value from the
+-- @ @/@asm_user_password@/@ @ value. You set this value as part of the
+-- comma-separated value that you set to the @Password@ request parameter
+-- when you create the endpoint to access transaction logs using Binary
+-- Reader. For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration Configuration for change data capture (CDC) on an Oracle source database>.
 --
 -- 'asmServer', 'oracleSettings_asmServer' - For an Oracle source endpoint, your ASM server address. You can set this
@@ -366,6 +377,9 @@ data OracleSettings = OracleSettings'
 -- column length is in bytes.
 --
 -- Example: @charLengthSemantics=CHAR;@
+--
+-- 'convertTimestampWithZoneToUTC', 'oracleSettings_convertTimestampWithZoneToUTC' - When true, converts timestamps with the @timezone@ datatype to their UTC
+-- value.
 --
 -- 'databaseName', 'oracleSettings_databaseName' - Database name for the endpoint.
 --
@@ -496,7 +510,7 @@ data OracleSettings = OracleSettings'
 --
 -- 'securityDbEncryption', 'oracleSettings_securityDbEncryption' - For an Oracle source endpoint, the transparent data encryption (TDE)
 -- password required by AWM DMS to access Oracle redo logs encrypted by TDE
--- using Binary Reader. It is also the @ TDE_Password @ part of the
+-- using Binary Reader. It is also the @ @/@TDE_Password@/@ @ part of the
 -- comma-separated value you set to the @Password@ request parameter when
 -- you create the endpoint. The @SecurityDbEncryptian@ setting is related
 -- to this @SecurityDbEncryptionName@ setting. For more information, see
@@ -514,6 +528,12 @@ data OracleSettings = OracleSettings'
 -- in the /Database Migration Service User Guide/.
 --
 -- 'serverName', 'oracleSettings_serverName' - Fully qualified domain name of the endpoint.
+--
+-- For an Amazon RDS Oracle instance, this is the output of
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html DescribeDBInstances>,
+-- in the
+-- @ @<https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html Endpoint>@.Address@
+-- field.
 --
 -- 'spatialDataOptionToGeoJsonFunctionName', 'oracleSettings_spatialDataOptionToGeoJsonFunctionName' - Use this attribute to convert @SDO_GEOMETRY@ to @GEOJSON@ format. By
 -- default, DMS calls the @SDO2GEOJSON@ custom function if present and
@@ -580,6 +600,7 @@ newOracleSettings =
       asmServer = Prelude.Nothing,
       asmUser = Prelude.Nothing,
       charLengthSemantics = Prelude.Nothing,
+      convertTimestampWithZoneToUTC = Prelude.Nothing,
       databaseName = Prelude.Nothing,
       directPathNoLog = Prelude.Nothing,
       directPathParallelLoad = Prelude.Nothing,
@@ -666,10 +687,11 @@ oracleSettings_archivedLogsOnly :: Lens.Lens' OracleSettings (Prelude.Maybe Prel
 oracleSettings_archivedLogsOnly = Lens.lens (\OracleSettings' {archivedLogsOnly} -> archivedLogsOnly) (\s@OracleSettings' {} a -> s {archivedLogsOnly = a} :: OracleSettings)
 
 -- | For an Oracle source endpoint, your Oracle Automatic Storage Management
--- (ASM) password. You can set this value from the @ asm_user_password @
--- value. You set this value as part of the comma-separated value that you
--- set to the @Password@ request parameter when you create the endpoint to
--- access transaction logs using Binary Reader. For more information, see
+-- (ASM) password. You can set this value from the
+-- @ @/@asm_user_password@/@ @ value. You set this value as part of the
+-- comma-separated value that you set to the @Password@ request parameter
+-- when you create the endpoint to access transaction logs using Binary
+-- Reader. For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration Configuration for change data capture (CDC) on an Oracle source database>.
 oracleSettings_asmPassword :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
 oracleSettings_asmPassword = Lens.lens (\OracleSettings' {asmPassword} -> asmPassword) (\s@OracleSettings' {} a -> s {asmPassword = a} :: OracleSettings) Prelude.. Lens.mapping Data._Sensitive
@@ -698,6 +720,11 @@ oracleSettings_asmUser = Lens.lens (\OracleSettings' {asmUser} -> asmUser) (\s@O
 -- Example: @charLengthSemantics=CHAR;@
 oracleSettings_charLengthSemantics :: Lens.Lens' OracleSettings (Prelude.Maybe CharLengthSemantics)
 oracleSettings_charLengthSemantics = Lens.lens (\OracleSettings' {charLengthSemantics} -> charLengthSemantics) (\s@OracleSettings' {} a -> s {charLengthSemantics = a} :: OracleSettings)
+
+-- | When true, converts timestamps with the @timezone@ datatype to their UTC
+-- value.
+oracleSettings_convertTimestampWithZoneToUTC :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Bool)
+oracleSettings_convertTimestampWithZoneToUTC = Lens.lens (\OracleSettings' {convertTimestampWithZoneToUTC} -> convertTimestampWithZoneToUTC) (\s@OracleSettings' {} a -> s {convertTimestampWithZoneToUTC = a} :: OracleSettings)
 
 -- | Database name for the endpoint.
 oracleSettings_databaseName :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
@@ -866,7 +893,7 @@ oracleSettings_secretsManagerSecretId = Lens.lens (\OracleSettings' {secretsMana
 
 -- | For an Oracle source endpoint, the transparent data encryption (TDE)
 -- password required by AWM DMS to access Oracle redo logs encrypted by TDE
--- using Binary Reader. It is also the @ TDE_Password @ part of the
+-- using Binary Reader. It is also the @ @/@TDE_Password@/@ @ part of the
 -- comma-separated value you set to the @Password@ request parameter when
 -- you create the endpoint. The @SecurityDbEncryptian@ setting is related
 -- to this @SecurityDbEncryptionName@ setting. For more information, see
@@ -888,6 +915,12 @@ oracleSettings_securityDbEncryptionName :: Lens.Lens' OracleSettings (Prelude.Ma
 oracleSettings_securityDbEncryptionName = Lens.lens (\OracleSettings' {securityDbEncryptionName} -> securityDbEncryptionName) (\s@OracleSettings' {} a -> s {securityDbEncryptionName = a} :: OracleSettings)
 
 -- | Fully qualified domain name of the endpoint.
+--
+-- For an Amazon RDS Oracle instance, this is the output of
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html DescribeDBInstances>,
+-- in the
+-- @ @<https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html Endpoint>@.Address@
+-- field.
 oracleSettings_serverName :: Lens.Lens' OracleSettings (Prelude.Maybe Prelude.Text)
 oracleSettings_serverName = Lens.lens (\OracleSettings' {serverName} -> serverName) (\s@OracleSettings' {} a -> s {serverName = a} :: OracleSettings)
 
@@ -976,11 +1009,13 @@ instance Data.FromJSON OracleSettings where
             Prelude.<*> (x Data..:? "AsmServer")
             Prelude.<*> (x Data..:? "AsmUser")
             Prelude.<*> (x Data..:? "CharLengthSemantics")
+            Prelude.<*> (x Data..:? "ConvertTimestampWithZoneToUTC")
             Prelude.<*> (x Data..:? "DatabaseName")
             Prelude.<*> (x Data..:? "DirectPathNoLog")
             Prelude.<*> (x Data..:? "DirectPathParallelLoad")
             Prelude.<*> (x Data..:? "EnableHomogenousTablespace")
-            Prelude.<*> ( x Data..:? "ExtraArchivedLogDestIds"
+            Prelude.<*> ( x
+                            Data..:? "ExtraArchivedLogDestIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FailTasksOnLobTruncation")
@@ -1024,6 +1059,7 @@ instance Prelude.Hashable OracleSettings where
       `Prelude.hashWithSalt` asmServer
       `Prelude.hashWithSalt` asmUser
       `Prelude.hashWithSalt` charLengthSemantics
+      `Prelude.hashWithSalt` convertTimestampWithZoneToUTC
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` directPathNoLog
       `Prelude.hashWithSalt` directPathParallelLoad
@@ -1068,6 +1104,7 @@ instance Prelude.NFData OracleSettings where
       `Prelude.seq` Prelude.rnf asmServer
       `Prelude.seq` Prelude.rnf asmUser
       `Prelude.seq` Prelude.rnf charLengthSemantics
+      `Prelude.seq` Prelude.rnf convertTimestampWithZoneToUTC
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf directPathNoLog
       `Prelude.seq` Prelude.rnf directPathParallelLoad
@@ -1142,6 +1179,8 @@ instance Data.ToJSON OracleSettings where
             ("AsmUser" Data..=) Prelude.<$> asmUser,
             ("CharLengthSemantics" Data..=)
               Prelude.<$> charLengthSemantics,
+            ("ConvertTimestampWithZoneToUTC" Data..=)
+              Prelude.<$> convertTimestampWithZoneToUTC,
             ("DatabaseName" Data..=) Prelude.<$> databaseName,
             ("DirectPathNoLog" Data..=)
               Prelude.<$> directPathNoLog,

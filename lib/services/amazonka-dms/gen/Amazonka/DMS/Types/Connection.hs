@@ -152,7 +152,8 @@ instance Data.FromJSON Connection where
 
 instance Prelude.Hashable Connection where
   hashWithSalt _salt Connection' {..} =
-    _salt `Prelude.hashWithSalt` endpointArn
+    _salt
+      `Prelude.hashWithSalt` endpointArn
       `Prelude.hashWithSalt` endpointIdentifier
       `Prelude.hashWithSalt` lastFailureMessage
       `Prelude.hashWithSalt` replicationInstanceArn

@@ -148,6 +148,12 @@ module Amazonka.DMS
     ApplyPendingMaintenanceActionResponse (ApplyPendingMaintenanceActionResponse'),
     newApplyPendingMaintenanceActionResponse,
 
+    -- ** BatchStartRecommendations
+    BatchStartRecommendations (BatchStartRecommendations'),
+    newBatchStartRecommendations,
+    BatchStartRecommendationsResponse (BatchStartRecommendationsResponse'),
+    newBatchStartRecommendationsResponse,
+
     -- ** CancelReplicationTaskAssessmentRun
     CancelReplicationTaskAssessmentRun (CancelReplicationTaskAssessmentRun'),
     newCancelReplicationTaskAssessmentRun,
@@ -352,6 +358,18 @@ module Amazonka.DMS
     DescribePendingMaintenanceActionsResponse (DescribePendingMaintenanceActionsResponse'),
     newDescribePendingMaintenanceActionsResponse,
 
+    -- ** DescribeRecommendationLimitations
+    DescribeRecommendationLimitations (DescribeRecommendationLimitations'),
+    newDescribeRecommendationLimitations,
+    DescribeRecommendationLimitationsResponse (DescribeRecommendationLimitationsResponse'),
+    newDescribeRecommendationLimitationsResponse,
+
+    -- ** DescribeRecommendations
+    DescribeRecommendations (DescribeRecommendations'),
+    newDescribeRecommendations,
+    DescribeRecommendationsResponse (DescribeRecommendationsResponse'),
+    newDescribeRecommendationsResponse,
+
     -- ** DescribeRefreshSchemasStatus
     DescribeRefreshSchemasStatus (DescribeRefreshSchemasStatus'),
     newDescribeRefreshSchemasStatus,
@@ -490,6 +508,12 @@ module Amazonka.DMS
     RunFleetAdvisorLsaAnalysisResponse (RunFleetAdvisorLsaAnalysisResponse'),
     newRunFleetAdvisorLsaAnalysisResponse,
 
+    -- ** StartRecommendations
+    StartRecommendations (StartRecommendations'),
+    newStartRecommendations,
+    StartRecommendationsResponse (StartRecommendationsResponse'),
+    newStartRecommendationsResponse,
+
     -- ** StartReplicationTask
     StartReplicationTask (StartReplicationTask'),
     newStartReplicationTask,
@@ -567,6 +591,9 @@ module Amazonka.DMS
     -- ** EndpointSettingTypeValue
     EndpointSettingTypeValue (..),
 
+    -- ** KafkaSaslMechanism
+    KafkaSaslMechanism (..),
+
     -- ** KafkaSecurityProtocol
     KafkaSecurityProtocol (..),
 
@@ -615,6 +642,9 @@ module Amazonka.DMS
     -- ** TargetDbType
     TargetDbType (..),
 
+    -- ** TlogAccessMode
+    TlogAccessMode (..),
+
     -- ** VersionStatus
     VersionStatus (..),
 
@@ -625,6 +655,10 @@ module Amazonka.DMS
     -- ** AvailabilityZone
     AvailabilityZone (AvailabilityZone'),
     newAvailabilityZone,
+
+    -- ** BatchStartRecommendationsErrorEntry
+    BatchStartRecommendationsErrorEntry (BatchStartRecommendationsErrorEntry'),
+    newBatchStartRecommendationsErrorEntry,
 
     -- ** Certificate
     Certificate (Certificate'),
@@ -726,6 +760,10 @@ module Amazonka.DMS
     KinesisSettings (KinesisSettings'),
     newKinesisSettings,
 
+    -- ** Limitation
+    Limitation (Limitation'),
+    newLimitation,
+
     -- ** MicrosoftSQLServerSettings
     MicrosoftSQLServerSettings (MicrosoftSQLServerSettings'),
     newMicrosoftSQLServerSettings,
@@ -757,6 +795,30 @@ module Amazonka.DMS
     -- ** PostgreSQLSettings
     PostgreSQLSettings (PostgreSQLSettings'),
     newPostgreSQLSettings,
+
+    -- ** RdsConfiguration
+    RdsConfiguration (RdsConfiguration'),
+    newRdsConfiguration,
+
+    -- ** RdsRecommendation
+    RdsRecommendation (RdsRecommendation'),
+    newRdsRecommendation,
+
+    -- ** RdsRequirements
+    RdsRequirements (RdsRequirements'),
+    newRdsRequirements,
+
+    -- ** Recommendation
+    Recommendation (Recommendation'),
+    newRecommendation,
+
+    -- ** RecommendationData
+    RecommendationData (RecommendationData'),
+    newRecommendationData,
+
+    -- ** RecommendationSettings
+    RecommendationSettings (RecommendationSettings'),
+    newRecommendationSettings,
 
     -- ** RedisSettings
     RedisSettings (RedisSettings'),
@@ -830,6 +892,10 @@ module Amazonka.DMS
     ServerShortInfoResponse (ServerShortInfoResponse'),
     newServerShortInfoResponse,
 
+    -- ** StartRecommendationsRequestEntry
+    StartRecommendationsRequestEntry (StartRecommendationsRequestEntry'),
+    newStartRecommendationsRequestEntry,
+
     -- ** Subnet
     Subnet (Subnet'),
     newSubnet,
@@ -862,6 +928,7 @@ where
 
 import Amazonka.DMS.AddTagsToResource
 import Amazonka.DMS.ApplyPendingMaintenanceAction
+import Amazonka.DMS.BatchStartRecommendations
 import Amazonka.DMS.CancelReplicationTaskAssessmentRun
 import Amazonka.DMS.CreateEndpoint
 import Amazonka.DMS.CreateEventSubscription
@@ -896,6 +963,8 @@ import Amazonka.DMS.DescribeFleetAdvisorSchemaObjectSummary
 import Amazonka.DMS.DescribeFleetAdvisorSchemas
 import Amazonka.DMS.DescribeOrderableReplicationInstances
 import Amazonka.DMS.DescribePendingMaintenanceActions
+import Amazonka.DMS.DescribeRecommendationLimitations
+import Amazonka.DMS.DescribeRecommendations
 import Amazonka.DMS.DescribeRefreshSchemasStatus
 import Amazonka.DMS.DescribeReplicationInstanceTaskLogs
 import Amazonka.DMS.DescribeReplicationInstances
@@ -920,6 +989,7 @@ import Amazonka.DMS.RefreshSchemas
 import Amazonka.DMS.ReloadTables
 import Amazonka.DMS.RemoveTagsFromResource
 import Amazonka.DMS.RunFleetAdvisorLsaAnalysis
+import Amazonka.DMS.StartRecommendations
 import Amazonka.DMS.StartReplicationTask
 import Amazonka.DMS.StartReplicationTaskAssessment
 import Amazonka.DMS.StartReplicationTaskAssessmentRun

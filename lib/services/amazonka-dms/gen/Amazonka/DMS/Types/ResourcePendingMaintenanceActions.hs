@@ -85,7 +85,8 @@ instance
       "ResourcePendingMaintenanceActions"
       ( \x ->
           ResourcePendingMaintenanceActions'
-            Prelude.<$> ( x Data..:? "PendingMaintenanceActionDetails"
+            Prelude.<$> ( x
+                            Data..:? "PendingMaintenanceActionDetails"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ResourceIdentifier")

@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds metadata tags to an DMS resource, including replication instance,
--- endpoint, security group, and migration task. These tags can also be
--- used with cost allocation reporting to track cost associated with DMS
+-- endpoint, subnet group, and migration task. These tags can also be used
+-- with cost allocation reporting to track cost associated with DMS
 -- resources, or used in a Condition statement in an IAM policy for DMS.
 -- For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html Tag>
@@ -120,7 +120,8 @@ instance Core.AWSRequest AddTagsToResource where
 
 instance Prelude.Hashable AddTagsToResource where
   hashWithSalt _salt AddTagsToResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData AddTagsToResource where

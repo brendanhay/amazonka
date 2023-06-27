@@ -36,10 +36,10 @@ data MySQLSettings = MySQLSettings'
     -- For this parameter, provide the code of the script itself, not the name
     -- of a file containing the script.
     afterConnectScript :: Prelude.Maybe Prelude.Text,
-    -- | Adjusts the behavior of DMS when migrating from an SQL Server source
-    -- database that is hosted as part of an Always On availability group
-    -- cluster. If you need DMS to poll all the nodes in the Always On cluster
-    -- for transaction backups, set this attribute to @false@.
+    -- | Cleans and recreates table metadata information on the replication
+    -- instance when a mismatch occurs. For example, in a situation where
+    -- running an alter DDL on the table could result in different information
+    -- about the table cached in the replication instance.
     cleanSourceMetadataOnMismatch :: Prelude.Maybe Prelude.Bool,
     -- | Database name for the endpoint. For a MySQL source or target endpoint,
     -- don\'t explicitly specify the database using the @DatabaseName@ request
@@ -93,7 +93,17 @@ data MySQLSettings = MySQLSettings'
     -- @SecretsManagerSecret@ that contains the MySQL endpoint connection
     -- details.
     secretsManagerSecretId :: Prelude.Maybe Prelude.Text,
-    -- | Fully qualified domain name of the endpoint.
+    -- | The host name of the endpoint database.
+    --
+    -- For an Amazon RDS MySQL instance, this is the output of
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html DescribeDBInstances>,
+    -- in the
+    -- @ @<https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html Endpoint>@.Address@
+    -- field.
+    --
+    -- For an Aurora MySQL instance, this is the output of
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html DescribeDBClusters>,
+    -- in the @Endpoint@ field.
     serverName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the time zone for the source MySQL database.
     --
@@ -128,10 +138,10 @@ data MySQLSettings = MySQLSettings'
 -- For this parameter, provide the code of the script itself, not the name
 -- of a file containing the script.
 --
--- 'cleanSourceMetadataOnMismatch', 'mySQLSettings_cleanSourceMetadataOnMismatch' - Adjusts the behavior of DMS when migrating from an SQL Server source
--- database that is hosted as part of an Always On availability group
--- cluster. If you need DMS to poll all the nodes in the Always On cluster
--- for transaction backups, set this attribute to @false@.
+-- 'cleanSourceMetadataOnMismatch', 'mySQLSettings_cleanSourceMetadataOnMismatch' - Cleans and recreates table metadata information on the replication
+-- instance when a mismatch occurs. For example, in a situation where
+-- running an alter DDL on the table could result in different information
+-- about the table cached in the replication instance.
 --
 -- 'databaseName', 'mySQLSettings_databaseName' - Database name for the endpoint. For a MySQL source or target endpoint,
 -- don\'t explicitly specify the database using the @DatabaseName@ request
@@ -185,7 +195,17 @@ data MySQLSettings = MySQLSettings'
 -- @SecretsManagerSecret@ that contains the MySQL endpoint connection
 -- details.
 --
--- 'serverName', 'mySQLSettings_serverName' - Fully qualified domain name of the endpoint.
+-- 'serverName', 'mySQLSettings_serverName' - The host name of the endpoint database.
+--
+-- For an Amazon RDS MySQL instance, this is the output of
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html DescribeDBInstances>,
+-- in the
+-- @ @<https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html Endpoint>@.Address@
+-- field.
+--
+-- For an Aurora MySQL instance, this is the output of
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html DescribeDBClusters>,
+-- in the @Endpoint@ field.
 --
 -- 'serverTimezone', 'mySQLSettings_serverTimezone' - Specifies the time zone for the source MySQL database.
 --
@@ -231,10 +251,10 @@ newMySQLSettings =
 mySQLSettings_afterConnectScript :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
 mySQLSettings_afterConnectScript = Lens.lens (\MySQLSettings' {afterConnectScript} -> afterConnectScript) (\s@MySQLSettings' {} a -> s {afterConnectScript = a} :: MySQLSettings)
 
--- | Adjusts the behavior of DMS when migrating from an SQL Server source
--- database that is hosted as part of an Always On availability group
--- cluster. If you need DMS to poll all the nodes in the Always On cluster
--- for transaction backups, set this attribute to @false@.
+-- | Cleans and recreates table metadata information on the replication
+-- instance when a mismatch occurs. For example, in a situation where
+-- running an alter DDL on the table could result in different information
+-- about the table cached in the replication instance.
 mySQLSettings_cleanSourceMetadataOnMismatch :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Bool)
 mySQLSettings_cleanSourceMetadataOnMismatch = Lens.lens (\MySQLSettings' {cleanSourceMetadataOnMismatch} -> cleanSourceMetadataOnMismatch) (\s@MySQLSettings' {} a -> s {cleanSourceMetadataOnMismatch = a} :: MySQLSettings)
 
@@ -306,7 +326,17 @@ mySQLSettings_secretsManagerAccessRoleArn = Lens.lens (\MySQLSettings' {secretsM
 mySQLSettings_secretsManagerSecretId :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
 mySQLSettings_secretsManagerSecretId = Lens.lens (\MySQLSettings' {secretsManagerSecretId} -> secretsManagerSecretId) (\s@MySQLSettings' {} a -> s {secretsManagerSecretId = a} :: MySQLSettings)
 
--- | Fully qualified domain name of the endpoint.
+-- | The host name of the endpoint database.
+--
+-- For an Amazon RDS MySQL instance, this is the output of
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html DescribeDBInstances>,
+-- in the
+-- @ @<https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html Endpoint>@.Address@
+-- field.
+--
+-- For an Aurora MySQL instance, this is the output of
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html DescribeDBClusters>,
+-- in the @Endpoint@ field.
 mySQLSettings_serverName :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Text)
 mySQLSettings_serverName = Lens.lens (\MySQLSettings' {serverName} -> serverName) (\s@MySQLSettings' {} a -> s {serverName = a} :: MySQLSettings)
 
@@ -355,7 +385,8 @@ instance Data.FromJSON MySQLSettings where
 
 instance Prelude.Hashable MySQLSettings where
   hashWithSalt _salt MySQLSettings' {..} =
-    _salt `Prelude.hashWithSalt` afterConnectScript
+    _salt
+      `Prelude.hashWithSalt` afterConnectScript
       `Prelude.hashWithSalt` cleanSourceMetadataOnMismatch
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` eventsPollInterval

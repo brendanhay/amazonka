@@ -411,7 +411,8 @@ instance Data.FromJSON TableStatistics where
 
 instance Prelude.Hashable TableStatistics where
   hashWithSalt _salt TableStatistics' {..} =
-    _salt `Prelude.hashWithSalt` appliedDdls
+    _salt
+      `Prelude.hashWithSalt` appliedDdls
       `Prelude.hashWithSalt` appliedDeletes
       `Prelude.hashWithSalt` appliedInserts
       `Prelude.hashWithSalt` appliedUpdates

@@ -169,7 +169,8 @@ instance Data.FromJSON SybaseSettings where
 
 instance Prelude.Hashable SybaseSettings where
   hashWithSalt _salt SybaseSettings' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` secretsManagerAccessRoleArn

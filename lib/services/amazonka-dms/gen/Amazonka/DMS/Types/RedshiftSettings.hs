@@ -118,6 +118,9 @@ data RedshiftSettings = RedshiftSettings'
     -- operations performed by DMS on a Redshift cluster, such as Redshift
     -- COPY, INSERT, DELETE, and UPDATE.
     loadTimeout :: Prelude.Maybe Prelude.Int,
+    -- | When true, lets Redshift migrate the boolean type as boolean. By
+    -- default, Redshift migrates booleans as @varchar(1)@.
+    mapBooleanAsBoolean :: Prelude.Maybe Prelude.Bool,
     -- | The maximum size (in KB) of any .csv file used to load data on an S3
     -- bucket and transfer data to Amazon Redshift. It defaults to 1048576KB (1
     -- GB).
@@ -292,6 +295,9 @@ data RedshiftSettings = RedshiftSettings'
 -- operations performed by DMS on a Redshift cluster, such as Redshift
 -- COPY, INSERT, DELETE, and UPDATE.
 --
+-- 'mapBooleanAsBoolean', 'redshiftSettings_mapBooleanAsBoolean' - When true, lets Redshift migrate the boolean type as boolean. By
+-- default, Redshift migrates booleans as @varchar(1)@.
+--
 -- 'maxFileSize', 'redshiftSettings_maxFileSize' - The maximum size (in KB) of any .csv file used to load data on an S3
 -- bucket and transfer data to Amazon Redshift. It defaults to 1048576KB (1
 -- GB).
@@ -383,6 +389,7 @@ newRedshiftSettings =
       explicitIds = Prelude.Nothing,
       fileTransferUploadStreams = Prelude.Nothing,
       loadTimeout = Prelude.Nothing,
+      mapBooleanAsBoolean = Prelude.Nothing,
       maxFileSize = Prelude.Nothing,
       password = Prelude.Nothing,
       port = Prelude.Nothing,
@@ -518,6 +525,11 @@ redshiftSettings_fileTransferUploadStreams = Lens.lens (\RedshiftSettings' {file
 redshiftSettings_loadTimeout :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Int)
 redshiftSettings_loadTimeout = Lens.lens (\RedshiftSettings' {loadTimeout} -> loadTimeout) (\s@RedshiftSettings' {} a -> s {loadTimeout = a} :: RedshiftSettings)
 
+-- | When true, lets Redshift migrate the boolean type as boolean. By
+-- default, Redshift migrates booleans as @varchar(1)@.
+redshiftSettings_mapBooleanAsBoolean :: Lens.Lens' RedshiftSettings (Prelude.Maybe Prelude.Bool)
+redshiftSettings_mapBooleanAsBoolean = Lens.lens (\RedshiftSettings' {mapBooleanAsBoolean} -> mapBooleanAsBoolean) (\s@RedshiftSettings' {} a -> s {mapBooleanAsBoolean = a} :: RedshiftSettings)
+
 -- | The maximum size (in KB) of any .csv file used to load data on an S3
 -- bucket and transfer data to Amazon Redshift. It defaults to 1048576KB (1
 -- GB).
@@ -644,6 +656,7 @@ instance Data.FromJSON RedshiftSettings where
             Prelude.<*> (x Data..:? "ExplicitIds")
             Prelude.<*> (x Data..:? "FileTransferUploadStreams")
             Prelude.<*> (x Data..:? "LoadTimeout")
+            Prelude.<*> (x Data..:? "MapBooleanAsBoolean")
             Prelude.<*> (x Data..:? "MaxFileSize")
             Prelude.<*> (x Data..:? "Password")
             Prelude.<*> (x Data..:? "Port")
@@ -664,7 +677,8 @@ instance Data.FromJSON RedshiftSettings where
 
 instance Prelude.Hashable RedshiftSettings where
   hashWithSalt _salt RedshiftSettings' {..} =
-    _salt `Prelude.hashWithSalt` acceptAnyDate
+    _salt
+      `Prelude.hashWithSalt` acceptAnyDate
       `Prelude.hashWithSalt` afterConnectScript
       `Prelude.hashWithSalt` bucketFolder
       `Prelude.hashWithSalt` bucketName
@@ -678,6 +692,7 @@ instance Prelude.Hashable RedshiftSettings where
       `Prelude.hashWithSalt` explicitIds
       `Prelude.hashWithSalt` fileTransferUploadStreams
       `Prelude.hashWithSalt` loadTimeout
+      `Prelude.hashWithSalt` mapBooleanAsBoolean
       `Prelude.hashWithSalt` maxFileSize
       `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` port
@@ -711,6 +726,7 @@ instance Prelude.NFData RedshiftSettings where
       `Prelude.seq` Prelude.rnf explicitIds
       `Prelude.seq` Prelude.rnf fileTransferUploadStreams
       `Prelude.seq` Prelude.rnf loadTimeout
+      `Prelude.seq` Prelude.rnf mapBooleanAsBoolean
       `Prelude.seq` Prelude.rnf maxFileSize
       `Prelude.seq` Prelude.rnf password
       `Prelude.seq` Prelude.rnf port
@@ -761,6 +777,8 @@ instance Data.ToJSON RedshiftSettings where
             ("FileTransferUploadStreams" Data..=)
               Prelude.<$> fileTransferUploadStreams,
             ("LoadTimeout" Data..=) Prelude.<$> loadTimeout,
+            ("MapBooleanAsBoolean" Data..=)
+              Prelude.<$> mapBooleanAsBoolean,
             ("MaxFileSize" Data..=) Prelude.<$> maxFileSize,
             ("Password" Data..=) Prelude.<$> password,
             ("Port" Data..=) Prelude.<$> port,

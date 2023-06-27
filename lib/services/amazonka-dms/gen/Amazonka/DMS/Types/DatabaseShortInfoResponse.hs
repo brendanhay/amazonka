@@ -98,7 +98,8 @@ instance Data.FromJSON DatabaseShortInfoResponse where
 
 instance Prelude.Hashable DatabaseShortInfoResponse where
   hashWithSalt _salt DatabaseShortInfoResponse' {..} =
-    _salt `Prelude.hashWithSalt` databaseEngine
+    _salt
+      `Prelude.hashWithSalt` databaseEngine
       `Prelude.hashWithSalt` databaseId
       `Prelude.hashWithSalt` databaseIpAddress
       `Prelude.hashWithSalt` databaseName

@@ -33,6 +33,9 @@ import Test.Tasty
 --         , requestApplyPendingMaintenanceAction $
 --             newApplyPendingMaintenanceAction
 --
+--         , requestBatchStartRecommendations $
+--             newBatchStartRecommendations
+--
 --         , requestCancelReplicationTaskAssessmentRun $
 --             newCancelReplicationTaskAssessmentRun
 --
@@ -135,6 +138,12 @@ import Test.Tasty
 --         , requestDescribePendingMaintenanceActions $
 --             newDescribePendingMaintenanceActions
 --
+--         , requestDescribeRecommendationLimitations $
+--             newDescribeRecommendationLimitations
+--
+--         , requestDescribeRecommendations $
+--             newDescribeRecommendations
+--
 --         , requestDescribeRefreshSchemasStatus $
 --             newDescribeRefreshSchemasStatus
 --
@@ -204,6 +213,9 @@ import Test.Tasty
 --         , requestRunFleetAdvisorLsaAnalysis $
 --             newRunFleetAdvisorLsaAnalysis
 --
+--         , requestStartRecommendations $
+--             newStartRecommendations
+--
 --         , requestStartReplicationTask $
 --             newStartReplicationTask
 --
@@ -230,6 +242,9 @@ import Test.Tasty
 --
 --         , responseApplyPendingMaintenanceAction $
 --             newApplyPendingMaintenanceActionResponse
+--
+--         , responseBatchStartRecommendations $
+--             newBatchStartRecommendationsResponse
 --
 --         , responseCancelReplicationTaskAssessmentRun $
 --             newCancelReplicationTaskAssessmentRunResponse
@@ -333,6 +348,12 @@ import Test.Tasty
 --         , responseDescribePendingMaintenanceActions $
 --             newDescribePendingMaintenanceActionsResponse
 --
+--         , responseDescribeRecommendationLimitations $
+--             newDescribeRecommendationLimitationsResponse
+--
+--         , responseDescribeRecommendations $
+--             newDescribeRecommendationsResponse
+--
 --         , responseDescribeRefreshSchemasStatus $
 --             newDescribeRefreshSchemasStatusResponse
 --
@@ -402,6 +423,9 @@ import Test.Tasty
 --         , responseRunFleetAdvisorLsaAnalysis $
 --             newRunFleetAdvisorLsaAnalysisResponse
 --
+--         , responseStartRecommendations $
+--             newStartRecommendationsResponse
+--
 --         , responseStartReplicationTask $
 --             newStartReplicationTaskResponse
 --
@@ -436,6 +460,12 @@ requestApplyPendingMaintenanceAction =
   req
     "ApplyPendingMaintenanceAction"
     "fixture/ApplyPendingMaintenanceAction.yaml"
+
+requestBatchStartRecommendations :: BatchStartRecommendations -> TestTree
+requestBatchStartRecommendations =
+  req
+    "BatchStartRecommendations"
+    "fixture/BatchStartRecommendations.yaml"
 
 requestCancelReplicationTaskAssessmentRun :: CancelReplicationTaskAssessmentRun -> TestTree
 requestCancelReplicationTaskAssessmentRun =
@@ -641,6 +671,18 @@ requestDescribePendingMaintenanceActions =
     "DescribePendingMaintenanceActions"
     "fixture/DescribePendingMaintenanceActions.yaml"
 
+requestDescribeRecommendationLimitations :: DescribeRecommendationLimitations -> TestTree
+requestDescribeRecommendationLimitations =
+  req
+    "DescribeRecommendationLimitations"
+    "fixture/DescribeRecommendationLimitations.yaml"
+
+requestDescribeRecommendations :: DescribeRecommendations -> TestTree
+requestDescribeRecommendations =
+  req
+    "DescribeRecommendations"
+    "fixture/DescribeRecommendations.yaml"
+
 requestDescribeRefreshSchemasStatus :: DescribeRefreshSchemasStatus -> TestTree
 requestDescribeRefreshSchemasStatus =
   req
@@ -779,6 +821,12 @@ requestRunFleetAdvisorLsaAnalysis =
     "RunFleetAdvisorLsaAnalysis"
     "fixture/RunFleetAdvisorLsaAnalysis.yaml"
 
+requestStartRecommendations :: StartRecommendations -> TestTree
+requestStartRecommendations =
+  req
+    "StartRecommendations"
+    "fixture/StartRecommendations.yaml"
+
 requestStartReplicationTask :: StartReplicationTask -> TestTree
 requestStartReplicationTask =
   req
@@ -832,6 +880,14 @@ responseApplyPendingMaintenanceAction =
     "fixture/ApplyPendingMaintenanceActionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ApplyPendingMaintenanceAction)
+
+responseBatchStartRecommendations :: BatchStartRecommendationsResponse -> TestTree
+responseBatchStartRecommendations =
+  res
+    "BatchStartRecommendationsResponse"
+    "fixture/BatchStartRecommendationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchStartRecommendations)
 
 responseCancelReplicationTaskAssessmentRun :: CancelReplicationTaskAssessmentRunResponse -> TestTree
 responseCancelReplicationTaskAssessmentRun =
@@ -1105,6 +1161,22 @@ responseDescribePendingMaintenanceActions =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribePendingMaintenanceActions)
 
+responseDescribeRecommendationLimitations :: DescribeRecommendationLimitationsResponse -> TestTree
+responseDescribeRecommendationLimitations =
+  res
+    "DescribeRecommendationLimitationsResponse"
+    "fixture/DescribeRecommendationLimitationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeRecommendationLimitations)
+
+responseDescribeRecommendations :: DescribeRecommendationsResponse -> TestTree
+responseDescribeRecommendations =
+  res
+    "DescribeRecommendationsResponse"
+    "fixture/DescribeRecommendationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeRecommendations)
+
 responseDescribeRefreshSchemasStatus :: DescribeRefreshSchemasStatusResponse -> TestTree
 responseDescribeRefreshSchemasStatus =
   res
@@ -1288,6 +1360,14 @@ responseRunFleetAdvisorLsaAnalysis =
     "fixture/RunFleetAdvisorLsaAnalysisResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RunFleetAdvisorLsaAnalysis)
+
+responseStartRecommendations :: StartRecommendationsResponse -> TestTree
+responseStartRecommendations =
+  res
+    "StartRecommendationsResponse"
+    "fixture/StartRecommendationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartRecommendations)
 
 responseStartReplicationTask :: StartReplicationTaskResponse -> TestTree
 responseStartReplicationTask =

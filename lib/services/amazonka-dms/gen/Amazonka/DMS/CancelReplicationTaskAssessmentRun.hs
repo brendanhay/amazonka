@@ -101,7 +101,7 @@ instance
       ( \s h x ->
           CancelReplicationTaskAssessmentRunResponse'
             Prelude.<$> (x Data..?> "ReplicationTaskAssessmentRun")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

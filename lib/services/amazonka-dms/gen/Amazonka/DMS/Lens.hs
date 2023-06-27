@@ -26,6 +26,11 @@ module Amazonka.DMS.Lens
     applyPendingMaintenanceActionResponse_resourcePendingMaintenanceActions,
     applyPendingMaintenanceActionResponse_httpStatus,
 
+    -- ** BatchStartRecommendations
+    batchStartRecommendations_data,
+    batchStartRecommendationsResponse_errorEntries,
+    batchStartRecommendationsResponse_httpStatus,
+
     -- ** CancelReplicationTaskAssessmentRun
     cancelReplicationTaskAssessmentRun_replicationTaskAssessmentRunArn,
     cancelReplicationTaskAssessmentRunResponse_replicationTaskAssessmentRun,
@@ -326,6 +331,22 @@ module Amazonka.DMS.Lens
     describePendingMaintenanceActionsResponse_pendingMaintenanceActions,
     describePendingMaintenanceActionsResponse_httpStatus,
 
+    -- ** DescribeRecommendationLimitations
+    describeRecommendationLimitations_filters,
+    describeRecommendationLimitations_maxRecords,
+    describeRecommendationLimitations_nextToken,
+    describeRecommendationLimitationsResponse_limitations,
+    describeRecommendationLimitationsResponse_nextToken,
+    describeRecommendationLimitationsResponse_httpStatus,
+
+    -- ** DescribeRecommendations
+    describeRecommendations_filters,
+    describeRecommendations_maxRecords,
+    describeRecommendations_nextToken,
+    describeRecommendationsResponse_nextToken,
+    describeRecommendationsResponse_recommendations,
+    describeRecommendationsResponse_httpStatus,
+
     -- ** DescribeRefreshSchemasStatus
     describeRefreshSchemasStatus_endpointArn,
     describeRefreshSchemasStatusResponse_refreshSchemasStatus,
@@ -540,6 +561,10 @@ module Amazonka.DMS.Lens
     runFleetAdvisorLsaAnalysisResponse_status,
     runFleetAdvisorLsaAnalysisResponse_httpStatus,
 
+    -- ** StartRecommendations
+    startRecommendations_databaseId,
+    startRecommendations_settings,
+
     -- ** StartReplicationTask
     startReplicationTask_cdcStartPosition,
     startReplicationTask_cdcStartTime,
@@ -592,6 +617,11 @@ module Amazonka.DMS.Lens
 
     -- ** AvailabilityZone
     availabilityZone_name,
+
+    -- ** BatchStartRecommendationsErrorEntry
+    batchStartRecommendationsErrorEntry_code,
+    batchStartRecommendationsErrorEntry_databaseId,
+    batchStartRecommendationsErrorEntry_message,
 
     -- ** Certificate
     certificate_certificateArn,
@@ -817,6 +847,7 @@ module Amazonka.DMS.Lens
     kafkaSettings_messageMaxBytes,
     kafkaSettings_noHexPrefix,
     kafkaSettings_partitionIncludeSchemaTable,
+    kafkaSettings_saslMechanism,
     kafkaSettings_saslPassword,
     kafkaSettings_saslUsername,
     kafkaSettings_securityProtocol,
@@ -838,10 +869,19 @@ module Amazonka.DMS.Lens
     kinesisSettings_serviceAccessRoleArn,
     kinesisSettings_streamArn,
 
+    -- ** Limitation
+    limitation_databaseId,
+    limitation_description,
+    limitation_engineName,
+    limitation_impact,
+    limitation_name,
+    limitation_type,
+
     -- ** MicrosoftSQLServerSettings
     microsoftSQLServerSettings_bcpPacketSize,
     microsoftSQLServerSettings_controlTablesFileGroup,
     microsoftSQLServerSettings_databaseName,
+    microsoftSQLServerSettings_forceLobLookup,
     microsoftSQLServerSettings_password,
     microsoftSQLServerSettings_port,
     microsoftSQLServerSettings_querySingleAlwaysOnNode,
@@ -850,6 +890,7 @@ module Amazonka.DMS.Lens
     microsoftSQLServerSettings_secretsManagerAccessRoleArn,
     microsoftSQLServerSettings_secretsManagerSecretId,
     microsoftSQLServerSettings_serverName,
+    microsoftSQLServerSettings_tlogAccessMode,
     microsoftSQLServerSettings_trimSpaceInChar,
     microsoftSQLServerSettings_useBcpFullLoad,
     microsoftSQLServerSettings_useThirdPartyBackupDevice,
@@ -907,6 +948,7 @@ module Amazonka.DMS.Lens
     oracleSettings_asmServer,
     oracleSettings_asmUser,
     oracleSettings_charLengthSemantics,
+    oracleSettings_convertTimestampWithZoneToUTC,
     oracleSettings_databaseName,
     oracleSettings_directPathNoLog,
     oracleSettings_directPathParallelLoad,
@@ -968,6 +1010,7 @@ module Amazonka.DMS.Lens
     postgreSQLSettings_heartbeatEnable,
     postgreSQLSettings_heartbeatFrequency,
     postgreSQLSettings_heartbeatSchema,
+    postgreSQLSettings_mapBooleanAsBoolean,
     postgreSQLSettings_maxFileSize,
     postgreSQLSettings_password,
     postgreSQLSettings_pluginName,
@@ -978,6 +1021,44 @@ module Amazonka.DMS.Lens
     postgreSQLSettings_slotName,
     postgreSQLSettings_trimSpaceInChar,
     postgreSQLSettings_username,
+
+    -- ** RdsConfiguration
+    rdsConfiguration_deploymentOption,
+    rdsConfiguration_engineEdition,
+    rdsConfiguration_instanceMemory,
+    rdsConfiguration_instanceType,
+    rdsConfiguration_instanceVcpu,
+    rdsConfiguration_storageIops,
+    rdsConfiguration_storageSize,
+    rdsConfiguration_storageType,
+
+    -- ** RdsRecommendation
+    rdsRecommendation_requirementsToTarget,
+    rdsRecommendation_targetConfiguration,
+
+    -- ** RdsRequirements
+    rdsRequirements_deploymentOption,
+    rdsRequirements_engineEdition,
+    rdsRequirements_instanceMemory,
+    rdsRequirements_instanceVcpu,
+    rdsRequirements_storageIops,
+    rdsRequirements_storageSize,
+
+    -- ** Recommendation
+    recommendation_createdDate,
+    recommendation_data,
+    recommendation_databaseId,
+    recommendation_engineName,
+    recommendation_preferred,
+    recommendation_settings,
+    recommendation_status,
+
+    -- ** RecommendationData
+    recommendationData_rdsEngine,
+
+    -- ** RecommendationSettings
+    recommendationSettings_instanceSizingType,
+    recommendationSettings_workloadType,
 
     -- ** RedisSettings
     redisSettings_authPassword,
@@ -1003,6 +1084,7 @@ module Amazonka.DMS.Lens
     redshiftSettings_explicitIds,
     redshiftSettings_fileTransferUploadStreams,
     redshiftSettings_loadTimeout,
+    redshiftSettings_mapBooleanAsBoolean,
     redshiftSettings_maxFileSize,
     redshiftSettings_password,
     redshiftSettings_port,
@@ -1174,6 +1256,7 @@ module Amazonka.DMS.Lens
     s3Settings_encryptionMode,
     s3Settings_expectedBucketOwner,
     s3Settings_externalTableDefinition,
+    s3Settings_glueCatalogGeneration,
     s3Settings_ignoreHeaderRows,
     s3Settings_includeOpForFullLoad,
     s3Settings_maxFileSize,
@@ -1210,6 +1293,10 @@ module Amazonka.DMS.Lens
     serverShortInfoResponse_ipAddress,
     serverShortInfoResponse_serverId,
     serverShortInfoResponse_serverName,
+
+    -- ** StartRecommendationsRequestEntry
+    startRecommendationsRequestEntry_databaseId,
+    startRecommendationsRequestEntry_settings,
 
     -- ** Subnet
     subnet_subnetAvailabilityZone,
@@ -1274,6 +1361,7 @@ where
 
 import Amazonka.DMS.AddTagsToResource
 import Amazonka.DMS.ApplyPendingMaintenanceAction
+import Amazonka.DMS.BatchStartRecommendations
 import Amazonka.DMS.CancelReplicationTaskAssessmentRun
 import Amazonka.DMS.CreateEndpoint
 import Amazonka.DMS.CreateEventSubscription
@@ -1308,6 +1396,8 @@ import Amazonka.DMS.DescribeFleetAdvisorSchemaObjectSummary
 import Amazonka.DMS.DescribeFleetAdvisorSchemas
 import Amazonka.DMS.DescribeOrderableReplicationInstances
 import Amazonka.DMS.DescribePendingMaintenanceActions
+import Amazonka.DMS.DescribeRecommendationLimitations
+import Amazonka.DMS.DescribeRecommendations
 import Amazonka.DMS.DescribeRefreshSchemasStatus
 import Amazonka.DMS.DescribeReplicationInstanceTaskLogs
 import Amazonka.DMS.DescribeReplicationInstances
@@ -1331,6 +1421,7 @@ import Amazonka.DMS.RefreshSchemas
 import Amazonka.DMS.ReloadTables
 import Amazonka.DMS.RemoveTagsFromResource
 import Amazonka.DMS.RunFleetAdvisorLsaAnalysis
+import Amazonka.DMS.StartRecommendations
 import Amazonka.DMS.StartReplicationTask
 import Amazonka.DMS.StartReplicationTaskAssessment
 import Amazonka.DMS.StartReplicationTaskAssessmentRun
@@ -1338,6 +1429,7 @@ import Amazonka.DMS.StopReplicationTask
 import Amazonka.DMS.TestConnection
 import Amazonka.DMS.Types.AccountQuota
 import Amazonka.DMS.Types.AvailabilityZone
+import Amazonka.DMS.Types.BatchStartRecommendationsErrorEntry
 import Amazonka.DMS.Types.Certificate
 import Amazonka.DMS.Types.CollectorHealthCheck
 import Amazonka.DMS.Types.CollectorResponse
@@ -1363,6 +1455,7 @@ import Amazonka.DMS.Types.IBMDb2Settings
 import Amazonka.DMS.Types.InventoryData
 import Amazonka.DMS.Types.KafkaSettings
 import Amazonka.DMS.Types.KinesisSettings
+import Amazonka.DMS.Types.Limitation
 import Amazonka.DMS.Types.MicrosoftSQLServerSettings
 import Amazonka.DMS.Types.MongoDbSettings
 import Amazonka.DMS.Types.MySQLSettings
@@ -1371,6 +1464,12 @@ import Amazonka.DMS.Types.OracleSettings
 import Amazonka.DMS.Types.OrderableReplicationInstance
 import Amazonka.DMS.Types.PendingMaintenanceAction
 import Amazonka.DMS.Types.PostgreSQLSettings
+import Amazonka.DMS.Types.RdsConfiguration
+import Amazonka.DMS.Types.RdsRecommendation
+import Amazonka.DMS.Types.RdsRequirements
+import Amazonka.DMS.Types.Recommendation
+import Amazonka.DMS.Types.RecommendationData
+import Amazonka.DMS.Types.RecommendationSettings
 import Amazonka.DMS.Types.RedisSettings
 import Amazonka.DMS.Types.RedshiftSettings
 import Amazonka.DMS.Types.RefreshSchemasStatus
@@ -1389,6 +1488,7 @@ import Amazonka.DMS.Types.S3Settings
 import Amazonka.DMS.Types.SchemaResponse
 import Amazonka.DMS.Types.SchemaShortInfoResponse
 import Amazonka.DMS.Types.ServerShortInfoResponse
+import Amazonka.DMS.Types.StartRecommendationsRequestEntry
 import Amazonka.DMS.Types.Subnet
 import Amazonka.DMS.Types.SupportedEndpointType
 import Amazonka.DMS.Types.SybaseSettings

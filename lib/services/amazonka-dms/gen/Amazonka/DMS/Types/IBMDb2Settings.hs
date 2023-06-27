@@ -208,7 +208,8 @@ instance Data.FromJSON IBMDb2Settings where
 
 instance Prelude.Hashable IBMDb2Settings where
   hashWithSalt _salt IBMDb2Settings' {..} =
-    _salt `Prelude.hashWithSalt` currentLsn
+    _salt
+      `Prelude.hashWithSalt` currentLsn
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` maxKBytesPerRead
       `Prelude.hashWithSalt` password

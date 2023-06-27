@@ -93,6 +93,15 @@ data ModifyReplicationInstance = ModifyReplicationInstance'
     -- -   A newer minor version is available.
     --
     -- -   DMS has enabled automatic patching for the given engine version.
+    --
+    -- When @AutoMinorVersionUpgrade@ is enabled, DMS uses the current default
+    -- engine version when you modify a replication instance. For example, if
+    -- you set @EngineVersion@ to a lower version number than the current
+    -- default version, DMS uses the default version.
+    --
+    -- If @AutoMinorVersionUpgrade@ /isn’t/ enabled when you modify a
+    -- replication instance, DMS uses the engine version specified by the
+    -- @EngineVersion@ parameter.
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The engine version number of the replication instance.
     --
@@ -177,6 +186,15 @@ data ModifyReplicationInstance = ModifyReplicationInstance'
 -- -   A newer minor version is available.
 --
 -- -   DMS has enabled automatic patching for the given engine version.
+--
+-- When @AutoMinorVersionUpgrade@ is enabled, DMS uses the current default
+-- engine version when you modify a replication instance. For example, if
+-- you set @EngineVersion@ to a lower version number than the current
+-- default version, DMS uses the default version.
+--
+-- If @AutoMinorVersionUpgrade@ /isn’t/ enabled when you modify a
+-- replication instance, DMS uses the engine version specified by the
+-- @EngineVersion@ parameter.
 --
 -- 'engineVersion', 'modifyReplicationInstance_engineVersion' - The engine version number of the replication instance.
 --
@@ -277,6 +295,15 @@ modifyReplicationInstance_applyImmediately = Lens.lens (\ModifyReplicationInstan
 -- -   A newer minor version is available.
 --
 -- -   DMS has enabled automatic patching for the given engine version.
+--
+-- When @AutoMinorVersionUpgrade@ is enabled, DMS uses the current default
+-- engine version when you modify a replication instance. For example, if
+-- you set @EngineVersion@ to a lower version number than the current
+-- default version, DMS uses the default version.
+--
+-- If @AutoMinorVersionUpgrade@ /isn’t/ enabled when you modify a
+-- replication instance, DMS uses the engine version specified by the
+-- @EngineVersion@ parameter.
 modifyReplicationInstance_autoMinorVersionUpgrade :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe Prelude.Bool)
 modifyReplicationInstance_autoMinorVersionUpgrade = Lens.lens (\ModifyReplicationInstance' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ModifyReplicationInstance' {} a -> s {autoMinorVersionUpgrade = a} :: ModifyReplicationInstance)
 
@@ -357,7 +384,8 @@ instance Core.AWSRequest ModifyReplicationInstance where
 
 instance Prelude.Hashable ModifyReplicationInstance where
   hashWithSalt _salt ModifyReplicationInstance' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` allowMajorVersionUpgrade
       `Prelude.hashWithSalt` applyImmediately
       `Prelude.hashWithSalt` autoMinorVersionUpgrade

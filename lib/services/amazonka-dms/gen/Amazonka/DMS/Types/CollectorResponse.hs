@@ -207,7 +207,8 @@ instance Data.FromJSON CollectorResponse where
 
 instance Prelude.Hashable CollectorResponse where
   hashWithSalt _salt CollectorResponse' {..} =
-    _salt `Prelude.hashWithSalt` collectorHealthCheck
+    _salt
+      `Prelude.hashWithSalt` collectorHealthCheck
       `Prelude.hashWithSalt` collectorName
       `Prelude.hashWithSalt` collectorReferencedId
       `Prelude.hashWithSalt` collectorVersion

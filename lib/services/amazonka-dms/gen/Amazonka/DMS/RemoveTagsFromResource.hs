@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes metadata tags from an DMS resource, including replication
--- instance, endpoint, security group, and migration task. For more
+-- instance, endpoint, subnet group, and migration task. For more
 -- information, see
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html Tag>
 -- data type description.
@@ -110,7 +110,8 @@ instance Core.AWSRequest RemoveTagsFromResource where
 
 instance Prelude.Hashable RemoveTagsFromResource where
   hashWithSalt _salt RemoveTagsFromResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData RemoveTagsFromResource where

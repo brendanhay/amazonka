@@ -145,7 +145,8 @@ instance
   hashWithSalt
     _salt
     DatabaseInstanceSoftwareDetailsResponse' {..} =
-      _salt `Prelude.hashWithSalt` engine
+      _salt
+        `Prelude.hashWithSalt` engine
         `Prelude.hashWithSalt` engineEdition
         `Prelude.hashWithSalt` engineVersion
         `Prelude.hashWithSalt` osArchitecture

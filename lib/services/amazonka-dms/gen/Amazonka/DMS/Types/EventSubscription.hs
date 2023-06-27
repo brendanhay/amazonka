@@ -175,7 +175,8 @@ instance Data.FromJSON EventSubscription where
             Prelude.<$> (x Data..:? "CustSubscriptionId")
             Prelude.<*> (x Data..:? "CustomerAwsId")
             Prelude.<*> (x Data..:? "Enabled")
-            Prelude.<*> ( x Data..:? "EventCategoriesList"
+            Prelude.<*> ( x
+                            Data..:? "EventCategoriesList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SnsTopicArn")
@@ -187,7 +188,8 @@ instance Data.FromJSON EventSubscription where
 
 instance Prelude.Hashable EventSubscription where
   hashWithSalt _salt EventSubscription' {..} =
-    _salt `Prelude.hashWithSalt` custSubscriptionId
+    _salt
+      `Prelude.hashWithSalt` custSubscriptionId
       `Prelude.hashWithSalt` customerAwsId
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` eventCategoriesList

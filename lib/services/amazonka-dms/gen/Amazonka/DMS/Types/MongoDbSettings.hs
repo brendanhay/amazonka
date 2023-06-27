@@ -323,7 +323,8 @@ instance Data.FromJSON MongoDbSettings where
 
 instance Prelude.Hashable MongoDbSettings where
   hashWithSalt _salt MongoDbSettings' {..} =
-    _salt `Prelude.hashWithSalt` authMechanism
+    _salt
+      `Prelude.hashWithSalt` authMechanism
       `Prelude.hashWithSalt` authSource
       `Prelude.hashWithSalt` authType
       `Prelude.hashWithSalt` databaseName

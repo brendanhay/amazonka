@@ -68,6 +68,9 @@ data PostgreSQLSettings = PostgreSQLSettings'
     heartbeatFrequency :: Prelude.Maybe Prelude.Int,
     -- | Sets the schema in which the heartbeat artifacts are created.
     heartbeatSchema :: Prelude.Maybe Prelude.Text,
+    -- | When true, lets PostgreSQL migrate the boolean type as boolean. By
+    -- default, PostgreSQL migrates booleans as @varchar(5)@.
+    mapBooleanAsBoolean :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the maximum size (in KB) of any .csv file used to transfer
     -- data to PostgreSQL.
     --
@@ -98,7 +101,17 @@ data PostgreSQLSettings = PostgreSQLSettings'
     -- @SecretsManagerSecret@ that contains the PostgreSQL endpoint connection
     -- details.
     secretsManagerSecretId :: Prelude.Maybe Prelude.Text,
-    -- | Fully qualified domain name of the endpoint.
+    -- | The host name of the endpoint database.
+    --
+    -- For an Amazon RDS PostgreSQL instance, this is the output of
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html DescribeDBInstances>,
+    -- in the
+    -- @ @<https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html Endpoint>@.Address@
+    -- field.
+    --
+    -- For an Aurora PostgreSQL instance, this is the output of
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html DescribeDBClusters>,
+    -- in the @Endpoint@ field.
     serverName :: Prelude.Maybe Prelude.Text,
     -- | Sets the name of a previously created logical replication slot for a
     -- change data capture (CDC) load of the PostgreSQL source instance.
@@ -176,6 +189,9 @@ data PostgreSQLSettings = PostgreSQLSettings'
 --
 -- 'heartbeatSchema', 'postgreSQLSettings_heartbeatSchema' - Sets the schema in which the heartbeat artifacts are created.
 --
+-- 'mapBooleanAsBoolean', 'postgreSQLSettings_mapBooleanAsBoolean' - When true, lets PostgreSQL migrate the boolean type as boolean. By
+-- default, PostgreSQL migrates booleans as @varchar(5)@.
+--
 -- 'maxFileSize', 'postgreSQLSettings_maxFileSize' - Specifies the maximum size (in KB) of any .csv file used to transfer
 -- data to PostgreSQL.
 --
@@ -206,7 +222,17 @@ data PostgreSQLSettings = PostgreSQLSettings'
 -- @SecretsManagerSecret@ that contains the PostgreSQL endpoint connection
 -- details.
 --
--- 'serverName', 'postgreSQLSettings_serverName' - Fully qualified domain name of the endpoint.
+-- 'serverName', 'postgreSQLSettings_serverName' - The host name of the endpoint database.
+--
+-- For an Amazon RDS PostgreSQL instance, this is the output of
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html DescribeDBInstances>,
+-- in the
+-- @ @<https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html Endpoint>@.Address@
+-- field.
+--
+-- For an Aurora PostgreSQL instance, this is the output of
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html DescribeDBClusters>,
+-- in the @Endpoint@ field.
 --
 -- 'slotName', 'postgreSQLSettings_slotName' - Sets the name of a previously created logical replication slot for a
 -- change data capture (CDC) load of the PostgreSQL source instance.
@@ -247,6 +273,7 @@ newPostgreSQLSettings =
       heartbeatEnable = Prelude.Nothing,
       heartbeatFrequency = Prelude.Nothing,
       heartbeatSchema = Prelude.Nothing,
+      mapBooleanAsBoolean = Prelude.Nothing,
       maxFileSize = Prelude.Nothing,
       password = Prelude.Nothing,
       pluginName = Prelude.Nothing,
@@ -316,6 +343,11 @@ postgreSQLSettings_heartbeatFrequency = Lens.lens (\PostgreSQLSettings' {heartbe
 postgreSQLSettings_heartbeatSchema :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Text)
 postgreSQLSettings_heartbeatSchema = Lens.lens (\PostgreSQLSettings' {heartbeatSchema} -> heartbeatSchema) (\s@PostgreSQLSettings' {} a -> s {heartbeatSchema = a} :: PostgreSQLSettings)
 
+-- | When true, lets PostgreSQL migrate the boolean type as boolean. By
+-- default, PostgreSQL migrates booleans as @varchar(5)@.
+postgreSQLSettings_mapBooleanAsBoolean :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Bool)
+postgreSQLSettings_mapBooleanAsBoolean = Lens.lens (\PostgreSQLSettings' {mapBooleanAsBoolean} -> mapBooleanAsBoolean) (\s@PostgreSQLSettings' {} a -> s {mapBooleanAsBoolean = a} :: PostgreSQLSettings)
+
 -- | Specifies the maximum size (in KB) of any .csv file used to transfer
 -- data to PostgreSQL.
 --
@@ -358,7 +390,17 @@ postgreSQLSettings_secretsManagerAccessRoleArn = Lens.lens (\PostgreSQLSettings'
 postgreSQLSettings_secretsManagerSecretId :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Text)
 postgreSQLSettings_secretsManagerSecretId = Lens.lens (\PostgreSQLSettings' {secretsManagerSecretId} -> secretsManagerSecretId) (\s@PostgreSQLSettings' {} a -> s {secretsManagerSecretId = a} :: PostgreSQLSettings)
 
--- | Fully qualified domain name of the endpoint.
+-- | The host name of the endpoint database.
+--
+-- For an Amazon RDS PostgreSQL instance, this is the output of
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html DescribeDBInstances>,
+-- in the
+-- @ @<https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html Endpoint>@.Address@
+-- field.
+--
+-- For an Aurora PostgreSQL instance, this is the output of
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html DescribeDBClusters>,
+-- in the @Endpoint@ field.
 postgreSQLSettings_serverName :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Text)
 postgreSQLSettings_serverName = Lens.lens (\PostgreSQLSettings' {serverName} -> serverName) (\s@PostgreSQLSettings' {} a -> s {serverName = a} :: PostgreSQLSettings)
 
@@ -409,6 +451,7 @@ instance Data.FromJSON PostgreSQLSettings where
             Prelude.<*> (x Data..:? "HeartbeatEnable")
             Prelude.<*> (x Data..:? "HeartbeatFrequency")
             Prelude.<*> (x Data..:? "HeartbeatSchema")
+            Prelude.<*> (x Data..:? "MapBooleanAsBoolean")
             Prelude.<*> (x Data..:? "MaxFileSize")
             Prelude.<*> (x Data..:? "Password")
             Prelude.<*> (x Data..:? "PluginName")
@@ -423,7 +466,8 @@ instance Data.FromJSON PostgreSQLSettings where
 
 instance Prelude.Hashable PostgreSQLSettings where
   hashWithSalt _salt PostgreSQLSettings' {..} =
-    _salt `Prelude.hashWithSalt` afterConnectScript
+    _salt
+      `Prelude.hashWithSalt` afterConnectScript
       `Prelude.hashWithSalt` captureDdls
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` ddlArtifactsSchema
@@ -432,6 +476,7 @@ instance Prelude.Hashable PostgreSQLSettings where
       `Prelude.hashWithSalt` heartbeatEnable
       `Prelude.hashWithSalt` heartbeatFrequency
       `Prelude.hashWithSalt` heartbeatSchema
+      `Prelude.hashWithSalt` mapBooleanAsBoolean
       `Prelude.hashWithSalt` maxFileSize
       `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` pluginName
@@ -454,6 +499,7 @@ instance Prelude.NFData PostgreSQLSettings where
       `Prelude.seq` Prelude.rnf heartbeatEnable
       `Prelude.seq` Prelude.rnf heartbeatFrequency
       `Prelude.seq` Prelude.rnf heartbeatSchema
+      `Prelude.seq` Prelude.rnf mapBooleanAsBoolean
       `Prelude.seq` Prelude.rnf maxFileSize
       `Prelude.seq` Prelude.rnf password
       `Prelude.seq` Prelude.rnf pluginName
@@ -485,6 +531,8 @@ instance Data.ToJSON PostgreSQLSettings where
               Prelude.<$> heartbeatFrequency,
             ("HeartbeatSchema" Data..=)
               Prelude.<$> heartbeatSchema,
+            ("MapBooleanAsBoolean" Data..=)
+              Prelude.<$> mapBooleanAsBoolean,
             ("MaxFileSize" Data..=) Prelude.<$> maxFileSize,
             ("Password" Data..=) Prelude.<$> password,
             ("PluginName" Data..=) Prelude.<$> pluginName,

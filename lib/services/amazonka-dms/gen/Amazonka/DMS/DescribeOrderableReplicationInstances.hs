@@ -126,22 +126,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeOrderableReplicationInstancesResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeOrderableReplicationInstancesResponse_orderableReplicationInstances
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeOrderableReplicationInstances_marker
           Lens..~ rs
           Lens.^? describeOrderableReplicationInstancesResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -158,10 +158,11 @@ instance
       ( \s h x ->
           DescribeOrderableReplicationInstancesResponse'
             Prelude.<$> (x Data..?> "Marker")
-              Prelude.<*> ( x Data..?> "OrderableReplicationInstances"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "OrderableReplicationInstances"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -171,7 +172,8 @@ instance
   hashWithSalt
     _salt
     DescribeOrderableReplicationInstances' {..} =
-      _salt `Prelude.hashWithSalt` marker
+      _salt
+        `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxRecords
 
 instance

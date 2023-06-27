@@ -105,6 +105,9 @@ import Test.Tasty
 --         , requestDeleteWirelessDevice $
 --             newDeleteWirelessDevice
 --
+--         , requestDeleteWirelessDeviceImportTask $
+--             newDeleteWirelessDeviceImportTask
+--
 --         , requestDeleteWirelessGateway $
 --             newDeleteWirelessGateway
 --
@@ -113,6 +116,9 @@ import Test.Tasty
 --
 --         , requestDeleteWirelessGatewayTaskDefinition $
 --             newDeleteWirelessGatewayTaskDefinition
+--
+--         , requestDeregisterWirelessDevice $
+--             newDeregisterWirelessDevice
 --
 --         , requestDisassociateAwsAccountFromPartnerAccount $
 --             newDisassociateAwsAccountFromPartnerAccount
@@ -183,6 +189,9 @@ import Test.Tasty
 --         , requestGetWirelessDevice $
 --             newGetWirelessDevice
 --
+--         , requestGetWirelessDeviceImportTask $
+--             newGetWirelessDeviceImportTask
+--
 --         , requestGetWirelessDeviceStatistics $
 --             newGetWirelessDeviceStatistics
 --
@@ -210,6 +219,9 @@ import Test.Tasty
 --         , requestListDeviceProfiles $
 --             newListDeviceProfiles
 --
+--         , requestListDevicesForWirelessDeviceImportTask $
+--             newListDevicesForWirelessDeviceImportTask
+--
 --         , requestListEventConfigurations $
 --             newListEventConfigurations
 --
@@ -236,6 +248,9 @@ import Test.Tasty
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
+--
+--         , requestListWirelessDeviceImportTasks $
+--             newListWirelessDeviceImportTasks
 --
 --         , requestListWirelessDevices $
 --             newListWirelessDevices
@@ -272,6 +287,12 @@ import Test.Tasty
 --
 --         , requestStartMulticastGroupSession $
 --             newStartMulticastGroupSession
+--
+--         , requestStartSingleWirelessDeviceImportTask $
+--             newStartSingleWirelessDeviceImportTask
+--
+--         , requestStartWirelessDeviceImportTask $
+--             newStartWirelessDeviceImportTask
 --
 --         , requestTagResource $
 --             newTagResource
@@ -311,6 +332,9 @@ import Test.Tasty
 --
 --         , requestUpdateWirelessDevice $
 --             newUpdateWirelessDevice
+--
+--         , requestUpdateWirelessDeviceImportTask $
+--             newUpdateWirelessDeviceImportTask
 --
 --         , requestUpdateWirelessGateway $
 --             newUpdateWirelessGateway
@@ -396,6 +420,9 @@ import Test.Tasty
 --         , responseDeleteWirelessDevice $
 --             newDeleteWirelessDeviceResponse
 --
+--         , responseDeleteWirelessDeviceImportTask $
+--             newDeleteWirelessDeviceImportTaskResponse
+--
 --         , responseDeleteWirelessGateway $
 --             newDeleteWirelessGatewayResponse
 --
@@ -404,6 +431,9 @@ import Test.Tasty
 --
 --         , responseDeleteWirelessGatewayTaskDefinition $
 --             newDeleteWirelessGatewayTaskDefinitionResponse
+--
+--         , responseDeregisterWirelessDevice $
+--             newDeregisterWirelessDeviceResponse
 --
 --         , responseDisassociateAwsAccountFromPartnerAccount $
 --             newDisassociateAwsAccountFromPartnerAccountResponse
@@ -474,6 +504,9 @@ import Test.Tasty
 --         , responseGetWirelessDevice $
 --             newGetWirelessDeviceResponse
 --
+--         , responseGetWirelessDeviceImportTask $
+--             newGetWirelessDeviceImportTaskResponse
+--
 --         , responseGetWirelessDeviceStatistics $
 --             newGetWirelessDeviceStatisticsResponse
 --
@@ -501,6 +534,9 @@ import Test.Tasty
 --         , responseListDeviceProfiles $
 --             newListDeviceProfilesResponse
 --
+--         , responseListDevicesForWirelessDeviceImportTask $
+--             newListDevicesForWirelessDeviceImportTaskResponse
+--
 --         , responseListEventConfigurations $
 --             newListEventConfigurationsResponse
 --
@@ -527,6 +563,9 @@ import Test.Tasty
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responseListWirelessDeviceImportTasks $
+--             newListWirelessDeviceImportTasksResponse
 --
 --         , responseListWirelessDevices $
 --             newListWirelessDevicesResponse
@@ -563,6 +602,12 @@ import Test.Tasty
 --
 --         , responseStartMulticastGroupSession $
 --             newStartMulticastGroupSessionResponse
+--
+--         , responseStartSingleWirelessDeviceImportTask $
+--             newStartSingleWirelessDeviceImportTaskResponse
+--
+--         , responseStartWirelessDeviceImportTask $
+--             newStartWirelessDeviceImportTaskResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -602,6 +647,9 @@ import Test.Tasty
 --
 --         , responseUpdateWirelessDevice $
 --             newUpdateWirelessDeviceResponse
+--
+--         , responseUpdateWirelessDeviceImportTask $
+--             newUpdateWirelessDeviceImportTaskResponse
 --
 --         , responseUpdateWirelessGateway $
 --             newUpdateWirelessGatewayResponse
@@ -767,6 +815,12 @@ requestDeleteWirelessDevice =
     "DeleteWirelessDevice"
     "fixture/DeleteWirelessDevice.yaml"
 
+requestDeleteWirelessDeviceImportTask :: DeleteWirelessDeviceImportTask -> TestTree
+requestDeleteWirelessDeviceImportTask =
+  req
+    "DeleteWirelessDeviceImportTask"
+    "fixture/DeleteWirelessDeviceImportTask.yaml"
+
 requestDeleteWirelessGateway :: DeleteWirelessGateway -> TestTree
 requestDeleteWirelessGateway =
   req
@@ -784,6 +838,12 @@ requestDeleteWirelessGatewayTaskDefinition =
   req
     "DeleteWirelessGatewayTaskDefinition"
     "fixture/DeleteWirelessGatewayTaskDefinition.yaml"
+
+requestDeregisterWirelessDevice :: DeregisterWirelessDevice -> TestTree
+requestDeregisterWirelessDevice =
+  req
+    "DeregisterWirelessDevice"
+    "fixture/DeregisterWirelessDevice.yaml"
 
 requestDisassociateAwsAccountFromPartnerAccount :: DisassociateAwsAccountFromPartnerAccount -> TestTree
 requestDisassociateAwsAccountFromPartnerAccount =
@@ -923,6 +983,12 @@ requestGetWirelessDevice =
     "GetWirelessDevice"
     "fixture/GetWirelessDevice.yaml"
 
+requestGetWirelessDeviceImportTask :: GetWirelessDeviceImportTask -> TestTree
+requestGetWirelessDeviceImportTask =
+  req
+    "GetWirelessDeviceImportTask"
+    "fixture/GetWirelessDeviceImportTask.yaml"
+
 requestGetWirelessDeviceStatistics :: GetWirelessDeviceStatistics -> TestTree
 requestGetWirelessDeviceStatistics =
   req
@@ -977,6 +1043,12 @@ requestListDeviceProfiles =
     "ListDeviceProfiles"
     "fixture/ListDeviceProfiles.yaml"
 
+requestListDevicesForWirelessDeviceImportTask :: ListDevicesForWirelessDeviceImportTask -> TestTree
+requestListDevicesForWirelessDeviceImportTask =
+  req
+    "ListDevicesForWirelessDeviceImportTask"
+    "fixture/ListDevicesForWirelessDeviceImportTask.yaml"
+
 requestListEventConfigurations :: ListEventConfigurations -> TestTree
 requestListEventConfigurations =
   req
@@ -1030,6 +1102,12 @@ requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestListWirelessDeviceImportTasks :: ListWirelessDeviceImportTasks -> TestTree
+requestListWirelessDeviceImportTasks =
+  req
+    "ListWirelessDeviceImportTasks"
+    "fixture/ListWirelessDeviceImportTasks.yaml"
 
 requestListWirelessDevices :: ListWirelessDevices -> TestTree
 requestListWirelessDevices =
@@ -1102,6 +1180,18 @@ requestStartMulticastGroupSession =
   req
     "StartMulticastGroupSession"
     "fixture/StartMulticastGroupSession.yaml"
+
+requestStartSingleWirelessDeviceImportTask :: StartSingleWirelessDeviceImportTask -> TestTree
+requestStartSingleWirelessDeviceImportTask =
+  req
+    "StartSingleWirelessDeviceImportTask"
+    "fixture/StartSingleWirelessDeviceImportTask.yaml"
+
+requestStartWirelessDeviceImportTask :: StartWirelessDeviceImportTask -> TestTree
+requestStartWirelessDeviceImportTask =
+  req
+    "StartWirelessDeviceImportTask"
+    "fixture/StartWirelessDeviceImportTask.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -1180,6 +1270,12 @@ requestUpdateWirelessDevice =
   req
     "UpdateWirelessDevice"
     "fixture/UpdateWirelessDevice.yaml"
+
+requestUpdateWirelessDeviceImportTask :: UpdateWirelessDeviceImportTask -> TestTree
+requestUpdateWirelessDeviceImportTask =
+  req
+    "UpdateWirelessDeviceImportTask"
+    "fixture/UpdateWirelessDeviceImportTask.yaml"
 
 requestUpdateWirelessGateway :: UpdateWirelessGateway -> TestTree
 requestUpdateWirelessGateway =
@@ -1397,6 +1493,14 @@ responseDeleteWirelessDevice =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteWirelessDevice)
 
+responseDeleteWirelessDeviceImportTask :: DeleteWirelessDeviceImportTaskResponse -> TestTree
+responseDeleteWirelessDeviceImportTask =
+  res
+    "DeleteWirelessDeviceImportTaskResponse"
+    "fixture/DeleteWirelessDeviceImportTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteWirelessDeviceImportTask)
+
 responseDeleteWirelessGateway :: DeleteWirelessGatewayResponse -> TestTree
 responseDeleteWirelessGateway =
   res
@@ -1420,6 +1524,14 @@ responseDeleteWirelessGatewayTaskDefinition =
     "fixture/DeleteWirelessGatewayTaskDefinitionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteWirelessGatewayTaskDefinition)
+
+responseDeregisterWirelessDevice :: DeregisterWirelessDeviceResponse -> TestTree
+responseDeregisterWirelessDevice =
+  res
+    "DeregisterWirelessDeviceResponse"
+    "fixture/DeregisterWirelessDeviceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeregisterWirelessDevice)
 
 responseDisassociateAwsAccountFromPartnerAccount :: DisassociateAwsAccountFromPartnerAccountResponse -> TestTree
 responseDisassociateAwsAccountFromPartnerAccount =
@@ -1605,6 +1717,14 @@ responseGetWirelessDevice =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetWirelessDevice)
 
+responseGetWirelessDeviceImportTask :: GetWirelessDeviceImportTaskResponse -> TestTree
+responseGetWirelessDeviceImportTask =
+  res
+    "GetWirelessDeviceImportTaskResponse"
+    "fixture/GetWirelessDeviceImportTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetWirelessDeviceImportTask)
+
 responseGetWirelessDeviceStatistics :: GetWirelessDeviceStatisticsResponse -> TestTree
 responseGetWirelessDeviceStatistics =
   res
@@ -1677,6 +1797,14 @@ responseListDeviceProfiles =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDeviceProfiles)
 
+responseListDevicesForWirelessDeviceImportTask :: ListDevicesForWirelessDeviceImportTaskResponse -> TestTree
+responseListDevicesForWirelessDeviceImportTask =
+  res
+    "ListDevicesForWirelessDeviceImportTaskResponse"
+    "fixture/ListDevicesForWirelessDeviceImportTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDevicesForWirelessDeviceImportTask)
+
 responseListEventConfigurations :: ListEventConfigurationsResponse -> TestTree
 responseListEventConfigurations =
   res
@@ -1748,6 +1876,14 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListWirelessDeviceImportTasks :: ListWirelessDeviceImportTasksResponse -> TestTree
+responseListWirelessDeviceImportTasks =
+  res
+    "ListWirelessDeviceImportTasksResponse"
+    "fixture/ListWirelessDeviceImportTasksResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListWirelessDeviceImportTasks)
 
 responseListWirelessDevices :: ListWirelessDevicesResponse -> TestTree
 responseListWirelessDevices =
@@ -1844,6 +1980,22 @@ responseStartMulticastGroupSession =
     "fixture/StartMulticastGroupSessionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartMulticastGroupSession)
+
+responseStartSingleWirelessDeviceImportTask :: StartSingleWirelessDeviceImportTaskResponse -> TestTree
+responseStartSingleWirelessDeviceImportTask =
+  res
+    "StartSingleWirelessDeviceImportTaskResponse"
+    "fixture/StartSingleWirelessDeviceImportTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartSingleWirelessDeviceImportTask)
+
+responseStartWirelessDeviceImportTask :: StartWirelessDeviceImportTaskResponse -> TestTree
+responseStartWirelessDeviceImportTask =
+  res
+    "StartWirelessDeviceImportTaskResponse"
+    "fixture/StartWirelessDeviceImportTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartWirelessDeviceImportTask)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1948,6 +2100,14 @@ responseUpdateWirelessDevice =
     "fixture/UpdateWirelessDeviceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateWirelessDevice)
+
+responseUpdateWirelessDeviceImportTask :: UpdateWirelessDeviceImportTaskResponse -> TestTree
+responseUpdateWirelessDeviceImportTask =
+  res
+    "UpdateWirelessDeviceImportTaskResponse"
+    "fixture/UpdateWirelessDeviceImportTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateWirelessDeviceImportTask)
 
 responseUpdateWirelessGateway :: UpdateWirelessGatewayResponse -> TestTree
 responseUpdateWirelessGateway =

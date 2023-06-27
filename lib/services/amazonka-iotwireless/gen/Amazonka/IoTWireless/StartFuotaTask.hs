@@ -98,7 +98,8 @@ instance Core.AWSRequest StartFuotaTask where
 
 instance Prelude.Hashable StartFuotaTask where
   hashWithSalt _salt StartFuotaTask' {..} =
-    _salt `Prelude.hashWithSalt` loRaWAN
+    _salt
+      `Prelude.hashWithSalt` loRaWAN
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData StartFuotaTask where

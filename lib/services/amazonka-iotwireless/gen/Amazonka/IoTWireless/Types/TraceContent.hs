@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.IoTWireless.Types.LogLevel
+import Amazonka.IoTWireless.Types.MulticastFrameInfo
 import Amazonka.IoTWireless.Types.WirelessDeviceFrameInfo
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,6 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTraceContent' smart constructor.
 data TraceContent = TraceContent'
   { logLevel :: Prelude.Maybe LogLevel,
+    multicastFrameInfo :: Prelude.Maybe MulticastFrameInfo,
     wirelessDeviceFrameInfo :: Prelude.Maybe WirelessDeviceFrameInfo
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,18 +47,25 @@ data TraceContent = TraceContent'
 --
 -- 'logLevel', 'traceContent_logLevel' - Undocumented member.
 --
+-- 'multicastFrameInfo', 'traceContent_multicastFrameInfo' - Undocumented member.
+--
 -- 'wirelessDeviceFrameInfo', 'traceContent_wirelessDeviceFrameInfo' - Undocumented member.
 newTraceContent ::
   TraceContent
 newTraceContent =
   TraceContent'
     { logLevel = Prelude.Nothing,
+      multicastFrameInfo = Prelude.Nothing,
       wirelessDeviceFrameInfo = Prelude.Nothing
     }
 
 -- | Undocumented member.
 traceContent_logLevel :: Lens.Lens' TraceContent (Prelude.Maybe LogLevel)
 traceContent_logLevel = Lens.lens (\TraceContent' {logLevel} -> logLevel) (\s@TraceContent' {} a -> s {logLevel = a} :: TraceContent)
+
+-- | Undocumented member.
+traceContent_multicastFrameInfo :: Lens.Lens' TraceContent (Prelude.Maybe MulticastFrameInfo)
+traceContent_multicastFrameInfo = Lens.lens (\TraceContent' {multicastFrameInfo} -> multicastFrameInfo) (\s@TraceContent' {} a -> s {multicastFrameInfo = a} :: TraceContent)
 
 -- | Undocumented member.
 traceContent_wirelessDeviceFrameInfo :: Lens.Lens' TraceContent (Prelude.Maybe WirelessDeviceFrameInfo)
@@ -69,17 +78,21 @@ instance Data.FromJSON TraceContent where
       ( \x ->
           TraceContent'
             Prelude.<$> (x Data..:? "LogLevel")
+            Prelude.<*> (x Data..:? "MulticastFrameInfo")
             Prelude.<*> (x Data..:? "WirelessDeviceFrameInfo")
       )
 
 instance Prelude.Hashable TraceContent where
   hashWithSalt _salt TraceContent' {..} =
-    _salt `Prelude.hashWithSalt` logLevel
+    _salt
+      `Prelude.hashWithSalt` logLevel
+      `Prelude.hashWithSalt` multicastFrameInfo
       `Prelude.hashWithSalt` wirelessDeviceFrameInfo
 
 instance Prelude.NFData TraceContent where
   rnf TraceContent' {..} =
     Prelude.rnf logLevel
+      `Prelude.seq` Prelude.rnf multicastFrameInfo
       `Prelude.seq` Prelude.rnf wirelessDeviceFrameInfo
 
 instance Data.ToJSON TraceContent where
@@ -87,6 +100,8 @@ instance Data.ToJSON TraceContent where
     Data.object
       ( Prelude.catMaybes
           [ ("LogLevel" Data..=) Prelude.<$> logLevel,
+            ("MulticastFrameInfo" Data..=)
+              Prelude.<$> multicastFrameInfo,
             ("WirelessDeviceFrameInfo" Data..=)
               Prelude.<$> wirelessDeviceFrameInfo
           ]

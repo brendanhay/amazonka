@@ -144,7 +144,8 @@ instance Core.AWSRequest UpdateWirelessDevice where
 
 instance Prelude.Hashable UpdateWirelessDevice where
   hashWithSalt _salt UpdateWirelessDevice' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destinationName
       `Prelude.hashWithSalt` loRaWAN
       `Prelude.hashWithSalt` name

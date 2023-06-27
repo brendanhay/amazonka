@@ -70,9 +70,11 @@ library
     Amazonka.IoTWireless.DeleteQueuedMessages
     Amazonka.IoTWireless.DeleteServiceProfile
     Amazonka.IoTWireless.DeleteWirelessDevice
+    Amazonka.IoTWireless.DeleteWirelessDeviceImportTask
     Amazonka.IoTWireless.DeleteWirelessGateway
     Amazonka.IoTWireless.DeleteWirelessGatewayTask
     Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition
+    Amazonka.IoTWireless.DeregisterWirelessDevice
     Amazonka.IoTWireless.DisassociateAwsAccountFromPartnerAccount
     Amazonka.IoTWireless.DisassociateMulticastGroupFromFuotaTask
     Amazonka.IoTWireless.DisassociateWirelessDeviceFromFuotaTask
@@ -96,6 +98,7 @@ library
     Amazonka.IoTWireless.GetServiceEndpoint
     Amazonka.IoTWireless.GetServiceProfile
     Amazonka.IoTWireless.GetWirelessDevice
+    Amazonka.IoTWireless.GetWirelessDeviceImportTask
     Amazonka.IoTWireless.GetWirelessDeviceStatistics
     Amazonka.IoTWireless.GetWirelessGateway
     Amazonka.IoTWireless.GetWirelessGatewayCertificate
@@ -106,6 +109,7 @@ library
     Amazonka.IoTWireless.Lens
     Amazonka.IoTWireless.ListDestinations
     Amazonka.IoTWireless.ListDeviceProfiles
+    Amazonka.IoTWireless.ListDevicesForWirelessDeviceImportTask
     Amazonka.IoTWireless.ListEventConfigurations
     Amazonka.IoTWireless.ListFuotaTasks
     Amazonka.IoTWireless.ListMulticastGroups
@@ -115,6 +119,7 @@ library
     Amazonka.IoTWireless.ListQueuedMessages
     Amazonka.IoTWireless.ListServiceProfiles
     Amazonka.IoTWireless.ListTagsForResource
+    Amazonka.IoTWireless.ListWirelessDeviceImportTasks
     Amazonka.IoTWireless.ListWirelessDevices
     Amazonka.IoTWireless.ListWirelessGateways
     Amazonka.IoTWireless.ListWirelessGatewayTaskDefinitions
@@ -127,6 +132,8 @@ library
     Amazonka.IoTWireless.StartBulkDisassociateWirelessDeviceFromMulticastGroup
     Amazonka.IoTWireless.StartFuotaTask
     Amazonka.IoTWireless.StartMulticastGroupSession
+    Amazonka.IoTWireless.StartSingleWirelessDeviceImportTask
+    Amazonka.IoTWireless.StartWirelessDeviceImportTask
     Amazonka.IoTWireless.TagResource
     Amazonka.IoTWireless.TestWirelessDevice
     Amazonka.IoTWireless.Types
@@ -144,8 +151,10 @@ library
     Amazonka.IoTWireless.Types.ConnectionStatus
     Amazonka.IoTWireless.Types.ConnectionStatusEventConfiguration
     Amazonka.IoTWireless.Types.ConnectionStatusResourceTypeEventConfiguration
+    Amazonka.IoTWireless.Types.DakCertificateMetadata
     Amazonka.IoTWireless.Types.Destinations
     Amazonka.IoTWireless.Types.DeviceProfile
+    Amazonka.IoTWireless.Types.DeviceProfileType
     Amazonka.IoTWireless.Types.DeviceRegistrationStateEventConfiguration
     Amazonka.IoTWireless.Types.DeviceRegistrationStateResourceTypeEventConfiguration
     Amazonka.IoTWireless.Types.DeviceState
@@ -170,6 +179,9 @@ library
     Amazonka.IoTWireless.Types.GsmNmrObj
     Amazonka.IoTWireless.Types.GsmObj
     Amazonka.IoTWireless.Types.IdentifierType
+    Amazonka.IoTWireless.Types.ImportedSidewalkDevice
+    Amazonka.IoTWireless.Types.ImportedWirelessDevice
+    Amazonka.IoTWireless.Types.ImportTaskStatus
     Amazonka.IoTWireless.Types.Ip
     Amazonka.IoTWireless.Types.JoinEventConfiguration
     Amazonka.IoTWireless.Types.JoinResourceTypeEventConfiguration
@@ -205,10 +217,12 @@ library
     Amazonka.IoTWireless.Types.MessageDeliveryStatusEventConfiguration
     Amazonka.IoTWireless.Types.MessageDeliveryStatusResourceTypeEventConfiguration
     Amazonka.IoTWireless.Types.MessageType
+    Amazonka.IoTWireless.Types.MulticastFrameInfo
     Amazonka.IoTWireless.Types.MulticastGroup
     Amazonka.IoTWireless.Types.MulticastGroupByFuotaTask
     Amazonka.IoTWireless.Types.MulticastWirelessMetadata
     Amazonka.IoTWireless.Types.NetworkAnalyzerConfigurations
+    Amazonka.IoTWireless.Types.OnboardStatus
     Amazonka.IoTWireless.Types.OtaaV1_0_x
     Amazonka.IoTWireless.Types.OtaaV1_1
     Amazonka.IoTWireless.Types.ParticipatingGateways
@@ -223,13 +237,20 @@ library
     Amazonka.IoTWireless.Types.SessionKeysAbpV1_1
     Amazonka.IoTWireless.Types.SidewalkAccountInfo
     Amazonka.IoTWireless.Types.SidewalkAccountInfoWithFingerprint
+    Amazonka.IoTWireless.Types.SidewalkCreateDeviceProfile
+    Amazonka.IoTWireless.Types.SidewalkCreateWirelessDevice
     Amazonka.IoTWireless.Types.SidewalkDevice
     Amazonka.IoTWireless.Types.SidewalkDeviceMetadata
     Amazonka.IoTWireless.Types.SidewalkEventNotificationConfigurations
+    Amazonka.IoTWireless.Types.SidewalkGetDeviceProfile
+    Amazonka.IoTWireless.Types.SidewalkGetStartImportInfo
     Amazonka.IoTWireless.Types.SidewalkListDevice
     Amazonka.IoTWireless.Types.SidewalkResourceTypeEventConfiguration
     Amazonka.IoTWireless.Types.SidewalkSendDataToDevice
+    Amazonka.IoTWireless.Types.SidewalkSingleStartImportInfo
+    Amazonka.IoTWireless.Types.SidewalkStartImportInfo
     Amazonka.IoTWireless.Types.SidewalkUpdateAccount
+    Amazonka.IoTWireless.Types.SidewalkUpdateImportInfo
     Amazonka.IoTWireless.Types.SigningAlg
     Amazonka.IoTWireless.Types.SupportedRfRegion
     Amazonka.IoTWireless.Types.Tag
@@ -250,7 +271,9 @@ library
     Amazonka.IoTWireless.Types.WirelessDeviceEventLogOption
     Amazonka.IoTWireless.Types.WirelessDeviceFrameInfo
     Amazonka.IoTWireless.Types.WirelessDeviceIdType
+    Amazonka.IoTWireless.Types.WirelessDeviceImportTask
     Amazonka.IoTWireless.Types.WirelessDeviceLogOption
+    Amazonka.IoTWireless.Types.WirelessDeviceSidewalkStatus
     Amazonka.IoTWireless.Types.WirelessDeviceStatistics
     Amazonka.IoTWireless.Types.WirelessDeviceType
     Amazonka.IoTWireless.Types.WirelessGatewayEvent
@@ -274,6 +297,7 @@ library
     Amazonka.IoTWireless.UpdateResourceEventConfiguration
     Amazonka.IoTWireless.UpdateResourcePosition
     Amazonka.IoTWireless.UpdateWirelessDevice
+    Amazonka.IoTWireless.UpdateWirelessDeviceImportTask
     Amazonka.IoTWireless.UpdateWirelessGateway
     Amazonka.IoTWireless.Waiters
 

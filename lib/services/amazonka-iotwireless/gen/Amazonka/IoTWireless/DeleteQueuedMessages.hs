@@ -122,7 +122,8 @@ instance Core.AWSRequest DeleteQueuedMessages where
 
 instance Prelude.Hashable DeleteQueuedMessages where
   hashWithSalt _salt DeleteQueuedMessages' {..} =
-    _salt `Prelude.hashWithSalt` wirelessDeviceType
+    _salt
+      `Prelude.hashWithSalt` wirelessDeviceType
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` messageId
 

@@ -79,7 +79,8 @@ instance
     LoRaWANUpdateGatewayTaskEntry
   where
   hashWithSalt _salt LoRaWANUpdateGatewayTaskEntry' {..} =
-    _salt `Prelude.hashWithSalt` currentVersion
+    _salt
+      `Prelude.hashWithSalt` currentVersion
       `Prelude.hashWithSalt` updateVersion
 
 instance Prelude.NFData LoRaWANUpdateGatewayTaskEntry where

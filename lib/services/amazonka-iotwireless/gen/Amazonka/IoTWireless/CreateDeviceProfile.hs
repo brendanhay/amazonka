@@ -30,6 +30,7 @@ module Amazonka.IoTWireless.CreateDeviceProfile
     createDeviceProfile_clientRequestToken,
     createDeviceProfile_loRaWAN,
     createDeviceProfile_name,
+    createDeviceProfile_sidewalk,
     createDeviceProfile_tags,
 
     -- * Destructuring the Response
@@ -62,6 +63,9 @@ data CreateDeviceProfile = CreateDeviceProfile'
     loRaWAN :: Prelude.Maybe LoRaWANDeviceProfile,
     -- | The name of the new resource.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The Sidewalk-related information for creating the Sidewalk device
+    -- profile.
+    sidewalk :: Prelude.Maybe SidewalkCreateDeviceProfile,
     -- | The tags to attach to the new device profile. Tags are metadata that you
     -- can use to manage a resource.
     tags :: Prelude.Maybe [Tag]
@@ -85,6 +89,9 @@ data CreateDeviceProfile = CreateDeviceProfile'
 --
 -- 'name', 'createDeviceProfile_name' - The name of the new resource.
 --
+-- 'sidewalk', 'createDeviceProfile_sidewalk' - The Sidewalk-related information for creating the Sidewalk device
+-- profile.
+--
 -- 'tags', 'createDeviceProfile_tags' - The tags to attach to the new device profile. Tags are metadata that you
 -- can use to manage a resource.
 newCreateDeviceProfile ::
@@ -95,6 +102,7 @@ newCreateDeviceProfile =
         Prelude.Nothing,
       loRaWAN = Prelude.Nothing,
       name = Prelude.Nothing,
+      sidewalk = Prelude.Nothing,
       tags = Prelude.Nothing
     }
 
@@ -112,6 +120,11 @@ createDeviceProfile_loRaWAN = Lens.lens (\CreateDeviceProfile' {loRaWAN} -> loRa
 -- | The name of the new resource.
 createDeviceProfile_name :: Lens.Lens' CreateDeviceProfile (Prelude.Maybe Prelude.Text)
 createDeviceProfile_name = Lens.lens (\CreateDeviceProfile' {name} -> name) (\s@CreateDeviceProfile' {} a -> s {name = a} :: CreateDeviceProfile)
+
+-- | The Sidewalk-related information for creating the Sidewalk device
+-- profile.
+createDeviceProfile_sidewalk :: Lens.Lens' CreateDeviceProfile (Prelude.Maybe SidewalkCreateDeviceProfile)
+createDeviceProfile_sidewalk = Lens.lens (\CreateDeviceProfile' {sidewalk} -> sidewalk) (\s@CreateDeviceProfile' {} a -> s {sidewalk = a} :: CreateDeviceProfile)
 
 -- | The tags to attach to the new device profile. Tags are metadata that you
 -- can use to manage a resource.
@@ -135,9 +148,11 @@ instance Core.AWSRequest CreateDeviceProfile where
 
 instance Prelude.Hashable CreateDeviceProfile where
   hashWithSalt _salt CreateDeviceProfile' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` loRaWAN
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sidewalk
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData CreateDeviceProfile where
@@ -145,6 +160,7 @@ instance Prelude.NFData CreateDeviceProfile where
     Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf loRaWAN
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sidewalk
       `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToHeaders CreateDeviceProfile where
@@ -158,6 +174,7 @@ instance Data.ToJSON CreateDeviceProfile where
               Prelude.<$> clientRequestToken,
             ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
             ("Name" Data..=) Prelude.<$> name,
+            ("Sidewalk" Data..=) Prelude.<$> sidewalk,
             ("Tags" Data..=) Prelude.<$> tags
           ]
       )

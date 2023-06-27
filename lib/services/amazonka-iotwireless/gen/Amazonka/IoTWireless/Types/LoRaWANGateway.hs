@@ -35,6 +35,8 @@ data LoRaWANGateway = LoRaWANGateway'
     -- | The gateway\'s EUI value.
     gatewayEui :: Prelude.Maybe Prelude.Text,
     joinEuiFilters :: Prelude.Maybe [Prelude.NonEmpty Prelude.Text],
+    -- | The MaxEIRP value.
+    maxEirp :: Prelude.Maybe Prelude.Double,
     netIdFilters :: Prelude.Maybe [Prelude.Text],
     -- | The frequency band (RFRegion) value.
     rfRegion :: Prelude.Maybe Prelude.Text,
@@ -57,6 +59,8 @@ data LoRaWANGateway = LoRaWANGateway'
 --
 -- 'joinEuiFilters', 'loRaWANGateway_joinEuiFilters' - Undocumented member.
 --
+-- 'maxEirp', 'loRaWANGateway_maxEirp' - The MaxEIRP value.
+--
 -- 'netIdFilters', 'loRaWANGateway_netIdFilters' - Undocumented member.
 --
 -- 'rfRegion', 'loRaWANGateway_rfRegion' - The frequency band (RFRegion) value.
@@ -69,6 +73,7 @@ newLoRaWANGateway =
     { beaconing = Prelude.Nothing,
       gatewayEui = Prelude.Nothing,
       joinEuiFilters = Prelude.Nothing,
+      maxEirp = Prelude.Nothing,
       netIdFilters = Prelude.Nothing,
       rfRegion = Prelude.Nothing,
       subBands = Prelude.Nothing
@@ -86,6 +91,10 @@ loRaWANGateway_gatewayEui = Lens.lens (\LoRaWANGateway' {gatewayEui} -> gatewayE
 -- | Undocumented member.
 loRaWANGateway_joinEuiFilters :: Lens.Lens' LoRaWANGateway (Prelude.Maybe [Prelude.NonEmpty Prelude.Text])
 loRaWANGateway_joinEuiFilters = Lens.lens (\LoRaWANGateway' {joinEuiFilters} -> joinEuiFilters) (\s@LoRaWANGateway' {} a -> s {joinEuiFilters = a} :: LoRaWANGateway) Prelude.. Lens.mapping Lens.coerced
+
+-- | The MaxEIRP value.
+loRaWANGateway_maxEirp :: Lens.Lens' LoRaWANGateway (Prelude.Maybe Prelude.Double)
+loRaWANGateway_maxEirp = Lens.lens (\LoRaWANGateway' {maxEirp} -> maxEirp) (\s@LoRaWANGateway' {} a -> s {maxEirp = a} :: LoRaWANGateway)
 
 -- | Undocumented member.
 loRaWANGateway_netIdFilters :: Lens.Lens' LoRaWANGateway (Prelude.Maybe [Prelude.Text])
@@ -108,6 +117,7 @@ instance Data.FromJSON LoRaWANGateway where
             Prelude.<$> (x Data..:? "Beaconing")
             Prelude.<*> (x Data..:? "GatewayEui")
             Prelude.<*> (x Data..:? "JoinEuiFilters" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "MaxEirp")
             Prelude.<*> (x Data..:? "NetIdFilters" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "RfRegion")
             Prelude.<*> (x Data..:? "SubBands" Data..!= Prelude.mempty)
@@ -115,9 +125,11 @@ instance Data.FromJSON LoRaWANGateway where
 
 instance Prelude.Hashable LoRaWANGateway where
   hashWithSalt _salt LoRaWANGateway' {..} =
-    _salt `Prelude.hashWithSalt` beaconing
+    _salt
+      `Prelude.hashWithSalt` beaconing
       `Prelude.hashWithSalt` gatewayEui
       `Prelude.hashWithSalt` joinEuiFilters
+      `Prelude.hashWithSalt` maxEirp
       `Prelude.hashWithSalt` netIdFilters
       `Prelude.hashWithSalt` rfRegion
       `Prelude.hashWithSalt` subBands
@@ -127,6 +139,7 @@ instance Prelude.NFData LoRaWANGateway where
     Prelude.rnf beaconing
       `Prelude.seq` Prelude.rnf gatewayEui
       `Prelude.seq` Prelude.rnf joinEuiFilters
+      `Prelude.seq` Prelude.rnf maxEirp
       `Prelude.seq` Prelude.rnf netIdFilters
       `Prelude.seq` Prelude.rnf rfRegion
       `Prelude.seq` Prelude.rnf subBands
@@ -139,6 +152,7 @@ instance Data.ToJSON LoRaWANGateway where
             ("GatewayEui" Data..=) Prelude.<$> gatewayEui,
             ("JoinEuiFilters" Data..=)
               Prelude.<$> joinEuiFilters,
+            ("MaxEirp" Data..=) Prelude.<$> maxEirp,
             ("NetIdFilters" Data..=) Prelude.<$> netIdFilters,
             ("RfRegion" Data..=) Prelude.<$> rfRegion,
             ("SubBands" Data..=) Prelude.<$> subBands

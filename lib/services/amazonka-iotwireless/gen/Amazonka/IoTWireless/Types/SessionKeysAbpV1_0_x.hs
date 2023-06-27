@@ -74,7 +74,8 @@ instance Data.FromJSON SessionKeysAbpV1_0_x where
 
 instance Prelude.Hashable SessionKeysAbpV1_0_x where
   hashWithSalt _salt SessionKeysAbpV1_0_x' {..} =
-    _salt `Prelude.hashWithSalt` appSKey
+    _salt
+      `Prelude.hashWithSalt` appSKey
       `Prelude.hashWithSalt` nwkSKey
 
 instance Prelude.NFData SessionKeysAbpV1_0_x where

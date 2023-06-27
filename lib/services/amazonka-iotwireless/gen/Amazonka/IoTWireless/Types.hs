@@ -35,6 +35,9 @@ module Amazonka.IoTWireless.Types
     -- * ConnectionStatus
     ConnectionStatus (..),
 
+    -- * DeviceProfileType
+    DeviceProfileType (..),
+
     -- * DeviceState
     DeviceState (..),
 
@@ -68,11 +71,20 @@ module Amazonka.IoTWireless.Types
     -- * IdentifierType
     IdentifierType (..),
 
+    -- * ImportTaskStatus
+    ImportTaskStatus (..),
+
     -- * LogLevel
     LogLevel (..),
 
     -- * MessageType
     MessageType (..),
+
+    -- * MulticastFrameInfo
+    MulticastFrameInfo (..),
+
+    -- * OnboardStatus
+    OnboardStatus (..),
 
     -- * PartnerType
     PartnerType (..),
@@ -97,6 +109,9 @@ module Amazonka.IoTWireless.Types
 
     -- * WirelessDeviceIdType
     WirelessDeviceIdType (..),
+
+    -- * WirelessDeviceSidewalkStatus
+    WirelessDeviceSidewalkStatus (..),
 
     -- * WirelessDeviceType
     WirelessDeviceType (..),
@@ -198,6 +213,15 @@ module Amazonka.IoTWireless.Types
     ConnectionStatusResourceTypeEventConfiguration (..),
     newConnectionStatusResourceTypeEventConfiguration,
     connectionStatusResourceTypeEventConfiguration_loRaWAN,
+
+    -- * DakCertificateMetadata
+    DakCertificateMetadata (..),
+    newDakCertificateMetadata,
+    dakCertificateMetadata_apId,
+    dakCertificateMetadata_deviceTypeId,
+    dakCertificateMetadata_factorySupport,
+    dakCertificateMetadata_maxAllowedSignature,
+    dakCertificateMetadata_certificateId,
 
     -- * Destinations
     Destinations (..),
@@ -316,6 +340,19 @@ module Amazonka.IoTWireless.Types
     gsmObj_lac,
     gsmObj_geranCid,
 
+    -- * ImportedSidewalkDevice
+    ImportedSidewalkDevice (..),
+    newImportedSidewalkDevice,
+    importedSidewalkDevice_lastUpdateTime,
+    importedSidewalkDevice_onboardingStatus,
+    importedSidewalkDevice_onboardingStatusReason,
+    importedSidewalkDevice_sidewalkManufacturingSn,
+
+    -- * ImportedWirelessDevice
+    ImportedWirelessDevice (..),
+    newImportedWirelessDevice,
+    importedWirelessDevice_sidewalk,
+
     -- * Ip
     Ip (..),
     newIp,
@@ -404,6 +441,7 @@ module Amazonka.IoTWireless.Types
     loRaWANGateway_beaconing,
     loRaWANGateway_gatewayEui,
     loRaWANGateway_joinEuiFilters,
+    loRaWANGateway_maxEirp,
     loRaWANGateway_netIdFilters,
     loRaWANGateway_rfRegion,
     loRaWANGateway_subBands,
@@ -489,6 +527,7 @@ module Amazonka.IoTWireless.Types
     newLoRaWANMulticastSession,
     loRaWANMulticastSession_dlDr,
     loRaWANMulticastSession_dlFreq,
+    loRaWANMulticastSession_pingSlotPeriod,
     loRaWANMulticastSession_sessionStartTime,
     loRaWANMulticastSession_sessionTimeout,
 
@@ -504,6 +543,8 @@ module Amazonka.IoTWireless.Types
     loRaWANServiceProfile_addGwMetadata,
     loRaWANServiceProfile_drMax,
     loRaWANServiceProfile_drMin,
+    loRaWANServiceProfile_prAllowed,
+    loRaWANServiceProfile_raAllowed,
 
     -- * LoRaWANStartFuotaTask
     LoRaWANStartFuotaTask (..),
@@ -669,13 +710,26 @@ module Amazonka.IoTWireless.Types
     sidewalkAccountInfoWithFingerprint_arn,
     sidewalkAccountInfoWithFingerprint_fingerprint,
 
+    -- * SidewalkCreateDeviceProfile
+    SidewalkCreateDeviceProfile (..),
+    newSidewalkCreateDeviceProfile,
+
+    -- * SidewalkCreateWirelessDevice
+    SidewalkCreateWirelessDevice (..),
+    newSidewalkCreateWirelessDevice,
+    sidewalkCreateWirelessDevice_deviceProfileId,
+
     -- * SidewalkDevice
     SidewalkDevice (..),
     newSidewalkDevice,
     sidewalkDevice_amazonId,
+    sidewalkDevice_certificateId,
     sidewalkDevice_deviceCertificates,
+    sidewalkDevice_deviceProfileId,
+    sidewalkDevice_privateKeys,
     sidewalkDevice_sidewalkId,
     sidewalkDevice_sidewalkManufacturingSn,
+    sidewalkDevice_status,
 
     -- * SidewalkDeviceMetadata
     SidewalkDeviceMetadata (..),
@@ -690,13 +744,28 @@ module Amazonka.IoTWireless.Types
     newSidewalkEventNotificationConfigurations,
     sidewalkEventNotificationConfigurations_amazonIdEventTopic,
 
+    -- * SidewalkGetDeviceProfile
+    SidewalkGetDeviceProfile (..),
+    newSidewalkGetDeviceProfile,
+    sidewalkGetDeviceProfile_applicationServerPublicKey,
+    sidewalkGetDeviceProfile_dakCertificateMetadata,
+    sidewalkGetDeviceProfile_qualificationStatus,
+
+    -- * SidewalkGetStartImportInfo
+    SidewalkGetStartImportInfo (..),
+    newSidewalkGetStartImportInfo,
+    sidewalkGetStartImportInfo_deviceCreationFileList,
+    sidewalkGetStartImportInfo_role,
+
     -- * SidewalkListDevice
     SidewalkListDevice (..),
     newSidewalkListDevice,
     sidewalkListDevice_amazonId,
     sidewalkListDevice_deviceCertificates,
+    sidewalkListDevice_deviceProfileId,
     sidewalkListDevice_sidewalkId,
     sidewalkListDevice_sidewalkManufacturingSn,
+    sidewalkListDevice_status,
 
     -- * SidewalkResourceTypeEventConfiguration
     SidewalkResourceTypeEventConfiguration (..),
@@ -710,10 +779,26 @@ module Amazonka.IoTWireless.Types
     sidewalkSendDataToDevice_messageType,
     sidewalkSendDataToDevice_seq,
 
+    -- * SidewalkSingleStartImportInfo
+    SidewalkSingleStartImportInfo (..),
+    newSidewalkSingleStartImportInfo,
+    sidewalkSingleStartImportInfo_sidewalkManufacturingSn,
+
+    -- * SidewalkStartImportInfo
+    SidewalkStartImportInfo (..),
+    newSidewalkStartImportInfo,
+    sidewalkStartImportInfo_deviceCreationFile,
+    sidewalkStartImportInfo_role,
+
     -- * SidewalkUpdateAccount
     SidewalkUpdateAccount (..),
     newSidewalkUpdateAccount,
     sidewalkUpdateAccount_appServerPrivateKey,
+
+    -- * SidewalkUpdateImportInfo
+    SidewalkUpdateImportInfo (..),
+    newSidewalkUpdateImportInfo,
+    sidewalkUpdateImportInfo_deviceCreationFile,
 
     -- * Tag
     Tag (..),
@@ -753,6 +838,7 @@ module Amazonka.IoTWireless.Types
     TraceContent (..),
     newTraceContent,
     traceContent_logLevel,
+    traceContent_multicastFrameInfo,
     traceContent_wirelessDeviceFrameInfo,
 
     -- * UpdateAbpV1_0_x
@@ -824,6 +910,21 @@ module Amazonka.IoTWireless.Types
     wirelessDeviceEventLogOption_event,
     wirelessDeviceEventLogOption_logLevel,
 
+    -- * WirelessDeviceImportTask
+    WirelessDeviceImportTask (..),
+    newWirelessDeviceImportTask,
+    wirelessDeviceImportTask_arn,
+    wirelessDeviceImportTask_creationTime,
+    wirelessDeviceImportTask_destinationName,
+    wirelessDeviceImportTask_failedImportedDeviceCount,
+    wirelessDeviceImportTask_id,
+    wirelessDeviceImportTask_initializedImportedDeviceCount,
+    wirelessDeviceImportTask_onboardedImportedDeviceCount,
+    wirelessDeviceImportTask_pendingImportedDeviceCount,
+    wirelessDeviceImportTask_sidewalk,
+    wirelessDeviceImportTask_status,
+    wirelessDeviceImportTask_statusReason,
+
     -- * WirelessDeviceLogOption
     WirelessDeviceLogOption (..),
     newWirelessDeviceLogOption,
@@ -893,8 +994,10 @@ import Amazonka.IoTWireless.Types.CertificateList
 import Amazonka.IoTWireless.Types.ConnectionStatus
 import Amazonka.IoTWireless.Types.ConnectionStatusEventConfiguration
 import Amazonka.IoTWireless.Types.ConnectionStatusResourceTypeEventConfiguration
+import Amazonka.IoTWireless.Types.DakCertificateMetadata
 import Amazonka.IoTWireless.Types.Destinations
 import Amazonka.IoTWireless.Types.DeviceProfile
+import Amazonka.IoTWireless.Types.DeviceProfileType
 import Amazonka.IoTWireless.Types.DeviceRegistrationStateEventConfiguration
 import Amazonka.IoTWireless.Types.DeviceRegistrationStateResourceTypeEventConfiguration
 import Amazonka.IoTWireless.Types.DeviceState
@@ -919,6 +1022,9 @@ import Amazonka.IoTWireless.Types.GsmLocalId
 import Amazonka.IoTWireless.Types.GsmNmrObj
 import Amazonka.IoTWireless.Types.GsmObj
 import Amazonka.IoTWireless.Types.IdentifierType
+import Amazonka.IoTWireless.Types.ImportTaskStatus
+import Amazonka.IoTWireless.Types.ImportedSidewalkDevice
+import Amazonka.IoTWireless.Types.ImportedWirelessDevice
 import Amazonka.IoTWireless.Types.Ip
 import Amazonka.IoTWireless.Types.JoinEventConfiguration
 import Amazonka.IoTWireless.Types.JoinResourceTypeEventConfiguration
@@ -954,10 +1060,12 @@ import Amazonka.IoTWireless.Types.LteObj
 import Amazonka.IoTWireless.Types.MessageDeliveryStatusEventConfiguration
 import Amazonka.IoTWireless.Types.MessageDeliveryStatusResourceTypeEventConfiguration
 import Amazonka.IoTWireless.Types.MessageType
+import Amazonka.IoTWireless.Types.MulticastFrameInfo
 import Amazonka.IoTWireless.Types.MulticastGroup
 import Amazonka.IoTWireless.Types.MulticastGroupByFuotaTask
 import Amazonka.IoTWireless.Types.MulticastWirelessMetadata
 import Amazonka.IoTWireless.Types.NetworkAnalyzerConfigurations
+import Amazonka.IoTWireless.Types.OnboardStatus
 import Amazonka.IoTWireless.Types.OtaaV1_0_x
 import Amazonka.IoTWireless.Types.OtaaV1_1
 import Amazonka.IoTWireless.Types.ParticipatingGateways
@@ -972,13 +1080,20 @@ import Amazonka.IoTWireless.Types.SessionKeysAbpV1_0_x
 import Amazonka.IoTWireless.Types.SessionKeysAbpV1_1
 import Amazonka.IoTWireless.Types.SidewalkAccountInfo
 import Amazonka.IoTWireless.Types.SidewalkAccountInfoWithFingerprint
+import Amazonka.IoTWireless.Types.SidewalkCreateDeviceProfile
+import Amazonka.IoTWireless.Types.SidewalkCreateWirelessDevice
 import Amazonka.IoTWireless.Types.SidewalkDevice
 import Amazonka.IoTWireless.Types.SidewalkDeviceMetadata
 import Amazonka.IoTWireless.Types.SidewalkEventNotificationConfigurations
+import Amazonka.IoTWireless.Types.SidewalkGetDeviceProfile
+import Amazonka.IoTWireless.Types.SidewalkGetStartImportInfo
 import Amazonka.IoTWireless.Types.SidewalkListDevice
 import Amazonka.IoTWireless.Types.SidewalkResourceTypeEventConfiguration
 import Amazonka.IoTWireless.Types.SidewalkSendDataToDevice
+import Amazonka.IoTWireless.Types.SidewalkSingleStartImportInfo
+import Amazonka.IoTWireless.Types.SidewalkStartImportInfo
 import Amazonka.IoTWireless.Types.SidewalkUpdateAccount
+import Amazonka.IoTWireless.Types.SidewalkUpdateImportInfo
 import Amazonka.IoTWireless.Types.SigningAlg
 import Amazonka.IoTWireless.Types.SupportedRfRegion
 import Amazonka.IoTWireless.Types.Tag
@@ -999,7 +1114,9 @@ import Amazonka.IoTWireless.Types.WirelessDeviceEvent
 import Amazonka.IoTWireless.Types.WirelessDeviceEventLogOption
 import Amazonka.IoTWireless.Types.WirelessDeviceFrameInfo
 import Amazonka.IoTWireless.Types.WirelessDeviceIdType
+import Amazonka.IoTWireless.Types.WirelessDeviceImportTask
 import Amazonka.IoTWireless.Types.WirelessDeviceLogOption
+import Amazonka.IoTWireless.Types.WirelessDeviceSidewalkStatus
 import Amazonka.IoTWireless.Types.WirelessDeviceStatistics
 import Amazonka.IoTWireless.Types.WirelessDeviceType
 import Amazonka.IoTWireless.Types.WirelessGatewayEvent
@@ -1041,52 +1158,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | User does not have permission to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -1095,7 +1212,7 @@ _AccessDeniedException =
 
 -- | Adding, updating, or deleting the resource can cause an inconsistent
 -- state.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -1103,7 +1220,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | An unexpected error occurred while processing a request.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -1111,7 +1228,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | Resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1119,7 +1236,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The request was denied because it exceeded the allowed API request rate.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -1127,7 +1244,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | The request was denied because the resource can\'t have any more tags.
-_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyTagsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService
@@ -1135,7 +1252,7 @@ _TooManyTagsException =
     Prelude.. Core.hasStatus 400
 
 -- | The input did not meet the specified constraints.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Update the position information of a given wireless device or a wireless
--- gateway resource. The postion coordinates are based on the
+-- gateway resource. The position coordinates are based on the
 -- <https://gisgeography.com/wgs84-world-geodetic-system/ World Geodetic System (WGS84)>.
 module Amazonka.IoTWireless.UpdateResourcePosition
   ( -- * Creating a Request
@@ -58,7 +58,7 @@ data UpdateResourcePosition = UpdateResourcePosition'
     -- <https://geojson.org/ GeoJSON>.
     geoJsonPayload :: Prelude.Maybe Prelude.ByteString,
     -- | The identifier of the resource for which position information is
-    -- updated. It can be the wireless device ID or the wireless gateway ID
+    -- updated. It can be the wireless device ID or the wireless gateway ID,
     -- depending on the resource type.
     resourceIdentifier :: Prelude.Text,
     -- | The type of resource for which position information is updated, which
@@ -81,7 +81,7 @@ data UpdateResourcePosition = UpdateResourcePosition'
 -- <https://geojson.org/ GeoJSON>.
 --
 -- 'resourceIdentifier', 'updateResourcePosition_resourceIdentifier' - The identifier of the resource for which position information is
--- updated. It can be the wireless device ID or the wireless gateway ID
+-- updated. It can be the wireless device ID or the wireless gateway ID,
 -- depending on the resource type.
 --
 -- 'resourceType', 'updateResourcePosition_resourceType' - The type of resource for which position information is updated, which
@@ -110,7 +110,7 @@ updateResourcePosition_geoJsonPayload :: Lens.Lens' UpdateResourcePosition (Prel
 updateResourcePosition_geoJsonPayload = Lens.lens (\UpdateResourcePosition' {geoJsonPayload} -> geoJsonPayload) (\s@UpdateResourcePosition' {} a -> s {geoJsonPayload = a} :: UpdateResourcePosition)
 
 -- | The identifier of the resource for which position information is
--- updated. It can be the wireless device ID or the wireless gateway ID
+-- updated. It can be the wireless device ID or the wireless gateway ID,
 -- depending on the resource type.
 updateResourcePosition_resourceIdentifier :: Lens.Lens' UpdateResourcePosition Prelude.Text
 updateResourcePosition_resourceIdentifier = Lens.lens (\UpdateResourcePosition' {resourceIdentifier} -> resourceIdentifier) (\s@UpdateResourcePosition' {} a -> s {resourceIdentifier = a} :: UpdateResourcePosition)
@@ -135,7 +135,8 @@ instance Core.AWSRequest UpdateResourcePosition where
 
 instance Prelude.Hashable UpdateResourcePosition where
   hashWithSalt _salt UpdateResourcePosition' {..} =
-    _salt `Prelude.hashWithSalt` geoJsonPayload
+    _salt
+      `Prelude.hashWithSalt` geoJsonPayload
       `Prelude.hashWithSalt` resourceIdentifier
       `Prelude.hashWithSalt` resourceType
 

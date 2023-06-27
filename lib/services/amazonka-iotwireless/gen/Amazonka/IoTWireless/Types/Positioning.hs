@@ -81,7 +81,8 @@ instance Data.FromJSON Positioning where
 
 instance Prelude.Hashable Positioning where
   hashWithSalt _salt Positioning' {..} =
-    _salt `Prelude.hashWithSalt` clockSync
+    _salt
+      `Prelude.hashWithSalt` clockSync
       `Prelude.hashWithSalt` gnss
       `Prelude.hashWithSalt` stream
 

@@ -106,7 +106,8 @@ instance Data.FromJSON ParticipatingGateways where
 
 instance Prelude.Hashable ParticipatingGateways where
   hashWithSalt _salt ParticipatingGateways' {..} =
-    _salt `Prelude.hashWithSalt` downlinkMode
+    _salt
+      `Prelude.hashWithSalt` downlinkMode
       `Prelude.hashWithSalt` gatewayList
       `Prelude.hashWithSalt` transmissionInterval
 

@@ -40,6 +40,8 @@ data WirelessDeviceStatistics = WirelessDeviceStatistics'
     -- | The ID of the wireless device reporting the data.
     id :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the most recent uplink was received.
+    --
+    -- Theis value is only valid for 3 months.
     lastUplinkReceivedAt :: Prelude.Maybe Prelude.Text,
     -- | LoRaWAN device info.
     loRaWAN :: Prelude.Maybe LoRaWANListDevice,
@@ -72,6 +74,8 @@ data WirelessDeviceStatistics = WirelessDeviceStatistics'
 -- 'id', 'wirelessDeviceStatistics_id' - The ID of the wireless device reporting the data.
 --
 -- 'lastUplinkReceivedAt', 'wirelessDeviceStatistics_lastUplinkReceivedAt' - The date and time when the most recent uplink was received.
+--
+-- Theis value is only valid for 3 months.
 --
 -- 'loRaWAN', 'wirelessDeviceStatistics_loRaWAN' - LoRaWAN device info.
 --
@@ -118,6 +122,8 @@ wirelessDeviceStatistics_id :: Lens.Lens' WirelessDeviceStatistics (Prelude.Mayb
 wirelessDeviceStatistics_id = Lens.lens (\WirelessDeviceStatistics' {id} -> id) (\s@WirelessDeviceStatistics' {} a -> s {id = a} :: WirelessDeviceStatistics)
 
 -- | The date and time when the most recent uplink was received.
+--
+-- Theis value is only valid for 3 months.
 wirelessDeviceStatistics_lastUplinkReceivedAt :: Lens.Lens' WirelessDeviceStatistics (Prelude.Maybe Prelude.Text)
 wirelessDeviceStatistics_lastUplinkReceivedAt = Lens.lens (\WirelessDeviceStatistics' {lastUplinkReceivedAt} -> lastUplinkReceivedAt) (\s@WirelessDeviceStatistics' {} a -> s {lastUplinkReceivedAt = a} :: WirelessDeviceStatistics)
 
@@ -166,7 +172,8 @@ instance Data.FromJSON WirelessDeviceStatistics where
 
 instance Prelude.Hashable WirelessDeviceStatistics where
   hashWithSalt _salt WirelessDeviceStatistics' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` destinationName
       `Prelude.hashWithSalt` fuotaDeviceStatus
       `Prelude.hashWithSalt` id

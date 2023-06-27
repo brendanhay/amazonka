@@ -251,7 +251,8 @@ instance
     LoRaWANGetServiceProfileInfo
   where
   hashWithSalt _salt LoRaWANGetServiceProfileInfo' {..} =
-    _salt `Prelude.hashWithSalt` addGwMetadata
+    _salt
+      `Prelude.hashWithSalt` addGwMetadata
       `Prelude.hashWithSalt` channelMask
       `Prelude.hashWithSalt` devStatusReqFreq
       `Prelude.hashWithSalt` dlBucketSize

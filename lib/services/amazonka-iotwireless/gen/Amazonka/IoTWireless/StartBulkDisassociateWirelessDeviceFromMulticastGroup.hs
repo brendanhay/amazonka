@@ -120,7 +120,8 @@ instance
   hashWithSalt
     _salt
     StartBulkDisassociateWirelessDeviceFromMulticastGroup' {..} =
-      _salt `Prelude.hashWithSalt` queryString
+      _salt
+        `Prelude.hashWithSalt` queryString
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` id
 

@@ -122,6 +122,8 @@ instance Data.ToQuery GetWirelessDeviceStatistics where
 -- | /See:/ 'newGetWirelessDeviceStatisticsResponse' smart constructor.
 data GetWirelessDeviceStatisticsResponse = GetWirelessDeviceStatisticsResponse'
   { -- | The date and time when the most recent uplink was received.
+    --
+    -- This value is only valid for 3 months.
     lastUplinkReceivedAt :: Prelude.Maybe Prelude.Text,
     -- | Information about the wireless device\'s operations.
     loRaWAN :: Prelude.Maybe LoRaWANDeviceMetadata,
@@ -143,6 +145,8 @@ data GetWirelessDeviceStatisticsResponse = GetWirelessDeviceStatisticsResponse'
 -- for backwards compatibility:
 --
 -- 'lastUplinkReceivedAt', 'getWirelessDeviceStatisticsResponse_lastUplinkReceivedAt' - The date and time when the most recent uplink was received.
+--
+-- This value is only valid for 3 months.
 --
 -- 'loRaWAN', 'getWirelessDeviceStatisticsResponse_loRaWAN' - Information about the wireless device\'s operations.
 --
@@ -166,6 +170,8 @@ newGetWirelessDeviceStatisticsResponse pHttpStatus_ =
     }
 
 -- | The date and time when the most recent uplink was received.
+--
+-- This value is only valid for 3 months.
 getWirelessDeviceStatisticsResponse_lastUplinkReceivedAt :: Lens.Lens' GetWirelessDeviceStatisticsResponse (Prelude.Maybe Prelude.Text)
 getWirelessDeviceStatisticsResponse_lastUplinkReceivedAt = Lens.lens (\GetWirelessDeviceStatisticsResponse' {lastUplinkReceivedAt} -> lastUplinkReceivedAt) (\s@GetWirelessDeviceStatisticsResponse' {} a -> s {lastUplinkReceivedAt = a} :: GetWirelessDeviceStatisticsResponse)
 

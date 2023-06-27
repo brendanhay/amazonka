@@ -90,7 +90,7 @@ instance
       ( \s h x ->
           GetWirelessGatewayFirmwareInformationResponse'
             Prelude.<$> (x Data..?> "LoRaWAN")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

@@ -29,6 +29,7 @@ module Amazonka.IoTWireless.UpdateWirelessGateway
     -- * Request Lenses
     updateWirelessGateway_description,
     updateWirelessGateway_joinEuiFilters,
+    updateWirelessGateway_maxEirp,
     updateWirelessGateway_name,
     updateWirelessGateway_netIdFilters,
     updateWirelessGateway_id,
@@ -55,6 +56,8 @@ data UpdateWirelessGateway = UpdateWirelessGateway'
   { -- | A new description of the resource.
     description :: Prelude.Maybe Prelude.Text,
     joinEuiFilters :: Prelude.Maybe [Prelude.NonEmpty Prelude.Text],
+    -- | The MaxEIRP value.
+    maxEirp :: Prelude.Maybe Prelude.Double,
     -- | The new name of the resource.
     name :: Prelude.Maybe Prelude.Text,
     netIdFilters :: Prelude.Maybe [Prelude.Text],
@@ -75,6 +78,8 @@ data UpdateWirelessGateway = UpdateWirelessGateway'
 --
 -- 'joinEuiFilters', 'updateWirelessGateway_joinEuiFilters' - Undocumented member.
 --
+-- 'maxEirp', 'updateWirelessGateway_maxEirp' - The MaxEIRP value.
+--
 -- 'name', 'updateWirelessGateway_name' - The new name of the resource.
 --
 -- 'netIdFilters', 'updateWirelessGateway_netIdFilters' - Undocumented member.
@@ -89,6 +94,7 @@ newUpdateWirelessGateway pId_ =
     { description =
         Prelude.Nothing,
       joinEuiFilters = Prelude.Nothing,
+      maxEirp = Prelude.Nothing,
       name = Prelude.Nothing,
       netIdFilters = Prelude.Nothing,
       id = pId_
@@ -101,6 +107,10 @@ updateWirelessGateway_description = Lens.lens (\UpdateWirelessGateway' {descript
 -- | Undocumented member.
 updateWirelessGateway_joinEuiFilters :: Lens.Lens' UpdateWirelessGateway (Prelude.Maybe [Prelude.NonEmpty Prelude.Text])
 updateWirelessGateway_joinEuiFilters = Lens.lens (\UpdateWirelessGateway' {joinEuiFilters} -> joinEuiFilters) (\s@UpdateWirelessGateway' {} a -> s {joinEuiFilters = a} :: UpdateWirelessGateway) Prelude.. Lens.mapping Lens.coerced
+
+-- | The MaxEIRP value.
+updateWirelessGateway_maxEirp :: Lens.Lens' UpdateWirelessGateway (Prelude.Maybe Prelude.Double)
+updateWirelessGateway_maxEirp = Lens.lens (\UpdateWirelessGateway' {maxEirp} -> maxEirp) (\s@UpdateWirelessGateway' {} a -> s {maxEirp = a} :: UpdateWirelessGateway)
 
 -- | The new name of the resource.
 updateWirelessGateway_name :: Lens.Lens' UpdateWirelessGateway (Prelude.Maybe Prelude.Text)
@@ -129,8 +139,10 @@ instance Core.AWSRequest UpdateWirelessGateway where
 
 instance Prelude.Hashable UpdateWirelessGateway where
   hashWithSalt _salt UpdateWirelessGateway' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` joinEuiFilters
+      `Prelude.hashWithSalt` maxEirp
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` netIdFilters
       `Prelude.hashWithSalt` id
@@ -139,6 +151,7 @@ instance Prelude.NFData UpdateWirelessGateway where
   rnf UpdateWirelessGateway' {..} =
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf joinEuiFilters
+      `Prelude.seq` Prelude.rnf maxEirp
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf netIdFilters
       `Prelude.seq` Prelude.rnf id
@@ -153,6 +166,7 @@ instance Data.ToJSON UpdateWirelessGateway where
           [ ("Description" Data..=) Prelude.<$> description,
             ("JoinEuiFilters" Data..=)
               Prelude.<$> joinEuiFilters,
+            ("MaxEirp" Data..=) Prelude.<$> maxEirp,
             ("Name" Data..=) Prelude.<$> name,
             ("NetIdFilters" Data..=) Prelude.<$> netIdFilters
           ]

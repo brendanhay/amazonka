@@ -27,6 +27,7 @@ module Amazonka.IoTWireless.ListDeviceProfiles
     newListDeviceProfiles,
 
     -- * Request Lenses
+    listDeviceProfiles_deviceProfileType,
     listDeviceProfiles_maxResults,
     listDeviceProfiles_nextToken,
 
@@ -51,7 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDeviceProfiles' smart constructor.
 data ListDeviceProfiles = ListDeviceProfiles'
-  { -- | The maximum number of results to return in this operation.
+  { -- | A filter to list only device profiles that use this type, which can be
+    -- @LoRaWAN@ or @Sidewalk@.
+    deviceProfileType :: Prelude.Maybe DeviceProfileType,
+    -- | The maximum number of results to return in this operation.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
@@ -68,6 +72,9 @@ data ListDeviceProfiles = ListDeviceProfiles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deviceProfileType', 'listDeviceProfiles_deviceProfileType' - A filter to list only device profiles that use this type, which can be
+-- @LoRaWAN@ or @Sidewalk@.
+--
 -- 'maxResults', 'listDeviceProfiles_maxResults' - The maximum number of results to return in this operation.
 --
 -- 'nextToken', 'listDeviceProfiles_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
@@ -77,9 +84,16 @@ newListDeviceProfiles ::
   ListDeviceProfiles
 newListDeviceProfiles =
   ListDeviceProfiles'
-    { maxResults = Prelude.Nothing,
+    { deviceProfileType =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing
     }
+
+-- | A filter to list only device profiles that use this type, which can be
+-- @LoRaWAN@ or @Sidewalk@.
+listDeviceProfiles_deviceProfileType :: Lens.Lens' ListDeviceProfiles (Prelude.Maybe DeviceProfileType)
+listDeviceProfiles_deviceProfileType = Lens.lens (\ListDeviceProfiles' {deviceProfileType} -> deviceProfileType) (\s@ListDeviceProfiles' {} a -> s {deviceProfileType = a} :: ListDeviceProfiles)
 
 -- | The maximum number of results to return in this operation.
 listDeviceProfiles_maxResults :: Lens.Lens' ListDeviceProfiles (Prelude.Maybe Prelude.Natural)
@@ -101,7 +115,8 @@ instance Core.AWSRequest ListDeviceProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListDeviceProfilesResponse'
-            Prelude.<$> ( x Data..?> "DeviceProfileList"
+            Prelude.<$> ( x
+                            Data..?> "DeviceProfileList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -110,12 +125,15 @@ instance Core.AWSRequest ListDeviceProfiles where
 
 instance Prelude.Hashable ListDeviceProfiles where
   hashWithSalt _salt ListDeviceProfiles' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` deviceProfileType
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDeviceProfiles where
   rnf ListDeviceProfiles' {..} =
-    Prelude.rnf maxResults
+    Prelude.rnf deviceProfileType
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
 
 instance Data.ToHeaders ListDeviceProfiles where
@@ -127,7 +145,8 @@ instance Data.ToPath ListDeviceProfiles where
 instance Data.ToQuery ListDeviceProfiles where
   toQuery ListDeviceProfiles' {..} =
     Prelude.mconcat
-      [ "maxResults" Data.=: maxResults,
+      [ "deviceProfileType" Data.=: deviceProfileType,
+        "maxResults" Data.=: maxResults,
         "nextToken" Data.=: nextToken
       ]
 

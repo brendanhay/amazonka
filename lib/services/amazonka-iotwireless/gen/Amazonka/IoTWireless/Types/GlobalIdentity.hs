@@ -65,7 +65,8 @@ globalIdentity_geranCid = Lens.lens (\GlobalIdentity' {geranCid} -> geranCid) (\
 
 instance Prelude.Hashable GlobalIdentity where
   hashWithSalt _salt GlobalIdentity' {..} =
-    _salt `Prelude.hashWithSalt` lac
+    _salt
+      `Prelude.hashWithSalt` lac
       `Prelude.hashWithSalt` geranCid
 
 instance Prelude.NFData GlobalIdentity where

@@ -28,6 +28,8 @@ module Amazonka.IoTWireless.UpdateNetworkAnalyzerConfiguration
 
     -- * Request Lenses
     updateNetworkAnalyzerConfiguration_description,
+    updateNetworkAnalyzerConfiguration_multicastGroupsToAdd,
+    updateNetworkAnalyzerConfiguration_multicastGroupsToRemove,
     updateNetworkAnalyzerConfiguration_traceContent,
     updateNetworkAnalyzerConfiguration_wirelessDevicesToAdd,
     updateNetworkAnalyzerConfiguration_wirelessDevicesToRemove,
@@ -55,6 +57,14 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateNetworkAnalyzerConfiguration' smart constructor.
 data UpdateNetworkAnalyzerConfiguration = UpdateNetworkAnalyzerConfiguration'
   { description :: Prelude.Maybe Prelude.Text,
+    -- | Multicast group resources to add to the network analyzer configuration.
+    -- Provide the @MulticastGroupId@ of the resource to add in the input
+    -- array.
+    multicastGroupsToAdd :: Prelude.Maybe [Prelude.Text],
+    -- | Multicast group resources to remove from the network analyzer
+    -- configuration. Provide the @MulticastGroupId@ of the resource to remove
+    -- in the input array.
+    multicastGroupsToRemove :: Prelude.Maybe [Prelude.Text],
     traceContent :: Prelude.Maybe TraceContent,
     -- | Wireless device resources to add to the network analyzer configuration.
     -- Provide the @WirelessDeviceId@ of the resource to add in the input
@@ -86,6 +96,14 @@ data UpdateNetworkAnalyzerConfiguration = UpdateNetworkAnalyzerConfiguration'
 --
 -- 'description', 'updateNetworkAnalyzerConfiguration_description' - Undocumented member.
 --
+-- 'multicastGroupsToAdd', 'updateNetworkAnalyzerConfiguration_multicastGroupsToAdd' - Multicast group resources to add to the network analyzer configuration.
+-- Provide the @MulticastGroupId@ of the resource to add in the input
+-- array.
+--
+-- 'multicastGroupsToRemove', 'updateNetworkAnalyzerConfiguration_multicastGroupsToRemove' - Multicast group resources to remove from the network analyzer
+-- configuration. Provide the @MulticastGroupId@ of the resource to remove
+-- in the input array.
+--
 -- 'traceContent', 'updateNetworkAnalyzerConfiguration_traceContent' - Undocumented member.
 --
 -- 'wirelessDevicesToAdd', 'updateNetworkAnalyzerConfiguration_wirelessDevicesToAdd' - Wireless device resources to add to the network analyzer configuration.
@@ -114,6 +132,9 @@ newUpdateNetworkAnalyzerConfiguration
     UpdateNetworkAnalyzerConfiguration'
       { description =
           Prelude.Nothing,
+        multicastGroupsToAdd = Prelude.Nothing,
+        multicastGroupsToRemove =
+          Prelude.Nothing,
         traceContent = Prelude.Nothing,
         wirelessDevicesToAdd = Prelude.Nothing,
         wirelessDevicesToRemove =
@@ -127,6 +148,18 @@ newUpdateNetworkAnalyzerConfiguration
 -- | Undocumented member.
 updateNetworkAnalyzerConfiguration_description :: Lens.Lens' UpdateNetworkAnalyzerConfiguration (Prelude.Maybe Prelude.Text)
 updateNetworkAnalyzerConfiguration_description = Lens.lens (\UpdateNetworkAnalyzerConfiguration' {description} -> description) (\s@UpdateNetworkAnalyzerConfiguration' {} a -> s {description = a} :: UpdateNetworkAnalyzerConfiguration)
+
+-- | Multicast group resources to add to the network analyzer configuration.
+-- Provide the @MulticastGroupId@ of the resource to add in the input
+-- array.
+updateNetworkAnalyzerConfiguration_multicastGroupsToAdd :: Lens.Lens' UpdateNetworkAnalyzerConfiguration (Prelude.Maybe [Prelude.Text])
+updateNetworkAnalyzerConfiguration_multicastGroupsToAdd = Lens.lens (\UpdateNetworkAnalyzerConfiguration' {multicastGroupsToAdd} -> multicastGroupsToAdd) (\s@UpdateNetworkAnalyzerConfiguration' {} a -> s {multicastGroupsToAdd = a} :: UpdateNetworkAnalyzerConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | Multicast group resources to remove from the network analyzer
+-- configuration. Provide the @MulticastGroupId@ of the resource to remove
+-- in the input array.
+updateNetworkAnalyzerConfiguration_multicastGroupsToRemove :: Lens.Lens' UpdateNetworkAnalyzerConfiguration (Prelude.Maybe [Prelude.Text])
+updateNetworkAnalyzerConfiguration_multicastGroupsToRemove = Lens.lens (\UpdateNetworkAnalyzerConfiguration' {multicastGroupsToRemove} -> multicastGroupsToRemove) (\s@UpdateNetworkAnalyzerConfiguration' {} a -> s {multicastGroupsToRemove = a} :: UpdateNetworkAnalyzerConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 updateNetworkAnalyzerConfiguration_traceContent :: Lens.Lens' UpdateNetworkAnalyzerConfiguration (Prelude.Maybe TraceContent)
@@ -183,7 +216,10 @@ instance
   hashWithSalt
     _salt
     UpdateNetworkAnalyzerConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` multicastGroupsToAdd
+        `Prelude.hashWithSalt` multicastGroupsToRemove
         `Prelude.hashWithSalt` traceContent
         `Prelude.hashWithSalt` wirelessDevicesToAdd
         `Prelude.hashWithSalt` wirelessDevicesToRemove
@@ -197,6 +233,8 @@ instance
   where
   rnf UpdateNetworkAnalyzerConfiguration' {..} =
     Prelude.rnf description
+      `Prelude.seq` Prelude.rnf multicastGroupsToAdd
+      `Prelude.seq` Prelude.rnf multicastGroupsToRemove
       `Prelude.seq` Prelude.rnf traceContent
       `Prelude.seq` Prelude.rnf wirelessDevicesToAdd
       `Prelude.seq` Prelude.rnf wirelessDevicesToRemove
@@ -218,6 +256,10 @@ instance
     Data.object
       ( Prelude.catMaybes
           [ ("Description" Data..=) Prelude.<$> description,
+            ("MulticastGroupsToAdd" Data..=)
+              Prelude.<$> multicastGroupsToAdd,
+            ("MulticastGroupsToRemove" Data..=)
+              Prelude.<$> multicastGroupsToRemove,
             ("TraceContent" Data..=) Prelude.<$> traceContent,
             ("WirelessDevicesToAdd" Data..=)
               Prelude.<$> wirelessDevicesToAdd,

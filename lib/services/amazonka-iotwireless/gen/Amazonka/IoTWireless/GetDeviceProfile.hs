@@ -38,6 +38,7 @@ module Amazonka.IoTWireless.GetDeviceProfile
     getDeviceProfileResponse_id,
     getDeviceProfileResponse_loRaWAN,
     getDeviceProfileResponse_name,
+    getDeviceProfileResponse_sidewalk,
     getDeviceProfileResponse_httpStatus,
   )
 where
@@ -91,6 +92,7 @@ instance Core.AWSRequest GetDeviceProfile where
             Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (x Data..?> "LoRaWAN")
             Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Sidewalk")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -121,10 +123,12 @@ data GetDeviceProfileResponse = GetDeviceProfileResponse'
     loRaWAN :: Prelude.Maybe LoRaWANDeviceProfile,
     -- | The name of the resource.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Information about the Sidewalk parameters in the device profile.
+    sidewalk :: Prelude.Maybe SidewalkGetDeviceProfile,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetDeviceProfileResponse' with all optional fields omitted.
@@ -142,6 +146,8 @@ data GetDeviceProfileResponse = GetDeviceProfileResponse'
 --
 -- 'name', 'getDeviceProfileResponse_name' - The name of the resource.
 --
+-- 'sidewalk', 'getDeviceProfileResponse_sidewalk' - Information about the Sidewalk parameters in the device profile.
+--
 -- 'httpStatus', 'getDeviceProfileResponse_httpStatus' - The response's http status code.
 newGetDeviceProfileResponse ::
   -- | 'httpStatus'
@@ -153,6 +159,7 @@ newGetDeviceProfileResponse pHttpStatus_ =
       id = Prelude.Nothing,
       loRaWAN = Prelude.Nothing,
       name = Prelude.Nothing,
+      sidewalk = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -172,6 +179,10 @@ getDeviceProfileResponse_loRaWAN = Lens.lens (\GetDeviceProfileResponse' {loRaWA
 getDeviceProfileResponse_name :: Lens.Lens' GetDeviceProfileResponse (Prelude.Maybe Prelude.Text)
 getDeviceProfileResponse_name = Lens.lens (\GetDeviceProfileResponse' {name} -> name) (\s@GetDeviceProfileResponse' {} a -> s {name = a} :: GetDeviceProfileResponse)
 
+-- | Information about the Sidewalk parameters in the device profile.
+getDeviceProfileResponse_sidewalk :: Lens.Lens' GetDeviceProfileResponse (Prelude.Maybe SidewalkGetDeviceProfile)
+getDeviceProfileResponse_sidewalk = Lens.lens (\GetDeviceProfileResponse' {sidewalk} -> sidewalk) (\s@GetDeviceProfileResponse' {} a -> s {sidewalk = a} :: GetDeviceProfileResponse)
+
 -- | The response's http status code.
 getDeviceProfileResponse_httpStatus :: Lens.Lens' GetDeviceProfileResponse Prelude.Int
 getDeviceProfileResponse_httpStatus = Lens.lens (\GetDeviceProfileResponse' {httpStatus} -> httpStatus) (\s@GetDeviceProfileResponse' {} a -> s {httpStatus = a} :: GetDeviceProfileResponse)
@@ -182,4 +193,5 @@ instance Prelude.NFData GetDeviceProfileResponse where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf loRaWAN
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sidewalk
       `Prelude.seq` Prelude.rnf httpStatus

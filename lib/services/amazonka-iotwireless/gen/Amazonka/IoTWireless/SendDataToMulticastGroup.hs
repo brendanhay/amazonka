@@ -116,7 +116,8 @@ instance Core.AWSRequest SendDataToMulticastGroup where
 
 instance Prelude.Hashable SendDataToMulticastGroup where
   hashWithSalt _salt SendDataToMulticastGroup' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` payloadData
       `Prelude.hashWithSalt` wirelessMetadata
 

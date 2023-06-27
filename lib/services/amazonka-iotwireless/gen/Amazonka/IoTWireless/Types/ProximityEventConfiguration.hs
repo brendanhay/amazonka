@@ -84,7 +84,8 @@ instance Data.FromJSON ProximityEventConfiguration where
 
 instance Prelude.Hashable ProximityEventConfiguration where
   hashWithSalt _salt ProximityEventConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` sidewalk
+    _salt
+      `Prelude.hashWithSalt` sidewalk
       `Prelude.hashWithSalt` wirelessDeviceIdEventTopic
 
 instance Prelude.NFData ProximityEventConfiguration where

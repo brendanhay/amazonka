@@ -130,7 +130,8 @@ instance Core.AWSRequest UpdateDestination where
 
 instance Prelude.Hashable UpdateDestination where
   hashWithSalt _salt UpdateDestination' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` expressionType
       `Prelude.hashWithSalt` roleArn

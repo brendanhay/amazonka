@@ -124,7 +124,8 @@ instance Core.AWSRequest GetWirelessDevice where
 
 instance Prelude.Hashable GetWirelessDevice where
   hashWithSalt _salt GetWirelessDevice' {..} =
-    _salt `Prelude.hashWithSalt` identifier
+    _salt
+      `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` identifierType
 
 instance Prelude.NFData GetWirelessDevice where

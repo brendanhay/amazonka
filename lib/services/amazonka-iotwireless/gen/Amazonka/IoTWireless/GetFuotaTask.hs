@@ -39,9 +39,12 @@ module Amazonka.IoTWireless.GetFuotaTask
     getFuotaTaskResponse_description,
     getFuotaTaskResponse_firmwareUpdateImage,
     getFuotaTaskResponse_firmwareUpdateRole,
+    getFuotaTaskResponse_fragmentIntervalMS,
+    getFuotaTaskResponse_fragmentSizeBytes,
     getFuotaTaskResponse_id,
     getFuotaTaskResponse_loRaWAN,
     getFuotaTaskResponse_name,
+    getFuotaTaskResponse_redundancyPercent,
     getFuotaTaskResponse_status,
     getFuotaTaskResponse_httpStatus,
   )
@@ -93,9 +96,12 @@ instance Core.AWSRequest GetFuotaTask where
             Prelude.<*> (x Data..?> "Description")
             Prelude.<*> (x Data..?> "FirmwareUpdateImage")
             Prelude.<*> (x Data..?> "FirmwareUpdateRole")
+            Prelude.<*> (x Data..?> "FragmentIntervalMS")
+            Prelude.<*> (x Data..?> "FragmentSizeBytes")
             Prelude.<*> (x Data..?> "Id")
             Prelude.<*> (x Data..?> "LoRaWAN")
             Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "RedundancyPercent")
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -124,9 +130,12 @@ data GetFuotaTaskResponse = GetFuotaTaskResponse'
     description :: Prelude.Maybe Prelude.Text,
     firmwareUpdateImage :: Prelude.Maybe Prelude.Text,
     firmwareUpdateRole :: Prelude.Maybe Prelude.Text,
+    fragmentIntervalMS :: Prelude.Maybe Prelude.Natural,
+    fragmentSizeBytes :: Prelude.Maybe Prelude.Natural,
     id :: Prelude.Maybe Prelude.Text,
     loRaWAN :: Prelude.Maybe LoRaWANFuotaTaskGetInfo,
     name :: Prelude.Maybe Prelude.Text,
+    redundancyPercent :: Prelude.Maybe Prelude.Natural,
     status :: Prelude.Maybe FuotaTaskStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -151,11 +160,17 @@ data GetFuotaTaskResponse = GetFuotaTaskResponse'
 --
 -- 'firmwareUpdateRole', 'getFuotaTaskResponse_firmwareUpdateRole' - Undocumented member.
 --
+-- 'fragmentIntervalMS', 'getFuotaTaskResponse_fragmentIntervalMS' - Undocumented member.
+--
+-- 'fragmentSizeBytes', 'getFuotaTaskResponse_fragmentSizeBytes' - Undocumented member.
+--
 -- 'id', 'getFuotaTaskResponse_id' - Undocumented member.
 --
 -- 'loRaWAN', 'getFuotaTaskResponse_loRaWAN' - Undocumented member.
 --
 -- 'name', 'getFuotaTaskResponse_name' - Undocumented member.
+--
+-- 'redundancyPercent', 'getFuotaTaskResponse_redundancyPercent' - Undocumented member.
 --
 -- 'status', 'getFuotaTaskResponse_status' - Undocumented member.
 --
@@ -171,9 +186,12 @@ newGetFuotaTaskResponse pHttpStatus_ =
       description = Prelude.Nothing,
       firmwareUpdateImage = Prelude.Nothing,
       firmwareUpdateRole = Prelude.Nothing,
+      fragmentIntervalMS = Prelude.Nothing,
+      fragmentSizeBytes = Prelude.Nothing,
       id = Prelude.Nothing,
       loRaWAN = Prelude.Nothing,
       name = Prelude.Nothing,
+      redundancyPercent = Prelude.Nothing,
       status = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -199,6 +217,14 @@ getFuotaTaskResponse_firmwareUpdateRole :: Lens.Lens' GetFuotaTaskResponse (Prel
 getFuotaTaskResponse_firmwareUpdateRole = Lens.lens (\GetFuotaTaskResponse' {firmwareUpdateRole} -> firmwareUpdateRole) (\s@GetFuotaTaskResponse' {} a -> s {firmwareUpdateRole = a} :: GetFuotaTaskResponse)
 
 -- | Undocumented member.
+getFuotaTaskResponse_fragmentIntervalMS :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe Prelude.Natural)
+getFuotaTaskResponse_fragmentIntervalMS = Lens.lens (\GetFuotaTaskResponse' {fragmentIntervalMS} -> fragmentIntervalMS) (\s@GetFuotaTaskResponse' {} a -> s {fragmentIntervalMS = a} :: GetFuotaTaskResponse)
+
+-- | Undocumented member.
+getFuotaTaskResponse_fragmentSizeBytes :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe Prelude.Natural)
+getFuotaTaskResponse_fragmentSizeBytes = Lens.lens (\GetFuotaTaskResponse' {fragmentSizeBytes} -> fragmentSizeBytes) (\s@GetFuotaTaskResponse' {} a -> s {fragmentSizeBytes = a} :: GetFuotaTaskResponse)
+
+-- | Undocumented member.
 getFuotaTaskResponse_id :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe Prelude.Text)
 getFuotaTaskResponse_id = Lens.lens (\GetFuotaTaskResponse' {id} -> id) (\s@GetFuotaTaskResponse' {} a -> s {id = a} :: GetFuotaTaskResponse)
 
@@ -209,6 +235,10 @@ getFuotaTaskResponse_loRaWAN = Lens.lens (\GetFuotaTaskResponse' {loRaWAN} -> lo
 -- | Undocumented member.
 getFuotaTaskResponse_name :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe Prelude.Text)
 getFuotaTaskResponse_name = Lens.lens (\GetFuotaTaskResponse' {name} -> name) (\s@GetFuotaTaskResponse' {} a -> s {name = a} :: GetFuotaTaskResponse)
+
+-- | Undocumented member.
+getFuotaTaskResponse_redundancyPercent :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe Prelude.Natural)
+getFuotaTaskResponse_redundancyPercent = Lens.lens (\GetFuotaTaskResponse' {redundancyPercent} -> redundancyPercent) (\s@GetFuotaTaskResponse' {} a -> s {redundancyPercent = a} :: GetFuotaTaskResponse)
 
 -- | Undocumented member.
 getFuotaTaskResponse_status :: Lens.Lens' GetFuotaTaskResponse (Prelude.Maybe FuotaTaskStatus)
@@ -225,8 +255,11 @@ instance Prelude.NFData GetFuotaTaskResponse where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf firmwareUpdateImage
       `Prelude.seq` Prelude.rnf firmwareUpdateRole
+      `Prelude.seq` Prelude.rnf fragmentIntervalMS
+      `Prelude.seq` Prelude.rnf fragmentSizeBytes
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf loRaWAN
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf redundancyPercent
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

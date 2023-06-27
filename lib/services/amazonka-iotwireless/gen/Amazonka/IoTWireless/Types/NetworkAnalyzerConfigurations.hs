@@ -68,7 +68,8 @@ instance Data.FromJSON NetworkAnalyzerConfigurations where
       "NetworkAnalyzerConfigurations"
       ( \x ->
           NetworkAnalyzerConfigurations'
-            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance
@@ -76,7 +77,8 @@ instance
     NetworkAnalyzerConfigurations
   where
   hashWithSalt _salt NetworkAnalyzerConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData NetworkAnalyzerConfigurations where

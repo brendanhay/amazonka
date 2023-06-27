@@ -68,7 +68,7 @@ data GetPositionEstimate = GetPositionEstimate'
     -- IP-based solver.
     ip :: Prelude.Maybe Ip,
     -- | Optional information that specifies the time when the position
-    -- information will be resolved. It uses the UNIX timestamp format. If not
+    -- information will be resolved. It uses the Unix timestamp format. If not
     -- specified, the time at which the request was received will be used.
     timestamp :: Prelude.Maybe Data.POSIX,
     -- | Retrieves an estimated device position by resolving WLAN measurement
@@ -98,7 +98,7 @@ data GetPositionEstimate = GetPositionEstimate'
 -- IP-based solver.
 --
 -- 'timestamp', 'getPositionEstimate_timestamp' - Optional information that specifies the time when the position
--- information will be resolved. It uses the UNIX timestamp format. If not
+-- information will be resolved. It uses the Unix timestamp format. If not
 -- specified, the time at which the request was received will be used.
 --
 -- 'wiFiAccessPoints', 'getPositionEstimate_wiFiAccessPoints' - Retrieves an estimated device position by resolving WLAN measurement
@@ -133,7 +133,7 @@ getPositionEstimate_ip :: Lens.Lens' GetPositionEstimate (Prelude.Maybe Ip)
 getPositionEstimate_ip = Lens.lens (\GetPositionEstimate' {ip} -> ip) (\s@GetPositionEstimate' {} a -> s {ip = a} :: GetPositionEstimate)
 
 -- | Optional information that specifies the time when the position
--- information will be resolved. It uses the UNIX timestamp format. If not
+-- information will be resolved. It uses the Unix timestamp format. If not
 -- specified, the time at which the request was received will be used.
 getPositionEstimate_timestamp :: Lens.Lens' GetPositionEstimate (Prelude.Maybe Prelude.UTCTime)
 getPositionEstimate_timestamp = Lens.lens (\GetPositionEstimate' {timestamp} -> timestamp) (\s@GetPositionEstimate' {} a -> s {timestamp = a} :: GetPositionEstimate) Prelude.. Lens.mapping Data._Time
@@ -159,7 +159,8 @@ instance Core.AWSRequest GetPositionEstimate where
 
 instance Prelude.Hashable GetPositionEstimate where
   hashWithSalt _salt GetPositionEstimate' {..} =
-    _salt `Prelude.hashWithSalt` cellTowers
+    _salt
+      `Prelude.hashWithSalt` cellTowers
       `Prelude.hashWithSalt` gnss
       `Prelude.hashWithSalt` ip
       `Prelude.hashWithSalt` timestamp

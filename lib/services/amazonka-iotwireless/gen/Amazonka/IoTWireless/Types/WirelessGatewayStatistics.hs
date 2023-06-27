@@ -36,6 +36,8 @@ data WirelessGatewayStatistics = WirelessGatewayStatistics'
     -- | The ID of the wireless gateway reporting the data.
     id :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the most recent uplink was received.
+    --
+    -- This value is only valid for 3 months.
     lastUplinkReceivedAt :: Prelude.Maybe Prelude.Text,
     -- | LoRaWAN gateway info.
     loRaWAN :: Prelude.Maybe LoRaWANGateway,
@@ -59,6 +61,8 @@ data WirelessGatewayStatistics = WirelessGatewayStatistics'
 -- 'id', 'wirelessGatewayStatistics_id' - The ID of the wireless gateway reporting the data.
 --
 -- 'lastUplinkReceivedAt', 'wirelessGatewayStatistics_lastUplinkReceivedAt' - The date and time when the most recent uplink was received.
+--
+-- This value is only valid for 3 months.
 --
 -- 'loRaWAN', 'wirelessGatewayStatistics_loRaWAN' - LoRaWAN gateway info.
 --
@@ -88,6 +92,8 @@ wirelessGatewayStatistics_id :: Lens.Lens' WirelessGatewayStatistics (Prelude.Ma
 wirelessGatewayStatistics_id = Lens.lens (\WirelessGatewayStatistics' {id} -> id) (\s@WirelessGatewayStatistics' {} a -> s {id = a} :: WirelessGatewayStatistics)
 
 -- | The date and time when the most recent uplink was received.
+--
+-- This value is only valid for 3 months.
 wirelessGatewayStatistics_lastUplinkReceivedAt :: Lens.Lens' WirelessGatewayStatistics (Prelude.Maybe Prelude.Text)
 wirelessGatewayStatistics_lastUplinkReceivedAt = Lens.lens (\WirelessGatewayStatistics' {lastUplinkReceivedAt} -> lastUplinkReceivedAt) (\s@WirelessGatewayStatistics' {} a -> s {lastUplinkReceivedAt = a} :: WirelessGatewayStatistics)
 
@@ -115,7 +121,8 @@ instance Data.FromJSON WirelessGatewayStatistics where
 
 instance Prelude.Hashable WirelessGatewayStatistics where
   hashWithSalt _salt WirelessGatewayStatistics' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastUplinkReceivedAt

@@ -116,7 +116,8 @@ instance
   hashWithSalt
     _salt
     UpdateLogLevelsByResourceTypes' {..} =
-      _salt `Prelude.hashWithSalt` defaultLogLevel
+      _salt
+        `Prelude.hashWithSalt` defaultLogLevel
         `Prelude.hashWithSalt` wirelessDeviceLogOptions
         `Prelude.hashWithSalt` wirelessGatewayLogOptions
 

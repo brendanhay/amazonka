@@ -30,8 +30,11 @@ module Amazonka.IoTWireless.UpdateFuotaTask
     updateFuotaTask_description,
     updateFuotaTask_firmwareUpdateImage,
     updateFuotaTask_firmwareUpdateRole,
+    updateFuotaTask_fragmentIntervalMS,
+    updateFuotaTask_fragmentSizeBytes,
     updateFuotaTask_loRaWAN,
     updateFuotaTask_name,
+    updateFuotaTask_redundancyPercent,
     updateFuotaTask_id,
 
     -- * Destructuring the Response
@@ -56,8 +59,11 @@ data UpdateFuotaTask = UpdateFuotaTask'
   { description :: Prelude.Maybe Prelude.Text,
     firmwareUpdateImage :: Prelude.Maybe Prelude.Text,
     firmwareUpdateRole :: Prelude.Maybe Prelude.Text,
+    fragmentIntervalMS :: Prelude.Maybe Prelude.Natural,
+    fragmentSizeBytes :: Prelude.Maybe Prelude.Natural,
     loRaWAN :: Prelude.Maybe LoRaWANFuotaTask,
     name :: Prelude.Maybe Prelude.Text,
+    redundancyPercent :: Prelude.Maybe Prelude.Natural,
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,9 +82,15 @@ data UpdateFuotaTask = UpdateFuotaTask'
 --
 -- 'firmwareUpdateRole', 'updateFuotaTask_firmwareUpdateRole' - Undocumented member.
 --
+-- 'fragmentIntervalMS', 'updateFuotaTask_fragmentIntervalMS' - Undocumented member.
+--
+-- 'fragmentSizeBytes', 'updateFuotaTask_fragmentSizeBytes' - Undocumented member.
+--
 -- 'loRaWAN', 'updateFuotaTask_loRaWAN' - Undocumented member.
 --
 -- 'name', 'updateFuotaTask_name' - Undocumented member.
+--
+-- 'redundancyPercent', 'updateFuotaTask_redundancyPercent' - Undocumented member.
 --
 -- 'id', 'updateFuotaTask_id' - Undocumented member.
 newUpdateFuotaTask ::
@@ -90,8 +102,11 @@ newUpdateFuotaTask pId_ =
     { description = Prelude.Nothing,
       firmwareUpdateImage = Prelude.Nothing,
       firmwareUpdateRole = Prelude.Nothing,
+      fragmentIntervalMS = Prelude.Nothing,
+      fragmentSizeBytes = Prelude.Nothing,
       loRaWAN = Prelude.Nothing,
       name = Prelude.Nothing,
+      redundancyPercent = Prelude.Nothing,
       id = pId_
     }
 
@@ -108,12 +123,24 @@ updateFuotaTask_firmwareUpdateRole :: Lens.Lens' UpdateFuotaTask (Prelude.Maybe 
 updateFuotaTask_firmwareUpdateRole = Lens.lens (\UpdateFuotaTask' {firmwareUpdateRole} -> firmwareUpdateRole) (\s@UpdateFuotaTask' {} a -> s {firmwareUpdateRole = a} :: UpdateFuotaTask)
 
 -- | Undocumented member.
+updateFuotaTask_fragmentIntervalMS :: Lens.Lens' UpdateFuotaTask (Prelude.Maybe Prelude.Natural)
+updateFuotaTask_fragmentIntervalMS = Lens.lens (\UpdateFuotaTask' {fragmentIntervalMS} -> fragmentIntervalMS) (\s@UpdateFuotaTask' {} a -> s {fragmentIntervalMS = a} :: UpdateFuotaTask)
+
+-- | Undocumented member.
+updateFuotaTask_fragmentSizeBytes :: Lens.Lens' UpdateFuotaTask (Prelude.Maybe Prelude.Natural)
+updateFuotaTask_fragmentSizeBytes = Lens.lens (\UpdateFuotaTask' {fragmentSizeBytes} -> fragmentSizeBytes) (\s@UpdateFuotaTask' {} a -> s {fragmentSizeBytes = a} :: UpdateFuotaTask)
+
+-- | Undocumented member.
 updateFuotaTask_loRaWAN :: Lens.Lens' UpdateFuotaTask (Prelude.Maybe LoRaWANFuotaTask)
 updateFuotaTask_loRaWAN = Lens.lens (\UpdateFuotaTask' {loRaWAN} -> loRaWAN) (\s@UpdateFuotaTask' {} a -> s {loRaWAN = a} :: UpdateFuotaTask)
 
 -- | Undocumented member.
 updateFuotaTask_name :: Lens.Lens' UpdateFuotaTask (Prelude.Maybe Prelude.Text)
 updateFuotaTask_name = Lens.lens (\UpdateFuotaTask' {name} -> name) (\s@UpdateFuotaTask' {} a -> s {name = a} :: UpdateFuotaTask)
+
+-- | Undocumented member.
+updateFuotaTask_redundancyPercent :: Lens.Lens' UpdateFuotaTask (Prelude.Maybe Prelude.Natural)
+updateFuotaTask_redundancyPercent = Lens.lens (\UpdateFuotaTask' {redundancyPercent} -> redundancyPercent) (\s@UpdateFuotaTask' {} a -> s {redundancyPercent = a} :: UpdateFuotaTask)
 
 -- | Undocumented member.
 updateFuotaTask_id :: Lens.Lens' UpdateFuotaTask Prelude.Text
@@ -134,11 +161,15 @@ instance Core.AWSRequest UpdateFuotaTask where
 
 instance Prelude.Hashable UpdateFuotaTask where
   hashWithSalt _salt UpdateFuotaTask' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` firmwareUpdateImage
       `Prelude.hashWithSalt` firmwareUpdateRole
+      `Prelude.hashWithSalt` fragmentIntervalMS
+      `Prelude.hashWithSalt` fragmentSizeBytes
       `Prelude.hashWithSalt` loRaWAN
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` redundancyPercent
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateFuotaTask where
@@ -146,8 +177,11 @@ instance Prelude.NFData UpdateFuotaTask where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf firmwareUpdateImage
       `Prelude.seq` Prelude.rnf firmwareUpdateRole
+      `Prelude.seq` Prelude.rnf fragmentIntervalMS
+      `Prelude.seq` Prelude.rnf fragmentSizeBytes
       `Prelude.seq` Prelude.rnf loRaWAN
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf redundancyPercent
       `Prelude.seq` Prelude.rnf id
 
 instance Data.ToHeaders UpdateFuotaTask where
@@ -162,8 +196,14 @@ instance Data.ToJSON UpdateFuotaTask where
               Prelude.<$> firmwareUpdateImage,
             ("FirmwareUpdateRole" Data..=)
               Prelude.<$> firmwareUpdateRole,
+            ("FragmentIntervalMS" Data..=)
+              Prelude.<$> fragmentIntervalMS,
+            ("FragmentSizeBytes" Data..=)
+              Prelude.<$> fragmentSizeBytes,
             ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
-            ("Name" Data..=) Prelude.<$> name
+            ("Name" Data..=) Prelude.<$> name,
+            ("RedundancyPercent" Data..=)
+              Prelude.<$> redundancyPercent
           ]
       )
 

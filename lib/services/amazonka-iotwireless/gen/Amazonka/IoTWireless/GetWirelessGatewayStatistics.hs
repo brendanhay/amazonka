@@ -125,6 +125,8 @@ data GetWirelessGatewayStatisticsResponse = GetWirelessGatewayStatisticsResponse
   { -- | The connection status of the wireless gateway.
     connectionStatus :: Prelude.Maybe ConnectionStatus,
     -- | The date and time when the most recent uplink was received.
+    --
+    -- This value is only valid for 3 months.
     lastUplinkReceivedAt :: Prelude.Maybe Prelude.Text,
     -- | The ID of the wireless gateway.
     wirelessGatewayId :: Prelude.Maybe Prelude.Text,
@@ -144,6 +146,8 @@ data GetWirelessGatewayStatisticsResponse = GetWirelessGatewayStatisticsResponse
 -- 'connectionStatus', 'getWirelessGatewayStatisticsResponse_connectionStatus' - The connection status of the wireless gateway.
 --
 -- 'lastUplinkReceivedAt', 'getWirelessGatewayStatisticsResponse_lastUplinkReceivedAt' - The date and time when the most recent uplink was received.
+--
+-- This value is only valid for 3 months.
 --
 -- 'wirelessGatewayId', 'getWirelessGatewayStatisticsResponse_wirelessGatewayId' - The ID of the wireless gateway.
 --
@@ -167,6 +171,8 @@ getWirelessGatewayStatisticsResponse_connectionStatus :: Lens.Lens' GetWirelessG
 getWirelessGatewayStatisticsResponse_connectionStatus = Lens.lens (\GetWirelessGatewayStatisticsResponse' {connectionStatus} -> connectionStatus) (\s@GetWirelessGatewayStatisticsResponse' {} a -> s {connectionStatus = a} :: GetWirelessGatewayStatisticsResponse)
 
 -- | The date and time when the most recent uplink was received.
+--
+-- This value is only valid for 3 months.
 getWirelessGatewayStatisticsResponse_lastUplinkReceivedAt :: Lens.Lens' GetWirelessGatewayStatisticsResponse (Prelude.Maybe Prelude.Text)
 getWirelessGatewayStatisticsResponse_lastUplinkReceivedAt = Lens.lens (\GetWirelessGatewayStatisticsResponse' {lastUplinkReceivedAt} -> lastUplinkReceivedAt) (\s@GetWirelessGatewayStatisticsResponse' {} a -> s {lastUplinkReceivedAt = a} :: GetWirelessGatewayStatisticsResponse)
 

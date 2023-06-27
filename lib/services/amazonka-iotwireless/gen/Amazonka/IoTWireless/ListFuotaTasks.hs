@@ -107,7 +107,8 @@ instance Core.AWSRequest ListFuotaTasks where
 
 instance Prelude.Hashable ListFuotaTasks where
   hashWithSalt _salt ListFuotaTasks' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListFuotaTasks where

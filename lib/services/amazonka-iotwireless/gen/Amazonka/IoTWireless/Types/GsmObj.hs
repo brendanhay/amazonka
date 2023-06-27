@@ -134,7 +134,8 @@ gsmObj_geranCid = Lens.lens (\GsmObj' {geranCid} -> geranCid) (\s@GsmObj' {} a -
 
 instance Prelude.Hashable GsmObj where
   hashWithSalt _salt GsmObj' {..} =
-    _salt `Prelude.hashWithSalt` gsmLocalId
+    _salt
+      `Prelude.hashWithSalt` gsmLocalId
       `Prelude.hashWithSalt` gsmNmr
       `Prelude.hashWithSalt` gsmTimingAdvance
       `Prelude.hashWithSalt` rxLevel

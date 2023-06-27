@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 data CdmaObj = CdmaObj'
   { -- | CDMA base station latitude in degrees.
     baseLat :: Prelude.Maybe Prelude.Double,
-    -- | CDMA base station longtitude in degrees.
+    -- | CDMA base station longitude in degrees.
     baseLng :: Prelude.Maybe Prelude.Double,
     -- | CDMA local identification (local ID) parameters.
     cdmaLocalId :: Prelude.Maybe CdmaLocalId,
@@ -62,7 +62,7 @@ data CdmaObj = CdmaObj'
 --
 -- 'baseLat', 'cdmaObj_baseLat' - CDMA base station latitude in degrees.
 --
--- 'baseLng', 'cdmaObj_baseLng' - CDMA base station longtitude in degrees.
+-- 'baseLng', 'cdmaObj_baseLng' - CDMA base station longitude in degrees.
 --
 -- 'cdmaLocalId', 'cdmaObj_cdmaLocalId' - CDMA local identification (local ID) parameters.
 --
@@ -103,7 +103,7 @@ newCdmaObj pSystemId_ pNetworkId_ pBaseStationId_ =
 cdmaObj_baseLat :: Lens.Lens' CdmaObj (Prelude.Maybe Prelude.Double)
 cdmaObj_baseLat = Lens.lens (\CdmaObj' {baseLat} -> baseLat) (\s@CdmaObj' {} a -> s {baseLat = a} :: CdmaObj)
 
--- | CDMA base station longtitude in degrees.
+-- | CDMA base station longitude in degrees.
 cdmaObj_baseLng :: Lens.Lens' CdmaObj (Prelude.Maybe Prelude.Double)
 cdmaObj_baseLng = Lens.lens (\CdmaObj' {baseLng} -> baseLng) (\s@CdmaObj' {} a -> s {baseLng = a} :: CdmaObj)
 
@@ -138,7 +138,8 @@ cdmaObj_baseStationId = Lens.lens (\CdmaObj' {baseStationId} -> baseStationId) (
 
 instance Prelude.Hashable CdmaObj where
   hashWithSalt _salt CdmaObj' {..} =
-    _salt `Prelude.hashWithSalt` baseLat
+    _salt
+      `Prelude.hashWithSalt` baseLat
       `Prelude.hashWithSalt` baseLng
       `Prelude.hashWithSalt` cdmaLocalId
       `Prelude.hashWithSalt` cdmaNmr

@@ -66,7 +66,8 @@ gsmLocalId_bcch = Lens.lens (\GsmLocalId' {bcch} -> bcch) (\s@GsmLocalId' {} a -
 
 instance Prelude.Hashable GsmLocalId where
   hashWithSalt _salt GsmLocalId' {..} =
-    _salt `Prelude.hashWithSalt` bsic
+    _salt
+      `Prelude.hashWithSalt` bsic
       `Prelude.hashWithSalt` bcch
 
 instance Prelude.NFData GsmLocalId where

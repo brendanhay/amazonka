@@ -32,7 +32,7 @@ data Gnss = Gnss'
     -- capture time, specified in meters above the WGS84 reference ellipsoid.
     assistAltitude :: Prelude.Maybe Prelude.Double,
     -- | Optional assistance position information, specified using latitude and
-    -- longitude values in degrees. The co-ordinates are inside the WGS84
+    -- longitude values in degrees. The coordinates are inside the WGS84
     -- reference frame.
     assistPosition :: Prelude.Maybe (Prelude.NonEmpty Prelude.Double),
     -- | Optional parameter that gives an estimate of the time when the GNSS scan
@@ -65,7 +65,7 @@ data Gnss = Gnss'
 -- capture time, specified in meters above the WGS84 reference ellipsoid.
 --
 -- 'assistPosition', 'gnss_assistPosition' - Optional assistance position information, specified using latitude and
--- longitude values in degrees. The co-ordinates are inside the WGS84
+-- longitude values in degrees. The coordinates are inside the WGS84
 -- reference frame.
 --
 -- 'captureTime', 'gnss_captureTime' - Optional parameter that gives an estimate of the time when the GNSS scan
@@ -102,7 +102,7 @@ gnss_assistAltitude :: Lens.Lens' Gnss (Prelude.Maybe Prelude.Double)
 gnss_assistAltitude = Lens.lens (\Gnss' {assistAltitude} -> assistAltitude) (\s@Gnss' {} a -> s {assistAltitude = a} :: Gnss)
 
 -- | Optional assistance position information, specified using latitude and
--- longitude values in degrees. The co-ordinates are inside the WGS84
+-- longitude values in degrees. The coordinates are inside the WGS84
 -- reference frame.
 gnss_assistPosition :: Lens.Lens' Gnss (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
 gnss_assistPosition = Lens.lens (\Gnss' {assistPosition} -> assistPosition) (\s@Gnss' {} a -> s {assistPosition = a} :: Gnss) Prelude.. Lens.mapping Lens.coerced
@@ -132,7 +132,8 @@ gnss_payload = Lens.lens (\Gnss' {payload} -> payload) (\s@Gnss' {} a -> s {payl
 
 instance Prelude.Hashable Gnss where
   hashWithSalt _salt Gnss' {..} =
-    _salt `Prelude.hashWithSalt` assistAltitude
+    _salt
+      `Prelude.hashWithSalt` assistAltitude
       `Prelude.hashWithSalt` assistPosition
       `Prelude.hashWithSalt` captureTime
       `Prelude.hashWithSalt` captureTimeAccuracy

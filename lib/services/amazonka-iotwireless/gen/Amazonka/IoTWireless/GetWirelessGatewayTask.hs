@@ -117,6 +117,8 @@ instance Data.ToQuery GetWirelessGatewayTask where
 -- | /See:/ 'newGetWirelessGatewayTaskResponse' smart constructor.
 data GetWirelessGatewayTaskResponse = GetWirelessGatewayTaskResponse'
   { -- | The date and time when the most recent uplink was received.
+    --
+    -- This value is only valid for 3 months.
     lastUplinkReceivedAt :: Prelude.Maybe Prelude.Text,
     -- | The status of the request.
     status :: Prelude.Maybe WirelessGatewayTaskStatus,
@@ -140,6 +142,8 @@ data GetWirelessGatewayTaskResponse = GetWirelessGatewayTaskResponse'
 -- for backwards compatibility:
 --
 -- 'lastUplinkReceivedAt', 'getWirelessGatewayTaskResponse_lastUplinkReceivedAt' - The date and time when the most recent uplink was received.
+--
+-- This value is only valid for 3 months.
 --
 -- 'status', 'getWirelessGatewayTaskResponse_status' - The status of the request.
 --
@@ -167,6 +171,8 @@ newGetWirelessGatewayTaskResponse pHttpStatus_ =
     }
 
 -- | The date and time when the most recent uplink was received.
+--
+-- This value is only valid for 3 months.
 getWirelessGatewayTaskResponse_lastUplinkReceivedAt :: Lens.Lens' GetWirelessGatewayTaskResponse (Prelude.Maybe Prelude.Text)
 getWirelessGatewayTaskResponse_lastUplinkReceivedAt = Lens.lens (\GetWirelessGatewayTaskResponse' {lastUplinkReceivedAt} -> lastUplinkReceivedAt) (\s@GetWirelessGatewayTaskResponse' {} a -> s {lastUplinkReceivedAt = a} :: GetWirelessGatewayTaskResponse)
 

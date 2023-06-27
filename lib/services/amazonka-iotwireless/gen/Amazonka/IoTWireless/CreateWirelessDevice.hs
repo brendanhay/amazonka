@@ -32,6 +32,7 @@ module Amazonka.IoTWireless.CreateWirelessDevice
     createWirelessDevice_loRaWAN,
     createWirelessDevice_name,
     createWirelessDevice_positioning,
+    createWirelessDevice_sidewalk,
     createWirelessDevice_tags,
     createWirelessDevice_type,
     createWirelessDevice_destinationName,
@@ -72,6 +73,9 @@ data CreateWirelessDevice = CreateWirelessDevice'
     -- | FPort values for the GNSS, stream, and ClockSync functions of the
     -- positioning information.
     positioning :: Prelude.Maybe PositioningConfigStatus,
+    -- | The device configuration information to use to create the Sidewalk
+    -- device.
+    sidewalk :: Prelude.Maybe SidewalkCreateWirelessDevice,
     -- | The tags to attach to the new wireless device. Tags are metadata that
     -- you can use to manage a resource.
     tags :: Prelude.Maybe [Tag],
@@ -105,6 +109,9 @@ data CreateWirelessDevice = CreateWirelessDevice'
 -- 'positioning', 'createWirelessDevice_positioning' - FPort values for the GNSS, stream, and ClockSync functions of the
 -- positioning information.
 --
+-- 'sidewalk', 'createWirelessDevice_sidewalk' - The device configuration information to use to create the Sidewalk
+-- device.
+--
 -- 'tags', 'createWirelessDevice_tags' - The tags to attach to the new wireless device. Tags are metadata that
 -- you can use to manage a resource.
 --
@@ -125,6 +132,7 @@ newCreateWirelessDevice pType_ pDestinationName_ =
       loRaWAN = Prelude.Nothing,
       name = Prelude.Nothing,
       positioning = Prelude.Nothing,
+      sidewalk = Prelude.Nothing,
       tags = Prelude.Nothing,
       type' = pType_,
       destinationName = pDestinationName_
@@ -154,6 +162,11 @@ createWirelessDevice_name = Lens.lens (\CreateWirelessDevice' {name} -> name) (\
 -- positioning information.
 createWirelessDevice_positioning :: Lens.Lens' CreateWirelessDevice (Prelude.Maybe PositioningConfigStatus)
 createWirelessDevice_positioning = Lens.lens (\CreateWirelessDevice' {positioning} -> positioning) (\s@CreateWirelessDevice' {} a -> s {positioning = a} :: CreateWirelessDevice)
+
+-- | The device configuration information to use to create the Sidewalk
+-- device.
+createWirelessDevice_sidewalk :: Lens.Lens' CreateWirelessDevice (Prelude.Maybe SidewalkCreateWirelessDevice)
+createWirelessDevice_sidewalk = Lens.lens (\CreateWirelessDevice' {sidewalk} -> sidewalk) (\s@CreateWirelessDevice' {} a -> s {sidewalk = a} :: CreateWirelessDevice)
 
 -- | The tags to attach to the new wireless device. Tags are metadata that
 -- you can use to manage a resource.
@@ -185,11 +198,13 @@ instance Core.AWSRequest CreateWirelessDevice where
 
 instance Prelude.Hashable CreateWirelessDevice where
   hashWithSalt _salt CreateWirelessDevice' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` loRaWAN
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` positioning
+      `Prelude.hashWithSalt` sidewalk
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` destinationName
@@ -201,6 +216,7 @@ instance Prelude.NFData CreateWirelessDevice where
       `Prelude.seq` Prelude.rnf loRaWAN
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf positioning
+      `Prelude.seq` Prelude.rnf sidewalk
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf destinationName
@@ -218,6 +234,7 @@ instance Data.ToJSON CreateWirelessDevice where
             ("LoRaWAN" Data..=) Prelude.<$> loRaWAN,
             ("Name" Data..=) Prelude.<$> name,
             ("Positioning" Data..=) Prelude.<$> positioning,
+            ("Sidewalk" Data..=) Prelude.<$> sidewalk,
             ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Type" Data..= type'),
             Prelude.Just

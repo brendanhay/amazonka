@@ -92,7 +92,8 @@ cdmaNmrObj_cdmaChannel = Lens.lens (\CdmaNmrObj' {cdmaChannel} -> cdmaChannel) (
 
 instance Prelude.Hashable CdmaNmrObj where
   hashWithSalt _salt CdmaNmrObj' {..} =
-    _salt `Prelude.hashWithSalt` baseStationId
+    _salt
+      `Prelude.hashWithSalt` baseStationId
       `Prelude.hashWithSalt` pilotPower
       `Prelude.hashWithSalt` pnOffset
       `Prelude.hashWithSalt` cdmaChannel

@@ -113,7 +113,8 @@ instance
   hashWithSalt
     _salt
     AssociateWirelessDeviceWithMulticastGroup' {..} =
-      _salt `Prelude.hashWithSalt` id
+      _salt
+        `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` wirelessDeviceId
 
 instance

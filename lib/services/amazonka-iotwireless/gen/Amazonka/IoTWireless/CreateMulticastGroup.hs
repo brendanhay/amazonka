@@ -141,7 +141,8 @@ instance Core.AWSRequest CreateMulticastGroup where
 
 instance Prelude.Hashable CreateMulticastGroup where
   hashWithSalt _salt CreateMulticastGroup' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags

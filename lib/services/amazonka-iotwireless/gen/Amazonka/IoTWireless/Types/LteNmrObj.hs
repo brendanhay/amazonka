@@ -109,7 +109,8 @@ lteNmrObj_eutranCid = Lens.lens (\LteNmrObj' {eutranCid} -> eutranCid) (\s@LteNm
 
 instance Prelude.Hashable LteNmrObj where
   hashWithSalt _salt LteNmrObj' {..} =
-    _salt `Prelude.hashWithSalt` rsrp
+    _salt
+      `Prelude.hashWithSalt` rsrp
       `Prelude.hashWithSalt` rsrq
       `Prelude.hashWithSalt` pci
       `Prelude.hashWithSalt` earfcn

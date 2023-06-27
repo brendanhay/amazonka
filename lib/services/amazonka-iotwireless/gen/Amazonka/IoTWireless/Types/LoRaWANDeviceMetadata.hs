@@ -115,7 +115,8 @@ instance Data.FromJSON LoRaWANDeviceMetadata where
 
 instance Prelude.Hashable LoRaWANDeviceMetadata where
   hashWithSalt _salt LoRaWANDeviceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` dataRate
+    _salt
+      `Prelude.hashWithSalt` dataRate
       `Prelude.hashWithSalt` devEui
       `Prelude.hashWithSalt` fPort
       `Prelude.hashWithSalt` frequency

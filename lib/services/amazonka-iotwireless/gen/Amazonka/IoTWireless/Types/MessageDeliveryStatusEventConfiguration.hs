@@ -89,7 +89,8 @@ instance
   hashWithSalt
     _salt
     MessageDeliveryStatusEventConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` sidewalk
+      _salt
+        `Prelude.hashWithSalt` sidewalk
         `Prelude.hashWithSalt` wirelessDeviceIdEventTopic
 
 instance

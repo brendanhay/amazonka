@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data WiFiAccessPoint = WiFiAccessPoint'
   { -- | Wi-Fi MAC Address.
     macAddress :: Prelude.Text,
-    -- | Recived signal strength of the WLAN measurement data.
+    -- | Received signal strength (dBm) of the WLAN measurement data.
     rss :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,7 +45,7 @@ data WiFiAccessPoint = WiFiAccessPoint'
 --
 -- 'macAddress', 'wiFiAccessPoint_macAddress' - Wi-Fi MAC Address.
 --
--- 'rss', 'wiFiAccessPoint_rss' - Recived signal strength of the WLAN measurement data.
+-- 'rss', 'wiFiAccessPoint_rss' - Received signal strength (dBm) of the WLAN measurement data.
 newWiFiAccessPoint ::
   -- | 'macAddress'
   Prelude.Text ->
@@ -62,13 +62,14 @@ newWiFiAccessPoint pMacAddress_ pRss_ =
 wiFiAccessPoint_macAddress :: Lens.Lens' WiFiAccessPoint Prelude.Text
 wiFiAccessPoint_macAddress = Lens.lens (\WiFiAccessPoint' {macAddress} -> macAddress) (\s@WiFiAccessPoint' {} a -> s {macAddress = a} :: WiFiAccessPoint)
 
--- | Recived signal strength of the WLAN measurement data.
+-- | Received signal strength (dBm) of the WLAN measurement data.
 wiFiAccessPoint_rss :: Lens.Lens' WiFiAccessPoint Prelude.Int
 wiFiAccessPoint_rss = Lens.lens (\WiFiAccessPoint' {rss} -> rss) (\s@WiFiAccessPoint' {} a -> s {rss = a} :: WiFiAccessPoint)
 
 instance Prelude.Hashable WiFiAccessPoint where
   hashWithSalt _salt WiFiAccessPoint' {..} =
-    _salt `Prelude.hashWithSalt` macAddress
+    _salt
+      `Prelude.hashWithSalt` macAddress
       `Prelude.hashWithSalt` rss
 
 instance Prelude.NFData WiFiAccessPoint where

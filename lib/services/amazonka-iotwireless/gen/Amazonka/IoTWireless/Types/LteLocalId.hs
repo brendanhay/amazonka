@@ -68,7 +68,8 @@ lteLocalId_earfcn = Lens.lens (\LteLocalId' {earfcn} -> earfcn) (\s@LteLocalId' 
 
 instance Prelude.Hashable LteLocalId where
   hashWithSalt _salt LteLocalId' {..} =
-    _salt `Prelude.hashWithSalt` pci
+    _salt
+      `Prelude.hashWithSalt` pci
       `Prelude.hashWithSalt` earfcn
 
 instance Prelude.NFData LteLocalId where

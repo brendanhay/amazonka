@@ -167,7 +167,8 @@ instance Core.AWSRequest ListWirelessDevices where
       ( \s h x ->
           ListWirelessDevicesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "WirelessDeviceList"
+            Prelude.<*> ( x
+                            Data..?> "WirelessDeviceList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -175,7 +176,8 @@ instance Core.AWSRequest ListWirelessDevices where
 
 instance Prelude.Hashable ListWirelessDevices where
   hashWithSalt _salt ListWirelessDevices' {..} =
-    _salt `Prelude.hashWithSalt` destinationName
+    _salt
+      `Prelude.hashWithSalt` destinationName
       `Prelude.hashWithSalt` deviceProfileId
       `Prelude.hashWithSalt` fuotaTaskId
       `Prelude.hashWithSalt` maxResults

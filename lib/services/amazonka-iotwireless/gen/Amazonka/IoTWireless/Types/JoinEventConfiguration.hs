@@ -82,7 +82,8 @@ instance Data.FromJSON JoinEventConfiguration where
 
 instance Prelude.Hashable JoinEventConfiguration where
   hashWithSalt _salt JoinEventConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` loRaWAN
+    _salt
+      `Prelude.hashWithSalt` loRaWAN
       `Prelude.hashWithSalt` wirelessDeviceIdEventTopic
 
 instance Prelude.NFData JoinEventConfiguration where

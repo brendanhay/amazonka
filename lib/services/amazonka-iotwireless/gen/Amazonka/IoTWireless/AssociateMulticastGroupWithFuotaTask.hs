@@ -110,7 +110,8 @@ instance
   hashWithSalt
     _salt
     AssociateMulticastGroupWithFuotaTask' {..} =
-      _salt `Prelude.hashWithSalt` id
+      _salt
+        `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` multicastGroupId
 
 instance

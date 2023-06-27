@@ -29,6 +29,7 @@ module Amazonka.IoTWireless.CreateNetworkAnalyzerConfiguration
     -- * Request Lenses
     createNetworkAnalyzerConfiguration_clientRequestToken,
     createNetworkAnalyzerConfiguration_description,
+    createNetworkAnalyzerConfiguration_multicastGroups,
     createNetworkAnalyzerConfiguration_tags,
     createNetworkAnalyzerConfiguration_traceContent,
     createNetworkAnalyzerConfiguration_wirelessDevices,
@@ -58,6 +59,10 @@ import qualified Amazonka.Response as Response
 data CreateNetworkAnalyzerConfiguration = CreateNetworkAnalyzerConfiguration'
   { clientRequestToken :: Prelude.Maybe Prelude.Text,
     description :: Prelude.Maybe Prelude.Text,
+    -- | Multicast Group resources to add to the network analyzer configruation.
+    -- Provide the @MulticastGroupId@ of the resource to add in the input
+    -- array.
+    multicastGroups :: Prelude.Maybe [Prelude.Text],
     tags :: Prelude.Maybe [Tag],
     traceContent :: Prelude.Maybe TraceContent,
     -- | Wireless device resources to add to the network analyzer configuration.
@@ -84,6 +89,10 @@ data CreateNetworkAnalyzerConfiguration = CreateNetworkAnalyzerConfiguration'
 --
 -- 'description', 'createNetworkAnalyzerConfiguration_description' - Undocumented member.
 --
+-- 'multicastGroups', 'createNetworkAnalyzerConfiguration_multicastGroups' - Multicast Group resources to add to the network analyzer configruation.
+-- Provide the @MulticastGroupId@ of the resource to add in the input
+-- array.
+--
 -- 'tags', 'createNetworkAnalyzerConfiguration_tags' - Undocumented member.
 --
 -- 'traceContent', 'createNetworkAnalyzerConfiguration_traceContent' - Undocumented member.
@@ -106,6 +115,7 @@ newCreateNetworkAnalyzerConfiguration pName_ =
     { clientRequestToken =
         Prelude.Nothing,
       description = Prelude.Nothing,
+      multicastGroups = Prelude.Nothing,
       tags = Prelude.Nothing,
       traceContent = Prelude.Nothing,
       wirelessDevices = Prelude.Nothing,
@@ -120,6 +130,12 @@ createNetworkAnalyzerConfiguration_clientRequestToken = Lens.lens (\CreateNetwor
 -- | Undocumented member.
 createNetworkAnalyzerConfiguration_description :: Lens.Lens' CreateNetworkAnalyzerConfiguration (Prelude.Maybe Prelude.Text)
 createNetworkAnalyzerConfiguration_description = Lens.lens (\CreateNetworkAnalyzerConfiguration' {description} -> description) (\s@CreateNetworkAnalyzerConfiguration' {} a -> s {description = a} :: CreateNetworkAnalyzerConfiguration)
+
+-- | Multicast Group resources to add to the network analyzer configruation.
+-- Provide the @MulticastGroupId@ of the resource to add in the input
+-- array.
+createNetworkAnalyzerConfiguration_multicastGroups :: Lens.Lens' CreateNetworkAnalyzerConfiguration (Prelude.Maybe [Prelude.Text])
+createNetworkAnalyzerConfiguration_multicastGroups = Lens.lens (\CreateNetworkAnalyzerConfiguration' {multicastGroups} -> multicastGroups) (\s@CreateNetworkAnalyzerConfiguration' {} a -> s {multicastGroups = a} :: CreateNetworkAnalyzerConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createNetworkAnalyzerConfiguration_tags :: Lens.Lens' CreateNetworkAnalyzerConfiguration (Prelude.Maybe [Tag])
@@ -158,8 +174,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateNetworkAnalyzerConfigurationResponse'
-            Prelude.<$> (x Data..?> "Arn") Prelude.<*> (x Data..?> "Name")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (x Data..?> "Arn")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -169,8 +186,10 @@ instance
   hashWithSalt
     _salt
     CreateNetworkAnalyzerConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` clientRequestToken
+      _salt
+        `Prelude.hashWithSalt` clientRequestToken
         `Prelude.hashWithSalt` description
+        `Prelude.hashWithSalt` multicastGroups
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` traceContent
         `Prelude.hashWithSalt` wirelessDevices
@@ -184,6 +203,7 @@ instance
   rnf CreateNetworkAnalyzerConfiguration' {..} =
     Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf multicastGroups
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf traceContent
       `Prelude.seq` Prelude.rnf wirelessDevices
@@ -206,6 +226,8 @@ instance
           [ ("ClientRequestToken" Data..=)
               Prelude.<$> clientRequestToken,
             ("Description" Data..=) Prelude.<$> description,
+            ("MulticastGroups" Data..=)
+              Prelude.<$> multicastGroups,
             ("Tags" Data..=) Prelude.<$> tags,
             ("TraceContent" Data..=) Prelude.<$> traceContent,
             ("WirelessDevices" Data..=)

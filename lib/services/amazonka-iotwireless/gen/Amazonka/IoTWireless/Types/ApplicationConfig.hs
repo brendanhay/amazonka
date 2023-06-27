@@ -95,7 +95,8 @@ instance Data.FromJSON ApplicationConfig where
 
 instance Prelude.Hashable ApplicationConfig where
   hashWithSalt _salt ApplicationConfig' {..} =
-    _salt `Prelude.hashWithSalt` destinationName
+    _salt
+      `Prelude.hashWithSalt` destinationName
       `Prelude.hashWithSalt` fPort
       `Prelude.hashWithSalt` type'
 

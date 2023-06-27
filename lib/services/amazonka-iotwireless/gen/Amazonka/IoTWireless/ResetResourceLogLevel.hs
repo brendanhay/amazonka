@@ -109,7 +109,8 @@ instance Core.AWSRequest ResetResourceLogLevel where
 
 instance Prelude.Hashable ResetResourceLogLevel where
   hashWithSalt _salt ResetResourceLogLevel' {..} =
-    _salt `Prelude.hashWithSalt` resourceIdentifier
+    _salt
+      `Prelude.hashWithSalt` resourceIdentifier
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData ResetResourceLogLevel where

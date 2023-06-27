@@ -36,6 +36,7 @@ module Amazonka.IoTWireless.GetNetworkAnalyzerConfiguration
     -- * Response Lenses
     getNetworkAnalyzerConfigurationResponse_arn,
     getNetworkAnalyzerConfigurationResponse_description,
+    getNetworkAnalyzerConfigurationResponse_multicastGroups,
     getNetworkAnalyzerConfigurationResponse_name,
     getNetworkAnalyzerConfigurationResponse_traceContent,
     getNetworkAnalyzerConfigurationResponse_wirelessDevices,
@@ -97,12 +98,18 @@ instance
           GetNetworkAnalyzerConfigurationResponse'
             Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> (x Data..?> "Name")
-            Prelude.<*> (x Data..?> "TraceContent")
-            Prelude.<*> ( x Data..?> "WirelessDevices"
+            Prelude.<*> ( x
+                            Data..?> "MulticastGroups"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "WirelessGateways"
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "TraceContent")
+            Prelude.<*> ( x
+                            Data..?> "WirelessDevices"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..?> "WirelessGateways"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -145,6 +152,9 @@ data GetNetworkAnalyzerConfigurationResponse = GetNetworkAnalyzerConfigurationRe
   { -- | The Amazon Resource Name of the new resource.
     arn :: Prelude.Maybe Prelude.Text,
     description :: Prelude.Maybe Prelude.Text,
+    -- | List of multicast group resources that have been added to the network
+    -- analyzer configuration.
+    multicastGroups :: Prelude.Maybe [Prelude.Text],
     name :: Prelude.Maybe Prelude.Text,
     traceContent :: Prelude.Maybe TraceContent,
     -- | List of wireless gateway resources that have been added to the network
@@ -170,6 +180,9 @@ data GetNetworkAnalyzerConfigurationResponse = GetNetworkAnalyzerConfigurationRe
 --
 -- 'description', 'getNetworkAnalyzerConfigurationResponse_description' - Undocumented member.
 --
+-- 'multicastGroups', 'getNetworkAnalyzerConfigurationResponse_multicastGroups' - List of multicast group resources that have been added to the network
+-- analyzer configuration.
+--
 -- 'name', 'getNetworkAnalyzerConfigurationResponse_name' - Undocumented member.
 --
 -- 'traceContent', 'getNetworkAnalyzerConfigurationResponse_traceContent' - Undocumented member.
@@ -191,6 +204,7 @@ newGetNetworkAnalyzerConfigurationResponse
       { arn =
           Prelude.Nothing,
         description = Prelude.Nothing,
+        multicastGroups = Prelude.Nothing,
         name = Prelude.Nothing,
         traceContent = Prelude.Nothing,
         wirelessDevices = Prelude.Nothing,
@@ -205,6 +219,11 @@ getNetworkAnalyzerConfigurationResponse_arn = Lens.lens (\GetNetworkAnalyzerConf
 -- | Undocumented member.
 getNetworkAnalyzerConfigurationResponse_description :: Lens.Lens' GetNetworkAnalyzerConfigurationResponse (Prelude.Maybe Prelude.Text)
 getNetworkAnalyzerConfigurationResponse_description = Lens.lens (\GetNetworkAnalyzerConfigurationResponse' {description} -> description) (\s@GetNetworkAnalyzerConfigurationResponse' {} a -> s {description = a} :: GetNetworkAnalyzerConfigurationResponse)
+
+-- | List of multicast group resources that have been added to the network
+-- analyzer configuration.
+getNetworkAnalyzerConfigurationResponse_multicastGroups :: Lens.Lens' GetNetworkAnalyzerConfigurationResponse (Prelude.Maybe [Prelude.Text])
+getNetworkAnalyzerConfigurationResponse_multicastGroups = Lens.lens (\GetNetworkAnalyzerConfigurationResponse' {multicastGroups} -> multicastGroups) (\s@GetNetworkAnalyzerConfigurationResponse' {} a -> s {multicastGroups = a} :: GetNetworkAnalyzerConfigurationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getNetworkAnalyzerConfigurationResponse_name :: Lens.Lens' GetNetworkAnalyzerConfigurationResponse (Prelude.Maybe Prelude.Text)
@@ -235,6 +254,7 @@ instance
   rnf GetNetworkAnalyzerConfigurationResponse' {..} =
     Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf multicastGroups
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf traceContent
       `Prelude.seq` Prelude.rnf wirelessDevices

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Get the position information for a given wireless device or a wireless
--- gateway resource. The postion information uses the
+-- gateway resource. The position information uses the
 -- <https://gisgeography.com/wgs84-world-geodetic-system/ World Geodetic System (WGS84)>.
 module Amazonka.IoTWireless.GetResourcePosition
   ( -- * Creating a Request
@@ -53,7 +53,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newGetResourcePosition' smart constructor.
 data GetResourcePosition = GetResourcePosition'
   { -- | The identifier of the resource for which position information is
-    -- retrieved. It can be the wireless device ID or the wireless gateway ID
+    -- retrieved. It can be the wireless device ID or the wireless gateway ID,
     -- depending on the resource type.
     resourceIdentifier :: Prelude.Text,
     -- | The type of resource for which position information is retrieved, which
@@ -71,7 +71,7 @@ data GetResourcePosition = GetResourcePosition'
 -- for backwards compatibility:
 --
 -- 'resourceIdentifier', 'getResourcePosition_resourceIdentifier' - The identifier of the resource for which position information is
--- retrieved. It can be the wireless device ID or the wireless gateway ID
+-- retrieved. It can be the wireless device ID or the wireless gateway ID,
 -- depending on the resource type.
 --
 -- 'resourceType', 'getResourcePosition_resourceType' - The type of resource for which position information is retrieved, which
@@ -92,7 +92,7 @@ newGetResourcePosition
       }
 
 -- | The identifier of the resource for which position information is
--- retrieved. It can be the wireless device ID or the wireless gateway ID
+-- retrieved. It can be the wireless device ID or the wireless gateway ID,
 -- depending on the resource type.
 getResourcePosition_resourceIdentifier :: Lens.Lens' GetResourcePosition Prelude.Text
 getResourcePosition_resourceIdentifier = Lens.lens (\GetResourcePosition' {resourceIdentifier} -> resourceIdentifier) (\s@GetResourcePosition' {} a -> s {resourceIdentifier = a} :: GetResourcePosition)
@@ -118,7 +118,8 @@ instance Core.AWSRequest GetResourcePosition where
 
 instance Prelude.Hashable GetResourcePosition where
   hashWithSalt _salt GetResourcePosition' {..} =
-    _salt `Prelude.hashWithSalt` resourceIdentifier
+    _salt
+      `Prelude.hashWithSalt` resourceIdentifier
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData GetResourcePosition where

@@ -48,12 +48,15 @@ library
     Amazonka.S3Outposts.DeleteEndpoint
     Amazonka.S3Outposts.Lens
     Amazonka.S3Outposts.ListEndpoints
+    Amazonka.S3Outposts.ListOutpostsWithS3
     Amazonka.S3Outposts.ListSharedEndpoints
     Amazonka.S3Outposts.Types
     Amazonka.S3Outposts.Types.Endpoint
     Amazonka.S3Outposts.Types.EndpointAccessType
     Amazonka.S3Outposts.Types.EndpointStatus
+    Amazonka.S3Outposts.Types.FailedReason
     Amazonka.S3Outposts.Types.NetworkInterface
+    Amazonka.S3Outposts.Types.Outpost
     Amazonka.S3Outposts.Waiters
 
   build-depends:

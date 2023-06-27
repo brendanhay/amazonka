@@ -34,6 +34,13 @@ module Amazonka.S3Outposts.Lens
     listEndpointsResponse_nextToken,
     listEndpointsResponse_httpStatus,
 
+    -- ** ListOutpostsWithS3
+    listOutpostsWithS3_maxResults,
+    listOutpostsWithS3_nextToken,
+    listOutpostsWithS3Response_nextToken,
+    listOutpostsWithS3Response_outposts,
+    listOutpostsWithS3Response_httpStatus,
+
     -- ** ListSharedEndpoints
     listSharedEndpoints_maxResults,
     listSharedEndpoints_nextToken,
@@ -50,6 +57,7 @@ module Amazonka.S3Outposts.Lens
     endpoint_creationTime,
     endpoint_customerOwnedIpv4Pool,
     endpoint_endpointArn,
+    endpoint_failedReason,
     endpoint_networkInterfaces,
     endpoint_outpostsId,
     endpoint_securityGroupId,
@@ -57,14 +65,27 @@ module Amazonka.S3Outposts.Lens
     endpoint_subnetId,
     endpoint_vpcId,
 
+    -- ** FailedReason
+    failedReason_errorCode,
+    failedReason_message,
+
     -- ** NetworkInterface
     networkInterface_networkInterfaceId,
+
+    -- ** Outpost
+    outpost_capacityInBytes,
+    outpost_outpostArn,
+    outpost_outpostId,
+    outpost_ownerId,
   )
 where
 
 import Amazonka.S3Outposts.CreateEndpoint
 import Amazonka.S3Outposts.DeleteEndpoint
 import Amazonka.S3Outposts.ListEndpoints
+import Amazonka.S3Outposts.ListOutpostsWithS3
 import Amazonka.S3Outposts.ListSharedEndpoints
 import Amazonka.S3Outposts.Types.Endpoint
+import Amazonka.S3Outposts.Types.FailedReason
 import Amazonka.S3Outposts.Types.NetworkInterface
+import Amazonka.S3Outposts.Types.Outpost

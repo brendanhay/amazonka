@@ -36,6 +36,9 @@ import Test.Tasty
 --         , requestListEndpoints $
 --             newListEndpoints
 --
+--         , requestListOutpostsWithS3 $
+--             newListOutpostsWithS3
+--
 --         , requestListSharedEndpoints $
 --             newListSharedEndpoints
 --
@@ -50,6 +53,9 @@ import Test.Tasty
 --
 --         , responseListEndpoints $
 --             newListEndpointsResponse
+--
+--         , responseListOutpostsWithS3 $
+--             newListOutpostsWithS3Response
 --
 --         , responseListSharedEndpoints $
 --             newListSharedEndpointsResponse
@@ -76,6 +82,12 @@ requestListEndpoints =
   req
     "ListEndpoints"
     "fixture/ListEndpoints.yaml"
+
+requestListOutpostsWithS3 :: ListOutpostsWithS3 -> TestTree
+requestListOutpostsWithS3 =
+  req
+    "ListOutpostsWithS3"
+    "fixture/ListOutpostsWithS3.yaml"
 
 requestListSharedEndpoints :: ListSharedEndpoints -> TestTree
 requestListSharedEndpoints =
@@ -108,6 +120,14 @@ responseListEndpoints =
     "fixture/ListEndpointsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListEndpoints)
+
+responseListOutpostsWithS3 :: ListOutpostsWithS3Response -> TestTree
+responseListOutpostsWithS3 =
+  res
+    "ListOutpostsWithS3Response"
+    "fixture/ListOutpostsWithS3Response.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListOutpostsWithS3)
 
 responseListSharedEndpoints :: ListSharedEndpointsResponse -> TestTree
 responseListSharedEndpoints =

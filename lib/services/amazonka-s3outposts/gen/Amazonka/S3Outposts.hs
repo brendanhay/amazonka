@@ -28,8 +28,14 @@ module Amazonka.S3Outposts
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** OutpostOfflineException
+    _OutpostOfflineException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
 
     -- ** ValidationException
     _ValidationException,
@@ -58,6 +64,12 @@ module Amazonka.S3Outposts
     ListEndpointsResponse (ListEndpointsResponse'),
     newListEndpointsResponse,
 
+    -- ** ListOutpostsWithS3 (Paginated)
+    ListOutpostsWithS3 (ListOutpostsWithS3'),
+    newListOutpostsWithS3,
+    ListOutpostsWithS3Response (ListOutpostsWithS3Response'),
+    newListOutpostsWithS3Response,
+
     -- ** ListSharedEndpoints (Paginated)
     ListSharedEndpoints (ListSharedEndpoints'),
     newListSharedEndpoints,
@@ -76,9 +88,17 @@ module Amazonka.S3Outposts
     Endpoint (Endpoint'),
     newEndpoint,
 
+    -- ** FailedReason
+    FailedReason (FailedReason'),
+    newFailedReason,
+
     -- ** NetworkInterface
     NetworkInterface (NetworkInterface'),
     newNetworkInterface,
+
+    -- ** Outpost
+    Outpost (Outpost'),
+    newOutpost,
   )
 where
 
@@ -86,6 +106,7 @@ import Amazonka.S3Outposts.CreateEndpoint
 import Amazonka.S3Outposts.DeleteEndpoint
 import Amazonka.S3Outposts.Lens
 import Amazonka.S3Outposts.ListEndpoints
+import Amazonka.S3Outposts.ListOutpostsWithS3
 import Amazonka.S3Outposts.ListSharedEndpoints
 import Amazonka.S3Outposts.Types
 import Amazonka.S3Outposts.Waiters

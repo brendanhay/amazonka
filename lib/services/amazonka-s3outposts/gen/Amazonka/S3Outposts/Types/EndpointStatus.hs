@@ -21,6 +21,8 @@ module Amazonka.S3Outposts.Types.EndpointStatus
   ( EndpointStatus
       ( ..,
         EndpointStatus_Available,
+        EndpointStatus_Create_Failed,
+        EndpointStatus_Delete_Failed,
         EndpointStatus_Deleting,
         EndpointStatus_Pending
       ),
@@ -62,6 +64,12 @@ newtype EndpointStatus = EndpointStatus'
 pattern EndpointStatus_Available :: EndpointStatus
 pattern EndpointStatus_Available = EndpointStatus' "Available"
 
+pattern EndpointStatus_Create_Failed :: EndpointStatus
+pattern EndpointStatus_Create_Failed = EndpointStatus' "Create_Failed"
+
+pattern EndpointStatus_Delete_Failed :: EndpointStatus
+pattern EndpointStatus_Delete_Failed = EndpointStatus' "Delete_Failed"
+
 pattern EndpointStatus_Deleting :: EndpointStatus
 pattern EndpointStatus_Deleting = EndpointStatus' "Deleting"
 
@@ -70,6 +78,8 @@ pattern EndpointStatus_Pending = EndpointStatus' "Pending"
 
 {-# COMPLETE
   EndpointStatus_Available,
+  EndpointStatus_Create_Failed,
+  EndpointStatus_Delete_Failed,
   EndpointStatus_Deleting,
   EndpointStatus_Pending,
   EndpointStatus'

@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3Outposts.Types.EndpointAccessType
 import Amazonka.S3Outposts.Types.EndpointStatus
+import Amazonka.S3Outposts.Types.FailedReason
 import Amazonka.S3Outposts.Types.NetworkInterface
 
 -- | Amazon S3 on Outposts Access Points simplify managing data access at
@@ -47,6 +48,8 @@ data Endpoint = Endpoint'
     customerOwnedIpv4Pool :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the endpoint.
     endpointArn :: Prelude.Maybe Prelude.Text,
+    -- | The failure reason, if any, for a create or delete endpoint operation.
+    failedReason :: Prelude.Maybe FailedReason,
     -- | The network interface of the endpoint.
     networkInterfaces :: Prelude.Maybe [NetworkInterface],
     -- | The ID of the Outposts.
@@ -81,6 +84,8 @@ data Endpoint = Endpoint'
 --
 -- 'endpointArn', 'endpoint_endpointArn' - The Amazon Resource Name (ARN) of the endpoint.
 --
+-- 'failedReason', 'endpoint_failedReason' - The failure reason, if any, for a create or delete endpoint operation.
+--
 -- 'networkInterfaces', 'endpoint_networkInterfaces' - The network interface of the endpoint.
 --
 -- 'outpostsId', 'endpoint_outpostsId' - The ID of the Outposts.
@@ -101,6 +106,7 @@ newEndpoint =
       creationTime = Prelude.Nothing,
       customerOwnedIpv4Pool = Prelude.Nothing,
       endpointArn = Prelude.Nothing,
+      failedReason = Prelude.Nothing,
       networkInterfaces = Prelude.Nothing,
       outpostsId = Prelude.Nothing,
       securityGroupId = Prelude.Nothing,
@@ -129,6 +135,10 @@ endpoint_customerOwnedIpv4Pool = Lens.lens (\Endpoint' {customerOwnedIpv4Pool} -
 -- | The Amazon Resource Name (ARN) of the endpoint.
 endpoint_endpointArn :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
 endpoint_endpointArn = Lens.lens (\Endpoint' {endpointArn} -> endpointArn) (\s@Endpoint' {} a -> s {endpointArn = a} :: Endpoint)
+
+-- | The failure reason, if any, for a create or delete endpoint operation.
+endpoint_failedReason :: Lens.Lens' Endpoint (Prelude.Maybe FailedReason)
+endpoint_failedReason = Lens.lens (\Endpoint' {failedReason} -> failedReason) (\s@Endpoint' {} a -> s {failedReason = a} :: Endpoint)
 
 -- | The network interface of the endpoint.
 endpoint_networkInterfaces :: Lens.Lens' Endpoint (Prelude.Maybe [NetworkInterface])
@@ -165,7 +175,9 @@ instance Data.FromJSON Endpoint where
             Prelude.<*> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "CustomerOwnedIpv4Pool")
             Prelude.<*> (x Data..:? "EndpointArn")
-            Prelude.<*> ( x Data..:? "NetworkInterfaces"
+            Prelude.<*> (x Data..:? "FailedReason")
+            Prelude.<*> ( x
+                            Data..:? "NetworkInterfaces"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "OutpostsId")
@@ -177,11 +189,13 @@ instance Data.FromJSON Endpoint where
 
 instance Prelude.Hashable Endpoint where
   hashWithSalt _salt Endpoint' {..} =
-    _salt `Prelude.hashWithSalt` accessType
+    _salt
+      `Prelude.hashWithSalt` accessType
       `Prelude.hashWithSalt` cidrBlock
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` customerOwnedIpv4Pool
       `Prelude.hashWithSalt` endpointArn
+      `Prelude.hashWithSalt` failedReason
       `Prelude.hashWithSalt` networkInterfaces
       `Prelude.hashWithSalt` outpostsId
       `Prelude.hashWithSalt` securityGroupId
@@ -196,6 +210,7 @@ instance Prelude.NFData Endpoint where
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf customerOwnedIpv4Pool
       `Prelude.seq` Prelude.rnf endpointArn
+      `Prelude.seq` Prelude.rnf failedReason
       `Prelude.seq` Prelude.rnf networkInterfaces
       `Prelude.seq` Prelude.rnf outpostsId
       `Prelude.seq` Prelude.rnf securityGroupId

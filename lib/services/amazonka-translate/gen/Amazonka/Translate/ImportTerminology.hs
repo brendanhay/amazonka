@@ -178,7 +178,8 @@ instance Core.AWSRequest ImportTerminology where
 
 instance Prelude.Hashable ImportTerminology where
   hashWithSalt _salt ImportTerminology' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

@@ -128,6 +128,19 @@ module Amazonka.Translate.Lens
     tagResource_tags,
     tagResourceResponse_httpStatus,
 
+    -- ** TranslateDocument
+    translateDocument_settings,
+    translateDocument_terminologyNames,
+    translateDocument_document,
+    translateDocument_sourceLanguageCode,
+    translateDocument_targetLanguageCode,
+    translateDocumentResponse_appliedSettings,
+    translateDocumentResponse_appliedTerminologies,
+    translateDocumentResponse_httpStatus,
+    translateDocumentResponse_translatedDocument,
+    translateDocumentResponse_sourceLanguageCode,
+    translateDocumentResponse_targetLanguageCode,
+
     -- ** TranslateText
     translateText_settings,
     translateText_terminologyNames,
@@ -162,6 +175,10 @@ module Amazonka.Translate.Lens
     -- ** AppliedTerminology
     appliedTerminology_name,
     appliedTerminology_terms,
+
+    -- ** Document
+    document_content,
+    document_contentType,
 
     -- ** EncryptionKey
     encryptionKey_type,
@@ -267,6 +284,9 @@ module Amazonka.Translate.Lens
     textTranslationJobProperties_targetLanguageCodes,
     textTranslationJobProperties_terminologyNames,
 
+    -- ** TranslatedDocument
+    translatedDocument_content,
+
     -- ** TranslationSettings
     translationSettings_formality,
     translationSettings_profanity,
@@ -288,8 +308,10 @@ import Amazonka.Translate.ListTextTranslationJobs
 import Amazonka.Translate.StartTextTranslationJob
 import Amazonka.Translate.StopTextTranslationJob
 import Amazonka.Translate.TagResource
+import Amazonka.Translate.TranslateDocument
 import Amazonka.Translate.TranslateText
 import Amazonka.Translate.Types.AppliedTerminology
+import Amazonka.Translate.Types.Document
 import Amazonka.Translate.Types.EncryptionKey
 import Amazonka.Translate.Types.InputDataConfig
 import Amazonka.Translate.Types.JobDetails
@@ -305,6 +327,7 @@ import Amazonka.Translate.Types.TerminologyDataLocation
 import Amazonka.Translate.Types.TerminologyProperties
 import Amazonka.Translate.Types.TextTranslationJobFilter
 import Amazonka.Translate.Types.TextTranslationJobProperties
+import Amazonka.Translate.Types.TranslatedDocument
 import Amazonka.Translate.Types.TranslationSettings
 import Amazonka.Translate.UntagResource
 import Amazonka.Translate.UpdateParallelData

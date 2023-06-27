@@ -26,8 +26,9 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.Translate.Types.Formality
 import Amazonka.Translate.Types.Profanity
 
--- | Optional settings that configure the translation output. Use these
--- settings for real time translations and asynchronous translation jobs.
+-- | Settings to configure your translation output, including the option to
+-- set the formality level of the output text and the option to mask
+-- profane words and phrases.
 --
 -- /See:/ 'newTranslationSettings' smart constructor.
 data TranslationSettings = TranslationSettings'
@@ -164,7 +165,8 @@ instance Data.FromJSON TranslationSettings where
 
 instance Prelude.Hashable TranslationSettings where
   hashWithSalt _salt TranslationSettings' {..} =
-    _salt `Prelude.hashWithSalt` formality
+    _salt
+      `Prelude.hashWithSalt` formality
       `Prelude.hashWithSalt` profanity
 
 instance Prelude.NFData TranslationSettings where

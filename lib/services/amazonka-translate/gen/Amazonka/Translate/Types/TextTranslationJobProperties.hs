@@ -60,7 +60,7 @@ data TextTranslationJobProperties = TextTranslationJobProperties'
     -- | A list containing the names of the parallel data resources applied to
     -- the translation job.
     parallelDataNames :: Prelude.Maybe [Prelude.Text],
-    -- | Settings that configure the translation output.
+    -- | Settings that modify the translation output.
     settings :: Prelude.Maybe TranslationSettings,
     -- | The language code of the language of the source text. The language must
     -- be a language supported by Amazon Translate.
@@ -112,7 +112,7 @@ data TextTranslationJobProperties = TextTranslationJobProperties'
 -- 'parallelDataNames', 'textTranslationJobProperties_parallelDataNames' - A list containing the names of the parallel data resources applied to
 -- the translation job.
 --
--- 'settings', 'textTranslationJobProperties_settings' - Settings that configure the translation output.
+-- 'settings', 'textTranslationJobProperties_settings' - Settings that modify the translation output.
 --
 -- 'sourceLanguageCode', 'textTranslationJobProperties_sourceLanguageCode' - The language code of the language of the source text. The language must
 -- be a language supported by Amazon Translate.
@@ -194,7 +194,7 @@ textTranslationJobProperties_outputDataConfig = Lens.lens (\TextTranslationJobPr
 textTranslationJobProperties_parallelDataNames :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe [Prelude.Text])
 textTranslationJobProperties_parallelDataNames = Lens.lens (\TextTranslationJobProperties' {parallelDataNames} -> parallelDataNames) (\s@TextTranslationJobProperties' {} a -> s {parallelDataNames = a} :: TextTranslationJobProperties) Prelude.. Lens.mapping Lens.coerced
 
--- | Settings that configure the translation output.
+-- | Settings that modify the translation output.
 textTranslationJobProperties_settings :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe TranslationSettings)
 textTranslationJobProperties_settings = Lens.lens (\TextTranslationJobProperties' {settings} -> settings) (\s@TextTranslationJobProperties' {} a -> s {settings = a} :: TextTranslationJobProperties)
 
@@ -233,14 +233,16 @@ instance Data.FromJSON TextTranslationJobProperties where
             Prelude.<*> (x Data..:? "JobStatus")
             Prelude.<*> (x Data..:? "Message")
             Prelude.<*> (x Data..:? "OutputDataConfig")
-            Prelude.<*> ( x Data..:? "ParallelDataNames"
+            Prelude.<*> ( x
+                            Data..:? "ParallelDataNames"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Settings")
             Prelude.<*> (x Data..:? "SourceLanguageCode")
             Prelude.<*> (x Data..:? "SubmittedTime")
             Prelude.<*> (x Data..:? "TargetLanguageCodes")
-            Prelude.<*> ( x Data..:? "TerminologyNames"
+            Prelude.<*> ( x
+                            Data..:? "TerminologyNames"
                             Data..!= Prelude.mempty
                         )
       )
@@ -250,7 +252,8 @@ instance
     TextTranslationJobProperties
   where
   hashWithSalt _salt TextTranslationJobProperties' {..} =
-    _salt `Prelude.hashWithSalt` dataAccessRoleArn
+    _salt
+      `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` inputDataConfig
       `Prelude.hashWithSalt` jobDetails

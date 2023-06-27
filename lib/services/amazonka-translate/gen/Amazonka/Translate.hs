@@ -161,6 +161,12 @@ module Amazonka.Translate
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
+    -- ** TranslateDocument
+    TranslateDocument (TranslateDocument'),
+    newTranslateDocument,
+    TranslateDocumentResponse (TranslateDocumentResponse'),
+    newTranslateDocumentResponse,
+
     -- ** TranslateText
     TranslateText (TranslateText'),
     newTranslateText,
@@ -214,6 +220,10 @@ module Amazonka.Translate
     -- ** AppliedTerminology
     AppliedTerminology (AppliedTerminology'),
     newAppliedTerminology,
+
+    -- ** Document
+    Document (Document'),
+    newDocument,
 
     -- ** EncryptionKey
     EncryptionKey (EncryptionKey'),
@@ -275,6 +285,10 @@ module Amazonka.Translate
     TextTranslationJobProperties (TextTranslationJobProperties'),
     newTextTranslationJobProperties,
 
+    -- ** TranslatedDocument
+    TranslatedDocument (TranslatedDocument'),
+    newTranslatedDocument,
+
     -- ** TranslationSettings
     TranslationSettings (TranslationSettings'),
     newTranslationSettings,
@@ -297,6 +311,7 @@ import Amazonka.Translate.ListTextTranslationJobs
 import Amazonka.Translate.StartTextTranslationJob
 import Amazonka.Translate.StopTextTranslationJob
 import Amazonka.Translate.TagResource
+import Amazonka.Translate.TranslateDocument
 import Amazonka.Translate.TranslateText
 import Amazonka.Translate.Types
 import Amazonka.Translate.UntagResource

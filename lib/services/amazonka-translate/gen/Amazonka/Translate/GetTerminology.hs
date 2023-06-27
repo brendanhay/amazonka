@@ -134,7 +134,8 @@ instance Core.AWSRequest GetTerminology where
 
 instance Prelude.Hashable GetTerminology where
   hashWithSalt _salt GetTerminology' {..} =
-    _salt `Prelude.hashWithSalt` terminologyDataFormat
+    _salt
+      `Prelude.hashWithSalt` terminologyDataFormat
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetTerminology where

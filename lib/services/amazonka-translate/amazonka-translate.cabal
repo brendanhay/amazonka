@@ -60,11 +60,13 @@ library
     Amazonka.Translate.StartTextTranslationJob
     Amazonka.Translate.StopTextTranslationJob
     Amazonka.Translate.TagResource
+    Amazonka.Translate.TranslateDocument
     Amazonka.Translate.TranslateText
     Amazonka.Translate.Types
     Amazonka.Translate.Types.AppliedTerminology
     Amazonka.Translate.Types.Directionality
     Amazonka.Translate.Types.DisplayLanguageCode
+    Amazonka.Translate.Types.Document
     Amazonka.Translate.Types.EncryptionKey
     Amazonka.Translate.Types.EncryptionKeyType
     Amazonka.Translate.Types.Formality
@@ -88,6 +90,7 @@ library
     Amazonka.Translate.Types.TerminologyProperties
     Amazonka.Translate.Types.TextTranslationJobFilter
     Amazonka.Translate.Types.TextTranslationJobProperties
+    Amazonka.Translate.Types.TranslatedDocument
     Amazonka.Translate.Types.TranslationSettings
     Amazonka.Translate.UntagResource
     Amazonka.Translate.UpdateParallelData

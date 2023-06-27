@@ -72,6 +72,9 @@ import Test.Tasty
 --         , requestTagResource $
 --             newTagResource
 --
+--         , requestTranslateDocument $
+--             newTranslateDocument
+--
 --         , requestTranslateText $
 --             newTranslateText
 --
@@ -128,6 +131,9 @@ import Test.Tasty
 --
 --         , responseTagResource $
 --             newTagResourceResponse
+--
+--         , responseTranslateDocument $
+--             newTranslateDocumentResponse
 --
 --         , responseTranslateText $
 --             newTranslateTextResponse
@@ -232,6 +238,12 @@ requestTagResource =
   req
     "TagResource"
     "fixture/TagResource.yaml"
+
+requestTranslateDocument :: TranslateDocument -> TestTree
+requestTranslateDocument =
+  req
+    "TranslateDocument"
+    "fixture/TranslateDocument.yaml"
 
 requestTranslateText :: TranslateText -> TestTree
 requestTranslateText =
@@ -372,6 +384,14 @@ responseTagResource =
     "fixture/TagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseTranslateDocument :: TranslateDocumentResponse -> TestTree
+responseTranslateDocument =
+  res
+    "TranslateDocumentResponse"
+    "fixture/TranslateDocumentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TranslateDocument)
 
 responseTranslateText :: TranslateTextResponse -> TestTree
 responseTranslateText =

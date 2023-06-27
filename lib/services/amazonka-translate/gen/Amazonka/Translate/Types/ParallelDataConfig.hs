@@ -79,12 +79,14 @@ instance Data.FromJSON ParallelDataConfig where
       "ParallelDataConfig"
       ( \x ->
           ParallelDataConfig'
-            Prelude.<$> (x Data..: "S3Uri") Prelude.<*> (x Data..: "Format")
+            Prelude.<$> (x Data..: "S3Uri")
+            Prelude.<*> (x Data..: "Format")
       )
 
 instance Prelude.Hashable ParallelDataConfig where
   hashWithSalt _salt ParallelDataConfig' {..} =
-    _salt `Prelude.hashWithSalt` s3Uri
+    _salt
+      `Prelude.hashWithSalt` s3Uri
       `Prelude.hashWithSalt` format
 
 instance Prelude.NFData ParallelDataConfig where

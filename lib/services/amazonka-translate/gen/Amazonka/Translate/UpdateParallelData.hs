@@ -139,7 +139,8 @@ instance Core.AWSRequest UpdateParallelData where
 
 instance Prelude.Hashable UpdateParallelData where
   hashWithSalt _salt UpdateParallelData' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` parallelDataConfig
       `Prelude.hashWithSalt` clientToken

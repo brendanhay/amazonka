@@ -91,7 +91,8 @@ instance Data.FromJSON AppliedTerminology where
 
 instance Prelude.Hashable AppliedTerminology where
   hashWithSalt _salt AppliedTerminology' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` terms
 
 instance Prelude.NFData AppliedTerminology where

@@ -73,7 +73,8 @@ botLocaleSortBy_order = Lens.lens (\BotLocaleSortBy' {order} -> order) (\s@BotLo
 
 instance Prelude.Hashable BotLocaleSortBy where
   hashWithSalt _salt BotLocaleSortBy' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` order
 
 instance Prelude.NFData BotLocaleSortBy where

@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.BotImportSpecification
 import Amazonka.LexV2Models.Types.BotLocaleImportSpecification
 import Amazonka.LexV2Models.Types.CustomVocabularyImportSpecification
+import Amazonka.LexV2Models.Types.TestSetImportResourceSpecification
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the bot or bot locale that you want to
@@ -37,7 +38,9 @@ data ImportResourceSpecification = ImportResourceSpecification'
     botImportSpecification :: Prelude.Maybe BotImportSpecification,
     -- | Parameters for importing a bot locale.
     botLocaleImportSpecification :: Prelude.Maybe BotLocaleImportSpecification,
-    customVocabularyImportSpecification :: Prelude.Maybe CustomVocabularyImportSpecification
+    customVocabularyImportSpecification :: Prelude.Maybe CustomVocabularyImportSpecification,
+    -- | Specifications for the test set that is imported.
+    testSetImportResourceSpecification :: Prelude.Maybe TestSetImportResourceSpecification
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,6 +57,8 @@ data ImportResourceSpecification = ImportResourceSpecification'
 -- 'botLocaleImportSpecification', 'importResourceSpecification_botLocaleImportSpecification' - Parameters for importing a bot locale.
 --
 -- 'customVocabularyImportSpecification', 'importResourceSpecification_customVocabularyImportSpecification' - Undocumented member.
+--
+-- 'testSetImportResourceSpecification', 'importResourceSpecification_testSetImportResourceSpecification' - Specifications for the test set that is imported.
 newImportResourceSpecification ::
   ImportResourceSpecification
 newImportResourceSpecification =
@@ -62,6 +67,8 @@ newImportResourceSpecification =
         Prelude.Nothing,
       botLocaleImportSpecification = Prelude.Nothing,
       customVocabularyImportSpecification =
+        Prelude.Nothing,
+      testSetImportResourceSpecification =
         Prelude.Nothing
     }
 
@@ -77,6 +84,10 @@ importResourceSpecification_botLocaleImportSpecification = Lens.lens (\ImportRes
 importResourceSpecification_customVocabularyImportSpecification :: Lens.Lens' ImportResourceSpecification (Prelude.Maybe CustomVocabularyImportSpecification)
 importResourceSpecification_customVocabularyImportSpecification = Lens.lens (\ImportResourceSpecification' {customVocabularyImportSpecification} -> customVocabularyImportSpecification) (\s@ImportResourceSpecification' {} a -> s {customVocabularyImportSpecification = a} :: ImportResourceSpecification)
 
+-- | Specifications for the test set that is imported.
+importResourceSpecification_testSetImportResourceSpecification :: Lens.Lens' ImportResourceSpecification (Prelude.Maybe TestSetImportResourceSpecification)
+importResourceSpecification_testSetImportResourceSpecification = Lens.lens (\ImportResourceSpecification' {testSetImportResourceSpecification} -> testSetImportResourceSpecification) (\s@ImportResourceSpecification' {} a -> s {testSetImportResourceSpecification = a} :: ImportResourceSpecification)
+
 instance Data.FromJSON ImportResourceSpecification where
   parseJSON =
     Data.withObject
@@ -86,19 +97,23 @@ instance Data.FromJSON ImportResourceSpecification where
             Prelude.<$> (x Data..:? "botImportSpecification")
             Prelude.<*> (x Data..:? "botLocaleImportSpecification")
             Prelude.<*> (x Data..:? "customVocabularyImportSpecification")
+            Prelude.<*> (x Data..:? "testSetImportResourceSpecification")
       )
 
 instance Prelude.Hashable ImportResourceSpecification where
   hashWithSalt _salt ImportResourceSpecification' {..} =
-    _salt `Prelude.hashWithSalt` botImportSpecification
+    _salt
+      `Prelude.hashWithSalt` botImportSpecification
       `Prelude.hashWithSalt` botLocaleImportSpecification
       `Prelude.hashWithSalt` customVocabularyImportSpecification
+      `Prelude.hashWithSalt` testSetImportResourceSpecification
 
 instance Prelude.NFData ImportResourceSpecification where
   rnf ImportResourceSpecification' {..} =
     Prelude.rnf botImportSpecification
       `Prelude.seq` Prelude.rnf botLocaleImportSpecification
       `Prelude.seq` Prelude.rnf customVocabularyImportSpecification
+      `Prelude.seq` Prelude.rnf testSetImportResourceSpecification
 
 instance Data.ToJSON ImportResourceSpecification where
   toJSON ImportResourceSpecification' {..} =
@@ -109,6 +124,8 @@ instance Data.ToJSON ImportResourceSpecification where
             ("botLocaleImportSpecification" Data..=)
               Prelude.<$> botLocaleImportSpecification,
             ("customVocabularyImportSpecification" Data..=)
-              Prelude.<$> customVocabularyImportSpecification
+              Prelude.<$> customVocabularyImportSpecification,
+            ("testSetImportResourceSpecification" Data..=)
+              Prelude.<$> testSetImportResourceSpecification
           ]
       )

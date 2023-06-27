@@ -25,7 +25,7 @@
 -- The password is not required. If you don\'t supply a password, Amazon
 -- Lex generates a zip file that is not protected by a password. This is
 -- the archive that is available at the pre-signed S3 URL provided by the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html DescribeExport>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html DescribeExport>
 -- operation.
 module Amazonka.LexV2Models.UpdateExport
   ( -- * Creating a Request
@@ -116,7 +116,8 @@ instance Core.AWSRequest UpdateExport where
 
 instance Prelude.Hashable UpdateExport where
   hashWithSalt _salt UpdateExport' {..} =
-    _salt `Prelude.hashWithSalt` filePassword
+    _salt
+      `Prelude.hashWithSalt` filePassword
       `Prelude.hashWithSalt` exportId
 
 instance Prelude.NFData UpdateExport where

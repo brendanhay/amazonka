@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Batch create custom vocabulary item for the specified locale in the
--- specified bot.
+-- Create a batch of custom vocabulary items for a given bot locale\'s
+-- custom vocabulary.
 module Amazonka.LexV2Models.BatchCreateCustomVocabularyItem
   ( -- * Creating a Request
     BatchCreateCustomVocabularyItem (..),
@@ -57,17 +57,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchCreateCustomVocabularyItem' smart constructor.
 data BatchCreateCustomVocabularyItem = BatchCreateCustomVocabularyItem'
-  { -- | The unique identifier of the bot to batch create the custom vocabulary
-    -- item for.
+  { -- | The identifier of the bot associated with this custom vocabulary.
     botId :: Prelude.Text,
-    -- | The bot version of the bot to batch create the custom vocabulary item
-    -- for.
+    -- | The identifier of the version of the bot associated with this custom
+    -- vocabulary.
     botVersion :: Prelude.Text,
-    -- | The unique locale identifier of the bot to batch create the custom
-    -- vocabulary item for.
+    -- | The identifier of the language and locale where this custom vocabulary
+    -- is used. The string must match one of the supported locales. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported Languages>
+    -- .
     localeId :: Prelude.Text,
-    -- | The custom vocabulary item list of the bot to batch create the custom
-    -- vocabulary item for.
+    -- | A list of new custom vocabulary items. Each entry must contain a phrase
+    -- and can optionally contain a displayAs and\/or a weight.
     customVocabularyItemList :: Prelude.NonEmpty NewCustomVocabularyItem
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,17 +82,19 @@ data BatchCreateCustomVocabularyItem = BatchCreateCustomVocabularyItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'botId', 'batchCreateCustomVocabularyItem_botId' - The unique identifier of the bot to batch create the custom vocabulary
--- item for.
+-- 'botId', 'batchCreateCustomVocabularyItem_botId' - The identifier of the bot associated with this custom vocabulary.
 --
--- 'botVersion', 'batchCreateCustomVocabularyItem_botVersion' - The bot version of the bot to batch create the custom vocabulary item
--- for.
+-- 'botVersion', 'batchCreateCustomVocabularyItem_botVersion' - The identifier of the version of the bot associated with this custom
+-- vocabulary.
 --
--- 'localeId', 'batchCreateCustomVocabularyItem_localeId' - The unique locale identifier of the bot to batch create the custom
--- vocabulary item for.
+-- 'localeId', 'batchCreateCustomVocabularyItem_localeId' - The identifier of the language and locale where this custom vocabulary
+-- is used. The string must match one of the supported locales. For more
+-- information, see
+-- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported Languages>
+-- .
 --
--- 'customVocabularyItemList', 'batchCreateCustomVocabularyItem_customVocabularyItemList' - The custom vocabulary item list of the bot to batch create the custom
--- vocabulary item for.
+-- 'customVocabularyItemList', 'batchCreateCustomVocabularyItem_customVocabularyItemList' - A list of new custom vocabulary items. Each entry must contain a phrase
+-- and can optionally contain a displayAs and\/or a weight.
 newBatchCreateCustomVocabularyItem ::
   -- | 'botId'
   Prelude.Text ->
@@ -115,23 +119,25 @@ newBatchCreateCustomVocabularyItem
             Lens.# pCustomVocabularyItemList_
       }
 
--- | The unique identifier of the bot to batch create the custom vocabulary
--- item for.
+-- | The identifier of the bot associated with this custom vocabulary.
 batchCreateCustomVocabularyItem_botId :: Lens.Lens' BatchCreateCustomVocabularyItem Prelude.Text
 batchCreateCustomVocabularyItem_botId = Lens.lens (\BatchCreateCustomVocabularyItem' {botId} -> botId) (\s@BatchCreateCustomVocabularyItem' {} a -> s {botId = a} :: BatchCreateCustomVocabularyItem)
 
--- | The bot version of the bot to batch create the custom vocabulary item
--- for.
+-- | The identifier of the version of the bot associated with this custom
+-- vocabulary.
 batchCreateCustomVocabularyItem_botVersion :: Lens.Lens' BatchCreateCustomVocabularyItem Prelude.Text
 batchCreateCustomVocabularyItem_botVersion = Lens.lens (\BatchCreateCustomVocabularyItem' {botVersion} -> botVersion) (\s@BatchCreateCustomVocabularyItem' {} a -> s {botVersion = a} :: BatchCreateCustomVocabularyItem)
 
--- | The unique locale identifier of the bot to batch create the custom
--- vocabulary item for.
+-- | The identifier of the language and locale where this custom vocabulary
+-- is used. The string must match one of the supported locales. For more
+-- information, see
+-- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported Languages>
+-- .
 batchCreateCustomVocabularyItem_localeId :: Lens.Lens' BatchCreateCustomVocabularyItem Prelude.Text
 batchCreateCustomVocabularyItem_localeId = Lens.lens (\BatchCreateCustomVocabularyItem' {localeId} -> localeId) (\s@BatchCreateCustomVocabularyItem' {} a -> s {localeId = a} :: BatchCreateCustomVocabularyItem)
 
--- | The custom vocabulary item list of the bot to batch create the custom
--- vocabulary item for.
+-- | A list of new custom vocabulary items. Each entry must contain a phrase
+-- and can optionally contain a displayAs and\/or a weight.
 batchCreateCustomVocabularyItem_customVocabularyItemList :: Lens.Lens' BatchCreateCustomVocabularyItem (Prelude.NonEmpty NewCustomVocabularyItem)
 batchCreateCustomVocabularyItem_customVocabularyItemList = Lens.lens (\BatchCreateCustomVocabularyItem' {customVocabularyItemList} -> customVocabularyItemList) (\s@BatchCreateCustomVocabularyItem' {} a -> s {customVocabularyItemList = a} :: BatchCreateCustomVocabularyItem) Prelude.. Lens.coerced
 
@@ -163,7 +169,8 @@ instance
   hashWithSalt
     _salt
     BatchCreateCustomVocabularyItem' {..} =
-      _salt `Prelude.hashWithSalt` botId
+      _salt
+        `Prelude.hashWithSalt` botId
         `Prelude.hashWithSalt` botVersion
         `Prelude.hashWithSalt` localeId
         `Prelude.hashWithSalt` customVocabularyItemList
@@ -220,20 +227,23 @@ instance Data.ToQuery BatchCreateCustomVocabularyItem where
 
 -- | /See:/ 'newBatchCreateCustomVocabularyItemResponse' smart constructor.
 data BatchCreateCustomVocabularyItemResponse = BatchCreateCustomVocabularyItemResponse'
-  { -- | The unique identifier of the bot to batch create response for the custom
-    -- vocabulary item.
+  { -- | The identifier of the bot associated with this custom vocabulary.
     botId :: Prelude.Maybe Prelude.Text,
-    -- | The bot version of the bot to batch create the custom vocabulary item
-    -- response for.
+    -- | The identifier of the version of the bot associated with this custom
+    -- vocabulary.
     botVersion :: Prelude.Maybe Prelude.Text,
-    -- | The errors of the action to batch create the custom vocabulary item
-    -- response for a bot.
+    -- | A list of custom vocabulary items that failed to create during the
+    -- operation. The reason for the error is contained within each error
+    -- object.
     errors :: Prelude.Maybe [FailedCustomVocabularyItem],
-    -- | The unique locale identifier of the bot to batch create the custom
-    -- vocabulary item response for.
+    -- | The identifier of the language and locale where this custom vocabulary
+    -- is used. The string must match one of the supported locales. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported Languages>
+    -- .
     localeId :: Prelude.Maybe Prelude.Text,
-    -- | The resources of the action to batch create the custom vocabulary item
-    -- response for a bot.
+    -- | A list of custom vocabulary items that were successfully created during
+    -- the operation.
     resources :: Prelude.Maybe [CustomVocabularyItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -248,20 +258,23 @@ data BatchCreateCustomVocabularyItemResponse = BatchCreateCustomVocabularyItemRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'botId', 'batchCreateCustomVocabularyItemResponse_botId' - The unique identifier of the bot to batch create response for the custom
--- vocabulary item.
+-- 'botId', 'batchCreateCustomVocabularyItemResponse_botId' - The identifier of the bot associated with this custom vocabulary.
 --
--- 'botVersion', 'batchCreateCustomVocabularyItemResponse_botVersion' - The bot version of the bot to batch create the custom vocabulary item
--- response for.
+-- 'botVersion', 'batchCreateCustomVocabularyItemResponse_botVersion' - The identifier of the version of the bot associated with this custom
+-- vocabulary.
 --
--- 'errors', 'batchCreateCustomVocabularyItemResponse_errors' - The errors of the action to batch create the custom vocabulary item
--- response for a bot.
+-- 'errors', 'batchCreateCustomVocabularyItemResponse_errors' - A list of custom vocabulary items that failed to create during the
+-- operation. The reason for the error is contained within each error
+-- object.
 --
--- 'localeId', 'batchCreateCustomVocabularyItemResponse_localeId' - The unique locale identifier of the bot to batch create the custom
--- vocabulary item response for.
+-- 'localeId', 'batchCreateCustomVocabularyItemResponse_localeId' - The identifier of the language and locale where this custom vocabulary
+-- is used. The string must match one of the supported locales. For more
+-- information, see
+-- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported Languages>
+-- .
 --
--- 'resources', 'batchCreateCustomVocabularyItemResponse_resources' - The resources of the action to batch create the custom vocabulary item
--- response for a bot.
+-- 'resources', 'batchCreateCustomVocabularyItemResponse_resources' - A list of custom vocabulary items that were successfully created during
+-- the operation.
 --
 -- 'httpStatus', 'batchCreateCustomVocabularyItemResponse_httpStatus' - The response's http status code.
 newBatchCreateCustomVocabularyItemResponse ::
@@ -280,28 +293,31 @@ newBatchCreateCustomVocabularyItemResponse
         httpStatus = pHttpStatus_
       }
 
--- | The unique identifier of the bot to batch create response for the custom
--- vocabulary item.
+-- | The identifier of the bot associated with this custom vocabulary.
 batchCreateCustomVocabularyItemResponse_botId :: Lens.Lens' BatchCreateCustomVocabularyItemResponse (Prelude.Maybe Prelude.Text)
 batchCreateCustomVocabularyItemResponse_botId = Lens.lens (\BatchCreateCustomVocabularyItemResponse' {botId} -> botId) (\s@BatchCreateCustomVocabularyItemResponse' {} a -> s {botId = a} :: BatchCreateCustomVocabularyItemResponse)
 
--- | The bot version of the bot to batch create the custom vocabulary item
--- response for.
+-- | The identifier of the version of the bot associated with this custom
+-- vocabulary.
 batchCreateCustomVocabularyItemResponse_botVersion :: Lens.Lens' BatchCreateCustomVocabularyItemResponse (Prelude.Maybe Prelude.Text)
 batchCreateCustomVocabularyItemResponse_botVersion = Lens.lens (\BatchCreateCustomVocabularyItemResponse' {botVersion} -> botVersion) (\s@BatchCreateCustomVocabularyItemResponse' {} a -> s {botVersion = a} :: BatchCreateCustomVocabularyItemResponse)
 
--- | The errors of the action to batch create the custom vocabulary item
--- response for a bot.
+-- | A list of custom vocabulary items that failed to create during the
+-- operation. The reason for the error is contained within each error
+-- object.
 batchCreateCustomVocabularyItemResponse_errors :: Lens.Lens' BatchCreateCustomVocabularyItemResponse (Prelude.Maybe [FailedCustomVocabularyItem])
 batchCreateCustomVocabularyItemResponse_errors = Lens.lens (\BatchCreateCustomVocabularyItemResponse' {errors} -> errors) (\s@BatchCreateCustomVocabularyItemResponse' {} a -> s {errors = a} :: BatchCreateCustomVocabularyItemResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The unique locale identifier of the bot to batch create the custom
--- vocabulary item response for.
+-- | The identifier of the language and locale where this custom vocabulary
+-- is used. The string must match one of the supported locales. For more
+-- information, see
+-- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported Languages>
+-- .
 batchCreateCustomVocabularyItemResponse_localeId :: Lens.Lens' BatchCreateCustomVocabularyItemResponse (Prelude.Maybe Prelude.Text)
 batchCreateCustomVocabularyItemResponse_localeId = Lens.lens (\BatchCreateCustomVocabularyItemResponse' {localeId} -> localeId) (\s@BatchCreateCustomVocabularyItemResponse' {} a -> s {localeId = a} :: BatchCreateCustomVocabularyItemResponse)
 
--- | The resources of the action to batch create the custom vocabulary item
--- response for a bot.
+-- | A list of custom vocabulary items that were successfully created during
+-- the operation.
 batchCreateCustomVocabularyItemResponse_resources :: Lens.Lens' BatchCreateCustomVocabularyItemResponse (Prelude.Maybe [CustomVocabularyItem])
 batchCreateCustomVocabularyItemResponse_resources = Lens.lens (\BatchCreateCustomVocabularyItemResponse' {resources} -> resources) (\s@BatchCreateCustomVocabularyItemResponse' {} a -> s {resources = a} :: BatchCreateCustomVocabularyItemResponse) Prelude.. Lens.mapping Lens.coerced
 

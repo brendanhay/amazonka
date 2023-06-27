@@ -24,7 +24,7 @@
 --
 -- Amazon Lex stores the utterances that users send to your bot. Utterances
 -- are stored for 15 days for use with the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_ListAggregatedUtterances.html ListAggregatedUtterances>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListAggregatedUtterances.html ListAggregatedUtterances>
 -- operation, and then stored indefinitely for use in improving the ability
 -- of your bot to respond to user input..
 --
@@ -69,9 +69,9 @@ data DeleteUtterances = DeleteUtterances'
     localeId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the session with the user. The ID is returned
     -- in the response from the
-    -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_RecognizeText.html RecognizeText>
+    -- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeText.html RecognizeText>
     -- and
-    -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_RecognizeUtterance.html RecognizeUtterance>
+    -- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeUtterance.html RecognizeUtterance>
     -- operations.
     sessionId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the bot that contains the utterances.
@@ -94,9 +94,9 @@ data DeleteUtterances = DeleteUtterances'
 --
 -- 'sessionId', 'deleteUtterances_sessionId' - The unique identifier of the session with the user. The ID is returned
 -- in the response from the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_RecognizeText.html RecognizeText>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeText.html RecognizeText>
 -- and
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_RecognizeUtterance.html RecognizeUtterance>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeUtterance.html RecognizeUtterance>
 -- operations.
 --
 -- 'botId', 'deleteUtterances_botId' - The unique identifier of the bot that contains the utterances.
@@ -120,9 +120,9 @@ deleteUtterances_localeId = Lens.lens (\DeleteUtterances' {localeId} -> localeId
 
 -- | The unique identifier of the session with the user. The ID is returned
 -- in the response from the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_RecognizeText.html RecognizeText>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeText.html RecognizeText>
 -- and
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_runtime_RecognizeUtterance.html RecognizeUtterance>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeUtterance.html RecognizeUtterance>
 -- operations.
 deleteUtterances_sessionId :: Lens.Lens' DeleteUtterances (Prelude.Maybe Prelude.Text)
 deleteUtterances_sessionId = Lens.lens (\DeleteUtterances' {sessionId} -> sessionId) (\s@DeleteUtterances' {} a -> s {sessionId = a} :: DeleteUtterances)
@@ -146,7 +146,8 @@ instance Core.AWSRequest DeleteUtterances where
 
 instance Prelude.Hashable DeleteUtterances where
   hashWithSalt _salt DeleteUtterances' {..} =
-    _salt `Prelude.hashWithSalt` localeId
+    _salt
+      `Prelude.hashWithSalt` localeId
       `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` botId
 

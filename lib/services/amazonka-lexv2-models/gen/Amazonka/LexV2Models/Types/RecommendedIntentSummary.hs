@@ -91,7 +91,8 @@ instance Data.FromJSON RecommendedIntentSummary where
 
 instance Prelude.Hashable RecommendedIntentSummary where
   hashWithSalt _salt RecommendedIntentSummary' {..} =
-    _salt `Prelude.hashWithSalt` intentId
+    _salt
+      `Prelude.hashWithSalt` intentId
       `Prelude.hashWithSalt` intentName
       `Prelude.hashWithSalt` sampleUtterancesCount
 

@@ -191,7 +191,8 @@ instance Core.AWSRequest ListImports where
           ListImportsResponse'
             Prelude.<$> (x Data..?> "botId")
             Prelude.<*> (x Data..?> "botVersion")
-            Prelude.<*> ( x Data..?> "importSummaries"
+            Prelude.<*> ( x
+                            Data..?> "importSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "localeId")
@@ -201,7 +202,8 @@ instance Core.AWSRequest ListImports where
 
 instance Prelude.Hashable ListImports where
   hashWithSalt _salt ListImports' {..} =
-    _salt `Prelude.hashWithSalt` botId
+    _salt
+      `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` localeId

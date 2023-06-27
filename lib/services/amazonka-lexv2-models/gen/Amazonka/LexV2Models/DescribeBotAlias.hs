@@ -46,6 +46,7 @@ module Amazonka.LexV2Models.DescribeBotAlias
     describeBotAliasResponse_creationDateTime,
     describeBotAliasResponse_description,
     describeBotAliasResponse_lastUpdatedDateTime,
+    describeBotAliasResponse_parentBotNetworks,
     describeBotAliasResponse_sentimentAnalysisSettings,
     describeBotAliasResponse_httpStatus,
   )
@@ -109,11 +110,13 @@ instance Core.AWSRequest DescribeBotAlias where
     Response.receiveJSON
       ( \s h x ->
           DescribeBotAliasResponse'
-            Prelude.<$> ( x Data..?> "botAliasHistoryEvents"
+            Prelude.<$> ( x
+                            Data..?> "botAliasHistoryEvents"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "botAliasId")
-            Prelude.<*> ( x Data..?> "botAliasLocaleSettings"
+            Prelude.<*> ( x
+                            Data..?> "botAliasLocaleSettings"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "botAliasName")
@@ -124,13 +127,18 @@ instance Core.AWSRequest DescribeBotAlias where
             Prelude.<*> (x Data..?> "creationDateTime")
             Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "lastUpdatedDateTime")
+            Prelude.<*> ( x
+                            Data..?> "parentBotNetworks"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Data..?> "sentimentAnalysisSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeBotAlias where
   hashWithSalt _salt DescribeBotAlias' {..} =
-    _salt `Prelude.hashWithSalt` botAliasId
+    _salt
+      `Prelude.hashWithSalt` botAliasId
       `Prelude.hashWithSalt` botId
 
 instance Prelude.NFData DescribeBotAlias where
@@ -189,6 +197,8 @@ data DescribeBotAliasResponse = DescribeBotAliasResponse'
     description :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the alias was last updated.
     lastUpdatedDateTime :: Prelude.Maybe Data.POSIX,
+    -- | A list of the networks to which the bot alias you described belongs.
+    parentBotNetworks :: Prelude.Maybe [ParentBotNetwork],
     sentimentAnalysisSettings :: Prelude.Maybe SentimentAnalysisSettings,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -228,6 +238,8 @@ data DescribeBotAliasResponse = DescribeBotAliasResponse'
 --
 -- 'lastUpdatedDateTime', 'describeBotAliasResponse_lastUpdatedDateTime' - A timestamp of the date and time that the alias was last updated.
 --
+-- 'parentBotNetworks', 'describeBotAliasResponse_parentBotNetworks' - A list of the networks to which the bot alias you described belongs.
+--
 -- 'sentimentAnalysisSettings', 'describeBotAliasResponse_sentimentAnalysisSettings' - Undocumented member.
 --
 -- 'httpStatus', 'describeBotAliasResponse_httpStatus' - The response's http status code.
@@ -249,6 +261,7 @@ newDescribeBotAliasResponse pHttpStatus_ =
       creationDateTime = Prelude.Nothing,
       description = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
+      parentBotNetworks = Prelude.Nothing,
       sentimentAnalysisSettings = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -300,6 +313,10 @@ describeBotAliasResponse_description = Lens.lens (\DescribeBotAliasResponse' {de
 describeBotAliasResponse_lastUpdatedDateTime :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe Prelude.UTCTime)
 describeBotAliasResponse_lastUpdatedDateTime = Lens.lens (\DescribeBotAliasResponse' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@DescribeBotAliasResponse' {} a -> s {lastUpdatedDateTime = a} :: DescribeBotAliasResponse) Prelude.. Lens.mapping Data._Time
 
+-- | A list of the networks to which the bot alias you described belongs.
+describeBotAliasResponse_parentBotNetworks :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe [ParentBotNetwork])
+describeBotAliasResponse_parentBotNetworks = Lens.lens (\DescribeBotAliasResponse' {parentBotNetworks} -> parentBotNetworks) (\s@DescribeBotAliasResponse' {} a -> s {parentBotNetworks = a} :: DescribeBotAliasResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | Undocumented member.
 describeBotAliasResponse_sentimentAnalysisSettings :: Lens.Lens' DescribeBotAliasResponse (Prelude.Maybe SentimentAnalysisSettings)
 describeBotAliasResponse_sentimentAnalysisSettings = Lens.lens (\DescribeBotAliasResponse' {sentimentAnalysisSettings} -> sentimentAnalysisSettings) (\s@DescribeBotAliasResponse' {} a -> s {sentimentAnalysisSettings = a} :: DescribeBotAliasResponse)
@@ -321,5 +338,6 @@ instance Prelude.NFData DescribeBotAliasResponse where
       `Prelude.seq` Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
+      `Prelude.seq` Prelude.rnf parentBotNetworks
       `Prelude.seq` Prelude.rnf sentimentAnalysisSettings
       `Prelude.seq` Prelude.rnf httpStatus

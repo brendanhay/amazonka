@@ -115,7 +115,8 @@ instance Data.FromJSON DTMFSpecification where
 
 instance Prelude.Hashable DTMFSpecification where
   hashWithSalt _salt DTMFSpecification' {..} =
-    _salt `Prelude.hashWithSalt` maxLength
+    _salt
+      `Prelude.hashWithSalt` maxLength
       `Prelude.hashWithSalt` endTimeoutMs
       `Prelude.hashWithSalt` deletionCharacter
       `Prelude.hashWithSalt` endCharacter

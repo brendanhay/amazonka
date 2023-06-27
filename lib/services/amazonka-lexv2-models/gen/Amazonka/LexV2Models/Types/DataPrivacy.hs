@@ -53,7 +53,7 @@ data DataPrivacy = DataPrivacy'
     -- use of Amazon Lex in connection with websites, programs, or other
     -- applications that are directed or targeted, in whole or in part, to
     -- children under age 13, see the
-    -- <https://aws.amazon.com/lex/faqs#data-security Amazon Lex FAQ>.
+    -- <http://aws.amazon.com/lex/faqs#data-security Amazon Lex FAQ>.
     childDirected :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -89,7 +89,7 @@ data DataPrivacy = DataPrivacy'
 -- use of Amazon Lex in connection with websites, programs, or other
 -- applications that are directed or targeted, in whole or in part, to
 -- children under age 13, see the
--- <https://aws.amazon.com/lex/faqs#data-security Amazon Lex FAQ>.
+-- <http://aws.amazon.com/lex/faqs#data-security Amazon Lex FAQ>.
 newDataPrivacy ::
   -- | 'childDirected'
   Prelude.Bool ->
@@ -120,7 +120,7 @@ newDataPrivacy pChildDirected_ =
 -- use of Amazon Lex in connection with websites, programs, or other
 -- applications that are directed or targeted, in whole or in part, to
 -- children under age 13, see the
--- <https://aws.amazon.com/lex/faqs#data-security Amazon Lex FAQ>.
+-- <http://aws.amazon.com/lex/faqs#data-security Amazon Lex FAQ>.
 dataPrivacy_childDirected :: Lens.Lens' DataPrivacy Prelude.Bool
 dataPrivacy_childDirected = Lens.lens (\DataPrivacy' {childDirected} -> childDirected) (\s@DataPrivacy' {} a -> s {childDirected = a} :: DataPrivacy)
 

@@ -170,7 +170,8 @@ instance Core.AWSRequest DescribeIntent where
             Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (x Data..?> "outputContexts" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "parentIntentSignature")
-            Prelude.<*> ( x Data..?> "sampleUtterances"
+            Prelude.<*> ( x
+                            Data..?> "sampleUtterances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "slotPriorities" Core..!@ Prelude.mempty)
@@ -179,7 +180,8 @@ instance Core.AWSRequest DescribeIntent where
 
 instance Prelude.Hashable DescribeIntent where
   hashWithSalt _salt DescribeIntent' {..} =
-    _salt `Prelude.hashWithSalt` intentId
+    _salt
+      `Prelude.hashWithSalt` intentId
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` localeId
@@ -235,6 +237,8 @@ data DescribeIntentResponse = DescribeIntentResponse'
     -- | The Lambda function called when the intent is complete and ready for
     -- fulfillment.
     fulfillmentCodeHook :: Prelude.Maybe FulfillmentCodeHookSettings,
+    -- | Configuration setting for a response sent to the user before Amazon Lex
+    -- starts eliciting slots.
     initialResponseSetting :: Prelude.Maybe InitialResponseSetting,
     -- | A list of contexts that must be active for the intent to be considered
     -- for sending to the user.
@@ -292,7 +296,8 @@ data DescribeIntentResponse = DescribeIntentResponse'
 -- 'fulfillmentCodeHook', 'describeIntentResponse_fulfillmentCodeHook' - The Lambda function called when the intent is complete and ready for
 -- fulfillment.
 --
--- 'initialResponseSetting', 'describeIntentResponse_initialResponseSetting' -
+-- 'initialResponseSetting', 'describeIntentResponse_initialResponseSetting' - Configuration setting for a response sent to the user before Amazon Lex
+-- starts eliciting slots.
 --
 -- 'inputContexts', 'describeIntentResponse_inputContexts' - A list of contexts that must be active for the intent to be considered
 -- for sending to the user.
@@ -378,7 +383,8 @@ describeIntentResponse_dialogCodeHook = Lens.lens (\DescribeIntentResponse' {dia
 describeIntentResponse_fulfillmentCodeHook :: Lens.Lens' DescribeIntentResponse (Prelude.Maybe FulfillmentCodeHookSettings)
 describeIntentResponse_fulfillmentCodeHook = Lens.lens (\DescribeIntentResponse' {fulfillmentCodeHook} -> fulfillmentCodeHook) (\s@DescribeIntentResponse' {} a -> s {fulfillmentCodeHook = a} :: DescribeIntentResponse)
 
--- |
+-- | Configuration setting for a response sent to the user before Amazon Lex
+-- starts eliciting slots.
 describeIntentResponse_initialResponseSetting :: Lens.Lens' DescribeIntentResponse (Prelude.Maybe InitialResponseSetting)
 describeIntentResponse_initialResponseSetting = Lens.lens (\DescribeIntentResponse' {initialResponseSetting} -> initialResponseSetting) (\s@DescribeIntentResponse' {} a -> s {initialResponseSetting = a} :: DescribeIntentResponse)
 

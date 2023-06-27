@@ -134,7 +134,8 @@ instance Core.AWSRequest DeleteBotLocale where
 
 instance Prelude.Hashable DeleteBotLocale where
   hashWithSalt _salt DeleteBotLocale' {..} =
-    _salt `Prelude.hashWithSalt` botId
+    _salt
+      `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` localeId
 

@@ -65,7 +65,8 @@ instance Data.FromJSON SlotDefaultValueSpecification where
       "SlotDefaultValueSpecification"
       ( \x ->
           SlotDefaultValueSpecification'
-            Prelude.<$> ( x Data..:? "defaultValueList"
+            Prelude.<$> ( x
+                            Data..:? "defaultValueList"
                             Data..!= Prelude.mempty
                         )
       )

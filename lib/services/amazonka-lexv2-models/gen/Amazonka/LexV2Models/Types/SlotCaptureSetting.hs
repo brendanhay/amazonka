@@ -151,7 +151,8 @@ instance Data.FromJSON SlotCaptureSetting where
 
 instance Prelude.Hashable SlotCaptureSetting where
   hashWithSalt _salt SlotCaptureSetting' {..} =
-    _salt `Prelude.hashWithSalt` captureConditional
+    _salt
+      `Prelude.hashWithSalt` captureConditional
       `Prelude.hashWithSalt` captureNextStep
       `Prelude.hashWithSalt` captureResponse
       `Prelude.hashWithSalt` codeHook

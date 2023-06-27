@@ -37,8 +37,8 @@ data FulfillmentStartResponseSpecification = FulfillmentStartResponseSpecificati
     -- and the start message is played. If the Lambda function returns before
     -- the delay is over, the start message isn\'t played.
     delayInSeconds :: Prelude.Natural,
-    -- | One to 5 message groups that contain start messages. Amazon Lex chooses
-    -- one of the messages to play to the user.
+    -- | 1 - 5 message groups that contain start messages. Amazon Lex chooses one
+    -- of the messages to play to the user.
     messageGroups :: Prelude.NonEmpty MessageGroup
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,8 +58,8 @@ data FulfillmentStartResponseSpecification = FulfillmentStartResponseSpecificati
 -- and the start message is played. If the Lambda function returns before
 -- the delay is over, the start message isn\'t played.
 --
--- 'messageGroups', 'fulfillmentStartResponseSpecification_messageGroups' - One to 5 message groups that contain start messages. Amazon Lex chooses
--- one of the messages to play to the user.
+-- 'messageGroups', 'fulfillmentStartResponseSpecification_messageGroups' - 1 - 5 message groups that contain start messages. Amazon Lex chooses one
+-- of the messages to play to the user.
 newFulfillmentStartResponseSpecification ::
   -- | 'delayInSeconds'
   Prelude.Natural ->
@@ -89,8 +89,8 @@ fulfillmentStartResponseSpecification_allowInterrupt = Lens.lens (\FulfillmentSt
 fulfillmentStartResponseSpecification_delayInSeconds :: Lens.Lens' FulfillmentStartResponseSpecification Prelude.Natural
 fulfillmentStartResponseSpecification_delayInSeconds = Lens.lens (\FulfillmentStartResponseSpecification' {delayInSeconds} -> delayInSeconds) (\s@FulfillmentStartResponseSpecification' {} a -> s {delayInSeconds = a} :: FulfillmentStartResponseSpecification)
 
--- | One to 5 message groups that contain start messages. Amazon Lex chooses
--- one of the messages to play to the user.
+-- | 1 - 5 message groups that contain start messages. Amazon Lex chooses one
+-- of the messages to play to the user.
 fulfillmentStartResponseSpecification_messageGroups :: Lens.Lens' FulfillmentStartResponseSpecification (Prelude.NonEmpty MessageGroup)
 fulfillmentStartResponseSpecification_messageGroups = Lens.lens (\FulfillmentStartResponseSpecification' {messageGroups} -> messageGroups) (\s@FulfillmentStartResponseSpecification' {} a -> s {messageGroups = a} :: FulfillmentStartResponseSpecification) Prelude.. Lens.coerced
 
@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     FulfillmentStartResponseSpecification' {..} =
-      _salt `Prelude.hashWithSalt` allowInterrupt
+      _salt
+        `Prelude.hashWithSalt` allowInterrupt
         `Prelude.hashWithSalt` delayInSeconds
         `Prelude.hashWithSalt` messageGroups
 

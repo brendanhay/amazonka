@@ -81,7 +81,8 @@ instance Data.FromJSON AllowedInputTypes where
 
 instance Prelude.Hashable AllowedInputTypes where
   hashWithSalt _salt AllowedInputTypes' {..} =
-    _salt `Prelude.hashWithSalt` allowAudioInput
+    _salt
+      `Prelude.hashWithSalt` allowAudioInput
       `Prelude.hashWithSalt` allowDTMFInput
 
 instance Prelude.NFData AllowedInputTypes where

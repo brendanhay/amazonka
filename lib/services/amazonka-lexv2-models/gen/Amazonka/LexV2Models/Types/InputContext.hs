@@ -24,8 +24,8 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The name of a context that must be active for an intent to be selected
--- by Amazon Lex.
+-- | A context that must be active for an intent to be selected by Amazon
+-- Lex.
 --
 -- /See:/ 'newInputContext' smart constructor.
 data InputContext = InputContext'

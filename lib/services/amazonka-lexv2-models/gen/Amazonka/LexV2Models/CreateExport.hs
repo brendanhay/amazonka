@@ -139,7 +139,8 @@ instance Core.AWSRequest CreateExport where
 
 instance Prelude.Hashable CreateExport where
   hashWithSalt _salt CreateExport' {..} =
-    _salt `Prelude.hashWithSalt` filePassword
+    _salt
+      `Prelude.hashWithSalt` filePassword
       `Prelude.hashWithSalt` resourceSpecification
       `Prelude.hashWithSalt` fileFormat
 
@@ -187,7 +188,7 @@ data CreateExportResponse = CreateExportResponse'
     exportId :: Prelude.Maybe Prelude.Text,
     -- | The status of the export. When the status is @Completed@, you can use
     -- the
-    -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html DescribeExport>
+    -- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html DescribeExport>
     -- operation to get the pre-signed S3 URL link to your exported bot or bot
     -- locale.
     exportStatus :: Prelude.Maybe ExportStatus,
@@ -215,7 +216,7 @@ data CreateExportResponse = CreateExportResponse'
 --
 -- 'exportStatus', 'createExportResponse_exportStatus' - The status of the export. When the status is @Completed@, you can use
 -- the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html DescribeExport>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html DescribeExport>
 -- operation to get the pre-signed S3 URL link to your exported bot or bot
 -- locale.
 --
@@ -250,7 +251,7 @@ createExportResponse_exportId = Lens.lens (\CreateExportResponse' {exportId} -> 
 
 -- | The status of the export. When the status is @Completed@, you can use
 -- the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html DescribeExport>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html DescribeExport>
 -- operation to get the pre-signed S3 URL link to your exported bot or bot
 -- locale.
 createExportResponse_exportStatus :: Lens.Lens' CreateExportResponse (Prelude.Maybe ExportStatus)

@@ -152,6 +152,12 @@ module Amazonka.LexV2Models
     CreateSlotTypeResponse (CreateSlotTypeResponse'),
     newCreateSlotTypeResponse,
 
+    -- ** CreateTestSetDiscrepancyReport
+    CreateTestSetDiscrepancyReport (CreateTestSetDiscrepancyReport'),
+    newCreateTestSetDiscrepancyReport,
+    CreateTestSetDiscrepancyReportResponse (CreateTestSetDiscrepancyReportResponse'),
+    newCreateTestSetDiscrepancyReportResponse,
+
     -- ** CreateUploadUrl
     CreateUploadUrl (CreateUploadUrl'),
     newCreateUploadUrl,
@@ -230,6 +236,12 @@ module Amazonka.LexV2Models
     DeleteSlotTypeResponse (DeleteSlotTypeResponse'),
     newDeleteSlotTypeResponse,
 
+    -- ** DeleteTestSet
+    DeleteTestSet (DeleteTestSet'),
+    newDeleteTestSet,
+    DeleteTestSetResponse (DeleteTestSetResponse'),
+    newDeleteTestSetResponse,
+
     -- ** DeleteUtterances
     DeleteUtterances (DeleteUtterances'),
     newDeleteUtterances,
@@ -307,6 +319,36 @@ module Amazonka.LexV2Models
     newDescribeSlotType,
     DescribeSlotTypeResponse (DescribeSlotTypeResponse'),
     newDescribeSlotTypeResponse,
+
+    -- ** DescribeTestExecution
+    DescribeTestExecution (DescribeTestExecution'),
+    newDescribeTestExecution,
+    DescribeTestExecutionResponse (DescribeTestExecutionResponse'),
+    newDescribeTestExecutionResponse,
+
+    -- ** DescribeTestSet
+    DescribeTestSet (DescribeTestSet'),
+    newDescribeTestSet,
+    DescribeTestSetResponse (DescribeTestSetResponse'),
+    newDescribeTestSetResponse,
+
+    -- ** DescribeTestSetDiscrepancyReport
+    DescribeTestSetDiscrepancyReport (DescribeTestSetDiscrepancyReport'),
+    newDescribeTestSetDiscrepancyReport,
+    DescribeTestSetDiscrepancyReportResponse (DescribeTestSetDiscrepancyReportResponse'),
+    newDescribeTestSetDiscrepancyReportResponse,
+
+    -- ** DescribeTestSetGeneration
+    DescribeTestSetGeneration (DescribeTestSetGeneration'),
+    newDescribeTestSetGeneration,
+    DescribeTestSetGenerationResponse (DescribeTestSetGenerationResponse'),
+    newDescribeTestSetGenerationResponse,
+
+    -- ** GetTestExecutionArtifactsUrl
+    GetTestExecutionArtifactsUrl (GetTestExecutionArtifactsUrl'),
+    newGetTestExecutionArtifactsUrl,
+    GetTestExecutionArtifactsUrlResponse (GetTestExecutionArtifactsUrlResponse'),
+    newGetTestExecutionArtifactsUrlResponse,
 
     -- ** ListAggregatedUtterances
     ListAggregatedUtterances (ListAggregatedUtterances'),
@@ -404,6 +446,30 @@ module Amazonka.LexV2Models
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
+    -- ** ListTestExecutionResultItems
+    ListTestExecutionResultItems (ListTestExecutionResultItems'),
+    newListTestExecutionResultItems,
+    ListTestExecutionResultItemsResponse (ListTestExecutionResultItemsResponse'),
+    newListTestExecutionResultItemsResponse,
+
+    -- ** ListTestExecutions
+    ListTestExecutions (ListTestExecutions'),
+    newListTestExecutions,
+    ListTestExecutionsResponse (ListTestExecutionsResponse'),
+    newListTestExecutionsResponse,
+
+    -- ** ListTestSetRecords
+    ListTestSetRecords (ListTestSetRecords'),
+    newListTestSetRecords,
+    ListTestSetRecordsResponse (ListTestSetRecordsResponse'),
+    newListTestSetRecordsResponse,
+
+    -- ** ListTestSets
+    ListTestSets (ListTestSets'),
+    newListTestSets,
+    ListTestSetsResponse (ListTestSetsResponse'),
+    newListTestSetsResponse,
+
     -- ** SearchAssociatedTranscripts
     SearchAssociatedTranscripts (SearchAssociatedTranscripts'),
     newSearchAssociatedTranscripts,
@@ -421,6 +487,18 @@ module Amazonka.LexV2Models
     newStartImport,
     StartImportResponse (StartImportResponse'),
     newStartImportResponse,
+
+    -- ** StartTestExecution
+    StartTestExecution (StartTestExecution'),
+    newStartTestExecution,
+    StartTestExecutionResponse (StartTestExecutionResponse'),
+    newStartTestExecutionResponse,
+
+    -- ** StartTestSetGeneration
+    StartTestSetGeneration (StartTestSetGeneration'),
+    newStartTestSetGeneration,
+    StartTestSetGenerationResponse (StartTestSetGenerationResponse'),
+    newStartTestSetGenerationResponse,
 
     -- ** StopBotRecommendation
     StopBotRecommendation (StopBotRecommendation'),
@@ -494,6 +572,12 @@ module Amazonka.LexV2Models
     UpdateSlotTypeResponse (UpdateSlotTypeResponse'),
     newUpdateSlotTypeResponse,
 
+    -- ** UpdateTestSet
+    UpdateTestSet (UpdateTestSet'),
+    newUpdateTestSet,
+    UpdateTestSetResponse (UpdateTestSetResponse'),
+    newUpdateTestSetResponse,
+
     -- * Types
 
     -- ** AggregatedUtterancesFilterName
@@ -541,6 +625,9 @@ module Amazonka.LexV2Models
     -- ** BotStatus
     BotStatus (..),
 
+    -- ** BotType
+    BotType (..),
+
     -- ** BotVersionSortAttribute
     BotVersionSortAttribute (..),
 
@@ -549,6 +636,9 @@ module Amazonka.LexV2Models
 
     -- ** BuiltInSlotTypeSortAttribute
     BuiltInSlotTypeSortAttribute (..),
+
+    -- ** ConversationLogsInputModeFilter
+    ConversationLogsInputModeFilter (..),
 
     -- ** CustomVocabularyStatus
     CustomVocabularyStatus (..),
@@ -649,6 +739,39 @@ module Amazonka.LexV2Models
     -- ** SortOrder
     SortOrder (..),
 
+    -- ** TestExecutionApiMode
+    TestExecutionApiMode (..),
+
+    -- ** TestExecutionModality
+    TestExecutionModality (..),
+
+    -- ** TestExecutionSortAttribute
+    TestExecutionSortAttribute (..),
+
+    -- ** TestExecutionStatus
+    TestExecutionStatus (..),
+
+    -- ** TestResultMatchStatus
+    TestResultMatchStatus (..),
+
+    -- ** TestResultTypeFilter
+    TestResultTypeFilter (..),
+
+    -- ** TestSetDiscrepancyReportStatus
+    TestSetDiscrepancyReportStatus (..),
+
+    -- ** TestSetGenerationStatus
+    TestSetGenerationStatus (..),
+
+    -- ** TestSetModality
+    TestSetModality (..),
+
+    -- ** TestSetSortAttribute
+    TestSetSortAttribute (..),
+
+    -- ** TestSetStatus
+    TestSetStatus (..),
+
     -- ** TimeDimension
     TimeDimension (..),
 
@@ -658,9 +781,21 @@ module Amazonka.LexV2Models
     -- ** VoiceEngine
     VoiceEngine (..),
 
+    -- ** ActiveContext
+    ActiveContext (ActiveContext'),
+    newActiveContext,
+
     -- ** AdvancedRecognitionSetting
     AdvancedRecognitionSetting (AdvancedRecognitionSetting'),
     newAdvancedRecognitionSetting,
+
+    -- ** AgentTurnResult
+    AgentTurnResult (AgentTurnResult'),
+    newAgentTurnResult,
+
+    -- ** AgentTurnSpecification
+    AgentTurnSpecification (AgentTurnSpecification'),
+    newAgentTurnSpecification,
 
     -- ** AggregatedUtterancesFilter
     AggregatedUtterancesFilter (AggregatedUtterancesFilter'),
@@ -714,6 +849,10 @@ module Amazonka.LexV2Models
     BotAliasSummary (BotAliasSummary'),
     newBotAliasSummary,
 
+    -- ** BotAliasTestExecutionTarget
+    BotAliasTestExecutionTarget (BotAliasTestExecutionTarget'),
+    newBotAliasTestExecutionTarget,
+
     -- ** BotExportSpecification
     BotExportSpecification (BotExportSpecification'),
     newBotExportSpecification,
@@ -749,6 +888,10 @@ module Amazonka.LexV2Models
     -- ** BotLocaleSummary
     BotLocaleSummary (BotLocaleSummary'),
     newBotLocaleSummary,
+
+    -- ** BotMember
+    BotMember (BotMember'),
+    newBotMember,
 
     -- ** BotRecommendationResultStatistics
     BotRecommendationResultStatistics (BotRecommendationResultStatistics'),
@@ -826,9 +969,41 @@ module Amazonka.LexV2Models
     ConditionalSpecification (ConditionalSpecification'),
     newConditionalSpecification,
 
+    -- ** ConversationLevelIntentClassificationResultItem
+    ConversationLevelIntentClassificationResultItem (ConversationLevelIntentClassificationResultItem'),
+    newConversationLevelIntentClassificationResultItem,
+
+    -- ** ConversationLevelResultDetail
+    ConversationLevelResultDetail (ConversationLevelResultDetail'),
+    newConversationLevelResultDetail,
+
+    -- ** ConversationLevelSlotResolutionResultItem
+    ConversationLevelSlotResolutionResultItem (ConversationLevelSlotResolutionResultItem'),
+    newConversationLevelSlotResolutionResultItem,
+
+    -- ** ConversationLevelTestResultItem
+    ConversationLevelTestResultItem (ConversationLevelTestResultItem'),
+    newConversationLevelTestResultItem,
+
+    -- ** ConversationLevelTestResults
+    ConversationLevelTestResults (ConversationLevelTestResults'),
+    newConversationLevelTestResults,
+
+    -- ** ConversationLevelTestResultsFilterBy
+    ConversationLevelTestResultsFilterBy (ConversationLevelTestResultsFilterBy'),
+    newConversationLevelTestResultsFilterBy,
+
     -- ** ConversationLogSettings
     ConversationLogSettings (ConversationLogSettings'),
     newConversationLogSettings,
+
+    -- ** ConversationLogsDataSource
+    ConversationLogsDataSource (ConversationLogsDataSource'),
+    newConversationLogsDataSource,
+
+    -- ** ConversationLogsDataSourceFilterBy
+    ConversationLogsDataSourceFilterBy (ConversationLogsDataSourceFilterBy'),
+    newConversationLogsDataSourceFilterBy,
 
     -- ** CustomPayload
     CustomPayload (CustomPayload'),
@@ -889,6 +1064,10 @@ module Amazonka.LexV2Models
     -- ** EncryptionSetting
     EncryptionSetting (EncryptionSetting'),
     newEncryptionSetting,
+
+    -- ** ExecutionErrorDetails
+    ExecutionErrorDetails (ExecutionErrorDetails'),
+    newExecutionErrorDetails,
 
     -- ** ExportFilter
     ExportFilter (ExportFilter'),
@@ -966,6 +1145,22 @@ module Amazonka.LexV2Models
     InputContext (InputContext'),
     newInputContext,
 
+    -- ** InputSessionStateSpecification
+    InputSessionStateSpecification (InputSessionStateSpecification'),
+    newInputSessionStateSpecification,
+
+    -- ** IntentClassificationTestResultItem
+    IntentClassificationTestResultItem (IntentClassificationTestResultItem'),
+    newIntentClassificationTestResultItem,
+
+    -- ** IntentClassificationTestResultItemCounts
+    IntentClassificationTestResultItemCounts (IntentClassificationTestResultItemCounts'),
+    newIntentClassificationTestResultItemCounts,
+
+    -- ** IntentClassificationTestResults
+    IntentClassificationTestResults (IntentClassificationTestResults'),
+    newIntentClassificationTestResults,
+
     -- ** IntentClosingSetting
     IntentClosingSetting (IntentClosingSetting'),
     newIntentClosingSetting,
@@ -977,6 +1172,14 @@ module Amazonka.LexV2Models
     -- ** IntentFilter
     IntentFilter (IntentFilter'),
     newIntentFilter,
+
+    -- ** IntentLevelSlotResolutionTestResultItem
+    IntentLevelSlotResolutionTestResultItem (IntentLevelSlotResolutionTestResultItem'),
+    newIntentLevelSlotResolutionTestResultItem,
+
+    -- ** IntentLevelSlotResolutionTestResults
+    IntentLevelSlotResolutionTestResults (IntentLevelSlotResolutionTestResults'),
+    newIntentLevelSlotResolutionTestResults,
 
     -- ** IntentOverride
     IntentOverride (IntentOverride'),
@@ -1030,6 +1233,18 @@ module Amazonka.LexV2Models
     OutputContext (OutputContext'),
     newOutputContext,
 
+    -- ** OverallTestResultItem
+    OverallTestResultItem (OverallTestResultItem'),
+    newOverallTestResultItem,
+
+    -- ** OverallTestResults
+    OverallTestResults (OverallTestResults'),
+    newOverallTestResults,
+
+    -- ** ParentBotNetwork
+    ParentBotNetwork (ParentBotNetwork'),
+    newParentBotNetwork,
+
     -- ** PathFormat
     PathFormat (PathFormat'),
     newPathFormat,
@@ -1069,6 +1284,18 @@ module Amazonka.LexV2Models
     -- ** ResponseSpecification
     ResponseSpecification (ResponseSpecification'),
     newResponseSpecification,
+
+    -- ** RuntimeHintDetails
+    RuntimeHintDetails (RuntimeHintDetails'),
+    newRuntimeHintDetails,
+
+    -- ** RuntimeHintValue
+    RuntimeHintValue (RuntimeHintValue'),
+    newRuntimeHintValue,
+
+    -- ** RuntimeHints
+    RuntimeHints (RuntimeHints'),
+    newRuntimeHints,
 
     -- ** S3BucketLogDestination
     S3BucketLogDestination (S3BucketLogDestination'),
@@ -1113,6 +1340,14 @@ module Amazonka.LexV2Models
     -- ** SlotPriority
     SlotPriority (SlotPriority'),
     newSlotPriority,
+
+    -- ** SlotResolutionTestResultItem
+    SlotResolutionTestResultItem (SlotResolutionTestResultItem'),
+    newSlotResolutionTestResultItem,
+
+    -- ** SlotResolutionTestResultItemCounts
+    SlotResolutionTestResultItemCounts (SlotResolutionTestResultItemCounts'),
+    newSlotResolutionTestResultItemCounts,
 
     -- ** SlotSortBy
     SlotSortBy (SlotSortBy'),
@@ -1182,6 +1417,82 @@ module Amazonka.LexV2Models
     SubSlotValueElicitationSetting (SubSlotValueElicitationSetting'),
     newSubSlotValueElicitationSetting,
 
+    -- ** TestExecutionResultFilterBy
+    TestExecutionResultFilterBy (TestExecutionResultFilterBy'),
+    newTestExecutionResultFilterBy,
+
+    -- ** TestExecutionResultItems
+    TestExecutionResultItems (TestExecutionResultItems'),
+    newTestExecutionResultItems,
+
+    -- ** TestExecutionSortBy
+    TestExecutionSortBy (TestExecutionSortBy'),
+    newTestExecutionSortBy,
+
+    -- ** TestExecutionSummary
+    TestExecutionSummary (TestExecutionSummary'),
+    newTestExecutionSummary,
+
+    -- ** TestExecutionTarget
+    TestExecutionTarget (TestExecutionTarget'),
+    newTestExecutionTarget,
+
+    -- ** TestSetDiscrepancyErrors
+    TestSetDiscrepancyErrors (TestSetDiscrepancyErrors'),
+    newTestSetDiscrepancyErrors,
+
+    -- ** TestSetDiscrepancyReportBotAliasTarget
+    TestSetDiscrepancyReportBotAliasTarget (TestSetDiscrepancyReportBotAliasTarget'),
+    newTestSetDiscrepancyReportBotAliasTarget,
+
+    -- ** TestSetDiscrepancyReportResourceTarget
+    TestSetDiscrepancyReportResourceTarget (TestSetDiscrepancyReportResourceTarget'),
+    newTestSetDiscrepancyReportResourceTarget,
+
+    -- ** TestSetExportSpecification
+    TestSetExportSpecification (TestSetExportSpecification'),
+    newTestSetExportSpecification,
+
+    -- ** TestSetGenerationDataSource
+    TestSetGenerationDataSource (TestSetGenerationDataSource'),
+    newTestSetGenerationDataSource,
+
+    -- ** TestSetImportInputLocation
+    TestSetImportInputLocation (TestSetImportInputLocation'),
+    newTestSetImportInputLocation,
+
+    -- ** TestSetImportResourceSpecification
+    TestSetImportResourceSpecification (TestSetImportResourceSpecification'),
+    newTestSetImportResourceSpecification,
+
+    -- ** TestSetIntentDiscrepancyItem
+    TestSetIntentDiscrepancyItem (TestSetIntentDiscrepancyItem'),
+    newTestSetIntentDiscrepancyItem,
+
+    -- ** TestSetSlotDiscrepancyItem
+    TestSetSlotDiscrepancyItem (TestSetSlotDiscrepancyItem'),
+    newTestSetSlotDiscrepancyItem,
+
+    -- ** TestSetSortBy
+    TestSetSortBy (TestSetSortBy'),
+    newTestSetSortBy,
+
+    -- ** TestSetStorageLocation
+    TestSetStorageLocation (TestSetStorageLocation'),
+    newTestSetStorageLocation,
+
+    -- ** TestSetSummary
+    TestSetSummary (TestSetSummary'),
+    newTestSetSummary,
+
+    -- ** TestSetTurnRecord
+    TestSetTurnRecord (TestSetTurnRecord'),
+    newTestSetTurnRecord,
+
+    -- ** TestSetTurnResult
+    TestSetTurnResult (TestSetTurnResult'),
+    newTestSetTurnResult,
+
     -- ** TextInputSpecification
     TextInputSpecification (TextInputSpecification'),
     newTextInputSpecification,
@@ -1202,9 +1513,53 @@ module Amazonka.LexV2Models
     TranscriptSourceSetting (TranscriptSourceSetting'),
     newTranscriptSourceSetting,
 
+    -- ** TurnSpecification
+    TurnSpecification (TurnSpecification'),
+    newTurnSpecification,
+
+    -- ** UserTurnInputSpecification
+    UserTurnInputSpecification (UserTurnInputSpecification'),
+    newUserTurnInputSpecification,
+
+    -- ** UserTurnIntentOutput
+    UserTurnIntentOutput (UserTurnIntentOutput'),
+    newUserTurnIntentOutput,
+
+    -- ** UserTurnOutputSpecification
+    UserTurnOutputSpecification (UserTurnOutputSpecification'),
+    newUserTurnOutputSpecification,
+
+    -- ** UserTurnResult
+    UserTurnResult (UserTurnResult'),
+    newUserTurnResult,
+
+    -- ** UserTurnSlotOutput
+    UserTurnSlotOutput (UserTurnSlotOutput'),
+    newUserTurnSlotOutput,
+
+    -- ** UserTurnSpecification
+    UserTurnSpecification (UserTurnSpecification'),
+    newUserTurnSpecification,
+
     -- ** UtteranceAggregationDuration
     UtteranceAggregationDuration (UtteranceAggregationDuration'),
     newUtteranceAggregationDuration,
+
+    -- ** UtteranceAudioInputSpecification
+    UtteranceAudioInputSpecification (UtteranceAudioInputSpecification'),
+    newUtteranceAudioInputSpecification,
+
+    -- ** UtteranceInputSpecification
+    UtteranceInputSpecification (UtteranceInputSpecification'),
+    newUtteranceInputSpecification,
+
+    -- ** UtteranceLevelTestResultItem
+    UtteranceLevelTestResultItem (UtteranceLevelTestResultItem'),
+    newUtteranceLevelTestResultItem,
+
+    -- ** UtteranceLevelTestResults
+    UtteranceLevelTestResults (UtteranceLevelTestResults'),
+    newUtteranceLevelTestResults,
 
     -- ** VoiceSettings
     VoiceSettings (VoiceSettings'),
@@ -1230,6 +1585,7 @@ import Amazonka.LexV2Models.CreateResourcePolicy
 import Amazonka.LexV2Models.CreateResourcePolicyStatement
 import Amazonka.LexV2Models.CreateSlot
 import Amazonka.LexV2Models.CreateSlotType
+import Amazonka.LexV2Models.CreateTestSetDiscrepancyReport
 import Amazonka.LexV2Models.CreateUploadUrl
 import Amazonka.LexV2Models.DeleteBot
 import Amazonka.LexV2Models.DeleteBotAlias
@@ -1243,6 +1599,7 @@ import Amazonka.LexV2Models.DeleteResourcePolicy
 import Amazonka.LexV2Models.DeleteResourcePolicyStatement
 import Amazonka.LexV2Models.DeleteSlot
 import Amazonka.LexV2Models.DeleteSlotType
+import Amazonka.LexV2Models.DeleteTestSet
 import Amazonka.LexV2Models.DeleteUtterances
 import Amazonka.LexV2Models.DescribeBot
 import Amazonka.LexV2Models.DescribeBotAlias
@@ -1256,6 +1613,11 @@ import Amazonka.LexV2Models.DescribeIntent
 import Amazonka.LexV2Models.DescribeResourcePolicy
 import Amazonka.LexV2Models.DescribeSlot
 import Amazonka.LexV2Models.DescribeSlotType
+import Amazonka.LexV2Models.DescribeTestExecution
+import Amazonka.LexV2Models.DescribeTestSet
+import Amazonka.LexV2Models.DescribeTestSetDiscrepancyReport
+import Amazonka.LexV2Models.DescribeTestSetGeneration
+import Amazonka.LexV2Models.GetTestExecutionArtifactsUrl
 import Amazonka.LexV2Models.Lens
 import Amazonka.LexV2Models.ListAggregatedUtterances
 import Amazonka.LexV2Models.ListBotAliases
@@ -1273,9 +1635,15 @@ import Amazonka.LexV2Models.ListRecommendedIntents
 import Amazonka.LexV2Models.ListSlotTypes
 import Amazonka.LexV2Models.ListSlots
 import Amazonka.LexV2Models.ListTagsForResource
+import Amazonka.LexV2Models.ListTestExecutionResultItems
+import Amazonka.LexV2Models.ListTestExecutions
+import Amazonka.LexV2Models.ListTestSetRecords
+import Amazonka.LexV2Models.ListTestSets
 import Amazonka.LexV2Models.SearchAssociatedTranscripts
 import Amazonka.LexV2Models.StartBotRecommendation
 import Amazonka.LexV2Models.StartImport
+import Amazonka.LexV2Models.StartTestExecution
+import Amazonka.LexV2Models.StartTestSetGeneration
 import Amazonka.LexV2Models.StopBotRecommendation
 import Amazonka.LexV2Models.TagResource
 import Amazonka.LexV2Models.Types
@@ -1289,6 +1657,7 @@ import Amazonka.LexV2Models.UpdateIntent
 import Amazonka.LexV2Models.UpdateResourcePolicy
 import Amazonka.LexV2Models.UpdateSlot
 import Amazonka.LexV2Models.UpdateSlotType
+import Amazonka.LexV2Models.UpdateTestSet
 import Amazonka.LexV2Models.Waiters
 
 -- $errors

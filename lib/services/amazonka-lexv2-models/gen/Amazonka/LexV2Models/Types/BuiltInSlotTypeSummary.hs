@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides summary information about a built-in slot type for the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBuiltInSlotTypes.html ListBuiltInSlotTypes>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBuiltInSlotTypes.html ListBuiltInSlotTypes>
 -- operation.
 --
 -- /See:/ 'newBuiltInSlotTypeSummary' smart constructor.
@@ -80,7 +80,8 @@ instance Data.FromJSON BuiltInSlotTypeSummary where
 
 instance Prelude.Hashable BuiltInSlotTypeSummary where
   hashWithSalt _salt BuiltInSlotTypeSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` slotTypeSignature
 
 instance Prelude.NFData BuiltInSlotTypeSummary where

@@ -28,8 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3BucketLogDestination' smart constructor.
 data S3BucketLogDestination = S3BucketLogDestination'
-  { -- | The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS)
-    -- key for encrypting audio log files stored in an S3 bucket.
+  { -- | The Amazon Resource Name (ARN) of an Amazon Web Services Key Management
+    -- Service (KMS) key for encrypting audio log files stored in an S3 bucket.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log
     -- files are stored.
@@ -47,8 +47,8 @@ data S3BucketLogDestination = S3BucketLogDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyArn', 's3BucketLogDestination_kmsKeyArn' - The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS)
--- key for encrypting audio log files stored in an S3 bucket.
+-- 'kmsKeyArn', 's3BucketLogDestination_kmsKeyArn' - The Amazon Resource Name (ARN) of an Amazon Web Services Key Management
+-- Service (KMS) key for encrypting audio log files stored in an S3 bucket.
 --
 -- 's3BucketArn', 's3BucketLogDestination_s3BucketArn' - The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log
 -- files are stored.
@@ -68,8 +68,8 @@ newS3BucketLogDestination pS3BucketArn_ pLogPrefix_ =
       logPrefix = pLogPrefix_
     }
 
--- | The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS)
--- key for encrypting audio log files stored in an S3 bucket.
+-- | The Amazon Resource Name (ARN) of an Amazon Web Services Key Management
+-- Service (KMS) key for encrypting audio log files stored in an S3 bucket.
 s3BucketLogDestination_kmsKeyArn :: Lens.Lens' S3BucketLogDestination (Prelude.Maybe Prelude.Text)
 s3BucketLogDestination_kmsKeyArn = Lens.lens (\S3BucketLogDestination' {kmsKeyArn} -> kmsKeyArn) (\s@S3BucketLogDestination' {} a -> s {kmsKeyArn = a} :: S3BucketLogDestination)
 
@@ -95,7 +95,8 @@ instance Data.FromJSON S3BucketLogDestination where
 
 instance Prelude.Hashable S3BucketLogDestination where
   hashWithSalt _salt S3BucketLogDestination' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyArn
+    _salt
+      `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` s3BucketArn
       `Prelude.hashWithSalt` logPrefix
 

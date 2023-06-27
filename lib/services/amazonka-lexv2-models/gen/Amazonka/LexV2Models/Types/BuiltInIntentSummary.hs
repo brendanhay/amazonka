@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides summary information about a built-in intent for the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBuiltInIntents.html ListBuiltInIntents>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBuiltInIntents.html ListBuiltInIntents>
 -- operation.
 --
 -- /See:/ 'newBuiltInIntentSummary' smart constructor.
@@ -80,7 +80,8 @@ instance Data.FromJSON BuiltInIntentSummary where
 
 instance Prelude.Hashable BuiltInIntentSummary where
   hashWithSalt _salt BuiltInIntentSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` intentSignature
 
 instance Prelude.NFData BuiltInIntentSummary where

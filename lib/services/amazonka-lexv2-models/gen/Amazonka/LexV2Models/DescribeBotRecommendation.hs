@@ -164,7 +164,8 @@ instance Core.AWSRequest DescribeBotRecommendation where
 
 instance Prelude.Hashable DescribeBotRecommendation where
   hashWithSalt _salt DescribeBotRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` botId
+    _salt
+      `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` localeId
       `Prelude.hashWithSalt` botRecommendationId

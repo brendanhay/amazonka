@@ -37,10 +37,10 @@ data SlotValueRegexFilter = SlotValueRegexFilter'
     --
     -- -   0-9
     --
-    -- -   Unicode characters (\"\\ u\<Unicode>\")
+    -- -   Unicode characters (\"\\⁠u\<Unicode>\")
     --
-    -- Represent Unicode characters with four digits, for example \"\\u0041\"
-    -- or \"\\u005A\".
+    -- Represent Unicode characters with four digits, for example \"\\⁠u0041\"
+    -- or \"\\⁠u005A\".
     --
     -- The following regular expression operators are not supported:
     --
@@ -68,10 +68,10 @@ data SlotValueRegexFilter = SlotValueRegexFilter'
 --
 -- -   0-9
 --
--- -   Unicode characters (\"\\ u\<Unicode>\")
+-- -   Unicode characters (\"\\⁠u\<Unicode>\")
 --
--- Represent Unicode characters with four digits, for example \"\\u0041\"
--- or \"\\u005A\".
+-- Represent Unicode characters with four digits, for example \"\\⁠u0041\"
+-- or \"\\⁠u005A\".
 --
 -- The following regular expression operators are not supported:
 --
@@ -94,10 +94,10 @@ newSlotValueRegexFilter pPattern_ =
 --
 -- -   0-9
 --
--- -   Unicode characters (\"\\ u\<Unicode>\")
+-- -   Unicode characters (\"\\⁠u\<Unicode>\")
 --
--- Represent Unicode characters with four digits, for example \"\\u0041\"
--- or \"\\u005A\".
+-- Represent Unicode characters with four digits, for example \"\\⁠u0041\"
+-- or \"\\⁠u005A\".
 --
 -- The following regular expression operators are not supported:
 --

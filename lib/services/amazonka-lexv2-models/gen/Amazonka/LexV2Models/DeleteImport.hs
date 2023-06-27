@@ -121,9 +121,9 @@ data DeleteImportResponse = DeleteImportResponse'
     importId :: Prelude.Maybe Prelude.Text,
     -- | The current status of the deletion. When the deletion is complete, the
     -- import will no longer be returned by the
-    -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_ListImports.html ListImports>
+    -- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListImports.html ListImports>
     -- operation and calls to the
-    -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeImport.html DescribeImport>
+    -- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeImport.html DescribeImport>
     -- operation with the import identifier will fail.
     importStatus :: Prelude.Maybe ImportStatus,
     -- | The response's http status code.
@@ -143,9 +143,9 @@ data DeleteImportResponse = DeleteImportResponse'
 --
 -- 'importStatus', 'deleteImportResponse_importStatus' - The current status of the deletion. When the deletion is complete, the
 -- import will no longer be returned by the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_ListImports.html ListImports>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListImports.html ListImports>
 -- operation and calls to the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeImport.html DescribeImport>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeImport.html DescribeImport>
 -- operation with the import identifier will fail.
 --
 -- 'httpStatus', 'deleteImportResponse_httpStatus' - The response's http status code.
@@ -166,9 +166,9 @@ deleteImportResponse_importId = Lens.lens (\DeleteImportResponse' {importId} -> 
 
 -- | The current status of the deletion. When the deletion is complete, the
 -- import will no longer be returned by the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_ListImports.html ListImports>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListImports.html ListImports>
 -- operation and calls to the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeImport.html DescribeImport>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeImport.html DescribeImport>
 -- operation with the import identifier will fail.
 deleteImportResponse_importStatus :: Lens.Lens' DeleteImportResponse (Prelude.Maybe ImportStatus)
 deleteImportResponse_importStatus = Lens.lens (\DeleteImportResponse' {importStatus} -> importStatus) (\s@DeleteImportResponse' {} a -> s {importStatus = a} :: DeleteImportResponse)

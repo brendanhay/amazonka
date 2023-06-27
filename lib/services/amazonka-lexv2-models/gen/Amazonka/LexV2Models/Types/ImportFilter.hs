@@ -27,7 +27,7 @@ import Amazonka.LexV2Models.Types.ImportFilterOperator
 import qualified Amazonka.Prelude as Prelude
 
 -- | Filters the response from the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_ListImports.html ListImports>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListImports.html ListImports>
 -- operation.
 --
 -- /See:/ 'newImportFilter' smart constructor.
@@ -95,7 +95,8 @@ importFilter_operator = Lens.lens (\ImportFilter' {operator} -> operator) (\s@Im
 
 instance Prelude.Hashable ImportFilter where
   hashWithSalt _salt ImportFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` operator
 

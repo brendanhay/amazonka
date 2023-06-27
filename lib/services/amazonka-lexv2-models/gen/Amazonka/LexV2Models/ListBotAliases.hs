@@ -123,7 +123,8 @@ instance Core.AWSRequest ListBotAliases where
     Response.receiveJSON
       ( \s h x ->
           ListBotAliasesResponse'
-            Prelude.<$> ( x Data..?> "botAliasSummaries"
+            Prelude.<$> ( x
+                            Data..?> "botAliasSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "botId")
@@ -133,7 +134,8 @@ instance Core.AWSRequest ListBotAliases where
 
 instance Prelude.Hashable ListBotAliases where
   hashWithSalt _salt ListBotAliases' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` botId
 

@@ -32,22 +32,23 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSlotValueSelectionSetting' smart constructor.
 data SlotValueSelectionSetting = SlotValueSelectionSetting'
   { -- | Provides settings that enable advanced recognition settings for slot
-    -- values.
+    -- values. You can use this to enable using slot values as a custom
+    -- vocabulary for recognizing user utterances.
     advancedRecognitionSetting :: Prelude.Maybe AdvancedRecognitionSetting,
     -- | A regular expression used to validate the value of a slot.
     regexFilter :: Prelude.Maybe SlotValueRegexFilter,
     -- | Determines the slot resolution strategy that Amazon Lex uses to return
     -- slot type values. The field can be set to one of the following values:
     --
-    -- -   OriginalValue - Returns the value entered by the user, if the user
-    --     value is similar to the slot value.
+    -- -   @ORIGINAL_VALUE@ - Returns the value entered by the user, if the
+    --     user value is similar to the slot value.
     --
-    -- -   TopResolution - If there is a resolution list for the slot, return
-    --     the first value in the resolution list as the slot type value. If
-    --     there is no resolution list, null is returned.
+    -- -   @TOP_RESOLUTION@ - If there is a resolution list for the slot,
+    --     return the first value in the resolution list as the slot type
+    --     value. If there is no resolution list, null is returned.
     --
-    -- If you don\'t specify the valueSelectionStrategy, the default is
-    -- OriginalValue.
+    -- If you don\'t specify the @valueSelectionStrategy@, the default is
+    -- @ORIGINAL_VALUE@.
     resolutionStrategy :: SlotValueResolutionStrategy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,22 +62,23 @@ data SlotValueSelectionSetting = SlotValueSelectionSetting'
 -- for backwards compatibility:
 --
 -- 'advancedRecognitionSetting', 'slotValueSelectionSetting_advancedRecognitionSetting' - Provides settings that enable advanced recognition settings for slot
--- values.
+-- values. You can use this to enable using slot values as a custom
+-- vocabulary for recognizing user utterances.
 --
 -- 'regexFilter', 'slotValueSelectionSetting_regexFilter' - A regular expression used to validate the value of a slot.
 --
 -- 'resolutionStrategy', 'slotValueSelectionSetting_resolutionStrategy' - Determines the slot resolution strategy that Amazon Lex uses to return
 -- slot type values. The field can be set to one of the following values:
 --
--- -   OriginalValue - Returns the value entered by the user, if the user
---     value is similar to the slot value.
+-- -   @ORIGINAL_VALUE@ - Returns the value entered by the user, if the
+--     user value is similar to the slot value.
 --
--- -   TopResolution - If there is a resolution list for the slot, return
---     the first value in the resolution list as the slot type value. If
---     there is no resolution list, null is returned.
+-- -   @TOP_RESOLUTION@ - If there is a resolution list for the slot,
+--     return the first value in the resolution list as the slot type
+--     value. If there is no resolution list, null is returned.
 --
--- If you don\'t specify the valueSelectionStrategy, the default is
--- OriginalValue.
+-- If you don\'t specify the @valueSelectionStrategy@, the default is
+-- @ORIGINAL_VALUE@.
 newSlotValueSelectionSetting ::
   -- | 'resolutionStrategy'
   SlotValueResolutionStrategy ->
@@ -90,7 +92,8 @@ newSlotValueSelectionSetting pResolutionStrategy_ =
     }
 
 -- | Provides settings that enable advanced recognition settings for slot
--- values.
+-- values. You can use this to enable using slot values as a custom
+-- vocabulary for recognizing user utterances.
 slotValueSelectionSetting_advancedRecognitionSetting :: Lens.Lens' SlotValueSelectionSetting (Prelude.Maybe AdvancedRecognitionSetting)
 slotValueSelectionSetting_advancedRecognitionSetting = Lens.lens (\SlotValueSelectionSetting' {advancedRecognitionSetting} -> advancedRecognitionSetting) (\s@SlotValueSelectionSetting' {} a -> s {advancedRecognitionSetting = a} :: SlotValueSelectionSetting)
 
@@ -101,15 +104,15 @@ slotValueSelectionSetting_regexFilter = Lens.lens (\SlotValueSelectionSetting' {
 -- | Determines the slot resolution strategy that Amazon Lex uses to return
 -- slot type values. The field can be set to one of the following values:
 --
--- -   OriginalValue - Returns the value entered by the user, if the user
---     value is similar to the slot value.
+-- -   @ORIGINAL_VALUE@ - Returns the value entered by the user, if the
+--     user value is similar to the slot value.
 --
--- -   TopResolution - If there is a resolution list for the slot, return
---     the first value in the resolution list as the slot type value. If
---     there is no resolution list, null is returned.
+-- -   @TOP_RESOLUTION@ - If there is a resolution list for the slot,
+--     return the first value in the resolution list as the slot type
+--     value. If there is no resolution list, null is returned.
 --
--- If you don\'t specify the valueSelectionStrategy, the default is
--- OriginalValue.
+-- If you don\'t specify the @valueSelectionStrategy@, the default is
+-- @ORIGINAL_VALUE@.
 slotValueSelectionSetting_resolutionStrategy :: Lens.Lens' SlotValueSelectionSetting SlotValueResolutionStrategy
 slotValueSelectionSetting_resolutionStrategy = Lens.lens (\SlotValueSelectionSetting' {resolutionStrategy} -> resolutionStrategy) (\s@SlotValueSelectionSetting' {} a -> s {resolutionStrategy = a} :: SlotValueSelectionSetting)
 

@@ -58,6 +58,7 @@ library
     Amazonka.LexV2Models.CreateResourcePolicyStatement
     Amazonka.LexV2Models.CreateSlot
     Amazonka.LexV2Models.CreateSlotType
+    Amazonka.LexV2Models.CreateTestSetDiscrepancyReport
     Amazonka.LexV2Models.CreateUploadUrl
     Amazonka.LexV2Models.DeleteBot
     Amazonka.LexV2Models.DeleteBotAlias
@@ -71,6 +72,7 @@ library
     Amazonka.LexV2Models.DeleteResourcePolicyStatement
     Amazonka.LexV2Models.DeleteSlot
     Amazonka.LexV2Models.DeleteSlotType
+    Amazonka.LexV2Models.DeleteTestSet
     Amazonka.LexV2Models.DeleteUtterances
     Amazonka.LexV2Models.DescribeBot
     Amazonka.LexV2Models.DescribeBotAlias
@@ -84,6 +86,11 @@ library
     Amazonka.LexV2Models.DescribeResourcePolicy
     Amazonka.LexV2Models.DescribeSlot
     Amazonka.LexV2Models.DescribeSlotType
+    Amazonka.LexV2Models.DescribeTestExecution
+    Amazonka.LexV2Models.DescribeTestSet
+    Amazonka.LexV2Models.DescribeTestSetDiscrepancyReport
+    Amazonka.LexV2Models.DescribeTestSetGeneration
+    Amazonka.LexV2Models.GetTestExecutionArtifactsUrl
     Amazonka.LexV2Models.Lens
     Amazonka.LexV2Models.ListAggregatedUtterances
     Amazonka.LexV2Models.ListBotAliases
@@ -101,13 +108,22 @@ library
     Amazonka.LexV2Models.ListSlots
     Amazonka.LexV2Models.ListSlotTypes
     Amazonka.LexV2Models.ListTagsForResource
+    Amazonka.LexV2Models.ListTestExecutionResultItems
+    Amazonka.LexV2Models.ListTestExecutions
+    Amazonka.LexV2Models.ListTestSetRecords
+    Amazonka.LexV2Models.ListTestSets
     Amazonka.LexV2Models.SearchAssociatedTranscripts
     Amazonka.LexV2Models.StartBotRecommendation
     Amazonka.LexV2Models.StartImport
+    Amazonka.LexV2Models.StartTestExecution
+    Amazonka.LexV2Models.StartTestSetGeneration
     Amazonka.LexV2Models.StopBotRecommendation
     Amazonka.LexV2Models.TagResource
     Amazonka.LexV2Models.Types
+    Amazonka.LexV2Models.Types.ActiveContext
     Amazonka.LexV2Models.Types.AdvancedRecognitionSetting
+    Amazonka.LexV2Models.Types.AgentTurnResult
+    Amazonka.LexV2Models.Types.AgentTurnSpecification
     Amazonka.LexV2Models.Types.AggregatedUtterancesFilter
     Amazonka.LexV2Models.Types.AggregatedUtterancesFilterName
     Amazonka.LexV2Models.Types.AggregatedUtterancesFilterOperator
@@ -127,6 +143,7 @@ library
     Amazonka.LexV2Models.Types.BotAliasLocaleSettings
     Amazonka.LexV2Models.Types.BotAliasStatus
     Amazonka.LexV2Models.Types.BotAliasSummary
+    Amazonka.LexV2Models.Types.BotAliasTestExecutionTarget
     Amazonka.LexV2Models.Types.BotExportSpecification
     Amazonka.LexV2Models.Types.BotFilter
     Amazonka.LexV2Models.Types.BotFilterName
@@ -142,6 +159,7 @@ library
     Amazonka.LexV2Models.Types.BotLocaleSortBy
     Amazonka.LexV2Models.Types.BotLocaleStatus
     Amazonka.LexV2Models.Types.BotLocaleSummary
+    Amazonka.LexV2Models.Types.BotMember
     Amazonka.LexV2Models.Types.BotRecommendationResults
     Amazonka.LexV2Models.Types.BotRecommendationResultStatistics
     Amazonka.LexV2Models.Types.BotRecommendationStatus
@@ -150,6 +168,7 @@ library
     Amazonka.LexV2Models.Types.BotSortBy
     Amazonka.LexV2Models.Types.BotStatus
     Amazonka.LexV2Models.Types.BotSummary
+    Amazonka.LexV2Models.Types.BotType
     Amazonka.LexV2Models.Types.BotVersionLocaleDetails
     Amazonka.LexV2Models.Types.BotVersionSortAttribute
     Amazonka.LexV2Models.Types.BotVersionSortBy
@@ -167,7 +186,16 @@ library
     Amazonka.LexV2Models.Types.Condition
     Amazonka.LexV2Models.Types.ConditionalBranch
     Amazonka.LexV2Models.Types.ConditionalSpecification
+    Amazonka.LexV2Models.Types.ConversationLevelIntentClassificationResultItem
+    Amazonka.LexV2Models.Types.ConversationLevelResultDetail
+    Amazonka.LexV2Models.Types.ConversationLevelSlotResolutionResultItem
+    Amazonka.LexV2Models.Types.ConversationLevelTestResultItem
+    Amazonka.LexV2Models.Types.ConversationLevelTestResults
+    Amazonka.LexV2Models.Types.ConversationLevelTestResultsFilterBy
+    Amazonka.LexV2Models.Types.ConversationLogsDataSource
+    Amazonka.LexV2Models.Types.ConversationLogsDataSourceFilterBy
     Amazonka.LexV2Models.Types.ConversationLogSettings
+    Amazonka.LexV2Models.Types.ConversationLogsInputModeFilter
     Amazonka.LexV2Models.Types.CustomPayload
     Amazonka.LexV2Models.Types.CustomVocabularyEntryId
     Amazonka.LexV2Models.Types.CustomVocabularyExportSpecification
@@ -187,6 +215,7 @@ library
     Amazonka.LexV2Models.Types.ElicitationCodeHookInvocationSetting
     Amazonka.LexV2Models.Types.EncryptionSetting
     Amazonka.LexV2Models.Types.ErrorCode
+    Amazonka.LexV2Models.Types.ExecutionErrorDetails
     Amazonka.LexV2Models.Types.ExportFilter
     Amazonka.LexV2Models.Types.ExportFilterName
     Amazonka.LexV2Models.Types.ExportFilterOperator
@@ -216,11 +245,17 @@ library
     Amazonka.LexV2Models.Types.ImportSummary
     Amazonka.LexV2Models.Types.InitialResponseSetting
     Amazonka.LexV2Models.Types.InputContext
+    Amazonka.LexV2Models.Types.InputSessionStateSpecification
+    Amazonka.LexV2Models.Types.IntentClassificationTestResultItem
+    Amazonka.LexV2Models.Types.IntentClassificationTestResultItemCounts
+    Amazonka.LexV2Models.Types.IntentClassificationTestResults
     Amazonka.LexV2Models.Types.IntentClosingSetting
     Amazonka.LexV2Models.Types.IntentConfirmationSetting
     Amazonka.LexV2Models.Types.IntentFilter
     Amazonka.LexV2Models.Types.IntentFilterName
     Amazonka.LexV2Models.Types.IntentFilterOperator
+    Amazonka.LexV2Models.Types.IntentLevelSlotResolutionTestResultItem
+    Amazonka.LexV2Models.Types.IntentLevelSlotResolutionTestResults
     Amazonka.LexV2Models.Types.IntentOverride
     Amazonka.LexV2Models.Types.IntentSortAttribute
     Amazonka.LexV2Models.Types.IntentSortBy
@@ -238,6 +273,9 @@ library
     Amazonka.LexV2Models.Types.ObfuscationSetting
     Amazonka.LexV2Models.Types.ObfuscationSettingType
     Amazonka.LexV2Models.Types.OutputContext
+    Amazonka.LexV2Models.Types.OverallTestResultItem
+    Amazonka.LexV2Models.Types.OverallTestResults
+    Amazonka.LexV2Models.Types.ParentBotNetwork
     Amazonka.LexV2Models.Types.PathFormat
     Amazonka.LexV2Models.Types.PlainTextMessage
     Amazonka.LexV2Models.Types.PostDialogCodeHookInvocationSpecification
@@ -249,6 +287,9 @@ library
     Amazonka.LexV2Models.Types.RecommendedIntentSummary
     Amazonka.LexV2Models.Types.RelativeAggregationDuration
     Amazonka.LexV2Models.Types.ResponseSpecification
+    Amazonka.LexV2Models.Types.RuntimeHintDetails
+    Amazonka.LexV2Models.Types.RuntimeHints
+    Amazonka.LexV2Models.Types.RuntimeHintValue
     Amazonka.LexV2Models.Types.S3BucketLogDestination
     Amazonka.LexV2Models.Types.S3BucketTranscriptSource
     Amazonka.LexV2Models.Types.SampleUtterance
@@ -263,6 +304,8 @@ library
     Amazonka.LexV2Models.Types.SlotFilterName
     Amazonka.LexV2Models.Types.SlotFilterOperator
     Amazonka.LexV2Models.Types.SlotPriority
+    Amazonka.LexV2Models.Types.SlotResolutionTestResultItem
+    Amazonka.LexV2Models.Types.SlotResolutionTestResultItemCounts
     Amazonka.LexV2Models.Types.SlotShape
     Amazonka.LexV2Models.Types.SlotSortAttribute
     Amazonka.LexV2Models.Types.SlotSortBy
@@ -289,6 +332,36 @@ library
     Amazonka.LexV2Models.Types.SubSlotSetting
     Amazonka.LexV2Models.Types.SubSlotTypeComposition
     Amazonka.LexV2Models.Types.SubSlotValueElicitationSetting
+    Amazonka.LexV2Models.Types.TestExecutionApiMode
+    Amazonka.LexV2Models.Types.TestExecutionModality
+    Amazonka.LexV2Models.Types.TestExecutionResultFilterBy
+    Amazonka.LexV2Models.Types.TestExecutionResultItems
+    Amazonka.LexV2Models.Types.TestExecutionSortAttribute
+    Amazonka.LexV2Models.Types.TestExecutionSortBy
+    Amazonka.LexV2Models.Types.TestExecutionStatus
+    Amazonka.LexV2Models.Types.TestExecutionSummary
+    Amazonka.LexV2Models.Types.TestExecutionTarget
+    Amazonka.LexV2Models.Types.TestResultMatchStatus
+    Amazonka.LexV2Models.Types.TestResultTypeFilter
+    Amazonka.LexV2Models.Types.TestSetDiscrepancyErrors
+    Amazonka.LexV2Models.Types.TestSetDiscrepancyReportBotAliasTarget
+    Amazonka.LexV2Models.Types.TestSetDiscrepancyReportResourceTarget
+    Amazonka.LexV2Models.Types.TestSetDiscrepancyReportStatus
+    Amazonka.LexV2Models.Types.TestSetExportSpecification
+    Amazonka.LexV2Models.Types.TestSetGenerationDataSource
+    Amazonka.LexV2Models.Types.TestSetGenerationStatus
+    Amazonka.LexV2Models.Types.TestSetImportInputLocation
+    Amazonka.LexV2Models.Types.TestSetImportResourceSpecification
+    Amazonka.LexV2Models.Types.TestSetIntentDiscrepancyItem
+    Amazonka.LexV2Models.Types.TestSetModality
+    Amazonka.LexV2Models.Types.TestSetSlotDiscrepancyItem
+    Amazonka.LexV2Models.Types.TestSetSortAttribute
+    Amazonka.LexV2Models.Types.TestSetSortBy
+    Amazonka.LexV2Models.Types.TestSetStatus
+    Amazonka.LexV2Models.Types.TestSetStorageLocation
+    Amazonka.LexV2Models.Types.TestSetSummary
+    Amazonka.LexV2Models.Types.TestSetTurnRecord
+    Amazonka.LexV2Models.Types.TestSetTurnResult
     Amazonka.LexV2Models.Types.TextInputSpecification
     Amazonka.LexV2Models.Types.TextLogDestination
     Amazonka.LexV2Models.Types.TextLogSetting
@@ -296,7 +369,18 @@ library
     Amazonka.LexV2Models.Types.TranscriptFilter
     Amazonka.LexV2Models.Types.TranscriptFormat
     Amazonka.LexV2Models.Types.TranscriptSourceSetting
+    Amazonka.LexV2Models.Types.TurnSpecification
+    Amazonka.LexV2Models.Types.UserTurnInputSpecification
+    Amazonka.LexV2Models.Types.UserTurnIntentOutput
+    Amazonka.LexV2Models.Types.UserTurnOutputSpecification
+    Amazonka.LexV2Models.Types.UserTurnResult
+    Amazonka.LexV2Models.Types.UserTurnSlotOutput
+    Amazonka.LexV2Models.Types.UserTurnSpecification
     Amazonka.LexV2Models.Types.UtteranceAggregationDuration
+    Amazonka.LexV2Models.Types.UtteranceAudioInputSpecification
+    Amazonka.LexV2Models.Types.UtteranceInputSpecification
+    Amazonka.LexV2Models.Types.UtteranceLevelTestResultItem
+    Amazonka.LexV2Models.Types.UtteranceLevelTestResults
     Amazonka.LexV2Models.Types.VoiceEngine
     Amazonka.LexV2Models.Types.VoiceSettings
     Amazonka.LexV2Models.Types.WaitAndContinueSpecification
@@ -310,6 +394,7 @@ library
     Amazonka.LexV2Models.UpdateResourcePolicy
     Amazonka.LexV2Models.UpdateSlot
     Amazonka.LexV2Models.UpdateSlotType
+    Amazonka.LexV2Models.UpdateTestSet
     Amazonka.LexV2Models.Waiters
 
   build-depends:

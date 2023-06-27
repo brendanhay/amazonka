@@ -62,7 +62,9 @@ module Amazonka.LexV2Models.Lens
     buildBotLocaleResponse_httpStatus,
 
     -- ** CreateBot
+    createBot_botMembers,
     createBot_botTags,
+    createBot_botType,
     createBot_description,
     createBot_testBotAliasTags,
     createBot_botName,
@@ -70,9 +72,11 @@ module Amazonka.LexV2Models.Lens
     createBot_dataPrivacy,
     createBot_idleSessionTTLInSeconds,
     createBotResponse_botId,
+    createBotResponse_botMembers,
     createBotResponse_botName,
     createBotResponse_botStatus,
     createBotResponse_botTags,
+    createBotResponse_botType,
     createBotResponse_creationDateTime,
     createBotResponse_dataPrivacy,
     createBotResponse_description,
@@ -250,6 +254,15 @@ module Amazonka.LexV2Models.Lens
     createSlotTypeResponse_valueSelectionSetting,
     createSlotTypeResponse_httpStatus,
 
+    -- ** CreateTestSetDiscrepancyReport
+    createTestSetDiscrepancyReport_testSetId,
+    createTestSetDiscrepancyReport_target,
+    createTestSetDiscrepancyReportResponse_creationDateTime,
+    createTestSetDiscrepancyReportResponse_target,
+    createTestSetDiscrepancyReportResponse_testSetDiscrepancyReportId,
+    createTestSetDiscrepancyReportResponse_testSetId,
+    createTestSetDiscrepancyReportResponse_httpStatus,
+
     -- ** CreateUploadUrl
     createUploadUrlResponse_importId,
     createUploadUrlResponse_uploadUrl,
@@ -347,6 +360,9 @@ module Amazonka.LexV2Models.Lens
     deleteSlotType_botVersion,
     deleteSlotType_localeId,
 
+    -- ** DeleteTestSet
+    deleteTestSet_testSetId,
+
     -- ** DeleteUtterances
     deleteUtterances_localeId,
     deleteUtterances_sessionId,
@@ -356,11 +372,14 @@ module Amazonka.LexV2Models.Lens
     -- ** DescribeBot
     describeBot_botId,
     describeBotResponse_botId,
+    describeBotResponse_botMembers,
     describeBotResponse_botName,
     describeBotResponse_botStatus,
+    describeBotResponse_botType,
     describeBotResponse_creationDateTime,
     describeBotResponse_dataPrivacy,
     describeBotResponse_description,
+    describeBotResponse_failureReasons,
     describeBotResponse_idleSessionTTLInSeconds,
     describeBotResponse_lastUpdatedDateTime,
     describeBotResponse_roleArn,
@@ -380,6 +399,7 @@ module Amazonka.LexV2Models.Lens
     describeBotAliasResponse_creationDateTime,
     describeBotAliasResponse_description,
     describeBotAliasResponse_lastUpdatedDateTime,
+    describeBotAliasResponse_parentBotNetworks,
     describeBotAliasResponse_sentimentAnalysisSettings,
     describeBotAliasResponse_httpStatus,
 
@@ -427,14 +447,17 @@ module Amazonka.LexV2Models.Lens
     describeBotVersion_botId,
     describeBotVersion_botVersion,
     describeBotVersionResponse_botId,
+    describeBotVersionResponse_botMembers,
     describeBotVersionResponse_botName,
     describeBotVersionResponse_botStatus,
+    describeBotVersionResponse_botType,
     describeBotVersionResponse_botVersion,
     describeBotVersionResponse_creationDateTime,
     describeBotVersionResponse_dataPrivacy,
     describeBotVersionResponse_description,
     describeBotVersionResponse_failureReasons,
     describeBotVersionResponse_idleSessionTTLInSeconds,
+    describeBotVersionResponse_parentBotNetworks,
     describeBotVersionResponse_roleArn,
     describeBotVersionResponse_httpStatus,
 
@@ -549,6 +572,68 @@ module Amazonka.LexV2Models.Lens
     describeSlotTypeResponse_slotTypeValues,
     describeSlotTypeResponse_valueSelectionSetting,
     describeSlotTypeResponse_httpStatus,
+
+    -- ** DescribeTestExecution
+    describeTestExecution_testExecutionId,
+    describeTestExecutionResponse_apiMode,
+    describeTestExecutionResponse_creationDateTime,
+    describeTestExecutionResponse_failureReasons,
+    describeTestExecutionResponse_lastUpdatedDateTime,
+    describeTestExecutionResponse_target,
+    describeTestExecutionResponse_testExecutionId,
+    describeTestExecutionResponse_testExecutionModality,
+    describeTestExecutionResponse_testExecutionStatus,
+    describeTestExecutionResponse_testSetId,
+    describeTestExecutionResponse_testSetName,
+    describeTestExecutionResponse_httpStatus,
+
+    -- ** DescribeTestSet
+    describeTestSet_testSetId,
+    describeTestSetResponse_creationDateTime,
+    describeTestSetResponse_description,
+    describeTestSetResponse_lastUpdatedDateTime,
+    describeTestSetResponse_modality,
+    describeTestSetResponse_numTurns,
+    describeTestSetResponse_roleArn,
+    describeTestSetResponse_status,
+    describeTestSetResponse_storageLocation,
+    describeTestSetResponse_testSetId,
+    describeTestSetResponse_testSetName,
+    describeTestSetResponse_httpStatus,
+
+    -- ** DescribeTestSetDiscrepancyReport
+    describeTestSetDiscrepancyReport_testSetDiscrepancyReportId,
+    describeTestSetDiscrepancyReportResponse_creationDateTime,
+    describeTestSetDiscrepancyReportResponse_failureReasons,
+    describeTestSetDiscrepancyReportResponse_lastUpdatedDataTime,
+    describeTestSetDiscrepancyReportResponse_target,
+    describeTestSetDiscrepancyReportResponse_testSetDiscrepancyRawOutputUrl,
+    describeTestSetDiscrepancyReportResponse_testSetDiscrepancyReportId,
+    describeTestSetDiscrepancyReportResponse_testSetDiscrepancyReportStatus,
+    describeTestSetDiscrepancyReportResponse_testSetDiscrepancyTopErrors,
+    describeTestSetDiscrepancyReportResponse_testSetId,
+    describeTestSetDiscrepancyReportResponse_httpStatus,
+
+    -- ** DescribeTestSetGeneration
+    describeTestSetGeneration_testSetGenerationId,
+    describeTestSetGenerationResponse_creationDateTime,
+    describeTestSetGenerationResponse_description,
+    describeTestSetGenerationResponse_failureReasons,
+    describeTestSetGenerationResponse_generationDataSource,
+    describeTestSetGenerationResponse_lastUpdatedDateTime,
+    describeTestSetGenerationResponse_roleArn,
+    describeTestSetGenerationResponse_storageLocation,
+    describeTestSetGenerationResponse_testSetGenerationId,
+    describeTestSetGenerationResponse_testSetGenerationStatus,
+    describeTestSetGenerationResponse_testSetId,
+    describeTestSetGenerationResponse_testSetName,
+    describeTestSetGenerationResponse_httpStatus,
+
+    -- ** GetTestExecutionArtifactsUrl
+    getTestExecutionArtifactsUrl_testExecutionId,
+    getTestExecutionArtifactsUrlResponse_downloadArtifactsUrl,
+    getTestExecutionArtifactsUrlResponse_testExecutionId,
+    getTestExecutionArtifactsUrlResponse_httpStatus,
 
     -- ** ListAggregatedUtterances
     listAggregatedUtterances_botAliasId,
@@ -756,6 +841,39 @@ module Amazonka.LexV2Models.Lens
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
+    -- ** ListTestExecutionResultItems
+    listTestExecutionResultItems_maxResults,
+    listTestExecutionResultItems_nextToken,
+    listTestExecutionResultItems_testExecutionId,
+    listTestExecutionResultItems_resultFilterBy,
+    listTestExecutionResultItemsResponse_nextToken,
+    listTestExecutionResultItemsResponse_testExecutionResults,
+    listTestExecutionResultItemsResponse_httpStatus,
+
+    -- ** ListTestExecutions
+    listTestExecutions_maxResults,
+    listTestExecutions_nextToken,
+    listTestExecutions_sortBy,
+    listTestExecutionsResponse_nextToken,
+    listTestExecutionsResponse_testExecutions,
+    listTestExecutionsResponse_httpStatus,
+
+    -- ** ListTestSetRecords
+    listTestSetRecords_maxResults,
+    listTestSetRecords_nextToken,
+    listTestSetRecords_testSetId,
+    listTestSetRecordsResponse_nextToken,
+    listTestSetRecordsResponse_testSetRecords,
+    listTestSetRecordsResponse_httpStatus,
+
+    -- ** ListTestSets
+    listTestSets_maxResults,
+    listTestSets_nextToken,
+    listTestSets_sortBy,
+    listTestSetsResponse_nextToken,
+    listTestSetsResponse_testSets,
+    listTestSetsResponse_httpStatus,
+
     -- ** SearchAssociatedTranscripts
     searchAssociatedTranscripts_maxResults,
     searchAssociatedTranscripts_nextIndex,
@@ -802,6 +920,37 @@ module Amazonka.LexV2Models.Lens
     startImportResponse_resourceSpecification,
     startImportResponse_httpStatus,
 
+    -- ** StartTestExecution
+    startTestExecution_testExecutionModality,
+    startTestExecution_testSetId,
+    startTestExecution_target,
+    startTestExecution_apiMode,
+    startTestExecutionResponse_apiMode,
+    startTestExecutionResponse_creationDateTime,
+    startTestExecutionResponse_target,
+    startTestExecutionResponse_testExecutionId,
+    startTestExecutionResponse_testExecutionModality,
+    startTestExecutionResponse_testSetId,
+    startTestExecutionResponse_httpStatus,
+
+    -- ** StartTestSetGeneration
+    startTestSetGeneration_description,
+    startTestSetGeneration_testSetTags,
+    startTestSetGeneration_testSetName,
+    startTestSetGeneration_storageLocation,
+    startTestSetGeneration_generationDataSource,
+    startTestSetGeneration_roleArn,
+    startTestSetGenerationResponse_creationDateTime,
+    startTestSetGenerationResponse_description,
+    startTestSetGenerationResponse_generationDataSource,
+    startTestSetGenerationResponse_roleArn,
+    startTestSetGenerationResponse_storageLocation,
+    startTestSetGenerationResponse_testSetGenerationId,
+    startTestSetGenerationResponse_testSetGenerationStatus,
+    startTestSetGenerationResponse_testSetName,
+    startTestSetGenerationResponse_testSetTags,
+    startTestSetGenerationResponse_httpStatus,
+
     -- ** StopBotRecommendation
     stopBotRecommendation_botId,
     stopBotRecommendation_botVersion,
@@ -825,6 +974,8 @@ module Amazonka.LexV2Models.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateBot
+    updateBot_botMembers,
+    updateBot_botType,
     updateBot_description,
     updateBot_botId,
     updateBot_botName,
@@ -832,8 +983,10 @@ module Amazonka.LexV2Models.Lens
     updateBot_dataPrivacy,
     updateBot_idleSessionTTLInSeconds,
     updateBotResponse_botId,
+    updateBotResponse_botMembers,
     updateBotResponse_botName,
     updateBotResponse_botStatus,
+    updateBotResponse_botType,
     updateBotResponse_creationDateTime,
     updateBotResponse_dataPrivacy,
     updateBotResponse_description,
@@ -1016,10 +1169,39 @@ module Amazonka.LexV2Models.Lens
     updateSlotTypeResponse_valueSelectionSetting,
     updateSlotTypeResponse_httpStatus,
 
+    -- ** UpdateTestSet
+    updateTestSet_description,
+    updateTestSet_testSetId,
+    updateTestSet_testSetName,
+    updateTestSetResponse_creationDateTime,
+    updateTestSetResponse_description,
+    updateTestSetResponse_lastUpdatedDateTime,
+    updateTestSetResponse_modality,
+    updateTestSetResponse_numTurns,
+    updateTestSetResponse_roleArn,
+    updateTestSetResponse_status,
+    updateTestSetResponse_storageLocation,
+    updateTestSetResponse_testSetId,
+    updateTestSetResponse_testSetName,
+    updateTestSetResponse_httpStatus,
+
     -- * Types
+
+    -- ** ActiveContext
+    activeContext_name,
 
     -- ** AdvancedRecognitionSetting
     advancedRecognitionSetting_audioRecognitionStrategy,
+
+    -- ** AgentTurnResult
+    agentTurnResult_actualAgentPrompt,
+    agentTurnResult_actualElicitedSlot,
+    agentTurnResult_actualIntent,
+    agentTurnResult_errorDetails,
+    agentTurnResult_expectedAgentPrompt,
+
+    -- ** AgentTurnSpecification
+    agentTurnSpecification_agentPrompt,
 
     -- ** AggregatedUtterancesFilter
     aggregatedUtterancesFilter_name,
@@ -1083,6 +1265,11 @@ module Amazonka.LexV2Models.Lens
     botAliasSummary_description,
     botAliasSummary_lastUpdatedDateTime,
 
+    -- ** BotAliasTestExecutionTarget
+    botAliasTestExecutionTarget_botId,
+    botAliasTestExecutionTarget_botAliasId,
+    botAliasTestExecutionTarget_localeId,
+
     -- ** BotExportSpecification
     botExportSpecification_botId,
     botExportSpecification_botVersion,
@@ -1133,6 +1320,13 @@ module Amazonka.LexV2Models.Lens
     botLocaleSummary_localeId,
     botLocaleSummary_localeName,
 
+    -- ** BotMember
+    botMember_botMemberId,
+    botMember_botMemberName,
+    botMember_botMemberAliasId,
+    botMember_botMemberAliasName,
+    botMember_botMemberVersion,
+
     -- ** BotRecommendationResultStatistics
     botRecommendationResultStatistics_intents,
     botRecommendationResultStatistics_slotTypes,
@@ -1156,6 +1350,7 @@ module Amazonka.LexV2Models.Lens
     botSummary_botId,
     botSummary_botName,
     botSummary_botStatus,
+    botSummary_botType,
     botSummary_description,
     botSummary_lastUpdatedDateTime,
     botSummary_latestBotVersion,
@@ -1218,9 +1413,46 @@ module Amazonka.LexV2Models.Lens
     conditionalSpecification_conditionalBranches,
     conditionalSpecification_defaultBranch,
 
+    -- ** ConversationLevelIntentClassificationResultItem
+    conversationLevelIntentClassificationResultItem_intentName,
+    conversationLevelIntentClassificationResultItem_matchResult,
+
+    -- ** ConversationLevelResultDetail
+    conversationLevelResultDetail_speechTranscriptionResult,
+    conversationLevelResultDetail_endToEndResult,
+
+    -- ** ConversationLevelSlotResolutionResultItem
+    conversationLevelSlotResolutionResultItem_intentName,
+    conversationLevelSlotResolutionResultItem_slotName,
+    conversationLevelSlotResolutionResultItem_matchResult,
+
+    -- ** ConversationLevelTestResultItem
+    conversationLevelTestResultItem_speechTranscriptionResult,
+    conversationLevelTestResultItem_conversationId,
+    conversationLevelTestResultItem_endToEndResult,
+    conversationLevelTestResultItem_intentClassificationResults,
+    conversationLevelTestResultItem_slotResolutionResults,
+
+    -- ** ConversationLevelTestResults
+    conversationLevelTestResults_items,
+
+    -- ** ConversationLevelTestResultsFilterBy
+    conversationLevelTestResultsFilterBy_endToEndResult,
+
     -- ** ConversationLogSettings
     conversationLogSettings_audioLogSettings,
     conversationLogSettings_textLogSettings,
+
+    -- ** ConversationLogsDataSource
+    conversationLogsDataSource_botId,
+    conversationLogsDataSource_botAliasId,
+    conversationLogsDataSource_localeId,
+    conversationLogsDataSource_filter,
+
+    -- ** ConversationLogsDataSourceFilterBy
+    conversationLogsDataSourceFilterBy_startTime,
+    conversationLogsDataSourceFilterBy_endTime,
+    conversationLogsDataSourceFilterBy_inputMode,
 
     -- ** CustomPayload
     customPayload_value,
@@ -1289,6 +1521,10 @@ module Amazonka.LexV2Models.Lens
     encryptionSetting_botLocaleExportPassword,
     encryptionSetting_kmsKeyArn,
 
+    -- ** ExecutionErrorDetails
+    executionErrorDetails_errorCode,
+    executionErrorDetails_errorMessage,
+
     -- ** ExportFilter
     exportFilter_name,
     exportFilter_values,
@@ -1298,6 +1534,7 @@ module Amazonka.LexV2Models.Lens
     exportResourceSpecification_botExportSpecification,
     exportResourceSpecification_botLocaleExportSpecification,
     exportResourceSpecification_customVocabularyExportSpecification,
+    exportResourceSpecification_testSetExportSpecification,
 
     -- ** ExportSortBy
     exportSortBy_attribute,
@@ -1364,6 +1601,7 @@ module Amazonka.LexV2Models.Lens
     importResourceSpecification_botImportSpecification,
     importResourceSpecification_botLocaleImportSpecification,
     importResourceSpecification_customVocabularyImportSpecification,
+    importResourceSpecification_testSetImportResourceSpecification,
 
     -- ** ImportSortBy
     importSortBy_attribute,
@@ -1387,6 +1625,24 @@ module Amazonka.LexV2Models.Lens
 
     -- ** InputContext
     inputContext_name,
+
+    -- ** InputSessionStateSpecification
+    inputSessionStateSpecification_activeContexts,
+    inputSessionStateSpecification_runtimeHints,
+    inputSessionStateSpecification_sessionAttributes,
+
+    -- ** IntentClassificationTestResultItem
+    intentClassificationTestResultItem_intentName,
+    intentClassificationTestResultItem_multiTurnConversation,
+    intentClassificationTestResultItem_resultCounts,
+
+    -- ** IntentClassificationTestResultItemCounts
+    intentClassificationTestResultItemCounts_speechTranscriptionResultCounts,
+    intentClassificationTestResultItemCounts_totalResultCount,
+    intentClassificationTestResultItemCounts_intentMatchResultCounts,
+
+    -- ** IntentClassificationTestResults
+    intentClassificationTestResults_items,
 
     -- ** IntentClosingSetting
     intentClosingSetting_active,
@@ -1413,6 +1669,14 @@ module Amazonka.LexV2Models.Lens
     intentFilter_name,
     intentFilter_values,
     intentFilter_operator,
+
+    -- ** IntentLevelSlotResolutionTestResultItem
+    intentLevelSlotResolutionTestResultItem_intentName,
+    intentLevelSlotResolutionTestResultItem_multiTurnConversation,
+    intentLevelSlotResolutionTestResultItem_slotResolutionResults,
+
+    -- ** IntentLevelSlotResolutionTestResults
+    intentLevelSlotResolutionTestResults_items,
 
     -- ** IntentOverride
     intentOverride_name,
@@ -1472,6 +1736,19 @@ module Amazonka.LexV2Models.Lens
     outputContext_timeToLiveInSeconds,
     outputContext_turnsToLive,
 
+    -- ** OverallTestResultItem
+    overallTestResultItem_speechTranscriptionResultCounts,
+    overallTestResultItem_multiTurnConversation,
+    overallTestResultItem_totalResultCount,
+    overallTestResultItem_endToEndResultCounts,
+
+    -- ** OverallTestResults
+    overallTestResults_items,
+
+    -- ** ParentBotNetwork
+    parentBotNetwork_botId,
+    parentBotNetwork_botVersion,
+
     -- ** PathFormat
     pathFormat_objectPrefixes,
 
@@ -1530,6 +1807,16 @@ module Amazonka.LexV2Models.Lens
     responseSpecification_allowInterrupt,
     responseSpecification_messageGroups,
 
+    -- ** RuntimeHintDetails
+    runtimeHintDetails_runtimeHintValues,
+    runtimeHintDetails_subSlotHints,
+
+    -- ** RuntimeHintValue
+    runtimeHintValue_phrase,
+
+    -- ** RuntimeHints
+    runtimeHints_slotHints,
+
     -- ** S3BucketLogDestination
     s3BucketLogDestination_kmsKeyArn,
     s3BucketLogDestination_s3BucketArn,
@@ -1578,6 +1865,15 @@ module Amazonka.LexV2Models.Lens
     -- ** SlotPriority
     slotPriority_priority,
     slotPriority_slotId,
+
+    -- ** SlotResolutionTestResultItem
+    slotResolutionTestResultItem_slotName,
+    slotResolutionTestResultItem_resultCounts,
+
+    -- ** SlotResolutionTestResultItemCounts
+    slotResolutionTestResultItemCounts_speechTranscriptionResultCounts,
+    slotResolutionTestResultItemCounts_totalResultCount,
+    slotResolutionTestResultItemCounts_slotMatchResultCounts,
 
     -- ** SlotSortBy
     slotSortBy_attribute,
@@ -1664,6 +1960,106 @@ module Amazonka.LexV2Models.Lens
     subSlotValueElicitationSetting_waitAndContinueSpecification,
     subSlotValueElicitationSetting_promptSpecification,
 
+    -- ** TestExecutionResultFilterBy
+    testExecutionResultFilterBy_conversationLevelTestResultsFilterBy,
+    testExecutionResultFilterBy_resultTypeFilter,
+
+    -- ** TestExecutionResultItems
+    testExecutionResultItems_conversationLevelTestResults,
+    testExecutionResultItems_intentClassificationTestResults,
+    testExecutionResultItems_intentLevelSlotResolutionTestResults,
+    testExecutionResultItems_overallTestResults,
+    testExecutionResultItems_utteranceLevelTestResults,
+
+    -- ** TestExecutionSortBy
+    testExecutionSortBy_attribute,
+    testExecutionSortBy_order,
+
+    -- ** TestExecutionSummary
+    testExecutionSummary_apiMode,
+    testExecutionSummary_creationDateTime,
+    testExecutionSummary_lastUpdatedDateTime,
+    testExecutionSummary_target,
+    testExecutionSummary_testExecutionId,
+    testExecutionSummary_testExecutionModality,
+    testExecutionSummary_testExecutionStatus,
+    testExecutionSummary_testSetId,
+    testExecutionSummary_testSetName,
+
+    -- ** TestExecutionTarget
+    testExecutionTarget_botAliasTarget,
+
+    -- ** TestSetDiscrepancyErrors
+    testSetDiscrepancyErrors_intentDiscrepancies,
+    testSetDiscrepancyErrors_slotDiscrepancies,
+
+    -- ** TestSetDiscrepancyReportBotAliasTarget
+    testSetDiscrepancyReportBotAliasTarget_botId,
+    testSetDiscrepancyReportBotAliasTarget_botAliasId,
+    testSetDiscrepancyReportBotAliasTarget_localeId,
+
+    -- ** TestSetDiscrepancyReportResourceTarget
+    testSetDiscrepancyReportResourceTarget_botAliasTarget,
+
+    -- ** TestSetExportSpecification
+    testSetExportSpecification_testSetId,
+
+    -- ** TestSetGenerationDataSource
+    testSetGenerationDataSource_conversationLogsDataSource,
+
+    -- ** TestSetImportInputLocation
+    testSetImportInputLocation_s3BucketName,
+    testSetImportInputLocation_s3Path,
+
+    -- ** TestSetImportResourceSpecification
+    testSetImportResourceSpecification_description,
+    testSetImportResourceSpecification_testSetTags,
+    testSetImportResourceSpecification_testSetName,
+    testSetImportResourceSpecification_roleArn,
+    testSetImportResourceSpecification_storageLocation,
+    testSetImportResourceSpecification_importInputLocation,
+    testSetImportResourceSpecification_modality,
+
+    -- ** TestSetIntentDiscrepancyItem
+    testSetIntentDiscrepancyItem_intentName,
+    testSetIntentDiscrepancyItem_errorMessage,
+
+    -- ** TestSetSlotDiscrepancyItem
+    testSetSlotDiscrepancyItem_intentName,
+    testSetSlotDiscrepancyItem_slotName,
+    testSetSlotDiscrepancyItem_errorMessage,
+
+    -- ** TestSetSortBy
+    testSetSortBy_attribute,
+    testSetSortBy_order,
+
+    -- ** TestSetStorageLocation
+    testSetStorageLocation_kmsKeyArn,
+    testSetStorageLocation_s3BucketName,
+    testSetStorageLocation_s3Path,
+
+    -- ** TestSetSummary
+    testSetSummary_creationDateTime,
+    testSetSummary_description,
+    testSetSummary_lastUpdatedDateTime,
+    testSetSummary_modality,
+    testSetSummary_numTurns,
+    testSetSummary_roleArn,
+    testSetSummary_status,
+    testSetSummary_storageLocation,
+    testSetSummary_testSetId,
+    testSetSummary_testSetName,
+
+    -- ** TestSetTurnRecord
+    testSetTurnRecord_conversationId,
+    testSetTurnRecord_turnNumber,
+    testSetTurnRecord_recordNumber,
+    testSetTurnRecord_turnSpecification,
+
+    -- ** TestSetTurnResult
+    testSetTurnResult_agent,
+    testSetTurnResult_user,
+
     -- ** TextInputSpecification
     textInputSpecification_startTimeoutMs,
 
@@ -1680,8 +2076,61 @@ module Amazonka.LexV2Models.Lens
     -- ** TranscriptSourceSetting
     transcriptSourceSetting_s3BucketTranscriptSource,
 
+    -- ** TurnSpecification
+    turnSpecification_agentTurn,
+    turnSpecification_userTurn,
+
+    -- ** UserTurnInputSpecification
+    userTurnInputSpecification_requestAttributes,
+    userTurnInputSpecification_sessionState,
+    userTurnInputSpecification_utteranceInput,
+
+    -- ** UserTurnIntentOutput
+    userTurnIntentOutput_slots,
+    userTurnIntentOutput_name,
+
+    -- ** UserTurnOutputSpecification
+    userTurnOutputSpecification_activeContexts,
+    userTurnOutputSpecification_transcript,
+    userTurnOutputSpecification_intent,
+
+    -- ** UserTurnResult
+    userTurnResult_actualOutput,
+    userTurnResult_conversationLevelResult,
+    userTurnResult_endToEndResult,
+    userTurnResult_errorDetails,
+    userTurnResult_intentMatchResult,
+    userTurnResult_slotMatchResult,
+    userTurnResult_speechTranscriptionResult,
+    userTurnResult_input,
+    userTurnResult_expectedOutput,
+
+    -- ** UserTurnSlotOutput
+    userTurnSlotOutput_subSlots,
+    userTurnSlotOutput_value,
+    userTurnSlotOutput_values,
+
+    -- ** UserTurnSpecification
+    userTurnSpecification_input,
+    userTurnSpecification_expected,
+
     -- ** UtteranceAggregationDuration
     utteranceAggregationDuration_relativeAggregationDuration,
+
+    -- ** UtteranceAudioInputSpecification
+    utteranceAudioInputSpecification_audioFileS3Location,
+
+    -- ** UtteranceInputSpecification
+    utteranceInputSpecification_audioInput,
+    utteranceInputSpecification_textInput,
+
+    -- ** UtteranceLevelTestResultItem
+    utteranceLevelTestResultItem_conversationId,
+    utteranceLevelTestResultItem_recordNumber,
+    utteranceLevelTestResultItem_turnResult,
+
+    -- ** UtteranceLevelTestResults
+    utteranceLevelTestResults_items,
 
     -- ** VoiceSettings
     voiceSettings_engine,
@@ -1709,6 +2158,7 @@ import Amazonka.LexV2Models.CreateResourcePolicy
 import Amazonka.LexV2Models.CreateResourcePolicyStatement
 import Amazonka.LexV2Models.CreateSlot
 import Amazonka.LexV2Models.CreateSlotType
+import Amazonka.LexV2Models.CreateTestSetDiscrepancyReport
 import Amazonka.LexV2Models.CreateUploadUrl
 import Amazonka.LexV2Models.DeleteBot
 import Amazonka.LexV2Models.DeleteBotAlias
@@ -1722,6 +2172,7 @@ import Amazonka.LexV2Models.DeleteResourcePolicy
 import Amazonka.LexV2Models.DeleteResourcePolicyStatement
 import Amazonka.LexV2Models.DeleteSlot
 import Amazonka.LexV2Models.DeleteSlotType
+import Amazonka.LexV2Models.DeleteTestSet
 import Amazonka.LexV2Models.DeleteUtterances
 import Amazonka.LexV2Models.DescribeBot
 import Amazonka.LexV2Models.DescribeBotAlias
@@ -1735,6 +2186,11 @@ import Amazonka.LexV2Models.DescribeIntent
 import Amazonka.LexV2Models.DescribeResourcePolicy
 import Amazonka.LexV2Models.DescribeSlot
 import Amazonka.LexV2Models.DescribeSlotType
+import Amazonka.LexV2Models.DescribeTestExecution
+import Amazonka.LexV2Models.DescribeTestSet
+import Amazonka.LexV2Models.DescribeTestSetDiscrepancyReport
+import Amazonka.LexV2Models.DescribeTestSetGeneration
+import Amazonka.LexV2Models.GetTestExecutionArtifactsUrl
 import Amazonka.LexV2Models.ListAggregatedUtterances
 import Amazonka.LexV2Models.ListBotAliases
 import Amazonka.LexV2Models.ListBotLocales
@@ -1751,12 +2207,21 @@ import Amazonka.LexV2Models.ListRecommendedIntents
 import Amazonka.LexV2Models.ListSlotTypes
 import Amazonka.LexV2Models.ListSlots
 import Amazonka.LexV2Models.ListTagsForResource
+import Amazonka.LexV2Models.ListTestExecutionResultItems
+import Amazonka.LexV2Models.ListTestExecutions
+import Amazonka.LexV2Models.ListTestSetRecords
+import Amazonka.LexV2Models.ListTestSets
 import Amazonka.LexV2Models.SearchAssociatedTranscripts
 import Amazonka.LexV2Models.StartBotRecommendation
 import Amazonka.LexV2Models.StartImport
+import Amazonka.LexV2Models.StartTestExecution
+import Amazonka.LexV2Models.StartTestSetGeneration
 import Amazonka.LexV2Models.StopBotRecommendation
 import Amazonka.LexV2Models.TagResource
+import Amazonka.LexV2Models.Types.ActiveContext
 import Amazonka.LexV2Models.Types.AdvancedRecognitionSetting
+import Amazonka.LexV2Models.Types.AgentTurnResult
+import Amazonka.LexV2Models.Types.AgentTurnSpecification
 import Amazonka.LexV2Models.Types.AggregatedUtterancesFilter
 import Amazonka.LexV2Models.Types.AggregatedUtterancesSortBy
 import Amazonka.LexV2Models.Types.AggregatedUtterancesSummary
@@ -1770,6 +2235,7 @@ import Amazonka.LexV2Models.Types.AudioSpecification
 import Amazonka.LexV2Models.Types.BotAliasHistoryEvent
 import Amazonka.LexV2Models.Types.BotAliasLocaleSettings
 import Amazonka.LexV2Models.Types.BotAliasSummary
+import Amazonka.LexV2Models.Types.BotAliasTestExecutionTarget
 import Amazonka.LexV2Models.Types.BotExportSpecification
 import Amazonka.LexV2Models.Types.BotFilter
 import Amazonka.LexV2Models.Types.BotImportSpecification
@@ -1779,6 +2245,7 @@ import Amazonka.LexV2Models.Types.BotLocaleHistoryEvent
 import Amazonka.LexV2Models.Types.BotLocaleImportSpecification
 import Amazonka.LexV2Models.Types.BotLocaleSortBy
 import Amazonka.LexV2Models.Types.BotLocaleSummary
+import Amazonka.LexV2Models.Types.BotMember
 import Amazonka.LexV2Models.Types.BotRecommendationResultStatistics
 import Amazonka.LexV2Models.Types.BotRecommendationResults
 import Amazonka.LexV2Models.Types.BotRecommendationSummary
@@ -1798,7 +2265,15 @@ import Amazonka.LexV2Models.Types.CompositeSlotTypeSetting
 import Amazonka.LexV2Models.Types.Condition
 import Amazonka.LexV2Models.Types.ConditionalBranch
 import Amazonka.LexV2Models.Types.ConditionalSpecification
+import Amazonka.LexV2Models.Types.ConversationLevelIntentClassificationResultItem
+import Amazonka.LexV2Models.Types.ConversationLevelResultDetail
+import Amazonka.LexV2Models.Types.ConversationLevelSlotResolutionResultItem
+import Amazonka.LexV2Models.Types.ConversationLevelTestResultItem
+import Amazonka.LexV2Models.Types.ConversationLevelTestResults
+import Amazonka.LexV2Models.Types.ConversationLevelTestResultsFilterBy
 import Amazonka.LexV2Models.Types.ConversationLogSettings
+import Amazonka.LexV2Models.Types.ConversationLogsDataSource
+import Amazonka.LexV2Models.Types.ConversationLogsDataSourceFilterBy
 import Amazonka.LexV2Models.Types.CustomPayload
 import Amazonka.LexV2Models.Types.CustomVocabularyEntryId
 import Amazonka.LexV2Models.Types.CustomVocabularyExportSpecification
@@ -1814,6 +2289,7 @@ import Amazonka.LexV2Models.Types.DialogCodeHookSettings
 import Amazonka.LexV2Models.Types.DialogState
 import Amazonka.LexV2Models.Types.ElicitationCodeHookInvocationSetting
 import Amazonka.LexV2Models.Types.EncryptionSetting
+import Amazonka.LexV2Models.Types.ExecutionErrorDetails
 import Amazonka.LexV2Models.Types.ExportFilter
 import Amazonka.LexV2Models.Types.ExportResourceSpecification
 import Amazonka.LexV2Models.Types.ExportSortBy
@@ -1833,9 +2309,15 @@ import Amazonka.LexV2Models.Types.ImportSortBy
 import Amazonka.LexV2Models.Types.ImportSummary
 import Amazonka.LexV2Models.Types.InitialResponseSetting
 import Amazonka.LexV2Models.Types.InputContext
+import Amazonka.LexV2Models.Types.InputSessionStateSpecification
+import Amazonka.LexV2Models.Types.IntentClassificationTestResultItem
+import Amazonka.LexV2Models.Types.IntentClassificationTestResultItemCounts
+import Amazonka.LexV2Models.Types.IntentClassificationTestResults
 import Amazonka.LexV2Models.Types.IntentClosingSetting
 import Amazonka.LexV2Models.Types.IntentConfirmationSetting
 import Amazonka.LexV2Models.Types.IntentFilter
+import Amazonka.LexV2Models.Types.IntentLevelSlotResolutionTestResultItem
+import Amazonka.LexV2Models.Types.IntentLevelSlotResolutionTestResults
 import Amazonka.LexV2Models.Types.IntentOverride
 import Amazonka.LexV2Models.Types.IntentSortBy
 import Amazonka.LexV2Models.Types.IntentStatistics
@@ -1849,6 +2331,9 @@ import Amazonka.LexV2Models.Types.MultipleValuesSetting
 import Amazonka.LexV2Models.Types.NewCustomVocabularyItem
 import Amazonka.LexV2Models.Types.ObfuscationSetting
 import Amazonka.LexV2Models.Types.OutputContext
+import Amazonka.LexV2Models.Types.OverallTestResultItem
+import Amazonka.LexV2Models.Types.OverallTestResults
+import Amazonka.LexV2Models.Types.ParentBotNetwork
 import Amazonka.LexV2Models.Types.PathFormat
 import Amazonka.LexV2Models.Types.PlainTextMessage
 import Amazonka.LexV2Models.Types.PostDialogCodeHookInvocationSpecification
@@ -1859,6 +2344,9 @@ import Amazonka.LexV2Models.Types.PromptSpecification
 import Amazonka.LexV2Models.Types.RecommendedIntentSummary
 import Amazonka.LexV2Models.Types.RelativeAggregationDuration
 import Amazonka.LexV2Models.Types.ResponseSpecification
+import Amazonka.LexV2Models.Types.RuntimeHintDetails
+import Amazonka.LexV2Models.Types.RuntimeHintValue
+import Amazonka.LexV2Models.Types.RuntimeHints
 import Amazonka.LexV2Models.Types.S3BucketLogDestination
 import Amazonka.LexV2Models.Types.S3BucketTranscriptSource
 import Amazonka.LexV2Models.Types.SSMLMessage
@@ -1870,6 +2358,8 @@ import Amazonka.LexV2Models.Types.SlotDefaultValue
 import Amazonka.LexV2Models.Types.SlotDefaultValueSpecification
 import Amazonka.LexV2Models.Types.SlotFilter
 import Amazonka.LexV2Models.Types.SlotPriority
+import Amazonka.LexV2Models.Types.SlotResolutionTestResultItem
+import Amazonka.LexV2Models.Types.SlotResolutionTestResultItemCounts
 import Amazonka.LexV2Models.Types.SlotSortBy
 import Amazonka.LexV2Models.Types.SlotSummary
 import Amazonka.LexV2Models.Types.SlotTypeFilter
@@ -1887,12 +2377,42 @@ import Amazonka.LexV2Models.Types.StillWaitingResponseSpecification
 import Amazonka.LexV2Models.Types.SubSlotSetting
 import Amazonka.LexV2Models.Types.SubSlotTypeComposition
 import Amazonka.LexV2Models.Types.SubSlotValueElicitationSetting
+import Amazonka.LexV2Models.Types.TestExecutionResultFilterBy
+import Amazonka.LexV2Models.Types.TestExecutionResultItems
+import Amazonka.LexV2Models.Types.TestExecutionSortBy
+import Amazonka.LexV2Models.Types.TestExecutionSummary
+import Amazonka.LexV2Models.Types.TestExecutionTarget
+import Amazonka.LexV2Models.Types.TestSetDiscrepancyErrors
+import Amazonka.LexV2Models.Types.TestSetDiscrepancyReportBotAliasTarget
+import Amazonka.LexV2Models.Types.TestSetDiscrepancyReportResourceTarget
+import Amazonka.LexV2Models.Types.TestSetExportSpecification
+import Amazonka.LexV2Models.Types.TestSetGenerationDataSource
+import Amazonka.LexV2Models.Types.TestSetImportInputLocation
+import Amazonka.LexV2Models.Types.TestSetImportResourceSpecification
+import Amazonka.LexV2Models.Types.TestSetIntentDiscrepancyItem
+import Amazonka.LexV2Models.Types.TestSetSlotDiscrepancyItem
+import Amazonka.LexV2Models.Types.TestSetSortBy
+import Amazonka.LexV2Models.Types.TestSetStorageLocation
+import Amazonka.LexV2Models.Types.TestSetSummary
+import Amazonka.LexV2Models.Types.TestSetTurnRecord
+import Amazonka.LexV2Models.Types.TestSetTurnResult
 import Amazonka.LexV2Models.Types.TextInputSpecification
 import Amazonka.LexV2Models.Types.TextLogDestination
 import Amazonka.LexV2Models.Types.TextLogSetting
 import Amazonka.LexV2Models.Types.TranscriptFilter
 import Amazonka.LexV2Models.Types.TranscriptSourceSetting
+import Amazonka.LexV2Models.Types.TurnSpecification
+import Amazonka.LexV2Models.Types.UserTurnInputSpecification
+import Amazonka.LexV2Models.Types.UserTurnIntentOutput
+import Amazonka.LexV2Models.Types.UserTurnOutputSpecification
+import Amazonka.LexV2Models.Types.UserTurnResult
+import Amazonka.LexV2Models.Types.UserTurnSlotOutput
+import Amazonka.LexV2Models.Types.UserTurnSpecification
 import Amazonka.LexV2Models.Types.UtteranceAggregationDuration
+import Amazonka.LexV2Models.Types.UtteranceAudioInputSpecification
+import Amazonka.LexV2Models.Types.UtteranceInputSpecification
+import Amazonka.LexV2Models.Types.UtteranceLevelTestResultItem
+import Amazonka.LexV2Models.Types.UtteranceLevelTestResults
 import Amazonka.LexV2Models.Types.VoiceSettings
 import Amazonka.LexV2Models.Types.WaitAndContinueSpecification
 import Amazonka.LexV2Models.UntagResource
@@ -1905,3 +2425,4 @@ import Amazonka.LexV2Models.UpdateIntent
 import Amazonka.LexV2Models.UpdateResourcePolicy
 import Amazonka.LexV2Models.UpdateSlot
 import Amazonka.LexV2Models.UpdateSlotType
+import Amazonka.LexV2Models.UpdateTestSet

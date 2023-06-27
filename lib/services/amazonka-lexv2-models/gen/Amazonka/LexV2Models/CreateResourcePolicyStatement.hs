@@ -88,9 +88,10 @@ data CreateResourcePolicyStatement = CreateResourcePolicyStatement'
     -- | Determines whether the statement allows or denies access to the
     -- resource.
     effect :: Effect,
-    -- | An IAM principal, such as an IAM users, IAM roles, or AWS services that
-    -- is allowed or denied access to a resource. For more information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html AWS JSON policy elements: Principal>.
+    -- | An IAM principal, such as an IAM user, IAM role, or Amazon Web Services
+    -- services that is allowed or denied access to a resource. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html Amazon Web Services JSON policy elements: Principal>.
     principal :: [Principal],
     -- | The Amazon Lex action that this policy either allows or denies. The
     -- action must apply to the resource type of the specified ARN. For more
@@ -135,9 +136,10 @@ data CreateResourcePolicyStatement = CreateResourcePolicyStatement'
 -- 'effect', 'createResourcePolicyStatement_effect' - Determines whether the statement allows or denies access to the
 -- resource.
 --
--- 'principal', 'createResourcePolicyStatement_principal' - An IAM principal, such as an IAM users, IAM roles, or AWS services that
--- is allowed or denied access to a resource. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html AWS JSON policy elements: Principal>.
+-- 'principal', 'createResourcePolicyStatement_principal' - An IAM principal, such as an IAM user, IAM role, or Amazon Web Services
+-- services that is allowed or denied access to a resource. For more
+-- information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html Amazon Web Services JSON policy elements: Principal>.
 --
 -- 'action', 'createResourcePolicyStatement_action' - The Amazon Lex action that this policy either allows or denies. The
 -- action must apply to the resource type of the specified ARN. For more
@@ -203,9 +205,10 @@ createResourcePolicyStatement_statementId = Lens.lens (\CreateResourcePolicyStat
 createResourcePolicyStatement_effect :: Lens.Lens' CreateResourcePolicyStatement Effect
 createResourcePolicyStatement_effect = Lens.lens (\CreateResourcePolicyStatement' {effect} -> effect) (\s@CreateResourcePolicyStatement' {} a -> s {effect = a} :: CreateResourcePolicyStatement)
 
--- | An IAM principal, such as an IAM users, IAM roles, or AWS services that
--- is allowed or denied access to a resource. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html AWS JSON policy elements: Principal>.
+-- | An IAM principal, such as an IAM user, IAM role, or Amazon Web Services
+-- services that is allowed or denied access to a resource. For more
+-- information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html Amazon Web Services JSON policy elements: Principal>.
 createResourcePolicyStatement_principal :: Lens.Lens' CreateResourcePolicyStatement [Principal]
 createResourcePolicyStatement_principal = Lens.lens (\CreateResourcePolicyStatement' {principal} -> principal) (\s@CreateResourcePolicyStatement' {} a -> s {principal = a} :: CreateResourcePolicyStatement) Prelude.. Lens.coerced
 
@@ -239,7 +242,8 @@ instance
     CreateResourcePolicyStatement
   where
   hashWithSalt _salt CreateResourcePolicyStatement' {..} =
-    _salt `Prelude.hashWithSalt` condition
+    _salt
+      `Prelude.hashWithSalt` condition
       `Prelude.hashWithSalt` expectedRevisionId
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` statementId

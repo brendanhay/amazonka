@@ -121,9 +121,9 @@ data DeleteExportResponse = DeleteExportResponse'
     exportId :: Prelude.Maybe Prelude.Text,
     -- | The current status of the deletion. When the deletion is complete, the
     -- export will no longer be returned by the
-    -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_ListExports.html ListExports>
+    -- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListExports.html ListExports>
     -- operation and calls to the
-    -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html DescribeExport>
+    -- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html DescribeExport>
     -- operation with the export identifier will fail.
     exportStatus :: Prelude.Maybe ExportStatus,
     -- | The response's http status code.
@@ -143,9 +143,9 @@ data DeleteExportResponse = DeleteExportResponse'
 --
 -- 'exportStatus', 'deleteExportResponse_exportStatus' - The current status of the deletion. When the deletion is complete, the
 -- export will no longer be returned by the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_ListExports.html ListExports>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListExports.html ListExports>
 -- operation and calls to the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html DescribeExport>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html DescribeExport>
 -- operation with the export identifier will fail.
 --
 -- 'httpStatus', 'deleteExportResponse_httpStatus' - The response's http status code.
@@ -166,9 +166,9 @@ deleteExportResponse_exportId = Lens.lens (\DeleteExportResponse' {exportId} -> 
 
 -- | The current status of the deletion. When the deletion is complete, the
 -- export will no longer be returned by the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_ListExports.html ListExports>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListExports.html ListExports>
 -- operation and calls to the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html DescribeExport>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html DescribeExport>
 -- operation with the export identifier will fail.
 deleteExportResponse_exportStatus :: Lens.Lens' DeleteExportResponse (Prelude.Maybe ExportStatus)
 deleteExportResponse_exportStatus = Lens.lens (\DeleteExportResponse' {exportStatus} -> exportStatus) (\s@DeleteExportResponse' {} a -> s {exportStatus = a} :: DeleteExportResponse)

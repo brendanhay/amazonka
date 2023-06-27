@@ -105,7 +105,8 @@ instance Data.FromJSON ConditionalBranch where
 
 instance Prelude.Hashable ConditionalBranch where
   hashWithSalt _salt ConditionalBranch' {..} =
-    _salt `Prelude.hashWithSalt` response
+    _salt
+      `Prelude.hashWithSalt` response
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` condition
       `Prelude.hashWithSalt` nextStep

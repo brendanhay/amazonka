@@ -22,7 +22,8 @@ module Amazonka.LexV2Models.Types.ImportResourceType
       ( ..,
         ImportResourceType_Bot,
         ImportResourceType_BotLocale,
-        ImportResourceType_CustomVocabulary
+        ImportResourceType_CustomVocabulary,
+        ImportResourceType_TestSet
       ),
   )
 where
@@ -68,9 +69,13 @@ pattern ImportResourceType_BotLocale = ImportResourceType' "BotLocale"
 pattern ImportResourceType_CustomVocabulary :: ImportResourceType
 pattern ImportResourceType_CustomVocabulary = ImportResourceType' "CustomVocabulary"
 
+pattern ImportResourceType_TestSet :: ImportResourceType
+pattern ImportResourceType_TestSet = ImportResourceType' "TestSet"
+
 {-# COMPLETE
   ImportResourceType_Bot,
   ImportResourceType_BotLocale,
   ImportResourceType_CustomVocabulary,
+  ImportResourceType_TestSet,
   ImportResourceType'
   #-}

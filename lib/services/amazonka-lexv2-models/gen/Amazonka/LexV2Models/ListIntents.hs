@@ -202,7 +202,8 @@ instance Core.AWSRequest ListIntents where
           ListIntentsResponse'
             Prelude.<$> (x Data..?> "botId")
             Prelude.<*> (x Data..?> "botVersion")
-            Prelude.<*> ( x Data..?> "intentSummaries"
+            Prelude.<*> ( x
+                            Data..?> "intentSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "localeId")
@@ -212,7 +213,8 @@ instance Core.AWSRequest ListIntents where
 
 instance Prelude.Hashable ListIntents where
   hashWithSalt _salt ListIntents' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy

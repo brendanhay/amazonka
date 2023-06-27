@@ -26,7 +26,7 @@ import Amazonka.LexV2Models.Types.BotStatus
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about a bot version returned by the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBotVersions.html ListBotVersions>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBotVersions.html ListBotVersions>
 -- operation.
 --
 -- /See:/ 'newBotVersionSummary' smart constructor.
@@ -113,7 +113,8 @@ instance Data.FromJSON BotVersionSummary where
 
 instance Prelude.Hashable BotVersionSummary where
   hashWithSalt _salt BotVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` botName
+    _salt
+      `Prelude.hashWithSalt` botName
       `Prelude.hashWithSalt` botStatus
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` creationDateTime

@@ -119,7 +119,8 @@ instance Data.FromJSON FulfillmentCodeHookSettings where
 
 instance Prelude.Hashable FulfillmentCodeHookSettings where
   hashWithSalt _salt FulfillmentCodeHookSettings' {..} =
-    _salt `Prelude.hashWithSalt` active
+    _salt
+      `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` fulfillmentUpdatesSpecification
       `Prelude.hashWithSalt` postFulfillmentStatusSpecification
       `Prelude.hashWithSalt` enabled

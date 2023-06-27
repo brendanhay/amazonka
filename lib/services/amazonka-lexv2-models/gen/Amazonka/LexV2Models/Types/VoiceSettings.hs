@@ -93,7 +93,8 @@ instance Data.FromJSON VoiceSettings where
 
 instance Prelude.Hashable VoiceSettings where
   hashWithSalt _salt VoiceSettings' {..} =
-    _salt `Prelude.hashWithSalt` engine
+    _salt
+      `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` voiceId
 
 instance Prelude.NFData VoiceSettings where

@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomVocabularyItem' smart constructor.
 data CustomVocabularyItem = CustomVocabularyItem'
-  { -- | The display as value for the custom vocabulary item from the custom
+  { -- | The DisplayAs value for the custom vocabulary item from the custom
     -- vocabulary list.
     displayAs :: Prelude.Maybe Prelude.Text,
     -- | The weight assigned for the custom vocabulary item from the custom
@@ -51,7 +51,7 @@ data CustomVocabularyItem = CustomVocabularyItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'displayAs', 'customVocabularyItem_displayAs' - The display as value for the custom vocabulary item from the custom
+-- 'displayAs', 'customVocabularyItem_displayAs' - The DisplayAs value for the custom vocabulary item from the custom
 -- vocabulary list.
 --
 -- 'weight', 'customVocabularyItem_weight' - The weight assigned for the custom vocabulary item from the custom
@@ -76,7 +76,7 @@ newCustomVocabularyItem pItemId_ pPhrase_ =
       phrase = pPhrase_
     }
 
--- | The display as value for the custom vocabulary item from the custom
+-- | The DisplayAs value for the custom vocabulary item from the custom
 -- vocabulary list.
 customVocabularyItem_displayAs :: Lens.Lens' CustomVocabularyItem (Prelude.Maybe Prelude.Text)
 customVocabularyItem_displayAs = Lens.lens (\CustomVocabularyItem' {displayAs} -> displayAs) (\s@CustomVocabularyItem' {} a -> s {displayAs = a} :: CustomVocabularyItem)
@@ -110,7 +110,8 @@ instance Data.FromJSON CustomVocabularyItem where
 
 instance Prelude.Hashable CustomVocabularyItem where
   hashWithSalt _salt CustomVocabularyItem' {..} =
-    _salt `Prelude.hashWithSalt` displayAs
+    _salt
+      `Prelude.hashWithSalt` displayAs
       `Prelude.hashWithSalt` weight
       `Prelude.hashWithSalt` itemId
       `Prelude.hashWithSalt` phrase

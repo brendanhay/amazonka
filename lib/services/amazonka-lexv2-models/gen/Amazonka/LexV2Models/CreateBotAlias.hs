@@ -76,7 +76,7 @@ data CreateBotAlias = CreateBotAlias'
     -- functions in different locales.
     botAliasLocaleSettings :: Prelude.Maybe (Prelude.HashMap Prelude.Text BotAliasLocaleSettings),
     -- | The version of the bot that this alias points to. You can use the
-    -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_UpdateBotAlias.html UpdateBotAlias>
+    -- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_UpdateBotAlias.html UpdateBotAlias>
     -- operation to change the bot version associated with the alias.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether Amazon Lex logs text and audio for a conversation with
@@ -113,7 +113,7 @@ data CreateBotAlias = CreateBotAlias'
 -- functions in different locales.
 --
 -- 'botVersion', 'createBotAlias_botVersion' - The version of the bot that this alias points to. You can use the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_UpdateBotAlias.html UpdateBotAlias>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_UpdateBotAlias.html UpdateBotAlias>
 -- operation to change the bot version associated with the alias.
 --
 -- 'conversationLogSettings', 'createBotAlias_conversationLogSettings' - Specifies whether Amazon Lex logs text and audio for a conversation with
@@ -160,7 +160,7 @@ createBotAlias_botAliasLocaleSettings :: Lens.Lens' CreateBotAlias (Prelude.Mayb
 createBotAlias_botAliasLocaleSettings = Lens.lens (\CreateBotAlias' {botAliasLocaleSettings} -> botAliasLocaleSettings) (\s@CreateBotAlias' {} a -> s {botAliasLocaleSettings = a} :: CreateBotAlias) Prelude.. Lens.mapping Lens.coerced
 
 -- | The version of the bot that this alias points to. You can use the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_UpdateBotAlias.html UpdateBotAlias>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_UpdateBotAlias.html UpdateBotAlias>
 -- operation to change the bot version associated with the alias.
 createBotAlias_botVersion :: Lens.Lens' CreateBotAlias (Prelude.Maybe Prelude.Text)
 createBotAlias_botVersion = Lens.lens (\CreateBotAlias' {botVersion} -> botVersion) (\s@CreateBotAlias' {} a -> s {botVersion = a} :: CreateBotAlias)
@@ -207,7 +207,8 @@ instance Core.AWSRequest CreateBotAlias where
       ( \s h x ->
           CreateBotAliasResponse'
             Prelude.<$> (x Data..?> "botAliasId")
-            Prelude.<*> ( x Data..?> "botAliasLocaleSettings"
+            Prelude.<*> ( x
+                            Data..?> "botAliasLocaleSettings"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "botAliasName")
@@ -224,7 +225,8 @@ instance Core.AWSRequest CreateBotAlias where
 
 instance Prelude.Hashable CreateBotAlias where
   hashWithSalt _salt CreateBotAlias' {..} =
-    _salt `Prelude.hashWithSalt` botAliasLocaleSettings
+    _salt
+      `Prelude.hashWithSalt` botAliasLocaleSettings
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` conversationLogSettings
       `Prelude.hashWithSalt` description

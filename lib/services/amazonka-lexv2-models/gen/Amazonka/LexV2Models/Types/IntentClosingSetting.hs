@@ -116,7 +116,8 @@ instance Data.FromJSON IntentClosingSetting where
 
 instance Prelude.Hashable IntentClosingSetting where
   hashWithSalt _salt IntentClosingSetting' {..} =
-    _salt `Prelude.hashWithSalt` active
+    _salt
+      `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` closingResponse
       `Prelude.hashWithSalt` conditional
       `Prelude.hashWithSalt` nextStep

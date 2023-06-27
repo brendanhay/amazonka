@@ -129,7 +129,8 @@ instance Core.AWSRequest DeleteCustomVocabulary where
 
 instance Prelude.Hashable DeleteCustomVocabulary where
   hashWithSalt _salt DeleteCustomVocabulary' {..} =
-    _salt `Prelude.hashWithSalt` botId
+    _salt
+      `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` localeId
 

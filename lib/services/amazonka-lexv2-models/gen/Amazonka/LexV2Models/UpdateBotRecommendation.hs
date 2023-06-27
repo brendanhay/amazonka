@@ -179,7 +179,8 @@ instance Core.AWSRequest UpdateBotRecommendation where
 
 instance Prelude.Hashable UpdateBotRecommendation where
   hashWithSalt _salt UpdateBotRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` botId
+    _salt
+      `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` localeId
       `Prelude.hashWithSalt` botRecommendationId

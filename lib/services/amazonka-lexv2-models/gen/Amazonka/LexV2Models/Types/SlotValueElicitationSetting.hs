@@ -30,8 +30,7 @@ import Amazonka.LexV2Models.Types.SlotDefaultValueSpecification
 import Amazonka.LexV2Models.Types.WaitAndContinueSpecification
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies the elicitation setting details for constituent sub slots of a
--- composite slot.
+-- | Specifies the elicitation setting details eliciting a slot.
 --
 -- /See:/ 'newSlotValueElicitationSetting' smart constructor.
 data SlotValueElicitationSetting = SlotValueElicitationSetting'
@@ -133,7 +132,8 @@ instance Data.FromJSON SlotValueElicitationSetting where
           SlotValueElicitationSetting'
             Prelude.<$> (x Data..:? "defaultValueSpecification")
             Prelude.<*> (x Data..:? "promptSpecification")
-            Prelude.<*> ( x Data..:? "sampleUtterances"
+            Prelude.<*> ( x
+                            Data..:? "sampleUtterances"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "slotCaptureSetting")

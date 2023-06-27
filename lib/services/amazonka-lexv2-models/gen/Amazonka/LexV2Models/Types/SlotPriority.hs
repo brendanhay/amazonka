@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSlotPriority' smart constructor.
 data SlotPriority = SlotPriority'
-  { -- | The priority that a slot should be elicited.
+  { -- | The priority that Amazon Lex should apply to the slot.
     priority :: Prelude.Natural,
     -- | The unique identifier of the slot.
     slotId :: Prelude.Text
@@ -44,7 +44,7 @@ data SlotPriority = SlotPriority'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'priority', 'slotPriority_priority' - The priority that a slot should be elicited.
+-- 'priority', 'slotPriority_priority' - The priority that Amazon Lex should apply to the slot.
 --
 -- 'slotId', 'slotPriority_slotId' - The unique identifier of the slot.
 newSlotPriority ::
@@ -59,7 +59,7 @@ newSlotPriority pPriority_ pSlotId_ =
       slotId = pSlotId_
     }
 
--- | The priority that a slot should be elicited.
+-- | The priority that Amazon Lex should apply to the slot.
 slotPriority_priority :: Lens.Lens' SlotPriority Prelude.Natural
 slotPriority_priority = Lens.lens (\SlotPriority' {priority} -> priority) (\s@SlotPriority' {} a -> s {priority = a} :: SlotPriority)
 
@@ -79,7 +79,8 @@ instance Data.FromJSON SlotPriority where
 
 instance Prelude.Hashable SlotPriority where
   hashWithSalt _salt SlotPriority' {..} =
-    _salt `Prelude.hashWithSalt` priority
+    _salt
+      `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` slotId
 
 instance Prelude.NFData SlotPriority where

@@ -59,7 +59,7 @@ import qualified Amazonka.Response as Response
 data BuildBotLocale = BuildBotLocale'
   { -- | The identifier of the bot to build. The identifier is returned in the
     -- response from the
-    -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBot.html CreateBot>
+    -- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html CreateBot>
     -- operation.
     botId :: Prelude.Text,
     -- | The version of the bot to build. This can only be the draft version of
@@ -84,7 +84,7 @@ data BuildBotLocale = BuildBotLocale'
 --
 -- 'botId', 'buildBotLocale_botId' - The identifier of the bot to build. The identifier is returned in the
 -- response from the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBot.html CreateBot>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html CreateBot>
 -- operation.
 --
 -- 'botVersion', 'buildBotLocale_botVersion' - The version of the bot to build. This can only be the draft version of
@@ -112,7 +112,7 @@ newBuildBotLocale pBotId_ pBotVersion_ pLocaleId_ =
 
 -- | The identifier of the bot to build. The identifier is returned in the
 -- response from the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBot.html CreateBot>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html CreateBot>
 -- operation.
 buildBotLocale_botId :: Lens.Lens' BuildBotLocale Prelude.Text
 buildBotLocale_botId = Lens.lens (\BuildBotLocale' {botId} -> botId) (\s@BuildBotLocale' {} a -> s {botId = a} :: BuildBotLocale)
@@ -150,7 +150,8 @@ instance Core.AWSRequest BuildBotLocale where
 
 instance Prelude.Hashable BuildBotLocale where
   hashWithSalt _salt BuildBotLocale' {..} =
-    _salt `Prelude.hashWithSalt` botId
+    _salt
+      `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` localeId
 

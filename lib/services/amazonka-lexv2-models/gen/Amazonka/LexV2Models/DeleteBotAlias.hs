@@ -53,8 +53,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteBotAlias' smart constructor.
 data DeleteBotAlias = DeleteBotAlias'
-  { -- | When this parameter is true, Amazon Lex doesn\'t check to see if any
-    -- other resource is using the alias before it is deleted.
+  { -- | By default, Amazon Lex checks if any other resource, such as a bot
+    -- network, is using the bot alias before it is deleted and throws a
+    -- @ResourceInUseException@ exception if the alias is being used by another
+    -- resource. Set this parameter to @true@ to skip this check and remove the
+    -- alias even if it is being used by another resource.
     skipResourceInUseCheck :: Prelude.Maybe Prelude.Bool,
     -- | The unique identifier of the bot alias to delete.
     botAliasId :: Prelude.Text,
@@ -71,8 +74,11 @@ data DeleteBotAlias = DeleteBotAlias'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'skipResourceInUseCheck', 'deleteBotAlias_skipResourceInUseCheck' - When this parameter is true, Amazon Lex doesn\'t check to see if any
--- other resource is using the alias before it is deleted.
+-- 'skipResourceInUseCheck', 'deleteBotAlias_skipResourceInUseCheck' - By default, Amazon Lex checks if any other resource, such as a bot
+-- network, is using the bot alias before it is deleted and throws a
+-- @ResourceInUseException@ exception if the alias is being used by another
+-- resource. Set this parameter to @true@ to skip this check and remove the
+-- alias even if it is being used by another resource.
 --
 -- 'botAliasId', 'deleteBotAlias_botAliasId' - The unique identifier of the bot alias to delete.
 --
@@ -91,8 +97,11 @@ newDeleteBotAlias pBotAliasId_ pBotId_ =
       botId = pBotId_
     }
 
--- | When this parameter is true, Amazon Lex doesn\'t check to see if any
--- other resource is using the alias before it is deleted.
+-- | By default, Amazon Lex checks if any other resource, such as a bot
+-- network, is using the bot alias before it is deleted and throws a
+-- @ResourceInUseException@ exception if the alias is being used by another
+-- resource. Set this parameter to @true@ to skip this check and remove the
+-- alias even if it is being used by another resource.
 deleteBotAlias_skipResourceInUseCheck :: Lens.Lens' DeleteBotAlias (Prelude.Maybe Prelude.Bool)
 deleteBotAlias_skipResourceInUseCheck = Lens.lens (\DeleteBotAlias' {skipResourceInUseCheck} -> skipResourceInUseCheck) (\s@DeleteBotAlias' {} a -> s {skipResourceInUseCheck = a} :: DeleteBotAlias)
 
@@ -122,7 +131,8 @@ instance Core.AWSRequest DeleteBotAlias where
 
 instance Prelude.Hashable DeleteBotAlias where
   hashWithSalt _salt DeleteBotAlias' {..} =
-    _salt `Prelude.hashWithSalt` skipResourceInUseCheck
+    _salt
+      `Prelude.hashWithSalt` skipResourceInUseCheck
       `Prelude.hashWithSalt` botAliasId
       `Prelude.hashWithSalt` botId
 

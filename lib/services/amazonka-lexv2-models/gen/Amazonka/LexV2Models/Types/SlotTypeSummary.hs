@@ -43,8 +43,9 @@ data SlotTypeSummary = SlotTypeSummary'
     --     <https://docs.aws.amazon.com/lexv2/latest/dg/custom-slot-types.html Creating custom slot types>.
     --
     -- -   @Extended@ - A slot type created by extending the
-    --     AMAZON.AlphaNumeric built-in slot type. For more information, see
-    --     <https://docs.aws.amazon.com/lexv2/latest/dg/built-in-slot-alphanumerice.html AMAZON.AlphaNumeric>.
+    --     @AMAZON.AlphaNumeric@ built-in slot type. For more information, see
+    --     <https://docs.aws.amazon.com/lexv2/latest/dg/built-in-slot-alphanumerice.html AMAZON.AlphaNumeric>
+    --     .
     --
     -- -   @ExternalGrammar@ - A slot type using a custom GRXML grammar to
     --     define values. For more information, see
@@ -79,8 +80,9 @@ data SlotTypeSummary = SlotTypeSummary'
 --     <https://docs.aws.amazon.com/lexv2/latest/dg/custom-slot-types.html Creating custom slot types>.
 --
 -- -   @Extended@ - A slot type created by extending the
---     AMAZON.AlphaNumeric built-in slot type. For more information, see
---     <https://docs.aws.amazon.com/lexv2/latest/dg/built-in-slot-alphanumerice.html AMAZON.AlphaNumeric>.
+--     @AMAZON.AlphaNumeric@ built-in slot type. For more information, see
+--     <https://docs.aws.amazon.com/lexv2/latest/dg/built-in-slot-alphanumerice.html AMAZON.AlphaNumeric>
+--     .
 --
 -- -   @ExternalGrammar@ - A slot type using a custom GRXML grammar to
 --     define values. For more information, see
@@ -121,8 +123,9 @@ slotTypeSummary_parentSlotTypeSignature = Lens.lens (\SlotTypeSummary' {parentSl
 --     <https://docs.aws.amazon.com/lexv2/latest/dg/custom-slot-types.html Creating custom slot types>.
 --
 -- -   @Extended@ - A slot type created by extending the
---     AMAZON.AlphaNumeric built-in slot type. For more information, see
---     <https://docs.aws.amazon.com/lexv2/latest/dg/built-in-slot-alphanumerice.html AMAZON.AlphaNumeric>.
+--     @AMAZON.AlphaNumeric@ built-in slot type. For more information, see
+--     <https://docs.aws.amazon.com/lexv2/latest/dg/built-in-slot-alphanumerice.html AMAZON.AlphaNumeric>
+--     .
 --
 -- -   @ExternalGrammar@ - A slot type using a custom GRXML grammar to
 --     define values. For more information, see
@@ -154,7 +157,8 @@ instance Data.FromJSON SlotTypeSummary where
 
 instance Prelude.Hashable SlotTypeSummary where
   hashWithSalt _salt SlotTypeSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` parentSlotTypeSignature
       `Prelude.hashWithSalt` slotTypeCategory

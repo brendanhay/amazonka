@@ -130,7 +130,8 @@ instance Core.AWSRequest CreateResourcePolicy where
 
 instance Prelude.Hashable CreateResourcePolicy where
   hashWithSalt _salt CreateResourcePolicy' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` policy
 
 instance Prelude.NFData CreateResourcePolicy where

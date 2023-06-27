@@ -94,18 +94,18 @@ data CreateSlotType = CreateSlotType'
     -- list of possible values. The field can be set to one of the following
     -- values:
     --
-    -- -   @OriginalValue@ - Returns the value entered by the user, if the user
-    --     value is similar to the slot value.
+    -- -   @ORIGINAL_VALUE@ - Returns the value entered by the user, if the
+    --     user value is similar to the slot value.
     --
-    -- -   @TopResolution@ - If there is a resolution list for the slot, return
-    --     the first value in the resolution list. If there is no resolution
-    --     list, return null.
+    -- -   @TOP_RESOLUTION@ - If there is a resolution list for the slot,
+    --     return the first value in the resolution list. If there is no
+    --     resolution list, return null.
     --
     -- If you don\'t specify the @valueSelectionSetting@ parameter, the default
-    -- is @OriginalValue@.
+    -- is @ORIGINAL_VALUE@.
     valueSelectionSetting :: Prelude.Maybe SlotValueSelectionSetting,
     -- | The name for the slot. A slot type name must be unique within the
-    -- account.
+    -- intent.
     slotTypeName :: Prelude.Text,
     -- | The identifier of the bot associated with this slot type.
     botId :: Prelude.Text,
@@ -150,18 +150,18 @@ data CreateSlotType = CreateSlotType'
 -- list of possible values. The field can be set to one of the following
 -- values:
 --
--- -   @OriginalValue@ - Returns the value entered by the user, if the user
---     value is similar to the slot value.
+-- -   @ORIGINAL_VALUE@ - Returns the value entered by the user, if the
+--     user value is similar to the slot value.
 --
--- -   @TopResolution@ - If there is a resolution list for the slot, return
---     the first value in the resolution list. If there is no resolution
---     list, return null.
+-- -   @TOP_RESOLUTION@ - If there is a resolution list for the slot,
+--     return the first value in the resolution list. If there is no
+--     resolution list, return null.
 --
 -- If you don\'t specify the @valueSelectionSetting@ parameter, the default
--- is @OriginalValue@.
+-- is @ORIGINAL_VALUE@.
 --
 -- 'slotTypeName', 'createSlotType_slotTypeName' - The name for the slot. A slot type name must be unique within the
--- account.
+-- intent.
 --
 -- 'botId', 'createSlotType_botId' - The identifier of the bot associated with this slot type.
 --
@@ -233,20 +233,20 @@ createSlotType_slotTypeValues = Lens.lens (\CreateSlotType' {slotTypeValues} -> 
 -- list of possible values. The field can be set to one of the following
 -- values:
 --
--- -   @OriginalValue@ - Returns the value entered by the user, if the user
---     value is similar to the slot value.
+-- -   @ORIGINAL_VALUE@ - Returns the value entered by the user, if the
+--     user value is similar to the slot value.
 --
--- -   @TopResolution@ - If there is a resolution list for the slot, return
---     the first value in the resolution list. If there is no resolution
---     list, return null.
+-- -   @TOP_RESOLUTION@ - If there is a resolution list for the slot,
+--     return the first value in the resolution list. If there is no
+--     resolution list, return null.
 --
 -- If you don\'t specify the @valueSelectionSetting@ parameter, the default
--- is @OriginalValue@.
+-- is @ORIGINAL_VALUE@.
 createSlotType_valueSelectionSetting :: Lens.Lens' CreateSlotType (Prelude.Maybe SlotValueSelectionSetting)
 createSlotType_valueSelectionSetting = Lens.lens (\CreateSlotType' {valueSelectionSetting} -> valueSelectionSetting) (\s@CreateSlotType' {} a -> s {valueSelectionSetting = a} :: CreateSlotType)
 
 -- | The name for the slot. A slot type name must be unique within the
--- account.
+-- intent.
 createSlotType_slotTypeName :: Lens.Lens' CreateSlotType Prelude.Text
 createSlotType_slotTypeName = Lens.lens (\CreateSlotType' {slotTypeName} -> slotTypeName) (\s@CreateSlotType' {} a -> s {slotTypeName = a} :: CreateSlotType)
 

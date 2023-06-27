@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a specific version of a bot. To delete all version of a bot, use
--- the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DeleteBot.html DeleteBot>
+-- Deletes a specific version of a bot. To delete all versions of a bot,
+-- use the
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DeleteBot.html DeleteBot>
 -- operation.
 module Amazonka.LexV2Models.DeleteBotVersion
   ( -- * Creating a Request
@@ -56,11 +56,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteBotVersion' smart constructor.
 data DeleteBotVersion = DeleteBotVersion'
-  { -- | By default, the @DeleteBotVersion@ operations throws a
-    -- @ResourceInUseException@ exception if you try to delete a bot version
-    -- that has an alias pointing at it. Set the @skipResourceInUseCheck@
-    -- parameter to @true@ to skip this check and remove the version even if an
-    -- alias points to it.
+  { -- | By default, Amazon Lex checks if any other resource, such as an alias or
+    -- bot network, is using the bot version before it is deleted and throws a
+    -- @ResourceInUseException@ exception if the version is being used by
+    -- another resource. Set this parameter to @true@ to skip this check and
+    -- remove the version even if it is being used by another resource.
     skipResourceInUseCheck :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the bot that contains the version.
     botId :: Prelude.Text,
@@ -77,11 +77,11 @@ data DeleteBotVersion = DeleteBotVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'skipResourceInUseCheck', 'deleteBotVersion_skipResourceInUseCheck' - By default, the @DeleteBotVersion@ operations throws a
--- @ResourceInUseException@ exception if you try to delete a bot version
--- that has an alias pointing at it. Set the @skipResourceInUseCheck@
--- parameter to @true@ to skip this check and remove the version even if an
--- alias points to it.
+-- 'skipResourceInUseCheck', 'deleteBotVersion_skipResourceInUseCheck' - By default, Amazon Lex checks if any other resource, such as an alias or
+-- bot network, is using the bot version before it is deleted and throws a
+-- @ResourceInUseException@ exception if the version is being used by
+-- another resource. Set this parameter to @true@ to skip this check and
+-- remove the version even if it is being used by another resource.
 --
 -- 'botId', 'deleteBotVersion_botId' - The identifier of the bot that contains the version.
 --
@@ -100,11 +100,11 @@ newDeleteBotVersion pBotId_ pBotVersion_ =
       botVersion = pBotVersion_
     }
 
--- | By default, the @DeleteBotVersion@ operations throws a
--- @ResourceInUseException@ exception if you try to delete a bot version
--- that has an alias pointing at it. Set the @skipResourceInUseCheck@
--- parameter to @true@ to skip this check and remove the version even if an
--- alias points to it.
+-- | By default, Amazon Lex checks if any other resource, such as an alias or
+-- bot network, is using the bot version before it is deleted and throws a
+-- @ResourceInUseException@ exception if the version is being used by
+-- another resource. Set this parameter to @true@ to skip this check and
+-- remove the version even if it is being used by another resource.
 deleteBotVersion_skipResourceInUseCheck :: Lens.Lens' DeleteBotVersion (Prelude.Maybe Prelude.Bool)
 deleteBotVersion_skipResourceInUseCheck = Lens.lens (\DeleteBotVersion' {skipResourceInUseCheck} -> skipResourceInUseCheck) (\s@DeleteBotVersion' {} a -> s {skipResourceInUseCheck = a} :: DeleteBotVersion)
 
@@ -134,7 +134,8 @@ instance Core.AWSRequest DeleteBotVersion where
 
 instance Prelude.Hashable DeleteBotVersion where
   hashWithSalt _salt DeleteBotVersion' {..} =
-    _salt `Prelude.hashWithSalt` skipResourceInUseCheck
+    _salt
+      `Prelude.hashWithSalt` skipResourceInUseCheck
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
 

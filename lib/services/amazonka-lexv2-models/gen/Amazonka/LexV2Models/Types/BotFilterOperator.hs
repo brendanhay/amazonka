@@ -21,7 +21,8 @@ module Amazonka.LexV2Models.Types.BotFilterOperator
   ( BotFilterOperator
       ( ..,
         BotFilterOperator_CO,
-        BotFilterOperator_EQ
+        BotFilterOperator_EQ,
+        BotFilterOperator_NE
       ),
   )
 where
@@ -64,8 +65,12 @@ pattern BotFilterOperator_CO = BotFilterOperator' "CO"
 pattern BotFilterOperator_EQ :: BotFilterOperator
 pattern BotFilterOperator_EQ = BotFilterOperator' "EQ"
 
+pattern BotFilterOperator_NE :: BotFilterOperator
+pattern BotFilterOperator_NE = BotFilterOperator' "NE"
+
 {-# COMPLETE
   BotFilterOperator_CO,
   BotFilterOperator_EQ,
+  BotFilterOperator_NE,
   BotFilterOperator'
   #-}

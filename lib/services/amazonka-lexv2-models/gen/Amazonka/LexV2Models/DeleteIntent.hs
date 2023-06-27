@@ -131,7 +131,8 @@ instance Core.AWSRequest DeleteIntent where
 
 instance Prelude.Hashable DeleteIntent where
   hashWithSalt _salt DeleteIntent' {..} =
-    _salt `Prelude.hashWithSalt` intentId
+    _salt
+      `Prelude.hashWithSalt` intentId
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` localeId

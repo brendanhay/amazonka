@@ -85,7 +85,8 @@ instance Data.FromJSON BotAliasHistoryEvent where
 
 instance Prelude.Hashable BotAliasHistoryEvent where
   hashWithSalt _salt BotAliasHistoryEvent' {..} =
-    _salt `Prelude.hashWithSalt` botVersion
+    _salt
+      `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` startDate
 

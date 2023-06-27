@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Batch update custom vocabulary item for the specified locale in the
--- specified bot.
+-- Update a batch of custom vocabulary items for a given bot locale\'s
+-- custom vocabulary.
 module Amazonka.LexV2Models.BatchUpdateCustomVocabularyItem
   ( -- * Creating a Request
     BatchUpdateCustomVocabularyItem (..),
@@ -57,17 +57,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchUpdateCustomVocabularyItem' smart constructor.
 data BatchUpdateCustomVocabularyItem = BatchUpdateCustomVocabularyItem'
-  { -- | The unique identifier of the bot to the batch update request for the
-    -- custom vocabulary item.
+  { -- | The identifier of the bot associated with this custom vocabulary
     botId :: Prelude.Text,
-    -- | The bot version of the bot to the batch update request for the custom
-    -- vocabulary item.
+    -- | The identifier of the version of the bot associated with this custom
+    -- vocabulary.
     botVersion :: Prelude.Text,
-    -- | The locale identifier of the bot to the batch update request for the
-    -- custom vocabulary item.
+    -- | The identifier of the language and locale where this custom vocabulary
+    -- is used. The string must match one of the supported locales. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported Languages>
+    -- .
     localeId :: Prelude.Text,
-    -- | The custom vocabulary item list of the bot to the batch update request
-    -- for the custom vocabulary item.
+    -- | A list of custom vocabulary items with updated fields. Each entry must
+    -- contain a phrase and can optionally contain a displayAs and\/or a
+    -- weight.
     customVocabularyItemList :: Prelude.NonEmpty CustomVocabularyItem
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,17 +83,20 @@ data BatchUpdateCustomVocabularyItem = BatchUpdateCustomVocabularyItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'botId', 'batchUpdateCustomVocabularyItem_botId' - The unique identifier of the bot to the batch update request for the
--- custom vocabulary item.
+-- 'botId', 'batchUpdateCustomVocabularyItem_botId' - The identifier of the bot associated with this custom vocabulary
 --
--- 'botVersion', 'batchUpdateCustomVocabularyItem_botVersion' - The bot version of the bot to the batch update request for the custom
--- vocabulary item.
+-- 'botVersion', 'batchUpdateCustomVocabularyItem_botVersion' - The identifier of the version of the bot associated with this custom
+-- vocabulary.
 --
--- 'localeId', 'batchUpdateCustomVocabularyItem_localeId' - The locale identifier of the bot to the batch update request for the
--- custom vocabulary item.
+-- 'localeId', 'batchUpdateCustomVocabularyItem_localeId' - The identifier of the language and locale where this custom vocabulary
+-- is used. The string must match one of the supported locales. For more
+-- information, see
+-- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported Languages>
+-- .
 --
--- 'customVocabularyItemList', 'batchUpdateCustomVocabularyItem_customVocabularyItemList' - The custom vocabulary item list of the bot to the batch update request
--- for the custom vocabulary item.
+-- 'customVocabularyItemList', 'batchUpdateCustomVocabularyItem_customVocabularyItemList' - A list of custom vocabulary items with updated fields. Each entry must
+-- contain a phrase and can optionally contain a displayAs and\/or a
+-- weight.
 newBatchUpdateCustomVocabularyItem ::
   -- | 'botId'
   Prelude.Text ->
@@ -115,23 +121,26 @@ newBatchUpdateCustomVocabularyItem
             Lens.# pCustomVocabularyItemList_
       }
 
--- | The unique identifier of the bot to the batch update request for the
--- custom vocabulary item.
+-- | The identifier of the bot associated with this custom vocabulary
 batchUpdateCustomVocabularyItem_botId :: Lens.Lens' BatchUpdateCustomVocabularyItem Prelude.Text
 batchUpdateCustomVocabularyItem_botId = Lens.lens (\BatchUpdateCustomVocabularyItem' {botId} -> botId) (\s@BatchUpdateCustomVocabularyItem' {} a -> s {botId = a} :: BatchUpdateCustomVocabularyItem)
 
--- | The bot version of the bot to the batch update request for the custom
--- vocabulary item.
+-- | The identifier of the version of the bot associated with this custom
+-- vocabulary.
 batchUpdateCustomVocabularyItem_botVersion :: Lens.Lens' BatchUpdateCustomVocabularyItem Prelude.Text
 batchUpdateCustomVocabularyItem_botVersion = Lens.lens (\BatchUpdateCustomVocabularyItem' {botVersion} -> botVersion) (\s@BatchUpdateCustomVocabularyItem' {} a -> s {botVersion = a} :: BatchUpdateCustomVocabularyItem)
 
--- | The locale identifier of the bot to the batch update request for the
--- custom vocabulary item.
+-- | The identifier of the language and locale where this custom vocabulary
+-- is used. The string must match one of the supported locales. For more
+-- information, see
+-- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported Languages>
+-- .
 batchUpdateCustomVocabularyItem_localeId :: Lens.Lens' BatchUpdateCustomVocabularyItem Prelude.Text
 batchUpdateCustomVocabularyItem_localeId = Lens.lens (\BatchUpdateCustomVocabularyItem' {localeId} -> localeId) (\s@BatchUpdateCustomVocabularyItem' {} a -> s {localeId = a} :: BatchUpdateCustomVocabularyItem)
 
--- | The custom vocabulary item list of the bot to the batch update request
--- for the custom vocabulary item.
+-- | A list of custom vocabulary items with updated fields. Each entry must
+-- contain a phrase and can optionally contain a displayAs and\/or a
+-- weight.
 batchUpdateCustomVocabularyItem_customVocabularyItemList :: Lens.Lens' BatchUpdateCustomVocabularyItem (Prelude.NonEmpty CustomVocabularyItem)
 batchUpdateCustomVocabularyItem_customVocabularyItemList = Lens.lens (\BatchUpdateCustomVocabularyItem' {customVocabularyItemList} -> customVocabularyItemList) (\s@BatchUpdateCustomVocabularyItem' {} a -> s {customVocabularyItemList = a} :: BatchUpdateCustomVocabularyItem) Prelude.. Lens.coerced
 
@@ -163,7 +172,8 @@ instance
   hashWithSalt
     _salt
     BatchUpdateCustomVocabularyItem' {..} =
-      _salt `Prelude.hashWithSalt` botId
+      _salt
+        `Prelude.hashWithSalt` botId
         `Prelude.hashWithSalt` botVersion
         `Prelude.hashWithSalt` localeId
         `Prelude.hashWithSalt` customVocabularyItemList
@@ -220,20 +230,23 @@ instance Data.ToQuery BatchUpdateCustomVocabularyItem where
 
 -- | /See:/ 'newBatchUpdateCustomVocabularyItemResponse' smart constructor.
 data BatchUpdateCustomVocabularyItemResponse = BatchUpdateCustomVocabularyItemResponse'
-  { -- | The unique identifier of the bot to the batch update response for the
-    -- custom vocabulary item.
+  { -- | The identifier of the bot associated with this custom vocabulary.
     botId :: Prelude.Maybe Prelude.Text,
-    -- | The bot version of the bot to the batch update response for the custom
-    -- vocabulary item.
+    -- | The identifier of the version of the bot associated with this custom
+    -- vocabulary.
     botVersion :: Prelude.Maybe Prelude.Text,
-    -- | The errors of the action to batch update response for the custom
-    -- vocabulary item.
+    -- | A list of custom vocabulary items that failed to update during the
+    -- operation. The reason for the error is contained within each error
+    -- object.
     errors :: Prelude.Maybe [FailedCustomVocabularyItem],
-    -- | The locale identifier of the bot to the batch update response for the
-    -- custom vocabulary item.
+    -- | The identifier of the language and locale where this custom vocabulary
+    -- is used. The string must match one of the supported locales. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported Languages>
+    -- .
     localeId :: Prelude.Maybe Prelude.Text,
-    -- | The resources of the action to batch update response for the custom
-    -- vocabulary item.
+    -- | A list of custom vocabulary items that were successfully updated during
+    -- the operation.
     resources :: Prelude.Maybe [CustomVocabularyItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -248,20 +261,23 @@ data BatchUpdateCustomVocabularyItemResponse = BatchUpdateCustomVocabularyItemRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'botId', 'batchUpdateCustomVocabularyItemResponse_botId' - The unique identifier of the bot to the batch update response for the
--- custom vocabulary item.
+-- 'botId', 'batchUpdateCustomVocabularyItemResponse_botId' - The identifier of the bot associated with this custom vocabulary.
 --
--- 'botVersion', 'batchUpdateCustomVocabularyItemResponse_botVersion' - The bot version of the bot to the batch update response for the custom
--- vocabulary item.
+-- 'botVersion', 'batchUpdateCustomVocabularyItemResponse_botVersion' - The identifier of the version of the bot associated with this custom
+-- vocabulary.
 --
--- 'errors', 'batchUpdateCustomVocabularyItemResponse_errors' - The errors of the action to batch update response for the custom
--- vocabulary item.
+-- 'errors', 'batchUpdateCustomVocabularyItemResponse_errors' - A list of custom vocabulary items that failed to update during the
+-- operation. The reason for the error is contained within each error
+-- object.
 --
--- 'localeId', 'batchUpdateCustomVocabularyItemResponse_localeId' - The locale identifier of the bot to the batch update response for the
--- custom vocabulary item.
+-- 'localeId', 'batchUpdateCustomVocabularyItemResponse_localeId' - The identifier of the language and locale where this custom vocabulary
+-- is used. The string must match one of the supported locales. For more
+-- information, see
+-- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported Languages>
+-- .
 --
--- 'resources', 'batchUpdateCustomVocabularyItemResponse_resources' - The resources of the action to batch update response for the custom
--- vocabulary item.
+-- 'resources', 'batchUpdateCustomVocabularyItemResponse_resources' - A list of custom vocabulary items that were successfully updated during
+-- the operation.
 --
 -- 'httpStatus', 'batchUpdateCustomVocabularyItemResponse_httpStatus' - The response's http status code.
 newBatchUpdateCustomVocabularyItemResponse ::
@@ -280,28 +296,31 @@ newBatchUpdateCustomVocabularyItemResponse
         httpStatus = pHttpStatus_
       }
 
--- | The unique identifier of the bot to the batch update response for the
--- custom vocabulary item.
+-- | The identifier of the bot associated with this custom vocabulary.
 batchUpdateCustomVocabularyItemResponse_botId :: Lens.Lens' BatchUpdateCustomVocabularyItemResponse (Prelude.Maybe Prelude.Text)
 batchUpdateCustomVocabularyItemResponse_botId = Lens.lens (\BatchUpdateCustomVocabularyItemResponse' {botId} -> botId) (\s@BatchUpdateCustomVocabularyItemResponse' {} a -> s {botId = a} :: BatchUpdateCustomVocabularyItemResponse)
 
--- | The bot version of the bot to the batch update response for the custom
--- vocabulary item.
+-- | The identifier of the version of the bot associated with this custom
+-- vocabulary.
 batchUpdateCustomVocabularyItemResponse_botVersion :: Lens.Lens' BatchUpdateCustomVocabularyItemResponse (Prelude.Maybe Prelude.Text)
 batchUpdateCustomVocabularyItemResponse_botVersion = Lens.lens (\BatchUpdateCustomVocabularyItemResponse' {botVersion} -> botVersion) (\s@BatchUpdateCustomVocabularyItemResponse' {} a -> s {botVersion = a} :: BatchUpdateCustomVocabularyItemResponse)
 
--- | The errors of the action to batch update response for the custom
--- vocabulary item.
+-- | A list of custom vocabulary items that failed to update during the
+-- operation. The reason for the error is contained within each error
+-- object.
 batchUpdateCustomVocabularyItemResponse_errors :: Lens.Lens' BatchUpdateCustomVocabularyItemResponse (Prelude.Maybe [FailedCustomVocabularyItem])
 batchUpdateCustomVocabularyItemResponse_errors = Lens.lens (\BatchUpdateCustomVocabularyItemResponse' {errors} -> errors) (\s@BatchUpdateCustomVocabularyItemResponse' {} a -> s {errors = a} :: BatchUpdateCustomVocabularyItemResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The locale identifier of the bot to the batch update response for the
--- custom vocabulary item.
+-- | The identifier of the language and locale where this custom vocabulary
+-- is used. The string must match one of the supported locales. For more
+-- information, see
+-- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported Languages>
+-- .
 batchUpdateCustomVocabularyItemResponse_localeId :: Lens.Lens' BatchUpdateCustomVocabularyItemResponse (Prelude.Maybe Prelude.Text)
 batchUpdateCustomVocabularyItemResponse_localeId = Lens.lens (\BatchUpdateCustomVocabularyItemResponse' {localeId} -> localeId) (\s@BatchUpdateCustomVocabularyItemResponse' {} a -> s {localeId = a} :: BatchUpdateCustomVocabularyItemResponse)
 
--- | The resources of the action to batch update response for the custom
--- vocabulary item.
+-- | A list of custom vocabulary items that were successfully updated during
+-- the operation.
 batchUpdateCustomVocabularyItemResponse_resources :: Lens.Lens' BatchUpdateCustomVocabularyItemResponse (Prelude.Maybe [CustomVocabularyItem])
 batchUpdateCustomVocabularyItemResponse_resources = Lens.lens (\BatchUpdateCustomVocabularyItemResponse' {resources} -> resources) (\s@BatchUpdateCustomVocabularyItemResponse' {} a -> s {resources = a} :: BatchUpdateCustomVocabularyItemResponse) Prelude.. Lens.mapping Lens.coerced
 

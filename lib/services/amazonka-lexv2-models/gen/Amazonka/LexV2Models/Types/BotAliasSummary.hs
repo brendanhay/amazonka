@@ -26,14 +26,14 @@ import Amazonka.LexV2Models.Types.BotAliasStatus
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about bot aliases returned from the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBotAliases.html ListBotAliases>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBotAliases.html ListBotAliases>
 -- operation.
 --
 -- /See:/ 'newBotAliasSummary' smart constructor.
 data BotAliasSummary = BotAliasSummary'
   { -- | The unique identifier assigned to the bot alias. You can use this ID to
     -- get detailed information about the alias using the
-    -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeBotAlias.html DescribeBotAlias>
+    -- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeBotAlias.html DescribeBotAlias>
     -- operation.
     botAliasId :: Prelude.Maybe Prelude.Text,
     -- | The name of the bot alias.
@@ -62,7 +62,7 @@ data BotAliasSummary = BotAliasSummary'
 --
 -- 'botAliasId', 'botAliasSummary_botAliasId' - The unique identifier assigned to the bot alias. You can use this ID to
 -- get detailed information about the alias using the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeBotAlias.html DescribeBotAlias>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeBotAlias.html DescribeBotAlias>
 -- operation.
 --
 -- 'botAliasName', 'botAliasSummary_botAliasName' - The name of the bot alias.
@@ -92,7 +92,7 @@ newBotAliasSummary =
 
 -- | The unique identifier assigned to the bot alias. You can use this ID to
 -- get detailed information about the alias using the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeBotAlias.html DescribeBotAlias>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeBotAlias.html DescribeBotAlias>
 -- operation.
 botAliasSummary_botAliasId :: Lens.Lens' BotAliasSummary (Prelude.Maybe Prelude.Text)
 botAliasSummary_botAliasId = Lens.lens (\BotAliasSummary' {botAliasId} -> botAliasId) (\s@BotAliasSummary' {} a -> s {botAliasId = a} :: BotAliasSummary)
@@ -139,7 +139,8 @@ instance Data.FromJSON BotAliasSummary where
 
 instance Prelude.Hashable BotAliasSummary where
   hashWithSalt _salt BotAliasSummary' {..} =
-    _salt `Prelude.hashWithSalt` botAliasId
+    _salt
+      `Prelude.hashWithSalt` botAliasId
       `Prelude.hashWithSalt` botAliasName
       `Prelude.hashWithSalt` botAliasStatus
       `Prelude.hashWithSalt` botVersion

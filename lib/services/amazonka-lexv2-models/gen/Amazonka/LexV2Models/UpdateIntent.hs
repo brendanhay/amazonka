@@ -91,6 +91,8 @@ data UpdateIntent = UpdateIntent'
     -- | The new Lambda function to call when all of the intents required slots
     -- are provided and the intent is ready for fulfillment.
     fulfillmentCodeHook :: Prelude.Maybe FulfillmentCodeHookSettings,
+    -- | Configuration settings for a response sent to the user before Amazon Lex
+    -- starts eliciting slots.
     initialResponseSetting :: Prelude.Maybe InitialResponseSetting,
     -- | A new list of contexts that must be active in order for Amazon Lex to
     -- consider the intent.
@@ -146,7 +148,8 @@ data UpdateIntent = UpdateIntent'
 -- 'fulfillmentCodeHook', 'updateIntent_fulfillmentCodeHook' - The new Lambda function to call when all of the intents required slots
 -- are provided and the intent is ready for fulfillment.
 --
--- 'initialResponseSetting', 'updateIntent_initialResponseSetting' -
+-- 'initialResponseSetting', 'updateIntent_initialResponseSetting' - Configuration settings for a response sent to the user before Amazon Lex
+-- starts eliciting slots.
 --
 -- 'inputContexts', 'updateIntent_inputContexts' - A new list of contexts that must be active in order for Amazon Lex to
 -- consider the intent.
@@ -234,7 +237,8 @@ updateIntent_dialogCodeHook = Lens.lens (\UpdateIntent' {dialogCodeHook} -> dial
 updateIntent_fulfillmentCodeHook :: Lens.Lens' UpdateIntent (Prelude.Maybe FulfillmentCodeHookSettings)
 updateIntent_fulfillmentCodeHook = Lens.lens (\UpdateIntent' {fulfillmentCodeHook} -> fulfillmentCodeHook) (\s@UpdateIntent' {} a -> s {fulfillmentCodeHook = a} :: UpdateIntent)
 
--- |
+-- | Configuration settings for a response sent to the user before Amazon Lex
+-- starts eliciting slots.
 updateIntent_initialResponseSetting :: Lens.Lens' UpdateIntent (Prelude.Maybe InitialResponseSetting)
 updateIntent_initialResponseSetting = Lens.lens (\UpdateIntent' {initialResponseSetting} -> initialResponseSetting) (\s@UpdateIntent' {} a -> s {initialResponseSetting = a} :: UpdateIntent)
 
@@ -324,7 +328,8 @@ instance Core.AWSRequest UpdateIntent where
             Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (x Data..?> "outputContexts" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "parentIntentSignature")
-            Prelude.<*> ( x Data..?> "sampleUtterances"
+            Prelude.<*> ( x
+                            Data..?> "sampleUtterances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "slotPriorities" Core..!@ Prelude.mempty)
@@ -333,7 +338,8 @@ instance Core.AWSRequest UpdateIntent where
 
 instance Prelude.Hashable UpdateIntent where
   hashWithSalt _salt UpdateIntent' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dialogCodeHook
       `Prelude.hashWithSalt` fulfillmentCodeHook
       `Prelude.hashWithSalt` initialResponseSetting
@@ -445,6 +451,8 @@ data UpdateIntentResponse = UpdateIntentResponse'
     -- | The updated Lambda function called when the intent is ready for
     -- fulfillment.
     fulfillmentCodeHook :: Prelude.Maybe FulfillmentCodeHookSettings,
+    -- | Configuration settings for a response sent to the user before Amazon Lex
+    -- starts eliciting slots.
     initialResponseSetting :: Prelude.Maybe InitialResponseSetting,
     -- | The updated list of contexts that must be active for the intent to be
     -- considered by Amazon Lex.
@@ -503,7 +511,8 @@ data UpdateIntentResponse = UpdateIntentResponse'
 -- 'fulfillmentCodeHook', 'updateIntentResponse_fulfillmentCodeHook' - The updated Lambda function called when the intent is ready for
 -- fulfillment.
 --
--- 'initialResponseSetting', 'updateIntentResponse_initialResponseSetting' -
+-- 'initialResponseSetting', 'updateIntentResponse_initialResponseSetting' - Configuration settings for a response sent to the user before Amazon Lex
+-- starts eliciting slots.
 --
 -- 'inputContexts', 'updateIntentResponse_inputContexts' - The updated list of contexts that must be active for the intent to be
 -- considered by Amazon Lex.
@@ -590,7 +599,8 @@ updateIntentResponse_dialogCodeHook = Lens.lens (\UpdateIntentResponse' {dialogC
 updateIntentResponse_fulfillmentCodeHook :: Lens.Lens' UpdateIntentResponse (Prelude.Maybe FulfillmentCodeHookSettings)
 updateIntentResponse_fulfillmentCodeHook = Lens.lens (\UpdateIntentResponse' {fulfillmentCodeHook} -> fulfillmentCodeHook) (\s@UpdateIntentResponse' {} a -> s {fulfillmentCodeHook = a} :: UpdateIntentResponse)
 
--- |
+-- | Configuration settings for a response sent to the user before Amazon Lex
+-- starts eliciting slots.
 updateIntentResponse_initialResponseSetting :: Lens.Lens' UpdateIntentResponse (Prelude.Maybe InitialResponseSetting)
 updateIntentResponse_initialResponseSetting = Lens.lens (\UpdateIntentResponse' {initialResponseSetting} -> initialResponseSetting) (\s@UpdateIntentResponse' {} a -> s {initialResponseSetting = a} :: UpdateIntentResponse)
 

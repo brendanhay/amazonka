@@ -73,7 +73,8 @@ botVersionSortBy_order = Lens.lens (\BotVersionSortBy' {order} -> order) (\s@Bot
 
 instance Prelude.Hashable BotVersionSortBy where
   hashWithSalt _salt BotVersionSortBy' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` order
 
 instance Prelude.NFData BotVersionSortBy where

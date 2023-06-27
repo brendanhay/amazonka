@@ -60,8 +60,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteBot' smart constructor.
 data DeleteBot = DeleteBot'
-  { -- | When @true@, Amazon Lex doesn\'t check to see if another resource, such
-    -- as an alias, is using the bot before it is deleted.
+  { -- | By default, Amazon Lex checks if any other resource, such as an alias or
+    -- bot network, is using the bot version before it is deleted and throws a
+    -- @ResourceInUseException@ exception if the bot is being used by another
+    -- resource. Set this parameter to @true@ to skip this check and remove the
+    -- bot even if it is being used by another resource.
     skipResourceInUseCheck :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the bot to delete.
     botId :: Prelude.Text
@@ -76,8 +79,11 @@ data DeleteBot = DeleteBot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'skipResourceInUseCheck', 'deleteBot_skipResourceInUseCheck' - When @true@, Amazon Lex doesn\'t check to see if another resource, such
--- as an alias, is using the bot before it is deleted.
+-- 'skipResourceInUseCheck', 'deleteBot_skipResourceInUseCheck' - By default, Amazon Lex checks if any other resource, such as an alias or
+-- bot network, is using the bot version before it is deleted and throws a
+-- @ResourceInUseException@ exception if the bot is being used by another
+-- resource. Set this parameter to @true@ to skip this check and remove the
+-- bot even if it is being used by another resource.
 --
 -- 'botId', 'deleteBot_botId' - The identifier of the bot to delete.
 newDeleteBot ::
@@ -91,8 +97,11 @@ newDeleteBot pBotId_ =
       botId = pBotId_
     }
 
--- | When @true@, Amazon Lex doesn\'t check to see if another resource, such
--- as an alias, is using the bot before it is deleted.
+-- | By default, Amazon Lex checks if any other resource, such as an alias or
+-- bot network, is using the bot version before it is deleted and throws a
+-- @ResourceInUseException@ exception if the bot is being used by another
+-- resource. Set this parameter to @true@ to skip this check and remove the
+-- bot even if it is being used by another resource.
 deleteBot_skipResourceInUseCheck :: Lens.Lens' DeleteBot (Prelude.Maybe Prelude.Bool)
 deleteBot_skipResourceInUseCheck = Lens.lens (\DeleteBot' {skipResourceInUseCheck} -> skipResourceInUseCheck) (\s@DeleteBot' {} a -> s {skipResourceInUseCheck = a} :: DeleteBot)
 
@@ -115,7 +124,8 @@ instance Core.AWSRequest DeleteBot where
 
 instance Prelude.Hashable DeleteBot where
   hashWithSalt _salt DeleteBot' {..} =
-    _salt `Prelude.hashWithSalt` skipResourceInUseCheck
+    _salt
+      `Prelude.hashWithSalt` skipResourceInUseCheck
       `Prelude.hashWithSalt` botId
 
 instance Prelude.NFData DeleteBot where

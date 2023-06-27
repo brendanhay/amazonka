@@ -216,7 +216,8 @@ instance Core.AWSRequest ListSlots where
 
 instance Prelude.Hashable ListSlots where
   hashWithSalt _salt ListSlots' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy

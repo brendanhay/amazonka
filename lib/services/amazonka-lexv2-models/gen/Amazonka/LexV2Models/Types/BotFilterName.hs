@@ -20,7 +20,8 @@
 module Amazonka.LexV2Models.Types.BotFilterName
   ( BotFilterName
       ( ..,
-        BotFilterName_BotName
+        BotFilterName_BotName,
+        BotFilterName_BotType
       ),
   )
 where
@@ -60,7 +61,11 @@ newtype BotFilterName = BotFilterName'
 pattern BotFilterName_BotName :: BotFilterName
 pattern BotFilterName_BotName = BotFilterName' "BotName"
 
+pattern BotFilterName_BotType :: BotFilterName
+pattern BotFilterName_BotType = BotFilterName' "BotType"
+
 {-# COMPLETE
   BotFilterName_BotName,
+  BotFilterName_BotType,
   BotFilterName'
   #-}

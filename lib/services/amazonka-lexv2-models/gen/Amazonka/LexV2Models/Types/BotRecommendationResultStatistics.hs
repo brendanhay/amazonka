@@ -91,7 +91,8 @@ instance
   hashWithSalt
     _salt
     BotRecommendationResultStatistics' {..} =
-      _salt `Prelude.hashWithSalt` intents
+      _salt
+        `Prelude.hashWithSalt` intents
         `Prelude.hashWithSalt` slotTypes
 
 instance

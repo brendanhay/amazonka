@@ -99,7 +99,8 @@ instance Data.FromJSON SlotValueOverride where
 
 instance Prelude.Hashable SlotValueOverride where
   hashWithSalt _salt SlotValueOverride' {..} =
-    _salt `Prelude.hashWithSalt` shape
+    _salt
+      `Prelude.hashWithSalt` shape
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` values
 

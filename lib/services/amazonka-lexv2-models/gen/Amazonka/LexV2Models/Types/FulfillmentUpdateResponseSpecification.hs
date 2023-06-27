@@ -38,7 +38,7 @@ data FulfillmentUpdateResponseSpecification = FulfillmentUpdateResponseSpecifica
     -- user. If the fulfillment Lambda returns before the first period ends, an
     -- update message is not played to the user.
     frequencyInSeconds :: Prelude.Natural,
-    -- | One to 5 message groups that contain update messages. Amazon Lex chooses
+    -- | 1 - 5 message groups that contain update messages. Amazon Lex chooses
     -- one of the messages to play to the user.
     messageGroups :: Prelude.NonEmpty MessageGroup
   }
@@ -60,7 +60,7 @@ data FulfillmentUpdateResponseSpecification = FulfillmentUpdateResponseSpecifica
 -- user. If the fulfillment Lambda returns before the first period ends, an
 -- update message is not played to the user.
 --
--- 'messageGroups', 'fulfillmentUpdateResponseSpecification_messageGroups' - One to 5 message groups that contain update messages. Amazon Lex chooses
+-- 'messageGroups', 'fulfillmentUpdateResponseSpecification_messageGroups' - 1 - 5 message groups that contain update messages. Amazon Lex chooses
 -- one of the messages to play to the user.
 newFulfillmentUpdateResponseSpecification ::
   -- | 'frequencyInSeconds'
@@ -93,7 +93,7 @@ fulfillmentUpdateResponseSpecification_allowInterrupt = Lens.lens (\FulfillmentU
 fulfillmentUpdateResponseSpecification_frequencyInSeconds :: Lens.Lens' FulfillmentUpdateResponseSpecification Prelude.Natural
 fulfillmentUpdateResponseSpecification_frequencyInSeconds = Lens.lens (\FulfillmentUpdateResponseSpecification' {frequencyInSeconds} -> frequencyInSeconds) (\s@FulfillmentUpdateResponseSpecification' {} a -> s {frequencyInSeconds = a} :: FulfillmentUpdateResponseSpecification)
 
--- | One to 5 message groups that contain update messages. Amazon Lex chooses
+-- | 1 - 5 message groups that contain update messages. Amazon Lex chooses
 -- one of the messages to play to the user.
 fulfillmentUpdateResponseSpecification_messageGroups :: Lens.Lens' FulfillmentUpdateResponseSpecification (Prelude.NonEmpty MessageGroup)
 fulfillmentUpdateResponseSpecification_messageGroups = Lens.lens (\FulfillmentUpdateResponseSpecification' {messageGroups} -> messageGroups) (\s@FulfillmentUpdateResponseSpecification' {} a -> s {messageGroups = a} :: FulfillmentUpdateResponseSpecification) Prelude.. Lens.coerced
@@ -119,7 +119,8 @@ instance
   hashWithSalt
     _salt
     FulfillmentUpdateResponseSpecification' {..} =
-      _salt `Prelude.hashWithSalt` allowInterrupt
+      _salt
+        `Prelude.hashWithSalt` allowInterrupt
         `Prelude.hashWithSalt` frequencyInSeconds
         `Prelude.hashWithSalt` messageGroups
 

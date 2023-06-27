@@ -71,6 +71,9 @@ module Amazonka.LexV2Models.Types
     -- * BotStatus
     BotStatus (..),
 
+    -- * BotType
+    BotType (..),
+
     -- * BotVersionSortAttribute
     BotVersionSortAttribute (..),
 
@@ -79,6 +82,9 @@ module Amazonka.LexV2Models.Types
 
     -- * BuiltInSlotTypeSortAttribute
     BuiltInSlotTypeSortAttribute (..),
+
+    -- * ConversationLogsInputModeFilter
+    ConversationLogsInputModeFilter (..),
 
     -- * CustomVocabularyStatus
     CustomVocabularyStatus (..),
@@ -179,6 +185,39 @@ module Amazonka.LexV2Models.Types
     -- * SortOrder
     SortOrder (..),
 
+    -- * TestExecutionApiMode
+    TestExecutionApiMode (..),
+
+    -- * TestExecutionModality
+    TestExecutionModality (..),
+
+    -- * TestExecutionSortAttribute
+    TestExecutionSortAttribute (..),
+
+    -- * TestExecutionStatus
+    TestExecutionStatus (..),
+
+    -- * TestResultMatchStatus
+    TestResultMatchStatus (..),
+
+    -- * TestResultTypeFilter
+    TestResultTypeFilter (..),
+
+    -- * TestSetDiscrepancyReportStatus
+    TestSetDiscrepancyReportStatus (..),
+
+    -- * TestSetGenerationStatus
+    TestSetGenerationStatus (..),
+
+    -- * TestSetModality
+    TestSetModality (..),
+
+    -- * TestSetSortAttribute
+    TestSetSortAttribute (..),
+
+    -- * TestSetStatus
+    TestSetStatus (..),
+
     -- * TimeDimension
     TimeDimension (..),
 
@@ -188,10 +227,29 @@ module Amazonka.LexV2Models.Types
     -- * VoiceEngine
     VoiceEngine (..),
 
+    -- * ActiveContext
+    ActiveContext (..),
+    newActiveContext,
+    activeContext_name,
+
     -- * AdvancedRecognitionSetting
     AdvancedRecognitionSetting (..),
     newAdvancedRecognitionSetting,
     advancedRecognitionSetting_audioRecognitionStrategy,
+
+    -- * AgentTurnResult
+    AgentTurnResult (..),
+    newAgentTurnResult,
+    agentTurnResult_actualAgentPrompt,
+    agentTurnResult_actualElicitedSlot,
+    agentTurnResult_actualIntent,
+    agentTurnResult_errorDetails,
+    agentTurnResult_expectedAgentPrompt,
+
+    -- * AgentTurnSpecification
+    AgentTurnSpecification (..),
+    newAgentTurnSpecification,
+    agentTurnSpecification_agentPrompt,
 
     -- * AggregatedUtterancesFilter
     AggregatedUtterancesFilter (..),
@@ -281,6 +339,13 @@ module Amazonka.LexV2Models.Types
     botAliasSummary_description,
     botAliasSummary_lastUpdatedDateTime,
 
+    -- * BotAliasTestExecutionTarget
+    BotAliasTestExecutionTarget (..),
+    newBotAliasTestExecutionTarget,
+    botAliasTestExecutionTarget_botId,
+    botAliasTestExecutionTarget_botAliasId,
+    botAliasTestExecutionTarget_localeId,
+
     -- * BotExportSpecification
     BotExportSpecification (..),
     newBotExportSpecification,
@@ -349,6 +414,15 @@ module Amazonka.LexV2Models.Types
     botLocaleSummary_localeId,
     botLocaleSummary_localeName,
 
+    -- * BotMember
+    BotMember (..),
+    newBotMember,
+    botMember_botMemberId,
+    botMember_botMemberName,
+    botMember_botMemberAliasId,
+    botMember_botMemberAliasName,
+    botMember_botMemberVersion,
+
     -- * BotRecommendationResultStatistics
     BotRecommendationResultStatistics (..),
     newBotRecommendationResultStatistics,
@@ -382,6 +456,7 @@ module Amazonka.LexV2Models.Types
     botSummary_botId,
     botSummary_botName,
     botSummary_botStatus,
+    botSummary_botType,
     botSummary_description,
     botSummary_lastUpdatedDateTime,
     botSummary_latestBotVersion,
@@ -472,11 +547,64 @@ module Amazonka.LexV2Models.Types
     conditionalSpecification_conditionalBranches,
     conditionalSpecification_defaultBranch,
 
+    -- * ConversationLevelIntentClassificationResultItem
+    ConversationLevelIntentClassificationResultItem (..),
+    newConversationLevelIntentClassificationResultItem,
+    conversationLevelIntentClassificationResultItem_intentName,
+    conversationLevelIntentClassificationResultItem_matchResult,
+
+    -- * ConversationLevelResultDetail
+    ConversationLevelResultDetail (..),
+    newConversationLevelResultDetail,
+    conversationLevelResultDetail_speechTranscriptionResult,
+    conversationLevelResultDetail_endToEndResult,
+
+    -- * ConversationLevelSlotResolutionResultItem
+    ConversationLevelSlotResolutionResultItem (..),
+    newConversationLevelSlotResolutionResultItem,
+    conversationLevelSlotResolutionResultItem_intentName,
+    conversationLevelSlotResolutionResultItem_slotName,
+    conversationLevelSlotResolutionResultItem_matchResult,
+
+    -- * ConversationLevelTestResultItem
+    ConversationLevelTestResultItem (..),
+    newConversationLevelTestResultItem,
+    conversationLevelTestResultItem_speechTranscriptionResult,
+    conversationLevelTestResultItem_conversationId,
+    conversationLevelTestResultItem_endToEndResult,
+    conversationLevelTestResultItem_intentClassificationResults,
+    conversationLevelTestResultItem_slotResolutionResults,
+
+    -- * ConversationLevelTestResults
+    ConversationLevelTestResults (..),
+    newConversationLevelTestResults,
+    conversationLevelTestResults_items,
+
+    -- * ConversationLevelTestResultsFilterBy
+    ConversationLevelTestResultsFilterBy (..),
+    newConversationLevelTestResultsFilterBy,
+    conversationLevelTestResultsFilterBy_endToEndResult,
+
     -- * ConversationLogSettings
     ConversationLogSettings (..),
     newConversationLogSettings,
     conversationLogSettings_audioLogSettings,
     conversationLogSettings_textLogSettings,
+
+    -- * ConversationLogsDataSource
+    ConversationLogsDataSource (..),
+    newConversationLogsDataSource,
+    conversationLogsDataSource_botId,
+    conversationLogsDataSource_botAliasId,
+    conversationLogsDataSource_localeId,
+    conversationLogsDataSource_filter,
+
+    -- * ConversationLogsDataSourceFilterBy
+    ConversationLogsDataSourceFilterBy (..),
+    newConversationLogsDataSourceFilterBy,
+    conversationLogsDataSourceFilterBy_startTime,
+    conversationLogsDataSourceFilterBy_endTime,
+    conversationLogsDataSourceFilterBy_inputMode,
 
     -- * CustomPayload
     CustomPayload (..),
@@ -575,6 +703,12 @@ module Amazonka.LexV2Models.Types
     encryptionSetting_botLocaleExportPassword,
     encryptionSetting_kmsKeyArn,
 
+    -- * ExecutionErrorDetails
+    ExecutionErrorDetails (..),
+    newExecutionErrorDetails,
+    executionErrorDetails_errorCode,
+    executionErrorDetails_errorMessage,
+
     -- * ExportFilter
     ExportFilter (..),
     newExportFilter,
@@ -588,6 +722,7 @@ module Amazonka.LexV2Models.Types
     exportResourceSpecification_botExportSpecification,
     exportResourceSpecification_botLocaleExportSpecification,
     exportResourceSpecification_customVocabularyExportSpecification,
+    exportResourceSpecification_testSetExportSpecification,
 
     -- * ExportSortBy
     ExportSortBy (..),
@@ -680,6 +815,7 @@ module Amazonka.LexV2Models.Types
     importResourceSpecification_botImportSpecification,
     importResourceSpecification_botLocaleImportSpecification,
     importResourceSpecification_customVocabularyImportSpecification,
+    importResourceSpecification_testSetImportResourceSpecification,
 
     -- * ImportSortBy
     ImportSortBy (..),
@@ -712,6 +848,32 @@ module Amazonka.LexV2Models.Types
     newInputContext,
     inputContext_name,
 
+    -- * InputSessionStateSpecification
+    InputSessionStateSpecification (..),
+    newInputSessionStateSpecification,
+    inputSessionStateSpecification_activeContexts,
+    inputSessionStateSpecification_runtimeHints,
+    inputSessionStateSpecification_sessionAttributes,
+
+    -- * IntentClassificationTestResultItem
+    IntentClassificationTestResultItem (..),
+    newIntentClassificationTestResultItem,
+    intentClassificationTestResultItem_intentName,
+    intentClassificationTestResultItem_multiTurnConversation,
+    intentClassificationTestResultItem_resultCounts,
+
+    -- * IntentClassificationTestResultItemCounts
+    IntentClassificationTestResultItemCounts (..),
+    newIntentClassificationTestResultItemCounts,
+    intentClassificationTestResultItemCounts_speechTranscriptionResultCounts,
+    intentClassificationTestResultItemCounts_totalResultCount,
+    intentClassificationTestResultItemCounts_intentMatchResultCounts,
+
+    -- * IntentClassificationTestResults
+    IntentClassificationTestResults (..),
+    newIntentClassificationTestResults,
+    intentClassificationTestResults_items,
+
     -- * IntentClosingSetting
     IntentClosingSetting (..),
     newIntentClosingSetting,
@@ -743,6 +905,18 @@ module Amazonka.LexV2Models.Types
     intentFilter_name,
     intentFilter_values,
     intentFilter_operator,
+
+    -- * IntentLevelSlotResolutionTestResultItem
+    IntentLevelSlotResolutionTestResultItem (..),
+    newIntentLevelSlotResolutionTestResultItem,
+    intentLevelSlotResolutionTestResultItem_intentName,
+    intentLevelSlotResolutionTestResultItem_multiTurnConversation,
+    intentLevelSlotResolutionTestResultItem_slotResolutionResults,
+
+    -- * IntentLevelSlotResolutionTestResults
+    IntentLevelSlotResolutionTestResults (..),
+    newIntentLevelSlotResolutionTestResults,
+    intentLevelSlotResolutionTestResults_items,
 
     -- * IntentOverride
     IntentOverride (..),
@@ -828,6 +1002,25 @@ module Amazonka.LexV2Models.Types
     outputContext_timeToLiveInSeconds,
     outputContext_turnsToLive,
 
+    -- * OverallTestResultItem
+    OverallTestResultItem (..),
+    newOverallTestResultItem,
+    overallTestResultItem_speechTranscriptionResultCounts,
+    overallTestResultItem_multiTurnConversation,
+    overallTestResultItem_totalResultCount,
+    overallTestResultItem_endToEndResultCounts,
+
+    -- * OverallTestResults
+    OverallTestResults (..),
+    newOverallTestResults,
+    overallTestResults_items,
+
+    -- * ParentBotNetwork
+    ParentBotNetwork (..),
+    newParentBotNetwork,
+    parentBotNetwork_botId,
+    parentBotNetwork_botVersion,
+
     -- * PathFormat
     PathFormat (..),
     newPathFormat,
@@ -906,6 +1099,22 @@ module Amazonka.LexV2Models.Types
     responseSpecification_allowInterrupt,
     responseSpecification_messageGroups,
 
+    -- * RuntimeHintDetails
+    RuntimeHintDetails (..),
+    newRuntimeHintDetails,
+    runtimeHintDetails_runtimeHintValues,
+    runtimeHintDetails_subSlotHints,
+
+    -- * RuntimeHintValue
+    RuntimeHintValue (..),
+    newRuntimeHintValue,
+    runtimeHintValue_phrase,
+
+    -- * RuntimeHints
+    RuntimeHints (..),
+    newRuntimeHints,
+    runtimeHints_slotHints,
+
     -- * S3BucketLogDestination
     S3BucketLogDestination (..),
     newS3BucketLogDestination,
@@ -976,6 +1185,19 @@ module Amazonka.LexV2Models.Types
     newSlotPriority,
     slotPriority_priority,
     slotPriority_slotId,
+
+    -- * SlotResolutionTestResultItem
+    SlotResolutionTestResultItem (..),
+    newSlotResolutionTestResultItem,
+    slotResolutionTestResultItem_slotName,
+    slotResolutionTestResultItem_resultCounts,
+
+    -- * SlotResolutionTestResultItemCounts
+    SlotResolutionTestResultItemCounts (..),
+    newSlotResolutionTestResultItemCounts,
+    slotResolutionTestResultItemCounts_speechTranscriptionResultCounts,
+    slotResolutionTestResultItemCounts_totalResultCount,
+    slotResolutionTestResultItemCounts_slotMatchResultCounts,
 
     -- * SlotSortBy
     SlotSortBy (..),
@@ -1096,6 +1318,144 @@ module Amazonka.LexV2Models.Types
     subSlotValueElicitationSetting_waitAndContinueSpecification,
     subSlotValueElicitationSetting_promptSpecification,
 
+    -- * TestExecutionResultFilterBy
+    TestExecutionResultFilterBy (..),
+    newTestExecutionResultFilterBy,
+    testExecutionResultFilterBy_conversationLevelTestResultsFilterBy,
+    testExecutionResultFilterBy_resultTypeFilter,
+
+    -- * TestExecutionResultItems
+    TestExecutionResultItems (..),
+    newTestExecutionResultItems,
+    testExecutionResultItems_conversationLevelTestResults,
+    testExecutionResultItems_intentClassificationTestResults,
+    testExecutionResultItems_intentLevelSlotResolutionTestResults,
+    testExecutionResultItems_overallTestResults,
+    testExecutionResultItems_utteranceLevelTestResults,
+
+    -- * TestExecutionSortBy
+    TestExecutionSortBy (..),
+    newTestExecutionSortBy,
+    testExecutionSortBy_attribute,
+    testExecutionSortBy_order,
+
+    -- * TestExecutionSummary
+    TestExecutionSummary (..),
+    newTestExecutionSummary,
+    testExecutionSummary_apiMode,
+    testExecutionSummary_creationDateTime,
+    testExecutionSummary_lastUpdatedDateTime,
+    testExecutionSummary_target,
+    testExecutionSummary_testExecutionId,
+    testExecutionSummary_testExecutionModality,
+    testExecutionSummary_testExecutionStatus,
+    testExecutionSummary_testSetId,
+    testExecutionSummary_testSetName,
+
+    -- * TestExecutionTarget
+    TestExecutionTarget (..),
+    newTestExecutionTarget,
+    testExecutionTarget_botAliasTarget,
+
+    -- * TestSetDiscrepancyErrors
+    TestSetDiscrepancyErrors (..),
+    newTestSetDiscrepancyErrors,
+    testSetDiscrepancyErrors_intentDiscrepancies,
+    testSetDiscrepancyErrors_slotDiscrepancies,
+
+    -- * TestSetDiscrepancyReportBotAliasTarget
+    TestSetDiscrepancyReportBotAliasTarget (..),
+    newTestSetDiscrepancyReportBotAliasTarget,
+    testSetDiscrepancyReportBotAliasTarget_botId,
+    testSetDiscrepancyReportBotAliasTarget_botAliasId,
+    testSetDiscrepancyReportBotAliasTarget_localeId,
+
+    -- * TestSetDiscrepancyReportResourceTarget
+    TestSetDiscrepancyReportResourceTarget (..),
+    newTestSetDiscrepancyReportResourceTarget,
+    testSetDiscrepancyReportResourceTarget_botAliasTarget,
+
+    -- * TestSetExportSpecification
+    TestSetExportSpecification (..),
+    newTestSetExportSpecification,
+    testSetExportSpecification_testSetId,
+
+    -- * TestSetGenerationDataSource
+    TestSetGenerationDataSource (..),
+    newTestSetGenerationDataSource,
+    testSetGenerationDataSource_conversationLogsDataSource,
+
+    -- * TestSetImportInputLocation
+    TestSetImportInputLocation (..),
+    newTestSetImportInputLocation,
+    testSetImportInputLocation_s3BucketName,
+    testSetImportInputLocation_s3Path,
+
+    -- * TestSetImportResourceSpecification
+    TestSetImportResourceSpecification (..),
+    newTestSetImportResourceSpecification,
+    testSetImportResourceSpecification_description,
+    testSetImportResourceSpecification_testSetTags,
+    testSetImportResourceSpecification_testSetName,
+    testSetImportResourceSpecification_roleArn,
+    testSetImportResourceSpecification_storageLocation,
+    testSetImportResourceSpecification_importInputLocation,
+    testSetImportResourceSpecification_modality,
+
+    -- * TestSetIntentDiscrepancyItem
+    TestSetIntentDiscrepancyItem (..),
+    newTestSetIntentDiscrepancyItem,
+    testSetIntentDiscrepancyItem_intentName,
+    testSetIntentDiscrepancyItem_errorMessage,
+
+    -- * TestSetSlotDiscrepancyItem
+    TestSetSlotDiscrepancyItem (..),
+    newTestSetSlotDiscrepancyItem,
+    testSetSlotDiscrepancyItem_intentName,
+    testSetSlotDiscrepancyItem_slotName,
+    testSetSlotDiscrepancyItem_errorMessage,
+
+    -- * TestSetSortBy
+    TestSetSortBy (..),
+    newTestSetSortBy,
+    testSetSortBy_attribute,
+    testSetSortBy_order,
+
+    -- * TestSetStorageLocation
+    TestSetStorageLocation (..),
+    newTestSetStorageLocation,
+    testSetStorageLocation_kmsKeyArn,
+    testSetStorageLocation_s3BucketName,
+    testSetStorageLocation_s3Path,
+
+    -- * TestSetSummary
+    TestSetSummary (..),
+    newTestSetSummary,
+    testSetSummary_creationDateTime,
+    testSetSummary_description,
+    testSetSummary_lastUpdatedDateTime,
+    testSetSummary_modality,
+    testSetSummary_numTurns,
+    testSetSummary_roleArn,
+    testSetSummary_status,
+    testSetSummary_storageLocation,
+    testSetSummary_testSetId,
+    testSetSummary_testSetName,
+
+    -- * TestSetTurnRecord
+    TestSetTurnRecord (..),
+    newTestSetTurnRecord,
+    testSetTurnRecord_conversationId,
+    testSetTurnRecord_turnNumber,
+    testSetTurnRecord_recordNumber,
+    testSetTurnRecord_turnSpecification,
+
+    -- * TestSetTurnResult
+    TestSetTurnResult (..),
+    newTestSetTurnResult,
+    testSetTurnResult_agent,
+    testSetTurnResult_user,
+
     -- * TextInputSpecification
     TextInputSpecification (..),
     newTextInputSpecification,
@@ -1122,10 +1482,85 @@ module Amazonka.LexV2Models.Types
     newTranscriptSourceSetting,
     transcriptSourceSetting_s3BucketTranscriptSource,
 
+    -- * TurnSpecification
+    TurnSpecification (..),
+    newTurnSpecification,
+    turnSpecification_agentTurn,
+    turnSpecification_userTurn,
+
+    -- * UserTurnInputSpecification
+    UserTurnInputSpecification (..),
+    newUserTurnInputSpecification,
+    userTurnInputSpecification_requestAttributes,
+    userTurnInputSpecification_sessionState,
+    userTurnInputSpecification_utteranceInput,
+
+    -- * UserTurnIntentOutput
+    UserTurnIntentOutput (..),
+    newUserTurnIntentOutput,
+    userTurnIntentOutput_slots,
+    userTurnIntentOutput_name,
+
+    -- * UserTurnOutputSpecification
+    UserTurnOutputSpecification (..),
+    newUserTurnOutputSpecification,
+    userTurnOutputSpecification_activeContexts,
+    userTurnOutputSpecification_transcript,
+    userTurnOutputSpecification_intent,
+
+    -- * UserTurnResult
+    UserTurnResult (..),
+    newUserTurnResult,
+    userTurnResult_actualOutput,
+    userTurnResult_conversationLevelResult,
+    userTurnResult_endToEndResult,
+    userTurnResult_errorDetails,
+    userTurnResult_intentMatchResult,
+    userTurnResult_slotMatchResult,
+    userTurnResult_speechTranscriptionResult,
+    userTurnResult_input,
+    userTurnResult_expectedOutput,
+
+    -- * UserTurnSlotOutput
+    UserTurnSlotOutput (..),
+    newUserTurnSlotOutput,
+    userTurnSlotOutput_subSlots,
+    userTurnSlotOutput_value,
+    userTurnSlotOutput_values,
+
+    -- * UserTurnSpecification
+    UserTurnSpecification (..),
+    newUserTurnSpecification,
+    userTurnSpecification_input,
+    userTurnSpecification_expected,
+
     -- * UtteranceAggregationDuration
     UtteranceAggregationDuration (..),
     newUtteranceAggregationDuration,
     utteranceAggregationDuration_relativeAggregationDuration,
+
+    -- * UtteranceAudioInputSpecification
+    UtteranceAudioInputSpecification (..),
+    newUtteranceAudioInputSpecification,
+    utteranceAudioInputSpecification_audioFileS3Location,
+
+    -- * UtteranceInputSpecification
+    UtteranceInputSpecification (..),
+    newUtteranceInputSpecification,
+    utteranceInputSpecification_audioInput,
+    utteranceInputSpecification_textInput,
+
+    -- * UtteranceLevelTestResultItem
+    UtteranceLevelTestResultItem (..),
+    newUtteranceLevelTestResultItem,
+    utteranceLevelTestResultItem_conversationId,
+    utteranceLevelTestResultItem_recordNumber,
+    utteranceLevelTestResultItem_turnResult,
+
+    -- * UtteranceLevelTestResults
+    UtteranceLevelTestResults (..),
+    newUtteranceLevelTestResults,
+    utteranceLevelTestResults_items,
 
     -- * VoiceSettings
     VoiceSettings (..),
@@ -1145,7 +1580,10 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import Amazonka.LexV2Models.Types.ActiveContext
 import Amazonka.LexV2Models.Types.AdvancedRecognitionSetting
+import Amazonka.LexV2Models.Types.AgentTurnResult
+import Amazonka.LexV2Models.Types.AgentTurnSpecification
 import Amazonka.LexV2Models.Types.AggregatedUtterancesFilter
 import Amazonka.LexV2Models.Types.AggregatedUtterancesFilterName
 import Amazonka.LexV2Models.Types.AggregatedUtterancesFilterOperator
@@ -1165,6 +1603,7 @@ import Amazonka.LexV2Models.Types.BotAliasHistoryEvent
 import Amazonka.LexV2Models.Types.BotAliasLocaleSettings
 import Amazonka.LexV2Models.Types.BotAliasStatus
 import Amazonka.LexV2Models.Types.BotAliasSummary
+import Amazonka.LexV2Models.Types.BotAliasTestExecutionTarget
 import Amazonka.LexV2Models.Types.BotExportSpecification
 import Amazonka.LexV2Models.Types.BotFilter
 import Amazonka.LexV2Models.Types.BotFilterName
@@ -1180,6 +1619,7 @@ import Amazonka.LexV2Models.Types.BotLocaleSortAttribute
 import Amazonka.LexV2Models.Types.BotLocaleSortBy
 import Amazonka.LexV2Models.Types.BotLocaleStatus
 import Amazonka.LexV2Models.Types.BotLocaleSummary
+import Amazonka.LexV2Models.Types.BotMember
 import Amazonka.LexV2Models.Types.BotRecommendationResultStatistics
 import Amazonka.LexV2Models.Types.BotRecommendationResults
 import Amazonka.LexV2Models.Types.BotRecommendationStatus
@@ -1188,6 +1628,7 @@ import Amazonka.LexV2Models.Types.BotSortAttribute
 import Amazonka.LexV2Models.Types.BotSortBy
 import Amazonka.LexV2Models.Types.BotStatus
 import Amazonka.LexV2Models.Types.BotSummary
+import Amazonka.LexV2Models.Types.BotType
 import Amazonka.LexV2Models.Types.BotVersionLocaleDetails
 import Amazonka.LexV2Models.Types.BotVersionSortAttribute
 import Amazonka.LexV2Models.Types.BotVersionSortBy
@@ -1205,7 +1646,16 @@ import Amazonka.LexV2Models.Types.CompositeSlotTypeSetting
 import Amazonka.LexV2Models.Types.Condition
 import Amazonka.LexV2Models.Types.ConditionalBranch
 import Amazonka.LexV2Models.Types.ConditionalSpecification
+import Amazonka.LexV2Models.Types.ConversationLevelIntentClassificationResultItem
+import Amazonka.LexV2Models.Types.ConversationLevelResultDetail
+import Amazonka.LexV2Models.Types.ConversationLevelSlotResolutionResultItem
+import Amazonka.LexV2Models.Types.ConversationLevelTestResultItem
+import Amazonka.LexV2Models.Types.ConversationLevelTestResults
+import Amazonka.LexV2Models.Types.ConversationLevelTestResultsFilterBy
 import Amazonka.LexV2Models.Types.ConversationLogSettings
+import Amazonka.LexV2Models.Types.ConversationLogsDataSource
+import Amazonka.LexV2Models.Types.ConversationLogsDataSourceFilterBy
+import Amazonka.LexV2Models.Types.ConversationLogsInputModeFilter
 import Amazonka.LexV2Models.Types.CustomPayload
 import Amazonka.LexV2Models.Types.CustomVocabularyEntryId
 import Amazonka.LexV2Models.Types.CustomVocabularyExportSpecification
@@ -1225,6 +1675,7 @@ import Amazonka.LexV2Models.Types.Effect
 import Amazonka.LexV2Models.Types.ElicitationCodeHookInvocationSetting
 import Amazonka.LexV2Models.Types.EncryptionSetting
 import Amazonka.LexV2Models.Types.ErrorCode
+import Amazonka.LexV2Models.Types.ExecutionErrorDetails
 import Amazonka.LexV2Models.Types.ExportFilter
 import Amazonka.LexV2Models.Types.ExportFilterName
 import Amazonka.LexV2Models.Types.ExportFilterOperator
@@ -1254,11 +1705,17 @@ import Amazonka.LexV2Models.Types.ImportStatus
 import Amazonka.LexV2Models.Types.ImportSummary
 import Amazonka.LexV2Models.Types.InitialResponseSetting
 import Amazonka.LexV2Models.Types.InputContext
+import Amazonka.LexV2Models.Types.InputSessionStateSpecification
+import Amazonka.LexV2Models.Types.IntentClassificationTestResultItem
+import Amazonka.LexV2Models.Types.IntentClassificationTestResultItemCounts
+import Amazonka.LexV2Models.Types.IntentClassificationTestResults
 import Amazonka.LexV2Models.Types.IntentClosingSetting
 import Amazonka.LexV2Models.Types.IntentConfirmationSetting
 import Amazonka.LexV2Models.Types.IntentFilter
 import Amazonka.LexV2Models.Types.IntentFilterName
 import Amazonka.LexV2Models.Types.IntentFilterOperator
+import Amazonka.LexV2Models.Types.IntentLevelSlotResolutionTestResultItem
+import Amazonka.LexV2Models.Types.IntentLevelSlotResolutionTestResults
 import Amazonka.LexV2Models.Types.IntentOverride
 import Amazonka.LexV2Models.Types.IntentSortAttribute
 import Amazonka.LexV2Models.Types.IntentSortBy
@@ -1276,6 +1733,9 @@ import Amazonka.LexV2Models.Types.NewCustomVocabularyItem
 import Amazonka.LexV2Models.Types.ObfuscationSetting
 import Amazonka.LexV2Models.Types.ObfuscationSettingType
 import Amazonka.LexV2Models.Types.OutputContext
+import Amazonka.LexV2Models.Types.OverallTestResultItem
+import Amazonka.LexV2Models.Types.OverallTestResults
+import Amazonka.LexV2Models.Types.ParentBotNetwork
 import Amazonka.LexV2Models.Types.PathFormat
 import Amazonka.LexV2Models.Types.PlainTextMessage
 import Amazonka.LexV2Models.Types.PostDialogCodeHookInvocationSpecification
@@ -1287,6 +1747,9 @@ import Amazonka.LexV2Models.Types.PromptSpecification
 import Amazonka.LexV2Models.Types.RecommendedIntentSummary
 import Amazonka.LexV2Models.Types.RelativeAggregationDuration
 import Amazonka.LexV2Models.Types.ResponseSpecification
+import Amazonka.LexV2Models.Types.RuntimeHintDetails
+import Amazonka.LexV2Models.Types.RuntimeHintValue
+import Amazonka.LexV2Models.Types.RuntimeHints
 import Amazonka.LexV2Models.Types.S3BucketLogDestination
 import Amazonka.LexV2Models.Types.S3BucketTranscriptSource
 import Amazonka.LexV2Models.Types.SSMLMessage
@@ -1302,6 +1765,8 @@ import Amazonka.LexV2Models.Types.SlotFilter
 import Amazonka.LexV2Models.Types.SlotFilterName
 import Amazonka.LexV2Models.Types.SlotFilterOperator
 import Amazonka.LexV2Models.Types.SlotPriority
+import Amazonka.LexV2Models.Types.SlotResolutionTestResultItem
+import Amazonka.LexV2Models.Types.SlotResolutionTestResultItemCounts
 import Amazonka.LexV2Models.Types.SlotShape
 import Amazonka.LexV2Models.Types.SlotSortAttribute
 import Amazonka.LexV2Models.Types.SlotSortBy
@@ -1327,6 +1792,36 @@ import Amazonka.LexV2Models.Types.StillWaitingResponseSpecification
 import Amazonka.LexV2Models.Types.SubSlotSetting
 import Amazonka.LexV2Models.Types.SubSlotTypeComposition
 import Amazonka.LexV2Models.Types.SubSlotValueElicitationSetting
+import Amazonka.LexV2Models.Types.TestExecutionApiMode
+import Amazonka.LexV2Models.Types.TestExecutionModality
+import Amazonka.LexV2Models.Types.TestExecutionResultFilterBy
+import Amazonka.LexV2Models.Types.TestExecutionResultItems
+import Amazonka.LexV2Models.Types.TestExecutionSortAttribute
+import Amazonka.LexV2Models.Types.TestExecutionSortBy
+import Amazonka.LexV2Models.Types.TestExecutionStatus
+import Amazonka.LexV2Models.Types.TestExecutionSummary
+import Amazonka.LexV2Models.Types.TestExecutionTarget
+import Amazonka.LexV2Models.Types.TestResultMatchStatus
+import Amazonka.LexV2Models.Types.TestResultTypeFilter
+import Amazonka.LexV2Models.Types.TestSetDiscrepancyErrors
+import Amazonka.LexV2Models.Types.TestSetDiscrepancyReportBotAliasTarget
+import Amazonka.LexV2Models.Types.TestSetDiscrepancyReportResourceTarget
+import Amazonka.LexV2Models.Types.TestSetDiscrepancyReportStatus
+import Amazonka.LexV2Models.Types.TestSetExportSpecification
+import Amazonka.LexV2Models.Types.TestSetGenerationDataSource
+import Amazonka.LexV2Models.Types.TestSetGenerationStatus
+import Amazonka.LexV2Models.Types.TestSetImportInputLocation
+import Amazonka.LexV2Models.Types.TestSetImportResourceSpecification
+import Amazonka.LexV2Models.Types.TestSetIntentDiscrepancyItem
+import Amazonka.LexV2Models.Types.TestSetModality
+import Amazonka.LexV2Models.Types.TestSetSlotDiscrepancyItem
+import Amazonka.LexV2Models.Types.TestSetSortAttribute
+import Amazonka.LexV2Models.Types.TestSetSortBy
+import Amazonka.LexV2Models.Types.TestSetStatus
+import Amazonka.LexV2Models.Types.TestSetStorageLocation
+import Amazonka.LexV2Models.Types.TestSetSummary
+import Amazonka.LexV2Models.Types.TestSetTurnRecord
+import Amazonka.LexV2Models.Types.TestSetTurnResult
 import Amazonka.LexV2Models.Types.TextInputSpecification
 import Amazonka.LexV2Models.Types.TextLogDestination
 import Amazonka.LexV2Models.Types.TextLogSetting
@@ -1334,7 +1829,18 @@ import Amazonka.LexV2Models.Types.TimeDimension
 import Amazonka.LexV2Models.Types.TranscriptFilter
 import Amazonka.LexV2Models.Types.TranscriptFormat
 import Amazonka.LexV2Models.Types.TranscriptSourceSetting
+import Amazonka.LexV2Models.Types.TurnSpecification
+import Amazonka.LexV2Models.Types.UserTurnInputSpecification
+import Amazonka.LexV2Models.Types.UserTurnIntentOutput
+import Amazonka.LexV2Models.Types.UserTurnOutputSpecification
+import Amazonka.LexV2Models.Types.UserTurnResult
+import Amazonka.LexV2Models.Types.UserTurnSlotOutput
+import Amazonka.LexV2Models.Types.UserTurnSpecification
 import Amazonka.LexV2Models.Types.UtteranceAggregationDuration
+import Amazonka.LexV2Models.Types.UtteranceAudioInputSpecification
+import Amazonka.LexV2Models.Types.UtteranceInputSpecification
+import Amazonka.LexV2Models.Types.UtteranceLevelTestResultItem
+import Amazonka.LexV2Models.Types.UtteranceLevelTestResults
 import Amazonka.LexV2Models.Types.VoiceEngine
 import Amazonka.LexV2Models.Types.VoiceSettings
 import Amazonka.LexV2Models.Types.WaitAndContinueSpecification
@@ -1367,54 +1873,54 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The action that you tried to perform couldn\'t be completed because the
 -- resource is in a conflicting state. For example, deleting a bot that is
 -- in the CREATING state. Try your request again.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -1422,7 +1928,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | The service encountered an unexpected condition. Try your request again.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -1431,7 +1937,7 @@ _InternalServerException =
 
 -- | Your request couldn\'t be completed because one or more request fields
 -- aren\'t valid. Check the fields in your request and try again.
-_PreconditionFailedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PreconditionFailedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PreconditionFailedException =
   Core._MatchServiceError
     defaultService
@@ -1440,7 +1946,7 @@ _PreconditionFailedException =
 
 -- | You asked to describe a resource that doesn\'t exist. Check the resource
 -- that you are requesting and try again.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1448,7 +1954,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | You have reached a quota for your bot.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -1456,7 +1962,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | Your request rate is too high. Reduce the frequency of requests.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -1465,7 +1971,7 @@ _ThrottlingException =
 
 -- | One of the input parameters in your request isn\'t valid. Check the
 -- parameters and try your request again.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

@@ -35,11 +35,14 @@ module Amazonka.LexV2Models.DescribeBot
 
     -- * Response Lenses
     describeBotResponse_botId,
+    describeBotResponse_botMembers,
     describeBotResponse_botName,
     describeBotResponse_botStatus,
+    describeBotResponse_botType,
     describeBotResponse_creationDateTime,
     describeBotResponse_dataPrivacy,
     describeBotResponse_description,
+    describeBotResponse_failureReasons,
     describeBotResponse_idleSessionTTLInSeconds,
     describeBotResponse_lastUpdatedDateTime,
     describeBotResponse_roleArn,
@@ -91,11 +94,14 @@ instance Core.AWSRequest DescribeBot where
       ( \s h x ->
           DescribeBotResponse'
             Prelude.<$> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botMembers" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "botName")
             Prelude.<*> (x Data..?> "botStatus")
+            Prelude.<*> (x Data..?> "botType")
             Prelude.<*> (x Data..?> "creationDateTime")
             Prelude.<*> (x Data..?> "dataPrivacy")
             Prelude.<*> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "failureReasons" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "idleSessionTTLInSeconds")
             Prelude.<*> (x Data..?> "lastUpdatedDateTime")
             Prelude.<*> (x Data..?> "roleArn")
@@ -131,11 +137,15 @@ instance Data.ToQuery DescribeBot where
 data DescribeBotResponse = DescribeBotResponse'
   { -- | The unique identifier of the bot.
     botId :: Prelude.Maybe Prelude.Text,
+    -- | The list of bots in the network that was described.
+    botMembers :: Prelude.Maybe [BotMember],
     -- | The name of the bot.
     botName :: Prelude.Maybe Prelude.Text,
     -- | The current status of the bot. When the status is @Available@ the bot is
     -- ready to be used in conversations with users.
     botStatus :: Prelude.Maybe BotStatus,
+    -- | The type of the bot that was described.
+    botType :: Prelude.Maybe BotType,
     -- | A timestamp of the date and time that the bot was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | Settings for managing data privacy of the bot and its conversations with
@@ -143,6 +153,9 @@ data DescribeBotResponse = DescribeBotResponse'
     dataPrivacy :: Prelude.Maybe DataPrivacy,
     -- | The description of the bot.
     description :: Prelude.Maybe Prelude.Text,
+    -- | If the @botStatus@ is @Failed@, this contains a list of reasons that the
+    -- bot couldn\'t be built.
+    failureReasons :: Prelude.Maybe [Prelude.Text],
     -- | The maximum time in seconds that Amazon Lex retains the data gathered in
     -- a conversation.
     idleSessionTTLInSeconds :: Prelude.Maybe Prelude.Natural,
@@ -166,10 +179,14 @@ data DescribeBotResponse = DescribeBotResponse'
 --
 -- 'botId', 'describeBotResponse_botId' - The unique identifier of the bot.
 --
+-- 'botMembers', 'describeBotResponse_botMembers' - The list of bots in the network that was described.
+--
 -- 'botName', 'describeBotResponse_botName' - The name of the bot.
 --
 -- 'botStatus', 'describeBotResponse_botStatus' - The current status of the bot. When the status is @Available@ the bot is
 -- ready to be used in conversations with users.
+--
+-- 'botType', 'describeBotResponse_botType' - The type of the bot that was described.
 --
 -- 'creationDateTime', 'describeBotResponse_creationDateTime' - A timestamp of the date and time that the bot was created.
 --
@@ -177,6 +194,9 @@ data DescribeBotResponse = DescribeBotResponse'
 -- users.
 --
 -- 'description', 'describeBotResponse_description' - The description of the bot.
+--
+-- 'failureReasons', 'describeBotResponse_failureReasons' - If the @botStatus@ is @Failed@, this contains a list of reasons that the
+-- bot couldn\'t be built.
 --
 -- 'idleSessionTTLInSeconds', 'describeBotResponse_idleSessionTTLInSeconds' - The maximum time in seconds that Amazon Lex retains the data gathered in
 -- a conversation.
@@ -194,11 +214,14 @@ newDescribeBotResponse ::
 newDescribeBotResponse pHttpStatus_ =
   DescribeBotResponse'
     { botId = Prelude.Nothing,
+      botMembers = Prelude.Nothing,
       botName = Prelude.Nothing,
       botStatus = Prelude.Nothing,
+      botType = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
       dataPrivacy = Prelude.Nothing,
       description = Prelude.Nothing,
+      failureReasons = Prelude.Nothing,
       idleSessionTTLInSeconds = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
       roleArn = Prelude.Nothing,
@@ -209,6 +232,10 @@ newDescribeBotResponse pHttpStatus_ =
 describeBotResponse_botId :: Lens.Lens' DescribeBotResponse (Prelude.Maybe Prelude.Text)
 describeBotResponse_botId = Lens.lens (\DescribeBotResponse' {botId} -> botId) (\s@DescribeBotResponse' {} a -> s {botId = a} :: DescribeBotResponse)
 
+-- | The list of bots in the network that was described.
+describeBotResponse_botMembers :: Lens.Lens' DescribeBotResponse (Prelude.Maybe [BotMember])
+describeBotResponse_botMembers = Lens.lens (\DescribeBotResponse' {botMembers} -> botMembers) (\s@DescribeBotResponse' {} a -> s {botMembers = a} :: DescribeBotResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the bot.
 describeBotResponse_botName :: Lens.Lens' DescribeBotResponse (Prelude.Maybe Prelude.Text)
 describeBotResponse_botName = Lens.lens (\DescribeBotResponse' {botName} -> botName) (\s@DescribeBotResponse' {} a -> s {botName = a} :: DescribeBotResponse)
@@ -217,6 +244,10 @@ describeBotResponse_botName = Lens.lens (\DescribeBotResponse' {botName} -> botN
 -- ready to be used in conversations with users.
 describeBotResponse_botStatus :: Lens.Lens' DescribeBotResponse (Prelude.Maybe BotStatus)
 describeBotResponse_botStatus = Lens.lens (\DescribeBotResponse' {botStatus} -> botStatus) (\s@DescribeBotResponse' {} a -> s {botStatus = a} :: DescribeBotResponse)
+
+-- | The type of the bot that was described.
+describeBotResponse_botType :: Lens.Lens' DescribeBotResponse (Prelude.Maybe BotType)
+describeBotResponse_botType = Lens.lens (\DescribeBotResponse' {botType} -> botType) (\s@DescribeBotResponse' {} a -> s {botType = a} :: DescribeBotResponse)
 
 -- | A timestamp of the date and time that the bot was created.
 describeBotResponse_creationDateTime :: Lens.Lens' DescribeBotResponse (Prelude.Maybe Prelude.UTCTime)
@@ -230,6 +261,11 @@ describeBotResponse_dataPrivacy = Lens.lens (\DescribeBotResponse' {dataPrivacy}
 -- | The description of the bot.
 describeBotResponse_description :: Lens.Lens' DescribeBotResponse (Prelude.Maybe Prelude.Text)
 describeBotResponse_description = Lens.lens (\DescribeBotResponse' {description} -> description) (\s@DescribeBotResponse' {} a -> s {description = a} :: DescribeBotResponse)
+
+-- | If the @botStatus@ is @Failed@, this contains a list of reasons that the
+-- bot couldn\'t be built.
+describeBotResponse_failureReasons :: Lens.Lens' DescribeBotResponse (Prelude.Maybe [Prelude.Text])
+describeBotResponse_failureReasons = Lens.lens (\DescribeBotResponse' {failureReasons} -> failureReasons) (\s@DescribeBotResponse' {} a -> s {failureReasons = a} :: DescribeBotResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum time in seconds that Amazon Lex retains the data gathered in
 -- a conversation.
@@ -252,11 +288,14 @@ describeBotResponse_httpStatus = Lens.lens (\DescribeBotResponse' {httpStatus} -
 instance Prelude.NFData DescribeBotResponse where
   rnf DescribeBotResponse' {..} =
     Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf botMembers
       `Prelude.seq` Prelude.rnf botName
       `Prelude.seq` Prelude.rnf botStatus
+      `Prelude.seq` Prelude.rnf botType
       `Prelude.seq` Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf dataPrivacy
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf failureReasons
       `Prelude.seq` Prelude.rnf idleSessionTTLInSeconds
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
       `Prelude.seq` Prelude.rnf roleArn

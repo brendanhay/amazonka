@@ -99,7 +99,8 @@ instance
     BotLocaleExportSpecification
   where
   hashWithSalt _salt BotLocaleExportSpecification' {..} =
-    _salt `Prelude.hashWithSalt` botId
+    _salt
+      `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` localeId
 

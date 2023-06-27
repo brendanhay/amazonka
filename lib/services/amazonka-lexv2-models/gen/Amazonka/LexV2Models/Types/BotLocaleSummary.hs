@@ -26,7 +26,7 @@ import Amazonka.LexV2Models.Types.BotLocaleStatus
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about bot locales returned by the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBotLocales.html ListBotLocales>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBotLocales.html ListBotLocales>
 -- operation.
 --
 -- /See:/ 'newBotLocaleSummary' smart constructor.
@@ -121,7 +121,8 @@ instance Data.FromJSON BotLocaleSummary where
 
 instance Prelude.Hashable BotLocaleSummary where
   hashWithSalt _salt BotLocaleSummary' {..} =
-    _salt `Prelude.hashWithSalt` botLocaleStatus
+    _salt
+      `Prelude.hashWithSalt` botLocaleStatus
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastBuildSubmittedDateTime
       `Prelude.hashWithSalt` lastUpdatedDateTime

@@ -34,8 +34,8 @@ import qualified Amazonka.Prelude as Prelude
 data Principal = Principal'
   { -- | The Amazon Resource Name (ARN) of the principal.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the AWS service that should allowed or denied access to an
-    -- Amazon Lex action.
+    -- | The name of the Amazon Web Services service that should allowed or
+    -- denied access to an Amazon Lex action.
     service :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,8 +50,8 @@ data Principal = Principal'
 --
 -- 'arn', 'principal_arn' - The Amazon Resource Name (ARN) of the principal.
 --
--- 'service', 'principal_service' - The name of the AWS service that should allowed or denied access to an
--- Amazon Lex action.
+-- 'service', 'principal_service' - The name of the Amazon Web Services service that should allowed or
+-- denied access to an Amazon Lex action.
 newPrincipal ::
   Principal
 newPrincipal =
@@ -64,14 +64,15 @@ newPrincipal =
 principal_arn :: Lens.Lens' Principal (Prelude.Maybe Prelude.Text)
 principal_arn = Lens.lens (\Principal' {arn} -> arn) (\s@Principal' {} a -> s {arn = a} :: Principal)
 
--- | The name of the AWS service that should allowed or denied access to an
--- Amazon Lex action.
+-- | The name of the Amazon Web Services service that should allowed or
+-- denied access to an Amazon Lex action.
 principal_service :: Lens.Lens' Principal (Prelude.Maybe Prelude.Text)
 principal_service = Lens.lens (\Principal' {service} -> service) (\s@Principal' {} a -> s {service = a} :: Principal)
 
 instance Prelude.Hashable Principal where
   hashWithSalt _salt Principal' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` service
 
 instance Prelude.NFData Principal where

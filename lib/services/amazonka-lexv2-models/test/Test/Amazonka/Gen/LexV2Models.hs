@@ -69,6 +69,9 @@ import Test.Tasty
 --         , requestCreateSlotType $
 --             newCreateSlotType
 --
+--         , requestCreateTestSetDiscrepancyReport $
+--             newCreateTestSetDiscrepancyReport
+--
 --         , requestCreateUploadUrl $
 --             newCreateUploadUrl
 --
@@ -108,6 +111,9 @@ import Test.Tasty
 --         , requestDeleteSlotType $
 --             newDeleteSlotType
 --
+--         , requestDeleteTestSet $
+--             newDeleteTestSet
+--
 --         , requestDeleteUtterances $
 --             newDeleteUtterances
 --
@@ -146,6 +152,21 @@ import Test.Tasty
 --
 --         , requestDescribeSlotType $
 --             newDescribeSlotType
+--
+--         , requestDescribeTestExecution $
+--             newDescribeTestExecution
+--
+--         , requestDescribeTestSet $
+--             newDescribeTestSet
+--
+--         , requestDescribeTestSetDiscrepancyReport $
+--             newDescribeTestSetDiscrepancyReport
+--
+--         , requestDescribeTestSetGeneration $
+--             newDescribeTestSetGeneration
+--
+--         , requestGetTestExecutionArtifactsUrl $
+--             newGetTestExecutionArtifactsUrl
 --
 --         , requestListAggregatedUtterances $
 --             newListAggregatedUtterances
@@ -195,6 +216,18 @@ import Test.Tasty
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
+--         , requestListTestExecutionResultItems $
+--             newListTestExecutionResultItems
+--
+--         , requestListTestExecutions $
+--             newListTestExecutions
+--
+--         , requestListTestSetRecords $
+--             newListTestSetRecords
+--
+--         , requestListTestSets $
+--             newListTestSets
+--
 --         , requestSearchAssociatedTranscripts $
 --             newSearchAssociatedTranscripts
 --
@@ -203,6 +236,12 @@ import Test.Tasty
 --
 --         , requestStartImport $
 --             newStartImport
+--
+--         , requestStartTestExecution $
+--             newStartTestExecution
+--
+--         , requestStartTestSetGeneration $
+--             newStartTestSetGeneration
 --
 --         , requestStopBotRecommendation $
 --             newStopBotRecommendation
@@ -239,6 +278,9 @@ import Test.Tasty
 --
 --         , requestUpdateSlotType $
 --             newUpdateSlotType
+--
+--         , requestUpdateTestSet $
+--             newUpdateTestSet
 --
 --           ]
 
@@ -285,6 +327,9 @@ import Test.Tasty
 --         , responseCreateSlotType $
 --             newCreateSlotTypeResponse
 --
+--         , responseCreateTestSetDiscrepancyReport $
+--             newCreateTestSetDiscrepancyReportResponse
+--
 --         , responseCreateUploadUrl $
 --             newCreateUploadUrlResponse
 --
@@ -324,6 +369,9 @@ import Test.Tasty
 --         , responseDeleteSlotType $
 --             newDeleteSlotTypeResponse
 --
+--         , responseDeleteTestSet $
+--             newDeleteTestSetResponse
+--
 --         , responseDeleteUtterances $
 --             newDeleteUtterancesResponse
 --
@@ -362,6 +410,21 @@ import Test.Tasty
 --
 --         , responseDescribeSlotType $
 --             newDescribeSlotTypeResponse
+--
+--         , responseDescribeTestExecution $
+--             newDescribeTestExecutionResponse
+--
+--         , responseDescribeTestSet $
+--             newDescribeTestSetResponse
+--
+--         , responseDescribeTestSetDiscrepancyReport $
+--             newDescribeTestSetDiscrepancyReportResponse
+--
+--         , responseDescribeTestSetGeneration $
+--             newDescribeTestSetGenerationResponse
+--
+--         , responseGetTestExecutionArtifactsUrl $
+--             newGetTestExecutionArtifactsUrlResponse
 --
 --         , responseListAggregatedUtterances $
 --             newListAggregatedUtterancesResponse
@@ -411,6 +474,18 @@ import Test.Tasty
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
+--         , responseListTestExecutionResultItems $
+--             newListTestExecutionResultItemsResponse
+--
+--         , responseListTestExecutions $
+--             newListTestExecutionsResponse
+--
+--         , responseListTestSetRecords $
+--             newListTestSetRecordsResponse
+--
+--         , responseListTestSets $
+--             newListTestSetsResponse
+--
 --         , responseSearchAssociatedTranscripts $
 --             newSearchAssociatedTranscriptsResponse
 --
@@ -419,6 +494,12 @@ import Test.Tasty
 --
 --         , responseStartImport $
 --             newStartImportResponse
+--
+--         , responseStartTestExecution $
+--             newStartTestExecutionResponse
+--
+--         , responseStartTestSetGeneration $
+--             newStartTestSetGenerationResponse
 --
 --         , responseStopBotRecommendation $
 --             newStopBotRecommendationResponse
@@ -455,6 +536,9 @@ import Test.Tasty
 --
 --         , responseUpdateSlotType $
 --             newUpdateSlotTypeResponse
+--
+--         , responseUpdateTestSet $
+--             newUpdateTestSetResponse
 --
 --           ]
 --     ]
@@ -545,6 +629,12 @@ requestCreateSlotType =
     "CreateSlotType"
     "fixture/CreateSlotType.yaml"
 
+requestCreateTestSetDiscrepancyReport :: CreateTestSetDiscrepancyReport -> TestTree
+requestCreateTestSetDiscrepancyReport =
+  req
+    "CreateTestSetDiscrepancyReport"
+    "fixture/CreateTestSetDiscrepancyReport.yaml"
+
 requestCreateUploadUrl :: CreateUploadUrl -> TestTree
 requestCreateUploadUrl =
   req
@@ -623,6 +713,12 @@ requestDeleteSlotType =
     "DeleteSlotType"
     "fixture/DeleteSlotType.yaml"
 
+requestDeleteTestSet :: DeleteTestSet -> TestTree
+requestDeleteTestSet =
+  req
+    "DeleteTestSet"
+    "fixture/DeleteTestSet.yaml"
+
 requestDeleteUtterances :: DeleteUtterances -> TestTree
 requestDeleteUtterances =
   req
@@ -700,6 +796,36 @@ requestDescribeSlotType =
   req
     "DescribeSlotType"
     "fixture/DescribeSlotType.yaml"
+
+requestDescribeTestExecution :: DescribeTestExecution -> TestTree
+requestDescribeTestExecution =
+  req
+    "DescribeTestExecution"
+    "fixture/DescribeTestExecution.yaml"
+
+requestDescribeTestSet :: DescribeTestSet -> TestTree
+requestDescribeTestSet =
+  req
+    "DescribeTestSet"
+    "fixture/DescribeTestSet.yaml"
+
+requestDescribeTestSetDiscrepancyReport :: DescribeTestSetDiscrepancyReport -> TestTree
+requestDescribeTestSetDiscrepancyReport =
+  req
+    "DescribeTestSetDiscrepancyReport"
+    "fixture/DescribeTestSetDiscrepancyReport.yaml"
+
+requestDescribeTestSetGeneration :: DescribeTestSetGeneration -> TestTree
+requestDescribeTestSetGeneration =
+  req
+    "DescribeTestSetGeneration"
+    "fixture/DescribeTestSetGeneration.yaml"
+
+requestGetTestExecutionArtifactsUrl :: GetTestExecutionArtifactsUrl -> TestTree
+requestGetTestExecutionArtifactsUrl =
+  req
+    "GetTestExecutionArtifactsUrl"
+    "fixture/GetTestExecutionArtifactsUrl.yaml"
 
 requestListAggregatedUtterances :: ListAggregatedUtterances -> TestTree
 requestListAggregatedUtterances =
@@ -797,6 +923,30 @@ requestListTagsForResource =
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
+requestListTestExecutionResultItems :: ListTestExecutionResultItems -> TestTree
+requestListTestExecutionResultItems =
+  req
+    "ListTestExecutionResultItems"
+    "fixture/ListTestExecutionResultItems.yaml"
+
+requestListTestExecutions :: ListTestExecutions -> TestTree
+requestListTestExecutions =
+  req
+    "ListTestExecutions"
+    "fixture/ListTestExecutions.yaml"
+
+requestListTestSetRecords :: ListTestSetRecords -> TestTree
+requestListTestSetRecords =
+  req
+    "ListTestSetRecords"
+    "fixture/ListTestSetRecords.yaml"
+
+requestListTestSets :: ListTestSets -> TestTree
+requestListTestSets =
+  req
+    "ListTestSets"
+    "fixture/ListTestSets.yaml"
+
 requestSearchAssociatedTranscripts :: SearchAssociatedTranscripts -> TestTree
 requestSearchAssociatedTranscripts =
   req
@@ -814,6 +964,18 @@ requestStartImport =
   req
     "StartImport"
     "fixture/StartImport.yaml"
+
+requestStartTestExecution :: StartTestExecution -> TestTree
+requestStartTestExecution =
+  req
+    "StartTestExecution"
+    "fixture/StartTestExecution.yaml"
+
+requestStartTestSetGeneration :: StartTestSetGeneration -> TestTree
+requestStartTestSetGeneration =
+  req
+    "StartTestSetGeneration"
+    "fixture/StartTestSetGeneration.yaml"
 
 requestStopBotRecommendation :: StopBotRecommendation -> TestTree
 requestStopBotRecommendation =
@@ -886,6 +1048,12 @@ requestUpdateSlotType =
   req
     "UpdateSlotType"
     "fixture/UpdateSlotType.yaml"
+
+requestUpdateTestSet :: UpdateTestSet -> TestTree
+requestUpdateTestSet =
+  req
+    "UpdateTestSet"
+    "fixture/UpdateTestSet.yaml"
 
 -- Responses
 
@@ -1001,6 +1169,14 @@ responseCreateSlotType =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateSlotType)
 
+responseCreateTestSetDiscrepancyReport :: CreateTestSetDiscrepancyReportResponse -> TestTree
+responseCreateTestSetDiscrepancyReport =
+  res
+    "CreateTestSetDiscrepancyReportResponse"
+    "fixture/CreateTestSetDiscrepancyReportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateTestSetDiscrepancyReport)
+
 responseCreateUploadUrl :: CreateUploadUrlResponse -> TestTree
 responseCreateUploadUrl =
   res
@@ -1105,6 +1281,14 @@ responseDeleteSlotType =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteSlotType)
 
+responseDeleteTestSet :: DeleteTestSetResponse -> TestTree
+responseDeleteTestSet =
+  res
+    "DeleteTestSetResponse"
+    "fixture/DeleteTestSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteTestSet)
+
 responseDeleteUtterances :: DeleteUtterancesResponse -> TestTree
 responseDeleteUtterances =
   res
@@ -1208,6 +1392,46 @@ responseDescribeSlotType =
     "fixture/DescribeSlotTypeResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeSlotType)
+
+responseDescribeTestExecution :: DescribeTestExecutionResponse -> TestTree
+responseDescribeTestExecution =
+  res
+    "DescribeTestExecutionResponse"
+    "fixture/DescribeTestExecutionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTestExecution)
+
+responseDescribeTestSet :: DescribeTestSetResponse -> TestTree
+responseDescribeTestSet =
+  res
+    "DescribeTestSetResponse"
+    "fixture/DescribeTestSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTestSet)
+
+responseDescribeTestSetDiscrepancyReport :: DescribeTestSetDiscrepancyReportResponse -> TestTree
+responseDescribeTestSetDiscrepancyReport =
+  res
+    "DescribeTestSetDiscrepancyReportResponse"
+    "fixture/DescribeTestSetDiscrepancyReportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTestSetDiscrepancyReport)
+
+responseDescribeTestSetGeneration :: DescribeTestSetGenerationResponse -> TestTree
+responseDescribeTestSetGeneration =
+  res
+    "DescribeTestSetGenerationResponse"
+    "fixture/DescribeTestSetGenerationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTestSetGeneration)
+
+responseGetTestExecutionArtifactsUrl :: GetTestExecutionArtifactsUrlResponse -> TestTree
+responseGetTestExecutionArtifactsUrl =
+  res
+    "GetTestExecutionArtifactsUrlResponse"
+    "fixture/GetTestExecutionArtifactsUrlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetTestExecutionArtifactsUrl)
 
 responseListAggregatedUtterances :: ListAggregatedUtterancesResponse -> TestTree
 responseListAggregatedUtterances =
@@ -1337,6 +1561,38 @@ responseListTagsForResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
+responseListTestExecutionResultItems :: ListTestExecutionResultItemsResponse -> TestTree
+responseListTestExecutionResultItems =
+  res
+    "ListTestExecutionResultItemsResponse"
+    "fixture/ListTestExecutionResultItemsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTestExecutionResultItems)
+
+responseListTestExecutions :: ListTestExecutionsResponse -> TestTree
+responseListTestExecutions =
+  res
+    "ListTestExecutionsResponse"
+    "fixture/ListTestExecutionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTestExecutions)
+
+responseListTestSetRecords :: ListTestSetRecordsResponse -> TestTree
+responseListTestSetRecords =
+  res
+    "ListTestSetRecordsResponse"
+    "fixture/ListTestSetRecordsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTestSetRecords)
+
+responseListTestSets :: ListTestSetsResponse -> TestTree
+responseListTestSets =
+  res
+    "ListTestSetsResponse"
+    "fixture/ListTestSetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTestSets)
+
 responseSearchAssociatedTranscripts :: SearchAssociatedTranscriptsResponse -> TestTree
 responseSearchAssociatedTranscripts =
   res
@@ -1360,6 +1616,22 @@ responseStartImport =
     "fixture/StartImportResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartImport)
+
+responseStartTestExecution :: StartTestExecutionResponse -> TestTree
+responseStartTestExecution =
+  res
+    "StartTestExecutionResponse"
+    "fixture/StartTestExecutionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartTestExecution)
+
+responseStartTestSetGeneration :: StartTestSetGenerationResponse -> TestTree
+responseStartTestSetGeneration =
+  res
+    "StartTestSetGenerationResponse"
+    "fixture/StartTestSetGenerationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartTestSetGeneration)
 
 responseStopBotRecommendation :: StopBotRecommendationResponse -> TestTree
 responseStopBotRecommendation =
@@ -1456,3 +1728,11 @@ responseUpdateSlotType =
     "fixture/UpdateSlotTypeResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateSlotType)
+
+responseUpdateTestSet :: UpdateTestSetResponse -> TestTree
+responseUpdateTestSet =
+  res
+    "UpdateTestSetResponse"
+    "fixture/UpdateTestSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateTestSet)

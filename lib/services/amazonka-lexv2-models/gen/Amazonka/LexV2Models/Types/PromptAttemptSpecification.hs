@@ -104,7 +104,8 @@ instance Data.FromJSON PromptAttemptSpecification where
 
 instance Prelude.Hashable PromptAttemptSpecification where
   hashWithSalt _salt PromptAttemptSpecification' {..} =
-    _salt `Prelude.hashWithSalt` allowInterrupt
+    _salt
+      `Prelude.hashWithSalt` allowInterrupt
       `Prelude.hashWithSalt` audioAndDTMFInputSpecification
       `Prelude.hashWithSalt` textInputSpecification
       `Prelude.hashWithSalt` allowedInputTypes

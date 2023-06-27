@@ -146,7 +146,8 @@ instance
     DeleteResourcePolicyStatement
   where
   hashWithSalt _salt DeleteResourcePolicyStatement' {..} =
-    _salt `Prelude.hashWithSalt` expectedRevisionId
+    _salt
+      `Prelude.hashWithSalt` expectedRevisionId
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` statementId
 

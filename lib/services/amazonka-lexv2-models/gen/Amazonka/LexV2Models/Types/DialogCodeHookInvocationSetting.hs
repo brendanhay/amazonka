@@ -125,7 +125,8 @@ instance
   hashWithSalt
     _salt
     DialogCodeHookInvocationSetting' {..} =
-      _salt `Prelude.hashWithSalt` invocationLabel
+      _salt
+        `Prelude.hashWithSalt` invocationLabel
         `Prelude.hashWithSalt` enableCodeHookInvocation
         `Prelude.hashWithSalt` active
         `Prelude.hashWithSalt` postCodeHookSpecification

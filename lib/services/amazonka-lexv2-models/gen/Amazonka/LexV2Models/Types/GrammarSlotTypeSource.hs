@@ -29,12 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGrammarSlotTypeSource' smart constructor.
 data GrammarSlotTypeSource = GrammarSlotTypeSource'
-  { -- | The Amazon KMS key required to decrypt the contents of the grammar, if
-    -- any.
+  { -- | The KMS key required to decrypt the contents of the grammar, if any.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the S3 bucket that contains the grammar source.
+    -- | The name of the Amazon S3 bucket that contains the grammar source.
     s3BucketName :: Prelude.Text,
-    -- | The path to the grammar in the S3 bucket.
+    -- | The path to the grammar in the Amazon S3 bucket.
     s3ObjectKey :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,12 +46,11 @@ data GrammarSlotTypeSource = GrammarSlotTypeSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyArn', 'grammarSlotTypeSource_kmsKeyArn' - The Amazon KMS key required to decrypt the contents of the grammar, if
--- any.
+-- 'kmsKeyArn', 'grammarSlotTypeSource_kmsKeyArn' - The KMS key required to decrypt the contents of the grammar, if any.
 --
--- 's3BucketName', 'grammarSlotTypeSource_s3BucketName' - The name of the S3 bucket that contains the grammar source.
+-- 's3BucketName', 'grammarSlotTypeSource_s3BucketName' - The name of the Amazon S3 bucket that contains the grammar source.
 --
--- 's3ObjectKey', 'grammarSlotTypeSource_s3ObjectKey' - The path to the grammar in the S3 bucket.
+-- 's3ObjectKey', 'grammarSlotTypeSource_s3ObjectKey' - The path to the grammar in the Amazon S3 bucket.
 newGrammarSlotTypeSource ::
   -- | 's3BucketName'
   Prelude.Text ->
@@ -66,16 +64,15 @@ newGrammarSlotTypeSource pS3BucketName_ pS3ObjectKey_ =
       s3ObjectKey = pS3ObjectKey_
     }
 
--- | The Amazon KMS key required to decrypt the contents of the grammar, if
--- any.
+-- | The KMS key required to decrypt the contents of the grammar, if any.
 grammarSlotTypeSource_kmsKeyArn :: Lens.Lens' GrammarSlotTypeSource (Prelude.Maybe Prelude.Text)
 grammarSlotTypeSource_kmsKeyArn = Lens.lens (\GrammarSlotTypeSource' {kmsKeyArn} -> kmsKeyArn) (\s@GrammarSlotTypeSource' {} a -> s {kmsKeyArn = a} :: GrammarSlotTypeSource)
 
--- | The name of the S3 bucket that contains the grammar source.
+-- | The name of the Amazon S3 bucket that contains the grammar source.
 grammarSlotTypeSource_s3BucketName :: Lens.Lens' GrammarSlotTypeSource Prelude.Text
 grammarSlotTypeSource_s3BucketName = Lens.lens (\GrammarSlotTypeSource' {s3BucketName} -> s3BucketName) (\s@GrammarSlotTypeSource' {} a -> s {s3BucketName = a} :: GrammarSlotTypeSource)
 
--- | The path to the grammar in the S3 bucket.
+-- | The path to the grammar in the Amazon S3 bucket.
 grammarSlotTypeSource_s3ObjectKey :: Lens.Lens' GrammarSlotTypeSource Prelude.Text
 grammarSlotTypeSource_s3ObjectKey = Lens.lens (\GrammarSlotTypeSource' {s3ObjectKey} -> s3ObjectKey) (\s@GrammarSlotTypeSource' {} a -> s {s3ObjectKey = a} :: GrammarSlotTypeSource)
 
@@ -92,7 +89,8 @@ instance Data.FromJSON GrammarSlotTypeSource where
 
 instance Prelude.Hashable GrammarSlotTypeSource where
   hashWithSalt _salt GrammarSlotTypeSource' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyArn
+    _salt
+      `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` s3BucketName
       `Prelude.hashWithSalt` s3ObjectKey
 

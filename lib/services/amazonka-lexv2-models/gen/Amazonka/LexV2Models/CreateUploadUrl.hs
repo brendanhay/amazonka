@@ -105,7 +105,7 @@ instance Data.ToQuery CreateUploadUrl where
 -- | /See:/ 'newCreateUploadUrlResponse' smart constructor.
 data CreateUploadUrlResponse = CreateUploadUrlResponse'
   { -- | An identifier for a unique import job. Use it when you call the
-    -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_StartImport.html StartImport>
+    -- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_StartImport.html StartImport>
     -- operation.
     importId :: Prelude.Maybe Prelude.Text,
     -- | A pre-signed S3 write URL. Upload the zip archive file that contains the
@@ -125,7 +125,7 @@ data CreateUploadUrlResponse = CreateUploadUrlResponse'
 -- for backwards compatibility:
 --
 -- 'importId', 'createUploadUrlResponse_importId' - An identifier for a unique import job. Use it when you call the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_StartImport.html StartImport>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_StartImport.html StartImport>
 -- operation.
 --
 -- 'uploadUrl', 'createUploadUrlResponse_uploadUrl' - A pre-signed S3 write URL. Upload the zip archive file that contains the
@@ -145,7 +145,7 @@ newCreateUploadUrlResponse pHttpStatus_ =
     }
 
 -- | An identifier for a unique import job. Use it when you call the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_StartImport.html StartImport>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_StartImport.html StartImport>
 -- operation.
 createUploadUrlResponse_importId :: Lens.Lens' CreateUploadUrlResponse (Prelude.Maybe Prelude.Text)
 createUploadUrlResponse_importId = Lens.lens (\CreateUploadUrlResponse' {importId} -> importId) (\s@CreateUploadUrlResponse' {} a -> s {importId = a} :: CreateUploadUrlResponse)

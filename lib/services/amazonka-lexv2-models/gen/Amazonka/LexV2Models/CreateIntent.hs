@@ -190,7 +190,7 @@ data CreateIntent = CreateIntent'
     intentName :: Prelude.Text,
     -- | The identifier of the bot associated with this intent.
     botId :: Prelude.Text,
-    -- | The identifier of the version of the bot associated with this intent.
+    -- | The version of the bot associated with this intent.
     botVersion :: Prelude.Text,
     -- | The identifier of the language and locale where this intent is used. All
     -- of the bots, slot types, and slots used by the intent must have the same
@@ -289,7 +289,7 @@ data CreateIntent = CreateIntent'
 --
 -- 'botId', 'createIntent_botId' - The identifier of the bot associated with this intent.
 --
--- 'botVersion', 'createIntent_botVersion' - The identifier of the version of the bot associated with this intent.
+-- 'botVersion', 'createIntent_botVersion' - The version of the bot associated with this intent.
 --
 -- 'localeId', 'createIntent_localeId' - The identifier of the language and locale where this intent is used. All
 -- of the bots, slot types, and slots used by the intent must have the same
@@ -435,7 +435,7 @@ createIntent_intentName = Lens.lens (\CreateIntent' {intentName} -> intentName) 
 createIntent_botId :: Lens.Lens' CreateIntent Prelude.Text
 createIntent_botId = Lens.lens (\CreateIntent' {botId} -> botId) (\s@CreateIntent' {} a -> s {botId = a} :: CreateIntent)
 
--- | The identifier of the version of the bot associated with this intent.
+-- | The version of the bot associated with this intent.
 createIntent_botVersion :: Lens.Lens' CreateIntent Prelude.Text
 createIntent_botVersion = Lens.lens (\CreateIntent' {botVersion} -> botVersion) (\s@CreateIntent' {} a -> s {botVersion = a} :: CreateIntent)
 
@@ -470,7 +470,8 @@ instance Core.AWSRequest CreateIntent where
             Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (x Data..?> "outputContexts" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "parentIntentSignature")
-            Prelude.<*> ( x Data..?> "sampleUtterances"
+            Prelude.<*> ( x
+                            Data..?> "sampleUtterances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -478,7 +479,8 @@ instance Core.AWSRequest CreateIntent where
 
 instance Prelude.Hashable CreateIntent where
   hashWithSalt _salt CreateIntent' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dialogCodeHook
       `Prelude.hashWithSalt` fulfillmentCodeHook
       `Prelude.hashWithSalt` initialResponseSetting
@@ -570,7 +572,7 @@ instance Data.ToQuery CreateIntent where
 data CreateIntentResponse = CreateIntentResponse'
   { -- | The identifier of the bot associated with the intent.
     botId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the version of the bot associated with the intent.
+    -- | The version of the bot associated with the intent.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | A timestamp of the date and time that the intent was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
@@ -619,7 +621,7 @@ data CreateIntentResponse = CreateIntentResponse'
 --
 -- 'botId', 'createIntentResponse_botId' - The identifier of the bot associated with the intent.
 --
--- 'botVersion', 'createIntentResponse_botVersion' - The identifier of the version of the bot associated with the intent.
+-- 'botVersion', 'createIntentResponse_botVersion' - The version of the bot associated with the intent.
 --
 -- 'creationDateTime', 'createIntentResponse_creationDateTime' - A timestamp of the date and time that the intent was created.
 --
@@ -684,7 +686,7 @@ newCreateIntentResponse pHttpStatus_ =
 createIntentResponse_botId :: Lens.Lens' CreateIntentResponse (Prelude.Maybe Prelude.Text)
 createIntentResponse_botId = Lens.lens (\CreateIntentResponse' {botId} -> botId) (\s@CreateIntentResponse' {} a -> s {botId = a} :: CreateIntentResponse)
 
--- | The identifier of the version of the bot associated with the intent.
+-- | The version of the bot associated with the intent.
 createIntentResponse_botVersion :: Lens.Lens' CreateIntentResponse (Prelude.Maybe Prelude.Text)
 createIntentResponse_botVersion = Lens.lens (\CreateIntentResponse' {botVersion} -> botVersion) (\s@CreateIntentResponse' {} a -> s {botVersion = a} :: CreateIntentResponse)
 

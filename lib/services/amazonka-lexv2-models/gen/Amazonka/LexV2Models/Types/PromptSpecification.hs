@@ -113,7 +113,8 @@ instance Data.FromJSON PromptSpecification where
           PromptSpecification'
             Prelude.<$> (x Data..:? "allowInterrupt")
             Prelude.<*> (x Data..:? "messageSelectionStrategy")
-            Prelude.<*> ( x Data..:? "promptAttemptsSpecification"
+            Prelude.<*> ( x
+                            Data..:? "promptAttemptsSpecification"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "messageGroups")
@@ -122,7 +123,8 @@ instance Data.FromJSON PromptSpecification where
 
 instance Prelude.Hashable PromptSpecification where
   hashWithSalt _salt PromptSpecification' {..} =
-    _salt `Prelude.hashWithSalt` allowInterrupt
+    _salt
+      `Prelude.hashWithSalt` allowInterrupt
       `Prelude.hashWithSalt` messageSelectionStrategy
       `Prelude.hashWithSalt` promptAttemptsSpecification
       `Prelude.hashWithSalt` messageGroups

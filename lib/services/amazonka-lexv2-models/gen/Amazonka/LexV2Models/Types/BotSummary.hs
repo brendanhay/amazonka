@@ -23,17 +23,18 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.LexV2Models.Types.BotStatus
+import Amazonka.LexV2Models.Types.BotType
 import qualified Amazonka.Prelude as Prelude
 
 -- | Summary information about a bot returned by the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBots.html ListBots>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBots.html ListBots>
 -- operation.
 --
 -- /See:/ 'newBotSummary' smart constructor.
 data BotSummary = BotSummary'
   { -- | The unique identifier assigned to the bot. Use this ID to get detailed
     -- information about the bot with the
-    -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeBot.html DescribeBot>
+    -- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeBot.html DescribeBot>
     -- operation.
     botId :: Prelude.Maybe Prelude.Text,
     -- | The name of the bot.
@@ -41,6 +42,8 @@ data BotSummary = BotSummary'
     -- | The current status of the bot. When the status is @Available@ the bot is
     -- ready for use.
     botStatus :: Prelude.Maybe BotStatus,
+    -- | The type of the bot.
+    botType :: Prelude.Maybe BotType,
     -- | The description of the bot.
     description :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the bot was last updated.
@@ -60,13 +63,15 @@ data BotSummary = BotSummary'
 --
 -- 'botId', 'botSummary_botId' - The unique identifier assigned to the bot. Use this ID to get detailed
 -- information about the bot with the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeBot.html DescribeBot>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeBot.html DescribeBot>
 -- operation.
 --
 -- 'botName', 'botSummary_botName' - The name of the bot.
 --
 -- 'botStatus', 'botSummary_botStatus' - The current status of the bot. When the status is @Available@ the bot is
 -- ready for use.
+--
+-- 'botType', 'botSummary_botType' - The type of the bot.
 --
 -- 'description', 'botSummary_description' - The description of the bot.
 --
@@ -80,6 +85,7 @@ newBotSummary =
     { botId = Prelude.Nothing,
       botName = Prelude.Nothing,
       botStatus = Prelude.Nothing,
+      botType = Prelude.Nothing,
       description = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
       latestBotVersion = Prelude.Nothing
@@ -87,7 +93,7 @@ newBotSummary =
 
 -- | The unique identifier assigned to the bot. Use this ID to get detailed
 -- information about the bot with the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeBot.html DescribeBot>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeBot.html DescribeBot>
 -- operation.
 botSummary_botId :: Lens.Lens' BotSummary (Prelude.Maybe Prelude.Text)
 botSummary_botId = Lens.lens (\BotSummary' {botId} -> botId) (\s@BotSummary' {} a -> s {botId = a} :: BotSummary)
@@ -100,6 +106,10 @@ botSummary_botName = Lens.lens (\BotSummary' {botName} -> botName) (\s@BotSummar
 -- ready for use.
 botSummary_botStatus :: Lens.Lens' BotSummary (Prelude.Maybe BotStatus)
 botSummary_botStatus = Lens.lens (\BotSummary' {botStatus} -> botStatus) (\s@BotSummary' {} a -> s {botStatus = a} :: BotSummary)
+
+-- | The type of the bot.
+botSummary_botType :: Lens.Lens' BotSummary (Prelude.Maybe BotType)
+botSummary_botType = Lens.lens (\BotSummary' {botType} -> botType) (\s@BotSummary' {} a -> s {botType = a} :: BotSummary)
 
 -- | The description of the bot.
 botSummary_description :: Lens.Lens' BotSummary (Prelude.Maybe Prelude.Text)
@@ -122,6 +132,7 @@ instance Data.FromJSON BotSummary where
             Prelude.<$> (x Data..:? "botId")
             Prelude.<*> (x Data..:? "botName")
             Prelude.<*> (x Data..:? "botStatus")
+            Prelude.<*> (x Data..:? "botType")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "lastUpdatedDateTime")
             Prelude.<*> (x Data..:? "latestBotVersion")
@@ -129,9 +140,11 @@ instance Data.FromJSON BotSummary where
 
 instance Prelude.Hashable BotSummary where
   hashWithSalt _salt BotSummary' {..} =
-    _salt `Prelude.hashWithSalt` botId
+    _salt
+      `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botName
       `Prelude.hashWithSalt` botStatus
+      `Prelude.hashWithSalt` botType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` latestBotVersion
@@ -141,6 +154,7 @@ instance Prelude.NFData BotSummary where
     Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botName
       `Prelude.seq` Prelude.rnf botStatus
+      `Prelude.seq` Prelude.rnf botType
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
       `Prelude.seq` Prelude.rnf latestBotVersion

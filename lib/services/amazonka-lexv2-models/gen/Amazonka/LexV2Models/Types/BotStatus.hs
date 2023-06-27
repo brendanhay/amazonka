@@ -26,6 +26,7 @@ module Amazonka.LexV2Models.Types.BotStatus
         BotStatus_Failed,
         BotStatus_Importing,
         BotStatus_Inactive,
+        BotStatus_Updating,
         BotStatus_Versioning
       ),
   )
@@ -81,6 +82,9 @@ pattern BotStatus_Importing = BotStatus' "Importing"
 pattern BotStatus_Inactive :: BotStatus
 pattern BotStatus_Inactive = BotStatus' "Inactive"
 
+pattern BotStatus_Updating :: BotStatus
+pattern BotStatus_Updating = BotStatus' "Updating"
+
 pattern BotStatus_Versioning :: BotStatus
 pattern BotStatus_Versioning = BotStatus' "Versioning"
 
@@ -91,6 +95,7 @@ pattern BotStatus_Versioning = BotStatus' "Versioning"
   BotStatus_Failed,
   BotStatus_Importing,
   BotStatus_Inactive,
+  BotStatus_Updating,
   BotStatus_Versioning,
   BotStatus'
   #-}

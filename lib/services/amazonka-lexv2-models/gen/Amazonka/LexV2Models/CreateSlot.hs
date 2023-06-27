@@ -77,7 +77,7 @@ data CreateSlot = CreateSlot'
   { -- | A description of the slot. Use this to help identify the slot in lists.
     description :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the slot returns multiple values in one response.
-    -- Multi-value slots are only available in the en-US locale. If you set
+    -- Multi-value slots are only available in the @en-US@ locale. If you set
     -- this value to @true@ in any other locale, Amazon Lex throws a
     -- @ValidationException@.
     --
@@ -128,7 +128,7 @@ data CreateSlot = CreateSlot'
 -- 'description', 'createSlot_description' - A description of the slot. Use this to help identify the slot in lists.
 --
 -- 'multipleValuesSetting', 'createSlot_multipleValuesSetting' - Indicates whether the slot returns multiple values in one response.
--- Multi-value slots are only available in the en-US locale. If you set
+-- Multi-value slots are only available in the @en-US@ locale. If you set
 -- this value to @true@ in any other locale, Amazon Lex throws a
 -- @ValidationException@.
 --
@@ -204,7 +204,7 @@ createSlot_description :: Lens.Lens' CreateSlot (Prelude.Maybe Prelude.Text)
 createSlot_description = Lens.lens (\CreateSlot' {description} -> description) (\s@CreateSlot' {} a -> s {description = a} :: CreateSlot)
 
 -- | Indicates whether the slot returns multiple values in one response.
--- Multi-value slots are only available in the en-US locale. If you set
+-- Multi-value slots are only available in the @en-US@ locale. If you set
 -- this value to @true@ in any other locale, Amazon Lex throws a
 -- @ValidationException@.
 --
@@ -287,7 +287,8 @@ instance Core.AWSRequest CreateSlot where
 
 instance Prelude.Hashable CreateSlot where
   hashWithSalt _salt CreateSlot' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` multipleValuesSetting
       `Prelude.hashWithSalt` obfuscationSetting
       `Prelude.hashWithSalt` slotTypeId

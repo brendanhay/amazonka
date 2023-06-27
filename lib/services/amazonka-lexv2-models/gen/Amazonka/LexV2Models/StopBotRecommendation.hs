@@ -152,7 +152,8 @@ instance Core.AWSRequest StopBotRecommendation where
 
 instance Prelude.Hashable StopBotRecommendation where
   hashWithSalt _salt StopBotRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` botId
+    _salt
+      `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` localeId
       `Prelude.hashWithSalt` botRecommendationId

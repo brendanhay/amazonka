@@ -191,7 +191,8 @@ instance Core.AWSRequest ListExports where
           ListExportsResponse'
             Prelude.<$> (x Data..?> "botId")
             Prelude.<*> (x Data..?> "botVersion")
-            Prelude.<*> ( x Data..?> "exportSummaries"
+            Prelude.<*> ( x
+                            Data..?> "exportSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "localeId")
@@ -201,7 +202,8 @@ instance Core.AWSRequest ListExports where
 
 instance Prelude.Hashable ListExports where
   hashWithSalt _salt ListExports' {..} =
-    _salt `Prelude.hashWithSalt` botId
+    _salt
+      `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` localeId

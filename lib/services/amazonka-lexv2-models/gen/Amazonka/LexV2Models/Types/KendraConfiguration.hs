@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Provides configuration information for the AMAZON.KendraSearchIntent
+-- | Provides configuration information for the @AMAZON.KendraSearchIntent@
 -- intent. When you use this intent, Amazon Lex searches the specified
 -- Amazon Kendra index and returns documents from the index that match the
 -- user\'s utterance.
@@ -36,12 +36,12 @@ data KendraConfiguration = KendraConfiguration'
     -- Kendra. For more information, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/filtering.html Filtering queries>.
     queryFilterString :: Prelude.Maybe Prelude.Text,
-    -- | Determines whether the AMAZON.KendraSearchIntent intent uses a custom
+    -- | Determines whether the @AMAZON.KendraSearchIntent@ intent uses a custom
     -- query string to query the Amazon Kendra index.
     queryFilterStringEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the Amazon Kendra index that you want
-    -- the AMAZON.KendraSearchIntent intent to search. The index must be in the
-    -- same account and Region as the Amazon Lex bot.
+    -- the @AMAZON.KendraSearchIntent@ intent to search. The index must be in
+    -- the same account and Region as the Amazon Lex bot.
     kendraIndex :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,12 +59,12 @@ data KendraConfiguration = KendraConfiguration'
 -- Kendra. For more information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/filtering.html Filtering queries>.
 --
--- 'queryFilterStringEnabled', 'kendraConfiguration_queryFilterStringEnabled' - Determines whether the AMAZON.KendraSearchIntent intent uses a custom
+-- 'queryFilterStringEnabled', 'kendraConfiguration_queryFilterStringEnabled' - Determines whether the @AMAZON.KendraSearchIntent@ intent uses a custom
 -- query string to query the Amazon Kendra index.
 --
 -- 'kendraIndex', 'kendraConfiguration_kendraIndex' - The Amazon Resource Name (ARN) of the Amazon Kendra index that you want
--- the AMAZON.KendraSearchIntent intent to search. The index must be in the
--- same account and Region as the Amazon Lex bot.
+-- the @AMAZON.KendraSearchIntent@ intent to search. The index must be in
+-- the same account and Region as the Amazon Lex bot.
 newKendraConfiguration ::
   -- | 'kendraIndex'
   Prelude.Text ->
@@ -84,14 +84,14 @@ newKendraConfiguration pKendraIndex_ =
 kendraConfiguration_queryFilterString :: Lens.Lens' KendraConfiguration (Prelude.Maybe Prelude.Text)
 kendraConfiguration_queryFilterString = Lens.lens (\KendraConfiguration' {queryFilterString} -> queryFilterString) (\s@KendraConfiguration' {} a -> s {queryFilterString = a} :: KendraConfiguration)
 
--- | Determines whether the AMAZON.KendraSearchIntent intent uses a custom
+-- | Determines whether the @AMAZON.KendraSearchIntent@ intent uses a custom
 -- query string to query the Amazon Kendra index.
 kendraConfiguration_queryFilterStringEnabled :: Lens.Lens' KendraConfiguration (Prelude.Maybe Prelude.Bool)
 kendraConfiguration_queryFilterStringEnabled = Lens.lens (\KendraConfiguration' {queryFilterStringEnabled} -> queryFilterStringEnabled) (\s@KendraConfiguration' {} a -> s {queryFilterStringEnabled = a} :: KendraConfiguration)
 
 -- | The Amazon Resource Name (ARN) of the Amazon Kendra index that you want
--- the AMAZON.KendraSearchIntent intent to search. The index must be in the
--- same account and Region as the Amazon Lex bot.
+-- the @AMAZON.KendraSearchIntent@ intent to search. The index must be in
+-- the same account and Region as the Amazon Lex bot.
 kendraConfiguration_kendraIndex :: Lens.Lens' KendraConfiguration Prelude.Text
 kendraConfiguration_kendraIndex = Lens.lens (\KendraConfiguration' {kendraIndex} -> kendraIndex) (\s@KendraConfiguration' {} a -> s {kendraIndex = a} :: KendraConfiguration)
 
@@ -108,7 +108,8 @@ instance Data.FromJSON KendraConfiguration where
 
 instance Prelude.Hashable KendraConfiguration where
   hashWithSalt _salt KendraConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` queryFilterString
+    _salt
+      `Prelude.hashWithSalt` queryFilterString
       `Prelude.hashWithSalt` queryFilterStringEnabled
       `Prelude.hashWithSalt` kendraIndex
 

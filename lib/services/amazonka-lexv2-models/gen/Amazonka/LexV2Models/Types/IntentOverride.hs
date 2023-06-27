@@ -33,7 +33,7 @@ data IntentOverride = IntentOverride'
     name :: Prelude.Maybe Prelude.Text,
     -- | A map of all of the slot value overrides for the intent. The name of the
     -- slot maps to the value of the slot. Slots that are not included in the
-    -- map aren\'t overridden.,
+    -- map aren\'t overridden.
     slots :: Prelude.Maybe (Prelude.HashMap Prelude.Text SlotValueOverride)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,7 +50,7 @@ data IntentOverride = IntentOverride'
 --
 -- 'slots', 'intentOverride_slots' - A map of all of the slot value overrides for the intent. The name of the
 -- slot maps to the value of the slot. Slots that are not included in the
--- map aren\'t overridden.,
+-- map aren\'t overridden.
 newIntentOverride ::
   IntentOverride
 newIntentOverride =
@@ -65,7 +65,7 @@ intentOverride_name = Lens.lens (\IntentOverride' {name} -> name) (\s@IntentOver
 
 -- | A map of all of the slot value overrides for the intent. The name of the
 -- slot maps to the value of the slot. Slots that are not included in the
--- map aren\'t overridden.,
+-- map aren\'t overridden.
 intentOverride_slots :: Lens.Lens' IntentOverride (Prelude.Maybe (Prelude.HashMap Prelude.Text SlotValueOverride))
 intentOverride_slots = Lens.lens (\IntentOverride' {slots} -> slots) (\s@IntentOverride' {} a -> s {slots = a} :: IntentOverride) Prelude.. Lens.mapping Lens.coerced
 
@@ -81,7 +81,8 @@ instance Data.FromJSON IntentOverride where
 
 instance Prelude.Hashable IntentOverride where
   hashWithSalt _salt IntentOverride' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` slots
 
 instance Prelude.NFData IntentOverride where

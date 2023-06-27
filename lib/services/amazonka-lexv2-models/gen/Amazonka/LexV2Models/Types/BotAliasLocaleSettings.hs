@@ -82,7 +82,8 @@ instance Data.FromJSON BotAliasLocaleSettings where
 
 instance Prelude.Hashable BotAliasLocaleSettings where
   hashWithSalt _salt BotAliasLocaleSettings' {..} =
-    _salt `Prelude.hashWithSalt` codeHookSpecification
+    _salt
+      `Prelude.hashWithSalt` codeHookSpecification
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData BotAliasLocaleSettings where

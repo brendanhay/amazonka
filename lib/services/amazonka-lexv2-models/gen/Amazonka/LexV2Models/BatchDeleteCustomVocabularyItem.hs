@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Batch delete custom vocabulary item for the specified locale in the
--- specified bot.
+-- Delete a batch of custom vocabulary items for a given bot locale\'s
+-- custom vocabulary.
 module Amazonka.LexV2Models.BatchDeleteCustomVocabularyItem
   ( -- * Creating a Request
     BatchDeleteCustomVocabularyItem (..),
@@ -57,17 +57,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchDeleteCustomVocabularyItem' smart constructor.
 data BatchDeleteCustomVocabularyItem = BatchDeleteCustomVocabularyItem'
-  { -- | The unique identifier of the bot to batch delete request for the custom
-    -- vocabulary item.
+  { -- | The identifier of the bot associated with this custom vocabulary.
     botId :: Prelude.Text,
-    -- | The version of the bot to batch delete request for the custom vocabulary
-    -- item.
+    -- | The identifier of the version of the bot associated with this custom
+    -- vocabulary.
     botVersion :: Prelude.Text,
-    -- | The locale identifier of the bot to batch delete request for the custom
-    -- vocabulary item.
+    -- | The identifier of the language and locale where this custom vocabulary
+    -- is used. The string must match one of the supported locales. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported Languages>
+    -- .
     localeId :: Prelude.Text,
-    -- | The custom vocabulary list to batch delete request for the custom
-    -- vocabulary item.
+    -- | A list of custom vocabulary items requested to be deleted. Each entry
+    -- must contain the unique custom vocabulary entry identifier.
     customVocabularyItemList :: Prelude.NonEmpty CustomVocabularyEntryId
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,17 +82,19 @@ data BatchDeleteCustomVocabularyItem = BatchDeleteCustomVocabularyItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'botId', 'batchDeleteCustomVocabularyItem_botId' - The unique identifier of the bot to batch delete request for the custom
--- vocabulary item.
+-- 'botId', 'batchDeleteCustomVocabularyItem_botId' - The identifier of the bot associated with this custom vocabulary.
 --
--- 'botVersion', 'batchDeleteCustomVocabularyItem_botVersion' - The version of the bot to batch delete request for the custom vocabulary
--- item.
+-- 'botVersion', 'batchDeleteCustomVocabularyItem_botVersion' - The identifier of the version of the bot associated with this custom
+-- vocabulary.
 --
--- 'localeId', 'batchDeleteCustomVocabularyItem_localeId' - The locale identifier of the bot to batch delete request for the custom
--- vocabulary item.
+-- 'localeId', 'batchDeleteCustomVocabularyItem_localeId' - The identifier of the language and locale where this custom vocabulary
+-- is used. The string must match one of the supported locales. For more
+-- information, see
+-- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported Languages>
+-- .
 --
--- 'customVocabularyItemList', 'batchDeleteCustomVocabularyItem_customVocabularyItemList' - The custom vocabulary list to batch delete request for the custom
--- vocabulary item.
+-- 'customVocabularyItemList', 'batchDeleteCustomVocabularyItem_customVocabularyItemList' - A list of custom vocabulary items requested to be deleted. Each entry
+-- must contain the unique custom vocabulary entry identifier.
 newBatchDeleteCustomVocabularyItem ::
   -- | 'botId'
   Prelude.Text ->
@@ -115,23 +119,25 @@ newBatchDeleteCustomVocabularyItem
             Lens.# pCustomVocabularyItemList_
       }
 
--- | The unique identifier of the bot to batch delete request for the custom
--- vocabulary item.
+-- | The identifier of the bot associated with this custom vocabulary.
 batchDeleteCustomVocabularyItem_botId :: Lens.Lens' BatchDeleteCustomVocabularyItem Prelude.Text
 batchDeleteCustomVocabularyItem_botId = Lens.lens (\BatchDeleteCustomVocabularyItem' {botId} -> botId) (\s@BatchDeleteCustomVocabularyItem' {} a -> s {botId = a} :: BatchDeleteCustomVocabularyItem)
 
--- | The version of the bot to batch delete request for the custom vocabulary
--- item.
+-- | The identifier of the version of the bot associated with this custom
+-- vocabulary.
 batchDeleteCustomVocabularyItem_botVersion :: Lens.Lens' BatchDeleteCustomVocabularyItem Prelude.Text
 batchDeleteCustomVocabularyItem_botVersion = Lens.lens (\BatchDeleteCustomVocabularyItem' {botVersion} -> botVersion) (\s@BatchDeleteCustomVocabularyItem' {} a -> s {botVersion = a} :: BatchDeleteCustomVocabularyItem)
 
--- | The locale identifier of the bot to batch delete request for the custom
--- vocabulary item.
+-- | The identifier of the language and locale where this custom vocabulary
+-- is used. The string must match one of the supported locales. For more
+-- information, see
+-- <https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html Supported Languages>
+-- .
 batchDeleteCustomVocabularyItem_localeId :: Lens.Lens' BatchDeleteCustomVocabularyItem Prelude.Text
 batchDeleteCustomVocabularyItem_localeId = Lens.lens (\BatchDeleteCustomVocabularyItem' {localeId} -> localeId) (\s@BatchDeleteCustomVocabularyItem' {} a -> s {localeId = a} :: BatchDeleteCustomVocabularyItem)
 
--- | The custom vocabulary list to batch delete request for the custom
--- vocabulary item.
+-- | A list of custom vocabulary items requested to be deleted. Each entry
+-- must contain the unique custom vocabulary entry identifier.
 batchDeleteCustomVocabularyItem_customVocabularyItemList :: Lens.Lens' BatchDeleteCustomVocabularyItem (Prelude.NonEmpty CustomVocabularyEntryId)
 batchDeleteCustomVocabularyItem_customVocabularyItemList = Lens.lens (\BatchDeleteCustomVocabularyItem' {customVocabularyItemList} -> customVocabularyItemList) (\s@BatchDeleteCustomVocabularyItem' {} a -> s {customVocabularyItemList = a} :: BatchDeleteCustomVocabularyItem) Prelude.. Lens.coerced
 
@@ -163,7 +169,8 @@ instance
   hashWithSalt
     _salt
     BatchDeleteCustomVocabularyItem' {..} =
-      _salt `Prelude.hashWithSalt` botId
+      _salt
+        `Prelude.hashWithSalt` botId
         `Prelude.hashWithSalt` botVersion
         `Prelude.hashWithSalt` localeId
         `Prelude.hashWithSalt` customVocabularyItemList
@@ -220,20 +227,22 @@ instance Data.ToQuery BatchDeleteCustomVocabularyItem where
 
 -- | /See:/ 'newBatchDeleteCustomVocabularyItemResponse' smart constructor.
 data BatchDeleteCustomVocabularyItemResponse = BatchDeleteCustomVocabularyItemResponse'
-  { -- | The unique identifier of the bot to batch delete response for the custom
-    -- vocabulary item.
+  { -- | The identifier of the bot associated with this custom vocabulary.
     botId :: Prelude.Maybe Prelude.Text,
-    -- | The version of the bot to batch delete response for the custom
-    -- vocabulary item.
+    -- | The identifier of the version of the bot associated with this custom
+    -- vocabulary.
     botVersion :: Prelude.Maybe Prelude.Text,
-    -- | The errors of the action to batch delete response for the custom
-    -- vocabulary item.
+    -- | A list of custom vocabulary items that failed to delete during the
+    -- operation. The reason for the error is contained within each error
+    -- object.
     errors :: Prelude.Maybe [FailedCustomVocabularyItem],
-    -- | The locale identifier of the bot to batch delete response for the custom
-    -- vocabulary item.
+    -- | The identifier of the language and locale where this custom vocabulary
+    -- is used. The string must match one of the supported locales. For more
+    -- information, see Supported languages
+    -- (https:\/\/docs.aws.amazon.com\/lexv2\/latest\/dg\/how-languages.html).
     localeId :: Prelude.Maybe Prelude.Text,
-    -- | The resources of the action to batch delete response for the custom
-    -- vocabulary item.
+    -- | A list of custom vocabulary items that were successfully deleted during
+    -- the operation.
     resources :: Prelude.Maybe [CustomVocabularyItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -248,20 +257,22 @@ data BatchDeleteCustomVocabularyItemResponse = BatchDeleteCustomVocabularyItemRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'botId', 'batchDeleteCustomVocabularyItemResponse_botId' - The unique identifier of the bot to batch delete response for the custom
--- vocabulary item.
+-- 'botId', 'batchDeleteCustomVocabularyItemResponse_botId' - The identifier of the bot associated with this custom vocabulary.
 --
--- 'botVersion', 'batchDeleteCustomVocabularyItemResponse_botVersion' - The version of the bot to batch delete response for the custom
--- vocabulary item.
+-- 'botVersion', 'batchDeleteCustomVocabularyItemResponse_botVersion' - The identifier of the version of the bot associated with this custom
+-- vocabulary.
 --
--- 'errors', 'batchDeleteCustomVocabularyItemResponse_errors' - The errors of the action to batch delete response for the custom
--- vocabulary item.
+-- 'errors', 'batchDeleteCustomVocabularyItemResponse_errors' - A list of custom vocabulary items that failed to delete during the
+-- operation. The reason for the error is contained within each error
+-- object.
 --
--- 'localeId', 'batchDeleteCustomVocabularyItemResponse_localeId' - The locale identifier of the bot to batch delete response for the custom
--- vocabulary item.
+-- 'localeId', 'batchDeleteCustomVocabularyItemResponse_localeId' - The identifier of the language and locale where this custom vocabulary
+-- is used. The string must match one of the supported locales. For more
+-- information, see Supported languages
+-- (https:\/\/docs.aws.amazon.com\/lexv2\/latest\/dg\/how-languages.html).
 --
--- 'resources', 'batchDeleteCustomVocabularyItemResponse_resources' - The resources of the action to batch delete response for the custom
--- vocabulary item.
+-- 'resources', 'batchDeleteCustomVocabularyItemResponse_resources' - A list of custom vocabulary items that were successfully deleted during
+-- the operation.
 --
 -- 'httpStatus', 'batchDeleteCustomVocabularyItemResponse_httpStatus' - The response's http status code.
 newBatchDeleteCustomVocabularyItemResponse ::
@@ -280,28 +291,30 @@ newBatchDeleteCustomVocabularyItemResponse
         httpStatus = pHttpStatus_
       }
 
--- | The unique identifier of the bot to batch delete response for the custom
--- vocabulary item.
+-- | The identifier of the bot associated with this custom vocabulary.
 batchDeleteCustomVocabularyItemResponse_botId :: Lens.Lens' BatchDeleteCustomVocabularyItemResponse (Prelude.Maybe Prelude.Text)
 batchDeleteCustomVocabularyItemResponse_botId = Lens.lens (\BatchDeleteCustomVocabularyItemResponse' {botId} -> botId) (\s@BatchDeleteCustomVocabularyItemResponse' {} a -> s {botId = a} :: BatchDeleteCustomVocabularyItemResponse)
 
--- | The version of the bot to batch delete response for the custom
--- vocabulary item.
+-- | The identifier of the version of the bot associated with this custom
+-- vocabulary.
 batchDeleteCustomVocabularyItemResponse_botVersion :: Lens.Lens' BatchDeleteCustomVocabularyItemResponse (Prelude.Maybe Prelude.Text)
 batchDeleteCustomVocabularyItemResponse_botVersion = Lens.lens (\BatchDeleteCustomVocabularyItemResponse' {botVersion} -> botVersion) (\s@BatchDeleteCustomVocabularyItemResponse' {} a -> s {botVersion = a} :: BatchDeleteCustomVocabularyItemResponse)
 
--- | The errors of the action to batch delete response for the custom
--- vocabulary item.
+-- | A list of custom vocabulary items that failed to delete during the
+-- operation. The reason for the error is contained within each error
+-- object.
 batchDeleteCustomVocabularyItemResponse_errors :: Lens.Lens' BatchDeleteCustomVocabularyItemResponse (Prelude.Maybe [FailedCustomVocabularyItem])
 batchDeleteCustomVocabularyItemResponse_errors = Lens.lens (\BatchDeleteCustomVocabularyItemResponse' {errors} -> errors) (\s@BatchDeleteCustomVocabularyItemResponse' {} a -> s {errors = a} :: BatchDeleteCustomVocabularyItemResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The locale identifier of the bot to batch delete response for the custom
--- vocabulary item.
+-- | The identifier of the language and locale where this custom vocabulary
+-- is used. The string must match one of the supported locales. For more
+-- information, see Supported languages
+-- (https:\/\/docs.aws.amazon.com\/lexv2\/latest\/dg\/how-languages.html).
 batchDeleteCustomVocabularyItemResponse_localeId :: Lens.Lens' BatchDeleteCustomVocabularyItemResponse (Prelude.Maybe Prelude.Text)
 batchDeleteCustomVocabularyItemResponse_localeId = Lens.lens (\BatchDeleteCustomVocabularyItemResponse' {localeId} -> localeId) (\s@BatchDeleteCustomVocabularyItemResponse' {} a -> s {localeId = a} :: BatchDeleteCustomVocabularyItemResponse)
 
--- | The resources of the action to batch delete response for the custom
--- vocabulary item.
+-- | A list of custom vocabulary items that were successfully deleted during
+-- the operation.
 batchDeleteCustomVocabularyItemResponse_resources :: Lens.Lens' BatchDeleteCustomVocabularyItemResponse (Prelude.Maybe [CustomVocabularyItem])
 batchDeleteCustomVocabularyItemResponse_resources = Lens.lens (\BatchDeleteCustomVocabularyItemResponse' {resources} -> resources) (\s@BatchDeleteCustomVocabularyItemResponse' {} a -> s {resources = a} :: BatchDeleteCustomVocabularyItemResponse) Prelude.. Lens.mapping Lens.coerced
 

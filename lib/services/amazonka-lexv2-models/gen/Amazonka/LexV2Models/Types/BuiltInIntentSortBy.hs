@@ -73,7 +73,8 @@ builtInIntentSortBy_order = Lens.lens (\BuiltInIntentSortBy' {order} -> order) (
 
 instance Prelude.Hashable BuiltInIntentSortBy where
   hashWithSalt _salt BuiltInIntentSortBy' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` order
 
 instance Prelude.NFData BuiltInIntentSortBy where

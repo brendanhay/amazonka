@@ -278,7 +278,8 @@ instance Core.AWSRequest UpdateSlot where
 
 instance Prelude.Hashable UpdateSlot where
   hashWithSalt _salt UpdateSlot' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` multipleValuesSetting
       `Prelude.hashWithSalt` obfuscationSetting
       `Prelude.hashWithSalt` slotTypeId
@@ -360,8 +361,7 @@ instance Data.ToQuery UpdateSlot where
 data UpdateSlotResponse = UpdateSlotResponse'
   { -- | The identifier of the bot that contains the slot.
     botId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the slot version that contains the slot. Will always
-    -- be @DRAFT@.
+    -- | The version of the bot that contains the slot. Will always be @DRAFT@.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of the date and time that the slot was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
@@ -406,8 +406,7 @@ data UpdateSlotResponse = UpdateSlotResponse'
 --
 -- 'botId', 'updateSlotResponse_botId' - The identifier of the bot that contains the slot.
 --
--- 'botVersion', 'updateSlotResponse_botVersion' - The identifier of the slot version that contains the slot. Will always
--- be @DRAFT@.
+-- 'botVersion', 'updateSlotResponse_botVersion' - The version of the bot that contains the slot. Will always be @DRAFT@.
 --
 -- 'creationDateTime', 'updateSlotResponse_creationDateTime' - The timestamp of the date and time that the slot was created.
 --
@@ -465,8 +464,7 @@ newUpdateSlotResponse pHttpStatus_ =
 updateSlotResponse_botId :: Lens.Lens' UpdateSlotResponse (Prelude.Maybe Prelude.Text)
 updateSlotResponse_botId = Lens.lens (\UpdateSlotResponse' {botId} -> botId) (\s@UpdateSlotResponse' {} a -> s {botId = a} :: UpdateSlotResponse)
 
--- | The identifier of the slot version that contains the slot. Will always
--- be @DRAFT@.
+-- | The version of the bot that contains the slot. Will always be @DRAFT@.
 updateSlotResponse_botVersion :: Lens.Lens' UpdateSlotResponse (Prelude.Maybe Prelude.Text)
 updateSlotResponse_botVersion = Lens.lens (\UpdateSlotResponse' {botVersion} -> botVersion) (\s@UpdateSlotResponse' {} a -> s {botVersion = a} :: UpdateSlotResponse)
 

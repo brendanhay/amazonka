@@ -63,7 +63,7 @@ data StartImport = StartImport'
     filePassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The unique identifier for the import. It is included in the response
     -- from the
-    -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateUploadUrl.html CreateUploadUrl>
+    -- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateUploadUrl.html CreateUploadUrl>
     -- operation.
     importId :: Prelude.Text,
     -- | Parameters for creating the bot, bot locale or custom vocabulary.
@@ -90,7 +90,7 @@ data StartImport = StartImport'
 --
 -- 'importId', 'startImport_importId' - The unique identifier for the import. It is included in the response
 -- from the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateUploadUrl.html CreateUploadUrl>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateUploadUrl.html CreateUploadUrl>
 -- operation.
 --
 -- 'resourceSpecification', 'startImport_resourceSpecification' - Parameters for creating the bot, bot locale or custom vocabulary.
@@ -126,7 +126,7 @@ startImport_filePassword = Lens.lens (\StartImport' {filePassword} -> filePasswo
 
 -- | The unique identifier for the import. It is included in the response
 -- from the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateUploadUrl.html CreateUploadUrl>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateUploadUrl.html CreateUploadUrl>
 -- operation.
 startImport_importId :: Lens.Lens' StartImport Prelude.Text
 startImport_importId = Lens.lens (\StartImport' {importId} -> importId) (\s@StartImport' {} a -> s {importId = a} :: StartImport)
@@ -160,7 +160,8 @@ instance Core.AWSRequest StartImport where
 
 instance Prelude.Hashable StartImport where
   hashWithSalt _salt StartImport' {..} =
-    _salt `Prelude.hashWithSalt` filePassword
+    _salt
+      `Prelude.hashWithSalt` filePassword
       `Prelude.hashWithSalt` importId
       `Prelude.hashWithSalt` resourceSpecification
       `Prelude.hashWithSalt` mergeStrategy

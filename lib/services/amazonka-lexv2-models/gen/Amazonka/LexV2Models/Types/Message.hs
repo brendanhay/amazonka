@@ -28,7 +28,7 @@ import Amazonka.LexV2Models.Types.PlainTextMessage
 import Amazonka.LexV2Models.Types.SSMLMessage
 import qualified Amazonka.Prelude as Prelude
 
--- | The object that provides message text and it\'s type.
+-- | The object that provides message text and its type.
 --
 -- /See:/ 'newMessage' smart constructor.
 data Message = Message'
@@ -101,7 +101,8 @@ instance Data.FromJSON Message where
 
 instance Prelude.Hashable Message where
   hashWithSalt _salt Message' {..} =
-    _salt `Prelude.hashWithSalt` customPayload
+    _salt
+      `Prelude.hashWithSalt` customPayload
       `Prelude.hashWithSalt` imageResponseCard
       `Prelude.hashWithSalt` plainTextMessage
       `Prelude.hashWithSalt` ssmlMessage

@@ -91,7 +91,8 @@ instance
   hashWithSalt
     _salt
     ElicitationCodeHookInvocationSetting' {..} =
-      _salt `Prelude.hashWithSalt` invocationLabel
+      _salt
+        `Prelude.hashWithSalt` invocationLabel
         `Prelude.hashWithSalt` enableCodeHookInvocation
 
 instance

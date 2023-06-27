@@ -68,7 +68,7 @@ import qualified Amazonka.Response as Response
 data DescribeBotLocale = DescribeBotLocale'
   { -- | The identifier of the bot associated with the locale.
     botId :: Prelude.Text,
-    -- | The identifier of the version of the bot associated with the locale.
+    -- | The version of the bot associated with the locale.
     botVersion :: Prelude.Text,
     -- | The unique identifier of the locale to describe. The string must match
     -- one of the supported locales. For more information, see
@@ -87,7 +87,7 @@ data DescribeBotLocale = DescribeBotLocale'
 --
 -- 'botId', 'describeBotLocale_botId' - The identifier of the bot associated with the locale.
 --
--- 'botVersion', 'describeBotLocale_botVersion' - The identifier of the version of the bot associated with the locale.
+-- 'botVersion', 'describeBotLocale_botVersion' - The version of the bot associated with the locale.
 --
 -- 'localeId', 'describeBotLocale_localeId' - The unique identifier of the locale to describe. The string must match
 -- one of the supported locales. For more information, see
@@ -111,7 +111,7 @@ newDescribeBotLocale pBotId_ pBotVersion_ pLocaleId_ =
 describeBotLocale_botId :: Lens.Lens' DescribeBotLocale Prelude.Text
 describeBotLocale_botId = Lens.lens (\DescribeBotLocale' {botId} -> botId) (\s@DescribeBotLocale' {} a -> s {botId = a} :: DescribeBotLocale)
 
--- | The identifier of the version of the bot associated with the locale.
+-- | The version of the bot associated with the locale.
 describeBotLocale_botVersion :: Lens.Lens' DescribeBotLocale Prelude.Text
 describeBotLocale_botVersion = Lens.lens (\DescribeBotLocale' {botVersion} -> botVersion) (\s@DescribeBotLocale' {} a -> s {botVersion = a} :: DescribeBotLocale)
 
@@ -132,7 +132,8 @@ instance Core.AWSRequest DescribeBotLocale where
       ( \s h x ->
           DescribeBotLocaleResponse'
             Prelude.<$> (x Data..?> "botId")
-            Prelude.<*> ( x Data..?> "botLocaleHistoryEvents"
+            Prelude.<*> ( x
+                            Data..?> "botLocaleHistoryEvents"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "botLocaleStatus")
@@ -146,7 +147,8 @@ instance Core.AWSRequest DescribeBotLocale where
             Prelude.<*> (x Data..?> "localeId")
             Prelude.<*> (x Data..?> "localeName")
             Prelude.<*> (x Data..?> "nluIntentConfidenceThreshold")
-            Prelude.<*> ( x Data..?> "recommendedActions"
+            Prelude.<*> ( x
+                            Data..?> "recommendedActions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "slotTypesCount")
@@ -156,7 +158,8 @@ instance Core.AWSRequest DescribeBotLocale where
 
 instance Prelude.Hashable DescribeBotLocale where
   hashWithSalt _salt DescribeBotLocale' {..} =
-    _salt `Prelude.hashWithSalt` botId
+    _salt
+      `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` localeId
 
@@ -202,7 +205,7 @@ data DescribeBotLocaleResponse = DescribeBotLocaleResponse'
     -- | The status of the bot. If the status is @Failed@, the reasons for the
     -- failure are listed in the @failureReasons@ field.
     botLocaleStatus :: Prelude.Maybe BotLocaleStatus,
-    -- | The identifier of the version of the bot associated with the locale.
+    -- | The version of the bot associated with the locale.
     botVersion :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the locale was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
@@ -254,7 +257,7 @@ data DescribeBotLocaleResponse = DescribeBotLocaleResponse'
 -- 'botLocaleStatus', 'describeBotLocaleResponse_botLocaleStatus' - The status of the bot. If the status is @Failed@, the reasons for the
 -- failure are listed in the @failureReasons@ field.
 --
--- 'botVersion', 'describeBotLocaleResponse_botVersion' - The identifier of the version of the bot associated with the locale.
+-- 'botVersion', 'describeBotLocaleResponse_botVersion' - The version of the bot associated with the locale.
 --
 -- 'creationDateTime', 'describeBotLocaleResponse_creationDateTime' - The date and time that the locale was created.
 --
@@ -325,7 +328,7 @@ describeBotLocaleResponse_botLocaleHistoryEvents = Lens.lens (\DescribeBotLocale
 describeBotLocaleResponse_botLocaleStatus :: Lens.Lens' DescribeBotLocaleResponse (Prelude.Maybe BotLocaleStatus)
 describeBotLocaleResponse_botLocaleStatus = Lens.lens (\DescribeBotLocaleResponse' {botLocaleStatus} -> botLocaleStatus) (\s@DescribeBotLocaleResponse' {} a -> s {botLocaleStatus = a} :: DescribeBotLocaleResponse)
 
--- | The identifier of the version of the bot associated with the locale.
+-- | The version of the bot associated with the locale.
 describeBotLocaleResponse_botVersion :: Lens.Lens' DescribeBotLocaleResponse (Prelude.Maybe Prelude.Text)
 describeBotLocaleResponse_botVersion = Lens.lens (\DescribeBotLocaleResponse' {botVersion} -> botVersion) (\s@DescribeBotLocaleResponse' {} a -> s {botVersion = a} :: DescribeBotLocaleResponse)
 

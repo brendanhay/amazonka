@@ -27,6 +27,8 @@ module Amazonka.LexV2Models.UpdateBot
     newUpdateBot,
 
     -- * Request Lenses
+    updateBot_botMembers,
+    updateBot_botType,
     updateBot_description,
     updateBot_botId,
     updateBot_botName,
@@ -40,8 +42,10 @@ module Amazonka.LexV2Models.UpdateBot
 
     -- * Response Lenses
     updateBotResponse_botId,
+    updateBotResponse_botMembers,
     updateBotResponse_botName,
     updateBotResponse_botStatus,
+    updateBotResponse_botType,
     updateBotResponse_creationDateTime,
     updateBotResponse_dataPrivacy,
     updateBotResponse_description,
@@ -62,11 +66,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateBot' smart constructor.
 data UpdateBot = UpdateBot'
-  { -- | A description of the bot.
+  { -- | The list of bot members in the network associated with the update
+    -- action.
+    botMembers :: Prelude.Maybe [BotMember],
+    -- | The type of the bot to be updated.
+    botType :: Prelude.Maybe BotType,
+    -- | A description of the bot.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the bot to update. This identifier is returned
     -- by the
-    -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBot.html CreateBot>
+    -- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html CreateBot>
     -- operation.
     botId :: Prelude.Text,
     -- | The new name of the bot. The name must be unique in the account that
@@ -98,11 +107,16 @@ data UpdateBot = UpdateBot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'botMembers', 'updateBot_botMembers' - The list of bot members in the network associated with the update
+-- action.
+--
+-- 'botType', 'updateBot_botType' - The type of the bot to be updated.
+--
 -- 'description', 'updateBot_description' - A description of the bot.
 --
 -- 'botId', 'updateBot_botId' - The unique identifier of the bot to update. This identifier is returned
 -- by the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBot.html CreateBot>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html CreateBot>
 -- operation.
 --
 -- 'botName', 'updateBot_botName' - The new name of the bot. The name must be unique in the account that
@@ -141,7 +155,9 @@ newUpdateBot
   pDataPrivacy_
   pIdleSessionTTLInSeconds_ =
     UpdateBot'
-      { description = Prelude.Nothing,
+      { botMembers = Prelude.Nothing,
+        botType = Prelude.Nothing,
+        description = Prelude.Nothing,
         botId = pBotId_,
         botName = pBotName_,
         roleArn = pRoleArn_,
@@ -149,13 +165,22 @@ newUpdateBot
         idleSessionTTLInSeconds = pIdleSessionTTLInSeconds_
       }
 
+-- | The list of bot members in the network associated with the update
+-- action.
+updateBot_botMembers :: Lens.Lens' UpdateBot (Prelude.Maybe [BotMember])
+updateBot_botMembers = Lens.lens (\UpdateBot' {botMembers} -> botMembers) (\s@UpdateBot' {} a -> s {botMembers = a} :: UpdateBot) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type of the bot to be updated.
+updateBot_botType :: Lens.Lens' UpdateBot (Prelude.Maybe BotType)
+updateBot_botType = Lens.lens (\UpdateBot' {botType} -> botType) (\s@UpdateBot' {} a -> s {botType = a} :: UpdateBot)
+
 -- | A description of the bot.
 updateBot_description :: Lens.Lens' UpdateBot (Prelude.Maybe Prelude.Text)
 updateBot_description = Lens.lens (\UpdateBot' {description} -> description) (\s@UpdateBot' {} a -> s {description = a} :: UpdateBot)
 
 -- | The unique identifier of the bot to update. This identifier is returned
 -- by the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBot.html CreateBot>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html CreateBot>
 -- operation.
 updateBot_botId :: Lens.Lens' UpdateBot Prelude.Text
 updateBot_botId = Lens.lens (\UpdateBot' {botId} -> botId) (\s@UpdateBot' {} a -> s {botId = a} :: UpdateBot)
@@ -195,8 +220,10 @@ instance Core.AWSRequest UpdateBot where
       ( \s h x ->
           UpdateBotResponse'
             Prelude.<$> (x Data..?> "botId")
+            Prelude.<*> (x Data..?> "botMembers" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "botName")
             Prelude.<*> (x Data..?> "botStatus")
+            Prelude.<*> (x Data..?> "botType")
             Prelude.<*> (x Data..?> "creationDateTime")
             Prelude.<*> (x Data..?> "dataPrivacy")
             Prelude.<*> (x Data..?> "description")
@@ -208,7 +235,10 @@ instance Core.AWSRequest UpdateBot where
 
 instance Prelude.Hashable UpdateBot where
   hashWithSalt _salt UpdateBot' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` botMembers
+      `Prelude.hashWithSalt` botType
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` botId
       `Prelude.hashWithSalt` botName
       `Prelude.hashWithSalt` roleArn
@@ -217,7 +247,9 @@ instance Prelude.Hashable UpdateBot where
 
 instance Prelude.NFData UpdateBot where
   rnf UpdateBot' {..} =
-    Prelude.rnf description
+    Prelude.rnf botMembers
+      `Prelude.seq` Prelude.rnf botType
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf botId
       `Prelude.seq` Prelude.rnf botName
       `Prelude.seq` Prelude.rnf roleArn
@@ -239,7 +271,9 @@ instance Data.ToJSON UpdateBot where
   toJSON UpdateBot' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("description" Data..=) Prelude.<$> description,
+          [ ("botMembers" Data..=) Prelude.<$> botMembers,
+            ("botType" Data..=) Prelude.<$> botType,
+            ("description" Data..=) Prelude.<$> description,
             Prelude.Just ("botName" Data..= botName),
             Prelude.Just ("roleArn" Data..= roleArn),
             Prelude.Just ("dataPrivacy" Data..= dataPrivacy),
@@ -261,6 +295,8 @@ instance Data.ToQuery UpdateBot where
 data UpdateBotResponse = UpdateBotResponse'
   { -- | The unique identifier of the bot that was updated.
     botId :: Prelude.Maybe Prelude.Text,
+    -- | The list of bot members in the network that was updated.
+    botMembers :: Prelude.Maybe [BotMember],
     -- | The name of the bot after the update.
     botName :: Prelude.Maybe Prelude.Text,
     -- | Shows the current status of the bot. The bot is first in the @Creating@
@@ -268,6 +304,8 @@ data UpdateBotResponse = UpdateBotResponse'
     -- status. After the bot is created, you can use the @DRAFT@ version of the
     -- bot.
     botStatus :: Prelude.Maybe BotStatus,
+    -- | The type of the bot that was updated.
+    botType :: Prelude.Maybe BotType,
     -- | A timestamp of the date and time that the bot was created.
     creationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The data privacy settings for the bot after the update.
@@ -296,12 +334,16 @@ data UpdateBotResponse = UpdateBotResponse'
 --
 -- 'botId', 'updateBotResponse_botId' - The unique identifier of the bot that was updated.
 --
+-- 'botMembers', 'updateBotResponse_botMembers' - The list of bot members in the network that was updated.
+--
 -- 'botName', 'updateBotResponse_botName' - The name of the bot after the update.
 --
 -- 'botStatus', 'updateBotResponse_botStatus' - Shows the current status of the bot. The bot is first in the @Creating@
 -- status. Once the bot is read for use, it changes to the @Available@
 -- status. After the bot is created, you can use the @DRAFT@ version of the
 -- bot.
+--
+-- 'botType', 'updateBotResponse_botType' - The type of the bot that was updated.
 --
 -- 'creationDateTime', 'updateBotResponse_creationDateTime' - A timestamp of the date and time that the bot was created.
 --
@@ -324,8 +366,10 @@ newUpdateBotResponse ::
 newUpdateBotResponse pHttpStatus_ =
   UpdateBotResponse'
     { botId = Prelude.Nothing,
+      botMembers = Prelude.Nothing,
       botName = Prelude.Nothing,
       botStatus = Prelude.Nothing,
+      botType = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
       dataPrivacy = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -339,6 +383,10 @@ newUpdateBotResponse pHttpStatus_ =
 updateBotResponse_botId :: Lens.Lens' UpdateBotResponse (Prelude.Maybe Prelude.Text)
 updateBotResponse_botId = Lens.lens (\UpdateBotResponse' {botId} -> botId) (\s@UpdateBotResponse' {} a -> s {botId = a} :: UpdateBotResponse)
 
+-- | The list of bot members in the network that was updated.
+updateBotResponse_botMembers :: Lens.Lens' UpdateBotResponse (Prelude.Maybe [BotMember])
+updateBotResponse_botMembers = Lens.lens (\UpdateBotResponse' {botMembers} -> botMembers) (\s@UpdateBotResponse' {} a -> s {botMembers = a} :: UpdateBotResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the bot after the update.
 updateBotResponse_botName :: Lens.Lens' UpdateBotResponse (Prelude.Maybe Prelude.Text)
 updateBotResponse_botName = Lens.lens (\UpdateBotResponse' {botName} -> botName) (\s@UpdateBotResponse' {} a -> s {botName = a} :: UpdateBotResponse)
@@ -349,6 +397,10 @@ updateBotResponse_botName = Lens.lens (\UpdateBotResponse' {botName} -> botName)
 -- bot.
 updateBotResponse_botStatus :: Lens.Lens' UpdateBotResponse (Prelude.Maybe BotStatus)
 updateBotResponse_botStatus = Lens.lens (\UpdateBotResponse' {botStatus} -> botStatus) (\s@UpdateBotResponse' {} a -> s {botStatus = a} :: UpdateBotResponse)
+
+-- | The type of the bot that was updated.
+updateBotResponse_botType :: Lens.Lens' UpdateBotResponse (Prelude.Maybe BotType)
+updateBotResponse_botType = Lens.lens (\UpdateBotResponse' {botType} -> botType) (\s@UpdateBotResponse' {} a -> s {botType = a} :: UpdateBotResponse)
 
 -- | A timestamp of the date and time that the bot was created.
 updateBotResponse_creationDateTime :: Lens.Lens' UpdateBotResponse (Prelude.Maybe Prelude.UTCTime)
@@ -382,8 +434,10 @@ updateBotResponse_httpStatus = Lens.lens (\UpdateBotResponse' {httpStatus} -> ht
 instance Prelude.NFData UpdateBotResponse where
   rnf UpdateBotResponse' {..} =
     Prelude.rnf botId
+      `Prelude.seq` Prelude.rnf botMembers
       `Prelude.seq` Prelude.rnf botName
       `Prelude.seq` Prelude.rnf botStatus
+      `Prelude.seq` Prelude.rnf botType
       `Prelude.seq` Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf dataPrivacy
       `Prelude.seq` Prelude.rnf description

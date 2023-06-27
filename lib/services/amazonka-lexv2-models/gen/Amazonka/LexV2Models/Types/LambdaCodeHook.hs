@@ -85,7 +85,8 @@ instance Data.FromJSON LambdaCodeHook where
 
 instance Prelude.Hashable LambdaCodeHook where
   hashWithSalt _salt LambdaCodeHook' {..} =
-    _salt `Prelude.hashWithSalt` lambdaARN
+    _salt
+      `Prelude.hashWithSalt` lambdaARN
       `Prelude.hashWithSalt` codeHookInterfaceVersion
 
 instance Prelude.NFData LambdaCodeHook where

@@ -128,7 +128,8 @@ instance
   hashWithSalt
     _salt
     StillWaitingResponseSpecification' {..} =
-      _salt `Prelude.hashWithSalt` allowInterrupt
+      _salt
+        `Prelude.hashWithSalt` allowInterrupt
         `Prelude.hashWithSalt` messageGroups
         `Prelude.hashWithSalt` frequencyInSeconds
         `Prelude.hashWithSalt` timeoutInSeconds

@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 data AudioLogDestination = AudioLogDestination'
   { -- | The Amazon S3 bucket where the audio log files are stored. The IAM role
     -- specified in the @roleArn@ parameter of the
-    -- <https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBot.html CreateBot>
+    -- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html CreateBot>
     -- operation must have permission to write to this bucket.
     s3Bucket :: S3BucketLogDestination
   }
@@ -48,7 +48,7 @@ data AudioLogDestination = AudioLogDestination'
 --
 -- 's3Bucket', 'audioLogDestination_s3Bucket' - The Amazon S3 bucket where the audio log files are stored. The IAM role
 -- specified in the @roleArn@ parameter of the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBot.html CreateBot>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html CreateBot>
 -- operation must have permission to write to this bucket.
 newAudioLogDestination ::
   -- | 's3Bucket'
@@ -59,7 +59,7 @@ newAudioLogDestination pS3Bucket_ =
 
 -- | The Amazon S3 bucket where the audio log files are stored. The IAM role
 -- specified in the @roleArn@ parameter of the
--- <https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBot.html CreateBot>
+-- <https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html CreateBot>
 -- operation must have permission to write to this bucket.
 audioLogDestination_s3Bucket :: Lens.Lens' AudioLogDestination S3BucketLogDestination
 audioLogDestination_s3Bucket = Lens.lens (\AudioLogDestination' {s3Bucket} -> s3Bucket) (\s@AudioLogDestination' {} a -> s {s3Bucket = a} :: AudioLogDestination)

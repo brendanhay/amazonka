@@ -20,6 +20,7 @@
 module Amazonka.LexV2Models.Types.ImportExportFileFormat
   ( ImportExportFileFormat
       ( ..,
+        ImportExportFileFormat_CSV,
         ImportExportFileFormat_LexJson,
         ImportExportFileFormat_TSV
       ),
@@ -58,6 +59,9 @@ newtype ImportExportFileFormat = ImportExportFileFormat'
       Data.ToXML
     )
 
+pattern ImportExportFileFormat_CSV :: ImportExportFileFormat
+pattern ImportExportFileFormat_CSV = ImportExportFileFormat' "CSV"
+
 pattern ImportExportFileFormat_LexJson :: ImportExportFileFormat
 pattern ImportExportFileFormat_LexJson = ImportExportFileFormat' "LexJson"
 
@@ -65,6 +69,7 @@ pattern ImportExportFileFormat_TSV :: ImportExportFileFormat
 pattern ImportExportFileFormat_TSV = ImportExportFileFormat' "TSV"
 
 {-# COMPLETE
+  ImportExportFileFormat_CSV,
   ImportExportFileFormat_LexJson,
   ImportExportFileFormat_TSV,
   ImportExportFileFormat'

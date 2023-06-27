@@ -194,7 +194,8 @@ instance Core.AWSRequest CreateApplication where
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
-    _salt `Prelude.hashWithSalt` autoConfigEnabled
+    _salt
+      `Prelude.hashWithSalt` autoConfigEnabled
       `Prelude.hashWithSalt` autoCreate
       `Prelude.hashWithSalt` cWEMonitorEnabled
       `Prelude.hashWithSalt` groupingType

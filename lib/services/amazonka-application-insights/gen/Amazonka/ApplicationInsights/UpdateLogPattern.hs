@@ -174,7 +174,8 @@ instance Core.AWSRequest UpdateLogPattern where
 
 instance Prelude.Hashable UpdateLogPattern where
   hashWithSalt _salt UpdateLogPattern' {..} =
-    _salt `Prelude.hashWithSalt` pattern'
+    _salt
+      `Prelude.hashWithSalt` pattern'
       `Prelude.hashWithSalt` rank
       `Prelude.hashWithSalt` resourceGroupName
       `Prelude.hashWithSalt` patternSetName

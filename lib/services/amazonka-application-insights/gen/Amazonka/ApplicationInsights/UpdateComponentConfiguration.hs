@@ -175,7 +175,8 @@ instance
     UpdateComponentConfiguration
   where
   hashWithSalt _salt UpdateComponentConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` autoConfigEnabled
+    _salt
+      `Prelude.hashWithSalt` autoConfigEnabled
       `Prelude.hashWithSalt` componentConfiguration
       `Prelude.hashWithSalt` monitor
       `Prelude.hashWithSalt` tier

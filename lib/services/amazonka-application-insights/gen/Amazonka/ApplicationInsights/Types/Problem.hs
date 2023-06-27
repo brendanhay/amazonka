@@ -181,7 +181,8 @@ instance Data.FromJSON Problem where
 
 instance Prelude.Hashable Problem where
   hashWithSalt _salt Problem' {..} =
-    _salt `Prelude.hashWithSalt` affectedResource
+    _salt
+      `Prelude.hashWithSalt` affectedResource
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` feedback
       `Prelude.hashWithSalt` id

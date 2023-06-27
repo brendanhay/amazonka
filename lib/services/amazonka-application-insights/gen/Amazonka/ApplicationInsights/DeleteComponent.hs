@@ -107,7 +107,8 @@ instance Core.AWSRequest DeleteComponent where
 
 instance Prelude.Hashable DeleteComponent where
   hashWithSalt _salt DeleteComponent' {..} =
-    _salt `Prelude.hashWithSalt` resourceGroupName
+    _salt
+      `Prelude.hashWithSalt` resourceGroupName
       `Prelude.hashWithSalt` componentName
 
 instance Prelude.NFData DeleteComponent where

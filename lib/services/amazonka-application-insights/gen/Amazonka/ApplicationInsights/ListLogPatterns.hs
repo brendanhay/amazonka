@@ -132,7 +132,8 @@ instance Core.AWSRequest ListLogPatterns where
 
 instance Prelude.Hashable ListLogPatterns where
   hashWithSalt _salt ListLogPatterns' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` patternSetName
       `Prelude.hashWithSalt` resourceGroupName

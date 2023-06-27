@@ -189,7 +189,8 @@ instance Core.AWSRequest ListConfigurationHistory where
 
 instance Prelude.Hashable ListConfigurationHistory where
   hashWithSalt _salt ListConfigurationHistory' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` eventStatus
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

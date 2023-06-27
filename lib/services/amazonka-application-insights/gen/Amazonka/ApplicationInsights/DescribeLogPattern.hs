@@ -122,7 +122,8 @@ instance Core.AWSRequest DescribeLogPattern where
 
 instance Prelude.Hashable DescribeLogPattern where
   hashWithSalt _salt DescribeLogPattern' {..} =
-    _salt `Prelude.hashWithSalt` resourceGroupName
+    _salt
+      `Prelude.hashWithSalt` resourceGroupName
       `Prelude.hashWithSalt` patternSetName
       `Prelude.hashWithSalt` patternName
 

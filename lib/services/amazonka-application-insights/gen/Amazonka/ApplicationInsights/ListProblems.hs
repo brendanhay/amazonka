@@ -157,7 +157,8 @@ instance Core.AWSRequest ListProblems where
 
 instance Prelude.Hashable ListProblems where
   hashWithSalt _salt ListProblems' {..} =
-    _salt `Prelude.hashWithSalt` componentName
+    _salt
+      `Prelude.hashWithSalt` componentName
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

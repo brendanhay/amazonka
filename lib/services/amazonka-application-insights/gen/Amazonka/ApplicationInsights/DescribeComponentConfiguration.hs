@@ -119,7 +119,8 @@ instance
   hashWithSalt
     _salt
     DescribeComponentConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` resourceGroupName
+      _salt
+        `Prelude.hashWithSalt` resourceGroupName
         `Prelude.hashWithSalt` componentName
 
 instance

@@ -79,6 +79,9 @@ module Amazonka.SageMakerFeatureStoreRuntime
 
     -- * Types
 
+    -- ** DeletionMode
+    DeletionMode (..),
+
     -- ** TargetStore
     TargetStore (..),
 

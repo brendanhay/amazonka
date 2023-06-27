@@ -20,16 +20,33 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a @Record@ from a @FeatureGroup@. When the @DeleteRecord@ API is
--- called a new record will be added to the @OfflineStore@ and the @Record@
--- will be removed from the @OnlineStore@. This record will have a value of
--- @True@ in the @is_deleted@ column.
+-- Deletes a @Record@ from a @FeatureGroup@ in the @OnlineStore@. Feature
+-- Store supports both @SOFT_DELETE@ and @HARD_DELETE@. For @SOFT_DELETE@
+-- (default), feature columns are set to @null@ and the record is no longer
+-- retrievable by @GetRecord@ or @BatchGetRecord@. For@ HARD_DELETE@, the
+-- complete @Record@ is removed from the @OnlineStore@. In both cases,
+-- Feature Store appends the deleted record marker to the @OfflineStore@
+-- with feature values set to @null@, @is_deleted@ value set to @True@, and
+-- @EventTime@ set to the delete input @EventTime@.
+--
+-- Note that the @EventTime@ specified in @DeleteRecord@ should be set
+-- later than the @EventTime@ of the existing record in the @OnlineStore@
+-- for that @RecordIdentifer@. If it is not, the deletion does not occur:
+--
+-- -   For @SOFT_DELETE@, the existing (undeleted) record remains in the
+--     @OnlineStore@, though the delete record marker is still written to
+--     the @OfflineStore@.
+--
+-- -   @HARD_DELETE@ returns @EventTime@: @400 ValidationException@ to
+--     indicate that the delete operation failed. No delete record marker
+--     is written to the @OfflineStore@.
 module Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord
   ( -- * Creating a Request
     DeleteRecord (..),
     newDeleteRecord,
 
     -- * Request Lenses
+    deleteRecord_deletionMode,
     deleteRecord_targetStores,
     deleteRecord_featureGroupName,
     deleteRecord_recordIdentifierValueAsString,
@@ -51,7 +68,10 @@ import Amazonka.SageMakerFeatureStoreRuntime.Types
 
 -- | /See:/ 'newDeleteRecord' smart constructor.
 data DeleteRecord = DeleteRecord'
-  { -- | A list of stores from which you\'re deleting the record. By default,
+  { -- | The name of the deletion mode for deleting the record. By default, the
+    -- deletion mode is set to @SoftDelete@.
+    deletionMode :: Prelude.Maybe DeletionMode,
+    -- | A list of stores from which you\'re deleting the record. By default,
     -- Feature Store deletes the record from all of the stores that you\'re
     -- using for the @FeatureGroup@.
     targetStores :: Prelude.Maybe (Prelude.NonEmpty TargetStore),
@@ -73,6 +93,9 @@ data DeleteRecord = DeleteRecord'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'deletionMode', 'deleteRecord_deletionMode' - The name of the deletion mode for deleting the record. By default, the
+-- deletion mode is set to @SoftDelete@.
 --
 -- 'targetStores', 'deleteRecord_targetStores' - A list of stores from which you\'re deleting the record. By default,
 -- Feature Store deletes the record from all of the stores that you\'re
@@ -98,12 +121,18 @@ newDeleteRecord
   pRecordIdentifierValueAsString_
   pEventTime_ =
     DeleteRecord'
-      { targetStores = Prelude.Nothing,
+      { deletionMode = Prelude.Nothing,
+        targetStores = Prelude.Nothing,
         featureGroupName = pFeatureGroupName_,
         recordIdentifierValueAsString =
           pRecordIdentifierValueAsString_,
         eventTime = pEventTime_
       }
+
+-- | The name of the deletion mode for deleting the record. By default, the
+-- deletion mode is set to @SoftDelete@.
+deleteRecord_deletionMode :: Lens.Lens' DeleteRecord (Prelude.Maybe DeletionMode)
+deleteRecord_deletionMode = Lens.lens (\DeleteRecord' {deletionMode} -> deletionMode) (\s@DeleteRecord' {} a -> s {deletionMode = a} :: DeleteRecord)
 
 -- | A list of stores from which you\'re deleting the record. By default,
 -- Feature Store deletes the record from all of the stores that you\'re
@@ -133,14 +162,17 @@ instance Core.AWSRequest DeleteRecord where
 
 instance Prelude.Hashable DeleteRecord where
   hashWithSalt _salt DeleteRecord' {..} =
-    _salt `Prelude.hashWithSalt` targetStores
+    _salt
+      `Prelude.hashWithSalt` deletionMode
+      `Prelude.hashWithSalt` targetStores
       `Prelude.hashWithSalt` featureGroupName
       `Prelude.hashWithSalt` recordIdentifierValueAsString
       `Prelude.hashWithSalt` eventTime
 
 instance Prelude.NFData DeleteRecord where
   rnf DeleteRecord' {..} =
-    Prelude.rnf targetStores
+    Prelude.rnf deletionMode
+      `Prelude.seq` Prelude.rnf targetStores
       `Prelude.seq` Prelude.rnf featureGroupName
       `Prelude.seq` Prelude.rnf recordIdentifierValueAsString
       `Prelude.seq` Prelude.rnf eventTime
@@ -164,7 +196,8 @@ instance Data.ToPath DeleteRecord where
 instance Data.ToQuery DeleteRecord where
   toQuery DeleteRecord' {..} =
     Prelude.mconcat
-      [ "TargetStores"
+      [ "DeletionMode" Data.=: deletionMode,
+        "TargetStores"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> targetStores),
         "RecordIdentifierValueAsString"

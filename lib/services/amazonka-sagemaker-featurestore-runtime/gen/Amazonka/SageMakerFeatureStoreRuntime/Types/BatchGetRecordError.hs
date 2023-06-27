@@ -34,11 +34,11 @@ data BatchGetRecordError = BatchGetRecordError'
     -- | The value for the @RecordIdentifier@ in string format of a Record from a
     -- @FeatureGroup@ that is causing an error when attempting to be retrieved.
     recordIdentifierValueAsString :: Prelude.Text,
-    -- | The error code of an error that has occured when attempting to retrieve
+    -- | The error code of an error that has occurred when attempting to retrieve
     -- a batch of Records. For more information on errors, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_GetRecord.html#API_feature_store_GetRecord_Errors Errors>.
     errorCode :: Prelude.Text,
-    -- | The error message of an error that has occured when attempting to
+    -- | The error message of an error that has occurred when attempting to
     -- retrieve a record in the batch.
     errorMessage :: Prelude.Text
   }
@@ -57,11 +57,11 @@ data BatchGetRecordError = BatchGetRecordError'
 -- 'recordIdentifierValueAsString', 'batchGetRecordError_recordIdentifierValueAsString' - The value for the @RecordIdentifier@ in string format of a Record from a
 -- @FeatureGroup@ that is causing an error when attempting to be retrieved.
 --
--- 'errorCode', 'batchGetRecordError_errorCode' - The error code of an error that has occured when attempting to retrieve
+-- 'errorCode', 'batchGetRecordError_errorCode' - The error code of an error that has occurred when attempting to retrieve
 -- a batch of Records. For more information on errors, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_GetRecord.html#API_feature_store_GetRecord_Errors Errors>.
 --
--- 'errorMessage', 'batchGetRecordError_errorMessage' - The error message of an error that has occured when attempting to
+-- 'errorMessage', 'batchGetRecordError_errorMessage' - The error message of an error that has occurred when attempting to
 -- retrieve a record in the batch.
 newBatchGetRecordError ::
   -- | 'featureGroupName'
@@ -96,13 +96,13 @@ batchGetRecordError_featureGroupName = Lens.lens (\BatchGetRecordError' {feature
 batchGetRecordError_recordIdentifierValueAsString :: Lens.Lens' BatchGetRecordError Prelude.Text
 batchGetRecordError_recordIdentifierValueAsString = Lens.lens (\BatchGetRecordError' {recordIdentifierValueAsString} -> recordIdentifierValueAsString) (\s@BatchGetRecordError' {} a -> s {recordIdentifierValueAsString = a} :: BatchGetRecordError)
 
--- | The error code of an error that has occured when attempting to retrieve
+-- | The error code of an error that has occurred when attempting to retrieve
 -- a batch of Records. For more information on errors, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_GetRecord.html#API_feature_store_GetRecord_Errors Errors>.
 batchGetRecordError_errorCode :: Lens.Lens' BatchGetRecordError Prelude.Text
 batchGetRecordError_errorCode = Lens.lens (\BatchGetRecordError' {errorCode} -> errorCode) (\s@BatchGetRecordError' {} a -> s {errorCode = a} :: BatchGetRecordError)
 
--- | The error message of an error that has occured when attempting to
+-- | The error message of an error that has occurred when attempting to
 -- retrieve a record in the batch.
 batchGetRecordError_errorMessage :: Lens.Lens' BatchGetRecordError Prelude.Text
 batchGetRecordError_errorMessage = Lens.lens (\BatchGetRecordError' {errorMessage} -> errorMessage) (\s@BatchGetRecordError' {} a -> s {errorMessage = a} :: BatchGetRecordError)
@@ -121,7 +121,8 @@ instance Data.FromJSON BatchGetRecordError where
 
 instance Prelude.Hashable BatchGetRecordError where
   hashWithSalt _salt BatchGetRecordError' {..} =
-    _salt `Prelude.hashWithSalt` featureGroupName
+    _salt
+      `Prelude.hashWithSalt` featureGroupName
       `Prelude.hashWithSalt` recordIdentifierValueAsString
       `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage

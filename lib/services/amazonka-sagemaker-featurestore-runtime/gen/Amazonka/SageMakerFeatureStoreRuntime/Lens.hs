@@ -22,6 +22,7 @@ module Amazonka.SageMakerFeatureStoreRuntime.Lens
     batchGetRecordResponse_unprocessedIdentifiers,
 
     -- ** DeleteRecord
+    deleteRecord_deletionMode,
     deleteRecord_targetStores,
     deleteRecord_featureGroupName,
     deleteRecord_recordIdentifierValueAsString,

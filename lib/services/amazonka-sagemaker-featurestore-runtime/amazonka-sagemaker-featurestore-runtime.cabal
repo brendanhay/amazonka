@@ -53,6 +53,7 @@ library
     Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError
     Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier
     Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail
+    Amazonka.SageMakerFeatureStoreRuntime.Types.DeletionMode
     Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue
     Amazonka.SageMakerFeatureStoreRuntime.Types.TargetStore
     Amazonka.SageMakerFeatureStoreRuntime.Waiters

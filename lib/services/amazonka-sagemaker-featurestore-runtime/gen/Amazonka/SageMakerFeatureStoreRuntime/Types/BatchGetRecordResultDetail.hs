@@ -31,7 +31,7 @@ import Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue
 data BatchGetRecordResultDetail = BatchGetRecordResultDetail'
   { -- | The @FeatureGroupName@ containing Records you retrieved in a batch.
     featureGroupName :: Prelude.Text,
-    -- | The value of the record identifer in string format.
+    -- | The value of the record identifier in string format.
     recordIdentifierValueAsString :: Prelude.Text,
     -- | The @Record@ retrieved.
     record :: Prelude.NonEmpty FeatureValue
@@ -48,7 +48,7 @@ data BatchGetRecordResultDetail = BatchGetRecordResultDetail'
 --
 -- 'featureGroupName', 'batchGetRecordResultDetail_featureGroupName' - The @FeatureGroupName@ containing Records you retrieved in a batch.
 --
--- 'recordIdentifierValueAsString', 'batchGetRecordResultDetail_recordIdentifierValueAsString' - The value of the record identifer in string format.
+-- 'recordIdentifierValueAsString', 'batchGetRecordResultDetail_recordIdentifierValueAsString' - The value of the record identifier in string format.
 --
 -- 'record', 'batchGetRecordResultDetail_record' - The @Record@ retrieved.
 newBatchGetRecordResultDetail ::
@@ -75,7 +75,7 @@ newBatchGetRecordResultDetail
 batchGetRecordResultDetail_featureGroupName :: Lens.Lens' BatchGetRecordResultDetail Prelude.Text
 batchGetRecordResultDetail_featureGroupName = Lens.lens (\BatchGetRecordResultDetail' {featureGroupName} -> featureGroupName) (\s@BatchGetRecordResultDetail' {} a -> s {featureGroupName = a} :: BatchGetRecordResultDetail)
 
--- | The value of the record identifer in string format.
+-- | The value of the record identifier in string format.
 batchGetRecordResultDetail_recordIdentifierValueAsString :: Lens.Lens' BatchGetRecordResultDetail Prelude.Text
 batchGetRecordResultDetail_recordIdentifierValueAsString = Lens.lens (\BatchGetRecordResultDetail' {recordIdentifierValueAsString} -> recordIdentifierValueAsString) (\s@BatchGetRecordResultDetail' {} a -> s {recordIdentifierValueAsString = a} :: BatchGetRecordResultDetail)
 
@@ -96,7 +96,8 @@ instance Data.FromJSON BatchGetRecordResultDetail where
 
 instance Prelude.Hashable BatchGetRecordResultDetail where
   hashWithSalt _salt BatchGetRecordResultDetail' {..} =
-    _salt `Prelude.hashWithSalt` featureGroupName
+    _salt
+      `Prelude.hashWithSalt` featureGroupName
       `Prelude.hashWithSalt` recordIdentifierValueAsString
       `Prelude.hashWithSalt` record
 

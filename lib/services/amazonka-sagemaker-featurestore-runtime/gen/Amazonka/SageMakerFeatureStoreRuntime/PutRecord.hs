@@ -133,7 +133,8 @@ instance Core.AWSRequest PutRecord where
 
 instance Prelude.Hashable PutRecord where
   hashWithSalt _salt PutRecord' {..} =
-    _salt `Prelude.hashWithSalt` targetStores
+    _salt
+      `Prelude.hashWithSalt` targetStores
       `Prelude.hashWithSalt` featureGroupName
       `Prelude.hashWithSalt` record
 

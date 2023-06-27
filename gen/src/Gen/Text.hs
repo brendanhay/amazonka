@@ -6,7 +6,7 @@ module Gen.Text
     renameOperation,
     renameServiceFunction,
     renameService,
-    renameBranch,
+    renameEnumValue,
     renameReserved,
     lowerHead,
     upperHead,
@@ -54,8 +54,8 @@ renameService =
     . stripPrefix "Service"
     . stripSuffix "SDK"
 
-renameBranch :: Text -> (Text, Text)
-renameBranch = first go . join (,)
+renameEnumValue :: Text -> (Text, Text)
+renameEnumValue v = (go v, v)
   where
     go = Text.map (\c -> if Char.isAlphaNum c then c else '_') . upperHead
 
@@ -129,16 +129,16 @@ toCamelCase = toCamelCase' . Text.split (not . Char.isAlphaNum) . Text.dropWhile
 lowerHead :: Text -> Text
 lowerHead text
   | Text.all (\c -> Char.isUpper c || Char.isDigit c) text =
-    Text.toLower text
+      Text.toLower text
   | otherwise =
-    fromMaybe (mapHead Char.toLower text)
-      . msum
-      $ map
-        (\acronym -> mappend (Text.toLower acronym) <$> Text.stripPrefix acronym text)
-        [ "KMS",
-          "DB",
-          "MFA"
-        ]
+      fromMaybe (mapHead Char.toLower text)
+        . msum
+        $ map
+          (\acronym -> mappend (Text.toLower acronym) <$> Text.stripPrefix acronym text)
+          [ "KMS",
+            "DB",
+            "MFA"
+          ]
 
 upperHead :: Text -> Text
 upperHead = mapHead Char.toUpper

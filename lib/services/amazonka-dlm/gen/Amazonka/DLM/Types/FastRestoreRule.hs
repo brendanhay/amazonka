@@ -103,7 +103,8 @@ instance Data.FromJSON FastRestoreRule where
 
 instance Prelude.Hashable FastRestoreRule where
   hashWithSalt _salt FastRestoreRule' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` intervalUnit
       `Prelude.hashWithSalt` availabilityZones

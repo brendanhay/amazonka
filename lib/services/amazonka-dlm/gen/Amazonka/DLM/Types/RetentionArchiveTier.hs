@@ -118,7 +118,8 @@ instance Data.FromJSON RetentionArchiveTier where
 
 instance Prelude.Hashable RetentionArchiveTier where
   hashWithSalt _salt RetentionArchiveTier' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` intervalUnit
 

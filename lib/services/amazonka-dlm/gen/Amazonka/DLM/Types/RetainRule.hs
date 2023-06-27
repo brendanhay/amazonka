@@ -137,7 +137,8 @@ instance Data.FromJSON RetainRule where
 
 instance Prelude.Hashable RetainRule where
   hashWithSalt _salt RetainRule' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` intervalUnit
 

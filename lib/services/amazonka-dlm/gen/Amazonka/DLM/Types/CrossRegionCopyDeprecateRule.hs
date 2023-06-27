@@ -95,7 +95,8 @@ instance
     CrossRegionCopyDeprecateRule
   where
   hashWithSalt _salt CrossRegionCopyDeprecateRule' {..} =
-    _salt `Prelude.hashWithSalt` interval
+    _salt
+      `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` intervalUnit
 
 instance Prelude.NFData CrossRegionCopyDeprecateRule where

@@ -91,7 +91,8 @@ instance Data.FromJSON CrossRegionCopyRetainRule where
 
 instance Prelude.Hashable CrossRegionCopyRetainRule where
   hashWithSalt _salt CrossRegionCopyRetainRule' {..} =
-    _salt `Prelude.hashWithSalt` interval
+    _salt
+      `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` intervalUnit
 
 instance Prelude.NFData CrossRegionCopyRetainRule where

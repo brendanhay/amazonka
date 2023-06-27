@@ -92,7 +92,8 @@ instance Data.FromJSON EncryptionConfiguration where
 
 instance Prelude.Hashable EncryptionConfiguration where
   hashWithSalt _salt EncryptionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` cmkArn
+    _salt
+      `Prelude.hashWithSalt` cmkArn
       `Prelude.hashWithSalt` encrypted
 
 instance Prelude.NFData EncryptionConfiguration where

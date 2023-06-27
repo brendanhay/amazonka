@@ -82,7 +82,8 @@ instance Data.FromJSON EventSource where
 
 instance Prelude.Hashable EventSource where
   hashWithSalt _salt EventSource' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData EventSource where

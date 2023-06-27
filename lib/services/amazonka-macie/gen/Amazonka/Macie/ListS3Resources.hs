@@ -122,22 +122,22 @@ instance Core.AWSPager ListS3Resources where
     | Core.stop
         ( rs
             Lens.^? listS3ResourcesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listS3ResourcesResponse_s3Resources
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listS3Resources_nextToken
           Lens..~ rs
           Lens.^? listS3ResourcesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListS3Resources where
   type
@@ -156,7 +156,8 @@ instance Core.AWSRequest ListS3Resources where
 
 instance Prelude.Hashable ListS3Resources where
   hashWithSalt _salt ListS3Resources' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` memberAccountId
       `Prelude.hashWithSalt` nextToken
 

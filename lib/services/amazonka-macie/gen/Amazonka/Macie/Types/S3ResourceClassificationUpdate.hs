@@ -98,7 +98,8 @@ instance
   hashWithSalt
     _salt
     S3ResourceClassificationUpdate' {..} =
-      _salt `Prelude.hashWithSalt` prefix
+      _salt
+        `Prelude.hashWithSalt` prefix
         `Prelude.hashWithSalt` bucketName
         `Prelude.hashWithSalt` classificationTypeUpdate
 

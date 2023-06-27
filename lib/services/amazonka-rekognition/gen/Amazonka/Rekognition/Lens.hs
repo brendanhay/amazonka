@@ -14,6 +14,17 @@
 module Amazonka.Rekognition.Lens
   ( -- * Operations
 
+    -- ** AssociateFaces
+    associateFaces_clientRequestToken,
+    associateFaces_userMatchThreshold,
+    associateFaces_collectionId,
+    associateFaces_userId,
+    associateFaces_faceIds,
+    associateFacesResponse_associatedFaces,
+    associateFacesResponse_unsuccessfulFaceAssociations,
+    associateFacesResponse_userStatus,
+    associateFacesResponse_httpStatus,
+
     -- ** CompareFaces
     compareFaces_qualityFilter,
     compareFaces_similarityThreshold,
@@ -52,6 +63,13 @@ module Amazonka.Rekognition.Lens
     createDatasetResponse_datasetArn,
     createDatasetResponse_httpStatus,
 
+    -- ** CreateFaceLivenessSession
+    createFaceLivenessSession_clientRequestToken,
+    createFaceLivenessSession_kmsKeyId,
+    createFaceLivenessSession_settings,
+    createFaceLivenessSessionResponse_httpStatus,
+    createFaceLivenessSessionResponse_sessionId,
+
     -- ** CreateProject
     createProject_projectName,
     createProjectResponse_projectArn,
@@ -82,6 +100,12 @@ module Amazonka.Rekognition.Lens
     createStreamProcessorResponse_streamProcessorArn,
     createStreamProcessorResponse_httpStatus,
 
+    -- ** CreateUser
+    createUser_clientRequestToken,
+    createUser_collectionId,
+    createUser_userId,
+    createUserResponse_httpStatus,
+
     -- ** DeleteCollection
     deleteCollection_collectionId,
     deleteCollectionResponse_statusCode,
@@ -95,6 +119,7 @@ module Amazonka.Rekognition.Lens
     deleteFaces_collectionId,
     deleteFaces_faceIds,
     deleteFacesResponse_deletedFaces,
+    deleteFacesResponse_unsuccessfulFaceDeletions,
     deleteFacesResponse_httpStatus,
 
     -- ** DeleteProject
@@ -117,12 +142,19 @@ module Amazonka.Rekognition.Lens
     deleteStreamProcessor_name,
     deleteStreamProcessorResponse_httpStatus,
 
+    -- ** DeleteUser
+    deleteUser_clientRequestToken,
+    deleteUser_collectionId,
+    deleteUser_userId,
+    deleteUserResponse_httpStatus,
+
     -- ** DescribeCollection
     describeCollection_collectionId,
     describeCollectionResponse_collectionARN,
     describeCollectionResponse_creationTimestamp,
     describeCollectionResponse_faceCount,
     describeCollectionResponse_faceModelVersion,
+    describeCollectionResponse_userCount,
     describeCollectionResponse_httpStatus,
 
     -- ** DescribeDataset
@@ -216,6 +248,16 @@ module Amazonka.Rekognition.Lens
     detectTextResponse_textModelVersion,
     detectTextResponse_httpStatus,
 
+    -- ** DisassociateFaces
+    disassociateFaces_clientRequestToken,
+    disassociateFaces_collectionId,
+    disassociateFaces_userId,
+    disassociateFaces_faceIds,
+    disassociateFacesResponse_disassociatedFaces,
+    disassociateFacesResponse_unsuccessfulFaceDisassociations,
+    disassociateFacesResponse_userStatus,
+    disassociateFacesResponse_httpStatus,
+
     -- ** DistributeDatasetEntries
     distributeDatasetEntries_datasets,
     distributeDatasetEntriesResponse_httpStatus,
@@ -233,22 +275,30 @@ module Amazonka.Rekognition.Lens
     getCelebrityRecognition_sortBy,
     getCelebrityRecognition_jobId,
     getCelebrityRecognitionResponse_celebrities,
+    getCelebrityRecognitionResponse_jobId,
     getCelebrityRecognitionResponse_jobStatus,
+    getCelebrityRecognitionResponse_jobTag,
     getCelebrityRecognitionResponse_nextToken,
     getCelebrityRecognitionResponse_statusMessage,
+    getCelebrityRecognitionResponse_video,
     getCelebrityRecognitionResponse_videoMetadata,
     getCelebrityRecognitionResponse_httpStatus,
 
     -- ** GetContentModeration
+    getContentModeration_aggregateBy,
     getContentModeration_maxResults,
     getContentModeration_nextToken,
     getContentModeration_sortBy,
     getContentModeration_jobId,
+    getContentModerationResponse_getRequestMetadata,
+    getContentModerationResponse_jobId,
     getContentModerationResponse_jobStatus,
+    getContentModerationResponse_jobTag,
     getContentModerationResponse_moderationLabels,
     getContentModerationResponse_moderationModelVersion,
     getContentModerationResponse_nextToken,
     getContentModerationResponse_statusMessage,
+    getContentModerationResponse_video,
     getContentModerationResponse_videoMetadata,
     getContentModerationResponse_httpStatus,
 
@@ -257,21 +307,36 @@ module Amazonka.Rekognition.Lens
     getFaceDetection_nextToken,
     getFaceDetection_jobId,
     getFaceDetectionResponse_faces,
+    getFaceDetectionResponse_jobId,
     getFaceDetectionResponse_jobStatus,
+    getFaceDetectionResponse_jobTag,
     getFaceDetectionResponse_nextToken,
     getFaceDetectionResponse_statusMessage,
+    getFaceDetectionResponse_video,
     getFaceDetectionResponse_videoMetadata,
     getFaceDetectionResponse_httpStatus,
+
+    -- ** GetFaceLivenessSessionResults
+    getFaceLivenessSessionResults_sessionId,
+    getFaceLivenessSessionResultsResponse_auditImages,
+    getFaceLivenessSessionResultsResponse_confidence,
+    getFaceLivenessSessionResultsResponse_referenceImage,
+    getFaceLivenessSessionResultsResponse_httpStatus,
+    getFaceLivenessSessionResultsResponse_sessionId,
+    getFaceLivenessSessionResultsResponse_status,
 
     -- ** GetFaceSearch
     getFaceSearch_maxResults,
     getFaceSearch_nextToken,
     getFaceSearch_sortBy,
     getFaceSearch_jobId,
+    getFaceSearchResponse_jobId,
     getFaceSearchResponse_jobStatus,
+    getFaceSearchResponse_jobTag,
     getFaceSearchResponse_nextToken,
     getFaceSearchResponse_persons,
     getFaceSearchResponse_statusMessage,
+    getFaceSearchResponse_video,
     getFaceSearchResponse_videoMetadata,
     getFaceSearchResponse_httpStatus,
 
@@ -281,11 +346,15 @@ module Amazonka.Rekognition.Lens
     getLabelDetection_nextToken,
     getLabelDetection_sortBy,
     getLabelDetection_jobId,
+    getLabelDetectionResponse_getRequestMetadata,
+    getLabelDetectionResponse_jobId,
     getLabelDetectionResponse_jobStatus,
+    getLabelDetectionResponse_jobTag,
     getLabelDetectionResponse_labelModelVersion,
     getLabelDetectionResponse_labels,
     getLabelDetectionResponse_nextToken,
     getLabelDetectionResponse_statusMessage,
+    getLabelDetectionResponse_video,
     getLabelDetectionResponse_videoMetadata,
     getLabelDetectionResponse_httpStatus,
 
@@ -294,10 +363,13 @@ module Amazonka.Rekognition.Lens
     getPersonTracking_nextToken,
     getPersonTracking_sortBy,
     getPersonTracking_jobId,
+    getPersonTrackingResponse_jobId,
     getPersonTrackingResponse_jobStatus,
+    getPersonTrackingResponse_jobTag,
     getPersonTrackingResponse_nextToken,
     getPersonTrackingResponse_persons,
     getPersonTrackingResponse_statusMessage,
+    getPersonTrackingResponse_video,
     getPersonTrackingResponse_videoMetadata,
     getPersonTrackingResponse_httpStatus,
 
@@ -306,11 +378,14 @@ module Amazonka.Rekognition.Lens
     getSegmentDetection_nextToken,
     getSegmentDetection_jobId,
     getSegmentDetectionResponse_audioMetadata,
+    getSegmentDetectionResponse_jobId,
     getSegmentDetectionResponse_jobStatus,
+    getSegmentDetectionResponse_jobTag,
     getSegmentDetectionResponse_nextToken,
     getSegmentDetectionResponse_segments,
     getSegmentDetectionResponse_selectedSegmentTypes,
     getSegmentDetectionResponse_statusMessage,
+    getSegmentDetectionResponse_video,
     getSegmentDetectionResponse_videoMetadata,
     getSegmentDetectionResponse_httpStatus,
 
@@ -318,11 +393,14 @@ module Amazonka.Rekognition.Lens
     getTextDetection_maxResults,
     getTextDetection_nextToken,
     getTextDetection_jobId,
+    getTextDetectionResponse_jobId,
     getTextDetectionResponse_jobStatus,
+    getTextDetectionResponse_jobTag,
     getTextDetectionResponse_nextToken,
     getTextDetectionResponse_statusMessage,
     getTextDetectionResponse_textDetections,
     getTextDetectionResponse_textModelVersion,
+    getTextDetectionResponse_video,
     getTextDetectionResponse_videoMetadata,
     getTextDetectionResponse_httpStatus,
 
@@ -368,8 +446,10 @@ module Amazonka.Rekognition.Lens
     listDatasetLabelsResponse_httpStatus,
 
     -- ** ListFaces
+    listFaces_faceIds,
     listFaces_maxResults,
     listFaces_nextToken,
+    listFaces_userId,
     listFaces_collectionId,
     listFacesResponse_faceModelVersion,
     listFacesResponse_faces,
@@ -395,6 +475,14 @@ module Amazonka.Rekognition.Lens
     listTagsForResource_resourceArn,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
+
+    -- ** ListUsers
+    listUsers_maxResults,
+    listUsers_nextToken,
+    listUsers_collectionId,
+    listUsersResponse_nextToken,
+    listUsersResponse_users,
+    listUsersResponse_httpStatus,
 
     -- ** PutProjectPolicy
     putProjectPolicy_policyRevisionId,
@@ -432,6 +520,30 @@ module Amazonka.Rekognition.Lens
     searchFacesByImageResponse_searchedFaceBoundingBox,
     searchFacesByImageResponse_searchedFaceConfidence,
     searchFacesByImageResponse_httpStatus,
+
+    -- ** SearchUsers
+    searchUsers_faceId,
+    searchUsers_maxUsers,
+    searchUsers_userId,
+    searchUsers_userMatchThreshold,
+    searchUsers_collectionId,
+    searchUsersResponse_faceModelVersion,
+    searchUsersResponse_searchedFace,
+    searchUsersResponse_searchedUser,
+    searchUsersResponse_userMatches,
+    searchUsersResponse_httpStatus,
+
+    -- ** SearchUsersByImage
+    searchUsersByImage_maxUsers,
+    searchUsersByImage_qualityFilter,
+    searchUsersByImage_userMatchThreshold,
+    searchUsersByImage_collectionId,
+    searchUsersByImage_image,
+    searchUsersByImageResponse_faceModelVersion,
+    searchUsersByImageResponse_searchedFace,
+    searchUsersByImageResponse_unsearchedFaces,
+    searchUsersByImageResponse_userMatches,
+    searchUsersByImageResponse_httpStatus,
 
     -- ** StartCelebrityRecognition
     startCelebrityRecognition_clientRequestToken,
@@ -562,11 +674,19 @@ module Amazonka.Rekognition.Lens
     -- ** Asset
     asset_groundTruthManifest,
 
+    -- ** AssociatedFace
+    associatedFace_faceId,
+
     -- ** AudioMetadata
     audioMetadata_codec,
     audioMetadata_durationMillis,
     audioMetadata_numberOfChannels,
     audioMetadata_sampleRate,
+
+    -- ** AuditImage
+    auditImage_boundingBox,
+    auditImage_bytes,
+    auditImage_s3Object,
 
     -- ** Beard
     beard_confidence,
@@ -629,12 +749,19 @@ module Amazonka.Rekognition.Lens
     connectedHomeSettingsForUpdate_minConfidence,
 
     -- ** ContentModerationDetection
+    contentModerationDetection_durationMillis,
+    contentModerationDetection_endTimestampMillis,
     contentModerationDetection_moderationLabel,
+    contentModerationDetection_startTimestampMillis,
     contentModerationDetection_timestamp,
 
     -- ** CoversBodyPart
     coversBodyPart_confidence,
     coversBodyPart_value,
+
+    -- ** CreateFaceLivenessSessionRequestSettings
+    createFaceLivenessSessionRequestSettings_auditImagesLimit,
+    createFaceLivenessSessionRequestSettings_outputConfig,
 
     -- ** CustomLabel
     customLabel_confidence,
@@ -713,6 +840,9 @@ module Amazonka.Rekognition.Lens
     detectionFilter_minBoundingBoxWidth,
     detectionFilter_minConfidence,
 
+    -- ** DisassociatedFace
+    disassociatedFace_faceId,
+
     -- ** DistributeDataset
     distributeDataset_arn,
 
@@ -739,6 +869,11 @@ module Amazonka.Rekognition.Lens
     evaluationResult_f1Score,
     evaluationResult_summary,
 
+    -- ** EyeDirection
+    eyeDirection_confidence,
+    eyeDirection_pitch,
+    eyeDirection_yaw,
+
     -- ** EyeOpen
     eyeOpen_confidence,
     eyeOpen_value,
@@ -754,6 +889,7 @@ module Amazonka.Rekognition.Lens
     face_faceId,
     face_imageId,
     face_indexFacesModelVersion,
+    face_userId,
 
     -- ** FaceDetail
     faceDetail_ageRange,
@@ -761,8 +897,10 @@ module Amazonka.Rekognition.Lens
     faceDetail_boundingBox,
     faceDetail_confidence,
     faceDetail_emotions,
+    faceDetail_eyeDirection,
     faceDetail_eyeglasses,
     faceDetail_eyesOpen,
+    faceDetail_faceOccluded,
     faceDetail_gender,
     faceDetail_landmarks,
     faceDetail_mouthOpen,
@@ -779,6 +917,10 @@ module Amazonka.Rekognition.Lens
     -- ** FaceMatch
     faceMatch_face,
     faceMatch_similarity,
+
+    -- ** FaceOccluded
+    faceOccluded_confidence,
+    faceOccluded_value,
 
     -- ** FaceRecord
     faceRecord_face,
@@ -801,6 +943,14 @@ module Amazonka.Rekognition.Lens
     -- ** Geometry
     geometry_boundingBox,
     geometry_polygon,
+
+    -- ** GetContentModerationRequestMetadata
+    getContentModerationRequestMetadata_aggregateBy,
+    getContentModerationRequestMetadata_sortBy,
+
+    -- ** GetLabelDetectionRequestMetadata
+    getLabelDetectionRequestMetadata_aggregateBy,
+    getLabelDetectionRequestMetadata_sortBy,
 
     -- ** GroundTruthManifest
     groundTruthManifest_s3Object,
@@ -872,6 +1022,14 @@ module Amazonka.Rekognition.Lens
     landmark_type,
     landmark_x,
     landmark_y,
+
+    -- ** LivenessOutputConfig
+    livenessOutputConfig_s3KeyPrefix,
+    livenessOutputConfig_s3Bucket,
+
+    -- ** MatchedUser
+    matchedUser_userId,
+    matchedUser_userStatus,
 
     -- ** ModerationLabel
     moderationLabel_confidence,
@@ -983,6 +1141,15 @@ module Amazonka.Rekognition.Lens
     s3Object_bucket,
     s3Object_name,
     s3Object_version,
+
+    -- ** SearchedFace
+    searchedFace_faceId,
+
+    -- ** SearchedFaceDetails
+    searchedFaceDetails_faceDetail,
+
+    -- ** SearchedUser
+    searchedUser_userId,
 
     -- ** SegmentDetection
     segmentDetection_durationFrames,
@@ -1099,6 +1266,34 @@ module Amazonka.Rekognition.Lens
     unindexedFace_faceDetail,
     unindexedFace_reasons,
 
+    -- ** UnsearchedFace
+    unsearchedFace_faceDetails,
+    unsearchedFace_reasons,
+
+    -- ** UnsuccessfulFaceAssociation
+    unsuccessfulFaceAssociation_confidence,
+    unsuccessfulFaceAssociation_faceId,
+    unsuccessfulFaceAssociation_reasons,
+    unsuccessfulFaceAssociation_userId,
+
+    -- ** UnsuccessfulFaceDeletion
+    unsuccessfulFaceDeletion_faceId,
+    unsuccessfulFaceDeletion_reasons,
+    unsuccessfulFaceDeletion_userId,
+
+    -- ** UnsuccessfulFaceDisassociation
+    unsuccessfulFaceDisassociation_faceId,
+    unsuccessfulFaceDisassociation_reasons,
+    unsuccessfulFaceDisassociation_userId,
+
+    -- ** User
+    user_userId,
+    user_userStatus,
+
+    -- ** UserMatch
+    userMatch_similarity,
+    userMatch_user,
+
     -- ** ValidationData
     validationData_assets,
 
@@ -1116,13 +1311,16 @@ module Amazonka.Rekognition.Lens
   )
 where
 
+import Amazonka.Rekognition.AssociateFaces
 import Amazonka.Rekognition.CompareFaces
 import Amazonka.Rekognition.CopyProjectVersion
 import Amazonka.Rekognition.CreateCollection
 import Amazonka.Rekognition.CreateDataset
+import Amazonka.Rekognition.CreateFaceLivenessSession
 import Amazonka.Rekognition.CreateProject
 import Amazonka.Rekognition.CreateProjectVersion
 import Amazonka.Rekognition.CreateStreamProcessor
+import Amazonka.Rekognition.CreateUser
 import Amazonka.Rekognition.DeleteCollection
 import Amazonka.Rekognition.DeleteDataset
 import Amazonka.Rekognition.DeleteFaces
@@ -1130,6 +1328,7 @@ import Amazonka.Rekognition.DeleteProject
 import Amazonka.Rekognition.DeleteProjectPolicy
 import Amazonka.Rekognition.DeleteProjectVersion
 import Amazonka.Rekognition.DeleteStreamProcessor
+import Amazonka.Rekognition.DeleteUser
 import Amazonka.Rekognition.DescribeCollection
 import Amazonka.Rekognition.DescribeDataset
 import Amazonka.Rekognition.DescribeProjectVersions
@@ -1141,11 +1340,13 @@ import Amazonka.Rekognition.DetectLabels
 import Amazonka.Rekognition.DetectModerationLabels
 import Amazonka.Rekognition.DetectProtectiveEquipment
 import Amazonka.Rekognition.DetectText
+import Amazonka.Rekognition.DisassociateFaces
 import Amazonka.Rekognition.DistributeDatasetEntries
 import Amazonka.Rekognition.GetCelebrityInfo
 import Amazonka.Rekognition.GetCelebrityRecognition
 import Amazonka.Rekognition.GetContentModeration
 import Amazonka.Rekognition.GetFaceDetection
+import Amazonka.Rekognition.GetFaceLivenessSessionResults
 import Amazonka.Rekognition.GetFaceSearch
 import Amazonka.Rekognition.GetLabelDetection
 import Amazonka.Rekognition.GetPersonTracking
@@ -1159,10 +1360,13 @@ import Amazonka.Rekognition.ListFaces
 import Amazonka.Rekognition.ListProjectPolicies
 import Amazonka.Rekognition.ListStreamProcessors
 import Amazonka.Rekognition.ListTagsForResource
+import Amazonka.Rekognition.ListUsers
 import Amazonka.Rekognition.PutProjectPolicy
 import Amazonka.Rekognition.RecognizeCelebrities
 import Amazonka.Rekognition.SearchFaces
 import Amazonka.Rekognition.SearchFacesByImage
+import Amazonka.Rekognition.SearchUsers
+import Amazonka.Rekognition.SearchUsersByImage
 import Amazonka.Rekognition.StartCelebrityRecognition
 import Amazonka.Rekognition.StartContentModeration
 import Amazonka.Rekognition.StartFaceDetection
@@ -1178,7 +1382,9 @@ import Amazonka.Rekognition.StopStreamProcessor
 import Amazonka.Rekognition.TagResource
 import Amazonka.Rekognition.Types.AgeRange
 import Amazonka.Rekognition.Types.Asset
+import Amazonka.Rekognition.Types.AssociatedFace
 import Amazonka.Rekognition.Types.AudioMetadata
+import Amazonka.Rekognition.Types.AuditImage
 import Amazonka.Rekognition.Types.Beard
 import Amazonka.Rekognition.Types.BlackFrame
 import Amazonka.Rekognition.Types.BoundingBox
@@ -1192,6 +1398,7 @@ import Amazonka.Rekognition.Types.ConnectedHomeSettings
 import Amazonka.Rekognition.Types.ConnectedHomeSettingsForUpdate
 import Amazonka.Rekognition.Types.ContentModerationDetection
 import Amazonka.Rekognition.Types.CoversBodyPart
+import Amazonka.Rekognition.Types.CreateFaceLivenessSessionRequestSettings
 import Amazonka.Rekognition.Types.CustomLabel
 import Amazonka.Rekognition.Types.DatasetChanges
 import Amazonka.Rekognition.Types.DatasetDescription
@@ -1208,22 +1415,27 @@ import Amazonka.Rekognition.Types.DetectLabelsImageQuality
 import Amazonka.Rekognition.Types.DetectLabelsSettings
 import Amazonka.Rekognition.Types.DetectTextFilters
 import Amazonka.Rekognition.Types.DetectionFilter
+import Amazonka.Rekognition.Types.DisassociatedFace
 import Amazonka.Rekognition.Types.DistributeDataset
 import Amazonka.Rekognition.Types.DominantColor
 import Amazonka.Rekognition.Types.Emotion
 import Amazonka.Rekognition.Types.EquipmentDetection
 import Amazonka.Rekognition.Types.EvaluationResult
+import Amazonka.Rekognition.Types.EyeDirection
 import Amazonka.Rekognition.Types.EyeOpen
 import Amazonka.Rekognition.Types.Eyeglasses
 import Amazonka.Rekognition.Types.Face
 import Amazonka.Rekognition.Types.FaceDetail
 import Amazonka.Rekognition.Types.FaceDetection
 import Amazonka.Rekognition.Types.FaceMatch
+import Amazonka.Rekognition.Types.FaceOccluded
 import Amazonka.Rekognition.Types.FaceRecord
 import Amazonka.Rekognition.Types.FaceSearchSettings
 import Amazonka.Rekognition.Types.Gender
 import Amazonka.Rekognition.Types.GeneralLabelsSettings
 import Amazonka.Rekognition.Types.Geometry
+import Amazonka.Rekognition.Types.GetContentModerationRequestMetadata
+import Amazonka.Rekognition.Types.GetLabelDetectionRequestMetadata
 import Amazonka.Rekognition.Types.GroundTruthManifest
 import Amazonka.Rekognition.Types.HumanLoopActivationOutput
 import Amazonka.Rekognition.Types.HumanLoopConfig
@@ -1241,6 +1453,8 @@ import Amazonka.Rekognition.Types.LabelCategory
 import Amazonka.Rekognition.Types.LabelDetection
 import Amazonka.Rekognition.Types.LabelDetectionSettings
 import Amazonka.Rekognition.Types.Landmark
+import Amazonka.Rekognition.Types.LivenessOutputConfig
+import Amazonka.Rekognition.Types.MatchedUser
 import Amazonka.Rekognition.Types.ModerationLabel
 import Amazonka.Rekognition.Types.MouthOpen
 import Amazonka.Rekognition.Types.Mustache
@@ -1262,6 +1476,9 @@ import Amazonka.Rekognition.Types.ProtectiveEquipmentSummary
 import Amazonka.Rekognition.Types.RegionOfInterest
 import Amazonka.Rekognition.Types.S3Destination
 import Amazonka.Rekognition.Types.S3Object
+import Amazonka.Rekognition.Types.SearchedFace
+import Amazonka.Rekognition.Types.SearchedFaceDetails
+import Amazonka.Rekognition.Types.SearchedUser
 import Amazonka.Rekognition.Types.SegmentDetection
 import Amazonka.Rekognition.Types.SegmentTypeInfo
 import Amazonka.Rekognition.Types.ShotSegment
@@ -1289,6 +1506,12 @@ import Amazonka.Rekognition.Types.TextDetectionResult
 import Amazonka.Rekognition.Types.TrainingData
 import Amazonka.Rekognition.Types.TrainingDataResult
 import Amazonka.Rekognition.Types.UnindexedFace
+import Amazonka.Rekognition.Types.UnsearchedFace
+import Amazonka.Rekognition.Types.UnsuccessfulFaceAssociation
+import Amazonka.Rekognition.Types.UnsuccessfulFaceDeletion
+import Amazonka.Rekognition.Types.UnsuccessfulFaceDisassociation
+import Amazonka.Rekognition.Types.User
+import Amazonka.Rekognition.Types.UserMatch
 import Amazonka.Rekognition.Types.ValidationData
 import Amazonka.Rekognition.Types.Video
 import Amazonka.Rekognition.Types.VideoMetadata

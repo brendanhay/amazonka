@@ -25,6 +25,9 @@
 -- To attach a project policy to a project, call PutProjectPolicy. To
 -- remove a project policy from a project, call DeleteProjectPolicy.
 --
+-- This operation requires permissions to perform the
+-- @rekognition:ListProjectPolicies@ action.
+--
 -- This operation returns paginated results.
 module Amazonka.Rekognition.ListProjectPolicies
   ( -- * Creating a Request
@@ -122,22 +125,22 @@ instance Core.AWSPager ListProjectPolicies where
     | Core.stop
         ( rs
             Lens.^? listProjectPoliciesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listProjectPoliciesResponse_projectPolicies
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listProjectPolicies_nextToken
           Lens..~ rs
           Lens.^? listProjectPoliciesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProjectPolicies where
   type
@@ -150,7 +153,8 @@ instance Core.AWSRequest ListProjectPolicies where
       ( \s h x ->
           ListProjectPoliciesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ProjectPolicies"
+            Prelude.<*> ( x
+                            Data..?> "ProjectPolicies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -158,7 +162,8 @@ instance Core.AWSRequest ListProjectPolicies where
 
 instance Prelude.Hashable ListProjectPolicies where
   hashWithSalt _salt ListProjectPolicies' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` projectArn
 

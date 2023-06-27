@@ -79,7 +79,8 @@ instance Data.FromJSON FaceMatch where
 
 instance Prelude.Hashable FaceMatch where
   hashWithSalt _salt FaceMatch' {..} =
-    _salt `Prelude.hashWithSalt` face
+    _salt
+      `Prelude.hashWithSalt` face
       `Prelude.hashWithSalt` similarity
 
 instance Prelude.NFData FaceMatch where

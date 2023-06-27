@@ -125,7 +125,8 @@ instance Data.FromJSON UnindexedFace where
 
 instance Prelude.Hashable UnindexedFace where
   hashWithSalt _salt UnindexedFace' {..} =
-    _salt `Prelude.hashWithSalt` faceDetail
+    _salt
+      `Prelude.hashWithSalt` faceDetail
       `Prelude.hashWithSalt` reasons
 
 instance Prelude.NFData UnindexedFace where

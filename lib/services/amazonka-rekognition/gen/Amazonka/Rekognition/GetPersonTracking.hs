@@ -71,10 +71,13 @@ module Amazonka.Rekognition.GetPersonTracking
     newGetPersonTrackingResponse,
 
     -- * Response Lenses
+    getPersonTrackingResponse_jobId,
     getPersonTrackingResponse_jobStatus,
+    getPersonTrackingResponse_jobTag,
     getPersonTrackingResponse_nextToken,
     getPersonTrackingResponse_persons,
     getPersonTrackingResponse_statusMessage,
+    getPersonTrackingResponse_video,
     getPersonTrackingResponse_videoMetadata,
     getPersonTrackingResponse_httpStatus,
   )
@@ -184,17 +187,21 @@ instance Core.AWSRequest GetPersonTracking where
     Response.receiveJSON
       ( \s h x ->
           GetPersonTrackingResponse'
-            Prelude.<$> (x Data..?> "JobStatus")
+            Prelude.<$> (x Data..?> "JobId")
+            Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "JobTag")
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "Persons" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "StatusMessage")
+            Prelude.<*> (x Data..?> "Video")
             Prelude.<*> (x Data..?> "VideoMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetPersonTracking where
   hashWithSalt _salt GetPersonTracking' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` jobId
@@ -240,8 +247,16 @@ instance Data.ToQuery GetPersonTracking where
 
 -- | /See:/ 'newGetPersonTrackingResponse' smart constructor.
 data GetPersonTrackingResponse = GetPersonTrackingResponse'
-  { -- | The current status of the person tracking job.
+  { -- | Job identifier for the person tracking operation for which you want to
+    -- obtain results. The job identifer is returned by an initial call to
+    -- StartPersonTracking.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the person tracking job.
     jobStatus :: Prelude.Maybe VideoJobStatus,
+    -- | A job identifier specified in the call to StartCelebrityRecognition and
+    -- returned in the job completion notification sent to your Amazon Simple
+    -- Notification Service topic.
+    jobTag :: Prelude.Maybe Prelude.Text,
     -- | If the response is truncated, Amazon Rekognition Video returns this
     -- token that you can use in the subsequent request to retrieve the next
     -- set of persons.
@@ -252,6 +267,7 @@ data GetPersonTrackingResponse = GetPersonTrackingResponse'
     persons :: Prelude.Maybe [PersonDetection],
     -- | If the job fails, @StatusMessage@ provides a descriptive error message.
     statusMessage :: Prelude.Maybe Prelude.Text,
+    video :: Prelude.Maybe Video,
     -- | Information about a video that Amazon Rekognition Video analyzed.
     -- @Videometadata@ is returned in every page of paginated responses from a
     -- Amazon Rekognition Video operation.
@@ -269,7 +285,15 @@ data GetPersonTrackingResponse = GetPersonTrackingResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobId', 'getPersonTrackingResponse_jobId' - Job identifier for the person tracking operation for which you want to
+-- obtain results. The job identifer is returned by an initial call to
+-- StartPersonTracking.
+--
 -- 'jobStatus', 'getPersonTrackingResponse_jobStatus' - The current status of the person tracking job.
+--
+-- 'jobTag', 'getPersonTrackingResponse_jobTag' - A job identifier specified in the call to StartCelebrityRecognition and
+-- returned in the job completion notification sent to your Amazon Simple
+-- Notification Service topic.
 --
 -- 'nextToken', 'getPersonTrackingResponse_nextToken' - If the response is truncated, Amazon Rekognition Video returns this
 -- token that you can use in the subsequent request to retrieve the next
@@ -280,6 +304,8 @@ data GetPersonTrackingResponse = GetPersonTrackingResponse'
 -- time a person\'s path is tracked.
 --
 -- 'statusMessage', 'getPersonTrackingResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
+--
+-- 'video', 'getPersonTrackingResponse_video' - Undocumented member.
 --
 -- 'videoMetadata', 'getPersonTrackingResponse_videoMetadata' - Information about a video that Amazon Rekognition Video analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from a
@@ -292,18 +318,32 @@ newGetPersonTrackingResponse ::
   GetPersonTrackingResponse
 newGetPersonTrackingResponse pHttpStatus_ =
   GetPersonTrackingResponse'
-    { jobStatus =
-        Prelude.Nothing,
+    { jobId = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
+      jobTag = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       persons = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
+      video = Prelude.Nothing,
       videoMetadata = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
+-- | Job identifier for the person tracking operation for which you want to
+-- obtain results. The job identifer is returned by an initial call to
+-- StartPersonTracking.
+getPersonTrackingResponse_jobId :: Lens.Lens' GetPersonTrackingResponse (Prelude.Maybe Prelude.Text)
+getPersonTrackingResponse_jobId = Lens.lens (\GetPersonTrackingResponse' {jobId} -> jobId) (\s@GetPersonTrackingResponse' {} a -> s {jobId = a} :: GetPersonTrackingResponse)
+
 -- | The current status of the person tracking job.
 getPersonTrackingResponse_jobStatus :: Lens.Lens' GetPersonTrackingResponse (Prelude.Maybe VideoJobStatus)
 getPersonTrackingResponse_jobStatus = Lens.lens (\GetPersonTrackingResponse' {jobStatus} -> jobStatus) (\s@GetPersonTrackingResponse' {} a -> s {jobStatus = a} :: GetPersonTrackingResponse)
+
+-- | A job identifier specified in the call to StartCelebrityRecognition and
+-- returned in the job completion notification sent to your Amazon Simple
+-- Notification Service topic.
+getPersonTrackingResponse_jobTag :: Lens.Lens' GetPersonTrackingResponse (Prelude.Maybe Prelude.Text)
+getPersonTrackingResponse_jobTag = Lens.lens (\GetPersonTrackingResponse' {jobTag} -> jobTag) (\s@GetPersonTrackingResponse' {} a -> s {jobTag = a} :: GetPersonTrackingResponse)
 
 -- | If the response is truncated, Amazon Rekognition Video returns this
 -- token that you can use in the subsequent request to retrieve the next
@@ -321,6 +361,10 @@ getPersonTrackingResponse_persons = Lens.lens (\GetPersonTrackingResponse' {pers
 getPersonTrackingResponse_statusMessage :: Lens.Lens' GetPersonTrackingResponse (Prelude.Maybe Prelude.Text)
 getPersonTrackingResponse_statusMessage = Lens.lens (\GetPersonTrackingResponse' {statusMessage} -> statusMessage) (\s@GetPersonTrackingResponse' {} a -> s {statusMessage = a} :: GetPersonTrackingResponse)
 
+-- | Undocumented member.
+getPersonTrackingResponse_video :: Lens.Lens' GetPersonTrackingResponse (Prelude.Maybe Video)
+getPersonTrackingResponse_video = Lens.lens (\GetPersonTrackingResponse' {video} -> video) (\s@GetPersonTrackingResponse' {} a -> s {video = a} :: GetPersonTrackingResponse)
+
 -- | Information about a video that Amazon Rekognition Video analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from a
 -- Amazon Rekognition Video operation.
@@ -333,9 +377,12 @@ getPersonTrackingResponse_httpStatus = Lens.lens (\GetPersonTrackingResponse' {h
 
 instance Prelude.NFData GetPersonTrackingResponse where
   rnf GetPersonTrackingResponse' {..} =
-    Prelude.rnf jobStatus
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobTag
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf persons
       `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf video
       `Prelude.seq` Prelude.rnf videoMetadata
       `Prelude.seq` Prelude.rnf httpStatus

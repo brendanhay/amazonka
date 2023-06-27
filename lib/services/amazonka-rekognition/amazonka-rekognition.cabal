@@ -44,13 +44,16 @@ library
 
   exposed-modules:
     Amazonka.Rekognition
+    Amazonka.Rekognition.AssociateFaces
     Amazonka.Rekognition.CompareFaces
     Amazonka.Rekognition.CopyProjectVersion
     Amazonka.Rekognition.CreateCollection
     Amazonka.Rekognition.CreateDataset
+    Amazonka.Rekognition.CreateFaceLivenessSession
     Amazonka.Rekognition.CreateProject
     Amazonka.Rekognition.CreateProjectVersion
     Amazonka.Rekognition.CreateStreamProcessor
+    Amazonka.Rekognition.CreateUser
     Amazonka.Rekognition.DeleteCollection
     Amazonka.Rekognition.DeleteDataset
     Amazonka.Rekognition.DeleteFaces
@@ -58,6 +61,7 @@ library
     Amazonka.Rekognition.DeleteProjectPolicy
     Amazonka.Rekognition.DeleteProjectVersion
     Amazonka.Rekognition.DeleteStreamProcessor
+    Amazonka.Rekognition.DeleteUser
     Amazonka.Rekognition.DescribeCollection
     Amazonka.Rekognition.DescribeDataset
     Amazonka.Rekognition.DescribeProjects
@@ -69,11 +73,13 @@ library
     Amazonka.Rekognition.DetectModerationLabels
     Amazonka.Rekognition.DetectProtectiveEquipment
     Amazonka.Rekognition.DetectText
+    Amazonka.Rekognition.DisassociateFaces
     Amazonka.Rekognition.DistributeDatasetEntries
     Amazonka.Rekognition.GetCelebrityInfo
     Amazonka.Rekognition.GetCelebrityRecognition
     Amazonka.Rekognition.GetContentModeration
     Amazonka.Rekognition.GetFaceDetection
+    Amazonka.Rekognition.GetFaceLivenessSessionResults
     Amazonka.Rekognition.GetFaceSearch
     Amazonka.Rekognition.GetLabelDetection
     Amazonka.Rekognition.GetPersonTracking
@@ -88,10 +94,13 @@ library
     Amazonka.Rekognition.ListProjectPolicies
     Amazonka.Rekognition.ListStreamProcessors
     Amazonka.Rekognition.ListTagsForResource
+    Amazonka.Rekognition.ListUsers
     Amazonka.Rekognition.PutProjectPolicy
     Amazonka.Rekognition.RecognizeCelebrities
     Amazonka.Rekognition.SearchFaces
     Amazonka.Rekognition.SearchFacesByImage
+    Amazonka.Rekognition.SearchUsers
+    Amazonka.Rekognition.SearchUsersByImage
     Amazonka.Rekognition.StartCelebrityRecognition
     Amazonka.Rekognition.StartContentModeration
     Amazonka.Rekognition.StartFaceDetection
@@ -108,8 +117,10 @@ library
     Amazonka.Rekognition.Types
     Amazonka.Rekognition.Types.AgeRange
     Amazonka.Rekognition.Types.Asset
+    Amazonka.Rekognition.Types.AssociatedFace
     Amazonka.Rekognition.Types.Attribute
     Amazonka.Rekognition.Types.AudioMetadata
+    Amazonka.Rekognition.Types.AuditImage
     Amazonka.Rekognition.Types.Beard
     Amazonka.Rekognition.Types.BlackFrame
     Amazonka.Rekognition.Types.BodyPart
@@ -124,9 +135,11 @@ library
     Amazonka.Rekognition.Types.ConnectedHomeSettings
     Amazonka.Rekognition.Types.ConnectedHomeSettingsForUpdate
     Amazonka.Rekognition.Types.ContentClassifier
+    Amazonka.Rekognition.Types.ContentModerationAggregateBy
     Amazonka.Rekognition.Types.ContentModerationDetection
     Amazonka.Rekognition.Types.ContentModerationSortBy
     Amazonka.Rekognition.Types.CoversBodyPart
+    Amazonka.Rekognition.Types.CreateFaceLivenessSessionRequestSettings
     Amazonka.Rekognition.Types.CustomLabel
     Amazonka.Rekognition.Types.DatasetChanges
     Amazonka.Rekognition.Types.DatasetDescription
@@ -147,12 +160,14 @@ library
     Amazonka.Rekognition.Types.DetectLabelsImageQuality
     Amazonka.Rekognition.Types.DetectLabelsSettings
     Amazonka.Rekognition.Types.DetectTextFilters
+    Amazonka.Rekognition.Types.DisassociatedFace
     Amazonka.Rekognition.Types.DistributeDataset
     Amazonka.Rekognition.Types.DominantColor
     Amazonka.Rekognition.Types.Emotion
     Amazonka.Rekognition.Types.EmotionName
     Amazonka.Rekognition.Types.EquipmentDetection
     Amazonka.Rekognition.Types.EvaluationResult
+    Amazonka.Rekognition.Types.EyeDirection
     Amazonka.Rekognition.Types.Eyeglasses
     Amazonka.Rekognition.Types.EyeOpen
     Amazonka.Rekognition.Types.Face
@@ -160,6 +175,7 @@ library
     Amazonka.Rekognition.Types.FaceDetail
     Amazonka.Rekognition.Types.FaceDetection
     Amazonka.Rekognition.Types.FaceMatch
+    Amazonka.Rekognition.Types.FaceOccluded
     Amazonka.Rekognition.Types.FaceRecord
     Amazonka.Rekognition.Types.FaceSearchSettings
     Amazonka.Rekognition.Types.FaceSearchSortBy
@@ -167,6 +183,8 @@ library
     Amazonka.Rekognition.Types.GenderType
     Amazonka.Rekognition.Types.GeneralLabelsSettings
     Amazonka.Rekognition.Types.Geometry
+    Amazonka.Rekognition.Types.GetContentModerationRequestMetadata
+    Amazonka.Rekognition.Types.GetLabelDetectionRequestMetadata
     Amazonka.Rekognition.Types.GroundTruthManifest
     Amazonka.Rekognition.Types.HumanLoopActivationOutput
     Amazonka.Rekognition.Types.HumanLoopConfig
@@ -189,6 +207,9 @@ library
     Amazonka.Rekognition.Types.LabelDetectionSortBy
     Amazonka.Rekognition.Types.Landmark
     Amazonka.Rekognition.Types.LandmarkType
+    Amazonka.Rekognition.Types.LivenessOutputConfig
+    Amazonka.Rekognition.Types.LivenessSessionStatus
+    Amazonka.Rekognition.Types.MatchedUser
     Amazonka.Rekognition.Types.ModerationLabel
     Amazonka.Rekognition.Types.MouthOpen
     Amazonka.Rekognition.Types.Mustache
@@ -217,6 +238,9 @@ library
     Amazonka.Rekognition.Types.RegionOfInterest
     Amazonka.Rekognition.Types.S3Destination
     Amazonka.Rekognition.Types.S3Object
+    Amazonka.Rekognition.Types.SearchedFace
+    Amazonka.Rekognition.Types.SearchedFaceDetails
+    Amazonka.Rekognition.Types.SearchedUser
     Amazonka.Rekognition.Types.SegmentDetection
     Amazonka.Rekognition.Types.SegmentType
     Amazonka.Rekognition.Types.SegmentTypeInfo
@@ -249,6 +273,17 @@ library
     Amazonka.Rekognition.Types.TrainingData
     Amazonka.Rekognition.Types.TrainingDataResult
     Amazonka.Rekognition.Types.UnindexedFace
+    Amazonka.Rekognition.Types.UnsearchedFace
+    Amazonka.Rekognition.Types.UnsearchedFaceReason
+    Amazonka.Rekognition.Types.UnsuccessfulFaceAssociation
+    Amazonka.Rekognition.Types.UnsuccessfulFaceAssociationReason
+    Amazonka.Rekognition.Types.UnsuccessfulFaceDeletion
+    Amazonka.Rekognition.Types.UnsuccessfulFaceDeletionReason
+    Amazonka.Rekognition.Types.UnsuccessfulFaceDisassociation
+    Amazonka.Rekognition.Types.UnsuccessfulFaceDisassociationReason
+    Amazonka.Rekognition.Types.User
+    Amazonka.Rekognition.Types.UserMatch
+    Amazonka.Rekognition.Types.UserStatus
     Amazonka.Rekognition.Types.ValidationData
     Amazonka.Rekognition.Types.Video
     Amazonka.Rekognition.Types.VideoColorRange

@@ -27,8 +27,10 @@ import Amazonka.Rekognition.Types.AgeRange
 import Amazonka.Rekognition.Types.Beard
 import Amazonka.Rekognition.Types.BoundingBox
 import Amazonka.Rekognition.Types.Emotion
+import Amazonka.Rekognition.Types.EyeDirection
 import Amazonka.Rekognition.Types.EyeOpen
 import Amazonka.Rekognition.Types.Eyeglasses
+import Amazonka.Rekognition.Types.FaceOccluded
 import Amazonka.Rekognition.Types.Gender
 import Amazonka.Rekognition.Types.ImageQuality
 import Amazonka.Rekognition.Types.Landmark
@@ -82,12 +84,23 @@ data FaceDetail = FaceDetail'
     -- a way. For example, a person pretending to have a sad face might not be
     -- sad emotionally.
     emotions :: Prelude.Maybe [Emotion],
+    -- | Indicates the direction the eyes are gazing in, as defined by pitch and
+    -- yaw.
+    eyeDirection :: Prelude.Maybe EyeDirection,
     -- | Indicates whether or not the face is wearing eye glasses, and the
     -- confidence level in the determination.
     eyeglasses :: Prelude.Maybe Eyeglasses,
     -- | Indicates whether or not the eyes on the face are open, and the
     -- confidence level in the determination.
     eyesOpen :: Prelude.Maybe EyeOpen,
+    -- | @FaceOccluded@ should return \"true\" with a high confidence score if a
+    -- detected face’s eyes, nose, and mouth are partially captured or if they
+    -- are covered by masks, dark sunglasses, cell phones, hands, or other
+    -- objects. @FaceOccluded@ should return \"false\" with a high confidence
+    -- score if common occurrences that do not impact face verification are
+    -- detected, such as eye glasses, lightly tinted sunglasses, strands of
+    -- hair, and others.
+    faceOccluded :: Prelude.Maybe FaceOccluded,
     -- | The predicted gender of a detected face.
     gender :: Prelude.Maybe Gender,
     -- | Indicates the location of landmarks on the face. Default attribute.
@@ -138,11 +151,22 @@ data FaceDetail = FaceDetail'
 -- a way. For example, a person pretending to have a sad face might not be
 -- sad emotionally.
 --
+-- 'eyeDirection', 'faceDetail_eyeDirection' - Indicates the direction the eyes are gazing in, as defined by pitch and
+-- yaw.
+--
 -- 'eyeglasses', 'faceDetail_eyeglasses' - Indicates whether or not the face is wearing eye glasses, and the
 -- confidence level in the determination.
 --
 -- 'eyesOpen', 'faceDetail_eyesOpen' - Indicates whether or not the eyes on the face are open, and the
 -- confidence level in the determination.
+--
+-- 'faceOccluded', 'faceDetail_faceOccluded' - @FaceOccluded@ should return \"true\" with a high confidence score if a
+-- detected face’s eyes, nose, and mouth are partially captured or if they
+-- are covered by masks, dark sunglasses, cell phones, hands, or other
+-- objects. @FaceOccluded@ should return \"false\" with a high confidence
+-- score if common occurrences that do not impact face verification are
+-- detected, such as eye glasses, lightly tinted sunglasses, strands of
+-- hair, and others.
 --
 -- 'gender', 'faceDetail_gender' - The predicted gender of a detected face.
 --
@@ -173,8 +197,10 @@ newFaceDetail =
       boundingBox = Prelude.Nothing,
       confidence = Prelude.Nothing,
       emotions = Prelude.Nothing,
+      eyeDirection = Prelude.Nothing,
       eyeglasses = Prelude.Nothing,
       eyesOpen = Prelude.Nothing,
+      faceOccluded = Prelude.Nothing,
       gender = Prelude.Nothing,
       landmarks = Prelude.Nothing,
       mouthOpen = Prelude.Nothing,
@@ -213,6 +239,11 @@ faceDetail_confidence = Lens.lens (\FaceDetail' {confidence} -> confidence) (\s@
 faceDetail_emotions :: Lens.Lens' FaceDetail (Prelude.Maybe [Emotion])
 faceDetail_emotions = Lens.lens (\FaceDetail' {emotions} -> emotions) (\s@FaceDetail' {} a -> s {emotions = a} :: FaceDetail) Prelude.. Lens.mapping Lens.coerced
 
+-- | Indicates the direction the eyes are gazing in, as defined by pitch and
+-- yaw.
+faceDetail_eyeDirection :: Lens.Lens' FaceDetail (Prelude.Maybe EyeDirection)
+faceDetail_eyeDirection = Lens.lens (\FaceDetail' {eyeDirection} -> eyeDirection) (\s@FaceDetail' {} a -> s {eyeDirection = a} :: FaceDetail)
+
 -- | Indicates whether or not the face is wearing eye glasses, and the
 -- confidence level in the determination.
 faceDetail_eyeglasses :: Lens.Lens' FaceDetail (Prelude.Maybe Eyeglasses)
@@ -222,6 +253,16 @@ faceDetail_eyeglasses = Lens.lens (\FaceDetail' {eyeglasses} -> eyeglasses) (\s@
 -- confidence level in the determination.
 faceDetail_eyesOpen :: Lens.Lens' FaceDetail (Prelude.Maybe EyeOpen)
 faceDetail_eyesOpen = Lens.lens (\FaceDetail' {eyesOpen} -> eyesOpen) (\s@FaceDetail' {} a -> s {eyesOpen = a} :: FaceDetail)
+
+-- | @FaceOccluded@ should return \"true\" with a high confidence score if a
+-- detected face’s eyes, nose, and mouth are partially captured or if they
+-- are covered by masks, dark sunglasses, cell phones, hands, or other
+-- objects. @FaceOccluded@ should return \"false\" with a high confidence
+-- score if common occurrences that do not impact face verification are
+-- detected, such as eye glasses, lightly tinted sunglasses, strands of
+-- hair, and others.
+faceDetail_faceOccluded :: Lens.Lens' FaceDetail (Prelude.Maybe FaceOccluded)
+faceDetail_faceOccluded = Lens.lens (\FaceDetail' {faceOccluded} -> faceOccluded) (\s@FaceDetail' {} a -> s {faceOccluded = a} :: FaceDetail)
 
 -- | The predicted gender of a detected face.
 faceDetail_gender :: Lens.Lens' FaceDetail (Prelude.Maybe Gender)
@@ -271,8 +312,10 @@ instance Data.FromJSON FaceDetail where
             Prelude.<*> (x Data..:? "BoundingBox")
             Prelude.<*> (x Data..:? "Confidence")
             Prelude.<*> (x Data..:? "Emotions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "EyeDirection")
             Prelude.<*> (x Data..:? "Eyeglasses")
             Prelude.<*> (x Data..:? "EyesOpen")
+            Prelude.<*> (x Data..:? "FaceOccluded")
             Prelude.<*> (x Data..:? "Gender")
             Prelude.<*> (x Data..:? "Landmarks" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "MouthOpen")
@@ -285,13 +328,16 @@ instance Data.FromJSON FaceDetail where
 
 instance Prelude.Hashable FaceDetail where
   hashWithSalt _salt FaceDetail' {..} =
-    _salt `Prelude.hashWithSalt` ageRange
+    _salt
+      `Prelude.hashWithSalt` ageRange
       `Prelude.hashWithSalt` beard
       `Prelude.hashWithSalt` boundingBox
       `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` emotions
+      `Prelude.hashWithSalt` eyeDirection
       `Prelude.hashWithSalt` eyeglasses
       `Prelude.hashWithSalt` eyesOpen
+      `Prelude.hashWithSalt` faceOccluded
       `Prelude.hashWithSalt` gender
       `Prelude.hashWithSalt` landmarks
       `Prelude.hashWithSalt` mouthOpen
@@ -308,8 +354,10 @@ instance Prelude.NFData FaceDetail where
       `Prelude.seq` Prelude.rnf boundingBox
       `Prelude.seq` Prelude.rnf confidence
       `Prelude.seq` Prelude.rnf emotions
+      `Prelude.seq` Prelude.rnf eyeDirection
       `Prelude.seq` Prelude.rnf eyeglasses
       `Prelude.seq` Prelude.rnf eyesOpen
+      `Prelude.seq` Prelude.rnf faceOccluded
       `Prelude.seq` Prelude.rnf gender
       `Prelude.seq` Prelude.rnf landmarks
       `Prelude.seq` Prelude.rnf mouthOpen

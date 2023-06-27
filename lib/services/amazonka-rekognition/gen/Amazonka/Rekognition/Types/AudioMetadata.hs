@@ -96,7 +96,8 @@ instance Data.FromJSON AudioMetadata where
 
 instance Prelude.Hashable AudioMetadata where
   hashWithSalt _salt AudioMetadata' {..} =
-    _salt `Prelude.hashWithSalt` codec
+    _salt
+      `Prelude.hashWithSalt` codec
       `Prelude.hashWithSalt` durationMillis
       `Prelude.hashWithSalt` numberOfChannels
       `Prelude.hashWithSalt` sampleRate

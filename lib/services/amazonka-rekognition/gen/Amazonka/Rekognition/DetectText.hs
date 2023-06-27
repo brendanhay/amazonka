@@ -156,7 +156,8 @@ instance Core.AWSRequest DetectText where
 
 instance Prelude.Hashable DetectText where
   hashWithSalt _salt DetectText' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` image
 
 instance Prelude.NFData DetectText where

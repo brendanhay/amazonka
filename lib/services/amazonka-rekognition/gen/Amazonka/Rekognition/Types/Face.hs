@@ -43,7 +43,9 @@ data Face = Face'
     imageId :: Prelude.Maybe Prelude.Text,
     -- | The version of the face detect and storage model that was used when
     -- indexing the face vector.
-    indexFacesModelVersion :: Prelude.Maybe Prelude.Text
+    indexFacesModelVersion :: Prelude.Maybe Prelude.Text,
+    -- | Unique identifier assigned to the user.
+    userId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,6 +70,8 @@ data Face = Face'
 --
 -- 'indexFacesModelVersion', 'face_indexFacesModelVersion' - The version of the face detect and storage model that was used when
 -- indexing the face vector.
+--
+-- 'userId', 'face_userId' - Unique identifier assigned to the user.
 newFace ::
   Face
 newFace =
@@ -77,7 +81,8 @@ newFace =
       externalImageId = Prelude.Nothing,
       faceId = Prelude.Nothing,
       imageId = Prelude.Nothing,
-      indexFacesModelVersion = Prelude.Nothing
+      indexFacesModelVersion = Prelude.Nothing,
+      userId = Prelude.Nothing
     }
 
 -- | Bounding box of the face.
@@ -106,6 +111,10 @@ face_imageId = Lens.lens (\Face' {imageId} -> imageId) (\s@Face' {} a -> s {imag
 face_indexFacesModelVersion :: Lens.Lens' Face (Prelude.Maybe Prelude.Text)
 face_indexFacesModelVersion = Lens.lens (\Face' {indexFacesModelVersion} -> indexFacesModelVersion) (\s@Face' {} a -> s {indexFacesModelVersion = a} :: Face)
 
+-- | Unique identifier assigned to the user.
+face_userId :: Lens.Lens' Face (Prelude.Maybe Prelude.Text)
+face_userId = Lens.lens (\Face' {userId} -> userId) (\s@Face' {} a -> s {userId = a} :: Face)
+
 instance Data.FromJSON Face where
   parseJSON =
     Data.withObject
@@ -118,16 +127,19 @@ instance Data.FromJSON Face where
             Prelude.<*> (x Data..:? "FaceId")
             Prelude.<*> (x Data..:? "ImageId")
             Prelude.<*> (x Data..:? "IndexFacesModelVersion")
+            Prelude.<*> (x Data..:? "UserId")
       )
 
 instance Prelude.Hashable Face where
   hashWithSalt _salt Face' {..} =
-    _salt `Prelude.hashWithSalt` boundingBox
+    _salt
+      `Prelude.hashWithSalt` boundingBox
       `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` externalImageId
       `Prelude.hashWithSalt` faceId
       `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` indexFacesModelVersion
+      `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData Face where
   rnf Face' {..} =
@@ -137,3 +149,4 @@ instance Prelude.NFData Face where
       `Prelude.seq` Prelude.rnf faceId
       `Prelude.seq` Prelude.rnf imageId
       `Prelude.seq` Prelude.rnf indexFacesModelVersion
+      `Prelude.seq` Prelude.rnf userId

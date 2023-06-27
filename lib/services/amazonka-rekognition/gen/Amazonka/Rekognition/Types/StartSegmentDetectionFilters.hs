@@ -71,7 +71,8 @@ instance
     StartSegmentDetectionFilters
   where
   hashWithSalt _salt StartSegmentDetectionFilters' {..} =
-    _salt `Prelude.hashWithSalt` shotFilter
+    _salt
+      `Prelude.hashWithSalt` shotFilter
       `Prelude.hashWithSalt` technicalCueFilter
 
 instance Prelude.NFData StartSegmentDetectionFilters where

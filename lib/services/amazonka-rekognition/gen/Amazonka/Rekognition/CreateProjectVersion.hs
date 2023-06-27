@@ -278,7 +278,8 @@ instance Core.AWSRequest CreateProjectVersion where
 
 instance Prelude.Hashable CreateProjectVersion where
   hashWithSalt _salt CreateProjectVersion' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` testingData
       `Prelude.hashWithSalt` trainingData

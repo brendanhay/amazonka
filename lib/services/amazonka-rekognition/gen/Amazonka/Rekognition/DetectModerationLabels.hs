@@ -160,7 +160,8 @@ instance Core.AWSRequest DetectModerationLabels where
       ( \s h x ->
           DetectModerationLabelsResponse'
             Prelude.<$> (x Data..?> "HumanLoopActivationOutput")
-            Prelude.<*> ( x Data..?> "ModerationLabels"
+            Prelude.<*> ( x
+                            Data..?> "ModerationLabels"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "ModerationModelVersion")
@@ -169,7 +170,8 @@ instance Core.AWSRequest DetectModerationLabels where
 
 instance Prelude.Hashable DetectModerationLabels where
   hashWithSalt _salt DetectModerationLabels' {..} =
-    _salt `Prelude.hashWithSalt` humanLoopConfig
+    _salt
+      `Prelude.hashWithSalt` humanLoopConfig
       `Prelude.hashWithSalt` minConfidence
       `Prelude.hashWithSalt` image
 

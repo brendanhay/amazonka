@@ -262,7 +262,8 @@ instance Core.AWSRequest CompareFaces where
 
 instance Prelude.Hashable CompareFaces where
   hashWithSalt _salt CompareFaces' {..} =
-    _salt `Prelude.hashWithSalt` qualityFilter
+    _salt
+      `Prelude.hashWithSalt` qualityFilter
       `Prelude.hashWithSalt` similarityThreshold
       `Prelude.hashWithSalt` sourceImage
       `Prelude.hashWithSalt` targetImage

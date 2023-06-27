@@ -25,6 +25,9 @@
 -- To get a list of project policies attached to a project, call
 -- ListProjectPolicies. To attach a project policy to a project, call
 -- PutProjectPolicy.
+--
+-- This operation requires permissions to perform the
+-- @rekognition:DeleteProjectPolicy@ action.
 module Amazonka.Rekognition.DeleteProjectPolicy
   ( -- * Creating a Request
     DeleteProjectPolicy (..),
@@ -120,7 +123,8 @@ instance Core.AWSRequest DeleteProjectPolicy where
 
 instance Prelude.Hashable DeleteProjectPolicy where
   hashWithSalt _salt DeleteProjectPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyRevisionId
+    _salt
+      `Prelude.hashWithSalt` policyRevisionId
       `Prelude.hashWithSalt` projectArn
       `Prelude.hashWithSalt` policyName
 

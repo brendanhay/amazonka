@@ -215,7 +215,8 @@ instance Data.FromJSON SegmentDetection where
 
 instance Prelude.Hashable SegmentDetection where
   hashWithSalt _salt SegmentDetection' {..} =
-    _salt `Prelude.hashWithSalt` durationFrames
+    _salt
+      `Prelude.hashWithSalt` durationFrames
       `Prelude.hashWithSalt` durationMillis
       `Prelude.hashWithSalt` durationSMPTE
       `Prelude.hashWithSalt` endFrameNumber

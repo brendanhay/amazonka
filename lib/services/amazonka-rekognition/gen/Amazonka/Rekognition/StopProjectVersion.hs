@@ -22,6 +22,9 @@
 --
 -- Stops a running model. The operation might take a while to complete. To
 -- check the current status, call DescribeProjectVersions.
+--
+-- This operation requires permissions to perform the
+-- @rekognition:StopProjectVersion@ action.
 module Amazonka.Rekognition.StopProjectVersion
   ( -- * Creating a Request
     StopProjectVersion (..),

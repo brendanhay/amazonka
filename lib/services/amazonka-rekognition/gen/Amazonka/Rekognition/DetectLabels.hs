@@ -57,7 +57,7 @@
 -- __Response Elements__
 --
 -- For each object, scene, and concept the API returns one or more labels.
--- The API returns the following types of information regarding labels:
+-- The API returns the following types of information about labels:
 --
 -- -   Name - The name of the detected label.
 --
@@ -129,8 +129,7 @@
 -- If the object detected is a person, the operation doesn\'t provide the
 -- same facial details that the DetectFaces operation provides.
 --
--- This is a stateless API operation. That is, the operation does not
--- persist any data.
+-- This is a stateless API operation that doesn\'t return any data.
 --
 -- This operation requires permissions to perform the
 -- @rekognition:DetectLabels@ action.
@@ -188,7 +187,8 @@ data DetectLabels = DetectLabels'
     -- image properties. Specified filters can be inclusive, exclusive, or a
     -- combination of both. Filters can be used for individual labels or label
     -- categories. The exact label names or label categories must be supplied.
-    -- For a full list of labels and label categories, see LINK HERE.
+    -- For a full list of labels and label categories, see
+    -- <https://docs.aws.amazon.com/rekognition/latest/dg/labels.html Detecting labels>.
     settings :: Prelude.Maybe DetectLabelsSettings,
     -- | The input image as base64-encoded bytes or an S3 object. If you use the
     -- AWS CLI to call Amazon Rekognition operations, passing image bytes is
@@ -229,7 +229,8 @@ data DetectLabels = DetectLabels'
 -- image properties. Specified filters can be inclusive, exclusive, or a
 -- combination of both. Filters can be used for individual labels or label
 -- categories. The exact label names or label categories must be supplied.
--- For a full list of labels and label categories, see LINK HERE.
+-- For a full list of labels and label categories, see
+-- <https://docs.aws.amazon.com/rekognition/latest/dg/labels.html Detecting labels>.
 --
 -- 'image', 'detectLabels_image' - The input image as base64-encoded bytes or an S3 object. If you use the
 -- AWS CLI to call Amazon Rekognition operations, passing image bytes is
@@ -277,7 +278,8 @@ detectLabels_minConfidence = Lens.lens (\DetectLabels' {minConfidence} -> minCon
 -- image properties. Specified filters can be inclusive, exclusive, or a
 -- combination of both. Filters can be used for individual labels or label
 -- categories. The exact label names or label categories must be supplied.
--- For a full list of labels and label categories, see LINK HERE.
+-- For a full list of labels and label categories, see
+-- <https://docs.aws.amazon.com/rekognition/latest/dg/labels.html Detecting labels>.
 detectLabels_settings :: Lens.Lens' DetectLabels (Prelude.Maybe DetectLabelsSettings)
 detectLabels_settings = Lens.lens (\DetectLabels' {settings} -> settings) (\s@DetectLabels' {} a -> s {settings = a} :: DetectLabels)
 
@@ -309,7 +311,8 @@ instance Core.AWSRequest DetectLabels where
 
 instance Prelude.Hashable DetectLabels where
   hashWithSalt _salt DetectLabels' {..} =
-    _salt `Prelude.hashWithSalt` features
+    _salt
+      `Prelude.hashWithSalt` features
       `Prelude.hashWithSalt` maxLabels
       `Prelude.hashWithSalt` minConfidence
       `Prelude.hashWithSalt` settings

@@ -68,10 +68,13 @@ module Amazonka.Rekognition.GetFaceSearch
     newGetFaceSearchResponse,
 
     -- * Response Lenses
+    getFaceSearchResponse_jobId,
     getFaceSearchResponse_jobStatus,
+    getFaceSearchResponse_jobTag,
     getFaceSearchResponse_nextToken,
     getFaceSearchResponse_persons,
     getFaceSearchResponse_statusMessage,
+    getFaceSearchResponse_video,
     getFaceSearchResponse_videoMetadata,
     getFaceSearchResponse_httpStatus,
   )
@@ -175,17 +178,21 @@ instance Core.AWSRequest GetFaceSearch where
     Response.receiveJSON
       ( \s h x ->
           GetFaceSearchResponse'
-            Prelude.<$> (x Data..?> "JobStatus")
+            Prelude.<$> (x Data..?> "JobId")
+            Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "JobTag")
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "Persons" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "StatusMessage")
+            Prelude.<*> (x Data..?> "Video")
             Prelude.<*> (x Data..?> "VideoMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetFaceSearch where
   hashWithSalt _salt GetFaceSearch' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` jobId
@@ -231,8 +238,16 @@ instance Data.ToQuery GetFaceSearch where
 
 -- | /See:/ 'newGetFaceSearchResponse' smart constructor.
 data GetFaceSearchResponse = GetFaceSearchResponse'
-  { -- | The current status of the face search job.
+  { -- | Job identifier for the face search operation for which you want to
+    -- obtain results. The job identifer is returned by an initial call to
+    -- StartFaceSearch.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the face search job.
     jobStatus :: Prelude.Maybe VideoJobStatus,
+    -- | A job identifier specified in the call to StartFaceSearch and returned
+    -- in the job completion notification sent to your Amazon Simple
+    -- Notification Service topic.
+    jobTag :: Prelude.Maybe Prelude.Text,
     -- | If the response is truncated, Amazon Rekognition Video returns this
     -- token that you can use in the subsequent request to retrieve the next
     -- set of search results.
@@ -247,6 +262,7 @@ data GetFaceSearchResponse = GetFaceSearchResponse'
     persons :: Prelude.Maybe [PersonMatch],
     -- | If the job fails, @StatusMessage@ provides a descriptive error message.
     statusMessage :: Prelude.Maybe Prelude.Text,
+    video :: Prelude.Maybe Video,
     -- | Information about a video that Amazon Rekognition analyzed.
     -- @Videometadata@ is returned in every page of paginated responses from a
     -- Amazon Rekognition Video operation.
@@ -264,7 +280,15 @@ data GetFaceSearchResponse = GetFaceSearchResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobId', 'getFaceSearchResponse_jobId' - Job identifier for the face search operation for which you want to
+-- obtain results. The job identifer is returned by an initial call to
+-- StartFaceSearch.
+--
 -- 'jobStatus', 'getFaceSearchResponse_jobStatus' - The current status of the face search job.
+--
+-- 'jobTag', 'getFaceSearchResponse_jobTag' - A job identifier specified in the call to StartFaceSearch and returned
+-- in the job completion notification sent to your Amazon Simple
+-- Notification Service topic.
 --
 -- 'nextToken', 'getFaceSearchResponse_nextToken' - If the response is truncated, Amazon Rekognition Video returns this
 -- token that you can use in the subsequent request to retrieve the next
@@ -280,6 +304,8 @@ data GetFaceSearchResponse = GetFaceSearchResponse'
 --
 -- 'statusMessage', 'getFaceSearchResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
 --
+-- 'video', 'getFaceSearchResponse_video' - Undocumented member.
+--
 -- 'videoMetadata', 'getFaceSearchResponse_videoMetadata' - Information about a video that Amazon Rekognition analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from a
 -- Amazon Rekognition Video operation.
@@ -291,17 +317,32 @@ newGetFaceSearchResponse ::
   GetFaceSearchResponse
 newGetFaceSearchResponse pHttpStatus_ =
   GetFaceSearchResponse'
-    { jobStatus = Prelude.Nothing,
+    { jobId = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
+      jobTag = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       persons = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
+      video = Prelude.Nothing,
       videoMetadata = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
+-- | Job identifier for the face search operation for which you want to
+-- obtain results. The job identifer is returned by an initial call to
+-- StartFaceSearch.
+getFaceSearchResponse_jobId :: Lens.Lens' GetFaceSearchResponse (Prelude.Maybe Prelude.Text)
+getFaceSearchResponse_jobId = Lens.lens (\GetFaceSearchResponse' {jobId} -> jobId) (\s@GetFaceSearchResponse' {} a -> s {jobId = a} :: GetFaceSearchResponse)
+
 -- | The current status of the face search job.
 getFaceSearchResponse_jobStatus :: Lens.Lens' GetFaceSearchResponse (Prelude.Maybe VideoJobStatus)
 getFaceSearchResponse_jobStatus = Lens.lens (\GetFaceSearchResponse' {jobStatus} -> jobStatus) (\s@GetFaceSearchResponse' {} a -> s {jobStatus = a} :: GetFaceSearchResponse)
+
+-- | A job identifier specified in the call to StartFaceSearch and returned
+-- in the job completion notification sent to your Amazon Simple
+-- Notification Service topic.
+getFaceSearchResponse_jobTag :: Lens.Lens' GetFaceSearchResponse (Prelude.Maybe Prelude.Text)
+getFaceSearchResponse_jobTag = Lens.lens (\GetFaceSearchResponse' {jobTag} -> jobTag) (\s@GetFaceSearchResponse' {} a -> s {jobTag = a} :: GetFaceSearchResponse)
 
 -- | If the response is truncated, Amazon Rekognition Video returns this
 -- token that you can use in the subsequent request to retrieve the next
@@ -323,6 +364,10 @@ getFaceSearchResponse_persons = Lens.lens (\GetFaceSearchResponse' {persons} -> 
 getFaceSearchResponse_statusMessage :: Lens.Lens' GetFaceSearchResponse (Prelude.Maybe Prelude.Text)
 getFaceSearchResponse_statusMessage = Lens.lens (\GetFaceSearchResponse' {statusMessage} -> statusMessage) (\s@GetFaceSearchResponse' {} a -> s {statusMessage = a} :: GetFaceSearchResponse)
 
+-- | Undocumented member.
+getFaceSearchResponse_video :: Lens.Lens' GetFaceSearchResponse (Prelude.Maybe Video)
+getFaceSearchResponse_video = Lens.lens (\GetFaceSearchResponse' {video} -> video) (\s@GetFaceSearchResponse' {} a -> s {video = a} :: GetFaceSearchResponse)
+
 -- | Information about a video that Amazon Rekognition analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from a
 -- Amazon Rekognition Video operation.
@@ -335,9 +380,12 @@ getFaceSearchResponse_httpStatus = Lens.lens (\GetFaceSearchResponse' {httpStatu
 
 instance Prelude.NFData GetFaceSearchResponse where
   rnf GetFaceSearchResponse' {..} =
-    Prelude.rnf jobStatus
+    Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobTag
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf persons
       `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf video
       `Prelude.seq` Prelude.rnf videoMetadata
       `Prelude.seq` Prelude.rnf httpStatus

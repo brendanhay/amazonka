@@ -79,7 +79,8 @@ instance Data.FromJSON DatasetLabelStats where
 
 instance Prelude.Hashable DatasetLabelStats where
   hashWithSalt _salt DatasetLabelStats' {..} =
-    _salt `Prelude.hashWithSalt` boundingBoxCount
+    _salt
+      `Prelude.hashWithSalt` boundingBoxCount
       `Prelude.hashWithSalt` entryCount
 
 instance Prelude.NFData DatasetLabelStats where

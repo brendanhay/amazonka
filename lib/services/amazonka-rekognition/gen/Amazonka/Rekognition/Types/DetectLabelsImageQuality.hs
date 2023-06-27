@@ -86,7 +86,8 @@ instance Data.FromJSON DetectLabelsImageQuality where
 
 instance Prelude.Hashable DetectLabelsImageQuality where
   hashWithSalt _salt DetectLabelsImageQuality' {..} =
-    _salt `Prelude.hashWithSalt` brightness
+    _salt
+      `Prelude.hashWithSalt` brightness
       `Prelude.hashWithSalt` contrast
       `Prelude.hashWithSalt` sharpness
 

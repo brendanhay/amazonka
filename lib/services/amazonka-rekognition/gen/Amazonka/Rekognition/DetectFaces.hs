@@ -26,8 +26,8 @@
 -- detected, the operation returns face details. These details include a
 -- bounding box of the face, a confidence value (that the bounding box
 -- contains a face), and a fixed set of attributes such as facial landmarks
--- (for example, coordinates of eye and mouth), presence of beard,
--- sunglasses, and so on.
+-- (for example, coordinates of eye and mouth), pose, presence of facial
+-- occlusion, and so on.
 --
 -- The face-detection algorithm is most effective on frontal faces. For
 -- non-frontal or obscured faces, the algorithm might not detect the faces
@@ -73,17 +73,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDetectFaces' smart constructor.
 data DetectFaces = DetectFaces'
-  { -- | An array of facial attributes you want to be returned. This can be the
-    -- default list of attributes or all attributes. If you don\'t specify a
-    -- value for @Attributes@ or if you specify @[\"DEFAULT\"]@, the API
-    -- returns the following subset of facial attributes: @BoundingBox@,
-    -- @Confidence@, @Pose@, @Quality@, and @Landmarks@. If you provide
-    -- @[\"ALL\"]@, all facial attributes are returned, but the operation takes
-    -- longer to complete.
+  { -- | An array of facial attributes you want to be returned. A @DEFAULT@
+    -- subset of facial attributes - @BoundingBox@, @Confidence@, @Pose@,
+    -- @Quality@, and @Landmarks@ - will always be returned. You can request
+    -- for specific facial attributes (in addition to the default list) - by
+    -- using [@\"DEFAULT\", \"FACE_OCCLUDED\"@] or just [@\"FACE_OCCLUDED\"@].
+    -- You can request for all facial attributes by using [@\"ALL\"]@.
+    -- Requesting more attributes may increase response time.
     --
     -- If you provide both, @[\"ALL\", \"DEFAULT\"]@, the service uses a
-    -- logical AND operator to determine which attributes to return (in this
-    -- case, all attributes).
+    -- logical \"AND\" operator to determine which attributes to return (in
+    -- this case, all attributes).
     attributes :: Prelude.Maybe [Attribute],
     -- | The input image as base64-encoded bytes or an S3 object. If you use the
     -- AWS CLI to call Amazon Rekognition operations, passing base64-encoded
@@ -104,17 +104,17 @@ data DetectFaces = DetectFaces'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attributes', 'detectFaces_attributes' - An array of facial attributes you want to be returned. This can be the
--- default list of attributes or all attributes. If you don\'t specify a
--- value for @Attributes@ or if you specify @[\"DEFAULT\"]@, the API
--- returns the following subset of facial attributes: @BoundingBox@,
--- @Confidence@, @Pose@, @Quality@, and @Landmarks@. If you provide
--- @[\"ALL\"]@, all facial attributes are returned, but the operation takes
--- longer to complete.
+-- 'attributes', 'detectFaces_attributes' - An array of facial attributes you want to be returned. A @DEFAULT@
+-- subset of facial attributes - @BoundingBox@, @Confidence@, @Pose@,
+-- @Quality@, and @Landmarks@ - will always be returned. You can request
+-- for specific facial attributes (in addition to the default list) - by
+-- using [@\"DEFAULT\", \"FACE_OCCLUDED\"@] or just [@\"FACE_OCCLUDED\"@].
+-- You can request for all facial attributes by using [@\"ALL\"]@.
+-- Requesting more attributes may increase response time.
 --
 -- If you provide both, @[\"ALL\", \"DEFAULT\"]@, the service uses a
--- logical AND operator to determine which attributes to return (in this
--- case, all attributes).
+-- logical \"AND\" operator to determine which attributes to return (in
+-- this case, all attributes).
 --
 -- 'image', 'detectFaces_image' - The input image as base64-encoded bytes or an S3 object. If you use the
 -- AWS CLI to call Amazon Rekognition operations, passing base64-encoded
@@ -133,17 +133,17 @@ newDetectFaces pImage_ =
       image = pImage_
     }
 
--- | An array of facial attributes you want to be returned. This can be the
--- default list of attributes or all attributes. If you don\'t specify a
--- value for @Attributes@ or if you specify @[\"DEFAULT\"]@, the API
--- returns the following subset of facial attributes: @BoundingBox@,
--- @Confidence@, @Pose@, @Quality@, and @Landmarks@. If you provide
--- @[\"ALL\"]@, all facial attributes are returned, but the operation takes
--- longer to complete.
+-- | An array of facial attributes you want to be returned. A @DEFAULT@
+-- subset of facial attributes - @BoundingBox@, @Confidence@, @Pose@,
+-- @Quality@, and @Landmarks@ - will always be returned. You can request
+-- for specific facial attributes (in addition to the default list) - by
+-- using [@\"DEFAULT\", \"FACE_OCCLUDED\"@] or just [@\"FACE_OCCLUDED\"@].
+-- You can request for all facial attributes by using [@\"ALL\"]@.
+-- Requesting more attributes may increase response time.
 --
 -- If you provide both, @[\"ALL\", \"DEFAULT\"]@, the service uses a
--- logical AND operator to determine which attributes to return (in this
--- case, all attributes).
+-- logical \"AND\" operator to determine which attributes to return (in
+-- this case, all attributes).
 detectFaces_attributes :: Lens.Lens' DetectFaces (Prelude.Maybe [Attribute])
 detectFaces_attributes = Lens.lens (\DetectFaces' {attributes} -> attributes) (\s@DetectFaces' {} a -> s {attributes = a} :: DetectFaces) Prelude.. Lens.mapping Lens.coerced
 
@@ -172,7 +172,8 @@ instance Core.AWSRequest DetectFaces where
 
 instance Prelude.Hashable DetectFaces where
   hashWithSalt _salt DetectFaces' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` image
 
 instance Prelude.NFData DetectFaces where

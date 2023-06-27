@@ -86,7 +86,8 @@ instance Data.FromJSON RegionOfInterest where
 
 instance Prelude.Hashable RegionOfInterest where
   hashWithSalt _salt RegionOfInterest' {..} =
-    _salt `Prelude.hashWithSalt` boundingBox
+    _salt
+      `Prelude.hashWithSalt` boundingBox
       `Prelude.hashWithSalt` polygon
 
 instance Prelude.NFData RegionOfInterest where

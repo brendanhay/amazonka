@@ -93,7 +93,8 @@ instance Data.FromJSON TestingDataResult where
 
 instance Prelude.Hashable TestingDataResult where
   hashWithSalt _salt TestingDataResult' {..} =
-    _salt `Prelude.hashWithSalt` input
+    _salt
+      `Prelude.hashWithSalt` input
       `Prelude.hashWithSalt` output
       `Prelude.hashWithSalt` validation
 

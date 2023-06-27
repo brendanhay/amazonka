@@ -164,7 +164,8 @@ instance Core.AWSRequest StartProjectVersion where
 
 instance Prelude.Hashable StartProjectVersion where
   hashWithSalt _salt StartProjectVersion' {..} =
-    _salt `Prelude.hashWithSalt` maxInferenceUnits
+    _salt
+      `Prelude.hashWithSalt` maxInferenceUnits
       `Prelude.hashWithSalt` projectVersionArn
       `Prelude.hashWithSalt` minInferenceUnits
 

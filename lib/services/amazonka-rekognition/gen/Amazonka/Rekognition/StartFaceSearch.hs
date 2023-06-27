@@ -197,7 +197,8 @@ instance Core.AWSRequest StartFaceSearch where
 
 instance Prelude.Hashable StartFaceSearch where
   hashWithSalt _salt StartFaceSearch' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` faceMatchThreshold
       `Prelude.hashWithSalt` jobTag
       `Prelude.hashWithSalt` notificationChannel

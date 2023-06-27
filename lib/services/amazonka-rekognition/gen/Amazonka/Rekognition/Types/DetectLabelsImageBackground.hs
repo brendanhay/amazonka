@@ -87,7 +87,8 @@ instance Data.FromJSON DetectLabelsImageBackground where
 
 instance Prelude.Hashable DetectLabelsImageBackground where
   hashWithSalt _salt DetectLabelsImageBackground' {..} =
-    _salt `Prelude.hashWithSalt` dominantColors
+    _salt
+      `Prelude.hashWithSalt` dominantColors
       `Prelude.hashWithSalt` quality
 
 instance Prelude.NFData DetectLabelsImageBackground where

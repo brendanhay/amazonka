@@ -121,7 +121,8 @@ instance Data.FromJSON LabelDetection where
 
 instance Prelude.Hashable LabelDetection where
   hashWithSalt _salt LabelDetection' {..} =
-    _salt `Prelude.hashWithSalt` durationMillis
+    _salt
+      `Prelude.hashWithSalt` durationMillis
       `Prelude.hashWithSalt` endTimestampMillis
       `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` startTimestampMillis

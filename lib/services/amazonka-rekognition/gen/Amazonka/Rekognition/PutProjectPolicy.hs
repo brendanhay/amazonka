@@ -40,6 +40,9 @@
 -- ListProjectPolicies.
 --
 -- You copy a model version by calling CopyProjectVersion.
+--
+-- This operation requires permissions to perform the
+-- @rekognition:PutProjectPolicy@ action.
 module Amazonka.Rekognition.PutProjectPolicy
   ( -- * Creating a Request
     PutProjectPolicy (..),
@@ -170,7 +173,8 @@ instance Core.AWSRequest PutProjectPolicy where
 
 instance Prelude.Hashable PutProjectPolicy where
   hashWithSalt _salt PutProjectPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyRevisionId
+    _salt
+      `Prelude.hashWithSalt` policyRevisionId
       `Prelude.hashWithSalt` projectArn
       `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` policyDocument

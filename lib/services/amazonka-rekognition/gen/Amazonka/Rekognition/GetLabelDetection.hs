@@ -111,11 +111,15 @@ module Amazonka.Rekognition.GetLabelDetection
     newGetLabelDetectionResponse,
 
     -- * Response Lenses
+    getLabelDetectionResponse_getRequestMetadata,
+    getLabelDetectionResponse_jobId,
     getLabelDetectionResponse_jobStatus,
+    getLabelDetectionResponse_jobTag,
     getLabelDetectionResponse_labelModelVersion,
     getLabelDetectionResponse_labels,
     getLabelDetectionResponse_nextToken,
     getLabelDetectionResponse_statusMessage,
+    getLabelDetectionResponse_video,
     getLabelDetectionResponse_videoMetadata,
     getLabelDetectionResponse_httpStatus,
   )
@@ -240,18 +244,23 @@ instance Core.AWSRequest GetLabelDetection where
     Response.receiveJSON
       ( \s h x ->
           GetLabelDetectionResponse'
-            Prelude.<$> (x Data..?> "JobStatus")
+            Prelude.<$> (x Data..?> "GetRequestMetadata")
+            Prelude.<*> (x Data..?> "JobId")
+            Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "JobTag")
             Prelude.<*> (x Data..?> "LabelModelVersion")
             Prelude.<*> (x Data..?> "Labels" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "StatusMessage")
+            Prelude.<*> (x Data..?> "Video")
             Prelude.<*> (x Data..?> "VideoMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetLabelDetection where
   hashWithSalt _salt GetLabelDetection' {..} =
-    _salt `Prelude.hashWithSalt` aggregateBy
+    _salt
+      `Prelude.hashWithSalt` aggregateBy
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy
@@ -300,8 +309,19 @@ instance Data.ToQuery GetLabelDetection where
 
 -- | /See:/ 'newGetLabelDetectionResponse' smart constructor.
 data GetLabelDetectionResponse = GetLabelDetectionResponse'
-  { -- | The current status of the label detection job.
+  { -- | Information about the paramters used when getting a response. Includes
+    -- information on aggregation and sorting methods.
+    getRequestMetadata :: Prelude.Maybe GetLabelDetectionRequestMetadata,
+    -- | Job identifier for the label detection operation for which you want to
+    -- obtain results. The job identifer is returned by an initial call to
+    -- StartLabelDetection.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the label detection job.
     jobStatus :: Prelude.Maybe VideoJobStatus,
+    -- | A job identifier specified in the call to StartLabelDetection and
+    -- returned in the job completion notification sent to your Amazon Simple
+    -- Notification Service topic.
+    jobTag :: Prelude.Maybe Prelude.Text,
     -- | Version number of the label detection model that was used to detect
     -- labels.
     labelModelVersion :: Prelude.Maybe Prelude.Text,
@@ -315,6 +335,7 @@ data GetLabelDetectionResponse = GetLabelDetectionResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | If the job fails, @StatusMessage@ provides a descriptive error message.
     statusMessage :: Prelude.Maybe Prelude.Text,
+    video :: Prelude.Maybe Video,
     -- | Information about a video that Amazon Rekognition Video analyzed.
     -- @Videometadata@ is returned in every page of paginated responses from a
     -- Amazon Rekognition video operation.
@@ -332,7 +353,18 @@ data GetLabelDetectionResponse = GetLabelDetectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'getRequestMetadata', 'getLabelDetectionResponse_getRequestMetadata' - Information about the paramters used when getting a response. Includes
+-- information on aggregation and sorting methods.
+--
+-- 'jobId', 'getLabelDetectionResponse_jobId' - Job identifier for the label detection operation for which you want to
+-- obtain results. The job identifer is returned by an initial call to
+-- StartLabelDetection.
+--
 -- 'jobStatus', 'getLabelDetectionResponse_jobStatus' - The current status of the label detection job.
+--
+-- 'jobTag', 'getLabelDetectionResponse_jobTag' - A job identifier specified in the call to StartLabelDetection and
+-- returned in the job completion notification sent to your Amazon Simple
+-- Notification Service topic.
 --
 -- 'labelModelVersion', 'getLabelDetectionResponse_labelModelVersion' - Version number of the label detection model that was used to detect
 -- labels.
@@ -347,6 +379,8 @@ data GetLabelDetectionResponse = GetLabelDetectionResponse'
 --
 -- 'statusMessage', 'getLabelDetectionResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
 --
+-- 'video', 'getLabelDetectionResponse_video' - Undocumented member.
+--
 -- 'videoMetadata', 'getLabelDetectionResponse_videoMetadata' - Information about a video that Amazon Rekognition Video analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from a
 -- Amazon Rekognition video operation.
@@ -358,19 +392,40 @@ newGetLabelDetectionResponse ::
   GetLabelDetectionResponse
 newGetLabelDetectionResponse pHttpStatus_ =
   GetLabelDetectionResponse'
-    { jobStatus =
+    { getRequestMetadata =
         Prelude.Nothing,
+      jobId = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
+      jobTag = Prelude.Nothing,
       labelModelVersion = Prelude.Nothing,
       labels = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
+      video = Prelude.Nothing,
       videoMetadata = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
+-- | Information about the paramters used when getting a response. Includes
+-- information on aggregation and sorting methods.
+getLabelDetectionResponse_getRequestMetadata :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe GetLabelDetectionRequestMetadata)
+getLabelDetectionResponse_getRequestMetadata = Lens.lens (\GetLabelDetectionResponse' {getRequestMetadata} -> getRequestMetadata) (\s@GetLabelDetectionResponse' {} a -> s {getRequestMetadata = a} :: GetLabelDetectionResponse)
+
+-- | Job identifier for the label detection operation for which you want to
+-- obtain results. The job identifer is returned by an initial call to
+-- StartLabelDetection.
+getLabelDetectionResponse_jobId :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe Prelude.Text)
+getLabelDetectionResponse_jobId = Lens.lens (\GetLabelDetectionResponse' {jobId} -> jobId) (\s@GetLabelDetectionResponse' {} a -> s {jobId = a} :: GetLabelDetectionResponse)
+
 -- | The current status of the label detection job.
 getLabelDetectionResponse_jobStatus :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe VideoJobStatus)
 getLabelDetectionResponse_jobStatus = Lens.lens (\GetLabelDetectionResponse' {jobStatus} -> jobStatus) (\s@GetLabelDetectionResponse' {} a -> s {jobStatus = a} :: GetLabelDetectionResponse)
+
+-- | A job identifier specified in the call to StartLabelDetection and
+-- returned in the job completion notification sent to your Amazon Simple
+-- Notification Service topic.
+getLabelDetectionResponse_jobTag :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe Prelude.Text)
+getLabelDetectionResponse_jobTag = Lens.lens (\GetLabelDetectionResponse' {jobTag} -> jobTag) (\s@GetLabelDetectionResponse' {} a -> s {jobTag = a} :: GetLabelDetectionResponse)
 
 -- | Version number of the label detection model that was used to detect
 -- labels.
@@ -393,6 +448,10 @@ getLabelDetectionResponse_nextToken = Lens.lens (\GetLabelDetectionResponse' {ne
 getLabelDetectionResponse_statusMessage :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe Prelude.Text)
 getLabelDetectionResponse_statusMessage = Lens.lens (\GetLabelDetectionResponse' {statusMessage} -> statusMessage) (\s@GetLabelDetectionResponse' {} a -> s {statusMessage = a} :: GetLabelDetectionResponse)
 
+-- | Undocumented member.
+getLabelDetectionResponse_video :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe Video)
+getLabelDetectionResponse_video = Lens.lens (\GetLabelDetectionResponse' {video} -> video) (\s@GetLabelDetectionResponse' {} a -> s {video = a} :: GetLabelDetectionResponse)
+
 -- | Information about a video that Amazon Rekognition Video analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from a
 -- Amazon Rekognition video operation.
@@ -405,10 +464,14 @@ getLabelDetectionResponse_httpStatus = Lens.lens (\GetLabelDetectionResponse' {h
 
 instance Prelude.NFData GetLabelDetectionResponse where
   rnf GetLabelDetectionResponse' {..} =
-    Prelude.rnf jobStatus
+    Prelude.rnf getRequestMetadata
+      `Prelude.seq` Prelude.rnf jobId
+      `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobTag
       `Prelude.seq` Prelude.rnf labelModelVersion
       `Prelude.seq` Prelude.rnf labels
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf video
       `Prelude.seq` Prelude.rnf videoMetadata
       `Prelude.seq` Prelude.rnf httpStatus

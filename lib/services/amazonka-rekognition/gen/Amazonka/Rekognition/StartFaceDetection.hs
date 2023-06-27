@@ -195,7 +195,8 @@ instance Core.AWSRequest StartFaceDetection where
 
 instance Prelude.Hashable StartFaceDetection where
   hashWithSalt _salt StartFaceDetection' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` faceAttributes
       `Prelude.hashWithSalt` jobTag
       `Prelude.hashWithSalt` notificationChannel

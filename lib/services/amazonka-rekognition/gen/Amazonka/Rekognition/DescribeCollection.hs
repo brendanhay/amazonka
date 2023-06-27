@@ -43,6 +43,7 @@ module Amazonka.Rekognition.DescribeCollection
     describeCollectionResponse_creationTimestamp,
     describeCollectionResponse_faceCount,
     describeCollectionResponse_faceModelVersion,
+    describeCollectionResponse_userCount,
     describeCollectionResponse_httpStatus,
   )
 where
@@ -96,6 +97,7 @@ instance Core.AWSRequest DescribeCollection where
             Prelude.<*> (x Data..?> "CreationTimestamp")
             Prelude.<*> (x Data..?> "FaceCount")
             Prelude.<*> (x Data..?> "FaceModelVersion")
+            Prelude.<*> (x Data..?> "UserCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,6 +154,8 @@ data DescribeCollectionResponse = DescribeCollectionResponse'
     -- For more information, see Model versioning in the Amazon Rekognition
     -- Developer Guide.
     faceModelVersion :: Prelude.Maybe Prelude.Text,
+    -- | The number of UserIDs assigned to the specified colleciton.
+    userCount :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,6 +184,8 @@ data DescribeCollectionResponse = DescribeCollectionResponse'
 -- For more information, see Model versioning in the Amazon Rekognition
 -- Developer Guide.
 --
+-- 'userCount', 'describeCollectionResponse_userCount' - The number of UserIDs assigned to the specified colleciton.
+--
 -- 'httpStatus', 'describeCollectionResponse_httpStatus' - The response's http status code.
 newDescribeCollectionResponse ::
   -- | 'httpStatus'
@@ -192,6 +198,7 @@ newDescribeCollectionResponse pHttpStatus_ =
       creationTimestamp = Prelude.Nothing,
       faceCount = Prelude.Nothing,
       faceModelVersion = Prelude.Nothing,
+      userCount = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -218,6 +225,10 @@ describeCollectionResponse_faceCount = Lens.lens (\DescribeCollectionResponse' {
 describeCollectionResponse_faceModelVersion :: Lens.Lens' DescribeCollectionResponse (Prelude.Maybe Prelude.Text)
 describeCollectionResponse_faceModelVersion = Lens.lens (\DescribeCollectionResponse' {faceModelVersion} -> faceModelVersion) (\s@DescribeCollectionResponse' {} a -> s {faceModelVersion = a} :: DescribeCollectionResponse)
 
+-- | The number of UserIDs assigned to the specified colleciton.
+describeCollectionResponse_userCount :: Lens.Lens' DescribeCollectionResponse (Prelude.Maybe Prelude.Natural)
+describeCollectionResponse_userCount = Lens.lens (\DescribeCollectionResponse' {userCount} -> userCount) (\s@DescribeCollectionResponse' {} a -> s {userCount = a} :: DescribeCollectionResponse)
+
 -- | The response's http status code.
 describeCollectionResponse_httpStatus :: Lens.Lens' DescribeCollectionResponse Prelude.Int
 describeCollectionResponse_httpStatus = Lens.lens (\DescribeCollectionResponse' {httpStatus} -> httpStatus) (\s@DescribeCollectionResponse' {} a -> s {httpStatus = a} :: DescribeCollectionResponse)
@@ -228,4 +239,5 @@ instance Prelude.NFData DescribeCollectionResponse where
       `Prelude.seq` Prelude.rnf creationTimestamp
       `Prelude.seq` Prelude.rnf faceCount
       `Prelude.seq` Prelude.rnf faceModelVersion
+      `Prelude.seq` Prelude.rnf userCount
       `Prelude.seq` Prelude.rnf httpStatus

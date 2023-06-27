@@ -77,7 +77,8 @@ datasetSource_groundTruthManifest = Lens.lens (\DatasetSource' {groundTruthManif
 
 instance Prelude.Hashable DatasetSource where
   hashWithSalt _salt DatasetSource' {..} =
-    _salt `Prelude.hashWithSalt` datasetArn
+    _salt
+      `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` groundTruthManifest
 
 instance Prelude.NFData DatasetSource where

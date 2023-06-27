@@ -86,7 +86,8 @@ instance Data.FromJSON StreamProcessorOutput where
 
 instance Prelude.Hashable StreamProcessorOutput where
   hashWithSalt _salt StreamProcessorOutput' {..} =
-    _salt `Prelude.hashWithSalt` kinesisDataStream
+    _salt
+      `Prelude.hashWithSalt` kinesisDataStream
       `Prelude.hashWithSalt` s3Destination
 
 instance Prelude.NFData StreamProcessorOutput where

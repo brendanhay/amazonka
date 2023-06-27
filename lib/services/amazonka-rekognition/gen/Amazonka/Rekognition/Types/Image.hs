@@ -55,7 +55,8 @@ import Amazonka.Rekognition.Types.S3Object
 --
 -- /See:/ 'newImage' smart constructor.
 data Image = Image'
-  { -- | Blob of image bytes up to 5 MBs.
+  { -- | Blob of image bytes up to 5 MBs. Note that the maximum image size you
+    -- can pass to @DetectCustomLabels@ is 4MB.
     bytes :: Prelude.Maybe Data.Base64,
     -- | Identifies an S3 object as the image source.
     s3Object :: Prelude.Maybe S3Object
@@ -70,7 +71,8 @@ data Image = Image'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bytes', 'image_bytes' - Blob of image bytes up to 5 MBs.--
+-- 'bytes', 'image_bytes' - Blob of image bytes up to 5 MBs. Note that the maximum image size you
+-- can pass to @DetectCustomLabels@ is 4MB.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -85,7 +87,8 @@ newImage =
       s3Object = Prelude.Nothing
     }
 
--- | Blob of image bytes up to 5 MBs.--
+-- | Blob of image bytes up to 5 MBs. Note that the maximum image size you
+-- can pass to @DetectCustomLabels@ is 4MB.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -99,7 +102,8 @@ image_s3Object = Lens.lens (\Image' {s3Object} -> s3Object) (\s@Image' {} a -> s
 
 instance Prelude.Hashable Image where
   hashWithSalt _salt Image' {..} =
-    _salt `Prelude.hashWithSalt` bytes
+    _salt
+      `Prelude.hashWithSalt` bytes
       `Prelude.hashWithSalt` s3Object
 
 instance Prelude.NFData Image where

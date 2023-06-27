@@ -89,9 +89,12 @@ module Amazonka.Rekognition.GetCelebrityRecognition
 
     -- * Response Lenses
     getCelebrityRecognitionResponse_celebrities,
+    getCelebrityRecognitionResponse_jobId,
     getCelebrityRecognitionResponse_jobStatus,
+    getCelebrityRecognitionResponse_jobTag,
     getCelebrityRecognitionResponse_nextToken,
     getCelebrityRecognitionResponse_statusMessage,
+    getCelebrityRecognitionResponse_video,
     getCelebrityRecognitionResponse_videoMetadata,
     getCelebrityRecognitionResponse_httpStatus,
   )
@@ -197,16 +200,20 @@ instance Core.AWSRequest GetCelebrityRecognition where
       ( \s h x ->
           GetCelebrityRecognitionResponse'
             Prelude.<$> (x Data..?> "Celebrities" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "JobId")
             Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "JobTag")
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "StatusMessage")
+            Prelude.<*> (x Data..?> "Video")
             Prelude.<*> (x Data..?> "VideoMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetCelebrityRecognition where
   hashWithSalt _salt GetCelebrityRecognition' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` jobId
@@ -254,14 +261,23 @@ instance Data.ToQuery GetCelebrityRecognition where
 data GetCelebrityRecognitionResponse = GetCelebrityRecognitionResponse'
   { -- | Array of celebrities recognized in the video.
     celebrities :: Prelude.Maybe [CelebrityRecognition],
+    -- | Job identifier for the celebrity recognition operation for which you
+    -- want to obtain results. The job identifer is returned by an initial call
+    -- to StartCelebrityRecognition.
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | The current status of the celebrity recognition job.
     jobStatus :: Prelude.Maybe VideoJobStatus,
+    -- | A job identifier specified in the call to StartCelebrityRecognition and
+    -- returned in the job completion notification sent to your Amazon Simple
+    -- Notification Service topic.
+    jobTag :: Prelude.Maybe Prelude.Text,
     -- | If the response is truncated, Amazon Rekognition Video returns this
     -- token that you can use in the subsequent request to retrieve the next
     -- set of celebrities.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | If the job fails, @StatusMessage@ provides a descriptive error message.
     statusMessage :: Prelude.Maybe Prelude.Text,
+    video :: Prelude.Maybe Video,
     -- | Information about a video that Amazon Rekognition Video analyzed.
     -- @Videometadata@ is returned in every page of paginated responses from a
     -- Amazon Rekognition Video operation.
@@ -281,13 +297,23 @@ data GetCelebrityRecognitionResponse = GetCelebrityRecognitionResponse'
 --
 -- 'celebrities', 'getCelebrityRecognitionResponse_celebrities' - Array of celebrities recognized in the video.
 --
+-- 'jobId', 'getCelebrityRecognitionResponse_jobId' - Job identifier for the celebrity recognition operation for which you
+-- want to obtain results. The job identifer is returned by an initial call
+-- to StartCelebrityRecognition.
+--
 -- 'jobStatus', 'getCelebrityRecognitionResponse_jobStatus' - The current status of the celebrity recognition job.
+--
+-- 'jobTag', 'getCelebrityRecognitionResponse_jobTag' - A job identifier specified in the call to StartCelebrityRecognition and
+-- returned in the job completion notification sent to your Amazon Simple
+-- Notification Service topic.
 --
 -- 'nextToken', 'getCelebrityRecognitionResponse_nextToken' - If the response is truncated, Amazon Rekognition Video returns this
 -- token that you can use in the subsequent request to retrieve the next
 -- set of celebrities.
 --
 -- 'statusMessage', 'getCelebrityRecognitionResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
+--
+-- 'video', 'getCelebrityRecognitionResponse_video' - Undocumented member.
 --
 -- 'videoMetadata', 'getCelebrityRecognitionResponse_videoMetadata' - Information about a video that Amazon Rekognition Video analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from a
@@ -302,9 +328,12 @@ newGetCelebrityRecognitionResponse pHttpStatus_ =
   GetCelebrityRecognitionResponse'
     { celebrities =
         Prelude.Nothing,
+      jobId = Prelude.Nothing,
       jobStatus = Prelude.Nothing,
+      jobTag = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
+      video = Prelude.Nothing,
       videoMetadata = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -313,9 +342,21 @@ newGetCelebrityRecognitionResponse pHttpStatus_ =
 getCelebrityRecognitionResponse_celebrities :: Lens.Lens' GetCelebrityRecognitionResponse (Prelude.Maybe [CelebrityRecognition])
 getCelebrityRecognitionResponse_celebrities = Lens.lens (\GetCelebrityRecognitionResponse' {celebrities} -> celebrities) (\s@GetCelebrityRecognitionResponse' {} a -> s {celebrities = a} :: GetCelebrityRecognitionResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | Job identifier for the celebrity recognition operation for which you
+-- want to obtain results. The job identifer is returned by an initial call
+-- to StartCelebrityRecognition.
+getCelebrityRecognitionResponse_jobId :: Lens.Lens' GetCelebrityRecognitionResponse (Prelude.Maybe Prelude.Text)
+getCelebrityRecognitionResponse_jobId = Lens.lens (\GetCelebrityRecognitionResponse' {jobId} -> jobId) (\s@GetCelebrityRecognitionResponse' {} a -> s {jobId = a} :: GetCelebrityRecognitionResponse)
+
 -- | The current status of the celebrity recognition job.
 getCelebrityRecognitionResponse_jobStatus :: Lens.Lens' GetCelebrityRecognitionResponse (Prelude.Maybe VideoJobStatus)
 getCelebrityRecognitionResponse_jobStatus = Lens.lens (\GetCelebrityRecognitionResponse' {jobStatus} -> jobStatus) (\s@GetCelebrityRecognitionResponse' {} a -> s {jobStatus = a} :: GetCelebrityRecognitionResponse)
+
+-- | A job identifier specified in the call to StartCelebrityRecognition and
+-- returned in the job completion notification sent to your Amazon Simple
+-- Notification Service topic.
+getCelebrityRecognitionResponse_jobTag :: Lens.Lens' GetCelebrityRecognitionResponse (Prelude.Maybe Prelude.Text)
+getCelebrityRecognitionResponse_jobTag = Lens.lens (\GetCelebrityRecognitionResponse' {jobTag} -> jobTag) (\s@GetCelebrityRecognitionResponse' {} a -> s {jobTag = a} :: GetCelebrityRecognitionResponse)
 
 -- | If the response is truncated, Amazon Rekognition Video returns this
 -- token that you can use in the subsequent request to retrieve the next
@@ -326,6 +367,10 @@ getCelebrityRecognitionResponse_nextToken = Lens.lens (\GetCelebrityRecognitionR
 -- | If the job fails, @StatusMessage@ provides a descriptive error message.
 getCelebrityRecognitionResponse_statusMessage :: Lens.Lens' GetCelebrityRecognitionResponse (Prelude.Maybe Prelude.Text)
 getCelebrityRecognitionResponse_statusMessage = Lens.lens (\GetCelebrityRecognitionResponse' {statusMessage} -> statusMessage) (\s@GetCelebrityRecognitionResponse' {} a -> s {statusMessage = a} :: GetCelebrityRecognitionResponse)
+
+-- | Undocumented member.
+getCelebrityRecognitionResponse_video :: Lens.Lens' GetCelebrityRecognitionResponse (Prelude.Maybe Video)
+getCelebrityRecognitionResponse_video = Lens.lens (\GetCelebrityRecognitionResponse' {video} -> video) (\s@GetCelebrityRecognitionResponse' {} a -> s {video = a} :: GetCelebrityRecognitionResponse)
 
 -- | Information about a video that Amazon Rekognition Video analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from a
@@ -343,8 +388,11 @@ instance
   where
   rnf GetCelebrityRecognitionResponse' {..} =
     Prelude.rnf celebrities
+      `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobTag
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf video
       `Prelude.seq` Prelude.rnf videoMetadata
       `Prelude.seq` Prelude.rnf httpStatus

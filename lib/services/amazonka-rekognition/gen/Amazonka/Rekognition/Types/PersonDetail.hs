@@ -92,7 +92,8 @@ instance Data.FromJSON PersonDetail where
 
 instance Prelude.Hashable PersonDetail where
   hashWithSalt _salt PersonDetail' {..} =
-    _salt `Prelude.hashWithSalt` boundingBox
+    _salt
+      `Prelude.hashWithSalt` boundingBox
       `Prelude.hashWithSalt` face
       `Prelude.hashWithSalt` index
 

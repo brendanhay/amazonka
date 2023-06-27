@@ -162,7 +162,8 @@ instance Core.AWSRequest StartTextDetection where
 
 instance Prelude.Hashable StartTextDetection where
   hashWithSalt _salt StartTextDetection' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` jobTag
       `Prelude.hashWithSalt` notificationChannel

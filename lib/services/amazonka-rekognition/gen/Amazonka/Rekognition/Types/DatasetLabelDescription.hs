@@ -76,7 +76,8 @@ instance Data.FromJSON DatasetLabelDescription where
 
 instance Prelude.Hashable DatasetLabelDescription where
   hashWithSalt _salt DatasetLabelDescription' {..} =
-    _salt `Prelude.hashWithSalt` labelName
+    _salt
+      `Prelude.hashWithSalt` labelName
       `Prelude.hashWithSalt` labelStats
 
 instance Prelude.NFData DatasetLabelDescription where

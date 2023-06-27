@@ -82,7 +82,8 @@ instance Data.FromJSON CompareFacesMatch where
 
 instance Prelude.Hashable CompareFacesMatch where
   hashWithSalt _salt CompareFacesMatch' {..} =
-    _salt `Prelude.hashWithSalt` face
+    _salt
+      `Prelude.hashWithSalt` face
       `Prelude.hashWithSalt` similarity
 
 instance Prelude.NFData CompareFacesMatch where

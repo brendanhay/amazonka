@@ -86,7 +86,8 @@ instance Data.FromJSON TestingData where
 
 instance Prelude.Hashable TestingData where
   hashWithSalt _salt TestingData' {..} =
-    _salt `Prelude.hashWithSalt` assets
+    _salt
+      `Prelude.hashWithSalt` assets
       `Prelude.hashWithSalt` autoCreate
 
 instance Prelude.NFData TestingData where

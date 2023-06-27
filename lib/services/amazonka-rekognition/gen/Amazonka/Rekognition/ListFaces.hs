@@ -36,8 +36,10 @@ module Amazonka.Rekognition.ListFaces
     newListFaces,
 
     -- * Request Lenses
+    listFaces_faceIds,
     listFaces_maxResults,
     listFaces_nextToken,
+    listFaces_userId,
     listFaces_collectionId,
 
     -- * Destructuring the Response
@@ -62,13 +64,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListFaces' smart constructor.
 data ListFaces = ListFaces'
-  { -- | Maximum number of faces to return.
+  { -- | An array of face IDs to match when listing faces in a collection.
+    faceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Maximum number of faces to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | If the previous response was incomplete (because there is more data to
     -- retrieve), Amazon Rekognition returns a pagination token in the
     -- response. You can use this pagination token to retrieve the next set of
     -- faces.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of user IDs to match when listing faces in a collection.
+    userId :: Prelude.Maybe Prelude.Text,
     -- | ID of the collection from which to list the faces.
     collectionId :: Prelude.Text
   }
@@ -82,12 +88,16 @@ data ListFaces = ListFaces'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'faceIds', 'listFaces_faceIds' - An array of face IDs to match when listing faces in a collection.
+--
 -- 'maxResults', 'listFaces_maxResults' - Maximum number of faces to return.
 --
 -- 'nextToken', 'listFaces_nextToken' - If the previous response was incomplete (because there is more data to
 -- retrieve), Amazon Rekognition returns a pagination token in the
 -- response. You can use this pagination token to retrieve the next set of
 -- faces.
+--
+-- 'userId', 'listFaces_userId' - An array of user IDs to match when listing faces in a collection.
 --
 -- 'collectionId', 'listFaces_collectionId' - ID of the collection from which to list the faces.
 newListFaces ::
@@ -96,10 +106,16 @@ newListFaces ::
   ListFaces
 newListFaces pCollectionId_ =
   ListFaces'
-    { maxResults = Prelude.Nothing,
+    { faceIds = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      userId = Prelude.Nothing,
       collectionId = pCollectionId_
     }
+
+-- | An array of face IDs to match when listing faces in a collection.
+listFaces_faceIds :: Lens.Lens' ListFaces (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listFaces_faceIds = Lens.lens (\ListFaces' {faceIds} -> faceIds) (\s@ListFaces' {} a -> s {faceIds = a} :: ListFaces) Prelude.. Lens.mapping Lens.coerced
 
 -- | Maximum number of faces to return.
 listFaces_maxResults :: Lens.Lens' ListFaces (Prelude.Maybe Prelude.Natural)
@@ -112,6 +128,10 @@ listFaces_maxResults = Lens.lens (\ListFaces' {maxResults} -> maxResults) (\s@Li
 listFaces_nextToken :: Lens.Lens' ListFaces (Prelude.Maybe Prelude.Text)
 listFaces_nextToken = Lens.lens (\ListFaces' {nextToken} -> nextToken) (\s@ListFaces' {} a -> s {nextToken = a} :: ListFaces)
 
+-- | An array of user IDs to match when listing faces in a collection.
+listFaces_userId :: Lens.Lens' ListFaces (Prelude.Maybe Prelude.Text)
+listFaces_userId = Lens.lens (\ListFaces' {userId} -> userId) (\s@ListFaces' {} a -> s {userId = a} :: ListFaces)
+
 -- | ID of the collection from which to list the faces.
 listFaces_collectionId :: Lens.Lens' ListFaces Prelude.Text
 listFaces_collectionId = Lens.lens (\ListFaces' {collectionId} -> collectionId) (\s@ListFaces' {} a -> s {collectionId = a} :: ListFaces)
@@ -120,20 +140,23 @@ instance Core.AWSPager ListFaces where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listFacesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listFacesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listFacesResponse_faces Prelude.. Lens._Just
+            Lens.^? listFacesResponse_faces
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listFaces_nextToken
           Lens..~ rs
-          Lens.^? listFacesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listFacesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFaces where
   type AWSResponse ListFaces = ListFacesResponse
@@ -151,14 +174,19 @@ instance Core.AWSRequest ListFaces where
 
 instance Prelude.Hashable ListFaces where
   hashWithSalt _salt ListFaces' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` faceIds
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` collectionId
 
 instance Prelude.NFData ListFaces where
   rnf ListFaces' {..} =
-    Prelude.rnf maxResults
+    Prelude.rnf faceIds
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf userId
       `Prelude.seq` Prelude.rnf collectionId
 
 instance Data.ToHeaders ListFaces where
@@ -180,8 +208,10 @@ instance Data.ToJSON ListFaces where
   toJSON ListFaces' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MaxResults" Data..=) Prelude.<$> maxResults,
+          [ ("FaceIds" Data..=) Prelude.<$> faceIds,
+            ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("UserId" Data..=) Prelude.<$> userId,
             Prelude.Just ("CollectionId" Data..= collectionId)
           ]
       )

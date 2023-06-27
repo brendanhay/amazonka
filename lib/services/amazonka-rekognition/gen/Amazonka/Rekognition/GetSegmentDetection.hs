@@ -71,11 +71,14 @@ module Amazonka.Rekognition.GetSegmentDetection
 
     -- * Response Lenses
     getSegmentDetectionResponse_audioMetadata,
+    getSegmentDetectionResponse_jobId,
     getSegmentDetectionResponse_jobStatus,
+    getSegmentDetectionResponse_jobTag,
     getSegmentDetectionResponse_nextToken,
     getSegmentDetectionResponse_segments,
     getSegmentDetectionResponse_selectedSegmentTypes,
     getSegmentDetectionResponse_statusMessage,
+    getSegmentDetectionResponse_video,
     getSegmentDetectionResponse_videoMetadata,
     getSegmentDetectionResponse_httpStatus,
   )
@@ -162,20 +165,25 @@ instance Core.AWSRequest GetSegmentDetection where
       ( \s h x ->
           GetSegmentDetectionResponse'
             Prelude.<$> (x Data..?> "AudioMetadata" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "JobId")
             Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<*> (x Data..?> "JobTag")
             Prelude.<*> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "Segments" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "SelectedSegmentTypes"
+            Prelude.<*> ( x
+                            Data..?> "SelectedSegmentTypes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "StatusMessage")
+            Prelude.<*> (x Data..?> "Video")
             Prelude.<*> (x Data..?> "VideoMetadata" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetSegmentDetection where
   hashWithSalt _salt GetSegmentDetection' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` jobId
 
@@ -225,8 +233,16 @@ data GetSegmentDetectionResponse = GetSegmentDetectionResponse'
     -- and the sample rate. Audio metadata is returned in each page of
     -- information returned by @GetSegmentDetection@.
     audioMetadata :: Prelude.Maybe [AudioMetadata],
+    -- | Job identifier for the segment detection operation for which you want to
+    -- obtain results. The job identifer is returned by an initial call to
+    -- StartSegmentDetection.
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | Current status of the segment detection job.
     jobStatus :: Prelude.Maybe VideoJobStatus,
+    -- | A job identifier specified in the call to StartSegmentDetection and
+    -- returned in the job completion notification sent to your Amazon Simple
+    -- Notification Service topic.
+    jobTag :: Prelude.Maybe Prelude.Text,
     -- | If the previous response was incomplete (because there are more labels
     -- to retrieve), Amazon Rekognition Video returns a pagination token in the
     -- response. You can use this pagination token to retrieve the next set of
@@ -242,6 +258,7 @@ data GetSegmentDetectionResponse = GetSegmentDetectionResponse'
     selectedSegmentTypes :: Prelude.Maybe [SegmentTypeInfo],
     -- | If the job fails, @StatusMessage@ provides a descriptive error message.
     statusMessage :: Prelude.Maybe Prelude.Text,
+    video :: Prelude.Maybe Video,
     -- | Currently, Amazon Rekognition Video returns a single object in the
     -- @VideoMetadata@ array. The object contains information about the video
     -- stream in the input file that Amazon Rekognition Video chose to analyze.
@@ -269,7 +286,15 @@ data GetSegmentDetectionResponse = GetSegmentDetectionResponse'
 -- and the sample rate. Audio metadata is returned in each page of
 -- information returned by @GetSegmentDetection@.
 --
+-- 'jobId', 'getSegmentDetectionResponse_jobId' - Job identifier for the segment detection operation for which you want to
+-- obtain results. The job identifer is returned by an initial call to
+-- StartSegmentDetection.
+--
 -- 'jobStatus', 'getSegmentDetectionResponse_jobStatus' - Current status of the segment detection job.
+--
+-- 'jobTag', 'getSegmentDetectionResponse_jobTag' - A job identifier specified in the call to StartSegmentDetection and
+-- returned in the job completion notification sent to your Amazon Simple
+-- Notification Service topic.
 --
 -- 'nextToken', 'getSegmentDetectionResponse_nextToken' - If the previous response was incomplete (because there are more labels
 -- to retrieve), Amazon Rekognition Video returns a pagination token in the
@@ -285,6 +310,8 @@ data GetSegmentDetectionResponse = GetSegmentDetectionResponse'
 -- @StartSegmentDetection@.
 --
 -- 'statusMessage', 'getSegmentDetectionResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
+--
+-- 'video', 'getSegmentDetectionResponse_video' - Undocumented member.
 --
 -- 'videoMetadata', 'getSegmentDetectionResponse_videoMetadata' - Currently, Amazon Rekognition Video returns a single object in the
 -- @VideoMetadata@ array. The object contains information about the video
@@ -302,11 +329,14 @@ newGetSegmentDetectionResponse pHttpStatus_ =
   GetSegmentDetectionResponse'
     { audioMetadata =
         Prelude.Nothing,
+      jobId = Prelude.Nothing,
       jobStatus = Prelude.Nothing,
+      jobTag = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       segments = Prelude.Nothing,
       selectedSegmentTypes = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
+      video = Prelude.Nothing,
       videoMetadata = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -320,9 +350,21 @@ newGetSegmentDetectionResponse pHttpStatus_ =
 getSegmentDetectionResponse_audioMetadata :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe [AudioMetadata])
 getSegmentDetectionResponse_audioMetadata = Lens.lens (\GetSegmentDetectionResponse' {audioMetadata} -> audioMetadata) (\s@GetSegmentDetectionResponse' {} a -> s {audioMetadata = a} :: GetSegmentDetectionResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | Job identifier for the segment detection operation for which you want to
+-- obtain results. The job identifer is returned by an initial call to
+-- StartSegmentDetection.
+getSegmentDetectionResponse_jobId :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe Prelude.Text)
+getSegmentDetectionResponse_jobId = Lens.lens (\GetSegmentDetectionResponse' {jobId} -> jobId) (\s@GetSegmentDetectionResponse' {} a -> s {jobId = a} :: GetSegmentDetectionResponse)
+
 -- | Current status of the segment detection job.
 getSegmentDetectionResponse_jobStatus :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe VideoJobStatus)
 getSegmentDetectionResponse_jobStatus = Lens.lens (\GetSegmentDetectionResponse' {jobStatus} -> jobStatus) (\s@GetSegmentDetectionResponse' {} a -> s {jobStatus = a} :: GetSegmentDetectionResponse)
+
+-- | A job identifier specified in the call to StartSegmentDetection and
+-- returned in the job completion notification sent to your Amazon Simple
+-- Notification Service topic.
+getSegmentDetectionResponse_jobTag :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe Prelude.Text)
+getSegmentDetectionResponse_jobTag = Lens.lens (\GetSegmentDetectionResponse' {jobTag} -> jobTag) (\s@GetSegmentDetectionResponse' {} a -> s {jobTag = a} :: GetSegmentDetectionResponse)
 
 -- | If the previous response was incomplete (because there are more labels
 -- to retrieve), Amazon Rekognition Video returns a pagination token in the
@@ -347,6 +389,10 @@ getSegmentDetectionResponse_selectedSegmentTypes = Lens.lens (\GetSegmentDetecti
 getSegmentDetectionResponse_statusMessage :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe Prelude.Text)
 getSegmentDetectionResponse_statusMessage = Lens.lens (\GetSegmentDetectionResponse' {statusMessage} -> statusMessage) (\s@GetSegmentDetectionResponse' {} a -> s {statusMessage = a} :: GetSegmentDetectionResponse)
 
+-- | Undocumented member.
+getSegmentDetectionResponse_video :: Lens.Lens' GetSegmentDetectionResponse (Prelude.Maybe Video)
+getSegmentDetectionResponse_video = Lens.lens (\GetSegmentDetectionResponse' {video} -> video) (\s@GetSegmentDetectionResponse' {} a -> s {video = a} :: GetSegmentDetectionResponse)
+
 -- | Currently, Amazon Rekognition Video returns a single object in the
 -- @VideoMetadata@ array. The object contains information about the video
 -- stream in the input file that Amazon Rekognition Video chose to analyze.
@@ -363,10 +409,13 @@ getSegmentDetectionResponse_httpStatus = Lens.lens (\GetSegmentDetectionResponse
 instance Prelude.NFData GetSegmentDetectionResponse where
   rnf GetSegmentDetectionResponse' {..} =
     Prelude.rnf audioMetadata
+      `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf jobStatus
+      `Prelude.seq` Prelude.rnf jobTag
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf segments
       `Prelude.seq` Prelude.rnf selectedSegmentTypes
       `Prelude.seq` Prelude.rnf statusMessage
+      `Prelude.seq` Prelude.rnf video
       `Prelude.seq` Prelude.rnf videoMetadata
       `Prelude.seq` Prelude.rnf httpStatus

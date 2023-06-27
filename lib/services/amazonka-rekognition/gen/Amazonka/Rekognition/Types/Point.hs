@@ -73,12 +73,14 @@ instance Data.FromJSON Point where
       "Point"
       ( \x ->
           Point'
-            Prelude.<$> (x Data..:? "X") Prelude.<*> (x Data..:? "Y")
+            Prelude.<$> (x Data..:? "X")
+            Prelude.<*> (x Data..:? "Y")
       )
 
 instance Prelude.Hashable Point where
   hashWithSalt _salt Point' {..} =
-    _salt `Prelude.hashWithSalt` x
+    _salt
+      `Prelude.hashWithSalt` x
       `Prelude.hashWithSalt` y
 
 instance Prelude.NFData Point where

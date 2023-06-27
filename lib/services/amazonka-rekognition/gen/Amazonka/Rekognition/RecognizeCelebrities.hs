@@ -139,7 +139,8 @@ instance Core.AWSRequest RecognizeCelebrities where
           RecognizeCelebritiesResponse'
             Prelude.<$> (x Data..?> "CelebrityFaces" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "OrientationCorrection")
-            Prelude.<*> ( x Data..?> "UnrecognizedFaces"
+            Prelude.<*> ( x
+                            Data..?> "UnrecognizedFaces"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

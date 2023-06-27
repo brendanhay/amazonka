@@ -80,7 +80,8 @@ instance Data.FromJSON StreamProcessor where
 
 instance Prelude.Hashable StreamProcessor where
   hashWithSalt _salt StreamProcessor' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData StreamProcessor where

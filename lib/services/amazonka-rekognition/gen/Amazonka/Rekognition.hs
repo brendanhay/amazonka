@@ -21,13 +21,19 @@
 --
 -- __Amazon Rekognition Image__
 --
+-- -   <https://docs.aws.amazon.com/rekognition/latest/APIReference/API_AssociateFaces.html AssociateFaces>
+--
 -- -   <https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CompareFaces.html CompareFaces>
 --
 -- -   <https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateCollection.html CreateCollection>
 --
+-- -   <https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateUser.html CreateUser>
+--
 -- -   <https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteCollection.html DeleteCollection>
 --
 -- -   <https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteFaces.html DeleteFaces>
+--
+-- -   <https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DeleteUser.html DeleteUser>
 --
 -- -   <https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeCollection.html DescribeCollection>
 --
@@ -41,6 +47,8 @@
 --
 -- -   <https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DetectText.html DetectText>
 --
+-- -   <https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DisassociateFaces.html DisassociateFaces>
+--
 -- -   <https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetCelebrityInfo.html GetCelebrityInfo>
 --
 -- -   <https://docs.aws.amazon.com/rekognition/latest/APIReference/API_IndexFaces.html IndexFaces>
@@ -49,11 +57,17 @@
 --
 -- -   <https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListFaces.html ListFaces>
 --
+-- -   <https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListFaces.html ListUsers>
+--
 -- -   <https://docs.aws.amazon.com/rekognition/latest/APIReference/API_RecognizeCelebrities.html RecognizeCelebrities>
 --
 -- -   <https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFaces.html SearchFaces>
 --
 -- -   <https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchFacesByImage.html SearchFacesByImage>
+--
+-- -   <https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsers.html SearchUsers>
+--
+-- -   <https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsersByImage.html SearchUsersByImage>
 --
 -- __Amazon Rekognition Custom Labels__
 --
@@ -156,6 +170,9 @@ module Amazonka.Rekognition
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** HumanLoopQuotaExceededException
     _HumanLoopQuotaExceededException,
 
@@ -207,6 +224,9 @@ module Amazonka.Rekognition
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
 
+    -- ** SessionNotFoundException
+    _SessionNotFoundException,
+
     -- ** ThrottlingException
     _ThrottlingException,
 
@@ -224,6 +244,12 @@ module Amazonka.Rekognition
 
     -- * Operations
     -- $operations
+
+    -- ** AssociateFaces
+    AssociateFaces (AssociateFaces'),
+    newAssociateFaces,
+    AssociateFacesResponse (AssociateFacesResponse'),
+    newAssociateFacesResponse,
 
     -- ** CompareFaces
     CompareFaces (CompareFaces'),
@@ -249,6 +275,12 @@ module Amazonka.Rekognition
     CreateDatasetResponse (CreateDatasetResponse'),
     newCreateDatasetResponse,
 
+    -- ** CreateFaceLivenessSession
+    CreateFaceLivenessSession (CreateFaceLivenessSession'),
+    newCreateFaceLivenessSession,
+    CreateFaceLivenessSessionResponse (CreateFaceLivenessSessionResponse'),
+    newCreateFaceLivenessSessionResponse,
+
     -- ** CreateProject
     CreateProject (CreateProject'),
     newCreateProject,
@@ -266,6 +298,12 @@ module Amazonka.Rekognition
     newCreateStreamProcessor,
     CreateStreamProcessorResponse (CreateStreamProcessorResponse'),
     newCreateStreamProcessorResponse,
+
+    -- ** CreateUser
+    CreateUser (CreateUser'),
+    newCreateUser,
+    CreateUserResponse (CreateUserResponse'),
+    newCreateUserResponse,
 
     -- ** DeleteCollection
     DeleteCollection (DeleteCollection'),
@@ -308,6 +346,12 @@ module Amazonka.Rekognition
     newDeleteStreamProcessor,
     DeleteStreamProcessorResponse (DeleteStreamProcessorResponse'),
     newDeleteStreamProcessorResponse,
+
+    -- ** DeleteUser
+    DeleteUser (DeleteUser'),
+    newDeleteUser,
+    DeleteUserResponse (DeleteUserResponse'),
+    newDeleteUserResponse,
 
     -- ** DescribeCollection
     DescribeCollection (DescribeCollection'),
@@ -375,6 +419,12 @@ module Amazonka.Rekognition
     DetectTextResponse (DetectTextResponse'),
     newDetectTextResponse,
 
+    -- ** DisassociateFaces
+    DisassociateFaces (DisassociateFaces'),
+    newDisassociateFaces,
+    DisassociateFacesResponse (DisassociateFacesResponse'),
+    newDisassociateFacesResponse,
+
     -- ** DistributeDatasetEntries
     DistributeDatasetEntries (DistributeDatasetEntries'),
     newDistributeDatasetEntries,
@@ -404,6 +454,12 @@ module Amazonka.Rekognition
     newGetFaceDetection,
     GetFaceDetectionResponse (GetFaceDetectionResponse'),
     newGetFaceDetectionResponse,
+
+    -- ** GetFaceLivenessSessionResults
+    GetFaceLivenessSessionResults (GetFaceLivenessSessionResults'),
+    newGetFaceLivenessSessionResults,
+    GetFaceLivenessSessionResultsResponse (GetFaceLivenessSessionResultsResponse'),
+    newGetFaceLivenessSessionResultsResponse,
 
     -- ** GetFaceSearch
     GetFaceSearch (GetFaceSearch'),
@@ -483,6 +539,12 @@ module Amazonka.Rekognition
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
+    -- ** ListUsers (Paginated)
+    ListUsers (ListUsers'),
+    newListUsers,
+    ListUsersResponse (ListUsersResponse'),
+    newListUsersResponse,
+
     -- ** PutProjectPolicy
     PutProjectPolicy (PutProjectPolicy'),
     newPutProjectPolicy,
@@ -506,6 +568,18 @@ module Amazonka.Rekognition
     newSearchFacesByImage,
     SearchFacesByImageResponse (SearchFacesByImageResponse'),
     newSearchFacesByImageResponse,
+
+    -- ** SearchUsers
+    SearchUsers (SearchUsers'),
+    newSearchUsers,
+    SearchUsersResponse (SearchUsersResponse'),
+    newSearchUsersResponse,
+
+    -- ** SearchUsersByImage
+    SearchUsersByImage (SearchUsersByImage'),
+    newSearchUsersByImage,
+    SearchUsersByImageResponse (SearchUsersByImageResponse'),
+    newSearchUsersByImageResponse,
 
     -- ** StartCelebrityRecognition
     StartCelebrityRecognition (StartCelebrityRecognition'),
@@ -617,6 +691,9 @@ module Amazonka.Rekognition
     -- ** ContentClassifier
     ContentClassifier (..),
 
+    -- ** ContentModerationAggregateBy
+    ContentModerationAggregateBy (..),
+
     -- ** ContentModerationSortBy
     ContentModerationSortBy (..),
 
@@ -659,6 +736,9 @@ module Amazonka.Rekognition
     -- ** LandmarkType
     LandmarkType (..),
 
+    -- ** LivenessSessionStatus
+    LivenessSessionStatus (..),
+
     -- ** OrientationCorrection
     OrientationCorrection (..),
 
@@ -695,6 +775,21 @@ module Amazonka.Rekognition
     -- ** TextTypes
     TextTypes (..),
 
+    -- ** UnsearchedFaceReason
+    UnsearchedFaceReason (..),
+
+    -- ** UnsuccessfulFaceAssociationReason
+    UnsuccessfulFaceAssociationReason (..),
+
+    -- ** UnsuccessfulFaceDeletionReason
+    UnsuccessfulFaceDeletionReason (..),
+
+    -- ** UnsuccessfulFaceDisassociationReason
+    UnsuccessfulFaceDisassociationReason (..),
+
+    -- ** UserStatus
+    UserStatus (..),
+
     -- ** VideoColorRange
     VideoColorRange (..),
 
@@ -709,9 +804,17 @@ module Amazonka.Rekognition
     Asset (Asset'),
     newAsset,
 
+    -- ** AssociatedFace
+    AssociatedFace (AssociatedFace'),
+    newAssociatedFace,
+
     -- ** AudioMetadata
     AudioMetadata (AudioMetadata'),
     newAudioMetadata,
+
+    -- ** AuditImage
+    AuditImage (AuditImage'),
+    newAuditImage,
 
     -- ** Beard
     Beard (Beard'),
@@ -764,6 +867,10 @@ module Amazonka.Rekognition
     -- ** CoversBodyPart
     CoversBodyPart (CoversBodyPart'),
     newCoversBodyPart,
+
+    -- ** CreateFaceLivenessSessionRequestSettings
+    CreateFaceLivenessSessionRequestSettings (CreateFaceLivenessSessionRequestSettings'),
+    newCreateFaceLivenessSessionRequestSettings,
 
     -- ** CustomLabel
     CustomLabel (CustomLabel'),
@@ -829,6 +936,10 @@ module Amazonka.Rekognition
     DetectionFilter (DetectionFilter'),
     newDetectionFilter,
 
+    -- ** DisassociatedFace
+    DisassociatedFace (DisassociatedFace'),
+    newDisassociatedFace,
+
     -- ** DistributeDataset
     DistributeDataset (DistributeDataset'),
     newDistributeDataset,
@@ -848,6 +959,10 @@ module Amazonka.Rekognition
     -- ** EvaluationResult
     EvaluationResult (EvaluationResult'),
     newEvaluationResult,
+
+    -- ** EyeDirection
+    EyeDirection (EyeDirection'),
+    newEyeDirection,
 
     -- ** EyeOpen
     EyeOpen (EyeOpen'),
@@ -873,6 +988,10 @@ module Amazonka.Rekognition
     FaceMatch (FaceMatch'),
     newFaceMatch,
 
+    -- ** FaceOccluded
+    FaceOccluded (FaceOccluded'),
+    newFaceOccluded,
+
     -- ** FaceRecord
     FaceRecord (FaceRecord'),
     newFaceRecord,
@@ -892,6 +1011,14 @@ module Amazonka.Rekognition
     -- ** Geometry
     Geometry (Geometry'),
     newGeometry,
+
+    -- ** GetContentModerationRequestMetadata
+    GetContentModerationRequestMetadata (GetContentModerationRequestMetadata'),
+    newGetContentModerationRequestMetadata,
+
+    -- ** GetLabelDetectionRequestMetadata
+    GetLabelDetectionRequestMetadata (GetLabelDetectionRequestMetadata'),
+    newGetLabelDetectionRequestMetadata,
 
     -- ** GroundTruthManifest
     GroundTruthManifest (GroundTruthManifest'),
@@ -960,6 +1087,14 @@ module Amazonka.Rekognition
     -- ** Landmark
     Landmark (Landmark'),
     newLandmark,
+
+    -- ** LivenessOutputConfig
+    LivenessOutputConfig (LivenessOutputConfig'),
+    newLivenessOutputConfig,
+
+    -- ** MatchedUser
+    MatchedUser (MatchedUser'),
+    newMatchedUser,
 
     -- ** ModerationLabel
     ModerationLabel (ModerationLabel'),
@@ -1044,6 +1179,18 @@ module Amazonka.Rekognition
     -- ** S3Object
     S3Object (S3Object'),
     newS3Object,
+
+    -- ** SearchedFace
+    SearchedFace (SearchedFace'),
+    newSearchedFace,
+
+    -- ** SearchedFaceDetails
+    SearchedFaceDetails (SearchedFaceDetails'),
+    newSearchedFaceDetails,
+
+    -- ** SearchedUser
+    SearchedUser (SearchedUser'),
+    newSearchedUser,
 
     -- ** SegmentDetection
     SegmentDetection (SegmentDetection'),
@@ -1153,6 +1300,30 @@ module Amazonka.Rekognition
     UnindexedFace (UnindexedFace'),
     newUnindexedFace,
 
+    -- ** UnsearchedFace
+    UnsearchedFace (UnsearchedFace'),
+    newUnsearchedFace,
+
+    -- ** UnsuccessfulFaceAssociation
+    UnsuccessfulFaceAssociation (UnsuccessfulFaceAssociation'),
+    newUnsuccessfulFaceAssociation,
+
+    -- ** UnsuccessfulFaceDeletion
+    UnsuccessfulFaceDeletion (UnsuccessfulFaceDeletion'),
+    newUnsuccessfulFaceDeletion,
+
+    -- ** UnsuccessfulFaceDisassociation
+    UnsuccessfulFaceDisassociation (UnsuccessfulFaceDisassociation'),
+    newUnsuccessfulFaceDisassociation,
+
+    -- ** User
+    User (User'),
+    newUser,
+
+    -- ** UserMatch
+    UserMatch (UserMatch'),
+    newUserMatch,
+
     -- ** ValidationData
     ValidationData (ValidationData'),
     newValidationData,
@@ -1167,13 +1338,16 @@ module Amazonka.Rekognition
   )
 where
 
+import Amazonka.Rekognition.AssociateFaces
 import Amazonka.Rekognition.CompareFaces
 import Amazonka.Rekognition.CopyProjectVersion
 import Amazonka.Rekognition.CreateCollection
 import Amazonka.Rekognition.CreateDataset
+import Amazonka.Rekognition.CreateFaceLivenessSession
 import Amazonka.Rekognition.CreateProject
 import Amazonka.Rekognition.CreateProjectVersion
 import Amazonka.Rekognition.CreateStreamProcessor
+import Amazonka.Rekognition.CreateUser
 import Amazonka.Rekognition.DeleteCollection
 import Amazonka.Rekognition.DeleteDataset
 import Amazonka.Rekognition.DeleteFaces
@@ -1181,6 +1355,7 @@ import Amazonka.Rekognition.DeleteProject
 import Amazonka.Rekognition.DeleteProjectPolicy
 import Amazonka.Rekognition.DeleteProjectVersion
 import Amazonka.Rekognition.DeleteStreamProcessor
+import Amazonka.Rekognition.DeleteUser
 import Amazonka.Rekognition.DescribeCollection
 import Amazonka.Rekognition.DescribeDataset
 import Amazonka.Rekognition.DescribeProjectVersions
@@ -1192,11 +1367,13 @@ import Amazonka.Rekognition.DetectLabels
 import Amazonka.Rekognition.DetectModerationLabels
 import Amazonka.Rekognition.DetectProtectiveEquipment
 import Amazonka.Rekognition.DetectText
+import Amazonka.Rekognition.DisassociateFaces
 import Amazonka.Rekognition.DistributeDatasetEntries
 import Amazonka.Rekognition.GetCelebrityInfo
 import Amazonka.Rekognition.GetCelebrityRecognition
 import Amazonka.Rekognition.GetContentModeration
 import Amazonka.Rekognition.GetFaceDetection
+import Amazonka.Rekognition.GetFaceLivenessSessionResults
 import Amazonka.Rekognition.GetFaceSearch
 import Amazonka.Rekognition.GetLabelDetection
 import Amazonka.Rekognition.GetPersonTracking
@@ -1211,10 +1388,13 @@ import Amazonka.Rekognition.ListFaces
 import Amazonka.Rekognition.ListProjectPolicies
 import Amazonka.Rekognition.ListStreamProcessors
 import Amazonka.Rekognition.ListTagsForResource
+import Amazonka.Rekognition.ListUsers
 import Amazonka.Rekognition.PutProjectPolicy
 import Amazonka.Rekognition.RecognizeCelebrities
 import Amazonka.Rekognition.SearchFaces
 import Amazonka.Rekognition.SearchFacesByImage
+import Amazonka.Rekognition.SearchUsers
+import Amazonka.Rekognition.SearchUsersByImage
 import Amazonka.Rekognition.StartCelebrityRecognition
 import Amazonka.Rekognition.StartContentModeration
 import Amazonka.Rekognition.StartFaceDetection

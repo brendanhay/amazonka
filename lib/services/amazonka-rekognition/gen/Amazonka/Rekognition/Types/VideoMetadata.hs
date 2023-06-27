@@ -130,7 +130,8 @@ instance Data.FromJSON VideoMetadata where
 
 instance Prelude.Hashable VideoMetadata where
   hashWithSalt _salt VideoMetadata' {..} =
-    _salt `Prelude.hashWithSalt` codec
+    _salt
+      `Prelude.hashWithSalt` codec
       `Prelude.hashWithSalt` colorRange
       `Prelude.hashWithSalt` durationMillis
       `Prelude.hashWithSalt` format

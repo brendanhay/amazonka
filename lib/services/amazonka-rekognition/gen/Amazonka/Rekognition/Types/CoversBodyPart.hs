@@ -76,7 +76,8 @@ instance Data.FromJSON CoversBodyPart where
 
 instance Prelude.Hashable CoversBodyPart where
   hashWithSalt _salt CoversBodyPart' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData CoversBodyPart where

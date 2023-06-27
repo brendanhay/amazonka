@@ -27,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCompareFaces $
+--         [ requestAssociateFaces $
+--             newAssociateFaces
+--
+--         , requestCompareFaces $
 --             newCompareFaces
 --
 --         , requestCopyProjectVersion $
@@ -39,6 +42,9 @@ import Test.Tasty
 --         , requestCreateDataset $
 --             newCreateDataset
 --
+--         , requestCreateFaceLivenessSession $
+--             newCreateFaceLivenessSession
+--
 --         , requestCreateProject $
 --             newCreateProject
 --
@@ -47,6 +53,9 @@ import Test.Tasty
 --
 --         , requestCreateStreamProcessor $
 --             newCreateStreamProcessor
+--
+--         , requestCreateUser $
+--             newCreateUser
 --
 --         , requestDeleteCollection $
 --             newDeleteCollection
@@ -68,6 +77,9 @@ import Test.Tasty
 --
 --         , requestDeleteStreamProcessor $
 --             newDeleteStreamProcessor
+--
+--         , requestDeleteUser $
+--             newDeleteUser
 --
 --         , requestDescribeCollection $
 --             newDescribeCollection
@@ -102,6 +114,9 @@ import Test.Tasty
 --         , requestDetectText $
 --             newDetectText
 --
+--         , requestDisassociateFaces $
+--             newDisassociateFaces
+--
 --         , requestDistributeDatasetEntries $
 --             newDistributeDatasetEntries
 --
@@ -116,6 +131,9 @@ import Test.Tasty
 --
 --         , requestGetFaceDetection $
 --             newGetFaceDetection
+--
+--         , requestGetFaceLivenessSessionResults $
+--             newGetFaceLivenessSessionResults
 --
 --         , requestGetFaceSearch $
 --             newGetFaceSearch
@@ -156,6 +174,9 @@ import Test.Tasty
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
+--         , requestListUsers $
+--             newListUsers
+--
 --         , requestPutProjectPolicy $
 --             newPutProjectPolicy
 --
@@ -167,6 +188,12 @@ import Test.Tasty
 --
 --         , requestSearchFacesByImage $
 --             newSearchFacesByImage
+--
+--         , requestSearchUsers $
+--             newSearchUsers
+--
+--         , requestSearchUsersByImage $
+--             newSearchUsersByImage
 --
 --         , requestStartCelebrityRecognition $
 --             newStartCelebrityRecognition
@@ -219,7 +246,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseCompareFaces $
+--         [ responseAssociateFaces $
+--             newAssociateFacesResponse
+--
+--         , responseCompareFaces $
 --             newCompareFacesResponse
 --
 --         , responseCopyProjectVersion $
@@ -231,6 +261,9 @@ import Test.Tasty
 --         , responseCreateDataset $
 --             newCreateDatasetResponse
 --
+--         , responseCreateFaceLivenessSession $
+--             newCreateFaceLivenessSessionResponse
+--
 --         , responseCreateProject $
 --             newCreateProjectResponse
 --
@@ -239,6 +272,9 @@ import Test.Tasty
 --
 --         , responseCreateStreamProcessor $
 --             newCreateStreamProcessorResponse
+--
+--         , responseCreateUser $
+--             newCreateUserResponse
 --
 --         , responseDeleteCollection $
 --             newDeleteCollectionResponse
@@ -260,6 +296,9 @@ import Test.Tasty
 --
 --         , responseDeleteStreamProcessor $
 --             newDeleteStreamProcessorResponse
+--
+--         , responseDeleteUser $
+--             newDeleteUserResponse
 --
 --         , responseDescribeCollection $
 --             newDescribeCollectionResponse
@@ -294,6 +333,9 @@ import Test.Tasty
 --         , responseDetectText $
 --             newDetectTextResponse
 --
+--         , responseDisassociateFaces $
+--             newDisassociateFacesResponse
+--
 --         , responseDistributeDatasetEntries $
 --             newDistributeDatasetEntriesResponse
 --
@@ -308,6 +350,9 @@ import Test.Tasty
 --
 --         , responseGetFaceDetection $
 --             newGetFaceDetectionResponse
+--
+--         , responseGetFaceLivenessSessionResults $
+--             newGetFaceLivenessSessionResultsResponse
 --
 --         , responseGetFaceSearch $
 --             newGetFaceSearchResponse
@@ -348,6 +393,9 @@ import Test.Tasty
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
+--         , responseListUsers $
+--             newListUsersResponse
+--
 --         , responsePutProjectPolicy $
 --             newPutProjectPolicyResponse
 --
@@ -359,6 +407,12 @@ import Test.Tasty
 --
 --         , responseSearchFacesByImage $
 --             newSearchFacesByImageResponse
+--
+--         , responseSearchUsers $
+--             newSearchUsersResponse
+--
+--         , responseSearchUsersByImage $
+--             newSearchUsersByImageResponse
 --
 --         , responseStartCelebrityRecognition $
 --             newStartCelebrityRecognitionResponse
@@ -413,6 +467,12 @@ import Test.Tasty
 
 -- Requests
 
+requestAssociateFaces :: AssociateFaces -> TestTree
+requestAssociateFaces =
+  req
+    "AssociateFaces"
+    "fixture/AssociateFaces.yaml"
+
 requestCompareFaces :: CompareFaces -> TestTree
 requestCompareFaces =
   req
@@ -437,6 +497,12 @@ requestCreateDataset =
     "CreateDataset"
     "fixture/CreateDataset.yaml"
 
+requestCreateFaceLivenessSession :: CreateFaceLivenessSession -> TestTree
+requestCreateFaceLivenessSession =
+  req
+    "CreateFaceLivenessSession"
+    "fixture/CreateFaceLivenessSession.yaml"
+
 requestCreateProject :: CreateProject -> TestTree
 requestCreateProject =
   req
@@ -454,6 +520,12 @@ requestCreateStreamProcessor =
   req
     "CreateStreamProcessor"
     "fixture/CreateStreamProcessor.yaml"
+
+requestCreateUser :: CreateUser -> TestTree
+requestCreateUser =
+  req
+    "CreateUser"
+    "fixture/CreateUser.yaml"
 
 requestDeleteCollection :: DeleteCollection -> TestTree
 requestDeleteCollection =
@@ -496,6 +568,12 @@ requestDeleteStreamProcessor =
   req
     "DeleteStreamProcessor"
     "fixture/DeleteStreamProcessor.yaml"
+
+requestDeleteUser :: DeleteUser -> TestTree
+requestDeleteUser =
+  req
+    "DeleteUser"
+    "fixture/DeleteUser.yaml"
 
 requestDescribeCollection :: DescribeCollection -> TestTree
 requestDescribeCollection =
@@ -563,6 +641,12 @@ requestDetectText =
     "DetectText"
     "fixture/DetectText.yaml"
 
+requestDisassociateFaces :: DisassociateFaces -> TestTree
+requestDisassociateFaces =
+  req
+    "DisassociateFaces"
+    "fixture/DisassociateFaces.yaml"
+
 requestDistributeDatasetEntries :: DistributeDatasetEntries -> TestTree
 requestDistributeDatasetEntries =
   req
@@ -592,6 +676,12 @@ requestGetFaceDetection =
   req
     "GetFaceDetection"
     "fixture/GetFaceDetection.yaml"
+
+requestGetFaceLivenessSessionResults :: GetFaceLivenessSessionResults -> TestTree
+requestGetFaceLivenessSessionResults =
+  req
+    "GetFaceLivenessSessionResults"
+    "fixture/GetFaceLivenessSessionResults.yaml"
 
 requestGetFaceSearch :: GetFaceSearch -> TestTree
 requestGetFaceSearch =
@@ -671,6 +761,12 @@ requestListTagsForResource =
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
+requestListUsers :: ListUsers -> TestTree
+requestListUsers =
+  req
+    "ListUsers"
+    "fixture/ListUsers.yaml"
+
 requestPutProjectPolicy :: PutProjectPolicy -> TestTree
 requestPutProjectPolicy =
   req
@@ -694,6 +790,18 @@ requestSearchFacesByImage =
   req
     "SearchFacesByImage"
     "fixture/SearchFacesByImage.yaml"
+
+requestSearchUsers :: SearchUsers -> TestTree
+requestSearchUsers =
+  req
+    "SearchUsers"
+    "fixture/SearchUsers.yaml"
+
+requestSearchUsersByImage :: SearchUsersByImage -> TestTree
+requestSearchUsersByImage =
+  req
+    "SearchUsersByImage"
+    "fixture/SearchUsersByImage.yaml"
 
 requestStartCelebrityRecognition :: StartCelebrityRecognition -> TestTree
 requestStartCelebrityRecognition =
@@ -793,6 +901,14 @@ requestUpdateStreamProcessor =
 
 -- Responses
 
+responseAssociateFaces :: AssociateFacesResponse -> TestTree
+responseAssociateFaces =
+  res
+    "AssociateFacesResponse"
+    "fixture/AssociateFacesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateFaces)
+
 responseCompareFaces :: CompareFacesResponse -> TestTree
 responseCompareFaces =
   res
@@ -825,6 +941,14 @@ responseCreateDataset =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDataset)
 
+responseCreateFaceLivenessSession :: CreateFaceLivenessSessionResponse -> TestTree
+responseCreateFaceLivenessSession =
+  res
+    "CreateFaceLivenessSessionResponse"
+    "fixture/CreateFaceLivenessSessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateFaceLivenessSession)
+
 responseCreateProject :: CreateProjectResponse -> TestTree
 responseCreateProject =
   res
@@ -848,6 +972,14 @@ responseCreateStreamProcessor =
     "fixture/CreateStreamProcessorResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateStreamProcessor)
+
+responseCreateUser :: CreateUserResponse -> TestTree
+responseCreateUser =
+  res
+    "CreateUserResponse"
+    "fixture/CreateUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateUser)
 
 responseDeleteCollection :: DeleteCollectionResponse -> TestTree
 responseDeleteCollection =
@@ -904,6 +1036,14 @@ responseDeleteStreamProcessor =
     "fixture/DeleteStreamProcessorResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteStreamProcessor)
+
+responseDeleteUser :: DeleteUserResponse -> TestTree
+responseDeleteUser =
+  res
+    "DeleteUserResponse"
+    "fixture/DeleteUserResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteUser)
 
 responseDescribeCollection :: DescribeCollectionResponse -> TestTree
 responseDescribeCollection =
@@ -993,6 +1133,14 @@ responseDetectText =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DetectText)
 
+responseDisassociateFaces :: DisassociateFacesResponse -> TestTree
+responseDisassociateFaces =
+  res
+    "DisassociateFacesResponse"
+    "fixture/DisassociateFacesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateFaces)
+
 responseDistributeDatasetEntries :: DistributeDatasetEntriesResponse -> TestTree
 responseDistributeDatasetEntries =
   res
@@ -1032,6 +1180,14 @@ responseGetFaceDetection =
     "fixture/GetFaceDetectionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetFaceDetection)
+
+responseGetFaceLivenessSessionResults :: GetFaceLivenessSessionResultsResponse -> TestTree
+responseGetFaceLivenessSessionResults =
+  res
+    "GetFaceLivenessSessionResultsResponse"
+    "fixture/GetFaceLivenessSessionResultsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetFaceLivenessSessionResults)
 
 responseGetFaceSearch :: GetFaceSearchResponse -> TestTree
 responseGetFaceSearch =
@@ -1137,6 +1293,14 @@ responseListTagsForResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
+responseListUsers :: ListUsersResponse -> TestTree
+responseListUsers =
+  res
+    "ListUsersResponse"
+    "fixture/ListUsersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListUsers)
+
 responsePutProjectPolicy :: PutProjectPolicyResponse -> TestTree
 responsePutProjectPolicy =
   res
@@ -1168,6 +1332,22 @@ responseSearchFacesByImage =
     "fixture/SearchFacesByImageResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SearchFacesByImage)
+
+responseSearchUsers :: SearchUsersResponse -> TestTree
+responseSearchUsers =
+  res
+    "SearchUsersResponse"
+    "fixture/SearchUsersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchUsers)
+
+responseSearchUsersByImage :: SearchUsersByImageResponse -> TestTree
+responseSearchUsersByImage =
+  res
+    "SearchUsersByImageResponse"
+    "fixture/SearchUsersByImageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchUsersByImage)
 
 responseStartCelebrityRecognition :: StartCelebrityRecognitionResponse -> TestTree
 responseStartCelebrityRecognition =

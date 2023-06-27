@@ -95,7 +95,8 @@ instance Data.FromJSON DatasetStats where
 
 instance Prelude.Hashable DatasetStats where
   hashWithSalt _salt DatasetStats' {..} =
-    _salt `Prelude.hashWithSalt` errorEntries
+    _salt
+      `Prelude.hashWithSalt` errorEntries
       `Prelude.hashWithSalt` labeledEntries
       `Prelude.hashWithSalt` totalEntries
       `Prelude.hashWithSalt` totalLabels

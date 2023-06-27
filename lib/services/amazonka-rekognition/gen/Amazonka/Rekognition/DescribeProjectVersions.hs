@@ -75,7 +75,7 @@ data DescribeProjectVersions = DescribeProjectVersions'
     -- all model descriptions are returned. A version name is part of a model
     -- (ProjectVersion) ARN. For example, @my-model.2020-01-21T09.10.15@ is the
     -- version name in the following ARN.
-    -- @arn:aws:rekognition:us-east-1:123456789012:project\/getting-started\/version\/my-model.2020-01-21T09.10.15\/1234567890123@.
+    -- @arn:aws:rekognition:us-east-1:123456789012:project\/getting-started\/version\/@/@my-model.2020-01-21T09.10.15@/@\/1234567890123@.
     versionNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the project that contains the models
     -- you want to describe.
@@ -105,7 +105,7 @@ data DescribeProjectVersions = DescribeProjectVersions'
 -- all model descriptions are returned. A version name is part of a model
 -- (ProjectVersion) ARN. For example, @my-model.2020-01-21T09.10.15@ is the
 -- version name in the following ARN.
--- @arn:aws:rekognition:us-east-1:123456789012:project\/getting-started\/version\/my-model.2020-01-21T09.10.15\/1234567890123@.
+-- @arn:aws:rekognition:us-east-1:123456789012:project\/getting-started\/version\/@/@my-model.2020-01-21T09.10.15@/@\/1234567890123@.
 --
 -- 'projectArn', 'describeProjectVersions_projectArn' - The Amazon Resource Name (ARN) of the project that contains the models
 -- you want to describe.
@@ -140,7 +140,7 @@ describeProjectVersions_nextToken = Lens.lens (\DescribeProjectVersions' {nextTo
 -- all model descriptions are returned. A version name is part of a model
 -- (ProjectVersion) ARN. For example, @my-model.2020-01-21T09.10.15@ is the
 -- version name in the following ARN.
--- @arn:aws:rekognition:us-east-1:123456789012:project\/getting-started\/version\/my-model.2020-01-21T09.10.15\/1234567890123@.
+-- @arn:aws:rekognition:us-east-1:123456789012:project\/getting-started\/version\/@/@my-model.2020-01-21T09.10.15@/@\/1234567890123@.
 describeProjectVersions_versionNames :: Lens.Lens' DescribeProjectVersions (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 describeProjectVersions_versionNames = Lens.lens (\DescribeProjectVersions' {versionNames} -> versionNames) (\s@DescribeProjectVersions' {} a -> s {versionNames = a} :: DescribeProjectVersions) Prelude.. Lens.mapping Lens.coerced
 
@@ -154,22 +154,22 @@ instance Core.AWSPager DescribeProjectVersions where
     | Core.stop
         ( rs
             Lens.^? describeProjectVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeProjectVersionsResponse_projectVersionDescriptions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeProjectVersions_nextToken
           Lens..~ rs
           Lens.^? describeProjectVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeProjectVersions where
   type
@@ -182,7 +182,8 @@ instance Core.AWSRequest DescribeProjectVersions where
       ( \s h x ->
           DescribeProjectVersionsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ProjectVersionDescriptions"
+            Prelude.<*> ( x
+                            Data..?> "ProjectVersionDescriptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -190,7 +191,8 @@ instance Core.AWSRequest DescribeProjectVersions where
 
 instance Prelude.Hashable DescribeProjectVersions where
   hashWithSalt _salt DescribeProjectVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` versionNames
       `Prelude.hashWithSalt` projectArn

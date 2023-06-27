@@ -40,6 +40,7 @@ module Amazonka.Rekognition.DeleteFaces
 
     -- * Response Lenses
     deleteFacesResponse_deletedFaces,
+    deleteFacesResponse_unsuccessfulFaceDeletions,
     deleteFacesResponse_httpStatus,
   )
 where
@@ -101,12 +102,17 @@ instance Core.AWSRequest DeleteFaces where
       ( \s h x ->
           DeleteFacesResponse'
             Prelude.<$> (x Data..?> "DeletedFaces")
+            Prelude.<*> ( x
+                            Data..?> "UnsuccessfulFaceDeletions"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DeleteFaces where
   hashWithSalt _salt DeleteFaces' {..} =
-    _salt `Prelude.hashWithSalt` collectionId
+    _salt
+      `Prelude.hashWithSalt` collectionId
       `Prelude.hashWithSalt` faceIds
 
 instance Prelude.NFData DeleteFaces where
@@ -148,6 +154,8 @@ instance Data.ToQuery DeleteFaces where
 data DeleteFacesResponse = DeleteFacesResponse'
   { -- | An array of strings (face IDs) of the faces that were deleted.
     deletedFaces :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | An array of any faces that weren\'t deleted.
+    unsuccessfulFaceDeletions :: Prelude.Maybe [UnsuccessfulFaceDeletion],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -163,6 +171,8 @@ data DeleteFacesResponse = DeleteFacesResponse'
 --
 -- 'deletedFaces', 'deleteFacesResponse_deletedFaces' - An array of strings (face IDs) of the faces that were deleted.
 --
+-- 'unsuccessfulFaceDeletions', 'deleteFacesResponse_unsuccessfulFaceDeletions' - An array of any faces that weren\'t deleted.
+--
 -- 'httpStatus', 'deleteFacesResponse_httpStatus' - The response's http status code.
 newDeleteFacesResponse ::
   -- | 'httpStatus'
@@ -172,12 +182,17 @@ newDeleteFacesResponse pHttpStatus_ =
   DeleteFacesResponse'
     { deletedFaces =
         Prelude.Nothing,
+      unsuccessfulFaceDeletions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of strings (face IDs) of the faces that were deleted.
 deleteFacesResponse_deletedFaces :: Lens.Lens' DeleteFacesResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 deleteFacesResponse_deletedFaces = Lens.lens (\DeleteFacesResponse' {deletedFaces} -> deletedFaces) (\s@DeleteFacesResponse' {} a -> s {deletedFaces = a} :: DeleteFacesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | An array of any faces that weren\'t deleted.
+deleteFacesResponse_unsuccessfulFaceDeletions :: Lens.Lens' DeleteFacesResponse (Prelude.Maybe [UnsuccessfulFaceDeletion])
+deleteFacesResponse_unsuccessfulFaceDeletions = Lens.lens (\DeleteFacesResponse' {unsuccessfulFaceDeletions} -> unsuccessfulFaceDeletions) (\s@DeleteFacesResponse' {} a -> s {unsuccessfulFaceDeletions = a} :: DeleteFacesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteFacesResponse_httpStatus :: Lens.Lens' DeleteFacesResponse Prelude.Int
@@ -186,4 +201,5 @@ deleteFacesResponse_httpStatus = Lens.lens (\DeleteFacesResponse' {httpStatus} -
 instance Prelude.NFData DeleteFacesResponse where
   rnf DeleteFacesResponse' {..} =
     Prelude.rnf deletedFaces
+      `Prelude.seq` Prelude.rnf unsuccessfulFaceDeletions
       `Prelude.seq` Prelude.rnf httpStatus

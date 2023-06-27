@@ -85,14 +85,16 @@ instance Data.FromJSON Instance where
           Instance'
             Prelude.<$> (x Data..:? "BoundingBox")
             Prelude.<*> (x Data..:? "Confidence")
-            Prelude.<*> ( x Data..:? "DominantColors"
+            Prelude.<*> ( x
+                            Data..:? "DominantColors"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =
-    _salt `Prelude.hashWithSalt` boundingBox
+    _salt
+      `Prelude.hashWithSalt` boundingBox
       `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` dominantColors
 

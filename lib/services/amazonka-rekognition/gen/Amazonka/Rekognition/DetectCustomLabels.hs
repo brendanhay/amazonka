@@ -189,7 +189,8 @@ instance Core.AWSRequest DetectCustomLabels where
 
 instance Prelude.Hashable DetectCustomLabels where
   hashWithSalt _salt DetectCustomLabels' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` minConfidence
       `Prelude.hashWithSalt` projectVersionArn
       `Prelude.hashWithSalt` image

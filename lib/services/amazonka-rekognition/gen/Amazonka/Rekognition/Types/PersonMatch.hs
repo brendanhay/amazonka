@@ -96,7 +96,8 @@ instance Data.FromJSON PersonMatch where
 
 instance Prelude.Hashable PersonMatch where
   hashWithSalt _salt PersonMatch' {..} =
-    _salt `Prelude.hashWithSalt` faceMatches
+    _salt
+      `Prelude.hashWithSalt` faceMatches
       `Prelude.hashWithSalt` person
       `Prelude.hashWithSalt` timestamp
 

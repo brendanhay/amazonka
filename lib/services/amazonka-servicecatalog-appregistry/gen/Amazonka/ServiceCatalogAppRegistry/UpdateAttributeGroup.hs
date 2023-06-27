@@ -61,7 +61,7 @@ data UpdateAttributeGroup = UpdateAttributeGroup'
     -- in the region in which you are updating the attribute group. Please do
     -- not use this field as we have stopped supporting name updates.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The name or ID of the attribute group that holds the attributes to
+    -- | The name, ID, or ARN of the attribute group that holds the attributes to
     -- describe the application.
     attributeGroup :: Prelude.Text
   }
@@ -84,7 +84,7 @@ data UpdateAttributeGroup = UpdateAttributeGroup'
 -- in the region in which you are updating the attribute group. Please do
 -- not use this field as we have stopped supporting name updates.
 --
--- 'attributeGroup', 'updateAttributeGroup_attributeGroup' - The name or ID of the attribute group that holds the attributes to
+-- 'attributeGroup', 'updateAttributeGroup_attributeGroup' - The name, ID, or ARN of the attribute group that holds the attributes to
 -- describe the application.
 newUpdateAttributeGroup ::
   -- | 'attributeGroup'
@@ -113,7 +113,7 @@ updateAttributeGroup_description = Lens.lens (\UpdateAttributeGroup' {descriptio
 updateAttributeGroup_name :: Lens.Lens' UpdateAttributeGroup (Prelude.Maybe Prelude.Text)
 updateAttributeGroup_name = Lens.lens (\UpdateAttributeGroup' {name} -> name) (\s@UpdateAttributeGroup' {} a -> s {name = a} :: UpdateAttributeGroup)
 
--- | The name or ID of the attribute group that holds the attributes to
+-- | The name, ID, or ARN of the attribute group that holds the attributes to
 -- describe the application.
 updateAttributeGroup_attributeGroup :: Lens.Lens' UpdateAttributeGroup Prelude.Text
 updateAttributeGroup_attributeGroup = Lens.lens (\UpdateAttributeGroup' {attributeGroup} -> attributeGroup) (\s@UpdateAttributeGroup' {} a -> s {attributeGroup = a} :: UpdateAttributeGroup)
@@ -134,7 +134,8 @@ instance Core.AWSRequest UpdateAttributeGroup where
 
 instance Prelude.Hashable UpdateAttributeGroup where
   hashWithSalt _salt UpdateAttributeGroup' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` attributeGroup

@@ -66,7 +66,7 @@ data ListAssociatedResources = ListAssociatedResources'
     -- | The token to use to get the next page of results after a previous API
     -- call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name or ID of the application.
+    -- | The name, ID, or ARN of the application.
     application :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -85,7 +85,7 @@ data ListAssociatedResources = ListAssociatedResources'
 -- 'nextToken', 'listAssociatedResources_nextToken' - The token to use to get the next page of results after a previous API
 -- call.
 --
--- 'application', 'listAssociatedResources_application' - The name or ID of the application.
+-- 'application', 'listAssociatedResources_application' - The name, ID, or ARN of the application.
 newListAssociatedResources ::
   -- | 'application'
   Prelude.Text ->
@@ -108,7 +108,7 @@ listAssociatedResources_maxResults = Lens.lens (\ListAssociatedResources' {maxRe
 listAssociatedResources_nextToken :: Lens.Lens' ListAssociatedResources (Prelude.Maybe Prelude.Text)
 listAssociatedResources_nextToken = Lens.lens (\ListAssociatedResources' {nextToken} -> nextToken) (\s@ListAssociatedResources' {} a -> s {nextToken = a} :: ListAssociatedResources)
 
--- | The name or ID of the application.
+-- | The name, ID, or ARN of the application.
 listAssociatedResources_application :: Lens.Lens' ListAssociatedResources Prelude.Text
 listAssociatedResources_application = Lens.lens (\ListAssociatedResources' {application} -> application) (\s@ListAssociatedResources' {} a -> s {application = a} :: ListAssociatedResources)
 
@@ -117,22 +117,22 @@ instance Core.AWSPager ListAssociatedResources where
     | Core.stop
         ( rs
             Lens.^? listAssociatedResourcesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAssociatedResourcesResponse_resources
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAssociatedResources_nextToken
           Lens..~ rs
           Lens.^? listAssociatedResourcesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAssociatedResources where
   type
@@ -151,7 +151,8 @@ instance Core.AWSRequest ListAssociatedResources where
 
 instance Prelude.Hashable ListAssociatedResources where
   hashWithSalt _salt ListAssociatedResources' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` application
 

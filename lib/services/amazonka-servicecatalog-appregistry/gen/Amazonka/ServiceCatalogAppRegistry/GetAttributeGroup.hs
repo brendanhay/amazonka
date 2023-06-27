@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves an attribute group, either by its name or its ID. The
--- attribute group can be specified either by its unique ID or by its name.
+-- Retrieves an attribute group by its ARN, ID, or name. The attribute
+-- group can be specified by its ARN, ID, or name.
 module Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup
   ( -- * Creating a Request
     GetAttributeGroup (..),
@@ -37,6 +37,7 @@ module Amazonka.ServiceCatalogAppRegistry.GetAttributeGroup
     -- * Response Lenses
     getAttributeGroupResponse_arn,
     getAttributeGroupResponse_attributes,
+    getAttributeGroupResponse_createdBy,
     getAttributeGroupResponse_creationTime,
     getAttributeGroupResponse_description,
     getAttributeGroupResponse_id,
@@ -57,7 +58,7 @@ import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newGetAttributeGroup' smart constructor.
 data GetAttributeGroup = GetAttributeGroup'
-  { -- | The name or ID of the attribute group that holds the attributes to
+  { -- | The name, ID, or ARN of the attribute group that holds the attributes to
     -- describe the application.
     attributeGroup :: Prelude.Text
   }
@@ -71,7 +72,7 @@ data GetAttributeGroup = GetAttributeGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attributeGroup', 'getAttributeGroup_attributeGroup' - The name or ID of the attribute group that holds the attributes to
+-- 'attributeGroup', 'getAttributeGroup_attributeGroup' - The name, ID, or ARN of the attribute group that holds the attributes to
 -- describe the application.
 newGetAttributeGroup ::
   -- | 'attributeGroup'
@@ -83,7 +84,7 @@ newGetAttributeGroup pAttributeGroup_ =
         pAttributeGroup_
     }
 
--- | The name or ID of the attribute group that holds the attributes to
+-- | The name, ID, or ARN of the attribute group that holds the attributes to
 -- describe the application.
 getAttributeGroup_attributeGroup :: Lens.Lens' GetAttributeGroup Prelude.Text
 getAttributeGroup_attributeGroup = Lens.lens (\GetAttributeGroup' {attributeGroup} -> attributeGroup) (\s@GetAttributeGroup' {} a -> s {attributeGroup = a} :: GetAttributeGroup)
@@ -100,6 +101,7 @@ instance Core.AWSRequest GetAttributeGroup where
           GetAttributeGroupResponse'
             Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "attributes")
+            Prelude.<*> (x Data..?> "createdBy")
             Prelude.<*> (x Data..?> "creationTime")
             Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "id")
@@ -144,6 +146,8 @@ data GetAttributeGroupResponse = GetAttributeGroupResponse'
     -- | A JSON string in the form of nested key-value pairs that represent the
     -- attributes in the group and describes an application and its components.
     attributes :: Prelude.Maybe Prelude.Text,
+    -- | The service principal that created the attribute group.
+    createdBy :: Prelude.Maybe Prelude.Text,
     -- | The ISO-8601 formatted timestamp of the moment the attribute group was
     -- created.
     creationTime :: Prelude.Maybe Data.ISO8601,
@@ -178,6 +182,8 @@ data GetAttributeGroupResponse = GetAttributeGroupResponse'
 -- 'attributes', 'getAttributeGroupResponse_attributes' - A JSON string in the form of nested key-value pairs that represent the
 -- attributes in the group and describes an application and its components.
 --
+-- 'createdBy', 'getAttributeGroupResponse_createdBy' - The service principal that created the attribute group.
+--
 -- 'creationTime', 'getAttributeGroupResponse_creationTime' - The ISO-8601 formatted timestamp of the moment the attribute group was
 -- created.
 --
@@ -202,6 +208,7 @@ newGetAttributeGroupResponse pHttpStatus_ =
   GetAttributeGroupResponse'
     { arn = Prelude.Nothing,
       attributes = Prelude.Nothing,
+      createdBy = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       description = Prelude.Nothing,
       id = Prelude.Nothing,
@@ -220,6 +227,10 @@ getAttributeGroupResponse_arn = Lens.lens (\GetAttributeGroupResponse' {arn} -> 
 -- attributes in the group and describes an application and its components.
 getAttributeGroupResponse_attributes :: Lens.Lens' GetAttributeGroupResponse (Prelude.Maybe Prelude.Text)
 getAttributeGroupResponse_attributes = Lens.lens (\GetAttributeGroupResponse' {attributes} -> attributes) (\s@GetAttributeGroupResponse' {} a -> s {attributes = a} :: GetAttributeGroupResponse)
+
+-- | The service principal that created the attribute group.
+getAttributeGroupResponse_createdBy :: Lens.Lens' GetAttributeGroupResponse (Prelude.Maybe Prelude.Text)
+getAttributeGroupResponse_createdBy = Lens.lens (\GetAttributeGroupResponse' {createdBy} -> createdBy) (\s@GetAttributeGroupResponse' {} a -> s {createdBy = a} :: GetAttributeGroupResponse)
 
 -- | The ISO-8601 formatted timestamp of the moment the attribute group was
 -- created.
@@ -256,6 +267,7 @@ instance Prelude.NFData GetAttributeGroupResponse where
   rnf GetAttributeGroupResponse' {..} =
     Prelude.rnf arn
       `Prelude.seq` Prelude.rnf attributes
+      `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id

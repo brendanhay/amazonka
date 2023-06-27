@@ -53,9 +53,9 @@ import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newDisassociateAttributeGroup' smart constructor.
 data DisassociateAttributeGroup = DisassociateAttributeGroup'
-  { -- | The name or ID of the application.
+  { -- | The name, ID, or ARN of the application.
     application :: Prelude.Text,
-    -- | The name or ID of the attribute group that holds the attributes to
+    -- | The name, ID, or ARN of the attribute group that holds the attributes to
     -- describe the application.
     attributeGroup :: Prelude.Text
   }
@@ -69,9 +69,9 @@ data DisassociateAttributeGroup = DisassociateAttributeGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'application', 'disassociateAttributeGroup_application' - The name or ID of the application.
+-- 'application', 'disassociateAttributeGroup_application' - The name, ID, or ARN of the application.
 --
--- 'attributeGroup', 'disassociateAttributeGroup_attributeGroup' - The name or ID of the attribute group that holds the attributes to
+-- 'attributeGroup', 'disassociateAttributeGroup_attributeGroup' - The name, ID, or ARN of the attribute group that holds the attributes to
 -- describe the application.
 newDisassociateAttributeGroup ::
   -- | 'application'
@@ -88,11 +88,11 @@ newDisassociateAttributeGroup
         attributeGroup = pAttributeGroup_
       }
 
--- | The name or ID of the application.
+-- | The name, ID, or ARN of the application.
 disassociateAttributeGroup_application :: Lens.Lens' DisassociateAttributeGroup Prelude.Text
 disassociateAttributeGroup_application = Lens.lens (\DisassociateAttributeGroup' {application} -> application) (\s@DisassociateAttributeGroup' {} a -> s {application = a} :: DisassociateAttributeGroup)
 
--- | The name or ID of the attribute group that holds the attributes to
+-- | The name, ID, or ARN of the attribute group that holds the attributes to
 -- describe the application.
 disassociateAttributeGroup_attributeGroup :: Lens.Lens' DisassociateAttributeGroup Prelude.Text
 disassociateAttributeGroup_attributeGroup = Lens.lens (\DisassociateAttributeGroup' {attributeGroup} -> attributeGroup) (\s@DisassociateAttributeGroup' {} a -> s {attributeGroup = a} :: DisassociateAttributeGroup)
@@ -114,7 +114,8 @@ instance Core.AWSRequest DisassociateAttributeGroup where
 
 instance Prelude.Hashable DisassociateAttributeGroup where
   hashWithSalt _salt DisassociateAttributeGroup' {..} =
-    _salt `Prelude.hashWithSalt` application
+    _salt
+      `Prelude.hashWithSalt` application
       `Prelude.hashWithSalt` attributeGroup
 
 instance Prelude.NFData DisassociateAttributeGroup where

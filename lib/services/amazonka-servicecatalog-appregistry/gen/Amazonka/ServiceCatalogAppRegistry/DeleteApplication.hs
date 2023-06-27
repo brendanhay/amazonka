@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an application that is specified either by its application ID or
--- name. All associated attribute groups and resources must be
+-- Deletes an application that is specified either by its application ID,
+-- name, or ARN. All associated attribute groups and resources must be
 -- disassociated from it before deleting an application.
 module Amazonka.ServiceCatalogAppRegistry.DeleteApplication
   ( -- * Creating a Request
@@ -51,7 +51,7 @@ import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newDeleteApplication' smart constructor.
 data DeleteApplication = DeleteApplication'
-  { -- | The name or ID of the application.
+  { -- | The name, ID, or ARN of the application.
     application :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,7 +64,7 @@ data DeleteApplication = DeleteApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'application', 'deleteApplication_application' - The name or ID of the application.
+-- 'application', 'deleteApplication_application' - The name, ID, or ARN of the application.
 newDeleteApplication ::
   -- | 'application'
   Prelude.Text ->
@@ -72,7 +72,7 @@ newDeleteApplication ::
 newDeleteApplication pApplication_ =
   DeleteApplication' {application = pApplication_}
 
--- | The name or ID of the application.
+-- | The name, ID, or ARN of the application.
 deleteApplication_application :: Lens.Lens' DeleteApplication Prelude.Text
 deleteApplication_application = Lens.lens (\DeleteApplication' {application} -> application) (\s@DeleteApplication' {} a -> s {application = a} :: DeleteApplication)
 

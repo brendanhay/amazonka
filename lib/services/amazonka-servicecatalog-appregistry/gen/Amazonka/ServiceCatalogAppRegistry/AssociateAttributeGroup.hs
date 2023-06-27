@@ -54,9 +54,9 @@ import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newAssociateAttributeGroup' smart constructor.
 data AssociateAttributeGroup = AssociateAttributeGroup'
-  { -- | The name or ID of the application.
+  { -- | The name, ID, or ARN of the application.
     application :: Prelude.Text,
-    -- | The name or ID of the attribute group that holds the attributes to
+    -- | The name, ID, or ARN of the attribute group that holds the attributes to
     -- describe the application.
     attributeGroup :: Prelude.Text
   }
@@ -70,9 +70,9 @@ data AssociateAttributeGroup = AssociateAttributeGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'application', 'associateAttributeGroup_application' - The name or ID of the application.
+-- 'application', 'associateAttributeGroup_application' - The name, ID, or ARN of the application.
 --
--- 'attributeGroup', 'associateAttributeGroup_attributeGroup' - The name or ID of the attribute group that holds the attributes to
+-- 'attributeGroup', 'associateAttributeGroup_attributeGroup' - The name, ID, or ARN of the attribute group that holds the attributes to
 -- describe the application.
 newAssociateAttributeGroup ::
   -- | 'application'
@@ -89,11 +89,11 @@ newAssociateAttributeGroup
         attributeGroup = pAttributeGroup_
       }
 
--- | The name or ID of the application.
+-- | The name, ID, or ARN of the application.
 associateAttributeGroup_application :: Lens.Lens' AssociateAttributeGroup Prelude.Text
 associateAttributeGroup_application = Lens.lens (\AssociateAttributeGroup' {application} -> application) (\s@AssociateAttributeGroup' {} a -> s {application = a} :: AssociateAttributeGroup)
 
--- | The name or ID of the attribute group that holds the attributes to
+-- | The name, ID, or ARN of the attribute group that holds the attributes to
 -- describe the application.
 associateAttributeGroup_attributeGroup :: Lens.Lens' AssociateAttributeGroup Prelude.Text
 associateAttributeGroup_attributeGroup = Lens.lens (\AssociateAttributeGroup' {attributeGroup} -> attributeGroup) (\s@AssociateAttributeGroup' {} a -> s {attributeGroup = a} :: AssociateAttributeGroup)
@@ -115,7 +115,8 @@ instance Core.AWSRequest AssociateAttributeGroup where
 
 instance Prelude.Hashable AssociateAttributeGroup where
   hashWithSalt _salt AssociateAttributeGroup' {..} =
-    _salt `Prelude.hashWithSalt` application
+    _salt
+      `Prelude.hashWithSalt` application
       `Prelude.hashWithSalt` attributeGroup
 
 instance Prelude.NFData AssociateAttributeGroup where

@@ -20,8 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates a resource with an application. Both the resource and the
--- application can be specified either by ID or name.
+-- Associates a resource with an application. The resource can be specified
+-- by its ARN or name. The application can be specified by ARN, ID, or
+-- name.
 module Amazonka.ServiceCatalogAppRegistry.AssociateResource
   ( -- * Creating a Request
     AssociateResource (..),
@@ -53,7 +54,7 @@ import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newAssociateResource' smart constructor.
 data AssociateResource = AssociateResource'
-  { -- | The name or ID of the application.
+  { -- | The name, ID, or ARN of the application.
     application :: Prelude.Text,
     -- | The type of resource of which the application will be associated.
     resourceType :: ResourceType,
@@ -71,7 +72,7 @@ data AssociateResource = AssociateResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'application', 'associateResource_application' - The name or ID of the application.
+-- 'application', 'associateResource_application' - The name, ID, or ARN of the application.
 --
 -- 'resourceType', 'associateResource_resourceType' - The type of resource of which the application will be associated.
 --
@@ -95,7 +96,7 @@ newAssociateResource
         resource = pResource_
       }
 
--- | The name or ID of the application.
+-- | The name, ID, or ARN of the application.
 associateResource_application :: Lens.Lens' AssociateResource Prelude.Text
 associateResource_application = Lens.lens (\AssociateResource' {application} -> application) (\s@AssociateResource' {} a -> s {application = a} :: AssociateResource)
 
@@ -125,7 +126,8 @@ instance Core.AWSRequest AssociateResource where
 
 instance Prelude.Hashable AssociateResource where
   hashWithSalt _salt AssociateResource' {..} =
-    _salt `Prelude.hashWithSalt` application
+    _salt
+      `Prelude.hashWithSalt` application
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resource
 

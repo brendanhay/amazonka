@@ -158,7 +158,8 @@ instance Core.AWSRequest CreateAttributeGroup where
 
 instance Prelude.Hashable CreateAttributeGroup where
   hashWithSalt _salt CreateAttributeGroup' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` attributes

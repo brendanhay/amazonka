@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an attribute group, specified either by its attribute group ID
--- or name.
+-- Deletes an attribute group, specified either by its attribute group ID,
+-- name, or ARN.
 module Amazonka.ServiceCatalogAppRegistry.DeleteAttributeGroup
   ( -- * Creating a Request
     DeleteAttributeGroup (..),
@@ -50,7 +50,7 @@ import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newDeleteAttributeGroup' smart constructor.
 data DeleteAttributeGroup = DeleteAttributeGroup'
-  { -- | The name or ID of the attribute group that holds the attributes to
+  { -- | The name, ID, or ARN of the attribute group that holds the attributes to
     -- describe the application.
     attributeGroup :: Prelude.Text
   }
@@ -64,7 +64,7 @@ data DeleteAttributeGroup = DeleteAttributeGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attributeGroup', 'deleteAttributeGroup_attributeGroup' - The name or ID of the attribute group that holds the attributes to
+-- 'attributeGroup', 'deleteAttributeGroup_attributeGroup' - The name, ID, or ARN of the attribute group that holds the attributes to
 -- describe the application.
 newDeleteAttributeGroup ::
   -- | 'attributeGroup'
@@ -76,7 +76,7 @@ newDeleteAttributeGroup pAttributeGroup_ =
         pAttributeGroup_
     }
 
--- | The name or ID of the attribute group that holds the attributes to
+-- | The name, ID, or ARN of the attribute group that holds the attributes to
 -- describe the application.
 deleteAttributeGroup_attributeGroup :: Lens.Lens' DeleteAttributeGroup Prelude.Text
 deleteAttributeGroup_attributeGroup = Lens.lens (\DeleteAttributeGroup' {attributeGroup} -> attributeGroup) (\s@DeleteAttributeGroup' {} a -> s {attributeGroup = a} :: DeleteAttributeGroup)

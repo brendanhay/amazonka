@@ -51,7 +51,7 @@ import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newGetAssociatedResource' smart constructor.
 data GetAssociatedResource = GetAssociatedResource'
-  { -- | The name or ID of the application.
+  { -- | The name, ID, or ARN of the application.
     application :: Prelude.Text,
     -- | The type of resource associated with the application.
     resourceType :: ResourceType,
@@ -68,7 +68,7 @@ data GetAssociatedResource = GetAssociatedResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'application', 'getAssociatedResource_application' - The name or ID of the application.
+-- 'application', 'getAssociatedResource_application' - The name, ID, or ARN of the application.
 --
 -- 'resourceType', 'getAssociatedResource_resourceType' - The type of resource associated with the application.
 --
@@ -91,7 +91,7 @@ newGetAssociatedResource
         resource = pResource_
       }
 
--- | The name or ID of the application.
+-- | The name, ID, or ARN of the application.
 getAssociatedResource_application :: Lens.Lens' GetAssociatedResource Prelude.Text
 getAssociatedResource_application = Lens.lens (\GetAssociatedResource' {application} -> application) (\s@GetAssociatedResource' {} a -> s {application = a} :: GetAssociatedResource)
 
@@ -119,7 +119,8 @@ instance Core.AWSRequest GetAssociatedResource where
 
 instance Prelude.Hashable GetAssociatedResource where
   hashWithSalt _salt GetAssociatedResource' {..} =
-    _salt `Prelude.hashWithSalt` application
+    _salt
+      `Prelude.hashWithSalt` application
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resource
 

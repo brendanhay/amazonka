@@ -35,6 +35,9 @@ module Amazonka.ServiceCatalogAppRegistry
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
 
+    -- ** ThrottlingException
+    _ThrottlingException,
+
     -- ** ValidationException
     _ValidationException,
 

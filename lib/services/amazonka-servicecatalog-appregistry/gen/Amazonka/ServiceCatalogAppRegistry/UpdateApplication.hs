@@ -57,7 +57,7 @@ data UpdateApplication = UpdateApplication'
     -- the region in which you are updating the application. Please do not use
     -- this field as we have stopped supporting name updates.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The name or ID of the application that will be updated.
+    -- | The name, ID, or ARN of the application that will be updated.
     application :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,7 +76,7 @@ data UpdateApplication = UpdateApplication'
 -- the region in which you are updating the application. Please do not use
 -- this field as we have stopped supporting name updates.
 --
--- 'application', 'updateApplication_application' - The name or ID of the application that will be updated.
+-- 'application', 'updateApplication_application' - The name, ID, or ARN of the application that will be updated.
 newUpdateApplication ::
   -- | 'application'
   Prelude.Text ->
@@ -98,7 +98,7 @@ updateApplication_description = Lens.lens (\UpdateApplication' {description} -> 
 updateApplication_name :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
 updateApplication_name = Lens.lens (\UpdateApplication' {name} -> name) (\s@UpdateApplication' {} a -> s {name = a} :: UpdateApplication)
 
--- | The name or ID of the application that will be updated.
+-- | The name, ID, or ARN of the application that will be updated.
 updateApplication_application :: Lens.Lens' UpdateApplication Prelude.Text
 updateApplication_application = Lens.lens (\UpdateApplication' {application} -> application) (\s@UpdateApplication' {} a -> s {application = a} :: UpdateApplication)
 
@@ -118,7 +118,8 @@ instance Core.AWSRequest UpdateApplication where
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` application
 

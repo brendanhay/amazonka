@@ -32,6 +32,8 @@ data AttributeGroupSummary = AttributeGroupSummary'
   { -- | The Amazon resource name (ARN) that specifies the attribute group across
     -- services.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The service principal that created the attribute group.
+    createdBy :: Prelude.Maybe Prelude.Text,
     -- | The ISO-8601 formatted timestamp of the moment the attribute group was
     -- created.
     creationTime :: Prelude.Maybe Data.ISO8601,
@@ -59,6 +61,8 @@ data AttributeGroupSummary = AttributeGroupSummary'
 -- 'arn', 'attributeGroupSummary_arn' - The Amazon resource name (ARN) that specifies the attribute group across
 -- services.
 --
+-- 'createdBy', 'attributeGroupSummary_createdBy' - The service principal that created the attribute group.
+--
 -- 'creationTime', 'attributeGroupSummary_creationTime' - The ISO-8601 formatted timestamp of the moment the attribute group was
 -- created.
 --
@@ -76,6 +80,7 @@ newAttributeGroupSummary ::
 newAttributeGroupSummary =
   AttributeGroupSummary'
     { arn = Prelude.Nothing,
+      createdBy = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       description = Prelude.Nothing,
       id = Prelude.Nothing,
@@ -87,6 +92,10 @@ newAttributeGroupSummary =
 -- services.
 attributeGroupSummary_arn :: Lens.Lens' AttributeGroupSummary (Prelude.Maybe Prelude.Text)
 attributeGroupSummary_arn = Lens.lens (\AttributeGroupSummary' {arn} -> arn) (\s@AttributeGroupSummary' {} a -> s {arn = a} :: AttributeGroupSummary)
+
+-- | The service principal that created the attribute group.
+attributeGroupSummary_createdBy :: Lens.Lens' AttributeGroupSummary (Prelude.Maybe Prelude.Text)
+attributeGroupSummary_createdBy = Lens.lens (\AttributeGroupSummary' {createdBy} -> createdBy) (\s@AttributeGroupSummary' {} a -> s {createdBy = a} :: AttributeGroupSummary)
 
 -- | The ISO-8601 formatted timestamp of the moment the attribute group was
 -- created.
@@ -118,6 +127,7 @@ instance Data.FromJSON AttributeGroupSummary where
       ( \x ->
           AttributeGroupSummary'
             Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "createdBy")
             Prelude.<*> (x Data..:? "creationTime")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "id")
@@ -127,7 +137,9 @@ instance Data.FromJSON AttributeGroupSummary where
 
 instance Prelude.Hashable AttributeGroupSummary where
   hashWithSalt _salt AttributeGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
@@ -137,6 +149,7 @@ instance Prelude.Hashable AttributeGroupSummary where
 instance Prelude.NFData AttributeGroupSummary where
   rnf AttributeGroupSummary' {..} =
     Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id

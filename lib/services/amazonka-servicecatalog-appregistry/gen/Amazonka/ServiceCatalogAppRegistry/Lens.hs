@@ -95,6 +95,7 @@ module Amazonka.ServiceCatalogAppRegistry.Lens
     getAttributeGroup_attributeGroup,
     getAttributeGroupResponse_arn,
     getAttributeGroupResponse_attributes,
+    getAttributeGroupResponse_createdBy,
     getAttributeGroupResponse_creationTime,
     getAttributeGroupResponse_description,
     getAttributeGroupResponse_id,
@@ -219,11 +220,13 @@ module Amazonka.ServiceCatalogAppRegistry.Lens
 
     -- ** AttributeGroupDetails
     attributeGroupDetails_arn,
+    attributeGroupDetails_createdBy,
     attributeGroupDetails_id,
     attributeGroupDetails_name,
 
     -- ** AttributeGroupSummary
     attributeGroupSummary_arn,
+    attributeGroupSummary_createdBy,
     attributeGroupSummary_creationTime,
     attributeGroupSummary_description,
     attributeGroupSummary_id,

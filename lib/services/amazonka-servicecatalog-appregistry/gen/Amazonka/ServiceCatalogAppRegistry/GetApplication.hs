@@ -21,12 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves metadata information about one of your applications. The
--- application can be specified either by its unique ID or by its name
--- (which is unique within one account in one region at a given point in
--- time). Specify by ID in automated workflows if you want to make sure
--- that the exact same application is returned or a
--- @ResourceNotFoundException@ is thrown, avoiding the ABA addressing
--- problem.
+-- application can be specified by its ARN, ID, or name (which is unique
+-- within one account in one region at a given point in time). Specify by
+-- ARN or ID in automated workflows if you want to make sure that the exact
+-- same application is returned or a @ResourceNotFoundException@ is thrown,
+-- avoiding the ABA addressing problem.
 module Amazonka.ServiceCatalogAppRegistry.GetApplication
   ( -- * Creating a Request
     GetApplication (..),
@@ -63,7 +62,7 @@ import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newGetApplication' smart constructor.
 data GetApplication = GetApplication'
-  { -- | The name or ID of the application.
+  { -- | The name, ID, or ARN of the application.
     application :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,7 +75,7 @@ data GetApplication = GetApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'application', 'getApplication_application' - The name or ID of the application.
+-- 'application', 'getApplication_application' - The name, ID, or ARN of the application.
 newGetApplication ::
   -- | 'application'
   Prelude.Text ->
@@ -84,7 +83,7 @@ newGetApplication ::
 newGetApplication pApplication_ =
   GetApplication' {application = pApplication_}
 
--- | The name or ID of the application.
+-- | The name, ID, or ARN of the application.
 getApplication_application :: Lens.Lens' GetApplication Prelude.Text
 getApplication_application = Lens.lens (\GetApplication' {application} -> application) (\s@GetApplication' {} a -> s {application = a} :: GetApplication)
 

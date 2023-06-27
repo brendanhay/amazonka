@@ -30,6 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 data AttributeGroupDetails = AttributeGroupDetails'
   { -- | The Amazon resource name (ARN) that specifies the attribute group.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The service principal that created the attribute group.
+    createdBy :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the attribute group.
     id :: Prelude.Maybe Prelude.Text,
     -- | This field is no longer supported. We recommend you don\'t use the field
@@ -50,6 +52,8 @@ data AttributeGroupDetails = AttributeGroupDetails'
 --
 -- 'arn', 'attributeGroupDetails_arn' - The Amazon resource name (ARN) that specifies the attribute group.
 --
+-- 'createdBy', 'attributeGroupDetails_createdBy' - The service principal that created the attribute group.
+--
 -- 'id', 'attributeGroupDetails_id' - The unique identifier of the attribute group.
 --
 -- 'name', 'attributeGroupDetails_name' - This field is no longer supported. We recommend you don\'t use the field
@@ -61,6 +65,7 @@ newAttributeGroupDetails ::
 newAttributeGroupDetails =
   AttributeGroupDetails'
     { arn = Prelude.Nothing,
+      createdBy = Prelude.Nothing,
       id = Prelude.Nothing,
       name = Prelude.Nothing
     }
@@ -68,6 +73,10 @@ newAttributeGroupDetails =
 -- | The Amazon resource name (ARN) that specifies the attribute group.
 attributeGroupDetails_arn :: Lens.Lens' AttributeGroupDetails (Prelude.Maybe Prelude.Text)
 attributeGroupDetails_arn = Lens.lens (\AttributeGroupDetails' {arn} -> arn) (\s@AttributeGroupDetails' {} a -> s {arn = a} :: AttributeGroupDetails)
+
+-- | The service principal that created the attribute group.
+attributeGroupDetails_createdBy :: Lens.Lens' AttributeGroupDetails (Prelude.Maybe Prelude.Text)
+attributeGroupDetails_createdBy = Lens.lens (\AttributeGroupDetails' {createdBy} -> createdBy) (\s@AttributeGroupDetails' {} a -> s {createdBy = a} :: AttributeGroupDetails)
 
 -- | The unique identifier of the attribute group.
 attributeGroupDetails_id :: Lens.Lens' AttributeGroupDetails (Prelude.Maybe Prelude.Text)
@@ -87,18 +96,22 @@ instance Data.FromJSON AttributeGroupDetails where
       ( \x ->
           AttributeGroupDetails'
             Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "createdBy")
             Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable AttributeGroupDetails where
   hashWithSalt _salt AttributeGroupDetails' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AttributeGroupDetails where
   rnf AttributeGroupDetails' {..} =
     Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf name

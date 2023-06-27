@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ServiceCatalogAppRegistry.Types.TagQueryConfiguration
 
--- | Includes all of the Service Catalog AppRegistry settings.
+-- | Includes all of the AppRegistry settings.
 --
 -- /See:/ 'newAppRegistryConfiguration' smart constructor.
 data AppRegistryConfiguration = AppRegistryConfiguration'

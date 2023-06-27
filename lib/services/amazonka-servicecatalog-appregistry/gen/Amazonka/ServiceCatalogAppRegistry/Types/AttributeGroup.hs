@@ -138,7 +138,8 @@ instance Data.FromJSON AttributeGroup where
 
 instance Prelude.Hashable AttributeGroup where
   hashWithSalt _salt AttributeGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id

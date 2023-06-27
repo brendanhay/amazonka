@@ -187,7 +187,8 @@ instance
   hashWithSalt
     _salt
     HttpEndpointDestinationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` bufferingHints
+      _salt
+        `Prelude.hashWithSalt` bufferingHints
         `Prelude.hashWithSalt` cloudWatchLoggingOptions
         `Prelude.hashWithSalt` processingConfiguration
         `Prelude.hashWithSalt` requestConfiguration

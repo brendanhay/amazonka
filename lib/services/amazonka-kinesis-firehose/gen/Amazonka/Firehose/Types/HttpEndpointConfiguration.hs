@@ -92,7 +92,8 @@ httpEndpointConfiguration_url = Lens.lens (\HttpEndpointConfiguration' {url} -> 
 
 instance Prelude.Hashable HttpEndpointConfiguration where
   hashWithSalt _salt HttpEndpointConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` accessKey
+    _salt
+      `Prelude.hashWithSalt` accessKey
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` url
 

@@ -94,7 +94,8 @@ instance Data.FromJSON ProcessorParameter where
 
 instance Prelude.Hashable ProcessorParameter where
   hashWithSalt _salt ProcessorParameter' {..} =
-    _salt `Prelude.hashWithSalt` parameterName
+    _salt
+      `Prelude.hashWithSalt` parameterName
       `Prelude.hashWithSalt` parameterValue
 
 instance Prelude.NFData ProcessorParameter where

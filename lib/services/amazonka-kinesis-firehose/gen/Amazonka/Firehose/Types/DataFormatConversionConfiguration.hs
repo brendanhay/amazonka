@@ -135,7 +135,8 @@ instance
   hashWithSalt
     _salt
     DataFormatConversionConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` enabled
+      _salt
+        `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` inputFormatConfiguration
         `Prelude.hashWithSalt` outputFormatConfiguration
         `Prelude.hashWithSalt` schemaConfiguration

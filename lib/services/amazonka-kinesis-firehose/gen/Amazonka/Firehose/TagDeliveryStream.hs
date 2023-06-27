@@ -115,7 +115,8 @@ instance Core.AWSRequest TagDeliveryStream where
 
 instance Prelude.Hashable TagDeliveryStream where
   hashWithSalt _salt TagDeliveryStream' {..} =
-    _salt `Prelude.hashWithSalt` deliveryStreamName
+    _salt
+      `Prelude.hashWithSalt` deliveryStreamName
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagDeliveryStream where

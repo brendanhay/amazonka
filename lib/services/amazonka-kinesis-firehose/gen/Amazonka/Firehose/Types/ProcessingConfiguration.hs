@@ -75,7 +75,8 @@ instance Data.FromJSON ProcessingConfiguration where
 
 instance Prelude.Hashable ProcessingConfiguration where
   hashWithSalt _salt ProcessingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` processors
 
 instance Prelude.NFData ProcessingConfiguration where

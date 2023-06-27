@@ -152,7 +152,8 @@ instance Core.AWSRequest ListDeliveryStreams where
       ( \s h x ->
           ListDeliveryStreamsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "DeliveryStreamNames"
+            Prelude.<*> ( x
+                            Data..?> "DeliveryStreamNames"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..:> "HasMoreDeliveryStreams")
@@ -160,7 +161,8 @@ instance Core.AWSRequest ListDeliveryStreams where
 
 instance Prelude.Hashable ListDeliveryStreams where
   hashWithSalt _salt ListDeliveryStreams' {..} =
-    _salt `Prelude.hashWithSalt` deliveryStreamType
+    _salt
+      `Prelude.hashWithSalt` deliveryStreamType
       `Prelude.hashWithSalt` exclusiveStartDeliveryStreamName
       `Prelude.hashWithSalt` limit
 

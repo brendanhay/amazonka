@@ -179,7 +179,8 @@ instance Data.FromJSON SchemaConfiguration where
 
 instance Prelude.Hashable SchemaConfiguration where
   hashWithSalt _salt SchemaConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` roleARN

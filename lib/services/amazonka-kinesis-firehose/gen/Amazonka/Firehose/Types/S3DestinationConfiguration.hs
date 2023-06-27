@@ -175,7 +175,8 @@ s3DestinationConfiguration_bucketARN = Lens.lens (\S3DestinationConfiguration' {
 
 instance Prelude.Hashable S3DestinationConfiguration where
   hashWithSalt _salt S3DestinationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` bufferingHints
+    _salt
+      `Prelude.hashWithSalt` bufferingHints
       `Prelude.hashWithSalt` cloudWatchLoggingOptions
       `Prelude.hashWithSalt` compressionFormat
       `Prelude.hashWithSalt` encryptionConfiguration

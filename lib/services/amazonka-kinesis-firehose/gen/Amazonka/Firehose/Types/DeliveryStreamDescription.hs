@@ -254,7 +254,8 @@ instance Data.FromJSON DeliveryStreamDescription where
 
 instance Prelude.Hashable DeliveryStreamDescription where
   hashWithSalt _salt DeliveryStreamDescription' {..} =
-    _salt `Prelude.hashWithSalt` createTimestamp
+    _salt
+      `Prelude.hashWithSalt` createTimestamp
       `Prelude.hashWithSalt` deliveryStreamEncryptionConfiguration
       `Prelude.hashWithSalt` failureDescription
       `Prelude.hashWithSalt` lastUpdateTimestamp

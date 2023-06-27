@@ -75,12 +75,14 @@ instance Data.FromJSON FailureDescription where
       "FailureDescription"
       ( \x ->
           FailureDescription'
-            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Details")
+            Prelude.<$> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Details")
       )
 
 instance Prelude.Hashable FailureDescription where
   hashWithSalt _salt FailureDescription' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` details
 
 instance Prelude.NFData FailureDescription where

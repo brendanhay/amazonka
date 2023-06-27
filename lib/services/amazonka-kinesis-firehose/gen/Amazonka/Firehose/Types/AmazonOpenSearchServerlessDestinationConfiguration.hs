@@ -198,7 +198,8 @@ instance
   hashWithSalt
     _salt
     AmazonOpenSearchServerlessDestinationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` bufferingHints
+      _salt
+        `Prelude.hashWithSalt` bufferingHints
         `Prelude.hashWithSalt` cloudWatchLoggingOptions
         `Prelude.hashWithSalt` collectionEndpoint
         `Prelude.hashWithSalt` processingConfiguration

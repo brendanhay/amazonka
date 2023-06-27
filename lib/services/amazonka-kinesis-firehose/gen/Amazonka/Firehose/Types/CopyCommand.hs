@@ -155,7 +155,8 @@ instance Data.FromJSON CopyCommand where
 
 instance Prelude.Hashable CopyCommand where
   hashWithSalt _salt CopyCommand' {..} =
-    _salt `Prelude.hashWithSalt` copyOptions
+    _salt
+      `Prelude.hashWithSalt` copyOptions
       `Prelude.hashWithSalt` dataTableColumns
       `Prelude.hashWithSalt` dataTableName
 

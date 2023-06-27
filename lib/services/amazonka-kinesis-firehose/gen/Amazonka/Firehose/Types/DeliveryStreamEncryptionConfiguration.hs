@@ -146,7 +146,8 @@ instance
   hashWithSalt
     _salt
     DeliveryStreamEncryptionConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` failureDescription
+      _salt
+        `Prelude.hashWithSalt` failureDescription
         `Prelude.hashWithSalt` keyARN
         `Prelude.hashWithSalt` keyType
         `Prelude.hashWithSalt` status

@@ -291,7 +291,8 @@ instance
   hashWithSalt
     _salt
     ElasticsearchDestinationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` bufferingHints
+      _salt
+        `Prelude.hashWithSalt` bufferingHints
         `Prelude.hashWithSalt` cloudWatchLoggingOptions
         `Prelude.hashWithSalt` clusterEndpoint
         `Prelude.hashWithSalt` domainARN

@@ -108,7 +108,8 @@ instance Data.FromJSON Deserializer where
 
 instance Prelude.Hashable Deserializer where
   hashWithSalt _salt Deserializer' {..} =
-    _salt `Prelude.hashWithSalt` hiveJsonSerDe
+    _salt
+      `Prelude.hashWithSalt` hiveJsonSerDe
       `Prelude.hashWithSalt` openXJsonSerDe
 
 instance Prelude.NFData Deserializer where

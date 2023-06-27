@@ -100,7 +100,8 @@ instance Data.FromJSON ElasticsearchBufferingHints where
 
 instance Prelude.Hashable ElasticsearchBufferingHints where
   hashWithSalt _salt ElasticsearchBufferingHints' {..} =
-    _salt `Prelude.hashWithSalt` intervalInSeconds
+    _salt
+      `Prelude.hashWithSalt` intervalInSeconds
       `Prelude.hashWithSalt` sizeInMBs
 
 instance Prelude.NFData ElasticsearchBufferingHints where

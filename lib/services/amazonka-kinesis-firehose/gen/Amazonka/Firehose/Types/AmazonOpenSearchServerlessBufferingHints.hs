@@ -108,7 +108,8 @@ instance
   hashWithSalt
     _salt
     AmazonOpenSearchServerlessBufferingHints' {..} =
-      _salt `Prelude.hashWithSalt` intervalInSeconds
+      _salt
+        `Prelude.hashWithSalt` intervalInSeconds
         `Prelude.hashWithSalt` sizeInMBs
 
 instance

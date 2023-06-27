@@ -104,7 +104,8 @@ instance Data.FromJSON HttpEndpointBufferingHints where
 
 instance Prelude.Hashable HttpEndpointBufferingHints where
   hashWithSalt _salt HttpEndpointBufferingHints' {..} =
-    _salt `Prelude.hashWithSalt` intervalInSeconds
+    _salt
+      `Prelude.hashWithSalt` intervalInSeconds
       `Prelude.hashWithSalt` sizeInMBs
 
 instance Prelude.NFData HttpEndpointBufferingHints where

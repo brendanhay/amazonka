@@ -141,22 +141,22 @@ instance Core.AWSPager ListIdentityProviderConfigs where
     | Core.stop
         ( rs
             Lens.^? listIdentityProviderConfigsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listIdentityProviderConfigsResponse_identityProviderConfigs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listIdentityProviderConfigs_nextToken
           Lens..~ rs
           Lens.^? listIdentityProviderConfigsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIdentityProviderConfigs where
   type
@@ -168,7 +168,8 @@ instance Core.AWSRequest ListIdentityProviderConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListIdentityProviderConfigsResponse'
-            Prelude.<$> ( x Data..?> "identityProviderConfigs"
+            Prelude.<$> ( x
+                            Data..?> "identityProviderConfigs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -177,7 +178,8 @@ instance Core.AWSRequest ListIdentityProviderConfigs where
 
 instance Prelude.Hashable ListIdentityProviderConfigs where
   hashWithSalt _salt ListIdentityProviderConfigs' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` clusterName
 

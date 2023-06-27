@@ -109,14 +109,16 @@ instance Data.FromJSON RemoteAccessConfig where
       ( \x ->
           RemoteAccessConfig'
             Prelude.<$> (x Data..:? "ec2SshKey")
-            Prelude.<*> ( x Data..:? "sourceSecurityGroups"
+            Prelude.<*> ( x
+                            Data..:? "sourceSecurityGroups"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable RemoteAccessConfig where
   hashWithSalt _salt RemoteAccessConfig' {..} =
-    _salt `Prelude.hashWithSalt` ec2SshKey
+    _salt
+      `Prelude.hashWithSalt` ec2SshKey
       `Prelude.hashWithSalt` sourceSecurityGroups
 
 instance Prelude.NFData RemoteAccessConfig where

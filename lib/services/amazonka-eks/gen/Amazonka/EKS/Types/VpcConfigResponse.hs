@@ -186,10 +186,12 @@ instance Data.FromJSON VpcConfigResponse where
             Prelude.<$> (x Data..:? "clusterSecurityGroupId")
             Prelude.<*> (x Data..:? "endpointPrivateAccess")
             Prelude.<*> (x Data..:? "endpointPublicAccess")
-            Prelude.<*> ( x Data..:? "publicAccessCidrs"
+            Prelude.<*> ( x
+                            Data..:? "publicAccessCidrs"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "securityGroupIds"
+            Prelude.<*> ( x
+                            Data..:? "securityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "subnetIds" Data..!= Prelude.mempty)
@@ -198,7 +200,8 @@ instance Data.FromJSON VpcConfigResponse where
 
 instance Prelude.Hashable VpcConfigResponse where
   hashWithSalt _salt VpcConfigResponse' {..} =
-    _salt `Prelude.hashWithSalt` clusterSecurityGroupId
+    _salt
+      `Prelude.hashWithSalt` clusterSecurityGroupId
       `Prelude.hashWithSalt` endpointPrivateAccess
       `Prelude.hashWithSalt` endpointPublicAccess
       `Prelude.hashWithSalt` publicAccessCidrs

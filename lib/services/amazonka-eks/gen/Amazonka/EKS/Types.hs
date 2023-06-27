@@ -571,48 +571,48 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have permissions to perform the requested operation. The user
@@ -621,7 +621,7 @@ defaultService =
 -- more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html Access Management>
 -- in the /IAM User Guide/.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -631,7 +631,7 @@ _AccessDeniedException =
 -- | This exception is thrown if the request contains a semantic error. The
 -- precise meaning will depend on the API, and will be documented in the
 -- error message.
-_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BadRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -642,7 +642,7 @@ _BadRequestException =
 -- using an action or resource on behalf of a user that doesn\'t have
 -- permissions to use the action or resource or specifying an identifier
 -- that is not valid.
-_ClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ClientException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ClientException =
   Core._MatchServiceError
     defaultService
@@ -651,7 +651,7 @@ _ClientException =
 
 -- | The specified parameter is invalid. Review the available parameters for
 -- the API request.
-_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -660,7 +660,7 @@ _InvalidParameterException =
 
 -- | The request is invalid given the state of the cluster. Check the state
 -- of the cluster and the associated operations.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -669,7 +669,7 @@ _InvalidRequestException =
 
 -- | A service resource associated with the request could not be found.
 -- Clients should not retry such requests.
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -677,7 +677,7 @@ _NotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The specified resource is in use.
-_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -685,7 +685,7 @@ _ResourceInUseException =
     Prelude.. Core.hasStatus 409
 
 -- | You have encountered a service limit on the specified resource.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -696,7 +696,7 @@ _ResourceLimitExceededException =
 -- clusters with ListClusters. You can view your available managed node
 -- groups with ListNodegroups. Amazon EKS clusters and node groups are
 -- Region-specific.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -705,7 +705,7 @@ _ResourceNotFoundException =
 
 -- | Required resources (such as service-linked roles) were created and are
 -- still propagating. Retry later.
-_ResourcePropagationDelayException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourcePropagationDelayException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourcePropagationDelayException =
   Core._MatchServiceError
     defaultService
@@ -713,7 +713,7 @@ _ResourcePropagationDelayException =
     Prelude.. Core.hasStatus 428
 
 -- | These errors are usually caused by a server-side issue.
-_ServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServerException =
   Core._MatchServiceError
     defaultService
@@ -721,7 +721,7 @@ _ServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The service is unavailable. Back off and retry the operation.
-_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -732,7 +732,7 @@ _ServiceUnavailableException =
 -- Zone that does not support Amazon EKS. The exception output specifies
 -- the supported Availability Zones for your account, from which you can
 -- choose subnets for your cluster.
-_UnsupportedAvailabilityZoneException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedAvailabilityZoneException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedAvailabilityZoneException =
   Core._MatchServiceError
     defaultService

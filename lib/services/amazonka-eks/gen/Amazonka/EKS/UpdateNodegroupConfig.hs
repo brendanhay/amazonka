@@ -179,7 +179,8 @@ instance Core.AWSRequest UpdateNodegroupConfig where
 
 instance Prelude.Hashable UpdateNodegroupConfig where
   hashWithSalt _salt UpdateNodegroupConfig' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` labels
       `Prelude.hashWithSalt` scalingConfig
       `Prelude.hashWithSalt` taints

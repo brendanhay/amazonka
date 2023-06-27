@@ -214,7 +214,8 @@ instance Data.FromJSON Addon where
 
 instance Prelude.Hashable Addon where
   hashWithSalt _salt Addon' {..} =
-    _salt `Prelude.hashWithSalt` addonArn
+    _salt
+      `Prelude.hashWithSalt` addonArn
       `Prelude.hashWithSalt` addonName
       `Prelude.hashWithSalt` addonVersion
       `Prelude.hashWithSalt` clusterName

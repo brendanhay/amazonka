@@ -180,22 +180,22 @@ instance Core.AWSPager DescribeAddonVersions where
     | Core.stop
         ( rs
             Lens.^? describeAddonVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAddonVersionsResponse_addons
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeAddonVersions_nextToken
           Lens..~ rs
           Lens.^? describeAddonVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAddonVersions where
   type
@@ -214,7 +214,8 @@ instance Core.AWSRequest DescribeAddonVersions where
 
 instance Prelude.Hashable DescribeAddonVersions where
   hashWithSalt _salt DescribeAddonVersions' {..} =
-    _salt `Prelude.hashWithSalt` addonName
+    _salt
+      `Prelude.hashWithSalt` addonName
       `Prelude.hashWithSalt` kubernetesVersion
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

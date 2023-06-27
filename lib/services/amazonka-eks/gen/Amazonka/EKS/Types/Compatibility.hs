@@ -79,14 +79,16 @@ instance Data.FromJSON Compatibility where
           Compatibility'
             Prelude.<$> (x Data..:? "clusterVersion")
             Prelude.<*> (x Data..:? "defaultVersion")
-            Prelude.<*> ( x Data..:? "platformVersions"
+            Prelude.<*> ( x
+                            Data..:? "platformVersions"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Compatibility where
   hashWithSalt _salt Compatibility' {..} =
-    _salt `Prelude.hashWithSalt` clusterVersion
+    _salt
+      `Prelude.hashWithSalt` clusterVersion
       `Prelude.hashWithSalt` defaultVersion
       `Prelude.hashWithSalt` platformVersions
 

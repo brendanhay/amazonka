@@ -110,7 +110,8 @@ instance Core.AWSRequest DescribeAddon where
 
 instance Prelude.Hashable DescribeAddon where
   hashWithSalt _salt DescribeAddon' {..} =
-    _salt `Prelude.hashWithSalt` clusterName
+    _salt
+      `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` addonName
 
 instance Prelude.NFData DescribeAddon where

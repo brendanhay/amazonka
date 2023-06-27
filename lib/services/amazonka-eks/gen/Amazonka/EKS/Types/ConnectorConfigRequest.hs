@@ -72,7 +72,8 @@ connectorConfigRequest_provider = Lens.lens (\ConnectorConfigRequest' {provider}
 
 instance Prelude.Hashable ConnectorConfigRequest where
   hashWithSalt _salt ConnectorConfigRequest' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` provider
 
 instance Prelude.NFData ConnectorConfigRequest where

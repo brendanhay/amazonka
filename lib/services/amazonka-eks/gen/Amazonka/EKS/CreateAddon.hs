@@ -291,7 +291,8 @@ instance Core.AWSRequest CreateAddon where
 
 instance Prelude.Hashable CreateAddon where
   hashWithSalt _salt CreateAddon' {..} =
-    _salt `Prelude.hashWithSalt` addonVersion
+    _salt
+      `Prelude.hashWithSalt` addonVersion
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` configurationValues
       `Prelude.hashWithSalt` resolveConflicts

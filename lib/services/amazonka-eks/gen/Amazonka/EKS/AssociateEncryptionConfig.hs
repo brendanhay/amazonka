@@ -124,7 +124,8 @@ instance Core.AWSRequest AssociateEncryptionConfig where
 
 instance Prelude.Hashable AssociateEncryptionConfig where
   hashWithSalt _salt AssociateEncryptionConfig' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` encryptionConfig
 

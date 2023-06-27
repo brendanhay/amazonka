@@ -548,7 +548,8 @@ instance Core.AWSRequest CreateNodegroup where
 
 instance Prelude.Hashable CreateNodegroup where
   hashWithSalt _salt CreateNodegroup' {..} =
-    _salt `Prelude.hashWithSalt` amiType
+    _salt
+      `Prelude.hashWithSalt` amiType
       `Prelude.hashWithSalt` capacityType
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` diskSize

@@ -118,7 +118,8 @@ instance Data.FromJSON Update where
 
 instance Prelude.Hashable Update where
   hashWithSalt _salt Update' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` errors
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` params

@@ -138,7 +138,8 @@ instance Core.AWSRequest DescribeUpdate where
 
 instance Prelude.Hashable DescribeUpdate where
   hashWithSalt _salt DescribeUpdate' {..} =
-    _salt `Prelude.hashWithSalt` addonName
+    _salt
+      `Prelude.hashWithSalt` addonName
       `Prelude.hashWithSalt` nodegroupName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` updateId

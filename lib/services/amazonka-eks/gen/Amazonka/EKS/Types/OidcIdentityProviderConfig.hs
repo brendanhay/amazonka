@@ -210,7 +210,8 @@ instance Data.FromJSON OidcIdentityProviderConfig where
 
 instance Prelude.Hashable OidcIdentityProviderConfig where
   hashWithSalt _salt OidcIdentityProviderConfig' {..} =
-    _salt `Prelude.hashWithSalt` clientId
+    _salt
+      `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` groupsClaim
       `Prelude.hashWithSalt` groupsPrefix

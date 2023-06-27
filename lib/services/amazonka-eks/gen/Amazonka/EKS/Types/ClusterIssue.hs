@@ -87,7 +87,8 @@ instance Data.FromJSON ClusterIssue where
 
 instance Prelude.Hashable ClusterIssue where
   hashWithSalt _salt ClusterIssue' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` resourceIds
 

@@ -90,7 +90,8 @@ instance Data.FromJSON NodegroupUpdateConfig where
 
 instance Prelude.Hashable NodegroupUpdateConfig where
   hashWithSalt _salt NodegroupUpdateConfig' {..} =
-    _salt `Prelude.hashWithSalt` maxUnavailable
+    _salt
+      `Prelude.hashWithSalt` maxUnavailable
       `Prelude.hashWithSalt` maxUnavailablePercentage
 
 instance Prelude.NFData NodegroupUpdateConfig where

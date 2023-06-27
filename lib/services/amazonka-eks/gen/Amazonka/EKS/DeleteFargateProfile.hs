@@ -119,7 +119,8 @@ instance Core.AWSRequest DeleteFargateProfile where
 
 instance Prelude.Hashable DeleteFargateProfile where
   hashWithSalt _salt DeleteFargateProfile' {..} =
-    _salt `Prelude.hashWithSalt` clusterName
+    _salt
+      `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` fargateProfileName
 
 instance Prelude.NFData DeleteFargateProfile where

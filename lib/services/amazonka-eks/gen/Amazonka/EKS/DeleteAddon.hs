@@ -128,7 +128,8 @@ instance Core.AWSRequest DeleteAddon where
 
 instance Prelude.Hashable DeleteAddon where
   hashWithSalt _salt DeleteAddon' {..} =
-    _salt `Prelude.hashWithSalt` preserve
+    _salt
+      `Prelude.hashWithSalt` preserve
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` addonName
 

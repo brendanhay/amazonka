@@ -59,7 +59,8 @@ instance Data.FromJSON Logging where
       "Logging"
       ( \x ->
           Logging'
-            Prelude.<$> ( x Data..:? "clusterLogging"
+            Prelude.<$> ( x
+                            Data..:? "clusterLogging"
                             Data..!= Prelude.mempty
                         )
       )

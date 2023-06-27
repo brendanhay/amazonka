@@ -75,6 +75,7 @@ module Amazonka.ElastiCache.CreateReplicationGroup
     createReplicationGroup_cacheParameterGroupName,
     createReplicationGroup_cacheSecurityGroupNames,
     createReplicationGroup_cacheSubnetGroupName,
+    createReplicationGroup_clusterMode,
     createReplicationGroup_dataTieringEnabled,
     createReplicationGroup_engine,
     createReplicationGroup_engineVersion,
@@ -301,6 +302,13 @@ data CreateReplicationGroup = CreateReplicationGroup'
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html Subnets and Subnet Groups>.
     cacheSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | Enabled or Disabled. To modify cluster mode from Disabled to Enabled,
+    -- you must first set the cluster mode to Compatible. Compatible mode
+    -- allows your Redis clients to connect using both cluster mode enabled and
+    -- cluster mode disabled. After you migrate all Redis clients to use
+    -- cluster mode enabled, you can then complete cluster mode configuration
+    -- and set the cluster mode to Enabled.
+    clusterMode :: Prelude.Maybe ClusterMode,
     -- | Enables data tiering. Data tiering is only supported for replication
     -- groups using the r6gd node type. This parameter must be set to true when
     -- using r6gd nodes. For more information, see
@@ -325,7 +333,7 @@ data CreateReplicationGroup = CreateReplicationGroup'
     -- | The network type you choose when creating a replication group, either
     -- @ipv4@ | @ipv6@. IPv6 is supported for workloads using Redis engine
     -- version 6.2 onward or Memcached engine version 1.6.6 on all instances
-    -- built on the <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    -- built on the <http://aws.amazon.com/ec2/nitro/ Nitro system>.
     ipDiscovery :: Prelude.Maybe IpDiscovery,
     -- | The ID of the KMS key used to encrypt the disk in the cluster.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
@@ -338,7 +346,7 @@ data CreateReplicationGroup = CreateReplicationGroup'
     -- | Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
     -- workloads using Redis engine version 6.2 onward or Memcached engine
     -- version 1.6.6 on all instances built on the
-    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    -- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
     networkType :: Prelude.Maybe NetworkType,
     -- | A list of node group (shard) configuration options. Each node group
     -- (shard) configuration has the following members:
@@ -504,8 +512,10 @@ data CreateReplicationGroup = CreateReplicationGroup'
     -- modify the value to @required@ to allow encrypted connections only.
     --
     -- Setting @TransitEncryptionMode@ to @required@ is a two-step process that
-    -- requires you to first set the @TransitEncryptionMode@ to @preferred@
-    -- first, after that you can set @TransitEncryptionMode@ to @required@.
+    -- requires you to first set the @TransitEncryptionMode@ to @preferred@,
+    -- after that you can set @TransitEncryptionMode@ to @required@.
+    --
+    -- This process will not trigger the replacement of the replication group.
     transitEncryptionMode :: Prelude.Maybe TransitEncryptionMode,
     -- | The user group to associate with the replication group.
     userGroupIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
@@ -707,6 +717,13 @@ data CreateReplicationGroup = CreateReplicationGroup'
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html Subnets and Subnet Groups>.
 --
+-- 'clusterMode', 'createReplicationGroup_clusterMode' - Enabled or Disabled. To modify cluster mode from Disabled to Enabled,
+-- you must first set the cluster mode to Compatible. Compatible mode
+-- allows your Redis clients to connect using both cluster mode enabled and
+-- cluster mode disabled. After you migrate all Redis clients to use
+-- cluster mode enabled, you can then complete cluster mode configuration
+-- and set the cluster mode to Enabled.
+--
 -- 'dataTieringEnabled', 'createReplicationGroup_dataTieringEnabled' - Enables data tiering. Data tiering is only supported for replication
 -- groups using the r6gd node type. This parameter must be set to true when
 -- using r6gd nodes. For more information, see
@@ -731,7 +748,7 @@ data CreateReplicationGroup = CreateReplicationGroup'
 -- 'ipDiscovery', 'createReplicationGroup_ipDiscovery' - The network type you choose when creating a replication group, either
 -- @ipv4@ | @ipv6@. IPv6 is supported for workloads using Redis engine
 -- version 6.2 onward or Memcached engine version 1.6.6 on all instances
--- built on the <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- built on the <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 --
 -- 'kmsKeyId', 'createReplicationGroup_kmsKeyId' - The ID of the KMS key used to encrypt the disk in the cluster.
 --
@@ -744,7 +761,7 @@ data CreateReplicationGroup = CreateReplicationGroup'
 -- 'networkType', 'createReplicationGroup_networkType' - Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
 -- workloads using Redis engine version 6.2 onward or Memcached engine
 -- version 1.6.6 on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 --
 -- 'nodeGroupConfiguration', 'createReplicationGroup_nodeGroupConfiguration' - A list of node group (shard) configuration options. Each node group
 -- (shard) configuration has the following members:
@@ -910,8 +927,10 @@ data CreateReplicationGroup = CreateReplicationGroup'
 -- modify the value to @required@ to allow encrypted connections only.
 --
 -- Setting @TransitEncryptionMode@ to @required@ is a two-step process that
--- requires you to first set the @TransitEncryptionMode@ to @preferred@
--- first, after that you can set @TransitEncryptionMode@ to @required@.
+-- requires you to first set the @TransitEncryptionMode@ to @preferred@,
+-- after that you can set @TransitEncryptionMode@ to @required@.
+--
+-- This process will not trigger the replacement of the replication group.
 --
 -- 'userGroupIds', 'createReplicationGroup_userGroupIds' - The user group to associate with the replication group.
 --
@@ -946,6 +965,7 @@ newCreateReplicationGroup
         cacheParameterGroupName = Prelude.Nothing,
         cacheSecurityGroupNames = Prelude.Nothing,
         cacheSubnetGroupName = Prelude.Nothing,
+        clusterMode = Prelude.Nothing,
         dataTieringEnabled = Prelude.Nothing,
         engine = Prelude.Nothing,
         engineVersion = Prelude.Nothing,
@@ -1168,6 +1188,15 @@ createReplicationGroup_cacheSecurityGroupNames = Lens.lens (\CreateReplicationGr
 createReplicationGroup_cacheSubnetGroupName :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Text)
 createReplicationGroup_cacheSubnetGroupName = Lens.lens (\CreateReplicationGroup' {cacheSubnetGroupName} -> cacheSubnetGroupName) (\s@CreateReplicationGroup' {} a -> s {cacheSubnetGroupName = a} :: CreateReplicationGroup)
 
+-- | Enabled or Disabled. To modify cluster mode from Disabled to Enabled,
+-- you must first set the cluster mode to Compatible. Compatible mode
+-- allows your Redis clients to connect using both cluster mode enabled and
+-- cluster mode disabled. After you migrate all Redis clients to use
+-- cluster mode enabled, you can then complete cluster mode configuration
+-- and set the cluster mode to Enabled.
+createReplicationGroup_clusterMode :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe ClusterMode)
+createReplicationGroup_clusterMode = Lens.lens (\CreateReplicationGroup' {clusterMode} -> clusterMode) (\s@CreateReplicationGroup' {} a -> s {clusterMode = a} :: CreateReplicationGroup)
+
 -- | Enables data tiering. Data tiering is only supported for replication
 -- groups using the r6gd node type. This parameter must be set to true when
 -- using r6gd nodes. For more information, see
@@ -1200,7 +1229,7 @@ createReplicationGroup_globalReplicationGroupId = Lens.lens (\CreateReplicationG
 -- | The network type you choose when creating a replication group, either
 -- @ipv4@ | @ipv6@. IPv6 is supported for workloads using Redis engine
 -- version 6.2 onward or Memcached engine version 1.6.6 on all instances
--- built on the <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- built on the <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 createReplicationGroup_ipDiscovery :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe IpDiscovery)
 createReplicationGroup_ipDiscovery = Lens.lens (\CreateReplicationGroup' {ipDiscovery} -> ipDiscovery) (\s@CreateReplicationGroup' {} a -> s {ipDiscovery = a} :: CreateReplicationGroup)
 
@@ -1221,7 +1250,7 @@ createReplicationGroup_multiAZEnabled = Lens.lens (\CreateReplicationGroup' {mul
 -- | Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
 -- workloads using Redis engine version 6.2 onward or Memcached engine
 -- version 1.6.6 on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 createReplicationGroup_networkType :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe NetworkType)
 createReplicationGroup_networkType = Lens.lens (\CreateReplicationGroup' {networkType} -> networkType) (\s@CreateReplicationGroup' {} a -> s {networkType = a} :: CreateReplicationGroup)
 
@@ -1421,8 +1450,10 @@ createReplicationGroup_transitEncryptionEnabled = Lens.lens (\CreateReplicationG
 -- modify the value to @required@ to allow encrypted connections only.
 --
 -- Setting @TransitEncryptionMode@ to @required@ is a two-step process that
--- requires you to first set the @TransitEncryptionMode@ to @preferred@
--- first, after that you can set @TransitEncryptionMode@ to @required@.
+-- requires you to first set the @TransitEncryptionMode@ to @preferred@,
+-- after that you can set @TransitEncryptionMode@ to @required@.
+--
+-- This process will not trigger the replacement of the replication group.
 createReplicationGroup_transitEncryptionMode :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe TransitEncryptionMode)
 createReplicationGroup_transitEncryptionMode = Lens.lens (\CreateReplicationGroup' {transitEncryptionMode} -> transitEncryptionMode) (\s@CreateReplicationGroup' {} a -> s {transitEncryptionMode = a} :: CreateReplicationGroup)
 
@@ -1473,6 +1504,7 @@ instance Prelude.Hashable CreateReplicationGroup where
       `Prelude.hashWithSalt` cacheParameterGroupName
       `Prelude.hashWithSalt` cacheSecurityGroupNames
       `Prelude.hashWithSalt` cacheSubnetGroupName
+      `Prelude.hashWithSalt` clusterMode
       `Prelude.hashWithSalt` dataTieringEnabled
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion
@@ -1513,6 +1545,7 @@ instance Prelude.NFData CreateReplicationGroup where
       `Prelude.seq` Prelude.rnf cacheParameterGroupName
       `Prelude.seq` Prelude.rnf cacheSecurityGroupNames
       `Prelude.seq` Prelude.rnf cacheSubnetGroupName
+      `Prelude.seq` Prelude.rnf clusterMode
       `Prelude.seq` Prelude.rnf dataTieringEnabled
       `Prelude.seq` Prelude.rnf engine
       `Prelude.seq` Prelude.rnf engineVersion
@@ -1522,8 +1555,10 @@ instance Prelude.NFData CreateReplicationGroup where
       `Prelude.seq` Prelude.rnf logDeliveryConfigurations
       `Prelude.seq` Prelude.rnf multiAZEnabled
       `Prelude.seq` Prelude.rnf networkType
-      `Prelude.seq` Prelude.rnf nodeGroupConfiguration
-      `Prelude.seq` Prelude.rnf notificationTopicArn
+      `Prelude.seq` Prelude.rnf
+        nodeGroupConfiguration
+      `Prelude.seq` Prelude.rnf
+        notificationTopicArn
       `Prelude.seq` Prelude.rnf numCacheClusters
       `Prelude.seq` Prelude.rnf numNodeGroups
       `Prelude.seq` Prelude.rnf port
@@ -1587,6 +1622,7 @@ instance Data.ToQuery CreateReplicationGroup where
                 Prelude.<$> cacheSecurityGroupNames
             ),
         "CacheSubnetGroupName" Data.=: cacheSubnetGroupName,
+        "ClusterMode" Data.=: clusterMode,
         "DataTieringEnabled" Data.=: dataTieringEnabled,
         "Engine" Data.=: engine,
         "EngineVersion" Data.=: engineVersion,

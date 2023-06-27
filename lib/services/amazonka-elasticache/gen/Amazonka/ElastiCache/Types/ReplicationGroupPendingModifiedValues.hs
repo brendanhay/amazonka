@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.AuthTokenUpdateStatus
+import Amazonka.ElastiCache.Types.ClusterMode
 import Amazonka.ElastiCache.Types.PendingAutomaticFailoverStatus
 import Amazonka.ElastiCache.Types.PendingLogDeliveryConfiguration
 import Amazonka.ElastiCache.Types.ReshardingStatus
@@ -40,6 +41,13 @@ data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValu
     -- | Indicates the status of automatic failover for this Redis replication
     -- group.
     automaticFailoverStatus :: Prelude.Maybe PendingAutomaticFailoverStatus,
+    -- | Enabled or Disabled. To modify cluster mode from Disabled to Enabled,
+    -- you must first set the cluster mode to Compatible. Compatible mode
+    -- allows your Redis clients to connect using both cluster mode enabled and
+    -- cluster mode disabled. After you migrate all Redis clients to use
+    -- cluster mode enabled, you can then complete cluster mode configuration
+    -- and set the cluster mode to Enabled.
+    clusterMode :: Prelude.Maybe ClusterMode,
     -- | The log delivery configurations being modified
     logDeliveryConfigurations :: Prelude.Maybe [PendingLogDeliveryConfiguration],
     -- | The primary cluster ID that is applied immediately (if
@@ -71,6 +79,13 @@ data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValu
 -- 'automaticFailoverStatus', 'replicationGroupPendingModifiedValues_automaticFailoverStatus' - Indicates the status of automatic failover for this Redis replication
 -- group.
 --
+-- 'clusterMode', 'replicationGroupPendingModifiedValues_clusterMode' - Enabled or Disabled. To modify cluster mode from Disabled to Enabled,
+-- you must first set the cluster mode to Compatible. Compatible mode
+-- allows your Redis clients to connect using both cluster mode enabled and
+-- cluster mode disabled. After you migrate all Redis clients to use
+-- cluster mode enabled, you can then complete cluster mode configuration
+-- and set the cluster mode to Enabled.
+--
 -- 'logDeliveryConfigurations', 'replicationGroupPendingModifiedValues_logDeliveryConfigurations' - The log delivery configurations being modified
 --
 -- 'primaryClusterId', 'replicationGroupPendingModifiedValues_primaryClusterId' - The primary cluster ID that is applied immediately (if
@@ -93,6 +108,7 @@ newReplicationGroupPendingModifiedValues =
         Prelude.Nothing,
       automaticFailoverStatus =
         Prelude.Nothing,
+      clusterMode = Prelude.Nothing,
       logDeliveryConfigurations =
         Prelude.Nothing,
       primaryClusterId = Prelude.Nothing,
@@ -112,6 +128,15 @@ replicationGroupPendingModifiedValues_authTokenStatus = Lens.lens (\ReplicationG
 -- group.
 replicationGroupPendingModifiedValues_automaticFailoverStatus :: Lens.Lens' ReplicationGroupPendingModifiedValues (Prelude.Maybe PendingAutomaticFailoverStatus)
 replicationGroupPendingModifiedValues_automaticFailoverStatus = Lens.lens (\ReplicationGroupPendingModifiedValues' {automaticFailoverStatus} -> automaticFailoverStatus) (\s@ReplicationGroupPendingModifiedValues' {} a -> s {automaticFailoverStatus = a} :: ReplicationGroupPendingModifiedValues)
+
+-- | Enabled or Disabled. To modify cluster mode from Disabled to Enabled,
+-- you must first set the cluster mode to Compatible. Compatible mode
+-- allows your Redis clients to connect using both cluster mode enabled and
+-- cluster mode disabled. After you migrate all Redis clients to use
+-- cluster mode enabled, you can then complete cluster mode configuration
+-- and set the cluster mode to Enabled.
+replicationGroupPendingModifiedValues_clusterMode :: Lens.Lens' ReplicationGroupPendingModifiedValues (Prelude.Maybe ClusterMode)
+replicationGroupPendingModifiedValues_clusterMode = Lens.lens (\ReplicationGroupPendingModifiedValues' {clusterMode} -> clusterMode) (\s@ReplicationGroupPendingModifiedValues' {} a -> s {clusterMode = a} :: ReplicationGroupPendingModifiedValues)
 
 -- | The log delivery configurations being modified
 replicationGroupPendingModifiedValues_logDeliveryConfigurations :: Lens.Lens' ReplicationGroupPendingModifiedValues (Prelude.Maybe [PendingLogDeliveryConfiguration])
@@ -148,7 +173,9 @@ instance
     ReplicationGroupPendingModifiedValues'
       Prelude.<$> (x Data..@? "AuthTokenStatus")
       Prelude.<*> (x Data..@? "AutomaticFailoverStatus")
-      Prelude.<*> ( x Data..@? "LogDeliveryConfigurations"
+      Prelude.<*> (x Data..@? "ClusterMode")
+      Prelude.<*> ( x
+                      Data..@? "LogDeliveryConfigurations"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -165,8 +192,10 @@ instance
   hashWithSalt
     _salt
     ReplicationGroupPendingModifiedValues' {..} =
-      _salt `Prelude.hashWithSalt` authTokenStatus
+      _salt
+        `Prelude.hashWithSalt` authTokenStatus
         `Prelude.hashWithSalt` automaticFailoverStatus
+        `Prelude.hashWithSalt` clusterMode
         `Prelude.hashWithSalt` logDeliveryConfigurations
         `Prelude.hashWithSalt` primaryClusterId
         `Prelude.hashWithSalt` resharding
@@ -181,6 +210,7 @@ instance
   rnf ReplicationGroupPendingModifiedValues' {..} =
     Prelude.rnf authTokenStatus
       `Prelude.seq` Prelude.rnf automaticFailoverStatus
+      `Prelude.seq` Prelude.rnf clusterMode
       `Prelude.seq` Prelude.rnf logDeliveryConfigurations
       `Prelude.seq` Prelude.rnf primaryClusterId
       `Prelude.seq` Prelude.rnf resharding

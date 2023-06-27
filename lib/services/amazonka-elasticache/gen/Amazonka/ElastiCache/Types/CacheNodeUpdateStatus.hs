@@ -136,7 +136,8 @@ instance Data.FromXML CacheNodeUpdateStatus where
 
 instance Prelude.Hashable CacheNodeUpdateStatus where
   hashWithSalt _salt CacheNodeUpdateStatus' {..} =
-    _salt `Prelude.hashWithSalt` cacheNodeId
+    _salt
+      `Prelude.hashWithSalt` cacheNodeId
       `Prelude.hashWithSalt` nodeDeletionDate
       `Prelude.hashWithSalt` nodeUpdateEndDate
       `Prelude.hashWithSalt` nodeUpdateInitiatedBy

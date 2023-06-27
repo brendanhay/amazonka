@@ -112,7 +112,8 @@ instance Core.AWSRequest BatchApplyUpdateAction where
 
 instance Prelude.Hashable BatchApplyUpdateAction where
   hashWithSalt _salt BatchApplyUpdateAction' {..} =
-    _salt `Prelude.hashWithSalt` cacheClusterIds
+    _salt
+      `Prelude.hashWithSalt` cacheClusterIds
       `Prelude.hashWithSalt` replicationGroupIds
       `Prelude.hashWithSalt` serviceUpdateName
 

@@ -143,13 +143,15 @@ instance Data.FromXML PendingModifiedValues where
   parseXML x =
     PendingModifiedValues'
       Prelude.<$> (x Data..@? "AuthTokenStatus")
-      Prelude.<*> ( x Data..@? "CacheNodeIdsToRemove"
+      Prelude.<*> ( x
+                      Data..@? "CacheNodeIdsToRemove"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "CacheNodeId")
                   )
       Prelude.<*> (x Data..@? "CacheNodeType")
       Prelude.<*> (x Data..@? "EngineVersion")
-      Prelude.<*> ( x Data..@? "LogDeliveryConfigurations"
+      Prelude.<*> ( x
+                      Data..@? "LogDeliveryConfigurations"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -159,7 +161,8 @@ instance Data.FromXML PendingModifiedValues where
 
 instance Prelude.Hashable PendingModifiedValues where
   hashWithSalt _salt PendingModifiedValues' {..} =
-    _salt `Prelude.hashWithSalt` authTokenStatus
+    _salt
+      `Prelude.hashWithSalt` authTokenStatus
       `Prelude.hashWithSalt` cacheNodeIdsToRemove
       `Prelude.hashWithSalt` cacheNodeType
       `Prelude.hashWithSalt` engineVersion

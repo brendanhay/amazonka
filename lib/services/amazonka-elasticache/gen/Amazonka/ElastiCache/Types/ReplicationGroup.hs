@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.ElastiCache.Types.AutomaticFailoverStatus
+import Amazonka.ElastiCache.Types.ClusterMode
 import Amazonka.ElastiCache.Types.DataTieringStatus
 import Amazonka.ElastiCache.Types.Endpoint
 import Amazonka.ElastiCache.Types.GlobalReplicationGroupInfo
@@ -59,9 +60,9 @@ data ReplicationGroup = ReplicationGroup'
     authTokenEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The date the auth token was last modified
     authTokenLastModifiedDate :: Prelude.Maybe Data.ISO8601,
-    -- | If you are running Redis engine version 6.0 or later, set this
-    -- parameter to yes if you want to opt-in to the next auto minor version
-    -- upgrade campaign. This parameter is disabled for previous versions.
+    -- | If you are running Redis engine version 6.0 or later, set this parameter
+    -- to yes if you want to opt-in to the next auto minor version upgrade
+    -- campaign. This parameter is disabled for previous versions.
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | Indicates the status of automatic failover for this Redis replication
     -- group.
@@ -75,6 +76,13 @@ data ReplicationGroup = ReplicationGroup'
     --
     -- Valid values: @true@ | @false@
     clusterEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Enabled or Disabled. To modify cluster mode from Disabled to Enabled,
+    -- you must first set the cluster mode to Compatible. Compatible mode
+    -- allows your Redis clients to connect using both cluster mode enabled and
+    -- cluster mode disabled. After you migrate all Redis clients to use
+    -- cluster mode enabled, you can then complete cluster mode configuration
+    -- and set the cluster mode to Enabled.
+    clusterMode :: Prelude.Maybe ClusterMode,
     -- | The configuration endpoint for this replication group. Use the
     -- configuration endpoint to connect to this replication group.
     configurationEndpoint :: Prelude.Maybe Endpoint,
@@ -91,7 +99,7 @@ data ReplicationGroup = ReplicationGroup'
     -- | The network type you choose when modifying a cluster, either @ipv4@ |
     -- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
     -- onward or Memcached engine version 1.6.6 on all instances built on the
-    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    -- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
     ipDiscovery :: Prelude.Maybe IpDiscovery,
     -- | The ID of the KMS key used to encrypt the disk in the cluster.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
@@ -109,7 +117,7 @@ data ReplicationGroup = ReplicationGroup'
     -- | Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
     -- workloads using Redis engine version 6.2 onward or Memcached engine
     -- version 1.6.6 on all instances built on the
-    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    -- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
     networkType :: Prelude.Maybe NetworkType,
     -- | A list of node groups in this replication group. For Redis (cluster mode
     -- disabled) replication groups, this is a single-element list. For Redis
@@ -190,9 +198,9 @@ data ReplicationGroup = ReplicationGroup'
 --
 -- 'authTokenLastModifiedDate', 'replicationGroup_authTokenLastModifiedDate' - The date the auth token was last modified
 --
--- 'autoMinorVersionUpgrade', 'replicationGroup_autoMinorVersionUpgrade' - If you are running Redis engine version 6.0 or later, set this
--- parameter to yes if you want to opt-in to the next auto minor version
--- upgrade campaign. This parameter is disabled for previous versions.
+-- 'autoMinorVersionUpgrade', 'replicationGroup_autoMinorVersionUpgrade' - If you are running Redis engine version 6.0 or later, set this parameter
+-- to yes if you want to opt-in to the next auto minor version upgrade
+-- campaign. This parameter is disabled for previous versions.
 --
 -- 'automaticFailover', 'replicationGroup_automaticFailover' - Indicates the status of automatic failover for this Redis replication
 -- group.
@@ -205,6 +213,13 @@ data ReplicationGroup = ReplicationGroup'
 -- shards (API\/CLI: node groups).
 --
 -- Valid values: @true@ | @false@
+--
+-- 'clusterMode', 'replicationGroup_clusterMode' - Enabled or Disabled. To modify cluster mode from Disabled to Enabled,
+-- you must first set the cluster mode to Compatible. Compatible mode
+-- allows your Redis clients to connect using both cluster mode enabled and
+-- cluster mode disabled. After you migrate all Redis clients to use
+-- cluster mode enabled, you can then complete cluster mode configuration
+-- and set the cluster mode to Enabled.
 --
 -- 'configurationEndpoint', 'replicationGroup_configurationEndpoint' - The configuration endpoint for this replication group. Use the
 -- configuration endpoint to connect to this replication group.
@@ -222,7 +237,7 @@ data ReplicationGroup = ReplicationGroup'
 -- 'ipDiscovery', 'replicationGroup_ipDiscovery' - The network type you choose when modifying a cluster, either @ipv4@ |
 -- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
 -- onward or Memcached engine version 1.6.6 on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 --
 -- 'kmsKeyId', 'replicationGroup_kmsKeyId' - The ID of the KMS key used to encrypt the disk in the cluster.
 --
@@ -240,7 +255,7 @@ data ReplicationGroup = ReplicationGroup'
 -- 'networkType', 'replicationGroup_networkType' - Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
 -- workloads using Redis engine version 6.2 onward or Memcached engine
 -- version 1.6.6 on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 --
 -- 'nodeGroups', 'replicationGroup_nodeGroups' - A list of node groups in this replication group. For Redis (cluster mode
 -- disabled) replication groups, this is a single-element list. For Redis
@@ -301,6 +316,7 @@ newReplicationGroup =
       automaticFailover = Prelude.Nothing,
       cacheNodeType = Prelude.Nothing,
       clusterEnabled = Prelude.Nothing,
+      clusterMode = Prelude.Nothing,
       configurationEndpoint = Prelude.Nothing,
       dataTiering = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -353,9 +369,9 @@ replicationGroup_authTokenEnabled = Lens.lens (\ReplicationGroup' {authTokenEnab
 replicationGroup_authTokenLastModifiedDate :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.UTCTime)
 replicationGroup_authTokenLastModifiedDate = Lens.lens (\ReplicationGroup' {authTokenLastModifiedDate} -> authTokenLastModifiedDate) (\s@ReplicationGroup' {} a -> s {authTokenLastModifiedDate = a} :: ReplicationGroup) Prelude.. Lens.mapping Data._Time
 
--- | If you are running Redis engine version 6.0 or later, set this
--- parameter to yes if you want to opt-in to the next auto minor version
--- upgrade campaign. This parameter is disabled for previous versions.
+-- | If you are running Redis engine version 6.0 or later, set this parameter
+-- to yes if you want to opt-in to the next auto minor version upgrade
+-- campaign. This parameter is disabled for previous versions.
 replicationGroup_autoMinorVersionUpgrade :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Bool)
 replicationGroup_autoMinorVersionUpgrade = Lens.lens (\ReplicationGroup' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ReplicationGroup' {} a -> s {autoMinorVersionUpgrade = a} :: ReplicationGroup)
 
@@ -376,6 +392,15 @@ replicationGroup_cacheNodeType = Lens.lens (\ReplicationGroup' {cacheNodeType} -
 -- Valid values: @true@ | @false@
 replicationGroup_clusterEnabled :: Lens.Lens' ReplicationGroup (Prelude.Maybe Prelude.Bool)
 replicationGroup_clusterEnabled = Lens.lens (\ReplicationGroup' {clusterEnabled} -> clusterEnabled) (\s@ReplicationGroup' {} a -> s {clusterEnabled = a} :: ReplicationGroup)
+
+-- | Enabled or Disabled. To modify cluster mode from Disabled to Enabled,
+-- you must first set the cluster mode to Compatible. Compatible mode
+-- allows your Redis clients to connect using both cluster mode enabled and
+-- cluster mode disabled. After you migrate all Redis clients to use
+-- cluster mode enabled, you can then complete cluster mode configuration
+-- and set the cluster mode to Enabled.
+replicationGroup_clusterMode :: Lens.Lens' ReplicationGroup (Prelude.Maybe ClusterMode)
+replicationGroup_clusterMode = Lens.lens (\ReplicationGroup' {clusterMode} -> clusterMode) (\s@ReplicationGroup' {} a -> s {clusterMode = a} :: ReplicationGroup)
 
 -- | The configuration endpoint for this replication group. Use the
 -- configuration endpoint to connect to this replication group.
@@ -401,7 +426,7 @@ replicationGroup_globalReplicationGroupInfo = Lens.lens (\ReplicationGroup' {glo
 -- | The network type you choose when modifying a cluster, either @ipv4@ |
 -- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
 -- onward or Memcached engine version 1.6.6 on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 replicationGroup_ipDiscovery :: Lens.Lens' ReplicationGroup (Prelude.Maybe IpDiscovery)
 replicationGroup_ipDiscovery = Lens.lens (\ReplicationGroup' {ipDiscovery} -> ipDiscovery) (\s@ReplicationGroup' {} a -> s {ipDiscovery = a} :: ReplicationGroup)
 
@@ -431,7 +456,7 @@ replicationGroup_multiAZ = Lens.lens (\ReplicationGroup' {multiAZ} -> multiAZ) (
 -- | Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
 -- workloads using Redis engine version 6.2 onward or Memcached engine
 -- version 1.6.6 on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 replicationGroup_networkType :: Lens.Lens' ReplicationGroup (Prelude.Maybe NetworkType)
 replicationGroup_networkType = Lens.lens (\ReplicationGroup' {networkType} -> networkType) (\s@ReplicationGroup' {} a -> s {networkType = a} :: ReplicationGroup)
 
@@ -516,28 +541,35 @@ instance Data.FromXML ReplicationGroup where
       Prelude.<*> (x Data..@? "AutomaticFailover")
       Prelude.<*> (x Data..@? "CacheNodeType")
       Prelude.<*> (x Data..@? "ClusterEnabled")
+      Prelude.<*> (x Data..@? "ClusterMode")
       Prelude.<*> (x Data..@? "ConfigurationEndpoint")
       Prelude.<*> (x Data..@? "DataTiering")
       Prelude.<*> (x Data..@? "Description")
       Prelude.<*> (x Data..@? "GlobalReplicationGroupInfo")
       Prelude.<*> (x Data..@? "IpDiscovery")
       Prelude.<*> (x Data..@? "KmsKeyId")
-      Prelude.<*> ( x Data..@? "LogDeliveryConfigurations"
+      Prelude.<*> ( x
+                      Data..@? "LogDeliveryConfigurations"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "LogDeliveryConfiguration")
                   )
-      Prelude.<*> ( x Data..@? "MemberClusters" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "MemberClusters"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ClusterId")
                   )
-      Prelude.<*> ( x Data..@? "MemberClustersOutpostArns"
+      Prelude.<*> ( x
+                      Data..@? "MemberClustersOutpostArns"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "ReplicationGroupOutpostArn")
                   )
       Prelude.<*> (x Data..@? "MultiAZ")
       Prelude.<*> (x Data..@? "NetworkType")
-      Prelude.<*> ( x Data..@? "NodeGroups" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "NodeGroups"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "NodeGroup")
                   )
       Prelude.<*> (x Data..@? "PendingModifiedValues")
@@ -549,13 +581,16 @@ instance Data.FromXML ReplicationGroup where
       Prelude.<*> (x Data..@? "Status")
       Prelude.<*> (x Data..@? "TransitEncryptionEnabled")
       Prelude.<*> (x Data..@? "TransitEncryptionMode")
-      Prelude.<*> ( x Data..@? "UserGroupIds" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "UserGroupIds"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable ReplicationGroup where
   hashWithSalt _salt ReplicationGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` atRestEncryptionEnabled
       `Prelude.hashWithSalt` authTokenEnabled
       `Prelude.hashWithSalt` authTokenLastModifiedDate
@@ -563,6 +598,7 @@ instance Prelude.Hashable ReplicationGroup where
       `Prelude.hashWithSalt` automaticFailover
       `Prelude.hashWithSalt` cacheNodeType
       `Prelude.hashWithSalt` clusterEnabled
+      `Prelude.hashWithSalt` clusterMode
       `Prelude.hashWithSalt` configurationEndpoint
       `Prelude.hashWithSalt` dataTiering
       `Prelude.hashWithSalt` description
@@ -596,6 +632,7 @@ instance Prelude.NFData ReplicationGroup where
       `Prelude.seq` Prelude.rnf automaticFailover
       `Prelude.seq` Prelude.rnf cacheNodeType
       `Prelude.seq` Prelude.rnf clusterEnabled
+      `Prelude.seq` Prelude.rnf clusterMode
       `Prelude.seq` Prelude.rnf configurationEndpoint
       `Prelude.seq` Prelude.rnf dataTiering
       `Prelude.seq` Prelude.rnf description

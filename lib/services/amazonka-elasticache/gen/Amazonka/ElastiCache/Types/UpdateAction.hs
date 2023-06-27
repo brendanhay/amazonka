@@ -227,13 +227,15 @@ instance Data.FromXML UpdateAction where
   parseXML x =
     UpdateAction'
       Prelude.<$> (x Data..@? "CacheClusterId")
-      Prelude.<*> ( x Data..@? "CacheNodeUpdateStatus"
+      Prelude.<*> ( x
+                      Data..@? "CacheNodeUpdateStatus"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "CacheNodeUpdateStatus")
                   )
       Prelude.<*> (x Data..@? "Engine")
       Prelude.<*> (x Data..@? "EstimatedUpdateTime")
-      Prelude.<*> ( x Data..@? "NodeGroupUpdateStatus"
+      Prelude.<*> ( x
+                      Data..@? "NodeGroupUpdateStatus"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "NodeGroupUpdateStatus")
                   )
@@ -252,7 +254,8 @@ instance Data.FromXML UpdateAction where
 
 instance Prelude.Hashable UpdateAction where
   hashWithSalt _salt UpdateAction' {..} =
-    _salt `Prelude.hashWithSalt` cacheClusterId
+    _salt
+      `Prelude.hashWithSalt` cacheClusterId
       `Prelude.hashWithSalt` cacheNodeUpdateStatus
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` estimatedUpdateTime

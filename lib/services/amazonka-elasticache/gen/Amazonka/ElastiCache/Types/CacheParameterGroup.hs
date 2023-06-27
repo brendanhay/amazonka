@@ -35,7 +35,7 @@ data CacheParameterGroup = CacheParameterGroup'
     --
     -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
     -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
-    -- @redis6.x@ |
+    -- @redis6.x@ | @redis7@
     cacheParameterGroupFamily :: Prelude.Maybe Prelude.Text,
     -- | The name of the cache parameter group.
     cacheParameterGroupName :: Prelude.Maybe Prelude.Text,
@@ -62,7 +62,7 @@ data CacheParameterGroup = CacheParameterGroup'
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
--- @redis6.x@ |
+-- @redis6.x@ | @redis7@
 --
 -- 'cacheParameterGroupName', 'cacheParameterGroup_cacheParameterGroupName' - The name of the cache parameter group.
 --
@@ -90,7 +90,7 @@ cacheParameterGroup_arn = Lens.lens (\CacheParameterGroup' {arn} -> arn) (\s@Cac
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
--- @redis6.x@ |
+-- @redis6.x@ | @redis7@
 cacheParameterGroup_cacheParameterGroupFamily :: Lens.Lens' CacheParameterGroup (Prelude.Maybe Prelude.Text)
 cacheParameterGroup_cacheParameterGroupFamily = Lens.lens (\CacheParameterGroup' {cacheParameterGroupFamily} -> cacheParameterGroupFamily) (\s@CacheParameterGroup' {} a -> s {cacheParameterGroupFamily = a} :: CacheParameterGroup)
 
@@ -118,7 +118,8 @@ instance Data.FromXML CacheParameterGroup where
 
 instance Prelude.Hashable CacheParameterGroup where
   hashWithSalt _salt CacheParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` cacheParameterGroupFamily
       `Prelude.hashWithSalt` cacheParameterGroupName
       `Prelude.hashWithSalt` description

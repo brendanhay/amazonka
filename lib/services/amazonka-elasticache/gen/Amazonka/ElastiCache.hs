@@ -661,6 +661,9 @@ module Amazonka.ElastiCache
     -- ** ChangeType
     ChangeType (..),
 
+    -- ** ClusterMode
+    ClusterMode (..),
+
     -- ** DataTieringStatus
     DataTieringStatus (..),
 

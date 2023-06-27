@@ -125,7 +125,8 @@ instance Data.FromXML LogDeliveryConfiguration where
 
 instance Prelude.Hashable LogDeliveryConfiguration where
   hashWithSalt _salt LogDeliveryConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` destinationDetails
+    _salt
+      `Prelude.hashWithSalt` destinationDetails
       `Prelude.hashWithSalt` destinationType
       `Prelude.hashWithSalt` logFormat
       `Prelude.hashWithSalt` logType

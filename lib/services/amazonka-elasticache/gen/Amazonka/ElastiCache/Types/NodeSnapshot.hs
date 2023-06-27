@@ -124,7 +124,8 @@ instance Data.FromXML NodeSnapshot where
 
 instance Prelude.Hashable NodeSnapshot where
   hashWithSalt _salt NodeSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` cacheClusterId
+    _salt
+      `Prelude.hashWithSalt` cacheClusterId
       `Prelude.hashWithSalt` cacheNodeCreateTime
       `Prelude.hashWithSalt` cacheNodeId
       `Prelude.hashWithSalt` cacheSize

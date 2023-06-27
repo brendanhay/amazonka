@@ -71,7 +71,8 @@ instance Data.FromXML CacheNodeTypeSpecificValue where
 
 instance Prelude.Hashable CacheNodeTypeSpecificValue where
   hashWithSalt _salt CacheNodeTypeSpecificValue' {..} =
-    _salt `Prelude.hashWithSalt` cacheNodeType
+    _salt
+      `Prelude.hashWithSalt` cacheNodeType
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData CacheNodeTypeSpecificValue where

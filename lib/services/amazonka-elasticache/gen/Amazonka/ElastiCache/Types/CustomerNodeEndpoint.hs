@@ -64,7 +64,8 @@ customerNodeEndpoint_port = Lens.lens (\CustomerNodeEndpoint' {port} -> port) (\
 
 instance Prelude.Hashable CustomerNodeEndpoint where
   hashWithSalt _salt CustomerNodeEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` port
 
 instance Prelude.NFData CustomerNodeEndpoint where

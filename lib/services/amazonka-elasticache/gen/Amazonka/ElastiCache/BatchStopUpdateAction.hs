@@ -112,7 +112,8 @@ instance Core.AWSRequest BatchStopUpdateAction where
 
 instance Prelude.Hashable BatchStopUpdateAction where
   hashWithSalt _salt BatchStopUpdateAction' {..} =
-    _salt `Prelude.hashWithSalt` cacheClusterIds
+    _salt
+      `Prelude.hashWithSalt` cacheClusterIds
       `Prelude.hashWithSalt` replicationGroupIds
       `Prelude.hashWithSalt` serviceUpdateName
 

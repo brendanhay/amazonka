@@ -66,11 +66,13 @@ updateActionResultsMessage_unprocessedUpdateActions = Lens.lens (\UpdateActionRe
 instance Data.FromXML UpdateActionResultsMessage where
   parseXML x =
     UpdateActionResultsMessage'
-      Prelude.<$> ( x Data..@? "ProcessedUpdateActions"
+      Prelude.<$> ( x
+                      Data..@? "ProcessedUpdateActions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ProcessedUpdateAction")
                   )
-      Prelude.<*> ( x Data..@? "UnprocessedUpdateActions"
+      Prelude.<*> ( x
+                      Data..@? "UnprocessedUpdateActions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "UnprocessedUpdateAction")
@@ -78,7 +80,8 @@ instance Data.FromXML UpdateActionResultsMessage where
 
 instance Prelude.Hashable UpdateActionResultsMessage where
   hashWithSalt _salt UpdateActionResultsMessage' {..} =
-    _salt `Prelude.hashWithSalt` processedUpdateActions
+    _salt
+      `Prelude.hashWithSalt` processedUpdateActions
       `Prelude.hashWithSalt` unprocessedUpdateActions
 
 instance Prelude.NFData UpdateActionResultsMessage where

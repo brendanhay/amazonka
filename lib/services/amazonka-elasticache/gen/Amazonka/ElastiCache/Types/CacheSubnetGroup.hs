@@ -45,7 +45,7 @@ data CacheSubnetGroup = CacheSubnetGroup'
     -- | Either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for workloads
     -- using Redis engine version 6.2 onward or Memcached engine version 1.6.6
     -- on all instances built on the
-    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    -- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
     supportedNetworkTypes :: Prelude.Maybe [NetworkType],
     -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
     -- group.
@@ -72,7 +72,7 @@ data CacheSubnetGroup = CacheSubnetGroup'
 -- 'supportedNetworkTypes', 'cacheSubnetGroup_supportedNetworkTypes' - Either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for workloads
 -- using Redis engine version 6.2 onward or Memcached engine version 1.6.6
 -- on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 --
 -- 'vpcId', 'cacheSubnetGroup_vpcId' - The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
 -- group.
@@ -107,7 +107,7 @@ cacheSubnetGroup_subnets = Lens.lens (\CacheSubnetGroup' {subnets} -> subnets) (
 -- | Either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for workloads
 -- using Redis engine version 6.2 onward or Memcached engine version 1.6.6
 -- on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 cacheSubnetGroup_supportedNetworkTypes :: Lens.Lens' CacheSubnetGroup (Prelude.Maybe [NetworkType])
 cacheSubnetGroup_supportedNetworkTypes = Lens.lens (\CacheSubnetGroup' {supportedNetworkTypes} -> supportedNetworkTypes) (\s@CacheSubnetGroup' {} a -> s {supportedNetworkTypes = a} :: CacheSubnetGroup) Prelude.. Lens.mapping Lens.coerced
 
@@ -122,10 +122,13 @@ instance Data.FromXML CacheSubnetGroup where
       Prelude.<$> (x Data..@? "ARN")
       Prelude.<*> (x Data..@? "CacheSubnetGroupDescription")
       Prelude.<*> (x Data..@? "CacheSubnetGroupName")
-      Prelude.<*> ( x Data..@? "Subnets" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Subnets"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Subnet")
                   )
-      Prelude.<*> ( x Data..@? "SupportedNetworkTypes"
+      Prelude.<*> ( x
+                      Data..@? "SupportedNetworkTypes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -133,7 +136,8 @@ instance Data.FromXML CacheSubnetGroup where
 
 instance Prelude.Hashable CacheSubnetGroup where
   hashWithSalt _salt CacheSubnetGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` cacheSubnetGroupDescription
       `Prelude.hashWithSalt` cacheSubnetGroupName
       `Prelude.hashWithSalt` subnets

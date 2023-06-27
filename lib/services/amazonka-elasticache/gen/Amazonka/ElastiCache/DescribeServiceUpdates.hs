@@ -121,22 +121,22 @@ instance Core.AWSPager DescribeServiceUpdates where
     | Core.stop
         ( rs
             Lens.^? describeServiceUpdatesResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeServiceUpdatesResponse_serviceUpdates
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeServiceUpdates_marker
           Lens..~ rs
           Lens.^? describeServiceUpdatesResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeServiceUpdates where
   type
@@ -150,7 +150,9 @@ instance Core.AWSRequest DescribeServiceUpdates where
       ( \s h x ->
           DescribeServiceUpdatesResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "ServiceUpdates" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "ServiceUpdates"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "ServiceUpdate")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -158,7 +160,8 @@ instance Core.AWSRequest DescribeServiceUpdates where
 
 instance Prelude.Hashable DescribeServiceUpdates where
   hashWithSalt _salt DescribeServiceUpdates' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` serviceUpdateName
       `Prelude.hashWithSalt` serviceUpdateStatus

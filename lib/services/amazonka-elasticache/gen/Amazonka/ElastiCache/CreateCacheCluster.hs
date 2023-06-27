@@ -254,14 +254,14 @@ data CreateCacheCluster = CreateCacheCluster'
     -- | The network type you choose when modifying a cluster, either @ipv4@ |
     -- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
     -- onward or Memcached engine version 1.6.6 on all instances built on the
-    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    -- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
     ipDiscovery :: Prelude.Maybe IpDiscovery,
     -- | Specifies the destination, format and type of the logs.
     logDeliveryConfigurations :: Prelude.Maybe [LogDeliveryConfigurationRequest],
     -- | Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
     -- workloads using Redis engine version 6.2 onward or Memcached engine
     -- version 1.6.6 on all instances built on the
-    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    -- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
     networkType :: Prelude.Maybe NetworkType,
     -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
     -- (SNS) topic to which notifications are sent.
@@ -372,9 +372,6 @@ data CreateCacheCluster = CreateCacheCluster'
     -- | A list of tags to be added to this resource.
     tags :: Prelude.Maybe [Tag],
     -- | A flag that enables in-transit encryption when set to true.
-    --
-    -- Only available when creating a cache cluster in an Amazon VPC using
-    -- Memcached version 1.6.12 or later.
     transitEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The node group (shard) identifier. This parameter is stored as a
     -- lowercase string.
@@ -568,14 +565,14 @@ data CreateCacheCluster = CreateCacheCluster'
 -- 'ipDiscovery', 'createCacheCluster_ipDiscovery' - The network type you choose when modifying a cluster, either @ipv4@ |
 -- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
 -- onward or Memcached engine version 1.6.6 on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 --
 -- 'logDeliveryConfigurations', 'createCacheCluster_logDeliveryConfigurations' - Specifies the destination, format and type of the logs.
 --
 -- 'networkType', 'createCacheCluster_networkType' - Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
 -- workloads using Redis engine version 6.2 onward or Memcached engine
 -- version 1.6.6 on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 --
 -- 'notificationTopicArn', 'createCacheCluster_notificationTopicArn' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic to which notifications are sent.
@@ -686,9 +683,6 @@ data CreateCacheCluster = CreateCacheCluster'
 -- 'tags', 'createCacheCluster_tags' - A list of tags to be added to this resource.
 --
 -- 'transitEncryptionEnabled', 'createCacheCluster_transitEncryptionEnabled' - A flag that enables in-transit encryption when set to true.
---
--- Only available when creating a cache cluster in an Amazon VPC using
--- Memcached version 1.6.12 or later.
 --
 -- 'cacheClusterId', 'createCacheCluster_cacheClusterId' - The node group (shard) identifier. This parameter is stored as a
 -- lowercase string.
@@ -926,7 +920,7 @@ createCacheCluster_engineVersion = Lens.lens (\CreateCacheCluster' {engineVersio
 -- | The network type you choose when modifying a cluster, either @ipv4@ |
 -- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
 -- onward or Memcached engine version 1.6.6 on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 createCacheCluster_ipDiscovery :: Lens.Lens' CreateCacheCluster (Prelude.Maybe IpDiscovery)
 createCacheCluster_ipDiscovery = Lens.lens (\CreateCacheCluster' {ipDiscovery} -> ipDiscovery) (\s@CreateCacheCluster' {} a -> s {ipDiscovery = a} :: CreateCacheCluster)
 
@@ -937,7 +931,7 @@ createCacheCluster_logDeliveryConfigurations = Lens.lens (\CreateCacheCluster' {
 -- | Must be either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for
 -- workloads using Redis engine version 6.2 onward or Memcached engine
 -- version 1.6.6 on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 createCacheCluster_networkType :: Lens.Lens' CreateCacheCluster (Prelude.Maybe NetworkType)
 createCacheCluster_networkType = Lens.lens (\CreateCacheCluster' {networkType} -> networkType) (\s@CreateCacheCluster' {} a -> s {networkType = a} :: CreateCacheCluster)
 
@@ -1082,9 +1076,6 @@ createCacheCluster_tags :: Lens.Lens' CreateCacheCluster (Prelude.Maybe [Tag])
 createCacheCluster_tags = Lens.lens (\CreateCacheCluster' {tags} -> tags) (\s@CreateCacheCluster' {} a -> s {tags = a} :: CreateCacheCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | A flag that enables in-transit encryption when set to true.
---
--- Only available when creating a cache cluster in an Amazon VPC using
--- Memcached version 1.6.12 or later.
 createCacheCluster_transitEncryptionEnabled :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Bool)
 createCacheCluster_transitEncryptionEnabled = Lens.lens (\CreateCacheCluster' {transitEncryptionEnabled} -> transitEncryptionEnabled) (\s@CreateCacheCluster' {} a -> s {transitEncryptionEnabled = a} :: CreateCacheCluster)
 
@@ -1118,7 +1109,8 @@ instance Core.AWSRequest CreateCacheCluster where
 
 instance Prelude.Hashable CreateCacheCluster where
   hashWithSalt _salt CreateCacheCluster' {..} =
-    _salt `Prelude.hashWithSalt` aZMode
+    _salt
+      `Prelude.hashWithSalt` aZMode
       `Prelude.hashWithSalt` authToken
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` cacheNodeType

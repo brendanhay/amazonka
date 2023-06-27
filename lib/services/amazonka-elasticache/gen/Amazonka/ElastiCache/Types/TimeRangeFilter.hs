@@ -65,7 +65,8 @@ timeRangeFilter_startTime = Lens.lens (\TimeRangeFilter' {startTime} -> startTim
 
 instance Prelude.Hashable TimeRangeFilter where
   hashWithSalt _salt TimeRangeFilter' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData TimeRangeFilter where

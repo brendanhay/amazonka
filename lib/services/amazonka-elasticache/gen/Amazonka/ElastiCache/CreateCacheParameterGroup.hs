@@ -78,7 +78,7 @@ data CreateCacheParameterGroup = CreateCacheParameterGroup'
     --
     -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
     -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
-    -- @redis6.x@
+    -- @redis6.x@ | @redis7@
     cacheParameterGroupFamily :: Prelude.Text,
     -- | A user-specified description for the cache parameter group.
     description :: Prelude.Text
@@ -103,7 +103,7 @@ data CreateCacheParameterGroup = CreateCacheParameterGroup'
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
--- @redis6.x@
+-- @redis6.x@ | @redis7@
 --
 -- 'description', 'createCacheParameterGroup_description' - A user-specified description for the cache parameter group.
 newCreateCacheParameterGroup ::
@@ -141,7 +141,7 @@ createCacheParameterGroup_cacheParameterGroupName = Lens.lens (\CreateCacheParam
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
--- @redis6.x@
+-- @redis6.x@ | @redis7@
 createCacheParameterGroup_cacheParameterGroupFamily :: Lens.Lens' CreateCacheParameterGroup Prelude.Text
 createCacheParameterGroup_cacheParameterGroupFamily = Lens.lens (\CreateCacheParameterGroup' {cacheParameterGroupFamily} -> cacheParameterGroupFamily) (\s@CreateCacheParameterGroup' {} a -> s {cacheParameterGroupFamily = a} :: CreateCacheParameterGroup)
 
@@ -166,7 +166,8 @@ instance Core.AWSRequest CreateCacheParameterGroup where
 
 instance Prelude.Hashable CreateCacheParameterGroup where
   hashWithSalt _salt CreateCacheParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` cacheParameterGroupName
       `Prelude.hashWithSalt` cacheParameterGroupFamily
       `Prelude.hashWithSalt` description

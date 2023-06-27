@@ -38,7 +38,7 @@ data EngineDefaults = EngineDefaults'
     --
     -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
     -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
-    -- @redis6.0@ | @redis6.x@
+    -- @redis6.0@ | @redis6.x@ | @redis7@
     cacheParameterGroupFamily :: Prelude.Maybe Prelude.Text,
     -- | Provides an identifier to allow retrieval of paginated results.
     marker :: Prelude.Maybe Prelude.Text,
@@ -63,7 +63,7 @@ data EngineDefaults = EngineDefaults'
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
--- @redis6.0@ | @redis6.x@
+-- @redis6.0@ | @redis6.x@ | @redis7@
 --
 -- 'marker', 'engineDefaults_marker' - Provides an identifier to allow retrieval of paginated results.
 --
@@ -89,7 +89,7 @@ engineDefaults_cacheNodeTypeSpecificParameters = Lens.lens (\EngineDefaults' {ca
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
--- @redis6.0@ | @redis6.x@
+-- @redis6.0@ | @redis6.x@ | @redis7@
 engineDefaults_cacheParameterGroupFamily :: Lens.Lens' EngineDefaults (Prelude.Maybe Prelude.Text)
 engineDefaults_cacheParameterGroupFamily = Lens.lens (\EngineDefaults' {cacheParameterGroupFamily} -> cacheParameterGroupFamily) (\s@EngineDefaults' {} a -> s {cacheParameterGroupFamily = a} :: EngineDefaults)
 
@@ -104,14 +104,17 @@ engineDefaults_parameters = Lens.lens (\EngineDefaults' {parameters} -> paramete
 instance Data.FromXML EngineDefaults where
   parseXML x =
     EngineDefaults'
-      Prelude.<$> ( x Data..@? "CacheNodeTypeSpecificParameters"
+      Prelude.<$> ( x
+                      Data..@? "CacheNodeTypeSpecificParameters"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "CacheNodeTypeSpecificParameter")
                   )
       Prelude.<*> (x Data..@? "CacheParameterGroupFamily")
       Prelude.<*> (x Data..@? "Marker")
-      Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Parameters"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                   )
 

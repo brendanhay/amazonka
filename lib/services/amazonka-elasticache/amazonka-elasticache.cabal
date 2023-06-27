@@ -133,6 +133,7 @@ library
     Amazonka.ElastiCache.Types.CacheSubnetGroup
     Amazonka.ElastiCache.Types.ChangeType
     Amazonka.ElastiCache.Types.CloudWatchLogsDestinationDetails
+    Amazonka.ElastiCache.Types.ClusterMode
     Amazonka.ElastiCache.Types.ConfigureShard
     Amazonka.ElastiCache.Types.CustomerNodeEndpoint
     Amazonka.ElastiCache.Types.DataTieringStatus

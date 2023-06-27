@@ -169,7 +169,8 @@ instance Core.AWSRequest TestFailover where
 
 instance Prelude.Hashable TestFailover where
   hashWithSalt _salt TestFailover' {..} =
-    _salt `Prelude.hashWithSalt` replicationGroupId
+    _salt
+      `Prelude.hashWithSalt` replicationGroupId
       `Prelude.hashWithSalt` nodeGroupId
 
 instance Prelude.NFData TestFailover where

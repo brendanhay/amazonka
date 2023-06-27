@@ -141,7 +141,8 @@ instance
   hashWithSalt
     _salt
     RevokeCacheSecurityGroupIngress' {..} =
-      _salt `Prelude.hashWithSalt` cacheSecurityGroupName
+      _salt
+        `Prelude.hashWithSalt` cacheSecurityGroupName
         `Prelude.hashWithSalt` eC2SecurityGroupName
         `Prelude.hashWithSalt` eC2SecurityGroupOwnerId
 

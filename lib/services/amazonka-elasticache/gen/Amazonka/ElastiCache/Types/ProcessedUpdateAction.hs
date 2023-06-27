@@ -93,7 +93,8 @@ instance Data.FromXML ProcessedUpdateAction where
 
 instance Prelude.Hashable ProcessedUpdateAction where
   hashWithSalt _salt ProcessedUpdateAction' {..} =
-    _salt `Prelude.hashWithSalt` cacheClusterId
+    _salt
+      `Prelude.hashWithSalt` cacheClusterId
       `Prelude.hashWithSalt` replicationGroupId
       `Prelude.hashWithSalt` serviceUpdateName
       `Prelude.hashWithSalt` updateActionStatus

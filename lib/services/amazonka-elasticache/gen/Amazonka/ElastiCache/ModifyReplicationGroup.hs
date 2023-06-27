@@ -43,6 +43,7 @@ module Amazonka.ElastiCache.ModifyReplicationGroup
     modifyReplicationGroup_cacheNodeType,
     modifyReplicationGroup_cacheParameterGroupName,
     modifyReplicationGroup_cacheSecurityGroupNames,
+    modifyReplicationGroup_clusterMode,
     modifyReplicationGroup_engineVersion,
     modifyReplicationGroup_ipDiscovery,
     modifyReplicationGroup_logDeliveryConfigurations,
@@ -152,6 +153,13 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     -- Constraints: Must contain no more than 255 alphanumeric characters. Must
     -- not be @Default@.
     cacheSecurityGroupNames :: Prelude.Maybe [Prelude.Text],
+    -- | Enabled or Disabled. To modify cluster mode from Disabled to Enabled,
+    -- you must first set the cluster mode to Compatible. Compatible mode
+    -- allows your Redis clients to connect using both cluster mode enabled and
+    -- cluster mode disabled. After you migrate all Redis clients to use
+    -- cluster mode enabled, you can then complete cluster mode configuration
+    -- and set the cluster mode to Enabled.
+    clusterMode :: Prelude.Maybe ClusterMode,
     -- | The upgraded version of the cache engine to be run on the clusters in
     -- the replication group.
     --
@@ -164,7 +172,7 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     -- | The network type you choose when modifying a cluster, either @ipv4@ |
     -- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
     -- onward or Memcached engine version 1.6.6 on all instances built on the
-    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    -- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
     ipDiscovery :: Prelude.Maybe IpDiscovery,
     -- | Specifies the destination, format and type of the logs.
     logDeliveryConfigurations :: Prelude.Maybe [LogDeliveryConfigurationRequest],
@@ -257,8 +265,8 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     -- connections only.
     --
     -- Setting @TransitEncryptionMode@ to @required@ is a two-step process that
-    -- requires you to first set the @TransitEncryptionMode@ to @preferred@
-    -- first, after that you can set @TransitEncryptionMode@ to @required@.
+    -- requires you to first set the @TransitEncryptionMode@ to @preferred@,
+    -- after that you can set @TransitEncryptionMode@ to @required@.
     transitEncryptionMode :: Prelude.Maybe TransitEncryptionMode,
     -- | The ID of the user group you are associating with the replication group.
     userGroupIdsToAdd :: Prelude.Maybe [Prelude.Text],
@@ -345,6 +353,13 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
 -- Constraints: Must contain no more than 255 alphanumeric characters. Must
 -- not be @Default@.
 --
+-- 'clusterMode', 'modifyReplicationGroup_clusterMode' - Enabled or Disabled. To modify cluster mode from Disabled to Enabled,
+-- you must first set the cluster mode to Compatible. Compatible mode
+-- allows your Redis clients to connect using both cluster mode enabled and
+-- cluster mode disabled. After you migrate all Redis clients to use
+-- cluster mode enabled, you can then complete cluster mode configuration
+-- and set the cluster mode to Enabled.
+--
 -- 'engineVersion', 'modifyReplicationGroup_engineVersion' - The upgraded version of the cache engine to be run on the clusters in
 -- the replication group.
 --
@@ -357,7 +372,7 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
 -- 'ipDiscovery', 'modifyReplicationGroup_ipDiscovery' - The network type you choose when modifying a cluster, either @ipv4@ |
 -- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
 -- onward or Memcached engine version 1.6.6 on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 --
 -- 'logDeliveryConfigurations', 'modifyReplicationGroup_logDeliveryConfigurations' - Specifies the destination, format and type of the logs.
 --
@@ -450,8 +465,8 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
 -- connections only.
 --
 -- Setting @TransitEncryptionMode@ to @required@ is a two-step process that
--- requires you to first set the @TransitEncryptionMode@ to @preferred@
--- first, after that you can set @TransitEncryptionMode@ to @required@.
+-- requires you to first set the @TransitEncryptionMode@ to @preferred@,
+-- after that you can set @TransitEncryptionMode@ to @required@.
 --
 -- 'userGroupIdsToAdd', 'modifyReplicationGroup_userGroupIdsToAdd' - The ID of the user group you are associating with the replication group.
 --
@@ -475,6 +490,7 @@ newModifyReplicationGroup pReplicationGroupId_ =
       cacheNodeType = Prelude.Nothing,
       cacheParameterGroupName = Prelude.Nothing,
       cacheSecurityGroupNames = Prelude.Nothing,
+      clusterMode = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
       ipDiscovery = Prelude.Nothing,
       logDeliveryConfigurations = Prelude.Nothing,
@@ -579,6 +595,15 @@ modifyReplicationGroup_cacheParameterGroupName = Lens.lens (\ModifyReplicationGr
 modifyReplicationGroup_cacheSecurityGroupNames :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe [Prelude.Text])
 modifyReplicationGroup_cacheSecurityGroupNames = Lens.lens (\ModifyReplicationGroup' {cacheSecurityGroupNames} -> cacheSecurityGroupNames) (\s@ModifyReplicationGroup' {} a -> s {cacheSecurityGroupNames = a} :: ModifyReplicationGroup) Prelude.. Lens.mapping Lens.coerced
 
+-- | Enabled or Disabled. To modify cluster mode from Disabled to Enabled,
+-- you must first set the cluster mode to Compatible. Compatible mode
+-- allows your Redis clients to connect using both cluster mode enabled and
+-- cluster mode disabled. After you migrate all Redis clients to use
+-- cluster mode enabled, you can then complete cluster mode configuration
+-- and set the cluster mode to Enabled.
+modifyReplicationGroup_clusterMode :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe ClusterMode)
+modifyReplicationGroup_clusterMode = Lens.lens (\ModifyReplicationGroup' {clusterMode} -> clusterMode) (\s@ModifyReplicationGroup' {} a -> s {clusterMode = a} :: ModifyReplicationGroup)
+
 -- | The upgraded version of the cache engine to be run on the clusters in
 -- the replication group.
 --
@@ -593,7 +618,7 @@ modifyReplicationGroup_engineVersion = Lens.lens (\ModifyReplicationGroup' {engi
 -- | The network type you choose when modifying a cluster, either @ipv4@ |
 -- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
 -- onward or Memcached engine version 1.6.6 on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 modifyReplicationGroup_ipDiscovery :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe IpDiscovery)
 modifyReplicationGroup_ipDiscovery = Lens.lens (\ModifyReplicationGroup' {ipDiscovery} -> ipDiscovery) (\s@ModifyReplicationGroup' {} a -> s {ipDiscovery = a} :: ModifyReplicationGroup)
 
@@ -716,8 +741,8 @@ modifyReplicationGroup_transitEncryptionEnabled = Lens.lens (\ModifyReplicationG
 -- connections only.
 --
 -- Setting @TransitEncryptionMode@ to @required@ is a two-step process that
--- requires you to first set the @TransitEncryptionMode@ to @preferred@
--- first, after that you can set @TransitEncryptionMode@ to @required@.
+-- requires you to first set the @TransitEncryptionMode@ to @preferred@,
+-- after that you can set @TransitEncryptionMode@ to @required@.
 modifyReplicationGroup_transitEncryptionMode :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe TransitEncryptionMode)
 modifyReplicationGroup_transitEncryptionMode = Lens.lens (\ModifyReplicationGroup' {transitEncryptionMode} -> transitEncryptionMode) (\s@ModifyReplicationGroup' {} a -> s {transitEncryptionMode = a} :: ModifyReplicationGroup)
 
@@ -752,7 +777,8 @@ instance Core.AWSRequest ModifyReplicationGroup where
 
 instance Prelude.Hashable ModifyReplicationGroup where
   hashWithSalt _salt ModifyReplicationGroup' {..} =
-    _salt `Prelude.hashWithSalt` applyImmediately
+    _salt
+      `Prelude.hashWithSalt` applyImmediately
       `Prelude.hashWithSalt` authToken
       `Prelude.hashWithSalt` authTokenUpdateStrategy
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
@@ -760,6 +786,7 @@ instance Prelude.Hashable ModifyReplicationGroup where
       `Prelude.hashWithSalt` cacheNodeType
       `Prelude.hashWithSalt` cacheParameterGroupName
       `Prelude.hashWithSalt` cacheSecurityGroupNames
+      `Prelude.hashWithSalt` clusterMode
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` ipDiscovery
       `Prelude.hashWithSalt` logDeliveryConfigurations
@@ -791,6 +818,7 @@ instance Prelude.NFData ModifyReplicationGroup where
       `Prelude.seq` Prelude.rnf cacheNodeType
       `Prelude.seq` Prelude.rnf cacheParameterGroupName
       `Prelude.seq` Prelude.rnf cacheSecurityGroupNames
+      `Prelude.seq` Prelude.rnf clusterMode
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf ipDiscovery
       `Prelude.seq` Prelude.rnf logDeliveryConfigurations
@@ -798,7 +826,8 @@ instance Prelude.NFData ModifyReplicationGroup where
       `Prelude.seq` Prelude.rnf nodeGroupId
       `Prelude.seq` Prelude.rnf notificationTopicArn
       `Prelude.seq` Prelude.rnf notificationTopicStatus
-      `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
+      `Prelude.seq` Prelude.rnf
+        preferredMaintenanceWindow
       `Prelude.seq` Prelude.rnf primaryClusterId
       `Prelude.seq` Prelude.rnf removeUserGroups
       `Prelude.seq` Prelude.rnf
@@ -806,7 +835,8 @@ instance Prelude.NFData ModifyReplicationGroup where
       `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf
         snapshotRetentionLimit
-      `Prelude.seq` Prelude.rnf snapshotWindow
+      `Prelude.seq` Prelude.rnf
+        snapshotWindow
       `Prelude.seq` Prelude.rnf
         snapshottingClusterId
       `Prelude.seq` Prelude.rnf
@@ -849,6 +879,7 @@ instance Data.ToQuery ModifyReplicationGroup where
             ( Data.toQueryList "CacheSecurityGroupName"
                 Prelude.<$> cacheSecurityGroupNames
             ),
+        "ClusterMode" Data.=: clusterMode,
         "EngineVersion" Data.=: engineVersion,
         "IpDiscovery" Data.=: ipDiscovery,
         "LogDeliveryConfigurations"

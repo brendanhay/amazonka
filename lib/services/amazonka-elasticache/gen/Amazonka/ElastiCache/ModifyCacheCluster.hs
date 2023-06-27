@@ -170,7 +170,7 @@ data ModifyCacheCluster = ModifyCacheCluster'
     -- | The network type you choose when modifying a cluster, either @ipv4@ |
     -- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
     -- onward or Memcached engine version 1.6.6 on all instances built on the
-    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    -- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
     ipDiscovery :: Prelude.Maybe IpDiscovery,
     -- | Specifies the destination, format and type of the logs.
     logDeliveryConfigurations :: Prelude.Maybe [LogDeliveryConfigurationRequest],
@@ -446,7 +446,7 @@ data ModifyCacheCluster = ModifyCacheCluster'
 -- 'ipDiscovery', 'modifyCacheCluster_ipDiscovery' - The network type you choose when modifying a cluster, either @ipv4@ |
 -- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
 -- onward or Memcached engine version 1.6.6 on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 --
 -- 'logDeliveryConfigurations', 'modifyCacheCluster_logDeliveryConfigurations' - Specifies the destination, format and type of the logs.
 --
@@ -759,7 +759,7 @@ modifyCacheCluster_engineVersion = Lens.lens (\ModifyCacheCluster' {engineVersio
 -- | The network type you choose when modifying a cluster, either @ipv4@ |
 -- @ipv6@. IPv6 is supported for workloads using Redis engine version 6.2
 -- onward or Memcached engine version 1.6.6 on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 modifyCacheCluster_ipDiscovery :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe IpDiscovery)
 modifyCacheCluster_ipDiscovery = Lens.lens (\ModifyCacheCluster' {ipDiscovery} -> ipDiscovery) (\s@ModifyCacheCluster' {} a -> s {ipDiscovery = a} :: ModifyCacheCluster)
 
@@ -966,7 +966,8 @@ instance Core.AWSRequest ModifyCacheCluster where
 
 instance Prelude.Hashable ModifyCacheCluster where
   hashWithSalt _salt ModifyCacheCluster' {..} =
-    _salt `Prelude.hashWithSalt` aZMode
+    _salt
+      `Prelude.hashWithSalt` aZMode
       `Prelude.hashWithSalt` applyImmediately
       `Prelude.hashWithSalt` authToken
       `Prelude.hashWithSalt` authTokenUpdateStrategy

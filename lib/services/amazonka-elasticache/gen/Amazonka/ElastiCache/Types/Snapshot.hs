@@ -771,7 +771,9 @@ instance Data.FromXML Snapshot where
       Prelude.<*> (x Data..@? "Engine")
       Prelude.<*> (x Data..@? "EngineVersion")
       Prelude.<*> (x Data..@? "KmsKeyId")
-      Prelude.<*> ( x Data..@? "NodeSnapshots" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "NodeSnapshots"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "NodeSnapshot")
                   )
       Prelude.<*> (x Data..@? "NumCacheNodes")
@@ -792,7 +794,8 @@ instance Data.FromXML Snapshot where
 
 instance Prelude.Hashable Snapshot where
   hashWithSalt _salt Snapshot' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` automaticFailover
       `Prelude.hashWithSalt` cacheClusterCreateTime

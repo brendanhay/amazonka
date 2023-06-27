@@ -42,7 +42,7 @@ data Subnet = Subnet'
     -- | Either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for workloads
     -- using Redis engine version 6.2 onward or Memcached engine version 1.6.6
     -- on all instances built on the
-    -- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+    -- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
     supportedNetworkTypes :: Prelude.Maybe [NetworkType]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,7 +64,7 @@ data Subnet = Subnet'
 -- 'supportedNetworkTypes', 'subnet_supportedNetworkTypes' - Either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for workloads
 -- using Redis engine version 6.2 onward or Memcached engine version 1.6.6
 -- on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 newSubnet ::
   Subnet
 newSubnet =
@@ -90,7 +90,7 @@ subnet_subnetOutpost = Lens.lens (\Subnet' {subnetOutpost} -> subnetOutpost) (\s
 -- | Either @ipv4@ | @ipv6@ | @dual_stack@. IPv6 is supported for workloads
 -- using Redis engine version 6.2 onward or Memcached engine version 1.6.6
 -- on all instances built on the
--- <https://aws.amazon.com/ec2/nitro/ Nitro system>.
+-- <http://aws.amazon.com/ec2/nitro/ Nitro system>.
 subnet_supportedNetworkTypes :: Lens.Lens' Subnet (Prelude.Maybe [NetworkType])
 subnet_supportedNetworkTypes = Lens.lens (\Subnet' {supportedNetworkTypes} -> supportedNetworkTypes) (\s@Subnet' {} a -> s {supportedNetworkTypes = a} :: Subnet) Prelude.. Lens.mapping Lens.coerced
 
@@ -100,14 +100,16 @@ instance Data.FromXML Subnet where
       Prelude.<$> (x Data..@? "SubnetAvailabilityZone")
       Prelude.<*> (x Data..@? "SubnetIdentifier")
       Prelude.<*> (x Data..@? "SubnetOutpost")
-      Prelude.<*> ( x Data..@? "SupportedNetworkTypes"
+      Prelude.<*> ( x
+                      Data..@? "SupportedNetworkTypes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable Subnet where
   hashWithSalt _salt Subnet' {..} =
-    _salt `Prelude.hashWithSalt` subnetAvailabilityZone
+    _salt
+      `Prelude.hashWithSalt` subnetAvailabilityZone
       `Prelude.hashWithSalt` subnetIdentifier
       `Prelude.hashWithSalt` subnetOutpost
       `Prelude.hashWithSalt` supportedNetworkTypes

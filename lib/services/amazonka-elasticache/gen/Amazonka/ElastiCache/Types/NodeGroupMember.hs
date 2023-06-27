@@ -126,7 +126,8 @@ instance Data.FromXML NodeGroupMember where
 
 instance Prelude.Hashable NodeGroupMember where
   hashWithSalt _salt NodeGroupMember' {..} =
-    _salt `Prelude.hashWithSalt` cacheClusterId
+    _salt
+      `Prelude.hashWithSalt` cacheClusterId
       `Prelude.hashWithSalt` cacheNodeId
       `Prelude.hashWithSalt` currentRole
       `Prelude.hashWithSalt` preferredAvailabilityZone

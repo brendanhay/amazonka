@@ -134,22 +134,22 @@ instance Core.AWSPager DescribeCacheSecurityGroups where
     | Core.stop
         ( rs
             Lens.^? describeCacheSecurityGroupsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeCacheSecurityGroupsResponse_cacheSecurityGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeCacheSecurityGroups_marker
           Lens..~ rs
           Lens.^? describeCacheSecurityGroupsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCacheSecurityGroups where
   type
@@ -162,7 +162,8 @@ instance Core.AWSRequest DescribeCacheSecurityGroups where
       "DescribeCacheSecurityGroupsResult"
       ( \s h x ->
           DescribeCacheSecurityGroupsResponse'
-            Prelude.<$> ( x Data..@? "CacheSecurityGroups"
+            Prelude.<$> ( x
+                            Data..@? "CacheSecurityGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "CacheSecurityGroup")
                         )
@@ -172,7 +173,8 @@ instance Core.AWSRequest DescribeCacheSecurityGroups where
 
 instance Prelude.Hashable DescribeCacheSecurityGroups where
   hashWithSalt _salt DescribeCacheSecurityGroups' {..} =
-    _salt `Prelude.hashWithSalt` cacheSecurityGroupName
+    _salt
+      `Prelude.hashWithSalt` cacheSecurityGroupName
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
 

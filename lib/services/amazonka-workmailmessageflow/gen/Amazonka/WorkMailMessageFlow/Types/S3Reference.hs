@@ -87,7 +87,8 @@ s3Reference_key = Lens.lens (\S3Reference' {key} -> key) (\s@S3Reference' {} a -
 
 instance Prelude.Hashable S3Reference where
   hashWithSalt _salt S3Reference' {..} =
-    _salt `Prelude.hashWithSalt` objectVersion
+    _salt
+      `Prelude.hashWithSalt` objectVersion
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 

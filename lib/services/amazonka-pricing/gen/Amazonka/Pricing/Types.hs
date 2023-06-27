@@ -18,6 +18,7 @@ module Amazonka.Pricing.Types
     defaultService,
 
     -- * Errors
+    _AccessDeniedException,
     _ExpiredNextTokenException,
     _InternalErrorException,
     _InvalidNextTokenException,
@@ -39,6 +40,14 @@ module Amazonka.Pricing.Types
     filter_field,
     filter_value,
 
+    -- * PriceList
+    PriceList (..),
+    newPriceList,
+    priceList_currencyCode,
+    priceList_fileFormats,
+    priceList_priceListArn,
+    priceList_regionCode,
+
     -- * PricingService
     PricingService (..),
     newPricingService,
@@ -53,6 +62,7 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.Pricing.Types.AttributeValue
 import Amazonka.Pricing.Types.Filter
 import Amazonka.Pricing.Types.FilterType
+import Amazonka.Pricing.Types.PriceList
 import Amazonka.Pricing.Types.PricingService
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -82,52 +92,59 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
+-- | General authentication failure. The request wasn\'t signed correctly.
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedException"
+
 -- | The pagination token expired. Try again without a pagination token.
-_ExpiredNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ExpiredNextTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ExpiredNextTokenException =
   Core._MatchServiceError
     defaultService
@@ -135,28 +152,28 @@ _ExpiredNextTokenException =
 
 -- | An error on the server occurred during the processing of your request.
 -- Try again later.
-_InternalErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalErrorException =
   Core._MatchServiceError
     defaultService
     "InternalErrorException"
 
 -- | The pagination token is invalid. Try again without a pagination token.
-_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNextTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
 
 -- | One or more parameters had an invalid value.
-_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
 
 -- | The requested resource can\'t be found.
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService

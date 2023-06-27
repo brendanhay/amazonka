@@ -46,9 +46,9 @@ data Filter = Filter'
     -- @volumeType@ attribute name to get the prices for only Amazon EC2
     -- volumes.
     field :: Prelude.Text,
-    -- | The service code or attribute value that you want to filter by. If you
-    -- are filtering by service code this is the actual service code, such as
-    -- @AmazonEC2@. If you are filtering by attribute name, this is the
+    -- | The service code or attribute value that you want to filter by. If
+    -- you\'re filtering by service code this is the actual service code, such
+    -- as @AmazonEC2@. If you\'re filtering by attribute name, this is the
     -- attribute value that you want the returned products to match, such as a
     -- @Provisioned IOPS@ volume.
     value :: Prelude.Text
@@ -80,9 +80,9 @@ data Filter = Filter'
 -- @volumeType@ attribute name to get the prices for only Amazon EC2
 -- volumes.
 --
--- 'value', 'filter_value' - The service code or attribute value that you want to filter by. If you
--- are filtering by service code this is the actual service code, such as
--- @AmazonEC2@. If you are filtering by attribute name, this is the
+-- 'value', 'filter_value' - The service code or attribute value that you want to filter by. If
+-- you\'re filtering by service code this is the actual service code, such
+-- as @AmazonEC2@. If you\'re filtering by attribute name, this is the
 -- attribute value that you want the returned products to match, such as a
 -- @Provisioned IOPS@ volume.
 newFilter ::
@@ -121,9 +121,9 @@ filter_type = Lens.lens (\Filter' {type'} -> type') (\s@Filter' {} a -> s {type'
 filter_field :: Lens.Lens' Filter Prelude.Text
 filter_field = Lens.lens (\Filter' {field} -> field) (\s@Filter' {} a -> s {field = a} :: Filter)
 
--- | The service code or attribute value that you want to filter by. If you
--- are filtering by service code this is the actual service code, such as
--- @AmazonEC2@. If you are filtering by attribute name, this is the
+-- | The service code or attribute value that you want to filter by. If
+-- you\'re filtering by service code this is the actual service code, such
+-- as @AmazonEC2@. If you\'re filtering by attribute name, this is the
 -- attribute value that you want the returned products to match, such as a
 -- @Provisioned IOPS@ volume.
 filter_value :: Lens.Lens' Filter Prelude.Text
@@ -131,7 +131,8 @@ filter_value = Lens.lens (\Filter' {value} -> value) (\s@Filter' {} a -> s {valu
 
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` field
       `Prelude.hashWithSalt` value
 

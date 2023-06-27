@@ -46,12 +46,15 @@ library
     Amazonka.Pricing
     Amazonka.Pricing.DescribeServices
     Amazonka.Pricing.GetAttributeValues
+    Amazonka.Pricing.GetPriceListFileUrl
     Amazonka.Pricing.GetProducts
     Amazonka.Pricing.Lens
+    Amazonka.Pricing.ListPriceLists
     Amazonka.Pricing.Types
     Amazonka.Pricing.Types.AttributeValue
     Amazonka.Pricing.Types.Filter
     Amazonka.Pricing.Types.FilterType
+    Amazonka.Pricing.Types.PriceList
     Amazonka.Pricing.Types.PricingService
     Amazonka.Pricing.Waiters
 

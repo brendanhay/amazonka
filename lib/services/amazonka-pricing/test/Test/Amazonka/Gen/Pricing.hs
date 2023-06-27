@@ -33,8 +33,14 @@ import Test.Tasty
 --         , requestGetAttributeValues $
 --             newGetAttributeValues
 --
+--         , requestGetPriceListFileUrl $
+--             newGetPriceListFileUrl
+--
 --         , requestGetProducts $
 --             newGetProducts
+--
+--         , requestListPriceLists $
+--             newListPriceLists
 --
 --           ]
 
@@ -45,8 +51,14 @@ import Test.Tasty
 --         , responseGetAttributeValues $
 --             newGetAttributeValuesResponse
 --
+--         , responseGetPriceListFileUrl $
+--             newGetPriceListFileUrlResponse
+--
 --         , responseGetProducts $
 --             newGetProductsResponse
+--
+--         , responseListPriceLists $
+--             newListPriceListsResponse
 --
 --           ]
 --     ]
@@ -65,11 +77,23 @@ requestGetAttributeValues =
     "GetAttributeValues"
     "fixture/GetAttributeValues.yaml"
 
+requestGetPriceListFileUrl :: GetPriceListFileUrl -> TestTree
+requestGetPriceListFileUrl =
+  req
+    "GetPriceListFileUrl"
+    "fixture/GetPriceListFileUrl.yaml"
+
 requestGetProducts :: GetProducts -> TestTree
 requestGetProducts =
   req
     "GetProducts"
     "fixture/GetProducts.yaml"
+
+requestListPriceLists :: ListPriceLists -> TestTree
+requestListPriceLists =
+  req
+    "ListPriceLists"
+    "fixture/ListPriceLists.yaml"
 
 -- Responses
 
@@ -89,6 +113,14 @@ responseGetAttributeValues =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetAttributeValues)
 
+responseGetPriceListFileUrl :: GetPriceListFileUrlResponse -> TestTree
+responseGetPriceListFileUrl =
+  res
+    "GetPriceListFileUrlResponse"
+    "fixture/GetPriceListFileUrlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPriceListFileUrl)
+
 responseGetProducts :: GetProductsResponse -> TestTree
 responseGetProducts =
   res
@@ -96,3 +128,11 @@ responseGetProducts =
     "fixture/GetProductsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetProducts)
+
+responseListPriceLists :: ListPriceListsResponse -> TestTree
+responseListPriceLists =
+  res
+    "ListPriceListsResponse"
+    "fixture/ListPriceListsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPriceLists)

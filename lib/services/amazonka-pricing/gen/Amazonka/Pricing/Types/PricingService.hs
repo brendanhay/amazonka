@@ -77,7 +77,8 @@ instance Data.FromJSON PricingService where
 
 instance Prelude.Hashable PricingService where
   hashWithSalt _salt PricingService' {..} =
-    _salt `Prelude.hashWithSalt` attributeNames
+    _salt
+      `Prelude.hashWithSalt` attributeNames
       `Prelude.hashWithSalt` serviceCode
 
 instance Prelude.NFData PricingService where

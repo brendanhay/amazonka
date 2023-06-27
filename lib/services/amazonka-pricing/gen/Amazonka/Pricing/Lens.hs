@@ -33,6 +33,12 @@ module Amazonka.Pricing.Lens
     getAttributeValuesResponse_nextToken,
     getAttributeValuesResponse_httpStatus,
 
+    -- ** GetPriceListFileUrl
+    getPriceListFileUrl_priceListArn,
+    getPriceListFileUrl_fileFormat,
+    getPriceListFileUrlResponse_url,
+    getPriceListFileUrlResponse_httpStatus,
+
     -- ** GetProducts
     getProducts_filters,
     getProducts_formatVersion,
@@ -44,6 +50,17 @@ module Amazonka.Pricing.Lens
     getProductsResponse_priceList,
     getProductsResponse_httpStatus,
 
+    -- ** ListPriceLists
+    listPriceLists_maxResults,
+    listPriceLists_nextToken,
+    listPriceLists_regionCode,
+    listPriceLists_serviceCode,
+    listPriceLists_effectiveDate,
+    listPriceLists_currencyCode,
+    listPriceListsResponse_nextToken,
+    listPriceListsResponse_priceLists,
+    listPriceListsResponse_httpStatus,
+
     -- * Types
 
     -- ** AttributeValue
@@ -54,6 +71,12 @@ module Amazonka.Pricing.Lens
     filter_field,
     filter_value,
 
+    -- ** PriceList
+    priceList_currencyCode,
+    priceList_fileFormats,
+    priceList_priceListArn,
+    priceList_regionCode,
+
     -- ** PricingService
     pricingService_attributeNames,
     pricingService_serviceCode,
@@ -62,7 +85,10 @@ where
 
 import Amazonka.Pricing.DescribeServices
 import Amazonka.Pricing.GetAttributeValues
+import Amazonka.Pricing.GetPriceListFileUrl
 import Amazonka.Pricing.GetProducts
+import Amazonka.Pricing.ListPriceLists
 import Amazonka.Pricing.Types.AttributeValue
 import Amazonka.Pricing.Types.Filter
+import Amazonka.Pricing.Types.PriceList
 import Amazonka.Pricing.Types.PricingService

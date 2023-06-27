@@ -83,7 +83,8 @@ instance Data.FromJSON ImageConfiguration where
 
 instance Prelude.Hashable ImageConfiguration where
   hashWithSalt _salt ImageConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` resolvedImageDigest
+    _salt
+      `Prelude.hashWithSalt` resolvedImageDigest
       `Prelude.hashWithSalt` imageUri
 
 instance Prelude.NFData ImageConfiguration where

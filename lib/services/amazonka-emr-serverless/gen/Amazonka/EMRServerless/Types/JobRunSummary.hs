@@ -205,7 +205,8 @@ instance Data.FromJSON JobRunSummary where
 
 instance Prelude.Hashable JobRunSummary where
   hashWithSalt _salt JobRunSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` id

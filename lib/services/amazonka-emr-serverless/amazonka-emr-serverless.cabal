@@ -79,6 +79,7 @@ library
     Amazonka.EMRServerless.Types.MaximumAllowedResources
     Amazonka.EMRServerless.Types.MonitoringConfiguration
     Amazonka.EMRServerless.Types.NetworkConfiguration
+    Amazonka.EMRServerless.Types.ResourceUtilization
     Amazonka.EMRServerless.Types.S3MonitoringConfiguration
     Amazonka.EMRServerless.Types.SparkSubmit
     Amazonka.EMRServerless.Types.TotalResourceUtilization

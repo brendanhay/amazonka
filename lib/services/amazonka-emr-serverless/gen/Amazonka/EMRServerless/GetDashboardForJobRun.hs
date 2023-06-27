@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a URL to access the job run dashboard.
+-- Returns a URL to access the job run dashboard. The generated URL is
+-- valid for one hour, after which you must invoke the API again to
+-- generate a new URL.
 module Amazonka.EMRServerless.GetDashboardForJobRun
   ( -- * Creating a Request
     GetDashboardForJobRun (..),
@@ -105,7 +107,8 @@ instance Core.AWSRequest GetDashboardForJobRun where
 
 instance Prelude.Hashable GetDashboardForJobRun where
   hashWithSalt _salt GetDashboardForJobRun' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` jobRunId
 
 instance Prelude.NFData GetDashboardForJobRun where

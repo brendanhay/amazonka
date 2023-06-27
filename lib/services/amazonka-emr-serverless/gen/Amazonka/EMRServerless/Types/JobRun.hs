@@ -26,6 +26,7 @@ import Amazonka.EMRServerless.Types.ConfigurationOverrides
 import Amazonka.EMRServerless.Types.JobDriver
 import Amazonka.EMRServerless.Types.JobRunState
 import Amazonka.EMRServerless.Types.NetworkConfiguration
+import Amazonka.EMRServerless.Types.ResourceUtilization
 import Amazonka.EMRServerless.Types.TotalResourceUtilization
 import qualified Amazonka.Prelude as Prelude
 
@@ -35,9 +36,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobRun' smart constructor.
 data JobRun = JobRun'
-  { -- | The configuration settings that are used to override default
+  { -- | The aggregate vCPU, memory, and storage that AWS has billed for the job
+    -- run. The billed resources include a 1-minute minimum usage for workers,
+    -- plus additional storage over 20 GB per worker. Note that billed
+    -- resources do not include usage for idle pre-initialized workers.
+    billedResourceUtilization :: Prelude.Maybe ResourceUtilization,
+    -- | The configuration settings that are used to override default
     -- configuration.
     configurationOverrides :: Prelude.Maybe ConfigurationOverrides,
+    -- | Returns the job run timeout value from the @StartJobRun@ call. If no
+    -- timeout was specified, then it returns the default timeout of 720
+    -- minutes.
+    executionTimeoutMinutes :: Prelude.Maybe Prelude.Natural,
     -- | The optional job run name. This doesn\'t have to be unique.
     name :: Prelude.Maybe Prelude.Text,
     networkConfiguration :: Prelude.Maybe NetworkConfiguration,
@@ -46,9 +56,9 @@ data JobRun = JobRun'
     -- | The job run total execution duration in seconds. This field is only
     -- available for job runs in a @COMPLETED@, @FAILED@, or @CANCELLED@ state.
     totalExecutionDurationSeconds :: Prelude.Maybe Prelude.Int,
-    -- | The aggregate vCPU, memory, and storage resources used from the time job
-    -- start executing till the time job is terminated, rounded up to the
-    -- nearest second.
+    -- | The aggregate vCPU, memory, and storage resources used from the time the
+    -- job starts to execute, until the time the job terminates, rounded up to
+    -- the nearest second.
     totalResourceUtilization :: Prelude.Maybe TotalResourceUtilization,
     -- | The ID of the application the job is running on.
     applicationId :: Prelude.Text,
@@ -83,8 +93,17 @@ data JobRun = JobRun'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'billedResourceUtilization', 'jobRun_billedResourceUtilization' - The aggregate vCPU, memory, and storage that AWS has billed for the job
+-- run. The billed resources include a 1-minute minimum usage for workers,
+-- plus additional storage over 20 GB per worker. Note that billed
+-- resources do not include usage for idle pre-initialized workers.
+--
 -- 'configurationOverrides', 'jobRun_configurationOverrides' - The configuration settings that are used to override default
 -- configuration.
+--
+-- 'executionTimeoutMinutes', 'jobRun_executionTimeoutMinutes' - Returns the job run timeout value from the @StartJobRun@ call. If no
+-- timeout was specified, then it returns the default timeout of 720
+-- minutes.
 --
 -- 'name', 'jobRun_name' - The optional job run name. This doesn\'t have to be unique.
 --
@@ -95,9 +114,9 @@ data JobRun = JobRun'
 -- 'totalExecutionDurationSeconds', 'jobRun_totalExecutionDurationSeconds' - The job run total execution duration in seconds. This field is only
 -- available for job runs in a @COMPLETED@, @FAILED@, or @CANCELLED@ state.
 --
--- 'totalResourceUtilization', 'jobRun_totalResourceUtilization' - The aggregate vCPU, memory, and storage resources used from the time job
--- start executing till the time job is terminated, rounded up to the
--- nearest second.
+-- 'totalResourceUtilization', 'jobRun_totalResourceUtilization' - The aggregate vCPU, memory, and storage resources used from the time the
+-- job starts to execute, until the time the job terminates, rounded up to
+-- the nearest second.
 --
 -- 'applicationId', 'jobRun_applicationId' - The ID of the application the job is running on.
 --
@@ -157,7 +176,10 @@ newJobRun
   pReleaseLabel_
   pJobDriver_ =
     JobRun'
-      { configurationOverrides = Prelude.Nothing,
+      { billedResourceUtilization =
+          Prelude.Nothing,
+        configurationOverrides = Prelude.Nothing,
+        executionTimeoutMinutes = Prelude.Nothing,
         name = Prelude.Nothing,
         networkConfiguration = Prelude.Nothing,
         tags = Prelude.Nothing,
@@ -176,10 +198,23 @@ newJobRun
         jobDriver = pJobDriver_
       }
 
+-- | The aggregate vCPU, memory, and storage that AWS has billed for the job
+-- run. The billed resources include a 1-minute minimum usage for workers,
+-- plus additional storage over 20 GB per worker. Note that billed
+-- resources do not include usage for idle pre-initialized workers.
+jobRun_billedResourceUtilization :: Lens.Lens' JobRun (Prelude.Maybe ResourceUtilization)
+jobRun_billedResourceUtilization = Lens.lens (\JobRun' {billedResourceUtilization} -> billedResourceUtilization) (\s@JobRun' {} a -> s {billedResourceUtilization = a} :: JobRun)
+
 -- | The configuration settings that are used to override default
 -- configuration.
 jobRun_configurationOverrides :: Lens.Lens' JobRun (Prelude.Maybe ConfigurationOverrides)
 jobRun_configurationOverrides = Lens.lens (\JobRun' {configurationOverrides} -> configurationOverrides) (\s@JobRun' {} a -> s {configurationOverrides = a} :: JobRun)
+
+-- | Returns the job run timeout value from the @StartJobRun@ call. If no
+-- timeout was specified, then it returns the default timeout of 720
+-- minutes.
+jobRun_executionTimeoutMinutes :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Natural)
+jobRun_executionTimeoutMinutes = Lens.lens (\JobRun' {executionTimeoutMinutes} -> executionTimeoutMinutes) (\s@JobRun' {} a -> s {executionTimeoutMinutes = a} :: JobRun)
 
 -- | The optional job run name. This doesn\'t have to be unique.
 jobRun_name :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Text)
@@ -198,9 +233,9 @@ jobRun_tags = Lens.lens (\JobRun' {tags} -> tags) (\s@JobRun' {} a -> s {tags = 
 jobRun_totalExecutionDurationSeconds :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Int)
 jobRun_totalExecutionDurationSeconds = Lens.lens (\JobRun' {totalExecutionDurationSeconds} -> totalExecutionDurationSeconds) (\s@JobRun' {} a -> s {totalExecutionDurationSeconds = a} :: JobRun)
 
--- | The aggregate vCPU, memory, and storage resources used from the time job
--- start executing till the time job is terminated, rounded up to the
--- nearest second.
+-- | The aggregate vCPU, memory, and storage resources used from the time the
+-- job starts to execute, until the time the job terminates, rounded up to
+-- the nearest second.
 jobRun_totalResourceUtilization :: Lens.Lens' JobRun (Prelude.Maybe TotalResourceUtilization)
 jobRun_totalResourceUtilization = Lens.lens (\JobRun' {totalResourceUtilization} -> totalResourceUtilization) (\s@JobRun' {} a -> s {totalResourceUtilization = a} :: JobRun)
 
@@ -254,7 +289,9 @@ instance Data.FromJSON JobRun where
       "JobRun"
       ( \x ->
           JobRun'
-            Prelude.<$> (x Data..:? "configurationOverrides")
+            Prelude.<$> (x Data..:? "billedResourceUtilization")
+            Prelude.<*> (x Data..:? "configurationOverrides")
+            Prelude.<*> (x Data..:? "executionTimeoutMinutes")
             Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "networkConfiguration")
             Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
@@ -275,7 +312,10 @@ instance Data.FromJSON JobRun where
 
 instance Prelude.Hashable JobRun where
   hashWithSalt _salt JobRun' {..} =
-    _salt `Prelude.hashWithSalt` configurationOverrides
+    _salt
+      `Prelude.hashWithSalt` billedResourceUtilization
+      `Prelude.hashWithSalt` configurationOverrides
+      `Prelude.hashWithSalt` executionTimeoutMinutes
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` networkConfiguration
       `Prelude.hashWithSalt` tags
@@ -295,7 +335,9 @@ instance Prelude.Hashable JobRun where
 
 instance Prelude.NFData JobRun where
   rnf JobRun' {..} =
-    Prelude.rnf configurationOverrides
+    Prelude.rnf billedResourceUtilization
+      `Prelude.seq` Prelude.rnf configurationOverrides
+      `Prelude.seq` Prelude.rnf executionTimeoutMinutes
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf networkConfiguration
       `Prelude.seq` Prelude.rnf tags

@@ -202,7 +202,9 @@ module Amazonka.EMRServerless.Lens
     jobDriver_sparkSubmit,
 
     -- ** JobRun
+    jobRun_billedResourceUtilization,
     jobRun_configurationOverrides,
+    jobRun_executionTimeoutMinutes,
     jobRun_name,
     jobRun_networkConfiguration,
     jobRun_tags,
@@ -250,6 +252,11 @@ module Amazonka.EMRServerless.Lens
     -- ** NetworkConfiguration
     networkConfiguration_securityGroupIds,
     networkConfiguration_subnetIds,
+
+    -- ** ResourceUtilization
+    resourceUtilization_memoryGBHour,
+    resourceUtilization_storageGBHour,
+    resourceUtilization_vCPUHour,
 
     -- ** S3MonitoringConfiguration
     s3MonitoringConfiguration_encryptionKeyArn,
@@ -308,6 +315,7 @@ import Amazonka.EMRServerless.Types.ManagedPersistenceMonitoringConfiguration
 import Amazonka.EMRServerless.Types.MaximumAllowedResources
 import Amazonka.EMRServerless.Types.MonitoringConfiguration
 import Amazonka.EMRServerless.Types.NetworkConfiguration
+import Amazonka.EMRServerless.Types.ResourceUtilization
 import Amazonka.EMRServerless.Types.S3MonitoringConfiguration
 import Amazonka.EMRServerless.Types.SparkSubmit
 import Amazonka.EMRServerless.Types.TotalResourceUtilization

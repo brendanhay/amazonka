@@ -178,7 +178,8 @@ instance Core.AWSRequest StartJobRun where
 
 instance Prelude.Hashable StartJobRun where
   hashWithSalt _salt StartJobRun' {..} =
-    _salt `Prelude.hashWithSalt` configurationOverrides
+    _salt
+      `Prelude.hashWithSalt` configurationOverrides
       `Prelude.hashWithSalt` executionTimeoutMinutes
       `Prelude.hashWithSalt` jobDriver
       `Prelude.hashWithSalt` name
@@ -246,7 +247,7 @@ data StartJobRunResponse = StartJobRunResponse'
     applicationId :: Prelude.Text,
     -- | The output contains the ID of the started job run.
     jobRunId :: Prelude.Text,
-    -- | The output lists the execution role ARN of the job run.
+    -- | This output displays the ARN of the job run..
     arn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -266,7 +267,7 @@ data StartJobRunResponse = StartJobRunResponse'
 --
 -- 'jobRunId', 'startJobRunResponse_jobRunId' - The output contains the ID of the started job run.
 --
--- 'arn', 'startJobRunResponse_arn' - The output lists the execution role ARN of the job run.
+-- 'arn', 'startJobRunResponse_arn' - This output displays the ARN of the job run..
 newStartJobRunResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -302,7 +303,7 @@ startJobRunResponse_applicationId = Lens.lens (\StartJobRunResponse' {applicatio
 startJobRunResponse_jobRunId :: Lens.Lens' StartJobRunResponse Prelude.Text
 startJobRunResponse_jobRunId = Lens.lens (\StartJobRunResponse' {jobRunId} -> jobRunId) (\s@StartJobRunResponse' {} a -> s {jobRunId = a} :: StartJobRunResponse)
 
--- | The output lists the execution role ARN of the job run.
+-- | This output displays the ARN of the job run..
 startJobRunResponse_arn :: Lens.Lens' StartJobRunResponse Prelude.Text
 startJobRunResponse_arn = Lens.lens (\StartJobRunResponse' {arn} -> arn) (\s@StartJobRunResponse' {} a -> s {arn = a} :: StartJobRunResponse)
 

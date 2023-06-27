@@ -229,6 +229,10 @@ module Amazonka.EMRServerless
     NetworkConfiguration (NetworkConfiguration'),
     newNetworkConfiguration,
 
+    -- ** ResourceUtilization
+    ResourceUtilization (ResourceUtilization'),
+    newResourceUtilization,
+
     -- ** S3MonitoringConfiguration
     S3MonitoringConfiguration (S3MonitoringConfiguration'),
     newS3MonitoringConfiguration,

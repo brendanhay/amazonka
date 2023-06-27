@@ -30,7 +30,6 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Status of a template
 newtype TemplateStatus = TemplateStatus'
   { fromTemplateStatus ::
       Data.Text

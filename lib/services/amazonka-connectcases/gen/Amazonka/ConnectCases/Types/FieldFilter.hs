@@ -101,7 +101,8 @@ fieldFilter_lessThanOrEqualTo = Lens.lens (\FieldFilter' {lessThanOrEqualTo} -> 
 
 instance Prelude.Hashable FieldFilter where
   hashWithSalt _salt FieldFilter' {..} =
-    _salt `Prelude.hashWithSalt` contains
+    _salt
+      `Prelude.hashWithSalt` contains
       `Prelude.hashWithSalt` equalTo
       `Prelude.hashWithSalt` greaterThan
       `Prelude.hashWithSalt` greaterThanOrEqualTo

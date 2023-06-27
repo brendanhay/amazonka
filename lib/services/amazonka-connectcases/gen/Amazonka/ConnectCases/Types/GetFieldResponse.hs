@@ -144,7 +144,8 @@ instance Data.FromJSON GetFieldResponse where
 
 instance Prelude.Hashable GetFieldResponse where
   hashWithSalt _salt GetFieldResponse' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` fieldArn
       `Prelude.hashWithSalt` fieldId

@@ -23,7 +23,9 @@
 -- Creates a case in the specified Cases domain. Case system and custom
 -- fields are taken as an array id\/value pairs with a declared data types.
 --
--- @customer_id@ is a required field when creating a case.
+-- The following fields are required when creating a case:
+--
+-- >  <ul> <li> <p> <code>customer_id</code> - You must provide the full customer profile ARN in this format: <code>arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles domain name/profiles/profile ID</code> </p> </li> <li> <p> <code>title</code> </p> </li> </ul> </note>
 module Amazonka.ConnectCases.CreateCase
   ( -- * Creating a Request
     CreateCase (..),
@@ -139,7 +141,8 @@ instance Core.AWSRequest CreateCase where
 
 instance Prelude.Hashable CreateCase where
   hashWithSalt _salt CreateCase' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` templateId

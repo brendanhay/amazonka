@@ -76,7 +76,8 @@ instance Data.FromJSON BasicLayout where
 
 instance Prelude.Hashable BasicLayout where
   hashWithSalt _salt BasicLayout' {..} =
-    _salt `Prelude.hashWithSalt` moreInfo
+    _salt
+      `Prelude.hashWithSalt` moreInfo
       `Prelude.hashWithSalt` topPanel
 
 instance Prelude.NFData BasicLayout where

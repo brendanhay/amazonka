@@ -160,7 +160,8 @@ instance Core.AWSRequest UpdateTemplate where
 
 instance Prelude.Hashable UpdateTemplate where
   hashWithSalt _salt UpdateTemplate' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` layoutConfiguration
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` requiredFields

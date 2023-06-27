@@ -119,7 +119,8 @@ instance Core.AWSRequest ListLayouts where
 
 instance Prelude.Hashable ListLayouts where
   hashWithSalt _salt ListLayouts' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainId
 

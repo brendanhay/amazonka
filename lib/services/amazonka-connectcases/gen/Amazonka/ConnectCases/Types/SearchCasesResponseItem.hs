@@ -102,7 +102,8 @@ instance Data.FromJSON SearchCasesResponseItem where
 
 instance Prelude.Hashable SearchCasesResponseItem where
   hashWithSalt _salt SearchCasesResponseItem' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` caseId
       `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` templateId

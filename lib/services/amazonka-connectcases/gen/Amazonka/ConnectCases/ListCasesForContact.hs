@@ -132,7 +132,8 @@ instance Core.AWSRequest ListCasesForContact where
 
 instance Prelude.Hashable ListCasesForContact where
   hashWithSalt _salt ListCasesForContact' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` contactArn
       `Prelude.hashWithSalt` domainId

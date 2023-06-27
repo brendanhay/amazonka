@@ -52,6 +52,7 @@ library
     Amazonka.ConnectCases.CreateLayout
     Amazonka.ConnectCases.CreateRelatedItem
     Amazonka.ConnectCases.CreateTemplate
+    Amazonka.ConnectCases.DeleteDomain
     Amazonka.ConnectCases.GetCase
     Amazonka.ConnectCases.GetCaseEventConfiguration
     Amazonka.ConnectCases.GetDomain

@@ -64,7 +64,8 @@ contactFilter_contactArn = Lens.lens (\ContactFilter' {contactArn} -> contactArn
 
 instance Prelude.Hashable ContactFilter where
   hashWithSalt _salt ContactFilter' {..} =
-    _salt `Prelude.hashWithSalt` channel
+    _salt
+      `Prelude.hashWithSalt` channel
       `Prelude.hashWithSalt` contactArn
 
 instance Prelude.NFData ContactFilter where

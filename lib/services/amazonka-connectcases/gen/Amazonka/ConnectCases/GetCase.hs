@@ -136,7 +136,8 @@ instance Core.AWSRequest GetCase where
 
 instance Prelude.Hashable GetCase where
   hashWithSalt _salt GetCase' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` caseId
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` fields

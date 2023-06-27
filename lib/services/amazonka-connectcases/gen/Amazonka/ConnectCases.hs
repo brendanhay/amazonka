@@ -11,12 +11,13 @@
 --
 -- Derived from API version @2022-10-03@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Welcome to the Amazon Connect Cases API Reference. This guide provides
--- information about the Amazon Connect Cases API, which you can use to
--- create, update, get, and list Cases domains, fields, field options,
--- layouts, templates, cases, related items, and tags.
---
--- >  <p>For more information about Amazon Connect Cases, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Amazon Connect Cases</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+-- With Amazon Connect Cases, your agents can track and manage customer
+-- issues that require multiple interactions, follow-up tasks, and teams in
+-- your contact center. A case represents a customer issue. It records the
+-- issue, the steps and interactions taken to resolve the issue, and the
+-- outcome. For more information, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/cases.html Amazon Connect Cases>
+-- in the /Amazon Connect Administrator Guide/.
 module Amazonka.ConnectCases
   ( -- * Service Configuration
     defaultService,
@@ -98,6 +99,12 @@ module Amazonka.ConnectCases
     newCreateTemplate,
     CreateTemplateResponse (CreateTemplateResponse'),
     newCreateTemplateResponse,
+
+    -- ** DeleteDomain
+    DeleteDomain (DeleteDomain'),
+    newDeleteDomain,
+    DeleteDomainResponse (DeleteDomainResponse'),
+    newDeleteDomainResponse,
 
     -- ** GetCase
     GetCase (GetCase'),
@@ -406,6 +413,7 @@ import Amazonka.ConnectCases.CreateField
 import Amazonka.ConnectCases.CreateLayout
 import Amazonka.ConnectCases.CreateRelatedItem
 import Amazonka.ConnectCases.CreateTemplate
+import Amazonka.ConnectCases.DeleteDomain
 import Amazonka.ConnectCases.GetCase
 import Amazonka.ConnectCases.GetCaseEventConfiguration
 import Amazonka.ConnectCases.GetDomain

@@ -115,7 +115,8 @@ instance Core.AWSRequest BatchPutFieldOptions where
 
 instance Prelude.Hashable BatchPutFieldOptions where
   hashWithSalt _salt BatchPutFieldOptions' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` fieldId
       `Prelude.hashWithSalt` options
 

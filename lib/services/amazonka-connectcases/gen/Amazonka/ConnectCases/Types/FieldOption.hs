@@ -93,7 +93,8 @@ instance Data.FromJSON FieldOption where
 
 instance Prelude.Hashable FieldOption where
   hashWithSalt _salt FieldOption' {..} =
-    _salt `Prelude.hashWithSalt` active
+    _salt
+      `Prelude.hashWithSalt` active
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 

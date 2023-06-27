@@ -24,7 +24,8 @@ module Amazonka.ConnectCases.Types.FieldType
         FieldType_DateTime,
         FieldType_Number,
         FieldType_SingleSelect,
-        FieldType_Text
+        FieldType_Text,
+        FieldType_Url
       ),
   )
 where
@@ -76,11 +77,15 @@ pattern FieldType_SingleSelect = FieldType' "SingleSelect"
 pattern FieldType_Text :: FieldType
 pattern FieldType_Text = FieldType' "Text"
 
+pattern FieldType_Url :: FieldType
+pattern FieldType_Url = FieldType' "Url"
+
 {-# COMPLETE
   FieldType_Boolean,
   FieldType_DateTime,
   FieldType_Number,
   FieldType_SingleSelect,
   FieldType_Text,
+  FieldType_Url,
   FieldType'
   #-}

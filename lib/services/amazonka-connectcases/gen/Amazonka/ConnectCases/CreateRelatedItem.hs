@@ -141,7 +141,8 @@ instance Core.AWSRequest CreateRelatedItem where
 
 instance Prelude.Hashable CreateRelatedItem where
   hashWithSalt _salt CreateRelatedItem' {..} =
-    _salt `Prelude.hashWithSalt` caseId
+    _salt
+      `Prelude.hashWithSalt` caseId
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` type'

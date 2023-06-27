@@ -120,7 +120,8 @@ instance Core.AWSRequest UpdateField where
 
 instance Prelude.Hashable UpdateField where
   hashWithSalt _salt UpdateField' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` fieldId

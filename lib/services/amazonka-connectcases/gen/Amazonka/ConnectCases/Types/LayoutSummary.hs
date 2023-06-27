@@ -90,7 +90,8 @@ instance Data.FromJSON LayoutSummary where
 
 instance Prelude.Hashable LayoutSummary where
   hashWithSalt _salt LayoutSummary' {..} =
-    _salt `Prelude.hashWithSalt` layoutArn
+    _salt
+      `Prelude.hashWithSalt` layoutArn
       `Prelude.hashWithSalt` layoutId
       `Prelude.hashWithSalt` name
 

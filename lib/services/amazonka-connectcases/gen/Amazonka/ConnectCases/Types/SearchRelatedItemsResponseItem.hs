@@ -128,7 +128,8 @@ instance
   hashWithSalt
     _salt
     SearchRelatedItemsResponseItem' {..} =
-      _salt `Prelude.hashWithSalt` tags
+      _salt
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` associationTime
         `Prelude.hashWithSalt` content
         `Prelude.hashWithSalt` relatedItemId

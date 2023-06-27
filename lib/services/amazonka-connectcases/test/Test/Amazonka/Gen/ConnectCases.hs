@@ -51,6 +51,9 @@ import Test.Tasty
 --         , requestCreateTemplate $
 --             newCreateTemplate
 --
+--         , requestDeleteDomain $
+--             newDeleteDomain
+--
 --         , requestGetCase $
 --             newGetCase
 --
@@ -140,6 +143,9 @@ import Test.Tasty
 --
 --         , responseCreateTemplate $
 --             newCreateTemplateResponse
+--
+--         , responseDeleteDomain $
+--             newDeleteDomainResponse
 --
 --         , responseGetCase $
 --             newGetCaseResponse
@@ -256,6 +262,12 @@ requestCreateTemplate =
   req
     "CreateTemplate"
     "fixture/CreateTemplate.yaml"
+
+requestDeleteDomain :: DeleteDomain -> TestTree
+requestDeleteDomain =
+  req
+    "DeleteDomain"
+    "fixture/DeleteDomain.yaml"
 
 requestGetCase :: GetCase -> TestTree
 requestGetCase =
@@ -448,6 +460,14 @@ responseCreateTemplate =
     "fixture/CreateTemplateResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateTemplate)
+
+responseDeleteDomain :: DeleteDomainResponse -> TestTree
+responseDeleteDomain =
+  res
+    "DeleteDomainResponse"
+    "fixture/DeleteDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDomain)
 
 responseGetCase :: GetCaseResponse -> TestTree
 responseGetCase =

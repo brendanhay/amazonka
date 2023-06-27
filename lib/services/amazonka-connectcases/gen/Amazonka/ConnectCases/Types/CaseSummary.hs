@@ -78,7 +78,8 @@ instance Data.FromJSON CaseSummary where
 
 instance Prelude.Hashable CaseSummary where
   hashWithSalt _salt CaseSummary' {..} =
-    _salt `Prelude.hashWithSalt` caseId
+    _salt
+      `Prelude.hashWithSalt` caseId
       `Prelude.hashWithSalt` templateId
 
 instance Prelude.NFData CaseSummary where

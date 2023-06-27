@@ -81,6 +81,10 @@ module Amazonka.ConnectCases.Lens
     createTemplateResponse_templateArn,
     createTemplateResponse_templateId,
 
+    -- ** DeleteDomain
+    deleteDomain_domainId,
+    deleteDomainResponse_httpStatus,
+
     -- ** GetCase
     getCase_nextToken,
     getCase_caseId,
@@ -426,6 +430,7 @@ import Amazonka.ConnectCases.CreateField
 import Amazonka.ConnectCases.CreateLayout
 import Amazonka.ConnectCases.CreateRelatedItem
 import Amazonka.ConnectCases.CreateTemplate
+import Amazonka.ConnectCases.DeleteDomain
 import Amazonka.ConnectCases.GetCase
 import Amazonka.ConnectCases.GetCaseEventConfiguration
 import Amazonka.ConnectCases.GetDomain

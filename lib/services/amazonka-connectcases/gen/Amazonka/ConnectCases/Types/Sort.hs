@@ -66,7 +66,8 @@ sort_sortOrder = Lens.lens (\Sort' {sortOrder} -> sortOrder) (\s@Sort' {} a -> s
 
 instance Prelude.Hashable Sort where
   hashWithSalt _salt Sort' {..} =
-    _salt `Prelude.hashWithSalt` fieldId
+    _salt
+      `Prelude.hashWithSalt` fieldId
       `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData Sort where

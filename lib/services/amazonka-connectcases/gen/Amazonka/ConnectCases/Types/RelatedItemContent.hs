@@ -76,7 +76,8 @@ instance Data.FromJSON RelatedItemContent where
 
 instance Prelude.Hashable RelatedItemContent where
   hashWithSalt _salt RelatedItemContent' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` contact
 
 instance Prelude.NFData RelatedItemContent where

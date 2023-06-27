@@ -27,7 +27,9 @@
 -- This will not associate your connect instance to Cases domain. Instead,
 -- use the Amazon Connect
 -- <https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html CreateIntegrationAssociation>
--- API.
+-- API. You need specific IAM permissions to successfully associate the
+-- Cases domain. For more information, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/required-permissions-iam-cases.html#onboard-cases-iam Onboard to Cases>.
 module Amazonka.ConnectCases.CreateDomain
   ( -- * Creating a Request
     CreateDomain (..),

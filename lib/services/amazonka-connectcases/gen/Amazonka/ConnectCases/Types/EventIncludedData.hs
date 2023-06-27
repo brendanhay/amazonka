@@ -80,7 +80,8 @@ instance Data.FromJSON EventIncludedData where
 
 instance Prelude.Hashable EventIncludedData where
   hashWithSalt _salt EventIncludedData' {..} =
-    _salt `Prelude.hashWithSalt` caseData
+    _salt
+      `Prelude.hashWithSalt` caseData
       `Prelude.hashWithSalt` relatedItemData
 
 instance Prelude.NFData EventIncludedData where

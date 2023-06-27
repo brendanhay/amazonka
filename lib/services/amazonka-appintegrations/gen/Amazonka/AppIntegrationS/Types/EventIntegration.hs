@@ -39,7 +39,8 @@ data EventIntegration = EventIntegration'
     eventIntegrationArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the event integration.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The tags.
+    -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,7 +63,8 @@ data EventIntegration = EventIntegration'
 --
 -- 'name', 'eventIntegration_name' - The name of the event integration.
 --
--- 'tags', 'eventIntegration_tags' - The tags.
+-- 'tags', 'eventIntegration_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 newEventIntegration ::
   EventIntegration
 newEventIntegration =
@@ -95,7 +97,8 @@ eventIntegration_eventIntegrationArn = Lens.lens (\EventIntegration' {eventInteg
 eventIntegration_name :: Lens.Lens' EventIntegration (Prelude.Maybe Prelude.Text)
 eventIntegration_name = Lens.lens (\EventIntegration' {name} -> name) (\s@EventIntegration' {} a -> s {name = a} :: EventIntegration)
 
--- | The tags.
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 eventIntegration_tags :: Lens.Lens' EventIntegration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 eventIntegration_tags = Lens.lens (\EventIntegration' {tags} -> tags) (\s@EventIntegration' {} a -> s {tags = a} :: EventIntegration) Prelude.. Lens.mapping Lens.coerced
 
@@ -115,7 +118,8 @@ instance Data.FromJSON EventIntegration where
 
 instance Prelude.Hashable EventIntegration where
   hashWithSalt _salt EventIntegration' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventBridgeBus
       `Prelude.hashWithSalt` eventFilter
       `Prelude.hashWithSalt` eventIntegrationArn

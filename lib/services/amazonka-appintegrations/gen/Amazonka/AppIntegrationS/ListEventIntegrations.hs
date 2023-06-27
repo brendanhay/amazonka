@@ -109,7 +109,8 @@ instance Core.AWSRequest ListEventIntegrations where
 
 instance Prelude.Hashable ListEventIntegrations where
   hashWithSalt _salt ListEventIntegrations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListEventIntegrations where

@@ -132,7 +132,8 @@ instance
   hashWithSalt
     _salt
     ListEventIntegrationAssociations' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` eventIntegrationName
 

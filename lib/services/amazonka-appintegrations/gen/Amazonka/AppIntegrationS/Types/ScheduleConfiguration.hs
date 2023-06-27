@@ -28,12 +28,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScheduleConfiguration' smart constructor.
 data ScheduleConfiguration = ScheduleConfiguration'
-  { -- | The start date for objects to import in the first flow run.
+  { -- | The start date for objects to import in the first flow run as an
+    -- Unix\/epoch timestamp in milliseconds or in ISO-8601 format.
     firstExecutionFrom :: Prelude.Maybe Prelude.Text,
     -- | The name of the object to pull from the data source.
     object' :: Prelude.Maybe Prelude.Text,
     -- | How often the data should be pulled from data source.
-    scheduleExpression :: Prelude.Maybe Prelude.Text
+    scheduleExpression :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,22 +46,26 @@ data ScheduleConfiguration = ScheduleConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'firstExecutionFrom', 'scheduleConfiguration_firstExecutionFrom' - The start date for objects to import in the first flow run.
+-- 'firstExecutionFrom', 'scheduleConfiguration_firstExecutionFrom' - The start date for objects to import in the first flow run as an
+-- Unix\/epoch timestamp in milliseconds or in ISO-8601 format.
 --
 -- 'object'', 'scheduleConfiguration_object' - The name of the object to pull from the data source.
 --
 -- 'scheduleExpression', 'scheduleConfiguration_scheduleExpression' - How often the data should be pulled from data source.
 newScheduleConfiguration ::
+  -- | 'scheduleExpression'
+  Prelude.Text ->
   ScheduleConfiguration
-newScheduleConfiguration =
+newScheduleConfiguration pScheduleExpression_ =
   ScheduleConfiguration'
     { firstExecutionFrom =
         Prelude.Nothing,
       object' = Prelude.Nothing,
-      scheduleExpression = Prelude.Nothing
+      scheduleExpression = pScheduleExpression_
     }
 
--- | The start date for objects to import in the first flow run.
+-- | The start date for objects to import in the first flow run as an
+-- Unix\/epoch timestamp in milliseconds or in ISO-8601 format.
 scheduleConfiguration_firstExecutionFrom :: Lens.Lens' ScheduleConfiguration (Prelude.Maybe Prelude.Text)
 scheduleConfiguration_firstExecutionFrom = Lens.lens (\ScheduleConfiguration' {firstExecutionFrom} -> firstExecutionFrom) (\s@ScheduleConfiguration' {} a -> s {firstExecutionFrom = a} :: ScheduleConfiguration)
 
@@ -69,7 +74,7 @@ scheduleConfiguration_object :: Lens.Lens' ScheduleConfiguration (Prelude.Maybe 
 scheduleConfiguration_object = Lens.lens (\ScheduleConfiguration' {object'} -> object') (\s@ScheduleConfiguration' {} a -> s {object' = a} :: ScheduleConfiguration)
 
 -- | How often the data should be pulled from data source.
-scheduleConfiguration_scheduleExpression :: Lens.Lens' ScheduleConfiguration (Prelude.Maybe Prelude.Text)
+scheduleConfiguration_scheduleExpression :: Lens.Lens' ScheduleConfiguration Prelude.Text
 scheduleConfiguration_scheduleExpression = Lens.lens (\ScheduleConfiguration' {scheduleExpression} -> scheduleExpression) (\s@ScheduleConfiguration' {} a -> s {scheduleExpression = a} :: ScheduleConfiguration)
 
 instance Data.FromJSON ScheduleConfiguration where
@@ -80,12 +85,13 @@ instance Data.FromJSON ScheduleConfiguration where
           ScheduleConfiguration'
             Prelude.<$> (x Data..:? "FirstExecutionFrom")
             Prelude.<*> (x Data..:? "Object")
-            Prelude.<*> (x Data..:? "ScheduleExpression")
+            Prelude.<*> (x Data..: "ScheduleExpression")
       )
 
 instance Prelude.Hashable ScheduleConfiguration where
   hashWithSalt _salt ScheduleConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` firstExecutionFrom
+    _salt
+      `Prelude.hashWithSalt` firstExecutionFrom
       `Prelude.hashWithSalt` object'
       `Prelude.hashWithSalt` scheduleExpression
 
@@ -102,7 +108,7 @@ instance Data.ToJSON ScheduleConfiguration where
           [ ("FirstExecutionFrom" Data..=)
               Prelude.<$> firstExecutionFrom,
             ("Object" Data..=) Prelude.<$> object',
-            ("ScheduleExpression" Data..=)
-              Prelude.<$> scheduleExpression
+            Prelude.Just
+              ("ScheduleExpression" Data..= scheduleExpression)
           ]
       )

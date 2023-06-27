@@ -63,6 +63,7 @@ library
     Amazonka.AppIntegrationS.Types.EventFilter
     Amazonka.AppIntegrationS.Types.EventIntegration
     Amazonka.AppIntegrationS.Types.EventIntegrationAssociation
+    Amazonka.AppIntegrationS.Types.FileConfiguration
     Amazonka.AppIntegrationS.Types.ScheduleConfiguration
     Amazonka.AppIntegrationS.UntagResource
     Amazonka.AppIntegrationS.UpdateDataIntegration

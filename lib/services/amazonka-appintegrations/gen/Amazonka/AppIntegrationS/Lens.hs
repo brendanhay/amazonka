@@ -17,17 +17,21 @@ module Amazonka.AppIntegrationS.Lens
     -- ** CreateDataIntegration
     createDataIntegration_clientToken,
     createDataIntegration_description,
-    createDataIntegration_kmsKey,
-    createDataIntegration_scheduleConfig,
-    createDataIntegration_sourceURI,
+    createDataIntegration_fileConfiguration,
+    createDataIntegration_objectConfiguration,
     createDataIntegration_tags,
     createDataIntegration_name,
+    createDataIntegration_kmsKey,
+    createDataIntegration_sourceURI,
+    createDataIntegration_scheduleConfig,
     createDataIntegrationResponse_arn,
     createDataIntegrationResponse_clientToken,
     createDataIntegrationResponse_description,
+    createDataIntegrationResponse_fileConfiguration,
     createDataIntegrationResponse_id,
     createDataIntegrationResponse_kmsKey,
     createDataIntegrationResponse_name,
+    createDataIntegrationResponse_objectConfiguration,
     createDataIntegrationResponse_scheduleConfiguration,
     createDataIntegrationResponse_sourceURI,
     createDataIntegrationResponse_tags,
@@ -55,9 +59,11 @@ module Amazonka.AppIntegrationS.Lens
     getDataIntegration_identifier,
     getDataIntegrationResponse_arn,
     getDataIntegrationResponse_description,
+    getDataIntegrationResponse_fileConfiguration,
     getDataIntegrationResponse_id,
     getDataIntegrationResponse_kmsKey,
     getDataIntegrationResponse_name,
+    getDataIntegrationResponse_objectConfiguration,
     getDataIntegrationResponse_scheduleConfiguration,
     getDataIntegrationResponse_sourceURI,
     getDataIntegrationResponse_tags,
@@ -160,6 +166,10 @@ module Amazonka.AppIntegrationS.Lens
     eventIntegrationAssociation_eventIntegrationAssociationId,
     eventIntegrationAssociation_eventIntegrationName,
 
+    -- ** FileConfiguration
+    fileConfiguration_filters,
+    fileConfiguration_folders,
+
     -- ** ScheduleConfiguration
     scheduleConfiguration_firstExecutionFrom,
     scheduleConfiguration_object,
@@ -184,6 +194,7 @@ import Amazonka.AppIntegrationS.Types.DataIntegrationSummary
 import Amazonka.AppIntegrationS.Types.EventFilter
 import Amazonka.AppIntegrationS.Types.EventIntegration
 import Amazonka.AppIntegrationS.Types.EventIntegrationAssociation
+import Amazonka.AppIntegrationS.Types.FileConfiguration
 import Amazonka.AppIntegrationS.Types.ScheduleConfiguration
 import Amazonka.AppIntegrationS.UntagResource
 import Amazonka.AppIntegrationS.UpdateDataIntegration

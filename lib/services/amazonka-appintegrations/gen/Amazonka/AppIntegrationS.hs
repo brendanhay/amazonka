@@ -166,6 +166,10 @@ module Amazonka.AppIntegrationS
     EventIntegrationAssociation (EventIntegrationAssociation'),
     newEventIntegrationAssociation,
 
+    -- ** FileConfiguration
+    FileConfiguration (FileConfiguration'),
+    newFileConfiguration,
+
     -- ** ScheduleConfiguration
     ScheduleConfiguration (ScheduleConfiguration'),
     newScheduleConfiguration,

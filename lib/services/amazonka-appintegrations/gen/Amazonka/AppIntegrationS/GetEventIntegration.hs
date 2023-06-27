@@ -136,7 +136,8 @@ data GetEventIntegrationResponse = GetEventIntegrationResponse'
     eventIntegrationArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the event integration.
     name :: Prelude.Maybe Prelude.Text,
-    -- | One or more tags.
+    -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -161,7 +162,8 @@ data GetEventIntegrationResponse = GetEventIntegrationResponse'
 --
 -- 'name', 'getEventIntegrationResponse_name' - The name of the event integration.
 --
--- 'tags', 'getEventIntegrationResponse_tags' - One or more tags.
+-- 'tags', 'getEventIntegrationResponse_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'httpStatus', 'getEventIntegrationResponse_httpStatus' - The response's http status code.
 newGetEventIntegrationResponse ::
@@ -200,7 +202,8 @@ getEventIntegrationResponse_eventIntegrationArn = Lens.lens (\GetEventIntegratio
 getEventIntegrationResponse_name :: Lens.Lens' GetEventIntegrationResponse (Prelude.Maybe Prelude.Text)
 getEventIntegrationResponse_name = Lens.lens (\GetEventIntegrationResponse' {name} -> name) (\s@GetEventIntegrationResponse' {} a -> s {name = a} :: GetEventIntegrationResponse)
 
--- | One or more tags.
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 getEventIntegrationResponse_tags :: Lens.Lens' GetEventIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getEventIntegrationResponse_tags = Lens.lens (\GetEventIntegrationResponse' {tags} -> tags) (\s@GetEventIntegrationResponse' {} a -> s {tags = a} :: GetEventIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
 

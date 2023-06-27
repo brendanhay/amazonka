@@ -59,11 +59,14 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateEventIntegration' smart constructor.
 data CreateEventIntegration = CreateEventIntegration'
   { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the event integration.
     description :: Prelude.Maybe Prelude.Text,
-    -- | One or more tags.
+    -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the event integration.
     name :: Prelude.Text,
@@ -83,11 +86,14 @@ data CreateEventIntegration = CreateEventIntegration'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'createEventIntegration_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'description', 'createEventIntegration_description' - The description of the event integration.
 --
--- 'tags', 'createEventIntegration_tags' - One or more tags.
+-- 'tags', 'createEventIntegration_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'name', 'createEventIntegration_name' - The name of the event integration.
 --
@@ -117,7 +123,9 @@ newCreateEventIntegration
       }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 createEventIntegration_clientToken :: Lens.Lens' CreateEventIntegration (Prelude.Maybe Prelude.Text)
 createEventIntegration_clientToken = Lens.lens (\CreateEventIntegration' {clientToken} -> clientToken) (\s@CreateEventIntegration' {} a -> s {clientToken = a} :: CreateEventIntegration)
 
@@ -125,7 +133,8 @@ createEventIntegration_clientToken = Lens.lens (\CreateEventIntegration' {client
 createEventIntegration_description :: Lens.Lens' CreateEventIntegration (Prelude.Maybe Prelude.Text)
 createEventIntegration_description = Lens.lens (\CreateEventIntegration' {description} -> description) (\s@CreateEventIntegration' {} a -> s {description = a} :: CreateEventIntegration)
 
--- | One or more tags.
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 createEventIntegration_tags :: Lens.Lens' CreateEventIntegration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createEventIntegration_tags = Lens.lens (\CreateEventIntegration' {tags} -> tags) (\s@CreateEventIntegration' {} a -> s {tags = a} :: CreateEventIntegration) Prelude.. Lens.mapping Lens.coerced
 
@@ -157,7 +166,8 @@ instance Core.AWSRequest CreateEventIntegration where
 
 instance Prelude.Hashable CreateEventIntegration where
   hashWithSalt _salt CreateEventIntegration' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

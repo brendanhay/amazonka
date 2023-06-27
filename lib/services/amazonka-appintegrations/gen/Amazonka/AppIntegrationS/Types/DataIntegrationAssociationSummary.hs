@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataIntegrationAssociationSummary' smart constructor.
 data DataIntegrationAssociationSummary = DataIntegrationAssociationSummary'
-  { -- | The identifier for teh client that is associated with the
+  { -- | The identifier for the client that is associated with the
     -- DataIntegration association.
     clientId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN)of the DataIntegration.
+    -- | The Amazon Resource Name (ARN) of the DataIntegration.
     dataIntegrationArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the DataIntegration association.
     dataIntegrationAssociationArn :: Prelude.Maybe Prelude.Text
@@ -46,10 +46,10 @@ data DataIntegrationAssociationSummary = DataIntegrationAssociationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientId', 'dataIntegrationAssociationSummary_clientId' - The identifier for teh client that is associated with the
+-- 'clientId', 'dataIntegrationAssociationSummary_clientId' - The identifier for the client that is associated with the
 -- DataIntegration association.
 --
--- 'dataIntegrationArn', 'dataIntegrationAssociationSummary_dataIntegrationArn' - The Amazon Resource Name (ARN)of the DataIntegration.
+-- 'dataIntegrationArn', 'dataIntegrationAssociationSummary_dataIntegrationArn' - The Amazon Resource Name (ARN) of the DataIntegration.
 --
 -- 'dataIntegrationAssociationArn', 'dataIntegrationAssociationSummary_dataIntegrationAssociationArn' - The Amazon Resource Name (ARN) of the DataIntegration association.
 newDataIntegrationAssociationSummary ::
@@ -63,12 +63,12 @@ newDataIntegrationAssociationSummary =
         Prelude.Nothing
     }
 
--- | The identifier for teh client that is associated with the
+-- | The identifier for the client that is associated with the
 -- DataIntegration association.
 dataIntegrationAssociationSummary_clientId :: Lens.Lens' DataIntegrationAssociationSummary (Prelude.Maybe Prelude.Text)
 dataIntegrationAssociationSummary_clientId = Lens.lens (\DataIntegrationAssociationSummary' {clientId} -> clientId) (\s@DataIntegrationAssociationSummary' {} a -> s {clientId = a} :: DataIntegrationAssociationSummary)
 
--- | The Amazon Resource Name (ARN)of the DataIntegration.
+-- | The Amazon Resource Name (ARN) of the DataIntegration.
 dataIntegrationAssociationSummary_dataIntegrationArn :: Lens.Lens' DataIntegrationAssociationSummary (Prelude.Maybe Prelude.Text)
 dataIntegrationAssociationSummary_dataIntegrationArn = Lens.lens (\DataIntegrationAssociationSummary' {dataIntegrationArn} -> dataIntegrationArn) (\s@DataIntegrationAssociationSummary' {} a -> s {dataIntegrationArn = a} :: DataIntegrationAssociationSummary)
 
@@ -97,7 +97,8 @@ instance
   hashWithSalt
     _salt
     DataIntegrationAssociationSummary' {..} =
-      _salt `Prelude.hashWithSalt` clientId
+      _salt
+        `Prelude.hashWithSalt` clientId
         `Prelude.hashWithSalt` dataIntegrationArn
         `Prelude.hashWithSalt` dataIntegrationAssociationArn
 

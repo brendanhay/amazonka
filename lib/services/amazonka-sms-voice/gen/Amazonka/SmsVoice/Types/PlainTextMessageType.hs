@@ -80,7 +80,8 @@ plainTextMessageType_voiceId = Lens.lens (\PlainTextMessageType' {voiceId} -> vo
 
 instance Prelude.Hashable PlainTextMessageType where
   hashWithSalt _salt PlainTextMessageType' {..} =
-    _salt `Prelude.hashWithSalt` languageCode
+    _salt
+      `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` text
       `Prelude.hashWithSalt` voiceId
 

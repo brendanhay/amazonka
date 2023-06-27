@@ -79,7 +79,8 @@ sSMLMessageType_voiceId = Lens.lens (\SSMLMessageType' {voiceId} -> voiceId) (\s
 
 instance Prelude.Hashable SSMLMessageType where
   hashWithSalt _salt SSMLMessageType' {..} =
-    _salt `Prelude.hashWithSalt` languageCode
+    _salt
+      `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` text
       `Prelude.hashWithSalt` voiceId
 

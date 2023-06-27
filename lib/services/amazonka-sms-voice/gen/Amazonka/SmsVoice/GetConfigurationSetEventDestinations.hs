@@ -93,10 +93,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetConfigurationSetEventDestinationsResponse'
-            Prelude.<$> ( x Data..?> "EventDestinations"
+            Prelude.<$> ( x
+                            Data..?> "EventDestinations"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

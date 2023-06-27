@@ -128,7 +128,8 @@ instance Core.AWSRequest SetIdentityDkimEnabled where
 
 instance Prelude.Hashable SetIdentityDkimEnabled where
   hashWithSalt _salt SetIdentityDkimEnabled' {..} =
-    _salt `Prelude.hashWithSalt` identity
+    _salt
+      `Prelude.hashWithSalt` identity
       `Prelude.hashWithSalt` dkimEnabled
 
 instance Prelude.NFData SetIdentityDkimEnabled where

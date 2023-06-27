@@ -168,7 +168,8 @@ instance Core.AWSRequest PutIdentityPolicy where
 
 instance Prelude.Hashable PutIdentityPolicy where
   hashWithSalt _salt PutIdentityPolicy' {..} =
-    _salt `Prelude.hashWithSalt` identity
+    _salt
+      `Prelude.hashWithSalt` identity
       `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` policy
 

@@ -478,48 +478,48 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Indicates that email sending is disabled for your entire Amazon SES
@@ -527,7 +527,7 @@ defaultService =
 --
 -- You can enable or disable email sending for your Amazon SES account
 -- using UpdateAccountSendingEnabled.
-_AccountSendingPausedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccountSendingPausedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccountSendingPausedException =
   Core._MatchServiceError
     defaultService
@@ -536,7 +536,7 @@ _AccountSendingPausedException =
 
 -- | Indicates that a resource could not be created because of a naming
 -- conflict.
-_AlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -544,7 +544,7 @@ _AlreadyExistsException =
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the delete operation could not be completed.
-_CannotDeleteException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CannotDeleteException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CannotDeleteException =
   Core._MatchServiceError
     defaultService
@@ -553,7 +553,7 @@ _CannotDeleteException =
 
 -- | Indicates that the configuration set could not be created because of a
 -- naming conflict.
-_ConfigurationSetAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConfigurationSetAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConfigurationSetAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -561,7 +561,7 @@ _ConfigurationSetAlreadyExistsException =
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the configuration set does not exist.
-_ConfigurationSetDoesNotExistException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConfigurationSetDoesNotExistException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConfigurationSetDoesNotExistException =
   Core._MatchServiceError
     defaultService
@@ -572,7 +572,7 @@ _ConfigurationSetDoesNotExistException =
 --
 -- You can enable or disable email sending for a configuration set using
 -- UpdateConfigurationSetSendingEnabled.
-_ConfigurationSetSendingPausedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConfigurationSetSendingPausedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConfigurationSetSendingPausedException =
   Core._MatchServiceError
     defaultService
@@ -581,7 +581,7 @@ _ConfigurationSetSendingPausedException =
 
 -- | Indicates that custom verification email template provided content is
 -- invalid.
-_CustomVerificationEmailInvalidContentException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CustomVerificationEmailInvalidContentException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CustomVerificationEmailInvalidContentException =
   Core._MatchServiceError
     defaultService
@@ -590,7 +590,7 @@ _CustomVerificationEmailInvalidContentException =
 
 -- | Indicates that a custom verification email template with the name you
 -- specified already exists.
-_CustomVerificationEmailTemplateAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CustomVerificationEmailTemplateAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CustomVerificationEmailTemplateAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -599,7 +599,7 @@ _CustomVerificationEmailTemplateAlreadyExistsException =
 
 -- | Indicates that a custom verification email template with the name you
 -- specified does not exist.
-_CustomVerificationEmailTemplateDoesNotExistException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CustomVerificationEmailTemplateDoesNotExistException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CustomVerificationEmailTemplateDoesNotExistException =
   Core._MatchServiceError
     defaultService
@@ -608,7 +608,7 @@ _CustomVerificationEmailTemplateDoesNotExistException =
 
 -- | Indicates that the event destination could not be created because of a
 -- naming conflict.
-_EventDestinationAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EventDestinationAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EventDestinationAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -616,7 +616,7 @@ _EventDestinationAlreadyExistsException =
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the event destination does not exist.
-_EventDestinationDoesNotExistException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EventDestinationDoesNotExistException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EventDestinationDoesNotExistException =
   Core._MatchServiceError
     defaultService
@@ -626,7 +626,7 @@ _EventDestinationDoesNotExistException =
 -- | Indicates that the sender address specified for a custom verification
 -- email is not verified, and is therefore not eligible to send the custom
 -- verification email.
-_FromEmailAddressNotVerifiedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_FromEmailAddressNotVerifiedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _FromEmailAddressNotVerifiedException =
   Core._MatchServiceError
     defaultService
@@ -635,7 +635,7 @@ _FromEmailAddressNotVerifiedException =
 
 -- | Indicates that the Amazon CloudWatch destination is invalid. See the
 -- error message for details.
-_InvalidCloudWatchDestinationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidCloudWatchDestinationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidCloudWatchDestinationException =
   Core._MatchServiceError
     defaultService
@@ -644,7 +644,7 @@ _InvalidCloudWatchDestinationException =
 
 -- | Indicates that the configuration set is invalid. See the error message
 -- for details.
-_InvalidConfigurationSetException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidConfigurationSetException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidConfigurationSetException =
   Core._MatchServiceError
     defaultService
@@ -652,7 +652,7 @@ _InvalidConfigurationSetException =
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that provided delivery option is invalid.
-_InvalidDeliveryOptionsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidDeliveryOptionsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidDeliveryOptionsException =
   Core._MatchServiceError
     defaultService
@@ -661,7 +661,7 @@ _InvalidDeliveryOptionsException =
 
 -- | Indicates that the Amazon Kinesis Firehose destination is invalid. See
 -- the error message for details.
-_InvalidFirehoseDestinationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidFirehoseDestinationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidFirehoseDestinationException =
   Core._MatchServiceError
     defaultService
@@ -672,7 +672,7 @@ _InvalidFirehoseDestinationException =
 -- Amazon SES could not execute the provided function, possibly due to
 -- permissions issues. For information about giving permissions, see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide>.
-_InvalidLambdaFunctionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidLambdaFunctionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidLambdaFunctionException =
   Core._MatchServiceError
     defaultService
@@ -681,7 +681,7 @@ _InvalidLambdaFunctionException =
 
 -- | Indicates that the provided policy is invalid. Check the error stack for
 -- more information about what caused the error.
-_InvalidPolicyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidPolicyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidPolicyException =
   Core._MatchServiceError
     defaultService
@@ -691,7 +691,7 @@ _InvalidPolicyException =
 -- | Indicates that one or more of the replacement values you provided is
 -- invalid. This error may occur when the TemplateData object contains
 -- invalid JSON.
-_InvalidRenderingParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRenderingParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRenderingParameterException =
   Core._MatchServiceError
     defaultService
@@ -703,7 +703,7 @@ _InvalidRenderingParameterException =
 -- due to permissions issues. For information about giving permissions, see
 -- the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide>.
-_InvalidS3ConfigurationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidS3ConfigurationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidS3ConfigurationException =
   Core._MatchServiceError
     defaultService
@@ -712,7 +712,7 @@ _InvalidS3ConfigurationException =
 
 -- | Indicates that the Amazon Simple Notification Service (Amazon SNS)
 -- destination is invalid. See the error message for details.
-_InvalidSNSDestinationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidSNSDestinationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidSNSDestinationException =
   Core._MatchServiceError
     defaultService
@@ -723,7 +723,7 @@ _InvalidSNSDestinationException =
 -- SES could not publish to the topic, possibly due to permissions issues.
 -- For information about giving permissions, see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html Amazon SES Developer Guide>.
-_InvalidSnsTopicException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidSnsTopicException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidSnsTopicException =
   Core._MatchServiceError
     defaultService
@@ -733,7 +733,7 @@ _InvalidSnsTopicException =
 -- | Indicates that the template that you specified could not be rendered.
 -- This issue may occur when a template refers to a partial that does not
 -- exist.
-_InvalidTemplateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidTemplateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidTemplateException =
   Core._MatchServiceError
     defaultService
@@ -749,7 +749,7 @@ _InvalidTemplateException =
 --
 -- -   When the tracking domain you specified is not a valid domain or
 --     subdomain.
-_InvalidTrackingOptionsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidTrackingOptionsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidTrackingOptionsException =
   Core._MatchServiceError
     defaultService
@@ -759,7 +759,7 @@ _InvalidTrackingOptionsException =
 -- | Indicates that a resource could not be created because of service
 -- limits. For a list of Amazon SES limits, see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html Amazon SES Developer Guide>.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -771,7 +771,7 @@ _LimitExceededException =
 -- For information about editing the custom MAIL FROM domain settings for
 -- an identity, see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html Amazon SES Developer Guide>.
-_MailFromDomainNotVerifiedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MailFromDomainNotVerifiedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MailFromDomainNotVerifiedException =
   Core._MatchServiceError
     defaultService
@@ -780,7 +780,7 @@ _MailFromDomainNotVerifiedException =
 
 -- | Indicates that the action failed, and the message could not be sent.
 -- Check the error stack for more information about what caused the error.
-_MessageRejected :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MessageRejected :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MessageRejected =
   Core._MatchServiceError
     defaultService
@@ -790,7 +790,7 @@ _MessageRejected =
 -- | Indicates that one or more of the replacement values for the specified
 -- template was not specified. Ensure that the TemplateData object contains
 -- references to all of the replacement tags in the specified template.
-_MissingRenderingAttributeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MissingRenderingAttributeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MissingRenderingAttributeException =
   Core._MatchServiceError
     defaultService
@@ -798,7 +798,7 @@ _MissingRenderingAttributeException =
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the account has not been granted production access.
-_ProductionAccessNotGrantedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ProductionAccessNotGrantedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ProductionAccessNotGrantedException =
   Core._MatchServiceError
     defaultService
@@ -806,7 +806,7 @@ _ProductionAccessNotGrantedException =
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the provided receipt rule does not exist.
-_RuleDoesNotExistException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RuleDoesNotExistException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RuleDoesNotExistException =
   Core._MatchServiceError
     defaultService
@@ -814,7 +814,7 @@ _RuleDoesNotExistException =
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the provided receipt rule set does not exist.
-_RuleSetDoesNotExistException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RuleSetDoesNotExistException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RuleSetDoesNotExistException =
   Core._MatchServiceError
     defaultService
@@ -823,7 +823,7 @@ _RuleSetDoesNotExistException =
 
 -- | Indicates that the Template object you specified does not exist in your
 -- Amazon SES account.
-_TemplateDoesNotExistException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TemplateDoesNotExistException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TemplateDoesNotExistException =
   Core._MatchServiceError
     defaultService
@@ -832,7 +832,7 @@ _TemplateDoesNotExistException =
 
 -- | Indicates that the configuration set you specified already contains a
 -- TrackingOptions object.
-_TrackingOptionsAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TrackingOptionsAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TrackingOptionsAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -840,7 +840,7 @@ _TrackingOptionsAlreadyExistsException =
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the TrackingOptions object you specified does not exist.
-_TrackingOptionsDoesNotExistException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TrackingOptionsDoesNotExistException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TrackingOptionsDoesNotExistException =
   Core._MatchServiceError
     defaultService

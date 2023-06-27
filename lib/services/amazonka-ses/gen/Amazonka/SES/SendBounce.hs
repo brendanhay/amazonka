@@ -189,7 +189,8 @@ instance Core.AWSRequest SendBounce where
 
 instance Prelude.Hashable SendBounce where
   hashWithSalt _salt SendBounce' {..} =
-    _salt `Prelude.hashWithSalt` bounceSenderArn
+    _salt
+      `Prelude.hashWithSalt` bounceSenderArn
       `Prelude.hashWithSalt` explanation
       `Prelude.hashWithSalt` messageDsn
       `Prelude.hashWithSalt` originalMessageId

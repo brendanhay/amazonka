@@ -90,7 +90,8 @@ instance Data.FromXML StopAction where
 
 instance Prelude.Hashable StopAction where
   hashWithSalt _salt StopAction' {..} =
-    _salt `Prelude.hashWithSalt` topicArn
+    _salt
+      `Prelude.hashWithSalt` topicArn
       `Prelude.hashWithSalt` scope
 
 instance Prelude.NFData StopAction where

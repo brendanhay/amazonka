@@ -115,22 +115,22 @@ instance Core.AWSPager ListConfigurationSets where
     | Core.stop
         ( rs
             Lens.^? listConfigurationSetsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listConfigurationSetsResponse_configurationSets
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listConfigurationSets_nextToken
           Lens..~ rs
           Lens.^? listConfigurationSetsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListConfigurationSets where
   type
@@ -143,7 +143,8 @@ instance Core.AWSRequest ListConfigurationSets where
       "ListConfigurationSetsResult"
       ( \s h x ->
           ListConfigurationSetsResponse'
-            Prelude.<$> ( x Data..@? "ConfigurationSets"
+            Prelude.<$> ( x
+                            Data..@? "ConfigurationSets"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -153,7 +154,8 @@ instance Core.AWSRequest ListConfigurationSets where
 
 instance Prelude.Hashable ListConfigurationSets where
   hashWithSalt _salt ListConfigurationSets' {..} =
-    _salt `Prelude.hashWithSalt` maxItems
+    _salt
+      `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListConfigurationSets where

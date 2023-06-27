@@ -78,7 +78,8 @@ extensionField_value = Lens.lens (\ExtensionField' {value} -> value) (\s@Extensi
 
 instance Prelude.Hashable ExtensionField where
   hashWithSalt _salt ExtensionField' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ExtensionField where

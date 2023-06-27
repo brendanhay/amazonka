@@ -123,7 +123,9 @@ instance Core.AWSRequest ListIdentityPolicies where
       ( \s h x ->
           ListIdentityPoliciesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "PolicyNames" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "PolicyNames"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )

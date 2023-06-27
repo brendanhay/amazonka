@@ -119,18 +119,19 @@ instance Core.AWSPager ListIdentities where
     | Core.stop
         ( rs
             Lens.^? listIdentitiesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listIdentitiesResponse_identities) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listIdentities_nextToken
           Lens..~ rs
-          Lens.^? listIdentitiesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listIdentitiesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIdentities where
   type
@@ -145,14 +146,17 @@ instance Core.AWSRequest ListIdentities where
           ListIdentitiesResponse'
             Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "Identities" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Identities"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable ListIdentities where
   hashWithSalt _salt ListIdentities' {..} =
-    _salt `Prelude.hashWithSalt` identityType
+    _salt
+      `Prelude.hashWithSalt` identityType
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` nextToken
 

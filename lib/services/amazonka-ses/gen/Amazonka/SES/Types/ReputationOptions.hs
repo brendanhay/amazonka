@@ -145,7 +145,8 @@ instance Data.FromXML ReputationOptions where
 
 instance Prelude.Hashable ReputationOptions where
   hashWithSalt _salt ReputationOptions' {..} =
-    _salt `Prelude.hashWithSalt` lastFreshStart
+    _salt
+      `Prelude.hashWithSalt` lastFreshStart
       `Prelude.hashWithSalt` reputationMetricsEnabled
       `Prelude.hashWithSalt` sendingEnabled
 

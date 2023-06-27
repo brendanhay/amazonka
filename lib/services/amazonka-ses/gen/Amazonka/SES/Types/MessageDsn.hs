@@ -96,7 +96,8 @@ messageDsn_reportingMta = Lens.lens (\MessageDsn' {reportingMta} -> reportingMta
 
 instance Prelude.Hashable MessageDsn where
   hashWithSalt _salt MessageDsn' {..} =
-    _salt `Prelude.hashWithSalt` arrivalDate
+    _salt
+      `Prelude.hashWithSalt` arrivalDate
       `Prelude.hashWithSalt` extensionFields
       `Prelude.hashWithSalt` reportingMta
 

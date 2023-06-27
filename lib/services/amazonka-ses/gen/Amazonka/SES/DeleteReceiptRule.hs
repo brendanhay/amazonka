@@ -115,7 +115,8 @@ instance Core.AWSRequest DeleteReceiptRule where
 
 instance Prelude.Hashable DeleteReceiptRule where
   hashWithSalt _salt DeleteReceiptRule' {..} =
-    _salt `Prelude.hashWithSalt` ruleSetName
+    _salt
+      `Prelude.hashWithSalt` ruleSetName
       `Prelude.hashWithSalt` ruleName
 
 instance Prelude.NFData DeleteReceiptRule where

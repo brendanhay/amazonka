@@ -560,7 +560,8 @@ instance Core.AWSRequest SendRawEmail where
 
 instance Prelude.Hashable SendRawEmail where
   hashWithSalt _salt SendRawEmail' {..} =
-    _salt `Prelude.hashWithSalt` configurationSetName
+    _salt
+      `Prelude.hashWithSalt` configurationSetName
       `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` fromArn
       `Prelude.hashWithSalt` returnPathArn

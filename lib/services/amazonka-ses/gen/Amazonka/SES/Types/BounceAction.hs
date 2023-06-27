@@ -133,7 +133,8 @@ instance Data.FromXML BounceAction where
 
 instance Prelude.Hashable BounceAction where
   hashWithSalt _salt BounceAction' {..} =
-    _salt `Prelude.hashWithSalt` statusCode
+    _salt
+      `Prelude.hashWithSalt` statusCode
       `Prelude.hashWithSalt` topicArn
       `Prelude.hashWithSalt` smtpReplyCode
       `Prelude.hashWithSalt` message

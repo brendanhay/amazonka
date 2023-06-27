@@ -89,7 +89,8 @@ instance Data.FromXML KinesisFirehoseDestination where
 
 instance Prelude.Hashable KinesisFirehoseDestination where
   hashWithSalt _salt KinesisFirehoseDestination' {..} =
-    _salt `Prelude.hashWithSalt` iAMRoleARN
+    _salt
+      `Prelude.hashWithSalt` iAMRoleARN
       `Prelude.hashWithSalt` deliveryStreamARN
 
 instance Prelude.NFData KinesisFirehoseDestination where

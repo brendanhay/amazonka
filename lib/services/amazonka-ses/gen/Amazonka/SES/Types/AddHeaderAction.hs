@@ -87,7 +87,8 @@ instance Data.FromXML AddHeaderAction where
 
 instance Prelude.Hashable AddHeaderAction where
   hashWithSalt _salt AddHeaderAction' {..} =
-    _salt `Prelude.hashWithSalt` headerName
+    _salt
+      `Prelude.hashWithSalt` headerName
       `Prelude.hashWithSalt` headerValue
 
 instance Prelude.NFData AddHeaderAction where

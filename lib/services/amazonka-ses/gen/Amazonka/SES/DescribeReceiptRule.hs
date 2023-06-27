@@ -115,7 +115,8 @@ instance Core.AWSRequest DescribeReceiptRule where
 
 instance Prelude.Hashable DescribeReceiptRule where
   hashWithSalt _salt DescribeReceiptRule' {..} =
-    _salt `Prelude.hashWithSalt` ruleSetName
+    _salt
+      `Prelude.hashWithSalt` ruleSetName
       `Prelude.hashWithSalt` ruleName
 
 instance Prelude.NFData DescribeReceiptRule where

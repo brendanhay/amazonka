@@ -33,11 +33,20 @@ import Test.Tasty
 --         , requestCreateStateMachine $
 --             newCreateStateMachine
 --
+--         , requestCreateStateMachineAlias $
+--             newCreateStateMachineAlias
+--
 --         , requestDeleteActivity $
 --             newDeleteActivity
 --
 --         , requestDeleteStateMachine $
 --             newDeleteStateMachine
+--
+--         , requestDeleteStateMachineAlias $
+--             newDeleteStateMachineAlias
+--
+--         , requestDeleteStateMachineVersion $
+--             newDeleteStateMachineVersion
 --
 --         , requestDescribeActivity $
 --             newDescribeActivity
@@ -50,6 +59,9 @@ import Test.Tasty
 --
 --         , requestDescribeStateMachine $
 --             newDescribeStateMachine
+--
+--         , requestDescribeStateMachineAlias $
+--             newDescribeStateMachineAlias
 --
 --         , requestDescribeStateMachineForExecution $
 --             newDescribeStateMachineForExecution
@@ -69,11 +81,20 @@ import Test.Tasty
 --         , requestListMapRuns $
 --             newListMapRuns
 --
+--         , requestListStateMachineAliases $
+--             newListStateMachineAliases
+--
+--         , requestListStateMachineVersions $
+--             newListStateMachineVersions
+--
 --         , requestListStateMachines $
 --             newListStateMachines
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
+--
+--         , requestPublishStateMachineVersion $
+--             newPublishStateMachineVersion
 --
 --         , requestSendTaskFailure $
 --             newSendTaskFailure
@@ -105,6 +126,9 @@ import Test.Tasty
 --         , requestUpdateStateMachine $
 --             newUpdateStateMachine
 --
+--         , requestUpdateStateMachineAlias $
+--             newUpdateStateMachineAlias
+--
 --           ]
 
 --     , testGroup "response"
@@ -114,11 +138,20 @@ import Test.Tasty
 --         , responseCreateStateMachine $
 --             newCreateStateMachineResponse
 --
+--         , responseCreateStateMachineAlias $
+--             newCreateStateMachineAliasResponse
+--
 --         , responseDeleteActivity $
 --             newDeleteActivityResponse
 --
 --         , responseDeleteStateMachine $
 --             newDeleteStateMachineResponse
+--
+--         , responseDeleteStateMachineAlias $
+--             newDeleteStateMachineAliasResponse
+--
+--         , responseDeleteStateMachineVersion $
+--             newDeleteStateMachineVersionResponse
 --
 --         , responseDescribeActivity $
 --             newDescribeActivityResponse
@@ -131,6 +164,9 @@ import Test.Tasty
 --
 --         , responseDescribeStateMachine $
 --             newDescribeStateMachineResponse
+--
+--         , responseDescribeStateMachineAlias $
+--             newDescribeStateMachineAliasResponse
 --
 --         , responseDescribeStateMachineForExecution $
 --             newDescribeStateMachineForExecutionResponse
@@ -150,11 +186,20 @@ import Test.Tasty
 --         , responseListMapRuns $
 --             newListMapRunsResponse
 --
+--         , responseListStateMachineAliases $
+--             newListStateMachineAliasesResponse
+--
+--         , responseListStateMachineVersions $
+--             newListStateMachineVersionsResponse
+--
 --         , responseListStateMachines $
 --             newListStateMachinesResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responsePublishStateMachineVersion $
+--             newPublishStateMachineVersionResponse
 --
 --         , responseSendTaskFailure $
 --             newSendTaskFailureResponse
@@ -186,6 +231,9 @@ import Test.Tasty
 --         , responseUpdateStateMachine $
 --             newUpdateStateMachineResponse
 --
+--         , responseUpdateStateMachineAlias $
+--             newUpdateStateMachineAliasResponse
+--
 --           ]
 --     ]
 
@@ -203,6 +251,12 @@ requestCreateStateMachine =
     "CreateStateMachine"
     "fixture/CreateStateMachine.yaml"
 
+requestCreateStateMachineAlias :: CreateStateMachineAlias -> TestTree
+requestCreateStateMachineAlias =
+  req
+    "CreateStateMachineAlias"
+    "fixture/CreateStateMachineAlias.yaml"
+
 requestDeleteActivity :: DeleteActivity -> TestTree
 requestDeleteActivity =
   req
@@ -214,6 +268,18 @@ requestDeleteStateMachine =
   req
     "DeleteStateMachine"
     "fixture/DeleteStateMachine.yaml"
+
+requestDeleteStateMachineAlias :: DeleteStateMachineAlias -> TestTree
+requestDeleteStateMachineAlias =
+  req
+    "DeleteStateMachineAlias"
+    "fixture/DeleteStateMachineAlias.yaml"
+
+requestDeleteStateMachineVersion :: DeleteStateMachineVersion -> TestTree
+requestDeleteStateMachineVersion =
+  req
+    "DeleteStateMachineVersion"
+    "fixture/DeleteStateMachineVersion.yaml"
 
 requestDescribeActivity :: DescribeActivity -> TestTree
 requestDescribeActivity =
@@ -238,6 +304,12 @@ requestDescribeStateMachine =
   req
     "DescribeStateMachine"
     "fixture/DescribeStateMachine.yaml"
+
+requestDescribeStateMachineAlias :: DescribeStateMachineAlias -> TestTree
+requestDescribeStateMachineAlias =
+  req
+    "DescribeStateMachineAlias"
+    "fixture/DescribeStateMachineAlias.yaml"
 
 requestDescribeStateMachineForExecution :: DescribeStateMachineForExecution -> TestTree
 requestDescribeStateMachineForExecution =
@@ -275,6 +347,18 @@ requestListMapRuns =
     "ListMapRuns"
     "fixture/ListMapRuns.yaml"
 
+requestListStateMachineAliases :: ListStateMachineAliases -> TestTree
+requestListStateMachineAliases =
+  req
+    "ListStateMachineAliases"
+    "fixture/ListStateMachineAliases.yaml"
+
+requestListStateMachineVersions :: ListStateMachineVersions -> TestTree
+requestListStateMachineVersions =
+  req
+    "ListStateMachineVersions"
+    "fixture/ListStateMachineVersions.yaml"
+
 requestListStateMachines :: ListStateMachines -> TestTree
 requestListStateMachines =
   req
@@ -286,6 +370,12 @@ requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestPublishStateMachineVersion :: PublishStateMachineVersion -> TestTree
+requestPublishStateMachineVersion =
+  req
+    "PublishStateMachineVersion"
+    "fixture/PublishStateMachineVersion.yaml"
 
 requestSendTaskFailure :: SendTaskFailure -> TestTree
 requestSendTaskFailure =
@@ -347,6 +437,12 @@ requestUpdateStateMachine =
     "UpdateStateMachine"
     "fixture/UpdateStateMachine.yaml"
 
+requestUpdateStateMachineAlias :: UpdateStateMachineAlias -> TestTree
+requestUpdateStateMachineAlias =
+  req
+    "UpdateStateMachineAlias"
+    "fixture/UpdateStateMachineAlias.yaml"
+
 -- Responses
 
 responseCreateActivity :: CreateActivityResponse -> TestTree
@@ -365,6 +461,14 @@ responseCreateStateMachine =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateStateMachine)
 
+responseCreateStateMachineAlias :: CreateStateMachineAliasResponse -> TestTree
+responseCreateStateMachineAlias =
+  res
+    "CreateStateMachineAliasResponse"
+    "fixture/CreateStateMachineAliasResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateStateMachineAlias)
+
 responseDeleteActivity :: DeleteActivityResponse -> TestTree
 responseDeleteActivity =
   res
@@ -380,6 +484,22 @@ responseDeleteStateMachine =
     "fixture/DeleteStateMachineResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteStateMachine)
+
+responseDeleteStateMachineAlias :: DeleteStateMachineAliasResponse -> TestTree
+responseDeleteStateMachineAlias =
+  res
+    "DeleteStateMachineAliasResponse"
+    "fixture/DeleteStateMachineAliasResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteStateMachineAlias)
+
+responseDeleteStateMachineVersion :: DeleteStateMachineVersionResponse -> TestTree
+responseDeleteStateMachineVersion =
+  res
+    "DeleteStateMachineVersionResponse"
+    "fixture/DeleteStateMachineVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteStateMachineVersion)
 
 responseDescribeActivity :: DescribeActivityResponse -> TestTree
 responseDescribeActivity =
@@ -412,6 +532,14 @@ responseDescribeStateMachine =
     "fixture/DescribeStateMachineResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeStateMachine)
+
+responseDescribeStateMachineAlias :: DescribeStateMachineAliasResponse -> TestTree
+responseDescribeStateMachineAlias =
+  res
+    "DescribeStateMachineAliasResponse"
+    "fixture/DescribeStateMachineAliasResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeStateMachineAlias)
 
 responseDescribeStateMachineForExecution :: DescribeStateMachineForExecutionResponse -> TestTree
 responseDescribeStateMachineForExecution =
@@ -461,6 +589,22 @@ responseListMapRuns =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListMapRuns)
 
+responseListStateMachineAliases :: ListStateMachineAliasesResponse -> TestTree
+responseListStateMachineAliases =
+  res
+    "ListStateMachineAliasesResponse"
+    "fixture/ListStateMachineAliasesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListStateMachineAliases)
+
+responseListStateMachineVersions :: ListStateMachineVersionsResponse -> TestTree
+responseListStateMachineVersions =
+  res
+    "ListStateMachineVersionsResponse"
+    "fixture/ListStateMachineVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListStateMachineVersions)
+
 responseListStateMachines :: ListStateMachinesResponse -> TestTree
 responseListStateMachines =
   res
@@ -476,6 +620,14 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePublishStateMachineVersion :: PublishStateMachineVersionResponse -> TestTree
+responsePublishStateMachineVersion =
+  res
+    "PublishStateMachineVersionResponse"
+    "fixture/PublishStateMachineVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PublishStateMachineVersion)
 
 responseSendTaskFailure :: SendTaskFailureResponse -> TestTree
 responseSendTaskFailure =
@@ -556,3 +708,11 @@ responseUpdateStateMachine =
     "fixture/UpdateStateMachineResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateStateMachine)
+
+responseUpdateStateMachineAlias :: UpdateStateMachineAliasResponse -> TestTree
+responseUpdateStateMachineAlias =
+  res
+    "UpdateStateMachineAliasResponse"
+    "fixture/UpdateStateMachineAliasResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateStateMachineAlias)

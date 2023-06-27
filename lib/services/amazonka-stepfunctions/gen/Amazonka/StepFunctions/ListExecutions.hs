@@ -25,6 +25,12 @@
 -- Amazon Resource Name (ARN), or those related to a Map Run by specifying
 -- a Map Run ARN.
 --
+-- You can also provide a state machine
+-- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html alias>
+-- ARN or
+-- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html version>
+-- ARN to list the executions associated with a specific alias or version.
+--
 -- Results are sorted by time, with the most recent execution first.
 --
 -- If @nextToken@ is returned, there are more results available. The value
@@ -102,6 +108,13 @@ data ListExecutions = ListExecutions'
     --
     -- You can specify either a @mapRunArn@ or a @stateMachineArn@, but not
     -- both.
+    --
+    -- You can also return a list of executions associated with a specific
+    -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html alias>
+    -- or
+    -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html version>,
+    -- by specifying an alias ARN or a version ARN in the @stateMachineArn@
+    -- parameter.
     stateMachineArn :: Prelude.Maybe Prelude.Text,
     -- | If specified, only list the executions whose current execution status
     -- matches the given filter.
@@ -146,6 +159,13 @@ data ListExecutions = ListExecutions'
 --
 -- You can specify either a @mapRunArn@ or a @stateMachineArn@, but not
 -- both.
+--
+-- You can also return a list of executions associated with a specific
+-- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html alias>
+-- or
+-- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html version>,
+-- by specifying an alias ARN or a version ARN in the @stateMachineArn@
+-- parameter.
 --
 -- 'statusFilter', 'listExecutions_statusFilter' - If specified, only list the executions whose current execution status
 -- matches the given filter.
@@ -195,6 +215,13 @@ listExecutions_nextToken = Lens.lens (\ListExecutions' {nextToken} -> nextToken)
 --
 -- You can specify either a @mapRunArn@ or a @stateMachineArn@, but not
 -- both.
+--
+-- You can also return a list of executions associated with a specific
+-- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html alias>
+-- or
+-- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html version>,
+-- by specifying an alias ARN or a version ARN in the @stateMachineArn@
+-- parameter.
 listExecutions_stateMachineArn :: Lens.Lens' ListExecutions (Prelude.Maybe Prelude.Text)
 listExecutions_stateMachineArn = Lens.lens (\ListExecutions' {stateMachineArn} -> stateMachineArn) (\s@ListExecutions' {} a -> s {stateMachineArn = a} :: ListExecutions)
 
@@ -208,18 +235,19 @@ instance Core.AWSPager ListExecutions where
     | Core.stop
         ( rs
             Lens.^? listExecutionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listExecutionsResponse_executions) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listExecutions_nextToken
           Lens..~ rs
-          Lens.^? listExecutionsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listExecutionsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListExecutions where
   type
@@ -238,7 +266,8 @@ instance Core.AWSRequest ListExecutions where
 
 instance Prelude.Hashable ListExecutions where
   hashWithSalt _salt ListExecutions' {..} =
-    _salt `Prelude.hashWithSalt` mapRunArn
+    _salt
+      `Prelude.hashWithSalt` mapRunArn
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stateMachineArn

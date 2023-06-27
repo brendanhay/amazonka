@@ -79,7 +79,8 @@ instance Data.FromJSON TaskStartedEventDetails where
 
 instance Prelude.Hashable TaskStartedEventDetails where
   hashWithSalt _salt TaskStartedEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resource
 
 instance Prelude.NFData TaskStartedEventDetails where

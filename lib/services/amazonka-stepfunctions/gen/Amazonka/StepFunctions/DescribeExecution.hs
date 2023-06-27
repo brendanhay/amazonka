@@ -20,16 +20,20 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides all information about a state machine execution, such as the
--- state machine associated with the execution, the execution input and
--- output, and relevant execution metadata. Use this API action to return
--- the Map Run ARN if the execution was dispatched by a Map Run.
+-- Provides information about a state machine execution, such as the state
+-- machine associated with the execution, the execution input and output,
+-- and relevant execution metadata. Use this API action to return the Map
+-- Run Amazon Resource Name (ARN) if the execution was dispatched by a Map
+-- Run.
+--
+-- If you specify a version or alias ARN when you call the StartExecution
+-- API action, @DescribeExecution@ returns that ARN.
 --
 -- This operation is eventually consistent. The results are best effort and
 -- may not reflect very recent updates and changes.
 --
--- This API action is not supported by @EXPRESS@ state machine executions
--- unless they were dispatched by a Map Run.
+-- Executions of an @EXPRESS@ state machinearen\'t supported by
+-- @DescribeExecution@ unless a Map Run dispatched them.
 module Amazonka.StepFunctions.DescribeExecution
   ( -- * Creating a Request
     DescribeExecution (..),
@@ -51,6 +55,8 @@ module Amazonka.StepFunctions.DescribeExecution
     describeExecutionResponse_name,
     describeExecutionResponse_output,
     describeExecutionResponse_outputDetails,
+    describeExecutionResponse_stateMachineAliasArn,
+    describeExecutionResponse_stateMachineVersionArn,
     describeExecutionResponse_stopDate,
     describeExecutionResponse_traceHeader,
     describeExecutionResponse_httpStatus,
@@ -114,6 +120,8 @@ instance Core.AWSRequest DescribeExecution where
             Prelude.<*> (x Data..?> "name")
             Prelude.<*> (x Data..?> "output")
             Prelude.<*> (x Data..?> "outputDetails")
+            Prelude.<*> (x Data..?> "stateMachineAliasArn")
+            Prelude.<*> (x Data..?> "stateMachineVersionArn")
             Prelude.<*> (x Data..?> "stopDate")
             Prelude.<*> (x Data..?> "traceHeader")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -196,7 +204,24 @@ data DescribeExecutionResponse = DescribeExecutionResponse'
     -- fails, this field is null.
     output :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     outputDetails :: Prelude.Maybe CloudWatchEventsExecutionDataDetails,
-    -- | If the execution has already ended, the date the execution stopped.
+    -- | The Amazon Resource Name (ARN) of the state machine alias associated
+    -- with the execution. The alias ARN is a combination of state machine ARN
+    -- and the alias name separated by a colon (:). For example,
+    -- @stateMachineARN:PROD@.
+    --
+    -- If you start an execution from a @StartExecution@ request with a state
+    -- machine version ARN, this field will be null.
+    stateMachineAliasArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the state machine version associated
+    -- with the execution. The version ARN is a combination of state machine
+    -- ARN and the version number separated by a colon (:). For example,
+    -- @stateMachineARN:1@.
+    --
+    -- If you start an execution from a @StartExecution@ request without
+    -- specifying a state machine version or alias ARN, Step Functions returns
+    -- a null value.
+    stateMachineVersionArn :: Prelude.Maybe Prelude.Text,
+    -- | If the execution ended, the date the execution stopped.
     stopDate :: Prelude.Maybe Data.POSIX,
     -- | The X-Ray trace header that was passed to the execution.
     traceHeader :: Prelude.Maybe Prelude.Text,
@@ -259,7 +284,24 @@ data DescribeExecutionResponse = DescribeExecutionResponse'
 --
 -- 'outputDetails', 'describeExecutionResponse_outputDetails' - Undocumented member.
 --
--- 'stopDate', 'describeExecutionResponse_stopDate' - If the execution has already ended, the date the execution stopped.
+-- 'stateMachineAliasArn', 'describeExecutionResponse_stateMachineAliasArn' - The Amazon Resource Name (ARN) of the state machine alias associated
+-- with the execution. The alias ARN is a combination of state machine ARN
+-- and the alias name separated by a colon (:). For example,
+-- @stateMachineARN:PROD@.
+--
+-- If you start an execution from a @StartExecution@ request with a state
+-- machine version ARN, this field will be null.
+--
+-- 'stateMachineVersionArn', 'describeExecutionResponse_stateMachineVersionArn' - The Amazon Resource Name (ARN) of the state machine version associated
+-- with the execution. The version ARN is a combination of state machine
+-- ARN and the version number separated by a colon (:). For example,
+-- @stateMachineARN:1@.
+--
+-- If you start an execution from a @StartExecution@ request without
+-- specifying a state machine version or alias ARN, Step Functions returns
+-- a null value.
+--
+-- 'stopDate', 'describeExecutionResponse_stopDate' - If the execution ended, the date the execution stopped.
 --
 -- 'traceHeader', 'describeExecutionResponse_traceHeader' - The X-Ray trace header that was passed to the execution.
 --
@@ -299,6 +341,8 @@ newDescribeExecutionResponse
         name = Prelude.Nothing,
         output = Prelude.Nothing,
         outputDetails = Prelude.Nothing,
+        stateMachineAliasArn = Prelude.Nothing,
+        stateMachineVersionArn = Prelude.Nothing,
         stopDate = Prelude.Nothing,
         traceHeader = Prelude.Nothing,
         httpStatus = pHttpStatus_,
@@ -362,7 +406,28 @@ describeExecutionResponse_output = Lens.lens (\DescribeExecutionResponse' {outpu
 describeExecutionResponse_outputDetails :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe CloudWatchEventsExecutionDataDetails)
 describeExecutionResponse_outputDetails = Lens.lens (\DescribeExecutionResponse' {outputDetails} -> outputDetails) (\s@DescribeExecutionResponse' {} a -> s {outputDetails = a} :: DescribeExecutionResponse)
 
--- | If the execution has already ended, the date the execution stopped.
+-- | The Amazon Resource Name (ARN) of the state machine alias associated
+-- with the execution. The alias ARN is a combination of state machine ARN
+-- and the alias name separated by a colon (:). For example,
+-- @stateMachineARN:PROD@.
+--
+-- If you start an execution from a @StartExecution@ request with a state
+-- machine version ARN, this field will be null.
+describeExecutionResponse_stateMachineAliasArn :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
+describeExecutionResponse_stateMachineAliasArn = Lens.lens (\DescribeExecutionResponse' {stateMachineAliasArn} -> stateMachineAliasArn) (\s@DescribeExecutionResponse' {} a -> s {stateMachineAliasArn = a} :: DescribeExecutionResponse)
+
+-- | The Amazon Resource Name (ARN) of the state machine version associated
+-- with the execution. The version ARN is a combination of state machine
+-- ARN and the version number separated by a colon (:). For example,
+-- @stateMachineARN:1@.
+--
+-- If you start an execution from a @StartExecution@ request without
+-- specifying a state machine version or alias ARN, Step Functions returns
+-- a null value.
+describeExecutionResponse_stateMachineVersionArn :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
+describeExecutionResponse_stateMachineVersionArn = Lens.lens (\DescribeExecutionResponse' {stateMachineVersionArn} -> stateMachineVersionArn) (\s@DescribeExecutionResponse' {} a -> s {stateMachineVersionArn = a} :: DescribeExecutionResponse)
+
+-- | If the execution ended, the date the execution stopped.
 describeExecutionResponse_stopDate :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.UTCTime)
 describeExecutionResponse_stopDate = Lens.lens (\DescribeExecutionResponse' {stopDate} -> stopDate) (\s@DescribeExecutionResponse' {} a -> s {stopDate = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Data._Time
 
@@ -400,6 +465,8 @@ instance Prelude.NFData DescribeExecutionResponse where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf output
       `Prelude.seq` Prelude.rnf outputDetails
+      `Prelude.seq` Prelude.rnf stateMachineAliasArn
+      `Prelude.seq` Prelude.rnf stateMachineVersionArn
       `Prelude.seq` Prelude.rnf stopDate
       `Prelude.seq` Prelude.rnf traceHeader
       `Prelude.seq` Prelude.rnf httpStatus

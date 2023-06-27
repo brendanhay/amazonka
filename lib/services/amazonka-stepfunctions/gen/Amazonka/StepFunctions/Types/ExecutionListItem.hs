@@ -39,11 +39,28 @@ data ExecutionListItem = ExecutionListItem'
     -- @stateMachineArn@ was specified in @ListExecutions@, the @mapRunArn@
     -- isn\'t returned.
     mapRunArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the state machine alias used to start
+    -- an execution.
+    --
+    -- If the state machine execution was started with an unqualified ARN or a
+    -- version ARN, it returns null.
+    stateMachineAliasArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the state machine version associated
+    -- with the execution.
+    --
+    -- If the state machine execution was started with an unqualified ARN, it
+    -- returns null.
+    --
+    -- If the execution was started using a @stateMachineAliasArn@, both the
+    -- @stateMachineAliasArn@ and @stateMachineVersionArn@ parameters contain
+    -- the respective values.
+    stateMachineVersionArn :: Prelude.Maybe Prelude.Text,
     -- | If the execution already ended, the date the execution stopped.
     stopDate :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) that identifies the execution.
     executionArn :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the executed state machine.
+    -- | The Amazon Resource Name (ARN) of the state machine that ran the
+    -- execution.
     stateMachineArn :: Prelude.Text,
     -- | The name of the execution.
     --
@@ -87,11 +104,28 @@ data ExecutionListItem = ExecutionListItem'
 -- @stateMachineArn@ was specified in @ListExecutions@, the @mapRunArn@
 -- isn\'t returned.
 --
+-- 'stateMachineAliasArn', 'executionListItem_stateMachineAliasArn' - The Amazon Resource Name (ARN) of the state machine alias used to start
+-- an execution.
+--
+-- If the state machine execution was started with an unqualified ARN or a
+-- version ARN, it returns null.
+--
+-- 'stateMachineVersionArn', 'executionListItem_stateMachineVersionArn' - The Amazon Resource Name (ARN) of the state machine version associated
+-- with the execution.
+--
+-- If the state machine execution was started with an unqualified ARN, it
+-- returns null.
+--
+-- If the execution was started using a @stateMachineAliasArn@, both the
+-- @stateMachineAliasArn@ and @stateMachineVersionArn@ parameters contain
+-- the respective values.
+--
 -- 'stopDate', 'executionListItem_stopDate' - If the execution already ended, the date the execution stopped.
 --
 -- 'executionArn', 'executionListItem_executionArn' - The Amazon Resource Name (ARN) that identifies the execution.
 --
--- 'stateMachineArn', 'executionListItem_stateMachineArn' - The Amazon Resource Name (ARN) of the executed state machine.
+-- 'stateMachineArn', 'executionListItem_stateMachineArn' - The Amazon Resource Name (ARN) of the state machine that ran the
+-- execution.
 --
 -- 'name', 'executionListItem_name' - The name of the execution.
 --
@@ -134,6 +168,8 @@ newExecutionListItem
     ExecutionListItem'
       { itemCount = Prelude.Nothing,
         mapRunArn = Prelude.Nothing,
+        stateMachineAliasArn = Prelude.Nothing,
+        stateMachineVersionArn = Prelude.Nothing,
         stopDate = Prelude.Nothing,
         executionArn = pExecutionArn_,
         stateMachineArn = pStateMachineArn_,
@@ -156,6 +192,26 @@ executionListItem_itemCount = Lens.lens (\ExecutionListItem' {itemCount} -> item
 executionListItem_mapRunArn :: Lens.Lens' ExecutionListItem (Prelude.Maybe Prelude.Text)
 executionListItem_mapRunArn = Lens.lens (\ExecutionListItem' {mapRunArn} -> mapRunArn) (\s@ExecutionListItem' {} a -> s {mapRunArn = a} :: ExecutionListItem)
 
+-- | The Amazon Resource Name (ARN) of the state machine alias used to start
+-- an execution.
+--
+-- If the state machine execution was started with an unqualified ARN or a
+-- version ARN, it returns null.
+executionListItem_stateMachineAliasArn :: Lens.Lens' ExecutionListItem (Prelude.Maybe Prelude.Text)
+executionListItem_stateMachineAliasArn = Lens.lens (\ExecutionListItem' {stateMachineAliasArn} -> stateMachineAliasArn) (\s@ExecutionListItem' {} a -> s {stateMachineAliasArn = a} :: ExecutionListItem)
+
+-- | The Amazon Resource Name (ARN) of the state machine version associated
+-- with the execution.
+--
+-- If the state machine execution was started with an unqualified ARN, it
+-- returns null.
+--
+-- If the execution was started using a @stateMachineAliasArn@, both the
+-- @stateMachineAliasArn@ and @stateMachineVersionArn@ parameters contain
+-- the respective values.
+executionListItem_stateMachineVersionArn :: Lens.Lens' ExecutionListItem (Prelude.Maybe Prelude.Text)
+executionListItem_stateMachineVersionArn = Lens.lens (\ExecutionListItem' {stateMachineVersionArn} -> stateMachineVersionArn) (\s@ExecutionListItem' {} a -> s {stateMachineVersionArn = a} :: ExecutionListItem)
+
 -- | If the execution already ended, the date the execution stopped.
 executionListItem_stopDate :: Lens.Lens' ExecutionListItem (Prelude.Maybe Prelude.UTCTime)
 executionListItem_stopDate = Lens.lens (\ExecutionListItem' {stopDate} -> stopDate) (\s@ExecutionListItem' {} a -> s {stopDate = a} :: ExecutionListItem) Prelude.. Lens.mapping Data._Time
@@ -164,7 +220,8 @@ executionListItem_stopDate = Lens.lens (\ExecutionListItem' {stopDate} -> stopDa
 executionListItem_executionArn :: Lens.Lens' ExecutionListItem Prelude.Text
 executionListItem_executionArn = Lens.lens (\ExecutionListItem' {executionArn} -> executionArn) (\s@ExecutionListItem' {} a -> s {executionArn = a} :: ExecutionListItem)
 
--- | The Amazon Resource Name (ARN) of the executed state machine.
+-- | The Amazon Resource Name (ARN) of the state machine that ran the
+-- execution.
 executionListItem_stateMachineArn :: Lens.Lens' ExecutionListItem Prelude.Text
 executionListItem_stateMachineArn = Lens.lens (\ExecutionListItem' {stateMachineArn} -> stateMachineArn) (\s@ExecutionListItem' {} a -> s {stateMachineArn = a} :: ExecutionListItem)
 
@@ -203,6 +260,8 @@ instance Data.FromJSON ExecutionListItem where
           ExecutionListItem'
             Prelude.<$> (x Data..:? "itemCount")
             Prelude.<*> (x Data..:? "mapRunArn")
+            Prelude.<*> (x Data..:? "stateMachineAliasArn")
+            Prelude.<*> (x Data..:? "stateMachineVersionArn")
             Prelude.<*> (x Data..:? "stopDate")
             Prelude.<*> (x Data..: "executionArn")
             Prelude.<*> (x Data..: "stateMachineArn")
@@ -213,8 +272,11 @@ instance Data.FromJSON ExecutionListItem where
 
 instance Prelude.Hashable ExecutionListItem where
   hashWithSalt _salt ExecutionListItem' {..} =
-    _salt `Prelude.hashWithSalt` itemCount
+    _salt
+      `Prelude.hashWithSalt` itemCount
       `Prelude.hashWithSalt` mapRunArn
+      `Prelude.hashWithSalt` stateMachineAliasArn
+      `Prelude.hashWithSalt` stateMachineVersionArn
       `Prelude.hashWithSalt` stopDate
       `Prelude.hashWithSalt` executionArn
       `Prelude.hashWithSalt` stateMachineArn
@@ -226,6 +288,8 @@ instance Prelude.NFData ExecutionListItem where
   rnf ExecutionListItem' {..} =
     Prelude.rnf itemCount
       `Prelude.seq` Prelude.rnf mapRunArn
+      `Prelude.seq` Prelude.rnf stateMachineAliasArn
+      `Prelude.seq` Prelude.rnf stateMachineVersionArn
       `Prelude.seq` Prelude.rnf stopDate
       `Prelude.seq` Prelude.rnf executionArn
       `Prelude.seq` Prelude.rnf stateMachineArn

@@ -75,7 +75,8 @@ instance Data.FromJSON ActivityFailedEventDetails where
 
 instance Prelude.Hashable ActivityFailedEventDetails where
   hashWithSalt _salt ActivityFailedEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` cause
+    _salt
+      `Prelude.hashWithSalt` cause
       `Prelude.hashWithSalt` error
 
 instance Prelude.NFData ActivityFailedEventDetails where

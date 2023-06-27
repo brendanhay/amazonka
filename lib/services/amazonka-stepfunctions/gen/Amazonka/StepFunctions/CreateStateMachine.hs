@@ -28,17 +28,21 @@
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language>
 -- in the Step Functions User Guide.
 --
+-- If you set the @publish@ parameter of this API action to @true@, it
+-- publishes version @1@ as the first revision of the state machine.
+--
 -- This operation is eventually consistent. The results are best effort and
 -- may not reflect very recent updates and changes.
 --
 -- @CreateStateMachine@ is an idempotent API. Subsequent requests won’t
 -- create a duplicate resource if it was already created.
 -- @CreateStateMachine@\'s idempotency check is based on the state machine
--- @name@, @definition@, @type@, @LoggingConfiguration@ and
--- @TracingConfiguration@. If a following request has a different @roleArn@
--- or @tags@, Step Functions will ignore these differences and treat it as
--- an idempotent request of the previous. In this case, @roleArn@ and
--- @tags@ will not be updated, even if they are different.
+-- @name@, @definition@, @type@, @LoggingConfiguration@, and
+-- @TracingConfiguration@. The check is also based on the @publish@ and
+-- @versionDescription@ parameters. If a following request has a different
+-- @roleArn@ or @tags@, Step Functions will ignore these differences and
+-- treat it as an idempotent request of the previous. In this case,
+-- @roleArn@ and @tags@ will not be updated, even if they are different.
 module Amazonka.StepFunctions.CreateStateMachine
   ( -- * Creating a Request
     CreateStateMachine (..),
@@ -46,9 +50,11 @@ module Amazonka.StepFunctions.CreateStateMachine
 
     -- * Request Lenses
     createStateMachine_loggingConfiguration,
+    createStateMachine_publish,
     createStateMachine_tags,
     createStateMachine_tracingConfiguration,
     createStateMachine_type,
+    createStateMachine_versionDescription,
     createStateMachine_name,
     createStateMachine_definition,
     createStateMachine_roleArn,
@@ -58,6 +64,7 @@ module Amazonka.StepFunctions.CreateStateMachine
     newCreateStateMachineResponse,
 
     -- * Response Lenses
+    createStateMachineResponse_stateMachineVersionArn,
     createStateMachineResponse_httpStatus,
     createStateMachineResponse_stateMachineArn,
     createStateMachineResponse_creationDate,
@@ -81,6 +88,9 @@ data CreateStateMachine = CreateStateMachine'
     -- <https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html Log Levels>
     -- in the Step Functions User Guide.
     loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
+    -- | Set to @true@ to publish the first version of the state machine during
+    -- creation. The default is @false@.
+    publish :: Prelude.Maybe Prelude.Bool,
     -- | Tags to be added when creating a state machine.
     --
     -- An array of key-value pairs. For more information, see
@@ -97,6 +107,11 @@ data CreateStateMachine = CreateStateMachine'
     -- default is @STANDARD@. You cannot update the @type@ of a state machine
     -- once it has been created.
     type' :: Prelude.Maybe StateMachineType,
+    -- | Sets description about the state machine version. You can only set the
+    -- description if the @publish@ parameter is set to @true@. Otherwise, if
+    -- you set @versionDescription@, but @publish@ to @false@, this API action
+    -- throws @ValidationException@.
+    versionDescription :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the state machine.
     --
     -- A name must /not/ contain:
@@ -138,6 +153,9 @@ data CreateStateMachine = CreateStateMachine'
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html Log Levels>
 -- in the Step Functions User Guide.
 --
+-- 'publish', 'createStateMachine_publish' - Set to @true@ to publish the first version of the state machine during
+-- creation. The default is @false@.
+--
 -- 'tags', 'createStateMachine_tags' - Tags to be added when creating a state machine.
 --
 -- An array of key-value pairs. For more information, see
@@ -153,6 +171,11 @@ data CreateStateMachine = CreateStateMachine'
 -- 'type'', 'createStateMachine_type' - Determines whether a Standard or Express state machine is created. The
 -- default is @STANDARD@. You cannot update the @type@ of a state machine
 -- once it has been created.
+--
+-- 'versionDescription', 'createStateMachine_versionDescription' - Sets description about the state machine version. You can only set the
+-- description if the @publish@ parameter is set to @true@. Otherwise, if
+-- you set @versionDescription@, but @publish@ to @false@, this API action
+-- throws @ValidationException@.
 --
 -- 'name', 'createStateMachine_name' - The name of the state machine.
 --
@@ -188,9 +211,11 @@ newCreateStateMachine pName_ pDefinition_ pRoleArn_ =
   CreateStateMachine'
     { loggingConfiguration =
         Prelude.Nothing,
+      publish = Prelude.Nothing,
       tags = Prelude.Nothing,
       tracingConfiguration = Prelude.Nothing,
       type' = Prelude.Nothing,
+      versionDescription = Prelude.Nothing,
       name = pName_,
       definition = Data._Sensitive Lens.# pDefinition_,
       roleArn = pRoleArn_
@@ -204,6 +229,11 @@ newCreateStateMachine pName_ pDefinition_ pRoleArn_ =
 -- in the Step Functions User Guide.
 createStateMachine_loggingConfiguration :: Lens.Lens' CreateStateMachine (Prelude.Maybe LoggingConfiguration)
 createStateMachine_loggingConfiguration = Lens.lens (\CreateStateMachine' {loggingConfiguration} -> loggingConfiguration) (\s@CreateStateMachine' {} a -> s {loggingConfiguration = a} :: CreateStateMachine)
+
+-- | Set to @true@ to publish the first version of the state machine during
+-- creation. The default is @false@.
+createStateMachine_publish :: Lens.Lens' CreateStateMachine (Prelude.Maybe Prelude.Bool)
+createStateMachine_publish = Lens.lens (\CreateStateMachine' {publish} -> publish) (\s@CreateStateMachine' {} a -> s {publish = a} :: CreateStateMachine)
 
 -- | Tags to be added when creating a state machine.
 --
@@ -226,6 +256,13 @@ createStateMachine_tracingConfiguration = Lens.lens (\CreateStateMachine' {traci
 -- once it has been created.
 createStateMachine_type :: Lens.Lens' CreateStateMachine (Prelude.Maybe StateMachineType)
 createStateMachine_type = Lens.lens (\CreateStateMachine' {type'} -> type') (\s@CreateStateMachine' {} a -> s {type' = a} :: CreateStateMachine)
+
+-- | Sets description about the state machine version. You can only set the
+-- description if the @publish@ parameter is set to @true@. Otherwise, if
+-- you set @versionDescription@, but @publish@ to @false@, this API action
+-- throws @ValidationException@.
+createStateMachine_versionDescription :: Lens.Lens' CreateStateMachine (Prelude.Maybe Prelude.Text)
+createStateMachine_versionDescription = Lens.lens (\CreateStateMachine' {versionDescription} -> versionDescription) (\s@CreateStateMachine' {} a -> s {versionDescription = a} :: CreateStateMachine) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the state machine.
 --
@@ -266,17 +303,21 @@ instance Core.AWSRequest CreateStateMachine where
     Response.receiveJSON
       ( \s h x ->
           CreateStateMachineResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (x Data..?> "stateMachineVersionArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "stateMachineArn")
             Prelude.<*> (x Data..:> "creationDate")
       )
 
 instance Prelude.Hashable CreateStateMachine where
   hashWithSalt _salt CreateStateMachine' {..} =
-    _salt `Prelude.hashWithSalt` loggingConfiguration
+    _salt
+      `Prelude.hashWithSalt` loggingConfiguration
+      `Prelude.hashWithSalt` publish
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` tracingConfiguration
       `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` versionDescription
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` roleArn
@@ -284,9 +325,11 @@ instance Prelude.Hashable CreateStateMachine where
 instance Prelude.NFData CreateStateMachine where
   rnf CreateStateMachine' {..} =
     Prelude.rnf loggingConfiguration
+      `Prelude.seq` Prelude.rnf publish
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf tracingConfiguration
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf versionDescription
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf definition
       `Prelude.seq` Prelude.rnf roleArn
@@ -312,10 +355,13 @@ instance Data.ToJSON CreateStateMachine where
       ( Prelude.catMaybes
           [ ("loggingConfiguration" Data..=)
               Prelude.<$> loggingConfiguration,
+            ("publish" Data..=) Prelude.<$> publish,
             ("tags" Data..=) Prelude.<$> tags,
             ("tracingConfiguration" Data..=)
               Prelude.<$> tracingConfiguration,
             ("type" Data..=) Prelude.<$> type',
+            ("versionDescription" Data..=)
+              Prelude.<$> versionDescription,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("definition" Data..= definition),
             Prelude.Just ("roleArn" Data..= roleArn)
@@ -330,7 +376,11 @@ instance Data.ToQuery CreateStateMachine where
 
 -- | /See:/ 'newCreateStateMachineResponse' smart constructor.
 data CreateStateMachineResponse = CreateStateMachineResponse'
-  { -- | The response's http status code.
+  { -- | The Amazon Resource Name (ARN) that identifies the created state machine
+    -- version. If you do not set the @publish@ parameter to @true@, this field
+    -- returns null value.
+    stateMachineVersionArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) that identifies the created state
     -- machine.
@@ -347,6 +397,10 @@ data CreateStateMachineResponse = CreateStateMachineResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'stateMachineVersionArn', 'createStateMachineResponse_stateMachineVersionArn' - The Amazon Resource Name (ARN) that identifies the created state machine
+-- version. If you do not set the @publish@ parameter to @true@, this field
+-- returns null value.
 --
 -- 'httpStatus', 'createStateMachineResponse_httpStatus' - The response's http status code.
 --
@@ -367,11 +421,18 @@ newCreateStateMachineResponse
   pStateMachineArn_
   pCreationDate_ =
     CreateStateMachineResponse'
-      { httpStatus =
-          pHttpStatus_,
+      { stateMachineVersionArn =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_,
         stateMachineArn = pStateMachineArn_,
         creationDate = Data._Time Lens.# pCreationDate_
       }
+
+-- | The Amazon Resource Name (ARN) that identifies the created state machine
+-- version. If you do not set the @publish@ parameter to @true@, this field
+-- returns null value.
+createStateMachineResponse_stateMachineVersionArn :: Lens.Lens' CreateStateMachineResponse (Prelude.Maybe Prelude.Text)
+createStateMachineResponse_stateMachineVersionArn = Lens.lens (\CreateStateMachineResponse' {stateMachineVersionArn} -> stateMachineVersionArn) (\s@CreateStateMachineResponse' {} a -> s {stateMachineVersionArn = a} :: CreateStateMachineResponse)
 
 -- | The response's http status code.
 createStateMachineResponse_httpStatus :: Lens.Lens' CreateStateMachineResponse Prelude.Int
@@ -388,6 +449,7 @@ createStateMachineResponse_creationDate = Lens.lens (\CreateStateMachineResponse
 
 instance Prelude.NFData CreateStateMachineResponse where
   rnf CreateStateMachineResponse' {..} =
-    Prelude.rnf httpStatus
+    Prelude.rnf stateMachineVersionArn
+      `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf stateMachineArn
       `Prelude.seq` Prelude.rnf creationDate

@@ -36,7 +36,13 @@ data ExecutionStartedEventDetails = ExecutionStartedEventDetails'
     inputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
     -- | The Amazon Resource Name (ARN) of the IAM role used for executing Lambda
     -- tasks.
-    roleArn :: Prelude.Maybe Prelude.Text
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) that identifies a state machine alias
+    -- used for starting the state machine execution.
+    stateMachineAliasArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) that identifies a state machine version
+    -- used for starting the state machine execution.
+    stateMachineVersionArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -55,6 +61,12 @@ data ExecutionStartedEventDetails = ExecutionStartedEventDetails'
 --
 -- 'roleArn', 'executionStartedEventDetails_roleArn' - The Amazon Resource Name (ARN) of the IAM role used for executing Lambda
 -- tasks.
+--
+-- 'stateMachineAliasArn', 'executionStartedEventDetails_stateMachineAliasArn' - The Amazon Resource Name (ARN) that identifies a state machine alias
+-- used for starting the state machine execution.
+--
+-- 'stateMachineVersionArn', 'executionStartedEventDetails_stateMachineVersionArn' - The Amazon Resource Name (ARN) that identifies a state machine version
+-- used for starting the state machine execution.
 newExecutionStartedEventDetails ::
   ExecutionStartedEventDetails
 newExecutionStartedEventDetails =
@@ -62,7 +74,9 @@ newExecutionStartedEventDetails =
     { input =
         Prelude.Nothing,
       inputDetails = Prelude.Nothing,
-      roleArn = Prelude.Nothing
+      roleArn = Prelude.Nothing,
+      stateMachineAliasArn = Prelude.Nothing,
+      stateMachineVersionArn = Prelude.Nothing
     }
 
 -- | The JSON data input to the execution. Length constraints apply to the
@@ -79,6 +93,16 @@ executionStartedEventDetails_inputDetails = Lens.lens (\ExecutionStartedEventDet
 executionStartedEventDetails_roleArn :: Lens.Lens' ExecutionStartedEventDetails (Prelude.Maybe Prelude.Text)
 executionStartedEventDetails_roleArn = Lens.lens (\ExecutionStartedEventDetails' {roleArn} -> roleArn) (\s@ExecutionStartedEventDetails' {} a -> s {roleArn = a} :: ExecutionStartedEventDetails)
 
+-- | The Amazon Resource Name (ARN) that identifies a state machine alias
+-- used for starting the state machine execution.
+executionStartedEventDetails_stateMachineAliasArn :: Lens.Lens' ExecutionStartedEventDetails (Prelude.Maybe Prelude.Text)
+executionStartedEventDetails_stateMachineAliasArn = Lens.lens (\ExecutionStartedEventDetails' {stateMachineAliasArn} -> stateMachineAliasArn) (\s@ExecutionStartedEventDetails' {} a -> s {stateMachineAliasArn = a} :: ExecutionStartedEventDetails)
+
+-- | The Amazon Resource Name (ARN) that identifies a state machine version
+-- used for starting the state machine execution.
+executionStartedEventDetails_stateMachineVersionArn :: Lens.Lens' ExecutionStartedEventDetails (Prelude.Maybe Prelude.Text)
+executionStartedEventDetails_stateMachineVersionArn = Lens.lens (\ExecutionStartedEventDetails' {stateMachineVersionArn} -> stateMachineVersionArn) (\s@ExecutionStartedEventDetails' {} a -> s {stateMachineVersionArn = a} :: ExecutionStartedEventDetails)
+
 instance Data.FromJSON ExecutionStartedEventDetails where
   parseJSON =
     Data.withObject
@@ -88,6 +112,8 @@ instance Data.FromJSON ExecutionStartedEventDetails where
             Prelude.<$> (x Data..:? "input")
             Prelude.<*> (x Data..:? "inputDetails")
             Prelude.<*> (x Data..:? "roleArn")
+            Prelude.<*> (x Data..:? "stateMachineAliasArn")
+            Prelude.<*> (x Data..:? "stateMachineVersionArn")
       )
 
 instance
@@ -95,12 +121,17 @@ instance
     ExecutionStartedEventDetails
   where
   hashWithSalt _salt ExecutionStartedEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` input
+    _salt
+      `Prelude.hashWithSalt` input
       `Prelude.hashWithSalt` inputDetails
       `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` stateMachineAliasArn
+      `Prelude.hashWithSalt` stateMachineVersionArn
 
 instance Prelude.NFData ExecutionStartedEventDetails where
   rnf ExecutionStartedEventDetails' {..} =
     Prelude.rnf input
       `Prelude.seq` Prelude.rnf inputDetails
       `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf stateMachineAliasArn
+      `Prelude.seq` Prelude.rnf stateMachineVersionArn

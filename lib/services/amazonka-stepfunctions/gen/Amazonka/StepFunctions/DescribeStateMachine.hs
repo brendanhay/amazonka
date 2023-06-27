@@ -21,16 +21,40 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides information about a state machine\'s definition, its IAM role
--- Amazon Resource Name (ARN), and configuration. If the state machine ARN
--- is a qualified state machine ARN, the response returned includes the
--- @Map@ state\'s label.
+-- Amazon Resource Name (ARN), and configuration.
 --
--- A qualified state machine ARN refers to a /Distributed Map state/
--- defined within a state machine. For example, the qualified state machine
--- ARN
--- @arn:partition:states:region:account-id:stateMachine:stateMachineName\/mapStateLabel@
--- refers to a /Distributed Map state/ with a label @mapStateLabel@ in the
--- state machine named @stateMachineName@.
+-- A qualified state machine ARN can either refer to a /Distributed Map
+-- state/ defined within a state machine, a version ARN, or an alias ARN.
+--
+-- The following are some examples of qualified and unqualified state
+-- machine ARNs:
+--
+-- -   The following qualified state machine ARN refers to a /Distributed
+--     Map state/ with a label @mapStateLabel@ in a state machine named
+--     @myStateMachine@.
+--
+--     @arn:partition:states:region:account-id:stateMachine:myStateMachine\/mapStateLabel@
+--
+--     If you provide a qualified state machine ARN that refers to a
+--     /Distributed Map state/, the request fails with
+--     @ValidationException@.
+--
+-- -   The following qualified state machine ARN refers to an alias named
+--     @PROD@.
+--
+--     @arn:\<partition>:states:\<region>:\<account-id>:stateMachine:\<myStateMachine:PROD>@
+--
+--     If you provide a qualified state machine ARN that refers to a
+--     version ARN or an alias ARN, the request starts execution for that
+--     version or alias.
+--
+-- -   The following unqualified state machine ARN refers to a state
+--     machine named @myStateMachine@.
+--
+--     @arn:\<partition>:states:\<region>:\<account-id>:stateMachine:\<myStateMachine>@
+--
+-- This API action returns the details for a state machine version if the
+-- @stateMachineArn@ you specify is a state machine version ARN.
 --
 -- This operation is eventually consistent. The results are best effort and
 -- may not reflect very recent updates and changes.
@@ -47,8 +71,10 @@ module Amazonka.StepFunctions.DescribeStateMachine
     newDescribeStateMachineResponse,
 
     -- * Response Lenses
+    describeStateMachineResponse_description,
     describeStateMachineResponse_label,
     describeStateMachineResponse_loggingConfiguration,
+    describeStateMachineResponse_revisionId,
     describeStateMachineResponse_status,
     describeStateMachineResponse_tracingConfiguration,
     describeStateMachineResponse_httpStatus,
@@ -71,7 +97,13 @@ import Amazonka.StepFunctions.Types
 
 -- | /See:/ 'newDescribeStateMachine' smart constructor.
 data DescribeStateMachine = DescribeStateMachine'
-  { -- | The Amazon Resource Name (ARN) of the state machine to describe.
+  { -- | The Amazon Resource Name (ARN) of the state machine for which you want
+    -- the information.
+    --
+    -- If you specify a state machine version ARN, this API returns details
+    -- about that version. The version ARN is a combination of state machine
+    -- ARN and the version number separated by a colon (:). For example,
+    -- @stateMachineARN:1@.
     stateMachineArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,7 +116,13 @@ data DescribeStateMachine = DescribeStateMachine'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stateMachineArn', 'describeStateMachine_stateMachineArn' - The Amazon Resource Name (ARN) of the state machine to describe.
+-- 'stateMachineArn', 'describeStateMachine_stateMachineArn' - The Amazon Resource Name (ARN) of the state machine for which you want
+-- the information.
+--
+-- If you specify a state machine version ARN, this API returns details
+-- about that version. The version ARN is a combination of state machine
+-- ARN and the version number separated by a colon (:). For example,
+-- @stateMachineARN:1@.
 newDescribeStateMachine ::
   -- | 'stateMachineArn'
   Prelude.Text ->
@@ -95,7 +133,13 @@ newDescribeStateMachine pStateMachineArn_ =
         pStateMachineArn_
     }
 
--- | The Amazon Resource Name (ARN) of the state machine to describe.
+-- | The Amazon Resource Name (ARN) of the state machine for which you want
+-- the information.
+--
+-- If you specify a state machine version ARN, this API returns details
+-- about that version. The version ARN is a combination of state machine
+-- ARN and the version number separated by a colon (:). For example,
+-- @stateMachineARN:1@.
 describeStateMachine_stateMachineArn :: Lens.Lens' DescribeStateMachine Prelude.Text
 describeStateMachine_stateMachineArn = Lens.lens (\DescribeStateMachine' {stateMachineArn} -> stateMachineArn) (\s@DescribeStateMachine' {} a -> s {stateMachineArn = a} :: DescribeStateMachine)
 
@@ -109,8 +153,10 @@ instance Core.AWSRequest DescribeStateMachine where
     Response.receiveJSON
       ( \s h x ->
           DescribeStateMachineResponse'
-            Prelude.<$> (x Data..?> "label")
+            Prelude.<$> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "label")
             Prelude.<*> (x Data..?> "loggingConfiguration")
+            Prelude.<*> (x Data..?> "revisionId")
             Prelude.<*> (x Data..?> "status")
             Prelude.<*> (x Data..?> "tracingConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -162,11 +208,19 @@ instance Data.ToQuery DescribeStateMachine where
 
 -- | /See:/ 'newDescribeStateMachineResponse' smart constructor.
 data DescribeStateMachineResponse = DescribeStateMachineResponse'
-  { -- | A user-defined or an auto-generated string that identifies a @Map@
+  { -- | The description of the state machine version.
+    description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | A user-defined or an auto-generated string that identifies a @Map@
     -- state. This parameter is present only if the @stateMachineArn@ specified
     -- in input is a qualified state machine ARN.
     label :: Prelude.Maybe Prelude.Text,
     loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
+    -- | The revision identifier for the state machine.
+    --
+    -- Use the @revisionId@ parameter to compare between versions of a state
+    -- machine configuration used for executions without performing a diff of
+    -- the properties, such as @definition@ and @roleArn@.
+    revisionId :: Prelude.Maybe Prelude.Text,
     -- | The current status of the state machine.
     status :: Prelude.Maybe StateMachineStatus,
     -- | Selects whether X-Ray tracing is enabled.
@@ -174,6 +228,11 @@ data DescribeStateMachineResponse = DescribeStateMachineResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) that identifies the state machine.
+    --
+    -- If you specified a state machine version ARN in your request, the API
+    -- returns the version ARN. The version ARN is a combination of state
+    -- machine ARN and the version number separated by a colon (:). For
+    -- example, @stateMachineARN:1@.
     stateMachineArn :: Prelude.Text,
     -- | The name of the state machine.
     --
@@ -202,6 +261,9 @@ data DescribeStateMachineResponse = DescribeStateMachineResponse'
     -- | The @type@ of the state machine (@STANDARD@ or @EXPRESS@).
     type' :: StateMachineType,
     -- | The date the state machine is created.
+    --
+    -- For a state machine version, @creationDate@ is the date the version was
+    -- created.
     creationDate :: Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -214,11 +276,19 @@ data DescribeStateMachineResponse = DescribeStateMachineResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'describeStateMachineResponse_description' - The description of the state machine version.
+--
 -- 'label', 'describeStateMachineResponse_label' - A user-defined or an auto-generated string that identifies a @Map@
 -- state. This parameter is present only if the @stateMachineArn@ specified
 -- in input is a qualified state machine ARN.
 --
 -- 'loggingConfiguration', 'describeStateMachineResponse_loggingConfiguration' - Undocumented member.
+--
+-- 'revisionId', 'describeStateMachineResponse_revisionId' - The revision identifier for the state machine.
+--
+-- Use the @revisionId@ parameter to compare between versions of a state
+-- machine configuration used for executions without performing a diff of
+-- the properties, such as @definition@ and @roleArn@.
 --
 -- 'status', 'describeStateMachineResponse_status' - The current status of the state machine.
 --
@@ -227,6 +297,11 @@ data DescribeStateMachineResponse = DescribeStateMachineResponse'
 -- 'httpStatus', 'describeStateMachineResponse_httpStatus' - The response's http status code.
 --
 -- 'stateMachineArn', 'describeStateMachineResponse_stateMachineArn' - The Amazon Resource Name (ARN) that identifies the state machine.
+--
+-- If you specified a state machine version ARN in your request, the API
+-- returns the version ARN. The version ARN is a combination of state
+-- machine ARN and the version number separated by a colon (:). For
+-- example, @stateMachineARN:1@.
 --
 -- 'name', 'describeStateMachineResponse_name' - The name of the state machine.
 --
@@ -255,6 +330,9 @@ data DescribeStateMachineResponse = DescribeStateMachineResponse'
 -- 'type'', 'describeStateMachineResponse_type' - The @type@ of the state machine (@STANDARD@ or @EXPRESS@).
 --
 -- 'creationDate', 'describeStateMachineResponse_creationDate' - The date the state machine is created.
+--
+-- For a state machine version, @creationDate@ is the date the version was
+-- created.
 newDescribeStateMachineResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -280,9 +358,11 @@ newDescribeStateMachineResponse
   pType_
   pCreationDate_ =
     DescribeStateMachineResponse'
-      { label =
+      { description =
           Prelude.Nothing,
+        label = Prelude.Nothing,
         loggingConfiguration = Prelude.Nothing,
+        revisionId = Prelude.Nothing,
         status = Prelude.Nothing,
         tracingConfiguration = Prelude.Nothing,
         httpStatus = pHttpStatus_,
@@ -296,6 +376,10 @@ newDescribeStateMachineResponse
           Data._Time Lens.# pCreationDate_
       }
 
+-- | The description of the state machine version.
+describeStateMachineResponse_description :: Lens.Lens' DescribeStateMachineResponse (Prelude.Maybe Prelude.Text)
+describeStateMachineResponse_description = Lens.lens (\DescribeStateMachineResponse' {description} -> description) (\s@DescribeStateMachineResponse' {} a -> s {description = a} :: DescribeStateMachineResponse) Prelude.. Lens.mapping Data._Sensitive
+
 -- | A user-defined or an auto-generated string that identifies a @Map@
 -- state. This parameter is present only if the @stateMachineArn@ specified
 -- in input is a qualified state machine ARN.
@@ -305,6 +389,14 @@ describeStateMachineResponse_label = Lens.lens (\DescribeStateMachineResponse' {
 -- | Undocumented member.
 describeStateMachineResponse_loggingConfiguration :: Lens.Lens' DescribeStateMachineResponse (Prelude.Maybe LoggingConfiguration)
 describeStateMachineResponse_loggingConfiguration = Lens.lens (\DescribeStateMachineResponse' {loggingConfiguration} -> loggingConfiguration) (\s@DescribeStateMachineResponse' {} a -> s {loggingConfiguration = a} :: DescribeStateMachineResponse)
+
+-- | The revision identifier for the state machine.
+--
+-- Use the @revisionId@ parameter to compare between versions of a state
+-- machine configuration used for executions without performing a diff of
+-- the properties, such as @definition@ and @roleArn@.
+describeStateMachineResponse_revisionId :: Lens.Lens' DescribeStateMachineResponse (Prelude.Maybe Prelude.Text)
+describeStateMachineResponse_revisionId = Lens.lens (\DescribeStateMachineResponse' {revisionId} -> revisionId) (\s@DescribeStateMachineResponse' {} a -> s {revisionId = a} :: DescribeStateMachineResponse)
 
 -- | The current status of the state machine.
 describeStateMachineResponse_status :: Lens.Lens' DescribeStateMachineResponse (Prelude.Maybe StateMachineStatus)
@@ -319,6 +411,11 @@ describeStateMachineResponse_httpStatus :: Lens.Lens' DescribeStateMachineRespon
 describeStateMachineResponse_httpStatus = Lens.lens (\DescribeStateMachineResponse' {httpStatus} -> httpStatus) (\s@DescribeStateMachineResponse' {} a -> s {httpStatus = a} :: DescribeStateMachineResponse)
 
 -- | The Amazon Resource Name (ARN) that identifies the state machine.
+--
+-- If you specified a state machine version ARN in your request, the API
+-- returns the version ARN. The version ARN is a combination of state
+-- machine ARN and the version number separated by a colon (:). For
+-- example, @stateMachineARN:1@.
 describeStateMachineResponse_stateMachineArn :: Lens.Lens' DescribeStateMachineResponse Prelude.Text
 describeStateMachineResponse_stateMachineArn = Lens.lens (\DescribeStateMachineResponse' {stateMachineArn} -> stateMachineArn) (\s@DescribeStateMachineResponse' {} a -> s {stateMachineArn = a} :: DescribeStateMachineResponse)
 
@@ -357,13 +454,18 @@ describeStateMachineResponse_type :: Lens.Lens' DescribeStateMachineResponse Sta
 describeStateMachineResponse_type = Lens.lens (\DescribeStateMachineResponse' {type'} -> type') (\s@DescribeStateMachineResponse' {} a -> s {type' = a} :: DescribeStateMachineResponse)
 
 -- | The date the state machine is created.
+--
+-- For a state machine version, @creationDate@ is the date the version was
+-- created.
 describeStateMachineResponse_creationDate :: Lens.Lens' DescribeStateMachineResponse Prelude.UTCTime
 describeStateMachineResponse_creationDate = Lens.lens (\DescribeStateMachineResponse' {creationDate} -> creationDate) (\s@DescribeStateMachineResponse' {} a -> s {creationDate = a} :: DescribeStateMachineResponse) Prelude.. Data._Time
 
 instance Prelude.NFData DescribeStateMachineResponse where
   rnf DescribeStateMachineResponse' {..} =
-    Prelude.rnf label
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf label
       `Prelude.seq` Prelude.rnf loggingConfiguration
+      `Prelude.seq` Prelude.rnf revisionId
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf tracingConfiguration
       `Prelude.seq` Prelude.rnf httpStatus

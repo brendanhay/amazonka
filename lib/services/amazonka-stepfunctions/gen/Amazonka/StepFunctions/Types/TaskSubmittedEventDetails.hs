@@ -105,7 +105,8 @@ instance Data.FromJSON TaskSubmittedEventDetails where
 
 instance Prelude.Hashable TaskSubmittedEventDetails where
   hashWithSalt _salt TaskSubmittedEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` output
+    _salt
+      `Prelude.hashWithSalt` output
       `Prelude.hashWithSalt` outputDetails
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resource

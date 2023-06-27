@@ -135,7 +135,8 @@ instance Data.FromJSON StateExitedEventDetails where
 
 instance Prelude.Hashable StateExitedEventDetails where
   hashWithSalt _salt StateExitedEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` output
+    _salt
+      `Prelude.hashWithSalt` output
       `Prelude.hashWithSalt` outputDetails
       `Prelude.hashWithSalt` name
 

@@ -98,7 +98,8 @@ instance Data.FromJSON TaskFailedEventDetails where
 
 instance Prelude.Hashable TaskFailedEventDetails where
   hashWithSalt _salt TaskFailedEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` cause
+    _salt
+      `Prelude.hashWithSalt` cause
       `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resource

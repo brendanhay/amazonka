@@ -23,15 +23,26 @@ module Amazonka.StepFunctions.Lens
 
     -- ** CreateStateMachine
     createStateMachine_loggingConfiguration,
+    createStateMachine_publish,
     createStateMachine_tags,
     createStateMachine_tracingConfiguration,
     createStateMachine_type,
+    createStateMachine_versionDescription,
     createStateMachine_name,
     createStateMachine_definition,
     createStateMachine_roleArn,
+    createStateMachineResponse_stateMachineVersionArn,
     createStateMachineResponse_httpStatus,
     createStateMachineResponse_stateMachineArn,
     createStateMachineResponse_creationDate,
+
+    -- ** CreateStateMachineAlias
+    createStateMachineAlias_description,
+    createStateMachineAlias_name,
+    createStateMachineAlias_routingConfiguration,
+    createStateMachineAliasResponse_httpStatus,
+    createStateMachineAliasResponse_stateMachineAliasArn,
+    createStateMachineAliasResponse_creationDate,
 
     -- ** DeleteActivity
     deleteActivity_activityArn,
@@ -40,6 +51,14 @@ module Amazonka.StepFunctions.Lens
     -- ** DeleteStateMachine
     deleteStateMachine_stateMachineArn,
     deleteStateMachineResponse_httpStatus,
+
+    -- ** DeleteStateMachineAlias
+    deleteStateMachineAlias_stateMachineAliasArn,
+    deleteStateMachineAliasResponse_httpStatus,
+
+    -- ** DeleteStateMachineVersion
+    deleteStateMachineVersion_stateMachineVersionArn,
+    deleteStateMachineVersionResponse_httpStatus,
 
     -- ** DescribeActivity
     describeActivity_activityArn,
@@ -58,6 +77,8 @@ module Amazonka.StepFunctions.Lens
     describeExecutionResponse_name,
     describeExecutionResponse_output,
     describeExecutionResponse_outputDetails,
+    describeExecutionResponse_stateMachineAliasArn,
+    describeExecutionResponse_stateMachineVersionArn,
     describeExecutionResponse_stopDate,
     describeExecutionResponse_traceHeader,
     describeExecutionResponse_httpStatus,
@@ -82,8 +103,10 @@ module Amazonka.StepFunctions.Lens
 
     -- ** DescribeStateMachine
     describeStateMachine_stateMachineArn,
+    describeStateMachineResponse_description,
     describeStateMachineResponse_label,
     describeStateMachineResponse_loggingConfiguration,
+    describeStateMachineResponse_revisionId,
     describeStateMachineResponse_status,
     describeStateMachineResponse_tracingConfiguration,
     describeStateMachineResponse_httpStatus,
@@ -94,11 +117,22 @@ module Amazonka.StepFunctions.Lens
     describeStateMachineResponse_type,
     describeStateMachineResponse_creationDate,
 
+    -- ** DescribeStateMachineAlias
+    describeStateMachineAlias_stateMachineAliasArn,
+    describeStateMachineAliasResponse_creationDate,
+    describeStateMachineAliasResponse_description,
+    describeStateMachineAliasResponse_name,
+    describeStateMachineAliasResponse_routingConfiguration,
+    describeStateMachineAliasResponse_stateMachineAliasArn,
+    describeStateMachineAliasResponse_updateDate,
+    describeStateMachineAliasResponse_httpStatus,
+
     -- ** DescribeStateMachineForExecution
     describeStateMachineForExecution_executionArn,
     describeStateMachineForExecutionResponse_label,
     describeStateMachineForExecutionResponse_loggingConfiguration,
     describeStateMachineForExecutionResponse_mapRunArn,
+    describeStateMachineForExecutionResponse_revisionId,
     describeStateMachineForExecutionResponse_tracingConfiguration,
     describeStateMachineForExecutionResponse_httpStatus,
     describeStateMachineForExecutionResponse_stateMachineArn,
@@ -149,6 +183,22 @@ module Amazonka.StepFunctions.Lens
     listMapRunsResponse_httpStatus,
     listMapRunsResponse_mapRuns,
 
+    -- ** ListStateMachineAliases
+    listStateMachineAliases_maxResults,
+    listStateMachineAliases_nextToken,
+    listStateMachineAliases_stateMachineArn,
+    listStateMachineAliasesResponse_nextToken,
+    listStateMachineAliasesResponse_httpStatus,
+    listStateMachineAliasesResponse_stateMachineAliases,
+
+    -- ** ListStateMachineVersions
+    listStateMachineVersions_maxResults,
+    listStateMachineVersions_nextToken,
+    listStateMachineVersions_stateMachineArn,
+    listStateMachineVersionsResponse_nextToken,
+    listStateMachineVersionsResponse_httpStatus,
+    listStateMachineVersionsResponse_stateMachineVersions,
+
     -- ** ListStateMachines
     listStateMachines_maxResults,
     listStateMachines_nextToken,
@@ -160,6 +210,14 @@ module Amazonka.StepFunctions.Lens
     listTagsForResource_resourceArn,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
+
+    -- ** PublishStateMachineVersion
+    publishStateMachineVersion_description,
+    publishStateMachineVersion_revisionId,
+    publishStateMachineVersion_stateMachineArn,
+    publishStateMachineVersionResponse_httpStatus,
+    publishStateMachineVersionResponse_creationDate,
+    publishStateMachineVersionResponse_stateMachineVersionArn,
 
     -- ** SendTaskFailure
     sendTaskFailure_cause,
@@ -233,11 +291,22 @@ module Amazonka.StepFunctions.Lens
     -- ** UpdateStateMachine
     updateStateMachine_definition,
     updateStateMachine_loggingConfiguration,
+    updateStateMachine_publish,
     updateStateMachine_roleArn,
     updateStateMachine_tracingConfiguration,
+    updateStateMachine_versionDescription,
     updateStateMachine_stateMachineArn,
+    updateStateMachineResponse_revisionId,
+    updateStateMachineResponse_stateMachineVersionArn,
     updateStateMachineResponse_httpStatus,
     updateStateMachineResponse_updateDate,
+
+    -- ** UpdateStateMachineAlias
+    updateStateMachineAlias_description,
+    updateStateMachineAlias_routingConfiguration,
+    updateStateMachineAlias_stateMachineAliasArn,
+    updateStateMachineAliasResponse_httpStatus,
+    updateStateMachineAliasResponse_updateDate,
 
     -- * Types
 
@@ -293,6 +362,8 @@ module Amazonka.StepFunctions.Lens
     -- ** ExecutionListItem
     executionListItem_itemCount,
     executionListItem_mapRunArn,
+    executionListItem_stateMachineAliasArn,
+    executionListItem_stateMachineVersionArn,
     executionListItem_stopDate,
     executionListItem_executionArn,
     executionListItem_stateMachineArn,
@@ -304,6 +375,8 @@ module Amazonka.StepFunctions.Lens
     executionStartedEventDetails_input,
     executionStartedEventDetails_inputDetails,
     executionStartedEventDetails_roleArn,
+    executionStartedEventDetails_stateMachineAliasArn,
+    executionStartedEventDetails_stateMachineVersionArn,
 
     -- ** ExecutionSucceededEventDetails
     executionSucceededEventDetails_output,
@@ -432,6 +505,10 @@ module Amazonka.StepFunctions.Lens
     -- ** MapStateStartedEventDetails
     mapStateStartedEventDetails_length,
 
+    -- ** RoutingConfigurationListItem
+    routingConfigurationListItem_stateMachineVersionArn,
+    routingConfigurationListItem_weight,
+
     -- ** StateEnteredEventDetails
     stateEnteredEventDetails_input,
     stateEnteredEventDetails_inputDetails,
@@ -442,11 +519,19 @@ module Amazonka.StepFunctions.Lens
     stateExitedEventDetails_outputDetails,
     stateExitedEventDetails_name,
 
+    -- ** StateMachineAliasListItem
+    stateMachineAliasListItem_stateMachineAliasArn,
+    stateMachineAliasListItem_creationDate,
+
     -- ** StateMachineListItem
     stateMachineListItem_stateMachineArn,
     stateMachineListItem_name,
     stateMachineListItem_type,
     stateMachineListItem_creationDate,
+
+    -- ** StateMachineVersionListItem
+    stateMachineVersionListItem_stateMachineVersionArn,
+    stateMachineVersionListItem_creationDate,
 
     -- ** Tag
     tag_key,
@@ -511,20 +596,27 @@ where
 
 import Amazonka.StepFunctions.CreateActivity
 import Amazonka.StepFunctions.CreateStateMachine
+import Amazonka.StepFunctions.CreateStateMachineAlias
 import Amazonka.StepFunctions.DeleteActivity
 import Amazonka.StepFunctions.DeleteStateMachine
+import Amazonka.StepFunctions.DeleteStateMachineAlias
+import Amazonka.StepFunctions.DeleteStateMachineVersion
 import Amazonka.StepFunctions.DescribeActivity
 import Amazonka.StepFunctions.DescribeExecution
 import Amazonka.StepFunctions.DescribeMapRun
 import Amazonka.StepFunctions.DescribeStateMachine
+import Amazonka.StepFunctions.DescribeStateMachineAlias
 import Amazonka.StepFunctions.DescribeStateMachineForExecution
 import Amazonka.StepFunctions.GetActivityTask
 import Amazonka.StepFunctions.GetExecutionHistory
 import Amazonka.StepFunctions.ListActivities
 import Amazonka.StepFunctions.ListExecutions
 import Amazonka.StepFunctions.ListMapRuns
+import Amazonka.StepFunctions.ListStateMachineAliases
+import Amazonka.StepFunctions.ListStateMachineVersions
 import Amazonka.StepFunctions.ListStateMachines
 import Amazonka.StepFunctions.ListTagsForResource
+import Amazonka.StepFunctions.PublishStateMachineVersion
 import Amazonka.StepFunctions.SendTaskFailure
 import Amazonka.StepFunctions.SendTaskHeartbeat
 import Amazonka.StepFunctions.SendTaskSuccess
@@ -565,9 +657,12 @@ import Amazonka.StepFunctions.Types.MapRunItemCounts
 import Amazonka.StepFunctions.Types.MapRunListItem
 import Amazonka.StepFunctions.Types.MapRunStartedEventDetails
 import Amazonka.StepFunctions.Types.MapStateStartedEventDetails
+import Amazonka.StepFunctions.Types.RoutingConfigurationListItem
 import Amazonka.StepFunctions.Types.StateEnteredEventDetails
 import Amazonka.StepFunctions.Types.StateExitedEventDetails
+import Amazonka.StepFunctions.Types.StateMachineAliasListItem
 import Amazonka.StepFunctions.Types.StateMachineListItem
+import Amazonka.StepFunctions.Types.StateMachineVersionListItem
 import Amazonka.StepFunctions.Types.Tag
 import Amazonka.StepFunctions.Types.TaskCredentials
 import Amazonka.StepFunctions.Types.TaskFailedEventDetails
@@ -582,3 +677,4 @@ import Amazonka.StepFunctions.Types.TracingConfiguration
 import Amazonka.StepFunctions.UntagResource
 import Amazonka.StepFunctions.UpdateMapRun
 import Amazonka.StepFunctions.UpdateStateMachine
+import Amazonka.StepFunctions.UpdateStateMachineAlias

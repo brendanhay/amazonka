@@ -138,7 +138,8 @@ instance Data.FromJSON ActivityListItem where
 
 instance Prelude.Hashable ActivityListItem where
   hashWithSalt _salt ActivityListItem' {..} =
-    _salt `Prelude.hashWithSalt` activityArn
+    _salt
+      `Prelude.hashWithSalt` activityArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` creationDate
 

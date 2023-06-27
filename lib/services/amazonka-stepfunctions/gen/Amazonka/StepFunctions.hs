@@ -50,6 +50,9 @@ module Amazonka.StepFunctions
     -- ** ActivityWorkerLimitExceeded
     _ActivityWorkerLimitExceeded,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** ExecutionAlreadyExists
     _ExecutionAlreadyExists,
 
@@ -88,6 +91,9 @@ module Amazonka.StepFunctions
 
     -- ** ResourceNotFound
     _ResourceNotFound,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** StateMachineAlreadyExists
     _StateMachineAlreadyExists,
@@ -134,6 +140,12 @@ module Amazonka.StepFunctions
     CreateStateMachineResponse (CreateStateMachineResponse'),
     newCreateStateMachineResponse,
 
+    -- ** CreateStateMachineAlias
+    CreateStateMachineAlias (CreateStateMachineAlias'),
+    newCreateStateMachineAlias,
+    CreateStateMachineAliasResponse (CreateStateMachineAliasResponse'),
+    newCreateStateMachineAliasResponse,
+
     -- ** DeleteActivity
     DeleteActivity (DeleteActivity'),
     newDeleteActivity,
@@ -145,6 +157,18 @@ module Amazonka.StepFunctions
     newDeleteStateMachine,
     DeleteStateMachineResponse (DeleteStateMachineResponse'),
     newDeleteStateMachineResponse,
+
+    -- ** DeleteStateMachineAlias
+    DeleteStateMachineAlias (DeleteStateMachineAlias'),
+    newDeleteStateMachineAlias,
+    DeleteStateMachineAliasResponse (DeleteStateMachineAliasResponse'),
+    newDeleteStateMachineAliasResponse,
+
+    -- ** DeleteStateMachineVersion
+    DeleteStateMachineVersion (DeleteStateMachineVersion'),
+    newDeleteStateMachineVersion,
+    DeleteStateMachineVersionResponse (DeleteStateMachineVersionResponse'),
+    newDeleteStateMachineVersionResponse,
 
     -- ** DescribeActivity
     DescribeActivity (DescribeActivity'),
@@ -169,6 +193,12 @@ module Amazonka.StepFunctions
     newDescribeStateMachine,
     DescribeStateMachineResponse (DescribeStateMachineResponse'),
     newDescribeStateMachineResponse,
+
+    -- ** DescribeStateMachineAlias
+    DescribeStateMachineAlias (DescribeStateMachineAlias'),
+    newDescribeStateMachineAlias,
+    DescribeStateMachineAliasResponse (DescribeStateMachineAliasResponse'),
+    newDescribeStateMachineAliasResponse,
 
     -- ** DescribeStateMachineForExecution
     DescribeStateMachineForExecution (DescribeStateMachineForExecution'),
@@ -206,6 +236,18 @@ module Amazonka.StepFunctions
     ListMapRunsResponse (ListMapRunsResponse'),
     newListMapRunsResponse,
 
+    -- ** ListStateMachineAliases
+    ListStateMachineAliases (ListStateMachineAliases'),
+    newListStateMachineAliases,
+    ListStateMachineAliasesResponse (ListStateMachineAliasesResponse'),
+    newListStateMachineAliasesResponse,
+
+    -- ** ListStateMachineVersions
+    ListStateMachineVersions (ListStateMachineVersions'),
+    newListStateMachineVersions,
+    ListStateMachineVersionsResponse (ListStateMachineVersionsResponse'),
+    newListStateMachineVersionsResponse,
+
     -- ** ListStateMachines (Paginated)
     ListStateMachines (ListStateMachines'),
     newListStateMachines,
@@ -217,6 +259,12 @@ module Amazonka.StepFunctions
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
+
+    -- ** PublishStateMachineVersion
+    PublishStateMachineVersion (PublishStateMachineVersion'),
+    newPublishStateMachineVersion,
+    PublishStateMachineVersionResponse (PublishStateMachineVersionResponse'),
+    newPublishStateMachineVersionResponse,
 
     -- ** SendTaskFailure
     SendTaskFailure (SendTaskFailure'),
@@ -277,6 +325,12 @@ module Amazonka.StepFunctions
     newUpdateStateMachine,
     UpdateStateMachineResponse (UpdateStateMachineResponse'),
     newUpdateStateMachineResponse,
+
+    -- ** UpdateStateMachineAlias
+    UpdateStateMachineAlias (UpdateStateMachineAlias'),
+    newUpdateStateMachineAlias,
+    UpdateStateMachineAliasResponse (UpdateStateMachineAliasResponse'),
+    newUpdateStateMachineAliasResponse,
 
     -- * Types
 
@@ -433,6 +487,10 @@ module Amazonka.StepFunctions
     MapStateStartedEventDetails (MapStateStartedEventDetails'),
     newMapStateStartedEventDetails,
 
+    -- ** RoutingConfigurationListItem
+    RoutingConfigurationListItem (RoutingConfigurationListItem'),
+    newRoutingConfigurationListItem,
+
     -- ** StateEnteredEventDetails
     StateEnteredEventDetails (StateEnteredEventDetails'),
     newStateEnteredEventDetails,
@@ -441,9 +499,17 @@ module Amazonka.StepFunctions
     StateExitedEventDetails (StateExitedEventDetails'),
     newStateExitedEventDetails,
 
+    -- ** StateMachineAliasListItem
+    StateMachineAliasListItem (StateMachineAliasListItem'),
+    newStateMachineAliasListItem,
+
     -- ** StateMachineListItem
     StateMachineListItem (StateMachineListItem'),
     newStateMachineListItem,
+
+    -- ** StateMachineVersionListItem
+    StateMachineVersionListItem (StateMachineVersionListItem'),
+    newStateMachineVersionListItem,
 
     -- ** Tag
     Tag (Tag'),
@@ -493,12 +559,16 @@ where
 
 import Amazonka.StepFunctions.CreateActivity
 import Amazonka.StepFunctions.CreateStateMachine
+import Amazonka.StepFunctions.CreateStateMachineAlias
 import Amazonka.StepFunctions.DeleteActivity
 import Amazonka.StepFunctions.DeleteStateMachine
+import Amazonka.StepFunctions.DeleteStateMachineAlias
+import Amazonka.StepFunctions.DeleteStateMachineVersion
 import Amazonka.StepFunctions.DescribeActivity
 import Amazonka.StepFunctions.DescribeExecution
 import Amazonka.StepFunctions.DescribeMapRun
 import Amazonka.StepFunctions.DescribeStateMachine
+import Amazonka.StepFunctions.DescribeStateMachineAlias
 import Amazonka.StepFunctions.DescribeStateMachineForExecution
 import Amazonka.StepFunctions.GetActivityTask
 import Amazonka.StepFunctions.GetExecutionHistory
@@ -506,8 +576,11 @@ import Amazonka.StepFunctions.Lens
 import Amazonka.StepFunctions.ListActivities
 import Amazonka.StepFunctions.ListExecutions
 import Amazonka.StepFunctions.ListMapRuns
+import Amazonka.StepFunctions.ListStateMachineAliases
+import Amazonka.StepFunctions.ListStateMachineVersions
 import Amazonka.StepFunctions.ListStateMachines
 import Amazonka.StepFunctions.ListTagsForResource
+import Amazonka.StepFunctions.PublishStateMachineVersion
 import Amazonka.StepFunctions.SendTaskFailure
 import Amazonka.StepFunctions.SendTaskHeartbeat
 import Amazonka.StepFunctions.SendTaskSuccess
@@ -519,6 +592,7 @@ import Amazonka.StepFunctions.Types
 import Amazonka.StepFunctions.UntagResource
 import Amazonka.StepFunctions.UpdateMapRun
 import Amazonka.StepFunctions.UpdateStateMachine
+import Amazonka.StepFunctions.UpdateStateMachineAlias
 import Amazonka.StepFunctions.Waiters
 
 -- $errors

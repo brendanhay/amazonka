@@ -46,12 +46,16 @@ library
     Amazonka.StepFunctions
     Amazonka.StepFunctions.CreateActivity
     Amazonka.StepFunctions.CreateStateMachine
+    Amazonka.StepFunctions.CreateStateMachineAlias
     Amazonka.StepFunctions.DeleteActivity
     Amazonka.StepFunctions.DeleteStateMachine
+    Amazonka.StepFunctions.DeleteStateMachineAlias
+    Amazonka.StepFunctions.DeleteStateMachineVersion
     Amazonka.StepFunctions.DescribeActivity
     Amazonka.StepFunctions.DescribeExecution
     Amazonka.StepFunctions.DescribeMapRun
     Amazonka.StepFunctions.DescribeStateMachine
+    Amazonka.StepFunctions.DescribeStateMachineAlias
     Amazonka.StepFunctions.DescribeStateMachineForExecution
     Amazonka.StepFunctions.GetActivityTask
     Amazonka.StepFunctions.GetExecutionHistory
@@ -59,8 +63,11 @@ library
     Amazonka.StepFunctions.ListActivities
     Amazonka.StepFunctions.ListExecutions
     Amazonka.StepFunctions.ListMapRuns
+    Amazonka.StepFunctions.ListStateMachineAliases
     Amazonka.StepFunctions.ListStateMachines
+    Amazonka.StepFunctions.ListStateMachineVersions
     Amazonka.StepFunctions.ListTagsForResource
+    Amazonka.StepFunctions.PublishStateMachineVersion
     Amazonka.StepFunctions.SendTaskFailure
     Amazonka.StepFunctions.SendTaskHeartbeat
     Amazonka.StepFunctions.SendTaskSuccess
@@ -106,11 +113,14 @@ library
     Amazonka.StepFunctions.Types.MapRunStartedEventDetails
     Amazonka.StepFunctions.Types.MapRunStatus
     Amazonka.StepFunctions.Types.MapStateStartedEventDetails
+    Amazonka.StepFunctions.Types.RoutingConfigurationListItem
     Amazonka.StepFunctions.Types.StateEnteredEventDetails
     Amazonka.StepFunctions.Types.StateExitedEventDetails
+    Amazonka.StepFunctions.Types.StateMachineAliasListItem
     Amazonka.StepFunctions.Types.StateMachineListItem
     Amazonka.StepFunctions.Types.StateMachineStatus
     Amazonka.StepFunctions.Types.StateMachineType
+    Amazonka.StepFunctions.Types.StateMachineVersionListItem
     Amazonka.StepFunctions.Types.SyncExecutionStatus
     Amazonka.StepFunctions.Types.Tag
     Amazonka.StepFunctions.Types.TaskCredentials
@@ -126,6 +136,7 @@ library
     Amazonka.StepFunctions.UntagResource
     Amazonka.StepFunctions.UpdateMapRun
     Amazonka.StepFunctions.UpdateStateMachine
+    Amazonka.StepFunctions.UpdateStateMachineAlias
     Amazonka.StepFunctions.Waiters
 
   build-depends:

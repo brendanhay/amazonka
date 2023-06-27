@@ -144,7 +144,8 @@ instance Data.FromJSON TaskScheduledEventDetails where
 
 instance Prelude.Hashable TaskScheduledEventDetails where
   hashWithSalt _salt TaskScheduledEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` heartbeatInSeconds
+    _salt
+      `Prelude.hashWithSalt` heartbeatInSeconds
       `Prelude.hashWithSalt` taskCredentials
       `Prelude.hashWithSalt` timeoutInSeconds
       `Prelude.hashWithSalt` resourceType

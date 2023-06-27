@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     LambdaFunctionStartFailedEventDetails' {..} =
-      _salt `Prelude.hashWithSalt` cause
+      _salt
+        `Prelude.hashWithSalt` cause
         `Prelude.hashWithSalt` error
 
 instance

@@ -20,9 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To attach an Application Load Balancer, Network Load Balancer, or
--- Gateway Load Balancer, use the AttachLoadBalancerTargetGroups API
--- operation instead.
+-- This API operation is superseded by AttachTrafficSources, which can
+-- attach multiple traffic sources types. We recommend using
+-- @AttachTrafficSources@ to simplify how you manage traffic sources.
+-- However, we continue to support @AttachLoadBalancers@. You can use both
+-- the original @AttachLoadBalancers@ API operation and
+-- @AttachTrafficSources@ on the same Auto Scaling group.
 --
 -- Attaches one or more Classic Load Balancers to the specified Auto
 -- Scaling group. Amazon EC2 Auto Scaling registers the running instances
@@ -122,7 +125,8 @@ instance Core.AWSRequest AttachLoadBalancers where
 
 instance Prelude.Hashable AttachLoadBalancers where
   hashWithSalt _salt AttachLoadBalancers' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupName
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` loadBalancerNames
 
 instance Prelude.NFData AttachLoadBalancers where

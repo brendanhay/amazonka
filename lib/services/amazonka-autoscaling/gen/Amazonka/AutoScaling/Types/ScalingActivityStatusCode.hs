@@ -27,6 +27,7 @@ module Amazonka.AutoScaling.Types.ScalingActivityStatusCode
         ScalingActivityStatusCode_PendingSpotBidPlacement,
         ScalingActivityStatusCode_PreInService,
         ScalingActivityStatusCode_Successful,
+        ScalingActivityStatusCode_WaitingForConnectionDraining,
         ScalingActivityStatusCode_WaitingForELBConnectionDraining,
         ScalingActivityStatusCode_WaitingForInstanceId,
         ScalingActivityStatusCode_WaitingForInstanceWarmup,
@@ -89,6 +90,9 @@ pattern ScalingActivityStatusCode_PreInService = ScalingActivityStatusCode' "Pre
 pattern ScalingActivityStatusCode_Successful :: ScalingActivityStatusCode
 pattern ScalingActivityStatusCode_Successful = ScalingActivityStatusCode' "Successful"
 
+pattern ScalingActivityStatusCode_WaitingForConnectionDraining :: ScalingActivityStatusCode
+pattern ScalingActivityStatusCode_WaitingForConnectionDraining = ScalingActivityStatusCode' "WaitingForConnectionDraining"
+
 pattern ScalingActivityStatusCode_WaitingForELBConnectionDraining :: ScalingActivityStatusCode
 pattern ScalingActivityStatusCode_WaitingForELBConnectionDraining = ScalingActivityStatusCode' "WaitingForELBConnectionDraining"
 
@@ -112,6 +116,7 @@ pattern ScalingActivityStatusCode_WaitingForSpotInstanceRequestId = ScalingActiv
   ScalingActivityStatusCode_PendingSpotBidPlacement,
   ScalingActivityStatusCode_PreInService,
   ScalingActivityStatusCode_Successful,
+  ScalingActivityStatusCode_WaitingForConnectionDraining,
   ScalingActivityStatusCode_WaitingForELBConnectionDraining,
   ScalingActivityStatusCode_WaitingForInstanceId,
   ScalingActivityStatusCode_WaitingForInstanceWarmup,

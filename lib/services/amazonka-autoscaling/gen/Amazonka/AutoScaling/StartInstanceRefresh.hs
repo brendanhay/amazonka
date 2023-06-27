@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts a new instance refresh operation. An instance refresh performs a
--- rolling replacement of all or some instances in an Auto Scaling group.
--- Each instance is terminated first and then replaced, which temporarily
+-- Starts an instance refresh. During an instance refresh, Amazon EC2 Auto
+-- Scaling performs a rolling update of instances in an Auto Scaling group.
+-- Instances are terminated first and then replaced, which temporarily
 -- reduces the capacity available within your Auto Scaling group.
 --
 -- This operation is part of the
@@ -34,12 +34,26 @@
 -- start an instance refresh to immediately begin the process of updating
 -- instances in the group.
 --
--- If the call succeeds, it creates a new instance refresh request with a
--- unique ID that you can use to track its progress. To query its status,
+-- If successful, the request\'s response contains a unique ID that you can
+-- use to track the progress of the instance refresh. To query its status,
 -- call the DescribeInstanceRefreshes API. To describe the instance
 -- refreshes that have already run, call the DescribeInstanceRefreshes API.
--- To cancel an instance refresh operation in progress, use the
+-- To cancel an instance refresh that is in progress, use the
 -- CancelInstanceRefresh API.
+--
+-- An instance refresh might fail for several reasons, such as EC2 launch
+-- failures, misconfigured health checks, or not ignoring or allowing the
+-- termination of instances that are in @Standby@ state or protected from
+-- scale in. You can monitor for failed EC2 launches using the scaling
+-- activities. To find the scaling activities, call the
+-- DescribeScalingActivities API.
+--
+-- If you enable auto rollback, your Auto Scaling group will be rolled back
+-- automatically when the instance refresh fails. You can enable this
+-- feature before starting an instance refresh by specifying the
+-- @AutoRollback@ property in the instance refresh preferences. Otherwise,
+-- to roll back an instance refresh before it finishes, use the
+-- RollbackInstanceRefresh API.
 module Amazonka.AutoScaling.StartInstanceRefresh
   ( -- * Creating a Request
     StartInstanceRefresh (..),
@@ -83,20 +97,24 @@ data StartInstanceRefresh = StartInstanceRefresh'
     -- launch template for your desired configuration, consider enabling the
     -- @SkipMatching@ property in preferences. If it\'s enabled, Amazon EC2
     -- Auto Scaling skips replacing instances that already use the specified
-    -- launch template and version. This can help you reduce the number of
-    -- replacements that are required to apply updates.
+    -- launch template and instance types. This can help you reduce the number
+    -- of replacements that are required to apply updates.
     desiredConfiguration :: Prelude.Maybe DesiredConfiguration,
-    -- | Set of preferences associated with the instance refresh request. If not
-    -- provided, the default values are used.
+    -- | Sets your preferences for the instance refresh so that it performs as
+    -- expected when you start it. Includes the instance warmup time, the
+    -- minimum healthy percentage, and the behaviors that you want Amazon EC2
+    -- Auto Scaling to use if instances that are in @Standby@ state or
+    -- protected from scale in are found. You can also choose to enable
+    -- additional features, such as the following:
+    --
+    -- -   Auto rollback
+    --
+    -- -   Checkpoints
+    --
+    -- -   Skip matching
     preferences :: Prelude.Maybe RefreshPreferences,
     -- | The strategy to use for the instance refresh. The only valid value is
     -- @Rolling@.
-    --
-    -- A rolling update helps you update your instances gradually. A rolling
-    -- update can fail due to failed health checks or if instances are on
-    -- standby or are protected from scale in. If the rolling update process
-    -- fails, any instances that are replaced are not rolled back to their
-    -- previous configuration.
     strategy :: Prelude.Maybe RefreshStrategy,
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text
@@ -123,20 +141,24 @@ data StartInstanceRefresh = StartInstanceRefresh'
 -- launch template for your desired configuration, consider enabling the
 -- @SkipMatching@ property in preferences. If it\'s enabled, Amazon EC2
 -- Auto Scaling skips replacing instances that already use the specified
--- launch template and version. This can help you reduce the number of
--- replacements that are required to apply updates.
+-- launch template and instance types. This can help you reduce the number
+-- of replacements that are required to apply updates.
 --
--- 'preferences', 'startInstanceRefresh_preferences' - Set of preferences associated with the instance refresh request. If not
--- provided, the default values are used.
+-- 'preferences', 'startInstanceRefresh_preferences' - Sets your preferences for the instance refresh so that it performs as
+-- expected when you start it. Includes the instance warmup time, the
+-- minimum healthy percentage, and the behaviors that you want Amazon EC2
+-- Auto Scaling to use if instances that are in @Standby@ state or
+-- protected from scale in are found. You can also choose to enable
+-- additional features, such as the following:
+--
+-- -   Auto rollback
+--
+-- -   Checkpoints
+--
+-- -   Skip matching
 --
 -- 'strategy', 'startInstanceRefresh_strategy' - The strategy to use for the instance refresh. The only valid value is
 -- @Rolling@.
---
--- A rolling update helps you update your instances gradually. A rolling
--- update can fail due to failed health checks or if instances are on
--- standby or are protected from scale in. If the rolling update process
--- fails, any instances that are replaced are not rolled back to their
--- previous configuration.
 --
 -- 'autoScalingGroupName', 'startInstanceRefresh_autoScalingGroupName' - The name of the Auto Scaling group.
 newStartInstanceRefresh ::
@@ -164,24 +186,28 @@ newStartInstanceRefresh pAutoScalingGroupName_ =
 -- launch template for your desired configuration, consider enabling the
 -- @SkipMatching@ property in preferences. If it\'s enabled, Amazon EC2
 -- Auto Scaling skips replacing instances that already use the specified
--- launch template and version. This can help you reduce the number of
--- replacements that are required to apply updates.
+-- launch template and instance types. This can help you reduce the number
+-- of replacements that are required to apply updates.
 startInstanceRefresh_desiredConfiguration :: Lens.Lens' StartInstanceRefresh (Prelude.Maybe DesiredConfiguration)
 startInstanceRefresh_desiredConfiguration = Lens.lens (\StartInstanceRefresh' {desiredConfiguration} -> desiredConfiguration) (\s@StartInstanceRefresh' {} a -> s {desiredConfiguration = a} :: StartInstanceRefresh)
 
--- | Set of preferences associated with the instance refresh request. If not
--- provided, the default values are used.
+-- | Sets your preferences for the instance refresh so that it performs as
+-- expected when you start it. Includes the instance warmup time, the
+-- minimum healthy percentage, and the behaviors that you want Amazon EC2
+-- Auto Scaling to use if instances that are in @Standby@ state or
+-- protected from scale in are found. You can also choose to enable
+-- additional features, such as the following:
+--
+-- -   Auto rollback
+--
+-- -   Checkpoints
+--
+-- -   Skip matching
 startInstanceRefresh_preferences :: Lens.Lens' StartInstanceRefresh (Prelude.Maybe RefreshPreferences)
 startInstanceRefresh_preferences = Lens.lens (\StartInstanceRefresh' {preferences} -> preferences) (\s@StartInstanceRefresh' {} a -> s {preferences = a} :: StartInstanceRefresh)
 
 -- | The strategy to use for the instance refresh. The only valid value is
 -- @Rolling@.
---
--- A rolling update helps you update your instances gradually. A rolling
--- update can fail due to failed health checks or if instances are on
--- standby or are protected from scale in. If the rolling update process
--- fails, any instances that are replaced are not rolled back to their
--- previous configuration.
 startInstanceRefresh_strategy :: Lens.Lens' StartInstanceRefresh (Prelude.Maybe RefreshStrategy)
 startInstanceRefresh_strategy = Lens.lens (\StartInstanceRefresh' {strategy} -> strategy) (\s@StartInstanceRefresh' {} a -> s {strategy = a} :: StartInstanceRefresh)
 
@@ -206,7 +232,8 @@ instance Core.AWSRequest StartInstanceRefresh where
 
 instance Prelude.Hashable StartInstanceRefresh where
   hashWithSalt _salt StartInstanceRefresh' {..} =
-    _salt `Prelude.hashWithSalt` desiredConfiguration
+    _salt
+      `Prelude.hashWithSalt` desiredConfiguration
       `Prelude.hashWithSalt` preferences
       `Prelude.hashWithSalt` strategy
       `Prelude.hashWithSalt` autoScalingGroupName
@@ -239,7 +266,7 @@ instance Data.ToQuery StartInstanceRefresh where
 
 -- | /See:/ 'newStartInstanceRefreshResponse' smart constructor.
 data StartInstanceRefreshResponse = StartInstanceRefreshResponse'
-  { -- | A unique ID for tracking the progress of the request.
+  { -- | A unique ID for tracking the progress of the instance refresh.
     instanceRefreshId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -254,7 +281,7 @@ data StartInstanceRefreshResponse = StartInstanceRefreshResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceRefreshId', 'startInstanceRefreshResponse_instanceRefreshId' - A unique ID for tracking the progress of the request.
+-- 'instanceRefreshId', 'startInstanceRefreshResponse_instanceRefreshId' - A unique ID for tracking the progress of the instance refresh.
 --
 -- 'httpStatus', 'startInstanceRefreshResponse_httpStatus' - The response's http status code.
 newStartInstanceRefreshResponse ::
@@ -268,7 +295,7 @@ newStartInstanceRefreshResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A unique ID for tracking the progress of the request.
+-- | A unique ID for tracking the progress of the instance refresh.
 startInstanceRefreshResponse_instanceRefreshId :: Lens.Lens' StartInstanceRefreshResponse (Prelude.Maybe Prelude.Text)
 startInstanceRefreshResponse_instanceRefreshId = Lens.lens (\StartInstanceRefreshResponse' {instanceRefreshId} -> instanceRefreshId) (\s@StartInstanceRefreshResponse' {} a -> s {instanceRefreshId = a} :: StartInstanceRefreshResponse)
 

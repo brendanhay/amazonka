@@ -83,7 +83,8 @@ instance Data.FromXML MixedInstancesPolicy where
 
 instance Prelude.Hashable MixedInstancesPolicy where
   hashWithSalt _salt MixedInstancesPolicy' {..} =
-    _salt `Prelude.hashWithSalt` instancesDistribution
+    _salt
+      `Prelude.hashWithSalt` instancesDistribution
       `Prelude.hashWithSalt` launchTemplate
 
 instance Prelude.NFData MixedInstancesPolicy where

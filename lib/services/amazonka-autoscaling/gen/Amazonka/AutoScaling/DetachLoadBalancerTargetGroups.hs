@@ -20,6 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This API operation is superseded by DetachTrafficSources, which can
+-- detach multiple traffic sources types. We recommend using
+-- @DetachTrafficSources@ to simplify how you manage traffic sources.
+-- However, we continue to support @DetachLoadBalancerTargetGroups@. You
+-- can use both the original @DetachLoadBalancerTargetGroups@ API operation
+-- and @DetachTrafficSources@ on the same Auto Scaling group.
+--
 -- Detaches one or more target groups from the specified Auto Scaling
 -- group.
 --
@@ -124,7 +131,8 @@ instance
   hashWithSalt
     _salt
     DetachLoadBalancerTargetGroups' {..} =
-      _salt `Prelude.hashWithSalt` autoScalingGroupName
+      _salt
+        `Prelude.hashWithSalt` autoScalingGroupName
         `Prelude.hashWithSalt` targetGroupARNs
 
 instance

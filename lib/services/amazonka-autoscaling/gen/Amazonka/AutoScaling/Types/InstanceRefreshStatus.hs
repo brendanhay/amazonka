@@ -25,6 +25,9 @@ module Amazonka.AutoScaling.Types.InstanceRefreshStatus
         InstanceRefreshStatus_Failed,
         InstanceRefreshStatus_InProgress,
         InstanceRefreshStatus_Pending,
+        InstanceRefreshStatus_RollbackFailed,
+        InstanceRefreshStatus_RollbackInProgress,
+        InstanceRefreshStatus_RollbackSuccessful,
         InstanceRefreshStatus_Successful
       ),
   )
@@ -77,6 +80,15 @@ pattern InstanceRefreshStatus_InProgress = InstanceRefreshStatus' "InProgress"
 pattern InstanceRefreshStatus_Pending :: InstanceRefreshStatus
 pattern InstanceRefreshStatus_Pending = InstanceRefreshStatus' "Pending"
 
+pattern InstanceRefreshStatus_RollbackFailed :: InstanceRefreshStatus
+pattern InstanceRefreshStatus_RollbackFailed = InstanceRefreshStatus' "RollbackFailed"
+
+pattern InstanceRefreshStatus_RollbackInProgress :: InstanceRefreshStatus
+pattern InstanceRefreshStatus_RollbackInProgress = InstanceRefreshStatus' "RollbackInProgress"
+
+pattern InstanceRefreshStatus_RollbackSuccessful :: InstanceRefreshStatus
+pattern InstanceRefreshStatus_RollbackSuccessful = InstanceRefreshStatus' "RollbackSuccessful"
+
 pattern InstanceRefreshStatus_Successful :: InstanceRefreshStatus
 pattern InstanceRefreshStatus_Successful = InstanceRefreshStatus' "Successful"
 
@@ -86,6 +98,9 @@ pattern InstanceRefreshStatus_Successful = InstanceRefreshStatus' "Successful"
   InstanceRefreshStatus_Failed,
   InstanceRefreshStatus_InProgress,
   InstanceRefreshStatus_Pending,
+  InstanceRefreshStatus_RollbackFailed,
+  InstanceRefreshStatus_RollbackInProgress,
+  InstanceRefreshStatus_RollbackSuccessful,
   InstanceRefreshStatus_Successful,
   InstanceRefreshStatus'
   #-}

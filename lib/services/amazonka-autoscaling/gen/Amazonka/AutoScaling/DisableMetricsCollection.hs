@@ -239,7 +239,8 @@ instance Core.AWSRequest DisableMetricsCollection where
 
 instance Prelude.Hashable DisableMetricsCollection where
   hashWithSalt _salt DisableMetricsCollection' {..} =
-    _salt `Prelude.hashWithSalt` metrics
+    _salt
+      `Prelude.hashWithSalt` metrics
       `Prelude.hashWithSalt` autoScalingGroupName
 
 instance Prelude.NFData DisableMetricsCollection where

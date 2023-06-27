@@ -20,6 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This API operation is superseded by AttachTrafficSources, which can
+-- attach multiple traffic sources types. We recommend using
+-- @AttachTrafficSources@ to simplify how you manage traffic sources.
+-- However, we continue to support @AttachLoadBalancerTargetGroups@. You
+-- can use both the original @AttachLoadBalancerTargetGroups@ API operation
+-- and @AttachTrafficSources@ on the same Auto Scaling group.
+--
 -- Attaches one or more target groups to the specified Auto Scaling group.
 --
 -- This operation is used with the following load balancer types:
@@ -144,7 +151,8 @@ instance
   hashWithSalt
     _salt
     AttachLoadBalancerTargetGroups' {..} =
-      _salt `Prelude.hashWithSalt` autoScalingGroupName
+      _salt
+        `Prelude.hashWithSalt` autoScalingGroupName
         `Prelude.hashWithSalt` targetGroupARNs
 
 instance

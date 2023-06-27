@@ -281,8 +281,8 @@ module Amazonka.AutoScaling.Lens
     -- ** DescribeTrafficSources
     describeTrafficSources_maxRecords,
     describeTrafficSources_nextToken,
-    describeTrafficSources_autoScalingGroupName,
     describeTrafficSources_trafficSourceType,
+    describeTrafficSources_autoScalingGroupName,
     describeTrafficSourcesResponse_nextToken,
     describeTrafficSourcesResponse_trafficSources,
     describeTrafficSourcesResponse_httpStatus,
@@ -422,6 +422,11 @@ module Amazonka.AutoScaling.Lens
     -- ** ResumeProcesses
     resumeProcesses_scalingProcesses,
     resumeProcesses_autoScalingGroupName,
+
+    -- ** RollbackInstanceRefresh
+    rollbackInstanceRefresh_autoScalingGroupName,
+    rollbackInstanceRefreshResponse_instanceRefreshId,
+    rollbackInstanceRefreshResponse_httpStatus,
 
     -- ** SetDesiredCapacity
     setDesiredCapacity_honorCooldown,
@@ -635,6 +640,7 @@ module Amazonka.AutoScaling.Lens
     instanceRefresh_percentageComplete,
     instanceRefresh_preferences,
     instanceRefresh_progressDetails,
+    instanceRefresh_rollbackDetails,
     instanceRefresh_startTime,
     instanceRefresh_status,
     instanceRefresh_statusReason,
@@ -854,11 +860,21 @@ module Amazonka.AutoScaling.Lens
     processType_processName,
 
     -- ** RefreshPreferences
+    refreshPreferences_autoRollback,
     refreshPreferences_checkpointDelay,
     refreshPreferences_checkpointPercentages,
     refreshPreferences_instanceWarmup,
     refreshPreferences_minHealthyPercentage,
+    refreshPreferences_scaleInProtectedInstances,
     refreshPreferences_skipMatching,
+    refreshPreferences_standbyInstances,
+
+    -- ** RollbackDetails
+    rollbackDetails_instancesToUpdateOnRollback,
+    rollbackDetails_percentageCompleteOnRollback,
+    rollbackDetails_progressDetailsOnRollback,
+    rollbackDetails_rollbackReason,
+    rollbackDetails_rollbackStartTime,
 
     -- ** ScalingPolicy
     scalingPolicy_adjustmentType,
@@ -951,11 +967,14 @@ module Amazonka.AutoScaling.Lens
     totalLocalStorageGBRequest_min,
 
     -- ** TrafficSourceIdentifier
+    trafficSourceIdentifier_type,
     trafficSourceIdentifier_identifier,
 
     -- ** TrafficSourceState
+    trafficSourceState_identifier,
     trafficSourceState_state,
     trafficSourceState_trafficSource,
+    trafficSourceState_type,
 
     -- ** VCpuCountRequest
     vCpuCountRequest_max,
@@ -1027,6 +1046,7 @@ import Amazonka.AutoScaling.PutScheduledUpdateGroupAction
 import Amazonka.AutoScaling.PutWarmPool
 import Amazonka.AutoScaling.RecordLifecycleActionHeartbeat
 import Amazonka.AutoScaling.ResumeProcesses
+import Amazonka.AutoScaling.RollbackInstanceRefresh
 import Amazonka.AutoScaling.SetDesiredCapacity
 import Amazonka.AutoScaling.SetInstanceHealth
 import Amazonka.AutoScaling.SetInstanceProtection
@@ -1091,6 +1111,7 @@ import Amazonka.AutoScaling.Types.PredictiveScalingPredefinedMetricPair
 import Amazonka.AutoScaling.Types.PredictiveScalingPredefinedScalingMetric
 import Amazonka.AutoScaling.Types.ProcessType
 import Amazonka.AutoScaling.Types.RefreshPreferences
+import Amazonka.AutoScaling.Types.RollbackDetails
 import Amazonka.AutoScaling.Types.ScalingPolicy
 import Amazonka.AutoScaling.Types.ScalingProcessQuery
 import Amazonka.AutoScaling.Types.ScheduledUpdateGroupAction

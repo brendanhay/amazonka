@@ -289,7 +289,8 @@ instance Data.FromXML Ebs where
 
 instance Prelude.Hashable Ebs where
   hashWithSalt _salt Ebs' {..} =
-    _salt `Prelude.hashWithSalt` deleteOnTermination
+    _salt
+      `Prelude.hashWithSalt` deleteOnTermination
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` snapshotId

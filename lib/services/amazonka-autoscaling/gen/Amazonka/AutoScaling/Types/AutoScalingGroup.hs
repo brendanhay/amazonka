@@ -91,7 +91,7 @@ data AutoScalingGroup = AutoScalingGroup'
     targetGroupARNs :: Prelude.Maybe [Prelude.Text],
     -- | The termination policies for the group.
     terminationPolicies :: Prelude.Maybe [Prelude.Text],
-    -- | The unique identifiers of the traffic sources.
+    -- | The traffic sources associated with this Auto Scaling group.
     trafficSources :: Prelude.Maybe [TrafficSourceIdentifier],
     -- | One or more subnet IDs, if applicable, separated by commas.
     vPCZoneIdentifier :: Prelude.Maybe Prelude.Text,
@@ -111,12 +111,7 @@ data AutoScalingGroup = AutoScalingGroup'
     defaultCooldown :: Prelude.Int,
     -- | One or more Availability Zones for the group.
     availabilityZones :: [Prelude.Text],
-    -- | Determines whether any additional health checks are performed on the
-    -- instances in this group. Amazon EC2 health checks are always on.
-    --
-    -- The valid values are @EC2@ (default), @ELB@, and @VPC_LATTICE@. The
-    -- @VPC_LATTICE@ health check type is reserved for use with VPC Lattice,
-    -- which is in preview release and is subject to change.
+    -- | A comma-separated value string of one or more health check types.
     healthCheckType :: Prelude.Text,
     -- | The date and time the group was created.
     createdTime :: Data.ISO8601
@@ -186,7 +181,7 @@ data AutoScalingGroup = AutoScalingGroup'
 --
 -- 'terminationPolicies', 'autoScalingGroup_terminationPolicies' - The termination policies for the group.
 --
--- 'trafficSources', 'autoScalingGroup_trafficSources' - The unique identifiers of the traffic sources.
+-- 'trafficSources', 'autoScalingGroup_trafficSources' - The traffic sources associated with this Auto Scaling group.
 --
 -- 'vPCZoneIdentifier', 'autoScalingGroup_vPCZoneIdentifier' - One or more subnet IDs, if applicable, separated by commas.
 --
@@ -206,12 +201,7 @@ data AutoScalingGroup = AutoScalingGroup'
 --
 -- 'availabilityZones', 'autoScalingGroup_availabilityZones' - One or more Availability Zones for the group.
 --
--- 'healthCheckType', 'autoScalingGroup_healthCheckType' - Determines whether any additional health checks are performed on the
--- instances in this group. Amazon EC2 health checks are always on.
---
--- The valid values are @EC2@ (default), @ELB@, and @VPC_LATTICE@. The
--- @VPC_LATTICE@ health check type is reserved for use with VPC Lattice,
--- which is in preview release and is subject to change.
+-- 'healthCheckType', 'autoScalingGroup_healthCheckType' - A comma-separated value string of one or more health check types.
 --
 -- 'createdTime', 'autoScalingGroup_createdTime' - The date and time the group was created.
 newAutoScalingGroup ::
@@ -375,7 +365,7 @@ autoScalingGroup_targetGroupARNs = Lens.lens (\AutoScalingGroup' {targetGroupARN
 autoScalingGroup_terminationPolicies :: Lens.Lens' AutoScalingGroup (Prelude.Maybe [Prelude.Text])
 autoScalingGroup_terminationPolicies = Lens.lens (\AutoScalingGroup' {terminationPolicies} -> terminationPolicies) (\s@AutoScalingGroup' {} a -> s {terminationPolicies = a} :: AutoScalingGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | The unique identifiers of the traffic sources.
+-- | The traffic sources associated with this Auto Scaling group.
 autoScalingGroup_trafficSources :: Lens.Lens' AutoScalingGroup (Prelude.Maybe [TrafficSourceIdentifier])
 autoScalingGroup_trafficSources = Lens.lens (\AutoScalingGroup' {trafficSources} -> trafficSources) (\s@AutoScalingGroup' {} a -> s {trafficSources = a} :: AutoScalingGroup) Prelude.. Lens.mapping Lens.coerced
 
@@ -415,12 +405,7 @@ autoScalingGroup_defaultCooldown = Lens.lens (\AutoScalingGroup' {defaultCooldow
 autoScalingGroup_availabilityZones :: Lens.Lens' AutoScalingGroup [Prelude.Text]
 autoScalingGroup_availabilityZones = Lens.lens (\AutoScalingGroup' {availabilityZones} -> availabilityZones) (\s@AutoScalingGroup' {} a -> s {availabilityZones = a} :: AutoScalingGroup) Prelude.. Lens.coerced
 
--- | Determines whether any additional health checks are performed on the
--- instances in this group. Amazon EC2 health checks are always on.
---
--- The valid values are @EC2@ (default), @ELB@, and @VPC_LATTICE@. The
--- @VPC_LATTICE@ health check type is reserved for use with VPC Lattice,
--- which is in preview release and is subject to change.
+-- | A comma-separated value string of one or more health check types.
 autoScalingGroup_healthCheckType :: Lens.Lens' AutoScalingGroup Prelude.Text
 autoScalingGroup_healthCheckType = Lens.lens (\AutoScalingGroup' {healthCheckType} -> healthCheckType) (\s@AutoScalingGroup' {} a -> s {healthCheckType = a} :: AutoScalingGroup)
 
@@ -436,16 +421,21 @@ instance Data.FromXML AutoScalingGroup where
       Prelude.<*> (x Data..@? "Context")
       Prelude.<*> (x Data..@? "DefaultInstanceWarmup")
       Prelude.<*> (x Data..@? "DesiredCapacityType")
-      Prelude.<*> ( x Data..@? "EnabledMetrics" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "EnabledMetrics"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "HealthCheckGracePeriod")
-      Prelude.<*> ( x Data..@? "Instances" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Instances"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "LaunchConfigurationName")
       Prelude.<*> (x Data..@? "LaunchTemplate")
-      Prelude.<*> ( x Data..@? "LoadBalancerNames"
+      Prelude.<*> ( x
+                      Data..@? "LoadBalancerNames"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -456,21 +446,29 @@ instance Data.FromXML AutoScalingGroup where
       Prelude.<*> (x Data..@? "PredictedCapacity")
       Prelude.<*> (x Data..@? "ServiceLinkedRoleARN")
       Prelude.<*> (x Data..@? "Status")
-      Prelude.<*> ( x Data..@? "SuspendedProcesses"
+      Prelude.<*> ( x
+                      Data..@? "SuspendedProcesses"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "member")
-                  )
-      Prelude.<*> ( x Data..@? "TargetGroupARNs" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "member")
-                  )
-      Prelude.<*> ( x Data..@? "TerminationPolicies"
+      Prelude.<*> ( x
+                      Data..@? "Tags"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "TrafficSources" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "TargetGroupARNs"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
+                  )
+      Prelude.<*> ( x
+                      Data..@? "TerminationPolicies"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
+                  )
+      Prelude.<*> ( x
+                      Data..@? "TrafficSources"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "VPCZoneIdentifier")
@@ -481,7 +479,8 @@ instance Data.FromXML AutoScalingGroup where
       Prelude.<*> (x Data..@ "MaxSize")
       Prelude.<*> (x Data..@ "DesiredCapacity")
       Prelude.<*> (x Data..@ "DefaultCooldown")
-      Prelude.<*> ( x Data..@? "AvailabilityZones"
+      Prelude.<*> ( x
+                      Data..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "member"
                   )
@@ -490,7 +489,8 @@ instance Data.FromXML AutoScalingGroup where
 
 instance Prelude.Hashable AutoScalingGroup where
   hashWithSalt _salt AutoScalingGroup' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupARN
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupARN
       `Prelude.hashWithSalt` capacityRebalance
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` defaultInstanceWarmup

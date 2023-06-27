@@ -125,7 +125,8 @@ scalingProcessQuery_autoScalingGroupName = Lens.lens (\ScalingProcessQuery' {aut
 
 instance Prelude.Hashable ScalingProcessQuery where
   hashWithSalt _salt ScalingProcessQuery' {..} =
-    _salt `Prelude.hashWithSalt` scalingProcesses
+    _salt
+      `Prelude.hashWithSalt` scalingProcesses
       `Prelude.hashWithSalt` autoScalingGroupName
 
 instance Prelude.NFData ScalingProcessQuery where

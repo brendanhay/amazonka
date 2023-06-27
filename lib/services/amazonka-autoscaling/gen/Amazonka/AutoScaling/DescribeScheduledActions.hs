@@ -161,22 +161,22 @@ instance Core.AWSPager DescribeScheduledActions where
     | Core.stop
         ( rs
             Lens.^? describeScheduledActionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeScheduledActionsResponse_scheduledUpdateGroupActions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeScheduledActions_nextToken
           Lens..~ rs
           Lens.^? describeScheduledActionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScheduledActions where
   type
@@ -190,7 +190,8 @@ instance Core.AWSRequest DescribeScheduledActions where
       ( \s h x ->
           DescribeScheduledActionsResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "ScheduledUpdateGroupActions"
+            Prelude.<*> ( x
+                            Data..@? "ScheduledUpdateGroupActions"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -199,7 +200,8 @@ instance Core.AWSRequest DescribeScheduledActions where
 
 instance Prelude.Hashable DescribeScheduledActions where
   hashWithSalt _salt DescribeScheduledActions' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupName
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` nextToken

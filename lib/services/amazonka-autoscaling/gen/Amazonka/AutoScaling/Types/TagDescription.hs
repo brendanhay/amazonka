@@ -118,7 +118,8 @@ instance Data.FromXML TagDescription where
 
 instance Prelude.Hashable TagDescription where
   hashWithSalt _salt TagDescription' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` propagateAtLaunch

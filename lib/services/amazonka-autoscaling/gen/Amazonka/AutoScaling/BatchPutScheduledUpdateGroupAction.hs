@@ -104,11 +104,12 @@ instance
       "BatchPutScheduledUpdateGroupActionResult"
       ( \s h x ->
           BatchPutScheduledUpdateGroupActionResponse'
-            Prelude.<$> ( x Data..@? "FailedScheduledUpdateGroupActions"
+            Prelude.<$> ( x
+                            Data..@? "FailedScheduledUpdateGroupActions"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -118,7 +119,8 @@ instance
   hashWithSalt
     _salt
     BatchPutScheduledUpdateGroupAction' {..} =
-      _salt `Prelude.hashWithSalt` autoScalingGroupName
+      _salt
+        `Prelude.hashWithSalt` autoScalingGroupName
         `Prelude.hashWithSalt` scheduledUpdateGroupActions
 
 instance

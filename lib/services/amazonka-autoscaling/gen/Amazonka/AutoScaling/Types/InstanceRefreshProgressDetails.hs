@@ -26,17 +26,16 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Reports the progress of an instance refresh on an Auto Scaling group
--- that has a warm pool. This includes separate details for instances in
--- the warm pool and instances in the Auto Scaling group (the live pool).
+-- | Reports progress on replacing instances in an Auto Scaling group that
+-- has a warm pool. This includes separate details for instances in the
+-- warm pool and instances in the Auto Scaling group (the live pool).
 --
 -- /See:/ 'newInstanceRefreshProgressDetails' smart constructor.
 data InstanceRefreshProgressDetails = InstanceRefreshProgressDetails'
-  { -- | Indicates the progress of an instance refresh on instances that are in
-    -- the Auto Scaling group.
+  { -- | Reports progress on replacing instances that are in the Auto Scaling
+    -- group.
     livePoolProgress :: Prelude.Maybe InstanceRefreshLivePoolProgress,
-    -- | Indicates the progress of an instance refresh on instances that are in
-    -- the warm pool.
+    -- | Reports progress on replacing instances that are in the warm pool.
     warmPoolProgress :: Prelude.Maybe InstanceRefreshWarmPoolProgress
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,11 +48,10 @@ data InstanceRefreshProgressDetails = InstanceRefreshProgressDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'livePoolProgress', 'instanceRefreshProgressDetails_livePoolProgress' - Indicates the progress of an instance refresh on instances that are in
--- the Auto Scaling group.
+-- 'livePoolProgress', 'instanceRefreshProgressDetails_livePoolProgress' - Reports progress on replacing instances that are in the Auto Scaling
+-- group.
 --
--- 'warmPoolProgress', 'instanceRefreshProgressDetails_warmPoolProgress' - Indicates the progress of an instance refresh on instances that are in
--- the warm pool.
+-- 'warmPoolProgress', 'instanceRefreshProgressDetails_warmPoolProgress' - Reports progress on replacing instances that are in the warm pool.
 newInstanceRefreshProgressDetails ::
   InstanceRefreshProgressDetails
 newInstanceRefreshProgressDetails =
@@ -63,13 +61,12 @@ newInstanceRefreshProgressDetails =
       warmPoolProgress = Prelude.Nothing
     }
 
--- | Indicates the progress of an instance refresh on instances that are in
--- the Auto Scaling group.
+-- | Reports progress on replacing instances that are in the Auto Scaling
+-- group.
 instanceRefreshProgressDetails_livePoolProgress :: Lens.Lens' InstanceRefreshProgressDetails (Prelude.Maybe InstanceRefreshLivePoolProgress)
 instanceRefreshProgressDetails_livePoolProgress = Lens.lens (\InstanceRefreshProgressDetails' {livePoolProgress} -> livePoolProgress) (\s@InstanceRefreshProgressDetails' {} a -> s {livePoolProgress = a} :: InstanceRefreshProgressDetails)
 
--- | Indicates the progress of an instance refresh on instances that are in
--- the warm pool.
+-- | Reports progress on replacing instances that are in the warm pool.
 instanceRefreshProgressDetails_warmPoolProgress :: Lens.Lens' InstanceRefreshProgressDetails (Prelude.Maybe InstanceRefreshWarmPoolProgress)
 instanceRefreshProgressDetails_warmPoolProgress = Lens.lens (\InstanceRefreshProgressDetails' {warmPoolProgress} -> warmPoolProgress) (\s@InstanceRefreshProgressDetails' {} a -> s {warmPoolProgress = a} :: InstanceRefreshProgressDetails)
 
@@ -86,7 +83,8 @@ instance
   hashWithSalt
     _salt
     InstanceRefreshProgressDetails' {..} =
-      _salt `Prelude.hashWithSalt` livePoolProgress
+      _salt
+        `Prelude.hashWithSalt` livePoolProgress
         `Prelude.hashWithSalt` warmPoolProgress
 
 instance

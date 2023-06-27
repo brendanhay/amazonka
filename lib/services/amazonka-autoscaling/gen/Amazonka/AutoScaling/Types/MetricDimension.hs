@@ -66,11 +66,13 @@ metricDimension_value = Lens.lens (\MetricDimension' {value} -> value) (\s@Metri
 instance Data.FromXML MetricDimension where
   parseXML x =
     MetricDimension'
-      Prelude.<$> (x Data..@ "Name") Prelude.<*> (x Data..@ "Value")
+      Prelude.<$> (x Data..@ "Name")
+      Prelude.<*> (x Data..@ "Value")
 
 instance Prelude.Hashable MetricDimension where
   hashWithSalt _salt MetricDimension' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData MetricDimension where

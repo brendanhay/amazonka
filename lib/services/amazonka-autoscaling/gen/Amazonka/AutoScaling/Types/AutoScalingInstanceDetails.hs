@@ -60,9 +60,9 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
     -- @Warmed:Terminating:Wait@ | @Warmed:Terminating:Proceed@ |
     -- @Warmed:Terminated@ | @Warmed:Stopped@ | @Warmed:Running@
     lifecycleState :: Prelude.Text,
-    -- | The last reported health status of this instance. \"Healthy\" means that
-    -- the instance is healthy and should remain in service. \"Unhealthy\"
-    -- means that the instance is unhealthy and Amazon EC2 Auto Scaling should
+    -- | The last reported health status of this instance. @Healthy@ means that
+    -- the instance is healthy and should remain in service. @Unhealthy@ means
+    -- that the instance is unhealthy and Amazon EC2 Auto Scaling should
     -- terminate and replace it.
     healthStatus :: Prelude.Text,
     -- | Indicates whether the instance is protected from termination by Amazon
@@ -110,9 +110,9 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
 -- @Warmed:Terminating:Wait@ | @Warmed:Terminating:Proceed@ |
 -- @Warmed:Terminated@ | @Warmed:Stopped@ | @Warmed:Running@
 --
--- 'healthStatus', 'autoScalingInstanceDetails_healthStatus' - The last reported health status of this instance. \"Healthy\" means that
--- the instance is healthy and should remain in service. \"Unhealthy\"
--- means that the instance is unhealthy and Amazon EC2 Auto Scaling should
+-- 'healthStatus', 'autoScalingInstanceDetails_healthStatus' - The last reported health status of this instance. @Healthy@ means that
+-- the instance is healthy and should remain in service. @Unhealthy@ means
+-- that the instance is unhealthy and Amazon EC2 Auto Scaling should
 -- terminate and replace it.
 --
 -- 'protectedFromScaleIn', 'autoScalingInstanceDetails_protectedFromScaleIn' - Indicates whether the instance is protected from termination by Amazon
@@ -199,9 +199,9 @@ autoScalingInstanceDetails_availabilityZone = Lens.lens (\AutoScalingInstanceDet
 autoScalingInstanceDetails_lifecycleState :: Lens.Lens' AutoScalingInstanceDetails Prelude.Text
 autoScalingInstanceDetails_lifecycleState = Lens.lens (\AutoScalingInstanceDetails' {lifecycleState} -> lifecycleState) (\s@AutoScalingInstanceDetails' {} a -> s {lifecycleState = a} :: AutoScalingInstanceDetails)
 
--- | The last reported health status of this instance. \"Healthy\" means that
--- the instance is healthy and should remain in service. \"Unhealthy\"
--- means that the instance is unhealthy and Amazon EC2 Auto Scaling should
+-- | The last reported health status of this instance. @Healthy@ means that
+-- the instance is healthy and should remain in service. @Unhealthy@ means
+-- that the instance is unhealthy and Amazon EC2 Auto Scaling should
 -- terminate and replace it.
 autoScalingInstanceDetails_healthStatus :: Lens.Lens' AutoScalingInstanceDetails Prelude.Text
 autoScalingInstanceDetails_healthStatus = Lens.lens (\AutoScalingInstanceDetails' {healthStatus} -> healthStatus) (\s@AutoScalingInstanceDetails' {} a -> s {healthStatus = a} :: AutoScalingInstanceDetails)
@@ -227,7 +227,8 @@ instance Data.FromXML AutoScalingInstanceDetails where
 
 instance Prelude.Hashable AutoScalingInstanceDetails where
   hashWithSalt _salt AutoScalingInstanceDetails' {..} =
-    _salt `Prelude.hashWithSalt` instanceType
+    _salt
+      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` launchConfigurationName
       `Prelude.hashWithSalt` launchTemplate
       `Prelude.hashWithSalt` weightedCapacity

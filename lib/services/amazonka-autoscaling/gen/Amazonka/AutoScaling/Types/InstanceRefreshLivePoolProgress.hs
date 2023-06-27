@@ -24,8 +24,8 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Reports the progress of an instance refresh on instances that are in the
--- Auto Scaling group.
+-- | Reports progress on replacing instances that are in the Auto Scaling
+-- group.
 --
 -- /See:/ 'newInstanceRefreshLivePoolProgress' smart constructor.
 data InstanceRefreshLivePoolProgress = InstanceRefreshLivePoolProgress'
@@ -92,7 +92,8 @@ instance
   hashWithSalt
     _salt
     InstanceRefreshLivePoolProgress' {..} =
-      _salt `Prelude.hashWithSalt` instancesToUpdate
+      _salt
+        `Prelude.hashWithSalt` instancesToUpdate
         `Prelude.hashWithSalt` percentageComplete
 
 instance

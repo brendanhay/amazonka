@@ -26,7 +26,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure defines the CloudWatch metric to return, along with the
--- statistic, period, and unit.
+-- statistic and unit.
 --
 -- For more information about the CloudWatch terminology below, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html Amazon CloudWatch concepts>
@@ -39,13 +39,14 @@ data TargetTrackingMetricStat = TargetTrackingMetricStat'
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html MetricDatum>
     -- data type in the /Amazon CloudWatch API Reference/.
     unit :: Prelude.Maybe Prelude.Text,
+    -- | The metric to use.
     metric :: Metric,
     -- | The statistic to return. It can include any CloudWatch statistic or
     -- extended statistic. For a list of valid values, see the table in
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic Statistics>
     -- in the /Amazon CloudWatch User Guide/.
     --
-    -- The most commonly used metrics for scaling is @Average@
+    -- The most commonly used metric for scaling is @Average@.
     stat :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,14 +64,14 @@ data TargetTrackingMetricStat = TargetTrackingMetricStat'
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html MetricDatum>
 -- data type in the /Amazon CloudWatch API Reference/.
 --
--- 'metric', 'targetTrackingMetricStat_metric' - Undocumented member.
+-- 'metric', 'targetTrackingMetricStat_metric' - The metric to use.
 --
 -- 'stat', 'targetTrackingMetricStat_stat' - The statistic to return. It can include any CloudWatch statistic or
 -- extended statistic. For a list of valid values, see the table in
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic Statistics>
 -- in the /Amazon CloudWatch User Guide/.
 --
--- The most commonly used metrics for scaling is @Average@
+-- The most commonly used metric for scaling is @Average@.
 newTargetTrackingMetricStat ::
   -- | 'metric'
   Metric ->
@@ -91,7 +92,7 @@ newTargetTrackingMetricStat pMetric_ pStat_ =
 targetTrackingMetricStat_unit :: Lens.Lens' TargetTrackingMetricStat (Prelude.Maybe Prelude.Text)
 targetTrackingMetricStat_unit = Lens.lens (\TargetTrackingMetricStat' {unit} -> unit) (\s@TargetTrackingMetricStat' {} a -> s {unit = a} :: TargetTrackingMetricStat)
 
--- | Undocumented member.
+-- | The metric to use.
 targetTrackingMetricStat_metric :: Lens.Lens' TargetTrackingMetricStat Metric
 targetTrackingMetricStat_metric = Lens.lens (\TargetTrackingMetricStat' {metric} -> metric) (\s@TargetTrackingMetricStat' {} a -> s {metric = a} :: TargetTrackingMetricStat)
 
@@ -100,7 +101,7 @@ targetTrackingMetricStat_metric = Lens.lens (\TargetTrackingMetricStat' {metric}
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic Statistics>
 -- in the /Amazon CloudWatch User Guide/.
 --
--- The most commonly used metrics for scaling is @Average@
+-- The most commonly used metric for scaling is @Average@.
 targetTrackingMetricStat_stat :: Lens.Lens' TargetTrackingMetricStat Prelude.Text
 targetTrackingMetricStat_stat = Lens.lens (\TargetTrackingMetricStat' {stat} -> stat) (\s@TargetTrackingMetricStat' {} a -> s {stat = a} :: TargetTrackingMetricStat)
 
@@ -113,7 +114,8 @@ instance Data.FromXML TargetTrackingMetricStat where
 
 instance Prelude.Hashable TargetTrackingMetricStat where
   hashWithSalt _salt TargetTrackingMetricStat' {..} =
-    _salt `Prelude.hashWithSalt` unit
+    _salt
+      `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` metric
       `Prelude.hashWithSalt` stat
 

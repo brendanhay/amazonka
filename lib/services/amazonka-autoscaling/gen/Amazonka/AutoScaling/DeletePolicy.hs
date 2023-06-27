@@ -99,7 +99,8 @@ instance Core.AWSRequest DeletePolicy where
 
 instance Prelude.Hashable DeletePolicy where
   hashWithSalt _salt DeletePolicy' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupName
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData DeletePolicy where

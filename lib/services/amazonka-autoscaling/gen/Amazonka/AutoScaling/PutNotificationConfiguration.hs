@@ -129,7 +129,8 @@ instance
     PutNotificationConfiguration
   where
   hashWithSalt _salt PutNotificationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupName
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` topicARN
       `Prelude.hashWithSalt` notificationTypes
 

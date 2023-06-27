@@ -202,7 +202,8 @@ instance Data.FromXML EnabledMetric where
 
 instance Prelude.Hashable EnabledMetric where
   hashWithSalt _salt EnabledMetric' {..} =
-    _salt `Prelude.hashWithSalt` granularity
+    _salt
+      `Prelude.hashWithSalt` granularity
       `Prelude.hashWithSalt` metric
 
 instance Prelude.NFData EnabledMetric where

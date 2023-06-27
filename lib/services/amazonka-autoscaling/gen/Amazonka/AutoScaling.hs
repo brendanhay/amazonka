@@ -40,6 +40,9 @@ module Amazonka.AutoScaling
     -- ** InvalidNextToken
     _InvalidNextToken,
 
+    -- ** IrreversibleInstanceRefreshFault
+    _IrreversibleInstanceRefreshFault,
+
     -- ** LimitExceededFault
     _LimitExceededFault,
 
@@ -403,6 +406,12 @@ module Amazonka.AutoScaling
     ResumeProcessesResponse (ResumeProcessesResponse'),
     newResumeProcessesResponse,
 
+    -- ** RollbackInstanceRefresh
+    RollbackInstanceRefresh (RollbackInstanceRefresh'),
+    newRollbackInstanceRefresh,
+    RollbackInstanceRefreshResponse (RollbackInstanceRefreshResponse'),
+    newRollbackInstanceRefreshResponse,
+
     -- ** SetDesiredCapacity
     SetDesiredCapacity (SetDesiredCapacity'),
     newSetDesiredCapacity,
@@ -510,8 +519,14 @@ module Amazonka.AutoScaling
     -- ** RefreshStrategy
     RefreshStrategy (..),
 
+    -- ** ScaleInProtectedInstances
+    ScaleInProtectedInstances (..),
+
     -- ** ScalingActivityStatusCode
     ScalingActivityStatusCode (..),
+
+    -- ** StandbyInstances
+    StandbyInstances (..),
 
     -- ** WarmPoolState
     WarmPoolState (..),
@@ -751,6 +766,10 @@ module Amazonka.AutoScaling
     RefreshPreferences (RefreshPreferences'),
     newRefreshPreferences,
 
+    -- ** RollbackDetails
+    RollbackDetails (RollbackDetails'),
+    newRollbackDetails,
+
     -- ** ScalingPolicy
     ScalingPolicy (ScalingPolicy'),
     newScalingPolicy,
@@ -875,6 +894,7 @@ import Amazonka.AutoScaling.PutScheduledUpdateGroupAction
 import Amazonka.AutoScaling.PutWarmPool
 import Amazonka.AutoScaling.RecordLifecycleActionHeartbeat
 import Amazonka.AutoScaling.ResumeProcesses
+import Amazonka.AutoScaling.RollbackInstanceRefresh
 import Amazonka.AutoScaling.SetDesiredCapacity
 import Amazonka.AutoScaling.SetInstanceHealth
 import Amazonka.AutoScaling.SetInstanceProtection

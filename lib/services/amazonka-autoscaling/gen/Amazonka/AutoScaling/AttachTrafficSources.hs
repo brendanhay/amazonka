@@ -20,19 +20,29 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __Reserved for use with Amazon VPC Lattice, which is in preview and
--- subject to change. Do not use this API for production workloads. This
--- API is also subject to change.__
---
 -- Attaches one or more traffic sources to the specified Auto Scaling
 -- group.
 --
--- To describe the traffic sources for an Auto Scaling group, call the
--- DescribeTrafficSources API. To detach a traffic source from the Auto
--- Scaling group, call the DetachTrafficSources API.
+-- You can use any of the following as traffic sources for an Auto Scaling
+-- group:
+--
+-- -   Application Load Balancer
+--
+-- -   Classic Load Balancer
+--
+-- -   Gateway Load Balancer
+--
+-- -   Network Load Balancer
+--
+-- -   VPC Lattice
 --
 -- This operation is additive and does not detach existing traffic sources
 -- from the Auto Scaling group.
+--
+-- After the operation completes, use the DescribeTrafficSources API to
+-- return details about the state of the attachments between traffic
+-- sources and your Auto Scaling group. To detach a traffic source from the
+-- Auto Scaling group, call the DetachTrafficSources API.
 module Amazonka.AutoScaling.AttachTrafficSources
   ( -- * Creating a Request
     AttachTrafficSources (..),
@@ -65,12 +75,6 @@ data AttachTrafficSources = AttachTrafficSources'
     autoScalingGroupName :: Prelude.Text,
     -- | The unique identifiers of one or more traffic sources. You can specify
     -- up to 10 traffic sources.
-    --
-    -- Currently, you must specify an Amazon Resource Name (ARN) for an
-    -- existing VPC Lattice target group. Amazon EC2 Auto Scaling registers the
-    -- running instances with the attached target groups. The target groups
-    -- receive incoming traffic and route requests to one or more registered
-    -- targets.
     trafficSources :: [TrafficSourceIdentifier]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,12 +91,6 @@ data AttachTrafficSources = AttachTrafficSources'
 --
 -- 'trafficSources', 'attachTrafficSources_trafficSources' - The unique identifiers of one or more traffic sources. You can specify
 -- up to 10 traffic sources.
---
--- Currently, you must specify an Amazon Resource Name (ARN) for an
--- existing VPC Lattice target group. Amazon EC2 Auto Scaling registers the
--- running instances with the attached target groups. The target groups
--- receive incoming traffic and route requests to one or more registered
--- targets.
 newAttachTrafficSources ::
   -- | 'autoScalingGroupName'
   Prelude.Text ->
@@ -110,12 +108,6 @@ attachTrafficSources_autoScalingGroupName = Lens.lens (\AttachTrafficSources' {a
 
 -- | The unique identifiers of one or more traffic sources. You can specify
 -- up to 10 traffic sources.
---
--- Currently, you must specify an Amazon Resource Name (ARN) for an
--- existing VPC Lattice target group. Amazon EC2 Auto Scaling registers the
--- running instances with the attached target groups. The target groups
--- receive incoming traffic and route requests to one or more registered
--- targets.
 attachTrafficSources_trafficSources :: Lens.Lens' AttachTrafficSources [TrafficSourceIdentifier]
 attachTrafficSources_trafficSources = Lens.lens (\AttachTrafficSources' {trafficSources} -> trafficSources) (\s@AttachTrafficSources' {} a -> s {trafficSources = a} :: AttachTrafficSources) Prelude.. Lens.coerced
 
@@ -135,7 +127,8 @@ instance Core.AWSRequest AttachTrafficSources where
 
 instance Prelude.Hashable AttachTrafficSources where
   hashWithSalt _salt AttachTrafficSources' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupName
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` trafficSources
 
 instance Prelude.NFData AttachTrafficSources where

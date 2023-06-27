@@ -132,7 +132,8 @@ instance Data.FromXML MetricStat where
 
 instance Prelude.Hashable MetricStat where
   hashWithSalt _salt MetricStat' {..} =
-    _salt `Prelude.hashWithSalt` unit
+    _salt
+      `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` metric
       `Prelude.hashWithSalt` stat
 

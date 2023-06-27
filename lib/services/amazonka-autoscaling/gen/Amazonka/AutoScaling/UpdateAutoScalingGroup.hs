@@ -127,25 +127,26 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     defaultCooldown :: Prelude.Maybe Prelude.Int,
-    -- | The amount of time, in seconds, until a newly launched instance can
-    -- contribute to the Amazon CloudWatch metrics. This delay lets an instance
-    -- finish initializing before Amazon EC2 Auto Scaling aggregates instance
-    -- metrics, resulting in more reliable usage data. Set this value equal to
-    -- the amount of time that it takes for resource consumption to become
-    -- stable after an instance reaches the @InService@ state. For more
-    -- information, see
+    -- | The amount of time, in seconds, until a new instance is considered to
+    -- have finished initializing and resource consumption to become stable
+    -- after it enters the @InService@ state.
+    --
+    -- During an instance refresh, Amazon EC2 Auto Scaling waits for the
+    -- warm-up period after it replaces an instance before it moves on to
+    -- replacing the next instance. Amazon EC2 Auto Scaling also waits for the
+    -- warm-up period before aggregating the metrics for new instances with
+    -- existing instances in the Amazon CloudWatch metrics that are used for
+    -- scaling, resulting in more reliable usage data. For more information,
+    -- see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html Set the default instance warmup for an Auto Scaling group>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     --
-    -- To manage your warm-up settings at the group level, we recommend that
-    -- you set the default instance warmup, /even if its value is set to 0
-    -- seconds/. This also optimizes the performance of scaling policies that
-    -- scale continuously, such as target tracking and step scaling policies.
-    --
-    -- If you need to remove a value that you previously set, include the
-    -- property but specify @-1@ for the value. However, we strongly recommend
-    -- keeping the default instance warmup enabled by specifying a minimum
-    -- value of @0@.
+    -- To manage various warm-up settings at the group level, we recommend that
+    -- you set the default instance warmup, /even if it is set to 0 seconds/.
+    -- To remove a value that you previously set, include the property but
+    -- specify @-1@ for the value. However, we strongly recommend keeping the
+    -- default instance warmup enabled by specifying a value of @0@ or other
+    -- nominal value.
     defaultInstanceWarmup :: Prelude.Maybe Prelude.Int,
     -- | The desired capacity is the initial capacity of the Auto Scaling group
     -- after this operation completes and the capacity it attempts to maintain.
@@ -171,12 +172,14 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html Set the health check grace period for an Auto Scaling group>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     healthCheckGracePeriod :: Prelude.Maybe Prelude.Int,
-    -- | Determines whether any additional health checks are performed on the
-    -- instances in this group. Amazon EC2 health checks are always on.
+    -- | A comma-separated value string of one or more health check types.
     --
-    -- The valid values are @EC2@ (default), @ELB@, and @VPC_LATTICE@. The
-    -- @VPC_LATTICE@ health check type is reserved for use with VPC Lattice,
-    -- which is in preview release and is subject to change.
+    -- The valid values are @EC2@, @ELB@, and @VPC_LATTICE@. @EC2@ is the
+    -- default health check and cannot be disabled. For more information, see
+    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html Health checks for Auto Scaling instances>
+    -- in the /Amazon EC2 Auto Scaling User Guide/.
+    --
+    -- Only specify @EC2@ if you must clear a value that was previously set.
     healthCheckType :: Prelude.Maybe Prelude.Text,
     -- | The name of the launch configuration. If you specify
     -- @LaunchConfigurationName@ in your update request, you can\'t specify
@@ -274,25 +277,26 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- 'defaultInstanceWarmup', 'updateAutoScalingGroup_defaultInstanceWarmup' - The amount of time, in seconds, until a newly launched instance can
--- contribute to the Amazon CloudWatch metrics. This delay lets an instance
--- finish initializing before Amazon EC2 Auto Scaling aggregates instance
--- metrics, resulting in more reliable usage data. Set this value equal to
--- the amount of time that it takes for resource consumption to become
--- stable after an instance reaches the @InService@ state. For more
--- information, see
+-- 'defaultInstanceWarmup', 'updateAutoScalingGroup_defaultInstanceWarmup' - The amount of time, in seconds, until a new instance is considered to
+-- have finished initializing and resource consumption to become stable
+-- after it enters the @InService@ state.
+--
+-- During an instance refresh, Amazon EC2 Auto Scaling waits for the
+-- warm-up period after it replaces an instance before it moves on to
+-- replacing the next instance. Amazon EC2 Auto Scaling also waits for the
+-- warm-up period before aggregating the metrics for new instances with
+-- existing instances in the Amazon CloudWatch metrics that are used for
+-- scaling, resulting in more reliable usage data. For more information,
+-- see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html Set the default instance warmup for an Auto Scaling group>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- To manage your warm-up settings at the group level, we recommend that
--- you set the default instance warmup, /even if its value is set to 0
--- seconds/. This also optimizes the performance of scaling policies that
--- scale continuously, such as target tracking and step scaling policies.
---
--- If you need to remove a value that you previously set, include the
--- property but specify @-1@ for the value. However, we strongly recommend
--- keeping the default instance warmup enabled by specifying a minimum
--- value of @0@.
+-- To manage various warm-up settings at the group level, we recommend that
+-- you set the default instance warmup, /even if it is set to 0 seconds/.
+-- To remove a value that you previously set, include the property but
+-- specify @-1@ for the value. However, we strongly recommend keeping the
+-- default instance warmup enabled by specifying a value of @0@ or other
+-- nominal value.
 --
 -- 'desiredCapacity', 'updateAutoScalingGroup_desiredCapacity' - The desired capacity is the initial capacity of the Auto Scaling group
 -- after this operation completes and the capacity it attempts to maintain.
@@ -318,12 +322,14 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html Set the health check grace period for an Auto Scaling group>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- 'healthCheckType', 'updateAutoScalingGroup_healthCheckType' - Determines whether any additional health checks are performed on the
--- instances in this group. Amazon EC2 health checks are always on.
+-- 'healthCheckType', 'updateAutoScalingGroup_healthCheckType' - A comma-separated value string of one or more health check types.
 --
--- The valid values are @EC2@ (default), @ELB@, and @VPC_LATTICE@. The
--- @VPC_LATTICE@ health check type is reserved for use with VPC Lattice,
--- which is in preview release and is subject to change.
+-- The valid values are @EC2@, @ELB@, and @VPC_LATTICE@. @EC2@ is the
+-- default health check and cannot be disabled. For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html Health checks for Auto Scaling instances>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
+--
+-- Only specify @EC2@ if you must clear a value that was previously set.
 --
 -- 'launchConfigurationName', 'updateAutoScalingGroup_launchConfigurationName' - The name of the launch configuration. If you specify
 -- @LaunchConfigurationName@ in your update request, you can\'t specify
@@ -447,25 +453,26 @@ updateAutoScalingGroup_context = Lens.lens (\UpdateAutoScalingGroup' {context} -
 updateAutoScalingGroup_defaultCooldown :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Int)
 updateAutoScalingGroup_defaultCooldown = Lens.lens (\UpdateAutoScalingGroup' {defaultCooldown} -> defaultCooldown) (\s@UpdateAutoScalingGroup' {} a -> s {defaultCooldown = a} :: UpdateAutoScalingGroup)
 
--- | The amount of time, in seconds, until a newly launched instance can
--- contribute to the Amazon CloudWatch metrics. This delay lets an instance
--- finish initializing before Amazon EC2 Auto Scaling aggregates instance
--- metrics, resulting in more reliable usage data. Set this value equal to
--- the amount of time that it takes for resource consumption to become
--- stable after an instance reaches the @InService@ state. For more
--- information, see
+-- | The amount of time, in seconds, until a new instance is considered to
+-- have finished initializing and resource consumption to become stable
+-- after it enters the @InService@ state.
+--
+-- During an instance refresh, Amazon EC2 Auto Scaling waits for the
+-- warm-up period after it replaces an instance before it moves on to
+-- replacing the next instance. Amazon EC2 Auto Scaling also waits for the
+-- warm-up period before aggregating the metrics for new instances with
+-- existing instances in the Amazon CloudWatch metrics that are used for
+-- scaling, resulting in more reliable usage data. For more information,
+-- see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html Set the default instance warmup for an Auto Scaling group>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- To manage your warm-up settings at the group level, we recommend that
--- you set the default instance warmup, /even if its value is set to 0
--- seconds/. This also optimizes the performance of scaling policies that
--- scale continuously, such as target tracking and step scaling policies.
---
--- If you need to remove a value that you previously set, include the
--- property but specify @-1@ for the value. However, we strongly recommend
--- keeping the default instance warmup enabled by specifying a minimum
--- value of @0@.
+-- To manage various warm-up settings at the group level, we recommend that
+-- you set the default instance warmup, /even if it is set to 0 seconds/.
+-- To remove a value that you previously set, include the property but
+-- specify @-1@ for the value. However, we strongly recommend keeping the
+-- default instance warmup enabled by specifying a value of @0@ or other
+-- nominal value.
 updateAutoScalingGroup_defaultInstanceWarmup :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Int)
 updateAutoScalingGroup_defaultInstanceWarmup = Lens.lens (\UpdateAutoScalingGroup' {defaultInstanceWarmup} -> defaultInstanceWarmup) (\s@UpdateAutoScalingGroup' {} a -> s {defaultInstanceWarmup = a} :: UpdateAutoScalingGroup)
 
@@ -499,12 +506,14 @@ updateAutoScalingGroup_desiredCapacityType = Lens.lens (\UpdateAutoScalingGroup'
 updateAutoScalingGroup_healthCheckGracePeriod :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Int)
 updateAutoScalingGroup_healthCheckGracePeriod = Lens.lens (\UpdateAutoScalingGroup' {healthCheckGracePeriod} -> healthCheckGracePeriod) (\s@UpdateAutoScalingGroup' {} a -> s {healthCheckGracePeriod = a} :: UpdateAutoScalingGroup)
 
--- | Determines whether any additional health checks are performed on the
--- instances in this group. Amazon EC2 health checks are always on.
+-- | A comma-separated value string of one or more health check types.
 --
--- The valid values are @EC2@ (default), @ELB@, and @VPC_LATTICE@. The
--- @VPC_LATTICE@ health check type is reserved for use with VPC Lattice,
--- which is in preview release and is subject to change.
+-- The valid values are @EC2@, @ELB@, and @VPC_LATTICE@. @EC2@ is the
+-- default health check and cannot be disabled. For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html Health checks for Auto Scaling instances>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
+--
+-- Only specify @EC2@ if you must clear a value that was previously set.
 updateAutoScalingGroup_healthCheckType :: Lens.Lens' UpdateAutoScalingGroup (Prelude.Maybe Prelude.Text)
 updateAutoScalingGroup_healthCheckType = Lens.lens (\UpdateAutoScalingGroup' {healthCheckType} -> healthCheckType) (\s@UpdateAutoScalingGroup' {} a -> s {healthCheckType = a} :: UpdateAutoScalingGroup)
 
@@ -613,7 +622,8 @@ instance Core.AWSRequest UpdateAutoScalingGroup where
 
 instance Prelude.Hashable UpdateAutoScalingGroup where
   hashWithSalt _salt UpdateAutoScalingGroup' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` capacityRebalance
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` defaultCooldown

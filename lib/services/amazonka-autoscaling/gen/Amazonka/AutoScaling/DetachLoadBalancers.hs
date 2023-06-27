@@ -20,12 +20,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This API operation is superseded by DetachTrafficSources, which can
+-- detach multiple traffic sources types. We recommend using
+-- @DetachTrafficSources@ to simplify how you manage traffic sources.
+-- However, we continue to support @DetachLoadBalancers@. You can use both
+-- the original @DetachLoadBalancers@ API operation and
+-- @DetachTrafficSources@ on the same Auto Scaling group.
+--
 -- Detaches one or more Classic Load Balancers from the specified Auto
 -- Scaling group.
 --
 -- This operation detaches only Classic Load Balancers. If you have
 -- Application Load Balancers, Network Load Balancers, or Gateway Load
--- Balancer, use the DetachLoadBalancerTargetGroups API instead.
+-- Balancers, use the DetachLoadBalancerTargetGroups API instead.
 --
 -- When you detach a load balancer, it enters the @Removing@ state while
 -- deregistering the instances in the group. When all instances are
@@ -115,7 +122,8 @@ instance Core.AWSRequest DetachLoadBalancers where
 
 instance Prelude.Hashable DetachLoadBalancers where
   hashWithSalt _salt DetachLoadBalancers' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupName
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` loadBalancerNames
 
 instance Prelude.NFData DetachLoadBalancers where

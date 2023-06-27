@@ -24,8 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Reports the progress of an instance refresh on instances that are in the
--- warm pool.
+-- | Reports progress on replacing instances that are in the warm pool.
 --
 -- /See:/ 'newInstanceRefreshWarmPoolProgress' smart constructor.
 data InstanceRefreshWarmPoolProgress = InstanceRefreshWarmPoolProgress'
@@ -89,7 +88,8 @@ instance
   hashWithSalt
     _salt
     InstanceRefreshWarmPoolProgress' {..} =
-      _salt `Prelude.hashWithSalt` instancesToUpdate
+      _salt
+        `Prelude.hashWithSalt` instancesToUpdate
         `Prelude.hashWithSalt` percentageComplete
 
 instance

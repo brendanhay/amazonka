@@ -102,6 +102,7 @@ library
     Amazonka.AutoScaling.PutWarmPool
     Amazonka.AutoScaling.RecordLifecycleActionHeartbeat
     Amazonka.AutoScaling.ResumeProcesses
+    Amazonka.AutoScaling.RollbackInstanceRefresh
     Amazonka.AutoScaling.SetDesiredCapacity
     Amazonka.AutoScaling.SetInstanceHealth
     Amazonka.AutoScaling.SetInstanceProtection
@@ -188,11 +189,14 @@ library
     Amazonka.AutoScaling.Types.ProcessType
     Amazonka.AutoScaling.Types.RefreshPreferences
     Amazonka.AutoScaling.Types.RefreshStrategy
+    Amazonka.AutoScaling.Types.RollbackDetails
+    Amazonka.AutoScaling.Types.ScaleInProtectedInstances
     Amazonka.AutoScaling.Types.ScalingActivityStatusCode
     Amazonka.AutoScaling.Types.ScalingPolicy
     Amazonka.AutoScaling.Types.ScalingProcessQuery
     Amazonka.AutoScaling.Types.ScheduledUpdateGroupAction
     Amazonka.AutoScaling.Types.ScheduledUpdateGroupActionRequest
+    Amazonka.AutoScaling.Types.StandbyInstances
     Amazonka.AutoScaling.Types.StepAdjustment
     Amazonka.AutoScaling.Types.SuspendedProcess
     Amazonka.AutoScaling.Types.Tag

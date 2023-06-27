@@ -77,7 +77,8 @@ instance
       "DescribeTerminationPolicyTypesResult"
       ( \s h x ->
           DescribeTerminationPolicyTypesResponse'
-            Prelude.<$> ( x Data..@? "TerminationPolicyTypes"
+            Prelude.<$> ( x
+                            Data..@? "TerminationPolicyTypes"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )

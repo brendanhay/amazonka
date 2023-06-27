@@ -123,25 +123,26 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
     --
     -- Default: @300@ seconds
     defaultCooldown :: Prelude.Maybe Prelude.Int,
-    -- | The amount of time, in seconds, until a newly launched instance can
-    -- contribute to the Amazon CloudWatch metrics. This delay lets an instance
-    -- finish initializing before Amazon EC2 Auto Scaling aggregates instance
-    -- metrics, resulting in more reliable usage data. Set this value equal to
-    -- the amount of time that it takes for resource consumption to become
-    -- stable after an instance reaches the @InService@ state. For more
-    -- information, see
+    -- | The amount of time, in seconds, until a new instance is considered to
+    -- have finished initializing and resource consumption to become stable
+    -- after it enters the @InService@ state.
+    --
+    -- During an instance refresh, Amazon EC2 Auto Scaling waits for the
+    -- warm-up period after it replaces an instance before it moves on to
+    -- replacing the next instance. Amazon EC2 Auto Scaling also waits for the
+    -- warm-up period before aggregating the metrics for new instances with
+    -- existing instances in the Amazon CloudWatch metrics that are used for
+    -- scaling, resulting in more reliable usage data. For more information,
+    -- see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html Set the default instance warmup for an Auto Scaling group>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     --
-    -- To manage your warm-up settings at the group level, we recommend that
-    -- you set the default instance warmup, /even if its value is set to 0
-    -- seconds/. This also optimizes the performance of scaling policies that
-    -- scale continuously, such as target tracking and step scaling policies.
-    --
-    -- If you need to remove a value that you previously set, include the
-    -- property but specify @-1@ for the value. However, we strongly recommend
-    -- keeping the default instance warmup enabled by specifying a minimum
-    -- value of @0@.
+    -- To manage various warm-up settings at the group level, we recommend that
+    -- you set the default instance warmup, /even if it is set to 0 seconds/.
+    -- To remove a value that you previously set, include the property but
+    -- specify @-1@ for the value. However, we strongly recommend keeping the
+    -- default instance warmup enabled by specifying a value of @0@ or other
+    -- nominal value.
     --
     -- Default: None
     defaultInstanceWarmup :: Prelude.Maybe Prelude.Int,
@@ -174,15 +175,14 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
     --
     -- Default: @0@ seconds
     healthCheckGracePeriod :: Prelude.Maybe Prelude.Int,
-    -- | Determines whether any additional health checks are performed on the
-    -- instances in this group. Amazon EC2 health checks are always on. For
-    -- more information, see
+    -- | A comma-separated value string of one or more health check types.
+    --
+    -- The valid values are @EC2@, @ELB@, and @VPC_LATTICE@. @EC2@ is the
+    -- default health check and cannot be disabled. For more information, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html Health checks for Auto Scaling instances>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
     --
-    -- The valid values are @EC2@ (default), @ELB@, and @VPC_LATTICE@. The
-    -- @VPC_LATTICE@ health check type is reserved for use with VPC Lattice,
-    -- which is in preview release and is subject to change.
+    -- Only specify @EC2@ if you must clear a value that was previously set.
     healthCheckType :: Prelude.Maybe Prelude.Text,
     -- | The ID of the instance used to base the launch configuration on. If
     -- specified, Amazon EC2 Auto Scaling uses the configuration values from
@@ -216,7 +216,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
     lifecycleHookSpecificationList :: Prelude.Maybe [LifecycleHookSpecification],
     -- | A list of Classic Load Balancers associated with this Auto Scaling
     -- group. For Application Load Balancers, Network Load Balancers, and
-    -- Gateway Load Balancer, specify the @TargetGroupARNs@ property instead.
+    -- Gateway Load Balancers, specify the @TargetGroupARNs@ property instead.
     loadBalancerNames :: Prelude.Maybe [Prelude.Text],
     -- | The maximum amount of time, in seconds, that an instance can be in
     -- service. The default is null. If specified, the value must be either 0
@@ -282,17 +282,10 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
     -- @OldestLaunchConfiguration@ | @OldestLaunchTemplate@ |
     -- @arn:aws:lambda:region:account-id:function:my-function:my-alias@
     terminationPolicies :: Prelude.Maybe [Prelude.Text],
-    -- | __Reserved for use with Amazon VPC Lattice, which is in preview release
-    -- and is subject to change. Do not use this parameter for production
-    -- workloads. It is also subject to change.__
-    --
-    -- The unique identifiers of one or more traffic sources.
-    --
-    -- Currently, you must specify an Amazon Resource Name (ARN) for an
-    -- existing VPC Lattice target group. Amazon EC2 Auto Scaling registers the
-    -- running instances with the attached target groups. The target groups
-    -- receive incoming traffic and route requests to one or more registered
-    -- targets.
+    -- | The list of traffic sources to attach to this Auto Scaling group. You
+    -- can use any of the following as traffic sources for an Auto Scaling
+    -- group: Classic Load Balancer, Application Load Balancer, Gateway Load
+    -- Balancer, Network Load Balancer, and VPC Lattice.
     trafficSources :: Prelude.Maybe [TrafficSourceIdentifier],
     -- | A comma-separated list of subnet IDs for a virtual private cloud (VPC)
     -- where instances in the Auto Scaling group can be created. If you specify
@@ -356,25 +349,26 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
 --
 -- Default: @300@ seconds
 --
--- 'defaultInstanceWarmup', 'createAutoScalingGroup_defaultInstanceWarmup' - The amount of time, in seconds, until a newly launched instance can
--- contribute to the Amazon CloudWatch metrics. This delay lets an instance
--- finish initializing before Amazon EC2 Auto Scaling aggregates instance
--- metrics, resulting in more reliable usage data. Set this value equal to
--- the amount of time that it takes for resource consumption to become
--- stable after an instance reaches the @InService@ state. For more
--- information, see
+-- 'defaultInstanceWarmup', 'createAutoScalingGroup_defaultInstanceWarmup' - The amount of time, in seconds, until a new instance is considered to
+-- have finished initializing and resource consumption to become stable
+-- after it enters the @InService@ state.
+--
+-- During an instance refresh, Amazon EC2 Auto Scaling waits for the
+-- warm-up period after it replaces an instance before it moves on to
+-- replacing the next instance. Amazon EC2 Auto Scaling also waits for the
+-- warm-up period before aggregating the metrics for new instances with
+-- existing instances in the Amazon CloudWatch metrics that are used for
+-- scaling, resulting in more reliable usage data. For more information,
+-- see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html Set the default instance warmup for an Auto Scaling group>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- To manage your warm-up settings at the group level, we recommend that
--- you set the default instance warmup, /even if its value is set to 0
--- seconds/. This also optimizes the performance of scaling policies that
--- scale continuously, such as target tracking and step scaling policies.
---
--- If you need to remove a value that you previously set, include the
--- property but specify @-1@ for the value. However, we strongly recommend
--- keeping the default instance warmup enabled by specifying a minimum
--- value of @0@.
+-- To manage various warm-up settings at the group level, we recommend that
+-- you set the default instance warmup, /even if it is set to 0 seconds/.
+-- To remove a value that you previously set, include the property but
+-- specify @-1@ for the value. However, we strongly recommend keeping the
+-- default instance warmup enabled by specifying a value of @0@ or other
+-- nominal value.
 --
 -- Default: None
 --
@@ -407,15 +401,14 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
 --
 -- Default: @0@ seconds
 --
--- 'healthCheckType', 'createAutoScalingGroup_healthCheckType' - Determines whether any additional health checks are performed on the
--- instances in this group. Amazon EC2 health checks are always on. For
--- more information, see
+-- 'healthCheckType', 'createAutoScalingGroup_healthCheckType' - A comma-separated value string of one or more health check types.
+--
+-- The valid values are @EC2@, @ELB@, and @VPC_LATTICE@. @EC2@ is the
+-- default health check and cannot be disabled. For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html Health checks for Auto Scaling instances>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- The valid values are @EC2@ (default), @ELB@, and @VPC_LATTICE@. The
--- @VPC_LATTICE@ health check type is reserved for use with VPC Lattice,
--- which is in preview release and is subject to change.
+-- Only specify @EC2@ if you must clear a value that was previously set.
 --
 -- 'instanceId', 'createAutoScalingGroup_instanceId' - The ID of the instance used to base the launch configuration on. If
 -- specified, Amazon EC2 Auto Scaling uses the configuration values from
@@ -449,7 +442,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
 --
 -- 'loadBalancerNames', 'createAutoScalingGroup_loadBalancerNames' - A list of Classic Load Balancers associated with this Auto Scaling
 -- group. For Application Load Balancers, Network Load Balancers, and
--- Gateway Load Balancer, specify the @TargetGroupARNs@ property instead.
+-- Gateway Load Balancers, specify the @TargetGroupARNs@ property instead.
 --
 -- 'maxInstanceLifetime', 'createAutoScalingGroup_maxInstanceLifetime' - The maximum amount of time, in seconds, that an instance can be in
 -- service. The default is null. If specified, the value must be either 0
@@ -515,17 +508,10 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
 -- @OldestLaunchConfiguration@ | @OldestLaunchTemplate@ |
 -- @arn:aws:lambda:region:account-id:function:my-function:my-alias@
 --
--- 'trafficSources', 'createAutoScalingGroup_trafficSources' - __Reserved for use with Amazon VPC Lattice, which is in preview release
--- and is subject to change. Do not use this parameter for production
--- workloads. It is also subject to change.__
---
--- The unique identifiers of one or more traffic sources.
---
--- Currently, you must specify an Amazon Resource Name (ARN) for an
--- existing VPC Lattice target group. Amazon EC2 Auto Scaling registers the
--- running instances with the attached target groups. The target groups
--- receive incoming traffic and route requests to one or more registered
--- targets.
+-- 'trafficSources', 'createAutoScalingGroup_trafficSources' - The list of traffic sources to attach to this Auto Scaling group. You
+-- can use any of the following as traffic sources for an Auto Scaling
+-- group: Classic Load Balancer, Application Load Balancer, Gateway Load
+-- Balancer, Network Load Balancer, and VPC Lattice.
 --
 -- 'vPCZoneIdentifier', 'createAutoScalingGroup_vPCZoneIdentifier' - A comma-separated list of subnet IDs for a virtual private cloud (VPC)
 -- where instances in the Auto Scaling group can be created. If you specify
@@ -628,25 +614,26 @@ createAutoScalingGroup_context = Lens.lens (\CreateAutoScalingGroup' {context} -
 createAutoScalingGroup_defaultCooldown :: Lens.Lens' CreateAutoScalingGroup (Prelude.Maybe Prelude.Int)
 createAutoScalingGroup_defaultCooldown = Lens.lens (\CreateAutoScalingGroup' {defaultCooldown} -> defaultCooldown) (\s@CreateAutoScalingGroup' {} a -> s {defaultCooldown = a} :: CreateAutoScalingGroup)
 
--- | The amount of time, in seconds, until a newly launched instance can
--- contribute to the Amazon CloudWatch metrics. This delay lets an instance
--- finish initializing before Amazon EC2 Auto Scaling aggregates instance
--- metrics, resulting in more reliable usage data. Set this value equal to
--- the amount of time that it takes for resource consumption to become
--- stable after an instance reaches the @InService@ state. For more
--- information, see
+-- | The amount of time, in seconds, until a new instance is considered to
+-- have finished initializing and resource consumption to become stable
+-- after it enters the @InService@ state.
+--
+-- During an instance refresh, Amazon EC2 Auto Scaling waits for the
+-- warm-up period after it replaces an instance before it moves on to
+-- replacing the next instance. Amazon EC2 Auto Scaling also waits for the
+-- warm-up period before aggregating the metrics for new instances with
+-- existing instances in the Amazon CloudWatch metrics that are used for
+-- scaling, resulting in more reliable usage data. For more information,
+-- see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html Set the default instance warmup for an Auto Scaling group>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- To manage your warm-up settings at the group level, we recommend that
--- you set the default instance warmup, /even if its value is set to 0
--- seconds/. This also optimizes the performance of scaling policies that
--- scale continuously, such as target tracking and step scaling policies.
---
--- If you need to remove a value that you previously set, include the
--- property but specify @-1@ for the value. However, we strongly recommend
--- keeping the default instance warmup enabled by specifying a minimum
--- value of @0@.
+-- To manage various warm-up settings at the group level, we recommend that
+-- you set the default instance warmup, /even if it is set to 0 seconds/.
+-- To remove a value that you previously set, include the property but
+-- specify @-1@ for the value. However, we strongly recommend keeping the
+-- default instance warmup enabled by specifying a value of @0@ or other
+-- nominal value.
 --
 -- Default: None
 createAutoScalingGroup_defaultInstanceWarmup :: Lens.Lens' CreateAutoScalingGroup (Prelude.Maybe Prelude.Int)
@@ -687,15 +674,14 @@ createAutoScalingGroup_desiredCapacityType = Lens.lens (\CreateAutoScalingGroup'
 createAutoScalingGroup_healthCheckGracePeriod :: Lens.Lens' CreateAutoScalingGroup (Prelude.Maybe Prelude.Int)
 createAutoScalingGroup_healthCheckGracePeriod = Lens.lens (\CreateAutoScalingGroup' {healthCheckGracePeriod} -> healthCheckGracePeriod) (\s@CreateAutoScalingGroup' {} a -> s {healthCheckGracePeriod = a} :: CreateAutoScalingGroup)
 
--- | Determines whether any additional health checks are performed on the
--- instances in this group. Amazon EC2 health checks are always on. For
--- more information, see
+-- | A comma-separated value string of one or more health check types.
+--
+-- The valid values are @EC2@, @ELB@, and @VPC_LATTICE@. @EC2@ is the
+-- default health check and cannot be disabled. For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html Health checks for Auto Scaling instances>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- The valid values are @EC2@ (default), @ELB@, and @VPC_LATTICE@. The
--- @VPC_LATTICE@ health check type is reserved for use with VPC Lattice,
--- which is in preview release and is subject to change.
+-- Only specify @EC2@ if you must clear a value that was previously set.
 createAutoScalingGroup_healthCheckType :: Lens.Lens' CreateAutoScalingGroup (Prelude.Maybe Prelude.Text)
 createAutoScalingGroup_healthCheckType = Lens.lens (\CreateAutoScalingGroup' {healthCheckType} -> healthCheckType) (\s@CreateAutoScalingGroup' {} a -> s {healthCheckType = a} :: CreateAutoScalingGroup)
 
@@ -739,7 +725,7 @@ createAutoScalingGroup_lifecycleHookSpecificationList = Lens.lens (\CreateAutoSc
 
 -- | A list of Classic Load Balancers associated with this Auto Scaling
 -- group. For Application Load Balancers, Network Load Balancers, and
--- Gateway Load Balancer, specify the @TargetGroupARNs@ property instead.
+-- Gateway Load Balancers, specify the @TargetGroupARNs@ property instead.
 createAutoScalingGroup_loadBalancerNames :: Lens.Lens' CreateAutoScalingGroup (Prelude.Maybe [Prelude.Text])
 createAutoScalingGroup_loadBalancerNames = Lens.lens (\CreateAutoScalingGroup' {loadBalancerNames} -> loadBalancerNames) (\s@CreateAutoScalingGroup' {} a -> s {loadBalancerNames = a} :: CreateAutoScalingGroup) Prelude.. Lens.mapping Lens.coerced
 
@@ -823,17 +809,10 @@ createAutoScalingGroup_targetGroupARNs = Lens.lens (\CreateAutoScalingGroup' {ta
 createAutoScalingGroup_terminationPolicies :: Lens.Lens' CreateAutoScalingGroup (Prelude.Maybe [Prelude.Text])
 createAutoScalingGroup_terminationPolicies = Lens.lens (\CreateAutoScalingGroup' {terminationPolicies} -> terminationPolicies) (\s@CreateAutoScalingGroup' {} a -> s {terminationPolicies = a} :: CreateAutoScalingGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | __Reserved for use with Amazon VPC Lattice, which is in preview release
--- and is subject to change. Do not use this parameter for production
--- workloads. It is also subject to change.__
---
--- The unique identifiers of one or more traffic sources.
---
--- Currently, you must specify an Amazon Resource Name (ARN) for an
--- existing VPC Lattice target group. Amazon EC2 Auto Scaling registers the
--- running instances with the attached target groups. The target groups
--- receive incoming traffic and route requests to one or more registered
--- targets.
+-- | The list of traffic sources to attach to this Auto Scaling group. You
+-- can use any of the following as traffic sources for an Auto Scaling
+-- group: Classic Load Balancer, Application Load Balancer, Gateway Load
+-- Balancer, Network Load Balancer, and VPC Lattice.
 createAutoScalingGroup_trafficSources :: Lens.Lens' CreateAutoScalingGroup (Prelude.Maybe [TrafficSourceIdentifier])
 createAutoScalingGroup_trafficSources = Lens.lens (\CreateAutoScalingGroup' {trafficSources} -> trafficSources) (\s@CreateAutoScalingGroup' {} a -> s {trafficSources = a} :: CreateAutoScalingGroup) Prelude.. Lens.mapping Lens.coerced
 
@@ -881,7 +860,8 @@ instance Core.AWSRequest CreateAutoScalingGroup where
 
 instance Prelude.Hashable CreateAutoScalingGroup where
   hashWithSalt _salt CreateAutoScalingGroup' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` capacityRebalance
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` defaultCooldown

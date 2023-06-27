@@ -198,6 +198,9 @@ import Test.Tasty
 --         , requestResumeProcesses $
 --             newResumeProcesses
 --
+--         , requestRollbackInstanceRefresh $
+--             newRollbackInstanceRefresh
+--
 --         , requestSetDesiredCapacity $
 --             newSetDesiredCapacity
 --
@@ -392,6 +395,9 @@ import Test.Tasty
 --
 --         , responseResumeProcesses $
 --             newResumeProcessesResponse
+--
+--         , responseRollbackInstanceRefresh $
+--             newRollbackInstanceRefreshResponse
 --
 --         , responseSetDesiredCapacity $
 --             newSetDesiredCapacityResponse
@@ -760,6 +766,12 @@ requestResumeProcesses =
   req
     "ResumeProcesses"
     "fixture/ResumeProcesses.yaml"
+
+requestRollbackInstanceRefresh :: RollbackInstanceRefresh -> TestTree
+requestRollbackInstanceRefresh =
+  req
+    "RollbackInstanceRefresh"
+    "fixture/RollbackInstanceRefresh.yaml"
 
 requestSetDesiredCapacity :: SetDesiredCapacity -> TestTree
 requestSetDesiredCapacity =
@@ -1260,6 +1272,14 @@ responseResumeProcesses =
     "fixture/ResumeProcessesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ResumeProcesses)
+
+responseRollbackInstanceRefresh :: RollbackInstanceRefreshResponse -> TestTree
+responseRollbackInstanceRefresh =
+  res
+    "RollbackInstanceRefreshResponse"
+    "fixture/RollbackInstanceRefreshResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RollbackInstanceRefresh)
 
 responseSetDesiredCapacity :: SetDesiredCapacityResponse -> TestTree
 responseSetDesiredCapacity =

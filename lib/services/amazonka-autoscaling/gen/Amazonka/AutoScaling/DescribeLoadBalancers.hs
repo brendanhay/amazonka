@@ -20,12 +20,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This API operation is superseded by DescribeTrafficSources, which can
+-- describe multiple traffic sources types. We recommend using
+-- @DescribeTrafficSources@ to simplify how you manage traffic sources.
+-- However, we continue to support @DescribeLoadBalancers@. You can use
+-- both the original @DescribeLoadBalancers@ API operation and
+-- @DescribeTrafficSources@ on the same Auto Scaling group.
+--
 -- Gets information about the load balancers for the specified Auto Scaling
 -- group.
 --
 -- This operation describes only Classic Load Balancers. If you have
 -- Application Load Balancers, Network Load Balancers, or Gateway Load
--- Balancer, use the DescribeLoadBalancerTargetGroups API instead.
+-- Balancers, use the DescribeLoadBalancerTargetGroups API instead.
 --
 -- To determine the attachment status of the load balancer, use the @State@
 -- element in the response. When you attach a load balancer to an Auto
@@ -140,22 +147,22 @@ instance Core.AWSPager DescribeLoadBalancers where
     | Core.stop
         ( rs
             Lens.^? describeLoadBalancersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeLoadBalancersResponse_loadBalancers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeLoadBalancers_nextToken
           Lens..~ rs
           Lens.^? describeLoadBalancersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeLoadBalancers where
   type
@@ -168,7 +175,9 @@ instance Core.AWSRequest DescribeLoadBalancers where
       "DescribeLoadBalancersResult"
       ( \s h x ->
           DescribeLoadBalancersResponse'
-            Prelude.<$> ( x Data..@? "LoadBalancers" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "LoadBalancers"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")
@@ -177,7 +186,8 @@ instance Core.AWSRequest DescribeLoadBalancers where
 
 instance Prelude.Hashable DescribeLoadBalancers where
   hashWithSalt _salt DescribeLoadBalancers' {..} =
-    _salt `Prelude.hashWithSalt` maxRecords
+    _salt
+      `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` autoScalingGroupName
 

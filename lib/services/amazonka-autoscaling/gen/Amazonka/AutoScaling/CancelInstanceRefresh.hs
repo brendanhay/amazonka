@@ -20,14 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels an instance refresh operation in progress. Cancellation does not
--- roll back any replacements that have already been completed, but it
--- prevents new replacements from being started.
+-- Cancels an instance refresh or rollback that is in progress. If an
+-- instance refresh or rollback is not in progress, an
+-- @ActiveInstanceRefreshNotFound@ error occurs.
 --
 -- This operation is part of the
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html instance refresh feature>
 -- in Amazon EC2 Auto Scaling, which helps you update instances in your
 -- Auto Scaling group after you make configuration changes.
+--
+-- When you cancel an instance refresh, this does not roll back any changes
+-- that it made. Use the RollbackInstanceRefresh API to roll back instead.
 module Amazonka.AutoScaling.CancelInstanceRefresh
   ( -- * Creating a Request
     CancelInstanceRefresh (..),
@@ -125,7 +128,8 @@ instance Data.ToQuery CancelInstanceRefresh where
 
 -- | /See:/ 'newCancelInstanceRefreshResponse' smart constructor.
 data CancelInstanceRefreshResponse = CancelInstanceRefreshResponse'
-  { -- | The instance refresh ID.
+  { -- | The instance refresh ID associated with the request. This is the unique
+    -- ID assigned to the instance refresh when it was started.
     instanceRefreshId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -140,7 +144,8 @@ data CancelInstanceRefreshResponse = CancelInstanceRefreshResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceRefreshId', 'cancelInstanceRefreshResponse_instanceRefreshId' - The instance refresh ID.
+-- 'instanceRefreshId', 'cancelInstanceRefreshResponse_instanceRefreshId' - The instance refresh ID associated with the request. This is the unique
+-- ID assigned to the instance refresh when it was started.
 --
 -- 'httpStatus', 'cancelInstanceRefreshResponse_httpStatus' - The response's http status code.
 newCancelInstanceRefreshResponse ::
@@ -154,7 +159,8 @@ newCancelInstanceRefreshResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The instance refresh ID.
+-- | The instance refresh ID associated with the request. This is the unique
+-- ID assigned to the instance refresh when it was started.
 cancelInstanceRefreshResponse_instanceRefreshId :: Lens.Lens' CancelInstanceRefreshResponse (Prelude.Maybe Prelude.Text)
 cancelInstanceRefreshResponse_instanceRefreshId = Lens.lens (\CancelInstanceRefreshResponse' {instanceRefreshId} -> instanceRefreshId) (\s@CancelInstanceRefreshResponse' {} a -> s {instanceRefreshId = a} :: CancelInstanceRefreshResponse)
 

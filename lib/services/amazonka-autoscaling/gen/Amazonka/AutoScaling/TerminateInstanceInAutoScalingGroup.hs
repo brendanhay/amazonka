@@ -128,7 +128,7 @@ instance
       ( \s h x ->
           TerminateInstanceInAutoScalingGroupResponse'
             Prelude.<$> (x Data..@? "Activity")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -138,7 +138,8 @@ instance
   hashWithSalt
     _salt
     TerminateInstanceInAutoScalingGroup' {..} =
-      _salt `Prelude.hashWithSalt` instanceId
+      _salt
+        `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` shouldDecrementDesiredCapacity
 
 instance

@@ -122,7 +122,8 @@ instance Data.FromXML LoadBalancerState where
 
 instance Prelude.Hashable LoadBalancerState where
   hashWithSalt _salt LoadBalancerState' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerName
+    _salt
+      `Prelude.hashWithSalt` loadBalancerName
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData LoadBalancerState where

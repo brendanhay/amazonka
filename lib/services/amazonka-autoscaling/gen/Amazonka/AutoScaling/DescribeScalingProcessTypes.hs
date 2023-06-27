@@ -71,7 +71,9 @@ instance Core.AWSRequest DescribeScalingProcessTypes where
       "DescribeScalingProcessTypesResult"
       ( \s h x ->
           DescribeScalingProcessTypesResponse'
-            Prelude.<$> ( x Data..@? "Processes" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Processes"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

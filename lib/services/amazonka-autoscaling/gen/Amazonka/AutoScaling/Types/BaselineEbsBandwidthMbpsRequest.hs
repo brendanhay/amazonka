@@ -67,7 +67,8 @@ baselineEbsBandwidthMbpsRequest_min = Lens.lens (\BaselineEbsBandwidthMbpsReques
 instance Data.FromXML BaselineEbsBandwidthMbpsRequest where
   parseXML x =
     BaselineEbsBandwidthMbpsRequest'
-      Prelude.<$> (x Data..@? "Max") Prelude.<*> (x Data..@? "Min")
+      Prelude.<$> (x Data..@? "Max")
+      Prelude.<*> (x Data..@? "Min")
 
 instance
   Prelude.Hashable
@@ -76,7 +77,8 @@ instance
   hashWithSalt
     _salt
     BaselineEbsBandwidthMbpsRequest' {..} =
-      _salt `Prelude.hashWithSalt` max
+      _salt
+        `Prelude.hashWithSalt` max
         `Prelude.hashWithSalt` min
 
 instance

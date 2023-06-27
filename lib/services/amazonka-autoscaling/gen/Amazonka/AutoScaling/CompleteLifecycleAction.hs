@@ -181,7 +181,8 @@ instance Core.AWSRequest CompleteLifecycleAction where
 
 instance Prelude.Hashable CompleteLifecycleAction where
   hashWithSalt _salt CompleteLifecycleAction' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` lifecycleActionToken
       `Prelude.hashWithSalt` lifecycleHookName
       `Prelude.hashWithSalt` autoScalingGroupName

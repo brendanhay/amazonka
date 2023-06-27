@@ -182,7 +182,8 @@ instance Core.AWSRequest ExecutePolicy where
 
 instance Prelude.Hashable ExecutePolicy where
   hashWithSalt _salt ExecutePolicy' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupName
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` breachThreshold
       `Prelude.hashWithSalt` honorCooldown
       `Prelude.hashWithSalt` metricValue

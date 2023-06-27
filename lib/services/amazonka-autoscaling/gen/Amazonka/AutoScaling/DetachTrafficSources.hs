@@ -20,12 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __Reserved for use with Amazon VPC Lattice, which is in preview and
--- subject to change. Do not use this API for production workloads. This
--- API is also subject to change.__
---
 -- Detaches one or more traffic sources from the specified Auto Scaling
 -- group.
+--
+-- When you detach a taffic, it enters the @Removing@ state while
+-- deregistering the instances in the group. When all instances are
+-- deregistered, then you can no longer describe the traffic source using
+-- the DescribeTrafficSources API call. The instances continue to run.
 module Amazonka.AutoScaling.DetachTrafficSources
   ( -- * Creating a Request
     DetachTrafficSources (..),
@@ -56,15 +57,8 @@ import qualified Amazonka.Response as Response
 data DetachTrafficSources = DetachTrafficSources'
   { -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text,
-    -- | The unique identifiers of one or more traffic sources you are detaching.
-    -- You can specify up to 10 traffic sources.
-    --
-    -- Currently, you must specify an Amazon Resource Name (ARN) for an
-    -- existing VPC Lattice target group. When you detach a target group, it
-    -- enters the @Removing@ state while deregistering the instances in the
-    -- group. When all instances are deregistered, then you can no longer
-    -- describe the target group using the DescribeTrafficSources API call. The
-    -- instances continue to run.
+    -- | The unique identifiers of one or more traffic sources. You can specify
+    -- up to 10 traffic sources.
     trafficSources :: [TrafficSourceIdentifier]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,15 +73,8 @@ data DetachTrafficSources = DetachTrafficSources'
 --
 -- 'autoScalingGroupName', 'detachTrafficSources_autoScalingGroupName' - The name of the Auto Scaling group.
 --
--- 'trafficSources', 'detachTrafficSources_trafficSources' - The unique identifiers of one or more traffic sources you are detaching.
--- You can specify up to 10 traffic sources.
---
--- Currently, you must specify an Amazon Resource Name (ARN) for an
--- existing VPC Lattice target group. When you detach a target group, it
--- enters the @Removing@ state while deregistering the instances in the
--- group. When all instances are deregistered, then you can no longer
--- describe the target group using the DescribeTrafficSources API call. The
--- instances continue to run.
+-- 'trafficSources', 'detachTrafficSources_trafficSources' - The unique identifiers of one or more traffic sources. You can specify
+-- up to 10 traffic sources.
 newDetachTrafficSources ::
   -- | 'autoScalingGroupName'
   Prelude.Text ->
@@ -103,15 +90,8 @@ newDetachTrafficSources pAutoScalingGroupName_ =
 detachTrafficSources_autoScalingGroupName :: Lens.Lens' DetachTrafficSources Prelude.Text
 detachTrafficSources_autoScalingGroupName = Lens.lens (\DetachTrafficSources' {autoScalingGroupName} -> autoScalingGroupName) (\s@DetachTrafficSources' {} a -> s {autoScalingGroupName = a} :: DetachTrafficSources)
 
--- | The unique identifiers of one or more traffic sources you are detaching.
--- You can specify up to 10 traffic sources.
---
--- Currently, you must specify an Amazon Resource Name (ARN) for an
--- existing VPC Lattice target group. When you detach a target group, it
--- enters the @Removing@ state while deregistering the instances in the
--- group. When all instances are deregistered, then you can no longer
--- describe the target group using the DescribeTrafficSources API call. The
--- instances continue to run.
+-- | The unique identifiers of one or more traffic sources. You can specify
+-- up to 10 traffic sources.
 detachTrafficSources_trafficSources :: Lens.Lens' DetachTrafficSources [TrafficSourceIdentifier]
 detachTrafficSources_trafficSources = Lens.lens (\DetachTrafficSources' {trafficSources} -> trafficSources) (\s@DetachTrafficSources' {} a -> s {trafficSources = a} :: DetachTrafficSources) Prelude.. Lens.coerced
 
@@ -131,7 +111,8 @@ instance Core.AWSRequest DetachTrafficSources where
 
 instance Prelude.Hashable DetachTrafficSources where
   hashWithSalt _salt DetachTrafficSources' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingGroupName
+    _salt
+      `Prelude.hashWithSalt` autoScalingGroupName
       `Prelude.hashWithSalt` trafficSources
 
 instance Prelude.NFData DetachTrafficSources where

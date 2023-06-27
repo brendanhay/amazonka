@@ -22,6 +22,7 @@ module Amazonka.AutoScaling.Types
     _AlreadyExistsFault,
     _InstanceRefreshInProgressFault,
     _InvalidNextToken,
+    _IrreversibleInstanceRefreshFault,
     _LimitExceededFault,
     _ResourceContentionFault,
     _ResourceInUseFault,
@@ -91,8 +92,14 @@ module Amazonka.AutoScaling.Types
     -- * RefreshStrategy
     RefreshStrategy (..),
 
+    -- * ScaleInProtectedInstances
+    ScaleInProtectedInstances (..),
+
     -- * ScalingActivityStatusCode
     ScalingActivityStatusCode (..),
+
+    -- * StandbyInstances
+    StandbyInstances (..),
 
     -- * WarmPoolState
     WarmPoolState (..),
@@ -293,6 +300,7 @@ module Amazonka.AutoScaling.Types
     instanceRefresh_percentageComplete,
     instanceRefresh_preferences,
     instanceRefresh_progressDetails,
+    instanceRefresh_rollbackDetails,
     instanceRefresh_startTime,
     instanceRefresh_status,
     instanceRefresh_statusReason,
@@ -588,11 +596,23 @@ module Amazonka.AutoScaling.Types
     -- * RefreshPreferences
     RefreshPreferences (..),
     newRefreshPreferences,
+    refreshPreferences_autoRollback,
     refreshPreferences_checkpointDelay,
     refreshPreferences_checkpointPercentages,
     refreshPreferences_instanceWarmup,
     refreshPreferences_minHealthyPercentage,
+    refreshPreferences_scaleInProtectedInstances,
     refreshPreferences_skipMatching,
+    refreshPreferences_standbyInstances,
+
+    -- * RollbackDetails
+    RollbackDetails (..),
+    newRollbackDetails,
+    rollbackDetails_instancesToUpdateOnRollback,
+    rollbackDetails_percentageCompleteOnRollback,
+    rollbackDetails_progressDetailsOnRollback,
+    rollbackDetails_rollbackReason,
+    rollbackDetails_rollbackStartTime,
 
     -- * ScalingPolicy
     ScalingPolicy (..),
@@ -711,13 +731,16 @@ module Amazonka.AutoScaling.Types
     -- * TrafficSourceIdentifier
     TrafficSourceIdentifier (..),
     newTrafficSourceIdentifier,
+    trafficSourceIdentifier_type,
     trafficSourceIdentifier_identifier,
 
     -- * TrafficSourceState
     TrafficSourceState (..),
     newTrafficSourceState,
+    trafficSourceState_identifier,
     trafficSourceState_state,
     trafficSourceState_trafficSource,
+    trafficSourceState_type,
 
     -- * VCpuCountRequest
     VCpuCountRequest (..),
@@ -815,11 +838,14 @@ import Amazonka.AutoScaling.Types.PredictiveScalingPredefinedScalingMetric
 import Amazonka.AutoScaling.Types.ProcessType
 import Amazonka.AutoScaling.Types.RefreshPreferences
 import Amazonka.AutoScaling.Types.RefreshStrategy
+import Amazonka.AutoScaling.Types.RollbackDetails
+import Amazonka.AutoScaling.Types.ScaleInProtectedInstances
 import Amazonka.AutoScaling.Types.ScalingActivityStatusCode
 import Amazonka.AutoScaling.Types.ScalingPolicy
 import Amazonka.AutoScaling.Types.ScalingProcessQuery
 import Amazonka.AutoScaling.Types.ScheduledUpdateGroupAction
 import Amazonka.AutoScaling.Types.ScheduledUpdateGroupActionRequest
+import Amazonka.AutoScaling.Types.StandbyInstances
 import Amazonka.AutoScaling.Types.StepAdjustment
 import Amazonka.AutoScaling.Types.SuspendedProcess
 import Amazonka.AutoScaling.Types.Tag
@@ -865,53 +891,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The request failed because an active instance refresh for the specified
--- Auto Scaling group was not found.
-_ActiveInstanceRefreshNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The request failed because an active instance refresh or rollback for
+-- the specified Auto Scaling group was not found.
+_ActiveInstanceRefreshNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ActiveInstanceRefreshNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -920,16 +946,16 @@ _ActiveInstanceRefreshNotFoundFault =
 
 -- | You already have an Auto Scaling group or launch configuration with this
 -- name.
-_AlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AlreadyExistsFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AlreadyExistsFault =
   Core._MatchServiceError
     defaultService
     "AlreadyExists"
     Prelude.. Core.hasStatus 400
 
--- | The request failed because an active instance refresh operation already
--- exists for the specified Auto Scaling group.
-_InstanceRefreshInProgressFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The request failed because an active instance refresh already exists for
+-- the specified Auto Scaling group.
+_InstanceRefreshInProgressFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InstanceRefreshInProgressFault =
   Core._MatchServiceError
     defaultService
@@ -937,11 +963,22 @@ _InstanceRefreshInProgressFault =
     Prelude.. Core.hasStatus 400
 
 -- | The @NextToken@ value is not valid.
-_InvalidNextToken :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNextToken :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNextToken =
   Core._MatchServiceError
     defaultService
     "InvalidNextToken"
+    Prelude.. Core.hasStatus 400
+
+-- | The request failed because a desired configuration was not found or an
+-- incompatible launch template (uses a Systems Manager parameter instead
+-- of an AMI ID) or launch template version (@$Latest@ or @$Default@) is
+-- present on the Auto Scaling group.
+_IrreversibleInstanceRefreshFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_IrreversibleInstanceRefreshFault =
+  Core._MatchServiceError
+    defaultService
+    "IrreversibleInstanceRefresh"
     Prelude.. Core.hasStatus 400
 
 -- | You have already reached a limit for your Amazon EC2 Auto Scaling
@@ -949,7 +986,7 @@ _InvalidNextToken =
 -- lifecycle hooks). For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html DescribeAccountLimits>
 -- in the /Amazon EC2 Auto Scaling API Reference/.
-_LimitExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededFault =
   Core._MatchServiceError
     defaultService
@@ -958,7 +995,7 @@ _LimitExceededFault =
 
 -- | You already have a pending update to an Amazon EC2 Auto Scaling resource
 -- (for example, an Auto Scaling group, instance, or load balancer).
-_ResourceContentionFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceContentionFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceContentionFault =
   Core._MatchServiceError
     defaultService
@@ -966,7 +1003,7 @@ _ResourceContentionFault =
     Prelude.. Core.hasStatus 500
 
 -- | The operation can\'t be performed because the resource is in use.
-_ResourceInUseFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceInUseFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceInUseFault =
   Core._MatchServiceError
     defaultService
@@ -975,7 +1012,7 @@ _ResourceInUseFault =
 
 -- | The operation can\'t be performed because there are scaling activities
 -- in progress.
-_ScalingActivityInProgressFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ScalingActivityInProgressFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ScalingActivityInProgressFault =
   Core._MatchServiceError
     defaultService
@@ -983,7 +1020,7 @@ _ScalingActivityInProgressFault =
     Prelude.. Core.hasStatus 400
 
 -- | The service-linked role is not yet ready for use.
-_ServiceLinkedRoleFailure :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceLinkedRoleFailure :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceLinkedRoleFailure =
   Core._MatchServiceError
     defaultService

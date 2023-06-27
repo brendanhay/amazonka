@@ -33,7 +33,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDesiredConfiguration' smart constructor.
 data DesiredConfiguration = DesiredConfiguration'
-  { launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
+  { -- | Describes the launch template and the version of the launch template
+    -- that Amazon EC2 Auto Scaling uses to launch Amazon EC2 instances. For
+    -- more information about launch templates, see
+    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html Launch templates>
+    -- in the /Amazon EC2 Auto Scaling User Guide/.
+    launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
+    -- | Use this structure to launch multiple instance types and On-Demand
+    -- Instances and Spot Instances within a single Auto Scaling group.
+    --
+    -- A mixed instances policy contains information that Amazon EC2 Auto
+    -- Scaling can use to launch instances and help optimize your costs. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html Auto Scaling groups with multiple instance types and purchase options>
+    -- in the /Amazon EC2 Auto Scaling User Guide/.
     mixedInstancesPolicy :: Prelude.Maybe MixedInstancesPolicy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,9 +59,20 @@ data DesiredConfiguration = DesiredConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'launchTemplate', 'desiredConfiguration_launchTemplate' - Undocumented member.
+-- 'launchTemplate', 'desiredConfiguration_launchTemplate' - Describes the launch template and the version of the launch template
+-- that Amazon EC2 Auto Scaling uses to launch Amazon EC2 instances. For
+-- more information about launch templates, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html Launch templates>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- 'mixedInstancesPolicy', 'desiredConfiguration_mixedInstancesPolicy' - Undocumented member.
+-- 'mixedInstancesPolicy', 'desiredConfiguration_mixedInstancesPolicy' - Use this structure to launch multiple instance types and On-Demand
+-- Instances and Spot Instances within a single Auto Scaling group.
+--
+-- A mixed instances policy contains information that Amazon EC2 Auto
+-- Scaling can use to launch instances and help optimize your costs. For
+-- more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html Auto Scaling groups with multiple instance types and purchase options>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
 newDesiredConfiguration ::
   DesiredConfiguration
 newDesiredConfiguration =
@@ -58,11 +82,22 @@ newDesiredConfiguration =
       mixedInstancesPolicy = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | Describes the launch template and the version of the launch template
+-- that Amazon EC2 Auto Scaling uses to launch Amazon EC2 instances. For
+-- more information about launch templates, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html Launch templates>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
 desiredConfiguration_launchTemplate :: Lens.Lens' DesiredConfiguration (Prelude.Maybe LaunchTemplateSpecification)
 desiredConfiguration_launchTemplate = Lens.lens (\DesiredConfiguration' {launchTemplate} -> launchTemplate) (\s@DesiredConfiguration' {} a -> s {launchTemplate = a} :: DesiredConfiguration)
 
--- | Undocumented member.
+-- | Use this structure to launch multiple instance types and On-Demand
+-- Instances and Spot Instances within a single Auto Scaling group.
+--
+-- A mixed instances policy contains information that Amazon EC2 Auto
+-- Scaling can use to launch instances and help optimize your costs. For
+-- more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html Auto Scaling groups with multiple instance types and purchase options>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
 desiredConfiguration_mixedInstancesPolicy :: Lens.Lens' DesiredConfiguration (Prelude.Maybe MixedInstancesPolicy)
 desiredConfiguration_mixedInstancesPolicy = Lens.lens (\DesiredConfiguration' {mixedInstancesPolicy} -> mixedInstancesPolicy) (\s@DesiredConfiguration' {} a -> s {mixedInstancesPolicy = a} :: DesiredConfiguration)
 
@@ -74,7 +109,8 @@ instance Data.FromXML DesiredConfiguration where
 
 instance Prelude.Hashable DesiredConfiguration where
   hashWithSalt _salt DesiredConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` launchTemplate
+    _salt
+      `Prelude.hashWithSalt` launchTemplate
       `Prelude.hashWithSalt` mixedInstancesPolicy
 
 instance Prelude.NFData DesiredConfiguration where

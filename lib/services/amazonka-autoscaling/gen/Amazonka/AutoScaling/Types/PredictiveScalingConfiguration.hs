@@ -227,7 +227,8 @@ instance Data.FromXML PredictiveScalingConfiguration where
       Prelude.<*> (x Data..@? "MaxCapacityBuffer")
       Prelude.<*> (x Data..@? "Mode")
       Prelude.<*> (x Data..@? "SchedulingBufferTime")
-      Prelude.<*> ( x Data..@? "MetricSpecifications"
+      Prelude.<*> ( x
+                      Data..@? "MetricSpecifications"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "member"
                   )

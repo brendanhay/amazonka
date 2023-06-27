@@ -105,7 +105,8 @@ instance Data.FromJSON BatchPutMetricsError where
 
 instance Prelude.Hashable BatchPutMetricsError where
   hashWithSalt _salt BatchPutMetricsError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` metricIndex
 
 instance Prelude.NFData BatchPutMetricsError where

@@ -106,7 +106,8 @@ instance Core.AWSRequest BatchPutMetrics where
 
 instance Prelude.Hashable BatchPutMetrics where
   hashWithSalt _salt BatchPutMetrics' {..} =
-    _salt `Prelude.hashWithSalt` trialComponentName
+    _salt
+      `Prelude.hashWithSalt` trialComponentName
       `Prelude.hashWithSalt` metricData
 
 instance Prelude.NFData BatchPutMetrics where

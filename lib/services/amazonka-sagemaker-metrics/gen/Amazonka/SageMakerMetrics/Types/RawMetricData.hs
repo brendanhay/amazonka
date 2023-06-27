@@ -88,7 +88,8 @@ rawMetricData_value = Lens.lens (\RawMetricData' {value} -> value) (\s@RawMetric
 
 instance Prelude.Hashable RawMetricData where
   hashWithSalt _salt RawMetricData' {..} =
-    _salt `Prelude.hashWithSalt` step
+    _salt
+      `Prelude.hashWithSalt` step
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` value

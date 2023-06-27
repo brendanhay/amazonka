@@ -464,7 +464,8 @@ instance Core.AWSRequest CreateHIT where
 
 instance Prelude.Hashable CreateHIT where
   hashWithSalt _salt CreateHIT' {..} =
-    _salt `Prelude.hashWithSalt` assignmentReviewPolicy
+    _salt
+      `Prelude.hashWithSalt` assignmentReviewPolicy
       `Prelude.hashWithSalt` autoApprovalDelayInSeconds
       `Prelude.hashWithSalt` hITLayoutId
       `Prelude.hashWithSalt` hITLayoutParameters

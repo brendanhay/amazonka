@@ -125,7 +125,8 @@ instance Core.AWSRequest SendTestEventNotification where
 
 instance Prelude.Hashable SendTestEventNotification where
   hashWithSalt _salt SendTestEventNotification' {..} =
-    _salt `Prelude.hashWithSalt` notification
+    _salt
+      `Prelude.hashWithSalt` notification
       `Prelude.hashWithSalt` testEventType
 
 instance Prelude.NFData SendTestEventNotification where

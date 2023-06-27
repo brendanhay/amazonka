@@ -160,7 +160,8 @@ instance
   hashWithSalt
     _salt
     AssociateQualificationWithWorker' {..} =
-      _salt `Prelude.hashWithSalt` integerValue
+      _salt
+        `Prelude.hashWithSalt` integerValue
         `Prelude.hashWithSalt` sendNotification
         `Prelude.hashWithSalt` qualificationTypeId
         `Prelude.hashWithSalt` workerId

@@ -276,7 +276,8 @@ instance Core.AWSRequest UpdateQualificationType where
 
 instance Prelude.Hashable UpdateQualificationType where
   hashWithSalt _salt UpdateQualificationType' {..} =
-    _salt `Prelude.hashWithSalt` answerKey
+    _salt
+      `Prelude.hashWithSalt` answerKey
       `Prelude.hashWithSalt` autoGranted
       `Prelude.hashWithSalt` autoGrantedValue
       `Prelude.hashWithSalt` description

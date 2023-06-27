@@ -146,7 +146,8 @@ instance Data.FromJSON ReviewActionDetail where
 
 instance Prelude.Hashable ReviewActionDetail where
   hashWithSalt _salt ReviewActionDetail' {..} =
-    _salt `Prelude.hashWithSalt` actionId
+    _salt
+      `Prelude.hashWithSalt` actionId
       `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` completeTime
       `Prelude.hashWithSalt` errorCode

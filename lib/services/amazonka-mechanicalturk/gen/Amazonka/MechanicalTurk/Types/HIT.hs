@@ -321,7 +321,8 @@ instance Data.FromJSON HIT where
             Prelude.<*> (x Data..:? "NumberOfAssignmentsAvailable")
             Prelude.<*> (x Data..:? "NumberOfAssignmentsCompleted")
             Prelude.<*> (x Data..:? "NumberOfAssignmentsPending")
-            Prelude.<*> ( x Data..:? "QualificationRequirements"
+            Prelude.<*> ( x
+                            Data..:? "QualificationRequirements"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Question")

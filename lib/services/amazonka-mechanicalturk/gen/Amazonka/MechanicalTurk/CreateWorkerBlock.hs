@@ -110,7 +110,8 @@ instance Core.AWSRequest CreateWorkerBlock where
 
 instance Prelude.Hashable CreateWorkerBlock where
   hashWithSalt _salt CreateWorkerBlock' {..} =
-    _salt `Prelude.hashWithSalt` workerId
+    _salt
+      `Prelude.hashWithSalt` workerId
       `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData CreateWorkerBlock where

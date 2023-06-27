@@ -128,7 +128,8 @@ instance Data.FromJSON Qualification where
 
 instance Prelude.Hashable Qualification where
   hashWithSalt _salt Qualification' {..} =
-    _salt `Prelude.hashWithSalt` grantTime
+    _salt
+      `Prelude.hashWithSalt` grantTime
       `Prelude.hashWithSalt` integerValue
       `Prelude.hashWithSalt` localeValue
       `Prelude.hashWithSalt` qualificationTypeId

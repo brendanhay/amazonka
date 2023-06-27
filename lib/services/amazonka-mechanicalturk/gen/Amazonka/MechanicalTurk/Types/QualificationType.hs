@@ -264,7 +264,8 @@ instance Data.FromJSON QualificationType where
 
 instance Prelude.Hashable QualificationType where
   hashWithSalt _salt QualificationType' {..} =
-    _salt `Prelude.hashWithSalt` answerKey
+    _salt
+      `Prelude.hashWithSalt` answerKey
       `Prelude.hashWithSalt` autoGranted
       `Prelude.hashWithSalt` autoGrantedValue
       `Prelude.hashWithSalt` creationTime

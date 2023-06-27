@@ -171,7 +171,8 @@ instance Core.AWSRequest SendBonus where
 
 instance Prelude.Hashable SendBonus where
   hashWithSalt _salt SendBonus' {..} =
-    _salt `Prelude.hashWithSalt` uniqueRequestToken
+    _salt
+      `Prelude.hashWithSalt` uniqueRequestToken
       `Prelude.hashWithSalt` workerId
       `Prelude.hashWithSalt` bonusAmount
       `Prelude.hashWithSalt` assignmentId

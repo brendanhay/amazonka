@@ -20,19 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Uploads one or more pieces of evidence to a control in an Audit Manager
--- assessment. You can upload manual evidence from any Amazon Simple
--- Storage Service (Amazon S3) bucket by specifying the S3 URI of the
--- evidence.
+-- Adds one or more pieces of evidence to a control in an Audit Manager
+-- assessment.
 --
--- You must upload manual evidence to your S3 bucket before you can upload
--- it to your assessment. For instructions, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html CreateBucket>
--- and
--- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html PutObject>
--- in the /Amazon Simple Storage Service API Reference./
+-- You can import manual evidence from any S3 bucket by specifying the S3
+-- URI of the object. You can also upload a file from your browser, or
+-- enter plain text in response to a risk assessment question.
 --
 -- The following restrictions apply to this action:
+--
+-- -   @manualEvidence@ can be only one of the following:
+--     @evidenceFileName@, @s3ResourcePath@, or @textResponse@
 --
 -- -   Maximum size of an individual evidence file: 100 MB
 --
@@ -157,7 +155,7 @@ instance
       ( \s h x ->
           BatchImportEvidenceToAssessmentControlResponse'
             Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -167,7 +165,8 @@ instance
   hashWithSalt
     _salt
     BatchImportEvidenceToAssessmentControl' {..} =
-      _salt `Prelude.hashWithSalt` assessmentId
+      _salt
+        `Prelude.hashWithSalt` assessmentId
         `Prelude.hashWithSalt` controlSetId
         `Prelude.hashWithSalt` controlId
         `Prelude.hashWithSalt` manualEvidence

@@ -25,16 +25,22 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The keyword to search for in CloudTrail logs, Config rules, Security Hub
--- checks, and Amazon Web Services API names.
+-- | A keyword that relates to the control data source.
+--
+-- For manual evidence, this keyword indicates if the manual evidence is a
+-- file or text.
+--
+-- For automated evidence, this keyword identifies a specific CloudTrail
+-- event, Config rule, Security Hub control, or Amazon Web Services API
+-- name.
 --
 -- To learn more about the supported keywords that you can use when mapping
 -- a control data source, see the following pages in the /Audit Manager
 -- User Guide/:
 --
--- -   <https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html Config rules supported by Audit Manager>
+-- -   <https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html Config rules supported by Audit Manager>
 --
--- -   <https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html Security Hub controls supported by Audit Manager>
+-- -   <https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html Security Hub controls supported by Audit Manager>
 --
 -- -   <https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-api.html API calls supported by Audit Manager>
 --
@@ -43,6 +49,24 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSourceKeyword' smart constructor.
 data SourceKeyword = SourceKeyword'
   { -- | The input method for the keyword.
+    --
+    -- -   @SELECT_FROM_LIST@ is used when mapping a data source for automated
+    --     evidence.
+    --
+    --     -   When @keywordInputType@ is @SELECT_FROM_LIST@, a keyword must be
+    --         selected to collect automated evidence. For example, this
+    --         keyword can be a CloudTrail event name, a rule name for Config,
+    --         a Security Hub control, or the name of an Amazon Web Services
+    --         API call.
+    --
+    -- -   @UPLOAD_FILE@ and @INPUT_TEXT@ are only used when mapping a data
+    --     source for manual evidence.
+    --
+    --     -   When @keywordInputType@ is @UPLOAD_FILE@, a file must be
+    --         uploaded as manual evidence.
+    --
+    --     -   When @keywordInputType@ is @INPUT_TEXT@, text must be entered as
+    --         manual evidence.
     keywordInputType :: Prelude.Maybe KeywordInputType,
     -- | The value of the keyword that\'s used when mapping a control data
     -- source. For example, this can be a CloudTrail event name, a rule name
@@ -57,6 +81,12 @@ data SourceKeyword = SourceKeyword'
     --     you can use the rule identifier as the @keywordValue@. You can find
     --     the rule identifier from the
     --     <https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html list of Config managed rules>.
+    --     For some rules, the rule identifier is different from the rule name.
+    --     For example, the rule name @restricted-ssh@ has the following rule
+    --     identifier: @INCOMING_SSH_DISABLED@. Make sure to use the rule
+    --     identifier, not the rule name.
+    --
+    --     Keyword example for managed rules:
     --
     --     -   Managed rule name:
     --         <https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-acl-prohibited.html s3-bucket-acl-prohibited>
@@ -66,7 +96,10 @@ data SourceKeyword = SourceKeyword'
     -- -   For
     --     <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html custom rules>,
     --     you form the @keywordValue@ by adding the @Custom_@ prefix to the
-    --     rule name. This prefix distinguishes the rule from a managed rule.
+    --     rule name. This prefix distinguishes the custom rule from a managed
+    --     rule.
+    --
+    --     Keyword example for custom rules:
     --
     --     -   Custom rule name: my-custom-config-rule
     --
@@ -78,6 +111,8 @@ data SourceKeyword = SourceKeyword'
     --     rule name. In addition, you remove the suffix ID that appears at the
     --     end of the rule name.
     --
+    --     Keyword examples for service-linked rules:
+    --
     --     -   Service-linked rule name:
     --         CustomRuleForAccount-conformance-pack-szsm1uv0w
     --
@@ -88,6 +123,45 @@ data SourceKeyword = SourceKeyword'
     --
     --         @keywordValue@:
     --         @Custom_OrgConfigRule-s3-bucket-versioning-enabled@
+    --
+    -- The @keywordValue@ is case sensitive. If you enter a value incorrectly,
+    -- Audit Manager might not recognize the data source mapping. As a result,
+    -- you might not successfully collect evidence from that data source as
+    -- intended.
+    --
+    -- Keep in mind the following requirements, depending on the data source
+    -- type that you\'re using.
+    --
+    -- 1.  For Config:
+    --
+    --     -   For managed rules, make sure that the @keywordValue@ is the rule
+    --         identifier in @ALL_CAPS_WITH_UNDERSCORES@. For example,
+    --         @CLOUDWATCH_LOG_GROUP_ENCRYPTED@. For accuracy, we recommend
+    --         that you reference the list of
+    --         <https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html supported Config managed rules>.
+    --
+    --     -   For custom rules, make sure that the @keywordValue@ has the
+    --         @Custom_@ prefix followed by the custom rule name. The format of
+    --         the custom rule name itself may vary. For accuracy, we recommend
+    --         that you visit the
+    --         <https://console.aws.amazon.com/config/ Config console> to
+    --         verify your custom rule name.
+    --
+    -- 2.  For Security Hub: The format varies for Security Hub control names.
+    --     For accuracy, we recommend that you reference the list of
+    --     <https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html supported Security Hub controls>.
+    --
+    -- 3.  For Amazon Web Services API calls: Make sure that the @keywordValue@
+    --     is written as @serviceprefix_ActionName@. For example,
+    --     @iam_ListGroups@. For accuracy, we recommend that you reference the
+    --     list of
+    --     <https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-api.html supported API calls>.
+    --
+    -- 4.  For CloudTrail: Make sure that the @keywordValue@ is written as
+    --     @serviceprefix_ActionName@. For example, @cloudtrail_StartLogging@.
+    --     For accuracy, we recommend that you review the Amazon Web Service
+    --     prefix and action names in the
+    --     <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Service Authorization Reference>.
     keywordValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -102,6 +176,24 @@ data SourceKeyword = SourceKeyword'
 --
 -- 'keywordInputType', 'sourceKeyword_keywordInputType' - The input method for the keyword.
 --
+-- -   @SELECT_FROM_LIST@ is used when mapping a data source for automated
+--     evidence.
+--
+--     -   When @keywordInputType@ is @SELECT_FROM_LIST@, a keyword must be
+--         selected to collect automated evidence. For example, this
+--         keyword can be a CloudTrail event name, a rule name for Config,
+--         a Security Hub control, or the name of an Amazon Web Services
+--         API call.
+--
+-- -   @UPLOAD_FILE@ and @INPUT_TEXT@ are only used when mapping a data
+--     source for manual evidence.
+--
+--     -   When @keywordInputType@ is @UPLOAD_FILE@, a file must be
+--         uploaded as manual evidence.
+--
+--     -   When @keywordInputType@ is @INPUT_TEXT@, text must be entered as
+--         manual evidence.
+--
 -- 'keywordValue', 'sourceKeyword_keywordValue' - The value of the keyword that\'s used when mapping a control data
 -- source. For example, this can be a CloudTrail event name, a rule name
 -- for Config, a Security Hub control, or the name of an Amazon Web
@@ -115,6 +207,12 @@ data SourceKeyword = SourceKeyword'
 --     you can use the rule identifier as the @keywordValue@. You can find
 --     the rule identifier from the
 --     <https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html list of Config managed rules>.
+--     For some rules, the rule identifier is different from the rule name.
+--     For example, the rule name @restricted-ssh@ has the following rule
+--     identifier: @INCOMING_SSH_DISABLED@. Make sure to use the rule
+--     identifier, not the rule name.
+--
+--     Keyword example for managed rules:
 --
 --     -   Managed rule name:
 --         <https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-acl-prohibited.html s3-bucket-acl-prohibited>
@@ -124,7 +222,10 @@ data SourceKeyword = SourceKeyword'
 -- -   For
 --     <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html custom rules>,
 --     you form the @keywordValue@ by adding the @Custom_@ prefix to the
---     rule name. This prefix distinguishes the rule from a managed rule.
+--     rule name. This prefix distinguishes the custom rule from a managed
+--     rule.
+--
+--     Keyword example for custom rules:
 --
 --     -   Custom rule name: my-custom-config-rule
 --
@@ -136,6 +237,8 @@ data SourceKeyword = SourceKeyword'
 --     rule name. In addition, you remove the suffix ID that appears at the
 --     end of the rule name.
 --
+--     Keyword examples for service-linked rules:
+--
 --     -   Service-linked rule name:
 --         CustomRuleForAccount-conformance-pack-szsm1uv0w
 --
@@ -146,6 +249,45 @@ data SourceKeyword = SourceKeyword'
 --
 --         @keywordValue@:
 --         @Custom_OrgConfigRule-s3-bucket-versioning-enabled@
+--
+-- The @keywordValue@ is case sensitive. If you enter a value incorrectly,
+-- Audit Manager might not recognize the data source mapping. As a result,
+-- you might not successfully collect evidence from that data source as
+-- intended.
+--
+-- Keep in mind the following requirements, depending on the data source
+-- type that you\'re using.
+--
+-- 1.  For Config:
+--
+--     -   For managed rules, make sure that the @keywordValue@ is the rule
+--         identifier in @ALL_CAPS_WITH_UNDERSCORES@. For example,
+--         @CLOUDWATCH_LOG_GROUP_ENCRYPTED@. For accuracy, we recommend
+--         that you reference the list of
+--         <https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html supported Config managed rules>.
+--
+--     -   For custom rules, make sure that the @keywordValue@ has the
+--         @Custom_@ prefix followed by the custom rule name. The format of
+--         the custom rule name itself may vary. For accuracy, we recommend
+--         that you visit the
+--         <https://console.aws.amazon.com/config/ Config console> to
+--         verify your custom rule name.
+--
+-- 2.  For Security Hub: The format varies for Security Hub control names.
+--     For accuracy, we recommend that you reference the list of
+--     <https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html supported Security Hub controls>.
+--
+-- 3.  For Amazon Web Services API calls: Make sure that the @keywordValue@
+--     is written as @serviceprefix_ActionName@. For example,
+--     @iam_ListGroups@. For accuracy, we recommend that you reference the
+--     list of
+--     <https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-api.html supported API calls>.
+--
+-- 4.  For CloudTrail: Make sure that the @keywordValue@ is written as
+--     @serviceprefix_ActionName@. For example, @cloudtrail_StartLogging@.
+--     For accuracy, we recommend that you review the Amazon Web Service
+--     prefix and action names in the
+--     <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Service Authorization Reference>.
 newSourceKeyword ::
   SourceKeyword
 newSourceKeyword =
@@ -155,6 +297,24 @@ newSourceKeyword =
     }
 
 -- | The input method for the keyword.
+--
+-- -   @SELECT_FROM_LIST@ is used when mapping a data source for automated
+--     evidence.
+--
+--     -   When @keywordInputType@ is @SELECT_FROM_LIST@, a keyword must be
+--         selected to collect automated evidence. For example, this
+--         keyword can be a CloudTrail event name, a rule name for Config,
+--         a Security Hub control, or the name of an Amazon Web Services
+--         API call.
+--
+-- -   @UPLOAD_FILE@ and @INPUT_TEXT@ are only used when mapping a data
+--     source for manual evidence.
+--
+--     -   When @keywordInputType@ is @UPLOAD_FILE@, a file must be
+--         uploaded as manual evidence.
+--
+--     -   When @keywordInputType@ is @INPUT_TEXT@, text must be entered as
+--         manual evidence.
 sourceKeyword_keywordInputType :: Lens.Lens' SourceKeyword (Prelude.Maybe KeywordInputType)
 sourceKeyword_keywordInputType = Lens.lens (\SourceKeyword' {keywordInputType} -> keywordInputType) (\s@SourceKeyword' {} a -> s {keywordInputType = a} :: SourceKeyword)
 
@@ -171,6 +331,12 @@ sourceKeyword_keywordInputType = Lens.lens (\SourceKeyword' {keywordInputType} -
 --     you can use the rule identifier as the @keywordValue@. You can find
 --     the rule identifier from the
 --     <https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html list of Config managed rules>.
+--     For some rules, the rule identifier is different from the rule name.
+--     For example, the rule name @restricted-ssh@ has the following rule
+--     identifier: @INCOMING_SSH_DISABLED@. Make sure to use the rule
+--     identifier, not the rule name.
+--
+--     Keyword example for managed rules:
 --
 --     -   Managed rule name:
 --         <https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-acl-prohibited.html s3-bucket-acl-prohibited>
@@ -180,7 +346,10 @@ sourceKeyword_keywordInputType = Lens.lens (\SourceKeyword' {keywordInputType} -
 -- -   For
 --     <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html custom rules>,
 --     you form the @keywordValue@ by adding the @Custom_@ prefix to the
---     rule name. This prefix distinguishes the rule from a managed rule.
+--     rule name. This prefix distinguishes the custom rule from a managed
+--     rule.
+--
+--     Keyword example for custom rules:
 --
 --     -   Custom rule name: my-custom-config-rule
 --
@@ -192,6 +361,8 @@ sourceKeyword_keywordInputType = Lens.lens (\SourceKeyword' {keywordInputType} -
 --     rule name. In addition, you remove the suffix ID that appears at the
 --     end of the rule name.
 --
+--     Keyword examples for service-linked rules:
+--
 --     -   Service-linked rule name:
 --         CustomRuleForAccount-conformance-pack-szsm1uv0w
 --
@@ -202,6 +373,45 @@ sourceKeyword_keywordInputType = Lens.lens (\SourceKeyword' {keywordInputType} -
 --
 --         @keywordValue@:
 --         @Custom_OrgConfigRule-s3-bucket-versioning-enabled@
+--
+-- The @keywordValue@ is case sensitive. If you enter a value incorrectly,
+-- Audit Manager might not recognize the data source mapping. As a result,
+-- you might not successfully collect evidence from that data source as
+-- intended.
+--
+-- Keep in mind the following requirements, depending on the data source
+-- type that you\'re using.
+--
+-- 1.  For Config:
+--
+--     -   For managed rules, make sure that the @keywordValue@ is the rule
+--         identifier in @ALL_CAPS_WITH_UNDERSCORES@. For example,
+--         @CLOUDWATCH_LOG_GROUP_ENCRYPTED@. For accuracy, we recommend
+--         that you reference the list of
+--         <https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html supported Config managed rules>.
+--
+--     -   For custom rules, make sure that the @keywordValue@ has the
+--         @Custom_@ prefix followed by the custom rule name. The format of
+--         the custom rule name itself may vary. For accuracy, we recommend
+--         that you visit the
+--         <https://console.aws.amazon.com/config/ Config console> to
+--         verify your custom rule name.
+--
+-- 2.  For Security Hub: The format varies for Security Hub control names.
+--     For accuracy, we recommend that you reference the list of
+--     <https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html supported Security Hub controls>.
+--
+-- 3.  For Amazon Web Services API calls: Make sure that the @keywordValue@
+--     is written as @serviceprefix_ActionName@. For example,
+--     @iam_ListGroups@. For accuracy, we recommend that you reference the
+--     list of
+--     <https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-api.html supported API calls>.
+--
+-- 4.  For CloudTrail: Make sure that the @keywordValue@ is written as
+--     @serviceprefix_ActionName@. For example, @cloudtrail_StartLogging@.
+--     For accuracy, we recommend that you review the Amazon Web Service
+--     prefix and action names in the
+--     <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Service Authorization Reference>.
 sourceKeyword_keywordValue :: Lens.Lens' SourceKeyword (Prelude.Maybe Prelude.Text)
 sourceKeyword_keywordValue = Lens.lens (\SourceKeyword' {keywordValue} -> keywordValue) (\s@SourceKeyword' {} a -> s {keywordValue = a} :: SourceKeyword)
 
@@ -217,7 +427,8 @@ instance Data.FromJSON SourceKeyword where
 
 instance Prelude.Hashable SourceKeyword where
   hashWithSalt _salt SourceKeyword' {..} =
-    _salt `Prelude.hashWithSalt` keywordInputType
+    _salt
+      `Prelude.hashWithSalt` keywordInputType
       `Prelude.hashWithSalt` keywordValue
 
 instance Prelude.NFData SourceKeyword where

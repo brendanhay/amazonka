@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a control from Audit Manager.
+-- Gets information about a specified control.
 module Amazonka.AuditManager.GetControl
   ( -- * Creating a Request
     GetControl (..),
@@ -113,7 +113,7 @@ instance Data.ToQuery GetControl where
 
 -- | /See:/ 'newGetControlResponse' smart constructor.
 data GetControlResponse = GetControlResponse'
-  { -- | The name of the control that the @GetControl@ API returned.
+  { -- | The details of the control that the @GetControl@ API returned.
     control :: Prelude.Maybe Control,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -128,7 +128,7 @@ data GetControlResponse = GetControlResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'control', 'getControlResponse_control' - The name of the control that the @GetControl@ API returned.
+-- 'control', 'getControlResponse_control' - The details of the control that the @GetControl@ API returned.
 --
 -- 'httpStatus', 'getControlResponse_httpStatus' - The response's http status code.
 newGetControlResponse ::
@@ -141,7 +141,7 @@ newGetControlResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The name of the control that the @GetControl@ API returned.
+-- | The details of the control that the @GetControl@ API returned.
 getControlResponse_control :: Lens.Lens' GetControlResponse (Prelude.Maybe Control)
 getControlResponse_control = Lens.lens (\GetControlResponse' {control} -> control) (\s@GetControlResponse' {} a -> s {control = a} :: GetControlResponse)
 

@@ -108,6 +108,9 @@ import Test.Tasty
 --         , requestGetEvidenceByEvidenceFolder $
 --             newGetEvidenceByEvidenceFolder
 --
+--         , requestGetEvidenceFileUploadUrl $
+--             newGetEvidenceFileUploadUrl
+--
 --         , requestGetEvidenceFolder $
 --             newGetEvidenceFolder
 --
@@ -293,6 +296,9 @@ import Test.Tasty
 --
 --         , responseGetEvidenceByEvidenceFolder $
 --             newGetEvidenceByEvidenceFolderResponse
+--
+--         , responseGetEvidenceFileUploadUrl $
+--             newGetEvidenceFileUploadUrlResponse
 --
 --         , responseGetEvidenceFolder $
 --             newGetEvidenceFolderResponse
@@ -562,6 +568,12 @@ requestGetEvidenceByEvidenceFolder =
   req
     "GetEvidenceByEvidenceFolder"
     "fixture/GetEvidenceByEvidenceFolder.yaml"
+
+requestGetEvidenceFileUploadUrl :: GetEvidenceFileUploadUrl -> TestTree
+requestGetEvidenceFileUploadUrl =
+  req
+    "GetEvidenceFileUploadUrl"
+    "fixture/GetEvidenceFileUploadUrl.yaml"
 
 requestGetEvidenceFolder :: GetEvidenceFolder -> TestTree
 requestGetEvidenceFolder =
@@ -984,6 +996,14 @@ responseGetEvidenceByEvidenceFolder =
     "fixture/GetEvidenceByEvidenceFolderResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetEvidenceByEvidenceFolder)
+
+responseGetEvidenceFileUploadUrl :: GetEvidenceFileUploadUrlResponse -> TestTree
+responseGetEvidenceFileUploadUrl =
+  res
+    "GetEvidenceFileUploadUrlResponse"
+    "fixture/GetEvidenceFileUploadUrlResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEvidenceFileUploadUrl)
 
 responseGetEvidenceFolder :: GetEvidenceFolderResponse -> TestTree
 responseGetEvidenceFolder =

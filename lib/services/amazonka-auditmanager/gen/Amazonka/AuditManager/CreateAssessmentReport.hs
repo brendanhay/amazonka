@@ -179,7 +179,8 @@ instance Core.AWSRequest CreateAssessmentReport where
 
 instance Prelude.Hashable CreateAssessmentReport where
   hashWithSalt _salt CreateAssessmentReport' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` queryStatement
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` assessmentId

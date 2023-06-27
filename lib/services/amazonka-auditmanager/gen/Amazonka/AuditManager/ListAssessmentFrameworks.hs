@@ -115,7 +115,8 @@ instance Core.AWSRequest ListAssessmentFrameworks where
     Response.receiveJSON
       ( \s h x ->
           ListAssessmentFrameworksResponse'
-            Prelude.<$> ( x Data..?> "frameworkMetadataList"
+            Prelude.<$> ( x
+                            Data..?> "frameworkMetadataList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -124,7 +125,8 @@ instance Core.AWSRequest ListAssessmentFrameworks where
 
 instance Prelude.Hashable ListAssessmentFrameworks where
   hashWithSalt _salt ListAssessmentFrameworks' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` frameworkType
 
@@ -158,7 +160,8 @@ instance Data.ToQuery ListAssessmentFrameworks where
 
 -- | /See:/ 'newListAssessmentFrameworksResponse' smart constructor.
 data ListAssessmentFrameworksResponse = ListAssessmentFrameworksResponse'
-  { -- | The list of metadata objects for the framework.
+  { -- | A list of metadata that the @ListAssessmentFrameworks@ API returns for
+    -- each framework.
     frameworkMetadataList :: Prelude.Maybe [AssessmentFrameworkMetadata],
     -- | The pagination token that\'s used to fetch the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -175,7 +178,8 @@ data ListAssessmentFrameworksResponse = ListAssessmentFrameworksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'frameworkMetadataList', 'listAssessmentFrameworksResponse_frameworkMetadataList' - The list of metadata objects for the framework.
+-- 'frameworkMetadataList', 'listAssessmentFrameworksResponse_frameworkMetadataList' - A list of metadata that the @ListAssessmentFrameworks@ API returns for
+-- each framework.
 --
 -- 'nextToken', 'listAssessmentFrameworksResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
@@ -192,7 +196,8 @@ newListAssessmentFrameworksResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The list of metadata objects for the framework.
+-- | A list of metadata that the @ListAssessmentFrameworks@ API returns for
+-- each framework.
 listAssessmentFrameworksResponse_frameworkMetadataList :: Lens.Lens' ListAssessmentFrameworksResponse (Prelude.Maybe [AssessmentFrameworkMetadata])
 listAssessmentFrameworksResponse_frameworkMetadataList = Lens.lens (\ListAssessmentFrameworksResponse' {frameworkMetadataList} -> frameworkMetadataList) (\s@ListAssessmentFrameworksResponse' {} a -> s {frameworkMetadataList = a} :: ListAssessmentFrameworksResponse) Prelude.. Lens.mapping Lens.coerced
 

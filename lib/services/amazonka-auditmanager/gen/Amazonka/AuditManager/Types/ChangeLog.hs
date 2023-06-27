@@ -36,7 +36,7 @@ data ChangeLog = ChangeLog'
     -- | The time when the action was performed and the changelog record was
     -- created.
     createdAt :: Prelude.Maybe Data.POSIX,
-    -- | The IAM user or role that performed the action.
+    -- | The user or role that performed the action.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | The name of the object that changed. This could be the name of an
     -- assessment, control, or control set.
@@ -60,7 +60,7 @@ data ChangeLog = ChangeLog'
 -- 'createdAt', 'changeLog_createdAt' - The time when the action was performed and the changelog record was
 -- created.
 --
--- 'createdBy', 'changeLog_createdBy' - The IAM user or role that performed the action.
+-- 'createdBy', 'changeLog_createdBy' - The user or role that performed the action.
 --
 -- 'objectName', 'changeLog_objectName' - The name of the object that changed. This could be the name of an
 -- assessment, control, or control set.
@@ -87,7 +87,7 @@ changeLog_action = Lens.lens (\ChangeLog' {action} -> action) (\s@ChangeLog' {} 
 changeLog_createdAt :: Lens.Lens' ChangeLog (Prelude.Maybe Prelude.UTCTime)
 changeLog_createdAt = Lens.lens (\ChangeLog' {createdAt} -> createdAt) (\s@ChangeLog' {} a -> s {createdAt = a} :: ChangeLog) Prelude.. Lens.mapping Data._Time
 
--- | The IAM user or role that performed the action.
+-- | The user or role that performed the action.
 changeLog_createdBy :: Lens.Lens' ChangeLog (Prelude.Maybe Prelude.Text)
 changeLog_createdBy = Lens.lens (\ChangeLog' {createdBy} -> createdBy) (\s@ChangeLog' {} a -> s {createdBy = a} :: ChangeLog)
 
@@ -116,7 +116,8 @@ instance Data.FromJSON ChangeLog where
 
 instance Prelude.Hashable ChangeLog where
   hashWithSalt _salt ChangeLog' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` objectName

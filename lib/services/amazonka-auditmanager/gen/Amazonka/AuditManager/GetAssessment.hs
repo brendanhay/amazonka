@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an assessment from Audit Manager.
+-- Gets information about a specified assessment.
 module Amazonka.AuditManager.GetAssessment
   ( -- * Creating a Request
     GetAssessment (..),

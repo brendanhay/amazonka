@@ -40,7 +40,7 @@ data Delegation = Delegation'
     -- | The identifier for the control set that\'s associated with the
     -- delegation.
     controlSetId :: Prelude.Maybe Prelude.Text,
-    -- | The IAM user or role that created the delegation.
+    -- | The user or role that created the delegation.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the delegation was created.
     creationTime :: Prelude.Maybe Data.POSIX,
@@ -82,7 +82,7 @@ data Delegation = Delegation'
 -- 'controlSetId', 'delegation_controlSetId' - The identifier for the control set that\'s associated with the
 -- delegation.
 --
--- 'createdBy', 'delegation_createdBy' - The IAM user or role that created the delegation.
+-- 'createdBy', 'delegation_createdBy' - The user or role that created the delegation.
 --
 -- 'creationTime', 'delegation_creationTime' - Specifies when the delegation was created.
 --
@@ -137,7 +137,7 @@ delegation_comment = Lens.lens (\Delegation' {comment} -> comment) (\s@Delegatio
 delegation_controlSetId :: Lens.Lens' Delegation (Prelude.Maybe Prelude.Text)
 delegation_controlSetId = Lens.lens (\Delegation' {controlSetId} -> controlSetId) (\s@Delegation' {} a -> s {controlSetId = a} :: Delegation)
 
--- | The IAM user or role that created the delegation.
+-- | The user or role that created the delegation.
 delegation_createdBy :: Lens.Lens' Delegation (Prelude.Maybe Prelude.Text)
 delegation_createdBy = Lens.lens (\Delegation' {createdBy} -> createdBy) (\s@Delegation' {} a -> s {createdBy = a} :: Delegation)
 
@@ -193,7 +193,8 @@ instance Data.FromJSON Delegation where
 
 instance Prelude.Hashable Delegation where
   hashWithSalt _salt Delegation' {..} =
-    _salt `Prelude.hashWithSalt` assessmentId
+    _salt
+      `Prelude.hashWithSalt` assessmentId
       `Prelude.hashWithSalt` assessmentName
       `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` controlSetId

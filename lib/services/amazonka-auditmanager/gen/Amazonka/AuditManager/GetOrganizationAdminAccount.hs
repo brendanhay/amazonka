@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the name of the delegated Amazon Web Services administrator
--- account for the organization.
+-- Gets the name of the delegated Amazon Web Services administrator account
+-- for a specified organization.
 module Amazonka.AuditManager.GetOrganizationAdminAccount
   ( -- * Creating a Request
     GetOrganizationAdminAccount (..),

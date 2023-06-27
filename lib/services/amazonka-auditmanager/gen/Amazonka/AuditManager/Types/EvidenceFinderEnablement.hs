@@ -201,7 +201,8 @@ instance Data.FromJSON EvidenceFinderEnablement where
 
 instance Prelude.Hashable EvidenceFinderEnablement where
   hashWithSalt _salt EvidenceFinderEnablement' {..} =
-    _salt `Prelude.hashWithSalt` backfillStatus
+    _salt
+      `Prelude.hashWithSalt` backfillStatus
       `Prelude.hashWithSalt` enablementStatus
       `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` eventDataStoreArn

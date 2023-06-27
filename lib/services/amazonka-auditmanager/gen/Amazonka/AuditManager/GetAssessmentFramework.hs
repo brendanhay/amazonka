@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a framework from Audit Manager.
+-- Gets information about a specified framework.
 module Amazonka.AuditManager.GetAssessmentFramework
   ( -- * Creating a Request
     GetAssessmentFramework (..),

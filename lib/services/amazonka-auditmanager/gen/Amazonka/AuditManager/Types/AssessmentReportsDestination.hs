@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssessmentReportsDestination' smart constructor.
 data AssessmentReportsDestination = AssessmentReportsDestination'
-  { -- | The destination of the assessment report.
+  { -- | The destination bucket where Audit Manager stores assessment reports.
     destination :: Prelude.Maybe Prelude.Text,
     -- | The destination type, such as Amazon S3.
     destinationType :: Prelude.Maybe AssessmentReportDestinationType
@@ -45,7 +45,7 @@ data AssessmentReportsDestination = AssessmentReportsDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'destination', 'assessmentReportsDestination_destination' - The destination of the assessment report.
+-- 'destination', 'assessmentReportsDestination_destination' - The destination bucket where Audit Manager stores assessment reports.
 --
 -- 'destinationType', 'assessmentReportsDestination_destinationType' - The destination type, such as Amazon S3.
 newAssessmentReportsDestination ::
@@ -57,7 +57,7 @@ newAssessmentReportsDestination =
       destinationType = Prelude.Nothing
     }
 
--- | The destination of the assessment report.
+-- | The destination bucket where Audit Manager stores assessment reports.
 assessmentReportsDestination_destination :: Lens.Lens' AssessmentReportsDestination (Prelude.Maybe Prelude.Text)
 assessmentReportsDestination_destination = Lens.lens (\AssessmentReportsDestination' {destination} -> destination) (\s@AssessmentReportsDestination' {} a -> s {destination = a} :: AssessmentReportsDestination)
 
@@ -80,7 +80,8 @@ instance
     AssessmentReportsDestination
   where
   hashWithSalt _salt AssessmentReportsDestination' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` destinationType
 
 instance Prelude.NFData AssessmentReportsDestination where

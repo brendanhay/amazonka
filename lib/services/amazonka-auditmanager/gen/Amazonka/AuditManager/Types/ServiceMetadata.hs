@@ -97,7 +97,8 @@ instance Data.FromJSON ServiceMetadata where
 
 instance Prelude.Hashable ServiceMetadata where
   hashWithSalt _salt ServiceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` name

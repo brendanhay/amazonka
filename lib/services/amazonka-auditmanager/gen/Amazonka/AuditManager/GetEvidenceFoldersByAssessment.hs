@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the evidence folders from a specified assessment in Audit
--- Manager.
+-- Gets the evidence folders from a specified assessment in Audit Manager.
 module Amazonka.AuditManager.GetEvidenceFoldersByAssessment
   ( -- * Creating a Request
     GetEvidenceFoldersByAssessment (..),
@@ -115,7 +114,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetEvidenceFoldersByAssessmentResponse'
-            Prelude.<$> ( x Data..?> "evidenceFolders"
+            Prelude.<$> ( x
+                            Data..?> "evidenceFolders"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -129,7 +129,8 @@ instance
   hashWithSalt
     _salt
     GetEvidenceFoldersByAssessment' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` assessmentId
 

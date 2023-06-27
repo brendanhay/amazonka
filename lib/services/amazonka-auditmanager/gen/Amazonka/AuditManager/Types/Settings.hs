@@ -20,6 +20,7 @@
 module Amazonka.AuditManager.Types.Settings where
 
 import Amazonka.AuditManager.Types.AssessmentReportsDestination
+import Amazonka.AuditManager.Types.DefaultExportDestination
 import Amazonka.AuditManager.Types.DeregistrationPolicy
 import Amazonka.AuditManager.Types.EvidenceFinderEnablement
 import Amazonka.AuditManager.Types.Role
@@ -32,8 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSettings' smart constructor.
 data Settings = Settings'
-  { -- | The default storage destination for assessment reports.
+  { -- | The default S3 destination bucket for storing assessment reports.
     defaultAssessmentReportsDestination :: Prelude.Maybe AssessmentReportsDestination,
+    -- | The default S3 destination bucket for storing evidence finder exports.
+    defaultExportDestination :: Prelude.Maybe DefaultExportDestination,
     -- | The designated default audit owners.
     defaultProcessOwners :: Prelude.Maybe [Role],
     -- | The deregistration policy for your Audit Manager data. You can use this
@@ -59,7 +62,9 @@ data Settings = Settings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultAssessmentReportsDestination', 'settings_defaultAssessmentReportsDestination' - The default storage destination for assessment reports.
+-- 'defaultAssessmentReportsDestination', 'settings_defaultAssessmentReportsDestination' - The default S3 destination bucket for storing assessment reports.
+--
+-- 'defaultExportDestination', 'settings_defaultExportDestination' - The default S3 destination bucket for storing evidence finder exports.
 --
 -- 'defaultProcessOwners', 'settings_defaultProcessOwners' - The designated default audit owners.
 --
@@ -80,6 +85,7 @@ newSettings =
   Settings'
     { defaultAssessmentReportsDestination =
         Prelude.Nothing,
+      defaultExportDestination = Prelude.Nothing,
       defaultProcessOwners = Prelude.Nothing,
       deregistrationPolicy = Prelude.Nothing,
       evidenceFinderEnablement = Prelude.Nothing,
@@ -88,9 +94,13 @@ newSettings =
       snsTopic = Prelude.Nothing
     }
 
--- | The default storage destination for assessment reports.
+-- | The default S3 destination bucket for storing assessment reports.
 settings_defaultAssessmentReportsDestination :: Lens.Lens' Settings (Prelude.Maybe AssessmentReportsDestination)
 settings_defaultAssessmentReportsDestination = Lens.lens (\Settings' {defaultAssessmentReportsDestination} -> defaultAssessmentReportsDestination) (\s@Settings' {} a -> s {defaultAssessmentReportsDestination = a} :: Settings)
+
+-- | The default S3 destination bucket for storing evidence finder exports.
+settings_defaultExportDestination :: Lens.Lens' Settings (Prelude.Maybe DefaultExportDestination)
+settings_defaultExportDestination = Lens.lens (\Settings' {defaultExportDestination} -> defaultExportDestination) (\s@Settings' {} a -> s {defaultExportDestination = a} :: Settings)
 
 -- | The designated default audit owners.
 settings_defaultProcessOwners :: Lens.Lens' Settings (Prelude.Maybe [Role])
@@ -125,7 +135,9 @@ instance Data.FromJSON Settings where
       ( \x ->
           Settings'
             Prelude.<$> (x Data..:? "defaultAssessmentReportsDestination")
-            Prelude.<*> ( x Data..:? "defaultProcessOwners"
+            Prelude.<*> (x Data..:? "defaultExportDestination")
+            Prelude.<*> ( x
+                            Data..:? "defaultProcessOwners"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "deregistrationPolicy")
@@ -139,6 +151,7 @@ instance Prelude.Hashable Settings where
   hashWithSalt _salt Settings' {..} =
     _salt
       `Prelude.hashWithSalt` defaultAssessmentReportsDestination
+      `Prelude.hashWithSalt` defaultExportDestination
       `Prelude.hashWithSalt` defaultProcessOwners
       `Prelude.hashWithSalt` deregistrationPolicy
       `Prelude.hashWithSalt` evidenceFinderEnablement
@@ -149,6 +162,7 @@ instance Prelude.Hashable Settings where
 instance Prelude.NFData Settings where
   rnf Settings' {..} =
     Prelude.rnf defaultAssessmentReportsDestination
+      `Prelude.seq` Prelude.rnf defaultExportDestination
       `Prelude.seq` Prelude.rnf defaultProcessOwners
       `Prelude.seq` Prelude.rnf deregistrationPolicy
       `Prelude.seq` Prelude.rnf evidenceFinderEnablement

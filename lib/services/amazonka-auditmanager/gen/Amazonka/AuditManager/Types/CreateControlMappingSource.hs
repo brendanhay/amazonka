@@ -37,7 +37,8 @@ data CreateControlMappingSource = CreateControlMappingSource'
   { -- | The description of the data source that determines where Audit Manager
     -- collects evidence from for the control.
     sourceDescription :: Prelude.Maybe Prelude.Text,
-    -- | The frequency of evidence collection for the control mapping source.
+    -- | Specifies how often evidence is collected from the control mapping
+    -- source.
     sourceFrequency :: Prelude.Maybe SourceFrequency,
     sourceKeyword :: Prelude.Maybe SourceKeyword,
     -- | The name of the control mapping data source.
@@ -63,7 +64,8 @@ data CreateControlMappingSource = CreateControlMappingSource'
 -- 'sourceDescription', 'createControlMappingSource_sourceDescription' - The description of the data source that determines where Audit Manager
 -- collects evidence from for the control.
 --
--- 'sourceFrequency', 'createControlMappingSource_sourceFrequency' - The frequency of evidence collection for the control mapping source.
+-- 'sourceFrequency', 'createControlMappingSource_sourceFrequency' - Specifies how often evidence is collected from the control mapping
+-- source.
 --
 -- 'sourceKeyword', 'createControlMappingSource_sourceKeyword' - Undocumented member.
 --
@@ -94,7 +96,8 @@ newCreateControlMappingSource =
 createControlMappingSource_sourceDescription :: Lens.Lens' CreateControlMappingSource (Prelude.Maybe Prelude.Text)
 createControlMappingSource_sourceDescription = Lens.lens (\CreateControlMappingSource' {sourceDescription} -> sourceDescription) (\s@CreateControlMappingSource' {} a -> s {sourceDescription = a} :: CreateControlMappingSource)
 
--- | The frequency of evidence collection for the control mapping source.
+-- | Specifies how often evidence is collected from the control mapping
+-- source.
 createControlMappingSource_sourceFrequency :: Lens.Lens' CreateControlMappingSource (Prelude.Maybe SourceFrequency)
 createControlMappingSource_sourceFrequency = Lens.lens (\CreateControlMappingSource' {sourceFrequency} -> sourceFrequency) (\s@CreateControlMappingSource' {} a -> s {sourceFrequency = a} :: CreateControlMappingSource)
 
@@ -121,7 +124,8 @@ createControlMappingSource_troubleshootingText = Lens.lens (\CreateControlMappin
 
 instance Prelude.Hashable CreateControlMappingSource where
   hashWithSalt _salt CreateControlMappingSource' {..} =
-    _salt `Prelude.hashWithSalt` sourceDescription
+    _salt
+      `Prelude.hashWithSalt` sourceDescription
       `Prelude.hashWithSalt` sourceFrequency
       `Prelude.hashWithSalt` sourceKeyword
       `Prelude.hashWithSalt` sourceName

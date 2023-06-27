@@ -100,7 +100,8 @@ instance
   hashWithSalt
     _salt
     BatchDeleteDelegationByAssessmentError' {..} =
-      _salt `Prelude.hashWithSalt` delegationId
+      _salt
+        `Prelude.hashWithSalt` delegationId
         `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` errorMessage
 

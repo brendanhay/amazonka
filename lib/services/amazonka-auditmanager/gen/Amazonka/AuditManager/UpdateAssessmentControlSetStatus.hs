@@ -141,7 +141,8 @@ instance
   hashWithSalt
     _salt
     UpdateAssessmentControlSetStatus' {..} =
-      _salt `Prelude.hashWithSalt` assessmentId
+      _salt
+        `Prelude.hashWithSalt` assessmentId
         `Prelude.hashWithSalt` controlSetId
         `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` comment

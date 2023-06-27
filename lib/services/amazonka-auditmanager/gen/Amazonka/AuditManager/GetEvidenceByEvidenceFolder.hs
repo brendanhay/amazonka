@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all evidence from a specified evidence folder in Audit Manager.
+-- Gets all evidence from a specified evidence folder in Audit Manager.
 module Amazonka.AuditManager.GetEvidenceByEvidenceFolder
   ( -- * Creating a Request
     GetEvidenceByEvidenceFolder (..),
@@ -145,7 +145,8 @@ instance Core.AWSRequest GetEvidenceByEvidenceFolder where
 
 instance Prelude.Hashable GetEvidenceByEvidenceFolder where
   hashWithSalt _salt GetEvidenceByEvidenceFolder' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assessmentId
       `Prelude.hashWithSalt` controlSetId

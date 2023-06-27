@@ -116,7 +116,8 @@ instance
   hashWithSalt
     _salt
     DeleteAssessmentFrameworkShare' {..} =
-      _salt `Prelude.hashWithSalt` requestId
+      _salt
+        `Prelude.hashWithSalt` requestId
         `Prelude.hashWithSalt` requestType
 
 instance

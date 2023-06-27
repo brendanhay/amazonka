@@ -98,13 +98,14 @@ instance
       ( \s h x ->
           ValidateAssessmentReportIntegrityResponse'
             Prelude.<$> (x Data..?> "signatureAlgorithm")
-              Prelude.<*> (x Data..?> "signatureDateTime")
-              Prelude.<*> (x Data..?> "signatureKeyId")
-              Prelude.<*> (x Data..?> "signatureValid")
-              Prelude.<*> ( x Data..?> "validationErrors"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "signatureDateTime")
+            Prelude.<*> (x Data..?> "signatureKeyId")
+            Prelude.<*> (x Data..?> "signatureValid")
+            Prelude.<*> ( x
+                            Data..?> "validationErrors"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

@@ -22,6 +22,7 @@ module Amazonka.AuditManager.Types.SettingAttribute
       ( ..,
         SettingAttribute_ALL,
         SettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION,
+        SettingAttribute_DEFAULT_EXPORT_DESTINATION,
         SettingAttribute_DEFAULT_PROCESS_OWNERS,
         SettingAttribute_DEREGISTRATION_POLICY,
         SettingAttribute_EVIDENCE_FINDER_ENABLEMENT,
@@ -69,6 +70,9 @@ pattern SettingAttribute_ALL = SettingAttribute' "ALL"
 pattern SettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION :: SettingAttribute
 pattern SettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION = SettingAttribute' "DEFAULT_ASSESSMENT_REPORTS_DESTINATION"
 
+pattern SettingAttribute_DEFAULT_EXPORT_DESTINATION :: SettingAttribute
+pattern SettingAttribute_DEFAULT_EXPORT_DESTINATION = SettingAttribute' "DEFAULT_EXPORT_DESTINATION"
+
 pattern SettingAttribute_DEFAULT_PROCESS_OWNERS :: SettingAttribute
 pattern SettingAttribute_DEFAULT_PROCESS_OWNERS = SettingAttribute' "DEFAULT_PROCESS_OWNERS"
 
@@ -87,6 +91,7 @@ pattern SettingAttribute_SNS_TOPIC = SettingAttribute' "SNS_TOPIC"
 {-# COMPLETE
   SettingAttribute_ALL,
   SettingAttribute_DEFAULT_ASSESSMENT_REPORTS_DESTINATION,
+  SettingAttribute_DEFAULT_EXPORT_DESTINATION,
   SettingAttribute_DEFAULT_PROCESS_OWNERS,
   SettingAttribute_DEREGISTRATION_POLICY,
   SettingAttribute_EVIDENCE_FINDER_ENABLEMENT,

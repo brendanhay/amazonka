@@ -26,6 +26,13 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | An Amazon Web Service such as Amazon S3 or CloudTrail.
 --
+-- For an example of how to find an Amazon Web Service name and how to
+-- define it in your assessment scope, see the following:
+--
+-- -   <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetServicesInScope.html#API_GetServicesInScope_Example_2 Finding an Amazon Web Service name to use in your assessment scope>
+--
+-- -   <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_GetServicesInScope.html#API_GetServicesInScope_Example_3 Defining an Amazon Web Service name in your assessment scope>
+--
 -- /See:/ 'newAWSService' smart constructor.
 data AWSService = AWSService'
   { -- | The name of the Amazon Web Service.

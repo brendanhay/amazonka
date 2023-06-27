@@ -117,7 +117,8 @@ instance Data.FromJSON CreateDelegationRequest where
 
 instance Prelude.Hashable CreateDelegationRequest where
   hashWithSalt _salt CreateDelegationRequest' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` controlSetId
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` roleType

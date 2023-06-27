@@ -191,7 +191,8 @@ instance Data.FromJSON Insights where
 
 instance Prelude.Hashable Insights where
   hashWithSalt _salt Insights' {..} =
-    _salt `Prelude.hashWithSalt` activeAssessmentsCount
+    _salt
+      `Prelude.hashWithSalt` activeAssessmentsCount
       `Prelude.hashWithSalt` assessmentControlsCountByNoncompliantEvidence
       `Prelude.hashWithSalt` compliantEvidenceCount
       `Prelude.hashWithSalt` inconclusiveEvidenceCount

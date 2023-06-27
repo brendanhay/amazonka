@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of all of the Amazon Web Services that you can choose to
+-- Gets a list of all of the Amazon Web Services that you can choose to
 -- include in your assessment. When you
 -- <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessment.html create an assessment>,
 -- specify which of these services you want to include to narrow the
@@ -73,7 +73,8 @@ instance Core.AWSRequest GetServicesInScope where
     Response.receiveJSON
       ( \s h x ->
           GetServicesInScopeResponse'
-            Prelude.<$> ( x Data..?> "serviceMetadata"
+            Prelude.<$> ( x
+                            Data..?> "serviceMetadata"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

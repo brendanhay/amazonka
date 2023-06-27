@@ -105,7 +105,8 @@ instance Core.AWSRequest ListControlDomainInsights where
     Response.receiveJSON
       ( \s h x ->
           ListControlDomainInsightsResponse'
-            Prelude.<$> ( x Data..?> "controlDomainInsights"
+            Prelude.<$> ( x
+                            Data..?> "controlDomainInsights"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -114,7 +115,8 @@ instance Core.AWSRequest ListControlDomainInsights where
 
 instance Prelude.Hashable ListControlDomainInsights where
   hashWithSalt _salt ListControlDomainInsights' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListControlDomainInsights where

@@ -191,6 +191,12 @@ module Amazonka.AuditManager.Lens
     getEvidenceByEvidenceFolderResponse_nextToken,
     getEvidenceByEvidenceFolderResponse_httpStatus,
 
+    -- ** GetEvidenceFileUploadUrl
+    getEvidenceFileUploadUrl_fileName,
+    getEvidenceFileUploadUrlResponse_evidenceFileName,
+    getEvidenceFileUploadUrlResponse_uploadUrl,
+    getEvidenceFileUploadUrlResponse_httpStatus,
+
     -- ** GetEvidenceFolder
     getEvidenceFolder_assessmentId,
     getEvidenceFolder_controlSetId,
@@ -422,6 +428,7 @@ module Amazonka.AuditManager.Lens
 
     -- ** UpdateSettings
     updateSettings_defaultAssessmentReportsDestination,
+    updateSettings_defaultExportDestination,
     updateSettings_defaultProcessOwners,
     updateSettings_deregistrationPolicy,
     updateSettings_evidenceFinderEnabled,
@@ -696,6 +703,10 @@ module Amazonka.AuditManager.Lens
     createDelegationRequest_roleArn,
     createDelegationRequest_roleType,
 
+    -- ** DefaultExportDestination
+    defaultExportDestination_destination,
+    defaultExportDestination_destinationType,
+
     -- ** Delegation
     delegation_assessmentId,
     delegation_assessmentName,
@@ -789,7 +800,9 @@ module Amazonka.AuditManager.Lens
     insightsByAssessment_totalAssessmentControlsCount,
 
     -- ** ManualEvidence
+    manualEvidence_evidenceFileName,
     manualEvidence_s3ResourcePath,
+    manualEvidence_textResponse,
 
     -- ** Notification
     notification_assessmentId,
@@ -822,6 +835,7 @@ module Amazonka.AuditManager.Lens
 
     -- ** Settings
     settings_defaultAssessmentReportsDestination,
+    settings_defaultExportDestination,
     settings_defaultProcessOwners,
     settings_deregistrationPolicy,
     settings_evidenceFinderEnablement,
@@ -871,6 +885,7 @@ import Amazonka.AuditManager.GetControl
 import Amazonka.AuditManager.GetDelegations
 import Amazonka.AuditManager.GetEvidence
 import Amazonka.AuditManager.GetEvidenceByEvidenceFolder
+import Amazonka.AuditManager.GetEvidenceFileUploadUrl
 import Amazonka.AuditManager.GetEvidenceFolder
 import Amazonka.AuditManager.GetEvidenceFoldersByAssessment
 import Amazonka.AuditManager.GetEvidenceFoldersByAssessmentControl
@@ -926,6 +941,7 @@ import Amazonka.AuditManager.Types.CreateAssessmentFrameworkControl
 import Amazonka.AuditManager.Types.CreateAssessmentFrameworkControlSet
 import Amazonka.AuditManager.Types.CreateControlMappingSource
 import Amazonka.AuditManager.Types.CreateDelegationRequest
+import Amazonka.AuditManager.Types.DefaultExportDestination
 import Amazonka.AuditManager.Types.Delegation
 import Amazonka.AuditManager.Types.DelegationMetadata
 import Amazonka.AuditManager.Types.DeregistrationPolicy

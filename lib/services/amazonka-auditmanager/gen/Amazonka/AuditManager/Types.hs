@@ -64,6 +64,9 @@ module Amazonka.AuditManager.Types
     -- * EvidenceFinderEnablementStatus
     EvidenceFinderEnablementStatus (..),
 
+    -- * ExportDestinationType
+    ExportDestinationType (..),
+
     -- * FrameworkType
     FrameworkType (..),
 
@@ -414,6 +417,12 @@ module Amazonka.AuditManager.Types
     createDelegationRequest_roleArn,
     createDelegationRequest_roleType,
 
+    -- * DefaultExportDestination
+    DefaultExportDestination (..),
+    newDefaultExportDestination,
+    defaultExportDestination_destination,
+    defaultExportDestination_destinationType,
+
     -- * Delegation
     Delegation (..),
     newDelegation,
@@ -529,7 +538,9 @@ module Amazonka.AuditManager.Types
     -- * ManualEvidence
     ManualEvidence (..),
     newManualEvidence,
+    manualEvidence_evidenceFileName,
     manualEvidence_s3ResourcePath,
+    manualEvidence_textResponse,
 
     -- * Notification
     Notification (..),
@@ -574,6 +585,7 @@ module Amazonka.AuditManager.Types
     Settings (..),
     newSettings,
     settings_defaultAssessmentReportsDestination,
+    settings_defaultExportDestination,
     settings_defaultProcessOwners,
     settings_deregistrationPolicy,
     settings_evidenceFinderEnablement,
@@ -642,6 +654,7 @@ import Amazonka.AuditManager.Types.CreateAssessmentFrameworkControl
 import Amazonka.AuditManager.Types.CreateAssessmentFrameworkControlSet
 import Amazonka.AuditManager.Types.CreateControlMappingSource
 import Amazonka.AuditManager.Types.CreateDelegationRequest
+import Amazonka.AuditManager.Types.DefaultExportDestination
 import Amazonka.AuditManager.Types.Delegation
 import Amazonka.AuditManager.Types.DelegationMetadata
 import Amazonka.AuditManager.Types.DelegationStatus
@@ -652,6 +665,7 @@ import Amazonka.AuditManager.Types.EvidenceFinderBackfillStatus
 import Amazonka.AuditManager.Types.EvidenceFinderEnablement
 import Amazonka.AuditManager.Types.EvidenceFinderEnablementStatus
 import Amazonka.AuditManager.Types.EvidenceInsights
+import Amazonka.AuditManager.Types.ExportDestinationType
 import Amazonka.AuditManager.Types.Framework
 import Amazonka.AuditManager.Types.FrameworkMetadata
 import Amazonka.AuditManager.Types.FrameworkType
@@ -708,53 +722,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Your account isn\'t registered with Audit Manager. Check the delegated
 -- administrator setup on the Audit Manager settings page, and try again.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -763,7 +777,7 @@ _AccessDeniedException =
 
 -- | An internal service error occurred during the processing of your
 -- request. Try again later.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -771,7 +785,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The resource that\'s specified in the request can\'t be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -784,7 +798,7 @@ _ResourceNotFoundException =
 -- from the Service Quotas console. For a list of Audit Manager service
 -- quotas, see
 -- <https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html Quotas and restrictions for Audit Manager>.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -792,7 +806,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -800,7 +814,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 400
 
 -- | The request has invalid or missing parameters.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

@@ -43,7 +43,7 @@ data Control = Control'
     controlSources :: Prelude.Maybe Prelude.Text,
     -- | The time when the control was created.
     createdAt :: Prelude.Maybe Data.POSIX,
-    -- | The IAM user or role that created the control.
+    -- | The user or role that created the control.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | The description of the control.
     description :: Prelude.Maybe Prelude.Text,
@@ -51,7 +51,7 @@ data Control = Control'
     id :: Prelude.Maybe Prelude.Text,
     -- | The time when the control was most recently updated.
     lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The IAM user or role that most recently updated the control.
+    -- | The user or role that most recently updated the control.
     lastUpdatedBy :: Prelude.Maybe Prelude.Text,
     -- | The name of the control.
     name :: Prelude.Maybe Prelude.Text,
@@ -60,7 +60,7 @@ data Control = Control'
     -- | The steps that you should follow to determine if the control has been
     -- satisfied.
     testingInformation :: Prelude.Maybe Prelude.Text,
-    -- | The type of control, such as a custom control or a standard control.
+    -- | Specifies whether the control is a standard control or a custom control.
     type' :: Prelude.Maybe ControlType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,7 +86,7 @@ data Control = Control'
 --
 -- 'createdAt', 'control_createdAt' - The time when the control was created.
 --
--- 'createdBy', 'control_createdBy' - The IAM user or role that created the control.
+-- 'createdBy', 'control_createdBy' - The user or role that created the control.
 --
 -- 'description', 'control_description' - The description of the control.
 --
@@ -94,7 +94,7 @@ data Control = Control'
 --
 -- 'lastUpdatedAt', 'control_lastUpdatedAt' - The time when the control was most recently updated.
 --
--- 'lastUpdatedBy', 'control_lastUpdatedBy' - The IAM user or role that most recently updated the control.
+-- 'lastUpdatedBy', 'control_lastUpdatedBy' - The user or role that most recently updated the control.
 --
 -- 'name', 'control_name' - The name of the control.
 --
@@ -103,7 +103,7 @@ data Control = Control'
 -- 'testingInformation', 'control_testingInformation' - The steps that you should follow to determine if the control has been
 -- satisfied.
 --
--- 'type'', 'control_type' - The type of control, such as a custom control or a standard control.
+-- 'type'', 'control_type' - Specifies whether the control is a standard control or a custom control.
 newControl ::
   Control
 newControl =
@@ -150,7 +150,7 @@ control_controlSources = Lens.lens (\Control' {controlSources} -> controlSources
 control_createdAt :: Lens.Lens' Control (Prelude.Maybe Prelude.UTCTime)
 control_createdAt = Lens.lens (\Control' {createdAt} -> createdAt) (\s@Control' {} a -> s {createdAt = a} :: Control) Prelude.. Lens.mapping Data._Time
 
--- | The IAM user or role that created the control.
+-- | The user or role that created the control.
 control_createdBy :: Lens.Lens' Control (Prelude.Maybe Prelude.Text)
 control_createdBy = Lens.lens (\Control' {createdBy} -> createdBy) (\s@Control' {} a -> s {createdBy = a} :: Control)
 
@@ -166,7 +166,7 @@ control_id = Lens.lens (\Control' {id} -> id) (\s@Control' {} a -> s {id = a} ::
 control_lastUpdatedAt :: Lens.Lens' Control (Prelude.Maybe Prelude.UTCTime)
 control_lastUpdatedAt = Lens.lens (\Control' {lastUpdatedAt} -> lastUpdatedAt) (\s@Control' {} a -> s {lastUpdatedAt = a} :: Control) Prelude.. Lens.mapping Data._Time
 
--- | The IAM user or role that most recently updated the control.
+-- | The user or role that most recently updated the control.
 control_lastUpdatedBy :: Lens.Lens' Control (Prelude.Maybe Prelude.Text)
 control_lastUpdatedBy = Lens.lens (\Control' {lastUpdatedBy} -> lastUpdatedBy) (\s@Control' {} a -> s {lastUpdatedBy = a} :: Control)
 
@@ -183,7 +183,7 @@ control_tags = Lens.lens (\Control' {tags} -> tags) (\s@Control' {} a -> s {tags
 control_testingInformation :: Lens.Lens' Control (Prelude.Maybe Prelude.Text)
 control_testingInformation = Lens.lens (\Control' {testingInformation} -> testingInformation) (\s@Control' {} a -> s {testingInformation = a} :: Control)
 
--- | The type of control, such as a custom control or a standard control.
+-- | Specifies whether the control is a standard control or a custom control.
 control_type :: Lens.Lens' Control (Prelude.Maybe ControlType)
 control_type = Lens.lens (\Control' {type'} -> type') (\s@Control' {} a -> s {type' = a} :: Control)
 
@@ -212,7 +212,8 @@ instance Data.FromJSON Control where
 
 instance Prelude.Hashable Control where
   hashWithSalt _salt Control' {..} =
-    _salt `Prelude.hashWithSalt` actionPlanInstructions
+    _salt
+      `Prelude.hashWithSalt` actionPlanInstructions
       `Prelude.hashWithSalt` actionPlanTitle
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` controlMappingSources

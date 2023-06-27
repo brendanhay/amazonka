@@ -71,6 +71,7 @@ library
     Amazonka.AuditManager.GetDelegations
     Amazonka.AuditManager.GetEvidence
     Amazonka.AuditManager.GetEvidenceByEvidenceFolder
+    Amazonka.AuditManager.GetEvidenceFileUploadUrl
     Amazonka.AuditManager.GetEvidenceFolder
     Amazonka.AuditManager.GetEvidenceFoldersByAssessment
     Amazonka.AuditManager.GetEvidenceFoldersByAssessmentControl
@@ -137,6 +138,7 @@ library
     Amazonka.AuditManager.Types.CreateAssessmentFrameworkControlSet
     Amazonka.AuditManager.Types.CreateControlMappingSource
     Amazonka.AuditManager.Types.CreateDelegationRequest
+    Amazonka.AuditManager.Types.DefaultExportDestination
     Amazonka.AuditManager.Types.Delegation
     Amazonka.AuditManager.Types.DelegationMetadata
     Amazonka.AuditManager.Types.DelegationStatus
@@ -147,6 +149,7 @@ library
     Amazonka.AuditManager.Types.EvidenceFinderEnablement
     Amazonka.AuditManager.Types.EvidenceFinderEnablementStatus
     Amazonka.AuditManager.Types.EvidenceInsights
+    Amazonka.AuditManager.Types.ExportDestinationType
     Amazonka.AuditManager.Types.Framework
     Amazonka.AuditManager.Types.FrameworkMetadata
     Amazonka.AuditManager.Types.FrameworkType

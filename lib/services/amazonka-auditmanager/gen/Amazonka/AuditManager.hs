@@ -237,6 +237,12 @@ module Amazonka.AuditManager
     GetEvidenceByEvidenceFolderResponse (GetEvidenceByEvidenceFolderResponse'),
     newGetEvidenceByEvidenceFolderResponse,
 
+    -- ** GetEvidenceFileUploadUrl
+    GetEvidenceFileUploadUrl (GetEvidenceFileUploadUrl'),
+    newGetEvidenceFileUploadUrl,
+    GetEvidenceFileUploadUrlResponse (GetEvidenceFileUploadUrlResponse'),
+    newGetEvidenceFileUploadUrlResponse,
+
     -- ** GetEvidenceFolder
     GetEvidenceFolder (GetEvidenceFolder'),
     newGetEvidenceFolder,
@@ -482,6 +488,9 @@ module Amazonka.AuditManager
     -- ** EvidenceFinderEnablementStatus
     EvidenceFinderEnablementStatus (..),
 
+    -- ** ExportDestinationType
+    ExportDestinationType (..),
+
     -- ** FrameworkType
     FrameworkType (..),
 
@@ -639,6 +648,10 @@ module Amazonka.AuditManager
     CreateDelegationRequest (CreateDelegationRequest'),
     newCreateDelegationRequest,
 
+    -- ** DefaultExportDestination
+    DefaultExportDestination (DefaultExportDestination'),
+    newDefaultExportDestination,
+
     -- ** Delegation
     Delegation (Delegation'),
     newDelegation,
@@ -748,6 +761,7 @@ import Amazonka.AuditManager.GetControl
 import Amazonka.AuditManager.GetDelegations
 import Amazonka.AuditManager.GetEvidence
 import Amazonka.AuditManager.GetEvidenceByEvidenceFolder
+import Amazonka.AuditManager.GetEvidenceFileUploadUrl
 import Amazonka.AuditManager.GetEvidenceFolder
 import Amazonka.AuditManager.GetEvidenceFoldersByAssessment
 import Amazonka.AuditManager.GetEvidenceFoldersByAssessmentControl

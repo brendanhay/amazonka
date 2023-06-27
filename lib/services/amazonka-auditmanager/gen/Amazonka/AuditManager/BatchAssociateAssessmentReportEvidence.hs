@@ -119,8 +119,8 @@ instance
       ( \s h x ->
           BatchAssociateAssessmentReportEvidenceResponse'
             Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "evidenceIds" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "evidenceIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -130,7 +130,8 @@ instance
   hashWithSalt
     _salt
     BatchAssociateAssessmentReportEvidence' {..} =
-      _salt `Prelude.hashWithSalt` assessmentId
+      _salt
+        `Prelude.hashWithSalt` assessmentId
         `Prelude.hashWithSalt` evidenceFolderId
         `Prelude.hashWithSalt` evidenceIds
 

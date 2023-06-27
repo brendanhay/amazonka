@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the registration status of an account in Audit Manager.
+-- Gets the registration status of an account in Audit Manager.
 module Amazonka.AuditManager.GetAccountStatus
   ( -- * Creating a Request
     GetAccountStatus (..),

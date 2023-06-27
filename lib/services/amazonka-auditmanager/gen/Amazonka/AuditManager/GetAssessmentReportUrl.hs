@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the URL of an assessment report in Audit Manager.
+-- Gets the URL of an assessment report in Audit Manager.
 module Amazonka.AuditManager.GetAssessmentReportUrl
   ( -- * Creating a Request
     GetAssessmentReportUrl (..),
@@ -107,7 +107,8 @@ instance Core.AWSRequest GetAssessmentReportUrl where
 
 instance Prelude.Hashable GetAssessmentReportUrl where
   hashWithSalt _salt GetAssessmentReportUrl' {..} =
-    _salt `Prelude.hashWithSalt` assessmentReportId
+    _salt
+      `Prelude.hashWithSalt` assessmentReportId
       `Prelude.hashWithSalt` assessmentId
 
 instance Prelude.NFData GetAssessmentReportUrl where

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of changelogs from Audit Manager.
+-- Gets a list of changelogs from Audit Manager.
 module Amazonka.AuditManager.GetChangeLogs
   ( -- * Creating a Request
     GetChangeLogs (..),
@@ -137,7 +137,8 @@ instance Core.AWSRequest GetChangeLogs where
 
 instance Prelude.Hashable GetChangeLogs where
   hashWithSalt _salt GetChangeLogs' {..} =
-    _salt `Prelude.hashWithSalt` controlId
+    _salt
+      `Prelude.hashWithSalt` controlId
       `Prelude.hashWithSalt` controlSetId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

@@ -108,7 +108,8 @@ instance Core.AWSRequest ListAssessments where
     Response.receiveJSON
       ( \s h x ->
           ListAssessmentsResponse'
-            Prelude.<$> ( x Data..?> "assessmentMetadata"
+            Prelude.<$> ( x
+                            Data..?> "assessmentMetadata"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -117,7 +118,8 @@ instance Core.AWSRequest ListAssessments where
 
 instance Prelude.Hashable ListAssessments where
   hashWithSalt _salt ListAssessments' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
 
@@ -151,7 +153,7 @@ instance Data.ToQuery ListAssessments where
 
 -- | /See:/ 'newListAssessmentsResponse' smart constructor.
 data ListAssessmentsResponse = ListAssessmentsResponse'
-  { -- | The metadata that\'s associated with the assessment.
+  { -- | The metadata that the @ListAssessments@ API returns for each assessment.
     assessmentMetadata :: Prelude.Maybe [AssessmentMetadataItem],
     -- | The pagination token that\'s used to fetch the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -168,7 +170,7 @@ data ListAssessmentsResponse = ListAssessmentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assessmentMetadata', 'listAssessmentsResponse_assessmentMetadata' - The metadata that\'s associated with the assessment.
+-- 'assessmentMetadata', 'listAssessmentsResponse_assessmentMetadata' - The metadata that the @ListAssessments@ API returns for each assessment.
 --
 -- 'nextToken', 'listAssessmentsResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
@@ -185,7 +187,7 @@ newListAssessmentsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The metadata that\'s associated with the assessment.
+-- | The metadata that the @ListAssessments@ API returns for each assessment.
 listAssessmentsResponse_assessmentMetadata :: Lens.Lens' ListAssessmentsResponse (Prelude.Maybe [AssessmentMetadataItem])
 listAssessmentsResponse_assessmentMetadata = Lens.lens (\ListAssessmentsResponse' {assessmentMetadata} -> assessmentMetadata) (\s@ListAssessmentsResponse' {} a -> s {assessmentMetadata = a} :: ListAssessmentsResponse) Prelude.. Lens.mapping Lens.coerced
 

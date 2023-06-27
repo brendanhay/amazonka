@@ -11,18 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.AuditManager.Types.KeywordInputType
+-- Module      : Amazonka.AuditManager.Types.ExportDestinationType
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.AuditManager.Types.KeywordInputType
-  ( KeywordInputType
+module Amazonka.AuditManager.Types.ExportDestinationType
+  ( ExportDestinationType
       ( ..,
-        KeywordInputType_INPUT_TEXT,
-        KeywordInputType_SELECT_FROM_LIST,
-        KeywordInputType_UPLOAD_FILE
+        ExportDestinationType_S3
       ),
   )
 where
@@ -31,8 +29,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype KeywordInputType = KeywordInputType'
-  { fromKeywordInputType ::
+newtype ExportDestinationType = ExportDestinationType'
+  { fromExportDestinationType ::
       Data.Text
   }
   deriving stock
@@ -59,18 +57,10 @@ newtype KeywordInputType = KeywordInputType'
       Data.ToXML
     )
 
-pattern KeywordInputType_INPUT_TEXT :: KeywordInputType
-pattern KeywordInputType_INPUT_TEXT = KeywordInputType' "INPUT_TEXT"
-
-pattern KeywordInputType_SELECT_FROM_LIST :: KeywordInputType
-pattern KeywordInputType_SELECT_FROM_LIST = KeywordInputType' "SELECT_FROM_LIST"
-
-pattern KeywordInputType_UPLOAD_FILE :: KeywordInputType
-pattern KeywordInputType_UPLOAD_FILE = KeywordInputType' "UPLOAD_FILE"
+pattern ExportDestinationType_S3 :: ExportDestinationType
+pattern ExportDestinationType_S3 = ExportDestinationType' "S3"
 
 {-# COMPLETE
-  KeywordInputType_INPUT_TEXT,
-  KeywordInputType_SELECT_FROM_LIST,
-  KeywordInputType_UPLOAD_FILE,
-  KeywordInputType'
+  ExportDestinationType_S3,
+  ExportDestinationType'
   #-}

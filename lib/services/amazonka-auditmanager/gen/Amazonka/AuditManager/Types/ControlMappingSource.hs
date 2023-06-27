@@ -35,7 +35,8 @@ import qualified Amazonka.Prelude as Prelude
 data ControlMappingSource = ControlMappingSource'
   { -- | The description of the source.
     sourceDescription :: Prelude.Maybe Prelude.Text,
-    -- | The frequency of evidence collection for the control mapping source.
+    -- | Specifies how often evidence is collected from the control mapping
+    -- source.
     sourceFrequency :: Prelude.Maybe SourceFrequency,
     -- | The unique identifier for the source.
     sourceId :: Prelude.Maybe Prelude.Text,
@@ -62,7 +63,8 @@ data ControlMappingSource = ControlMappingSource'
 --
 -- 'sourceDescription', 'controlMappingSource_sourceDescription' - The description of the source.
 --
--- 'sourceFrequency', 'controlMappingSource_sourceFrequency' - The frequency of evidence collection for the control mapping source.
+-- 'sourceFrequency', 'controlMappingSource_sourceFrequency' - Specifies how often evidence is collected from the control mapping
+-- source.
 --
 -- 'sourceId', 'controlMappingSource_sourceId' - The unique identifier for the source.
 --
@@ -95,7 +97,8 @@ newControlMappingSource =
 controlMappingSource_sourceDescription :: Lens.Lens' ControlMappingSource (Prelude.Maybe Prelude.Text)
 controlMappingSource_sourceDescription = Lens.lens (\ControlMappingSource' {sourceDescription} -> sourceDescription) (\s@ControlMappingSource' {} a -> s {sourceDescription = a} :: ControlMappingSource)
 
--- | The frequency of evidence collection for the control mapping source.
+-- | Specifies how often evidence is collected from the control mapping
+-- source.
 controlMappingSource_sourceFrequency :: Lens.Lens' ControlMappingSource (Prelude.Maybe SourceFrequency)
 controlMappingSource_sourceFrequency = Lens.lens (\ControlMappingSource' {sourceFrequency} -> sourceFrequency) (\s@ControlMappingSource' {} a -> s {sourceFrequency = a} :: ControlMappingSource)
 
@@ -142,7 +145,8 @@ instance Data.FromJSON ControlMappingSource where
 
 instance Prelude.Hashable ControlMappingSource where
   hashWithSalt _salt ControlMappingSource' {..} =
-    _salt `Prelude.hashWithSalt` sourceDescription
+    _salt
+      `Prelude.hashWithSalt` sourceDescription
       `Prelude.hashWithSalt` sourceFrequency
       `Prelude.hashWithSalt` sourceId
       `Prelude.hashWithSalt` sourceKeyword

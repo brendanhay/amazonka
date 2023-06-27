@@ -73,8 +73,8 @@ data Evidence = Evidence'
     evidenceByType :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the folder that the evidence is stored in.
     evidenceFolderId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the IAM user or role that\'s associated with
-    -- the evidence.
+    -- | The unique identifier for the user or role that\'s associated with the
+    -- evidence.
     iamId :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the evidence.
     id :: Prelude.Maybe Prelude.Text,
@@ -134,8 +134,8 @@ data Evidence = Evidence'
 --
 -- 'evidenceFolderId', 'evidence_evidenceFolderId' - The identifier for the folder that the evidence is stored in.
 --
--- 'iamId', 'evidence_iamId' - The unique identifier for the IAM user or role that\'s associated with
--- the evidence.
+-- 'iamId', 'evidence_iamId' - The unique identifier for the user or role that\'s associated with the
+-- evidence.
 --
 -- 'id', 'evidence_id' - The identifier for the evidence.
 --
@@ -227,8 +227,8 @@ evidence_evidenceByType = Lens.lens (\Evidence' {evidenceByType} -> evidenceByTy
 evidence_evidenceFolderId :: Lens.Lens' Evidence (Prelude.Maybe Prelude.Text)
 evidence_evidenceFolderId = Lens.lens (\Evidence' {evidenceFolderId} -> evidenceFolderId) (\s@Evidence' {} a -> s {evidenceFolderId = a} :: Evidence)
 
--- | The unique identifier for the IAM user or role that\'s associated with
--- the evidence.
+-- | The unique identifier for the user or role that\'s associated with the
+-- evidence.
 evidence_iamId :: Lens.Lens' Evidence (Prelude.Maybe Prelude.Text)
 evidence_iamId = Lens.lens (\Evidence' {iamId} -> iamId) (\s@Evidence' {} a -> s {iamId = a} :: Evidence)
 
@@ -263,7 +263,8 @@ instance Data.FromJSON Evidence where
             Prelude.<*> (x Data..:? "evidenceFolderId")
             Prelude.<*> (x Data..:? "iamId")
             Prelude.<*> (x Data..:? "id")
-            Prelude.<*> ( x Data..:? "resourcesIncluded"
+            Prelude.<*> ( x
+                            Data..:? "resourcesIncluded"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "time")

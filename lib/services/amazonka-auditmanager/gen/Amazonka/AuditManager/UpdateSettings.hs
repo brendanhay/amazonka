@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates Audit Manager settings for the current user account.
+-- Updates Audit Manager settings for the current account.
 module Amazonka.AuditManager.UpdateSettings
   ( -- * Creating a Request
     UpdateSettings (..),
@@ -28,6 +28,7 @@ module Amazonka.AuditManager.UpdateSettings
 
     -- * Request Lenses
     updateSettings_defaultAssessmentReportsDestination,
+    updateSettings_defaultExportDestination,
     updateSettings_defaultProcessOwners,
     updateSettings_deregistrationPolicy,
     updateSettings_evidenceFinderEnabled,
@@ -54,8 +55,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSettings' smart constructor.
 data UpdateSettings = UpdateSettings'
-  { -- | The default storage destination for assessment reports.
+  { -- | The default S3 destination bucket for storing assessment reports.
     defaultAssessmentReportsDestination :: Prelude.Maybe AssessmentReportsDestination,
+    -- | The default S3 destination bucket for storing evidence finder exports.
+    defaultExportDestination :: Prelude.Maybe DefaultExportDestination,
     -- | A list of the default audit owners.
     defaultProcessOwners :: Prelude.Maybe [Role],
     -- | The deregistration policy for your Audit Manager data. You can use this
@@ -90,7 +93,9 @@ data UpdateSettings = UpdateSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultAssessmentReportsDestination', 'updateSettings_defaultAssessmentReportsDestination' - The default storage destination for assessment reports.
+-- 'defaultAssessmentReportsDestination', 'updateSettings_defaultAssessmentReportsDestination' - The default S3 destination bucket for storing assessment reports.
+--
+-- 'defaultExportDestination', 'updateSettings_defaultExportDestination' - The default S3 destination bucket for storing evidence finder exports.
 --
 -- 'defaultProcessOwners', 'updateSettings_defaultProcessOwners' - A list of the default audit owners.
 --
@@ -120,6 +125,7 @@ newUpdateSettings =
   UpdateSettings'
     { defaultAssessmentReportsDestination =
         Prelude.Nothing,
+      defaultExportDestination = Prelude.Nothing,
       defaultProcessOwners = Prelude.Nothing,
       deregistrationPolicy = Prelude.Nothing,
       evidenceFinderEnabled = Prelude.Nothing,
@@ -127,9 +133,13 @@ newUpdateSettings =
       snsTopic = Prelude.Nothing
     }
 
--- | The default storage destination for assessment reports.
+-- | The default S3 destination bucket for storing assessment reports.
 updateSettings_defaultAssessmentReportsDestination :: Lens.Lens' UpdateSettings (Prelude.Maybe AssessmentReportsDestination)
 updateSettings_defaultAssessmentReportsDestination = Lens.lens (\UpdateSettings' {defaultAssessmentReportsDestination} -> defaultAssessmentReportsDestination) (\s@UpdateSettings' {} a -> s {defaultAssessmentReportsDestination = a} :: UpdateSettings)
+
+-- | The default S3 destination bucket for storing evidence finder exports.
+updateSettings_defaultExportDestination :: Lens.Lens' UpdateSettings (Prelude.Maybe DefaultExportDestination)
+updateSettings_defaultExportDestination = Lens.lens (\UpdateSettings' {defaultExportDestination} -> defaultExportDestination) (\s@UpdateSettings' {} a -> s {defaultExportDestination = a} :: UpdateSettings)
 
 -- | A list of the default audit owners.
 updateSettings_defaultProcessOwners :: Lens.Lens' UpdateSettings (Prelude.Maybe [Role])
@@ -182,6 +192,7 @@ instance Prelude.Hashable UpdateSettings where
   hashWithSalt _salt UpdateSettings' {..} =
     _salt
       `Prelude.hashWithSalt` defaultAssessmentReportsDestination
+      `Prelude.hashWithSalt` defaultExportDestination
       `Prelude.hashWithSalt` defaultProcessOwners
       `Prelude.hashWithSalt` deregistrationPolicy
       `Prelude.hashWithSalt` evidenceFinderEnabled
@@ -191,6 +202,7 @@ instance Prelude.Hashable UpdateSettings where
 instance Prelude.NFData UpdateSettings where
   rnf UpdateSettings' {..} =
     Prelude.rnf defaultAssessmentReportsDestination
+      `Prelude.seq` Prelude.rnf defaultExportDestination
       `Prelude.seq` Prelude.rnf defaultProcessOwners
       `Prelude.seq` Prelude.rnf deregistrationPolicy
       `Prelude.seq` Prelude.rnf evidenceFinderEnabled
@@ -214,6 +226,8 @@ instance Data.ToJSON UpdateSettings where
       ( Prelude.catMaybes
           [ ("defaultAssessmentReportsDestination" Data..=)
               Prelude.<$> defaultAssessmentReportsDestination,
+            ("defaultExportDestination" Data..=)
+              Prelude.<$> defaultExportDestination,
             ("defaultProcessOwners" Data..=)
               Prelude.<$> defaultProcessOwners,
             ("deregistrationPolicy" Data..=)

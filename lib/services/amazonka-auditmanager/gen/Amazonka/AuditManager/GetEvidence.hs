@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns evidence from Audit Manager.
+-- Gets information about a specified evidence item.
 module Amazonka.AuditManager.GetEvidence
   ( -- * Creating a Request
     GetEvidence (..),
@@ -130,7 +130,8 @@ instance Core.AWSRequest GetEvidence where
 
 instance Prelude.Hashable GetEvidence where
   hashWithSalt _salt GetEvidence' {..} =
-    _salt `Prelude.hashWithSalt` assessmentId
+    _salt
+      `Prelude.hashWithSalt` assessmentId
       `Prelude.hashWithSalt` controlSetId
       `Prelude.hashWithSalt` evidenceFolderId
       `Prelude.hashWithSalt` evidenceId

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the settings for the specified Amazon Web Services account.
+-- Gets the settings for a specified Amazon Web Services account.
 module Amazonka.AuditManager.GetSettings
   ( -- * Creating a Request
     GetSettings (..),

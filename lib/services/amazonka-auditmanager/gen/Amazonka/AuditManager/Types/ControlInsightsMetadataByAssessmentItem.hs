@@ -121,7 +121,8 @@ instance
   hashWithSalt
     _salt
     ControlInsightsMetadataByAssessmentItem' {..} =
-      _salt `Prelude.hashWithSalt` controlSetName
+      _salt
+        `Prelude.hashWithSalt` controlSetName
         `Prelude.hashWithSalt` evidenceInsights
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` lastUpdated

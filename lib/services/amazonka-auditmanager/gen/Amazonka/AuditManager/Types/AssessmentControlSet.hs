@@ -147,7 +147,8 @@ instance Data.FromJSON AssessmentControlSet where
 
 instance Prelude.Hashable AssessmentControlSet where
   hashWithSalt _salt AssessmentControlSet' {..} =
-    _salt `Prelude.hashWithSalt` controls
+    _salt
+      `Prelude.hashWithSalt` controls
       `Prelude.hashWithSalt` delegations
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id

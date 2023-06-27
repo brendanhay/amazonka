@@ -33,16 +33,15 @@ import qualified Amazonka.Prelude as Prelude
 data Framework = Framework'
   { -- | The Amazon Resource Name (ARN) of the framework.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The compliance type that the new custom framework supports, such as CIS
-    -- or HIPAA.
+    -- | The compliance type that the framework supports, such as CIS or HIPAA.
     complianceType :: Prelude.Maybe Prelude.Text,
     -- | The control sets that are associated with the framework.
     controlSets :: Prelude.Maybe (Prelude.NonEmpty ControlSet),
-    -- | The sources that Audit Manager collects evidence from for the control.
+    -- | The control data sources where Audit Manager collects evidence from.
     controlSources :: Prelude.Maybe Prelude.Text,
     -- | The time when the framework was created.
     createdAt :: Prelude.Maybe Data.POSIX,
-    -- | The IAM user or role that created the framework.
+    -- | The user or role that created the framework.
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | The description of the framework.
     description :: Prelude.Maybe Prelude.Text,
@@ -50,7 +49,7 @@ data Framework = Framework'
     id :: Prelude.Maybe Prelude.Text,
     -- | The time when the framework was most recently updated.
     lastUpdatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The IAM user or role that most recently updated the framework.
+    -- | The user or role that most recently updated the framework.
     lastUpdatedBy :: Prelude.Maybe Prelude.Text,
     -- | The logo that\'s associated with the framework.
     logo :: Prelude.Maybe Prelude.Text,
@@ -58,7 +57,8 @@ data Framework = Framework'
     name :: Prelude.Maybe Prelude.Text,
     -- | The tags that are associated with the framework.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The framework type, such as a custom framework or a standard framework.
+    -- | Specifies whether the framework is a standard framework or a custom
+    -- framework.
     type' :: Prelude.Maybe FrameworkType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,16 +73,15 @@ data Framework = Framework'
 --
 -- 'arn', 'framework_arn' - The Amazon Resource Name (ARN) of the framework.
 --
--- 'complianceType', 'framework_complianceType' - The compliance type that the new custom framework supports, such as CIS
--- or HIPAA.
+-- 'complianceType', 'framework_complianceType' - The compliance type that the framework supports, such as CIS or HIPAA.
 --
 -- 'controlSets', 'framework_controlSets' - The control sets that are associated with the framework.
 --
--- 'controlSources', 'framework_controlSources' - The sources that Audit Manager collects evidence from for the control.
+-- 'controlSources', 'framework_controlSources' - The control data sources where Audit Manager collects evidence from.
 --
 -- 'createdAt', 'framework_createdAt' - The time when the framework was created.
 --
--- 'createdBy', 'framework_createdBy' - The IAM user or role that created the framework.
+-- 'createdBy', 'framework_createdBy' - The user or role that created the framework.
 --
 -- 'description', 'framework_description' - The description of the framework.
 --
@@ -90,7 +89,7 @@ data Framework = Framework'
 --
 -- 'lastUpdatedAt', 'framework_lastUpdatedAt' - The time when the framework was most recently updated.
 --
--- 'lastUpdatedBy', 'framework_lastUpdatedBy' - The IAM user or role that most recently updated the framework.
+-- 'lastUpdatedBy', 'framework_lastUpdatedBy' - The user or role that most recently updated the framework.
 --
 -- 'logo', 'framework_logo' - The logo that\'s associated with the framework.
 --
@@ -98,7 +97,8 @@ data Framework = Framework'
 --
 -- 'tags', 'framework_tags' - The tags that are associated with the framework.
 --
--- 'type'', 'framework_type' - The framework type, such as a custom framework or a standard framework.
+-- 'type'', 'framework_type' - Specifies whether the framework is a standard framework or a custom
+-- framework.
 newFramework ::
   Framework
 newFramework =
@@ -123,8 +123,7 @@ newFramework =
 framework_arn :: Lens.Lens' Framework (Prelude.Maybe Prelude.Text)
 framework_arn = Lens.lens (\Framework' {arn} -> arn) (\s@Framework' {} a -> s {arn = a} :: Framework)
 
--- | The compliance type that the new custom framework supports, such as CIS
--- or HIPAA.
+-- | The compliance type that the framework supports, such as CIS or HIPAA.
 framework_complianceType :: Lens.Lens' Framework (Prelude.Maybe Prelude.Text)
 framework_complianceType = Lens.lens (\Framework' {complianceType} -> complianceType) (\s@Framework' {} a -> s {complianceType = a} :: Framework)
 
@@ -132,7 +131,7 @@ framework_complianceType = Lens.lens (\Framework' {complianceType} -> compliance
 framework_controlSets :: Lens.Lens' Framework (Prelude.Maybe (Prelude.NonEmpty ControlSet))
 framework_controlSets = Lens.lens (\Framework' {controlSets} -> controlSets) (\s@Framework' {} a -> s {controlSets = a} :: Framework) Prelude.. Lens.mapping Lens.coerced
 
--- | The sources that Audit Manager collects evidence from for the control.
+-- | The control data sources where Audit Manager collects evidence from.
 framework_controlSources :: Lens.Lens' Framework (Prelude.Maybe Prelude.Text)
 framework_controlSources = Lens.lens (\Framework' {controlSources} -> controlSources) (\s@Framework' {} a -> s {controlSources = a} :: Framework)
 
@@ -140,7 +139,7 @@ framework_controlSources = Lens.lens (\Framework' {controlSources} -> controlSou
 framework_createdAt :: Lens.Lens' Framework (Prelude.Maybe Prelude.UTCTime)
 framework_createdAt = Lens.lens (\Framework' {createdAt} -> createdAt) (\s@Framework' {} a -> s {createdAt = a} :: Framework) Prelude.. Lens.mapping Data._Time
 
--- | The IAM user or role that created the framework.
+-- | The user or role that created the framework.
 framework_createdBy :: Lens.Lens' Framework (Prelude.Maybe Prelude.Text)
 framework_createdBy = Lens.lens (\Framework' {createdBy} -> createdBy) (\s@Framework' {} a -> s {createdBy = a} :: Framework)
 
@@ -156,7 +155,7 @@ framework_id = Lens.lens (\Framework' {id} -> id) (\s@Framework' {} a -> s {id =
 framework_lastUpdatedAt :: Lens.Lens' Framework (Prelude.Maybe Prelude.UTCTime)
 framework_lastUpdatedAt = Lens.lens (\Framework' {lastUpdatedAt} -> lastUpdatedAt) (\s@Framework' {} a -> s {lastUpdatedAt = a} :: Framework) Prelude.. Lens.mapping Data._Time
 
--- | The IAM user or role that most recently updated the framework.
+-- | The user or role that most recently updated the framework.
 framework_lastUpdatedBy :: Lens.Lens' Framework (Prelude.Maybe Prelude.Text)
 framework_lastUpdatedBy = Lens.lens (\Framework' {lastUpdatedBy} -> lastUpdatedBy) (\s@Framework' {} a -> s {lastUpdatedBy = a} :: Framework)
 
@@ -172,7 +171,8 @@ framework_name = Lens.lens (\Framework' {name} -> name) (\s@Framework' {} a -> s
 framework_tags :: Lens.Lens' Framework (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 framework_tags = Lens.lens (\Framework' {tags} -> tags) (\s@Framework' {} a -> s {tags = a} :: Framework) Prelude.. Lens.mapping Lens.coerced
 
--- | The framework type, such as a custom framework or a standard framework.
+-- | Specifies whether the framework is a standard framework or a custom
+-- framework.
 framework_type :: Lens.Lens' Framework (Prelude.Maybe FrameworkType)
 framework_type = Lens.lens (\Framework' {type'} -> type') (\s@Framework' {} a -> s {type' = a} :: Framework)
 
@@ -200,7 +200,8 @@ instance Data.FromJSON Framework where
 
 instance Prelude.Hashable Framework where
   hashWithSalt _salt Framework' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` complianceType
       `Prelude.hashWithSalt` controlSets
       `Prelude.hashWithSalt` controlSources

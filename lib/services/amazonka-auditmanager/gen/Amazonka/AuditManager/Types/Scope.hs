@@ -83,7 +83,8 @@ instance Data.FromJSON Scope where
 
 instance Prelude.Hashable Scope where
   hashWithSalt _salt Scope' {..} =
-    _salt `Prelude.hashWithSalt` awsAccounts
+    _salt
+      `Prelude.hashWithSalt` awsAccounts
       `Prelude.hashWithSalt` awsServices
 
 instance Prelude.NFData Scope where

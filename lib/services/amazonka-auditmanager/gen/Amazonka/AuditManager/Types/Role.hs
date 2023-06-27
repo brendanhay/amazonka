@@ -99,7 +99,8 @@ instance Data.FromJSON Role where
 
 instance Prelude.Hashable Role where
   hashWithSalt _salt Role' {..} =
-    _salt `Prelude.hashWithSalt` roleType
+    _salt
+      `Prelude.hashWithSalt` roleType
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData Role where

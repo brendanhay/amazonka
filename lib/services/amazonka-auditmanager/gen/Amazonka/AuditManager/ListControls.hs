@@ -108,7 +108,8 @@ instance Core.AWSRequest ListControls where
     Response.receiveJSON
       ( \s h x ->
           ListControlsResponse'
-            Prelude.<$> ( x Data..?> "controlMetadataList"
+            Prelude.<$> ( x
+                            Data..?> "controlMetadataList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -117,7 +118,8 @@ instance Core.AWSRequest ListControls where
 
 instance Prelude.Hashable ListControls where
   hashWithSalt _salt ListControls' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` controlType
 
@@ -151,8 +153,7 @@ instance Data.ToQuery ListControls where
 
 -- | /See:/ 'newListControlsResponse' smart constructor.
 data ListControlsResponse = ListControlsResponse'
-  { -- | The list of control metadata objects that the @ListControls@ API
-    -- returned.
+  { -- | A list of metadata that the @ListControls@ API returns for each control.
     controlMetadataList :: Prelude.Maybe [ControlMetadata],
     -- | The pagination token that\'s used to fetch the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -169,8 +170,7 @@ data ListControlsResponse = ListControlsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'controlMetadataList', 'listControlsResponse_controlMetadataList' - The list of control metadata objects that the @ListControls@ API
--- returned.
+-- 'controlMetadataList', 'listControlsResponse_controlMetadataList' - A list of metadata that the @ListControls@ API returns for each control.
 --
 -- 'nextToken', 'listControlsResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
@@ -187,8 +187,7 @@ newListControlsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The list of control metadata objects that the @ListControls@ API
--- returned.
+-- | A list of metadata that the @ListControls@ API returns for each control.
 listControlsResponse_controlMetadataList :: Lens.Lens' ListControlsResponse (Prelude.Maybe [ControlMetadata])
 listControlsResponse_controlMetadataList = Lens.lens (\ListControlsResponse' {controlMetadataList} -> controlMetadataList) (\s@ListControlsResponse' {} a -> s {controlMetadataList = a} :: ListControlsResponse) Prelude.. Lens.mapping Lens.coerced
 

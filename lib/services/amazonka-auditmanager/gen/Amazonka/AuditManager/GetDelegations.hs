@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of delegations from an audit owner to a delegate.
+-- Gets a list of delegations from an audit owner to a delegate.
 module Amazonka.AuditManager.GetDelegations
   ( -- * Creating a Request
     GetDelegations (..),
@@ -105,7 +105,8 @@ instance Core.AWSRequest GetDelegations where
 
 instance Prelude.Hashable GetDelegations where
   hashWithSalt _salt GetDelegations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData GetDelegations where

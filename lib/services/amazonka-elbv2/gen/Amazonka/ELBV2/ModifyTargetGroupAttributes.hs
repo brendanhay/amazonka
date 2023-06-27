@@ -98,7 +98,9 @@ instance Core.AWSRequest ModifyTargetGroupAttributes where
       "ModifyTargetGroupAttributesResult"
       ( \s h x ->
           ModifyTargetGroupAttributesResponse'
-            Prelude.<$> ( x Data..@? "Attributes" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Attributes"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -106,7 +108,8 @@ instance Core.AWSRequest ModifyTargetGroupAttributes where
 
 instance Prelude.Hashable ModifyTargetGroupAttributes where
   hashWithSalt _salt ModifyTargetGroupAttributes' {..} =
-    _salt `Prelude.hashWithSalt` targetGroupArn
+    _salt
+      `Prelude.hashWithSalt` targetGroupArn
       `Prelude.hashWithSalt` attributes
 
 instance Prelude.NFData ModifyTargetGroupAttributes where

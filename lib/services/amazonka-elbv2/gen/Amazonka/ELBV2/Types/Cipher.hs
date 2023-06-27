@@ -70,7 +70,8 @@ instance Data.FromXML Cipher where
 
 instance Prelude.Hashable Cipher where
   hashWithSalt _salt Cipher' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` priority
 
 instance Prelude.NFData Cipher where

@@ -97,7 +97,8 @@ instance Core.AWSRequest DescribeTargetHealth where
       "DescribeTargetHealthResult"
       ( \s h x ->
           DescribeTargetHealthResponse'
-            Prelude.<$> ( x Data..@? "TargetHealthDescriptions"
+            Prelude.<$> ( x
+                            Data..@? "TargetHealthDescriptions"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -106,7 +107,8 @@ instance Core.AWSRequest DescribeTargetHealth where
 
 instance Prelude.Hashable DescribeTargetHealth where
   hashWithSalt _salt DescribeTargetHealth' {..} =
-    _salt `Prelude.hashWithSalt` targets
+    _salt
+      `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` targetGroupArn
 
 instance Prelude.NFData DescribeTargetHealth where

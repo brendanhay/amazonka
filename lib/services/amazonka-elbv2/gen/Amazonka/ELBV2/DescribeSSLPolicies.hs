@@ -126,22 +126,22 @@ instance Core.AWSPager DescribeSSLPolicies where
     | Core.stop
         ( rs
             Lens.^? describeSSLPoliciesResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSSLPoliciesResponse_sslPolicies
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeSSLPolicies_marker
           Lens..~ rs
           Lens.^? describeSSLPoliciesResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSSLPolicies where
   type
@@ -155,7 +155,9 @@ instance Core.AWSRequest DescribeSSLPolicies where
       ( \s h x ->
           DescribeSSLPoliciesResponse'
             Prelude.<$> (x Data..@? "NextMarker")
-            Prelude.<*> ( x Data..@? "SslPolicies" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "SslPolicies"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -163,7 +165,8 @@ instance Core.AWSRequest DescribeSSLPolicies where
 
 instance Prelude.Hashable DescribeSSLPolicies where
   hashWithSalt _salt DescribeSSLPolicies' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerType
+    _salt
+      `Prelude.hashWithSalt` loadBalancerType
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` names
       `Prelude.hashWithSalt` pageSize

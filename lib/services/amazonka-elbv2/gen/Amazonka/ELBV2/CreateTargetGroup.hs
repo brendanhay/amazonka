@@ -120,7 +120,7 @@ data CreateTargetGroup = CreateTargetGroup'
     -- | The number of consecutive health check successes required before
     -- considering a target healthy. The range is 2-10. If the target group
     -- protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 5. For
-    -- target groups with a protocol of GENEVE, the default is 3. If the target
+    -- target groups with a protocol of GENEVE, the default is 5. If the target
     -- type is @lambda@, the default is 5.
     healthyThresholdCount :: Prelude.Maybe Prelude.Natural,
     -- | The type of IP address used for this target group. The possible values
@@ -172,7 +172,7 @@ data CreateTargetGroup = CreateTargetGroup'
     -- | The number of consecutive health check failures required before
     -- considering a target unhealthy. The range is 2-10. If the target group
     -- protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 2. For
-    -- target groups with a protocol of GENEVE, the default is 3. If the target
+    -- target groups with a protocol of GENEVE, the default is 2. If the target
     -- type is @lambda@, the default is 5.
     unhealthyThresholdCount :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the virtual private cloud (VPC). If the target is a
@@ -239,7 +239,7 @@ data CreateTargetGroup = CreateTargetGroup'
 -- 'healthyThresholdCount', 'createTargetGroup_healthyThresholdCount' - The number of consecutive health check successes required before
 -- considering a target healthy. The range is 2-10. If the target group
 -- protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 5. For
--- target groups with a protocol of GENEVE, the default is 3. If the target
+-- target groups with a protocol of GENEVE, the default is 5. If the target
 -- type is @lambda@, the default is 5.
 --
 -- 'ipAddressType', 'createTargetGroup_ipAddressType' - The type of IP address used for this target group. The possible values
@@ -291,7 +291,7 @@ data CreateTargetGroup = CreateTargetGroup'
 -- 'unhealthyThresholdCount', 'createTargetGroup_unhealthyThresholdCount' - The number of consecutive health check failures required before
 -- considering a target unhealthy. The range is 2-10. If the target group
 -- protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 2. For
--- target groups with a protocol of GENEVE, the default is 3. If the target
+-- target groups with a protocol of GENEVE, the default is 2. If the target
 -- type is @lambda@, the default is 5.
 --
 -- 'vpcId', 'createTargetGroup_vpcId' - The identifier of the virtual private cloud (VPC). If the target is a
@@ -384,7 +384,7 @@ createTargetGroup_healthCheckTimeoutSeconds = Lens.lens (\CreateTargetGroup' {he
 -- | The number of consecutive health check successes required before
 -- considering a target healthy. The range is 2-10. If the target group
 -- protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 5. For
--- target groups with a protocol of GENEVE, the default is 3. If the target
+-- target groups with a protocol of GENEVE, the default is 5. If the target
 -- type is @lambda@, the default is 5.
 createTargetGroup_healthyThresholdCount :: Lens.Lens' CreateTargetGroup (Prelude.Maybe Prelude.Natural)
 createTargetGroup_healthyThresholdCount = Lens.lens (\CreateTargetGroup' {healthyThresholdCount} -> healthyThresholdCount) (\s@CreateTargetGroup' {} a -> s {healthyThresholdCount = a} :: CreateTargetGroup)
@@ -452,7 +452,7 @@ createTargetGroup_targetType = Lens.lens (\CreateTargetGroup' {targetType} -> ta
 -- | The number of consecutive health check failures required before
 -- considering a target unhealthy. The range is 2-10. If the target group
 -- protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 2. For
--- target groups with a protocol of GENEVE, the default is 3. If the target
+-- target groups with a protocol of GENEVE, the default is 2. If the target
 -- type is @lambda@, the default is 5.
 createTargetGroup_unhealthyThresholdCount :: Lens.Lens' CreateTargetGroup (Prelude.Maybe Prelude.Natural)
 createTargetGroup_unhealthyThresholdCount = Lens.lens (\CreateTargetGroup' {unhealthyThresholdCount} -> unhealthyThresholdCount) (\s@CreateTargetGroup' {} a -> s {unhealthyThresholdCount = a} :: CreateTargetGroup)
@@ -482,7 +482,9 @@ instance Core.AWSRequest CreateTargetGroup where
       "CreateTargetGroupResult"
       ( \s h x ->
           CreateTargetGroupResponse'
-            Prelude.<$> ( x Data..@? "TargetGroups" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "TargetGroups"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -490,7 +492,8 @@ instance Core.AWSRequest CreateTargetGroup where
 
 instance Prelude.Hashable CreateTargetGroup where
   hashWithSalt _salt CreateTargetGroup' {..} =
-    _salt `Prelude.hashWithSalt` healthCheckEnabled
+    _salt
+      `Prelude.hashWithSalt` healthCheckEnabled
       `Prelude.hashWithSalt` healthCheckIntervalSeconds
       `Prelude.hashWithSalt` healthCheckPath
       `Prelude.hashWithSalt` healthCheckPort

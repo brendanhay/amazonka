@@ -115,13 +115,16 @@ instance Data.FromXML HttpHeaderConditionConfig where
   parseXML x =
     HttpHeaderConditionConfig'
       Prelude.<$> (x Data..@? "HttpHeaderName")
-      Prelude.<*> ( x Data..@? "Values" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Values"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable HttpHeaderConditionConfig where
   hashWithSalt _salt HttpHeaderConditionConfig' {..} =
-    _salt `Prelude.hashWithSalt` httpHeaderName
+    _salt
+      `Prelude.hashWithSalt` httpHeaderName
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData HttpHeaderConditionConfig where

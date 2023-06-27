@@ -118,22 +118,22 @@ instance Core.AWSPager DescribeListeners where
     | Core.stop
         ( rs
             Lens.^? describeListenersResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeListenersResponse_listeners
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeListeners_marker
           Lens..~ rs
           Lens.^? describeListenersResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeListeners where
   type
@@ -146,7 +146,9 @@ instance Core.AWSRequest DescribeListeners where
       "DescribeListenersResult"
       ( \s h x ->
           DescribeListenersResponse'
-            Prelude.<$> ( x Data..@? "Listeners" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Listeners"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextMarker")
@@ -155,7 +157,8 @@ instance Core.AWSRequest DescribeListeners where
 
 instance Prelude.Hashable DescribeListeners where
   hashWithSalt _salt DescribeListeners' {..} =
-    _salt `Prelude.hashWithSalt` listenerArns
+    _salt
+      `Prelude.hashWithSalt` listenerArns
       `Prelude.hashWithSalt` loadBalancerArn
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` pageSize

@@ -113,7 +113,8 @@ instance Core.AWSRequest SetIpAddressType where
 
 instance Prelude.Hashable SetIpAddressType where
   hashWithSalt _salt SetIpAddressType' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerArn
+    _salt
+      `Prelude.hashWithSalt` loadBalancerArn
       `Prelude.hashWithSalt` ipAddressType
 
 instance Prelude.NFData SetIpAddressType where

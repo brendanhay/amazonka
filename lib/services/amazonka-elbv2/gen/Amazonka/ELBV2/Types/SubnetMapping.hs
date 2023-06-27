@@ -88,7 +88,8 @@ subnetMapping_subnetId = Lens.lens (\SubnetMapping' {subnetId} -> subnetId) (\s@
 
 instance Prelude.Hashable SubnetMapping where
   hashWithSalt _salt SubnetMapping' {..} =
-    _salt `Prelude.hashWithSalt` allocationId
+    _salt
+      `Prelude.hashWithSalt` allocationId
       `Prelude.hashWithSalt` iPv6Address
       `Prelude.hashWithSalt` privateIPv4Address
       `Prelude.hashWithSalt` subnetId

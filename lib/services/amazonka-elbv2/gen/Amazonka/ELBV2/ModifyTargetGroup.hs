@@ -248,7 +248,9 @@ instance Core.AWSRequest ModifyTargetGroup where
       "ModifyTargetGroupResult"
       ( \s h x ->
           ModifyTargetGroupResponse'
-            Prelude.<$> ( x Data..@? "TargetGroups" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "TargetGroups"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -256,7 +258,8 @@ instance Core.AWSRequest ModifyTargetGroup where
 
 instance Prelude.Hashable ModifyTargetGroup where
   hashWithSalt _salt ModifyTargetGroup' {..} =
-    _salt `Prelude.hashWithSalt` healthCheckEnabled
+    _salt
+      `Prelude.hashWithSalt` healthCheckEnabled
       `Prelude.hashWithSalt` healthCheckIntervalSeconds
       `Prelude.hashWithSalt` healthCheckPath
       `Prelude.hashWithSalt` healthCheckPort

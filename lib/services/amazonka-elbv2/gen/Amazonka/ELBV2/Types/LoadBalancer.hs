@@ -208,7 +208,8 @@ loadBalancer_vpcId = Lens.lens (\LoadBalancer' {vpcId} -> vpcId) (\s@LoadBalance
 instance Data.FromXML LoadBalancer where
   parseXML x =
     LoadBalancer'
-      Prelude.<$> ( x Data..@? "AvailabilityZones"
+      Prelude.<$> ( x
+                      Data..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -220,7 +221,9 @@ instance Data.FromXML LoadBalancer where
       Prelude.<*> (x Data..@? "LoadBalancerArn")
       Prelude.<*> (x Data..@? "LoadBalancerName")
       Prelude.<*> (x Data..@? "Scheme")
-      Prelude.<*> ( x Data..@? "SecurityGroups" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "SecurityGroups"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "State")
@@ -229,7 +232,8 @@ instance Data.FromXML LoadBalancer where
 
 instance Prelude.Hashable LoadBalancer where
   hashWithSalt _salt LoadBalancer' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` canonicalHostedZoneId
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` customerOwnedIpv4Pool

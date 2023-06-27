@@ -176,7 +176,8 @@ instance Data.FromXML TargetDescription where
 
 instance Prelude.Hashable TargetDescription where
   hashWithSalt _salt TargetDescription' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` id
 

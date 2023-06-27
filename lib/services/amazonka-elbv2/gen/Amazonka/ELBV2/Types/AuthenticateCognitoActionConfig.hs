@@ -36,11 +36,11 @@ data AuthenticateCognitoActionConfig = AuthenticateCognitoActionConfig'
     -- | The behavior if the user is not authenticated. The following are
     -- possible values:
     --
-    -- -   deny@@ - Return an HTTP 401 Unauthorized error.
+    -- -   deny - Return an HTTP 401 Unauthorized error.
     --
-    -- -   allow@@ - Allow the request to be forwarded to the target.
+    -- -   allow - Allow the request to be forwarded to the target.
     --
-    -- -   authenticate@@ - Redirect the request to the IdP authorization
+    -- -   authenticate - Redirect the request to the IdP authorization
     --     endpoint. This is the default value.
     onUnauthenticatedRequest :: Prelude.Maybe AuthenticateCognitoActionConditionalBehaviorEnum,
     -- | The set of user claims to be requested from the IdP. The default is
@@ -79,11 +79,11 @@ data AuthenticateCognitoActionConfig = AuthenticateCognitoActionConfig'
 -- 'onUnauthenticatedRequest', 'authenticateCognitoActionConfig_onUnauthenticatedRequest' - The behavior if the user is not authenticated. The following are
 -- possible values:
 --
--- -   deny@@ - Return an HTTP 401 Unauthorized error.
+-- -   deny - Return an HTTP 401 Unauthorized error.
 --
--- -   allow@@ - Allow the request to be forwarded to the target.
+-- -   allow - Allow the request to be forwarded to the target.
 --
--- -   authenticate@@ - Redirect the request to the IdP authorization
+-- -   authenticate - Redirect the request to the IdP authorization
 --     endpoint. This is the default value.
 --
 -- 'scope', 'authenticateCognitoActionConfig_scope' - The set of user claims to be requested from the IdP. The default is
@@ -136,11 +136,11 @@ authenticateCognitoActionConfig_authenticationRequestExtraParams = Lens.lens (\A
 -- | The behavior if the user is not authenticated. The following are
 -- possible values:
 --
--- -   deny@@ - Return an HTTP 401 Unauthorized error.
+-- -   deny - Return an HTTP 401 Unauthorized error.
 --
--- -   allow@@ - Allow the request to be forwarded to the target.
+-- -   allow - Allow the request to be forwarded to the target.
 --
--- -   authenticate@@ - Redirect the request to the IdP authorization
+-- -   authenticate - Redirect the request to the IdP authorization
 --     endpoint. This is the default value.
 authenticateCognitoActionConfig_onUnauthenticatedRequest :: Lens.Lens' AuthenticateCognitoActionConfig (Prelude.Maybe AuthenticateCognitoActionConditionalBehaviorEnum)
 authenticateCognitoActionConfig_onUnauthenticatedRequest = Lens.lens (\AuthenticateCognitoActionConfig' {onUnauthenticatedRequest} -> onUnauthenticatedRequest) (\s@AuthenticateCognitoActionConfig' {} a -> s {onUnauthenticatedRequest = a} :: AuthenticateCognitoActionConfig)
@@ -179,7 +179,8 @@ authenticateCognitoActionConfig_userPoolDomain = Lens.lens (\AuthenticateCognito
 instance Data.FromXML AuthenticateCognitoActionConfig where
   parseXML x =
     AuthenticateCognitoActionConfig'
-      Prelude.<$> ( x Data..@? "AuthenticationRequestExtraParams"
+      Prelude.<$> ( x
+                      Data..@? "AuthenticationRequestExtraParams"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                   )

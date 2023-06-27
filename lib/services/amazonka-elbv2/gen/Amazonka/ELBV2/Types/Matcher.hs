@@ -117,7 +117,8 @@ instance Data.FromXML Matcher where
 
 instance Prelude.Hashable Matcher where
   hashWithSalt _salt Matcher' {..} =
-    _salt `Prelude.hashWithSalt` grpcCode
+    _salt
+      `Prelude.hashWithSalt` grpcCode
       `Prelude.hashWithSalt` httpCode
 
 instance Prelude.NFData Matcher where

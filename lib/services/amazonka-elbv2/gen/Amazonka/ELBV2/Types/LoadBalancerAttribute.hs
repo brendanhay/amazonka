@@ -359,11 +359,13 @@ loadBalancerAttribute_value = Lens.lens (\LoadBalancerAttribute' {value} -> valu
 instance Data.FromXML LoadBalancerAttribute where
   parseXML x =
     LoadBalancerAttribute'
-      Prelude.<$> (x Data..@? "Key") Prelude.<*> (x Data..@? "Value")
+      Prelude.<$> (x Data..@? "Key")
+      Prelude.<*> (x Data..@? "Value")
 
 instance Prelude.Hashable LoadBalancerAttribute where
   hashWithSalt _salt LoadBalancerAttribute' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData LoadBalancerAttribute where

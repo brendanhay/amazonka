@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateControlPanel where
 
 instance Prelude.Hashable UpdateControlPanel where
   hashWithSalt _salt UpdateControlPanel' {..} =
-    _salt `Prelude.hashWithSalt` controlPanelArn
+    _salt
+      `Prelude.hashWithSalt` controlPanelArn
       `Prelude.hashWithSalt` controlPanelName
 
 instance Prelude.NFData UpdateControlPanel where

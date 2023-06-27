@@ -97,7 +97,8 @@ assertionRuleUpdate_name = Lens.lens (\AssertionRuleUpdate' {name} -> name) (\s@
 
 instance Prelude.Hashable AssertionRuleUpdate where
   hashWithSalt _salt AssertionRuleUpdate' {..} =
-    _salt `Prelude.hashWithSalt` safetyRuleArn
+    _salt
+      `Prelude.hashWithSalt` safetyRuleArn
       `Prelude.hashWithSalt` waitPeriodMs
       `Prelude.hashWithSalt` name
 

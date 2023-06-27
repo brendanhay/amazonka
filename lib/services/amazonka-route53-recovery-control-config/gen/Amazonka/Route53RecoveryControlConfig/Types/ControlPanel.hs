@@ -137,7 +137,8 @@ instance Data.FromJSON ControlPanel where
 
 instance Prelude.Hashable ControlPanel where
   hashWithSalt _salt ControlPanel' {..} =
-    _salt `Prelude.hashWithSalt` clusterArn
+    _salt
+      `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` controlPanelArn
       `Prelude.hashWithSalt` defaultControlPanel
       `Prelude.hashWithSalt` name

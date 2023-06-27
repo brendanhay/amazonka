@@ -149,7 +149,8 @@ instance Core.AWSRequest CreateSafetyRule where
 
 instance Prelude.Hashable CreateSafetyRule where
   hashWithSalt _salt CreateSafetyRule' {..} =
-    _salt `Prelude.hashWithSalt` assertionRule
+    _salt
+      `Prelude.hashWithSalt` assertionRule
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` gatingRule
       `Prelude.hashWithSalt` tags

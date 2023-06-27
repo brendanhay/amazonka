@@ -65,7 +65,8 @@ virtualObject_uri = Lens.lens (\VirtualObject' {uri} -> uri) (\s@VirtualObject' 
 
 instance Prelude.Hashable VirtualObject where
   hashWithSalt _salt VirtualObject' {..} =
-    _salt `Prelude.hashWithSalt` eTag
+    _salt
+      `Prelude.hashWithSalt` eTag
       `Prelude.hashWithSalt` uri
 
 instance Prelude.NFData VirtualObject where

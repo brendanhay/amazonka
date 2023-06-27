@@ -33,7 +33,9 @@ data ResourceInfo = ResourceInfo'
     -- | The Amazon Resource Name (ARN) of the resource.
     resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The IAM role that registered a resource.
-    roleArn :: Prelude.Maybe Prelude.Text
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | Whether or not the resource is a federated resource.
+    withFederation :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,13 +52,16 @@ data ResourceInfo = ResourceInfo'
 -- 'resourceArn', 'resourceInfo_resourceArn' - The Amazon Resource Name (ARN) of the resource.
 --
 -- 'roleArn', 'resourceInfo_roleArn' - The IAM role that registered a resource.
+--
+-- 'withFederation', 'resourceInfo_withFederation' - Whether or not the resource is a federated resource.
 newResourceInfo ::
   ResourceInfo
 newResourceInfo =
   ResourceInfo'
     { lastModified = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
-      roleArn = Prelude.Nothing
+      roleArn = Prelude.Nothing,
+      withFederation = Prelude.Nothing
     }
 
 -- | The date and time the resource was last modified.
@@ -71,6 +76,10 @@ resourceInfo_resourceArn = Lens.lens (\ResourceInfo' {resourceArn} -> resourceAr
 resourceInfo_roleArn :: Lens.Lens' ResourceInfo (Prelude.Maybe Prelude.Text)
 resourceInfo_roleArn = Lens.lens (\ResourceInfo' {roleArn} -> roleArn) (\s@ResourceInfo' {} a -> s {roleArn = a} :: ResourceInfo)
 
+-- | Whether or not the resource is a federated resource.
+resourceInfo_withFederation :: Lens.Lens' ResourceInfo (Prelude.Maybe Prelude.Bool)
+resourceInfo_withFederation = Lens.lens (\ResourceInfo' {withFederation} -> withFederation) (\s@ResourceInfo' {} a -> s {withFederation = a} :: ResourceInfo)
+
 instance Data.FromJSON ResourceInfo where
   parseJSON =
     Data.withObject
@@ -80,16 +89,20 @@ instance Data.FromJSON ResourceInfo where
             Prelude.<$> (x Data..:? "LastModified")
             Prelude.<*> (x Data..:? "ResourceArn")
             Prelude.<*> (x Data..:? "RoleArn")
+            Prelude.<*> (x Data..:? "WithFederation")
       )
 
 instance Prelude.Hashable ResourceInfo where
   hashWithSalt _salt ResourceInfo' {..} =
-    _salt `Prelude.hashWithSalt` lastModified
+    _salt
+      `Prelude.hashWithSalt` lastModified
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` withFederation
 
 instance Prelude.NFData ResourceInfo where
   rnf ResourceInfo' {..} =
     Prelude.rnf lastModified
       `Prelude.seq` Prelude.rnf resourceArn
       `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf withFederation

@@ -59,6 +59,7 @@ library
     Amazonka.LakeFormation.DescribeResource
     Amazonka.LakeFormation.DescribeTransaction
     Amazonka.LakeFormation.ExtendTransaction
+    Amazonka.LakeFormation.GetDataCellsFilter
     Amazonka.LakeFormation.GetDataLakeSettings
     Amazonka.LakeFormation.GetEffectivePermissionsForPath
     Amazonka.LakeFormation.GetLFTag
@@ -143,6 +144,7 @@ library
     Amazonka.LakeFormation.Types.VirtualObject
     Amazonka.LakeFormation.Types.WorkUnitRange
     Amazonka.LakeFormation.Types.WriteOperation
+    Amazonka.LakeFormation.UpdateDataCellsFilter
     Amazonka.LakeFormation.UpdateLFTag
     Amazonka.LakeFormation.UpdateResource
     Amazonka.LakeFormation.UpdateTableObjects

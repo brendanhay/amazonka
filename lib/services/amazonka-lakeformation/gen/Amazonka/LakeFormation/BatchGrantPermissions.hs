@@ -112,7 +112,8 @@ instance Core.AWSRequest BatchGrantPermissions where
 
 instance Prelude.Hashable BatchGrantPermissions where
   hashWithSalt _salt BatchGrantPermissions' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` entries
 
 instance Prelude.NFData BatchGrantPermissions where

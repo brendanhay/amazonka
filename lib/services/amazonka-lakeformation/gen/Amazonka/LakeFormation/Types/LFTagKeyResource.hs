@@ -97,7 +97,8 @@ instance Data.FromJSON LFTagKeyResource where
 
 instance Prelude.Hashable LFTagKeyResource where
   hashWithSalt _salt LFTagKeyResource' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` tagKey
       `Prelude.hashWithSalt` tagValues
 

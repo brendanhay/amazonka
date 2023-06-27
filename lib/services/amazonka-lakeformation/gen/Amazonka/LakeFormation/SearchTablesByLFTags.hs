@@ -71,7 +71,7 @@ data SearchTablesByLFTags = SearchTablesByLFTags'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of conditions (@LFTag@ structures) to search for in table
     -- resources.
-    expression :: Prelude.NonEmpty LFTag
+    expression :: [LFTag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,15 +96,13 @@ data SearchTablesByLFTags = SearchTablesByLFTags'
 -- 'expression', 'searchTablesByLFTags_expression' - A list of conditions (@LFTag@ structures) to search for in table
 -- resources.
 newSearchTablesByLFTags ::
-  -- | 'expression'
-  Prelude.NonEmpty LFTag ->
   SearchTablesByLFTags
-newSearchTablesByLFTags pExpression_ =
+newSearchTablesByLFTags =
   SearchTablesByLFTags'
     { catalogId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      expression = Lens.coerced Lens.# pExpression_
+      expression = Prelude.mempty
     }
 
 -- | The identifier for the Data Catalog. By default, the account ID. The
@@ -125,7 +123,7 @@ searchTablesByLFTags_nextToken = Lens.lens (\SearchTablesByLFTags' {nextToken} -
 
 -- | A list of conditions (@LFTag@ structures) to search for in table
 -- resources.
-searchTablesByLFTags_expression :: Lens.Lens' SearchTablesByLFTags (Prelude.NonEmpty LFTag)
+searchTablesByLFTags_expression :: Lens.Lens' SearchTablesByLFTags [LFTag]
 searchTablesByLFTags_expression = Lens.lens (\SearchTablesByLFTags' {expression} -> expression) (\s@SearchTablesByLFTags' {} a -> s {expression = a} :: SearchTablesByLFTags) Prelude.. Lens.coerced
 
 instance Core.AWSPager SearchTablesByLFTags where
@@ -133,22 +131,22 @@ instance Core.AWSPager SearchTablesByLFTags where
     | Core.stop
         ( rs
             Lens.^? searchTablesByLFTagsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? searchTablesByLFTagsResponse_tableList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchTablesByLFTags_nextToken
           Lens..~ rs
           Lens.^? searchTablesByLFTagsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchTablesByLFTags where
   type
@@ -167,7 +165,8 @@ instance Core.AWSRequest SearchTablesByLFTags where
 
 instance Prelude.Hashable SearchTablesByLFTags where
   hashWithSalt _salt SearchTablesByLFTags' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` expression

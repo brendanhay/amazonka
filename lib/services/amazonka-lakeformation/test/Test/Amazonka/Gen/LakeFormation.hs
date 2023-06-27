@@ -72,6 +72,9 @@ import Test.Tasty
 --         , requestExtendTransaction $
 --             newExtendTransaction
 --
+--         , requestGetDataCellsFilter $
+--             newGetDataCellsFilter
+--
 --         , requestGetDataLakeSettings $
 --             newGetDataLakeSettings
 --
@@ -150,6 +153,9 @@ import Test.Tasty
 --         , requestStartTransaction $
 --             newStartTransaction
 --
+--         , requestUpdateDataCellsFilter $
+--             newUpdateDataCellsFilter
+--
 --         , requestUpdateLFTag $
 --             newUpdateLFTag
 --
@@ -209,6 +215,9 @@ import Test.Tasty
 --
 --         , responseExtendTransaction $
 --             newExtendTransactionResponse
+--
+--         , responseGetDataCellsFilter $
+--             newGetDataCellsFilterResponse
 --
 --         , responseGetDataLakeSettings $
 --             newGetDataLakeSettingsResponse
@@ -287,6 +296,9 @@ import Test.Tasty
 --
 --         , responseStartTransaction $
 --             newStartTransactionResponse
+--
+--         , responseUpdateDataCellsFilter $
+--             newUpdateDataCellsFilterResponse
 --
 --         , responseUpdateLFTag $
 --             newUpdateLFTagResponse
@@ -394,6 +406,12 @@ requestExtendTransaction =
   req
     "ExtendTransaction"
     "fixture/ExtendTransaction.yaml"
+
+requestGetDataCellsFilter :: GetDataCellsFilter -> TestTree
+requestGetDataCellsFilter =
+  req
+    "GetDataCellsFilter"
+    "fixture/GetDataCellsFilter.yaml"
 
 requestGetDataLakeSettings :: GetDataLakeSettings -> TestTree
 requestGetDataLakeSettings =
@@ -551,6 +569,12 @@ requestStartTransaction =
     "StartTransaction"
     "fixture/StartTransaction.yaml"
 
+requestUpdateDataCellsFilter :: UpdateDataCellsFilter -> TestTree
+requestUpdateDataCellsFilter =
+  req
+    "UpdateDataCellsFilter"
+    "fixture/UpdateDataCellsFilter.yaml"
+
 requestUpdateLFTag :: UpdateLFTag -> TestTree
 requestUpdateLFTag =
   req
@@ -696,6 +720,14 @@ responseExtendTransaction =
     "fixture/ExtendTransactionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ExtendTransaction)
+
+responseGetDataCellsFilter :: GetDataCellsFilterResponse -> TestTree
+responseGetDataCellsFilter =
+  res
+    "GetDataCellsFilterResponse"
+    "fixture/GetDataCellsFilterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDataCellsFilter)
 
 responseGetDataLakeSettings :: GetDataLakeSettingsResponse -> TestTree
 responseGetDataLakeSettings =
@@ -896,6 +928,14 @@ responseStartTransaction =
     "fixture/StartTransactionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartTransaction)
+
+responseUpdateDataCellsFilter :: UpdateDataCellsFilterResponse -> TestTree
+responseUpdateDataCellsFilter =
+  res
+    "UpdateDataCellsFilterResponse"
+    "fixture/UpdateDataCellsFilterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataCellsFilter)
 
 responseUpdateLFTag :: UpdateLFTagResponse -> TestTree
 responseUpdateLFTag =

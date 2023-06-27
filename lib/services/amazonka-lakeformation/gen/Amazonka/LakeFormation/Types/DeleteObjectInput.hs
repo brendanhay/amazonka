@@ -81,7 +81,8 @@ deleteObjectInput_uri = Lens.lens (\DeleteObjectInput' {uri} -> uri) (\s@DeleteO
 
 instance Prelude.Hashable DeleteObjectInput where
   hashWithSalt _salt DeleteObjectInput' {..} =
-    _salt `Prelude.hashWithSalt` eTag
+    _salt
+      `Prelude.hashWithSalt` eTag
       `Prelude.hashWithSalt` partitionValues
       `Prelude.hashWithSalt` uri
 

@@ -39,7 +39,7 @@ data LFTagPolicyResource = LFTagPolicyResource'
     -- | The resource type for which the LF-tag policy applies.
     resourceType :: ResourceType,
     -- | A list of LF-tag conditions that apply to the resource\'s LF-tag policy.
-    expression :: Prelude.NonEmpty LFTag
+    expression :: [LFTag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,14 +62,12 @@ data LFTagPolicyResource = LFTagPolicyResource'
 newLFTagPolicyResource ::
   -- | 'resourceType'
   ResourceType ->
-  -- | 'expression'
-  Prelude.NonEmpty LFTag ->
   LFTagPolicyResource
-newLFTagPolicyResource pResourceType_ pExpression_ =
+newLFTagPolicyResource pResourceType_ =
   LFTagPolicyResource'
     { catalogId = Prelude.Nothing,
       resourceType = pResourceType_,
-      expression = Lens.coerced Lens.# pExpression_
+      expression = Prelude.mempty
     }
 
 -- | The identifier for the Data Catalog. By default, the account ID. The
@@ -84,7 +82,7 @@ lFTagPolicyResource_resourceType :: Lens.Lens' LFTagPolicyResource ResourceType
 lFTagPolicyResource_resourceType = Lens.lens (\LFTagPolicyResource' {resourceType} -> resourceType) (\s@LFTagPolicyResource' {} a -> s {resourceType = a} :: LFTagPolicyResource)
 
 -- | A list of LF-tag conditions that apply to the resource\'s LF-tag policy.
-lFTagPolicyResource_expression :: Lens.Lens' LFTagPolicyResource (Prelude.NonEmpty LFTag)
+lFTagPolicyResource_expression :: Lens.Lens' LFTagPolicyResource [LFTag]
 lFTagPolicyResource_expression = Lens.lens (\LFTagPolicyResource' {expression} -> expression) (\s@LFTagPolicyResource' {} a -> s {expression = a} :: LFTagPolicyResource) Prelude.. Lens.coerced
 
 instance Data.FromJSON LFTagPolicyResource where
@@ -95,12 +93,13 @@ instance Data.FromJSON LFTagPolicyResource where
           LFTagPolicyResource'
             Prelude.<$> (x Data..:? "CatalogId")
             Prelude.<*> (x Data..: "ResourceType")
-            Prelude.<*> (x Data..: "Expression")
+            Prelude.<*> (x Data..:? "Expression" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable LFTagPolicyResource where
   hashWithSalt _salt LFTagPolicyResource' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` expression
 

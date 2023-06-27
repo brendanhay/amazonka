@@ -171,6 +171,12 @@ module Amazonka.LakeFormation
     ExtendTransactionResponse (ExtendTransactionResponse'),
     newExtendTransactionResponse,
 
+    -- ** GetDataCellsFilter
+    GetDataCellsFilter (GetDataCellsFilter'),
+    newGetDataCellsFilter,
+    GetDataCellsFilterResponse (GetDataCellsFilterResponse'),
+    newGetDataCellsFilterResponse,
+
     -- ** GetDataLakeSettings
     GetDataLakeSettings (GetDataLakeSettings'),
     newGetDataLakeSettings,
@@ -326,6 +332,12 @@ module Amazonka.LakeFormation
     newStartTransaction,
     StartTransactionResponse (StartTransactionResponse'),
     newStartTransactionResponse,
+
+    -- ** UpdateDataCellsFilter
+    UpdateDataCellsFilter (UpdateDataCellsFilter'),
+    newUpdateDataCellsFilter,
+    UpdateDataCellsFilterResponse (UpdateDataCellsFilterResponse'),
+    newUpdateDataCellsFilterResponse,
 
     -- ** UpdateLFTag
     UpdateLFTag (UpdateLFTag'),
@@ -582,6 +594,7 @@ import Amazonka.LakeFormation.DeregisterResource
 import Amazonka.LakeFormation.DescribeResource
 import Amazonka.LakeFormation.DescribeTransaction
 import Amazonka.LakeFormation.ExtendTransaction
+import Amazonka.LakeFormation.GetDataCellsFilter
 import Amazonka.LakeFormation.GetDataLakeSettings
 import Amazonka.LakeFormation.GetEffectivePermissionsForPath
 import Amazonka.LakeFormation.GetLFTag
@@ -610,6 +623,7 @@ import Amazonka.LakeFormation.SearchTablesByLFTags
 import Amazonka.LakeFormation.StartQueryPlanning
 import Amazonka.LakeFormation.StartTransaction
 import Amazonka.LakeFormation.Types
+import Amazonka.LakeFormation.UpdateDataCellsFilter
 import Amazonka.LakeFormation.UpdateLFTag
 import Amazonka.LakeFormation.UpdateResource
 import Amazonka.LakeFormation.UpdateTableObjects

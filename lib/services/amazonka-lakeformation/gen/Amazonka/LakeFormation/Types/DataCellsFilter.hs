@@ -38,6 +38,8 @@ data DataCellsFilter = DataCellsFilter'
     columnWildcard :: Prelude.Maybe ColumnWildcard,
     -- | A PartiQL predicate.
     rowFilter :: Prelude.Maybe RowFilter,
+    -- | The ID of the data cells filter version.
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the catalog to which the table belongs.
     tableCatalogId :: Prelude.Text,
     -- | A database in the Glue Data Catalog.
@@ -65,6 +67,8 @@ data DataCellsFilter = DataCellsFilter'
 --
 -- 'rowFilter', 'dataCellsFilter_rowFilter' - A PartiQL predicate.
 --
+-- 'versionId', 'dataCellsFilter_versionId' - The ID of the data cells filter version.
+--
 -- 'tableCatalogId', 'dataCellsFilter_tableCatalogId' - The ID of the catalog to which the table belongs.
 --
 -- 'databaseName', 'dataCellsFilter_databaseName' - A database in the Glue Data Catalog.
@@ -91,6 +95,7 @@ newDataCellsFilter
       { columnNames = Prelude.Nothing,
         columnWildcard = Prelude.Nothing,
         rowFilter = Prelude.Nothing,
+        versionId = Prelude.Nothing,
         tableCatalogId = pTableCatalogId_,
         databaseName = pDatabaseName_,
         tableName = pTableName_,
@@ -110,6 +115,10 @@ dataCellsFilter_columnWildcard = Lens.lens (\DataCellsFilter' {columnWildcard} -
 -- | A PartiQL predicate.
 dataCellsFilter_rowFilter :: Lens.Lens' DataCellsFilter (Prelude.Maybe RowFilter)
 dataCellsFilter_rowFilter = Lens.lens (\DataCellsFilter' {rowFilter} -> rowFilter) (\s@DataCellsFilter' {} a -> s {rowFilter = a} :: DataCellsFilter)
+
+-- | The ID of the data cells filter version.
+dataCellsFilter_versionId :: Lens.Lens' DataCellsFilter (Prelude.Maybe Prelude.Text)
+dataCellsFilter_versionId = Lens.lens (\DataCellsFilter' {versionId} -> versionId) (\s@DataCellsFilter' {} a -> s {versionId = a} :: DataCellsFilter)
 
 -- | The ID of the catalog to which the table belongs.
 dataCellsFilter_tableCatalogId :: Lens.Lens' DataCellsFilter Prelude.Text
@@ -136,6 +145,7 @@ instance Data.FromJSON DataCellsFilter where
             Prelude.<$> (x Data..:? "ColumnNames" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ColumnWildcard")
             Prelude.<*> (x Data..:? "RowFilter")
+            Prelude.<*> (x Data..:? "VersionId")
             Prelude.<*> (x Data..: "TableCatalogId")
             Prelude.<*> (x Data..: "DatabaseName")
             Prelude.<*> (x Data..: "TableName")
@@ -144,9 +154,11 @@ instance Data.FromJSON DataCellsFilter where
 
 instance Prelude.Hashable DataCellsFilter where
   hashWithSalt _salt DataCellsFilter' {..} =
-    _salt `Prelude.hashWithSalt` columnNames
+    _salt
+      `Prelude.hashWithSalt` columnNames
       `Prelude.hashWithSalt` columnWildcard
       `Prelude.hashWithSalt` rowFilter
+      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` tableCatalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
@@ -157,6 +169,7 @@ instance Prelude.NFData DataCellsFilter where
     Prelude.rnf columnNames
       `Prelude.seq` Prelude.rnf columnWildcard
       `Prelude.seq` Prelude.rnf rowFilter
+      `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf tableCatalogId
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
@@ -170,6 +183,7 @@ instance Data.ToJSON DataCellsFilter where
             ("ColumnWildcard" Data..=)
               Prelude.<$> columnWildcard,
             ("RowFilter" Data..=) Prelude.<$> rowFilter,
+            ("VersionId" Data..=) Prelude.<$> versionId,
             Prelude.Just
               ("TableCatalogId" Data..= tableCatalogId),
             Prelude.Just ("DatabaseName" Data..= databaseName),

@@ -67,7 +67,7 @@ data RevokePermissions = RevokePermissions'
     resource :: Resource,
     -- | The permissions revoked to the principal on the resource. For
     -- information about permissions, see
-    -- <https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html Security and Access Control to Metadata and Data>.
+    -- <https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html Security and Access Control to Metadata and Data>.
     permissions :: [Permission]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -94,7 +94,7 @@ data RevokePermissions = RevokePermissions'
 --
 -- 'permissions', 'revokePermissions_permissions' - The permissions revoked to the principal on the resource. For
 -- information about permissions, see
--- <https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html Security and Access Control to Metadata and Data>.
+-- <https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html Security and Access Control to Metadata and Data>.
 newRevokePermissions ::
   -- | 'principal'
   DataLakePrincipal ->
@@ -132,7 +132,7 @@ revokePermissions_resource = Lens.lens (\RevokePermissions' {resource} -> resour
 
 -- | The permissions revoked to the principal on the resource. For
 -- information about permissions, see
--- <https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html Security and Access Control to Metadata and Data>.
+-- <https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html Security and Access Control to Metadata and Data>.
 revokePermissions_permissions :: Lens.Lens' RevokePermissions [Permission]
 revokePermissions_permissions = Lens.lens (\RevokePermissions' {permissions} -> permissions) (\s@RevokePermissions' {} a -> s {permissions = a} :: RevokePermissions) Prelude.. Lens.coerced
 
@@ -151,7 +151,8 @@ instance Core.AWSRequest RevokePermissions where
 
 instance Prelude.Hashable RevokePermissions where
   hashWithSalt _salt RevokePermissions' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` permissionsWithGrantOption
       `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` resource

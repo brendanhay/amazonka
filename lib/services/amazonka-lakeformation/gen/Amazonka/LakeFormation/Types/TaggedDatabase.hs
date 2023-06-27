@@ -76,7 +76,8 @@ instance Data.FromJSON TaggedDatabase where
 
 instance Prelude.Hashable TaggedDatabase where
   hashWithSalt _salt TaggedDatabase' {..} =
-    _salt `Prelude.hashWithSalt` database
+    _salt
+      `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` lFTags
 
 instance Prelude.NFData TaggedDatabase where

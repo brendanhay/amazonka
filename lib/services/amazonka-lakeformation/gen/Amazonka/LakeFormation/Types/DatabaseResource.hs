@@ -79,7 +79,8 @@ instance Data.FromJSON DatabaseResource where
 
 instance Prelude.Hashable DatabaseResource where
   hashWithSalt _salt DatabaseResource' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DatabaseResource where

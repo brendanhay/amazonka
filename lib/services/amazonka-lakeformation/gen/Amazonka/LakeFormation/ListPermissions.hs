@@ -179,7 +179,8 @@ instance Core.AWSRequest ListPermissions where
       ( \s h x ->
           ListPermissionsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "PrincipalResourcePermissions"
+            Prelude.<*> ( x
+                            Data..?> "PrincipalResourcePermissions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -187,7 +188,8 @@ instance Core.AWSRequest ListPermissions where
 
 instance Prelude.Hashable ListPermissions where
   hashWithSalt _salt ListPermissions' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` includeRelated
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

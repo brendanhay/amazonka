@@ -101,6 +101,14 @@ module Amazonka.LakeFormation.Lens
     extendTransaction_transactionId,
     extendTransactionResponse_httpStatus,
 
+    -- ** GetDataCellsFilter
+    getDataCellsFilter_tableCatalogId,
+    getDataCellsFilter_databaseName,
+    getDataCellsFilter_tableName,
+    getDataCellsFilter_name,
+    getDataCellsFilterResponse_dataCellsFilter,
+    getDataCellsFilterResponse_httpStatus,
+
     -- ** GetDataLakeSettings
     getDataLakeSettings_catalogId,
     getDataLakeSettingsResponse_dataLakeSettings,
@@ -272,6 +280,7 @@ module Amazonka.LakeFormation.Lens
     -- ** RegisterResource
     registerResource_roleArn,
     registerResource_useServiceLinkedRole,
+    registerResource_withFederation,
     registerResource_resourceArn,
     registerResourceResponse_httpStatus,
 
@@ -319,6 +328,10 @@ module Amazonka.LakeFormation.Lens
     startTransactionResponse_transactionId,
     startTransactionResponse_httpStatus,
 
+    -- ** UpdateDataCellsFilter
+    updateDataCellsFilter_tableData,
+    updateDataCellsFilterResponse_httpStatus,
+
     -- ** UpdateLFTag
     updateLFTag_catalogId,
     updateLFTag_tagValuesToAdd,
@@ -327,6 +340,7 @@ module Amazonka.LakeFormation.Lens
     updateLFTagResponse_httpStatus,
 
     -- ** UpdateResource
+    updateResource_withFederation,
     updateResource_roleArn,
     updateResource_resourceArn,
     updateResourceResponse_httpStatus,
@@ -384,6 +398,7 @@ module Amazonka.LakeFormation.Lens
     dataCellsFilter_columnNames,
     dataCellsFilter_columnWildcard,
     dataCellsFilter_rowFilter,
+    dataCellsFilter_versionId,
     dataCellsFilter_tableCatalogId,
     dataCellsFilter_databaseName,
     dataCellsFilter_tableName,
@@ -506,6 +521,7 @@ module Amazonka.LakeFormation.Lens
     resourceInfo_lastModified,
     resourceInfo_resourceArn,
     resourceInfo_roleArn,
+    resourceInfo_withFederation,
 
     -- ** RowFilter
     rowFilter_allRowsWildcard,
@@ -584,6 +600,7 @@ import Amazonka.LakeFormation.DeregisterResource
 import Amazonka.LakeFormation.DescribeResource
 import Amazonka.LakeFormation.DescribeTransaction
 import Amazonka.LakeFormation.ExtendTransaction
+import Amazonka.LakeFormation.GetDataCellsFilter
 import Amazonka.LakeFormation.GetDataLakeSettings
 import Amazonka.LakeFormation.GetEffectivePermissionsForPath
 import Amazonka.LakeFormation.GetLFTag
@@ -654,6 +671,7 @@ import Amazonka.LakeFormation.Types.TransactionDescription
 import Amazonka.LakeFormation.Types.VirtualObject
 import Amazonka.LakeFormation.Types.WorkUnitRange
 import Amazonka.LakeFormation.Types.WriteOperation
+import Amazonka.LakeFormation.UpdateDataCellsFilter
 import Amazonka.LakeFormation.UpdateLFTag
 import Amazonka.LakeFormation.UpdateResource
 import Amazonka.LakeFormation.UpdateTableObjects

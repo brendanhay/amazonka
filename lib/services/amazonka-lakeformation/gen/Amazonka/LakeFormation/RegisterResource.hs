@@ -48,6 +48,7 @@ module Amazonka.LakeFormation.RegisterResource
     -- * Request Lenses
     registerResource_roleArn,
     registerResource_useServiceLinkedRole,
+    registerResource_withFederation,
     registerResource_resourceArn,
 
     -- * Destructuring the Response
@@ -78,6 +79,8 @@ data RegisterResource = RegisterResource'
     -- For more information, see
     -- <https://docs.aws.amazon.com/lake-formation/latest/dg/service-linked-roles.html Using Service-Linked Roles for Lake Formation>.
     useServiceLinkedRole :: Prelude.Maybe Prelude.Bool,
+    -- | Whether or not the resource is a federated resource.
+    withFederation :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the resource that you want to
     -- register.
     resourceArn :: Prelude.Text
@@ -101,6 +104,8 @@ data RegisterResource = RegisterResource'
 -- For more information, see
 -- <https://docs.aws.amazon.com/lake-formation/latest/dg/service-linked-roles.html Using Service-Linked Roles for Lake Formation>.
 --
+-- 'withFederation', 'registerResource_withFederation' - Whether or not the resource is a federated resource.
+--
 -- 'resourceArn', 'registerResource_resourceArn' - The Amazon Resource Name (ARN) of the resource that you want to
 -- register.
 newRegisterResource ::
@@ -111,6 +116,7 @@ newRegisterResource pResourceArn_ =
   RegisterResource'
     { roleArn = Prelude.Nothing,
       useServiceLinkedRole = Prelude.Nothing,
+      withFederation = Prelude.Nothing,
       resourceArn = pResourceArn_
     }
 
@@ -126,6 +132,10 @@ registerResource_roleArn = Lens.lens (\RegisterResource' {roleArn} -> roleArn) (
 -- <https://docs.aws.amazon.com/lake-formation/latest/dg/service-linked-roles.html Using Service-Linked Roles for Lake Formation>.
 registerResource_useServiceLinkedRole :: Lens.Lens' RegisterResource (Prelude.Maybe Prelude.Bool)
 registerResource_useServiceLinkedRole = Lens.lens (\RegisterResource' {useServiceLinkedRole} -> useServiceLinkedRole) (\s@RegisterResource' {} a -> s {useServiceLinkedRole = a} :: RegisterResource)
+
+-- | Whether or not the resource is a federated resource.
+registerResource_withFederation :: Lens.Lens' RegisterResource (Prelude.Maybe Prelude.Bool)
+registerResource_withFederation = Lens.lens (\RegisterResource' {withFederation} -> withFederation) (\s@RegisterResource' {} a -> s {withFederation = a} :: RegisterResource)
 
 -- | The Amazon Resource Name (ARN) of the resource that you want to
 -- register.
@@ -147,14 +157,17 @@ instance Core.AWSRequest RegisterResource where
 
 instance Prelude.Hashable RegisterResource where
   hashWithSalt _salt RegisterResource' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` useServiceLinkedRole
+      `Prelude.hashWithSalt` withFederation
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData RegisterResource where
   rnf RegisterResource' {..} =
     Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf useServiceLinkedRole
+      `Prelude.seq` Prelude.rnf withFederation
       `Prelude.seq` Prelude.rnf resourceArn
 
 instance Data.ToHeaders RegisterResource where
@@ -175,6 +188,8 @@ instance Data.ToJSON RegisterResource where
           [ ("RoleArn" Data..=) Prelude.<$> roleArn,
             ("UseServiceLinkedRole" Data..=)
               Prelude.<$> useServiceLinkedRole,
+            ("WithFederation" Data..=)
+              Prelude.<$> withFederation,
             Prelude.Just ("ResourceArn" Data..= resourceArn)
           ]
       )

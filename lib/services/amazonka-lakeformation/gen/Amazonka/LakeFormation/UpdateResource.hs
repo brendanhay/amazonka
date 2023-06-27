@@ -28,6 +28,7 @@ module Amazonka.LakeFormation.UpdateResource
     newUpdateResource,
 
     -- * Request Lenses
+    updateResource_withFederation,
     updateResource_roleArn,
     updateResource_resourceArn,
 
@@ -50,7 +51,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateResource' smart constructor.
 data UpdateResource = UpdateResource'
-  { -- | The new role to use for the given resource registered in Lake Formation.
+  { -- | Whether or not the resource is a federated resource.
+    withFederation :: Prelude.Maybe Prelude.Bool,
+    -- | The new role to use for the given resource registered in Lake Formation.
     roleArn :: Prelude.Text,
     -- | The resource ARN.
     resourceArn :: Prelude.Text
@@ -65,6 +68,8 @@ data UpdateResource = UpdateResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'withFederation', 'updateResource_withFederation' - Whether or not the resource is a federated resource.
+--
 -- 'roleArn', 'updateResource_roleArn' - The new role to use for the given resource registered in Lake Formation.
 --
 -- 'resourceArn', 'updateResource_resourceArn' - The resource ARN.
@@ -76,9 +81,14 @@ newUpdateResource ::
   UpdateResource
 newUpdateResource pRoleArn_ pResourceArn_ =
   UpdateResource'
-    { roleArn = pRoleArn_,
+    { withFederation = Prelude.Nothing,
+      roleArn = pRoleArn_,
       resourceArn = pResourceArn_
     }
+
+-- | Whether or not the resource is a federated resource.
+updateResource_withFederation :: Lens.Lens' UpdateResource (Prelude.Maybe Prelude.Bool)
+updateResource_withFederation = Lens.lens (\UpdateResource' {withFederation} -> withFederation) (\s@UpdateResource' {} a -> s {withFederation = a} :: UpdateResource)
 
 -- | The new role to use for the given resource registered in Lake Formation.
 updateResource_roleArn :: Lens.Lens' UpdateResource Prelude.Text
@@ -103,12 +113,15 @@ instance Core.AWSRequest UpdateResource where
 
 instance Prelude.Hashable UpdateResource where
   hashWithSalt _salt UpdateResource' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` withFederation
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData UpdateResource where
   rnf UpdateResource' {..} =
-    Prelude.rnf roleArn
+    Prelude.rnf withFederation
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf resourceArn
 
 instance Data.ToHeaders UpdateResource where
@@ -126,7 +139,9 @@ instance Data.ToJSON UpdateResource where
   toJSON UpdateResource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("RoleArn" Data..= roleArn),
+          [ ("WithFederation" Data..=)
+              Prelude.<$> withFederation,
+            Prelude.Just ("RoleArn" Data..= roleArn),
             Prelude.Just ("ResourceArn" Data..= resourceArn)
           ]
       )

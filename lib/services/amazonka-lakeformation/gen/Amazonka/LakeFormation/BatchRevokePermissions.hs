@@ -113,7 +113,8 @@ instance Core.AWSRequest BatchRevokePermissions where
 
 instance Prelude.Hashable BatchRevokePermissions where
   hashWithSalt _salt BatchRevokePermissions' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` entries
 
 instance Prelude.NFData BatchRevokePermissions where

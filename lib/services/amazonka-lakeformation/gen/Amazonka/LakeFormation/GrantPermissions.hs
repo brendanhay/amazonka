@@ -24,7 +24,7 @@
 -- Catalog and data organized in underlying data storage such as Amazon S3.
 --
 -- For information about permissions, see
--- <https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html Security and Access Control to Metadata and Data>.
+-- <https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html Security and Access Control to Metadata and Data>.
 module Amazonka.LakeFormation.GrantPermissions
   ( -- * Creating a Request
     GrantPermissions (..),
@@ -184,7 +184,8 @@ instance Core.AWSRequest GrantPermissions where
 
 instance Prelude.Hashable GrantPermissions where
   hashWithSalt _salt GrantPermissions' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` permissionsWithGrantOption
       `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` resource

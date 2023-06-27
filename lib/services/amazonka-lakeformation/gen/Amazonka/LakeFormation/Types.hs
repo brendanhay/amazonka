@@ -126,6 +126,7 @@ module Amazonka.LakeFormation.Types
     dataCellsFilter_columnNames,
     dataCellsFilter_columnWildcard,
     dataCellsFilter_rowFilter,
+    dataCellsFilter_versionId,
     dataCellsFilter_tableCatalogId,
     dataCellsFilter_databaseName,
     dataCellsFilter_tableName,
@@ -294,6 +295,7 @@ module Amazonka.LakeFormation.Types
     resourceInfo_lastModified,
     resourceInfo_resourceArn,
     resourceInfo_roleArn,
+    resourceInfo_withFederation,
 
     -- * RowFilter
     RowFilter (..),
@@ -468,52 +470,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Access to a resource was denied.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -521,28 +523,28 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | A resource to be created or added already exists.
-_AlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "AlreadyExistsException"
 
 -- | Two processes are trying to modify a resource simultaneously.
-_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConcurrentModificationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
     "ConcurrentModificationException"
 
--- | A specified entity does not exist
-_EntityNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | A specified entity does not exist.
+_EntityNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EntityNotFoundException =
   Core._MatchServiceError
     defaultService
     "EntityNotFoundException"
 
 -- | Contains details about an error where the query request expired.
-_ExpiredException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ExpiredException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ExpiredException =
   Core._MatchServiceError
     defaultService
@@ -550,14 +552,14 @@ _ExpiredException =
     Prelude.. Core.hasStatus 410
 
 -- | An encryption operation failed.
-_GlueEncryptionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_GlueEncryptionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _GlueEncryptionException =
   Core._MatchServiceError
     defaultService
     "GlueEncryptionException"
 
 -- | An internal service error occurred.
-_InternalServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServiceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServiceException =
   Core._MatchServiceError
     defaultService
@@ -565,7 +567,7 @@ _InternalServiceException =
     Prelude.. Core.hasStatus 500
 
 -- | The input provided was not valid.
-_InvalidInputException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidInputException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidInputException =
   Core._MatchServiceError
     defaultService
@@ -573,7 +575,7 @@ _InvalidInputException =
     Prelude.. Core.hasStatus 400
 
 -- | The operation timed out.
-_OperationTimeoutException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OperationTimeoutException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OperationTimeoutException =
   Core._MatchServiceError
     defaultService
@@ -584,7 +586,7 @@ _OperationTimeoutException =
 -- @GetTemporaryGlueTableCredentials@ operation with
 -- @SupportedPermissionType@ equal to @ColumnPermission@, but cell-level
 -- permissions exist on the table, this exception is thrown.
-_PermissionTypeMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PermissionTypeMismatchException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PermissionTypeMismatchException =
   Core._MatchServiceError
     defaultService
@@ -592,7 +594,7 @@ _PermissionTypeMismatchException =
 
 -- | Contains details about an error related to a resource which is not ready
 -- for a transaction.
-_ResourceNotReadyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotReadyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotReadyException =
   Core._MatchServiceError
     defaultService
@@ -600,14 +602,14 @@ _ResourceNotReadyException =
     Prelude.. Core.hasStatus 400
 
 -- | A resource numerical limit was exceeded.
-_ResourceNumberLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNumberLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNumberLimitExceededException =
   Core._MatchServiceError
     defaultService
     "ResourceNumberLimitExceededException"
 
 -- | Contains details about an error related to statistics not being ready.
-_StatisticsNotReadyYetException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_StatisticsNotReadyYetException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _StatisticsNotReadyYetException =
   Core._MatchServiceError
     defaultService
@@ -615,7 +617,7 @@ _StatisticsNotReadyYetException =
     Prelude.. Core.hasStatus 420
 
 -- | Contains details about an error where the query request was throttled.
-_ThrottledException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottledException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottledException =
   Core._MatchServiceError
     defaultService
@@ -624,7 +626,7 @@ _ThrottledException =
 
 -- | Contains details about an error related to a transaction that was
 -- cancelled.
-_TransactionCanceledException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TransactionCanceledException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TransactionCanceledException =
   Core._MatchServiceError
     defaultService
@@ -633,7 +635,7 @@ _TransactionCanceledException =
 
 -- | Contains details about an error related to a transaction commit that was
 -- in progress.
-_TransactionCommitInProgressException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TransactionCommitInProgressException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TransactionCommitInProgressException =
   Core._MatchServiceError
     defaultService
@@ -642,7 +644,7 @@ _TransactionCommitInProgressException =
 
 -- | Contains details about an error where the specified transaction has
 -- already been committed and cannot be used for @UpdateTableObjects@.
-_TransactionCommittedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TransactionCommittedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TransactionCommittedException =
   Core._MatchServiceError
     defaultService
@@ -650,7 +652,7 @@ _TransactionCommittedException =
     Prelude.. Core.hasStatus 400
 
 -- | Contains details about an error related to work units not being ready.
-_WorkUnitsNotReadyYetException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WorkUnitsNotReadyYetException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WorkUnitsNotReadyYetException =
   Core._MatchServiceError
     defaultService

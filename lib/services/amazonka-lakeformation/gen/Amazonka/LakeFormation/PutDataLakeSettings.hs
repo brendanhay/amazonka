@@ -119,7 +119,8 @@ instance Core.AWSRequest PutDataLakeSettings where
 
 instance Prelude.Hashable PutDataLakeSettings where
   hashWithSalt _salt PutDataLakeSettings' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` dataLakeSettings
 
 instance Prelude.NFData PutDataLakeSettings where

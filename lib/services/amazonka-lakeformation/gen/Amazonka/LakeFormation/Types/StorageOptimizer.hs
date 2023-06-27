@@ -136,7 +136,8 @@ instance Data.FromJSON StorageOptimizer where
 
 instance Prelude.Hashable StorageOptimizer where
   hashWithSalt _salt StorageOptimizer' {..} =
-    _salt `Prelude.hashWithSalt` config
+    _salt
+      `Prelude.hashWithSalt` config
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` lastRunDetails
       `Prelude.hashWithSalt` storageOptimizerType

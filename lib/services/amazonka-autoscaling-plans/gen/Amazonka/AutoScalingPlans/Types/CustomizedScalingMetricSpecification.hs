@@ -156,7 +156,8 @@ instance
   hashWithSalt
     _salt
     CustomizedScalingMetricSpecification' {..} =
-      _salt `Prelude.hashWithSalt` dimensions
+      _salt
+        `Prelude.hashWithSalt` dimensions
         `Prelude.hashWithSalt` unit
         `Prelude.hashWithSalt` metricName
         `Prelude.hashWithSalt` namespace

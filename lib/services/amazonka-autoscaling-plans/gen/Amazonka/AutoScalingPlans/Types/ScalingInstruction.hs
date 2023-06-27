@@ -585,7 +585,8 @@ instance Data.FromJSON ScalingInstruction where
             Prelude.<*> (x Data..: "ScalableDimension")
             Prelude.<*> (x Data..: "MinCapacity")
             Prelude.<*> (x Data..: "MaxCapacity")
-            Prelude.<*> ( x Data..:? "TargetTrackingConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "TargetTrackingConfigurations"
                             Data..!= Prelude.mempty
                         )
       )

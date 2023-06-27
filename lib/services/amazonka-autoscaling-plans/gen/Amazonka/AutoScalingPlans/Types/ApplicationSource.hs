@@ -76,7 +76,8 @@ instance Data.FromJSON ApplicationSource where
 
 instance Prelude.Hashable ApplicationSource where
   hashWithSalt _salt ApplicationSource' {..} =
-    _salt `Prelude.hashWithSalt` cloudFormationStackARN
+    _salt
+      `Prelude.hashWithSalt` cloudFormationStackARN
       `Prelude.hashWithSalt` tagFilters
 
 instance Prelude.NFData ApplicationSource where

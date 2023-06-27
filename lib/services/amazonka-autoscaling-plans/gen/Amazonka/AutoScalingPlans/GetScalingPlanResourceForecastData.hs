@@ -264,7 +264,7 @@ instance
       ( \s h x ->
           GetScalingPlanResourceForecastDataResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..?> "Datapoints" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Datapoints" Core..!@ Prelude.mempty)
       )
 
 instance
@@ -274,7 +274,8 @@ instance
   hashWithSalt
     _salt
     GetScalingPlanResourceForecastData' {..} =
-      _salt `Prelude.hashWithSalt` scalingPlanName
+      _salt
+        `Prelude.hashWithSalt` scalingPlanName
         `Prelude.hashWithSalt` scalingPlanVersion
         `Prelude.hashWithSalt` serviceNamespace
         `Prelude.hashWithSalt` resourceId

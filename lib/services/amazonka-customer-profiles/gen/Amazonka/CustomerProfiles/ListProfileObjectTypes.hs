@@ -115,7 +115,8 @@ instance Core.AWSRequest ListProfileObjectTypes where
 
 instance Prelude.Hashable ListProfileObjectTypes where
   hashWithSalt _salt ListProfileObjectTypes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainName
 

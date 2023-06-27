@@ -70,7 +70,8 @@ batch_endTime = Lens.lens (\Batch' {endTime} -> endTime) (\s@Batch' {} a -> s {e
 
 instance Prelude.Hashable Batch where
   hashWithSalt _salt Batch' {..} =
-    _salt `Prelude.hashWithSalt` startTime
+    _salt
+      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endTime
 
 instance Prelude.NFData Batch where

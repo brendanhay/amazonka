@@ -103,7 +103,8 @@ instance Data.FromJSON MatchingResponse where
 
 instance Prelude.Hashable MatchingResponse where
   hashWithSalt _salt MatchingResponse' {..} =
-    _salt `Prelude.hashWithSalt` autoMerging
+    _salt
+      `Prelude.hashWithSalt` autoMerging
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` exportingConfig
       `Prelude.hashWithSalt` jobSchedule

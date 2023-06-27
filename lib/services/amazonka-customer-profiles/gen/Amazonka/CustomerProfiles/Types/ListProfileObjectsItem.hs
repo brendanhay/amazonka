@@ -87,7 +87,8 @@ instance Data.FromJSON ListProfileObjectsItem where
 
 instance Prelude.Hashable ListProfileObjectsItem where
   hashWithSalt _salt ListProfileObjectsItem' {..} =
-    _salt `Prelude.hashWithSalt` object'
+    _salt
+      `Prelude.hashWithSalt` object'
       `Prelude.hashWithSalt` objectTypeName
       `Prelude.hashWithSalt` profileObjectUniqueKey
 

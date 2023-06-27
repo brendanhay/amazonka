@@ -126,7 +126,8 @@ instance Core.AWSRequest GetProfileObjectType where
 
 instance Prelude.Hashable GetProfileObjectType where
   hashWithSalt _salt GetProfileObjectType' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` objectTypeName
 
 instance Prelude.NFData GetProfileObjectType where

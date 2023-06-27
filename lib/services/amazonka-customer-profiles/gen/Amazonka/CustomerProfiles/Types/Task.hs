@@ -106,7 +106,8 @@ task_taskType = Lens.lens (\Task' {taskType} -> taskType) (\s@Task' {} a -> s {t
 
 instance Prelude.Hashable Task where
   hashWithSalt _salt Task' {..} =
-    _salt `Prelude.hashWithSalt` connectorOperator
+    _salt
+      `Prelude.hashWithSalt` connectorOperator
       `Prelude.hashWithSalt` destinationField
       `Prelude.hashWithSalt` taskProperties
       `Prelude.hashWithSalt` sourceFields

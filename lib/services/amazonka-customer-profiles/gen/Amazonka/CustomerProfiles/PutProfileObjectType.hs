@@ -267,7 +267,8 @@ instance Core.AWSRequest PutProfileObjectType where
 
 instance Prelude.Hashable PutProfileObjectType where
   hashWithSalt _salt PutProfileObjectType' {..} =
-    _salt `Prelude.hashWithSalt` allowProfileCreation
+    _salt
+      `Prelude.hashWithSalt` allowProfileCreation
       `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` expirationDays
       `Prelude.hashWithSalt` fields

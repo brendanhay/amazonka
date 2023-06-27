@@ -83,6 +83,8 @@ data Profile = Profile'
     foundByItems :: Prelude.Maybe (Prelude.NonEmpty FoundByKeyValue),
     -- | The gender with which the customer identifies.
     gender :: Prelude.Maybe Gender,
+    -- | An alternative to Gender which accepts any string as input.
+    genderString :: Prelude.Maybe Prelude.Text,
     -- | The customer’s home phone number.
     homePhoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The customer’s last name.
@@ -95,6 +97,8 @@ data Profile = Profile'
     mobilePhoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The type of profile used to describe the customer.
     partyType :: Prelude.Maybe PartyType,
+    -- | An alternative to PartyType which accepts any string as input.
+    partyTypeString :: Prelude.Maybe Prelude.Text,
     -- | The customer’s personal email address.
     personalEmailAddress :: Prelude.Maybe Prelude.Text,
     -- | The customer\'s phone number, which has not been specified as a mobile,
@@ -166,6 +170,8 @@ data Profile = Profile'
 --
 -- 'gender', 'profile_gender' - The gender with which the customer identifies.
 --
+-- 'genderString', 'profile_genderString' - An alternative to Gender which accepts any string as input.
+--
 -- 'homePhoneNumber', 'profile_homePhoneNumber' - The customer’s home phone number.
 --
 -- 'lastName', 'profile_lastName' - The customer’s last name.
@@ -177,6 +183,8 @@ data Profile = Profile'
 -- 'mobilePhoneNumber', 'profile_mobilePhoneNumber' - The customer’s mobile phone number.
 --
 -- 'partyType', 'profile_partyType' - The type of profile used to describe the customer.
+--
+-- 'partyTypeString', 'profile_partyTypeString' - An alternative to PartyType which accepts any string as input.
 --
 -- 'personalEmailAddress', 'profile_personalEmailAddress' - The customer’s personal email address.
 --
@@ -203,12 +211,14 @@ newProfile =
       firstName = Prelude.Nothing,
       foundByItems = Prelude.Nothing,
       gender = Prelude.Nothing,
+      genderString = Prelude.Nothing,
       homePhoneNumber = Prelude.Nothing,
       lastName = Prelude.Nothing,
       mailingAddress = Prelude.Nothing,
       middleName = Prelude.Nothing,
       mobilePhoneNumber = Prelude.Nothing,
       partyType = Prelude.Nothing,
+      partyTypeString = Prelude.Nothing,
       personalEmailAddress = Prelude.Nothing,
       phoneNumber = Prelude.Nothing,
       profileId = Prelude.Nothing,
@@ -292,6 +302,10 @@ profile_foundByItems = Lens.lens (\Profile' {foundByItems} -> foundByItems) (\s@
 profile_gender :: Lens.Lens' Profile (Prelude.Maybe Gender)
 profile_gender = Lens.lens (\Profile' {gender} -> gender) (\s@Profile' {} a -> s {gender = a} :: Profile)
 
+-- | An alternative to Gender which accepts any string as input.
+profile_genderString :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
+profile_genderString = Lens.lens (\Profile' {genderString} -> genderString) (\s@Profile' {} a -> s {genderString = a} :: Profile)
+
 -- | The customer’s home phone number.
 profile_homePhoneNumber :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
 profile_homePhoneNumber = Lens.lens (\Profile' {homePhoneNumber} -> homePhoneNumber) (\s@Profile' {} a -> s {homePhoneNumber = a} :: Profile)
@@ -315,6 +329,10 @@ profile_mobilePhoneNumber = Lens.lens (\Profile' {mobilePhoneNumber} -> mobilePh
 -- | The type of profile used to describe the customer.
 profile_partyType :: Lens.Lens' Profile (Prelude.Maybe PartyType)
 profile_partyType = Lens.lens (\Profile' {partyType} -> partyType) (\s@Profile' {} a -> s {partyType = a} :: Profile)
+
+-- | An alternative to PartyType which accepts any string as input.
+profile_partyTypeString :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
+profile_partyTypeString = Lens.lens (\Profile' {partyTypeString} -> partyTypeString) (\s@Profile' {} a -> s {partyTypeString = a} :: Profile)
 
 -- | The customer’s personal email address.
 profile_personalEmailAddress :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
@@ -352,12 +370,14 @@ instance Data.FromJSON Profile where
             Prelude.<*> (x Data..:? "FirstName")
             Prelude.<*> (x Data..:? "FoundByItems")
             Prelude.<*> (x Data..:? "Gender")
+            Prelude.<*> (x Data..:? "GenderString")
             Prelude.<*> (x Data..:? "HomePhoneNumber")
             Prelude.<*> (x Data..:? "LastName")
             Prelude.<*> (x Data..:? "MailingAddress")
             Prelude.<*> (x Data..:? "MiddleName")
             Prelude.<*> (x Data..:? "MobilePhoneNumber")
             Prelude.<*> (x Data..:? "PartyType")
+            Prelude.<*> (x Data..:? "PartyTypeString")
             Prelude.<*> (x Data..:? "PersonalEmailAddress")
             Prelude.<*> (x Data..:? "PhoneNumber")
             Prelude.<*> (x Data..:? "ProfileId")
@@ -366,7 +386,8 @@ instance Data.FromJSON Profile where
 
 instance Prelude.Hashable Profile where
   hashWithSalt _salt Profile' {..} =
-    _salt `Prelude.hashWithSalt` accountNumber
+    _salt
+      `Prelude.hashWithSalt` accountNumber
       `Prelude.hashWithSalt` additionalInformation
       `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` attributes
@@ -379,12 +400,14 @@ instance Prelude.Hashable Profile where
       `Prelude.hashWithSalt` firstName
       `Prelude.hashWithSalt` foundByItems
       `Prelude.hashWithSalt` gender
+      `Prelude.hashWithSalt` genderString
       `Prelude.hashWithSalt` homePhoneNumber
       `Prelude.hashWithSalt` lastName
       `Prelude.hashWithSalt` mailingAddress
       `Prelude.hashWithSalt` middleName
       `Prelude.hashWithSalt` mobilePhoneNumber
       `Prelude.hashWithSalt` partyType
+      `Prelude.hashWithSalt` partyTypeString
       `Prelude.hashWithSalt` personalEmailAddress
       `Prelude.hashWithSalt` phoneNumber
       `Prelude.hashWithSalt` profileId
@@ -405,12 +428,14 @@ instance Prelude.NFData Profile where
       `Prelude.seq` Prelude.rnf firstName
       `Prelude.seq` Prelude.rnf foundByItems
       `Prelude.seq` Prelude.rnf gender
+      `Prelude.seq` Prelude.rnf genderString
       `Prelude.seq` Prelude.rnf homePhoneNumber
       `Prelude.seq` Prelude.rnf lastName
       `Prelude.seq` Prelude.rnf mailingAddress
       `Prelude.seq` Prelude.rnf middleName
       `Prelude.seq` Prelude.rnf mobilePhoneNumber
       `Prelude.seq` Prelude.rnf partyType
+      `Prelude.seq` Prelude.rnf partyTypeString
       `Prelude.seq` Prelude.rnf
         personalEmailAddress
       `Prelude.seq` Prelude.rnf phoneNumber

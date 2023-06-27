@@ -98,14 +98,16 @@ instance Data.FromJSON ObjectTypeKey where
       ( \x ->
           ObjectTypeKey'
             Prelude.<$> (x Data..:? "FieldNames" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "StandardIdentifiers"
+            Prelude.<*> ( x
+                            Data..:? "StandardIdentifiers"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ObjectTypeKey where
   hashWithSalt _salt ObjectTypeKey' {..} =
-    _salt `Prelude.hashWithSalt` fieldNames
+    _salt
+      `Prelude.hashWithSalt` fieldNames
       `Prelude.hashWithSalt` standardIdentifiers
 
 instance Prelude.NFData ObjectTypeKey where

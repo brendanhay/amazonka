@@ -30,6 +30,12 @@ module Amazonka.CustomerProfiles.Types
     -- * DataPullMode
     DataPullMode (..),
 
+    -- * EventStreamDestinationStatus
+    EventStreamDestinationStatus (..),
+
+    -- * EventStreamState
+    EventStreamState (..),
+
     -- * FieldContentType
     FieldContentType (..),
 
@@ -47,6 +53,9 @@ module Amazonka.CustomerProfiles.Types
 
     -- * MarketoConnectorOperator
     MarketoConnectorOperator (..),
+
+    -- * Operator
+    Operator (..),
 
     -- * OperatorPropertiesKeys
     OperatorPropertiesKeys (..),
@@ -69,6 +78,9 @@ module Amazonka.CustomerProfiles.Types
     -- * StandardIdentifier
     StandardIdentifier (..),
 
+    -- * Statistic
+    Statistic (..),
+
     -- * Status
     Status (..),
 
@@ -77,6 +89,9 @@ module Amazonka.CustomerProfiles.Types
 
     -- * TriggerType
     TriggerType (..),
+
+    -- * Unit
+    Unit (..),
 
     -- * WorkflowType
     WorkflowType (..),
@@ -136,6 +151,17 @@ module Amazonka.CustomerProfiles.Types
     appflowIntegrationWorkflowStep_createdAt,
     appflowIntegrationWorkflowStep_lastUpdatedAt,
 
+    -- * AttributeDetails
+    AttributeDetails (..),
+    newAttributeDetails,
+    attributeDetails_attributes,
+    attributeDetails_expression,
+
+    -- * AttributeItem
+    AttributeItem (..),
+    newAttributeItem,
+    attributeItem_name,
+
     -- * AutoMerging
     AutoMerging (..),
     newAutoMerging,
@@ -149,6 +175,13 @@ module Amazonka.CustomerProfiles.Types
     newBatch,
     batch_startTime,
     batch_endTime,
+
+    -- * Conditions
+    Conditions (..),
+    newConditions,
+    conditions_objectCount,
+    conditions_range,
+    conditions_threshold,
 
     -- * ConflictResolution
     ConflictResolution (..),
@@ -170,6 +203,13 @@ module Amazonka.CustomerProfiles.Types
     newConsolidation,
     consolidation_matchingAttributesList,
 
+    -- * DestinationSummary
+    DestinationSummary (..),
+    newDestinationSummary,
+    destinationSummary_unhealthySince,
+    destinationSummary_uri,
+    destinationSummary_status,
+
     -- * DomainStats
     DomainStats (..),
     newDomainStats,
@@ -177,6 +217,25 @@ module Amazonka.CustomerProfiles.Types
     domainStats_objectCount,
     domainStats_profileCount,
     domainStats_totalSize,
+
+    -- * EventStreamDestinationDetails
+    EventStreamDestinationDetails (..),
+    newEventStreamDestinationDetails,
+    eventStreamDestinationDetails_message,
+    eventStreamDestinationDetails_unhealthySince,
+    eventStreamDestinationDetails_uri,
+    eventStreamDestinationDetails_status,
+
+    -- * EventStreamSummary
+    EventStreamSummary (..),
+    newEventStreamSummary,
+    eventStreamSummary_destinationSummary,
+    eventStreamSummary_stoppedSince,
+    eventStreamSummary_tags,
+    eventStreamSummary_domainName,
+    eventStreamSummary_eventStreamName,
+    eventStreamSummary_eventStreamArn,
+    eventStreamSummary_state,
 
     -- * ExportingConfig
     ExportingConfig (..),
@@ -263,6 +322,24 @@ module Amazonka.CustomerProfiles.Types
     jobStats_numberOfMatchesFound,
     jobStats_numberOfMergesDone,
     jobStats_numberOfProfilesReviewed,
+
+    -- * ListCalculatedAttributeDefinitionItem
+    ListCalculatedAttributeDefinitionItem (..),
+    newListCalculatedAttributeDefinitionItem,
+    listCalculatedAttributeDefinitionItem_calculatedAttributeName,
+    listCalculatedAttributeDefinitionItem_createdAt,
+    listCalculatedAttributeDefinitionItem_description,
+    listCalculatedAttributeDefinitionItem_displayName,
+    listCalculatedAttributeDefinitionItem_lastUpdatedAt,
+    listCalculatedAttributeDefinitionItem_tags,
+
+    -- * ListCalculatedAttributeForProfileItem
+    ListCalculatedAttributeForProfileItem (..),
+    newListCalculatedAttributeForProfileItem,
+    listCalculatedAttributeForProfileItem_calculatedAttributeName,
+    listCalculatedAttributeForProfileItem_displayName,
+    listCalculatedAttributeForProfileItem_isDataPartial,
+    listCalculatedAttributeForProfileItem_value,
 
     -- * ListDomainItem
     ListDomainItem (..),
@@ -381,16 +458,24 @@ module Amazonka.CustomerProfiles.Types
     profile_firstName,
     profile_foundByItems,
     profile_gender,
+    profile_genderString,
     profile_homePhoneNumber,
     profile_lastName,
     profile_mailingAddress,
     profile_middleName,
     profile_mobilePhoneNumber,
     profile_partyType,
+    profile_partyTypeString,
     profile_personalEmailAddress,
     profile_phoneNumber,
     profile_profileId,
     profile_shippingAddress,
+
+    -- * Range
+    Range (..),
+    newRange,
+    range_value,
+    range_unit,
 
     -- * S3ExportingConfig
     S3ExportingConfig (..),
@@ -459,6 +544,12 @@ module Amazonka.CustomerProfiles.Types
     task_sourceFields,
     task_taskType,
 
+    -- * Threshold
+    Threshold (..),
+    newThreshold,
+    threshold_value,
+    threshold_operator,
+
     -- * TriggerConfig
     TriggerConfig (..),
     newTriggerConfig,
@@ -514,14 +605,22 @@ import Amazonka.CustomerProfiles.Types.AppflowIntegration
 import Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowAttributes
 import Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowMetrics
 import Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowStep
+import Amazonka.CustomerProfiles.Types.AttributeDetails
+import Amazonka.CustomerProfiles.Types.AttributeItem
 import Amazonka.CustomerProfiles.Types.AutoMerging
 import Amazonka.CustomerProfiles.Types.Batch
+import Amazonka.CustomerProfiles.Types.Conditions
 import Amazonka.CustomerProfiles.Types.ConflictResolution
 import Amazonka.CustomerProfiles.Types.ConflictResolvingModel
 import Amazonka.CustomerProfiles.Types.ConnectorOperator
 import Amazonka.CustomerProfiles.Types.Consolidation
 import Amazonka.CustomerProfiles.Types.DataPullMode
+import Amazonka.CustomerProfiles.Types.DestinationSummary
 import Amazonka.CustomerProfiles.Types.DomainStats
+import Amazonka.CustomerProfiles.Types.EventStreamDestinationDetails
+import Amazonka.CustomerProfiles.Types.EventStreamDestinationStatus
+import Amazonka.CustomerProfiles.Types.EventStreamState
+import Amazonka.CustomerProfiles.Types.EventStreamSummary
 import Amazonka.CustomerProfiles.Types.ExportingConfig
 import Amazonka.CustomerProfiles.Types.ExportingLocation
 import Amazonka.CustomerProfiles.Types.FieldContentType
@@ -536,6 +635,8 @@ import Amazonka.CustomerProfiles.Types.IntegrationConfig
 import Amazonka.CustomerProfiles.Types.JobSchedule
 import Amazonka.CustomerProfiles.Types.JobScheduleDayOfTheWeek
 import Amazonka.CustomerProfiles.Types.JobStats
+import Amazonka.CustomerProfiles.Types.ListCalculatedAttributeDefinitionItem
+import Amazonka.CustomerProfiles.Types.ListCalculatedAttributeForProfileItem
 import Amazonka.CustomerProfiles.Types.ListDomainItem
 import Amazonka.CustomerProfiles.Types.ListIntegrationItem
 import Amazonka.CustomerProfiles.Types.ListProfileObjectTypeItem
@@ -551,9 +652,11 @@ import Amazonka.CustomerProfiles.Types.MatchingResponse
 import Amazonka.CustomerProfiles.Types.ObjectFilter
 import Amazonka.CustomerProfiles.Types.ObjectTypeField
 import Amazonka.CustomerProfiles.Types.ObjectTypeKey
+import Amazonka.CustomerProfiles.Types.Operator
 import Amazonka.CustomerProfiles.Types.OperatorPropertiesKeys
 import Amazonka.CustomerProfiles.Types.PartyType
 import Amazonka.CustomerProfiles.Types.Profile
+import Amazonka.CustomerProfiles.Types.Range
 import Amazonka.CustomerProfiles.Types.S3ConnectorOperator
 import Amazonka.CustomerProfiles.Types.S3ExportingConfig
 import Amazonka.CustomerProfiles.Types.S3ExportingLocation
@@ -567,12 +670,15 @@ import Amazonka.CustomerProfiles.Types.SourceConnectorProperties
 import Amazonka.CustomerProfiles.Types.SourceConnectorType
 import Amazonka.CustomerProfiles.Types.SourceFlowConfig
 import Amazonka.CustomerProfiles.Types.StandardIdentifier
+import Amazonka.CustomerProfiles.Types.Statistic
 import Amazonka.CustomerProfiles.Types.Status
 import Amazonka.CustomerProfiles.Types.Task
 import Amazonka.CustomerProfiles.Types.TaskType
+import Amazonka.CustomerProfiles.Types.Threshold
 import Amazonka.CustomerProfiles.Types.TriggerConfig
 import Amazonka.CustomerProfiles.Types.TriggerProperties
 import Amazonka.CustomerProfiles.Types.TriggerType
+import Amazonka.CustomerProfiles.Types.Unit
 import Amazonka.CustomerProfiles.Types.UpdateAddress
 import Amazonka.CustomerProfiles.Types.WorkflowAttributes
 import Amazonka.CustomerProfiles.Types.WorkflowMetrics
@@ -609,52 +715,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -662,7 +768,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | The input you provided is invalid.
-_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BadRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -670,7 +776,7 @@ _BadRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | An internal service error occurred.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -678,7 +784,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The requested resource does not exist, or access was denied.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -686,7 +792,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | You exceeded the maximum number of requests.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService

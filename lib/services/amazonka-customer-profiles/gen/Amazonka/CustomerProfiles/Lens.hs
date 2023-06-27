@@ -23,6 +23,26 @@ module Amazonka.CustomerProfiles.Lens
     addProfileKeyResponse_values,
     addProfileKeyResponse_httpStatus,
 
+    -- ** CreateCalculatedAttributeDefinition
+    createCalculatedAttributeDefinition_conditions,
+    createCalculatedAttributeDefinition_description,
+    createCalculatedAttributeDefinition_displayName,
+    createCalculatedAttributeDefinition_tags,
+    createCalculatedAttributeDefinition_domainName,
+    createCalculatedAttributeDefinition_calculatedAttributeName,
+    createCalculatedAttributeDefinition_attributeDetails,
+    createCalculatedAttributeDefinition_statistic,
+    createCalculatedAttributeDefinitionResponse_attributeDetails,
+    createCalculatedAttributeDefinitionResponse_calculatedAttributeName,
+    createCalculatedAttributeDefinitionResponse_conditions,
+    createCalculatedAttributeDefinitionResponse_createdAt,
+    createCalculatedAttributeDefinitionResponse_description,
+    createCalculatedAttributeDefinitionResponse_displayName,
+    createCalculatedAttributeDefinitionResponse_lastUpdatedAt,
+    createCalculatedAttributeDefinitionResponse_statistic,
+    createCalculatedAttributeDefinitionResponse_tags,
+    createCalculatedAttributeDefinitionResponse_httpStatus,
+
     -- ** CreateDomain
     createDomain_deadLetterQueueUrl,
     createDomain_defaultEncryptionKey,
@@ -39,6 +59,15 @@ module Amazonka.CustomerProfiles.Lens
     createDomainResponse_defaultExpirationDays,
     createDomainResponse_createdAt,
     createDomainResponse_lastUpdatedAt,
+
+    -- ** CreateEventStream
+    createEventStream_tags,
+    createEventStream_domainName,
+    createEventStream_uri,
+    createEventStream_eventStreamName,
+    createEventStreamResponse_tags,
+    createEventStreamResponse_httpStatus,
+    createEventStreamResponse_eventStreamArn,
 
     -- ** CreateIntegrationWorkflow
     createIntegrationWorkflow_tags,
@@ -79,10 +108,20 @@ module Amazonka.CustomerProfiles.Lens
     createProfileResponse_httpStatus,
     createProfileResponse_profileId,
 
+    -- ** DeleteCalculatedAttributeDefinition
+    deleteCalculatedAttributeDefinition_domainName,
+    deleteCalculatedAttributeDefinition_calculatedAttributeName,
+    deleteCalculatedAttributeDefinitionResponse_httpStatus,
+
     -- ** DeleteDomain
     deleteDomain_domainName,
     deleteDomainResponse_httpStatus,
     deleteDomainResponse_message,
+
+    -- ** DeleteEventStream
+    deleteEventStream_domainName,
+    deleteEventStream_eventStreamName,
+    deleteEventStreamResponse_httpStatus,
 
     -- ** DeleteIntegration
     deleteIntegration_domainName,
@@ -134,6 +173,30 @@ module Amazonka.CustomerProfiles.Lens
     getAutoMergingPreviewResponse_httpStatus,
     getAutoMergingPreviewResponse_domainName,
 
+    -- ** GetCalculatedAttributeDefinition
+    getCalculatedAttributeDefinition_domainName,
+    getCalculatedAttributeDefinition_calculatedAttributeName,
+    getCalculatedAttributeDefinitionResponse_attributeDetails,
+    getCalculatedAttributeDefinitionResponse_calculatedAttributeName,
+    getCalculatedAttributeDefinitionResponse_conditions,
+    getCalculatedAttributeDefinitionResponse_createdAt,
+    getCalculatedAttributeDefinitionResponse_description,
+    getCalculatedAttributeDefinitionResponse_displayName,
+    getCalculatedAttributeDefinitionResponse_lastUpdatedAt,
+    getCalculatedAttributeDefinitionResponse_statistic,
+    getCalculatedAttributeDefinitionResponse_tags,
+    getCalculatedAttributeDefinitionResponse_httpStatus,
+
+    -- ** GetCalculatedAttributeForProfile
+    getCalculatedAttributeForProfile_domainName,
+    getCalculatedAttributeForProfile_profileId,
+    getCalculatedAttributeForProfile_calculatedAttributeName,
+    getCalculatedAttributeForProfileResponse_calculatedAttributeName,
+    getCalculatedAttributeForProfileResponse_displayName,
+    getCalculatedAttributeForProfileResponse_isDataPartial,
+    getCalculatedAttributeForProfileResponse_value,
+    getCalculatedAttributeForProfileResponse_httpStatus,
+
     -- ** GetDomain
     getDomain_domainName,
     getDomainResponse_deadLetterQueueUrl,
@@ -146,6 +209,18 @@ module Amazonka.CustomerProfiles.Lens
     getDomainResponse_domainName,
     getDomainResponse_createdAt,
     getDomainResponse_lastUpdatedAt,
+
+    -- ** GetEventStream
+    getEventStream_domainName,
+    getEventStream_eventStreamName,
+    getEventStreamResponse_stoppedSince,
+    getEventStreamResponse_tags,
+    getEventStreamResponse_httpStatus,
+    getEventStreamResponse_domainName,
+    getEventStreamResponse_eventStreamArn,
+    getEventStreamResponse_createdAt,
+    getEventStreamResponse_state,
+    getEventStreamResponse_destinationDetails,
 
     -- ** GetIdentityResolutionJob
     getIdentityResolutionJob_domainName,
@@ -248,12 +323,37 @@ module Amazonka.CustomerProfiles.Lens
     listAccountIntegrationsResponse_nextToken,
     listAccountIntegrationsResponse_httpStatus,
 
+    -- ** ListCalculatedAttributeDefinitions
+    listCalculatedAttributeDefinitions_maxResults,
+    listCalculatedAttributeDefinitions_nextToken,
+    listCalculatedAttributeDefinitions_domainName,
+    listCalculatedAttributeDefinitionsResponse_items,
+    listCalculatedAttributeDefinitionsResponse_nextToken,
+    listCalculatedAttributeDefinitionsResponse_httpStatus,
+
+    -- ** ListCalculatedAttributesForProfile
+    listCalculatedAttributesForProfile_maxResults,
+    listCalculatedAttributesForProfile_nextToken,
+    listCalculatedAttributesForProfile_domainName,
+    listCalculatedAttributesForProfile_profileId,
+    listCalculatedAttributesForProfileResponse_items,
+    listCalculatedAttributesForProfileResponse_nextToken,
+    listCalculatedAttributesForProfileResponse_httpStatus,
+
     -- ** ListDomains
     listDomains_maxResults,
     listDomains_nextToken,
     listDomainsResponse_items,
     listDomainsResponse_nextToken,
     listDomainsResponse_httpStatus,
+
+    -- ** ListEventStreams
+    listEventStreams_maxResults,
+    listEventStreams_nextToken,
+    listEventStreams_domainName,
+    listEventStreamsResponse_items,
+    listEventStreamsResponse_nextToken,
+    listEventStreamsResponse_httpStatus,
 
     -- ** ListIdentityResolutionJobs
     listIdentityResolutionJobs_maxResults,
@@ -396,6 +496,23 @@ module Amazonka.CustomerProfiles.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
+    -- ** UpdateCalculatedAttributeDefinition
+    updateCalculatedAttributeDefinition_conditions,
+    updateCalculatedAttributeDefinition_description,
+    updateCalculatedAttributeDefinition_displayName,
+    updateCalculatedAttributeDefinition_domainName,
+    updateCalculatedAttributeDefinition_calculatedAttributeName,
+    updateCalculatedAttributeDefinitionResponse_attributeDetails,
+    updateCalculatedAttributeDefinitionResponse_calculatedAttributeName,
+    updateCalculatedAttributeDefinitionResponse_conditions,
+    updateCalculatedAttributeDefinitionResponse_createdAt,
+    updateCalculatedAttributeDefinitionResponse_description,
+    updateCalculatedAttributeDefinitionResponse_displayName,
+    updateCalculatedAttributeDefinitionResponse_lastUpdatedAt,
+    updateCalculatedAttributeDefinitionResponse_statistic,
+    updateCalculatedAttributeDefinitionResponse_tags,
+    updateCalculatedAttributeDefinitionResponse_httpStatus,
+
     -- ** UpdateDomain
     updateDomain_deadLetterQueueUrl,
     updateDomain_defaultEncryptionKey,
@@ -484,6 +601,13 @@ module Amazonka.CustomerProfiles.Lens
     appflowIntegrationWorkflowStep_createdAt,
     appflowIntegrationWorkflowStep_lastUpdatedAt,
 
+    -- ** AttributeDetails
+    attributeDetails_attributes,
+    attributeDetails_expression,
+
+    -- ** AttributeItem
+    attributeItem_name,
+
     -- ** AutoMerging
     autoMerging_conflictResolution,
     autoMerging_consolidation,
@@ -493,6 +617,11 @@ module Amazonka.CustomerProfiles.Lens
     -- ** Batch
     batch_startTime,
     batch_endTime,
+
+    -- ** Conditions
+    conditions_objectCount,
+    conditions_range,
+    conditions_threshold,
 
     -- ** ConflictResolution
     conflictResolution_sourceName,
@@ -508,11 +637,31 @@ module Amazonka.CustomerProfiles.Lens
     -- ** Consolidation
     consolidation_matchingAttributesList,
 
+    -- ** DestinationSummary
+    destinationSummary_unhealthySince,
+    destinationSummary_uri,
+    destinationSummary_status,
+
     -- ** DomainStats
     domainStats_meteringProfileCount,
     domainStats_objectCount,
     domainStats_profileCount,
     domainStats_totalSize,
+
+    -- ** EventStreamDestinationDetails
+    eventStreamDestinationDetails_message,
+    eventStreamDestinationDetails_unhealthySince,
+    eventStreamDestinationDetails_uri,
+    eventStreamDestinationDetails_status,
+
+    -- ** EventStreamSummary
+    eventStreamSummary_destinationSummary,
+    eventStreamSummary_stoppedSince,
+    eventStreamSummary_tags,
+    eventStreamSummary_domainName,
+    eventStreamSummary_eventStreamName,
+    eventStreamSummary_eventStreamArn,
+    eventStreamSummary_state,
 
     -- ** ExportingConfig
     exportingConfig_s3Exporting,
@@ -579,6 +728,20 @@ module Amazonka.CustomerProfiles.Lens
     jobStats_numberOfMatchesFound,
     jobStats_numberOfMergesDone,
     jobStats_numberOfProfilesReviewed,
+
+    -- ** ListCalculatedAttributeDefinitionItem
+    listCalculatedAttributeDefinitionItem_calculatedAttributeName,
+    listCalculatedAttributeDefinitionItem_createdAt,
+    listCalculatedAttributeDefinitionItem_description,
+    listCalculatedAttributeDefinitionItem_displayName,
+    listCalculatedAttributeDefinitionItem_lastUpdatedAt,
+    listCalculatedAttributeDefinitionItem_tags,
+
+    -- ** ListCalculatedAttributeForProfileItem
+    listCalculatedAttributeForProfileItem_calculatedAttributeName,
+    listCalculatedAttributeForProfileItem_displayName,
+    listCalculatedAttributeForProfileItem_isDataPartial,
+    listCalculatedAttributeForProfileItem_value,
 
     -- ** ListDomainItem
     listDomainItem_tags,
@@ -669,16 +832,22 @@ module Amazonka.CustomerProfiles.Lens
     profile_firstName,
     profile_foundByItems,
     profile_gender,
+    profile_genderString,
     profile_homePhoneNumber,
     profile_lastName,
     profile_mailingAddress,
     profile_middleName,
     profile_mobilePhoneNumber,
     profile_partyType,
+    profile_partyTypeString,
     profile_personalEmailAddress,
     profile_phoneNumber,
     profile_profileId,
     profile_shippingAddress,
+
+    -- ** Range
+    range_value,
+    range_unit,
 
     -- ** S3ExportingConfig
     s3ExportingConfig_s3KeyName,
@@ -729,6 +898,10 @@ module Amazonka.CustomerProfiles.Lens
     task_sourceFields,
     task_taskType,
 
+    -- ** Threshold
+    threshold_value,
+    threshold_operator,
+
     -- ** TriggerConfig
     triggerConfig_triggerProperties,
     triggerConfig_triggerType,
@@ -763,10 +936,14 @@ module Amazonka.CustomerProfiles.Lens
 where
 
 import Amazonka.CustomerProfiles.AddProfileKey
+import Amazonka.CustomerProfiles.CreateCalculatedAttributeDefinition
 import Amazonka.CustomerProfiles.CreateDomain
+import Amazonka.CustomerProfiles.CreateEventStream
 import Amazonka.CustomerProfiles.CreateIntegrationWorkflow
 import Amazonka.CustomerProfiles.CreateProfile
+import Amazonka.CustomerProfiles.DeleteCalculatedAttributeDefinition
 import Amazonka.CustomerProfiles.DeleteDomain
+import Amazonka.CustomerProfiles.DeleteEventStream
 import Amazonka.CustomerProfiles.DeleteIntegration
 import Amazonka.CustomerProfiles.DeleteProfile
 import Amazonka.CustomerProfiles.DeleteProfileKey
@@ -774,7 +951,10 @@ import Amazonka.CustomerProfiles.DeleteProfileObject
 import Amazonka.CustomerProfiles.DeleteProfileObjectType
 import Amazonka.CustomerProfiles.DeleteWorkflow
 import Amazonka.CustomerProfiles.GetAutoMergingPreview
+import Amazonka.CustomerProfiles.GetCalculatedAttributeDefinition
+import Amazonka.CustomerProfiles.GetCalculatedAttributeForProfile
 import Amazonka.CustomerProfiles.GetDomain
+import Amazonka.CustomerProfiles.GetEventStream
 import Amazonka.CustomerProfiles.GetIdentityResolutionJob
 import Amazonka.CustomerProfiles.GetIntegration
 import Amazonka.CustomerProfiles.GetMatches
@@ -783,7 +963,10 @@ import Amazonka.CustomerProfiles.GetProfileObjectTypeTemplate
 import Amazonka.CustomerProfiles.GetWorkflow
 import Amazonka.CustomerProfiles.GetWorkflowSteps
 import Amazonka.CustomerProfiles.ListAccountIntegrations
+import Amazonka.CustomerProfiles.ListCalculatedAttributeDefinitions
+import Amazonka.CustomerProfiles.ListCalculatedAttributesForProfile
 import Amazonka.CustomerProfiles.ListDomains
+import Amazonka.CustomerProfiles.ListEventStreams
 import Amazonka.CustomerProfiles.ListIdentityResolutionJobs
 import Amazonka.CustomerProfiles.ListIntegrations
 import Amazonka.CustomerProfiles.ListProfileObjectTypeTemplates
@@ -803,12 +986,18 @@ import Amazonka.CustomerProfiles.Types.AppflowIntegration
 import Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowAttributes
 import Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowMetrics
 import Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowStep
+import Amazonka.CustomerProfiles.Types.AttributeDetails
+import Amazonka.CustomerProfiles.Types.AttributeItem
 import Amazonka.CustomerProfiles.Types.AutoMerging
 import Amazonka.CustomerProfiles.Types.Batch
+import Amazonka.CustomerProfiles.Types.Conditions
 import Amazonka.CustomerProfiles.Types.ConflictResolution
 import Amazonka.CustomerProfiles.Types.ConnectorOperator
 import Amazonka.CustomerProfiles.Types.Consolidation
+import Amazonka.CustomerProfiles.Types.DestinationSummary
 import Amazonka.CustomerProfiles.Types.DomainStats
+import Amazonka.CustomerProfiles.Types.EventStreamDestinationDetails
+import Amazonka.CustomerProfiles.Types.EventStreamSummary
 import Amazonka.CustomerProfiles.Types.ExportingConfig
 import Amazonka.CustomerProfiles.Types.ExportingLocation
 import Amazonka.CustomerProfiles.Types.FieldSourceProfileIds
@@ -819,6 +1008,8 @@ import Amazonka.CustomerProfiles.Types.IncrementalPullConfig
 import Amazonka.CustomerProfiles.Types.IntegrationConfig
 import Amazonka.CustomerProfiles.Types.JobSchedule
 import Amazonka.CustomerProfiles.Types.JobStats
+import Amazonka.CustomerProfiles.Types.ListCalculatedAttributeDefinitionItem
+import Amazonka.CustomerProfiles.Types.ListCalculatedAttributeForProfileItem
 import Amazonka.CustomerProfiles.Types.ListDomainItem
 import Amazonka.CustomerProfiles.Types.ListIntegrationItem
 import Amazonka.CustomerProfiles.Types.ListProfileObjectTypeItem
@@ -833,6 +1024,7 @@ import Amazonka.CustomerProfiles.Types.ObjectFilter
 import Amazonka.CustomerProfiles.Types.ObjectTypeField
 import Amazonka.CustomerProfiles.Types.ObjectTypeKey
 import Amazonka.CustomerProfiles.Types.Profile
+import Amazonka.CustomerProfiles.Types.Range
 import Amazonka.CustomerProfiles.Types.S3ExportingConfig
 import Amazonka.CustomerProfiles.Types.S3ExportingLocation
 import Amazonka.CustomerProfiles.Types.S3SourceProperties
@@ -842,6 +1034,7 @@ import Amazonka.CustomerProfiles.Types.ServiceNowSourceProperties
 import Amazonka.CustomerProfiles.Types.SourceConnectorProperties
 import Amazonka.CustomerProfiles.Types.SourceFlowConfig
 import Amazonka.CustomerProfiles.Types.Task
+import Amazonka.CustomerProfiles.Types.Threshold
 import Amazonka.CustomerProfiles.Types.TriggerConfig
 import Amazonka.CustomerProfiles.Types.TriggerProperties
 import Amazonka.CustomerProfiles.Types.UpdateAddress
@@ -850,5 +1043,6 @@ import Amazonka.CustomerProfiles.Types.WorkflowMetrics
 import Amazonka.CustomerProfiles.Types.WorkflowStepItem
 import Amazonka.CustomerProfiles.Types.ZendeskSourceProperties
 import Amazonka.CustomerProfiles.UntagResource
+import Amazonka.CustomerProfiles.UpdateCalculatedAttributeDefinition
 import Amazonka.CustomerProfiles.UpdateDomain
 import Amazonka.CustomerProfiles.UpdateProfile

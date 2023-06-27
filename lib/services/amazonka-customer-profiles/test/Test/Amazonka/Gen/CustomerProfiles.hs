@@ -30,8 +30,14 @@ import Test.Tasty
 --         [ requestAddProfileKey $
 --             newAddProfileKey
 --
+--         , requestCreateCalculatedAttributeDefinition $
+--             newCreateCalculatedAttributeDefinition
+--
 --         , requestCreateDomain $
 --             newCreateDomain
+--
+--         , requestCreateEventStream $
+--             newCreateEventStream
 --
 --         , requestCreateIntegrationWorkflow $
 --             newCreateIntegrationWorkflow
@@ -39,8 +45,14 @@ import Test.Tasty
 --         , requestCreateProfile $
 --             newCreateProfile
 --
+--         , requestDeleteCalculatedAttributeDefinition $
+--             newDeleteCalculatedAttributeDefinition
+--
 --         , requestDeleteDomain $
 --             newDeleteDomain
+--
+--         , requestDeleteEventStream $
+--             newDeleteEventStream
 --
 --         , requestDeleteIntegration $
 --             newDeleteIntegration
@@ -63,8 +75,17 @@ import Test.Tasty
 --         , requestGetAutoMergingPreview $
 --             newGetAutoMergingPreview
 --
+--         , requestGetCalculatedAttributeDefinition $
+--             newGetCalculatedAttributeDefinition
+--
+--         , requestGetCalculatedAttributeForProfile $
+--             newGetCalculatedAttributeForProfile
+--
 --         , requestGetDomain $
 --             newGetDomain
+--
+--         , requestGetEventStream $
+--             newGetEventStream
 --
 --         , requestGetIdentityResolutionJob $
 --             newGetIdentityResolutionJob
@@ -90,8 +111,17 @@ import Test.Tasty
 --         , requestListAccountIntegrations $
 --             newListAccountIntegrations
 --
+--         , requestListCalculatedAttributeDefinitions $
+--             newListCalculatedAttributeDefinitions
+--
+--         , requestListCalculatedAttributesForProfile $
+--             newListCalculatedAttributesForProfile
+--
 --         , requestListDomains $
 --             newListDomains
+--
+--         , requestListEventStreams $
+--             newListEventStreams
 --
 --         , requestListIdentityResolutionJobs $
 --             newListIdentityResolutionJobs
@@ -135,6 +165,9 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
+--         , requestUpdateCalculatedAttributeDefinition $
+--             newUpdateCalculatedAttributeDefinition
+--
 --         , requestUpdateDomain $
 --             newUpdateDomain
 --
@@ -147,8 +180,14 @@ import Test.Tasty
 --         [ responseAddProfileKey $
 --             newAddProfileKeyResponse
 --
+--         , responseCreateCalculatedAttributeDefinition $
+--             newCreateCalculatedAttributeDefinitionResponse
+--
 --         , responseCreateDomain $
 --             newCreateDomainResponse
+--
+--         , responseCreateEventStream $
+--             newCreateEventStreamResponse
 --
 --         , responseCreateIntegrationWorkflow $
 --             newCreateIntegrationWorkflowResponse
@@ -156,8 +195,14 @@ import Test.Tasty
 --         , responseCreateProfile $
 --             newCreateProfileResponse
 --
+--         , responseDeleteCalculatedAttributeDefinition $
+--             newDeleteCalculatedAttributeDefinitionResponse
+--
 --         , responseDeleteDomain $
 --             newDeleteDomainResponse
+--
+--         , responseDeleteEventStream $
+--             newDeleteEventStreamResponse
 --
 --         , responseDeleteIntegration $
 --             newDeleteIntegrationResponse
@@ -180,8 +225,17 @@ import Test.Tasty
 --         , responseGetAutoMergingPreview $
 --             newGetAutoMergingPreviewResponse
 --
+--         , responseGetCalculatedAttributeDefinition $
+--             newGetCalculatedAttributeDefinitionResponse
+--
+--         , responseGetCalculatedAttributeForProfile $
+--             newGetCalculatedAttributeForProfileResponse
+--
 --         , responseGetDomain $
 --             newGetDomainResponse
+--
+--         , responseGetEventStream $
+--             newGetEventStreamResponse
 --
 --         , responseGetIdentityResolutionJob $
 --             newGetIdentityResolutionJobResponse
@@ -207,8 +261,17 @@ import Test.Tasty
 --         , responseListAccountIntegrations $
 --             newListAccountIntegrationsResponse
 --
+--         , responseListCalculatedAttributeDefinitions $
+--             newListCalculatedAttributeDefinitionsResponse
+--
+--         , responseListCalculatedAttributesForProfile $
+--             newListCalculatedAttributesForProfileResponse
+--
 --         , responseListDomains $
 --             newListDomainsResponse
+--
+--         , responseListEventStreams $
+--             newListEventStreamsResponse
 --
 --         , responseListIdentityResolutionJobs $
 --             newListIdentityResolutionJobsResponse
@@ -252,6 +315,9 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
+--         , responseUpdateCalculatedAttributeDefinition $
+--             newUpdateCalculatedAttributeDefinitionResponse
+--
 --         , responseUpdateDomain $
 --             newUpdateDomainResponse
 --
@@ -269,11 +335,23 @@ requestAddProfileKey =
     "AddProfileKey"
     "fixture/AddProfileKey.yaml"
 
+requestCreateCalculatedAttributeDefinition :: CreateCalculatedAttributeDefinition -> TestTree
+requestCreateCalculatedAttributeDefinition =
+  req
+    "CreateCalculatedAttributeDefinition"
+    "fixture/CreateCalculatedAttributeDefinition.yaml"
+
 requestCreateDomain :: CreateDomain -> TestTree
 requestCreateDomain =
   req
     "CreateDomain"
     "fixture/CreateDomain.yaml"
+
+requestCreateEventStream :: CreateEventStream -> TestTree
+requestCreateEventStream =
+  req
+    "CreateEventStream"
+    "fixture/CreateEventStream.yaml"
 
 requestCreateIntegrationWorkflow :: CreateIntegrationWorkflow -> TestTree
 requestCreateIntegrationWorkflow =
@@ -287,11 +365,23 @@ requestCreateProfile =
     "CreateProfile"
     "fixture/CreateProfile.yaml"
 
+requestDeleteCalculatedAttributeDefinition :: DeleteCalculatedAttributeDefinition -> TestTree
+requestDeleteCalculatedAttributeDefinition =
+  req
+    "DeleteCalculatedAttributeDefinition"
+    "fixture/DeleteCalculatedAttributeDefinition.yaml"
+
 requestDeleteDomain :: DeleteDomain -> TestTree
 requestDeleteDomain =
   req
     "DeleteDomain"
     "fixture/DeleteDomain.yaml"
+
+requestDeleteEventStream :: DeleteEventStream -> TestTree
+requestDeleteEventStream =
+  req
+    "DeleteEventStream"
+    "fixture/DeleteEventStream.yaml"
 
 requestDeleteIntegration :: DeleteIntegration -> TestTree
 requestDeleteIntegration =
@@ -335,11 +425,29 @@ requestGetAutoMergingPreview =
     "GetAutoMergingPreview"
     "fixture/GetAutoMergingPreview.yaml"
 
+requestGetCalculatedAttributeDefinition :: GetCalculatedAttributeDefinition -> TestTree
+requestGetCalculatedAttributeDefinition =
+  req
+    "GetCalculatedAttributeDefinition"
+    "fixture/GetCalculatedAttributeDefinition.yaml"
+
+requestGetCalculatedAttributeForProfile :: GetCalculatedAttributeForProfile -> TestTree
+requestGetCalculatedAttributeForProfile =
+  req
+    "GetCalculatedAttributeForProfile"
+    "fixture/GetCalculatedAttributeForProfile.yaml"
+
 requestGetDomain :: GetDomain -> TestTree
 requestGetDomain =
   req
     "GetDomain"
     "fixture/GetDomain.yaml"
+
+requestGetEventStream :: GetEventStream -> TestTree
+requestGetEventStream =
+  req
+    "GetEventStream"
+    "fixture/GetEventStream.yaml"
 
 requestGetIdentityResolutionJob :: GetIdentityResolutionJob -> TestTree
 requestGetIdentityResolutionJob =
@@ -389,11 +497,29 @@ requestListAccountIntegrations =
     "ListAccountIntegrations"
     "fixture/ListAccountIntegrations.yaml"
 
+requestListCalculatedAttributeDefinitions :: ListCalculatedAttributeDefinitions -> TestTree
+requestListCalculatedAttributeDefinitions =
+  req
+    "ListCalculatedAttributeDefinitions"
+    "fixture/ListCalculatedAttributeDefinitions.yaml"
+
+requestListCalculatedAttributesForProfile :: ListCalculatedAttributesForProfile -> TestTree
+requestListCalculatedAttributesForProfile =
+  req
+    "ListCalculatedAttributesForProfile"
+    "fixture/ListCalculatedAttributesForProfile.yaml"
+
 requestListDomains :: ListDomains -> TestTree
 requestListDomains =
   req
     "ListDomains"
     "fixture/ListDomains.yaml"
+
+requestListEventStreams :: ListEventStreams -> TestTree
+requestListEventStreams =
+  req
+    "ListEventStreams"
+    "fixture/ListEventStreams.yaml"
 
 requestListIdentityResolutionJobs :: ListIdentityResolutionJobs -> TestTree
 requestListIdentityResolutionJobs =
@@ -479,6 +605,12 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
+requestUpdateCalculatedAttributeDefinition :: UpdateCalculatedAttributeDefinition -> TestTree
+requestUpdateCalculatedAttributeDefinition =
+  req
+    "UpdateCalculatedAttributeDefinition"
+    "fixture/UpdateCalculatedAttributeDefinition.yaml"
+
 requestUpdateDomain :: UpdateDomain -> TestTree
 requestUpdateDomain =
   req
@@ -501,6 +633,14 @@ responseAddProfileKey =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AddProfileKey)
 
+responseCreateCalculatedAttributeDefinition :: CreateCalculatedAttributeDefinitionResponse -> TestTree
+responseCreateCalculatedAttributeDefinition =
+  res
+    "CreateCalculatedAttributeDefinitionResponse"
+    "fixture/CreateCalculatedAttributeDefinitionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateCalculatedAttributeDefinition)
+
 responseCreateDomain :: CreateDomainResponse -> TestTree
 responseCreateDomain =
   res
@@ -508,6 +648,14 @@ responseCreateDomain =
     "fixture/CreateDomainResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDomain)
+
+responseCreateEventStream :: CreateEventStreamResponse -> TestTree
+responseCreateEventStream =
+  res
+    "CreateEventStreamResponse"
+    "fixture/CreateEventStreamResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateEventStream)
 
 responseCreateIntegrationWorkflow :: CreateIntegrationWorkflowResponse -> TestTree
 responseCreateIntegrationWorkflow =
@@ -525,6 +673,14 @@ responseCreateProfile =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateProfile)
 
+responseDeleteCalculatedAttributeDefinition :: DeleteCalculatedAttributeDefinitionResponse -> TestTree
+responseDeleteCalculatedAttributeDefinition =
+  res
+    "DeleteCalculatedAttributeDefinitionResponse"
+    "fixture/DeleteCalculatedAttributeDefinitionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteCalculatedAttributeDefinition)
+
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
 responseDeleteDomain =
   res
@@ -532,6 +688,14 @@ responseDeleteDomain =
     "fixture/DeleteDomainResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteDomain)
+
+responseDeleteEventStream :: DeleteEventStreamResponse -> TestTree
+responseDeleteEventStream =
+  res
+    "DeleteEventStreamResponse"
+    "fixture/DeleteEventStreamResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteEventStream)
 
 responseDeleteIntegration :: DeleteIntegrationResponse -> TestTree
 responseDeleteIntegration =
@@ -589,6 +753,22 @@ responseGetAutoMergingPreview =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetAutoMergingPreview)
 
+responseGetCalculatedAttributeDefinition :: GetCalculatedAttributeDefinitionResponse -> TestTree
+responseGetCalculatedAttributeDefinition =
+  res
+    "GetCalculatedAttributeDefinitionResponse"
+    "fixture/GetCalculatedAttributeDefinitionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetCalculatedAttributeDefinition)
+
+responseGetCalculatedAttributeForProfile :: GetCalculatedAttributeForProfileResponse -> TestTree
+responseGetCalculatedAttributeForProfile =
+  res
+    "GetCalculatedAttributeForProfileResponse"
+    "fixture/GetCalculatedAttributeForProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetCalculatedAttributeForProfile)
+
 responseGetDomain :: GetDomainResponse -> TestTree
 responseGetDomain =
   res
@@ -596,6 +776,14 @@ responseGetDomain =
     "fixture/GetDomainResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetDomain)
+
+responseGetEventStream :: GetEventStreamResponse -> TestTree
+responseGetEventStream =
+  res
+    "GetEventStreamResponse"
+    "fixture/GetEventStreamResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEventStream)
 
 responseGetIdentityResolutionJob :: GetIdentityResolutionJobResponse -> TestTree
 responseGetIdentityResolutionJob =
@@ -661,6 +849,22 @@ responseListAccountIntegrations =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAccountIntegrations)
 
+responseListCalculatedAttributeDefinitions :: ListCalculatedAttributeDefinitionsResponse -> TestTree
+responseListCalculatedAttributeDefinitions =
+  res
+    "ListCalculatedAttributeDefinitionsResponse"
+    "fixture/ListCalculatedAttributeDefinitionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCalculatedAttributeDefinitions)
+
+responseListCalculatedAttributesForProfile :: ListCalculatedAttributesForProfileResponse -> TestTree
+responseListCalculatedAttributesForProfile =
+  res
+    "ListCalculatedAttributesForProfileResponse"
+    "fixture/ListCalculatedAttributesForProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCalculatedAttributesForProfile)
+
 responseListDomains :: ListDomainsResponse -> TestTree
 responseListDomains =
   res
@@ -668,6 +872,14 @@ responseListDomains =
     "fixture/ListDomainsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDomains)
+
+responseListEventStreams :: ListEventStreamsResponse -> TestTree
+responseListEventStreams =
+  res
+    "ListEventStreamsResponse"
+    "fixture/ListEventStreamsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEventStreams)
 
 responseListIdentityResolutionJobs :: ListIdentityResolutionJobsResponse -> TestTree
 responseListIdentityResolutionJobs =
@@ -780,6 +992,14 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateCalculatedAttributeDefinition :: UpdateCalculatedAttributeDefinitionResponse -> TestTree
+responseUpdateCalculatedAttributeDefinition =
+  res
+    "UpdateCalculatedAttributeDefinitionResponse"
+    "fixture/UpdateCalculatedAttributeDefinitionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateCalculatedAttributeDefinition)
 
 responseUpdateDomain :: UpdateDomainResponse -> TestTree
 responseUpdateDomain =

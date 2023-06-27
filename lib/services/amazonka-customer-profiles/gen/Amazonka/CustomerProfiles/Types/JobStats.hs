@@ -84,7 +84,8 @@ instance Data.FromJSON JobStats where
 
 instance Prelude.Hashable JobStats where
   hashWithSalt _salt JobStats' {..} =
-    _salt `Prelude.hashWithSalt` numberOfMatchesFound
+    _salt
+      `Prelude.hashWithSalt` numberOfMatchesFound
       `Prelude.hashWithSalt` numberOfMergesDone
       `Prelude.hashWithSalt` numberOfProfilesReviewed
 

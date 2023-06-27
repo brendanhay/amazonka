@@ -111,7 +111,8 @@ instance Data.FromJSON ListProfileObjectTypeItem where
 
 instance Prelude.Hashable ListProfileObjectTypeItem where
   hashWithSalt _salt ListProfileObjectTypeItem' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` objectTypeName

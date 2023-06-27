@@ -61,8 +61,7 @@ data ListProfileObjects = ListProfileObjects'
     -- | The pagination token from the previous call to ListProfileObjects.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Applies a filter to the response to include profile objects with the
-    -- specified index values. This filter is only supported for ObjectTypeName
-    -- _asset, _case and _order.
+    -- specified index values.
     objectFilter :: Prelude.Maybe ObjectFilter,
     -- | The unique name of the domain.
     domainName :: Prelude.Text,
@@ -86,8 +85,7 @@ data ListProfileObjects = ListProfileObjects'
 -- 'nextToken', 'listProfileObjects_nextToken' - The pagination token from the previous call to ListProfileObjects.
 --
 -- 'objectFilter', 'listProfileObjects_objectFilter' - Applies a filter to the response to include profile objects with the
--- specified index values. This filter is only supported for ObjectTypeName
--- _asset, _case and _order.
+-- specified index values.
 --
 -- 'domainName', 'listProfileObjects_domainName' - The unique name of the domain.
 --
@@ -124,8 +122,7 @@ listProfileObjects_nextToken :: Lens.Lens' ListProfileObjects (Prelude.Maybe Pre
 listProfileObjects_nextToken = Lens.lens (\ListProfileObjects' {nextToken} -> nextToken) (\s@ListProfileObjects' {} a -> s {nextToken = a} :: ListProfileObjects)
 
 -- | Applies a filter to the response to include profile objects with the
--- specified index values. This filter is only supported for ObjectTypeName
--- _asset, _case and _order.
+-- specified index values.
 listProfileObjects_objectFilter :: Lens.Lens' ListProfileObjects (Prelude.Maybe ObjectFilter)
 listProfileObjects_objectFilter = Lens.lens (\ListProfileObjects' {objectFilter} -> objectFilter) (\s@ListProfileObjects' {} a -> s {objectFilter = a} :: ListProfileObjects)
 
@@ -158,7 +155,8 @@ instance Core.AWSRequest ListProfileObjects where
 
 instance Prelude.Hashable ListProfileObjects where
   hashWithSalt _salt ListProfileObjects' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` objectFilter
       `Prelude.hashWithSalt` domainName

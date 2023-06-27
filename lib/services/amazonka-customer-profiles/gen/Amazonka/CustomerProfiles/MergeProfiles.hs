@@ -170,7 +170,8 @@ instance Core.AWSRequest MergeProfiles where
 
 instance Prelude.Hashable MergeProfiles where
   hashWithSalt _salt MergeProfiles' {..} =
-    _salt `Prelude.hashWithSalt` fieldSourceProfileIds
+    _salt
+      `Prelude.hashWithSalt` fieldSourceProfileIds
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` mainProfileId
       `Prelude.hashWithSalt` profileIdsToBeMerged

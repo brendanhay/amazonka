@@ -129,7 +129,8 @@ flowDefinition_triggerConfig = Lens.lens (\FlowDefinition' {triggerConfig} -> tr
 
 instance Prelude.Hashable FlowDefinition where
   hashWithSalt _salt FlowDefinition' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` flowName
       `Prelude.hashWithSalt` kmsArn
       `Prelude.hashWithSalt` sourceFlowConfig

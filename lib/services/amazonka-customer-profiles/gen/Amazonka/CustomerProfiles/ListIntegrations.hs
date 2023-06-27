@@ -127,7 +127,8 @@ instance Core.AWSRequest ListIntegrations where
 
 instance Prelude.Hashable ListIntegrations where
   hashWithSalt _salt ListIntegrations' {..} =
-    _salt `Prelude.hashWithSalt` includeHidden
+    _salt
+      `Prelude.hashWithSalt` includeHidden
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainName

@@ -104,7 +104,8 @@ instance Data.FromJSON DomainStats where
 
 instance Prelude.Hashable DomainStats where
   hashWithSalt _salt DomainStats' {..} =
-    _salt `Prelude.hashWithSalt` meteringProfileCount
+    _salt
+      `Prelude.hashWithSalt` meteringProfileCount
       `Prelude.hashWithSalt` objectCount
       `Prelude.hashWithSalt` profileCount
       `Prelude.hashWithSalt` totalSize

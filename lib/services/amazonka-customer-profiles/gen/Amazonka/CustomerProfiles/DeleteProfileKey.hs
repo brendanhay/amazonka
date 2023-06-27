@@ -129,7 +129,8 @@ instance Core.AWSRequest DeleteProfileKey where
 
 instance Prelude.Hashable DeleteProfileKey where
   hashWithSalt _salt DeleteProfileKey' {..} =
-    _salt `Prelude.hashWithSalt` profileId
+    _salt
+      `Prelude.hashWithSalt` profileId
       `Prelude.hashWithSalt` keyName
       `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` domainName

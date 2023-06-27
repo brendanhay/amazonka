@@ -155,7 +155,8 @@ instance Data.FromJSON Address where
 
 instance Prelude.Hashable Address where
   hashWithSalt _salt Address' {..} =
-    _salt `Prelude.hashWithSalt` address1
+    _salt
+      `Prelude.hashWithSalt` address1
       `Prelude.hashWithSalt` address2
       `Prelude.hashWithSalt` address3
       `Prelude.hashWithSalt` address4

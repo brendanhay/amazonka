@@ -136,7 +136,8 @@ updateAddress_state = Lens.lens (\UpdateAddress' {state} -> state) (\s@UpdateAdd
 
 instance Prelude.Hashable UpdateAddress where
   hashWithSalt _salt UpdateAddress' {..} =
-    _salt `Prelude.hashWithSalt` address1
+    _salt
+      `Prelude.hashWithSalt` address1
       `Prelude.hashWithSalt` address2
       `Prelude.hashWithSalt` address3
       `Prelude.hashWithSalt` address4

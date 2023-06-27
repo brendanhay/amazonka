@@ -112,7 +112,8 @@ instance
   hashWithSalt
     _salt
     AppflowIntegrationWorkflowAttributes' {..} =
-      _salt `Prelude.hashWithSalt` roleArn
+      _salt
+        `Prelude.hashWithSalt` roleArn
         `Prelude.hashWithSalt` sourceConnectorType
         `Prelude.hashWithSalt` connectorProfileName
 

@@ -104,7 +104,8 @@ instance Core.AWSRequest DeleteIntegration where
 
 instance Prelude.Hashable DeleteIntegration where
   hashWithSalt _salt DeleteIntegration' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` uri
 
 instance Prelude.NFData DeleteIntegration where

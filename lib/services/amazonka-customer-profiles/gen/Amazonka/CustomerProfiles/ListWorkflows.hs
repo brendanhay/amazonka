@@ -160,7 +160,8 @@ instance Core.AWSRequest ListWorkflows where
 
 instance Prelude.Hashable ListWorkflows where
   hashWithSalt _salt ListWorkflows' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` queryEndDate
       `Prelude.hashWithSalt` queryStartDate

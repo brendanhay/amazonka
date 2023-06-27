@@ -55,11 +55,23 @@ module Amazonka.CustomerProfiles
     AddProfileKeyResponse (AddProfileKeyResponse'),
     newAddProfileKeyResponse,
 
+    -- ** CreateCalculatedAttributeDefinition
+    CreateCalculatedAttributeDefinition (CreateCalculatedAttributeDefinition'),
+    newCreateCalculatedAttributeDefinition,
+    CreateCalculatedAttributeDefinitionResponse (CreateCalculatedAttributeDefinitionResponse'),
+    newCreateCalculatedAttributeDefinitionResponse,
+
     -- ** CreateDomain
     CreateDomain (CreateDomain'),
     newCreateDomain,
     CreateDomainResponse (CreateDomainResponse'),
     newCreateDomainResponse,
+
+    -- ** CreateEventStream
+    CreateEventStream (CreateEventStream'),
+    newCreateEventStream,
+    CreateEventStreamResponse (CreateEventStreamResponse'),
+    newCreateEventStreamResponse,
 
     -- ** CreateIntegrationWorkflow
     CreateIntegrationWorkflow (CreateIntegrationWorkflow'),
@@ -73,11 +85,23 @@ module Amazonka.CustomerProfiles
     CreateProfileResponse (CreateProfileResponse'),
     newCreateProfileResponse,
 
+    -- ** DeleteCalculatedAttributeDefinition
+    DeleteCalculatedAttributeDefinition (DeleteCalculatedAttributeDefinition'),
+    newDeleteCalculatedAttributeDefinition,
+    DeleteCalculatedAttributeDefinitionResponse (DeleteCalculatedAttributeDefinitionResponse'),
+    newDeleteCalculatedAttributeDefinitionResponse,
+
     -- ** DeleteDomain
     DeleteDomain (DeleteDomain'),
     newDeleteDomain,
     DeleteDomainResponse (DeleteDomainResponse'),
     newDeleteDomainResponse,
+
+    -- ** DeleteEventStream
+    DeleteEventStream (DeleteEventStream'),
+    newDeleteEventStream,
+    DeleteEventStreamResponse (DeleteEventStreamResponse'),
+    newDeleteEventStreamResponse,
 
     -- ** DeleteIntegration
     DeleteIntegration (DeleteIntegration'),
@@ -121,11 +145,29 @@ module Amazonka.CustomerProfiles
     GetAutoMergingPreviewResponse (GetAutoMergingPreviewResponse'),
     newGetAutoMergingPreviewResponse,
 
+    -- ** GetCalculatedAttributeDefinition
+    GetCalculatedAttributeDefinition (GetCalculatedAttributeDefinition'),
+    newGetCalculatedAttributeDefinition,
+    GetCalculatedAttributeDefinitionResponse (GetCalculatedAttributeDefinitionResponse'),
+    newGetCalculatedAttributeDefinitionResponse,
+
+    -- ** GetCalculatedAttributeForProfile
+    GetCalculatedAttributeForProfile (GetCalculatedAttributeForProfile'),
+    newGetCalculatedAttributeForProfile,
+    GetCalculatedAttributeForProfileResponse (GetCalculatedAttributeForProfileResponse'),
+    newGetCalculatedAttributeForProfileResponse,
+
     -- ** GetDomain
     GetDomain (GetDomain'),
     newGetDomain,
     GetDomainResponse (GetDomainResponse'),
     newGetDomainResponse,
+
+    -- ** GetEventStream
+    GetEventStream (GetEventStream'),
+    newGetEventStream,
+    GetEventStreamResponse (GetEventStreamResponse'),
+    newGetEventStreamResponse,
 
     -- ** GetIdentityResolutionJob
     GetIdentityResolutionJob (GetIdentityResolutionJob'),
@@ -175,11 +217,29 @@ module Amazonka.CustomerProfiles
     ListAccountIntegrationsResponse (ListAccountIntegrationsResponse'),
     newListAccountIntegrationsResponse,
 
+    -- ** ListCalculatedAttributeDefinitions
+    ListCalculatedAttributeDefinitions (ListCalculatedAttributeDefinitions'),
+    newListCalculatedAttributeDefinitions,
+    ListCalculatedAttributeDefinitionsResponse (ListCalculatedAttributeDefinitionsResponse'),
+    newListCalculatedAttributeDefinitionsResponse,
+
+    -- ** ListCalculatedAttributesForProfile
+    ListCalculatedAttributesForProfile (ListCalculatedAttributesForProfile'),
+    newListCalculatedAttributesForProfile,
+    ListCalculatedAttributesForProfileResponse (ListCalculatedAttributesForProfileResponse'),
+    newListCalculatedAttributesForProfileResponse,
+
     -- ** ListDomains
     ListDomains (ListDomains'),
     newListDomains,
     ListDomainsResponse (ListDomainsResponse'),
     newListDomainsResponse,
+
+    -- ** ListEventStreams (Paginated)
+    ListEventStreams (ListEventStreams'),
+    newListEventStreams,
+    ListEventStreamsResponse (ListEventStreamsResponse'),
+    newListEventStreamsResponse,
 
     -- ** ListIdentityResolutionJobs
     ListIdentityResolutionJobs (ListIdentityResolutionJobs'),
@@ -265,6 +325,12 @@ module Amazonka.CustomerProfiles
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
+    -- ** UpdateCalculatedAttributeDefinition
+    UpdateCalculatedAttributeDefinition (UpdateCalculatedAttributeDefinition'),
+    newUpdateCalculatedAttributeDefinition,
+    UpdateCalculatedAttributeDefinitionResponse (UpdateCalculatedAttributeDefinitionResponse'),
+    newUpdateCalculatedAttributeDefinitionResponse,
+
     -- ** UpdateDomain
     UpdateDomain (UpdateDomain'),
     newUpdateDomain,
@@ -285,6 +351,12 @@ module Amazonka.CustomerProfiles
     -- ** DataPullMode
     DataPullMode (..),
 
+    -- ** EventStreamDestinationStatus
+    EventStreamDestinationStatus (..),
+
+    -- ** EventStreamState
+    EventStreamState (..),
+
     -- ** FieldContentType
     FieldContentType (..),
 
@@ -302,6 +374,9 @@ module Amazonka.CustomerProfiles
 
     -- ** MarketoConnectorOperator
     MarketoConnectorOperator (..),
+
+    -- ** Operator
+    Operator (..),
 
     -- ** OperatorPropertiesKeys
     OperatorPropertiesKeys (..),
@@ -324,6 +399,9 @@ module Amazonka.CustomerProfiles
     -- ** StandardIdentifier
     StandardIdentifier (..),
 
+    -- ** Statistic
+    Statistic (..),
+
     -- ** Status
     Status (..),
 
@@ -332,6 +410,9 @@ module Amazonka.CustomerProfiles
 
     -- ** TriggerType
     TriggerType (..),
+
+    -- ** Unit
+    Unit (..),
 
     -- ** WorkflowType
     WorkflowType (..),
@@ -363,6 +444,14 @@ module Amazonka.CustomerProfiles
     AppflowIntegrationWorkflowStep (AppflowIntegrationWorkflowStep'),
     newAppflowIntegrationWorkflowStep,
 
+    -- ** AttributeDetails
+    AttributeDetails (AttributeDetails'),
+    newAttributeDetails,
+
+    -- ** AttributeItem
+    AttributeItem (AttributeItem'),
+    newAttributeItem,
+
     -- ** AutoMerging
     AutoMerging (AutoMerging'),
     newAutoMerging,
@@ -370,6 +459,10 @@ module Amazonka.CustomerProfiles
     -- ** Batch
     Batch (Batch'),
     newBatch,
+
+    -- ** Conditions
+    Conditions (Conditions'),
+    newConditions,
 
     -- ** ConflictResolution
     ConflictResolution (ConflictResolution'),
@@ -383,9 +476,21 @@ module Amazonka.CustomerProfiles
     Consolidation (Consolidation'),
     newConsolidation,
 
+    -- ** DestinationSummary
+    DestinationSummary (DestinationSummary'),
+    newDestinationSummary,
+
     -- ** DomainStats
     DomainStats (DomainStats'),
     newDomainStats,
+
+    -- ** EventStreamDestinationDetails
+    EventStreamDestinationDetails (EventStreamDestinationDetails'),
+    newEventStreamDestinationDetails,
+
+    -- ** EventStreamSummary
+    EventStreamSummary (EventStreamSummary'),
+    newEventStreamSummary,
 
     -- ** ExportingConfig
     ExportingConfig (ExportingConfig'),
@@ -426,6 +531,14 @@ module Amazonka.CustomerProfiles
     -- ** JobStats
     JobStats (JobStats'),
     newJobStats,
+
+    -- ** ListCalculatedAttributeDefinitionItem
+    ListCalculatedAttributeDefinitionItem (ListCalculatedAttributeDefinitionItem'),
+    newListCalculatedAttributeDefinitionItem,
+
+    -- ** ListCalculatedAttributeForProfileItem
+    ListCalculatedAttributeForProfileItem (ListCalculatedAttributeForProfileItem'),
+    newListCalculatedAttributeForProfileItem,
 
     -- ** ListDomainItem
     ListDomainItem (ListDomainItem'),
@@ -483,6 +596,10 @@ module Amazonka.CustomerProfiles
     Profile (Profile'),
     newProfile,
 
+    -- ** Range
+    Range (Range'),
+    newRange,
+
     -- ** S3ExportingConfig
     S3ExportingConfig (S3ExportingConfig'),
     newS3ExportingConfig,
@@ -519,6 +636,10 @@ module Amazonka.CustomerProfiles
     Task (Task'),
     newTask,
 
+    -- ** Threshold
+    Threshold (Threshold'),
+    newThreshold,
+
     -- ** TriggerConfig
     TriggerConfig (TriggerConfig'),
     newTriggerConfig,
@@ -550,10 +671,14 @@ module Amazonka.CustomerProfiles
 where
 
 import Amazonka.CustomerProfiles.AddProfileKey
+import Amazonka.CustomerProfiles.CreateCalculatedAttributeDefinition
 import Amazonka.CustomerProfiles.CreateDomain
+import Amazonka.CustomerProfiles.CreateEventStream
 import Amazonka.CustomerProfiles.CreateIntegrationWorkflow
 import Amazonka.CustomerProfiles.CreateProfile
+import Amazonka.CustomerProfiles.DeleteCalculatedAttributeDefinition
 import Amazonka.CustomerProfiles.DeleteDomain
+import Amazonka.CustomerProfiles.DeleteEventStream
 import Amazonka.CustomerProfiles.DeleteIntegration
 import Amazonka.CustomerProfiles.DeleteProfile
 import Amazonka.CustomerProfiles.DeleteProfileKey
@@ -561,7 +686,10 @@ import Amazonka.CustomerProfiles.DeleteProfileObject
 import Amazonka.CustomerProfiles.DeleteProfileObjectType
 import Amazonka.CustomerProfiles.DeleteWorkflow
 import Amazonka.CustomerProfiles.GetAutoMergingPreview
+import Amazonka.CustomerProfiles.GetCalculatedAttributeDefinition
+import Amazonka.CustomerProfiles.GetCalculatedAttributeForProfile
 import Amazonka.CustomerProfiles.GetDomain
+import Amazonka.CustomerProfiles.GetEventStream
 import Amazonka.CustomerProfiles.GetIdentityResolutionJob
 import Amazonka.CustomerProfiles.GetIntegration
 import Amazonka.CustomerProfiles.GetMatches
@@ -571,7 +699,10 @@ import Amazonka.CustomerProfiles.GetWorkflow
 import Amazonka.CustomerProfiles.GetWorkflowSteps
 import Amazonka.CustomerProfiles.Lens
 import Amazonka.CustomerProfiles.ListAccountIntegrations
+import Amazonka.CustomerProfiles.ListCalculatedAttributeDefinitions
+import Amazonka.CustomerProfiles.ListCalculatedAttributesForProfile
 import Amazonka.CustomerProfiles.ListDomains
+import Amazonka.CustomerProfiles.ListEventStreams
 import Amazonka.CustomerProfiles.ListIdentityResolutionJobs
 import Amazonka.CustomerProfiles.ListIntegrations
 import Amazonka.CustomerProfiles.ListProfileObjectTypeTemplates
@@ -587,6 +718,7 @@ import Amazonka.CustomerProfiles.SearchProfiles
 import Amazonka.CustomerProfiles.TagResource
 import Amazonka.CustomerProfiles.Types
 import Amazonka.CustomerProfiles.UntagResource
+import Amazonka.CustomerProfiles.UpdateCalculatedAttributeDefinition
 import Amazonka.CustomerProfiles.UpdateDomain
 import Amazonka.CustomerProfiles.UpdateProfile
 import Amazonka.CustomerProfiles.Waiters

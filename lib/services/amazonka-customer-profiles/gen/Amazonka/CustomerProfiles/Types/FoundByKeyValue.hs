@@ -77,7 +77,8 @@ instance Data.FromJSON FoundByKeyValue where
 
 instance Prelude.Hashable FoundByKeyValue where
   hashWithSalt _salt FoundByKeyValue' {..} =
-    _salt `Prelude.hashWithSalt` keyName
+    _salt
+      `Prelude.hashWithSalt` keyName
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData FoundByKeyValue where

@@ -24,17 +24,16 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The filter applied to ListProfileObjects response to include profile
--- objects with the specified index values. This filter is only supported
--- for ObjectTypeName _asset, _case and _order.
+-- | The filter applied to @ListProfileObjects@ response to include profile
+-- objects with the specified index values.
 --
 -- /See:/ 'newObjectFilter' smart constructor.
 data ObjectFilter = ObjectFilter'
-  { -- | A searchable identifier of a standard profile object. The predefined
-    -- keys you can use to search for _asset include: _assetId, _assetName,
-    -- _serialNumber. The predefined keys you can use to search for _case
-    -- include: _caseId. The predefined keys you can use to search for _order
-    -- include: _orderId.
+  { -- | A searchable identifier of a profile object. The predefined keys you can
+    -- use to search for @_asset@ include: @_assetId@, @_assetName@, and
+    -- @_serialNumber@. The predefined keys you can use to search for @_case@
+    -- include: @_caseId@. The predefined keys you can use to search for
+    -- @_order@ include: @_orderId@.
     keyName :: Prelude.Text,
     -- | A list of key values.
     values :: [Prelude.Text]
@@ -49,11 +48,11 @@ data ObjectFilter = ObjectFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyName', 'objectFilter_keyName' - A searchable identifier of a standard profile object. The predefined
--- keys you can use to search for _asset include: _assetId, _assetName,
--- _serialNumber. The predefined keys you can use to search for _case
--- include: _caseId. The predefined keys you can use to search for _order
--- include: _orderId.
+-- 'keyName', 'objectFilter_keyName' - A searchable identifier of a profile object. The predefined keys you can
+-- use to search for @_asset@ include: @_assetId@, @_assetName@, and
+-- @_serialNumber@. The predefined keys you can use to search for @_case@
+-- include: @_caseId@. The predefined keys you can use to search for
+-- @_order@ include: @_orderId@.
 --
 -- 'values', 'objectFilter_values' - A list of key values.
 newObjectFilter ::
@@ -66,11 +65,11 @@ newObjectFilter pKeyName_ =
       values = Prelude.mempty
     }
 
--- | A searchable identifier of a standard profile object. The predefined
--- keys you can use to search for _asset include: _assetId, _assetName,
--- _serialNumber. The predefined keys you can use to search for _case
--- include: _caseId. The predefined keys you can use to search for _order
--- include: _orderId.
+-- | A searchable identifier of a profile object. The predefined keys you can
+-- use to search for @_asset@ include: @_assetId@, @_assetName@, and
+-- @_serialNumber@. The predefined keys you can use to search for @_case@
+-- include: @_caseId@. The predefined keys you can use to search for
+-- @_order@ include: @_orderId@.
 objectFilter_keyName :: Lens.Lens' ObjectFilter Prelude.Text
 objectFilter_keyName = Lens.lens (\ObjectFilter' {keyName} -> keyName) (\s@ObjectFilter' {} a -> s {keyName = a} :: ObjectFilter)
 
@@ -80,7 +79,8 @@ objectFilter_values = Lens.lens (\ObjectFilter' {values} -> values) (\s@ObjectFi
 
 instance Prelude.Hashable ObjectFilter where
   hashWithSalt _salt ObjectFilter' {..} =
-    _salt `Prelude.hashWithSalt` keyName
+    _salt
+      `Prelude.hashWithSalt` keyName
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData ObjectFilter where

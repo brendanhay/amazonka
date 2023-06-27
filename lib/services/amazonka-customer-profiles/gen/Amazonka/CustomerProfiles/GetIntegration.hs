@@ -108,7 +108,8 @@ instance Core.AWSRequest GetIntegration where
           GetIntegrationResponse'
             Prelude.<$> (x Data..?> "IsUnstructured")
             Prelude.<*> (x Data..?> "ObjectTypeName")
-            Prelude.<*> ( x Data..?> "ObjectTypeNames"
+            Prelude.<*> ( x
+                            Data..?> "ObjectTypeNames"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
@@ -122,7 +123,8 @@ instance Core.AWSRequest GetIntegration where
 
 instance Prelude.Hashable GetIntegration where
   hashWithSalt _salt GetIntegration' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` uri
 
 instance Prelude.NFData GetIntegration where
@@ -158,9 +160,9 @@ instance Data.ToQuery GetIntegration where
 
 -- | /See:/ 'newGetIntegrationResponse' smart constructor.
 data GetIntegrationResponse = GetIntegrationResponse'
-  { -- | Boolean to indicate if the Flow associated with the Integration is
-    -- created via Appflow console or with ObjectTypeName equals _unstructured
-    -- via API\/CLI in flowDefinition
+  { -- | Boolean that shows if the Flow that\'s associated with the Integration
+    -- is created in Amazon Appflow, or with ObjectTypeName equals
+    -- _unstructured via API\/CLI in flowDefinition.
     isUnstructured :: Prelude.Maybe Prelude.Bool,
     -- | The name of the profile object type.
     objectTypeName :: Prelude.Maybe Prelude.Text,
@@ -197,9 +199,9 @@ data GetIntegrationResponse = GetIntegrationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isUnstructured', 'getIntegrationResponse_isUnstructured' - Boolean to indicate if the Flow associated with the Integration is
--- created via Appflow console or with ObjectTypeName equals _unstructured
--- via API\/CLI in flowDefinition
+-- 'isUnstructured', 'getIntegrationResponse_isUnstructured' - Boolean that shows if the Flow that\'s associated with the Integration
+-- is created in Amazon Appflow, or with ObjectTypeName equals
+-- _unstructured via API\/CLI in flowDefinition.
 --
 -- 'objectTypeName', 'getIntegrationResponse_objectTypeName' - The name of the profile object type.
 --
@@ -256,9 +258,9 @@ newGetIntegrationResponse
         lastUpdatedAt = Data._Time Lens.# pLastUpdatedAt_
       }
 
--- | Boolean to indicate if the Flow associated with the Integration is
--- created via Appflow console or with ObjectTypeName equals _unstructured
--- via API\/CLI in flowDefinition
+-- | Boolean that shows if the Flow that\'s associated with the Integration
+-- is created in Amazon Appflow, or with ObjectTypeName equals
+-- _unstructured via API\/CLI in flowDefinition.
 getIntegrationResponse_isUnstructured :: Lens.Lens' GetIntegrationResponse (Prelude.Maybe Prelude.Bool)
 getIntegrationResponse_isUnstructured = Lens.lens (\GetIntegrationResponse' {isUnstructured} -> isUnstructured) (\s@GetIntegrationResponse' {} a -> s {isUnstructured = a} :: GetIntegrationResponse)
 

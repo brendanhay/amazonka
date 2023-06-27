@@ -348,7 +348,8 @@ instance Core.AWSRequest UpdateProfile where
 
 instance Prelude.Hashable UpdateProfile where
   hashWithSalt _salt UpdateProfile' {..} =
-    _salt `Prelude.hashWithSalt` accountNumber
+    _salt
+      `Prelude.hashWithSalt` accountNumber
       `Prelude.hashWithSalt` additionalInformation
       `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` attributes

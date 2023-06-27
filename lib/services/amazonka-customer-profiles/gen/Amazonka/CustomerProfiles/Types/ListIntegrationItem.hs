@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListIntegrationItem' smart constructor.
 data ListIntegrationItem = ListIntegrationItem'
-  { -- | Boolean to indicate if the Flow associated with the Integration is
-    -- created via Appflow console or with ObjectTypeName equals _unstructured
-    -- via API\/CLI in flowDefinition
+  { -- | Boolean that shows if the Flow that\'s associated with the Integration
+    -- is created in Amazon Appflow, or with ObjectTypeName equals
+    -- _unstructured via API\/CLI in flowDefinition.
     isUnstructured :: Prelude.Maybe Prelude.Bool,
     -- | The name of the profile object type.
     objectTypeName :: Prelude.Maybe Prelude.Text,
@@ -65,9 +65,9 @@ data ListIntegrationItem = ListIntegrationItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isUnstructured', 'listIntegrationItem_isUnstructured' - Boolean to indicate if the Flow associated with the Integration is
--- created via Appflow console or with ObjectTypeName equals _unstructured
--- via API\/CLI in flowDefinition
+-- 'isUnstructured', 'listIntegrationItem_isUnstructured' - Boolean that shows if the Flow that\'s associated with the Integration
+-- is created in Amazon Appflow, or with ObjectTypeName equals
+-- _unstructured via API\/CLI in flowDefinition.
 --
 -- 'objectTypeName', 'listIntegrationItem_objectTypeName' - The name of the profile object type.
 --
@@ -118,9 +118,9 @@ newListIntegrationItem
         lastUpdatedAt = Data._Time Lens.# pLastUpdatedAt_
       }
 
--- | Boolean to indicate if the Flow associated with the Integration is
--- created via Appflow console or with ObjectTypeName equals _unstructured
--- via API\/CLI in flowDefinition
+-- | Boolean that shows if the Flow that\'s associated with the Integration
+-- is created in Amazon Appflow, or with ObjectTypeName equals
+-- _unstructured via API\/CLI in flowDefinition.
 listIntegrationItem_isUnstructured :: Lens.Lens' ListIntegrationItem (Prelude.Maybe Prelude.Bool)
 listIntegrationItem_isUnstructured = Lens.lens (\ListIntegrationItem' {isUnstructured} -> isUnstructured) (\s@ListIntegrationItem' {} a -> s {isUnstructured = a} :: ListIntegrationItem)
 
@@ -170,7 +170,8 @@ instance Data.FromJSON ListIntegrationItem where
           ListIntegrationItem'
             Prelude.<$> (x Data..:? "IsUnstructured")
             Prelude.<*> (x Data..:? "ObjectTypeName")
-            Prelude.<*> ( x Data..:? "ObjectTypeNames"
+            Prelude.<*> ( x
+                            Data..:? "ObjectTypeNames"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
@@ -183,7 +184,8 @@ instance Data.FromJSON ListIntegrationItem where
 
 instance Prelude.Hashable ListIntegrationItem where
   hashWithSalt _salt ListIntegrationItem' {..} =
-    _salt `Prelude.hashWithSalt` isUnstructured
+    _salt
+      `Prelude.hashWithSalt` isUnstructured
       `Prelude.hashWithSalt` objectTypeName
       `Prelude.hashWithSalt` objectTypeNames
       `Prelude.hashWithSalt` tags

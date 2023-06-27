@@ -45,10 +45,14 @@ library
   exposed-modules:
     Amazonka.CustomerProfiles
     Amazonka.CustomerProfiles.AddProfileKey
+    Amazonka.CustomerProfiles.CreateCalculatedAttributeDefinition
     Amazonka.CustomerProfiles.CreateDomain
+    Amazonka.CustomerProfiles.CreateEventStream
     Amazonka.CustomerProfiles.CreateIntegrationWorkflow
     Amazonka.CustomerProfiles.CreateProfile
+    Amazonka.CustomerProfiles.DeleteCalculatedAttributeDefinition
     Amazonka.CustomerProfiles.DeleteDomain
+    Amazonka.CustomerProfiles.DeleteEventStream
     Amazonka.CustomerProfiles.DeleteIntegration
     Amazonka.CustomerProfiles.DeleteProfile
     Amazonka.CustomerProfiles.DeleteProfileKey
@@ -56,7 +60,10 @@ library
     Amazonka.CustomerProfiles.DeleteProfileObjectType
     Amazonka.CustomerProfiles.DeleteWorkflow
     Amazonka.CustomerProfiles.GetAutoMergingPreview
+    Amazonka.CustomerProfiles.GetCalculatedAttributeDefinition
+    Amazonka.CustomerProfiles.GetCalculatedAttributeForProfile
     Amazonka.CustomerProfiles.GetDomain
+    Amazonka.CustomerProfiles.GetEventStream
     Amazonka.CustomerProfiles.GetIdentityResolutionJob
     Amazonka.CustomerProfiles.GetIntegration
     Amazonka.CustomerProfiles.GetMatches
@@ -66,7 +73,10 @@ library
     Amazonka.CustomerProfiles.GetWorkflowSteps
     Amazonka.CustomerProfiles.Lens
     Amazonka.CustomerProfiles.ListAccountIntegrations
+    Amazonka.CustomerProfiles.ListCalculatedAttributeDefinitions
+    Amazonka.CustomerProfiles.ListCalculatedAttributesForProfile
     Amazonka.CustomerProfiles.ListDomains
+    Amazonka.CustomerProfiles.ListEventStreams
     Amazonka.CustomerProfiles.ListIdentityResolutionJobs
     Amazonka.CustomerProfiles.ListIntegrations
     Amazonka.CustomerProfiles.ListProfileObjects
@@ -87,14 +97,22 @@ library
     Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowAttributes
     Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowMetrics
     Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowStep
+    Amazonka.CustomerProfiles.Types.AttributeDetails
+    Amazonka.CustomerProfiles.Types.AttributeItem
     Amazonka.CustomerProfiles.Types.AutoMerging
     Amazonka.CustomerProfiles.Types.Batch
+    Amazonka.CustomerProfiles.Types.Conditions
     Amazonka.CustomerProfiles.Types.ConflictResolution
     Amazonka.CustomerProfiles.Types.ConflictResolvingModel
     Amazonka.CustomerProfiles.Types.ConnectorOperator
     Amazonka.CustomerProfiles.Types.Consolidation
     Amazonka.CustomerProfiles.Types.DataPullMode
+    Amazonka.CustomerProfiles.Types.DestinationSummary
     Amazonka.CustomerProfiles.Types.DomainStats
+    Amazonka.CustomerProfiles.Types.EventStreamDestinationDetails
+    Amazonka.CustomerProfiles.Types.EventStreamDestinationStatus
+    Amazonka.CustomerProfiles.Types.EventStreamState
+    Amazonka.CustomerProfiles.Types.EventStreamSummary
     Amazonka.CustomerProfiles.Types.ExportingConfig
     Amazonka.CustomerProfiles.Types.ExportingLocation
     Amazonka.CustomerProfiles.Types.FieldContentType
@@ -109,6 +127,8 @@ library
     Amazonka.CustomerProfiles.Types.JobSchedule
     Amazonka.CustomerProfiles.Types.JobScheduleDayOfTheWeek
     Amazonka.CustomerProfiles.Types.JobStats
+    Amazonka.CustomerProfiles.Types.ListCalculatedAttributeDefinitionItem
+    Amazonka.CustomerProfiles.Types.ListCalculatedAttributeForProfileItem
     Amazonka.CustomerProfiles.Types.ListDomainItem
     Amazonka.CustomerProfiles.Types.ListIntegrationItem
     Amazonka.CustomerProfiles.Types.ListProfileObjectsItem
@@ -124,9 +144,11 @@ library
     Amazonka.CustomerProfiles.Types.ObjectFilter
     Amazonka.CustomerProfiles.Types.ObjectTypeField
     Amazonka.CustomerProfiles.Types.ObjectTypeKey
+    Amazonka.CustomerProfiles.Types.Operator
     Amazonka.CustomerProfiles.Types.OperatorPropertiesKeys
     Amazonka.CustomerProfiles.Types.PartyType
     Amazonka.CustomerProfiles.Types.Profile
+    Amazonka.CustomerProfiles.Types.Range
     Amazonka.CustomerProfiles.Types.S3ConnectorOperator
     Amazonka.CustomerProfiles.Types.S3ExportingConfig
     Amazonka.CustomerProfiles.Types.S3ExportingLocation
@@ -140,12 +162,15 @@ library
     Amazonka.CustomerProfiles.Types.SourceConnectorType
     Amazonka.CustomerProfiles.Types.SourceFlowConfig
     Amazonka.CustomerProfiles.Types.StandardIdentifier
+    Amazonka.CustomerProfiles.Types.Statistic
     Amazonka.CustomerProfiles.Types.Status
     Amazonka.CustomerProfiles.Types.Task
     Amazonka.CustomerProfiles.Types.TaskType
+    Amazonka.CustomerProfiles.Types.Threshold
     Amazonka.CustomerProfiles.Types.TriggerConfig
     Amazonka.CustomerProfiles.Types.TriggerProperties
     Amazonka.CustomerProfiles.Types.TriggerType
+    Amazonka.CustomerProfiles.Types.Unit
     Amazonka.CustomerProfiles.Types.UpdateAddress
     Amazonka.CustomerProfiles.Types.WorkflowAttributes
     Amazonka.CustomerProfiles.Types.WorkflowMetrics
@@ -154,6 +179,7 @@ library
     Amazonka.CustomerProfiles.Types.ZendeskConnectorOperator
     Amazonka.CustomerProfiles.Types.ZendeskSourceProperties
     Amazonka.CustomerProfiles.UntagResource
+    Amazonka.CustomerProfiles.UpdateCalculatedAttributeDefinition
     Amazonka.CustomerProfiles.UpdateDomain
     Amazonka.CustomerProfiles.UpdateProfile
     Amazonka.CustomerProfiles.Waiters

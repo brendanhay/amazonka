@@ -134,7 +134,8 @@ instance Data.FromJSON Cors where
 
 instance Prelude.Hashable Cors where
   hashWithSalt _salt Cors' {..} =
-    _salt `Prelude.hashWithSalt` allowCredentials
+    _salt
+      `Prelude.hashWithSalt` allowCredentials
       `Prelude.hashWithSalt` allowHeaders
       `Prelude.hashWithSalt` allowMethods
       `Prelude.hashWithSalt` allowOrigins

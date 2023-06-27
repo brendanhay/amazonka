@@ -107,20 +107,22 @@ instance Core.AWSPager GetAuthorizers where
     | Core.stop
         ( rs
             Lens.^? getAuthorizersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getAuthorizersResponse_items Prelude.. Lens._Just
+            Lens.^? getAuthorizersResponse_items
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getAuthorizers_nextToken
           Lens..~ rs
-          Lens.^? getAuthorizersResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getAuthorizersResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetAuthorizers where
   type
@@ -139,7 +141,8 @@ instance Core.AWSRequest GetAuthorizers where
 
 instance Prelude.Hashable GetAuthorizers where
   hashWithSalt _salt GetAuthorizers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` apiId
 

@@ -110,7 +110,8 @@ instance Core.AWSRequest DeleteRouteSettings where
 
 instance Prelude.Hashable DeleteRouteSettings where
   hashWithSalt _salt DeleteRouteSettings' {..} =
-    _salt `Prelude.hashWithSalt` stageName
+    _salt
+      `Prelude.hashWithSalt` stageName
       `Prelude.hashWithSalt` routeKey
       `Prelude.hashWithSalt` apiId
 

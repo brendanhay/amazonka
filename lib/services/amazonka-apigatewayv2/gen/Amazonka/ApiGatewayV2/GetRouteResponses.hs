@@ -119,21 +119,22 @@ instance Core.AWSPager GetRouteResponses where
     | Core.stop
         ( rs
             Lens.^? getRouteResponsesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getRouteResponsesResponse_items Prelude.. Lens._Just
+            Lens.^? getRouteResponsesResponse_items
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getRouteResponses_nextToken
           Lens..~ rs
           Lens.^? getRouteResponsesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetRouteResponses where
   type
@@ -152,7 +153,8 @@ instance Core.AWSRequest GetRouteResponses where
 
 instance Prelude.Hashable GetRouteResponses where
   hashWithSalt _salt GetRouteResponses' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` routeId
       `Prelude.hashWithSalt` apiId

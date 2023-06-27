@@ -120,7 +120,8 @@ instance Core.AWSRequest GetRouteResponse where
           GetRouteResponseResponse'
             Prelude.<$> (x Data..?> "modelSelectionExpression")
             Prelude.<*> (x Data..?> "responseModels" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "responseParameters"
+            Prelude.<*> ( x
+                            Data..?> "responseParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "routeResponseId")
@@ -130,7 +131,8 @@ instance Core.AWSRequest GetRouteResponse where
 
 instance Prelude.Hashable GetRouteResponse where
   hashWithSalt _salt GetRouteResponse' {..} =
-    _salt `Prelude.hashWithSalt` routeResponseId
+    _salt
+      `Prelude.hashWithSalt` routeResponseId
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` routeId
 

@@ -274,7 +274,8 @@ instance Data.FromJSON Api where
 
 instance Prelude.Hashable Api where
   hashWithSalt _salt Api' {..} =
-    _salt `Prelude.hashWithSalt` apiEndpoint
+    _salt
+      `Prelude.hashWithSalt` apiEndpoint
       `Prelude.hashWithSalt` apiGatewayManaged
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` apiKeySelectionExpression

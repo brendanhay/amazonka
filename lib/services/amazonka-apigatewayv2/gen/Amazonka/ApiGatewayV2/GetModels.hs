@@ -106,20 +106,23 @@ instance Core.AWSPager GetModels where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getModelsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getModelsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getModelsResponse_items Prelude.. Lens._Just
+            Lens.^? getModelsResponse_items
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getModels_nextToken
           Lens..~ rs
-          Lens.^? getModelsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getModelsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetModels where
   type AWSResponse GetModels = GetModelsResponse
@@ -136,7 +139,8 @@ instance Core.AWSRequest GetModels where
 
 instance Prelude.Hashable GetModels where
   hashWithSalt _salt GetModels' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` apiId
 

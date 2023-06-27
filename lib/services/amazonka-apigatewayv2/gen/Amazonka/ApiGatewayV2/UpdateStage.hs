@@ -228,7 +228,8 @@ instance Core.AWSRequest UpdateStage where
 
 instance Prelude.Hashable UpdateStage where
   hashWithSalt _salt UpdateStage' {..} =
-    _salt `Prelude.hashWithSalt` accessLogSettings
+    _salt
+      `Prelude.hashWithSalt` accessLogSettings
       `Prelude.hashWithSalt` autoDeploy
       `Prelude.hashWithSalt` clientCertificateId
       `Prelude.hashWithSalt` defaultRouteSettings

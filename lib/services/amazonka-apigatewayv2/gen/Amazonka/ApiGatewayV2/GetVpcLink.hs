@@ -92,7 +92,8 @@ instance Core.AWSRequest GetVpcLink where
           GetVpcLinkResponse'
             Prelude.<$> (x Data..?> "createdDate")
             Prelude.<*> (x Data..?> "name")
-            Prelude.<*> ( x Data..?> "securityGroupIds"
+            Prelude.<*> ( x
+                            Data..?> "securityGroupIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "subnetIds" Core..!@ Prelude.mempty)

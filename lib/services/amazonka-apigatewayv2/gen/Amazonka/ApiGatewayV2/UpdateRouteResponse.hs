@@ -165,7 +165,8 @@ instance Core.AWSRequest UpdateRouteResponse where
           UpdateRouteResponseResponse'
             Prelude.<$> (x Data..?> "modelSelectionExpression")
             Prelude.<*> (x Data..?> "responseModels" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "responseParameters"
+            Prelude.<*> ( x
+                            Data..?> "responseParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "routeResponseId")

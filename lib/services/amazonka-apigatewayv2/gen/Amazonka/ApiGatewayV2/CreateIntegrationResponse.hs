@@ -244,10 +244,12 @@ instance Core.AWSRequest CreateIntegrationResponse where
             Prelude.<$> (x Data..?> "contentHandlingStrategy")
             Prelude.<*> (x Data..?> "integrationResponseId")
             Prelude.<*> (x Data..?> "integrationResponseKey")
-            Prelude.<*> ( x Data..?> "responseParameters"
+            Prelude.<*> ( x
+                            Data..?> "responseParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "responseTemplates"
+            Prelude.<*> ( x
+                            Data..?> "responseTemplates"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "templateSelectionExpression")

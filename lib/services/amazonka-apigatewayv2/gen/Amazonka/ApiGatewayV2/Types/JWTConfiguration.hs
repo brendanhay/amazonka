@@ -93,7 +93,8 @@ instance Data.FromJSON JWTConfiguration where
 
 instance Prelude.Hashable JWTConfiguration where
   hashWithSalt _salt JWTConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` audience
+    _salt
+      `Prelude.hashWithSalt` audience
       `Prelude.hashWithSalt` issuer
 
 instance Prelude.NFData JWTConfiguration where

@@ -107,7 +107,8 @@ instance Core.AWSRequest GetModel where
 
 instance Prelude.Hashable GetModel where
   hashWithSalt _salt GetModel' {..} =
-    _salt `Prelude.hashWithSalt` modelId
+    _salt
+      `Prelude.hashWithSalt` modelId
       `Prelude.hashWithSalt` apiId
 
 instance Prelude.NFData GetModel where

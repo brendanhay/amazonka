@@ -134,7 +134,8 @@ instance Core.AWSRequest CreateApiMapping where
 
 instance Prelude.Hashable CreateApiMapping where
   hashWithSalt _salt CreateApiMapping' {..} =
-    _salt `Prelude.hashWithSalt` apiMappingKey
+    _salt
+      `Prelude.hashWithSalt` apiMappingKey
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` stage
       `Prelude.hashWithSalt` apiId

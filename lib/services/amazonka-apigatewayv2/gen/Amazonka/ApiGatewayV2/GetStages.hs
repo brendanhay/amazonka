@@ -106,20 +106,23 @@ instance Core.AWSPager GetStages where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getStagesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getStagesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getStagesResponse_items Prelude.. Lens._Just
+            Lens.^? getStagesResponse_items
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getStages_nextToken
           Lens..~ rs
-          Lens.^? getStagesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getStagesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetStages where
   type AWSResponse GetStages = GetStagesResponse
@@ -136,7 +139,8 @@ instance Core.AWSRequest GetStages where
 
 instance Prelude.Hashable GetStages where
   hashWithSalt _salt GetStages' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` apiId
 

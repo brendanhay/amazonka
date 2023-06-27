@@ -124,7 +124,8 @@ instance Core.AWSRequest CreateDeployment where
 
 instance Prelude.Hashable CreateDeployment where
   hashWithSalt _salt CreateDeployment' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` stageName
       `Prelude.hashWithSalt` apiId
 

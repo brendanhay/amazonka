@@ -235,7 +235,8 @@ instance Core.AWSRequest CreateStage where
 
 instance Prelude.Hashable CreateStage where
   hashWithSalt _salt CreateStage' {..} =
-    _salt `Prelude.hashWithSalt` accessLogSettings
+    _salt
+      `Prelude.hashWithSalt` accessLogSettings
       `Prelude.hashWithSalt` autoDeploy
       `Prelude.hashWithSalt` clientCertificateId
       `Prelude.hashWithSalt` defaultRouteSettings

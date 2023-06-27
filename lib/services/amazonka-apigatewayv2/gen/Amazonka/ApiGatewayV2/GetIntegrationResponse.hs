@@ -121,10 +121,12 @@ instance Core.AWSRequest GetIntegrationResponse where
             Prelude.<$> (x Data..?> "contentHandlingStrategy")
             Prelude.<*> (x Data..?> "integrationResponseId")
             Prelude.<*> (x Data..?> "integrationResponseKey")
-            Prelude.<*> ( x Data..?> "responseParameters"
+            Prelude.<*> ( x
+                            Data..?> "responseParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "responseTemplates"
+            Prelude.<*> ( x
+                            Data..?> "responseTemplates"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "templateSelectionExpression")
@@ -133,7 +135,8 @@ instance Core.AWSRequest GetIntegrationResponse where
 
 instance Prelude.Hashable GetIntegrationResponse where
   hashWithSalt _salt GetIntegrationResponse' {..} =
-    _salt `Prelude.hashWithSalt` apiId
+    _salt
+      `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` integrationResponseId
       `Prelude.hashWithSalt` integrationId
 

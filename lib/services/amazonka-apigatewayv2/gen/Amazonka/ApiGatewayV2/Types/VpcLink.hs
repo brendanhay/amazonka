@@ -143,7 +143,8 @@ instance Data.FromJSON VpcLink where
             Prelude.<*> (x Data..:? "vpcLinkStatusMessage")
             Prelude.<*> (x Data..:? "vpcLinkVersion")
             Prelude.<*> (x Data..: "vpcLinkId")
-            Prelude.<*> ( x Data..:? "securityGroupIds"
+            Prelude.<*> ( x
+                            Data..:? "securityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "subnetIds" Data..!= Prelude.mempty)
@@ -152,7 +153,8 @@ instance Data.FromJSON VpcLink where
 
 instance Prelude.Hashable VpcLink where
   hashWithSalt _salt VpcLink' {..} =
-    _salt `Prelude.hashWithSalt` createdDate
+    _salt
+      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vpcLinkStatus
       `Prelude.hashWithSalt` vpcLinkStatusMessage

@@ -131,7 +131,8 @@ instance Core.AWSRequest UpdateApplication where
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =
-    _salt `Prelude.hashWithSalt` applicationDescription
+    _salt
+      `Prelude.hashWithSalt` applicationDescription
       `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` applicationId

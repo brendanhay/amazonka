@@ -72,7 +72,7 @@ data CreateApplication = CreateApplication'
     -- with AWS IoT Core.
     --
     -- The name of the role must be in the form
-    -- @AWSIotFleetHub_random_string @.
+    -- @AWSIotFleetHub_@/@random_string@/@ @.
     roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -100,7 +100,7 @@ data CreateApplication = CreateApplication'
 -- with AWS IoT Core.
 --
 -- The name of the role must be in the form
--- @AWSIotFleetHub_random_string @.
+-- @AWSIotFleetHub_@/@random_string@/@ @.
 newCreateApplication ::
   -- | 'applicationName'
   Prelude.Text ->
@@ -140,7 +140,7 @@ createApplication_applicationName = Lens.lens (\CreateApplication' {applicationN
 -- with AWS IoT Core.
 --
 -- The name of the role must be in the form
--- @AWSIotFleetHub_random_string @.
+-- @AWSIotFleetHub_@/@random_string@/@ @.
 createApplication_roleArn :: Lens.Lens' CreateApplication Prelude.Text
 createApplication_roleArn = Lens.lens (\CreateApplication' {roleArn} -> roleArn) (\s@CreateApplication' {} a -> s {roleArn = a} :: CreateApplication)
 
@@ -161,7 +161,8 @@ instance Core.AWSRequest CreateApplication where
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
-    _salt `Prelude.hashWithSalt` applicationDescription
+    _salt
+      `Prelude.hashWithSalt` applicationDescription
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` applicationName

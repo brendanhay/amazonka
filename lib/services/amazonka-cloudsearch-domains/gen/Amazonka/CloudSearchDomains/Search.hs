@@ -213,7 +213,7 @@ data Search = Search'
     -- For example, the following request retrieves highlights for the @actors@
     -- and @title@ fields.
     --
-    -- @{ \"actors\": {}, \"title\": {\"format\": \"text\",\"max_phrases\": 2,\"pre_tag\": \"\",\"post_tag\": \"\"} }@
+    -- @{ \"actors\": {}, \"title\": {\"format\": \"text\",\"max_phrases\": 2,\"pre_tag\": \"@__@\",\"post_tag\": \"@__@\"} }@
     highlight :: Prelude.Maybe Prelude.Text,
     -- | Enables partial results to be returned if one or more index partitions
     -- are unavailable. When your search index is partitioned across multiple
@@ -542,7 +542,7 @@ data Search = Search'
 -- For example, the following request retrieves highlights for the @actors@
 -- and @title@ fields.
 --
--- @{ \"actors\": {}, \"title\": {\"format\": \"text\",\"max_phrases\": 2,\"pre_tag\": \"\",\"post_tag\": \"\"} }@
+-- @{ \"actors\": {}, \"title\": {\"format\": \"text\",\"max_phrases\": 2,\"pre_tag\": \"@__@\",\"post_tag\": \"@__@\"} }@
 --
 -- 'partial', 'search_partial' - Enables partial results to be returned if one or more index partitions
 -- are unavailable. When your search index is partitioned across multiple
@@ -889,7 +889,7 @@ search_filterQuery = Lens.lens (\Search' {filterQuery} -> filterQuery) (\s@Searc
 -- For example, the following request retrieves highlights for the @actors@
 -- and @title@ fields.
 --
--- @{ \"actors\": {}, \"title\": {\"format\": \"text\",\"max_phrases\": 2,\"pre_tag\": \"\",\"post_tag\": \"\"} }@
+-- @{ \"actors\": {}, \"title\": {\"format\": \"text\",\"max_phrases\": 2,\"pre_tag\": \"@__@\",\"post_tag\": \"@__@\"} }@
 search_highlight :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
 search_highlight = Lens.lens (\Search' {highlight} -> highlight) (\s@Search' {} a -> s {highlight = a} :: Search)
 
@@ -1122,7 +1122,8 @@ instance Core.AWSRequest Search where
 
 instance Prelude.Hashable Search where
   hashWithSalt _salt Search' {..} =
-    _salt `Prelude.hashWithSalt` cursor
+    _salt
+      `Prelude.hashWithSalt` cursor
       `Prelude.hashWithSalt` expr
       `Prelude.hashWithSalt` facet
       `Prelude.hashWithSalt` filterQuery

@@ -134,7 +134,8 @@ instance Core.AWSRequest Suggest where
 
 instance Prelude.Hashable Suggest where
   hashWithSalt _salt Suggest' {..} =
-    _salt `Prelude.hashWithSalt` size
+    _salt
+      `Prelude.hashWithSalt` size
       `Prelude.hashWithSalt` query
       `Prelude.hashWithSalt` suggester
 

@@ -112,7 +112,8 @@ autoScalingUpdate_scaleOutPolicy = Lens.lens (\AutoScalingUpdate' {scaleOutPolic
 
 instance Prelude.Hashable AutoScalingUpdate where
   hashWithSalt _salt AutoScalingUpdate' {..} =
-    _salt `Prelude.hashWithSalt` maxWorkerCount
+    _salt
+      `Prelude.hashWithSalt` maxWorkerCount
       `Prelude.hashWithSalt` mcuCount
       `Prelude.hashWithSalt` minWorkerCount
       `Prelude.hashWithSalt` scaleInPolicy

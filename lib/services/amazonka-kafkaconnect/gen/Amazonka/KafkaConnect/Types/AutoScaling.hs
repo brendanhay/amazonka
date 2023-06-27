@@ -105,7 +105,8 @@ autoScaling_minWorkerCount = Lens.lens (\AutoScaling' {minWorkerCount} -> minWor
 
 instance Prelude.Hashable AutoScaling where
   hashWithSalt _salt AutoScaling' {..} =
-    _salt `Prelude.hashWithSalt` scaleInPolicy
+    _salt
+      `Prelude.hashWithSalt` scaleInPolicy
       `Prelude.hashWithSalt` scaleOutPolicy
       `Prelude.hashWithSalt` maxWorkerCount
       `Prelude.hashWithSalt` mcuCount

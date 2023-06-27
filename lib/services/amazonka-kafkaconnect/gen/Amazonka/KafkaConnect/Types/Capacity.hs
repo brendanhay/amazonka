@@ -67,7 +67,8 @@ capacity_provisionedCapacity = Lens.lens (\Capacity' {provisionedCapacity} -> pr
 
 instance Prelude.Hashable Capacity where
   hashWithSalt _salt Capacity' {..} =
-    _salt `Prelude.hashWithSalt` autoScaling
+    _salt
+      `Prelude.hashWithSalt` autoScaling
       `Prelude.hashWithSalt` provisionedCapacity
 
 instance Prelude.NFData Capacity where

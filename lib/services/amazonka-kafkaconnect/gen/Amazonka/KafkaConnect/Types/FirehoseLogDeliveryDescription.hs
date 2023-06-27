@@ -87,7 +87,8 @@ instance
   hashWithSalt
     _salt
     FirehoseLogDeliveryDescription' {..} =
-      _salt `Prelude.hashWithSalt` deliveryStream
+      _salt
+        `Prelude.hashWithSalt` deliveryStream
         `Prelude.hashWithSalt` enabled
 
 instance

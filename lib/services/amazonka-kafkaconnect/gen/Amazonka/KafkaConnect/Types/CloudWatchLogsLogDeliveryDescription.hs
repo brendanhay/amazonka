@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     CloudWatchLogsLogDeliveryDescription' {..} =
-      _salt `Prelude.hashWithSalt` enabled
+      _salt
+        `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` logGroup
 
 instance

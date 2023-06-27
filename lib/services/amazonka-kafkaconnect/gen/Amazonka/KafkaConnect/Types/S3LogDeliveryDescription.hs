@@ -87,7 +87,8 @@ instance Data.FromJSON S3LogDeliveryDescription where
 
 instance Prelude.Hashable S3LogDeliveryDescription where
   hashWithSalt _salt S3LogDeliveryDescription' {..} =
-    _salt `Prelude.hashWithSalt` bucket
+    _salt
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` prefix
 

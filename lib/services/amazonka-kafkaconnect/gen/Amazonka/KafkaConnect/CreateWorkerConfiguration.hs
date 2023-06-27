@@ -124,7 +124,8 @@ instance Core.AWSRequest CreateWorkerConfiguration where
 
 instance Prelude.Hashable CreateWorkerConfiguration where
   hashWithSalt _salt CreateWorkerConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` propertiesFileContent
 

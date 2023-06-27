@@ -112,21 +112,22 @@ instance Core.AWSPager ListConnectors where
     | Core.stop
         ( rs
             Lens.^? listConnectorsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listConnectorsResponse_connectors
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listConnectors_nextToken
           Lens..~ rs
-          Lens.^? listConnectorsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listConnectorsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListConnectors where
   type
@@ -145,7 +146,8 @@ instance Core.AWSRequest ListConnectors where
 
 instance Prelude.Hashable ListConnectors where
   hashWithSalt _salt ListConnectors' {..} =
-    _salt `Prelude.hashWithSalt` connectorNamePrefix
+    _salt
+      `Prelude.hashWithSalt` connectorNamePrefix
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

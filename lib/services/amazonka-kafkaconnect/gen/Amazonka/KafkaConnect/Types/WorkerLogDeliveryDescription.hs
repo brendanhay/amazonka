@@ -92,7 +92,8 @@ instance
     WorkerLogDeliveryDescription
   where
   hashWithSalt _salt WorkerLogDeliveryDescription' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogs
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogs
       `Prelude.hashWithSalt` firehose
       `Prelude.hashWithSalt` s3
 

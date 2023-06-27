@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJobDetails' smart constructor.
 data JobDetails = JobDetails'
-  { -- | The AWS account ID associated with the job.
+  { -- | The Amazon Web Services account ID associated with the job.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | Represents other information about a job required for a job worker to
     -- complete the job.
@@ -47,7 +47,7 @@ data JobDetails = JobDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'jobDetails_accountId' - The AWS account ID associated with the job.
+-- 'accountId', 'jobDetails_accountId' - The Amazon Web Services account ID associated with the job.
 --
 -- 'data'', 'jobDetails_data' - Represents other information about a job required for a job worker to
 -- complete the job.
@@ -62,7 +62,7 @@ newJobDetails =
       id = Prelude.Nothing
     }
 
--- | The AWS account ID associated with the job.
+-- | The Amazon Web Services account ID associated with the job.
 jobDetails_accountId :: Lens.Lens' JobDetails (Prelude.Maybe Prelude.Text)
 jobDetails_accountId = Lens.lens (\JobDetails' {accountId} -> accountId) (\s@JobDetails' {} a -> s {accountId = a} :: JobDetails)
 
@@ -88,7 +88,8 @@ instance Data.FromJSON JobDetails where
 
 instance Prelude.Hashable JobDetails where
   hashWithSalt _salt JobDetails' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` id
 

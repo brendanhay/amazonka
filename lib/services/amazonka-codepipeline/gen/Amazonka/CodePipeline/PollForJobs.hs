@@ -20,15 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about any jobs for AWS CodePipeline to act on.
+-- Returns information about any jobs for CodePipeline to act on.
 -- @PollForJobs@ is valid only for action types with \"Custom\" in the
--- owner field. If the action type contains \"AWS\" or \"ThirdParty\" in
--- the owner field, the @PollForJobs@ action returns an error.
+-- owner field. If the action type contains @AWS@ or @ThirdParty@ in the
+-- owner field, the @PollForJobs@ action returns an error.
 --
--- When this API is called, AWS CodePipeline returns temporary credentials
--- for the S3 bucket used to store artifacts for the pipeline, if the
--- action requires access to that S3 bucket for input or output artifacts.
--- This API also returns any secret values defined for the action.
+-- When this API is called, CodePipeline returns temporary credentials for
+-- the S3 bucket used to store artifacts for the pipeline, if the action
+-- requires access to that S3 bucket for input or output artifacts. This
+-- API also returns any secret values defined for the action.
 module Amazonka.CodePipeline.PollForJobs
   ( -- * Creating a Request
     PollForJobs (..),
@@ -132,7 +132,8 @@ instance Core.AWSRequest PollForJobs where
 
 instance Prelude.Hashable PollForJobs where
   hashWithSalt _salt PollForJobs' {..} =
-    _salt `Prelude.hashWithSalt` maxBatchSize
+    _salt
+      `Prelude.hashWithSalt` maxBatchSize
       `Prelude.hashWithSalt` queryParam
       `Prelude.hashWithSalt` actionTypeId
 

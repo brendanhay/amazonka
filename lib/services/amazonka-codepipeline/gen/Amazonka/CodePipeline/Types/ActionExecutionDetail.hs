@@ -168,7 +168,8 @@ instance Data.FromJSON ActionExecutionDetail where
 
 instance Prelude.Hashable ActionExecutionDetail where
   hashWithSalt _salt ActionExecutionDetail' {..} =
-    _salt `Prelude.hashWithSalt` actionExecutionId
+    _salt
+      `Prelude.hashWithSalt` actionExecutionId
       `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` input
       `Prelude.hashWithSalt` lastUpdateTime

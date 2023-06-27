@@ -568,6 +568,7 @@ module Amazonka.CodePipeline.Lens
     -- ** PipelineMetadata
     pipelineMetadata_created,
     pipelineMetadata_pipelineArn,
+    pipelineMetadata_pollingDisabledAt,
     pipelineMetadata_updated,
 
     -- ** PipelineSummary

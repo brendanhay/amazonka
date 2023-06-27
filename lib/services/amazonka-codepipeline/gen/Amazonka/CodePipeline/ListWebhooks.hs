@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a listing of all the webhooks in this AWS Region for this account.
--- The output lists all webhooks and includes the webhook URL and ARN and
--- the configuration for each webhook.
+-- Gets a listing of all the webhooks in this Amazon Web Services Region
+-- for this account. The output lists all webhooks and includes the webhook
+-- URL and ARN and the configuration for each webhook.
 --
 -- This operation returns paginated results.
 module Amazonka.CodePipeline.ListWebhooks
@@ -102,20 +102,23 @@ instance Core.AWSPager ListWebhooks where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listWebhooksResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listWebhooksResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listWebhooksResponse_webhooks Prelude.. Lens._Just
+            Lens.^? listWebhooksResponse_webhooks
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listWebhooks_nextToken
           Lens..~ rs
-          Lens.^? listWebhooksResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listWebhooksResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWebhooks where
   type AWSResponse ListWebhooks = ListWebhooksResponse
@@ -132,7 +135,8 @@ instance Core.AWSRequest ListWebhooks where
 
 instance Prelude.Hashable ListWebhooks where
   hashWithSalt _salt ListWebhooks' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListWebhooks where

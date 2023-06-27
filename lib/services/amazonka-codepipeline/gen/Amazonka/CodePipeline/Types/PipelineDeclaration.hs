@@ -38,9 +38,9 @@ data PipelineDeclaration = PipelineDeclaration'
     -- pipeline, but you cannot use both. If you create a cross-region action
     -- in your pipeline, you must use @artifactStores@.
     artifactStore :: Prelude.Maybe ArtifactStore,
-    -- | A mapping of @artifactStore@ objects and their corresponding AWS
-    -- Regions. There must be an artifact store for the pipeline Region and for
-    -- each cross-region action in the pipeline.
+    -- | A mapping of @artifactStore@ objects and their corresponding Amazon Web
+    -- Services Regions. There must be an artifact store for the pipeline
+    -- Region and for each cross-region action in the pipeline.
     --
     -- You must include either @artifactStore@ or @artifactStores@ in your
     -- pipeline, but you cannot use both. If you create a cross-region action
@@ -51,9 +51,9 @@ data PipelineDeclaration = PipelineDeclaration'
     version :: Prelude.Maybe Prelude.Natural,
     -- | The name of the pipeline.
     name :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for AWS CodePipeline to use to either
-    -- perform actions with no @actionRoleArn@, or to use to assume roles for
-    -- actions with an @actionRoleArn@.
+    -- | The Amazon Resource Name (ARN) for CodePipeline to use to either perform
+    -- actions with no @actionRoleArn@, or to use to assume roles for actions
+    -- with an @actionRoleArn@.
     roleArn :: Prelude.Text,
     -- | The stage in which to perform the action.
     stages :: [StageDeclaration]
@@ -75,9 +75,9 @@ data PipelineDeclaration = PipelineDeclaration'
 -- pipeline, but you cannot use both. If you create a cross-region action
 -- in your pipeline, you must use @artifactStores@.
 --
--- 'artifactStores', 'pipelineDeclaration_artifactStores' - A mapping of @artifactStore@ objects and their corresponding AWS
--- Regions. There must be an artifact store for the pipeline Region and for
--- each cross-region action in the pipeline.
+-- 'artifactStores', 'pipelineDeclaration_artifactStores' - A mapping of @artifactStore@ objects and their corresponding Amazon Web
+-- Services Regions. There must be an artifact store for the pipeline
+-- Region and for each cross-region action in the pipeline.
 --
 -- You must include either @artifactStore@ or @artifactStores@ in your
 -- pipeline, but you cannot use both. If you create a cross-region action
@@ -88,9 +88,9 @@ data PipelineDeclaration = PipelineDeclaration'
 --
 -- 'name', 'pipelineDeclaration_name' - The name of the pipeline.
 --
--- 'roleArn', 'pipelineDeclaration_roleArn' - The Amazon Resource Name (ARN) for AWS CodePipeline to use to either
--- perform actions with no @actionRoleArn@, or to use to assume roles for
--- actions with an @actionRoleArn@.
+-- 'roleArn', 'pipelineDeclaration_roleArn' - The Amazon Resource Name (ARN) for CodePipeline to use to either perform
+-- actions with no @actionRoleArn@, or to use to assume roles for actions
+-- with an @actionRoleArn@.
 --
 -- 'stages', 'pipelineDeclaration_stages' - The stage in which to perform the action.
 newPipelineDeclaration ::
@@ -119,9 +119,9 @@ newPipelineDeclaration pName_ pRoleArn_ =
 pipelineDeclaration_artifactStore :: Lens.Lens' PipelineDeclaration (Prelude.Maybe ArtifactStore)
 pipelineDeclaration_artifactStore = Lens.lens (\PipelineDeclaration' {artifactStore} -> artifactStore) (\s@PipelineDeclaration' {} a -> s {artifactStore = a} :: PipelineDeclaration)
 
--- | A mapping of @artifactStore@ objects and their corresponding AWS
--- Regions. There must be an artifact store for the pipeline Region and for
--- each cross-region action in the pipeline.
+-- | A mapping of @artifactStore@ objects and their corresponding Amazon Web
+-- Services Regions. There must be an artifact store for the pipeline
+-- Region and for each cross-region action in the pipeline.
 --
 -- You must include either @artifactStore@ or @artifactStores@ in your
 -- pipeline, but you cannot use both. If you create a cross-region action
@@ -138,9 +138,9 @@ pipelineDeclaration_version = Lens.lens (\PipelineDeclaration' {version} -> vers
 pipelineDeclaration_name :: Lens.Lens' PipelineDeclaration Prelude.Text
 pipelineDeclaration_name = Lens.lens (\PipelineDeclaration' {name} -> name) (\s@PipelineDeclaration' {} a -> s {name = a} :: PipelineDeclaration)
 
--- | The Amazon Resource Name (ARN) for AWS CodePipeline to use to either
--- perform actions with no @actionRoleArn@, or to use to assume roles for
--- actions with an @actionRoleArn@.
+-- | The Amazon Resource Name (ARN) for CodePipeline to use to either perform
+-- actions with no @actionRoleArn@, or to use to assume roles for actions
+-- with an @actionRoleArn@.
 pipelineDeclaration_roleArn :: Lens.Lens' PipelineDeclaration Prelude.Text
 pipelineDeclaration_roleArn = Lens.lens (\PipelineDeclaration' {roleArn} -> roleArn) (\s@PipelineDeclaration' {} a -> s {roleArn = a} :: PipelineDeclaration)
 
@@ -164,7 +164,8 @@ instance Data.FromJSON PipelineDeclaration where
 
 instance Prelude.Hashable PipelineDeclaration where
   hashWithSalt _salt PipelineDeclaration' {..} =
-    _salt `Prelude.hashWithSalt` artifactStore
+    _salt
+      `Prelude.hashWithSalt` artifactStore
       `Prelude.hashWithSalt` artifactStores
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` name

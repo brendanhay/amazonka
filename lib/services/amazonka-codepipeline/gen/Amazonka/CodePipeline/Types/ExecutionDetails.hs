@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newExecutionDetails' smart constructor.
 data ExecutionDetails = ExecutionDetails'
   { -- | The system-generated unique ID of this action used to identify this job
-    -- worker in any external systems, such as AWS CodeDeploy.
+    -- worker in any external systems, such as CodeDeploy.
     externalExecutionId :: Prelude.Maybe Prelude.Text,
     -- | The percentage of work completed on the action, represented on a scale
     -- of 0 to 100 percent.
@@ -49,7 +49,7 @@ data ExecutionDetails = ExecutionDetails'
 -- for backwards compatibility:
 --
 -- 'externalExecutionId', 'executionDetails_externalExecutionId' - The system-generated unique ID of this action used to identify this job
--- worker in any external systems, such as AWS CodeDeploy.
+-- worker in any external systems, such as CodeDeploy.
 --
 -- 'percentComplete', 'executionDetails_percentComplete' - The percentage of work completed on the action, represented on a scale
 -- of 0 to 100 percent.
@@ -66,7 +66,7 @@ newExecutionDetails =
     }
 
 -- | The system-generated unique ID of this action used to identify this job
--- worker in any external systems, such as AWS CodeDeploy.
+-- worker in any external systems, such as CodeDeploy.
 executionDetails_externalExecutionId :: Lens.Lens' ExecutionDetails (Prelude.Maybe Prelude.Text)
 executionDetails_externalExecutionId = Lens.lens (\ExecutionDetails' {externalExecutionId} -> externalExecutionId) (\s@ExecutionDetails' {} a -> s {externalExecutionId = a} :: ExecutionDetails)
 
@@ -81,7 +81,8 @@ executionDetails_summary = Lens.lens (\ExecutionDetails' {summary} -> summary) (
 
 instance Prelude.Hashable ExecutionDetails where
   hashWithSalt _salt ExecutionDetails' {..} =
-    _salt `Prelude.hashWithSalt` externalExecutionId
+    _salt
+      `Prelude.hashWithSalt` externalExecutionId
       `Prelude.hashWithSalt` percentComplete
       `Prelude.hashWithSalt` summary
 

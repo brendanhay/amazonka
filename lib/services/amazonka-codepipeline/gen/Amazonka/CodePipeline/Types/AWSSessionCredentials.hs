@@ -24,10 +24,11 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Represents an AWS session credentials object. These credentials are
--- temporary credentials that are issued by AWS Secure Token Service (STS).
--- They can be used to access input and output artifacts in the S3 bucket
--- used to store artifact for the pipeline in AWS CodePipeline.
+-- | Represents an Amazon Web Services session credentials object. These
+-- credentials are temporary credentials that are issued by Amazon Web
+-- Services Secure Token Service (STS). They can be used to access input
+-- and output artifacts in the S3 bucket used to store artifact for the
+-- pipeline in CodePipeline.
 --
 -- /See:/ 'newAWSSessionCredentials' smart constructor.
 data AWSSessionCredentials = AWSSessionCredentials'
@@ -98,7 +99,8 @@ instance Data.FromJSON AWSSessionCredentials where
 
 instance Prelude.Hashable AWSSessionCredentials where
   hashWithSalt _salt AWSSessionCredentials' {..} =
-    _salt `Prelude.hashWithSalt` accessKeyId
+    _salt
+      `Prelude.hashWithSalt` accessKeyId
       `Prelude.hashWithSalt` secretAccessKey
       `Prelude.hashWithSalt` sessionToken
 

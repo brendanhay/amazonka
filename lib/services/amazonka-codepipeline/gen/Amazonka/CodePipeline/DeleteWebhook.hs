@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a previously created webhook by name. Deleting the webhook stops
--- AWS CodePipeline from starting a pipeline every time an external event
+-- CodePipeline from starting a pipeline every time an external event
 -- occurs. The API returns successfully when trying to delete a webhook
 -- that is already deleted. If a deleted webhook is re-created by calling
 -- PutWebhook with the same name, it will have a different URL.

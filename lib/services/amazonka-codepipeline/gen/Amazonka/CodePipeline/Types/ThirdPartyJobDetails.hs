@@ -32,11 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 data ThirdPartyJobDetails = ThirdPartyJobDetails'
   { -- | The data to be returned by the third party job worker.
     data' :: Prelude.Maybe ThirdPartyJobData,
-    -- | The identifier used to identify the job details in AWS CodePipeline.
+    -- | The identifier used to identify the job details in CodePipeline.
     id :: Prelude.Maybe Prelude.Text,
-    -- | A system-generated random number that AWS CodePipeline uses to ensure
-    -- that the job is being worked on by only one job worker. Use this number
-    -- in an AcknowledgeThirdPartyJob request.
+    -- | A system-generated random number that CodePipeline uses to ensure that
+    -- the job is being worked on by only one job worker. Use this number in an
+    -- AcknowledgeThirdPartyJob request.
     nonce :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -51,11 +51,11 @@ data ThirdPartyJobDetails = ThirdPartyJobDetails'
 --
 -- 'data'', 'thirdPartyJobDetails_data' - The data to be returned by the third party job worker.
 --
--- 'id', 'thirdPartyJobDetails_id' - The identifier used to identify the job details in AWS CodePipeline.
+-- 'id', 'thirdPartyJobDetails_id' - The identifier used to identify the job details in CodePipeline.
 --
--- 'nonce', 'thirdPartyJobDetails_nonce' - A system-generated random number that AWS CodePipeline uses to ensure
--- that the job is being worked on by only one job worker. Use this number
--- in an AcknowledgeThirdPartyJob request.
+-- 'nonce', 'thirdPartyJobDetails_nonce' - A system-generated random number that CodePipeline uses to ensure that
+-- the job is being worked on by only one job worker. Use this number in an
+-- AcknowledgeThirdPartyJob request.
 newThirdPartyJobDetails ::
   ThirdPartyJobDetails
 newThirdPartyJobDetails =
@@ -69,13 +69,13 @@ newThirdPartyJobDetails =
 thirdPartyJobDetails_data :: Lens.Lens' ThirdPartyJobDetails (Prelude.Maybe ThirdPartyJobData)
 thirdPartyJobDetails_data = Lens.lens (\ThirdPartyJobDetails' {data'} -> data') (\s@ThirdPartyJobDetails' {} a -> s {data' = a} :: ThirdPartyJobDetails)
 
--- | The identifier used to identify the job details in AWS CodePipeline.
+-- | The identifier used to identify the job details in CodePipeline.
 thirdPartyJobDetails_id :: Lens.Lens' ThirdPartyJobDetails (Prelude.Maybe Prelude.Text)
 thirdPartyJobDetails_id = Lens.lens (\ThirdPartyJobDetails' {id} -> id) (\s@ThirdPartyJobDetails' {} a -> s {id = a} :: ThirdPartyJobDetails)
 
--- | A system-generated random number that AWS CodePipeline uses to ensure
--- that the job is being worked on by only one job worker. Use this number
--- in an AcknowledgeThirdPartyJob request.
+-- | A system-generated random number that CodePipeline uses to ensure that
+-- the job is being worked on by only one job worker. Use this number in an
+-- AcknowledgeThirdPartyJob request.
 thirdPartyJobDetails_nonce :: Lens.Lens' ThirdPartyJobDetails (Prelude.Maybe Prelude.Text)
 thirdPartyJobDetails_nonce = Lens.lens (\ThirdPartyJobDetails' {nonce} -> nonce) (\s@ThirdPartyJobDetails' {} a -> s {nonce = a} :: ThirdPartyJobDetails)
 
@@ -92,7 +92,8 @@ instance Data.FromJSON ThirdPartyJobDetails where
 
 instance Prelude.Hashable ThirdPartyJobDetails where
   hashWithSalt _salt ThirdPartyJobDetails' {..} =
-    _salt `Prelude.hashWithSalt` data'
+    _salt
+      `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` nonce
 

@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides information to AWS CodePipeline about new revisions to a
--- source.
+-- Provides information to CodePipeline about new revisions to a source.
 module Amazonka.CodePipeline.PutActionRevision
   ( -- * Creating a Request
     PutActionRevision (..),
@@ -143,7 +142,8 @@ instance Core.AWSRequest PutActionRevision where
 
 instance Prelude.Hashable PutActionRevision where
   hashWithSalt _salt PutActionRevision' {..} =
-    _salt `Prelude.hashWithSalt` pipelineName
+    _salt
+      `Prelude.hashWithSalt` pipelineName
       `Prelude.hashWithSalt` stageName
       `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` actionRevision

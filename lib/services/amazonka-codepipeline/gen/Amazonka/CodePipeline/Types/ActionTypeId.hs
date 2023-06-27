@@ -53,8 +53,8 @@ data ActionTypeId = ActionTypeId'
     owner :: ActionOwner,
     -- | The provider of the service being called by the action. Valid providers
     -- are determined by the action category. For example, an action in the
-    -- Deploy category type might have a provider of AWS CodeDeploy, which
-    -- would be specified as CodeDeploy. For more information, see
+    -- Deploy category type might have a provider of CodeDeploy, which would be
+    -- specified as @CodeDeploy@. For more information, see
     -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers Valid Action Types and Providers in CodePipeline>.
     provider :: Prelude.Text,
     -- | A string that describes the action version.
@@ -93,8 +93,8 @@ data ActionTypeId = ActionTypeId'
 --
 -- 'provider', 'actionTypeId_provider' - The provider of the service being called by the action. Valid providers
 -- are determined by the action category. For example, an action in the
--- Deploy category type might have a provider of AWS CodeDeploy, which
--- would be specified as CodeDeploy. For more information, see
+-- Deploy category type might have a provider of CodeDeploy, which would be
+-- specified as @CodeDeploy@. For more information, see
 -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers Valid Action Types and Providers in CodePipeline>.
 --
 -- 'version', 'actionTypeId_version' - A string that describes the action version.
@@ -147,8 +147,8 @@ actionTypeId_owner = Lens.lens (\ActionTypeId' {owner} -> owner) (\s@ActionTypeI
 
 -- | The provider of the service being called by the action. Valid providers
 -- are determined by the action category. For example, an action in the
--- Deploy category type might have a provider of AWS CodeDeploy, which
--- would be specified as CodeDeploy. For more information, see
+-- Deploy category type might have a provider of CodeDeploy, which would be
+-- specified as @CodeDeploy@. For more information, see
 -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers Valid Action Types and Providers in CodePipeline>.
 actionTypeId_provider :: Lens.Lens' ActionTypeId Prelude.Text
 actionTypeId_provider = Lens.lens (\ActionTypeId' {provider} -> provider) (\s@ActionTypeId' {} a -> s {provider = a} :: ActionTypeId)
@@ -171,7 +171,8 @@ instance Data.FromJSON ActionTypeId where
 
 instance Prelude.Hashable ActionTypeId where
   hashWithSalt _salt ActionTypeId' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` provider
       `Prelude.hashWithSalt` version

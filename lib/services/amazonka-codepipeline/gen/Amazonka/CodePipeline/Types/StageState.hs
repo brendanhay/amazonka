@@ -112,7 +112,8 @@ instance Data.FromJSON StageState where
 
 instance Prelude.Hashable StageState where
   hashWithSalt _salt StageState' {..} =
-    _salt `Prelude.hashWithSalt` actionStates
+    _salt
+      `Prelude.hashWithSalt` actionStates
       `Prelude.hashWithSalt` inboundExecution
       `Prelude.hashWithSalt` inboundTransitionState
       `Prelude.hashWithSalt` latestExecution

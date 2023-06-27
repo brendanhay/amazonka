@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides the response to a manual approval request to AWS CodePipeline.
+-- Provides the response to a manual approval request to CodePipeline.
 -- Valid responses include Approved and Rejected.
 module Amazonka.CodePipeline.PutApprovalResult
   ( -- * Creating a Request
@@ -157,7 +157,8 @@ instance Core.AWSRequest PutApprovalResult where
 
 instance Prelude.Hashable PutApprovalResult where
   hashWithSalt _salt PutApprovalResult' {..} =
-    _salt `Prelude.hashWithSalt` pipelineName
+    _salt
+      `Prelude.hashWithSalt` pipelineName
       `Prelude.hashWithSalt` stageName
       `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` result

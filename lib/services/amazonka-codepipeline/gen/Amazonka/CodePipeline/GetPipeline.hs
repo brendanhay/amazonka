@@ -60,7 +60,7 @@ data GetPipeline = GetPipeline'
     -- defaults to the current version.
     version :: Prelude.Maybe Prelude.Natural,
     -- | The name of the pipeline for which you want to get information. Pipeline
-    -- names must be unique under an AWS user account.
+    -- names must be unique in an Amazon Web Services account.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,7 +77,7 @@ data GetPipeline = GetPipeline'
 -- defaults to the current version.
 --
 -- 'name', 'getPipeline_name' - The name of the pipeline for which you want to get information. Pipeline
--- names must be unique under an AWS user account.
+-- names must be unique in an Amazon Web Services account.
 newGetPipeline ::
   -- | 'name'
   Prelude.Text ->
@@ -94,7 +94,7 @@ getPipeline_version :: Lens.Lens' GetPipeline (Prelude.Maybe Prelude.Natural)
 getPipeline_version = Lens.lens (\GetPipeline' {version} -> version) (\s@GetPipeline' {} a -> s {version = a} :: GetPipeline)
 
 -- | The name of the pipeline for which you want to get information. Pipeline
--- names must be unique under an AWS user account.
+-- names must be unique in an Amazon Web Services account.
 getPipeline_name :: Lens.Lens' GetPipeline Prelude.Text
 getPipeline_name = Lens.lens (\GetPipeline' {name} -> name) (\s@GetPipeline' {} a -> s {name = a} :: GetPipeline)
 
@@ -113,7 +113,8 @@ instance Core.AWSRequest GetPipeline where
 
 instance Prelude.Hashable GetPipeline where
   hashWithSalt _salt GetPipeline' {..} =
-    _salt `Prelude.hashWithSalt` version
+    _salt
+      `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetPipeline where

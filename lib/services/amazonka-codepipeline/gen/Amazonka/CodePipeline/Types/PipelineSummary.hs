@@ -97,7 +97,8 @@ instance Data.FromJSON PipelineSummary where
 
 instance Prelude.Hashable PipelineSummary where
   hashWithSalt _salt PipelineSummary' {..} =
-    _salt `Prelude.hashWithSalt` created
+    _salt
+      `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` updated
       `Prelude.hashWithSalt` version

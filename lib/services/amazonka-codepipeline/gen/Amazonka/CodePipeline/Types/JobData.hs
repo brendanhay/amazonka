@@ -39,16 +39,17 @@ data JobData = JobData'
     actionConfiguration :: Prelude.Maybe ActionConfiguration,
     -- | Represents information about an action type.
     actionTypeId :: Prelude.Maybe ActionTypeId,
-    -- | Represents an AWS session credentials object. These credentials are
-    -- temporary credentials that are issued by AWS Secure Token Service (STS).
-    -- They can be used to access input and output artifacts in the S3 bucket
-    -- used to store artifacts for the pipeline in AWS CodePipeline.
+    -- | Represents an Amazon Web Services session credentials object. These
+    -- credentials are temporary credentials that are issued by Amazon Web
+    -- Services Secure Token Service (STS). They can be used to access input
+    -- and output artifacts in the S3 bucket used to store artifacts for the
+    -- pipeline in CodePipeline.
     artifactCredentials :: Prelude.Maybe (Data.Sensitive AWSSessionCredentials),
-    -- | A system-generated token, such as a AWS CodeDeploy deployment ID,
-    -- required by a job to continue the job asynchronously.
+    -- | A system-generated token, such as a deployment ID, required by a job to
+    -- continue the job asynchronously.
     continuationToken :: Prelude.Maybe Prelude.Text,
     -- | Represents information about the key used to encrypt data in the
-    -- artifact store, such as an AWS Key Management Service (AWS KMS) key.
+    -- artifact store, such as an KMS key.
     encryptionKey :: Prelude.Maybe EncryptionKey,
     -- | The artifact supplied to the job.
     inputArtifacts :: Prelude.Maybe [Artifact],
@@ -73,16 +74,17 @@ data JobData = JobData'
 --
 -- 'actionTypeId', 'jobData_actionTypeId' - Represents information about an action type.
 --
--- 'artifactCredentials', 'jobData_artifactCredentials' - Represents an AWS session credentials object. These credentials are
--- temporary credentials that are issued by AWS Secure Token Service (STS).
--- They can be used to access input and output artifacts in the S3 bucket
--- used to store artifacts for the pipeline in AWS CodePipeline.
+-- 'artifactCredentials', 'jobData_artifactCredentials' - Represents an Amazon Web Services session credentials object. These
+-- credentials are temporary credentials that are issued by Amazon Web
+-- Services Secure Token Service (STS). They can be used to access input
+-- and output artifacts in the S3 bucket used to store artifacts for the
+-- pipeline in CodePipeline.
 --
--- 'continuationToken', 'jobData_continuationToken' - A system-generated token, such as a AWS CodeDeploy deployment ID,
--- required by a job to continue the job asynchronously.
+-- 'continuationToken', 'jobData_continuationToken' - A system-generated token, such as a deployment ID, required by a job to
+-- continue the job asynchronously.
 --
 -- 'encryptionKey', 'jobData_encryptionKey' - Represents information about the key used to encrypt data in the
--- artifact store, such as an AWS Key Management Service (AWS KMS) key.
+-- artifact store, such as an KMS key.
 --
 -- 'inputArtifacts', 'jobData_inputArtifacts' - The artifact supplied to the job.
 --
@@ -113,20 +115,21 @@ jobData_actionConfiguration = Lens.lens (\JobData' {actionConfiguration} -> acti
 jobData_actionTypeId :: Lens.Lens' JobData (Prelude.Maybe ActionTypeId)
 jobData_actionTypeId = Lens.lens (\JobData' {actionTypeId} -> actionTypeId) (\s@JobData' {} a -> s {actionTypeId = a} :: JobData)
 
--- | Represents an AWS session credentials object. These credentials are
--- temporary credentials that are issued by AWS Secure Token Service (STS).
--- They can be used to access input and output artifacts in the S3 bucket
--- used to store artifacts for the pipeline in AWS CodePipeline.
+-- | Represents an Amazon Web Services session credentials object. These
+-- credentials are temporary credentials that are issued by Amazon Web
+-- Services Secure Token Service (STS). They can be used to access input
+-- and output artifacts in the S3 bucket used to store artifacts for the
+-- pipeline in CodePipeline.
 jobData_artifactCredentials :: Lens.Lens' JobData (Prelude.Maybe AWSSessionCredentials)
 jobData_artifactCredentials = Lens.lens (\JobData' {artifactCredentials} -> artifactCredentials) (\s@JobData' {} a -> s {artifactCredentials = a} :: JobData) Prelude.. Lens.mapping Data._Sensitive
 
--- | A system-generated token, such as a AWS CodeDeploy deployment ID,
--- required by a job to continue the job asynchronously.
+-- | A system-generated token, such as a deployment ID, required by a job to
+-- continue the job asynchronously.
 jobData_continuationToken :: Lens.Lens' JobData (Prelude.Maybe Prelude.Text)
 jobData_continuationToken = Lens.lens (\JobData' {continuationToken} -> continuationToken) (\s@JobData' {} a -> s {continuationToken = a} :: JobData)
 
 -- | Represents information about the key used to encrypt data in the
--- artifact store, such as an AWS Key Management Service (AWS KMS) key.
+-- artifact store, such as an KMS key.
 jobData_encryptionKey :: Lens.Lens' JobData (Prelude.Maybe EncryptionKey)
 jobData_encryptionKey = Lens.lens (\JobData' {encryptionKey} -> encryptionKey) (\s@JobData' {} a -> s {encryptionKey = a} :: JobData)
 
@@ -156,7 +159,8 @@ instance Data.FromJSON JobData where
             Prelude.<*> (x Data..:? "continuationToken")
             Prelude.<*> (x Data..:? "encryptionKey")
             Prelude.<*> (x Data..:? "inputArtifacts" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "outputArtifacts"
+            Prelude.<*> ( x
+                            Data..:? "outputArtifacts"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "pipelineContext")
@@ -164,7 +168,8 @@ instance Data.FromJSON JobData where
 
 instance Prelude.Hashable JobData where
   hashWithSalt _salt JobData' {..} =
-    _salt `Prelude.hashWithSalt` actionConfiguration
+    _salt
+      `Prelude.hashWithSalt` actionConfiguration
       `Prelude.hashWithSalt` actionTypeId
       `Prelude.hashWithSalt` artifactCredentials
       `Prelude.hashWithSalt` continuationToken

@@ -35,9 +35,9 @@ data WebhookFilterRule = WebhookFilterRule'
     -- placeholders in this value by surrounding the action configuration key
     -- with curly brackets. For example, if the value supplied here is
     -- \"refs\/heads\/{Branch}\" and the target action has an action
-    -- configuration property called \"Branch\" with a value of \"master\", the
-    -- @MatchEquals@ value is evaluated as \"refs\/heads\/master\". For a list
-    -- of action configuration properties for built-in action types, see
+    -- configuration property called \"Branch\" with a value of \"main\", the
+    -- @MatchEquals@ value is evaluated as \"refs\/heads\/main\". For a list of
+    -- action configuration properties for built-in action types, see
     -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Pipeline Structure Reference Action Requirements>.
     matchEquals :: Prelude.Maybe Prelude.Text,
     -- | A JsonPath expression that is applied to the body\/payload of the
@@ -64,9 +64,9 @@ data WebhookFilterRule = WebhookFilterRule'
 -- placeholders in this value by surrounding the action configuration key
 -- with curly brackets. For example, if the value supplied here is
 -- \"refs\/heads\/{Branch}\" and the target action has an action
--- configuration property called \"Branch\" with a value of \"master\", the
--- @MatchEquals@ value is evaluated as \"refs\/heads\/master\". For a list
--- of action configuration properties for built-in action types, see
+-- configuration property called \"Branch\" with a value of \"main\", the
+-- @MatchEquals@ value is evaluated as \"refs\/heads\/main\". For a list of
+-- action configuration properties for built-in action types, see
 -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Pipeline Structure Reference Action Requirements>.
 --
 -- 'jsonPath', 'webhookFilterRule_jsonPath' - A JsonPath expression that is applied to the body\/payload of the
@@ -91,9 +91,9 @@ newWebhookFilterRule pJsonPath_ =
 -- placeholders in this value by surrounding the action configuration key
 -- with curly brackets. For example, if the value supplied here is
 -- \"refs\/heads\/{Branch}\" and the target action has an action
--- configuration property called \"Branch\" with a value of \"master\", the
--- @MatchEquals@ value is evaluated as \"refs\/heads\/master\". For a list
--- of action configuration properties for built-in action types, see
+-- configuration property called \"Branch\" with a value of \"main\", the
+-- @MatchEquals@ value is evaluated as \"refs\/heads\/main\". For a list of
+-- action configuration properties for built-in action types, see
 -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Pipeline Structure Reference Action Requirements>.
 webhookFilterRule_matchEquals :: Lens.Lens' WebhookFilterRule (Prelude.Maybe Prelude.Text)
 webhookFilterRule_matchEquals = Lens.lens (\WebhookFilterRule' {matchEquals} -> matchEquals) (\s@WebhookFilterRule' {} a -> s {matchEquals = a} :: WebhookFilterRule)
@@ -119,7 +119,8 @@ instance Data.FromJSON WebhookFilterRule where
 
 instance Prelude.Hashable WebhookFilterRule where
   hashWithSalt _salt WebhookFilterRule' {..} =
-    _salt `Prelude.hashWithSalt` matchEquals
+    _salt
+      `Prelude.hashWithSalt` matchEquals
       `Prelude.hashWithSalt` jsonPath
 
 instance Prelude.NFData WebhookFilterRule where

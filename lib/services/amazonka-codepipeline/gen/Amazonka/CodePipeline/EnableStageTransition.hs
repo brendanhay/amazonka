@@ -131,7 +131,8 @@ instance Core.AWSRequest EnableStageTransition where
 
 instance Prelude.Hashable EnableStageTransition where
   hashWithSalt _salt EnableStageTransition' {..} =
-    _salt `Prelude.hashWithSalt` pipelineName
+    _salt
+      `Prelude.hashWithSalt` pipelineName
       `Prelude.hashWithSalt` stageName
       `Prelude.hashWithSalt` transitionType
 

@@ -141,22 +141,22 @@ instance Core.AWSPager ListActionExecutions where
     | Core.stop
         ( rs
             Lens.^? listActionExecutionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listActionExecutionsResponse_actionExecutionDetails
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listActionExecutions_nextToken
           Lens..~ rs
           Lens.^? listActionExecutionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListActionExecutions where
   type
@@ -168,7 +168,8 @@ instance Core.AWSRequest ListActionExecutions where
     Response.receiveJSON
       ( \s h x ->
           ListActionExecutionsResponse'
-            Prelude.<$> ( x Data..?> "actionExecutionDetails"
+            Prelude.<$> ( x
+                            Data..?> "actionExecutionDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -177,7 +178,8 @@ instance Core.AWSRequest ListActionExecutions where
 
 instance Prelude.Hashable ListActionExecutions where
   hashWithSalt _salt ListActionExecutions' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pipelineName

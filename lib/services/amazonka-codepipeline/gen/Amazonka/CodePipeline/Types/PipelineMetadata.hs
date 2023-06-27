@@ -32,6 +32,14 @@ data PipelineMetadata = PipelineMetadata'
     created :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) of the pipeline.
     pipelineArn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that polling for source changes (periodic checks) was
+    -- stopped for the pipeline, in timestamp format. You can migrate (update)
+    -- a polling pipeline to use event-based change detection. For example, for
+    -- a pipeline with a CodeCommit source, we recommend you migrate (update)
+    -- your pipeline to use CloudWatch Events. To learn more, see
+    -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/update-change-detection.html Migrate polling pipelines to use event-based change detection>
+    -- in the CodePipeline User Guide.
+    pollingDisabledAt :: Prelude.Maybe Data.POSIX,
     -- | The date and time the pipeline was last updated, in timestamp format.
     updated :: Prelude.Maybe Data.POSIX
   }
@@ -49,6 +57,14 @@ data PipelineMetadata = PipelineMetadata'
 --
 -- 'pipelineArn', 'pipelineMetadata_pipelineArn' - The Amazon Resource Name (ARN) of the pipeline.
 --
+-- 'pollingDisabledAt', 'pipelineMetadata_pollingDisabledAt' - The date and time that polling for source changes (periodic checks) was
+-- stopped for the pipeline, in timestamp format. You can migrate (update)
+-- a polling pipeline to use event-based change detection. For example, for
+-- a pipeline with a CodeCommit source, we recommend you migrate (update)
+-- your pipeline to use CloudWatch Events. To learn more, see
+-- <https://docs.aws.amazon.com/codepipeline/latest/userguide/update-change-detection.html Migrate polling pipelines to use event-based change detection>
+-- in the CodePipeline User Guide.
+--
 -- 'updated', 'pipelineMetadata_updated' - The date and time the pipeline was last updated, in timestamp format.
 newPipelineMetadata ::
   PipelineMetadata
@@ -56,6 +72,7 @@ newPipelineMetadata =
   PipelineMetadata'
     { created = Prelude.Nothing,
       pipelineArn = Prelude.Nothing,
+      pollingDisabledAt = Prelude.Nothing,
       updated = Prelude.Nothing
     }
 
@@ -66,6 +83,16 @@ pipelineMetadata_created = Lens.lens (\PipelineMetadata' {created} -> created) (
 -- | The Amazon Resource Name (ARN) of the pipeline.
 pipelineMetadata_pipelineArn :: Lens.Lens' PipelineMetadata (Prelude.Maybe Prelude.Text)
 pipelineMetadata_pipelineArn = Lens.lens (\PipelineMetadata' {pipelineArn} -> pipelineArn) (\s@PipelineMetadata' {} a -> s {pipelineArn = a} :: PipelineMetadata)
+
+-- | The date and time that polling for source changes (periodic checks) was
+-- stopped for the pipeline, in timestamp format. You can migrate (update)
+-- a polling pipeline to use event-based change detection. For example, for
+-- a pipeline with a CodeCommit source, we recommend you migrate (update)
+-- your pipeline to use CloudWatch Events. To learn more, see
+-- <https://docs.aws.amazon.com/codepipeline/latest/userguide/update-change-detection.html Migrate polling pipelines to use event-based change detection>
+-- in the CodePipeline User Guide.
+pipelineMetadata_pollingDisabledAt :: Lens.Lens' PipelineMetadata (Prelude.Maybe Prelude.UTCTime)
+pipelineMetadata_pollingDisabledAt = Lens.lens (\PipelineMetadata' {pollingDisabledAt} -> pollingDisabledAt) (\s@PipelineMetadata' {} a -> s {pollingDisabledAt = a} :: PipelineMetadata) Prelude.. Lens.mapping Data._Time
 
 -- | The date and time the pipeline was last updated, in timestamp format.
 pipelineMetadata_updated :: Lens.Lens' PipelineMetadata (Prelude.Maybe Prelude.UTCTime)
@@ -79,17 +106,21 @@ instance Data.FromJSON PipelineMetadata where
           PipelineMetadata'
             Prelude.<$> (x Data..:? "created")
             Prelude.<*> (x Data..:? "pipelineArn")
+            Prelude.<*> (x Data..:? "pollingDisabledAt")
             Prelude.<*> (x Data..:? "updated")
       )
 
 instance Prelude.Hashable PipelineMetadata where
   hashWithSalt _salt PipelineMetadata' {..} =
-    _salt `Prelude.hashWithSalt` created
+    _salt
+      `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` pipelineArn
+      `Prelude.hashWithSalt` pollingDisabledAt
       `Prelude.hashWithSalt` updated
 
 instance Prelude.NFData PipelineMetadata where
   rnf PipelineMetadata' {..} =
     Prelude.rnf created
       `Prelude.seq` Prelude.rnf pipelineArn
+      `Prelude.seq` Prelude.rnf pollingDisabledAt
       `Prelude.seq` Prelude.rnf updated

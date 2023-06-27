@@ -24,8 +24,8 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | A response to a @PollForThirdPartyJobs@ request returned by AWS
--- CodePipeline when there is a job to be worked on by a partner action.
+-- | A response to a @PollForThirdPartyJobs@ request returned by CodePipeline
+-- when there is a job to be worked on by a partner action.
 --
 -- /See:/ 'newThirdPartyJob' smart constructor.
 data ThirdPartyJob = ThirdPartyJob'
@@ -33,7 +33,7 @@ data ThirdPartyJob = ThirdPartyJob'
     -- to verify that the calling entity is allowed access to the job and its
     -- details.
     clientId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier used to identify the job in AWS CodePipeline.
+    -- | The identifier used to identify the job in CodePipeline.
     jobId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,7 +50,7 @@ data ThirdPartyJob = ThirdPartyJob'
 -- to verify that the calling entity is allowed access to the job and its
 -- details.
 --
--- 'jobId', 'thirdPartyJob_jobId' - The identifier used to identify the job in AWS CodePipeline.
+-- 'jobId', 'thirdPartyJob_jobId' - The identifier used to identify the job in CodePipeline.
 newThirdPartyJob ::
   ThirdPartyJob
 newThirdPartyJob =
@@ -65,7 +65,7 @@ newThirdPartyJob =
 thirdPartyJob_clientId :: Lens.Lens' ThirdPartyJob (Prelude.Maybe Prelude.Text)
 thirdPartyJob_clientId = Lens.lens (\ThirdPartyJob' {clientId} -> clientId) (\s@ThirdPartyJob' {} a -> s {clientId = a} :: ThirdPartyJob)
 
--- | The identifier used to identify the job in AWS CodePipeline.
+-- | The identifier used to identify the job in CodePipeline.
 thirdPartyJob_jobId :: Lens.Lens' ThirdPartyJob (Prelude.Maybe Prelude.Text)
 thirdPartyJob_jobId = Lens.lens (\ThirdPartyJob' {jobId} -> jobId) (\s@ThirdPartyJob' {} a -> s {jobId = a} :: ThirdPartyJob)
 
@@ -81,7 +81,8 @@ instance Data.FromJSON ThirdPartyJob where
 
 instance Prelude.Hashable ThirdPartyJob where
   hashWithSalt _salt ThirdPartyJob' {..} =
-    _salt `Prelude.hashWithSalt` clientId
+    _salt
+      `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData ThirdPartyJob where

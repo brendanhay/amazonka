@@ -28,8 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newActionTypePermissions' smart constructor.
 data ActionTypePermissions = ActionTypePermissions'
-  { -- | A list of AWS account IDs with access to use the action type in their
-    -- pipelines.
+  { -- | A list of Amazon Web Services account IDs with access to use the action
+    -- type in their pipelines.
     allowedAccounts :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,8 +42,8 @@ data ActionTypePermissions = ActionTypePermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'allowedAccounts', 'actionTypePermissions_allowedAccounts' - A list of AWS account IDs with access to use the action type in their
--- pipelines.
+-- 'allowedAccounts', 'actionTypePermissions_allowedAccounts' - A list of Amazon Web Services account IDs with access to use the action
+-- type in their pipelines.
 newActionTypePermissions ::
   -- | 'allowedAccounts'
   Prelude.NonEmpty Prelude.Text ->
@@ -54,8 +54,8 @@ newActionTypePermissions pAllowedAccounts_ =
         Lens.coerced Lens.# pAllowedAccounts_
     }
 
--- | A list of AWS account IDs with access to use the action type in their
--- pipelines.
+-- | A list of Amazon Web Services account IDs with access to use the action
+-- type in their pipelines.
 actionTypePermissions_allowedAccounts :: Lens.Lens' ActionTypePermissions (Prelude.NonEmpty Prelude.Text)
 actionTypePermissions_allowedAccounts = Lens.lens (\ActionTypePermissions' {allowedAccounts} -> allowedAccounts) (\s@ActionTypePermissions' {} a -> s {allowedAccounts = a} :: ActionTypePermissions) Prelude.. Lens.coerced
 

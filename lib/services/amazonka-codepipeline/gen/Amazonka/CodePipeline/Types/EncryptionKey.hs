@@ -26,20 +26,22 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Represents information about the key used to encrypt data in the
--- artifact store, such as an AWS Key Management Service (AWS KMS) key.
+-- artifact store, such as an Amazon Web Services Key Management Service
+-- (Key Management Service) key.
 --
 -- /See:/ 'newEncryptionKey' smart constructor.
 data EncryptionKey = EncryptionKey'
-  { -- | The ID used to identify the key. For an AWS KMS key, you can use the key
-    -- ID, the key ARN, or the alias ARN.
+  { -- | The ID used to identify the key. For an Amazon Web Services KMS key, you
+    -- can use the key ID, the key ARN, or the alias ARN.
     --
-    -- Aliases are recognized only in the account that created the customer
-    -- master key (CMK). For cross-account actions, you can only use the key ID
-    -- or key ARN to identify the key.
+    -- Aliases are recognized only in the account that created the KMS key. For
+    -- cross-account actions, you can only use the key ID or key ARN to
+    -- identify the key. Cross-account actions involve using the role from the
+    -- other account (AccountB), so specifying the key ID will use the key from
+    -- the other account (AccountB).
     id :: Prelude.Text,
-    -- | The type of encryption key, such as an AWS Key Management Service (AWS
-    -- KMS) key. When creating or updating a pipeline, the value must be set to
-    -- \'KMS\'.
+    -- | The type of encryption key, such as an Amazon Web Services KMS key. When
+    -- creating or updating a pipeline, the value must be set to \'KMS\'.
     type' :: EncryptionKeyType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -52,16 +54,17 @@ data EncryptionKey = EncryptionKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'encryptionKey_id' - The ID used to identify the key. For an AWS KMS key, you can use the key
--- ID, the key ARN, or the alias ARN.
+-- 'id', 'encryptionKey_id' - The ID used to identify the key. For an Amazon Web Services KMS key, you
+-- can use the key ID, the key ARN, or the alias ARN.
 --
--- Aliases are recognized only in the account that created the customer
--- master key (CMK). For cross-account actions, you can only use the key ID
--- or key ARN to identify the key.
+-- Aliases are recognized only in the account that created the KMS key. For
+-- cross-account actions, you can only use the key ID or key ARN to
+-- identify the key. Cross-account actions involve using the role from the
+-- other account (AccountB), so specifying the key ID will use the key from
+-- the other account (AccountB).
 --
--- 'type'', 'encryptionKey_type' - The type of encryption key, such as an AWS Key Management Service (AWS
--- KMS) key. When creating or updating a pipeline, the value must be set to
--- \'KMS\'.
+-- 'type'', 'encryptionKey_type' - The type of encryption key, such as an Amazon Web Services KMS key. When
+-- creating or updating a pipeline, the value must be set to \'KMS\'.
 newEncryptionKey ::
   -- | 'id'
   Prelude.Text ->
@@ -71,18 +74,19 @@ newEncryptionKey ::
 newEncryptionKey pId_ pType_ =
   EncryptionKey' {id = pId_, type' = pType_}
 
--- | The ID used to identify the key. For an AWS KMS key, you can use the key
--- ID, the key ARN, or the alias ARN.
+-- | The ID used to identify the key. For an Amazon Web Services KMS key, you
+-- can use the key ID, the key ARN, or the alias ARN.
 --
--- Aliases are recognized only in the account that created the customer
--- master key (CMK). For cross-account actions, you can only use the key ID
--- or key ARN to identify the key.
+-- Aliases are recognized only in the account that created the KMS key. For
+-- cross-account actions, you can only use the key ID or key ARN to
+-- identify the key. Cross-account actions involve using the role from the
+-- other account (AccountB), so specifying the key ID will use the key from
+-- the other account (AccountB).
 encryptionKey_id :: Lens.Lens' EncryptionKey Prelude.Text
 encryptionKey_id = Lens.lens (\EncryptionKey' {id} -> id) (\s@EncryptionKey' {} a -> s {id = a} :: EncryptionKey)
 
--- | The type of encryption key, such as an AWS Key Management Service (AWS
--- KMS) key. When creating or updating a pipeline, the value must be set to
--- \'KMS\'.
+-- | The type of encryption key, such as an Amazon Web Services KMS key. When
+-- creating or updating a pipeline, the value must be set to \'KMS\'.
 encryptionKey_type :: Lens.Lens' EncryptionKey EncryptionKeyType
 encryptionKey_type = Lens.lens (\EncryptionKey' {type'} -> type') (\s@EncryptionKey' {} a -> s {type' = a} :: EncryptionKey)
 
@@ -92,12 +96,14 @@ instance Data.FromJSON EncryptionKey where
       "EncryptionKey"
       ( \x ->
           EncryptionKey'
-            Prelude.<$> (x Data..: "id") Prelude.<*> (x Data..: "type")
+            Prelude.<$> (x Data..: "id")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable EncryptionKey where
   hashWithSalt _salt EncryptionKey' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData EncryptionKey where

@@ -38,17 +38,19 @@ data ThirdPartyJobData = ThirdPartyJobData'
     actionConfiguration :: Prelude.Maybe ActionConfiguration,
     -- | Represents information about an action type.
     actionTypeId :: Prelude.Maybe ActionTypeId,
-    -- | Represents an AWS session credentials object. These credentials are
-    -- temporary credentials that are issued by AWS Secure Token Service (STS).
-    -- They can be used to access input and output artifacts in the S3 bucket
-    -- used to store artifact for the pipeline in AWS CodePipeline.
+    -- | Represents an Amazon Web Services session credentials object. These
+    -- credentials are temporary credentials that are issued by Amazon Web
+    -- Services Secure Token Service (STS). They can be used to access input
+    -- and output artifacts in the S3 bucket used to store artifact for the
+    -- pipeline in CodePipeline.
     artifactCredentials :: Prelude.Maybe (Data.Sensitive AWSSessionCredentials),
-    -- | A system-generated token, such as a AWS CodeDeploy deployment ID, that a
-    -- job requires to continue the job asynchronously.
+    -- | A system-generated token, such as a CodeDeploy deployment ID, that a job
+    -- requires to continue the job asynchronously.
     continuationToken :: Prelude.Maybe Prelude.Text,
     -- | The encryption key used to encrypt and decrypt data in the artifact
-    -- store for the pipeline, such as an AWS Key Management Service (AWS KMS)
-    -- key. This is optional and might not be present.
+    -- store for the pipeline, such as an Amazon Web Services Key Management
+    -- Service (Amazon Web Services KMS) key. This is optional and might not be
+    -- present.
     encryptionKey :: Prelude.Maybe EncryptionKey,
     -- | The name of the artifact that is worked on by the action, if any. This
     -- name might be system-generated, such as \"MyApp\", or it might be
@@ -80,17 +82,19 @@ data ThirdPartyJobData = ThirdPartyJobData'
 --
 -- 'actionTypeId', 'thirdPartyJobData_actionTypeId' - Represents information about an action type.
 --
--- 'artifactCredentials', 'thirdPartyJobData_artifactCredentials' - Represents an AWS session credentials object. These credentials are
--- temporary credentials that are issued by AWS Secure Token Service (STS).
--- They can be used to access input and output artifacts in the S3 bucket
--- used to store artifact for the pipeline in AWS CodePipeline.
+-- 'artifactCredentials', 'thirdPartyJobData_artifactCredentials' - Represents an Amazon Web Services session credentials object. These
+-- credentials are temporary credentials that are issued by Amazon Web
+-- Services Secure Token Service (STS). They can be used to access input
+-- and output artifacts in the S3 bucket used to store artifact for the
+-- pipeline in CodePipeline.
 --
--- 'continuationToken', 'thirdPartyJobData_continuationToken' - A system-generated token, such as a AWS CodeDeploy deployment ID, that a
--- job requires to continue the job asynchronously.
+-- 'continuationToken', 'thirdPartyJobData_continuationToken' - A system-generated token, such as a CodeDeploy deployment ID, that a job
+-- requires to continue the job asynchronously.
 --
 -- 'encryptionKey', 'thirdPartyJobData_encryptionKey' - The encryption key used to encrypt and decrypt data in the artifact
--- store for the pipeline, such as an AWS Key Management Service (AWS KMS)
--- key. This is optional and might not be present.
+-- store for the pipeline, such as an Amazon Web Services Key Management
+-- Service (Amazon Web Services KMS) key. This is optional and might not be
+-- present.
 --
 -- 'inputArtifacts', 'thirdPartyJobData_inputArtifacts' - The name of the artifact that is worked on by the action, if any. This
 -- name might be system-generated, such as \"MyApp\", or it might be
@@ -129,21 +133,23 @@ thirdPartyJobData_actionConfiguration = Lens.lens (\ThirdPartyJobData' {actionCo
 thirdPartyJobData_actionTypeId :: Lens.Lens' ThirdPartyJobData (Prelude.Maybe ActionTypeId)
 thirdPartyJobData_actionTypeId = Lens.lens (\ThirdPartyJobData' {actionTypeId} -> actionTypeId) (\s@ThirdPartyJobData' {} a -> s {actionTypeId = a} :: ThirdPartyJobData)
 
--- | Represents an AWS session credentials object. These credentials are
--- temporary credentials that are issued by AWS Secure Token Service (STS).
--- They can be used to access input and output artifacts in the S3 bucket
--- used to store artifact for the pipeline in AWS CodePipeline.
+-- | Represents an Amazon Web Services session credentials object. These
+-- credentials are temporary credentials that are issued by Amazon Web
+-- Services Secure Token Service (STS). They can be used to access input
+-- and output artifacts in the S3 bucket used to store artifact for the
+-- pipeline in CodePipeline.
 thirdPartyJobData_artifactCredentials :: Lens.Lens' ThirdPartyJobData (Prelude.Maybe AWSSessionCredentials)
 thirdPartyJobData_artifactCredentials = Lens.lens (\ThirdPartyJobData' {artifactCredentials} -> artifactCredentials) (\s@ThirdPartyJobData' {} a -> s {artifactCredentials = a} :: ThirdPartyJobData) Prelude.. Lens.mapping Data._Sensitive
 
--- | A system-generated token, such as a AWS CodeDeploy deployment ID, that a
--- job requires to continue the job asynchronously.
+-- | A system-generated token, such as a CodeDeploy deployment ID, that a job
+-- requires to continue the job asynchronously.
 thirdPartyJobData_continuationToken :: Lens.Lens' ThirdPartyJobData (Prelude.Maybe Prelude.Text)
 thirdPartyJobData_continuationToken = Lens.lens (\ThirdPartyJobData' {continuationToken} -> continuationToken) (\s@ThirdPartyJobData' {} a -> s {continuationToken = a} :: ThirdPartyJobData)
 
 -- | The encryption key used to encrypt and decrypt data in the artifact
--- store for the pipeline, such as an AWS Key Management Service (AWS KMS)
--- key. This is optional and might not be present.
+-- store for the pipeline, such as an Amazon Web Services Key Management
+-- Service (Amazon Web Services KMS) key. This is optional and might not be
+-- present.
 thirdPartyJobData_encryptionKey :: Lens.Lens' ThirdPartyJobData (Prelude.Maybe EncryptionKey)
 thirdPartyJobData_encryptionKey = Lens.lens (\ThirdPartyJobData' {encryptionKey} -> encryptionKey) (\s@ThirdPartyJobData' {} a -> s {encryptionKey = a} :: ThirdPartyJobData)
 
@@ -180,7 +186,8 @@ instance Data.FromJSON ThirdPartyJobData where
             Prelude.<*> (x Data..:? "continuationToken")
             Prelude.<*> (x Data..:? "encryptionKey")
             Prelude.<*> (x Data..:? "inputArtifacts" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "outputArtifacts"
+            Prelude.<*> ( x
+                            Data..:? "outputArtifacts"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "pipelineContext")
@@ -188,7 +195,8 @@ instance Data.FromJSON ThirdPartyJobData where
 
 instance Prelude.Hashable ThirdPartyJobData where
   hashWithSalt _salt ThirdPartyJobData' {..} =
-    _salt `Prelude.hashWithSalt` actionConfiguration
+    _salt
+      `Prelude.hashWithSalt` actionConfiguration
       `Prelude.hashWithSalt` actionTypeId
       `Prelude.hashWithSalt` artifactCredentials
       `Prelude.hashWithSalt` continuationToken

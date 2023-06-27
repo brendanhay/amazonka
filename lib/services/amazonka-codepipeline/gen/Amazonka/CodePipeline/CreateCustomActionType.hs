@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new custom action that can be used in all pipelines associated
--- with the AWS account. Only used for custom actions.
+-- with the Amazon Web Services account. Only used for custom actions.
 module Amazonka.CodePipeline.CreateCustomActionType
   ( -- * Creating a Request
     CreateCustomActionType (..),
@@ -75,7 +75,7 @@ data CreateCustomActionType = CreateCustomActionType'
     -- | The category of the custom action, such as a build action or a test
     -- action.
     category :: ActionCategory,
-    -- | The provider of the service used in the custom action, such as AWS
+    -- | The provider of the service used in the custom action, such as
     -- CodeDeploy.
     provider :: Prelude.Text,
     -- | The version identifier of the custom action.
@@ -110,7 +110,7 @@ data CreateCustomActionType = CreateCustomActionType'
 -- 'category', 'createCustomActionType_category' - The category of the custom action, such as a build action or a test
 -- action.
 --
--- 'provider', 'createCustomActionType_provider' - The provider of the service used in the custom action, such as AWS
+-- 'provider', 'createCustomActionType_provider' - The provider of the service used in the custom action, such as
 -- CodeDeploy.
 --
 -- 'version', 'createCustomActionType_version' - The version identifier of the custom action.
@@ -171,7 +171,7 @@ createCustomActionType_tags = Lens.lens (\CreateCustomActionType' {tags} -> tags
 createCustomActionType_category :: Lens.Lens' CreateCustomActionType ActionCategory
 createCustomActionType_category = Lens.lens (\CreateCustomActionType' {category} -> category) (\s@CreateCustomActionType' {} a -> s {category = a} :: CreateCustomActionType)
 
--- | The provider of the service used in the custom action, such as AWS
+-- | The provider of the service used in the custom action, such as
 -- CodeDeploy.
 createCustomActionType_provider :: Lens.Lens' CreateCustomActionType Prelude.Text
 createCustomActionType_provider = Lens.lens (\CreateCustomActionType' {provider} -> provider) (\s@CreateCustomActionType' {} a -> s {provider = a} :: CreateCustomActionType)

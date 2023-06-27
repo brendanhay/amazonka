@@ -61,7 +61,7 @@ data DeleteCustomActionType = DeleteCustomActionType'
   { -- | The category of the custom action that you want to delete, such as
     -- source or deploy.
     category :: ActionCategory,
-    -- | The provider of the service used in the custom action, such as AWS
+    -- | The provider of the service used in the custom action, such as
     -- CodeDeploy.
     provider :: Prelude.Text,
     -- | The version of the custom action to delete.
@@ -80,7 +80,7 @@ data DeleteCustomActionType = DeleteCustomActionType'
 -- 'category', 'deleteCustomActionType_category' - The category of the custom action that you want to delete, such as
 -- source or deploy.
 --
--- 'provider', 'deleteCustomActionType_provider' - The provider of the service used in the custom action, such as AWS
+-- 'provider', 'deleteCustomActionType_provider' - The provider of the service used in the custom action, such as
 -- CodeDeploy.
 --
 -- 'version', 'deleteCustomActionType_version' - The version of the custom action to delete.
@@ -107,7 +107,7 @@ newDeleteCustomActionType
 deleteCustomActionType_category :: Lens.Lens' DeleteCustomActionType ActionCategory
 deleteCustomActionType_category = Lens.lens (\DeleteCustomActionType' {category} -> category) (\s@DeleteCustomActionType' {} a -> s {category = a} :: DeleteCustomActionType)
 
--- | The provider of the service used in the custom action, such as AWS
+-- | The provider of the service used in the custom action, such as
 -- CodeDeploy.
 deleteCustomActionType_provider :: Lens.Lens' DeleteCustomActionType Prelude.Text
 deleteCustomActionType_provider = Lens.lens (\DeleteCustomActionType' {provider} -> provider) (\s@DeleteCustomActionType' {} a -> s {provider = a} :: DeleteCustomActionType)
@@ -128,7 +128,8 @@ instance Core.AWSRequest DeleteCustomActionType where
 
 instance Prelude.Hashable DeleteCustomActionType where
   hashWithSalt _salt DeleteCustomActionType' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` provider
       `Prelude.hashWithSalt` version
 

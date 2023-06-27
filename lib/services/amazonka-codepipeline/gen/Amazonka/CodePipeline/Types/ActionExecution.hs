@@ -37,12 +37,13 @@ data ActionExecution = ActionExecution'
     -- For older executions, this field might be empty. The action execution ID
     -- is available for executions run on or after March 2020.
     actionExecutionId :: Prelude.Maybe Prelude.Text,
-    -- | The details of an error returned by a URL external to AWS.
+    -- | The details of an error returned by a URL external to Amazon Web
+    -- Services.
     errorDetails :: Prelude.Maybe ErrorDetails,
     -- | The external ID of the run of the action.
     externalExecutionId :: Prelude.Maybe Prelude.Text,
-    -- | The URL of a resource external to AWS that is used when running the
-    -- action (for example, an external repository URL).
+    -- | The URL of a resource external to Amazon Web Services that is used when
+    -- running the action (for example, an external repository URL).
     externalExecutionUrl :: Prelude.Maybe Prelude.Text,
     -- | The last status change of the action.
     lastStatusChange :: Prelude.Maybe Data.POSIX,
@@ -78,12 +79,13 @@ data ActionExecution = ActionExecution'
 -- For older executions, this field might be empty. The action execution ID
 -- is available for executions run on or after March 2020.
 --
--- 'errorDetails', 'actionExecution_errorDetails' - The details of an error returned by a URL external to AWS.
+-- 'errorDetails', 'actionExecution_errorDetails' - The details of an error returned by a URL external to Amazon Web
+-- Services.
 --
 -- 'externalExecutionId', 'actionExecution_externalExecutionId' - The external ID of the run of the action.
 --
--- 'externalExecutionUrl', 'actionExecution_externalExecutionUrl' - The URL of a resource external to AWS that is used when running the
--- action (for example, an external repository URL).
+-- 'externalExecutionUrl', 'actionExecution_externalExecutionUrl' - The URL of a resource external to Amazon Web Services that is used when
+-- running the action (for example, an external repository URL).
 --
 -- 'lastStatusChange', 'actionExecution_lastStatusChange' - The last status change of the action.
 --
@@ -126,7 +128,8 @@ newActionExecution =
 actionExecution_actionExecutionId :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
 actionExecution_actionExecutionId = Lens.lens (\ActionExecution' {actionExecutionId} -> actionExecutionId) (\s@ActionExecution' {} a -> s {actionExecutionId = a} :: ActionExecution)
 
--- | The details of an error returned by a URL external to AWS.
+-- | The details of an error returned by a URL external to Amazon Web
+-- Services.
 actionExecution_errorDetails :: Lens.Lens' ActionExecution (Prelude.Maybe ErrorDetails)
 actionExecution_errorDetails = Lens.lens (\ActionExecution' {errorDetails} -> errorDetails) (\s@ActionExecution' {} a -> s {errorDetails = a} :: ActionExecution)
 
@@ -134,8 +137,8 @@ actionExecution_errorDetails = Lens.lens (\ActionExecution' {errorDetails} -> er
 actionExecution_externalExecutionId :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
 actionExecution_externalExecutionId = Lens.lens (\ActionExecution' {externalExecutionId} -> externalExecutionId) (\s@ActionExecution' {} a -> s {externalExecutionId = a} :: ActionExecution)
 
--- | The URL of a resource external to AWS that is used when running the
--- action (for example, an external repository URL).
+-- | The URL of a resource external to Amazon Web Services that is used when
+-- running the action (for example, an external repository URL).
 actionExecution_externalExecutionUrl :: Lens.Lens' ActionExecution (Prelude.Maybe Prelude.Text)
 actionExecution_externalExecutionUrl = Lens.lens (\ActionExecution' {externalExecutionUrl} -> externalExecutionUrl) (\s@ActionExecution' {} a -> s {externalExecutionUrl = a} :: ActionExecution)
 
@@ -187,7 +190,8 @@ instance Data.FromJSON ActionExecution where
 
 instance Prelude.Hashable ActionExecution where
   hashWithSalt _salt ActionExecution' {..} =
-    _salt `Prelude.hashWithSalt` actionExecutionId
+    _salt
+      `Prelude.hashWithSalt` actionExecutionId
       `Prelude.hashWithSalt` errorDetails
       `Prelude.hashWithSalt` externalExecutionId
       `Prelude.hashWithSalt` externalExecutionUrl

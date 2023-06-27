@@ -39,7 +39,7 @@ data ActionExecutionInput = ActionExecutionInput'
     -- | The variable namespace associated with the action. All variables
     -- produced as output by this action fall under this namespace.
     namespace :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Region for the action, such as us-east-1.
+    -- | The Amazon Web Services Region for the action, such as us-east-1.
     region :: Prelude.Maybe Prelude.Text,
     -- | Configuration data for an action execution with all variable references
     -- replaced with their real values for the execution.
@@ -68,7 +68,7 @@ data ActionExecutionInput = ActionExecutionInput'
 -- 'namespace', 'actionExecutionInput_namespace' - The variable namespace associated with the action. All variables
 -- produced as output by this action fall under this namespace.
 --
--- 'region', 'actionExecutionInput_region' - The AWS Region for the action, such as us-east-1.
+-- 'region', 'actionExecutionInput_region' - The Amazon Web Services Region for the action, such as us-east-1.
 --
 -- 'resolvedConfiguration', 'actionExecutionInput_resolvedConfiguration' - Configuration data for an action execution with all variable references
 -- replaced with their real values for the execution.
@@ -107,7 +107,7 @@ actionExecutionInput_inputArtifacts = Lens.lens (\ActionExecutionInput' {inputAr
 actionExecutionInput_namespace :: Lens.Lens' ActionExecutionInput (Prelude.Maybe Prelude.Text)
 actionExecutionInput_namespace = Lens.lens (\ActionExecutionInput' {namespace} -> namespace) (\s@ActionExecutionInput' {} a -> s {namespace = a} :: ActionExecutionInput)
 
--- | The AWS Region for the action, such as us-east-1.
+-- | The Amazon Web Services Region for the action, such as us-east-1.
 actionExecutionInput_region :: Lens.Lens' ActionExecutionInput (Prelude.Maybe Prelude.Text)
 actionExecutionInput_region = Lens.lens (\ActionExecutionInput' {region} -> region) (\s@ActionExecutionInput' {} a -> s {region = a} :: ActionExecutionInput)
 
@@ -132,7 +132,8 @@ instance Data.FromJSON ActionExecutionInput where
             Prelude.<*> (x Data..:? "inputArtifacts" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "namespace")
             Prelude.<*> (x Data..:? "region")
-            Prelude.<*> ( x Data..:? "resolvedConfiguration"
+            Prelude.<*> ( x
+                            Data..:? "resolvedConfiguration"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "roleArn")
@@ -140,7 +141,8 @@ instance Data.FromJSON ActionExecutionInput where
 
 instance Prelude.Hashable ActionExecutionInput where
   hashWithSalt _salt ActionExecutionInput' {..} =
-    _salt `Prelude.hashWithSalt` actionTypeId
+    _salt
+      `Prelude.hashWithSalt` actionTypeId
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` inputArtifacts
       `Prelude.hashWithSalt` namespace

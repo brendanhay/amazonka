@@ -40,14 +40,14 @@ data ArtifactRevision = ArtifactRevision'
     -- | The revision ID of the artifact.
     revisionId :: Prelude.Maybe Prelude.Text,
     -- | Summary information about the most recent revision of the artifact. For
-    -- GitHub and AWS CodeCommit repositories, the commit message. For Amazon
-    -- S3 buckets or actions, the user-provided content of a
+    -- GitHub and CodeCommit repositories, the commit message. For Amazon S3
+    -- buckets or actions, the user-provided content of a
     -- @codepipeline-artifact-revision-summary@ key specified in the object
     -- metadata.
     revisionSummary :: Prelude.Maybe Prelude.Text,
     -- | The commit ID for the artifact revision. For artifacts stored in GitHub
-    -- or AWS CodeCommit repositories, the commit ID is linked to a commit
-    -- details page.
+    -- or CodeCommit repositories, the commit ID is linked to a commit details
+    -- page.
     revisionUrl :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,14 +72,14 @@ data ArtifactRevision = ArtifactRevision'
 -- 'revisionId', 'artifactRevision_revisionId' - The revision ID of the artifact.
 --
 -- 'revisionSummary', 'artifactRevision_revisionSummary' - Summary information about the most recent revision of the artifact. For
--- GitHub and AWS CodeCommit repositories, the commit message. For Amazon
--- S3 buckets or actions, the user-provided content of a
+-- GitHub and CodeCommit repositories, the commit message. For Amazon S3
+-- buckets or actions, the user-provided content of a
 -- @codepipeline-artifact-revision-summary@ key specified in the object
 -- metadata.
 --
 -- 'revisionUrl', 'artifactRevision_revisionUrl' - The commit ID for the artifact revision. For artifacts stored in GitHub
--- or AWS CodeCommit repositories, the commit ID is linked to a commit
--- details page.
+-- or CodeCommit repositories, the commit ID is linked to a commit details
+-- page.
 newArtifactRevision ::
   ArtifactRevision
 newArtifactRevision =
@@ -112,16 +112,16 @@ artifactRevision_revisionId :: Lens.Lens' ArtifactRevision (Prelude.Maybe Prelud
 artifactRevision_revisionId = Lens.lens (\ArtifactRevision' {revisionId} -> revisionId) (\s@ArtifactRevision' {} a -> s {revisionId = a} :: ArtifactRevision)
 
 -- | Summary information about the most recent revision of the artifact. For
--- GitHub and AWS CodeCommit repositories, the commit message. For Amazon
--- S3 buckets or actions, the user-provided content of a
+-- GitHub and CodeCommit repositories, the commit message. For Amazon S3
+-- buckets or actions, the user-provided content of a
 -- @codepipeline-artifact-revision-summary@ key specified in the object
 -- metadata.
 artifactRevision_revisionSummary :: Lens.Lens' ArtifactRevision (Prelude.Maybe Prelude.Text)
 artifactRevision_revisionSummary = Lens.lens (\ArtifactRevision' {revisionSummary} -> revisionSummary) (\s@ArtifactRevision' {} a -> s {revisionSummary = a} :: ArtifactRevision)
 
 -- | The commit ID for the artifact revision. For artifacts stored in GitHub
--- or AWS CodeCommit repositories, the commit ID is linked to a commit
--- details page.
+-- or CodeCommit repositories, the commit ID is linked to a commit details
+-- page.
 artifactRevision_revisionUrl :: Lens.Lens' ArtifactRevision (Prelude.Maybe Prelude.Text)
 artifactRevision_revisionUrl = Lens.lens (\ArtifactRevision' {revisionUrl} -> revisionUrl) (\s@ArtifactRevision' {} a -> s {revisionUrl = a} :: ArtifactRevision)
 
@@ -141,7 +141,8 @@ instance Data.FromJSON ArtifactRevision where
 
 instance Prelude.Hashable ArtifactRevision where
   hashWithSalt _salt ArtifactRevision' {..} =
-    _salt `Prelude.hashWithSalt` created
+    _salt
+      `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` revisionChangeIdentifier
       `Prelude.hashWithSalt` revisionId

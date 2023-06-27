@@ -76,7 +76,8 @@ instance Data.FromJSON ArtifactLocation where
 
 instance Prelude.Hashable ArtifactLocation where
   hashWithSalt _salt ArtifactLocation' {..} =
-    _salt `Prelude.hashWithSalt` s3Location
+    _salt
+      `Prelude.hashWithSalt` s3Location
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ArtifactLocation where

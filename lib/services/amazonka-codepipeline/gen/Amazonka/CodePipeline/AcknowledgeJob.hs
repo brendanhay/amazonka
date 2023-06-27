@@ -56,9 +56,9 @@ data AcknowledgeJob = AcknowledgeJob'
   { -- | The unique system-generated ID of the job for which you want to confirm
     -- receipt.
     jobId :: Prelude.Text,
-    -- | A system-generated random number that AWS CodePipeline uses to ensure
-    -- that the job is being worked on by only one job worker. Get this number
-    -- from the response of the PollForJobs request that returned this job.
+    -- | A system-generated random number that CodePipeline uses to ensure that
+    -- the job is being worked on by only one job worker. Get this number from
+    -- the response of the PollForJobs request that returned this job.
     nonce :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,9 +74,9 @@ data AcknowledgeJob = AcknowledgeJob'
 -- 'jobId', 'acknowledgeJob_jobId' - The unique system-generated ID of the job for which you want to confirm
 -- receipt.
 --
--- 'nonce', 'acknowledgeJob_nonce' - A system-generated random number that AWS CodePipeline uses to ensure
--- that the job is being worked on by only one job worker. Get this number
--- from the response of the PollForJobs request that returned this job.
+-- 'nonce', 'acknowledgeJob_nonce' - A system-generated random number that CodePipeline uses to ensure that
+-- the job is being worked on by only one job worker. Get this number from
+-- the response of the PollForJobs request that returned this job.
 newAcknowledgeJob ::
   -- | 'jobId'
   Prelude.Text ->
@@ -91,9 +91,9 @@ newAcknowledgeJob pJobId_ pNonce_ =
 acknowledgeJob_jobId :: Lens.Lens' AcknowledgeJob Prelude.Text
 acknowledgeJob_jobId = Lens.lens (\AcknowledgeJob' {jobId} -> jobId) (\s@AcknowledgeJob' {} a -> s {jobId = a} :: AcknowledgeJob)
 
--- | A system-generated random number that AWS CodePipeline uses to ensure
--- that the job is being worked on by only one job worker. Get this number
--- from the response of the PollForJobs request that returned this job.
+-- | A system-generated random number that CodePipeline uses to ensure that
+-- the job is being worked on by only one job worker. Get this number from
+-- the response of the PollForJobs request that returned this job.
 acknowledgeJob_nonce :: Lens.Lens' AcknowledgeJob Prelude.Text
 acknowledgeJob_nonce = Lens.lens (\AcknowledgeJob' {nonce} -> nonce) (\s@AcknowledgeJob' {} a -> s {nonce = a} :: AcknowledgeJob)
 
@@ -113,7 +113,8 @@ instance Core.AWSRequest AcknowledgeJob where
 
 instance Prelude.Hashable AcknowledgeJob where
   hashWithSalt _salt AcknowledgeJob' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` nonce
 
 instance Prelude.NFData AcknowledgeJob where

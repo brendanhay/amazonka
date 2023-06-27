@@ -78,7 +78,8 @@ instance Data.FromJSON ActionContext where
 
 instance Prelude.Hashable ActionContext where
   hashWithSalt _salt ActionContext' {..} =
-    _salt `Prelude.hashWithSalt` actionExecutionId
+    _salt
+      `Prelude.hashWithSalt` actionExecutionId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ActionContext where

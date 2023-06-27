@@ -101,7 +101,8 @@ instance Data.FromJSON TransitionState where
 
 instance Prelude.Hashable TransitionState where
   hashWithSalt _salt TransitionState' {..} =
-    _salt `Prelude.hashWithSalt` disabledReason
+    _salt
+      `Prelude.hashWithSalt` disabledReason
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` lastChangedAt
       `Prelude.hashWithSalt` lastChangedBy

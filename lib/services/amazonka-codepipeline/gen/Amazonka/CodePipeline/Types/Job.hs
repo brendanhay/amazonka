@@ -29,15 +29,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJob' smart constructor.
 data Job = Job'
-  { -- | The ID of the AWS account to use when performing the job.
+  { -- | The ID of the Amazon Web Services account to use when performing the
+    -- job.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | Other data about a job.
     data' :: Prelude.Maybe JobData,
     -- | The unique system-generated ID of the job.
     id :: Prelude.Maybe Prelude.Text,
-    -- | A system-generated random number that AWS CodePipeline uses to ensure
-    -- that the job is being worked on by only one job worker. Use this number
-    -- in an AcknowledgeJob request.
+    -- | A system-generated random number that CodePipeline uses to ensure that
+    -- the job is being worked on by only one job worker. Use this number in an
+    -- AcknowledgeJob request.
     nonce :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -50,15 +51,16 @@ data Job = Job'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'job_accountId' - The ID of the AWS account to use when performing the job.
+-- 'accountId', 'job_accountId' - The ID of the Amazon Web Services account to use when performing the
+-- job.
 --
 -- 'data'', 'job_data' - Other data about a job.
 --
 -- 'id', 'job_id' - The unique system-generated ID of the job.
 --
--- 'nonce', 'job_nonce' - A system-generated random number that AWS CodePipeline uses to ensure
--- that the job is being worked on by only one job worker. Use this number
--- in an AcknowledgeJob request.
+-- 'nonce', 'job_nonce' - A system-generated random number that CodePipeline uses to ensure that
+-- the job is being worked on by only one job worker. Use this number in an
+-- AcknowledgeJob request.
 newJob ::
   Job
 newJob =
@@ -69,7 +71,8 @@ newJob =
       nonce = Prelude.Nothing
     }
 
--- | The ID of the AWS account to use when performing the job.
+-- | The ID of the Amazon Web Services account to use when performing the
+-- job.
 job_accountId :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_accountId = Lens.lens (\Job' {accountId} -> accountId) (\s@Job' {} a -> s {accountId = a} :: Job)
 
@@ -81,9 +84,9 @@ job_data = Lens.lens (\Job' {data'} -> data') (\s@Job' {} a -> s {data' = a} :: 
 job_id :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_id = Lens.lens (\Job' {id} -> id) (\s@Job' {} a -> s {id = a} :: Job)
 
--- | A system-generated random number that AWS CodePipeline uses to ensure
--- that the job is being worked on by only one job worker. Use this number
--- in an AcknowledgeJob request.
+-- | A system-generated random number that CodePipeline uses to ensure that
+-- the job is being worked on by only one job worker. Use this number in an
+-- AcknowledgeJob request.
 job_nonce :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_nonce = Lens.lens (\Job' {nonce} -> nonce) (\s@Job' {} a -> s {nonce = a} :: Job)
 
@@ -101,7 +104,8 @@ instance Data.FromJSON Job where
 
 instance Prelude.Hashable Job where
   hashWithSalt _salt Job' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` nonce

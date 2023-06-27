@@ -149,7 +149,8 @@ instance Data.FromJSON ListWebhookItem where
 
 instance Prelude.Hashable ListWebhookItem where
   hashWithSalt _salt ListWebhookItem' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` lastTriggered

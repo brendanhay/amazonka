@@ -38,7 +38,7 @@ data ActionTypeExecutor = ActionTypeExecutor'
     -- action execution.
     jobTimeout :: Prelude.Maybe Prelude.Natural,
     -- | The policy statement that specifies the permissions in the CodePipeline
-    -- customer’s account that are needed to successfully run an action.
+    -- customer account that are needed to successfully run an action.
     --
     -- To grant permission to another account, specify the account ID as the
     -- Principal, a domain-style identifier defined by the service, for example
@@ -70,7 +70,7 @@ data ActionTypeExecutor = ActionTypeExecutor'
 -- action execution.
 --
 -- 'policyStatementsTemplate', 'actionTypeExecutor_policyStatementsTemplate' - The policy statement that specifies the permissions in the CodePipeline
--- customer’s account that are needed to successfully run an action.
+-- customer account that are needed to successfully run an action.
 --
 -- To grant permission to another account, specify the account ID as the
 -- Principal, a domain-style identifier defined by the service, for example
@@ -106,7 +106,7 @@ actionTypeExecutor_jobTimeout :: Lens.Lens' ActionTypeExecutor (Prelude.Maybe Pr
 actionTypeExecutor_jobTimeout = Lens.lens (\ActionTypeExecutor' {jobTimeout} -> jobTimeout) (\s@ActionTypeExecutor' {} a -> s {jobTimeout = a} :: ActionTypeExecutor)
 
 -- | The policy statement that specifies the permissions in the CodePipeline
--- customer’s account that are needed to successfully run an action.
+-- customer account that are needed to successfully run an action.
 --
 -- To grant permission to another account, specify the account ID as the
 -- Principal, a domain-style identifier defined by the service, for example
@@ -142,7 +142,8 @@ instance Data.FromJSON ActionTypeExecutor where
 
 instance Prelude.Hashable ActionTypeExecutor where
   hashWithSalt _salt ActionTypeExecutor' {..} =
-    _salt `Prelude.hashWithSalt` jobTimeout
+    _salt
+      `Prelude.hashWithSalt` jobTimeout
       `Prelude.hashWithSalt` policyStatementsTemplate
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` type'

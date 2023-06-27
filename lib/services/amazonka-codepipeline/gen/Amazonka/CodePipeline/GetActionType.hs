@@ -180,7 +180,8 @@ instance Core.AWSRequest GetActionType where
 
 instance Prelude.Hashable GetActionType where
   hashWithSalt _salt GetActionType' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` provider
       `Prelude.hashWithSalt` version

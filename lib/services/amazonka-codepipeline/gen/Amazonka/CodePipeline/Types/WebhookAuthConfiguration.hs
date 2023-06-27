@@ -84,7 +84,8 @@ instance Data.FromJSON WebhookAuthConfiguration where
 
 instance Prelude.Hashable WebhookAuthConfiguration where
   hashWithSalt _salt WebhookAuthConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` allowedIPRange
+    _salt
+      `Prelude.hashWithSalt` allowedIPRange
       `Prelude.hashWithSalt` secretToken
 
 instance Prelude.NFData WebhookAuthConfiguration where

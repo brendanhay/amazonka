@@ -89,7 +89,8 @@ currentRevision_changeIdentifier = Lens.lens (\CurrentRevision' {changeIdentifie
 
 instance Prelude.Hashable CurrentRevision where
   hashWithSalt _salt CurrentRevision' {..} =
-    _salt `Prelude.hashWithSalt` created
+    _salt
+      `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` revisionSummary
       `Prelude.hashWithSalt` revision
       `Prelude.hashWithSalt` changeIdentifier

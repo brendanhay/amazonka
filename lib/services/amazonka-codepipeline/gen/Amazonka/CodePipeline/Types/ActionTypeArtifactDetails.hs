@@ -94,7 +94,8 @@ instance Data.FromJSON ActionTypeArtifactDetails where
 
 instance Prelude.Hashable ActionTypeArtifactDetails where
   hashWithSalt _salt ActionTypeArtifactDetails' {..} =
-    _salt `Prelude.hashWithSalt` minimumCount
+    _salt
+      `Prelude.hashWithSalt` minimumCount
       `Prelude.hashWithSalt` maximumCount
 
 instance Prelude.NFData ActionTypeArtifactDetails where

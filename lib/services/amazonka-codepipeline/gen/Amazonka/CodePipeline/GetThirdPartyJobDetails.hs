@@ -23,10 +23,10 @@
 -- Requests the details of a job for a third party action. Used for partner
 -- actions only.
 --
--- When this API is called, AWS CodePipeline returns temporary credentials
--- for the S3 bucket used to store artifacts for the pipeline, if the
--- action requires access to that S3 bucket for input or output artifacts.
--- This API also returns any secret values defined for the action.
+-- When this API is called, CodePipeline returns temporary credentials for
+-- the S3 bucket used to store artifacts for the pipeline, if the action
+-- requires access to that S3 bucket for input or output artifacts. This
+-- API also returns any secret values defined for the action.
 module Amazonka.CodePipeline.GetThirdPartyJobDetails
   ( -- * Creating a Request
     GetThirdPartyJobDetails (..),
@@ -118,7 +118,8 @@ instance Core.AWSRequest GetThirdPartyJobDetails where
 
 instance Prelude.Hashable GetThirdPartyJobDetails where
   hashWithSalt _salt GetThirdPartyJobDetails' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` clientToken
 
 instance Prelude.NFData GetThirdPartyJobDetails where

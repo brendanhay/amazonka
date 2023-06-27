@@ -70,12 +70,14 @@ instance Data.FromJSON BlockerDeclaration where
       "BlockerDeclaration"
       ( \x ->
           BlockerDeclaration'
-            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "type")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable BlockerDeclaration where
   hashWithSalt _salt BlockerDeclaration' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData BlockerDeclaration where

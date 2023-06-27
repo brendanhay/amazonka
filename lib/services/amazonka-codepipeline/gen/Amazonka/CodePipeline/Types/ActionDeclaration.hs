@@ -34,13 +34,13 @@ data ActionDeclaration = ActionDeclaration'
   { -- | The action\'s configuration. These are key-value pairs that specify
     -- input values for an action. For more information, see
     -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Action Structure Requirements in CodePipeline>.
-    -- For the list of configuration properties for the AWS CloudFormation
-    -- action type in CodePipeline, see
+    -- For the list of configuration properties for the CloudFormation action
+    -- type in CodePipeline, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html Configuration Properties Reference>
-    -- in the /AWS CloudFormation User Guide/. For template snippets with
-    -- examples, see
+    -- in the /CloudFormation User Guide/. For template snippets with examples,
+    -- see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html Using Parameter Override Functions with CodePipeline Pipelines>
-    -- in the /AWS CloudFormation User Guide/.
+    -- in the /CloudFormation User Guide/.
     --
     -- The values can be represented in either JSON or YAML format. For
     -- example, the JSON configuration item format is as follows:
@@ -58,7 +58,7 @@ data ActionDeclaration = ActionDeclaration'
     -- | The name or ID of the result of the action declaration, such as a test
     -- or build artifact.
     outputArtifacts :: Prelude.Maybe [OutputArtifact],
-    -- | The action declaration\'s AWS Region, such as us-east-1.
+    -- | The action declaration\'s Amazon Web Services Region, such as us-east-1.
     region :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM service role that performs the declared action. This
     -- is assumed through the roleArn for the pipeline.
@@ -83,13 +83,13 @@ data ActionDeclaration = ActionDeclaration'
 -- 'configuration', 'actionDeclaration_configuration' - The action\'s configuration. These are key-value pairs that specify
 -- input values for an action. For more information, see
 -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Action Structure Requirements in CodePipeline>.
--- For the list of configuration properties for the AWS CloudFormation
--- action type in CodePipeline, see
+-- For the list of configuration properties for the CloudFormation action
+-- type in CodePipeline, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html Configuration Properties Reference>
--- in the /AWS CloudFormation User Guide/. For template snippets with
--- examples, see
+-- in the /CloudFormation User Guide/. For template snippets with examples,
+-- see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html Using Parameter Override Functions with CodePipeline Pipelines>
--- in the /AWS CloudFormation User Guide/.
+-- in the /CloudFormation User Guide/.
 --
 -- The values can be represented in either JSON or YAML format. For
 -- example, the JSON configuration item format is as follows:
@@ -107,7 +107,7 @@ data ActionDeclaration = ActionDeclaration'
 -- 'outputArtifacts', 'actionDeclaration_outputArtifacts' - The name or ID of the result of the action declaration, such as a test
 -- or build artifact.
 --
--- 'region', 'actionDeclaration_region' - The action declaration\'s AWS Region, such as us-east-1.
+-- 'region', 'actionDeclaration_region' - The action declaration\'s Amazon Web Services Region, such as us-east-1.
 --
 -- 'roleArn', 'actionDeclaration_roleArn' - The ARN of the IAM service role that performs the declared action. This
 -- is assumed through the roleArn for the pipeline.
@@ -139,13 +139,13 @@ newActionDeclaration pName_ pActionTypeId_ =
 -- | The action\'s configuration. These are key-value pairs that specify
 -- input values for an action. For more information, see
 -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Action Structure Requirements in CodePipeline>.
--- For the list of configuration properties for the AWS CloudFormation
--- action type in CodePipeline, see
+-- For the list of configuration properties for the CloudFormation action
+-- type in CodePipeline, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html Configuration Properties Reference>
--- in the /AWS CloudFormation User Guide/. For template snippets with
--- examples, see
+-- in the /CloudFormation User Guide/. For template snippets with examples,
+-- see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html Using Parameter Override Functions with CodePipeline Pipelines>
--- in the /AWS CloudFormation User Guide/.
+-- in the /CloudFormation User Guide/.
 --
 -- The values can be represented in either JSON or YAML format. For
 -- example, the JSON configuration item format is as follows:
@@ -171,7 +171,7 @@ actionDeclaration_namespace = Lens.lens (\ActionDeclaration' {namespace} -> name
 actionDeclaration_outputArtifacts :: Lens.Lens' ActionDeclaration (Prelude.Maybe [OutputArtifact])
 actionDeclaration_outputArtifacts = Lens.lens (\ActionDeclaration' {outputArtifacts} -> outputArtifacts) (\s@ActionDeclaration' {} a -> s {outputArtifacts = a} :: ActionDeclaration) Prelude.. Lens.mapping Lens.coerced
 
--- | The action declaration\'s AWS Region, such as us-east-1.
+-- | The action declaration\'s Amazon Web Services Region, such as us-east-1.
 actionDeclaration_region :: Lens.Lens' ActionDeclaration (Prelude.Maybe Prelude.Text)
 actionDeclaration_region = Lens.lens (\ActionDeclaration' {region} -> region) (\s@ActionDeclaration' {} a -> s {region = a} :: ActionDeclaration)
 
@@ -201,7 +201,8 @@ instance Data.FromJSON ActionDeclaration where
             Prelude.<$> (x Data..:? "configuration" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "inputArtifacts" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "namespace")
-            Prelude.<*> ( x Data..:? "outputArtifacts"
+            Prelude.<*> ( x
+                            Data..:? "outputArtifacts"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "region")
@@ -213,7 +214,8 @@ instance Data.FromJSON ActionDeclaration where
 
 instance Prelude.Hashable ActionDeclaration where
   hashWithSalt _salt ActionDeclaration' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` inputArtifacts
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` outputArtifacts

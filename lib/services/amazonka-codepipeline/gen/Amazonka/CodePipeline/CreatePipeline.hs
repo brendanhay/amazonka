@@ -114,7 +114,8 @@ instance Core.AWSRequest CreatePipeline where
 
 instance Prelude.Hashable CreatePipeline where
   hashWithSalt _salt CreatePipeline' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` pipeline
 
 instance Prelude.NFData CreatePipeline where

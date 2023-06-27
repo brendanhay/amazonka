@@ -79,7 +79,8 @@ failureDetails_message = Lens.lens (\FailureDetails' {message} -> message) (\s@F
 
 instance Prelude.Hashable FailureDetails where
   hashWithSalt _salt FailureDetails' {..} =
-    _salt `Prelude.hashWithSalt` externalExecutionId
+    _salt
+      `Prelude.hashWithSalt` externalExecutionId
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` message
 

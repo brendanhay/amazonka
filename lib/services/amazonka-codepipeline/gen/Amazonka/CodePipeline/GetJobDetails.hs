@@ -22,10 +22,10 @@
 --
 -- Returns information about a job. Used for custom actions only.
 --
--- When this API is called, AWS CodePipeline returns temporary credentials
--- for the S3 bucket used to store artifacts for the pipeline, if the
--- action requires access to that S3 bucket for input or output artifacts.
--- This API also returns any secret values defined for the action.
+-- When this API is called, CodePipeline returns temporary credentials for
+-- the S3 bucket used to store artifacts for the pipeline, if the action
+-- requires access to that S3 bucket for input or output artifacts. This
+-- API also returns any secret values defined for the action.
 module Amazonka.CodePipeline.GetJobDetails
   ( -- * Creating a Request
     GetJobDetails (..),

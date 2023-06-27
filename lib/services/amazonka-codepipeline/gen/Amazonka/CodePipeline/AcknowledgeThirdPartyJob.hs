@@ -56,9 +56,9 @@ import qualified Amazonka.Response as Response
 data AcknowledgeThirdPartyJob = AcknowledgeThirdPartyJob'
   { -- | The unique system-generated ID of the job.
     jobId :: Prelude.Text,
-    -- | A system-generated random number that AWS CodePipeline uses to ensure
-    -- that the job is being worked on by only one job worker. Get this number
-    -- from the response to a GetThirdPartyJobDetails request.
+    -- | A system-generated random number that CodePipeline uses to ensure that
+    -- the job is being worked on by only one job worker. Get this number from
+    -- the response to a GetThirdPartyJobDetails request.
     nonce :: Prelude.Text,
     -- | The clientToken portion of the clientId and clientToken pair used to
     -- verify that the calling entity is allowed access to the job and its
@@ -77,9 +77,9 @@ data AcknowledgeThirdPartyJob = AcknowledgeThirdPartyJob'
 --
 -- 'jobId', 'acknowledgeThirdPartyJob_jobId' - The unique system-generated ID of the job.
 --
--- 'nonce', 'acknowledgeThirdPartyJob_nonce' - A system-generated random number that AWS CodePipeline uses to ensure
--- that the job is being worked on by only one job worker. Get this number
--- from the response to a GetThirdPartyJobDetails request.
+-- 'nonce', 'acknowledgeThirdPartyJob_nonce' - A system-generated random number that CodePipeline uses to ensure that
+-- the job is being worked on by only one job worker. Get this number from
+-- the response to a GetThirdPartyJobDetails request.
 --
 -- 'clientToken', 'acknowledgeThirdPartyJob_clientToken' - The clientToken portion of the clientId and clientToken pair used to
 -- verify that the calling entity is allowed access to the job and its
@@ -106,9 +106,9 @@ newAcknowledgeThirdPartyJob
 acknowledgeThirdPartyJob_jobId :: Lens.Lens' AcknowledgeThirdPartyJob Prelude.Text
 acknowledgeThirdPartyJob_jobId = Lens.lens (\AcknowledgeThirdPartyJob' {jobId} -> jobId) (\s@AcknowledgeThirdPartyJob' {} a -> s {jobId = a} :: AcknowledgeThirdPartyJob)
 
--- | A system-generated random number that AWS CodePipeline uses to ensure
--- that the job is being worked on by only one job worker. Get this number
--- from the response to a GetThirdPartyJobDetails request.
+-- | A system-generated random number that CodePipeline uses to ensure that
+-- the job is being worked on by only one job worker. Get this number from
+-- the response to a GetThirdPartyJobDetails request.
 acknowledgeThirdPartyJob_nonce :: Lens.Lens' AcknowledgeThirdPartyJob Prelude.Text
 acknowledgeThirdPartyJob_nonce = Lens.lens (\AcknowledgeThirdPartyJob' {nonce} -> nonce) (\s@AcknowledgeThirdPartyJob' {} a -> s {nonce = a} :: AcknowledgeThirdPartyJob)
 
@@ -134,7 +134,8 @@ instance Core.AWSRequest AcknowledgeThirdPartyJob where
 
 instance Prelude.Hashable AcknowledgeThirdPartyJob where
   hashWithSalt _salt AcknowledgeThirdPartyJob' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` nonce
       `Prelude.hashWithSalt` clientToken
 

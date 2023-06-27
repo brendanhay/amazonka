@@ -25,8 +25,11 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Represents information about an artifact that is worked on by actions in
--- the pipeline.
+-- | Artifacts are the files that are worked on by actions in the pipeline.
+-- See the action configuration for each action for details about artifact
+-- parameters. For example, the S3 source action artifact is a file name
+-- (or file path), and the files are generally provided as a ZIP file.
+-- Example artifact name: SampleApp_Windows.zip
 --
 -- /See:/ 'newArtifact' smart constructor.
 data Artifact = Artifact'
@@ -89,7 +92,8 @@ instance Data.FromJSON Artifact where
 
 instance Prelude.Hashable Artifact where
   hashWithSalt _salt Artifact' {..} =
-    _salt `Prelude.hashWithSalt` location
+    _salt
+      `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` revision
 

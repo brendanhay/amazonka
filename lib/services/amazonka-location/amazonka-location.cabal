@@ -54,16 +54,19 @@ library
     Amazonka.Location.CalculateRoute
     Amazonka.Location.CalculateRouteMatrix
     Amazonka.Location.CreateGeofenceCollection
+    Amazonka.Location.CreateKey
     Amazonka.Location.CreateMap
     Amazonka.Location.CreatePlaceIndex
     Amazonka.Location.CreateRouteCalculator
     Amazonka.Location.CreateTracker
     Amazonka.Location.DeleteGeofenceCollection
+    Amazonka.Location.DeleteKey
     Amazonka.Location.DeleteMap
     Amazonka.Location.DeletePlaceIndex
     Amazonka.Location.DeleteRouteCalculator
     Amazonka.Location.DeleteTracker
     Amazonka.Location.DescribeGeofenceCollection
+    Amazonka.Location.DescribeKey
     Amazonka.Location.DescribeMap
     Amazonka.Location.DescribePlaceIndex
     Amazonka.Location.DescribeRouteCalculator
@@ -81,6 +84,7 @@ library
     Amazonka.Location.ListDevicePositions
     Amazonka.Location.ListGeofenceCollections
     Amazonka.Location.ListGeofences
+    Amazonka.Location.ListKeys
     Amazonka.Location.ListMaps
     Amazonka.Location.ListPlaceIndexes
     Amazonka.Location.ListRouteCalculators
@@ -93,6 +97,8 @@ library
     Amazonka.Location.SearchPlaceIndexForText
     Amazonka.Location.TagResource
     Amazonka.Location.Types
+    Amazonka.Location.Types.ApiKeyFilter
+    Amazonka.Location.Types.ApiKeyRestrictions
     Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError
     Amazonka.Location.Types.BatchDeleteGeofenceError
     Amazonka.Location.Types.BatchEvaluateGeofencesError
@@ -120,11 +126,13 @@ library
     Amazonka.Location.Types.ListDevicePositionsResponseEntry
     Amazonka.Location.Types.ListGeofenceCollectionsResponseEntry
     Amazonka.Location.Types.ListGeofenceResponseEntry
+    Amazonka.Location.Types.ListKeysResponseEntry
     Amazonka.Location.Types.ListMapsResponseEntry
     Amazonka.Location.Types.ListPlaceIndexesResponseEntry
     Amazonka.Location.Types.ListRouteCalculatorsResponseEntry
     Amazonka.Location.Types.ListTrackersResponseEntry
     Amazonka.Location.Types.MapConfiguration
+    Amazonka.Location.Types.MapConfigurationUpdate
     Amazonka.Location.Types.Place
     Amazonka.Location.Types.PlaceGeometry
     Amazonka.Location.Types.PositionalAccuracy
@@ -139,6 +147,7 @@ library
     Amazonka.Location.Types.SearchPlaceIndexForPositionSummary
     Amazonka.Location.Types.SearchPlaceIndexForSuggestionsSummary
     Amazonka.Location.Types.SearchPlaceIndexForTextSummary
+    Amazonka.Location.Types.Status
     Amazonka.Location.Types.Step
     Amazonka.Location.Types.TimeZone
     Amazonka.Location.Types.TravelMode
@@ -147,6 +156,7 @@ library
     Amazonka.Location.Types.VehicleWeightUnit
     Amazonka.Location.UntagResource
     Amazonka.Location.UpdateGeofenceCollection
+    Amazonka.Location.UpdateKey
     Amazonka.Location.UpdateMap
     Amazonka.Location.UpdatePlaceIndex
     Amazonka.Location.UpdateRouteCalculator

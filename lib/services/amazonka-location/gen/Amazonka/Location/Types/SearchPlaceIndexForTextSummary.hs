@@ -41,6 +41,8 @@ data SearchPlaceIndexForTextSummary = SearchPlaceIndexForTextSummary'
     -- | Contains the coordinates for the optional bounding box specified in the
     -- request.
     filterBBox :: Prelude.Maybe (Data.Sensitive (Prelude.NonEmpty Prelude.Double)),
+    -- | The optional category filter specified in the request.
+    filterCategories :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Contains the optional country filter specified in the request.
     filterCountries :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The preferred language used to return results. Matches the language in
@@ -59,6 +61,8 @@ data SearchPlaceIndexForTextSummary = SearchPlaceIndexForTextSummary'
     -- specified in the request. Values can be one of the following:
     --
     -- -   Esri
+    --
+    -- -   Grab
     --
     -- -   Here
     --
@@ -91,6 +95,8 @@ data SearchPlaceIndexForTextSummary = SearchPlaceIndexForTextSummary'
 -- 'filterBBox', 'searchPlaceIndexForTextSummary_filterBBox' - Contains the coordinates for the optional bounding box specified in the
 -- request.
 --
+-- 'filterCategories', 'searchPlaceIndexForTextSummary_filterCategories' - The optional category filter specified in the request.
+--
 -- 'filterCountries', 'searchPlaceIndexForTextSummary_filterCountries' - Contains the optional country filter specified in the request.
 --
 -- 'language', 'searchPlaceIndexForTextSummary_language' - The preferred language used to return results. Matches the language in
@@ -110,6 +116,8 @@ data SearchPlaceIndexForTextSummary = SearchPlaceIndexForTextSummary'
 --
 -- -   Esri
 --
+-- -   Grab
+--
 -- -   Here
 --
 -- For more information about data providers, see
@@ -127,6 +135,7 @@ newSearchPlaceIndexForTextSummary pDataSource_ pText_ =
     { biasPosition =
         Prelude.Nothing,
       filterBBox = Prelude.Nothing,
+      filterCategories = Prelude.Nothing,
       filterCountries = Prelude.Nothing,
       language = Prelude.Nothing,
       maxResults = Prelude.Nothing,
@@ -151,6 +160,10 @@ searchPlaceIndexForTextSummary_biasPosition = Lens.lens (\SearchPlaceIndexForTex
 -- request.
 searchPlaceIndexForTextSummary_filterBBox :: Lens.Lens' SearchPlaceIndexForTextSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
 searchPlaceIndexForTextSummary_filterBBox = Lens.lens (\SearchPlaceIndexForTextSummary' {filterBBox} -> filterBBox) (\s@SearchPlaceIndexForTextSummary' {} a -> s {filterBBox = a} :: SearchPlaceIndexForTextSummary) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+
+-- | The optional category filter specified in the request.
+searchPlaceIndexForTextSummary_filterCategories :: Lens.Lens' SearchPlaceIndexForTextSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+searchPlaceIndexForTextSummary_filterCategories = Lens.lens (\SearchPlaceIndexForTextSummary' {filterCategories} -> filterCategories) (\s@SearchPlaceIndexForTextSummary' {} a -> s {filterCategories = a} :: SearchPlaceIndexForTextSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | Contains the optional country filter specified in the request.
 searchPlaceIndexForTextSummary_filterCountries :: Lens.Lens' SearchPlaceIndexForTextSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -179,6 +192,8 @@ searchPlaceIndexForTextSummary_resultBBox = Lens.lens (\SearchPlaceIndexForTextS
 --
 -- -   Esri
 --
+-- -   Grab
+--
 -- -   Here
 --
 -- For more information about data providers, see
@@ -198,6 +213,7 @@ instance Data.FromJSON SearchPlaceIndexForTextSummary where
           SearchPlaceIndexForTextSummary'
             Prelude.<$> (x Data..:? "BiasPosition")
             Prelude.<*> (x Data..:? "FilterBBox")
+            Prelude.<*> (x Data..:? "FilterCategories")
             Prelude.<*> (x Data..:? "FilterCountries")
             Prelude.<*> (x Data..:? "Language")
             Prelude.<*> (x Data..:? "MaxResults")
@@ -213,8 +229,10 @@ instance
   hashWithSalt
     _salt
     SearchPlaceIndexForTextSummary' {..} =
-      _salt `Prelude.hashWithSalt` biasPosition
+      _salt
+        `Prelude.hashWithSalt` biasPosition
         `Prelude.hashWithSalt` filterBBox
+        `Prelude.hashWithSalt` filterCategories
         `Prelude.hashWithSalt` filterCountries
         `Prelude.hashWithSalt` language
         `Prelude.hashWithSalt` maxResults
@@ -229,6 +247,7 @@ instance
   rnf SearchPlaceIndexForTextSummary' {..} =
     Prelude.rnf biasPosition
       `Prelude.seq` Prelude.rnf filterBBox
+      `Prelude.seq` Prelude.rnf filterCategories
       `Prelude.seq` Prelude.rnf filterCountries
       `Prelude.seq` Prelude.rnf language
       `Prelude.seq` Prelude.rnf maxResults

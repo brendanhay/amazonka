@@ -34,7 +34,7 @@ data SearchForPositionResult = SearchForPositionResult'
     -- operation to find the place again later.
     --
     -- For @SearchPlaceIndexForPosition@ operations, the @PlaceId@ is returned
-    -- only by place indexes that use HERE as a data provider.
+    -- only by place indexes that use HERE or Grab as a data provider.
     placeId :: Prelude.Maybe Prelude.Text,
     -- | The distance in meters of a great-circle arc between the query position
     -- and the result.
@@ -59,7 +59,7 @@ data SearchForPositionResult = SearchForPositionResult'
 -- operation to find the place again later.
 --
 -- For @SearchPlaceIndexForPosition@ operations, the @PlaceId@ is returned
--- only by place indexes that use HERE as a data provider.
+-- only by place indexes that use HERE or Grab as a data provider.
 --
 -- 'distance', 'searchForPositionResult_distance' - The distance in meters of a great-circle arc between the query position
 -- and the result.
@@ -85,7 +85,7 @@ newSearchForPositionResult pDistance_ pPlace_ =
 -- operation to find the place again later.
 --
 -- For @SearchPlaceIndexForPosition@ operations, the @PlaceId@ is returned
--- only by place indexes that use HERE as a data provider.
+-- only by place indexes that use HERE or Grab as a data provider.
 searchForPositionResult_placeId :: Lens.Lens' SearchForPositionResult (Prelude.Maybe Prelude.Text)
 searchForPositionResult_placeId = Lens.lens (\SearchForPositionResult' {placeId} -> placeId) (\s@SearchForPositionResult' {} a -> s {placeId = a} :: SearchForPositionResult)
 
@@ -114,7 +114,8 @@ instance Data.FromJSON SearchForPositionResult where
 
 instance Prelude.Hashable SearchForPositionResult where
   hashWithSalt _salt SearchForPositionResult' {..} =
-    _salt `Prelude.hashWithSalt` placeId
+    _salt
+      `Prelude.hashWithSalt` placeId
       `Prelude.hashWithSalt` distance
       `Prelude.hashWithSalt` place
 

@@ -57,6 +57,9 @@ import Test.Tasty
 --         , requestCreateGeofenceCollection $
 --             newCreateGeofenceCollection
 --
+--         , requestCreateKey $
+--             newCreateKey
+--
 --         , requestCreateMap $
 --             newCreateMap
 --
@@ -72,6 +75,9 @@ import Test.Tasty
 --         , requestDeleteGeofenceCollection $
 --             newDeleteGeofenceCollection
 --
+--         , requestDeleteKey $
+--             newDeleteKey
+--
 --         , requestDeleteMap $
 --             newDeleteMap
 --
@@ -86,6 +92,9 @@ import Test.Tasty
 --
 --         , requestDescribeGeofenceCollection $
 --             newDescribeGeofenceCollection
+--
+--         , requestDescribeKey $
+--             newDescribeKey
 --
 --         , requestDescribeMap $
 --             newDescribeMap
@@ -135,6 +144,9 @@ import Test.Tasty
 --         , requestListGeofences $
 --             newListGeofences
 --
+--         , requestListKeys $
+--             newListKeys
+--
 --         , requestListMaps $
 --             newListMaps
 --
@@ -173,6 +185,9 @@ import Test.Tasty
 --
 --         , requestUpdateGeofenceCollection $
 --             newUpdateGeofenceCollection
+--
+--         , requestUpdateKey $
+--             newUpdateKey
 --
 --         , requestUpdateMap $
 --             newUpdateMap
@@ -219,6 +234,9 @@ import Test.Tasty
 --         , responseCreateGeofenceCollection $
 --             newCreateGeofenceCollectionResponse
 --
+--         , responseCreateKey $
+--             newCreateKeyResponse
+--
 --         , responseCreateMap $
 --             newCreateMapResponse
 --
@@ -234,6 +252,9 @@ import Test.Tasty
 --         , responseDeleteGeofenceCollection $
 --             newDeleteGeofenceCollectionResponse
 --
+--         , responseDeleteKey $
+--             newDeleteKeyResponse
+--
 --         , responseDeleteMap $
 --             newDeleteMapResponse
 --
@@ -248,6 +269,9 @@ import Test.Tasty
 --
 --         , responseDescribeGeofenceCollection $
 --             newDescribeGeofenceCollectionResponse
+--
+--         , responseDescribeKey $
+--             newDescribeKeyResponse
 --
 --         , responseDescribeMap $
 --             newDescribeMapResponse
@@ -297,6 +321,9 @@ import Test.Tasty
 --         , responseListGeofences $
 --             newListGeofencesResponse
 --
+--         , responseListKeys $
+--             newListKeysResponse
+--
 --         , responseListMaps $
 --             newListMapsResponse
 --
@@ -335,6 +362,9 @@ import Test.Tasty
 --
 --         , responseUpdateGeofenceCollection $
 --             newUpdateGeofenceCollectionResponse
+--
+--         , responseUpdateKey $
+--             newUpdateKeyResponse
 --
 --         , responseUpdateMap $
 --             newUpdateMapResponse
@@ -413,6 +443,12 @@ requestCreateGeofenceCollection =
     "CreateGeofenceCollection"
     "fixture/CreateGeofenceCollection.yaml"
 
+requestCreateKey :: CreateKey -> TestTree
+requestCreateKey =
+  req
+    "CreateKey"
+    "fixture/CreateKey.yaml"
+
 requestCreateMap :: CreateMap -> TestTree
 requestCreateMap =
   req
@@ -443,6 +479,12 @@ requestDeleteGeofenceCollection =
     "DeleteGeofenceCollection"
     "fixture/DeleteGeofenceCollection.yaml"
 
+requestDeleteKey :: DeleteKey -> TestTree
+requestDeleteKey =
+  req
+    "DeleteKey"
+    "fixture/DeleteKey.yaml"
+
 requestDeleteMap :: DeleteMap -> TestTree
 requestDeleteMap =
   req
@@ -472,6 +514,12 @@ requestDescribeGeofenceCollection =
   req
     "DescribeGeofenceCollection"
     "fixture/DescribeGeofenceCollection.yaml"
+
+requestDescribeKey :: DescribeKey -> TestTree
+requestDescribeKey =
+  req
+    "DescribeKey"
+    "fixture/DescribeKey.yaml"
 
 requestDescribeMap :: DescribeMap -> TestTree
 requestDescribeMap =
@@ -569,6 +617,12 @@ requestListGeofences =
     "ListGeofences"
     "fixture/ListGeofences.yaml"
 
+requestListKeys :: ListKeys -> TestTree
+requestListKeys =
+  req
+    "ListKeys"
+    "fixture/ListKeys.yaml"
+
 requestListMaps :: ListMaps -> TestTree
 requestListMaps =
   req
@@ -646,6 +700,12 @@ requestUpdateGeofenceCollection =
   req
     "UpdateGeofenceCollection"
     "fixture/UpdateGeofenceCollection.yaml"
+
+requestUpdateKey :: UpdateKey -> TestTree
+requestUpdateKey =
+  req
+    "UpdateKey"
+    "fixture/UpdateKey.yaml"
 
 requestUpdateMap :: UpdateMap -> TestTree
 requestUpdateMap =
@@ -753,6 +813,14 @@ responseCreateGeofenceCollection =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateGeofenceCollection)
 
+responseCreateKey :: CreateKeyResponse -> TestTree
+responseCreateKey =
+  res
+    "CreateKeyResponse"
+    "fixture/CreateKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateKey)
+
 responseCreateMap :: CreateMapResponse -> TestTree
 responseCreateMap =
   res
@@ -793,6 +861,14 @@ responseDeleteGeofenceCollection =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteGeofenceCollection)
 
+responseDeleteKey :: DeleteKeyResponse -> TestTree
+responseDeleteKey =
+  res
+    "DeleteKeyResponse"
+    "fixture/DeleteKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteKey)
+
 responseDeleteMap :: DeleteMapResponse -> TestTree
 responseDeleteMap =
   res
@@ -832,6 +908,14 @@ responseDescribeGeofenceCollection =
     "fixture/DescribeGeofenceCollectionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeGeofenceCollection)
+
+responseDescribeKey :: DescribeKeyResponse -> TestTree
+responseDescribeKey =
+  res
+    "DescribeKeyResponse"
+    "fixture/DescribeKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeKey)
 
 responseDescribeMap :: DescribeMapResponse -> TestTree
 responseDescribeMap =
@@ -961,6 +1045,14 @@ responseListGeofences =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListGeofences)
 
+responseListKeys :: ListKeysResponse -> TestTree
+responseListKeys =
+  res
+    "ListKeysResponse"
+    "fixture/ListKeysResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListKeys)
+
 responseListMaps :: ListMapsResponse -> TestTree
 responseListMaps =
   res
@@ -1064,6 +1156,14 @@ responseUpdateGeofenceCollection =
     "fixture/UpdateGeofenceCollectionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateGeofenceCollection)
+
+responseUpdateKey :: UpdateKeyResponse -> TestTree
+responseUpdateKey =
+  res
+    "UpdateKeyResponse"
+    "fixture/UpdateKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateKey)
 
 responseUpdateMap :: UpdateMapResponse -> TestTree
 responseUpdateMap =

@@ -139,7 +139,7 @@ instance Data.ToQuery DescribeGeofenceCollection where
 -- | /See:/ 'newDescribeGeofenceCollectionResponse' smart constructor.
 data DescribeGeofenceCollectionResponse = DescribeGeofenceCollectionResponse'
   { -- | A key identifier for an
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html Amazon Web Services KMS customer managed key>
     -- assigned to the Amazon Location resource
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | No longer used. Always returns @RequestBasedUsage@.
@@ -151,7 +151,7 @@ data DescribeGeofenceCollectionResponse = DescribeGeofenceCollectionResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) for the geofence collection resource.
-    -- Used when you need to specify a resource across all AWS.
+    -- Used when you need to specify a resource across all Amazon Web Services.
     --
     -- -   Format example:
     --     @arn:aws:geo:region:account-id:geofence-collection\/ExampleGeofenceCollection@
@@ -180,7 +180,7 @@ data DescribeGeofenceCollectionResponse = DescribeGeofenceCollectionResponse'
 -- for backwards compatibility:
 --
 -- 'kmsKeyId', 'describeGeofenceCollectionResponse_kmsKeyId' - A key identifier for an
--- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html Amazon Web Services KMS customer managed key>
 -- assigned to the Amazon Location resource
 --
 -- 'pricingPlan', 'describeGeofenceCollectionResponse_pricingPlan' - No longer used. Always returns @RequestBasedUsage@.
@@ -192,7 +192,7 @@ data DescribeGeofenceCollectionResponse = DescribeGeofenceCollectionResponse'
 -- 'httpStatus', 'describeGeofenceCollectionResponse_httpStatus' - The response's http status code.
 --
 -- 'collectionArn', 'describeGeofenceCollectionResponse_collectionArn' - The Amazon Resource Name (ARN) for the geofence collection resource.
--- Used when you need to specify a resource across all AWS.
+-- Used when you need to specify a resource across all Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:geofence-collection\/ExampleGeofenceCollection@
@@ -246,7 +246,7 @@ newDescribeGeofenceCollectionResponse
       }
 
 -- | A key identifier for an
--- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html Amazon Web Services KMS customer managed key>
 -- assigned to the Amazon Location resource
 describeGeofenceCollectionResponse_kmsKeyId :: Lens.Lens' DescribeGeofenceCollectionResponse (Prelude.Maybe Prelude.Text)
 describeGeofenceCollectionResponse_kmsKeyId = Lens.lens (\DescribeGeofenceCollectionResponse' {kmsKeyId} -> kmsKeyId) (\s@DescribeGeofenceCollectionResponse' {} a -> s {kmsKeyId = a} :: DescribeGeofenceCollectionResponse)
@@ -268,7 +268,7 @@ describeGeofenceCollectionResponse_httpStatus :: Lens.Lens' DescribeGeofenceColl
 describeGeofenceCollectionResponse_httpStatus = Lens.lens (\DescribeGeofenceCollectionResponse' {httpStatus} -> httpStatus) (\s@DescribeGeofenceCollectionResponse' {} a -> s {httpStatus = a} :: DescribeGeofenceCollectionResponse)
 
 -- | The Amazon Resource Name (ARN) for the geofence collection resource.
--- Used when you need to specify a resource across all AWS.
+-- Used when you need to specify a resource across all Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:geofence-collection\/ExampleGeofenceCollection@

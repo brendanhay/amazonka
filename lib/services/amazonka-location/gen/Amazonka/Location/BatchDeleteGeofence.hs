@@ -107,7 +107,8 @@ instance Core.AWSRequest BatchDeleteGeofence where
 
 instance Prelude.Hashable BatchDeleteGeofence where
   hashWithSalt _salt BatchDeleteGeofence' {..} =
-    _salt `Prelude.hashWithSalt` collectionName
+    _salt
+      `Prelude.hashWithSalt` collectionName
       `Prelude.hashWithSalt` geofenceIds
 
 instance Prelude.NFData BatchDeleteGeofence where

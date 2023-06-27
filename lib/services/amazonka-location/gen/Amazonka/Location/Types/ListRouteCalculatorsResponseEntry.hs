@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.PricingPlan
 import qualified Amazonka.Prelude as Prelude
 
--- | A route calculator resource listed in your AWS account.
+-- | A route calculator resource listed in your Amazon Web Services account.
 --
 -- /See:/ 'newListRouteCalculatorsResponseEntry' smart constructor.
 data ListRouteCalculatorsResponseEntry = ListRouteCalculatorsResponseEntry'
@@ -43,6 +43,8 @@ data ListRouteCalculatorsResponseEntry = ListRouteCalculatorsResponseEntry'
     -- available providers:
     --
     -- -   @Esri@
+    --
+    -- -   @Grab@
     --
     -- -   @Here@
     --
@@ -82,6 +84,8 @@ data ListRouteCalculatorsResponseEntry = ListRouteCalculatorsResponseEntry'
 -- available providers:
 --
 -- -   @Esri@
+--
+-- -   @Grab@
 --
 -- -   @Here@
 --
@@ -146,6 +150,8 @@ listRouteCalculatorsResponseEntry_createTime = Lens.lens (\ListRouteCalculatorsR
 --
 -- -   @Esri@
 --
+-- -   @Grab@
+--
 -- -   @Here@
 --
 -- For more information about data providers, see
@@ -189,7 +195,8 @@ instance
   hashWithSalt
     _salt
     ListRouteCalculatorsResponseEntry' {..} =
-      _salt `Prelude.hashWithSalt` pricingPlan
+      _salt
+        `Prelude.hashWithSalt` pricingPlan
         `Prelude.hashWithSalt` calculatorName
         `Prelude.hashWithSalt` createTime
         `Prelude.hashWithSalt` dataSource

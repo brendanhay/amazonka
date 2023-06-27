@@ -107,6 +107,12 @@ module Amazonka.Location
     CreateGeofenceCollectionResponse (CreateGeofenceCollectionResponse'),
     newCreateGeofenceCollectionResponse,
 
+    -- ** CreateKey
+    CreateKey (CreateKey'),
+    newCreateKey,
+    CreateKeyResponse (CreateKeyResponse'),
+    newCreateKeyResponse,
+
     -- ** CreateMap
     CreateMap (CreateMap'),
     newCreateMap,
@@ -137,6 +143,12 @@ module Amazonka.Location
     DeleteGeofenceCollectionResponse (DeleteGeofenceCollectionResponse'),
     newDeleteGeofenceCollectionResponse,
 
+    -- ** DeleteKey
+    DeleteKey (DeleteKey'),
+    newDeleteKey,
+    DeleteKeyResponse (DeleteKeyResponse'),
+    newDeleteKeyResponse,
+
     -- ** DeleteMap
     DeleteMap (DeleteMap'),
     newDeleteMap,
@@ -166,6 +178,12 @@ module Amazonka.Location
     newDescribeGeofenceCollection,
     DescribeGeofenceCollectionResponse (DescribeGeofenceCollectionResponse'),
     newDescribeGeofenceCollectionResponse,
+
+    -- ** DescribeKey
+    DescribeKey (DescribeKey'),
+    newDescribeKey,
+    DescribeKeyResponse (DescribeKeyResponse'),
+    newDescribeKeyResponse,
 
     -- ** DescribeMap
     DescribeMap (DescribeMap'),
@@ -263,6 +281,12 @@ module Amazonka.Location
     ListGeofencesResponse (ListGeofencesResponse'),
     newListGeofencesResponse,
 
+    -- ** ListKeys (Paginated)
+    ListKeys (ListKeys'),
+    newListKeys,
+    ListKeysResponse (ListKeysResponse'),
+    newListKeysResponse,
+
     -- ** ListMaps (Paginated)
     ListMaps (ListMaps'),
     newListMaps,
@@ -341,6 +365,12 @@ module Amazonka.Location
     UpdateGeofenceCollectionResponse (UpdateGeofenceCollectionResponse'),
     newUpdateGeofenceCollectionResponse,
 
+    -- ** UpdateKey
+    UpdateKey (UpdateKey'),
+    newUpdateKey,
+    UpdateKeyResponse (UpdateKeyResponse'),
+    newUpdateKeyResponse,
+
     -- ** UpdateMap
     UpdateMap (UpdateMap'),
     newUpdateMap,
@@ -388,11 +418,22 @@ module Amazonka.Location
     -- ** RouteMatrixErrorCode
     RouteMatrixErrorCode (..),
 
+    -- ** Status
+    Status (..),
+
     -- ** TravelMode
     TravelMode (..),
 
     -- ** VehicleWeightUnit
     VehicleWeightUnit (..),
+
+    -- ** ApiKeyFilter
+    ApiKeyFilter (ApiKeyFilter'),
+    newApiKeyFilter,
+
+    -- ** ApiKeyRestrictions
+    ApiKeyRestrictions (ApiKeyRestrictions'),
+    newApiKeyRestrictions,
 
     -- ** BatchDeleteDevicePositionHistoryError
     BatchDeleteDevicePositionHistoryError (BatchDeleteDevicePositionHistoryError'),
@@ -486,6 +527,10 @@ module Amazonka.Location
     ListGeofenceResponseEntry (ListGeofenceResponseEntry'),
     newListGeofenceResponseEntry,
 
+    -- ** ListKeysResponseEntry
+    ListKeysResponseEntry (ListKeysResponseEntry'),
+    newListKeysResponseEntry,
+
     -- ** ListMapsResponseEntry
     ListMapsResponseEntry (ListMapsResponseEntry'),
     newListMapsResponseEntry,
@@ -505,6 +550,10 @@ module Amazonka.Location
     -- ** MapConfiguration
     MapConfiguration (MapConfiguration'),
     newMapConfiguration,
+
+    -- ** MapConfigurationUpdate
+    MapConfigurationUpdate (MapConfigurationUpdate'),
+    newMapConfigurationUpdate,
 
     -- ** Place
     Place (Place'),
@@ -578,16 +627,19 @@ import Amazonka.Location.BatchUpdateDevicePosition
 import Amazonka.Location.CalculateRoute
 import Amazonka.Location.CalculateRouteMatrix
 import Amazonka.Location.CreateGeofenceCollection
+import Amazonka.Location.CreateKey
 import Amazonka.Location.CreateMap
 import Amazonka.Location.CreatePlaceIndex
 import Amazonka.Location.CreateRouteCalculator
 import Amazonka.Location.CreateTracker
 import Amazonka.Location.DeleteGeofenceCollection
+import Amazonka.Location.DeleteKey
 import Amazonka.Location.DeleteMap
 import Amazonka.Location.DeletePlaceIndex
 import Amazonka.Location.DeleteRouteCalculator
 import Amazonka.Location.DeleteTracker
 import Amazonka.Location.DescribeGeofenceCollection
+import Amazonka.Location.DescribeKey
 import Amazonka.Location.DescribeMap
 import Amazonka.Location.DescribePlaceIndex
 import Amazonka.Location.DescribeRouteCalculator
@@ -605,6 +657,7 @@ import Amazonka.Location.Lens
 import Amazonka.Location.ListDevicePositions
 import Amazonka.Location.ListGeofenceCollections
 import Amazonka.Location.ListGeofences
+import Amazonka.Location.ListKeys
 import Amazonka.Location.ListMaps
 import Amazonka.Location.ListPlaceIndexes
 import Amazonka.Location.ListRouteCalculators
@@ -619,6 +672,7 @@ import Amazonka.Location.TagResource
 import Amazonka.Location.Types
 import Amazonka.Location.UntagResource
 import Amazonka.Location.UpdateGeofenceCollection
+import Amazonka.Location.UpdateKey
 import Amazonka.Location.UpdateMap
 import Amazonka.Location.UpdatePlaceIndex
 import Amazonka.Location.UpdateRouteCalculator

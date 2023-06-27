@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a tracker resource from your AWS account.
+-- Deletes a tracker resource from your Amazon Web Services account.
 --
 -- This operation deletes the resource permanently. If the tracker resource
 -- is in use, you may encounter an error. Make sure that the target

@@ -29,6 +29,7 @@ module Amazonka.Location.GetMapSprites
     newGetMapSprites,
 
     -- * Request Lenses
+    getMapSprites_key,
     getMapSprites_fileName,
     getMapSprites_mapName,
 
@@ -38,6 +39,7 @@ module Amazonka.Location.GetMapSprites
 
     -- * Response Lenses
     getMapSpritesResponse_blob,
+    getMapSpritesResponse_cacheControl,
     getMapSpritesResponse_contentType,
     getMapSpritesResponse_httpStatus,
   )
@@ -53,7 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetMapSprites' smart constructor.
 data GetMapSprites = GetMapSprites'
-  { -- | The name of the sprite ﬁle. Use the following ﬁle names for the sprite
+  { -- | The optional
+    -- <https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html API key>
+    -- to authorize the request.
+    key :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The name of the sprite ﬁle. Use the following ﬁle names for the sprite
     -- sheet:
     --
     -- -   @sprites.png@
@@ -70,7 +76,7 @@ data GetMapSprites = GetMapSprites'
     -- | The map resource associated with the sprite ﬁle.
     mapName :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMapSprites' with all optional fields omitted.
@@ -79,6 +85,10 @@ data GetMapSprites = GetMapSprites'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'key', 'getMapSprites_key' - The optional
+-- <https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html API key>
+-- to authorize the request.
 --
 -- 'fileName', 'getMapSprites_fileName' - The name of the sprite ﬁle. Use the following ﬁle names for the sprite
 -- sheet:
@@ -103,9 +113,16 @@ newGetMapSprites ::
   GetMapSprites
 newGetMapSprites pFileName_ pMapName_ =
   GetMapSprites'
-    { fileName = pFileName_,
+    { key = Prelude.Nothing,
+      fileName = pFileName_,
       mapName = pMapName_
     }
+
+-- | The optional
+-- <https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html API key>
+-- to authorize the request.
+getMapSprites_key :: Lens.Lens' GetMapSprites (Prelude.Maybe Prelude.Text)
+getMapSprites_key = Lens.lens (\GetMapSprites' {key} -> key) (\s@GetMapSprites' {} a -> s {key = a} :: GetMapSprites) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the sprite ﬁle. Use the following ﬁle names for the sprite
 -- sheet:
@@ -138,18 +155,22 @@ instance Core.AWSRequest GetMapSprites where
       ( \s h x ->
           GetMapSpritesResponse'
             Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
+            Prelude.<*> (h Data..#? "Cache-Control")
             Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetMapSprites where
   hashWithSalt _salt GetMapSprites' {..} =
-    _salt `Prelude.hashWithSalt` fileName
+    _salt
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` fileName
       `Prelude.hashWithSalt` mapName
 
 instance Prelude.NFData GetMapSprites where
   rnf GetMapSprites' {..} =
-    Prelude.rnf fileName
+    Prelude.rnf key
+      `Prelude.seq` Prelude.rnf fileName
       `Prelude.seq` Prelude.rnf mapName
 
 instance Data.ToHeaders GetMapSprites where
@@ -173,12 +194,15 @@ instance Data.ToPath GetMapSprites where
       ]
 
 instance Data.ToQuery GetMapSprites where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery GetMapSprites' {..} =
+    Prelude.mconcat ["key" Data.=: key]
 
 -- | /See:/ 'newGetMapSpritesResponse' smart constructor.
 data GetMapSpritesResponse = GetMapSpritesResponse'
   { -- | Contains the body of the sprite sheet or JSON offset ﬁle.
     blob :: Prelude.Maybe Prelude.ByteString,
+    -- | The HTTP Cache-Control directive for the value.
+    cacheControl :: Prelude.Maybe Prelude.Text,
     -- | The content type of the sprite sheet and offsets. For example, the
     -- sprite sheet content type is @image\/png@, and the sprite offset JSON
     -- document is @application\/json@.
@@ -198,6 +222,8 @@ data GetMapSpritesResponse = GetMapSpritesResponse'
 --
 -- 'blob', 'getMapSpritesResponse_blob' - Contains the body of the sprite sheet or JSON offset ﬁle.
 --
+-- 'cacheControl', 'getMapSpritesResponse_cacheControl' - The HTTP Cache-Control directive for the value.
+--
 -- 'contentType', 'getMapSpritesResponse_contentType' - The content type of the sprite sheet and offsets. For example, the
 -- sprite sheet content type is @image\/png@, and the sprite offset JSON
 -- document is @application\/json@.
@@ -210,6 +236,7 @@ newGetMapSpritesResponse ::
 newGetMapSpritesResponse pHttpStatus_ =
   GetMapSpritesResponse'
     { blob = Prelude.Nothing,
+      cacheControl = Prelude.Nothing,
       contentType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -217,6 +244,10 @@ newGetMapSpritesResponse pHttpStatus_ =
 -- | Contains the body of the sprite sheet or JSON offset ﬁle.
 getMapSpritesResponse_blob :: Lens.Lens' GetMapSpritesResponse (Prelude.Maybe Prelude.ByteString)
 getMapSpritesResponse_blob = Lens.lens (\GetMapSpritesResponse' {blob} -> blob) (\s@GetMapSpritesResponse' {} a -> s {blob = a} :: GetMapSpritesResponse)
+
+-- | The HTTP Cache-Control directive for the value.
+getMapSpritesResponse_cacheControl :: Lens.Lens' GetMapSpritesResponse (Prelude.Maybe Prelude.Text)
+getMapSpritesResponse_cacheControl = Lens.lens (\GetMapSpritesResponse' {cacheControl} -> cacheControl) (\s@GetMapSpritesResponse' {} a -> s {cacheControl = a} :: GetMapSpritesResponse)
 
 -- | The content type of the sprite sheet and offsets. For example, the
 -- sprite sheet content type is @image\/png@, and the sprite offset JSON
@@ -231,5 +262,6 @@ getMapSpritesResponse_httpStatus = Lens.lens (\GetMapSpritesResponse' {httpStatu
 instance Prelude.NFData GetMapSpritesResponse where
   rnf GetMapSpritesResponse' {..} =
     Prelude.rnf blob
+      `Prelude.seq` Prelude.rnf cacheControl
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf httpStatus

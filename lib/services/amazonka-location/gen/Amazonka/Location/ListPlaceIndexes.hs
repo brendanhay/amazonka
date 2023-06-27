@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists place index resources in your AWS account.
+-- Lists place index resources in your Amazon Web Services account.
 --
 -- This operation returns paginated results.
 module Amazonka.Location.ListPlaceIndexes
@@ -110,19 +110,19 @@ instance Core.AWSPager ListPlaceIndexes where
     | Core.stop
         ( rs
             Lens.^? listPlaceIndexesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listPlaceIndexesResponse_entries) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPlaceIndexes_nextToken
           Lens..~ rs
           Lens.^? listPlaceIndexesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPlaceIndexes where
   type
@@ -141,7 +141,8 @@ instance Core.AWSRequest ListPlaceIndexes where
 
 instance Prelude.Hashable ListPlaceIndexes where
   hashWithSalt _salt ListPlaceIndexes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPlaceIndexes where
@@ -183,7 +184,8 @@ data ListPlaceIndexesResponse = ListPlaceIndexesResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | Lists the place index resources that exist in your AWS account
+    -- | Lists the place index resources that exist in your Amazon Web Services
+    -- account
     entries :: [ListPlaceIndexesResponseEntry]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -202,7 +204,8 @@ data ListPlaceIndexesResponse = ListPlaceIndexesResponse'
 --
 -- 'httpStatus', 'listPlaceIndexesResponse_httpStatus' - The response's http status code.
 --
--- 'entries', 'listPlaceIndexesResponse_entries' - Lists the place index resources that exist in your AWS account
+-- 'entries', 'listPlaceIndexesResponse_entries' - Lists the place index resources that exist in your Amazon Web Services
+-- account
 newListPlaceIndexesResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -225,7 +228,8 @@ listPlaceIndexesResponse_nextToken = Lens.lens (\ListPlaceIndexesResponse' {next
 listPlaceIndexesResponse_httpStatus :: Lens.Lens' ListPlaceIndexesResponse Prelude.Int
 listPlaceIndexesResponse_httpStatus = Lens.lens (\ListPlaceIndexesResponse' {httpStatus} -> httpStatus) (\s@ListPlaceIndexesResponse' {} a -> s {httpStatus = a} :: ListPlaceIndexesResponse)
 
--- | Lists the place index resources that exist in your AWS account
+-- | Lists the place index resources that exist in your Amazon Web Services
+-- account
 listPlaceIndexesResponse_entries :: Lens.Lens' ListPlaceIndexesResponse [ListPlaceIndexesResponseEntry]
 listPlaceIndexesResponse_entries = Lens.lens (\ListPlaceIndexesResponse' {entries} -> entries) (\s@ListPlaceIndexesResponse' {} a -> s {entries = a} :: ListPlaceIndexesResponse) Prelude.. Lens.coerced
 

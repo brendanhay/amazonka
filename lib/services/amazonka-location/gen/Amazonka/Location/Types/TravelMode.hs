@@ -20,7 +20,9 @@
 module Amazonka.Location.Types.TravelMode
   ( TravelMode
       ( ..,
+        TravelMode_Bicycle,
         TravelMode_Car,
+        TravelMode_Motorcycle,
         TravelMode_Truck,
         TravelMode_Walking
       ),
@@ -59,8 +61,14 @@ newtype TravelMode = TravelMode'
       Data.ToXML
     )
 
+pattern TravelMode_Bicycle :: TravelMode
+pattern TravelMode_Bicycle = TravelMode' "Bicycle"
+
 pattern TravelMode_Car :: TravelMode
 pattern TravelMode_Car = TravelMode' "Car"
+
+pattern TravelMode_Motorcycle :: TravelMode
+pattern TravelMode_Motorcycle = TravelMode' "Motorcycle"
 
 pattern TravelMode_Truck :: TravelMode
 pattern TravelMode_Truck = TravelMode' "Truck"
@@ -69,7 +77,9 @@ pattern TravelMode_Walking :: TravelMode
 pattern TravelMode_Walking = TravelMode' "Walking"
 
 {-# COMPLETE
+  TravelMode_Bicycle,
   TravelMode_Car,
+  TravelMode_Motorcycle,
   TravelMode_Truck,
   TravelMode_Walking,
   TravelMode'

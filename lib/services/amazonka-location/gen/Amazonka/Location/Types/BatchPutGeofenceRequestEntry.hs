@@ -29,7 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchPutGeofenceRequestEntry' smart constructor.
 data BatchPutGeofenceRequestEntry = BatchPutGeofenceRequestEntry'
-  { -- | The identifier for the geofence to be stored in a given geofence
+  { -- | Specifies additional user-defined properties to store with the Geofence.
+    -- An array of key-value pairs.
+    geofenceProperties :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    -- | The identifier for the geofence to be stored in a given geofence
     -- collection.
     geofenceId :: Prelude.Text,
     -- | Contains the details of the position of the geofence. Can be either a
@@ -50,6 +53,9 @@ data BatchPutGeofenceRequestEntry = BatchPutGeofenceRequestEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'geofenceProperties', 'batchPutGeofenceRequestEntry_geofenceProperties' - Specifies additional user-defined properties to store with the Geofence.
+-- An array of key-value pairs.
+--
 -- 'geofenceId', 'batchPutGeofenceRequestEntry_geofenceId' - The identifier for the geofence to be stored in a given geofence
 -- collection.
 --
@@ -69,10 +75,16 @@ newBatchPutGeofenceRequestEntry
   pGeofenceId_
   pGeometry_ =
     BatchPutGeofenceRequestEntry'
-      { geofenceId =
-          pGeofenceId_,
+      { geofenceProperties =
+          Prelude.Nothing,
+        geofenceId = pGeofenceId_,
         geometry = pGeometry_
       }
+
+-- | Specifies additional user-defined properties to store with the Geofence.
+-- An array of key-value pairs.
+batchPutGeofenceRequestEntry_geofenceProperties :: Lens.Lens' BatchPutGeofenceRequestEntry (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+batchPutGeofenceRequestEntry_geofenceProperties = Lens.lens (\BatchPutGeofenceRequestEntry' {geofenceProperties} -> geofenceProperties) (\s@BatchPutGeofenceRequestEntry' {} a -> s {geofenceProperties = a} :: BatchPutGeofenceRequestEntry) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The identifier for the geofence to be stored in a given geofence
 -- collection.
@@ -93,19 +105,24 @@ instance
     BatchPutGeofenceRequestEntry
   where
   hashWithSalt _salt BatchPutGeofenceRequestEntry' {..} =
-    _salt `Prelude.hashWithSalt` geofenceId
+    _salt
+      `Prelude.hashWithSalt` geofenceProperties
+      `Prelude.hashWithSalt` geofenceId
       `Prelude.hashWithSalt` geometry
 
 instance Prelude.NFData BatchPutGeofenceRequestEntry where
   rnf BatchPutGeofenceRequestEntry' {..} =
-    Prelude.rnf geofenceId
+    Prelude.rnf geofenceProperties
+      `Prelude.seq` Prelude.rnf geofenceId
       `Prelude.seq` Prelude.rnf geometry
 
 instance Data.ToJSON BatchPutGeofenceRequestEntry where
   toJSON BatchPutGeofenceRequestEntry' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("GeofenceId" Data..= geofenceId),
+          [ ("GeofenceProperties" Data..=)
+              Prelude.<$> geofenceProperties,
+            Prelude.Just ("GeofenceId" Data..= geofenceId),
             Prelude.Just ("Geometry" Data..= geometry)
           ]
       )

@@ -20,17 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a route calculator resource in your AWS account.
+-- Creates a route calculator resource in your Amazon Web Services account.
 --
 -- You can send requests to a route calculator resource to estimate travel
 -- time, distance, and get directions. A route calculator sources traffic
 -- and road network data from your chosen data provider.
 --
 -- If your application is tracking or routing assets you use in your
--- business, such as delivery vehicles or employees, you may only use HERE
+-- business, such as delivery vehicles or employees, you must not use Esri
 -- as your geolocation provider. See section 82 of the
--- <http://aws.amazon.com/service-terms AWS service terms> for more
--- details.
+-- <http://aws.amazon.com/service-terms Amazon Web Services service terms>
+-- for more details.
 module Amazonka.Location.CreateRouteCalculator
   ( -- * Creating a Request
     CreateRouteCalculator (..),
@@ -107,9 +107,7 @@ data CreateRouteCalculator = CreateRouteCalculator'
     -- | Specifies the data provider of traffic and road network data.
     --
     -- This field is case-sensitive. Enter the valid values as shown. For
-    -- example, entering @HERE@ returns an error. Route calculators that use
-    -- Esri as a data source only calculate routes that are shorter than 400
-    -- km.
+    -- example, entering @HERE@ returns an error.
     --
     -- Valid values include:
     --
@@ -117,6 +115,15 @@ data CreateRouteCalculator = CreateRouteCalculator'
     --     <https://docs.aws.amazon.com/location/latest/developerguide/esri.html Esri>\'s
     --     coverage in your region of interest, see
     --     <https://doc.arcgis.com/en/arcgis-online/reference/network-coverage.htm Esri details on street networks and traffic coverage>.
+    --
+    --     Route calculators that use Esri as a data source only calculate
+    --     routes that are shorter than 400 km.
+    --
+    -- -   @Grab@ – Grab provides routing functionality for Southeast Asia. For
+    --     additional information about
+    --     <https://docs.aws.amazon.com/location/latest/developerguide/grab.html GrabMaps>\'
+    --     coverage, see
+    --     <https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area GrabMaps countries and areas covered>.
     --
     -- -   @Here@ – For additional information about
     --     <https://docs.aws.amazon.com/location/latest/developerguide/HERE.html HERE Technologies>\'
@@ -182,9 +189,7 @@ data CreateRouteCalculator = CreateRouteCalculator'
 -- 'dataSource', 'createRouteCalculator_dataSource' - Specifies the data provider of traffic and road network data.
 --
 -- This field is case-sensitive. Enter the valid values as shown. For
--- example, entering @HERE@ returns an error. Route calculators that use
--- Esri as a data source only calculate routes that are shorter than 400
--- km.
+-- example, entering @HERE@ returns an error.
 --
 -- Valid values include:
 --
@@ -192,6 +197,15 @@ data CreateRouteCalculator = CreateRouteCalculator'
 --     <https://docs.aws.amazon.com/location/latest/developerguide/esri.html Esri>\'s
 --     coverage in your region of interest, see
 --     <https://doc.arcgis.com/en/arcgis-online/reference/network-coverage.htm Esri details on street networks and traffic coverage>.
+--
+--     Route calculators that use Esri as a data source only calculate
+--     routes that are shorter than 400 km.
+--
+-- -   @Grab@ – Grab provides routing functionality for Southeast Asia. For
+--     additional information about
+--     <https://docs.aws.amazon.com/location/latest/developerguide/grab.html GrabMaps>\'
+--     coverage, see
+--     <https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area GrabMaps countries and areas covered>.
 --
 -- -   @Here@ – For additional information about
 --     <https://docs.aws.amazon.com/location/latest/developerguide/HERE.html HERE Technologies>\'
@@ -271,9 +285,7 @@ createRouteCalculator_calculatorName = Lens.lens (\CreateRouteCalculator' {calcu
 -- | Specifies the data provider of traffic and road network data.
 --
 -- This field is case-sensitive. Enter the valid values as shown. For
--- example, entering @HERE@ returns an error. Route calculators that use
--- Esri as a data source only calculate routes that are shorter than 400
--- km.
+-- example, entering @HERE@ returns an error.
 --
 -- Valid values include:
 --
@@ -281,6 +293,15 @@ createRouteCalculator_calculatorName = Lens.lens (\CreateRouteCalculator' {calcu
 --     <https://docs.aws.amazon.com/location/latest/developerguide/esri.html Esri>\'s
 --     coverage in your region of interest, see
 --     <https://doc.arcgis.com/en/arcgis-online/reference/network-coverage.htm Esri details on street networks and traffic coverage>.
+--
+--     Route calculators that use Esri as a data source only calculate
+--     routes that are shorter than 400 km.
+--
+-- -   @Grab@ – Grab provides routing functionality for Southeast Asia. For
+--     additional information about
+--     <https://docs.aws.amazon.com/location/latest/developerguide/grab.html GrabMaps>\'
+--     coverage, see
+--     <https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area GrabMaps countries and areas covered>.
 --
 -- -   @Here@ – For additional information about
 --     <https://docs.aws.amazon.com/location/latest/developerguide/HERE.html HERE Technologies>\'
@@ -313,7 +334,8 @@ instance Core.AWSRequest CreateRouteCalculator where
 
 instance Prelude.Hashable CreateRouteCalculator where
   hashWithSalt _salt CreateRouteCalculator' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` calculatorName
@@ -362,7 +384,7 @@ data CreateRouteCalculatorResponse = CreateRouteCalculatorResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) for the route calculator resource. Use
-    -- the ARN when you specify a resource across all AWS.
+    -- the ARN when you specify a resource across all Amazon Web Services.
     --
     -- -   Format example:
     --     @arn:aws:geo:region:account-id:route-calculator\/ExampleCalculator@
@@ -391,7 +413,7 @@ data CreateRouteCalculatorResponse = CreateRouteCalculatorResponse'
 -- 'httpStatus', 'createRouteCalculatorResponse_httpStatus' - The response's http status code.
 --
 -- 'calculatorArn', 'createRouteCalculatorResponse_calculatorArn' - The Amazon Resource Name (ARN) for the route calculator resource. Use
--- the ARN when you specify a resource across all AWS.
+-- the ARN when you specify a resource across all Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:route-calculator\/ExampleCalculator@
@@ -433,7 +455,7 @@ createRouteCalculatorResponse_httpStatus :: Lens.Lens' CreateRouteCalculatorResp
 createRouteCalculatorResponse_httpStatus = Lens.lens (\CreateRouteCalculatorResponse' {httpStatus} -> httpStatus) (\s@CreateRouteCalculatorResponse' {} a -> s {httpStatus = a} :: CreateRouteCalculatorResponse)
 
 -- | The Amazon Resource Name (ARN) for the route calculator resource. Use
--- the ARN when you specify a resource across all AWS.
+-- the ARN when you specify a resource across all Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:route-calculator\/ExampleCalculator@

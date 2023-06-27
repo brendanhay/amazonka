@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists map resources in your AWS account.
+-- Lists map resources in your Amazon Web Services account.
 --
 -- This operation returns paginated results.
 module Amazonka.Location.ListMaps
@@ -106,17 +106,19 @@ instance Core.AWSPager ListMaps where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listMapsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listMapsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop (rs Lens.^. listMapsResponse_entries) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listMaps_nextToken
           Lens..~ rs
-          Lens.^? listMapsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listMapsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMaps where
   type AWSResponse ListMaps = ListMapsResponse
@@ -133,7 +135,8 @@ instance Core.AWSRequest ListMaps where
 
 instance Prelude.Hashable ListMaps where
   hashWithSalt _salt ListMaps' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListMaps where
@@ -175,7 +178,7 @@ data ListMapsResponse = ListMapsResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | Contains a list of maps in your AWS account
+    -- | Contains a list of maps in your Amazon Web Services account
     entries :: [ListMapsResponseEntry]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -194,7 +197,7 @@ data ListMapsResponse = ListMapsResponse'
 --
 -- 'httpStatus', 'listMapsResponse_httpStatus' - The response's http status code.
 --
--- 'entries', 'listMapsResponse_entries' - Contains a list of maps in your AWS account
+-- 'entries', 'listMapsResponse_entries' - Contains a list of maps in your Amazon Web Services account
 newListMapsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -216,7 +219,7 @@ listMapsResponse_nextToken = Lens.lens (\ListMapsResponse' {nextToken} -> nextTo
 listMapsResponse_httpStatus :: Lens.Lens' ListMapsResponse Prelude.Int
 listMapsResponse_httpStatus = Lens.lens (\ListMapsResponse' {httpStatus} -> httpStatus) (\s@ListMapsResponse' {} a -> s {httpStatus = a} :: ListMapsResponse)
 
--- | Contains a list of maps in your AWS account
+-- | Contains a list of maps in your Amazon Web Services account
 listMapsResponse_entries :: Lens.Lens' ListMapsResponse [ListMapsResponseEntry]
 listMapsResponse_entries = Lens.lens (\ListMapsResponse' {entries} -> entries) (\s@ListMapsResponse' {} a -> s {entries = a} :: ListMapsResponse) Prelude.. Lens.coerced
 

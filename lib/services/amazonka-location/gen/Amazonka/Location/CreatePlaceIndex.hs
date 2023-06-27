@@ -20,17 +20,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a place index resource in your AWS account. Use a place index
--- resource to geocode addresses and other text queries by using the
--- @SearchPlaceIndexForText@ operation, and reverse geocode coordinates by
--- using the @SearchPlaceIndexForPosition@ operation, and enable
--- autosuggestions by using the @SearchPlaceIndexForSuggestions@ operation.
+-- Creates a place index resource in your Amazon Web Services account. Use
+-- a place index resource to geocode addresses and other text queries by
+-- using the @SearchPlaceIndexForText@ operation, and reverse geocode
+-- coordinates by using the @SearchPlaceIndexForPosition@ operation, and
+-- enable autosuggestions by using the @SearchPlaceIndexForSuggestions@
+-- operation.
 --
 -- If your application is tracking or routing assets you use in your
--- business, such as delivery vehicles or employees, you may only use HERE
+-- business, such as delivery vehicles or employees, you must not use Esri
 -- as your geolocation provider. See section 82 of the
--- <http://aws.amazon.com/service-terms AWS service terms> for more
--- details.
+-- <http://aws.amazon.com/service-terms Amazon Web Services service terms>
+-- for more details.
 module Amazonka.Location.CreatePlaceIndex
   ( -- * Creating a Request
     CreatePlaceIndex (..),
@@ -107,6 +108,12 @@ data CreatePlaceIndex = CreatePlaceIndex'
     --     coverage in your region of interest, see
     --     <https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm Esri details on geocoding coverage>.
     --
+    -- -   @Grab@ – Grab provides place index functionality for Southeast Asia.
+    --     For additional information about
+    --     <https://docs.aws.amazon.com/location/latest/developerguide/grab.html GrabMaps>\'
+    --     coverage, see
+    --     <https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area GrabMaps countries and areas covered>.
+    --
     -- -   @Here@ – For additional information about
     --     <https://docs.aws.amazon.com/location/latest/developerguide/HERE.html HERE Technologies>\'
     --     coverage in your region of interest, see
@@ -116,8 +123,8 @@ data CreatePlaceIndex = CreatePlaceIndex'
     --     may not
     --     <https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html store results>
     --     for locations in Japan. For more information, see the
-    --     <https://aws.amazon.com/service-terms/ AWS Service Terms> for Amazon
-    --     Location Service.
+    --     <http://aws.amazon.com/service-terms/ Amazon Web Services Service Terms>
+    --     for Amazon Location Service.
     --
     -- For additional information , see
     -- <https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Data providers>
@@ -186,6 +193,12 @@ data CreatePlaceIndex = CreatePlaceIndex'
 --     coverage in your region of interest, see
 --     <https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm Esri details on geocoding coverage>.
 --
+-- -   @Grab@ – Grab provides place index functionality for Southeast Asia.
+--     For additional information about
+--     <https://docs.aws.amazon.com/location/latest/developerguide/grab.html GrabMaps>\'
+--     coverage, see
+--     <https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area GrabMaps countries and areas covered>.
+--
 -- -   @Here@ – For additional information about
 --     <https://docs.aws.amazon.com/location/latest/developerguide/HERE.html HERE Technologies>\'
 --     coverage in your region of interest, see
@@ -195,8 +208,8 @@ data CreatePlaceIndex = CreatePlaceIndex'
 --     may not
 --     <https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html store results>
 --     for locations in Japan. For more information, see the
---     <https://aws.amazon.com/service-terms/ AWS Service Terms> for Amazon
---     Location Service.
+--     <http://aws.amazon.com/service-terms/ Amazon Web Services Service Terms>
+--     for Amazon Location Service.
 --
 -- For additional information , see
 -- <https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Data providers>
@@ -278,6 +291,12 @@ createPlaceIndex_tags = Lens.lens (\CreatePlaceIndex' {tags} -> tags) (\s@Create
 --     coverage in your region of interest, see
 --     <https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm Esri details on geocoding coverage>.
 --
+-- -   @Grab@ – Grab provides place index functionality for Southeast Asia.
+--     For additional information about
+--     <https://docs.aws.amazon.com/location/latest/developerguide/grab.html GrabMaps>\'
+--     coverage, see
+--     <https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area GrabMaps countries and areas covered>.
+--
 -- -   @Here@ – For additional information about
 --     <https://docs.aws.amazon.com/location/latest/developerguide/HERE.html HERE Technologies>\'
 --     coverage in your region of interest, see
@@ -287,8 +306,8 @@ createPlaceIndex_tags = Lens.lens (\CreatePlaceIndex' {tags} -> tags) (\s@Create
 --     may not
 --     <https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html store results>
 --     for locations in Japan. For more information, see the
---     <https://aws.amazon.com/service-terms/ AWS Service Terms> for Amazon
---     Location Service.
+--     <http://aws.amazon.com/service-terms/ Amazon Web Services Service Terms>
+--     for Amazon Location Service.
 --
 -- For additional information , see
 -- <https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Data providers>
@@ -384,7 +403,7 @@ data CreatePlaceIndexResponse = CreatePlaceIndexResponse'
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
     createTime :: Data.ISO8601,
     -- | The Amazon Resource Name (ARN) for the place index resource. Used to
-    -- specify a resource across AWS.
+    -- specify a resource across Amazon Web Services.
     --
     -- -   Format example:
     --     @arn:aws:geo:region:account-id:place-index\/ExamplePlaceIndex@
@@ -409,7 +428,7 @@ data CreatePlaceIndexResponse = CreatePlaceIndexResponse'
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 --
 -- 'indexArn', 'createPlaceIndexResponse_indexArn' - The Amazon Resource Name (ARN) for the place index resource. Used to
--- specify a resource across AWS.
+-- specify a resource across Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:place-index\/ExamplePlaceIndex@
@@ -449,7 +468,7 @@ createPlaceIndexResponse_createTime :: Lens.Lens' CreatePlaceIndexResponse Prelu
 createPlaceIndexResponse_createTime = Lens.lens (\CreatePlaceIndexResponse' {createTime} -> createTime) (\s@CreatePlaceIndexResponse' {} a -> s {createTime = a} :: CreatePlaceIndexResponse) Prelude.. Data._Time
 
 -- | The Amazon Resource Name (ARN) for the place index resource. Used to
--- specify a resource across AWS.
+-- specify a resource across Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:place-index\/ExamplePlaceIndex@

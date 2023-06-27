@@ -88,7 +88,8 @@ newDevicePosition
         deviceId = Prelude.Nothing,
         positionProperties = Prelude.Nothing,
         position =
-          Data._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive
+            Prelude.. Lens.coerced
             Lens.# pPosition_,
         receivedTime = Data._Time Lens.# pReceivedTime_,
         sampleTime = Data._Time Lens.# pSampleTime_
@@ -130,7 +131,8 @@ instance Data.FromJSON DevicePosition where
           DevicePosition'
             Prelude.<$> (x Data..:? "Accuracy")
             Prelude.<*> (x Data..:? "DeviceId")
-            Prelude.<*> ( x Data..:? "PositionProperties"
+            Prelude.<*> ( x
+                            Data..:? "PositionProperties"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "Position")
@@ -140,7 +142,8 @@ instance Data.FromJSON DevicePosition where
 
 instance Prelude.Hashable DevicePosition where
   hashWithSalt _salt DevicePosition' {..} =
-    _salt `Prelude.hashWithSalt` accuracy
+    _salt
+      `Prelude.hashWithSalt` accuracy
       `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` positionProperties
       `Prelude.hashWithSalt` position

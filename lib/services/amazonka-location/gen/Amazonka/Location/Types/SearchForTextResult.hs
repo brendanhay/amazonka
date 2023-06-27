@@ -41,14 +41,14 @@ data SearchForTextResult = SearchForTextResult'
     -- operation to find the place again later.
     --
     -- For @SearchPlaceIndexForText@ operations, the @PlaceId@ is returned only
-    -- by place indexes that use HERE as a data provider.
+    -- by place indexes that use HERE or Grab as a data provider.
     placeId :: Prelude.Maybe Prelude.Text,
     -- | The relative confidence in the match for a result among the results
     -- returned. For example, if more fields for an address match (including
     -- house number, street, city, country\/region, and postal code), the
     -- relevance score is closer to 1.
     --
-    -- Returned only when the partner selected is Esri.
+    -- Returned only when the partner selected is Esri or Grab.
     relevance :: Prelude.Maybe Prelude.Double,
     -- | Details about the search result, such as its address and position.
     place :: Place
@@ -74,14 +74,14 @@ data SearchForTextResult = SearchForTextResult'
 -- operation to find the place again later.
 --
 -- For @SearchPlaceIndexForText@ operations, the @PlaceId@ is returned only
--- by place indexes that use HERE as a data provider.
+-- by place indexes that use HERE or Grab as a data provider.
 --
 -- 'relevance', 'searchForTextResult_relevance' - The relative confidence in the match for a result among the results
 -- returned. For example, if more fields for an address match (including
 -- house number, street, city, country\/region, and postal code), the
 -- relevance score is closer to 1.
 --
--- Returned only when the partner selected is Esri.
+-- Returned only when the partner selected is Esri or Grab.
 --
 -- 'place', 'searchForTextResult_place' - Details about the search result, such as its address and position.
 newSearchForTextResult ::
@@ -109,7 +109,7 @@ searchForTextResult_distance = Lens.lens (\SearchForTextResult' {distance} -> di
 -- operation to find the place again later.
 --
 -- For @SearchPlaceIndexForText@ operations, the @PlaceId@ is returned only
--- by place indexes that use HERE as a data provider.
+-- by place indexes that use HERE or Grab as a data provider.
 searchForTextResult_placeId :: Lens.Lens' SearchForTextResult (Prelude.Maybe Prelude.Text)
 searchForTextResult_placeId = Lens.lens (\SearchForTextResult' {placeId} -> placeId) (\s@SearchForTextResult' {} a -> s {placeId = a} :: SearchForTextResult)
 
@@ -118,7 +118,7 @@ searchForTextResult_placeId = Lens.lens (\SearchForTextResult' {placeId} -> plac
 -- house number, street, city, country\/region, and postal code), the
 -- relevance score is closer to 1.
 --
--- Returned only when the partner selected is Esri.
+-- Returned only when the partner selected is Esri or Grab.
 searchForTextResult_relevance :: Lens.Lens' SearchForTextResult (Prelude.Maybe Prelude.Double)
 searchForTextResult_relevance = Lens.lens (\SearchForTextResult' {relevance} -> relevance) (\s@SearchForTextResult' {} a -> s {relevance = a} :: SearchForTextResult)
 
@@ -140,7 +140,8 @@ instance Data.FromJSON SearchForTextResult where
 
 instance Prelude.Hashable SearchForTextResult where
   hashWithSalt _salt SearchForTextResult' {..} =
-    _salt `Prelude.hashWithSalt` distance
+    _salt
+      `Prelude.hashWithSalt` distance
       `Prelude.hashWithSalt` placeId
       `Prelude.hashWithSalt` relevance
       `Prelude.hashWithSalt` place

@@ -130,7 +130,8 @@ instance Core.AWSRequest UpdateGeofenceCollection where
 
 instance Prelude.Hashable UpdateGeofenceCollection where
   hashWithSalt _salt UpdateGeofenceCollection' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` pricingPlanDataSource
       `Prelude.hashWithSalt` collectionName
@@ -179,7 +180,7 @@ data UpdateGeofenceCollectionResponse = UpdateGeofenceCollectionResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the updated geofence collection. Used
-    -- to specify a resource across AWS.
+    -- to specify a resource across Amazon Web Services.
     --
     -- -   Format example:
     --     @arn:aws:geo:region:account-id:geofence-collection\/ExampleGeofenceCollection@
@@ -204,7 +205,7 @@ data UpdateGeofenceCollectionResponse = UpdateGeofenceCollectionResponse'
 -- 'httpStatus', 'updateGeofenceCollectionResponse_httpStatus' - The response's http status code.
 --
 -- 'collectionArn', 'updateGeofenceCollectionResponse_collectionArn' - The Amazon Resource Name (ARN) of the updated geofence collection. Used
--- to specify a resource across AWS.
+-- to specify a resource across Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:geofence-collection\/ExampleGeofenceCollection@
@@ -243,7 +244,7 @@ updateGeofenceCollectionResponse_httpStatus :: Lens.Lens' UpdateGeofenceCollecti
 updateGeofenceCollectionResponse_httpStatus = Lens.lens (\UpdateGeofenceCollectionResponse' {httpStatus} -> httpStatus) (\s@UpdateGeofenceCollectionResponse' {} a -> s {httpStatus = a} :: UpdateGeofenceCollectionResponse)
 
 -- | The Amazon Resource Name (ARN) of the updated geofence collection. Used
--- to specify a resource across AWS.
+-- to specify a resource across Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:geofence-collection\/ExampleGeofenceCollection@

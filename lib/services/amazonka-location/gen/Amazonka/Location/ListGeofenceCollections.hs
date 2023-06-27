@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists geofence collections in your AWS account.
+-- Lists geofence collections in your Amazon Web Services account.
 --
 -- This operation returns paginated results.
 module Amazonka.Location.ListGeofenceCollections
@@ -108,19 +108,19 @@ instance Core.AWSPager ListGeofenceCollections where
     | Core.stop
         ( rs
             Lens.^? listGeofenceCollectionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listGeofenceCollectionsResponse_entries) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGeofenceCollections_nextToken
           Lens..~ rs
           Lens.^? listGeofenceCollectionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGeofenceCollections where
   type
@@ -139,7 +139,8 @@ instance Core.AWSRequest ListGeofenceCollections where
 
 instance Prelude.Hashable ListGeofenceCollections where
   hashWithSalt _salt ListGeofenceCollections' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListGeofenceCollections where
@@ -182,7 +183,8 @@ data ListGeofenceCollectionsResponse = ListGeofenceCollectionsResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | Lists the geofence collections that exist in your AWS account.
+    -- | Lists the geofence collections that exist in your Amazon Web Services
+    -- account.
     entries :: [ListGeofenceCollectionsResponseEntry]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -201,7 +203,8 @@ data ListGeofenceCollectionsResponse = ListGeofenceCollectionsResponse'
 --
 -- 'httpStatus', 'listGeofenceCollectionsResponse_httpStatus' - The response's http status code.
 --
--- 'entries', 'listGeofenceCollectionsResponse_entries' - Lists the geofence collections that exist in your AWS account.
+-- 'entries', 'listGeofenceCollectionsResponse_entries' - Lists the geofence collections that exist in your Amazon Web Services
+-- account.
 newListGeofenceCollectionsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -224,7 +227,8 @@ listGeofenceCollectionsResponse_nextToken = Lens.lens (\ListGeofenceCollectionsR
 listGeofenceCollectionsResponse_httpStatus :: Lens.Lens' ListGeofenceCollectionsResponse Prelude.Int
 listGeofenceCollectionsResponse_httpStatus = Lens.lens (\ListGeofenceCollectionsResponse' {httpStatus} -> httpStatus) (\s@ListGeofenceCollectionsResponse' {} a -> s {httpStatus = a} :: ListGeofenceCollectionsResponse)
 
--- | Lists the geofence collections that exist in your AWS account.
+-- | Lists the geofence collections that exist in your Amazon Web Services
+-- account.
 listGeofenceCollectionsResponse_entries :: Lens.Lens' ListGeofenceCollectionsResponse [ListGeofenceCollectionsResponseEntry]
 listGeofenceCollectionsResponse_entries = Lens.lens (\ListGeofenceCollectionsResponse' {entries} -> entries) (\s@ListGeofenceCollectionsResponse' {} a -> s {entries = a} :: ListGeofenceCollectionsResponse) Prelude.. Lens.coerced
 

@@ -56,7 +56,7 @@ import qualified Amazonka.Response as Response
 data DisassociateTrackerConsumer = DisassociateTrackerConsumer'
   { -- | The Amazon Resource Name (ARN) for the geofence collection to be
     -- disassociated from the tracker resource. Used when you need to specify a
-    -- resource across all AWS.
+    -- resource across all Amazon Web Services.
     --
     -- -   Format example:
     --     @arn:aws:geo:region:account-id:geofence-collection\/ExampleGeofenceCollectionConsumer@
@@ -76,7 +76,7 @@ data DisassociateTrackerConsumer = DisassociateTrackerConsumer'
 --
 -- 'consumerArn', 'disassociateTrackerConsumer_consumerArn' - The Amazon Resource Name (ARN) for the geofence collection to be
 -- disassociated from the tracker resource. Used when you need to specify a
--- resource across all AWS.
+-- resource across all Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:geofence-collection\/ExampleGeofenceCollectionConsumer@
@@ -99,7 +99,7 @@ newDisassociateTrackerConsumer
 
 -- | The Amazon Resource Name (ARN) for the geofence collection to be
 -- disassociated from the tracker resource. Used when you need to specify a
--- resource across all AWS.
+-- resource across all Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:geofence-collection\/ExampleGeofenceCollectionConsumer@
@@ -125,7 +125,8 @@ instance Core.AWSRequest DisassociateTrackerConsumer where
 
 instance Prelude.Hashable DisassociateTrackerConsumer where
   hashWithSalt _salt DisassociateTrackerConsumer' {..} =
-    _salt `Prelude.hashWithSalt` consumerArn
+    _salt
+      `Prelude.hashWithSalt` consumerArn
       `Prelude.hashWithSalt` trackerName
 
 instance Prelude.NFData DisassociateTrackerConsumer where

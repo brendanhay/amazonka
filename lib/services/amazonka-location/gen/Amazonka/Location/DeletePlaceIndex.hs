@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a place index resource from your AWS account.
+-- Deletes a place index resource from your Amazon Web Services account.
 --
 -- This operation deletes the resource permanently.
 module Amazonka.Location.DeletePlaceIndex

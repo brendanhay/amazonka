@@ -59,7 +59,7 @@ data CreateGeofenceCollection = CreateGeofenceCollection'
   { -- | An optional description for the geofence collection.
     description :: Prelude.Maybe Prelude.Text,
     -- | A key identifier for an
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html Amazon Web Services KMS customer managed key>.
     -- Enter a key ID, key ARN, alias name, or alias ARN.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | No longer used. If included, the only allowed value is
@@ -113,7 +113,7 @@ data CreateGeofenceCollection = CreateGeofenceCollection'
 -- 'description', 'createGeofenceCollection_description' - An optional description for the geofence collection.
 --
 -- 'kmsKeyId', 'createGeofenceCollection_kmsKeyId' - A key identifier for an
--- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html Amazon Web Services KMS customer managed key>.
 -- Enter a key ID, key ARN, alias name, or alias ARN.
 --
 -- 'pricingPlan', 'createGeofenceCollection_pricingPlan' - No longer used. If included, the only allowed value is
@@ -172,7 +172,7 @@ createGeofenceCollection_description :: Lens.Lens' CreateGeofenceCollection (Pre
 createGeofenceCollection_description = Lens.lens (\CreateGeofenceCollection' {description} -> description) (\s@CreateGeofenceCollection' {} a -> s {description = a} :: CreateGeofenceCollection)
 
 -- | A key identifier for an
--- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html Amazon Web Services KMS customer managed key>.
 -- Enter a key ID, key ARN, alias name, or alias ARN.
 createGeofenceCollection_kmsKeyId :: Lens.Lens' CreateGeofenceCollection (Prelude.Maybe Prelude.Text)
 createGeofenceCollection_kmsKeyId = Lens.lens (\CreateGeofenceCollection' {kmsKeyId} -> kmsKeyId) (\s@CreateGeofenceCollection' {} a -> s {kmsKeyId = a} :: CreateGeofenceCollection)
@@ -240,7 +240,8 @@ instance Core.AWSRequest CreateGeofenceCollection where
 
 instance Prelude.Hashable CreateGeofenceCollection where
   hashWithSalt _salt CreateGeofenceCollection' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` pricingPlanDataSource
@@ -293,7 +294,7 @@ data CreateGeofenceCollectionResponse = CreateGeofenceCollectionResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) for the geofence collection resource.
-    -- Used when you need to specify a resource across all AWS.
+    -- Used when you need to specify a resource across all Amazon Web Services.
     --
     -- -   Format example:
     --     @arn:aws:geo:region:account-id:geofence-collection\/ExampleGeofenceCollection@
@@ -318,7 +319,7 @@ data CreateGeofenceCollectionResponse = CreateGeofenceCollectionResponse'
 -- 'httpStatus', 'createGeofenceCollectionResponse_httpStatus' - The response's http status code.
 --
 -- 'collectionArn', 'createGeofenceCollectionResponse_collectionArn' - The Amazon Resource Name (ARN) for the geofence collection resource.
--- Used when you need to specify a resource across all AWS.
+-- Used when you need to specify a resource across all Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:geofence-collection\/ExampleGeofenceCollection@
@@ -357,7 +358,7 @@ createGeofenceCollectionResponse_httpStatus :: Lens.Lens' CreateGeofenceCollecti
 createGeofenceCollectionResponse_httpStatus = Lens.lens (\CreateGeofenceCollectionResponse' {httpStatus} -> httpStatus) (\s@CreateGeofenceCollectionResponse' {} a -> s {httpStatus = a} :: CreateGeofenceCollectionResponse)
 
 -- | The Amazon Resource Name (ARN) for the geofence collection resource.
--- Used when you need to specify a resource across all AWS.
+-- Used when you need to specify a resource across all Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:geofence-collection\/ExampleGeofenceCollection@

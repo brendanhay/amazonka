@@ -27,6 +27,7 @@ module Amazonka.Location.GetMapGlyphs
     newGetMapGlyphs,
 
     -- * Request Lenses
+    getMapGlyphs_key,
     getMapGlyphs_fontStack,
     getMapGlyphs_fontUnicodeRange,
     getMapGlyphs_mapName,
@@ -37,6 +38,7 @@ module Amazonka.Location.GetMapGlyphs
 
     -- * Response Lenses
     getMapGlyphsResponse_blob,
+    getMapGlyphsResponse_cacheControl,
     getMapGlyphsResponse_contentType,
     getMapGlyphsResponse_httpStatus,
   )
@@ -52,7 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetMapGlyphs' smart constructor.
 data GetMapGlyphs = GetMapGlyphs'
-  { -- | A comma-separated list of fonts to load glyphs from in order of
+  { -- | The optional
+    -- <https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html API key>
+    -- to authorize the request.
+    key :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | A comma-separated list of fonts to load glyphs from in order of
     -- preference. For example, @Noto Sans Regular, Arial Unicode@.
     --
     -- Valid fonts stacks for
@@ -86,20 +92,35 @@ data GetMapGlyphs = GetMapGlyphs'
     --     @Noto Sans CJK JP Light@ | @Noto Sans CJK JP Regular@
     --
     -- Valid font stacks for
-    -- <https://docs.aws.amazon.com/location/latest/developerguide/open-data.html Open Data (Preview)>
+    -- <https://docs.aws.amazon.com/location/latest/developerguide/grab.html GrabMaps>
     -- styles:
     --
-    -- -   VectorOpenDataStandardLight –
+    -- -   VectorGrabStandardLight, VectorGrabStandardDark –
+    --     @Noto Sans Regular@ | @Noto Sans Medium@ | @Noto Sans Bold@
+    --
+    -- Valid font stacks for
+    -- <https://docs.aws.amazon.com/location/latest/developerguide/open-data.html Open Data>
+    -- styles:
+    --
+    -- -   VectorOpenDataStandardLight, VectorOpenDataStandardDark,
+    --     VectorOpenDataVisualizationLight, VectorOpenDataVisualizationDark –
     --     @Amazon Ember Regular,Noto Sans Regular@ |
     --     @Amazon Ember Bold,Noto Sans Bold@ |
     --     @Amazon Ember Medium,Noto Sans Medium@ |
     --     @Amazon Ember Regular Italic,Noto Sans Italic@ |
     --     @Amazon Ember Condensed RC Regular,Noto Sans Regular@ |
-    --     @Amazon Ember Condensed RC Bold,Noto Sans Bold@
+    --     @Amazon Ember Condensed RC Bold,Noto Sans Bold@ |
+    --     @Amazon Ember Regular,Noto Sans Regular,Noto Sans Arabic Regular@ |
+    --     @Amazon Ember Condensed RC Bold,Noto Sans Bold,Noto Sans Arabic Condensed Bold@
+    --     | @Amazon Ember Bold,Noto Sans Bold,Noto Sans Arabic Bold@ |
+    --     @Amazon Ember Regular Italic,Noto Sans Italic,Noto Sans Arabic Regular@
+    --     |
+    --     @Amazon Ember Condensed RC Regular,Noto Sans Regular,Noto Sans Arabic Condensed Regular@
+    --     | @Amazon Ember Medium,Noto Sans Medium,Noto Sans Arabic Medium@
     --
-    -- The fonts used by @VectorOpenDataStandardLight@ are combined fonts that
-    -- use @Amazon Ember@ for most glyphs but @Noto Sans@ for glyphs
-    -- unsupported by @Amazon Ember@.
+    -- The fonts used by the Open Data map styles are combined fonts that use
+    -- @Amazon Ember@ for most glyphs but @Noto Sans@ for glyphs unsupported by
+    -- @Amazon Ember@.
     fontStack :: Prelude.Text,
     -- | A Unicode range of characters to download glyphs for. Each response will
     -- contain 256 characters. For example, 0–255 includes all characters from
@@ -108,7 +129,7 @@ data GetMapGlyphs = GetMapGlyphs'
     -- | The map resource associated with the glyph ﬁle.
     mapName :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMapGlyphs' with all optional fields omitted.
@@ -117,6 +138,10 @@ data GetMapGlyphs = GetMapGlyphs'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'key', 'getMapGlyphs_key' - The optional
+-- <https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html API key>
+-- to authorize the request.
 --
 -- 'fontStack', 'getMapGlyphs_fontStack' - A comma-separated list of fonts to load glyphs from in order of
 -- preference. For example, @Noto Sans Regular, Arial Unicode@.
@@ -152,20 +177,35 @@ data GetMapGlyphs = GetMapGlyphs'
 --     @Noto Sans CJK JP Light@ | @Noto Sans CJK JP Regular@
 --
 -- Valid font stacks for
--- <https://docs.aws.amazon.com/location/latest/developerguide/open-data.html Open Data (Preview)>
+-- <https://docs.aws.amazon.com/location/latest/developerguide/grab.html GrabMaps>
 -- styles:
 --
--- -   VectorOpenDataStandardLight –
+-- -   VectorGrabStandardLight, VectorGrabStandardDark –
+--     @Noto Sans Regular@ | @Noto Sans Medium@ | @Noto Sans Bold@
+--
+-- Valid font stacks for
+-- <https://docs.aws.amazon.com/location/latest/developerguide/open-data.html Open Data>
+-- styles:
+--
+-- -   VectorOpenDataStandardLight, VectorOpenDataStandardDark,
+--     VectorOpenDataVisualizationLight, VectorOpenDataVisualizationDark –
 --     @Amazon Ember Regular,Noto Sans Regular@ |
 --     @Amazon Ember Bold,Noto Sans Bold@ |
 --     @Amazon Ember Medium,Noto Sans Medium@ |
 --     @Amazon Ember Regular Italic,Noto Sans Italic@ |
 --     @Amazon Ember Condensed RC Regular,Noto Sans Regular@ |
---     @Amazon Ember Condensed RC Bold,Noto Sans Bold@
+--     @Amazon Ember Condensed RC Bold,Noto Sans Bold@ |
+--     @Amazon Ember Regular,Noto Sans Regular,Noto Sans Arabic Regular@ |
+--     @Amazon Ember Condensed RC Bold,Noto Sans Bold,Noto Sans Arabic Condensed Bold@
+--     | @Amazon Ember Bold,Noto Sans Bold,Noto Sans Arabic Bold@ |
+--     @Amazon Ember Regular Italic,Noto Sans Italic,Noto Sans Arabic Regular@
+--     |
+--     @Amazon Ember Condensed RC Regular,Noto Sans Regular,Noto Sans Arabic Condensed Regular@
+--     | @Amazon Ember Medium,Noto Sans Medium,Noto Sans Arabic Medium@
 --
--- The fonts used by @VectorOpenDataStandardLight@ are combined fonts that
--- use @Amazon Ember@ for most glyphs but @Noto Sans@ for glyphs
--- unsupported by @Amazon Ember@.
+-- The fonts used by the Open Data map styles are combined fonts that use
+-- @Amazon Ember@ for most glyphs but @Noto Sans@ for glyphs unsupported by
+-- @Amazon Ember@.
 --
 -- 'fontUnicodeRange', 'getMapGlyphs_fontUnicodeRange' - A Unicode range of characters to download glyphs for. Each response will
 -- contain 256 characters. For example, 0–255 includes all characters from
@@ -185,10 +225,17 @@ newGetMapGlyphs
   pFontUnicodeRange_
   pMapName_ =
     GetMapGlyphs'
-      { fontStack = pFontStack_,
+      { key = Prelude.Nothing,
+        fontStack = pFontStack_,
         fontUnicodeRange = pFontUnicodeRange_,
         mapName = pMapName_
       }
+
+-- | The optional
+-- <https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html API key>
+-- to authorize the request.
+getMapGlyphs_key :: Lens.Lens' GetMapGlyphs (Prelude.Maybe Prelude.Text)
+getMapGlyphs_key = Lens.lens (\GetMapGlyphs' {key} -> key) (\s@GetMapGlyphs' {} a -> s {key = a} :: GetMapGlyphs) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A comma-separated list of fonts to load glyphs from in order of
 -- preference. For example, @Noto Sans Regular, Arial Unicode@.
@@ -224,20 +271,35 @@ newGetMapGlyphs
 --     @Noto Sans CJK JP Light@ | @Noto Sans CJK JP Regular@
 --
 -- Valid font stacks for
--- <https://docs.aws.amazon.com/location/latest/developerguide/open-data.html Open Data (Preview)>
+-- <https://docs.aws.amazon.com/location/latest/developerguide/grab.html GrabMaps>
 -- styles:
 --
--- -   VectorOpenDataStandardLight –
+-- -   VectorGrabStandardLight, VectorGrabStandardDark –
+--     @Noto Sans Regular@ | @Noto Sans Medium@ | @Noto Sans Bold@
+--
+-- Valid font stacks for
+-- <https://docs.aws.amazon.com/location/latest/developerguide/open-data.html Open Data>
+-- styles:
+--
+-- -   VectorOpenDataStandardLight, VectorOpenDataStandardDark,
+--     VectorOpenDataVisualizationLight, VectorOpenDataVisualizationDark –
 --     @Amazon Ember Regular,Noto Sans Regular@ |
 --     @Amazon Ember Bold,Noto Sans Bold@ |
 --     @Amazon Ember Medium,Noto Sans Medium@ |
 --     @Amazon Ember Regular Italic,Noto Sans Italic@ |
 --     @Amazon Ember Condensed RC Regular,Noto Sans Regular@ |
---     @Amazon Ember Condensed RC Bold,Noto Sans Bold@
+--     @Amazon Ember Condensed RC Bold,Noto Sans Bold@ |
+--     @Amazon Ember Regular,Noto Sans Regular,Noto Sans Arabic Regular@ |
+--     @Amazon Ember Condensed RC Bold,Noto Sans Bold,Noto Sans Arabic Condensed Bold@
+--     | @Amazon Ember Bold,Noto Sans Bold,Noto Sans Arabic Bold@ |
+--     @Amazon Ember Regular Italic,Noto Sans Italic,Noto Sans Arabic Regular@
+--     |
+--     @Amazon Ember Condensed RC Regular,Noto Sans Regular,Noto Sans Arabic Condensed Regular@
+--     | @Amazon Ember Medium,Noto Sans Medium,Noto Sans Arabic Medium@
 --
--- The fonts used by @VectorOpenDataStandardLight@ are combined fonts that
--- use @Amazon Ember@ for most glyphs but @Noto Sans@ for glyphs
--- unsupported by @Amazon Ember@.
+-- The fonts used by the Open Data map styles are combined fonts that use
+-- @Amazon Ember@ for most glyphs but @Noto Sans@ for glyphs unsupported by
+-- @Amazon Ember@.
 getMapGlyphs_fontStack :: Lens.Lens' GetMapGlyphs Prelude.Text
 getMapGlyphs_fontStack = Lens.lens (\GetMapGlyphs' {fontStack} -> fontStack) (\s@GetMapGlyphs' {} a -> s {fontStack = a} :: GetMapGlyphs)
 
@@ -260,19 +322,23 @@ instance Core.AWSRequest GetMapGlyphs where
       ( \s h x ->
           GetMapGlyphsResponse'
             Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
+            Prelude.<*> (h Data..#? "Cache-Control")
             Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetMapGlyphs where
   hashWithSalt _salt GetMapGlyphs' {..} =
-    _salt `Prelude.hashWithSalt` fontStack
+    _salt
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` fontStack
       `Prelude.hashWithSalt` fontUnicodeRange
       `Prelude.hashWithSalt` mapName
 
 instance Prelude.NFData GetMapGlyphs where
   rnf GetMapGlyphs' {..} =
-    Prelude.rnf fontStack
+    Prelude.rnf key
+      `Prelude.seq` Prelude.rnf fontStack
       `Prelude.seq` Prelude.rnf fontUnicodeRange
       `Prelude.seq` Prelude.rnf mapName
 
@@ -299,12 +365,15 @@ instance Data.ToPath GetMapGlyphs where
       ]
 
 instance Data.ToQuery GetMapGlyphs where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery GetMapGlyphs' {..} =
+    Prelude.mconcat ["key" Data.=: key]
 
 -- | /See:/ 'newGetMapGlyphsResponse' smart constructor.
 data GetMapGlyphsResponse = GetMapGlyphsResponse'
-  { -- | The blob\'s content type.
+  { -- | The glyph, as binary blob.
     blob :: Prelude.Maybe Prelude.ByteString,
+    -- | The HTTP Cache-Control directive for the value.
+    cacheControl :: Prelude.Maybe Prelude.Text,
     -- | The map glyph content type. For example, @application\/octet-stream@.
     contentType :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -320,7 +389,9 @@ data GetMapGlyphsResponse = GetMapGlyphsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'blob', 'getMapGlyphsResponse_blob' - The blob\'s content type.
+-- 'blob', 'getMapGlyphsResponse_blob' - The glyph, as binary blob.
+--
+-- 'cacheControl', 'getMapGlyphsResponse_cacheControl' - The HTTP Cache-Control directive for the value.
 --
 -- 'contentType', 'getMapGlyphsResponse_contentType' - The map glyph content type. For example, @application\/octet-stream@.
 --
@@ -332,13 +403,18 @@ newGetMapGlyphsResponse ::
 newGetMapGlyphsResponse pHttpStatus_ =
   GetMapGlyphsResponse'
     { blob = Prelude.Nothing,
+      cacheControl = Prelude.Nothing,
       contentType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The blob\'s content type.
+-- | The glyph, as binary blob.
 getMapGlyphsResponse_blob :: Lens.Lens' GetMapGlyphsResponse (Prelude.Maybe Prelude.ByteString)
 getMapGlyphsResponse_blob = Lens.lens (\GetMapGlyphsResponse' {blob} -> blob) (\s@GetMapGlyphsResponse' {} a -> s {blob = a} :: GetMapGlyphsResponse)
+
+-- | The HTTP Cache-Control directive for the value.
+getMapGlyphsResponse_cacheControl :: Lens.Lens' GetMapGlyphsResponse (Prelude.Maybe Prelude.Text)
+getMapGlyphsResponse_cacheControl = Lens.lens (\GetMapGlyphsResponse' {cacheControl} -> cacheControl) (\s@GetMapGlyphsResponse' {} a -> s {cacheControl = a} :: GetMapGlyphsResponse)
 
 -- | The map glyph content type. For example, @application\/octet-stream@.
 getMapGlyphsResponse_contentType :: Lens.Lens' GetMapGlyphsResponse (Prelude.Maybe Prelude.Text)
@@ -351,5 +427,6 @@ getMapGlyphsResponse_httpStatus = Lens.lens (\GetMapGlyphsResponse' {httpStatus}
 instance Prelude.NFData GetMapGlyphsResponse where
   rnf GetMapGlyphsResponse' {..} =
     Prelude.rnf blob
+      `Prelude.seq` Prelude.rnf cacheControl
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf httpStatus

@@ -141,7 +141,7 @@ data DescribeRouteCalculatorResponse = DescribeRouteCalculatorResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) for the Route calculator resource. Use
-    -- the ARN when you specify a resource across AWS.
+    -- the ARN when you specify a resource across Amazon Web Services.
     --
     -- -   Format example:
     --     @arn:aws:geo:region:account-id:route-calculator\/ExampleCalculator@
@@ -158,6 +158,8 @@ data DescribeRouteCalculatorResponse = DescribeRouteCalculatorResponse'
     -- available providers:
     --
     -- -   @Esri@
+    --
+    -- -   @Grab@
     --
     -- -   @Here@
     --
@@ -190,7 +192,7 @@ data DescribeRouteCalculatorResponse = DescribeRouteCalculatorResponse'
 -- 'httpStatus', 'describeRouteCalculatorResponse_httpStatus' - The response's http status code.
 --
 -- 'calculatorArn', 'describeRouteCalculatorResponse_calculatorArn' - The Amazon Resource Name (ARN) for the Route calculator resource. Use
--- the ARN when you specify a resource across AWS.
+-- the ARN when you specify a resource across Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:route-calculator\/ExampleCalculator@
@@ -207,6 +209,8 @@ data DescribeRouteCalculatorResponse = DescribeRouteCalculatorResponse'
 -- available providers:
 --
 -- -   @Esri@
+--
+-- -   @Grab@
 --
 -- -   @Here@
 --
@@ -272,7 +276,7 @@ describeRouteCalculatorResponse_httpStatus :: Lens.Lens' DescribeRouteCalculator
 describeRouteCalculatorResponse_httpStatus = Lens.lens (\DescribeRouteCalculatorResponse' {httpStatus} -> httpStatus) (\s@DescribeRouteCalculatorResponse' {} a -> s {httpStatus = a} :: DescribeRouteCalculatorResponse)
 
 -- | The Amazon Resource Name (ARN) for the Route calculator resource. Use
--- the ARN when you specify a resource across AWS.
+-- the ARN when you specify a resource across Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:route-calculator\/ExampleCalculator@
@@ -295,6 +299,8 @@ describeRouteCalculatorResponse_createTime = Lens.lens (\DescribeRouteCalculator
 -- available providers:
 --
 -- -   @Esri@
+--
+-- -   @Grab@
 --
 -- -   @Here@
 --

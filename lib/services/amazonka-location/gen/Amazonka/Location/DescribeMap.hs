@@ -147,7 +147,7 @@ data DescribeMapResponse = DescribeMapResponse'
     -- | The optional description for the map resource.
     description :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the map resource. Used to specify a
-    -- resource across all AWS.
+    -- resource across all Amazon Web Services.
     --
     -- -   Format example: @arn:aws:geo:region:account-id:map\/ExampleMap@
     mapArn :: Prelude.Text,
@@ -185,7 +185,7 @@ data DescribeMapResponse = DescribeMapResponse'
 -- 'description', 'describeMapResponse_description' - The optional description for the map resource.
 --
 -- 'mapArn', 'describeMapResponse_mapArn' - The Amazon Resource Name (ARN) for the map resource. Used to specify a
--- resource across all AWS.
+-- resource across all Amazon Web Services.
 --
 -- -   Format example: @arn:aws:geo:region:account-id:map\/ExampleMap@
 --
@@ -265,7 +265,7 @@ describeMapResponse_description :: Lens.Lens' DescribeMapResponse Prelude.Text
 describeMapResponse_description = Lens.lens (\DescribeMapResponse' {description} -> description) (\s@DescribeMapResponse' {} a -> s {description = a} :: DescribeMapResponse)
 
 -- | The Amazon Resource Name (ARN) for the map resource. Used to specify a
--- resource across all AWS.
+-- resource across all Amazon Web Services.
 --
 -- -   Format example: @arn:aws:geo:region:account-id:map\/ExampleMap@
 describeMapResponse_mapArn :: Lens.Lens' DescribeMapResponse Prelude.Text

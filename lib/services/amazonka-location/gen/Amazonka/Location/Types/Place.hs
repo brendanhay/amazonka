@@ -36,6 +36,13 @@ import qualified Amazonka.Prelude as Prelude
 data Place = Place'
   { -- | The numerical portion of an address, such as a building number.
     addressNumber :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Location categories that describe this Place.
+    --
+    -- For more information about using categories, including a list of Amazon
+    -- Location categories, see
+    -- <https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html Categories and filtering>,
+    -- in the /Amazon Location Service Developer Guide/.
+    categories :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A country\/region specified using
     -- <https://www.iso.org/iso-3166-country-codes.html ISO 3166> 3-digit
     -- country\/region code. For example, @CAN@.
@@ -68,20 +75,25 @@ data Place = Place'
     -- | The name for a street or a road to identify a location. For example,
     -- @Main Street@.
     street :: Prelude.Maybe Prelude.Text,
-    -- | A country, or an area that\'s part of a larger region. For example,
+    -- | A county, or an area that\'s part of a larger region. For example,
     -- @Metro Vancouver@.
     subRegion :: Prelude.Maybe Prelude.Text,
+    -- | Categories from the data provider that describe the Place that are not
+    -- mapped to any Amazon Location categories.
+    supplementalCategories :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The time zone in which the @Place@ is located. Returned only when using
-    -- HERE as the selected partner.
+    -- HERE or Grab as the selected partner.
     timeZone :: Prelude.Maybe TimeZone,
     -- | For addresses with multiple units, the unit identifier. Can include
     -- numbers and letters, for example @3B@ or @Unit 123@.
     --
-    -- Returned only for a place index that uses Esri as a data provider. Is
-    -- not returned for @SearchPlaceIndexForPosition@.
+    -- Returned only for a place index that uses Esri or Grab as a data
+    -- provider. Is not returned for @SearchPlaceIndexForPosition@.
     unitNumber :: Prelude.Maybe Prelude.Text,
     -- | For addresses with a @UnitNumber@, the type of unit. For example,
     -- @Apartment@.
+    --
+    -- Returned only for a place index that uses Esri as a data provider.
     unitType :: Prelude.Maybe Prelude.Text,
     geometry :: PlaceGeometry
   }
@@ -96,6 +108,13 @@ data Place = Place'
 -- for backwards compatibility:
 --
 -- 'addressNumber', 'place_addressNumber' - The numerical portion of an address, such as a building number.
+--
+-- 'categories', 'place_categories' - The Amazon Location categories that describe this Place.
+--
+-- For more information about using categories, including a list of Amazon
+-- Location categories, see
+-- <https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html Categories and filtering>,
+-- in the /Amazon Location Service Developer Guide/.
 --
 -- 'country', 'place_country' - A country\/region specified using
 -- <https://www.iso.org/iso-3166-country-codes.html ISO 3166> 3-digit
@@ -129,20 +148,25 @@ data Place = Place'
 -- 'street', 'place_street' - The name for a street or a road to identify a location. For example,
 -- @Main Street@.
 --
--- 'subRegion', 'place_subRegion' - A country, or an area that\'s part of a larger region. For example,
+-- 'subRegion', 'place_subRegion' - A county, or an area that\'s part of a larger region. For example,
 -- @Metro Vancouver@.
 --
+-- 'supplementalCategories', 'place_supplementalCategories' - Categories from the data provider that describe the Place that are not
+-- mapped to any Amazon Location categories.
+--
 -- 'timeZone', 'place_timeZone' - The time zone in which the @Place@ is located. Returned only when using
--- HERE as the selected partner.
+-- HERE or Grab as the selected partner.
 --
 -- 'unitNumber', 'place_unitNumber' - For addresses with multiple units, the unit identifier. Can include
 -- numbers and letters, for example @3B@ or @Unit 123@.
 --
--- Returned only for a place index that uses Esri as a data provider. Is
--- not returned for @SearchPlaceIndexForPosition@.
+-- Returned only for a place index that uses Esri or Grab as a data
+-- provider. Is not returned for @SearchPlaceIndexForPosition@.
 --
 -- 'unitType', 'place_unitType' - For addresses with a @UnitNumber@, the type of unit. For example,
 -- @Apartment@.
+--
+-- Returned only for a place index that uses Esri as a data provider.
 --
 -- 'geometry', 'place_geometry' - Undocumented member.
 newPlace ::
@@ -152,6 +176,7 @@ newPlace ::
 newPlace pGeometry_ =
   Place'
     { addressNumber = Prelude.Nothing,
+      categories = Prelude.Nothing,
       country = Prelude.Nothing,
       interpolated = Prelude.Nothing,
       label = Prelude.Nothing,
@@ -161,6 +186,7 @@ newPlace pGeometry_ =
       region = Prelude.Nothing,
       street = Prelude.Nothing,
       subRegion = Prelude.Nothing,
+      supplementalCategories = Prelude.Nothing,
       timeZone = Prelude.Nothing,
       unitNumber = Prelude.Nothing,
       unitType = Prelude.Nothing,
@@ -170,6 +196,15 @@ newPlace pGeometry_ =
 -- | The numerical portion of an address, such as a building number.
 place_addressNumber :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
 place_addressNumber = Lens.lens (\Place' {addressNumber} -> addressNumber) (\s@Place' {} a -> s {addressNumber = a} :: Place)
+
+-- | The Amazon Location categories that describe this Place.
+--
+-- For more information about using categories, including a list of Amazon
+-- Location categories, see
+-- <https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html Categories and filtering>,
+-- in the /Amazon Location Service Developer Guide/.
+place_categories :: Lens.Lens' Place (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+place_categories = Lens.lens (\Place' {categories} -> categories) (\s@Place' {} a -> s {categories = a} :: Place) Prelude.. Lens.mapping Lens.coerced
 
 -- | A country\/region specified using
 -- <https://www.iso.org/iso-3166-country-codes.html ISO 3166> 3-digit
@@ -219,26 +254,33 @@ place_region = Lens.lens (\Place' {region} -> region) (\s@Place' {} a -> s {regi
 place_street :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
 place_street = Lens.lens (\Place' {street} -> street) (\s@Place' {} a -> s {street = a} :: Place)
 
--- | A country, or an area that\'s part of a larger region. For example,
+-- | A county, or an area that\'s part of a larger region. For example,
 -- @Metro Vancouver@.
 place_subRegion :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
 place_subRegion = Lens.lens (\Place' {subRegion} -> subRegion) (\s@Place' {} a -> s {subRegion = a} :: Place)
 
+-- | Categories from the data provider that describe the Place that are not
+-- mapped to any Amazon Location categories.
+place_supplementalCategories :: Lens.Lens' Place (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+place_supplementalCategories = Lens.lens (\Place' {supplementalCategories} -> supplementalCategories) (\s@Place' {} a -> s {supplementalCategories = a} :: Place) Prelude.. Lens.mapping Lens.coerced
+
 -- | The time zone in which the @Place@ is located. Returned only when using
--- HERE as the selected partner.
+-- HERE or Grab as the selected partner.
 place_timeZone :: Lens.Lens' Place (Prelude.Maybe TimeZone)
 place_timeZone = Lens.lens (\Place' {timeZone} -> timeZone) (\s@Place' {} a -> s {timeZone = a} :: Place)
 
 -- | For addresses with multiple units, the unit identifier. Can include
 -- numbers and letters, for example @3B@ or @Unit 123@.
 --
--- Returned only for a place index that uses Esri as a data provider. Is
--- not returned for @SearchPlaceIndexForPosition@.
+-- Returned only for a place index that uses Esri or Grab as a data
+-- provider. Is not returned for @SearchPlaceIndexForPosition@.
 place_unitNumber :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
 place_unitNumber = Lens.lens (\Place' {unitNumber} -> unitNumber) (\s@Place' {} a -> s {unitNumber = a} :: Place)
 
 -- | For addresses with a @UnitNumber@, the type of unit. For example,
 -- @Apartment@.
+--
+-- Returned only for a place index that uses Esri as a data provider.
 place_unitType :: Lens.Lens' Place (Prelude.Maybe Prelude.Text)
 place_unitType = Lens.lens (\Place' {unitType} -> unitType) (\s@Place' {} a -> s {unitType = a} :: Place)
 
@@ -253,6 +295,7 @@ instance Data.FromJSON Place where
       ( \x ->
           Place'
             Prelude.<$> (x Data..:? "AddressNumber")
+            Prelude.<*> (x Data..:? "Categories")
             Prelude.<*> (x Data..:? "Country")
             Prelude.<*> (x Data..:? "Interpolated")
             Prelude.<*> (x Data..:? "Label")
@@ -262,6 +305,7 @@ instance Data.FromJSON Place where
             Prelude.<*> (x Data..:? "Region")
             Prelude.<*> (x Data..:? "Street")
             Prelude.<*> (x Data..:? "SubRegion")
+            Prelude.<*> (x Data..:? "SupplementalCategories")
             Prelude.<*> (x Data..:? "TimeZone")
             Prelude.<*> (x Data..:? "UnitNumber")
             Prelude.<*> (x Data..:? "UnitType")
@@ -270,7 +314,9 @@ instance Data.FromJSON Place where
 
 instance Prelude.Hashable Place where
   hashWithSalt _salt Place' {..} =
-    _salt `Prelude.hashWithSalt` addressNumber
+    _salt
+      `Prelude.hashWithSalt` addressNumber
+      `Prelude.hashWithSalt` categories
       `Prelude.hashWithSalt` country
       `Prelude.hashWithSalt` interpolated
       `Prelude.hashWithSalt` label
@@ -280,6 +326,7 @@ instance Prelude.Hashable Place where
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` street
       `Prelude.hashWithSalt` subRegion
+      `Prelude.hashWithSalt` supplementalCategories
       `Prelude.hashWithSalt` timeZone
       `Prelude.hashWithSalt` unitNumber
       `Prelude.hashWithSalt` unitType
@@ -288,6 +335,7 @@ instance Prelude.Hashable Place where
 instance Prelude.NFData Place where
   rnf Place' {..} =
     Prelude.rnf addressNumber
+      `Prelude.seq` Prelude.rnf categories
       `Prelude.seq` Prelude.rnf country
       `Prelude.seq` Prelude.rnf interpolated
       `Prelude.seq` Prelude.rnf label
@@ -297,6 +345,7 @@ instance Prelude.NFData Place where
       `Prelude.seq` Prelude.rnf region
       `Prelude.seq` Prelude.rnf street
       `Prelude.seq` Prelude.rnf subRegion
+      `Prelude.seq` Prelude.rnf supplementalCategories
       `Prelude.seq` Prelude.rnf timeZone
       `Prelude.seq` Prelude.rnf unitNumber
       `Prelude.seq` Prelude.rnf unitType

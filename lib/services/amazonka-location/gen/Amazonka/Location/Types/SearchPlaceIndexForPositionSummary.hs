@@ -43,6 +43,8 @@ data SearchPlaceIndexForPositionSummary = SearchPlaceIndexForPositionSummary'
     --
     -- -   Esri
     --
+    -- -   Grab
+    --
     -- -   Here
     --
     -- For more information about data providers, see
@@ -76,6 +78,8 @@ data SearchPlaceIndexForPositionSummary = SearchPlaceIndexForPositionSummary'
 --
 -- -   Esri
 --
+-- -   Grab
+--
 -- -   Here
 --
 -- For more information about data providers, see
@@ -97,7 +101,8 @@ newSearchPlaceIndexForPositionSummary
         maxResults = Prelude.Nothing,
         dataSource = pDataSource_,
         position =
-          Data._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive
+            Prelude.. Lens.coerced
             Lens.# pPosition_
       }
 
@@ -119,6 +124,8 @@ searchPlaceIndexForPositionSummary_maxResults = Lens.lens (\SearchPlaceIndexForP
 -- specified in the request. Values can be one of the following:
 --
 -- -   Esri
+--
+-- -   Grab
 --
 -- -   Here
 --
@@ -153,7 +160,8 @@ instance
   hashWithSalt
     _salt
     SearchPlaceIndexForPositionSummary' {..} =
-      _salt `Prelude.hashWithSalt` language
+      _salt
+        `Prelude.hashWithSalt` language
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` dataSource
         `Prelude.hashWithSalt` position

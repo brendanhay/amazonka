@@ -74,12 +74,14 @@ instance Data.FromJSON TimeZone where
       "TimeZone"
       ( \x ->
           TimeZone'
-            Prelude.<$> (x Data..:? "Offset") Prelude.<*> (x Data..: "Name")
+            Prelude.<$> (x Data..:? "Offset")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable TimeZone where
   hashWithSalt _salt TimeZone' {..} =
-    _salt `Prelude.hashWithSalt` offset
+    _salt
+      `Prelude.hashWithSalt` offset
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData TimeZone where

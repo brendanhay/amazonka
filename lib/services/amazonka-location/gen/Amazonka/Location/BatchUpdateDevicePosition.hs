@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Uploads position update data for one or more devices to a tracker
--- resource. Amazon Location uses the data when it reports the last known
--- device position and position history. Amazon Location retains location
--- data for 30 days.
+-- resource (up to 10 devices per batch). Amazon Location uses the data
+-- when it reports the last known device position and position history.
+-- Amazon Location retains location data for 30 days.
 --
 -- Position updates are handled based on the @PositionFiltering@ property
 -- of the tracker. When @PositionFiltering@ is set to @TimeBased@, updates
@@ -76,7 +76,7 @@ import qualified Amazonka.Response as Response
 data BatchUpdateDevicePosition = BatchUpdateDevicePosition'
   { -- | The name of the tracker resource to update.
     trackerName :: Prelude.Text,
-    -- | Contains the position update details for each device.
+    -- | Contains the position update details for each device, up to 10 devices.
     updates :: Prelude.NonEmpty DevicePositionUpdate
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -91,7 +91,7 @@ data BatchUpdateDevicePosition = BatchUpdateDevicePosition'
 --
 -- 'trackerName', 'batchUpdateDevicePosition_trackerName' - The name of the tracker resource to update.
 --
--- 'updates', 'batchUpdateDevicePosition_updates' - Contains the position update details for each device.
+-- 'updates', 'batchUpdateDevicePosition_updates' - Contains the position update details for each device, up to 10 devices.
 newBatchUpdateDevicePosition ::
   -- | 'trackerName'
   Prelude.Text ->
@@ -109,7 +109,7 @@ newBatchUpdateDevicePosition pTrackerName_ pUpdates_ =
 batchUpdateDevicePosition_trackerName :: Lens.Lens' BatchUpdateDevicePosition Prelude.Text
 batchUpdateDevicePosition_trackerName = Lens.lens (\BatchUpdateDevicePosition' {trackerName} -> trackerName) (\s@BatchUpdateDevicePosition' {} a -> s {trackerName = a} :: BatchUpdateDevicePosition)
 
--- | Contains the position update details for each device.
+-- | Contains the position update details for each device, up to 10 devices.
 batchUpdateDevicePosition_updates :: Lens.Lens' BatchUpdateDevicePosition (Prelude.NonEmpty DevicePositionUpdate)
 batchUpdateDevicePosition_updates = Lens.lens (\BatchUpdateDevicePosition' {updates} -> updates) (\s@BatchUpdateDevicePosition' {} a -> s {updates = a} :: BatchUpdateDevicePosition) Prelude.. Lens.coerced
 
@@ -129,7 +129,8 @@ instance Core.AWSRequest BatchUpdateDevicePosition where
 
 instance Prelude.Hashable BatchUpdateDevicePosition where
   hashWithSalt _salt BatchUpdateDevicePosition' {..} =
-    _salt `Prelude.hashWithSalt` trackerName
+    _salt
+      `Prelude.hashWithSalt` trackerName
       `Prelude.hashWithSalt` updates
 
 instance Prelude.NFData BatchUpdateDevicePosition where

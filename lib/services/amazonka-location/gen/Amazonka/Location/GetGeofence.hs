@@ -35,6 +35,7 @@ module Amazonka.Location.GetGeofence
     newGetGeofenceResponse,
 
     -- * Response Lenses
+    getGeofenceResponse_geofenceProperties,
     getGeofenceResponse_httpStatus,
     getGeofenceResponse_createTime,
     getGeofenceResponse_geofenceId,
@@ -100,7 +101,11 @@ instance Core.AWSRequest GetGeofence where
     Response.receiveJSON
       ( \s h x ->
           GetGeofenceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> ( x
+                            Data..?> "GeofenceProperties"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "CreateTime")
             Prelude.<*> (x Data..:> "GeofenceId")
             Prelude.<*> (x Data..:> "Geometry")
@@ -110,7 +115,8 @@ instance Core.AWSRequest GetGeofence where
 
 instance Prelude.Hashable GetGeofence where
   hashWithSalt _salt GetGeofence' {..} =
-    _salt `Prelude.hashWithSalt` collectionName
+    _salt
+      `Prelude.hashWithSalt` collectionName
       `Prelude.hashWithSalt` geofenceId
 
 instance Prelude.NFData GetGeofence where
@@ -143,7 +149,10 @@ instance Data.ToQuery GetGeofence where
 
 -- | /See:/ 'newGetGeofenceResponse' smart constructor.
 data GetGeofenceResponse = GetGeofenceResponse'
-  { -- | The response's http status code.
+  { -- | Contains additional user-defined properties stored with the geofence. An
+    -- array of key-value pairs.
+    geofenceProperties :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The timestamp for when the geofence collection was created in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
@@ -180,6 +189,9 @@ data GetGeofenceResponse = GetGeofenceResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'geofenceProperties', 'getGeofenceResponse_geofenceProperties' - Contains additional user-defined properties stored with the geofence. An
+-- array of key-value pairs.
 --
 -- 'httpStatus', 'getGeofenceResponse_httpStatus' - The response's http status code.
 --
@@ -229,13 +241,20 @@ newGetGeofenceResponse
   pStatus_
   pUpdateTime_ =
     GetGeofenceResponse'
-      { httpStatus = pHttpStatus_,
+      { geofenceProperties =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_,
         createTime = Data._Time Lens.# pCreateTime_,
         geofenceId = pGeofenceId_,
         geometry = pGeometry_,
         status = pStatus_,
         updateTime = Data._Time Lens.# pUpdateTime_
       }
+
+-- | Contains additional user-defined properties stored with the geofence. An
+-- array of key-value pairs.
+getGeofenceResponse_geofenceProperties :: Lens.Lens' GetGeofenceResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getGeofenceResponse_geofenceProperties = Lens.lens (\GetGeofenceResponse' {geofenceProperties} -> geofenceProperties) (\s@GetGeofenceResponse' {} a -> s {geofenceProperties = a} :: GetGeofenceResponse) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The response's http status code.
 getGeofenceResponse_httpStatus :: Lens.Lens' GetGeofenceResponse Prelude.Int
@@ -278,7 +297,8 @@ getGeofenceResponse_updateTime = Lens.lens (\GetGeofenceResponse' {updateTime} -
 
 instance Prelude.NFData GetGeofenceResponse where
   rnf GetGeofenceResponse' {..} =
-    Prelude.rnf httpStatus
+    Prelude.rnf geofenceProperties
+      `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf geofenceId
       `Prelude.seq` Prelude.rnf geometry

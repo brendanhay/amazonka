@@ -34,6 +34,8 @@ data CalculateRouteMatrixSummary = CalculateRouteMatrixSummary'
     --
     -- -   @Esri@
     --
+    -- -   @Grab@
+    --
     -- -   @Here@
     --
     -- For more information about data providers, see
@@ -62,6 +64,8 @@ data CalculateRouteMatrixSummary = CalculateRouteMatrixSummary'
 -- routes. Indicates one of the available providers:
 --
 -- -   @Esri@
+--
+-- -   @Grab@
 --
 -- -   @Here@
 --
@@ -103,6 +107,8 @@ newCalculateRouteMatrixSummary
 --
 -- -   @Esri@
 --
+-- -   @Grab@
+--
 -- -   @Here@
 --
 -- For more information about data providers, see
@@ -138,7 +144,8 @@ instance Data.FromJSON CalculateRouteMatrixSummary where
 
 instance Prelude.Hashable CalculateRouteMatrixSummary where
   hashWithSalt _salt CalculateRouteMatrixSummary' {..} =
-    _salt `Prelude.hashWithSalt` dataSource
+    _salt
+      `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` distanceUnit
       `Prelude.hashWithSalt` errorCount
       `Prelude.hashWithSalt` routeCount

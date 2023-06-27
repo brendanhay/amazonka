@@ -147,6 +147,8 @@ data DescribePlaceIndexResponse = DescribePlaceIndexResponse'
     --
     -- -   @Esri@
     --
+    -- -   @Grab@
+    --
     -- -   @Here@
     --
     -- For more information about data providers, see
@@ -157,7 +159,7 @@ data DescribePlaceIndexResponse = DescribePlaceIndexResponse'
     -- | The optional description for the place index resource.
     description :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the place index resource. Used to
-    -- specify a resource across AWS.
+    -- specify a resource across Amazon Web Services.
     --
     -- -   Format example:
     --     @arn:aws:geo:region:account-id:place-index\/ExamplePlaceIndex@
@@ -194,6 +196,8 @@ data DescribePlaceIndexResponse = DescribePlaceIndexResponse'
 --
 -- -   @Esri@
 --
+-- -   @Grab@
+--
 -- -   @Here@
 --
 -- For more information about data providers, see
@@ -204,7 +208,7 @@ data DescribePlaceIndexResponse = DescribePlaceIndexResponse'
 -- 'description', 'describePlaceIndexResponse_description' - The optional description for the place index resource.
 --
 -- 'indexArn', 'describePlaceIndexResponse_indexArn' - The Amazon Resource Name (ARN) for the place index resource. Used to
--- specify a resource across AWS.
+-- specify a resource across Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:place-index\/ExamplePlaceIndex@
@@ -279,6 +283,8 @@ describePlaceIndexResponse_createTime = Lens.lens (\DescribePlaceIndexResponse' 
 --
 -- -   @Esri@
 --
+-- -   @Grab@
+--
 -- -   @Here@
 --
 -- For more information about data providers, see
@@ -295,7 +301,7 @@ describePlaceIndexResponse_description :: Lens.Lens' DescribePlaceIndexResponse 
 describePlaceIndexResponse_description = Lens.lens (\DescribePlaceIndexResponse' {description} -> description) (\s@DescribePlaceIndexResponse' {} a -> s {description = a} :: DescribePlaceIndexResponse)
 
 -- | The Amazon Resource Name (ARN) for the place index resource. Used to
--- specify a resource across AWS.
+-- specify a resource across Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:place-index\/ExamplePlaceIndex@

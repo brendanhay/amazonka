@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.PricingPlan
 import qualified Amazonka.Prelude as Prelude
 
--- | A place index resource listed in your AWS account.
+-- | A place index resource listed in your Amazon Web Services account.
 --
 -- /See:/ 'newListPlaceIndexesResponseEntry' smart constructor.
 data ListPlaceIndexesResponseEntry = ListPlaceIndexesResponseEntry'
@@ -39,6 +39,8 @@ data ListPlaceIndexesResponseEntry = ListPlaceIndexesResponseEntry'
     -- following:
     --
     -- -   @Esri@
+    --
+    -- -   @Grab@
     --
     -- -   @Here@
     --
@@ -74,6 +76,8 @@ data ListPlaceIndexesResponseEntry = ListPlaceIndexesResponseEntry'
 -- following:
 --
 -- -   @Esri@
+--
+-- -   @Grab@
 --
 -- -   @Here@
 --
@@ -130,6 +134,8 @@ listPlaceIndexesResponseEntry_createTime = Lens.lens (\ListPlaceIndexesResponseE
 --
 -- -   @Esri@
 --
+-- -   @Grab@
+--
 -- -   @Here@
 --
 -- For more information about data providers, see
@@ -170,7 +176,8 @@ instance
     ListPlaceIndexesResponseEntry
   where
   hashWithSalt _salt ListPlaceIndexesResponseEntry' {..} =
-    _salt `Prelude.hashWithSalt` pricingPlan
+    _salt
+      `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` description

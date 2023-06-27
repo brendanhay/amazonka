@@ -75,7 +75,8 @@ instance Data.FromJSON BatchItemError where
 
 instance Prelude.Hashable BatchItemError where
   hashWithSalt _salt BatchItemError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData BatchItemError where

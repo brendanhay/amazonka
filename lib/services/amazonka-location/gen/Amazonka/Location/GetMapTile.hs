@@ -34,6 +34,7 @@ module Amazonka.Location.GetMapTile
     newGetMapTile,
 
     -- * Request Lenses
+    getMapTile_key,
     getMapTile_mapName,
     getMapTile_x,
     getMapTile_y,
@@ -45,6 +46,7 @@ module Amazonka.Location.GetMapTile
 
     -- * Response Lenses
     getMapTileResponse_blob,
+    getMapTileResponse_cacheControl,
     getMapTileResponse_contentType,
     getMapTileResponse_httpStatus,
   )
@@ -60,7 +62,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetMapTile' smart constructor.
 data GetMapTile = GetMapTile'
-  { -- | The map resource to retrieve the map tiles from.
+  { -- | The optional
+    -- <https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html API key>
+    -- to authorize the request.
+    key :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The map resource to retrieve the map tiles from.
     mapName :: Prelude.Text,
     -- | The X axis value for the map tile.
     x :: Prelude.Text,
@@ -69,7 +75,7 @@ data GetMapTile = GetMapTile'
     -- | The zoom value for the map tile.
     z :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMapTile' with all optional fields omitted.
@@ -78,6 +84,10 @@ data GetMapTile = GetMapTile'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'key', 'getMapTile_key' - The optional
+-- <https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html API key>
+-- to authorize the request.
 --
 -- 'mapName', 'getMapTile_mapName' - The map resource to retrieve the map tiles from.
 --
@@ -98,11 +108,18 @@ newGetMapTile ::
   GetMapTile
 newGetMapTile pMapName_ pX_ pY_ pZ_ =
   GetMapTile'
-    { mapName = pMapName_,
+    { key = Prelude.Nothing,
+      mapName = pMapName_,
       x = pX_,
       y = pY_,
       z = pZ_
     }
+
+-- | The optional
+-- <https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html API key>
+-- to authorize the request.
+getMapTile_key :: Lens.Lens' GetMapTile (Prelude.Maybe Prelude.Text)
+getMapTile_key = Lens.lens (\GetMapTile' {key} -> key) (\s@GetMapTile' {} a -> s {key = a} :: GetMapTile) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The map resource to retrieve the map tiles from.
 getMapTile_mapName :: Lens.Lens' GetMapTile Prelude.Text
@@ -129,20 +146,24 @@ instance Core.AWSRequest GetMapTile where
       ( \s h x ->
           GetMapTileResponse'
             Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
+            Prelude.<*> (h Data..#? "Cache-Control")
             Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetMapTile where
   hashWithSalt _salt GetMapTile' {..} =
-    _salt `Prelude.hashWithSalt` mapName
+    _salt
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` mapName
       `Prelude.hashWithSalt` x
       `Prelude.hashWithSalt` y
       `Prelude.hashWithSalt` z
 
 instance Prelude.NFData GetMapTile where
   rnf GetMapTile' {..} =
-    Prelude.rnf mapName
+    Prelude.rnf key
+      `Prelude.seq` Prelude.rnf mapName
       `Prelude.seq` Prelude.rnf x
       `Prelude.seq` Prelude.rnf y
       `Prelude.seq` Prelude.rnf z
@@ -172,12 +193,15 @@ instance Data.ToPath GetMapTile where
       ]
 
 instance Data.ToQuery GetMapTile where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery GetMapTile' {..} =
+    Prelude.mconcat ["key" Data.=: key]
 
 -- | /See:/ 'newGetMapTileResponse' smart constructor.
 data GetMapTileResponse = GetMapTileResponse'
   { -- | Contains Mapbox Vector Tile (MVT) data.
     blob :: Prelude.Maybe Prelude.ByteString,
+    -- | The HTTP Cache-Control directive for the value.
+    cacheControl :: Prelude.Maybe Prelude.Text,
     -- | The map tile\'s content type. For example,
     -- @application\/vnd.mapbox-vector-tile@.
     contentType :: Prelude.Maybe Prelude.Text,
@@ -196,6 +220,8 @@ data GetMapTileResponse = GetMapTileResponse'
 --
 -- 'blob', 'getMapTileResponse_blob' - Contains Mapbox Vector Tile (MVT) data.
 --
+-- 'cacheControl', 'getMapTileResponse_cacheControl' - The HTTP Cache-Control directive for the value.
+--
 -- 'contentType', 'getMapTileResponse_contentType' - The map tile\'s content type. For example,
 -- @application\/vnd.mapbox-vector-tile@.
 --
@@ -207,6 +233,7 @@ newGetMapTileResponse ::
 newGetMapTileResponse pHttpStatus_ =
   GetMapTileResponse'
     { blob = Prelude.Nothing,
+      cacheControl = Prelude.Nothing,
       contentType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -214,6 +241,10 @@ newGetMapTileResponse pHttpStatus_ =
 -- | Contains Mapbox Vector Tile (MVT) data.
 getMapTileResponse_blob :: Lens.Lens' GetMapTileResponse (Prelude.Maybe Prelude.ByteString)
 getMapTileResponse_blob = Lens.lens (\GetMapTileResponse' {blob} -> blob) (\s@GetMapTileResponse' {} a -> s {blob = a} :: GetMapTileResponse)
+
+-- | The HTTP Cache-Control directive for the value.
+getMapTileResponse_cacheControl :: Lens.Lens' GetMapTileResponse (Prelude.Maybe Prelude.Text)
+getMapTileResponse_cacheControl = Lens.lens (\GetMapTileResponse' {cacheControl} -> cacheControl) (\s@GetMapTileResponse' {} a -> s {cacheControl = a} :: GetMapTileResponse)
 
 -- | The map tile\'s content type. For example,
 -- @application\/vnd.mapbox-vector-tile@.
@@ -227,5 +258,6 @@ getMapTileResponse_httpStatus = Lens.lens (\GetMapTileResponse' {httpStatus} -> 
 instance Prelude.NFData GetMapTileResponse where
   rnf GetMapTileResponse' {..} =
     Prelude.rnf blob
+      `Prelude.seq` Prelude.rnf cacheControl
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf httpStatus

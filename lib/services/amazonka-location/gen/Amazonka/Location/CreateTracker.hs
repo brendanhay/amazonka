@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a tracker resource in your AWS account, which lets you retrieve
--- current and historical location of devices.
+-- Creates a tracker resource in your Amazon Web Services account, which
+-- lets you retrieve current and historical location of devices.
 module Amazonka.Location.CreateTracker
   ( -- * Creating a Request
     CreateTracker (..),
@@ -61,7 +61,7 @@ data CreateTracker = CreateTracker'
   { -- | An optional description for the tracker resource.
     description :: Prelude.Maybe Prelude.Text,
     -- | A key identifier for an
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html Amazon Web Services KMS customer managed key>.
     -- Enter a key ID, key ARN, alias name, or alias ARN.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the position filtering for the tracker resource.
@@ -145,7 +145,7 @@ data CreateTracker = CreateTracker'
 -- 'description', 'createTracker_description' - An optional description for the tracker resource.
 --
 -- 'kmsKeyId', 'createTracker_kmsKeyId' - A key identifier for an
--- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html Amazon Web Services KMS customer managed key>.
 -- Enter a key ID, key ARN, alias name, or alias ARN.
 --
 -- 'positionFiltering', 'createTracker_positionFiltering' - Specifies the position filtering for the tracker resource.
@@ -234,7 +234,7 @@ createTracker_description :: Lens.Lens' CreateTracker (Prelude.Maybe Prelude.Tex
 createTracker_description = Lens.lens (\CreateTracker' {description} -> description) (\s@CreateTracker' {} a -> s {description = a} :: CreateTracker)
 
 -- | A key identifier for an
--- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html Amazon Web Services KMS customer managed key>.
 -- Enter a key ID, key ARN, alias name, or alias ARN.
 createTracker_kmsKeyId :: Lens.Lens' CreateTracker (Prelude.Maybe Prelude.Text)
 createTracker_kmsKeyId = Lens.lens (\CreateTracker' {kmsKeyId} -> kmsKeyId) (\s@CreateTracker' {} a -> s {kmsKeyId = a} :: CreateTracker)
@@ -334,7 +334,8 @@ instance Core.AWSRequest CreateTracker where
 
 instance Prelude.Hashable CreateTracker where
   hashWithSalt _salt CreateTracker' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` positionFiltering
       `Prelude.hashWithSalt` pricingPlan
@@ -394,7 +395,7 @@ data CreateTrackerResponse = CreateTrackerResponse'
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
     createTime :: Data.ISO8601,
     -- | The Amazon Resource Name (ARN) for the tracker resource. Used when you
-    -- need to specify a resource across all AWS.
+    -- need to specify a resource across all Amazon Web Services.
     --
     -- -   Format example:
     --     @arn:aws:geo:region:account-id:tracker\/ExampleTracker@
@@ -419,7 +420,7 @@ data CreateTrackerResponse = CreateTrackerResponse'
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 --
 -- 'trackerArn', 'createTrackerResponse_trackerArn' - The Amazon Resource Name (ARN) for the tracker resource. Used when you
--- need to specify a resource across all AWS.
+-- need to specify a resource across all Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:tracker\/ExampleTracker@
@@ -458,7 +459,7 @@ createTrackerResponse_createTime :: Lens.Lens' CreateTrackerResponse Prelude.UTC
 createTrackerResponse_createTime = Lens.lens (\CreateTrackerResponse' {createTime} -> createTime) (\s@CreateTrackerResponse' {} a -> s {createTime = a} :: CreateTrackerResponse) Prelude.. Data._Time
 
 -- | The Amazon Resource Name (ARN) for the tracker resource. Used when you
--- need to specify a resource across all AWS.
+-- need to specify a resource across all Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:tracker\/ExampleTracker@

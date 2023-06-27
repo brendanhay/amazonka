@@ -27,6 +27,7 @@ module Amazonka.Location.UpdateMap
     newUpdateMap,
 
     -- * Request Lenses
+    updateMap_configurationUpdate,
     updateMap_description,
     updateMap_pricingPlan,
     updateMap_mapName,
@@ -53,7 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateMap' smart constructor.
 data UpdateMap = UpdateMap'
-  { -- | Updates the description for the map resource.
+  { -- | Updates the parts of the map configuration that can be updated,
+    -- including the political view.
+    configurationUpdate :: Prelude.Maybe MapConfigurationUpdate,
+    -- | Updates the description for the map resource.
     description :: Prelude.Maybe Prelude.Text,
     -- | No longer used. If included, the only allowed value is
     -- @RequestBasedUsage@.
@@ -71,6 +75,9 @@ data UpdateMap = UpdateMap'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'configurationUpdate', 'updateMap_configurationUpdate' - Updates the parts of the map configuration that can be updated,
+-- including the political view.
+--
 -- 'description', 'updateMap_description' - Updates the description for the map resource.
 --
 -- 'pricingPlan', 'updateMap_pricingPlan' - No longer used. If included, the only allowed value is
@@ -83,10 +90,16 @@ newUpdateMap ::
   UpdateMap
 newUpdateMap pMapName_ =
   UpdateMap'
-    { description = Prelude.Nothing,
+    { configurationUpdate = Prelude.Nothing,
+      description = Prelude.Nothing,
       pricingPlan = Prelude.Nothing,
       mapName = pMapName_
     }
+
+-- | Updates the parts of the map configuration that can be updated,
+-- including the political view.
+updateMap_configurationUpdate :: Lens.Lens' UpdateMap (Prelude.Maybe MapConfigurationUpdate)
+updateMap_configurationUpdate = Lens.lens (\UpdateMap' {configurationUpdate} -> configurationUpdate) (\s@UpdateMap' {} a -> s {configurationUpdate = a} :: UpdateMap)
 
 -- | Updates the description for the map resource.
 updateMap_description :: Lens.Lens' UpdateMap (Prelude.Maybe Prelude.Text)
@@ -117,13 +130,16 @@ instance Core.AWSRequest UpdateMap where
 
 instance Prelude.Hashable UpdateMap where
   hashWithSalt _salt UpdateMap' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` configurationUpdate
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` mapName
 
 instance Prelude.NFData UpdateMap where
   rnf UpdateMap' {..} =
-    Prelude.rnf description
+    Prelude.rnf configurationUpdate
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf mapName
 
@@ -142,7 +158,9 @@ instance Data.ToJSON UpdateMap where
   toJSON UpdateMap' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Description" Data..=) Prelude.<$> description,
+          [ ("ConfigurationUpdate" Data..=)
+              Prelude.<$> configurationUpdate,
+            ("Description" Data..=) Prelude.<$> description,
             ("PricingPlan" Data..=) Prelude.<$> pricingPlan
           ]
       )

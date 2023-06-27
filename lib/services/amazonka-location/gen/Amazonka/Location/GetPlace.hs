@@ -26,9 +26,9 @@
 -- A PlaceId is valid only if all of the following are the same in the
 -- original search request and the call to @GetPlace@.
 --
--- -   Customer AWS account
+-- -   Customer Amazon Web Services account
 --
--- -   AWS Region
+-- -   Amazon Web Services Region
 --
 -- -   Data provider specified in the place index resource
 module Amazonka.Location.GetPlace
@@ -176,7 +176,8 @@ instance Core.AWSRequest GetPlace where
 
 instance Prelude.Hashable GetPlace where
   hashWithSalt _salt GetPlace' {..} =
-    _salt `Prelude.hashWithSalt` language
+    _salt
+      `Prelude.hashWithSalt` language
       `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` placeId
 

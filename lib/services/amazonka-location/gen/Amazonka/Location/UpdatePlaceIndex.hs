@@ -178,7 +178,7 @@ data UpdatePlaceIndexResponse = UpdatePlaceIndexResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the upated place index resource. Used
-    -- to specify a resource across AWS.
+    -- to specify a resource across Amazon Web Services.
     --
     -- -   Format example:
     --     @arn:aws:geo:region:account-id:place- index\/ExamplePlaceIndex@
@@ -203,7 +203,7 @@ data UpdatePlaceIndexResponse = UpdatePlaceIndexResponse'
 -- 'httpStatus', 'updatePlaceIndexResponse_httpStatus' - The response's http status code.
 --
 -- 'indexArn', 'updatePlaceIndexResponse_indexArn' - The Amazon Resource Name (ARN) of the upated place index resource. Used
--- to specify a resource across AWS.
+-- to specify a resource across Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:place- index\/ExamplePlaceIndex@
@@ -241,7 +241,7 @@ updatePlaceIndexResponse_httpStatus :: Lens.Lens' UpdatePlaceIndexResponse Prelu
 updatePlaceIndexResponse_httpStatus = Lens.lens (\UpdatePlaceIndexResponse' {httpStatus} -> httpStatus) (\s@UpdatePlaceIndexResponse' {} a -> s {httpStatus = a} :: UpdatePlaceIndexResponse)
 
 -- | The Amazon Resource Name (ARN) of the upated place index resource. Used
--- to specify a resource across AWS.
+-- to specify a resource across Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:place- index\/ExamplePlaceIndex@

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a map resource from your AWS account.
+-- Deletes a map resource from your Amazon Web Services account.
 --
 -- This operation deletes the resource permanently. If the map is being
 -- used in an application, the map may not render.

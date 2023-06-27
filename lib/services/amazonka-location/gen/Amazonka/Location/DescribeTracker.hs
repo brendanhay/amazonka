@@ -135,7 +135,7 @@ instance Data.ToQuery DescribeTracker where
 -- | /See:/ 'newDescribeTrackerResponse' smart constructor.
 data DescribeTrackerResponse = DescribeTrackerResponse'
   { -- | A key identifier for an
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html Amazon Web Services KMS customer managed key>
     -- assigned to the Amazon Location resource.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The position filtering method of the tracker resource.
@@ -155,7 +155,7 @@ data DescribeTrackerResponse = DescribeTrackerResponse'
     -- | The optional description for the tracker resource.
     description :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the tracker resource. Used when you
-    -- need to specify a resource across all AWS.
+    -- need to specify a resource across all Amazon Web Services.
     --
     -- -   Format example:
     --     @arn:aws:geo:region:account-id:tracker\/ExampleTracker@
@@ -178,7 +178,7 @@ data DescribeTrackerResponse = DescribeTrackerResponse'
 -- for backwards compatibility:
 --
 -- 'kmsKeyId', 'describeTrackerResponse_kmsKeyId' - A key identifier for an
--- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html Amazon Web Services KMS customer managed key>
 -- assigned to the Amazon Location resource.
 --
 -- 'positionFiltering', 'describeTrackerResponse_positionFiltering' - The position filtering method of the tracker resource.
@@ -198,7 +198,7 @@ data DescribeTrackerResponse = DescribeTrackerResponse'
 -- 'description', 'describeTrackerResponse_description' - The optional description for the tracker resource.
 --
 -- 'trackerArn', 'describeTrackerResponse_trackerArn' - The Amazon Resource Name (ARN) for the tracker resource. Used when you
--- need to specify a resource across all AWS.
+-- need to specify a resource across all Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:tracker\/ExampleTracker@
@@ -245,7 +245,7 @@ newDescribeTrackerResponse
       }
 
 -- | A key identifier for an
--- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html Amazon Web Services KMS customer managed key>
 -- assigned to the Amazon Location resource.
 describeTrackerResponse_kmsKeyId :: Lens.Lens' DescribeTrackerResponse (Prelude.Maybe Prelude.Text)
 describeTrackerResponse_kmsKeyId = Lens.lens (\DescribeTrackerResponse' {kmsKeyId} -> kmsKeyId) (\s@DescribeTrackerResponse' {} a -> s {kmsKeyId = a} :: DescribeTrackerResponse)
@@ -281,7 +281,7 @@ describeTrackerResponse_description :: Lens.Lens' DescribeTrackerResponse Prelud
 describeTrackerResponse_description = Lens.lens (\DescribeTrackerResponse' {description} -> description) (\s@DescribeTrackerResponse' {} a -> s {description = a} :: DescribeTrackerResponse)
 
 -- | The Amazon Resource Name (ARN) for the tracker resource. Used when you
--- need to specify a resource across all AWS.
+-- need to specify a resource across all Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:tracker\/ExampleTracker@

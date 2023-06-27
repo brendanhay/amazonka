@@ -29,7 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListGeofenceResponseEntry' smart constructor.
 data ListGeofenceResponseEntry = ListGeofenceResponseEntry'
-  { -- | The timestamp for when the geofence was stored in a geofence collection
+  { -- | Contains additional user-defined properties stored with the geofence. An
+    -- array of key-value pairs.
+    geofenceProperties :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    -- | The timestamp for when the geofence was stored in a geofence collection
     -- in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
     createTime :: Data.ISO8601,
@@ -64,6 +67,9 @@ data ListGeofenceResponseEntry = ListGeofenceResponseEntry'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'geofenceProperties', 'listGeofenceResponseEntry_geofenceProperties' - Contains additional user-defined properties stored with the geofence. An
+-- array of key-value pairs.
 --
 -- 'createTime', 'listGeofenceResponseEntry_createTime' - The timestamp for when the geofence was stored in a geofence collection
 -- in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
@@ -108,13 +114,19 @@ newListGeofenceResponseEntry
   pStatus_
   pUpdateTime_ =
     ListGeofenceResponseEntry'
-      { createTime =
-          Data._Time Lens.# pCreateTime_,
+      { geofenceProperties =
+          Prelude.Nothing,
+        createTime = Data._Time Lens.# pCreateTime_,
         geofenceId = pGeofenceId_,
         geometry = pGeometry_,
         status = pStatus_,
         updateTime = Data._Time Lens.# pUpdateTime_
       }
+
+-- | Contains additional user-defined properties stored with the geofence. An
+-- array of key-value pairs.
+listGeofenceResponseEntry_geofenceProperties :: Lens.Lens' ListGeofenceResponseEntry (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listGeofenceResponseEntry_geofenceProperties = Lens.lens (\ListGeofenceResponseEntry' {geofenceProperties} -> geofenceProperties) (\s@ListGeofenceResponseEntry' {} a -> s {geofenceProperties = a} :: ListGeofenceResponseEntry) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The timestamp for when the geofence was stored in a geofence collection
 -- in <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
@@ -157,7 +169,11 @@ instance Data.FromJSON ListGeofenceResponseEntry where
       "ListGeofenceResponseEntry"
       ( \x ->
           ListGeofenceResponseEntry'
-            Prelude.<$> (x Data..: "CreateTime")
+            Prelude.<$> ( x
+                            Data..:? "GeofenceProperties"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..: "CreateTime")
             Prelude.<*> (x Data..: "GeofenceId")
             Prelude.<*> (x Data..: "Geometry")
             Prelude.<*> (x Data..: "Status")
@@ -166,7 +182,9 @@ instance Data.FromJSON ListGeofenceResponseEntry where
 
 instance Prelude.Hashable ListGeofenceResponseEntry where
   hashWithSalt _salt ListGeofenceResponseEntry' {..} =
-    _salt `Prelude.hashWithSalt` createTime
+    _salt
+      `Prelude.hashWithSalt` geofenceProperties
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` geofenceId
       `Prelude.hashWithSalt` geometry
       `Prelude.hashWithSalt` status
@@ -174,7 +192,8 @@ instance Prelude.Hashable ListGeofenceResponseEntry where
 
 instance Prelude.NFData ListGeofenceResponseEntry where
   rnf ListGeofenceResponseEntry' {..} =
-    Prelude.rnf createTime
+    Prelude.rnf geofenceProperties
+      `Prelude.seq` Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf geofenceId
       `Prelude.seq` Prelude.rnf geometry
       `Prelude.seq` Prelude.rnf status

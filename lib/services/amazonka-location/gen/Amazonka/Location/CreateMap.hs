@@ -20,14 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a map resource in your AWS account, which provides map tiles of
--- different styles sourced from global location data providers.
+-- Creates a map resource in your Amazon Web Services account, which
+-- provides map tiles of different styles sourced from global location data
+-- providers.
 --
 -- If your application is tracking or routing assets you use in your
--- business, such as delivery vehicles or employees, you may only use HERE
+-- business, such as delivery vehicles or employees, you must not use Esri
 -- as your geolocation provider. See section 82 of the
--- <http://aws.amazon.com/service-terms AWS service terms> for more
--- details.
+-- <http://aws.amazon.com/service-terms Amazon Web Services service terms>
+-- for more details.
 module Amazonka.Location.CreateMap
   ( -- * Creating a Request
     CreateMap (..),
@@ -236,7 +237,8 @@ instance Core.AWSRequest CreateMap where
 
 instance Prelude.Hashable CreateMap where
   hashWithSalt _salt CreateMap' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` configuration
@@ -288,7 +290,7 @@ data CreateMapResponse = CreateMapResponse'
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
     createTime :: Data.ISO8601,
     -- | The Amazon Resource Name (ARN) for the map resource. Used to specify a
-    -- resource across all AWS.
+    -- resource across all Amazon Web Services.
     --
     -- -   Format example: @arn:aws:geo:region:account-id:map\/ExampleMap@
     mapArn :: Prelude.Text,
@@ -312,7 +314,7 @@ data CreateMapResponse = CreateMapResponse'
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
 --
 -- 'mapArn', 'createMapResponse_mapArn' - The Amazon Resource Name (ARN) for the map resource. Used to specify a
--- resource across all AWS.
+-- resource across all Amazon Web Services.
 --
 -- -   Format example: @arn:aws:geo:region:account-id:map\/ExampleMap@
 --
@@ -350,7 +352,7 @@ createMapResponse_createTime :: Lens.Lens' CreateMapResponse Prelude.UTCTime
 createMapResponse_createTime = Lens.lens (\CreateMapResponse' {createTime} -> createTime) (\s@CreateMapResponse' {} a -> s {createTime = a} :: CreateMapResponse) Prelude.. Data._Time
 
 -- | The Amazon Resource Name (ARN) for the map resource. Used to specify a
--- resource across all AWS.
+-- resource across all Amazon Web Services.
 --
 -- -   Format example: @arn:aws:geo:region:account-id:map\/ExampleMap@
 createMapResponse_mapArn :: Lens.Lens' CreateMapResponse Prelude.Text

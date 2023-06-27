@@ -60,7 +60,7 @@ import qualified Amazonka.Response as Response
 data AssociateTrackerConsumer = AssociateTrackerConsumer'
   { -- | The Amazon Resource Name (ARN) for the geofence collection to be
     -- associated to tracker resource. Used when you need to specify a resource
-    -- across all AWS.
+    -- across all Amazon Web Services.
     --
     -- -   Format example:
     --     @arn:aws:geo:region:account-id:geofence-collection\/ExampleGeofenceCollectionConsumer@
@@ -81,7 +81,7 @@ data AssociateTrackerConsumer = AssociateTrackerConsumer'
 --
 -- 'consumerArn', 'associateTrackerConsumer_consumerArn' - The Amazon Resource Name (ARN) for the geofence collection to be
 -- associated to tracker resource. Used when you need to specify a resource
--- across all AWS.
+-- across all Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:geofence-collection\/ExampleGeofenceCollectionConsumer@
@@ -105,7 +105,7 @@ newAssociateTrackerConsumer
 
 -- | The Amazon Resource Name (ARN) for the geofence collection to be
 -- associated to tracker resource. Used when you need to specify a resource
--- across all AWS.
+-- across all Amazon Web Services.
 --
 -- -   Format example:
 --     @arn:aws:geo:region:account-id:geofence-collection\/ExampleGeofenceCollectionConsumer@
@@ -132,7 +132,8 @@ instance Core.AWSRequest AssociateTrackerConsumer where
 
 instance Prelude.Hashable AssociateTrackerConsumer where
   hashWithSalt _salt AssociateTrackerConsumer' {..} =
-    _salt `Prelude.hashWithSalt` consumerArn
+    _salt
+      `Prelude.hashWithSalt` consumerArn
       `Prelude.hashWithSalt` trackerName
 
 instance Prelude.NFData AssociateTrackerConsumer where

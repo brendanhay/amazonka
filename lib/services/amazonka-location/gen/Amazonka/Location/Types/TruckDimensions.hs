@@ -137,7 +137,8 @@ truckDimensions_width = Lens.lens (\TruckDimensions' {width} -> width) (\s@Truck
 
 instance Prelude.Hashable TruckDimensions where
   hashWithSalt _salt TruckDimensions' {..} =
-    _salt `Prelude.hashWithSalt` height
+    _salt
+      `Prelude.hashWithSalt` height
       `Prelude.hashWithSalt` length
       `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` width

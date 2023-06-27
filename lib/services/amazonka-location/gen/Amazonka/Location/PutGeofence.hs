@@ -29,6 +29,7 @@ module Amazonka.Location.PutGeofence
     newPutGeofence,
 
     -- * Request Lenses
+    putGeofence_geofenceProperties,
     putGeofence_collectionName,
     putGeofence_geofenceId,
     putGeofence_geometry,
@@ -55,7 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutGeofence' smart constructor.
 data PutGeofence = PutGeofence'
-  { -- | The geofence collection to store the geofence in.
+  { -- | Specifies additional user-defined properties to store with the Geofence.
+    -- An array of key-value pairs.
+    geofenceProperties :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    -- | The geofence collection to store the geofence in.
     collectionName :: Prelude.Text,
     -- | An identifier for the geofence. For example, @ExampleGeofence-1@.
     geofenceId :: Prelude.Text,
@@ -77,6 +81,9 @@ data PutGeofence = PutGeofence'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'geofenceProperties', 'putGeofence_geofenceProperties' - Specifies additional user-defined properties to store with the Geofence.
+-- An array of key-value pairs.
 --
 -- 'collectionName', 'putGeofence_collectionName' - The geofence collection to store the geofence in.
 --
@@ -102,10 +109,16 @@ newPutGeofence
   pGeofenceId_
   pGeometry_ =
     PutGeofence'
-      { collectionName = pCollectionName_,
+      { geofenceProperties = Prelude.Nothing,
+        collectionName = pCollectionName_,
         geofenceId = pGeofenceId_,
         geometry = pGeometry_
       }
+
+-- | Specifies additional user-defined properties to store with the Geofence.
+-- An array of key-value pairs.
+putGeofence_geofenceProperties :: Lens.Lens' PutGeofence (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+putGeofence_geofenceProperties = Lens.lens (\PutGeofence' {geofenceProperties} -> geofenceProperties) (\s@PutGeofence' {} a -> s {geofenceProperties = a} :: PutGeofence) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The geofence collection to store the geofence in.
 putGeofence_collectionName :: Lens.Lens' PutGeofence Prelude.Text
@@ -141,13 +154,16 @@ instance Core.AWSRequest PutGeofence where
 
 instance Prelude.Hashable PutGeofence where
   hashWithSalt _salt PutGeofence' {..} =
-    _salt `Prelude.hashWithSalt` collectionName
+    _salt
+      `Prelude.hashWithSalt` geofenceProperties
+      `Prelude.hashWithSalt` collectionName
       `Prelude.hashWithSalt` geofenceId
       `Prelude.hashWithSalt` geometry
 
 instance Prelude.NFData PutGeofence where
   rnf PutGeofence' {..} =
-    Prelude.rnf collectionName
+    Prelude.rnf geofenceProperties
+      `Prelude.seq` Prelude.rnf collectionName
       `Prelude.seq` Prelude.rnf geofenceId
       `Prelude.seq` Prelude.rnf geometry
 
@@ -166,7 +182,10 @@ instance Data.ToJSON PutGeofence where
   toJSON PutGeofence' {..} =
     Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Geometry" Data..= geometry)]
+          [ ("GeofenceProperties" Data..=)
+              Prelude.<$> geofenceProperties,
+            Prelude.Just ("Geometry" Data..= geometry)
+          ]
       )
 
 instance Data.ToPath PutGeofence where

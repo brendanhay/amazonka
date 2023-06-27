@@ -47,11 +47,26 @@ module Amazonka.Location.Types
     -- * RouteMatrixErrorCode
     RouteMatrixErrorCode (..),
 
+    -- * Status
+    Status (..),
+
     -- * TravelMode
     TravelMode (..),
 
     -- * VehicleWeightUnit
     VehicleWeightUnit (..),
+
+    -- * ApiKeyFilter
+    ApiKeyFilter (..),
+    newApiKeyFilter,
+    apiKeyFilter_keyStatus,
+
+    -- * ApiKeyRestrictions
+    ApiKeyRestrictions (..),
+    newApiKeyRestrictions,
+    apiKeyRestrictions_allowReferers,
+    apiKeyRestrictions_allowActions,
+    apiKeyRestrictions_allowResources,
 
     -- * BatchDeleteDevicePositionHistoryError
     BatchDeleteDevicePositionHistoryError (..),
@@ -93,6 +108,7 @@ module Amazonka.Location.Types
     -- * BatchPutGeofenceRequestEntry
     BatchPutGeofenceRequestEntry (..),
     newBatchPutGeofenceRequestEntry,
+    batchPutGeofenceRequestEntry_geofenceProperties,
     batchPutGeofenceRequestEntry_geofenceId,
     batchPutGeofenceRequestEntry_geometry,
 
@@ -214,11 +230,22 @@ module Amazonka.Location.Types
     -- * ListGeofenceResponseEntry
     ListGeofenceResponseEntry (..),
     newListGeofenceResponseEntry,
+    listGeofenceResponseEntry_geofenceProperties,
     listGeofenceResponseEntry_createTime,
     listGeofenceResponseEntry_geofenceId,
     listGeofenceResponseEntry_geometry,
     listGeofenceResponseEntry_status,
     listGeofenceResponseEntry_updateTime,
+
+    -- * ListKeysResponseEntry
+    ListKeysResponseEntry (..),
+    newListKeysResponseEntry,
+    listKeysResponseEntry_description,
+    listKeysResponseEntry_createTime,
+    listKeysResponseEntry_expireTime,
+    listKeysResponseEntry_keyName,
+    listKeysResponseEntry_restrictions,
+    listKeysResponseEntry_updateTime,
 
     -- * ListMapsResponseEntry
     ListMapsResponseEntry (..),
@@ -263,12 +290,19 @@ module Amazonka.Location.Types
     -- * MapConfiguration
     MapConfiguration (..),
     newMapConfiguration,
+    mapConfiguration_politicalView,
     mapConfiguration_style,
+
+    -- * MapConfigurationUpdate
+    MapConfigurationUpdate (..),
+    newMapConfigurationUpdate,
+    mapConfigurationUpdate_politicalView,
 
     -- * Place
     Place (..),
     newPlace,
     place_addressNumber,
+    place_categories,
     place_country,
     place_interpolated,
     place_label,
@@ -278,6 +312,7 @@ module Amazonka.Location.Types
     place_region,
     place_street,
     place_subRegion,
+    place_supplementalCategories,
     place_timeZone,
     place_unitNumber,
     place_unitType,
@@ -316,7 +351,9 @@ module Amazonka.Location.Types
     -- * SearchForSuggestionsResult
     SearchForSuggestionsResult (..),
     newSearchForSuggestionsResult,
+    searchForSuggestionsResult_categories,
     searchForSuggestionsResult_placeId,
+    searchForSuggestionsResult_supplementalCategories,
     searchForSuggestionsResult_text,
 
     -- * SearchForTextResult
@@ -340,6 +377,7 @@ module Amazonka.Location.Types
     newSearchPlaceIndexForSuggestionsSummary,
     searchPlaceIndexForSuggestionsSummary_biasPosition,
     searchPlaceIndexForSuggestionsSummary_filterBBox,
+    searchPlaceIndexForSuggestionsSummary_filterCategories,
     searchPlaceIndexForSuggestionsSummary_filterCountries,
     searchPlaceIndexForSuggestionsSummary_language,
     searchPlaceIndexForSuggestionsSummary_maxResults,
@@ -351,6 +389,7 @@ module Amazonka.Location.Types
     newSearchPlaceIndexForTextSummary,
     searchPlaceIndexForTextSummary_biasPosition,
     searchPlaceIndexForTextSummary_filterBBox,
+    searchPlaceIndexForTextSummary_filterCategories,
     searchPlaceIndexForTextSummary_filterCountries,
     searchPlaceIndexForTextSummary_language,
     searchPlaceIndexForTextSummary_maxResults,
@@ -391,6 +430,8 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import Amazonka.Location.Types.ApiKeyFilter
+import Amazonka.Location.Types.ApiKeyRestrictions
 import Amazonka.Location.Types.BatchDeleteDevicePositionHistoryError
 import Amazonka.Location.Types.BatchDeleteGeofenceError
 import Amazonka.Location.Types.BatchEvaluateGeofencesError
@@ -418,11 +459,13 @@ import Amazonka.Location.Types.LegGeometry
 import Amazonka.Location.Types.ListDevicePositionsResponseEntry
 import Amazonka.Location.Types.ListGeofenceCollectionsResponseEntry
 import Amazonka.Location.Types.ListGeofenceResponseEntry
+import Amazonka.Location.Types.ListKeysResponseEntry
 import Amazonka.Location.Types.ListMapsResponseEntry
 import Amazonka.Location.Types.ListPlaceIndexesResponseEntry
 import Amazonka.Location.Types.ListRouteCalculatorsResponseEntry
 import Amazonka.Location.Types.ListTrackersResponseEntry
 import Amazonka.Location.Types.MapConfiguration
+import Amazonka.Location.Types.MapConfigurationUpdate
 import Amazonka.Location.Types.Place
 import Amazonka.Location.Types.PlaceGeometry
 import Amazonka.Location.Types.PositionFiltering
@@ -437,6 +480,7 @@ import Amazonka.Location.Types.SearchForTextResult
 import Amazonka.Location.Types.SearchPlaceIndexForPositionSummary
 import Amazonka.Location.Types.SearchPlaceIndexForSuggestionsSummary
 import Amazonka.Location.Types.SearchPlaceIndexForTextSummary
+import Amazonka.Location.Types.Status
 import Amazonka.Location.Types.Step
 import Amazonka.Location.Types.TimeZone
 import Amazonka.Location.Types.TravelMode
@@ -472,53 +516,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The request was denied because of insufficient access or permissions.
 -- Check with an administrator to verify your permissions.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -526,7 +570,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | The request was unsuccessful because of a conflict.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -535,7 +579,7 @@ _ConflictException =
 
 -- | The request has failed to process because of an unknown server error,
 -- exception, or failure.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -543,7 +587,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The resource that you\'ve entered was not found in your AWS account.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -553,7 +597,7 @@ _ResourceNotFoundException =
 -- | The operation was denied because the request would exceed the maximum
 -- <https://docs.aws.amazon.com/location/latest/developerguide/location-quotas.html quota>
 -- set for Amazon Location Service.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -561,7 +605,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The request was denied because of request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -569,7 +613,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | The input failed to meet the constraints specified by the AWS service.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

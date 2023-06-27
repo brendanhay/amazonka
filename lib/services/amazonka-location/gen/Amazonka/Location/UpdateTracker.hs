@@ -214,7 +214,8 @@ instance Core.AWSRequest UpdateTracker where
 
 instance Prelude.Hashable UpdateTracker where
   hashWithSalt _salt UpdateTracker' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` positionFiltering
       `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` pricingPlanDataSource

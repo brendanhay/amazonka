@@ -39,6 +39,7 @@ module Amazonka.Location.SearchPlaceIndexForText
     -- * Request Lenses
     searchPlaceIndexForText_biasPosition,
     searchPlaceIndexForText_filterBBox,
+    searchPlaceIndexForText_filterCategories,
     searchPlaceIndexForText_filterCountries,
     searchPlaceIndexForText_language,
     searchPlaceIndexForText_maxResults,
@@ -97,6 +98,15 @@ data SearchPlaceIndexForText = SearchPlaceIndexForText'
     -- @FilterBBox@ and @BiasPosition@ are mutually exclusive. Specifying both
     -- options results in an error.
     filterBBox :: Prelude.Maybe (Data.Sensitive (Prelude.NonEmpty Prelude.Double)),
+    -- | A list of one or more Amazon Location categories to filter the returned
+    -- places. If you include more than one category, the results will include
+    -- results that match /any/ of the categories listed.
+    --
+    -- For more information about using categories, including a list of Amazon
+    -- Location categories, see
+    -- <https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html Categories and filtering>,
+    -- in the /Amazon Location Service Developer Guide/.
+    filterCategories :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | An optional parameter that limits the search results by returning only
     -- places that are in a specified list of countries.
     --
@@ -176,6 +186,15 @@ data SearchPlaceIndexForText = SearchPlaceIndexForText'
 -- @FilterBBox@ and @BiasPosition@ are mutually exclusive. Specifying both
 -- options results in an error.
 --
+-- 'filterCategories', 'searchPlaceIndexForText_filterCategories' - A list of one or more Amazon Location categories to filter the returned
+-- places. If you include more than one category, the results will include
+-- results that match /any/ of the categories listed.
+--
+-- For more information about using categories, including a list of Amazon
+-- Location categories, see
+-- <https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html Categories and filtering>,
+-- in the /Amazon Location Service Developer Guide/.
+--
 -- 'filterCountries', 'searchPlaceIndexForText_filterCountries' - An optional parameter that limits the search results by returning only
 -- places that are in a specified list of countries.
 --
@@ -223,6 +242,7 @@ newSearchPlaceIndexForText pIndexName_ pText_ =
     { biasPosition =
         Prelude.Nothing,
       filterBBox = Prelude.Nothing,
+      filterCategories = Prelude.Nothing,
       filterCountries = Prelude.Nothing,
       language = Prelude.Nothing,
       maxResults = Prelude.Nothing,
@@ -264,6 +284,17 @@ searchPlaceIndexForText_biasPosition = Lens.lens (\SearchPlaceIndexForText' {bia
 -- options results in an error.
 searchPlaceIndexForText_filterBBox :: Lens.Lens' SearchPlaceIndexForText (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
 searchPlaceIndexForText_filterBBox = Lens.lens (\SearchPlaceIndexForText' {filterBBox} -> filterBBox) (\s@SearchPlaceIndexForText' {} a -> s {filterBBox = a} :: SearchPlaceIndexForText) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+
+-- | A list of one or more Amazon Location categories to filter the returned
+-- places. If you include more than one category, the results will include
+-- results that match /any/ of the categories listed.
+--
+-- For more information about using categories, including a list of Amazon
+-- Location categories, see
+-- <https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html Categories and filtering>,
+-- in the /Amazon Location Service Developer Guide/.
+searchPlaceIndexForText_filterCategories :: Lens.Lens' SearchPlaceIndexForText (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+searchPlaceIndexForText_filterCategories = Lens.lens (\SearchPlaceIndexForText' {filterCategories} -> filterCategories) (\s@SearchPlaceIndexForText' {} a -> s {filterCategories = a} :: SearchPlaceIndexForText) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional parameter that limits the search results by returning only
 -- places that are in a specified list of countries.
@@ -329,8 +360,10 @@ instance Core.AWSRequest SearchPlaceIndexForText where
 
 instance Prelude.Hashable SearchPlaceIndexForText where
   hashWithSalt _salt SearchPlaceIndexForText' {..} =
-    _salt `Prelude.hashWithSalt` biasPosition
+    _salt
+      `Prelude.hashWithSalt` biasPosition
       `Prelude.hashWithSalt` filterBBox
+      `Prelude.hashWithSalt` filterCategories
       `Prelude.hashWithSalt` filterCountries
       `Prelude.hashWithSalt` language
       `Prelude.hashWithSalt` maxResults
@@ -341,6 +374,7 @@ instance Prelude.NFData SearchPlaceIndexForText where
   rnf SearchPlaceIndexForText' {..} =
     Prelude.rnf biasPosition
       `Prelude.seq` Prelude.rnf filterBBox
+      `Prelude.seq` Prelude.rnf filterCategories
       `Prelude.seq` Prelude.rnf filterCountries
       `Prelude.seq` Prelude.rnf language
       `Prelude.seq` Prelude.rnf maxResults
@@ -364,6 +398,8 @@ instance Data.ToJSON SearchPlaceIndexForText where
       ( Prelude.catMaybes
           [ ("BiasPosition" Data..=) Prelude.<$> biasPosition,
             ("FilterBBox" Data..=) Prelude.<$> filterBBox,
+            ("FilterCategories" Data..=)
+              Prelude.<$> filterCategories,
             ("FilterCountries" Data..=)
               Prelude.<$> filterCountries,
             ("Language" Data..=) Prelude.<$> language,

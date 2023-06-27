@@ -32,6 +32,7 @@ module Amazonka.Location.GetMapStyleDescriptor
     newGetMapStyleDescriptor,
 
     -- * Request Lenses
+    getMapStyleDescriptor_key,
     getMapStyleDescriptor_mapName,
 
     -- * Destructuring the Response
@@ -40,6 +41,7 @@ module Amazonka.Location.GetMapStyleDescriptor
 
     -- * Response Lenses
     getMapStyleDescriptorResponse_blob,
+    getMapStyleDescriptorResponse_cacheControl,
     getMapStyleDescriptorResponse_contentType,
     getMapStyleDescriptorResponse_httpStatus,
   )
@@ -55,10 +57,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetMapStyleDescriptor' smart constructor.
 data GetMapStyleDescriptor = GetMapStyleDescriptor'
-  { -- | The map resource to retrieve the style descriptor from.
+  { -- | The optional
+    -- <https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html API key>
+    -- to authorize the request.
+    key :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The map resource to retrieve the style descriptor from.
     mapName :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetMapStyleDescriptor' with all optional fields omitted.
@@ -68,13 +74,26 @@ data GetMapStyleDescriptor = GetMapStyleDescriptor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'key', 'getMapStyleDescriptor_key' - The optional
+-- <https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html API key>
+-- to authorize the request.
+--
 -- 'mapName', 'getMapStyleDescriptor_mapName' - The map resource to retrieve the style descriptor from.
 newGetMapStyleDescriptor ::
   -- | 'mapName'
   Prelude.Text ->
   GetMapStyleDescriptor
 newGetMapStyleDescriptor pMapName_ =
-  GetMapStyleDescriptor' {mapName = pMapName_}
+  GetMapStyleDescriptor'
+    { key = Prelude.Nothing,
+      mapName = pMapName_
+    }
+
+-- | The optional
+-- <https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html API key>
+-- to authorize the request.
+getMapStyleDescriptor_key :: Lens.Lens' GetMapStyleDescriptor (Prelude.Maybe Prelude.Text)
+getMapStyleDescriptor_key = Lens.lens (\GetMapStyleDescriptor' {key} -> key) (\s@GetMapStyleDescriptor' {} a -> s {key = a} :: GetMapStyleDescriptor) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The map resource to retrieve the style descriptor from.
 getMapStyleDescriptor_mapName :: Lens.Lens' GetMapStyleDescriptor Prelude.Text
@@ -91,16 +110,20 @@ instance Core.AWSRequest GetMapStyleDescriptor where
       ( \s h x ->
           GetMapStyleDescriptorResponse'
             Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
+            Prelude.<*> (h Data..#? "Cache-Control")
             Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetMapStyleDescriptor where
   hashWithSalt _salt GetMapStyleDescriptor' {..} =
-    _salt `Prelude.hashWithSalt` mapName
+    _salt
+      `Prelude.hashWithSalt` key
+      `Prelude.hashWithSalt` mapName
 
 instance Prelude.NFData GetMapStyleDescriptor where
-  rnf GetMapStyleDescriptor' {..} = Prelude.rnf mapName
+  rnf GetMapStyleDescriptor' {..} =
+    Prelude.rnf key `Prelude.seq` Prelude.rnf mapName
 
 instance Data.ToHeaders GetMapStyleDescriptor where
   toHeaders =
@@ -122,12 +145,15 @@ instance Data.ToPath GetMapStyleDescriptor where
       ]
 
 instance Data.ToQuery GetMapStyleDescriptor where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery GetMapStyleDescriptor' {..} =
+    Prelude.mconcat ["key" Data.=: key]
 
 -- | /See:/ 'newGetMapStyleDescriptorResponse' smart constructor.
 data GetMapStyleDescriptorResponse = GetMapStyleDescriptorResponse'
   { -- | Contains the body of the style descriptor.
     blob :: Prelude.Maybe Prelude.ByteString,
+    -- | The HTTP Cache-Control directive for the value.
+    cacheControl :: Prelude.Maybe Prelude.Text,
     -- | The style descriptor\'s content type. For example, @application\/json@.
     contentType :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -145,6 +171,8 @@ data GetMapStyleDescriptorResponse = GetMapStyleDescriptorResponse'
 --
 -- 'blob', 'getMapStyleDescriptorResponse_blob' - Contains the body of the style descriptor.
 --
+-- 'cacheControl', 'getMapStyleDescriptorResponse_cacheControl' - The HTTP Cache-Control directive for the value.
+--
 -- 'contentType', 'getMapStyleDescriptorResponse_contentType' - The style descriptor\'s content type. For example, @application\/json@.
 --
 -- 'httpStatus', 'getMapStyleDescriptorResponse_httpStatus' - The response's http status code.
@@ -156,6 +184,7 @@ newGetMapStyleDescriptorResponse pHttpStatus_ =
   GetMapStyleDescriptorResponse'
     { blob =
         Prelude.Nothing,
+      cacheControl = Prelude.Nothing,
       contentType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -163,6 +192,10 @@ newGetMapStyleDescriptorResponse pHttpStatus_ =
 -- | Contains the body of the style descriptor.
 getMapStyleDescriptorResponse_blob :: Lens.Lens' GetMapStyleDescriptorResponse (Prelude.Maybe Prelude.ByteString)
 getMapStyleDescriptorResponse_blob = Lens.lens (\GetMapStyleDescriptorResponse' {blob} -> blob) (\s@GetMapStyleDescriptorResponse' {} a -> s {blob = a} :: GetMapStyleDescriptorResponse)
+
+-- | The HTTP Cache-Control directive for the value.
+getMapStyleDescriptorResponse_cacheControl :: Lens.Lens' GetMapStyleDescriptorResponse (Prelude.Maybe Prelude.Text)
+getMapStyleDescriptorResponse_cacheControl = Lens.lens (\GetMapStyleDescriptorResponse' {cacheControl} -> cacheControl) (\s@GetMapStyleDescriptorResponse' {} a -> s {cacheControl = a} :: GetMapStyleDescriptorResponse)
 
 -- | The style descriptor\'s content type. For example, @application\/json@.
 getMapStyleDescriptorResponse_contentType :: Lens.Lens' GetMapStyleDescriptorResponse (Prelude.Maybe Prelude.Text)
@@ -175,5 +208,6 @@ getMapStyleDescriptorResponse_httpStatus = Lens.lens (\GetMapStyleDescriptorResp
 instance Prelude.NFData GetMapStyleDescriptorResponse where
   rnf GetMapStyleDescriptorResponse' {..} =
     Prelude.rnf blob
+      `Prelude.seq` Prelude.rnf cacheControl
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf httpStatus

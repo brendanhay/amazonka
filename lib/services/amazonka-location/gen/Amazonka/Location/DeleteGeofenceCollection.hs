@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a geofence collection from your AWS account.
+-- Deletes a geofence collection from your Amazon Web Services account.
 --
 -- This operation deletes the resource permanently. If the geofence
 -- collection is the target of a tracker resource, the devices will no

@@ -122,7 +122,18 @@ data CalculateRoute = CalculateRoute'
     includeLegGeometry :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the mode of transport when calculating a route. Used in
     -- estimating the speed of travel and road compatibility. You can choose
-    -- @Car@, @Truck@, or @Walking@ as options for the @TravelMode@.
+    -- @Car@, @Truck@, @Walking@, @Bicycle@ or @Motorcycle@ as options for the
+    -- @TravelMode@.
+    --
+    -- @Bicycle@ and @Motorcycle@ are only valid when using Grab as a data
+    -- provider, and only within Southeast Asia.
+    --
+    -- @Truck@ is not available for Grab.
+    --
+    -- For more details on the using Grab for routing, including areas of
+    -- coverage, see
+    -- <https://docs.aws.amazon.com/location/latest/developerguide/grab.html GrabMaps>
+    -- in the /Amazon Location Service Developer Guide/.
     --
     -- The @TravelMode@ you specify also determines how you specify route
     -- preferences:
@@ -237,7 +248,18 @@ data CalculateRoute = CalculateRoute'
 --
 -- 'travelMode', 'calculateRoute_travelMode' - Specifies the mode of transport when calculating a route. Used in
 -- estimating the speed of travel and road compatibility. You can choose
--- @Car@, @Truck@, or @Walking@ as options for the @TravelMode@.
+-- @Car@, @Truck@, @Walking@, @Bicycle@ or @Motorcycle@ as options for the
+-- @TravelMode@.
+--
+-- @Bicycle@ and @Motorcycle@ are only valid when using Grab as a data
+-- provider, and only within Southeast Asia.
+--
+-- @Truck@ is not available for Grab.
+--
+-- For more details on the using Grab for routing, including areas of
+-- coverage, see
+-- <https://docs.aws.amazon.com/location/latest/developerguide/grab.html GrabMaps>
+-- in the /Amazon Location Service Developer Guide/.
 --
 -- The @TravelMode@ you specify also determines how you specify route
 -- preferences:
@@ -326,10 +348,12 @@ newCalculateRoute
         waypointPositions = Prelude.Nothing,
         calculatorName = pCalculatorName_,
         departurePosition =
-          Data._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive
+            Prelude.. Lens.coerced
             Lens.# pDeparturePosition_,
         destinationPosition =
-          Data._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive
+            Prelude.. Lens.coerced
             Lens.# pDestinationPosition_
       }
 
@@ -380,7 +404,18 @@ calculateRoute_includeLegGeometry = Lens.lens (\CalculateRoute' {includeLegGeome
 
 -- | Specifies the mode of transport when calculating a route. Used in
 -- estimating the speed of travel and road compatibility. You can choose
--- @Car@, @Truck@, or @Walking@ as options for the @TravelMode@.
+-- @Car@, @Truck@, @Walking@, @Bicycle@ or @Motorcycle@ as options for the
+-- @TravelMode@.
+--
+-- @Bicycle@ and @Motorcycle@ are only valid when using Grab as a data
+-- provider, and only within Southeast Asia.
+--
+-- @Truck@ is not available for Grab.
+--
+-- For more details on the using Grab for routing, including areas of
+-- coverage, see
+-- <https://docs.aws.amazon.com/location/latest/developerguide/grab.html GrabMaps>
+-- in the /Amazon Location Service Developer Guide/.
 --
 -- The @TravelMode@ you specify also determines how you specify route
 -- preferences:
@@ -476,7 +511,8 @@ instance Core.AWSRequest CalculateRoute where
 
 instance Prelude.Hashable CalculateRoute where
   hashWithSalt _salt CalculateRoute' {..} =
-    _salt `Prelude.hashWithSalt` carModeOptions
+    _salt
+      `Prelude.hashWithSalt` carModeOptions
       `Prelude.hashWithSalt` departNow
       `Prelude.hashWithSalt` departureTime
       `Prelude.hashWithSalt` distanceUnit

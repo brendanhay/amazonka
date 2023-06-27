@@ -140,7 +140,8 @@ instance Data.FromJSON ListTrackersResponseEntry where
 
 instance Prelude.Hashable ListTrackersResponseEntry where
   hashWithSalt _salt ListTrackersResponseEntry' {..} =
-    _salt `Prelude.hashWithSalt` pricingPlan
+    _salt
+      `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` pricingPlanDataSource
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` description

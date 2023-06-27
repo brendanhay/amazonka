@@ -34,6 +34,8 @@ data CalculateRouteSummary = CalculateRouteSummary'
     --
     -- -   @Esri@
     --
+    -- -   @Grab@
+    --
     -- -   @Here@
     --
     -- For more information about data providers, see
@@ -86,6 +88,8 @@ data CalculateRouteSummary = CalculateRouteSummary'
 -- route. Indicates one of the available providers:
 --
 -- -   @Esri@
+--
+-- -   @Grab@
 --
 -- -   @Here@
 --
@@ -147,7 +151,8 @@ newCalculateRouteSummary
         distanceUnit = pDistanceUnit_,
         durationSeconds = pDurationSeconds_,
         routeBBox =
-          Data._Sensitive Prelude.. Lens.coerced
+          Data._Sensitive
+            Prelude.. Lens.coerced
             Lens.# pRouteBBox_
       }
 
@@ -155,6 +160,8 @@ newCalculateRouteSummary
 -- route. Indicates one of the available providers:
 --
 -- -   @Esri@
+--
+-- -   @Grab@
 --
 -- -   @Here@
 --
@@ -218,7 +225,8 @@ instance Data.FromJSON CalculateRouteSummary where
 
 instance Prelude.Hashable CalculateRouteSummary where
   hashWithSalt _salt CalculateRouteSummary' {..} =
-    _salt `Prelude.hashWithSalt` dataSource
+    _salt
+      `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` distance
       `Prelude.hashWithSalt` distanceUnit
       `Prelude.hashWithSalt` durationSeconds

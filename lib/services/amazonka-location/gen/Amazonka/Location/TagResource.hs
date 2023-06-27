@@ -23,7 +23,18 @@
 -- Assigns one or more tags (key-value pairs) to the specified Amazon
 -- Location Service resource.
 --
--- >  <p>Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.</p> <p>You can use the <code>TagResource</code> operation with an Amazon Location Service resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the tags already associated with the resource. If you specify a tag key that's already associated with the resource, the new tag value that you specify replaces the previous value for that tag. </p> <p>You can associate up to 50 tags with a resource.</p>
+-- Tags can help you organize and categorize your resources. You can also
+-- use them to scope user permissions, by granting a user permission to
+-- access or change only resources with certain tag values.
+--
+-- You can use the @TagResource@ operation with an Amazon Location Service
+-- resource that already has tags. If you specify a new tag key for the
+-- resource, this tag is appended to the tags already associated with the
+-- resource. If you specify a tag key that\'s already associated with the
+-- resource, the new tag value that you specify replaces the previous value
+-- for that tag.
+--
+-- You can associate up to 50 tags with a resource.
 module Amazonka.Location.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -170,7 +181,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

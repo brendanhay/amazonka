@@ -25,7 +25,8 @@ import qualified Amazonka.Data as Data
 import Amazonka.Location.Types.PricingPlan
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains details of an existing map resource in your AWS account.
+-- | Contains details of an existing map resource in your Amazon Web Services
+-- account.
 --
 -- /See:/ 'newListMapsResponseEntry' smart constructor.
 data ListMapsResponseEntry = ListMapsResponseEntry'
@@ -143,7 +144,8 @@ instance Data.FromJSON ListMapsResponseEntry where
 
 instance Prelude.Hashable ListMapsResponseEntry where
   hashWithSalt _salt ListMapsResponseEntry' {..} =
-    _salt `Prelude.hashWithSalt` pricingPlan
+    _salt
+      `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` description

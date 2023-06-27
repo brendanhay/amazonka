@@ -134,6 +134,15 @@ data CalculateRouteMatrix = CalculateRouteMatrix'
     --
     -- -   If traveling by @Truck@ use the @TruckModeOptions@ parameter.
     --
+    -- @Bicycle@ or @Motorcycle@ are only valid when using @Grab@ as a data
+    -- provider, and only within Southeast Asia.
+    --
+    -- @Truck@ is not available for Grab.
+    --
+    -- For more information about using Grab as a data provider, see
+    -- <https://docs.aws.amazon.com/location/latest/developerguide/grab.html GrabMaps>
+    -- in the /Amazon Location Service Developer Guide/.
+    --
     -- Default Value: @Car@
     travelMode :: Prelude.Maybe TravelMode,
     -- | Specifies route preferences when traveling by @Truck@, such as avoiding
@@ -231,6 +240,15 @@ data CalculateRouteMatrix = CalculateRouteMatrix'
 -- -   If traveling by @Car@ use the @CarModeOptions@ parameter.
 --
 -- -   If traveling by @Truck@ use the @TruckModeOptions@ parameter.
+--
+-- @Bicycle@ or @Motorcycle@ are only valid when using @Grab@ as a data
+-- provider, and only within Southeast Asia.
+--
+-- @Truck@ is not available for Grab.
+--
+-- For more information about using Grab as a data provider, see
+-- <https://docs.aws.amazon.com/location/latest/developerguide/grab.html GrabMaps>
+-- in the /Amazon Location Service Developer Guide/.
 --
 -- Default Value: @Car@
 --
@@ -353,6 +371,15 @@ calculateRouteMatrix_distanceUnit = Lens.lens (\CalculateRouteMatrix' {distanceU
 --
 -- -   If traveling by @Truck@ use the @TruckModeOptions@ parameter.
 --
+-- @Bicycle@ or @Motorcycle@ are only valid when using @Grab@ as a data
+-- provider, and only within Southeast Asia.
+--
+-- @Truck@ is not available for Grab.
+--
+-- For more information about using Grab as a data provider, see
+-- <https://docs.aws.amazon.com/location/latest/developerguide/grab.html GrabMaps>
+-- in the /Amazon Location Service Developer Guide/.
+--
 -- Default Value: @Car@
 calculateRouteMatrix_travelMode :: Lens.Lens' CalculateRouteMatrix (Prelude.Maybe TravelMode)
 calculateRouteMatrix_travelMode = Lens.lens (\CalculateRouteMatrix' {travelMode} -> travelMode) (\s@CalculateRouteMatrix' {} a -> s {travelMode = a} :: CalculateRouteMatrix)
@@ -429,7 +456,8 @@ instance Core.AWSRequest CalculateRouteMatrix where
 
 instance Prelude.Hashable CalculateRouteMatrix where
   hashWithSalt _salt CalculateRouteMatrix' {..} =
-    _salt `Prelude.hashWithSalt` carModeOptions
+    _salt
+      `Prelude.hashWithSalt` carModeOptions
       `Prelude.hashWithSalt` departNow
       `Prelude.hashWithSalt` departureTime
       `Prelude.hashWithSalt` distanceUnit

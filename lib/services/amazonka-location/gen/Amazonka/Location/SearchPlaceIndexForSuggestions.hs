@@ -39,6 +39,7 @@ module Amazonka.Location.SearchPlaceIndexForSuggestions
     -- * Request Lenses
     searchPlaceIndexForSuggestions_biasPosition,
     searchPlaceIndexForSuggestions_filterBBox,
+    searchPlaceIndexForSuggestions_filterCategories,
     searchPlaceIndexForSuggestions_filterCountries,
     searchPlaceIndexForSuggestions_language,
     searchPlaceIndexForSuggestions_maxResults,
@@ -97,6 +98,15 @@ data SearchPlaceIndexForSuggestions = SearchPlaceIndexForSuggestions'
     -- @FilterBBox@ and @BiasPosition@ are mutually exclusive. Specifying both
     -- options results in an error.
     filterBBox :: Prelude.Maybe (Data.Sensitive (Prelude.NonEmpty Prelude.Double)),
+    -- | A list of one or more Amazon Location categories to filter the returned
+    -- places. If you include more than one category, the results will include
+    -- results that match /any/ of the categories listed.
+    --
+    -- For more information about using categories, including a list of Amazon
+    -- Location categories, see
+    -- <https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html Categories and filtering>,
+    -- in the /Amazon Location Service Developer Guide/.
+    filterCategories :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | An optional parameter that limits the search results by returning only
     -- suggestions within the provided list of countries.
     --
@@ -175,6 +185,15 @@ data SearchPlaceIndexForSuggestions = SearchPlaceIndexForSuggestions'
 -- @FilterBBox@ and @BiasPosition@ are mutually exclusive. Specifying both
 -- options results in an error.
 --
+-- 'filterCategories', 'searchPlaceIndexForSuggestions_filterCategories' - A list of one or more Amazon Location categories to filter the returned
+-- places. If you include more than one category, the results will include
+-- results that match /any/ of the categories listed.
+--
+-- For more information about using categories, including a list of Amazon
+-- Location categories, see
+-- <https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html Categories and filtering>,
+-- in the /Amazon Location Service Developer Guide/.
+--
 -- 'filterCountries', 'searchPlaceIndexForSuggestions_filterCountries' - An optional parameter that limits the search results by returning only
 -- suggestions within the provided list of countries.
 --
@@ -221,6 +240,7 @@ newSearchPlaceIndexForSuggestions pIndexName_ pText_ =
     { biasPosition =
         Prelude.Nothing,
       filterBBox = Prelude.Nothing,
+      filterCategories = Prelude.Nothing,
       filterCountries = Prelude.Nothing,
       language = Prelude.Nothing,
       maxResults = Prelude.Nothing,
@@ -262,6 +282,17 @@ searchPlaceIndexForSuggestions_biasPosition = Lens.lens (\SearchPlaceIndexForSug
 -- options results in an error.
 searchPlaceIndexForSuggestions_filterBBox :: Lens.Lens' SearchPlaceIndexForSuggestions (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
 searchPlaceIndexForSuggestions_filterBBox = Lens.lens (\SearchPlaceIndexForSuggestions' {filterBBox} -> filterBBox) (\s@SearchPlaceIndexForSuggestions' {} a -> s {filterBBox = a} :: SearchPlaceIndexForSuggestions) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
+
+-- | A list of one or more Amazon Location categories to filter the returned
+-- places. If you include more than one category, the results will include
+-- results that match /any/ of the categories listed.
+--
+-- For more information about using categories, including a list of Amazon
+-- Location categories, see
+-- <https://docs.aws.amazon.com/location/latest/developerguide/category-filtering.html Categories and filtering>,
+-- in the /Amazon Location Service Developer Guide/.
+searchPlaceIndexForSuggestions_filterCategories :: Lens.Lens' SearchPlaceIndexForSuggestions (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+searchPlaceIndexForSuggestions_filterCategories = Lens.lens (\SearchPlaceIndexForSuggestions' {filterCategories} -> filterCategories) (\s@SearchPlaceIndexForSuggestions' {} a -> s {filterCategories = a} :: SearchPlaceIndexForSuggestions) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional parameter that limits the search results by returning only
 -- suggestions within the provided list of countries.
@@ -334,8 +365,10 @@ instance
   hashWithSalt
     _salt
     SearchPlaceIndexForSuggestions' {..} =
-      _salt `Prelude.hashWithSalt` biasPosition
+      _salt
+        `Prelude.hashWithSalt` biasPosition
         `Prelude.hashWithSalt` filterBBox
+        `Prelude.hashWithSalt` filterCategories
         `Prelude.hashWithSalt` filterCountries
         `Prelude.hashWithSalt` language
         `Prelude.hashWithSalt` maxResults
@@ -349,6 +382,7 @@ instance
   rnf SearchPlaceIndexForSuggestions' {..} =
     Prelude.rnf biasPosition
       `Prelude.seq` Prelude.rnf filterBBox
+      `Prelude.seq` Prelude.rnf filterCategories
       `Prelude.seq` Prelude.rnf filterCountries
       `Prelude.seq` Prelude.rnf language
       `Prelude.seq` Prelude.rnf maxResults
@@ -375,6 +409,8 @@ instance Data.ToJSON SearchPlaceIndexForSuggestions where
       ( Prelude.catMaybes
           [ ("BiasPosition" Data..=) Prelude.<$> biasPosition,
             ("FilterBBox" Data..=) Prelude.<$> filterBBox,
+            ("FilterCategories" Data..=)
+              Prelude.<$> filterCategories,
             ("FilterCountries" Data..=)
               Prelude.<$> filterCountries,
             ("Language" Data..=) Prelude.<$> language,

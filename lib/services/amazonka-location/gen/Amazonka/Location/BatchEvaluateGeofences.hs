@@ -135,7 +135,8 @@ instance Core.AWSRequest BatchEvaluateGeofences where
 
 instance Prelude.Hashable BatchEvaluateGeofences where
   hashWithSalt _salt BatchEvaluateGeofences' {..} =
-    _salt `Prelude.hashWithSalt` collectionName
+    _salt
+      `Prelude.hashWithSalt` collectionName
       `Prelude.hashWithSalt` devicePositionUpdates
 
 instance Prelude.NFData BatchEvaluateGeofences where

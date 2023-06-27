@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists route calculator resources in your AWS account.
+-- Lists route calculator resources in your Amazon Web Services account.
 --
 -- This operation returns paginated results.
 module Amazonka.Location.ListRouteCalculators
@@ -107,19 +107,19 @@ instance Core.AWSPager ListRouteCalculators where
     | Core.stop
         ( rs
             Lens.^? listRouteCalculatorsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listRouteCalculatorsResponse_entries) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRouteCalculators_nextToken
           Lens..~ rs
           Lens.^? listRouteCalculatorsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRouteCalculators where
   type
@@ -138,7 +138,8 @@ instance Core.AWSRequest ListRouteCalculators where
 
 instance Prelude.Hashable ListRouteCalculators where
   hashWithSalt _salt ListRouteCalculators' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListRouteCalculators where
@@ -180,7 +181,8 @@ data ListRouteCalculatorsResponse = ListRouteCalculatorsResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | Lists the route calculator resources that exist in your AWS account
+    -- | Lists the route calculator resources that exist in your Amazon Web
+    -- Services account
     entries :: [ListRouteCalculatorsResponseEntry]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -199,7 +201,8 @@ data ListRouteCalculatorsResponse = ListRouteCalculatorsResponse'
 --
 -- 'httpStatus', 'listRouteCalculatorsResponse_httpStatus' - The response's http status code.
 --
--- 'entries', 'listRouteCalculatorsResponse_entries' - Lists the route calculator resources that exist in your AWS account
+-- 'entries', 'listRouteCalculatorsResponse_entries' - Lists the route calculator resources that exist in your Amazon Web
+-- Services account
 newListRouteCalculatorsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -222,7 +225,8 @@ listRouteCalculatorsResponse_nextToken = Lens.lens (\ListRouteCalculatorsRespons
 listRouteCalculatorsResponse_httpStatus :: Lens.Lens' ListRouteCalculatorsResponse Prelude.Int
 listRouteCalculatorsResponse_httpStatus = Lens.lens (\ListRouteCalculatorsResponse' {httpStatus} -> httpStatus) (\s@ListRouteCalculatorsResponse' {} a -> s {httpStatus = a} :: ListRouteCalculatorsResponse)
 
--- | Lists the route calculator resources that exist in your AWS account
+-- | Lists the route calculator resources that exist in your Amazon Web
+-- Services account
 listRouteCalculatorsResponse_entries :: Lens.Lens' ListRouteCalculatorsResponse [ListRouteCalculatorsResponseEntry]
 listRouteCalculatorsResponse_entries = Lens.lens (\ListRouteCalculatorsResponse' {entries} -> entries) (\s@ListRouteCalculatorsResponse' {} a -> s {entries = a} :: ListRouteCalculatorsResponse) Prelude.. Lens.coerced
 

@@ -125,7 +125,8 @@ instance
   hashWithSalt
     _salt
     BatchDeleteDevicePositionHistory' {..} =
-      _salt `Prelude.hashWithSalt` deviceIds
+      _salt
+        `Prelude.hashWithSalt` deviceIds
         `Prelude.hashWithSalt` trackerName
 
 instance

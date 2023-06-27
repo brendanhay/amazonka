@@ -80,7 +80,8 @@ instance Data.FromJSON BatchPutGeofenceError where
 
 instance Prelude.Hashable BatchPutGeofenceError where
   hashWithSalt _salt BatchPutGeofenceError' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` geofenceId
 
 instance Prelude.NFData BatchPutGeofenceError where

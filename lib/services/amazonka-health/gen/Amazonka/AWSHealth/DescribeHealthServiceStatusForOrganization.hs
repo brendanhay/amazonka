@@ -22,8 +22,7 @@
 --
 -- This operation provides status information on enabling or disabling
 -- Health to work with your organization. To call this operation, you must
--- sign in as an IAM user, assume an IAM role, or sign in as the root user
--- (not recommended) in the organization\'s management account.
+-- use the organization\'s management account.
 module Amazonka.AWSHealth.DescribeHealthServiceStatusForOrganization
   ( -- * Creating a Request
     DescribeHealthServiceStatusForOrganization (..),
@@ -79,7 +78,7 @@ instance
             Prelude.<$> ( x
                             Data..?> "healthServiceAccessStatusForOrganization"
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

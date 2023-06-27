@@ -76,7 +76,7 @@ data DescribeAffectedAccountsForOrganization = DescribeAffectedAccountsForOrgani
     -- returned, the response does not contain a pagination token value.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the event. The event ARN has the
-    -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+    -- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
     -- format.
     --
     -- For example, an event ARN might look like the following:
@@ -104,7 +104,7 @@ data DescribeAffectedAccountsForOrganization = DescribeAffectedAccountsForOrgani
 -- returned, the response does not contain a pagination token value.
 --
 -- 'eventArn', 'describeAffectedAccountsForOrganization_eventArn' - The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
 -- format.
 --
 -- For example, an event ARN might look like the following:
@@ -136,7 +136,7 @@ describeAffectedAccountsForOrganization_nextToken :: Lens.Lens' DescribeAffected
 describeAffectedAccountsForOrganization_nextToken = Lens.lens (\DescribeAffectedAccountsForOrganization' {nextToken} -> nextToken) (\s@DescribeAffectedAccountsForOrganization' {} a -> s {nextToken = a} :: DescribeAffectedAccountsForOrganization)
 
 -- | The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
 -- format.
 --
 -- For example, an event ARN might look like the following:
@@ -153,22 +153,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeAffectedAccountsForOrganizationResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAffectedAccountsForOrganizationResponse_affectedAccounts
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeAffectedAccountsForOrganization_nextToken
           Lens..~ rs
-            Lens.^? describeAffectedAccountsForOrganizationResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeAffectedAccountsForOrganizationResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -184,12 +184,13 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAffectedAccountsForOrganizationResponse'
-            Prelude.<$> ( x Data..?> "affectedAccounts"
+            Prelude.<$> ( x
+                            Data..?> "affectedAccounts"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "eventScopeCode")
-              Prelude.<*> (x Data..?> "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "eventScopeCode")
+            Prelude.<*> (x Data..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -199,7 +200,8 @@ instance
   hashWithSalt
     _salt
     DescribeAffectedAccountsForOrganization' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` eventArn
 
@@ -260,7 +262,7 @@ data DescribeAffectedAccountsForOrganizationResponse = DescribeAffectedAccountsF
   { -- | A JSON set of elements of the affected accounts.
     affectedAccounts :: Prelude.Maybe [Prelude.Text],
     -- | This parameter specifies if the Health event is a public Amazon Web
-    -- Services service event or an account-specific event.
+    -- Service event or an account-specific event.
     --
     -- -   If the @eventScopeCode@ value is @PUBLIC@, then the
     --     @affectedAccounts@ value is always empty.
@@ -297,7 +299,7 @@ data DescribeAffectedAccountsForOrganizationResponse = DescribeAffectedAccountsF
 -- 'affectedAccounts', 'describeAffectedAccountsForOrganizationResponse_affectedAccounts' - A JSON set of elements of the affected accounts.
 --
 -- 'eventScopeCode', 'describeAffectedAccountsForOrganizationResponse_eventScopeCode' - This parameter specifies if the Health event is a public Amazon Web
--- Services service event or an account-specific event.
+-- Service event or an account-specific event.
 --
 -- -   If the @eventScopeCode@ value is @PUBLIC@, then the
 --     @affectedAccounts@ value is always empty.
@@ -340,7 +342,7 @@ describeAffectedAccountsForOrganizationResponse_affectedAccounts :: Lens.Lens' D
 describeAffectedAccountsForOrganizationResponse_affectedAccounts = Lens.lens (\DescribeAffectedAccountsForOrganizationResponse' {affectedAccounts} -> affectedAccounts) (\s@DescribeAffectedAccountsForOrganizationResponse' {} a -> s {affectedAccounts = a} :: DescribeAffectedAccountsForOrganizationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | This parameter specifies if the Health event is a public Amazon Web
--- Services service event or an account-specific event.
+-- Service event or an account-specific event.
 --
 -- -   If the @eventScopeCode@ value is @PUBLIC@, then the
 --     @affectedAccounts@ value is always empty.

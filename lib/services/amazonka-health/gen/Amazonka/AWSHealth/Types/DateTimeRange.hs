@@ -73,7 +73,8 @@ dateTimeRange_to = Lens.lens (\DateTimeRange' {to} -> to) (\s@DateTimeRange' {} 
 
 instance Prelude.Hashable DateTimeRange where
   hashWithSalt _salt DateTimeRange' {..} =
-    _salt `Prelude.hashWithSalt` from
+    _salt
+      `Prelude.hashWithSalt` from
       `Prelude.hashWithSalt` to
 
 instance Prelude.NFData DateTimeRange where

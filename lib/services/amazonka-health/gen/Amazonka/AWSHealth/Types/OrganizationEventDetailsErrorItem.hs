@@ -56,7 +56,7 @@ data OrganizationEventDetailsErrorItem = OrganizationEventDetailsErrorItem'
     -- | The name of the error.
     errorName :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the event. The event ARN has the
-    -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+    -- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
     -- format.
     --
     -- For example, an event ARN might look like the following:
@@ -100,7 +100,7 @@ data OrganizationEventDetailsErrorItem = OrganizationEventDetailsErrorItem'
 -- 'errorName', 'organizationEventDetailsErrorItem_errorName' - The name of the error.
 --
 -- 'eventArn', 'organizationEventDetailsErrorItem_eventArn' - The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
 -- format.
 --
 -- For example, an event ARN might look like the following:
@@ -149,7 +149,7 @@ organizationEventDetailsErrorItem_errorName :: Lens.Lens' OrganizationEventDetai
 organizationEventDetailsErrorItem_errorName = Lens.lens (\OrganizationEventDetailsErrorItem' {errorName} -> errorName) (\s@OrganizationEventDetailsErrorItem' {} a -> s {errorName = a} :: OrganizationEventDetailsErrorItem)
 
 -- | The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
 -- format.
 --
 -- For example, an event ARN might look like the following:
@@ -180,7 +180,8 @@ instance
   hashWithSalt
     _salt
     OrganizationEventDetailsErrorItem' {..} =
-      _salt `Prelude.hashWithSalt` awsAccountId
+      _salt
+        `Prelude.hashWithSalt` awsAccountId
         `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` errorName
         `Prelude.hashWithSalt` eventArn

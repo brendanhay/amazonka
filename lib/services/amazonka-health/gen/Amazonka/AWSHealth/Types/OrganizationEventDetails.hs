@@ -104,7 +104,8 @@ instance Data.FromJSON OrganizationEventDetails where
 
 instance Prelude.Hashable OrganizationEventDetails where
   hashWithSalt _salt OrganizationEventDetails' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` event
       `Prelude.hashWithSalt` eventDescription
       `Prelude.hashWithSalt` eventMetadata

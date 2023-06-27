@@ -157,22 +157,22 @@ instance Core.AWSPager DescribeEventsForOrganization where
     | Core.stop
         ( rs
             Lens.^? describeEventsForOrganizationResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeEventsForOrganizationResponse_events
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeEventsForOrganization_nextToken
           Lens..~ rs
           Lens.^? describeEventsForOrganizationResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -197,7 +197,8 @@ instance
     DescribeEventsForOrganization
   where
   hashWithSalt _salt DescribeEventsForOrganization' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

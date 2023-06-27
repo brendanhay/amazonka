@@ -21,9 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables Health from working with Organizations. To call this operation,
--- you must sign in as an Identity and Access Management (IAM) user, assume
--- an IAM role, or sign in as the root user (not recommended) in the
--- organization\'s management account. For more information, see
+-- you must sign in to the organization\'s management account. For more
+-- information, see
 -- <https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html Aggregating Health events>
 -- in the /Health User Guide/.
 --

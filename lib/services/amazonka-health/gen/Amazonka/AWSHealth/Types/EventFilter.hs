@@ -60,8 +60,8 @@ data EventFilter = EventFilter'
     lastUpdatedTimes :: Prelude.Maybe (Prelude.NonEmpty DateTimeRange),
     -- | A list of Amazon Web Services Regions.
     regions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The Amazon Web Services services associated with the event. For example,
-    -- @EC2@, @RDS@.
+    -- | The Amazon Web Services associated with the event. For example, @EC2@,
+    -- @RDS@.
     services :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A list of dates and times that the event began.
     startTimes :: Prelude.Maybe (Prelude.NonEmpty DateTimeRange),
@@ -105,8 +105,8 @@ data EventFilter = EventFilter'
 --
 -- 'regions', 'eventFilter_regions' - A list of Amazon Web Services Regions.
 --
--- 'services', 'eventFilter_services' - The Amazon Web Services services associated with the event. For example,
--- @EC2@, @RDS@.
+-- 'services', 'eventFilter_services' - The Amazon Web Services associated with the event. For example, @EC2@,
+-- @RDS@.
 --
 -- 'startTimes', 'eventFilter_startTimes' - A list of dates and times that the event began.
 --
@@ -177,8 +177,8 @@ eventFilter_lastUpdatedTimes = Lens.lens (\EventFilter' {lastUpdatedTimes} -> la
 eventFilter_regions :: Lens.Lens' EventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 eventFilter_regions = Lens.lens (\EventFilter' {regions} -> regions) (\s@EventFilter' {} a -> s {regions = a} :: EventFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Web Services services associated with the event. For example,
--- @EC2@, @RDS@.
+-- | The Amazon Web Services associated with the event. For example, @EC2@,
+-- @RDS@.
 eventFilter_services :: Lens.Lens' EventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 eventFilter_services = Lens.lens (\EventFilter' {services} -> services) (\s@EventFilter' {} a -> s {services = a} :: EventFilter) Prelude.. Lens.mapping Lens.coerced
 
@@ -194,7 +194,8 @@ eventFilter_tags = Lens.lens (\EventFilter' {tags} -> tags) (\s@EventFilter' {} 
 
 instance Prelude.Hashable EventFilter where
   hashWithSalt _salt EventFilter' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` endTimes
       `Prelude.hashWithSalt` entityArns
       `Prelude.hashWithSalt` entityValues

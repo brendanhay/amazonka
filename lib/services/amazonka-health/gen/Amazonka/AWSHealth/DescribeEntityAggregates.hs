@@ -89,7 +89,8 @@ instance Core.AWSRequest DescribeEntityAggregates where
     Response.receiveJSON
       ( \s h x ->
           DescribeEntityAggregatesResponse'
-            Prelude.<$> ( x Data..?> "entityAggregates"
+            Prelude.<$> ( x
+                            Data..?> "entityAggregates"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

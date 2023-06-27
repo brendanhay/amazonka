@@ -22,8 +22,8 @@
 --
 -- Returns the event types that meet the specified filter criteria. You can
 -- use this API operation to find information about the Health event, such
--- as the category, Amazon Web Services service, and event code. The
--- metadata for each event appears in the
+-- as the category, Amazon Web Service, and event code. The metadata for
+-- each event appears in the
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html EventType>
 -- object.
 --
@@ -73,6 +73,9 @@ data DescribeEventTypes = DescribeEventTypes'
     locale :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return in one batch, between 10 and 100,
     -- inclusive.
+    --
+    -- If you don\'t specify the @maxResults@ parameter, this operation returns
+    -- a maximum of 30 items by default.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | If the results of a search are large, only a portion of the results are
     -- returned, and a @nextToken@ pagination token is returned in the
@@ -98,6 +101,9 @@ data DescribeEventTypes = DescribeEventTypes'
 --
 -- 'maxResults', 'describeEventTypes_maxResults' - The maximum number of items to return in one batch, between 10 and 100,
 -- inclusive.
+--
+-- If you don\'t specify the @maxResults@ parameter, this operation returns
+-- a maximum of 30 items by default.
 --
 -- 'nextToken', 'describeEventTypes_nextToken' - If the results of a search are large, only a portion of the results are
 -- returned, and a @nextToken@ pagination token is returned in the
@@ -125,6 +131,9 @@ describeEventTypes_locale = Lens.lens (\DescribeEventTypes' {locale} -> locale) 
 
 -- | The maximum number of items to return in one batch, between 10 and 100,
 -- inclusive.
+--
+-- If you don\'t specify the @maxResults@ parameter, this operation returns
+-- a maximum of 30 items by default.
 describeEventTypes_maxResults :: Lens.Lens' DescribeEventTypes (Prelude.Maybe Prelude.Natural)
 describeEventTypes_maxResults = Lens.lens (\DescribeEventTypes' {maxResults} -> maxResults) (\s@DescribeEventTypes' {} a -> s {maxResults = a} :: DescribeEventTypes)
 
@@ -141,22 +150,22 @@ instance Core.AWSPager DescribeEventTypes where
     | Core.stop
         ( rs
             Lens.^? describeEventTypesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeEventTypesResponse_eventTypes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeEventTypes_nextToken
           Lens..~ rs
           Lens.^? describeEventTypesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEventTypes where
   type
@@ -175,7 +184,8 @@ instance Core.AWSRequest DescribeEventTypes where
 
 instance Prelude.Hashable DescribeEventTypes where
   hashWithSalt _salt DescribeEventTypes' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -224,7 +234,7 @@ data DescribeEventTypesResponse = DescribeEventTypesResponse'
   { -- | A list of event types that match the filter criteria. Event types have a
     -- category (@issue@, @accountNotification@, or @scheduledChange@), a
     -- service (for example, @EC2@, @RDS@, @DATAPIPELINE@, @BILLING@), and a
-    -- code (in the format @AWS_SERVICE_DESCRIPTION @; for example,
+    -- code (in the format @AWS_@/@SERVICE@/@_@/@DESCRIPTION@/@ @; for example,
     -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@).
     eventTypes :: Prelude.Maybe [EventType],
     -- | If the results of a search are large, only a portion of the results are
@@ -249,7 +259,7 @@ data DescribeEventTypesResponse = DescribeEventTypesResponse'
 -- 'eventTypes', 'describeEventTypesResponse_eventTypes' - A list of event types that match the filter criteria. Event types have a
 -- category (@issue@, @accountNotification@, or @scheduledChange@), a
 -- service (for example, @EC2@, @RDS@, @DATAPIPELINE@, @BILLING@), and a
--- code (in the format @AWS_SERVICE_DESCRIPTION @; for example,
+-- code (in the format @AWS_@/@SERVICE@/@_@/@DESCRIPTION@/@ @; for example,
 -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@).
 --
 -- 'nextToken', 'describeEventTypesResponse_nextToken' - If the results of a search are large, only a portion of the results are
@@ -274,7 +284,7 @@ newDescribeEventTypesResponse pHttpStatus_ =
 -- | A list of event types that match the filter criteria. Event types have a
 -- category (@issue@, @accountNotification@, or @scheduledChange@), a
 -- service (for example, @EC2@, @RDS@, @DATAPIPELINE@, @BILLING@), and a
--- code (in the format @AWS_SERVICE_DESCRIPTION @; for example,
+-- code (in the format @AWS_@/@SERVICE@/@_@/@DESCRIPTION@/@ @; for example,
 -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@).
 describeEventTypesResponse_eventTypes :: Lens.Lens' DescribeEventTypesResponse (Prelude.Maybe [EventType])
 describeEventTypesResponse_eventTypes = Lens.lens (\DescribeEventTypesResponse' {eventTypes} -> eventTypes) (\s@DescribeEventTypesResponse' {} a -> s {eventTypes = a} :: DescribeEventTypesResponse) Prelude.. Lens.mapping Lens.coerced

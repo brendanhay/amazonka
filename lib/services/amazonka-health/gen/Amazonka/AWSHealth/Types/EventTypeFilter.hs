@@ -37,8 +37,8 @@ data EventTypeFilter = EventTypeFilter'
     eventTypeCategories :: Prelude.Maybe (Prelude.NonEmpty EventTypeCategory),
     -- | A list of event type codes.
     eventTypeCodes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The Amazon Web Services services associated with the event. For example,
-    -- @EC2@, @RDS@.
+    -- | The Amazon Web Services associated with the event. For example, @EC2@,
+    -- @RDS@.
     services :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,8 +57,8 @@ data EventTypeFilter = EventTypeFilter'
 --
 -- 'eventTypeCodes', 'eventTypeFilter_eventTypeCodes' - A list of event type codes.
 --
--- 'services', 'eventTypeFilter_services' - The Amazon Web Services services associated with the event. For example,
--- @EC2@, @RDS@.
+-- 'services', 'eventTypeFilter_services' - The Amazon Web Services associated with the event. For example, @EC2@,
+-- @RDS@.
 newEventTypeFilter ::
   EventTypeFilter
 newEventTypeFilter =
@@ -79,14 +79,15 @@ eventTypeFilter_eventTypeCategories = Lens.lens (\EventTypeFilter' {eventTypeCat
 eventTypeFilter_eventTypeCodes :: Lens.Lens' EventTypeFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 eventTypeFilter_eventTypeCodes = Lens.lens (\EventTypeFilter' {eventTypeCodes} -> eventTypeCodes) (\s@EventTypeFilter' {} a -> s {eventTypeCodes = a} :: EventTypeFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Web Services services associated with the event. For example,
--- @EC2@, @RDS@.
+-- | The Amazon Web Services associated with the event. For example, @EC2@,
+-- @RDS@.
 eventTypeFilter_services :: Lens.Lens' EventTypeFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 eventTypeFilter_services = Lens.lens (\EventTypeFilter' {services} -> services) (\s@EventTypeFilter' {} a -> s {services = a} :: EventTypeFilter) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable EventTypeFilter where
   hashWithSalt _salt EventTypeFilter' {..} =
-    _salt `Prelude.hashWithSalt` eventTypeCategories
+    _salt
+      `Prelude.hashWithSalt` eventTypeCategories
       `Prelude.hashWithSalt` eventTypeCodes
       `Prelude.hashWithSalt` services
 

@@ -33,14 +33,18 @@ data OrganizationAffectedEntitiesErrorItem = OrganizationAffectedEntitiesErrorIt
   { -- | The 12-digit Amazon Web Services account numbers that contains the
     -- affected entities.
     awsAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the event type. The format is
-    -- @AWS_SERVICE_DESCRIPTION@. For example,
-    -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
+    -- | A message that describes the error. Follow the error message and retry
+    -- your request.
+    --
+    -- For example, the @InvalidAccountInputError@ error message appears if you
+    -- call the @DescribeAffectedEntitiesForOrganization@ operation and specify
+    -- the @AccountSpecific@ value for the @EventScopeCode@ parameter, but
+    -- don\'t specify an Amazon Web Services account.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The name of the error.
     errorName :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the event. The event ARN has the
-    -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+    -- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
     -- format.
     --
     -- For example, an event ARN might look like the following:
@@ -61,14 +65,18 @@ data OrganizationAffectedEntitiesErrorItem = OrganizationAffectedEntitiesErrorIt
 -- 'awsAccountId', 'organizationAffectedEntitiesErrorItem_awsAccountId' - The 12-digit Amazon Web Services account numbers that contains the
 -- affected entities.
 --
--- 'errorMessage', 'organizationAffectedEntitiesErrorItem_errorMessage' - The unique identifier for the event type. The format is
--- @AWS_SERVICE_DESCRIPTION@. For example,
--- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
+-- 'errorMessage', 'organizationAffectedEntitiesErrorItem_errorMessage' - A message that describes the error. Follow the error message and retry
+-- your request.
+--
+-- For example, the @InvalidAccountInputError@ error message appears if you
+-- call the @DescribeAffectedEntitiesForOrganization@ operation and specify
+-- the @AccountSpecific@ value for the @EventScopeCode@ parameter, but
+-- don\'t specify an Amazon Web Services account.
 --
 -- 'errorName', 'organizationAffectedEntitiesErrorItem_errorName' - The name of the error.
 --
 -- 'eventArn', 'organizationAffectedEntitiesErrorItem_eventArn' - The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
 -- format.
 --
 -- For example, an event ARN might look like the following:
@@ -90,9 +98,13 @@ newOrganizationAffectedEntitiesErrorItem =
 organizationAffectedEntitiesErrorItem_awsAccountId :: Lens.Lens' OrganizationAffectedEntitiesErrorItem (Prelude.Maybe Prelude.Text)
 organizationAffectedEntitiesErrorItem_awsAccountId = Lens.lens (\OrganizationAffectedEntitiesErrorItem' {awsAccountId} -> awsAccountId) (\s@OrganizationAffectedEntitiesErrorItem' {} a -> s {awsAccountId = a} :: OrganizationAffectedEntitiesErrorItem)
 
--- | The unique identifier for the event type. The format is
--- @AWS_SERVICE_DESCRIPTION@. For example,
--- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
+-- | A message that describes the error. Follow the error message and retry
+-- your request.
+--
+-- For example, the @InvalidAccountInputError@ error message appears if you
+-- call the @DescribeAffectedEntitiesForOrganization@ operation and specify
+-- the @AccountSpecific@ value for the @EventScopeCode@ parameter, but
+-- don\'t specify an Amazon Web Services account.
 organizationAffectedEntitiesErrorItem_errorMessage :: Lens.Lens' OrganizationAffectedEntitiesErrorItem (Prelude.Maybe Prelude.Text)
 organizationAffectedEntitiesErrorItem_errorMessage = Lens.lens (\OrganizationAffectedEntitiesErrorItem' {errorMessage} -> errorMessage) (\s@OrganizationAffectedEntitiesErrorItem' {} a -> s {errorMessage = a} :: OrganizationAffectedEntitiesErrorItem)
 
@@ -101,7 +113,7 @@ organizationAffectedEntitiesErrorItem_errorName :: Lens.Lens' OrganizationAffect
 organizationAffectedEntitiesErrorItem_errorName = Lens.lens (\OrganizationAffectedEntitiesErrorItem' {errorName} -> errorName) (\s@OrganizationAffectedEntitiesErrorItem' {} a -> s {errorName = a} :: OrganizationAffectedEntitiesErrorItem)
 
 -- | The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
 -- format.
 --
 -- For example, an event ARN might look like the following:
@@ -132,7 +144,8 @@ instance
   hashWithSalt
     _salt
     OrganizationAffectedEntitiesErrorItem' {..} =
-      _salt `Prelude.hashWithSalt` awsAccountId
+      _salt
+        `Prelude.hashWithSalt` awsAccountId
         `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` errorName
         `Prelude.hashWithSalt` eventArn

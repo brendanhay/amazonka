@@ -54,8 +54,8 @@ data OrganizationEventFilter = OrganizationEventFilter'
     lastUpdatedTime :: Prelude.Maybe DateTimeRange,
     -- | A list of Amazon Web Services Regions.
     regions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The Amazon Web Services services associated with the event. For example,
-    -- @EC2@, @RDS@.
+    -- | The Amazon Web Services associated with the event. For example, @EC2@,
+    -- @RDS@.
     services :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     startTime :: Prelude.Maybe DateTimeRange
   }
@@ -92,8 +92,8 @@ data OrganizationEventFilter = OrganizationEventFilter'
 --
 -- 'regions', 'organizationEventFilter_regions' - A list of Amazon Web Services Regions.
 --
--- 'services', 'organizationEventFilter_services' - The Amazon Web Services services associated with the event. For example,
--- @EC2@, @RDS@.
+-- 'services', 'organizationEventFilter_services' - The Amazon Web Services associated with the event. For example, @EC2@,
+-- @RDS@.
 --
 -- 'startTime', 'organizationEventFilter_startTime' - Undocumented member.
 newOrganizationEventFilter ::
@@ -155,8 +155,8 @@ organizationEventFilter_lastUpdatedTime = Lens.lens (\OrganizationEventFilter' {
 organizationEventFilter_regions :: Lens.Lens' OrganizationEventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 organizationEventFilter_regions = Lens.lens (\OrganizationEventFilter' {regions} -> regions) (\s@OrganizationEventFilter' {} a -> s {regions = a} :: OrganizationEventFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Web Services services associated with the event. For example,
--- @EC2@, @RDS@.
+-- | The Amazon Web Services associated with the event. For example, @EC2@,
+-- @RDS@.
 organizationEventFilter_services :: Lens.Lens' OrganizationEventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 organizationEventFilter_services = Lens.lens (\OrganizationEventFilter' {services} -> services) (\s@OrganizationEventFilter' {} a -> s {services = a} :: OrganizationEventFilter) Prelude.. Lens.mapping Lens.coerced
 
@@ -166,7 +166,8 @@ organizationEventFilter_startTime = Lens.lens (\OrganizationEventFilter' {startT
 
 instance Prelude.Hashable OrganizationEventFilter where
   hashWithSalt _salt OrganizationEventFilter' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountIds
+    _salt
+      `Prelude.hashWithSalt` awsAccountIds
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` entityArns
       `Prelude.hashWithSalt` entityValues

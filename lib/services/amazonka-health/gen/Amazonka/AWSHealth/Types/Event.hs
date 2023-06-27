@@ -49,7 +49,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEvent' smart constructor.
 data Event = Event'
   { -- | The unique identifier for the event. The event ARN has the
-    -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+    -- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
     -- format.
     --
     -- For example, an event ARN might look like the following:
@@ -62,7 +62,7 @@ data Event = Event'
     -- | The date and time that the event ended.
     endTime :: Prelude.Maybe Data.POSIX,
     -- | This parameter specifies if the Health event is a public Amazon Web
-    -- Services service event or an account-specific event.
+    -- Service event or an account-specific event.
     --
     -- -   If the @eventScopeCode@ value is @PUBLIC@, then the
     --     @affectedAccounts@ value is always empty.
@@ -82,15 +82,15 @@ data Event = Event'
     -- @investigation@ value isn\'t supported at this time.
     eventTypeCategory :: Prelude.Maybe EventTypeCategory,
     -- | The unique identifier for the event type. The format is
-    -- @AWS_SERVICE_DESCRIPTION @; for example,
+    -- @AWS_@/@SERVICE@/@_@/@DESCRIPTION@/@ @; for example,
     -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
     eventTypeCode :: Prelude.Maybe Prelude.Text,
     -- | The most recent date and time that the event was updated.
     lastUpdatedTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Web Services Region name of the event.
     region :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services service that is affected by the event. For
-    -- example, @EC2@, @RDS@.
+    -- | The Amazon Web Service that is affected by the event. For example,
+    -- @EC2@, @RDS@.
     service :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the event began.
     startTime :: Prelude.Maybe Data.POSIX,
@@ -109,7 +109,7 @@ data Event = Event'
 -- for backwards compatibility:
 --
 -- 'arn', 'event_arn' - The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
 -- format.
 --
 -- For example, an event ARN might look like the following:
@@ -122,7 +122,7 @@ data Event = Event'
 -- 'endTime', 'event_endTime' - The date and time that the event ended.
 --
 -- 'eventScopeCode', 'event_eventScopeCode' - This parameter specifies if the Health event is a public Amazon Web
--- Services service event or an account-specific event.
+-- Service event or an account-specific event.
 --
 -- -   If the @eventScopeCode@ value is @PUBLIC@, then the
 --     @affectedAccounts@ value is always empty.
@@ -142,15 +142,15 @@ data Event = Event'
 -- @investigation@ value isn\'t supported at this time.
 --
 -- 'eventTypeCode', 'event_eventTypeCode' - The unique identifier for the event type. The format is
--- @AWS_SERVICE_DESCRIPTION @; for example,
+-- @AWS_@/@SERVICE@/@_@/@DESCRIPTION@/@ @; for example,
 -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
 --
 -- 'lastUpdatedTime', 'event_lastUpdatedTime' - The most recent date and time that the event was updated.
 --
 -- 'region', 'event_region' - The Amazon Web Services Region name of the event.
 --
--- 'service', 'event_service' - The Amazon Web Services service that is affected by the event. For
--- example, @EC2@, @RDS@.
+-- 'service', 'event_service' - The Amazon Web Service that is affected by the event. For example,
+-- @EC2@, @RDS@.
 --
 -- 'startTime', 'event_startTime' - The date and time that the event began.
 --
@@ -174,7 +174,7 @@ newEvent =
     }
 
 -- | The unique identifier for the event. The event ARN has the
--- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
+-- @arn:aws:health:@/@event-region@/@::event\/@/@SERVICE@/@\/@/@EVENT_TYPE_CODE@/@\/@/@EVENT_TYPE_PLUS_ID@/@ @
 -- format.
 --
 -- For example, an event ARN might look like the following:
@@ -193,7 +193,7 @@ event_endTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
 event_endTime = Lens.lens (\Event' {endTime} -> endTime) (\s@Event' {} a -> s {endTime = a} :: Event) Prelude.. Lens.mapping Data._Time
 
 -- | This parameter specifies if the Health event is a public Amazon Web
--- Services service event or an account-specific event.
+-- Service event or an account-specific event.
 --
 -- -   If the @eventScopeCode@ value is @PUBLIC@, then the
 --     @affectedAccounts@ value is always empty.
@@ -217,7 +217,7 @@ event_eventTypeCategory :: Lens.Lens' Event (Prelude.Maybe EventTypeCategory)
 event_eventTypeCategory = Lens.lens (\Event' {eventTypeCategory} -> eventTypeCategory) (\s@Event' {} a -> s {eventTypeCategory = a} :: Event)
 
 -- | The unique identifier for the event type. The format is
--- @AWS_SERVICE_DESCRIPTION @; for example,
+-- @AWS_@/@SERVICE@/@_@/@DESCRIPTION@/@ @; for example,
 -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
 event_eventTypeCode :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_eventTypeCode = Lens.lens (\Event' {eventTypeCode} -> eventTypeCode) (\s@Event' {} a -> s {eventTypeCode = a} :: Event)
@@ -230,8 +230,8 @@ event_lastUpdatedTime = Lens.lens (\Event' {lastUpdatedTime} -> lastUpdatedTime)
 event_region :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_region = Lens.lens (\Event' {region} -> region) (\s@Event' {} a -> s {region = a} :: Event)
 
--- | The Amazon Web Services service that is affected by the event. For
--- example, @EC2@, @RDS@.
+-- | The Amazon Web Service that is affected by the event. For example,
+-- @EC2@, @RDS@.
 event_service :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_service = Lens.lens (\Event' {service} -> service) (\s@Event' {} a -> s {service = a} :: Event)
 
@@ -265,7 +265,8 @@ instance Data.FromJSON Event where
 
 instance Prelude.Hashable Event where
   hashWithSalt _salt Event' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` eventScopeCode

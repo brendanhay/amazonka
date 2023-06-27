@@ -33,20 +33,20 @@ data TypeConfigurationIdentifier = TypeConfigurationIdentifier'
   { -- | The type of extension.
     type' :: Prelude.Maybe ThirdPartyType,
     -- | The Amazon Resource Name (ARN) for the extension, in this account and
-    -- region.
+    -- Region.
     --
     -- For public extensions, this will be the ARN assigned when you
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html activate the type>
-    -- in this account and region. For private extensions, this will be the ARN
+    -- in this account and Region. For private extensions, this will be the ARN
     -- assigned when you
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html register the type>
-    -- in this account and region.
+    -- in this account and Region.
     typeArn :: Prelude.Maybe Prelude.Text,
     -- | The alias specified for this configuration, if one was specified when
     -- the configuration was set.
     typeConfigurationAlias :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the configuration, in this account
-    -- and region.
+    -- and Region.
     typeConfigurationArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the extension type to which this configuration applies.
     typeName :: Prelude.Maybe Prelude.Text
@@ -64,20 +64,20 @@ data TypeConfigurationIdentifier = TypeConfigurationIdentifier'
 -- 'type'', 'typeConfigurationIdentifier_type' - The type of extension.
 --
 -- 'typeArn', 'typeConfigurationIdentifier_typeArn' - The Amazon Resource Name (ARN) for the extension, in this account and
--- region.
+-- Region.
 --
 -- For public extensions, this will be the ARN assigned when you
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html activate the type>
--- in this account and region. For private extensions, this will be the ARN
+-- in this account and Region. For private extensions, this will be the ARN
 -- assigned when you
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html register the type>
--- in this account and region.
+-- in this account and Region.
 --
 -- 'typeConfigurationAlias', 'typeConfigurationIdentifier_typeConfigurationAlias' - The alias specified for this configuration, if one was specified when
 -- the configuration was set.
 --
 -- 'typeConfigurationArn', 'typeConfigurationIdentifier_typeConfigurationArn' - The Amazon Resource Name (ARN) for the configuration, in this account
--- and region.
+-- and Region.
 --
 -- 'typeName', 'typeConfigurationIdentifier_typeName' - The name of the extension type to which this configuration applies.
 newTypeConfigurationIdentifier ::
@@ -97,14 +97,14 @@ typeConfigurationIdentifier_type :: Lens.Lens' TypeConfigurationIdentifier (Prel
 typeConfigurationIdentifier_type = Lens.lens (\TypeConfigurationIdentifier' {type'} -> type') (\s@TypeConfigurationIdentifier' {} a -> s {type' = a} :: TypeConfigurationIdentifier)
 
 -- | The Amazon Resource Name (ARN) for the extension, in this account and
--- region.
+-- Region.
 --
 -- For public extensions, this will be the ARN assigned when you
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html activate the type>
--- in this account and region. For private extensions, this will be the ARN
+-- in this account and Region. For private extensions, this will be the ARN
 -- assigned when you
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html register the type>
--- in this account and region.
+-- in this account and Region.
 typeConfigurationIdentifier_typeArn :: Lens.Lens' TypeConfigurationIdentifier (Prelude.Maybe Prelude.Text)
 typeConfigurationIdentifier_typeArn = Lens.lens (\TypeConfigurationIdentifier' {typeArn} -> typeArn) (\s@TypeConfigurationIdentifier' {} a -> s {typeArn = a} :: TypeConfigurationIdentifier)
 
@@ -114,7 +114,7 @@ typeConfigurationIdentifier_typeConfigurationAlias :: Lens.Lens' TypeConfigurati
 typeConfigurationIdentifier_typeConfigurationAlias = Lens.lens (\TypeConfigurationIdentifier' {typeConfigurationAlias} -> typeConfigurationAlias) (\s@TypeConfigurationIdentifier' {} a -> s {typeConfigurationAlias = a} :: TypeConfigurationIdentifier)
 
 -- | The Amazon Resource Name (ARN) for the configuration, in this account
--- and region.
+-- and Region.
 typeConfigurationIdentifier_typeConfigurationArn :: Lens.Lens' TypeConfigurationIdentifier (Prelude.Maybe Prelude.Text)
 typeConfigurationIdentifier_typeConfigurationArn = Lens.lens (\TypeConfigurationIdentifier' {typeConfigurationArn} -> typeConfigurationArn) (\s@TypeConfigurationIdentifier' {} a -> s {typeConfigurationArn = a} :: TypeConfigurationIdentifier)
 
@@ -133,7 +133,8 @@ instance Data.FromXML TypeConfigurationIdentifier where
 
 instance Prelude.Hashable TypeConfigurationIdentifier where
   hashWithSalt _salt TypeConfigurationIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` typeArn
       `Prelude.hashWithSalt` typeConfigurationAlias
       `Prelude.hashWithSalt` typeConfigurationArn

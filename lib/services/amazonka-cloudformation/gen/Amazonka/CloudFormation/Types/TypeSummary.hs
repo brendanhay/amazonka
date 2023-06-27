@@ -40,12 +40,11 @@ data TypeSummary = TypeSummary'
     -- information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
     --
-    -- To set the default version of an extension, use
-    -- @ SetTypeDefaultVersion @.
+    -- To set the default version of an extension, use SetTypeDefaultVersion.
     defaultVersionId :: Prelude.Maybe Prelude.Text,
     -- | The description of the extension.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Whether the extension is activated for this account and region.
+    -- | Whether the extension is activated for this account and Region.
     --
     -- This applies only to third-party public extensions. Extensions published
     -- by Amazon are activated by default.
@@ -64,34 +63,34 @@ data TypeSummary = TypeSummary'
     -- For all other extension types, CloudFormation returns @null@.
     lastUpdated :: Prelude.Maybe Data.ISO8601,
     -- | For public extensions that have been activated for this account and
-    -- region, the latest version of the public extension /that is available/.
+    -- Region, the latest version of the public extension /that is available/.
     -- For any extensions other than activated third-arty extensions,
     -- CloudFormation returns @null@.
     --
     -- How you specified @AutoUpdate@ when enabling the extension affects
     -- whether CloudFormation automatically updates the extension in this
-    -- account and region when a new version is released. For more information,
+    -- account and Region when a new version is released. For more information,
     -- see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
     -- in the /CloudFormation User Guide/.
     latestPublicVersion :: Prelude.Maybe Prelude.Text,
     -- | For public extensions that have been activated for this account and
-    -- region, the type name of the public extension.
+    -- Region, the type name of the public extension.
     --
     -- If you specified a @TypeNameAlias@ when enabling the extension in this
-    -- account and region, CloudFormation treats that alias as the extension\'s
-    -- type name within the account and region, not the type name of the public
+    -- account and Region, CloudFormation treats that alias as the extension\'s
+    -- type name within the account and Region, not the type name of the public
     -- extension. For more information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-alias Specifying aliases to refer to extensions>
     -- in the /CloudFormation User Guide/.
     originalTypeName :: Prelude.Maybe Prelude.Text,
     -- | For public extensions that have been activated for this account and
-    -- region, the version of the public extension to be used for
+    -- Region, the version of the public extension to be used for
     -- CloudFormation operations in this account and Region.
     --
     -- How you specified @AutoUpdate@ when enabling the extension affects
     -- whether CloudFormation automatically updates the extension in this
-    -- account and region when a new version is released. For more information,
+    -- account and Region when a new version is released. For more information,
     -- see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
     -- in the /CloudFormation User Guide/.
@@ -117,7 +116,7 @@ data TypeSummary = TypeSummary'
     --
     -- If you specified a @TypeNameAlias@ when you
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html activate this extension>
-    -- in your account and region, CloudFormation considers that alias as the
+    -- in your account and Region, CloudFormation considers that alias as the
     -- type name.
     typeName :: Prelude.Maybe Prelude.Text
   }
@@ -140,12 +139,11 @@ data TypeSummary = TypeSummary'
 -- information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
 --
--- To set the default version of an extension, use
--- @ SetTypeDefaultVersion @.
+-- To set the default version of an extension, use SetTypeDefaultVersion.
 --
 -- 'description', 'typeSummary_description' - The description of the extension.
 --
--- 'isActivated', 'typeSummary_isActivated' - Whether the extension is activated for this account and region.
+-- 'isActivated', 'typeSummary_isActivated' - Whether the extension is activated for this account and Region.
 --
 -- This applies only to third-party public extensions. Extensions published
 -- by Amazon are activated by default.
@@ -164,34 +162,34 @@ data TypeSummary = TypeSummary'
 -- For all other extension types, CloudFormation returns @null@.
 --
 -- 'latestPublicVersion', 'typeSummary_latestPublicVersion' - For public extensions that have been activated for this account and
--- region, the latest version of the public extension /that is available/.
+-- Region, the latest version of the public extension /that is available/.
 -- For any extensions other than activated third-arty extensions,
 -- CloudFormation returns @null@.
 --
 -- How you specified @AutoUpdate@ when enabling the extension affects
 -- whether CloudFormation automatically updates the extension in this
--- account and region when a new version is released. For more information,
+-- account and Region when a new version is released. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
 -- in the /CloudFormation User Guide/.
 --
 -- 'originalTypeName', 'typeSummary_originalTypeName' - For public extensions that have been activated for this account and
--- region, the type name of the public extension.
+-- Region, the type name of the public extension.
 --
 -- If you specified a @TypeNameAlias@ when enabling the extension in this
--- account and region, CloudFormation treats that alias as the extension\'s
--- type name within the account and region, not the type name of the public
+-- account and Region, CloudFormation treats that alias as the extension\'s
+-- type name within the account and Region, not the type name of the public
 -- extension. For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-alias Specifying aliases to refer to extensions>
 -- in the /CloudFormation User Guide/.
 --
 -- 'publicVersionNumber', 'typeSummary_publicVersionNumber' - For public extensions that have been activated for this account and
--- region, the version of the public extension to be used for
+-- Region, the version of the public extension to be used for
 -- CloudFormation operations in this account and Region.
 --
 -- How you specified @AutoUpdate@ when enabling the extension affects
 -- whether CloudFormation automatically updates the extension in this
--- account and region when a new version is released. For more information,
+-- account and Region when a new version is released. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
 -- in the /CloudFormation User Guide/.
@@ -217,7 +215,7 @@ data TypeSummary = TypeSummary'
 --
 -- If you specified a @TypeNameAlias@ when you
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html activate this extension>
--- in your account and region, CloudFormation considers that alias as the
+-- in your account and Region, CloudFormation considers that alias as the
 -- type name.
 newTypeSummary ::
   TypeSummary
@@ -247,8 +245,7 @@ newTypeSummary =
 -- information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
 --
--- To set the default version of an extension, use
--- @ SetTypeDefaultVersion @.
+-- To set the default version of an extension, use SetTypeDefaultVersion.
 typeSummary_defaultVersionId :: Lens.Lens' TypeSummary (Prelude.Maybe Prelude.Text)
 typeSummary_defaultVersionId = Lens.lens (\TypeSummary' {defaultVersionId} -> defaultVersionId) (\s@TypeSummary' {} a -> s {defaultVersionId = a} :: TypeSummary)
 
@@ -256,7 +253,7 @@ typeSummary_defaultVersionId = Lens.lens (\TypeSummary' {defaultVersionId} -> de
 typeSummary_description :: Lens.Lens' TypeSummary (Prelude.Maybe Prelude.Text)
 typeSummary_description = Lens.lens (\TypeSummary' {description} -> description) (\s@TypeSummary' {} a -> s {description = a} :: TypeSummary)
 
--- | Whether the extension is activated for this account and region.
+-- | Whether the extension is activated for this account and Region.
 --
 -- This applies only to third-party public extensions. Extensions published
 -- by Amazon are activated by default.
@@ -279,13 +276,13 @@ typeSummary_lastUpdated :: Lens.Lens' TypeSummary (Prelude.Maybe Prelude.UTCTime
 typeSummary_lastUpdated = Lens.lens (\TypeSummary' {lastUpdated} -> lastUpdated) (\s@TypeSummary' {} a -> s {lastUpdated = a} :: TypeSummary) Prelude.. Lens.mapping Data._Time
 
 -- | For public extensions that have been activated for this account and
--- region, the latest version of the public extension /that is available/.
+-- Region, the latest version of the public extension /that is available/.
 -- For any extensions other than activated third-arty extensions,
 -- CloudFormation returns @null@.
 --
 -- How you specified @AutoUpdate@ when enabling the extension affects
 -- whether CloudFormation automatically updates the extension in this
--- account and region when a new version is released. For more information,
+-- account and Region when a new version is released. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
 -- in the /CloudFormation User Guide/.
@@ -293,11 +290,11 @@ typeSummary_latestPublicVersion :: Lens.Lens' TypeSummary (Prelude.Maybe Prelude
 typeSummary_latestPublicVersion = Lens.lens (\TypeSummary' {latestPublicVersion} -> latestPublicVersion) (\s@TypeSummary' {} a -> s {latestPublicVersion = a} :: TypeSummary)
 
 -- | For public extensions that have been activated for this account and
--- region, the type name of the public extension.
+-- Region, the type name of the public extension.
 --
 -- If you specified a @TypeNameAlias@ when enabling the extension in this
--- account and region, CloudFormation treats that alias as the extension\'s
--- type name within the account and region, not the type name of the public
+-- account and Region, CloudFormation treats that alias as the extension\'s
+-- type name within the account and Region, not the type name of the public
 -- extension. For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-alias Specifying aliases to refer to extensions>
 -- in the /CloudFormation User Guide/.
@@ -305,12 +302,12 @@ typeSummary_originalTypeName :: Lens.Lens' TypeSummary (Prelude.Maybe Prelude.Te
 typeSummary_originalTypeName = Lens.lens (\TypeSummary' {originalTypeName} -> originalTypeName) (\s@TypeSummary' {} a -> s {originalTypeName = a} :: TypeSummary)
 
 -- | For public extensions that have been activated for this account and
--- region, the version of the public extension to be used for
+-- Region, the version of the public extension to be used for
 -- CloudFormation operations in this account and Region.
 --
 -- How you specified @AutoUpdate@ when enabling the extension affects
 -- whether CloudFormation automatically updates the extension in this
--- account and region when a new version is released. For more information,
+-- account and Region when a new version is released. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
 -- in the /CloudFormation User Guide/.
@@ -348,7 +345,7 @@ typeSummary_typeArn = Lens.lens (\TypeSummary' {typeArn} -> typeArn) (\s@TypeSum
 --
 -- If you specified a @TypeNameAlias@ when you
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html activate this extension>
--- in your account and region, CloudFormation considers that alias as the
+-- in your account and Region, CloudFormation considers that alias as the
 -- type name.
 typeSummary_typeName :: Lens.Lens' TypeSummary (Prelude.Maybe Prelude.Text)
 typeSummary_typeName = Lens.lens (\TypeSummary' {typeName} -> typeName) (\s@TypeSummary' {} a -> s {typeName = a} :: TypeSummary)
@@ -372,7 +369,8 @@ instance Data.FromXML TypeSummary where
 
 instance Prelude.Hashable TypeSummary where
   hashWithSalt _salt TypeSummary' {..} =
-    _salt `Prelude.hashWithSalt` defaultVersionId
+    _salt
+      `Prelude.hashWithSalt` defaultVersionId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` isActivated
       `Prelude.hashWithSalt` lastUpdated

@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the stack instance that\'s associated with the specified stack
--- set, Amazon Web Services account, and Region.
+-- Returns the stack instance that\'s associated with the specified
+-- StackSet, Amazon Web Services account, and Amazon Web Services Region.
 --
--- For a list of stack instances that are associated with a specific stack
--- set, use ListStackInstances.
+-- For a list of stack instances that are associated with a specific
+-- StackSet, use ListStackInstances.
 module Amazonka.CloudFormation.DescribeStackInstance
   ( -- * Creating a Request
     DescribeStackInstance (..),
@@ -185,7 +185,8 @@ instance Core.AWSRequest DescribeStackInstance where
 
 instance Prelude.Hashable DescribeStackInstance where
   hashWithSalt _salt DescribeStackInstance' {..} =
-    _salt `Prelude.hashWithSalt` callAs
+    _salt
+      `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` stackSetName
       `Prelude.hashWithSalt` stackInstanceAccount
       `Prelude.hashWithSalt` stackInstanceRegion

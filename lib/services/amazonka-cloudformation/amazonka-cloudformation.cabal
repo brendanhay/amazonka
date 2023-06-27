@@ -44,6 +44,7 @@ library
 
   exposed-modules:
     Amazonka.CloudFormation
+    Amazonka.CloudFormation.ActivateOrganizationsAccess
     Amazonka.CloudFormation.ActivateType
     Amazonka.CloudFormation.BatchDescribeTypeConfigurations
     Amazonka.CloudFormation.CancelUpdateStack
@@ -52,6 +53,7 @@ library
     Amazonka.CloudFormation.CreateStack
     Amazonka.CloudFormation.CreateStackInstances
     Amazonka.CloudFormation.CreateStackSet
+    Amazonka.CloudFormation.DeactivateOrganizationsAccess
     Amazonka.CloudFormation.DeactivateType
     Amazonka.CloudFormation.DeleteChangeSet
     Amazonka.CloudFormation.DeleteStack
@@ -61,6 +63,7 @@ library
     Amazonka.CloudFormation.DescribeAccountLimits
     Amazonka.CloudFormation.DescribeChangeSet
     Amazonka.CloudFormation.DescribeChangeSetHooks
+    Amazonka.CloudFormation.DescribeOrganizationsAccess
     Amazonka.CloudFormation.DescribePublisher
     Amazonka.CloudFormation.DescribeStackDriftDetectionStatus
     Amazonka.CloudFormation.DescribeStackEvents
@@ -143,9 +146,11 @@ library
     Amazonka.CloudFormation.Types.ManagedExecution
     Amazonka.CloudFormation.Types.ModuleInfo
     Amazonka.CloudFormation.Types.OnFailure
+    Amazonka.CloudFormation.Types.OnStackFailure
     Amazonka.CloudFormation.Types.OperationResultFilter
     Amazonka.CloudFormation.Types.OperationResultFilterName
     Amazonka.CloudFormation.Types.OperationStatus
+    Amazonka.CloudFormation.Types.OrganizationStatus
     Amazonka.CloudFormation.Types.Output
     Amazonka.CloudFormation.Types.Parameter
     Amazonka.CloudFormation.Types.ParameterConstraints

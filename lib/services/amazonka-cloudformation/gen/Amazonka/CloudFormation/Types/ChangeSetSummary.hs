@@ -194,7 +194,8 @@ instance Data.FromXML ChangeSetSummary where
 
 instance Prelude.Hashable ChangeSetSummary where
   hashWithSalt _salt ChangeSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` changeSetId
+    _salt
+      `Prelude.hashWithSalt` changeSetId
       `Prelude.hashWithSalt` changeSetName
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description

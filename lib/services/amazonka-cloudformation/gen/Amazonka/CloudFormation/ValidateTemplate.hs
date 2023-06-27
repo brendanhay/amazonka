@@ -143,16 +143,21 @@ instance Core.AWSRequest ValidateTemplate where
       "ValidateTemplateResult"
       ( \s h x ->
           ValidateTemplateResponse'
-            Prelude.<$> ( x Data..@? "Capabilities" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Capabilities"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "CapabilitiesReason")
-            Prelude.<*> ( x Data..@? "DeclaredTransforms"
+            Prelude.<*> ( x
+                            Data..@? "DeclaredTransforms"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Description")
-            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Parameters"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -160,7 +165,8 @@ instance Core.AWSRequest ValidateTemplate where
 
 instance Prelude.Hashable ValidateTemplate where
   hashWithSalt _salt ValidateTemplate' {..} =
-    _salt `Prelude.hashWithSalt` templateBody
+    _salt
+      `Prelude.hashWithSalt` templateBody
       `Prelude.hashWithSalt` templateURL
 
 instance Prelude.NFData ValidateTemplate where

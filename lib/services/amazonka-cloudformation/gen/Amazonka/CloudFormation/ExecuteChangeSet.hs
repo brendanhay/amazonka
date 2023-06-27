@@ -74,7 +74,21 @@ data ExecuteChangeSet = ExecuteChangeSet'
     -- that CloudFormation successfully received them.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Preserves the state of previously provisioned resources when an
-    -- operation fails.
+    -- operation fails. This parameter can\'t be specified when the
+    -- @OnStackFailure@ parameter to the
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html CreateChangeSet>
+    -- API operation was specified.
+    --
+    -- -   @True@ - if the stack creation fails, do nothing. This is equivalent
+    --     to specifying @DO_NOTHING@ for the @OnStackFailure@ parameter to the
+    --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html CreateChangeSet>
+    --     API operation.
+    --
+    -- -   @False@ - if the stack creation fails, roll back the stack. This is
+    --     equivalent to specifying @ROLLBACK@ for the @OnStackFailure@
+    --     parameter to the
+    --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html CreateChangeSet>
+    --     API operation.
     --
     -- Default: @True@
     disableRollback :: Prelude.Maybe Prelude.Bool,
@@ -103,7 +117,21 @@ data ExecuteChangeSet = ExecuteChangeSet'
 -- that CloudFormation successfully received them.
 --
 -- 'disableRollback', 'executeChangeSet_disableRollback' - Preserves the state of previously provisioned resources when an
--- operation fails.
+-- operation fails. This parameter can\'t be specified when the
+-- @OnStackFailure@ parameter to the
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html CreateChangeSet>
+-- API operation was specified.
+--
+-- -   @True@ - if the stack creation fails, do nothing. This is equivalent
+--     to specifying @DO_NOTHING@ for the @OnStackFailure@ parameter to the
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html CreateChangeSet>
+--     API operation.
+--
+-- -   @False@ - if the stack creation fails, roll back the stack. This is
+--     equivalent to specifying @ROLLBACK@ for the @OnStackFailure@
+--     parameter to the
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html CreateChangeSet>
+--     API operation.
 --
 -- Default: @True@
 --
@@ -135,7 +163,21 @@ executeChangeSet_clientRequestToken :: Lens.Lens' ExecuteChangeSet (Prelude.Mayb
 executeChangeSet_clientRequestToken = Lens.lens (\ExecuteChangeSet' {clientRequestToken} -> clientRequestToken) (\s@ExecuteChangeSet' {} a -> s {clientRequestToken = a} :: ExecuteChangeSet)
 
 -- | Preserves the state of previously provisioned resources when an
--- operation fails.
+-- operation fails. This parameter can\'t be specified when the
+-- @OnStackFailure@ parameter to the
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html CreateChangeSet>
+-- API operation was specified.
+--
+-- -   @True@ - if the stack creation fails, do nothing. This is equivalent
+--     to specifying @DO_NOTHING@ for the @OnStackFailure@ parameter to the
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html CreateChangeSet>
+--     API operation.
+--
+-- -   @False@ - if the stack creation fails, roll back the stack. This is
+--     equivalent to specifying @ROLLBACK@ for the @OnStackFailure@
+--     parameter to the
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html CreateChangeSet>
+--     API operation.
 --
 -- Default: @True@
 executeChangeSet_disableRollback :: Lens.Lens' ExecuteChangeSet (Prelude.Maybe Prelude.Bool)
@@ -168,7 +210,8 @@ instance Core.AWSRequest ExecuteChangeSet where
 
 instance Prelude.Hashable ExecuteChangeSet where
   hashWithSalt _salt ExecuteChangeSet' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` disableRollback
       `Prelude.hashWithSalt` stackName
       `Prelude.hashWithSalt` changeSetName

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about whether a resource\'s actual configuration
--- differs, or has /drifted/, from it\'s expected configuration, as defined
+-- differs, or has /drifted/, from its expected configuration, as defined
 -- in the stack template and any values specified as template parameters.
 -- This information includes actual and expected property values for
 -- resources in which CloudFormation detects drift. Only resource
@@ -122,7 +122,8 @@ instance Core.AWSRequest DetectStackResourceDrift where
 
 instance Prelude.Hashable DetectStackResourceDrift where
   hashWithSalt _salt DetectStackResourceDrift' {..} =
-    _salt `Prelude.hashWithSalt` stackName
+    _salt
+      `Prelude.hashWithSalt` stackName
       `Prelude.hashWithSalt` logicalResourceId
 
 instance Prelude.NFData DetectStackResourceDrift where

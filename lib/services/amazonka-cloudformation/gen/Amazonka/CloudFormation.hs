@@ -34,7 +34,7 @@
 -- CloudFormation makes use of other Amazon Web Services products. If you
 -- need additional technical information about a specific Amazon Web
 -- Services product, you can find the product\'s technical documentation at
--- <https://docs.aws.amazon.com/ docs.aws.amazon.com> .
+-- <https://docs.aws.amazon.com/ docs.aws.amazon.com>.
 module Amazonka.CloudFormation
   ( -- * Service Configuration
     defaultService,
@@ -138,6 +138,12 @@ module Amazonka.CloudFormation
     -- * Operations
     -- $operations
 
+    -- ** ActivateOrganizationsAccess
+    ActivateOrganizationsAccess (ActivateOrganizationsAccess'),
+    newActivateOrganizationsAccess,
+    ActivateOrganizationsAccessResponse (ActivateOrganizationsAccessResponse'),
+    newActivateOrganizationsAccessResponse,
+
     -- ** ActivateType
     ActivateType (ActivateType'),
     newActivateType,
@@ -185,6 +191,12 @@ module Amazonka.CloudFormation
     newCreateStackSet,
     CreateStackSetResponse (CreateStackSetResponse'),
     newCreateStackSetResponse,
+
+    -- ** DeactivateOrganizationsAccess
+    DeactivateOrganizationsAccess (DeactivateOrganizationsAccess'),
+    newDeactivateOrganizationsAccess,
+    DeactivateOrganizationsAccessResponse (DeactivateOrganizationsAccessResponse'),
+    newDeactivateOrganizationsAccessResponse,
 
     -- ** DeactivateType
     DeactivateType (DeactivateType'),
@@ -239,6 +251,12 @@ module Amazonka.CloudFormation
     newDescribeChangeSetHooks,
     DescribeChangeSetHooksResponse (DescribeChangeSetHooksResponse'),
     newDescribeChangeSetHooksResponse,
+
+    -- ** DescribeOrganizationsAccess
+    DescribeOrganizationsAccess (DescribeOrganizationsAccess'),
+    newDescribeOrganizationsAccess,
+    DescribeOrganizationsAccessResponse (DescribeOrganizationsAccessResponse'),
+    newDescribeOrganizationsAccessResponse,
 
     -- ** DescribePublisher
     DescribePublisher (DescribePublisher'),
@@ -602,11 +620,17 @@ module Amazonka.CloudFormation
     -- ** OnFailure
     OnFailure (..),
 
+    -- ** OnStackFailure
+    OnStackFailure (..),
+
     -- ** OperationResultFilterName
     OperationResultFilterName (..),
 
     -- ** OperationStatus
     OperationStatus (..),
+
+    -- ** OrganizationStatus
+    OrganizationStatus (..),
 
     -- ** PermissionModels
     PermissionModels (..),
@@ -933,6 +957,7 @@ module Amazonka.CloudFormation
   )
 where
 
+import Amazonka.CloudFormation.ActivateOrganizationsAccess
 import Amazonka.CloudFormation.ActivateType
 import Amazonka.CloudFormation.BatchDescribeTypeConfigurations
 import Amazonka.CloudFormation.CancelUpdateStack
@@ -941,6 +966,7 @@ import Amazonka.CloudFormation.CreateChangeSet
 import Amazonka.CloudFormation.CreateStack
 import Amazonka.CloudFormation.CreateStackInstances
 import Amazonka.CloudFormation.CreateStackSet
+import Amazonka.CloudFormation.DeactivateOrganizationsAccess
 import Amazonka.CloudFormation.DeactivateType
 import Amazonka.CloudFormation.DeleteChangeSet
 import Amazonka.CloudFormation.DeleteStack
@@ -950,6 +976,7 @@ import Amazonka.CloudFormation.DeregisterType
 import Amazonka.CloudFormation.DescribeAccountLimits
 import Amazonka.CloudFormation.DescribeChangeSet
 import Amazonka.CloudFormation.DescribeChangeSetHooks
+import Amazonka.CloudFormation.DescribeOrganizationsAccess
 import Amazonka.CloudFormation.DescribePublisher
 import Amazonka.CloudFormation.DescribeStackDriftDetectionStatus
 import Amazonka.CloudFormation.DescribeStackEvents

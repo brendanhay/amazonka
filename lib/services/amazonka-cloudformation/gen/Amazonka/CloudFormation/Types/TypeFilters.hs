@@ -32,10 +32,10 @@ data TypeFilters = TypeFilters'
   { -- | The category of extensions to return.
     --
     -- -   @REGISTERED@: Private extensions that have been registered for this
-    --     account and region.
+    --     account and Region.
     --
     -- -   @ACTIVATED@: Public extensions that have been activated for this
-    --     account and region.
+    --     account and Region.
     --
     -- -   @THIRD_PARTY@: Extensions available for use from publishers other
     --     than Amazon. This includes:
@@ -68,10 +68,10 @@ data TypeFilters = TypeFilters'
 -- 'category', 'typeFilters_category' - The category of extensions to return.
 --
 -- -   @REGISTERED@: Private extensions that have been registered for this
---     account and region.
+--     account and Region.
 --
 -- -   @ACTIVATED@: Public extensions that have been activated for this
---     account and region.
+--     account and Region.
 --
 -- -   @THIRD_PARTY@: Extensions available for use from publishers other
 --     than Amazon. This includes:
@@ -101,10 +101,10 @@ newTypeFilters =
 -- | The category of extensions to return.
 --
 -- -   @REGISTERED@: Private extensions that have been registered for this
---     account and region.
+--     account and Region.
 --
 -- -   @ACTIVATED@: Public extensions that have been activated for this
---     account and region.
+--     account and Region.
 --
 -- -   @THIRD_PARTY@: Extensions available for use from publishers other
 --     than Amazon. This includes:
@@ -131,7 +131,8 @@ typeFilters_typeNamePrefix = Lens.lens (\TypeFilters' {typeNamePrefix} -> typeNa
 
 instance Prelude.Hashable TypeFilters where
   hashWithSalt _salt TypeFilters' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` publisherId
       `Prelude.hashWithSalt` typeNamePrefix
 

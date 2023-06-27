@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Publishes the specified extension to the CloudFormation registry as a
--- public extension in this region. Public extensions are available for use
+-- public extension in this Region. Public extensions are available for use
 -- by all CloudFormation users. For more information about publishing
 -- extensions, see
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html Publishing extensions to make them available for public use>
@@ -191,7 +191,8 @@ instance Core.AWSRequest PublishType where
 
 instance Prelude.Hashable PublishType where
   hashWithSalt _salt PublishType' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` publicVersionNumber
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` typeName

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns configuration data for the specified CloudFormation extensions,
--- from the CloudFormation registry for the account and region.
+-- from the CloudFormation registry for the account and Region.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration Configuring extensions at the account level>
@@ -100,14 +100,18 @@ instance
       "BatchDescribeTypeConfigurationsResult"
       ( \s h x ->
           BatchDescribeTypeConfigurationsResponse'
-            Prelude.<$> ( x Data..@? "Errors" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Data.parseXMLList "member")
-                        )
-            Prelude.<*> ( x Data..@? "TypeConfigurations"
+            Prelude.<$> ( x
+                            Data..@? "Errors"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Data..@? "UnprocessedTypeConfigurations"
+            Prelude.<*> ( x
+                            Data..@? "TypeConfigurations"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "member")
+                        )
+            Prelude.<*> ( x
+                            Data..@? "UnprocessedTypeConfigurations"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )

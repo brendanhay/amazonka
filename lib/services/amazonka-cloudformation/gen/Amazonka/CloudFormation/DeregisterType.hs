@@ -159,7 +159,8 @@ instance Core.AWSRequest DeregisterType where
 
 instance Prelude.Hashable DeregisterType where
   hashWithSalt _salt DeregisterType' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` versionId

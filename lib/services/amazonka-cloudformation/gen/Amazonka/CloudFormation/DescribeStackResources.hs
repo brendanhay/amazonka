@@ -199,7 +199,9 @@ instance Core.AWSRequest DescribeStackResources where
       "DescribeStackResourcesResult"
       ( \s h x ->
           DescribeStackResourcesResponse'
-            Prelude.<$> ( x Data..@? "StackResources" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "StackResources"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -207,7 +209,8 @@ instance Core.AWSRequest DescribeStackResources where
 
 instance Prelude.Hashable DescribeStackResources where
   hashWithSalt _salt DescribeStackResources' {..} =
-    _salt `Prelude.hashWithSalt` logicalResourceId
+    _salt
+      `Prelude.hashWithSalt` logicalResourceId
       `Prelude.hashWithSalt` physicalResourceId
       `Prelude.hashWithSalt` stackName
 

@@ -227,7 +227,8 @@ instance Core.AWSRequest DescribeType where
             Prelude.<*> (x Data..@? "ProvisioningType")
             Prelude.<*> (x Data..@? "PublicVersionNumber")
             Prelude.<*> (x Data..@? "PublisherId")
-            Prelude.<*> ( x Data..@? "RequiredActivatedTypes"
+            Prelude.<*> ( x
+                            Data..@? "RequiredActivatedTypes"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -244,7 +245,8 @@ instance Core.AWSRequest DescribeType where
 
 instance Prelude.Hashable DescribeType where
   hashWithSalt _salt DescribeType' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` publicVersionNumber
       `Prelude.hashWithSalt` publisherId
       `Prelude.hashWithSalt` type'
@@ -286,14 +288,14 @@ data DescribeTypeResponse = DescribeTypeResponse'
   { -- | The Amazon Resource Name (ARN) of the extension.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Whether CloudFormation automatically updates the extension in this
-    -- account and region when a new /minor/ version is published by the
+    -- account and Region when a new /minor/ version is published by the
     -- extension publisher. Major versions released by the publisher must be
     -- manually updated. For more information, see
-    -- <AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable Activating public extensions for use in your account>
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable Activating public extensions for use in your account>
     -- in the /CloudFormation User Guide/.
     autoUpdate :: Prelude.Maybe Prelude.Bool,
     -- | A JSON string that represent the current configuration data for the
-    -- extension in this account and region.
+    -- extension in this account and Region.
     --
     -- To set the configuration data for an extension, use
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html SetTypeConfiguration>.
@@ -310,8 +312,7 @@ data DescribeTypeResponse = DescribeTypeResponse'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
     --
-    -- To set the default version of an extension, use
-    -- @ SetTypeDefaultVersion @.
+    -- To set the default version of an extension, use SetTypeDefaultVersion.
     defaultVersionId :: Prelude.Maybe Prelude.Text,
     -- | The deprecation status of the extension version.
     --
@@ -343,7 +344,7 @@ data DescribeTypeResponse = DescribeTypeResponse'
     -- CloudFormation then assumes that execution role to provide your
     -- extension with the appropriate credentials.
     executionRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | Whether the extension is activated in the account and region.
+    -- | Whether the extension is activated in the account and Region.
     --
     -- This only applies to public third-party extensions. For all other
     -- extensions, CloudFormation returns @null@.
@@ -380,14 +381,14 @@ data DescribeTypeResponse = DescribeTypeResponse'
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
     loggingConfig :: Prelude.Maybe LoggingConfig,
     -- | For public extensions that have been activated for this account and
-    -- region, the Amazon Resource Name (ARN) of the public extension.
+    -- Region, the Amazon Resource Name (ARN) of the public extension.
     originalTypeArn :: Prelude.Maybe Prelude.Text,
     -- | For public extensions that have been activated for this account and
-    -- region, the type name of the public extension.
+    -- Region, the type name of the public extension.
     --
     -- If you specified a @TypeNameAlias@ when enabling the extension in this
-    -- account and region, CloudFormation treats that alias as the extension\'s
-    -- type name within the account and region, not the type name of the public
+    -- account and Region, CloudFormation treats that alias as the extension\'s
+    -- type name within the account and Region, not the type name of the public
     -- extension. For more information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-alias Specifying aliases to refer to extensions>
     -- in the /CloudFormation User Guide/.
@@ -509,14 +510,14 @@ data DescribeTypeResponse = DescribeTypeResponse'
 -- 'arn', 'describeTypeResponse_arn' - The Amazon Resource Name (ARN) of the extension.
 --
 -- 'autoUpdate', 'describeTypeResponse_autoUpdate' - Whether CloudFormation automatically updates the extension in this
--- account and region when a new /minor/ version is published by the
+-- account and Region when a new /minor/ version is published by the
 -- extension publisher. Major versions released by the publisher must be
 -- manually updated. For more information, see
--- <AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable Activating public extensions for use in your account>
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable Activating public extensions for use in your account>
 -- in the /CloudFormation User Guide/.
 --
 -- 'configurationSchema', 'describeTypeResponse_configurationSchema' - A JSON string that represent the current configuration data for the
--- extension in this account and region.
+-- extension in this account and Region.
 --
 -- To set the configuration data for an extension, use
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html SetTypeConfiguration>.
@@ -533,8 +534,7 @@ data DescribeTypeResponse = DescribeTypeResponse'
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
 --
--- To set the default version of an extension, use
--- @ SetTypeDefaultVersion @.
+-- To set the default version of an extension, use SetTypeDefaultVersion.
 --
 -- 'deprecatedStatus', 'describeTypeResponse_deprecatedStatus' - The deprecation status of the extension version.
 --
@@ -566,7 +566,7 @@ data DescribeTypeResponse = DescribeTypeResponse'
 -- CloudFormation then assumes that execution role to provide your
 -- extension with the appropriate credentials.
 --
--- 'isActivated', 'describeTypeResponse_isActivated' - Whether the extension is activated in the account and region.
+-- 'isActivated', 'describeTypeResponse_isActivated' - Whether the extension is activated in the account and Region.
 --
 -- This only applies to public third-party extensions. For all other
 -- extensions, CloudFormation returns @null@.
@@ -603,14 +603,14 @@ data DescribeTypeResponse = DescribeTypeResponse'
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
 --
 -- 'originalTypeArn', 'describeTypeResponse_originalTypeArn' - For public extensions that have been activated for this account and
--- region, the Amazon Resource Name (ARN) of the public extension.
+-- Region, the Amazon Resource Name (ARN) of the public extension.
 --
 -- 'originalTypeName', 'describeTypeResponse_originalTypeName' - For public extensions that have been activated for this account and
--- region, the type name of the public extension.
+-- Region, the type name of the public extension.
 --
 -- If you specified a @TypeNameAlias@ when enabling the extension in this
--- account and region, CloudFormation treats that alias as the extension\'s
--- type name within the account and region, not the type name of the public
+-- account and Region, CloudFormation treats that alias as the extension\'s
+-- type name within the account and Region, not the type name of the public
 -- extension. For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-alias Specifying aliases to refer to extensions>
 -- in the /CloudFormation User Guide/.
@@ -758,16 +758,16 @@ describeTypeResponse_arn :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelu
 describeTypeResponse_arn = Lens.lens (\DescribeTypeResponse' {arn} -> arn) (\s@DescribeTypeResponse' {} a -> s {arn = a} :: DescribeTypeResponse)
 
 -- | Whether CloudFormation automatically updates the extension in this
--- account and region when a new /minor/ version is published by the
+-- account and Region when a new /minor/ version is published by the
 -- extension publisher. Major versions released by the publisher must be
 -- manually updated. For more information, see
--- <AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable Activating public extensions for use in your account>
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable Activating public extensions for use in your account>
 -- in the /CloudFormation User Guide/.
 describeTypeResponse_autoUpdate :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.Bool)
 describeTypeResponse_autoUpdate = Lens.lens (\DescribeTypeResponse' {autoUpdate} -> autoUpdate) (\s@DescribeTypeResponse' {} a -> s {autoUpdate = a} :: DescribeTypeResponse)
 
 -- | A JSON string that represent the current configuration data for the
--- extension in this account and region.
+-- extension in this account and Region.
 --
 -- To set the configuration data for an extension, use
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html SetTypeConfiguration>.
@@ -786,8 +786,7 @@ describeTypeResponse_configurationSchema = Lens.lens (\DescribeTypeResponse' {co
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
 --
--- To set the default version of an extension, use
--- @ SetTypeDefaultVersion @.
+-- To set the default version of an extension, use SetTypeDefaultVersion.
 describeTypeResponse_defaultVersionId :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.Text)
 describeTypeResponse_defaultVersionId = Lens.lens (\DescribeTypeResponse' {defaultVersionId} -> defaultVersionId) (\s@DescribeTypeResponse' {} a -> s {defaultVersionId = a} :: DescribeTypeResponse)
 
@@ -829,7 +828,7 @@ describeTypeResponse_documentationUrl = Lens.lens (\DescribeTypeResponse' {docum
 describeTypeResponse_executionRoleArn :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.Text)
 describeTypeResponse_executionRoleArn = Lens.lens (\DescribeTypeResponse' {executionRoleArn} -> executionRoleArn) (\s@DescribeTypeResponse' {} a -> s {executionRoleArn = a} :: DescribeTypeResponse)
 
--- | Whether the extension is activated in the account and region.
+-- | Whether the extension is activated in the account and Region.
 --
 -- This only applies to public third-party extensions. For all other
 -- extensions, CloudFormation returns @null@.
@@ -876,16 +875,16 @@ describeTypeResponse_loggingConfig :: Lens.Lens' DescribeTypeResponse (Prelude.M
 describeTypeResponse_loggingConfig = Lens.lens (\DescribeTypeResponse' {loggingConfig} -> loggingConfig) (\s@DescribeTypeResponse' {} a -> s {loggingConfig = a} :: DescribeTypeResponse)
 
 -- | For public extensions that have been activated for this account and
--- region, the Amazon Resource Name (ARN) of the public extension.
+-- Region, the Amazon Resource Name (ARN) of the public extension.
 describeTypeResponse_originalTypeArn :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.Text)
 describeTypeResponse_originalTypeArn = Lens.lens (\DescribeTypeResponse' {originalTypeArn} -> originalTypeArn) (\s@DescribeTypeResponse' {} a -> s {originalTypeArn = a} :: DescribeTypeResponse)
 
 -- | For public extensions that have been activated for this account and
--- region, the type name of the public extension.
+-- Region, the type name of the public extension.
 --
 -- If you specified a @TypeNameAlias@ when enabling the extension in this
--- account and region, CloudFormation treats that alias as the extension\'s
--- type name within the account and region, not the type name of the public
+-- account and Region, CloudFormation treats that alias as the extension\'s
+-- type name within the account and Region, not the type name of the public
 -- extension. For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-alias Specifying aliases to refer to extensions>
 -- in the /CloudFormation User Guide/.

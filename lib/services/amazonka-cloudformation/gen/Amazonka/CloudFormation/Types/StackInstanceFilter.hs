@@ -65,7 +65,8 @@ stackInstanceFilter_values = Lens.lens (\StackInstanceFilter' {values} -> values
 
 instance Prelude.Hashable StackInstanceFilter where
   hashWithSalt _salt StackInstanceFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData StackInstanceFilter where

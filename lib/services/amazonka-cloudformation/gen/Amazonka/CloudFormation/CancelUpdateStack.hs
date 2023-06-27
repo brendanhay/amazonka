@@ -58,7 +58,16 @@ data CancelUpdateStack = CancelUpdateStack'
     -- name. You might retry @CancelUpdateStack@ requests to ensure that
     -- CloudFormation successfully received them.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The name or the unique stack ID that\'s associated with the stack.
+    -- | If you don\'t pass a parameter to @StackName@, the API returns a
+    -- response that describes all resources in the account.
+    --
+    -- The IAM policy below can be added to IAM policies when you want to limit
+    -- resource-level permissions and avoid returning a response when no
+    -- parameter is sent in the request:
+    --
+    -- @{ \"Version\": \"2012-10-17\", \"Statement\": [{ \"Effect\": \"Deny\", \"Action\": \"cloudformation:DescribeStacks\", \"NotResource\": \"arn:aws:cloudformation:*:*:stack\/*\/*\" }] }@
+    --
+    -- The name or the unique stack ID that\'s associated with the stack.
     stackName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,7 +86,16 @@ data CancelUpdateStack = CancelUpdateStack'
 -- name. You might retry @CancelUpdateStack@ requests to ensure that
 -- CloudFormation successfully received them.
 --
--- 'stackName', 'cancelUpdateStack_stackName' - The name or the unique stack ID that\'s associated with the stack.
+-- 'stackName', 'cancelUpdateStack_stackName' - If you don\'t pass a parameter to @StackName@, the API returns a
+-- response that describes all resources in the account.
+--
+-- The IAM policy below can be added to IAM policies when you want to limit
+-- resource-level permissions and avoid returning a response when no
+-- parameter is sent in the request:
+--
+-- @{ \"Version\": \"2012-10-17\", \"Statement\": [{ \"Effect\": \"Deny\", \"Action\": \"cloudformation:DescribeStacks\", \"NotResource\": \"arn:aws:cloudformation:*:*:stack\/*\/*\" }] }@
+--
+-- The name or the unique stack ID that\'s associated with the stack.
 newCancelUpdateStack ::
   -- | 'stackName'
   Prelude.Text ->
@@ -97,7 +115,16 @@ newCancelUpdateStack pStackName_ =
 cancelUpdateStack_clientRequestToken :: Lens.Lens' CancelUpdateStack (Prelude.Maybe Prelude.Text)
 cancelUpdateStack_clientRequestToken = Lens.lens (\CancelUpdateStack' {clientRequestToken} -> clientRequestToken) (\s@CancelUpdateStack' {} a -> s {clientRequestToken = a} :: CancelUpdateStack)
 
--- | The name or the unique stack ID that\'s associated with the stack.
+-- | If you don\'t pass a parameter to @StackName@, the API returns a
+-- response that describes all resources in the account.
+--
+-- The IAM policy below can be added to IAM policies when you want to limit
+-- resource-level permissions and avoid returning a response when no
+-- parameter is sent in the request:
+--
+-- @{ \"Version\": \"2012-10-17\", \"Statement\": [{ \"Effect\": \"Deny\", \"Action\": \"cloudformation:DescribeStacks\", \"NotResource\": \"arn:aws:cloudformation:*:*:stack\/*\/*\" }] }@
+--
+-- The name or the unique stack ID that\'s associated with the stack.
 cancelUpdateStack_stackName :: Lens.Lens' CancelUpdateStack Prelude.Text
 cancelUpdateStack_stackName = Lens.lens (\CancelUpdateStack' {stackName} -> stackName) (\s@CancelUpdateStack' {} a -> s {stackName = a} :: CancelUpdateStack)
 
@@ -112,7 +139,8 @@ instance Core.AWSRequest CancelUpdateStack where
 
 instance Prelude.Hashable CancelUpdateStack where
   hashWithSalt _salt CancelUpdateStack' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` stackName
 
 instance Prelude.NFData CancelUpdateStack where

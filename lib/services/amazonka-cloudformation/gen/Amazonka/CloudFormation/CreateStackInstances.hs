@@ -356,7 +356,8 @@ instance Core.AWSRequest CreateStackInstances where
 
 instance Prelude.Hashable CreateStackInstances where
   hashWithSalt _salt CreateStackInstances' {..} =
-    _salt `Prelude.hashWithSalt` accounts
+    _salt
+      `Prelude.hashWithSalt` accounts
       `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` deploymentTargets
       `Prelude.hashWithSalt` operationId

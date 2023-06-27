@@ -52,6 +52,7 @@ module Amazonka.CloudFormation.DescribeChangeSet
     describeChangeSetResponse_includeNestedStacks,
     describeChangeSetResponse_nextToken,
     describeChangeSetResponse_notificationARNs,
+    describeChangeSetResponse_onStackFailure,
     describeChangeSetResponse_parameters,
     describeChangeSetResponse_parentChangeSetId,
     describeChangeSetResponse_rollbackConfiguration,
@@ -136,22 +137,22 @@ instance Core.AWSPager DescribeChangeSet where
     | Core.stop
         ( rs
             Lens.^? describeChangeSetResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeChangeSetResponse_changes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeChangeSet_nextToken
           Lens..~ rs
           Lens.^? describeChangeSetResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeChangeSet where
   type
@@ -164,12 +165,16 @@ instance Core.AWSRequest DescribeChangeSet where
       "DescribeChangeSetResult"
       ( \s h x ->
           DescribeChangeSetResponse'
-            Prelude.<$> ( x Data..@? "Capabilities" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Capabilities"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "ChangeSetId")
             Prelude.<*> (x Data..@? "ChangeSetName")
-            Prelude.<*> ( x Data..@? "Changes" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Changes"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "CreationTime")
@@ -177,11 +182,15 @@ instance Core.AWSRequest DescribeChangeSet where
             Prelude.<*> (x Data..@? "ExecutionStatus")
             Prelude.<*> (x Data..@? "IncludeNestedStacks")
             Prelude.<*> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "NotificationARNs"
+            Prelude.<*> ( x
+                            Data..@? "NotificationARNs"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+            Prelude.<*> (x Data..@? "OnStackFailure")
+            Prelude.<*> ( x
+                            Data..@? "Parameters"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "ParentChangeSetId")
@@ -190,7 +199,9 @@ instance Core.AWSRequest DescribeChangeSet where
             Prelude.<*> (x Data..@? "StackId")
             Prelude.<*> (x Data..@? "StackName")
             Prelude.<*> (x Data..@? "StatusReason")
-            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Tags"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -199,7 +210,8 @@ instance Core.AWSRequest DescribeChangeSet where
 
 instance Prelude.Hashable DescribeChangeSet where
   hashWithSalt _salt DescribeChangeSet' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stackName
       `Prelude.hashWithSalt` changeSetName
 
@@ -259,6 +271,28 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
     -- | The ARNs of the Amazon Simple Notification Service (Amazon SNS) topics
     -- that will be associated with the stack if you execute the change set.
     notificationARNs :: Prelude.Maybe [Prelude.Text],
+    -- | Determines what action will be taken if stack creation fails. When this
+    -- parameter is specified, the @DisableRollback@ parameter to the
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html ExecuteChangeSet>
+    -- API operation must not be specified. This must be one of these values:
+    --
+    -- -   @DELETE@ - Deletes the change set if the stack creation fails. This
+    --     is only valid when the @ChangeSetType@ parameter is set to @CREATE@.
+    --     If the deletion of the stack fails, the status of the stack is
+    --     @DELETE_FAILED@.
+    --
+    -- -   @DO_NOTHING@ - if the stack creation fails, do nothing. This is
+    --     equivalent to specifying @true@ for the @DisableRollback@ parameter
+    --     to the
+    --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html ExecuteChangeSet>
+    --     API operation.
+    --
+    -- -   @ROLLBACK@ - if the stack creation fails, roll back the stack. This
+    --     is equivalent to specifying @false@ for the @DisableRollback@
+    --     parameter to the
+    --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html ExecuteChangeSet>
+    --     API operation.
+    onStackFailure :: Prelude.Maybe OnStackFailure,
     -- | A list of @Parameter@ structures that describes the input parameters and
     -- their values used to create the change set. For more information, see
     -- the
@@ -330,6 +364,28 @@ data DescribeChangeSetResponse = DescribeChangeSetResponse'
 -- 'notificationARNs', 'describeChangeSetResponse_notificationARNs' - The ARNs of the Amazon Simple Notification Service (Amazon SNS) topics
 -- that will be associated with the stack if you execute the change set.
 --
+-- 'onStackFailure', 'describeChangeSetResponse_onStackFailure' - Determines what action will be taken if stack creation fails. When this
+-- parameter is specified, the @DisableRollback@ parameter to the
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html ExecuteChangeSet>
+-- API operation must not be specified. This must be one of these values:
+--
+-- -   @DELETE@ - Deletes the change set if the stack creation fails. This
+--     is only valid when the @ChangeSetType@ parameter is set to @CREATE@.
+--     If the deletion of the stack fails, the status of the stack is
+--     @DELETE_FAILED@.
+--
+-- -   @DO_NOTHING@ - if the stack creation fails, do nothing. This is
+--     equivalent to specifying @true@ for the @DisableRollback@ parameter
+--     to the
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html ExecuteChangeSet>
+--     API operation.
+--
+-- -   @ROLLBACK@ - if the stack creation fails, roll back the stack. This
+--     is equivalent to specifying @false@ for the @DisableRollback@
+--     parameter to the
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html ExecuteChangeSet>
+--     API operation.
+--
 -- 'parameters', 'describeChangeSetResponse_parameters' - A list of @Parameter@ structures that describes the input parameters and
 -- their values used to create the change set. For more information, see
 -- the
@@ -380,6 +436,7 @@ newDescribeChangeSetResponse pHttpStatus_ pStatus_ =
       includeNestedStacks = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       notificationARNs = Prelude.Nothing,
+      onStackFailure = Prelude.Nothing,
       parameters = Prelude.Nothing,
       parentChangeSetId = Prelude.Nothing,
       rollbackConfiguration = Prelude.Nothing,
@@ -439,6 +496,30 @@ describeChangeSetResponse_nextToken = Lens.lens (\DescribeChangeSetResponse' {ne
 -- that will be associated with the stack if you execute the change set.
 describeChangeSetResponse_notificationARNs :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe [Prelude.Text])
 describeChangeSetResponse_notificationARNs = Lens.lens (\DescribeChangeSetResponse' {notificationARNs} -> notificationARNs) (\s@DescribeChangeSetResponse' {} a -> s {notificationARNs = a} :: DescribeChangeSetResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Determines what action will be taken if stack creation fails. When this
+-- parameter is specified, the @DisableRollback@ parameter to the
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html ExecuteChangeSet>
+-- API operation must not be specified. This must be one of these values:
+--
+-- -   @DELETE@ - Deletes the change set if the stack creation fails. This
+--     is only valid when the @ChangeSetType@ parameter is set to @CREATE@.
+--     If the deletion of the stack fails, the status of the stack is
+--     @DELETE_FAILED@.
+--
+-- -   @DO_NOTHING@ - if the stack creation fails, do nothing. This is
+--     equivalent to specifying @true@ for the @DisableRollback@ parameter
+--     to the
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html ExecuteChangeSet>
+--     API operation.
+--
+-- -   @ROLLBACK@ - if the stack creation fails, roll back the stack. This
+--     is equivalent to specifying @false@ for the @DisableRollback@
+--     parameter to the
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html ExecuteChangeSet>
+--     API operation.
+describeChangeSetResponse_onStackFailure :: Lens.Lens' DescribeChangeSetResponse (Prelude.Maybe OnStackFailure)
+describeChangeSetResponse_onStackFailure = Lens.lens (\DescribeChangeSetResponse' {onStackFailure} -> onStackFailure) (\s@DescribeChangeSetResponse' {} a -> s {onStackFailure = a} :: DescribeChangeSetResponse)
 
 -- | A list of @Parameter@ structures that describes the input parameters and
 -- their values used to create the change set. For more information, see
@@ -504,6 +585,7 @@ instance Prelude.NFData DescribeChangeSetResponse where
       `Prelude.seq` Prelude.rnf includeNestedStacks
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf notificationARNs
+      `Prelude.seq` Prelude.rnf onStackFailure
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf parentChangeSetId
       `Prelude.seq` Prelude.rnf rollbackConfiguration

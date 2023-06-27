@@ -58,6 +58,7 @@ module Amazonka.CloudFormation.CreateChangeSet
     createChangeSet_description,
     createChangeSet_includeNestedStacks,
     createChangeSet_notificationARNs,
+    createChangeSet_onStackFailure,
     createChangeSet_parameters,
     createChangeSet_resourceTypes,
     createChangeSet_resourcesToImport,
@@ -196,6 +197,33 @@ data CreateChangeSet = CreateChangeSet'
     -- (Amazon SNS) topics that CloudFormation associates with the stack. To
     -- remove all associated notification topics, specify an empty list.
     notificationARNs :: Prelude.Maybe [Prelude.Text],
+    -- | Determines what action will be taken if stack creation fails. If this
+    -- parameter is specified, the @DisableRollback@ parameter to the
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html ExecuteChangeSet>
+    -- API operation must not be specified. This must be one of these values:
+    --
+    -- -   @DELETE@ - Deletes the change set if the stack creation fails. This
+    --     is only valid when the @ChangeSetType@ parameter is set to @CREATE@.
+    --     If the deletion of the stack fails, the status of the stack is
+    --     @DELETE_FAILED@.
+    --
+    -- -   @DO_NOTHING@ - if the stack creation fails, do nothing. This is
+    --     equivalent to specifying @true@ for the @DisableRollback@ parameter
+    --     to the
+    --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html ExecuteChangeSet>
+    --     API operation.
+    --
+    -- -   @ROLLBACK@ - if the stack creation fails, roll back the stack. This
+    --     is equivalent to specifying @false@ for the @DisableRollback@
+    --     parameter to the
+    --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html ExecuteChangeSet>
+    --     API operation.
+    --
+    -- For nested stacks, when the @OnStackFailure@ parameter is set to
+    -- @DELETE@ for the change set for the parent stack, any failure in a child
+    -- stack will cause the parent stack creation to fail and all stacks to be
+    -- deleted.
+    onStackFailure :: Prelude.Maybe OnStackFailure,
     -- | A list of @Parameter@ structures that specify input parameters for the
     -- change set. For more information, see the Parameter data type.
     parameters :: Prelude.Maybe [Parameter],
@@ -378,6 +406,33 @@ data CreateChangeSet = CreateChangeSet'
 -- (Amazon SNS) topics that CloudFormation associates with the stack. To
 -- remove all associated notification topics, specify an empty list.
 --
+-- 'onStackFailure', 'createChangeSet_onStackFailure' - Determines what action will be taken if stack creation fails. If this
+-- parameter is specified, the @DisableRollback@ parameter to the
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html ExecuteChangeSet>
+-- API operation must not be specified. This must be one of these values:
+--
+-- -   @DELETE@ - Deletes the change set if the stack creation fails. This
+--     is only valid when the @ChangeSetType@ parameter is set to @CREATE@.
+--     If the deletion of the stack fails, the status of the stack is
+--     @DELETE_FAILED@.
+--
+-- -   @DO_NOTHING@ - if the stack creation fails, do nothing. This is
+--     equivalent to specifying @true@ for the @DisableRollback@ parameter
+--     to the
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html ExecuteChangeSet>
+--     API operation.
+--
+-- -   @ROLLBACK@ - if the stack creation fails, roll back the stack. This
+--     is equivalent to specifying @false@ for the @DisableRollback@
+--     parameter to the
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html ExecuteChangeSet>
+--     API operation.
+--
+-- For nested stacks, when the @OnStackFailure@ parameter is set to
+-- @DELETE@ for the change set for the parent stack, any failure in a child
+-- stack will cause the parent stack creation to fail and all stacks to be
+-- deleted.
+--
 -- 'parameters', 'createChangeSet_parameters' - A list of @Parameter@ structures that specify input parameters for the
 -- change set. For more information, see the Parameter data type.
 --
@@ -459,6 +514,7 @@ newCreateChangeSet pStackName_ pChangeSetName_ =
       description = Prelude.Nothing,
       includeNestedStacks = Prelude.Nothing,
       notificationARNs = Prelude.Nothing,
+      onStackFailure = Prelude.Nothing,
       parameters = Prelude.Nothing,
       resourceTypes = Prelude.Nothing,
       resourcesToImport = Prelude.Nothing,
@@ -587,6 +643,35 @@ createChangeSet_includeNestedStacks = Lens.lens (\CreateChangeSet' {includeNeste
 createChangeSet_notificationARNs :: Lens.Lens' CreateChangeSet (Prelude.Maybe [Prelude.Text])
 createChangeSet_notificationARNs = Lens.lens (\CreateChangeSet' {notificationARNs} -> notificationARNs) (\s@CreateChangeSet' {} a -> s {notificationARNs = a} :: CreateChangeSet) Prelude.. Lens.mapping Lens.coerced
 
+-- | Determines what action will be taken if stack creation fails. If this
+-- parameter is specified, the @DisableRollback@ parameter to the
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html ExecuteChangeSet>
+-- API operation must not be specified. This must be one of these values:
+--
+-- -   @DELETE@ - Deletes the change set if the stack creation fails. This
+--     is only valid when the @ChangeSetType@ parameter is set to @CREATE@.
+--     If the deletion of the stack fails, the status of the stack is
+--     @DELETE_FAILED@.
+--
+-- -   @DO_NOTHING@ - if the stack creation fails, do nothing. This is
+--     equivalent to specifying @true@ for the @DisableRollback@ parameter
+--     to the
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html ExecuteChangeSet>
+--     API operation.
+--
+-- -   @ROLLBACK@ - if the stack creation fails, roll back the stack. This
+--     is equivalent to specifying @false@ for the @DisableRollback@
+--     parameter to the
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html ExecuteChangeSet>
+--     API operation.
+--
+-- For nested stacks, when the @OnStackFailure@ parameter is set to
+-- @DELETE@ for the change set for the parent stack, any failure in a child
+-- stack will cause the parent stack creation to fail and all stacks to be
+-- deleted.
+createChangeSet_onStackFailure :: Lens.Lens' CreateChangeSet (Prelude.Maybe OnStackFailure)
+createChangeSet_onStackFailure = Lens.lens (\CreateChangeSet' {onStackFailure} -> onStackFailure) (\s@CreateChangeSet' {} a -> s {onStackFailure = a} :: CreateChangeSet)
+
 -- | A list of @Parameter@ structures that specify input parameters for the
 -- change set. For more information, see the Parameter data type.
 createChangeSet_parameters :: Lens.Lens' CreateChangeSet (Prelude.Maybe [Parameter])
@@ -695,12 +780,14 @@ instance Core.AWSRequest CreateChangeSet where
 
 instance Prelude.Hashable CreateChangeSet where
   hashWithSalt _salt CreateChangeSet' {..} =
-    _salt `Prelude.hashWithSalt` capabilities
+    _salt
+      `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` changeSetType
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` includeNestedStacks
       `Prelude.hashWithSalt` notificationARNs
+      `Prelude.hashWithSalt` onStackFailure
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` resourceTypes
       `Prelude.hashWithSalt` resourcesToImport
@@ -721,6 +808,7 @@ instance Prelude.NFData CreateChangeSet where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf includeNestedStacks
       `Prelude.seq` Prelude.rnf notificationARNs
+      `Prelude.seq` Prelude.rnf onStackFailure
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf resourceTypes
       `Prelude.seq` Prelude.rnf resourcesToImport
@@ -758,6 +846,7 @@ instance Data.ToQuery CreateChangeSet where
             ( Data.toQueryList "member"
                 Prelude.<$> notificationARNs
             ),
+        "OnStackFailure" Data.=: onStackFailure,
         "Parameters"
           Data.=: Data.toQuery
             (Data.toQueryList "member" Prelude.<$> parameters),

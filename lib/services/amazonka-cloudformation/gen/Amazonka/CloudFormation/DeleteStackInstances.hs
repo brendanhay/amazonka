@@ -283,7 +283,8 @@ instance Core.AWSRequest DeleteStackInstances where
 
 instance Prelude.Hashable DeleteStackInstances where
   hashWithSalt _salt DeleteStackInstances' {..} =
-    _salt `Prelude.hashWithSalt` accounts
+    _salt
+      `Prelude.hashWithSalt` accounts
       `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` deploymentTargets
       `Prelude.hashWithSalt` operationId

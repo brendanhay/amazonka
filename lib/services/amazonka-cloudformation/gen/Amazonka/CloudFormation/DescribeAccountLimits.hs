@@ -89,22 +89,22 @@ instance Core.AWSPager DescribeAccountLimits where
     | Core.stop
         ( rs
             Lens.^? describeAccountLimitsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAccountLimitsResponse_accountLimits
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeAccountLimits_nextToken
           Lens..~ rs
           Lens.^? describeAccountLimitsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAccountLimits where
   type
@@ -117,7 +117,9 @@ instance Core.AWSRequest DescribeAccountLimits where
       "DescribeAccountLimitsResult"
       ( \s h x ->
           DescribeAccountLimitsResponse'
-            Prelude.<$> ( x Data..@? "AccountLimits" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "AccountLimits"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")

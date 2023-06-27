@@ -136,7 +136,8 @@ instance Core.AWSRequest RollbackStack where
 
 instance Prelude.Hashable RollbackStack where
   hashWithSalt _salt RollbackStack' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` roleARN
       `Prelude.hashWithSalt` stackName
 

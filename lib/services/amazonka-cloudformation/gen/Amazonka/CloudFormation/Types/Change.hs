@@ -92,7 +92,8 @@ instance Data.FromXML Change where
 
 instance Prelude.Hashable Change where
   hashWithSalt _salt Change' {..} =
-    _salt `Prelude.hashWithSalt` hookInvocationCount
+    _salt
+      `Prelude.hashWithSalt` hookInvocationCount
       `Prelude.hashWithSalt` resourceChange
       `Prelude.hashWithSalt` type'
 

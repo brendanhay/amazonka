@@ -222,22 +222,22 @@ instance Core.AWSPager ListStackInstances where
     | Core.stop
         ( rs
             Lens.^? listStackInstancesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listStackInstancesResponse_summaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listStackInstances_nextToken
           Lens..~ rs
           Lens.^? listStackInstancesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStackInstances where
   type
@@ -251,7 +251,9 @@ instance Core.AWSRequest ListStackInstances where
       ( \s h x ->
           ListStackInstancesResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "Summaries" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Summaries"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -259,7 +261,8 @@ instance Core.AWSRequest ListStackInstances where
 
 instance Prelude.Hashable ListStackInstances where
   hashWithSalt _salt ListStackInstances' {..} =
-    _salt `Prelude.hashWithSalt` callAs
+    _salt
+      `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

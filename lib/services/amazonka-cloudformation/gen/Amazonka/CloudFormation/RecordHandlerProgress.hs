@@ -181,7 +181,8 @@ instance Core.AWSRequest RecordHandlerProgress where
 
 instance Prelude.Hashable RecordHandlerProgress where
   hashWithSalt _salt RecordHandlerProgress' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` currentOperationStatus
       `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` resourceModel

@@ -68,7 +68,7 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newContinueUpdateRollback' smart constructor.
 data ContinueUpdateRollback = ContinueUpdateRollback'
   { -- | A unique identifier for this @ContinueUpdateRollback@ request. Specify
-    -- this token if you plan to retry requests so that CloudFormationknows
+    -- this token if you plan to retry requests so that CloudFormation knows
     -- that you\'re not attempting to continue the rollback to a stack with the
     -- same name. You might retry @ContinueUpdateRollback@ requests to ensure
     -- that CloudFormation successfully received them.
@@ -143,7 +143,7 @@ data ContinueUpdateRollback = ContinueUpdateRollback'
 -- for backwards compatibility:
 --
 -- 'clientRequestToken', 'continueUpdateRollback_clientRequestToken' - A unique identifier for this @ContinueUpdateRollback@ request. Specify
--- this token if you plan to retry requests so that CloudFormationknows
+-- this token if you plan to retry requests so that CloudFormation knows
 -- that you\'re not attempting to continue the rollback to a stack with the
 -- same name. You might retry @ContinueUpdateRollback@ requests to ensure
 -- that CloudFormation successfully received them.
@@ -219,7 +219,7 @@ newContinueUpdateRollback pStackName_ =
     }
 
 -- | A unique identifier for this @ContinueUpdateRollback@ request. Specify
--- this token if you plan to retry requests so that CloudFormationknows
+-- this token if you plan to retry requests so that CloudFormation knows
 -- that you\'re not attempting to continue the rollback to a stack with the
 -- same name. You might retry @ContinueUpdateRollback@ requests to ensure
 -- that CloudFormation successfully received them.
@@ -306,7 +306,8 @@ instance Core.AWSRequest ContinueUpdateRollback where
 
 instance Prelude.Hashable ContinueUpdateRollback where
   hashWithSalt _salt ContinueUpdateRollback' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` resourcesToSkip
       `Prelude.hashWithSalt` roleARN
       `Prelude.hashWithSalt` stackName

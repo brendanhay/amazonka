@@ -796,7 +796,8 @@ instance Core.AWSRequest UpdateStack where
 
 instance Prelude.Hashable UpdateStack where
   hashWithSalt _salt UpdateStack' {..} =
-    _salt `Prelude.hashWithSalt` capabilities
+    _salt
+      `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` disableRollback
       `Prelude.hashWithSalt` notificationARNs

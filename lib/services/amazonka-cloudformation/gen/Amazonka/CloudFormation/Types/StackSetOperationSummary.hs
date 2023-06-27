@@ -52,6 +52,12 @@ data StackSetOperationSummary = StackSetOperationSummary'
     endTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The unique ID of the stack set operation.
     operationId :: Prelude.Maybe Prelude.Text,
+    -- | The user-specified preferences for how CloudFormation performs a stack
+    -- set operation.
+    --
+    -- For more information about maximum concurrent accounts and failure
+    -- tolerance, see
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options>.
     operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
     -- | The overall status of the operation.
     --
@@ -115,7 +121,12 @@ data StackSetOperationSummary = StackSetOperationSummary'
 --
 -- 'operationId', 'stackSetOperationSummary_operationId' - The unique ID of the stack set operation.
 --
--- 'operationPreferences', 'stackSetOperationSummary_operationPreferences' - Undocumented member.
+-- 'operationPreferences', 'stackSetOperationSummary_operationPreferences' - The user-specified preferences for how CloudFormation performs a stack
+-- set operation.
+--
+-- For more information about maximum concurrent accounts and failure
+-- tolerance, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options>.
 --
 -- 'status', 'stackSetOperationSummary_status' - The overall status of the operation.
 --
@@ -189,7 +200,12 @@ stackSetOperationSummary_endTimestamp = Lens.lens (\StackSetOperationSummary' {e
 stackSetOperationSummary_operationId :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe Prelude.Text)
 stackSetOperationSummary_operationId = Lens.lens (\StackSetOperationSummary' {operationId} -> operationId) (\s@StackSetOperationSummary' {} a -> s {operationId = a} :: StackSetOperationSummary)
 
--- | Undocumented member.
+-- | The user-specified preferences for how CloudFormation performs a stack
+-- set operation.
+--
+-- For more information about maximum concurrent accounts and failure
+-- tolerance, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options>.
 stackSetOperationSummary_operationPreferences :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe StackSetOperationPreferences)
 stackSetOperationSummary_operationPreferences = Lens.lens (\StackSetOperationSummary' {operationPreferences} -> operationPreferences) (\s@StackSetOperationSummary' {} a -> s {operationPreferences = a} :: StackSetOperationSummary)
 
@@ -245,7 +261,8 @@ instance Data.FromXML StackSetOperationSummary where
 
 instance Prelude.Hashable StackSetOperationSummary where
   hashWithSalt _salt StackSetOperationSummary' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` endTimestamp
       `Prelude.hashWithSalt` operationId

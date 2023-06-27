@@ -91,8 +91,7 @@ data StackSetOperationPreferences = StackSetOperationPreferences'
     -- | The concurrency type of deploying StackSets operations in Regions, could
     -- be in parallel or one Region at a time.
     regionConcurrencyType :: Prelude.Maybe RegionConcurrencyType,
-    -- | The order of the Regions in where you want to perform the stack
-    -- operation.
+    -- | The order of the Regions where you want to perform the stack operation.
     regionOrder :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -162,8 +161,7 @@ data StackSetOperationPreferences = StackSetOperationPreferences'
 -- 'regionConcurrencyType', 'stackSetOperationPreferences_regionConcurrencyType' - The concurrency type of deploying StackSets operations in Regions, could
 -- be in parallel or one Region at a time.
 --
--- 'regionOrder', 'stackSetOperationPreferences_regionOrder' - The order of the Regions in where you want to perform the stack
--- operation.
+-- 'regionOrder', 'stackSetOperationPreferences_regionOrder' - The order of the Regions where you want to perform the stack operation.
 newStackSetOperationPreferences ::
   StackSetOperationPreferences
 newStackSetOperationPreferences =
@@ -244,8 +242,7 @@ stackSetOperationPreferences_maxConcurrentPercentage = Lens.lens (\StackSetOpera
 stackSetOperationPreferences_regionConcurrencyType :: Lens.Lens' StackSetOperationPreferences (Prelude.Maybe RegionConcurrencyType)
 stackSetOperationPreferences_regionConcurrencyType = Lens.lens (\StackSetOperationPreferences' {regionConcurrencyType} -> regionConcurrencyType) (\s@StackSetOperationPreferences' {} a -> s {regionConcurrencyType = a} :: StackSetOperationPreferences)
 
--- | The order of the Regions in where you want to perform the stack
--- operation.
+-- | The order of the Regions where you want to perform the stack operation.
 stackSetOperationPreferences_regionOrder :: Lens.Lens' StackSetOperationPreferences (Prelude.Maybe [Prelude.Text])
 stackSetOperationPreferences_regionOrder = Lens.lens (\StackSetOperationPreferences' {regionOrder} -> regionOrder) (\s@StackSetOperationPreferences' {} a -> s {regionOrder = a} :: StackSetOperationPreferences) Prelude.. Lens.mapping Lens.coerced
 
@@ -257,7 +254,9 @@ instance Data.FromXML StackSetOperationPreferences where
       Prelude.<*> (x Data..@? "MaxConcurrentCount")
       Prelude.<*> (x Data..@? "MaxConcurrentPercentage")
       Prelude.<*> (x Data..@? "RegionConcurrencyType")
-      Prelude.<*> ( x Data..@? "RegionOrder" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "RegionOrder"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
@@ -266,7 +265,8 @@ instance
     StackSetOperationPreferences
   where
   hashWithSalt _salt StackSetOperationPreferences' {..} =
-    _salt `Prelude.hashWithSalt` failureToleranceCount
+    _salt
+      `Prelude.hashWithSalt` failureToleranceCount
       `Prelude.hashWithSalt` failureTolerancePercentage
       `Prelude.hashWithSalt` maxConcurrentCount
       `Prelude.hashWithSalt` maxConcurrentPercentage

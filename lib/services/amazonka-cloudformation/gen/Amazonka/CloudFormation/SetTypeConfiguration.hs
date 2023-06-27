@@ -21,11 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Specifies the configuration data for a registered CloudFormation
--- extension, in the given account and region.
+-- extension, in the given account and Region.
 --
 -- To view the current configuration data for an extension, refer to the
 -- @ConfigurationSchema@ element of
--- <AWSCloudFormation/latest/APIReference/API_DescribeType.html DescribeType>.
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html DescribeType>.
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration Configuring extensions at the account level>
 -- in the /CloudFormation User Guide/.
@@ -78,14 +78,14 @@ data SetTypeConfiguration = SetTypeConfiguration'
     -- @TypeName@.
     type' :: Prelude.Maybe ThirdPartyType,
     -- | The Amazon Resource Name (ARN) for the extension, in this account and
-    -- region.
+    -- Region.
     --
     -- For public extensions, this will be the ARN assigned when you
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html activate the type>
-    -- in this account and region. For private extensions, this will be the ARN
+    -- in this account and Region. For private extensions, this will be the ARN
     -- assigned when you
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html register the type>
-    -- in this account and region.
+    -- in this account and Region.
     --
     -- Do not include the extension versions suffix at the end of the ARN. You
     -- can set the configuration for an extension, but not for a specific
@@ -96,11 +96,11 @@ data SetTypeConfiguration = SetTypeConfiguration'
     -- Conditional: You must specify @ConfigurationArn@, or @Type@ and
     -- @TypeName@.
     typeName :: Prelude.Maybe Prelude.Text,
-    -- | The configuration data for the extension, in this account and region.
+    -- | The configuration data for the extension, in this account and Region.
     --
     -- The configuration data must be formatted as JSON, and validate against
     -- the schema returned in the @ConfigurationSchema@ response element of
-    -- <AWSCloudFormation/latest/APIReference/API_DescribeType.html API_DescribeType>.
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html DescribeType>.
     -- For more information, see
     -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html#resource-type-howto-configuration Defining account-level configuration data for an extension>
     -- in the /CloudFormation CLI User Guide/.
@@ -127,14 +127,14 @@ data SetTypeConfiguration = SetTypeConfiguration'
 -- @TypeName@.
 --
 -- 'typeArn', 'setTypeConfiguration_typeArn' - The Amazon Resource Name (ARN) for the extension, in this account and
--- region.
+-- Region.
 --
 -- For public extensions, this will be the ARN assigned when you
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html activate the type>
--- in this account and region. For private extensions, this will be the ARN
+-- in this account and Region. For private extensions, this will be the ARN
 -- assigned when you
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html register the type>
--- in this account and region.
+-- in this account and Region.
 --
 -- Do not include the extension versions suffix at the end of the ARN. You
 -- can set the configuration for an extension, but not for a specific
@@ -145,11 +145,11 @@ data SetTypeConfiguration = SetTypeConfiguration'
 -- Conditional: You must specify @ConfigurationArn@, or @Type@ and
 -- @TypeName@.
 --
--- 'configuration', 'setTypeConfiguration_configuration' - The configuration data for the extension, in this account and region.
+-- 'configuration', 'setTypeConfiguration_configuration' - The configuration data for the extension, in this account and Region.
 --
 -- The configuration data must be formatted as JSON, and validate against
 -- the schema returned in the @ConfigurationSchema@ response element of
--- <AWSCloudFormation/latest/APIReference/API_DescribeType.html API_DescribeType>.
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html DescribeType>.
 -- For more information, see
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html#resource-type-howto-configuration Defining account-level configuration data for an extension>
 -- in the /CloudFormation CLI User Guide/.
@@ -182,14 +182,14 @@ setTypeConfiguration_type :: Lens.Lens' SetTypeConfiguration (Prelude.Maybe Thir
 setTypeConfiguration_type = Lens.lens (\SetTypeConfiguration' {type'} -> type') (\s@SetTypeConfiguration' {} a -> s {type' = a} :: SetTypeConfiguration)
 
 -- | The Amazon Resource Name (ARN) for the extension, in this account and
--- region.
+-- Region.
 --
 -- For public extensions, this will be the ARN assigned when you
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html activate the type>
--- in this account and region. For private extensions, this will be the ARN
+-- in this account and Region. For private extensions, this will be the ARN
 -- assigned when you
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html register the type>
--- in this account and region.
+-- in this account and Region.
 --
 -- Do not include the extension versions suffix at the end of the ARN. You
 -- can set the configuration for an extension, but not for a specific
@@ -204,11 +204,11 @@ setTypeConfiguration_typeArn = Lens.lens (\SetTypeConfiguration' {typeArn} -> ty
 setTypeConfiguration_typeName :: Lens.Lens' SetTypeConfiguration (Prelude.Maybe Prelude.Text)
 setTypeConfiguration_typeName = Lens.lens (\SetTypeConfiguration' {typeName} -> typeName) (\s@SetTypeConfiguration' {} a -> s {typeName = a} :: SetTypeConfiguration)
 
--- | The configuration data for the extension, in this account and region.
+-- | The configuration data for the extension, in this account and Region.
 --
 -- The configuration data must be formatted as JSON, and validate against
 -- the schema returned in the @ConfigurationSchema@ response element of
--- <AWSCloudFormation/latest/APIReference/API_DescribeType.html API_DescribeType>.
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html DescribeType>.
 -- For more information, see
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html#resource-type-howto-configuration Defining account-level configuration data for an extension>
 -- in the /CloudFormation CLI User Guide/.
@@ -232,7 +232,8 @@ instance Core.AWSRequest SetTypeConfiguration where
 
 instance Prelude.Hashable SetTypeConfiguration where
   hashWithSalt _salt SetTypeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` configurationAlias
+    _salt
+      `Prelude.hashWithSalt` configurationAlias
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` typeArn
       `Prelude.hashWithSalt` typeName
@@ -269,7 +270,7 @@ instance Data.ToQuery SetTypeConfiguration where
 -- | /See:/ 'newSetTypeConfigurationResponse' smart constructor.
 data SetTypeConfigurationResponse = SetTypeConfigurationResponse'
   { -- | The Amazon Resource Name (ARN) for the configuration data, in this
-    -- account and region.
+    -- account and Region.
     --
     -- Conditional: You must specify @ConfigurationArn@, or @Type@ and
     -- @TypeName@.
@@ -288,7 +289,7 @@ data SetTypeConfigurationResponse = SetTypeConfigurationResponse'
 -- for backwards compatibility:
 --
 -- 'configurationArn', 'setTypeConfigurationResponse_configurationArn' - The Amazon Resource Name (ARN) for the configuration data, in this
--- account and region.
+-- account and Region.
 --
 -- Conditional: You must specify @ConfigurationArn@, or @Type@ and
 -- @TypeName@.
@@ -306,7 +307,7 @@ newSetTypeConfigurationResponse pHttpStatus_ =
     }
 
 -- | The Amazon Resource Name (ARN) for the configuration data, in this
--- account and region.
+-- account and Region.
 --
 -- Conditional: You must specify @ConfigurationArn@, or @Type@ and
 -- @TypeName@.

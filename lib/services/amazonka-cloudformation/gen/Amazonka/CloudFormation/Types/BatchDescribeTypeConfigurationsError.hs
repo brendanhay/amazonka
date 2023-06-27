@@ -34,6 +34,8 @@ data BatchDescribeTypeConfigurationsError = BatchDescribeTypeConfigurationsError
     errorCode :: Prelude.Maybe Prelude.Text,
     -- | The error message.
     errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | Identifying information for the configuration of a CloudFormation
+    -- extension.
     typeConfigurationIdentifier :: Prelude.Maybe TypeConfigurationIdentifier
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,7 +52,8 @@ data BatchDescribeTypeConfigurationsError = BatchDescribeTypeConfigurationsError
 --
 -- 'errorMessage', 'batchDescribeTypeConfigurationsError_errorMessage' - The error message.
 --
--- 'typeConfigurationIdentifier', 'batchDescribeTypeConfigurationsError_typeConfigurationIdentifier' - Undocumented member.
+-- 'typeConfigurationIdentifier', 'batchDescribeTypeConfigurationsError_typeConfigurationIdentifier' - Identifying information for the configuration of a CloudFormation
+-- extension.
 newBatchDescribeTypeConfigurationsError ::
   BatchDescribeTypeConfigurationsError
 newBatchDescribeTypeConfigurationsError =
@@ -70,7 +73,8 @@ batchDescribeTypeConfigurationsError_errorCode = Lens.lens (\BatchDescribeTypeCo
 batchDescribeTypeConfigurationsError_errorMessage :: Lens.Lens' BatchDescribeTypeConfigurationsError (Prelude.Maybe Prelude.Text)
 batchDescribeTypeConfigurationsError_errorMessage = Lens.lens (\BatchDescribeTypeConfigurationsError' {errorMessage} -> errorMessage) (\s@BatchDescribeTypeConfigurationsError' {} a -> s {errorMessage = a} :: BatchDescribeTypeConfigurationsError)
 
--- | Undocumented member.
+-- | Identifying information for the configuration of a CloudFormation
+-- extension.
 batchDescribeTypeConfigurationsError_typeConfigurationIdentifier :: Lens.Lens' BatchDescribeTypeConfigurationsError (Prelude.Maybe TypeConfigurationIdentifier)
 batchDescribeTypeConfigurationsError_typeConfigurationIdentifier = Lens.lens (\BatchDescribeTypeConfigurationsError' {typeConfigurationIdentifier} -> typeConfigurationIdentifier) (\s@BatchDescribeTypeConfigurationsError' {} a -> s {typeConfigurationIdentifier = a} :: BatchDescribeTypeConfigurationsError)
 
@@ -91,7 +95,8 @@ instance
   hashWithSalt
     _salt
     BatchDescribeTypeConfigurationsError' {..} =
-      _salt `Prelude.hashWithSalt` errorCode
+      _salt
+        `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` typeConfigurationIdentifier
 

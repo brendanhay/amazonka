@@ -41,14 +41,14 @@ data TypeVersionSummary = TypeVersionSummary'
     -- extensions, CloudFormation returns @null@.
     isDefaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | For public extensions that have been activated for this account and
-    -- region, the version of the public extension to be used for
-    -- CloudFormation operations in this account and region. For any extensions
+    -- Region, the version of the public extension to be used for
+    -- CloudFormation operations in this account and Region. For any extensions
     -- other than activated third-arty extensions, CloudFormation returns
     -- @null@.
     --
     -- How you specified @AutoUpdate@ when enabling the extension affects
     -- whether CloudFormation automatically updates the extension in this
-    -- account and region when a new version is released. For more information,
+    -- account and Region when a new version is released. For more information,
     -- see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
     -- in the /CloudFormation User Guide/.
@@ -85,14 +85,14 @@ data TypeVersionSummary = TypeVersionSummary'
 -- extensions, CloudFormation returns @null@.
 --
 -- 'publicVersionNumber', 'typeVersionSummary_publicVersionNumber' - For public extensions that have been activated for this account and
--- region, the version of the public extension to be used for
--- CloudFormation operations in this account and region. For any extensions
+-- Region, the version of the public extension to be used for
+-- CloudFormation operations in this account and Region. For any extensions
 -- other than activated third-arty extensions, CloudFormation returns
 -- @null@.
 --
 -- How you specified @AutoUpdate@ when enabling the extension affects
 -- whether CloudFormation automatically updates the extension in this
--- account and region when a new version is released. For more information,
+-- account and Region when a new version is released. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
 -- in the /CloudFormation User Guide/.
@@ -137,14 +137,14 @@ typeVersionSummary_isDefaultVersion :: Lens.Lens' TypeVersionSummary (Prelude.Ma
 typeVersionSummary_isDefaultVersion = Lens.lens (\TypeVersionSummary' {isDefaultVersion} -> isDefaultVersion) (\s@TypeVersionSummary' {} a -> s {isDefaultVersion = a} :: TypeVersionSummary)
 
 -- | For public extensions that have been activated for this account and
--- region, the version of the public extension to be used for
--- CloudFormation operations in this account and region. For any extensions
+-- Region, the version of the public extension to be used for
+-- CloudFormation operations in this account and Region. For any extensions
 -- other than activated third-arty extensions, CloudFormation returns
 -- @null@.
 --
 -- How you specified @AutoUpdate@ when enabling the extension affects
 -- whether CloudFormation automatically updates the extension in this
--- account and region when a new version is released. For more information,
+-- account and Region when a new version is released. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
 -- in the /CloudFormation User Guide/.
@@ -183,7 +183,8 @@ instance Data.FromXML TypeVersionSummary where
 
 instance Prelude.Hashable TypeVersionSummary where
   hashWithSalt _salt TypeVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` isDefaultVersion
       `Prelude.hashWithSalt` publicVersionNumber

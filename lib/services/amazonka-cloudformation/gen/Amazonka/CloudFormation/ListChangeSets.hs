@@ -104,21 +104,22 @@ instance Core.AWSPager ListChangeSets where
     | Core.stop
         ( rs
             Lens.^? listChangeSetsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listChangeSetsResponse_summaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listChangeSets_nextToken
           Lens..~ rs
-          Lens.^? listChangeSetsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listChangeSetsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListChangeSets where
   type
@@ -132,7 +133,9 @@ instance Core.AWSRequest ListChangeSets where
       ( \s h x ->
           ListChangeSetsResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "Summaries" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Summaries"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -140,7 +143,8 @@ instance Core.AWSRequest ListChangeSets where
 
 instance Prelude.Hashable ListChangeSets where
   hashWithSalt _salt ListChangeSets' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stackName
 
 instance Prelude.NFData ListChangeSets where

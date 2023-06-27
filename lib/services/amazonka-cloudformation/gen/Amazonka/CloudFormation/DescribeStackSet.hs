@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the description of the specified stack set.
+-- Returns the description of the specified StackSet.
 module Amazonka.CloudFormation.DescribeStackSet
   ( -- * Creating a Request
     DescribeStackSet (..),
@@ -148,7 +148,8 @@ instance Core.AWSRequest DescribeStackSet where
 
 instance Prelude.Hashable DescribeStackSet where
   hashWithSalt _salt DescribeStackSet' {..} =
-    _salt `Prelude.hashWithSalt` callAs
+    _salt
+      `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` stackSetName
 
 instance Prelude.NFData DescribeStackSet where

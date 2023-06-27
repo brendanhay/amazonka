@@ -33,7 +33,7 @@ data StackSummary = StackSummary'
   { -- | The time the stack was deleted.
     deletionTime :: Prelude.Maybe Data.ISO8601,
     -- | Summarizes information about whether a stack\'s actual configuration
-    -- differs, or has /drifted/, from it\'s expected configuration, as defined
+    -- differs, or has /drifted/, from its expected configuration, as defined
     -- in the stack template and any values specified as template parameters.
     -- For more information, see
     -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
@@ -83,7 +83,7 @@ data StackSummary = StackSummary'
 -- 'deletionTime', 'stackSummary_deletionTime' - The time the stack was deleted.
 --
 -- 'driftInformation', 'stackSummary_driftInformation' - Summarizes information about whether a stack\'s actual configuration
--- differs, or has /drifted/, from it\'s expected configuration, as defined
+-- differs, or has /drifted/, from its expected configuration, as defined
 -- in the stack template and any values specified as template parameters.
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
@@ -149,7 +149,7 @@ stackSummary_deletionTime :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.UTCT
 stackSummary_deletionTime = Lens.lens (\StackSummary' {deletionTime} -> deletionTime) (\s@StackSummary' {} a -> s {deletionTime = a} :: StackSummary) Prelude.. Lens.mapping Data._Time
 
 -- | Summarizes information about whether a stack\'s actual configuration
--- differs, or has /drifted/, from it\'s expected configuration, as defined
+-- differs, or has /drifted/, from its expected configuration, as defined
 -- in the stack template and any values specified as template parameters.
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
@@ -222,7 +222,8 @@ instance Data.FromXML StackSummary where
 
 instance Prelude.Hashable StackSummary where
   hashWithSalt _salt StackSummary' {..} =
-    _salt `Prelude.hashWithSalt` deletionTime
+    _salt
+      `Prelude.hashWithSalt` deletionTime
       `Prelude.hashWithSalt` driftInformation
       `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` parentId

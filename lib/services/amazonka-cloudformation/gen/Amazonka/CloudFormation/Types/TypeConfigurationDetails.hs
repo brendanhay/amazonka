@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Detailed information concerning the specification of a CloudFormation
--- extension in a given account and region.
+-- extension in a given account and Region.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration Configuring extensions at the account level>
@@ -37,10 +37,10 @@ data TypeConfigurationDetails = TypeConfigurationDetails'
     -- the configuration was set.
     alias :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the configuration data, in this
-    -- account and region.
+    -- account and Region.
     arn :: Prelude.Maybe Prelude.Text,
     -- | A JSON string specifying the configuration data for the extension, in
-    -- this account and region.
+    -- this account and Region.
     --
     -- If a configuration hasn\'t been set for a specified extension,
     -- CloudFormation returns @{}@.
@@ -54,14 +54,14 @@ data TypeConfigurationDetails = TypeConfigurationDetails'
     -- CloudFormation returns @null@.
     lastUpdated :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon Resource Name (ARN) for the extension, in this account and
-    -- region.
+    -- Region.
     --
     -- For public extensions, this will be the ARN assigned when you
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html activate the type>
-    -- in this account and region. For private extensions, this will be the ARN
+    -- in this account and Region. For private extensions, this will be the ARN
     -- assigned when you
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html register the type>
-    -- in this account and region.
+    -- in this account and Region.
     typeArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the extension.
     typeName :: Prelude.Maybe Prelude.Text
@@ -80,10 +80,10 @@ data TypeConfigurationDetails = TypeConfigurationDetails'
 -- the configuration was set.
 --
 -- 'arn', 'typeConfigurationDetails_arn' - The Amazon Resource Name (ARN) for the configuration data, in this
--- account and region.
+-- account and Region.
 --
 -- 'configuration', 'typeConfigurationDetails_configuration' - A JSON string specifying the configuration data for the extension, in
--- this account and region.
+-- this account and Region.
 --
 -- If a configuration hasn\'t been set for a specified extension,
 -- CloudFormation returns @{}@.
@@ -97,14 +97,14 @@ data TypeConfigurationDetails = TypeConfigurationDetails'
 -- CloudFormation returns @null@.
 --
 -- 'typeArn', 'typeConfigurationDetails_typeArn' - The Amazon Resource Name (ARN) for the extension, in this account and
--- region.
+-- Region.
 --
 -- For public extensions, this will be the ARN assigned when you
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html activate the type>
--- in this account and region. For private extensions, this will be the ARN
+-- in this account and Region. For private extensions, this will be the ARN
 -- assigned when you
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html register the type>
--- in this account and region.
+-- in this account and Region.
 --
 -- 'typeName', 'typeConfigurationDetails_typeName' - The name of the extension.
 newTypeConfigurationDetails ::
@@ -126,12 +126,12 @@ typeConfigurationDetails_alias :: Lens.Lens' TypeConfigurationDetails (Prelude.M
 typeConfigurationDetails_alias = Lens.lens (\TypeConfigurationDetails' {alias} -> alias) (\s@TypeConfigurationDetails' {} a -> s {alias = a} :: TypeConfigurationDetails)
 
 -- | The Amazon Resource Name (ARN) for the configuration data, in this
--- account and region.
+-- account and Region.
 typeConfigurationDetails_arn :: Lens.Lens' TypeConfigurationDetails (Prelude.Maybe Prelude.Text)
 typeConfigurationDetails_arn = Lens.lens (\TypeConfigurationDetails' {arn} -> arn) (\s@TypeConfigurationDetails' {} a -> s {arn = a} :: TypeConfigurationDetails)
 
 -- | A JSON string specifying the configuration data for the extension, in
--- this account and region.
+-- this account and Region.
 --
 -- If a configuration hasn\'t been set for a specified extension,
 -- CloudFormation returns @{}@.
@@ -151,14 +151,14 @@ typeConfigurationDetails_lastUpdated :: Lens.Lens' TypeConfigurationDetails (Pre
 typeConfigurationDetails_lastUpdated = Lens.lens (\TypeConfigurationDetails' {lastUpdated} -> lastUpdated) (\s@TypeConfigurationDetails' {} a -> s {lastUpdated = a} :: TypeConfigurationDetails) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) for the extension, in this account and
--- region.
+-- Region.
 --
 -- For public extensions, this will be the ARN assigned when you
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html activate the type>
--- in this account and region. For private extensions, this will be the ARN
+-- in this account and Region. For private extensions, this will be the ARN
 -- assigned when you
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html register the type>
--- in this account and region.
+-- in this account and Region.
 typeConfigurationDetails_typeArn :: Lens.Lens' TypeConfigurationDetails (Prelude.Maybe Prelude.Text)
 typeConfigurationDetails_typeArn = Lens.lens (\TypeConfigurationDetails' {typeArn} -> typeArn) (\s@TypeConfigurationDetails' {} a -> s {typeArn = a} :: TypeConfigurationDetails)
 
@@ -179,7 +179,8 @@ instance Data.FromXML TypeConfigurationDetails where
 
 instance Prelude.Hashable TypeConfigurationDetails where
   hashWithSalt _salt TypeConfigurationDetails' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` isDefaultConfiguration

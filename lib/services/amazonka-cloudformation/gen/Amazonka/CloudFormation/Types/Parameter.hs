@@ -111,7 +111,8 @@ instance Data.FromXML Parameter where
 
 instance Prelude.Hashable Parameter where
   hashWithSalt _salt Parameter' {..} =
-    _salt `Prelude.hashWithSalt` parameterKey
+    _salt
+      `Prelude.hashWithSalt` parameterKey
       `Prelude.hashWithSalt` parameterValue
       `Prelude.hashWithSalt` resolvedValue
       `Prelude.hashWithSalt` usePreviousValue

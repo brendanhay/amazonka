@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the description of the specified stack set operation.
+-- Returns the description of the specified StackSet operation.
 module Amazonka.CloudFormation.DescribeStackSetOperation
   ( -- * Creating a Request
     DescribeStackSetOperation (..),
@@ -166,7 +166,8 @@ instance Core.AWSRequest DescribeStackSetOperation where
 
 instance Prelude.Hashable DescribeStackSetOperation where
   hashWithSalt _salt DescribeStackSetOperation' {..} =
-    _salt `Prelude.hashWithSalt` callAs
+    _salt
+      `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` stackSetName
       `Prelude.hashWithSalt` operationId
 

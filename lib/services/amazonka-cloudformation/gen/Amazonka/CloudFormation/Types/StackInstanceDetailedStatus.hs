@@ -25,6 +25,7 @@ module Amazonka.CloudFormation.Types.StackInstanceDetailedStatus
         StackInstanceDetailedStatus_INOPERABLE,
         StackInstanceDetailedStatus_PENDING,
         StackInstanceDetailedStatus_RUNNING,
+        StackInstanceDetailedStatus_SKIPPED_SUSPENDED_ACCOUNT,
         StackInstanceDetailedStatus_SUCCEEDED
       ),
   )
@@ -77,6 +78,9 @@ pattern StackInstanceDetailedStatus_PENDING = StackInstanceDetailedStatus' "PEND
 pattern StackInstanceDetailedStatus_RUNNING :: StackInstanceDetailedStatus
 pattern StackInstanceDetailedStatus_RUNNING = StackInstanceDetailedStatus' "RUNNING"
 
+pattern StackInstanceDetailedStatus_SKIPPED_SUSPENDED_ACCOUNT :: StackInstanceDetailedStatus
+pattern StackInstanceDetailedStatus_SKIPPED_SUSPENDED_ACCOUNT = StackInstanceDetailedStatus' "SKIPPED_SUSPENDED_ACCOUNT"
+
 pattern StackInstanceDetailedStatus_SUCCEEDED :: StackInstanceDetailedStatus
 pattern StackInstanceDetailedStatus_SUCCEEDED = StackInstanceDetailedStatus' "SUCCEEDED"
 
@@ -86,6 +90,7 @@ pattern StackInstanceDetailedStatus_SUCCEEDED = StackInstanceDetailedStatus' "SU
   StackInstanceDetailedStatus_INOPERABLE,
   StackInstanceDetailedStatus_PENDING,
   StackInstanceDetailedStatus_RUNNING,
+  StackInstanceDetailedStatus_SKIPPED_SUSPENDED_ACCOUNT,
   StackInstanceDetailedStatus_SUCCEEDED,
   StackInstanceDetailedStatus'
   #-}

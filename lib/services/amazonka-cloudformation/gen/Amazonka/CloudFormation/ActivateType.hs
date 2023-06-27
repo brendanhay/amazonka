@@ -26,8 +26,8 @@
 -- in the /CloudFormation User Guide/.
 --
 -- Once you have activated a public third-party extension in your account
--- and region, use
--- <AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html SetTypeConfiguration>
+-- and Region, use
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html SetTypeConfiguration>
 -- to specify configuration properties for the extension. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration Configuring extensions at the account level>
@@ -69,7 +69,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newActivateType' smart constructor.
 data ActivateType = ActivateType'
-  { -- | Whether to automatically update the extension in this account and region
+  { -- | Whether to automatically update the extension in this account and Region
     -- when a new /minor/ version is published by the extension publisher.
     -- Major versions released by the publisher must be manually updated.
     --
@@ -77,6 +77,7 @@ data ActivateType = ActivateType'
     autoUpdate :: Prelude.Maybe Prelude.Bool,
     -- | The name of the IAM execution role to use to activate the extension.
     executionRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | Contains logging configuration information for an extension.
     loggingConfig :: Prelude.Maybe LoggingConfig,
     -- | The major version of this extension you want to activate, if multiple
     -- major versions are available. The default is the latest major version.
@@ -105,15 +106,15 @@ data ActivateType = ActivateType'
     -- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
     -- and @PublisherId@.
     typeName :: Prelude.Maybe Prelude.Text,
-    -- | An alias to assign to the public extension, in this account and region.
+    -- | An alias to assign to the public extension, in this account and Region.
     -- If you specify an alias for the extension, CloudFormation treats the
-    -- alias as the extension type name within this account and region. You
+    -- alias as the extension type name within this account and Region. You
     -- must use the alias to refer to the extension in your templates, API
     -- calls, and CloudFormation console.
     --
-    -- An extension alias must be unique within a given account and region. You
+    -- An extension alias must be unique within a given account and Region. You
     -- can activate the same public resource multiple times in the same account
-    -- and region, using different type name aliases.
+    -- and Region, using different type name aliases.
     typeNameAlias :: Prelude.Maybe Prelude.Text,
     -- | Manually updates a previously-activated type to a new major or minor
     -- version, if available. You can also use this parameter to update the
@@ -136,7 +137,7 @@ data ActivateType = ActivateType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'autoUpdate', 'activateType_autoUpdate' - Whether to automatically update the extension in this account and region
+-- 'autoUpdate', 'activateType_autoUpdate' - Whether to automatically update the extension in this account and Region
 -- when a new /minor/ version is published by the extension publisher.
 -- Major versions released by the publisher must be manually updated.
 --
@@ -144,7 +145,7 @@ data ActivateType = ActivateType'
 --
 -- 'executionRoleArn', 'activateType_executionRoleArn' - The name of the IAM execution role to use to activate the extension.
 --
--- 'loggingConfig', 'activateType_loggingConfig' - Undocumented member.
+-- 'loggingConfig', 'activateType_loggingConfig' - Contains logging configuration information for an extension.
 --
 -- 'majorVersion', 'activateType_majorVersion' - The major version of this extension you want to activate, if multiple
 -- major versions are available. The default is the latest major version.
@@ -173,15 +174,15 @@ data ActivateType = ActivateType'
 -- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
 -- and @PublisherId@.
 --
--- 'typeNameAlias', 'activateType_typeNameAlias' - An alias to assign to the public extension, in this account and region.
+-- 'typeNameAlias', 'activateType_typeNameAlias' - An alias to assign to the public extension, in this account and Region.
 -- If you specify an alias for the extension, CloudFormation treats the
--- alias as the extension type name within this account and region. You
+-- alias as the extension type name within this account and Region. You
 -- must use the alias to refer to the extension in your templates, API
 -- calls, and CloudFormation console.
 --
--- An extension alias must be unique within a given account and region. You
+-- An extension alias must be unique within a given account and Region. You
 -- can activate the same public resource multiple times in the same account
--- and region, using different type name aliases.
+-- and Region, using different type name aliases.
 --
 -- 'versionBump', 'activateType_versionBump' - Manually updates a previously-activated type to a new major or minor
 -- version, if available. You can also use this parameter to update the
@@ -208,7 +209,7 @@ newActivateType =
       versionBump = Prelude.Nothing
     }
 
--- | Whether to automatically update the extension in this account and region
+-- | Whether to automatically update the extension in this account and Region
 -- when a new /minor/ version is published by the extension publisher.
 -- Major versions released by the publisher must be manually updated.
 --
@@ -220,7 +221,7 @@ activateType_autoUpdate = Lens.lens (\ActivateType' {autoUpdate} -> autoUpdate) 
 activateType_executionRoleArn :: Lens.Lens' ActivateType (Prelude.Maybe Prelude.Text)
 activateType_executionRoleArn = Lens.lens (\ActivateType' {executionRoleArn} -> executionRoleArn) (\s@ActivateType' {} a -> s {executionRoleArn = a} :: ActivateType)
 
--- | Undocumented member.
+-- | Contains logging configuration information for an extension.
 activateType_loggingConfig :: Lens.Lens' ActivateType (Prelude.Maybe LoggingConfig)
 activateType_loggingConfig = Lens.lens (\ActivateType' {loggingConfig} -> loggingConfig) (\s@ActivateType' {} a -> s {loggingConfig = a} :: ActivateType)
 
@@ -261,15 +262,15 @@ activateType_type = Lens.lens (\ActivateType' {type'} -> type') (\s@ActivateType
 activateType_typeName :: Lens.Lens' ActivateType (Prelude.Maybe Prelude.Text)
 activateType_typeName = Lens.lens (\ActivateType' {typeName} -> typeName) (\s@ActivateType' {} a -> s {typeName = a} :: ActivateType)
 
--- | An alias to assign to the public extension, in this account and region.
+-- | An alias to assign to the public extension, in this account and Region.
 -- If you specify an alias for the extension, CloudFormation treats the
--- alias as the extension type name within this account and region. You
+-- alias as the extension type name within this account and Region. You
 -- must use the alias to refer to the extension in your templates, API
 -- calls, and CloudFormation console.
 --
--- An extension alias must be unique within a given account and region. You
+-- An extension alias must be unique within a given account and Region. You
 -- can activate the same public resource multiple times in the same account
--- and region, using different type name aliases.
+-- and Region, using different type name aliases.
 activateType_typeNameAlias :: Lens.Lens' ActivateType (Prelude.Maybe Prelude.Text)
 activateType_typeNameAlias = Lens.lens (\ActivateType' {typeNameAlias} -> typeNameAlias) (\s@ActivateType' {} a -> s {typeNameAlias = a} :: ActivateType)
 
@@ -300,7 +301,8 @@ instance Core.AWSRequest ActivateType where
 
 instance Prelude.Hashable ActivateType where
   hashWithSalt _salt ActivateType' {..} =
-    _salt `Prelude.hashWithSalt` autoUpdate
+    _salt
+      `Prelude.hashWithSalt` autoUpdate
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` loggingConfig
       `Prelude.hashWithSalt` majorVersion
@@ -352,7 +354,7 @@ instance Data.ToQuery ActivateType where
 -- | /See:/ 'newActivateTypeResponse' smart constructor.
 data ActivateTypeResponse = ActivateTypeResponse'
   { -- | The Amazon Resource Name (ARN) of the activated extension, in this
-    -- account and region.
+    -- account and Region.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -368,7 +370,7 @@ data ActivateTypeResponse = ActivateTypeResponse'
 -- for backwards compatibility:
 --
 -- 'arn', 'activateTypeResponse_arn' - The Amazon Resource Name (ARN) of the activated extension, in this
--- account and region.
+-- account and Region.
 --
 -- 'httpStatus', 'activateTypeResponse_httpStatus' - The response's http status code.
 newActivateTypeResponse ::
@@ -382,7 +384,7 @@ newActivateTypeResponse pHttpStatus_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the activated extension, in this
--- account and region.
+-- account and Region.
 activateTypeResponse_arn :: Lens.Lens' ActivateTypeResponse (Prelude.Maybe Prelude.Text)
 activateTypeResponse_arn = Lens.lens (\ActivateTypeResponse' {arn} -> arn) (\s@ActivateTypeResponse' {} a -> s {arn = a} :: ActivateTypeResponse)
 

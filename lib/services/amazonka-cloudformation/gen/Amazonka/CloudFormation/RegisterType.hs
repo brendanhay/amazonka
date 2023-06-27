@@ -37,17 +37,17 @@
 -- in the /CloudFormation CLI User Guide/.
 --
 -- You can have a maximum of 50 resource extension versions registered at a
--- time. This maximum is per account and per region. Use
--- <AWSCloudFormation/latest/APIReference/API_DeregisterType.html DeregisterType>
+-- time. This maximum is per account and per Region. Use
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeregisterType.html DeregisterType>
 -- to deregister specific extension versions if necessary.
 --
--- Once you have initiated a registration request using @ RegisterType @,
--- you can use @ DescribeTypeRegistration @ to monitor the progress of the
+-- Once you have initiated a registration request using RegisterType, you
+-- can use DescribeTypeRegistration to monitor the progress of the
 -- registration request.
 --
--- Once you have registered a private extension in your account and region,
+-- Once you have registered a private extension in your account and Region,
 -- use
--- <AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html SetTypeConfiguration>
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html SetTypeConfiguration>
 -- to specify configuration properties for the extension. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration Configuring extensions at the account level>
@@ -98,7 +98,7 @@ data RegisterType = RegisterType'
     -- contain a trust relationship with the CloudFormation service principle
     -- (@resources.cloudformation.amazonaws.com@). For more information about
     -- adding trust relationships, see
-    -- <IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy Modifying a role trust policy>
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy Modifying a role trust policy>
     -- in the /Identity and Access Management User Guide/.
     --
     -- If your extension calls Amazon Web Services APIs in any of its handlers,
@@ -179,7 +179,7 @@ data RegisterType = RegisterType'
 -- contain a trust relationship with the CloudFormation service principle
 -- (@resources.cloudformation.amazonaws.com@). For more information about
 -- adding trust relationships, see
--- <IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy Modifying a role trust policy>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy Modifying a role trust policy>
 -- in the /Identity and Access Management User Guide/.
 --
 -- If your extension calls Amazon Web Services APIs in any of its handlers,
@@ -266,7 +266,7 @@ registerType_clientRequestToken = Lens.lens (\RegisterType' {clientRequestToken}
 -- contain a trust relationship with the CloudFormation service principle
 -- (@resources.cloudformation.amazonaws.com@). For more information about
 -- adding trust relationships, see
--- <IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy Modifying a role trust policy>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy Modifying a role trust policy>
 -- in the /Identity and Access Management User Guide/.
 --
 -- If your extension calls Amazon Web Services APIs in any of its handlers,
@@ -348,7 +348,8 @@ instance Core.AWSRequest RegisterType where
 
 instance Prelude.Hashable RegisterType where
   hashWithSalt _salt RegisterType' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` loggingConfig
       `Prelude.hashWithSalt` type'
@@ -389,8 +390,8 @@ instance Data.ToQuery RegisterType where
 data RegisterTypeResponse = RegisterTypeResponse'
   { -- | The identifier for this registration request.
     --
-    -- Use this registration token when calling @ DescribeTypeRegistration @,
-    -- which returns information about the status and IDs of the extension
+    -- Use this registration token when calling DescribeTypeRegistration, which
+    -- returns information about the status and IDs of the extension
     -- registration.
     registrationToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -408,8 +409,8 @@ data RegisterTypeResponse = RegisterTypeResponse'
 --
 -- 'registrationToken', 'registerTypeResponse_registrationToken' - The identifier for this registration request.
 --
--- Use this registration token when calling @ DescribeTypeRegistration @,
--- which returns information about the status and IDs of the extension
+-- Use this registration token when calling DescribeTypeRegistration, which
+-- returns information about the status and IDs of the extension
 -- registration.
 --
 -- 'httpStatus', 'registerTypeResponse_httpStatus' - The response's http status code.
@@ -426,8 +427,8 @@ newRegisterTypeResponse pHttpStatus_ =
 
 -- | The identifier for this registration request.
 --
--- Use this registration token when calling @ DescribeTypeRegistration @,
--- which returns information about the status and IDs of the extension
+-- Use this registration token when calling DescribeTypeRegistration, which
+-- returns information about the status and IDs of the extension
 -- registration.
 registerTypeResponse_registrationToken :: Lens.Lens' RegisterTypeResponse (Prelude.Maybe Prelude.Text)
 registerTypeResponse_registrationToken = Lens.lens (\RegisterTypeResponse' {registrationToken} -> registrationToken) (\s@RegisterTypeResponse' {} a -> s {registrationToken = a} :: RegisterTypeResponse)

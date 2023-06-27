@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deactivates a public extension that was previously activated in this
--- account and region.
+-- account and Region.
 --
 -- Once deactivated, an extension can\'t be used in any CloudFormation
 -- operation. This includes stack update operations where the stack
@@ -58,7 +58,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeactivateType' smart constructor.
 data DeactivateType = DeactivateType'
   { -- | The Amazon Resource Name (ARN) for the extension, in this account and
-    -- region.
+    -- Region.
     --
     -- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
     arn :: Prelude.Maybe Prelude.Text,
@@ -66,7 +66,7 @@ data DeactivateType = DeactivateType'
     --
     -- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
     type' :: Prelude.Maybe ThirdPartyType,
-    -- | The type name of the extension, in this account and region. If you
+    -- | The type name of the extension, in this account and Region. If you
     -- specified a type name alias when enabling the extension, use the type
     -- name alias.
     --
@@ -84,7 +84,7 @@ data DeactivateType = DeactivateType'
 -- for backwards compatibility:
 --
 -- 'arn', 'deactivateType_arn' - The Amazon Resource Name (ARN) for the extension, in this account and
--- region.
+-- Region.
 --
 -- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
 --
@@ -92,7 +92,7 @@ data DeactivateType = DeactivateType'
 --
 -- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
 --
--- 'typeName', 'deactivateType_typeName' - The type name of the extension, in this account and region. If you
+-- 'typeName', 'deactivateType_typeName' - The type name of the extension, in this account and Region. If you
 -- specified a type name alias when enabling the extension, use the type
 -- name alias.
 --
@@ -107,7 +107,7 @@ newDeactivateType =
     }
 
 -- | The Amazon Resource Name (ARN) for the extension, in this account and
--- region.
+-- Region.
 --
 -- Conditional: You must specify either @Arn@, or @TypeName@ and @Type@.
 deactivateType_arn :: Lens.Lens' DeactivateType (Prelude.Maybe Prelude.Text)
@@ -119,7 +119,7 @@ deactivateType_arn = Lens.lens (\DeactivateType' {arn} -> arn) (\s@DeactivateTyp
 deactivateType_type :: Lens.Lens' DeactivateType (Prelude.Maybe ThirdPartyType)
 deactivateType_type = Lens.lens (\DeactivateType' {type'} -> type') (\s@DeactivateType' {} a -> s {type' = a} :: DeactivateType)
 
--- | The type name of the extension, in this account and region. If you
+-- | The type name of the extension, in this account and Region. If you
 -- specified a type name alias when enabling the extension, use the type
 -- name alias.
 --
@@ -143,7 +143,8 @@ instance Core.AWSRequest DeactivateType where
 
 instance Prelude.Hashable DeactivateType where
   hashWithSalt _salt DeactivateType' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` typeName
 

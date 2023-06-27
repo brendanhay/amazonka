@@ -52,6 +52,10 @@ data StackInstanceComprehensiveStatus = StackInstanceComprehensiveStatus'
     -- -   @RUNNING@: The operation in the specified account and Region is
     --     currently in progress.
     --
+    -- -   @SKIPPED_SUSPENDED_ACCOUNT@: The operation in the specified account
+    --     and Region has been skipped because the account was suspended at the
+    --     time of the operation.
+    --
     -- -   @SUCCEEDED@: The operation in the specified account and Region
     --     completed successfully.
     detailedStatus :: Prelude.Maybe StackInstanceDetailedStatus
@@ -89,6 +93,10 @@ data StackInstanceComprehensiveStatus = StackInstanceComprehensiveStatus'
 -- -   @RUNNING@: The operation in the specified account and Region is
 --     currently in progress.
 --
+-- -   @SKIPPED_SUSPENDED_ACCOUNT@: The operation in the specified account
+--     and Region has been skipped because the account was suspended at the
+--     time of the operation.
+--
 -- -   @SUCCEEDED@: The operation in the specified account and Region
 --     completed successfully.
 newStackInstanceComprehensiveStatus ::
@@ -121,6 +129,10 @@ newStackInstanceComprehensiveStatus =
 --
 -- -   @RUNNING@: The operation in the specified account and Region is
 --     currently in progress.
+--
+-- -   @SKIPPED_SUSPENDED_ACCOUNT@: The operation in the specified account
+--     and Region has been skipped because the account was suspended at the
+--     time of the operation.
 --
 -- -   @SUCCEEDED@: The operation in the specified account and Region
 --     completed successfully.

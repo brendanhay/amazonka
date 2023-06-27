@@ -123,7 +123,8 @@ instance
     StackDriftInformationSummary
   where
   hashWithSalt _salt StackDriftInformationSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastCheckTimestamp
+    _salt
+      `Prelude.hashWithSalt` lastCheckTimestamp
       `Prelude.hashWithSalt` stackDriftStatus
 
 instance Prelude.NFData StackDriftInformationSummary where

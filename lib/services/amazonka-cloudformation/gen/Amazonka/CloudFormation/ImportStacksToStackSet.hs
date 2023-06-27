@@ -24,8 +24,6 @@
 -- operation to import up to 10 stacks into a new stack set in the same
 -- account as the source stack or in a different administrator account and
 -- Region, by specifying the stack ID of the stack you intend to import.
---
--- @ImportStacksToStackSet@ is only supported by self-managed permissions.
 module Amazonka.CloudFormation.ImportStacksToStackSet
   ( -- * Creating a Request
     ImportStacksToStackSet (..),
@@ -69,6 +67,12 @@ data ImportStacksToStackSet = ImportStacksToStackSet'
     callAs :: Prelude.Maybe CallAs,
     -- | A unique, user defined, identifier for the stack set operation.
     operationId :: Prelude.Maybe Prelude.Text,
+    -- | The user-specified preferences for how CloudFormation performs a stack
+    -- set operation.
+    --
+    -- For more information about maximum concurrent accounts and failure
+    -- tolerance, see
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options>.
     operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
     -- | The list of OU ID\'s to which the stacks being imported has to be mapped
     -- as deployment target.
@@ -105,7 +109,12 @@ data ImportStacksToStackSet = ImportStacksToStackSet'
 --
 -- 'operationId', 'importStacksToStackSet_operationId' - A unique, user defined, identifier for the stack set operation.
 --
--- 'operationPreferences', 'importStacksToStackSet_operationPreferences' - Undocumented member.
+-- 'operationPreferences', 'importStacksToStackSet_operationPreferences' - The user-specified preferences for how CloudFormation performs a stack
+-- set operation.
+--
+-- For more information about maximum concurrent accounts and failure
+-- tolerance, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options>.
 --
 -- 'organizationalUnitIds', 'importStacksToStackSet_organizationalUnitIds' - The list of OU ID\'s to which the stacks being imported has to be mapped
 -- as deployment target.
@@ -149,7 +158,12 @@ importStacksToStackSet_callAs = Lens.lens (\ImportStacksToStackSet' {callAs} -> 
 importStacksToStackSet_operationId :: Lens.Lens' ImportStacksToStackSet (Prelude.Maybe Prelude.Text)
 importStacksToStackSet_operationId = Lens.lens (\ImportStacksToStackSet' {operationId} -> operationId) (\s@ImportStacksToStackSet' {} a -> s {operationId = a} :: ImportStacksToStackSet)
 
--- | Undocumented member.
+-- | The user-specified preferences for how CloudFormation performs a stack
+-- set operation.
+--
+-- For more information about maximum concurrent accounts and failure
+-- tolerance, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options>.
 importStacksToStackSet_operationPreferences :: Lens.Lens' ImportStacksToStackSet (Prelude.Maybe StackSetOperationPreferences)
 importStacksToStackSet_operationPreferences = Lens.lens (\ImportStacksToStackSet' {operationPreferences} -> operationPreferences) (\s@ImportStacksToStackSet' {} a -> s {operationPreferences = a} :: ImportStacksToStackSet)
 
@@ -193,7 +207,8 @@ instance Core.AWSRequest ImportStacksToStackSet where
 
 instance Prelude.Hashable ImportStacksToStackSet where
   hashWithSalt _salt ImportStacksToStackSet' {..} =
-    _salt `Prelude.hashWithSalt` callAs
+    _salt
+      `Prelude.hashWithSalt` callAs
       `Prelude.hashWithSalt` operationId
       `Prelude.hashWithSalt` operationPreferences
       `Prelude.hashWithSalt` organizationalUnitIds

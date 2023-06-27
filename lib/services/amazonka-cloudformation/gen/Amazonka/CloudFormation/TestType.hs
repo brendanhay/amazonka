@@ -34,11 +34,11 @@
 -- in the /CloudFormation CLI User Guide/.
 --
 -- If you don\'t specify a version, CloudFormation uses the default version
--- of the extension in your account and region for testing.
+-- of the extension in your account and Region for testing.
 --
 -- To perform testing, CloudFormation assumes the execution role specified
 -- when the type was registered. For more information, see
--- <AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
 --
 -- Once you\'ve initiated testing on an extension using @TestType@, you can
 -- pass the returned @TypeVersionArn@ into
@@ -119,7 +119,7 @@ data TestType = TestType'
     -- @Type@.
     --
     -- If you don\'t specify a version, CloudFormation uses the default version
-    -- of the extension in this account and region for testing.
+    -- of the extension in this account and Region for testing.
     versionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -169,7 +169,7 @@ data TestType = TestType'
 -- @Type@.
 --
 -- If you don\'t specify a version, CloudFormation uses the default version
--- of the extension in this account and region for testing.
+-- of the extension in this account and Region for testing.
 newTestType ::
   TestType
 newTestType =
@@ -226,7 +226,7 @@ testType_typeName = Lens.lens (\TestType' {typeName} -> typeName) (\s@TestType' 
 -- @Type@.
 --
 -- If you don\'t specify a version, CloudFormation uses the default version
--- of the extension in this account and region for testing.
+-- of the extension in this account and Region for testing.
 testType_versionId :: Lens.Lens' TestType (Prelude.Maybe Prelude.Text)
 testType_versionId = Lens.lens (\TestType' {versionId} -> versionId) (\s@TestType' {} a -> s {versionId = a} :: TestType)
 
@@ -245,7 +245,8 @@ instance Core.AWSRequest TestType where
 
 instance Prelude.Hashable TestType where
   hashWithSalt _salt TestType' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` logDeliveryBucket
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` typeName

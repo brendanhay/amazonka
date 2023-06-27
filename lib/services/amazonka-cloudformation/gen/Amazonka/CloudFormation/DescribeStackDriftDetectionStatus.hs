@@ -22,7 +22,7 @@
 --
 -- Returns information about a stack drift detection operation. A stack
 -- drift detection operation detects whether a stack\'s actual
--- configuration differs, or has /drifted/, from it\'s expected
+-- configuration differs, or has /drifted/, from its expected
 -- configuration, as defined in the stack template and any values specified
 -- as template parameters. A stack is considered to have drifted if one or
 -- more of its resources have drifted. For more information about stack and
@@ -125,13 +125,13 @@ instance
       ( \s h x ->
           DescribeStackDriftDetectionStatusResponse'
             Prelude.<$> (x Data..@? "DetectionStatusReason")
-              Prelude.<*> (x Data..@? "DriftedStackResourceCount")
-              Prelude.<*> (x Data..@? "StackDriftStatus")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..@ "StackId")
-              Prelude.<*> (x Data..@ "StackDriftDetectionId")
-              Prelude.<*> (x Data..@ "DetectionStatus")
-              Prelude.<*> (x Data..@ "Timestamp")
+            Prelude.<*> (x Data..@? "DriftedStackResourceCount")
+            Prelude.<*> (x Data..@? "StackDriftStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@ "StackId")
+            Prelude.<*> (x Data..@ "StackDriftDetectionId")
+            Prelude.<*> (x Data..@ "DetectionStatus")
+            Prelude.<*> (x Data..@ "Timestamp")
       )
 
 instance

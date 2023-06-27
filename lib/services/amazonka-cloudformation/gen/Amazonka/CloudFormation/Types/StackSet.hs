@@ -90,6 +90,10 @@ data StackSet = StackSet'
     --     Organizations. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
     permissionModel :: Prelude.Maybe PermissionModels,
+    -- | Returns a list of all Amazon Web Services Regions the given StackSet has
+    -- stack instances deployed in. The Amazon Web Services Regions list output
+    -- is in no particular order.
+    regions :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the stack set.
     stackSetARN :: Prelude.Maybe Prelude.Text,
     -- | Detailed information about the drift status of the stack set.
@@ -171,6 +175,10 @@ data StackSet = StackSet'
 --     Organizations. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
 --
+-- 'regions', 'stackSet_regions' - Returns a list of all Amazon Web Services Regions the given StackSet has
+-- stack instances deployed in. The Amazon Web Services Regions list output
+-- is in no particular order.
+--
 -- 'stackSetARN', 'stackSet_stackSetARN' - The Amazon Resource Name (ARN) of the stack set.
 --
 -- 'stackSetDriftDetectionDetails', 'stackSet_stackSetDriftDetectionDetails' - Detailed information about the drift status of the stack set.
@@ -203,6 +211,7 @@ newStackSet =
       organizationalUnitIds = Prelude.Nothing,
       parameters = Prelude.Nothing,
       permissionModel = Prelude.Nothing,
+      regions = Prelude.Nothing,
       stackSetARN = Prelude.Nothing,
       stackSetDriftDetectionDetails = Prelude.Nothing,
       stackSetId = Prelude.Nothing,
@@ -280,6 +289,12 @@ stackSet_parameters = Lens.lens (\StackSet' {parameters} -> parameters) (\s@Stac
 stackSet_permissionModel :: Lens.Lens' StackSet (Prelude.Maybe PermissionModels)
 stackSet_permissionModel = Lens.lens (\StackSet' {permissionModel} -> permissionModel) (\s@StackSet' {} a -> s {permissionModel = a} :: StackSet)
 
+-- | Returns a list of all Amazon Web Services Regions the given StackSet has
+-- stack instances deployed in. The Amazon Web Services Regions list output
+-- is in no particular order.
+stackSet_regions :: Lens.Lens' StackSet (Prelude.Maybe [Prelude.Text])
+stackSet_regions = Lens.lens (\StackSet' {regions} -> regions) (\s@StackSet' {} a -> s {regions = a} :: StackSet) Prelude.. Lens.mapping Lens.coerced
+
 -- | The Amazon Resource Name (ARN) of the stack set.
 stackSet_stackSetARN :: Lens.Lens' StackSet (Prelude.Maybe Prelude.Text)
 stackSet_stackSetARN = Lens.lens (\StackSet' {stackSetARN} -> stackSetARN) (\s@StackSet' {} a -> s {stackSetARN = a} :: StackSet)
@@ -319,33 +334,46 @@ instance Data.FromXML StackSet where
     StackSet'
       Prelude.<$> (x Data..@? "AdministrationRoleARN")
       Prelude.<*> (x Data..@? "AutoDeployment")
-      Prelude.<*> ( x Data..@? "Capabilities" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Capabilities"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "Description")
       Prelude.<*> (x Data..@? "ExecutionRoleName")
       Prelude.<*> (x Data..@? "ManagedExecution")
-      Prelude.<*> ( x Data..@? "OrganizationalUnitIds"
+      Prelude.<*> ( x
+                      Data..@? "OrganizationalUnitIds"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Parameters"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "PermissionModel")
+      Prelude.<*> ( x
+                      Data..@? "Regions"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "member")
+                  )
       Prelude.<*> (x Data..@? "StackSetARN")
       Prelude.<*> (x Data..@? "StackSetDriftDetectionDetails")
       Prelude.<*> (x Data..@? "StackSetId")
       Prelude.<*> (x Data..@? "StackSetName")
       Prelude.<*> (x Data..@? "Status")
-      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "TemplateBody")
 
 instance Prelude.Hashable StackSet where
   hashWithSalt _salt StackSet' {..} =
-    _salt `Prelude.hashWithSalt` administrationRoleARN
+    _salt
+      `Prelude.hashWithSalt` administrationRoleARN
       `Prelude.hashWithSalt` autoDeployment
       `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` description
@@ -354,6 +382,7 @@ instance Prelude.Hashable StackSet where
       `Prelude.hashWithSalt` organizationalUnitIds
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` permissionModel
+      `Prelude.hashWithSalt` regions
       `Prelude.hashWithSalt` stackSetARN
       `Prelude.hashWithSalt` stackSetDriftDetectionDetails
       `Prelude.hashWithSalt` stackSetId
@@ -373,6 +402,7 @@ instance Prelude.NFData StackSet where
       `Prelude.seq` Prelude.rnf organizationalUnitIds
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf permissionModel
+      `Prelude.seq` Prelude.rnf regions
       `Prelude.seq` Prelude.rnf stackSetARN
       `Prelude.seq` Prelude.rnf stackSetDriftDetectionDetails
       `Prelude.seq` Prelude.rnf stackSetId

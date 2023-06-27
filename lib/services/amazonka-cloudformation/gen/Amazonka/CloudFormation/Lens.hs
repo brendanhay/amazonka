@@ -14,6 +14,9 @@
 module Amazonka.CloudFormation.Lens
   ( -- * Operations
 
+    -- ** ActivateOrganizationsAccess
+    activateOrganizationsAccessResponse_httpStatus,
+
     -- ** ActivateType
     activateType_autoUpdate,
     activateType_executionRoleArn,
@@ -53,6 +56,7 @@ module Amazonka.CloudFormation.Lens
     createChangeSet_description,
     createChangeSet_includeNestedStacks,
     createChangeSet_notificationARNs,
+    createChangeSet_onStackFailure,
     createChangeSet_parameters,
     createChangeSet_resourceTypes,
     createChangeSet_resourcesToImport,
@@ -120,6 +124,9 @@ module Amazonka.CloudFormation.Lens
     createStackSetResponse_stackSetId,
     createStackSetResponse_httpStatus,
 
+    -- ** DeactivateOrganizationsAccess
+    deactivateOrganizationsAccessResponse_httpStatus,
+
     -- ** DeactivateType
     deactivateType_arn,
     deactivateType_type,
@@ -181,6 +188,7 @@ module Amazonka.CloudFormation.Lens
     describeChangeSetResponse_includeNestedStacks,
     describeChangeSetResponse_nextToken,
     describeChangeSetResponse_notificationARNs,
+    describeChangeSetResponse_onStackFailure,
     describeChangeSetResponse_parameters,
     describeChangeSetResponse_parentChangeSetId,
     describeChangeSetResponse_rollbackConfiguration,
@@ -205,6 +213,11 @@ module Amazonka.CloudFormation.Lens
     describeChangeSetHooksResponse_stackName,
     describeChangeSetHooksResponse_status,
     describeChangeSetHooksResponse_httpStatus,
+
+    -- ** DescribeOrganizationsAccess
+    describeOrganizationsAccess_callAs,
+    describeOrganizationsAccessResponse_status,
+    describeOrganizationsAccessResponse_httpStatus,
 
     -- ** DescribePublisher
     describePublisher_publisherId,
@@ -978,6 +991,7 @@ module Amazonka.CloudFormation.Lens
     stackSet_organizationalUnitIds,
     stackSet_parameters,
     stackSet_permissionModel,
+    stackSet_regions,
     stackSet_stackSetARN,
     stackSet_stackSetDriftDetectionDetails,
     stackSet_stackSetId,
@@ -1123,6 +1137,7 @@ module Amazonka.CloudFormation.Lens
   )
 where
 
+import Amazonka.CloudFormation.ActivateOrganizationsAccess
 import Amazonka.CloudFormation.ActivateType
 import Amazonka.CloudFormation.BatchDescribeTypeConfigurations
 import Amazonka.CloudFormation.CancelUpdateStack
@@ -1131,6 +1146,7 @@ import Amazonka.CloudFormation.CreateChangeSet
 import Amazonka.CloudFormation.CreateStack
 import Amazonka.CloudFormation.CreateStackInstances
 import Amazonka.CloudFormation.CreateStackSet
+import Amazonka.CloudFormation.DeactivateOrganizationsAccess
 import Amazonka.CloudFormation.DeactivateType
 import Amazonka.CloudFormation.DeleteChangeSet
 import Amazonka.CloudFormation.DeleteStack
@@ -1140,6 +1156,7 @@ import Amazonka.CloudFormation.DeregisterType
 import Amazonka.CloudFormation.DescribeAccountLimits
 import Amazonka.CloudFormation.DescribeChangeSet
 import Amazonka.CloudFormation.DescribeChangeSetHooks
+import Amazonka.CloudFormation.DescribeOrganizationsAccess
 import Amazonka.CloudFormation.DescribePublisher
 import Amazonka.CloudFormation.DescribeStackDriftDetectionStatus
 import Amazonka.CloudFormation.DescribeStackEvents

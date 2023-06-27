@@ -97,7 +97,8 @@ resourceToImport_resourceIdentifier = Lens.lens (\ResourceToImport' {resourceIde
 
 instance Prelude.Hashable ResourceToImport where
   hashWithSalt _salt ResourceToImport' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` logicalResourceId
       `Prelude.hashWithSalt` resourceIdentifier
 

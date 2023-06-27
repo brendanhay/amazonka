@@ -93,7 +93,8 @@ instance Data.FromXML TemplateParameter where
 
 instance Prelude.Hashable TemplateParameter where
   hashWithSalt _salt TemplateParameter' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` noEcho
       `Prelude.hashWithSalt` parameterKey

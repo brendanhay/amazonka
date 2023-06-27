@@ -172,7 +172,8 @@ instance Data.FromXML AccountGateResult where
 
 instance Prelude.Hashable AccountGateResult where
   hashWithSalt _salt AccountGateResult' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusReason
 
 instance Prelude.NFData AccountGateResult where

@@ -280,11 +280,13 @@ instance Data.FromXML StackResourceDrift where
       Prelude.<*> (x Data..@? "ExpectedProperties")
       Prelude.<*> (x Data..@? "ModuleInfo")
       Prelude.<*> (x Data..@? "PhysicalResourceId")
-      Prelude.<*> ( x Data..@? "PhysicalResourceIdContext"
+      Prelude.<*> ( x
+                      Data..@? "PhysicalResourceIdContext"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "PropertyDifferences"
+      Prelude.<*> ( x
+                      Data..@? "PropertyDifferences"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -296,7 +298,8 @@ instance Data.FromXML StackResourceDrift where
 
 instance Prelude.Hashable StackResourceDrift where
   hashWithSalt _salt StackResourceDrift' {..} =
-    _salt `Prelude.hashWithSalt` actualProperties
+    _salt
+      `Prelude.hashWithSalt` actualProperties
       `Prelude.hashWithSalt` expectedProperties
       `Prelude.hashWithSalt` moduleInfo
       `Prelude.hashWithSalt` physicalResourceId

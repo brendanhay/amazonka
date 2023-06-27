@@ -59,7 +59,9 @@ parameterConstraints_allowedValues = Lens.lens (\ParameterConstraints' {allowedV
 instance Data.FromXML ParameterConstraints where
   parseXML x =
     ParameterConstraints'
-      Prelude.<$> ( x Data..@? "AllowedValues" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "AllowedValues"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 

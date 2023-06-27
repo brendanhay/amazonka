@@ -61,7 +61,19 @@ data DescribeStacks = DescribeStacks'
   { -- | A string that identifies the next page of stacks that you want to
     -- retrieve.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name or the unique stack ID that\'s associated with the stack, which
+    -- | If you don\'t pass a parameter to @StackName@, the API returns a
+    -- response that describes all resources in the account. This requires
+    -- @ListStacks@ and @DescribeStacks@ permissions.
+    --
+    -- The IAM policy below can be added to IAM policies when you want to limit
+    -- resource-level permissions and avoid returning a response when no
+    -- parameter is sent in the request:
+    --
+    -- { \"Version\": \"2012-10-17\", \"Statement\": [{ \"Effect\": \"Deny\",
+    -- \"Action\": \"cloudformation:DescribeStacks\", \"NotResource\":
+    -- \"arn:aws:cloudformation:*:*:stack\/*\/*\" }] }
+    --
+    -- The name or the unique stack ID that\'s associated with the stack, which
     -- aren\'t always interchangeable:
     --
     -- -   Running stacks: You can specify either the stack\'s name or its
@@ -85,7 +97,19 @@ data DescribeStacks = DescribeStacks'
 -- 'nextToken', 'describeStacks_nextToken' - A string that identifies the next page of stacks that you want to
 -- retrieve.
 --
--- 'stackName', 'describeStacks_stackName' - The name or the unique stack ID that\'s associated with the stack, which
+-- 'stackName', 'describeStacks_stackName' - If you don\'t pass a parameter to @StackName@, the API returns a
+-- response that describes all resources in the account. This requires
+-- @ListStacks@ and @DescribeStacks@ permissions.
+--
+-- The IAM policy below can be added to IAM policies when you want to limit
+-- resource-level permissions and avoid returning a response when no
+-- parameter is sent in the request:
+--
+-- { \"Version\": \"2012-10-17\", \"Statement\": [{ \"Effect\": \"Deny\",
+-- \"Action\": \"cloudformation:DescribeStacks\", \"NotResource\":
+-- \"arn:aws:cloudformation:*:*:stack\/*\/*\" }] }
+--
+-- The name or the unique stack ID that\'s associated with the stack, which
 -- aren\'t always interchangeable:
 --
 -- -   Running stacks: You can specify either the stack\'s name or its
@@ -107,7 +131,19 @@ newDescribeStacks =
 describeStacks_nextToken :: Lens.Lens' DescribeStacks (Prelude.Maybe Prelude.Text)
 describeStacks_nextToken = Lens.lens (\DescribeStacks' {nextToken} -> nextToken) (\s@DescribeStacks' {} a -> s {nextToken = a} :: DescribeStacks)
 
--- | The name or the unique stack ID that\'s associated with the stack, which
+-- | If you don\'t pass a parameter to @StackName@, the API returns a
+-- response that describes all resources in the account. This requires
+-- @ListStacks@ and @DescribeStacks@ permissions.
+--
+-- The IAM policy below can be added to IAM policies when you want to limit
+-- resource-level permissions and avoid returning a response when no
+-- parameter is sent in the request:
+--
+-- { \"Version\": \"2012-10-17\", \"Statement\": [{ \"Effect\": \"Deny\",
+-- \"Action\": \"cloudformation:DescribeStacks\", \"NotResource\":
+-- \"arn:aws:cloudformation:*:*:stack\/*\/*\" }] }
+--
+-- The name or the unique stack ID that\'s associated with the stack, which
 -- aren\'t always interchangeable:
 --
 -- -   Running stacks: You can specify either the stack\'s name or its
@@ -124,20 +160,22 @@ instance Core.AWSPager DescribeStacks where
     | Core.stop
         ( rs
             Lens.^? describeStacksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeStacksResponse_stacks Prelude.. Lens._Just
+            Lens.^? describeStacksResponse_stacks
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeStacks_nextToken
           Lens..~ rs
-          Lens.^? describeStacksResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeStacksResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeStacks where
   type
@@ -151,7 +189,9 @@ instance Core.AWSRequest DescribeStacks where
       ( \s h x ->
           DescribeStacksResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "Stacks" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Stacks"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -159,7 +199,8 @@ instance Core.AWSRequest DescribeStacks where
 
 instance Prelude.Hashable DescribeStacks where
   hashWithSalt _salt DescribeStacks' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stackName
 
 instance Prelude.NFData DescribeStacks where

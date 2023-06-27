@@ -27,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestActivateType $
+--         [ requestActivateOrganizationsAccess $
+--             newActivateOrganizationsAccess
+--
+--         , requestActivateType $
 --             newActivateType
 --
 --         , requestBatchDescribeTypeConfigurations $
@@ -50,6 +53,9 @@ import Test.Tasty
 --
 --         , requestCreateStackSet $
 --             newCreateStackSet
+--
+--         , requestDeactivateOrganizationsAccess $
+--             newDeactivateOrganizationsAccess
 --
 --         , requestDeactivateType $
 --             newDeactivateType
@@ -77,6 +83,9 @@ import Test.Tasty
 --
 --         , requestDescribeChangeSetHooks $
 --             newDescribeChangeSetHooks
+--
+--         , requestDescribeOrganizationsAccess $
+--             newDescribeOrganizationsAccess
 --
 --         , requestDescribePublisher $
 --             newDescribePublisher
@@ -228,7 +237,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseActivateType $
+--         [ responseActivateOrganizationsAccess $
+--             newActivateOrganizationsAccessResponse
+--
+--         , responseActivateType $
 --             newActivateTypeResponse
 --
 --         , responseBatchDescribeTypeConfigurations $
@@ -251,6 +263,9 @@ import Test.Tasty
 --
 --         , responseCreateStackSet $
 --             newCreateStackSetResponse
+--
+--         , responseDeactivateOrganizationsAccess $
+--             newDeactivateOrganizationsAccessResponse
 --
 --         , responseDeactivateType $
 --             newDeactivateTypeResponse
@@ -278,6 +293,9 @@ import Test.Tasty
 --
 --         , responseDescribeChangeSetHooks $
 --             newDescribeChangeSetHooksResponse
+--
+--         , responseDescribeOrganizationsAccess $
+--             newDescribeOrganizationsAccessResponse
 --
 --         , responseDescribePublisher $
 --             newDescribePublisherResponse
@@ -431,6 +449,12 @@ import Test.Tasty
 
 -- Requests
 
+requestActivateOrganizationsAccess :: ActivateOrganizationsAccess -> TestTree
+requestActivateOrganizationsAccess =
+  req
+    "ActivateOrganizationsAccess"
+    "fixture/ActivateOrganizationsAccess.yaml"
+
 requestActivateType :: ActivateType -> TestTree
 requestActivateType =
   req
@@ -478,6 +502,12 @@ requestCreateStackSet =
   req
     "CreateStackSet"
     "fixture/CreateStackSet.yaml"
+
+requestDeactivateOrganizationsAccess :: DeactivateOrganizationsAccess -> TestTree
+requestDeactivateOrganizationsAccess =
+  req
+    "DeactivateOrganizationsAccess"
+    "fixture/DeactivateOrganizationsAccess.yaml"
 
 requestDeactivateType :: DeactivateType -> TestTree
 requestDeactivateType =
@@ -532,6 +562,12 @@ requestDescribeChangeSetHooks =
   req
     "DescribeChangeSetHooks"
     "fixture/DescribeChangeSetHooks.yaml"
+
+requestDescribeOrganizationsAccess :: DescribeOrganizationsAccess -> TestTree
+requestDescribeOrganizationsAccess =
+  req
+    "DescribeOrganizationsAccess"
+    "fixture/DescribeOrganizationsAccess.yaml"
 
 requestDescribePublisher :: DescribePublisher -> TestTree
 requestDescribePublisher =
@@ -829,6 +865,14 @@ requestValidateTemplate =
 
 -- Responses
 
+responseActivateOrganizationsAccess :: ActivateOrganizationsAccessResponse -> TestTree
+responseActivateOrganizationsAccess =
+  res
+    "ActivateOrganizationsAccessResponse"
+    "fixture/ActivateOrganizationsAccessResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ActivateOrganizationsAccess)
+
 responseActivateType :: ActivateTypeResponse -> TestTree
 responseActivateType =
   res
@@ -892,6 +936,14 @@ responseCreateStackSet =
     "fixture/CreateStackSetResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateStackSet)
+
+responseDeactivateOrganizationsAccess :: DeactivateOrganizationsAccessResponse -> TestTree
+responseDeactivateOrganizationsAccess =
+  res
+    "DeactivateOrganizationsAccessResponse"
+    "fixture/DeactivateOrganizationsAccessResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeactivateOrganizationsAccess)
 
 responseDeactivateType :: DeactivateTypeResponse -> TestTree
 responseDeactivateType =
@@ -964,6 +1016,14 @@ responseDescribeChangeSetHooks =
     "fixture/DescribeChangeSetHooksResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeChangeSetHooks)
+
+responseDescribeOrganizationsAccess :: DescribeOrganizationsAccessResponse -> TestTree
+responseDescribeOrganizationsAccess =
+  res
+    "DescribeOrganizationsAccessResponse"
+    "fixture/DescribeOrganizationsAccessResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeOrganizationsAccess)
 
 responseDescribePublisher :: DescribePublisherResponse -> TestTree
 responseDescribePublisher =

@@ -204,6 +204,16 @@ newStackDeleteComplete =
                 )
                 Prelude.. stack_stackStatus
                 Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAny
+            "UPDATE_COMPLETE"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
+                )
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Data.toTextCI
             )
         ]
     }

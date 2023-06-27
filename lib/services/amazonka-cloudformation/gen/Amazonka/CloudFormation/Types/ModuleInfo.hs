@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- template.
 --
 -- For more information about modules, see
--- <AWSCloudFormation/latest/UserGuide/modules.html Using modules to encapsulate and reuse resource configurations>
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/modules.html Using modules to encapsulate and reuse resource configurations>
 -- in the /CloudFormation User Guide/.
 --
 -- /See:/ 'newModuleInfo' smart constructor.
@@ -44,7 +44,7 @@ data ModuleInfo = ModuleInfo'
     -- @moduleA\/moduleB@
     --
     -- For more information, see
-    -- <AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module>
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module>
     -- in the /CloudFormation User Guide/.
     logicalIdHierarchy :: Prelude.Maybe Prelude.Text,
     -- | A concatenated list of the module type or types containing the resource.
@@ -78,7 +78,7 @@ data ModuleInfo = ModuleInfo'
 -- @moduleA\/moduleB@
 --
 -- For more information, see
--- <AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module>
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module>
 -- in the /CloudFormation User Guide/.
 --
 -- 'typeHierarchy', 'moduleInfo_typeHierarchy' - A concatenated list of the module type or types containing the resource.
@@ -108,7 +108,7 @@ newModuleInfo =
 -- @moduleA\/moduleB@
 --
 -- For more information, see
--- <AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module>
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module>
 -- in the /CloudFormation User Guide/.
 moduleInfo_logicalIdHierarchy :: Lens.Lens' ModuleInfo (Prelude.Maybe Prelude.Text)
 moduleInfo_logicalIdHierarchy = Lens.lens (\ModuleInfo' {logicalIdHierarchy} -> logicalIdHierarchy) (\s@ModuleInfo' {} a -> s {logicalIdHierarchy = a} :: ModuleInfo)
@@ -133,7 +133,8 @@ instance Data.FromXML ModuleInfo where
 
 instance Prelude.Hashable ModuleInfo where
   hashWithSalt _salt ModuleInfo' {..} =
-    _salt `Prelude.hashWithSalt` logicalIdHierarchy
+    _salt
+      `Prelude.hashWithSalt` logicalIdHierarchy
       `Prelude.hashWithSalt` typeHierarchy
 
 instance Prelude.NFData ModuleInfo where

@@ -202,7 +202,9 @@ instance Data.FromXML ResourceChange where
     ResourceChange'
       Prelude.<$> (x Data..@? "Action")
       Prelude.<*> (x Data..@? "ChangeSetId")
-      Prelude.<*> ( x Data..@? "Details" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Details"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "LogicalResourceId")
@@ -210,13 +212,16 @@ instance Data.FromXML ResourceChange where
       Prelude.<*> (x Data..@? "PhysicalResourceId")
       Prelude.<*> (x Data..@? "Replacement")
       Prelude.<*> (x Data..@? "ResourceType")
-      Prelude.<*> ( x Data..@? "Scope" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Scope"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable ResourceChange where
   hashWithSalt _salt ResourceChange' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` changeSetId
       `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` logicalResourceId

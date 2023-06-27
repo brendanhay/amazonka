@@ -116,13 +116,13 @@ data ListTypes = ListTypes'
     -- Valid values include:
     --
     -- -   @PRIVATE@: Extensions that are visible and usable within this
-    --     account and region. This includes:
+    --     account and Region. This includes:
     --
     --     -   Private extensions you have registered in this account and
-    --         region.
+    --         Region.
     --
     --     -   Public extensions that you have activated in this account and
-    --         region.
+    --         Region.
     --
     -- -   @PUBLIC@: Extensions that are publicly visible and available to be
     --     activated within any Amazon Web Services account. This includes
@@ -199,13 +199,13 @@ data ListTypes = ListTypes'
 -- Valid values include:
 --
 -- -   @PRIVATE@: Extensions that are visible and usable within this
---     account and region. This includes:
+--     account and Region. This includes:
 --
 --     -   Private extensions you have registered in this account and
---         region.
+--         Region.
 --
 --     -   Public extensions that you have activated in this account and
---         region.
+--         Region.
 --
 -- -   @PUBLIC@: Extensions that are publicly visible and available to be
 --     activated within any Amazon Web Services account. This includes
@@ -295,13 +295,13 @@ listTypes_type = Lens.lens (\ListTypes' {type'} -> type') (\s@ListTypes' {} a ->
 -- Valid values include:
 --
 -- -   @PRIVATE@: Extensions that are visible and usable within this
---     account and region. This includes:
+--     account and Region. This includes:
 --
 --     -   Private extensions you have registered in this account and
---         region.
+--         Region.
 --
 --     -   Public extensions that you have activated in this account and
---         region.
+--         Region.
 --
 -- -   @PUBLIC@: Extensions that are publicly visible and available to be
 --     activated within any Amazon Web Services account. This includes
@@ -316,20 +316,23 @@ instance Core.AWSPager ListTypes where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listTypesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listTypesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listTypesResponse_typeSummaries Prelude.. Lens._Just
+            Lens.^? listTypesResponse_typeSummaries
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTypes_nextToken
           Lens..~ rs
-          Lens.^? listTypesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listTypesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTypes where
   type AWSResponse ListTypes = ListTypesResponse
@@ -341,7 +344,9 @@ instance Core.AWSRequest ListTypes where
       ( \s h x ->
           ListTypesResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "TypeSummaries" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "TypeSummaries"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -349,7 +354,8 @@ instance Core.AWSRequest ListTypes where
 
 instance Prelude.Hashable ListTypes where
   hashWithSalt _salt ListTypes' {..} =
-    _salt `Prelude.hashWithSalt` deprecatedStatus
+    _salt
+      `Prelude.hashWithSalt` deprecatedStatus
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

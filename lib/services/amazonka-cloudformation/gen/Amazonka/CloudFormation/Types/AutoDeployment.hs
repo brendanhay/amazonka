@@ -90,7 +90,8 @@ instance Data.FromXML AutoDeployment where
 
 instance Prelude.Hashable AutoDeployment where
   hashWithSalt _salt AutoDeployment' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` retainStacksOnAccountRemoval
 
 instance Prelude.NFData AutoDeployment where

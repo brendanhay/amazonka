@@ -37,8 +37,8 @@ data RequiredActivatedType = RequiredActivatedType'
   { -- | The type name of the public extension.
     --
     -- If you specified a @TypeNameAlias@ when enabling the extension in this
-    -- account and region, CloudFormation treats that alias as the extension\'s
-    -- type name within the account and region, not the type name of the public
+    -- account and Region, CloudFormation treats that alias as the extension\'s
+    -- type name within the account and Region, not the type name of the public
     -- extension. For more information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-alias Specifying aliases to refer to extensions>
     -- in the /CloudFormation User Guide/.
@@ -48,9 +48,9 @@ data RequiredActivatedType = RequiredActivatedType'
     -- | A list of the major versions of the extension type that the macro
     -- supports.
     supportedMajorVersions :: Prelude.Maybe [Prelude.Natural],
-    -- | An alias assigned to the public extension, in this account and region.
+    -- | An alias assigned to the public extension, in this account and Region.
     -- If you specify an alias for the extension, CloudFormation treats the
-    -- alias as the extension type name within this account and region. You
+    -- alias as the extension type name within this account and Region. You
     -- must use the alias to refer to the extension in your templates, API
     -- calls, and CloudFormation console.
     typeNameAlias :: Prelude.Maybe Prelude.Text
@@ -68,8 +68,8 @@ data RequiredActivatedType = RequiredActivatedType'
 -- 'originalTypeName', 'requiredActivatedType_originalTypeName' - The type name of the public extension.
 --
 -- If you specified a @TypeNameAlias@ when enabling the extension in this
--- account and region, CloudFormation treats that alias as the extension\'s
--- type name within the account and region, not the type name of the public
+-- account and Region, CloudFormation treats that alias as the extension\'s
+-- type name within the account and Region, not the type name of the public
 -- extension. For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-alias Specifying aliases to refer to extensions>
 -- in the /CloudFormation User Guide/.
@@ -79,9 +79,9 @@ data RequiredActivatedType = RequiredActivatedType'
 -- 'supportedMajorVersions', 'requiredActivatedType_supportedMajorVersions' - A list of the major versions of the extension type that the macro
 -- supports.
 --
--- 'typeNameAlias', 'requiredActivatedType_typeNameAlias' - An alias assigned to the public extension, in this account and region.
+-- 'typeNameAlias', 'requiredActivatedType_typeNameAlias' - An alias assigned to the public extension, in this account and Region.
 -- If you specify an alias for the extension, CloudFormation treats the
--- alias as the extension type name within this account and region. You
+-- alias as the extension type name within this account and Region. You
 -- must use the alias to refer to the extension in your templates, API
 -- calls, and CloudFormation console.
 newRequiredActivatedType ::
@@ -98,8 +98,8 @@ newRequiredActivatedType =
 -- | The type name of the public extension.
 --
 -- If you specified a @TypeNameAlias@ when enabling the extension in this
--- account and region, CloudFormation treats that alias as the extension\'s
--- type name within the account and region, not the type name of the public
+-- account and Region, CloudFormation treats that alias as the extension\'s
+-- type name within the account and Region, not the type name of the public
 -- extension. For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-alias Specifying aliases to refer to extensions>
 -- in the /CloudFormation User Guide/.
@@ -115,9 +115,9 @@ requiredActivatedType_publisherId = Lens.lens (\RequiredActivatedType' {publishe
 requiredActivatedType_supportedMajorVersions :: Lens.Lens' RequiredActivatedType (Prelude.Maybe [Prelude.Natural])
 requiredActivatedType_supportedMajorVersions = Lens.lens (\RequiredActivatedType' {supportedMajorVersions} -> supportedMajorVersions) (\s@RequiredActivatedType' {} a -> s {supportedMajorVersions = a} :: RequiredActivatedType) Prelude.. Lens.mapping Lens.coerced
 
--- | An alias assigned to the public extension, in this account and region.
+-- | An alias assigned to the public extension, in this account and Region.
 -- If you specify an alias for the extension, CloudFormation treats the
--- alias as the extension type name within this account and region. You
+-- alias as the extension type name within this account and Region. You
 -- must use the alias to refer to the extension in your templates, API
 -- calls, and CloudFormation console.
 requiredActivatedType_typeNameAlias :: Lens.Lens' RequiredActivatedType (Prelude.Maybe Prelude.Text)
@@ -128,7 +128,8 @@ instance Data.FromXML RequiredActivatedType where
     RequiredActivatedType'
       Prelude.<$> (x Data..@? "OriginalTypeName")
       Prelude.<*> (x Data..@? "PublisherId")
-      Prelude.<*> ( x Data..@? "SupportedMajorVersions"
+      Prelude.<*> ( x
+                      Data..@? "SupportedMajorVersions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -136,7 +137,8 @@ instance Data.FromXML RequiredActivatedType where
 
 instance Prelude.Hashable RequiredActivatedType where
   hashWithSalt _salt RequiredActivatedType' {..} =
-    _salt `Prelude.hashWithSalt` originalTypeName
+    _salt
+      `Prelude.hashWithSalt` originalTypeName
       `Prelude.hashWithSalt` publisherId
       `Prelude.hashWithSalt` supportedMajorVersions
       `Prelude.hashWithSalt` typeNameAlias

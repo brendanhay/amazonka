@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 data RenderingConfiguration = RenderingConfiguration'
   { -- | A URI template containing exactly one variable in
     -- @${variableName} @format. This can only be set for @EXTERNAL@ knowledge
-    -- bases. For Salesforce and ServiceNow, the variable must be one of the
-    -- following:
+    -- bases. For Salesforce, ServiceNow, and Zendesk, the variable must be one
+    -- of the following:
     --
     -- -   Salesforce: @Id@, @ArticleNumber@, @VersionNumber@, @Title@,
     --     @PublishStatus@, or @IsDeleted@
@@ -39,7 +39,11 @@ data RenderingConfiguration = RenderingConfiguration'
     -- -   ServiceNow: @number@, @short_description@, @sys_mod_count@,
     --     @workflow_state@, or @active@
     --
-    -- >  <p>The variable is replaced with the actual value for a piece of content when calling <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContent.html">GetContent</a>. </p>
+    -- -   Zendesk: @id@, @title@, @updated_at@, or @draft@
+    --
+    -- The variable is replaced with the actual value for a piece of content
+    -- when calling
+    -- <https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContent.html GetContent>.
     templateUri :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -54,8 +58,8 @@ data RenderingConfiguration = RenderingConfiguration'
 --
 -- 'templateUri', 'renderingConfiguration_templateUri' - A URI template containing exactly one variable in
 -- @${variableName} @format. This can only be set for @EXTERNAL@ knowledge
--- bases. For Salesforce and ServiceNow, the variable must be one of the
--- following:
+-- bases. For Salesforce, ServiceNow, and Zendesk, the variable must be one
+-- of the following:
 --
 -- -   Salesforce: @Id@, @ArticleNumber@, @VersionNumber@, @Title@,
 --     @PublishStatus@, or @IsDeleted@
@@ -63,7 +67,11 @@ data RenderingConfiguration = RenderingConfiguration'
 -- -   ServiceNow: @number@, @short_description@, @sys_mod_count@,
 --     @workflow_state@, or @active@
 --
--- >  <p>The variable is replaced with the actual value for a piece of content when calling <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContent.html">GetContent</a>. </p>
+-- -   Zendesk: @id@, @title@, @updated_at@, or @draft@
+--
+-- The variable is replaced with the actual value for a piece of content
+-- when calling
+-- <https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContent.html GetContent>.
 newRenderingConfiguration ::
   RenderingConfiguration
 newRenderingConfiguration =
@@ -74,8 +82,8 @@ newRenderingConfiguration =
 
 -- | A URI template containing exactly one variable in
 -- @${variableName} @format. This can only be set for @EXTERNAL@ knowledge
--- bases. For Salesforce and ServiceNow, the variable must be one of the
--- following:
+-- bases. For Salesforce, ServiceNow, and Zendesk, the variable must be one
+-- of the following:
 --
 -- -   Salesforce: @Id@, @ArticleNumber@, @VersionNumber@, @Title@,
 --     @PublishStatus@, or @IsDeleted@
@@ -83,7 +91,11 @@ newRenderingConfiguration =
 -- -   ServiceNow: @number@, @short_description@, @sys_mod_count@,
 --     @workflow_state@, or @active@
 --
--- >  <p>The variable is replaced with the actual value for a piece of content when calling <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContent.html">GetContent</a>. </p>
+-- -   Zendesk: @id@, @title@, @updated_at@, or @draft@
+--
+-- The variable is replaced with the actual value for a piece of content
+-- when calling
+-- <https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContent.html GetContent>.
 renderingConfiguration_templateUri :: Lens.Lens' RenderingConfiguration (Prelude.Maybe Prelude.Text)
 renderingConfiguration_templateUri = Lens.lens (\RenderingConfiguration' {templateUri} -> templateUri) (\s@RenderingConfiguration' {} a -> s {templateUri = a} :: RenderingConfiguration)
 

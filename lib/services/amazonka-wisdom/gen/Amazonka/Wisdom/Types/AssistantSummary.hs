@@ -152,7 +152,8 @@ instance Data.FromJSON AssistantSummary where
 
 instance Prelude.Hashable AssistantSummary where
   hashWithSalt _salt AssistantSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` serverSideEncryptionConfiguration
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` assistantArn

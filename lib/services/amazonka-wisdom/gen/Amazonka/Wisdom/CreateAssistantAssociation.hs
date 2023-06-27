@@ -56,7 +56,9 @@ import Amazonka.Wisdom.Types
 -- | /See:/ 'newCreateAssistantAssociation' smart constructor.
 data CreateAssistantAssociation = CreateAssistantAssociation'
   { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The tags used to organize, track, or control access for this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -79,7 +81,9 @@ data CreateAssistantAssociation = CreateAssistantAssociation'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'createAssistantAssociation_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'tags', 'createAssistantAssociation_tags' - The tags used to organize, track, or control access for this resource.
 --
@@ -111,7 +115,9 @@ newCreateAssistantAssociation
       }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 createAssistantAssociation_clientToken :: Lens.Lens' CreateAssistantAssociation (Prelude.Maybe Prelude.Text)
 createAssistantAssociation_clientToken = Lens.lens (\CreateAssistantAssociation' {clientToken} -> clientToken) (\s@CreateAssistantAssociation' {} a -> s {clientToken = a} :: CreateAssistantAssociation)
 
@@ -148,7 +154,8 @@ instance Core.AWSRequest CreateAssistantAssociation where
 
 instance Prelude.Hashable CreateAssistantAssociation where
   hashWithSalt _salt CreateAssistantAssociation' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` assistantId
       `Prelude.hashWithSalt` association

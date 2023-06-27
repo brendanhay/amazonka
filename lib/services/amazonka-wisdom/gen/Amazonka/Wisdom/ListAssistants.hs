@@ -98,20 +98,21 @@ instance Core.AWSPager ListAssistants where
     | Core.stop
         ( rs
             Lens.^? listAssistantsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listAssistantsResponse_assistantSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAssistants_nextToken
           Lens..~ rs
-          Lens.^? listAssistantsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listAssistantsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAssistants where
   type
@@ -125,14 +126,16 @@ instance Core.AWSRequest ListAssistants where
           ListAssistantsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "assistantSummaries"
+            Prelude.<*> ( x
+                            Data..?> "assistantSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListAssistants where
   hashWithSalt _salt ListAssistants' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListAssistants where

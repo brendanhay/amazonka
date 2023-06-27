@@ -237,7 +237,8 @@ instance Data.FromJSON ContentData where
 
 instance Prelude.Hashable ContentData where
   hashWithSalt _salt ContentData' {..} =
-    _salt `Prelude.hashWithSalt` linkOutUri
+    _salt
+      `Prelude.hashWithSalt` linkOutUri
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` contentArn
       `Prelude.hashWithSalt` contentId

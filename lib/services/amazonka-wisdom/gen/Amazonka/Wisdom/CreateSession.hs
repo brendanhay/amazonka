@@ -56,7 +56,9 @@ import Amazonka.Wisdom.Types
 -- | /See:/ 'newCreateSession' smart constructor.
 data CreateSession = CreateSession'
   { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description.
     description :: Prelude.Maybe Prelude.Text,
@@ -79,7 +81,9 @@ data CreateSession = CreateSession'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'createSession_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'description', 'createSession_description' - The description.
 --
@@ -105,7 +109,9 @@ newCreateSession pAssistantId_ pName_ =
     }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 createSession_clientToken :: Lens.Lens' CreateSession (Prelude.Maybe Prelude.Text)
 createSession_clientToken = Lens.lens (\CreateSession' {clientToken} -> clientToken) (\s@CreateSession' {} a -> s {clientToken = a} :: CreateSession)
 
@@ -142,7 +148,8 @@ instance Core.AWSRequest CreateSession where
 
 instance Prelude.Hashable CreateSession where
   hashWithSalt _salt CreateSession' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` assistantId

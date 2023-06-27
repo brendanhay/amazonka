@@ -200,7 +200,8 @@ instance Core.AWSRequest UpdateContent where
 
 instance Prelude.Hashable UpdateContent where
   hashWithSalt _salt UpdateContent' {..} =
-    _salt `Prelude.hashWithSalt` metadata
+    _salt
+      `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` overrideLinkOutUri
       `Prelude.hashWithSalt` removeOverrideLinkOutUri
       `Prelude.hashWithSalt` revisionId

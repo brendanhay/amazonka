@@ -59,7 +59,9 @@ import Amazonka.Wisdom.Types
 -- | /See:/ 'newCreateContent' smart constructor.
 data CreateContent = CreateContent'
   { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A key\/value map to store attributes without affecting tagging or
     -- recommendations. For example, when synchronizing data between an
@@ -98,7 +100,9 @@ data CreateContent = CreateContent'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'createContent_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'metadata', 'createContent_metadata' - A key\/value map to store attributes without affecting tagging or
 -- recommendations. For example, when synchronizing data between an
@@ -145,7 +149,9 @@ newCreateContent pKnowledgeBaseId_ pName_ pUploadId_ =
     }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 createContent_clientToken :: Lens.Lens' CreateContent (Prelude.Maybe Prelude.Text)
 createContent_clientToken = Lens.lens (\CreateContent' {clientToken} -> clientToken) (\s@CreateContent' {} a -> s {clientToken = a} :: CreateContent)
 
@@ -204,7 +210,8 @@ instance Core.AWSRequest CreateContent where
 
 instance Prelude.Hashable CreateContent where
   hashWithSalt _salt CreateContent' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` overrideLinkOutUri
       `Prelude.hashWithSalt` tags

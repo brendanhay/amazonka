@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     NotifyRecommendationsReceivedError' {..} =
-      _salt `Prelude.hashWithSalt` message
+      _salt
+        `Prelude.hashWithSalt` message
         `Prelude.hashWithSalt` recommendationId
 
 instance

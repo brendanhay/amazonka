@@ -125,18 +125,20 @@ instance Core.AWSPager SearchContent where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? searchContentResponse_nextToken Prelude.. Lens._Just
+            Lens.^? searchContentResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. searchContentResponse_contentSummaries) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchContent_nextToken
           Lens..~ rs
-          Lens.^? searchContentResponse_nextToken Prelude.. Lens._Just
+          Lens.^? searchContentResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchContent where
   type
@@ -150,14 +152,16 @@ instance Core.AWSRequest SearchContent where
           SearchContentResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "contentSummaries"
+            Prelude.<*> ( x
+                            Data..?> "contentSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable SearchContent where
   hashWithSalt _salt SearchContent' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` knowledgeBaseId
       `Prelude.hashWithSalt` searchExpression

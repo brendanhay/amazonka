@@ -241,8 +241,8 @@ module Amazonka.Wisdom.Lens
     -- * Types
 
     -- ** AppIntegrationsConfiguration
-    appIntegrationsConfiguration_appIntegrationArn,
     appIntegrationsConfiguration_objectFields,
+    appIntegrationsConfiguration_appIntegrationArn,
 
     -- ** AssistantAssociationData
     assistantAssociationData_tags,

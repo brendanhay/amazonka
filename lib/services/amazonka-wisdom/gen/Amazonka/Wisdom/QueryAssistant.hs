@@ -127,18 +127,19 @@ instance Core.AWSPager QueryAssistant where
     | Core.stop
         ( rs
             Lens.^? queryAssistantResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. queryAssistantResponse_results) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& queryAssistant_nextToken
           Lens..~ rs
-          Lens.^? queryAssistantResponse_nextToken Prelude.. Lens._Just
+          Lens.^? queryAssistantResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest QueryAssistant where
   type
@@ -157,7 +158,8 @@ instance Core.AWSRequest QueryAssistant where
 
 instance Prelude.Hashable QueryAssistant where
   hashWithSalt _salt QueryAssistant' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assistantId
       `Prelude.hashWithSalt` queryText

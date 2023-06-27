@@ -55,7 +55,9 @@ import Amazonka.Wisdom.Types
 -- | /See:/ 'newCreateAssistant' smart constructor.
 data CreateAssistant = CreateAssistant'
   { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The description of the assistant.
     description :: Prelude.Maybe Prelude.Text,
@@ -79,7 +81,9 @@ data CreateAssistant = CreateAssistant'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'createAssistant_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'description', 'createAssistant_description' - The description of the assistant.
 --
@@ -107,7 +111,9 @@ newCreateAssistant pName_ pType_ =
     }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 createAssistant_clientToken :: Lens.Lens' CreateAssistant (Prelude.Maybe Prelude.Text)
 createAssistant_clientToken = Lens.lens (\CreateAssistant' {clientToken} -> clientToken) (\s@CreateAssistant' {} a -> s {clientToken = a} :: CreateAssistant)
 
@@ -147,7 +153,8 @@ instance Core.AWSRequest CreateAssistant where
 
 instance Prelude.Hashable CreateAssistant where
   hashWithSalt _salt CreateAssistant' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` serverSideEncryptionConfiguration
       `Prelude.hashWithSalt` tags

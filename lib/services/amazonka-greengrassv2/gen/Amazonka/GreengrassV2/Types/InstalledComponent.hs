@@ -39,9 +39,12 @@ data InstalledComponent = InstalledComponent'
     -- Greengrass core device. For a thing group deployment or thing
     -- deployment, the source will be the The ID of the deployment. and for
     -- local deployments it will be @LOCAL@.
+    --
+    -- Any deployment will attempt to reinstall currently broken components on
+    -- the device, which will update the last installation source.
     lastInstallationSource :: Prelude.Maybe Prelude.Text,
     -- | The last time the Greengrass core device sent a message containing a
-    -- certain component to the Amazon Web Services Cloud.
+    -- component\'s state to the Amazon Web Services Cloud.
     --
     -- A component does not need to see a state change for this field to
     -- update.
@@ -87,8 +90,11 @@ data InstalledComponent = InstalledComponent'
 -- deployment, the source will be the The ID of the deployment. and for
 -- local deployments it will be @LOCAL@.
 --
+-- Any deployment will attempt to reinstall currently broken components on
+-- the device, which will update the last installation source.
+--
 -- 'lastReportedTimestamp', 'installedComponent_lastReportedTimestamp' - The last time the Greengrass core device sent a message containing a
--- certain component to the Amazon Web Services Cloud.
+-- component\'s state to the Amazon Web Services Cloud.
 --
 -- A component does not need to see a state change for this field to
 -- update.
@@ -143,11 +149,14 @@ installedComponent_isRoot = Lens.lens (\InstalledComponent' {isRoot} -> isRoot) 
 -- Greengrass core device. For a thing group deployment or thing
 -- deployment, the source will be the The ID of the deployment. and for
 -- local deployments it will be @LOCAL@.
+--
+-- Any deployment will attempt to reinstall currently broken components on
+-- the device, which will update the last installation source.
 installedComponent_lastInstallationSource :: Lens.Lens' InstalledComponent (Prelude.Maybe Prelude.Text)
 installedComponent_lastInstallationSource = Lens.lens (\InstalledComponent' {lastInstallationSource} -> lastInstallationSource) (\s@InstalledComponent' {} a -> s {lastInstallationSource = a} :: InstalledComponent)
 
 -- | The last time the Greengrass core device sent a message containing a
--- certain component to the Amazon Web Services Cloud.
+-- component\'s state to the Amazon Web Services Cloud.
 --
 -- A component does not need to see a state change for this field to
 -- update.
@@ -195,14 +204,16 @@ instance Data.FromJSON InstalledComponent where
             Prelude.<*> (x Data..:? "lastStatusChangeTimestamp")
             Prelude.<*> (x Data..:? "lifecycleState")
             Prelude.<*> (x Data..:? "lifecycleStateDetails")
-            Prelude.<*> ( x Data..:? "lifecycleStatusCodes"
+            Prelude.<*> ( x
+                            Data..:? "lifecycleStatusCodes"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable InstalledComponent where
   hashWithSalt _salt InstalledComponent' {..} =
-    _salt `Prelude.hashWithSalt` componentName
+    _salt
+      `Prelude.hashWithSalt` componentName
       `Prelude.hashWithSalt` componentVersion
       `Prelude.hashWithSalt` isRoot
       `Prelude.hashWithSalt` lastInstallationSource

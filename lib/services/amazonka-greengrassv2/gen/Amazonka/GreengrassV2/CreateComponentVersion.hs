@@ -236,7 +236,8 @@ instance Core.AWSRequest CreateComponentVersion where
 
 instance Prelude.Hashable CreateComponentVersion where
   hashWithSalt _salt CreateComponentVersion' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` inlineRecipe
       `Prelude.hashWithSalt` lambdaFunction
       `Prelude.hashWithSalt` tags

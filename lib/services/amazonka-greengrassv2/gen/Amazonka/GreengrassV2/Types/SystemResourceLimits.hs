@@ -104,7 +104,8 @@ instance Data.FromJSON SystemResourceLimits where
 
 instance Prelude.Hashable SystemResourceLimits where
   hashWithSalt _salt SystemResourceLimits' {..} =
-    _salt `Prelude.hashWithSalt` cpus
+    _salt
+      `Prelude.hashWithSalt` cpus
       `Prelude.hashWithSalt` memory
 
 instance Prelude.NFData SystemResourceLimits where

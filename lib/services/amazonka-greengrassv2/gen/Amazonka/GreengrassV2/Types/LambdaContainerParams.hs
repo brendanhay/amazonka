@@ -100,7 +100,8 @@ lambdaContainerParams_volumes = Lens.lens (\LambdaContainerParams' {volumes} -> 
 
 instance Prelude.Hashable LambdaContainerParams where
   hashWithSalt _salt LambdaContainerParams' {..} =
-    _salt `Prelude.hashWithSalt` devices
+    _salt
+      `Prelude.hashWithSalt` devices
       `Prelude.hashWithSalt` memorySizeInKB
       `Prelude.hashWithSalt` mountROSysfs
       `Prelude.hashWithSalt` volumes

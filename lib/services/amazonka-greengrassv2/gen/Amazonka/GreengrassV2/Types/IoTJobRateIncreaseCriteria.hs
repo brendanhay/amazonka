@@ -83,7 +83,8 @@ instance Data.FromJSON IoTJobRateIncreaseCriteria where
 
 instance Prelude.Hashable IoTJobRateIncreaseCriteria where
   hashWithSalt _salt IoTJobRateIncreaseCriteria' {..} =
-    _salt `Prelude.hashWithSalt` numberOfNotifiedThings
+    _salt
+      `Prelude.hashWithSalt` numberOfNotifiedThings
       `Prelude.hashWithSalt` numberOfSucceededThings
 
 instance Prelude.NFData IoTJobRateIncreaseCriteria where

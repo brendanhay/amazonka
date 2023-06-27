@@ -86,8 +86,8 @@ instance
       ( \x ->
           DisassociateClientDeviceFromCoreDeviceErrorEntry'
             Prelude.<$> (x Data..:? "code")
-              Prelude.<*> (x Data..:? "message")
-              Prelude.<*> (x Data..:? "thingName")
+            Prelude.<*> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "thingName")
       )
 
 instance
@@ -97,7 +97,8 @@ instance
   hashWithSalt
     _salt
     DisassociateClientDeviceFromCoreDeviceErrorEntry' {..} =
-      _salt `Prelude.hashWithSalt` code
+      _salt
+        `Prelude.hashWithSalt` code
         `Prelude.hashWithSalt` message
         `Prelude.hashWithSalt` thingName
 

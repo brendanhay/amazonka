@@ -164,7 +164,8 @@ instance Data.FromJSON ComponentRunWith where
 
 instance Prelude.Hashable ComponentRunWith where
   hashWithSalt _salt ComponentRunWith' {..} =
-    _salt `Prelude.hashWithSalt` posixUser
+    _salt
+      `Prelude.hashWithSalt` posixUser
       `Prelude.hashWithSalt` systemResourceLimits
       `Prelude.hashWithSalt` windowsUser
 

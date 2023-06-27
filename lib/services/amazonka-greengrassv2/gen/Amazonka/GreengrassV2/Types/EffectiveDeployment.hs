@@ -53,6 +53,27 @@ data EffectiveDeployment = EffectiveDeployment'
     -- of the target IoT thing or thing group.
     targetArn :: Prelude.Text,
     -- | The status of the deployment job on the Greengrass core device.
+    --
+    -- -   @IN_PROGRESS@ – The deployment job is running.
+    --
+    -- -   @QUEUED@ – The deployment job is in the job queue and waiting to
+    --     run.
+    --
+    -- -   @FAILED@ – The deployment failed. For more information, see the
+    --     @statusDetails@ field.
+    --
+    -- -   @COMPLETED@ – The deployment to an IoT thing was completed
+    --     successfully.
+    --
+    -- -   @TIMED_OUT@ – The deployment didn\'t complete in the allotted time.
+    --
+    -- -   @CANCELED@ – The deployment was canceled by the user.
+    --
+    -- -   @REJECTED@ – The deployment was rejected. For more information, see
+    --     the @statusDetails@ field.
+    --
+    -- -   @SUCCEEDED@ – The deployment to an IoT thing group was completed
+    --     successfully.
     coreDeviceExecutionStatus :: EffectiveDeploymentExecutionStatus,
     -- | The time at which the deployment was created, expressed in ISO 8601
     -- format.
@@ -93,6 +114,27 @@ data EffectiveDeployment = EffectiveDeployment'
 -- of the target IoT thing or thing group.
 --
 -- 'coreDeviceExecutionStatus', 'effectiveDeployment_coreDeviceExecutionStatus' - The status of the deployment job on the Greengrass core device.
+--
+-- -   @IN_PROGRESS@ – The deployment job is running.
+--
+-- -   @QUEUED@ – The deployment job is in the job queue and waiting to
+--     run.
+--
+-- -   @FAILED@ – The deployment failed. For more information, see the
+--     @statusDetails@ field.
+--
+-- -   @COMPLETED@ – The deployment to an IoT thing was completed
+--     successfully.
+--
+-- -   @TIMED_OUT@ – The deployment didn\'t complete in the allotted time.
+--
+-- -   @CANCELED@ – The deployment was canceled by the user.
+--
+-- -   @REJECTED@ – The deployment was rejected. For more information, see
+--     the @statusDetails@ field.
+--
+-- -   @SUCCEEDED@ – The deployment to an IoT thing group was completed
+--     successfully.
 --
 -- 'creationTimestamp', 'effectiveDeployment_creationTimestamp' - The time at which the deployment was created, expressed in ISO 8601
 -- format.
@@ -175,6 +217,27 @@ effectiveDeployment_targetArn :: Lens.Lens' EffectiveDeployment Prelude.Text
 effectiveDeployment_targetArn = Lens.lens (\EffectiveDeployment' {targetArn} -> targetArn) (\s@EffectiveDeployment' {} a -> s {targetArn = a} :: EffectiveDeployment)
 
 -- | The status of the deployment job on the Greengrass core device.
+--
+-- -   @IN_PROGRESS@ – The deployment job is running.
+--
+-- -   @QUEUED@ – The deployment job is in the job queue and waiting to
+--     run.
+--
+-- -   @FAILED@ – The deployment failed. For more information, see the
+--     @statusDetails@ field.
+--
+-- -   @COMPLETED@ – The deployment to an IoT thing was completed
+--     successfully.
+--
+-- -   @TIMED_OUT@ – The deployment didn\'t complete in the allotted time.
+--
+-- -   @CANCELED@ – The deployment was canceled by the user.
+--
+-- -   @REJECTED@ – The deployment was rejected. For more information, see
+--     the @statusDetails@ field.
+--
+-- -   @SUCCEEDED@ – The deployment to an IoT thing group was completed
+--     successfully.
 effectiveDeployment_coreDeviceExecutionStatus :: Lens.Lens' EffectiveDeployment EffectiveDeploymentExecutionStatus
 effectiveDeployment_coreDeviceExecutionStatus = Lens.lens (\EffectiveDeployment' {coreDeviceExecutionStatus} -> coreDeviceExecutionStatus) (\s@EffectiveDeployment' {} a -> s {coreDeviceExecutionStatus = a} :: EffectiveDeployment)
 
@@ -209,7 +272,8 @@ instance Data.FromJSON EffectiveDeployment where
 
 instance Prelude.Hashable EffectiveDeployment where
   hashWithSalt _salt EffectiveDeployment' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` iotJobArn
       `Prelude.hashWithSalt` iotJobId
       `Prelude.hashWithSalt` reason

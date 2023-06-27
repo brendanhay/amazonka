@@ -114,7 +114,8 @@ instance
     IoTJobExponentialRolloutRate
   where
   hashWithSalt _salt IoTJobExponentialRolloutRate' {..} =
-    _salt `Prelude.hashWithSalt` baseRatePerMinute
+    _salt
+      `Prelude.hashWithSalt` baseRatePerMinute
       `Prelude.hashWithSalt` incrementFactor
       `Prelude.hashWithSalt` rateIncreaseCriteria
 

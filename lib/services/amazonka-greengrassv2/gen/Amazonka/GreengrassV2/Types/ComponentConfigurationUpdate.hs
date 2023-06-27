@@ -123,7 +123,8 @@ instance
     ComponentConfigurationUpdate
   where
   hashWithSalt _salt ComponentConfigurationUpdate' {..} =
-    _salt `Prelude.hashWithSalt` merge
+    _salt
+      `Prelude.hashWithSalt` merge
       `Prelude.hashWithSalt` reset
 
 instance Prelude.NFData ComponentConfigurationUpdate where

@@ -131,7 +131,8 @@ instance
   hashWithSalt
     _salt
     ComponentDeploymentSpecification' {..} =
-      _salt `Prelude.hashWithSalt` componentVersion
+      _salt
+        `Prelude.hashWithSalt` componentVersion
         `Prelude.hashWithSalt` configurationUpdate
         `Prelude.hashWithSalt` runWith
 

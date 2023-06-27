@@ -137,7 +137,8 @@ lambdaFunctionRecipeSource_lambdaArn = Lens.lens (\LambdaFunctionRecipeSource' {
 
 instance Prelude.Hashable LambdaFunctionRecipeSource where
   hashWithSalt _salt LambdaFunctionRecipeSource' {..} =
-    _salt `Prelude.hashWithSalt` componentDependencies
+    _salt
+      `Prelude.hashWithSalt` componentDependencies
       `Prelude.hashWithSalt` componentLambdaParameters
       `Prelude.hashWithSalt` componentName
       `Prelude.hashWithSalt` componentPlatforms

@@ -102,7 +102,8 @@ instance
   hashWithSalt
     _salt
     ComponentDependencyRequirement' {..} =
-      _salt `Prelude.hashWithSalt` dependencyType
+      _salt
+        `Prelude.hashWithSalt` dependencyType
         `Prelude.hashWithSalt` versionRequirement
 
 instance

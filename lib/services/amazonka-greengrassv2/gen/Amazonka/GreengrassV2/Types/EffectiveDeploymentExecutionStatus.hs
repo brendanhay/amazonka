@@ -26,6 +26,7 @@ module Amazonka.GreengrassV2.Types.EffectiveDeploymentExecutionStatus
         EffectiveDeploymentExecutionStatus_IN_PROGRESS,
         EffectiveDeploymentExecutionStatus_QUEUED,
         EffectiveDeploymentExecutionStatus_REJECTED,
+        EffectiveDeploymentExecutionStatus_SUCCEEDED,
         EffectiveDeploymentExecutionStatus_TIMED_OUT
       ),
   )
@@ -81,6 +82,9 @@ pattern EffectiveDeploymentExecutionStatus_QUEUED = EffectiveDeploymentExecution
 pattern EffectiveDeploymentExecutionStatus_REJECTED :: EffectiveDeploymentExecutionStatus
 pattern EffectiveDeploymentExecutionStatus_REJECTED = EffectiveDeploymentExecutionStatus' "REJECTED"
 
+pattern EffectiveDeploymentExecutionStatus_SUCCEEDED :: EffectiveDeploymentExecutionStatus
+pattern EffectiveDeploymentExecutionStatus_SUCCEEDED = EffectiveDeploymentExecutionStatus' "SUCCEEDED"
+
 pattern EffectiveDeploymentExecutionStatus_TIMED_OUT :: EffectiveDeploymentExecutionStatus
 pattern EffectiveDeploymentExecutionStatus_TIMED_OUT = EffectiveDeploymentExecutionStatus' "TIMED_OUT"
 
@@ -91,6 +95,7 @@ pattern EffectiveDeploymentExecutionStatus_TIMED_OUT = EffectiveDeploymentExecut
   EffectiveDeploymentExecutionStatus_IN_PROGRESS,
   EffectiveDeploymentExecutionStatus_QUEUED,
   EffectiveDeploymentExecutionStatus_REJECTED,
+  EffectiveDeploymentExecutionStatus_SUCCEEDED,
   EffectiveDeploymentExecutionStatus_TIMED_OUT,
   EffectiveDeploymentExecutionStatus'
   #-}

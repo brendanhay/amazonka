@@ -101,7 +101,8 @@ instance Data.FromJSON CertificateValidationRecord where
 
 instance Prelude.Hashable CertificateValidationRecord where
   hashWithSalt _salt CertificateValidationRecord' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value

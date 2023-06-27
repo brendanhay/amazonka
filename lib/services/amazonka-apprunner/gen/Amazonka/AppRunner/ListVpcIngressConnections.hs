@@ -139,14 +139,16 @@ instance Core.AWSRequest ListVpcIngressConnections where
           ListVpcIngressConnectionsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "VpcIngressConnectionSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "VpcIngressConnectionSummaryList"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListVpcIngressConnections where
   hashWithSalt _salt ListVpcIngressConnections' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

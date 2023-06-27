@@ -184,7 +184,8 @@ instance
           ListObservabilityConfigurationsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "ObservabilityConfigurationSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "ObservabilityConfigurationSummaryList"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -196,7 +197,8 @@ instance
   hashWithSalt
     _salt
     ListObservabilityConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` latestOnly
+      _salt
+        `Prelude.hashWithSalt` latestOnly
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` observabilityConfigurationName

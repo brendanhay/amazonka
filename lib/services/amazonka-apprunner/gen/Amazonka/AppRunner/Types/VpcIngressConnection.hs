@@ -200,7 +200,8 @@ instance Data.FromJSON VpcIngressConnection where
 
 instance Prelude.Hashable VpcIngressConnection where
   hashWithSalt _salt VpcIngressConnection' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` deletedAt
       `Prelude.hashWithSalt` domainName

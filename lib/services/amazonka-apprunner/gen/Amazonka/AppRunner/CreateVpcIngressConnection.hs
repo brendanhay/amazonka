@@ -151,7 +151,8 @@ instance Core.AWSRequest CreateVpcIngressConnection where
 
 instance Prelude.Hashable CreateVpcIngressConnection where
   hashWithSalt _salt CreateVpcIngressConnection' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serviceArn
       `Prelude.hashWithSalt` vpcIngressConnectionName
       `Prelude.hashWithSalt` ingressVpcConfiguration

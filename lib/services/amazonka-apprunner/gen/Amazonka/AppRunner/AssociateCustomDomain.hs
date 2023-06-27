@@ -64,8 +64,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateCustomDomain' smart constructor.
 data AssociateCustomDomain = AssociateCustomDomain'
-  { -- | Set to @true@ to associate the subdomain @www.DomainName @ with the App
-    -- Runner service in addition to the base domain.
+  { -- | Set to @true@ to associate the subdomain @www.@/@DomainName@/@ @ with
+    -- the App Runner service in addition to the base domain.
     --
     -- Default: @true@
     enableWWWSubdomain :: Prelude.Maybe Prelude.Bool,
@@ -88,8 +88,8 @@ data AssociateCustomDomain = AssociateCustomDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enableWWWSubdomain', 'associateCustomDomain_enableWWWSubdomain' - Set to @true@ to associate the subdomain @www.DomainName @ with the App
--- Runner service in addition to the base domain.
+-- 'enableWWWSubdomain', 'associateCustomDomain_enableWWWSubdomain' - Set to @true@ to associate the subdomain @www.@/@DomainName@/@ @ with
+-- the App Runner service in addition to the base domain.
 --
 -- Default: @true@
 --
@@ -114,8 +114,8 @@ newAssociateCustomDomain pServiceArn_ pDomainName_ =
       domainName = pDomainName_
     }
 
--- | Set to @true@ to associate the subdomain @www.DomainName @ with the App
--- Runner service in addition to the base domain.
+-- | Set to @true@ to associate the subdomain @www.@/@DomainName@/@ @ with
+-- the App Runner service in addition to the base domain.
 --
 -- Default: @true@
 associateCustomDomain_enableWWWSubdomain :: Lens.Lens' AssociateCustomDomain (Prelude.Maybe Prelude.Bool)
@@ -152,7 +152,8 @@ instance Core.AWSRequest AssociateCustomDomain where
 
 instance Prelude.Hashable AssociateCustomDomain where
   hashWithSalt _salt AssociateCustomDomain' {..} =
-    _salt `Prelude.hashWithSalt` enableWWWSubdomain
+    _salt
+      `Prelude.hashWithSalt` enableWWWSubdomain
       `Prelude.hashWithSalt` serviceArn
       `Prelude.hashWithSalt` domainName
 

@@ -142,10 +142,12 @@ instance Data.FromJSON ImageConfiguration where
       ( \x ->
           ImageConfiguration'
             Prelude.<$> (x Data..:? "Port")
-            Prelude.<*> ( x Data..:? "RuntimeEnvironmentSecrets"
+            Prelude.<*> ( x
+                            Data..:? "RuntimeEnvironmentSecrets"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "RuntimeEnvironmentVariables"
+            Prelude.<*> ( x
+                            Data..:? "RuntimeEnvironmentVariables"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StartCommand")
@@ -153,7 +155,8 @@ instance Data.FromJSON ImageConfiguration where
 
 instance Prelude.Hashable ImageConfiguration where
   hashWithSalt _salt ImageConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` port
+    _salt
+      `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` runtimeEnvironmentSecrets
       `Prelude.hashWithSalt` runtimeEnvironmentVariables
       `Prelude.hashWithSalt` startCommand

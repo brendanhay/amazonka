@@ -97,7 +97,8 @@ instance Data.FromJSON EgressConfiguration where
 
 instance Prelude.Hashable EgressConfiguration where
   hashWithSalt _salt EgressConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` egressType
+    _salt
+      `Prelude.hashWithSalt` egressType
       `Prelude.hashWithSalt` vpcConnectorArn
 
 instance Prelude.NFData EgressConfiguration where

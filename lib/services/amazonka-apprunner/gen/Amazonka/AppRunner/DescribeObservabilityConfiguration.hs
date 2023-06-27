@@ -54,8 +54,9 @@ data DescribeObservabilityConfiguration = DescribeObservabilityConfiguration'
     -- configuration that you want a description for.
     --
     -- The ARN can be a full observability configuration ARN, or a partial ARN
-    -- ending with either @...\/name @ or @...\/name\/revision @. If a revision
-    -- isn\'t specified, the latest active revision is described.
+    -- ending with either @...\/@/@name@/@ @ or
+    -- @...\/@/@name@/@\/@/@revision@/@ @. If a revision isn\'t specified, the
+    -- latest active revision is described.
     observabilityConfigurationArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,8 +73,9 @@ data DescribeObservabilityConfiguration = DescribeObservabilityConfiguration'
 -- configuration that you want a description for.
 --
 -- The ARN can be a full observability configuration ARN, or a partial ARN
--- ending with either @...\/name @ or @...\/name\/revision @. If a revision
--- isn\'t specified, the latest active revision is described.
+-- ending with either @...\/@/@name@/@ @ or
+-- @...\/@/@name@/@\/@/@revision@/@ @. If a revision isn\'t specified, the
+-- latest active revision is described.
 newDescribeObservabilityConfiguration ::
   -- | 'observabilityConfigurationArn'
   Prelude.Text ->
@@ -89,8 +91,9 @@ newDescribeObservabilityConfiguration
 -- configuration that you want a description for.
 --
 -- The ARN can be a full observability configuration ARN, or a partial ARN
--- ending with either @...\/name @ or @...\/name\/revision @. If a revision
--- isn\'t specified, the latest active revision is described.
+-- ending with either @...\/@/@name@/@ @ or
+-- @...\/@/@name@/@\/@/@revision@/@ @. If a revision isn\'t specified, the
+-- latest active revision is described.
 describeObservabilityConfiguration_observabilityConfigurationArn :: Lens.Lens' DescribeObservabilityConfiguration Prelude.Text
 describeObservabilityConfiguration_observabilityConfigurationArn = Lens.lens (\DescribeObservabilityConfiguration' {observabilityConfigurationArn} -> observabilityConfigurationArn) (\s@DescribeObservabilityConfiguration' {} a -> s {observabilityConfigurationArn = a} :: DescribeObservabilityConfiguration)
 
@@ -108,7 +111,7 @@ instance
       ( \s h x ->
           DescribeObservabilityConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "ObservabilityConfiguration")
+            Prelude.<*> (x Data..:> "ObservabilityConfiguration")
       )
 
 instance

@@ -139,7 +139,8 @@ instance Data.FromJSON OperationSummary where
 
 instance Prelude.Hashable OperationSummary where
   hashWithSalt _salt OperationSummary' {..} =
-    _salt `Prelude.hashWithSalt` endedAt
+    _salt
+      `Prelude.hashWithSalt` endedAt
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` startedAt
       `Prelude.hashWithSalt` status

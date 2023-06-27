@@ -93,7 +93,8 @@ instance Data.FromJSON VpcDNSTarget where
 
 instance Prelude.Hashable VpcDNSTarget where
   hashWithSalt _salt VpcDNSTarget' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` vpcIngressConnectionArn
 

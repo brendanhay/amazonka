@@ -24,7 +24,8 @@ module Amazonka.AppRunner.Types.OperationType
         OperationType_DELETE_SERVICE,
         OperationType_PAUSE_SERVICE,
         OperationType_RESUME_SERVICE,
-        OperationType_START_DEPLOYMENT
+        OperationType_START_DEPLOYMENT,
+        OperationType_UPDATE_SERVICE
       ),
   )
 where
@@ -76,11 +77,15 @@ pattern OperationType_RESUME_SERVICE = OperationType' "RESUME_SERVICE"
 pattern OperationType_START_DEPLOYMENT :: OperationType
 pattern OperationType_START_DEPLOYMENT = OperationType' "START_DEPLOYMENT"
 
+pattern OperationType_UPDATE_SERVICE :: OperationType
+pattern OperationType_UPDATE_SERVICE = OperationType' "UPDATE_SERVICE"
+
 {-# COMPLETE
   OperationType_CREATE_SERVICE,
   OperationType_DELETE_SERVICE,
   OperationType_PAUSE_SERVICE,
   OperationType_RESUME_SERVICE,
   OperationType_START_DEPLOYMENT,
+  OperationType_UPDATE_SERVICE,
   OperationType'
   #-}

@@ -180,7 +180,8 @@ instance Data.FromJSON HealthCheckConfiguration where
 
 instance Prelude.Hashable HealthCheckConfiguration where
   hashWithSalt _salt HealthCheckConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` healthyThreshold
+    _salt
+      `Prelude.hashWithSalt` healthyThreshold
       `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` protocol

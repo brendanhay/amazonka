@@ -109,7 +109,8 @@ instance Data.FromJSON Connection where
 
 instance Prelude.Hashable Connection where
   hashWithSalt _salt Connection' {..} =
-    _salt `Prelude.hashWithSalt` connectionArn
+    _salt
+      `Prelude.hashWithSalt` connectionArn
       `Prelude.hashWithSalt` connectionName
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` providerType

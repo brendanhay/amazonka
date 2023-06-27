@@ -257,7 +257,8 @@ instance
   hashWithSalt
     _salt
     CreateAutoScalingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` maxConcurrency
+      _salt
+        `Prelude.hashWithSalt` maxConcurrency
         `Prelude.hashWithSalt` maxSize
         `Prelude.hashWithSalt` minSize
         `Prelude.hashWithSalt` tags

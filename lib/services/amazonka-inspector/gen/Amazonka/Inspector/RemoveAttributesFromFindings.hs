@@ -114,7 +114,8 @@ instance
     RemoveAttributesFromFindings
   where
   hashWithSalt _salt RemoveAttributesFromFindings' {..} =
-    _salt `Prelude.hashWithSalt` findingArns
+    _salt
+      `Prelude.hashWithSalt` findingArns
       `Prelude.hashWithSalt` attributeKeys
 
 instance Prelude.NFData RemoveAttributesFromFindings where

@@ -142,14 +142,16 @@ instance Data.FromJSON AssessmentRunAgent where
             Prelude.<*> (x Data..: "assessmentRunArn")
             Prelude.<*> (x Data..: "agentHealth")
             Prelude.<*> (x Data..: "agentHealthCode")
-            Prelude.<*> ( x Data..:? "telemetryMetadata"
+            Prelude.<*> ( x
+                            Data..:? "telemetryMetadata"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AssessmentRunAgent where
   hashWithSalt _salt AssessmentRunAgent' {..} =
-    _salt `Prelude.hashWithSalt` agentHealthDetails
+    _salt
+      `Prelude.hashWithSalt` agentHealthDetails
       `Prelude.hashWithSalt` autoScalingGroup
       `Prelude.hashWithSalt` agentId
       `Prelude.hashWithSalt` assessmentRunArn

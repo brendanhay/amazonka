@@ -252,7 +252,8 @@ instance Data.FromJSON Finding where
 
 instance Prelude.Hashable Finding where
   hashWithSalt _salt Finding' {..} =
-    _salt `Prelude.hashWithSalt` assetAttributes
+    _salt
+      `Prelude.hashWithSalt` assetAttributes
       `Prelude.hashWithSalt` assetType
       `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` description

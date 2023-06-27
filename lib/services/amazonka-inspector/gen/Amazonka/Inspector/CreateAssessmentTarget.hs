@@ -125,7 +125,8 @@ instance Core.AWSRequest CreateAssessmentTarget where
 
 instance Prelude.Hashable CreateAssessmentTarget where
   hashWithSalt _salt CreateAssessmentTarget' {..} =
-    _salt `Prelude.hashWithSalt` resourceGroupArn
+    _salt
+      `Prelude.hashWithSalt` resourceGroupArn
       `Prelude.hashWithSalt` assessmentTargetName
 
 instance Prelude.NFData CreateAssessmentTarget where

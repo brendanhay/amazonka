@@ -138,7 +138,8 @@ instance Core.AWSRequest GetAssessmentReport where
 
 instance Prelude.Hashable GetAssessmentReport where
   hashWithSalt _salt GetAssessmentReport' {..} =
-    _salt `Prelude.hashWithSalt` assessmentRunArn
+    _salt
+      `Prelude.hashWithSalt` assessmentRunArn
       `Prelude.hashWithSalt` reportFileFormat
       `Prelude.hashWithSalt` reportType
 

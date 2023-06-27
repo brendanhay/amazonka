@@ -80,7 +80,8 @@ instance Data.FromJSON AssessmentRunStateChange where
 
 instance Prelude.Hashable AssessmentRunStateChange where
   hashWithSalt _salt AssessmentRunStateChange' {..} =
-    _salt `Prelude.hashWithSalt` stateChangedAt
+    _salt
+      `Prelude.hashWithSalt` stateChangedAt
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData AssessmentRunStateChange where

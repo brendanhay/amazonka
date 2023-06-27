@@ -107,7 +107,8 @@ instance Core.AWSRequest DescribeExclusions where
 
 instance Prelude.Hashable DescribeExclusions where
   hashWithSalt _salt DescribeExclusions' {..} =
-    _salt `Prelude.hashWithSalt` locale
+    _salt
+      `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` exclusionArns
 
 instance Prelude.NFData DescribeExclusions where

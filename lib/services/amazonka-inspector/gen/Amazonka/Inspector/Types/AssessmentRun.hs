@@ -244,7 +244,8 @@ instance Data.FromJSON AssessmentRun where
             Prelude.<*> (x Data..: "state")
             Prelude.<*> (x Data..: "durationInSeconds")
             Prelude.<*> (x Data..: "rulesPackageArns")
-            Prelude.<*> ( x Data..:? "userAttributesForFindings"
+            Prelude.<*> ( x
+                            Data..:? "userAttributesForFindings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "createdAt")
@@ -257,7 +258,8 @@ instance Data.FromJSON AssessmentRun where
 
 instance Prelude.Hashable AssessmentRun where
   hashWithSalt _salt AssessmentRun' {..} =
-    _salt `Prelude.hashWithSalt` completedAt
+    _salt
+      `Prelude.hashWithSalt` completedAt
       `Prelude.hashWithSalt` startedAt
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name

@@ -131,7 +131,8 @@ instance Data.FromJSON Exclusion where
 
 instance Prelude.Hashable Exclusion where
   hashWithSalt _salt Exclusion' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` description

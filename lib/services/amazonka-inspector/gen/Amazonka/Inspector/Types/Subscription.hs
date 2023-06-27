@@ -102,7 +102,8 @@ instance Data.FromJSON Subscription where
 
 instance Prelude.Hashable Subscription where
   hashWithSalt _salt Subscription' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` topicArn
       `Prelude.hashWithSalt` eventSubscriptions
 

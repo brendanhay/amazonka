@@ -87,7 +87,8 @@ instance Data.FromJSON InspectorServiceAttributes where
 
 instance Prelude.Hashable InspectorServiceAttributes where
   hashWithSalt _salt InspectorServiceAttributes' {..} =
-    _salt `Prelude.hashWithSalt` assessmentRunArn
+    _salt
+      `Prelude.hashWithSalt` assessmentRunArn
       `Prelude.hashWithSalt` rulesPackageArn
       `Prelude.hashWithSalt` schemaVersion
 

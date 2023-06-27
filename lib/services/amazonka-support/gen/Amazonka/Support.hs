@@ -96,6 +96,9 @@ module Amazonka.Support
     -- ** InternalServerError
     _InternalServerError,
 
+    -- ** ThrottlingException
+    _ThrottlingException,
+
     -- * Waiters
     -- $waiters
 
@@ -138,6 +141,12 @@ module Amazonka.Support
     DescribeCommunicationsResponse (DescribeCommunicationsResponse'),
     newDescribeCommunicationsResponse,
 
+    -- ** DescribeCreateCaseOptions
+    DescribeCreateCaseOptions (DescribeCreateCaseOptions'),
+    newDescribeCreateCaseOptions,
+    DescribeCreateCaseOptionsResponse (DescribeCreateCaseOptionsResponse'),
+    newDescribeCreateCaseOptionsResponse,
+
     -- ** DescribeServices
     DescribeServices (DescribeServices'),
     newDescribeServices,
@@ -149,6 +158,12 @@ module Amazonka.Support
     newDescribeSeverityLevels,
     DescribeSeverityLevelsResponse (DescribeSeverityLevelsResponse'),
     newDescribeSeverityLevelsResponse,
+
+    -- ** DescribeSupportedLanguages
+    DescribeSupportedLanguages (DescribeSupportedLanguages'),
+    newDescribeSupportedLanguages,
+    DescribeSupportedLanguagesResponse (DescribeSupportedLanguagesResponse'),
+    newDescribeSupportedLanguagesResponse,
 
     -- ** DescribeTrustedAdvisorCheckRefreshStatuses
     DescribeTrustedAdvisorCheckRefreshStatuses (DescribeTrustedAdvisorCheckRefreshStatuses'),
@@ -208,6 +223,14 @@ module Amazonka.Support
     Communication (Communication'),
     newCommunication,
 
+    -- ** CommunicationTypeOptions
+    CommunicationTypeOptions (CommunicationTypeOptions'),
+    newCommunicationTypeOptions,
+
+    -- ** DateInterval
+    DateInterval (DateInterval'),
+    newDateInterval,
+
     -- ** RecentCaseCommunications
     RecentCaseCommunications (RecentCaseCommunications'),
     newRecentCaseCommunications,
@@ -219,6 +242,14 @@ module Amazonka.Support
     -- ** SupportService
     SupportService (SupportService'),
     newSupportService,
+
+    -- ** SupportedHour
+    SupportedHour (SupportedHour'),
+    newSupportedHour,
+
+    -- ** SupportedLanguage
+    SupportedLanguage (SupportedLanguage'),
+    newSupportedLanguage,
 
     -- ** TrustedAdvisorCategorySpecificSummary
     TrustedAdvisorCategorySpecificSummary (TrustedAdvisorCategorySpecificSummary'),
@@ -260,8 +291,10 @@ import Amazonka.Support.CreateCase
 import Amazonka.Support.DescribeAttachment
 import Amazonka.Support.DescribeCases
 import Amazonka.Support.DescribeCommunications
+import Amazonka.Support.DescribeCreateCaseOptions
 import Amazonka.Support.DescribeServices
 import Amazonka.Support.DescribeSeverityLevels
+import Amazonka.Support.DescribeSupportedLanguages
 import Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses
 import Amazonka.Support.DescribeTrustedAdvisorCheckResult
 import Amazonka.Support.DescribeTrustedAdvisorCheckSummaries

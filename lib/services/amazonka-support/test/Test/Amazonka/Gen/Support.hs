@@ -45,11 +45,17 @@ import Test.Tasty
 --         , requestDescribeCommunications $
 --             newDescribeCommunications
 --
+--         , requestDescribeCreateCaseOptions $
+--             newDescribeCreateCaseOptions
+--
 --         , requestDescribeServices $
 --             newDescribeServices
 --
 --         , requestDescribeSeverityLevels $
 --             newDescribeSeverityLevels
+--
+--         , requestDescribeSupportedLanguages $
+--             newDescribeSupportedLanguages
 --
 --         , requestDescribeTrustedAdvisorCheckRefreshStatuses $
 --             newDescribeTrustedAdvisorCheckRefreshStatuses
@@ -90,11 +96,17 @@ import Test.Tasty
 --         , responseDescribeCommunications $
 --             newDescribeCommunicationsResponse
 --
+--         , responseDescribeCreateCaseOptions $
+--             newDescribeCreateCaseOptionsResponse
+--
 --         , responseDescribeServices $
 --             newDescribeServicesResponse
 --
 --         , responseDescribeSeverityLevels $
 --             newDescribeSeverityLevelsResponse
+--
+--         , responseDescribeSupportedLanguages $
+--             newDescribeSupportedLanguagesResponse
 --
 --         , responseDescribeTrustedAdvisorCheckRefreshStatuses $
 --             newDescribeTrustedAdvisorCheckRefreshStatusesResponse
@@ -155,6 +167,12 @@ requestDescribeCommunications =
     "DescribeCommunications"
     "fixture/DescribeCommunications.yaml"
 
+requestDescribeCreateCaseOptions :: DescribeCreateCaseOptions -> TestTree
+requestDescribeCreateCaseOptions =
+  req
+    "DescribeCreateCaseOptions"
+    "fixture/DescribeCreateCaseOptions.yaml"
+
 requestDescribeServices :: DescribeServices -> TestTree
 requestDescribeServices =
   req
@@ -166,6 +184,12 @@ requestDescribeSeverityLevels =
   req
     "DescribeSeverityLevels"
     "fixture/DescribeSeverityLevels.yaml"
+
+requestDescribeSupportedLanguages :: DescribeSupportedLanguages -> TestTree
+requestDescribeSupportedLanguages =
+  req
+    "DescribeSupportedLanguages"
+    "fixture/DescribeSupportedLanguages.yaml"
 
 requestDescribeTrustedAdvisorCheckRefreshStatuses :: DescribeTrustedAdvisorCheckRefreshStatuses -> TestTree
 requestDescribeTrustedAdvisorCheckRefreshStatuses =
@@ -253,6 +277,14 @@ responseDescribeCommunications =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeCommunications)
 
+responseDescribeCreateCaseOptions :: DescribeCreateCaseOptionsResponse -> TestTree
+responseDescribeCreateCaseOptions =
+  res
+    "DescribeCreateCaseOptionsResponse"
+    "fixture/DescribeCreateCaseOptionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeCreateCaseOptions)
+
 responseDescribeServices :: DescribeServicesResponse -> TestTree
 responseDescribeServices =
   res
@@ -268,6 +300,14 @@ responseDescribeSeverityLevels =
     "fixture/DescribeSeverityLevelsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeSeverityLevels)
+
+responseDescribeSupportedLanguages :: DescribeSupportedLanguagesResponse -> TestTree
+responseDescribeSupportedLanguages =
+  res
+    "DescribeSupportedLanguagesResponse"
+    "fixture/DescribeSupportedLanguagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeSupportedLanguages)
 
 responseDescribeTrustedAdvisorCheckRefreshStatuses :: DescribeTrustedAdvisorCheckRefreshStatusesResponse -> TestTree
 responseDescribeTrustedAdvisorCheckRefreshStatuses =

@@ -161,22 +161,22 @@ instance Core.AWSPager DescribeCommunications where
     | Core.stop
         ( rs
             Lens.^? describeCommunicationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeCommunicationsResponse_communications
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeCommunications_nextToken
           Lens..~ rs
           Lens.^? describeCommunicationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCommunications where
   type
@@ -195,7 +195,8 @@ instance Core.AWSRequest DescribeCommunications where
 
 instance Prelude.Hashable DescribeCommunications where
   hashWithSalt _salt DescribeCommunications' {..} =
-    _salt `Prelude.hashWithSalt` afterTime
+    _salt
+      `Prelude.hashWithSalt` afterTime
       `Prelude.hashWithSalt` beforeTime
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

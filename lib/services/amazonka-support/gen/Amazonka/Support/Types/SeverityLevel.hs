@@ -141,12 +141,14 @@ instance Data.FromJSON SeverityLevel where
       "SeverityLevel"
       ( \x ->
           SeverityLevel'
-            Prelude.<$> (x Data..:? "code") Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable SeverityLevel where
   hashWithSalt _salt SeverityLevel' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData SeverityLevel where

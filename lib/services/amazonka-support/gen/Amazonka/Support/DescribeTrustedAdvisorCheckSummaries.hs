@@ -109,7 +109,7 @@ instance
       ( \s h x ->
           DescribeTrustedAdvisorCheckSummariesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..?> "summaries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "summaries" Core..!@ Prelude.mempty)
       )
 
 instance

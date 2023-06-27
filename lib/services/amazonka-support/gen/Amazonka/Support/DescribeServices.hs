@@ -73,9 +73,10 @@ import Amazonka.Support.Types
 -- | /See:/ 'newDescribeServices' smart constructor.
 data DescribeServices = DescribeServices'
   { -- | The language in which Amazon Web Services Support handles the case.
-    -- Amazon Web Services Support currently supports English (\"en\") and
-    -- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
-    -- @language@ parameter if you want support in that language.
+    -- Amazon Web Services Support currently supports Chinese (“zh”), English
+    -- (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO
+    -- 639-1 code for the @language@ parameter if you want support in that
+    -- language.
     language :: Prelude.Maybe Prelude.Text,
     -- | A JSON-formatted list of service codes available for Amazon Web Services
     -- services.
@@ -92,9 +93,10 @@ data DescribeServices = DescribeServices'
 -- for backwards compatibility:
 --
 -- 'language', 'describeServices_language' - The language in which Amazon Web Services Support handles the case.
--- Amazon Web Services Support currently supports English (\"en\") and
--- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
--- @language@ parameter if you want support in that language.
+-- Amazon Web Services Support currently supports Chinese (“zh”), English
+-- (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO
+-- 639-1 code for the @language@ parameter if you want support in that
+-- language.
 --
 -- 'serviceCodeList', 'describeServices_serviceCodeList' - A JSON-formatted list of service codes available for Amazon Web Services
 -- services.
@@ -107,9 +109,10 @@ newDescribeServices =
     }
 
 -- | The language in which Amazon Web Services Support handles the case.
--- Amazon Web Services Support currently supports English (\"en\") and
--- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
--- @language@ parameter if you want support in that language.
+-- Amazon Web Services Support currently supports Chinese (“zh”), English
+-- (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO
+-- 639-1 code for the @language@ parameter if you want support in that
+-- language.
 describeServices_language :: Lens.Lens' DescribeServices (Prelude.Maybe Prelude.Text)
 describeServices_language = Lens.lens (\DescribeServices' {language} -> language) (\s@DescribeServices' {} a -> s {language = a} :: DescribeServices)
 
@@ -134,7 +137,8 @@ instance Core.AWSRequest DescribeServices where
 
 instance Prelude.Hashable DescribeServices where
   hashWithSalt _salt DescribeServices' {..} =
-    _salt `Prelude.hashWithSalt` language
+    _salt
+      `Prelude.hashWithSalt` language
       `Prelude.hashWithSalt` serviceCodeList
 
 instance Prelude.NFData DescribeServices where

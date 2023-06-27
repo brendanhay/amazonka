@@ -105,9 +105,10 @@ data DescribeCases = DescribeCases'
     -- @DescribeCases@ response. By default, resolved cases aren\'t included.
     includeResolvedCases :: Prelude.Maybe Prelude.Bool,
     -- | The language in which Amazon Web Services Support handles the case.
-    -- Amazon Web Services Support currently supports English (\"en\") and
-    -- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
-    -- @language@ parameter if you want support in that language.
+    -- Amazon Web Services Support currently supports Chinese (“zh”), English
+    -- (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO
+    -- 639-1 code for the @language@ parameter if you want support in that
+    -- language.
     language :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return before paginating.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -144,9 +145,10 @@ data DescribeCases = DescribeCases'
 -- @DescribeCases@ response. By default, resolved cases aren\'t included.
 --
 -- 'language', 'describeCases_language' - The language in which Amazon Web Services Support handles the case.
--- Amazon Web Services Support currently supports English (\"en\") and
--- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
--- @language@ parameter if you want support in that language.
+-- Amazon Web Services Support currently supports Chinese (“zh”), English
+-- (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO
+-- 639-1 code for the @language@ parameter if you want support in that
+-- language.
 --
 -- 'maxResults', 'describeCases_maxResults' - The maximum number of results to return before paginating.
 --
@@ -198,9 +200,10 @@ describeCases_includeResolvedCases :: Lens.Lens' DescribeCases (Prelude.Maybe Pr
 describeCases_includeResolvedCases = Lens.lens (\DescribeCases' {includeResolvedCases} -> includeResolvedCases) (\s@DescribeCases' {} a -> s {includeResolvedCases = a} :: DescribeCases)
 
 -- | The language in which Amazon Web Services Support handles the case.
--- Amazon Web Services Support currently supports English (\"en\") and
--- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
--- @language@ parameter if you want support in that language.
+-- Amazon Web Services Support currently supports Chinese (“zh”), English
+-- (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO
+-- 639-1 code for the @language@ parameter if you want support in that
+-- language.
 describeCases_language :: Lens.Lens' DescribeCases (Prelude.Maybe Prelude.Text)
 describeCases_language = Lens.lens (\DescribeCases' {language} -> language) (\s@DescribeCases' {} a -> s {language = a} :: DescribeCases)
 
@@ -216,20 +219,23 @@ instance Core.AWSPager DescribeCases where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeCasesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? describeCasesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeCasesResponse_cases Prelude.. Lens._Just
+            Lens.^? describeCasesResponse_cases
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeCases_nextToken
           Lens..~ rs
-          Lens.^? describeCasesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeCasesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCases where
   type
@@ -248,7 +254,8 @@ instance Core.AWSRequest DescribeCases where
 
 instance Prelude.Hashable DescribeCases where
   hashWithSalt _salt DescribeCases' {..} =
-    _salt `Prelude.hashWithSalt` afterTime
+    _salt
+      `Prelude.hashWithSalt` afterTime
       `Prelude.hashWithSalt` beforeTime
       `Prelude.hashWithSalt` caseIdList
       `Prelude.hashWithSalt` displayId

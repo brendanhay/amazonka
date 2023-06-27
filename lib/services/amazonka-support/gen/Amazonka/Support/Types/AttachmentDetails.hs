@@ -76,7 +76,8 @@ instance Data.FromJSON AttachmentDetails where
 
 instance Prelude.Hashable AttachmentDetails where
   hashWithSalt _salt AttachmentDetails' {..} =
-    _salt `Prelude.hashWithSalt` attachmentId
+    _salt
+      `Prelude.hashWithSalt` attachmentId
       `Prelude.hashWithSalt` fileName
 
 instance Prelude.NFData AttachmentDetails where

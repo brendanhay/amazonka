@@ -50,8 +50,10 @@ library
     Amazonka.Support.DescribeAttachment
     Amazonka.Support.DescribeCases
     Amazonka.Support.DescribeCommunications
+    Amazonka.Support.DescribeCreateCaseOptions
     Amazonka.Support.DescribeServices
     Amazonka.Support.DescribeSeverityLevels
+    Amazonka.Support.DescribeSupportedLanguages
     Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses
     Amazonka.Support.DescribeTrustedAdvisorCheckResult
     Amazonka.Support.DescribeTrustedAdvisorChecks
@@ -65,8 +67,12 @@ library
     Amazonka.Support.Types.CaseDetails
     Amazonka.Support.Types.Category
     Amazonka.Support.Types.Communication
+    Amazonka.Support.Types.CommunicationTypeOptions
+    Amazonka.Support.Types.DateInterval
     Amazonka.Support.Types.RecentCaseCommunications
     Amazonka.Support.Types.SeverityLevel
+    Amazonka.Support.Types.SupportedHour
+    Amazonka.Support.Types.SupportedLanguage
     Amazonka.Support.Types.SupportService
     Amazonka.Support.Types.TrustedAdvisorCategorySpecificSummary
     Amazonka.Support.Types.TrustedAdvisorCheckDescription

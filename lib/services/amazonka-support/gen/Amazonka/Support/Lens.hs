@@ -71,6 +71,15 @@ module Amazonka.Support.Lens
     describeCommunicationsResponse_nextToken,
     describeCommunicationsResponse_httpStatus,
 
+    -- ** DescribeCreateCaseOptions
+    describeCreateCaseOptions_issueType,
+    describeCreateCaseOptions_serviceCode,
+    describeCreateCaseOptions_language,
+    describeCreateCaseOptions_categoryCode,
+    describeCreateCaseOptionsResponse_communicationTypes,
+    describeCreateCaseOptionsResponse_languageAvailability,
+    describeCreateCaseOptionsResponse_httpStatus,
+
     -- ** DescribeServices
     describeServices_language,
     describeServices_serviceCodeList,
@@ -81,6 +90,13 @@ module Amazonka.Support.Lens
     describeSeverityLevels_language,
     describeSeverityLevelsResponse_severityLevels,
     describeSeverityLevelsResponse_httpStatus,
+
+    -- ** DescribeSupportedLanguages
+    describeSupportedLanguages_issueType,
+    describeSupportedLanguages_serviceCode,
+    describeSupportedLanguages_categoryCode,
+    describeSupportedLanguagesResponse_supportedLanguages,
+    describeSupportedLanguagesResponse_httpStatus,
 
     -- ** DescribeTrustedAdvisorCheckRefreshStatuses
     describeTrustedAdvisorCheckRefreshStatuses_checkIds,
@@ -149,6 +165,15 @@ module Amazonka.Support.Lens
     communication_submittedBy,
     communication_timeCreated,
 
+    -- ** CommunicationTypeOptions
+    communicationTypeOptions_datesWithoutSupport,
+    communicationTypeOptions_supportedHours,
+    communicationTypeOptions_type,
+
+    -- ** DateInterval
+    dateInterval_endDateTime,
+    dateInterval_startDateTime,
+
     -- ** RecentCaseCommunications
     recentCaseCommunications_communications,
     recentCaseCommunications_nextToken,
@@ -161,6 +186,15 @@ module Amazonka.Support.Lens
     supportService_categories,
     supportService_code,
     supportService_name,
+
+    -- ** SupportedHour
+    supportedHour_endTime,
+    supportedHour_startTime,
+
+    -- ** SupportedLanguage
+    supportedLanguage_code,
+    supportedLanguage_display,
+    supportedLanguage_language,
 
     -- ** TrustedAdvisorCategorySpecificSummary
     trustedAdvisorCategorySpecificSummary_costOptimizing,
@@ -218,8 +252,10 @@ import Amazonka.Support.CreateCase
 import Amazonka.Support.DescribeAttachment
 import Amazonka.Support.DescribeCases
 import Amazonka.Support.DescribeCommunications
+import Amazonka.Support.DescribeCreateCaseOptions
 import Amazonka.Support.DescribeServices
 import Amazonka.Support.DescribeSeverityLevels
+import Amazonka.Support.DescribeSupportedLanguages
 import Amazonka.Support.DescribeTrustedAdvisorCheckRefreshStatuses
 import Amazonka.Support.DescribeTrustedAdvisorCheckResult
 import Amazonka.Support.DescribeTrustedAdvisorCheckSummaries
@@ -231,9 +267,13 @@ import Amazonka.Support.Types.AttachmentDetails
 import Amazonka.Support.Types.CaseDetails
 import Amazonka.Support.Types.Category
 import Amazonka.Support.Types.Communication
+import Amazonka.Support.Types.CommunicationTypeOptions
+import Amazonka.Support.Types.DateInterval
 import Amazonka.Support.Types.RecentCaseCommunications
 import Amazonka.Support.Types.SeverityLevel
 import Amazonka.Support.Types.SupportService
+import Amazonka.Support.Types.SupportedHour
+import Amazonka.Support.Types.SupportedLanguage
 import Amazonka.Support.Types.TrustedAdvisorCategorySpecificSummary
 import Amazonka.Support.Types.TrustedAdvisorCheckDescription
 import Amazonka.Support.Types.TrustedAdvisorCheckRefreshStatus

@@ -139,7 +139,8 @@ instance Data.FromJSON TrustedAdvisorCheckSummary where
 
 instance Prelude.Hashable TrustedAdvisorCheckSummary where
   hashWithSalt _salt TrustedAdvisorCheckSummary' {..} =
-    _salt `Prelude.hashWithSalt` hasFlaggedResources
+    _salt
+      `Prelude.hashWithSalt` hasFlaggedResources
       `Prelude.hashWithSalt` checkId
       `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` status

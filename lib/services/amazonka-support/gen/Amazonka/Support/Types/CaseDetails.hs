@@ -42,9 +42,9 @@ import Amazonka.Support.Types.RecentCaseCommunications
 --
 -- -   __language__ - The language in which Amazon Web Services Support
 --     handles the case. Amazon Web Services Support currently supports
---     English (\"en\") and Japanese (\"ja\"). You must specify the ISO
---     639-1 code for the @language@ parameter if you want support in that
---     language.
+--     Chinese (“zh”), English (\"en\"), Japanese (\"ja\") and Korean
+--     (“ko”). You must specify the ISO 639-1 code for the @language@
+--     parameter if you want support in that language.
 --
 -- -   __nextToken__ - A resumption point for pagination.
 --
@@ -97,9 +97,10 @@ data CaseDetails = CaseDetails'
     -- This is a numeric string.
     displayId :: Prelude.Maybe Prelude.Text,
     -- | The language in which Amazon Web Services Support handles the case.
-    -- Amazon Web Services Support currently supports English (\"en\") and
-    -- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
-    -- @language@ parameter if you want support in that language.
+    -- Amazon Web Services Support currently supports Chinese (“zh”), English
+    -- (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO
+    -- 639-1 code for the @language@ parameter if you want support in that
+    -- language.
     language :: Prelude.Maybe Prelude.Text,
     -- | The five most recent communications between you and Amazon Web Services
     -- Support Center, including the IDs of any attachments to the
@@ -158,9 +159,10 @@ data CaseDetails = CaseDetails'
 -- This is a numeric string.
 --
 -- 'language', 'caseDetails_language' - The language in which Amazon Web Services Support handles the case.
--- Amazon Web Services Support currently supports English (\"en\") and
--- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
--- @language@ parameter if you want support in that language.
+-- Amazon Web Services Support currently supports Chinese (“zh”), English
+-- (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO
+-- 639-1 code for the @language@ parameter if you want support in that
+-- language.
 --
 -- 'recentCommunications', 'caseDetails_recentCommunications' - The five most recent communications between you and Amazon Web Services
 -- Support Center, including the IDs of any attachments to the
@@ -233,9 +235,10 @@ caseDetails_displayId :: Lens.Lens' CaseDetails (Prelude.Maybe Prelude.Text)
 caseDetails_displayId = Lens.lens (\CaseDetails' {displayId} -> displayId) (\s@CaseDetails' {} a -> s {displayId = a} :: CaseDetails)
 
 -- | The language in which Amazon Web Services Support handles the case.
--- Amazon Web Services Support currently supports English (\"en\") and
--- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
--- @language@ parameter if you want support in that language.
+-- Amazon Web Services Support currently supports Chinese (“zh”), English
+-- (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO
+-- 639-1 code for the @language@ parameter if you want support in that
+-- language.
 caseDetails_language :: Lens.Lens' CaseDetails (Prelude.Maybe Prelude.Text)
 caseDetails_language = Lens.lens (\CaseDetails' {language} -> language) (\s@CaseDetails' {} a -> s {language = a} :: CaseDetails)
 
@@ -295,7 +298,8 @@ instance Data.FromJSON CaseDetails where
           CaseDetails'
             Prelude.<$> (x Data..:? "caseId")
             Prelude.<*> (x Data..:? "categoryCode")
-            Prelude.<*> ( x Data..:? "ccEmailAddresses"
+            Prelude.<*> ( x
+                            Data..:? "ccEmailAddresses"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "displayId")
@@ -311,7 +315,8 @@ instance Data.FromJSON CaseDetails where
 
 instance Prelude.Hashable CaseDetails where
   hashWithSalt _salt CaseDetails' {..} =
-    _salt `Prelude.hashWithSalt` caseId
+    _salt
+      `Prelude.hashWithSalt` caseId
       `Prelude.hashWithSalt` categoryCode
       `Prelude.hashWithSalt` ccEmailAddresses
       `Prelude.hashWithSalt` displayId

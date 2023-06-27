@@ -61,9 +61,10 @@ import Amazonka.Support.Types
 -- | /See:/ 'newDescribeSeverityLevels' smart constructor.
 data DescribeSeverityLevels = DescribeSeverityLevels'
   { -- | The language in which Amazon Web Services Support handles the case.
-    -- Amazon Web Services Support currently supports English (\"en\") and
-    -- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
-    -- @language@ parameter if you want support in that language.
+    -- Amazon Web Services Support currently supports Chinese (“zh”), English
+    -- (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO
+    -- 639-1 code for the @language@ parameter if you want support in that
+    -- language.
     language :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,18 +78,20 @@ data DescribeSeverityLevels = DescribeSeverityLevels'
 -- for backwards compatibility:
 --
 -- 'language', 'describeSeverityLevels_language' - The language in which Amazon Web Services Support handles the case.
--- Amazon Web Services Support currently supports English (\"en\") and
--- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
--- @language@ parameter if you want support in that language.
+-- Amazon Web Services Support currently supports Chinese (“zh”), English
+-- (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO
+-- 639-1 code for the @language@ parameter if you want support in that
+-- language.
 newDescribeSeverityLevels ::
   DescribeSeverityLevels
 newDescribeSeverityLevels =
   DescribeSeverityLevels' {language = Prelude.Nothing}
 
 -- | The language in which Amazon Web Services Support handles the case.
--- Amazon Web Services Support currently supports English (\"en\") and
--- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
--- @language@ parameter if you want support in that language.
+-- Amazon Web Services Support currently supports Chinese (“zh”), English
+-- (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO
+-- 639-1 code for the @language@ parameter if you want support in that
+-- language.
 describeSeverityLevels_language :: Lens.Lens' DescribeSeverityLevels (Prelude.Maybe Prelude.Text)
 describeSeverityLevels_language = Lens.lens (\DescribeSeverityLevels' {language} -> language) (\s@DescribeSeverityLevels' {} a -> s {language = a} :: DescribeSeverityLevels)
 

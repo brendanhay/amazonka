@@ -217,7 +217,7 @@ instance
       ( \s h x ->
           DescribeTrustedAdvisorCheckResultResponse'
             Prelude.<$> (x Data..?> "result")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -227,7 +227,8 @@ instance
   hashWithSalt
     _salt
     DescribeTrustedAdvisorCheckResult' {..} =
-      _salt `Prelude.hashWithSalt` language
+      _salt
+        `Prelude.hashWithSalt` language
         `Prelude.hashWithSalt` checkId
 
 instance

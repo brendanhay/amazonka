@@ -109,9 +109,10 @@ data CreateCase = CreateCase'
     -- @technical@. If you don\'t specify a value, the default is @technical@.
     issueType :: Prelude.Maybe Prelude.Text,
     -- | The language in which Amazon Web Services Support handles the case.
-    -- Amazon Web Services Support currently supports English (\"en\") and
-    -- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
-    -- @language@ parameter if you want support in that language.
+    -- Amazon Web Services Support currently supports Chinese (“zh”), English
+    -- (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO
+    -- 639-1 code for the @language@ parameter if you want support in that
+    -- language.
     language :: Prelude.Maybe Prelude.Text,
     -- | The code for the Amazon Web Services service. You can use the
     -- DescribeServices operation to get the possible @serviceCode@ values.
@@ -166,9 +167,10 @@ data CreateCase = CreateCase'
 -- @technical@. If you don\'t specify a value, the default is @technical@.
 --
 -- 'language', 'createCase_language' - The language in which Amazon Web Services Support handles the case.
--- Amazon Web Services Support currently supports English (\"en\") and
--- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
--- @language@ parameter if you want support in that language.
+-- Amazon Web Services Support currently supports Chinese (“zh”), English
+-- (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO
+-- 639-1 code for the @language@ parameter if you want support in that
+-- language.
 --
 -- 'serviceCode', 'createCase_serviceCode' - The code for the Amazon Web Services service. You can use the
 -- DescribeServices operation to get the possible @serviceCode@ values.
@@ -238,9 +240,10 @@ createCase_issueType :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
 createCase_issueType = Lens.lens (\CreateCase' {issueType} -> issueType) (\s@CreateCase' {} a -> s {issueType = a} :: CreateCase)
 
 -- | The language in which Amazon Web Services Support handles the case.
--- Amazon Web Services Support currently supports English (\"en\") and
--- Japanese (\"ja\"). You must specify the ISO 639-1 code for the
--- @language@ parameter if you want support in that language.
+-- Amazon Web Services Support currently supports Chinese (“zh”), English
+-- (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO
+-- 639-1 code for the @language@ parameter if you want support in that
+-- language.
 createCase_language :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
 createCase_language = Lens.lens (\CreateCase' {language} -> language) (\s@CreateCase' {} a -> s {language = a} :: CreateCase)
 
@@ -291,7 +294,8 @@ instance Core.AWSRequest CreateCase where
 
 instance Prelude.Hashable CreateCase where
   hashWithSalt _salt CreateCase' {..} =
-    _salt `Prelude.hashWithSalt` attachmentSetId
+    _salt
+      `Prelude.hashWithSalt` attachmentSetId
       `Prelude.hashWithSalt` categoryCode
       `Prelude.hashWithSalt` ccEmailAddresses
       `Prelude.hashWithSalt` issueType

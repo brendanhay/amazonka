@@ -131,7 +131,8 @@ instance Data.FromJSON User where
 
 instance Prelude.Hashable User where
   hashWithSalt _salt User' {..} =
-    _salt `Prelude.hashWithSalt` aCLNames
+    _salt
+      `Prelude.hashWithSalt` aCLNames
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` accessString
       `Prelude.hashWithSalt` authentication

@@ -84,7 +84,8 @@ instance Data.FromJSON UnprocessedCluster where
 
 instance Prelude.Hashable UnprocessedCluster where
   hashWithSalt _salt UnprocessedCluster' {..} =
-    _salt `Prelude.hashWithSalt` clusterName
+    _salt
+      `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` errorType
 

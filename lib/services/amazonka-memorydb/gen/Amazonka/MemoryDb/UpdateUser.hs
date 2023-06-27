@@ -113,7 +113,8 @@ instance Core.AWSRequest UpdateUser where
 
 instance Prelude.Hashable UpdateUser where
   hashWithSalt _salt UpdateUser' {..} =
-    _salt `Prelude.hashWithSalt` accessString
+    _salt
+      `Prelude.hashWithSalt` accessString
       `Prelude.hashWithSalt` authenticationMode
       `Prelude.hashWithSalt` userName
 

@@ -135,7 +135,8 @@ instance
     PurchaseReservedNodesOffering
   where
   hashWithSalt _salt PurchaseReservedNodesOffering' {..} =
-    _salt `Prelude.hashWithSalt` nodeCount
+    _salt
+      `Prelude.hashWithSalt` nodeCount
       `Prelude.hashWithSalt` reservationId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` reservedNodesOfferingId

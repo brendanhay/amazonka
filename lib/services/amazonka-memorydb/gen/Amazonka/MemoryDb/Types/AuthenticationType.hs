@@ -20,6 +20,7 @@
 module Amazonka.MemoryDb.Types.AuthenticationType
   ( AuthenticationType
       ( ..,
+        AuthenticationType_Iam,
         AuthenticationType_No_password,
         AuthenticationType_Password
       ),
@@ -58,6 +59,9 @@ newtype AuthenticationType = AuthenticationType'
       Data.ToXML
     )
 
+pattern AuthenticationType_Iam :: AuthenticationType
+pattern AuthenticationType_Iam = AuthenticationType' "iam"
+
 pattern AuthenticationType_No_password :: AuthenticationType
 pattern AuthenticationType_No_password = AuthenticationType' "no-password"
 
@@ -65,6 +69,7 @@ pattern AuthenticationType_Password :: AuthenticationType
 pattern AuthenticationType_Password = AuthenticationType' "password"
 
 {-# COMPLETE
+  AuthenticationType_Iam,
   AuthenticationType_No_password,
   AuthenticationType_Password,
   AuthenticationType'

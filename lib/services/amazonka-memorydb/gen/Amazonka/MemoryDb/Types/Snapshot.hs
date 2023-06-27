@@ -142,7 +142,8 @@ instance Data.FromJSON Snapshot where
 
 instance Prelude.Hashable Snapshot where
   hashWithSalt _salt Snapshot' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` clusterConfiguration
       `Prelude.hashWithSalt` dataTiering
       `Prelude.hashWithSalt` kmsKeyId

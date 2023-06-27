@@ -81,7 +81,8 @@ instance Data.FromJSON ShardConfiguration where
 
 instance Prelude.Hashable ShardConfiguration where
   hashWithSalt _salt ShardConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` replicaCount
+    _salt
+      `Prelude.hashWithSalt` replicaCount
       `Prelude.hashWithSalt` slots
 
 instance Prelude.NFData ShardConfiguration where

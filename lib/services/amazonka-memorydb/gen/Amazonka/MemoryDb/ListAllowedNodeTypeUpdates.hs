@@ -97,10 +97,12 @@ instance Core.AWSRequest ListAllowedNodeTypeUpdates where
     Response.receiveJSON
       ( \s h x ->
           ListAllowedNodeTypeUpdatesResponse'
-            Prelude.<$> ( x Data..?> "ScaleDownNodeTypes"
+            Prelude.<$> ( x
+                            Data..?> "ScaleDownNodeTypes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "ScaleUpNodeTypes"
+            Prelude.<*> ( x
+                            Data..?> "ScaleUpNodeTypes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

@@ -20,6 +20,7 @@
 module Amazonka.MemoryDb.Types.InputAuthenticationType
   ( InputAuthenticationType
       ( ..,
+        InputAuthenticationType_Iam,
         InputAuthenticationType_Password
       ),
   )
@@ -57,10 +58,14 @@ newtype InputAuthenticationType = InputAuthenticationType'
       Data.ToXML
     )
 
+pattern InputAuthenticationType_Iam :: InputAuthenticationType
+pattern InputAuthenticationType_Iam = InputAuthenticationType' "iam"
+
 pattern InputAuthenticationType_Password :: InputAuthenticationType
 pattern InputAuthenticationType_Password = InputAuthenticationType' "password"
 
 {-# COMPLETE
+  InputAuthenticationType_Iam,
   InputAuthenticationType_Password,
   InputAuthenticationType'
   #-}

@@ -141,22 +141,22 @@ instance Core.AWSPager DescribeServiceUpdates where
     | Core.stop
         ( rs
             Lens.^? describeServiceUpdatesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeServiceUpdatesResponse_serviceUpdates
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeServiceUpdates_nextToken
           Lens..~ rs
           Lens.^? describeServiceUpdatesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeServiceUpdates where
   type
@@ -175,7 +175,8 @@ instance Core.AWSRequest DescribeServiceUpdates where
 
 instance Prelude.Hashable DescribeServiceUpdates where
   hashWithSalt _salt DescribeServiceUpdates' {..} =
-    _salt `Prelude.hashWithSalt` clusterNames
+    _salt
+      `Prelude.hashWithSalt` clusterNames
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serviceUpdateName

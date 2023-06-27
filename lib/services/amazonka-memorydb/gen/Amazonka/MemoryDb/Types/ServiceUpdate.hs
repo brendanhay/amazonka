@@ -137,7 +137,8 @@ instance Data.FromJSON ServiceUpdate where
 
 instance Prelude.Hashable ServiceUpdate where
   hashWithSalt _salt ServiceUpdate' {..} =
-    _salt `Prelude.hashWithSalt` autoUpdateStartDate
+    _salt
+      `Prelude.hashWithSalt` autoUpdateStartDate
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` nodesUpdated

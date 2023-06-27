@@ -111,7 +111,8 @@ instance Core.AWSRequest UpdateParameterGroup where
 
 instance Prelude.Hashable UpdateParameterGroup where
   hashWithSalt _salt UpdateParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` parameterGroupName
+    _salt
+      `Prelude.hashWithSalt` parameterGroupName
       `Prelude.hashWithSalt` parameterNameValues
 
 instance Prelude.NFData UpdateParameterGroup where

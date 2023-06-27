@@ -114,7 +114,8 @@ instance Core.AWSRequest CreateACL where
 
 instance Prelude.Hashable CreateACL where
   hashWithSalt _salt CreateACL' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` userNames
       `Prelude.hashWithSalt` aCLName
 

@@ -70,14 +70,16 @@ instance Data.FromJSON ACLPendingChanges where
       ( \x ->
           ACLPendingChanges'
             Prelude.<$> (x Data..:? "UserNamesToAdd" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "UserNamesToRemove"
+            Prelude.<*> ( x
+                            Data..:? "UserNamesToRemove"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ACLPendingChanges where
   hashWithSalt _salt ACLPendingChanges' {..} =
-    _salt `Prelude.hashWithSalt` userNamesToAdd
+    _salt
+      `Prelude.hashWithSalt` userNamesToAdd
       `Prelude.hashWithSalt` userNamesToRemove
 
 instance Prelude.NFData ACLPendingChanges where

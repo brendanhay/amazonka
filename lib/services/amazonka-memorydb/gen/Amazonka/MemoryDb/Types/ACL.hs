@@ -131,7 +131,8 @@ instance Data.FromJSON ACL where
 
 instance Prelude.Hashable ACL where
   hashWithSalt _salt ACL' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` clusters
       `Prelude.hashWithSalt` minimumEngineVersion
       `Prelude.hashWithSalt` name

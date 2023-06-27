@@ -64,12 +64,12 @@ data GetCertificate = GetCertificate'
     -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
     -- This must be of the form:
     --
-    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+    -- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
     certificateAuthorityArn :: Prelude.Text,
     -- | The ARN of the issued certificate. The ARN contains the certificate
     -- serial number and must be in the following form:
     --
-    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012\/certificate\/286535153982981100925020015808220737245 @
+    -- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@\/certificate\/@/@286535153982981100925020015808220737245@/@ @
     certificateArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,12 +86,12 @@ data GetCertificate = GetCertificate'
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
 --
 -- 'certificateArn', 'getCertificate_certificateArn' - The ARN of the issued certificate. The ARN contains the certificate
 -- serial number and must be in the following form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012\/certificate\/286535153982981100925020015808220737245 @
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@\/certificate\/@/@286535153982981100925020015808220737245@/@ @
 newGetCertificate ::
   -- | 'certificateAuthorityArn'
   Prelude.Text ->
@@ -111,14 +111,14 @@ newGetCertificate
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
 getCertificate_certificateAuthorityArn :: Lens.Lens' GetCertificate Prelude.Text
 getCertificate_certificateAuthorityArn = Lens.lens (\GetCertificate' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@GetCertificate' {} a -> s {certificateAuthorityArn = a} :: GetCertificate)
 
 -- | The ARN of the issued certificate. The ARN contains the certificate
 -- serial number and must be in the following form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012\/certificate\/286535153982981100925020015808220737245 @
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@\/certificate\/@/@286535153982981100925020015808220737245@/@ @
 getCertificate_certificateArn :: Lens.Lens' GetCertificate Prelude.Text
 getCertificate_certificateArn = Lens.lens (\GetCertificate' {certificateArn} -> certificateArn) (\s@GetCertificate' {} a -> s {certificateArn = a} :: GetCertificate)
 

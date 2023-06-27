@@ -115,7 +115,7 @@ data IssueCertificate = IssueCertificate'
     --
     -- The @ValidityNotBefore@ value is expressed as an explicit date and time,
     -- using the @Validity@ type value @ABSOLUTE@. For more information, see
-    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_Validity.html Validity>
+    -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_Validity.html Validity>
     -- in this API reference and
     -- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5 Validity>
     -- in RFC 5280.
@@ -124,7 +124,7 @@ data IssueCertificate = IssueCertificate'
     -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
     -- This must be of the form:
     --
-    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+    -- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @
     certificateAuthorityArn :: Prelude.Text,
     -- | The certificate signing request (CSR) for the certificate you want to
     -- issue. As an example, you can use the following OpenSSL command to
@@ -147,7 +147,7 @@ data IssueCertificate = IssueCertificate'
     -- This parameter should not be confused with the @SigningAlgorithm@
     -- parameter used to sign a CSR in the @CreateCertificateAuthority@ action.
     --
-    -- The specified signing algorithm family (RSA or ECDSA) much match the
+    -- The specified signing algorithm family (RSA or ECDSA) must match the
     -- algorithm family of the CA\'s secret key.
     signingAlgorithm :: SigningAlgorithm,
     -- | Information describing the end of the validity period of the
@@ -230,7 +230,7 @@ data IssueCertificate = IssueCertificate'
 --
 -- The @ValidityNotBefore@ value is expressed as an explicit date and time,
 -- using the @Validity@ type value @ABSOLUTE@. For more information, see
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_Validity.html Validity>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_Validity.html Validity>
 -- in this API reference and
 -- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5 Validity>
 -- in RFC 5280.
@@ -239,7 +239,7 @@ data IssueCertificate = IssueCertificate'
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @
 --
 -- 'csr', 'issueCertificate_csr' - The certificate signing request (CSR) for the certificate you want to
 -- issue. As an example, you can use the following OpenSSL command to
@@ -266,7 +266,7 @@ data IssueCertificate = IssueCertificate'
 -- This parameter should not be confused with the @SigningAlgorithm@
 -- parameter used to sign a CSR in the @CreateCertificateAuthority@ action.
 --
--- The specified signing algorithm family (RSA or ECDSA) much match the
+-- The specified signing algorithm family (RSA or ECDSA) must match the
 -- algorithm family of the CA\'s secret key.
 --
 -- 'validity', 'issueCertificate_validity' - Information describing the end of the validity period of the
@@ -369,7 +369,7 @@ issueCertificate_templateArn = Lens.lens (\IssueCertificate' {templateArn} -> te
 --
 -- The @ValidityNotBefore@ value is expressed as an explicit date and time,
 -- using the @Validity@ type value @ABSOLUTE@. For more information, see
--- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_Validity.html Validity>
+-- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_Validity.html Validity>
 -- in this API reference and
 -- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5 Validity>
 -- in RFC 5280.
@@ -380,7 +380,7 @@ issueCertificate_validityNotBefore = Lens.lens (\IssueCertificate' {validityNotB
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @
 issueCertificate_certificateAuthorityArn :: Lens.Lens' IssueCertificate Prelude.Text
 issueCertificate_certificateAuthorityArn = Lens.lens (\IssueCertificate' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@IssueCertificate' {} a -> s {certificateAuthorityArn = a} :: IssueCertificate)
 
@@ -411,7 +411,7 @@ issueCertificate_csr = Lens.lens (\IssueCertificate' {csr} -> csr) (\s@IssueCert
 -- This parameter should not be confused with the @SigningAlgorithm@
 -- parameter used to sign a CSR in the @CreateCertificateAuthority@ action.
 --
--- The specified signing algorithm family (RSA or ECDSA) much match the
+-- The specified signing algorithm family (RSA or ECDSA) must match the
 -- algorithm family of the CA\'s secret key.
 issueCertificate_signingAlgorithm :: Lens.Lens' IssueCertificate SigningAlgorithm
 issueCertificate_signingAlgorithm = Lens.lens (\IssueCertificate' {signingAlgorithm} -> signingAlgorithm) (\s@IssueCertificate' {} a -> s {signingAlgorithm = a} :: IssueCertificate)
@@ -453,7 +453,8 @@ instance Core.AWSRequest IssueCertificate where
 
 instance Prelude.Hashable IssueCertificate where
   hashWithSalt _salt IssueCertificate' {..} =
-    _salt `Prelude.hashWithSalt` apiPassthrough
+    _salt
+      `Prelude.hashWithSalt` apiPassthrough
       `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` templateArn
       `Prelude.hashWithSalt` validityNotBefore
@@ -521,7 +522,7 @@ data IssueCertificateResponse = IssueCertificateResponse'
   { -- | The Amazon Resource Name (ARN) of the issued certificate and the
     -- certificate serial number. This is of the form:
     --
-    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012\/certificate\/286535153982981100925020015808220737245 @
+    -- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@\/certificate\/@/@286535153982981100925020015808220737245@/@ @
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -539,7 +540,7 @@ data IssueCertificateResponse = IssueCertificateResponse'
 -- 'certificateArn', 'issueCertificateResponse_certificateArn' - The Amazon Resource Name (ARN) of the issued certificate and the
 -- certificate serial number. This is of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012\/certificate\/286535153982981100925020015808220737245 @
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@\/certificate\/@/@286535153982981100925020015808220737245@/@ @
 --
 -- 'httpStatus', 'issueCertificateResponse_httpStatus' - The response's http status code.
 newIssueCertificateResponse ::
@@ -556,7 +557,7 @@ newIssueCertificateResponse pHttpStatus_ =
 -- | The Amazon Resource Name (ARN) of the issued certificate and the
 -- certificate serial number. This is of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012\/certificate\/286535153982981100925020015808220737245 @
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@\/certificate\/@/@286535153982981100925020015808220737245@/@ @
 issueCertificateResponse_certificateArn :: Lens.Lens' IssueCertificateResponse (Prelude.Maybe Prelude.Text)
 issueCertificateResponse_certificateArn = Lens.lens (\IssueCertificateResponse' {certificateArn} -> certificateArn) (\s@IssueCertificateResponse' {} a -> s {certificateArn = a} :: IssueCertificateResponse)
 

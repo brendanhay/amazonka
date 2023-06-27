@@ -86,7 +86,8 @@ customExtension_value = Lens.lens (\CustomExtension' {value} -> value) (\s@Custo
 
 instance Prelude.Hashable CustomExtension where
   hashWithSalt _salt CustomExtension' {..} =
-    _salt `Prelude.hashWithSalt` critical
+    _salt
+      `Prelude.hashWithSalt` critical
       `Prelude.hashWithSalt` objectIdentifier
       `Prelude.hashWithSalt` value
 

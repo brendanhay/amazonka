@@ -92,18 +92,15 @@ data CreateCertificateAuthority = CreateCertificateAuthority'
     --
     -- Default: FIPS_140_2_LEVEL_3_OR_HIGHER
     --
-    -- /Note:/ @FIPS_140_2_LEVEL_3_OR_HIGHER@ is not supported in the following
-    -- Regions:
-    --
-    -- -   ap-northeast-3
-    --
-    -- -   ap-southeast-3
-    --
-    -- When creating a CA in these Regions, you must provide
+    -- Some Amazon Web Services Regions do not support the default. When
+    -- creating a CA in these Regions, you must provide
     -- @FIPS_140_2_LEVEL_2_OR_HIGHER@ as the argument for
     -- @KeyStorageSecurityStandard@. Failure to do this results in an
     -- @InvalidArgsException@ with the message, \"A certificate authority
     -- cannot be created in this region with the specified security standard.\"
+    --
+    -- For information about security standard support in various Regions, see
+    -- <https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys Storage and security compliance of Amazon Web Services Private CA private keys>.
     keyStorageSecurityStandard :: Prelude.Maybe KeyStorageSecurityStandard,
     -- | Contains information to enable Online Certificate Status Protocol (OCSP)
     -- support, to enable a certificate revocation list (CRL), to enable both,
@@ -177,18 +174,15 @@ data CreateCertificateAuthority = CreateCertificateAuthority'
 --
 -- Default: FIPS_140_2_LEVEL_3_OR_HIGHER
 --
--- /Note:/ @FIPS_140_2_LEVEL_3_OR_HIGHER@ is not supported in the following
--- Regions:
---
--- -   ap-northeast-3
---
--- -   ap-southeast-3
---
--- When creating a CA in these Regions, you must provide
+-- Some Amazon Web Services Regions do not support the default. When
+-- creating a CA in these Regions, you must provide
 -- @FIPS_140_2_LEVEL_2_OR_HIGHER@ as the argument for
 -- @KeyStorageSecurityStandard@. Failure to do this results in an
 -- @InvalidArgsException@ with the message, \"A certificate authority
 -- cannot be created in this region with the specified security standard.\"
+--
+-- For information about security standard support in various Regions, see
+-- <https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys Storage and security compliance of Amazon Web Services Private CA private keys>.
 --
 -- 'revocationConfiguration', 'createCertificateAuthority_revocationConfiguration' - Contains information to enable Online Certificate Status Protocol (OCSP)
 -- support, to enable a certificate revocation list (CRL), to enable both,
@@ -274,18 +268,15 @@ createCertificateAuthority_idempotencyToken = Lens.lens (\CreateCertificateAutho
 --
 -- Default: FIPS_140_2_LEVEL_3_OR_HIGHER
 --
--- /Note:/ @FIPS_140_2_LEVEL_3_OR_HIGHER@ is not supported in the following
--- Regions:
---
--- -   ap-northeast-3
---
--- -   ap-southeast-3
---
--- When creating a CA in these Regions, you must provide
+-- Some Amazon Web Services Regions do not support the default. When
+-- creating a CA in these Regions, you must provide
 -- @FIPS_140_2_LEVEL_2_OR_HIGHER@ as the argument for
 -- @KeyStorageSecurityStandard@. Failure to do this results in an
 -- @InvalidArgsException@ with the message, \"A certificate authority
 -- cannot be created in this region with the specified security standard.\"
+--
+-- For information about security standard support in various Regions, see
+-- <https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys Storage and security compliance of Amazon Web Services Private CA private keys>.
 createCertificateAuthority_keyStorageSecurityStandard :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe KeyStorageSecurityStandard)
 createCertificateAuthority_keyStorageSecurityStandard = Lens.lens (\CreateCertificateAuthority' {keyStorageSecurityStandard} -> keyStorageSecurityStandard) (\s@CreateCertificateAuthority' {} a -> s {keyStorageSecurityStandard = a} :: CreateCertificateAuthority)
 
@@ -361,7 +352,8 @@ instance Core.AWSRequest CreateCertificateAuthority where
 
 instance Prelude.Hashable CreateCertificateAuthority where
   hashWithSalt _salt CreateCertificateAuthority' {..} =
-    _salt `Prelude.hashWithSalt` idempotencyToken
+    _salt
+      `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` keyStorageSecurityStandard
       `Prelude.hashWithSalt` revocationConfiguration
       `Prelude.hashWithSalt` tags
@@ -428,7 +420,7 @@ data CreateCertificateAuthorityResponse = CreateCertificateAuthorityResponse'
   { -- | If successful, the Amazon Resource Name (ARN) of the certificate
     -- authority (CA). This is of the form:
     --
-    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+    -- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
     certificateAuthorityArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -446,7 +438,7 @@ data CreateCertificateAuthorityResponse = CreateCertificateAuthorityResponse'
 -- 'certificateAuthorityArn', 'createCertificateAuthorityResponse_certificateAuthorityArn' - If successful, the Amazon Resource Name (ARN) of the certificate
 -- authority (CA). This is of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
 --
 -- 'httpStatus', 'createCertificateAuthorityResponse_httpStatus' - The response's http status code.
 newCreateCertificateAuthorityResponse ::
@@ -463,7 +455,7 @@ newCreateCertificateAuthorityResponse pHttpStatus_ =
 -- | If successful, the Amazon Resource Name (ARN) of the certificate
 -- authority (CA). This is of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
 createCertificateAuthorityResponse_certificateAuthorityArn :: Lens.Lens' CreateCertificateAuthorityResponse (Prelude.Maybe Prelude.Text)
 createCertificateAuthorityResponse_certificateAuthorityArn = Lens.lens (\CreateCertificateAuthorityResponse' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@CreateCertificateAuthorityResponse' {} a -> s {certificateAuthorityArn = a} :: CreateCertificateAuthorityResponse)
 

@@ -140,7 +140,8 @@ extensions_subjectAlternativeNames = Lens.lens (\Extensions' {subjectAlternative
 
 instance Prelude.Hashable Extensions where
   hashWithSalt _salt Extensions' {..} =
-    _salt `Prelude.hashWithSalt` certificatePolicies
+    _salt
+      `Prelude.hashWithSalt` certificatePolicies
       `Prelude.hashWithSalt` customExtensions
       `Prelude.hashWithSalt` extendedKeyUsage
       `Prelude.hashWithSalt` keyUsage

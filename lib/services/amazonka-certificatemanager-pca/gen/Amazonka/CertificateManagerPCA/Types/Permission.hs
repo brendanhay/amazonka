@@ -134,7 +134,8 @@ instance Data.FromJSON Permission where
 
 instance Prelude.Hashable Permission where
   hashWithSalt _salt Permission' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` certificateAuthorityArn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` policy

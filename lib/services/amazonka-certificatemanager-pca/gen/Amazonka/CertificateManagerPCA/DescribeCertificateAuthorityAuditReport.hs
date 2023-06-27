@@ -64,7 +64,7 @@ data DescribeCertificateAuthorityAuditReport = DescribeCertificateAuthorityAudit
   { -- | The Amazon Resource Name (ARN) of the private CA. This must be of the
     -- form:
     --
-    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+    -- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
     certificateAuthorityArn :: Prelude.Text,
     -- | The report ID returned by calling the
     -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport>
@@ -84,7 +84,7 @@ data DescribeCertificateAuthorityAuditReport = DescribeCertificateAuthorityAudit
 -- 'certificateAuthorityArn', 'describeCertificateAuthorityAuditReport_certificateAuthorityArn' - The Amazon Resource Name (ARN) of the private CA. This must be of the
 -- form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
 --
 -- 'auditReportId', 'describeCertificateAuthorityAuditReport_auditReportId' - The report ID returned by calling the
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html CreateCertificateAuthorityAuditReport>
@@ -107,7 +107,7 @@ newDescribeCertificateAuthorityAuditReport
 -- | The Amazon Resource Name (ARN) of the private CA. This must be of the
 -- form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @.
 describeCertificateAuthorityAuditReport_certificateAuthorityArn :: Lens.Lens' DescribeCertificateAuthorityAuditReport Prelude.Text
 describeCertificateAuthorityAuditReport_certificateAuthorityArn = Lens.lens (\DescribeCertificateAuthorityAuditReport' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@DescribeCertificateAuthorityAuditReport' {} a -> s {certificateAuthorityArn = a} :: DescribeCertificateAuthorityAuditReport)
 
@@ -132,10 +132,10 @@ instance
       ( \s h x ->
           DescribeCertificateAuthorityAuditReportResponse'
             Prelude.<$> (x Data..?> "AuditReportStatus")
-              Prelude.<*> (x Data..?> "CreatedAt")
-              Prelude.<*> (x Data..?> "S3BucketName")
-              Prelude.<*> (x Data..?> "S3Key")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "CreatedAt")
+            Prelude.<*> (x Data..?> "S3BucketName")
+            Prelude.<*> (x Data..?> "S3Key")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

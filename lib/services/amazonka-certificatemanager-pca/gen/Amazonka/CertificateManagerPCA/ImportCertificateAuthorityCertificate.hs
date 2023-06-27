@@ -155,7 +155,7 @@ data ImportCertificateAuthorityCertificate = ImportCertificateAuthorityCertifica
     -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
     -- This must be of the form:
     --
-    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+    -- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @
     certificateAuthorityArn :: Prelude.Text,
     -- | The PEM-encoded certificate for a private CA. This may be a self-signed
     -- certificate in the case of a root CA, or it may be signed by another CA
@@ -189,7 +189,7 @@ data ImportCertificateAuthorityCertificate = ImportCertificateAuthorityCertifica
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @
 --
 -- 'certificate', 'importCertificateAuthorityCertificate_certificate' - The PEM-encoded certificate for a private CA. This may be a self-signed
 -- certificate in the case of a root CA, or it may be signed by another CA
@@ -235,7 +235,7 @@ importCertificateAuthorityCertificate_certificateChain = Lens.lens (\ImportCerti
 -- <https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
 -- This must be of the form:
 --
--- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+-- @arn:aws:acm-pca:@/@region@/@:@/@account@/@:certificate-authority\/@/@12345678-1234-1234-1234-123456789012@/@ @
 importCertificateAuthorityCertificate_certificateAuthorityArn :: Lens.Lens' ImportCertificateAuthorityCertificate Prelude.Text
 importCertificateAuthorityCertificate_certificateAuthorityArn = Lens.lens (\ImportCertificateAuthorityCertificate' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@ImportCertificateAuthorityCertificate' {} a -> s {certificateAuthorityArn = a} :: ImportCertificateAuthorityCertificate)
 
@@ -270,7 +270,8 @@ instance
   hashWithSalt
     _salt
     ImportCertificateAuthorityCertificate' {..} =
-      _salt `Prelude.hashWithSalt` certificateChain
+      _salt
+        `Prelude.hashWithSalt` certificateChain
         `Prelude.hashWithSalt` certificateAuthorityArn
         `Prelude.hashWithSalt` certificate
 

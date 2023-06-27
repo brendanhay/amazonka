@@ -348,7 +348,8 @@ instance Core.AWSRequest StartAutomationExecution where
 
 instance Prelude.Hashable StartAutomationExecution where
   hashWithSalt _salt StartAutomationExecution' {..} =
-    _salt `Prelude.hashWithSalt` alarmConfiguration
+    _salt
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` documentVersion
       `Prelude.hashWithSalt` maxConcurrency

@@ -116,7 +116,8 @@ instance Core.AWSRequest GetParameter where
 
 instance Prelude.Hashable GetParameter where
   hashWithSalt _salt GetParameter' {..} =
-    _salt `Prelude.hashWithSalt` withDecryption
+    _salt
+      `Prelude.hashWithSalt` withDecryption
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetParameter where

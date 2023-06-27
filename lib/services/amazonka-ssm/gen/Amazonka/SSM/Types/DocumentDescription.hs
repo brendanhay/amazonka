@@ -82,7 +82,7 @@ data DocumentDescription = DocumentDescription'
     latestVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the SSM document.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services user account that created the document.
+    -- | The Amazon Web Services user that created the document.
     owner :: Prelude.Maybe Prelude.Text,
     -- | A description of the parameters for a document.
     parameters :: Prelude.Maybe [DocumentParameter],
@@ -173,7 +173,7 @@ data DocumentDescription = DocumentDescription'
 --
 -- 'name', 'documentDescription_name' - The name of the SSM document.
 --
--- 'owner', 'documentDescription_owner' - The Amazon Web Services user account that created the document.
+-- 'owner', 'documentDescription_owner' - The Amazon Web Services user that created the document.
 --
 -- 'parameters', 'documentDescription_parameters' - A description of the parameters for a document.
 --
@@ -321,7 +321,7 @@ documentDescription_latestVersion = Lens.lens (\DocumentDescription' {latestVers
 documentDescription_name :: Lens.Lens' DocumentDescription (Prelude.Maybe Prelude.Text)
 documentDescription_name = Lens.lens (\DocumentDescription' {name} -> name) (\s@DocumentDescription' {} a -> s {name = a} :: DocumentDescription)
 
--- | The Amazon Web Services user account that created the document.
+-- | The Amazon Web Services user that created the document.
 documentDescription_owner :: Lens.Lens' DocumentDescription (Prelude.Maybe Prelude.Text)
 documentDescription_owner = Lens.lens (\DocumentDescription' {owner} -> owner) (\s@DocumentDescription' {} a -> s {owner = a} :: DocumentDescription)
 
@@ -394,7 +394,8 @@ instance Data.FromJSON DocumentDescription where
       ( \x ->
           DocumentDescription'
             Prelude.<$> (x Data..:? "ApprovedVersion")
-            Prelude.<*> ( x Data..:? "AttachmentsInformation"
+            Prelude.<*> ( x
+                            Data..:? "AttachmentsInformation"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Author")
@@ -429,7 +430,8 @@ instance Data.FromJSON DocumentDescription where
 
 instance Prelude.Hashable DocumentDescription where
   hashWithSalt _salt DocumentDescription' {..} =
-    _salt `Prelude.hashWithSalt` approvedVersion
+    _salt
+      `Prelude.hashWithSalt` approvedVersion
       `Prelude.hashWithSalt` attachmentsInformation
       `Prelude.hashWithSalt` author
       `Prelude.hashWithSalt` category

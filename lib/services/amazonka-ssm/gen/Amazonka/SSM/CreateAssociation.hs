@@ -212,13 +212,14 @@ data CreateAssociation = CreateAssociation'
     -- the configuration information for the managed node.
     --
     -- You can specify Amazon Web Services-predefined documents, documents you
-    -- created, or a document that is shared with you from another account.
+    -- created, or a document that is shared with you from another Amazon Web
+    -- Services account.
     --
     -- For Systems Manager documents (SSM documents) that are shared with you
     -- from other Amazon Web Services accounts, you must specify the complete
     -- SSM document ARN, in the following format:
     --
-    -- @arn:partition:ssm:region:account-id:document\/document-name @
+    -- @arn:@/@partition@/@:ssm:@/@region@/@:@/@account-id@/@:document\/@/@document-name@/@ @
     --
     -- For example:
     --
@@ -370,13 +371,14 @@ data CreateAssociation = CreateAssociation'
 -- the configuration information for the managed node.
 --
 -- You can specify Amazon Web Services-predefined documents, documents you
--- created, or a document that is shared with you from another account.
+-- created, or a document that is shared with you from another Amazon Web
+-- Services account.
 --
 -- For Systems Manager documents (SSM documents) that are shared with you
 -- from other Amazon Web Services accounts, you must specify the complete
 -- SSM document ARN, in the following format:
 --
--- @arn:partition:ssm:region:account-id:document\/document-name @
+-- @arn:@/@partition@/@:ssm:@/@region@/@:@/@account-id@/@:document\/@/@document-name@/@ @
 --
 -- For example:
 --
@@ -583,13 +585,14 @@ createAssociation_targets = Lens.lens (\CreateAssociation' {targets} -> targets)
 -- the configuration information for the managed node.
 --
 -- You can specify Amazon Web Services-predefined documents, documents you
--- created, or a document that is shared with you from another account.
+-- created, or a document that is shared with you from another Amazon Web
+-- Services account.
 --
 -- For Systems Manager documents (SSM documents) that are shared with you
 -- from other Amazon Web Services accounts, you must specify the complete
 -- SSM document ARN, in the following format:
 --
--- @arn:partition:ssm:region:account-id:document\/document-name @
+-- @arn:@/@partition@/@:ssm:@/@region@/@:@/@account-id@/@:document\/@/@document-name@/@ @
 --
 -- For example:
 --
@@ -617,7 +620,8 @@ instance Core.AWSRequest CreateAssociation where
 
 instance Prelude.Hashable CreateAssociation where
   hashWithSalt _salt CreateAssociation' {..} =
-    _salt `Prelude.hashWithSalt` alarmConfiguration
+    _salt
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` applyOnlyAtCronInterval
       `Prelude.hashWithSalt` associationName
       `Prelude.hashWithSalt` automationTargetParameterName

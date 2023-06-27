@@ -97,7 +97,8 @@ instance Data.FromJSON LoggingInfo where
 
 instance Prelude.Hashable LoggingInfo where
   hashWithSalt _salt LoggingInfo' {..} =
-    _salt `Prelude.hashWithSalt` s3KeyPrefix
+    _salt
+      `Prelude.hashWithSalt` s3KeyPrefix
       `Prelude.hashWithSalt` s3BucketName
       `Prelude.hashWithSalt` s3Region
 

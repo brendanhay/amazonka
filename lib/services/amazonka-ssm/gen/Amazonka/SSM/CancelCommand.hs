@@ -110,7 +110,8 @@ instance Core.AWSRequest CancelCommand where
 
 instance Prelude.Hashable CancelCommand where
   hashWithSalt _salt CancelCommand' {..} =
-    _salt `Prelude.hashWithSalt` instanceIds
+    _salt
+      `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` commandId
 
 instance Prelude.NFData CancelCommand where

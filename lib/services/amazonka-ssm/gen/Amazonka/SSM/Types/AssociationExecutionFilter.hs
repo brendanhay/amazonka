@@ -81,7 +81,8 @@ associationExecutionFilter_type = Lens.lens (\AssociationExecutionFilter' {type'
 
 instance Prelude.Hashable AssociationExecutionFilter where
   hashWithSalt _salt AssociationExecutionFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` type'
 

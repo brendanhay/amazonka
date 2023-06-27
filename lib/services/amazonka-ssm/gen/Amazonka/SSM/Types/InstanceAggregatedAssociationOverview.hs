@@ -87,7 +87,8 @@ instance
   hashWithSalt
     _salt
     InstanceAggregatedAssociationOverview' {..} =
-      _salt `Prelude.hashWithSalt` detailedStatus
+      _salt
+        `Prelude.hashWithSalt` detailedStatus
         `Prelude.hashWithSalt` instanceAssociationStatusAggregatedCount
 
 instance

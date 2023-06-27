@@ -137,7 +137,7 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
     -- Services accounts, you must specify the complete SSM document ARN, in
     -- the following format:
     --
-    -- @arn:aws:ssm:region:account-id:document\/document-name @
+    -- @arn:aws:ssm:@/@region@/@:@/@account-id@/@:document\/@/@document-name@/@ @
     --
     -- For example:
     --
@@ -261,7 +261,7 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
 -- Services accounts, you must specify the complete SSM document ARN, in
 -- the following format:
 --
--- @arn:aws:ssm:region:account-id:document\/document-name @
+-- @arn:aws:ssm:@/@region@/@:@/@account-id@/@:document\/@/@document-name@/@ @
 --
 -- For example:
 --
@@ -439,7 +439,7 @@ createAssociationBatchRequestEntry_targets = Lens.lens (\CreateAssociationBatchR
 -- Services accounts, you must specify the complete SSM document ARN, in
 -- the following format:
 --
--- @arn:aws:ssm:region:account-id:document\/document-name @
+-- @arn:aws:ssm:@/@region@/@:@/@account-id@/@:document\/@/@document-name@/@ @
 --
 -- For example:
 --
@@ -488,7 +488,8 @@ instance
   hashWithSalt
     _salt
     CreateAssociationBatchRequestEntry' {..} =
-      _salt `Prelude.hashWithSalt` alarmConfiguration
+      _salt
+        `Prelude.hashWithSalt` alarmConfiguration
         `Prelude.hashWithSalt` applyOnlyAtCronInterval
         `Prelude.hashWithSalt` associationName
         `Prelude.hashWithSalt` automationTargetParameterName

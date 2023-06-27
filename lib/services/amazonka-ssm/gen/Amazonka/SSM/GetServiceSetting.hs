@@ -71,6 +71,8 @@ data GetServiceSetting = GetServiceSetting'
   { -- | The ID of the service setting to get. The setting ID can be one of the
     -- following.
     --
+    -- -   @\/ssm\/managed-instance\/default-ec2-instance-management-role@
+    --
     -- -   @\/ssm\/automation\/customer-script-log-destination@
     --
     -- -   @\/ssm\/automation\/customer-script-log-group-name@
@@ -99,6 +101,8 @@ data GetServiceSetting = GetServiceSetting'
 -- 'settingId', 'getServiceSetting_settingId' - The ID of the service setting to get. The setting ID can be one of the
 -- following.
 --
+-- -   @\/ssm\/managed-instance\/default-ec2-instance-management-role@
+--
 -- -   @\/ssm\/automation\/customer-script-log-destination@
 --
 -- -   @\/ssm\/automation\/customer-script-log-group-name@
@@ -121,6 +125,8 @@ newGetServiceSetting pSettingId_ =
 
 -- | The ID of the service setting to get. The setting ID can be one of the
 -- following.
+--
+-- -   @\/ssm\/managed-instance\/default-ec2-instance-management-role@
 --
 -- -   @\/ssm\/automation\/customer-script-log-destination@
 --

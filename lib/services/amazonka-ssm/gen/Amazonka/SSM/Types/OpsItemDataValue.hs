@@ -73,12 +73,14 @@ instance Data.FromJSON OpsItemDataValue where
       "OpsItemDataValue"
       ( \x ->
           OpsItemDataValue'
-            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable OpsItemDataValue where
   hashWithSalt _salt OpsItemDataValue' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData OpsItemDataValue where

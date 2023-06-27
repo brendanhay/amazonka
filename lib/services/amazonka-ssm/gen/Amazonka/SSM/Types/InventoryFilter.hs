@@ -100,7 +100,8 @@ inventoryFilter_values = Lens.lens (\InventoryFilter' {values} -> values) (\s@In
 
 instance Prelude.Hashable InventoryFilter where
   hashWithSalt _salt InventoryFilter' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 

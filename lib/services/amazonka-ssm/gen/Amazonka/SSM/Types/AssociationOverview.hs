@@ -87,7 +87,8 @@ instance Data.FromJSON AssociationOverview where
       "AssociationOverview"
       ( \x ->
           AssociationOverview'
-            Prelude.<$> ( x Data..:? "AssociationStatusAggregatedCount"
+            Prelude.<$> ( x
+                            Data..:? "AssociationStatusAggregatedCount"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DetailedStatus")

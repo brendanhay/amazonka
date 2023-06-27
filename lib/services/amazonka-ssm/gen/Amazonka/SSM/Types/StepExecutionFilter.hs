@@ -76,7 +76,8 @@ stepExecutionFilter_values = Lens.lens (\StepExecutionFilter' {values} -> values
 
 instance Prelude.Hashable StepExecutionFilter where
   hashWithSalt _salt StepExecutionFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData StepExecutionFilter where

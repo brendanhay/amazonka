@@ -134,22 +134,22 @@ instance Core.AWSPager ListAssociations where
     | Core.stop
         ( rs
             Lens.^? listAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAssociationsResponse_associations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAssociations_nextToken
           Lens..~ rs
           Lens.^? listAssociationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAssociations where
   type
@@ -168,7 +168,8 @@ instance Core.AWSRequest ListAssociations where
 
 instance Prelude.Hashable ListAssociations where
   hashWithSalt _salt ListAssociations' {..} =
-    _salt `Prelude.hashWithSalt` associationFilterList
+    _salt
+      `Prelude.hashWithSalt` associationFilterList
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

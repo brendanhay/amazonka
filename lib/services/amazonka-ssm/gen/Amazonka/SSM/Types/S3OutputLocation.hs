@@ -85,7 +85,8 @@ instance Data.FromJSON S3OutputLocation where
 
 instance Prelude.Hashable S3OutputLocation where
   hashWithSalt _salt S3OutputLocation' {..} =
-    _salt `Prelude.hashWithSalt` outputS3BucketName
+    _salt
+      `Prelude.hashWithSalt` outputS3BucketName
       `Prelude.hashWithSalt` outputS3KeyPrefix
       `Prelude.hashWithSalt` outputS3Region
 

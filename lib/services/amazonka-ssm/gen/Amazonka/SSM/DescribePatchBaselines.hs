@@ -147,22 +147,22 @@ instance Core.AWSPager DescribePatchBaselines where
     | Core.stop
         ( rs
             Lens.^? describePatchBaselinesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describePatchBaselinesResponse_baselineIdentities
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describePatchBaselines_nextToken
           Lens..~ rs
           Lens.^? describePatchBaselinesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribePatchBaselines where
   type
@@ -174,7 +174,8 @@ instance Core.AWSRequest DescribePatchBaselines where
     Response.receiveJSON
       ( \s h x ->
           DescribePatchBaselinesResponse'
-            Prelude.<$> ( x Data..?> "BaselineIdentities"
+            Prelude.<$> ( x
+                            Data..?> "BaselineIdentities"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -183,7 +184,8 @@ instance Core.AWSRequest DescribePatchBaselines where
 
 instance Prelude.Hashable DescribePatchBaselines where
   hashWithSalt _salt DescribePatchBaselines' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

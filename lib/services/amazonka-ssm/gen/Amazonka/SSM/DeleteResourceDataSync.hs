@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteResourceDataSync where
 
 instance Prelude.Hashable DeleteResourceDataSync where
   hashWithSalt _salt DeleteResourceDataSync' {..} =
-    _salt `Prelude.hashWithSalt` syncType
+    _salt
+      `Prelude.hashWithSalt` syncType
       `Prelude.hashWithSalt` syncName
 
 instance Prelude.NFData DeleteResourceDataSync where

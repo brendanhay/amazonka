@@ -135,7 +135,8 @@ instance Core.AWSRequest DescribeAssociation where
 
 instance Prelude.Hashable DescribeAssociation where
   hashWithSalt _salt DescribeAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associationId
+    _salt
+      `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` associationVersion
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name

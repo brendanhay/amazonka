@@ -30,9 +30,11 @@ import Amazonka.SSM.Types.Alarm
 --
 -- /See:/ 'newAlarmConfiguration' smart constructor.
 data AlarmConfiguration = AlarmConfiguration'
-  { -- | If you specify @true@ for this value, your automation or command
-    -- continue to run even if we can\'t gather information about the state of
-    -- your CloudWatch alarm. The default value is @false@.
+  { -- | When this value is /true/, your automation or command continues to run
+    -- in cases where we can’t retrieve alarm status information from
+    -- CloudWatch. In cases where we successfully retrieve an alarm status of
+    -- OK or INSUFFICIENT_DATA, the automation or command continues to run,
+    -- regardless of this value. Default is /false/.
     ignorePollAlarmFailure :: Prelude.Maybe Prelude.Bool,
     -- | The name of the CloudWatch alarm specified in the configuration.
     alarms :: Prelude.NonEmpty Alarm
@@ -47,9 +49,11 @@ data AlarmConfiguration = AlarmConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ignorePollAlarmFailure', 'alarmConfiguration_ignorePollAlarmFailure' - If you specify @true@ for this value, your automation or command
--- continue to run even if we can\'t gather information about the state of
--- your CloudWatch alarm. The default value is @false@.
+-- 'ignorePollAlarmFailure', 'alarmConfiguration_ignorePollAlarmFailure' - When this value is /true/, your automation or command continues to run
+-- in cases where we can’t retrieve alarm status information from
+-- CloudWatch. In cases where we successfully retrieve an alarm status of
+-- OK or INSUFFICIENT_DATA, the automation or command continues to run,
+-- regardless of this value. Default is /false/.
 --
 -- 'alarms', 'alarmConfiguration_alarms' - The name of the CloudWatch alarm specified in the configuration.
 newAlarmConfiguration ::
@@ -63,9 +67,11 @@ newAlarmConfiguration pAlarms_ =
       alarms = Lens.coerced Lens.# pAlarms_
     }
 
--- | If you specify @true@ for this value, your automation or command
--- continue to run even if we can\'t gather information about the state of
--- your CloudWatch alarm. The default value is @false@.
+-- | When this value is /true/, your automation or command continues to run
+-- in cases where we can’t retrieve alarm status information from
+-- CloudWatch. In cases where we successfully retrieve an alarm status of
+-- OK or INSUFFICIENT_DATA, the automation or command continues to run,
+-- regardless of this value. Default is /false/.
 alarmConfiguration_ignorePollAlarmFailure :: Lens.Lens' AlarmConfiguration (Prelude.Maybe Prelude.Bool)
 alarmConfiguration_ignorePollAlarmFailure = Lens.lens (\AlarmConfiguration' {ignorePollAlarmFailure} -> ignorePollAlarmFailure) (\s@AlarmConfiguration' {} a -> s {ignorePollAlarmFailure = a} :: AlarmConfiguration)
 
@@ -85,7 +91,8 @@ instance Data.FromJSON AlarmConfiguration where
 
 instance Prelude.Hashable AlarmConfiguration where
   hashWithSalt _salt AlarmConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` ignorePollAlarmFailure
+    _salt
+      `Prelude.hashWithSalt` ignorePollAlarmFailure
       `Prelude.hashWithSalt` alarms
 
 instance Prelude.NFData AlarmConfiguration where

@@ -138,7 +138,8 @@ instance Data.FromJSON PatchSource where
 
 instance Prelude.Hashable PatchSource where
   hashWithSalt _salt PatchSource' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` products
       `Prelude.hashWithSalt` configuration
 

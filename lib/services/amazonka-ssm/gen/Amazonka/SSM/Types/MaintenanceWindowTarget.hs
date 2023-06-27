@@ -157,7 +157,8 @@ instance Data.FromJSON MaintenanceWindowTarget where
 
 instance Prelude.Hashable MaintenanceWindowTarget where
   hashWithSalt _salt MaintenanceWindowTarget' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ownerInformation
       `Prelude.hashWithSalt` resourceType

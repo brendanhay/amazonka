@@ -153,7 +153,8 @@ instance Core.AWSRequest LabelParameterVersion where
 
 instance Prelude.Hashable LabelParameterVersion where
   hashWithSalt _salt LabelParameterVersion' {..} =
-    _salt `Prelude.hashWithSalt` parameterVersion
+    _salt
+      `Prelude.hashWithSalt` parameterVersion
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` labels
 

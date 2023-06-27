@@ -113,7 +113,8 @@ instance Core.AWSRequest UpdateOpsMetadata where
 
 instance Prelude.Hashable UpdateOpsMetadata where
   hashWithSalt _salt UpdateOpsMetadata' {..} =
-    _salt `Prelude.hashWithSalt` keysToDelete
+    _salt
+      `Prelude.hashWithSalt` keysToDelete
       `Prelude.hashWithSalt` metadataToUpdate
       `Prelude.hashWithSalt` opsMetadataArn
 

@@ -88,7 +88,8 @@ instance Data.FromJSON ScheduledWindowExecution where
 
 instance Prelude.Hashable ScheduledWindowExecution where
   hashWithSalt _salt ScheduledWindowExecution' {..} =
-    _salt `Prelude.hashWithSalt` executionTime
+    _salt
+      `Prelude.hashWithSalt` executionTime
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` windowId
 

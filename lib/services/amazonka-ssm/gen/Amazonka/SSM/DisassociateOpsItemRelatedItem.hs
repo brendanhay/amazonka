@@ -122,7 +122,8 @@ instance
   hashWithSalt
     _salt
     DisassociateOpsItemRelatedItem' {..} =
-      _salt `Prelude.hashWithSalt` opsItemId
+      _salt
+        `Prelude.hashWithSalt` opsItemId
         `Prelude.hashWithSalt` associationId
 
 instance

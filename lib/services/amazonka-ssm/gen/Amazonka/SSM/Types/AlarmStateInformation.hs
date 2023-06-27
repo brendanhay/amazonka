@@ -73,12 +73,14 @@ instance Data.FromJSON AlarmStateInformation where
       "AlarmStateInformation"
       ( \x ->
           AlarmStateInformation'
-            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "State")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "State")
       )
 
 instance Prelude.Hashable AlarmStateInformation where
   hashWithSalt _salt AlarmStateInformation' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData AlarmStateInformation where

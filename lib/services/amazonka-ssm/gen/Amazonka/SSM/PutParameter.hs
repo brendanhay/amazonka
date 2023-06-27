@@ -78,10 +78,22 @@ data PutParameter = PutParameter'
     -- When you create a @String@ parameter and specify @aws:ec2:image@, Amazon
     -- Web Services Systems Manager validates the parameter value is in the
     -- required format, such as @ami-12345abcdeEXAMPLE@, and that the specified
-    -- AMI is available in your Amazon Web Services account. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html Native parameter support for Amazon Machine Image (AMI) IDs>
-    -- in the /Amazon Web Services Systems Manager User Guide/.
+    -- AMI is available in your Amazon Web Services account.
+    --
+    -- If the action is successful, the service sends back an HTTP 200 response
+    -- which indicates a successful @PutParameter@ call for all cases except
+    -- for data type @aws:ec2:image@. If you call @PutParameter@ with
+    -- @aws:ec2:image@ data type, a successful HTTP 200 response does not
+    -- guarantee that your parameter was successfully created or updated. The
+    -- @aws:ec2:image@ value is validated asynchronously, and the
+    -- @PutParameter@ call returns before the validation is complete. If you
+    -- submit an invalid AMI value, the PutParameter operation will return
+    -- success, but the asynchronous validation will fail and the parameter
+    -- will not be created or updated. To monitor whether your @aws:ec2:image@
+    -- parameters are created successfully, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-cwe.html Setting up notifications or trigger actions based on Parameter Store events>.
+    -- For more information about AMI format validation , see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html Native parameter support for Amazon Machine Image (AMI) IDs>.
     dataType :: Prelude.Maybe Prelude.Text,
     -- | Information about the parameter that you want to add to the system.
     -- Optional but recommended.
@@ -89,16 +101,12 @@ data PutParameter = PutParameter'
     -- Don\'t enter personally identifiable information in this field.
     description :: Prelude.Maybe Prelude.Text,
     -- | The Key Management Service (KMS) ID that you want to use to encrypt a
-    -- parameter. Either the default KMS key automatically assigned to your
-    -- Amazon Web Services account or a custom key. Required for parameters
+    -- parameter. Use a custom key for better security. Required for parameters
     -- that use the @SecureString@ data type.
     --
     -- If you don\'t specify a key ID, the system uses the default key
-    -- associated with your Amazon Web Services account.
-    --
-    -- -   To use your default KMS key, choose the @SecureString@ data type,
-    --     and do /not/ specify the @Key ID@ when you create the parameter. The
-    --     system automatically populates @Key ID@ with your default KMS key.
+    -- associated with your Amazon Web Services account which is not as secure
+    -- as using a custom key.
     --
     -- -   To use a custom KMS key, choose the @SecureString@ data type with
     --     the @Key ID@ parameter.
@@ -269,8 +277,8 @@ data PutParameter = PutParameter'
     -- limit of 8 KB.
     --
     -- Parameters can\'t be referenced or nested in the values of other
-    -- parameters. You can\'t include @{{}}@ or @{{ssm:parameter-name}}@ in a
-    -- parameter value.
+    -- parameters. You can\'t include @{{}}@ or @{{ssm:@/@parameter-name@/@}}@
+    -- in a parameter value.
     value :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -301,10 +309,22 @@ data PutParameter = PutParameter'
 -- When you create a @String@ parameter and specify @aws:ec2:image@, Amazon
 -- Web Services Systems Manager validates the parameter value is in the
 -- required format, such as @ami-12345abcdeEXAMPLE@, and that the specified
--- AMI is available in your Amazon Web Services account. For more
--- information, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html Native parameter support for Amazon Machine Image (AMI) IDs>
--- in the /Amazon Web Services Systems Manager User Guide/.
+-- AMI is available in your Amazon Web Services account.
+--
+-- If the action is successful, the service sends back an HTTP 200 response
+-- which indicates a successful @PutParameter@ call for all cases except
+-- for data type @aws:ec2:image@. If you call @PutParameter@ with
+-- @aws:ec2:image@ data type, a successful HTTP 200 response does not
+-- guarantee that your parameter was successfully created or updated. The
+-- @aws:ec2:image@ value is validated asynchronously, and the
+-- @PutParameter@ call returns before the validation is complete. If you
+-- submit an invalid AMI value, the PutParameter operation will return
+-- success, but the asynchronous validation will fail and the parameter
+-- will not be created or updated. To monitor whether your @aws:ec2:image@
+-- parameters are created successfully, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-cwe.html Setting up notifications or trigger actions based on Parameter Store events>.
+-- For more information about AMI format validation , see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html Native parameter support for Amazon Machine Image (AMI) IDs>.
 --
 -- 'description', 'putParameter_description' - Information about the parameter that you want to add to the system.
 -- Optional but recommended.
@@ -312,16 +332,12 @@ data PutParameter = PutParameter'
 -- Don\'t enter personally identifiable information in this field.
 --
 -- 'keyId', 'putParameter_keyId' - The Key Management Service (KMS) ID that you want to use to encrypt a
--- parameter. Either the default KMS key automatically assigned to your
--- Amazon Web Services account or a custom key. Required for parameters
+-- parameter. Use a custom key for better security. Required for parameters
 -- that use the @SecureString@ data type.
 --
 -- If you don\'t specify a key ID, the system uses the default key
--- associated with your Amazon Web Services account.
---
--- -   To use your default KMS key, choose the @SecureString@ data type,
---     and do /not/ specify the @Key ID@ when you create the parameter. The
---     system automatically populates @Key ID@ with your default KMS key.
+-- associated with your Amazon Web Services account which is not as secure
+-- as using a custom key.
 --
 -- -   To use a custom KMS key, choose the @SecureString@ data type with
 --     the @Key ID@ parameter.
@@ -492,8 +508,8 @@ data PutParameter = PutParameter'
 -- limit of 8 KB.
 --
 -- Parameters can\'t be referenced or nested in the values of other
--- parameters. You can\'t include @{{}}@ or @{{ssm:parameter-name}}@ in a
--- parameter value.
+-- parameters. You can\'t include @{{}}@ or @{{ssm:@/@parameter-name@/@}}@
+-- in a parameter value.
 newPutParameter ::
   -- | 'name'
   Prelude.Text ->
@@ -535,10 +551,22 @@ putParameter_allowedPattern = Lens.lens (\PutParameter' {allowedPattern} -> allo
 -- When you create a @String@ parameter and specify @aws:ec2:image@, Amazon
 -- Web Services Systems Manager validates the parameter value is in the
 -- required format, such as @ami-12345abcdeEXAMPLE@, and that the specified
--- AMI is available in your Amazon Web Services account. For more
--- information, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html Native parameter support for Amazon Machine Image (AMI) IDs>
--- in the /Amazon Web Services Systems Manager User Guide/.
+-- AMI is available in your Amazon Web Services account.
+--
+-- If the action is successful, the service sends back an HTTP 200 response
+-- which indicates a successful @PutParameter@ call for all cases except
+-- for data type @aws:ec2:image@. If you call @PutParameter@ with
+-- @aws:ec2:image@ data type, a successful HTTP 200 response does not
+-- guarantee that your parameter was successfully created or updated. The
+-- @aws:ec2:image@ value is validated asynchronously, and the
+-- @PutParameter@ call returns before the validation is complete. If you
+-- submit an invalid AMI value, the PutParameter operation will return
+-- success, but the asynchronous validation will fail and the parameter
+-- will not be created or updated. To monitor whether your @aws:ec2:image@
+-- parameters are created successfully, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-cwe.html Setting up notifications or trigger actions based on Parameter Store events>.
+-- For more information about AMI format validation , see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html Native parameter support for Amazon Machine Image (AMI) IDs>.
 putParameter_dataType :: Lens.Lens' PutParameter (Prelude.Maybe Prelude.Text)
 putParameter_dataType = Lens.lens (\PutParameter' {dataType} -> dataType) (\s@PutParameter' {} a -> s {dataType = a} :: PutParameter)
 
@@ -550,16 +578,12 @@ putParameter_description :: Lens.Lens' PutParameter (Prelude.Maybe Prelude.Text)
 putParameter_description = Lens.lens (\PutParameter' {description} -> description) (\s@PutParameter' {} a -> s {description = a} :: PutParameter)
 
 -- | The Key Management Service (KMS) ID that you want to use to encrypt a
--- parameter. Either the default KMS key automatically assigned to your
--- Amazon Web Services account or a custom key. Required for parameters
+-- parameter. Use a custom key for better security. Required for parameters
 -- that use the @SecureString@ data type.
 --
 -- If you don\'t specify a key ID, the system uses the default key
--- associated with your Amazon Web Services account.
---
--- -   To use your default KMS key, choose the @SecureString@ data type,
---     and do /not/ specify the @Key ID@ when you create the parameter. The
---     system automatically populates @Key ID@ with your default KMS key.
+-- associated with your Amazon Web Services account which is not as secure
+-- as using a custom key.
 --
 -- -   To use a custom KMS key, choose the @SecureString@ data type with
 --     the @Key ID@ parameter.
@@ -744,8 +768,8 @@ putParameter_name = Lens.lens (\PutParameter' {name} -> name) (\s@PutParameter' 
 -- limit of 8 KB.
 --
 -- Parameters can\'t be referenced or nested in the values of other
--- parameters. You can\'t include @{{}}@ or @{{ssm:parameter-name}}@ in a
--- parameter value.
+-- parameters. You can\'t include @{{}}@ or @{{ssm:@/@parameter-name@/@}}@
+-- in a parameter value.
 putParameter_value :: Lens.Lens' PutParameter Prelude.Text
 putParameter_value = Lens.lens (\PutParameter' {value} -> value) (\s@PutParameter' {} a -> s {value = a} :: PutParameter) Prelude.. Data._Sensitive
 
@@ -764,7 +788,8 @@ instance Core.AWSRequest PutParameter where
 
 instance Prelude.Hashable PutParameter where
   hashWithSalt _salt PutParameter' {..} =
-    _salt `Prelude.hashWithSalt` allowedPattern
+    _salt
+      `Prelude.hashWithSalt` allowedPattern
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` keyId

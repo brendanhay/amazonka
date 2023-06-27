@@ -75,7 +75,8 @@ instance Data.FromJSON SessionManagerOutputUrl where
 
 instance Prelude.Hashable SessionManagerOutputUrl where
   hashWithSalt _salt SessionManagerOutputUrl' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchOutputUrl
+    _salt
+      `Prelude.hashWithSalt` cloudWatchOutputUrl
       `Prelude.hashWithSalt` s3OutputUrl
 
 instance Prelude.NFData SessionManagerOutputUrl where

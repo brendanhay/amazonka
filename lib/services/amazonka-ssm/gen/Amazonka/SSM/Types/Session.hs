@@ -43,7 +43,7 @@ data Session = Session'
     maxSessionDuration :: Prelude.Maybe Prelude.Text,
     -- | Reserved for future use.
     outputUrl :: Prelude.Maybe SessionManagerOutputUrl,
-    -- | The ID of the Amazon Web Services user account that started the session.
+    -- | The ID of the Amazon Web Services user that started the session.
     owner :: Prelude.Maybe Prelude.Text,
     -- | The reason for connecting to the instance.
     reason :: Prelude.Maybe Prelude.Text,
@@ -79,7 +79,7 @@ data Session = Session'
 --
 -- 'outputUrl', 'session_outputUrl' - Reserved for future use.
 --
--- 'owner', 'session_owner' - The ID of the Amazon Web Services user account that started the session.
+-- 'owner', 'session_owner' - The ID of the Amazon Web Services user that started the session.
 --
 -- 'reason', 'session_reason' - The reason for connecting to the instance.
 --
@@ -130,7 +130,7 @@ session_maxSessionDuration = Lens.lens (\Session' {maxSessionDuration} -> maxSes
 session_outputUrl :: Lens.Lens' Session (Prelude.Maybe SessionManagerOutputUrl)
 session_outputUrl = Lens.lens (\Session' {outputUrl} -> outputUrl) (\s@Session' {} a -> s {outputUrl = a} :: Session)
 
--- | The ID of the Amazon Web Services user account that started the session.
+-- | The ID of the Amazon Web Services user that started the session.
 session_owner :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
 session_owner = Lens.lens (\Session' {owner} -> owner) (\s@Session' {} a -> s {owner = a} :: Session)
 
@@ -175,7 +175,8 @@ instance Data.FromJSON Session where
 
 instance Prelude.Hashable Session where
   hashWithSalt _salt Session' {..} =
-    _salt `Prelude.hashWithSalt` details
+    _salt
+      `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` documentName
       `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` maxSessionDuration

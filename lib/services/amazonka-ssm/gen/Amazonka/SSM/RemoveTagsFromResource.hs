@@ -54,7 +54,7 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
     --
     -- The @ManagedInstance@ type for this API operation is only for
     -- on-premises managed nodes. Specify the name of the managed node in the
-    -- following format: @mi-ID_number @. For example, @mi-1a2b3c4d5e6f@.
+    -- following format: @mi-@/@ID_number@/@ @. For example, @mi-1a2b3c4d5e6f@.
     resourceType :: ResourceTypeForTagging,
     -- | The ID of the resource from which you want to remove tags. For example:
     --
@@ -97,7 +97,7 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
 --
 -- The @ManagedInstance@ type for this API operation is only for
 -- on-premises managed nodes. Specify the name of the managed node in the
--- following format: @mi-ID_number @. For example, @mi-1a2b3c4d5e6f@.
+-- following format: @mi-@/@ID_number@/@ @. For example, @mi-1a2b3c4d5e6f@.
 --
 -- 'resourceId', 'removeTagsFromResource_resourceId' - The ID of the resource from which you want to remove tags. For example:
 --
@@ -142,7 +142,7 @@ newRemoveTagsFromResource pResourceType_ pResourceId_ =
 --
 -- The @ManagedInstance@ type for this API operation is only for
 -- on-premises managed nodes. Specify the name of the managed node in the
--- following format: @mi-ID_number @. For example, @mi-1a2b3c4d5e6f@.
+-- following format: @mi-@/@ID_number@/@ @. For example, @mi-1a2b3c4d5e6f@.
 removeTagsFromResource_resourceType :: Lens.Lens' RemoveTagsFromResource ResourceTypeForTagging
 removeTagsFromResource_resourceType = Lens.lens (\RemoveTagsFromResource' {resourceType} -> resourceType) (\s@RemoveTagsFromResource' {} a -> s {resourceType = a} :: RemoveTagsFromResource)
 
@@ -191,7 +191,8 @@ instance Core.AWSRequest RemoveTagsFromResource where
 
 instance Prelude.Hashable RemoveTagsFromResource where
   hashWithSalt _salt RemoveTagsFromResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` tagKeys
 

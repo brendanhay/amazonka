@@ -135,7 +135,8 @@ instance Core.AWSRequest GetCalendarState where
 
 instance Prelude.Hashable GetCalendarState where
   hashWithSalt _salt GetCalendarState' {..} =
-    _salt `Prelude.hashWithSalt` atTime
+    _salt
+      `Prelude.hashWithSalt` atTime
       `Prelude.hashWithSalt` calendarNames
 
 instance Prelude.NFData GetCalendarState where

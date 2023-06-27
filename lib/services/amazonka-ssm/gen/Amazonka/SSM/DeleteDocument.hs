@@ -143,7 +143,8 @@ instance Core.AWSRequest DeleteDocument where
 
 instance Prelude.Hashable DeleteDocument where
   hashWithSalt _salt DeleteDocument' {..} =
-    _salt `Prelude.hashWithSalt` documentVersion
+    _salt
+      `Prelude.hashWithSalt` documentVersion
       `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` versionName
       `Prelude.hashWithSalt` name

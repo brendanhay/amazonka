@@ -106,8 +106,8 @@ instance
       ( \s h x ->
           DeregisterTaskFromMaintenanceWindowResponse'
             Prelude.<$> (x Data..?> "WindowId")
-              Prelude.<*> (x Data..?> "WindowTaskId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "WindowTaskId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -117,7 +117,8 @@ instance
   hashWithSalt
     _salt
     DeregisterTaskFromMaintenanceWindow' {..} =
-      _salt `Prelude.hashWithSalt` windowId
+      _salt
+        `Prelude.hashWithSalt` windowId
         `Prelude.hashWithSalt` windowTaskId
 
 instance

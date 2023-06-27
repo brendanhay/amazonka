@@ -149,7 +149,8 @@ instance Data.FromJSON AssociationExecutionTarget where
 
 instance Prelude.Hashable AssociationExecutionTarget where
   hashWithSalt _salt AssociationExecutionTarget' {..} =
-    _salt `Prelude.hashWithSalt` associationId
+    _salt
+      `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` associationVersion
       `Prelude.hashWithSalt` detailedStatus
       `Prelude.hashWithSalt` executionId

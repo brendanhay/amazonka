@@ -103,7 +103,8 @@ instance
   hashWithSalt
     _salt
     ResourceDataSyncAwsOrganizationsSource' {..} =
-      _salt `Prelude.hashWithSalt` organizationalUnits
+      _salt
+        `Prelude.hashWithSalt` organizationalUnits
         `Prelude.hashWithSalt` organizationSourceType
 
 instance

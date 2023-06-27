@@ -140,7 +140,8 @@ inventoryItem_captureTime = Lens.lens (\InventoryItem' {captureTime} -> captureT
 
 instance Prelude.Hashable InventoryItem where
   hashWithSalt _salt InventoryItem' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` contentHash
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` typeName

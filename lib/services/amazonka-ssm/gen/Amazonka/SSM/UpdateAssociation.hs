@@ -31,11 +31,10 @@
 -- DescribeAssociation API operation and make a note of all optional
 -- parameters required for your @UpdateAssociation@ call.
 --
--- In order to call this API operation, your Identity and Access Management
--- (IAM) user account, group, or role must be configured with permission to
--- call the DescribeAssociation API operation. If you don\'t have
--- permission to call @DescribeAssociation@, then you receive the following
--- error:
+-- In order to call this API operation, a user, group, or role must be
+-- granted permission to call the DescribeAssociation API operation. If you
+-- don\'t have permission to call @DescribeAssociation@, then you receive
+-- the following error:
 -- @An error occurred (AccessDeniedException) when calling the UpdateAssociation operation: User: \<user_arn> isn\'t authorized to perform: ssm:DescribeAssociation on resource: \<resource_arn>@
 --
 -- When you update an association, the association immediately runs against
@@ -178,7 +177,7 @@ data UpdateAssociation = UpdateAssociation'
     -- from other Amazon Web Services accounts, you must specify the complete
     -- SSM document ARN, in the following format:
     --
-    -- @arn:aws:ssm:region:account-id:document\/document-name @
+    -- @arn:aws:ssm:@/@region@/@:@/@account-id@/@:document\/@/@document-name@/@ @
     --
     -- For example:
     --
@@ -339,7 +338,7 @@ data UpdateAssociation = UpdateAssociation'
 -- from other Amazon Web Services accounts, you must specify the complete
 -- SSM document ARN, in the following format:
 --
--- @arn:aws:ssm:region:account-id:document\/document-name @
+-- @arn:aws:ssm:@/@region@/@:@/@account-id@/@:document\/@/@document-name@/@ @
 --
 -- For example:
 --
@@ -537,7 +536,7 @@ updateAssociation_maxErrors = Lens.lens (\UpdateAssociation' {maxErrors} -> maxE
 -- from other Amazon Web Services accounts, you must specify the complete
 -- SSM document ARN, in the following format:
 --
--- @arn:aws:ssm:region:account-id:document\/document-name @
+-- @arn:aws:ssm:@/@region@/@:@/@account-id@/@:document\/@/@document-name@/@ @
 --
 -- For example:
 --
@@ -632,7 +631,8 @@ instance Core.AWSRequest UpdateAssociation where
 
 instance Prelude.Hashable UpdateAssociation where
   hashWithSalt _salt UpdateAssociation' {..} =
-    _salt `Prelude.hashWithSalt` alarmConfiguration
+    _salt
+      `Prelude.hashWithSalt` alarmConfiguration
       `Prelude.hashWithSalt` applyOnlyAtCronInterval
       `Prelude.hashWithSalt` associationName
       `Prelude.hashWithSalt` associationVersion

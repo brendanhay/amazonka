@@ -184,7 +184,8 @@ instance Data.FromJSON ParameterMetadata where
 
 instance Prelude.Hashable ParameterMetadata where
   hashWithSalt _salt ParameterMetadata' {..} =
-    _salt `Prelude.hashWithSalt` allowedPattern
+    _salt
+      `Prelude.hashWithSalt` allowedPattern
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` keyId

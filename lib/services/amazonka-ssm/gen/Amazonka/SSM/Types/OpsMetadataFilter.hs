@@ -68,7 +68,8 @@ opsMetadataFilter_values = Lens.lens (\OpsMetadataFilter' {values} -> values) (\
 
 instance Prelude.Hashable OpsMetadataFilter where
   hashWithSalt _salt OpsMetadataFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData OpsMetadataFilter where

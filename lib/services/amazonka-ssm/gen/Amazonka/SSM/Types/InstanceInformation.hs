@@ -373,7 +373,8 @@ instance Data.FromJSON InstanceInformation where
 
 instance Prelude.Hashable InstanceInformation where
   hashWithSalt _salt InstanceInformation' {..} =
-    _salt `Prelude.hashWithSalt` activationId
+    _salt
+      `Prelude.hashWithSalt` activationId
       `Prelude.hashWithSalt` agentVersion
       `Prelude.hashWithSalt` associationOverview
       `Prelude.hashWithSalt` associationStatus

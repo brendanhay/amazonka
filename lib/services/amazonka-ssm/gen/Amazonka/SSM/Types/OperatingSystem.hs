@@ -20,9 +20,11 @@
 module Amazonka.SSM.Types.OperatingSystem
   ( OperatingSystem
       ( ..,
+        OperatingSystem_ALMA_LINUX,
         OperatingSystem_AMAZON_LINUX,
         OperatingSystem_AMAZON_LINUX_2,
         OperatingSystem_AMAZON_LINUX_2022,
+        OperatingSystem_AMAZON_LINUX_2023,
         OperatingSystem_CENTOS,
         OperatingSystem_DEBIAN,
         OperatingSystem_MACOS,
@@ -69,6 +71,9 @@ newtype OperatingSystem = OperatingSystem'
       Data.ToXML
     )
 
+pattern OperatingSystem_ALMA_LINUX :: OperatingSystem
+pattern OperatingSystem_ALMA_LINUX = OperatingSystem' "ALMA_LINUX"
+
 pattern OperatingSystem_AMAZON_LINUX :: OperatingSystem
 pattern OperatingSystem_AMAZON_LINUX = OperatingSystem' "AMAZON_LINUX"
 
@@ -77,6 +82,9 @@ pattern OperatingSystem_AMAZON_LINUX_2 = OperatingSystem' "AMAZON_LINUX_2"
 
 pattern OperatingSystem_AMAZON_LINUX_2022 :: OperatingSystem
 pattern OperatingSystem_AMAZON_LINUX_2022 = OperatingSystem' "AMAZON_LINUX_2022"
+
+pattern OperatingSystem_AMAZON_LINUX_2023 :: OperatingSystem
+pattern OperatingSystem_AMAZON_LINUX_2023 = OperatingSystem' "AMAZON_LINUX_2023"
 
 pattern OperatingSystem_CENTOS :: OperatingSystem
 pattern OperatingSystem_CENTOS = OperatingSystem' "CENTOS"
@@ -109,9 +117,11 @@ pattern OperatingSystem_WINDOWS :: OperatingSystem
 pattern OperatingSystem_WINDOWS = OperatingSystem' "WINDOWS"
 
 {-# COMPLETE
+  OperatingSystem_ALMA_LINUX,
   OperatingSystem_AMAZON_LINUX,
   OperatingSystem_AMAZON_LINUX_2,
   OperatingSystem_AMAZON_LINUX_2022,
+  OperatingSystem_AMAZON_LINUX_2023,
   OperatingSystem_CENTOS,
   OperatingSystem_DEBIAN,
   OperatingSystem_MACOS,

@@ -125,7 +125,8 @@ instance Core.AWSRequest UpdateAssociationStatus where
 
 instance Prelude.Hashable UpdateAssociationStatus where
   hashWithSalt _salt UpdateAssociationStatus' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` associationStatus
 

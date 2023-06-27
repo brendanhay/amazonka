@@ -117,7 +117,8 @@ instance Core.AWSRequest UpdateDocumentMetadata where
 
 instance Prelude.Hashable UpdateDocumentMetadata where
   hashWithSalt _salt UpdateDocumentMetadata' {..} =
-    _salt `Prelude.hashWithSalt` documentVersion
+    _salt
+      `Prelude.hashWithSalt` documentVersion
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` documentReviews
 

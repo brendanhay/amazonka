@@ -68,10 +68,12 @@ import Amazonka.SSM.Types
 --
 -- /See:/ 'newUpdateServiceSetting' smart constructor.
 data UpdateServiceSetting = UpdateServiceSetting'
-  { -- | The Amazon Resource Name (ARN) of the service setting to reset. For
+  { -- | The Amazon Resource Name (ARN) of the service setting to update. For
     -- example,
     -- @arn:aws:ssm:us-east-1:111122223333:servicesetting\/ssm\/parameter-store\/high-throughput-enabled@.
     -- The setting ID can be one of the following.
+    --
+    -- -   @\/ssm\/managed-instance\/default-ec2-instance-management-role@
     --
     -- -   @\/ssm\/automation\/customer-script-log-destination@
     --
@@ -86,13 +88,21 @@ data UpdateServiceSetting = UpdateServiceSetting'
     -- -   @\/ssm\/parameter-store\/default-parameter-tier@
     --
     -- -   @\/ssm\/parameter-store\/high-throughput-enabled@
+    --
+    -- Permissions to update the
+    -- @\/ssm\/managed-instance\/default-ec2-instance-management-role@ setting
+    -- should only be provided to administrators. Implement least privilege
+    -- access when allowing individuals to configure or modify the Default Host
+    -- Management Configuration.
     settingId :: Prelude.Text,
     -- | The new value to specify for the service setting. The following list
     -- specifies the available values for each setting.
     --
+    -- -   @\/ssm\/managed-instance\/default-ec2-instance-management-role: The name of an IAM role@
+    --
     -- -   @\/ssm\/automation\/customer-script-log-destination@: @CloudWatch@
     --
-    -- -   @\/ssm\/automation\/customer-script-log-group-name@: the name of an
+    -- -   @\/ssm\/automation\/customer-script-log-group-name@: The name of an
     --     Amazon CloudWatch Logs log group
     --
     -- -   @\/ssm\/documents\/console\/public-sharing-permission@: @Enable@ or
@@ -118,10 +128,12 @@ data UpdateServiceSetting = UpdateServiceSetting'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'settingId', 'updateServiceSetting_settingId' - The Amazon Resource Name (ARN) of the service setting to reset. For
+-- 'settingId', 'updateServiceSetting_settingId' - The Amazon Resource Name (ARN) of the service setting to update. For
 -- example,
 -- @arn:aws:ssm:us-east-1:111122223333:servicesetting\/ssm\/parameter-store\/high-throughput-enabled@.
 -- The setting ID can be one of the following.
+--
+-- -   @\/ssm\/managed-instance\/default-ec2-instance-management-role@
 --
 -- -   @\/ssm\/automation\/customer-script-log-destination@
 --
@@ -137,12 +149,20 @@ data UpdateServiceSetting = UpdateServiceSetting'
 --
 -- -   @\/ssm\/parameter-store\/high-throughput-enabled@
 --
+-- Permissions to update the
+-- @\/ssm\/managed-instance\/default-ec2-instance-management-role@ setting
+-- should only be provided to administrators. Implement least privilege
+-- access when allowing individuals to configure or modify the Default Host
+-- Management Configuration.
+--
 -- 'settingValue', 'updateServiceSetting_settingValue' - The new value to specify for the service setting. The following list
 -- specifies the available values for each setting.
 --
+-- -   @\/ssm\/managed-instance\/default-ec2-instance-management-role: The name of an IAM role@
+--
 -- -   @\/ssm\/automation\/customer-script-log-destination@: @CloudWatch@
 --
--- -   @\/ssm\/automation\/customer-script-log-group-name@: the name of an
+-- -   @\/ssm\/automation\/customer-script-log-group-name@: The name of an
 --     Amazon CloudWatch Logs log group
 --
 -- -   @\/ssm\/documents\/console\/public-sharing-permission@: @Enable@ or
@@ -168,10 +188,12 @@ newUpdateServiceSetting pSettingId_ pSettingValue_ =
       settingValue = pSettingValue_
     }
 
--- | The Amazon Resource Name (ARN) of the service setting to reset. For
+-- | The Amazon Resource Name (ARN) of the service setting to update. For
 -- example,
 -- @arn:aws:ssm:us-east-1:111122223333:servicesetting\/ssm\/parameter-store\/high-throughput-enabled@.
 -- The setting ID can be one of the following.
+--
+-- -   @\/ssm\/managed-instance\/default-ec2-instance-management-role@
 --
 -- -   @\/ssm\/automation\/customer-script-log-destination@
 --
@@ -186,15 +208,23 @@ newUpdateServiceSetting pSettingId_ pSettingValue_ =
 -- -   @\/ssm\/parameter-store\/default-parameter-tier@
 --
 -- -   @\/ssm\/parameter-store\/high-throughput-enabled@
+--
+-- Permissions to update the
+-- @\/ssm\/managed-instance\/default-ec2-instance-management-role@ setting
+-- should only be provided to administrators. Implement least privilege
+-- access when allowing individuals to configure or modify the Default Host
+-- Management Configuration.
 updateServiceSetting_settingId :: Lens.Lens' UpdateServiceSetting Prelude.Text
 updateServiceSetting_settingId = Lens.lens (\UpdateServiceSetting' {settingId} -> settingId) (\s@UpdateServiceSetting' {} a -> s {settingId = a} :: UpdateServiceSetting)
 
 -- | The new value to specify for the service setting. The following list
 -- specifies the available values for each setting.
 --
+-- -   @\/ssm\/managed-instance\/default-ec2-instance-management-role: The name of an IAM role@
+--
 -- -   @\/ssm\/automation\/customer-script-log-destination@: @CloudWatch@
 --
--- -   @\/ssm\/automation\/customer-script-log-group-name@: the name of an
+-- -   @\/ssm\/automation\/customer-script-log-group-name@: The name of an
 --     Amazon CloudWatch Logs log group
 --
 -- -   @\/ssm\/documents\/console\/public-sharing-permission@: @Enable@ or
@@ -226,7 +256,8 @@ instance Core.AWSRequest UpdateServiceSetting where
 
 instance Prelude.Hashable UpdateServiceSetting where
   hashWithSalt _salt UpdateServiceSetting' {..} =
-    _salt `Prelude.hashWithSalt` settingId
+    _salt
+      `Prelude.hashWithSalt` settingId
       `Prelude.hashWithSalt` settingValue
 
 instance Prelude.NFData UpdateServiceSetting where

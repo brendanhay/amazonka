@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     MaintenanceWindowIdentityForTarget' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` windowId
 
 instance

@@ -106,8 +106,8 @@ instance
       ( \s h x ->
           RegisterPatchBaselineForPatchGroupResponse'
             Prelude.<$> (x Data..?> "BaselineId")
-              Prelude.<*> (x Data..?> "PatchGroup")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "PatchGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -117,7 +117,8 @@ instance
   hashWithSalt
     _salt
     RegisterPatchBaselineForPatchGroup' {..} =
-      _salt `Prelude.hashWithSalt` baselineId
+      _salt
+        `Prelude.hashWithSalt` baselineId
         `Prelude.hashWithSalt` patchGroup
 
 instance

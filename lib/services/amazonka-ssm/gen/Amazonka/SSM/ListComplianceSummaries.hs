@@ -117,22 +117,22 @@ instance Core.AWSPager ListComplianceSummaries where
     | Core.stop
         ( rs
             Lens.^? listComplianceSummariesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listComplianceSummariesResponse_complianceSummaryItems
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listComplianceSummaries_nextToken
           Lens..~ rs
           Lens.^? listComplianceSummariesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListComplianceSummaries where
   type
@@ -144,7 +144,8 @@ instance Core.AWSRequest ListComplianceSummaries where
     Response.receiveJSON
       ( \s h x ->
           ListComplianceSummariesResponse'
-            Prelude.<$> ( x Data..?> "ComplianceSummaryItems"
+            Prelude.<$> ( x
+                            Data..?> "ComplianceSummaryItems"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -153,7 +154,8 @@ instance Core.AWSRequest ListComplianceSummaries where
 
 instance Prelude.Hashable ListComplianceSummaries where
   hashWithSalt _salt ListComplianceSummaries' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

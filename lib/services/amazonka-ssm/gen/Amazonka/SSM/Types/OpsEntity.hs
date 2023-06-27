@@ -75,7 +75,8 @@ instance Data.FromJSON OpsEntity where
 
 instance Prelude.Hashable OpsEntity where
   hashWithSalt _salt OpsEntity' {..} =
-    _salt `Prelude.hashWithSalt` data'
+    _salt
+      `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData OpsEntity where

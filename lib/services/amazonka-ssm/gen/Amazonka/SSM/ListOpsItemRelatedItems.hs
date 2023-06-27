@@ -129,22 +129,22 @@ instance Core.AWSPager ListOpsItemRelatedItems where
     | Core.stop
         ( rs
             Lens.^? listOpsItemRelatedItemsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listOpsItemRelatedItemsResponse_summaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listOpsItemRelatedItems_nextToken
           Lens..~ rs
           Lens.^? listOpsItemRelatedItemsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOpsItemRelatedItems where
   type
@@ -163,7 +163,8 @@ instance Core.AWSRequest ListOpsItemRelatedItems where
 
 instance Prelude.Hashable ListOpsItemRelatedItems where
   hashWithSalt _salt ListOpsItemRelatedItems' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` opsItemId

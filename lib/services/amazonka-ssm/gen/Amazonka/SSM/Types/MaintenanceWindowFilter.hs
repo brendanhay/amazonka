@@ -78,7 +78,8 @@ maintenanceWindowFilter_values = Lens.lens (\MaintenanceWindowFilter' {values} -
 
 instance Prelude.Hashable MaintenanceWindowFilter where
   hashWithSalt _salt MaintenanceWindowFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData MaintenanceWindowFilter where

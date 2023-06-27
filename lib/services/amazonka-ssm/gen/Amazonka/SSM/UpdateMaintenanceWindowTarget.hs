@@ -202,7 +202,8 @@ instance
     UpdateMaintenanceWindowTarget
   where
   hashWithSalt _salt UpdateMaintenanceWindowTarget' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ownerInformation
       `Prelude.hashWithSalt` replace

@@ -25,8 +25,8 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.DocumentParameterType
 
--- | Parameters specified in a System Manager document that run on the server
--- when the command is run.
+-- | Parameters specified in a Systems Manager document that run on the
+-- server when the command is run.
 --
 -- /See:/ 'newDocumentParameter' smart constructor.
 data DocumentParameter = DocumentParameter'
@@ -105,7 +105,8 @@ instance Data.FromJSON DocumentParameter where
 
 instance Prelude.Hashable DocumentParameter where
   hashWithSalt _salt DocumentParameter' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'

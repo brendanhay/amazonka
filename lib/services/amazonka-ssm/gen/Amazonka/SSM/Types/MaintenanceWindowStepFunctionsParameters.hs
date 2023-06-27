@@ -92,7 +92,8 @@ instance
       "MaintenanceWindowStepFunctionsParameters"
       ( \x ->
           MaintenanceWindowStepFunctionsParameters'
-            Prelude.<$> (x Data..:? "Input") Prelude.<*> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Input")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance
@@ -102,7 +103,8 @@ instance
   hashWithSalt
     _salt
     MaintenanceWindowStepFunctionsParameters' {..} =
-      _salt `Prelude.hashWithSalt` input
+      _salt
+        `Prelude.hashWithSalt` input
         `Prelude.hashWithSalt` name
 
 instance

@@ -146,7 +146,8 @@ instance
     ResourceComplianceSummaryItem
   where
   hashWithSalt _salt ResourceComplianceSummaryItem' {..} =
-    _salt `Prelude.hashWithSalt` complianceType
+    _salt
+      `Prelude.hashWithSalt` complianceType
       `Prelude.hashWithSalt` compliantSummary
       `Prelude.hashWithSalt` executionSummary
       `Prelude.hashWithSalt` nonCompliantSummary

@@ -44,8 +44,8 @@ data SessionFilter = SessionFilter'
     -- -   Target: Specify a managed node to which session connections have
     --     been made.
     --
-    -- -   Owner: Specify an Amazon Web Services user account to see a list of
-    --     sessions started by that user.
+    -- -   Owner: Specify an Amazon Web Services user to see a list of sessions
+    --     started by that user.
     --
     -- -   Status: Specify a valid session status to see a list of all sessions
     --     with that status. Status values you can specify include:
@@ -90,8 +90,8 @@ data SessionFilter = SessionFilter'
 -- -   Target: Specify a managed node to which session connections have
 --     been made.
 --
--- -   Owner: Specify an Amazon Web Services user account to see a list of
---     sessions started by that user.
+-- -   Owner: Specify an Amazon Web Services user to see a list of sessions
+--     started by that user.
 --
 -- -   Status: Specify a valid session status to see a list of all sessions
 --     with that status. Status values you can specify include:
@@ -135,8 +135,8 @@ sessionFilter_key = Lens.lens (\SessionFilter' {key} -> key) (\s@SessionFilter' 
 -- -   Target: Specify a managed node to which session connections have
 --     been made.
 --
--- -   Owner: Specify an Amazon Web Services user account to see a list of
---     sessions started by that user.
+-- -   Owner: Specify an Amazon Web Services user to see a list of sessions
+--     started by that user.
 --
 -- -   Status: Specify a valid session status to see a list of all sessions
 --     with that status. Status values you can specify include:
@@ -159,7 +159,8 @@ sessionFilter_value = Lens.lens (\SessionFilter' {value} -> value) (\s@SessionFi
 
 instance Prelude.Hashable SessionFilter where
   hashWithSalt _salt SessionFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData SessionFilter where

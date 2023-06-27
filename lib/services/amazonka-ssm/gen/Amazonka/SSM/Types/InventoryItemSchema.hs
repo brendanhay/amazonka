@@ -118,7 +118,8 @@ instance Data.FromJSON InventoryItemSchema where
 
 instance Prelude.Hashable InventoryItemSchema where
   hashWithSalt _salt InventoryItemSchema' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` attributes

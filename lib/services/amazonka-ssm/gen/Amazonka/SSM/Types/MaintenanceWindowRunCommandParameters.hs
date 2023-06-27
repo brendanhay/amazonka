@@ -244,7 +244,8 @@ instance
   hashWithSalt
     _salt
     MaintenanceWindowRunCommandParameters' {..} =
-      _salt `Prelude.hashWithSalt` cloudWatchOutputConfig
+      _salt
+        `Prelude.hashWithSalt` cloudWatchOutputConfig
         `Prelude.hashWithSalt` comment
         `Prelude.hashWithSalt` documentHash
         `Prelude.hashWithSalt` documentHashType

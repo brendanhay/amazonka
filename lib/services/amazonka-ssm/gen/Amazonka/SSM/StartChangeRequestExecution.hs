@@ -310,7 +310,8 @@ instance Core.AWSRequest StartChangeRequestExecution where
 
 instance Prelude.Hashable StartChangeRequestExecution where
   hashWithSalt _salt StartChangeRequestExecution' {..} =
-    _salt `Prelude.hashWithSalt` autoApprove
+    _salt
+      `Prelude.hashWithSalt` autoApprove
       `Prelude.hashWithSalt` changeDetails
       `Prelude.hashWithSalt` changeRequestName
       `Prelude.hashWithSalt` clientToken

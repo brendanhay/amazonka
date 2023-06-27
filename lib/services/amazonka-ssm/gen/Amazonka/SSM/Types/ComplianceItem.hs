@@ -182,7 +182,8 @@ instance Data.FromJSON ComplianceItem where
 
 instance Prelude.Hashable ComplianceItem where
   hashWithSalt _salt ComplianceItem' {..} =
-    _salt `Prelude.hashWithSalt` complianceType
+    _salt
+      `Prelude.hashWithSalt` complianceType
       `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` executionSummary
       `Prelude.hashWithSalt` id

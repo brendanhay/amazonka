@@ -50,7 +50,7 @@ data DocumentIdentifier = DocumentIdentifier'
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the SSM document.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services user account that created the document.
+    -- | The Amazon Web Services user that created the document.
     owner :: Prelude.Maybe Prelude.Text,
     -- | The operating system platform.
     platformTypes :: Prelude.Maybe [PlatformType],
@@ -101,7 +101,7 @@ data DocumentIdentifier = DocumentIdentifier'
 --
 -- 'name', 'documentIdentifier_name' - The name of the SSM document.
 --
--- 'owner', 'documentIdentifier_owner' - The Amazon Web Services user account that created the document.
+-- 'owner', 'documentIdentifier_owner' - The Amazon Web Services user that created the document.
 --
 -- 'platformTypes', 'documentIdentifier_platformTypes' - The operating system platform.
 --
@@ -175,7 +175,7 @@ documentIdentifier_documentVersion = Lens.lens (\DocumentIdentifier' {documentVe
 documentIdentifier_name :: Lens.Lens' DocumentIdentifier (Prelude.Maybe Prelude.Text)
 documentIdentifier_name = Lens.lens (\DocumentIdentifier' {name} -> name) (\s@DocumentIdentifier' {} a -> s {name = a} :: DocumentIdentifier)
 
--- | The Amazon Web Services user account that created the document.
+-- | The Amazon Web Services user that created the document.
 documentIdentifier_owner :: Lens.Lens' DocumentIdentifier (Prelude.Maybe Prelude.Text)
 documentIdentifier_owner = Lens.lens (\DocumentIdentifier' {owner} -> owner) (\s@DocumentIdentifier' {} a -> s {owner = a} :: DocumentIdentifier)
 
@@ -240,7 +240,8 @@ instance Data.FromJSON DocumentIdentifier where
 
 instance Prelude.Hashable DocumentIdentifier where
   hashWithSalt _salt DocumentIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` author
+    _salt
+      `Prelude.hashWithSalt` author
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` documentFormat

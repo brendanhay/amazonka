@@ -90,7 +90,8 @@ instance Data.FromJSON ComplianceSummaryItem where
 
 instance Prelude.Hashable ComplianceSummaryItem where
   hashWithSalt _salt ComplianceSummaryItem' {..} =
-    _salt `Prelude.hashWithSalt` complianceType
+    _salt
+      `Prelude.hashWithSalt` complianceType
       `Prelude.hashWithSalt` compliantSummary
       `Prelude.hashWithSalt` nonCompliantSummary
 

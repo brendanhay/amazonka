@@ -136,22 +136,22 @@ instance Core.AWSPager DescribeMaintenanceWindowTasks where
     | Core.stop
         ( rs
             Lens.^? describeMaintenanceWindowTasksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeMaintenanceWindowTasksResponse_tasks
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeMaintenanceWindowTasks_nextToken
           Lens..~ rs
           Lens.^? describeMaintenanceWindowTasksResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -178,7 +178,8 @@ instance
   hashWithSalt
     _salt
     DescribeMaintenanceWindowTasks' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` windowId

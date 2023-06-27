@@ -156,7 +156,8 @@ instance Core.AWSRequest ListInventoryEntries where
 
 instance Prelude.Hashable ListInventoryEntries where
   hashWithSalt _salt ListInventoryEntries' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId

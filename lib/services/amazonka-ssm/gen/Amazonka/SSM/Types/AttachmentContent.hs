@@ -106,7 +106,8 @@ instance Data.FromJSON AttachmentContent where
 
 instance Prelude.Hashable AttachmentContent where
   hashWithSalt _salt AttachmentContent' {..} =
-    _salt `Prelude.hashWithSalt` hash
+    _salt
+      `Prelude.hashWithSalt` hash
       `Prelude.hashWithSalt` hashType
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` size

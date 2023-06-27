@@ -208,7 +208,8 @@ instance Data.FromJSON ParameterHistory where
 
 instance Prelude.Hashable ParameterHistory where
   hashWithSalt _salt ParameterHistory' {..} =
-    _salt `Prelude.hashWithSalt` allowedPattern
+    _salt
+      `Prelude.hashWithSalt` allowedPattern
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` keyId

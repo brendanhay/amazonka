@@ -119,7 +119,8 @@ instance
   hashWithSalt
     _salt
     GetResourcePoliciesResponseEntry' {..} =
-      _salt `Prelude.hashWithSalt` policy
+      _salt
+        `Prelude.hashWithSalt` policy
         `Prelude.hashWithSalt` policyHash
         `Prelude.hashWithSalt` policyId
 

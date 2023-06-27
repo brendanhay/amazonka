@@ -321,7 +321,8 @@ commandFilter_value = Lens.lens (\CommandFilter' {value} -> value) (\s@CommandFi
 
 instance Prelude.Hashable CommandFilter where
   hashWithSalt _salt CommandFilter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData CommandFilter where

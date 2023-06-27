@@ -123,21 +123,21 @@ instance
       ( \s h x ->
           GetMaintenanceWindowExecutionTaskResponse'
             Prelude.<$> (x Data..?> "AlarmConfiguration")
-              Prelude.<*> (x Data..?> "EndTime")
-              Prelude.<*> (x Data..?> "MaxConcurrency")
-              Prelude.<*> (x Data..?> "MaxErrors")
-              Prelude.<*> (x Data..?> "Priority")
-              Prelude.<*> (x Data..?> "ServiceRole")
-              Prelude.<*> (x Data..?> "StartTime")
-              Prelude.<*> (x Data..?> "Status")
-              Prelude.<*> (x Data..?> "StatusDetails")
-              Prelude.<*> (x Data..?> "TaskArn")
-              Prelude.<*> (x Data..?> "TaskExecutionId")
-              Prelude.<*> (x Data..?> "TaskParameters" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "TriggeredAlarms")
-              Prelude.<*> (x Data..?> "Type")
-              Prelude.<*> (x Data..?> "WindowExecutionId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "EndTime")
+            Prelude.<*> (x Data..?> "MaxConcurrency")
+            Prelude.<*> (x Data..?> "MaxErrors")
+            Prelude.<*> (x Data..?> "Priority")
+            Prelude.<*> (x Data..?> "ServiceRole")
+            Prelude.<*> (x Data..?> "StartTime")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "StatusDetails")
+            Prelude.<*> (x Data..?> "TaskArn")
+            Prelude.<*> (x Data..?> "TaskExecutionId")
+            Prelude.<*> (x Data..?> "TaskParameters" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "TriggeredAlarms")
+            Prelude.<*> (x Data..?> "Type")
+            Prelude.<*> (x Data..?> "WindowExecutionId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -147,7 +147,8 @@ instance
   hashWithSalt
     _salt
     GetMaintenanceWindowExecutionTask' {..} =
-      _salt `Prelude.hashWithSalt` windowExecutionId
+      _salt
+        `Prelude.hashWithSalt` windowExecutionId
         `Prelude.hashWithSalt` taskId
 
 instance

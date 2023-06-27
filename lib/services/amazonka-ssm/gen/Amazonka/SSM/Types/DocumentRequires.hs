@@ -105,7 +105,8 @@ instance Data.FromJSON DocumentRequires where
 
 instance Prelude.Hashable DocumentRequires where
   hashWithSalt _salt DocumentRequires' {..} =
-    _salt `Prelude.hashWithSalt` requireType
+    _salt
+      `Prelude.hashWithSalt` requireType
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` versionName
       `Prelude.hashWithSalt` name

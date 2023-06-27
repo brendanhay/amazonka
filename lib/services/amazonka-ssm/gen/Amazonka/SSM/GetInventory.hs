@@ -143,20 +143,23 @@ instance Core.AWSPager GetInventory where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getInventoryResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getInventoryResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getInventoryResponse_entities Prelude.. Lens._Just
+            Lens.^? getInventoryResponse_entities
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getInventory_nextToken
           Lens..~ rs
-          Lens.^? getInventoryResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getInventoryResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetInventory where
   type AWSResponse GetInventory = GetInventoryResponse
@@ -173,7 +176,8 @@ instance Core.AWSRequest GetInventory where
 
 instance Prelude.Hashable GetInventory where
   hashWithSalt _salt GetInventory' {..} =
-    _salt `Prelude.hashWithSalt` aggregators
+    _salt
+      `Prelude.hashWithSalt` aggregators
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

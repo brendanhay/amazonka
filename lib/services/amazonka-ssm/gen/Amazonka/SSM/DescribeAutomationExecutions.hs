@@ -112,22 +112,22 @@ instance Core.AWSPager DescribeAutomationExecutions where
     | Core.stop
         ( rs
             Lens.^? describeAutomationExecutionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAutomationExecutionsResponse_automationExecutionMetadataList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeAutomationExecutions_nextToken
           Lens..~ rs
           Lens.^? describeAutomationExecutionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAutomationExecutions where
   type
@@ -139,7 +139,8 @@ instance Core.AWSRequest DescribeAutomationExecutions where
     Response.receiveJSON
       ( \s h x ->
           DescribeAutomationExecutionsResponse'
-            Prelude.<$> ( x Data..?> "AutomationExecutionMetadataList"
+            Prelude.<$> ( x
+                            Data..?> "AutomationExecutionMetadataList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -151,7 +152,8 @@ instance
     DescribeAutomationExecutions
   where
   hashWithSalt _salt DescribeAutomationExecutions' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

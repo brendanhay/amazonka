@@ -34,7 +34,7 @@ data CloudWatchOutputConfig = CloudWatchOutputConfig'
     -- Manager automatically creates a log group for you. The log group uses
     -- the following naming format:
     --
-    -- @aws\/ssm\/SystemsManagerDocumentName @
+    -- @aws\/ssm\/@/@SystemsManagerDocumentName@/@ @
     cloudWatchLogGroupName :: Prelude.Maybe Prelude.Text,
     -- | Enables Systems Manager to send command output to CloudWatch Logs.
     cloudWatchOutputEnabled :: Prelude.Maybe Prelude.Bool
@@ -54,7 +54,7 @@ data CloudWatchOutputConfig = CloudWatchOutputConfig'
 -- Manager automatically creates a log group for you. The log group uses
 -- the following naming format:
 --
--- @aws\/ssm\/SystemsManagerDocumentName @
+-- @aws\/ssm\/@/@SystemsManagerDocumentName@/@ @
 --
 -- 'cloudWatchOutputEnabled', 'cloudWatchOutputConfig_cloudWatchOutputEnabled' - Enables Systems Manager to send command output to CloudWatch Logs.
 newCloudWatchOutputConfig ::
@@ -71,7 +71,7 @@ newCloudWatchOutputConfig =
 -- Manager automatically creates a log group for you. The log group uses
 -- the following naming format:
 --
--- @aws\/ssm\/SystemsManagerDocumentName @
+-- @aws\/ssm\/@/@SystemsManagerDocumentName@/@ @
 cloudWatchOutputConfig_cloudWatchLogGroupName :: Lens.Lens' CloudWatchOutputConfig (Prelude.Maybe Prelude.Text)
 cloudWatchOutputConfig_cloudWatchLogGroupName = Lens.lens (\CloudWatchOutputConfig' {cloudWatchLogGroupName} -> cloudWatchLogGroupName) (\s@CloudWatchOutputConfig' {} a -> s {cloudWatchLogGroupName = a} :: CloudWatchOutputConfig)
 
@@ -91,7 +91,8 @@ instance Data.FromJSON CloudWatchOutputConfig where
 
 instance Prelude.Hashable CloudWatchOutputConfig where
   hashWithSalt _salt CloudWatchOutputConfig' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogGroupName
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogGroupName
       `Prelude.hashWithSalt` cloudWatchOutputEnabled
 
 instance Prelude.NFData CloudWatchOutputConfig where

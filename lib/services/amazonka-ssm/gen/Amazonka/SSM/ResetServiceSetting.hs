@@ -71,6 +71,8 @@ data ResetServiceSetting = ResetServiceSetting'
   { -- | The Amazon Resource Name (ARN) of the service setting to reset. The
     -- setting ID can be one of the following.
     --
+    -- -   @\/ssm\/managed-instance\/default-ec2-instance-management-role@
+    --
     -- -   @\/ssm\/automation\/customer-script-log-destination@
     --
     -- -   @\/ssm\/automation\/customer-script-log-group-name@
@@ -99,6 +101,8 @@ data ResetServiceSetting = ResetServiceSetting'
 -- 'settingId', 'resetServiceSetting_settingId' - The Amazon Resource Name (ARN) of the service setting to reset. The
 -- setting ID can be one of the following.
 --
+-- -   @\/ssm\/managed-instance\/default-ec2-instance-management-role@
+--
 -- -   @\/ssm\/automation\/customer-script-log-destination@
 --
 -- -   @\/ssm\/automation\/customer-script-log-group-name@
@@ -121,6 +125,8 @@ newResetServiceSetting pSettingId_ =
 
 -- | The Amazon Resource Name (ARN) of the service setting to reset. The
 -- setting ID can be one of the following.
+--
+-- -   @\/ssm\/managed-instance\/default-ec2-instance-management-role@
 --
 -- -   @\/ssm\/automation\/customer-script-log-destination@
 --

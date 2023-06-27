@@ -119,7 +119,8 @@ instance
     UpdateDocumentDefaultVersion
   where
   hashWithSalt _salt UpdateDocumentDefaultVersion' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` documentVersion
 
 instance Prelude.NFData UpdateDocumentDefaultVersion where

@@ -163,7 +163,8 @@ instance Core.AWSRequest AssociateOpsItemRelatedItem where
 
 instance Prelude.Hashable AssociateOpsItemRelatedItem where
   hashWithSalt _salt AssociateOpsItemRelatedItem' {..} =
-    _salt `Prelude.hashWithSalt` opsItemId
+    _salt
+      `Prelude.hashWithSalt` opsItemId
       `Prelude.hashWithSalt` associationType
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resourceUri

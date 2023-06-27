@@ -450,7 +450,8 @@ instance Data.FromJSON OpsItem where
             Prelude.<*> (x Data..:? "LastModifiedBy")
             Prelude.<*> (x Data..:? "LastModifiedTime")
             Prelude.<*> (x Data..:? "Notifications" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "OperationalData"
+            Prelude.<*> ( x
+                            Data..:? "OperationalData"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "OpsItemArn")
@@ -459,7 +460,8 @@ instance Data.FromJSON OpsItem where
             Prelude.<*> (x Data..:? "PlannedEndTime")
             Prelude.<*> (x Data..:? "PlannedStartTime")
             Prelude.<*> (x Data..:? "Priority")
-            Prelude.<*> ( x Data..:? "RelatedOpsItems"
+            Prelude.<*> ( x
+                            Data..:? "RelatedOpsItems"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Severity")
@@ -471,7 +473,8 @@ instance Data.FromJSON OpsItem where
 
 instance Prelude.Hashable OpsItem where
   hashWithSalt _salt OpsItem' {..} =
-    _salt `Prelude.hashWithSalt` actualEndTime
+    _salt
+      `Prelude.hashWithSalt` actualEndTime
       `Prelude.hashWithSalt` actualStartTime
       `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` createdBy

@@ -114,9 +114,11 @@ data CreateDocument = CreateDocument'
     -- creating with the document. For example, @Release12.1@. This value is
     -- unique across all versions of a document, and can\'t be changed.
     versionName :: Prelude.Maybe Prelude.Text,
-    -- | The content for the new SSM document in JSON or YAML format. We
-    -- recommend storing the contents for your new document in an external JSON
-    -- or YAML file and referencing the file in a command.
+    -- | The content for the new SSM document in JSON or YAML format. The content
+    -- of the document must not exceed 64KB. This quota also includes the
+    -- content specified for input parameters at runtime. We recommend storing
+    -- the contents for your new document in an external JSON or YAML file and
+    -- referencing the file in a command.
     --
     -- For examples, see the following topics in the /Amazon Web Services
     -- Systems Manager User Guide/.
@@ -200,9 +202,11 @@ data CreateDocument = CreateDocument'
 -- creating with the document. For example, @Release12.1@. This value is
 -- unique across all versions of a document, and can\'t be changed.
 --
--- 'content', 'createDocument_content' - The content for the new SSM document in JSON or YAML format. We
--- recommend storing the contents for your new document in an external JSON
--- or YAML file and referencing the file in a command.
+-- 'content', 'createDocument_content' - The content for the new SSM document in JSON or YAML format. The content
+-- of the document must not exceed 64KB. This quota also includes the
+-- content specified for input parameters at runtime. We recommend storing
+-- the contents for your new document in an external JSON or YAML file and
+-- referencing the file in a command.
 --
 -- For examples, see the following topics in the /Amazon Web Services
 -- Systems Manager User Guide/.
@@ -310,9 +314,11 @@ createDocument_targetType = Lens.lens (\CreateDocument' {targetType} -> targetTy
 createDocument_versionName :: Lens.Lens' CreateDocument (Prelude.Maybe Prelude.Text)
 createDocument_versionName = Lens.lens (\CreateDocument' {versionName} -> versionName) (\s@CreateDocument' {} a -> s {versionName = a} :: CreateDocument)
 
--- | The content for the new SSM document in JSON or YAML format. We
--- recommend storing the contents for your new document in an external JSON
--- or YAML file and referencing the file in a command.
+-- | The content for the new SSM document in JSON or YAML format. The content
+-- of the document must not exceed 64KB. This quota also includes the
+-- content specified for input parameters at runtime. We recommend storing
+-- the contents for your new document in an external JSON or YAML file and
+-- referencing the file in a command.
 --
 -- For examples, see the following topics in the /Amazon Web Services
 -- Systems Manager User Guide/.
@@ -354,7 +360,8 @@ instance Core.AWSRequest CreateDocument where
 
 instance Prelude.Hashable CreateDocument where
   hashWithSalt _salt CreateDocument' {..} =
-    _salt `Prelude.hashWithSalt` attachments
+    _salt
+      `Prelude.hashWithSalt` attachments
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` documentFormat
       `Prelude.hashWithSalt` documentType

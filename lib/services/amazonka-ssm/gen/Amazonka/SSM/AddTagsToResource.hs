@@ -87,7 +87,7 @@ data AddTagsToResource = AddTagsToResource'
     --
     -- The @ManagedInstance@ type for this API operation is for on-premises
     -- managed nodes. You must specify the name of the managed node in the
-    -- following format: @mi-ID_number @. For example, @mi-1a2b3c4d5e6f@.
+    -- following format: @mi-@/@ID_number@/@ @. For example, @mi-1a2b3c4d5e6f@.
     resourceType :: ResourceTypeForTagging,
     -- | The resource ID you want to tag.
     --
@@ -113,7 +113,7 @@ data AddTagsToResource = AddTagsToResource'
     --
     -- The @ManagedInstance@ type for this API operation is only for
     -- on-premises managed nodes. You must specify the name of the managed node
-    -- in the following format: @mi-ID_number @. For example,
+    -- in the following format: @mi-@/@ID_number@/@ @. For example,
     -- @mi-1a2b3c4d5e6f@.
     resourceId :: Prelude.Text,
     -- | One or more tags. The value parameter is required.
@@ -135,7 +135,7 @@ data AddTagsToResource = AddTagsToResource'
 --
 -- The @ManagedInstance@ type for this API operation is for on-premises
 -- managed nodes. You must specify the name of the managed node in the
--- following format: @mi-ID_number @. For example, @mi-1a2b3c4d5e6f@.
+-- following format: @mi-@/@ID_number@/@ @. For example, @mi-1a2b3c4d5e6f@.
 --
 -- 'resourceId', 'addTagsToResource_resourceId' - The resource ID you want to tag.
 --
@@ -161,7 +161,7 @@ data AddTagsToResource = AddTagsToResource'
 --
 -- The @ManagedInstance@ type for this API operation is only for
 -- on-premises managed nodes. You must specify the name of the managed node
--- in the following format: @mi-ID_number @. For example,
+-- in the following format: @mi-@/@ID_number@/@ @. For example,
 -- @mi-1a2b3c4d5e6f@.
 --
 -- 'tags', 'addTagsToResource_tags' - One or more tags. The value parameter is required.
@@ -184,7 +184,7 @@ newAddTagsToResource pResourceType_ pResourceId_ =
 --
 -- The @ManagedInstance@ type for this API operation is for on-premises
 -- managed nodes. You must specify the name of the managed node in the
--- following format: @mi-ID_number @. For example, @mi-1a2b3c4d5e6f@.
+-- following format: @mi-@/@ID_number@/@ @. For example, @mi-1a2b3c4d5e6f@.
 addTagsToResource_resourceType :: Lens.Lens' AddTagsToResource ResourceTypeForTagging
 addTagsToResource_resourceType = Lens.lens (\AddTagsToResource' {resourceType} -> resourceType) (\s@AddTagsToResource' {} a -> s {resourceType = a} :: AddTagsToResource)
 
@@ -212,7 +212,7 @@ addTagsToResource_resourceType = Lens.lens (\AddTagsToResource' {resourceType} -
 --
 -- The @ManagedInstance@ type for this API operation is only for
 -- on-premises managed nodes. You must specify the name of the managed node
--- in the following format: @mi-ID_number @. For example,
+-- in the following format: @mi-@/@ID_number@/@ @. For example,
 -- @mi-1a2b3c4d5e6f@.
 addTagsToResource_resourceId :: Lens.Lens' AddTagsToResource Prelude.Text
 addTagsToResource_resourceId = Lens.lens (\AddTagsToResource' {resourceId} -> resourceId) (\s@AddTagsToResource' {} a -> s {resourceId = a} :: AddTagsToResource)
@@ -238,7 +238,8 @@ instance Core.AWSRequest AddTagsToResource where
 
 instance Prelude.Hashable AddTagsToResource where
   hashWithSalt _salt AddTagsToResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` tags
 

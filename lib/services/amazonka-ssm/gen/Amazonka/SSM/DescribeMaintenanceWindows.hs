@@ -118,22 +118,22 @@ instance Core.AWSPager DescribeMaintenanceWindows where
     | Core.stop
         ( rs
             Lens.^? describeMaintenanceWindowsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeMaintenanceWindowsResponse_windowIdentities
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeMaintenanceWindows_nextToken
           Lens..~ rs
           Lens.^? describeMaintenanceWindowsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeMaintenanceWindows where
   type
@@ -146,7 +146,8 @@ instance Core.AWSRequest DescribeMaintenanceWindows where
       ( \s h x ->
           DescribeMaintenanceWindowsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "WindowIdentities"
+            Prelude.<*> ( x
+                            Data..?> "WindowIdentities"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -154,7 +155,8 @@ instance Core.AWSRequest DescribeMaintenanceWindows where
 
 instance Prelude.Hashable DescribeMaintenanceWindows where
   hashWithSalt _salt DescribeMaintenanceWindows' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

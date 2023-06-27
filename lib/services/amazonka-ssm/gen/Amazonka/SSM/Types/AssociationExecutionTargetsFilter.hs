@@ -74,7 +74,8 @@ instance
   hashWithSalt
     _salt
     AssociationExecutionTargetsFilter' {..} =
-      _salt `Prelude.hashWithSalt` key
+      _salt
+        `Prelude.hashWithSalt` key
         `Prelude.hashWithSalt` value
 
 instance

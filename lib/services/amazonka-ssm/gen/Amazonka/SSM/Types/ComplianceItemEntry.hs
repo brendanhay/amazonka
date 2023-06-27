@@ -115,7 +115,8 @@ complianceItemEntry_status = Lens.lens (\ComplianceItemEntry' {status} -> status
 
 instance Prelude.Hashable ComplianceItemEntry where
   hashWithSalt _salt ComplianceItemEntry' {..} =
-    _salt `Prelude.hashWithSalt` details
+    _salt
+      `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` severity

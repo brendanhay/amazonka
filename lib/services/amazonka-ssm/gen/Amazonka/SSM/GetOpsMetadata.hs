@@ -126,7 +126,8 @@ instance Core.AWSRequest GetOpsMetadata where
 
 instance Prelude.Hashable GetOpsMetadata where
   hashWithSalt _salt GetOpsMetadata' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` opsMetadataArn
 

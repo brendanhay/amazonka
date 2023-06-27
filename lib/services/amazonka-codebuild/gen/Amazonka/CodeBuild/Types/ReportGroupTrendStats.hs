@@ -85,7 +85,8 @@ instance Data.FromJSON ReportGroupTrendStats where
 
 instance Prelude.Hashable ReportGroupTrendStats where
   hashWithSalt _salt ReportGroupTrendStats' {..} =
-    _salt `Prelude.hashWithSalt` average
+    _salt
+      `Prelude.hashWithSalt` average
       `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
 

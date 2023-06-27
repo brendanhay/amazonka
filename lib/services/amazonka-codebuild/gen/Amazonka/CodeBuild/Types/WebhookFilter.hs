@@ -276,7 +276,8 @@ instance Data.FromJSON WebhookFilter where
 
 instance Prelude.Hashable WebhookFilter where
   hashWithSalt _salt WebhookFilter' {..} =
-    _salt `Prelude.hashWithSalt` excludeMatchedPattern
+    _salt
+      `Prelude.hashWithSalt` excludeMatchedPattern
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` pattern'
 

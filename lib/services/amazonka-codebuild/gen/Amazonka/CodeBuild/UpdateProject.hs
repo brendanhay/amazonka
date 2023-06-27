@@ -474,7 +474,8 @@ instance Core.AWSRequest UpdateProject where
 
 instance Prelude.Hashable UpdateProject where
   hashWithSalt _salt UpdateProject' {..} =
-    _salt `Prelude.hashWithSalt` artifacts
+    _salt
+      `Prelude.hashWithSalt` artifacts
       `Prelude.hashWithSalt` badgeEnabled
       `Prelude.hashWithSalt` buildBatchConfig
       `Prelude.hashWithSalt` cache

@@ -97,7 +97,8 @@ instance Data.FromJSON TestReportSummary where
 
 instance Prelude.Hashable TestReportSummary where
   hashWithSalt _salt TestReportSummary' {..} =
-    _salt `Prelude.hashWithSalt` total
+    _salt
+      `Prelude.hashWithSalt` total
       `Prelude.hashWithSalt` statusCounts
       `Prelude.hashWithSalt` durationInNanoSeconds
 

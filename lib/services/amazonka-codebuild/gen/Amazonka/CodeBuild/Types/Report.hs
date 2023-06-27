@@ -219,7 +219,8 @@ instance Data.FromJSON Report where
 
 instance Prelude.Hashable Report where
   hashWithSalt _salt Report' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` codeCoverageSummary
       `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` executionId

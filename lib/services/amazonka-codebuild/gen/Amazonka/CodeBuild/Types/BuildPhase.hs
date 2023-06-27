@@ -279,7 +279,8 @@ instance Data.FromJSON BuildPhase where
 
 instance Prelude.Hashable BuildPhase where
   hashWithSalt _salt BuildPhase' {..} =
-    _salt `Prelude.hashWithSalt` contexts
+    _salt
+      `Prelude.hashWithSalt` contexts
       `Prelude.hashWithSalt` durationInSeconds
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` phaseStatus

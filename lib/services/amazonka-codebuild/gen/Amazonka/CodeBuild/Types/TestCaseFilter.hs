@@ -104,7 +104,8 @@ testCaseFilter_status = Lens.lens (\TestCaseFilter' {status} -> status) (\s@Test
 
 instance Prelude.Hashable TestCaseFilter where
   hashWithSalt _salt TestCaseFilter' {..} =
-    _salt `Prelude.hashWithSalt` keyword
+    _salt
+      `Prelude.hashWithSalt` keyword
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData TestCaseFilter where

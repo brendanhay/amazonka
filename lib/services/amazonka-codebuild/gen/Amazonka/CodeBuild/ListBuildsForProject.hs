@@ -159,22 +159,23 @@ instance Core.AWSPager ListBuildsForProject where
     | Core.stop
         ( rs
             Lens.^? listBuildsForProjectResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listBuildsForProjectResponse_ids Prelude.. Lens._Just
-              Prelude.. Lens.to Prelude.toList
+            Lens.^? listBuildsForProjectResponse_ids
+            Prelude.. Lens._Just
+            Prelude.. Lens.to Prelude.toList
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBuildsForProject_nextToken
           Lens..~ rs
           Lens.^? listBuildsForProjectResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBuildsForProject where
   type
@@ -193,7 +194,8 @@ instance Core.AWSRequest ListBuildsForProject where
 
 instance Prelude.Hashable ListBuildsForProject where
   hashWithSalt _salt ListBuildsForProject' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` projectName
 

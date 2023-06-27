@@ -146,7 +146,8 @@ instance Data.FromJSON ProjectBuildBatchConfig where
 
 instance Prelude.Hashable ProjectBuildBatchConfig where
   hashWithSalt _salt ProjectBuildBatchConfig' {..} =
-    _salt `Prelude.hashWithSalt` batchReportMode
+    _salt
+      `Prelude.hashWithSalt` batchReportMode
       `Prelude.hashWithSalt` combineArtifacts
       `Prelude.hashWithSalt` restrictions
       `Prelude.hashWithSalt` serviceRole

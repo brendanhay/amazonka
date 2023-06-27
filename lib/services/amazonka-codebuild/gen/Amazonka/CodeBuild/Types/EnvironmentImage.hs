@@ -84,7 +84,8 @@ instance Data.FromJSON EnvironmentImage where
 
 instance Prelude.Hashable EnvironmentImage where
   hashWithSalt _salt EnvironmentImage' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` versions
 

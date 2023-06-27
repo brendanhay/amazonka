@@ -241,7 +241,8 @@ instance Core.AWSRequest GetReportGroupTrend where
 
 instance Prelude.Hashable GetReportGroupTrend where
   hashWithSalt _salt GetReportGroupTrend' {..} =
-    _salt `Prelude.hashWithSalt` numOfReports
+    _salt
+      `Prelude.hashWithSalt` numOfReports
       `Prelude.hashWithSalt` reportGroupArn
       `Prelude.hashWithSalt` trendField
 

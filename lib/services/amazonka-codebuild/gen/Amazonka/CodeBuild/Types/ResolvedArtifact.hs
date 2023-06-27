@@ -86,7 +86,8 @@ instance Data.FromJSON ResolvedArtifact where
 
 instance Prelude.Hashable ResolvedArtifact where
   hashWithSalt _salt ResolvedArtifact' {..} =
-    _salt `Prelude.hashWithSalt` identifier
+    _salt
+      `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` type'
 

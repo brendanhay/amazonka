@@ -90,7 +90,8 @@ instance Data.FromJSON SourceAuth where
 
 instance Prelude.Hashable SourceAuth where
   hashWithSalt _salt SourceAuth' {..} =
-    _salt `Prelude.hashWithSalt` resource
+    _salt
+      `Prelude.hashWithSalt` resource
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData SourceAuth where

@@ -121,7 +121,8 @@ instance Data.FromJSON S3LogsConfig where
 
 instance Prelude.Hashable S3LogsConfig where
   hashWithSalt _salt S3LogsConfig' {..} =
-    _salt `Prelude.hashWithSalt` bucketOwnerAccess
+    _salt
+      `Prelude.hashWithSalt` bucketOwnerAccess
       `Prelude.hashWithSalt` encryptionDisabled
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` status

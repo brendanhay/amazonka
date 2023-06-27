@@ -154,7 +154,8 @@ instance Data.FromJSON LogsLocation where
 
 instance Prelude.Hashable LogsLocation where
   hashWithSalt _salt LogsLocation' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogs
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogs
       `Prelude.hashWithSalt` cloudWatchLogsArn
       `Prelude.hashWithSalt` deepLink
       `Prelude.hashWithSalt` groupName

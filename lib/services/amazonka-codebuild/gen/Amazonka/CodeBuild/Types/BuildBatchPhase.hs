@@ -243,7 +243,8 @@ instance Data.FromJSON BuildBatchPhase where
 
 instance Prelude.Hashable BuildBatchPhase where
   hashWithSalt _salt BuildBatchPhase' {..} =
-    _salt `Prelude.hashWithSalt` contexts
+    _salt
+      `Prelude.hashWithSalt` contexts
       `Prelude.hashWithSalt` durationInSeconds
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` phaseStatus

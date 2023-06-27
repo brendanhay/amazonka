@@ -153,7 +153,8 @@ instance Data.FromJSON ProjectSourceVersion where
 
 instance Prelude.Hashable ProjectSourceVersion where
   hashWithSalt _salt ProjectSourceVersion' {..} =
-    _salt `Prelude.hashWithSalt` sourceIdentifier
+    _salt
+      `Prelude.hashWithSalt` sourceIdentifier
       `Prelude.hashWithSalt` sourceVersion
 
 instance Prelude.NFData ProjectSourceVersion where

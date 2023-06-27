@@ -160,7 +160,8 @@ instance Core.AWSRequest ImportSourceCredentials where
 
 instance Prelude.Hashable ImportSourceCredentials where
   hashWithSalt _salt ImportSourceCredentials' {..} =
-    _salt `Prelude.hashWithSalt` shouldOverwrite
+    _salt
+      `Prelude.hashWithSalt` shouldOverwrite
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` token
       `Prelude.hashWithSalt` serverType

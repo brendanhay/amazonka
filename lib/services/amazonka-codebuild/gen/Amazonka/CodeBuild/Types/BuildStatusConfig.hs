@@ -156,7 +156,8 @@ instance Data.FromJSON BuildStatusConfig where
 
 instance Prelude.Hashable BuildStatusConfig where
   hashWithSalt _salt BuildStatusConfig' {..} =
-    _salt `Prelude.hashWithSalt` context
+    _salt
+      `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` targetUrl
 
 instance Prelude.NFData BuildStatusConfig where

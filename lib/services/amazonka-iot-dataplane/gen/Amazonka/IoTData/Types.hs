@@ -75,52 +75,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The specified version does not match the version of the document.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -128,7 +128,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | An unexpected error has occurred.
-_InternalFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalFailureException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalFailureException =
   Core._MatchServiceError
     defaultService
@@ -136,7 +136,7 @@ _InternalFailureException =
     Prelude.. Core.hasStatus 500
 
 -- | The request is not valid.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -144,7 +144,7 @@ _InvalidRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | The specified combination of HTTP verb and URI is not supported.
-_MethodNotAllowedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MethodNotAllowedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MethodNotAllowedException =
   Core._MatchServiceError
     defaultService
@@ -152,7 +152,7 @@ _MethodNotAllowedException =
     Prelude.. Core.hasStatus 405
 
 -- | The payload exceeds the maximum size allowed.
-_RequestEntityTooLargeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RequestEntityTooLargeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RequestEntityTooLargeException =
   Core._MatchServiceError
     defaultService
@@ -160,7 +160,7 @@ _RequestEntityTooLargeException =
     Prelude.. Core.hasStatus 413
 
 -- | The specified resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -168,7 +168,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The service is temporarily unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -176,7 +176,7 @@ _ServiceUnavailableException =
     Prelude.. Core.hasStatus 503
 
 -- | The rate exceeds the limit.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -184,7 +184,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | You are not authorized to perform this operation.
-_UnauthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnauthorizedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnauthorizedException =
   Core._MatchServiceError
     defaultService
@@ -192,7 +192,7 @@ _UnauthorizedException =
     Prelude.. Core.hasStatus 401
 
 -- | The document encoding is not supported.
-_UnsupportedDocumentEncodingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedDocumentEncodingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedDocumentEncodingException =
   Core._MatchServiceError
     defaultService

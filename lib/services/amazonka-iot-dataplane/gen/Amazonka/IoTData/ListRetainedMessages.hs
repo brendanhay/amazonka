@@ -28,7 +28,7 @@
 -- return a message payload, it can still incur messaging costs.
 --
 -- To get the message payload of a retained message, call
--- <https://docs.aws.amazon.com/iot/latest/developerguide/API_iotdata_GetRetainedMessage.html GetRetainedMessage>
+-- <https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_GetRetainedMessage.html GetRetainedMessage>
 -- with the topic name of the retained message.
 --
 -- Requires permission to access the
@@ -114,22 +114,22 @@ instance Core.AWSPager ListRetainedMessages where
     | Core.stop
         ( rs
             Lens.^? listRetainedMessagesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listRetainedMessagesResponse_retainedTopics
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRetainedMessages_nextToken
           Lens..~ rs
           Lens.^? listRetainedMessagesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRetainedMessages where
   type
@@ -148,7 +148,8 @@ instance Core.AWSRequest ListRetainedMessages where
 
 instance Prelude.Hashable ListRetainedMessages where
   hashWithSalt _salt ListRetainedMessages' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListRetainedMessages where

@@ -26,6 +26,7 @@ module Amazonka.IoTData.Lens
     getRetainedMessageResponse_payload,
     getRetainedMessageResponse_qos,
     getRetainedMessageResponse_topic,
+    getRetainedMessageResponse_userProperties,
     getRetainedMessageResponse_httpStatus,
 
     -- ** GetThingShadow

@@ -121,7 +121,8 @@ instance Core.AWSRequest ListNamedShadowsForThing where
 
 instance Prelude.Hashable ListNamedShadowsForThing where
   hashWithSalt _salt ListNamedShadowsForThing' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` thingName
 

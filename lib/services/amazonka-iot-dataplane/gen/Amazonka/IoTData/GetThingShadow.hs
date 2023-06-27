@@ -112,7 +112,8 @@ instance Core.AWSRequest GetThingShadow where
 
 instance Prelude.Hashable GetThingShadow where
   hashWithSalt _salt GetThingShadow' {..} =
-    _salt `Prelude.hashWithSalt` shadowName
+    _salt
+      `Prelude.hashWithSalt` shadowName
       `Prelude.hashWithSalt` thingName
 
 instance Prelude.NFData GetThingShadow where

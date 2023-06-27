@@ -25,7 +25,7 @@
 -- This action returns the message payload of the retained message, which
 -- can incur messaging costs. To list only the topic names of the retained
 -- messages, call
--- </iot/latest/developerguide/API_iotdata_ListRetainedMessages.html ListRetainedMessages>.
+-- <https://docs.aws.amazon.com/iot/latest/apireference/API_iotdata_ListRetainedMessages.html ListRetainedMessages>.
 --
 -- Requires permission to access the
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html#awsiotfleethubfordevicemanagement-actions-as-permissions GetRetainedMessage>
@@ -50,6 +50,7 @@ module Amazonka.IoTData.GetRetainedMessage
     getRetainedMessageResponse_payload,
     getRetainedMessageResponse_qos,
     getRetainedMessageResponse_topic,
+    getRetainedMessageResponse_userProperties,
     getRetainedMessageResponse_httpStatus,
   )
 where
@@ -105,6 +106,7 @@ instance Core.AWSRequest GetRetainedMessage where
             Prelude.<*> (x Data..?> "payload")
             Prelude.<*> (x Data..?> "qos")
             Prelude.<*> (x Data..?> "topic")
+            Prelude.<*> (x Data..?> "userProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,6 +141,14 @@ data GetRetainedMessageResponse = GetRetainedMessageResponse'
     qos :: Prelude.Maybe Prelude.Natural,
     -- | The topic name to which the retained message was published.
     topic :: Prelude.Maybe Prelude.Text,
+    -- | A base64-encoded JSON string that includes an array of JSON objects, or
+    -- null if the retained message doesn\'t include any user properties.
+    --
+    -- The following example @userProperties@ parameter is a JSON string that
+    -- represents two user properties. Note that it will be base64-encoded:
+    --
+    -- @[{\"deviceName\": \"alpha\"}, {\"deviceCnt\": \"45\"}]@
+    userProperties :: Prelude.Maybe Data.Base64,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -165,6 +175,18 @@ data GetRetainedMessageResponse = GetRetainedMessageResponse'
 --
 -- 'topic', 'getRetainedMessageResponse_topic' - The topic name to which the retained message was published.
 --
+-- 'userProperties', 'getRetainedMessageResponse_userProperties' - A base64-encoded JSON string that includes an array of JSON objects, or
+-- null if the retained message doesn\'t include any user properties.
+--
+-- The following example @userProperties@ parameter is a JSON string that
+-- represents two user properties. Note that it will be base64-encoded:
+--
+-- @[{\"deviceName\": \"alpha\"}, {\"deviceCnt\": \"45\"}]@--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+--
 -- 'httpStatus', 'getRetainedMessageResponse_httpStatus' - The response's http status code.
 newGetRetainedMessageResponse ::
   -- | 'httpStatus'
@@ -177,6 +199,7 @@ newGetRetainedMessageResponse pHttpStatus_ =
       payload = Prelude.Nothing,
       qos = Prelude.Nothing,
       topic = Prelude.Nothing,
+      userProperties = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -201,6 +224,20 @@ getRetainedMessageResponse_qos = Lens.lens (\GetRetainedMessageResponse' {qos} -
 getRetainedMessageResponse_topic :: Lens.Lens' GetRetainedMessageResponse (Prelude.Maybe Prelude.Text)
 getRetainedMessageResponse_topic = Lens.lens (\GetRetainedMessageResponse' {topic} -> topic) (\s@GetRetainedMessageResponse' {} a -> s {topic = a} :: GetRetainedMessageResponse)
 
+-- | A base64-encoded JSON string that includes an array of JSON objects, or
+-- null if the retained message doesn\'t include any user properties.
+--
+-- The following example @userProperties@ parameter is a JSON string that
+-- represents two user properties. Note that it will be base64-encoded:
+--
+-- @[{\"deviceName\": \"alpha\"}, {\"deviceCnt\": \"45\"}]@--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+getRetainedMessageResponse_userProperties :: Lens.Lens' GetRetainedMessageResponse (Prelude.Maybe Prelude.ByteString)
+getRetainedMessageResponse_userProperties = Lens.lens (\GetRetainedMessageResponse' {userProperties} -> userProperties) (\s@GetRetainedMessageResponse' {} a -> s {userProperties = a} :: GetRetainedMessageResponse) Prelude.. Lens.mapping Data._Base64
+
 -- | The response's http status code.
 getRetainedMessageResponse_httpStatus :: Lens.Lens' GetRetainedMessageResponse Prelude.Int
 getRetainedMessageResponse_httpStatus = Lens.lens (\GetRetainedMessageResponse' {httpStatus} -> httpStatus) (\s@GetRetainedMessageResponse' {} a -> s {httpStatus = a} :: GetRetainedMessageResponse)
@@ -211,4 +248,5 @@ instance Prelude.NFData GetRetainedMessageResponse where
       `Prelude.seq` Prelude.rnf payload
       `Prelude.seq` Prelude.rnf qos
       `Prelude.seq` Prelude.rnf topic
+      `Prelude.seq` Prelude.rnf userProperties
       `Prelude.seq` Prelude.rnf httpStatus

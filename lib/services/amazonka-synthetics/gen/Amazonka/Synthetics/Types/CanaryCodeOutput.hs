@@ -78,7 +78,8 @@ instance Data.FromJSON CanaryCodeOutput where
 
 instance Prelude.Hashable CanaryCodeOutput where
   hashWithSalt _salt CanaryCodeOutput' {..} =
-    _salt `Prelude.hashWithSalt` handler
+    _salt
+      `Prelude.hashWithSalt` handler
       `Prelude.hashWithSalt` sourceLocationArn
 
 instance Prelude.NFData CanaryCodeOutput where

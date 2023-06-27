@@ -272,7 +272,8 @@ instance Data.FromJSON Canary where
 
 instance Prelude.Hashable Canary where
   hashWithSalt _salt Canary' {..} =
-    _salt `Prelude.hashWithSalt` artifactConfig
+    _salt
+      `Prelude.hashWithSalt` artifactConfig
       `Prelude.hashWithSalt` artifactS3Location
       `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` engineArn

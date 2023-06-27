@@ -95,7 +95,8 @@ instance Data.FromJSON CanaryTimeline where
 
 instance Prelude.Hashable CanaryTimeline where
   hashWithSalt _salt CanaryTimeline' {..} =
-    _salt `Prelude.hashWithSalt` created
+    _salt
+      `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` lastModified
       `Prelude.hashWithSalt` lastStarted
       `Prelude.hashWithSalt` lastStopped

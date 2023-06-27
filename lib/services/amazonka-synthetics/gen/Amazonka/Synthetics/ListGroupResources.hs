@@ -130,7 +130,8 @@ instance Core.AWSRequest ListGroupResources where
 
 instance Prelude.Hashable ListGroupResources where
   hashWithSalt _salt ListGroupResources' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` groupIdentifier
 

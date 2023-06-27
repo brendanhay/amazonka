@@ -52,10 +52,10 @@ data UntagResource = UntagResource'
   { -- | The ARN of the canary or group that you\'re removing tags from.
     --
     -- The ARN format of a canary is
-    -- @arn:aws:synthetics:Region:account-id:canary:canary-name @.
+    -- @arn:aws:synthetics:@/@Region@/@:@/@account-id@/@:canary:@/@canary-name@/@ @.
     --
     -- The ARN format of a group is
-    -- @arn:aws:synthetics:Region:account-id:group:group-name @
+    -- @arn:aws:synthetics:@/@Region@/@:@/@account-id@/@:group:@/@group-name@/@ @
     resourceArn :: Prelude.Text,
     -- | The list of tag keys to remove from the resource.
     tagKeys :: Prelude.NonEmpty Prelude.Text
@@ -73,10 +73,10 @@ data UntagResource = UntagResource'
 -- 'resourceArn', 'untagResource_resourceArn' - The ARN of the canary or group that you\'re removing tags from.
 --
 -- The ARN format of a canary is
--- @arn:aws:synthetics:Region:account-id:canary:canary-name @.
+-- @arn:aws:synthetics:@/@Region@/@:@/@account-id@/@:canary:@/@canary-name@/@ @.
 --
 -- The ARN format of a group is
--- @arn:aws:synthetics:Region:account-id:group:group-name @
+-- @arn:aws:synthetics:@/@Region@/@:@/@account-id@/@:group:@/@group-name@/@ @
 --
 -- 'tagKeys', 'untagResource_tagKeys' - The list of tag keys to remove from the resource.
 newUntagResource ::
@@ -94,10 +94,10 @@ newUntagResource pResourceArn_ pTagKeys_ =
 -- | The ARN of the canary or group that you\'re removing tags from.
 --
 -- The ARN format of a canary is
--- @arn:aws:synthetics:Region:account-id:canary:canary-name @.
+-- @arn:aws:synthetics:@/@Region@/@:@/@account-id@/@:canary:@/@canary-name@/@ @.
 --
 -- The ARN format of a group is
--- @arn:aws:synthetics:Region:account-id:group:group-name @
+-- @arn:aws:synthetics:@/@Region@/@:@/@account-id@/@:group:@/@group-name@/@ @
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 
@@ -120,7 +120,8 @@ instance Core.AWSRequest UntagResource where
 
 instance Prelude.Hashable UntagResource where
   hashWithSalt _salt UntagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagResource where

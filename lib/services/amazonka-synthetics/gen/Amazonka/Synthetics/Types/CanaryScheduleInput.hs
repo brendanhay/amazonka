@@ -37,8 +37,8 @@ data CanaryScheduleInput = CanaryScheduleInput'
     -- | A @rate@ expression or a @cron@ expression that defines how often the
     -- canary is to run.
     --
-    -- For a rate expression, The syntax is @rate(number unit)@. /unit/ can be
-    -- @minute@, @minutes@, or @hour@.
+    -- For a rate expression, The syntax is @rate(@/@number unit@/@)@. /unit/
+    -- can be @minute@, @minutes@, or @hour@.
     --
     -- For example, @rate(1 minute)@ runs the canary once a minute,
     -- @rate(10 minutes)@ runs it once every 10 minutes, and @rate(1 hour)@
@@ -48,9 +48,9 @@ data CanaryScheduleInput = CanaryScheduleInput'
     -- Specifying @rate(0 minute)@ or @rate(0 hour)@ is a special value that
     -- causes the canary to run only once when it is started.
     --
-    -- Use @cron(expression)@ to specify a cron expression. You can\'t schedule
-    -- a canary to wait for more than a year before running. For information
-    -- about the syntax for cron expressions, see
+    -- Use @cron(@/@expression@/@)@ to specify a cron expression. You can\'t
+    -- schedule a canary to wait for more than a year before running. For
+    -- information about the syntax for cron expressions, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html Scheduling canary runs using cron>.
     expression :: Prelude.Text
   }
@@ -72,8 +72,8 @@ data CanaryScheduleInput = CanaryScheduleInput'
 -- 'expression', 'canaryScheduleInput_expression' - A @rate@ expression or a @cron@ expression that defines how often the
 -- canary is to run.
 --
--- For a rate expression, The syntax is @rate(number unit)@. /unit/ can be
--- @minute@, @minutes@, or @hour@.
+-- For a rate expression, The syntax is @rate(@/@number unit@/@)@. /unit/
+-- can be @minute@, @minutes@, or @hour@.
 --
 -- For example, @rate(1 minute)@ runs the canary once a minute,
 -- @rate(10 minutes)@ runs it once every 10 minutes, and @rate(1 hour)@
@@ -83,9 +83,9 @@ data CanaryScheduleInput = CanaryScheduleInput'
 -- Specifying @rate(0 minute)@ or @rate(0 hour)@ is a special value that
 -- causes the canary to run only once when it is started.
 --
--- Use @cron(expression)@ to specify a cron expression. You can\'t schedule
--- a canary to wait for more than a year before running. For information
--- about the syntax for cron expressions, see
+-- Use @cron(@/@expression@/@)@ to specify a cron expression. You can\'t
+-- schedule a canary to wait for more than a year before running. For
+-- information about the syntax for cron expressions, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html Scheduling canary runs using cron>.
 newCanaryScheduleInput ::
   -- | 'expression'
@@ -108,8 +108,8 @@ canaryScheduleInput_durationInSeconds = Lens.lens (\CanaryScheduleInput' {durati
 -- | A @rate@ expression or a @cron@ expression that defines how often the
 -- canary is to run.
 --
--- For a rate expression, The syntax is @rate(number unit)@. /unit/ can be
--- @minute@, @minutes@, or @hour@.
+-- For a rate expression, The syntax is @rate(@/@number unit@/@)@. /unit/
+-- can be @minute@, @minutes@, or @hour@.
 --
 -- For example, @rate(1 minute)@ runs the canary once a minute,
 -- @rate(10 minutes)@ runs it once every 10 minutes, and @rate(1 hour)@
@@ -119,16 +119,17 @@ canaryScheduleInput_durationInSeconds = Lens.lens (\CanaryScheduleInput' {durati
 -- Specifying @rate(0 minute)@ or @rate(0 hour)@ is a special value that
 -- causes the canary to run only once when it is started.
 --
--- Use @cron(expression)@ to specify a cron expression. You can\'t schedule
--- a canary to wait for more than a year before running. For information
--- about the syntax for cron expressions, see
+-- Use @cron(@/@expression@/@)@ to specify a cron expression. You can\'t
+-- schedule a canary to wait for more than a year before running. For
+-- information about the syntax for cron expressions, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html Scheduling canary runs using cron>.
 canaryScheduleInput_expression :: Lens.Lens' CanaryScheduleInput Prelude.Text
 canaryScheduleInput_expression = Lens.lens (\CanaryScheduleInput' {expression} -> expression) (\s@CanaryScheduleInput' {} a -> s {expression = a} :: CanaryScheduleInput)
 
 instance Prelude.Hashable CanaryScheduleInput where
   hashWithSalt _salt CanaryScheduleInput' {..} =
-    _salt `Prelude.hashWithSalt` durationInSeconds
+    _salt
+      `Prelude.hashWithSalt` durationInSeconds
       `Prelude.hashWithSalt` expression
 
 instance Prelude.NFData CanaryScheduleInput where

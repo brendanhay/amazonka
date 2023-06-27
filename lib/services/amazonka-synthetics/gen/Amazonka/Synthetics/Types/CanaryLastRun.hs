@@ -76,7 +76,8 @@ instance Data.FromJSON CanaryLastRun where
 
 instance Prelude.Hashable CanaryLastRun where
   hashWithSalt _salt CanaryLastRun' {..} =
-    _salt `Prelude.hashWithSalt` canaryName
+    _salt
+      `Prelude.hashWithSalt` canaryName
       `Prelude.hashWithSalt` lastRun
 
 instance Prelude.NFData CanaryLastRun where

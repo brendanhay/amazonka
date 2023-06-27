@@ -126,7 +126,8 @@ instance Core.AWSRequest GetCanaryRuns where
 
 instance Prelude.Hashable GetCanaryRuns where
   hashWithSalt _salt GetCanaryRuns' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` name
 

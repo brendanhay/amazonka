@@ -109,7 +109,8 @@ instance Data.FromJSON CanaryRun where
 
 instance Prelude.Hashable CanaryRun where
   hashWithSalt _salt CanaryRun' {..} =
-    _salt `Prelude.hashWithSalt` artifactS3Location
+    _salt
+      `Prelude.hashWithSalt` artifactS3Location
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status

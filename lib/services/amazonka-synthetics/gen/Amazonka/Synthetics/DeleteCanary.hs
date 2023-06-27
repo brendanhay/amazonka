@@ -30,17 +30,17 @@
 -- you should also delete the following:
 --
 -- -   The CloudWatch alarms created for this canary. These alarms have a
---     name of @Synthetics-SharpDrop-Alarm-MyCanaryName @.
+--     name of @Synthetics-SharpDrop-Alarm-@/@MyCanaryName@/@ @.
 --
 -- -   Amazon S3 objects and buckets, such as the canary\'s artifact
 --     location.
 --
 -- -   IAM roles created for the canary. If they were created in the
 --     console, these roles have the name
---     @ role\/service-role\/CloudWatchSyntheticsRole-MyCanaryName @.
+--     @ role\/service-role\/CloudWatchSyntheticsRole-@/@MyCanaryName@/@ @.
 --
 -- -   CloudWatch Logs log groups created for the canary. These logs groups
---     have the name @\/aws\/lambda\/cwsyn-MyCanaryName @.
+--     have the name @\/aws\/lambda\/cwsyn-@/@MyCanaryName@/@ @.
 --
 -- Before you delete a canary, you might want to use @GetCanary@ to display
 -- the information about this canary. Make note of the information returned
@@ -138,7 +138,8 @@ instance Core.AWSRequest DeleteCanary where
 
 instance Prelude.Hashable DeleteCanary where
   hashWithSalt _salt DeleteCanary' {..} =
-    _salt `Prelude.hashWithSalt` deleteLambda
+    _salt
+      `Prelude.hashWithSalt` deleteLambda
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeleteCanary where

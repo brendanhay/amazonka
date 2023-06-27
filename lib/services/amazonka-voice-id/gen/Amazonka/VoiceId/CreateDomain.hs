@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a domain that contains all Amazon Connect Voice ID data, such as
--- speakers, fraudsters, customer audio, and voiceprints.
+-- speakers, fraudsters, customer audio, and voiceprints. Every domain is
+-- created with a default watchlist that fraudsters can be a part of.
 module Amazonka.VoiceId.CreateDomain
   ( -- * Creating a Request
     CreateDomain (..),
@@ -54,10 +55,12 @@ import Amazonka.VoiceId.Types
 
 -- | /See:/ 'newCreateDomain' smart constructor.
 data CreateDomain = CreateDomain'
-  { -- | The idempotency token for creating a new domain. If not provided, Amazon
-    -- Web Services SDK populates this field.
+  { -- | A unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A brief description of the domain.
+    -- | A brief description of this domain.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A list of tags you want added to the domain.
     tags :: Prelude.Maybe [Tag],
@@ -79,10 +82,12 @@ data CreateDomain = CreateDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'createDomain_clientToken' - The idempotency token for creating a new domain. If not provided, Amazon
--- Web Services SDK populates this field.
+-- 'clientToken', 'createDomain_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
--- 'description', 'createDomain_description' - A brief description of the domain.
+-- 'description', 'createDomain_description' - A brief description of this domain.
 --
 -- 'tags', 'createDomain_tags' - A list of tags you want added to the domain.
 --
@@ -110,12 +115,14 @@ newCreateDomain
           pServerSideEncryptionConfiguration_
       }
 
--- | The idempotency token for creating a new domain. If not provided, Amazon
--- Web Services SDK populates this field.
+-- | A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 createDomain_clientToken :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
 createDomain_clientToken = Lens.lens (\CreateDomain' {clientToken} -> clientToken) (\s@CreateDomain' {} a -> s {clientToken = a} :: CreateDomain)
 
--- | A brief description of the domain.
+-- | A brief description of this domain.
 createDomain_description :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
 createDomain_description = Lens.lens (\CreateDomain' {description} -> description) (\s@CreateDomain' {} a -> s {description = a} :: CreateDomain) Prelude.. Lens.mapping Data._Sensitive
 
@@ -148,7 +155,8 @@ instance Core.AWSRequest CreateDomain where
 
 instance Prelude.Hashable CreateDomain where
   hashWithSalt _salt CreateDomain' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

@@ -31,11 +31,12 @@ import Amazonka.VoiceId.Types.JobProgress
 --
 -- /See:/ 'newFraudsterRegistrationJobSummary' smart constructor.
 data FraudsterRegistrationJobSummary = FraudsterRegistrationJobSummary'
-  { -- | A timestamp showing when the fraudster registration job is created.
+  { -- | A timestamp of when the fraudster registration job was created.
     createdAt :: Prelude.Maybe Data.POSIX,
-    -- | The identifier of the domain containing the fraudster registration job.
+    -- | The identifier of the domain that contains the fraudster registration
+    -- job.
     domainId :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp showing when the fraudster registration job ended.
+    -- | A timestamp of when the fraudster registration job ended.
     endedAt :: Prelude.Maybe Data.POSIX,
     -- | Contains details that are populated when an entire batch job fails. In
     -- cases of individual registration job failures, the batch job as a whole
@@ -63,11 +64,12 @@ data FraudsterRegistrationJobSummary = FraudsterRegistrationJobSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'fraudsterRegistrationJobSummary_createdAt' - A timestamp showing when the fraudster registration job is created.
+-- 'createdAt', 'fraudsterRegistrationJobSummary_createdAt' - A timestamp of when the fraudster registration job was created.
 --
--- 'domainId', 'fraudsterRegistrationJobSummary_domainId' - The identifier of the domain containing the fraudster registration job.
+-- 'domainId', 'fraudsterRegistrationJobSummary_domainId' - The identifier of the domain that contains the fraudster registration
+-- job.
 --
--- 'endedAt', 'fraudsterRegistrationJobSummary_endedAt' - A timestamp showing when the fraudster registration job ended.
+-- 'endedAt', 'fraudsterRegistrationJobSummary_endedAt' - A timestamp of when the fraudster registration job ended.
 --
 -- 'failureDetails', 'fraudsterRegistrationJobSummary_failureDetails' - Contains details that are populated when an entire batch job fails. In
 -- cases of individual registration job failures, the batch job as a whole
@@ -98,15 +100,16 @@ newFraudsterRegistrationJobSummary =
       jobStatus = Prelude.Nothing
     }
 
--- | A timestamp showing when the fraudster registration job is created.
+-- | A timestamp of when the fraudster registration job was created.
 fraudsterRegistrationJobSummary_createdAt :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe Prelude.UTCTime)
 fraudsterRegistrationJobSummary_createdAt = Lens.lens (\FraudsterRegistrationJobSummary' {createdAt} -> createdAt) (\s@FraudsterRegistrationJobSummary' {} a -> s {createdAt = a} :: FraudsterRegistrationJobSummary) Prelude.. Lens.mapping Data._Time
 
--- | The identifier of the domain containing the fraudster registration job.
+-- | The identifier of the domain that contains the fraudster registration
+-- job.
 fraudsterRegistrationJobSummary_domainId :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe Prelude.Text)
 fraudsterRegistrationJobSummary_domainId = Lens.lens (\FraudsterRegistrationJobSummary' {domainId} -> domainId) (\s@FraudsterRegistrationJobSummary' {} a -> s {domainId = a} :: FraudsterRegistrationJobSummary)
 
--- | A timestamp showing when the fraudster registration job ended.
+-- | A timestamp of when the fraudster registration job ended.
 fraudsterRegistrationJobSummary_endedAt :: Lens.Lens' FraudsterRegistrationJobSummary (Prelude.Maybe Prelude.UTCTime)
 fraudsterRegistrationJobSummary_endedAt = Lens.lens (\FraudsterRegistrationJobSummary' {endedAt} -> endedAt) (\s@FraudsterRegistrationJobSummary' {} a -> s {endedAt = a} :: FraudsterRegistrationJobSummary) Prelude.. Lens.mapping Data._Time
 
@@ -161,7 +164,8 @@ instance
   hashWithSalt
     _salt
     FraudsterRegistrationJobSummary' {..} =
-      _salt `Prelude.hashWithSalt` createdAt
+      _salt
+        `Prelude.hashWithSalt` createdAt
         `Prelude.hashWithSalt` domainId
         `Prelude.hashWithSalt` endedAt
         `Prelude.hashWithSalt` failureDetails

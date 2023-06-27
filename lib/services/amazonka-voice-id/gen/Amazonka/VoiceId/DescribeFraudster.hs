@@ -50,7 +50,7 @@ import Amazonka.VoiceId.Types
 
 -- | /See:/ 'newDescribeFraudster' smart constructor.
 data DescribeFraudster = DescribeFraudster'
-  { -- | The identifier of the domain containing the fraudster.
+  { -- | The identifier of the domain that contains the fraudster.
     domainId :: Prelude.Text,
     -- | The identifier of the fraudster you are describing.
     fraudsterId :: Data.Sensitive Prelude.Text
@@ -65,7 +65,7 @@ data DescribeFraudster = DescribeFraudster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainId', 'describeFraudster_domainId' - The identifier of the domain containing the fraudster.
+-- 'domainId', 'describeFraudster_domainId' - The identifier of the domain that contains the fraudster.
 --
 -- 'fraudsterId', 'describeFraudster_fraudsterId' - The identifier of the fraudster you are describing.
 newDescribeFraudster ::
@@ -80,7 +80,7 @@ newDescribeFraudster pDomainId_ pFraudsterId_ =
       fraudsterId = Data._Sensitive Lens.# pFraudsterId_
     }
 
--- | The identifier of the domain containing the fraudster.
+-- | The identifier of the domain that contains the fraudster.
 describeFraudster_domainId :: Lens.Lens' DescribeFraudster Prelude.Text
 describeFraudster_domainId = Lens.lens (\DescribeFraudster' {domainId} -> domainId) (\s@DescribeFraudster' {} a -> s {domainId = a} :: DescribeFraudster)
 
@@ -104,7 +104,8 @@ instance Core.AWSRequest DescribeFraudster where
 
 instance Prelude.Hashable DescribeFraudster where
   hashWithSalt _salt DescribeFraudster' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` fraudsterId
 
 instance Prelude.NFData DescribeFraudster where

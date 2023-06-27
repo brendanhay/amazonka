@@ -25,9 +25,8 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.VoiceId.Types.FraudDetectionAction
 
--- | The configuration defining the action to take when a speaker is flagged
--- by the fraud detection system during a batch speaker enrollment job, and
--- the risk threshold to use for identification.
+-- | The fraud detection configuration to be used during the batch speaker
+-- enrollment job.
 --
 -- /See:/ 'newEnrollmentJobFraudDetectionConfig' smart constructor.
 data EnrollmentJobFraudDetectionConfig = EnrollmentJobFraudDetectionConfig'
@@ -39,7 +38,9 @@ data EnrollmentJobFraudDetectionConfig = EnrollmentJobFraudDetectionConfig'
     -- | Threshold value for determining whether the speaker is a high risk to be
     -- fraudulent. If the detected risk score calculated by Voice ID is greater
     -- than or equal to the threshold, the speaker is considered a fraudster.
-    riskThreshold :: Prelude.Maybe Prelude.Natural
+    riskThreshold :: Prelude.Maybe Prelude.Natural,
+    -- | The identifier of watchlists against which fraud detection is performed.
+    watchlistIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,13 +60,16 @@ data EnrollmentJobFraudDetectionConfig = EnrollmentJobFraudDetectionConfig'
 -- 'riskThreshold', 'enrollmentJobFraudDetectionConfig_riskThreshold' - Threshold value for determining whether the speaker is a high risk to be
 -- fraudulent. If the detected risk score calculated by Voice ID is greater
 -- than or equal to the threshold, the speaker is considered a fraudster.
+--
+-- 'watchlistIds', 'enrollmentJobFraudDetectionConfig_watchlistIds' - The identifier of watchlists against which fraud detection is performed.
 newEnrollmentJobFraudDetectionConfig ::
   EnrollmentJobFraudDetectionConfig
 newEnrollmentJobFraudDetectionConfig =
   EnrollmentJobFraudDetectionConfig'
     { fraudDetectionAction =
         Prelude.Nothing,
-      riskThreshold = Prelude.Nothing
+      riskThreshold = Prelude.Nothing,
+      watchlistIds = Prelude.Nothing
     }
 
 -- | The action to take when the given speaker is flagged by the fraud
@@ -81,6 +85,10 @@ enrollmentJobFraudDetectionConfig_fraudDetectionAction = Lens.lens (\EnrollmentJ
 enrollmentJobFraudDetectionConfig_riskThreshold :: Lens.Lens' EnrollmentJobFraudDetectionConfig (Prelude.Maybe Prelude.Natural)
 enrollmentJobFraudDetectionConfig_riskThreshold = Lens.lens (\EnrollmentJobFraudDetectionConfig' {riskThreshold} -> riskThreshold) (\s@EnrollmentJobFraudDetectionConfig' {} a -> s {riskThreshold = a} :: EnrollmentJobFraudDetectionConfig)
 
+-- | The identifier of watchlists against which fraud detection is performed.
+enrollmentJobFraudDetectionConfig_watchlistIds :: Lens.Lens' EnrollmentJobFraudDetectionConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+enrollmentJobFraudDetectionConfig_watchlistIds = Lens.lens (\EnrollmentJobFraudDetectionConfig' {watchlistIds} -> watchlistIds) (\s@EnrollmentJobFraudDetectionConfig' {} a -> s {watchlistIds = a} :: EnrollmentJobFraudDetectionConfig) Prelude.. Lens.mapping Lens.coerced
+
 instance
   Data.FromJSON
     EnrollmentJobFraudDetectionConfig
@@ -92,6 +100,7 @@ instance
           EnrollmentJobFraudDetectionConfig'
             Prelude.<$> (x Data..:? "FraudDetectionAction")
             Prelude.<*> (x Data..:? "RiskThreshold")
+            Prelude.<*> (x Data..:? "WatchlistIds")
       )
 
 instance
@@ -101,8 +110,10 @@ instance
   hashWithSalt
     _salt
     EnrollmentJobFraudDetectionConfig' {..} =
-      _salt `Prelude.hashWithSalt` fraudDetectionAction
+      _salt
+        `Prelude.hashWithSalt` fraudDetectionAction
         `Prelude.hashWithSalt` riskThreshold
+        `Prelude.hashWithSalt` watchlistIds
 
 instance
   Prelude.NFData
@@ -111,6 +122,7 @@ instance
   rnf EnrollmentJobFraudDetectionConfig' {..} =
     Prelude.rnf fraudDetectionAction
       `Prelude.seq` Prelude.rnf riskThreshold
+      `Prelude.seq` Prelude.rnf watchlistIds
 
 instance
   Data.ToJSON
@@ -121,6 +133,7 @@ instance
       ( Prelude.catMaybes
           [ ("FraudDetectionAction" Data..=)
               Prelude.<$> fraudDetectionAction,
-            ("RiskThreshold" Data..=) Prelude.<$> riskThreshold
+            ("RiskThreshold" Data..=) Prelude.<$> riskThreshold,
+            ("WatchlistIds" Data..=) Prelude.<$> watchlistIds
           ]
       )

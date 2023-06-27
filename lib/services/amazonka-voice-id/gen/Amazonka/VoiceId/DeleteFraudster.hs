@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified fraudster from Voice ID.
+-- Deletes the specified fraudster from Voice ID. This action disassociates
+-- the fraudster from any watchlists it is a part of.
 module Amazonka.VoiceId.DeleteFraudster
   ( -- * Creating a Request
     DeleteFraudster (..),
@@ -46,7 +47,7 @@ import Amazonka.VoiceId.Types
 
 -- | /See:/ 'newDeleteFraudster' smart constructor.
 data DeleteFraudster = DeleteFraudster'
-  { -- | The identifier of the domain containing the fraudster.
+  { -- | The identifier of the domain that contains the fraudster.
     domainId :: Prelude.Text,
     -- | The identifier of the fraudster you want to delete.
     fraudsterId :: Data.Sensitive Prelude.Text
@@ -61,7 +62,7 @@ data DeleteFraudster = DeleteFraudster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainId', 'deleteFraudster_domainId' - The identifier of the domain containing the fraudster.
+-- 'domainId', 'deleteFraudster_domainId' - The identifier of the domain that contains the fraudster.
 --
 -- 'fraudsterId', 'deleteFraudster_fraudsterId' - The identifier of the fraudster you want to delete.
 newDeleteFraudster ::
@@ -76,7 +77,7 @@ newDeleteFraudster pDomainId_ pFraudsterId_ =
       fraudsterId = Data._Sensitive Lens.# pFraudsterId_
     }
 
--- | The identifier of the domain containing the fraudster.
+-- | The identifier of the domain that contains the fraudster.
 deleteFraudster_domainId :: Lens.Lens' DeleteFraudster Prelude.Text
 deleteFraudster_domainId = Lens.lens (\DeleteFraudster' {domainId} -> domainId) (\s@DeleteFraudster' {} a -> s {domainId = a} :: DeleteFraudster)
 
@@ -95,7 +96,8 @@ instance Core.AWSRequest DeleteFraudster where
 
 instance Prelude.Hashable DeleteFraudster where
   hashWithSalt _salt DeleteFraudster' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` fraudsterId
 
 instance Prelude.NFData DeleteFraudster where

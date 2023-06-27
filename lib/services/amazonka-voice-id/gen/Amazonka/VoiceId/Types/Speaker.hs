@@ -29,7 +29,7 @@ import Amazonka.VoiceId.Types.SpeakerStatus
 --
 -- /See:/ 'newSpeaker' smart constructor.
 data Speaker = Speaker'
-  { -- | A timestamp showing when the speaker is created.
+  { -- | A timestamp of when the speaker was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The client-provided identifier for the speaker.
     customerSpeakerId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
@@ -37,13 +37,13 @@ data Speaker = Speaker'
     domainId :: Prelude.Maybe Prelude.Text,
     -- | The service-generated identifier for the speaker.
     generatedSpeakerId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the speaker was last accessed for enrollment,
+    -- | The timestamp of when the speaker was last accessed for enrollment,
     -- re-enrollment or a successful authentication. This timestamp is accurate
     -- to one hour.
     lastAccessedAt :: Prelude.Maybe Data.POSIX,
     -- | The current status of the speaker.
     status :: Prelude.Maybe SpeakerStatus,
-    -- | A timestamp showing the speaker\'s last update.
+    -- | A timestamp of the speaker\'s last update.
     updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -56,7 +56,7 @@ data Speaker = Speaker'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'speaker_createdAt' - A timestamp showing when the speaker is created.
+-- 'createdAt', 'speaker_createdAt' - A timestamp of when the speaker was created.
 --
 -- 'customerSpeakerId', 'speaker_customerSpeakerId' - The client-provided identifier for the speaker.
 --
@@ -64,13 +64,13 @@ data Speaker = Speaker'
 --
 -- 'generatedSpeakerId', 'speaker_generatedSpeakerId' - The service-generated identifier for the speaker.
 --
--- 'lastAccessedAt', 'speaker_lastAccessedAt' - The timestamp when the speaker was last accessed for enrollment,
+-- 'lastAccessedAt', 'speaker_lastAccessedAt' - The timestamp of when the speaker was last accessed for enrollment,
 -- re-enrollment or a successful authentication. This timestamp is accurate
 -- to one hour.
 --
 -- 'status', 'speaker_status' - The current status of the speaker.
 --
--- 'updatedAt', 'speaker_updatedAt' - A timestamp showing the speaker\'s last update.
+-- 'updatedAt', 'speaker_updatedAt' - A timestamp of the speaker\'s last update.
 newSpeaker ::
   Speaker
 newSpeaker =
@@ -84,7 +84,7 @@ newSpeaker =
       updatedAt = Prelude.Nothing
     }
 
--- | A timestamp showing when the speaker is created.
+-- | A timestamp of when the speaker was created.
 speaker_createdAt :: Lens.Lens' Speaker (Prelude.Maybe Prelude.UTCTime)
 speaker_createdAt = Lens.lens (\Speaker' {createdAt} -> createdAt) (\s@Speaker' {} a -> s {createdAt = a} :: Speaker) Prelude.. Lens.mapping Data._Time
 
@@ -100,7 +100,7 @@ speaker_domainId = Lens.lens (\Speaker' {domainId} -> domainId) (\s@Speaker' {} 
 speaker_generatedSpeakerId :: Lens.Lens' Speaker (Prelude.Maybe Prelude.Text)
 speaker_generatedSpeakerId = Lens.lens (\Speaker' {generatedSpeakerId} -> generatedSpeakerId) (\s@Speaker' {} a -> s {generatedSpeakerId = a} :: Speaker)
 
--- | The timestamp when the speaker was last accessed for enrollment,
+-- | The timestamp of when the speaker was last accessed for enrollment,
 -- re-enrollment or a successful authentication. This timestamp is accurate
 -- to one hour.
 speaker_lastAccessedAt :: Lens.Lens' Speaker (Prelude.Maybe Prelude.UTCTime)
@@ -110,7 +110,7 @@ speaker_lastAccessedAt = Lens.lens (\Speaker' {lastAccessedAt} -> lastAccessedAt
 speaker_status :: Lens.Lens' Speaker (Prelude.Maybe SpeakerStatus)
 speaker_status = Lens.lens (\Speaker' {status} -> status) (\s@Speaker' {} a -> s {status = a} :: Speaker)
 
--- | A timestamp showing the speaker\'s last update.
+-- | A timestamp of the speaker\'s last update.
 speaker_updatedAt :: Lens.Lens' Speaker (Prelude.Maybe Prelude.UTCTime)
 speaker_updatedAt = Lens.lens (\Speaker' {updatedAt} -> updatedAt) (\s@Speaker' {} a -> s {updatedAt = a} :: Speaker) Prelude.. Lens.mapping Data._Time
 
@@ -131,7 +131,8 @@ instance Data.FromJSON Speaker where
 
 instance Prelude.Hashable Speaker where
   hashWithSalt _salt Speaker' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` customerSpeakerId
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` generatedSpeakerId

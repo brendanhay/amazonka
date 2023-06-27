@@ -46,7 +46,7 @@ import Amazonka.VoiceId.Types
 
 -- | /See:/ 'newDeleteSpeaker' smart constructor.
 data DeleteSpeaker = DeleteSpeaker'
-  { -- | The identifier of the domain containing the speaker.
+  { -- | The identifier of the domain that contains the speaker.
     domainId :: Prelude.Text,
     -- | The identifier of the speaker you want to delete.
     speakerId :: Data.Sensitive Prelude.Text
@@ -61,7 +61,7 @@ data DeleteSpeaker = DeleteSpeaker'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainId', 'deleteSpeaker_domainId' - The identifier of the domain containing the speaker.
+-- 'domainId', 'deleteSpeaker_domainId' - The identifier of the domain that contains the speaker.
 --
 -- 'speakerId', 'deleteSpeaker_speakerId' - The identifier of the speaker you want to delete.
 newDeleteSpeaker ::
@@ -76,7 +76,7 @@ newDeleteSpeaker pDomainId_ pSpeakerId_ =
       speakerId = Data._Sensitive Lens.# pSpeakerId_
     }
 
--- | The identifier of the domain containing the speaker.
+-- | The identifier of the domain that contains the speaker.
 deleteSpeaker_domainId :: Lens.Lens' DeleteSpeaker Prelude.Text
 deleteSpeaker_domainId = Lens.lens (\DeleteSpeaker' {domainId} -> domainId) (\s@DeleteSpeaker' {} a -> s {domainId = a} :: DeleteSpeaker)
 
@@ -95,7 +95,8 @@ instance Core.AWSRequest DeleteSpeaker where
 
 instance Prelude.Hashable DeleteSpeaker where
   hashWithSalt _salt DeleteSpeaker' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` speakerId
 
 instance Prelude.NFData DeleteSpeaker where

@@ -91,6 +91,7 @@ module Amazonka.VoiceId.Types
     domain_serverSideEncryptionConfiguration,
     domain_serverSideEncryptionUpdateDetails,
     domain_updatedAt,
+    domain_watchlistDetails,
 
     -- * DomainSummary
     DomainSummary (..),
@@ -104,6 +105,7 @@ module Amazonka.VoiceId.Types
     domainSummary_serverSideEncryptionConfiguration,
     domainSummary_serverSideEncryptionUpdateDetails,
     domainSummary_updatedAt,
+    domainSummary_watchlistDetails,
 
     -- * EnrollmentConfig
     EnrollmentConfig (..),
@@ -116,6 +118,7 @@ module Amazonka.VoiceId.Types
     newEnrollmentJobFraudDetectionConfig,
     enrollmentJobFraudDetectionConfig_fraudDetectionAction,
     enrollmentJobFraudDetectionConfig_riskThreshold,
+    enrollmentJobFraudDetectionConfig_watchlistIds,
 
     -- * FailureDetails
     FailureDetails (..),
@@ -127,6 +130,7 @@ module Amazonka.VoiceId.Types
     FraudDetectionConfiguration (..),
     newFraudDetectionConfiguration,
     fraudDetectionConfiguration_riskThreshold,
+    fraudDetectionConfiguration_watchlistId,
 
     -- * FraudDetectionResult
     FraudDetectionResult (..),
@@ -151,6 +155,7 @@ module Amazonka.VoiceId.Types
     fraudster_createdAt,
     fraudster_domainId,
     fraudster_generatedFraudsterId,
+    fraudster_watchlistIds,
 
     -- * FraudsterRegistrationJob
     FraudsterRegistrationJob (..),
@@ -180,6 +185,14 @@ module Amazonka.VoiceId.Types
     fraudsterRegistrationJobSummary_jobProgress,
     fraudsterRegistrationJobSummary_jobStatus,
 
+    -- * FraudsterSummary
+    FraudsterSummary (..),
+    newFraudsterSummary,
+    fraudsterSummary_createdAt,
+    fraudsterSummary_domainId,
+    fraudsterSummary_generatedFraudsterId,
+    fraudsterSummary_watchlistIds,
+
     -- * InputDataConfig
     InputDataConfig (..),
     newInputDataConfig,
@@ -207,6 +220,7 @@ module Amazonka.VoiceId.Types
     newRegistrationConfig,
     registrationConfig_duplicateRegistrationAction,
     registrationConfig_fraudsterSimilarityThreshold,
+    registrationConfig_watchlistIds,
 
     -- * ServerSideEncryptionConfiguration
     ServerSideEncryptionConfiguration (..),
@@ -280,6 +294,33 @@ module Amazonka.VoiceId.Types
     VoiceSpoofingRisk (..),
     newVoiceSpoofingRisk,
     voiceSpoofingRisk_riskScore,
+
+    -- * Watchlist
+    Watchlist (..),
+    newWatchlist,
+    watchlist_createdAt,
+    watchlist_defaultWatchlist,
+    watchlist_description,
+    watchlist_domainId,
+    watchlist_name,
+    watchlist_updatedAt,
+    watchlist_watchlistId,
+
+    -- * WatchlistDetails
+    WatchlistDetails (..),
+    newWatchlistDetails,
+    watchlistDetails_defaultWatchlistId,
+
+    -- * WatchlistSummary
+    WatchlistSummary (..),
+    newWatchlistSummary,
+    watchlistSummary_createdAt,
+    watchlistSummary_defaultWatchlist,
+    watchlistSummary_description,
+    watchlistSummary_domainId,
+    watchlistSummary_name,
+    watchlistSummary_updatedAt,
+    watchlistSummary_watchlistId,
   )
 where
 
@@ -308,6 +349,7 @@ import Amazonka.VoiceId.Types.Fraudster
 import Amazonka.VoiceId.Types.FraudsterRegistrationJob
 import Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus
 import Amazonka.VoiceId.Types.FraudsterRegistrationJobSummary
+import Amazonka.VoiceId.Types.FraudsterSummary
 import Amazonka.VoiceId.Types.InputDataConfig
 import Amazonka.VoiceId.Types.JobProgress
 import Amazonka.VoiceId.Types.KnownFraudsterRisk
@@ -325,6 +367,9 @@ import Amazonka.VoiceId.Types.SpeakerSummary
 import Amazonka.VoiceId.Types.StreamingStatus
 import Amazonka.VoiceId.Types.Tag
 import Amazonka.VoiceId.Types.VoiceSpoofingRisk
+import Amazonka.VoiceId.Types.Watchlist
+import Amazonka.VoiceId.Types.WatchlistDetails
+import Amazonka.VoiceId.Types.WatchlistSummary
 
 -- | API version @2021-09-27@ of the Amazon Voice ID SDK configuration.
 defaultService :: Core.Service
@@ -352,53 +397,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient permissions to perform this action. Check the
 -- error message and try again.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -406,14 +451,14 @@ _AccessDeniedException =
 
 -- | The request failed due to a conflict. Check the @ConflictType@ and error
 -- message for more details.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
 
 -- | The request failed due to an unknown error on the server side.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -421,7 +466,7 @@ _InternalServerException =
 
 -- | The specified resource cannot be found. Check the @ResourceType@ and
 -- error message for more details.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -430,7 +475,7 @@ _ResourceNotFoundException =
 -- | The request exceeded the service quota. Refer to
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#voiceid-quotas Voice ID Service Quotas>
 -- and try your request again.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -440,7 +485,7 @@ _ServiceQuotaExceededException =
 -- request rate. Refer to
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html##voiceid-api-quotas Amazon Connect Voice ID Service API throttling quotas>
 -- and try your request again.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -448,7 +493,7 @@ _ThrottlingException =
 
 -- | The request failed one or more validations; check the error message for
 -- more details.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

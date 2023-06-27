@@ -119,7 +119,8 @@ instance
   hashWithSalt
     _salt
     ServerSideEncryptionUpdateDetails' {..} =
-      _salt `Prelude.hashWithSalt` message
+      _salt
+        `Prelude.hashWithSalt` message
         `Prelude.hashWithSalt` oldKmsKeyId
         `Prelude.hashWithSalt` updateStatus
 

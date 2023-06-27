@@ -50,7 +50,7 @@ import Amazonka.VoiceId.Types
 
 -- | /See:/ 'newDescribeSpeakerEnrollmentJob' smart constructor.
 data DescribeSpeakerEnrollmentJob = DescribeSpeakerEnrollmentJob'
-  { -- | The identifier of the domain containing the speaker enrollment job.
+  { -- | The identifier of the domain that contains the speaker enrollment job.
     domainId :: Prelude.Text,
     -- | The identifier of the speaker enrollment job you are describing.
     jobId :: Prelude.Text
@@ -65,7 +65,7 @@ data DescribeSpeakerEnrollmentJob = DescribeSpeakerEnrollmentJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainId', 'describeSpeakerEnrollmentJob_domainId' - The identifier of the domain containing the speaker enrollment job.
+-- 'domainId', 'describeSpeakerEnrollmentJob_domainId' - The identifier of the domain that contains the speaker enrollment job.
 --
 -- 'jobId', 'describeSpeakerEnrollmentJob_jobId' - The identifier of the speaker enrollment job you are describing.
 newDescribeSpeakerEnrollmentJob ::
@@ -81,7 +81,7 @@ newDescribeSpeakerEnrollmentJob pDomainId_ pJobId_ =
       jobId = pJobId_
     }
 
--- | The identifier of the domain containing the speaker enrollment job.
+-- | The identifier of the domain that contains the speaker enrollment job.
 describeSpeakerEnrollmentJob_domainId :: Lens.Lens' DescribeSpeakerEnrollmentJob Prelude.Text
 describeSpeakerEnrollmentJob_domainId = Lens.lens (\DescribeSpeakerEnrollmentJob' {domainId} -> domainId) (\s@DescribeSpeakerEnrollmentJob' {} a -> s {domainId = a} :: DescribeSpeakerEnrollmentJob)
 
@@ -108,7 +108,8 @@ instance
     DescribeSpeakerEnrollmentJob
   where
   hashWithSalt _salt DescribeSpeakerEnrollmentJob' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData DescribeSpeakerEnrollmentJob where

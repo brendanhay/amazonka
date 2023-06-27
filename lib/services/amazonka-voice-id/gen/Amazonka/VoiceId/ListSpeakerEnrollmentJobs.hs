@@ -60,7 +60,7 @@ data ListSpeakerEnrollmentJobs = ListSpeakerEnrollmentJobs'
   { -- | Provides the status of your speaker enrollment Job.
     jobStatus :: Prelude.Maybe SpeakerEnrollmentJobStatus,
     -- | The maximum number of results that are returned per call. You can use
-    -- @NextToken@ to obtain further pages of results. The default is 100; the
+    -- @NextToken@ to obtain more pages of results. The default is 100; the
     -- maximum allowed page size is also 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | If @NextToken@ is returned, there are more results available. The value
@@ -68,7 +68,7 @@ data ListSpeakerEnrollmentJobs = ListSpeakerEnrollmentJobs'
     -- again using the returned token to retrieve the next page. Keep all other
     -- arguments unchanged. Each pagination token expires after 24 hours.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the domain containing the speaker enrollment jobs.
+    -- | The identifier of the domain that contains the speaker enrollment jobs.
     domainId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,7 +84,7 @@ data ListSpeakerEnrollmentJobs = ListSpeakerEnrollmentJobs'
 -- 'jobStatus', 'listSpeakerEnrollmentJobs_jobStatus' - Provides the status of your speaker enrollment Job.
 --
 -- 'maxResults', 'listSpeakerEnrollmentJobs_maxResults' - The maximum number of results that are returned per call. You can use
--- @NextToken@ to obtain further pages of results. The default is 100; the
+-- @NextToken@ to obtain more pages of results. The default is 100; the
 -- maximum allowed page size is also 100.
 --
 -- 'nextToken', 'listSpeakerEnrollmentJobs_nextToken' - If @NextToken@ is returned, there are more results available. The value
@@ -92,7 +92,7 @@ data ListSpeakerEnrollmentJobs = ListSpeakerEnrollmentJobs'
 -- again using the returned token to retrieve the next page. Keep all other
 -- arguments unchanged. Each pagination token expires after 24 hours.
 --
--- 'domainId', 'listSpeakerEnrollmentJobs_domainId' - The identifier of the domain containing the speaker enrollment jobs.
+-- 'domainId', 'listSpeakerEnrollmentJobs_domainId' - The identifier of the domain that contains the speaker enrollment jobs.
 newListSpeakerEnrollmentJobs ::
   -- | 'domainId'
   Prelude.Text ->
@@ -111,7 +111,7 @@ listSpeakerEnrollmentJobs_jobStatus :: Lens.Lens' ListSpeakerEnrollmentJobs (Pre
 listSpeakerEnrollmentJobs_jobStatus = Lens.lens (\ListSpeakerEnrollmentJobs' {jobStatus} -> jobStatus) (\s@ListSpeakerEnrollmentJobs' {} a -> s {jobStatus = a} :: ListSpeakerEnrollmentJobs)
 
 -- | The maximum number of results that are returned per call. You can use
--- @NextToken@ to obtain further pages of results. The default is 100; the
+-- @NextToken@ to obtain more pages of results. The default is 100; the
 -- maximum allowed page size is also 100.
 listSpeakerEnrollmentJobs_maxResults :: Lens.Lens' ListSpeakerEnrollmentJobs (Prelude.Maybe Prelude.Natural)
 listSpeakerEnrollmentJobs_maxResults = Lens.lens (\ListSpeakerEnrollmentJobs' {maxResults} -> maxResults) (\s@ListSpeakerEnrollmentJobs' {} a -> s {maxResults = a} :: ListSpeakerEnrollmentJobs)
@@ -123,7 +123,7 @@ listSpeakerEnrollmentJobs_maxResults = Lens.lens (\ListSpeakerEnrollmentJobs' {m
 listSpeakerEnrollmentJobs_nextToken :: Lens.Lens' ListSpeakerEnrollmentJobs (Prelude.Maybe Prelude.Text)
 listSpeakerEnrollmentJobs_nextToken = Lens.lens (\ListSpeakerEnrollmentJobs' {nextToken} -> nextToken) (\s@ListSpeakerEnrollmentJobs' {} a -> s {nextToken = a} :: ListSpeakerEnrollmentJobs)
 
--- | The identifier of the domain containing the speaker enrollment jobs.
+-- | The identifier of the domain that contains the speaker enrollment jobs.
 listSpeakerEnrollmentJobs_domainId :: Lens.Lens' ListSpeakerEnrollmentJobs Prelude.Text
 listSpeakerEnrollmentJobs_domainId = Lens.lens (\ListSpeakerEnrollmentJobs' {domainId} -> domainId) (\s@ListSpeakerEnrollmentJobs' {} a -> s {domainId = a} :: ListSpeakerEnrollmentJobs)
 
@@ -132,22 +132,22 @@ instance Core.AWSPager ListSpeakerEnrollmentJobs where
     | Core.stop
         ( rs
             Lens.^? listSpeakerEnrollmentJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSpeakerEnrollmentJobsResponse_jobSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSpeakerEnrollmentJobs_nextToken
           Lens..~ rs
           Lens.^? listSpeakerEnrollmentJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSpeakerEnrollmentJobs where
   type
@@ -166,7 +166,8 @@ instance Core.AWSRequest ListSpeakerEnrollmentJobs where
 
 instance Prelude.Hashable ListSpeakerEnrollmentJobs where
   hashWithSalt _salt ListSpeakerEnrollmentJobs' {..} =
-    _salt `Prelude.hashWithSalt` jobStatus
+    _salt
+      `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainId

@@ -34,7 +34,7 @@ import Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus
 --
 -- /See:/ 'newSpeakerEnrollmentJob' smart constructor.
 data SpeakerEnrollmentJob = SpeakerEnrollmentJob'
-  { -- | A timestamp showing the creation of the speaker enrollment job.
+  { -- | A timestamp of when the speaker enrollment job was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions
     -- to access customer\'s buckets to read the input manifest file and write
@@ -42,7 +42,7 @@ data SpeakerEnrollmentJob = SpeakerEnrollmentJob'
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the domain that contains the speaker enrollment job.
     domainId :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp showing when the speaker enrollment job ended.
+    -- | A timestamp of when the speaker enrollment job ended.
     endedAt :: Prelude.Maybe Data.POSIX,
     -- | The configuration that defines the action to take when the speaker is
     -- already enrolled in Voice ID, and the @FraudDetectionConfig@ to use.
@@ -80,7 +80,7 @@ data SpeakerEnrollmentJob = SpeakerEnrollmentJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'speakerEnrollmentJob_createdAt' - A timestamp showing the creation of the speaker enrollment job.
+-- 'createdAt', 'speakerEnrollmentJob_createdAt' - A timestamp of when the speaker enrollment job was created.
 --
 -- 'dataAccessRoleArn', 'speakerEnrollmentJob_dataAccessRoleArn' - The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions
 -- to access customer\'s buckets to read the input manifest file and write
@@ -88,7 +88,7 @@ data SpeakerEnrollmentJob = SpeakerEnrollmentJob'
 --
 -- 'domainId', 'speakerEnrollmentJob_domainId' - The identifier of the domain that contains the speaker enrollment job.
 --
--- 'endedAt', 'speakerEnrollmentJob_endedAt' - A timestamp showing when the speaker enrollment job ended.
+-- 'endedAt', 'speakerEnrollmentJob_endedAt' - A timestamp of when the speaker enrollment job ended.
 --
 -- 'enrollmentConfig', 'speakerEnrollmentJob_enrollmentConfig' - The configuration that defines the action to take when the speaker is
 -- already enrolled in Voice ID, and the @FraudDetectionConfig@ to use.
@@ -132,7 +132,7 @@ newSpeakerEnrollmentJob =
       outputDataConfig = Prelude.Nothing
     }
 
--- | A timestamp showing the creation of the speaker enrollment job.
+-- | A timestamp of when the speaker enrollment job was created.
 speakerEnrollmentJob_createdAt :: Lens.Lens' SpeakerEnrollmentJob (Prelude.Maybe Prelude.UTCTime)
 speakerEnrollmentJob_createdAt = Lens.lens (\SpeakerEnrollmentJob' {createdAt} -> createdAt) (\s@SpeakerEnrollmentJob' {} a -> s {createdAt = a} :: SpeakerEnrollmentJob) Prelude.. Lens.mapping Data._Time
 
@@ -146,7 +146,7 @@ speakerEnrollmentJob_dataAccessRoleArn = Lens.lens (\SpeakerEnrollmentJob' {data
 speakerEnrollmentJob_domainId :: Lens.Lens' SpeakerEnrollmentJob (Prelude.Maybe Prelude.Text)
 speakerEnrollmentJob_domainId = Lens.lens (\SpeakerEnrollmentJob' {domainId} -> domainId) (\s@SpeakerEnrollmentJob' {} a -> s {domainId = a} :: SpeakerEnrollmentJob)
 
--- | A timestamp showing when the speaker enrollment job ended.
+-- | A timestamp of when the speaker enrollment job ended.
 speakerEnrollmentJob_endedAt :: Lens.Lens' SpeakerEnrollmentJob (Prelude.Maybe Prelude.UTCTime)
 speakerEnrollmentJob_endedAt = Lens.lens (\SpeakerEnrollmentJob' {endedAt} -> endedAt) (\s@SpeakerEnrollmentJob' {} a -> s {endedAt = a} :: SpeakerEnrollmentJob) Prelude.. Lens.mapping Data._Time
 
@@ -213,7 +213,8 @@ instance Data.FromJSON SpeakerEnrollmentJob where
 
 instance Prelude.Hashable SpeakerEnrollmentJob where
   hashWithSalt _salt SpeakerEnrollmentJob' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` endedAt

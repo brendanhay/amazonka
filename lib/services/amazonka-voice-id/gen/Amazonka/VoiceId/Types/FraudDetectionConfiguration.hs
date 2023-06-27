@@ -32,7 +32,10 @@ data FraudDetectionConfiguration = FraudDetectionConfiguration'
   { -- | Threshold value for determining whether the speaker is a fraudster. If
     -- the detected risk score calculated by Voice ID is higher than the
     -- threshold, the speaker is considered a fraudster.
-    riskThreshold :: Prelude.Natural
+    riskThreshold :: Prelude.Maybe Prelude.Natural,
+    -- | The identifier of the watchlist against which fraud detection is
+    -- performed.
+    watchlistId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,21 +50,28 @@ data FraudDetectionConfiguration = FraudDetectionConfiguration'
 -- 'riskThreshold', 'fraudDetectionConfiguration_riskThreshold' - Threshold value for determining whether the speaker is a fraudster. If
 -- the detected risk score calculated by Voice ID is higher than the
 -- threshold, the speaker is considered a fraudster.
+--
+-- 'watchlistId', 'fraudDetectionConfiguration_watchlistId' - The identifier of the watchlist against which fraud detection is
+-- performed.
 newFraudDetectionConfiguration ::
-  -- | 'riskThreshold'
-  Prelude.Natural ->
   FraudDetectionConfiguration
-newFraudDetectionConfiguration pRiskThreshold_ =
+newFraudDetectionConfiguration =
   FraudDetectionConfiguration'
     { riskThreshold =
-        pRiskThreshold_
+        Prelude.Nothing,
+      watchlistId = Prelude.Nothing
     }
 
 -- | Threshold value for determining whether the speaker is a fraudster. If
 -- the detected risk score calculated by Voice ID is higher than the
 -- threshold, the speaker is considered a fraudster.
-fraudDetectionConfiguration_riskThreshold :: Lens.Lens' FraudDetectionConfiguration Prelude.Natural
+fraudDetectionConfiguration_riskThreshold :: Lens.Lens' FraudDetectionConfiguration (Prelude.Maybe Prelude.Natural)
 fraudDetectionConfiguration_riskThreshold = Lens.lens (\FraudDetectionConfiguration' {riskThreshold} -> riskThreshold) (\s@FraudDetectionConfiguration' {} a -> s {riskThreshold = a} :: FraudDetectionConfiguration)
+
+-- | The identifier of the watchlist against which fraud detection is
+-- performed.
+fraudDetectionConfiguration_watchlistId :: Lens.Lens' FraudDetectionConfiguration (Prelude.Maybe Prelude.Text)
+fraudDetectionConfiguration_watchlistId = Lens.lens (\FraudDetectionConfiguration' {watchlistId} -> watchlistId) (\s@FraudDetectionConfiguration' {} a -> s {watchlistId = a} :: FraudDetectionConfiguration)
 
 instance Data.FromJSON FraudDetectionConfiguration where
   parseJSON =
@@ -69,13 +79,17 @@ instance Data.FromJSON FraudDetectionConfiguration where
       "FraudDetectionConfiguration"
       ( \x ->
           FraudDetectionConfiguration'
-            Prelude.<$> (x Data..: "RiskThreshold")
+            Prelude.<$> (x Data..:? "RiskThreshold")
+            Prelude.<*> (x Data..:? "WatchlistId")
       )
 
 instance Prelude.Hashable FraudDetectionConfiguration where
   hashWithSalt _salt FraudDetectionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` riskThreshold
+    _salt
+      `Prelude.hashWithSalt` riskThreshold
+      `Prelude.hashWithSalt` watchlistId
 
 instance Prelude.NFData FraudDetectionConfiguration where
   rnf FraudDetectionConfiguration' {..} =
     Prelude.rnf riskThreshold
+      `Prelude.seq` Prelude.rnf watchlistId

@@ -56,7 +56,7 @@ import Amazonka.VoiceId.Types
 
 -- | /See:/ 'newOptOutSpeaker' smart constructor.
 data OptOutSpeaker = OptOutSpeaker'
-  { -- | The identifier of the domain containing the speaker.
+  { -- | The identifier of the domain that contains the speaker.
     domainId :: Prelude.Text,
     -- | The identifier of the speaker you want opted-out.
     speakerId :: Data.Sensitive Prelude.Text
@@ -71,7 +71,7 @@ data OptOutSpeaker = OptOutSpeaker'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainId', 'optOutSpeaker_domainId' - The identifier of the domain containing the speaker.
+-- 'domainId', 'optOutSpeaker_domainId' - The identifier of the domain that contains the speaker.
 --
 -- 'speakerId', 'optOutSpeaker_speakerId' - The identifier of the speaker you want opted-out.
 newOptOutSpeaker ::
@@ -86,7 +86,7 @@ newOptOutSpeaker pDomainId_ pSpeakerId_ =
       speakerId = Data._Sensitive Lens.# pSpeakerId_
     }
 
--- | The identifier of the domain containing the speaker.
+-- | The identifier of the domain that contains the speaker.
 optOutSpeaker_domainId :: Lens.Lens' OptOutSpeaker Prelude.Text
 optOutSpeaker_domainId = Lens.lens (\OptOutSpeaker' {domainId} -> domainId) (\s@OptOutSpeaker' {} a -> s {domainId = a} :: OptOutSpeaker)
 
@@ -110,7 +110,8 @@ instance Core.AWSRequest OptOutSpeaker where
 
 instance Prelude.Hashable OptOutSpeaker where
   hashWithSalt _salt OptOutSpeaker' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` speakerId
 
 instance Prelude.NFData OptOutSpeaker where

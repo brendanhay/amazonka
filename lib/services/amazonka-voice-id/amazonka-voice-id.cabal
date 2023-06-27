@@ -44,22 +44,29 @@ library
 
   exposed-modules:
     Amazonka.VoiceId
+    Amazonka.VoiceId.AssociateFraudster
     Amazonka.VoiceId.CreateDomain
+    Amazonka.VoiceId.CreateWatchlist
     Amazonka.VoiceId.DeleteDomain
     Amazonka.VoiceId.DeleteFraudster
     Amazonka.VoiceId.DeleteSpeaker
+    Amazonka.VoiceId.DeleteWatchlist
     Amazonka.VoiceId.DescribeDomain
     Amazonka.VoiceId.DescribeFraudster
     Amazonka.VoiceId.DescribeFraudsterRegistrationJob
     Amazonka.VoiceId.DescribeSpeaker
     Amazonka.VoiceId.DescribeSpeakerEnrollmentJob
+    Amazonka.VoiceId.DescribeWatchlist
+    Amazonka.VoiceId.DisassociateFraudster
     Amazonka.VoiceId.EvaluateSession
     Amazonka.VoiceId.Lens
     Amazonka.VoiceId.ListDomains
     Amazonka.VoiceId.ListFraudsterRegistrationJobs
+    Amazonka.VoiceId.ListFraudsters
     Amazonka.VoiceId.ListSpeakerEnrollmentJobs
     Amazonka.VoiceId.ListSpeakers
     Amazonka.VoiceId.ListTagsForResource
+    Amazonka.VoiceId.ListWatchlists
     Amazonka.VoiceId.OptOutSpeaker
     Amazonka.VoiceId.StartFraudsterRegistrationJob
     Amazonka.VoiceId.StartSpeakerEnrollmentJob
@@ -86,6 +93,7 @@ library
     Amazonka.VoiceId.Types.FraudsterRegistrationJob
     Amazonka.VoiceId.Types.FraudsterRegistrationJobStatus
     Amazonka.VoiceId.Types.FraudsterRegistrationJobSummary
+    Amazonka.VoiceId.Types.FraudsterSummary
     Amazonka.VoiceId.Types.InputDataConfig
     Amazonka.VoiceId.Types.JobProgress
     Amazonka.VoiceId.Types.KnownFraudsterRisk
@@ -103,8 +111,12 @@ library
     Amazonka.VoiceId.Types.StreamingStatus
     Amazonka.VoiceId.Types.Tag
     Amazonka.VoiceId.Types.VoiceSpoofingRisk
+    Amazonka.VoiceId.Types.Watchlist
+    Amazonka.VoiceId.Types.WatchlistDetails
+    Amazonka.VoiceId.Types.WatchlistSummary
     Amazonka.VoiceId.UntagResource
     Amazonka.VoiceId.UpdateDomain
+    Amazonka.VoiceId.UpdateWatchlist
     Amazonka.VoiceId.Waiters
 
   build-depends:

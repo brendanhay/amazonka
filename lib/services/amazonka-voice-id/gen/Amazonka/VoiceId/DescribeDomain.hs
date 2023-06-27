@@ -49,7 +49,7 @@ import Amazonka.VoiceId.Types
 
 -- | /See:/ 'newDescribeDomain' smart constructor.
 data DescribeDomain = DescribeDomain'
-  { -- | The identifier of the domain you are describing.
+  { -- | The identifier of the domain that you are describing.
     domainId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,7 +62,7 @@ data DescribeDomain = DescribeDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainId', 'describeDomain_domainId' - The identifier of the domain you are describing.
+-- 'domainId', 'describeDomain_domainId' - The identifier of the domain that you are describing.
 newDescribeDomain ::
   -- | 'domainId'
   Prelude.Text ->
@@ -70,7 +70,7 @@ newDescribeDomain ::
 newDescribeDomain pDomainId_ =
   DescribeDomain' {domainId = pDomainId_}
 
--- | The identifier of the domain you are describing.
+-- | The identifier of the domain that you are describing.
 describeDomain_domainId :: Lens.Lens' DescribeDomain Prelude.Text
 describeDomain_domainId = Lens.lens (\DescribeDomain' {domainId} -> domainId) (\s@DescribeDomain' {} a -> s {domainId = a} :: DescribeDomain)
 

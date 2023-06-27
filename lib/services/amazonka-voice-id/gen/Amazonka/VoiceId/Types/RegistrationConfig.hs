@@ -25,9 +25,8 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.VoiceId.Types.DuplicateRegistrationAction
 
--- | The configuration defining the action to take when a duplicate fraudster
--- is detected, and the similarity threshold to use for detecting a
--- duplicate fraudster during a batch fraudster registration job.
+-- | The registration configuration to be used during the batch fraudster
+-- registration job.
 --
 -- /See:/ 'newRegistrationConfig' smart constructor.
 data RegistrationConfig = RegistrationConfig'
@@ -38,7 +37,11 @@ data RegistrationConfig = RegistrationConfig'
     duplicateRegistrationAction :: Prelude.Maybe DuplicateRegistrationAction,
     -- | The minimum similarity score between the new and old fraudsters in order
     -- to consider the new fraudster a duplicate.
-    fraudsterSimilarityThreshold :: Prelude.Maybe Prelude.Natural
+    fraudsterSimilarityThreshold :: Prelude.Maybe Prelude.Natural,
+    -- | The identifiers of watchlists that a fraudster is registered to. If a
+    -- watchlist isn\'t provided, the fraudsters are registered to the default
+    -- watchlist.
+    watchlistIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,13 +60,18 @@ data RegistrationConfig = RegistrationConfig'
 --
 -- 'fraudsterSimilarityThreshold', 'registrationConfig_fraudsterSimilarityThreshold' - The minimum similarity score between the new and old fraudsters in order
 -- to consider the new fraudster a duplicate.
+--
+-- 'watchlistIds', 'registrationConfig_watchlistIds' - The identifiers of watchlists that a fraudster is registered to. If a
+-- watchlist isn\'t provided, the fraudsters are registered to the default
+-- watchlist.
 newRegistrationConfig ::
   RegistrationConfig
 newRegistrationConfig =
   RegistrationConfig'
     { duplicateRegistrationAction =
         Prelude.Nothing,
-      fraudsterSimilarityThreshold = Prelude.Nothing
+      fraudsterSimilarityThreshold = Prelude.Nothing,
+      watchlistIds = Prelude.Nothing
     }
 
 -- | The action to take when a fraudster is identified as a duplicate. The
@@ -78,6 +86,12 @@ registrationConfig_duplicateRegistrationAction = Lens.lens (\RegistrationConfig'
 registrationConfig_fraudsterSimilarityThreshold :: Lens.Lens' RegistrationConfig (Prelude.Maybe Prelude.Natural)
 registrationConfig_fraudsterSimilarityThreshold = Lens.lens (\RegistrationConfig' {fraudsterSimilarityThreshold} -> fraudsterSimilarityThreshold) (\s@RegistrationConfig' {} a -> s {fraudsterSimilarityThreshold = a} :: RegistrationConfig)
 
+-- | The identifiers of watchlists that a fraudster is registered to. If a
+-- watchlist isn\'t provided, the fraudsters are registered to the default
+-- watchlist.
+registrationConfig_watchlistIds :: Lens.Lens' RegistrationConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+registrationConfig_watchlistIds = Lens.lens (\RegistrationConfig' {watchlistIds} -> watchlistIds) (\s@RegistrationConfig' {} a -> s {watchlistIds = a} :: RegistrationConfig) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON RegistrationConfig where
   parseJSON =
     Data.withObject
@@ -86,6 +100,7 @@ instance Data.FromJSON RegistrationConfig where
           RegistrationConfig'
             Prelude.<$> (x Data..:? "DuplicateRegistrationAction")
             Prelude.<*> (x Data..:? "FraudsterSimilarityThreshold")
+            Prelude.<*> (x Data..:? "WatchlistIds")
       )
 
 instance Prelude.Hashable RegistrationConfig where
@@ -93,11 +108,13 @@ instance Prelude.Hashable RegistrationConfig where
     _salt
       `Prelude.hashWithSalt` duplicateRegistrationAction
       `Prelude.hashWithSalt` fraudsterSimilarityThreshold
+      `Prelude.hashWithSalt` watchlistIds
 
 instance Prelude.NFData RegistrationConfig where
   rnf RegistrationConfig' {..} =
     Prelude.rnf duplicateRegistrationAction
       `Prelude.seq` Prelude.rnf fraudsterSimilarityThreshold
+      `Prelude.seq` Prelude.rnf watchlistIds
 
 instance Data.ToJSON RegistrationConfig where
   toJSON RegistrationConfig' {..} =
@@ -106,6 +123,7 @@ instance Data.ToJSON RegistrationConfig where
           [ ("DuplicateRegistrationAction" Data..=)
               Prelude.<$> duplicateRegistrationAction,
             ("FraudsterSimilarityThreshold" Data..=)
-              Prelude.<$> fraudsterSimilarityThreshold
+              Prelude.<$> fraudsterSimilarityThreshold,
+            ("WatchlistIds" Data..=) Prelude.<$> watchlistIds
           ]
       )

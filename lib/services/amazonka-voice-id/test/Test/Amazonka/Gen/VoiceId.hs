@@ -27,8 +27,14 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateDomain $
+--         [ requestAssociateFraudster $
+--             newAssociateFraudster
+--
+--         , requestCreateDomain $
 --             newCreateDomain
+--
+--         , requestCreateWatchlist $
+--             newCreateWatchlist
 --
 --         , requestDeleteDomain $
 --             newDeleteDomain
@@ -38,6 +44,9 @@ import Test.Tasty
 --
 --         , requestDeleteSpeaker $
 --             newDeleteSpeaker
+--
+--         , requestDeleteWatchlist $
+--             newDeleteWatchlist
 --
 --         , requestDescribeDomain $
 --             newDescribeDomain
@@ -54,6 +63,12 @@ import Test.Tasty
 --         , requestDescribeSpeakerEnrollmentJob $
 --             newDescribeSpeakerEnrollmentJob
 --
+--         , requestDescribeWatchlist $
+--             newDescribeWatchlist
+--
+--         , requestDisassociateFraudster $
+--             newDisassociateFraudster
+--
 --         , requestEvaluateSession $
 --             newEvaluateSession
 --
@@ -63,6 +78,9 @@ import Test.Tasty
 --         , requestListFraudsterRegistrationJobs $
 --             newListFraudsterRegistrationJobs
 --
+--         , requestListFraudsters $
+--             newListFraudsters
+--
 --         , requestListSpeakerEnrollmentJobs $
 --             newListSpeakerEnrollmentJobs
 --
@@ -71,6 +89,9 @@ import Test.Tasty
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
+--
+--         , requestListWatchlists $
+--             newListWatchlists
 --
 --         , requestOptOutSpeaker $
 --             newOptOutSpeaker
@@ -90,11 +111,20 @@ import Test.Tasty
 --         , requestUpdateDomain $
 --             newUpdateDomain
 --
+--         , requestUpdateWatchlist $
+--             newUpdateWatchlist
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateDomain $
+--         [ responseAssociateFraudster $
+--             newAssociateFraudsterResponse
+--
+--         , responseCreateDomain $
 --             newCreateDomainResponse
+--
+--         , responseCreateWatchlist $
+--             newCreateWatchlistResponse
 --
 --         , responseDeleteDomain $
 --             newDeleteDomainResponse
@@ -104,6 +134,9 @@ import Test.Tasty
 --
 --         , responseDeleteSpeaker $
 --             newDeleteSpeakerResponse
+--
+--         , responseDeleteWatchlist $
+--             newDeleteWatchlistResponse
 --
 --         , responseDescribeDomain $
 --             newDescribeDomainResponse
@@ -120,6 +153,12 @@ import Test.Tasty
 --         , responseDescribeSpeakerEnrollmentJob $
 --             newDescribeSpeakerEnrollmentJobResponse
 --
+--         , responseDescribeWatchlist $
+--             newDescribeWatchlistResponse
+--
+--         , responseDisassociateFraudster $
+--             newDisassociateFraudsterResponse
+--
 --         , responseEvaluateSession $
 --             newEvaluateSessionResponse
 --
@@ -129,6 +168,9 @@ import Test.Tasty
 --         , responseListFraudsterRegistrationJobs $
 --             newListFraudsterRegistrationJobsResponse
 --
+--         , responseListFraudsters $
+--             newListFraudstersResponse
+--
 --         , responseListSpeakerEnrollmentJobs $
 --             newListSpeakerEnrollmentJobsResponse
 --
@@ -137,6 +179,9 @@ import Test.Tasty
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responseListWatchlists $
+--             newListWatchlistsResponse
 --
 --         , responseOptOutSpeaker $
 --             newOptOutSpeakerResponse
@@ -156,16 +201,31 @@ import Test.Tasty
 --         , responseUpdateDomain $
 --             newUpdateDomainResponse
 --
+--         , responseUpdateWatchlist $
+--             newUpdateWatchlistResponse
+--
 --           ]
 --     ]
 
 -- Requests
+
+requestAssociateFraudster :: AssociateFraudster -> TestTree
+requestAssociateFraudster =
+  req
+    "AssociateFraudster"
+    "fixture/AssociateFraudster.yaml"
 
 requestCreateDomain :: CreateDomain -> TestTree
 requestCreateDomain =
   req
     "CreateDomain"
     "fixture/CreateDomain.yaml"
+
+requestCreateWatchlist :: CreateWatchlist -> TestTree
+requestCreateWatchlist =
+  req
+    "CreateWatchlist"
+    "fixture/CreateWatchlist.yaml"
 
 requestDeleteDomain :: DeleteDomain -> TestTree
 requestDeleteDomain =
@@ -184,6 +244,12 @@ requestDeleteSpeaker =
   req
     "DeleteSpeaker"
     "fixture/DeleteSpeaker.yaml"
+
+requestDeleteWatchlist :: DeleteWatchlist -> TestTree
+requestDeleteWatchlist =
+  req
+    "DeleteWatchlist"
+    "fixture/DeleteWatchlist.yaml"
 
 requestDescribeDomain :: DescribeDomain -> TestTree
 requestDescribeDomain =
@@ -215,6 +281,18 @@ requestDescribeSpeakerEnrollmentJob =
     "DescribeSpeakerEnrollmentJob"
     "fixture/DescribeSpeakerEnrollmentJob.yaml"
 
+requestDescribeWatchlist :: DescribeWatchlist -> TestTree
+requestDescribeWatchlist =
+  req
+    "DescribeWatchlist"
+    "fixture/DescribeWatchlist.yaml"
+
+requestDisassociateFraudster :: DisassociateFraudster -> TestTree
+requestDisassociateFraudster =
+  req
+    "DisassociateFraudster"
+    "fixture/DisassociateFraudster.yaml"
+
 requestEvaluateSession :: EvaluateSession -> TestTree
 requestEvaluateSession =
   req
@@ -233,6 +311,12 @@ requestListFraudsterRegistrationJobs =
     "ListFraudsterRegistrationJobs"
     "fixture/ListFraudsterRegistrationJobs.yaml"
 
+requestListFraudsters :: ListFraudsters -> TestTree
+requestListFraudsters =
+  req
+    "ListFraudsters"
+    "fixture/ListFraudsters.yaml"
+
 requestListSpeakerEnrollmentJobs :: ListSpeakerEnrollmentJobs -> TestTree
 requestListSpeakerEnrollmentJobs =
   req
@@ -250,6 +334,12 @@ requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestListWatchlists :: ListWatchlists -> TestTree
+requestListWatchlists =
+  req
+    "ListWatchlists"
+    "fixture/ListWatchlists.yaml"
 
 requestOptOutSpeaker :: OptOutSpeaker -> TestTree
 requestOptOutSpeaker =
@@ -287,7 +377,21 @@ requestUpdateDomain =
     "UpdateDomain"
     "fixture/UpdateDomain.yaml"
 
+requestUpdateWatchlist :: UpdateWatchlist -> TestTree
+requestUpdateWatchlist =
+  req
+    "UpdateWatchlist"
+    "fixture/UpdateWatchlist.yaml"
+
 -- Responses
+
+responseAssociateFraudster :: AssociateFraudsterResponse -> TestTree
+responseAssociateFraudster =
+  res
+    "AssociateFraudsterResponse"
+    "fixture/AssociateFraudsterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateFraudster)
 
 responseCreateDomain :: CreateDomainResponse -> TestTree
 responseCreateDomain =
@@ -296,6 +400,14 @@ responseCreateDomain =
     "fixture/CreateDomainResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDomain)
+
+responseCreateWatchlist :: CreateWatchlistResponse -> TestTree
+responseCreateWatchlist =
+  res
+    "CreateWatchlistResponse"
+    "fixture/CreateWatchlistResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateWatchlist)
 
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
 responseDeleteDomain =
@@ -320,6 +432,14 @@ responseDeleteSpeaker =
     "fixture/DeleteSpeakerResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteSpeaker)
+
+responseDeleteWatchlist :: DeleteWatchlistResponse -> TestTree
+responseDeleteWatchlist =
+  res
+    "DeleteWatchlistResponse"
+    "fixture/DeleteWatchlistResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteWatchlist)
 
 responseDescribeDomain :: DescribeDomainResponse -> TestTree
 responseDescribeDomain =
@@ -361,6 +481,22 @@ responseDescribeSpeakerEnrollmentJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeSpeakerEnrollmentJob)
 
+responseDescribeWatchlist :: DescribeWatchlistResponse -> TestTree
+responseDescribeWatchlist =
+  res
+    "DescribeWatchlistResponse"
+    "fixture/DescribeWatchlistResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeWatchlist)
+
+responseDisassociateFraudster :: DisassociateFraudsterResponse -> TestTree
+responseDisassociateFraudster =
+  res
+    "DisassociateFraudsterResponse"
+    "fixture/DisassociateFraudsterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateFraudster)
+
 responseEvaluateSession :: EvaluateSessionResponse -> TestTree
 responseEvaluateSession =
   res
@@ -385,6 +521,14 @@ responseListFraudsterRegistrationJobs =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListFraudsterRegistrationJobs)
 
+responseListFraudsters :: ListFraudstersResponse -> TestTree
+responseListFraudsters =
+  res
+    "ListFraudstersResponse"
+    "fixture/ListFraudstersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFraudsters)
+
 responseListSpeakerEnrollmentJobs :: ListSpeakerEnrollmentJobsResponse -> TestTree
 responseListSpeakerEnrollmentJobs =
   res
@@ -408,6 +552,14 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListWatchlists :: ListWatchlistsResponse -> TestTree
+responseListWatchlists =
+  res
+    "ListWatchlistsResponse"
+    "fixture/ListWatchlistsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListWatchlists)
 
 responseOptOutSpeaker :: OptOutSpeakerResponse -> TestTree
 responseOptOutSpeaker =
@@ -456,3 +608,11 @@ responseUpdateDomain =
     "fixture/UpdateDomainResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateDomain)
+
+responseUpdateWatchlist :: UpdateWatchlistResponse -> TestTree
+responseUpdateWatchlist =
+  res
+    "UpdateWatchlistResponse"
+    "fixture/UpdateWatchlistResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateWatchlist)

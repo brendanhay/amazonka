@@ -118,7 +118,8 @@ instance Core.AWSRequest EvaluateSession where
 
 instance Prelude.Hashable EvaluateSession where
   hashWithSalt _salt EvaluateSession' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` sessionNameOrId
 
 instance Prelude.NFData EvaluateSession where
@@ -160,7 +161,7 @@ data EvaluateSessionResponse = EvaluateSessionResponse'
   { -- | Details resulting from the authentication process, such as
     -- authentication decision and authentication score.
     authenticationResult :: Prelude.Maybe AuthenticationResult,
-    -- | The identifier of the domain containing the session.
+    -- | The identifier of the domain that contains the session.
     domainId :: Prelude.Maybe Prelude.Text,
     -- | Details resulting from the fraud detection process, such as fraud
     -- detection decision and risk score.
@@ -195,7 +196,7 @@ data EvaluateSessionResponse = EvaluateSessionResponse'
 -- 'authenticationResult', 'evaluateSessionResponse_authenticationResult' - Details resulting from the authentication process, such as
 -- authentication decision and authentication score.
 --
--- 'domainId', 'evaluateSessionResponse_domainId' - The identifier of the domain containing the session.
+-- 'domainId', 'evaluateSessionResponse_domainId' - The identifier of the domain that contains the session.
 --
 -- 'fraudDetectionResult', 'evaluateSessionResponse_fraudDetectionResult' - Details resulting from the fraud detection process, such as fraud
 -- detection decision and risk score.
@@ -236,7 +237,7 @@ newEvaluateSessionResponse pHttpStatus_ =
 evaluateSessionResponse_authenticationResult :: Lens.Lens' EvaluateSessionResponse (Prelude.Maybe AuthenticationResult)
 evaluateSessionResponse_authenticationResult = Lens.lens (\EvaluateSessionResponse' {authenticationResult} -> authenticationResult) (\s@EvaluateSessionResponse' {} a -> s {authenticationResult = a} :: EvaluateSessionResponse)
 
--- | The identifier of the domain containing the session.
+-- | The identifier of the domain that contains the session.
 evaluateSessionResponse_domainId :: Lens.Lens' EvaluateSessionResponse (Prelude.Maybe Prelude.Text)
 evaluateSessionResponse_domainId = Lens.lens (\EvaluateSessionResponse' {domainId} -> domainId) (\s@EvaluateSessionResponse' {} a -> s {domainId = a} :: EvaluateSessionResponse)
 

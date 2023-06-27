@@ -14,6 +14,13 @@
 module Amazonka.VoiceId.Lens
   ( -- * Operations
 
+    -- ** AssociateFraudster
+    associateFraudster_domainId,
+    associateFraudster_fraudsterId,
+    associateFraudster_watchlistId,
+    associateFraudsterResponse_fraudster,
+    associateFraudsterResponse_httpStatus,
+
     -- ** CreateDomain
     createDomain_clientToken,
     createDomain_description,
@@ -22,6 +29,14 @@ module Amazonka.VoiceId.Lens
     createDomain_serverSideEncryptionConfiguration,
     createDomainResponse_domain,
     createDomainResponse_httpStatus,
+
+    -- ** CreateWatchlist
+    createWatchlist_clientToken,
+    createWatchlist_description,
+    createWatchlist_domainId,
+    createWatchlist_name,
+    createWatchlistResponse_watchlist,
+    createWatchlistResponse_httpStatus,
 
     -- ** DeleteDomain
     deleteDomain_domainId,
@@ -33,6 +48,10 @@ module Amazonka.VoiceId.Lens
     -- ** DeleteSpeaker
     deleteSpeaker_domainId,
     deleteSpeaker_speakerId,
+
+    -- ** DeleteWatchlist
+    deleteWatchlist_domainId,
+    deleteWatchlist_watchlistId,
 
     -- ** DescribeDomain
     describeDomain_domainId,
@@ -63,6 +82,19 @@ module Amazonka.VoiceId.Lens
     describeSpeakerEnrollmentJobResponse_job,
     describeSpeakerEnrollmentJobResponse_httpStatus,
 
+    -- ** DescribeWatchlist
+    describeWatchlist_domainId,
+    describeWatchlist_watchlistId,
+    describeWatchlistResponse_watchlist,
+    describeWatchlistResponse_httpStatus,
+
+    -- ** DisassociateFraudster
+    disassociateFraudster_domainId,
+    disassociateFraudster_fraudsterId,
+    disassociateFraudster_watchlistId,
+    disassociateFraudsterResponse_fraudster,
+    disassociateFraudsterResponse_httpStatus,
+
     -- ** EvaluateSession
     evaluateSession_domainId,
     evaluateSession_sessionNameOrId,
@@ -90,6 +122,15 @@ module Amazonka.VoiceId.Lens
     listFraudsterRegistrationJobsResponse_nextToken,
     listFraudsterRegistrationJobsResponse_httpStatus,
 
+    -- ** ListFraudsters
+    listFraudsters_maxResults,
+    listFraudsters_nextToken,
+    listFraudsters_watchlistId,
+    listFraudsters_domainId,
+    listFraudstersResponse_fraudsterSummaries,
+    listFraudstersResponse_nextToken,
+    listFraudstersResponse_httpStatus,
+
     -- ** ListSpeakerEnrollmentJobs
     listSpeakerEnrollmentJobs_jobStatus,
     listSpeakerEnrollmentJobs_maxResults,
@@ -111,6 +152,14 @@ module Amazonka.VoiceId.Lens
     listTagsForResource_resourceArn,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
+
+    -- ** ListWatchlists
+    listWatchlists_maxResults,
+    listWatchlists_nextToken,
+    listWatchlists_domainId,
+    listWatchlistsResponse_nextToken,
+    listWatchlistsResponse_watchlistSummaries,
+    listWatchlistsResponse_httpStatus,
 
     -- ** OptOutSpeaker
     optOutSpeaker_domainId,
@@ -158,6 +207,14 @@ module Amazonka.VoiceId.Lens
     updateDomainResponse_domain,
     updateDomainResponse_httpStatus,
 
+    -- ** UpdateWatchlist
+    updateWatchlist_description,
+    updateWatchlist_name,
+    updateWatchlist_domainId,
+    updateWatchlist_watchlistId,
+    updateWatchlistResponse_watchlist,
+    updateWatchlistResponse_httpStatus,
+
     -- * Types
 
     -- ** AuthenticationConfiguration
@@ -183,6 +240,7 @@ module Amazonka.VoiceId.Lens
     domain_serverSideEncryptionConfiguration,
     domain_serverSideEncryptionUpdateDetails,
     domain_updatedAt,
+    domain_watchlistDetails,
 
     -- ** DomainSummary
     domainSummary_arn,
@@ -194,6 +252,7 @@ module Amazonka.VoiceId.Lens
     domainSummary_serverSideEncryptionConfiguration,
     domainSummary_serverSideEncryptionUpdateDetails,
     domainSummary_updatedAt,
+    domainSummary_watchlistDetails,
 
     -- ** EnrollmentConfig
     enrollmentConfig_existingEnrollmentAction,
@@ -202,6 +261,7 @@ module Amazonka.VoiceId.Lens
     -- ** EnrollmentJobFraudDetectionConfig
     enrollmentJobFraudDetectionConfig_fraudDetectionAction,
     enrollmentJobFraudDetectionConfig_riskThreshold,
+    enrollmentJobFraudDetectionConfig_watchlistIds,
 
     -- ** FailureDetails
     failureDetails_message,
@@ -209,6 +269,7 @@ module Amazonka.VoiceId.Lens
 
     -- ** FraudDetectionConfiguration
     fraudDetectionConfiguration_riskThreshold,
+    fraudDetectionConfiguration_watchlistId,
 
     -- ** FraudDetectionResult
     fraudDetectionResult_audioAggregationEndedAt,
@@ -227,6 +288,7 @@ module Amazonka.VoiceId.Lens
     fraudster_createdAt,
     fraudster_domainId,
     fraudster_generatedFraudsterId,
+    fraudster_watchlistIds,
 
     -- ** FraudsterRegistrationJob
     fraudsterRegistrationJob_createdAt,
@@ -252,6 +314,12 @@ module Amazonka.VoiceId.Lens
     fraudsterRegistrationJobSummary_jobProgress,
     fraudsterRegistrationJobSummary_jobStatus,
 
+    -- ** FraudsterSummary
+    fraudsterSummary_createdAt,
+    fraudsterSummary_domainId,
+    fraudsterSummary_generatedFraudsterId,
+    fraudsterSummary_watchlistIds,
+
     -- ** InputDataConfig
     inputDataConfig_s3Uri,
 
@@ -269,6 +337,7 @@ module Amazonka.VoiceId.Lens
     -- ** RegistrationConfig
     registrationConfig_duplicateRegistrationAction,
     registrationConfig_fraudsterSimilarityThreshold,
+    registrationConfig_watchlistIds,
 
     -- ** ServerSideEncryptionConfiguration
     serverSideEncryptionConfiguration_kmsKeyId,
@@ -326,24 +395,52 @@ module Amazonka.VoiceId.Lens
 
     -- ** VoiceSpoofingRisk
     voiceSpoofingRisk_riskScore,
+
+    -- ** Watchlist
+    watchlist_createdAt,
+    watchlist_defaultWatchlist,
+    watchlist_description,
+    watchlist_domainId,
+    watchlist_name,
+    watchlist_updatedAt,
+    watchlist_watchlistId,
+
+    -- ** WatchlistDetails
+    watchlistDetails_defaultWatchlistId,
+
+    -- ** WatchlistSummary
+    watchlistSummary_createdAt,
+    watchlistSummary_defaultWatchlist,
+    watchlistSummary_description,
+    watchlistSummary_domainId,
+    watchlistSummary_name,
+    watchlistSummary_updatedAt,
+    watchlistSummary_watchlistId,
   )
 where
 
+import Amazonka.VoiceId.AssociateFraudster
 import Amazonka.VoiceId.CreateDomain
+import Amazonka.VoiceId.CreateWatchlist
 import Amazonka.VoiceId.DeleteDomain
 import Amazonka.VoiceId.DeleteFraudster
 import Amazonka.VoiceId.DeleteSpeaker
+import Amazonka.VoiceId.DeleteWatchlist
 import Amazonka.VoiceId.DescribeDomain
 import Amazonka.VoiceId.DescribeFraudster
 import Amazonka.VoiceId.DescribeFraudsterRegistrationJob
 import Amazonka.VoiceId.DescribeSpeaker
 import Amazonka.VoiceId.DescribeSpeakerEnrollmentJob
+import Amazonka.VoiceId.DescribeWatchlist
+import Amazonka.VoiceId.DisassociateFraudster
 import Amazonka.VoiceId.EvaluateSession
 import Amazonka.VoiceId.ListDomains
 import Amazonka.VoiceId.ListFraudsterRegistrationJobs
+import Amazonka.VoiceId.ListFraudsters
 import Amazonka.VoiceId.ListSpeakerEnrollmentJobs
 import Amazonka.VoiceId.ListSpeakers
 import Amazonka.VoiceId.ListTagsForResource
+import Amazonka.VoiceId.ListWatchlists
 import Amazonka.VoiceId.OptOutSpeaker
 import Amazonka.VoiceId.StartFraudsterRegistrationJob
 import Amazonka.VoiceId.StartSpeakerEnrollmentJob
@@ -361,6 +458,7 @@ import Amazonka.VoiceId.Types.FraudRiskDetails
 import Amazonka.VoiceId.Types.Fraudster
 import Amazonka.VoiceId.Types.FraudsterRegistrationJob
 import Amazonka.VoiceId.Types.FraudsterRegistrationJobSummary
+import Amazonka.VoiceId.Types.FraudsterSummary
 import Amazonka.VoiceId.Types.InputDataConfig
 import Amazonka.VoiceId.Types.JobProgress
 import Amazonka.VoiceId.Types.KnownFraudsterRisk
@@ -374,5 +472,9 @@ import Amazonka.VoiceId.Types.SpeakerEnrollmentJobSummary
 import Amazonka.VoiceId.Types.SpeakerSummary
 import Amazonka.VoiceId.Types.Tag
 import Amazonka.VoiceId.Types.VoiceSpoofingRisk
+import Amazonka.VoiceId.Types.Watchlist
+import Amazonka.VoiceId.Types.WatchlistDetails
+import Amazonka.VoiceId.Types.WatchlistSummary
 import Amazonka.VoiceId.UntagResource
 import Amazonka.VoiceId.UpdateDomain
+import Amazonka.VoiceId.UpdateWatchlist

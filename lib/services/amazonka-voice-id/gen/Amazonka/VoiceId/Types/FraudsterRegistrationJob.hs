@@ -34,15 +34,16 @@ import Amazonka.VoiceId.Types.RegistrationConfig
 --
 -- /See:/ 'newFraudsterRegistrationJob' smart constructor.
 data FraudsterRegistrationJob = FraudsterRegistrationJob'
-  { -- | A timestamp showing the creation time of the fraudster registration job.
+  { -- | A timestamp of when the fraudster registration job was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions
     -- to access customer\'s buckets to read the input manifest file and write
     -- the job output file.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the domain containing the fraudster registration job.
+    -- | The identifier of the domain that contains the fraudster registration
+    -- job.
     domainId :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp showing when the fraudster registration job ended.
+    -- | A timestamp of when the fraudster registration job ended.
     endedAt :: Prelude.Maybe Data.POSIX,
     -- | Contains details that are populated when an entire batch job fails. In
     -- cases of individual registration job failures, the batch job as a whole
@@ -81,15 +82,16 @@ data FraudsterRegistrationJob = FraudsterRegistrationJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'fraudsterRegistrationJob_createdAt' - A timestamp showing the creation time of the fraudster registration job.
+-- 'createdAt', 'fraudsterRegistrationJob_createdAt' - A timestamp of when the fraudster registration job was created.
 --
 -- 'dataAccessRoleArn', 'fraudsterRegistrationJob_dataAccessRoleArn' - The IAM role Amazon Resource Name (ARN) that grants Voice ID permissions
 -- to access customer\'s buckets to read the input manifest file and write
 -- the job output file.
 --
--- 'domainId', 'fraudsterRegistrationJob_domainId' - The identifier of the domain containing the fraudster registration job.
+-- 'domainId', 'fraudsterRegistrationJob_domainId' - The identifier of the domain that contains the fraudster registration
+-- job.
 --
--- 'endedAt', 'fraudsterRegistrationJob_endedAt' - A timestamp showing when the fraudster registration job ended.
+-- 'endedAt', 'fraudsterRegistrationJob_endedAt' - A timestamp of when the fraudster registration job ended.
 --
 -- 'failureDetails', 'fraudsterRegistrationJob_failureDetails' - Contains details that are populated when an entire batch job fails. In
 -- cases of individual registration job failures, the batch job as a whole
@@ -135,7 +137,7 @@ newFraudsterRegistrationJob =
       registrationConfig = Prelude.Nothing
     }
 
--- | A timestamp showing the creation time of the fraudster registration job.
+-- | A timestamp of when the fraudster registration job was created.
 fraudsterRegistrationJob_createdAt :: Lens.Lens' FraudsterRegistrationJob (Prelude.Maybe Prelude.UTCTime)
 fraudsterRegistrationJob_createdAt = Lens.lens (\FraudsterRegistrationJob' {createdAt} -> createdAt) (\s@FraudsterRegistrationJob' {} a -> s {createdAt = a} :: FraudsterRegistrationJob) Prelude.. Lens.mapping Data._Time
 
@@ -145,11 +147,12 @@ fraudsterRegistrationJob_createdAt = Lens.lens (\FraudsterRegistrationJob' {crea
 fraudsterRegistrationJob_dataAccessRoleArn :: Lens.Lens' FraudsterRegistrationJob (Prelude.Maybe Prelude.Text)
 fraudsterRegistrationJob_dataAccessRoleArn = Lens.lens (\FraudsterRegistrationJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@FraudsterRegistrationJob' {} a -> s {dataAccessRoleArn = a} :: FraudsterRegistrationJob)
 
--- | The identifier of the domain containing the fraudster registration job.
+-- | The identifier of the domain that contains the fraudster registration
+-- job.
 fraudsterRegistrationJob_domainId :: Lens.Lens' FraudsterRegistrationJob (Prelude.Maybe Prelude.Text)
 fraudsterRegistrationJob_domainId = Lens.lens (\FraudsterRegistrationJob' {domainId} -> domainId) (\s@FraudsterRegistrationJob' {} a -> s {domainId = a} :: FraudsterRegistrationJob)
 
--- | A timestamp showing when the fraudster registration job ended.
+-- | A timestamp of when the fraudster registration job ended.
 fraudsterRegistrationJob_endedAt :: Lens.Lens' FraudsterRegistrationJob (Prelude.Maybe Prelude.UTCTime)
 fraudsterRegistrationJob_endedAt = Lens.lens (\FraudsterRegistrationJob' {endedAt} -> endedAt) (\s@FraudsterRegistrationJob' {} a -> s {endedAt = a} :: FraudsterRegistrationJob) Prelude.. Lens.mapping Data._Time
 
@@ -217,7 +220,8 @@ instance Data.FromJSON FraudsterRegistrationJob where
 
 instance Prelude.Hashable FraudsterRegistrationJob where
   hashWithSalt _salt FraudsterRegistrationJob' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` endedAt

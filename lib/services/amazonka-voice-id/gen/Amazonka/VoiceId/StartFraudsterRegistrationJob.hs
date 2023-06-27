@@ -55,8 +55,10 @@ import Amazonka.VoiceId.Types
 
 -- | /See:/ 'newStartFraudsterRegistrationJob' smart constructor.
 data StartFraudsterRegistrationJob = StartFraudsterRegistrationJob'
-  { -- | The idempotency token for starting a new fraudster registration job. If
-    -- not provided, Amazon Web Services SDK populates this field.
+  { -- | A unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the new fraudster registration job.
     jobName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
@@ -70,8 +72,8 @@ data StartFraudsterRegistrationJob = StartFraudsterRegistrationJob'
     -- <https://docs.aws.amazon.com/connect/latest/adminguide/voiceid-fraudster-watchlist.html Create and edit a fraudster watchlist>
     -- documentation for the permissions needed in this role.
     dataAccessRoleArn :: Prelude.Text,
-    -- | The identifier of the domain containing the fraudster registration job
-    -- and in which the fraudsters are registered.
+    -- | The identifier of the domain that contains the fraudster registration
+    -- job and in which the fraudsters are registered.
     domainId :: Prelude.Text,
     -- | The input data config containing an S3 URI for the input manifest file
     -- that contains the list of fraudster registration requests.
@@ -91,8 +93,10 @@ data StartFraudsterRegistrationJob = StartFraudsterRegistrationJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'startFraudsterRegistrationJob_clientToken' - The idempotency token for starting a new fraudster registration job. If
--- not provided, Amazon Web Services SDK populates this field.
+-- 'clientToken', 'startFraudsterRegistrationJob_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'jobName', 'startFraudsterRegistrationJob_jobName' - The name of the new fraudster registration job.
 --
@@ -106,8 +110,8 @@ data StartFraudsterRegistrationJob = StartFraudsterRegistrationJob'
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/voiceid-fraudster-watchlist.html Create and edit a fraudster watchlist>
 -- documentation for the permissions needed in this role.
 --
--- 'domainId', 'startFraudsterRegistrationJob_domainId' - The identifier of the domain containing the fraudster registration job
--- and in which the fraudsters are registered.
+-- 'domainId', 'startFraudsterRegistrationJob_domainId' - The identifier of the domain that contains the fraudster registration
+-- job and in which the fraudsters are registered.
 --
 -- 'inputDataConfig', 'startFraudsterRegistrationJob_inputDataConfig' - The input data config containing an S3 URI for the input manifest file
 -- that contains the list of fraudster registration requests.
@@ -141,8 +145,10 @@ newStartFraudsterRegistrationJob
         outputDataConfig = pOutputDataConfig_
       }
 
--- | The idempotency token for starting a new fraudster registration job. If
--- not provided, Amazon Web Services SDK populates this field.
+-- | A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 startFraudsterRegistrationJob_clientToken :: Lens.Lens' StartFraudsterRegistrationJob (Prelude.Maybe Prelude.Text)
 startFraudsterRegistrationJob_clientToken = Lens.lens (\StartFraudsterRegistrationJob' {clientToken} -> clientToken) (\s@StartFraudsterRegistrationJob' {} a -> s {clientToken = a} :: StartFraudsterRegistrationJob)
 
@@ -164,8 +170,8 @@ startFraudsterRegistrationJob_registrationConfig = Lens.lens (\StartFraudsterReg
 startFraudsterRegistrationJob_dataAccessRoleArn :: Lens.Lens' StartFraudsterRegistrationJob Prelude.Text
 startFraudsterRegistrationJob_dataAccessRoleArn = Lens.lens (\StartFraudsterRegistrationJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartFraudsterRegistrationJob' {} a -> s {dataAccessRoleArn = a} :: StartFraudsterRegistrationJob)
 
--- | The identifier of the domain containing the fraudster registration job
--- and in which the fraudsters are registered.
+-- | The identifier of the domain that contains the fraudster registration
+-- job and in which the fraudsters are registered.
 startFraudsterRegistrationJob_domainId :: Lens.Lens' StartFraudsterRegistrationJob Prelude.Text
 startFraudsterRegistrationJob_domainId = Lens.lens (\StartFraudsterRegistrationJob' {domainId} -> domainId) (\s@StartFraudsterRegistrationJob' {} a -> s {domainId = a} :: StartFraudsterRegistrationJob)
 
@@ -202,7 +208,8 @@ instance
     StartFraudsterRegistrationJob
   where
   hashWithSalt _salt StartFraudsterRegistrationJob' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` registrationConfig
       `Prelude.hashWithSalt` dataAccessRoleArn

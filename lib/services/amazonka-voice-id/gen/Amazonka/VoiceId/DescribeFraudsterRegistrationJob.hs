@@ -50,9 +50,10 @@ import Amazonka.VoiceId.Types
 
 -- | /See:/ 'newDescribeFraudsterRegistrationJob' smart constructor.
 data DescribeFraudsterRegistrationJob = DescribeFraudsterRegistrationJob'
-  { -- | The identifier for the domain containing the fraudster registration job.
+  { -- | The identifier of the domain that contains the fraudster registration
+    -- job.
     domainId :: Prelude.Text,
-    -- | The identifier for the fraudster registration job you are describing.
+    -- | The identifier of the fraudster registration job you are describing.
     jobId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,9 +66,10 @@ data DescribeFraudsterRegistrationJob = DescribeFraudsterRegistrationJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainId', 'describeFraudsterRegistrationJob_domainId' - The identifier for the domain containing the fraudster registration job.
+-- 'domainId', 'describeFraudsterRegistrationJob_domainId' - The identifier of the domain that contains the fraudster registration
+-- job.
 --
--- 'jobId', 'describeFraudsterRegistrationJob_jobId' - The identifier for the fraudster registration job you are describing.
+-- 'jobId', 'describeFraudsterRegistrationJob_jobId' - The identifier of the fraudster registration job you are describing.
 newDescribeFraudsterRegistrationJob ::
   -- | 'domainId'
   Prelude.Text ->
@@ -83,11 +85,12 @@ newDescribeFraudsterRegistrationJob
         jobId = pJobId_
       }
 
--- | The identifier for the domain containing the fraudster registration job.
+-- | The identifier of the domain that contains the fraudster registration
+-- job.
 describeFraudsterRegistrationJob_domainId :: Lens.Lens' DescribeFraudsterRegistrationJob Prelude.Text
 describeFraudsterRegistrationJob_domainId = Lens.lens (\DescribeFraudsterRegistrationJob' {domainId} -> domainId) (\s@DescribeFraudsterRegistrationJob' {} a -> s {domainId = a} :: DescribeFraudsterRegistrationJob)
 
--- | The identifier for the fraudster registration job you are describing.
+-- | The identifier of the fraudster registration job you are describing.
 describeFraudsterRegistrationJob_jobId :: Lens.Lens' DescribeFraudsterRegistrationJob Prelude.Text
 describeFraudsterRegistrationJob_jobId = Lens.lens (\DescribeFraudsterRegistrationJob' {jobId} -> jobId) (\s@DescribeFraudsterRegistrationJob' {} a -> s {jobId = a} :: DescribeFraudsterRegistrationJob)
 
@@ -115,7 +118,8 @@ instance
   hashWithSalt
     _salt
     DescribeFraudsterRegistrationJob' {..} =
-      _salt `Prelude.hashWithSalt` domainId
+      _salt
+        `Prelude.hashWithSalt` domainId
         `Prelude.hashWithSalt` jobId
 
 instance

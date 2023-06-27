@@ -104,7 +104,8 @@ instance Core.AWSRequest DescribeSpeaker where
 
 instance Prelude.Hashable DescribeSpeaker where
   hashWithSalt _salt DescribeSpeaker' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` speakerId
 
 instance Prelude.NFData DescribeSpeaker where

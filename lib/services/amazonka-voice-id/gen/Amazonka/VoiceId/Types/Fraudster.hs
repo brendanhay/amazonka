@@ -28,12 +28,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFraudster' smart constructor.
 data Fraudster = Fraudster'
-  { -- | The timestamp when Voice ID identified the fraudster.
+  { -- | The timestamp of when Voice ID identified the fraudster.
     createdAt :: Prelude.Maybe Data.POSIX,
-    -- | The identifier for the domain containing the fraudster.
+    -- | The identifier of the domain that contains the fraudster.
     domainId :: Prelude.Maybe Prelude.Text,
     -- | The service-generated identifier for the fraudster.
-    generatedFraudsterId :: Prelude.Maybe Prelude.Text
+    generatedFraudsterId :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the watchlists the fraudster is a part of.
+    watchlistIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +47,38 @@ data Fraudster = Fraudster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'fraudster_createdAt' - The timestamp when Voice ID identified the fraudster.
+-- 'createdAt', 'fraudster_createdAt' - The timestamp of when Voice ID identified the fraudster.
 --
--- 'domainId', 'fraudster_domainId' - The identifier for the domain containing the fraudster.
+-- 'domainId', 'fraudster_domainId' - The identifier of the domain that contains the fraudster.
 --
 -- 'generatedFraudsterId', 'fraudster_generatedFraudsterId' - The service-generated identifier for the fraudster.
+--
+-- 'watchlistIds', 'fraudster_watchlistIds' - The identifier of the watchlists the fraudster is a part of.
 newFraudster ::
   Fraudster
 newFraudster =
   Fraudster'
     { createdAt = Prelude.Nothing,
       domainId = Prelude.Nothing,
-      generatedFraudsterId = Prelude.Nothing
+      generatedFraudsterId = Prelude.Nothing,
+      watchlistIds = Prelude.Nothing
     }
 
--- | The timestamp when Voice ID identified the fraudster.
+-- | The timestamp of when Voice ID identified the fraudster.
 fraudster_createdAt :: Lens.Lens' Fraudster (Prelude.Maybe Prelude.UTCTime)
 fraudster_createdAt = Lens.lens (\Fraudster' {createdAt} -> createdAt) (\s@Fraudster' {} a -> s {createdAt = a} :: Fraudster) Prelude.. Lens.mapping Data._Time
 
--- | The identifier for the domain containing the fraudster.
+-- | The identifier of the domain that contains the fraudster.
 fraudster_domainId :: Lens.Lens' Fraudster (Prelude.Maybe Prelude.Text)
 fraudster_domainId = Lens.lens (\Fraudster' {domainId} -> domainId) (\s@Fraudster' {} a -> s {domainId = a} :: Fraudster)
 
 -- | The service-generated identifier for the fraudster.
 fraudster_generatedFraudsterId :: Lens.Lens' Fraudster (Prelude.Maybe Prelude.Text)
 fraudster_generatedFraudsterId = Lens.lens (\Fraudster' {generatedFraudsterId} -> generatedFraudsterId) (\s@Fraudster' {} a -> s {generatedFraudsterId = a} :: Fraudster)
+
+-- | The identifier of the watchlists the fraudster is a part of.
+fraudster_watchlistIds :: Lens.Lens' Fraudster (Prelude.Maybe [Prelude.Text])
+fraudster_watchlistIds = Lens.lens (\Fraudster' {watchlistIds} -> watchlistIds) (\s@Fraudster' {} a -> s {watchlistIds = a} :: Fraudster) Prelude.. Lens.mapping Lens.coerced
 
 instance Data.FromJSON Fraudster where
   parseJSON =
@@ -80,16 +89,20 @@ instance Data.FromJSON Fraudster where
             Prelude.<$> (x Data..:? "CreatedAt")
             Prelude.<*> (x Data..:? "DomainId")
             Prelude.<*> (x Data..:? "GeneratedFraudsterId")
+            Prelude.<*> (x Data..:? "WatchlistIds" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Fraudster where
   hashWithSalt _salt Fraudster' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` generatedFraudsterId
+      `Prelude.hashWithSalt` watchlistIds
 
 instance Prelude.NFData Fraudster where
   rnf Fraudster' {..} =
     Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf generatedFraudsterId
+      `Prelude.seq` Prelude.rnf watchlistIds

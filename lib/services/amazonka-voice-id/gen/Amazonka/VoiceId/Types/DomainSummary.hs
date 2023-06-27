@@ -26,6 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.VoiceId.Types.DomainStatus
 import Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration
 import Amazonka.VoiceId.Types.ServerSideEncryptionUpdateDetails
+import Amazonka.VoiceId.Types.WatchlistDetails
 
 -- | Contains a summary of information about a domain.
 --
@@ -33,11 +34,11 @@ import Amazonka.VoiceId.Types.ServerSideEncryptionUpdateDetails
 data DomainSummary = DomainSummary'
   { -- | The Amazon Resource Name (ARN) for the domain.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp showing when the domain is created.
+    -- | The timestamp of when the domain was created.
     createdAt :: Prelude.Maybe Data.POSIX,
-    -- | The client-provided description of the domain.
+    -- | The description of the domain.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The service-generated identifier for the domain.
+    -- | The identifier of the domain.
     domainId :: Prelude.Maybe Prelude.Text,
     -- | The current status of the domain.
     domainStatus :: Prelude.Maybe DomainStatus,
@@ -52,8 +53,10 @@ data DomainSummary = DomainSummary'
     -- process. When this update is complete, the domain\'s data can only be
     -- accessed using the new KMS key.
     serverSideEncryptionUpdateDetails :: Prelude.Maybe ServerSideEncryptionUpdateDetails,
-    -- | The timestamp showing the domain\'s last update.
-    updatedAt :: Prelude.Maybe Data.POSIX
+    -- | The timestamp of when the domain was last updated.
+    updatedAt :: Prelude.Maybe Data.POSIX,
+    -- | Provides information about @watchlistDetails@ and @DefaultWatchlistID@.
+    watchlistDetails :: Prelude.Maybe WatchlistDetails
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -67,11 +70,11 @@ data DomainSummary = DomainSummary'
 --
 -- 'arn', 'domainSummary_arn' - The Amazon Resource Name (ARN) for the domain.
 --
--- 'createdAt', 'domainSummary_createdAt' - The timestamp showing when the domain is created.
+-- 'createdAt', 'domainSummary_createdAt' - The timestamp of when the domain was created.
 --
--- 'description', 'domainSummary_description' - The client-provided description of the domain.
+-- 'description', 'domainSummary_description' - The description of the domain.
 --
--- 'domainId', 'domainSummary_domainId' - The service-generated identifier for the domain.
+-- 'domainId', 'domainSummary_domainId' - The identifier of the domain.
 --
 -- 'domainStatus', 'domainSummary_domainStatus' - The current status of the domain.
 --
@@ -86,7 +89,9 @@ data DomainSummary = DomainSummary'
 -- process. When this update is complete, the domain\'s data can only be
 -- accessed using the new KMS key.
 --
--- 'updatedAt', 'domainSummary_updatedAt' - The timestamp showing the domain\'s last update.
+-- 'updatedAt', 'domainSummary_updatedAt' - The timestamp of when the domain was last updated.
+--
+-- 'watchlistDetails', 'domainSummary_watchlistDetails' - Provides information about @watchlistDetails@ and @DefaultWatchlistID@.
 newDomainSummary ::
   DomainSummary
 newDomainSummary =
@@ -99,22 +104,23 @@ newDomainSummary =
       name = Prelude.Nothing,
       serverSideEncryptionConfiguration = Prelude.Nothing,
       serverSideEncryptionUpdateDetails = Prelude.Nothing,
-      updatedAt = Prelude.Nothing
+      updatedAt = Prelude.Nothing,
+      watchlistDetails = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) for the domain.
 domainSummary_arn :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
 domainSummary_arn = Lens.lens (\DomainSummary' {arn} -> arn) (\s@DomainSummary' {} a -> s {arn = a} :: DomainSummary)
 
--- | The timestamp showing when the domain is created.
+-- | The timestamp of when the domain was created.
 domainSummary_createdAt :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.UTCTime)
 domainSummary_createdAt = Lens.lens (\DomainSummary' {createdAt} -> createdAt) (\s@DomainSummary' {} a -> s {createdAt = a} :: DomainSummary) Prelude.. Lens.mapping Data._Time
 
--- | The client-provided description of the domain.
+-- | The description of the domain.
 domainSummary_description :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
 domainSummary_description = Lens.lens (\DomainSummary' {description} -> description) (\s@DomainSummary' {} a -> s {description = a} :: DomainSummary) Prelude.. Lens.mapping Data._Sensitive
 
--- | The service-generated identifier for the domain.
+-- | The identifier of the domain.
 domainSummary_domainId :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
 domainSummary_domainId = Lens.lens (\DomainSummary' {domainId} -> domainId) (\s@DomainSummary' {} a -> s {domainId = a} :: DomainSummary)
 
@@ -139,9 +145,13 @@ domainSummary_serverSideEncryptionConfiguration = Lens.lens (\DomainSummary' {se
 domainSummary_serverSideEncryptionUpdateDetails :: Lens.Lens' DomainSummary (Prelude.Maybe ServerSideEncryptionUpdateDetails)
 domainSummary_serverSideEncryptionUpdateDetails = Lens.lens (\DomainSummary' {serverSideEncryptionUpdateDetails} -> serverSideEncryptionUpdateDetails) (\s@DomainSummary' {} a -> s {serverSideEncryptionUpdateDetails = a} :: DomainSummary)
 
--- | The timestamp showing the domain\'s last update.
+-- | The timestamp of when the domain was last updated.
 domainSummary_updatedAt :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.UTCTime)
 domainSummary_updatedAt = Lens.lens (\DomainSummary' {updatedAt} -> updatedAt) (\s@DomainSummary' {} a -> s {updatedAt = a} :: DomainSummary) Prelude.. Lens.mapping Data._Time
+
+-- | Provides information about @watchlistDetails@ and @DefaultWatchlistID@.
+domainSummary_watchlistDetails :: Lens.Lens' DomainSummary (Prelude.Maybe WatchlistDetails)
+domainSummary_watchlistDetails = Lens.lens (\DomainSummary' {watchlistDetails} -> watchlistDetails) (\s@DomainSummary' {} a -> s {watchlistDetails = a} :: DomainSummary)
 
 instance Data.FromJSON DomainSummary where
   parseJSON =
@@ -158,11 +168,13 @@ instance Data.FromJSON DomainSummary where
             Prelude.<*> (x Data..:? "ServerSideEncryptionConfiguration")
             Prelude.<*> (x Data..:? "ServerSideEncryptionUpdateDetails")
             Prelude.<*> (x Data..:? "UpdatedAt")
+            Prelude.<*> (x Data..:? "WatchlistDetails")
       )
 
 instance Prelude.Hashable DomainSummary where
   hashWithSalt _salt DomainSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` domainId
@@ -171,6 +183,7 @@ instance Prelude.Hashable DomainSummary where
       `Prelude.hashWithSalt` serverSideEncryptionConfiguration
       `Prelude.hashWithSalt` serverSideEncryptionUpdateDetails
       `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` watchlistDetails
 
 instance Prelude.NFData DomainSummary where
   rnf DomainSummary' {..} =
@@ -183,3 +196,4 @@ instance Prelude.NFData DomainSummary where
       `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
       `Prelude.seq` Prelude.rnf serverSideEncryptionUpdateDetails
       `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf watchlistDetails

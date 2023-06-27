@@ -54,7 +54,7 @@ import Amazonka.VoiceId.Types
 
 -- | /See:/ 'newUpdateDomain' smart constructor.
 data UpdateDomain = UpdateDomain'
-  { -- | A brief description of the domain.
+  { -- | A brief description about this domain.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The identifier of the domain to be updated.
     domainId :: Prelude.Text,
@@ -79,7 +79,7 @@ data UpdateDomain = UpdateDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'updateDomain_description' - A brief description of the domain.
+-- 'description', 'updateDomain_description' - A brief description about this domain.
 --
 -- 'domainId', 'updateDomain_domainId' - The identifier of the domain to be updated.
 --
@@ -112,7 +112,7 @@ newUpdateDomain
           pServerSideEncryptionConfiguration_
       }
 
--- | A brief description of the domain.
+-- | A brief description about this domain.
 updateDomain_description :: Lens.Lens' UpdateDomain (Prelude.Maybe Prelude.Text)
 updateDomain_description = Lens.lens (\UpdateDomain' {description} -> description) (\s@UpdateDomain' {} a -> s {description = a} :: UpdateDomain) Prelude.. Lens.mapping Data._Sensitive
 
@@ -148,7 +148,8 @@ instance Core.AWSRequest UpdateDomain where
 
 instance Prelude.Hashable UpdateDomain where
   hashWithSalt _salt UpdateDomain' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` serverSideEncryptionConfiguration

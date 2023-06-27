@@ -26,6 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.VoiceId.Types.DomainStatus
 import Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration
 import Amazonka.VoiceId.Types.ServerSideEncryptionUpdateDetails
+import Amazonka.VoiceId.Types.WatchlistDetails
 
 -- | Contains all the information about a domain.
 --
@@ -33,15 +34,15 @@ import Amazonka.VoiceId.Types.ServerSideEncryptionUpdateDetails
 data Domain = Domain'
   { -- | The Amazon Resource Name (ARN) for the domain.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp at which the domain is created.
+    -- | The timestamp of when the domain was created.
     createdAt :: Prelude.Maybe Data.POSIX,
-    -- | The client-provided description of the domain.
+    -- | The description of the domain.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The service-generated identifier for the domain.
+    -- | The identifier of the domain.
     domainId :: Prelude.Maybe Prelude.Text,
     -- | The current status of the domain.
     domainStatus :: Prelude.Maybe DomainStatus,
-    -- | The client-provided name for the domain.
+    -- | The name for the domain.
     name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The server-side encryption configuration containing the KMS key
     -- identifier you want Voice ID to use to encrypt your data.
@@ -52,8 +53,11 @@ data Domain = Domain'
     -- process. When this update is complete, the domain\'s data can only be
     -- accessed using the new KMS key.
     serverSideEncryptionUpdateDetails :: Prelude.Maybe ServerSideEncryptionUpdateDetails,
-    -- | The timestamp showing the domain\'s last update.
-    updatedAt :: Prelude.Maybe Data.POSIX
+    -- | The timestamp of when the domain was last update.
+    updatedAt :: Prelude.Maybe Data.POSIX,
+    -- | The watchlist details of a domain. Contains the default watchlist ID of
+    -- the domain.
+    watchlistDetails :: Prelude.Maybe WatchlistDetails
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -67,15 +71,15 @@ data Domain = Domain'
 --
 -- 'arn', 'domain_arn' - The Amazon Resource Name (ARN) for the domain.
 --
--- 'createdAt', 'domain_createdAt' - The timestamp at which the domain is created.
+-- 'createdAt', 'domain_createdAt' - The timestamp of when the domain was created.
 --
--- 'description', 'domain_description' - The client-provided description of the domain.
+-- 'description', 'domain_description' - The description of the domain.
 --
--- 'domainId', 'domain_domainId' - The service-generated identifier for the domain.
+-- 'domainId', 'domain_domainId' - The identifier of the domain.
 --
 -- 'domainStatus', 'domain_domainStatus' - The current status of the domain.
 --
--- 'name', 'domain_name' - The client-provided name for the domain.
+-- 'name', 'domain_name' - The name for the domain.
 --
 -- 'serverSideEncryptionConfiguration', 'domain_serverSideEncryptionConfiguration' - The server-side encryption configuration containing the KMS key
 -- identifier you want Voice ID to use to encrypt your data.
@@ -86,7 +90,10 @@ data Domain = Domain'
 -- process. When this update is complete, the domain\'s data can only be
 -- accessed using the new KMS key.
 --
--- 'updatedAt', 'domain_updatedAt' - The timestamp showing the domain\'s last update.
+-- 'updatedAt', 'domain_updatedAt' - The timestamp of when the domain was last update.
+--
+-- 'watchlistDetails', 'domain_watchlistDetails' - The watchlist details of a domain. Contains the default watchlist ID of
+-- the domain.
 newDomain ::
   Domain
 newDomain =
@@ -99,22 +106,23 @@ newDomain =
       name = Prelude.Nothing,
       serverSideEncryptionConfiguration = Prelude.Nothing,
       serverSideEncryptionUpdateDetails = Prelude.Nothing,
-      updatedAt = Prelude.Nothing
+      updatedAt = Prelude.Nothing,
+      watchlistDetails = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) for the domain.
 domain_arn :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
 domain_arn = Lens.lens (\Domain' {arn} -> arn) (\s@Domain' {} a -> s {arn = a} :: Domain)
 
--- | The timestamp at which the domain is created.
+-- | The timestamp of when the domain was created.
 domain_createdAt :: Lens.Lens' Domain (Prelude.Maybe Prelude.UTCTime)
 domain_createdAt = Lens.lens (\Domain' {createdAt} -> createdAt) (\s@Domain' {} a -> s {createdAt = a} :: Domain) Prelude.. Lens.mapping Data._Time
 
--- | The client-provided description of the domain.
+-- | The description of the domain.
 domain_description :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
 domain_description = Lens.lens (\Domain' {description} -> description) (\s@Domain' {} a -> s {description = a} :: Domain) Prelude.. Lens.mapping Data._Sensitive
 
--- | The service-generated identifier for the domain.
+-- | The identifier of the domain.
 domain_domainId :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
 domain_domainId = Lens.lens (\Domain' {domainId} -> domainId) (\s@Domain' {} a -> s {domainId = a} :: Domain)
 
@@ -122,7 +130,7 @@ domain_domainId = Lens.lens (\Domain' {domainId} -> domainId) (\s@Domain' {} a -
 domain_domainStatus :: Lens.Lens' Domain (Prelude.Maybe DomainStatus)
 domain_domainStatus = Lens.lens (\Domain' {domainStatus} -> domainStatus) (\s@Domain' {} a -> s {domainStatus = a} :: Domain)
 
--- | The client-provided name for the domain.
+-- | The name for the domain.
 domain_name :: Lens.Lens' Domain (Prelude.Maybe Prelude.Text)
 domain_name = Lens.lens (\Domain' {name} -> name) (\s@Domain' {} a -> s {name = a} :: Domain) Prelude.. Lens.mapping Data._Sensitive
 
@@ -139,9 +147,14 @@ domain_serverSideEncryptionConfiguration = Lens.lens (\Domain' {serverSideEncryp
 domain_serverSideEncryptionUpdateDetails :: Lens.Lens' Domain (Prelude.Maybe ServerSideEncryptionUpdateDetails)
 domain_serverSideEncryptionUpdateDetails = Lens.lens (\Domain' {serverSideEncryptionUpdateDetails} -> serverSideEncryptionUpdateDetails) (\s@Domain' {} a -> s {serverSideEncryptionUpdateDetails = a} :: Domain)
 
--- | The timestamp showing the domain\'s last update.
+-- | The timestamp of when the domain was last update.
 domain_updatedAt :: Lens.Lens' Domain (Prelude.Maybe Prelude.UTCTime)
 domain_updatedAt = Lens.lens (\Domain' {updatedAt} -> updatedAt) (\s@Domain' {} a -> s {updatedAt = a} :: Domain) Prelude.. Lens.mapping Data._Time
+
+-- | The watchlist details of a domain. Contains the default watchlist ID of
+-- the domain.
+domain_watchlistDetails :: Lens.Lens' Domain (Prelude.Maybe WatchlistDetails)
+domain_watchlistDetails = Lens.lens (\Domain' {watchlistDetails} -> watchlistDetails) (\s@Domain' {} a -> s {watchlistDetails = a} :: Domain)
 
 instance Data.FromJSON Domain where
   parseJSON =
@@ -158,11 +171,13 @@ instance Data.FromJSON Domain where
             Prelude.<*> (x Data..:? "ServerSideEncryptionConfiguration")
             Prelude.<*> (x Data..:? "ServerSideEncryptionUpdateDetails")
             Prelude.<*> (x Data..:? "UpdatedAt")
+            Prelude.<*> (x Data..:? "WatchlistDetails")
       )
 
 instance Prelude.Hashable Domain where
   hashWithSalt _salt Domain' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` domainId
@@ -171,6 +186,7 @@ instance Prelude.Hashable Domain where
       `Prelude.hashWithSalt` serverSideEncryptionConfiguration
       `Prelude.hashWithSalt` serverSideEncryptionUpdateDetails
       `Prelude.hashWithSalt` updatedAt
+      `Prelude.hashWithSalt` watchlistDetails
 
 instance Prelude.NFData Domain where
   rnf Domain' {..} =
@@ -183,3 +199,4 @@ instance Prelude.NFData Domain where
       `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
       `Prelude.seq` Prelude.rnf serverSideEncryptionUpdateDetails
       `Prelude.seq` Prelude.rnf updatedAt
+      `Prelude.seq` Prelude.rnf watchlistDetails

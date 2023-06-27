@@ -55,7 +55,7 @@ import Amazonka.VoiceId.Types
 -- | /See:/ 'newListSpeakers' smart constructor.
 data ListSpeakers = ListSpeakers'
   { -- | The maximum number of results that are returned per call. You can use
-    -- @NextToken@ to obtain further pages of results. The default is 100; the
+    -- @NextToken@ to obtain more pages of results. The default is 100; the
     -- maximum allowed page size is also 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | If @NextToken@ is returned, there are more results available. The value
@@ -77,7 +77,7 @@ data ListSpeakers = ListSpeakers'
 -- for backwards compatibility:
 --
 -- 'maxResults', 'listSpeakers_maxResults' - The maximum number of results that are returned per call. You can use
--- @NextToken@ to obtain further pages of results. The default is 100; the
+-- @NextToken@ to obtain more pages of results. The default is 100; the
 -- maximum allowed page size is also 100.
 --
 -- 'nextToken', 'listSpeakers_nextToken' - If @NextToken@ is returned, there are more results available. The value
@@ -98,7 +98,7 @@ newListSpeakers pDomainId_ =
     }
 
 -- | The maximum number of results that are returned per call. You can use
--- @NextToken@ to obtain further pages of results. The default is 100; the
+-- @NextToken@ to obtain more pages of results. The default is 100; the
 -- maximum allowed page size is also 100.
 listSpeakers_maxResults :: Lens.Lens' ListSpeakers (Prelude.Maybe Prelude.Natural)
 listSpeakers_maxResults = Lens.lens (\ListSpeakers' {maxResults} -> maxResults) (\s@ListSpeakers' {} a -> s {maxResults = a} :: ListSpeakers)
@@ -118,21 +118,23 @@ instance Core.AWSPager ListSpeakers where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listSpeakersResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listSpeakersResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSpeakersResponse_speakerSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSpeakers_nextToken
           Lens..~ rs
-          Lens.^? listSpeakersResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listSpeakersResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSpeakers where
   type AWSResponse ListSpeakers = ListSpeakersResponse
@@ -143,7 +145,8 @@ instance Core.AWSRequest ListSpeakers where
       ( \s h x ->
           ListSpeakersResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "SpeakerSummaries"
+            Prelude.<*> ( x
+                            Data..?> "SpeakerSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -151,7 +154,8 @@ instance Core.AWSRequest ListSpeakers where
 
 instance Prelude.Hashable ListSpeakers where
   hashWithSalt _salt ListSpeakers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainId
 

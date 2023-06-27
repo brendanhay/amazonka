@@ -12,7 +12,8 @@
 -- Derived from API version @2021-09-27@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- Amazon Connect Voice ID provides real-time caller authentication and
--- fraud screening. This guide describes the APIs used for this service.
+-- fraud risk detection, which make voice interactions in contact centers
+-- more secure and efficient.
 module Amazonka.VoiceId
   ( -- * Service Configuration
     defaultService,
@@ -47,11 +48,23 @@ module Amazonka.VoiceId
     -- * Operations
     -- $operations
 
+    -- ** AssociateFraudster
+    AssociateFraudster (AssociateFraudster'),
+    newAssociateFraudster,
+    AssociateFraudsterResponse (AssociateFraudsterResponse'),
+    newAssociateFraudsterResponse,
+
     -- ** CreateDomain
     CreateDomain (CreateDomain'),
     newCreateDomain,
     CreateDomainResponse (CreateDomainResponse'),
     newCreateDomainResponse,
+
+    -- ** CreateWatchlist
+    CreateWatchlist (CreateWatchlist'),
+    newCreateWatchlist,
+    CreateWatchlistResponse (CreateWatchlistResponse'),
+    newCreateWatchlistResponse,
 
     -- ** DeleteDomain
     DeleteDomain (DeleteDomain'),
@@ -70,6 +83,12 @@ module Amazonka.VoiceId
     newDeleteSpeaker,
     DeleteSpeakerResponse (DeleteSpeakerResponse'),
     newDeleteSpeakerResponse,
+
+    -- ** DeleteWatchlist
+    DeleteWatchlist (DeleteWatchlist'),
+    newDeleteWatchlist,
+    DeleteWatchlistResponse (DeleteWatchlistResponse'),
+    newDeleteWatchlistResponse,
 
     -- ** DescribeDomain
     DescribeDomain (DescribeDomain'),
@@ -101,6 +120,18 @@ module Amazonka.VoiceId
     DescribeSpeakerEnrollmentJobResponse (DescribeSpeakerEnrollmentJobResponse'),
     newDescribeSpeakerEnrollmentJobResponse,
 
+    -- ** DescribeWatchlist
+    DescribeWatchlist (DescribeWatchlist'),
+    newDescribeWatchlist,
+    DescribeWatchlistResponse (DescribeWatchlistResponse'),
+    newDescribeWatchlistResponse,
+
+    -- ** DisassociateFraudster
+    DisassociateFraudster (DisassociateFraudster'),
+    newDisassociateFraudster,
+    DisassociateFraudsterResponse (DisassociateFraudsterResponse'),
+    newDisassociateFraudsterResponse,
+
     -- ** EvaluateSession
     EvaluateSession (EvaluateSession'),
     newEvaluateSession,
@@ -119,6 +150,12 @@ module Amazonka.VoiceId
     ListFraudsterRegistrationJobsResponse (ListFraudsterRegistrationJobsResponse'),
     newListFraudsterRegistrationJobsResponse,
 
+    -- ** ListFraudsters (Paginated)
+    ListFraudsters (ListFraudsters'),
+    newListFraudsters,
+    ListFraudstersResponse (ListFraudstersResponse'),
+    newListFraudstersResponse,
+
     -- ** ListSpeakerEnrollmentJobs (Paginated)
     ListSpeakerEnrollmentJobs (ListSpeakerEnrollmentJobs'),
     newListSpeakerEnrollmentJobs,
@@ -136,6 +173,12 @@ module Amazonka.VoiceId
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
+
+    -- ** ListWatchlists (Paginated)
+    ListWatchlists (ListWatchlists'),
+    newListWatchlists,
+    ListWatchlistsResponse (ListWatchlistsResponse'),
+    newListWatchlistsResponse,
 
     -- ** OptOutSpeaker
     OptOutSpeaker (OptOutSpeaker'),
@@ -172,6 +215,12 @@ module Amazonka.VoiceId
     newUpdateDomain,
     UpdateDomainResponse (UpdateDomainResponse'),
     newUpdateDomainResponse,
+
+    -- ** UpdateWatchlist
+    UpdateWatchlist (UpdateWatchlist'),
+    newUpdateWatchlist,
+    UpdateWatchlistResponse (UpdateWatchlistResponse'),
+    newUpdateWatchlistResponse,
 
     -- * Types
 
@@ -263,6 +312,10 @@ module Amazonka.VoiceId
     FraudsterRegistrationJobSummary (FraudsterRegistrationJobSummary'),
     newFraudsterRegistrationJobSummary,
 
+    -- ** FraudsterSummary
+    FraudsterSummary (FraudsterSummary'),
+    newFraudsterSummary,
+
     -- ** InputDataConfig
     InputDataConfig (InputDataConfig'),
     newInputDataConfig,
@@ -314,25 +367,44 @@ module Amazonka.VoiceId
     -- ** VoiceSpoofingRisk
     VoiceSpoofingRisk (VoiceSpoofingRisk'),
     newVoiceSpoofingRisk,
+
+    -- ** Watchlist
+    Watchlist (Watchlist'),
+    newWatchlist,
+
+    -- ** WatchlistDetails
+    WatchlistDetails (WatchlistDetails'),
+    newWatchlistDetails,
+
+    -- ** WatchlistSummary
+    WatchlistSummary (WatchlistSummary'),
+    newWatchlistSummary,
   )
 where
 
+import Amazonka.VoiceId.AssociateFraudster
 import Amazonka.VoiceId.CreateDomain
+import Amazonka.VoiceId.CreateWatchlist
 import Amazonka.VoiceId.DeleteDomain
 import Amazonka.VoiceId.DeleteFraudster
 import Amazonka.VoiceId.DeleteSpeaker
+import Amazonka.VoiceId.DeleteWatchlist
 import Amazonka.VoiceId.DescribeDomain
 import Amazonka.VoiceId.DescribeFraudster
 import Amazonka.VoiceId.DescribeFraudsterRegistrationJob
 import Amazonka.VoiceId.DescribeSpeaker
 import Amazonka.VoiceId.DescribeSpeakerEnrollmentJob
+import Amazonka.VoiceId.DescribeWatchlist
+import Amazonka.VoiceId.DisassociateFraudster
 import Amazonka.VoiceId.EvaluateSession
 import Amazonka.VoiceId.Lens
 import Amazonka.VoiceId.ListDomains
 import Amazonka.VoiceId.ListFraudsterRegistrationJobs
+import Amazonka.VoiceId.ListFraudsters
 import Amazonka.VoiceId.ListSpeakerEnrollmentJobs
 import Amazonka.VoiceId.ListSpeakers
 import Amazonka.VoiceId.ListTagsForResource
+import Amazonka.VoiceId.ListWatchlists
 import Amazonka.VoiceId.OptOutSpeaker
 import Amazonka.VoiceId.StartFraudsterRegistrationJob
 import Amazonka.VoiceId.StartSpeakerEnrollmentJob
@@ -340,6 +412,7 @@ import Amazonka.VoiceId.TagResource
 import Amazonka.VoiceId.Types
 import Amazonka.VoiceId.UntagResource
 import Amazonka.VoiceId.UpdateDomain
+import Amazonka.VoiceId.UpdateWatchlist
 import Amazonka.VoiceId.Waiters
 
 -- $errors

@@ -31,11 +31,11 @@ import Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus
 --
 -- /See:/ 'newSpeakerEnrollmentJobSummary' smart constructor.
 data SpeakerEnrollmentJobSummary = SpeakerEnrollmentJobSummary'
-  { -- | A timestamp showing the creation time of the speaker enrollment job.
+  { -- | A timestamp of when of the speaker enrollment job was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the domain that contains the speaker enrollment job.
     domainId :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp showing when the speaker enrollment job ended.
+    -- | A timestamp of when the speaker enrollment job ended.
     endedAt :: Prelude.Maybe Data.POSIX,
     -- | Contains details that are populated when an entire batch job fails. In
     -- cases of individual registration job failures, the batch job as a whole
@@ -63,11 +63,11 @@ data SpeakerEnrollmentJobSummary = SpeakerEnrollmentJobSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'speakerEnrollmentJobSummary_createdAt' - A timestamp showing the creation time of the speaker enrollment job.
+-- 'createdAt', 'speakerEnrollmentJobSummary_createdAt' - A timestamp of when of the speaker enrollment job was created.
 --
 -- 'domainId', 'speakerEnrollmentJobSummary_domainId' - The identifier of the domain that contains the speaker enrollment job.
 --
--- 'endedAt', 'speakerEnrollmentJobSummary_endedAt' - A timestamp showing when the speaker enrollment job ended.
+-- 'endedAt', 'speakerEnrollmentJobSummary_endedAt' - A timestamp of when the speaker enrollment job ended.
 --
 -- 'failureDetails', 'speakerEnrollmentJobSummary_failureDetails' - Contains details that are populated when an entire batch job fails. In
 -- cases of individual registration job failures, the batch job as a whole
@@ -98,7 +98,7 @@ newSpeakerEnrollmentJobSummary =
       jobStatus = Prelude.Nothing
     }
 
--- | A timestamp showing the creation time of the speaker enrollment job.
+-- | A timestamp of when of the speaker enrollment job was created.
 speakerEnrollmentJobSummary_createdAt :: Lens.Lens' SpeakerEnrollmentJobSummary (Prelude.Maybe Prelude.UTCTime)
 speakerEnrollmentJobSummary_createdAt = Lens.lens (\SpeakerEnrollmentJobSummary' {createdAt} -> createdAt) (\s@SpeakerEnrollmentJobSummary' {} a -> s {createdAt = a} :: SpeakerEnrollmentJobSummary) Prelude.. Lens.mapping Data._Time
 
@@ -106,7 +106,7 @@ speakerEnrollmentJobSummary_createdAt = Lens.lens (\SpeakerEnrollmentJobSummary'
 speakerEnrollmentJobSummary_domainId :: Lens.Lens' SpeakerEnrollmentJobSummary (Prelude.Maybe Prelude.Text)
 speakerEnrollmentJobSummary_domainId = Lens.lens (\SpeakerEnrollmentJobSummary' {domainId} -> domainId) (\s@SpeakerEnrollmentJobSummary' {} a -> s {domainId = a} :: SpeakerEnrollmentJobSummary)
 
--- | A timestamp showing when the speaker enrollment job ended.
+-- | A timestamp of when the speaker enrollment job ended.
 speakerEnrollmentJobSummary_endedAt :: Lens.Lens' SpeakerEnrollmentJobSummary (Prelude.Maybe Prelude.UTCTime)
 speakerEnrollmentJobSummary_endedAt = Lens.lens (\SpeakerEnrollmentJobSummary' {endedAt} -> endedAt) (\s@SpeakerEnrollmentJobSummary' {} a -> s {endedAt = a} :: SpeakerEnrollmentJobSummary) Prelude.. Lens.mapping Data._Time
 
@@ -153,7 +153,8 @@ instance Data.FromJSON SpeakerEnrollmentJobSummary where
 
 instance Prelude.Hashable SpeakerEnrollmentJobSummary where
   hashWithSalt _salt SpeakerEnrollmentJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` endedAt
       `Prelude.hashWithSalt` failureDetails

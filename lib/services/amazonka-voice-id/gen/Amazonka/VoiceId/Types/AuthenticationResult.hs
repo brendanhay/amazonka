@@ -31,11 +31,11 @@ import Amazonka.VoiceId.Types.AuthenticationDecision
 --
 -- /See:/ 'newAuthenticationResult' smart constructor.
 data AuthenticationResult = AuthenticationResult'
-  { -- | A timestamp indicating when audio aggregation ended for this
-    -- authentication result.
+  { -- | A timestamp of when audio aggregation ended for this authentication
+    -- result.
     audioAggregationEndedAt :: Prelude.Maybe Data.POSIX,
-    -- | A timestamp indicating when audio aggregation started for this
-    -- authentication result.
+    -- | A timestamp of when audio aggregation started for this authentication
+    -- result.
     audioAggregationStartedAt :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier for this authentication result. Because there can
     -- be multiple authentications for a given session, this field helps to
@@ -72,11 +72,11 @@ data AuthenticationResult = AuthenticationResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'audioAggregationEndedAt', 'authenticationResult_audioAggregationEndedAt' - A timestamp indicating when audio aggregation ended for this
--- authentication result.
+-- 'audioAggregationEndedAt', 'authenticationResult_audioAggregationEndedAt' - A timestamp of when audio aggregation ended for this authentication
+-- result.
 --
--- 'audioAggregationStartedAt', 'authenticationResult_audioAggregationStartedAt' - A timestamp indicating when audio aggregation started for this
--- authentication result.
+-- 'audioAggregationStartedAt', 'authenticationResult_audioAggregationStartedAt' - A timestamp of when audio aggregation started for this authentication
+-- result.
 --
 -- 'authenticationResultId', 'authenticationResult_authenticationResultId' - The unique identifier for this authentication result. Because there can
 -- be multiple authentications for a given session, this field helps to
@@ -116,13 +116,13 @@ newAuthenticationResult =
       score = Prelude.Nothing
     }
 
--- | A timestamp indicating when audio aggregation ended for this
--- authentication result.
+-- | A timestamp of when audio aggregation ended for this authentication
+-- result.
 authenticationResult_audioAggregationEndedAt :: Lens.Lens' AuthenticationResult (Prelude.Maybe Prelude.UTCTime)
 authenticationResult_audioAggregationEndedAt = Lens.lens (\AuthenticationResult' {audioAggregationEndedAt} -> audioAggregationEndedAt) (\s@AuthenticationResult' {} a -> s {audioAggregationEndedAt = a} :: AuthenticationResult) Prelude.. Lens.mapping Data._Time
 
--- | A timestamp indicating when audio aggregation started for this
--- authentication result.
+-- | A timestamp of when audio aggregation started for this authentication
+-- result.
 authenticationResult_audioAggregationStartedAt :: Lens.Lens' AuthenticationResult (Prelude.Maybe Prelude.UTCTime)
 authenticationResult_audioAggregationStartedAt = Lens.lens (\AuthenticationResult' {audioAggregationStartedAt} -> audioAggregationStartedAt) (\s@AuthenticationResult' {} a -> s {audioAggregationStartedAt = a} :: AuthenticationResult) Prelude.. Lens.mapping Data._Time
 

@@ -53,7 +53,9 @@ import Amazonka.VoiceId.Types
 
 -- | /See:/ 'newListDomains' smart constructor.
 data ListDomains = ListDomains'
-  { -- | The maximum number of domains to list per API call.
+  { -- | The maximum number of results that are returned per call. You can use
+    -- @NextToken@ to obtain more pages of results. The default is 100; the
+    -- maximum allowed page size is also 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | If @NextToken@ is returned, there are more results available. The value
     -- of @NextToken@ is a unique pagination token for each page. Make the call
@@ -71,7 +73,9 @@ data ListDomains = ListDomains'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'listDomains_maxResults' - The maximum number of domains to list per API call.
+-- 'maxResults', 'listDomains_maxResults' - The maximum number of results that are returned per call. You can use
+-- @NextToken@ to obtain more pages of results. The default is 100; the
+-- maximum allowed page size is also 100.
 --
 -- 'nextToken', 'listDomains_nextToken' - If @NextToken@ is returned, there are more results available. The value
 -- of @NextToken@ is a unique pagination token for each page. Make the call
@@ -85,7 +89,9 @@ newListDomains =
       nextToken = Prelude.Nothing
     }
 
--- | The maximum number of domains to list per API call.
+-- | The maximum number of results that are returned per call. You can use
+-- @NextToken@ to obtain more pages of results. The default is 100; the
+-- maximum allowed page size is also 100.
 listDomains_maxResults :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Natural)
 listDomains_maxResults = Lens.lens (\ListDomains' {maxResults} -> maxResults) (\s@ListDomains' {} a -> s {maxResults = a} :: ListDomains)
 
@@ -100,21 +106,23 @@ instance Core.AWSPager ListDomains where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listDomainsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listDomainsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDomainsResponse_domainSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDomains_nextToken
           Lens..~ rs
-          Lens.^? listDomainsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listDomainsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDomains where
   type AWSResponse ListDomains = ListDomainsResponse
@@ -124,7 +132,8 @@ instance Core.AWSRequest ListDomains where
     Response.receiveJSON
       ( \s h x ->
           ListDomainsResponse'
-            Prelude.<$> ( x Data..?> "DomainSummaries"
+            Prelude.<$> ( x
+                            Data..?> "DomainSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -133,7 +142,8 @@ instance Core.AWSRequest ListDomains where
 
 instance Prelude.Hashable ListDomains where
   hashWithSalt _salt ListDomains' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDomains where

@@ -55,8 +55,10 @@ import Amazonka.VoiceId.Types
 
 -- | /See:/ 'newStartSpeakerEnrollmentJob' smart constructor.
 data StartSpeakerEnrollmentJob = StartSpeakerEnrollmentJob'
-  { -- | The idempotency token for starting a new speaker enrollment Job. If not
-    -- provided, Amazon Web Services SDK populates this field.
+  { -- | A unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. If not provided, the Amazon Web Services SDK
+    -- populates this field. For more information about idempotency, see
+    -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The enrollment config that contains details such as the action to take
     -- when a speaker is already enrolled in Voice ID or when a speaker is
@@ -91,8 +93,10 @@ data StartSpeakerEnrollmentJob = StartSpeakerEnrollmentJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'startSpeakerEnrollmentJob_clientToken' - The idempotency token for starting a new speaker enrollment Job. If not
--- provided, Amazon Web Services SDK populates this field.
+-- 'clientToken', 'startSpeakerEnrollmentJob_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'enrollmentConfig', 'startSpeakerEnrollmentJob_enrollmentConfig' - The enrollment config that contains details such as the action to take
 -- when a speaker is already enrolled in Voice ID or when a speaker is
@@ -141,8 +145,10 @@ newStartSpeakerEnrollmentJob
         outputDataConfig = pOutputDataConfig_
       }
 
--- | The idempotency token for starting a new speaker enrollment Job. If not
--- provided, Amazon Web Services SDK populates this field.
+-- | A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If not provided, the Amazon Web Services SDK
+-- populates this field. For more information about idempotency, see
+-- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 startSpeakerEnrollmentJob_clientToken :: Lens.Lens' StartSpeakerEnrollmentJob (Prelude.Maybe Prelude.Text)
 startSpeakerEnrollmentJob_clientToken = Lens.lens (\StartSpeakerEnrollmentJob' {clientToken} -> clientToken) (\s@StartSpeakerEnrollmentJob' {} a -> s {clientToken = a} :: StartSpeakerEnrollmentJob)
 
@@ -196,7 +202,8 @@ instance Core.AWSRequest StartSpeakerEnrollmentJob where
 
 instance Prelude.Hashable StartSpeakerEnrollmentJob where
   hashWithSalt _salt StartSpeakerEnrollmentJob' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` enrollmentConfig
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` dataAccessRoleArn

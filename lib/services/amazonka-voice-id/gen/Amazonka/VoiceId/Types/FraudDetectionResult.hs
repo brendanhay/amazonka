@@ -33,11 +33,11 @@ import Amazonka.VoiceId.Types.FraudRiskDetails
 --
 -- /See:/ 'newFraudDetectionResult' smart constructor.
 data FraudDetectionResult = FraudDetectionResult'
-  { -- | A timestamp indicating when audio aggregation ended for this fraud
-    -- detection result.
+  { -- | A timestamp of when audio aggregation ended for this fraud detection
+    -- result.
     audioAggregationEndedAt :: Prelude.Maybe Data.POSIX,
-    -- | A timestamp indicating when audio aggregation started for this fraud
-    -- detection result.
+    -- | A timestamp of when audio aggregation started for this fraud detection
+    -- result.
     audioAggregationStartedAt :: Prelude.Maybe Data.POSIX,
     -- | The @FraudDetectionConfiguration@ used to generate this fraud detection
     -- result.
@@ -70,11 +70,11 @@ data FraudDetectionResult = FraudDetectionResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'audioAggregationEndedAt', 'fraudDetectionResult_audioAggregationEndedAt' - A timestamp indicating when audio aggregation ended for this fraud
--- detection result.
+-- 'audioAggregationEndedAt', 'fraudDetectionResult_audioAggregationEndedAt' - A timestamp of when audio aggregation ended for this fraud detection
+-- result.
 --
--- 'audioAggregationStartedAt', 'fraudDetectionResult_audioAggregationStartedAt' - A timestamp indicating when audio aggregation started for this fraud
--- detection result.
+-- 'audioAggregationStartedAt', 'fraudDetectionResult_audioAggregationStartedAt' - A timestamp of when audio aggregation started for this fraud detection
+-- result.
 --
 -- 'configuration', 'fraudDetectionResult_configuration' - The @FraudDetectionConfiguration@ used to generate this fraud detection
 -- result.
@@ -109,13 +109,13 @@ newFraudDetectionResult =
       riskDetails = Prelude.Nothing
     }
 
--- | A timestamp indicating when audio aggregation ended for this fraud
--- detection result.
+-- | A timestamp of when audio aggregation ended for this fraud detection
+-- result.
 fraudDetectionResult_audioAggregationEndedAt :: Lens.Lens' FraudDetectionResult (Prelude.Maybe Prelude.UTCTime)
 fraudDetectionResult_audioAggregationEndedAt = Lens.lens (\FraudDetectionResult' {audioAggregationEndedAt} -> audioAggregationEndedAt) (\s@FraudDetectionResult' {} a -> s {audioAggregationEndedAt = a} :: FraudDetectionResult) Prelude.. Lens.mapping Data._Time
 
--- | A timestamp indicating when audio aggregation started for this fraud
--- detection result.
+-- | A timestamp of when audio aggregation started for this fraud detection
+-- result.
 fraudDetectionResult_audioAggregationStartedAt :: Lens.Lens' FraudDetectionResult (Prelude.Maybe Prelude.UTCTime)
 fraudDetectionResult_audioAggregationStartedAt = Lens.lens (\FraudDetectionResult' {audioAggregationStartedAt} -> audioAggregationStartedAt) (\s@FraudDetectionResult' {} a -> s {audioAggregationStartedAt = a} :: FraudDetectionResult) Prelude.. Lens.mapping Data._Time
 

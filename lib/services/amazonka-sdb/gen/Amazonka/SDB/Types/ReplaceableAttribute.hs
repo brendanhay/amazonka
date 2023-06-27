@@ -80,7 +80,8 @@ replaceableAttribute_value = Lens.lens (\ReplaceableAttribute' {value} -> value)
 
 instance Prelude.Hashable ReplaceableAttribute where
   hashWithSalt _salt ReplaceableAttribute' {..} =
-    _salt `Prelude.hashWithSalt` replace
+    _salt
+      `Prelude.hashWithSalt` replace
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 

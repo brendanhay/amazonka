@@ -88,8 +88,8 @@ instance
       ( \x ->
           ListResourcesAssociatedToCustomLineItemResponseElement'
             Prelude.<$> (x Data..:? "Arn")
-              Prelude.<*> (x Data..:? "EndBillingPeriod")
-              Prelude.<*> (x Data..:? "Relationship")
+            Prelude.<*> (x Data..:? "EndBillingPeriod")
+            Prelude.<*> (x Data..:? "Relationship")
       )
 
 instance
@@ -99,7 +99,8 @@ instance
   hashWithSalt
     _salt
     ListResourcesAssociatedToCustomLineItemResponseElement' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` endBillingPeriod
         `Prelude.hashWithSalt` relationship
 

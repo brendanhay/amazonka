@@ -78,9 +78,11 @@ module Amazonka.BillingConductor.Lens
     createPricingRule_clientToken,
     createPricingRule_description,
     createPricingRule_modifierPercentage,
+    createPricingRule_operation,
     createPricingRule_service,
     createPricingRule_tags,
     createPricingRule_tiering,
+    createPricingRule_usageType,
     createPricingRule_name,
     createPricingRule_scope,
     createPricingRule_type,
@@ -289,10 +291,12 @@ module Amazonka.BillingConductor.Lens
     updatePricingRuleResponse_lastModifiedTime,
     updatePricingRuleResponse_modifierPercentage,
     updatePricingRuleResponse_name,
+    updatePricingRuleResponse_operation,
     updatePricingRuleResponse_scope,
     updatePricingRuleResponse_service,
     updatePricingRuleResponse_tiering,
     updatePricingRuleResponse_type,
+    updatePricingRuleResponse_usageType,
     updatePricingRuleResponse_httpStatus,
 
     -- * Types
@@ -372,6 +376,7 @@ module Amazonka.BillingConductor.Lens
     customLineItemPercentageChargeDetails_percentageValue,
 
     -- ** CustomLineItemVersionListElement
+    customLineItemVersionListElement_arn,
     customLineItemVersionListElement_associationSize,
     customLineItemVersionListElement_billingGroupArn,
     customLineItemVersionListElement_chargeDetails,
@@ -383,6 +388,7 @@ module Amazonka.BillingConductor.Lens
     customLineItemVersionListElement_name,
     customLineItemVersionListElement_productCode,
     customLineItemVersionListElement_startBillingPeriod,
+    customLineItemVersionListElement_startTime,
 
     -- ** DisassociateResourceResponseElement
     disassociateResourceResponseElement_arn,
@@ -393,6 +399,7 @@ module Amazonka.BillingConductor.Lens
 
     -- ** ListAccountAssociationsFilter
     listAccountAssociationsFilter_accountId,
+    listAccountAssociationsFilter_accountIds,
     listAccountAssociationsFilter_association,
 
     -- ** ListBillingGroupCostReportsFilter
@@ -401,6 +408,7 @@ module Amazonka.BillingConductor.Lens
     -- ** ListBillingGroupsFilter
     listBillingGroupsFilter_arns,
     listBillingGroupsFilter_pricingPlan,
+    listBillingGroupsFilter_statuses,
 
     -- ** ListCustomLineItemChargeDetails
     listCustomLineItemChargeDetails_flat,
@@ -456,10 +464,12 @@ module Amazonka.BillingConductor.Lens
     pricingRuleListElement_lastModifiedTime,
     pricingRuleListElement_modifierPercentage,
     pricingRuleListElement_name,
+    pricingRuleListElement_operation,
     pricingRuleListElement_scope,
     pricingRuleListElement_service,
     pricingRuleListElement_tiering,
     pricingRuleListElement_type,
+    pricingRuleListElement_usageType,
 
     -- ** Tiering
     tiering_freeTier,

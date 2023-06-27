@@ -30,7 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomLineItemVersionListElement' smart constructor.
 data CustomLineItemVersionListElement = CustomLineItemVersionListElement'
-  { -- | The number of resources that are associated with the custom line item.
+  { -- | A list of custom line item Amazon Resource Names (ARNs) to retrieve
+    -- information.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The number of resources that are associated with the custom line item.
     associationSize :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the billing group that the custom line
     -- item applies to.
@@ -51,7 +54,9 @@ data CustomLineItemVersionListElement = CustomLineItemVersionListElement'
     -- | The product code that’s associated with the custom line item.
     productCode :: Prelude.Maybe Prelude.Text,
     -- | The start billing period of the custom line item version.
-    startBillingPeriod :: Prelude.Maybe Prelude.Text
+    startBillingPeriod :: Prelude.Maybe Prelude.Text,
+    -- | The inclusive start time.
+    startTime :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -62,6 +67,9 @@ data CustomLineItemVersionListElement = CustomLineItemVersionListElement'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'arn', 'customLineItemVersionListElement_arn' - A list of custom line item Amazon Resource Names (ARNs) to retrieve
+-- information.
 --
 -- 'associationSize', 'customLineItemVersionListElement_associationSize' - The number of resources that are associated with the custom line item.
 --
@@ -85,12 +93,15 @@ data CustomLineItemVersionListElement = CustomLineItemVersionListElement'
 -- 'productCode', 'customLineItemVersionListElement_productCode' - The product code that’s associated with the custom line item.
 --
 -- 'startBillingPeriod', 'customLineItemVersionListElement_startBillingPeriod' - The start billing period of the custom line item version.
+--
+-- 'startTime', 'customLineItemVersionListElement_startTime' - The inclusive start time.
 newCustomLineItemVersionListElement ::
   CustomLineItemVersionListElement
 newCustomLineItemVersionListElement =
   CustomLineItemVersionListElement'
-    { associationSize =
+    { arn =
         Prelude.Nothing,
+      associationSize = Prelude.Nothing,
       billingGroupArn = Prelude.Nothing,
       chargeDetails = Prelude.Nothing,
       creationTime = Prelude.Nothing,
@@ -100,8 +111,14 @@ newCustomLineItemVersionListElement =
       lastModifiedTime = Prelude.Nothing,
       name = Prelude.Nothing,
       productCode = Prelude.Nothing,
-      startBillingPeriod = Prelude.Nothing
+      startBillingPeriod = Prelude.Nothing,
+      startTime = Prelude.Nothing
     }
+
+-- | A list of custom line item Amazon Resource Names (ARNs) to retrieve
+-- information.
+customLineItemVersionListElement_arn :: Lens.Lens' CustomLineItemVersionListElement (Prelude.Maybe Prelude.Text)
+customLineItemVersionListElement_arn = Lens.lens (\CustomLineItemVersionListElement' {arn} -> arn) (\s@CustomLineItemVersionListElement' {} a -> s {arn = a} :: CustomLineItemVersionListElement)
 
 -- | The number of resources that are associated with the custom line item.
 customLineItemVersionListElement_associationSize :: Lens.Lens' CustomLineItemVersionListElement (Prelude.Maybe Prelude.Natural)
@@ -148,6 +165,10 @@ customLineItemVersionListElement_productCode = Lens.lens (\CustomLineItemVersion
 customLineItemVersionListElement_startBillingPeriod :: Lens.Lens' CustomLineItemVersionListElement (Prelude.Maybe Prelude.Text)
 customLineItemVersionListElement_startBillingPeriod = Lens.lens (\CustomLineItemVersionListElement' {startBillingPeriod} -> startBillingPeriod) (\s@CustomLineItemVersionListElement' {} a -> s {startBillingPeriod = a} :: CustomLineItemVersionListElement)
 
+-- | The inclusive start time.
+customLineItemVersionListElement_startTime :: Lens.Lens' CustomLineItemVersionListElement (Prelude.Maybe Prelude.Integer)
+customLineItemVersionListElement_startTime = Lens.lens (\CustomLineItemVersionListElement' {startTime} -> startTime) (\s@CustomLineItemVersionListElement' {} a -> s {startTime = a} :: CustomLineItemVersionListElement)
+
 instance
   Data.FromJSON
     CustomLineItemVersionListElement
@@ -157,7 +178,8 @@ instance
       "CustomLineItemVersionListElement"
       ( \x ->
           CustomLineItemVersionListElement'
-            Prelude.<$> (x Data..:? "AssociationSize")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "AssociationSize")
             Prelude.<*> (x Data..:? "BillingGroupArn")
             Prelude.<*> (x Data..:? "ChargeDetails")
             Prelude.<*> (x Data..:? "CreationTime")
@@ -168,6 +190,7 @@ instance
             Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "ProductCode")
             Prelude.<*> (x Data..:? "StartBillingPeriod")
+            Prelude.<*> (x Data..:? "StartTime")
       )
 
 instance
@@ -177,7 +200,9 @@ instance
   hashWithSalt
     _salt
     CustomLineItemVersionListElement' {..} =
-      _salt `Prelude.hashWithSalt` associationSize
+      _salt
+        `Prelude.hashWithSalt` arn
+        `Prelude.hashWithSalt` associationSize
         `Prelude.hashWithSalt` billingGroupArn
         `Prelude.hashWithSalt` chargeDetails
         `Prelude.hashWithSalt` creationTime
@@ -188,13 +213,15 @@ instance
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` productCode
         `Prelude.hashWithSalt` startBillingPeriod
+        `Prelude.hashWithSalt` startTime
 
 instance
   Prelude.NFData
     CustomLineItemVersionListElement
   where
   rnf CustomLineItemVersionListElement' {..} =
-    Prelude.rnf associationSize
+    Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf associationSize
       `Prelude.seq` Prelude.rnf billingGroupArn
       `Prelude.seq` Prelude.rnf chargeDetails
       `Prelude.seq` Prelude.rnf creationTime
@@ -205,3 +232,4 @@ instance
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf productCode
       `Prelude.seq` Prelude.rnf startBillingPeriod
+      `Prelude.seq` Prelude.rnf startTime

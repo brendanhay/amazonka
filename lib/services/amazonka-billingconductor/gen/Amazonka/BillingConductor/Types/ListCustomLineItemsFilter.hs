@@ -74,7 +74,8 @@ listCustomLineItemsFilter_names = Lens.lens (\ListCustomLineItemsFilter' {names}
 
 instance Prelude.Hashable ListCustomLineItemsFilter where
   hashWithSalt _salt ListCustomLineItemsFilter' {..} =
-    _salt `Prelude.hashWithSalt` arns
+    _salt
+      `Prelude.hashWithSalt` arns
       `Prelude.hashWithSalt` billingGroups
       `Prelude.hashWithSalt` names
 

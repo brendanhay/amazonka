@@ -120,7 +120,8 @@ instance Data.FromJSON PricingPlanListElement where
 
 instance Prelude.Hashable PricingPlanListElement where
   hashWithSalt _salt PricingPlanListElement' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastModifiedTime

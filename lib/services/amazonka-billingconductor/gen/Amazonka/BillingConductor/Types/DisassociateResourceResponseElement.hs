@@ -76,7 +76,8 @@ instance
       "DisassociateResourceResponseElement"
       ( \x ->
           DisassociateResourceResponseElement'
-            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Error")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Error")
       )
 
 instance
@@ -86,7 +87,8 @@ instance
   hashWithSalt
     _salt
     DisassociateResourceResponseElement' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` error
 
 instance

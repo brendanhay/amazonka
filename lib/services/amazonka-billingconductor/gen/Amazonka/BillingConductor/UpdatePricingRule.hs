@@ -46,10 +46,12 @@ module Amazonka.BillingConductor.UpdatePricingRule
     updatePricingRuleResponse_lastModifiedTime,
     updatePricingRuleResponse_modifierPercentage,
     updatePricingRuleResponse_name,
+    updatePricingRuleResponse_operation,
     updatePricingRuleResponse_scope,
     updatePricingRuleResponse_service,
     updatePricingRuleResponse_tiering,
     updatePricingRuleResponse_type,
+    updatePricingRuleResponse_usageType,
     updatePricingRuleResponse_httpStatus,
   )
 where
@@ -156,16 +158,19 @@ instance Core.AWSRequest UpdatePricingRule where
             Prelude.<*> (x Data..?> "LastModifiedTime")
             Prelude.<*> (x Data..?> "ModifierPercentage")
             Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "Operation")
             Prelude.<*> (x Data..?> "Scope")
             Prelude.<*> (x Data..?> "Service")
             Prelude.<*> (x Data..?> "Tiering")
             Prelude.<*> (x Data..?> "Type")
+            Prelude.<*> (x Data..?> "UsageType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdatePricingRule where
   hashWithSalt _salt UpdatePricingRule' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` modifierPercentage
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tiering
@@ -231,6 +236,14 @@ data UpdatePricingRuleResponse = UpdatePricingRuleResponse'
     -- | The new name of the pricing rule. The name must be unique to each
     -- pricing rule.
     name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Operation refers to the specific Amazon Web Services covered by this
+    -- line item. This describes the specific usage of the line item.
+    --
+    -- If the @Scope@ attribute is set to @SKU@, this attribute indicates which
+    -- operation the @PricingRule@ is modifying. For example, a value of
+    -- @RunInstances:0202@ indicates the operation of running an Amazon EC2
+    -- instance.
+    operation :: Prelude.Maybe Prelude.Text,
     -- | The scope of pricing rule that indicates if it\'s globally applicable,
     -- or it\'s service-specific.
     scope :: Prelude.Maybe PricingRuleScope,
@@ -241,6 +254,15 @@ data UpdatePricingRuleResponse = UpdatePricingRuleResponse'
     tiering :: Prelude.Maybe UpdateTieringInput,
     -- | The new pricing rule type.
     type' :: Prelude.Maybe PricingRuleType,
+    -- | Usage type is the unit that each service uses to measure the usage of a
+    -- specific type of resource.
+    --
+    -- If the @Scope@ attribute is set to @SKU@, this attribute indicates which
+    -- usage type the @PricingRule@ is modifying. For example,
+    -- @USW2-BoxUsage:m2.2xlarge@ describes an
+    -- @M2 High Memory Double Extra Large@ instance in the US West (Oregon)
+    -- Region.
+    usageType :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -271,6 +293,14 @@ data UpdatePricingRuleResponse = UpdatePricingRuleResponse'
 -- 'name', 'updatePricingRuleResponse_name' - The new name of the pricing rule. The name must be unique to each
 -- pricing rule.
 --
+-- 'operation', 'updatePricingRuleResponse_operation' - Operation refers to the specific Amazon Web Services covered by this
+-- line item. This describes the specific usage of the line item.
+--
+-- If the @Scope@ attribute is set to @SKU@, this attribute indicates which
+-- operation the @PricingRule@ is modifying. For example, a value of
+-- @RunInstances:0202@ indicates the operation of running an Amazon EC2
+-- instance.
+--
 -- 'scope', 'updatePricingRuleResponse_scope' - The scope of pricing rule that indicates if it\'s globally applicable,
 -- or it\'s service-specific.
 --
@@ -280,6 +310,15 @@ data UpdatePricingRuleResponse = UpdatePricingRuleResponse'
 -- 'tiering', 'updatePricingRuleResponse_tiering' - The set of tiering configurations for the pricing rule.
 --
 -- 'type'', 'updatePricingRuleResponse_type' - The new pricing rule type.
+--
+-- 'usageType', 'updatePricingRuleResponse_usageType' - Usage type is the unit that each service uses to measure the usage of a
+-- specific type of resource.
+--
+-- If the @Scope@ attribute is set to @SKU@, this attribute indicates which
+-- usage type the @PricingRule@ is modifying. For example,
+-- @USW2-BoxUsage:m2.2xlarge@ describes an
+-- @M2 High Memory Double Extra Large@ instance in the US West (Oregon)
+-- Region.
 --
 -- 'httpStatus', 'updatePricingRuleResponse_httpStatus' - The response's http status code.
 newUpdatePricingRuleResponse ::
@@ -295,10 +334,12 @@ newUpdatePricingRuleResponse pHttpStatus_ =
       lastModifiedTime = Prelude.Nothing,
       modifierPercentage = Prelude.Nothing,
       name = Prelude.Nothing,
+      operation = Prelude.Nothing,
       scope = Prelude.Nothing,
       service = Prelude.Nothing,
       tiering = Prelude.Nothing,
       type' = Prelude.Nothing,
+      usageType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -333,6 +374,16 @@ updatePricingRuleResponse_modifierPercentage = Lens.lens (\UpdatePricingRuleResp
 updatePricingRuleResponse_name :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe Prelude.Text)
 updatePricingRuleResponse_name = Lens.lens (\UpdatePricingRuleResponse' {name} -> name) (\s@UpdatePricingRuleResponse' {} a -> s {name = a} :: UpdatePricingRuleResponse) Prelude.. Lens.mapping Data._Sensitive
 
+-- | Operation refers to the specific Amazon Web Services covered by this
+-- line item. This describes the specific usage of the line item.
+--
+-- If the @Scope@ attribute is set to @SKU@, this attribute indicates which
+-- operation the @PricingRule@ is modifying. For example, a value of
+-- @RunInstances:0202@ indicates the operation of running an Amazon EC2
+-- instance.
+updatePricingRuleResponse_operation :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe Prelude.Text)
+updatePricingRuleResponse_operation = Lens.lens (\UpdatePricingRuleResponse' {operation} -> operation) (\s@UpdatePricingRuleResponse' {} a -> s {operation = a} :: UpdatePricingRuleResponse)
+
 -- | The scope of pricing rule that indicates if it\'s globally applicable,
 -- or it\'s service-specific.
 updatePricingRuleResponse_scope :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe PricingRuleScope)
@@ -351,6 +402,17 @@ updatePricingRuleResponse_tiering = Lens.lens (\UpdatePricingRuleResponse' {tier
 updatePricingRuleResponse_type :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe PricingRuleType)
 updatePricingRuleResponse_type = Lens.lens (\UpdatePricingRuleResponse' {type'} -> type') (\s@UpdatePricingRuleResponse' {} a -> s {type' = a} :: UpdatePricingRuleResponse)
 
+-- | Usage type is the unit that each service uses to measure the usage of a
+-- specific type of resource.
+--
+-- If the @Scope@ attribute is set to @SKU@, this attribute indicates which
+-- usage type the @PricingRule@ is modifying. For example,
+-- @USW2-BoxUsage:m2.2xlarge@ describes an
+-- @M2 High Memory Double Extra Large@ instance in the US West (Oregon)
+-- Region.
+updatePricingRuleResponse_usageType :: Lens.Lens' UpdatePricingRuleResponse (Prelude.Maybe Prelude.Text)
+updatePricingRuleResponse_usageType = Lens.lens (\UpdatePricingRuleResponse' {usageType} -> usageType) (\s@UpdatePricingRuleResponse' {} a -> s {usageType = a} :: UpdatePricingRuleResponse)
+
 -- | The response's http status code.
 updatePricingRuleResponse_httpStatus :: Lens.Lens' UpdatePricingRuleResponse Prelude.Int
 updatePricingRuleResponse_httpStatus = Lens.lens (\UpdatePricingRuleResponse' {httpStatus} -> httpStatus) (\s@UpdatePricingRuleResponse' {} a -> s {httpStatus = a} :: UpdatePricingRuleResponse)
@@ -364,8 +426,10 @@ instance Prelude.NFData UpdatePricingRuleResponse where
       `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf modifierPercentage
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf operation
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf service
       `Prelude.seq` Prelude.rnf tiering
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf usageType
       `Prelude.seq` Prelude.rnf httpStatus

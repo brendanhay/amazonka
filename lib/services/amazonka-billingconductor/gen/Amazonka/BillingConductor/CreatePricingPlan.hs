@@ -145,7 +145,8 @@ instance Core.AWSRequest CreatePricingPlan where
 
 instance Prelude.Hashable CreatePricingPlan where
   hashWithSalt _salt CreatePricingPlan' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` pricingRuleArns
       `Prelude.hashWithSalt` tags

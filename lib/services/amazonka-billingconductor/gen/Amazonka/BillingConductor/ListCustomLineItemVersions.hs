@@ -121,22 +121,22 @@ instance Core.AWSPager ListCustomLineItemVersions where
     | Core.stop
         ( rs
             Lens.^? listCustomLineItemVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCustomLineItemVersionsResponse_customLineItemVersions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCustomLineItemVersions_nextToken
           Lens..~ rs
           Lens.^? listCustomLineItemVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCustomLineItemVersions where
   type
@@ -148,7 +148,8 @@ instance Core.AWSRequest ListCustomLineItemVersions where
     Response.receiveJSON
       ( \s h x ->
           ListCustomLineItemVersionsResponse'
-            Prelude.<$> ( x Data..?> "CustomLineItemVersions"
+            Prelude.<$> ( x
+                            Data..?> "CustomLineItemVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -157,7 +158,8 @@ instance Core.AWSRequest ListCustomLineItemVersions where
 
 instance Prelude.Hashable ListCustomLineItemVersions where
   hashWithSalt _salt ListCustomLineItemVersions' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` arn

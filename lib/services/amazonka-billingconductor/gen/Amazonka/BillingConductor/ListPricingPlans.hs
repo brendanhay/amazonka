@@ -120,22 +120,22 @@ instance Core.AWSPager ListPricingPlans where
     | Core.stop
         ( rs
             Lens.^? listPricingPlansResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPricingPlansResponse_pricingPlans
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPricingPlans_nextToken
           Lens..~ rs
           Lens.^? listPricingPlansResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPricingPlans where
   type
@@ -155,7 +155,8 @@ instance Core.AWSRequest ListPricingPlans where
 
 instance Prelude.Hashable ListPricingPlans where
   hashWithSalt _salt ListPricingPlans' {..} =
-    _salt `Prelude.hashWithSalt` billingPeriod
+    _salt
+      `Prelude.hashWithSalt` billingPeriod
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

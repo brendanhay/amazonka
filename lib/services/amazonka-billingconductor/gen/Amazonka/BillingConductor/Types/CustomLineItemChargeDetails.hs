@@ -89,7 +89,8 @@ customLineItemChargeDetails_type = Lens.lens (\CustomLineItemChargeDetails' {typ
 
 instance Prelude.Hashable CustomLineItemChargeDetails where
   hashWithSalt _salt CustomLineItemChargeDetails' {..} =
-    _salt `Prelude.hashWithSalt` flat
+    _salt
+      `Prelude.hashWithSalt` flat
       `Prelude.hashWithSalt` percentage
       `Prelude.hashWithSalt` type'
 

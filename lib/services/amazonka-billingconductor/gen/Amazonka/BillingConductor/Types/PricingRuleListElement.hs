@@ -49,6 +49,14 @@ data PricingRuleListElement = PricingRuleListElement'
     modifierPercentage :: Prelude.Maybe Prelude.Double,
     -- | The name of a pricing rule.
     name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Operation is the specific Amazon Web Services action covered by this
+    -- line item. This describes the specific usage of the line item.
+    --
+    -- If the @Scope@ attribute is set to @SKU@, this attribute indicates which
+    -- operation the @PricingRule@ is modifying. For example, a value of
+    -- @RunInstances:0202@ indicates the operation of running an Amazon EC2
+    -- instance.
+    operation :: Prelude.Maybe Prelude.Text,
     -- | The scope of pricing rule that indicates if it is globally applicable,
     -- or if it is service-specific.
     scope :: Prelude.Maybe PricingRuleScope,
@@ -58,7 +66,18 @@ data PricingRuleListElement = PricingRuleListElement'
     -- | The set of tiering configurations for the pricing rule.
     tiering :: Prelude.Maybe Tiering,
     -- | The type of pricing rule.
-    type' :: Prelude.Maybe PricingRuleType
+    type' :: Prelude.Maybe PricingRuleType,
+    -- | Usage type is the unit that each service uses to measure the usage of a
+    -- specific type of resource.
+    --
+    -- If the @Scope@ attribute is set to @SKU@, this attribute indicates which
+    -- usage type the @PricingRule@ is modifying. For example,
+    -- @USW2-BoxUsage:m2.2xlarge@ describes
+    -- an@ M2 High Memory Double Extra Large@ instance in the US West (Oregon)
+    -- Region.
+    --
+    -- > </p>
+    usageType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -88,6 +107,14 @@ data PricingRuleListElement = PricingRuleListElement'
 --
 -- 'name', 'pricingRuleListElement_name' - The name of a pricing rule.
 --
+-- 'operation', 'pricingRuleListElement_operation' - Operation is the specific Amazon Web Services action covered by this
+-- line item. This describes the specific usage of the line item.
+--
+-- If the @Scope@ attribute is set to @SKU@, this attribute indicates which
+-- operation the @PricingRule@ is modifying. For example, a value of
+-- @RunInstances:0202@ indicates the operation of running an Amazon EC2
+-- instance.
+--
 -- 'scope', 'pricingRuleListElement_scope' - The scope of pricing rule that indicates if it is globally applicable,
 -- or if it is service-specific.
 --
@@ -97,6 +124,17 @@ data PricingRuleListElement = PricingRuleListElement'
 -- 'tiering', 'pricingRuleListElement_tiering' - The set of tiering configurations for the pricing rule.
 --
 -- 'type'', 'pricingRuleListElement_type' - The type of pricing rule.
+--
+-- 'usageType', 'pricingRuleListElement_usageType' - Usage type is the unit that each service uses to measure the usage of a
+-- specific type of resource.
+--
+-- If the @Scope@ attribute is set to @SKU@, this attribute indicates which
+-- usage type the @PricingRule@ is modifying. For example,
+-- @USW2-BoxUsage:m2.2xlarge@ describes
+-- an@ M2 High Memory Double Extra Large@ instance in the US West (Oregon)
+-- Region.
+--
+-- > </p>
 newPricingRuleListElement ::
   PricingRuleListElement
 newPricingRuleListElement =
@@ -109,10 +147,12 @@ newPricingRuleListElement =
       lastModifiedTime = Prelude.Nothing,
       modifierPercentage = Prelude.Nothing,
       name = Prelude.Nothing,
+      operation = Prelude.Nothing,
       scope = Prelude.Nothing,
       service = Prelude.Nothing,
       tiering = Prelude.Nothing,
-      type' = Prelude.Nothing
+      type' = Prelude.Nothing,
+      usageType = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) used to uniquely identify a pricing rule.
@@ -149,6 +189,16 @@ pricingRuleListElement_modifierPercentage = Lens.lens (\PricingRuleListElement' 
 pricingRuleListElement_name :: Lens.Lens' PricingRuleListElement (Prelude.Maybe Prelude.Text)
 pricingRuleListElement_name = Lens.lens (\PricingRuleListElement' {name} -> name) (\s@PricingRuleListElement' {} a -> s {name = a} :: PricingRuleListElement) Prelude.. Lens.mapping Data._Sensitive
 
+-- | Operation is the specific Amazon Web Services action covered by this
+-- line item. This describes the specific usage of the line item.
+--
+-- If the @Scope@ attribute is set to @SKU@, this attribute indicates which
+-- operation the @PricingRule@ is modifying. For example, a value of
+-- @RunInstances:0202@ indicates the operation of running an Amazon EC2
+-- instance.
+pricingRuleListElement_operation :: Lens.Lens' PricingRuleListElement (Prelude.Maybe Prelude.Text)
+pricingRuleListElement_operation = Lens.lens (\PricingRuleListElement' {operation} -> operation) (\s@PricingRuleListElement' {} a -> s {operation = a} :: PricingRuleListElement)
+
 -- | The scope of pricing rule that indicates if it is globally applicable,
 -- or if it is service-specific.
 pricingRuleListElement_scope :: Lens.Lens' PricingRuleListElement (Prelude.Maybe PricingRuleScope)
@@ -167,6 +217,19 @@ pricingRuleListElement_tiering = Lens.lens (\PricingRuleListElement' {tiering} -
 pricingRuleListElement_type :: Lens.Lens' PricingRuleListElement (Prelude.Maybe PricingRuleType)
 pricingRuleListElement_type = Lens.lens (\PricingRuleListElement' {type'} -> type') (\s@PricingRuleListElement' {} a -> s {type' = a} :: PricingRuleListElement)
 
+-- | Usage type is the unit that each service uses to measure the usage of a
+-- specific type of resource.
+--
+-- If the @Scope@ attribute is set to @SKU@, this attribute indicates which
+-- usage type the @PricingRule@ is modifying. For example,
+-- @USW2-BoxUsage:m2.2xlarge@ describes
+-- an@ M2 High Memory Double Extra Large@ instance in the US West (Oregon)
+-- Region.
+--
+-- > </p>
+pricingRuleListElement_usageType :: Lens.Lens' PricingRuleListElement (Prelude.Maybe Prelude.Text)
+pricingRuleListElement_usageType = Lens.lens (\PricingRuleListElement' {usageType} -> usageType) (\s@PricingRuleListElement' {} a -> s {usageType = a} :: PricingRuleListElement)
+
 instance Data.FromJSON PricingRuleListElement where
   parseJSON =
     Data.withObject
@@ -181,15 +244,18 @@ instance Data.FromJSON PricingRuleListElement where
             Prelude.<*> (x Data..:? "LastModifiedTime")
             Prelude.<*> (x Data..:? "ModifierPercentage")
             Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Operation")
             Prelude.<*> (x Data..:? "Scope")
             Prelude.<*> (x Data..:? "Service")
             Prelude.<*> (x Data..:? "Tiering")
             Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "UsageType")
       )
 
 instance Prelude.Hashable PricingRuleListElement where
   hashWithSalt _salt PricingRuleListElement' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` associatedPricingPlanCount
       `Prelude.hashWithSalt` billingEntity
       `Prelude.hashWithSalt` creationTime
@@ -197,10 +263,12 @@ instance Prelude.Hashable PricingRuleListElement where
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` modifierPercentage
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` operation
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` service
       `Prelude.hashWithSalt` tiering
       `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` usageType
 
 instance Prelude.NFData PricingRuleListElement where
   rnf PricingRuleListElement' {..} =
@@ -212,7 +280,9 @@ instance Prelude.NFData PricingRuleListElement where
       `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf modifierPercentage
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf operation
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf service
       `Prelude.seq` Prelude.rnf tiering
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf usageType

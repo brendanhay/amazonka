@@ -39,6 +39,9 @@ import qualified Amazonka.Prelude as Prelude
 data ListAccountAssociationsFilter = ListAccountAssociationsFilter'
   { -- | The Amazon Web Services account ID to filter on.
     accountId :: Prelude.Maybe Prelude.Text,
+    -- | The list of Amazon Web Services IDs to retrieve their associated billing
+    -- group for a given time range.
+    accountIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | @MONITORED@: linked accounts that are associated to billing groups.
     --
     -- @UNMONITORED@: linked accounts that are not associated to billing
@@ -60,6 +63,9 @@ data ListAccountAssociationsFilter = ListAccountAssociationsFilter'
 --
 -- 'accountId', 'listAccountAssociationsFilter_accountId' - The Amazon Web Services account ID to filter on.
 --
+-- 'accountIds', 'listAccountAssociationsFilter_accountIds' - The list of Amazon Web Services IDs to retrieve their associated billing
+-- group for a given time range.
+--
 -- 'association', 'listAccountAssociationsFilter_association' - @MONITORED@: linked accounts that are associated to billing groups.
 --
 -- @UNMONITORED@: linked accounts that are not associated to billing
@@ -73,12 +79,18 @@ newListAccountAssociationsFilter =
   ListAccountAssociationsFilter'
     { accountId =
         Prelude.Nothing,
+      accountIds = Prelude.Nothing,
       association = Prelude.Nothing
     }
 
 -- | The Amazon Web Services account ID to filter on.
 listAccountAssociationsFilter_accountId :: Lens.Lens' ListAccountAssociationsFilter (Prelude.Maybe Prelude.Text)
 listAccountAssociationsFilter_accountId = Lens.lens (\ListAccountAssociationsFilter' {accountId} -> accountId) (\s@ListAccountAssociationsFilter' {} a -> s {accountId = a} :: ListAccountAssociationsFilter)
+
+-- | The list of Amazon Web Services IDs to retrieve their associated billing
+-- group for a given time range.
+listAccountAssociationsFilter_accountIds :: Lens.Lens' ListAccountAssociationsFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listAccountAssociationsFilter_accountIds = Lens.lens (\ListAccountAssociationsFilter' {accountIds} -> accountIds) (\s@ListAccountAssociationsFilter' {} a -> s {accountIds = a} :: ListAccountAssociationsFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | @MONITORED@: linked accounts that are associated to billing groups.
 --
@@ -95,12 +107,15 @@ instance
     ListAccountAssociationsFilter
   where
   hashWithSalt _salt ListAccountAssociationsFilter' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` association
 
 instance Prelude.NFData ListAccountAssociationsFilter where
   rnf ListAccountAssociationsFilter' {..} =
     Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf accountIds
       `Prelude.seq` Prelude.rnf association
 
 instance Data.ToJSON ListAccountAssociationsFilter where
@@ -108,6 +123,7 @@ instance Data.ToJSON ListAccountAssociationsFilter where
     Data.object
       ( Prelude.catMaybes
           [ ("AccountId" Data..=) Prelude.<$> accountId,
+            ("AccountIds" Data..=) Prelude.<$> accountIds,
             ("Association" Data..=) Prelude.<$> association
           ]
       )

@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.BillingConductor.Types.ListBillingGroupsFilter where
 
+import Amazonka.BillingConductor.Types.BillingGroupStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
@@ -33,7 +34,10 @@ data ListBillingGroupsFilter = ListBillingGroupsFilter'
     -- information.
     arns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The pricing plan Amazon Resource Names (ARNs) to retrieve information.
-    pricingPlan :: Prelude.Maybe Prelude.Text
+    pricingPlan :: Prelude.Maybe Prelude.Text,
+    -- | A list of billing groups to retrieve their current status for a specific
+    -- time range
+    statuses :: Prelude.Maybe (Prelude.NonEmpty BillingGroupStatus)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,12 +53,16 @@ data ListBillingGroupsFilter = ListBillingGroupsFilter'
 -- information.
 --
 -- 'pricingPlan', 'listBillingGroupsFilter_pricingPlan' - The pricing plan Amazon Resource Names (ARNs) to retrieve information.
+--
+-- 'statuses', 'listBillingGroupsFilter_statuses' - A list of billing groups to retrieve their current status for a specific
+-- time range
 newListBillingGroupsFilter ::
   ListBillingGroupsFilter
 newListBillingGroupsFilter =
   ListBillingGroupsFilter'
     { arns = Prelude.Nothing,
-      pricingPlan = Prelude.Nothing
+      pricingPlan = Prelude.Nothing,
+      statuses = Prelude.Nothing
     }
 
 -- | The list of billing group Amazon Resource Names (ARNs) to retrieve
@@ -66,21 +74,30 @@ listBillingGroupsFilter_arns = Lens.lens (\ListBillingGroupsFilter' {arns} -> ar
 listBillingGroupsFilter_pricingPlan :: Lens.Lens' ListBillingGroupsFilter (Prelude.Maybe Prelude.Text)
 listBillingGroupsFilter_pricingPlan = Lens.lens (\ListBillingGroupsFilter' {pricingPlan} -> pricingPlan) (\s@ListBillingGroupsFilter' {} a -> s {pricingPlan = a} :: ListBillingGroupsFilter)
 
+-- | A list of billing groups to retrieve their current status for a specific
+-- time range
+listBillingGroupsFilter_statuses :: Lens.Lens' ListBillingGroupsFilter (Prelude.Maybe (Prelude.NonEmpty BillingGroupStatus))
+listBillingGroupsFilter_statuses = Lens.lens (\ListBillingGroupsFilter' {statuses} -> statuses) (\s@ListBillingGroupsFilter' {} a -> s {statuses = a} :: ListBillingGroupsFilter) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable ListBillingGroupsFilter where
   hashWithSalt _salt ListBillingGroupsFilter' {..} =
-    _salt `Prelude.hashWithSalt` arns
+    _salt
+      `Prelude.hashWithSalt` arns
       `Prelude.hashWithSalt` pricingPlan
+      `Prelude.hashWithSalt` statuses
 
 instance Prelude.NFData ListBillingGroupsFilter where
   rnf ListBillingGroupsFilter' {..} =
     Prelude.rnf arns
       `Prelude.seq` Prelude.rnf pricingPlan
+      `Prelude.seq` Prelude.rnf statuses
 
 instance Data.ToJSON ListBillingGroupsFilter where
   toJSON ListBillingGroupsFilter' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("Arns" Data..=) Prelude.<$> arns,
-            ("PricingPlan" Data..=) Prelude.<$> pricingPlan
+            ("PricingPlan" Data..=) Prelude.<$> pricingPlan,
+            ("Statuses" Data..=) Prelude.<$> statuses
           ]
       )

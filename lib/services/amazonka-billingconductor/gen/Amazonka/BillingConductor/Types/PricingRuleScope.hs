@@ -22,7 +22,8 @@ module Amazonka.BillingConductor.Types.PricingRuleScope
       ( ..,
         PricingRuleScope_BILLING_ENTITY,
         PricingRuleScope_GLOBAL,
-        PricingRuleScope_SERVICE
+        PricingRuleScope_SERVICE,
+        PricingRuleScope_SKU
       ),
   )
 where
@@ -68,9 +69,13 @@ pattern PricingRuleScope_GLOBAL = PricingRuleScope' "GLOBAL"
 pattern PricingRuleScope_SERVICE :: PricingRuleScope
 pattern PricingRuleScope_SERVICE = PricingRuleScope' "SERVICE"
 
+pattern PricingRuleScope_SKU :: PricingRuleScope
+pattern PricingRuleScope_SKU = PricingRuleScope' "SKU"
+
 {-# COMPLETE
   PricingRuleScope_BILLING_ENTITY,
   PricingRuleScope_GLOBAL,
   PricingRuleScope_SERVICE,
+  PricingRuleScope_SKU,
   PricingRuleScope'
   #-}

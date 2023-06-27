@@ -100,7 +100,8 @@ instance
   hashWithSalt
     _salt
     AccountAssociationsListElement' {..} =
-      _salt `Prelude.hashWithSalt` accountEmail
+      _salt
+        `Prelude.hashWithSalt` accountEmail
         `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` accountName
         `Prelude.hashWithSalt` billingGroupArn

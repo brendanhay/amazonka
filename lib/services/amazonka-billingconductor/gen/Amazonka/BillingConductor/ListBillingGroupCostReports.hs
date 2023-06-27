@@ -118,22 +118,22 @@ instance Core.AWSPager ListBillingGroupCostReports where
     | Core.stop
         ( rs
             Lens.^? listBillingGroupCostReportsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listBillingGroupCostReportsResponse_billingGroupCostReports
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBillingGroupCostReports_nextToken
           Lens..~ rs
           Lens.^? listBillingGroupCostReportsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBillingGroupCostReports where
   type
@@ -145,7 +145,8 @@ instance Core.AWSRequest ListBillingGroupCostReports where
     Response.receiveJSON
       ( \s h x ->
           ListBillingGroupCostReportsResponse'
-            Prelude.<$> ( x Data..?> "BillingGroupCostReports"
+            Prelude.<$> ( x
+                            Data..?> "BillingGroupCostReports"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -154,7 +155,8 @@ instance Core.AWSRequest ListBillingGroupCostReports where
 
 instance Prelude.Hashable ListBillingGroupCostReports where
   hashWithSalt _salt ListBillingGroupCostReports' {..} =
-    _salt `Prelude.hashWithSalt` billingPeriod
+    _salt
+      `Prelude.hashWithSalt` billingPeriod
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

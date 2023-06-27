@@ -103,7 +103,8 @@ instance Core.AWSRequest DeleteCustomLineItem where
 
 instance Prelude.Hashable DeleteCustomLineItem where
   hashWithSalt _salt DeleteCustomLineItem' {..} =
-    _salt `Prelude.hashWithSalt` billingPeriodRange
+    _salt
+      `Prelude.hashWithSalt` billingPeriodRange
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData DeleteCustomLineItem where

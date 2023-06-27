@@ -32,9 +32,11 @@ module Amazonka.BillingConductor.CreatePricingRule
     createPricingRule_clientToken,
     createPricingRule_description,
     createPricingRule_modifierPercentage,
+    createPricingRule_operation,
     createPricingRule_service,
     createPricingRule_tags,
     createPricingRule_tiering,
+    createPricingRule_usageType,
     createPricingRule_name,
     createPricingRule_scope,
     createPricingRule_type,
@@ -70,14 +72,33 @@ data CreatePricingRule = CreatePricingRule'
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A percentage modifier that\'s applied on the public pricing rates.
     modifierPercentage :: Prelude.Maybe Prelude.Double,
-    -- | If the @Scope@ attribute is set to @SERVICE@, the attribute indicates
-    -- which service the @PricingRule@ is applicable for.
+    -- | Operation is the specific Amazon Web Services action covered by this
+    -- line item. This describes the specific usage of the line item.
+    --
+    -- If the @Scope@ attribute is set to @SKU@, this attribute indicates which
+    -- operation the @PricingRule@ is modifying. For example, a value of
+    -- @RunInstances:0202@ indicates the operation of running an Amazon EC2
+    -- instance.
+    operation :: Prelude.Maybe Prelude.Text,
+    -- | If the @Scope@ attribute is set to @SERVICE@ or @SKU@, the attribute
+    -- indicates which service the @PricingRule@ is applicable for.
     service :: Prelude.Maybe Prelude.Text,
     -- | A map that contains tag keys and tag values that are attached to a
     -- pricing rule.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The set of tiering configurations for the pricing rule.
     tiering :: Prelude.Maybe CreateTieringInput,
+    -- | Usage type is the unit that each service uses to measure the usage of a
+    -- specific type of resource.
+    --
+    -- If the @Scope@ attribute is set to @SKU@, this attribute indicates which
+    -- usage type the @PricingRule@ is modifying. For example,
+    -- @USW2-BoxUsage:m2.2xlarge@ describes
+    -- an@ M2 High Memory Double Extra Large@ instance in the US West (Oregon)
+    -- Region.
+    --
+    -- > </p>
+    usageType :: Prelude.Maybe Prelude.Text,
     -- | The pricing rule name. The names must be unique to each pricing rule.
     name :: Data.Sensitive Prelude.Text,
     -- | The scope of pricing rule that indicates if it\'s globally applicable,
@@ -107,13 +128,32 @@ data CreatePricingRule = CreatePricingRule'
 --
 -- 'modifierPercentage', 'createPricingRule_modifierPercentage' - A percentage modifier that\'s applied on the public pricing rates.
 --
--- 'service', 'createPricingRule_service' - If the @Scope@ attribute is set to @SERVICE@, the attribute indicates
--- which service the @PricingRule@ is applicable for.
+-- 'operation', 'createPricingRule_operation' - Operation is the specific Amazon Web Services action covered by this
+-- line item. This describes the specific usage of the line item.
+--
+-- If the @Scope@ attribute is set to @SKU@, this attribute indicates which
+-- operation the @PricingRule@ is modifying. For example, a value of
+-- @RunInstances:0202@ indicates the operation of running an Amazon EC2
+-- instance.
+--
+-- 'service', 'createPricingRule_service' - If the @Scope@ attribute is set to @SERVICE@ or @SKU@, the attribute
+-- indicates which service the @PricingRule@ is applicable for.
 --
 -- 'tags', 'createPricingRule_tags' - A map that contains tag keys and tag values that are attached to a
 -- pricing rule.
 --
 -- 'tiering', 'createPricingRule_tiering' - The set of tiering configurations for the pricing rule.
+--
+-- 'usageType', 'createPricingRule_usageType' - Usage type is the unit that each service uses to measure the usage of a
+-- specific type of resource.
+--
+-- If the @Scope@ attribute is set to @SKU@, this attribute indicates which
+-- usage type the @PricingRule@ is modifying. For example,
+-- @USW2-BoxUsage:m2.2xlarge@ describes
+-- an@ M2 High Memory Double Extra Large@ instance in the US West (Oregon)
+-- Region.
+--
+-- > </p>
 --
 -- 'name', 'createPricingRule_name' - The pricing rule name. The names must be unique to each pricing rule.
 --
@@ -135,9 +175,11 @@ newCreatePricingRule pName_ pScope_ pType_ =
       clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
       modifierPercentage = Prelude.Nothing,
+      operation = Prelude.Nothing,
       service = Prelude.Nothing,
       tags = Prelude.Nothing,
       tiering = Prelude.Nothing,
+      usageType = Prelude.Nothing,
       name = Data._Sensitive Lens.# pName_,
       scope = pScope_,
       type' = pType_
@@ -162,8 +204,18 @@ createPricingRule_description = Lens.lens (\CreatePricingRule' {description} -> 
 createPricingRule_modifierPercentage :: Lens.Lens' CreatePricingRule (Prelude.Maybe Prelude.Double)
 createPricingRule_modifierPercentage = Lens.lens (\CreatePricingRule' {modifierPercentage} -> modifierPercentage) (\s@CreatePricingRule' {} a -> s {modifierPercentage = a} :: CreatePricingRule)
 
--- | If the @Scope@ attribute is set to @SERVICE@, the attribute indicates
--- which service the @PricingRule@ is applicable for.
+-- | Operation is the specific Amazon Web Services action covered by this
+-- line item. This describes the specific usage of the line item.
+--
+-- If the @Scope@ attribute is set to @SKU@, this attribute indicates which
+-- operation the @PricingRule@ is modifying. For example, a value of
+-- @RunInstances:0202@ indicates the operation of running an Amazon EC2
+-- instance.
+createPricingRule_operation :: Lens.Lens' CreatePricingRule (Prelude.Maybe Prelude.Text)
+createPricingRule_operation = Lens.lens (\CreatePricingRule' {operation} -> operation) (\s@CreatePricingRule' {} a -> s {operation = a} :: CreatePricingRule)
+
+-- | If the @Scope@ attribute is set to @SERVICE@ or @SKU@, the attribute
+-- indicates which service the @PricingRule@ is applicable for.
 createPricingRule_service :: Lens.Lens' CreatePricingRule (Prelude.Maybe Prelude.Text)
 createPricingRule_service = Lens.lens (\CreatePricingRule' {service} -> service) (\s@CreatePricingRule' {} a -> s {service = a} :: CreatePricingRule)
 
@@ -175,6 +227,19 @@ createPricingRule_tags = Lens.lens (\CreatePricingRule' {tags} -> tags) (\s@Crea
 -- | The set of tiering configurations for the pricing rule.
 createPricingRule_tiering :: Lens.Lens' CreatePricingRule (Prelude.Maybe CreateTieringInput)
 createPricingRule_tiering = Lens.lens (\CreatePricingRule' {tiering} -> tiering) (\s@CreatePricingRule' {} a -> s {tiering = a} :: CreatePricingRule)
+
+-- | Usage type is the unit that each service uses to measure the usage of a
+-- specific type of resource.
+--
+-- If the @Scope@ attribute is set to @SKU@, this attribute indicates which
+-- usage type the @PricingRule@ is modifying. For example,
+-- @USW2-BoxUsage:m2.2xlarge@ describes
+-- an@ M2 High Memory Double Extra Large@ instance in the US West (Oregon)
+-- Region.
+--
+-- > </p>
+createPricingRule_usageType :: Lens.Lens' CreatePricingRule (Prelude.Maybe Prelude.Text)
+createPricingRule_usageType = Lens.lens (\CreatePricingRule' {usageType} -> usageType) (\s@CreatePricingRule' {} a -> s {usageType = a} :: CreatePricingRule)
 
 -- | The pricing rule name. The names must be unique to each pricing rule.
 createPricingRule_name :: Lens.Lens' CreatePricingRule Prelude.Text
@@ -205,13 +270,16 @@ instance Core.AWSRequest CreatePricingRule where
 
 instance Prelude.Hashable CreatePricingRule where
   hashWithSalt _salt CreatePricingRule' {..} =
-    _salt `Prelude.hashWithSalt` billingEntity
+    _salt
+      `Prelude.hashWithSalt` billingEntity
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` modifierPercentage
+      `Prelude.hashWithSalt` operation
       `Prelude.hashWithSalt` service
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` tiering
+      `Prelude.hashWithSalt` usageType
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` type'
@@ -222,9 +290,11 @@ instance Prelude.NFData CreatePricingRule where
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf modifierPercentage
+      `Prelude.seq` Prelude.rnf operation
       `Prelude.seq` Prelude.rnf service
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf tiering
+      `Prelude.seq` Prelude.rnf usageType
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf scope
       `Prelude.seq` Prelude.rnf type'
@@ -245,9 +315,11 @@ instance Data.ToJSON CreatePricingRule where
             ("Description" Data..=) Prelude.<$> description,
             ("ModifierPercentage" Data..=)
               Prelude.<$> modifierPercentage,
+            ("Operation" Data..=) Prelude.<$> operation,
             ("Service" Data..=) Prelude.<$> service,
             ("Tags" Data..=) Prelude.<$> tags,
             ("Tiering" Data..=) Prelude.<$> tiering,
+            ("UsageType" Data..=) Prelude.<$> usageType,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Scope" Data..= scope),
             Prelude.Just ("Type" Data..= type')

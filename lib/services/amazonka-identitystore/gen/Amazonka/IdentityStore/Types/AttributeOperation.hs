@@ -75,7 +75,8 @@ attributeOperation_attributePath = Lens.lens (\AttributeOperation' {attributePat
 
 instance Prelude.Hashable AttributeOperation where
   hashWithSalt _salt AttributeOperation' {..} =
-    _salt `Prelude.hashWithSalt` attributeValue
+    _salt
+      `Prelude.hashWithSalt` attributeValue
       `Prelude.hashWithSalt` attributePath
 
 instance Prelude.NFData AttributeOperation where

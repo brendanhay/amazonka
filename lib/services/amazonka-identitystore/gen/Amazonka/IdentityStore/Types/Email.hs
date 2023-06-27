@@ -90,7 +90,8 @@ instance Data.FromJSON Email where
 
 instance Prelude.Hashable Email where
   hashWithSalt _salt Email' {..} =
-    _salt `Prelude.hashWithSalt` primary
+    _salt
+      `Prelude.hashWithSalt` primary
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 

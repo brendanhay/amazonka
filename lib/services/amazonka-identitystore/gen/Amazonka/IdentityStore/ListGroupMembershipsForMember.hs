@@ -145,21 +145,21 @@ instance Core.AWSPager ListGroupMembershipsForMember where
     | Core.stop
         ( rs
             Lens.^? listGroupMembershipsForMemberResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listGroupMembershipsForMemberResponse_groupMemberships
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGroupMembershipsForMember_nextToken
           Lens..~ rs
           Lens.^? listGroupMembershipsForMemberResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -176,7 +176,8 @@ instance
           ListGroupMembershipsForMemberResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "GroupMemberships"
+            Prelude.<*> ( x
+                            Data..?> "GroupMemberships"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -186,7 +187,8 @@ instance
     ListGroupMembershipsForMember
   where
   hashWithSalt _salt ListGroupMembershipsForMember' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` identityStoreId
       `Prelude.hashWithSalt` memberId

@@ -93,7 +93,8 @@ instance Data.FromJSON PhoneNumber where
 
 instance Prelude.Hashable PhoneNumber where
   hashWithSalt _salt PhoneNumber' {..} =
-    _salt `Prelude.hashWithSalt` primary
+    _salt
+      `Prelude.hashWithSalt` primary
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 

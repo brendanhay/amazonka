@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | A unique identifier for a user or group that is not the primary
 -- identifier. This value can be an identifier from an external identity
 -- provider (IdP) that is associated with the user, the group, or a unique
--- attribute. For example, a unique @GroupDisplayName@.
+-- attribute.
 --
 -- /See:/ 'newAlternateIdentifier' smart constructor.
 data AlternateIdentifier = AlternateIdentifier'
@@ -69,7 +69,8 @@ alternateIdentifier_uniqueAttribute = Lens.lens (\AlternateIdentifier' {uniqueAt
 
 instance Prelude.Hashable AlternateIdentifier where
   hashWithSalt _salt AlternateIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` externalId
+    _salt
+      `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` uniqueAttribute
 
 instance Prelude.NFData AlternateIdentifier where

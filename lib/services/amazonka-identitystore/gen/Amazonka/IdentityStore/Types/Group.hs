@@ -25,19 +25,19 @@ import qualified Amazonka.Data as Data
 import Amazonka.IdentityStore.Types.ExternalId
 import qualified Amazonka.Prelude as Prelude
 
--- | A group object that contains a specified group’s metadata and
--- attributes.
+-- | A group object that contains the metadata and attributes for a specified
+-- group.
 --
 -- /See:/ 'newGroup' smart constructor.
 data Group = Group'
   { -- | A string containing a description of the specified group.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The group’s display name value. The length limit is 1,024 characters.
-    -- This value can consist of letters, accented characters, symbols,
-    -- numbers, punctuation, tab, new line, carriage return, space, and
-    -- nonbreaking space in this attribute. This value is specified at the time
-    -- the group is created and stored as an attribute of the group object in
-    -- the identity store.
+    -- | The display name value for the group. The length limit is 1,024
+    -- characters. This value can consist of letters, accented characters,
+    -- symbols, numbers, punctuation, tab, new line, carriage return, space,
+    -- and nonbreaking space in this attribute. This value is specified at the
+    -- time the group is created and stored as an attribute of the group object
+    -- in the identity store.
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A list of @ExternalId@ objects that contains the identifiers issued to
     -- this resource by an external identity provider.
@@ -59,12 +59,12 @@ data Group = Group'
 --
 -- 'description', 'group_description' - A string containing a description of the specified group.
 --
--- 'displayName', 'group_displayName' - The group’s display name value. The length limit is 1,024 characters.
--- This value can consist of letters, accented characters, symbols,
--- numbers, punctuation, tab, new line, carriage return, space, and
--- nonbreaking space in this attribute. This value is specified at the time
--- the group is created and stored as an attribute of the group object in
--- the identity store.
+-- 'displayName', 'group_displayName' - The display name value for the group. The length limit is 1,024
+-- characters. This value can consist of letters, accented characters,
+-- symbols, numbers, punctuation, tab, new line, carriage return, space,
+-- and nonbreaking space in this attribute. This value is specified at the
+-- time the group is created and stored as an attribute of the group object
+-- in the identity store.
 --
 -- 'externalIds', 'group_externalIds' - A list of @ExternalId@ objects that contains the identifiers issued to
 -- this resource by an external identity provider.
@@ -91,12 +91,12 @@ newGroup pGroupId_ pIdentityStoreId_ =
 group_description :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
 group_description = Lens.lens (\Group' {description} -> description) (\s@Group' {} a -> s {description = a} :: Group) Prelude.. Lens.mapping Data._Sensitive
 
--- | The group’s display name value. The length limit is 1,024 characters.
--- This value can consist of letters, accented characters, symbols,
--- numbers, punctuation, tab, new line, carriage return, space, and
--- nonbreaking space in this attribute. This value is specified at the time
--- the group is created and stored as an attribute of the group object in
--- the identity store.
+-- | The display name value for the group. The length limit is 1,024
+-- characters. This value can consist of letters, accented characters,
+-- symbols, numbers, punctuation, tab, new line, carriage return, space,
+-- and nonbreaking space in this attribute. This value is specified at the
+-- time the group is created and stored as an attribute of the group object
+-- in the identity store.
 group_displayName :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
 group_displayName = Lens.lens (\Group' {displayName} -> displayName) (\s@Group' {} a -> s {displayName = a} :: Group) Prelude.. Lens.mapping Data._Sensitive
 
@@ -128,7 +128,8 @@ instance Data.FromJSON Group where
 
 instance Prelude.Hashable Group where
   hashWithSalt _salt Group' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` externalIds
       `Prelude.hashWithSalt` groupId

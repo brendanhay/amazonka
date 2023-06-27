@@ -73,12 +73,14 @@ instance Data.FromJSON ExternalId where
       "ExternalId"
       ( \x ->
           ExternalId'
-            Prelude.<$> (x Data..: "Issuer") Prelude.<*> (x Data..: "Id")
+            Prelude.<$> (x Data..: "Issuer")
+            Prelude.<*> (x Data..: "Id")
       )
 
 instance Prelude.Hashable ExternalId where
   hashWithSalt _salt ExternalId' {..} =
-    _salt `Prelude.hashWithSalt` issuer
+    _salt
+      `Prelude.hashWithSalt` issuer
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData ExternalId where

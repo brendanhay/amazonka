@@ -56,7 +56,8 @@ data GetGroupId = GetGroupId'
     -- | A unique identifier for a user or group that is not the primary
     -- identifier. This value can be an identifier from an external identity
     -- provider (IdP) that is associated with the user, the group, or a unique
-    -- attribute. For example, a unique @GroupDisplayName@.
+    -- attribute. For the unique attribute, the only valid path is
+    -- @displayName@.
     alternateIdentifier :: AlternateIdentifier
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -74,7 +75,8 @@ data GetGroupId = GetGroupId'
 -- 'alternateIdentifier', 'getGroupId_alternateIdentifier' - A unique identifier for a user or group that is not the primary
 -- identifier. This value can be an identifier from an external identity
 -- provider (IdP) that is associated with the user, the group, or a unique
--- attribute. For example, a unique @GroupDisplayName@.
+-- attribute. For the unique attribute, the only valid path is
+-- @displayName@.
 newGetGroupId ::
   -- | 'identityStoreId'
   Prelude.Text ->
@@ -94,7 +96,8 @@ getGroupId_identityStoreId = Lens.lens (\GetGroupId' {identityStoreId} -> identi
 -- | A unique identifier for a user or group that is not the primary
 -- identifier. This value can be an identifier from an external identity
 -- provider (IdP) that is associated with the user, the group, or a unique
--- attribute. For example, a unique @GroupDisplayName@.
+-- attribute. For the unique attribute, the only valid path is
+-- @displayName@.
 getGroupId_alternateIdentifier :: Lens.Lens' GetGroupId AlternateIdentifier
 getGroupId_alternateIdentifier = Lens.lens (\GetGroupId' {alternateIdentifier} -> alternateIdentifier) (\s@GetGroupId' {} a -> s {alternateIdentifier = a} :: GetGroupId)
 
@@ -113,7 +116,8 @@ instance Core.AWSRequest GetGroupId where
 
 instance Prelude.Hashable GetGroupId where
   hashWithSalt _salt GetGroupId' {..} =
-    _salt `Prelude.hashWithSalt` identityStoreId
+    _salt
+      `Prelude.hashWithSalt` identityStoreId
       `Prelude.hashWithSalt` alternateIdentifier
 
 instance Prelude.NFData GetGroupId where

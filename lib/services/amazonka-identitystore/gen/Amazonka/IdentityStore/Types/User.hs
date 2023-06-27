@@ -29,15 +29,16 @@ import Amazonka.IdentityStore.Types.Name
 import Amazonka.IdentityStore.Types.PhoneNumber
 import qualified Amazonka.Prelude as Prelude
 
--- | A user object that contains a specified user’s metadata and attributes.
+-- | A user object that contains the metadata and attributes for a specified
+-- user.
 --
 -- /See:/ 'newUser' smart constructor.
 data User = User'
   { -- | A list of @Address@ objects containing addresses associated with the
     -- user.
     addresses :: Prelude.Maybe (Prelude.NonEmpty Address),
-    -- | A string containing the user\'s name that\'s formatted for display when
-    -- the user is referenced. For example, \"John Doe.\"
+    -- | A string containing the name of the user that is formatted for display
+    -- when the user is referenced. For example, \"John Doe.\"
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A list of @Email@ objects containing email addresses associated with the
     -- user.
@@ -45,9 +46,9 @@ data User = User'
     -- | A list of @ExternalId@ objects that contains the identifiers issued to
     -- this resource by an external identity provider.
     externalIds :: Prelude.Maybe (Prelude.NonEmpty ExternalId),
-    -- | A string containing the user\'s geographical region or location.
+    -- | A string containing the geographical region or location of the user.
     locale :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | An object containing the user\'s name.
+    -- | An object containing the name of the user.
     name :: Prelude.Maybe Name,
     -- | A string containing an alternate name for the user.
     nickName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
@@ -57,12 +58,12 @@ data User = User'
     -- | A string containing the preferred language of the user. For example,
     -- \"American English\" or \"en-us.\"
     preferredLanguage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A string containing a URL that may be associated with the user.
+    -- | A string containing a URL that might be associated with the user.
     profileUrl :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A string containing the user\'s time zone.
+    -- | A string containing the time zone of the user.
     timezone :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A string containing the user\'s title. Possible values depend on each
-    -- customer\'s specific needs, so they are left unspecified.
+    -- | A string containing the title of the user. Possible values are left
+    -- unspecified. The value can vary based on your specific use case.
     title :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A unique string used to identify the user. The length limit is 128
     -- characters. This value can consist of letters, accented characters,
@@ -70,8 +71,8 @@ data User = User'
     -- the user is created and stored as an attribute of the user object in the
     -- identity store.
     userName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A string indicating the user\'s type. Possible values depend on each
-    -- customer\'s specific needs, so they are left unspecified.
+    -- | A string indicating the type of user. Possible values are left
+    -- unspecified. The value can vary based on your specific use case.
     userType :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The identifier for a user in the identity store.
     userId :: Prelude.Text,
@@ -91,8 +92,8 @@ data User = User'
 -- 'addresses', 'user_addresses' - A list of @Address@ objects containing addresses associated with the
 -- user.
 --
--- 'displayName', 'user_displayName' - A string containing the user\'s name that\'s formatted for display when
--- the user is referenced. For example, \"John Doe.\"
+-- 'displayName', 'user_displayName' - A string containing the name of the user that is formatted for display
+-- when the user is referenced. For example, \"John Doe.\"
 --
 -- 'emails', 'user_emails' - A list of @Email@ objects containing email addresses associated with the
 -- user.
@@ -100,9 +101,9 @@ data User = User'
 -- 'externalIds', 'user_externalIds' - A list of @ExternalId@ objects that contains the identifiers issued to
 -- this resource by an external identity provider.
 --
--- 'locale', 'user_locale' - A string containing the user\'s geographical region or location.
+-- 'locale', 'user_locale' - A string containing the geographical region or location of the user.
 --
--- 'name', 'user_name' - An object containing the user\'s name.
+-- 'name', 'user_name' - An object containing the name of the user.
 --
 -- 'nickName', 'user_nickName' - A string containing an alternate name for the user.
 --
@@ -112,12 +113,12 @@ data User = User'
 -- 'preferredLanguage', 'user_preferredLanguage' - A string containing the preferred language of the user. For example,
 -- \"American English\" or \"en-us.\"
 --
--- 'profileUrl', 'user_profileUrl' - A string containing a URL that may be associated with the user.
+-- 'profileUrl', 'user_profileUrl' - A string containing a URL that might be associated with the user.
 --
--- 'timezone', 'user_timezone' - A string containing the user\'s time zone.
+-- 'timezone', 'user_timezone' - A string containing the time zone of the user.
 --
--- 'title', 'user_title' - A string containing the user\'s title. Possible values depend on each
--- customer\'s specific needs, so they are left unspecified.
+-- 'title', 'user_title' - A string containing the title of the user. Possible values are left
+-- unspecified. The value can vary based on your specific use case.
 --
 -- 'userName', 'user_userName' - A unique string used to identify the user. The length limit is 128
 -- characters. This value can consist of letters, accented characters,
@@ -125,8 +126,8 @@ data User = User'
 -- the user is created and stored as an attribute of the user object in the
 -- identity store.
 --
--- 'userType', 'user_userType' - A string indicating the user\'s type. Possible values depend on each
--- customer\'s specific needs, so they are left unspecified.
+-- 'userType', 'user_userType' - A string indicating the type of user. Possible values are left
+-- unspecified. The value can vary based on your specific use case.
 --
 -- 'userId', 'user_userId' - The identifier for a user in the identity store.
 --
@@ -162,8 +163,8 @@ newUser pUserId_ pIdentityStoreId_ =
 user_addresses :: Lens.Lens' User (Prelude.Maybe (Prelude.NonEmpty Address))
 user_addresses = Lens.lens (\User' {addresses} -> addresses) (\s@User' {} a -> s {addresses = a} :: User) Prelude.. Lens.mapping Lens.coerced
 
--- | A string containing the user\'s name that\'s formatted for display when
--- the user is referenced. For example, \"John Doe.\"
+-- | A string containing the name of the user that is formatted for display
+-- when the user is referenced. For example, \"John Doe.\"
 user_displayName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_displayName = Lens.lens (\User' {displayName} -> displayName) (\s@User' {} a -> s {displayName = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
@@ -177,11 +178,11 @@ user_emails = Lens.lens (\User' {emails} -> emails) (\s@User' {} a -> s {emails 
 user_externalIds :: Lens.Lens' User (Prelude.Maybe (Prelude.NonEmpty ExternalId))
 user_externalIds = Lens.lens (\User' {externalIds} -> externalIds) (\s@User' {} a -> s {externalIds = a} :: User) Prelude.. Lens.mapping Lens.coerced
 
--- | A string containing the user\'s geographical region or location.
+-- | A string containing the geographical region or location of the user.
 user_locale :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_locale = Lens.lens (\User' {locale} -> locale) (\s@User' {} a -> s {locale = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
--- | An object containing the user\'s name.
+-- | An object containing the name of the user.
 user_name :: Lens.Lens' User (Prelude.Maybe Name)
 user_name = Lens.lens (\User' {name} -> name) (\s@User' {} a -> s {name = a} :: User)
 
@@ -199,16 +200,16 @@ user_phoneNumbers = Lens.lens (\User' {phoneNumbers} -> phoneNumbers) (\s@User' 
 user_preferredLanguage :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_preferredLanguage = Lens.lens (\User' {preferredLanguage} -> preferredLanguage) (\s@User' {} a -> s {preferredLanguage = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
--- | A string containing a URL that may be associated with the user.
+-- | A string containing a URL that might be associated with the user.
 user_profileUrl :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_profileUrl = Lens.lens (\User' {profileUrl} -> profileUrl) (\s@User' {} a -> s {profileUrl = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
--- | A string containing the user\'s time zone.
+-- | A string containing the time zone of the user.
 user_timezone :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_timezone = Lens.lens (\User' {timezone} -> timezone) (\s@User' {} a -> s {timezone = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
--- | A string containing the user\'s title. Possible values depend on each
--- customer\'s specific needs, so they are left unspecified.
+-- | A string containing the title of the user. Possible values are left
+-- unspecified. The value can vary based on your specific use case.
 user_title :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_title = Lens.lens (\User' {title} -> title) (\s@User' {} a -> s {title = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
@@ -220,8 +221,8 @@ user_title = Lens.lens (\User' {title} -> title) (\s@User' {} a -> s {title = a}
 user_userName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_userName = Lens.lens (\User' {userName} -> userName) (\s@User' {} a -> s {userName = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
--- | A string indicating the user\'s type. Possible values depend on each
--- customer\'s specific needs, so they are left unspecified.
+-- | A string indicating the type of user. Possible values are left
+-- unspecified. The value can vary based on your specific use case.
 user_userType :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_userType = Lens.lens (\User' {userType} -> userType) (\s@User' {} a -> s {userType = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
@@ -259,7 +260,8 @@ instance Data.FromJSON User where
 
 instance Prelude.Hashable User where
   hashWithSalt _salt User' {..} =
-    _salt `Prelude.hashWithSalt` addresses
+    _salt
+      `Prelude.hashWithSalt` addresses
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` emails
       `Prelude.hashWithSalt` externalIds

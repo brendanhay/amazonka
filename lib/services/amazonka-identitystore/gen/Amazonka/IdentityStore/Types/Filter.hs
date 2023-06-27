@@ -83,7 +83,8 @@ filter_attributeValue = Lens.lens (\Filter' {attributeValue} -> attributeValue) 
 
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
-    _salt `Prelude.hashWithSalt` attributePath
+    _salt
+      `Prelude.hashWithSalt` attributePath
       `Prelude.hashWithSalt` attributeValue
 
 instance Prelude.NFData Filter where

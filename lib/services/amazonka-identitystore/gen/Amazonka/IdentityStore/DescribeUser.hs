@@ -145,7 +145,8 @@ instance Core.AWSRequest DescribeUser where
 
 instance Prelude.Hashable DescribeUser where
   hashWithSalt _salt DescribeUser' {..} =
-    _salt `Prelude.hashWithSalt` identityStoreId
+    _salt
+      `Prelude.hashWithSalt` identityStoreId
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData DescribeUser where
@@ -186,16 +187,16 @@ instance Data.ToQuery DescribeUser where
 
 -- | /See:/ 'newDescribeUserResponse' smart constructor.
 data DescribeUserResponse = DescribeUserResponse'
-  { -- | The user\'s physical address.
+  { -- | The physical address of the user.
     addresses :: Prelude.Maybe (Prelude.NonEmpty Address),
-    -- | The user\'s name value for display.
+    -- | The display name of the user.
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The user\'s email value.
+    -- | The email address of the user.
     emails :: Prelude.Maybe (Prelude.NonEmpty Email),
     -- | A list of @ExternalId@ objects that contains the identifiers issued to
     -- this resource by an external identity provider.
     externalIds :: Prelude.Maybe (Prelude.NonEmpty ExternalId),
-    -- | A string containing the user\'s geographical region or location.
+    -- | A string containing the geographical region or location of the user.
     locale :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the user.
     name :: Prelude.Maybe Name,
@@ -209,7 +210,7 @@ data DescribeUserResponse = DescribeUserResponse'
     profileUrl :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The time zone for a user.
     timezone :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A string containing the user\'s title.
+    -- | A string containing the title of the user.
     title :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A unique string used to identify the user. The length limit is 128
     -- characters. This value can consist of letters, accented characters,
@@ -217,7 +218,7 @@ data DescribeUserResponse = DescribeUserResponse'
     -- the user is created and stored as an attribute of the user object in the
     -- identity store.
     userName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A string indicating the user\'s type.
+    -- | A string indicating the type of user.
     userType :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -236,16 +237,16 @@ data DescribeUserResponse = DescribeUserResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'addresses', 'describeUserResponse_addresses' - The user\'s physical address.
+-- 'addresses', 'describeUserResponse_addresses' - The physical address of the user.
 --
--- 'displayName', 'describeUserResponse_displayName' - The user\'s name value for display.
+-- 'displayName', 'describeUserResponse_displayName' - The display name of the user.
 --
--- 'emails', 'describeUserResponse_emails' - The user\'s email value.
+-- 'emails', 'describeUserResponse_emails' - The email address of the user.
 --
 -- 'externalIds', 'describeUserResponse_externalIds' - A list of @ExternalId@ objects that contains the identifiers issued to
 -- this resource by an external identity provider.
 --
--- 'locale', 'describeUserResponse_locale' - A string containing the user\'s geographical region or location.
+-- 'locale', 'describeUserResponse_locale' - A string containing the geographical region or location of the user.
 --
 -- 'name', 'describeUserResponse_name' - The name of the user.
 --
@@ -259,7 +260,7 @@ data DescribeUserResponse = DescribeUserResponse'
 --
 -- 'timezone', 'describeUserResponse_timezone' - The time zone for a user.
 --
--- 'title', 'describeUserResponse_title' - A string containing the user\'s title.
+-- 'title', 'describeUserResponse_title' - A string containing the title of the user.
 --
 -- 'userName', 'describeUserResponse_userName' - A unique string used to identify the user. The length limit is 128
 -- characters. This value can consist of letters, accented characters,
@@ -267,7 +268,7 @@ data DescribeUserResponse = DescribeUserResponse'
 -- the user is created and stored as an attribute of the user object in the
 -- identity store.
 --
--- 'userType', 'describeUserResponse_userType' - A string indicating the user\'s type.
+-- 'userType', 'describeUserResponse_userType' - A string indicating the type of user.
 --
 -- 'httpStatus', 'describeUserResponse_httpStatus' - The response's http status code.
 --
@@ -306,15 +307,15 @@ newDescribeUserResponse
         identityStoreId = pIdentityStoreId_
       }
 
--- | The user\'s physical address.
+-- | The physical address of the user.
 describeUserResponse_addresses :: Lens.Lens' DescribeUserResponse (Prelude.Maybe (Prelude.NonEmpty Address))
 describeUserResponse_addresses = Lens.lens (\DescribeUserResponse' {addresses} -> addresses) (\s@DescribeUserResponse' {} a -> s {addresses = a} :: DescribeUserResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The user\'s name value for display.
+-- | The display name of the user.
 describeUserResponse_displayName :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
 describeUserResponse_displayName = Lens.lens (\DescribeUserResponse' {displayName} -> displayName) (\s@DescribeUserResponse' {} a -> s {displayName = a} :: DescribeUserResponse) Prelude.. Lens.mapping Data._Sensitive
 
--- | The user\'s email value.
+-- | The email address of the user.
 describeUserResponse_emails :: Lens.Lens' DescribeUserResponse (Prelude.Maybe (Prelude.NonEmpty Email))
 describeUserResponse_emails = Lens.lens (\DescribeUserResponse' {emails} -> emails) (\s@DescribeUserResponse' {} a -> s {emails = a} :: DescribeUserResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -323,7 +324,7 @@ describeUserResponse_emails = Lens.lens (\DescribeUserResponse' {emails} -> emai
 describeUserResponse_externalIds :: Lens.Lens' DescribeUserResponse (Prelude.Maybe (Prelude.NonEmpty ExternalId))
 describeUserResponse_externalIds = Lens.lens (\DescribeUserResponse' {externalIds} -> externalIds) (\s@DescribeUserResponse' {} a -> s {externalIds = a} :: DescribeUserResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A string containing the user\'s geographical region or location.
+-- | A string containing the geographical region or location of the user.
 describeUserResponse_locale :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
 describeUserResponse_locale = Lens.lens (\DescribeUserResponse' {locale} -> locale) (\s@DescribeUserResponse' {} a -> s {locale = a} :: DescribeUserResponse) Prelude.. Lens.mapping Data._Sensitive
 
@@ -351,7 +352,7 @@ describeUserResponse_profileUrl = Lens.lens (\DescribeUserResponse' {profileUrl}
 describeUserResponse_timezone :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
 describeUserResponse_timezone = Lens.lens (\DescribeUserResponse' {timezone} -> timezone) (\s@DescribeUserResponse' {} a -> s {timezone = a} :: DescribeUserResponse) Prelude.. Lens.mapping Data._Sensitive
 
--- | A string containing the user\'s title.
+-- | A string containing the title of the user.
 describeUserResponse_title :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
 describeUserResponse_title = Lens.lens (\DescribeUserResponse' {title} -> title) (\s@DescribeUserResponse' {} a -> s {title = a} :: DescribeUserResponse) Prelude.. Lens.mapping Data._Sensitive
 
@@ -363,7 +364,7 @@ describeUserResponse_title = Lens.lens (\DescribeUserResponse' {title} -> title)
 describeUserResponse_userName :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
 describeUserResponse_userName = Lens.lens (\DescribeUserResponse' {userName} -> userName) (\s@DescribeUserResponse' {} a -> s {userName = a} :: DescribeUserResponse) Prelude.. Lens.mapping Data._Sensitive
 
--- | A string indicating the user\'s type.
+-- | A string indicating the type of user.
 describeUserResponse_userType :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
 describeUserResponse_userType = Lens.lens (\DescribeUserResponse' {userType} -> userType) (\s@DescribeUserResponse' {} a -> s {userType = a} :: DescribeUserResponse) Prelude.. Lens.mapping Data._Sensitive
 

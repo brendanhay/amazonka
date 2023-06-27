@@ -55,7 +55,9 @@ data CreateGroup = CreateGroup'
   { -- | A string containing the description of the group.
     description :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A string containing the name of the group. This value is commonly
-    -- displayed when the group is referenced.
+    -- displayed when the group is referenced. \"Administrator\" and
+    -- \"AWSAdministrators\" are reserved names and can\'t be used for users or
+    -- groups.
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The globally unique identifier for the identity store.
     identityStoreId :: Prelude.Text
@@ -73,7 +75,9 @@ data CreateGroup = CreateGroup'
 -- 'description', 'createGroup_description' - A string containing the description of the group.
 --
 -- 'displayName', 'createGroup_displayName' - A string containing the name of the group. This value is commonly
--- displayed when the group is referenced.
+-- displayed when the group is referenced. \"Administrator\" and
+-- \"AWSAdministrators\" are reserved names and can\'t be used for users or
+-- groups.
 --
 -- 'identityStoreId', 'createGroup_identityStoreId' - The globally unique identifier for the identity store.
 newCreateGroup ::
@@ -92,7 +96,9 @@ createGroup_description :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
 createGroup_description = Lens.lens (\CreateGroup' {description} -> description) (\s@CreateGroup' {} a -> s {description = a} :: CreateGroup) Prelude.. Lens.mapping Data._Sensitive
 
 -- | A string containing the name of the group. This value is commonly
--- displayed when the group is referenced.
+-- displayed when the group is referenced. \"Administrator\" and
+-- \"AWSAdministrators\" are reserved names and can\'t be used for users or
+-- groups.
 createGroup_displayName :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
 createGroup_displayName = Lens.lens (\CreateGroup' {displayName} -> displayName) (\s@CreateGroup' {} a -> s {displayName = a} :: CreateGroup) Prelude.. Lens.mapping Data._Sensitive
 
@@ -115,7 +121,8 @@ instance Core.AWSRequest CreateGroup where
 
 instance Prelude.Hashable CreateGroup where
   hashWithSalt _salt CreateGroup' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` identityStoreId
 

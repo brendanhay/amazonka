@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteGroupMembership where
 
 instance Prelude.Hashable DeleteGroupMembership where
   hashWithSalt _salt DeleteGroupMembership' {..} =
-    _salt `Prelude.hashWithSalt` identityStoreId
+    _salt
+      `Prelude.hashWithSalt` identityStoreId
       `Prelude.hashWithSalt` membershipId
 
 instance Prelude.NFData DeleteGroupMembership where

@@ -56,7 +56,8 @@ data GetUserId = GetUserId'
     -- | A unique identifier for a user or group that is not the primary
     -- identifier. This value can be an identifier from an external identity
     -- provider (IdP) that is associated with the user, the group, or a unique
-    -- attribute. For example, a unique @UserDisplayName@.
+    -- attribute. For the unique attribute, the only valid paths are @userName@
+    -- and @emails.value@.
     alternateIdentifier :: AlternateIdentifier
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -74,7 +75,8 @@ data GetUserId = GetUserId'
 -- 'alternateIdentifier', 'getUserId_alternateIdentifier' - A unique identifier for a user or group that is not the primary
 -- identifier. This value can be an identifier from an external identity
 -- provider (IdP) that is associated with the user, the group, or a unique
--- attribute. For example, a unique @UserDisplayName@.
+-- attribute. For the unique attribute, the only valid paths are @userName@
+-- and @emails.value@.
 newGetUserId ::
   -- | 'identityStoreId'
   Prelude.Text ->
@@ -94,7 +96,8 @@ getUserId_identityStoreId = Lens.lens (\GetUserId' {identityStoreId} -> identity
 -- | A unique identifier for a user or group that is not the primary
 -- identifier. This value can be an identifier from an external identity
 -- provider (IdP) that is associated with the user, the group, or a unique
--- attribute. For example, a unique @UserDisplayName@.
+-- attribute. For the unique attribute, the only valid paths are @userName@
+-- and @emails.value@.
 getUserId_alternateIdentifier :: Lens.Lens' GetUserId AlternateIdentifier
 getUserId_alternateIdentifier = Lens.lens (\GetUserId' {alternateIdentifier} -> alternateIdentifier) (\s@GetUserId' {} a -> s {alternateIdentifier = a} :: GetUserId)
 
@@ -113,7 +116,8 @@ instance Core.AWSRequest GetUserId where
 
 instance Prelude.Hashable GetUserId where
   hashWithSalt _salt GetUserId' {..} =
-    _salt `Prelude.hashWithSalt` identityStoreId
+    _salt
+      `Prelude.hashWithSalt` identityStoreId
       `Prelude.hashWithSalt` alternateIdentifier
 
 instance Prelude.NFData GetUserId where

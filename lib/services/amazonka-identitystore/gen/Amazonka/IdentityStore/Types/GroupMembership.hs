@@ -104,7 +104,8 @@ instance Data.FromJSON GroupMembership where
 
 instance Prelude.Hashable GroupMembership where
   hashWithSalt _salt GroupMembership' {..} =
-    _salt `Prelude.hashWithSalt` groupId
+    _salt
+      `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` memberId
       `Prelude.hashWithSalt` membershipId
       `Prelude.hashWithSalt` identityStoreId

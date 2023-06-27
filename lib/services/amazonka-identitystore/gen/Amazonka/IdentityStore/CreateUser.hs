@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new user within the specified identity store.
+-- Creates a user within the specified identity store.
 module Amazonka.IdentityStore.CreateUser
   ( -- * Creating a Request
     CreateUser (..),
@@ -66,15 +66,16 @@ data CreateUser = CreateUser'
   { -- | A list of @Address@ objects containing addresses associated with the
     -- user.
     addresses :: Prelude.Maybe (Prelude.NonEmpty Address),
-    -- | A string containing the user\'s name. This value is typically formatted
-    -- for display when the user is referenced. For example, \"John Doe.\"
+    -- | A string containing the name of the user. This value is typically
+    -- formatted for display when the user is referenced. For example, \"John
+    -- Doe.\"
     displayName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A list of @Email@ objects containing email addresses associated with the
     -- user.
     emails :: Prelude.Maybe (Prelude.NonEmpty Email),
-    -- | A string containing the user\'s geographical region or location.
+    -- | A string containing the geographical region or location of the user.
     locale :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | An object containing the user\'s name.
+    -- | An object containing the name of the user.
     name :: Prelude.Maybe Name,
     -- | A string containing an alternate name for the user.
     nickName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
@@ -84,21 +85,22 @@ data CreateUser = CreateUser'
     -- | A string containing the preferred language of the user. For example,
     -- \"American English\" or \"en-us.\"
     preferredLanguage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A string containing a URL that may be associated with the user.
+    -- | A string containing a URL that might be associated with the user.
     profileUrl :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A string containing the user\'s time zone.
+    -- | A string containing the time zone of the user.
     timezone :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A string containing the user\'s title. Possible values are left
-    -- unspecified given that they depend on each customer\'s specific needs.
+    -- | A string containing the title of the user. Possible values are left
+    -- unspecified. The value can vary based on your specific use case.
     title :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A unique string used to identify the user. The length limit is 128
     -- characters. This value can consist of letters, accented characters,
     -- symbols, numbers, and punctuation. This value is specified at the time
     -- the user is created and stored as an attribute of the user object in the
-    -- identity store.
+    -- identity store. \"Administrator\" and \"AWSAdministrators\" are reserved
+    -- names and can\'t be used for users or groups.
     userName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | A string indicating the user\'s type. Possible values depend on each
-    -- customer\'s specific needs, so they are left unspecified.
+    -- | A string indicating the type of user. Possible values are left
+    -- unspecified. The value can vary based on your specific use case.
     userType :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The globally unique identifier for the identity store.
     identityStoreId :: Prelude.Text
@@ -116,15 +118,16 @@ data CreateUser = CreateUser'
 -- 'addresses', 'createUser_addresses' - A list of @Address@ objects containing addresses associated with the
 -- user.
 --
--- 'displayName', 'createUser_displayName' - A string containing the user\'s name. This value is typically formatted
--- for display when the user is referenced. For example, \"John Doe.\"
+-- 'displayName', 'createUser_displayName' - A string containing the name of the user. This value is typically
+-- formatted for display when the user is referenced. For example, \"John
+-- Doe.\"
 --
 -- 'emails', 'createUser_emails' - A list of @Email@ objects containing email addresses associated with the
 -- user.
 --
--- 'locale', 'createUser_locale' - A string containing the user\'s geographical region or location.
+-- 'locale', 'createUser_locale' - A string containing the geographical region or location of the user.
 --
--- 'name', 'createUser_name' - An object containing the user\'s name.
+-- 'name', 'createUser_name' - An object containing the name of the user.
 --
 -- 'nickName', 'createUser_nickName' - A string containing an alternate name for the user.
 --
@@ -134,21 +137,22 @@ data CreateUser = CreateUser'
 -- 'preferredLanguage', 'createUser_preferredLanguage' - A string containing the preferred language of the user. For example,
 -- \"American English\" or \"en-us.\"
 --
--- 'profileUrl', 'createUser_profileUrl' - A string containing a URL that may be associated with the user.
+-- 'profileUrl', 'createUser_profileUrl' - A string containing a URL that might be associated with the user.
 --
--- 'timezone', 'createUser_timezone' - A string containing the user\'s time zone.
+-- 'timezone', 'createUser_timezone' - A string containing the time zone of the user.
 --
--- 'title', 'createUser_title' - A string containing the user\'s title. Possible values are left
--- unspecified given that they depend on each customer\'s specific needs.
+-- 'title', 'createUser_title' - A string containing the title of the user. Possible values are left
+-- unspecified. The value can vary based on your specific use case.
 --
 -- 'userName', 'createUser_userName' - A unique string used to identify the user. The length limit is 128
 -- characters. This value can consist of letters, accented characters,
 -- symbols, numbers, and punctuation. This value is specified at the time
 -- the user is created and stored as an attribute of the user object in the
--- identity store.
+-- identity store. \"Administrator\" and \"AWSAdministrators\" are reserved
+-- names and can\'t be used for users or groups.
 --
--- 'userType', 'createUser_userType' - A string indicating the user\'s type. Possible values depend on each
--- customer\'s specific needs, so they are left unspecified.
+-- 'userType', 'createUser_userType' - A string indicating the type of user. Possible values are left
+-- unspecified. The value can vary based on your specific use case.
 --
 -- 'identityStoreId', 'createUser_identityStoreId' - The globally unique identifier for the identity store.
 newCreateUser ::
@@ -178,8 +182,9 @@ newCreateUser pIdentityStoreId_ =
 createUser_addresses :: Lens.Lens' CreateUser (Prelude.Maybe (Prelude.NonEmpty Address))
 createUser_addresses = Lens.lens (\CreateUser' {addresses} -> addresses) (\s@CreateUser' {} a -> s {addresses = a} :: CreateUser) Prelude.. Lens.mapping Lens.coerced
 
--- | A string containing the user\'s name. This value is typically formatted
--- for display when the user is referenced. For example, \"John Doe.\"
+-- | A string containing the name of the user. This value is typically
+-- formatted for display when the user is referenced. For example, \"John
+-- Doe.\"
 createUser_displayName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_displayName = Lens.lens (\CreateUser' {displayName} -> displayName) (\s@CreateUser' {} a -> s {displayName = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
@@ -188,11 +193,11 @@ createUser_displayName = Lens.lens (\CreateUser' {displayName} -> displayName) (
 createUser_emails :: Lens.Lens' CreateUser (Prelude.Maybe (Prelude.NonEmpty Email))
 createUser_emails = Lens.lens (\CreateUser' {emails} -> emails) (\s@CreateUser' {} a -> s {emails = a} :: CreateUser) Prelude.. Lens.mapping Lens.coerced
 
--- | A string containing the user\'s geographical region or location.
+-- | A string containing the geographical region or location of the user.
 createUser_locale :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_locale = Lens.lens (\CreateUser' {locale} -> locale) (\s@CreateUser' {} a -> s {locale = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
--- | An object containing the user\'s name.
+-- | An object containing the name of the user.
 createUser_name :: Lens.Lens' CreateUser (Prelude.Maybe Name)
 createUser_name = Lens.lens (\CreateUser' {name} -> name) (\s@CreateUser' {} a -> s {name = a} :: CreateUser)
 
@@ -210,16 +215,16 @@ createUser_phoneNumbers = Lens.lens (\CreateUser' {phoneNumbers} -> phoneNumbers
 createUser_preferredLanguage :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_preferredLanguage = Lens.lens (\CreateUser' {preferredLanguage} -> preferredLanguage) (\s@CreateUser' {} a -> s {preferredLanguage = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
--- | A string containing a URL that may be associated with the user.
+-- | A string containing a URL that might be associated with the user.
 createUser_profileUrl :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_profileUrl = Lens.lens (\CreateUser' {profileUrl} -> profileUrl) (\s@CreateUser' {} a -> s {profileUrl = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
--- | A string containing the user\'s time zone.
+-- | A string containing the time zone of the user.
 createUser_timezone :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_timezone = Lens.lens (\CreateUser' {timezone} -> timezone) (\s@CreateUser' {} a -> s {timezone = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
--- | A string containing the user\'s title. Possible values are left
--- unspecified given that they depend on each customer\'s specific needs.
+-- | A string containing the title of the user. Possible values are left
+-- unspecified. The value can vary based on your specific use case.
 createUser_title :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_title = Lens.lens (\CreateUser' {title} -> title) (\s@CreateUser' {} a -> s {title = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
@@ -227,12 +232,13 @@ createUser_title = Lens.lens (\CreateUser' {title} -> title) (\s@CreateUser' {} 
 -- characters. This value can consist of letters, accented characters,
 -- symbols, numbers, and punctuation. This value is specified at the time
 -- the user is created and stored as an attribute of the user object in the
--- identity store.
+-- identity store. \"Administrator\" and \"AWSAdministrators\" are reserved
+-- names and can\'t be used for users or groups.
 createUser_userName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_userName = Lens.lens (\CreateUser' {userName} -> userName) (\s@CreateUser' {} a -> s {userName = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
--- | A string indicating the user\'s type. Possible values depend on each
--- customer\'s specific needs, so they are left unspecified.
+-- | A string indicating the type of user. Possible values are left
+-- unspecified. The value can vary based on your specific use case.
 createUser_userType :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_userType = Lens.lens (\CreateUser' {userType} -> userType) (\s@CreateUser' {} a -> s {userType = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
@@ -255,7 +261,8 @@ instance Core.AWSRequest CreateUser where
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
-    _salt `Prelude.hashWithSalt` addresses
+    _salt
+      `Prelude.hashWithSalt` addresses
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` emails
       `Prelude.hashWithSalt` locale

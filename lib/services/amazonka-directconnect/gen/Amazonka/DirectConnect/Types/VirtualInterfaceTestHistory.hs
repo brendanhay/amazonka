@@ -138,7 +138,8 @@ instance Data.FromJSON VirtualInterfaceTestHistory where
 
 instance Prelude.Hashable VirtualInterfaceTestHistory where
   hashWithSalt _salt VirtualInterfaceTestHistory' {..} =
-    _salt `Prelude.hashWithSalt` bgpPeers
+    _salt
+      `Prelude.hashWithSalt` bgpPeers
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` ownerAccount
       `Prelude.hashWithSalt` startTime

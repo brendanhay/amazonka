@@ -67,7 +67,7 @@ data Interconnect = Interconnect'
     --
     -- -   @unknown@: The state of the interconnect is not available.
     interconnectState :: Prelude.Maybe InterconnectState,
-    -- | Indicates whether jumbo frames (9001 MTU) are supported.
+    -- | Indicates whether jumbo frames are supported.
     jumboFrameCapable :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the LAG.
     lagId :: Prelude.Maybe Prelude.Text,
@@ -128,7 +128,7 @@ data Interconnect = Interconnect'
 --
 -- -   @unknown@: The state of the interconnect is not available.
 --
--- 'jumboFrameCapable', 'interconnect_jumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
+-- 'jumboFrameCapable', 'interconnect_jumboFrameCapable' - Indicates whether jumbo frames are supported.
 --
 -- 'lagId', 'interconnect_lagId' - The ID of the LAG.
 --
@@ -214,7 +214,7 @@ interconnect_interconnectName = Lens.lens (\Interconnect' {interconnectName} -> 
 interconnect_interconnectState :: Lens.Lens' Interconnect (Prelude.Maybe InterconnectState)
 interconnect_interconnectState = Lens.lens (\Interconnect' {interconnectState} -> interconnectState) (\s@Interconnect' {} a -> s {interconnectState = a} :: Interconnect)
 
--- | Indicates whether jumbo frames (9001 MTU) are supported.
+-- | Indicates whether jumbo frames are supported.
 interconnect_jumboFrameCapable :: Lens.Lens' Interconnect (Prelude.Maybe Prelude.Bool)
 interconnect_jumboFrameCapable = Lens.lens (\Interconnect' {jumboFrameCapable} -> jumboFrameCapable) (\s@Interconnect' {} a -> s {jumboFrameCapable = a} :: Interconnect)
 
@@ -267,7 +267,8 @@ instance Data.FromJSON Interconnect where
 
 instance Prelude.Hashable Interconnect where
   hashWithSalt _salt Interconnect' {..} =
-    _salt `Prelude.hashWithSalt` awsDevice
+    _salt
+      `Prelude.hashWithSalt` awsDevice
       `Prelude.hashWithSalt` awsDeviceV2
       `Prelude.hashWithSalt` awsLogicalDeviceId
       `Prelude.hashWithSalt` bandwidth

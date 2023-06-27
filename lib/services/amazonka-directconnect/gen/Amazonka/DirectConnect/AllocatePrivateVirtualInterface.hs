@@ -161,7 +161,8 @@ instance
   hashWithSalt
     _salt
     AllocatePrivateVirtualInterface' {..} =
-      _salt `Prelude.hashWithSalt` connectionId
+      _salt
+        `Prelude.hashWithSalt` connectionId
         `Prelude.hashWithSalt` ownerAccount
         `Prelude.hashWithSalt` newPrivateVirtualInterfaceAllocation'
 

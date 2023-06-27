@@ -55,7 +55,7 @@ data Lag = Lag'
     -- | Indicates whether the LAG supports a secondary BGP peer in the same
     -- address family (IPv4\/IPv6).
     hasLogicalRedundancy :: Prelude.Maybe HasLogicalRedundancy,
-    -- | Indicates whether jumbo frames (9001 MTU) are supported.
+    -- | Indicates whether jumbo frames are supported.
     jumboFrameCapable :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the LAG.
     lagId :: Prelude.Maybe Prelude.Text,
@@ -133,7 +133,7 @@ data Lag = Lag'
 -- 'hasLogicalRedundancy', 'lag_hasLogicalRedundancy' - Indicates whether the LAG supports a secondary BGP peer in the same
 -- address family (IPv4\/IPv6).
 --
--- 'jumboFrameCapable', 'lag_jumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
+-- 'jumboFrameCapable', 'lag_jumboFrameCapable' - Indicates whether jumbo frames are supported.
 --
 -- 'lagId', 'lag_lagId' - The ID of the LAG.
 --
@@ -242,7 +242,7 @@ lag_encryptionMode = Lens.lens (\Lag' {encryptionMode} -> encryptionMode) (\s@La
 lag_hasLogicalRedundancy :: Lens.Lens' Lag (Prelude.Maybe HasLogicalRedundancy)
 lag_hasLogicalRedundancy = Lens.lens (\Lag' {hasLogicalRedundancy} -> hasLogicalRedundancy) (\s@Lag' {} a -> s {hasLogicalRedundancy = a} :: Lag)
 
--- | Indicates whether jumbo frames (9001 MTU) are supported.
+-- | Indicates whether jumbo frames are supported.
 lag_jumboFrameCapable :: Lens.Lens' Lag (Prelude.Maybe Prelude.Bool)
 lag_jumboFrameCapable = Lens.lens (\Lag' {jumboFrameCapable} -> jumboFrameCapable) (\s@Lag' {} a -> s {jumboFrameCapable = a} :: Lag)
 

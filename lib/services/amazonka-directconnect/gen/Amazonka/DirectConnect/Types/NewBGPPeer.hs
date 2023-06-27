@@ -98,7 +98,8 @@ newBGPPeer_customerAddress = Lens.lens (\NewBGPPeer' {customerAddress} -> custom
 
 instance Prelude.Hashable NewBGPPeer where
   hashWithSalt _salt NewBGPPeer' {..} =
-    _salt `Prelude.hashWithSalt` addressFamily
+    _salt
+      `Prelude.hashWithSalt` addressFamily
       `Prelude.hashWithSalt` amazonAddress
       `Prelude.hashWithSalt` asn
       `Prelude.hashWithSalt` authKey

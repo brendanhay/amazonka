@@ -103,7 +103,8 @@ instance Core.AWSRequest DescribeVirtualInterfaces where
     Response.receiveJSON
       ( \s h x ->
           DescribeVirtualInterfacesResponse'
-            Prelude.<$> ( x Data..?> "virtualInterfaces"
+            Prelude.<$> ( x
+                            Data..?> "virtualInterfaces"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -111,7 +112,8 @@ instance Core.AWSRequest DescribeVirtualInterfaces where
 
 instance Prelude.Hashable DescribeVirtualInterfaces where
   hashWithSalt _salt DescribeVirtualInterfaces' {..} =
-    _salt `Prelude.hashWithSalt` connectionId
+    _salt
+      `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` virtualInterfaceId
 
 instance Prelude.NFData DescribeVirtualInterfaces where

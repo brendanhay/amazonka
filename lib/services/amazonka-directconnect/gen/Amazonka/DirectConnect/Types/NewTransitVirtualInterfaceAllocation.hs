@@ -46,7 +46,7 @@ data NewTransitVirtualInterfaceAllocation = NewTransitVirtualInterfaceAllocation
     -- | The IP address assigned to the customer interface.
     customerAddress :: Prelude.Maybe Prelude.Text,
     -- | The maximum transmission unit (MTU), in bytes. The supported values are
-    -- 1500 and 9001. The default value is 1500.
+    -- 1500 and 8500. The default value is 1500
     mtu :: Prelude.Maybe Prelude.Int,
     -- | The tags associated with the transitive virtual interface.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
@@ -82,7 +82,7 @@ data NewTransitVirtualInterfaceAllocation = NewTransitVirtualInterfaceAllocation
 -- 'customerAddress', 'newTransitVirtualInterfaceAllocation_customerAddress' - The IP address assigned to the customer interface.
 --
 -- 'mtu', 'newTransitVirtualInterfaceAllocation_mtu' - The maximum transmission unit (MTU), in bytes. The supported values are
--- 1500 and 9001. The default value is 1500.
+-- 1500 and 8500. The default value is 1500
 --
 -- 'tags', 'newTransitVirtualInterfaceAllocation_tags' - The tags associated with the transitive virtual interface.
 --
@@ -133,7 +133,7 @@ newTransitVirtualInterfaceAllocation_customerAddress :: Lens.Lens' NewTransitVir
 newTransitVirtualInterfaceAllocation_customerAddress = Lens.lens (\NewTransitVirtualInterfaceAllocation' {customerAddress} -> customerAddress) (\s@NewTransitVirtualInterfaceAllocation' {} a -> s {customerAddress = a} :: NewTransitVirtualInterfaceAllocation)
 
 -- | The maximum transmission unit (MTU), in bytes. The supported values are
--- 1500 and 9001. The default value is 1500.
+-- 1500 and 8500. The default value is 1500
 newTransitVirtualInterfaceAllocation_mtu :: Lens.Lens' NewTransitVirtualInterfaceAllocation (Prelude.Maybe Prelude.Int)
 newTransitVirtualInterfaceAllocation_mtu = Lens.lens (\NewTransitVirtualInterfaceAllocation' {mtu} -> mtu) (\s@NewTransitVirtualInterfaceAllocation' {} a -> s {mtu = a} :: NewTransitVirtualInterfaceAllocation)
 
@@ -158,7 +158,8 @@ instance
   hashWithSalt
     _salt
     NewTransitVirtualInterfaceAllocation' {..} =
-      _salt `Prelude.hashWithSalt` addressFamily
+      _salt
+        `Prelude.hashWithSalt` addressFamily
         `Prelude.hashWithSalt` amazonAddress
         `Prelude.hashWithSalt` asn
         `Prelude.hashWithSalt` authKey

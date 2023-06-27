@@ -141,7 +141,8 @@ instance
     DisassociateConnectionFromLag
   where
   hashWithSalt _salt DisassociateConnectionFromLag' {..} =
-    _salt `Prelude.hashWithSalt` connectionId
+    _salt
+      `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` lagId
 
 instance Prelude.NFData DisassociateConnectionFromLag where

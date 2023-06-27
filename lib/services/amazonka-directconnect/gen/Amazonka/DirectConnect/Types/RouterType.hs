@@ -117,7 +117,8 @@ instance Data.FromJSON RouterType where
 
 instance Prelude.Hashable RouterType where
   hashWithSalt _salt RouterType' {..} =
-    _salt `Prelude.hashWithSalt` platform
+    _salt
+      `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` routerTypeIdentifier
       `Prelude.hashWithSalt` software
       `Prelude.hashWithSalt` vendor

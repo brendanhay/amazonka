@@ -64,12 +64,12 @@ data VirtualInterface = VirtualInterface'
     customerRouterConfig :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Direct Connect gateway.
     directConnectGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether jumbo frames (9001 MTU) are supported.
+    -- | Indicates whether jumbo frames are supported.
     jumboFrameCapable :: Prelude.Maybe Prelude.Bool,
     -- | The location of the connection.
     location :: Prelude.Maybe Prelude.Text,
     -- | The maximum transmission unit (MTU), in bytes. The supported values are
-    -- 1500 and 9001. The default value is 1500.
+    -- 1500 and 8500. The default value is 1500
     mtu :: Prelude.Maybe Prelude.Int,
     -- | The ID of the Amazon Web Services account that owns the virtual
     -- interface.
@@ -173,12 +173,12 @@ data VirtualInterface = VirtualInterface'
 --
 -- 'directConnectGatewayId', 'virtualInterface_directConnectGatewayId' - The ID of the Direct Connect gateway.
 --
--- 'jumboFrameCapable', 'virtualInterface_jumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
+-- 'jumboFrameCapable', 'virtualInterface_jumboFrameCapable' - Indicates whether jumbo frames are supported.
 --
 -- 'location', 'virtualInterface_location' - The location of the connection.
 --
 -- 'mtu', 'virtualInterface_mtu' - The maximum transmission unit (MTU), in bytes. The supported values are
--- 1500 and 9001. The default value is 1500.
+-- 1500 and 8500. The default value is 1500
 --
 -- 'ownerAccount', 'virtualInterface_ownerAccount' - The ID of the Amazon Web Services account that owns the virtual
 -- interface.
@@ -326,7 +326,7 @@ virtualInterface_customerRouterConfig = Lens.lens (\VirtualInterface' {customerR
 virtualInterface_directConnectGatewayId :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
 virtualInterface_directConnectGatewayId = Lens.lens (\VirtualInterface' {directConnectGatewayId} -> directConnectGatewayId) (\s@VirtualInterface' {} a -> s {directConnectGatewayId = a} :: VirtualInterface)
 
--- | Indicates whether jumbo frames (9001 MTU) are supported.
+-- | Indicates whether jumbo frames are supported.
 virtualInterface_jumboFrameCapable :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Bool)
 virtualInterface_jumboFrameCapable = Lens.lens (\VirtualInterface' {jumboFrameCapable} -> jumboFrameCapable) (\s@VirtualInterface' {} a -> s {jumboFrameCapable = a} :: VirtualInterface)
 
@@ -335,7 +335,7 @@ virtualInterface_location :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.
 virtualInterface_location = Lens.lens (\VirtualInterface' {location} -> location) (\s@VirtualInterface' {} a -> s {location = a} :: VirtualInterface)
 
 -- | The maximum transmission unit (MTU), in bytes. The supported values are
--- 1500 and 9001. The default value is 1500.
+-- 1500 and 8500. The default value is 1500
 virtualInterface_mtu :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Int)
 virtualInterface_mtu = Lens.lens (\VirtualInterface' {mtu} -> mtu) (\s@VirtualInterface' {} a -> s {mtu = a} :: VirtualInterface)
 
@@ -444,7 +444,8 @@ instance Data.FromJSON VirtualInterface where
             Prelude.<*> (x Data..:? "mtu")
             Prelude.<*> (x Data..:? "ownerAccount")
             Prelude.<*> (x Data..:? "region")
-            Prelude.<*> ( x Data..:? "routeFilterPrefixes"
+            Prelude.<*> ( x
+                            Data..:? "routeFilterPrefixes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "siteLinkEnabled")
@@ -459,7 +460,8 @@ instance Data.FromJSON VirtualInterface where
 
 instance Prelude.Hashable VirtualInterface where
   hashWithSalt _salt VirtualInterface' {..} =
-    _salt `Prelude.hashWithSalt` addressFamily
+    _salt
+      `Prelude.hashWithSalt` addressFamily
       `Prelude.hashWithSalt` amazonAddress
       `Prelude.hashWithSalt` amazonSideAsn
       `Prelude.hashWithSalt` asn

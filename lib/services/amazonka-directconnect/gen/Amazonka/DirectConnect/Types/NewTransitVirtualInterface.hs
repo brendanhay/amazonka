@@ -49,7 +49,7 @@ data NewTransitVirtualInterface = NewTransitVirtualInterface'
     -- | Indicates whether to enable or disable SiteLink.
     enableSiteLink :: Prelude.Maybe Prelude.Bool,
     -- | The maximum transmission unit (MTU), in bytes. The supported values are
-    -- 1500 and 9001. The default value is 1500.
+    -- 1500 and 8500. The default value is 1500.
     mtu :: Prelude.Maybe Prelude.Int,
     -- | The tags associated with the transitive virtual interface.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
@@ -89,7 +89,7 @@ data NewTransitVirtualInterface = NewTransitVirtualInterface'
 -- 'enableSiteLink', 'newTransitVirtualInterface_enableSiteLink' - Indicates whether to enable or disable SiteLink.
 --
 -- 'mtu', 'newTransitVirtualInterface_mtu' - The maximum transmission unit (MTU), in bytes. The supported values are
--- 1500 and 9001. The default value is 1500.
+-- 1500 and 8500. The default value is 1500.
 --
 -- 'tags', 'newTransitVirtualInterface_tags' - The tags associated with the transitive virtual interface.
 --
@@ -149,7 +149,7 @@ newTransitVirtualInterface_enableSiteLink :: Lens.Lens' NewTransitVirtualInterfa
 newTransitVirtualInterface_enableSiteLink = Lens.lens (\NewTransitVirtualInterface' {enableSiteLink} -> enableSiteLink) (\s@NewTransitVirtualInterface' {} a -> s {enableSiteLink = a} :: NewTransitVirtualInterface)
 
 -- | The maximum transmission unit (MTU), in bytes. The supported values are
--- 1500 and 9001. The default value is 1500.
+-- 1500 and 8500. The default value is 1500.
 newTransitVirtualInterface_mtu :: Lens.Lens' NewTransitVirtualInterface (Prelude.Maybe Prelude.Int)
 newTransitVirtualInterface_mtu = Lens.lens (\NewTransitVirtualInterface' {mtu} -> mtu) (\s@NewTransitVirtualInterface' {} a -> s {mtu = a} :: NewTransitVirtualInterface)
 
@@ -169,7 +169,8 @@ newTransitVirtualInterface_vlan = Lens.lens (\NewTransitVirtualInterface' {vlan}
 
 instance Prelude.Hashable NewTransitVirtualInterface where
   hashWithSalt _salt NewTransitVirtualInterface' {..} =
-    _salt `Prelude.hashWithSalt` addressFamily
+    _salt
+      `Prelude.hashWithSalt` addressFamily
       `Prelude.hashWithSalt` amazonAddress
       `Prelude.hashWithSalt` asn
       `Prelude.hashWithSalt` authKey

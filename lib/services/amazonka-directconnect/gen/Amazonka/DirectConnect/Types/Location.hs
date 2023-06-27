@@ -108,13 +108,16 @@ instance Data.FromJSON Location where
       "Location"
       ( \x ->
           Location'
-            Prelude.<$> ( x Data..:? "availableMacSecPortSpeeds"
+            Prelude.<$> ( x
+                            Data..:? "availableMacSecPortSpeeds"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "availablePortSpeeds"
+            Prelude.<*> ( x
+                            Data..:? "availablePortSpeeds"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "availableProviders"
+            Prelude.<*> ( x
+                            Data..:? "availableProviders"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "locationCode")

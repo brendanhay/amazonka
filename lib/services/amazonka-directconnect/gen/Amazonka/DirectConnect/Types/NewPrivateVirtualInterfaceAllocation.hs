@@ -167,7 +167,8 @@ instance
   hashWithSalt
     _salt
     NewPrivateVirtualInterfaceAllocation' {..} =
-      _salt `Prelude.hashWithSalt` addressFamily
+      _salt
+        `Prelude.hashWithSalt` addressFamily
         `Prelude.hashWithSalt` amazonAddress
         `Prelude.hashWithSalt` authKey
         `Prelude.hashWithSalt` customerAddress

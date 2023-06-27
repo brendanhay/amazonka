@@ -117,7 +117,8 @@ data CreateLag = CreateLag'
     -- | The tags to associate with the LAG.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The number of physical dedicated connections initially provisioned and
-    -- bundled by the LAG.
+    -- bundled by the LAG. You can have a maximum of four connections when the
+    -- port speed is 1G or 10G, or two when the port speed is 100G.
     numberOfConnections :: Prelude.Int,
     -- | The location for the LAG.
     location :: Prelude.Text,
@@ -153,7 +154,8 @@ data CreateLag = CreateLag'
 -- 'tags', 'createLag_tags' - The tags to associate with the LAG.
 --
 -- 'numberOfConnections', 'createLag_numberOfConnections' - The number of physical dedicated connections initially provisioned and
--- bundled by the LAG.
+-- bundled by the LAG. You can have a maximum of four connections when the
+-- port speed is 1G or 10G, or two when the port speed is 100G.
 --
 -- 'location', 'createLag_location' - The location for the LAG.
 --
@@ -214,7 +216,8 @@ createLag_tags :: Lens.Lens' CreateLag (Prelude.Maybe (Prelude.NonEmpty Tag))
 createLag_tags = Lens.lens (\CreateLag' {tags} -> tags) (\s@CreateLag' {} a -> s {tags = a} :: CreateLag) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of physical dedicated connections initially provisioned and
--- bundled by the LAG.
+-- bundled by the LAG. You can have a maximum of four connections when the
+-- port speed is 1G or 10G, or two when the port speed is 100G.
 createLag_numberOfConnections :: Lens.Lens' CreateLag Prelude.Int
 createLag_numberOfConnections = Lens.lens (\CreateLag' {numberOfConnections} -> numberOfConnections) (\s@CreateLag' {} a -> s {numberOfConnections = a} :: CreateLag)
 
@@ -241,7 +244,8 @@ instance Core.AWSRequest CreateLag where
 
 instance Prelude.Hashable CreateLag where
   hashWithSalt _salt CreateLag' {..} =
-    _salt `Prelude.hashWithSalt` childConnectionTags
+    _salt
+      `Prelude.hashWithSalt` childConnectionTags
       `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` providerName
       `Prelude.hashWithSalt` requestMACSec

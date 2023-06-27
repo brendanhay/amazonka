@@ -81,7 +81,7 @@ data Connection = Connection'
     -- | Indicates whether the connection supports a secondary BGP peer in the
     -- same address family (IPv4\/IPv6).
     hasLogicalRedundancy :: Prelude.Maybe HasLogicalRedundancy,
-    -- | Indicates whether jumbo frames (9001 MTU) are supported.
+    -- | Indicates whether jumbo frames are supported.
     jumboFrameCapable :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the LAG.
     lagId :: Prelude.Maybe Prelude.Text,
@@ -171,7 +171,7 @@ data Connection = Connection'
 -- 'hasLogicalRedundancy', 'connection_hasLogicalRedundancy' - Indicates whether the connection supports a secondary BGP peer in the
 -- same address family (IPv4\/IPv6).
 --
--- 'jumboFrameCapable', 'connection_jumboFrameCapable' - Indicates whether jumbo frames (9001 MTU) are supported.
+-- 'jumboFrameCapable', 'connection_jumboFrameCapable' - Indicates whether jumbo frames are supported.
 --
 -- 'lagId', 'connection_lagId' - The ID of the LAG.
 --
@@ -295,7 +295,7 @@ connection_encryptionMode = Lens.lens (\Connection' {encryptionMode} -> encrypti
 connection_hasLogicalRedundancy :: Lens.Lens' Connection (Prelude.Maybe HasLogicalRedundancy)
 connection_hasLogicalRedundancy = Lens.lens (\Connection' {hasLogicalRedundancy} -> hasLogicalRedundancy) (\s@Connection' {} a -> s {hasLogicalRedundancy = a} :: Connection)
 
--- | Indicates whether jumbo frames (9001 MTU) are supported.
+-- | Indicates whether jumbo frames are supported.
 connection_jumboFrameCapable :: Lens.Lens' Connection (Prelude.Maybe Prelude.Bool)
 connection_jumboFrameCapable = Lens.lens (\Connection' {jumboFrameCapable} -> jumboFrameCapable) (\s@Connection' {} a -> s {jumboFrameCapable = a} :: Connection)
 
@@ -383,7 +383,8 @@ instance Data.FromJSON Connection where
 
 instance Prelude.Hashable Connection where
   hashWithSalt _salt Connection' {..} =
-    _salt `Prelude.hashWithSalt` awsDevice
+    _salt
+      `Prelude.hashWithSalt` awsDevice
       `Prelude.hashWithSalt` awsDeviceV2
       `Prelude.hashWithSalt` awsLogicalDeviceId
       `Prelude.hashWithSalt` bandwidth

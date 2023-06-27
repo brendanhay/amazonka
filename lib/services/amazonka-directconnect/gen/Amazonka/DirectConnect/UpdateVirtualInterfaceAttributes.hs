@@ -28,7 +28,7 @@
 -- support jumbo frames. Updating the connection disrupts network
 -- connectivity for all virtual interfaces associated with the connection
 -- for up to 30 seconds. To check whether your connection supports jumbo
--- frames, call DescribeConnections. To check whether your virtual q
+-- frames, call DescribeConnections. To check whether your virtual
 -- interface supports jumbo frames, call DescribeVirtualInterfaces.
 module Amazonka.DirectConnect.UpdateVirtualInterfaceAttributes
   ( -- * Creating a Request
@@ -164,7 +164,8 @@ instance
   hashWithSalt
     _salt
     UpdateVirtualInterfaceAttributes' {..} =
-      _salt `Prelude.hashWithSalt` enableSiteLink
+      _salt
+        `Prelude.hashWithSalt` enableSiteLink
         `Prelude.hashWithSalt` mtu
         `Prelude.hashWithSalt` virtualInterfaceName
         `Prelude.hashWithSalt` virtualInterfaceId

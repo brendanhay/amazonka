@@ -119,22 +119,22 @@ instance Core.AWSPager DescribeDirectConnectGateways where
     | Core.stop
         ( rs
             Lens.^? describeDirectConnectGatewaysResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDirectConnectGatewaysResponse_directConnectGateways
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDirectConnectGateways_nextToken
           Lens..~ rs
           Lens.^? describeDirectConnectGatewaysResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -149,7 +149,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeDirectConnectGatewaysResponse'
-            Prelude.<$> ( x Data..?> "directConnectGateways"
+            Prelude.<$> ( x
+                            Data..?> "directConnectGateways"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -161,7 +162,8 @@ instance
     DescribeDirectConnectGateways
   where
   hashWithSalt _salt DescribeDirectConnectGateways' {..} =
-    _salt `Prelude.hashWithSalt` directConnectGatewayId
+    _salt
+      `Prelude.hashWithSalt` directConnectGatewayId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

@@ -173,7 +173,8 @@ instance
   hashWithSalt
     _salt
     DirectConnectGatewayAttachment' {..} =
-      _salt `Prelude.hashWithSalt` attachmentState
+      _salt
+        `Prelude.hashWithSalt` attachmentState
         `Prelude.hashWithSalt` attachmentType
         `Prelude.hashWithSalt` directConnectGatewayId
         `Prelude.hashWithSalt` stateChangeError

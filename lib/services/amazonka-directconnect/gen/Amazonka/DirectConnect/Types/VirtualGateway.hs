@@ -108,7 +108,8 @@ instance Data.FromJSON VirtualGateway where
 
 instance Prelude.Hashable VirtualGateway where
   hashWithSalt _salt VirtualGateway' {..} =
-    _salt `Prelude.hashWithSalt` virtualGatewayId
+    _salt
+      `Prelude.hashWithSalt` virtualGatewayId
       `Prelude.hashWithSalt` virtualGatewayState
 
 instance Prelude.NFData VirtualGateway where

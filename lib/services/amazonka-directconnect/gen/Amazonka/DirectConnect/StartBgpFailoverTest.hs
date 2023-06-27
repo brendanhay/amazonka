@@ -68,7 +68,7 @@ data StartBgpFailoverTest = StartBgpFailoverTest'
     bgpPeers :: Prelude.Maybe [Prelude.Text],
     -- | The time in minutes that the virtual interface failover test will last.
     --
-    -- Maximum value: 180 minutes (3 hours).
+    -- Maximum value: 4,320 minutes (72 hours).
     --
     -- Default: 180 minutes (3 hours).
     testDurationInMinutes :: Prelude.Maybe Prelude.Int,
@@ -89,7 +89,7 @@ data StartBgpFailoverTest = StartBgpFailoverTest'
 --
 -- 'testDurationInMinutes', 'startBgpFailoverTest_testDurationInMinutes' - The time in minutes that the virtual interface failover test will last.
 --
--- Maximum value: 180 minutes (3 hours).
+-- Maximum value: 4,320 minutes (72 hours).
 --
 -- Default: 180 minutes (3 hours).
 --
@@ -111,7 +111,7 @@ startBgpFailoverTest_bgpPeers = Lens.lens (\StartBgpFailoverTest' {bgpPeers} -> 
 
 -- | The time in minutes that the virtual interface failover test will last.
 --
--- Maximum value: 180 minutes (3 hours).
+-- Maximum value: 4,320 minutes (72 hours).
 --
 -- Default: 180 minutes (3 hours).
 startBgpFailoverTest_testDurationInMinutes :: Lens.Lens' StartBgpFailoverTest (Prelude.Maybe Prelude.Int)
@@ -137,7 +137,8 @@ instance Core.AWSRequest StartBgpFailoverTest where
 
 instance Prelude.Hashable StartBgpFailoverTest where
   hashWithSalt _salt StartBgpFailoverTest' {..} =
-    _salt `Prelude.hashWithSalt` bgpPeers
+    _salt
+      `Prelude.hashWithSalt` bgpPeers
       `Prelude.hashWithSalt` testDurationInMinutes
       `Prelude.hashWithSalt` virtualInterfaceId
 

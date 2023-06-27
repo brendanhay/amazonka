@@ -117,7 +117,7 @@ instance
       ( \s h x ->
           UpdateDirectConnectGatewayAssociationResponse'
             Prelude.<$> (x Data..?> "directConnectGatewayAssociation")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

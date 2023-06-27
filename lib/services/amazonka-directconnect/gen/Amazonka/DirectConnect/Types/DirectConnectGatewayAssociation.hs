@@ -54,6 +54,10 @@ data DirectConnectGatewayAssociation = DirectConnectGatewayAssociation'
     --     disassociated from the Direct Connect gateway. Traffic flow between
     --     the Direct Connect gateway and virtual private gateway or transit
     --     gateway is stopped.
+    --
+    -- -   @updating@: The CIDR blocks for the virtual private gateway or
+    --     transit gateway are currently being updated. This could be new CIDR
+    --     blocks added or current CIDR blocks removed.
     associationState :: Prelude.Maybe DirectConnectGatewayAssociationState,
     -- | The ID of the Direct Connect gateway.
     directConnectGatewayId :: Prelude.Maybe Prelude.Text,
@@ -104,6 +108,10 @@ data DirectConnectGatewayAssociation = DirectConnectGatewayAssociation'
 --     disassociated from the Direct Connect gateway. Traffic flow between
 --     the Direct Connect gateway and virtual private gateway or transit
 --     gateway is stopped.
+--
+-- -   @updating@: The CIDR blocks for the virtual private gateway or
+--     transit gateway are currently being updated. This could be new CIDR
+--     blocks added or current CIDR blocks removed.
 --
 -- 'directConnectGatewayId', 'directConnectGatewayAssociation_directConnectGatewayId' - The ID of the Direct Connect gateway.
 --
@@ -167,6 +175,10 @@ directConnectGatewayAssociation_associationId = Lens.lens (\DirectConnectGateway
 --     disassociated from the Direct Connect gateway. Traffic flow between
 --     the Direct Connect gateway and virtual private gateway or transit
 --     gateway is stopped.
+--
+-- -   @updating@: The CIDR blocks for the virtual private gateway or
+--     transit gateway are currently being updated. This could be new CIDR
+--     blocks added or current CIDR blocks removed.
 directConnectGatewayAssociation_associationState :: Lens.Lens' DirectConnectGatewayAssociation (Prelude.Maybe DirectConnectGatewayAssociationState)
 directConnectGatewayAssociation_associationState = Lens.lens (\DirectConnectGatewayAssociation' {associationState} -> associationState) (\s@DirectConnectGatewayAssociation' {} a -> s {associationState = a} :: DirectConnectGatewayAssociation)
 
@@ -207,7 +219,8 @@ instance
       "DirectConnectGatewayAssociation"
       ( \x ->
           DirectConnectGatewayAssociation'
-            Prelude.<$> ( x Data..:? "allowedPrefixesToDirectConnectGateway"
+            Prelude.<$> ( x
+                            Data..:? "allowedPrefixesToDirectConnectGateway"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "associatedGateway")

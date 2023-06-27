@@ -165,7 +165,8 @@ instance Core.AWSRequest UpdateLag where
 
 instance Prelude.Hashable UpdateLag where
   hashWithSalt _salt UpdateLag' {..} =
-    _salt `Prelude.hashWithSalt` encryptionMode
+    _salt
+      `Prelude.hashWithSalt` encryptionMode
       `Prelude.hashWithSalt` lagName
       `Prelude.hashWithSalt` minimumLinks
       `Prelude.hashWithSalt` lagId

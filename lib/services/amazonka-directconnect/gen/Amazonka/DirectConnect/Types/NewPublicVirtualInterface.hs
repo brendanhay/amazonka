@@ -161,7 +161,8 @@ newPublicVirtualInterface_asn = Lens.lens (\NewPublicVirtualInterface' {asn} -> 
 
 instance Prelude.Hashable NewPublicVirtualInterface where
   hashWithSalt _salt NewPublicVirtualInterface' {..} =
-    _salt `Prelude.hashWithSalt` addressFamily
+    _salt
+      `Prelude.hashWithSalt` addressFamily
       `Prelude.hashWithSalt` amazonAddress
       `Prelude.hashWithSalt` authKey
       `Prelude.hashWithSalt` customerAddress

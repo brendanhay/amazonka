@@ -119,6 +119,7 @@ library
     Amazonka.Neptune.Types.AvailabilityZone
     Amazonka.Neptune.Types.CharacterSet
     Amazonka.Neptune.Types.CloudwatchLogsExportConfiguration
+    Amazonka.Neptune.Types.ClusterPendingModifiedValues
     Amazonka.Neptune.Types.DBCluster
     Amazonka.Neptune.Types.DBClusterEndpoint
     Amazonka.Neptune.Types.DBClusterMember

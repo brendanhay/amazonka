@@ -109,6 +109,17 @@ module Amazonka.Neptune.Types
     cloudwatchLogsExportConfiguration_disableLogTypes,
     cloudwatchLogsExportConfiguration_enableLogTypes,
 
+    -- * ClusterPendingModifiedValues
+    ClusterPendingModifiedValues (..),
+    newClusterPendingModifiedValues,
+    clusterPendingModifiedValues_allocatedStorage,
+    clusterPendingModifiedValues_backupRetentionPeriod,
+    clusterPendingModifiedValues_dbClusterIdentifier,
+    clusterPendingModifiedValues_engineVersion,
+    clusterPendingModifiedValues_iAMDatabaseAuthenticationEnabled,
+    clusterPendingModifiedValues_iops,
+    clusterPendingModifiedValues_pendingCloudwatchLogsExports,
+
     -- * DBCluster
     DBCluster (..),
     newDBCluster,
@@ -136,12 +147,14 @@ module Amazonka.Neptune.Types
     dbCluster_endpoint,
     dbCluster_engine,
     dbCluster_engineVersion,
+    dbCluster_globalClusterIdentifier,
     dbCluster_hostedZoneId,
     dbCluster_iAMDatabaseAuthenticationEnabled,
     dbCluster_kmsKeyId,
     dbCluster_latestRestorableTime,
     dbCluster_masterUsername,
     dbCluster_multiAZ,
+    dbCluster_pendingModifiedValues,
     dbCluster_percentProgress,
     dbCluster_port,
     dbCluster_preferredBackupWindow,
@@ -598,6 +611,7 @@ import Amazonka.Neptune.Types.ApplyMethod
 import Amazonka.Neptune.Types.AvailabilityZone
 import Amazonka.Neptune.Types.CharacterSet
 import Amazonka.Neptune.Types.CloudwatchLogsExportConfiguration
+import Amazonka.Neptune.Types.ClusterPendingModifiedValues
 import Amazonka.Neptune.Types.DBCluster
 import Amazonka.Neptune.Types.DBClusterEndpoint
 import Amazonka.Neptune.Types.DBClusterMember
@@ -673,48 +687,48 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Specified CIDRIP or EC2 security group is not authorized for the
@@ -722,7 +736,7 @@ defaultService =
 --
 -- Neptune may not also be authorized via IAM to perform necessary actions
 -- on your behalf.
-_AuthorizationNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AuthorizationNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AuthorizationNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -730,7 +744,7 @@ _AuthorizationNotFoundFault =
     Prelude.. Core.hasStatus 404
 
 -- | /CertificateIdentifier/ does not refer to an existing certificate.
-_CertificateNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CertificateNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CertificateNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -738,7 +752,7 @@ _CertificateNotFoundFault =
     Prelude.. Core.hasStatus 404
 
 -- | User already has a DB cluster with the given identifier.
-_DBClusterAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBClusterAlreadyExistsFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBClusterAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
@@ -747,7 +761,7 @@ _DBClusterAlreadyExistsFault =
 
 -- | The specified custom endpoint cannot be created because it already
 -- exists.
-_DBClusterEndpointAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBClusterEndpointAlreadyExistsFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBClusterEndpointAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
@@ -755,7 +769,7 @@ _DBClusterEndpointAlreadyExistsFault =
     Prelude.. Core.hasStatus 400
 
 -- | The specified custom endpoint doesn\'t exist.
-_DBClusterEndpointNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBClusterEndpointNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBClusterEndpointNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -763,7 +777,7 @@ _DBClusterEndpointNotFoundFault =
     Prelude.. Core.hasStatus 400
 
 -- | The cluster already has the maximum number of custom endpoints.
-_DBClusterEndpointQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBClusterEndpointQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBClusterEndpointQuotaExceededFault =
   Core._MatchServiceError
     defaultService
@@ -771,7 +785,7 @@ _DBClusterEndpointQuotaExceededFault =
     Prelude.. Core.hasStatus 403
 
 -- | /DBClusterIdentifier/ does not refer to an existing DB cluster.
-_DBClusterNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBClusterNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBClusterNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -780,7 +794,7 @@ _DBClusterNotFoundFault =
 
 -- | /DBClusterParameterGroupName/ does not refer to an existing DB Cluster
 -- parameter group.
-_DBClusterParameterGroupNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBClusterParameterGroupNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBClusterParameterGroupNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -789,7 +803,7 @@ _DBClusterParameterGroupNotFoundFault =
 
 -- | User attempted to create a new DB cluster and the user has already
 -- reached the maximum allowed DB cluster quota.
-_DBClusterQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBClusterQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBClusterQuotaExceededFault =
   Core._MatchServiceError
     defaultService
@@ -798,7 +812,7 @@ _DBClusterQuotaExceededFault =
 
 -- | The specified IAM role Amazon Resource Name (ARN) is already associated
 -- with the specified DB cluster.
-_DBClusterRoleAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBClusterRoleAlreadyExistsFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBClusterRoleAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
@@ -807,7 +821,7 @@ _DBClusterRoleAlreadyExistsFault =
 
 -- | The specified IAM role Amazon Resource Name (ARN) is not associated with
 -- the specified DB cluster.
-_DBClusterRoleNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBClusterRoleNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBClusterRoleNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -816,7 +830,7 @@ _DBClusterRoleNotFoundFault =
 
 -- | You have exceeded the maximum number of IAM roles that can be associated
 -- with the specified DB cluster.
-_DBClusterRoleQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBClusterRoleQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBClusterRoleQuotaExceededFault =
   Core._MatchServiceError
     defaultService
@@ -824,7 +838,7 @@ _DBClusterRoleQuotaExceededFault =
     Prelude.. Core.hasStatus 400
 
 -- | User already has a DB cluster snapshot with the given identifier.
-_DBClusterSnapshotAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBClusterSnapshotAlreadyExistsFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBClusterSnapshotAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
@@ -833,7 +847,7 @@ _DBClusterSnapshotAlreadyExistsFault =
 
 -- | /DBClusterSnapshotIdentifier/ does not refer to an existing DB cluster
 -- snapshot.
-_DBClusterSnapshotNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBClusterSnapshotNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBClusterSnapshotNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -841,7 +855,7 @@ _DBClusterSnapshotNotFoundFault =
     Prelude.. Core.hasStatus 404
 
 -- | User already has a DB instance with the given identifier.
-_DBInstanceAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBInstanceAlreadyExistsFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBInstanceAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
@@ -849,7 +863,7 @@ _DBInstanceAlreadyExistsFault =
     Prelude.. Core.hasStatus 400
 
 -- | /DBInstanceIdentifier/ does not refer to an existing DB instance.
-_DBInstanceNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBInstanceNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBInstanceNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -857,7 +871,7 @@ _DBInstanceNotFoundFault =
     Prelude.. Core.hasStatus 404
 
 -- | A DB parameter group with the same name exists.
-_DBParameterGroupAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBParameterGroupAlreadyExistsFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBParameterGroupAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
@@ -865,7 +879,7 @@ _DBParameterGroupAlreadyExistsFault =
     Prelude.. Core.hasStatus 400
 
 -- | /DBParameterGroupName/ does not refer to an existing DB parameter group.
-_DBParameterGroupNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBParameterGroupNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBParameterGroupNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -874,7 +888,7 @@ _DBParameterGroupNotFoundFault =
 
 -- | Request would result in user exceeding the allowed number of DB
 -- parameter groups.
-_DBParameterGroupQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBParameterGroupQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBParameterGroupQuotaExceededFault =
   Core._MatchServiceError
     defaultService
@@ -882,7 +896,7 @@ _DBParameterGroupQuotaExceededFault =
     Prelude.. Core.hasStatus 400
 
 -- | /DBSecurityGroupName/ does not refer to an existing DB security group.
-_DBSecurityGroupNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBSecurityGroupNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBSecurityGroupNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -890,7 +904,7 @@ _DBSecurityGroupNotFoundFault =
     Prelude.. Core.hasStatus 404
 
 -- | /DBSnapshotIdentifier/ is already used by an existing snapshot.
-_DBSnapshotAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBSnapshotAlreadyExistsFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBSnapshotAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
@@ -898,7 +912,7 @@ _DBSnapshotAlreadyExistsFault =
     Prelude.. Core.hasStatus 400
 
 -- | /DBSnapshotIdentifier/ does not refer to an existing DB snapshot.
-_DBSnapshotNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBSnapshotNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBSnapshotNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -906,7 +920,7 @@ _DBSnapshotNotFoundFault =
     Prelude.. Core.hasStatus 404
 
 -- | /DBSubnetGroupName/ is already used by an existing DB subnet group.
-_DBSubnetGroupAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBSubnetGroupAlreadyExistsFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBSubnetGroupAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
@@ -915,7 +929,7 @@ _DBSubnetGroupAlreadyExistsFault =
 
 -- | Subnets in the DB subnet group should cover at least two Availability
 -- Zones unless there is only one Availability Zone.
-_DBSubnetGroupDoesNotCoverEnoughAZs :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBSubnetGroupDoesNotCoverEnoughAZs :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBSubnetGroupDoesNotCoverEnoughAZs =
   Core._MatchServiceError
     defaultService
@@ -923,7 +937,7 @@ _DBSubnetGroupDoesNotCoverEnoughAZs =
     Prelude.. Core.hasStatus 400
 
 -- | /DBSubnetGroupName/ does not refer to an existing DB subnet group.
-_DBSubnetGroupNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBSubnetGroupNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBSubnetGroupNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -932,7 +946,7 @@ _DBSubnetGroupNotFoundFault =
 
 -- | Request would result in user exceeding the allowed number of DB subnet
 -- groups.
-_DBSubnetGroupQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBSubnetGroupQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBSubnetGroupQuotaExceededFault =
   Core._MatchServiceError
     defaultService
@@ -941,7 +955,7 @@ _DBSubnetGroupQuotaExceededFault =
 
 -- | Request would result in user exceeding the allowed number of subnets in
 -- a DB subnet groups.
-_DBSubnetQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBSubnetQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBSubnetQuotaExceededFault =
   Core._MatchServiceError
     defaultService
@@ -950,7 +964,7 @@ _DBSubnetQuotaExceededFault =
 
 -- | The DB upgrade failed because a resource the DB depends on could not be
 -- modified.
-_DBUpgradeDependencyFailureFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DBUpgradeDependencyFailureFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DBUpgradeDependencyFailureFault =
   Core._MatchServiceError
     defaultService
@@ -958,7 +972,7 @@ _DBUpgradeDependencyFailureFault =
     Prelude.. Core.hasStatus 400
 
 -- | /Domain/ does not refer to an existing Active Directory Domain.
-_DomainNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DomainNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DomainNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -966,7 +980,7 @@ _DomainNotFoundFault =
     Prelude.. Core.hasStatus 404
 
 -- | You have exceeded the number of events you can subscribe to.
-_EventSubscriptionQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EventSubscriptionQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EventSubscriptionQuotaExceededFault =
   Core._MatchServiceError
     defaultService
@@ -976,7 +990,7 @@ _EventSubscriptionQuotaExceededFault =
 -- | The @GlobalClusterIdentifier@ already exists. Choose a new global
 -- database identifier (unique name) to create a new global database
 -- cluster.
-_GlobalClusterAlreadyExistsFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_GlobalClusterAlreadyExistsFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _GlobalClusterAlreadyExistsFault =
   Core._MatchServiceError
     defaultService
@@ -985,7 +999,7 @@ _GlobalClusterAlreadyExistsFault =
 
 -- | The @GlobalClusterIdentifier@ doesn\'t refer to an existing global
 -- database cluster.
-_GlobalClusterNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_GlobalClusterNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _GlobalClusterNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -994,7 +1008,7 @@ _GlobalClusterNotFoundFault =
 
 -- | The number of global database clusters for this account is already at
 -- the maximum allowed.
-_GlobalClusterQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_GlobalClusterQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _GlobalClusterQuotaExceededFault =
   Core._MatchServiceError
     defaultService
@@ -1003,7 +1017,7 @@ _GlobalClusterQuotaExceededFault =
 
 -- | Request would result in user exceeding the allowed number of DB
 -- instances.
-_InstanceQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InstanceQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InstanceQuotaExceededFault =
   Core._MatchServiceError
     defaultService
@@ -1011,7 +1025,7 @@ _InstanceQuotaExceededFault =
     Prelude.. Core.hasStatus 400
 
 -- | The DB cluster does not have enough capacity for the current operation.
-_InsufficientDBClusterCapacityFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InsufficientDBClusterCapacityFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InsufficientDBClusterCapacityFault =
   Core._MatchServiceError
     defaultService
@@ -1020,7 +1034,7 @@ _InsufficientDBClusterCapacityFault =
 
 -- | Specified DB instance class is not available in the specified
 -- Availability Zone.
-_InsufficientDBInstanceCapacityFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InsufficientDBInstanceCapacityFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InsufficientDBInstanceCapacityFault =
   Core._MatchServiceError
     defaultService
@@ -1030,7 +1044,7 @@ _InsufficientDBInstanceCapacityFault =
 -- | There is insufficient storage available for the current action. You may
 -- be able to resolve this error by updating your subnet group to use
 -- different Availability Zones that have more storage available.
-_InsufficientStorageClusterCapacityFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InsufficientStorageClusterCapacityFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InsufficientStorageClusterCapacityFault =
   Core._MatchServiceError
     defaultService
@@ -1039,7 +1053,7 @@ _InsufficientStorageClusterCapacityFault =
 
 -- | The requested operation cannot be performed on the endpoint while the
 -- endpoint is in this state.
-_InvalidDBClusterEndpointStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidDBClusterEndpointStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidDBClusterEndpointStateFault =
   Core._MatchServiceError
     defaultService
@@ -1047,7 +1061,7 @@ _InvalidDBClusterEndpointStateFault =
     Prelude.. Core.hasStatus 400
 
 -- | The supplied value is not a valid DB cluster snapshot state.
-_InvalidDBClusterSnapshotStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidDBClusterSnapshotStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidDBClusterSnapshotStateFault =
   Core._MatchServiceError
     defaultService
@@ -1055,7 +1069,7 @@ _InvalidDBClusterSnapshotStateFault =
     Prelude.. Core.hasStatus 400
 
 -- | The DB cluster is not in a valid state.
-_InvalidDBClusterStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidDBClusterStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidDBClusterStateFault =
   Core._MatchServiceError
     defaultService
@@ -1063,7 +1077,7 @@ _InvalidDBClusterStateFault =
     Prelude.. Core.hasStatus 400
 
 -- | The specified DB instance is not in the /available/ state.
-_InvalidDBInstanceStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidDBInstanceStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidDBInstanceStateFault =
   Core._MatchServiceError
     defaultService
@@ -1073,7 +1087,7 @@ _InvalidDBInstanceStateFault =
 -- | The DB parameter group is in use or is in an invalid state. If you are
 -- attempting to delete the parameter group, you cannot delete it when the
 -- parameter group is in this state.
-_InvalidDBParameterGroupStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidDBParameterGroupStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidDBParameterGroupStateFault =
   Core._MatchServiceError
     defaultService
@@ -1081,7 +1095,7 @@ _InvalidDBParameterGroupStateFault =
     Prelude.. Core.hasStatus 400
 
 -- | The state of the DB security group does not allow deletion.
-_InvalidDBSecurityGroupStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidDBSecurityGroupStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidDBSecurityGroupStateFault =
   Core._MatchServiceError
     defaultService
@@ -1089,7 +1103,7 @@ _InvalidDBSecurityGroupStateFault =
     Prelude.. Core.hasStatus 400
 
 -- | The state of the DB snapshot does not allow deletion.
-_InvalidDBSnapshotStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidDBSnapshotStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidDBSnapshotStateFault =
   Core._MatchServiceError
     defaultService
@@ -1097,7 +1111,7 @@ _InvalidDBSnapshotStateFault =
     Prelude.. Core.hasStatus 400
 
 -- | The DB subnet group cannot be deleted because it is in use.
-_InvalidDBSubnetGroupStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidDBSubnetGroupStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidDBSubnetGroupStateFault =
   Core._MatchServiceError
     defaultService
@@ -1105,7 +1119,7 @@ _InvalidDBSubnetGroupStateFault =
     Prelude.. Core.hasStatus 400
 
 -- | The DB subnet is not in the /available/ state.
-_InvalidDBSubnetStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidDBSubnetStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidDBSubnetStateFault =
   Core._MatchServiceError
     defaultService
@@ -1113,7 +1127,7 @@ _InvalidDBSubnetStateFault =
     Prelude.. Core.hasStatus 400
 
 -- | The event subscription is in an invalid state.
-_InvalidEventSubscriptionStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidEventSubscriptionStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidEventSubscriptionStateFault =
   Core._MatchServiceError
     defaultService
@@ -1122,7 +1136,7 @@ _InvalidEventSubscriptionStateFault =
 
 -- | The global cluster is in an invalid state and can\'t perform the
 -- requested operation.
-_InvalidGlobalClusterStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidGlobalClusterStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidGlobalClusterStateFault =
   Core._MatchServiceError
     defaultService
@@ -1130,7 +1144,7 @@ _InvalidGlobalClusterStateFault =
     Prelude.. Core.hasStatus 400
 
 -- | Cannot restore from vpc backup to non-vpc DB instance.
-_InvalidRestoreFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRestoreFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRestoreFault =
   Core._MatchServiceError
     defaultService
@@ -1139,7 +1153,7 @@ _InvalidRestoreFault =
 
 -- | The requested subnet is invalid, or multiple subnets were requested that
 -- are not all in a common VPC.
-_InvalidSubnet :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidSubnet :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidSubnet =
   Core._MatchServiceError
     defaultService
@@ -1148,7 +1162,7 @@ _InvalidSubnet =
 
 -- | DB subnet group does not cover all Availability Zones after it is
 -- created because users\' change.
-_InvalidVPCNetworkStateFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidVPCNetworkStateFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidVPCNetworkStateFault =
   Core._MatchServiceError
     defaultService
@@ -1156,7 +1170,7 @@ _InvalidVPCNetworkStateFault =
     Prelude.. Core.hasStatus 400
 
 -- | Error accessing KMS key.
-_KMSKeyNotAccessibleFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_KMSKeyNotAccessibleFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _KMSKeyNotAccessibleFault =
   Core._MatchServiceError
     defaultService
@@ -1164,7 +1178,7 @@ _KMSKeyNotAccessibleFault =
     Prelude.. Core.hasStatus 400
 
 -- | The designated option group could not be found.
-_OptionGroupNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OptionGroupNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OptionGroupNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -1172,7 +1186,7 @@ _OptionGroupNotFoundFault =
     Prelude.. Core.hasStatus 404
 
 -- | Provisioned IOPS not available in the specified Availability Zone.
-_ProvisionedIopsNotAvailableInAZFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ProvisionedIopsNotAvailableInAZFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ProvisionedIopsNotAvailableInAZFault =
   Core._MatchServiceError
     defaultService
@@ -1180,7 +1194,7 @@ _ProvisionedIopsNotAvailableInAZFault =
     Prelude.. Core.hasStatus 400
 
 -- | The specified resource ID was not found.
-_ResourceNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -1188,7 +1202,7 @@ _ResourceNotFoundFault =
     Prelude.. Core.hasStatus 404
 
 -- | The SNS topic is invalid.
-_SNSInvalidTopicFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SNSInvalidTopicFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SNSInvalidTopicFault =
   Core._MatchServiceError
     defaultService
@@ -1196,7 +1210,7 @@ _SNSInvalidTopicFault =
     Prelude.. Core.hasStatus 400
 
 -- | There is no SNS authorization.
-_SNSNoAuthorizationFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SNSNoAuthorizationFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SNSNoAuthorizationFault =
   Core._MatchServiceError
     defaultService
@@ -1204,7 +1218,7 @@ _SNSNoAuthorizationFault =
     Prelude.. Core.hasStatus 400
 
 -- | The ARN of the SNS topic could not be found.
-_SNSTopicArnNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SNSTopicArnNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SNSTopicArnNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -1213,7 +1227,7 @@ _SNSTopicArnNotFoundFault =
 
 -- | You have exceeded the maximum number of accounts that you can share a
 -- manual DB snapshot with.
-_SharedSnapshotQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SharedSnapshotQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SharedSnapshotQuotaExceededFault =
   Core._MatchServiceError
     defaultService
@@ -1222,7 +1236,7 @@ _SharedSnapshotQuotaExceededFault =
 
 -- | Request would result in user exceeding the allowed number of DB
 -- snapshots.
-_SnapshotQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SnapshotQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SnapshotQuotaExceededFault =
   Core._MatchServiceError
     defaultService
@@ -1230,7 +1244,7 @@ _SnapshotQuotaExceededFault =
     Prelude.. Core.hasStatus 400
 
 -- | The source could not be found.
-_SourceNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SourceNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SourceNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -1239,7 +1253,7 @@ _SourceNotFoundFault =
 
 -- | Request would result in user exceeding the allowed amount of storage
 -- available across all DB instances.
-_StorageQuotaExceededFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_StorageQuotaExceededFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _StorageQuotaExceededFault =
   Core._MatchServiceError
     defaultService
@@ -1247,7 +1261,7 @@ _StorageQuotaExceededFault =
     Prelude.. Core.hasStatus 400
 
 -- | /StorageType/ specified cannot be associated with the DB Instance.
-_StorageTypeNotSupportedFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_StorageTypeNotSupportedFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _StorageTypeNotSupportedFault =
   Core._MatchServiceError
     defaultService
@@ -1255,7 +1269,7 @@ _StorageTypeNotSupportedFault =
     Prelude.. Core.hasStatus 400
 
 -- | The DB subnet is already in use in the Availability Zone.
-_SubnetAlreadyInUse :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SubnetAlreadyInUse :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SubnetAlreadyInUse =
   Core._MatchServiceError
     defaultService
@@ -1263,7 +1277,7 @@ _SubnetAlreadyInUse =
     Prelude.. Core.hasStatus 400
 
 -- | This subscription already exists.
-_SubscriptionAlreadyExistFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SubscriptionAlreadyExistFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SubscriptionAlreadyExistFault =
   Core._MatchServiceError
     defaultService
@@ -1271,7 +1285,7 @@ _SubscriptionAlreadyExistFault =
     Prelude.. Core.hasStatus 400
 
 -- | The designated subscription category could not be found.
-_SubscriptionCategoryNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SubscriptionCategoryNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SubscriptionCategoryNotFoundFault =
   Core._MatchServiceError
     defaultService
@@ -1279,7 +1293,7 @@ _SubscriptionCategoryNotFoundFault =
     Prelude.. Core.hasStatus 404
 
 -- | The designated subscription could not be found.
-_SubscriptionNotFoundFault :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SubscriptionNotFoundFault :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SubscriptionNotFoundFault =
   Core._MatchServiceError
     defaultService

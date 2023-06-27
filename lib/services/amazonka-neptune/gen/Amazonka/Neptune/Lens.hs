@@ -134,7 +134,6 @@ module Amazonka.Neptune.Lens
     createDBInstance_backupRetentionPeriod,
     createDBInstance_characterSetName,
     createDBInstance_copyTagsToSnapshot,
-    createDBInstance_dbClusterIdentifier,
     createDBInstance_dbName,
     createDBInstance_dbParameterGroupName,
     createDBInstance_dbSecurityGroups,
@@ -171,6 +170,7 @@ module Amazonka.Neptune.Lens
     createDBInstance_dbInstanceIdentifier,
     createDBInstance_dbInstanceClass,
     createDBInstance_engine,
+    createDBInstance_dbClusterIdentifier,
     createDBInstanceResponse_dbInstance,
     createDBInstanceResponse_httpStatus,
 
@@ -701,6 +701,15 @@ module Amazonka.Neptune.Lens
     cloudwatchLogsExportConfiguration_disableLogTypes,
     cloudwatchLogsExportConfiguration_enableLogTypes,
 
+    -- ** ClusterPendingModifiedValues
+    clusterPendingModifiedValues_allocatedStorage,
+    clusterPendingModifiedValues_backupRetentionPeriod,
+    clusterPendingModifiedValues_dbClusterIdentifier,
+    clusterPendingModifiedValues_engineVersion,
+    clusterPendingModifiedValues_iAMDatabaseAuthenticationEnabled,
+    clusterPendingModifiedValues_iops,
+    clusterPendingModifiedValues_pendingCloudwatchLogsExports,
+
     -- ** DBCluster
     dbCluster_allocatedStorage,
     dbCluster_associatedRoles,
@@ -726,12 +735,14 @@ module Amazonka.Neptune.Lens
     dbCluster_endpoint,
     dbCluster_engine,
     dbCluster_engineVersion,
+    dbCluster_globalClusterIdentifier,
     dbCluster_hostedZoneId,
     dbCluster_iAMDatabaseAuthenticationEnabled,
     dbCluster_kmsKeyId,
     dbCluster_latestRestorableTime,
     dbCluster_masterUsername,
     dbCluster_multiAZ,
+    dbCluster_pendingModifiedValues,
     dbCluster_percentProgress,
     dbCluster_port,
     dbCluster_preferredBackupWindow,
@@ -1166,6 +1177,7 @@ import Amazonka.Neptune.StopDBCluster
 import Amazonka.Neptune.Types.AvailabilityZone
 import Amazonka.Neptune.Types.CharacterSet
 import Amazonka.Neptune.Types.CloudwatchLogsExportConfiguration
+import Amazonka.Neptune.Types.ClusterPendingModifiedValues
 import Amazonka.Neptune.Types.DBCluster
 import Amazonka.Neptune.Types.DBClusterEndpoint
 import Amazonka.Neptune.Types.DBClusterMember

@@ -215,7 +215,8 @@ instance
   hashWithSalt
     _salt
     ModifyDBClusterSnapshotAttribute' {..} =
-      _salt `Prelude.hashWithSalt` valuesToAdd
+      _salt
+        `Prelude.hashWithSalt` valuesToAdd
         `Prelude.hashWithSalt` valuesToRemove
         `Prelude.hashWithSalt` dbClusterSnapshotIdentifier
         `Prelude.hashWithSalt` attributeName

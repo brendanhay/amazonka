@@ -152,7 +152,8 @@ instance Core.AWSRequest ResetDBParameterGroup where
 
 instance Prelude.Hashable ResetDBParameterGroup where
   hashWithSalt _salt ResetDBParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` resetAllParameters
       `Prelude.hashWithSalt` dbParameterGroupName
 

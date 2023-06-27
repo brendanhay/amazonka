@@ -22,6 +22,7 @@ module Amazonka.Neptune.Types.DBCluster where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.Neptune.Types.ClusterPendingModifiedValues
 import Amazonka.Neptune.Types.DBClusterMember
 import Amazonka.Neptune.Types.DBClusterOptionGroupStatus
 import Amazonka.Neptune.Types.DBClusterRole
@@ -103,6 +104,9 @@ data DBCluster = DBCluster'
     engine :: Prelude.Maybe Prelude.Text,
     -- | Indicates the database engine version.
     engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | Contains a user-supplied global database cluster identifier. This
+    -- identifier is the unique key that identifies a global database.
+    globalClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | Specifies the ID that Amazon Route 53 assigns when you create a hosted
     -- zone.
     hostedZoneId :: Prelude.Maybe Prelude.Text,
@@ -120,6 +124,10 @@ data DBCluster = DBCluster'
     -- | Specifies whether the DB cluster has instances in multiple Availability
     -- Zones.
     multiAZ :: Prelude.Maybe Prelude.Bool,
+    -- | This data type is used as a response element in the @ModifyDBCluster@
+    -- operation and contains changes that will be applied during the next
+    -- maintenance window.
+    pendingModifiedValues :: Prelude.Maybe ClusterPendingModifiedValues,
     -- | Specifies the progress of the operation as a percentage.
     percentProgress :: Prelude.Maybe Prelude.Text,
     -- | Specifies the port that the database engine is listening on.
@@ -233,6 +241,9 @@ data DBCluster = DBCluster'
 --
 -- 'engineVersion', 'dbCluster_engineVersion' - Indicates the database engine version.
 --
+-- 'globalClusterIdentifier', 'dbCluster_globalClusterIdentifier' - Contains a user-supplied global database cluster identifier. This
+-- identifier is the unique key that identifies a global database.
+--
 -- 'hostedZoneId', 'dbCluster_hostedZoneId' - Specifies the ID that Amazon Route 53 assigns when you create a hosted
 -- zone.
 --
@@ -249,6 +260,10 @@ data DBCluster = DBCluster'
 --
 -- 'multiAZ', 'dbCluster_multiAZ' - Specifies whether the DB cluster has instances in multiple Availability
 -- Zones.
+--
+-- 'pendingModifiedValues', 'dbCluster_pendingModifiedValues' - This data type is used as a response element in the @ModifyDBCluster@
+-- operation and contains changes that will be applied during the next
+-- maintenance window.
 --
 -- 'percentProgress', 'dbCluster_percentProgress' - Specifies the progress of the operation as a percentage.
 --
@@ -313,12 +328,14 @@ newDBCluster =
       endpoint = Prelude.Nothing,
       engine = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
+      globalClusterIdentifier = Prelude.Nothing,
       hostedZoneId = Prelude.Nothing,
       iAMDatabaseAuthenticationEnabled = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       latestRestorableTime = Prelude.Nothing,
       masterUsername = Prelude.Nothing,
       multiAZ = Prelude.Nothing,
+      pendingModifiedValues = Prelude.Nothing,
       percentProgress = Prelude.Nothing,
       port = Prelude.Nothing,
       preferredBackupWindow = Prelude.Nothing,
@@ -447,6 +464,11 @@ dbCluster_engine = Lens.lens (\DBCluster' {engine} -> engine) (\s@DBCluster' {} 
 dbCluster_engineVersion :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
 dbCluster_engineVersion = Lens.lens (\DBCluster' {engineVersion} -> engineVersion) (\s@DBCluster' {} a -> s {engineVersion = a} :: DBCluster)
 
+-- | Contains a user-supplied global database cluster identifier. This
+-- identifier is the unique key that identifies a global database.
+dbCluster_globalClusterIdentifier :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
+dbCluster_globalClusterIdentifier = Lens.lens (\DBCluster' {globalClusterIdentifier} -> globalClusterIdentifier) (\s@DBCluster' {} a -> s {globalClusterIdentifier = a} :: DBCluster)
+
 -- | Specifies the ID that Amazon Route 53 assigns when you create a hosted
 -- zone.
 dbCluster_hostedZoneId :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
@@ -475,6 +497,12 @@ dbCluster_masterUsername = Lens.lens (\DBCluster' {masterUsername} -> masterUser
 -- Zones.
 dbCluster_multiAZ :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Bool)
 dbCluster_multiAZ = Lens.lens (\DBCluster' {multiAZ} -> multiAZ) (\s@DBCluster' {} a -> s {multiAZ = a} :: DBCluster)
+
+-- | This data type is used as a response element in the @ModifyDBCluster@
+-- operation and contains changes that will be applied during the next
+-- maintenance window.
+dbCluster_pendingModifiedValues :: Lens.Lens' DBCluster (Prelude.Maybe ClusterPendingModifiedValues)
+dbCluster_pendingModifiedValues = Lens.lens (\DBCluster' {pendingModifiedValues} -> pendingModifiedValues) (\s@DBCluster' {} a -> s {pendingModifiedValues = a} :: DBCluster)
 
 -- | Specifies the progress of the operation as a percentage.
 dbCluster_percentProgress :: Lens.Lens' DBCluster (Prelude.Maybe Prelude.Text)
@@ -538,11 +566,14 @@ instance Data.FromXML DBCluster where
   parseXML x =
     DBCluster'
       Prelude.<$> (x Data..@? "AllocatedStorage")
-      Prelude.<*> ( x Data..@? "AssociatedRoles" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "AssociatedRoles"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBClusterRole")
                   )
       Prelude.<*> (x Data..@? "AutomaticRestartTime")
-      Prelude.<*> ( x Data..@? "AvailabilityZones"
+      Prelude.<*> ( x
+                      Data..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "AvailabilityZone")
                   )
@@ -554,11 +585,13 @@ instance Data.FromXML DBCluster where
       Prelude.<*> (x Data..@? "CrossAccountClone")
       Prelude.<*> (x Data..@? "DBClusterArn")
       Prelude.<*> (x Data..@? "DBClusterIdentifier")
-      Prelude.<*> ( x Data..@? "DBClusterMembers"
+      Prelude.<*> ( x
+                      Data..@? "DBClusterMembers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBClusterMember")
                   )
-      Prelude.<*> ( x Data..@? "DBClusterOptionGroupMemberships"
+      Prelude.<*> ( x
+                      Data..@? "DBClusterOptionGroupMemberships"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBClusterOptionGroup")
                   )
@@ -568,24 +601,28 @@ instance Data.FromXML DBCluster where
       Prelude.<*> (x Data..@? "DbClusterResourceId")
       Prelude.<*> (x Data..@? "DeletionProtection")
       Prelude.<*> (x Data..@? "EarliestRestorableTime")
-      Prelude.<*> ( x Data..@? "EnabledCloudwatchLogsExports"
+      Prelude.<*> ( x
+                      Data..@? "EnabledCloudwatchLogsExports"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "Endpoint")
       Prelude.<*> (x Data..@? "Engine")
       Prelude.<*> (x Data..@? "EngineVersion")
+      Prelude.<*> (x Data..@? "GlobalClusterIdentifier")
       Prelude.<*> (x Data..@? "HostedZoneId")
       Prelude.<*> (x Data..@? "IAMDatabaseAuthenticationEnabled")
       Prelude.<*> (x Data..@? "KmsKeyId")
       Prelude.<*> (x Data..@? "LatestRestorableTime")
       Prelude.<*> (x Data..@? "MasterUsername")
       Prelude.<*> (x Data..@? "MultiAZ")
+      Prelude.<*> (x Data..@? "PendingModifiedValues")
       Prelude.<*> (x Data..@? "PercentProgress")
       Prelude.<*> (x Data..@? "Port")
       Prelude.<*> (x Data..@? "PreferredBackupWindow")
       Prelude.<*> (x Data..@? "PreferredMaintenanceWindow")
-      Prelude.<*> ( x Data..@? "ReadReplicaIdentifiers"
+      Prelude.<*> ( x
+                      Data..@? "ReadReplicaIdentifiers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ReadReplicaIdentifier")
                   )
@@ -594,7 +631,8 @@ instance Data.FromXML DBCluster where
       Prelude.<*> (x Data..@? "ServerlessV2ScalingConfiguration")
       Prelude.<*> (x Data..@? "Status")
       Prelude.<*> (x Data..@? "StorageEncrypted")
-      Prelude.<*> ( x Data..@? "VpcSecurityGroups"
+      Prelude.<*> ( x
+                      Data..@? "VpcSecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "VpcSecurityGroupMembership")
@@ -602,7 +640,8 @@ instance Data.FromXML DBCluster where
 
 instance Prelude.Hashable DBCluster where
   hashWithSalt _salt DBCluster' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` associatedRoles
       `Prelude.hashWithSalt` automaticRestartTime
       `Prelude.hashWithSalt` availabilityZones
@@ -626,12 +665,14 @@ instance Prelude.Hashable DBCluster where
       `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion
+      `Prelude.hashWithSalt` globalClusterIdentifier
       `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` iAMDatabaseAuthenticationEnabled
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` latestRestorableTime
       `Prelude.hashWithSalt` masterUsername
       `Prelude.hashWithSalt` multiAZ
+      `Prelude.hashWithSalt` pendingModifiedValues
       `Prelude.hashWithSalt` percentProgress
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` preferredBackupWindow
@@ -675,6 +716,8 @@ instance Prelude.NFData DBCluster where
       `Prelude.seq` Prelude.rnf
         engineVersion
       `Prelude.seq` Prelude.rnf
+        globalClusterIdentifier
+      `Prelude.seq` Prelude.rnf
         hostedZoneId
       `Prelude.seq` Prelude.rnf
         iAMDatabaseAuthenticationEnabled
@@ -686,6 +729,8 @@ instance Prelude.NFData DBCluster where
         masterUsername
       `Prelude.seq` Prelude.rnf
         multiAZ
+      `Prelude.seq` Prelude.rnf
+        pendingModifiedValues
       `Prelude.seq` Prelude.rnf
         percentProgress
       `Prelude.seq` Prelude.rnf

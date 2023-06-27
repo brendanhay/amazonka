@@ -664,11 +664,13 @@ instance Data.FromXML DBInstance where
       Prelude.<*> (x Data..@? "DBInstanceIdentifier")
       Prelude.<*> (x Data..@? "DBInstanceStatus")
       Prelude.<*> (x Data..@? "DBName")
-      Prelude.<*> ( x Data..@? "DBParameterGroups"
+      Prelude.<*> ( x
+                      Data..@? "DBParameterGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBParameterGroup")
                   )
-      Prelude.<*> ( x Data..@? "DBSecurityGroups"
+      Prelude.<*> ( x
+                      Data..@? "DBSecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBSecurityGroup")
                   )
@@ -676,11 +678,13 @@ instance Data.FromXML DBInstance where
       Prelude.<*> (x Data..@? "DbInstancePort")
       Prelude.<*> (x Data..@? "DbiResourceId")
       Prelude.<*> (x Data..@? "DeletionProtection")
-      Prelude.<*> ( x Data..@? "DomainMemberships"
+      Prelude.<*> ( x
+                      Data..@? "DomainMemberships"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DomainMembership")
                   )
-      Prelude.<*> ( x Data..@? "EnabledCloudwatchLogsExports"
+      Prelude.<*> ( x
+                      Data..@? "EnabledCloudwatchLogsExports"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -698,7 +702,8 @@ instance Data.FromXML DBInstance where
       Prelude.<*> (x Data..@? "MonitoringInterval")
       Prelude.<*> (x Data..@? "MonitoringRoleArn")
       Prelude.<*> (x Data..@? "MultiAZ")
-      Prelude.<*> ( x Data..@? "OptionGroupMemberships"
+      Prelude.<*> ( x
+                      Data..@? "OptionGroupMemberships"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "OptionGroupMembership")
                   )
@@ -709,12 +714,14 @@ instance Data.FromXML DBInstance where
       Prelude.<*> (x Data..@? "PreferredMaintenanceWindow")
       Prelude.<*> (x Data..@? "PromotionTier")
       Prelude.<*> (x Data..@? "PubliclyAccessible")
-      Prelude.<*> ( x Data..@? "ReadReplicaDBClusterIdentifiers"
+      Prelude.<*> ( x
+                      Data..@? "ReadReplicaDBClusterIdentifiers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "ReadReplicaDBClusterIdentifier")
                   )
-      Prelude.<*> ( x Data..@? "ReadReplicaDBInstanceIdentifiers"
+      Prelude.<*> ( x
+                      Data..@? "ReadReplicaDBInstanceIdentifiers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         ( Data.parseXMLList
@@ -723,14 +730,17 @@ instance Data.FromXML DBInstance where
                   )
       Prelude.<*> (x Data..@? "ReadReplicaSourceDBInstanceIdentifier")
       Prelude.<*> (x Data..@? "SecondaryAvailabilityZone")
-      Prelude.<*> ( x Data..@? "StatusInfos" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "StatusInfos"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBInstanceStatusInfo")
                   )
       Prelude.<*> (x Data..@? "StorageEncrypted")
       Prelude.<*> (x Data..@? "StorageType")
       Prelude.<*> (x Data..@? "TdeCredentialArn")
       Prelude.<*> (x Data..@? "Timezone")
-      Prelude.<*> ( x Data..@? "VpcSecurityGroups"
+      Prelude.<*> ( x
+                      Data..@? "VpcSecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "VpcSecurityGroupMembership")
@@ -738,7 +748,8 @@ instance Data.FromXML DBInstance where
 
 instance Prelude.Hashable DBInstance where
   hashWithSalt _salt DBInstance' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` backupRetentionPeriod

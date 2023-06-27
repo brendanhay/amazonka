@@ -170,7 +170,8 @@ instance Core.AWSRequest ModifyEventSubscription where
 
 instance Prelude.Hashable ModifyEventSubscription where
   hashWithSalt _salt ModifyEventSubscription' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` eventCategories
       `Prelude.hashWithSalt` snsTopicArn
       `Prelude.hashWithSalt` sourceType

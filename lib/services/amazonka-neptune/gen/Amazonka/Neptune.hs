@@ -688,6 +688,10 @@ module Amazonka.Neptune
     CloudwatchLogsExportConfiguration (CloudwatchLogsExportConfiguration'),
     newCloudwatchLogsExportConfiguration,
 
+    -- ** ClusterPendingModifiedValues
+    ClusterPendingModifiedValues (ClusterPendingModifiedValues'),
+    newClusterPendingModifiedValues,
+
     -- ** DBCluster
     DBCluster (DBCluster'),
     newDBCluster,

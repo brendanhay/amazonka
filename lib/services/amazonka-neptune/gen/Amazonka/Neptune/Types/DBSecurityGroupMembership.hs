@@ -71,7 +71,8 @@ instance Data.FromXML DBSecurityGroupMembership where
 
 instance Prelude.Hashable DBSecurityGroupMembership where
   hashWithSalt _salt DBSecurityGroupMembership' {..} =
-    _salt `Prelude.hashWithSalt` dbSecurityGroupName
+    _salt
+      `Prelude.hashWithSalt` dbSecurityGroupName
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData DBSecurityGroupMembership where

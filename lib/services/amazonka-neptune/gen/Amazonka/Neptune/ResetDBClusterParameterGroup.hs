@@ -139,7 +139,8 @@ instance
     ResetDBClusterParameterGroup
   where
   hashWithSalt _salt ResetDBClusterParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` resetAllParameters
       `Prelude.hashWithSalt` dbClusterParameterGroupName
 

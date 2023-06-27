@@ -33,7 +33,6 @@ module Amazonka.Neptune.CreateDBInstance
     createDBInstance_backupRetentionPeriod,
     createDBInstance_characterSetName,
     createDBInstance_copyTagsToSnapshot,
-    createDBInstance_dbClusterIdentifier,
     createDBInstance_dbName,
     createDBInstance_dbParameterGroupName,
     createDBInstance_dbSecurityGroups,
@@ -70,6 +69,7 @@ module Amazonka.Neptune.CreateDBInstance
     createDBInstance_dbInstanceIdentifier,
     createDBInstance_dbInstanceClass,
     createDBInstance_engine,
+    createDBInstance_dbClusterIdentifier,
 
     -- * Destructuring the Response
     CreateDBInstanceResponse (..),
@@ -127,12 +127,6 @@ data CreateDBInstance = CreateDBInstance'
     -- | True to copy all tags from the DB instance to snapshots of the DB
     -- instance, and otherwise false. The default is false.
     copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
-    -- | The identifier of the DB cluster that the instance will belong to.
-    --
-    -- For information on creating a DB cluster, see CreateDBCluster.
-    --
-    -- Type: String
-    dbClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | Not supported.
     dbName :: Prelude.Maybe Prelude.Text,
     -- | The name of the DB parameter group to associate with this DB instance.
@@ -315,7 +309,13 @@ data CreateDBInstance = CreateDBInstance'
     -- | The name of the database engine to be used for this instance.
     --
     -- Valid Values: @neptune@
-    engine :: Prelude.Text
+    engine :: Prelude.Text,
+    -- | The identifier of the DB cluster that the instance will belong to.
+    --
+    -- For information on creating a DB cluster, see CreateDBCluster.
+    --
+    -- Type: String
+    dbClusterIdentifier :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -362,12 +362,6 @@ data CreateDBInstance = CreateDBInstance'
 --
 -- 'copyTagsToSnapshot', 'createDBInstance_copyTagsToSnapshot' - True to copy all tags from the DB instance to snapshots of the DB
 -- instance, and otherwise false. The default is false.
---
--- 'dbClusterIdentifier', 'createDBInstance_dbClusterIdentifier' - The identifier of the DB cluster that the instance will belong to.
---
--- For information on creating a DB cluster, see CreateDBCluster.
---
--- Type: String
 --
 -- 'dbName', 'createDBInstance_dbName' - Not supported.
 --
@@ -551,6 +545,12 @@ data CreateDBInstance = CreateDBInstance'
 -- 'engine', 'createDBInstance_engine' - The name of the database engine to be used for this instance.
 --
 -- Valid Values: @neptune@
+--
+-- 'dbClusterIdentifier', 'createDBInstance_dbClusterIdentifier' - The identifier of the DB cluster that the instance will belong to.
+--
+-- For information on creating a DB cluster, see CreateDBCluster.
+--
+-- Type: String
 newCreateDBInstance ::
   -- | 'dbInstanceIdentifier'
   Prelude.Text ->
@@ -558,11 +558,14 @@ newCreateDBInstance ::
   Prelude.Text ->
   -- | 'engine'
   Prelude.Text ->
+  -- | 'dbClusterIdentifier'
+  Prelude.Text ->
   CreateDBInstance
 newCreateDBInstance
   pDBInstanceIdentifier_
   pDBInstanceClass_
-  pEngine_ =
+  pEngine_
+  pDBClusterIdentifier_ =
     CreateDBInstance'
       { allocatedStorage =
           Prelude.Nothing,
@@ -571,7 +574,6 @@ newCreateDBInstance
         backupRetentionPeriod = Prelude.Nothing,
         characterSetName = Prelude.Nothing,
         copyTagsToSnapshot = Prelude.Nothing,
-        dbClusterIdentifier = Prelude.Nothing,
         dbName = Prelude.Nothing,
         dbParameterGroupName = Prelude.Nothing,
         dbSecurityGroups = Prelude.Nothing,
@@ -607,7 +609,8 @@ newCreateDBInstance
         vpcSecurityGroupIds = Prelude.Nothing,
         dbInstanceIdentifier = pDBInstanceIdentifier_,
         dbInstanceClass = pDBInstanceClass_,
-        engine = pEngine_
+        engine = pEngine_,
+        dbClusterIdentifier = pDBClusterIdentifier_
       }
 
 -- | Not supported by Neptune.
@@ -657,14 +660,6 @@ createDBInstance_characterSetName = Lens.lens (\CreateDBInstance' {characterSetN
 -- instance, and otherwise false. The default is false.
 createDBInstance_copyTagsToSnapshot :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Bool)
 createDBInstance_copyTagsToSnapshot = Lens.lens (\CreateDBInstance' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@CreateDBInstance' {} a -> s {copyTagsToSnapshot = a} :: CreateDBInstance)
-
--- | The identifier of the DB cluster that the instance will belong to.
---
--- For information on creating a DB cluster, see CreateDBCluster.
---
--- Type: String
-createDBInstance_dbClusterIdentifier :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Text)
-createDBInstance_dbClusterIdentifier = Lens.lens (\CreateDBInstance' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@CreateDBInstance' {} a -> s {dbClusterIdentifier = a} :: CreateDBInstance)
 
 -- | Not supported.
 createDBInstance_dbName :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Text)
@@ -921,6 +916,14 @@ createDBInstance_dbInstanceClass = Lens.lens (\CreateDBInstance' {dbInstanceClas
 createDBInstance_engine :: Lens.Lens' CreateDBInstance Prelude.Text
 createDBInstance_engine = Lens.lens (\CreateDBInstance' {engine} -> engine) (\s@CreateDBInstance' {} a -> s {engine = a} :: CreateDBInstance)
 
+-- | The identifier of the DB cluster that the instance will belong to.
+--
+-- For information on creating a DB cluster, see CreateDBCluster.
+--
+-- Type: String
+createDBInstance_dbClusterIdentifier :: Lens.Lens' CreateDBInstance Prelude.Text
+createDBInstance_dbClusterIdentifier = Lens.lens (\CreateDBInstance' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@CreateDBInstance' {} a -> s {dbClusterIdentifier = a} :: CreateDBInstance)
+
 instance Core.AWSRequest CreateDBInstance where
   type
     AWSResponse CreateDBInstance =
@@ -938,13 +941,13 @@ instance Core.AWSRequest CreateDBInstance where
 
 instance Prelude.Hashable CreateDBInstance where
   hashWithSalt _salt CreateDBInstance' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` characterSetName
       `Prelude.hashWithSalt` copyTagsToSnapshot
-      `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` dbName
       `Prelude.hashWithSalt` dbParameterGroupName
       `Prelude.hashWithSalt` dbSecurityGroups
@@ -981,6 +984,7 @@ instance Prelude.Hashable CreateDBInstance where
       `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` dbInstanceClass
       `Prelude.hashWithSalt` engine
+      `Prelude.hashWithSalt` dbClusterIdentifier
 
 instance Prelude.NFData CreateDBInstance where
   rnf CreateDBInstance' {..} =
@@ -990,7 +994,6 @@ instance Prelude.NFData CreateDBInstance where
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
       `Prelude.seq` Prelude.rnf characterSetName
       `Prelude.seq` Prelude.rnf copyTagsToSnapshot
-      `Prelude.seq` Prelude.rnf dbClusterIdentifier
       `Prelude.seq` Prelude.rnf dbName
       `Prelude.seq` Prelude.rnf dbParameterGroupName
       `Prelude.seq` Prelude.rnf dbSecurityGroups
@@ -1001,22 +1004,19 @@ instance Prelude.NFData CreateDBInstance where
       `Prelude.seq` Prelude.rnf enableCloudwatchLogsExports
       `Prelude.seq` Prelude.rnf
         enableIAMDatabaseAuthentication
-      `Prelude.seq` Prelude.rnf
-        enablePerformanceInsights
+      `Prelude.seq` Prelude.rnf enablePerformanceInsights
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf iops
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf licenseModel
       `Prelude.seq` Prelude.rnf
         masterUserPassword
-      `Prelude.seq` Prelude.rnf
-        masterUsername
+      `Prelude.seq` Prelude.rnf masterUsername
       `Prelude.seq` Prelude.rnf
         monitoringInterval
       `Prelude.seq` Prelude.rnf
         monitoringRoleArn
-      `Prelude.seq` Prelude.rnf
-        multiAZ
+      `Prelude.seq` Prelude.rnf multiAZ
       `Prelude.seq` Prelude.rnf
         optionGroupName
       `Prelude.seq` Prelude.rnf
@@ -1051,6 +1051,8 @@ instance Prelude.NFData CreateDBInstance where
         dbInstanceClass
       `Prelude.seq` Prelude.rnf
         engine
+      `Prelude.seq` Prelude.rnf
+        dbClusterIdentifier
 
 instance Data.ToHeaders CreateDBInstance where
   toHeaders = Prelude.const Prelude.mempty
@@ -1073,7 +1075,6 @@ instance Data.ToQuery CreateDBInstance where
           Data.=: backupRetentionPeriod,
         "CharacterSetName" Data.=: characterSetName,
         "CopyTagsToSnapshot" Data.=: copyTagsToSnapshot,
-        "DBClusterIdentifier" Data.=: dbClusterIdentifier,
         "DBName" Data.=: dbName,
         "DBParameterGroupName" Data.=: dbParameterGroupName,
         "DBSecurityGroups"
@@ -1129,7 +1130,8 @@ instance Data.ToQuery CreateDBInstance where
             ),
         "DBInstanceIdentifier" Data.=: dbInstanceIdentifier,
         "DBInstanceClass" Data.=: dbInstanceClass,
-        "Engine" Data.=: engine
+        "Engine" Data.=: engine,
+        "DBClusterIdentifier" Data.=: dbClusterIdentifier
       ]
 
 -- | /See:/ 'newCreateDBInstanceResponse' smart constructor.

@@ -159,7 +159,7 @@ instance
       ( \s h x ->
           DescribeEngineDefaultClusterParametersResponse'
             Prelude.<$> (x Data..@? "EngineDefaults")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -169,7 +169,8 @@ instance
   hashWithSalt
     _salt
     DescribeEngineDefaultClusterParameters' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` dbParameterGroupFamily

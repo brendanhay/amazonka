@@ -196,7 +196,8 @@ instance Core.AWSRequest CopyDBParameterGroup where
 
 instance Prelude.Hashable CopyDBParameterGroup where
   hashWithSalt _salt CopyDBParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` sourceDBParameterGroupIdentifier
       `Prelude.hashWithSalt` targetDBParameterGroupIdentifier
       `Prelude.hashWithSalt` targetDBParameterGroupDescription

@@ -123,7 +123,8 @@ instance Data.FromXML UpgradeTarget where
 
 instance Prelude.Hashable UpgradeTarget where
   hashWithSalt _salt UpgradeTarget' {..} =
-    _salt `Prelude.hashWithSalt` autoUpgrade
+    _salt
+      `Prelude.hashWithSalt` autoUpgrade
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion

@@ -178,22 +178,22 @@ instance Core.AWSPager DescribeDBParameters where
     | Core.stop
         ( rs
             Lens.^? describeDBParametersResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBParametersResponse_parameters
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDBParameters_marker
           Lens..~ rs
           Lens.^? describeDBParametersResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBParameters where
   type
@@ -207,7 +207,9 @@ instance Core.AWSRequest DescribeDBParameters where
       ( \s h x ->
           DescribeDBParametersResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Parameters"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -215,7 +217,8 @@ instance Core.AWSRequest DescribeDBParameters where
 
 instance Prelude.Hashable DescribeDBParameters where
   hashWithSalt _salt DescribeDBParameters' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` source

@@ -175,7 +175,8 @@ instance Data.FromJSON Trust where
 
 instance Prelude.Hashable Trust where
   hashWithSalt _salt Trust' {..} =
-    _salt `Prelude.hashWithSalt` createdDateTime
+    _salt
+      `Prelude.hashWithSalt` createdDateTime
       `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` remoteDomainName

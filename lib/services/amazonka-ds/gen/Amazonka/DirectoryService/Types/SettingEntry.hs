@@ -30,10 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSettingEntry' smart constructor.
 data SettingEntry = SettingEntry'
-  { -- | The valid range of values for the directory setting.
+  { -- | The valid range of values for the directory setting. These values depend
+    -- on the @DataType@ of your directory.
     allowedValues :: Prelude.Maybe Prelude.Text,
     -- | The value of the directory setting that is applied to the directory.
     appliedValue :: Prelude.Maybe Prelude.Text,
+    -- | The data type of a directory setting. This is used to define the
+    -- @AllowedValues@ of a setting. For example a data type can be @Boolean@,
+    -- @DurationInSeconds@, or @Enum@.
+    dataType :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the request to update a directory setting was
     -- last submitted.
     lastRequestedDateTime :: Prelude.Maybe Data.POSIX,
@@ -55,7 +60,9 @@ data SettingEntry = SettingEntry'
     requestStatusMessage :: Prelude.Maybe Prelude.Text,
     -- | The value that was last requested for the directory setting.
     requestedValue :: Prelude.Maybe Prelude.Text,
-    -- | The type of directory setting. For example, @Protocol@ or @Cipher@.
+    -- | The type, or category, of a directory setting. Similar settings have the
+    -- same type. For example, @Protocol@, @Cipher@, or
+    -- @Certificate-Based Authentication@.
     type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,9 +75,14 @@ data SettingEntry = SettingEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'allowedValues', 'settingEntry_allowedValues' - The valid range of values for the directory setting.
+-- 'allowedValues', 'settingEntry_allowedValues' - The valid range of values for the directory setting. These values depend
+-- on the @DataType@ of your directory.
 --
 -- 'appliedValue', 'settingEntry_appliedValue' - The value of the directory setting that is applied to the directory.
+--
+-- 'dataType', 'settingEntry_dataType' - The data type of a directory setting. This is used to define the
+-- @AllowedValues@ of a setting. For example a data type can be @Boolean@,
+-- @DurationInSeconds@, or @Enum@.
 --
 -- 'lastRequestedDateTime', 'settingEntry_lastRequestedDateTime' - The date and time when the request to update a directory setting was
 -- last submitted.
@@ -93,13 +105,16 @@ data SettingEntry = SettingEntry'
 --
 -- 'requestedValue', 'settingEntry_requestedValue' - The value that was last requested for the directory setting.
 --
--- 'type'', 'settingEntry_type' - The type of directory setting. For example, @Protocol@ or @Cipher@.
+-- 'type'', 'settingEntry_type' - The type, or category, of a directory setting. Similar settings have the
+-- same type. For example, @Protocol@, @Cipher@, or
+-- @Certificate-Based Authentication@.
 newSettingEntry ::
   SettingEntry
 newSettingEntry =
   SettingEntry'
     { allowedValues = Prelude.Nothing,
       appliedValue = Prelude.Nothing,
+      dataType = Prelude.Nothing,
       lastRequestedDateTime = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
       name = Prelude.Nothing,
@@ -110,13 +125,20 @@ newSettingEntry =
       type' = Prelude.Nothing
     }
 
--- | The valid range of values for the directory setting.
+-- | The valid range of values for the directory setting. These values depend
+-- on the @DataType@ of your directory.
 settingEntry_allowedValues :: Lens.Lens' SettingEntry (Prelude.Maybe Prelude.Text)
 settingEntry_allowedValues = Lens.lens (\SettingEntry' {allowedValues} -> allowedValues) (\s@SettingEntry' {} a -> s {allowedValues = a} :: SettingEntry)
 
 -- | The value of the directory setting that is applied to the directory.
 settingEntry_appliedValue :: Lens.Lens' SettingEntry (Prelude.Maybe Prelude.Text)
 settingEntry_appliedValue = Lens.lens (\SettingEntry' {appliedValue} -> appliedValue) (\s@SettingEntry' {} a -> s {appliedValue = a} :: SettingEntry)
+
+-- | The data type of a directory setting. This is used to define the
+-- @AllowedValues@ of a setting. For example a data type can be @Boolean@,
+-- @DurationInSeconds@, or @Enum@.
+settingEntry_dataType :: Lens.Lens' SettingEntry (Prelude.Maybe Prelude.Text)
+settingEntry_dataType = Lens.lens (\SettingEntry' {dataType} -> dataType) (\s@SettingEntry' {} a -> s {dataType = a} :: SettingEntry)
 
 -- | The date and time when the request to update a directory setting was
 -- last submitted.
@@ -153,7 +175,9 @@ settingEntry_requestStatusMessage = Lens.lens (\SettingEntry' {requestStatusMess
 settingEntry_requestedValue :: Lens.Lens' SettingEntry (Prelude.Maybe Prelude.Text)
 settingEntry_requestedValue = Lens.lens (\SettingEntry' {requestedValue} -> requestedValue) (\s@SettingEntry' {} a -> s {requestedValue = a} :: SettingEntry)
 
--- | The type of directory setting. For example, @Protocol@ or @Cipher@.
+-- | The type, or category, of a directory setting. Similar settings have the
+-- same type. For example, @Protocol@, @Cipher@, or
+-- @Certificate-Based Authentication@.
 settingEntry_type :: Lens.Lens' SettingEntry (Prelude.Maybe Prelude.Text)
 settingEntry_type = Lens.lens (\SettingEntry' {type'} -> type') (\s@SettingEntry' {} a -> s {type' = a} :: SettingEntry)
 
@@ -165,10 +189,12 @@ instance Data.FromJSON SettingEntry where
           SettingEntry'
             Prelude.<$> (x Data..:? "AllowedValues")
             Prelude.<*> (x Data..:? "AppliedValue")
+            Prelude.<*> (x Data..:? "DataType")
             Prelude.<*> (x Data..:? "LastRequestedDateTime")
             Prelude.<*> (x Data..:? "LastUpdatedDateTime")
             Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> ( x Data..:? "RequestDetailedStatus"
+            Prelude.<*> ( x
+                            Data..:? "RequestDetailedStatus"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RequestStatus")
@@ -179,8 +205,10 @@ instance Data.FromJSON SettingEntry where
 
 instance Prelude.Hashable SettingEntry where
   hashWithSalt _salt SettingEntry' {..} =
-    _salt `Prelude.hashWithSalt` allowedValues
+    _salt
+      `Prelude.hashWithSalt` allowedValues
       `Prelude.hashWithSalt` appliedValue
+      `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` lastRequestedDateTime
       `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` name
@@ -194,6 +222,7 @@ instance Prelude.NFData SettingEntry where
   rnf SettingEntry' {..} =
     Prelude.rnf allowedValues
       `Prelude.seq` Prelude.rnf appliedValue
+      `Prelude.seq` Prelude.rnf dataType
       `Prelude.seq` Prelude.rnf lastRequestedDateTime
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime
       `Prelude.seq` Prelude.rnf name

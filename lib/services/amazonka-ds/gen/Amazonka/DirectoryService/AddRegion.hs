@@ -118,7 +118,8 @@ instance Core.AWSRequest AddRegion where
 
 instance Prelude.Hashable AddRegion where
   hashWithSalt _salt AddRegion' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` regionName
       `Prelude.hashWithSalt` vPCSettings
 

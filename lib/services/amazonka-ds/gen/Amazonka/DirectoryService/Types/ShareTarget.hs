@@ -66,7 +66,8 @@ shareTarget_type = Lens.lens (\ShareTarget' {type'} -> type') (\s@ShareTarget' {
 
 instance Prelude.Hashable ShareTarget where
   hashWithSalt _salt ShareTarget' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ShareTarget where

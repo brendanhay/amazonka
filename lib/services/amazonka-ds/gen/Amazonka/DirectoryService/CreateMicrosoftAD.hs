@@ -200,7 +200,8 @@ instance Core.AWSRequest CreateMicrosoftAD where
 
 instance Prelude.Hashable CreateMicrosoftAD where
   hashWithSalt _salt CreateMicrosoftAD' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` edition
       `Prelude.hashWithSalt` shortName
       `Prelude.hashWithSalt` tags

@@ -108,7 +108,8 @@ instance
   hashWithSalt
     _salt
     ClientAuthenticationSettingInfo' {..} =
-      _salt `Prelude.hashWithSalt` lastUpdatedDateTime
+      _salt
+        `Prelude.hashWithSalt` lastUpdatedDateTime
         `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` type'
 

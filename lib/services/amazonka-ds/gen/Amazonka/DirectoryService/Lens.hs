@@ -651,6 +651,7 @@ module Amazonka.DirectoryService.Lens
     -- ** SettingEntry
     settingEntry_allowedValues,
     settingEntry_appliedValue,
+    settingEntry_dataType,
     settingEntry_lastRequestedDateTime,
     settingEntry_lastUpdatedDateTime,
     settingEntry_name,

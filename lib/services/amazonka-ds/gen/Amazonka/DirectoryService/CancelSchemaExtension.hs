@@ -108,7 +108,8 @@ instance Core.AWSRequest CancelSchemaExtension where
 
 instance Prelude.Hashable CancelSchemaExtension where
   hashWithSalt _salt CancelSchemaExtension' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` schemaExtensionId
 
 instance Prelude.NFData CancelSchemaExtension where

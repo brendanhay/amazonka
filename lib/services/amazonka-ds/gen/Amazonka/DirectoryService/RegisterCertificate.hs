@@ -137,7 +137,8 @@ instance Core.AWSRequest RegisterCertificate where
 
 instance Prelude.Hashable RegisterCertificate where
   hashWithSalt _salt RegisterCertificate' {..} =
-    _salt `Prelude.hashWithSalt` clientCertAuthSettings
+    _salt
+      `Prelude.hashWithSalt` clientCertAuthSettings
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` certificateData

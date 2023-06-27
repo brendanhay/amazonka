@@ -102,7 +102,8 @@ instance Core.AWSRequest UpdateSettings where
 
 instance Prelude.Hashable UpdateSettings where
   hashWithSalt _salt UpdateSettings' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` settings
 
 instance Prelude.NFData UpdateSettings where

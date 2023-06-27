@@ -105,7 +105,8 @@ instance Core.AWSRequest DeregisterCertificate where
 
 instance Prelude.Hashable DeregisterCertificate where
   hashWithSalt _salt DeregisterCertificate' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` certificateId
 
 instance Prelude.NFData DeregisterCertificate where

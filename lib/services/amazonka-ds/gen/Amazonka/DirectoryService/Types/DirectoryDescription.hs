@@ -396,7 +396,8 @@ instance Data.FromJSON DirectoryDescription where
 
 instance Prelude.Hashable DirectoryDescription where
   hashWithSalt _salt DirectoryDescription' {..} =
-    _salt `Prelude.hashWithSalt` accessUrl
+    _salt
+      `Prelude.hashWithSalt` accessUrl
       `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` connectSettings
       `Prelude.hashWithSalt` description

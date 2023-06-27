@@ -110,7 +110,8 @@ instance Core.AWSRequest CreateLogSubscription where
 
 instance Prelude.Hashable CreateLogSubscription where
   hashWithSalt _salt CreateLogSubscription' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` logGroupName
 
 instance Prelude.NFData CreateLogSubscription where

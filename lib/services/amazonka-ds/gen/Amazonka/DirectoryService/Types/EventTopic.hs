@@ -115,7 +115,8 @@ instance Data.FromJSON EventTopic where
 
 instance Prelude.Hashable EventTopic where
   hashWithSalt _salt EventTopic' {..} =
-    _salt `Prelude.hashWithSalt` createdDateTime
+    _salt
+      `Prelude.hashWithSalt` createdDateTime
       `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` topicArn

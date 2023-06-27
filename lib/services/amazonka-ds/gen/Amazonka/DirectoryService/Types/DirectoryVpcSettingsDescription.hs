@@ -90,7 +90,8 @@ instance
       "DirectoryVpcSettingsDescription"
       ( \x ->
           DirectoryVpcSettingsDescription'
-            Prelude.<$> ( x Data..:? "AvailabilityZones"
+            Prelude.<$> ( x
+                            Data..:? "AvailabilityZones"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SecurityGroupId")
@@ -105,7 +106,8 @@ instance
   hashWithSalt
     _salt
     DirectoryVpcSettingsDescription' {..} =
-      _salt `Prelude.hashWithSalt` availabilityZones
+      _salt
+        `Prelude.hashWithSalt` availabilityZones
         `Prelude.hashWithSalt` securityGroupId
         `Prelude.hashWithSalt` subnetIds
         `Prelude.hashWithSalt` vpcId

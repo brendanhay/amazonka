@@ -146,7 +146,8 @@ instance Data.FromJSON Certificate where
 
 instance Prelude.Hashable Certificate where
   hashWithSalt _salt Certificate' {..} =
-    _salt `Prelude.hashWithSalt` certificateId
+    _salt
+      `Prelude.hashWithSalt` certificateId
       `Prelude.hashWithSalt` clientCertAuthSettings
       `Prelude.hashWithSalt` commonName
       `Prelude.hashWithSalt` expiryDateTime

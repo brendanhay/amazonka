@@ -121,7 +121,8 @@ instance
   hashWithSalt
     _salt
     UpdateNumberOfDomainControllers' {..} =
-      _salt `Prelude.hashWithSalt` directoryId
+      _salt
+        `Prelude.hashWithSalt` directoryId
         `Prelude.hashWithSalt` desiredNumber
 
 instance

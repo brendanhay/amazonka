@@ -125,7 +125,8 @@ instance Data.FromJSON OwnerDirectoryDescription where
 
 instance Prelude.Hashable OwnerDirectoryDescription where
   hashWithSalt _salt OwnerDirectoryDescription' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` dnsIpAddrs
       `Prelude.hashWithSalt` radiusSettings

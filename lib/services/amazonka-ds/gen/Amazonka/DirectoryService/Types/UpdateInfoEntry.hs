@@ -139,7 +139,8 @@ instance Data.FromJSON UpdateInfoEntry where
 
 instance Prelude.Hashable UpdateInfoEntry where
   hashWithSalt _salt UpdateInfoEntry' {..} =
-    _salt `Prelude.hashWithSalt` initiatedBy
+    _salt
+      `Prelude.hashWithSalt` initiatedBy
       `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` newValue'
       `Prelude.hashWithSalt` previousValue

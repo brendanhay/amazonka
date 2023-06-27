@@ -140,22 +140,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeClientAuthenticationSettingsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeClientAuthenticationSettingsResponse_clientAuthenticationSettingsInfo
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeClientAuthenticationSettings_nextToken
           Lens..~ rs
-            Lens.^? describeClientAuthenticationSettingsResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeClientAuthenticationSettingsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -170,11 +170,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeClientAuthenticationSettingsResponse'
-            Prelude.<$> ( x Data..?> "ClientAuthenticationSettingsInfo"
+            Prelude.<$> ( x
+                            Data..?> "ClientAuthenticationSettingsInfo"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -184,7 +185,8 @@ instance
   hashWithSalt
     _salt
     DescribeClientAuthenticationSettings' {..} =
-      _salt `Prelude.hashWithSalt` limit
+      _salt
+        `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` type'
         `Prelude.hashWithSalt` directoryId

@@ -103,7 +103,8 @@ instance Core.AWSRequest UpdateTrust where
 
 instance Prelude.Hashable UpdateTrust where
   hashWithSalt _salt UpdateTrust' {..} =
-    _salt `Prelude.hashWithSalt` selectiveAuth
+    _salt
+      `Prelude.hashWithSalt` selectiveAuth
       `Prelude.hashWithSalt` trustId
 
 instance Prelude.NFData UpdateTrust where

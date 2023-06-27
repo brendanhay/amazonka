@@ -143,7 +143,8 @@ instance Core.AWSRequest EnableSso where
 
 instance Prelude.Hashable EnableSso where
   hashWithSalt _salt EnableSso' {..} =
-    _salt `Prelude.hashWithSalt` password
+    _salt
+      `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` directoryId
 

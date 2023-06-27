@@ -64,7 +64,8 @@ httpContext_queryString = Lens.lens (\HttpContext' {queryString} -> queryString)
 
 instance Prelude.Hashable HttpContext where
   hashWithSalt _salt HttpContext' {..} =
-    _salt `Prelude.hashWithSalt` headers
+    _salt
+      `Prelude.hashWithSalt` headers
       `Prelude.hashWithSalt` queryString
 
 instance Prelude.NFData HttpContext where

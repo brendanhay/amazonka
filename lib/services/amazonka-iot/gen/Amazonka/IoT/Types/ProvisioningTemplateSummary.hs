@@ -138,7 +138,8 @@ instance Data.FromJSON ProvisioningTemplateSummary where
 
 instance Prelude.Hashable ProvisioningTemplateSummary where
   hashWithSalt _salt ProvisioningTemplateSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationDate
+    _salt
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` lastModifiedDate

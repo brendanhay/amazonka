@@ -166,7 +166,8 @@ instance Core.AWSRequest UpdateDynamicThingGroup where
 
 instance Prelude.Hashable UpdateDynamicThingGroup where
   hashWithSalt _salt UpdateDynamicThingGroup' {..} =
-    _salt `Prelude.hashWithSalt` expectedVersion
+    _salt
+      `Prelude.hashWithSalt` expectedVersion
       `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` queryString
       `Prelude.hashWithSalt` queryVersion

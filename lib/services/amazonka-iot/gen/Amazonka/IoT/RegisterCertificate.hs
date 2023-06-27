@@ -144,7 +144,8 @@ instance Core.AWSRequest RegisterCertificate where
 
 instance Prelude.Hashable RegisterCertificate where
   hashWithSalt _salt RegisterCertificate' {..} =
-    _salt `Prelude.hashWithSalt` caCertificatePem
+    _salt
+      `Prelude.hashWithSalt` caCertificatePem
       `Prelude.hashWithSalt` setAsActive
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` certificatePem

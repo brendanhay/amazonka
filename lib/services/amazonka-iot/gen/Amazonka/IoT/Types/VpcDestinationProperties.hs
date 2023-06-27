@@ -98,7 +98,8 @@ instance Data.FromJSON VpcDestinationProperties where
 
 instance Prelude.Hashable VpcDestinationProperties where
   hashWithSalt _salt VpcDestinationProperties' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` vpcId

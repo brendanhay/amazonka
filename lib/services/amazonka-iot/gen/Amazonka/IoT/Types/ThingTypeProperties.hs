@@ -71,7 +71,8 @@ instance Data.FromJSON ThingTypeProperties where
       "ThingTypeProperties"
       ( \x ->
           ThingTypeProperties'
-            Prelude.<$> ( x Data..:? "searchableAttributes"
+            Prelude.<$> ( x
+                            Data..:? "searchableAttributes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "thingTypeDescription")
@@ -79,7 +80,8 @@ instance Data.FromJSON ThingTypeProperties where
 
 instance Prelude.Hashable ThingTypeProperties where
   hashWithSalt _salt ThingTypeProperties' {..} =
-    _salt `Prelude.hashWithSalt` searchableAttributes
+    _salt
+      `Prelude.hashWithSalt` searchableAttributes
       `Prelude.hashWithSalt` thingTypeDescription
 
 instance Prelude.NFData ThingTypeProperties where

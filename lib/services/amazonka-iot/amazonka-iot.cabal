@@ -73,6 +73,8 @@ library
     Amazonka.IoT.CreateKeysAndCertificate
     Amazonka.IoT.CreateMitigationAction
     Amazonka.IoT.CreateOTAUpdate
+    Amazonka.IoT.CreatePackage
+    Amazonka.IoT.CreatePackageVersion
     Amazonka.IoT.CreatePolicy
     Amazonka.IoT.CreatePolicyVersion
     Amazonka.IoT.CreateProvisioningClaim
@@ -103,6 +105,8 @@ library
     Amazonka.IoT.DeleteJobTemplate
     Amazonka.IoT.DeleteMitigationAction
     Amazonka.IoT.DeleteOTAUpdate
+    Amazonka.IoT.DeletePackage
+    Amazonka.IoT.DeletePackageVersion
     Amazonka.IoT.DeletePolicy
     Amazonka.IoT.DeletePolicyVersion
     Amazonka.IoT.DeleteProvisioningTemplate
@@ -165,6 +169,9 @@ library
     Amazonka.IoT.GetJobDocument
     Amazonka.IoT.GetLoggingOptions
     Amazonka.IoT.GetOTAUpdate
+    Amazonka.IoT.GetPackage
+    Amazonka.IoT.GetPackageConfiguration
+    Amazonka.IoT.GetPackageVersion
     Amazonka.IoT.GetPercentiles
     Amazonka.IoT.GetPolicy
     Amazonka.IoT.GetPolicyVersion
@@ -202,6 +209,8 @@ library
     Amazonka.IoT.ListMitigationActions
     Amazonka.IoT.ListOTAUpdates
     Amazonka.IoT.ListOutgoingCertificates
+    Amazonka.IoT.ListPackages
+    Amazonka.IoT.ListPackageVersions
     Amazonka.IoT.ListPolicies
     Amazonka.IoT.ListPolicyVersions
     Amazonka.IoT.ListPrincipalThings
@@ -409,6 +418,7 @@ library
     Amazonka.IoT.Types.LogTargetConfiguration
     Amazonka.IoT.Types.LogTargetType
     Amazonka.IoT.Types.MachineLearningDetectionConfig
+    Amazonka.IoT.Types.MaintenanceWindow
     Amazonka.IoT.Types.ManagedJobTemplateSummary
     Amazonka.IoT.Types.MessageFormat
     Amazonka.IoT.Types.MetricDatum
@@ -430,6 +440,10 @@ library
     Amazonka.IoT.Types.OTAUpdateStatus
     Amazonka.IoT.Types.OTAUpdateSummary
     Amazonka.IoT.Types.OutgoingCertificate
+    Amazonka.IoT.Types.PackageSummary
+    Amazonka.IoT.Types.PackageVersionAction
+    Amazonka.IoT.Types.PackageVersionStatus
+    Amazonka.IoT.Types.PackageVersionSummary
     Amazonka.IoT.Types.PercentPair
     Amazonka.IoT.Types.Policy
     Amazonka.IoT.Types.PolicyTemplateName
@@ -459,6 +473,7 @@ library
     Amazonka.IoT.Types.S3Location
     Amazonka.IoT.Types.SalesforceAction
     Amazonka.IoT.Types.ScheduledAuditMetadata
+    Amazonka.IoT.Types.ScheduledJobRollout
     Amazonka.IoT.Types.SchedulingConfig
     Amazonka.IoT.Types.SecurityProfileIdentifier
     Amazonka.IoT.Types.SecurityProfileTarget
@@ -503,6 +518,7 @@ library
     Amazonka.IoT.Types.TimestreamAction
     Amazonka.IoT.Types.TimestreamDimension
     Amazonka.IoT.Types.TimestreamTimestamp
+    Amazonka.IoT.Types.TlsConfig
     Amazonka.IoT.Types.TlsContext
     Amazonka.IoT.Types.TopicRule
     Amazonka.IoT.Types.TopicRuleDestination
@@ -517,6 +533,7 @@ library
     Amazonka.IoT.Types.UserProperty
     Amazonka.IoT.Types.ValidationError
     Amazonka.IoT.Types.VerificationState
+    Amazonka.IoT.Types.VersionUpdateByJobsConfig
     Amazonka.IoT.Types.ViolationEvent
     Amazonka.IoT.Types.ViolationEventAdditionalInfo
     Amazonka.IoT.Types.ViolationEventOccurrenceRange
@@ -540,6 +557,9 @@ library
     Amazonka.IoT.UpdateIndexingConfiguration
     Amazonka.IoT.UpdateJob
     Amazonka.IoT.UpdateMitigationAction
+    Amazonka.IoT.UpdatePackage
+    Amazonka.IoT.UpdatePackageConfiguration
+    Amazonka.IoT.UpdatePackageVersion
     Amazonka.IoT.UpdateProvisioningTemplate
     Amazonka.IoT.UpdateRoleAlias
     Amazonka.IoT.UpdateScheduledAudit

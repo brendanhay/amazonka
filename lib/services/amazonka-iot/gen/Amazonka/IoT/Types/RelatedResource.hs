@@ -86,7 +86,8 @@ instance Data.FromJSON RelatedResource where
 
 instance Prelude.Hashable RelatedResource where
   hashWithSalt _salt RelatedResource' {..} =
-    _salt `Prelude.hashWithSalt` additionalInfo
+    _salt
+      `Prelude.hashWithSalt` additionalInfo
       `Prelude.hashWithSalt` resourceIdentifier
       `Prelude.hashWithSalt` resourceType
 

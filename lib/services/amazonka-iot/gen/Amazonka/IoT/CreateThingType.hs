@@ -128,7 +128,8 @@ instance Core.AWSRequest CreateThingType where
 
 instance Prelude.Hashable CreateThingType where
   hashWithSalt _salt CreateThingType' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` thingTypeProperties
       `Prelude.hashWithSalt` thingTypeName
 

@@ -123,22 +123,22 @@ instance Core.AWSPager ListCACertificates where
     | Core.stop
         ( rs
             Lens.^? listCACertificatesResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCACertificatesResponse_certificates
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCACertificates_marker
           Lens..~ rs
           Lens.^? listCACertificatesResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCACertificates where
   type
@@ -157,7 +157,8 @@ instance Core.AWSRequest ListCACertificates where
 
 instance Prelude.Hashable ListCACertificates where
   hashWithSalt _salt ListCACertificates' {..} =
-    _salt `Prelude.hashWithSalt` ascendingOrder
+    _salt
+      `Prelude.hashWithSalt` ascendingOrder
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` templateName

@@ -99,7 +99,8 @@ instance Core.AWSRequest SetV2LoggingLevel where
 
 instance Prelude.Hashable SetV2LoggingLevel where
   hashWithSalt _salt SetV2LoggingLevel' {..} =
-    _salt `Prelude.hashWithSalt` logTarget
+    _salt
+      `Prelude.hashWithSalt` logTarget
       `Prelude.hashWithSalt` logLevel
 
 instance Prelude.NFData SetV2LoggingLevel where

@@ -181,7 +181,8 @@ instance Core.AWSRequest CancelJobExecution where
 
 instance Prelude.Hashable CancelJobExecution where
   hashWithSalt _salt CancelJobExecution' {..} =
-    _salt `Prelude.hashWithSalt` expectedVersion
+    _salt
+      `Prelude.hashWithSalt` expectedVersion
       `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` statusDetails
       `Prelude.hashWithSalt` jobId

@@ -84,7 +84,8 @@ instance Data.FromJSON RegistrationConfig where
 
 instance Prelude.Hashable RegistrationConfig where
   hashWithSalt _salt RegistrationConfig' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` templateBody
       `Prelude.hashWithSalt` templateName
 

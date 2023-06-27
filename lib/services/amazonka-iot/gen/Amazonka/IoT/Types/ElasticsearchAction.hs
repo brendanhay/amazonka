@@ -125,7 +125,8 @@ instance Data.FromJSON ElasticsearchAction where
 
 instance Prelude.Hashable ElasticsearchAction where
   hashWithSalt _salt ElasticsearchAction' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` index
       `Prelude.hashWithSalt` type'

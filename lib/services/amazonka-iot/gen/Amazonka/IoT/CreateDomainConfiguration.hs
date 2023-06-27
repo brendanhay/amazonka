@@ -36,6 +36,7 @@ module Amazonka.IoT.CreateDomainConfiguration
     createDomainConfiguration_serverCertificateArns,
     createDomainConfiguration_serviceType,
     createDomainConfiguration_tags,
+    createDomainConfiguration_tlsConfig,
     createDomainConfiguration_validationCertificateArn,
     createDomainConfiguration_domainConfigurationName,
 
@@ -83,6 +84,8 @@ data CreateDomainConfiguration = CreateDomainConfiguration'
     -- For the cli-input-json file use format: \"tags\":
     -- \"key1=value1&key2=value2...\"
     tags :: Prelude.Maybe [Tag],
+    -- | An object that specifies the TLS configuration for a domain.
+    tlsConfig :: Prelude.Maybe TlsConfig,
     -- | The certificate used to validate the server certificate and prove domain
     -- name ownership. This certificate must be signed by a public certificate
     -- authority. This value is not required for Amazon Web Services-managed
@@ -125,6 +128,8 @@ data CreateDomainConfiguration = CreateDomainConfiguration'
 -- For the cli-input-json file use format: \"tags\":
 -- \"key1=value1&key2=value2...\"
 --
+-- 'tlsConfig', 'createDomainConfiguration_tlsConfig' - An object that specifies the TLS configuration for a domain.
+--
 -- 'validationCertificateArn', 'createDomainConfiguration_validationCertificateArn' - The certificate used to validate the server certificate and prove domain
 -- name ownership. This certificate must be signed by a public certificate
 -- authority. This value is not required for Amazon Web Services-managed
@@ -145,6 +150,7 @@ newCreateDomainConfiguration
         serverCertificateArns = Prelude.Nothing,
         serviceType = Prelude.Nothing,
         tags = Prelude.Nothing,
+        tlsConfig = Prelude.Nothing,
         validationCertificateArn = Prelude.Nothing,
         domainConfigurationName =
           pDomainConfigurationName_
@@ -183,6 +189,10 @@ createDomainConfiguration_serviceType = Lens.lens (\CreateDomainConfiguration' {
 createDomainConfiguration_tags :: Lens.Lens' CreateDomainConfiguration (Prelude.Maybe [Tag])
 createDomainConfiguration_tags = Lens.lens (\CreateDomainConfiguration' {tags} -> tags) (\s@CreateDomainConfiguration' {} a -> s {tags = a} :: CreateDomainConfiguration) Prelude.. Lens.mapping Lens.coerced
 
+-- | An object that specifies the TLS configuration for a domain.
+createDomainConfiguration_tlsConfig :: Lens.Lens' CreateDomainConfiguration (Prelude.Maybe TlsConfig)
+createDomainConfiguration_tlsConfig = Lens.lens (\CreateDomainConfiguration' {tlsConfig} -> tlsConfig) (\s@CreateDomainConfiguration' {} a -> s {tlsConfig = a} :: CreateDomainConfiguration)
+
 -- | The certificate used to validate the server certificate and prove domain
 -- name ownership. This certificate must be signed by a public certificate
 -- authority. This value is not required for Amazon Web Services-managed
@@ -212,11 +222,13 @@ instance Core.AWSRequest CreateDomainConfiguration where
 
 instance Prelude.Hashable CreateDomainConfiguration where
   hashWithSalt _salt CreateDomainConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` authorizerConfig
+    _salt
+      `Prelude.hashWithSalt` authorizerConfig
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` serverCertificateArns
       `Prelude.hashWithSalt` serviceType
       `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` tlsConfig
       `Prelude.hashWithSalt` validationCertificateArn
       `Prelude.hashWithSalt` domainConfigurationName
 
@@ -227,6 +239,7 @@ instance Prelude.NFData CreateDomainConfiguration where
       `Prelude.seq` Prelude.rnf serverCertificateArns
       `Prelude.seq` Prelude.rnf serviceType
       `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf tlsConfig
       `Prelude.seq` Prelude.rnf validationCertificateArn
       `Prelude.seq` Prelude.rnf domainConfigurationName
 
@@ -244,6 +257,7 @@ instance Data.ToJSON CreateDomainConfiguration where
               Prelude.<$> serverCertificateArns,
             ("serviceType" Data..=) Prelude.<$> serviceType,
             ("tags" Data..=) Prelude.<$> tags,
+            ("tlsConfig" Data..=) Prelude.<$> tlsConfig,
             ("validationCertificateArn" Data..=)
               Prelude.<$> validationCertificateArn
           ]

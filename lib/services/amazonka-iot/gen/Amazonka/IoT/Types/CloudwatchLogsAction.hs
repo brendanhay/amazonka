@@ -28,7 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCloudwatchLogsAction' smart constructor.
 data CloudwatchLogsAction = CloudwatchLogsAction'
-  { -- | The IAM role that allows access to the CloudWatch log.
+  { -- | Indicates whether batches of log records will be extracted and uploaded
+    -- into CloudWatch. Values include @true@ or @false@ /(default)/.
+    batchMode :: Prelude.Maybe Prelude.Bool,
+    -- | The IAM role that allows access to the CloudWatch log.
     roleArn :: Prelude.Text,
     -- | The CloudWatch log group to which the action sends data.
     logGroupName :: Prelude.Text
@@ -43,6 +46,9 @@ data CloudwatchLogsAction = CloudwatchLogsAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'batchMode', 'cloudwatchLogsAction_batchMode' - Indicates whether batches of log records will be extracted and uploaded
+-- into CloudWatch. Values include @true@ or @false@ /(default)/.
+--
 -- 'roleArn', 'cloudwatchLogsAction_roleArn' - The IAM role that allows access to the CloudWatch log.
 --
 -- 'logGroupName', 'cloudwatchLogsAction_logGroupName' - The CloudWatch log group to which the action sends data.
@@ -54,9 +60,15 @@ newCloudwatchLogsAction ::
   CloudwatchLogsAction
 newCloudwatchLogsAction pRoleArn_ pLogGroupName_ =
   CloudwatchLogsAction'
-    { roleArn = pRoleArn_,
+    { batchMode = Prelude.Nothing,
+      roleArn = pRoleArn_,
       logGroupName = pLogGroupName_
     }
+
+-- | Indicates whether batches of log records will be extracted and uploaded
+-- into CloudWatch. Values include @true@ or @false@ /(default)/.
+cloudwatchLogsAction_batchMode :: Lens.Lens' CloudwatchLogsAction (Prelude.Maybe Prelude.Bool)
+cloudwatchLogsAction_batchMode = Lens.lens (\CloudwatchLogsAction' {batchMode} -> batchMode) (\s@CloudwatchLogsAction' {} a -> s {batchMode = a} :: CloudwatchLogsAction)
 
 -- | The IAM role that allows access to the CloudWatch log.
 cloudwatchLogsAction_roleArn :: Lens.Lens' CloudwatchLogsAction Prelude.Text
@@ -72,25 +84,30 @@ instance Data.FromJSON CloudwatchLogsAction where
       "CloudwatchLogsAction"
       ( \x ->
           CloudwatchLogsAction'
-            Prelude.<$> (x Data..: "roleArn")
+            Prelude.<$> (x Data..:? "batchMode")
+            Prelude.<*> (x Data..: "roleArn")
             Prelude.<*> (x Data..: "logGroupName")
       )
 
 instance Prelude.Hashable CloudwatchLogsAction where
   hashWithSalt _salt CloudwatchLogsAction' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` batchMode
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` logGroupName
 
 instance Prelude.NFData CloudwatchLogsAction where
   rnf CloudwatchLogsAction' {..} =
-    Prelude.rnf roleArn
+    Prelude.rnf batchMode
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf logGroupName
 
 instance Data.ToJSON CloudwatchLogsAction where
   toJSON CloudwatchLogsAction' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("roleArn" Data..= roleArn),
+          [ ("batchMode" Data..=) Prelude.<$> batchMode,
+            Prelude.Just ("roleArn" Data..= roleArn),
             Prelude.Just ("logGroupName" Data..= logGroupName)
           ]
       )

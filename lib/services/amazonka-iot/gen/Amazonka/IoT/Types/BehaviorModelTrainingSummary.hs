@@ -121,7 +121,8 @@ instance
     BehaviorModelTrainingSummary
   where
   hashWithSalt _salt BehaviorModelTrainingSummary' {..} =
-    _salt `Prelude.hashWithSalt` behaviorName
+    _salt
+      `Prelude.hashWithSalt` behaviorName
       `Prelude.hashWithSalt` datapointsCollectionPercentage
       `Prelude.hashWithSalt` lastModelRefreshDate
       `Prelude.hashWithSalt` modelStatus

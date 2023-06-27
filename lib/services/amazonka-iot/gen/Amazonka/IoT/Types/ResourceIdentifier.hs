@@ -156,7 +156,8 @@ instance Data.FromJSON ResourceIdentifier where
 
 instance Prelude.Hashable ResourceIdentifier where
   hashWithSalt _salt ResourceIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` account
+    _salt
+      `Prelude.hashWithSalt` account
       `Prelude.hashWithSalt` caCertificateId
       `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` cognitoIdentityPoolId

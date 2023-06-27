@@ -151,7 +151,8 @@ instance Data.FromJSON TimestreamAction where
 
 instance Prelude.Hashable TimestreamAction where
   hashWithSalt _salt TimestreamAction' {..} =
-    _salt `Prelude.hashWithSalt` timestamp
+    _salt
+      `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName

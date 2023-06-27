@@ -47,6 +47,7 @@ module Amazonka.IoT.DescribeDomainConfiguration
     describeDomainConfigurationResponse_lastStatusChangeDate,
     describeDomainConfigurationResponse_serverCertificates,
     describeDomainConfigurationResponse_serviceType,
+    describeDomainConfigurationResponse_tlsConfig,
     describeDomainConfigurationResponse_httpStatus,
   )
 where
@@ -107,10 +108,12 @@ instance Core.AWSRequest DescribeDomainConfiguration where
             Prelude.<*> (x Data..?> "domainName")
             Prelude.<*> (x Data..?> "domainType")
             Prelude.<*> (x Data..?> "lastStatusChangeDate")
-            Prelude.<*> ( x Data..?> "serverCertificates"
+            Prelude.<*> ( x
+                            Data..?> "serverCertificates"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "serviceType")
+            Prelude.<*> (x Data..?> "tlsConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,6 +161,8 @@ data DescribeDomainConfigurationResponse = DescribeDomainConfigurationResponse'
     serverCertificates :: Prelude.Maybe [ServerCertificateSummary],
     -- | The type of service delivered by the endpoint.
     serviceType :: Prelude.Maybe ServiceType,
+    -- | An object that specifies the TLS configuration for a domain.
+    tlsConfig :: Prelude.Maybe TlsConfig,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -191,6 +196,8 @@ data DescribeDomainConfigurationResponse = DescribeDomainConfigurationResponse'
 --
 -- 'serviceType', 'describeDomainConfigurationResponse_serviceType' - The type of service delivered by the endpoint.
 --
+-- 'tlsConfig', 'describeDomainConfigurationResponse_tlsConfig' - An object that specifies the TLS configuration for a domain.
+--
 -- 'httpStatus', 'describeDomainConfigurationResponse_httpStatus' - The response's http status code.
 newDescribeDomainConfigurationResponse ::
   -- | 'httpStatus'
@@ -211,6 +218,7 @@ newDescribeDomainConfigurationResponse pHttpStatus_ =
       lastStatusChangeDate = Prelude.Nothing,
       serverCertificates = Prelude.Nothing,
       serviceType = Prelude.Nothing,
+      tlsConfig = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -252,6 +260,10 @@ describeDomainConfigurationResponse_serverCertificates = Lens.lens (\DescribeDom
 describeDomainConfigurationResponse_serviceType :: Lens.Lens' DescribeDomainConfigurationResponse (Prelude.Maybe ServiceType)
 describeDomainConfigurationResponse_serviceType = Lens.lens (\DescribeDomainConfigurationResponse' {serviceType} -> serviceType) (\s@DescribeDomainConfigurationResponse' {} a -> s {serviceType = a} :: DescribeDomainConfigurationResponse)
 
+-- | An object that specifies the TLS configuration for a domain.
+describeDomainConfigurationResponse_tlsConfig :: Lens.Lens' DescribeDomainConfigurationResponse (Prelude.Maybe TlsConfig)
+describeDomainConfigurationResponse_tlsConfig = Lens.lens (\DescribeDomainConfigurationResponse' {tlsConfig} -> tlsConfig) (\s@DescribeDomainConfigurationResponse' {} a -> s {tlsConfig = a} :: DescribeDomainConfigurationResponse)
+
 -- | The response's http status code.
 describeDomainConfigurationResponse_httpStatus :: Lens.Lens' DescribeDomainConfigurationResponse Prelude.Int
 describeDomainConfigurationResponse_httpStatus = Lens.lens (\DescribeDomainConfigurationResponse' {httpStatus} -> httpStatus) (\s@DescribeDomainConfigurationResponse' {} a -> s {httpStatus = a} :: DescribeDomainConfigurationResponse)
@@ -270,4 +282,5 @@ instance
       `Prelude.seq` Prelude.rnf lastStatusChangeDate
       `Prelude.seq` Prelude.rnf serverCertificates
       `Prelude.seq` Prelude.rnf serviceType
+      `Prelude.seq` Prelude.rnf tlsConfig
       `Prelude.seq` Prelude.rnf httpStatus

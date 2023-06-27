@@ -107,7 +107,8 @@ instance Data.FromJSON SnsAction where
 
 instance Prelude.Hashable SnsAction where
   hashWithSalt _salt SnsAction' {..} =
-    _salt `Prelude.hashWithSalt` messageFormat
+    _salt
+      `Prelude.hashWithSalt` messageFormat
       `Prelude.hashWithSalt` targetArn
       `Prelude.hashWithSalt` roleArn
 

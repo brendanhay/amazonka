@@ -69,12 +69,14 @@ instance Data.FromJSON Field where
       "Field"
       ( \x ->
           Field'
-            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "type")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable Field where
   hashWithSalt _salt Field' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Field where

@@ -114,7 +114,8 @@ instance Core.AWSRequest DeleteThing where
 
 instance Prelude.Hashable DeleteThing where
   hashWithSalt _salt DeleteThing' {..} =
-    _salt `Prelude.hashWithSalt` expectedVersion
+    _salt
+      `Prelude.hashWithSalt` expectedVersion
       `Prelude.hashWithSalt` thingName
 
 instance Prelude.NFData DeleteThing where

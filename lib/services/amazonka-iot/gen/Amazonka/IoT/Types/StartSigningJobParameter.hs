@@ -87,7 +87,8 @@ instance Data.FromJSON StartSigningJobParameter where
 
 instance Prelude.Hashable StartSigningJobParameter where
   hashWithSalt _salt StartSigningJobParameter' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` signingProfileName
       `Prelude.hashWithSalt` signingProfileParameter
 

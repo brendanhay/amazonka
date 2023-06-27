@@ -126,7 +126,8 @@ instance Core.AWSRequest RemoveThingFromBillingGroup where
 
 instance Prelude.Hashable RemoveThingFromBillingGroup where
   hashWithSalt _salt RemoveThingFromBillingGroup' {..} =
-    _salt `Prelude.hashWithSalt` billingGroupArn
+    _salt
+      `Prelude.hashWithSalt` billingGroupArn
       `Prelude.hashWithSalt` billingGroupName
       `Prelude.hashWithSalt` thingArn
       `Prelude.hashWithSalt` thingName

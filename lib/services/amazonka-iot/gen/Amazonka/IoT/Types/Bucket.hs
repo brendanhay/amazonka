@@ -77,7 +77,8 @@ instance Data.FromJSON Bucket where
 
 instance Prelude.Hashable Bucket where
   hashWithSalt _salt Bucket' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` keyValue
 
 instance Prelude.NFData Bucket where

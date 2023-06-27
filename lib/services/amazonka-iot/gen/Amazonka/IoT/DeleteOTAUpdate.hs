@@ -129,7 +129,8 @@ instance Core.AWSRequest DeleteOTAUpdate where
 
 instance Prelude.Hashable DeleteOTAUpdate where
   hashWithSalt _salt DeleteOTAUpdate' {..} =
-    _salt `Prelude.hashWithSalt` deleteStream
+    _salt
+      `Prelude.hashWithSalt` deleteStream
       `Prelude.hashWithSalt` forceDeleteAWSJob
       `Prelude.hashWithSalt` otaUpdateId
 

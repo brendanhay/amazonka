@@ -88,7 +88,8 @@ instance Data.FromJSON SqsAction where
 
 instance Prelude.Hashable SqsAction where
   hashWithSalt _salt SqsAction' {..} =
-    _salt `Prelude.hashWithSalt` useBase64
+    _salt
+      `Prelude.hashWithSalt` useBase64
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` queueUrl
 

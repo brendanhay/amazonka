@@ -170,7 +170,8 @@ instance Core.AWSRequest UpdateThing where
 
 instance Prelude.Hashable UpdateThing where
   hashWithSalt _salt UpdateThing' {..} =
-    _salt `Prelude.hashWithSalt` attributePayload
+    _salt
+      `Prelude.hashWithSalt` attributePayload
       `Prelude.hashWithSalt` expectedVersion
       `Prelude.hashWithSalt` removeThingType
       `Prelude.hashWithSalt` thingTypeName

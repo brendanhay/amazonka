@@ -32,9 +32,9 @@ data PresignedUrlConfig = PresignedUrlConfig'
     -- 3600, the default value is 3600 seconds. Pre-signed URLs are generated
     -- when Jobs receives an MQTT request for the job document.
     expiresInSec :: Prelude.Maybe Prelude.Natural,
-    -- | The ARN of an IAM role that grants grants permission to download files
-    -- from the S3 bucket where the job data\/updates are stored. The role must
-    -- also grant permission for IoT to download the files.
+    -- | The ARN of an IAM role that grants permission to download files from the
+    -- S3 bucket where the job data\/updates are stored. The role must also
+    -- grant permission for IoT to download the files.
     --
     -- For information about addressing the confused deputy problem, see
     -- <https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html cross-service confused deputy prevention>
@@ -55,9 +55,9 @@ data PresignedUrlConfig = PresignedUrlConfig'
 -- 3600, the default value is 3600 seconds. Pre-signed URLs are generated
 -- when Jobs receives an MQTT request for the job document.
 --
--- 'roleArn', 'presignedUrlConfig_roleArn' - The ARN of an IAM role that grants grants permission to download files
--- from the S3 bucket where the job data\/updates are stored. The role must
--- also grant permission for IoT to download the files.
+-- 'roleArn', 'presignedUrlConfig_roleArn' - The ARN of an IAM role that grants permission to download files from the
+-- S3 bucket where the job data\/updates are stored. The role must also
+-- grant permission for IoT to download the files.
 --
 -- For information about addressing the confused deputy problem, see
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html cross-service confused deputy prevention>
@@ -76,9 +76,9 @@ newPresignedUrlConfig =
 presignedUrlConfig_expiresInSec :: Lens.Lens' PresignedUrlConfig (Prelude.Maybe Prelude.Natural)
 presignedUrlConfig_expiresInSec = Lens.lens (\PresignedUrlConfig' {expiresInSec} -> expiresInSec) (\s@PresignedUrlConfig' {} a -> s {expiresInSec = a} :: PresignedUrlConfig)
 
--- | The ARN of an IAM role that grants grants permission to download files
--- from the S3 bucket where the job data\/updates are stored. The role must
--- also grant permission for IoT to download the files.
+-- | The ARN of an IAM role that grants permission to download files from the
+-- S3 bucket where the job data\/updates are stored. The role must also
+-- grant permission for IoT to download the files.
 --
 -- For information about addressing the confused deputy problem, see
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html cross-service confused deputy prevention>
@@ -98,7 +98,8 @@ instance Data.FromJSON PresignedUrlConfig where
 
 instance Prelude.Hashable PresignedUrlConfig where
   hashWithSalt _salt PresignedUrlConfig' {..} =
-    _salt `Prelude.hashWithSalt` expiresInSec
+    _salt
+      `Prelude.hashWithSalt` expiresInSec
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData PresignedUrlConfig where

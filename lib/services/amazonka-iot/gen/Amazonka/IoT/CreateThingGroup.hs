@@ -135,7 +135,8 @@ instance Core.AWSRequest CreateThingGroup where
 
 instance Prelude.Hashable CreateThingGroup where
   hashWithSalt _salt CreateThingGroup' {..} =
-    _salt `Prelude.hashWithSalt` parentGroupName
+    _salt
+      `Prelude.hashWithSalt` parentGroupName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` thingGroupProperties
       `Prelude.hashWithSalt` thingGroupName

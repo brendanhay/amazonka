@@ -114,6 +114,12 @@ import Test.Tasty
 --         , requestCreateOTAUpdate $
 --             newCreateOTAUpdate
 --
+--         , requestCreatePackage $
+--             newCreatePackage
+--
+--         , requestCreatePackageVersion $
+--             newCreatePackageVersion
+--
 --         , requestCreatePolicy $
 --             newCreatePolicy
 --
@@ -203,6 +209,12 @@ import Test.Tasty
 --
 --         , requestDeleteOTAUpdate $
 --             newDeleteOTAUpdate
+--
+--         , requestDeletePackage $
+--             newDeletePackage
+--
+--         , requestDeletePackageVersion $
+--             newDeletePackageVersion
 --
 --         , requestDeletePolicy $
 --             newDeletePolicy
@@ -390,6 +402,15 @@ import Test.Tasty
 --         , requestGetOTAUpdate $
 --             newGetOTAUpdate
 --
+--         , requestGetPackage $
+--             newGetPackage
+--
+--         , requestGetPackageConfiguration $
+--             newGetPackageConfiguration
+--
+--         , requestGetPackageVersion $
+--             newGetPackageVersion
+--
 --         , requestGetPercentiles $
 --             newGetPercentiles
 --
@@ -497,6 +518,12 @@ import Test.Tasty
 --
 --         , requestListOutgoingCertificates $
 --             newListOutgoingCertificates
+--
+--         , requestListPackageVersions $
+--             newListPackageVersions
+--
+--         , requestListPackages $
+--             newListPackages
 --
 --         , requestListPolicies $
 --             newListPolicies
@@ -699,6 +726,15 @@ import Test.Tasty
 --         , requestUpdateMitigationAction $
 --             newUpdateMitigationAction
 --
+--         , requestUpdatePackage $
+--             newUpdatePackage
+--
+--         , requestUpdatePackageConfiguration $
+--             newUpdatePackageConfiguration
+--
+--         , requestUpdatePackageVersion $
+--             newUpdatePackageVersion
+--
 --         , requestUpdateProvisioningTemplate $
 --             newUpdateProvisioningTemplate
 --
@@ -819,6 +855,12 @@ import Test.Tasty
 --         , responseCreateOTAUpdate $
 --             newCreateOTAUpdateResponse
 --
+--         , responseCreatePackage $
+--             newCreatePackageResponse
+--
+--         , responseCreatePackageVersion $
+--             newCreatePackageVersionResponse
+--
 --         , responseCreatePolicy $
 --             newCreatePolicyResponse
 --
@@ -908,6 +950,12 @@ import Test.Tasty
 --
 --         , responseDeleteOTAUpdate $
 --             newDeleteOTAUpdateResponse
+--
+--         , responseDeletePackage $
+--             newDeletePackageResponse
+--
+--         , responseDeletePackageVersion $
+--             newDeletePackageVersionResponse
 --
 --         , responseDeletePolicy $
 --             newDeletePolicyResponse
@@ -1095,6 +1143,15 @@ import Test.Tasty
 --         , responseGetOTAUpdate $
 --             newGetOTAUpdateResponse
 --
+--         , responseGetPackage $
+--             newGetPackageResponse
+--
+--         , responseGetPackageConfiguration $
+--             newGetPackageConfigurationResponse
+--
+--         , responseGetPackageVersion $
+--             newGetPackageVersionResponse
+--
 --         , responseGetPercentiles $
 --             newGetPercentilesResponse
 --
@@ -1202,6 +1259,12 @@ import Test.Tasty
 --
 --         , responseListOutgoingCertificates $
 --             newListOutgoingCertificatesResponse
+--
+--         , responseListPackageVersions $
+--             newListPackageVersionsResponse
+--
+--         , responseListPackages $
+--             newListPackagesResponse
 --
 --         , responseListPolicies $
 --             newListPoliciesResponse
@@ -1403,6 +1466,15 @@ import Test.Tasty
 --
 --         , responseUpdateMitigationAction $
 --             newUpdateMitigationActionResponse
+--
+--         , responseUpdatePackage $
+--             newUpdatePackageResponse
+--
+--         , responseUpdatePackageConfiguration $
+--             newUpdatePackageConfigurationResponse
+--
+--         , responseUpdatePackageVersion $
+--             newUpdatePackageVersionResponse
 --
 --         , responseUpdateProvisioningTemplate $
 --             newUpdateProvisioningTemplateResponse
@@ -1613,6 +1685,18 @@ requestCreateOTAUpdate =
     "CreateOTAUpdate"
     "fixture/CreateOTAUpdate.yaml"
 
+requestCreatePackage :: CreatePackage -> TestTree
+requestCreatePackage =
+  req
+    "CreatePackage"
+    "fixture/CreatePackage.yaml"
+
+requestCreatePackageVersion :: CreatePackageVersion -> TestTree
+requestCreatePackageVersion =
+  req
+    "CreatePackageVersion"
+    "fixture/CreatePackageVersion.yaml"
+
 requestCreatePolicy :: CreatePolicy -> TestTree
 requestCreatePolicy =
   req
@@ -1792,6 +1876,18 @@ requestDeleteOTAUpdate =
   req
     "DeleteOTAUpdate"
     "fixture/DeleteOTAUpdate.yaml"
+
+requestDeletePackage :: DeletePackage -> TestTree
+requestDeletePackage =
+  req
+    "DeletePackage"
+    "fixture/DeletePackage.yaml"
+
+requestDeletePackageVersion :: DeletePackageVersion -> TestTree
+requestDeletePackageVersion =
+  req
+    "DeletePackageVersion"
+    "fixture/DeletePackageVersion.yaml"
 
 requestDeletePolicy :: DeletePolicy -> TestTree
 requestDeletePolicy =
@@ -2165,6 +2261,24 @@ requestGetOTAUpdate =
     "GetOTAUpdate"
     "fixture/GetOTAUpdate.yaml"
 
+requestGetPackage :: GetPackage -> TestTree
+requestGetPackage =
+  req
+    "GetPackage"
+    "fixture/GetPackage.yaml"
+
+requestGetPackageConfiguration :: GetPackageConfiguration -> TestTree
+requestGetPackageConfiguration =
+  req
+    "GetPackageConfiguration"
+    "fixture/GetPackageConfiguration.yaml"
+
+requestGetPackageVersion :: GetPackageVersion -> TestTree
+requestGetPackageVersion =
+  req
+    "GetPackageVersion"
+    "fixture/GetPackageVersion.yaml"
+
 requestGetPercentiles :: GetPercentiles -> TestTree
 requestGetPercentiles =
   req
@@ -2380,6 +2494,18 @@ requestListOutgoingCertificates =
   req
     "ListOutgoingCertificates"
     "fixture/ListOutgoingCertificates.yaml"
+
+requestListPackageVersions :: ListPackageVersions -> TestTree
+requestListPackageVersions =
+  req
+    "ListPackageVersions"
+    "fixture/ListPackageVersions.yaml"
+
+requestListPackages :: ListPackages -> TestTree
+requestListPackages =
+  req
+    "ListPackages"
+    "fixture/ListPackages.yaml"
 
 requestListPolicies :: ListPolicies -> TestTree
 requestListPolicies =
@@ -2783,6 +2909,24 @@ requestUpdateMitigationAction =
     "UpdateMitigationAction"
     "fixture/UpdateMitigationAction.yaml"
 
+requestUpdatePackage :: UpdatePackage -> TestTree
+requestUpdatePackage =
+  req
+    "UpdatePackage"
+    "fixture/UpdatePackage.yaml"
+
+requestUpdatePackageConfiguration :: UpdatePackageConfiguration -> TestTree
+requestUpdatePackageConfiguration =
+  req
+    "UpdatePackageConfiguration"
+    "fixture/UpdatePackageConfiguration.yaml"
+
+requestUpdatePackageVersion :: UpdatePackageVersion -> TestTree
+requestUpdatePackageVersion =
+  req
+    "UpdatePackageVersion"
+    "fixture/UpdatePackageVersion.yaml"
+
 requestUpdateProvisioningTemplate :: UpdateProvisioningTemplate -> TestTree
 requestUpdateProvisioningTemplate =
   req
@@ -3077,6 +3221,22 @@ responseCreateOTAUpdate =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateOTAUpdate)
 
+responseCreatePackage :: CreatePackageResponse -> TestTree
+responseCreatePackage =
+  res
+    "CreatePackageResponse"
+    "fixture/CreatePackageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreatePackage)
+
+responseCreatePackageVersion :: CreatePackageVersionResponse -> TestTree
+responseCreatePackageVersion =
+  res
+    "CreatePackageVersionResponse"
+    "fixture/CreatePackageVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreatePackageVersion)
+
 responseCreatePolicy :: CreatePolicyResponse -> TestTree
 responseCreatePolicy =
   res
@@ -3316,6 +3476,22 @@ responseDeleteOTAUpdate =
     "fixture/DeleteOTAUpdateResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteOTAUpdate)
+
+responseDeletePackage :: DeletePackageResponse -> TestTree
+responseDeletePackage =
+  res
+    "DeletePackageResponse"
+    "fixture/DeletePackageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeletePackage)
+
+responseDeletePackageVersion :: DeletePackageVersionResponse -> TestTree
+responseDeletePackageVersion =
+  res
+    "DeletePackageVersionResponse"
+    "fixture/DeletePackageVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeletePackageVersion)
 
 responseDeletePolicy :: DeletePolicyResponse -> TestTree
 responseDeletePolicy =
@@ -3813,6 +3989,30 @@ responseGetOTAUpdate =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetOTAUpdate)
 
+responseGetPackage :: GetPackageResponse -> TestTree
+responseGetPackage =
+  res
+    "GetPackageResponse"
+    "fixture/GetPackageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPackage)
+
+responseGetPackageConfiguration :: GetPackageConfigurationResponse -> TestTree
+responseGetPackageConfiguration =
+  res
+    "GetPackageConfigurationResponse"
+    "fixture/GetPackageConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPackageConfiguration)
+
+responseGetPackageVersion :: GetPackageVersionResponse -> TestTree
+responseGetPackageVersion =
+  res
+    "GetPackageVersionResponse"
+    "fixture/GetPackageVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPackageVersion)
+
 responseGetPercentiles :: GetPercentilesResponse -> TestTree
 responseGetPercentiles =
   res
@@ -4100,6 +4300,22 @@ responseListOutgoingCertificates =
     "fixture/ListOutgoingCertificatesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListOutgoingCertificates)
+
+responseListPackageVersions :: ListPackageVersionsResponse -> TestTree
+responseListPackageVersions =
+  res
+    "ListPackageVersionsResponse"
+    "fixture/ListPackageVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPackageVersions)
+
+responseListPackages :: ListPackagesResponse -> TestTree
+responseListPackages =
+  res
+    "ListPackagesResponse"
+    "fixture/ListPackagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListPackages)
 
 responseListPolicies :: ListPoliciesResponse -> TestTree
 responseListPolicies =
@@ -4636,6 +4852,30 @@ responseUpdateMitigationAction =
     "fixture/UpdateMitigationActionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateMitigationAction)
+
+responseUpdatePackage :: UpdatePackageResponse -> TestTree
+responseUpdatePackage =
+  res
+    "UpdatePackageResponse"
+    "fixture/UpdatePackageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdatePackage)
+
+responseUpdatePackageConfiguration :: UpdatePackageConfigurationResponse -> TestTree
+responseUpdatePackageConfiguration =
+  res
+    "UpdatePackageConfigurationResponse"
+    "fixture/UpdatePackageConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdatePackageConfiguration)
+
+responseUpdatePackageVersion :: UpdatePackageVersionResponse -> TestTree
+responseUpdatePackageVersion =
+  res
+    "UpdatePackageVersionResponse"
+    "fixture/UpdatePackageVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdatePackageVersion)
 
 responseUpdateProvisioningTemplate :: UpdateProvisioningTemplateResponse -> TestTree
 responseUpdateProvisioningTemplate =

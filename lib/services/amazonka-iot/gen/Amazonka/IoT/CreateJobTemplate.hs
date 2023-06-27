@@ -32,11 +32,13 @@ module Amazonka.IoT.CreateJobTemplate
 
     -- * Request Lenses
     createJobTemplate_abortConfig,
+    createJobTemplate_destinationPackageVersions,
     createJobTemplate_document,
     createJobTemplate_documentSource,
     createJobTemplate_jobArn,
     createJobTemplate_jobExecutionsRetryConfig,
     createJobTemplate_jobExecutionsRolloutConfig,
+    createJobTemplate_maintenanceWindows,
     createJobTemplate_presignedUrlConfig,
     createJobTemplate_tags,
     createJobTemplate_timeoutConfig,
@@ -65,6 +67,12 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateJobTemplate' smart constructor.
 data CreateJobTemplate = CreateJobTemplate'
   { abortConfig :: Prelude.Maybe AbortConfig,
+    -- | The package version Amazon Resource Names (ARNs) that are installed on
+    -- the device when the job successfully completes.
+    --
+    -- __Note:__The following Length Constraints relates to a single string. Up
+    -- to five strings are allowed.
+    destinationPackageVersions :: Prelude.Maybe [Prelude.Text],
     -- | The job document. Required if you don\'t specify a value for
     -- @documentSource@.
     document :: Prelude.Maybe Prelude.Text,
@@ -76,7 +84,7 @@ data CreateJobTemplate = CreateJobTemplate'
     --
     -- The placeholder link is of the following form:
     --
-    -- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/bucket\/key}@
+    -- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/@/@bucket@/@\/@/@key@/@}@
     --
     -- where /bucket/ is your bucket name and /key/ is the object in the bucket
     -- to which you are linking.
@@ -86,6 +94,9 @@ data CreateJobTemplate = CreateJobTemplate'
     -- | Allows you to create the criteria to retry a job.
     jobExecutionsRetryConfig :: Prelude.Maybe JobExecutionsRetryConfig,
     jobExecutionsRolloutConfig :: Prelude.Maybe JobExecutionsRolloutConfig,
+    -- | Allows you to configure an optional maintenance window for the rollout
+    -- of a job document to all devices in the target group for a job.
+    maintenanceWindows :: Prelude.Maybe [MaintenanceWindow],
     presignedUrlConfig :: Prelude.Maybe PresignedUrlConfig,
     -- | Metadata that can be used to manage the job template.
     tags :: Prelude.Maybe [Tag],
@@ -108,6 +119,12 @@ data CreateJobTemplate = CreateJobTemplate'
 --
 -- 'abortConfig', 'createJobTemplate_abortConfig' - Undocumented member.
 --
+-- 'destinationPackageVersions', 'createJobTemplate_destinationPackageVersions' - The package version Amazon Resource Names (ARNs) that are installed on
+-- the device when the job successfully completes.
+--
+-- __Note:__The following Length Constraints relates to a single string. Up
+-- to five strings are allowed.
+--
 -- 'document', 'createJobTemplate_document' - The job document. Required if you don\'t specify a value for
 -- @documentSource@.
 --
@@ -119,7 +136,7 @@ data CreateJobTemplate = CreateJobTemplate'
 --
 -- The placeholder link is of the following form:
 --
--- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/bucket\/key}@
+-- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/@/@bucket@/@\/@/@key@/@}@
 --
 -- where /bucket/ is your bucket name and /key/ is the object in the bucket
 -- to which you are linking.
@@ -129,6 +146,9 @@ data CreateJobTemplate = CreateJobTemplate'
 -- 'jobExecutionsRetryConfig', 'createJobTemplate_jobExecutionsRetryConfig' - Allows you to create the criteria to retry a job.
 --
 -- 'jobExecutionsRolloutConfig', 'createJobTemplate_jobExecutionsRolloutConfig' - Undocumented member.
+--
+-- 'maintenanceWindows', 'createJobTemplate_maintenanceWindows' - Allows you to configure an optional maintenance window for the rollout
+-- of a job document to all devices in the target group for a job.
 --
 -- 'presignedUrlConfig', 'createJobTemplate_presignedUrlConfig' - Undocumented member.
 --
@@ -149,11 +169,13 @@ newCreateJobTemplate ::
 newCreateJobTemplate pJobTemplateId_ pDescription_ =
   CreateJobTemplate'
     { abortConfig = Prelude.Nothing,
+      destinationPackageVersions = Prelude.Nothing,
       document = Prelude.Nothing,
       documentSource = Prelude.Nothing,
       jobArn = Prelude.Nothing,
       jobExecutionsRetryConfig = Prelude.Nothing,
       jobExecutionsRolloutConfig = Prelude.Nothing,
+      maintenanceWindows = Prelude.Nothing,
       presignedUrlConfig = Prelude.Nothing,
       tags = Prelude.Nothing,
       timeoutConfig = Prelude.Nothing,
@@ -164,6 +186,14 @@ newCreateJobTemplate pJobTemplateId_ pDescription_ =
 -- | Undocumented member.
 createJobTemplate_abortConfig :: Lens.Lens' CreateJobTemplate (Prelude.Maybe AbortConfig)
 createJobTemplate_abortConfig = Lens.lens (\CreateJobTemplate' {abortConfig} -> abortConfig) (\s@CreateJobTemplate' {} a -> s {abortConfig = a} :: CreateJobTemplate)
+
+-- | The package version Amazon Resource Names (ARNs) that are installed on
+-- the device when the job successfully completes.
+--
+-- __Note:__The following Length Constraints relates to a single string. Up
+-- to five strings are allowed.
+createJobTemplate_destinationPackageVersions :: Lens.Lens' CreateJobTemplate (Prelude.Maybe [Prelude.Text])
+createJobTemplate_destinationPackageVersions = Lens.lens (\CreateJobTemplate' {destinationPackageVersions} -> destinationPackageVersions) (\s@CreateJobTemplate' {} a -> s {destinationPackageVersions = a} :: CreateJobTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The job document. Required if you don\'t specify a value for
 -- @documentSource@.
@@ -178,7 +208,7 @@ createJobTemplate_document = Lens.lens (\CreateJobTemplate' {document} -> docume
 --
 -- The placeholder link is of the following form:
 --
--- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/bucket\/key}@
+-- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/@/@bucket@/@\/@/@key@/@}@
 --
 -- where /bucket/ is your bucket name and /key/ is the object in the bucket
 -- to which you are linking.
@@ -196,6 +226,11 @@ createJobTemplate_jobExecutionsRetryConfig = Lens.lens (\CreateJobTemplate' {job
 -- | Undocumented member.
 createJobTemplate_jobExecutionsRolloutConfig :: Lens.Lens' CreateJobTemplate (Prelude.Maybe JobExecutionsRolloutConfig)
 createJobTemplate_jobExecutionsRolloutConfig = Lens.lens (\CreateJobTemplate' {jobExecutionsRolloutConfig} -> jobExecutionsRolloutConfig) (\s@CreateJobTemplate' {} a -> s {jobExecutionsRolloutConfig = a} :: CreateJobTemplate)
+
+-- | Allows you to configure an optional maintenance window for the rollout
+-- of a job document to all devices in the target group for a job.
+createJobTemplate_maintenanceWindows :: Lens.Lens' CreateJobTemplate (Prelude.Maybe [MaintenanceWindow])
+createJobTemplate_maintenanceWindows = Lens.lens (\CreateJobTemplate' {maintenanceWindows} -> maintenanceWindows) (\s@CreateJobTemplate' {} a -> s {maintenanceWindows = a} :: CreateJobTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createJobTemplate_presignedUrlConfig :: Lens.Lens' CreateJobTemplate (Prelude.Maybe PresignedUrlConfig)
@@ -235,12 +270,15 @@ instance Core.AWSRequest CreateJobTemplate where
 
 instance Prelude.Hashable CreateJobTemplate where
   hashWithSalt _salt CreateJobTemplate' {..} =
-    _salt `Prelude.hashWithSalt` abortConfig
+    _salt
+      `Prelude.hashWithSalt` abortConfig
+      `Prelude.hashWithSalt` destinationPackageVersions
       `Prelude.hashWithSalt` document
       `Prelude.hashWithSalt` documentSource
       `Prelude.hashWithSalt` jobArn
       `Prelude.hashWithSalt` jobExecutionsRetryConfig
       `Prelude.hashWithSalt` jobExecutionsRolloutConfig
+      `Prelude.hashWithSalt` maintenanceWindows
       `Prelude.hashWithSalt` presignedUrlConfig
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` timeoutConfig
@@ -250,11 +288,13 @@ instance Prelude.Hashable CreateJobTemplate where
 instance Prelude.NFData CreateJobTemplate where
   rnf CreateJobTemplate' {..} =
     Prelude.rnf abortConfig
+      `Prelude.seq` Prelude.rnf destinationPackageVersions
       `Prelude.seq` Prelude.rnf document
       `Prelude.seq` Prelude.rnf documentSource
       `Prelude.seq` Prelude.rnf jobArn
       `Prelude.seq` Prelude.rnf jobExecutionsRetryConfig
       `Prelude.seq` Prelude.rnf jobExecutionsRolloutConfig
+      `Prelude.seq` Prelude.rnf maintenanceWindows
       `Prelude.seq` Prelude.rnf presignedUrlConfig
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf timeoutConfig
@@ -269,6 +309,8 @@ instance Data.ToJSON CreateJobTemplate where
     Data.object
       ( Prelude.catMaybes
           [ ("abortConfig" Data..=) Prelude.<$> abortConfig,
+            ("destinationPackageVersions" Data..=)
+              Prelude.<$> destinationPackageVersions,
             ("document" Data..=) Prelude.<$> document,
             ("documentSource" Data..=)
               Prelude.<$> documentSource,
@@ -277,6 +319,8 @@ instance Data.ToJSON CreateJobTemplate where
               Prelude.<$> jobExecutionsRetryConfig,
             ("jobExecutionsRolloutConfig" Data..=)
               Prelude.<$> jobExecutionsRolloutConfig,
+            ("maintenanceWindows" Data..=)
+              Prelude.<$> maintenanceWindows,
             ("presignedUrlConfig" Data..=)
               Prelude.<$> presignedUrlConfig,
             ("tags" Data..=) Prelude.<$> tags,

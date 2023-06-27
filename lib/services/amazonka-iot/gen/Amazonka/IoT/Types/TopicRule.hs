@@ -138,7 +138,8 @@ instance Data.FromJSON TopicRule where
 
 instance Prelude.Hashable TopicRule where
   hashWithSalt _salt TopicRule' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` awsIotSqlVersion
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description

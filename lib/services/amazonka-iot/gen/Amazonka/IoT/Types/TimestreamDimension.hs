@@ -88,12 +88,14 @@ instance Data.FromJSON TimestreamDimension where
       "TimestreamDimension"
       ( \x ->
           TimestreamDimension'
-            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "value")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable TimestreamDimension where
   hashWithSalt _salt TimestreamDimension' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData TimestreamDimension where

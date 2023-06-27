@@ -104,7 +104,8 @@ instance Data.FromJSON StepFunctionsAction where
 
 instance Prelude.Hashable StepFunctionsAction where
   hashWithSalt _salt StepFunctionsAction' {..} =
-    _salt `Prelude.hashWithSalt` executionNamePrefix
+    _salt
+      `Prelude.hashWithSalt` executionNamePrefix
       `Prelude.hashWithSalt` stateMachineName
       `Prelude.hashWithSalt` roleArn
 

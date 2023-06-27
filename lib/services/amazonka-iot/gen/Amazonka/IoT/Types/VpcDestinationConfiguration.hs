@@ -91,7 +91,8 @@ vpcDestinationConfiguration_roleArn = Lens.lens (\VpcDestinationConfiguration' {
 
 instance Prelude.Hashable VpcDestinationConfiguration where
   hashWithSalt _salt VpcDestinationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` securityGroups
+    _salt
+      `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` roleArn

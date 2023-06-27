@@ -23,7 +23,9 @@ module Amazonka.IoT.Types.OTAUpdateStatus
         OTAUpdateStatus_CREATE_COMPLETE,
         OTAUpdateStatus_CREATE_FAILED,
         OTAUpdateStatus_CREATE_IN_PROGRESS,
-        OTAUpdateStatus_CREATE_PENDING
+        OTAUpdateStatus_CREATE_PENDING,
+        OTAUpdateStatus_DELETE_FAILED,
+        OTAUpdateStatus_DELETE_IN_PROGRESS
       ),
   )
 where
@@ -72,10 +74,18 @@ pattern OTAUpdateStatus_CREATE_IN_PROGRESS = OTAUpdateStatus' "CREATE_IN_PROGRES
 pattern OTAUpdateStatus_CREATE_PENDING :: OTAUpdateStatus
 pattern OTAUpdateStatus_CREATE_PENDING = OTAUpdateStatus' "CREATE_PENDING"
 
+pattern OTAUpdateStatus_DELETE_FAILED :: OTAUpdateStatus
+pattern OTAUpdateStatus_DELETE_FAILED = OTAUpdateStatus' "DELETE_FAILED"
+
+pattern OTAUpdateStatus_DELETE_IN_PROGRESS :: OTAUpdateStatus
+pattern OTAUpdateStatus_DELETE_IN_PROGRESS = OTAUpdateStatus' "DELETE_IN_PROGRESS"
+
 {-# COMPLETE
   OTAUpdateStatus_CREATE_COMPLETE,
   OTAUpdateStatus_CREATE_FAILED,
   OTAUpdateStatus_CREATE_IN_PROGRESS,
   OTAUpdateStatus_CREATE_PENDING,
+  OTAUpdateStatus_DELETE_FAILED,
+  OTAUpdateStatus_DELETE_IN_PROGRESS,
   OTAUpdateStatus'
   #-}

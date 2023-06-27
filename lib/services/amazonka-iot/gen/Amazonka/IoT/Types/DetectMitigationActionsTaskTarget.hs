@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     DetectMitigationActionsTaskTarget' {..} =
-      _salt `Prelude.hashWithSalt` behaviorName
+      _salt
+        `Prelude.hashWithSalt` behaviorName
         `Prelude.hashWithSalt` securityProfileName
         `Prelude.hashWithSalt` violationIds
 

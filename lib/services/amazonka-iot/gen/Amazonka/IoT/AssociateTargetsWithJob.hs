@@ -76,7 +76,7 @@ data AssociateTargetsWithJob = AssociateTargetsWithJob'
     -- Core sends jobs notifications to MQTT topics that contain the value in
     -- the following format.
     --
-    -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
+    -- @$aws\/things\/@/@THING_NAME@/@\/jobs\/@/@JOB_ID@/@\/notify-namespace-@/@NAMESPACE_ID@/@\/@
     --
     -- The @namespaceId@ feature is in public preview.
     namespaceId :: Prelude.Maybe Prelude.Text,
@@ -104,7 +104,7 @@ data AssociateTargetsWithJob = AssociateTargetsWithJob'
 -- Core sends jobs notifications to MQTT topics that contain the value in
 -- the following format.
 --
--- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
+-- @$aws\/things\/@/@THING_NAME@/@\/jobs\/@/@JOB_ID@/@\/notify-namespace-@/@NAMESPACE_ID@/@\/@
 --
 -- The @namespaceId@ feature is in public preview.
 --
@@ -136,7 +136,7 @@ associateTargetsWithJob_comment = Lens.lens (\AssociateTargetsWithJob' {comment}
 -- Core sends jobs notifications to MQTT topics that contain the value in
 -- the following format.
 --
--- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
+-- @$aws\/things\/@/@THING_NAME@/@\/jobs\/@/@JOB_ID@/@\/notify-namespace-@/@NAMESPACE_ID@/@\/@
 --
 -- The @namespaceId@ feature is in public preview.
 associateTargetsWithJob_namespaceId :: Lens.Lens' AssociateTargetsWithJob (Prelude.Maybe Prelude.Text)
@@ -168,7 +168,8 @@ instance Core.AWSRequest AssociateTargetsWithJob where
 
 instance Prelude.Hashable AssociateTargetsWithJob where
   hashWithSalt _salt AssociateTargetsWithJob' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` namespaceId
       `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` jobId

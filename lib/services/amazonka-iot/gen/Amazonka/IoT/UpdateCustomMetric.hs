@@ -124,7 +124,8 @@ instance Core.AWSRequest UpdateCustomMetric where
 
 instance Prelude.Hashable UpdateCustomMetric where
   hashWithSalt _salt UpdateCustomMetric' {..} =
-    _salt `Prelude.hashWithSalt` metricName
+    _salt
+      `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` displayName
 
 instance Prelude.NFData UpdateCustomMetric where

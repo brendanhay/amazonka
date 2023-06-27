@@ -126,7 +126,8 @@ instance Core.AWSRequest GetCardinality where
 
 instance Prelude.Hashable GetCardinality where
   hashWithSalt _salt GetCardinality' {..} =
-    _salt `Prelude.hashWithSalt` aggregationField
+    _salt
+      `Prelude.hashWithSalt` aggregationField
       `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` queryVersion
       `Prelude.hashWithSalt` queryString

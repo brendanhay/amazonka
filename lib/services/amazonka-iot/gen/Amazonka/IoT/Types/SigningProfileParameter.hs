@@ -85,7 +85,8 @@ instance Data.FromJSON SigningProfileParameter where
 
 instance Prelude.Hashable SigningProfileParameter where
   hashWithSalt _salt SigningProfileParameter' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` certificatePathOnDevice
       `Prelude.hashWithSalt` platform
 

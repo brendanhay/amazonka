@@ -122,7 +122,8 @@ instance Data.FromJSON HttpAction where
 
 instance Prelude.Hashable HttpAction where
   hashWithSalt _salt HttpAction' {..} =
-    _salt `Prelude.hashWithSalt` auth
+    _salt
+      `Prelude.hashWithSalt` auth
       `Prelude.hashWithSalt` confirmationUrl
       `Prelude.hashWithSalt` headers
       `Prelude.hashWithSalt` url

@@ -112,7 +112,8 @@ instance Core.AWSRequest DescribeAuditSuppression where
 
 instance Prelude.Hashable DescribeAuditSuppression where
   hashWithSalt _salt DescribeAuditSuppression' {..} =
-    _salt `Prelude.hashWithSalt` checkName
+    _salt
+      `Prelude.hashWithSalt` checkName
       `Prelude.hashWithSalt` resourceIdentifier
 
 instance Prelude.NFData DescribeAuditSuppression where

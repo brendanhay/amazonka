@@ -111,22 +111,22 @@ instance Core.AWSPager ListTargetsForSecurityProfile where
     | Core.stop
         ( rs
             Lens.^? listTargetsForSecurityProfileResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTargetsForSecurityProfileResponse_securityProfileTargets
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTargetsForSecurityProfile_nextToken
           Lens..~ rs
           Lens.^? listTargetsForSecurityProfileResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -142,7 +142,8 @@ instance
       ( \s h x ->
           ListTargetsForSecurityProfileResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "securityProfileTargets"
+            Prelude.<*> ( x
+                            Data..?> "securityProfileTargets"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -153,7 +154,8 @@ instance
     ListTargetsForSecurityProfile
   where
   hashWithSalt _salt ListTargetsForSecurityProfile' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` securityProfileName
 

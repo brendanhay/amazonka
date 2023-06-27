@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of managed job templates.
+--
+-- This operation returns paginated results.
 module Amazonka.IoT.ListManagedJobTemplates
   ( -- * Creating a Request
     ListManagedJobTemplates (..),
@@ -102,6 +104,28 @@ listManagedJobTemplates_nextToken = Lens.lens (\ListManagedJobTemplates' {nextTo
 listManagedJobTemplates_templateName :: Lens.Lens' ListManagedJobTemplates (Prelude.Maybe Prelude.Text)
 listManagedJobTemplates_templateName = Lens.lens (\ListManagedJobTemplates' {templateName} -> templateName) (\s@ListManagedJobTemplates' {} a -> s {templateName = a} :: ListManagedJobTemplates)
 
+instance Core.AWSPager ListManagedJobTemplates where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listManagedJobTemplatesResponse_nextToken
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listManagedJobTemplatesResponse_managedJobTemplates
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.otherwise =
+        Prelude.Just
+          Prelude.$ rq
+          Prelude.& listManagedJobTemplates_nextToken
+          Lens..~ rs
+          Lens.^? listManagedJobTemplatesResponse_nextToken
+          Prelude.. Lens._Just
+
 instance Core.AWSRequest ListManagedJobTemplates where
   type
     AWSResponse ListManagedJobTemplates =
@@ -112,7 +136,8 @@ instance Core.AWSRequest ListManagedJobTemplates where
     Response.receiveJSON
       ( \s h x ->
           ListManagedJobTemplatesResponse'
-            Prelude.<$> ( x Data..?> "managedJobTemplates"
+            Prelude.<$> ( x
+                            Data..?> "managedJobTemplates"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -121,7 +146,8 @@ instance Core.AWSRequest ListManagedJobTemplates where
 
 instance Prelude.Hashable ListManagedJobTemplates where
   hashWithSalt _salt ListManagedJobTemplates' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` templateName
 

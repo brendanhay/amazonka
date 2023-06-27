@@ -85,12 +85,14 @@ instance Data.FromJSON TimestreamTimestamp where
       "TimestreamTimestamp"
       ( \x ->
           TimestreamTimestamp'
-            Prelude.<$> (x Data..: "value") Prelude.<*> (x Data..: "unit")
+            Prelude.<$> (x Data..: "value")
+            Prelude.<*> (x Data..: "unit")
       )
 
 instance Prelude.Hashable TimestreamTimestamp where
   hashWithSalt _salt TimestreamTimestamp' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` unit
 
 instance Prelude.NFData TimestreamTimestamp where

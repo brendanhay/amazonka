@@ -72,12 +72,14 @@ instance Data.FromJSON SecurityProfileIdentifier where
       "SecurityProfileIdentifier"
       ( \x ->
           SecurityProfileIdentifier'
-            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "arn")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "arn")
       )
 
 instance Prelude.Hashable SecurityProfileIdentifier where
   hashWithSalt _salt SecurityProfileIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData SecurityProfileIdentifier where

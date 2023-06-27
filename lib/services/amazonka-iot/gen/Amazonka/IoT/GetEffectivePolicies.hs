@@ -120,7 +120,8 @@ instance Core.AWSRequest GetEffectivePolicies where
     Response.receiveJSON
       ( \s h x ->
           GetEffectivePoliciesResponse'
-            Prelude.<$> ( x Data..?> "effectivePolicies"
+            Prelude.<$> ( x
+                            Data..?> "effectivePolicies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -128,7 +129,8 @@ instance Core.AWSRequest GetEffectivePolicies where
 
 instance Prelude.Hashable GetEffectivePolicies where
   hashWithSalt _salt GetEffectivePolicies' {..} =
-    _salt `Prelude.hashWithSalt` cognitoIdentityPoolId
+    _salt
+      `Prelude.hashWithSalt` cognitoIdentityPoolId
       `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` thingName
 

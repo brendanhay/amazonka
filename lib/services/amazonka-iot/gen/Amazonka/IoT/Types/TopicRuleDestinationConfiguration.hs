@@ -72,7 +72,8 @@ instance
   hashWithSalt
     _salt
     TopicRuleDestinationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` httpUrlConfiguration
+      _salt
+        `Prelude.hashWithSalt` httpUrlConfiguration
         `Prelude.hashWithSalt` vpcConfiguration
 
 instance

@@ -108,22 +108,22 @@ instance Core.AWSPager ListTargetsForPolicy where
     | Core.stop
         ( rs
             Lens.^? listTargetsForPolicyResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTargetsForPolicyResponse_targets
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTargetsForPolicy_marker
           Lens..~ rs
           Lens.^? listTargetsForPolicyResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTargetsForPolicy where
   type
@@ -142,7 +142,8 @@ instance Core.AWSRequest ListTargetsForPolicy where
 
 instance Prelude.Hashable ListTargetsForPolicy where
   hashWithSalt _salt ListTargetsForPolicy' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` policyName
 

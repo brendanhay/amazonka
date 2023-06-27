@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     AuditMitigationActionsTaskMetadata' {..} =
-      _salt `Prelude.hashWithSalt` startTime
+      _salt
+        `Prelude.hashWithSalt` startTime
         `Prelude.hashWithSalt` taskId
         `Prelude.hashWithSalt` taskStatus
 

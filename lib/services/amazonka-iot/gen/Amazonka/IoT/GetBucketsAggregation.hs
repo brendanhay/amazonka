@@ -149,7 +149,8 @@ instance Core.AWSRequest GetBucketsAggregation where
 
 instance Prelude.Hashable GetBucketsAggregation where
   hashWithSalt _salt GetBucketsAggregation' {..} =
-    _salt `Prelude.hashWithSalt` indexName
+    _salt
+      `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` queryVersion
       `Prelude.hashWithSalt` queryString
       `Prelude.hashWithSalt` aggregationField

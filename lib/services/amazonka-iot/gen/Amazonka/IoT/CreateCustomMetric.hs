@@ -182,7 +182,8 @@ instance Core.AWSRequest CreateCustomMetric where
 
 instance Prelude.Hashable CreateCustomMetric where
   hashWithSalt _salt CreateCustomMetric' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` metricType
@@ -222,7 +223,7 @@ instance Data.ToQuery CreateCustomMetric where
 -- | /See:/ 'newCreateCustomMetricResponse' smart constructor.
 data CreateCustomMetricResponse = CreateCustomMetricResponse'
   { -- | The Amazon Resource Number (ARN) of the custom metric. For example,
-    -- @arn:aws-partition:iot:region:accountId:custommetric\/metricName @
+    -- @arn:@/@aws-partition@/@:iot:@/@region@/@:@/@accountId@/@:custommetric\/@/@metricName@/@ @
     metricArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the custom metric to be used in the metric report.
     metricName :: Prelude.Maybe Prelude.Text,
@@ -240,7 +241,7 @@ data CreateCustomMetricResponse = CreateCustomMetricResponse'
 -- for backwards compatibility:
 --
 -- 'metricArn', 'createCustomMetricResponse_metricArn' - The Amazon Resource Number (ARN) of the custom metric. For example,
--- @arn:aws-partition:iot:region:accountId:custommetric\/metricName @
+-- @arn:@/@aws-partition@/@:iot:@/@region@/@:@/@accountId@/@:custommetric\/@/@metricName@/@ @
 --
 -- 'metricName', 'createCustomMetricResponse_metricName' - The name of the custom metric to be used in the metric report.
 --
@@ -258,7 +259,7 @@ newCreateCustomMetricResponse pHttpStatus_ =
     }
 
 -- | The Amazon Resource Number (ARN) of the custom metric. For example,
--- @arn:aws-partition:iot:region:accountId:custommetric\/metricName @
+-- @arn:@/@aws-partition@/@:iot:@/@region@/@:@/@accountId@/@:custommetric\/@/@metricName@/@ @
 createCustomMetricResponse_metricArn :: Lens.Lens' CreateCustomMetricResponse (Prelude.Maybe Prelude.Text)
 createCustomMetricResponse_metricArn = Lens.lens (\CreateCustomMetricResponse' {metricArn} -> metricArn) (\s@CreateCustomMetricResponse' {} a -> s {metricArn = a} :: CreateCustomMetricResponse)
 

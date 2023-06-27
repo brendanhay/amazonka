@@ -110,7 +110,8 @@ instance
     RegisterCertificateWithoutCA
   where
   hashWithSalt _salt RegisterCertificateWithoutCA' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` certificatePem
 
 instance Prelude.NFData RegisterCertificateWithoutCA where

@@ -155,7 +155,8 @@ instance
       "DetectMitigationActionsTaskSummary"
       ( \x ->
           DetectMitigationActionsTaskSummary'
-            Prelude.<$> ( x Data..:? "actionsDefinition"
+            Prelude.<$> ( x
+                            Data..:? "actionsDefinition"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "onlyActiveViolationsIncluded")
@@ -176,7 +177,8 @@ instance
   hashWithSalt
     _salt
     DetectMitigationActionsTaskSummary' {..} =
-      _salt `Prelude.hashWithSalt` actionsDefinition
+      _salt
+        `Prelude.hashWithSalt` actionsDefinition
         `Prelude.hashWithSalt` onlyActiveViolationsIncluded
         `Prelude.hashWithSalt` suppressedAlertsIncluded
         `Prelude.hashWithSalt` target

@@ -35,6 +35,7 @@ module Amazonka.IoT.UpdateDomainConfiguration
     updateDomainConfiguration_authorizerConfig,
     updateDomainConfiguration_domainConfigurationStatus,
     updateDomainConfiguration_removeAuthorizerConfig,
+    updateDomainConfiguration_tlsConfig,
     updateDomainConfiguration_domainConfigurationName,
 
     -- * Destructuring the Response
@@ -64,6 +65,8 @@ data UpdateDomainConfiguration = UpdateDomainConfiguration'
     domainConfigurationStatus :: Prelude.Maybe DomainConfigurationStatus,
     -- | Removes the authorization configuration from a domain.
     removeAuthorizerConfig :: Prelude.Maybe Prelude.Bool,
+    -- | An object that specifies the TLS configuration for a domain.
+    tlsConfig :: Prelude.Maybe TlsConfig,
     -- | The name of the domain configuration to be updated.
     domainConfigurationName :: Prelude.Text
   }
@@ -83,6 +86,8 @@ data UpdateDomainConfiguration = UpdateDomainConfiguration'
 --
 -- 'removeAuthorizerConfig', 'updateDomainConfiguration_removeAuthorizerConfig' - Removes the authorization configuration from a domain.
 --
+-- 'tlsConfig', 'updateDomainConfiguration_tlsConfig' - An object that specifies the TLS configuration for a domain.
+--
 -- 'domainConfigurationName', 'updateDomainConfiguration_domainConfigurationName' - The name of the domain configuration to be updated.
 newUpdateDomainConfiguration ::
   -- | 'domainConfigurationName'
@@ -95,6 +100,7 @@ newUpdateDomainConfiguration
           Prelude.Nothing,
         domainConfigurationStatus = Prelude.Nothing,
         removeAuthorizerConfig = Prelude.Nothing,
+        tlsConfig = Prelude.Nothing,
         domainConfigurationName =
           pDomainConfigurationName_
       }
@@ -110,6 +116,10 @@ updateDomainConfiguration_domainConfigurationStatus = Lens.lens (\UpdateDomainCo
 -- | Removes the authorization configuration from a domain.
 updateDomainConfiguration_removeAuthorizerConfig :: Lens.Lens' UpdateDomainConfiguration (Prelude.Maybe Prelude.Bool)
 updateDomainConfiguration_removeAuthorizerConfig = Lens.lens (\UpdateDomainConfiguration' {removeAuthorizerConfig} -> removeAuthorizerConfig) (\s@UpdateDomainConfiguration' {} a -> s {removeAuthorizerConfig = a} :: UpdateDomainConfiguration)
+
+-- | An object that specifies the TLS configuration for a domain.
+updateDomainConfiguration_tlsConfig :: Lens.Lens' UpdateDomainConfiguration (Prelude.Maybe TlsConfig)
+updateDomainConfiguration_tlsConfig = Lens.lens (\UpdateDomainConfiguration' {tlsConfig} -> tlsConfig) (\s@UpdateDomainConfiguration' {} a -> s {tlsConfig = a} :: UpdateDomainConfiguration)
 
 -- | The name of the domain configuration to be updated.
 updateDomainConfiguration_domainConfigurationName :: Lens.Lens' UpdateDomainConfiguration Prelude.Text
@@ -132,9 +142,11 @@ instance Core.AWSRequest UpdateDomainConfiguration where
 
 instance Prelude.Hashable UpdateDomainConfiguration where
   hashWithSalt _salt UpdateDomainConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` authorizerConfig
+    _salt
+      `Prelude.hashWithSalt` authorizerConfig
       `Prelude.hashWithSalt` domainConfigurationStatus
       `Prelude.hashWithSalt` removeAuthorizerConfig
+      `Prelude.hashWithSalt` tlsConfig
       `Prelude.hashWithSalt` domainConfigurationName
 
 instance Prelude.NFData UpdateDomainConfiguration where
@@ -142,6 +154,7 @@ instance Prelude.NFData UpdateDomainConfiguration where
     Prelude.rnf authorizerConfig
       `Prelude.seq` Prelude.rnf domainConfigurationStatus
       `Prelude.seq` Prelude.rnf removeAuthorizerConfig
+      `Prelude.seq` Prelude.rnf tlsConfig
       `Prelude.seq` Prelude.rnf domainConfigurationName
 
 instance Data.ToHeaders UpdateDomainConfiguration where
@@ -156,7 +169,8 @@ instance Data.ToJSON UpdateDomainConfiguration where
             ("domainConfigurationStatus" Data..=)
               Prelude.<$> domainConfigurationStatus,
             ("removeAuthorizerConfig" Data..=)
-              Prelude.<$> removeAuthorizerConfig
+              Prelude.<$> removeAuthorizerConfig,
+            ("tlsConfig" Data..=) Prelude.<$> tlsConfig
           ]
       )
 

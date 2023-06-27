@@ -154,7 +154,8 @@ instance
   hashWithSalt
     _salt
     DetectMitigationActionExecution' {..} =
-      _salt `Prelude.hashWithSalt` actionName
+      _salt
+        `Prelude.hashWithSalt` actionName
         `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` executionEndDate
         `Prelude.hashWithSalt` executionStartDate

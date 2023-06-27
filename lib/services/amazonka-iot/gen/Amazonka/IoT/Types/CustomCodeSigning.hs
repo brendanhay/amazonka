@@ -127,7 +127,8 @@ instance Data.FromJSON CustomCodeSigning where
 
 instance Prelude.Hashable CustomCodeSigning where
   hashWithSalt _salt CustomCodeSigning' {..} =
-    _salt `Prelude.hashWithSalt` certificateChain
+    _salt
+      `Prelude.hashWithSalt` certificateChain
       `Prelude.hashWithSalt` hashAlgorithm
       `Prelude.hashWithSalt` signature
       `Prelude.hashWithSalt` signatureAlgorithm

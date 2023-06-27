@@ -76,7 +76,8 @@ instance Data.FromJSON ThingGroupProperties where
 
 instance Prelude.Hashable ThingGroupProperties where
   hashWithSalt _salt ThingGroupProperties' {..} =
-    _salt `Prelude.hashWithSalt` attributePayload
+    _salt
+      `Prelude.hashWithSalt` attributePayload
       `Prelude.hashWithSalt` thingGroupDescription
 
 instance Prelude.NFData ThingGroupProperties where

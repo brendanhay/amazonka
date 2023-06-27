@@ -114,7 +114,8 @@ instance Core.AWSRequest DeprecateThingType where
 
 instance Prelude.Hashable DeprecateThingType where
   hashWithSalt _salt DeprecateThingType' {..} =
-    _salt `Prelude.hashWithSalt` undoDeprecate
+    _salt
+      `Prelude.hashWithSalt` undoDeprecate
       `Prelude.hashWithSalt` thingTypeName
 
 instance Prelude.NFData DeprecateThingType where

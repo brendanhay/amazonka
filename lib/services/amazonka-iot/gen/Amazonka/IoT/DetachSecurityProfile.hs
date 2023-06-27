@@ -111,7 +111,8 @@ instance Core.AWSRequest DetachSecurityProfile where
 
 instance Prelude.Hashable DetachSecurityProfile where
   hashWithSalt _salt DetachSecurityProfile' {..} =
-    _salt `Prelude.hashWithSalt` securityProfileName
+    _salt
+      `Prelude.hashWithSalt` securityProfileName
       `Prelude.hashWithSalt` securityProfileTargetArn
 
 instance Prelude.NFData DetachSecurityProfile where

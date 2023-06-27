@@ -143,7 +143,8 @@ instance Core.AWSRequest CreateMitigationAction where
 
 instance Prelude.Hashable CreateMitigationAction where
   hashWithSalt _salt CreateMitigationAction' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` actionParams

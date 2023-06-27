@@ -108,6 +108,9 @@ module Amazonka.IoT
     -- ** ResourceRegistrationFailureException
     _ResourceRegistrationFailureException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
 
@@ -128,6 +131,9 @@ module Amazonka.IoT
 
     -- ** UnauthorizedException
     _UnauthorizedException,
+
+    -- ** ValidationException
+    _ValidationException,
 
     -- ** VersionConflictException
     _VersionConflictException,
@@ -315,6 +321,18 @@ module Amazonka.IoT
     CreateOTAUpdateResponse (CreateOTAUpdateResponse'),
     newCreateOTAUpdateResponse,
 
+    -- ** CreatePackage
+    CreatePackage (CreatePackage'),
+    newCreatePackage,
+    CreatePackageResponse (CreatePackageResponse'),
+    newCreatePackageResponse,
+
+    -- ** CreatePackageVersion
+    CreatePackageVersion (CreatePackageVersion'),
+    newCreatePackageVersion,
+    CreatePackageVersionResponse (CreatePackageVersionResponse'),
+    newCreatePackageVersionResponse,
+
     -- ** CreatePolicy
     CreatePolicy (CreatePolicy'),
     newCreatePolicy,
@@ -494,6 +512,18 @@ module Amazonka.IoT
     newDeleteOTAUpdate,
     DeleteOTAUpdateResponse (DeleteOTAUpdateResponse'),
     newDeleteOTAUpdateResponse,
+
+    -- ** DeletePackage
+    DeletePackage (DeletePackage'),
+    newDeletePackage,
+    DeletePackageResponse (DeletePackageResponse'),
+    newDeletePackageResponse,
+
+    -- ** DeletePackageVersion
+    DeletePackageVersion (DeletePackageVersion'),
+    newDeletePackageVersion,
+    DeletePackageVersionResponse (DeletePackageVersionResponse'),
+    newDeletePackageVersionResponse,
 
     -- ** DeletePolicy
     DeletePolicy (DeletePolicy'),
@@ -867,6 +897,24 @@ module Amazonka.IoT
     GetOTAUpdateResponse (GetOTAUpdateResponse'),
     newGetOTAUpdateResponse,
 
+    -- ** GetPackage
+    GetPackage (GetPackage'),
+    newGetPackage,
+    GetPackageResponse (GetPackageResponse'),
+    newGetPackageResponse,
+
+    -- ** GetPackageConfiguration
+    GetPackageConfiguration (GetPackageConfiguration'),
+    newGetPackageConfiguration,
+    GetPackageConfigurationResponse (GetPackageConfigurationResponse'),
+    newGetPackageConfigurationResponse,
+
+    -- ** GetPackageVersion
+    GetPackageVersion (GetPackageVersion'),
+    newGetPackageVersion,
+    GetPackageVersionResponse (GetPackageVersionResponse'),
+    newGetPackageVersionResponse,
+
     -- ** GetPercentiles
     GetPercentiles (GetPercentiles'),
     newGetPercentiles,
@@ -1053,7 +1101,7 @@ module Amazonka.IoT
     ListJobsResponse (ListJobsResponse'),
     newListJobsResponse,
 
-    -- ** ListManagedJobTemplates
+    -- ** ListManagedJobTemplates (Paginated)
     ListManagedJobTemplates (ListManagedJobTemplates'),
     newListManagedJobTemplates,
     ListManagedJobTemplatesResponse (ListManagedJobTemplatesResponse'),
@@ -1082,6 +1130,18 @@ module Amazonka.IoT
     newListOutgoingCertificates,
     ListOutgoingCertificatesResponse (ListOutgoingCertificatesResponse'),
     newListOutgoingCertificatesResponse,
+
+    -- ** ListPackageVersions (Paginated)
+    ListPackageVersions (ListPackageVersions'),
+    newListPackageVersions,
+    ListPackageVersionsResponse (ListPackageVersionsResponse'),
+    newListPackageVersionsResponse,
+
+    -- ** ListPackages (Paginated)
+    ListPackages (ListPackages'),
+    newListPackages,
+    ListPackagesResponse (ListPackagesResponse'),
+    newListPackagesResponse,
 
     -- ** ListPolicies (Paginated)
     ListPolicies (ListPolicies'),
@@ -1113,7 +1173,7 @@ module Amazonka.IoT
     ListProvisioningTemplatesResponse (ListProvisioningTemplatesResponse'),
     newListProvisioningTemplatesResponse,
 
-    -- ** ListRelatedResourcesForAuditFinding
+    -- ** ListRelatedResourcesForAuditFinding (Paginated)
     ListRelatedResourcesForAuditFinding (ListRelatedResourcesForAuditFinding'),
     newListRelatedResourcesForAuditFinding,
     ListRelatedResourcesForAuditFindingResponse (ListRelatedResourcesForAuditFindingResponse'),
@@ -1485,6 +1545,24 @@ module Amazonka.IoT
     UpdateMitigationActionResponse (UpdateMitigationActionResponse'),
     newUpdateMitigationActionResponse,
 
+    -- ** UpdatePackage
+    UpdatePackage (UpdatePackage'),
+    newUpdatePackage,
+    UpdatePackageResponse (UpdatePackageResponse'),
+    newUpdatePackageResponse,
+
+    -- ** UpdatePackageConfiguration
+    UpdatePackageConfiguration (UpdatePackageConfiguration'),
+    newUpdatePackageConfiguration,
+    UpdatePackageConfigurationResponse (UpdatePackageConfigurationResponse'),
+    newUpdatePackageConfigurationResponse,
+
+    -- ** UpdatePackageVersion
+    UpdatePackageVersion (UpdatePackageVersion'),
+    newUpdatePackageVersion,
+    UpdatePackageVersionResponse (UpdatePackageVersionResponse'),
+    newUpdatePackageVersionResponse,
+
     -- ** UpdateProvisioningTemplate
     UpdateProvisioningTemplate (UpdateProvisioningTemplate'),
     newUpdateProvisioningTemplate,
@@ -1702,6 +1780,12 @@ module Amazonka.IoT
 
     -- ** OTAUpdateStatus
     OTAUpdateStatus (..),
+
+    -- ** PackageVersionAction
+    PackageVersionAction (..),
+
+    -- ** PackageVersionStatus
+    PackageVersionStatus (..),
 
     -- ** PolicyTemplateName
     PolicyTemplateName (..),
@@ -2183,6 +2267,10 @@ module Amazonka.IoT
     MachineLearningDetectionConfig (MachineLearningDetectionConfig'),
     newMachineLearningDetectionConfig,
 
+    -- ** MaintenanceWindow
+    MaintenanceWindow (MaintenanceWindow'),
+    newMaintenanceWindow,
+
     -- ** ManagedJobTemplateSummary
     ManagedJobTemplateSummary (ManagedJobTemplateSummary'),
     newManagedJobTemplateSummary,
@@ -2246,6 +2334,14 @@ module Amazonka.IoT
     -- ** OutgoingCertificate
     OutgoingCertificate (OutgoingCertificate'),
     newOutgoingCertificate,
+
+    -- ** PackageSummary
+    PackageSummary (PackageSummary'),
+    newPackageSummary,
+
+    -- ** PackageVersionSummary
+    PackageVersionSummary (PackageVersionSummary'),
+    newPackageVersionSummary,
 
     -- ** PercentPair
     PercentPair (PercentPair'),
@@ -2342,6 +2438,10 @@ module Amazonka.IoT
     -- ** ScheduledAuditMetadata
     ScheduledAuditMetadata (ScheduledAuditMetadata'),
     newScheduledAuditMetadata,
+
+    -- ** ScheduledJobRollout
+    ScheduledJobRollout (ScheduledJobRollout'),
+    newScheduledJobRollout,
 
     -- ** SchedulingConfig
     SchedulingConfig (SchedulingConfig'),
@@ -2487,6 +2587,10 @@ module Amazonka.IoT
     TimestreamTimestamp (TimestreamTimestamp'),
     newTimestreamTimestamp,
 
+    -- ** TlsConfig
+    TlsConfig (TlsConfig'),
+    newTlsConfig,
+
     -- ** TlsContext
     TlsContext (TlsContext'),
     newTlsContext,
@@ -2534,6 +2638,10 @@ module Amazonka.IoT
     -- ** ValidationError
     ValidationError (ValidationError'),
     newValidationError,
+
+    -- ** VersionUpdateByJobsConfig
+    VersionUpdateByJobsConfig (VersionUpdateByJobsConfig'),
+    newVersionUpdateByJobsConfig,
 
     -- ** ViolationEvent
     ViolationEvent (ViolationEvent'),
@@ -2590,6 +2698,8 @@ import Amazonka.IoT.CreateJobTemplate
 import Amazonka.IoT.CreateKeysAndCertificate
 import Amazonka.IoT.CreateMitigationAction
 import Amazonka.IoT.CreateOTAUpdate
+import Amazonka.IoT.CreatePackage
+import Amazonka.IoT.CreatePackageVersion
 import Amazonka.IoT.CreatePolicy
 import Amazonka.IoT.CreatePolicyVersion
 import Amazonka.IoT.CreateProvisioningClaim
@@ -2620,6 +2730,8 @@ import Amazonka.IoT.DeleteJobExecution
 import Amazonka.IoT.DeleteJobTemplate
 import Amazonka.IoT.DeleteMitigationAction
 import Amazonka.IoT.DeleteOTAUpdate
+import Amazonka.IoT.DeletePackage
+import Amazonka.IoT.DeletePackageVersion
 import Amazonka.IoT.DeletePolicy
 import Amazonka.IoT.DeletePolicyVersion
 import Amazonka.IoT.DeleteProvisioningTemplate
@@ -2682,6 +2794,9 @@ import Amazonka.IoT.GetIndexingConfiguration
 import Amazonka.IoT.GetJobDocument
 import Amazonka.IoT.GetLoggingOptions
 import Amazonka.IoT.GetOTAUpdate
+import Amazonka.IoT.GetPackage
+import Amazonka.IoT.GetPackageConfiguration
+import Amazonka.IoT.GetPackageVersion
 import Amazonka.IoT.GetPercentiles
 import Amazonka.IoT.GetPolicy
 import Amazonka.IoT.GetPolicyVersion
@@ -2719,6 +2834,8 @@ import Amazonka.IoT.ListMetricValues
 import Amazonka.IoT.ListMitigationActions
 import Amazonka.IoT.ListOTAUpdates
 import Amazonka.IoT.ListOutgoingCertificates
+import Amazonka.IoT.ListPackageVersions
+import Amazonka.IoT.ListPackages
 import Amazonka.IoT.ListPolicies
 import Amazonka.IoT.ListPolicyVersions
 import Amazonka.IoT.ListPrincipalThings
@@ -2787,6 +2904,9 @@ import Amazonka.IoT.UpdateFleetMetric
 import Amazonka.IoT.UpdateIndexingConfiguration
 import Amazonka.IoT.UpdateJob
 import Amazonka.IoT.UpdateMitigationAction
+import Amazonka.IoT.UpdatePackage
+import Amazonka.IoT.UpdatePackageConfiguration
+import Amazonka.IoT.UpdatePackageVersion
 import Amazonka.IoT.UpdateProvisioningTemplate
 import Amazonka.IoT.UpdateRoleAlias
 import Amazonka.IoT.UpdateScheduledAudit

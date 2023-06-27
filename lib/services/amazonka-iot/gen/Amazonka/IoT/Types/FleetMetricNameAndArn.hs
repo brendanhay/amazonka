@@ -74,7 +74,8 @@ instance Data.FromJSON FleetMetricNameAndArn where
 
 instance Prelude.Hashable FleetMetricNameAndArn where
   hashWithSalt _salt FleetMetricNameAndArn' {..} =
-    _salt `Prelude.hashWithSalt` metricArn
+    _salt
+      `Prelude.hashWithSalt` metricArn
       `Prelude.hashWithSalt` metricName
 
 instance Prelude.NFData FleetMetricNameAndArn where

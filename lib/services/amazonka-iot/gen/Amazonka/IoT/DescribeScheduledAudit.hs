@@ -101,7 +101,8 @@ instance Core.AWSRequest DescribeScheduledAudit where
             Prelude.<*> (x Data..?> "frequency")
             Prelude.<*> (x Data..?> "scheduledAuditArn")
             Prelude.<*> (x Data..?> "scheduledAuditName")
-            Prelude.<*> ( x Data..?> "targetCheckNames"
+            Prelude.<*> ( x
+                            Data..?> "targetCheckNames"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

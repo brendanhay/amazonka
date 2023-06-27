@@ -37,12 +37,14 @@ module Amazonka.IoT.DescribeJobTemplate
     describeJobTemplateResponse_abortConfig,
     describeJobTemplateResponse_createdAt,
     describeJobTemplateResponse_description,
+    describeJobTemplateResponse_destinationPackageVersions,
     describeJobTemplateResponse_document,
     describeJobTemplateResponse_documentSource,
     describeJobTemplateResponse_jobExecutionsRetryConfig,
     describeJobTemplateResponse_jobExecutionsRolloutConfig,
     describeJobTemplateResponse_jobTemplateArn,
     describeJobTemplateResponse_jobTemplateId,
+    describeJobTemplateResponse_maintenanceWindows,
     describeJobTemplateResponse_presignedUrlConfig,
     describeJobTemplateResponse_timeoutConfig,
     describeJobTemplateResponse_httpStatus,
@@ -100,12 +102,20 @@ instance Core.AWSRequest DescribeJobTemplate where
             Prelude.<$> (x Data..?> "abortConfig")
             Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (x Data..?> "description")
+            Prelude.<*> ( x
+                            Data..?> "destinationPackageVersions"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Data..?> "document")
             Prelude.<*> (x Data..?> "documentSource")
             Prelude.<*> (x Data..?> "jobExecutionsRetryConfig")
             Prelude.<*> (x Data..?> "jobExecutionsRolloutConfig")
             Prelude.<*> (x Data..?> "jobTemplateArn")
             Prelude.<*> (x Data..?> "jobTemplateId")
+            Prelude.<*> ( x
+                            Data..?> "maintenanceWindows"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Data..?> "presignedUrlConfig")
             Prelude.<*> (x Data..?> "timeoutConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -137,6 +147,12 @@ data DescribeJobTemplateResponse = DescribeJobTemplateResponse'
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | A description of the job template.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The package version Amazon Resource Names (ARNs) that are installed on
+    -- the device when the job successfully completes.
+    --
+    -- __Note:__The following Length Constraints relates to a single string. Up
+    -- to five strings are allowed.
+    destinationPackageVersions :: Prelude.Maybe [Prelude.Text],
     -- | The job document.
     document :: Prelude.Maybe Prelude.Text,
     -- | An S3 link to the job document.
@@ -149,6 +165,9 @@ data DescribeJobTemplateResponse = DescribeJobTemplateResponse'
     jobTemplateArn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the job template.
     jobTemplateId :: Prelude.Maybe Prelude.Text,
+    -- | Allows you to configure an optional maintenance window for the rollout
+    -- of a job document to all devices in the target group for a job.
+    maintenanceWindows :: Prelude.Maybe [MaintenanceWindow],
     presignedUrlConfig :: Prelude.Maybe PresignedUrlConfig,
     timeoutConfig :: Prelude.Maybe TimeoutConfig,
     -- | The response's http status code.
@@ -170,6 +189,12 @@ data DescribeJobTemplateResponse = DescribeJobTemplateResponse'
 --
 -- 'description', 'describeJobTemplateResponse_description' - A description of the job template.
 --
+-- 'destinationPackageVersions', 'describeJobTemplateResponse_destinationPackageVersions' - The package version Amazon Resource Names (ARNs) that are installed on
+-- the device when the job successfully completes.
+--
+-- __Note:__The following Length Constraints relates to a single string. Up
+-- to five strings are allowed.
+--
 -- 'document', 'describeJobTemplateResponse_document' - The job document.
 --
 -- 'documentSource', 'describeJobTemplateResponse_documentSource' - An S3 link to the job document.
@@ -182,6 +207,9 @@ data DescribeJobTemplateResponse = DescribeJobTemplateResponse'
 -- 'jobTemplateArn', 'describeJobTemplateResponse_jobTemplateArn' - The ARN of the job template.
 --
 -- 'jobTemplateId', 'describeJobTemplateResponse_jobTemplateId' - The unique identifier of the job template.
+--
+-- 'maintenanceWindows', 'describeJobTemplateResponse_maintenanceWindows' - Allows you to configure an optional maintenance window for the rollout
+-- of a job document to all devices in the target group for a job.
 --
 -- 'presignedUrlConfig', 'describeJobTemplateResponse_presignedUrlConfig' - Undocumented member.
 --
@@ -198,12 +226,14 @@ newDescribeJobTemplateResponse pHttpStatus_ =
         Prelude.Nothing,
       createdAt = Prelude.Nothing,
       description = Prelude.Nothing,
+      destinationPackageVersions = Prelude.Nothing,
       document = Prelude.Nothing,
       documentSource = Prelude.Nothing,
       jobExecutionsRetryConfig = Prelude.Nothing,
       jobExecutionsRolloutConfig = Prelude.Nothing,
       jobTemplateArn = Prelude.Nothing,
       jobTemplateId = Prelude.Nothing,
+      maintenanceWindows = Prelude.Nothing,
       presignedUrlConfig = Prelude.Nothing,
       timeoutConfig = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -220,6 +250,14 @@ describeJobTemplateResponse_createdAt = Lens.lens (\DescribeJobTemplateResponse'
 -- | A description of the job template.
 describeJobTemplateResponse_description :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe Prelude.Text)
 describeJobTemplateResponse_description = Lens.lens (\DescribeJobTemplateResponse' {description} -> description) (\s@DescribeJobTemplateResponse' {} a -> s {description = a} :: DescribeJobTemplateResponse)
+
+-- | The package version Amazon Resource Names (ARNs) that are installed on
+-- the device when the job successfully completes.
+--
+-- __Note:__The following Length Constraints relates to a single string. Up
+-- to five strings are allowed.
+describeJobTemplateResponse_destinationPackageVersions :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe [Prelude.Text])
+describeJobTemplateResponse_destinationPackageVersions = Lens.lens (\DescribeJobTemplateResponse' {destinationPackageVersions} -> destinationPackageVersions) (\s@DescribeJobTemplateResponse' {} a -> s {destinationPackageVersions = a} :: DescribeJobTemplateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The job document.
 describeJobTemplateResponse_document :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe Prelude.Text)
@@ -246,6 +284,11 @@ describeJobTemplateResponse_jobTemplateArn = Lens.lens (\DescribeJobTemplateResp
 describeJobTemplateResponse_jobTemplateId :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe Prelude.Text)
 describeJobTemplateResponse_jobTemplateId = Lens.lens (\DescribeJobTemplateResponse' {jobTemplateId} -> jobTemplateId) (\s@DescribeJobTemplateResponse' {} a -> s {jobTemplateId = a} :: DescribeJobTemplateResponse)
 
+-- | Allows you to configure an optional maintenance window for the rollout
+-- of a job document to all devices in the target group for a job.
+describeJobTemplateResponse_maintenanceWindows :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe [MaintenanceWindow])
+describeJobTemplateResponse_maintenanceWindows = Lens.lens (\DescribeJobTemplateResponse' {maintenanceWindows} -> maintenanceWindows) (\s@DescribeJobTemplateResponse' {} a -> s {maintenanceWindows = a} :: DescribeJobTemplateResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | Undocumented member.
 describeJobTemplateResponse_presignedUrlConfig :: Lens.Lens' DescribeJobTemplateResponse (Prelude.Maybe PresignedUrlConfig)
 describeJobTemplateResponse_presignedUrlConfig = Lens.lens (\DescribeJobTemplateResponse' {presignedUrlConfig} -> presignedUrlConfig) (\s@DescribeJobTemplateResponse' {} a -> s {presignedUrlConfig = a} :: DescribeJobTemplateResponse)
@@ -263,12 +306,14 @@ instance Prelude.NFData DescribeJobTemplateResponse where
     Prelude.rnf abortConfig
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf destinationPackageVersions
       `Prelude.seq` Prelude.rnf document
       `Prelude.seq` Prelude.rnf documentSource
       `Prelude.seq` Prelude.rnf jobExecutionsRetryConfig
       `Prelude.seq` Prelude.rnf jobExecutionsRolloutConfig
       `Prelude.seq` Prelude.rnf jobTemplateArn
       `Prelude.seq` Prelude.rnf jobTemplateId
+      `Prelude.seq` Prelude.rnf maintenanceWindows
       `Prelude.seq` Prelude.rnf presignedUrlConfig
       `Prelude.seq` Prelude.rnf timeoutConfig
       `Prelude.seq` Prelude.rnf httpStatus

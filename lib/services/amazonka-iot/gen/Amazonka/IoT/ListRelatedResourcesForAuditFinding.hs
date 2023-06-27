@@ -48,6 +48,8 @@
 -- for the intermediate CA revoked for active device certificates check,
 -- RelatedResources will not be populated. You must use this API,
 -- ListRelatedResourcesForAuditFinding, to list the certificates.
+--
+-- This operation returns paginated results.
 module Amazonka.IoT.ListRelatedResourcesForAuditFinding
   ( -- * Creating a Request
     ListRelatedResourcesForAuditFinding (..),
@@ -129,6 +131,31 @@ listRelatedResourcesForAuditFinding_findingId :: Lens.Lens' ListRelatedResources
 listRelatedResourcesForAuditFinding_findingId = Lens.lens (\ListRelatedResourcesForAuditFinding' {findingId} -> findingId) (\s@ListRelatedResourcesForAuditFinding' {} a -> s {findingId = a} :: ListRelatedResourcesForAuditFinding)
 
 instance
+  Core.AWSPager
+    ListRelatedResourcesForAuditFinding
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listRelatedResourcesForAuditFindingResponse_nextToken
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listRelatedResourcesForAuditFindingResponse_relatedResources
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.otherwise =
+        Prelude.Just
+          Prelude.$ rq
+          Prelude.& listRelatedResourcesForAuditFinding_nextToken
+          Lens..~ rs
+          Lens.^? listRelatedResourcesForAuditFindingResponse_nextToken
+          Prelude.. Lens._Just
+
+instance
   Core.AWSRequest
     ListRelatedResourcesForAuditFinding
   where
@@ -142,10 +169,11 @@ instance
       ( \s h x ->
           ListRelatedResourcesForAuditFindingResponse'
             Prelude.<$> (x Data..?> "nextToken")
-              Prelude.<*> ( x Data..?> "relatedResources"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "relatedResources"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -155,7 +183,8 @@ instance
   hashWithSalt
     _salt
     ListRelatedResourcesForAuditFinding' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` findingId
 

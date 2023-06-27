@@ -346,7 +346,8 @@ instance Data.FromJSON Action where
 
 instance Prelude.Hashable Action where
   hashWithSalt _salt Action' {..} =
-    _salt `Prelude.hashWithSalt` cloudwatchAlarm
+    _salt
+      `Prelude.hashWithSalt` cloudwatchAlarm
       `Prelude.hashWithSalt` cloudwatchLogs
       `Prelude.hashWithSalt` cloudwatchMetric
       `Prelude.hashWithSalt` dynamoDB

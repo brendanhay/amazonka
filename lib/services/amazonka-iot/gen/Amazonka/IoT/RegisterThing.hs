@@ -125,7 +125,8 @@ instance Core.AWSRequest RegisterThing where
 
 instance Prelude.Hashable RegisterThing where
   hashWithSalt _salt RegisterThing' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` templateBody
 
 instance Prelude.NFData RegisterThing where

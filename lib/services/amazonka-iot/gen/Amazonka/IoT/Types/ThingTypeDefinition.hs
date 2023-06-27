@@ -104,7 +104,8 @@ instance Data.FromJSON ThingTypeDefinition where
 
 instance Prelude.Hashable ThingTypeDefinition where
   hashWithSalt _salt ThingTypeDefinition' {..} =
-    _salt `Prelude.hashWithSalt` thingTypeArn
+    _salt
+      `Prelude.hashWithSalt` thingTypeArn
       `Prelude.hashWithSalt` thingTypeMetadata
       `Prelude.hashWithSalt` thingTypeName
       `Prelude.hashWithSalt` thingTypeProperties

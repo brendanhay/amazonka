@@ -161,6 +161,7 @@ module Amazonka.IoT.Lens
     createDomainConfiguration_serverCertificateArns,
     createDomainConfiguration_serviceType,
     createDomainConfiguration_tags,
+    createDomainConfiguration_tlsConfig,
     createDomainConfiguration_validationCertificateArn,
     createDomainConfiguration_domainConfigurationName,
     createDomainConfigurationResponse_domainConfigurationArn,
@@ -200,6 +201,7 @@ module Amazonka.IoT.Lens
     -- ** CreateJob
     createJob_abortConfig,
     createJob_description,
+    createJob_destinationPackageVersions,
     createJob_document,
     createJob_documentParameters,
     createJob_documentSource,
@@ -221,11 +223,13 @@ module Amazonka.IoT.Lens
 
     -- ** CreateJobTemplate
     createJobTemplate_abortConfig,
+    createJobTemplate_destinationPackageVersions,
     createJobTemplate_document,
     createJobTemplate_documentSource,
     createJobTemplate_jobArn,
     createJobTemplate_jobExecutionsRetryConfig,
     createJobTemplate_jobExecutionsRolloutConfig,
+    createJobTemplate_maintenanceWindows,
     createJobTemplate_presignedUrlConfig,
     createJobTemplate_tags,
     createJobTemplate_timeoutConfig,
@@ -272,6 +276,32 @@ module Amazonka.IoT.Lens
     createOTAUpdateResponse_otaUpdateId,
     createOTAUpdateResponse_otaUpdateStatus,
     createOTAUpdateResponse_httpStatus,
+
+    -- ** CreatePackage
+    createPackage_clientToken,
+    createPackage_description,
+    createPackage_tags,
+    createPackage_packageName,
+    createPackageResponse_description,
+    createPackageResponse_packageArn,
+    createPackageResponse_packageName,
+    createPackageResponse_httpStatus,
+
+    -- ** CreatePackageVersion
+    createPackageVersion_attributes,
+    createPackageVersion_clientToken,
+    createPackageVersion_description,
+    createPackageVersion_tags,
+    createPackageVersion_packageName,
+    createPackageVersion_versionName,
+    createPackageVersionResponse_attributes,
+    createPackageVersionResponse_description,
+    createPackageVersionResponse_errorReason,
+    createPackageVersionResponse_packageName,
+    createPackageVersionResponse_packageVersionArn,
+    createPackageVersionResponse_status,
+    createPackageVersionResponse_versionName,
+    createPackageVersionResponse_httpStatus,
 
     -- ** CreatePolicy
     createPolicy_tags,
@@ -479,6 +509,17 @@ module Amazonka.IoT.Lens
     deleteOTAUpdate_otaUpdateId,
     deleteOTAUpdateResponse_httpStatus,
 
+    -- ** DeletePackage
+    deletePackage_clientToken,
+    deletePackage_packageName,
+    deletePackageResponse_httpStatus,
+
+    -- ** DeletePackageVersion
+    deletePackageVersion_clientToken,
+    deletePackageVersion_packageName,
+    deletePackageVersion_versionName,
+    deletePackageVersionResponse_httpStatus,
+
     -- ** DeletePolicy
     deletePolicy_policyName,
 
@@ -653,6 +694,7 @@ module Amazonka.IoT.Lens
     describeDomainConfigurationResponse_lastStatusChangeDate,
     describeDomainConfigurationResponse_serverCertificates,
     describeDomainConfigurationResponse_serviceType,
+    describeDomainConfigurationResponse_tlsConfig,
     describeDomainConfigurationResponse_httpStatus,
 
     -- ** DescribeEndpoint
@@ -708,12 +750,14 @@ module Amazonka.IoT.Lens
     describeJobTemplateResponse_abortConfig,
     describeJobTemplateResponse_createdAt,
     describeJobTemplateResponse_description,
+    describeJobTemplateResponse_destinationPackageVersions,
     describeJobTemplateResponse_document,
     describeJobTemplateResponse_documentSource,
     describeJobTemplateResponse_jobExecutionsRetryConfig,
     describeJobTemplateResponse_jobExecutionsRolloutConfig,
     describeJobTemplateResponse_jobTemplateArn,
     describeJobTemplateResponse_jobTemplateId,
+    describeJobTemplateResponse_maintenanceWindows,
     describeJobTemplateResponse_presignedUrlConfig,
     describeJobTemplateResponse_timeoutConfig,
     describeJobTemplateResponse_httpStatus,
@@ -923,6 +967,34 @@ module Amazonka.IoT.Lens
     getOTAUpdate_otaUpdateId,
     getOTAUpdateResponse_otaUpdateInfo,
     getOTAUpdateResponse_httpStatus,
+
+    -- ** GetPackage
+    getPackage_packageName,
+    getPackageResponse_creationDate,
+    getPackageResponse_defaultVersionName,
+    getPackageResponse_description,
+    getPackageResponse_lastModifiedDate,
+    getPackageResponse_packageArn,
+    getPackageResponse_packageName,
+    getPackageResponse_httpStatus,
+
+    -- ** GetPackageConfiguration
+    getPackageConfigurationResponse_versionUpdateByJobsConfig,
+    getPackageConfigurationResponse_httpStatus,
+
+    -- ** GetPackageVersion
+    getPackageVersion_packageName,
+    getPackageVersion_versionName,
+    getPackageVersionResponse_attributes,
+    getPackageVersionResponse_creationDate,
+    getPackageVersionResponse_description,
+    getPackageVersionResponse_errorReason,
+    getPackageVersionResponse_lastModifiedDate,
+    getPackageVersionResponse_packageName,
+    getPackageVersionResponse_packageVersionArn,
+    getPackageVersionResponse_status,
+    getPackageVersionResponse_versionName,
+    getPackageVersionResponse_httpStatus,
 
     -- ** GetPercentiles
     getPercentiles_aggregationField,
@@ -1246,6 +1318,22 @@ module Amazonka.IoT.Lens
     listOutgoingCertificatesResponse_nextMarker,
     listOutgoingCertificatesResponse_outgoingCertificates,
     listOutgoingCertificatesResponse_httpStatus,
+
+    -- ** ListPackageVersions
+    listPackageVersions_maxResults,
+    listPackageVersions_nextToken,
+    listPackageVersions_status,
+    listPackageVersions_packageName,
+    listPackageVersionsResponse_nextToken,
+    listPackageVersionsResponse_packageVersionSummaries,
+    listPackageVersionsResponse_httpStatus,
+
+    -- ** ListPackages
+    listPackages_maxResults,
+    listPackages_nextToken,
+    listPackagesResponse_nextToken,
+    listPackagesResponse_packageSummaries,
+    listPackagesResponse_httpStatus,
 
     -- ** ListPolicies
     listPolicies_ascendingOrder,
@@ -1715,6 +1803,7 @@ module Amazonka.IoT.Lens
     updateDomainConfiguration_authorizerConfig,
     updateDomainConfiguration_domainConfigurationStatus,
     updateDomainConfiguration_removeAuthorizerConfig,
+    updateDomainConfiguration_tlsConfig,
     updateDomainConfiguration_domainConfigurationName,
     updateDomainConfigurationResponse_domainConfigurationArn,
     updateDomainConfigurationResponse_domainConfigurationName,
@@ -1768,6 +1857,28 @@ module Amazonka.IoT.Lens
     updateMitigationActionResponse_actionArn,
     updateMitigationActionResponse_actionId,
     updateMitigationActionResponse_httpStatus,
+
+    -- ** UpdatePackage
+    updatePackage_clientToken,
+    updatePackage_defaultVersionName,
+    updatePackage_description,
+    updatePackage_unsetDefaultVersion,
+    updatePackage_packageName,
+    updatePackageResponse_httpStatus,
+
+    -- ** UpdatePackageConfiguration
+    updatePackageConfiguration_clientToken,
+    updatePackageConfiguration_versionUpdateByJobsConfig,
+    updatePackageConfigurationResponse_httpStatus,
+
+    -- ** UpdatePackageVersion
+    updatePackageVersion_action,
+    updatePackageVersion_attributes,
+    updatePackageVersion_clientToken,
+    updatePackageVersion_description,
+    updatePackageVersion_packageName,
+    updatePackageVersion_versionName,
+    updatePackageVersionResponse_httpStatus,
 
     -- ** UpdateProvisioningTemplate
     updateProvisioningTemplate_defaultVersionId,
@@ -2158,6 +2269,7 @@ module Amazonka.IoT.Lens
     cloudwatchAlarmAction_stateValue,
 
     -- ** CloudwatchLogsAction
+    cloudwatchLogsAction_batchMode,
     cloudwatchLogsAction_roleArn,
     cloudwatchLogsAction_logGroupName,
 
@@ -2367,6 +2479,7 @@ module Amazonka.IoT.Lens
     job_completedAt,
     job_createdAt,
     job_description,
+    job_destinationPackageVersions,
     job_documentParameters,
     job_forceCanceled,
     job_isConcurrent,
@@ -2380,6 +2493,7 @@ module Amazonka.IoT.Lens
     job_namespaceId,
     job_presignedUrlConfig,
     job_reasonCode,
+    job_scheduledJobRollouts,
     job_schedulingConfig,
     job_status,
     job_targetSelection,
@@ -2499,6 +2613,10 @@ module Amazonka.IoT.Lens
     -- ** MachineLearningDetectionConfig
     machineLearningDetectionConfig_confidenceLevel,
 
+    -- ** MaintenanceWindow
+    maintenanceWindow_startTime,
+    maintenanceWindow_durationInMinutes,
+
     -- ** ManagedJobTemplateSummary
     managedJobTemplateSummary_description,
     managedJobTemplateSummary_environments,
@@ -2608,6 +2726,19 @@ module Amazonka.IoT.Lens
     outgoingCertificate_transferDate,
     outgoingCertificate_transferMessage,
     outgoingCertificate_transferredTo,
+
+    -- ** PackageSummary
+    packageSummary_creationDate,
+    packageSummary_defaultVersionName,
+    packageSummary_lastModifiedDate,
+    packageSummary_packageName,
+
+    -- ** PackageVersionSummary
+    packageVersionSummary_creationDate,
+    packageVersionSummary_lastModifiedDate,
+    packageVersionSummary_packageName,
+    packageVersionSummary_status,
+    packageVersionSummary_versionName,
 
     -- ** PercentPair
     percentPair_percent,
@@ -2735,9 +2866,13 @@ module Amazonka.IoT.Lens
     scheduledAuditMetadata_scheduledAuditArn,
     scheduledAuditMetadata_scheduledAuditName,
 
+    -- ** ScheduledJobRollout
+    scheduledJobRollout_startTime,
+
     -- ** SchedulingConfig
     schedulingConfig_endBehavior,
     schedulingConfig_endTime,
+    schedulingConfig_maintenanceWindows,
     schedulingConfig_startTime,
 
     -- ** SecurityProfileIdentifier
@@ -2931,6 +3066,9 @@ module Amazonka.IoT.Lens
     timestreamTimestamp_value,
     timestreamTimestamp_unit,
 
+    -- ** TlsConfig
+    tlsConfig_securityPolicy,
+
     -- ** TlsContext
     tlsContext_serverName,
 
@@ -3001,6 +3139,10 @@ module Amazonka.IoT.Lens
     -- ** ValidationError
     validationError_errorMessage,
 
+    -- ** VersionUpdateByJobsConfig
+    versionUpdateByJobsConfig_enabled,
+    versionUpdateByJobsConfig_roleArn,
+
     -- ** ViolationEvent
     violationEvent_behavior,
     violationEvent_metricValue,
@@ -3069,6 +3211,8 @@ import Amazonka.IoT.CreateJobTemplate
 import Amazonka.IoT.CreateKeysAndCertificate
 import Amazonka.IoT.CreateMitigationAction
 import Amazonka.IoT.CreateOTAUpdate
+import Amazonka.IoT.CreatePackage
+import Amazonka.IoT.CreatePackageVersion
 import Amazonka.IoT.CreatePolicy
 import Amazonka.IoT.CreatePolicyVersion
 import Amazonka.IoT.CreateProvisioningClaim
@@ -3099,6 +3243,8 @@ import Amazonka.IoT.DeleteJobExecution
 import Amazonka.IoT.DeleteJobTemplate
 import Amazonka.IoT.DeleteMitigationAction
 import Amazonka.IoT.DeleteOTAUpdate
+import Amazonka.IoT.DeletePackage
+import Amazonka.IoT.DeletePackageVersion
 import Amazonka.IoT.DeletePolicy
 import Amazonka.IoT.DeletePolicyVersion
 import Amazonka.IoT.DeleteProvisioningTemplate
@@ -3161,6 +3307,9 @@ import Amazonka.IoT.GetIndexingConfiguration
 import Amazonka.IoT.GetJobDocument
 import Amazonka.IoT.GetLoggingOptions
 import Amazonka.IoT.GetOTAUpdate
+import Amazonka.IoT.GetPackage
+import Amazonka.IoT.GetPackageConfiguration
+import Amazonka.IoT.GetPackageVersion
 import Amazonka.IoT.GetPercentiles
 import Amazonka.IoT.GetPolicy
 import Amazonka.IoT.GetPolicyVersion
@@ -3197,6 +3346,8 @@ import Amazonka.IoT.ListMetricValues
 import Amazonka.IoT.ListMitigationActions
 import Amazonka.IoT.ListOTAUpdates
 import Amazonka.IoT.ListOutgoingCertificates
+import Amazonka.IoT.ListPackageVersions
+import Amazonka.IoT.ListPackages
 import Amazonka.IoT.ListPolicies
 import Amazonka.IoT.ListPolicyVersions
 import Amazonka.IoT.ListPrincipalThings
@@ -3356,6 +3507,7 @@ import Amazonka.IoT.Types.LogTarget
 import Amazonka.IoT.Types.LogTargetConfiguration
 import Amazonka.IoT.Types.LoggingOptionsPayload
 import Amazonka.IoT.Types.MachineLearningDetectionConfig
+import Amazonka.IoT.Types.MaintenanceWindow
 import Amazonka.IoT.Types.ManagedJobTemplateSummary
 import Amazonka.IoT.Types.MetricDatum
 import Amazonka.IoT.Types.MetricDimension
@@ -3372,6 +3524,8 @@ import Amazonka.IoT.Types.OTAUpdateInfo
 import Amazonka.IoT.Types.OTAUpdateSummary
 import Amazonka.IoT.Types.OpenSearchAction
 import Amazonka.IoT.Types.OutgoingCertificate
+import Amazonka.IoT.Types.PackageSummary
+import Amazonka.IoT.Types.PackageVersionSummary
 import Amazonka.IoT.Types.PercentPair
 import Amazonka.IoT.Types.Policy
 import Amazonka.IoT.Types.PolicyVersion
@@ -3396,6 +3550,7 @@ import Amazonka.IoT.Types.S3Destination
 import Amazonka.IoT.Types.S3Location
 import Amazonka.IoT.Types.SalesforceAction
 import Amazonka.IoT.Types.ScheduledAuditMetadata
+import Amazonka.IoT.Types.ScheduledJobRollout
 import Amazonka.IoT.Types.SchedulingConfig
 import Amazonka.IoT.Types.SecurityProfileIdentifier
 import Amazonka.IoT.Types.SecurityProfileTarget
@@ -3432,6 +3587,7 @@ import Amazonka.IoT.Types.TimeoutConfig
 import Amazonka.IoT.Types.TimestreamAction
 import Amazonka.IoT.Types.TimestreamDimension
 import Amazonka.IoT.Types.TimestreamTimestamp
+import Amazonka.IoT.Types.TlsConfig
 import Amazonka.IoT.Types.TlsContext
 import Amazonka.IoT.Types.TopicRule
 import Amazonka.IoT.Types.TopicRuleDestination
@@ -3444,6 +3600,7 @@ import Amazonka.IoT.Types.UpdateCACertificateParams
 import Amazonka.IoT.Types.UpdateDeviceCertificateParams
 import Amazonka.IoT.Types.UserProperty
 import Amazonka.IoT.Types.ValidationError
+import Amazonka.IoT.Types.VersionUpdateByJobsConfig
 import Amazonka.IoT.Types.ViolationEvent
 import Amazonka.IoT.Types.ViolationEventAdditionalInfo
 import Amazonka.IoT.Types.ViolationEventOccurrenceRange
@@ -3466,6 +3623,9 @@ import Amazonka.IoT.UpdateFleetMetric
 import Amazonka.IoT.UpdateIndexingConfiguration
 import Amazonka.IoT.UpdateJob
 import Amazonka.IoT.UpdateMitigationAction
+import Amazonka.IoT.UpdatePackage
+import Amazonka.IoT.UpdatePackageConfiguration
+import Amazonka.IoT.UpdatePackageVersion
 import Amazonka.IoT.UpdateProvisioningTemplate
 import Amazonka.IoT.UpdateRoleAlias
 import Amazonka.IoT.UpdateScheduledAudit

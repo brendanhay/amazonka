@@ -82,7 +82,8 @@ instance Data.FromJSON RateIncreaseCriteria where
 
 instance Prelude.Hashable RateIncreaseCriteria where
   hashWithSalt _salt RateIncreaseCriteria' {..} =
-    _salt `Prelude.hashWithSalt` numberOfNotifiedThings
+    _salt
+      `Prelude.hashWithSalt` numberOfNotifiedThings
       `Prelude.hashWithSalt` numberOfSucceededThings
 
 instance Prelude.NFData RateIncreaseCriteria where

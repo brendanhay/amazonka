@@ -104,7 +104,8 @@ instance Core.AWSRequest ReplaceTopicRule where
 
 instance Prelude.Hashable ReplaceTopicRule where
   hashWithSalt _salt ReplaceTopicRule' {..} =
-    _salt `Prelude.hashWithSalt` ruleName
+    _salt
+      `Prelude.hashWithSalt` ruleName
       `Prelude.hashWithSalt` topicRulePayload
 
 instance Prelude.NFData ReplaceTopicRule where

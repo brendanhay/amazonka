@@ -100,7 +100,8 @@ instance Core.AWSRequest DeleteFleetMetric where
 
 instance Prelude.Hashable DeleteFleetMetric where
   hashWithSalt _salt DeleteFleetMetric' {..} =
-    _salt `Prelude.hashWithSalt` expectedVersion
+    _salt
+      `Prelude.hashWithSalt` expectedVersion
       `Prelude.hashWithSalt` metricName
 
 instance Prelude.NFData DeleteFleetMetric where

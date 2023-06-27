@@ -123,7 +123,8 @@ instance
   hashWithSalt
     _salt
     ThingGroupIndexingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` customFields
+      _salt
+        `Prelude.hashWithSalt` customFields
         `Prelude.hashWithSalt` managedFields
         `Prelude.hashWithSalt` thingGroupIndexingMode
 

@@ -147,7 +147,8 @@ instance Core.AWSRequest SearchIndex where
 
 instance Prelude.Hashable SearchIndex where
   hashWithSalt _salt SearchIndex' {..} =
-    _salt `Prelude.hashWithSalt` indexName
+    _salt
+      `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` queryVersion

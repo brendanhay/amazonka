@@ -169,22 +169,22 @@ instance Core.AWSPager ListMetricValues where
     | Core.stop
         ( rs
             Lens.^? listMetricValuesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listMetricValuesResponse_metricDatumList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listMetricValues_nextToken
           Lens..~ rs
           Lens.^? listMetricValuesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMetricValues where
   type
@@ -196,7 +196,8 @@ instance Core.AWSRequest ListMetricValues where
     Response.receiveJSON
       ( \s h x ->
           ListMetricValuesResponse'
-            Prelude.<$> ( x Data..?> "metricDatumList"
+            Prelude.<$> ( x
+                            Data..?> "metricDatumList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -205,7 +206,8 @@ instance Core.AWSRequest ListMetricValues where
 
 instance Prelude.Hashable ListMetricValues where
   hashWithSalt _salt ListMetricValues' {..} =
-    _salt `Prelude.hashWithSalt` dimensionName
+    _salt
+      `Prelude.hashWithSalt` dimensionName
       `Prelude.hashWithSalt` dimensionValueOperator
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

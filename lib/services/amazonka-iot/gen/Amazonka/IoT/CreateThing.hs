@@ -158,7 +158,8 @@ instance Core.AWSRequest CreateThing where
 
 instance Prelude.Hashable CreateThing where
   hashWithSalt _salt CreateThing' {..} =
-    _salt `Prelude.hashWithSalt` attributePayload
+    _salt
+      `Prelude.hashWithSalt` attributePayload
       `Prelude.hashWithSalt` billingGroupName
       `Prelude.hashWithSalt` thingTypeName
       `Prelude.hashWithSalt` thingName

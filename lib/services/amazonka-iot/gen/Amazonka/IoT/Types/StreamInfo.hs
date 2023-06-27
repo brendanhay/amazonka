@@ -135,7 +135,8 @@ instance Data.FromJSON StreamInfo where
 
 instance Prelude.Hashable StreamInfo where
   hashWithSalt _salt StreamInfo' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` files
       `Prelude.hashWithSalt` lastUpdatedAt

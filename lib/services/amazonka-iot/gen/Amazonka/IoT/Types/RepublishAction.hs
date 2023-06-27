@@ -108,7 +108,8 @@ instance Data.FromJSON RepublishAction where
 
 instance Prelude.Hashable RepublishAction where
   hashWithSalt _salt RepublishAction' {..} =
-    _salt `Prelude.hashWithSalt` headers
+    _salt
+      `Prelude.hashWithSalt` headers
       `Prelude.hashWithSalt` qos
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` topic

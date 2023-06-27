@@ -73,7 +73,7 @@ data CreateFleetMetric = CreateFleetMetric'
     tags :: Prelude.Maybe [Tag],
     -- | Used to support unit transformation such as milliseconds to seconds. The
     -- unit must be supported by
-    -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html CW metric>.
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html CW metric>.
     -- Default to null.
     unit :: Prelude.Maybe FleetMetricUnit,
     -- | The name of the fleet metric to create.
@@ -108,7 +108,7 @@ data CreateFleetMetric = CreateFleetMetric'
 --
 -- 'unit', 'createFleetMetric_unit' - Used to support unit transformation such as milliseconds to seconds. The
 -- unit must be supported by
--- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html CW metric>.
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html CW metric>.
 -- Default to null.
 --
 -- 'metricName', 'createFleetMetric_metricName' - The name of the fleet metric to create.
@@ -170,7 +170,7 @@ createFleetMetric_tags = Lens.lens (\CreateFleetMetric' {tags} -> tags) (\s@Crea
 
 -- | Used to support unit transformation such as milliseconds to seconds. The
 -- unit must be supported by
--- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html CW metric>.
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html CW metric>.
 -- Default to null.
 createFleetMetric_unit :: Lens.Lens' CreateFleetMetric (Prelude.Maybe FleetMetricUnit)
 createFleetMetric_unit = Lens.lens (\CreateFleetMetric' {unit} -> unit) (\s@CreateFleetMetric' {} a -> s {unit = a} :: CreateFleetMetric)
@@ -213,7 +213,8 @@ instance Core.AWSRequest CreateFleetMetric where
 
 instance Prelude.Hashable CreateFleetMetric where
   hashWithSalt _salt CreateFleetMetric' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` queryVersion
       `Prelude.hashWithSalt` tags

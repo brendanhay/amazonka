@@ -33,6 +33,7 @@ module Amazonka.IoT.CreateJob
     -- * Request Lenses
     createJob_abortConfig,
     createJob_description,
+    createJob_destinationPackageVersions,
     createJob_document,
     createJob_documentParameters,
     createJob_documentSource,
@@ -74,6 +75,12 @@ data CreateJob = CreateJob'
     abortConfig :: Prelude.Maybe AbortConfig,
     -- | A short text description of the job.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The package version Amazon Resource Names (ARNs) that are installed on
+    -- the device when the job successfully completes.
+    --
+    -- __Note:__The following Length Constraints relates to a single string. Up
+    -- to five strings are allowed.
+    destinationPackageVersions :: Prelude.Maybe [Prelude.Text],
     -- | The job document. Required if you don\'t specify a value for
     -- @documentSource@.
     document :: Prelude.Maybe Prelude.Text,
@@ -84,18 +91,15 @@ data CreateJob = CreateJob'
     -- Services managed templates. This parameter can\'t be used with custom
     -- job templates or to create jobs from them.
     documentParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | An S3 link to the job document. Required if you don\'t specify a value
-    -- for @document@.
+    -- | An S3 link, or S3 object URL, to the job document. The link is an Amazon
+    -- S3 object URL and is required if you don\'t specify a value for
+    -- @document@.
     --
-    -- If the job document resides in an S3 bucket, you must use a placeholder
-    -- link when specifying the document.
+    -- For example,
+    -- @--document-source https:\/\/s3.@/@region-code@/@.amazonaws.com\/example-firmware\/device-firmware.1.0@
     --
-    -- The placeholder link is of the following form:
-    --
-    -- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/bucket\/key}@
-    --
-    -- where /bucket/ is your bucket name and /key/ is the object in the bucket
-    -- to which you are linking.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html Methods for accessing a bucket>.
     documentSource :: Prelude.Maybe Prelude.Text,
     -- | Allows you to create the criteria to retry a job.
     jobExecutionsRetryConfig :: Prelude.Maybe JobExecutionsRetryConfig,
@@ -109,7 +113,7 @@ data CreateJob = CreateJob'
     -- Core sends jobs notifications to MQTT topics that contain the value in
     -- the following format.
     --
-    -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
+    -- @$aws\/things\/@/@THING_NAME@/@\/jobs\/@/@JOB_ID@/@\/notify-namespace-@/@NAMESPACE_ID@/@\/@
     --
     -- The @namespaceId@ feature is in public preview.
     namespaceId :: Prelude.Maybe Prelude.Text,
@@ -159,6 +163,12 @@ data CreateJob = CreateJob'
 --
 -- 'description', 'createJob_description' - A short text description of the job.
 --
+-- 'destinationPackageVersions', 'createJob_destinationPackageVersions' - The package version Amazon Resource Names (ARNs) that are installed on
+-- the device when the job successfully completes.
+--
+-- __Note:__The following Length Constraints relates to a single string. Up
+-- to five strings are allowed.
+--
 -- 'document', 'createJob_document' - The job document. Required if you don\'t specify a value for
 -- @documentSource@.
 --
@@ -169,18 +179,15 @@ data CreateJob = CreateJob'
 -- Services managed templates. This parameter can\'t be used with custom
 -- job templates or to create jobs from them.
 --
--- 'documentSource', 'createJob_documentSource' - An S3 link to the job document. Required if you don\'t specify a value
--- for @document@.
+-- 'documentSource', 'createJob_documentSource' - An S3 link, or S3 object URL, to the job document. The link is an Amazon
+-- S3 object URL and is required if you don\'t specify a value for
+-- @document@.
 --
--- If the job document resides in an S3 bucket, you must use a placeholder
--- link when specifying the document.
+-- For example,
+-- @--document-source https:\/\/s3.@/@region-code@/@.amazonaws.com\/example-firmware\/device-firmware.1.0@
 --
--- The placeholder link is of the following form:
---
--- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/bucket\/key}@
---
--- where /bucket/ is your bucket name and /key/ is the object in the bucket
--- to which you are linking.
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html Methods for accessing a bucket>.
 --
 -- 'jobExecutionsRetryConfig', 'createJob_jobExecutionsRetryConfig' - Allows you to create the criteria to retry a job.
 --
@@ -194,7 +201,7 @@ data CreateJob = CreateJob'
 -- Core sends jobs notifications to MQTT topics that contain the value in
 -- the following format.
 --
--- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
+-- @$aws\/things\/@/@THING_NAME@/@\/jobs\/@/@JOB_ID@/@\/notify-namespace-@/@NAMESPACE_ID@/@\/@
 --
 -- The @namespaceId@ feature is in public preview.
 --
@@ -238,6 +245,7 @@ newCreateJob pJobId_ pTargets_ =
   CreateJob'
     { abortConfig = Prelude.Nothing,
       description = Prelude.Nothing,
+      destinationPackageVersions = Prelude.Nothing,
       document = Prelude.Nothing,
       documentParameters = Prelude.Nothing,
       documentSource = Prelude.Nothing,
@@ -262,6 +270,14 @@ createJob_abortConfig = Lens.lens (\CreateJob' {abortConfig} -> abortConfig) (\s
 createJob_description :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
 createJob_description = Lens.lens (\CreateJob' {description} -> description) (\s@CreateJob' {} a -> s {description = a} :: CreateJob)
 
+-- | The package version Amazon Resource Names (ARNs) that are installed on
+-- the device when the job successfully completes.
+--
+-- __Note:__The following Length Constraints relates to a single string. Up
+-- to five strings are allowed.
+createJob_destinationPackageVersions :: Lens.Lens' CreateJob (Prelude.Maybe [Prelude.Text])
+createJob_destinationPackageVersions = Lens.lens (\CreateJob' {destinationPackageVersions} -> destinationPackageVersions) (\s@CreateJob' {} a -> s {destinationPackageVersions = a} :: CreateJob) Prelude.. Lens.mapping Lens.coerced
+
 -- | The job document. Required if you don\'t specify a value for
 -- @documentSource@.
 createJob_document :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
@@ -276,18 +292,15 @@ createJob_document = Lens.lens (\CreateJob' {document} -> document) (\s@CreateJo
 createJob_documentParameters :: Lens.Lens' CreateJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createJob_documentParameters = Lens.lens (\CreateJob' {documentParameters} -> documentParameters) (\s@CreateJob' {} a -> s {documentParameters = a} :: CreateJob) Prelude.. Lens.mapping Lens.coerced
 
--- | An S3 link to the job document. Required if you don\'t specify a value
--- for @document@.
+-- | An S3 link, or S3 object URL, to the job document. The link is an Amazon
+-- S3 object URL and is required if you don\'t specify a value for
+-- @document@.
 --
--- If the job document resides in an S3 bucket, you must use a placeholder
--- link when specifying the document.
+-- For example,
+-- @--document-source https:\/\/s3.@/@region-code@/@.amazonaws.com\/example-firmware\/device-firmware.1.0@
 --
--- The placeholder link is of the following form:
---
--- @${aws:iot:s3-presigned-url:https:\/\/s3.amazonaws.com\/bucket\/key}@
---
--- where /bucket/ is your bucket name and /key/ is the object in the bucket
--- to which you are linking.
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html Methods for accessing a bucket>.
 createJob_documentSource :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
 createJob_documentSource = Lens.lens (\CreateJob' {documentSource} -> documentSource) (\s@CreateJob' {} a -> s {documentSource = a} :: CreateJob)
 
@@ -309,7 +322,7 @@ createJob_jobTemplateArn = Lens.lens (\CreateJob' {jobTemplateArn} -> jobTemplat
 -- Core sends jobs notifications to MQTT topics that contain the value in
 -- the following format.
 --
--- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
+-- @$aws\/things\/@/@THING_NAME@/@\/jobs\/@/@JOB_ID@/@\/notify-namespace-@/@NAMESPACE_ID@/@\/@
 --
 -- The @namespaceId@ feature is in public preview.
 createJob_namespaceId :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
@@ -376,8 +389,10 @@ instance Core.AWSRequest CreateJob where
 
 instance Prelude.Hashable CreateJob where
   hashWithSalt _salt CreateJob' {..} =
-    _salt `Prelude.hashWithSalt` abortConfig
+    _salt
+      `Prelude.hashWithSalt` abortConfig
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` destinationPackageVersions
       `Prelude.hashWithSalt` document
       `Prelude.hashWithSalt` documentParameters
       `Prelude.hashWithSalt` documentSource
@@ -397,6 +412,7 @@ instance Prelude.NFData CreateJob where
   rnf CreateJob' {..} =
     Prelude.rnf abortConfig
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf destinationPackageVersions
       `Prelude.seq` Prelude.rnf document
       `Prelude.seq` Prelude.rnf documentParameters
       `Prelude.seq` Prelude.rnf documentSource
@@ -421,6 +437,8 @@ instance Data.ToJSON CreateJob where
       ( Prelude.catMaybes
           [ ("abortConfig" Data..=) Prelude.<$> abortConfig,
             ("description" Data..=) Prelude.<$> description,
+            ("destinationPackageVersions" Data..=)
+              Prelude.<$> destinationPackageVersions,
             ("document" Data..=) Prelude.<$> document,
             ("documentParameters" Data..=)
               Prelude.<$> documentParameters,

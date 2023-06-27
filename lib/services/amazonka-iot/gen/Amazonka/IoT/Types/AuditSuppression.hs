@@ -110,7 +110,8 @@ instance Data.FromJSON AuditSuppression where
 
 instance Prelude.Hashable AuditSuppression where
   hashWithSalt _salt AuditSuppression' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` expirationDate
       `Prelude.hashWithSalt` suppressIndefinitely
       `Prelude.hashWithSalt` checkName

@@ -74,7 +74,8 @@ instance Data.FromJSON GroupNameAndArn where
 
 instance Prelude.Hashable GroupNameAndArn where
   hashWithSalt _salt GroupNameAndArn' {..} =
-    _salt `Prelude.hashWithSalt` groupArn
+    _salt
+      `Prelude.hashWithSalt` groupArn
       `Prelude.hashWithSalt` groupName
 
 instance Prelude.NFData GroupNameAndArn where

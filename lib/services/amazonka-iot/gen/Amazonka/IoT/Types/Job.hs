@@ -28,6 +28,7 @@ import Amazonka.IoT.Types.JobExecutionsRolloutConfig
 import Amazonka.IoT.Types.JobProcessDetails
 import Amazonka.IoT.Types.JobStatus
 import Amazonka.IoT.Types.PresignedUrlConfig
+import Amazonka.IoT.Types.ScheduledJobRollout
 import Amazonka.IoT.Types.SchedulingConfig
 import Amazonka.IoT.Types.TargetSelection
 import Amazonka.IoT.Types.TimeoutConfig
@@ -47,6 +48,12 @@ data Job = Job'
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | A short text description of the job.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The package version Amazon Resource Names (ARNs) that are installed on
+    -- the device when the job successfully completes.
+    --
+    -- __Note:__The following Length Constraints relates to a single string. Up
+    -- to five strings are allowed.
+    destinationPackageVersions :: Prelude.Maybe [Prelude.Text],
     -- | A key-value map that pairs the patterns that need to be replaced in a
     -- managed template job document schema. You can use the description of
     -- each key as a guidance to specify the inputs during runtime when
@@ -84,7 +91,7 @@ data Job = Job'
     -- Core sends jobs notifications to MQTT topics that contain the value in
     -- the following format.
     --
-    -- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
+    -- @$aws\/things\/@/@THING_NAME@/@\/jobs\/@/@JOB_ID@/@\/notify-namespace-@/@NAMESPACE_ID@/@\/@
     --
     -- The @namespaceId@ feature is in public preview.
     namespaceId :: Prelude.Maybe Prelude.Text,
@@ -92,6 +99,9 @@ data Job = Job'
     presignedUrlConfig :: Prelude.Maybe PresignedUrlConfig,
     -- | If the job was updated, provides the reason code for the update.
     reasonCode :: Prelude.Maybe Prelude.Text,
+    -- | Displays the next seven maintenance window occurrences and their start
+    -- times.
+    scheduledJobRollouts :: Prelude.Maybe [ScheduledJobRollout],
     -- | The configuration that allows you to schedule a job for a future date
     -- and time in addition to specifying the end behavior for each job
     -- execution.
@@ -139,6 +149,12 @@ data Job = Job'
 --
 -- 'description', 'job_description' - A short text description of the job.
 --
+-- 'destinationPackageVersions', 'job_destinationPackageVersions' - The package version Amazon Resource Names (ARNs) that are installed on
+-- the device when the job successfully completes.
+--
+-- __Note:__The following Length Constraints relates to a single string. Up
+-- to five strings are allowed.
+--
 -- 'documentParameters', 'job_documentParameters' - A key-value map that pairs the patterns that need to be replaced in a
 -- managed template job document schema. You can use the description of
 -- each key as a guidance to specify the inputs during runtime when
@@ -176,13 +192,16 @@ data Job = Job'
 -- Core sends jobs notifications to MQTT topics that contain the value in
 -- the following format.
 --
--- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
+-- @$aws\/things\/@/@THING_NAME@/@\/jobs\/@/@JOB_ID@/@\/notify-namespace-@/@NAMESPACE_ID@/@\/@
 --
 -- The @namespaceId@ feature is in public preview.
 --
 -- 'presignedUrlConfig', 'job_presignedUrlConfig' - Configuration for pre-signed S3 URLs.
 --
 -- 'reasonCode', 'job_reasonCode' - If the job was updated, provides the reason code for the update.
+--
+-- 'scheduledJobRollouts', 'job_scheduledJobRollouts' - Displays the next seven maintenance window occurrences and their start
+-- times.
 --
 -- 'schedulingConfig', 'job_schedulingConfig' - The configuration that allows you to schedule a job for a future date
 -- and time in addition to specifying the end behavior for each job
@@ -218,6 +237,7 @@ newJob =
       completedAt = Prelude.Nothing,
       createdAt = Prelude.Nothing,
       description = Prelude.Nothing,
+      destinationPackageVersions = Prelude.Nothing,
       documentParameters = Prelude.Nothing,
       forceCanceled = Prelude.Nothing,
       isConcurrent = Prelude.Nothing,
@@ -231,6 +251,7 @@ newJob =
       namespaceId = Prelude.Nothing,
       presignedUrlConfig = Prelude.Nothing,
       reasonCode = Prelude.Nothing,
+      scheduledJobRollouts = Prelude.Nothing,
       schedulingConfig = Prelude.Nothing,
       status = Prelude.Nothing,
       targetSelection = Prelude.Nothing,
@@ -257,6 +278,14 @@ job_createdAt = Lens.lens (\Job' {createdAt} -> createdAt) (\s@Job' {} a -> s {c
 -- | A short text description of the job.
 job_description :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_description = Lens.lens (\Job' {description} -> description) (\s@Job' {} a -> s {description = a} :: Job)
+
+-- | The package version Amazon Resource Names (ARNs) that are installed on
+-- the device when the job successfully completes.
+--
+-- __Note:__The following Length Constraints relates to a single string. Up
+-- to five strings are allowed.
+job_destinationPackageVersions :: Lens.Lens' Job (Prelude.Maybe [Prelude.Text])
+job_destinationPackageVersions = Lens.lens (\Job' {destinationPackageVersions} -> destinationPackageVersions) (\s@Job' {} a -> s {destinationPackageVersions = a} :: Job) Prelude.. Lens.mapping Lens.coerced
 
 -- | A key-value map that pairs the patterns that need to be replaced in a
 -- managed template job document schema. You can use the description of
@@ -315,7 +344,7 @@ job_lastUpdatedAt = Lens.lens (\Job' {lastUpdatedAt} -> lastUpdatedAt) (\s@Job' 
 -- Core sends jobs notifications to MQTT topics that contain the value in
 -- the following format.
 --
--- @$aws\/things\/THING_NAME\/jobs\/JOB_ID\/notify-namespace-NAMESPACE_ID\/@
+-- @$aws\/things\/@/@THING_NAME@/@\/jobs\/@/@JOB_ID@/@\/notify-namespace-@/@NAMESPACE_ID@/@\/@
 --
 -- The @namespaceId@ feature is in public preview.
 job_namespaceId :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
@@ -328,6 +357,11 @@ job_presignedUrlConfig = Lens.lens (\Job' {presignedUrlConfig} -> presignedUrlCo
 -- | If the job was updated, provides the reason code for the update.
 job_reasonCode :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_reasonCode = Lens.lens (\Job' {reasonCode} -> reasonCode) (\s@Job' {} a -> s {reasonCode = a} :: Job)
+
+-- | Displays the next seven maintenance window occurrences and their start
+-- times.
+job_scheduledJobRollouts :: Lens.Lens' Job (Prelude.Maybe [ScheduledJobRollout])
+job_scheduledJobRollouts = Lens.lens (\Job' {scheduledJobRollouts} -> scheduledJobRollouts) (\s@Job' {} a -> s {scheduledJobRollouts = a} :: Job) Prelude.. Lens.mapping Lens.coerced
 
 -- | The configuration that allows you to schedule a job for a future date
 -- and time in addition to specifying the end behavior for each job
@@ -376,7 +410,12 @@ instance Data.FromJSON Job where
             Prelude.<*> (x Data..:? "completedAt")
             Prelude.<*> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "description")
-            Prelude.<*> ( x Data..:? "documentParameters"
+            Prelude.<*> ( x
+                            Data..:? "destinationPackageVersions"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "documentParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "forceCanceled")
@@ -391,6 +430,10 @@ instance Data.FromJSON Job where
             Prelude.<*> (x Data..:? "namespaceId")
             Prelude.<*> (x Data..:? "presignedUrlConfig")
             Prelude.<*> (x Data..:? "reasonCode")
+            Prelude.<*> ( x
+                            Data..:? "scheduledJobRollouts"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "schedulingConfig")
             Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..:? "targetSelection")
@@ -400,11 +443,13 @@ instance Data.FromJSON Job where
 
 instance Prelude.Hashable Job where
   hashWithSalt _salt Job' {..} =
-    _salt `Prelude.hashWithSalt` abortConfig
+    _salt
+      `Prelude.hashWithSalt` abortConfig
       `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` completedAt
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` destinationPackageVersions
       `Prelude.hashWithSalt` documentParameters
       `Prelude.hashWithSalt` forceCanceled
       `Prelude.hashWithSalt` isConcurrent
@@ -418,6 +463,7 @@ instance Prelude.Hashable Job where
       `Prelude.hashWithSalt` namespaceId
       `Prelude.hashWithSalt` presignedUrlConfig
       `Prelude.hashWithSalt` reasonCode
+      `Prelude.hashWithSalt` scheduledJobRollouts
       `Prelude.hashWithSalt` schedulingConfig
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` targetSelection
@@ -431,6 +477,7 @@ instance Prelude.NFData Job where
       `Prelude.seq` Prelude.rnf completedAt
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf destinationPackageVersions
       `Prelude.seq` Prelude.rnf documentParameters
       `Prelude.seq` Prelude.rnf forceCanceled
       `Prelude.seq` Prelude.rnf isConcurrent
@@ -444,9 +491,12 @@ instance Prelude.NFData Job where
       `Prelude.seq` Prelude.rnf namespaceId
       `Prelude.seq` Prelude.rnf presignedUrlConfig
       `Prelude.seq` Prelude.rnf reasonCode
+      `Prelude.seq` Prelude.rnf
+        scheduledJobRollouts
       `Prelude.seq` Prelude.rnf schedulingConfig
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf targetSelection
+      `Prelude.seq` Prelude.rnf
+        targetSelection
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf
         timeoutConfig

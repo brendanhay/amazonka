@@ -110,7 +110,8 @@ instance Core.AWSRequest DeleteCertificate where
 
 instance Prelude.Hashable DeleteCertificate where
   hashWithSalt _salt DeleteCertificate' {..} =
-    _salt `Prelude.hashWithSalt` forceDelete
+    _salt
+      `Prelude.hashWithSalt` forceDelete
       `Prelude.hashWithSalt` certificateId
 
 instance Prelude.NFData DeleteCertificate where

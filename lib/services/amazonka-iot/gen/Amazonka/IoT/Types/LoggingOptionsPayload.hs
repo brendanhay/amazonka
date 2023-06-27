@@ -67,7 +67,8 @@ loggingOptionsPayload_roleArn = Lens.lens (\LoggingOptionsPayload' {roleArn} -> 
 
 instance Prelude.Hashable LoggingOptionsPayload where
   hashWithSalt _salt LoggingOptionsPayload' {..} =
-    _salt `Prelude.hashWithSalt` logLevel
+    _salt
+      `Prelude.hashWithSalt` logLevel
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData LoggingOptionsPayload where

@@ -88,7 +88,8 @@ instance Data.FromJSON NonCompliantResource where
 
 instance Prelude.Hashable NonCompliantResource where
   hashWithSalt _salt NonCompliantResource' {..} =
-    _salt `Prelude.hashWithSalt` additionalInfo
+    _salt
+      `Prelude.hashWithSalt` additionalInfo
       `Prelude.hashWithSalt` resourceIdentifier
       `Prelude.hashWithSalt` resourceType
 

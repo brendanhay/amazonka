@@ -86,7 +86,8 @@ instance Data.FromJSON ServerCertificateSummary where
 
 instance Prelude.Hashable ServerCertificateSummary where
   hashWithSalt _salt ServerCertificateSummary' {..} =
-    _salt `Prelude.hashWithSalt` serverCertificateArn
+    _salt
+      `Prelude.hashWithSalt` serverCertificateArn
       `Prelude.hashWithSalt` serverCertificateStatus
       `Prelude.hashWithSalt` serverCertificateStatusDetail
 

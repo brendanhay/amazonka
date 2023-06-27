@@ -92,7 +92,8 @@ instance Data.FromJSON AuditTaskMetadata where
 
 instance Prelude.Hashable AuditTaskMetadata where
   hashWithSalt _salt AuditTaskMetadata' {..} =
-    _salt `Prelude.hashWithSalt` taskId
+    _salt
+      `Prelude.hashWithSalt` taskId
       `Prelude.hashWithSalt` taskStatus
       `Prelude.hashWithSalt` taskType
 

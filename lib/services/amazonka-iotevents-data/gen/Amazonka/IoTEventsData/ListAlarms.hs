@@ -113,7 +113,8 @@ instance Core.AWSRequest ListAlarms where
 
 instance Prelude.Hashable ListAlarms where
   hashWithSalt _salt ListAlarms' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` alarmModelName
 

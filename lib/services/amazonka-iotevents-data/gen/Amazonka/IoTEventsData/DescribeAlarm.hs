@@ -108,7 +108,8 @@ instance Core.AWSRequest DescribeAlarm where
 
 instance Prelude.Hashable DescribeAlarm where
   hashWithSalt _salt DescribeAlarm' {..} =
-    _salt `Prelude.hashWithSalt` keyValue
+    _salt
+      `Prelude.hashWithSalt` keyValue
       `Prelude.hashWithSalt` alarmModelName
 
 instance Prelude.NFData DescribeAlarm where

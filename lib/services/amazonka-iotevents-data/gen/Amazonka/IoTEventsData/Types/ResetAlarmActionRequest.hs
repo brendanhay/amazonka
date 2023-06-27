@@ -95,7 +95,8 @@ resetAlarmActionRequest_alarmModelName = Lens.lens (\ResetAlarmActionRequest' {a
 
 instance Prelude.Hashable ResetAlarmActionRequest where
   hashWithSalt _salt ResetAlarmActionRequest' {..} =
-    _salt `Prelude.hashWithSalt` keyValue
+    _salt
+      `Prelude.hashWithSalt` keyValue
       `Prelude.hashWithSalt` note
       `Prelude.hashWithSalt` requestId
       `Prelude.hashWithSalt` alarmModelName

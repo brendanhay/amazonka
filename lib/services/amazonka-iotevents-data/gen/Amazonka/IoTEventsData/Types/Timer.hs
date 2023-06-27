@@ -78,7 +78,8 @@ instance Data.FromJSON Timer where
 
 instance Prelude.Hashable Timer where
   hashWithSalt _salt Timer' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData Timer where

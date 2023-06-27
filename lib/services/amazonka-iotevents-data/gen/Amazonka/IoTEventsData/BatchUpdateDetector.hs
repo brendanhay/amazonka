@@ -91,7 +91,8 @@ instance Core.AWSRequest BatchUpdateDetector where
     Response.receiveJSON
       ( \s h x ->
           BatchUpdateDetectorResponse'
-            Prelude.<$> ( x Data..?> "batchUpdateDetectorErrorEntries"
+            Prelude.<$> ( x
+                            Data..?> "batchUpdateDetectorErrorEntries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

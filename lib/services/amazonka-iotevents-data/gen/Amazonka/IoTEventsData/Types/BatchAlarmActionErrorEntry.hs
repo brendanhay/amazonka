@@ -96,7 +96,8 @@ instance Data.FromJSON BatchAlarmActionErrorEntry where
 
 instance Prelude.Hashable BatchAlarmActionErrorEntry where
   hashWithSalt _salt BatchAlarmActionErrorEntry' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` requestId
 

@@ -91,7 +91,8 @@ deleteDetectorRequest_detectorModelName = Lens.lens (\DeleteDetectorRequest' {de
 
 instance Prelude.Hashable DeleteDetectorRequest where
   hashWithSalt _salt DeleteDetectorRequest' {..} =
-    _salt `Prelude.hashWithSalt` keyValue
+    _salt
+      `Prelude.hashWithSalt` keyValue
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` detectorModelName
 

@@ -35,6 +35,8 @@ module Amazonka.GroundStation.CreateDataflowEndpointGroup
     newCreateDataflowEndpointGroup,
 
     -- * Request Lenses
+    createDataflowEndpointGroup_contactPostPassDurationSeconds,
+    createDataflowEndpointGroup_contactPrePassDurationSeconds,
     createDataflowEndpointGroup_tags,
     createDataflowEndpointGroup_endpointDetails,
 
@@ -59,7 +61,17 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateDataflowEndpointGroup' smart constructor.
 data CreateDataflowEndpointGroup = CreateDataflowEndpointGroup'
-  { -- | Tags of a dataflow endpoint group.
+  { -- | Amount of time, in seconds, after a contact ends that the Ground Station
+    -- Dataflow Endpoint Group will be in a @POSTPASS@ state. A Ground Station
+    -- Dataflow Endpoint Group State Change event will be emitted when the
+    -- Dataflow Endpoint Group enters and exits the @POSTPASS@ state.
+    contactPostPassDurationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | Amount of time, in seconds, before a contact starts that the Ground
+    -- Station Dataflow Endpoint Group will be in a @PREPASS@ state. A Ground
+    -- Station Dataflow Endpoint Group State Change event will be emitted when
+    -- the Dataflow Endpoint Group enters and exits the @PREPASS@ state.
+    contactPrePassDurationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | Tags of a dataflow endpoint group.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Endpoint details of each endpoint in the dataflow endpoint group.
     endpointDetails :: [EndpointDetails]
@@ -74,6 +86,16 @@ data CreateDataflowEndpointGroup = CreateDataflowEndpointGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'contactPostPassDurationSeconds', 'createDataflowEndpointGroup_contactPostPassDurationSeconds' - Amount of time, in seconds, after a contact ends that the Ground Station
+-- Dataflow Endpoint Group will be in a @POSTPASS@ state. A Ground Station
+-- Dataflow Endpoint Group State Change event will be emitted when the
+-- Dataflow Endpoint Group enters and exits the @POSTPASS@ state.
+--
+-- 'contactPrePassDurationSeconds', 'createDataflowEndpointGroup_contactPrePassDurationSeconds' - Amount of time, in seconds, before a contact starts that the Ground
+-- Station Dataflow Endpoint Group will be in a @PREPASS@ state. A Ground
+-- Station Dataflow Endpoint Group State Change event will be emitted when
+-- the Dataflow Endpoint Group enters and exits the @PREPASS@ state.
+--
 -- 'tags', 'createDataflowEndpointGroup_tags' - Tags of a dataflow endpoint group.
 --
 -- 'endpointDetails', 'createDataflowEndpointGroup_endpointDetails' - Endpoint details of each endpoint in the dataflow endpoint group.
@@ -81,10 +103,27 @@ newCreateDataflowEndpointGroup ::
   CreateDataflowEndpointGroup
 newCreateDataflowEndpointGroup =
   CreateDataflowEndpointGroup'
-    { tags =
+    { contactPostPassDurationSeconds =
         Prelude.Nothing,
+      contactPrePassDurationSeconds =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       endpointDetails = Prelude.mempty
     }
+
+-- | Amount of time, in seconds, after a contact ends that the Ground Station
+-- Dataflow Endpoint Group will be in a @POSTPASS@ state. A Ground Station
+-- Dataflow Endpoint Group State Change event will be emitted when the
+-- Dataflow Endpoint Group enters and exits the @POSTPASS@ state.
+createDataflowEndpointGroup_contactPostPassDurationSeconds :: Lens.Lens' CreateDataflowEndpointGroup (Prelude.Maybe Prelude.Natural)
+createDataflowEndpointGroup_contactPostPassDurationSeconds = Lens.lens (\CreateDataflowEndpointGroup' {contactPostPassDurationSeconds} -> contactPostPassDurationSeconds) (\s@CreateDataflowEndpointGroup' {} a -> s {contactPostPassDurationSeconds = a} :: CreateDataflowEndpointGroup)
+
+-- | Amount of time, in seconds, before a contact starts that the Ground
+-- Station Dataflow Endpoint Group will be in a @PREPASS@ state. A Ground
+-- Station Dataflow Endpoint Group State Change event will be emitted when
+-- the Dataflow Endpoint Group enters and exits the @PREPASS@ state.
+createDataflowEndpointGroup_contactPrePassDurationSeconds :: Lens.Lens' CreateDataflowEndpointGroup (Prelude.Maybe Prelude.Natural)
+createDataflowEndpointGroup_contactPrePassDurationSeconds = Lens.lens (\CreateDataflowEndpointGroup' {contactPrePassDurationSeconds} -> contactPrePassDurationSeconds) (\s@CreateDataflowEndpointGroup' {} a -> s {contactPrePassDurationSeconds = a} :: CreateDataflowEndpointGroup)
 
 -- | Tags of a dataflow endpoint group.
 createDataflowEndpointGroup_tags :: Lens.Lens' CreateDataflowEndpointGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -106,12 +145,17 @@ instance Core.AWSRequest CreateDataflowEndpointGroup where
 
 instance Prelude.Hashable CreateDataflowEndpointGroup where
   hashWithSalt _salt CreateDataflowEndpointGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` contactPostPassDurationSeconds
+      `Prelude.hashWithSalt` contactPrePassDurationSeconds
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` endpointDetails
 
 instance Prelude.NFData CreateDataflowEndpointGroup where
   rnf CreateDataflowEndpointGroup' {..} =
-    Prelude.rnf tags
+    Prelude.rnf contactPostPassDurationSeconds
+      `Prelude.seq` Prelude.rnf contactPrePassDurationSeconds
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf endpointDetails
 
 instance Data.ToHeaders CreateDataflowEndpointGroup where
@@ -129,7 +173,11 @@ instance Data.ToJSON CreateDataflowEndpointGroup where
   toJSON CreateDataflowEndpointGroup' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("contactPostPassDurationSeconds" Data..=)
+              Prelude.<$> contactPostPassDurationSeconds,
+            ("contactPrePassDurationSeconds" Data..=)
+              Prelude.<$> contactPrePassDurationSeconds,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("endpointDetails" Data..= endpointDetails)
           ]

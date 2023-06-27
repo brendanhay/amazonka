@@ -77,7 +77,8 @@ instance Data.FromJSON DataflowEndpointConfig where
 
 instance Prelude.Hashable DataflowEndpointConfig where
   hashWithSalt _salt DataflowEndpointConfig' {..} =
-    _salt `Prelude.hashWithSalt` dataflowEndpointRegion
+    _salt
+      `Prelude.hashWithSalt` dataflowEndpointRegion
       `Prelude.hashWithSalt` dataflowEndpointName
 
 instance Prelude.NFData DataflowEndpointConfig where

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the number of minutes used by account.
+-- Returns the number of reserved minutes used by account.
 module Amazonka.GroundStation.GetMinuteUsage
   ( -- * Creating a Request
     GetMinuteUsage (..),
@@ -111,7 +111,8 @@ instance Core.AWSRequest GetMinuteUsage where
 
 instance Prelude.Hashable GetMinuteUsage where
   hashWithSalt _salt GetMinuteUsage' {..} =
-    _salt `Prelude.hashWithSalt` month
+    _salt
+      `Prelude.hashWithSalt` month
       `Prelude.hashWithSalt` year
 
 instance Prelude.NFData GetMinuteUsage where

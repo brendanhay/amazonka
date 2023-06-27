@@ -27,6 +27,8 @@ module Amazonka.GroundStation.Lens
     configIdResponse_configType,
 
     -- ** CreateDataflowEndpointGroup
+    createDataflowEndpointGroup_contactPostPassDurationSeconds,
+    createDataflowEndpointGroup_contactPrePassDurationSeconds,
     createDataflowEndpointGroup_tags,
     createDataflowEndpointGroup_endpointDetails,
     dataflowEndpointGroupIdResponse_dataflowEndpointGroupId,
@@ -45,6 +47,8 @@ module Amazonka.GroundStation.Lens
     -- ** CreateMissionProfile
     createMissionProfile_contactPostPassDurationSeconds,
     createMissionProfile_contactPrePassDurationSeconds,
+    createMissionProfile_streamsKmsKey,
+    createMissionProfile_streamsKmsRole,
     createMissionProfile_tags,
     createMissionProfile_dataflowEdges,
     createMissionProfile_minimumViableContactDurationSeconds,
@@ -103,6 +107,12 @@ module Amazonka.GroundStation.Lens
     describeEphemerisResponse_tags,
     describeEphemerisResponse_httpStatus,
 
+    -- ** GetAgentConfiguration
+    getAgentConfiguration_agentId,
+    getAgentConfigurationResponse_agentId,
+    getAgentConfigurationResponse_taskingDocument,
+    getAgentConfigurationResponse_httpStatus,
+
     -- ** GetConfig
     getConfig_configId,
     getConfig_configType,
@@ -116,6 +126,8 @@ module Amazonka.GroundStation.Lens
 
     -- ** GetDataflowEndpointGroup
     getDataflowEndpointGroup_dataflowEndpointGroupId,
+    getDataflowEndpointGroupResponse_contactPostPassDurationSeconds,
+    getDataflowEndpointGroupResponse_contactPrePassDurationSeconds,
     getDataflowEndpointGroupResponse_dataflowEndpointGroupArn,
     getDataflowEndpointGroupResponse_dataflowEndpointGroupId,
     getDataflowEndpointGroupResponse_endpointsDetails,
@@ -142,6 +154,8 @@ module Amazonka.GroundStation.Lens
     getMissionProfileResponse_missionProfileId,
     getMissionProfileResponse_name,
     getMissionProfileResponse_region,
+    getMissionProfileResponse_streamsKmsKey,
+    getMissionProfileResponse_streamsKmsRole,
     getMissionProfileResponse_tags,
     getMissionProfileResponse_trackingConfigArn,
     getMissionProfileResponse_httpStatus,
@@ -220,6 +234,12 @@ module Amazonka.GroundStation.Lens
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
+    -- ** RegisterAgent
+    registerAgent_agentDetails,
+    registerAgent_discoveryData,
+    registerAgentResponse_agentId,
+    registerAgentResponse_httpStatus,
+
     -- ** ReserveContact
     reserveContact_tags,
     reserveContact_endTime,
@@ -238,6 +258,14 @@ module Amazonka.GroundStation.Lens
     untagResource_resourceArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
+
+    -- ** UpdateAgentStatus
+    updateAgentStatus_agentId,
+    updateAgentStatus_aggregateStatus,
+    updateAgentStatus_componentStatuses,
+    updateAgentStatus_taskId,
+    updateAgentStatusResponse_httpStatus,
+    updateAgentStatusResponse_agentId,
 
     -- ** UpdateConfig
     updateConfig_configData,
@@ -261,11 +289,25 @@ module Amazonka.GroundStation.Lens
     updateMissionProfile_dataflowEdges,
     updateMissionProfile_minimumViableContactDurationSeconds,
     updateMissionProfile_name,
+    updateMissionProfile_streamsKmsKey,
+    updateMissionProfile_streamsKmsRole,
     updateMissionProfile_trackingConfigArn,
     updateMissionProfile_missionProfileId,
     missionProfileIdResponse_missionProfileId,
 
     -- * Types
+
+    -- ** AgentDetails
+    agentDetails_agentCpuCores,
+    agentDetails_reservedCpuCores,
+    agentDetails_agentVersion,
+    agentDetails_componentVersions,
+    agentDetails_instanceId,
+    agentDetails_instanceType,
+
+    -- ** AggregateStatus
+    aggregateStatus_signatureMap,
+    aggregateStatus_status,
 
     -- ** AntennaDemodDecodeDetails
     antennaDemodDecodeDetails_outputNode,
@@ -282,6 +324,26 @@ module Amazonka.GroundStation.Lens
     antennaUplinkConfig_transmitDisabled,
     antennaUplinkConfig_spectrumConfig,
     antennaUplinkConfig_targetEirp,
+
+    -- ** AwsGroundStationAgentEndpoint
+    awsGroundStationAgentEndpoint_agentStatus,
+    awsGroundStationAgentEndpoint_auditResults,
+    awsGroundStationAgentEndpoint_egressAddress,
+    awsGroundStationAgentEndpoint_ingressAddress,
+    awsGroundStationAgentEndpoint_name,
+
+    -- ** ComponentStatusData
+    componentStatusData_bytesReceived,
+    componentStatusData_bytesSent,
+    componentStatusData_packetsDropped,
+    componentStatusData_capabilityArn,
+    componentStatusData_componentType,
+    componentStatusData_dataflowId,
+    componentStatusData_status,
+
+    -- ** ComponentVersion
+    componentVersion_componentType,
+    componentVersion_versions,
 
     -- ** ConfigDetails
     configDetails_antennaDemodDecodeDetails,
@@ -307,6 +369,10 @@ module Amazonka.GroundStation.Lens
     configTypeData_s3RecordingConfig,
     configTypeData_trackingConfig,
     configTypeData_uplinkEchoConfig,
+
+    -- ** ConnectionDetails
+    connectionDetails_mtu,
+    connectionDetails_socketAddress,
 
     -- ** ContactData
     contactData_contactId,
@@ -360,6 +426,11 @@ module Amazonka.GroundStation.Lens
     destination_configType,
     destination_dataflowDestinationRegion,
 
+    -- ** DiscoveryData
+    discoveryData_capabilityArns,
+    discoveryData_privateIpAddresses,
+    discoveryData_publicIpAddresses,
+
     -- ** Eirp
     eirp_units,
     eirp_value,
@@ -369,7 +440,10 @@ module Amazonka.GroundStation.Lens
     elevation_value,
 
     -- ** EndpointDetails
+    endpointDetails_awsGroundStationAgentEndpoint,
     endpointDetails_endpoint,
+    endpointDetails_healthReasons,
+    endpointDetails_healthStatus,
     endpointDetails_securityDetails,
 
     -- ** EphemerisData
@@ -415,6 +489,14 @@ module Amazonka.GroundStation.Lens
     groundStationData_groundStationName,
     groundStationData_region,
 
+    -- ** IntegerRange
+    integerRange_maximum,
+    integerRange_minimum,
+
+    -- ** KmsKey
+    kmsKey_kmsAliasArn,
+    kmsKey_kmsKeyArn,
+
     -- ** MissionProfileIdResponse
     missionProfileIdResponse_missionProfileId,
 
@@ -427,6 +509,14 @@ module Amazonka.GroundStation.Lens
     -- ** OEMEphemeris
     oEMEphemeris_oemData,
     oEMEphemeris_s3Object,
+
+    -- ** RangedConnectionDetails
+    rangedConnectionDetails_mtu,
+    rangedConnectionDetails_socketAddress,
+
+    -- ** RangedSocketAddress
+    rangedSocketAddress_name,
+    rangedSocketAddress_portRange,
 
     -- ** S3Object
     s3Object_bucket,
@@ -506,6 +596,7 @@ import Amazonka.GroundStation.DeleteEphemeris
 import Amazonka.GroundStation.DeleteMissionProfile
 import Amazonka.GroundStation.DescribeContact
 import Amazonka.GroundStation.DescribeEphemeris
+import Amazonka.GroundStation.GetAgentConfiguration
 import Amazonka.GroundStation.GetConfig
 import Amazonka.GroundStation.GetDataflowEndpointGroup
 import Amazonka.GroundStation.GetMinuteUsage
@@ -519,16 +610,23 @@ import Amazonka.GroundStation.ListGroundStations
 import Amazonka.GroundStation.ListMissionProfiles
 import Amazonka.GroundStation.ListSatellites
 import Amazonka.GroundStation.ListTagsForResource
+import Amazonka.GroundStation.RegisterAgent
 import Amazonka.GroundStation.ReserveContact
 import Amazonka.GroundStation.TagResource
+import Amazonka.GroundStation.Types.AgentDetails
+import Amazonka.GroundStation.Types.AggregateStatus
 import Amazonka.GroundStation.Types.AntennaDemodDecodeDetails
 import Amazonka.GroundStation.Types.AntennaDownlinkConfig
 import Amazonka.GroundStation.Types.AntennaDownlinkDemodDecodeConfig
 import Amazonka.GroundStation.Types.AntennaUplinkConfig
+import Amazonka.GroundStation.Types.AwsGroundStationAgentEndpoint
+import Amazonka.GroundStation.Types.ComponentStatusData
+import Amazonka.GroundStation.Types.ComponentVersion
 import Amazonka.GroundStation.Types.ConfigDetails
 import Amazonka.GroundStation.Types.ConfigIdResponse
 import Amazonka.GroundStation.Types.ConfigListItem
 import Amazonka.GroundStation.Types.ConfigTypeData
+import Amazonka.GroundStation.Types.ConnectionDetails
 import Amazonka.GroundStation.Types.ContactData
 import Amazonka.GroundStation.Types.ContactIdResponse
 import Amazonka.GroundStation.Types.DataflowDetail
@@ -539,6 +637,7 @@ import Amazonka.GroundStation.Types.DataflowEndpointListItem
 import Amazonka.GroundStation.Types.DecodeConfig
 import Amazonka.GroundStation.Types.DemodulationConfig
 import Amazonka.GroundStation.Types.Destination
+import Amazonka.GroundStation.Types.DiscoveryData
 import Amazonka.GroundStation.Types.Eirp
 import Amazonka.GroundStation.Types.Elevation
 import Amazonka.GroundStation.Types.EndpointDetails
@@ -551,9 +650,13 @@ import Amazonka.GroundStation.Types.EphemerisTypeDescription
 import Amazonka.GroundStation.Types.Frequency
 import Amazonka.GroundStation.Types.FrequencyBandwidth
 import Amazonka.GroundStation.Types.GroundStationData
+import Amazonka.GroundStation.Types.IntegerRange
+import Amazonka.GroundStation.Types.KmsKey
 import Amazonka.GroundStation.Types.MissionProfileIdResponse
 import Amazonka.GroundStation.Types.MissionProfileListItem
 import Amazonka.GroundStation.Types.OEMEphemeris
+import Amazonka.GroundStation.Types.RangedConnectionDetails
+import Amazonka.GroundStation.Types.RangedSocketAddress
 import Amazonka.GroundStation.Types.S3Object
 import Amazonka.GroundStation.Types.S3RecordingConfig
 import Amazonka.GroundStation.Types.S3RecordingDetails
@@ -569,6 +672,7 @@ import Amazonka.GroundStation.Types.TrackingConfig
 import Amazonka.GroundStation.Types.UplinkEchoConfig
 import Amazonka.GroundStation.Types.UplinkSpectrumConfig
 import Amazonka.GroundStation.UntagResource
+import Amazonka.GroundStation.UpdateAgentStatus
 import Amazonka.GroundStation.UpdateConfig
 import Amazonka.GroundStation.UpdateEphemeris
 import Amazonka.GroundStation.UpdateMissionProfile

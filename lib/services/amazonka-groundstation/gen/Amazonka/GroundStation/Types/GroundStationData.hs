@@ -85,7 +85,8 @@ instance Data.FromJSON GroundStationData where
 
 instance Prelude.Hashable GroundStationData where
   hashWithSalt _salt GroundStationData' {..} =
-    _salt `Prelude.hashWithSalt` groundStationId
+    _salt
+      `Prelude.hashWithSalt` groundStationId
       `Prelude.hashWithSalt` groundStationName
       `Prelude.hashWithSalt` region
 

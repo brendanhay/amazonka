@@ -85,7 +85,8 @@ instance Data.FromJSON ConfigIdResponse where
 
 instance Prelude.Hashable ConfigIdResponse where
   hashWithSalt _salt ConfigIdResponse' {..} =
-    _salt `Prelude.hashWithSalt` configArn
+    _salt
+      `Prelude.hashWithSalt` configArn
       `Prelude.hashWithSalt` configId
       `Prelude.hashWithSalt` configType
 

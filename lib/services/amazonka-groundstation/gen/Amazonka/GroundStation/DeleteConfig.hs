@@ -101,7 +101,8 @@ instance Core.AWSRequest DeleteConfig where
 
 instance Prelude.Hashable DeleteConfig where
   hashWithSalt _salt DeleteConfig' {..} =
-    _salt `Prelude.hashWithSalt` configId
+    _salt
+      `Prelude.hashWithSalt` configId
       `Prelude.hashWithSalt` configType
 
 instance Prelude.NFData DeleteConfig where

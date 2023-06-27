@@ -69,12 +69,14 @@ instance Data.FromJSON SocketAddress where
       "SocketAddress"
       ( \x ->
           SocketAddress'
-            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "port")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "port")
       )
 
 instance Prelude.Hashable SocketAddress where
   hashWithSalt _salt SocketAddress' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` port
 
 instance Prelude.NFData SocketAddress where

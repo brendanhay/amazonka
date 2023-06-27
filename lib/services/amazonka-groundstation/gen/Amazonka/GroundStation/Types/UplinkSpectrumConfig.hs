@@ -88,7 +88,8 @@ instance Data.FromJSON UplinkSpectrumConfig where
 
 instance Prelude.Hashable UplinkSpectrumConfig where
   hashWithSalt _salt UplinkSpectrumConfig' {..} =
-    _salt `Prelude.hashWithSalt` polarization
+    _salt
+      `Prelude.hashWithSalt` polarization
       `Prelude.hashWithSalt` centerFrequency
 
 instance Prelude.NFData UplinkSpectrumConfig where

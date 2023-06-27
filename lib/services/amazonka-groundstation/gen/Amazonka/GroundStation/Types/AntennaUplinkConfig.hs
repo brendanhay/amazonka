@@ -91,7 +91,8 @@ instance Data.FromJSON AntennaUplinkConfig where
 
 instance Prelude.Hashable AntennaUplinkConfig where
   hashWithSalt _salt AntennaUplinkConfig' {..} =
-    _salt `Prelude.hashWithSalt` transmitDisabled
+    _salt
+      `Prelude.hashWithSalt` transmitDisabled
       `Prelude.hashWithSalt` spectrumConfig
       `Prelude.hashWithSalt` targetEirp
 

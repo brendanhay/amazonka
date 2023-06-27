@@ -67,12 +67,14 @@ instance Data.FromJSON EphemerisTypeDescription where
       "EphemerisTypeDescription"
       ( \x ->
           EphemerisTypeDescription'
-            Prelude.<$> (x Data..:? "oem") Prelude.<*> (x Data..:? "tle")
+            Prelude.<$> (x Data..:? "oem")
+            Prelude.<*> (x Data..:? "tle")
       )
 
 instance Prelude.Hashable EphemerisTypeDescription where
   hashWithSalt _salt EphemerisTypeDescription' {..} =
-    _salt `Prelude.hashWithSalt` oem
+    _salt
+      `Prelude.hashWithSalt` oem
       `Prelude.hashWithSalt` tle
 
 instance Prelude.NFData EphemerisTypeDescription where

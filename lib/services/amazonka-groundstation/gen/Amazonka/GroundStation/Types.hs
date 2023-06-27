@@ -23,11 +23,23 @@ module Amazonka.GroundStation.Types
     _ResourceLimitExceededException,
     _ResourceNotFoundException,
 
+    -- * AgentStatus
+    AgentStatus (..),
+
     -- * AngleUnits
     AngleUnits (..),
 
+    -- * AuditResults
+    AuditResults (..),
+
     -- * BandwidthUnits
     BandwidthUnits (..),
+
+    -- * CapabilityHealth
+    CapabilityHealth (..),
+
+    -- * CapabilityHealthReason
+    CapabilityHealthReason (..),
 
     -- * ConfigCapabilityType
     ConfigCapabilityType (..),
@@ -59,6 +71,22 @@ module Amazonka.GroundStation.Types
     -- * Polarization
     Polarization (..),
 
+    -- * AgentDetails
+    AgentDetails (..),
+    newAgentDetails,
+    agentDetails_agentCpuCores,
+    agentDetails_reservedCpuCores,
+    agentDetails_agentVersion,
+    agentDetails_componentVersions,
+    agentDetails_instanceId,
+    agentDetails_instanceType,
+
+    -- * AggregateStatus
+    AggregateStatus (..),
+    newAggregateStatus,
+    aggregateStatus_signatureMap,
+    aggregateStatus_status,
+
     -- * AntennaDemodDecodeDetails
     AntennaDemodDecodeDetails (..),
     newAntennaDemodDecodeDetails,
@@ -82,6 +110,32 @@ module Amazonka.GroundStation.Types
     antennaUplinkConfig_transmitDisabled,
     antennaUplinkConfig_spectrumConfig,
     antennaUplinkConfig_targetEirp,
+
+    -- * AwsGroundStationAgentEndpoint
+    AwsGroundStationAgentEndpoint (..),
+    newAwsGroundStationAgentEndpoint,
+    awsGroundStationAgentEndpoint_agentStatus,
+    awsGroundStationAgentEndpoint_auditResults,
+    awsGroundStationAgentEndpoint_egressAddress,
+    awsGroundStationAgentEndpoint_ingressAddress,
+    awsGroundStationAgentEndpoint_name,
+
+    -- * ComponentStatusData
+    ComponentStatusData (..),
+    newComponentStatusData,
+    componentStatusData_bytesReceived,
+    componentStatusData_bytesSent,
+    componentStatusData_packetsDropped,
+    componentStatusData_capabilityArn,
+    componentStatusData_componentType,
+    componentStatusData_dataflowId,
+    componentStatusData_status,
+
+    -- * ComponentVersion
+    ComponentVersion (..),
+    newComponentVersion,
+    componentVersion_componentType,
+    componentVersion_versions,
 
     -- * ConfigDetails
     ConfigDetails (..),
@@ -115,6 +169,12 @@ module Amazonka.GroundStation.Types
     configTypeData_s3RecordingConfig,
     configTypeData_trackingConfig,
     configTypeData_uplinkEchoConfig,
+
+    -- * ConnectionDetails
+    ConnectionDetails (..),
+    newConnectionDetails,
+    connectionDetails_mtu,
+    connectionDetails_socketAddress,
 
     -- * ContactData
     ContactData (..),
@@ -188,6 +248,13 @@ module Amazonka.GroundStation.Types
     destination_configType,
     destination_dataflowDestinationRegion,
 
+    -- * DiscoveryData
+    DiscoveryData (..),
+    newDiscoveryData,
+    discoveryData_capabilityArns,
+    discoveryData_privateIpAddresses,
+    discoveryData_publicIpAddresses,
+
     -- * Eirp
     Eirp (..),
     newEirp,
@@ -203,7 +270,10 @@ module Amazonka.GroundStation.Types
     -- * EndpointDetails
     EndpointDetails (..),
     newEndpointDetails,
+    endpointDetails_awsGroundStationAgentEndpoint,
     endpointDetails_endpoint,
+    endpointDetails_healthReasons,
+    endpointDetails_healthStatus,
     endpointDetails_securityDetails,
 
     -- * EphemerisData
@@ -267,6 +337,18 @@ module Amazonka.GroundStation.Types
     groundStationData_groundStationName,
     groundStationData_region,
 
+    -- * IntegerRange
+    IntegerRange (..),
+    newIntegerRange,
+    integerRange_maximum,
+    integerRange_minimum,
+
+    -- * KmsKey
+    KmsKey (..),
+    newKmsKey,
+    kmsKey_kmsAliasArn,
+    kmsKey_kmsKeyArn,
+
     -- * MissionProfileIdResponse
     MissionProfileIdResponse (..),
     newMissionProfileIdResponse,
@@ -285,6 +367,18 @@ module Amazonka.GroundStation.Types
     newOEMEphemeris,
     oEMEphemeris_oemData,
     oEMEphemeris_s3Object,
+
+    -- * RangedConnectionDetails
+    RangedConnectionDetails (..),
+    newRangedConnectionDetails,
+    rangedConnectionDetails_mtu,
+    rangedConnectionDetails_socketAddress,
+
+    -- * RangedSocketAddress
+    RangedSocketAddress (..),
+    newRangedSocketAddress,
+    rangedSocketAddress_name,
+    rangedSocketAddress_portRange,
 
     -- * S3Object
     S3Object (..),
@@ -383,17 +477,27 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import Amazonka.GroundStation.Types.AgentDetails
+import Amazonka.GroundStation.Types.AgentStatus
+import Amazonka.GroundStation.Types.AggregateStatus
 import Amazonka.GroundStation.Types.AngleUnits
 import Amazonka.GroundStation.Types.AntennaDemodDecodeDetails
 import Amazonka.GroundStation.Types.AntennaDownlinkConfig
 import Amazonka.GroundStation.Types.AntennaDownlinkDemodDecodeConfig
 import Amazonka.GroundStation.Types.AntennaUplinkConfig
+import Amazonka.GroundStation.Types.AuditResults
+import Amazonka.GroundStation.Types.AwsGroundStationAgentEndpoint
 import Amazonka.GroundStation.Types.BandwidthUnits
+import Amazonka.GroundStation.Types.CapabilityHealth
+import Amazonka.GroundStation.Types.CapabilityHealthReason
+import Amazonka.GroundStation.Types.ComponentStatusData
+import Amazonka.GroundStation.Types.ComponentVersion
 import Amazonka.GroundStation.Types.ConfigCapabilityType
 import Amazonka.GroundStation.Types.ConfigDetails
 import Amazonka.GroundStation.Types.ConfigIdResponse
 import Amazonka.GroundStation.Types.ConfigListItem
 import Amazonka.GroundStation.Types.ConfigTypeData
+import Amazonka.GroundStation.Types.ConnectionDetails
 import Amazonka.GroundStation.Types.ContactData
 import Amazonka.GroundStation.Types.ContactIdResponse
 import Amazonka.GroundStation.Types.ContactStatus
@@ -406,6 +510,7 @@ import Amazonka.GroundStation.Types.DataflowEndpointListItem
 import Amazonka.GroundStation.Types.DecodeConfig
 import Amazonka.GroundStation.Types.DemodulationConfig
 import Amazonka.GroundStation.Types.Destination
+import Amazonka.GroundStation.Types.DiscoveryData
 import Amazonka.GroundStation.Types.Eirp
 import Amazonka.GroundStation.Types.EirpUnits
 import Amazonka.GroundStation.Types.Elevation
@@ -424,10 +529,14 @@ import Amazonka.GroundStation.Types.Frequency
 import Amazonka.GroundStation.Types.FrequencyBandwidth
 import Amazonka.GroundStation.Types.FrequencyUnits
 import Amazonka.GroundStation.Types.GroundStationData
+import Amazonka.GroundStation.Types.IntegerRange
+import Amazonka.GroundStation.Types.KmsKey
 import Amazonka.GroundStation.Types.MissionProfileIdResponse
 import Amazonka.GroundStation.Types.MissionProfileListItem
 import Amazonka.GroundStation.Types.OEMEphemeris
 import Amazonka.GroundStation.Types.Polarization
+import Amazonka.GroundStation.Types.RangedConnectionDetails
+import Amazonka.GroundStation.Types.RangedSocketAddress
 import Amazonka.GroundStation.Types.S3Object
 import Amazonka.GroundStation.Types.S3RecordingConfig
 import Amazonka.GroundStation.Types.S3RecordingDetails
@@ -471,52 +580,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Dependency encountered an error.
-_DependencyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DependencyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DependencyException =
   Core._MatchServiceError
     defaultService
@@ -524,7 +633,7 @@ _DependencyException =
     Prelude.. Core.hasStatus 531
 
 -- | One or more parameters are not valid.
-_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -532,7 +641,7 @@ _InvalidParameterException =
     Prelude.. Core.hasStatus 431
 
 -- | Account limits for this resource have been exceeded.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -540,7 +649,7 @@ _ResourceLimitExceededException =
     Prelude.. Core.hasStatus 429
 
 -- | Resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService

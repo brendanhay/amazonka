@@ -55,6 +55,7 @@ library
     Amazonka.GroundStation.DeleteMissionProfile
     Amazonka.GroundStation.DescribeContact
     Amazonka.GroundStation.DescribeEphemeris
+    Amazonka.GroundStation.GetAgentConfiguration
     Amazonka.GroundStation.GetConfig
     Amazonka.GroundStation.GetDataflowEndpointGroup
     Amazonka.GroundStation.GetMinuteUsage
@@ -69,20 +70,31 @@ library
     Amazonka.GroundStation.ListMissionProfiles
     Amazonka.GroundStation.ListSatellites
     Amazonka.GroundStation.ListTagsForResource
+    Amazonka.GroundStation.RegisterAgent
     Amazonka.GroundStation.ReserveContact
     Amazonka.GroundStation.TagResource
     Amazonka.GroundStation.Types
+    Amazonka.GroundStation.Types.AgentDetails
+    Amazonka.GroundStation.Types.AgentStatus
+    Amazonka.GroundStation.Types.AggregateStatus
     Amazonka.GroundStation.Types.AngleUnits
     Amazonka.GroundStation.Types.AntennaDemodDecodeDetails
     Amazonka.GroundStation.Types.AntennaDownlinkConfig
     Amazonka.GroundStation.Types.AntennaDownlinkDemodDecodeConfig
     Amazonka.GroundStation.Types.AntennaUplinkConfig
+    Amazonka.GroundStation.Types.AuditResults
+    Amazonka.GroundStation.Types.AwsGroundStationAgentEndpoint
     Amazonka.GroundStation.Types.BandwidthUnits
+    Amazonka.GroundStation.Types.CapabilityHealth
+    Amazonka.GroundStation.Types.CapabilityHealthReason
+    Amazonka.GroundStation.Types.ComponentStatusData
+    Amazonka.GroundStation.Types.ComponentVersion
     Amazonka.GroundStation.Types.ConfigCapabilityType
     Amazonka.GroundStation.Types.ConfigDetails
     Amazonka.GroundStation.Types.ConfigIdResponse
     Amazonka.GroundStation.Types.ConfigListItem
     Amazonka.GroundStation.Types.ConfigTypeData
+    Amazonka.GroundStation.Types.ConnectionDetails
     Amazonka.GroundStation.Types.ContactData
     Amazonka.GroundStation.Types.ContactIdResponse
     Amazonka.GroundStation.Types.ContactStatus
@@ -95,6 +107,7 @@ library
     Amazonka.GroundStation.Types.DecodeConfig
     Amazonka.GroundStation.Types.DemodulationConfig
     Amazonka.GroundStation.Types.Destination
+    Amazonka.GroundStation.Types.DiscoveryData
     Amazonka.GroundStation.Types.Eirp
     Amazonka.GroundStation.Types.EirpUnits
     Amazonka.GroundStation.Types.Elevation
@@ -113,10 +126,14 @@ library
     Amazonka.GroundStation.Types.FrequencyBandwidth
     Amazonka.GroundStation.Types.FrequencyUnits
     Amazonka.GroundStation.Types.GroundStationData
+    Amazonka.GroundStation.Types.IntegerRange
+    Amazonka.GroundStation.Types.KmsKey
     Amazonka.GroundStation.Types.MissionProfileIdResponse
     Amazonka.GroundStation.Types.MissionProfileListItem
     Amazonka.GroundStation.Types.OEMEphemeris
     Amazonka.GroundStation.Types.Polarization
+    Amazonka.GroundStation.Types.RangedConnectionDetails
+    Amazonka.GroundStation.Types.RangedSocketAddress
     Amazonka.GroundStation.Types.S3Object
     Amazonka.GroundStation.Types.S3RecordingConfig
     Amazonka.GroundStation.Types.S3RecordingDetails
@@ -132,6 +149,7 @@ library
     Amazonka.GroundStation.Types.UplinkEchoConfig
     Amazonka.GroundStation.Types.UplinkSpectrumConfig
     Amazonka.GroundStation.UntagResource
+    Amazonka.GroundStation.UpdateAgentStatus
     Amazonka.GroundStation.UpdateConfig
     Amazonka.GroundStation.UpdateEphemeris
     Amazonka.GroundStation.UpdateMissionProfile

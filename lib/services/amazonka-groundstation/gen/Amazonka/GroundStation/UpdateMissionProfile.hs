@@ -35,6 +35,8 @@ module Amazonka.GroundStation.UpdateMissionProfile
     updateMissionProfile_dataflowEdges,
     updateMissionProfile_minimumViableContactDurationSeconds,
     updateMissionProfile_name,
+    updateMissionProfile_streamsKmsKey,
+    updateMissionProfile_streamsKmsRole,
     updateMissionProfile_trackingConfigArn,
     updateMissionProfile_missionProfileId,
 
@@ -74,6 +76,10 @@ data UpdateMissionProfile = UpdateMissionProfile'
     minimumViableContactDurationSeconds :: Prelude.Maybe Prelude.Natural,
     -- | Name of a mission profile.
     name :: Prelude.Maybe Prelude.Text,
+    -- | KMS key to use for encrypting streams.
+    streamsKmsKey :: Prelude.Maybe KmsKey,
+    -- | Role to use for encrypting streams with KMS key.
+    streamsKmsRole :: Prelude.Maybe Prelude.Text,
     -- | ARN of a tracking @Config@.
     trackingConfigArn :: Prelude.Maybe Prelude.Text,
     -- | UUID of a mission profile.
@@ -104,6 +110,10 @@ data UpdateMissionProfile = UpdateMissionProfile'
 --
 -- 'name', 'updateMissionProfile_name' - Name of a mission profile.
 --
+-- 'streamsKmsKey', 'updateMissionProfile_streamsKmsKey' - KMS key to use for encrypting streams.
+--
+-- 'streamsKmsRole', 'updateMissionProfile_streamsKmsRole' - Role to use for encrypting streams with KMS key.
+--
 -- 'trackingConfigArn', 'updateMissionProfile_trackingConfigArn' - ARN of a tracking @Config@.
 --
 -- 'missionProfileId', 'updateMissionProfile_missionProfileId' - UUID of a mission profile.
@@ -120,6 +130,8 @@ newUpdateMissionProfile pMissionProfileId_ =
       minimumViableContactDurationSeconds =
         Prelude.Nothing,
       name = Prelude.Nothing,
+      streamsKmsKey = Prelude.Nothing,
+      streamsKmsRole = Prelude.Nothing,
       trackingConfigArn = Prelude.Nothing,
       missionProfileId = pMissionProfileId_
     }
@@ -149,6 +161,14 @@ updateMissionProfile_minimumViableContactDurationSeconds = Lens.lens (\UpdateMis
 updateMissionProfile_name :: Lens.Lens' UpdateMissionProfile (Prelude.Maybe Prelude.Text)
 updateMissionProfile_name = Lens.lens (\UpdateMissionProfile' {name} -> name) (\s@UpdateMissionProfile' {} a -> s {name = a} :: UpdateMissionProfile)
 
+-- | KMS key to use for encrypting streams.
+updateMissionProfile_streamsKmsKey :: Lens.Lens' UpdateMissionProfile (Prelude.Maybe KmsKey)
+updateMissionProfile_streamsKmsKey = Lens.lens (\UpdateMissionProfile' {streamsKmsKey} -> streamsKmsKey) (\s@UpdateMissionProfile' {} a -> s {streamsKmsKey = a} :: UpdateMissionProfile)
+
+-- | Role to use for encrypting streams with KMS key.
+updateMissionProfile_streamsKmsRole :: Lens.Lens' UpdateMissionProfile (Prelude.Maybe Prelude.Text)
+updateMissionProfile_streamsKmsRole = Lens.lens (\UpdateMissionProfile' {streamsKmsRole} -> streamsKmsRole) (\s@UpdateMissionProfile' {} a -> s {streamsKmsRole = a} :: UpdateMissionProfile)
+
 -- | ARN of a tracking @Config@.
 updateMissionProfile_trackingConfigArn :: Lens.Lens' UpdateMissionProfile (Prelude.Maybe Prelude.Text)
 updateMissionProfile_trackingConfigArn = Lens.lens (\UpdateMissionProfile' {trackingConfigArn} -> trackingConfigArn) (\s@UpdateMissionProfile' {} a -> s {trackingConfigArn = a} :: UpdateMissionProfile)
@@ -175,6 +195,8 @@ instance Prelude.Hashable UpdateMissionProfile where
       `Prelude.hashWithSalt` dataflowEdges
       `Prelude.hashWithSalt` minimumViableContactDurationSeconds
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` streamsKmsKey
+      `Prelude.hashWithSalt` streamsKmsRole
       `Prelude.hashWithSalt` trackingConfigArn
       `Prelude.hashWithSalt` missionProfileId
 
@@ -185,6 +207,8 @@ instance Prelude.NFData UpdateMissionProfile where
       `Prelude.seq` Prelude.rnf dataflowEdges
       `Prelude.seq` Prelude.rnf minimumViableContactDurationSeconds
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf streamsKmsKey
+      `Prelude.seq` Prelude.rnf streamsKmsRole
       `Prelude.seq` Prelude.rnf trackingConfigArn
       `Prelude.seq` Prelude.rnf missionProfileId
 
@@ -211,6 +235,9 @@ instance Data.ToJSON UpdateMissionProfile where
             ("minimumViableContactDurationSeconds" Data..=)
               Prelude.<$> minimumViableContactDurationSeconds,
             ("name" Data..=) Prelude.<$> name,
+            ("streamsKmsKey" Data..=) Prelude.<$> streamsKmsKey,
+            ("streamsKmsRole" Data..=)
+              Prelude.<$> streamsKmsRole,
             ("trackingConfigArn" Data..=)
               Prelude.<$> trackingConfigArn
           ]

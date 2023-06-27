@@ -42,6 +42,8 @@ module Amazonka.GroundStation.GetMissionProfile
     getMissionProfileResponse_missionProfileId,
     getMissionProfileResponse_name,
     getMissionProfileResponse_region,
+    getMissionProfileResponse_streamsKmsKey,
+    getMissionProfileResponse_streamsKmsRole,
     getMissionProfileResponse_tags,
     getMissionProfileResponse_trackingConfigArn,
     getMissionProfileResponse_httpStatus,
@@ -106,6 +108,8 @@ instance Core.AWSRequest GetMissionProfile where
             Prelude.<*> (x Data..?> "missionProfileId")
             Prelude.<*> (x Data..?> "name")
             Prelude.<*> (x Data..?> "region")
+            Prelude.<*> (x Data..?> "streamsKmsKey")
+            Prelude.<*> (x Data..?> "streamsKmsRole")
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "trackingConfigArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -163,6 +167,10 @@ data GetMissionProfileResponse = GetMissionProfileResponse'
     name :: Prelude.Maybe Prelude.Text,
     -- | Region of a mission profile.
     region :: Prelude.Maybe Prelude.Text,
+    -- | KMS key to use for encrypting streams.
+    streamsKmsKey :: Prelude.Maybe KmsKey,
+    -- | Role to use for encrypting streams with KMS key.
+    streamsKmsRole :: Prelude.Maybe Prelude.Text,
     -- | Tags assigned to a mission profile.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | ARN of a tracking @Config@.
@@ -201,6 +209,10 @@ data GetMissionProfileResponse = GetMissionProfileResponse'
 --
 -- 'region', 'getMissionProfileResponse_region' - Region of a mission profile.
 --
+-- 'streamsKmsKey', 'getMissionProfileResponse_streamsKmsKey' - KMS key to use for encrypting streams.
+--
+-- 'streamsKmsRole', 'getMissionProfileResponse_streamsKmsRole' - Role to use for encrypting streams with KMS key.
+--
 -- 'tags', 'getMissionProfileResponse_tags' - Tags assigned to a mission profile.
 --
 -- 'trackingConfigArn', 'getMissionProfileResponse_trackingConfigArn' - ARN of a tracking @Config@.
@@ -222,6 +234,8 @@ newGetMissionProfileResponse pHttpStatus_ =
       missionProfileId = Prelude.Nothing,
       name = Prelude.Nothing,
       region = Prelude.Nothing,
+      streamsKmsKey = Prelude.Nothing,
+      streamsKmsRole = Prelude.Nothing,
       tags = Prelude.Nothing,
       trackingConfigArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -264,6 +278,14 @@ getMissionProfileResponse_name = Lens.lens (\GetMissionProfileResponse' {name} -
 getMissionProfileResponse_region :: Lens.Lens' GetMissionProfileResponse (Prelude.Maybe Prelude.Text)
 getMissionProfileResponse_region = Lens.lens (\GetMissionProfileResponse' {region} -> region) (\s@GetMissionProfileResponse' {} a -> s {region = a} :: GetMissionProfileResponse)
 
+-- | KMS key to use for encrypting streams.
+getMissionProfileResponse_streamsKmsKey :: Lens.Lens' GetMissionProfileResponse (Prelude.Maybe KmsKey)
+getMissionProfileResponse_streamsKmsKey = Lens.lens (\GetMissionProfileResponse' {streamsKmsKey} -> streamsKmsKey) (\s@GetMissionProfileResponse' {} a -> s {streamsKmsKey = a} :: GetMissionProfileResponse)
+
+-- | Role to use for encrypting streams with KMS key.
+getMissionProfileResponse_streamsKmsRole :: Lens.Lens' GetMissionProfileResponse (Prelude.Maybe Prelude.Text)
+getMissionProfileResponse_streamsKmsRole = Lens.lens (\GetMissionProfileResponse' {streamsKmsRole} -> streamsKmsRole) (\s@GetMissionProfileResponse' {} a -> s {streamsKmsRole = a} :: GetMissionProfileResponse)
+
 -- | Tags assigned to a mission profile.
 getMissionProfileResponse_tags :: Lens.Lens' GetMissionProfileResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getMissionProfileResponse_tags = Lens.lens (\GetMissionProfileResponse' {tags} -> tags) (\s@GetMissionProfileResponse' {} a -> s {tags = a} :: GetMissionProfileResponse) Prelude.. Lens.mapping Lens.coerced
@@ -286,6 +308,8 @@ instance Prelude.NFData GetMissionProfileResponse where
       `Prelude.seq` Prelude.rnf missionProfileId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf region
+      `Prelude.seq` Prelude.rnf streamsKmsKey
+      `Prelude.seq` Prelude.rnf streamsKmsRole
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf trackingConfigArn
       `Prelude.seq` Prelude.rnf httpStatus

@@ -34,6 +34,8 @@ module Amazonka.GroundStation.GetDataflowEndpointGroup
     newGetDataflowEndpointGroupResponse,
 
     -- * Response Lenses
+    getDataflowEndpointGroupResponse_contactPostPassDurationSeconds,
+    getDataflowEndpointGroupResponse_contactPrePassDurationSeconds,
     getDataflowEndpointGroupResponse_dataflowEndpointGroupArn,
     getDataflowEndpointGroupResponse_dataflowEndpointGroupId,
     getDataflowEndpointGroupResponse_endpointsDetails,
@@ -92,9 +94,12 @@ instance Core.AWSRequest GetDataflowEndpointGroup where
     Response.receiveJSON
       ( \s h x ->
           GetDataflowEndpointGroupResponse'
-            Prelude.<$> (x Data..?> "dataflowEndpointGroupArn")
+            Prelude.<$> (x Data..?> "contactPostPassDurationSeconds")
+            Prelude.<*> (x Data..?> "contactPrePassDurationSeconds")
+            Prelude.<*> (x Data..?> "dataflowEndpointGroupArn")
             Prelude.<*> (x Data..?> "dataflowEndpointGroupId")
-            Prelude.<*> ( x Data..?> "endpointsDetails"
+            Prelude.<*> ( x
+                            Data..?> "endpointsDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
@@ -135,7 +140,17 @@ instance Data.ToQuery GetDataflowEndpointGroup where
 --
 -- /See:/ 'newGetDataflowEndpointGroupResponse' smart constructor.
 data GetDataflowEndpointGroupResponse = GetDataflowEndpointGroupResponse'
-  { -- | ARN of a dataflow endpoint group.
+  { -- | Amount of time, in seconds, after a contact ends that the Ground Station
+    -- Dataflow Endpoint Group will be in a @POSTPASS@ state. A Ground Station
+    -- Dataflow Endpoint Group State Change event will be emitted when the
+    -- Dataflow Endpoint Group enters and exits the @POSTPASS@ state.
+    contactPostPassDurationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | Amount of time, in seconds, before a contact starts that the Ground
+    -- Station Dataflow Endpoint Group will be in a @PREPASS@ state. A Ground
+    -- Station Dataflow Endpoint Group State Change event will be emitted when
+    -- the Dataflow Endpoint Group enters and exits the @PREPASS@ state.
+    contactPrePassDurationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | ARN of a dataflow endpoint group.
     dataflowEndpointGroupArn :: Prelude.Maybe Prelude.Text,
     -- | UUID of a dataflow endpoint group.
     dataflowEndpointGroupId :: Prelude.Maybe Prelude.Text,
@@ -156,6 +171,16 @@ data GetDataflowEndpointGroupResponse = GetDataflowEndpointGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'contactPostPassDurationSeconds', 'getDataflowEndpointGroupResponse_contactPostPassDurationSeconds' - Amount of time, in seconds, after a contact ends that the Ground Station
+-- Dataflow Endpoint Group will be in a @POSTPASS@ state. A Ground Station
+-- Dataflow Endpoint Group State Change event will be emitted when the
+-- Dataflow Endpoint Group enters and exits the @POSTPASS@ state.
+--
+-- 'contactPrePassDurationSeconds', 'getDataflowEndpointGroupResponse_contactPrePassDurationSeconds' - Amount of time, in seconds, before a contact starts that the Ground
+-- Station Dataflow Endpoint Group will be in a @PREPASS@ state. A Ground
+-- Station Dataflow Endpoint Group State Change event will be emitted when
+-- the Dataflow Endpoint Group enters and exits the @PREPASS@ state.
+--
 -- 'dataflowEndpointGroupArn', 'getDataflowEndpointGroupResponse_dataflowEndpointGroupArn' - ARN of a dataflow endpoint group.
 --
 -- 'dataflowEndpointGroupId', 'getDataflowEndpointGroupResponse_dataflowEndpointGroupId' - UUID of a dataflow endpoint group.
@@ -171,13 +196,31 @@ newGetDataflowEndpointGroupResponse ::
   GetDataflowEndpointGroupResponse
 newGetDataflowEndpointGroupResponse pHttpStatus_ =
   GetDataflowEndpointGroupResponse'
-    { dataflowEndpointGroupArn =
+    { contactPostPassDurationSeconds =
+        Prelude.Nothing,
+      contactPrePassDurationSeconds =
+        Prelude.Nothing,
+      dataflowEndpointGroupArn =
         Prelude.Nothing,
       dataflowEndpointGroupId = Prelude.Nothing,
       endpointsDetails = Prelude.Nothing,
       tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Amount of time, in seconds, after a contact ends that the Ground Station
+-- Dataflow Endpoint Group will be in a @POSTPASS@ state. A Ground Station
+-- Dataflow Endpoint Group State Change event will be emitted when the
+-- Dataflow Endpoint Group enters and exits the @POSTPASS@ state.
+getDataflowEndpointGroupResponse_contactPostPassDurationSeconds :: Lens.Lens' GetDataflowEndpointGroupResponse (Prelude.Maybe Prelude.Natural)
+getDataflowEndpointGroupResponse_contactPostPassDurationSeconds = Lens.lens (\GetDataflowEndpointGroupResponse' {contactPostPassDurationSeconds} -> contactPostPassDurationSeconds) (\s@GetDataflowEndpointGroupResponse' {} a -> s {contactPostPassDurationSeconds = a} :: GetDataflowEndpointGroupResponse)
+
+-- | Amount of time, in seconds, before a contact starts that the Ground
+-- Station Dataflow Endpoint Group will be in a @PREPASS@ state. A Ground
+-- Station Dataflow Endpoint Group State Change event will be emitted when
+-- the Dataflow Endpoint Group enters and exits the @PREPASS@ state.
+getDataflowEndpointGroupResponse_contactPrePassDurationSeconds :: Lens.Lens' GetDataflowEndpointGroupResponse (Prelude.Maybe Prelude.Natural)
+getDataflowEndpointGroupResponse_contactPrePassDurationSeconds = Lens.lens (\GetDataflowEndpointGroupResponse' {contactPrePassDurationSeconds} -> contactPrePassDurationSeconds) (\s@GetDataflowEndpointGroupResponse' {} a -> s {contactPrePassDurationSeconds = a} :: GetDataflowEndpointGroupResponse)
 
 -- | ARN of a dataflow endpoint group.
 getDataflowEndpointGroupResponse_dataflowEndpointGroupArn :: Lens.Lens' GetDataflowEndpointGroupResponse (Prelude.Maybe Prelude.Text)
@@ -204,7 +247,9 @@ instance
     GetDataflowEndpointGroupResponse
   where
   rnf GetDataflowEndpointGroupResponse' {..} =
-    Prelude.rnf dataflowEndpointGroupArn
+    Prelude.rnf contactPostPassDurationSeconds
+      `Prelude.seq` Prelude.rnf contactPrePassDurationSeconds
+      `Prelude.seq` Prelude.rnf dataflowEndpointGroupArn
       `Prelude.seq` Prelude.rnf dataflowEndpointGroupId
       `Prelude.seq` Prelude.rnf endpointsDetails
       `Prelude.seq` Prelude.rnf tags

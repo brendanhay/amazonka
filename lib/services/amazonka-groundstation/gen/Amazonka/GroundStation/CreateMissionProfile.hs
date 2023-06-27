@@ -32,6 +32,8 @@ module Amazonka.GroundStation.CreateMissionProfile
     -- * Request Lenses
     createMissionProfile_contactPostPassDurationSeconds,
     createMissionProfile_contactPrePassDurationSeconds,
+    createMissionProfile_streamsKmsKey,
+    createMissionProfile_streamsKmsRole,
     createMissionProfile_tags,
     createMissionProfile_dataflowEdges,
     createMissionProfile_minimumViableContactDurationSeconds,
@@ -65,6 +67,10 @@ data CreateMissionProfile = CreateMissionProfile'
     -- | Amount of time prior to contact start you’d like to receive a CloudWatch
     -- event indicating an upcoming pass.
     contactPrePassDurationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | KMS key to use for encrypting streams.
+    streamsKmsKey :: Prelude.Maybe KmsKey,
+    -- | Role to use for encrypting streams with KMS key.
+    streamsKmsRole :: Prelude.Maybe Prelude.Text,
     -- | Tags assigned to a mission profile.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A list of lists of ARNs. Each list of ARNs is an edge, with a /from/
@@ -95,6 +101,10 @@ data CreateMissionProfile = CreateMissionProfile'
 -- 'contactPrePassDurationSeconds', 'createMissionProfile_contactPrePassDurationSeconds' - Amount of time prior to contact start you’d like to receive a CloudWatch
 -- event indicating an upcoming pass.
 --
+-- 'streamsKmsKey', 'createMissionProfile_streamsKmsKey' - KMS key to use for encrypting streams.
+--
+-- 'streamsKmsRole', 'createMissionProfile_streamsKmsRole' - Role to use for encrypting streams with KMS key.
+--
 -- 'tags', 'createMissionProfile_tags' - Tags assigned to a mission profile.
 --
 -- 'dataflowEdges', 'createMissionProfile_dataflowEdges' - A list of lists of ARNs. Each list of ARNs is an edge, with a /from/
@@ -123,6 +133,8 @@ newCreateMissionProfile
       { contactPostPassDurationSeconds =
           Prelude.Nothing,
         contactPrePassDurationSeconds = Prelude.Nothing,
+        streamsKmsKey = Prelude.Nothing,
+        streamsKmsRole = Prelude.Nothing,
         tags = Prelude.Nothing,
         dataflowEdges = Prelude.mempty,
         minimumViableContactDurationSeconds =
@@ -140,6 +152,14 @@ createMissionProfile_contactPostPassDurationSeconds = Lens.lens (\CreateMissionP
 -- event indicating an upcoming pass.
 createMissionProfile_contactPrePassDurationSeconds :: Lens.Lens' CreateMissionProfile (Prelude.Maybe Prelude.Natural)
 createMissionProfile_contactPrePassDurationSeconds = Lens.lens (\CreateMissionProfile' {contactPrePassDurationSeconds} -> contactPrePassDurationSeconds) (\s@CreateMissionProfile' {} a -> s {contactPrePassDurationSeconds = a} :: CreateMissionProfile)
+
+-- | KMS key to use for encrypting streams.
+createMissionProfile_streamsKmsKey :: Lens.Lens' CreateMissionProfile (Prelude.Maybe KmsKey)
+createMissionProfile_streamsKmsKey = Lens.lens (\CreateMissionProfile' {streamsKmsKey} -> streamsKmsKey) (\s@CreateMissionProfile' {} a -> s {streamsKmsKey = a} :: CreateMissionProfile)
+
+-- | Role to use for encrypting streams with KMS key.
+createMissionProfile_streamsKmsRole :: Lens.Lens' CreateMissionProfile (Prelude.Maybe Prelude.Text)
+createMissionProfile_streamsKmsRole = Lens.lens (\CreateMissionProfile' {streamsKmsRole} -> streamsKmsRole) (\s@CreateMissionProfile' {} a -> s {streamsKmsRole = a} :: CreateMissionProfile)
 
 -- | Tags assigned to a mission profile.
 createMissionProfile_tags :: Lens.Lens' CreateMissionProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -179,6 +199,8 @@ instance Prelude.Hashable CreateMissionProfile where
     _salt
       `Prelude.hashWithSalt` contactPostPassDurationSeconds
       `Prelude.hashWithSalt` contactPrePassDurationSeconds
+      `Prelude.hashWithSalt` streamsKmsKey
+      `Prelude.hashWithSalt` streamsKmsRole
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` dataflowEdges
       `Prelude.hashWithSalt` minimumViableContactDurationSeconds
@@ -189,6 +211,8 @@ instance Prelude.NFData CreateMissionProfile where
   rnf CreateMissionProfile' {..} =
     Prelude.rnf contactPostPassDurationSeconds
       `Prelude.seq` Prelude.rnf contactPrePassDurationSeconds
+      `Prelude.seq` Prelude.rnf streamsKmsKey
+      `Prelude.seq` Prelude.rnf streamsKmsRole
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf dataflowEdges
       `Prelude.seq` Prelude.rnf minimumViableContactDurationSeconds
@@ -214,6 +238,9 @@ instance Data.ToJSON CreateMissionProfile where
               Prelude.<$> contactPostPassDurationSeconds,
             ("contactPrePassDurationSeconds" Data..=)
               Prelude.<$> contactPrePassDurationSeconds,
+            ("streamsKmsKey" Data..=) Prelude.<$> streamsKmsKey,
+            ("streamsKmsRole" Data..=)
+              Prelude.<$> streamsKmsRole,
             ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("dataflowEdges" Data..= dataflowEdges),
             Prelude.Just

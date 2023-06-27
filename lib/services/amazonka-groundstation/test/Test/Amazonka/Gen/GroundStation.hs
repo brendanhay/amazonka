@@ -60,6 +60,9 @@ import Test.Tasty
 --         , requestDescribeEphemeris $
 --             newDescribeEphemeris
 --
+--         , requestGetAgentConfiguration $
+--             newGetAgentConfiguration
+--
 --         , requestGetConfig $
 --             newGetConfig
 --
@@ -99,6 +102,9 @@ import Test.Tasty
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
+--         , requestRegisterAgent $
+--             newRegisterAgent
+--
 --         , requestReserveContact $
 --             newReserveContact
 --
@@ -107,6 +113,9 @@ import Test.Tasty
 --
 --         , requestUntagResource $
 --             newUntagResource
+--
+--         , requestUpdateAgentStatus $
+--             newUpdateAgentStatus
 --
 --         , requestUpdateConfig $
 --             newUpdateConfig
@@ -153,6 +162,9 @@ import Test.Tasty
 --         , responseDescribeEphemeris $
 --             newDescribeEphemerisResponse
 --
+--         , responseGetAgentConfiguration $
+--             newGetAgentConfigurationResponse
+--
 --         , responseGetConfig $
 --             newGetConfigResponse
 --
@@ -192,6 +204,9 @@ import Test.Tasty
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
+--         , responseRegisterAgent $
+--             newRegisterAgentResponse
+--
 --         , responseReserveContact $
 --             newContactIdResponse
 --
@@ -200,6 +215,9 @@ import Test.Tasty
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
+--
+--         , responseUpdateAgentStatus $
+--             newUpdateAgentStatusResponse
 --
 --         , responseUpdateConfig $
 --             newConfigIdResponse
@@ -281,6 +299,12 @@ requestDescribeEphemeris =
     "DescribeEphemeris"
     "fixture/DescribeEphemeris.yaml"
 
+requestGetAgentConfiguration :: GetAgentConfiguration -> TestTree
+requestGetAgentConfiguration =
+  req
+    "GetAgentConfiguration"
+    "fixture/GetAgentConfiguration.yaml"
+
 requestGetConfig :: GetConfig -> TestTree
 requestGetConfig =
   req
@@ -359,6 +383,12 @@ requestListTagsForResource =
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
+requestRegisterAgent :: RegisterAgent -> TestTree
+requestRegisterAgent =
+  req
+    "RegisterAgent"
+    "fixture/RegisterAgent.yaml"
+
 requestReserveContact :: ReserveContact -> TestTree
 requestReserveContact =
   req
@@ -376,6 +406,12 @@ requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
+
+requestUpdateAgentStatus :: UpdateAgentStatus -> TestTree
+requestUpdateAgentStatus =
+  req
+    "UpdateAgentStatus"
+    "fixture/UpdateAgentStatus.yaml"
 
 requestUpdateConfig :: UpdateConfig -> TestTree
 requestUpdateConfig =
@@ -485,6 +521,14 @@ responseDescribeEphemeris =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeEphemeris)
 
+responseGetAgentConfiguration :: GetAgentConfigurationResponse -> TestTree
+responseGetAgentConfiguration =
+  res
+    "GetAgentConfigurationResponse"
+    "fixture/GetAgentConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAgentConfiguration)
+
 responseGetConfig :: GetConfigResponse -> TestTree
 responseGetConfig =
   res
@@ -589,6 +633,14 @@ responseListTagsForResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
+responseRegisterAgent :: RegisterAgentResponse -> TestTree
+responseRegisterAgent =
+  res
+    "RegisterAgentResponse"
+    "fixture/RegisterAgentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RegisterAgent)
+
 responseReserveContact :: ContactIdResponse -> TestTree
 responseReserveContact =
   res
@@ -612,6 +664,14 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateAgentStatus :: UpdateAgentStatusResponse -> TestTree
+responseUpdateAgentStatus =
+  res
+    "UpdateAgentStatusResponse"
+    "fixture/UpdateAgentStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAgentStatus)
 
 responseUpdateConfig :: ConfigIdResponse -> TestTree
 responseUpdateConfig =

@@ -76,7 +76,8 @@ instance Data.FromJSON EphemerisDescription where
 
 instance Prelude.Hashable EphemerisDescription where
   hashWithSalt _salt EphemerisDescription' {..} =
-    _salt `Prelude.hashWithSalt` ephemerisData
+    _salt
+      `Prelude.hashWithSalt` ephemerisData
       `Prelude.hashWithSalt` sourceS3Object
 
 instance Prelude.NFData EphemerisDescription where

@@ -70,12 +70,14 @@ instance Data.FromJSON Eirp where
       "Eirp"
       ( \x ->
           Eirp'
-            Prelude.<$> (x Data..: "units") Prelude.<*> (x Data..: "value")
+            Prelude.<$> (x Data..: "units")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable Eirp where
   hashWithSalt _salt Eirp' {..} =
-    _salt `Prelude.hashWithSalt` units
+    _salt
+      `Prelude.hashWithSalt` units
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Eirp where

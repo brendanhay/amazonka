@@ -88,7 +88,8 @@ instance Data.FromJSON S3RecordingConfig where
 
 instance Prelude.Hashable S3RecordingConfig where
   hashWithSalt _salt S3RecordingConfig' {..} =
-    _salt `Prelude.hashWithSalt` prefix
+    _salt
+      `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` bucketArn
       `Prelude.hashWithSalt` roleArn
 

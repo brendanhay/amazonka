@@ -113,7 +113,8 @@ instance Core.AWSRequest CreateConfig where
 
 instance Prelude.Hashable CreateConfig where
   hashWithSalt _salt CreateConfig' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` configData
       `Prelude.hashWithSalt` name
 

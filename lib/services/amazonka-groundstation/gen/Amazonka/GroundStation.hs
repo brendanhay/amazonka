@@ -38,6 +38,9 @@ module Amazonka.GroundStation
     -- * Waiters
     -- $waiters
 
+    -- ** ContactScheduled
+    newContactScheduled,
+
     -- * Operations
     -- $operations
 
@@ -106,6 +109,12 @@ module Amazonka.GroundStation
     newDescribeEphemeris,
     DescribeEphemerisResponse (DescribeEphemerisResponse'),
     newDescribeEphemerisResponse,
+
+    -- ** GetAgentConfiguration
+    GetAgentConfiguration (GetAgentConfiguration'),
+    newGetAgentConfiguration,
+    GetAgentConfigurationResponse (GetAgentConfigurationResponse'),
+    newGetAgentConfigurationResponse,
 
     -- ** GetConfig
     GetConfig (GetConfig'),
@@ -185,6 +194,12 @@ module Amazonka.GroundStation
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
+    -- ** RegisterAgent
+    RegisterAgent (RegisterAgent'),
+    newRegisterAgent,
+    RegisterAgentResponse (RegisterAgentResponse'),
+    newRegisterAgentResponse,
+
     -- ** ReserveContact
     ReserveContact (ReserveContact'),
     newReserveContact,
@@ -202,6 +217,12 @@ module Amazonka.GroundStation
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
+
+    -- ** UpdateAgentStatus
+    UpdateAgentStatus (UpdateAgentStatus'),
+    newUpdateAgentStatus,
+    UpdateAgentStatusResponse (UpdateAgentStatusResponse'),
+    newUpdateAgentStatusResponse,
 
     -- ** UpdateConfig
     UpdateConfig (UpdateConfig'),
@@ -223,11 +244,23 @@ module Amazonka.GroundStation
 
     -- * Types
 
+    -- ** AgentStatus
+    AgentStatus (..),
+
     -- ** AngleUnits
     AngleUnits (..),
 
+    -- ** AuditResults
+    AuditResults (..),
+
     -- ** BandwidthUnits
     BandwidthUnits (..),
+
+    -- ** CapabilityHealth
+    CapabilityHealth (..),
+
+    -- ** CapabilityHealthReason
+    CapabilityHealthReason (..),
 
     -- ** ConfigCapabilityType
     ConfigCapabilityType (..),
@@ -259,6 +292,14 @@ module Amazonka.GroundStation
     -- ** Polarization
     Polarization (..),
 
+    -- ** AgentDetails
+    AgentDetails (AgentDetails'),
+    newAgentDetails,
+
+    -- ** AggregateStatus
+    AggregateStatus (AggregateStatus'),
+    newAggregateStatus,
+
     -- ** AntennaDemodDecodeDetails
     AntennaDemodDecodeDetails (AntennaDemodDecodeDetails'),
     newAntennaDemodDecodeDetails,
@@ -275,6 +316,18 @@ module Amazonka.GroundStation
     AntennaUplinkConfig (AntennaUplinkConfig'),
     newAntennaUplinkConfig,
 
+    -- ** AwsGroundStationAgentEndpoint
+    AwsGroundStationAgentEndpoint (AwsGroundStationAgentEndpoint'),
+    newAwsGroundStationAgentEndpoint,
+
+    -- ** ComponentStatusData
+    ComponentStatusData (ComponentStatusData'),
+    newComponentStatusData,
+
+    -- ** ComponentVersion
+    ComponentVersion (ComponentVersion'),
+    newComponentVersion,
+
     -- ** ConfigDetails
     ConfigDetails (ConfigDetails'),
     newConfigDetails,
@@ -290,6 +343,10 @@ module Amazonka.GroundStation
     -- ** ConfigTypeData
     ConfigTypeData (ConfigTypeData'),
     newConfigTypeData,
+
+    -- ** ConnectionDetails
+    ConnectionDetails (ConnectionDetails'),
+    newConnectionDetails,
 
     -- ** ContactData
     ContactData (ContactData'),
@@ -330,6 +387,10 @@ module Amazonka.GroundStation
     -- ** Destination
     Destination (Destination'),
     newDestination,
+
+    -- ** DiscoveryData
+    DiscoveryData (DiscoveryData'),
+    newDiscoveryData,
 
     -- ** Eirp
     Eirp (Eirp'),
@@ -379,6 +440,14 @@ module Amazonka.GroundStation
     GroundStationData (GroundStationData'),
     newGroundStationData,
 
+    -- ** IntegerRange
+    IntegerRange (IntegerRange'),
+    newIntegerRange,
+
+    -- ** KmsKey
+    KmsKey (KmsKey'),
+    newKmsKey,
+
     -- ** MissionProfileIdResponse
     MissionProfileIdResponse (MissionProfileIdResponse'),
     newMissionProfileIdResponse,
@@ -390,6 +459,14 @@ module Amazonka.GroundStation
     -- ** OEMEphemeris
     OEMEphemeris (OEMEphemeris'),
     newOEMEphemeris,
+
+    -- ** RangedConnectionDetails
+    RangedConnectionDetails (RangedConnectionDetails'),
+    newRangedConnectionDetails,
+
+    -- ** RangedSocketAddress
+    RangedSocketAddress (RangedSocketAddress'),
+    newRangedSocketAddress,
 
     -- ** S3Object
     S3Object (S3Object'),
@@ -460,6 +537,7 @@ import Amazonka.GroundStation.DeleteEphemeris
 import Amazonka.GroundStation.DeleteMissionProfile
 import Amazonka.GroundStation.DescribeContact
 import Amazonka.GroundStation.DescribeEphemeris
+import Amazonka.GroundStation.GetAgentConfiguration
 import Amazonka.GroundStation.GetConfig
 import Amazonka.GroundStation.GetDataflowEndpointGroup
 import Amazonka.GroundStation.GetMinuteUsage
@@ -474,10 +552,12 @@ import Amazonka.GroundStation.ListGroundStations
 import Amazonka.GroundStation.ListMissionProfiles
 import Amazonka.GroundStation.ListSatellites
 import Amazonka.GroundStation.ListTagsForResource
+import Amazonka.GroundStation.RegisterAgent
 import Amazonka.GroundStation.ReserveContact
 import Amazonka.GroundStation.TagResource
 import Amazonka.GroundStation.Types
 import Amazonka.GroundStation.UntagResource
+import Amazonka.GroundStation.UpdateAgentStatus
 import Amazonka.GroundStation.UpdateConfig
 import Amazonka.GroundStation.UpdateEphemeris
 import Amazonka.GroundStation.UpdateMissionProfile

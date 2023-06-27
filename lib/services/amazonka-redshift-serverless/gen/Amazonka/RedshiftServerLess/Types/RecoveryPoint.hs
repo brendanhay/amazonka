@@ -118,7 +118,8 @@ instance Data.FromJSON RecoveryPoint where
 
 instance Prelude.Hashable RecoveryPoint where
   hashWithSalt _salt RecoveryPoint' {..} =
-    _salt `Prelude.hashWithSalt` namespaceArn
+    _salt
+      `Prelude.hashWithSalt` namespaceArn
       `Prelude.hashWithSalt` namespaceName
       `Prelude.hashWithSalt` recoveryPointCreateTime
       `Prelude.hashWithSalt` recoveryPointId

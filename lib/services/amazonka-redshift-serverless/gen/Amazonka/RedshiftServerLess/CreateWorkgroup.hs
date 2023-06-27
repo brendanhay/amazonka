@@ -61,9 +61,13 @@ data CreateWorkgroup = CreateWorkgroup'
   { -- | The base data warehouse capacity of the workgroup in Redshift Processing
     -- Units (RPUs).
     baseCapacity :: Prelude.Maybe Prelude.Int,
-    -- | An array of parameters to set for more control over a serverless
-    -- database. The options are @datestyle@, @enable_user_activity_logging@,
-    -- @query_group@, @search_path@, and @max_query_execution_time@.
+    -- | An array of parameters to set for advanced control over a database. The
+    -- options are @auto_mv@, @datestyle@,
+    -- @enable_case_sensitivity_identifier@, @enable_user_activity_logging@,
+    -- @query_group@, @search_path@, and query monitoring metrics that let you
+    -- define performance boundaries. For more information about query
+    -- monitoring rules and available metrics, see
+    -- <https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless Query monitoring metrics for Amazon Redshift Serverless>.
     configParameters :: Prelude.Maybe [ConfigParameter],
     -- | The value that specifies whether to turn on enhanced virtual private
     -- cloud (VPC) routing, which forces Amazon Redshift Serverless to route
@@ -99,9 +103,13 @@ data CreateWorkgroup = CreateWorkgroup'
 -- 'baseCapacity', 'createWorkgroup_baseCapacity' - The base data warehouse capacity of the workgroup in Redshift Processing
 -- Units (RPUs).
 --
--- 'configParameters', 'createWorkgroup_configParameters' - An array of parameters to set for more control over a serverless
--- database. The options are @datestyle@, @enable_user_activity_logging@,
--- @query_group@, @search_path@, and @max_query_execution_time@.
+-- 'configParameters', 'createWorkgroup_configParameters' - An array of parameters to set for advanced control over a database. The
+-- options are @auto_mv@, @datestyle@,
+-- @enable_case_sensitivity_identifier@, @enable_user_activity_logging@,
+-- @query_group@, @search_path@, and query monitoring metrics that let you
+-- define performance boundaries. For more information about query
+-- monitoring rules and available metrics, see
+-- <https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless Query monitoring metrics for Amazon Redshift Serverless>.
 --
 -- 'enhancedVpcRouting', 'createWorkgroup_enhancedVpcRouting' - The value that specifies whether to turn on enhanced virtual private
 -- cloud (VPC) routing, which forces Amazon Redshift Serverless to route
@@ -147,9 +155,13 @@ newCreateWorkgroup pNamespaceName_ pWorkgroupName_ =
 createWorkgroup_baseCapacity :: Lens.Lens' CreateWorkgroup (Prelude.Maybe Prelude.Int)
 createWorkgroup_baseCapacity = Lens.lens (\CreateWorkgroup' {baseCapacity} -> baseCapacity) (\s@CreateWorkgroup' {} a -> s {baseCapacity = a} :: CreateWorkgroup)
 
--- | An array of parameters to set for more control over a serverless
--- database. The options are @datestyle@, @enable_user_activity_logging@,
--- @query_group@, @search_path@, and @max_query_execution_time@.
+-- | An array of parameters to set for advanced control over a database. The
+-- options are @auto_mv@, @datestyle@,
+-- @enable_case_sensitivity_identifier@, @enable_user_activity_logging@,
+-- @query_group@, @search_path@, and query monitoring metrics that let you
+-- define performance boundaries. For more information about query
+-- monitoring rules and available metrics, see
+-- <https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless Query monitoring metrics for Amazon Redshift Serverless>.
 createWorkgroup_configParameters :: Lens.Lens' CreateWorkgroup (Prelude.Maybe [ConfigParameter])
 createWorkgroup_configParameters = Lens.lens (\CreateWorkgroup' {configParameters} -> configParameters) (\s@CreateWorkgroup' {} a -> s {configParameters = a} :: CreateWorkgroup) Prelude.. Lens.mapping Lens.coerced
 
@@ -205,7 +217,8 @@ instance Core.AWSRequest CreateWorkgroup where
 
 instance Prelude.Hashable CreateWorkgroup where
   hashWithSalt _salt CreateWorkgroup' {..} =
-    _salt `Prelude.hashWithSalt` baseCapacity
+    _salt
+      `Prelude.hashWithSalt` baseCapacity
       `Prelude.hashWithSalt` configParameters
       `Prelude.hashWithSalt` enhancedVpcRouting
       `Prelude.hashWithSalt` port

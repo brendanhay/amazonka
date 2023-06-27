@@ -156,7 +156,8 @@ instance Data.FromJSON EndpointAccess where
             Prelude.<*> (x Data..:? "port")
             Prelude.<*> (x Data..:? "subnetIds" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "vpcEndpoint")
-            Prelude.<*> ( x Data..:? "vpcSecurityGroups"
+            Prelude.<*> ( x
+                            Data..:? "vpcSecurityGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "workgroupName")
@@ -164,7 +165,8 @@ instance Data.FromJSON EndpointAccess where
 
 instance Prelude.Hashable EndpointAccess where
   hashWithSalt _salt EndpointAccess' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` endpointArn
       `Prelude.hashWithSalt` endpointCreateTime
       `Prelude.hashWithSalt` endpointName

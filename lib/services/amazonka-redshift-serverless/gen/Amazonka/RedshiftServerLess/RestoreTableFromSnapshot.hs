@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Restores a table from a snapshot to your Amazon Redshift Serverless
--- instance.
+-- instance. You can\'t use this operation to restore tables with
+-- <https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved interleaved sort keys>.
 module Amazonka.RedshiftServerLess.RestoreTableFromSnapshot
   ( -- * Creating a Request
     RestoreTableFromSnapshot (..),

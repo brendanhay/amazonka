@@ -173,7 +173,8 @@ instance Core.AWSRequest GetCredentials where
 
 instance Prelude.Hashable GetCredentials where
   hashWithSalt _salt GetCredentials' {..} =
-    _salt `Prelude.hashWithSalt` dbName
+    _salt
+      `Prelude.hashWithSalt` dbName
       `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` workgroupName
 

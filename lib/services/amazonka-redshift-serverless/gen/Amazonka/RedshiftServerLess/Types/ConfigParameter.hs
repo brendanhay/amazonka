@@ -29,9 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newConfigParameter' smart constructor.
 data ConfigParameter = ConfigParameter'
-  { -- | The key of the parameter. The options are @datestyle@,
-    -- @enable_user_activity_logging@, @query_group@, @search_path@, and
-    -- @max_query_execution_time@.
+  { -- | The key of the parameter. The options are @auto_mv@, @datestyle@,
+    -- @enable_case_sensitivity_identifier@, @enable_user_activity_logging@,
+    -- @query_group@, @search_path@, and query monitoring metrics that let you
+    -- define performance boundaries. For more information about query
+    -- monitoring rules and available metrics, see
+    -- <https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless Query monitoring metrics for Amazon Redshift Serverless>.
     parameterKey :: Prelude.Maybe Prelude.Text,
     -- | The value of the parameter to set.
     parameterValue :: Prelude.Maybe Prelude.Text
@@ -46,9 +49,12 @@ data ConfigParameter = ConfigParameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parameterKey', 'configParameter_parameterKey' - The key of the parameter. The options are @datestyle@,
--- @enable_user_activity_logging@, @query_group@, @search_path@, and
--- @max_query_execution_time@.
+-- 'parameterKey', 'configParameter_parameterKey' - The key of the parameter. The options are @auto_mv@, @datestyle@,
+-- @enable_case_sensitivity_identifier@, @enable_user_activity_logging@,
+-- @query_group@, @search_path@, and query monitoring metrics that let you
+-- define performance boundaries. For more information about query
+-- monitoring rules and available metrics, see
+-- <https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless Query monitoring metrics for Amazon Redshift Serverless>.
 --
 -- 'parameterValue', 'configParameter_parameterValue' - The value of the parameter to set.
 newConfigParameter ::
@@ -59,9 +65,12 @@ newConfigParameter =
       parameterValue = Prelude.Nothing
     }
 
--- | The key of the parameter. The options are @datestyle@,
--- @enable_user_activity_logging@, @query_group@, @search_path@, and
--- @max_query_execution_time@.
+-- | The key of the parameter. The options are @auto_mv@, @datestyle@,
+-- @enable_case_sensitivity_identifier@, @enable_user_activity_logging@,
+-- @query_group@, @search_path@, and query monitoring metrics that let you
+-- define performance boundaries. For more information about query
+-- monitoring rules and available metrics, see
+-- <https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless Query monitoring metrics for Amazon Redshift Serverless>.
 configParameter_parameterKey :: Lens.Lens' ConfigParameter (Prelude.Maybe Prelude.Text)
 configParameter_parameterKey = Lens.lens (\ConfigParameter' {parameterKey} -> parameterKey) (\s@ConfigParameter' {} a -> s {parameterKey = a} :: ConfigParameter)
 
@@ -81,7 +90,8 @@ instance Data.FromJSON ConfigParameter where
 
 instance Prelude.Hashable ConfigParameter where
   hashWithSalt _salt ConfigParameter' {..} =
-    _salt `Prelude.hashWithSalt` parameterKey
+    _salt
+      `Prelude.hashWithSalt` parameterKey
       `Prelude.hashWithSalt` parameterValue
 
 instance Prelude.NFData ConfigParameter where

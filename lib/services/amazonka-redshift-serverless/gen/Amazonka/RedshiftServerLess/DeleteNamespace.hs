@@ -115,7 +115,8 @@ instance Core.AWSRequest DeleteNamespace where
 
 instance Prelude.Hashable DeleteNamespace where
   hashWithSalt _salt DeleteNamespace' {..} =
-    _salt `Prelude.hashWithSalt` finalSnapshotName
+    _salt
+      `Prelude.hashWithSalt` finalSnapshotName
       `Prelude.hashWithSalt` finalSnapshotRetentionPeriod
       `Prelude.hashWithSalt` namespaceName
 

@@ -125,7 +125,8 @@ instance Core.AWSRequest UpdateUsageLimit where
 
 instance Prelude.Hashable UpdateUsageLimit where
   hashWithSalt _salt UpdateUsageLimit' {..} =
-    _salt `Prelude.hashWithSalt` amount
+    _salt
+      `Prelude.hashWithSalt` amount
       `Prelude.hashWithSalt` breachAction
       `Prelude.hashWithSalt` usageLimitId
 

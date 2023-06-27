@@ -131,22 +131,22 @@ instance Core.AWSPager ListTableRestoreStatus where
     | Core.stop
         ( rs
             Lens.^? listTableRestoreStatusResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTableRestoreStatusResponse_tableRestoreStatuses
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTableRestoreStatus_nextToken
           Lens..~ rs
           Lens.^? listTableRestoreStatusResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTableRestoreStatus where
   type
@@ -159,7 +159,8 @@ instance Core.AWSRequest ListTableRestoreStatus where
       ( \s h x ->
           ListTableRestoreStatusResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "tableRestoreStatuses"
+            Prelude.<*> ( x
+                            Data..?> "tableRestoreStatuses"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -167,7 +168,8 @@ instance Core.AWSRequest ListTableRestoreStatus where
 
 instance Prelude.Hashable ListTableRestoreStatus where
   hashWithSalt _salt ListTableRestoreStatus' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` namespaceName
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workgroupName

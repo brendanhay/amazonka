@@ -34,9 +34,13 @@ data Workgroup = Workgroup'
   { -- | The base data warehouse capacity of the workgroup in Redshift Processing
     -- Units (RPUs).
     baseCapacity :: Prelude.Maybe Prelude.Int,
-    -- | An array of parameters to set for finer control over a database. The
-    -- options are @datestyle@, @enable_user_activity_logging@, @query_group@,
-    -- @search_path@, and @max_query_execution_time@.
+    -- | An array of parameters to set for advanced control over a database. The
+    -- options are @auto_mv@, @datestyle@,
+    -- @enable_case_sensitivity_identifier@, @enable_user_activity_logging@,
+    -- @query_group@, , @search_path@, and query monitoring metrics that let
+    -- you define performance boundaries. For more information about query
+    -- monitoring rules and available metrics, see
+    -- <https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless Query monitoring metrics for Amazon Redshift Serverless>.
     configParameters :: Prelude.Maybe [ConfigParameter],
     -- | The creation date of the workgroup.
     creationDate :: Prelude.Maybe Data.ISO8601,
@@ -80,9 +84,13 @@ data Workgroup = Workgroup'
 -- 'baseCapacity', 'workgroup_baseCapacity' - The base data warehouse capacity of the workgroup in Redshift Processing
 -- Units (RPUs).
 --
--- 'configParameters', 'workgroup_configParameters' - An array of parameters to set for finer control over a database. The
--- options are @datestyle@, @enable_user_activity_logging@, @query_group@,
--- @search_path@, and @max_query_execution_time@.
+-- 'configParameters', 'workgroup_configParameters' - An array of parameters to set for advanced control over a database. The
+-- options are @auto_mv@, @datestyle@,
+-- @enable_case_sensitivity_identifier@, @enable_user_activity_logging@,
+-- @query_group@, , @search_path@, and query monitoring metrics that let
+-- you define performance boundaries. For more information about query
+-- monitoring rules and available metrics, see
+-- <https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless Query monitoring metrics for Amazon Redshift Serverless>.
 --
 -- 'creationDate', 'workgroup_creationDate' - The creation date of the workgroup.
 --
@@ -136,9 +144,13 @@ newWorkgroup =
 workgroup_baseCapacity :: Lens.Lens' Workgroup (Prelude.Maybe Prelude.Int)
 workgroup_baseCapacity = Lens.lens (\Workgroup' {baseCapacity} -> baseCapacity) (\s@Workgroup' {} a -> s {baseCapacity = a} :: Workgroup)
 
--- | An array of parameters to set for finer control over a database. The
--- options are @datestyle@, @enable_user_activity_logging@, @query_group@,
--- @search_path@, and @max_query_execution_time@.
+-- | An array of parameters to set for advanced control over a database. The
+-- options are @auto_mv@, @datestyle@,
+-- @enable_case_sensitivity_identifier@, @enable_user_activity_logging@,
+-- @query_group@, , @search_path@, and query monitoring metrics that let
+-- you define performance boundaries. For more information about query
+-- monitoring rules and available metrics, see
+-- <https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless Query monitoring metrics for Amazon Redshift Serverless>.
 workgroup_configParameters :: Lens.Lens' Workgroup (Prelude.Maybe [ConfigParameter])
 workgroup_configParameters = Lens.lens (\Workgroup' {configParameters} -> configParameters) (\s@Workgroup' {} a -> s {configParameters = a} :: Workgroup) Prelude.. Lens.mapping Lens.coerced
 
@@ -201,7 +213,8 @@ instance Data.FromJSON Workgroup where
       ( \x ->
           Workgroup'
             Prelude.<$> (x Data..:? "baseCapacity")
-            Prelude.<*> ( x Data..:? "configParameters"
+            Prelude.<*> ( x
+                            Data..:? "configParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "creationDate")
@@ -210,7 +223,8 @@ instance Data.FromJSON Workgroup where
             Prelude.<*> (x Data..:? "namespaceName")
             Prelude.<*> (x Data..:? "port")
             Prelude.<*> (x Data..:? "publiclyAccessible")
-            Prelude.<*> ( x Data..:? "securityGroupIds"
+            Prelude.<*> ( x
+                            Data..:? "securityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "status")
@@ -222,7 +236,8 @@ instance Data.FromJSON Workgroup where
 
 instance Prelude.Hashable Workgroup where
   hashWithSalt _salt Workgroup' {..} =
-    _salt `Prelude.hashWithSalt` baseCapacity
+    _salt
+      `Prelude.hashWithSalt` baseCapacity
       `Prelude.hashWithSalt` configParameters
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` endpoint

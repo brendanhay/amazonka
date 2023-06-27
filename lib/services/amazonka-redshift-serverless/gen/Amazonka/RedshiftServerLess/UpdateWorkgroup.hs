@@ -20,7 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a workgroup with the specified configuration settings.
+-- Updates a workgroup with the specified configuration settings. You
+-- can\'t update multiple parameters in one request. For example, you can
+-- update @baseCapacity@ or @port@ in a single request, but you can\'t
+-- update both in the same request.
 module Amazonka.RedshiftServerLess.UpdateWorkgroup
   ( -- * Creating a Request
     UpdateWorkgroup (..),
@@ -60,8 +63,12 @@ data UpdateWorkgroup = UpdateWorkgroup'
     -- (RPUs).
     baseCapacity :: Prelude.Maybe Prelude.Int,
     -- | An array of parameters to set for advanced control over a database. The
-    -- options are @datestyle@, @enable_user_activity_logging@, @query_group@,
-    -- @search_path@, and @max_query_execution_time@.
+    -- options are @auto_mv@, @datestyle@,
+    -- @enable_case_sensitivity_identifier@, @enable_user_activity_logging@,
+    -- @query_group@, @search_path@, and query monitoring metrics that let you
+    -- define performance boundaries. For more information about query
+    -- monitoring rules and available metrics, see
+    -- <https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless Query monitoring metrics for Amazon Redshift Serverless>.
     configParameters :: Prelude.Maybe [ConfigParameter],
     -- | The value that specifies whether to turn on enhanced virtual private
     -- cloud (VPC) routing, which forces Amazon Redshift Serverless to route
@@ -77,7 +84,8 @@ data UpdateWorkgroup = UpdateWorkgroup'
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | An array of VPC subnet IDs to associate with the workgroup.
     subnetIds :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the workgroup to update.
+    -- | The name of the workgroup to update. You can\'t update the name of a
+    -- workgroup once it is created.
     workgroupName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -94,8 +102,12 @@ data UpdateWorkgroup = UpdateWorkgroup'
 -- (RPUs).
 --
 -- 'configParameters', 'updateWorkgroup_configParameters' - An array of parameters to set for advanced control over a database. The
--- options are @datestyle@, @enable_user_activity_logging@, @query_group@,
--- @search_path@, and @max_query_execution_time@.
+-- options are @auto_mv@, @datestyle@,
+-- @enable_case_sensitivity_identifier@, @enable_user_activity_logging@,
+-- @query_group@, @search_path@, and query monitoring metrics that let you
+-- define performance boundaries. For more information about query
+-- monitoring rules and available metrics, see
+-- <https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless Query monitoring metrics for Amazon Redshift Serverless>.
 --
 -- 'enhancedVpcRouting', 'updateWorkgroup_enhancedVpcRouting' - The value that specifies whether to turn on enhanced virtual private
 -- cloud (VPC) routing, which forces Amazon Redshift Serverless to route
@@ -111,7 +123,8 @@ data UpdateWorkgroup = UpdateWorkgroup'
 --
 -- 'subnetIds', 'updateWorkgroup_subnetIds' - An array of VPC subnet IDs to associate with the workgroup.
 --
--- 'workgroupName', 'updateWorkgroup_workgroupName' - The name of the workgroup to update.
+-- 'workgroupName', 'updateWorkgroup_workgroupName' - The name of the workgroup to update. You can\'t update the name of a
+-- workgroup once it is created.
 newUpdateWorkgroup ::
   -- | 'workgroupName'
   Prelude.Text ->
@@ -134,8 +147,12 @@ updateWorkgroup_baseCapacity :: Lens.Lens' UpdateWorkgroup (Prelude.Maybe Prelud
 updateWorkgroup_baseCapacity = Lens.lens (\UpdateWorkgroup' {baseCapacity} -> baseCapacity) (\s@UpdateWorkgroup' {} a -> s {baseCapacity = a} :: UpdateWorkgroup)
 
 -- | An array of parameters to set for advanced control over a database. The
--- options are @datestyle@, @enable_user_activity_logging@, @query_group@,
--- @search_path@, and @max_query_execution_time@.
+-- options are @auto_mv@, @datestyle@,
+-- @enable_case_sensitivity_identifier@, @enable_user_activity_logging@,
+-- @query_group@, @search_path@, and query monitoring metrics that let you
+-- define performance boundaries. For more information about query
+-- monitoring rules and available metrics, see
+-- <https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless Query monitoring metrics for Amazon Redshift Serverless>.
 updateWorkgroup_configParameters :: Lens.Lens' UpdateWorkgroup (Prelude.Maybe [ConfigParameter])
 updateWorkgroup_configParameters = Lens.lens (\UpdateWorkgroup' {configParameters} -> configParameters) (\s@UpdateWorkgroup' {} a -> s {configParameters = a} :: UpdateWorkgroup) Prelude.. Lens.mapping Lens.coerced
 
@@ -163,7 +180,8 @@ updateWorkgroup_securityGroupIds = Lens.lens (\UpdateWorkgroup' {securityGroupId
 updateWorkgroup_subnetIds :: Lens.Lens' UpdateWorkgroup (Prelude.Maybe [Prelude.Text])
 updateWorkgroup_subnetIds = Lens.lens (\UpdateWorkgroup' {subnetIds} -> subnetIds) (\s@UpdateWorkgroup' {} a -> s {subnetIds = a} :: UpdateWorkgroup) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the workgroup to update.
+-- | The name of the workgroup to update. You can\'t update the name of a
+-- workgroup once it is created.
 updateWorkgroup_workgroupName :: Lens.Lens' UpdateWorkgroup Prelude.Text
 updateWorkgroup_workgroupName = Lens.lens (\UpdateWorkgroup' {workgroupName} -> workgroupName) (\s@UpdateWorkgroup' {} a -> s {workgroupName = a} :: UpdateWorkgroup)
 
@@ -183,7 +201,8 @@ instance Core.AWSRequest UpdateWorkgroup where
 
 instance Prelude.Hashable UpdateWorkgroup where
   hashWithSalt _salt UpdateWorkgroup' {..} =
-    _salt `Prelude.hashWithSalt` baseCapacity
+    _salt
+      `Prelude.hashWithSalt` baseCapacity
       `Prelude.hashWithSalt` configParameters
       `Prelude.hashWithSalt` enhancedVpcRouting
       `Prelude.hashWithSalt` port

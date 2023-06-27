@@ -82,7 +82,8 @@ instance Data.FromJSON VpcEndpoint where
       "VpcEndpoint"
       ( \x ->
           VpcEndpoint'
-            Prelude.<$> ( x Data..:? "networkInterfaces"
+            Prelude.<$> ( x
+                            Data..:? "networkInterfaces"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "vpcEndpointId")
@@ -91,7 +92,8 @@ instance Data.FromJSON VpcEndpoint where
 
 instance Prelude.Hashable VpcEndpoint where
   hashWithSalt _salt VpcEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` networkInterfaces
+    _salt
+      `Prelude.hashWithSalt` networkInterfaces
       `Prelude.hashWithSalt` vpcEndpointId
       `Prelude.hashWithSalt` vpcId
 

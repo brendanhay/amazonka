@@ -32,10 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newManagedScalingPolicy' smart constructor.
 data ManagedScalingPolicy = ManagedScalingPolicy'
-  { -- | The EC2 unit limits for a managed scaling policy. The managed scaling
-    -- activity of a cluster is not allowed to go above or below these limits.
-    -- The limit only applies to the core and task nodes. The master node
-    -- cannot be scaled after initial configuration.
+  { -- | The Amazon EC2 unit limits for a managed scaling policy. The managed
+    -- scaling activity of a cluster is not allowed to go above or below these
+    -- limits. The limit only applies to the core and task nodes. The master
+    -- node cannot be scaled after initial configuration.
     computeLimits :: Prelude.Maybe ComputeLimits
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,10 +48,10 @@ data ManagedScalingPolicy = ManagedScalingPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'computeLimits', 'managedScalingPolicy_computeLimits' - The EC2 unit limits for a managed scaling policy. The managed scaling
--- activity of a cluster is not allowed to go above or below these limits.
--- The limit only applies to the core and task nodes. The master node
--- cannot be scaled after initial configuration.
+-- 'computeLimits', 'managedScalingPolicy_computeLimits' - The Amazon EC2 unit limits for a managed scaling policy. The managed
+-- scaling activity of a cluster is not allowed to go above or below these
+-- limits. The limit only applies to the core and task nodes. The master
+-- node cannot be scaled after initial configuration.
 newManagedScalingPolicy ::
   ManagedScalingPolicy
 newManagedScalingPolicy =
@@ -60,10 +60,10 @@ newManagedScalingPolicy =
         Prelude.Nothing
     }
 
--- | The EC2 unit limits for a managed scaling policy. The managed scaling
--- activity of a cluster is not allowed to go above or below these limits.
--- The limit only applies to the core and task nodes. The master node
--- cannot be scaled after initial configuration.
+-- | The Amazon EC2 unit limits for a managed scaling policy. The managed
+-- scaling activity of a cluster is not allowed to go above or below these
+-- limits. The limit only applies to the core and task nodes. The master
+-- node cannot be scaled after initial configuration.
 managedScalingPolicy_computeLimits :: Lens.Lens' ManagedScalingPolicy (Prelude.Maybe ComputeLimits)
 managedScalingPolicy_computeLimits = Lens.lens (\ManagedScalingPolicy' {computeLimits} -> computeLimits) (\s@ManagedScalingPolicy' {} a -> s {computeLimits = a} :: ManagedScalingPolicy)
 

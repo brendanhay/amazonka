@@ -79,7 +79,7 @@ data CreateStudioSessionMapping = CreateStudioSessionMapping'
     -- applied to the user or group. You should specify the ARN for the session
     -- policy that you want to apply, not the ARN of your user role. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html Create an EMR Studio User Role with Session Policies>.
+    -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html Create an Amazon EMR Studio User Role with Session Policies>.
     sessionPolicyArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -117,7 +117,7 @@ data CreateStudioSessionMapping = CreateStudioSessionMapping'
 -- applied to the user or group. You should specify the ARN for the session
 -- policy that you want to apply, not the ARN of your user role. For more
 -- information, see
--- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html Create an EMR Studio User Role with Session Policies>.
+-- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html Create an Amazon EMR Studio User Role with Session Policies>.
 newCreateStudioSessionMapping ::
   -- | 'studioId'
   Prelude.Text ->
@@ -172,7 +172,7 @@ createStudioSessionMapping_identityType = Lens.lens (\CreateStudioSessionMapping
 -- applied to the user or group. You should specify the ARN for the session
 -- policy that you want to apply, not the ARN of your user role. For more
 -- information, see
--- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html Create an EMR Studio User Role with Session Policies>.
+-- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html Create an Amazon EMR Studio User Role with Session Policies>.
 createStudioSessionMapping_sessionPolicyArn :: Lens.Lens' CreateStudioSessionMapping Prelude.Text
 createStudioSessionMapping_sessionPolicyArn = Lens.lens (\CreateStudioSessionMapping' {sessionPolicyArn} -> sessionPolicyArn) (\s@CreateStudioSessionMapping' {} a -> s {sessionPolicyArn = a} :: CreateStudioSessionMapping)
 
@@ -188,7 +188,8 @@ instance Core.AWSRequest CreateStudioSessionMapping where
 
 instance Prelude.Hashable CreateStudioSessionMapping where
   hashWithSalt _salt CreateStudioSessionMapping' {..} =
-    _salt `Prelude.hashWithSalt` identityId
+    _salt
+      `Prelude.hashWithSalt` identityId
       `Prelude.hashWithSalt` identityName
       `Prelude.hashWithSalt` studioId
       `Prelude.hashWithSalt` identityType

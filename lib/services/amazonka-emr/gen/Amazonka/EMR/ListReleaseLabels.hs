@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves release labels of EMR services in the region where the API is
--- called.
+-- Retrieves release labels of Amazon EMR services in the Region where the
+-- API is called.
 module Amazonka.EMR.ListReleaseLabels
   ( -- * Creating a Request
     ListReleaseLabels (..),
@@ -140,7 +140,8 @@ instance Core.AWSRequest ListReleaseLabels where
 
 instance Prelude.Hashable ListReleaseLabels where
   hashWithSalt _salt ListReleaseLabels' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

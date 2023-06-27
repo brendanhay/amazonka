@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.NotebookExecutionStatus
+import Amazonka.EMR.Types.NotebookS3LocationForOutput
 import qualified Amazonka.Prelude as Prelude
 
 -- | Details for a notebook execution. The details include information such
@@ -35,10 +36,14 @@ data NotebookExecutionSummary = NotebookExecutionSummary'
     editorId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when notebook execution started.
     endTime :: Prelude.Maybe Data.POSIX,
+    -- | The unique ID of the execution engine for the notebook execution.
+    executionEngineId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the notebook execution.
     notebookExecutionId :: Prelude.Maybe Prelude.Text,
     -- | The name of the notebook execution.
     notebookExecutionName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 location that stores the notebook execution input.
+    notebookS3Location :: Prelude.Maybe NotebookS3LocationForOutput,
     -- | The timestamp when notebook execution started.
     startTime :: Prelude.Maybe Data.POSIX,
     -- | The status of the notebook execution.
@@ -86,9 +91,13 @@ data NotebookExecutionSummary = NotebookExecutionSummary'
 --
 -- 'endTime', 'notebookExecutionSummary_endTime' - The timestamp when notebook execution started.
 --
+-- 'executionEngineId', 'notebookExecutionSummary_executionEngineId' - The unique ID of the execution engine for the notebook execution.
+--
 -- 'notebookExecutionId', 'notebookExecutionSummary_notebookExecutionId' - The unique identifier of the notebook execution.
 --
 -- 'notebookExecutionName', 'notebookExecutionSummary_notebookExecutionName' - The name of the notebook execution.
+--
+-- 'notebookS3Location', 'notebookExecutionSummary_notebookS3Location' - The Amazon S3 location that stores the notebook execution input.
 --
 -- 'startTime', 'notebookExecutionSummary_startTime' - The timestamp when notebook execution started.
 --
@@ -127,8 +136,10 @@ newNotebookExecutionSummary =
     { editorId =
         Prelude.Nothing,
       endTime = Prelude.Nothing,
+      executionEngineId = Prelude.Nothing,
       notebookExecutionId = Prelude.Nothing,
       notebookExecutionName = Prelude.Nothing,
+      notebookS3Location = Prelude.Nothing,
       startTime = Prelude.Nothing,
       status = Prelude.Nothing
     }
@@ -142,6 +153,10 @@ notebookExecutionSummary_editorId = Lens.lens (\NotebookExecutionSummary' {edito
 notebookExecutionSummary_endTime :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe Prelude.UTCTime)
 notebookExecutionSummary_endTime = Lens.lens (\NotebookExecutionSummary' {endTime} -> endTime) (\s@NotebookExecutionSummary' {} a -> s {endTime = a} :: NotebookExecutionSummary) Prelude.. Lens.mapping Data._Time
 
+-- | The unique ID of the execution engine for the notebook execution.
+notebookExecutionSummary_executionEngineId :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe Prelude.Text)
+notebookExecutionSummary_executionEngineId = Lens.lens (\NotebookExecutionSummary' {executionEngineId} -> executionEngineId) (\s@NotebookExecutionSummary' {} a -> s {executionEngineId = a} :: NotebookExecutionSummary)
+
 -- | The unique identifier of the notebook execution.
 notebookExecutionSummary_notebookExecutionId :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe Prelude.Text)
 notebookExecutionSummary_notebookExecutionId = Lens.lens (\NotebookExecutionSummary' {notebookExecutionId} -> notebookExecutionId) (\s@NotebookExecutionSummary' {} a -> s {notebookExecutionId = a} :: NotebookExecutionSummary)
@@ -149,6 +164,10 @@ notebookExecutionSummary_notebookExecutionId = Lens.lens (\NotebookExecutionSumm
 -- | The name of the notebook execution.
 notebookExecutionSummary_notebookExecutionName :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe Prelude.Text)
 notebookExecutionSummary_notebookExecutionName = Lens.lens (\NotebookExecutionSummary' {notebookExecutionName} -> notebookExecutionName) (\s@NotebookExecutionSummary' {} a -> s {notebookExecutionName = a} :: NotebookExecutionSummary)
+
+-- | The Amazon S3 location that stores the notebook execution input.
+notebookExecutionSummary_notebookS3Location :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe NotebookS3LocationForOutput)
+notebookExecutionSummary_notebookS3Location = Lens.lens (\NotebookExecutionSummary' {notebookS3Location} -> notebookS3Location) (\s@NotebookExecutionSummary' {} a -> s {notebookS3Location = a} :: NotebookExecutionSummary)
 
 -- | The timestamp when notebook execution started.
 notebookExecutionSummary_startTime :: Lens.Lens' NotebookExecutionSummary (Prelude.Maybe Prelude.UTCTime)
@@ -193,18 +212,23 @@ instance Data.FromJSON NotebookExecutionSummary where
           NotebookExecutionSummary'
             Prelude.<$> (x Data..:? "EditorId")
             Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "ExecutionEngineId")
             Prelude.<*> (x Data..:? "NotebookExecutionId")
             Prelude.<*> (x Data..:? "NotebookExecutionName")
+            Prelude.<*> (x Data..:? "NotebookS3Location")
             Prelude.<*> (x Data..:? "StartTime")
             Prelude.<*> (x Data..:? "Status")
       )
 
 instance Prelude.Hashable NotebookExecutionSummary where
   hashWithSalt _salt NotebookExecutionSummary' {..} =
-    _salt `Prelude.hashWithSalt` editorId
+    _salt
+      `Prelude.hashWithSalt` editorId
       `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` executionEngineId
       `Prelude.hashWithSalt` notebookExecutionId
       `Prelude.hashWithSalt` notebookExecutionName
+      `Prelude.hashWithSalt` notebookS3Location
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` status
 
@@ -212,7 +236,9 @@ instance Prelude.NFData NotebookExecutionSummary where
   rnf NotebookExecutionSummary' {..} =
     Prelude.rnf editorId
       `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf executionEngineId
       `Prelude.seq` Prelude.rnf notebookExecutionId
       `Prelude.seq` Prelude.rnf notebookExecutionName
+      `Prelude.seq` Prelude.rnf notebookS3Location
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf status

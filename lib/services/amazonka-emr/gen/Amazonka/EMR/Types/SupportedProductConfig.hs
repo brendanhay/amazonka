@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The list of supported product configurations that allow user-supplied
--- arguments. EMR accepts these arguments and forwards them to the
+-- arguments. Amazon EMR accepts these arguments and forwards them to the
 -- corresponding installation script as bootstrap action arguments.
 --
 -- /See:/ 'newSupportedProductConfig' smart constructor.
@@ -66,7 +66,8 @@ supportedProductConfig_name = Lens.lens (\SupportedProductConfig' {name} -> name
 
 instance Prelude.Hashable SupportedProductConfig where
   hashWithSalt _salt SupportedProductConfig' {..} =
-    _salt `Prelude.hashWithSalt` args
+    _salt
+      `Prelude.hashWithSalt` args
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData SupportedProductConfig where

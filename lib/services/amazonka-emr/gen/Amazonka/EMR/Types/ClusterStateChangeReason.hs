@@ -75,7 +75,8 @@ instance Data.FromJSON ClusterStateChangeReason where
 
 instance Prelude.Hashable ClusterStateChangeReason where
   hashWithSalt _salt ClusterStateChangeReason' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ClusterStateChangeReason where

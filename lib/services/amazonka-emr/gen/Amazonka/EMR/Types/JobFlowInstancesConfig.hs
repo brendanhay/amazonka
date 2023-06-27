@@ -40,8 +40,8 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig'
     -- | A list of additional Amazon EC2 security group IDs for the core and task
     -- nodes.
     additionalSlaveSecurityGroups :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the EC2 key pair that can be used to connect to the master
-    -- node using SSH as the user called \"hadoop.\"
+    -- | The name of the Amazon EC2 key pair that can be used to connect to the
+    -- master node using SSH as the user called \"hadoop.\"
     ec2KeyName :: Prelude.Maybe Prelude.Text,
     -- | Applies to clusters that use the uniform instance group configuration.
     -- To launch the cluster in Amazon Virtual Private Cloud (Amazon VPC), set
@@ -50,11 +50,11 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig'
     -- supports EC2-Classic, the cluster launches in EC2-Classic.
     ec2SubnetId :: Prelude.Maybe Prelude.Text,
     -- | Applies to clusters that use the instance fleet configuration. When
-    -- multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and
-    -- launches instances in the optimal subnet.
+    -- multiple Amazon EC2 subnet IDs are specified, Amazon EMR evaluates them
+    -- and launches instances in the optimal subnet.
     --
     -- The instance fleet configuration is available only in Amazon EMR
-    -- versions 4.8.0 and later, excluding 5.0.x versions.
+    -- releases 4.8.0 and later, excluding 5.0.x versions.
     ec2SubnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of the Amazon EC2 security group for the master node. If
     -- you specify @EmrManagedMasterSecurityGroup@, you must also specify
@@ -72,13 +72,13 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig'
     -- set in the RunJobFlow call, in which case the default version of Hadoop
     -- for that AMI version is used.
     hadoopVersion :: Prelude.Maybe Prelude.Text,
-    -- | The number of EC2 instances in the cluster.
+    -- | The number of Amazon EC2 instances in the cluster.
     instanceCount :: Prelude.Maybe Prelude.Int,
     -- | The instance fleet configuration is available only in Amazon EMR
-    -- versions 4.8.0 and later, excluding 5.0.x versions.
+    -- releases 4.8.0 and later, excluding 5.0.x versions.
     --
-    -- Describes the EC2 instances and instance configurations for clusters
-    -- that use the instance fleet configuration.
+    -- Describes the Amazon EC2 instances and instance configurations for
+    -- clusters that use the instance fleet configuration.
     instanceFleets :: Prelude.Maybe [InstanceFleetConfig],
     -- | Configuration for the instance groups in a cluster.
     instanceGroups :: Prelude.Maybe [InstanceGroupConfig],
@@ -88,14 +88,14 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig'
     -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html Control Cluster Termination>
     -- in the /EMR Management Guide/.
     keepJobFlowAliveWhenNoSteps :: Prelude.Maybe Prelude.Bool,
-    -- | The EC2 instance type of the master node.
+    -- | The Amazon EC2 instance type of the master node.
     masterInstanceType :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone in which the cluster runs.
     placement :: Prelude.Maybe PlacementType,
     -- | The identifier of the Amazon EC2 security group for the Amazon EMR
     -- service to access clusters in VPC private subnets.
     serviceAccessSecurityGroup :: Prelude.Maybe Prelude.Text,
-    -- | The EC2 instance type of the core and task nodes.
+    -- | The Amazon EC2 instance type of the core and task nodes.
     slaveInstanceType :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to lock the cluster to prevent the Amazon EC2
     -- instances from being terminated by API call, user intervention, or in
@@ -117,8 +117,8 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig'
 -- 'additionalSlaveSecurityGroups', 'jobFlowInstancesConfig_additionalSlaveSecurityGroups' - A list of additional Amazon EC2 security group IDs for the core and task
 -- nodes.
 --
--- 'ec2KeyName', 'jobFlowInstancesConfig_ec2KeyName' - The name of the EC2 key pair that can be used to connect to the master
--- node using SSH as the user called \"hadoop.\"
+-- 'ec2KeyName', 'jobFlowInstancesConfig_ec2KeyName' - The name of the Amazon EC2 key pair that can be used to connect to the
+-- master node using SSH as the user called \"hadoop.\"
 --
 -- 'ec2SubnetId', 'jobFlowInstancesConfig_ec2SubnetId' - Applies to clusters that use the uniform instance group configuration.
 -- To launch the cluster in Amazon Virtual Private Cloud (Amazon VPC), set
@@ -127,11 +127,11 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig'
 -- supports EC2-Classic, the cluster launches in EC2-Classic.
 --
 -- 'ec2SubnetIds', 'jobFlowInstancesConfig_ec2SubnetIds' - Applies to clusters that use the instance fleet configuration. When
--- multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and
--- launches instances in the optimal subnet.
+-- multiple Amazon EC2 subnet IDs are specified, Amazon EMR evaluates them
+-- and launches instances in the optimal subnet.
 --
 -- The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions.
+-- releases 4.8.0 and later, excluding 5.0.x versions.
 --
 -- 'emrManagedMasterSecurityGroup', 'jobFlowInstancesConfig_emrManagedMasterSecurityGroup' - The identifier of the Amazon EC2 security group for the master node. If
 -- you specify @EmrManagedMasterSecurityGroup@, you must also specify
@@ -149,13 +149,13 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig'
 -- set in the RunJobFlow call, in which case the default version of Hadoop
 -- for that AMI version is used.
 --
--- 'instanceCount', 'jobFlowInstancesConfig_instanceCount' - The number of EC2 instances in the cluster.
+-- 'instanceCount', 'jobFlowInstancesConfig_instanceCount' - The number of Amazon EC2 instances in the cluster.
 --
 -- 'instanceFleets', 'jobFlowInstancesConfig_instanceFleets' - The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions.
+-- releases 4.8.0 and later, excluding 5.0.x versions.
 --
--- Describes the EC2 instances and instance configurations for clusters
--- that use the instance fleet configuration.
+-- Describes the Amazon EC2 instances and instance configurations for
+-- clusters that use the instance fleet configuration.
 --
 -- 'instanceGroups', 'jobFlowInstancesConfig_instanceGroups' - Configuration for the instance groups in a cluster.
 --
@@ -165,14 +165,14 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig'
 -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html Control Cluster Termination>
 -- in the /EMR Management Guide/.
 --
--- 'masterInstanceType', 'jobFlowInstancesConfig_masterInstanceType' - The EC2 instance type of the master node.
+-- 'masterInstanceType', 'jobFlowInstancesConfig_masterInstanceType' - The Amazon EC2 instance type of the master node.
 --
 -- 'placement', 'jobFlowInstancesConfig_placement' - The Availability Zone in which the cluster runs.
 --
 -- 'serviceAccessSecurityGroup', 'jobFlowInstancesConfig_serviceAccessSecurityGroup' - The identifier of the Amazon EC2 security group for the Amazon EMR
 -- service to access clusters in VPC private subnets.
 --
--- 'slaveInstanceType', 'jobFlowInstancesConfig_slaveInstanceType' - The EC2 instance type of the core and task nodes.
+-- 'slaveInstanceType', 'jobFlowInstancesConfig_slaveInstanceType' - The Amazon EC2 instance type of the core and task nodes.
 --
 -- 'terminationProtected', 'jobFlowInstancesConfig_terminationProtected' - Specifies whether to lock the cluster to prevent the Amazon EC2
 -- instances from being terminated by API call, user intervention, or in
@@ -210,8 +210,8 @@ jobFlowInstancesConfig_additionalMasterSecurityGroups = Lens.lens (\JobFlowInsta
 jobFlowInstancesConfig_additionalSlaveSecurityGroups :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe [Prelude.Text])
 jobFlowInstancesConfig_additionalSlaveSecurityGroups = Lens.lens (\JobFlowInstancesConfig' {additionalSlaveSecurityGroups} -> additionalSlaveSecurityGroups) (\s@JobFlowInstancesConfig' {} a -> s {additionalSlaveSecurityGroups = a} :: JobFlowInstancesConfig) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the EC2 key pair that can be used to connect to the master
--- node using SSH as the user called \"hadoop.\"
+-- | The name of the Amazon EC2 key pair that can be used to connect to the
+-- master node using SSH as the user called \"hadoop.\"
 jobFlowInstancesConfig_ec2KeyName :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe Prelude.Text)
 jobFlowInstancesConfig_ec2KeyName = Lens.lens (\JobFlowInstancesConfig' {ec2KeyName} -> ec2KeyName) (\s@JobFlowInstancesConfig' {} a -> s {ec2KeyName = a} :: JobFlowInstancesConfig)
 
@@ -224,11 +224,11 @@ jobFlowInstancesConfig_ec2SubnetId :: Lens.Lens' JobFlowInstancesConfig (Prelude
 jobFlowInstancesConfig_ec2SubnetId = Lens.lens (\JobFlowInstancesConfig' {ec2SubnetId} -> ec2SubnetId) (\s@JobFlowInstancesConfig' {} a -> s {ec2SubnetId = a} :: JobFlowInstancesConfig)
 
 -- | Applies to clusters that use the instance fleet configuration. When
--- multiple EC2 subnet IDs are specified, Amazon EMR evaluates them and
--- launches instances in the optimal subnet.
+-- multiple Amazon EC2 subnet IDs are specified, Amazon EMR evaluates them
+-- and launches instances in the optimal subnet.
 --
 -- The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions.
+-- releases 4.8.0 and later, excluding 5.0.x versions.
 jobFlowInstancesConfig_ec2SubnetIds :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe [Prelude.Text])
 jobFlowInstancesConfig_ec2SubnetIds = Lens.lens (\JobFlowInstancesConfig' {ec2SubnetIds} -> ec2SubnetIds) (\s@JobFlowInstancesConfig' {} a -> s {ec2SubnetIds = a} :: JobFlowInstancesConfig) Prelude.. Lens.mapping Lens.coerced
 
@@ -254,15 +254,15 @@ jobFlowInstancesConfig_emrManagedSlaveSecurityGroup = Lens.lens (\JobFlowInstanc
 jobFlowInstancesConfig_hadoopVersion :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe Prelude.Text)
 jobFlowInstancesConfig_hadoopVersion = Lens.lens (\JobFlowInstancesConfig' {hadoopVersion} -> hadoopVersion) (\s@JobFlowInstancesConfig' {} a -> s {hadoopVersion = a} :: JobFlowInstancesConfig)
 
--- | The number of EC2 instances in the cluster.
+-- | The number of Amazon EC2 instances in the cluster.
 jobFlowInstancesConfig_instanceCount :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe Prelude.Int)
 jobFlowInstancesConfig_instanceCount = Lens.lens (\JobFlowInstancesConfig' {instanceCount} -> instanceCount) (\s@JobFlowInstancesConfig' {} a -> s {instanceCount = a} :: JobFlowInstancesConfig)
 
 -- | The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions.
+-- releases 4.8.0 and later, excluding 5.0.x versions.
 --
--- Describes the EC2 instances and instance configurations for clusters
--- that use the instance fleet configuration.
+-- Describes the Amazon EC2 instances and instance configurations for
+-- clusters that use the instance fleet configuration.
 jobFlowInstancesConfig_instanceFleets :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe [InstanceFleetConfig])
 jobFlowInstancesConfig_instanceFleets = Lens.lens (\JobFlowInstancesConfig' {instanceFleets} -> instanceFleets) (\s@JobFlowInstancesConfig' {} a -> s {instanceFleets = a} :: JobFlowInstancesConfig) Prelude.. Lens.mapping Lens.coerced
 
@@ -278,7 +278,7 @@ jobFlowInstancesConfig_instanceGroups = Lens.lens (\JobFlowInstancesConfig' {ins
 jobFlowInstancesConfig_keepJobFlowAliveWhenNoSteps :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe Prelude.Bool)
 jobFlowInstancesConfig_keepJobFlowAliveWhenNoSteps = Lens.lens (\JobFlowInstancesConfig' {keepJobFlowAliveWhenNoSteps} -> keepJobFlowAliveWhenNoSteps) (\s@JobFlowInstancesConfig' {} a -> s {keepJobFlowAliveWhenNoSteps = a} :: JobFlowInstancesConfig)
 
--- | The EC2 instance type of the master node.
+-- | The Amazon EC2 instance type of the master node.
 jobFlowInstancesConfig_masterInstanceType :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe Prelude.Text)
 jobFlowInstancesConfig_masterInstanceType = Lens.lens (\JobFlowInstancesConfig' {masterInstanceType} -> masterInstanceType) (\s@JobFlowInstancesConfig' {} a -> s {masterInstanceType = a} :: JobFlowInstancesConfig)
 
@@ -291,7 +291,7 @@ jobFlowInstancesConfig_placement = Lens.lens (\JobFlowInstancesConfig' {placemen
 jobFlowInstancesConfig_serviceAccessSecurityGroup :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe Prelude.Text)
 jobFlowInstancesConfig_serviceAccessSecurityGroup = Lens.lens (\JobFlowInstancesConfig' {serviceAccessSecurityGroup} -> serviceAccessSecurityGroup) (\s@JobFlowInstancesConfig' {} a -> s {serviceAccessSecurityGroup = a} :: JobFlowInstancesConfig)
 
--- | The EC2 instance type of the core and task nodes.
+-- | The Amazon EC2 instance type of the core and task nodes.
 jobFlowInstancesConfig_slaveInstanceType :: Lens.Lens' JobFlowInstancesConfig (Prelude.Maybe Prelude.Text)
 jobFlowInstancesConfig_slaveInstanceType = Lens.lens (\JobFlowInstancesConfig' {slaveInstanceType} -> slaveInstanceType) (\s@JobFlowInstancesConfig' {} a -> s {slaveInstanceType = a} :: JobFlowInstancesConfig)
 

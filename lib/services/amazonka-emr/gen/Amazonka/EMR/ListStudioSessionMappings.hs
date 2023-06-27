@@ -110,22 +110,22 @@ instance Core.AWSPager ListStudioSessionMappings where
     | Core.stop
         ( rs
             Lens.^? listStudioSessionMappingsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listStudioSessionMappingsResponse_sessionMappings
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listStudioSessionMappings_marker
           Lens..~ rs
           Lens.^? listStudioSessionMappingsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStudioSessionMappings where
   type
@@ -138,7 +138,8 @@ instance Core.AWSRequest ListStudioSessionMappings where
       ( \s h x ->
           ListStudioSessionMappingsResponse'
             Prelude.<$> (x Data..?> "Marker")
-            Prelude.<*> ( x Data..?> "SessionMappings"
+            Prelude.<*> ( x
+                            Data..?> "SessionMappings"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -146,7 +147,8 @@ instance Core.AWSRequest ListStudioSessionMappings where
 
 instance Prelude.Hashable ListStudioSessionMappings where
   hashWithSalt _salt ListStudioSessionMappings' {..} =
-    _salt `Prelude.hashWithSalt` identityType
+    _salt
+      `Prelude.hashWithSalt` identityType
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` studioId
 

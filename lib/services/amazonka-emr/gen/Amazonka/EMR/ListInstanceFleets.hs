@@ -23,7 +23,7 @@
 -- Lists all available details about the instance fleets in a cluster.
 --
 -- The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions.
+-- releases 4.8.0 and later, excluding 5.0.x versions.
 --
 -- This operation returns paginated results.
 module Amazonka.EMR.ListInstanceFleets
@@ -97,22 +97,22 @@ instance Core.AWSPager ListInstanceFleets where
     | Core.stop
         ( rs
             Lens.^? listInstanceFleetsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listInstanceFleetsResponse_instanceFleets
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listInstanceFleets_marker
           Lens..~ rs
           Lens.^? listInstanceFleetsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInstanceFleets where
   type
@@ -131,7 +131,8 @@ instance Core.AWSRequest ListInstanceFleets where
 
 instance Prelude.Hashable ListInstanceFleets where
   hashWithSalt _salt ListInstanceFleets' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` clusterId
 
 instance Prelude.NFData ListInstanceFleets where

@@ -25,13 +25,18 @@ import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.ClusterState
 import Amazonka.EMR.Types.ClusterStateChangeReason
 import Amazonka.EMR.Types.ClusterTimeline
+import Amazonka.EMR.Types.ErrorDetail
 import qualified Amazonka.Prelude as Prelude
 
 -- | The detailed status of the cluster.
 --
 -- /See:/ 'newClusterStatus' smart constructor.
 data ClusterStatus = ClusterStatus'
-  { -- | The current state of the cluster.
+  { -- | A list of tuples that provides information about the errors that caused
+    -- a cluster to terminate. This structure can contain up to 10 different
+    -- @ErrorDetail@ tuples.
+    errorDetails :: Prelude.Maybe [ErrorDetail],
+    -- | The current state of the cluster.
     state :: Prelude.Maybe ClusterState,
     -- | The reason for the cluster status change.
     stateChangeReason :: Prelude.Maybe ClusterStateChangeReason,
@@ -49,6 +54,10 @@ data ClusterStatus = ClusterStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorDetails', 'clusterStatus_errorDetails' - A list of tuples that provides information about the errors that caused
+-- a cluster to terminate. This structure can contain up to 10 different
+-- @ErrorDetail@ tuples.
+--
 -- 'state', 'clusterStatus_state' - The current state of the cluster.
 --
 -- 'stateChangeReason', 'clusterStatus_stateChangeReason' - The reason for the cluster status change.
@@ -59,10 +68,17 @@ newClusterStatus ::
   ClusterStatus
 newClusterStatus =
   ClusterStatus'
-    { state = Prelude.Nothing,
+    { errorDetails = Prelude.Nothing,
+      state = Prelude.Nothing,
       stateChangeReason = Prelude.Nothing,
       timeline = Prelude.Nothing
     }
+
+-- | A list of tuples that provides information about the errors that caused
+-- a cluster to terminate. This structure can contain up to 10 different
+-- @ErrorDetail@ tuples.
+clusterStatus_errorDetails :: Lens.Lens' ClusterStatus (Prelude.Maybe [ErrorDetail])
+clusterStatus_errorDetails = Lens.lens (\ClusterStatus' {errorDetails} -> errorDetails) (\s@ClusterStatus' {} a -> s {errorDetails = a} :: ClusterStatus) Prelude.. Lens.mapping Lens.coerced
 
 -- | The current state of the cluster.
 clusterStatus_state :: Lens.Lens' ClusterStatus (Prelude.Maybe ClusterState)
@@ -83,19 +99,23 @@ instance Data.FromJSON ClusterStatus where
       "ClusterStatus"
       ( \x ->
           ClusterStatus'
-            Prelude.<$> (x Data..:? "State")
+            Prelude.<$> (x Data..:? "ErrorDetails" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "State")
             Prelude.<*> (x Data..:? "StateChangeReason")
             Prelude.<*> (x Data..:? "Timeline")
       )
 
 instance Prelude.Hashable ClusterStatus where
   hashWithSalt _salt ClusterStatus' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt
+      `Prelude.hashWithSalt` errorDetails
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` stateChangeReason
       `Prelude.hashWithSalt` timeline
 
 instance Prelude.NFData ClusterStatus where
   rnf ClusterStatus' {..} =
-    Prelude.rnf state
+    Prelude.rnf errorDetails
+      `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf stateChangeReason
       `Prelude.seq` Prelude.rnf timeline

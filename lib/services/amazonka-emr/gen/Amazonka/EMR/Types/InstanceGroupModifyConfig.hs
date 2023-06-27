@@ -33,8 +33,9 @@ import qualified Amazonka.Prelude as Prelude
 data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
   { -- | A list of new or modified configurations to apply for an instance group.
     configurations :: Prelude.Maybe [Configuration],
-    -- | The EC2 InstanceIds to terminate. After you terminate the instances, the
-    -- instance group will not return to its original requested size.
+    -- | The Amazon EC2 InstanceIds to terminate. After you terminate the
+    -- instances, the instance group will not return to its original requested
+    -- size.
     eC2InstanceIdsToTerminate :: Prelude.Maybe [Prelude.Text],
     -- | Target size for the instance group.
     instanceCount :: Prelude.Maybe Prelude.Int,
@@ -57,8 +58,9 @@ data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
 --
 -- 'configurations', 'instanceGroupModifyConfig_configurations' - A list of new or modified configurations to apply for an instance group.
 --
--- 'eC2InstanceIdsToTerminate', 'instanceGroupModifyConfig_eC2InstanceIdsToTerminate' - The EC2 InstanceIds to terminate. After you terminate the instances, the
--- instance group will not return to its original requested size.
+-- 'eC2InstanceIdsToTerminate', 'instanceGroupModifyConfig_eC2InstanceIdsToTerminate' - The Amazon EC2 InstanceIds to terminate. After you terminate the
+-- instances, the instance group will not return to its original requested
+-- size.
 --
 -- 'instanceCount', 'instanceGroupModifyConfig_instanceCount' - Target size for the instance group.
 --
@@ -86,8 +88,9 @@ newInstanceGroupModifyConfig pInstanceGroupId_ =
 instanceGroupModifyConfig_configurations :: Lens.Lens' InstanceGroupModifyConfig (Prelude.Maybe [Configuration])
 instanceGroupModifyConfig_configurations = Lens.lens (\InstanceGroupModifyConfig' {configurations} -> configurations) (\s@InstanceGroupModifyConfig' {} a -> s {configurations = a} :: InstanceGroupModifyConfig) Prelude.. Lens.mapping Lens.coerced
 
--- | The EC2 InstanceIds to terminate. After you terminate the instances, the
--- instance group will not return to its original requested size.
+-- | The Amazon EC2 InstanceIds to terminate. After you terminate the
+-- instances, the instance group will not return to its original requested
+-- size.
 instanceGroupModifyConfig_eC2InstanceIdsToTerminate :: Lens.Lens' InstanceGroupModifyConfig (Prelude.Maybe [Prelude.Text])
 instanceGroupModifyConfig_eC2InstanceIdsToTerminate = Lens.lens (\InstanceGroupModifyConfig' {eC2InstanceIdsToTerminate} -> eC2InstanceIdsToTerminate) (\s@InstanceGroupModifyConfig' {} a -> s {eC2InstanceIdsToTerminate = a} :: InstanceGroupModifyConfig) Prelude.. Lens.mapping Lens.coerced
 
@@ -109,7 +112,8 @@ instanceGroupModifyConfig_instanceGroupId = Lens.lens (\InstanceGroupModifyConfi
 
 instance Prelude.Hashable InstanceGroupModifyConfig where
   hashWithSalt _salt InstanceGroupModifyConfig' {..} =
-    _salt `Prelude.hashWithSalt` configurations
+    _salt
+      `Prelude.hashWithSalt` configurations
       `Prelude.hashWithSalt` eC2InstanceIdsToTerminate
       `Prelude.hashWithSalt` instanceCount
       `Prelude.hashWithSalt` reconfigurationType

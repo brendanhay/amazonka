@@ -28,14 +28,15 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | An automatic scaling policy for a core instance group or task instance
 -- group in an Amazon EMR cluster. An automatic scaling policy defines how
--- an instance group dynamically adds and terminates EC2 instances in
--- response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
+-- an instance group dynamically adds and terminates Amazon EC2 instances
+-- in response to the value of a CloudWatch metric. See
+-- PutAutoScalingPolicy.
 --
 -- /See:/ 'newAutoScalingPolicy' smart constructor.
 data AutoScalingPolicy = AutoScalingPolicy'
-  { -- | The upper and lower EC2 instance limits for an automatic scaling policy.
-    -- Automatic scaling activity will not cause an instance group to grow
-    -- above or below these limits.
+  { -- | The upper and lower Amazon EC2 instance limits for an automatic scaling
+    -- policy. Automatic scaling activity will not cause an instance group to
+    -- grow above or below these limits.
     constraints :: ScalingConstraints,
     -- | The scale-in and scale-out rules that comprise the automatic scaling
     -- policy.
@@ -51,9 +52,9 @@ data AutoScalingPolicy = AutoScalingPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'constraints', 'autoScalingPolicy_constraints' - The upper and lower EC2 instance limits for an automatic scaling policy.
--- Automatic scaling activity will not cause an instance group to grow
--- above or below these limits.
+-- 'constraints', 'autoScalingPolicy_constraints' - The upper and lower Amazon EC2 instance limits for an automatic scaling
+-- policy. Automatic scaling activity will not cause an instance group to
+-- grow above or below these limits.
 --
 -- 'rules', 'autoScalingPolicy_rules' - The scale-in and scale-out rules that comprise the automatic scaling
 -- policy.
@@ -67,9 +68,9 @@ newAutoScalingPolicy pConstraints_ =
       rules = Prelude.mempty
     }
 
--- | The upper and lower EC2 instance limits for an automatic scaling policy.
--- Automatic scaling activity will not cause an instance group to grow
--- above or below these limits.
+-- | The upper and lower Amazon EC2 instance limits for an automatic scaling
+-- policy. Automatic scaling activity will not cause an instance group to
+-- grow above or below these limits.
 autoScalingPolicy_constraints :: Lens.Lens' AutoScalingPolicy ScalingConstraints
 autoScalingPolicy_constraints = Lens.lens (\AutoScalingPolicy' {constraints} -> constraints) (\s@AutoScalingPolicy' {} a -> s {constraints = a} :: AutoScalingPolicy)
 
@@ -80,7 +81,8 @@ autoScalingPolicy_rules = Lens.lens (\AutoScalingPolicy' {rules} -> rules) (\s@A
 
 instance Prelude.Hashable AutoScalingPolicy where
   hashWithSalt _salt AutoScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` constraints
+    _salt
+      `Prelude.hashWithSalt` constraints
       `Prelude.hashWithSalt` rules
 
 instance Prelude.NFData AutoScalingPolicy where

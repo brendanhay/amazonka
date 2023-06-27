@@ -34,7 +34,7 @@ data EbsBlockDevice = EbsBlockDevice'
     device :: Prelude.Maybe Prelude.Text,
     -- | EBS volume specifications such as volume type, IOPS, size (GiB) and
     -- throughput (MiB\/s) that are requested for the EBS volume attached to an
-    -- EC2 instance in the cluster.
+    -- Amazon EC2 instance in the cluster.
     volumeSpecification :: Prelude.Maybe VolumeSpecification
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,7 +51,7 @@ data EbsBlockDevice = EbsBlockDevice'
 --
 -- 'volumeSpecification', 'ebsBlockDevice_volumeSpecification' - EBS volume specifications such as volume type, IOPS, size (GiB) and
 -- throughput (MiB\/s) that are requested for the EBS volume attached to an
--- EC2 instance in the cluster.
+-- Amazon EC2 instance in the cluster.
 newEbsBlockDevice ::
   EbsBlockDevice
 newEbsBlockDevice =
@@ -66,7 +66,7 @@ ebsBlockDevice_device = Lens.lens (\EbsBlockDevice' {device} -> device) (\s@EbsB
 
 -- | EBS volume specifications such as volume type, IOPS, size (GiB) and
 -- throughput (MiB\/s) that are requested for the EBS volume attached to an
--- EC2 instance in the cluster.
+-- Amazon EC2 instance in the cluster.
 ebsBlockDevice_volumeSpecification :: Lens.Lens' EbsBlockDevice (Prelude.Maybe VolumeSpecification)
 ebsBlockDevice_volumeSpecification = Lens.lens (\EbsBlockDevice' {volumeSpecification} -> volumeSpecification) (\s@EbsBlockDevice' {} a -> s {volumeSpecification = a} :: EbsBlockDevice)
 
@@ -82,7 +82,8 @@ instance Data.FromJSON EbsBlockDevice where
 
 instance Prelude.Hashable EbsBlockDevice where
   hashWithSalt _salt EbsBlockDevice' {..} =
-    _salt `Prelude.hashWithSalt` device
+    _salt
+      `Prelude.hashWithSalt` device
       `Prelude.hashWithSalt` volumeSpecification
 
 instance Prelude.NFData EbsBlockDevice where

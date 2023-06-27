@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides Temporary, basic HTTP credentials that are associated with a
+-- Provides temporary, HTTP basic credentials that are associated with a
 -- given runtime IAM role and used by a cluster with fine-grained access
 -- control activated. You can use these credentials to connect to cluster
--- endpoints that support username-based and password-based authentication.
+-- endpoints that support username and password authentication.
 module Amazonka.EMR.GetClusterSessionCredentials
   ( -- * Creating a Request
     GetClusterSessionCredentials (..),
@@ -127,7 +127,8 @@ instance
     GetClusterSessionCredentials
   where
   hashWithSalt _salt GetClusterSessionCredentials' {..} =
-    _salt `Prelude.hashWithSalt` clusterId
+    _salt
+      `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` executionRoleArn
 
 instance Prelude.NFData GetClusterSessionCredentials where
@@ -169,7 +170,7 @@ instance Data.ToQuery GetClusterSessionCredentials where
 -- | /See:/ 'newGetClusterSessionCredentialsResponse' smart constructor.
 data GetClusterSessionCredentialsResponse = GetClusterSessionCredentialsResponse'
   { -- | The credentials that you can use to connect to cluster endpoints that
-    -- support username-based and password-based authentication.
+    -- support username and password authentication.
     credentials :: Prelude.Maybe Credentials,
     -- | The time when the credentials that are returned by the
     -- @GetClusterSessionCredentials@ API expire.
@@ -188,7 +189,7 @@ data GetClusterSessionCredentialsResponse = GetClusterSessionCredentialsResponse
 -- for backwards compatibility:
 --
 -- 'credentials', 'getClusterSessionCredentialsResponse_credentials' - The credentials that you can use to connect to cluster endpoints that
--- support username-based and password-based authentication.
+-- support username and password authentication.
 --
 -- 'expiresAt', 'getClusterSessionCredentialsResponse_expiresAt' - The time when the credentials that are returned by the
 -- @GetClusterSessionCredentials@ API expire.
@@ -207,7 +208,7 @@ newGetClusterSessionCredentialsResponse pHttpStatus_ =
     }
 
 -- | The credentials that you can use to connect to cluster endpoints that
--- support username-based and password-based authentication.
+-- support username and password authentication.
 getClusterSessionCredentialsResponse_credentials :: Lens.Lens' GetClusterSessionCredentialsResponse (Prelude.Maybe Credentials)
 getClusterSessionCredentialsResponse_credentials = Lens.lens (\GetClusterSessionCredentialsResponse' {credentials} -> credentials) (\s@GetClusterSessionCredentialsResponse' {} a -> s {credentials = a} :: GetClusterSessionCredentialsResponse)
 

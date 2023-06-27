@@ -78,6 +78,7 @@ library
     Amazonka.EMR.ListSteps
     Amazonka.EMR.ListStudios
     Amazonka.EMR.ListStudioSessionMappings
+    Amazonka.EMR.ListSupportedInstanceTypes
     Amazonka.EMR.ModifyCluster
     Amazonka.EMR.ModifyInstanceFleet
     Amazonka.EMR.ModifyInstanceGroups
@@ -131,6 +132,7 @@ library
     Amazonka.EMR.Types.EbsConfiguration
     Amazonka.EMR.Types.EbsVolume
     Amazonka.EMR.Types.Ec2InstanceAttributes
+    Amazonka.EMR.Types.ErrorDetail
     Amazonka.EMR.Types.ExecutionEngineConfig
     Amazonka.EMR.Types.ExecutionEngineType
     Amazonka.EMR.Types.FailureDetails
@@ -143,6 +145,7 @@ library
     Amazonka.EMR.Types.InstanceFleetConfig
     Amazonka.EMR.Types.InstanceFleetModifyConfig
     Amazonka.EMR.Types.InstanceFleetProvisioningSpecifications
+    Amazonka.EMR.Types.InstanceFleetResizingSpecifications
     Amazonka.EMR.Types.InstanceFleetState
     Amazonka.EMR.Types.InstanceFleetStateChangeReason
     Amazonka.EMR.Types.InstanceFleetStateChangeReasonCode
@@ -176,12 +179,18 @@ library
     Amazonka.EMR.Types.NotebookExecution
     Amazonka.EMR.Types.NotebookExecutionStatus
     Amazonka.EMR.Types.NotebookExecutionSummary
+    Amazonka.EMR.Types.NotebookS3LocationForOutput
+    Amazonka.EMR.Types.NotebookS3LocationFromInput
     Amazonka.EMR.Types.OnDemandCapacityReservationOptions
     Amazonka.EMR.Types.OnDemandCapacityReservationPreference
     Amazonka.EMR.Types.OnDemandCapacityReservationUsageStrategy
     Amazonka.EMR.Types.OnDemandProvisioningAllocationStrategy
     Amazonka.EMR.Types.OnDemandProvisioningSpecification
+    Amazonka.EMR.Types.OnDemandResizingSpecification
     Amazonka.EMR.Types.OSRelease
+    Amazonka.EMR.Types.OutputNotebookFormat
+    Amazonka.EMR.Types.OutputNotebookS3LocationForOutput
+    Amazonka.EMR.Types.OutputNotebookS3LocationFromInput
     Amazonka.EMR.Types.PlacementGroupConfig
     Amazonka.EMR.Types.PlacementGroupStrategy
     Amazonka.EMR.Types.PlacementType
@@ -204,6 +213,7 @@ library
     Amazonka.EMR.Types.SpotProvisioningAllocationStrategy
     Amazonka.EMR.Types.SpotProvisioningSpecification
     Amazonka.EMR.Types.SpotProvisioningTimeoutAction
+    Amazonka.EMR.Types.SpotResizingSpecification
     Amazonka.EMR.Types.Statistic
     Amazonka.EMR.Types.Step
     Amazonka.EMR.Types.StepCancellationOption
@@ -216,6 +226,7 @@ library
     Amazonka.EMR.Types.StepTimeline
     Amazonka.EMR.Types.Studio
     Amazonka.EMR.Types.StudioSummary
+    Amazonka.EMR.Types.SupportedInstanceType
     Amazonka.EMR.Types.SupportedProductConfig
     Amazonka.EMR.Types.Tag
     Amazonka.EMR.Types.Unit

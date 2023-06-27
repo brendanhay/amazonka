@@ -27,10 +27,10 @@ import Amazonka.EMR.Types.ScalingTrigger
 import qualified Amazonka.Prelude as Prelude
 
 -- | A scale-in or scale-out rule that defines scaling activity, including
--- the CloudWatch metric alarm that triggers activity, how EC2 instances
--- are added or removed, and the periodicity of adjustments. The automatic
--- scaling policy for an instance group can comprise one or more automatic
--- scaling rules.
+-- the CloudWatch metric alarm that triggers activity, how Amazon EC2
+-- instances are added or removed, and the periodicity of adjustments. The
+-- automatic scaling policy for an instance group can comprise one or more
+-- automatic scaling rules.
 --
 -- /See:/ 'newScalingRule' smart constructor.
 data ScalingRule = ScalingRule'
@@ -112,7 +112,8 @@ instance Data.FromJSON ScalingRule where
 
 instance Prelude.Hashable ScalingRule where
   hashWithSalt _salt ScalingRule' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` trigger

@@ -30,15 +30,15 @@ import qualified Amazonka.Prelude as Prelude
 -- fleet.
 --
 -- The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions.
+-- releases 4.8.0 and later, excluding 5.0.x versions.
 --
 -- /See:/ 'newInstanceTypeSpecification' smart constructor.
 data InstanceTypeSpecification = InstanceTypeSpecification'
-  { -- | The bid price for each EC2 Spot Instance type as defined by
+  { -- | The bid price for each Amazon EC2 Spot Instance type as defined by
     -- @InstanceType@. Expressed in USD.
     bidPrice :: Prelude.Maybe Prelude.Text,
-    -- | The bid price, as a percentage of On-Demand price, for each EC2 Spot
-    -- Instance as defined by @InstanceType@. Expressed as a number (for
+    -- | The bid price, as a percentage of On-Demand price, for each Amazon EC2
+    -- Spot Instance as defined by @InstanceType@. Expressed as a number (for
     -- example, 20 specifies 20%).
     bidPriceAsPercentageOfOnDemandPrice :: Prelude.Maybe Prelude.Double,
     -- | A configuration classification that applies when provisioning cluster
@@ -52,7 +52,7 @@ data InstanceTypeSpecification = InstanceTypeSpecification'
     ebsBlockDevices :: Prelude.Maybe [EbsBlockDevice],
     -- | Evaluates to @TRUE@ when the specified @InstanceType@ is EBS-optimized.
     ebsOptimized :: Prelude.Maybe Prelude.Bool,
-    -- | The EC2 instance type, for example @m3.xlarge@.
+    -- | The Amazon EC2 instance type, for example @m3.xlarge@.
     instanceType :: Prelude.Maybe Prelude.Text,
     -- | The number of units that a provisioned instance of this type provides
     -- toward fulfilling the target capacities defined in InstanceFleetConfig.
@@ -70,11 +70,11 @@ data InstanceTypeSpecification = InstanceTypeSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bidPrice', 'instanceTypeSpecification_bidPrice' - The bid price for each EC2 Spot Instance type as defined by
+-- 'bidPrice', 'instanceTypeSpecification_bidPrice' - The bid price for each Amazon EC2 Spot Instance type as defined by
 -- @InstanceType@. Expressed in USD.
 --
--- 'bidPriceAsPercentageOfOnDemandPrice', 'instanceTypeSpecification_bidPriceAsPercentageOfOnDemandPrice' - The bid price, as a percentage of On-Demand price, for each EC2 Spot
--- Instance as defined by @InstanceType@. Expressed as a number (for
+-- 'bidPriceAsPercentageOfOnDemandPrice', 'instanceTypeSpecification_bidPriceAsPercentageOfOnDemandPrice' - The bid price, as a percentage of On-Demand price, for each Amazon EC2
+-- Spot Instance as defined by @InstanceType@. Expressed as a number (for
 -- example, 20 specifies 20%).
 --
 -- 'configurations', 'instanceTypeSpecification_configurations' - A configuration classification that applies when provisioning cluster
@@ -88,7 +88,7 @@ data InstanceTypeSpecification = InstanceTypeSpecification'
 --
 -- 'ebsOptimized', 'instanceTypeSpecification_ebsOptimized' - Evaluates to @TRUE@ when the specified @InstanceType@ is EBS-optimized.
 --
--- 'instanceType', 'instanceTypeSpecification_instanceType' - The EC2 instance type, for example @m3.xlarge@.
+-- 'instanceType', 'instanceTypeSpecification_instanceType' - The Amazon EC2 instance type, for example @m3.xlarge@.
 --
 -- 'weightedCapacity', 'instanceTypeSpecification_weightedCapacity' - The number of units that a provisioned instance of this type provides
 -- toward fulfilling the target capacities defined in InstanceFleetConfig.
@@ -110,13 +110,13 @@ newInstanceTypeSpecification =
       weightedCapacity = Prelude.Nothing
     }
 
--- | The bid price for each EC2 Spot Instance type as defined by
+-- | The bid price for each Amazon EC2 Spot Instance type as defined by
 -- @InstanceType@. Expressed in USD.
 instanceTypeSpecification_bidPrice :: Lens.Lens' InstanceTypeSpecification (Prelude.Maybe Prelude.Text)
 instanceTypeSpecification_bidPrice = Lens.lens (\InstanceTypeSpecification' {bidPrice} -> bidPrice) (\s@InstanceTypeSpecification' {} a -> s {bidPrice = a} :: InstanceTypeSpecification)
 
--- | The bid price, as a percentage of On-Demand price, for each EC2 Spot
--- Instance as defined by @InstanceType@. Expressed as a number (for
+-- | The bid price, as a percentage of On-Demand price, for each Amazon EC2
+-- Spot Instance as defined by @InstanceType@. Expressed as a number (for
 -- example, 20 specifies 20%).
 instanceTypeSpecification_bidPriceAsPercentageOfOnDemandPrice :: Lens.Lens' InstanceTypeSpecification (Prelude.Maybe Prelude.Double)
 instanceTypeSpecification_bidPriceAsPercentageOfOnDemandPrice = Lens.lens (\InstanceTypeSpecification' {bidPriceAsPercentageOfOnDemandPrice} -> bidPriceAsPercentageOfOnDemandPrice) (\s@InstanceTypeSpecification' {} a -> s {bidPriceAsPercentageOfOnDemandPrice = a} :: InstanceTypeSpecification)
@@ -140,7 +140,7 @@ instanceTypeSpecification_ebsBlockDevices = Lens.lens (\InstanceTypeSpecificatio
 instanceTypeSpecification_ebsOptimized :: Lens.Lens' InstanceTypeSpecification (Prelude.Maybe Prelude.Bool)
 instanceTypeSpecification_ebsOptimized = Lens.lens (\InstanceTypeSpecification' {ebsOptimized} -> ebsOptimized) (\s@InstanceTypeSpecification' {} a -> s {ebsOptimized = a} :: InstanceTypeSpecification)
 
--- | The EC2 instance type, for example @m3.xlarge@.
+-- | The Amazon EC2 instance type, for example @m3.xlarge@.
 instanceTypeSpecification_instanceType :: Lens.Lens' InstanceTypeSpecification (Prelude.Maybe Prelude.Text)
 instanceTypeSpecification_instanceType = Lens.lens (\InstanceTypeSpecification' {instanceType} -> instanceType) (\s@InstanceTypeSpecification' {} a -> s {instanceType = a} :: InstanceTypeSpecification)
 
@@ -161,7 +161,8 @@ instance Data.FromJSON InstanceTypeSpecification where
             Prelude.<*> (x Data..:? "BidPriceAsPercentageOfOnDemandPrice")
             Prelude.<*> (x Data..:? "Configurations" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "CustomAmiId")
-            Prelude.<*> ( x Data..:? "EbsBlockDevices"
+            Prelude.<*> ( x
+                            Data..:? "EbsBlockDevices"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "EbsOptimized")
@@ -171,7 +172,8 @@ instance Data.FromJSON InstanceTypeSpecification where
 
 instance Prelude.Hashable InstanceTypeSpecification where
   hashWithSalt _salt InstanceTypeSpecification' {..} =
-    _salt `Prelude.hashWithSalt` bidPrice
+    _salt
+      `Prelude.hashWithSalt` bidPrice
       `Prelude.hashWithSalt` bidPriceAsPercentageOfOnDemandPrice
       `Prelude.hashWithSalt` configurations
       `Prelude.hashWithSalt` customAmiId

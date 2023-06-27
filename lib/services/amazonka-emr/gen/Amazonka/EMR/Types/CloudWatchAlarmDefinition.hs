@@ -56,9 +56,9 @@ data CloudWatchAlarmDefinition = CloudWatchAlarmDefinition'
     -- | The name of the CloudWatch metric that is watched to determine an alarm
     -- condition.
     metricName :: Prelude.Text,
-    -- | The period, in seconds, over which the statistic is applied. EMR
-    -- CloudWatch metrics are emitted every five minutes (300 seconds), so if
-    -- an EMR CloudWatch metric is specified, specify @300@.
+    -- | The period, in seconds, over which the statistic is applied. CloudWatch
+    -- metrics for Amazon EMR are emitted every five minutes (300 seconds), so
+    -- if you specify a CloudWatch metric, specify @300@.
     period :: Prelude.Int,
     -- | The value against which the specified statistic is compared.
     threshold :: Prelude.Double
@@ -95,9 +95,9 @@ data CloudWatchAlarmDefinition = CloudWatchAlarmDefinition'
 -- 'metricName', 'cloudWatchAlarmDefinition_metricName' - The name of the CloudWatch metric that is watched to determine an alarm
 -- condition.
 --
--- 'period', 'cloudWatchAlarmDefinition_period' - The period, in seconds, over which the statistic is applied. EMR
--- CloudWatch metrics are emitted every five minutes (300 seconds), so if
--- an EMR CloudWatch metric is specified, specify @300@.
+-- 'period', 'cloudWatchAlarmDefinition_period' - The period, in seconds, over which the statistic is applied. CloudWatch
+-- metrics for Amazon EMR are emitted every five minutes (300 seconds), so
+-- if you specify a CloudWatch metric, specify @300@.
 --
 -- 'threshold', 'cloudWatchAlarmDefinition_threshold' - The value against which the specified statistic is compared.
 newCloudWatchAlarmDefinition ::
@@ -164,9 +164,9 @@ cloudWatchAlarmDefinition_comparisonOperator = Lens.lens (\CloudWatchAlarmDefini
 cloudWatchAlarmDefinition_metricName :: Lens.Lens' CloudWatchAlarmDefinition Prelude.Text
 cloudWatchAlarmDefinition_metricName = Lens.lens (\CloudWatchAlarmDefinition' {metricName} -> metricName) (\s@CloudWatchAlarmDefinition' {} a -> s {metricName = a} :: CloudWatchAlarmDefinition)
 
--- | The period, in seconds, over which the statistic is applied. EMR
--- CloudWatch metrics are emitted every five minutes (300 seconds), so if
--- an EMR CloudWatch metric is specified, specify @300@.
+-- | The period, in seconds, over which the statistic is applied. CloudWatch
+-- metrics for Amazon EMR are emitted every five minutes (300 seconds), so
+-- if you specify a CloudWatch metric, specify @300@.
 cloudWatchAlarmDefinition_period :: Lens.Lens' CloudWatchAlarmDefinition Prelude.Int
 cloudWatchAlarmDefinition_period = Lens.lens (\CloudWatchAlarmDefinition' {period} -> period) (\s@CloudWatchAlarmDefinition' {} a -> s {period = a} :: CloudWatchAlarmDefinition)
 
@@ -193,7 +193,8 @@ instance Data.FromJSON CloudWatchAlarmDefinition where
 
 instance Prelude.Hashable CloudWatchAlarmDefinition where
   hashWithSalt _salt CloudWatchAlarmDefinition' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` evaluationPeriods
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` statistic

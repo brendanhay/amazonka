@@ -22,8 +22,8 @@
 --
 -- Creates or updates an automatic scaling policy for a core instance group
 -- or task instance group in an Amazon EMR cluster. The automatic scaling
--- policy defines how an instance group dynamically adds and terminates EC2
--- instances in response to the value of a CloudWatch metric.
+-- policy defines how an instance group dynamically adds and terminates
+-- Amazon EC2 instances in response to the value of a CloudWatch metric.
 module Amazonka.EMR.PutAutoScalingPolicy
   ( -- * Creating a Request
     PutAutoScalingPolicy (..),
@@ -134,7 +134,8 @@ instance Core.AWSRequest PutAutoScalingPolicy where
 
 instance Prelude.Hashable PutAutoScalingPolicy where
   hashWithSalt _salt PutAutoScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` clusterId
+    _salt
+      `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` instanceGroupId
       `Prelude.hashWithSalt` autoScalingPolicy
 

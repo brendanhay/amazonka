@@ -31,8 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 -- allocation strategy.
 --
 -- The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions. On-Demand and Spot
--- Instance allocation strategies are available in Amazon EMR version
+-- releases 4.8.0 and later, excluding 5.0.x versions. On-Demand and Spot
+-- instance allocation strategies are available in Amazon EMR releases
 -- 5.12.1 and later.
 --
 -- /See:/ 'newInstanceFleetProvisioningSpecifications' smart constructor.
@@ -41,10 +41,11 @@ data InstanceFleetProvisioningSpecifications = InstanceFleetProvisioningSpecific
     -- which determines the allocation strategy.
     --
     -- The instance fleet configuration is available only in Amazon EMR
-    -- versions 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances
-    -- allocation strategy is available in Amazon EMR version 5.12.1 and later.
+    -- releases 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances
+    -- allocation strategy is available in Amazon EMR releases 5.12.1 and
+    -- later.
     onDemandSpecification :: Prelude.Maybe OnDemandProvisioningSpecification,
-    -- | The launch specification for Spot Instances in the fleet, which
+    -- | The launch specification for Spot instances in the fleet, which
     -- determines the defined duration, provisioning timeout behavior, and
     -- allocation strategy.
     spotSpecification :: Prelude.Maybe SpotProvisioningSpecification
@@ -63,10 +64,11 @@ data InstanceFleetProvisioningSpecifications = InstanceFleetProvisioningSpecific
 -- which determines the allocation strategy.
 --
 -- The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances
--- allocation strategy is available in Amazon EMR version 5.12.1 and later.
+-- releases 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances
+-- allocation strategy is available in Amazon EMR releases 5.12.1 and
+-- later.
 --
--- 'spotSpecification', 'instanceFleetProvisioningSpecifications_spotSpecification' - The launch specification for Spot Instances in the fleet, which
+-- 'spotSpecification', 'instanceFleetProvisioningSpecifications_spotSpecification' - The launch specification for Spot instances in the fleet, which
 -- determines the defined duration, provisioning timeout behavior, and
 -- allocation strategy.
 newInstanceFleetProvisioningSpecifications ::
@@ -83,12 +85,13 @@ newInstanceFleetProvisioningSpecifications =
 -- which determines the allocation strategy.
 --
 -- The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances
--- allocation strategy is available in Amazon EMR version 5.12.1 and later.
+-- releases 4.8.0 and later, excluding 5.0.x versions. On-Demand Instances
+-- allocation strategy is available in Amazon EMR releases 5.12.1 and
+-- later.
 instanceFleetProvisioningSpecifications_onDemandSpecification :: Lens.Lens' InstanceFleetProvisioningSpecifications (Prelude.Maybe OnDemandProvisioningSpecification)
 instanceFleetProvisioningSpecifications_onDemandSpecification = Lens.lens (\InstanceFleetProvisioningSpecifications' {onDemandSpecification} -> onDemandSpecification) (\s@InstanceFleetProvisioningSpecifications' {} a -> s {onDemandSpecification = a} :: InstanceFleetProvisioningSpecifications)
 
--- | The launch specification for Spot Instances in the fleet, which
+-- | The launch specification for Spot instances in the fleet, which
 -- determines the defined duration, provisioning timeout behavior, and
 -- allocation strategy.
 instanceFleetProvisioningSpecifications_spotSpecification :: Lens.Lens' InstanceFleetProvisioningSpecifications (Prelude.Maybe SpotProvisioningSpecification)
@@ -114,7 +117,8 @@ instance
   hashWithSalt
     _salt
     InstanceFleetProvisioningSpecifications' {..} =
-      _salt `Prelude.hashWithSalt` onDemandSpecification
+      _salt
+        `Prelude.hashWithSalt` onDemandSpecification
         `Prelude.hashWithSalt` spotSpecification
 
 instance

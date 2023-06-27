@@ -69,7 +69,8 @@ ebsConfiguration_ebsOptimized = Lens.lens (\EbsConfiguration' {ebsOptimized} -> 
 
 instance Prelude.Hashable EbsConfiguration where
   hashWithSalt _salt EbsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` ebsBlockDeviceConfigs
+    _salt
+      `Prelude.hashWithSalt` ebsBlockDeviceConfigs
       `Prelude.hashWithSalt` ebsOptimized
 
 instance Prelude.NFData EbsConfiguration where

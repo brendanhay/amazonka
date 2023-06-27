@@ -24,7 +24,7 @@
 -- based on multiple criteria such as status, time range, and editor id.
 -- Returns a maximum of 50 notebook executions and a marker to track the
 -- paging of a longer notebook execution list across multiple
--- @ListNotebookExecution@ calls.
+-- @ListNotebookExecutions@ calls.
 --
 -- This operation returns paginated results.
 module Amazonka.EMR.ListNotebookExecutions
@@ -34,6 +34,7 @@ module Amazonka.EMR.ListNotebookExecutions
 
     -- * Request Lenses
     listNotebookExecutions_editorId,
+    listNotebookExecutions_executionEngineId,
     listNotebookExecutions_from,
     listNotebookExecutions_marker,
     listNotebookExecutions_status,
@@ -62,6 +63,8 @@ import qualified Amazonka.Response as Response
 data ListNotebookExecutions = ListNotebookExecutions'
   { -- | The unique ID of the editor associated with the notebook execution.
     editorId :: Prelude.Maybe Prelude.Text,
+    -- | The unique ID of the execution engine.
+    executionEngineId :: Prelude.Maybe Prelude.Text,
     -- | The beginning of time range filter for listing notebook executions. The
     -- default is the timestamp of 30 days ago.
     from :: Prelude.Maybe Data.POSIX,
@@ -114,6 +117,8 @@ data ListNotebookExecutions = ListNotebookExecutions'
 --
 -- 'editorId', 'listNotebookExecutions_editorId' - The unique ID of the editor associated with the notebook execution.
 --
+-- 'executionEngineId', 'listNotebookExecutions_executionEngineId' - The unique ID of the execution engine.
+--
 -- 'from', 'listNotebookExecutions_from' - The beginning of time range filter for listing notebook executions. The
 -- default is the timestamp of 30 days ago.
 --
@@ -157,6 +162,7 @@ newListNotebookExecutions ::
 newListNotebookExecutions =
   ListNotebookExecutions'
     { editorId = Prelude.Nothing,
+      executionEngineId = Prelude.Nothing,
       from = Prelude.Nothing,
       marker = Prelude.Nothing,
       status = Prelude.Nothing,
@@ -166,6 +172,10 @@ newListNotebookExecutions =
 -- | The unique ID of the editor associated with the notebook execution.
 listNotebookExecutions_editorId :: Lens.Lens' ListNotebookExecutions (Prelude.Maybe Prelude.Text)
 listNotebookExecutions_editorId = Lens.lens (\ListNotebookExecutions' {editorId} -> editorId) (\s@ListNotebookExecutions' {} a -> s {editorId = a} :: ListNotebookExecutions)
+
+-- | The unique ID of the execution engine.
+listNotebookExecutions_executionEngineId :: Lens.Lens' ListNotebookExecutions (Prelude.Maybe Prelude.Text)
+listNotebookExecutions_executionEngineId = Lens.lens (\ListNotebookExecutions' {executionEngineId} -> executionEngineId) (\s@ListNotebookExecutions' {} a -> s {executionEngineId = a} :: ListNotebookExecutions)
 
 -- | The beginning of time range filter for listing notebook executions. The
 -- default is the timestamp of 30 days ago.
@@ -219,22 +229,22 @@ instance Core.AWSPager ListNotebookExecutions where
     | Core.stop
         ( rs
             Lens.^? listNotebookExecutionsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listNotebookExecutionsResponse_notebookExecutions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listNotebookExecutions_marker
           Lens..~ rs
           Lens.^? listNotebookExecutionsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListNotebookExecutions where
   type
@@ -247,7 +257,8 @@ instance Core.AWSRequest ListNotebookExecutions where
       ( \s h x ->
           ListNotebookExecutionsResponse'
             Prelude.<$> (x Data..?> "Marker")
-            Prelude.<*> ( x Data..?> "NotebookExecutions"
+            Prelude.<*> ( x
+                            Data..?> "NotebookExecutions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -255,7 +266,9 @@ instance Core.AWSRequest ListNotebookExecutions where
 
 instance Prelude.Hashable ListNotebookExecutions where
   hashWithSalt _salt ListNotebookExecutions' {..} =
-    _salt `Prelude.hashWithSalt` editorId
+    _salt
+      `Prelude.hashWithSalt` editorId
+      `Prelude.hashWithSalt` executionEngineId
       `Prelude.hashWithSalt` from
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` status
@@ -264,6 +277,7 @@ instance Prelude.Hashable ListNotebookExecutions where
 instance Prelude.NFData ListNotebookExecutions where
   rnf ListNotebookExecutions' {..} =
     Prelude.rnf editorId
+      `Prelude.seq` Prelude.rnf executionEngineId
       `Prelude.seq` Prelude.rnf from
       `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf status
@@ -289,6 +303,8 @@ instance Data.ToJSON ListNotebookExecutions where
     Data.object
       ( Prelude.catMaybes
           [ ("EditorId" Data..=) Prelude.<$> editorId,
+            ("ExecutionEngineId" Data..=)
+              Prelude.<$> executionEngineId,
             ("From" Data..=) Prelude.<$> from,
             ("Marker" Data..=) Prelude.<$> marker,
             ("Status" Data..=) Prelude.<$> status,

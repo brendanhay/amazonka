@@ -22,16 +22,19 @@ module Amazonka.EMR.Types.InstanceFleetModifyConfig where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.EMR.Types.InstanceFleetResizingSpecifications
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration parameters for an instance fleet modification request.
 --
 -- The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions.
+-- releases 4.8.0 and later, excluding 5.0.x versions.
 --
 -- /See:/ 'newInstanceFleetModifyConfig' smart constructor.
 data InstanceFleetModifyConfig = InstanceFleetModifyConfig'
-  { -- | The target capacity of On-Demand units for the instance fleet. For more
+  { -- | The resize specification for the instance fleet.
+    resizeSpecifications :: Prelude.Maybe InstanceFleetResizingSpecifications,
+    -- | The target capacity of On-Demand units for the instance fleet. For more
     -- information see InstanceFleetConfig$TargetOnDemandCapacity.
     targetOnDemandCapacity :: Prelude.Maybe Prelude.Natural,
     -- | The target capacity of Spot units for the instance fleet. For more
@@ -50,6 +53,8 @@ data InstanceFleetModifyConfig = InstanceFleetModifyConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resizeSpecifications', 'instanceFleetModifyConfig_resizeSpecifications' - The resize specification for the instance fleet.
+--
 -- 'targetOnDemandCapacity', 'instanceFleetModifyConfig_targetOnDemandCapacity' - The target capacity of On-Demand units for the instance fleet. For more
 -- information see InstanceFleetConfig$TargetOnDemandCapacity.
 --
@@ -63,11 +68,16 @@ newInstanceFleetModifyConfig ::
   InstanceFleetModifyConfig
 newInstanceFleetModifyConfig pInstanceFleetId_ =
   InstanceFleetModifyConfig'
-    { targetOnDemandCapacity =
+    { resizeSpecifications =
         Prelude.Nothing,
+      targetOnDemandCapacity = Prelude.Nothing,
       targetSpotCapacity = Prelude.Nothing,
       instanceFleetId = pInstanceFleetId_
     }
+
+-- | The resize specification for the instance fleet.
+instanceFleetModifyConfig_resizeSpecifications :: Lens.Lens' InstanceFleetModifyConfig (Prelude.Maybe InstanceFleetResizingSpecifications)
+instanceFleetModifyConfig_resizeSpecifications = Lens.lens (\InstanceFleetModifyConfig' {resizeSpecifications} -> resizeSpecifications) (\s@InstanceFleetModifyConfig' {} a -> s {resizeSpecifications = a} :: InstanceFleetModifyConfig)
 
 -- | The target capacity of On-Demand units for the instance fleet. For more
 -- information see InstanceFleetConfig$TargetOnDemandCapacity.
@@ -85,13 +95,16 @@ instanceFleetModifyConfig_instanceFleetId = Lens.lens (\InstanceFleetModifyConfi
 
 instance Prelude.Hashable InstanceFleetModifyConfig where
   hashWithSalt _salt InstanceFleetModifyConfig' {..} =
-    _salt `Prelude.hashWithSalt` targetOnDemandCapacity
+    _salt
+      `Prelude.hashWithSalt` resizeSpecifications
+      `Prelude.hashWithSalt` targetOnDemandCapacity
       `Prelude.hashWithSalt` targetSpotCapacity
       `Prelude.hashWithSalt` instanceFleetId
 
 instance Prelude.NFData InstanceFleetModifyConfig where
   rnf InstanceFleetModifyConfig' {..} =
-    Prelude.rnf targetOnDemandCapacity
+    Prelude.rnf resizeSpecifications
+      `Prelude.seq` Prelude.rnf targetOnDemandCapacity
       `Prelude.seq` Prelude.rnf targetSpotCapacity
       `Prelude.seq` Prelude.rnf instanceFleetId
 
@@ -99,7 +112,9 @@ instance Data.ToJSON InstanceFleetModifyConfig where
   toJSON InstanceFleetModifyConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TargetOnDemandCapacity" Data..=)
+          [ ("ResizeSpecifications" Data..=)
+              Prelude.<$> resizeSpecifications,
+            ("TargetOnDemandCapacity" Data..=)
               Prelude.<$> targetOnDemandCapacity,
             ("TargetSpotCapacity" Data..=)
               Prelude.<$> targetSpotCapacity,

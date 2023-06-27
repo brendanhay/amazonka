@@ -78,7 +78,8 @@ instance Data.FromJSON StepStateChangeReason where
 
 instance Prelude.Hashable StepStateChangeReason where
   hashWithSalt _salt StepStateChangeReason' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData StepStateChangeReason where

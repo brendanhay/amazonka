@@ -97,7 +97,8 @@ instance
   hashWithSalt
     _salt
     BlockPublicAccessConfigurationMetadata' {..} =
-      _salt `Prelude.hashWithSalt` creationDateTime
+      _salt
+        `Prelude.hashWithSalt` creationDateTime
         `Prelude.hashWithSalt` createdByArn
 
 instance

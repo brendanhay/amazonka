@@ -26,7 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | EBS volume specifications such as volume type, IOPS, size (GiB) and
 -- throughput (MiB\/s) that are requested for the EBS volume attached to an
--- EC2 instance in the cluster.
+-- Amazon EC2 instance in the cluster.
 --
 -- /See:/ 'newVolumeSpecification' smart constructor.
 data VolumeSpecification = VolumeSpecification'
@@ -112,7 +112,8 @@ instance Data.FromJSON VolumeSpecification where
 
 instance Prelude.Hashable VolumeSpecification where
   hashWithSalt _salt VolumeSpecification' {..} =
-    _salt `Prelude.hashWithSalt` iops
+    _salt
+      `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` throughput
       `Prelude.hashWithSalt` volumeType
       `Prelude.hashWithSalt` sizeInGB

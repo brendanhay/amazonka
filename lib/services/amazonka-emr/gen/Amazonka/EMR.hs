@@ -245,6 +245,12 @@ module Amazonka.EMR
     ListStudiosResponse (ListStudiosResponse'),
     newListStudiosResponse,
 
+    -- ** ListSupportedInstanceTypes
+    ListSupportedInstanceTypes (ListSupportedInstanceTypes'),
+    newListSupportedInstanceTypes,
+    ListSupportedInstanceTypesResponse (ListSupportedInstanceTypesResponse'),
+    newListSupportedInstanceTypesResponse,
+
     -- ** ModifyCluster
     ModifyCluster (ModifyCluster'),
     newModifyCluster,
@@ -442,6 +448,9 @@ module Amazonka.EMR
     -- ** OnDemandProvisioningAllocationStrategy
     OnDemandProvisioningAllocationStrategy (..),
 
+    -- ** OutputNotebookFormat
+    OutputNotebookFormat (..),
+
     -- ** PlacementGroupStrategy
     PlacementGroupStrategy (..),
 
@@ -575,6 +584,10 @@ module Amazonka.EMR
     Ec2InstanceAttributes (Ec2InstanceAttributes'),
     newEc2InstanceAttributes,
 
+    -- ** ErrorDetail
+    ErrorDetail (ErrorDetail'),
+    newErrorDetail,
+
     -- ** ExecutionEngineConfig
     ExecutionEngineConfig (ExecutionEngineConfig'),
     newExecutionEngineConfig,
@@ -610,6 +623,10 @@ module Amazonka.EMR
     -- ** InstanceFleetProvisioningSpecifications
     InstanceFleetProvisioningSpecifications (InstanceFleetProvisioningSpecifications'),
     newInstanceFleetProvisioningSpecifications,
+
+    -- ** InstanceFleetResizingSpecifications
+    InstanceFleetResizingSpecifications (InstanceFleetResizingSpecifications'),
+    newInstanceFleetResizingSpecifications,
 
     -- ** InstanceFleetStateChangeReason
     InstanceFleetStateChangeReason (InstanceFleetStateChangeReason'),
@@ -699,6 +716,14 @@ module Amazonka.EMR
     NotebookExecutionSummary (NotebookExecutionSummary'),
     newNotebookExecutionSummary,
 
+    -- ** NotebookS3LocationForOutput
+    NotebookS3LocationForOutput (NotebookS3LocationForOutput'),
+    newNotebookS3LocationForOutput,
+
+    -- ** NotebookS3LocationFromInput
+    NotebookS3LocationFromInput (NotebookS3LocationFromInput'),
+    newNotebookS3LocationFromInput,
+
     -- ** OSRelease
     OSRelease (OSRelease'),
     newOSRelease,
@@ -710,6 +735,18 @@ module Amazonka.EMR
     -- ** OnDemandProvisioningSpecification
     OnDemandProvisioningSpecification (OnDemandProvisioningSpecification'),
     newOnDemandProvisioningSpecification,
+
+    -- ** OnDemandResizingSpecification
+    OnDemandResizingSpecification (OnDemandResizingSpecification'),
+    newOnDemandResizingSpecification,
+
+    -- ** OutputNotebookS3LocationForOutput
+    OutputNotebookS3LocationForOutput (OutputNotebookS3LocationForOutput'),
+    newOutputNotebookS3LocationForOutput,
+
+    -- ** OutputNotebookS3LocationFromInput
+    OutputNotebookS3LocationFromInput (OutputNotebookS3LocationFromInput'),
+    newOutputNotebookS3LocationFromInput,
 
     -- ** PlacementGroupConfig
     PlacementGroupConfig (PlacementGroupConfig'),
@@ -775,6 +812,10 @@ module Amazonka.EMR
     SpotProvisioningSpecification (SpotProvisioningSpecification'),
     newSpotProvisioningSpecification,
 
+    -- ** SpotResizingSpecification
+    SpotResizingSpecification (SpotResizingSpecification'),
+    newSpotResizingSpecification,
+
     -- ** Step
     Step (Step'),
     newStep,
@@ -806,6 +847,10 @@ module Amazonka.EMR
     -- ** StudioSummary
     StudioSummary (StudioSummary'),
     newStudioSummary,
+
+    -- ** SupportedInstanceType
+    SupportedInstanceType (SupportedInstanceType'),
+    newSupportedInstanceType,
 
     -- ** SupportedProductConfig
     SupportedProductConfig (SupportedProductConfig'),
@@ -859,6 +904,7 @@ import Amazonka.EMR.ListSecurityConfigurations
 import Amazonka.EMR.ListSteps
 import Amazonka.EMR.ListStudioSessionMappings
 import Amazonka.EMR.ListStudios
+import Amazonka.EMR.ListSupportedInstanceTypes
 import Amazonka.EMR.ModifyCluster
 import Amazonka.EMR.ModifyInstanceFleet
 import Amazonka.EMR.ModifyInstanceGroups

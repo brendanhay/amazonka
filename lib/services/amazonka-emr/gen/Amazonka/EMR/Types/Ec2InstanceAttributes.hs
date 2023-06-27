@@ -24,9 +24,9 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Provides information about the EC2 instances in a cluster grouped by
--- category. For example, key name, subnet ID, IAM instance profile, and so
--- on.
+-- | Provides information about the Amazon EC2 instances in a cluster grouped
+-- by category. For example, key name, subnet ID, IAM instance profile, and
+-- so on.
 --
 -- /See:/ 'newEc2InstanceAttributes' smart constructor.
 data Ec2InstanceAttributes = Ec2InstanceAttributes'
@@ -49,27 +49,27 @@ data Ec2InstanceAttributes = Ec2InstanceAttributes'
     -- | The identifier of the Amazon EC2 security group for the core and task
     -- nodes.
     emrManagedSlaveSecurityGroup :: Prelude.Maybe Prelude.Text,
-    -- | The IAM role that was specified when the cluster was launched. The EC2
-    -- instances of the cluster assume this role.
+    -- | The IAM role that was specified when the cluster was launched. The
+    -- Amazon EC2 instances of the cluster assume this role.
     iamInstanceProfile :: Prelude.Maybe Prelude.Text,
     -- | Applies to clusters configured with the instance fleets option.
-    -- Specifies one or more Availability Zones in which to launch EC2 cluster
-    -- instances when the EC2-Classic network configuration is supported.
-    -- Amazon EMR chooses the Availability Zone with the best fit from among
-    -- the list of @RequestedEc2AvailabilityZones@, and then launches all
-    -- cluster instances within that Availability Zone. If you do not specify
-    -- this value, Amazon EMR chooses the Availability Zone for you.
-    -- @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot be
-    -- specified together.
+    -- Specifies one or more Availability Zones in which to launch Amazon EC2
+    -- cluster instances when the EC2-Classic network configuration is
+    -- supported. Amazon EMR chooses the Availability Zone with the best fit
+    -- from among the list of @RequestedEc2AvailabilityZones@, and then
+    -- launches all cluster instances within that Availability Zone. If you do
+    -- not specify this value, Amazon EMR chooses the Availability Zone for
+    -- you. @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot
+    -- be specified together.
     requestedEc2AvailabilityZones :: Prelude.Maybe [Prelude.Text],
     -- | Applies to clusters configured with the instance fleets option.
     -- Specifies the unique identifier of one or more Amazon EC2 subnets in
-    -- which to launch EC2 cluster instances. Subnets must exist within the
-    -- same VPC. Amazon EMR chooses the EC2 subnet with the best fit from among
-    -- the list of @RequestedEc2SubnetIds@, and then launches all cluster
-    -- instances within that Subnet. If this value is not specified, and the
-    -- account and Region support EC2-Classic networks, the cluster launches
-    -- instances in the EC2-Classic network and uses
+    -- which to launch Amazon EC2 cluster instances. Subnets must exist within
+    -- the same VPC. Amazon EMR chooses the Amazon EC2 subnet with the best fit
+    -- from among the list of @RequestedEc2SubnetIds@, and then launches all
+    -- cluster instances within that Subnet. If this value is not specified,
+    -- and the account and Region support EC2-Classic networks, the cluster
+    -- launches instances in the EC2-Classic network and uses
     -- @RequestedEc2AvailabilityZones@ instead of this setting. If EC2-Classic
     -- is not supported, and no Subnet is specified, Amazon EMR chooses the
     -- subnet for you. @RequestedEc2SubnetIDs@ and
@@ -108,27 +108,27 @@ data Ec2InstanceAttributes = Ec2InstanceAttributes'
 -- 'emrManagedSlaveSecurityGroup', 'ec2InstanceAttributes_emrManagedSlaveSecurityGroup' - The identifier of the Amazon EC2 security group for the core and task
 -- nodes.
 --
--- 'iamInstanceProfile', 'ec2InstanceAttributes_iamInstanceProfile' - The IAM role that was specified when the cluster was launched. The EC2
--- instances of the cluster assume this role.
+-- 'iamInstanceProfile', 'ec2InstanceAttributes_iamInstanceProfile' - The IAM role that was specified when the cluster was launched. The
+-- Amazon EC2 instances of the cluster assume this role.
 --
 -- 'requestedEc2AvailabilityZones', 'ec2InstanceAttributes_requestedEc2AvailabilityZones' - Applies to clusters configured with the instance fleets option.
--- Specifies one or more Availability Zones in which to launch EC2 cluster
--- instances when the EC2-Classic network configuration is supported.
--- Amazon EMR chooses the Availability Zone with the best fit from among
--- the list of @RequestedEc2AvailabilityZones@, and then launches all
--- cluster instances within that Availability Zone. If you do not specify
--- this value, Amazon EMR chooses the Availability Zone for you.
--- @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot be
--- specified together.
+-- Specifies one or more Availability Zones in which to launch Amazon EC2
+-- cluster instances when the EC2-Classic network configuration is
+-- supported. Amazon EMR chooses the Availability Zone with the best fit
+-- from among the list of @RequestedEc2AvailabilityZones@, and then
+-- launches all cluster instances within that Availability Zone. If you do
+-- not specify this value, Amazon EMR chooses the Availability Zone for
+-- you. @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot
+-- be specified together.
 --
 -- 'requestedEc2SubnetIds', 'ec2InstanceAttributes_requestedEc2SubnetIds' - Applies to clusters configured with the instance fleets option.
 -- Specifies the unique identifier of one or more Amazon EC2 subnets in
--- which to launch EC2 cluster instances. Subnets must exist within the
--- same VPC. Amazon EMR chooses the EC2 subnet with the best fit from among
--- the list of @RequestedEc2SubnetIds@, and then launches all cluster
--- instances within that Subnet. If this value is not specified, and the
--- account and Region support EC2-Classic networks, the cluster launches
--- instances in the EC2-Classic network and uses
+-- which to launch Amazon EC2 cluster instances. Subnets must exist within
+-- the same VPC. Amazon EMR chooses the Amazon EC2 subnet with the best fit
+-- from among the list of @RequestedEc2SubnetIds@, and then launches all
+-- cluster instances within that Subnet. If this value is not specified,
+-- and the account and Region support EC2-Classic networks, the cluster
+-- launches instances in the EC2-Classic network and uses
 -- @RequestedEc2AvailabilityZones@ instead of this setting. If EC2-Classic
 -- is not supported, and no Subnet is specified, Amazon EMR chooses the
 -- subnet for you. @RequestedEc2SubnetIDs@ and
@@ -187,31 +187,31 @@ ec2InstanceAttributes_emrManagedMasterSecurityGroup = Lens.lens (\Ec2InstanceAtt
 ec2InstanceAttributes_emrManagedSlaveSecurityGroup :: Lens.Lens' Ec2InstanceAttributes (Prelude.Maybe Prelude.Text)
 ec2InstanceAttributes_emrManagedSlaveSecurityGroup = Lens.lens (\Ec2InstanceAttributes' {emrManagedSlaveSecurityGroup} -> emrManagedSlaveSecurityGroup) (\s@Ec2InstanceAttributes' {} a -> s {emrManagedSlaveSecurityGroup = a} :: Ec2InstanceAttributes)
 
--- | The IAM role that was specified when the cluster was launched. The EC2
--- instances of the cluster assume this role.
+-- | The IAM role that was specified when the cluster was launched. The
+-- Amazon EC2 instances of the cluster assume this role.
 ec2InstanceAttributes_iamInstanceProfile :: Lens.Lens' Ec2InstanceAttributes (Prelude.Maybe Prelude.Text)
 ec2InstanceAttributes_iamInstanceProfile = Lens.lens (\Ec2InstanceAttributes' {iamInstanceProfile} -> iamInstanceProfile) (\s@Ec2InstanceAttributes' {} a -> s {iamInstanceProfile = a} :: Ec2InstanceAttributes)
 
 -- | Applies to clusters configured with the instance fleets option.
--- Specifies one or more Availability Zones in which to launch EC2 cluster
--- instances when the EC2-Classic network configuration is supported.
--- Amazon EMR chooses the Availability Zone with the best fit from among
--- the list of @RequestedEc2AvailabilityZones@, and then launches all
--- cluster instances within that Availability Zone. If you do not specify
--- this value, Amazon EMR chooses the Availability Zone for you.
--- @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot be
--- specified together.
+-- Specifies one or more Availability Zones in which to launch Amazon EC2
+-- cluster instances when the EC2-Classic network configuration is
+-- supported. Amazon EMR chooses the Availability Zone with the best fit
+-- from among the list of @RequestedEc2AvailabilityZones@, and then
+-- launches all cluster instances within that Availability Zone. If you do
+-- not specify this value, Amazon EMR chooses the Availability Zone for
+-- you. @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot
+-- be specified together.
 ec2InstanceAttributes_requestedEc2AvailabilityZones :: Lens.Lens' Ec2InstanceAttributes (Prelude.Maybe [Prelude.Text])
 ec2InstanceAttributes_requestedEc2AvailabilityZones = Lens.lens (\Ec2InstanceAttributes' {requestedEc2AvailabilityZones} -> requestedEc2AvailabilityZones) (\s@Ec2InstanceAttributes' {} a -> s {requestedEc2AvailabilityZones = a} :: Ec2InstanceAttributes) Prelude.. Lens.mapping Lens.coerced
 
 -- | Applies to clusters configured with the instance fleets option.
 -- Specifies the unique identifier of one or more Amazon EC2 subnets in
--- which to launch EC2 cluster instances. Subnets must exist within the
--- same VPC. Amazon EMR chooses the EC2 subnet with the best fit from among
--- the list of @RequestedEc2SubnetIds@, and then launches all cluster
--- instances within that Subnet. If this value is not specified, and the
--- account and Region support EC2-Classic networks, the cluster launches
--- instances in the EC2-Classic network and uses
+-- which to launch Amazon EC2 cluster instances. Subnets must exist within
+-- the same VPC. Amazon EMR chooses the Amazon EC2 subnet with the best fit
+-- from among the list of @RequestedEc2SubnetIds@, and then launches all
+-- cluster instances within that Subnet. If this value is not specified,
+-- and the account and Region support EC2-Classic networks, the cluster
+-- launches instances in the EC2-Classic network and uses
 -- @RequestedEc2AvailabilityZones@ instead of this setting. If EC2-Classic
 -- is not supported, and no Subnet is specified, Amazon EMR chooses the
 -- subnet for you. @RequestedEc2SubnetIDs@ and
@@ -230,10 +230,12 @@ instance Data.FromJSON Ec2InstanceAttributes where
       "Ec2InstanceAttributes"
       ( \x ->
           Ec2InstanceAttributes'
-            Prelude.<$> ( x Data..:? "AdditionalMasterSecurityGroups"
+            Prelude.<$> ( x
+                            Data..:? "AdditionalMasterSecurityGroups"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "AdditionalSlaveSecurityGroups"
+            Prelude.<*> ( x
+                            Data..:? "AdditionalSlaveSecurityGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Ec2AvailabilityZone")
@@ -242,10 +244,12 @@ instance Data.FromJSON Ec2InstanceAttributes where
             Prelude.<*> (x Data..:? "EmrManagedMasterSecurityGroup")
             Prelude.<*> (x Data..:? "EmrManagedSlaveSecurityGroup")
             Prelude.<*> (x Data..:? "IamInstanceProfile")
-            Prelude.<*> ( x Data..:? "RequestedEc2AvailabilityZones"
+            Prelude.<*> ( x
+                            Data..:? "RequestedEc2AvailabilityZones"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "RequestedEc2SubnetIds"
+            Prelude.<*> ( x
+                            Data..:? "RequestedEc2SubnetIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ServiceAccessSecurityGroup")

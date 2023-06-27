@@ -77,10 +77,10 @@ instance
       ( \s h x ->
           GetBlockPublicAccessConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "BlockPublicAccessConfiguration")
-              Prelude.<*> ( x
-                              Data..:> "BlockPublicAccessConfigurationMetadata"
-                          )
+            Prelude.<*> (x Data..:> "BlockPublicAccessConfiguration")
+            Prelude.<*> ( x
+                            Data..:> "BlockPublicAccessConfigurationMetadata"
+                        )
       )
 
 instance
@@ -151,8 +151,8 @@ data GetBlockPublicAccessConfigurationResponse = GetBlockPublicAccessConfigurati
     -- For accounts that created clusters in a Region before November 25, 2019,
     -- block public access is disabled by default in that Region. To use this
     -- feature, you must manually enable and configure it. For accounts that
-    -- did not create an EMR cluster in a Region before this date, block public
-    -- access is enabled by default in that Region.
+    -- did not create an Amazon EMR cluster in a Region before this date, block
+    -- public access is enabled by default in that Region.
     blockPublicAccessConfiguration :: BlockPublicAccessConfiguration,
     -- | Properties that describe the Amazon Web Services principal that created
     -- the @BlockPublicAccessConfiguration@ using the
@@ -188,8 +188,8 @@ data GetBlockPublicAccessConfigurationResponse = GetBlockPublicAccessConfigurati
 -- For accounts that created clusters in a Region before November 25, 2019,
 -- block public access is disabled by default in that Region. To use this
 -- feature, you must manually enable and configure it. For accounts that
--- did not create an EMR cluster in a Region before this date, block public
--- access is enabled by default in that Region.
+-- did not create an Amazon EMR cluster in a Region before this date, block
+-- public access is enabled by default in that Region.
 --
 -- 'blockPublicAccessConfigurationMetadata', 'getBlockPublicAccessConfigurationResponse_blockPublicAccessConfigurationMetadata' - Properties that describe the Amazon Web Services principal that created
 -- the @BlockPublicAccessConfiguration@ using the
@@ -236,8 +236,8 @@ getBlockPublicAccessConfigurationResponse_httpStatus = Lens.lens (\GetBlockPubli
 -- For accounts that created clusters in a Region before November 25, 2019,
 -- block public access is disabled by default in that Region. To use this
 -- feature, you must manually enable and configure it. For accounts that
--- did not create an EMR cluster in a Region before this date, block public
--- access is enabled by default in that Region.
+-- did not create an Amazon EMR cluster in a Region before this date, block
+-- public access is enabled by default in that Region.
 getBlockPublicAccessConfigurationResponse_blockPublicAccessConfiguration :: Lens.Lens' GetBlockPublicAccessConfigurationResponse BlockPublicAccessConfiguration
 getBlockPublicAccessConfigurationResponse_blockPublicAccessConfiguration = Lens.lens (\GetBlockPublicAccessConfigurationResponse' {blockPublicAccessConfiguration} -> blockPublicAccessConfiguration) (\s@GetBlockPublicAccessConfigurationResponse' {} a -> s {blockPublicAccessConfiguration = a} :: GetBlockPublicAccessConfigurationResponse)
 

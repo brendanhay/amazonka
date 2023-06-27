@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | EBS block device that\'s attached to an EC2 instance.
+-- | EBS block device that\'s attached to an Amazon EC2 instance.
 --
 -- /See:/ 'newEbsVolume' smart constructor.
 data EbsVolume = EbsVolume'
@@ -74,7 +74,8 @@ instance Data.FromJSON EbsVolume where
 
 instance Prelude.Hashable EbsVolume where
   hashWithSalt _salt EbsVolume' {..} =
-    _salt `Prelude.hashWithSalt` device
+    _salt
+      `Prelude.hashWithSalt` device
       `Prelude.hashWithSalt` volumeId
 
 instance Prelude.NFData EbsVolume where

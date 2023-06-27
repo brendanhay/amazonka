@@ -82,7 +82,7 @@ data AddJobFlowSteps = AddJobFlowSteps'
     -- role ARN is a combination of account ID, role name, and role type using
     -- the following format: @arn:partition:service:region:account:resource@.
     --
-    -- For example, @arn:aws:iam::1234567890:role\/ReadOnly@ is a correctly
+    -- For example, @arn:aws:IAM::1234567890:role\/ReadOnly@ is a correctly
     -- formatted runtime role ARN.
     executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | A string that uniquely identifies the job flow. This identifier is
@@ -106,7 +106,7 @@ data AddJobFlowSteps = AddJobFlowSteps'
 -- role ARN is a combination of account ID, role name, and role type using
 -- the following format: @arn:partition:service:region:account:resource@.
 --
--- For example, @arn:aws:iam::1234567890:role\/ReadOnly@ is a correctly
+-- For example, @arn:aws:IAM::1234567890:role\/ReadOnly@ is a correctly
 -- formatted runtime role ARN.
 --
 -- 'jobFlowId', 'addJobFlowSteps_jobFlowId' - A string that uniquely identifies the job flow. This identifier is
@@ -130,7 +130,7 @@ newAddJobFlowSteps pJobFlowId_ =
 -- role ARN is a combination of account ID, role name, and role type using
 -- the following format: @arn:partition:service:region:account:resource@.
 --
--- For example, @arn:aws:iam::1234567890:role\/ReadOnly@ is a correctly
+-- For example, @arn:aws:IAM::1234567890:role\/ReadOnly@ is a correctly
 -- formatted runtime role ARN.
 addJobFlowSteps_executionRoleArn :: Lens.Lens' AddJobFlowSteps (Prelude.Maybe Prelude.Text)
 addJobFlowSteps_executionRoleArn = Lens.lens (\AddJobFlowSteps' {executionRoleArn} -> executionRoleArn) (\s@AddJobFlowSteps' {} a -> s {executionRoleArn = a} :: AddJobFlowSteps)
@@ -160,7 +160,8 @@ instance Core.AWSRequest AddJobFlowSteps where
 
 instance Prelude.Hashable AddJobFlowSteps where
   hashWithSalt _salt AddJobFlowSteps' {..} =
-    _salt `Prelude.hashWithSalt` executionRoleArn
+    _salt
+      `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` jobFlowId
       `Prelude.hashWithSalt` steps
 

@@ -23,7 +23,7 @@
 -- Adds an instance fleet to a running cluster.
 --
 -- The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x.
+-- releases 4.8.0 and later, excluding 5.0.x.
 module Amazonka.EMR.AddInstanceFleet
   ( -- * Creating a Request
     AddInstanceFleet (..),
@@ -111,7 +111,8 @@ instance Core.AWSRequest AddInstanceFleet where
 
 instance Prelude.Hashable AddInstanceFleet where
   hashWithSalt _salt AddInstanceFleet' {..} =
-    _salt `Prelude.hashWithSalt` clusterId
+    _salt
+      `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` instanceFleet
 
 instance Prelude.NFData AddInstanceFleet where

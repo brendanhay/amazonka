@@ -25,7 +25,7 @@
 -- specified using ClusterID. The call either succeeds or fails atomically.
 --
 -- The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions.
+-- releases 4.8.0 and later, excluding 5.0.x versions.
 module Amazonka.EMR.ModifyInstanceFleet
   ( -- * Creating a Request
     ModifyInstanceFleet (..),
@@ -100,7 +100,8 @@ instance Core.AWSRequest ModifyInstanceFleet where
 
 instance Prelude.Hashable ModifyInstanceFleet where
   hashWithSalt _salt ModifyInstanceFleet' {..} =
-    _salt `Prelude.hashWithSalt` clusterId
+    _salt
+      `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` instanceFleet
 
 instance Prelude.NFData ModifyInstanceFleet where

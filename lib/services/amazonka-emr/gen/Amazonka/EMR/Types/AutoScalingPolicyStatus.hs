@@ -76,7 +76,8 @@ instance Data.FromJSON AutoScalingPolicyStatus where
 
 instance Prelude.Hashable AutoScalingPolicyStatus where
   hashWithSalt _salt AutoScalingPolicyStatus' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` stateChangeReason
 
 instance Prelude.NFData AutoScalingPolicyStatus where

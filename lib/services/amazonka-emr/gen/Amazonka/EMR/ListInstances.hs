@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides information for all active EC2 instances and EC2 instances
--- terminated in the last 30 days, up to a maximum of 2,000. EC2 instances
--- in any of the following states are considered active:
--- AWAITING_FULFILLMENT, PROVISIONING, BOOTSTRAPPING, RUNNING.
+-- Provides information for all active Amazon EC2 instances and Amazon EC2
+-- instances terminated in the last 30 days, up to a maximum of 2,000.
+-- Amazon EC2 instances in any of the following states are considered
+-- active: AWAITING_FULFILLMENT, PROVISIONING, BOOTSTRAPPING, RUNNING.
 --
 -- This operation returns paginated results.
 module Amazonka.EMR.ListInstances
@@ -151,20 +151,23 @@ instance Core.AWSPager ListInstances where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listInstancesResponse_marker Prelude.. Lens._Just
+            Lens.^? listInstancesResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listInstancesResponse_instances Prelude.. Lens._Just
+            Lens.^? listInstancesResponse_instances
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listInstances_marker
           Lens..~ rs
-          Lens.^? listInstancesResponse_marker Prelude.. Lens._Just
+          Lens.^? listInstancesResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInstances where
   type
@@ -183,7 +186,8 @@ instance Core.AWSRequest ListInstances where
 
 instance Prelude.Hashable ListInstances where
   hashWithSalt _salt ListInstances' {..} =
-    _salt `Prelude.hashWithSalt` instanceFleetId
+    _salt
+      `Prelude.hashWithSalt` instanceFleetId
       `Prelude.hashWithSalt` instanceFleetType
       `Prelude.hashWithSalt` instanceGroupId
       `Prelude.hashWithSalt` instanceGroupTypes

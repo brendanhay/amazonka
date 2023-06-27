@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStudio' smart constructor.
 data Studio = Studio'
-  { -- | Specifies whether the Amazon EMR Studio authenticates users using IAM or
+  { -- | Specifies whether the Amazon EMR Studio authenticates users with IAM or
     -- IAM Identity Center.
     authMode :: Prelude.Maybe AuthMode,
     -- | The time the Amazon EMR Studio was created.
@@ -86,7 +86,7 @@ data Studio = Studio'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authMode', 'studio_authMode' - Specifies whether the Amazon EMR Studio authenticates users using IAM or
+-- 'authMode', 'studio_authMode' - Specifies whether the Amazon EMR Studio authenticates users with IAM or
 -- IAM Identity Center.
 --
 -- 'creationTime', 'studio_creationTime' - The time the Amazon EMR Studio was created.
@@ -152,7 +152,7 @@ newStudio =
       workspaceSecurityGroupId = Prelude.Nothing
     }
 
--- | Specifies whether the Amazon EMR Studio authenticates users using IAM or
+-- | Specifies whether the Amazon EMR Studio authenticates users with IAM or
 -- IAM Identity Center.
 studio_authMode :: Lens.Lens' Studio (Prelude.Maybe AuthMode)
 studio_authMode = Lens.lens (\Studio' {authMode} -> authMode) (\s@Studio' {} a -> s {authMode = a} :: Studio)
@@ -257,7 +257,8 @@ instance Data.FromJSON Studio where
 
 instance Prelude.Hashable Studio where
   hashWithSalt _salt Studio' {..} =
-    _salt `Prelude.hashWithSalt` authMode
+    _salt
+      `Prelude.hashWithSalt` authMode
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` defaultS3Location
       `Prelude.hashWithSalt` description

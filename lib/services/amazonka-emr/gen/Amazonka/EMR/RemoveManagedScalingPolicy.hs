@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes a managed scaling policy from a specified EMR cluster.
+-- Removes a managed scaling policy from a specified Amazon EMR cluster.
 module Amazonka.EMR.RemoveManagedScalingPolicy
   ( -- * Creating a Request
     RemoveManagedScalingPolicy (..),

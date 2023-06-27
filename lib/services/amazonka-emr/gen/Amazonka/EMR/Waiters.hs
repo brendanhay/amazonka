@@ -121,7 +121,8 @@ newStepComplete =
         [ Core.matchAll
             "COMPLETED"
             Core.AcceptSuccess
-            ( describeStepResponse_step Prelude.. Lens._Just
+            ( describeStepResponse_step
+                Prelude.. Lens._Just
                 Prelude.. step_status
                 Prelude.. Lens._Just
                 Prelude.. stepStatus_state
@@ -131,7 +132,8 @@ newStepComplete =
           Core.matchAll
             "FAILED"
             Core.AcceptFailure
-            ( describeStepResponse_step Prelude.. Lens._Just
+            ( describeStepResponse_step
+                Prelude.. Lens._Just
                 Prelude.. step_status
                 Prelude.. Lens._Just
                 Prelude.. stepStatus_state
@@ -141,7 +143,8 @@ newStepComplete =
           Core.matchAll
             "CANCELLED"
             Core.AcceptFailure
-            ( describeStepResponse_step Prelude.. Lens._Just
+            ( describeStepResponse_step
+                Prelude.. Lens._Just
                 Prelude.. step_status
                 Prelude.. Lens._Just
                 Prelude.. stepStatus_state

@@ -45,7 +45,7 @@
 -- results.
 --
 -- The instance fleets configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions. The RunJobFlow
+-- releases 4.8.0 and later, excluding 5.0.x versions. The RunJobFlow
 -- request can contain InstanceFleets parameters or InstanceGroups
 -- parameters, but not both.
 module Amazonka.EMR.RunJobFlow
@@ -121,23 +121,23 @@ data RunJobFlow = RunJobFlow'
     applications :: Prelude.Maybe [Application],
     -- | An IAM role for automatic scaling policies. The default role is
     -- @EMR_AutoScaling_DefaultRole@. The IAM role provides permissions that
-    -- the automatic scaling feature requires to launch and terminate EC2
-    -- instances in an instance group.
+    -- the automatic scaling feature requires to launch and terminate Amazon
+    -- EC2 instances in an instance group.
     autoScalingRole :: Prelude.Maybe Prelude.Text,
     autoTerminationPolicy :: Prelude.Maybe AutoTerminationPolicy,
     -- | A list of bootstrap actions to run before Hadoop starts on the cluster
     -- nodes.
     bootstrapActions :: Prelude.Maybe [BootstrapActionConfig],
     -- | For Amazon EMR releases 4.0 and later. The list of configurations
-    -- supplied for the EMR cluster you are creating.
+    -- supplied for the Amazon EMR cluster that you are creating.
     configurations :: Prelude.Maybe [Configuration],
-    -- | Available only in Amazon EMR version 5.7.0 and later. The ID of a custom
-    -- Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when
-    -- it launches cluster EC2 instances. For more information about custom
-    -- AMIs in Amazon EMR, see
+    -- | Available only in Amazon EMR releases 5.7.0 and later. The ID of a
+    -- custom Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this
+    -- AMI when it launches cluster Amazon EC2 instances. For more information
+    -- about custom AMIs in Amazon EMR, see
     -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html Using a Custom AMI>
     -- in the /Amazon EMR Management Guide/. If omitted, the cluster uses the
-    -- base Linux AMI for the @ReleaseLabel@ specified. For Amazon EMR versions
+    -- base Linux AMI for the @ReleaseLabel@ specified. For Amazon EMR releases
     -- 2.x and 3.x, use @AmiVersion@ instead.
     --
     -- For information about creating a custom AMI, see
@@ -147,13 +147,13 @@ data RunJobFlow = RunJobFlow'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding a Linux AMI>.
     customAmiId :: Prelude.Maybe Prelude.Text,
     -- | The size, in GiB, of the Amazon EBS root device volume of the Linux AMI
-    -- that is used for each EC2 instance. Available in Amazon EMR version 4.x
-    -- and later.
+    -- that is used for each Amazon EC2 instance. Available in Amazon EMR
+    -- releases 4.x and later.
     ebsRootVolumeSize :: Prelude.Maybe Prelude.Int,
-    -- | Also called instance profile and EC2 role. An IAM role for an EMR
-    -- cluster. The EC2 instances of the cluster assume this role. The default
-    -- role is @EMR_EC2_DefaultRole@. In order to use the default role, you
-    -- must have already created it using the CLI or console.
+    -- | Also called instance profile and Amazon EC2 role. An IAM role for an
+    -- Amazon EMR cluster. The Amazon EC2 instances of the cluster assume this
+    -- role. The default role is @EMR_EC2_DefaultRole@. In order to use the
+    -- default role, you must have already created it using the CLI or console.
     jobFlowRole :: Prelude.Maybe Prelude.Text,
     -- | Attributes for Kerberos configuration when Kerberos authentication is
     -- enabled using a security configuration. For more information see
@@ -162,7 +162,7 @@ data RunJobFlow = RunJobFlow'
     kerberosAttributes :: Prelude.Maybe KerberosAttributes,
     -- | The KMS key used for encrypting log files. If a value is not provided,
     -- the logs remain encrypted by AES-256. This attribute is only available
-    -- with Amazon EMR version 5.30.0 and later, excluding Amazon EMR 6.0.0.
+    -- with Amazon EMR releases 5.30.0 and later, excluding Amazon EMR 6.0.0.
     logEncryptionKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The location in Amazon S3 to write the log files of the job flow. If a
     -- value is not provided, logs are not created.
@@ -173,10 +173,10 @@ data RunJobFlow = RunJobFlow'
     -- later, use Applications.
     --
     -- A list of strings that indicates third-party software to use with the
-    -- job flow that accepts a user argument list. EMR accepts and forwards the
-    -- argument list to the corresponding installation script as bootstrap
-    -- action arguments. For more information, see \"Launch a Job Flow on the
-    -- MapR Distribution for Hadoop\" in the
+    -- job flow that accepts a user argument list. Amazon EMR accepts and
+    -- forwards the argument list to the corresponding installation script as
+    -- bootstrap action arguments. For more information, see \"Launch a Job
+    -- Flow on the MapR Distribution for Hadoop\" in the
     -- <https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf Amazon EMR Developer Guide>.
     -- Supported values are:
     --
@@ -233,8 +233,8 @@ data RunJobFlow = RunJobFlow'
     -- the Amazon EC2 instances, regardless of the instance-hour boundary. With
     -- either behavior, Amazon EMR removes the least active nodes first and
     -- blocks instance termination if it could lead to HDFS corruption.
-    -- @TERMINATE_AT_TASK_COMPLETION@ available only in Amazon EMR version
-    -- 4.1.0 and later, and is the default for versions of Amazon EMR earlier
+    -- @TERMINATE_AT_TASK_COMPLETION@ available only in Amazon EMR releases
+    -- 4.1.0 and later, and is the default for releases of Amazon EMR earlier
     -- than 5.1.0.
     scaleDownBehavior :: Prelude.Maybe ScaleDownBehavior,
     -- | The name of a security configuration to apply to the cluster.
@@ -268,18 +268,19 @@ data RunJobFlow = RunJobFlow'
     -- value is set to @true@. Setting it to @false@ now has no effect.
     --
     -- Set this value to @true@ so that IAM principals in the Amazon Web
-    -- Services account associated with the cluster can perform EMR actions on
-    -- the cluster that their IAM policies allow. This value defaults to @true@
-    -- for clusters created using the EMR API or the CLI
+    -- Services account associated with the cluster can perform Amazon EMR
+    -- actions on the cluster that their IAM policies allow. This value
+    -- defaults to @true@ for clusters created using the Amazon EMR API or the
+    -- CLI
     -- <https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html create-cluster>
     -- command.
     --
     -- When set to @false@, only the IAM principal that created the cluster and
-    -- the Amazon Web Services account root user can perform EMR actions for
-    -- the cluster, regardless of the IAM permissions policies attached to
+    -- the Amazon Web Services account root user can perform Amazon EMR actions
+    -- for the cluster, regardless of the IAM permissions policies attached to
     -- other IAM principals. For more information, see
-    -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users Understanding the EMR Cluster VisibleToAllUsers Setting>
-    -- in the /Amazon EMRManagement Guide/.
+    -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_IAM_emr-with-IAM.html#security_set_visible_to_all_users Understanding the Amazon EMR cluster VisibleToAllUsers setting>
+    -- in the /Amazon EMR Management Guide/.
     visibleToAllUsers :: Prelude.Maybe Prelude.Bool,
     -- | The name of the job flow.
     name :: Prelude.Text,
@@ -310,8 +311,8 @@ data RunJobFlow = RunJobFlow'
 --
 -- 'autoScalingRole', 'runJobFlow_autoScalingRole' - An IAM role for automatic scaling policies. The default role is
 -- @EMR_AutoScaling_DefaultRole@. The IAM role provides permissions that
--- the automatic scaling feature requires to launch and terminate EC2
--- instances in an instance group.
+-- the automatic scaling feature requires to launch and terminate Amazon
+-- EC2 instances in an instance group.
 --
 -- 'autoTerminationPolicy', 'runJobFlow_autoTerminationPolicy' - Undocumented member.
 --
@@ -319,15 +320,15 @@ data RunJobFlow = RunJobFlow'
 -- nodes.
 --
 -- 'configurations', 'runJobFlow_configurations' - For Amazon EMR releases 4.0 and later. The list of configurations
--- supplied for the EMR cluster you are creating.
+-- supplied for the Amazon EMR cluster that you are creating.
 --
--- 'customAmiId', 'runJobFlow_customAmiId' - Available only in Amazon EMR version 5.7.0 and later. The ID of a custom
--- Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when
--- it launches cluster EC2 instances. For more information about custom
--- AMIs in Amazon EMR, see
+-- 'customAmiId', 'runJobFlow_customAmiId' - Available only in Amazon EMR releases 5.7.0 and later. The ID of a
+-- custom Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this
+-- AMI when it launches cluster Amazon EC2 instances. For more information
+-- about custom AMIs in Amazon EMR, see
 -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html Using a Custom AMI>
 -- in the /Amazon EMR Management Guide/. If omitted, the cluster uses the
--- base Linux AMI for the @ReleaseLabel@ specified. For Amazon EMR versions
+-- base Linux AMI for the @ReleaseLabel@ specified. For Amazon EMR releases
 -- 2.x and 3.x, use @AmiVersion@ instead.
 --
 -- For information about creating a custom AMI, see
@@ -337,13 +338,13 @@ data RunJobFlow = RunJobFlow'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding a Linux AMI>.
 --
 -- 'ebsRootVolumeSize', 'runJobFlow_ebsRootVolumeSize' - The size, in GiB, of the Amazon EBS root device volume of the Linux AMI
--- that is used for each EC2 instance. Available in Amazon EMR version 4.x
--- and later.
+-- that is used for each Amazon EC2 instance. Available in Amazon EMR
+-- releases 4.x and later.
 --
--- 'jobFlowRole', 'runJobFlow_jobFlowRole' - Also called instance profile and EC2 role. An IAM role for an EMR
--- cluster. The EC2 instances of the cluster assume this role. The default
--- role is @EMR_EC2_DefaultRole@. In order to use the default role, you
--- must have already created it using the CLI or console.
+-- 'jobFlowRole', 'runJobFlow_jobFlowRole' - Also called instance profile and Amazon EC2 role. An IAM role for an
+-- Amazon EMR cluster. The Amazon EC2 instances of the cluster assume this
+-- role. The default role is @EMR_EC2_DefaultRole@. In order to use the
+-- default role, you must have already created it using the CLI or console.
 --
 -- 'kerberosAttributes', 'runJobFlow_kerberosAttributes' - Attributes for Kerberos configuration when Kerberos authentication is
 -- enabled using a security configuration. For more information see
@@ -352,7 +353,7 @@ data RunJobFlow = RunJobFlow'
 --
 -- 'logEncryptionKmsKeyId', 'runJobFlow_logEncryptionKmsKeyId' - The KMS key used for encrypting log files. If a value is not provided,
 -- the logs remain encrypted by AES-256. This attribute is only available
--- with Amazon EMR version 5.30.0 and later, excluding Amazon EMR 6.0.0.
+-- with Amazon EMR releases 5.30.0 and later, excluding Amazon EMR 6.0.0.
 --
 -- 'logUri', 'runJobFlow_logUri' - The location in Amazon S3 to write the log files of the job flow. If a
 -- value is not provided, logs are not created.
@@ -363,10 +364,10 @@ data RunJobFlow = RunJobFlow'
 -- later, use Applications.
 --
 -- A list of strings that indicates third-party software to use with the
--- job flow that accepts a user argument list. EMR accepts and forwards the
--- argument list to the corresponding installation script as bootstrap
--- action arguments. For more information, see \"Launch a Job Flow on the
--- MapR Distribution for Hadoop\" in the
+-- job flow that accepts a user argument list. Amazon EMR accepts and
+-- forwards the argument list to the corresponding installation script as
+-- bootstrap action arguments. For more information, see \"Launch a Job
+-- Flow on the MapR Distribution for Hadoop\" in the
 -- <https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf Amazon EMR Developer Guide>.
 -- Supported values are:
 --
@@ -423,8 +424,8 @@ data RunJobFlow = RunJobFlow'
 -- the Amazon EC2 instances, regardless of the instance-hour boundary. With
 -- either behavior, Amazon EMR removes the least active nodes first and
 -- blocks instance termination if it could lead to HDFS corruption.
--- @TERMINATE_AT_TASK_COMPLETION@ available only in Amazon EMR version
--- 4.1.0 and later, and is the default for versions of Amazon EMR earlier
+-- @TERMINATE_AT_TASK_COMPLETION@ available only in Amazon EMR releases
+-- 4.1.0 and later, and is the default for releases of Amazon EMR earlier
 -- than 5.1.0.
 --
 -- 'securityConfiguration', 'runJobFlow_securityConfiguration' - The name of a security configuration to apply to the cluster.
@@ -458,18 +459,19 @@ data RunJobFlow = RunJobFlow'
 -- value is set to @true@. Setting it to @false@ now has no effect.
 --
 -- Set this value to @true@ so that IAM principals in the Amazon Web
--- Services account associated with the cluster can perform EMR actions on
--- the cluster that their IAM policies allow. This value defaults to @true@
--- for clusters created using the EMR API or the CLI
+-- Services account associated with the cluster can perform Amazon EMR
+-- actions on the cluster that their IAM policies allow. This value
+-- defaults to @true@ for clusters created using the Amazon EMR API or the
+-- CLI
 -- <https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html create-cluster>
 -- command.
 --
 -- When set to @false@, only the IAM principal that created the cluster and
--- the Amazon Web Services account root user can perform EMR actions for
--- the cluster, regardless of the IAM permissions policies attached to
+-- the Amazon Web Services account root user can perform Amazon EMR actions
+-- for the cluster, regardless of the IAM permissions policies attached to
 -- other IAM principals. For more information, see
--- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users Understanding the EMR Cluster VisibleToAllUsers Setting>
--- in the /Amazon EMRManagement Guide/.
+-- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_IAM_emr-with-IAM.html#security_set_visible_to_all_users Understanding the Amazon EMR cluster VisibleToAllUsers setting>
+-- in the /Amazon EMR Management Guide/.
 --
 -- 'name', 'runJobFlow_name' - The name of the job flow.
 --
@@ -533,8 +535,8 @@ runJobFlow_applications = Lens.lens (\RunJobFlow' {applications} -> applications
 
 -- | An IAM role for automatic scaling policies. The default role is
 -- @EMR_AutoScaling_DefaultRole@. The IAM role provides permissions that
--- the automatic scaling feature requires to launch and terminate EC2
--- instances in an instance group.
+-- the automatic scaling feature requires to launch and terminate Amazon
+-- EC2 instances in an instance group.
 runJobFlow_autoScalingRole :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Text)
 runJobFlow_autoScalingRole = Lens.lens (\RunJobFlow' {autoScalingRole} -> autoScalingRole) (\s@RunJobFlow' {} a -> s {autoScalingRole = a} :: RunJobFlow)
 
@@ -548,17 +550,17 @@ runJobFlow_bootstrapActions :: Lens.Lens' RunJobFlow (Prelude.Maybe [BootstrapAc
 runJobFlow_bootstrapActions = Lens.lens (\RunJobFlow' {bootstrapActions} -> bootstrapActions) (\s@RunJobFlow' {} a -> s {bootstrapActions = a} :: RunJobFlow) Prelude.. Lens.mapping Lens.coerced
 
 -- | For Amazon EMR releases 4.0 and later. The list of configurations
--- supplied for the EMR cluster you are creating.
+-- supplied for the Amazon EMR cluster that you are creating.
 runJobFlow_configurations :: Lens.Lens' RunJobFlow (Prelude.Maybe [Configuration])
 runJobFlow_configurations = Lens.lens (\RunJobFlow' {configurations} -> configurations) (\s@RunJobFlow' {} a -> s {configurations = a} :: RunJobFlow) Prelude.. Lens.mapping Lens.coerced
 
--- | Available only in Amazon EMR version 5.7.0 and later. The ID of a custom
--- Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when
--- it launches cluster EC2 instances. For more information about custom
--- AMIs in Amazon EMR, see
+-- | Available only in Amazon EMR releases 5.7.0 and later. The ID of a
+-- custom Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this
+-- AMI when it launches cluster Amazon EC2 instances. For more information
+-- about custom AMIs in Amazon EMR, see
 -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html Using a Custom AMI>
 -- in the /Amazon EMR Management Guide/. If omitted, the cluster uses the
--- base Linux AMI for the @ReleaseLabel@ specified. For Amazon EMR versions
+-- base Linux AMI for the @ReleaseLabel@ specified. For Amazon EMR releases
 -- 2.x and 3.x, use @AmiVersion@ instead.
 --
 -- For information about creating a custom AMI, see
@@ -570,15 +572,15 @@ runJobFlow_customAmiId :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Text)
 runJobFlow_customAmiId = Lens.lens (\RunJobFlow' {customAmiId} -> customAmiId) (\s@RunJobFlow' {} a -> s {customAmiId = a} :: RunJobFlow)
 
 -- | The size, in GiB, of the Amazon EBS root device volume of the Linux AMI
--- that is used for each EC2 instance. Available in Amazon EMR version 4.x
--- and later.
+-- that is used for each Amazon EC2 instance. Available in Amazon EMR
+-- releases 4.x and later.
 runJobFlow_ebsRootVolumeSize :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Int)
 runJobFlow_ebsRootVolumeSize = Lens.lens (\RunJobFlow' {ebsRootVolumeSize} -> ebsRootVolumeSize) (\s@RunJobFlow' {} a -> s {ebsRootVolumeSize = a} :: RunJobFlow)
 
--- | Also called instance profile and EC2 role. An IAM role for an EMR
--- cluster. The EC2 instances of the cluster assume this role. The default
--- role is @EMR_EC2_DefaultRole@. In order to use the default role, you
--- must have already created it using the CLI or console.
+-- | Also called instance profile and Amazon EC2 role. An IAM role for an
+-- Amazon EMR cluster. The Amazon EC2 instances of the cluster assume this
+-- role. The default role is @EMR_EC2_DefaultRole@. In order to use the
+-- default role, you must have already created it using the CLI or console.
 runJobFlow_jobFlowRole :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Text)
 runJobFlow_jobFlowRole = Lens.lens (\RunJobFlow' {jobFlowRole} -> jobFlowRole) (\s@RunJobFlow' {} a -> s {jobFlowRole = a} :: RunJobFlow)
 
@@ -591,7 +593,7 @@ runJobFlow_kerberosAttributes = Lens.lens (\RunJobFlow' {kerberosAttributes} -> 
 
 -- | The KMS key used for encrypting log files. If a value is not provided,
 -- the logs remain encrypted by AES-256. This attribute is only available
--- with Amazon EMR version 5.30.0 and later, excluding Amazon EMR 6.0.0.
+-- with Amazon EMR releases 5.30.0 and later, excluding Amazon EMR 6.0.0.
 runJobFlow_logEncryptionKmsKeyId :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Text)
 runJobFlow_logEncryptionKmsKeyId = Lens.lens (\RunJobFlow' {logEncryptionKmsKeyId} -> logEncryptionKmsKeyId) (\s@RunJobFlow' {} a -> s {logEncryptionKmsKeyId = a} :: RunJobFlow)
 
@@ -608,10 +610,10 @@ runJobFlow_managedScalingPolicy = Lens.lens (\RunJobFlow' {managedScalingPolicy}
 -- later, use Applications.
 --
 -- A list of strings that indicates third-party software to use with the
--- job flow that accepts a user argument list. EMR accepts and forwards the
--- argument list to the corresponding installation script as bootstrap
--- action arguments. For more information, see \"Launch a Job Flow on the
--- MapR Distribution for Hadoop\" in the
+-- job flow that accepts a user argument list. Amazon EMR accepts and
+-- forwards the argument list to the corresponding installation script as
+-- bootstrap action arguments. For more information, see \"Launch a Job
+-- Flow on the MapR Distribution for Hadoop\" in the
 -- <https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf Amazon EMR Developer Guide>.
 -- Supported values are:
 --
@@ -678,8 +680,8 @@ runJobFlow_repoUpgradeOnBoot = Lens.lens (\RunJobFlow' {repoUpgradeOnBoot} -> re
 -- the Amazon EC2 instances, regardless of the instance-hour boundary. With
 -- either behavior, Amazon EMR removes the least active nodes first and
 -- blocks instance termination if it could lead to HDFS corruption.
--- @TERMINATE_AT_TASK_COMPLETION@ available only in Amazon EMR version
--- 4.1.0 and later, and is the default for versions of Amazon EMR earlier
+-- @TERMINATE_AT_TASK_COMPLETION@ available only in Amazon EMR releases
+-- 4.1.0 and later, and is the default for releases of Amazon EMR earlier
 -- than 5.1.0.
 runJobFlow_scaleDownBehavior :: Lens.Lens' RunJobFlow (Prelude.Maybe ScaleDownBehavior)
 runJobFlow_scaleDownBehavior = Lens.lens (\RunJobFlow' {scaleDownBehavior} -> scaleDownBehavior) (\s@RunJobFlow' {} a -> s {scaleDownBehavior = a} :: RunJobFlow)
@@ -727,18 +729,19 @@ runJobFlow_tags = Lens.lens (\RunJobFlow' {tags} -> tags) (\s@RunJobFlow' {} a -
 -- value is set to @true@. Setting it to @false@ now has no effect.
 --
 -- Set this value to @true@ so that IAM principals in the Amazon Web
--- Services account associated with the cluster can perform EMR actions on
--- the cluster that their IAM policies allow. This value defaults to @true@
--- for clusters created using the EMR API or the CLI
+-- Services account associated with the cluster can perform Amazon EMR
+-- actions on the cluster that their IAM policies allow. This value
+-- defaults to @true@ for clusters created using the Amazon EMR API or the
+-- CLI
 -- <https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html create-cluster>
 -- command.
 --
 -- When set to @false@, only the IAM principal that created the cluster and
--- the Amazon Web Services account root user can perform EMR actions for
--- the cluster, regardless of the IAM permissions policies attached to
+-- the Amazon Web Services account root user can perform Amazon EMR actions
+-- for the cluster, regardless of the IAM permissions policies attached to
 -- other IAM principals. For more information, see
--- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users Understanding the EMR Cluster VisibleToAllUsers Setting>
--- in the /Amazon EMRManagement Guide/.
+-- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_IAM_emr-with-IAM.html#security_set_visible_to_all_users Understanding the Amazon EMR cluster VisibleToAllUsers setting>
+-- in the /Amazon EMR Management Guide/.
 runJobFlow_visibleToAllUsers :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Bool)
 runJobFlow_visibleToAllUsers = Lens.lens (\RunJobFlow' {visibleToAllUsers} -> visibleToAllUsers) (\s@RunJobFlow' {} a -> s {visibleToAllUsers = a} :: RunJobFlow)
 
@@ -765,7 +768,8 @@ instance Core.AWSRequest RunJobFlow where
 
 instance Prelude.Hashable RunJobFlow where
   hashWithSalt _salt RunJobFlow' {..} =
-    _salt `Prelude.hashWithSalt` additionalInfo
+    _salt
+      `Prelude.hashWithSalt` additionalInfo
       `Prelude.hashWithSalt` amiVersion
       `Prelude.hashWithSalt` applications
       `Prelude.hashWithSalt` autoScalingRole

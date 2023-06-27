@@ -103,6 +103,9 @@ module Amazonka.EMR.Types
     -- * OnDemandProvisioningAllocationStrategy
     OnDemandProvisioningAllocationStrategy (..),
 
+    -- * OutputNotebookFormat
+    OutputNotebookFormat (..),
+
     -- * PlacementGroupStrategy
     PlacementGroupStrategy (..),
 
@@ -256,6 +259,7 @@ module Amazonka.EMR.Types
     -- * ClusterStatus
     ClusterStatus (..),
     newClusterStatus,
+    clusterStatus_errorDetails,
     clusterStatus_state,
     clusterStatus_stateChangeReason,
     clusterStatus_timeline,
@@ -344,9 +348,17 @@ module Amazonka.EMR.Types
     ec2InstanceAttributes_requestedEc2SubnetIds,
     ec2InstanceAttributes_serviceAccessSecurityGroup,
 
+    -- * ErrorDetail
+    ErrorDetail (..),
+    newErrorDetail,
+    errorDetail_errorCode,
+    errorDetail_errorData,
+    errorDetail_errorMessage,
+
     -- * ExecutionEngineConfig
     ExecutionEngineConfig (..),
     newExecutionEngineConfig,
+    executionEngineConfig_executionRoleArn,
     executionEngineConfig_masterInstanceSecurityGroupId,
     executionEngineConfig_type,
     executionEngineConfig_id,
@@ -400,6 +412,7 @@ module Amazonka.EMR.Types
     instanceFleet_name,
     instanceFleet_provisionedOnDemandCapacity,
     instanceFleet_provisionedSpotCapacity,
+    instanceFleet_resizeSpecifications,
     instanceFleet_status,
     instanceFleet_targetOnDemandCapacity,
     instanceFleet_targetSpotCapacity,
@@ -410,6 +423,7 @@ module Amazonka.EMR.Types
     instanceFleetConfig_instanceTypeConfigs,
     instanceFleetConfig_launchSpecifications,
     instanceFleetConfig_name,
+    instanceFleetConfig_resizeSpecifications,
     instanceFleetConfig_targetOnDemandCapacity,
     instanceFleetConfig_targetSpotCapacity,
     instanceFleetConfig_instanceFleetType,
@@ -417,6 +431,7 @@ module Amazonka.EMR.Types
     -- * InstanceFleetModifyConfig
     InstanceFleetModifyConfig (..),
     newInstanceFleetModifyConfig,
+    instanceFleetModifyConfig_resizeSpecifications,
     instanceFleetModifyConfig_targetOnDemandCapacity,
     instanceFleetModifyConfig_targetSpotCapacity,
     instanceFleetModifyConfig_instanceFleetId,
@@ -426,6 +441,12 @@ module Amazonka.EMR.Types
     newInstanceFleetProvisioningSpecifications,
     instanceFleetProvisioningSpecifications_onDemandSpecification,
     instanceFleetProvisioningSpecifications_spotSpecification,
+
+    -- * InstanceFleetResizingSpecifications
+    InstanceFleetResizingSpecifications (..),
+    newInstanceFleetResizingSpecifications,
+    instanceFleetResizingSpecifications_onDemandResizeSpecification,
+    instanceFleetResizingSpecifications_spotResizeSpecification,
 
     -- * InstanceFleetStateChangeReason
     InstanceFleetStateChangeReason (..),
@@ -616,12 +637,16 @@ module Amazonka.EMR.Types
     notebookExecution_arn,
     notebookExecution_editorId,
     notebookExecution_endTime,
+    notebookExecution_environmentVariables,
     notebookExecution_executionEngine,
     notebookExecution_lastStateChangeReason,
     notebookExecution_notebookExecutionId,
     notebookExecution_notebookExecutionName,
     notebookExecution_notebookInstanceSecurityGroupId,
     notebookExecution_notebookParams,
+    notebookExecution_notebookS3Location,
+    notebookExecution_outputNotebookFormat,
+    notebookExecution_outputNotebookS3Location,
     notebookExecution_outputNotebookURI,
     notebookExecution_startTime,
     notebookExecution_status,
@@ -632,10 +657,24 @@ module Amazonka.EMR.Types
     newNotebookExecutionSummary,
     notebookExecutionSummary_editorId,
     notebookExecutionSummary_endTime,
+    notebookExecutionSummary_executionEngineId,
     notebookExecutionSummary_notebookExecutionId,
     notebookExecutionSummary_notebookExecutionName,
+    notebookExecutionSummary_notebookS3Location,
     notebookExecutionSummary_startTime,
     notebookExecutionSummary_status,
+
+    -- * NotebookS3LocationForOutput
+    NotebookS3LocationForOutput (..),
+    newNotebookS3LocationForOutput,
+    notebookS3LocationForOutput_bucket,
+    notebookS3LocationForOutput_key,
+
+    -- * NotebookS3LocationFromInput
+    NotebookS3LocationFromInput (..),
+    newNotebookS3LocationFromInput,
+    notebookS3LocationFromInput_bucket,
+    notebookS3LocationFromInput_key,
 
     -- * OSRelease
     OSRelease (..),
@@ -654,6 +693,23 @@ module Amazonka.EMR.Types
     newOnDemandProvisioningSpecification,
     onDemandProvisioningSpecification_capacityReservationOptions,
     onDemandProvisioningSpecification_allocationStrategy,
+
+    -- * OnDemandResizingSpecification
+    OnDemandResizingSpecification (..),
+    newOnDemandResizingSpecification,
+    onDemandResizingSpecification_timeoutDurationMinutes,
+
+    -- * OutputNotebookS3LocationForOutput
+    OutputNotebookS3LocationForOutput (..),
+    newOutputNotebookS3LocationForOutput,
+    outputNotebookS3LocationForOutput_bucket,
+    outputNotebookS3LocationForOutput_key,
+
+    -- * OutputNotebookS3LocationFromInput
+    OutputNotebookS3LocationFromInput (..),
+    newOutputNotebookS3LocationFromInput,
+    outputNotebookS3LocationFromInput_bucket,
+    outputNotebookS3LocationFromInput_key,
 
     -- * PlacementGroupConfig
     PlacementGroupConfig (..),
@@ -764,6 +820,11 @@ module Amazonka.EMR.Types
     spotProvisioningSpecification_timeoutDurationMinutes,
     spotProvisioningSpecification_timeoutAction,
 
+    -- * SpotResizingSpecification
+    SpotResizingSpecification (..),
+    newSpotResizingSpecification,
+    spotResizingSpecification_timeoutDurationMinutes,
+
     -- * Step
     Step (..),
     newStep,
@@ -843,6 +904,21 @@ module Amazonka.EMR.Types
     studioSummary_url,
     studioSummary_vpcId,
 
+    -- * SupportedInstanceType
+    SupportedInstanceType (..),
+    newSupportedInstanceType,
+    supportedInstanceType_architecture,
+    supportedInstanceType_ebsOptimizedAvailable,
+    supportedInstanceType_ebsOptimizedByDefault,
+    supportedInstanceType_ebsStorageOnly,
+    supportedInstanceType_instanceFamilyId,
+    supportedInstanceType_is64BitsOnly,
+    supportedInstanceType_memoryGB,
+    supportedInstanceType_numberOfDisks,
+    supportedInstanceType_storageGB,
+    supportedInstanceType_type,
+    supportedInstanceType_vcpu,
+
     -- * SupportedProductConfig
     SupportedProductConfig (..),
     newSupportedProductConfig,
@@ -908,6 +984,7 @@ import Amazonka.EMR.Types.EbsBlockDeviceConfig
 import Amazonka.EMR.Types.EbsConfiguration
 import Amazonka.EMR.Types.EbsVolume
 import Amazonka.EMR.Types.Ec2InstanceAttributes
+import Amazonka.EMR.Types.ErrorDetail
 import Amazonka.EMR.Types.ExecutionEngineConfig
 import Amazonka.EMR.Types.ExecutionEngineType
 import Amazonka.EMR.Types.FailureDetails
@@ -920,6 +997,7 @@ import Amazonka.EMR.Types.InstanceFleet
 import Amazonka.EMR.Types.InstanceFleetConfig
 import Amazonka.EMR.Types.InstanceFleetModifyConfig
 import Amazonka.EMR.Types.InstanceFleetProvisioningSpecifications
+import Amazonka.EMR.Types.InstanceFleetResizingSpecifications
 import Amazonka.EMR.Types.InstanceFleetState
 import Amazonka.EMR.Types.InstanceFleetStateChangeReason
 import Amazonka.EMR.Types.InstanceFleetStateChangeReasonCode
@@ -953,12 +1031,18 @@ import Amazonka.EMR.Types.MetricDimension
 import Amazonka.EMR.Types.NotebookExecution
 import Amazonka.EMR.Types.NotebookExecutionStatus
 import Amazonka.EMR.Types.NotebookExecutionSummary
+import Amazonka.EMR.Types.NotebookS3LocationForOutput
+import Amazonka.EMR.Types.NotebookS3LocationFromInput
 import Amazonka.EMR.Types.OSRelease
 import Amazonka.EMR.Types.OnDemandCapacityReservationOptions
 import Amazonka.EMR.Types.OnDemandCapacityReservationPreference
 import Amazonka.EMR.Types.OnDemandCapacityReservationUsageStrategy
 import Amazonka.EMR.Types.OnDemandProvisioningAllocationStrategy
 import Amazonka.EMR.Types.OnDemandProvisioningSpecification
+import Amazonka.EMR.Types.OnDemandResizingSpecification
+import Amazonka.EMR.Types.OutputNotebookFormat
+import Amazonka.EMR.Types.OutputNotebookS3LocationForOutput
+import Amazonka.EMR.Types.OutputNotebookS3LocationFromInput
 import Amazonka.EMR.Types.PlacementGroupConfig
 import Amazonka.EMR.Types.PlacementGroupStrategy
 import Amazonka.EMR.Types.PlacementType
@@ -981,6 +1065,7 @@ import Amazonka.EMR.Types.SimplifiedApplication
 import Amazonka.EMR.Types.SpotProvisioningAllocationStrategy
 import Amazonka.EMR.Types.SpotProvisioningSpecification
 import Amazonka.EMR.Types.SpotProvisioningTimeoutAction
+import Amazonka.EMR.Types.SpotResizingSpecification
 import Amazonka.EMR.Types.Statistic
 import Amazonka.EMR.Types.Step
 import Amazonka.EMR.Types.StepCancellationOption
@@ -993,6 +1078,7 @@ import Amazonka.EMR.Types.StepSummary
 import Amazonka.EMR.Types.StepTimeline
 import Amazonka.EMR.Types.Studio
 import Amazonka.EMR.Types.StudioSummary
+import Amazonka.EMR.Types.SupportedInstanceType
 import Amazonka.EMR.Types.SupportedProductConfig
 import Amazonka.EMR.Types.Tag
 import Amazonka.EMR.Types.Unit
@@ -1027,53 +1113,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Indicates that an error occurred while processing the request and that
 -- the request was not completed.
-_InternalServerError :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerError :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService
@@ -1081,14 +1167,14 @@ _InternalServerError =
 
 -- | This exception occurs when there is an internal failure in the Amazon
 -- EMR service.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
 
 -- | This exception occurs when there is something wrong with user input.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService

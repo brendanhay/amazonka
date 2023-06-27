@@ -37,10 +37,10 @@ data ClusterSummary = ClusterSummary'
     name :: Prelude.Maybe Prelude.Text,
     -- | An approximation of the cost of the cluster, represented in
     -- m1.small\/hours. This value is incremented one time for every hour an
-    -- m1.small instance runs. Larger instances are weighted more, so an EC2
-    -- instance that is roughly four times more expensive would result in the
-    -- normalized instance hours being incremented by four. This result is only
-    -- an approximation and does not reflect the actual billing rate.
+    -- m1.small instance runs. Larger instances are weighted more, so an Amazon
+    -- EC2 instance that is roughly four times more expensive would result in
+    -- the normalized instance hours being incremented by four. This result is
+    -- only an approximation and does not reflect the actual billing rate.
     normalizedInstanceHours :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the Outpost where the cluster is
     -- launched.
@@ -66,10 +66,10 @@ data ClusterSummary = ClusterSummary'
 --
 -- 'normalizedInstanceHours', 'clusterSummary_normalizedInstanceHours' - An approximation of the cost of the cluster, represented in
 -- m1.small\/hours. This value is incremented one time for every hour an
--- m1.small instance runs. Larger instances are weighted more, so an EC2
--- instance that is roughly four times more expensive would result in the
--- normalized instance hours being incremented by four. This result is only
--- an approximation and does not reflect the actual billing rate.
+-- m1.small instance runs. Larger instances are weighted more, so an Amazon
+-- EC2 instance that is roughly four times more expensive would result in
+-- the normalized instance hours being incremented by four. This result is
+-- only an approximation and does not reflect the actual billing rate.
 --
 -- 'outpostArn', 'clusterSummary_outpostArn' - The Amazon Resource Name (ARN) of the Outpost where the cluster is
 -- launched.
@@ -101,10 +101,10 @@ clusterSummary_name = Lens.lens (\ClusterSummary' {name} -> name) (\s@ClusterSum
 
 -- | An approximation of the cost of the cluster, represented in
 -- m1.small\/hours. This value is incremented one time for every hour an
--- m1.small instance runs. Larger instances are weighted more, so an EC2
--- instance that is roughly four times more expensive would result in the
--- normalized instance hours being incremented by four. This result is only
--- an approximation and does not reflect the actual billing rate.
+-- m1.small instance runs. Larger instances are weighted more, so an Amazon
+-- EC2 instance that is roughly four times more expensive would result in
+-- the normalized instance hours being incremented by four. This result is
+-- only an approximation and does not reflect the actual billing rate.
 clusterSummary_normalizedInstanceHours :: Lens.Lens' ClusterSummary (Prelude.Maybe Prelude.Int)
 clusterSummary_normalizedInstanceHours = Lens.lens (\ClusterSummary' {normalizedInstanceHours} -> normalizedInstanceHours) (\s@ClusterSummary' {} a -> s {normalizedInstanceHours = a} :: ClusterSummary)
 
@@ -133,7 +133,8 @@ instance Data.FromJSON ClusterSummary where
 
 instance Prelude.Hashable ClusterSummary where
   hashWithSalt _salt ClusterSummary' {..} =
-    _salt `Prelude.hashWithSalt` clusterArn
+    _salt
+      `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` normalizedInstanceHours

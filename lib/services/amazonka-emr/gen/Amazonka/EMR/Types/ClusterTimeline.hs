@@ -85,7 +85,8 @@ instance Data.FromJSON ClusterTimeline where
 
 instance Prelude.Hashable ClusterTimeline where
   hashWithSalt _salt ClusterTimeline' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` endDateTime
       `Prelude.hashWithSalt` readyDateTime
 

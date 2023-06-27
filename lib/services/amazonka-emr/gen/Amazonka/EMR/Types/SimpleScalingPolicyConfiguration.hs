@@ -26,32 +26,33 @@ import Amazonka.EMR.Types.AdjustmentType
 import qualified Amazonka.Prelude as Prelude
 
 -- | An automatic scaling configuration, which describes how the policy adds
--- or removes instances, the cooldown period, and the number of EC2
+-- or removes instances, the cooldown period, and the number of Amazon EC2
 -- instances that will be added each time the CloudWatch metric alarm
 -- condition is satisfied.
 --
 -- /See:/ 'newSimpleScalingPolicyConfiguration' smart constructor.
 data SimpleScalingPolicyConfiguration = SimpleScalingPolicyConfiguration'
-  { -- | The way in which EC2 instances are added (if @ScalingAdjustment@ is a
-    -- positive number) or terminated (if @ScalingAdjustment@ is a negative
-    -- number) each time the scaling activity is triggered.
+  { -- | The way in which Amazon EC2 instances are added (if @ScalingAdjustment@
+    -- is a positive number) or terminated (if @ScalingAdjustment@ is a
+    -- negative number) each time the scaling activity is triggered.
     -- @CHANGE_IN_CAPACITY@ is the default. @CHANGE_IN_CAPACITY@ indicates that
-    -- the EC2 instance count increments or decrements by @ScalingAdjustment@,
-    -- which should be expressed as an integer. @PERCENT_CHANGE_IN_CAPACITY@
-    -- indicates the instance count increments or decrements by the percentage
-    -- specified by @ScalingAdjustment@, which should be expressed as an
-    -- integer. For example, 20 indicates an increase in 20% increments of
-    -- cluster capacity. @EXACT_CAPACITY@ indicates the scaling activity
-    -- results in an instance group with the number of EC2 instances specified
-    -- by @ScalingAdjustment@, which should be expressed as a positive integer.
+    -- the Amazon EC2 instance count increments or decrements by
+    -- @ScalingAdjustment@, which should be expressed as an integer.
+    -- @PERCENT_CHANGE_IN_CAPACITY@ indicates the instance count increments or
+    -- decrements by the percentage specified by @ScalingAdjustment@, which
+    -- should be expressed as an integer. For example, 20 indicates an increase
+    -- in 20% increments of cluster capacity. @EXACT_CAPACITY@ indicates the
+    -- scaling activity results in an instance group with the number of Amazon
+    -- EC2 instances specified by @ScalingAdjustment@, which should be
+    -- expressed as a positive integer.
     adjustmentType :: Prelude.Maybe AdjustmentType,
     -- | The amount of time, in seconds, after a scaling activity completes
     -- before any further trigger-related scaling activities can start. The
     -- default value is 0.
     coolDown :: Prelude.Maybe Prelude.Int,
     -- | The amount by which to scale in or scale out, based on the specified
-    -- @AdjustmentType@. A positive value adds to the instance group\'s EC2
-    -- instance count while a negative number removes instances. If
+    -- @AdjustmentType@. A positive value adds to the instance group\'s Amazon
+    -- EC2 instance count while a negative number removes instances. If
     -- @AdjustmentType@ is set to @EXACT_CAPACITY@, the number should only be a
     -- positive integer. If @AdjustmentType@ is set to
     -- @PERCENT_CHANGE_IN_CAPACITY@, the value should express the percentage as
@@ -69,26 +70,27 @@ data SimpleScalingPolicyConfiguration = SimpleScalingPolicyConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'adjustmentType', 'simpleScalingPolicyConfiguration_adjustmentType' - The way in which EC2 instances are added (if @ScalingAdjustment@ is a
--- positive number) or terminated (if @ScalingAdjustment@ is a negative
--- number) each time the scaling activity is triggered.
+-- 'adjustmentType', 'simpleScalingPolicyConfiguration_adjustmentType' - The way in which Amazon EC2 instances are added (if @ScalingAdjustment@
+-- is a positive number) or terminated (if @ScalingAdjustment@ is a
+-- negative number) each time the scaling activity is triggered.
 -- @CHANGE_IN_CAPACITY@ is the default. @CHANGE_IN_CAPACITY@ indicates that
--- the EC2 instance count increments or decrements by @ScalingAdjustment@,
--- which should be expressed as an integer. @PERCENT_CHANGE_IN_CAPACITY@
--- indicates the instance count increments or decrements by the percentage
--- specified by @ScalingAdjustment@, which should be expressed as an
--- integer. For example, 20 indicates an increase in 20% increments of
--- cluster capacity. @EXACT_CAPACITY@ indicates the scaling activity
--- results in an instance group with the number of EC2 instances specified
--- by @ScalingAdjustment@, which should be expressed as a positive integer.
+-- the Amazon EC2 instance count increments or decrements by
+-- @ScalingAdjustment@, which should be expressed as an integer.
+-- @PERCENT_CHANGE_IN_CAPACITY@ indicates the instance count increments or
+-- decrements by the percentage specified by @ScalingAdjustment@, which
+-- should be expressed as an integer. For example, 20 indicates an increase
+-- in 20% increments of cluster capacity. @EXACT_CAPACITY@ indicates the
+-- scaling activity results in an instance group with the number of Amazon
+-- EC2 instances specified by @ScalingAdjustment@, which should be
+-- expressed as a positive integer.
 --
 -- 'coolDown', 'simpleScalingPolicyConfiguration_coolDown' - The amount of time, in seconds, after a scaling activity completes
 -- before any further trigger-related scaling activities can start. The
 -- default value is 0.
 --
 -- 'scalingAdjustment', 'simpleScalingPolicyConfiguration_scalingAdjustment' - The amount by which to scale in or scale out, based on the specified
--- @AdjustmentType@. A positive value adds to the instance group\'s EC2
--- instance count while a negative number removes instances. If
+-- @AdjustmentType@. A positive value adds to the instance group\'s Amazon
+-- EC2 instance count while a negative number removes instances. If
 -- @AdjustmentType@ is set to @EXACT_CAPACITY@, the number should only be a
 -- positive integer. If @AdjustmentType@ is set to
 -- @PERCENT_CHANGE_IN_CAPACITY@, the value should express the percentage as
@@ -107,18 +109,19 @@ newSimpleScalingPolicyConfiguration
         scalingAdjustment = pScalingAdjustment_
       }
 
--- | The way in which EC2 instances are added (if @ScalingAdjustment@ is a
--- positive number) or terminated (if @ScalingAdjustment@ is a negative
--- number) each time the scaling activity is triggered.
+-- | The way in which Amazon EC2 instances are added (if @ScalingAdjustment@
+-- is a positive number) or terminated (if @ScalingAdjustment@ is a
+-- negative number) each time the scaling activity is triggered.
 -- @CHANGE_IN_CAPACITY@ is the default. @CHANGE_IN_CAPACITY@ indicates that
--- the EC2 instance count increments or decrements by @ScalingAdjustment@,
--- which should be expressed as an integer. @PERCENT_CHANGE_IN_CAPACITY@
--- indicates the instance count increments or decrements by the percentage
--- specified by @ScalingAdjustment@, which should be expressed as an
--- integer. For example, 20 indicates an increase in 20% increments of
--- cluster capacity. @EXACT_CAPACITY@ indicates the scaling activity
--- results in an instance group with the number of EC2 instances specified
--- by @ScalingAdjustment@, which should be expressed as a positive integer.
+-- the Amazon EC2 instance count increments or decrements by
+-- @ScalingAdjustment@, which should be expressed as an integer.
+-- @PERCENT_CHANGE_IN_CAPACITY@ indicates the instance count increments or
+-- decrements by the percentage specified by @ScalingAdjustment@, which
+-- should be expressed as an integer. For example, 20 indicates an increase
+-- in 20% increments of cluster capacity. @EXACT_CAPACITY@ indicates the
+-- scaling activity results in an instance group with the number of Amazon
+-- EC2 instances specified by @ScalingAdjustment@, which should be
+-- expressed as a positive integer.
 simpleScalingPolicyConfiguration_adjustmentType :: Lens.Lens' SimpleScalingPolicyConfiguration (Prelude.Maybe AdjustmentType)
 simpleScalingPolicyConfiguration_adjustmentType = Lens.lens (\SimpleScalingPolicyConfiguration' {adjustmentType} -> adjustmentType) (\s@SimpleScalingPolicyConfiguration' {} a -> s {adjustmentType = a} :: SimpleScalingPolicyConfiguration)
 
@@ -129,8 +132,8 @@ simpleScalingPolicyConfiguration_coolDown :: Lens.Lens' SimpleScalingPolicyConfi
 simpleScalingPolicyConfiguration_coolDown = Lens.lens (\SimpleScalingPolicyConfiguration' {coolDown} -> coolDown) (\s@SimpleScalingPolicyConfiguration' {} a -> s {coolDown = a} :: SimpleScalingPolicyConfiguration)
 
 -- | The amount by which to scale in or scale out, based on the specified
--- @AdjustmentType@. A positive value adds to the instance group\'s EC2
--- instance count while a negative number removes instances. If
+-- @AdjustmentType@. A positive value adds to the instance group\'s Amazon
+-- EC2 instance count while a negative number removes instances. If
 -- @AdjustmentType@ is set to @EXACT_CAPACITY@, the number should only be a
 -- positive integer. If @AdjustmentType@ is set to
 -- @PERCENT_CHANGE_IN_CAPACITY@, the value should express the percentage as
@@ -160,7 +163,8 @@ instance
   hashWithSalt
     _salt
     SimpleScalingPolicyConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` adjustmentType
+      _salt
+        `Prelude.hashWithSalt` adjustmentType
         `Prelude.hashWithSalt` coolDown
         `Prelude.hashWithSalt` scalingAdjustment
 

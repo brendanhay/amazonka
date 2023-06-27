@@ -24,19 +24,20 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The upper and lower EC2 instance limits for an automatic scaling policy.
--- Automatic scaling activities triggered by automatic scaling rules will
--- not cause an instance group to grow above or below these limits.
+-- | The upper and lower Amazon EC2 instance limits for an automatic scaling
+-- policy. Automatic scaling activities triggered by automatic scaling
+-- rules will not cause an instance group to grow above or below these
+-- limits.
 --
 -- /See:/ 'newScalingConstraints' smart constructor.
 data ScalingConstraints = ScalingConstraints'
-  { -- | The lower boundary of EC2 instances in an instance group below which
-    -- scaling activities are not allowed to shrink. Scale-in activities will
-    -- not terminate instances below this boundary.
+  { -- | The lower boundary of Amazon EC2 instances in an instance group below
+    -- which scaling activities are not allowed to shrink. Scale-in activities
+    -- will not terminate instances below this boundary.
     minCapacity :: Prelude.Int,
-    -- | The upper boundary of EC2 instances in an instance group beyond which
-    -- scaling activities are not allowed to grow. Scale-out activities will
-    -- not add instances beyond this boundary.
+    -- | The upper boundary of Amazon EC2 instances in an instance group beyond
+    -- which scaling activities are not allowed to grow. Scale-out activities
+    -- will not add instances beyond this boundary.
     maxCapacity :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,13 +50,13 @@ data ScalingConstraints = ScalingConstraints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'minCapacity', 'scalingConstraints_minCapacity' - The lower boundary of EC2 instances in an instance group below which
--- scaling activities are not allowed to shrink. Scale-in activities will
--- not terminate instances below this boundary.
+-- 'minCapacity', 'scalingConstraints_minCapacity' - The lower boundary of Amazon EC2 instances in an instance group below
+-- which scaling activities are not allowed to shrink. Scale-in activities
+-- will not terminate instances below this boundary.
 --
--- 'maxCapacity', 'scalingConstraints_maxCapacity' - The upper boundary of EC2 instances in an instance group beyond which
--- scaling activities are not allowed to grow. Scale-out activities will
--- not add instances beyond this boundary.
+-- 'maxCapacity', 'scalingConstraints_maxCapacity' - The upper boundary of Amazon EC2 instances in an instance group beyond
+-- which scaling activities are not allowed to grow. Scale-out activities
+-- will not add instances beyond this boundary.
 newScalingConstraints ::
   -- | 'minCapacity'
   Prelude.Int ->
@@ -68,15 +69,15 @@ newScalingConstraints pMinCapacity_ pMaxCapacity_ =
       maxCapacity = pMaxCapacity_
     }
 
--- | The lower boundary of EC2 instances in an instance group below which
--- scaling activities are not allowed to shrink. Scale-in activities will
--- not terminate instances below this boundary.
+-- | The lower boundary of Amazon EC2 instances in an instance group below
+-- which scaling activities are not allowed to shrink. Scale-in activities
+-- will not terminate instances below this boundary.
 scalingConstraints_minCapacity :: Lens.Lens' ScalingConstraints Prelude.Int
 scalingConstraints_minCapacity = Lens.lens (\ScalingConstraints' {minCapacity} -> minCapacity) (\s@ScalingConstraints' {} a -> s {minCapacity = a} :: ScalingConstraints)
 
--- | The upper boundary of EC2 instances in an instance group beyond which
--- scaling activities are not allowed to grow. Scale-out activities will
--- not add instances beyond this boundary.
+-- | The upper boundary of Amazon EC2 instances in an instance group beyond
+-- which scaling activities are not allowed to grow. Scale-out activities
+-- will not add instances beyond this boundary.
 scalingConstraints_maxCapacity :: Lens.Lens' ScalingConstraints Prelude.Int
 scalingConstraints_maxCapacity = Lens.lens (\ScalingConstraints' {maxCapacity} -> maxCapacity) (\s@ScalingConstraints' {} a -> s {maxCapacity = a} :: ScalingConstraints)
 
@@ -92,7 +93,8 @@ instance Data.FromJSON ScalingConstraints where
 
 instance Prelude.Hashable ScalingConstraints where
   hashWithSalt _salt ScalingConstraints' {..} =
-    _salt `Prelude.hashWithSalt` minCapacity
+    _salt
+      `Prelude.hashWithSalt` minCapacity
       `Prelude.hashWithSalt` maxCapacity
 
 instance Prelude.NFData ScalingConstraints where

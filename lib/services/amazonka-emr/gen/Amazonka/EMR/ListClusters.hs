@@ -125,20 +125,23 @@ instance Core.AWSPager ListClusters where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listClustersResponse_marker Prelude.. Lens._Just
+            Lens.^? listClustersResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listClustersResponse_clusters Prelude.. Lens._Just
+            Lens.^? listClustersResponse_clusters
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listClusters_marker
           Lens..~ rs
-          Lens.^? listClustersResponse_marker Prelude.. Lens._Just
+          Lens.^? listClustersResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListClusters where
   type AWSResponse ListClusters = ListClustersResponse
@@ -155,7 +158,8 @@ instance Core.AWSRequest ListClusters where
 
 instance Prelude.Hashable ListClusters where
   hashWithSalt _salt ListClusters' {..} =
-    _salt `Prelude.hashWithSalt` clusterStates
+    _salt
+      `Prelude.hashWithSalt` clusterStates
       `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` marker

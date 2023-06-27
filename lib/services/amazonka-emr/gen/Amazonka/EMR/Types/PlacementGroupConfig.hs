@@ -31,18 +31,18 @@ import qualified Amazonka.Prelude as Prelude
 -- instance roles during cluster creation.
 --
 -- To use this configuration, consider attaching managed policy
--- AmazonElasticMapReducePlacementGroupPolicy to the EMR role.
+-- AmazonElasticMapReducePlacementGroupPolicy to the Amazon EMR role.
 --
 -- /See:/ 'newPlacementGroupConfig' smart constructor.
 data PlacementGroupConfig = PlacementGroupConfig'
-  { -- | EC2 Placement Group strategy associated with instance role.
+  { -- | Amazon EC2 Placement Group strategy associated with instance role.
     --
-    -- Starting with Amazon EMR version 5.23.0, the only supported placement
+    -- Starting with Amazon EMR release 5.23.0, the only supported placement
     -- strategy is @SPREAD@ for the @MASTER@ instance role.
     placementStrategy :: Prelude.Maybe PlacementGroupStrategy,
     -- | Role of the instance in the cluster.
     --
-    -- Starting with Amazon EMR version 5.23.0, the only supported instance
+    -- Starting with Amazon EMR release 5.23.0, the only supported instance
     -- role is @MASTER@.
     instanceRole :: InstanceRoleType
   }
@@ -56,14 +56,14 @@ data PlacementGroupConfig = PlacementGroupConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'placementStrategy', 'placementGroupConfig_placementStrategy' - EC2 Placement Group strategy associated with instance role.
+-- 'placementStrategy', 'placementGroupConfig_placementStrategy' - Amazon EC2 Placement Group strategy associated with instance role.
 --
--- Starting with Amazon EMR version 5.23.0, the only supported placement
+-- Starting with Amazon EMR release 5.23.0, the only supported placement
 -- strategy is @SPREAD@ for the @MASTER@ instance role.
 --
 -- 'instanceRole', 'placementGroupConfig_instanceRole' - Role of the instance in the cluster.
 --
--- Starting with Amazon EMR version 5.23.0, the only supported instance
+-- Starting with Amazon EMR release 5.23.0, the only supported instance
 -- role is @MASTER@.
 newPlacementGroupConfig ::
   -- | 'instanceRole'
@@ -76,16 +76,16 @@ newPlacementGroupConfig pInstanceRole_ =
       instanceRole = pInstanceRole_
     }
 
--- | EC2 Placement Group strategy associated with instance role.
+-- | Amazon EC2 Placement Group strategy associated with instance role.
 --
--- Starting with Amazon EMR version 5.23.0, the only supported placement
+-- Starting with Amazon EMR release 5.23.0, the only supported placement
 -- strategy is @SPREAD@ for the @MASTER@ instance role.
 placementGroupConfig_placementStrategy :: Lens.Lens' PlacementGroupConfig (Prelude.Maybe PlacementGroupStrategy)
 placementGroupConfig_placementStrategy = Lens.lens (\PlacementGroupConfig' {placementStrategy} -> placementStrategy) (\s@PlacementGroupConfig' {} a -> s {placementStrategy = a} :: PlacementGroupConfig)
 
 -- | Role of the instance in the cluster.
 --
--- Starting with Amazon EMR version 5.23.0, the only supported instance
+-- Starting with Amazon EMR release 5.23.0, the only supported instance
 -- role is @MASTER@.
 placementGroupConfig_instanceRole :: Lens.Lens' PlacementGroupConfig InstanceRoleType
 placementGroupConfig_instanceRole = Lens.lens (\PlacementGroupConfig' {instanceRole} -> instanceRole) (\s@PlacementGroupConfig' {} a -> s {instanceRole = a} :: PlacementGroupConfig)
@@ -102,7 +102,8 @@ instance Data.FromJSON PlacementGroupConfig where
 
 instance Prelude.Hashable PlacementGroupConfig where
   hashWithSalt _salt PlacementGroupConfig' {..} =
-    _salt `Prelude.hashWithSalt` placementStrategy
+    _salt
+      `Prelude.hashWithSalt` placementStrategy
       `Prelude.hashWithSalt` instanceRole
 
 instance Prelude.NFData PlacementGroupConfig where

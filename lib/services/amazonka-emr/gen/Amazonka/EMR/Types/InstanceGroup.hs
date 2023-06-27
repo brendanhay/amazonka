@@ -39,8 +39,9 @@ import qualified Amazonka.Prelude as Prelude
 data InstanceGroup = InstanceGroup'
   { -- | An automatic scaling policy for a core instance group or task instance
     -- group in an Amazon EMR cluster. The automatic scaling policy defines how
-    -- an instance group dynamically adds and terminates EC2 instances in
-    -- response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
+    -- an instance group dynamically adds and terminates Amazon EC2 instances
+    -- in response to the value of a CloudWatch metric. See
+    -- PutAutoScalingPolicy.
     autoScalingPolicy :: Prelude.Maybe AutoScalingPolicyDescription,
     -- | If specified, indicates that the instance group uses Spot Instances.
     -- This is the maximum price you are willing to pay for Spot Instances.
@@ -68,7 +69,7 @@ data InstanceGroup = InstanceGroup'
     id :: Prelude.Maybe Prelude.Text,
     -- | The type of the instance group. Valid values are MASTER, CORE or TASK.
     instanceGroupType :: Prelude.Maybe InstanceGroupType,
-    -- | The EC2 instance type for all instances in the instance group.
+    -- | The Amazon EC2 instance type for all instances in the instance group.
     instanceType :: Prelude.Maybe Prelude.Text,
     -- | A list of configurations that were successfully applied for an instance
     -- group last time.
@@ -102,8 +103,9 @@ data InstanceGroup = InstanceGroup'
 --
 -- 'autoScalingPolicy', 'instanceGroup_autoScalingPolicy' - An automatic scaling policy for a core instance group or task instance
 -- group in an Amazon EMR cluster. The automatic scaling policy defines how
--- an instance group dynamically adds and terminates EC2 instances in
--- response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
+-- an instance group dynamically adds and terminates Amazon EC2 instances
+-- in response to the value of a CloudWatch metric. See
+-- PutAutoScalingPolicy.
 --
 -- 'bidPrice', 'instanceGroup_bidPrice' - If specified, indicates that the instance group uses Spot Instances.
 -- This is the maximum price you are willing to pay for Spot Instances.
@@ -131,7 +133,7 @@ data InstanceGroup = InstanceGroup'
 --
 -- 'instanceGroupType', 'instanceGroup_instanceGroupType' - The type of the instance group. Valid values are MASTER, CORE or TASK.
 --
--- 'instanceType', 'instanceGroup_instanceType' - The EC2 instance type for all instances in the instance group.
+-- 'instanceType', 'instanceGroup_instanceType' - The Amazon EC2 instance type for all instances in the instance group.
 --
 -- 'lastSuccessfullyAppliedConfigurations', 'instanceGroup_lastSuccessfullyAppliedConfigurations' - A list of configurations that were successfully applied for an instance
 -- group last time.
@@ -179,8 +181,9 @@ newInstanceGroup =
 
 -- | An automatic scaling policy for a core instance group or task instance
 -- group in an Amazon EMR cluster. The automatic scaling policy defines how
--- an instance group dynamically adds and terminates EC2 instances in
--- response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
+-- an instance group dynamically adds and terminates Amazon EC2 instances
+-- in response to the value of a CloudWatch metric. See
+-- PutAutoScalingPolicy.
 instanceGroup_autoScalingPolicy :: Lens.Lens' InstanceGroup (Prelude.Maybe AutoScalingPolicyDescription)
 instanceGroup_autoScalingPolicy = Lens.lens (\InstanceGroup' {autoScalingPolicy} -> autoScalingPolicy) (\s@InstanceGroup' {} a -> s {autoScalingPolicy = a} :: InstanceGroup)
 
@@ -226,7 +229,7 @@ instanceGroup_id = Lens.lens (\InstanceGroup' {id} -> id) (\s@InstanceGroup' {} 
 instanceGroup_instanceGroupType :: Lens.Lens' InstanceGroup (Prelude.Maybe InstanceGroupType)
 instanceGroup_instanceGroupType = Lens.lens (\InstanceGroup' {instanceGroupType} -> instanceGroupType) (\s@InstanceGroup' {} a -> s {instanceGroupType = a} :: InstanceGroup)
 
--- | The EC2 instance type for all instances in the instance group.
+-- | The Amazon EC2 instance type for all instances in the instance group.
 instanceGroup_instanceType :: Lens.Lens' InstanceGroup (Prelude.Maybe Prelude.Text)
 instanceGroup_instanceType = Lens.lens (\InstanceGroup' {instanceType} -> instanceType) (\s@InstanceGroup' {} a -> s {instanceType = a} :: InstanceGroup)
 
@@ -276,14 +279,16 @@ instance Data.FromJSON InstanceGroup where
             Prelude.<*> (x Data..:? "Configurations" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ConfigurationsVersion")
             Prelude.<*> (x Data..:? "CustomAmiId")
-            Prelude.<*> ( x Data..:? "EbsBlockDevices"
+            Prelude.<*> ( x
+                            Data..:? "EbsBlockDevices"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "EbsOptimized")
             Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "InstanceGroupType")
             Prelude.<*> (x Data..:? "InstanceType")
-            Prelude.<*> ( x Data..:? "LastSuccessfullyAppliedConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "LastSuccessfullyAppliedConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> ( x
@@ -299,7 +304,8 @@ instance Data.FromJSON InstanceGroup where
 
 instance Prelude.Hashable InstanceGroup where
   hashWithSalt _salt InstanceGroup' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingPolicy
+    _salt
+      `Prelude.hashWithSalt` autoScalingPolicy
       `Prelude.hashWithSalt` bidPrice
       `Prelude.hashWithSalt` configurations
       `Prelude.hashWithSalt` configurationsVersion

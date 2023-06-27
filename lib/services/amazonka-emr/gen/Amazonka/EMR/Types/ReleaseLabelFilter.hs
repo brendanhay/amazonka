@@ -64,7 +64,8 @@ releaseLabelFilter_prefix = Lens.lens (\ReleaseLabelFilter' {prefix} -> prefix) 
 
 instance Prelude.Hashable ReleaseLabelFilter where
   hashWithSalt _salt ReleaseLabelFilter' {..} =
-    _salt `Prelude.hashWithSalt` application
+    _salt
+      `Prelude.hashWithSalt` application
       `Prelude.hashWithSalt` prefix
 
 instance Prelude.NFData ReleaseLabelFilter where

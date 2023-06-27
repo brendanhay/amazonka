@@ -138,7 +138,8 @@ instance Data.FromJSON SessionMappingSummary where
 
 instance Prelude.Hashable SessionMappingSummary where
   hashWithSalt _salt SessionMappingSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` identityId
       `Prelude.hashWithSalt` identityName
       `Prelude.hashWithSalt` identityType

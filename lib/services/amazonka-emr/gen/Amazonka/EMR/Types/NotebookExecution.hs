@@ -24,23 +24,28 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.ExecutionEngineConfig
 import Amazonka.EMR.Types.NotebookExecutionStatus
+import Amazonka.EMR.Types.NotebookS3LocationForOutput
+import Amazonka.EMR.Types.OutputNotebookFormat
+import Amazonka.EMR.Types.OutputNotebookS3LocationForOutput
 import Amazonka.EMR.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 
--- | A notebook execution. An execution is a specific instance that an EMR
--- Notebook is run using the @StartNotebookExecution@ action.
+-- | A notebook execution. An execution is a specific instance that an Amazon
+-- EMR Notebook is run using the @StartNotebookExecution@ action.
 --
 -- /See:/ 'newNotebookExecution' smart constructor.
 data NotebookExecution = NotebookExecution'
   { -- | The Amazon Resource Name (ARN) of the notebook execution.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the EMR Notebook that is used for the notebook
-    -- execution.
+    -- | The unique identifier of the Amazon EMR Notebook that is used for the
+    -- notebook execution.
     editorId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when notebook execution ended.
     endTime :: Prelude.Maybe Data.POSIX,
-    -- | The execution engine, such as an EMR cluster, used to run the EMR
-    -- notebook and perform the notebook execution.
+    -- | The environment variables associated with the notebook execution.
+    environmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The execution engine, such as an Amazon EMR cluster, used to run the
+    -- Amazon EMR notebook and perform the notebook execution.
     executionEngine :: Prelude.Maybe ExecutionEngineConfig,
     -- | The reason for the latest status change of the notebook execution.
     lastStateChangeReason :: Prelude.Maybe Prelude.Text,
@@ -48,14 +53,20 @@ data NotebookExecution = NotebookExecution'
     notebookExecutionId :: Prelude.Maybe Prelude.Text,
     -- | A name for the notebook execution.
     notebookExecutionName :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the EC2 security group associated with the EMR
-    -- Notebook instance. For more information see
-    -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks>
-    -- in the /EMR Management Guide/.
+    -- | The unique identifier of the Amazon EC2 security group associated with
+    -- the Amazon EMR Notebook instance. For more information see
+    -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying Amazon EC2 Security Groups for Amazon EMR Notebooks>
+    -- in the /Amazon EMR Management Guide/.
     notebookInstanceSecurityGroupId :: Prelude.Maybe Prelude.Text,
-    -- | Input parameters in JSON format passed to the EMR Notebook at runtime
-    -- for execution.
+    -- | Input parameters in JSON format passed to the Amazon EMR Notebook at
+    -- runtime for execution.
     notebookParams :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 location that stores the notebook execution input.
+    notebookS3Location :: Prelude.Maybe NotebookS3LocationForOutput,
+    -- | The output format for the notebook execution.
+    outputNotebookFormat :: Prelude.Maybe OutputNotebookFormat,
+    -- | The Amazon S3 location for the notebook execution output.
+    outputNotebookS3Location :: Prelude.Maybe OutputNotebookS3LocationForOutput,
     -- | The location of the notebook execution\'s output file in Amazon S3.
     outputNotebookURI :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when notebook execution started.
@@ -107,13 +118,15 @@ data NotebookExecution = NotebookExecution'
 --
 -- 'arn', 'notebookExecution_arn' - The Amazon Resource Name (ARN) of the notebook execution.
 --
--- 'editorId', 'notebookExecution_editorId' - The unique identifier of the EMR Notebook that is used for the notebook
--- execution.
+-- 'editorId', 'notebookExecution_editorId' - The unique identifier of the Amazon EMR Notebook that is used for the
+-- notebook execution.
 --
 -- 'endTime', 'notebookExecution_endTime' - The timestamp when notebook execution ended.
 --
--- 'executionEngine', 'notebookExecution_executionEngine' - The execution engine, such as an EMR cluster, used to run the EMR
--- notebook and perform the notebook execution.
+-- 'environmentVariables', 'notebookExecution_environmentVariables' - The environment variables associated with the notebook execution.
+--
+-- 'executionEngine', 'notebookExecution_executionEngine' - The execution engine, such as an Amazon EMR cluster, used to run the
+-- Amazon EMR notebook and perform the notebook execution.
 --
 -- 'lastStateChangeReason', 'notebookExecution_lastStateChangeReason' - The reason for the latest status change of the notebook execution.
 --
@@ -121,13 +134,19 @@ data NotebookExecution = NotebookExecution'
 --
 -- 'notebookExecutionName', 'notebookExecution_notebookExecutionName' - A name for the notebook execution.
 --
--- 'notebookInstanceSecurityGroupId', 'notebookExecution_notebookInstanceSecurityGroupId' - The unique identifier of the EC2 security group associated with the EMR
--- Notebook instance. For more information see
--- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks>
--- in the /EMR Management Guide/.
+-- 'notebookInstanceSecurityGroupId', 'notebookExecution_notebookInstanceSecurityGroupId' - The unique identifier of the Amazon EC2 security group associated with
+-- the Amazon EMR Notebook instance. For more information see
+-- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying Amazon EC2 Security Groups for Amazon EMR Notebooks>
+-- in the /Amazon EMR Management Guide/.
 --
--- 'notebookParams', 'notebookExecution_notebookParams' - Input parameters in JSON format passed to the EMR Notebook at runtime
--- for execution.
+-- 'notebookParams', 'notebookExecution_notebookParams' - Input parameters in JSON format passed to the Amazon EMR Notebook at
+-- runtime for execution.
+--
+-- 'notebookS3Location', 'notebookExecution_notebookS3Location' - The Amazon S3 location that stores the notebook execution input.
+--
+-- 'outputNotebookFormat', 'notebookExecution_outputNotebookFormat' - The output format for the notebook execution.
+--
+-- 'outputNotebookS3Location', 'notebookExecution_outputNotebookS3Location' - The Amazon S3 location for the notebook execution output.
 --
 -- 'outputNotebookURI', 'notebookExecution_outputNotebookURI' - The location of the notebook execution\'s output file in Amazon S3.
 --
@@ -173,12 +192,16 @@ newNotebookExecution =
     { arn = Prelude.Nothing,
       editorId = Prelude.Nothing,
       endTime = Prelude.Nothing,
+      environmentVariables = Prelude.Nothing,
       executionEngine = Prelude.Nothing,
       lastStateChangeReason = Prelude.Nothing,
       notebookExecutionId = Prelude.Nothing,
       notebookExecutionName = Prelude.Nothing,
       notebookInstanceSecurityGroupId = Prelude.Nothing,
       notebookParams = Prelude.Nothing,
+      notebookS3Location = Prelude.Nothing,
+      outputNotebookFormat = Prelude.Nothing,
+      outputNotebookS3Location = Prelude.Nothing,
       outputNotebookURI = Prelude.Nothing,
       startTime = Prelude.Nothing,
       status = Prelude.Nothing,
@@ -189,8 +212,8 @@ newNotebookExecution =
 notebookExecution_arn :: Lens.Lens' NotebookExecution (Prelude.Maybe Prelude.Text)
 notebookExecution_arn = Lens.lens (\NotebookExecution' {arn} -> arn) (\s@NotebookExecution' {} a -> s {arn = a} :: NotebookExecution)
 
--- | The unique identifier of the EMR Notebook that is used for the notebook
--- execution.
+-- | The unique identifier of the Amazon EMR Notebook that is used for the
+-- notebook execution.
 notebookExecution_editorId :: Lens.Lens' NotebookExecution (Prelude.Maybe Prelude.Text)
 notebookExecution_editorId = Lens.lens (\NotebookExecution' {editorId} -> editorId) (\s@NotebookExecution' {} a -> s {editorId = a} :: NotebookExecution)
 
@@ -198,8 +221,12 @@ notebookExecution_editorId = Lens.lens (\NotebookExecution' {editorId} -> editor
 notebookExecution_endTime :: Lens.Lens' NotebookExecution (Prelude.Maybe Prelude.UTCTime)
 notebookExecution_endTime = Lens.lens (\NotebookExecution' {endTime} -> endTime) (\s@NotebookExecution' {} a -> s {endTime = a} :: NotebookExecution) Prelude.. Lens.mapping Data._Time
 
--- | The execution engine, such as an EMR cluster, used to run the EMR
--- notebook and perform the notebook execution.
+-- | The environment variables associated with the notebook execution.
+notebookExecution_environmentVariables :: Lens.Lens' NotebookExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+notebookExecution_environmentVariables = Lens.lens (\NotebookExecution' {environmentVariables} -> environmentVariables) (\s@NotebookExecution' {} a -> s {environmentVariables = a} :: NotebookExecution) Prelude.. Lens.mapping Lens.coerced
+
+-- | The execution engine, such as an Amazon EMR cluster, used to run the
+-- Amazon EMR notebook and perform the notebook execution.
 notebookExecution_executionEngine :: Lens.Lens' NotebookExecution (Prelude.Maybe ExecutionEngineConfig)
 notebookExecution_executionEngine = Lens.lens (\NotebookExecution' {executionEngine} -> executionEngine) (\s@NotebookExecution' {} a -> s {executionEngine = a} :: NotebookExecution)
 
@@ -215,17 +242,29 @@ notebookExecution_notebookExecutionId = Lens.lens (\NotebookExecution' {notebook
 notebookExecution_notebookExecutionName :: Lens.Lens' NotebookExecution (Prelude.Maybe Prelude.Text)
 notebookExecution_notebookExecutionName = Lens.lens (\NotebookExecution' {notebookExecutionName} -> notebookExecutionName) (\s@NotebookExecution' {} a -> s {notebookExecutionName = a} :: NotebookExecution)
 
--- | The unique identifier of the EC2 security group associated with the EMR
--- Notebook instance. For more information see
--- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks>
--- in the /EMR Management Guide/.
+-- | The unique identifier of the Amazon EC2 security group associated with
+-- the Amazon EMR Notebook instance. For more information see
+-- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying Amazon EC2 Security Groups for Amazon EMR Notebooks>
+-- in the /Amazon EMR Management Guide/.
 notebookExecution_notebookInstanceSecurityGroupId :: Lens.Lens' NotebookExecution (Prelude.Maybe Prelude.Text)
 notebookExecution_notebookInstanceSecurityGroupId = Lens.lens (\NotebookExecution' {notebookInstanceSecurityGroupId} -> notebookInstanceSecurityGroupId) (\s@NotebookExecution' {} a -> s {notebookInstanceSecurityGroupId = a} :: NotebookExecution)
 
--- | Input parameters in JSON format passed to the EMR Notebook at runtime
--- for execution.
+-- | Input parameters in JSON format passed to the Amazon EMR Notebook at
+-- runtime for execution.
 notebookExecution_notebookParams :: Lens.Lens' NotebookExecution (Prelude.Maybe Prelude.Text)
 notebookExecution_notebookParams = Lens.lens (\NotebookExecution' {notebookParams} -> notebookParams) (\s@NotebookExecution' {} a -> s {notebookParams = a} :: NotebookExecution)
+
+-- | The Amazon S3 location that stores the notebook execution input.
+notebookExecution_notebookS3Location :: Lens.Lens' NotebookExecution (Prelude.Maybe NotebookS3LocationForOutput)
+notebookExecution_notebookS3Location = Lens.lens (\NotebookExecution' {notebookS3Location} -> notebookS3Location) (\s@NotebookExecution' {} a -> s {notebookS3Location = a} :: NotebookExecution)
+
+-- | The output format for the notebook execution.
+notebookExecution_outputNotebookFormat :: Lens.Lens' NotebookExecution (Prelude.Maybe OutputNotebookFormat)
+notebookExecution_outputNotebookFormat = Lens.lens (\NotebookExecution' {outputNotebookFormat} -> outputNotebookFormat) (\s@NotebookExecution' {} a -> s {outputNotebookFormat = a} :: NotebookExecution)
+
+-- | The Amazon S3 location for the notebook execution output.
+notebookExecution_outputNotebookS3Location :: Lens.Lens' NotebookExecution (Prelude.Maybe OutputNotebookS3LocationForOutput)
+notebookExecution_outputNotebookS3Location = Lens.lens (\NotebookExecution' {outputNotebookS3Location} -> outputNotebookS3Location) (\s@NotebookExecution' {} a -> s {outputNotebookS3Location = a} :: NotebookExecution)
 
 -- | The location of the notebook execution\'s output file in Amazon S3.
 notebookExecution_outputNotebookURI :: Lens.Lens' NotebookExecution (Prelude.Maybe Prelude.Text)
@@ -282,12 +321,19 @@ instance Data.FromJSON NotebookExecution where
             Prelude.<$> (x Data..:? "Arn")
             Prelude.<*> (x Data..:? "EditorId")
             Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> ( x
+                            Data..:? "EnvironmentVariables"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "ExecutionEngine")
             Prelude.<*> (x Data..:? "LastStateChangeReason")
             Prelude.<*> (x Data..:? "NotebookExecutionId")
             Prelude.<*> (x Data..:? "NotebookExecutionName")
             Prelude.<*> (x Data..:? "NotebookInstanceSecurityGroupId")
             Prelude.<*> (x Data..:? "NotebookParams")
+            Prelude.<*> (x Data..:? "NotebookS3Location")
+            Prelude.<*> (x Data..:? "OutputNotebookFormat")
+            Prelude.<*> (x Data..:? "OutputNotebookS3Location")
             Prelude.<*> (x Data..:? "OutputNotebookURI")
             Prelude.<*> (x Data..:? "StartTime")
             Prelude.<*> (x Data..:? "Status")
@@ -296,15 +342,20 @@ instance Data.FromJSON NotebookExecution where
 
 instance Prelude.Hashable NotebookExecution where
   hashWithSalt _salt NotebookExecution' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` editorId
       `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` environmentVariables
       `Prelude.hashWithSalt` executionEngine
       `Prelude.hashWithSalt` lastStateChangeReason
       `Prelude.hashWithSalt` notebookExecutionId
       `Prelude.hashWithSalt` notebookExecutionName
       `Prelude.hashWithSalt` notebookInstanceSecurityGroupId
       `Prelude.hashWithSalt` notebookParams
+      `Prelude.hashWithSalt` notebookS3Location
+      `Prelude.hashWithSalt` outputNotebookFormat
+      `Prelude.hashWithSalt` outputNotebookS3Location
       `Prelude.hashWithSalt` outputNotebookURI
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` status
@@ -315,12 +366,16 @@ instance Prelude.NFData NotebookExecution where
     Prelude.rnf arn
       `Prelude.seq` Prelude.rnf editorId
       `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf environmentVariables
       `Prelude.seq` Prelude.rnf executionEngine
       `Prelude.seq` Prelude.rnf lastStateChangeReason
       `Prelude.seq` Prelude.rnf notebookExecutionId
       `Prelude.seq` Prelude.rnf notebookExecutionName
       `Prelude.seq` Prelude.rnf notebookInstanceSecurityGroupId
       `Prelude.seq` Prelude.rnf notebookParams
+      `Prelude.seq` Prelude.rnf notebookS3Location
+      `Prelude.seq` Prelude.rnf outputNotebookFormat
+      `Prelude.seq` Prelude.rnf outputNotebookS3Location
       `Prelude.seq` Prelude.rnf outputNotebookURI
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf status

@@ -39,7 +39,7 @@ data PlacementType = PlacementType'
     -- @AvailabilityZone@ (singular) is used for uniform instance groups.
     --
     -- The instance fleet configuration is available only in Amazon EMR
-    -- versions 4.8.0 and later, excluding 5.0.x versions.
+    -- releases 4.8.0 and later, excluding 5.0.x versions.
     availabilityZones :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,7 +62,7 @@ data PlacementType = PlacementType'
 -- @AvailabilityZone@ (singular) is used for uniform instance groups.
 --
 -- The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions.
+-- releases 4.8.0 and later, excluding 5.0.x versions.
 newPlacementType ::
   PlacementType
 newPlacementType =
@@ -83,13 +83,14 @@ placementType_availabilityZone = Lens.lens (\PlacementType' {availabilityZone} -
 -- @AvailabilityZone@ (singular) is used for uniform instance groups.
 --
 -- The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions.
+-- releases 4.8.0 and later, excluding 5.0.x versions.
 placementType_availabilityZones :: Lens.Lens' PlacementType (Prelude.Maybe [Prelude.Text])
 placementType_availabilityZones = Lens.lens (\PlacementType' {availabilityZones} -> availabilityZones) (\s@PlacementType' {} a -> s {availabilityZones = a} :: PlacementType) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable PlacementType where
   hashWithSalt _salt PlacementType' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` availabilityZones
 
 instance Prelude.NFData PlacementType where

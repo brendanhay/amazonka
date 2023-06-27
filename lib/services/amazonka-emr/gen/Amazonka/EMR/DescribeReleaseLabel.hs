@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides EMR release label details, such as releases available the
--- region where the API request is run, and the available applications for
--- a specific EMR release label. Can also list EMR release versions that
--- support a specified version of Spark.
+-- Provides Amazon EMR release label details, such as the releases
+-- available the Region where the API request is run, and the available
+-- applications for a specific Amazon EMR release label. Can also list
+-- Amazon EMR releases that support a specified version of Spark.
 module Amazonka.EMR.DescribeReleaseLabel
   ( -- * Creating a Request
     DescribeReleaseLabel (..),
@@ -111,7 +111,8 @@ instance Core.AWSRequest DescribeReleaseLabel where
       ( \s h x ->
           DescribeReleaseLabelResponse'
             Prelude.<$> (x Data..?> "Applications" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "AvailableOSReleases"
+            Prelude.<*> ( x
+                            Data..?> "AvailableOSReleases"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -121,7 +122,8 @@ instance Core.AWSRequest DescribeReleaseLabel where
 
 instance Prelude.Hashable DescribeReleaseLabel where
   hashWithSalt _salt DescribeReleaseLabel' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` releaseLabel
 

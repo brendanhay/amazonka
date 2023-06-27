@@ -23,18 +23,20 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.EMR.Types.InstanceFleetProvisioningSpecifications
+import Amazonka.EMR.Types.InstanceFleetResizingSpecifications
 import Amazonka.EMR.Types.InstanceFleetStatus
 import Amazonka.EMR.Types.InstanceFleetType
 import Amazonka.EMR.Types.InstanceTypeSpecification
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes an instance fleet, which is a group of EC2 instances that host
--- a particular node type (master, core, or task) in an Amazon EMR cluster.
--- Instance fleets can consist of a mix of instance types and On-Demand and
--- Spot Instances, which are provisioned to meet a defined target capacity.
+-- | Describes an instance fleet, which is a group of Amazon EC2 instances
+-- that host a particular node type (master, core, or task) in an Amazon
+-- EMR cluster. Instance fleets can consist of a mix of instance types and
+-- On-Demand and Spot Instances, which are provisioned to meet a defined
+-- target capacity.
 --
 -- The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions.
+-- releases 4.8.0 and later, excluding 5.0.x versions.
 --
 -- /See:/ 'newInstanceFleet' smart constructor.
 data InstanceFleet = InstanceFleet'
@@ -58,6 +60,8 @@ data InstanceFleet = InstanceFleet'
     -- fleet to fulfill @TargetSpotCapacity@. This provisioned capacity might
     -- be less than or greater than @TargetSpotCapacity@.
     provisionedSpotCapacity :: Prelude.Maybe Prelude.Natural,
+    -- | The resize specification for the instance fleet.
+    resizeSpecifications :: Prelude.Maybe InstanceFleetResizingSpecifications,
     -- | The current status of the instance fleet.
     status :: Prelude.Maybe InstanceFleetStatus,
     -- | The target capacity of On-Demand units for the instance fleet, which
@@ -131,6 +135,8 @@ data InstanceFleet = InstanceFleet'
 -- fleet to fulfill @TargetSpotCapacity@. This provisioned capacity might
 -- be less than or greater than @TargetSpotCapacity@.
 --
+-- 'resizeSpecifications', 'instanceFleet_resizeSpecifications' - The resize specification for the instance fleet.
+--
 -- 'status', 'instanceFleet_status' - The current status of the instance fleet.
 --
 -- 'targetOnDemandCapacity', 'instanceFleet_targetOnDemandCapacity' - The target capacity of On-Demand units for the instance fleet, which
@@ -183,6 +189,7 @@ newInstanceFleet =
       name = Prelude.Nothing,
       provisionedOnDemandCapacity = Prelude.Nothing,
       provisionedSpotCapacity = Prelude.Nothing,
+      resizeSpecifications = Prelude.Nothing,
       status = Prelude.Nothing,
       targetOnDemandCapacity = Prelude.Nothing,
       targetSpotCapacity = Prelude.Nothing
@@ -221,6 +228,10 @@ instanceFleet_provisionedOnDemandCapacity = Lens.lens (\InstanceFleet' {provisio
 -- be less than or greater than @TargetSpotCapacity@.
 instanceFleet_provisionedSpotCapacity :: Lens.Lens' InstanceFleet (Prelude.Maybe Prelude.Natural)
 instanceFleet_provisionedSpotCapacity = Lens.lens (\InstanceFleet' {provisionedSpotCapacity} -> provisionedSpotCapacity) (\s@InstanceFleet' {} a -> s {provisionedSpotCapacity = a} :: InstanceFleet)
+
+-- | The resize specification for the instance fleet.
+instanceFleet_resizeSpecifications :: Lens.Lens' InstanceFleet (Prelude.Maybe InstanceFleetResizingSpecifications)
+instanceFleet_resizeSpecifications = Lens.lens (\InstanceFleet' {resizeSpecifications} -> resizeSpecifications) (\s@InstanceFleet' {} a -> s {resizeSpecifications = a} :: InstanceFleet)
 
 -- | The current status of the instance fleet.
 instanceFleet_status :: Lens.Lens' InstanceFleet (Prelude.Maybe InstanceFleetStatus)
@@ -278,13 +289,15 @@ instance Data.FromJSON InstanceFleet where
           InstanceFleet'
             Prelude.<$> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "InstanceFleetType")
-            Prelude.<*> ( x Data..:? "InstanceTypeSpecifications"
+            Prelude.<*> ( x
+                            Data..:? "InstanceTypeSpecifications"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LaunchSpecifications")
             Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "ProvisionedOnDemandCapacity")
             Prelude.<*> (x Data..:? "ProvisionedSpotCapacity")
+            Prelude.<*> (x Data..:? "ResizeSpecifications")
             Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "TargetOnDemandCapacity")
             Prelude.<*> (x Data..:? "TargetSpotCapacity")
@@ -292,13 +305,15 @@ instance Data.FromJSON InstanceFleet where
 
 instance Prelude.Hashable InstanceFleet where
   hashWithSalt _salt InstanceFleet' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` instanceFleetType
       `Prelude.hashWithSalt` instanceTypeSpecifications
       `Prelude.hashWithSalt` launchSpecifications
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` provisionedOnDemandCapacity
       `Prelude.hashWithSalt` provisionedSpotCapacity
+      `Prelude.hashWithSalt` resizeSpecifications
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` targetOnDemandCapacity
       `Prelude.hashWithSalt` targetSpotCapacity
@@ -312,6 +327,7 @@ instance Prelude.NFData InstanceFleet where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf provisionedOnDemandCapacity
       `Prelude.seq` Prelude.rnf provisionedSpotCapacity
+      `Prelude.seq` Prelude.rnf resizeSpecifications
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf targetOnDemandCapacity
       `Prelude.seq` Prelude.rnf targetSpotCapacity

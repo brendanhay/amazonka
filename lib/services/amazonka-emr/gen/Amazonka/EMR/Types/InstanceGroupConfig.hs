@@ -35,8 +35,9 @@ import qualified Amazonka.Prelude as Prelude
 data InstanceGroupConfig = InstanceGroupConfig'
   { -- | An automatic scaling policy for a core instance group or task instance
     -- group in an Amazon EMR cluster. The automatic scaling policy defines how
-    -- an instance group dynamically adds and terminates EC2 instances in
-    -- response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
+    -- an instance group dynamically adds and terminates Amazon EC2 instances
+    -- in response to the value of a CloudWatch metric. See
+    -- PutAutoScalingPolicy.
     autoScalingPolicy :: Prelude.Maybe AutoScalingPolicy,
     -- | If specified, indicates that the instance group uses Spot Instances.
     -- This is the maximum price you are willing to pay for Spot Instances.
@@ -45,22 +46,22 @@ data InstanceGroupConfig = InstanceGroupConfig'
     bidPrice :: Prelude.Maybe Prelude.Text,
     -- | Amazon EMR releases 4.x or later.
     --
-    -- The list of configurations supplied for an EMR cluster instance group.
-    -- You can specify a separate configuration for each instance group
+    -- The list of configurations supplied for an Amazon EMR cluster instance
+    -- group. You can specify a separate configuration for each instance group
     -- (master, core, and task).
     configurations :: Prelude.Maybe [Configuration],
     -- | The custom AMI ID to use for the provisioned instance group.
     customAmiId :: Prelude.Maybe Prelude.Text,
-    -- | EBS configurations that will be attached to each EC2 instance in the
-    -- instance group.
+    -- | EBS configurations that will be attached to each Amazon EC2 instance in
+    -- the instance group.
     ebsConfiguration :: Prelude.Maybe EbsConfiguration,
-    -- | Market type of the EC2 instances used to create a cluster node.
+    -- | Market type of the Amazon EC2 instances used to create a cluster node.
     market :: Prelude.Maybe MarketType,
     -- | Friendly name given to the instance group.
     name :: Prelude.Maybe Prelude.Text,
     -- | The role of the instance group in the cluster.
     instanceRole :: InstanceRoleType,
-    -- | The EC2 instance type for all instances in the instance group.
+    -- | The Amazon EC2 instance type for all instances in the instance group.
     instanceType :: Prelude.Text,
     -- | Target number of instances for the instance group.
     instanceCount :: Prelude.Int
@@ -77,8 +78,9 @@ data InstanceGroupConfig = InstanceGroupConfig'
 --
 -- 'autoScalingPolicy', 'instanceGroupConfig_autoScalingPolicy' - An automatic scaling policy for a core instance group or task instance
 -- group in an Amazon EMR cluster. The automatic scaling policy defines how
--- an instance group dynamically adds and terminates EC2 instances in
--- response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
+-- an instance group dynamically adds and terminates Amazon EC2 instances
+-- in response to the value of a CloudWatch metric. See
+-- PutAutoScalingPolicy.
 --
 -- 'bidPrice', 'instanceGroupConfig_bidPrice' - If specified, indicates that the instance group uses Spot Instances.
 -- This is the maximum price you are willing to pay for Spot Instances.
@@ -87,22 +89,22 @@ data InstanceGroupConfig = InstanceGroupConfig'
 --
 -- 'configurations', 'instanceGroupConfig_configurations' - Amazon EMR releases 4.x or later.
 --
--- The list of configurations supplied for an EMR cluster instance group.
--- You can specify a separate configuration for each instance group
+-- The list of configurations supplied for an Amazon EMR cluster instance
+-- group. You can specify a separate configuration for each instance group
 -- (master, core, and task).
 --
 -- 'customAmiId', 'instanceGroupConfig_customAmiId' - The custom AMI ID to use for the provisioned instance group.
 --
--- 'ebsConfiguration', 'instanceGroupConfig_ebsConfiguration' - EBS configurations that will be attached to each EC2 instance in the
--- instance group.
+-- 'ebsConfiguration', 'instanceGroupConfig_ebsConfiguration' - EBS configurations that will be attached to each Amazon EC2 instance in
+-- the instance group.
 --
--- 'market', 'instanceGroupConfig_market' - Market type of the EC2 instances used to create a cluster node.
+-- 'market', 'instanceGroupConfig_market' - Market type of the Amazon EC2 instances used to create a cluster node.
 --
 -- 'name', 'instanceGroupConfig_name' - Friendly name given to the instance group.
 --
 -- 'instanceRole', 'instanceGroupConfig_instanceRole' - The role of the instance group in the cluster.
 --
--- 'instanceType', 'instanceGroupConfig_instanceType' - The EC2 instance type for all instances in the instance group.
+-- 'instanceType', 'instanceGroupConfig_instanceType' - The Amazon EC2 instance type for all instances in the instance group.
 --
 -- 'instanceCount', 'instanceGroupConfig_instanceCount' - Target number of instances for the instance group.
 newInstanceGroupConfig ::
@@ -133,8 +135,9 @@ newInstanceGroupConfig
 
 -- | An automatic scaling policy for a core instance group or task instance
 -- group in an Amazon EMR cluster. The automatic scaling policy defines how
--- an instance group dynamically adds and terminates EC2 instances in
--- response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
+-- an instance group dynamically adds and terminates Amazon EC2 instances
+-- in response to the value of a CloudWatch metric. See
+-- PutAutoScalingPolicy.
 instanceGroupConfig_autoScalingPolicy :: Lens.Lens' InstanceGroupConfig (Prelude.Maybe AutoScalingPolicy)
 instanceGroupConfig_autoScalingPolicy = Lens.lens (\InstanceGroupConfig' {autoScalingPolicy} -> autoScalingPolicy) (\s@InstanceGroupConfig' {} a -> s {autoScalingPolicy = a} :: InstanceGroupConfig)
 
@@ -147,8 +150,8 @@ instanceGroupConfig_bidPrice = Lens.lens (\InstanceGroupConfig' {bidPrice} -> bi
 
 -- | Amazon EMR releases 4.x or later.
 --
--- The list of configurations supplied for an EMR cluster instance group.
--- You can specify a separate configuration for each instance group
+-- The list of configurations supplied for an Amazon EMR cluster instance
+-- group. You can specify a separate configuration for each instance group
 -- (master, core, and task).
 instanceGroupConfig_configurations :: Lens.Lens' InstanceGroupConfig (Prelude.Maybe [Configuration])
 instanceGroupConfig_configurations = Lens.lens (\InstanceGroupConfig' {configurations} -> configurations) (\s@InstanceGroupConfig' {} a -> s {configurations = a} :: InstanceGroupConfig) Prelude.. Lens.mapping Lens.coerced
@@ -157,12 +160,12 @@ instanceGroupConfig_configurations = Lens.lens (\InstanceGroupConfig' {configura
 instanceGroupConfig_customAmiId :: Lens.Lens' InstanceGroupConfig (Prelude.Maybe Prelude.Text)
 instanceGroupConfig_customAmiId = Lens.lens (\InstanceGroupConfig' {customAmiId} -> customAmiId) (\s@InstanceGroupConfig' {} a -> s {customAmiId = a} :: InstanceGroupConfig)
 
--- | EBS configurations that will be attached to each EC2 instance in the
--- instance group.
+-- | EBS configurations that will be attached to each Amazon EC2 instance in
+-- the instance group.
 instanceGroupConfig_ebsConfiguration :: Lens.Lens' InstanceGroupConfig (Prelude.Maybe EbsConfiguration)
 instanceGroupConfig_ebsConfiguration = Lens.lens (\InstanceGroupConfig' {ebsConfiguration} -> ebsConfiguration) (\s@InstanceGroupConfig' {} a -> s {ebsConfiguration = a} :: InstanceGroupConfig)
 
--- | Market type of the EC2 instances used to create a cluster node.
+-- | Market type of the Amazon EC2 instances used to create a cluster node.
 instanceGroupConfig_market :: Lens.Lens' InstanceGroupConfig (Prelude.Maybe MarketType)
 instanceGroupConfig_market = Lens.lens (\InstanceGroupConfig' {market} -> market) (\s@InstanceGroupConfig' {} a -> s {market = a} :: InstanceGroupConfig)
 
@@ -174,7 +177,7 @@ instanceGroupConfig_name = Lens.lens (\InstanceGroupConfig' {name} -> name) (\s@
 instanceGroupConfig_instanceRole :: Lens.Lens' InstanceGroupConfig InstanceRoleType
 instanceGroupConfig_instanceRole = Lens.lens (\InstanceGroupConfig' {instanceRole} -> instanceRole) (\s@InstanceGroupConfig' {} a -> s {instanceRole = a} :: InstanceGroupConfig)
 
--- | The EC2 instance type for all instances in the instance group.
+-- | The Amazon EC2 instance type for all instances in the instance group.
 instanceGroupConfig_instanceType :: Lens.Lens' InstanceGroupConfig Prelude.Text
 instanceGroupConfig_instanceType = Lens.lens (\InstanceGroupConfig' {instanceType} -> instanceType) (\s@InstanceGroupConfig' {} a -> s {instanceType = a} :: InstanceGroupConfig)
 
@@ -184,7 +187,8 @@ instanceGroupConfig_instanceCount = Lens.lens (\InstanceGroupConfig' {instanceCo
 
 instance Prelude.Hashable InstanceGroupConfig where
   hashWithSalt _salt InstanceGroupConfig' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingPolicy
+    _salt
+      `Prelude.hashWithSalt` autoScalingPolicy
       `Prelude.hashWithSalt` bidPrice
       `Prelude.hashWithSalt` configurations
       `Prelude.hashWithSalt` customAmiId

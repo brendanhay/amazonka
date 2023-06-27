@@ -169,7 +169,8 @@ instance Core.AWSRequest UpdateStudioSessionMapping where
 
 instance Prelude.Hashable UpdateStudioSessionMapping where
   hashWithSalt _salt UpdateStudioSessionMapping' {..} =
-    _salt `Prelude.hashWithSalt` identityId
+    _salt
+      `Prelude.hashWithSalt` identityId
       `Prelude.hashWithSalt` identityName
       `Prelude.hashWithSalt` studioId
       `Prelude.hashWithSalt` identityType

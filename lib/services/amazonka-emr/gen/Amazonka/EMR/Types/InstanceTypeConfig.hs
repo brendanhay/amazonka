@@ -27,7 +27,7 @@ import Amazonka.EMR.Types.EbsConfiguration
 import qualified Amazonka.Prelude as Prelude
 
 -- | An instance type configuration for each instance type in an instance
--- fleet, which determines the EC2 instances Amazon EMR attempts to
+-- fleet, which determines the Amazon EC2 instances Amazon EMR attempts to
 -- provision to fulfill On-Demand and Spot target capacities. When you use
 -- an allocation strategy, you can include a maximum of 30 instance type
 -- configurations for a fleet. For more information about how to use an
@@ -37,17 +37,17 @@ import qualified Amazonka.Prelude as Prelude
 -- instance type configurations for a fleet.
 --
 -- The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions.
+-- releases 4.8.0 and later, excluding 5.0.x versions.
 --
 -- /See:/ 'newInstanceTypeConfig' smart constructor.
 data InstanceTypeConfig = InstanceTypeConfig'
-  { -- | The bid price for each EC2 Spot Instance type as defined by
+  { -- | The bid price for each Amazon EC2 Spot Instance type as defined by
     -- @InstanceType@. Expressed in USD. If neither @BidPrice@ nor
     -- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
     -- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
     bidPrice :: Prelude.Maybe Prelude.Text,
-    -- | The bid price, as a percentage of On-Demand price, for each EC2 Spot
-    -- Instance as defined by @InstanceType@. Expressed as a number (for
+    -- | The bid price, as a percentage of On-Demand price, for each Amazon EC2
+    -- Spot Instance as defined by @InstanceType@. Expressed as a number (for
     -- example, 20 specifies 20%). If neither @BidPrice@ nor
     -- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
     -- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
@@ -66,7 +66,7 @@ data InstanceTypeConfig = InstanceTypeConfig'
     -- This value is 1 for a master instance fleet, and must be 1 or greater
     -- for core and task instance fleets. Defaults to 1 if not specified.
     weightedCapacity :: Prelude.Maybe Prelude.Natural,
-    -- | An EC2 instance type, such as @m3.xlarge@.
+    -- | An Amazon EC2 instance type, such as @m3.xlarge@.
     instanceType :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,13 +79,13 @@ data InstanceTypeConfig = InstanceTypeConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bidPrice', 'instanceTypeConfig_bidPrice' - The bid price for each EC2 Spot Instance type as defined by
+-- 'bidPrice', 'instanceTypeConfig_bidPrice' - The bid price for each Amazon EC2 Spot Instance type as defined by
 -- @InstanceType@. Expressed in USD. If neither @BidPrice@ nor
 -- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
 -- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
 --
--- 'bidPriceAsPercentageOfOnDemandPrice', 'instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice' - The bid price, as a percentage of On-Demand price, for each EC2 Spot
--- Instance as defined by @InstanceType@. Expressed as a number (for
+-- 'bidPriceAsPercentageOfOnDemandPrice', 'instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice' - The bid price, as a percentage of On-Demand price, for each Amazon EC2
+-- Spot Instance as defined by @InstanceType@. Expressed as a number (for
 -- example, 20 specifies 20%). If neither @BidPrice@ nor
 -- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
 -- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
@@ -104,7 +104,7 @@ data InstanceTypeConfig = InstanceTypeConfig'
 -- This value is 1 for a master instance fleet, and must be 1 or greater
 -- for core and task instance fleets. Defaults to 1 if not specified.
 --
--- 'instanceType', 'instanceTypeConfig_instanceType' - An EC2 instance type, such as @m3.xlarge@.
+-- 'instanceType', 'instanceTypeConfig_instanceType' - An Amazon EC2 instance type, such as @m3.xlarge@.
 newInstanceTypeConfig ::
   -- | 'instanceType'
   Prelude.Text ->
@@ -121,15 +121,15 @@ newInstanceTypeConfig pInstanceType_ =
       instanceType = pInstanceType_
     }
 
--- | The bid price for each EC2 Spot Instance type as defined by
+-- | The bid price for each Amazon EC2 Spot Instance type as defined by
 -- @InstanceType@. Expressed in USD. If neither @BidPrice@ nor
 -- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
 -- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
 instanceTypeConfig_bidPrice :: Lens.Lens' InstanceTypeConfig (Prelude.Maybe Prelude.Text)
 instanceTypeConfig_bidPrice = Lens.lens (\InstanceTypeConfig' {bidPrice} -> bidPrice) (\s@InstanceTypeConfig' {} a -> s {bidPrice = a} :: InstanceTypeConfig)
 
--- | The bid price, as a percentage of On-Demand price, for each EC2 Spot
--- Instance as defined by @InstanceType@. Expressed as a number (for
+-- | The bid price, as a percentage of On-Demand price, for each Amazon EC2
+-- Spot Instance as defined by @InstanceType@. Expressed as a number (for
 -- example, 20 specifies 20%). If neither @BidPrice@ nor
 -- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
 -- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
@@ -158,13 +158,14 @@ instanceTypeConfig_ebsConfiguration = Lens.lens (\InstanceTypeConfig' {ebsConfig
 instanceTypeConfig_weightedCapacity :: Lens.Lens' InstanceTypeConfig (Prelude.Maybe Prelude.Natural)
 instanceTypeConfig_weightedCapacity = Lens.lens (\InstanceTypeConfig' {weightedCapacity} -> weightedCapacity) (\s@InstanceTypeConfig' {} a -> s {weightedCapacity = a} :: InstanceTypeConfig)
 
--- | An EC2 instance type, such as @m3.xlarge@.
+-- | An Amazon EC2 instance type, such as @m3.xlarge@.
 instanceTypeConfig_instanceType :: Lens.Lens' InstanceTypeConfig Prelude.Text
 instanceTypeConfig_instanceType = Lens.lens (\InstanceTypeConfig' {instanceType} -> instanceType) (\s@InstanceTypeConfig' {} a -> s {instanceType = a} :: InstanceTypeConfig)
 
 instance Prelude.Hashable InstanceTypeConfig where
   hashWithSalt _salt InstanceTypeConfig' {..} =
-    _salt `Prelude.hashWithSalt` bidPrice
+    _salt
+      `Prelude.hashWithSalt` bidPrice
       `Prelude.hashWithSalt` bidPriceAsPercentageOfOnDemandPrice
       `Prelude.hashWithSalt` configurations
       `Prelude.hashWithSalt` customAmiId

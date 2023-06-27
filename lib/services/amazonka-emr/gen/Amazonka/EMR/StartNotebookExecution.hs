@@ -27,12 +27,16 @@ module Amazonka.EMR.StartNotebookExecution
     newStartNotebookExecution,
 
     -- * Request Lenses
+    startNotebookExecution_editorId,
+    startNotebookExecution_environmentVariables,
     startNotebookExecution_notebookExecutionName,
     startNotebookExecution_notebookInstanceSecurityGroupId,
     startNotebookExecution_notebookParams,
-    startNotebookExecution_tags,
-    startNotebookExecution_editorId,
+    startNotebookExecution_notebookS3Location,
+    startNotebookExecution_outputNotebookFormat,
+    startNotebookExecution_outputNotebookS3Location,
     startNotebookExecution_relativePath,
+    startNotebookExecution_tags,
     startNotebookExecution_executionEngine,
     startNotebookExecution_serviceRole,
 
@@ -56,35 +60,45 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartNotebookExecution' smart constructor.
 data StartNotebookExecution = StartNotebookExecution'
-  { -- | An optional name for the notebook execution.
+  { -- | The unique identifier of the Amazon EMR Notebook to use for notebook
+    -- execution.
+    editorId :: Prelude.Maybe Prelude.Text,
+    -- | The environment variables associated with the notebook execution.
+    environmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | An optional name for the notebook execution.
     notebookExecutionName :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the Amazon EC2 security group to associate with
-    -- the EMR Notebook for this notebook execution.
+    -- the Amazon EMR Notebook for this notebook execution.
     notebookInstanceSecurityGroupId :: Prelude.Maybe Prelude.Text,
-    -- | Input parameters in JSON format passed to the EMR Notebook at runtime
-    -- for execution.
+    -- | Input parameters in JSON format passed to the Amazon EMR Notebook at
+    -- runtime for execution.
     notebookParams :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 location for the notebook execution input.
+    notebookS3Location :: Prelude.Maybe NotebookS3LocationFromInput,
+    -- | The output format for the notebook execution.
+    outputNotebookFormat :: Prelude.Maybe OutputNotebookFormat,
+    -- | The Amazon S3 location for the notebook execution output.
+    outputNotebookS3Location :: Prelude.Maybe OutputNotebookS3LocationFromInput,
+    -- | The path and file name of the notebook file for this execution, relative
+    -- to the path specified for the Amazon EMR Notebook. For example, if you
+    -- specify a path of @s3:\/\/MyBucket\/MyNotebooks@ when you create an
+    -- Amazon EMR Notebook for a notebook with an ID of
+    -- @e-ABCDEFGHIJK1234567890ABCD@ (the @EditorID@ of this request), and you
+    -- specify a @RelativePath@ of
+    -- @my_notebook_executions\/notebook_execution.ipynb@, the location of the
+    -- file for the notebook execution is
+    -- @s3:\/\/MyBucket\/MyNotebooks\/e-ABCDEFGHIJK1234567890ABCD\/my_notebook_executions\/notebook_execution.ipynb@.
+    relativePath :: Prelude.Maybe Prelude.Text,
     -- | A list of tags associated with a notebook execution. Tags are
     -- user-defined key-value pairs that consist of a required key string with
     -- a maximum of 128 characters and an optional value string with a maximum
     -- of 256 characters.
     tags :: Prelude.Maybe [Tag],
-    -- | The unique identifier of the EMR Notebook to use for notebook execution.
-    editorId :: Prelude.Text,
-    -- | The path and file name of the notebook file for this execution, relative
-    -- to the path specified for the EMR Notebook. For example, if you specify
-    -- a path of @s3:\/\/MyBucket\/MyNotebooks@ when you create an EMR Notebook
-    -- for a notebook with an ID of @e-ABCDEFGHIJK1234567890ABCD@ (the
-    -- @EditorID@ of this request), and you specify a @RelativePath@ of
-    -- @my_notebook_executions\/notebook_execution.ipynb@, the location of the
-    -- file for the notebook execution is
-    -- @s3:\/\/MyBucket\/MyNotebooks\/e-ABCDEFGHIJK1234567890ABCD\/my_notebook_executions\/notebook_execution.ipynb@.
-    relativePath :: Prelude.Text,
     -- | Specifies the execution engine (cluster) that runs the notebook
     -- execution.
     executionEngine :: ExecutionEngineConfig,
     -- | The name or ARN of the IAM role that is used as the service role for
-    -- Amazon EMR (the EMR role) for the notebook execution.
+    -- Amazon EMR (the Amazon EMR role) for the notebook execution.
     serviceRole :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -97,75 +111,115 @@ data StartNotebookExecution = StartNotebookExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'editorId', 'startNotebookExecution_editorId' - The unique identifier of the Amazon EMR Notebook to use for notebook
+-- execution.
+--
+-- 'environmentVariables', 'startNotebookExecution_environmentVariables' - The environment variables associated with the notebook execution.
+--
 -- 'notebookExecutionName', 'startNotebookExecution_notebookExecutionName' - An optional name for the notebook execution.
 --
 -- 'notebookInstanceSecurityGroupId', 'startNotebookExecution_notebookInstanceSecurityGroupId' - The unique identifier of the Amazon EC2 security group to associate with
--- the EMR Notebook for this notebook execution.
+-- the Amazon EMR Notebook for this notebook execution.
 --
--- 'notebookParams', 'startNotebookExecution_notebookParams' - Input parameters in JSON format passed to the EMR Notebook at runtime
--- for execution.
+-- 'notebookParams', 'startNotebookExecution_notebookParams' - Input parameters in JSON format passed to the Amazon EMR Notebook at
+-- runtime for execution.
+--
+-- 'notebookS3Location', 'startNotebookExecution_notebookS3Location' - The Amazon S3 location for the notebook execution input.
+--
+-- 'outputNotebookFormat', 'startNotebookExecution_outputNotebookFormat' - The output format for the notebook execution.
+--
+-- 'outputNotebookS3Location', 'startNotebookExecution_outputNotebookS3Location' - The Amazon S3 location for the notebook execution output.
+--
+-- 'relativePath', 'startNotebookExecution_relativePath' - The path and file name of the notebook file for this execution, relative
+-- to the path specified for the Amazon EMR Notebook. For example, if you
+-- specify a path of @s3:\/\/MyBucket\/MyNotebooks@ when you create an
+-- Amazon EMR Notebook for a notebook with an ID of
+-- @e-ABCDEFGHIJK1234567890ABCD@ (the @EditorID@ of this request), and you
+-- specify a @RelativePath@ of
+-- @my_notebook_executions\/notebook_execution.ipynb@, the location of the
+-- file for the notebook execution is
+-- @s3:\/\/MyBucket\/MyNotebooks\/e-ABCDEFGHIJK1234567890ABCD\/my_notebook_executions\/notebook_execution.ipynb@.
 --
 -- 'tags', 'startNotebookExecution_tags' - A list of tags associated with a notebook execution. Tags are
 -- user-defined key-value pairs that consist of a required key string with
 -- a maximum of 128 characters and an optional value string with a maximum
 -- of 256 characters.
 --
--- 'editorId', 'startNotebookExecution_editorId' - The unique identifier of the EMR Notebook to use for notebook execution.
---
--- 'relativePath', 'startNotebookExecution_relativePath' - The path and file name of the notebook file for this execution, relative
--- to the path specified for the EMR Notebook. For example, if you specify
--- a path of @s3:\/\/MyBucket\/MyNotebooks@ when you create an EMR Notebook
--- for a notebook with an ID of @e-ABCDEFGHIJK1234567890ABCD@ (the
--- @EditorID@ of this request), and you specify a @RelativePath@ of
--- @my_notebook_executions\/notebook_execution.ipynb@, the location of the
--- file for the notebook execution is
--- @s3:\/\/MyBucket\/MyNotebooks\/e-ABCDEFGHIJK1234567890ABCD\/my_notebook_executions\/notebook_execution.ipynb@.
---
 -- 'executionEngine', 'startNotebookExecution_executionEngine' - Specifies the execution engine (cluster) that runs the notebook
 -- execution.
 --
 -- 'serviceRole', 'startNotebookExecution_serviceRole' - The name or ARN of the IAM role that is used as the service role for
--- Amazon EMR (the EMR role) for the notebook execution.
+-- Amazon EMR (the Amazon EMR role) for the notebook execution.
 newStartNotebookExecution ::
-  -- | 'editorId'
-  Prelude.Text ->
-  -- | 'relativePath'
-  Prelude.Text ->
   -- | 'executionEngine'
   ExecutionEngineConfig ->
   -- | 'serviceRole'
   Prelude.Text ->
   StartNotebookExecution
 newStartNotebookExecution
-  pEditorId_
-  pRelativePath_
   pExecutionEngine_
   pServiceRole_ =
     StartNotebookExecution'
-      { notebookExecutionName =
-          Prelude.Nothing,
+      { editorId = Prelude.Nothing,
+        environmentVariables = Prelude.Nothing,
+        notebookExecutionName = Prelude.Nothing,
         notebookInstanceSecurityGroupId = Prelude.Nothing,
         notebookParams = Prelude.Nothing,
+        notebookS3Location = Prelude.Nothing,
+        outputNotebookFormat = Prelude.Nothing,
+        outputNotebookS3Location = Prelude.Nothing,
+        relativePath = Prelude.Nothing,
         tags = Prelude.Nothing,
-        editorId = pEditorId_,
-        relativePath = pRelativePath_,
         executionEngine = pExecutionEngine_,
         serviceRole = pServiceRole_
       }
+
+-- | The unique identifier of the Amazon EMR Notebook to use for notebook
+-- execution.
+startNotebookExecution_editorId :: Lens.Lens' StartNotebookExecution (Prelude.Maybe Prelude.Text)
+startNotebookExecution_editorId = Lens.lens (\StartNotebookExecution' {editorId} -> editorId) (\s@StartNotebookExecution' {} a -> s {editorId = a} :: StartNotebookExecution)
+
+-- | The environment variables associated with the notebook execution.
+startNotebookExecution_environmentVariables :: Lens.Lens' StartNotebookExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+startNotebookExecution_environmentVariables = Lens.lens (\StartNotebookExecution' {environmentVariables} -> environmentVariables) (\s@StartNotebookExecution' {} a -> s {environmentVariables = a} :: StartNotebookExecution) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional name for the notebook execution.
 startNotebookExecution_notebookExecutionName :: Lens.Lens' StartNotebookExecution (Prelude.Maybe Prelude.Text)
 startNotebookExecution_notebookExecutionName = Lens.lens (\StartNotebookExecution' {notebookExecutionName} -> notebookExecutionName) (\s@StartNotebookExecution' {} a -> s {notebookExecutionName = a} :: StartNotebookExecution)
 
 -- | The unique identifier of the Amazon EC2 security group to associate with
--- the EMR Notebook for this notebook execution.
+-- the Amazon EMR Notebook for this notebook execution.
 startNotebookExecution_notebookInstanceSecurityGroupId :: Lens.Lens' StartNotebookExecution (Prelude.Maybe Prelude.Text)
 startNotebookExecution_notebookInstanceSecurityGroupId = Lens.lens (\StartNotebookExecution' {notebookInstanceSecurityGroupId} -> notebookInstanceSecurityGroupId) (\s@StartNotebookExecution' {} a -> s {notebookInstanceSecurityGroupId = a} :: StartNotebookExecution)
 
--- | Input parameters in JSON format passed to the EMR Notebook at runtime
--- for execution.
+-- | Input parameters in JSON format passed to the Amazon EMR Notebook at
+-- runtime for execution.
 startNotebookExecution_notebookParams :: Lens.Lens' StartNotebookExecution (Prelude.Maybe Prelude.Text)
 startNotebookExecution_notebookParams = Lens.lens (\StartNotebookExecution' {notebookParams} -> notebookParams) (\s@StartNotebookExecution' {} a -> s {notebookParams = a} :: StartNotebookExecution)
+
+-- | The Amazon S3 location for the notebook execution input.
+startNotebookExecution_notebookS3Location :: Lens.Lens' StartNotebookExecution (Prelude.Maybe NotebookS3LocationFromInput)
+startNotebookExecution_notebookS3Location = Lens.lens (\StartNotebookExecution' {notebookS3Location} -> notebookS3Location) (\s@StartNotebookExecution' {} a -> s {notebookS3Location = a} :: StartNotebookExecution)
+
+-- | The output format for the notebook execution.
+startNotebookExecution_outputNotebookFormat :: Lens.Lens' StartNotebookExecution (Prelude.Maybe OutputNotebookFormat)
+startNotebookExecution_outputNotebookFormat = Lens.lens (\StartNotebookExecution' {outputNotebookFormat} -> outputNotebookFormat) (\s@StartNotebookExecution' {} a -> s {outputNotebookFormat = a} :: StartNotebookExecution)
+
+-- | The Amazon S3 location for the notebook execution output.
+startNotebookExecution_outputNotebookS3Location :: Lens.Lens' StartNotebookExecution (Prelude.Maybe OutputNotebookS3LocationFromInput)
+startNotebookExecution_outputNotebookS3Location = Lens.lens (\StartNotebookExecution' {outputNotebookS3Location} -> outputNotebookS3Location) (\s@StartNotebookExecution' {} a -> s {outputNotebookS3Location = a} :: StartNotebookExecution)
+
+-- | The path and file name of the notebook file for this execution, relative
+-- to the path specified for the Amazon EMR Notebook. For example, if you
+-- specify a path of @s3:\/\/MyBucket\/MyNotebooks@ when you create an
+-- Amazon EMR Notebook for a notebook with an ID of
+-- @e-ABCDEFGHIJK1234567890ABCD@ (the @EditorID@ of this request), and you
+-- specify a @RelativePath@ of
+-- @my_notebook_executions\/notebook_execution.ipynb@, the location of the
+-- file for the notebook execution is
+-- @s3:\/\/MyBucket\/MyNotebooks\/e-ABCDEFGHIJK1234567890ABCD\/my_notebook_executions\/notebook_execution.ipynb@.
+startNotebookExecution_relativePath :: Lens.Lens' StartNotebookExecution (Prelude.Maybe Prelude.Text)
+startNotebookExecution_relativePath = Lens.lens (\StartNotebookExecution' {relativePath} -> relativePath) (\s@StartNotebookExecution' {} a -> s {relativePath = a} :: StartNotebookExecution)
 
 -- | A list of tags associated with a notebook execution. Tags are
 -- user-defined key-value pairs that consist of a required key string with
@@ -174,28 +228,13 @@ startNotebookExecution_notebookParams = Lens.lens (\StartNotebookExecution' {not
 startNotebookExecution_tags :: Lens.Lens' StartNotebookExecution (Prelude.Maybe [Tag])
 startNotebookExecution_tags = Lens.lens (\StartNotebookExecution' {tags} -> tags) (\s@StartNotebookExecution' {} a -> s {tags = a} :: StartNotebookExecution) Prelude.. Lens.mapping Lens.coerced
 
--- | The unique identifier of the EMR Notebook to use for notebook execution.
-startNotebookExecution_editorId :: Lens.Lens' StartNotebookExecution Prelude.Text
-startNotebookExecution_editorId = Lens.lens (\StartNotebookExecution' {editorId} -> editorId) (\s@StartNotebookExecution' {} a -> s {editorId = a} :: StartNotebookExecution)
-
--- | The path and file name of the notebook file for this execution, relative
--- to the path specified for the EMR Notebook. For example, if you specify
--- a path of @s3:\/\/MyBucket\/MyNotebooks@ when you create an EMR Notebook
--- for a notebook with an ID of @e-ABCDEFGHIJK1234567890ABCD@ (the
--- @EditorID@ of this request), and you specify a @RelativePath@ of
--- @my_notebook_executions\/notebook_execution.ipynb@, the location of the
--- file for the notebook execution is
--- @s3:\/\/MyBucket\/MyNotebooks\/e-ABCDEFGHIJK1234567890ABCD\/my_notebook_executions\/notebook_execution.ipynb@.
-startNotebookExecution_relativePath :: Lens.Lens' StartNotebookExecution Prelude.Text
-startNotebookExecution_relativePath = Lens.lens (\StartNotebookExecution' {relativePath} -> relativePath) (\s@StartNotebookExecution' {} a -> s {relativePath = a} :: StartNotebookExecution)
-
 -- | Specifies the execution engine (cluster) that runs the notebook
 -- execution.
 startNotebookExecution_executionEngine :: Lens.Lens' StartNotebookExecution ExecutionEngineConfig
 startNotebookExecution_executionEngine = Lens.lens (\StartNotebookExecution' {executionEngine} -> executionEngine) (\s@StartNotebookExecution' {} a -> s {executionEngine = a} :: StartNotebookExecution)
 
 -- | The name or ARN of the IAM role that is used as the service role for
--- Amazon EMR (the EMR role) for the notebook execution.
+-- Amazon EMR (the Amazon EMR role) for the notebook execution.
 startNotebookExecution_serviceRole :: Lens.Lens' StartNotebookExecution Prelude.Text
 startNotebookExecution_serviceRole = Lens.lens (\StartNotebookExecution' {serviceRole} -> serviceRole) (\s@StartNotebookExecution' {} a -> s {serviceRole = a} :: StartNotebookExecution)
 
@@ -215,23 +254,32 @@ instance Core.AWSRequest StartNotebookExecution where
 
 instance Prelude.Hashable StartNotebookExecution where
   hashWithSalt _salt StartNotebookExecution' {..} =
-    _salt `Prelude.hashWithSalt` notebookExecutionName
+    _salt
+      `Prelude.hashWithSalt` editorId
+      `Prelude.hashWithSalt` environmentVariables
+      `Prelude.hashWithSalt` notebookExecutionName
       `Prelude.hashWithSalt` notebookInstanceSecurityGroupId
       `Prelude.hashWithSalt` notebookParams
-      `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` editorId
+      `Prelude.hashWithSalt` notebookS3Location
+      `Prelude.hashWithSalt` outputNotebookFormat
+      `Prelude.hashWithSalt` outputNotebookS3Location
       `Prelude.hashWithSalt` relativePath
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` executionEngine
       `Prelude.hashWithSalt` serviceRole
 
 instance Prelude.NFData StartNotebookExecution where
   rnf StartNotebookExecution' {..} =
-    Prelude.rnf notebookExecutionName
+    Prelude.rnf editorId
+      `Prelude.seq` Prelude.rnf environmentVariables
+      `Prelude.seq` Prelude.rnf notebookExecutionName
       `Prelude.seq` Prelude.rnf notebookInstanceSecurityGroupId
       `Prelude.seq` Prelude.rnf notebookParams
-      `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf editorId
+      `Prelude.seq` Prelude.rnf notebookS3Location
+      `Prelude.seq` Prelude.rnf outputNotebookFormat
+      `Prelude.seq` Prelude.rnf outputNotebookS3Location
       `Prelude.seq` Prelude.rnf relativePath
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf executionEngine
       `Prelude.seq` Prelude.rnf serviceRole
 
@@ -254,15 +302,23 @@ instance Data.ToJSON StartNotebookExecution where
   toJSON StartNotebookExecution' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("NotebookExecutionName" Data..=)
+          [ ("EditorId" Data..=) Prelude.<$> editorId,
+            ("EnvironmentVariables" Data..=)
+              Prelude.<$> environmentVariables,
+            ("NotebookExecutionName" Data..=)
               Prelude.<$> notebookExecutionName,
             ("NotebookInstanceSecurityGroupId" Data..=)
               Prelude.<$> notebookInstanceSecurityGroupId,
             ("NotebookParams" Data..=)
               Prelude.<$> notebookParams,
+            ("NotebookS3Location" Data..=)
+              Prelude.<$> notebookS3Location,
+            ("OutputNotebookFormat" Data..=)
+              Prelude.<$> outputNotebookFormat,
+            ("OutputNotebookS3Location" Data..=)
+              Prelude.<$> outputNotebookS3Location,
+            ("RelativePath" Data..=) Prelude.<$> relativePath,
             ("Tags" Data..=) Prelude.<$> tags,
-            Prelude.Just ("EditorId" Data..= editorId),
-            Prelude.Just ("RelativePath" Data..= relativePath),
             Prelude.Just
               ("ExecutionEngine" Data..= executionEngine),
             Prelude.Just ("ServiceRole" Data..= serviceRole)

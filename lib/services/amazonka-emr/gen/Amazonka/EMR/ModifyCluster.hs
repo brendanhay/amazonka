@@ -116,7 +116,8 @@ instance Core.AWSRequest ModifyCluster where
 
 instance Prelude.Hashable ModifyCluster where
   hashWithSalt _salt ModifyCluster' {..} =
-    _salt `Prelude.hashWithSalt` stepConcurrencyLevel
+    _salt
+      `Prelude.hashWithSalt` stepConcurrencyLevel
       `Prelude.hashWithSalt` clusterId
 
 instance Prelude.NFData ModifyCluster where

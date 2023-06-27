@@ -20,7 +20,10 @@
 module Amazonka.EMR.Types.SpotProvisioningAllocationStrategy
   ( SpotProvisioningAllocationStrategy
       ( ..,
-        SpotProvisioningAllocationStrategy_Capacity_optimized
+        SpotProvisioningAllocationStrategy_Capacity_optimized,
+        SpotProvisioningAllocationStrategy_Diversified,
+        SpotProvisioningAllocationStrategy_Lowest_price,
+        SpotProvisioningAllocationStrategy_Price_capacity_optimized
       ),
   )
 where
@@ -60,7 +63,19 @@ newtype SpotProvisioningAllocationStrategy = SpotProvisioningAllocationStrategy'
 pattern SpotProvisioningAllocationStrategy_Capacity_optimized :: SpotProvisioningAllocationStrategy
 pattern SpotProvisioningAllocationStrategy_Capacity_optimized = SpotProvisioningAllocationStrategy' "capacity-optimized"
 
+pattern SpotProvisioningAllocationStrategy_Diversified :: SpotProvisioningAllocationStrategy
+pattern SpotProvisioningAllocationStrategy_Diversified = SpotProvisioningAllocationStrategy' "diversified"
+
+pattern SpotProvisioningAllocationStrategy_Lowest_price :: SpotProvisioningAllocationStrategy
+pattern SpotProvisioningAllocationStrategy_Lowest_price = SpotProvisioningAllocationStrategy' "lowest-price"
+
+pattern SpotProvisioningAllocationStrategy_Price_capacity_optimized :: SpotProvisioningAllocationStrategy
+pattern SpotProvisioningAllocationStrategy_Price_capacity_optimized = SpotProvisioningAllocationStrategy' "price-capacity-optimized"
+
 {-# COMPLETE
   SpotProvisioningAllocationStrategy_Capacity_optimized,
+  SpotProvisioningAllocationStrategy_Diversified,
+  SpotProvisioningAllocationStrategy_Lowest_price,
+  SpotProvisioningAllocationStrategy_Price_capacity_optimized,
   SpotProvisioningAllocationStrategy'
   #-}

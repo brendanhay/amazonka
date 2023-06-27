@@ -126,6 +126,9 @@ import Test.Tasty
 --         , requestListStudios $
 --             newListStudios
 --
+--         , requestListSupportedInstanceTypes $
+--             newListSupportedInstanceTypes
+--
 --         , requestModifyCluster $
 --             newModifyCluster
 --
@@ -284,6 +287,9 @@ import Test.Tasty
 --
 --         , responseListStudios $
 --             newListStudiosResponse
+--
+--         , responseListSupportedInstanceTypes $
+--             newListSupportedInstanceTypesResponse
 --
 --         , responseModifyCluster $
 --             newModifyClusterResponse
@@ -544,6 +550,12 @@ requestListStudios =
   req
     "ListStudios"
     "fixture/ListStudios.yaml"
+
+requestListSupportedInstanceTypes :: ListSupportedInstanceTypes -> TestTree
+requestListSupportedInstanceTypes =
+  req
+    "ListSupportedInstanceTypes"
+    "fixture/ListSupportedInstanceTypes.yaml"
 
 requestModifyCluster :: ModifyCluster -> TestTree
 requestModifyCluster =
@@ -924,6 +936,14 @@ responseListStudios =
     "fixture/ListStudiosResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListStudios)
+
+responseListSupportedInstanceTypes :: ListSupportedInstanceTypesResponse -> TestTree
+responseListSupportedInstanceTypes =
+  res
+    "ListSupportedInstanceTypesResponse"
+    "fixture/ListSupportedInstanceTypesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSupportedInstanceTypes)
 
 responseModifyCluster :: ModifyClusterResponse -> TestTree
 responseModifyCluster =

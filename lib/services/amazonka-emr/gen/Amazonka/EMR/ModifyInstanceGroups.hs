@@ -96,7 +96,8 @@ instance Core.AWSRequest ModifyInstanceGroups where
 
 instance Prelude.Hashable ModifyInstanceGroups where
   hashWithSalt _salt ModifyInstanceGroups' {..} =
-    _salt `Prelude.hashWithSalt` clusterId
+    _salt
+      `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` instanceGroups
 
 instance Prelude.NFData ModifyInstanceGroups where

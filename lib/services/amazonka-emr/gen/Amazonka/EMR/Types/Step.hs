@@ -56,7 +56,7 @@ data Step = Step'
     -- role ARN is a combination of account ID, role name, and role type using
     -- the following format: @arn:partition:service:region:account:resource@.
     --
-    -- For example, @arn:aws:iam::1234567890:role\/ReadOnly@ is a correctly
+    -- For example, @arn:aws:IAM::1234567890:role\/ReadOnly@ is a correctly
     -- formatted runtime role ARN.
     executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the cluster step.
@@ -101,7 +101,7 @@ data Step = Step'
 -- role ARN is a combination of account ID, role name, and role type using
 -- the following format: @arn:partition:service:region:account:resource@.
 --
--- For example, @arn:aws:iam::1234567890:role\/ReadOnly@ is a correctly
+-- For example, @arn:aws:IAM::1234567890:role\/ReadOnly@ is a correctly
 -- formatted runtime role ARN.
 --
 -- 'id', 'step_id' - The identifier of the cluster step.
@@ -150,7 +150,7 @@ step_config = Lens.lens (\Step' {config} -> config) (\s@Step' {} a -> s {config 
 -- role ARN is a combination of account ID, role name, and role type using
 -- the following format: @arn:partition:service:region:account:resource@.
 --
--- For example, @arn:aws:iam::1234567890:role\/ReadOnly@ is a correctly
+-- For example, @arn:aws:IAM::1234567890:role\/ReadOnly@ is a correctly
 -- formatted runtime role ARN.
 step_executionRoleArn :: Lens.Lens' Step (Prelude.Maybe Prelude.Text)
 step_executionRoleArn = Lens.lens (\Step' {executionRoleArn} -> executionRoleArn) (\s@Step' {} a -> s {executionRoleArn = a} :: Step)
@@ -183,7 +183,8 @@ instance Data.FromJSON Step where
 
 instance Prelude.Hashable Step where
   hashWithSalt _salt Step' {..} =
-    _salt `Prelude.hashWithSalt` actionOnFailure
+    _salt
+      `Prelude.hashWithSalt` actionOnFailure
       `Prelude.hashWithSalt` config
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` id

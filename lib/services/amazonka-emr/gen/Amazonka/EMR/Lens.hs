@@ -206,6 +206,7 @@ module Amazonka.EMR.Lens
 
     -- ** ListNotebookExecutions
     listNotebookExecutions_editorId,
+    listNotebookExecutions_executionEngineId,
     listNotebookExecutions_from,
     listNotebookExecutions_marker,
     listNotebookExecutions_status,
@@ -250,6 +251,13 @@ module Amazonka.EMR.Lens
     listStudiosResponse_marker,
     listStudiosResponse_studios,
     listStudiosResponse_httpStatus,
+
+    -- ** ListSupportedInstanceTypes
+    listSupportedInstanceTypes_marker,
+    listSupportedInstanceTypes_releaseLabel,
+    listSupportedInstanceTypesResponse_marker,
+    listSupportedInstanceTypesResponse_supportedInstanceTypes,
+    listSupportedInstanceTypesResponse_httpStatus,
 
     -- ** ModifyCluster
     modifyCluster_stepConcurrencyLevel,
@@ -350,12 +358,16 @@ module Amazonka.EMR.Lens
     setVisibleToAllUsers_visibleToAllUsers,
 
     -- ** StartNotebookExecution
+    startNotebookExecution_editorId,
+    startNotebookExecution_environmentVariables,
     startNotebookExecution_notebookExecutionName,
     startNotebookExecution_notebookInstanceSecurityGroupId,
     startNotebookExecution_notebookParams,
-    startNotebookExecution_tags,
-    startNotebookExecution_editorId,
+    startNotebookExecution_notebookS3Location,
+    startNotebookExecution_outputNotebookFormat,
+    startNotebookExecution_outputNotebookS3Location,
     startNotebookExecution_relativePath,
+    startNotebookExecution_tags,
     startNotebookExecution_executionEngine,
     startNotebookExecution_serviceRole,
     startNotebookExecutionResponse_notebookExecutionId,
@@ -475,6 +487,7 @@ module Amazonka.EMR.Lens
     clusterStateChangeReason_message,
 
     -- ** ClusterStatus
+    clusterStatus_errorDetails,
     clusterStatus_state,
     clusterStatus_stateChangeReason,
     clusterStatus_timeline,
@@ -541,7 +554,13 @@ module Amazonka.EMR.Lens
     ec2InstanceAttributes_requestedEc2SubnetIds,
     ec2InstanceAttributes_serviceAccessSecurityGroup,
 
+    -- ** ErrorDetail
+    errorDetail_errorCode,
+    errorDetail_errorData,
+    errorDetail_errorMessage,
+
     -- ** ExecutionEngineConfig
+    executionEngineConfig_executionRoleArn,
     executionEngineConfig_masterInstanceSecurityGroupId,
     executionEngineConfig_type,
     executionEngineConfig_id,
@@ -585,6 +604,7 @@ module Amazonka.EMR.Lens
     instanceFleet_name,
     instanceFleet_provisionedOnDemandCapacity,
     instanceFleet_provisionedSpotCapacity,
+    instanceFleet_resizeSpecifications,
     instanceFleet_status,
     instanceFleet_targetOnDemandCapacity,
     instanceFleet_targetSpotCapacity,
@@ -593,11 +613,13 @@ module Amazonka.EMR.Lens
     instanceFleetConfig_instanceTypeConfigs,
     instanceFleetConfig_launchSpecifications,
     instanceFleetConfig_name,
+    instanceFleetConfig_resizeSpecifications,
     instanceFleetConfig_targetOnDemandCapacity,
     instanceFleetConfig_targetSpotCapacity,
     instanceFleetConfig_instanceFleetType,
 
     -- ** InstanceFleetModifyConfig
+    instanceFleetModifyConfig_resizeSpecifications,
     instanceFleetModifyConfig_targetOnDemandCapacity,
     instanceFleetModifyConfig_targetSpotCapacity,
     instanceFleetModifyConfig_instanceFleetId,
@@ -605,6 +627,10 @@ module Amazonka.EMR.Lens
     -- ** InstanceFleetProvisioningSpecifications
     instanceFleetProvisioningSpecifications_onDemandSpecification,
     instanceFleetProvisioningSpecifications_spotSpecification,
+
+    -- ** InstanceFleetResizingSpecifications
+    instanceFleetResizingSpecifications_onDemandResizeSpecification,
+    instanceFleetResizingSpecifications_spotResizeSpecification,
 
     -- ** InstanceFleetStateChangeReason
     instanceFleetStateChangeReason_code,
@@ -753,12 +779,16 @@ module Amazonka.EMR.Lens
     notebookExecution_arn,
     notebookExecution_editorId,
     notebookExecution_endTime,
+    notebookExecution_environmentVariables,
     notebookExecution_executionEngine,
     notebookExecution_lastStateChangeReason,
     notebookExecution_notebookExecutionId,
     notebookExecution_notebookExecutionName,
     notebookExecution_notebookInstanceSecurityGroupId,
     notebookExecution_notebookParams,
+    notebookExecution_notebookS3Location,
+    notebookExecution_outputNotebookFormat,
+    notebookExecution_outputNotebookS3Location,
     notebookExecution_outputNotebookURI,
     notebookExecution_startTime,
     notebookExecution_status,
@@ -767,10 +797,20 @@ module Amazonka.EMR.Lens
     -- ** NotebookExecutionSummary
     notebookExecutionSummary_editorId,
     notebookExecutionSummary_endTime,
+    notebookExecutionSummary_executionEngineId,
     notebookExecutionSummary_notebookExecutionId,
     notebookExecutionSummary_notebookExecutionName,
+    notebookExecutionSummary_notebookS3Location,
     notebookExecutionSummary_startTime,
     notebookExecutionSummary_status,
+
+    -- ** NotebookS3LocationForOutput
+    notebookS3LocationForOutput_bucket,
+    notebookS3LocationForOutput_key,
+
+    -- ** NotebookS3LocationFromInput
+    notebookS3LocationFromInput_bucket,
+    notebookS3LocationFromInput_key,
 
     -- ** OSRelease
     oSRelease_label,
@@ -783,6 +823,17 @@ module Amazonka.EMR.Lens
     -- ** OnDemandProvisioningSpecification
     onDemandProvisioningSpecification_capacityReservationOptions,
     onDemandProvisioningSpecification_allocationStrategy,
+
+    -- ** OnDemandResizingSpecification
+    onDemandResizingSpecification_timeoutDurationMinutes,
+
+    -- ** OutputNotebookS3LocationForOutput
+    outputNotebookS3LocationForOutput_bucket,
+    outputNotebookS3LocationForOutput_key,
+
+    -- ** OutputNotebookS3LocationFromInput
+    outputNotebookS3LocationFromInput_bucket,
+    outputNotebookS3LocationFromInput_key,
 
     -- ** PlacementGroupConfig
     placementGroupConfig_placementStrategy,
@@ -861,6 +912,9 @@ module Amazonka.EMR.Lens
     spotProvisioningSpecification_timeoutDurationMinutes,
     spotProvisioningSpecification_timeoutAction,
 
+    -- ** SpotResizingSpecification
+    spotResizingSpecification_timeoutDurationMinutes,
+
     -- ** Step
     step_actionOnFailure,
     step_config,
@@ -924,6 +978,19 @@ module Amazonka.EMR.Lens
     studioSummary_url,
     studioSummary_vpcId,
 
+    -- ** SupportedInstanceType
+    supportedInstanceType_architecture,
+    supportedInstanceType_ebsOptimizedAvailable,
+    supportedInstanceType_ebsOptimizedByDefault,
+    supportedInstanceType_ebsStorageOnly,
+    supportedInstanceType_instanceFamilyId,
+    supportedInstanceType_is64BitsOnly,
+    supportedInstanceType_memoryGB,
+    supportedInstanceType_numberOfDisks,
+    supportedInstanceType_storageGB,
+    supportedInstanceType_type,
+    supportedInstanceType_vcpu,
+
     -- ** SupportedProductConfig
     supportedProductConfig_args,
     supportedProductConfig_name,
@@ -977,6 +1044,7 @@ import Amazonka.EMR.ListSecurityConfigurations
 import Amazonka.EMR.ListSteps
 import Amazonka.EMR.ListStudioSessionMappings
 import Amazonka.EMR.ListStudios
+import Amazonka.EMR.ListSupportedInstanceTypes
 import Amazonka.EMR.ModifyCluster
 import Amazonka.EMR.ModifyInstanceFleet
 import Amazonka.EMR.ModifyInstanceGroups
@@ -1019,6 +1087,7 @@ import Amazonka.EMR.Types.EbsBlockDeviceConfig
 import Amazonka.EMR.Types.EbsConfiguration
 import Amazonka.EMR.Types.EbsVolume
 import Amazonka.EMR.Types.Ec2InstanceAttributes
+import Amazonka.EMR.Types.ErrorDetail
 import Amazonka.EMR.Types.ExecutionEngineConfig
 import Amazonka.EMR.Types.FailureDetails
 import Amazonka.EMR.Types.HadoopJarStepConfig
@@ -1028,6 +1097,7 @@ import Amazonka.EMR.Types.InstanceFleet
 import Amazonka.EMR.Types.InstanceFleetConfig
 import Amazonka.EMR.Types.InstanceFleetModifyConfig
 import Amazonka.EMR.Types.InstanceFleetProvisioningSpecifications
+import Amazonka.EMR.Types.InstanceFleetResizingSpecifications
 import Amazonka.EMR.Types.InstanceFleetStateChangeReason
 import Amazonka.EMR.Types.InstanceFleetStatus
 import Amazonka.EMR.Types.InstanceFleetTimeline
@@ -1050,9 +1120,14 @@ import Amazonka.EMR.Types.ManagedScalingPolicy
 import Amazonka.EMR.Types.MetricDimension
 import Amazonka.EMR.Types.NotebookExecution
 import Amazonka.EMR.Types.NotebookExecutionSummary
+import Amazonka.EMR.Types.NotebookS3LocationForOutput
+import Amazonka.EMR.Types.NotebookS3LocationFromInput
 import Amazonka.EMR.Types.OSRelease
 import Amazonka.EMR.Types.OnDemandCapacityReservationOptions
 import Amazonka.EMR.Types.OnDemandProvisioningSpecification
+import Amazonka.EMR.Types.OnDemandResizingSpecification
+import Amazonka.EMR.Types.OutputNotebookS3LocationForOutput
+import Amazonka.EMR.Types.OutputNotebookS3LocationFromInput
 import Amazonka.EMR.Types.PlacementGroupConfig
 import Amazonka.EMR.Types.PlacementType
 import Amazonka.EMR.Types.PortRange
@@ -1069,6 +1144,7 @@ import Amazonka.EMR.Types.ShrinkPolicy
 import Amazonka.EMR.Types.SimpleScalingPolicyConfiguration
 import Amazonka.EMR.Types.SimplifiedApplication
 import Amazonka.EMR.Types.SpotProvisioningSpecification
+import Amazonka.EMR.Types.SpotResizingSpecification
 import Amazonka.EMR.Types.Step
 import Amazonka.EMR.Types.StepConfig
 import Amazonka.EMR.Types.StepStateChangeReason
@@ -1077,6 +1153,7 @@ import Amazonka.EMR.Types.StepSummary
 import Amazonka.EMR.Types.StepTimeline
 import Amazonka.EMR.Types.Studio
 import Amazonka.EMR.Types.StudioSummary
+import Amazonka.EMR.Types.SupportedInstanceType
 import Amazonka.EMR.Types.SupportedProductConfig
 import Amazonka.EMR.Types.Tag
 import Amazonka.EMR.Types.UsernamePassword

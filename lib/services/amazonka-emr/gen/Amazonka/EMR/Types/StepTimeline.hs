@@ -84,7 +84,8 @@ instance Data.FromJSON StepTimeline where
 
 instance Prelude.Hashable StepTimeline where
   hashWithSalt _salt StepTimeline' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` endDateTime
       `Prelude.hashWithSalt` startDateTime
 

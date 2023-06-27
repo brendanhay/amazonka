@@ -27,7 +27,7 @@ import Amazonka.EMR.Types.InstanceStatus
 import Amazonka.EMR.Types.MarketType
 import qualified Amazonka.Prelude as Prelude
 
--- | Represents an EC2 instance provisioned as part of cluster.
+-- | Represents an Amazon EC2 instance provisioned as part of cluster.
 --
 -- /See:/ 'newInstance' smart constructor.
 data Instance = Instance'
@@ -37,12 +37,12 @@ data Instance = Instance'
     ec2InstanceId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the instance in Amazon EMR.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the instance fleet to which an EC2 instance
-    -- belongs.
+    -- | The unique identifier of the instance fleet to which an Amazon EC2
+    -- instance belongs.
     instanceFleetId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the instance group to which this instance belongs.
     instanceGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The EC2 instance type, for example @m3.xlarge@.
+    -- | The Amazon EC2 instance type, for example @m3.xlarge@.
     instanceType :: Prelude.Maybe Prelude.Text,
     -- | The instance purchasing option. Valid values are @ON_DEMAND@ or @SPOT@.
     market :: Prelude.Maybe MarketType,
@@ -73,12 +73,12 @@ data Instance = Instance'
 --
 -- 'id', 'instance_id' - The unique identifier for the instance in Amazon EMR.
 --
--- 'instanceFleetId', 'instance_instanceFleetId' - The unique identifier of the instance fleet to which an EC2 instance
--- belongs.
+-- 'instanceFleetId', 'instance_instanceFleetId' - The unique identifier of the instance fleet to which an Amazon EC2
+-- instance belongs.
 --
 -- 'instanceGroupId', 'instance_instanceGroupId' - The identifier of the instance group to which this instance belongs.
 --
--- 'instanceType', 'instance_instanceType' - The EC2 instance type, for example @m3.xlarge@.
+-- 'instanceType', 'instance_instanceType' - The Amazon EC2 instance type, for example @m3.xlarge@.
 --
 -- 'market', 'instance_market' - The instance purchasing option. Valid values are @ON_DEMAND@ or @SPOT@.
 --
@@ -121,8 +121,8 @@ instance_ec2InstanceId = Lens.lens (\Instance' {ec2InstanceId} -> ec2InstanceId)
 instance_id :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_id = Lens.lens (\Instance' {id} -> id) (\s@Instance' {} a -> s {id = a} :: Instance)
 
--- | The unique identifier of the instance fleet to which an EC2 instance
--- belongs.
+-- | The unique identifier of the instance fleet to which an Amazon EC2
+-- instance belongs.
 instance_instanceFleetId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_instanceFleetId = Lens.lens (\Instance' {instanceFleetId} -> instanceFleetId) (\s@Instance' {} a -> s {instanceFleetId = a} :: Instance)
 
@@ -130,7 +130,7 @@ instance_instanceFleetId = Lens.lens (\Instance' {instanceFleetId} -> instanceFl
 instance_instanceGroupId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_instanceGroupId = Lens.lens (\Instance' {instanceGroupId} -> instanceGroupId) (\s@Instance' {} a -> s {instanceGroupId = a} :: Instance)
 
--- | The EC2 instance type, for example @m3.xlarge@.
+-- | The Amazon EC2 instance type, for example @m3.xlarge@.
 instance_instanceType :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_instanceType = Lens.lens (\Instance' {instanceType} -> instanceType) (\s@Instance' {} a -> s {instanceType = a} :: Instance)
 
@@ -180,7 +180,8 @@ instance Data.FromJSON Instance where
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =
-    _salt `Prelude.hashWithSalt` ebsVolumes
+    _salt
+      `Prelude.hashWithSalt` ebsVolumes
       `Prelude.hashWithSalt` ec2InstanceId
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` instanceFleetId

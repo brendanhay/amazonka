@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- termination.
 --
 -- The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions.
+-- releases 4.8.0 and later, excluding 5.0.x versions.
 --
 -- /See:/ 'newInstanceFleetTimeline' smart constructor.
 data InstanceFleetTimeline = InstanceFleetTimeline'
@@ -90,7 +90,8 @@ instance Data.FromJSON InstanceFleetTimeline where
 
 instance Prelude.Hashable InstanceFleetTimeline where
   hashWithSalt _salt InstanceFleetTimeline' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` endDateTime
       `Prelude.hashWithSalt` readyDateTime
 

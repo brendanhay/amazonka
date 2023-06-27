@@ -30,32 +30,33 @@ import qualified Amazonka.Prelude as Prelude
 -- | The status of the instance fleet.
 --
 -- The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions.
+-- releases 4.8.0 and later, excluding 5.0.x versions.
 --
 -- /See:/ 'newInstanceFleetStatus' smart constructor.
 data InstanceFleetStatus = InstanceFleetStatus'
   { -- | A code representing the instance fleet status.
     --
-    -- -   @PROVISIONING@—The instance fleet is provisioning EC2 resources and
-    --     is not yet ready to run jobs.
+    -- -   @PROVISIONING@—The instance fleet is provisioning Amazon EC2
+    --     resources and is not yet ready to run jobs.
     --
-    -- -   @BOOTSTRAPPING@—EC2 instances and other resources have been
+    -- -   @BOOTSTRAPPING@—Amazon EC2 instances and other resources have been
     --     provisioned and the bootstrap actions specified for the instances
     --     are underway.
     --
-    -- -   @RUNNING@—EC2 instances and other resources are running. They are
-    --     either executing jobs or waiting to execute jobs.
+    -- -   @RUNNING@—Amazon EC2 instances and other resources are running. They
+    --     are either executing jobs or waiting to execute jobs.
     --
-    -- -   @RESIZING@—A resize operation is underway. EC2 instances are either
-    --     being added or removed.
+    -- -   @RESIZING@—A resize operation is underway. Amazon EC2 instances are
+    --     either being added or removed.
     --
-    -- -   @SUSPENDED@—A resize operation could not complete. Existing EC2
-    --     instances are running, but instances can\'t be added or removed.
+    -- -   @SUSPENDED@—A resize operation could not complete. Existing Amazon
+    --     EC2 instances are running, but instances can\'t be added or removed.
     --
-    -- -   @TERMINATING@—The instance fleet is terminating EC2 instances.
+    -- -   @TERMINATING@—The instance fleet is terminating Amazon EC2
+    --     instances.
     --
-    -- -   @TERMINATED@—The instance fleet is no longer active, and all EC2
-    --     instances have been terminated.
+    -- -   @TERMINATED@—The instance fleet is no longer active, and all Amazon
+    --     EC2 instances have been terminated.
     state :: Prelude.Maybe InstanceFleetState,
     -- | Provides status change reason details for the instance fleet.
     stateChangeReason :: Prelude.Maybe InstanceFleetStateChangeReason,
@@ -76,26 +77,27 @@ data InstanceFleetStatus = InstanceFleetStatus'
 --
 -- 'state', 'instanceFleetStatus_state' - A code representing the instance fleet status.
 --
--- -   @PROVISIONING@—The instance fleet is provisioning EC2 resources and
---     is not yet ready to run jobs.
+-- -   @PROVISIONING@—The instance fleet is provisioning Amazon EC2
+--     resources and is not yet ready to run jobs.
 --
--- -   @BOOTSTRAPPING@—EC2 instances and other resources have been
+-- -   @BOOTSTRAPPING@—Amazon EC2 instances and other resources have been
 --     provisioned and the bootstrap actions specified for the instances
 --     are underway.
 --
--- -   @RUNNING@—EC2 instances and other resources are running. They are
---     either executing jobs or waiting to execute jobs.
+-- -   @RUNNING@—Amazon EC2 instances and other resources are running. They
+--     are either executing jobs or waiting to execute jobs.
 --
--- -   @RESIZING@—A resize operation is underway. EC2 instances are either
---     being added or removed.
+-- -   @RESIZING@—A resize operation is underway. Amazon EC2 instances are
+--     either being added or removed.
 --
--- -   @SUSPENDED@—A resize operation could not complete. Existing EC2
---     instances are running, but instances can\'t be added or removed.
+-- -   @SUSPENDED@—A resize operation could not complete. Existing Amazon
+--     EC2 instances are running, but instances can\'t be added or removed.
 --
--- -   @TERMINATING@—The instance fleet is terminating EC2 instances.
+-- -   @TERMINATING@—The instance fleet is terminating Amazon EC2
+--     instances.
 --
--- -   @TERMINATED@—The instance fleet is no longer active, and all EC2
---     instances have been terminated.
+-- -   @TERMINATED@—The instance fleet is no longer active, and all Amazon
+--     EC2 instances have been terminated.
 --
 -- 'stateChangeReason', 'instanceFleetStatus_stateChangeReason' - Provides status change reason details for the instance fleet.
 --
@@ -113,26 +115,27 @@ newInstanceFleetStatus =
 
 -- | A code representing the instance fleet status.
 --
--- -   @PROVISIONING@—The instance fleet is provisioning EC2 resources and
---     is not yet ready to run jobs.
+-- -   @PROVISIONING@—The instance fleet is provisioning Amazon EC2
+--     resources and is not yet ready to run jobs.
 --
--- -   @BOOTSTRAPPING@—EC2 instances and other resources have been
+-- -   @BOOTSTRAPPING@—Amazon EC2 instances and other resources have been
 --     provisioned and the bootstrap actions specified for the instances
 --     are underway.
 --
--- -   @RUNNING@—EC2 instances and other resources are running. They are
---     either executing jobs or waiting to execute jobs.
+-- -   @RUNNING@—Amazon EC2 instances and other resources are running. They
+--     are either executing jobs or waiting to execute jobs.
 --
--- -   @RESIZING@—A resize operation is underway. EC2 instances are either
---     being added or removed.
+-- -   @RESIZING@—A resize operation is underway. Amazon EC2 instances are
+--     either being added or removed.
 --
--- -   @SUSPENDED@—A resize operation could not complete. Existing EC2
---     instances are running, but instances can\'t be added or removed.
+-- -   @SUSPENDED@—A resize operation could not complete. Existing Amazon
+--     EC2 instances are running, but instances can\'t be added or removed.
 --
--- -   @TERMINATING@—The instance fleet is terminating EC2 instances.
+-- -   @TERMINATING@—The instance fleet is terminating Amazon EC2
+--     instances.
 --
--- -   @TERMINATED@—The instance fleet is no longer active, and all EC2
---     instances have been terminated.
+-- -   @TERMINATED@—The instance fleet is no longer active, and all Amazon
+--     EC2 instances have been terminated.
 instanceFleetStatus_state :: Lens.Lens' InstanceFleetStatus (Prelude.Maybe InstanceFleetState)
 instanceFleetStatus_state = Lens.lens (\InstanceFleetStatus' {state} -> state) (\s@InstanceFleetStatus' {} a -> s {state = a} :: InstanceFleetStatus)
 
@@ -159,7 +162,8 @@ instance Data.FromJSON InstanceFleetStatus where
 
 instance Prelude.Hashable InstanceFleetStatus where
   hashWithSalt _salt InstanceFleetStatus' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` stateChangeReason
       `Prelude.hashWithSalt` timeline
 

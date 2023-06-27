@@ -31,8 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 -- allocation strategy.
 --
 -- The instance fleet configuration is available only in Amazon EMR
--- versions 4.8.0 and later, excluding 5.0.x versions. Spot Instance
--- allocation strategy is available in Amazon EMR version 5.12.1 and later.
+-- releases 4.8.0 and later, excluding 5.0.x versions. Spot Instance
+-- allocation strategy is available in Amazon EMR releases 5.12.1 and
+-- later.
 --
 -- Spot Instances with a defined duration (also known as Spot blocks) are
 -- no longer available to new customers from July 1, 2021. For customers
@@ -60,7 +61,7 @@ data SpotProvisioningSpecification = SpotProvisioningSpecification'
     -- who have previously used the feature, we will continue to support Spot
     -- Instances with a defined duration until December 31, 2022.
     blockDurationMinutes :: Prelude.Maybe Prelude.Natural,
-    -- | The spot provisioning timeout period in minutes. If Spot Instances are
+    -- | The Spot provisioning timeout period in minutes. If Spot Instances are
     -- not provisioned within this time period, the @TimeOutAction@ is taken.
     -- Minimum value is 5 and maximum value is 1440. The timeout applies only
     -- during initial provisioning, when the cluster is first created.
@@ -103,7 +104,7 @@ data SpotProvisioningSpecification = SpotProvisioningSpecification'
 -- who have previously used the feature, we will continue to support Spot
 -- Instances with a defined duration until December 31, 2022.
 --
--- 'timeoutDurationMinutes', 'spotProvisioningSpecification_timeoutDurationMinutes' - The spot provisioning timeout period in minutes. If Spot Instances are
+-- 'timeoutDurationMinutes', 'spotProvisioningSpecification_timeoutDurationMinutes' - The Spot provisioning timeout period in minutes. If Spot Instances are
 -- not provisioned within this time period, the @TimeOutAction@ is taken.
 -- Minimum value is 5 and maximum value is 1440. The timeout applies only
 -- during initial provisioning, when the cluster is first created.
@@ -156,7 +157,7 @@ spotProvisioningSpecification_allocationStrategy = Lens.lens (\SpotProvisioningS
 spotProvisioningSpecification_blockDurationMinutes :: Lens.Lens' SpotProvisioningSpecification (Prelude.Maybe Prelude.Natural)
 spotProvisioningSpecification_blockDurationMinutes = Lens.lens (\SpotProvisioningSpecification' {blockDurationMinutes} -> blockDurationMinutes) (\s@SpotProvisioningSpecification' {} a -> s {blockDurationMinutes = a} :: SpotProvisioningSpecification)
 
--- | The spot provisioning timeout period in minutes. If Spot Instances are
+-- | The Spot provisioning timeout period in minutes. If Spot Instances are
 -- not provisioned within this time period, the @TimeOutAction@ is taken.
 -- Minimum value is 5 and maximum value is 1440. The timeout applies only
 -- during initial provisioning, when the cluster is first created.
@@ -190,7 +191,8 @@ instance
     SpotProvisioningSpecification
   where
   hashWithSalt _salt SpotProvisioningSpecification' {..} =
-    _salt `Prelude.hashWithSalt` allocationStrategy
+    _salt
+      `Prelude.hashWithSalt` allocationStrategy
       `Prelude.hashWithSalt` blockDurationMinutes
       `Prelude.hashWithSalt` timeoutDurationMinutes
       `Prelude.hashWithSalt` timeoutAction

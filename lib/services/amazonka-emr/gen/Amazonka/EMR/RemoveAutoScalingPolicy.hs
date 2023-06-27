@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes an automatic scaling policy from a specified instance group
--- within an EMR cluster.
+-- within an Amazon EMR cluster.
 module Amazonka.EMR.RemoveAutoScalingPolicy
   ( -- * Creating a Request
     RemoveAutoScalingPolicy (..),
@@ -111,7 +111,8 @@ instance Core.AWSRequest RemoveAutoScalingPolicy where
 
 instance Prelude.Hashable RemoveAutoScalingPolicy where
   hashWithSalt _salt RemoveAutoScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` clusterId
+    _salt
+      `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` instanceGroupId
 
 instance Prelude.NFData RemoveAutoScalingPolicy where

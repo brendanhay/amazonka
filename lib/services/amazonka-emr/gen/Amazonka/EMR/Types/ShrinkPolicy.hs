@@ -83,7 +83,8 @@ instance Data.FromJSON ShrinkPolicy where
 
 instance Prelude.Hashable ShrinkPolicy where
   hashWithSalt _salt ShrinkPolicy' {..} =
-    _salt `Prelude.hashWithSalt` decommissionTimeout
+    _salt
+      `Prelude.hashWithSalt` decommissionTimeout
       `Prelude.hashWithSalt` instanceResizePolicy
 
 instance Prelude.NFData ShrinkPolicy where

@@ -25,7 +25,7 @@
 -- of 256 steps are allowed in each CancelSteps request. CancelSteps is
 -- idempotent but asynchronous; it does not guarantee that a step will be
 -- canceled, even if the request is successfully submitted. When you use
--- Amazon EMR versions 5.28.0 and later, you can cancel steps that are in a
+-- Amazon EMR releases 5.28.0 and later, you can cancel steps that are in a
 -- @PENDING@ or @RUNNING@ state. In earlier versions of Amazon EMR, you can
 -- only cancel steps that are in a @PENDING@ state.
 module Amazonka.EMR.CancelSteps
@@ -123,7 +123,8 @@ instance Core.AWSRequest CancelSteps where
     Response.receiveJSON
       ( \s h x ->
           CancelStepsResponse'
-            Prelude.<$> ( x Data..?> "CancelStepsInfoList"
+            Prelude.<$> ( x
+                            Data..?> "CancelStepsInfoList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -131,7 +132,8 @@ instance Core.AWSRequest CancelSteps where
 
 instance Prelude.Hashable CancelSteps where
   hashWithSalt _salt CancelSteps' {..} =
-    _salt `Prelude.hashWithSalt` stepCancellationOption
+    _salt
+      `Prelude.hashWithSalt` stepCancellationOption
       `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` stepIds
 

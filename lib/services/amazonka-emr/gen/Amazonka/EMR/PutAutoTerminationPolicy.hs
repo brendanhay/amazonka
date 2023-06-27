@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Auto-termination is supported in Amazon EMR versions 5.30.0 and 6.1.0
+-- Auto-termination is supported in Amazon EMR releases 5.30.0 and 6.1.0
 -- and later. For more information, see
 -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-auto-termination-policy.html Using an auto-termination policy>.
 --
@@ -112,7 +112,8 @@ instance Core.AWSRequest PutAutoTerminationPolicy where
 
 instance Prelude.Hashable PutAutoTerminationPolicy where
   hashWithSalt _salt PutAutoTerminationPolicy' {..} =
-    _salt `Prelude.hashWithSalt` autoTerminationPolicy
+    _salt
+      `Prelude.hashWithSalt` autoTerminationPolicy
       `Prelude.hashWithSalt` clusterId
 
 instance Prelude.NFData PutAutoTerminationPolicy where

@@ -129,7 +129,8 @@ instance Data.FromJSON KerberosAttributes where
 
 instance Prelude.Hashable KerberosAttributes where
   hashWithSalt _salt KerberosAttributes' {..} =
-    _salt `Prelude.hashWithSalt` aDDomainJoinPassword
+    _salt
+      `Prelude.hashWithSalt` aDDomainJoinPassword
       `Prelude.hashWithSalt` aDDomainJoinUser
       `Prelude.hashWithSalt` crossRealmTrustPrincipalPassword
       `Prelude.hashWithSalt` kdcAdminPassword

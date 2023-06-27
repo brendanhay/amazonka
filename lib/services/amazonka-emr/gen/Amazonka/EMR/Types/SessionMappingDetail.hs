@@ -145,7 +145,8 @@ instance Data.FromJSON SessionMappingDetail where
 
 instance Prelude.Hashable SessionMappingDetail where
   hashWithSalt _salt SessionMappingDetail' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` identityId
       `Prelude.hashWithSalt` identityName
       `Prelude.hashWithSalt` identityType

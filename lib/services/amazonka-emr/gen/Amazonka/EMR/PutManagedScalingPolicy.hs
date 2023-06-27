@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates or updates a managed scaling policy for an Amazon EMR cluster.
--- The managed scaling policy defines the limits for resources, such as EC2
--- instances that can be added or terminated from a cluster. The policy
--- only applies to the core and task nodes. The master node cannot be
--- scaled after initial configuration.
+-- The managed scaling policy defines the limits for resources, such as
+-- Amazon EC2 instances that can be added or terminated from a cluster. The
+-- policy only applies to the core and task nodes. The master node cannot
+-- be scaled after initial configuration.
 module Amazonka.EMR.PutManagedScalingPolicy
   ( -- * Creating a Request
     PutManagedScalingPolicy (..),
@@ -53,8 +53,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutManagedScalingPolicy' smart constructor.
 data PutManagedScalingPolicy = PutManagedScalingPolicy'
-  { -- | Specifies the ID of an EMR cluster where the managed scaling policy is
-    -- attached.
+  { -- | Specifies the ID of an Amazon EMR cluster where the managed scaling
+    -- policy is attached.
     clusterId :: Prelude.Text,
     -- | Specifies the constraints for the managed scaling policy.
     managedScalingPolicy :: ManagedScalingPolicy
@@ -69,8 +69,8 @@ data PutManagedScalingPolicy = PutManagedScalingPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clusterId', 'putManagedScalingPolicy_clusterId' - Specifies the ID of an EMR cluster where the managed scaling policy is
--- attached.
+-- 'clusterId', 'putManagedScalingPolicy_clusterId' - Specifies the ID of an Amazon EMR cluster where the managed scaling
+-- policy is attached.
 --
 -- 'managedScalingPolicy', 'putManagedScalingPolicy_managedScalingPolicy' - Specifies the constraints for the managed scaling policy.
 newPutManagedScalingPolicy ::
@@ -87,8 +87,8 @@ newPutManagedScalingPolicy
         managedScalingPolicy = pManagedScalingPolicy_
       }
 
--- | Specifies the ID of an EMR cluster where the managed scaling policy is
--- attached.
+-- | Specifies the ID of an Amazon EMR cluster where the managed scaling
+-- policy is attached.
 putManagedScalingPolicy_clusterId :: Lens.Lens' PutManagedScalingPolicy Prelude.Text
 putManagedScalingPolicy_clusterId = Lens.lens (\PutManagedScalingPolicy' {clusterId} -> clusterId) (\s@PutManagedScalingPolicy' {} a -> s {clusterId = a} :: PutManagedScalingPolicy)
 
@@ -111,7 +111,8 @@ instance Core.AWSRequest PutManagedScalingPolicy where
 
 instance Prelude.Hashable PutManagedScalingPolicy where
   hashWithSalt _salt PutManagedScalingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` clusterId
+    _salt
+      `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` managedScalingPolicy
 
 instance Prelude.NFData PutManagedScalingPolicy where

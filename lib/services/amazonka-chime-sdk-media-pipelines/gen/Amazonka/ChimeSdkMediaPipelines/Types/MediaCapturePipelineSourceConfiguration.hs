@@ -98,7 +98,8 @@ instance
   hashWithSalt
     _salt
     MediaCapturePipelineSourceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` mediaPipelineArn
+      _salt
+        `Prelude.hashWithSalt` mediaPipelineArn
         `Prelude.hashWithSalt` chimeSdkMeetingConfiguration
 
 instance

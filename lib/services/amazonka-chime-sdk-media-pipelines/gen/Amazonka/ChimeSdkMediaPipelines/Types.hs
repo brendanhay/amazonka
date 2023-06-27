@@ -19,6 +19,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types
 
     -- * Errors
     _BadRequestException,
+    _ConflictException,
     _ForbiddenException,
     _NotFoundException,
     _ResourceLimitExceededException,
@@ -42,6 +43,9 @@ module Amazonka.ChimeSdkMediaPipelines.Types
     -- * AudioMuxType
     AudioMuxType (..),
 
+    -- * CallAnalyticsLanguageCode
+    CallAnalyticsLanguageCode (..),
+
     -- * ConcatenationSinkType
     ConcatenationSinkType (..),
 
@@ -51,8 +55,17 @@ module Amazonka.ChimeSdkMediaPipelines.Types
     -- * ContentMuxType
     ContentMuxType (..),
 
+    -- * ContentRedactionOutput
+    ContentRedactionOutput (..),
+
     -- * ContentShareLayoutOption
     ContentShareLayoutOption (..),
+
+    -- * ContentType
+    ContentType (..),
+
+    -- * FragmentSelectorType
+    FragmentSelectorType (..),
 
     -- * LayoutOption
     LayoutOption (..),
@@ -66,6 +79,12 @@ module Amazonka.ChimeSdkMediaPipelines.Types
     -- * LiveConnectorSourceType
     LiveConnectorSourceType (..),
 
+    -- * MediaEncoding
+    MediaEncoding (..),
+
+    -- * MediaInsightsPipelineConfigurationElementType
+    MediaInsightsPipelineConfigurationElementType (..),
+
     -- * MediaPipelineSinkType
     MediaPipelineSinkType (..),
 
@@ -75,14 +94,71 @@ module Amazonka.ChimeSdkMediaPipelines.Types
     -- * MediaPipelineStatus
     MediaPipelineStatus (..),
 
+    -- * MediaPipelineStatusUpdate
+    MediaPipelineStatusUpdate (..),
+
+    -- * PartialResultsStability
+    PartialResultsStability (..),
+
+    -- * ParticipantRole
+    ParticipantRole (..),
+
     -- * PresenterPosition
     PresenterPosition (..),
+
+    -- * RealTimeAlertRuleType
+    RealTimeAlertRuleType (..),
+
+    -- * RecordingFileFormat
+    RecordingFileFormat (..),
 
     -- * ResolutionOption
     ResolutionOption (..),
 
+    -- * SentimentType
+    SentimentType (..),
+
     -- * VideoMuxType
     VideoMuxType (..),
+
+    -- * VocabularyFilterMethod
+    VocabularyFilterMethod (..),
+
+    -- * VoiceAnalyticsConfigurationStatus
+    VoiceAnalyticsConfigurationStatus (..),
+
+    -- * AmazonTranscribeCallAnalyticsProcessorConfiguration
+    AmazonTranscribeCallAnalyticsProcessorConfiguration (..),
+    newAmazonTranscribeCallAnalyticsProcessorConfiguration,
+    amazonTranscribeCallAnalyticsProcessorConfiguration_callAnalyticsStreamCategories,
+    amazonTranscribeCallAnalyticsProcessorConfiguration_contentIdentificationType,
+    amazonTranscribeCallAnalyticsProcessorConfiguration_contentRedactionType,
+    amazonTranscribeCallAnalyticsProcessorConfiguration_enablePartialResultsStabilization,
+    amazonTranscribeCallAnalyticsProcessorConfiguration_filterPartialResults,
+    amazonTranscribeCallAnalyticsProcessorConfiguration_languageModelName,
+    amazonTranscribeCallAnalyticsProcessorConfiguration_partialResultsStability,
+    amazonTranscribeCallAnalyticsProcessorConfiguration_piiEntityTypes,
+    amazonTranscribeCallAnalyticsProcessorConfiguration_postCallAnalyticsSettings,
+    amazonTranscribeCallAnalyticsProcessorConfiguration_vocabularyFilterMethod,
+    amazonTranscribeCallAnalyticsProcessorConfiguration_vocabularyFilterName,
+    amazonTranscribeCallAnalyticsProcessorConfiguration_vocabularyName,
+    amazonTranscribeCallAnalyticsProcessorConfiguration_languageCode,
+
+    -- * AmazonTranscribeProcessorConfiguration
+    AmazonTranscribeProcessorConfiguration (..),
+    newAmazonTranscribeProcessorConfiguration,
+    amazonTranscribeProcessorConfiguration_contentIdentificationType,
+    amazonTranscribeProcessorConfiguration_contentRedactionType,
+    amazonTranscribeProcessorConfiguration_enablePartialResultsStabilization,
+    amazonTranscribeProcessorConfiguration_filterPartialResults,
+    amazonTranscribeProcessorConfiguration_languageModelName,
+    amazonTranscribeProcessorConfiguration_partialResultsStability,
+    amazonTranscribeProcessorConfiguration_piiEntityTypes,
+    amazonTranscribeProcessorConfiguration_showSpeakerLabel,
+    amazonTranscribeProcessorConfiguration_vocabularyFilterMethod,
+    amazonTranscribeProcessorConfiguration_vocabularyFilterName,
+    amazonTranscribeProcessorConfiguration_vocabularyName,
+    amazonTranscribeProcessorConfiguration_languageCode,
 
     -- * ArtifactsConcatenationConfiguration
     ArtifactsConcatenationConfiguration (..),
@@ -112,6 +188,12 @@ module Amazonka.ChimeSdkMediaPipelines.Types
     AudioConcatenationConfiguration (..),
     newAudioConcatenationConfiguration,
     audioConcatenationConfiguration_state,
+
+    -- * ChannelDefinition
+    ChannelDefinition (..),
+    newChannelDefinition,
+    channelDefinition_participantRole,
+    channelDefinition_channelId,
 
     -- * ChimeSdkMeetingConcatenationConfiguration
     ChimeSdkMeetingConcatenationConfiguration (..),
@@ -172,11 +254,52 @@ module Amazonka.ChimeSdkMediaPipelines.Types
     newDataChannelConcatenationConfiguration,
     dataChannelConcatenationConfiguration_state,
 
+    -- * FragmentSelector
+    FragmentSelector (..),
+    newFragmentSelector,
+    fragmentSelector_fragmentSelectorType,
+    fragmentSelector_timestampRange,
+
     -- * GridViewConfiguration
     GridViewConfiguration (..),
     newGridViewConfiguration,
     gridViewConfiguration_presenterOnlyConfiguration,
     gridViewConfiguration_contentShareLayout,
+
+    -- * IssueDetectionConfiguration
+    IssueDetectionConfiguration (..),
+    newIssueDetectionConfiguration,
+    issueDetectionConfiguration_ruleName,
+
+    -- * KeywordMatchConfiguration
+    KeywordMatchConfiguration (..),
+    newKeywordMatchConfiguration,
+    keywordMatchConfiguration_negate,
+    keywordMatchConfiguration_ruleName,
+    keywordMatchConfiguration_keywords,
+
+    -- * KinesisDataStreamSinkConfiguration
+    KinesisDataStreamSinkConfiguration (..),
+    newKinesisDataStreamSinkConfiguration,
+    kinesisDataStreamSinkConfiguration_insightsTarget,
+
+    -- * KinesisVideoStreamRecordingSourceRuntimeConfiguration
+    KinesisVideoStreamRecordingSourceRuntimeConfiguration (..),
+    newKinesisVideoStreamRecordingSourceRuntimeConfiguration,
+    kinesisVideoStreamRecordingSourceRuntimeConfiguration_streams,
+    kinesisVideoStreamRecordingSourceRuntimeConfiguration_fragmentSelector,
+
+    -- * KinesisVideoStreamSourceRuntimeConfiguration
+    KinesisVideoStreamSourceRuntimeConfiguration (..),
+    newKinesisVideoStreamSourceRuntimeConfiguration,
+    kinesisVideoStreamSourceRuntimeConfiguration_streams,
+    kinesisVideoStreamSourceRuntimeConfiguration_mediaEncoding,
+    kinesisVideoStreamSourceRuntimeConfiguration_mediaSampleRate,
+
+    -- * LambdaFunctionSinkConfiguration
+    LambdaFunctionSinkConfiguration (..),
+    newLambdaFunctionSinkConfiguration,
+    lambdaFunctionSinkConfiguration_insightsTarget,
 
     -- * LiveConnectorRTMPConfiguration
     LiveConnectorRTMPConfiguration (..),
@@ -234,6 +357,51 @@ module Amazonka.ChimeSdkMediaPipelines.Types
     mediaConcatenationPipeline_status,
     mediaConcatenationPipeline_updatedTimestamp,
 
+    -- * MediaInsightsPipeline
+    MediaInsightsPipeline (..),
+    newMediaInsightsPipeline,
+    mediaInsightsPipeline_createdTimestamp,
+    mediaInsightsPipeline_kinesisVideoStreamRecordingSourceRuntimeConfiguration,
+    mediaInsightsPipeline_kinesisVideoStreamSourceRuntimeConfiguration,
+    mediaInsightsPipeline_mediaInsightsPipelineConfigurationArn,
+    mediaInsightsPipeline_mediaInsightsRuntimeMetadata,
+    mediaInsightsPipeline_mediaPipelineArn,
+    mediaInsightsPipeline_mediaPipelineId,
+    mediaInsightsPipeline_s3RecordingSinkRuntimeConfiguration,
+    mediaInsightsPipeline_status,
+
+    -- * MediaInsightsPipelineConfiguration
+    MediaInsightsPipelineConfiguration (..),
+    newMediaInsightsPipelineConfiguration,
+    mediaInsightsPipelineConfiguration_createdTimestamp,
+    mediaInsightsPipelineConfiguration_elements,
+    mediaInsightsPipelineConfiguration_mediaInsightsPipelineConfigurationArn,
+    mediaInsightsPipelineConfiguration_mediaInsightsPipelineConfigurationId,
+    mediaInsightsPipelineConfiguration_mediaInsightsPipelineConfigurationName,
+    mediaInsightsPipelineConfiguration_realTimeAlertConfiguration,
+    mediaInsightsPipelineConfiguration_resourceAccessRoleArn,
+    mediaInsightsPipelineConfiguration_updatedTimestamp,
+
+    -- * MediaInsightsPipelineConfigurationElement
+    MediaInsightsPipelineConfigurationElement (..),
+    newMediaInsightsPipelineConfigurationElement,
+    mediaInsightsPipelineConfigurationElement_amazonTranscribeCallAnalyticsProcessorConfiguration,
+    mediaInsightsPipelineConfigurationElement_amazonTranscribeProcessorConfiguration,
+    mediaInsightsPipelineConfigurationElement_kinesisDataStreamSinkConfiguration,
+    mediaInsightsPipelineConfigurationElement_lambdaFunctionSinkConfiguration,
+    mediaInsightsPipelineConfigurationElement_s3RecordingSinkConfiguration,
+    mediaInsightsPipelineConfigurationElement_snsTopicSinkConfiguration,
+    mediaInsightsPipelineConfigurationElement_sqsQueueSinkConfiguration,
+    mediaInsightsPipelineConfigurationElement_voiceAnalyticsProcessorConfiguration,
+    mediaInsightsPipelineConfigurationElement_type,
+
+    -- * MediaInsightsPipelineConfigurationSummary
+    MediaInsightsPipelineConfigurationSummary (..),
+    newMediaInsightsPipelineConfigurationSummary,
+    mediaInsightsPipelineConfigurationSummary_mediaInsightsPipelineConfigurationArn,
+    mediaInsightsPipelineConfigurationSummary_mediaInsightsPipelineConfigurationId,
+    mediaInsightsPipelineConfigurationSummary_mediaInsightsPipelineConfigurationName,
+
     -- * MediaLiveConnectorPipeline
     MediaLiveConnectorPipeline (..),
     newMediaLiveConnectorPipeline,
@@ -250,6 +418,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types
     newMediaPipeline,
     mediaPipeline_mediaCapturePipeline,
     mediaPipeline_mediaConcatenationPipeline,
+    mediaPipeline_mediaInsightsPipeline,
     mediaPipeline_mediaLiveConnectorPipeline,
 
     -- * MediaPipelineSummary
@@ -263,15 +432,54 @@ module Amazonka.ChimeSdkMediaPipelines.Types
     newMeetingEventsConcatenationConfiguration,
     meetingEventsConcatenationConfiguration_state,
 
+    -- * PostCallAnalyticsSettings
+    PostCallAnalyticsSettings (..),
+    newPostCallAnalyticsSettings,
+    postCallAnalyticsSettings_contentRedactionOutput,
+    postCallAnalyticsSettings_outputEncryptionKMSKeyId,
+    postCallAnalyticsSettings_outputLocation,
+    postCallAnalyticsSettings_dataAccessRoleArn,
+
     -- * PresenterOnlyConfiguration
     PresenterOnlyConfiguration (..),
     newPresenterOnlyConfiguration,
     presenterOnlyConfiguration_presenterPosition,
 
+    -- * RealTimeAlertConfiguration
+    RealTimeAlertConfiguration (..),
+    newRealTimeAlertConfiguration,
+    realTimeAlertConfiguration_disabled,
+    realTimeAlertConfiguration_rules,
+
+    -- * RealTimeAlertRule
+    RealTimeAlertRule (..),
+    newRealTimeAlertRule,
+    realTimeAlertRule_issueDetectionConfiguration,
+    realTimeAlertRule_keywordMatchConfiguration,
+    realTimeAlertRule_sentimentConfiguration,
+    realTimeAlertRule_type,
+
+    -- * RecordingStreamConfiguration
+    RecordingStreamConfiguration (..),
+    newRecordingStreamConfiguration,
+    recordingStreamConfiguration_streamArn,
+
     -- * S3BucketSinkConfiguration
     S3BucketSinkConfiguration (..),
     newS3BucketSinkConfiguration,
     s3BucketSinkConfiguration_destination,
+
+    -- * S3RecordingSinkConfiguration
+    S3RecordingSinkConfiguration (..),
+    newS3RecordingSinkConfiguration,
+    s3RecordingSinkConfiguration_destination,
+    s3RecordingSinkConfiguration_recordingFileFormat,
+
+    -- * S3RecordingSinkRuntimeConfiguration
+    S3RecordingSinkRuntimeConfiguration (..),
+    newS3RecordingSinkRuntimeConfiguration,
+    s3RecordingSinkRuntimeConfiguration_destination,
+    s3RecordingSinkRuntimeConfiguration_recordingFileFormat,
 
     -- * SelectedVideoStreams
     SelectedVideoStreams (..),
@@ -279,16 +487,52 @@ module Amazonka.ChimeSdkMediaPipelines.Types
     selectedVideoStreams_attendeeIds,
     selectedVideoStreams_externalUserIds,
 
+    -- * SentimentConfiguration
+    SentimentConfiguration (..),
+    newSentimentConfiguration,
+    sentimentConfiguration_ruleName,
+    sentimentConfiguration_sentimentType,
+    sentimentConfiguration_timePeriod,
+
+    -- * SnsTopicSinkConfiguration
+    SnsTopicSinkConfiguration (..),
+    newSnsTopicSinkConfiguration,
+    snsTopicSinkConfiguration_insightsTarget,
+
     -- * SourceConfiguration
     SourceConfiguration (..),
     newSourceConfiguration,
     sourceConfiguration_selectedVideoStreams,
+
+    -- * SqsQueueSinkConfiguration
+    SqsQueueSinkConfiguration (..),
+    newSqsQueueSinkConfiguration,
+    sqsQueueSinkConfiguration_insightsTarget,
+
+    -- * StreamChannelDefinition
+    StreamChannelDefinition (..),
+    newStreamChannelDefinition,
+    streamChannelDefinition_channelDefinitions,
+    streamChannelDefinition_numberOfChannels,
+
+    -- * StreamConfiguration
+    StreamConfiguration (..),
+    newStreamConfiguration,
+    streamConfiguration_fragmentNumber,
+    streamConfiguration_streamArn,
+    streamConfiguration_streamChannelDefinition,
 
     -- * Tag
     Tag (..),
     newTag,
     tag_key,
     tag_value,
+
+    -- * TimestampRange
+    TimestampRange (..),
+    newTimestampRange,
+    timestampRange_startTimestamp,
+    timestampRange_endTimestamp,
 
     -- * TranscriptionMessagesConcatenationConfiguration
     TranscriptionMessagesConcatenationConfiguration (..),
@@ -305,9 +549,17 @@ module Amazonka.ChimeSdkMediaPipelines.Types
     VideoConcatenationConfiguration (..),
     newVideoConcatenationConfiguration,
     videoConcatenationConfiguration_state,
+
+    -- * VoiceAnalyticsProcessorConfiguration
+    VoiceAnalyticsProcessorConfiguration (..),
+    newVoiceAnalyticsProcessorConfiguration,
+    voiceAnalyticsProcessorConfiguration_speakerSearchStatus,
+    voiceAnalyticsProcessorConfiguration_voiceToneAnalysisStatus,
   )
 where
 
+import Amazonka.ChimeSdkMediaPipelines.Types.AmazonTranscribeCallAnalyticsProcessorConfiguration
+import Amazonka.ChimeSdkMediaPipelines.Types.AmazonTranscribeProcessorConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsConcatenationConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsConcatenationState
 import Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsConfiguration
@@ -317,6 +569,8 @@ import Amazonka.ChimeSdkMediaPipelines.Types.AudioArtifactsConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.AudioChannelsOption
 import Amazonka.ChimeSdkMediaPipelines.Types.AudioConcatenationConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.AudioMuxType
+import Amazonka.ChimeSdkMediaPipelines.Types.CallAnalyticsLanguageCode
+import Amazonka.ChimeSdkMediaPipelines.Types.ChannelDefinition
 import Amazonka.ChimeSdkMediaPipelines.Types.ChimeSdkMeetingConcatenationConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.ChimeSdkMeetingConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.ChimeSdkMeetingLiveConnectorConfiguration
@@ -329,9 +583,19 @@ import Amazonka.ChimeSdkMediaPipelines.Types.ConcatenationSourceType
 import Amazonka.ChimeSdkMediaPipelines.Types.ContentArtifactsConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.ContentConcatenationConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.ContentMuxType
+import Amazonka.ChimeSdkMediaPipelines.Types.ContentRedactionOutput
 import Amazonka.ChimeSdkMediaPipelines.Types.ContentShareLayoutOption
+import Amazonka.ChimeSdkMediaPipelines.Types.ContentType
 import Amazonka.ChimeSdkMediaPipelines.Types.DataChannelConcatenationConfiguration
+import Amazonka.ChimeSdkMediaPipelines.Types.FragmentSelector
+import Amazonka.ChimeSdkMediaPipelines.Types.FragmentSelectorType
 import Amazonka.ChimeSdkMediaPipelines.Types.GridViewConfiguration
+import Amazonka.ChimeSdkMediaPipelines.Types.IssueDetectionConfiguration
+import Amazonka.ChimeSdkMediaPipelines.Types.KeywordMatchConfiguration
+import Amazonka.ChimeSdkMediaPipelines.Types.KinesisDataStreamSinkConfiguration
+import Amazonka.ChimeSdkMediaPipelines.Types.KinesisVideoStreamRecordingSourceRuntimeConfiguration
+import Amazonka.ChimeSdkMediaPipelines.Types.KinesisVideoStreamSourceRuntimeConfiguration
+import Amazonka.ChimeSdkMediaPipelines.Types.LambdaFunctionSinkConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.LayoutOption
 import Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorMuxType
 import Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorRTMPConfiguration
@@ -343,24 +607,51 @@ import Amazonka.ChimeSdkMediaPipelines.Types.MediaCapturePipeline
 import Amazonka.ChimeSdkMediaPipelines.Types.MediaCapturePipelineSourceConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.MediaCapturePipelineSummary
 import Amazonka.ChimeSdkMediaPipelines.Types.MediaConcatenationPipeline
+import Amazonka.ChimeSdkMediaPipelines.Types.MediaEncoding
+import Amazonka.ChimeSdkMediaPipelines.Types.MediaInsightsPipeline
+import Amazonka.ChimeSdkMediaPipelines.Types.MediaInsightsPipelineConfiguration
+import Amazonka.ChimeSdkMediaPipelines.Types.MediaInsightsPipelineConfigurationElement
+import Amazonka.ChimeSdkMediaPipelines.Types.MediaInsightsPipelineConfigurationElementType
+import Amazonka.ChimeSdkMediaPipelines.Types.MediaInsightsPipelineConfigurationSummary
 import Amazonka.ChimeSdkMediaPipelines.Types.MediaLiveConnectorPipeline
 import Amazonka.ChimeSdkMediaPipelines.Types.MediaPipeline
 import Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineSinkType
 import Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineSourceType
 import Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineStatus
+import Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineStatusUpdate
 import Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineSummary
 import Amazonka.ChimeSdkMediaPipelines.Types.MeetingEventsConcatenationConfiguration
+import Amazonka.ChimeSdkMediaPipelines.Types.PartialResultsStability
+import Amazonka.ChimeSdkMediaPipelines.Types.ParticipantRole
+import Amazonka.ChimeSdkMediaPipelines.Types.PostCallAnalyticsSettings
 import Amazonka.ChimeSdkMediaPipelines.Types.PresenterOnlyConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.PresenterPosition
+import Amazonka.ChimeSdkMediaPipelines.Types.RealTimeAlertConfiguration
+import Amazonka.ChimeSdkMediaPipelines.Types.RealTimeAlertRule
+import Amazonka.ChimeSdkMediaPipelines.Types.RealTimeAlertRuleType
+import Amazonka.ChimeSdkMediaPipelines.Types.RecordingFileFormat
+import Amazonka.ChimeSdkMediaPipelines.Types.RecordingStreamConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.ResolutionOption
 import Amazonka.ChimeSdkMediaPipelines.Types.S3BucketSinkConfiguration
+import Amazonka.ChimeSdkMediaPipelines.Types.S3RecordingSinkConfiguration
+import Amazonka.ChimeSdkMediaPipelines.Types.S3RecordingSinkRuntimeConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.SelectedVideoStreams
+import Amazonka.ChimeSdkMediaPipelines.Types.SentimentConfiguration
+import Amazonka.ChimeSdkMediaPipelines.Types.SentimentType
+import Amazonka.ChimeSdkMediaPipelines.Types.SnsTopicSinkConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.SourceConfiguration
+import Amazonka.ChimeSdkMediaPipelines.Types.SqsQueueSinkConfiguration
+import Amazonka.ChimeSdkMediaPipelines.Types.StreamChannelDefinition
+import Amazonka.ChimeSdkMediaPipelines.Types.StreamConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.Tag
+import Amazonka.ChimeSdkMediaPipelines.Types.TimestampRange
 import Amazonka.ChimeSdkMediaPipelines.Types.TranscriptionMessagesConcatenationConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.VideoArtifactsConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.VideoConcatenationConfiguration
 import Amazonka.ChimeSdkMediaPipelines.Types.VideoMuxType
+import Amazonka.ChimeSdkMediaPipelines.Types.VocabularyFilterMethod
+import Amazonka.ChimeSdkMediaPipelines.Types.VoiceAnalyticsConfigurationStatus
+import Amazonka.ChimeSdkMediaPipelines.Types.VoiceAnalyticsProcessorConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -394,60 +685,69 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The input parameters don\'t match the service\'s restrictions.
-_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BadRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
     "BadRequestException"
     Prelude.. Core.hasStatus 400
 
+-- | The request could not be processed because of conflict in the current
+-- state of the resource.
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
 -- | The client is permanently forbidden from making the request.
-_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ForbiddenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -456,7 +756,7 @@ _ForbiddenException =
 
 -- | One or more of the resources in the request does not exist in the
 -- system.
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -464,7 +764,7 @@ _NotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The request exceeds the resource limit.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -472,7 +772,7 @@ _ResourceLimitExceededException =
     Prelude.. Core.hasStatus 400
 
 -- | The service encountered an unexpected error.
-_ServiceFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceFailureException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceFailureException =
   Core._MatchServiceError
     defaultService
@@ -480,7 +780,7 @@ _ServiceFailureException =
     Prelude.. Core.hasStatus 500
 
 -- | The service is currently unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -488,7 +788,7 @@ _ServiceUnavailableException =
     Prelude.. Core.hasStatus 503
 
 -- | The client exceeded its request rate limit.
-_ThrottledClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottledClientException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottledClientException =
   Core._MatchServiceError
     defaultService
@@ -496,7 +796,7 @@ _ThrottledClientException =
     Prelude.. Core.hasStatus 429
 
 -- | The client is not currently authorized to make the request.
-_UnauthorizedClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnauthorizedClientException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnauthorizedClientException =
   Core._MatchServiceError
     defaultService

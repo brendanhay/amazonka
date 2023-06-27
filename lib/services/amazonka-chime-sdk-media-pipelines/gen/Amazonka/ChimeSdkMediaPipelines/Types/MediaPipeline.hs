@@ -21,6 +21,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.MediaPipeline where
 
 import Amazonka.ChimeSdkMediaPipelines.Types.MediaCapturePipeline
 import Amazonka.ChimeSdkMediaPipelines.Types.MediaConcatenationPipeline
+import Amazonka.ChimeSdkMediaPipelines.Types.MediaInsightsPipeline
 import Amazonka.ChimeSdkMediaPipelines.Types.MediaLiveConnectorPipeline
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
@@ -36,6 +37,8 @@ data MediaPipeline = MediaPipeline'
     mediaCapturePipeline :: Prelude.Maybe MediaCapturePipeline,
     -- | The media concatenation pipeline in a media pipeline.
     mediaConcatenationPipeline :: Prelude.Maybe MediaConcatenationPipeline,
+    -- | The media insights pipeline of a media pipeline.
+    mediaInsightsPipeline :: Prelude.Maybe MediaInsightsPipeline,
     -- | The connector pipeline of the media pipeline.
     mediaLiveConnectorPipeline :: Prelude.Maybe MediaLiveConnectorPipeline
   }
@@ -53,6 +56,8 @@ data MediaPipeline = MediaPipeline'
 --
 -- 'mediaConcatenationPipeline', 'mediaPipeline_mediaConcatenationPipeline' - The media concatenation pipeline in a media pipeline.
 --
+-- 'mediaInsightsPipeline', 'mediaPipeline_mediaInsightsPipeline' - The media insights pipeline of a media pipeline.
+--
 -- 'mediaLiveConnectorPipeline', 'mediaPipeline_mediaLiveConnectorPipeline' - The connector pipeline of the media pipeline.
 newMediaPipeline ::
   MediaPipeline
@@ -61,6 +66,7 @@ newMediaPipeline =
     { mediaCapturePipeline =
         Prelude.Nothing,
       mediaConcatenationPipeline = Prelude.Nothing,
+      mediaInsightsPipeline = Prelude.Nothing,
       mediaLiveConnectorPipeline = Prelude.Nothing
     }
 
@@ -71,6 +77,10 @@ mediaPipeline_mediaCapturePipeline = Lens.lens (\MediaPipeline' {mediaCapturePip
 -- | The media concatenation pipeline in a media pipeline.
 mediaPipeline_mediaConcatenationPipeline :: Lens.Lens' MediaPipeline (Prelude.Maybe MediaConcatenationPipeline)
 mediaPipeline_mediaConcatenationPipeline = Lens.lens (\MediaPipeline' {mediaConcatenationPipeline} -> mediaConcatenationPipeline) (\s@MediaPipeline' {} a -> s {mediaConcatenationPipeline = a} :: MediaPipeline)
+
+-- | The media insights pipeline of a media pipeline.
+mediaPipeline_mediaInsightsPipeline :: Lens.Lens' MediaPipeline (Prelude.Maybe MediaInsightsPipeline)
+mediaPipeline_mediaInsightsPipeline = Lens.lens (\MediaPipeline' {mediaInsightsPipeline} -> mediaInsightsPipeline) (\s@MediaPipeline' {} a -> s {mediaInsightsPipeline = a} :: MediaPipeline)
 
 -- | The connector pipeline of the media pipeline.
 mediaPipeline_mediaLiveConnectorPipeline :: Lens.Lens' MediaPipeline (Prelude.Maybe MediaLiveConnectorPipeline)
@@ -84,17 +94,21 @@ instance Data.FromJSON MediaPipeline where
           MediaPipeline'
             Prelude.<$> (x Data..:? "MediaCapturePipeline")
             Prelude.<*> (x Data..:? "MediaConcatenationPipeline")
+            Prelude.<*> (x Data..:? "MediaInsightsPipeline")
             Prelude.<*> (x Data..:? "MediaLiveConnectorPipeline")
       )
 
 instance Prelude.Hashable MediaPipeline where
   hashWithSalt _salt MediaPipeline' {..} =
-    _salt `Prelude.hashWithSalt` mediaCapturePipeline
+    _salt
+      `Prelude.hashWithSalt` mediaCapturePipeline
       `Prelude.hashWithSalt` mediaConcatenationPipeline
+      `Prelude.hashWithSalt` mediaInsightsPipeline
       `Prelude.hashWithSalt` mediaLiveConnectorPipeline
 
 instance Prelude.NFData MediaPipeline where
   rnf MediaPipeline' {..} =
     Prelude.rnf mediaCapturePipeline
       `Prelude.seq` Prelude.rnf mediaConcatenationPipeline
+      `Prelude.seq` Prelude.rnf mediaInsightsPipeline
       `Prelude.seq` Prelude.rnf mediaLiveConnectorPipeline

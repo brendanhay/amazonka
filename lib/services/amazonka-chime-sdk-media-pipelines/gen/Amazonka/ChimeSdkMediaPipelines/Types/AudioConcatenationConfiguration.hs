@@ -29,8 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAudioConcatenationConfiguration' smart constructor.
 data AudioConcatenationConfiguration = AudioConcatenationConfiguration'
-  { -- | Enables the /name/ object, where /name/ is the name of the configuration
-    -- object, such as @AudioConcatenation@.
+  { -- | Enables or disables the configuration object.
     state :: AudioArtifactsConcatenationState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,8 +42,7 @@ data AudioConcatenationConfiguration = AudioConcatenationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'state', 'audioConcatenationConfiguration_state' - Enables the /name/ object, where /name/ is the name of the configuration
--- object, such as @AudioConcatenation@.
+-- 'state', 'audioConcatenationConfiguration_state' - Enables or disables the configuration object.
 newAudioConcatenationConfiguration ::
   -- | 'state'
   AudioArtifactsConcatenationState ->
@@ -52,8 +50,7 @@ newAudioConcatenationConfiguration ::
 newAudioConcatenationConfiguration pState_ =
   AudioConcatenationConfiguration' {state = pState_}
 
--- | Enables the /name/ object, where /name/ is the name of the configuration
--- object, such as @AudioConcatenation@.
+-- | Enables or disables the configuration object.
 audioConcatenationConfiguration_state :: Lens.Lens' AudioConcatenationConfiguration AudioArtifactsConcatenationState
 audioConcatenationConfiguration_state = Lens.lens (\AudioConcatenationConfiguration' {state} -> state) (\s@AudioConcatenationConfiguration' {} a -> s {state = a} :: AudioConcatenationConfiguration)
 

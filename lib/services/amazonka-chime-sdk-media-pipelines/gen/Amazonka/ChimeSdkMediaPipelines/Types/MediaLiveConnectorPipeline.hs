@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMediaLiveConnectorPipeline' smart constructor.
 data MediaLiveConnectorPipeline = MediaLiveConnectorPipeline'
-  { -- | Thetime at which the connector pipeline was created.
+  { -- | The time at which the connector pipeline was created.
     createdTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The connector pipeline\'s ARN.
     mediaPipelineArn :: Prelude.Maybe Prelude.Text,
@@ -56,7 +56,7 @@ data MediaLiveConnectorPipeline = MediaLiveConnectorPipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdTimestamp', 'mediaLiveConnectorPipeline_createdTimestamp' - Thetime at which the connector pipeline was created.
+-- 'createdTimestamp', 'mediaLiveConnectorPipeline_createdTimestamp' - The time at which the connector pipeline was created.
 --
 -- 'mediaPipelineArn', 'mediaLiveConnectorPipeline_mediaPipelineArn' - The connector pipeline\'s ARN.
 --
@@ -83,7 +83,7 @@ newMediaLiveConnectorPipeline =
       updatedTimestamp = Prelude.Nothing
     }
 
--- | Thetime at which the connector pipeline was created.
+-- | The time at which the connector pipeline was created.
 mediaLiveConnectorPipeline_createdTimestamp :: Lens.Lens' MediaLiveConnectorPipeline (Prelude.Maybe Prelude.UTCTime)
 mediaLiveConnectorPipeline_createdTimestamp = Lens.lens (\MediaLiveConnectorPipeline' {createdTimestamp} -> createdTimestamp) (\s@MediaLiveConnectorPipeline' {} a -> s {createdTimestamp = a} :: MediaLiveConnectorPipeline) Prelude.. Lens.mapping Data._Time
 
@@ -128,7 +128,8 @@ instance Data.FromJSON MediaLiveConnectorPipeline where
 
 instance Prelude.Hashable MediaLiveConnectorPipeline where
   hashWithSalt _salt MediaLiveConnectorPipeline' {..} =
-    _salt `Prelude.hashWithSalt` createdTimestamp
+    _salt
+      `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` mediaPipelineArn
       `Prelude.hashWithSalt` mediaPipelineId
       `Prelude.hashWithSalt` sinks

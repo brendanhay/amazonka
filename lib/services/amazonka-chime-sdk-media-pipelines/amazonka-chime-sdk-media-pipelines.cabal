@@ -46,17 +46,24 @@ library
     Amazonka.ChimeSdkMediaPipelines
     Amazonka.ChimeSdkMediaPipelines.CreateMediaCapturePipeline
     Amazonka.ChimeSdkMediaPipelines.CreateMediaConcatenationPipeline
+    Amazonka.ChimeSdkMediaPipelines.CreateMediaInsightsPipeline
+    Amazonka.ChimeSdkMediaPipelines.CreateMediaInsightsPipelineConfiguration
     Amazonka.ChimeSdkMediaPipelines.CreateMediaLiveConnectorPipeline
     Amazonka.ChimeSdkMediaPipelines.DeleteMediaCapturePipeline
+    Amazonka.ChimeSdkMediaPipelines.DeleteMediaInsightsPipelineConfiguration
     Amazonka.ChimeSdkMediaPipelines.DeleteMediaPipeline
     Amazonka.ChimeSdkMediaPipelines.GetMediaCapturePipeline
+    Amazonka.ChimeSdkMediaPipelines.GetMediaInsightsPipelineConfiguration
     Amazonka.ChimeSdkMediaPipelines.GetMediaPipeline
     Amazonka.ChimeSdkMediaPipelines.Lens
     Amazonka.ChimeSdkMediaPipelines.ListMediaCapturePipelines
+    Amazonka.ChimeSdkMediaPipelines.ListMediaInsightsPipelineConfigurations
     Amazonka.ChimeSdkMediaPipelines.ListMediaPipelines
     Amazonka.ChimeSdkMediaPipelines.ListTagsForResource
     Amazonka.ChimeSdkMediaPipelines.TagResource
     Amazonka.ChimeSdkMediaPipelines.Types
+    Amazonka.ChimeSdkMediaPipelines.Types.AmazonTranscribeCallAnalyticsProcessorConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.AmazonTranscribeProcessorConfiguration
     Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsConcatenationConfiguration
     Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsConcatenationState
     Amazonka.ChimeSdkMediaPipelines.Types.ArtifactsConfiguration
@@ -66,6 +73,8 @@ library
     Amazonka.ChimeSdkMediaPipelines.Types.AudioChannelsOption
     Amazonka.ChimeSdkMediaPipelines.Types.AudioConcatenationConfiguration
     Amazonka.ChimeSdkMediaPipelines.Types.AudioMuxType
+    Amazonka.ChimeSdkMediaPipelines.Types.CallAnalyticsLanguageCode
+    Amazonka.ChimeSdkMediaPipelines.Types.ChannelDefinition
     Amazonka.ChimeSdkMediaPipelines.Types.ChimeSdkMeetingConcatenationConfiguration
     Amazonka.ChimeSdkMediaPipelines.Types.ChimeSdkMeetingConfiguration
     Amazonka.ChimeSdkMediaPipelines.Types.ChimeSdkMeetingLiveConnectorConfiguration
@@ -78,9 +87,19 @@ library
     Amazonka.ChimeSdkMediaPipelines.Types.ContentArtifactsConfiguration
     Amazonka.ChimeSdkMediaPipelines.Types.ContentConcatenationConfiguration
     Amazonka.ChimeSdkMediaPipelines.Types.ContentMuxType
+    Amazonka.ChimeSdkMediaPipelines.Types.ContentRedactionOutput
     Amazonka.ChimeSdkMediaPipelines.Types.ContentShareLayoutOption
+    Amazonka.ChimeSdkMediaPipelines.Types.ContentType
     Amazonka.ChimeSdkMediaPipelines.Types.DataChannelConcatenationConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.FragmentSelector
+    Amazonka.ChimeSdkMediaPipelines.Types.FragmentSelectorType
     Amazonka.ChimeSdkMediaPipelines.Types.GridViewConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.IssueDetectionConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.KeywordMatchConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.KinesisDataStreamSinkConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.KinesisVideoStreamRecordingSourceRuntimeConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.KinesisVideoStreamSourceRuntimeConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.LambdaFunctionSinkConfiguration
     Amazonka.ChimeSdkMediaPipelines.Types.LayoutOption
     Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorMuxType
     Amazonka.ChimeSdkMediaPipelines.Types.LiveConnectorRTMPConfiguration
@@ -92,25 +111,54 @@ library
     Amazonka.ChimeSdkMediaPipelines.Types.MediaCapturePipelineSourceConfiguration
     Amazonka.ChimeSdkMediaPipelines.Types.MediaCapturePipelineSummary
     Amazonka.ChimeSdkMediaPipelines.Types.MediaConcatenationPipeline
+    Amazonka.ChimeSdkMediaPipelines.Types.MediaEncoding
+    Amazonka.ChimeSdkMediaPipelines.Types.MediaInsightsPipeline
+    Amazonka.ChimeSdkMediaPipelines.Types.MediaInsightsPipelineConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.MediaInsightsPipelineConfigurationElement
+    Amazonka.ChimeSdkMediaPipelines.Types.MediaInsightsPipelineConfigurationElementType
+    Amazonka.ChimeSdkMediaPipelines.Types.MediaInsightsPipelineConfigurationSummary
     Amazonka.ChimeSdkMediaPipelines.Types.MediaLiveConnectorPipeline
     Amazonka.ChimeSdkMediaPipelines.Types.MediaPipeline
     Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineSinkType
     Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineSourceType
     Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineStatus
+    Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineStatusUpdate
     Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineSummary
     Amazonka.ChimeSdkMediaPipelines.Types.MeetingEventsConcatenationConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.PartialResultsStability
+    Amazonka.ChimeSdkMediaPipelines.Types.ParticipantRole
+    Amazonka.ChimeSdkMediaPipelines.Types.PostCallAnalyticsSettings
     Amazonka.ChimeSdkMediaPipelines.Types.PresenterOnlyConfiguration
     Amazonka.ChimeSdkMediaPipelines.Types.PresenterPosition
+    Amazonka.ChimeSdkMediaPipelines.Types.RealTimeAlertConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.RealTimeAlertRule
+    Amazonka.ChimeSdkMediaPipelines.Types.RealTimeAlertRuleType
+    Amazonka.ChimeSdkMediaPipelines.Types.RecordingFileFormat
+    Amazonka.ChimeSdkMediaPipelines.Types.RecordingStreamConfiguration
     Amazonka.ChimeSdkMediaPipelines.Types.ResolutionOption
     Amazonka.ChimeSdkMediaPipelines.Types.S3BucketSinkConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.S3RecordingSinkConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.S3RecordingSinkRuntimeConfiguration
     Amazonka.ChimeSdkMediaPipelines.Types.SelectedVideoStreams
+    Amazonka.ChimeSdkMediaPipelines.Types.SentimentConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.SentimentType
+    Amazonka.ChimeSdkMediaPipelines.Types.SnsTopicSinkConfiguration
     Amazonka.ChimeSdkMediaPipelines.Types.SourceConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.SqsQueueSinkConfiguration
+    Amazonka.ChimeSdkMediaPipelines.Types.StreamChannelDefinition
+    Amazonka.ChimeSdkMediaPipelines.Types.StreamConfiguration
     Amazonka.ChimeSdkMediaPipelines.Types.Tag
+    Amazonka.ChimeSdkMediaPipelines.Types.TimestampRange
     Amazonka.ChimeSdkMediaPipelines.Types.TranscriptionMessagesConcatenationConfiguration
     Amazonka.ChimeSdkMediaPipelines.Types.VideoArtifactsConfiguration
     Amazonka.ChimeSdkMediaPipelines.Types.VideoConcatenationConfiguration
     Amazonka.ChimeSdkMediaPipelines.Types.VideoMuxType
+    Amazonka.ChimeSdkMediaPipelines.Types.VocabularyFilterMethod
+    Amazonka.ChimeSdkMediaPipelines.Types.VoiceAnalyticsConfigurationStatus
+    Amazonka.ChimeSdkMediaPipelines.Types.VoiceAnalyticsProcessorConfiguration
     Amazonka.ChimeSdkMediaPipelines.UntagResource
+    Amazonka.ChimeSdkMediaPipelines.UpdateMediaInsightsPipelineConfiguration
+    Amazonka.ChimeSdkMediaPipelines.UpdateMediaInsightsPipelineStatus
     Amazonka.ChimeSdkMediaPipelines.Waiters
 
   build-depends:

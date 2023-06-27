@@ -89,7 +89,8 @@ instance Data.FromJSON ConcatenationSource where
 
 instance Prelude.Hashable ConcatenationSource where
   hashWithSalt _salt ConcatenationSource' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` mediaCapturePipelineSourceConfiguration
 
 instance Prelude.NFData ConcatenationSource where

@@ -25,7 +25,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Defines the configuration for a presenter only video tile.
+-- | Defines the configuration for a presenter-only video tile.
 --
 -- /See:/ 'newPresenterOnlyConfiguration' smart constructor.
 data PresenterOnlyConfiguration = PresenterOnlyConfiguration'

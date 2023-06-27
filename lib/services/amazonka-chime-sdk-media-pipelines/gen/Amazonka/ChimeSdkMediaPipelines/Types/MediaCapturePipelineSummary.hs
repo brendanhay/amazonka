@@ -75,7 +75,8 @@ instance Data.FromJSON MediaCapturePipelineSummary where
 
 instance Prelude.Hashable MediaCapturePipelineSummary where
   hashWithSalt _salt MediaCapturePipelineSummary' {..} =
-    _salt `Prelude.hashWithSalt` mediaPipelineArn
+    _salt
+      `Prelude.hashWithSalt` mediaPipelineArn
       `Prelude.hashWithSalt` mediaPipelineId
 
 instance Prelude.NFData MediaCapturePipelineSummary where

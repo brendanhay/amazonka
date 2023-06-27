@@ -33,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 data ChimeSdkMeetingConfiguration = ChimeSdkMeetingConfiguration'
   { -- | The configuration for the artifacts in an Amazon Chime SDK meeting.
     artifactsConfiguration :: Prelude.Maybe ArtifactsConfiguration,
-    -- | The source configuration for a specified media pipline.
+    -- | The source configuration for a specified media pipeline.
     sourceConfiguration :: Prelude.Maybe SourceConfiguration
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -48,7 +48,7 @@ data ChimeSdkMeetingConfiguration = ChimeSdkMeetingConfiguration'
 --
 -- 'artifactsConfiguration', 'chimeSdkMeetingConfiguration_artifactsConfiguration' - The configuration for the artifacts in an Amazon Chime SDK meeting.
 --
--- 'sourceConfiguration', 'chimeSdkMeetingConfiguration_sourceConfiguration' - The source configuration for a specified media pipline.
+-- 'sourceConfiguration', 'chimeSdkMeetingConfiguration_sourceConfiguration' - The source configuration for a specified media pipeline.
 newChimeSdkMeetingConfiguration ::
   ChimeSdkMeetingConfiguration
 newChimeSdkMeetingConfiguration =
@@ -62,7 +62,7 @@ newChimeSdkMeetingConfiguration =
 chimeSdkMeetingConfiguration_artifactsConfiguration :: Lens.Lens' ChimeSdkMeetingConfiguration (Prelude.Maybe ArtifactsConfiguration)
 chimeSdkMeetingConfiguration_artifactsConfiguration = Lens.lens (\ChimeSdkMeetingConfiguration' {artifactsConfiguration} -> artifactsConfiguration) (\s@ChimeSdkMeetingConfiguration' {} a -> s {artifactsConfiguration = a} :: ChimeSdkMeetingConfiguration)
 
--- | The source configuration for a specified media pipline.
+-- | The source configuration for a specified media pipeline.
 chimeSdkMeetingConfiguration_sourceConfiguration :: Lens.Lens' ChimeSdkMeetingConfiguration (Prelude.Maybe SourceConfiguration)
 chimeSdkMeetingConfiguration_sourceConfiguration = Lens.lens (\ChimeSdkMeetingConfiguration' {sourceConfiguration} -> sourceConfiguration) (\s@ChimeSdkMeetingConfiguration' {} a -> s {sourceConfiguration = a} :: ChimeSdkMeetingConfiguration)
 
@@ -81,7 +81,8 @@ instance
     ChimeSdkMeetingConfiguration
   where
   hashWithSalt _salt ChimeSdkMeetingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` artifactsConfiguration
+    _salt
+      `Prelude.hashWithSalt` artifactsConfiguration
       `Prelude.hashWithSalt` sourceConfiguration
 
 instance Prelude.NFData ChimeSdkMeetingConfiguration where

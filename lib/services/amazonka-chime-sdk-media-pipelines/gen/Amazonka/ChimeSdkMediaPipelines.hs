@@ -14,8 +14,8 @@
 -- The Amazon Chime SDK media pipeline APIs in this section allow software
 -- developers to create Amazon Chime SDK media pipelines that capture,
 -- concatenate, or stream your Amazon Chime SDK meetings. For more
--- information about media pipleines, see
--- <http://amazonaws.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Media_Pipelines.html Amazon Chime SDK media pipelines>.
+-- information about media pipelines, see
+-- <https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_Operations_Amazon_Chime_SDK_Media_Pipelines.html Amazon Chime SDK media pipelines>.
 module Amazonka.ChimeSdkMediaPipelines
   ( -- * Service Configuration
     defaultService,
@@ -25,6 +25,9 @@ module Amazonka.ChimeSdkMediaPipelines
 
     -- ** BadRequestException
     _BadRequestException,
+
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** ForbiddenException
     _ForbiddenException,
@@ -65,6 +68,18 @@ module Amazonka.ChimeSdkMediaPipelines
     CreateMediaConcatenationPipelineResponse (CreateMediaConcatenationPipelineResponse'),
     newCreateMediaConcatenationPipelineResponse,
 
+    -- ** CreateMediaInsightsPipeline
+    CreateMediaInsightsPipeline (CreateMediaInsightsPipeline'),
+    newCreateMediaInsightsPipeline,
+    CreateMediaInsightsPipelineResponse (CreateMediaInsightsPipelineResponse'),
+    newCreateMediaInsightsPipelineResponse,
+
+    -- ** CreateMediaInsightsPipelineConfiguration
+    CreateMediaInsightsPipelineConfiguration (CreateMediaInsightsPipelineConfiguration'),
+    newCreateMediaInsightsPipelineConfiguration,
+    CreateMediaInsightsPipelineConfigurationResponse (CreateMediaInsightsPipelineConfigurationResponse'),
+    newCreateMediaInsightsPipelineConfigurationResponse,
+
     -- ** CreateMediaLiveConnectorPipeline
     CreateMediaLiveConnectorPipeline (CreateMediaLiveConnectorPipeline'),
     newCreateMediaLiveConnectorPipeline,
@@ -76,6 +91,12 @@ module Amazonka.ChimeSdkMediaPipelines
     newDeleteMediaCapturePipeline,
     DeleteMediaCapturePipelineResponse (DeleteMediaCapturePipelineResponse'),
     newDeleteMediaCapturePipelineResponse,
+
+    -- ** DeleteMediaInsightsPipelineConfiguration
+    DeleteMediaInsightsPipelineConfiguration (DeleteMediaInsightsPipelineConfiguration'),
+    newDeleteMediaInsightsPipelineConfiguration,
+    DeleteMediaInsightsPipelineConfigurationResponse (DeleteMediaInsightsPipelineConfigurationResponse'),
+    newDeleteMediaInsightsPipelineConfigurationResponse,
 
     -- ** DeleteMediaPipeline
     DeleteMediaPipeline (DeleteMediaPipeline'),
@@ -89,6 +110,12 @@ module Amazonka.ChimeSdkMediaPipelines
     GetMediaCapturePipelineResponse (GetMediaCapturePipelineResponse'),
     newGetMediaCapturePipelineResponse,
 
+    -- ** GetMediaInsightsPipelineConfiguration
+    GetMediaInsightsPipelineConfiguration (GetMediaInsightsPipelineConfiguration'),
+    newGetMediaInsightsPipelineConfiguration,
+    GetMediaInsightsPipelineConfigurationResponse (GetMediaInsightsPipelineConfigurationResponse'),
+    newGetMediaInsightsPipelineConfigurationResponse,
+
     -- ** GetMediaPipeline
     GetMediaPipeline (GetMediaPipeline'),
     newGetMediaPipeline,
@@ -100,6 +127,12 @@ module Amazonka.ChimeSdkMediaPipelines
     newListMediaCapturePipelines,
     ListMediaCapturePipelinesResponse (ListMediaCapturePipelinesResponse'),
     newListMediaCapturePipelinesResponse,
+
+    -- ** ListMediaInsightsPipelineConfigurations
+    ListMediaInsightsPipelineConfigurations (ListMediaInsightsPipelineConfigurations'),
+    newListMediaInsightsPipelineConfigurations,
+    ListMediaInsightsPipelineConfigurationsResponse (ListMediaInsightsPipelineConfigurationsResponse'),
+    newListMediaInsightsPipelineConfigurationsResponse,
 
     -- ** ListMediaPipelines
     ListMediaPipelines (ListMediaPipelines'),
@@ -125,6 +158,18 @@ module Amazonka.ChimeSdkMediaPipelines
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
+    -- ** UpdateMediaInsightsPipelineConfiguration
+    UpdateMediaInsightsPipelineConfiguration (UpdateMediaInsightsPipelineConfiguration'),
+    newUpdateMediaInsightsPipelineConfiguration,
+    UpdateMediaInsightsPipelineConfigurationResponse (UpdateMediaInsightsPipelineConfigurationResponse'),
+    newUpdateMediaInsightsPipelineConfigurationResponse,
+
+    -- ** UpdateMediaInsightsPipelineStatus
+    UpdateMediaInsightsPipelineStatus (UpdateMediaInsightsPipelineStatus'),
+    newUpdateMediaInsightsPipelineStatus,
+    UpdateMediaInsightsPipelineStatusResponse (UpdateMediaInsightsPipelineStatusResponse'),
+    newUpdateMediaInsightsPipelineStatusResponse,
+
     -- * Types
 
     -- ** ArtifactsConcatenationState
@@ -142,6 +187,9 @@ module Amazonka.ChimeSdkMediaPipelines
     -- ** AudioMuxType
     AudioMuxType (..),
 
+    -- ** CallAnalyticsLanguageCode
+    CallAnalyticsLanguageCode (..),
+
     -- ** ConcatenationSinkType
     ConcatenationSinkType (..),
 
@@ -151,8 +199,17 @@ module Amazonka.ChimeSdkMediaPipelines
     -- ** ContentMuxType
     ContentMuxType (..),
 
+    -- ** ContentRedactionOutput
+    ContentRedactionOutput (..),
+
     -- ** ContentShareLayoutOption
     ContentShareLayoutOption (..),
+
+    -- ** ContentType
+    ContentType (..),
+
+    -- ** FragmentSelectorType
+    FragmentSelectorType (..),
 
     -- ** LayoutOption
     LayoutOption (..),
@@ -166,6 +223,12 @@ module Amazonka.ChimeSdkMediaPipelines
     -- ** LiveConnectorSourceType
     LiveConnectorSourceType (..),
 
+    -- ** MediaEncoding
+    MediaEncoding (..),
+
+    -- ** MediaInsightsPipelineConfigurationElementType
+    MediaInsightsPipelineConfigurationElementType (..),
+
     -- ** MediaPipelineSinkType
     MediaPipelineSinkType (..),
 
@@ -175,14 +238,46 @@ module Amazonka.ChimeSdkMediaPipelines
     -- ** MediaPipelineStatus
     MediaPipelineStatus (..),
 
+    -- ** MediaPipelineStatusUpdate
+    MediaPipelineStatusUpdate (..),
+
+    -- ** PartialResultsStability
+    PartialResultsStability (..),
+
+    -- ** ParticipantRole
+    ParticipantRole (..),
+
     -- ** PresenterPosition
     PresenterPosition (..),
+
+    -- ** RealTimeAlertRuleType
+    RealTimeAlertRuleType (..),
+
+    -- ** RecordingFileFormat
+    RecordingFileFormat (..),
 
     -- ** ResolutionOption
     ResolutionOption (..),
 
+    -- ** SentimentType
+    SentimentType (..),
+
     -- ** VideoMuxType
     VideoMuxType (..),
+
+    -- ** VocabularyFilterMethod
+    VocabularyFilterMethod (..),
+
+    -- ** VoiceAnalyticsConfigurationStatus
+    VoiceAnalyticsConfigurationStatus (..),
+
+    -- ** AmazonTranscribeCallAnalyticsProcessorConfiguration
+    AmazonTranscribeCallAnalyticsProcessorConfiguration (AmazonTranscribeCallAnalyticsProcessorConfiguration'),
+    newAmazonTranscribeCallAnalyticsProcessorConfiguration,
+
+    -- ** AmazonTranscribeProcessorConfiguration
+    AmazonTranscribeProcessorConfiguration (AmazonTranscribeProcessorConfiguration'),
+    newAmazonTranscribeProcessorConfiguration,
 
     -- ** ArtifactsConcatenationConfiguration
     ArtifactsConcatenationConfiguration (ArtifactsConcatenationConfiguration'),
@@ -199,6 +294,10 @@ module Amazonka.ChimeSdkMediaPipelines
     -- ** AudioConcatenationConfiguration
     AudioConcatenationConfiguration (AudioConcatenationConfiguration'),
     newAudioConcatenationConfiguration,
+
+    -- ** ChannelDefinition
+    ChannelDefinition (ChannelDefinition'),
+    newChannelDefinition,
 
     -- ** ChimeSdkMeetingConcatenationConfiguration
     ChimeSdkMeetingConcatenationConfiguration (ChimeSdkMeetingConcatenationConfiguration'),
@@ -240,9 +339,37 @@ module Amazonka.ChimeSdkMediaPipelines
     DataChannelConcatenationConfiguration (DataChannelConcatenationConfiguration'),
     newDataChannelConcatenationConfiguration,
 
+    -- ** FragmentSelector
+    FragmentSelector (FragmentSelector'),
+    newFragmentSelector,
+
     -- ** GridViewConfiguration
     GridViewConfiguration (GridViewConfiguration'),
     newGridViewConfiguration,
+
+    -- ** IssueDetectionConfiguration
+    IssueDetectionConfiguration (IssueDetectionConfiguration'),
+    newIssueDetectionConfiguration,
+
+    -- ** KeywordMatchConfiguration
+    KeywordMatchConfiguration (KeywordMatchConfiguration'),
+    newKeywordMatchConfiguration,
+
+    -- ** KinesisDataStreamSinkConfiguration
+    KinesisDataStreamSinkConfiguration (KinesisDataStreamSinkConfiguration'),
+    newKinesisDataStreamSinkConfiguration,
+
+    -- ** KinesisVideoStreamRecordingSourceRuntimeConfiguration
+    KinesisVideoStreamRecordingSourceRuntimeConfiguration (KinesisVideoStreamRecordingSourceRuntimeConfiguration'),
+    newKinesisVideoStreamRecordingSourceRuntimeConfiguration,
+
+    -- ** KinesisVideoStreamSourceRuntimeConfiguration
+    KinesisVideoStreamSourceRuntimeConfiguration (KinesisVideoStreamSourceRuntimeConfiguration'),
+    newKinesisVideoStreamSourceRuntimeConfiguration,
+
+    -- ** LambdaFunctionSinkConfiguration
+    LambdaFunctionSinkConfiguration (LambdaFunctionSinkConfiguration'),
+    newLambdaFunctionSinkConfiguration,
 
     -- ** LiveConnectorRTMPConfiguration
     LiveConnectorRTMPConfiguration (LiveConnectorRTMPConfiguration'),
@@ -272,6 +399,22 @@ module Amazonka.ChimeSdkMediaPipelines
     MediaConcatenationPipeline (MediaConcatenationPipeline'),
     newMediaConcatenationPipeline,
 
+    -- ** MediaInsightsPipeline
+    MediaInsightsPipeline (MediaInsightsPipeline'),
+    newMediaInsightsPipeline,
+
+    -- ** MediaInsightsPipelineConfiguration
+    MediaInsightsPipelineConfiguration (MediaInsightsPipelineConfiguration'),
+    newMediaInsightsPipelineConfiguration,
+
+    -- ** MediaInsightsPipelineConfigurationElement
+    MediaInsightsPipelineConfigurationElement (MediaInsightsPipelineConfigurationElement'),
+    newMediaInsightsPipelineConfigurationElement,
+
+    -- ** MediaInsightsPipelineConfigurationSummary
+    MediaInsightsPipelineConfigurationSummary (MediaInsightsPipelineConfigurationSummary'),
+    newMediaInsightsPipelineConfigurationSummary,
+
     -- ** MediaLiveConnectorPipeline
     MediaLiveConnectorPipeline (MediaLiveConnectorPipeline'),
     newMediaLiveConnectorPipeline,
@@ -288,25 +431,73 @@ module Amazonka.ChimeSdkMediaPipelines
     MeetingEventsConcatenationConfiguration (MeetingEventsConcatenationConfiguration'),
     newMeetingEventsConcatenationConfiguration,
 
+    -- ** PostCallAnalyticsSettings
+    PostCallAnalyticsSettings (PostCallAnalyticsSettings'),
+    newPostCallAnalyticsSettings,
+
     -- ** PresenterOnlyConfiguration
     PresenterOnlyConfiguration (PresenterOnlyConfiguration'),
     newPresenterOnlyConfiguration,
+
+    -- ** RealTimeAlertConfiguration
+    RealTimeAlertConfiguration (RealTimeAlertConfiguration'),
+    newRealTimeAlertConfiguration,
+
+    -- ** RealTimeAlertRule
+    RealTimeAlertRule (RealTimeAlertRule'),
+    newRealTimeAlertRule,
+
+    -- ** RecordingStreamConfiguration
+    RecordingStreamConfiguration (RecordingStreamConfiguration'),
+    newRecordingStreamConfiguration,
 
     -- ** S3BucketSinkConfiguration
     S3BucketSinkConfiguration (S3BucketSinkConfiguration'),
     newS3BucketSinkConfiguration,
 
+    -- ** S3RecordingSinkConfiguration
+    S3RecordingSinkConfiguration (S3RecordingSinkConfiguration'),
+    newS3RecordingSinkConfiguration,
+
+    -- ** S3RecordingSinkRuntimeConfiguration
+    S3RecordingSinkRuntimeConfiguration (S3RecordingSinkRuntimeConfiguration'),
+    newS3RecordingSinkRuntimeConfiguration,
+
     -- ** SelectedVideoStreams
     SelectedVideoStreams (SelectedVideoStreams'),
     newSelectedVideoStreams,
+
+    -- ** SentimentConfiguration
+    SentimentConfiguration (SentimentConfiguration'),
+    newSentimentConfiguration,
+
+    -- ** SnsTopicSinkConfiguration
+    SnsTopicSinkConfiguration (SnsTopicSinkConfiguration'),
+    newSnsTopicSinkConfiguration,
 
     -- ** SourceConfiguration
     SourceConfiguration (SourceConfiguration'),
     newSourceConfiguration,
 
+    -- ** SqsQueueSinkConfiguration
+    SqsQueueSinkConfiguration (SqsQueueSinkConfiguration'),
+    newSqsQueueSinkConfiguration,
+
+    -- ** StreamChannelDefinition
+    StreamChannelDefinition (StreamChannelDefinition'),
+    newStreamChannelDefinition,
+
+    -- ** StreamConfiguration
+    StreamConfiguration (StreamConfiguration'),
+    newStreamConfiguration,
+
     -- ** Tag
     Tag (Tag'),
     newTag,
+
+    -- ** TimestampRange
+    TimestampRange (TimestampRange'),
+    newTimestampRange,
 
     -- ** TranscriptionMessagesConcatenationConfiguration
     TranscriptionMessagesConcatenationConfiguration (TranscriptionMessagesConcatenationConfiguration'),
@@ -319,23 +510,34 @@ module Amazonka.ChimeSdkMediaPipelines
     -- ** VideoConcatenationConfiguration
     VideoConcatenationConfiguration (VideoConcatenationConfiguration'),
     newVideoConcatenationConfiguration,
+
+    -- ** VoiceAnalyticsProcessorConfiguration
+    VoiceAnalyticsProcessorConfiguration (VoiceAnalyticsProcessorConfiguration'),
+    newVoiceAnalyticsProcessorConfiguration,
   )
 where
 
 import Amazonka.ChimeSdkMediaPipelines.CreateMediaCapturePipeline
 import Amazonka.ChimeSdkMediaPipelines.CreateMediaConcatenationPipeline
+import Amazonka.ChimeSdkMediaPipelines.CreateMediaInsightsPipeline
+import Amazonka.ChimeSdkMediaPipelines.CreateMediaInsightsPipelineConfiguration
 import Amazonka.ChimeSdkMediaPipelines.CreateMediaLiveConnectorPipeline
 import Amazonka.ChimeSdkMediaPipelines.DeleteMediaCapturePipeline
+import Amazonka.ChimeSdkMediaPipelines.DeleteMediaInsightsPipelineConfiguration
 import Amazonka.ChimeSdkMediaPipelines.DeleteMediaPipeline
 import Amazonka.ChimeSdkMediaPipelines.GetMediaCapturePipeline
+import Amazonka.ChimeSdkMediaPipelines.GetMediaInsightsPipelineConfiguration
 import Amazonka.ChimeSdkMediaPipelines.GetMediaPipeline
 import Amazonka.ChimeSdkMediaPipelines.Lens
 import Amazonka.ChimeSdkMediaPipelines.ListMediaCapturePipelines
+import Amazonka.ChimeSdkMediaPipelines.ListMediaInsightsPipelineConfigurations
 import Amazonka.ChimeSdkMediaPipelines.ListMediaPipelines
 import Amazonka.ChimeSdkMediaPipelines.ListTagsForResource
 import Amazonka.ChimeSdkMediaPipelines.TagResource
 import Amazonka.ChimeSdkMediaPipelines.Types
 import Amazonka.ChimeSdkMediaPipelines.UntagResource
+import Amazonka.ChimeSdkMediaPipelines.UpdateMediaInsightsPipelineConfiguration
+import Amazonka.ChimeSdkMediaPipelines.UpdateMediaInsightsPipelineStatus
 import Amazonka.ChimeSdkMediaPipelines.Waiters
 
 -- $errors

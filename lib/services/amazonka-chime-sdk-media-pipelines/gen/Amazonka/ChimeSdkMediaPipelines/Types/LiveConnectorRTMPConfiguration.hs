@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     LiveConnectorRTMPConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` audioChannels
+      _salt
+        `Prelude.hashWithSalt` audioChannels
         `Prelude.hashWithSalt` audioSampleRate
         `Prelude.hashWithSalt` url
 

@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 data LiveConnectorSinkConfiguration = LiveConnectorSinkConfiguration'
   { -- | The sink configuration\'s sink type.
     sinkType :: LiveConnectorSinkType,
-    -- | The sink configuration\'s RTMP configuration setttings.
+    -- | The sink configuration\'s RTMP configuration settings.
     rTMPConfiguration :: LiveConnectorRTMPConfiguration
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -47,7 +47,7 @@ data LiveConnectorSinkConfiguration = LiveConnectorSinkConfiguration'
 --
 -- 'sinkType', 'liveConnectorSinkConfiguration_sinkType' - The sink configuration\'s sink type.
 --
--- 'rTMPConfiguration', 'liveConnectorSinkConfiguration_rTMPConfiguration' - The sink configuration\'s RTMP configuration setttings.
+-- 'rTMPConfiguration', 'liveConnectorSinkConfiguration_rTMPConfiguration' - The sink configuration\'s RTMP configuration settings.
 newLiveConnectorSinkConfiguration ::
   -- | 'sinkType'
   LiveConnectorSinkType ->
@@ -67,7 +67,7 @@ newLiveConnectorSinkConfiguration
 liveConnectorSinkConfiguration_sinkType :: Lens.Lens' LiveConnectorSinkConfiguration LiveConnectorSinkType
 liveConnectorSinkConfiguration_sinkType = Lens.lens (\LiveConnectorSinkConfiguration' {sinkType} -> sinkType) (\s@LiveConnectorSinkConfiguration' {} a -> s {sinkType = a} :: LiveConnectorSinkConfiguration)
 
--- | The sink configuration\'s RTMP configuration setttings.
+-- | The sink configuration\'s RTMP configuration settings.
 liveConnectorSinkConfiguration_rTMPConfiguration :: Lens.Lens' LiveConnectorSinkConfiguration LiveConnectorRTMPConfiguration
 liveConnectorSinkConfiguration_rTMPConfiguration = Lens.lens (\LiveConnectorSinkConfiguration' {rTMPConfiguration} -> rTMPConfiguration) (\s@LiveConnectorSinkConfiguration' {} a -> s {rTMPConfiguration = a} :: LiveConnectorSinkConfiguration)
 
@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     LiveConnectorSinkConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` sinkType
+      _salt
+        `Prelude.hashWithSalt` sinkType
         `Prelude.hashWithSalt` rTMPConfiguration
 
 instance

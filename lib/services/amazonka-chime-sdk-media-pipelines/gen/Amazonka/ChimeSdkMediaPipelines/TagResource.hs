@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The ARN of the media pipeline that you want to tag. Consists of he
+-- The ARN of the media pipeline that you want to tag. Consists of the
 -- pipeline\'s endpoint region, resource ID, and pipeline ID.
 module Amazonka.ChimeSdkMediaPipelines.TagResource
   ( -- * Creating a Request
@@ -104,7 +104,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceARN
+    _salt
+      `Prelude.hashWithSalt` resourceARN
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

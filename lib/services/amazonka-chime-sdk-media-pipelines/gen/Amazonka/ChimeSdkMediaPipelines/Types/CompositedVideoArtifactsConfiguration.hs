@@ -27,7 +27,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes the configuration for the composited video artifacts.
+-- | Specifies the configuration for compositing video artifacts.
 --
 -- /See:/ 'newCompositedVideoArtifactsConfiguration' smart constructor.
 data CompositedVideoArtifactsConfiguration = CompositedVideoArtifactsConfiguration'
@@ -103,7 +103,8 @@ instance
   hashWithSalt
     _salt
     CompositedVideoArtifactsConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` layout
+      _salt
+        `Prelude.hashWithSalt` layout
         `Prelude.hashWithSalt` resolution
         `Prelude.hashWithSalt` gridViewConfiguration
 

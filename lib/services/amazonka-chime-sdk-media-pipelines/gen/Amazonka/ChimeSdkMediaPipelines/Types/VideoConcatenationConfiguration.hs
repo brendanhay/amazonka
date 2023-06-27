@@ -25,7 +25,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The configuration object of a video contacatentation pipeline.
+-- | The configuration object of a video concatenation pipeline.
 --
 -- /See:/ 'newVideoConcatenationConfiguration' smart constructor.
 data VideoConcatenationConfiguration = VideoConcatenationConfiguration'

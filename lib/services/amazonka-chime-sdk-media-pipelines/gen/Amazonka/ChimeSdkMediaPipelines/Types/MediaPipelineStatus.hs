@@ -23,6 +23,7 @@ module Amazonka.ChimeSdkMediaPipelines.Types.MediaPipelineStatus
         MediaPipelineStatus_Failed,
         MediaPipelineStatus_InProgress,
         MediaPipelineStatus_Initializing,
+        MediaPipelineStatus_Paused,
         MediaPipelineStatus_Stopped,
         MediaPipelineStatus_Stopping
       ),
@@ -70,6 +71,9 @@ pattern MediaPipelineStatus_InProgress = MediaPipelineStatus' "InProgress"
 pattern MediaPipelineStatus_Initializing :: MediaPipelineStatus
 pattern MediaPipelineStatus_Initializing = MediaPipelineStatus' "Initializing"
 
+pattern MediaPipelineStatus_Paused :: MediaPipelineStatus
+pattern MediaPipelineStatus_Paused = MediaPipelineStatus' "Paused"
+
 pattern MediaPipelineStatus_Stopped :: MediaPipelineStatus
 pattern MediaPipelineStatus_Stopped = MediaPipelineStatus' "Stopped"
 
@@ -80,6 +84,7 @@ pattern MediaPipelineStatus_Stopping = MediaPipelineStatus' "Stopping"
   MediaPipelineStatus_Failed,
   MediaPipelineStatus_InProgress,
   MediaPipelineStatus_Initializing,
+  MediaPipelineStatus_Paused,
   MediaPipelineStatus_Stopped,
   MediaPipelineStatus_Stopping,
   MediaPipelineStatus'

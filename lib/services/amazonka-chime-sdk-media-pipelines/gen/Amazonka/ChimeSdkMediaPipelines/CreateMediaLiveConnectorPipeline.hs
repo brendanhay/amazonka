@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a streaming media pipeline in an Amazon Chime SDK meeting.
+-- Creates a media live connector pipeline in an Amazon Chime SDK meeting.
 module Amazonka.ChimeSdkMediaPipelines.CreateMediaLiveConnectorPipeline
   ( -- * Creating a Request
     CreateMediaLiveConnectorPipeline (..),
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 data CreateMediaLiveConnectorPipeline = CreateMediaLiveConnectorPipeline'
   { -- | The token assigned to the client making the request.
     clientRequestToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The tags associated with the media pipeline.
+    -- | The tags associated with the media live connector pipeline.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The media pipeline\'s data sources.
+    -- | The media live connector pipeline\'s data sources.
     sources :: Prelude.NonEmpty LiveConnectorSourceConfiguration,
-    -- | The media pipeline\'s data sinks.
+    -- | The media live connector pipeline\'s data sinks.
     sinks :: Prelude.NonEmpty LiveConnectorSinkConfiguration
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -73,11 +73,11 @@ data CreateMediaLiveConnectorPipeline = CreateMediaLiveConnectorPipeline'
 --
 -- 'clientRequestToken', 'createMediaLiveConnectorPipeline_clientRequestToken' - The token assigned to the client making the request.
 --
--- 'tags', 'createMediaLiveConnectorPipeline_tags' - The tags associated with the media pipeline.
+-- 'tags', 'createMediaLiveConnectorPipeline_tags' - The tags associated with the media live connector pipeline.
 --
--- 'sources', 'createMediaLiveConnectorPipeline_sources' - The media pipeline\'s data sources.
+-- 'sources', 'createMediaLiveConnectorPipeline_sources' - The media live connector pipeline\'s data sources.
 --
--- 'sinks', 'createMediaLiveConnectorPipeline_sinks' - The media pipeline\'s data sinks.
+-- 'sinks', 'createMediaLiveConnectorPipeline_sinks' - The media live connector pipeline\'s data sinks.
 newCreateMediaLiveConnectorPipeline ::
   -- | 'sources'
   Prelude.NonEmpty LiveConnectorSourceConfiguration ->
@@ -97,15 +97,15 @@ newCreateMediaLiveConnectorPipeline pSources_ pSinks_ =
 createMediaLiveConnectorPipeline_clientRequestToken :: Lens.Lens' CreateMediaLiveConnectorPipeline (Prelude.Maybe Prelude.Text)
 createMediaLiveConnectorPipeline_clientRequestToken = Lens.lens (\CreateMediaLiveConnectorPipeline' {clientRequestToken} -> clientRequestToken) (\s@CreateMediaLiveConnectorPipeline' {} a -> s {clientRequestToken = a} :: CreateMediaLiveConnectorPipeline) Prelude.. Lens.mapping Data._Sensitive
 
--- | The tags associated with the media pipeline.
+-- | The tags associated with the media live connector pipeline.
 createMediaLiveConnectorPipeline_tags :: Lens.Lens' CreateMediaLiveConnectorPipeline (Prelude.Maybe (Prelude.NonEmpty Tag))
 createMediaLiveConnectorPipeline_tags = Lens.lens (\CreateMediaLiveConnectorPipeline' {tags} -> tags) (\s@CreateMediaLiveConnectorPipeline' {} a -> s {tags = a} :: CreateMediaLiveConnectorPipeline) Prelude.. Lens.mapping Lens.coerced
 
--- | The media pipeline\'s data sources.
+-- | The media live connector pipeline\'s data sources.
 createMediaLiveConnectorPipeline_sources :: Lens.Lens' CreateMediaLiveConnectorPipeline (Prelude.NonEmpty LiveConnectorSourceConfiguration)
 createMediaLiveConnectorPipeline_sources = Lens.lens (\CreateMediaLiveConnectorPipeline' {sources} -> sources) (\s@CreateMediaLiveConnectorPipeline' {} a -> s {sources = a} :: CreateMediaLiveConnectorPipeline) Prelude.. Lens.coerced
 
--- | The media pipeline\'s data sinks.
+-- | The media live connector pipeline\'s data sinks.
 createMediaLiveConnectorPipeline_sinks :: Lens.Lens' CreateMediaLiveConnectorPipeline (Prelude.NonEmpty LiveConnectorSinkConfiguration)
 createMediaLiveConnectorPipeline_sinks = Lens.lens (\CreateMediaLiveConnectorPipeline' {sinks} -> sinks) (\s@CreateMediaLiveConnectorPipeline' {} a -> s {sinks = a} :: CreateMediaLiveConnectorPipeline) Prelude.. Lens.coerced
 
@@ -133,7 +133,8 @@ instance
   hashWithSalt
     _salt
     CreateMediaLiveConnectorPipeline' {..} =
-      _salt `Prelude.hashWithSalt` clientRequestToken
+      _salt
+        `Prelude.hashWithSalt` clientRequestToken
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` sources
         `Prelude.hashWithSalt` sinks
@@ -178,7 +179,7 @@ instance
 
 -- | /See:/ 'newCreateMediaLiveConnectorPipelineResponse' smart constructor.
 data CreateMediaLiveConnectorPipelineResponse = CreateMediaLiveConnectorPipelineResponse'
-  { -- | The new media pipeline.
+  { -- | The new media live connector pipeline.
     mediaLiveConnectorPipeline :: Prelude.Maybe MediaLiveConnectorPipeline,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -193,7 +194,7 @@ data CreateMediaLiveConnectorPipelineResponse = CreateMediaLiveConnectorPipeline
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mediaLiveConnectorPipeline', 'createMediaLiveConnectorPipelineResponse_mediaLiveConnectorPipeline' - The new media pipeline.
+-- 'mediaLiveConnectorPipeline', 'createMediaLiveConnectorPipelineResponse_mediaLiveConnectorPipeline' - The new media live connector pipeline.
 --
 -- 'httpStatus', 'createMediaLiveConnectorPipelineResponse_httpStatus' - The response's http status code.
 newCreateMediaLiveConnectorPipelineResponse ::
@@ -208,7 +209,7 @@ newCreateMediaLiveConnectorPipelineResponse
         httpStatus = pHttpStatus_
       }
 
--- | The new media pipeline.
+-- | The new media live connector pipeline.
 createMediaLiveConnectorPipelineResponse_mediaLiveConnectorPipeline :: Lens.Lens' CreateMediaLiveConnectorPipelineResponse (Prelude.Maybe MediaLiveConnectorPipeline)
 createMediaLiveConnectorPipelineResponse_mediaLiveConnectorPipeline = Lens.lens (\CreateMediaLiveConnectorPipelineResponse' {mediaLiveConnectorPipeline} -> mediaLiveConnectorPipeline) (\s@CreateMediaLiveConnectorPipelineResponse' {} a -> s {mediaLiveConnectorPipeline = a} :: CreateMediaLiveConnectorPipelineResponse)
 

@@ -33,11 +33,20 @@ import Test.Tasty
 --         , requestCreateMediaConcatenationPipeline $
 --             newCreateMediaConcatenationPipeline
 --
+--         , requestCreateMediaInsightsPipeline $
+--             newCreateMediaInsightsPipeline
+--
+--         , requestCreateMediaInsightsPipelineConfiguration $
+--             newCreateMediaInsightsPipelineConfiguration
+--
 --         , requestCreateMediaLiveConnectorPipeline $
 --             newCreateMediaLiveConnectorPipeline
 --
 --         , requestDeleteMediaCapturePipeline $
 --             newDeleteMediaCapturePipeline
+--
+--         , requestDeleteMediaInsightsPipelineConfiguration $
+--             newDeleteMediaInsightsPipelineConfiguration
 --
 --         , requestDeleteMediaPipeline $
 --             newDeleteMediaPipeline
@@ -45,11 +54,17 @@ import Test.Tasty
 --         , requestGetMediaCapturePipeline $
 --             newGetMediaCapturePipeline
 --
+--         , requestGetMediaInsightsPipelineConfiguration $
+--             newGetMediaInsightsPipelineConfiguration
+--
 --         , requestGetMediaPipeline $
 --             newGetMediaPipeline
 --
 --         , requestListMediaCapturePipelines $
 --             newListMediaCapturePipelines
+--
+--         , requestListMediaInsightsPipelineConfigurations $
+--             newListMediaInsightsPipelineConfigurations
 --
 --         , requestListMediaPipelines $
 --             newListMediaPipelines
@@ -63,6 +78,12 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
+--         , requestUpdateMediaInsightsPipelineConfiguration $
+--             newUpdateMediaInsightsPipelineConfiguration
+--
+--         , requestUpdateMediaInsightsPipelineStatus $
+--             newUpdateMediaInsightsPipelineStatus
+--
 --           ]
 
 --     , testGroup "response"
@@ -72,11 +93,20 @@ import Test.Tasty
 --         , responseCreateMediaConcatenationPipeline $
 --             newCreateMediaConcatenationPipelineResponse
 --
+--         , responseCreateMediaInsightsPipeline $
+--             newCreateMediaInsightsPipelineResponse
+--
+--         , responseCreateMediaInsightsPipelineConfiguration $
+--             newCreateMediaInsightsPipelineConfigurationResponse
+--
 --         , responseCreateMediaLiveConnectorPipeline $
 --             newCreateMediaLiveConnectorPipelineResponse
 --
 --         , responseDeleteMediaCapturePipeline $
 --             newDeleteMediaCapturePipelineResponse
+--
+--         , responseDeleteMediaInsightsPipelineConfiguration $
+--             newDeleteMediaInsightsPipelineConfigurationResponse
 --
 --         , responseDeleteMediaPipeline $
 --             newDeleteMediaPipelineResponse
@@ -84,11 +114,17 @@ import Test.Tasty
 --         , responseGetMediaCapturePipeline $
 --             newGetMediaCapturePipelineResponse
 --
+--         , responseGetMediaInsightsPipelineConfiguration $
+--             newGetMediaInsightsPipelineConfigurationResponse
+--
 --         , responseGetMediaPipeline $
 --             newGetMediaPipelineResponse
 --
 --         , responseListMediaCapturePipelines $
 --             newListMediaCapturePipelinesResponse
+--
+--         , responseListMediaInsightsPipelineConfigurations $
+--             newListMediaInsightsPipelineConfigurationsResponse
 --
 --         , responseListMediaPipelines $
 --             newListMediaPipelinesResponse
@@ -101,6 +137,12 @@ import Test.Tasty
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
+--
+--         , responseUpdateMediaInsightsPipelineConfiguration $
+--             newUpdateMediaInsightsPipelineConfigurationResponse
+--
+--         , responseUpdateMediaInsightsPipelineStatus $
+--             newUpdateMediaInsightsPipelineStatusResponse
 --
 --           ]
 --     ]
@@ -119,6 +161,18 @@ requestCreateMediaConcatenationPipeline =
     "CreateMediaConcatenationPipeline"
     "fixture/CreateMediaConcatenationPipeline.yaml"
 
+requestCreateMediaInsightsPipeline :: CreateMediaInsightsPipeline -> TestTree
+requestCreateMediaInsightsPipeline =
+  req
+    "CreateMediaInsightsPipeline"
+    "fixture/CreateMediaInsightsPipeline.yaml"
+
+requestCreateMediaInsightsPipelineConfiguration :: CreateMediaInsightsPipelineConfiguration -> TestTree
+requestCreateMediaInsightsPipelineConfiguration =
+  req
+    "CreateMediaInsightsPipelineConfiguration"
+    "fixture/CreateMediaInsightsPipelineConfiguration.yaml"
+
 requestCreateMediaLiveConnectorPipeline :: CreateMediaLiveConnectorPipeline -> TestTree
 requestCreateMediaLiveConnectorPipeline =
   req
@@ -130,6 +184,12 @@ requestDeleteMediaCapturePipeline =
   req
     "DeleteMediaCapturePipeline"
     "fixture/DeleteMediaCapturePipeline.yaml"
+
+requestDeleteMediaInsightsPipelineConfiguration :: DeleteMediaInsightsPipelineConfiguration -> TestTree
+requestDeleteMediaInsightsPipelineConfiguration =
+  req
+    "DeleteMediaInsightsPipelineConfiguration"
+    "fixture/DeleteMediaInsightsPipelineConfiguration.yaml"
 
 requestDeleteMediaPipeline :: DeleteMediaPipeline -> TestTree
 requestDeleteMediaPipeline =
@@ -143,6 +203,12 @@ requestGetMediaCapturePipeline =
     "GetMediaCapturePipeline"
     "fixture/GetMediaCapturePipeline.yaml"
 
+requestGetMediaInsightsPipelineConfiguration :: GetMediaInsightsPipelineConfiguration -> TestTree
+requestGetMediaInsightsPipelineConfiguration =
+  req
+    "GetMediaInsightsPipelineConfiguration"
+    "fixture/GetMediaInsightsPipelineConfiguration.yaml"
+
 requestGetMediaPipeline :: GetMediaPipeline -> TestTree
 requestGetMediaPipeline =
   req
@@ -154,6 +220,12 @@ requestListMediaCapturePipelines =
   req
     "ListMediaCapturePipelines"
     "fixture/ListMediaCapturePipelines.yaml"
+
+requestListMediaInsightsPipelineConfigurations :: ListMediaInsightsPipelineConfigurations -> TestTree
+requestListMediaInsightsPipelineConfigurations =
+  req
+    "ListMediaInsightsPipelineConfigurations"
+    "fixture/ListMediaInsightsPipelineConfigurations.yaml"
 
 requestListMediaPipelines :: ListMediaPipelines -> TestTree
 requestListMediaPipelines =
@@ -179,6 +251,18 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
+requestUpdateMediaInsightsPipelineConfiguration :: UpdateMediaInsightsPipelineConfiguration -> TestTree
+requestUpdateMediaInsightsPipelineConfiguration =
+  req
+    "UpdateMediaInsightsPipelineConfiguration"
+    "fixture/UpdateMediaInsightsPipelineConfiguration.yaml"
+
+requestUpdateMediaInsightsPipelineStatus :: UpdateMediaInsightsPipelineStatus -> TestTree
+requestUpdateMediaInsightsPipelineStatus =
+  req
+    "UpdateMediaInsightsPipelineStatus"
+    "fixture/UpdateMediaInsightsPipelineStatus.yaml"
+
 -- Responses
 
 responseCreateMediaCapturePipeline :: CreateMediaCapturePipelineResponse -> TestTree
@@ -197,6 +281,22 @@ responseCreateMediaConcatenationPipeline =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateMediaConcatenationPipeline)
 
+responseCreateMediaInsightsPipeline :: CreateMediaInsightsPipelineResponse -> TestTree
+responseCreateMediaInsightsPipeline =
+  res
+    "CreateMediaInsightsPipelineResponse"
+    "fixture/CreateMediaInsightsPipelineResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateMediaInsightsPipeline)
+
+responseCreateMediaInsightsPipelineConfiguration :: CreateMediaInsightsPipelineConfigurationResponse -> TestTree
+responseCreateMediaInsightsPipelineConfiguration =
+  res
+    "CreateMediaInsightsPipelineConfigurationResponse"
+    "fixture/CreateMediaInsightsPipelineConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateMediaInsightsPipelineConfiguration)
+
 responseCreateMediaLiveConnectorPipeline :: CreateMediaLiveConnectorPipelineResponse -> TestTree
 responseCreateMediaLiveConnectorPipeline =
   res
@@ -212,6 +312,14 @@ responseDeleteMediaCapturePipeline =
     "fixture/DeleteMediaCapturePipelineResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteMediaCapturePipeline)
+
+responseDeleteMediaInsightsPipelineConfiguration :: DeleteMediaInsightsPipelineConfigurationResponse -> TestTree
+responseDeleteMediaInsightsPipelineConfiguration =
+  res
+    "DeleteMediaInsightsPipelineConfigurationResponse"
+    "fixture/DeleteMediaInsightsPipelineConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteMediaInsightsPipelineConfiguration)
 
 responseDeleteMediaPipeline :: DeleteMediaPipelineResponse -> TestTree
 responseDeleteMediaPipeline =
@@ -229,6 +337,14 @@ responseGetMediaCapturePipeline =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetMediaCapturePipeline)
 
+responseGetMediaInsightsPipelineConfiguration :: GetMediaInsightsPipelineConfigurationResponse -> TestTree
+responseGetMediaInsightsPipelineConfiguration =
+  res
+    "GetMediaInsightsPipelineConfigurationResponse"
+    "fixture/GetMediaInsightsPipelineConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetMediaInsightsPipelineConfiguration)
+
 responseGetMediaPipeline :: GetMediaPipelineResponse -> TestTree
 responseGetMediaPipeline =
   res
@@ -244,6 +360,14 @@ responseListMediaCapturePipelines =
     "fixture/ListMediaCapturePipelinesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListMediaCapturePipelines)
+
+responseListMediaInsightsPipelineConfigurations :: ListMediaInsightsPipelineConfigurationsResponse -> TestTree
+responseListMediaInsightsPipelineConfigurations =
+  res
+    "ListMediaInsightsPipelineConfigurationsResponse"
+    "fixture/ListMediaInsightsPipelineConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMediaInsightsPipelineConfigurations)
 
 responseListMediaPipelines :: ListMediaPipelinesResponse -> TestTree
 responseListMediaPipelines =
@@ -276,3 +400,19 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateMediaInsightsPipelineConfiguration :: UpdateMediaInsightsPipelineConfigurationResponse -> TestTree
+responseUpdateMediaInsightsPipelineConfiguration =
+  res
+    "UpdateMediaInsightsPipelineConfigurationResponse"
+    "fixture/UpdateMediaInsightsPipelineConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateMediaInsightsPipelineConfiguration)
+
+responseUpdateMediaInsightsPipelineStatus :: UpdateMediaInsightsPipelineStatusResponse -> TestTree
+responseUpdateMediaInsightsPipelineStatus =
+  res
+    "UpdateMediaInsightsPipelineStatusResponse"
+    "fixture/UpdateMediaInsightsPipelineStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateMediaInsightsPipelineStatus)

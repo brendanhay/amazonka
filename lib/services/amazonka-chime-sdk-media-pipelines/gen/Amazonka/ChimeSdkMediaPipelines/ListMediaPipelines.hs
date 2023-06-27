@@ -105,7 +105,8 @@ instance Core.AWSRequest ListMediaPipelines where
 
 instance Prelude.Hashable ListMediaPipelines where
   hashWithSalt _salt ListMediaPipelines' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListMediaPipelines where

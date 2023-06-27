@@ -40,7 +40,7 @@ data MediaConcatenationPipeline = MediaConcatenationPipeline'
     mediaPipelineId :: Prelude.Maybe Prelude.Text,
     -- | The data sinks of the concatenation pipeline.
     sinks :: Prelude.Maybe (Prelude.NonEmpty ConcatenationSink),
-    -- | The data sources being concatnated.
+    -- | The data sources being concatenated.
     sources :: Prelude.Maybe (Prelude.NonEmpty ConcatenationSource),
     -- | The status of the concatenation pipeline.
     status :: Prelude.Maybe MediaPipelineStatus,
@@ -66,7 +66,7 @@ data MediaConcatenationPipeline = MediaConcatenationPipeline'
 --
 -- 'sinks', 'mediaConcatenationPipeline_sinks' - The data sinks of the concatenation pipeline.
 --
--- 'sources', 'mediaConcatenationPipeline_sources' - The data sources being concatnated.
+-- 'sources', 'mediaConcatenationPipeline_sources' - The data sources being concatenated.
 --
 -- 'status', 'mediaConcatenationPipeline_status' - The status of the concatenation pipeline.
 --
@@ -102,7 +102,7 @@ mediaConcatenationPipeline_mediaPipelineId = Lens.lens (\MediaConcatenationPipel
 mediaConcatenationPipeline_sinks :: Lens.Lens' MediaConcatenationPipeline (Prelude.Maybe (Prelude.NonEmpty ConcatenationSink))
 mediaConcatenationPipeline_sinks = Lens.lens (\MediaConcatenationPipeline' {sinks} -> sinks) (\s@MediaConcatenationPipeline' {} a -> s {sinks = a} :: MediaConcatenationPipeline) Prelude.. Lens.mapping Lens.coerced
 
--- | The data sources being concatnated.
+-- | The data sources being concatenated.
 mediaConcatenationPipeline_sources :: Lens.Lens' MediaConcatenationPipeline (Prelude.Maybe (Prelude.NonEmpty ConcatenationSource))
 mediaConcatenationPipeline_sources = Lens.lens (\MediaConcatenationPipeline' {sources} -> sources) (\s@MediaConcatenationPipeline' {} a -> s {sources = a} :: MediaConcatenationPipeline) Prelude.. Lens.mapping Lens.coerced
 
@@ -131,7 +131,8 @@ instance Data.FromJSON MediaConcatenationPipeline where
 
 instance Prelude.Hashable MediaConcatenationPipeline where
   hashWithSalt _salt MediaConcatenationPipeline' {..} =
-    _salt `Prelude.hashWithSalt` createdTimestamp
+    _salt
+      `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` mediaPipelineArn
       `Prelude.hashWithSalt` mediaPipelineId
       `Prelude.hashWithSalt` sinks

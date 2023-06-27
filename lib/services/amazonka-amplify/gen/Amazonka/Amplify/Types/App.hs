@@ -354,7 +354,8 @@ instance Data.FromJSON App where
       ( \x ->
           App'
             Prelude.<$> (x Data..:? "autoBranchCreationConfig")
-            Prelude.<*> ( x Data..:? "autoBranchCreationPatterns"
+            Prelude.<*> ( x
+                            Data..:? "autoBranchCreationPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "basicAuthCredentials")
@@ -375,7 +376,8 @@ instance Data.FromJSON App where
             Prelude.<*> (x Data..: "platform")
             Prelude.<*> (x Data..: "createTime")
             Prelude.<*> (x Data..: "updateTime")
-            Prelude.<*> ( x Data..:? "environmentVariables"
+            Prelude.<*> ( x
+                            Data..:? "environmentVariables"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "defaultDomain")

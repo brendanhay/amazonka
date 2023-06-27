@@ -176,7 +176,8 @@ instance Data.FromJSON Step where
 
 instance Prelude.Hashable Step where
   hashWithSalt _salt Step' {..} =
-    _salt `Prelude.hashWithSalt` artifactsUrl
+    _salt
+      `Prelude.hashWithSalt` artifactsUrl
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` logUrl
       `Prelude.hashWithSalt` screenshots

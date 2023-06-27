@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteBackendEnvironment where
 
 instance Prelude.Hashable DeleteBackendEnvironment where
   hashWithSalt _salt DeleteBackendEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` environmentName
 
 instance Prelude.NFData DeleteBackendEnvironment where

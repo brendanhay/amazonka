@@ -104,7 +104,8 @@ instance Core.AWSRequest GetBranch where
 
 instance Prelude.Hashable GetBranch where
   hashWithSalt _salt GetBranch' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` branchName
 
 instance Prelude.NFData GetBranch where

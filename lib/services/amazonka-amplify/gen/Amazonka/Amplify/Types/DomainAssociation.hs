@@ -153,7 +153,8 @@ instance Data.FromJSON DomainAssociation where
       "DomainAssociation"
       ( \x ->
           DomainAssociation'
-            Prelude.<$> ( x Data..:? "autoSubDomainCreationPatterns"
+            Prelude.<$> ( x
+                            Data..:? "autoSubDomainCreationPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "autoSubDomainIAMRole")

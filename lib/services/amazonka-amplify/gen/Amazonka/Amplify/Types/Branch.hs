@@ -377,7 +377,8 @@ instance Data.FromJSON Branch where
       "Branch"
       ( \x ->
           Branch'
-            Prelude.<$> ( x Data..:? "associatedResources"
+            Prelude.<$> ( x
+                            Data..:? "associatedResources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "backendEnvironmentArn")
@@ -397,7 +398,8 @@ instance Data.FromJSON Branch where
             Prelude.<*> (x Data..: "enableNotification")
             Prelude.<*> (x Data..: "createTime")
             Prelude.<*> (x Data..: "updateTime")
-            Prelude.<*> ( x Data..:? "environmentVariables"
+            Prelude.<*> ( x
+                            Data..:? "environmentVariables"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "enableAutoBuild")
@@ -412,7 +414,8 @@ instance Data.FromJSON Branch where
 
 instance Prelude.Hashable Branch where
   hashWithSalt _salt Branch' {..} =
-    _salt `Prelude.hashWithSalt` associatedResources
+    _salt
+      `Prelude.hashWithSalt` associatedResources
       `Prelude.hashWithSalt` backendEnvironmentArn
       `Prelude.hashWithSalt` basicAuthCredentials
       `Prelude.hashWithSalt` buildSpec

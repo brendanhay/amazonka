@@ -128,14 +128,16 @@ instance Core.AWSRequest ListBackendEnvironments where
           ListBackendEnvironmentsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "backendEnvironments"
+            Prelude.<*> ( x
+                            Data..?> "backendEnvironments"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListBackendEnvironments where
   hashWithSalt _salt ListBackendEnvironments' {..} =
-    _salt `Prelude.hashWithSalt` environmentName
+    _salt
+      `Prelude.hashWithSalt` environmentName
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appId

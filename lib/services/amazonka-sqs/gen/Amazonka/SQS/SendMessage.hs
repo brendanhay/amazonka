@@ -184,7 +184,7 @@ data SendMessage = SendMessage'
     -- Queue URLs and names are case-sensitive.
     queueUrl :: Prelude.Text,
     -- | The message to send. The minimum size is one character. The maximum size
-    -- is 256 KB.
+    -- is 256 KiB.
     --
     -- A message can include only XML, JSON, and unformatted text. The
     -- following Unicode characters are allowed:
@@ -320,7 +320,7 @@ data SendMessage = SendMessage'
 -- Queue URLs and names are case-sensitive.
 --
 -- 'messageBody', 'sendMessage_messageBody' - The message to send. The minimum size is one character. The maximum size
--- is 256 KB.
+-- is 256 KiB.
 --
 -- A message can include only XML, JSON, and unformatted text. The
 -- following Unicode characters are allowed:
@@ -473,7 +473,7 @@ sendMessage_queueUrl :: Lens.Lens' SendMessage Prelude.Text
 sendMessage_queueUrl = Lens.lens (\SendMessage' {queueUrl} -> queueUrl) (\s@SendMessage' {} a -> s {queueUrl = a} :: SendMessage)
 
 -- | The message to send. The minimum size is one character. The maximum size
--- is 256 KB.
+-- is 256 KiB.
 --
 -- A message can include only XML, JSON, and unformatted text. The
 -- following Unicode characters are allowed:
@@ -506,7 +506,8 @@ instance Core.AWSRequest SendMessage where
 
 instance Prelude.Hashable SendMessage where
   hashWithSalt _salt SendMessage' {..} =
-    _salt `Prelude.hashWithSalt` delaySeconds
+    _salt
+      `Prelude.hashWithSalt` delaySeconds
       `Prelude.hashWithSalt` messageAttributes
       `Prelude.hashWithSalt` messageDeduplicationId
       `Prelude.hashWithSalt` messageGroupId

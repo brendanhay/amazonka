@@ -100,7 +100,8 @@ instance Data.FromXML BatchResultErrorEntry where
 
 instance Prelude.Hashable BatchResultErrorEntry where
   hashWithSalt _salt BatchResultErrorEntry' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` senderFault
       `Prelude.hashWithSalt` code

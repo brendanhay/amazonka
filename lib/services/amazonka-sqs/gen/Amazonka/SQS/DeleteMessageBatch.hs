@@ -21,20 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes up to ten messages from the specified queue. This is a batch
--- version of @ DeleteMessage.@ The result of the action on each message is
--- reported individually in the response.
+-- version of @ @@DeleteMessage@@.@ The result of the action on each
+-- message is reported individually in the response.
 --
 -- Because the batch request can result in a combination of successful and
 -- unsuccessful actions, you should check for batch errors even when the
 -- call returns an HTTP status code of @200@.
---
--- Some actions take lists of parameters. These lists are specified using
--- the @param.n@ notation. Values of @n@ are integers starting from 1. For
--- example, a parameter list with two elements looks like this:
---
--- @&AttributeName.1=first@
---
--- @&AttributeName.2=second@
 module Amazonka.SQS.DeleteMessageBatch
   ( -- * Creating a Request
     DeleteMessageBatch (..),
@@ -71,7 +63,7 @@ data DeleteMessageBatch = DeleteMessageBatch'
     --
     -- Queue URLs and names are case-sensitive.
     queueUrl :: Prelude.Text,
-    -- | A list of receipt handles for the messages to be deleted.
+    -- | Lists the receipt handles for the messages to be deleted.
     entries :: [DeleteMessageBatchRequestEntry]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,7 +80,7 @@ data DeleteMessageBatch = DeleteMessageBatch'
 --
 -- Queue URLs and names are case-sensitive.
 --
--- 'entries', 'deleteMessageBatch_entries' - A list of receipt handles for the messages to be deleted.
+-- 'entries', 'deleteMessageBatch_entries' - Lists the receipt handles for the messages to be deleted.
 newDeleteMessageBatch ::
   -- | 'queueUrl'
   Prelude.Text ->
@@ -105,7 +97,7 @@ newDeleteMessageBatch pQueueUrl_ =
 deleteMessageBatch_queueUrl :: Lens.Lens' DeleteMessageBatch Prelude.Text
 deleteMessageBatch_queueUrl = Lens.lens (\DeleteMessageBatch' {queueUrl} -> queueUrl) (\s@DeleteMessageBatch' {} a -> s {queueUrl = a} :: DeleteMessageBatch)
 
--- | A list of receipt handles for the messages to be deleted.
+-- | Lists the receipt handles for the messages to be deleted.
 deleteMessageBatch_entries :: Lens.Lens' DeleteMessageBatch [DeleteMessageBatchRequestEntry]
 deleteMessageBatch_entries = Lens.lens (\DeleteMessageBatch' {entries} -> entries) (\s@DeleteMessageBatch' {} a -> s {entries = a} :: DeleteMessageBatch) Prelude.. Lens.coerced
 
@@ -127,7 +119,8 @@ instance Core.AWSRequest DeleteMessageBatch where
 
 instance Prelude.Hashable DeleteMessageBatch where
   hashWithSalt _salt DeleteMessageBatch' {..} =
-    _salt `Prelude.hashWithSalt` queueUrl
+    _salt
+      `Prelude.hashWithSalt` queueUrl
       `Prelude.hashWithSalt` entries
 
 instance Prelude.NFData DeleteMessageBatch where
@@ -155,16 +148,16 @@ instance Data.ToQuery DeleteMessageBatch where
       ]
 
 -- | For each message in the batch, the response contains a
--- @ DeleteMessageBatchResultEntry @ tag if the message is deleted or a
--- @ BatchResultErrorEntry @ tag if the message can\'t be deleted.
+-- @ @@DeleteMessageBatchResultEntry@@ @ tag if the message is deleted or a
+-- @ @@BatchResultErrorEntry@@ @ tag if the message can\'t be deleted.
 --
 -- /See:/ 'newDeleteMessageBatchResponse' smart constructor.
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | A list of @ DeleteMessageBatchResultEntry @ items.
+    -- | A list of @ @@DeleteMessageBatchResultEntry@@ @ items.
     successful :: [DeleteMessageBatchResultEntry],
-    -- | A list of @ BatchResultErrorEntry @ items.
+    -- | A list of @ @@BatchResultErrorEntry@@ @ items.
     failed :: [BatchResultErrorEntry]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -179,9 +172,9 @@ data DeleteMessageBatchResponse = DeleteMessageBatchResponse'
 --
 -- 'httpStatus', 'deleteMessageBatchResponse_httpStatus' - The response's http status code.
 --
--- 'successful', 'deleteMessageBatchResponse_successful' - A list of @ DeleteMessageBatchResultEntry @ items.
+-- 'successful', 'deleteMessageBatchResponse_successful' - A list of @ @@DeleteMessageBatchResultEntry@@ @ items.
 --
--- 'failed', 'deleteMessageBatchResponse_failed' - A list of @ BatchResultErrorEntry @ items.
+-- 'failed', 'deleteMessageBatchResponse_failed' - A list of @ @@BatchResultErrorEntry@@ @ items.
 newDeleteMessageBatchResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -198,11 +191,11 @@ newDeleteMessageBatchResponse pHttpStatus_ =
 deleteMessageBatchResponse_httpStatus :: Lens.Lens' DeleteMessageBatchResponse Prelude.Int
 deleteMessageBatchResponse_httpStatus = Lens.lens (\DeleteMessageBatchResponse' {httpStatus} -> httpStatus) (\s@DeleteMessageBatchResponse' {} a -> s {httpStatus = a} :: DeleteMessageBatchResponse)
 
--- | A list of @ DeleteMessageBatchResultEntry @ items.
+-- | A list of @ @@DeleteMessageBatchResultEntry@@ @ items.
 deleteMessageBatchResponse_successful :: Lens.Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
 deleteMessageBatchResponse_successful = Lens.lens (\DeleteMessageBatchResponse' {successful} -> successful) (\s@DeleteMessageBatchResponse' {} a -> s {successful = a} :: DeleteMessageBatchResponse) Prelude.. Lens.coerced
 
--- | A list of @ BatchResultErrorEntry @ items.
+-- | A list of @ @@BatchResultErrorEntry@@ @ items.
 deleteMessageBatchResponse_failed :: Lens.Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
 deleteMessageBatchResponse_failed = Lens.lens (\DeleteMessageBatchResponse' {failed} -> failed) (\s@DeleteMessageBatchResponse' {} a -> s {failed = a} :: DeleteMessageBatchResponse) Prelude.. Lens.coerced
 

@@ -133,21 +133,21 @@ instance Core.AWSPager ListDeadLetterSourceQueues where
     | Core.stop
         ( rs
             Lens.^? listDeadLetterSourceQueuesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listDeadLetterSourceQueuesResponse_queueUrls
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDeadLetterSourceQueues_nextToken
           Lens..~ rs
           Lens.^? listDeadLetterSourceQueuesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDeadLetterSourceQueues where
   type
@@ -167,7 +167,8 @@ instance Core.AWSRequest ListDeadLetterSourceQueues where
 
 instance Prelude.Hashable ListDeadLetterSourceQueues where
   hashWithSalt _salt ListDeadLetterSourceQueues' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` queueUrl
 

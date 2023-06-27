@@ -27,7 +27,7 @@
 --
 -- Cross-account permissions don\'t apply to this action. For more
 -- information, see
--- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a user name>
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a username>
 -- in the /Amazon SQS Developer Guide/.
 module Amazonka.SQS.UntagQueue
   ( -- * Creating a Request
@@ -98,7 +98,8 @@ instance Core.AWSRequest UntagQueue where
 
 instance Prelude.Hashable UntagQueue where
   hashWithSalt _salt UntagQueue' {..} =
-    _salt `Prelude.hashWithSalt` queueUrl
+    _salt
+      `Prelude.hashWithSalt` queueUrl
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagQueue where

@@ -24,19 +24,8 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Encloses a receipt handle and an entry id for each message in
--- @ ChangeMessageVisibilityBatch.@
---
--- All of the following list parameters must be prefixed with
--- @ChangeMessageVisibilityBatchRequestEntry.n@, where @n@ is an integer
--- value starting with @1@. For example, a parameter list for this action
--- might look like this:
---
--- @&ChangeMessageVisibilityBatchRequestEntry.1.Id=change_visibility_msg_2@
---
--- @&ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=your_receipt_handle@
---
--- @&ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=45@
+-- | Encloses a receipt handle and an entry ID for each message in
+-- @ @@ChangeMessageVisibilityBatch@@.@
 --
 -- /See:/ 'newChangeMessageVisibilityBatchRequestEntry' smart constructor.
 data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequestEntry'
@@ -115,7 +104,8 @@ instance
   hashWithSalt
     _salt
     ChangeMessageVisibilityBatchRequestEntry' {..} =
-      _salt `Prelude.hashWithSalt` visibilityTimeout
+      _salt
+        `Prelude.hashWithSalt` visibilityTimeout
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` receiptHandle
 

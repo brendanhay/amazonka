@@ -27,11 +27,14 @@
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html Visibility Timeout>
 -- in the /Amazon SQS Developer Guide/.
 --
--- For example, you have a message with a visibility timeout of 5 minutes.
--- After 3 minutes, you call @ChangeMessageVisibility@ with a timeout of 10
--- minutes. You can continue to call @ChangeMessageVisibility@ to extend
--- the visibility timeout to the maximum allowed time. If you try to extend
--- the visibility timeout beyond the maximum, your request is rejected.
+-- For example, if the default timeout for a queue is 60 seconds, 15
+-- seconds have elapsed since you received the message, and you send a
+-- ChangeMessageVisibility call with @VisibilityTimeout@ set to 10 seconds,
+-- the 10 seconds begin to count from the time that you make the
+-- @ChangeMessageVisibility@ call. Thus, any attempt to change the
+-- visibility timeout or to delete that message 10 seconds after you
+-- initially change the visibility timeout (a total of 25 seconds) might
+-- result in an error.
 --
 -- An Amazon SQS message has three basic states:
 --
@@ -46,14 +49,14 @@
 -- between states 1 and 2). There is no limit to the number of stored
 -- messages. A message is considered to be /in flight/ after it is received
 -- from a queue by a consumer, but not yet deleted from the queue (that is,
--- between states 2 and 3). There is a limit to the number of inflight
+-- between states 2 and 3). There is a limit to the number of in flight
 -- messages.
 --
--- Limits that apply to inflight messages are unrelated to the /unlimited/
+-- Limits that apply to in flight messages are unrelated to the /unlimited/
 -- number of stored messages.
 --
 -- For most standard queues (depending on queue traffic and message
--- backlog), there can be a maximum of approximately 120,000 inflight
+-- backlog), there can be a maximum of approximately 120,000 in flight
 -- messages (received from a queue by a consumer, but not yet deleted from
 -- the queue). If you reach this limit, Amazon SQS returns the @OverLimit@
 -- error message. To avoid reaching the limit, you should delete messages
@@ -62,7 +65,7 @@
 -- increase,
 -- <https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-sqs file a support request>.
 --
--- For FIFO queues, there can be a maximum of 20,000 inflight messages
+-- For FIFO queues, there can be a maximum of 20,000 in flight messages
 -- (received from a queue by a consumer, but not yet deleted from the
 -- queue). If you reach this limit, Amazon SQS returns no error messages.
 --
@@ -107,8 +110,9 @@ data ChangeMessageVisibility = ChangeMessageVisibility'
     --
     -- Queue URLs and names are case-sensitive.
     queueUrl :: Prelude.Text,
-    -- | The receipt handle associated with the message whose visibility timeout
-    -- is changed. This parameter is returned by the @ ReceiveMessage @ action.
+    -- | The receipt handle associated with the message, whose visibility timeout
+    -- is changed. This parameter is returned by the @ @@ReceiveMessage@@ @
+    -- action.
     receiptHandle :: Prelude.Text,
     -- | The new value for the message\'s visibility timeout (in seconds). Values
     -- range: @0@ to @43200@. Maximum: 12 hours.
@@ -128,8 +132,9 @@ data ChangeMessageVisibility = ChangeMessageVisibility'
 --
 -- Queue URLs and names are case-sensitive.
 --
--- 'receiptHandle', 'changeMessageVisibility_receiptHandle' - The receipt handle associated with the message whose visibility timeout
--- is changed. This parameter is returned by the @ ReceiveMessage @ action.
+-- 'receiptHandle', 'changeMessageVisibility_receiptHandle' - The receipt handle associated with the message, whose visibility timeout
+-- is changed. This parameter is returned by the @ @@ReceiveMessage@@ @
+-- action.
 --
 -- 'visibilityTimeout', 'changeMessageVisibility_visibilityTimeout' - The new value for the message\'s visibility timeout (in seconds). Values
 -- range: @0@ to @43200@. Maximum: 12 hours.
@@ -157,8 +162,9 @@ newChangeMessageVisibility
 changeMessageVisibility_queueUrl :: Lens.Lens' ChangeMessageVisibility Prelude.Text
 changeMessageVisibility_queueUrl = Lens.lens (\ChangeMessageVisibility' {queueUrl} -> queueUrl) (\s@ChangeMessageVisibility' {} a -> s {queueUrl = a} :: ChangeMessageVisibility)
 
--- | The receipt handle associated with the message whose visibility timeout
--- is changed. This parameter is returned by the @ ReceiveMessage @ action.
+-- | The receipt handle associated with the message, whose visibility timeout
+-- is changed. This parameter is returned by the @ @@ReceiveMessage@@ @
+-- action.
 changeMessageVisibility_receiptHandle :: Lens.Lens' ChangeMessageVisibility Prelude.Text
 changeMessageVisibility_receiptHandle = Lens.lens (\ChangeMessageVisibility' {receiptHandle} -> receiptHandle) (\s@ChangeMessageVisibility' {} a -> s {receiptHandle = a} :: ChangeMessageVisibility)
 
@@ -179,7 +185,8 @@ instance Core.AWSRequest ChangeMessageVisibility where
 
 instance Prelude.Hashable ChangeMessageVisibility where
   hashWithSalt _salt ChangeMessageVisibility' {..} =
-    _salt `Prelude.hashWithSalt` queueUrl
+    _salt
+      `Prelude.hashWithSalt` queueUrl
       `Prelude.hashWithSalt` receiptHandle
       `Prelude.hashWithSalt` visibilityTimeout
 

@@ -26,7 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | The user-specified message system attribute value. For string data
 -- types, the @Value@ attribute has the same restrictions on the content as
--- the message body. For more information, see @ SendMessage.@
+-- the message body. For more information, see @ @@SendMessage@@.@
 --
 -- @Name@, @type@, @value@ and the message body must not be empty or null.
 --
@@ -133,7 +133,8 @@ messageSystemAttributeValue_dataType = Lens.lens (\MessageSystemAttributeValue' 
 
 instance Prelude.Hashable MessageSystemAttributeValue where
   hashWithSalt _salt MessageSystemAttributeValue' {..} =
-    _salt `Prelude.hashWithSalt` binaryListValues
+    _salt
+      `Prelude.hashWithSalt` binaryListValues
       `Prelude.hashWithSalt` binaryValue
       `Prelude.hashWithSalt` stringListValues
       `Prelude.hashWithSalt` stringValue

@@ -98,6 +98,9 @@ module Amazonka.SQS
     -- ** ReceiptHandleIsInvalid
     _ReceiptHandleIsInvalid,
 
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
     -- ** TooManyEntriesInBatchRequest
     _TooManyEntriesInBatchRequest,
 
@@ -115,6 +118,12 @@ module Amazonka.SQS
     newAddPermission,
     AddPermissionResponse (AddPermissionResponse'),
     newAddPermissionResponse,
+
+    -- ** CancelMessageMoveTask
+    CancelMessageMoveTask (CancelMessageMoveTask'),
+    newCancelMessageMoveTask,
+    CancelMessageMoveTaskResponse (CancelMessageMoveTaskResponse'),
+    newCancelMessageMoveTaskResponse,
 
     -- ** ChangeMessageVisibility
     ChangeMessageVisibility (ChangeMessageVisibility'),
@@ -170,6 +179,12 @@ module Amazonka.SQS
     ListDeadLetterSourceQueuesResponse (ListDeadLetterSourceQueuesResponse'),
     newListDeadLetterSourceQueuesResponse,
 
+    -- ** ListMessageMoveTasks
+    ListMessageMoveTasks (ListMessageMoveTasks'),
+    newListMessageMoveTasks,
+    ListMessageMoveTasksResponse (ListMessageMoveTasksResponse'),
+    newListMessageMoveTasksResponse,
+
     -- ** ListQueueTags
     ListQueueTags (ListQueueTags'),
     newListQueueTags,
@@ -218,6 +233,12 @@ module Amazonka.SQS
     SetQueueAttributesResponse (SetQueueAttributesResponse'),
     newSetQueueAttributesResponse,
 
+    -- ** StartMessageMoveTask
+    StartMessageMoveTask (StartMessageMoveTask'),
+    newStartMessageMoveTask,
+    StartMessageMoveTaskResponse (StartMessageMoveTaskResponse'),
+    newStartMessageMoveTaskResponse,
+
     -- ** TagQueue
     TagQueue (TagQueue'),
     newTagQueue,
@@ -261,6 +282,10 @@ module Amazonka.SQS
     DeleteMessageBatchResultEntry (DeleteMessageBatchResultEntry'),
     newDeleteMessageBatchResultEntry,
 
+    -- ** ListMessageMoveTasksResultEntry
+    ListMessageMoveTasksResultEntry (ListMessageMoveTasksResultEntry'),
+    newListMessageMoveTasksResultEntry,
+
     -- ** Message
     Message (Message'),
     newMessage,
@@ -284,6 +309,7 @@ module Amazonka.SQS
 where
 
 import Amazonka.SQS.AddPermission
+import Amazonka.SQS.CancelMessageMoveTask
 import Amazonka.SQS.ChangeMessageVisibility
 import Amazonka.SQS.ChangeMessageVisibilityBatch
 import Amazonka.SQS.CreateQueue
@@ -294,6 +320,7 @@ import Amazonka.SQS.GetQueueAttributes
 import Amazonka.SQS.GetQueueUrl
 import Amazonka.SQS.Lens
 import Amazonka.SQS.ListDeadLetterSourceQueues
+import Amazonka.SQS.ListMessageMoveTasks
 import Amazonka.SQS.ListQueueTags
 import Amazonka.SQS.ListQueues
 import Amazonka.SQS.PurgeQueue
@@ -302,6 +329,7 @@ import Amazonka.SQS.RemovePermission
 import Amazonka.SQS.SendMessage
 import Amazonka.SQS.SendMessageBatch
 import Amazonka.SQS.SetQueueAttributes
+import Amazonka.SQS.StartMessageMoveTask
 import Amazonka.SQS.TagQueue
 import Amazonka.SQS.Types
 import Amazonka.SQS.UntagQueue

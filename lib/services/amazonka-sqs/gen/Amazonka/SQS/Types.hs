@@ -32,6 +32,7 @@ module Amazonka.SQS.Types
     _QueueDoesNotExist,
     _QueueNameExists,
     _ReceiptHandleIsInvalid,
+    _ResourceNotFoundException,
     _TooManyEntriesInBatchRequest,
     _UnsupportedOperation,
 
@@ -74,6 +75,19 @@ module Amazonka.SQS.Types
     DeleteMessageBatchResultEntry (..),
     newDeleteMessageBatchResultEntry,
     deleteMessageBatchResultEntry_id,
+
+    -- * ListMessageMoveTasksResultEntry
+    ListMessageMoveTasksResultEntry (..),
+    newListMessageMoveTasksResultEntry,
+    listMessageMoveTasksResultEntry_approximateNumberOfMessagesMoved,
+    listMessageMoveTasksResultEntry_approximateNumberOfMessagesToMove,
+    listMessageMoveTasksResultEntry_destinationArn,
+    listMessageMoveTasksResultEntry_failureReason,
+    listMessageMoveTasksResultEntry_maxNumberOfMessagesPerSecond,
+    listMessageMoveTasksResultEntry_sourceArn,
+    listMessageMoveTasksResultEntry_startedTimestamp,
+    listMessageMoveTasksResultEntry_status,
+    listMessageMoveTasksResultEntry_taskHandle,
 
     -- * Message
     Message (..),
@@ -135,6 +149,7 @@ import Amazonka.SQS.Types.ChangeMessageVisibilityBatchRequestEntry
 import Amazonka.SQS.Types.ChangeMessageVisibilityBatchResultEntry
 import Amazonka.SQS.Types.DeleteMessageBatchRequestEntry
 import Amazonka.SQS.Types.DeleteMessageBatchResultEntry
+import Amazonka.SQS.Types.ListMessageMoveTasksResultEntry
 import Amazonka.SQS.Types.Message
 import Amazonka.SQS.Types.MessageAttribute
 import Amazonka.SQS.Types.MessageAttributeValue
@@ -171,58 +186,58 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottled"
               Prelude.. Core.hasStatus 403
           )
           e =
-        Prelude.Just "request_limit_exceeded"
+          Prelude.Just "request_limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Two or more batch entries in the request have the same @Id@.
-_BatchEntryIdsNotDistinct :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BatchEntryIdsNotDistinct :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BatchEntryIdsNotDistinct =
   Core._MatchServiceError
     defaultService
@@ -230,7 +245,7 @@ _BatchEntryIdsNotDistinct =
     Prelude.. Core.hasStatus 400
 
 -- | The length of all the messages put together is more than the limit.
-_BatchRequestTooLong :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BatchRequestTooLong :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BatchRequestTooLong =
   Core._MatchServiceError
     defaultService
@@ -238,7 +253,7 @@ _BatchRequestTooLong =
     Prelude.. Core.hasStatus 400
 
 -- | The batch request doesn\'t contain any entries.
-_EmptyBatchRequest :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EmptyBatchRequest :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EmptyBatchRequest =
   Core._MatchServiceError
     defaultService
@@ -246,7 +261,7 @@ _EmptyBatchRequest =
     Prelude.. Core.hasStatus 400
 
 -- | The specified attribute doesn\'t exist.
-_InvalidAttributeName :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidAttributeName :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidAttributeName =
   Core._MatchServiceError
     defaultService
@@ -254,7 +269,7 @@ _InvalidAttributeName =
 
 -- | The @Id@ of a batch entry in a batch request doesn\'t abide by the
 -- specification.
-_InvalidBatchEntryId :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidBatchEntryId :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidBatchEntryId =
   Core._MatchServiceError
     defaultService
@@ -262,21 +277,21 @@ _InvalidBatchEntryId =
     Prelude.. Core.hasStatus 400
 
 -- | The specified receipt handle isn\'t valid for the current version.
-_InvalidIdFormat :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidIdFormat :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidIdFormat =
   Core._MatchServiceError
     defaultService
     "InvalidIdFormat"
 
 -- | The message contains characters outside the allowed set.
-_InvalidMessageContents :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidMessageContents :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidMessageContents =
   Core._MatchServiceError
     defaultService
     "InvalidMessageContents"
 
 -- | The specified message isn\'t in flight.
-_MessageNotInflight :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MessageNotInflight :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MessageNotInflight =
   Core._MatchServiceError
     defaultService
@@ -284,10 +299,10 @@ _MessageNotInflight =
     Prelude.. Core.hasStatus 400
 
 -- | The specified action violates a limit. For example, @ReceiveMessage@
--- returns this error if the maximum number of inflight messages is reached
--- and @AddPermission@ returns this error if the maximum number of
+-- returns this error if the maximum number of in flight messages is
+-- reached and @AddPermission@ returns this error if the maximum number of
 -- permissions for the queue is reached.
-_OverLimit :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OverLimit :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OverLimit =
   Core._MatchServiceError defaultService "OverLimit"
     Prelude.. Core.hasStatus 403
@@ -295,7 +310,7 @@ _OverLimit =
 -- | Indicates that the specified queue previously received a @PurgeQueue@
 -- request within the last 60 seconds (the time it can take to delete the
 -- messages in the queue).
-_PurgeQueueInProgress :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PurgeQueueInProgress :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PurgeQueueInProgress =
   Core._MatchServiceError
     defaultService
@@ -304,7 +319,7 @@ _PurgeQueueInProgress =
 
 -- | You must wait 60 seconds after deleting a queue before you can create
 -- another queue with the same name.
-_QueueDeletedRecently :: Core.AsError a => Lens.Fold a Core.ServiceError
+_QueueDeletedRecently :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _QueueDeletedRecently =
   Core._MatchServiceError
     defaultService
@@ -312,7 +327,7 @@ _QueueDeletedRecently =
     Prelude.. Core.hasStatus 400
 
 -- | The specified queue doesn\'t exist.
-_QueueDoesNotExist :: Core.AsError a => Lens.Fold a Core.ServiceError
+_QueueDoesNotExist :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _QueueDoesNotExist =
   Core._MatchServiceError
     defaultService
@@ -322,7 +337,7 @@ _QueueDoesNotExist =
 -- | A queue with this name already exists. Amazon SQS returns this error
 -- only if the request includes attributes whose values differ from those
 -- of the existing queue.
-_QueueNameExists :: Core.AsError a => Lens.Fold a Core.ServiceError
+_QueueNameExists :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _QueueNameExists =
   Core._MatchServiceError
     defaultService
@@ -330,14 +345,22 @@ _QueueNameExists =
     Prelude.. Core.hasStatus 400
 
 -- | The specified receipt handle isn\'t valid.
-_ReceiptHandleIsInvalid :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ReceiptHandleIsInvalid :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ReceiptHandleIsInvalid =
   Core._MatchServiceError
     defaultService
     "ReceiptHandleIsInvalid"
 
+-- | One or more specified resources don\'t exist.
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
 -- | The batch request contains more entries than permissible.
-_TooManyEntriesInBatchRequest :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyEntriesInBatchRequest :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyEntriesInBatchRequest =
   Core._MatchServiceError
     defaultService
@@ -345,7 +368,7 @@ _TooManyEntriesInBatchRequest =
     Prelude.. Core.hasStatus 400
 
 -- | Error code 400. Unsupported operation.
-_UnsupportedOperation :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedOperation :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedOperation =
   Core._MatchServiceError
     defaultService

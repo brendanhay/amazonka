@@ -33,7 +33,7 @@
 -- @ReceiptHandle@ is different each time you receive a message. When you
 -- use the @DeleteMessage@ action, you must provide the most recently
 -- received @ReceiptHandle@ for the message (otherwise, the request
--- succeeds, but the message might not be deleted).
+-- succeeds, but the message will not be deleted).
 --
 -- For standard queues, it is possible to receive a message even after you
 -- delete it. This might happen on rare occasions if one of the servers
@@ -124,7 +124,8 @@ instance Core.AWSRequest DeleteMessage where
 
 instance Prelude.Hashable DeleteMessage where
   hashWithSalt _salt DeleteMessage' {..} =
-    _salt `Prelude.hashWithSalt` queueUrl
+    _salt
+      `Prelude.hashWithSalt` queueUrl
       `Prelude.hashWithSalt` receiptHandle
 
 instance Prelude.NFData DeleteMessage where

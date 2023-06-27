@@ -45,6 +45,7 @@ library
   exposed-modules:
     Amazonka.SQS
     Amazonka.SQS.AddPermission
+    Amazonka.SQS.CancelMessageMoveTask
     Amazonka.SQS.ChangeMessageVisibility
     Amazonka.SQS.ChangeMessageVisibilityBatch
     Amazonka.SQS.CreateQueue
@@ -55,6 +56,7 @@ library
     Amazonka.SQS.GetQueueUrl
     Amazonka.SQS.Lens
     Amazonka.SQS.ListDeadLetterSourceQueues
+    Amazonka.SQS.ListMessageMoveTasks
     Amazonka.SQS.ListQueues
     Amazonka.SQS.ListQueueTags
     Amazonka.SQS.PurgeQueue
@@ -63,6 +65,7 @@ library
     Amazonka.SQS.SendMessage
     Amazonka.SQS.SendMessageBatch
     Amazonka.SQS.SetQueueAttributes
+    Amazonka.SQS.StartMessageMoveTask
     Amazonka.SQS.TagQueue
     Amazonka.SQS.Types
     Amazonka.SQS.Types.BatchResultErrorEntry
@@ -70,6 +73,7 @@ library
     Amazonka.SQS.Types.ChangeMessageVisibilityBatchResultEntry
     Amazonka.SQS.Types.DeleteMessageBatchRequestEntry
     Amazonka.SQS.Types.DeleteMessageBatchResultEntry
+    Amazonka.SQS.Types.ListMessageMoveTasksResultEntry
     Amazonka.SQS.Types.Message
     Amazonka.SQS.Types.MessageAttribute
     Amazonka.SQS.Types.MessageAttributeValue

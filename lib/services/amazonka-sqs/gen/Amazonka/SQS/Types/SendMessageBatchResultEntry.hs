@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Encloses a @MessageId@ for a successfully-enqueued message in a
--- @ SendMessageBatch.@
+-- @ @@SendMessageBatch@@.@
 --
 -- /See:/ 'newSendMessageBatchResultEntry' smart constructor.
 data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
@@ -175,7 +175,8 @@ instance Data.FromXML SendMessageBatchResultEntry where
 
 instance Prelude.Hashable SendMessageBatchResultEntry where
   hashWithSalt _salt SendMessageBatchResultEntry' {..} =
-    _salt `Prelude.hashWithSalt` mD5OfMessageAttributes
+    _salt
+      `Prelude.hashWithSalt` mD5OfMessageAttributes
       `Prelude.hashWithSalt` mD5OfMessageSystemAttributes
       `Prelude.hashWithSalt` sequenceNumber
       `Prelude.hashWithSalt` id

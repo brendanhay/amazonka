@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDeleteMessageBatchRequestEntry' smart constructor.
 data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry'
-  { -- | An identifier for this particular receipt handle. This is used to
+  { -- | The identifier for this particular receipt handle. This is used to
     -- communicate the result.
     --
     -- The @Id@s of a batch request need to be unique within a request.
@@ -49,7 +49,7 @@ data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'deleteMessageBatchRequestEntry_id' - An identifier for this particular receipt handle. This is used to
+-- 'id', 'deleteMessageBatchRequestEntry_id' - The identifier for this particular receipt handle. This is used to
 -- communicate the result.
 --
 -- The @Id@s of a batch request need to be unique within a request.
@@ -72,7 +72,7 @@ newDeleteMessageBatchRequestEntry
         receiptHandle = pReceiptHandle_
       }
 
--- | An identifier for this particular receipt handle. This is used to
+-- | The identifier for this particular receipt handle. This is used to
 -- communicate the result.
 --
 -- The @Id@s of a batch request need to be unique within a request.
@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     DeleteMessageBatchRequestEntry' {..} =
-      _salt `Prelude.hashWithSalt` id
+      _salt
+        `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` receiptHandle
 
 instance

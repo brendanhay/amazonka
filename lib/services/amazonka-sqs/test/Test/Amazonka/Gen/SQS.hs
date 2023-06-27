@@ -30,6 +30,9 @@ import Test.Tasty
 --         [ requestAddPermission $
 --             newAddPermission
 --
+--         , requestCancelMessageMoveTask $
+--             newCancelMessageMoveTask
+--
 --         , requestChangeMessageVisibility $
 --             newChangeMessageVisibility
 --
@@ -57,6 +60,9 @@ import Test.Tasty
 --         , requestListDeadLetterSourceQueues $
 --             newListDeadLetterSourceQueues
 --
+--         , requestListMessageMoveTasks $
+--             newListMessageMoveTasks
+--
 --         , requestListQueueTags $
 --             newListQueueTags
 --
@@ -81,6 +87,9 @@ import Test.Tasty
 --         , requestSetQueueAttributes $
 --             newSetQueueAttributes
 --
+--         , requestStartMessageMoveTask $
+--             newStartMessageMoveTask
+--
 --         , requestTagQueue $
 --             newTagQueue
 --
@@ -92,6 +101,9 @@ import Test.Tasty
 --     , testGroup "response"
 --         [ responseAddPermission $
 --             newAddPermissionResponse
+--
+--         , responseCancelMessageMoveTask $
+--             newCancelMessageMoveTaskResponse
 --
 --         , responseChangeMessageVisibility $
 --             newChangeMessageVisibilityResponse
@@ -120,6 +132,9 @@ import Test.Tasty
 --         , responseListDeadLetterSourceQueues $
 --             newListDeadLetterSourceQueuesResponse
 --
+--         , responseListMessageMoveTasks $
+--             newListMessageMoveTasksResponse
+--
 --         , responseListQueueTags $
 --             newListQueueTagsResponse
 --
@@ -144,6 +159,9 @@ import Test.Tasty
 --         , responseSetQueueAttributes $
 --             newSetQueueAttributesResponse
 --
+--         , responseStartMessageMoveTask $
+--             newStartMessageMoveTaskResponse
+--
 --         , responseTagQueue $
 --             newTagQueueResponse
 --
@@ -160,6 +178,12 @@ requestAddPermission =
   req
     "AddPermission"
     "fixture/AddPermission.yaml"
+
+requestCancelMessageMoveTask :: CancelMessageMoveTask -> TestTree
+requestCancelMessageMoveTask =
+  req
+    "CancelMessageMoveTask"
+    "fixture/CancelMessageMoveTask.yaml"
 
 requestChangeMessageVisibility :: ChangeMessageVisibility -> TestTree
 requestChangeMessageVisibility =
@@ -215,6 +239,12 @@ requestListDeadLetterSourceQueues =
     "ListDeadLetterSourceQueues"
     "fixture/ListDeadLetterSourceQueues.yaml"
 
+requestListMessageMoveTasks :: ListMessageMoveTasks -> TestTree
+requestListMessageMoveTasks =
+  req
+    "ListMessageMoveTasks"
+    "fixture/ListMessageMoveTasks.yaml"
+
 requestListQueueTags :: ListQueueTags -> TestTree
 requestListQueueTags =
   req
@@ -263,6 +293,12 @@ requestSetQueueAttributes =
     "SetQueueAttributes"
     "fixture/SetQueueAttributes.yaml"
 
+requestStartMessageMoveTask :: StartMessageMoveTask -> TestTree
+requestStartMessageMoveTask =
+  req
+    "StartMessageMoveTask"
+    "fixture/StartMessageMoveTask.yaml"
+
 requestTagQueue :: TagQueue -> TestTree
 requestTagQueue =
   req
@@ -284,6 +320,14 @@ responseAddPermission =
     "fixture/AddPermissionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AddPermission)
+
+responseCancelMessageMoveTask :: CancelMessageMoveTaskResponse -> TestTree
+responseCancelMessageMoveTask =
+  res
+    "CancelMessageMoveTaskResponse"
+    "fixture/CancelMessageMoveTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CancelMessageMoveTask)
 
 responseChangeMessageVisibility :: ChangeMessageVisibilityResponse -> TestTree
 responseChangeMessageVisibility =
@@ -357,6 +401,14 @@ responseListDeadLetterSourceQueues =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDeadLetterSourceQueues)
 
+responseListMessageMoveTasks :: ListMessageMoveTasksResponse -> TestTree
+responseListMessageMoveTasks =
+  res
+    "ListMessageMoveTasksResponse"
+    "fixture/ListMessageMoveTasksResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMessageMoveTasks)
+
 responseListQueueTags :: ListQueueTagsResponse -> TestTree
 responseListQueueTags =
   res
@@ -420,6 +472,14 @@ responseSetQueueAttributes =
     "fixture/SetQueueAttributesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SetQueueAttributes)
+
+responseStartMessageMoveTask :: StartMessageMoveTaskResponse -> TestTree
+responseStartMessageMoveTask =
+  res
+    "StartMessageMoveTaskResponse"
+    "fixture/StartMessageMoveTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartMessageMoveTask)
 
 responseTagQueue :: TagQueueResponse -> TestTree
 responseTagQueue =

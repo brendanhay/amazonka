@@ -20,6 +20,11 @@ module Amazonka.SQS.Lens
     addPermission_aWSAccountIds,
     addPermission_actions,
 
+    -- ** CancelMessageMoveTask
+    cancelMessageMoveTask_taskHandle,
+    cancelMessageMoveTaskResponse_approximateNumberOfMessagesMoved,
+    cancelMessageMoveTaskResponse_httpStatus,
+
     -- ** ChangeMessageVisibility
     changeMessageVisibility_queueUrl,
     changeMessageVisibility_receiptHandle,
@@ -72,6 +77,12 @@ module Amazonka.SQS.Lens
     listDeadLetterSourceQueuesResponse_nextToken,
     listDeadLetterSourceQueuesResponse_httpStatus,
     listDeadLetterSourceQueuesResponse_queueUrls,
+
+    -- ** ListMessageMoveTasks
+    listMessageMoveTasks_maxResults,
+    listMessageMoveTasks_sourceArn,
+    listMessageMoveTasksResponse_results,
+    listMessageMoveTasksResponse_httpStatus,
 
     -- ** ListQueueTags
     listQueueTags_queueUrl,
@@ -130,6 +141,13 @@ module Amazonka.SQS.Lens
     setQueueAttributes_queueUrl,
     setQueueAttributes_attributes,
 
+    -- ** StartMessageMoveTask
+    startMessageMoveTask_destinationArn,
+    startMessageMoveTask_maxNumberOfMessagesPerSecond,
+    startMessageMoveTask_sourceArn,
+    startMessageMoveTaskResponse_taskHandle,
+    startMessageMoveTaskResponse_httpStatus,
+
     -- ** TagQueue
     tagQueue_queueUrl,
     tagQueue_tags,
@@ -160,6 +178,17 @@ module Amazonka.SQS.Lens
 
     -- ** DeleteMessageBatchResultEntry
     deleteMessageBatchResultEntry_id,
+
+    -- ** ListMessageMoveTasksResultEntry
+    listMessageMoveTasksResultEntry_approximateNumberOfMessagesMoved,
+    listMessageMoveTasksResultEntry_approximateNumberOfMessagesToMove,
+    listMessageMoveTasksResultEntry_destinationArn,
+    listMessageMoveTasksResultEntry_failureReason,
+    listMessageMoveTasksResultEntry_maxNumberOfMessagesPerSecond,
+    listMessageMoveTasksResultEntry_sourceArn,
+    listMessageMoveTasksResultEntry_startedTimestamp,
+    listMessageMoveTasksResultEntry_status,
+    listMessageMoveTasksResultEntry_taskHandle,
 
     -- ** Message
     message_attributes,
@@ -204,6 +233,7 @@ module Amazonka.SQS.Lens
 where
 
 import Amazonka.SQS.AddPermission
+import Amazonka.SQS.CancelMessageMoveTask
 import Amazonka.SQS.ChangeMessageVisibility
 import Amazonka.SQS.ChangeMessageVisibilityBatch
 import Amazonka.SQS.CreateQueue
@@ -213,6 +243,7 @@ import Amazonka.SQS.DeleteQueue
 import Amazonka.SQS.GetQueueAttributes
 import Amazonka.SQS.GetQueueUrl
 import Amazonka.SQS.ListDeadLetterSourceQueues
+import Amazonka.SQS.ListMessageMoveTasks
 import Amazonka.SQS.ListQueueTags
 import Amazonka.SQS.ListQueues
 import Amazonka.SQS.PurgeQueue
@@ -221,12 +252,14 @@ import Amazonka.SQS.RemovePermission
 import Amazonka.SQS.SendMessage
 import Amazonka.SQS.SendMessageBatch
 import Amazonka.SQS.SetQueueAttributes
+import Amazonka.SQS.StartMessageMoveTask
 import Amazonka.SQS.TagQueue
 import Amazonka.SQS.Types.BatchResultErrorEntry
 import Amazonka.SQS.Types.ChangeMessageVisibilityBatchRequestEntry
 import Amazonka.SQS.Types.ChangeMessageVisibilityBatchResultEntry
 import Amazonka.SQS.Types.DeleteMessageBatchRequestEntry
 import Amazonka.SQS.Types.DeleteMessageBatchResultEntry
+import Amazonka.SQS.Types.ListMessageMoveTasksResultEntry
 import Amazonka.SQS.Types.Message
 import Amazonka.SQS.Types.MessageAttributeValue
 import Amazonka.SQS.Types.MessageSystemAttributeValue

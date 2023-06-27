@@ -31,28 +31,24 @@
 -- in the /Amazon SQS Developer Guide/.
 --
 -- -   @AddPermission@ generates a policy for you. You can use
---     @ SetQueueAttributes @ to upload your policy. For more information,
---     see
+--     @ @@SetQueueAttributes@@ @ to upload your policy. For more
+--     information, see
 --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-creating-custom-policies.html Using Custom Policies with the Amazon SQS Access Policy Language>
 --     in the /Amazon SQS Developer Guide/.
 --
--- -   An Amazon SQS policy can have a maximum of 7 actions.
+-- -   An Amazon SQS policy can have a maximum of seven actions per
+--     statement.
 --
 -- -   To remove the ability to change queue permissions, you must deny
 --     permission to the @AddPermission@, @RemovePermission@, and
 --     @SetQueueAttributes@ actions in your IAM policy.
 --
--- Some actions take lists of parameters. These lists are specified using
--- the @param.n@ notation. Values of @n@ are integers starting from 1. For
--- example, a parameter list with two elements looks like this:
---
--- @&AttributeName.1=first@
---
--- @&AttributeName.2=second@
+-- -   Amazon SQS @AddPermission@ does not support adding a non-account
+--     principal.
 --
 -- Cross-account permissions don\'t apply to this action. For more
 -- information, see
--- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a user name>
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a username>
 -- in the /Amazon SQS Developer Guide/.
 module Amazonka.SQS.AddPermission
   ( -- * Creating a Request
@@ -207,7 +203,8 @@ instance Core.AWSRequest AddPermission where
 
 instance Prelude.Hashable AddPermission where
   hashWithSalt _salt AddPermission' {..} =
-    _salt `Prelude.hashWithSalt` queueUrl
+    _salt
+      `Prelude.hashWithSalt` queueUrl
       `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` aWSAccountIds
       `Prelude.hashWithSalt` actions

@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Encloses the @Id@ of an entry in @ ChangeMessageVisibilityBatch.@
+-- | Encloses the @Id@ of an entry in @ @@ChangeMessageVisibilityBatch@@.@
 --
 -- /See:/ 'newChangeMessageVisibilityBatchResultEntry' smart constructor.
 data ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResultEntry'

@@ -35,7 +35,7 @@
 --
 -- Cross-account permissions don\'t apply to this action. For more
 -- information, see
--- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a user name>
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a username>
 -- in the /Amazon SQS Developer Guide/.
 --
 -- This operation returns paginated results.
@@ -134,20 +134,23 @@ instance Core.AWSPager ListQueues where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listQueuesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listQueuesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listQueuesResponse_queueUrls Prelude.. Lens._Just
+            Lens.^? listQueuesResponse_queueUrls
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listQueues_nextToken
           Lens..~ rs
-          Lens.^? listQueuesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listQueuesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListQueues where
   type AWSResponse ListQueues = ListQueuesResponse
@@ -165,7 +168,8 @@ instance Core.AWSRequest ListQueues where
 
 instance Prelude.Hashable ListQueues where
   hashWithSalt _salt ListQueues' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` queueNamePrefix
 
@@ -201,7 +205,7 @@ data ListQueuesResponse = ListQueuesResponse'
     -- if there are no additional results to request, or if you did not set
     -- @MaxResults@ in the request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of queue URLs, up to 1,000 entries, or the value of MaxResults
+    -- | A list of queue URLs, up to 1,000 entries, or the value of @MaxResults@
     -- that you sent in the request.
     queueUrls :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
@@ -221,7 +225,7 @@ data ListQueuesResponse = ListQueuesResponse'
 -- if there are no additional results to request, or if you did not set
 -- @MaxResults@ in the request.
 --
--- 'queueUrls', 'listQueuesResponse_queueUrls' - A list of queue URLs, up to 1,000 entries, or the value of MaxResults
+-- 'queueUrls', 'listQueuesResponse_queueUrls' - A list of queue URLs, up to 1,000 entries, or the value of @MaxResults@
 -- that you sent in the request.
 --
 -- 'httpStatus', 'listQueuesResponse_httpStatus' - The response's http status code.
@@ -242,7 +246,7 @@ newListQueuesResponse pHttpStatus_ =
 listQueuesResponse_nextToken :: Lens.Lens' ListQueuesResponse (Prelude.Maybe Prelude.Text)
 listQueuesResponse_nextToken = Lens.lens (\ListQueuesResponse' {nextToken} -> nextToken) (\s@ListQueuesResponse' {} a -> s {nextToken = a} :: ListQueuesResponse)
 
--- | A list of queue URLs, up to 1,000 entries, or the value of MaxResults
+-- | A list of queue URLs, up to 1,000 entries, or the value of @MaxResults@
 -- that you sent in the request.
 listQueuesResponse_queueUrls :: Lens.Lens' ListQueuesResponse (Prelude.Maybe [Prelude.Text])
 listQueuesResponse_queueUrls = Lens.lens (\ListQueuesResponse' {queueUrls} -> queueUrls) (\s@ListQueuesResponse' {} a -> s {queueUrls = a} :: ListQueuesResponse) Prelude.. Lens.mapping Lens.coerced

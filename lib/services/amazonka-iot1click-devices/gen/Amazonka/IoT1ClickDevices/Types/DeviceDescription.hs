@@ -128,7 +128,8 @@ instance Data.FromJSON DeviceDescription where
 
 instance Prelude.Hashable DeviceDescription where
   hashWithSalt _salt DeviceDescription' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` enabled

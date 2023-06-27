@@ -74,7 +74,8 @@ instance Data.FromJSON MssManifest where
 
 instance Prelude.Hashable MssManifest where
   hashWithSalt _salt MssManifest' {..} =
-    _salt `Prelude.hashWithSalt` manifestName
+    _salt
+      `Prelude.hashWithSalt` manifestName
       `Prelude.hashWithSalt` streamSelection
 
 instance Prelude.NFData MssManifest where

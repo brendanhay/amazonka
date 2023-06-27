@@ -42,6 +42,7 @@ module Amazonka.MediaPackageVOD.CreatePackagingConfiguration
     -- * Response Lenses
     createPackagingConfigurationResponse_arn,
     createPackagingConfigurationResponse_cmafPackage,
+    createPackagingConfigurationResponse_createdAt,
     createPackagingConfigurationResponse_dashPackage,
     createPackagingConfigurationResponse_hlsPackage,
     createPackagingConfigurationResponse_id,
@@ -157,6 +158,7 @@ instance Core.AWSRequest CreatePackagingConfiguration where
           CreatePackagingConfigurationResponse'
             Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "cmafPackage")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (x Data..?> "dashPackage")
             Prelude.<*> (x Data..?> "hlsPackage")
             Prelude.<*> (x Data..?> "id")
@@ -171,7 +173,8 @@ instance
     CreatePackagingConfiguration
   where
   hashWithSalt _salt CreatePackagingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` cmafPackage
+    _salt
+      `Prelude.hashWithSalt` cmafPackage
       `Prelude.hashWithSalt` dashPackage
       `Prelude.hashWithSalt` hlsPackage
       `Prelude.hashWithSalt` mssPackage
@@ -226,6 +229,8 @@ data CreatePackagingConfigurationResponse = CreatePackagingConfigurationResponse
   { -- | The ARN of the PackagingConfiguration.
     arn :: Prelude.Maybe Prelude.Text,
     cmafPackage :: Prelude.Maybe CmafPackage,
+    -- | The time the PackagingConfiguration was created.
+    createdAt :: Prelude.Maybe Prelude.Text,
     dashPackage :: Prelude.Maybe DashPackage,
     hlsPackage :: Prelude.Maybe HlsPackage,
     -- | The ID of the PackagingConfiguration.
@@ -251,6 +256,8 @@ data CreatePackagingConfigurationResponse = CreatePackagingConfigurationResponse
 --
 -- 'cmafPackage', 'createPackagingConfigurationResponse_cmafPackage' - Undocumented member.
 --
+-- 'createdAt', 'createPackagingConfigurationResponse_createdAt' - The time the PackagingConfiguration was created.
+--
 -- 'dashPackage', 'createPackagingConfigurationResponse_dashPackage' - Undocumented member.
 --
 -- 'hlsPackage', 'createPackagingConfigurationResponse_hlsPackage' - Undocumented member.
@@ -273,6 +280,7 @@ newCreatePackagingConfigurationResponse pHttpStatus_ =
     { arn =
         Prelude.Nothing,
       cmafPackage = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       dashPackage = Prelude.Nothing,
       hlsPackage = Prelude.Nothing,
       id = Prelude.Nothing,
@@ -289,6 +297,10 @@ createPackagingConfigurationResponse_arn = Lens.lens (\CreatePackagingConfigurat
 -- | Undocumented member.
 createPackagingConfigurationResponse_cmafPackage :: Lens.Lens' CreatePackagingConfigurationResponse (Prelude.Maybe CmafPackage)
 createPackagingConfigurationResponse_cmafPackage = Lens.lens (\CreatePackagingConfigurationResponse' {cmafPackage} -> cmafPackage) (\s@CreatePackagingConfigurationResponse' {} a -> s {cmafPackage = a} :: CreatePackagingConfigurationResponse)
+
+-- | The time the PackagingConfiguration was created.
+createPackagingConfigurationResponse_createdAt :: Lens.Lens' CreatePackagingConfigurationResponse (Prelude.Maybe Prelude.Text)
+createPackagingConfigurationResponse_createdAt = Lens.lens (\CreatePackagingConfigurationResponse' {createdAt} -> createdAt) (\s@CreatePackagingConfigurationResponse' {} a -> s {createdAt = a} :: CreatePackagingConfigurationResponse)
 
 -- | Undocumented member.
 createPackagingConfigurationResponse_dashPackage :: Lens.Lens' CreatePackagingConfigurationResponse (Prelude.Maybe DashPackage)
@@ -325,6 +337,7 @@ instance
   rnf CreatePackagingConfigurationResponse' {..} =
     Prelude.rnf arn
       `Prelude.seq` Prelude.rnf cmafPackage
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf dashPackage
       `Prelude.seq` Prelude.rnf hlsPackage
       `Prelude.seq` Prelude.rnf id

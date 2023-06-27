@@ -111,7 +111,8 @@ instance Data.FromJSON CmafPackage where
 
 instance Prelude.Hashable CmafPackage where
   hashWithSalt _salt CmafPackage' {..} =
-    _salt `Prelude.hashWithSalt` encryption
+    _salt
+      `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` includeEncoderConfigurationInSegments
       `Prelude.hashWithSalt` segmentDurationSeconds
       `Prelude.hashWithSalt` hlsManifests

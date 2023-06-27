@@ -173,7 +173,8 @@ instance Data.FromJSON DashPackage where
 
 instance Prelude.Hashable DashPackage where
   hashWithSalt _salt DashPackage' {..} =
-    _salt `Prelude.hashWithSalt` encryption
+    _salt
+      `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` includeEncoderConfigurationInSegments
       `Prelude.hashWithSalt` includeIframeOnlyStream
       `Prelude.hashWithSalt` periodTriggers

@@ -37,6 +37,7 @@ module Amazonka.MediaPackageVOD.DescribePackagingGroup
     describePackagingGroupResponse_approximateAssetCount,
     describePackagingGroupResponse_arn,
     describePackagingGroupResponse_authorization,
+    describePackagingGroupResponse_createdAt,
     describePackagingGroupResponse_domainName,
     describePackagingGroupResponse_egressAccessLogs,
     describePackagingGroupResponse_id,
@@ -93,6 +94,7 @@ instance Core.AWSRequest DescribePackagingGroup where
             Prelude.<$> (x Data..?> "approximateAssetCount")
             Prelude.<*> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "authorization")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (x Data..?> "domainName")
             Prelude.<*> (x Data..?> "egressAccessLogs")
             Prelude.<*> (x Data..?> "id")
@@ -133,6 +135,8 @@ data DescribePackagingGroupResponse = DescribePackagingGroupResponse'
     -- | The ARN of the PackagingGroup.
     arn :: Prelude.Maybe Prelude.Text,
     authorization :: Prelude.Maybe Authorization,
+    -- | The time the PackagingGroup was created.
+    createdAt :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified domain name for Assets in the PackagingGroup.
     domainName :: Prelude.Maybe Prelude.Text,
     egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
@@ -158,6 +162,8 @@ data DescribePackagingGroupResponse = DescribePackagingGroupResponse'
 --
 -- 'authorization', 'describePackagingGroupResponse_authorization' - Undocumented member.
 --
+-- 'createdAt', 'describePackagingGroupResponse_createdAt' - The time the PackagingGroup was created.
+--
 -- 'domainName', 'describePackagingGroupResponse_domainName' - The fully qualified domain name for Assets in the PackagingGroup.
 --
 -- 'egressAccessLogs', 'describePackagingGroupResponse_egressAccessLogs' - Undocumented member.
@@ -177,6 +183,7 @@ newDescribePackagingGroupResponse pHttpStatus_ =
         Prelude.Nothing,
       arn = Prelude.Nothing,
       authorization = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       domainName = Prelude.Nothing,
       egressAccessLogs = Prelude.Nothing,
       id = Prelude.Nothing,
@@ -195,6 +202,10 @@ describePackagingGroupResponse_arn = Lens.lens (\DescribePackagingGroupResponse'
 -- | Undocumented member.
 describePackagingGroupResponse_authorization :: Lens.Lens' DescribePackagingGroupResponse (Prelude.Maybe Authorization)
 describePackagingGroupResponse_authorization = Lens.lens (\DescribePackagingGroupResponse' {authorization} -> authorization) (\s@DescribePackagingGroupResponse' {} a -> s {authorization = a} :: DescribePackagingGroupResponse)
+
+-- | The time the PackagingGroup was created.
+describePackagingGroupResponse_createdAt :: Lens.Lens' DescribePackagingGroupResponse (Prelude.Maybe Prelude.Text)
+describePackagingGroupResponse_createdAt = Lens.lens (\DescribePackagingGroupResponse' {createdAt} -> createdAt) (\s@DescribePackagingGroupResponse' {} a -> s {createdAt = a} :: DescribePackagingGroupResponse)
 
 -- | The fully qualified domain name for Assets in the PackagingGroup.
 describePackagingGroupResponse_domainName :: Lens.Lens' DescribePackagingGroupResponse (Prelude.Maybe Prelude.Text)
@@ -224,6 +235,7 @@ instance
     Prelude.rnf approximateAssetCount
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf authorization
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf egressAccessLogs
       `Prelude.seq` Prelude.rnf id

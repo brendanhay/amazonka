@@ -35,6 +35,8 @@ data PackagingConfiguration = PackagingConfiguration'
   { -- | The ARN of the PackagingConfiguration.
     arn :: Prelude.Maybe Prelude.Text,
     cmafPackage :: Prelude.Maybe CmafPackage,
+    -- | The time the PackagingConfiguration was created.
+    createdAt :: Prelude.Maybe Prelude.Text,
     dashPackage :: Prelude.Maybe DashPackage,
     hlsPackage :: Prelude.Maybe HlsPackage,
     -- | The ID of the PackagingConfiguration.
@@ -58,6 +60,8 @@ data PackagingConfiguration = PackagingConfiguration'
 --
 -- 'cmafPackage', 'packagingConfiguration_cmafPackage' - Undocumented member.
 --
+-- 'createdAt', 'packagingConfiguration_createdAt' - The time the PackagingConfiguration was created.
+--
 -- 'dashPackage', 'packagingConfiguration_dashPackage' - Undocumented member.
 --
 -- 'hlsPackage', 'packagingConfiguration_hlsPackage' - Undocumented member.
@@ -75,6 +79,7 @@ newPackagingConfiguration =
   PackagingConfiguration'
     { arn = Prelude.Nothing,
       cmafPackage = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       dashPackage = Prelude.Nothing,
       hlsPackage = Prelude.Nothing,
       id = Prelude.Nothing,
@@ -90,6 +95,10 @@ packagingConfiguration_arn = Lens.lens (\PackagingConfiguration' {arn} -> arn) (
 -- | Undocumented member.
 packagingConfiguration_cmafPackage :: Lens.Lens' PackagingConfiguration (Prelude.Maybe CmafPackage)
 packagingConfiguration_cmafPackage = Lens.lens (\PackagingConfiguration' {cmafPackage} -> cmafPackage) (\s@PackagingConfiguration' {} a -> s {cmafPackage = a} :: PackagingConfiguration)
+
+-- | The time the PackagingConfiguration was created.
+packagingConfiguration_createdAt :: Lens.Lens' PackagingConfiguration (Prelude.Maybe Prelude.Text)
+packagingConfiguration_createdAt = Lens.lens (\PackagingConfiguration' {createdAt} -> createdAt) (\s@PackagingConfiguration' {} a -> s {createdAt = a} :: PackagingConfiguration)
 
 -- | Undocumented member.
 packagingConfiguration_dashPackage :: Lens.Lens' PackagingConfiguration (Prelude.Maybe DashPackage)
@@ -123,6 +132,7 @@ instance Data.FromJSON PackagingConfiguration where
           PackagingConfiguration'
             Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "cmafPackage")
+            Prelude.<*> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "dashPackage")
             Prelude.<*> (x Data..:? "hlsPackage")
             Prelude.<*> (x Data..:? "id")
@@ -133,8 +143,10 @@ instance Data.FromJSON PackagingConfiguration where
 
 instance Prelude.Hashable PackagingConfiguration where
   hashWithSalt _salt PackagingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` cmafPackage
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` dashPackage
       `Prelude.hashWithSalt` hlsPackage
       `Prelude.hashWithSalt` id
@@ -146,6 +158,7 @@ instance Prelude.NFData PackagingConfiguration where
   rnf PackagingConfiguration' {..} =
     Prelude.rnf arn
       `Prelude.seq` Prelude.rnf cmafPackage
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf dashPackage
       `Prelude.seq` Prelude.rnf hlsPackage
       `Prelude.seq` Prelude.rnf id

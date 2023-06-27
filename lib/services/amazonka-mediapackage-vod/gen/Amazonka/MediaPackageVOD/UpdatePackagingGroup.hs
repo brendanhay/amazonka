@@ -39,6 +39,7 @@ module Amazonka.MediaPackageVOD.UpdatePackagingGroup
     updatePackagingGroupResponse_approximateAssetCount,
     updatePackagingGroupResponse_arn,
     updatePackagingGroupResponse_authorization,
+    updatePackagingGroupResponse_createdAt,
     updatePackagingGroupResponse_domainName,
     updatePackagingGroupResponse_egressAccessLogs,
     updatePackagingGroupResponse_id,
@@ -108,6 +109,7 @@ instance Core.AWSRequest UpdatePackagingGroup where
             Prelude.<$> (x Data..?> "approximateAssetCount")
             Prelude.<*> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "authorization")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (x Data..?> "domainName")
             Prelude.<*> (x Data..?> "egressAccessLogs")
             Prelude.<*> (x Data..?> "id")
@@ -117,7 +119,8 @@ instance Core.AWSRequest UpdatePackagingGroup where
 
 instance Prelude.Hashable UpdatePackagingGroup where
   hashWithSalt _salt UpdatePackagingGroup' {..} =
-    _salt `Prelude.hashWithSalt` authorization
+    _salt
+      `Prelude.hashWithSalt` authorization
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdatePackagingGroup where
@@ -160,6 +163,8 @@ data UpdatePackagingGroupResponse = UpdatePackagingGroupResponse'
     -- | The ARN of the PackagingGroup.
     arn :: Prelude.Maybe Prelude.Text,
     authorization :: Prelude.Maybe Authorization,
+    -- | The time the PackagingGroup was created.
+    createdAt :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified domain name for Assets in the PackagingGroup.
     domainName :: Prelude.Maybe Prelude.Text,
     egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
@@ -185,6 +190,8 @@ data UpdatePackagingGroupResponse = UpdatePackagingGroupResponse'
 --
 -- 'authorization', 'updatePackagingGroupResponse_authorization' - Undocumented member.
 --
+-- 'createdAt', 'updatePackagingGroupResponse_createdAt' - The time the PackagingGroup was created.
+--
 -- 'domainName', 'updatePackagingGroupResponse_domainName' - The fully qualified domain name for Assets in the PackagingGroup.
 --
 -- 'egressAccessLogs', 'updatePackagingGroupResponse_egressAccessLogs' - Undocumented member.
@@ -204,6 +211,7 @@ newUpdatePackagingGroupResponse pHttpStatus_ =
         Prelude.Nothing,
       arn = Prelude.Nothing,
       authorization = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       domainName = Prelude.Nothing,
       egressAccessLogs = Prelude.Nothing,
       id = Prelude.Nothing,
@@ -222,6 +230,10 @@ updatePackagingGroupResponse_arn = Lens.lens (\UpdatePackagingGroupResponse' {ar
 -- | Undocumented member.
 updatePackagingGroupResponse_authorization :: Lens.Lens' UpdatePackagingGroupResponse (Prelude.Maybe Authorization)
 updatePackagingGroupResponse_authorization = Lens.lens (\UpdatePackagingGroupResponse' {authorization} -> authorization) (\s@UpdatePackagingGroupResponse' {} a -> s {authorization = a} :: UpdatePackagingGroupResponse)
+
+-- | The time the PackagingGroup was created.
+updatePackagingGroupResponse_createdAt :: Lens.Lens' UpdatePackagingGroupResponse (Prelude.Maybe Prelude.Text)
+updatePackagingGroupResponse_createdAt = Lens.lens (\UpdatePackagingGroupResponse' {createdAt} -> createdAt) (\s@UpdatePackagingGroupResponse' {} a -> s {createdAt = a} :: UpdatePackagingGroupResponse)
 
 -- | The fully qualified domain name for Assets in the PackagingGroup.
 updatePackagingGroupResponse_domainName :: Lens.Lens' UpdatePackagingGroupResponse (Prelude.Maybe Prelude.Text)
@@ -248,6 +260,7 @@ instance Prelude.NFData UpdatePackagingGroupResponse where
     Prelude.rnf approximateAssetCount
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf authorization
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf egressAccessLogs
       `Prelude.seq` Prelude.rnf id

@@ -35,6 +35,8 @@ data PackagingGroup = PackagingGroup'
     -- | The ARN of the PackagingGroup.
     arn :: Prelude.Maybe Prelude.Text,
     authorization :: Prelude.Maybe Authorization,
+    -- | The time the PackagingGroup was created.
+    createdAt :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified domain name for Assets in the PackagingGroup.
     domainName :: Prelude.Maybe Prelude.Text,
     egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
@@ -58,6 +60,8 @@ data PackagingGroup = PackagingGroup'
 --
 -- 'authorization', 'packagingGroup_authorization' - Undocumented member.
 --
+-- 'createdAt', 'packagingGroup_createdAt' - The time the PackagingGroup was created.
+--
 -- 'domainName', 'packagingGroup_domainName' - The fully qualified domain name for Assets in the PackagingGroup.
 --
 -- 'egressAccessLogs', 'packagingGroup_egressAccessLogs' - Undocumented member.
@@ -73,6 +77,7 @@ newPackagingGroup =
         Prelude.Nothing,
       arn = Prelude.Nothing,
       authorization = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       domainName = Prelude.Nothing,
       egressAccessLogs = Prelude.Nothing,
       id = Prelude.Nothing,
@@ -90,6 +95,10 @@ packagingGroup_arn = Lens.lens (\PackagingGroup' {arn} -> arn) (\s@PackagingGrou
 -- | Undocumented member.
 packagingGroup_authorization :: Lens.Lens' PackagingGroup (Prelude.Maybe Authorization)
 packagingGroup_authorization = Lens.lens (\PackagingGroup' {authorization} -> authorization) (\s@PackagingGroup' {} a -> s {authorization = a} :: PackagingGroup)
+
+-- | The time the PackagingGroup was created.
+packagingGroup_createdAt :: Lens.Lens' PackagingGroup (Prelude.Maybe Prelude.Text)
+packagingGroup_createdAt = Lens.lens (\PackagingGroup' {createdAt} -> createdAt) (\s@PackagingGroup' {} a -> s {createdAt = a} :: PackagingGroup)
 
 -- | The fully qualified domain name for Assets in the PackagingGroup.
 packagingGroup_domainName :: Lens.Lens' PackagingGroup (Prelude.Maybe Prelude.Text)
@@ -116,6 +125,7 @@ instance Data.FromJSON PackagingGroup where
             Prelude.<$> (x Data..:? "approximateAssetCount")
             Prelude.<*> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "authorization")
+            Prelude.<*> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "domainName")
             Prelude.<*> (x Data..:? "egressAccessLogs")
             Prelude.<*> (x Data..:? "id")
@@ -124,9 +134,11 @@ instance Data.FromJSON PackagingGroup where
 
 instance Prelude.Hashable PackagingGroup where
   hashWithSalt _salt PackagingGroup' {..} =
-    _salt `Prelude.hashWithSalt` approximateAssetCount
+    _salt
+      `Prelude.hashWithSalt` approximateAssetCount
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` authorization
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` egressAccessLogs
       `Prelude.hashWithSalt` id
@@ -137,6 +149,7 @@ instance Prelude.NFData PackagingGroup where
     Prelude.rnf approximateAssetCount
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf authorization
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf egressAccessLogs
       `Prelude.seq` Prelude.rnf id

@@ -49,10 +49,7 @@ data DashManifest = DashManifest'
     -- | The source of scte markers used. When set to SEGMENTS, the scte markers
     -- are sourced from the segments of the ingested content. When set to
     -- MANIFEST, the scte markers are sourced from the manifest of the ingested
-    -- content. The MANIFEST value is compatible with source HLS playlists
-    -- using the SCTE-35 Enhanced syntax (#EXT-OATCLS-SCTE35 tags). SCTE-35
-    -- Elemental and SCTE-35 Daterange syntaxes are not supported with this
-    -- option.
+    -- content.
     scteMarkersSource :: Prelude.Maybe ScteMarkersSource,
     streamSelection :: Prelude.Maybe StreamSelection
   }
@@ -83,10 +80,7 @@ data DashManifest = DashManifest'
 -- 'scteMarkersSource', 'dashManifest_scteMarkersSource' - The source of scte markers used. When set to SEGMENTS, the scte markers
 -- are sourced from the segments of the ingested content. When set to
 -- MANIFEST, the scte markers are sourced from the manifest of the ingested
--- content. The MANIFEST value is compatible with source HLS playlists
--- using the SCTE-35 Enhanced syntax (#EXT-OATCLS-SCTE35 tags). SCTE-35
--- Elemental and SCTE-35 Daterange syntaxes are not supported with this
--- option.
+-- content.
 --
 -- 'streamSelection', 'dashManifest_streamSelection' - Undocumented member.
 newDashManifest ::
@@ -126,10 +120,7 @@ dashManifest_profile = Lens.lens (\DashManifest' {profile} -> profile) (\s@DashM
 -- | The source of scte markers used. When set to SEGMENTS, the scte markers
 -- are sourced from the segments of the ingested content. When set to
 -- MANIFEST, the scte markers are sourced from the manifest of the ingested
--- content. The MANIFEST value is compatible with source HLS playlists
--- using the SCTE-35 Enhanced syntax (#EXT-OATCLS-SCTE35 tags). SCTE-35
--- Elemental and SCTE-35 Daterange syntaxes are not supported with this
--- option.
+-- content.
 dashManifest_scteMarkersSource :: Lens.Lens' DashManifest (Prelude.Maybe ScteMarkersSource)
 dashManifest_scteMarkersSource = Lens.lens (\DashManifest' {scteMarkersSource} -> scteMarkersSource) (\s@DashManifest' {} a -> s {scteMarkersSource = a} :: DashManifest)
 
@@ -153,7 +144,8 @@ instance Data.FromJSON DashManifest where
 
 instance Prelude.Hashable DashManifest where
   hashWithSalt _salt DashManifest' {..} =
-    _salt `Prelude.hashWithSalt` manifestLayout
+    _salt
+      `Prelude.hashWithSalt` manifestLayout
       `Prelude.hashWithSalt` manifestName
       `Prelude.hashWithSalt` minBufferTimeSeconds
       `Prelude.hashWithSalt` profile

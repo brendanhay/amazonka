@@ -133,7 +133,8 @@ instance Data.FromJSON AssetShallow where
 
 instance Prelude.Hashable AssetShallow where
   hashWithSalt _salt AssetShallow' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` packagingGroupId

@@ -114,7 +114,8 @@ instance Data.FromJSON HlsPackage where
 
 instance Prelude.Hashable HlsPackage where
   hashWithSalt _salt HlsPackage' {..} =
-    _salt `Prelude.hashWithSalt` encryption
+    _salt
+      `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` includeDvbSubtitles
       `Prelude.hashWithSalt` segmentDurationSeconds
       `Prelude.hashWithSalt` useAudioRenditionGroup

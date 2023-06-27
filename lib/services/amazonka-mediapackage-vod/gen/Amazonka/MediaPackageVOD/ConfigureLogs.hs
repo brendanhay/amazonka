@@ -37,6 +37,7 @@ module Amazonka.MediaPackageVOD.ConfigureLogs
     -- * Response Lenses
     configureLogsResponse_arn,
     configureLogsResponse_authorization,
+    configureLogsResponse_createdAt,
     configureLogsResponse_domainName,
     configureLogsResponse_egressAccessLogs,
     configureLogsResponse_id,
@@ -104,6 +105,7 @@ instance Core.AWSRequest ConfigureLogs where
           ConfigureLogsResponse'
             Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "authorization")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (x Data..?> "domainName")
             Prelude.<*> (x Data..?> "egressAccessLogs")
             Prelude.<*> (x Data..?> "id")
@@ -113,7 +115,8 @@ instance Core.AWSRequest ConfigureLogs where
 
 instance Prelude.Hashable ConfigureLogs where
   hashWithSalt _salt ConfigureLogs' {..} =
-    _salt `Prelude.hashWithSalt` egressAccessLogs
+    _salt
+      `Prelude.hashWithSalt` egressAccessLogs
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData ConfigureLogs where
@@ -157,6 +160,8 @@ data ConfigureLogsResponse = ConfigureLogsResponse'
   { -- | The ARN of the PackagingGroup.
     arn :: Prelude.Maybe Prelude.Text,
     authorization :: Prelude.Maybe Authorization,
+    -- | The time the PackagingGroup was created.
+    createdAt :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified domain name for Assets in the PackagingGroup.
     domainName :: Prelude.Maybe Prelude.Text,
     egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
@@ -180,6 +185,8 @@ data ConfigureLogsResponse = ConfigureLogsResponse'
 --
 -- 'authorization', 'configureLogsResponse_authorization' - Undocumented member.
 --
+-- 'createdAt', 'configureLogsResponse_createdAt' - The time the PackagingGroup was created.
+--
 -- 'domainName', 'configureLogsResponse_domainName' - The fully qualified domain name for Assets in the PackagingGroup.
 --
 -- 'egressAccessLogs', 'configureLogsResponse_egressAccessLogs' - Undocumented member.
@@ -197,6 +204,7 @@ newConfigureLogsResponse pHttpStatus_ =
   ConfigureLogsResponse'
     { arn = Prelude.Nothing,
       authorization = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       domainName = Prelude.Nothing,
       egressAccessLogs = Prelude.Nothing,
       id = Prelude.Nothing,
@@ -211,6 +219,10 @@ configureLogsResponse_arn = Lens.lens (\ConfigureLogsResponse' {arn} -> arn) (\s
 -- | Undocumented member.
 configureLogsResponse_authorization :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe Authorization)
 configureLogsResponse_authorization = Lens.lens (\ConfigureLogsResponse' {authorization} -> authorization) (\s@ConfigureLogsResponse' {} a -> s {authorization = a} :: ConfigureLogsResponse)
+
+-- | The time the PackagingGroup was created.
+configureLogsResponse_createdAt :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe Prelude.Text)
+configureLogsResponse_createdAt = Lens.lens (\ConfigureLogsResponse' {createdAt} -> createdAt) (\s@ConfigureLogsResponse' {} a -> s {createdAt = a} :: ConfigureLogsResponse)
 
 -- | The fully qualified domain name for Assets in the PackagingGroup.
 configureLogsResponse_domainName :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe Prelude.Text)
@@ -236,6 +248,7 @@ instance Prelude.NFData ConfigureLogsResponse where
   rnf ConfigureLogsResponse' {..} =
     Prelude.rnf arn
       `Prelude.seq` Prelude.rnf authorization
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf egressAccessLogs
       `Prelude.seq` Prelude.rnf id

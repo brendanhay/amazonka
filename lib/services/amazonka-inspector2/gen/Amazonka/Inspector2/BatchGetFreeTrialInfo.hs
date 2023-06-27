@@ -90,7 +90,8 @@ instance Core.AWSRequest BatchGetFreeTrialInfo where
           BatchGetFreeTrialInfoResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "accounts" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "failedAccounts"
+            Prelude.<*> ( x
+                            Data..?> "failedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )

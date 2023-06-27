@@ -20,6 +20,7 @@
 module Amazonka.Inspector2.Types.AggregationFindingType
   ( AggregationFindingType
       ( ..,
+        AggregationFindingType_CODE_VULNERABILITY,
         AggregationFindingType_NETWORK_REACHABILITY,
         AggregationFindingType_PACKAGE_VULNERABILITY
       ),
@@ -58,6 +59,9 @@ newtype AggregationFindingType = AggregationFindingType'
       Data.ToXML
     )
 
+pattern AggregationFindingType_CODE_VULNERABILITY :: AggregationFindingType
+pattern AggregationFindingType_CODE_VULNERABILITY = AggregationFindingType' "CODE_VULNERABILITY"
+
 pattern AggregationFindingType_NETWORK_REACHABILITY :: AggregationFindingType
 pattern AggregationFindingType_NETWORK_REACHABILITY = AggregationFindingType' "NETWORK_REACHABILITY"
 
@@ -65,6 +69,7 @@ pattern AggregationFindingType_PACKAGE_VULNERABILITY :: AggregationFindingType
 pattern AggregationFindingType_PACKAGE_VULNERABILITY = AggregationFindingType' "PACKAGE_VULNERABILITY"
 
 {-# COMPLETE
+  AggregationFindingType_CODE_VULNERABILITY,
   AggregationFindingType_NETWORK_REACHABILITY,
   AggregationFindingType_PACKAGE_VULNERABILITY,
   AggregationFindingType'

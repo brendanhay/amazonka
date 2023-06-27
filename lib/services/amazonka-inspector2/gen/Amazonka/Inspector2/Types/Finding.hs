@@ -22,6 +22,8 @@ module Amazonka.Inspector2.Types.Finding where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.Inspector2.Types.CodeVulnerabilityDetails
+import Amazonka.Inspector2.Types.EpssDetails
 import Amazonka.Inspector2.Types.ExploitAvailable
 import Amazonka.Inspector2.Types.ExploitabilityDetails
 import Amazonka.Inspector2.Types.FindingStatus
@@ -39,7 +41,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFinding' smart constructor.
 data Finding = Finding'
-  { -- | If a finding discovered in your environment has an exploit available.
+  { -- | Details about the code vulnerability identified in a Lambda function
+    -- used to filter findings.
+    codeVulnerabilityDetails :: Prelude.Maybe CodeVulnerabilityDetails,
+    -- | The finding\'s EPSS score.
+    epss :: Prelude.Maybe EpssDetails,
+    -- | If a finding discovered in your environment has an exploit available.
     exploitAvailable :: Prelude.Maybe ExploitAvailable,
     -- | The details of an exploit available for a finding discovered in your
     -- environment.
@@ -91,6 +98,11 @@ data Finding = Finding'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'codeVulnerabilityDetails', 'finding_codeVulnerabilityDetails' - Details about the code vulnerability identified in a Lambda function
+-- used to filter findings.
+--
+-- 'epss', 'finding_epss' - The finding\'s EPSS score.
 --
 -- 'exploitAvailable', 'finding_exploitAvailable' - If a finding discovered in your environment has an exploit available.
 --
@@ -167,7 +179,10 @@ newFinding
   pStatus_
   pType_ =
     Finding'
-      { exploitAvailable = Prelude.Nothing,
+      { codeVulnerabilityDetails =
+          Prelude.Nothing,
+        epss = Prelude.Nothing,
+        exploitAvailable = Prelude.Nothing,
         exploitabilityDetails = Prelude.Nothing,
         fixAvailable = Prelude.Nothing,
         inspectorScore = Prelude.Nothing,
@@ -188,6 +203,15 @@ newFinding
         status = pStatus_,
         type' = pType_
       }
+
+-- | Details about the code vulnerability identified in a Lambda function
+-- used to filter findings.
+finding_codeVulnerabilityDetails :: Lens.Lens' Finding (Prelude.Maybe CodeVulnerabilityDetails)
+finding_codeVulnerabilityDetails = Lens.lens (\Finding' {codeVulnerabilityDetails} -> codeVulnerabilityDetails) (\s@Finding' {} a -> s {codeVulnerabilityDetails = a} :: Finding)
+
+-- | The finding\'s EPSS score.
+finding_epss :: Lens.Lens' Finding (Prelude.Maybe EpssDetails)
+finding_epss = Lens.lens (\Finding' {epss} -> epss) (\s@Finding' {} a -> s {epss = a} :: Finding)
 
 -- | If a finding discovered in your environment has an exploit available.
 finding_exploitAvailable :: Lens.Lens' Finding (Prelude.Maybe ExploitAvailable)
@@ -275,7 +299,9 @@ instance Data.FromJSON Finding where
       "Finding"
       ( \x ->
           Finding'
-            Prelude.<$> (x Data..:? "exploitAvailable")
+            Prelude.<$> (x Data..:? "codeVulnerabilityDetails")
+            Prelude.<*> (x Data..:? "epss")
+            Prelude.<*> (x Data..:? "exploitAvailable")
             Prelude.<*> (x Data..:? "exploitabilityDetails")
             Prelude.<*> (x Data..:? "fixAvailable")
             Prelude.<*> (x Data..:? "inspectorScore")
@@ -298,7 +324,10 @@ instance Data.FromJSON Finding where
 
 instance Prelude.Hashable Finding where
   hashWithSalt _salt Finding' {..} =
-    _salt `Prelude.hashWithSalt` exploitAvailable
+    _salt
+      `Prelude.hashWithSalt` codeVulnerabilityDetails
+      `Prelude.hashWithSalt` epss
+      `Prelude.hashWithSalt` exploitAvailable
       `Prelude.hashWithSalt` exploitabilityDetails
       `Prelude.hashWithSalt` fixAvailable
       `Prelude.hashWithSalt` inspectorScore
@@ -320,7 +349,9 @@ instance Prelude.Hashable Finding where
 
 instance Prelude.NFData Finding where
   rnf Finding' {..} =
-    Prelude.rnf exploitAvailable
+    Prelude.rnf codeVulnerabilityDetails
+      `Prelude.seq` Prelude.rnf epss
+      `Prelude.seq` Prelude.rnf exploitAvailable
       `Prelude.seq` Prelude.rnf exploitabilityDetails
       `Prelude.seq` Prelude.rnf fixAvailable
       `Prelude.seq` Prelude.rnf inspectorScore

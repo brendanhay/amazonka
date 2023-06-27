@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDestination' smart constructor.
 data Destination = Destination'
-  { -- | The prefix of the KMS key used to export findings.
+  { -- | The prefix of the Amazon S3 bucket used to export findings.
     keyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon S3 bucket to export findings to.
     bucketName :: Prelude.Text,
@@ -46,7 +46,7 @@ data Destination = Destination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyPrefix', 'destination_keyPrefix' - The prefix of the KMS key used to export findings.
+-- 'keyPrefix', 'destination_keyPrefix' - The prefix of the Amazon S3 bucket used to export findings.
 --
 -- 'bucketName', 'destination_bucketName' - The name of the Amazon S3 bucket to export findings to.
 --
@@ -64,7 +64,7 @@ newDestination pBucketName_ pKmsKeyArn_ =
       kmsKeyArn = pKmsKeyArn_
     }
 
--- | The prefix of the KMS key used to export findings.
+-- | The prefix of the Amazon S3 bucket used to export findings.
 destination_keyPrefix :: Lens.Lens' Destination (Prelude.Maybe Prelude.Text)
 destination_keyPrefix = Lens.lens (\Destination' {keyPrefix} -> keyPrefix) (\s@Destination' {} a -> s {keyPrefix = a} :: Destination)
 
@@ -89,7 +89,8 @@ instance Data.FromJSON Destination where
 
 instance Prelude.Hashable Destination where
   hashWithSalt _salt Destination' {..} =
-    _salt `Prelude.hashWithSalt` keyPrefix
+    _salt
+      `Prelude.hashWithSalt` keyPrefix
       `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` kmsKeyArn
 

@@ -36,6 +36,19 @@ import qualified Amazonka.Prelude as Prelude
 data FilterCriteria = FilterCriteria'
   { -- | Details of the Amazon Web Services account IDs used to filter findings.
     awsAccountId :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
+    -- | The name of the detector used to identify a code vulnerability in a
+    -- Lambda function used to filter findings.
+    codeVulnerabilityDetectorName :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
+    -- | The detector type tag associated with the vulnerability used to filter
+    -- findings. Detector tags group related vulnerabilities by common themes
+    -- or tactics. For a list of available tags by programming language, see
+    -- <https://docs.aws.amazon.com/codeguru/detector-library/java/tags/ Java tags>,
+    -- or
+    -- <https://docs.aws.amazon.com/codeguru/detector-library/python/tags/ Python tags>.
+    codeVulnerabilityDetectorTags :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
+    -- | The file path to the file in a Lambda function that contains a code
+    -- vulnerability used to filter findings.
+    codeVulnerabilityFilePath :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
     -- | Details of the component IDs used to filter findings.
     componentId :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
     -- | Details of the component types used to filter findings.
@@ -61,6 +74,8 @@ data FilterCriteria = FilterCriteria'
     ecrImageRepositoryName :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
     -- | The tags attached to the Amazon ECR container image.
     ecrImageTags :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
+    -- | The EPSS score used to filter findings.
+    epssScore :: Prelude.Maybe (Prelude.NonEmpty NumberFilter),
     -- | Filters the list of AWS Lambda findings by the availability of exploits.
     exploitAvailable :: Prelude.Maybe (Prelude.NonEmpty StringFilter),
     -- | Details on the finding ARNs used to filter findings.
@@ -137,6 +152,19 @@ data FilterCriteria = FilterCriteria'
 --
 -- 'awsAccountId', 'filterCriteria_awsAccountId' - Details of the Amazon Web Services account IDs used to filter findings.
 --
+-- 'codeVulnerabilityDetectorName', 'filterCriteria_codeVulnerabilityDetectorName' - The name of the detector used to identify a code vulnerability in a
+-- Lambda function used to filter findings.
+--
+-- 'codeVulnerabilityDetectorTags', 'filterCriteria_codeVulnerabilityDetectorTags' - The detector type tag associated with the vulnerability used to filter
+-- findings. Detector tags group related vulnerabilities by common themes
+-- or tactics. For a list of available tags by programming language, see
+-- <https://docs.aws.amazon.com/codeguru/detector-library/java/tags/ Java tags>,
+-- or
+-- <https://docs.aws.amazon.com/codeguru/detector-library/python/tags/ Python tags>.
+--
+-- 'codeVulnerabilityFilePath', 'filterCriteria_codeVulnerabilityFilePath' - The file path to the file in a Lambda function that contains a code
+-- vulnerability used to filter findings.
+--
 -- 'componentId', 'filterCriteria_componentId' - Details of the component IDs used to filter findings.
 --
 -- 'componentType', 'filterCriteria_componentType' - Details of the component types used to filter findings.
@@ -161,6 +189,8 @@ data FilterCriteria = FilterCriteria'
 -- findings.
 --
 -- 'ecrImageTags', 'filterCriteria_ecrImageTags' - The tags attached to the Amazon ECR container image.
+--
+-- 'epssScore', 'filterCriteria_epssScore' - The EPSS score used to filter findings.
 --
 -- 'exploitAvailable', 'filterCriteria_exploitAvailable' - Filters the list of AWS Lambda findings by the availability of exploits.
 --
@@ -229,6 +259,9 @@ newFilterCriteria ::
 newFilterCriteria =
   FilterCriteria'
     { awsAccountId = Prelude.Nothing,
+      codeVulnerabilityDetectorName = Prelude.Nothing,
+      codeVulnerabilityDetectorTags = Prelude.Nothing,
+      codeVulnerabilityFilePath = Prelude.Nothing,
       componentId = Prelude.Nothing,
       componentType = Prelude.Nothing,
       ec2InstanceImageId = Prelude.Nothing,
@@ -240,6 +273,7 @@ newFilterCriteria =
       ecrImageRegistry = Prelude.Nothing,
       ecrImageRepositoryName = Prelude.Nothing,
       ecrImageTags = Prelude.Nothing,
+      epssScore = Prelude.Nothing,
       exploitAvailable = Prelude.Nothing,
       findingArn = Prelude.Nothing,
       findingStatus = Prelude.Nothing,
@@ -271,6 +305,25 @@ newFilterCriteria =
 -- | Details of the Amazon Web Services account IDs used to filter findings.
 filterCriteria_awsAccountId :: Lens.Lens' FilterCriteria (Prelude.Maybe (Prelude.NonEmpty StringFilter))
 filterCriteria_awsAccountId = Lens.lens (\FilterCriteria' {awsAccountId} -> awsAccountId) (\s@FilterCriteria' {} a -> s {awsAccountId = a} :: FilterCriteria) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the detector used to identify a code vulnerability in a
+-- Lambda function used to filter findings.
+filterCriteria_codeVulnerabilityDetectorName :: Lens.Lens' FilterCriteria (Prelude.Maybe (Prelude.NonEmpty StringFilter))
+filterCriteria_codeVulnerabilityDetectorName = Lens.lens (\FilterCriteria' {codeVulnerabilityDetectorName} -> codeVulnerabilityDetectorName) (\s@FilterCriteria' {} a -> s {codeVulnerabilityDetectorName = a} :: FilterCriteria) Prelude.. Lens.mapping Lens.coerced
+
+-- | The detector type tag associated with the vulnerability used to filter
+-- findings. Detector tags group related vulnerabilities by common themes
+-- or tactics. For a list of available tags by programming language, see
+-- <https://docs.aws.amazon.com/codeguru/detector-library/java/tags/ Java tags>,
+-- or
+-- <https://docs.aws.amazon.com/codeguru/detector-library/python/tags/ Python tags>.
+filterCriteria_codeVulnerabilityDetectorTags :: Lens.Lens' FilterCriteria (Prelude.Maybe (Prelude.NonEmpty StringFilter))
+filterCriteria_codeVulnerabilityDetectorTags = Lens.lens (\FilterCriteria' {codeVulnerabilityDetectorTags} -> codeVulnerabilityDetectorTags) (\s@FilterCriteria' {} a -> s {codeVulnerabilityDetectorTags = a} :: FilterCriteria) Prelude.. Lens.mapping Lens.coerced
+
+-- | The file path to the file in a Lambda function that contains a code
+-- vulnerability used to filter findings.
+filterCriteria_codeVulnerabilityFilePath :: Lens.Lens' FilterCriteria (Prelude.Maybe (Prelude.NonEmpty StringFilter))
+filterCriteria_codeVulnerabilityFilePath = Lens.lens (\FilterCriteria' {codeVulnerabilityFilePath} -> codeVulnerabilityFilePath) (\s@FilterCriteria' {} a -> s {codeVulnerabilityFilePath = a} :: FilterCriteria) Prelude.. Lens.mapping Lens.coerced
 
 -- | Details of the component IDs used to filter findings.
 filterCriteria_componentId :: Lens.Lens' FilterCriteria (Prelude.Maybe (Prelude.NonEmpty StringFilter))
@@ -318,6 +371,10 @@ filterCriteria_ecrImageRepositoryName = Lens.lens (\FilterCriteria' {ecrImageRep
 -- | The tags attached to the Amazon ECR container image.
 filterCriteria_ecrImageTags :: Lens.Lens' FilterCriteria (Prelude.Maybe (Prelude.NonEmpty StringFilter))
 filterCriteria_ecrImageTags = Lens.lens (\FilterCriteria' {ecrImageTags} -> ecrImageTags) (\s@FilterCriteria' {} a -> s {ecrImageTags = a} :: FilterCriteria) Prelude.. Lens.mapping Lens.coerced
+
+-- | The EPSS score used to filter findings.
+filterCriteria_epssScore :: Lens.Lens' FilterCriteria (Prelude.Maybe (Prelude.NonEmpty NumberFilter))
+filterCriteria_epssScore = Lens.lens (\FilterCriteria' {epssScore} -> epssScore) (\s@FilterCriteria' {} a -> s {epssScore = a} :: FilterCriteria) Prelude.. Lens.mapping Lens.coerced
 
 -- | Filters the list of AWS Lambda findings by the availability of exploits.
 filterCriteria_exploitAvailable :: Lens.Lens' FilterCriteria (Prelude.Maybe (Prelude.NonEmpty StringFilter))
@@ -441,6 +498,9 @@ instance Data.FromJSON FilterCriteria where
       ( \x ->
           FilterCriteria'
             Prelude.<$> (x Data..:? "awsAccountId")
+            Prelude.<*> (x Data..:? "codeVulnerabilityDetectorName")
+            Prelude.<*> (x Data..:? "codeVulnerabilityDetectorTags")
+            Prelude.<*> (x Data..:? "codeVulnerabilityFilePath")
             Prelude.<*> (x Data..:? "componentId")
             Prelude.<*> (x Data..:? "componentType")
             Prelude.<*> (x Data..:? "ec2InstanceImageId")
@@ -452,6 +512,7 @@ instance Data.FromJSON FilterCriteria where
             Prelude.<*> (x Data..:? "ecrImageRegistry")
             Prelude.<*> (x Data..:? "ecrImageRepositoryName")
             Prelude.<*> (x Data..:? "ecrImageTags")
+            Prelude.<*> (x Data..:? "epssScore")
             Prelude.<*> (x Data..:? "exploitAvailable")
             Prelude.<*> (x Data..:? "findingArn")
             Prelude.<*> (x Data..:? "findingStatus")
@@ -482,7 +543,11 @@ instance Data.FromJSON FilterCriteria where
 
 instance Prelude.Hashable FilterCriteria where
   hashWithSalt _salt FilterCriteria' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
+      `Prelude.hashWithSalt` codeVulnerabilityDetectorName
+      `Prelude.hashWithSalt` codeVulnerabilityDetectorTags
+      `Prelude.hashWithSalt` codeVulnerabilityFilePath
       `Prelude.hashWithSalt` componentId
       `Prelude.hashWithSalt` componentType
       `Prelude.hashWithSalt` ec2InstanceImageId
@@ -494,6 +559,7 @@ instance Prelude.Hashable FilterCriteria where
       `Prelude.hashWithSalt` ecrImageRegistry
       `Prelude.hashWithSalt` ecrImageRepositoryName
       `Prelude.hashWithSalt` ecrImageTags
+      `Prelude.hashWithSalt` epssScore
       `Prelude.hashWithSalt` exploitAvailable
       `Prelude.hashWithSalt` findingArn
       `Prelude.hashWithSalt` findingStatus
@@ -524,6 +590,9 @@ instance Prelude.Hashable FilterCriteria where
 instance Prelude.NFData FilterCriteria where
   rnf FilterCriteria' {..} =
     Prelude.rnf awsAccountId
+      `Prelude.seq` Prelude.rnf codeVulnerabilityDetectorName
+      `Prelude.seq` Prelude.rnf codeVulnerabilityDetectorTags
+      `Prelude.seq` Prelude.rnf codeVulnerabilityFilePath
       `Prelude.seq` Prelude.rnf componentId
       `Prelude.seq` Prelude.rnf componentType
       `Prelude.seq` Prelude.rnf ec2InstanceImageId
@@ -535,13 +604,15 @@ instance Prelude.NFData FilterCriteria where
       `Prelude.seq` Prelude.rnf ecrImageRegistry
       `Prelude.seq` Prelude.rnf ecrImageRepositoryName
       `Prelude.seq` Prelude.rnf ecrImageTags
+      `Prelude.seq` Prelude.rnf epssScore
       `Prelude.seq` Prelude.rnf exploitAvailable
       `Prelude.seq` Prelude.rnf findingArn
       `Prelude.seq` Prelude.rnf findingStatus
       `Prelude.seq` Prelude.rnf findingType
       `Prelude.seq` Prelude.rnf firstObservedAt
       `Prelude.seq` Prelude.rnf fixAvailable
-      `Prelude.seq` Prelude.rnf inspectorScore
+      `Prelude.seq` Prelude.rnf
+        inspectorScore
       `Prelude.seq` Prelude.rnf
         lambdaFunctionExecutionRoleArn
       `Prelude.seq` Prelude.rnf
@@ -586,6 +657,12 @@ instance Data.ToJSON FilterCriteria where
     Data.object
       ( Prelude.catMaybes
           [ ("awsAccountId" Data..=) Prelude.<$> awsAccountId,
+            ("codeVulnerabilityDetectorName" Data..=)
+              Prelude.<$> codeVulnerabilityDetectorName,
+            ("codeVulnerabilityDetectorTags" Data..=)
+              Prelude.<$> codeVulnerabilityDetectorTags,
+            ("codeVulnerabilityFilePath" Data..=)
+              Prelude.<$> codeVulnerabilityFilePath,
             ("componentId" Data..=) Prelude.<$> componentId,
             ("componentType" Data..=) Prelude.<$> componentType,
             ("ec2InstanceImageId" Data..=)
@@ -604,6 +681,7 @@ instance Data.ToJSON FilterCriteria where
             ("ecrImageRepositoryName" Data..=)
               Prelude.<$> ecrImageRepositoryName,
             ("ecrImageTags" Data..=) Prelude.<$> ecrImageTags,
+            ("epssScore" Data..=) Prelude.<$> epssScore,
             ("exploitAvailable" Data..=)
               Prelude.<$> exploitAvailable,
             ("findingArn" Data..=) Prelude.<$> findingArn,

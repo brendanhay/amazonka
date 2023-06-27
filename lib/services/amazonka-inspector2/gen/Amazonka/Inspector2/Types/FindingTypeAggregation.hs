@@ -87,7 +87,8 @@ findingTypeAggregation_sortOrder = Lens.lens (\FindingTypeAggregation' {sortOrde
 
 instance Prelude.Hashable FindingTypeAggregation where
   hashWithSalt _salt FindingTypeAggregation' {..} =
-    _salt `Prelude.hashWithSalt` findingType
+    _salt
+      `Prelude.hashWithSalt` findingType
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` sortOrder

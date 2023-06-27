@@ -74,7 +74,8 @@ instance Data.FromJSON NumberFilter where
 
 instance Prelude.Hashable NumberFilter where
   hashWithSalt _salt NumberFilter' {..} =
-    _salt `Prelude.hashWithSalt` lowerInclusive
+    _salt
+      `Prelude.hashWithSalt` lowerInclusive
       `Prelude.hashWithSalt` upperInclusive
 
 instance Prelude.NFData NumberFilter where

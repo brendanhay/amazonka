@@ -125,7 +125,8 @@ instance
     ImageLayerAggregationResponse
   where
   hashWithSalt _salt ImageLayerAggregationResponse' {..} =
-    _salt `Prelude.hashWithSalt` severityCounts
+    _salt
+      `Prelude.hashWithSalt` severityCounts
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` layerHash
       `Prelude.hashWithSalt` repository

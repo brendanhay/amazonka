@@ -68,12 +68,14 @@ instance Data.FromJSON Recommendation where
       "Recommendation"
       ( \x ->
           Recommendation'
-            Prelude.<$> (x Data..:? "Url") Prelude.<*> (x Data..:? "text")
+            Prelude.<$> (x Data..:? "Url")
+            Prelude.<*> (x Data..:? "text")
       )
 
 instance Prelude.Hashable Recommendation where
   hashWithSalt _salt Recommendation' {..} =
-    _salt `Prelude.hashWithSalt` url
+    _salt
+      `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` text
 
 instance Prelude.NFData Recommendation where

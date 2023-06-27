@@ -20,6 +20,7 @@
 module Amazonka.Inspector2.Types.ScanType
   ( ScanType
       ( ..,
+        ScanType_CODE,
         ScanType_NETWORK,
         ScanType_PACKAGE
       ),
@@ -58,6 +59,9 @@ newtype ScanType = ScanType'
       Data.ToXML
     )
 
+pattern ScanType_CODE :: ScanType
+pattern ScanType_CODE = ScanType' "CODE"
+
 pattern ScanType_NETWORK :: ScanType
 pattern ScanType_NETWORK = ScanType' "NETWORK"
 
@@ -65,6 +69,7 @@ pattern ScanType_PACKAGE :: ScanType
 pattern ScanType_PACKAGE = ScanType' "PACKAGE"
 
 {-# COMPLETE
+  ScanType_CODE,
   ScanType_NETWORK,
   ScanType_PACKAGE,
   ScanType'

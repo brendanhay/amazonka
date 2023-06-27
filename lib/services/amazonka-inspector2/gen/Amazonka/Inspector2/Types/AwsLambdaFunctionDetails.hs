@@ -192,7 +192,8 @@ instance Data.FromJSON AwsLambdaFunctionDetails where
 
 instance Prelude.Hashable AwsLambdaFunctionDetails where
   hashWithSalt _salt AwsLambdaFunctionDetails' {..} =
-    _salt `Prelude.hashWithSalt` architectures
+    _salt
+      `Prelude.hashWithSalt` architectures
       `Prelude.hashWithSalt` lastModifiedAt
       `Prelude.hashWithSalt` layers
       `Prelude.hashWithSalt` packageType

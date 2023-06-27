@@ -21,6 +21,10 @@ module Amazonka.Inspector2.Types.ScanStatusReason
   ( ScanStatusReason
       ( ..,
         ScanStatusReason_ACCESS_DENIED,
+        ScanStatusReason_DEEP_INSPECTION_COLLECTION_TIME_LIMIT_EXCEEDED,
+        ScanStatusReason_DEEP_INSPECTION_DAILY_SSM_INVENTORY_LIMIT_EXCEEDED,
+        ScanStatusReason_DEEP_INSPECTION_NO_INVENTORY,
+        ScanStatusReason_DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED,
         ScanStatusReason_EC2_INSTANCE_STOPPED,
         ScanStatusReason_EXCLUDED_BY_TAG,
         ScanStatusReason_IMAGE_SIZE_EXCEEDED,
@@ -36,6 +40,8 @@ module Amazonka.Inspector2.Types.ScanStatusReason
         ScanStatusReason_STALE_INVENTORY,
         ScanStatusReason_SUCCESSFUL,
         ScanStatusReason_UNMANAGED_EC2_INSTANCE,
+        ScanStatusReason_UNSUPPORTED_CONFIG_FILE,
+        ScanStatusReason_UNSUPPORTED_MEDIA_TYPE,
         ScanStatusReason_UNSUPPORTED_OS,
         ScanStatusReason_UNSUPPORTED_RUNTIME
       ),
@@ -76,6 +82,18 @@ newtype ScanStatusReason = ScanStatusReason'
 
 pattern ScanStatusReason_ACCESS_DENIED :: ScanStatusReason
 pattern ScanStatusReason_ACCESS_DENIED = ScanStatusReason' "ACCESS_DENIED"
+
+pattern ScanStatusReason_DEEP_INSPECTION_COLLECTION_TIME_LIMIT_EXCEEDED :: ScanStatusReason
+pattern ScanStatusReason_DEEP_INSPECTION_COLLECTION_TIME_LIMIT_EXCEEDED = ScanStatusReason' "DEEP_INSPECTION_COLLECTION_TIME_LIMIT_EXCEEDED"
+
+pattern ScanStatusReason_DEEP_INSPECTION_DAILY_SSM_INVENTORY_LIMIT_EXCEEDED :: ScanStatusReason
+pattern ScanStatusReason_DEEP_INSPECTION_DAILY_SSM_INVENTORY_LIMIT_EXCEEDED = ScanStatusReason' "DEEP_INSPECTION_DAILY_SSM_INVENTORY_LIMIT_EXCEEDED"
+
+pattern ScanStatusReason_DEEP_INSPECTION_NO_INVENTORY :: ScanStatusReason
+pattern ScanStatusReason_DEEP_INSPECTION_NO_INVENTORY = ScanStatusReason' "DEEP_INSPECTION_NO_INVENTORY"
+
+pattern ScanStatusReason_DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED :: ScanStatusReason
+pattern ScanStatusReason_DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED = ScanStatusReason' "DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED"
 
 pattern ScanStatusReason_EC2_INSTANCE_STOPPED :: ScanStatusReason
 pattern ScanStatusReason_EC2_INSTANCE_STOPPED = ScanStatusReason' "EC2_INSTANCE_STOPPED"
@@ -122,6 +140,12 @@ pattern ScanStatusReason_SUCCESSFUL = ScanStatusReason' "SUCCESSFUL"
 pattern ScanStatusReason_UNMANAGED_EC2_INSTANCE :: ScanStatusReason
 pattern ScanStatusReason_UNMANAGED_EC2_INSTANCE = ScanStatusReason' "UNMANAGED_EC2_INSTANCE"
 
+pattern ScanStatusReason_UNSUPPORTED_CONFIG_FILE :: ScanStatusReason
+pattern ScanStatusReason_UNSUPPORTED_CONFIG_FILE = ScanStatusReason' "UNSUPPORTED_CONFIG_FILE"
+
+pattern ScanStatusReason_UNSUPPORTED_MEDIA_TYPE :: ScanStatusReason
+pattern ScanStatusReason_UNSUPPORTED_MEDIA_TYPE = ScanStatusReason' "UNSUPPORTED_MEDIA_TYPE"
+
 pattern ScanStatusReason_UNSUPPORTED_OS :: ScanStatusReason
 pattern ScanStatusReason_UNSUPPORTED_OS = ScanStatusReason' "UNSUPPORTED_OS"
 
@@ -130,6 +154,10 @@ pattern ScanStatusReason_UNSUPPORTED_RUNTIME = ScanStatusReason' "UNSUPPORTED_RU
 
 {-# COMPLETE
   ScanStatusReason_ACCESS_DENIED,
+  ScanStatusReason_DEEP_INSPECTION_COLLECTION_TIME_LIMIT_EXCEEDED,
+  ScanStatusReason_DEEP_INSPECTION_DAILY_SSM_INVENTORY_LIMIT_EXCEEDED,
+  ScanStatusReason_DEEP_INSPECTION_NO_INVENTORY,
+  ScanStatusReason_DEEP_INSPECTION_PACKAGE_COLLECTION_LIMIT_EXCEEDED,
   ScanStatusReason_EC2_INSTANCE_STOPPED,
   ScanStatusReason_EXCLUDED_BY_TAG,
   ScanStatusReason_IMAGE_SIZE_EXCEEDED,
@@ -145,6 +173,8 @@ pattern ScanStatusReason_UNSUPPORTED_RUNTIME = ScanStatusReason' "UNSUPPORTED_RU
   ScanStatusReason_STALE_INVENTORY,
   ScanStatusReason_SUCCESSFUL,
   ScanStatusReason_UNMANAGED_EC2_INSTANCE,
+  ScanStatusReason_UNSUPPORTED_CONFIG_FILE,
+  ScanStatusReason_UNSUPPORTED_MEDIA_TYPE,
   ScanStatusReason_UNSUPPORTED_OS,
   ScanStatusReason_UNSUPPORTED_RUNTIME,
   ScanStatusReason'

@@ -76,7 +76,8 @@ instance Data.FromJSON EcrRepositoryMetadata where
 
 instance Prelude.Hashable EcrRepositoryMetadata where
   hashWithSalt _salt EcrRepositoryMetadata' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scanFrequency
 
 instance Prelude.NFData EcrRepositoryMetadata where

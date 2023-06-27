@@ -99,7 +99,8 @@ instance Data.FromJSON TitleAggregationResponse where
 
 instance Prelude.Hashable TitleAggregationResponse where
   hashWithSalt _salt TitleAggregationResponse' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` severityCounts
       `Prelude.hashWithSalt` vulnerabilityId
       `Prelude.hashWithSalt` title

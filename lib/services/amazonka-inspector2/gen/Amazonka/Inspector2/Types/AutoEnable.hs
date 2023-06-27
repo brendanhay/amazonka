@@ -29,9 +29,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoEnable' smart constructor.
 data AutoEnable = AutoEnable'
-  { -- | Represents whether AWS Lambda scans are automatically enabled for new
-    -- members of your Amazon Inspector organization.
+  { -- | Represents whether AWS Lambda standard scans are automatically enabled
+    -- for new members of your Amazon Inspector organization.
     lambda :: Prelude.Maybe Prelude.Bool,
+    -- | Represents whether AWS Lambda code scans are automatically enabled for
+    -- new members of your Amazon Inspector organization.
+    --
+    -- >  </p>
+    lambdaCode :: Prelude.Maybe Prelude.Bool,
     -- | Represents whether Amazon EC2 scans are automatically enabled for new
     -- members of your Amazon Inspector organization.
     ec2 :: Prelude.Bool,
@@ -49,8 +54,13 @@ data AutoEnable = AutoEnable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lambda', 'autoEnable_lambda' - Represents whether AWS Lambda scans are automatically enabled for new
--- members of your Amazon Inspector organization.
+-- 'lambda', 'autoEnable_lambda' - Represents whether AWS Lambda standard scans are automatically enabled
+-- for new members of your Amazon Inspector organization.
+--
+-- 'lambdaCode', 'autoEnable_lambdaCode' - Represents whether AWS Lambda code scans are automatically enabled for
+-- new members of your Amazon Inspector organization.
+--
+-- >  </p>
 --
 -- 'ec2', 'autoEnable_ec2' - Represents whether Amazon EC2 scans are automatically enabled for new
 -- members of your Amazon Inspector organization.
@@ -66,14 +76,22 @@ newAutoEnable ::
 newAutoEnable pEc2_ pEcr_ =
   AutoEnable'
     { lambda = Prelude.Nothing,
+      lambdaCode = Prelude.Nothing,
       ec2 = pEc2_,
       ecr = pEcr_
     }
 
--- | Represents whether AWS Lambda scans are automatically enabled for new
--- members of your Amazon Inspector organization.
+-- | Represents whether AWS Lambda standard scans are automatically enabled
+-- for new members of your Amazon Inspector organization.
 autoEnable_lambda :: Lens.Lens' AutoEnable (Prelude.Maybe Prelude.Bool)
 autoEnable_lambda = Lens.lens (\AutoEnable' {lambda} -> lambda) (\s@AutoEnable' {} a -> s {lambda = a} :: AutoEnable)
+
+-- | Represents whether AWS Lambda code scans are automatically enabled for
+-- new members of your Amazon Inspector organization.
+--
+-- >  </p>
+autoEnable_lambdaCode :: Lens.Lens' AutoEnable (Prelude.Maybe Prelude.Bool)
+autoEnable_lambdaCode = Lens.lens (\AutoEnable' {lambdaCode} -> lambdaCode) (\s@AutoEnable' {} a -> s {lambdaCode = a} :: AutoEnable)
 
 -- | Represents whether Amazon EC2 scans are automatically enabled for new
 -- members of your Amazon Inspector organization.
@@ -92,19 +110,23 @@ instance Data.FromJSON AutoEnable where
       ( \x ->
           AutoEnable'
             Prelude.<$> (x Data..:? "lambda")
+            Prelude.<*> (x Data..:? "lambdaCode")
             Prelude.<*> (x Data..: "ec2")
             Prelude.<*> (x Data..: "ecr")
       )
 
 instance Prelude.Hashable AutoEnable where
   hashWithSalt _salt AutoEnable' {..} =
-    _salt `Prelude.hashWithSalt` lambda
+    _salt
+      `Prelude.hashWithSalt` lambda
+      `Prelude.hashWithSalt` lambdaCode
       `Prelude.hashWithSalt` ec2
       `Prelude.hashWithSalt` ecr
 
 instance Prelude.NFData AutoEnable where
   rnf AutoEnable' {..} =
     Prelude.rnf lambda
+      `Prelude.seq` Prelude.rnf lambdaCode
       `Prelude.seq` Prelude.rnf ec2
       `Prelude.seq` Prelude.rnf ecr
 
@@ -113,6 +135,7 @@ instance Data.ToJSON AutoEnable where
     Data.object
       ( Prelude.catMaybes
           [ ("lambda" Data..=) Prelude.<$> lambda,
+            ("lambdaCode" Data..=) Prelude.<$> lambdaCode,
             Prelude.Just ("ec2" Data..= ec2),
             Prelude.Just ("ecr" Data..= ecr)
           ]

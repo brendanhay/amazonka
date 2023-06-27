@@ -22,7 +22,8 @@ module Amazonka.Inspector2.Types.FreeTrialType
       ( ..,
         FreeTrialType_EC2,
         FreeTrialType_ECR,
-        FreeTrialType_LAMBDA
+        FreeTrialType_LAMBDA,
+        FreeTrialType_LAMBDA_CODE
       ),
   )
 where
@@ -68,9 +69,13 @@ pattern FreeTrialType_ECR = FreeTrialType' "ECR"
 pattern FreeTrialType_LAMBDA :: FreeTrialType
 pattern FreeTrialType_LAMBDA = FreeTrialType' "LAMBDA"
 
+pattern FreeTrialType_LAMBDA_CODE :: FreeTrialType
+pattern FreeTrialType_LAMBDA_CODE = FreeTrialType' "LAMBDA_CODE"
+
 {-# COMPLETE
   FreeTrialType_EC2,
   FreeTrialType_ECR,
   FreeTrialType_LAMBDA,
+  FreeTrialType_LAMBDA_CODE,
   FreeTrialType'
   #-}

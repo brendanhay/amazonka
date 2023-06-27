@@ -23,6 +23,7 @@ module Amazonka.Inspector2.Types.PackageManager
         PackageManager_BUNDLER,
         PackageManager_CARGO,
         PackageManager_COMPOSER,
+        PackageManager_GEMSPEC,
         PackageManager_GOBINARY,
         PackageManager_GOMOD,
         PackageManager_JAR,
@@ -81,6 +82,9 @@ pattern PackageManager_CARGO = PackageManager' "CARGO"
 pattern PackageManager_COMPOSER :: PackageManager
 pattern PackageManager_COMPOSER = PackageManager' "COMPOSER"
 
+pattern PackageManager_GEMSPEC :: PackageManager
+pattern PackageManager_GEMSPEC = PackageManager' "GEMSPEC"
+
 pattern PackageManager_GOBINARY :: PackageManager
 pattern PackageManager_GOBINARY = PackageManager' "GOBINARY"
 
@@ -124,6 +128,7 @@ pattern PackageManager_YARN = PackageManager' "YARN"
   PackageManager_BUNDLER,
   PackageManager_CARGO,
   PackageManager_COMPOSER,
+  PackageManager_GEMSPEC,
   PackageManager_GOBINARY,
   PackageManager_GOMOD,
   PackageManager_JAR,

@@ -155,7 +155,8 @@ instance Data.FromJSON AwsEc2InstanceDetails where
 
 instance Prelude.Hashable AwsEc2InstanceDetails where
   hashWithSalt _salt AwsEc2InstanceDetails' {..} =
-    _salt `Prelude.hashWithSalt` iamInstanceProfileArn
+    _salt
+      `Prelude.hashWithSalt` iamInstanceProfileArn
       `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` ipV4Addresses
       `Prelude.hashWithSalt` ipV6Addresses

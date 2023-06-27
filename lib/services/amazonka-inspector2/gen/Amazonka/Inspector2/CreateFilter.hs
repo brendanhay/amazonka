@@ -153,7 +153,8 @@ instance Core.AWSRequest CreateFilter where
 
 instance Prelude.Hashable CreateFilter where
   hashWithSalt _salt CreateFilter' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` action

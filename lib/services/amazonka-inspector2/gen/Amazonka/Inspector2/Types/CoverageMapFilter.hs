@@ -78,7 +78,8 @@ coverageMapFilter_key = Lens.lens (\CoverageMapFilter' {key} -> key) (\s@Coverag
 
 instance Prelude.Hashable CoverageMapFilter where
   hashWithSalt _salt CoverageMapFilter' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` comparison
       `Prelude.hashWithSalt` key
 

@@ -25,16 +25,39 @@ module Amazonka.Inspector2.Lens
     batchGetAccountStatusResponse_httpStatus,
     batchGetAccountStatusResponse_accounts,
 
+    -- ** BatchGetCodeSnippet
+    batchGetCodeSnippet_findingArns,
+    batchGetCodeSnippetResponse_codeSnippetResults,
+    batchGetCodeSnippetResponse_errors,
+    batchGetCodeSnippetResponse_httpStatus,
+
     -- ** BatchGetFreeTrialInfo
     batchGetFreeTrialInfo_accountIds,
     batchGetFreeTrialInfoResponse_httpStatus,
     batchGetFreeTrialInfoResponse_accounts,
     batchGetFreeTrialInfoResponse_failedAccounts,
 
+    -- ** BatchGetMemberEc2DeepInspectionStatus
+    batchGetMemberEc2DeepInspectionStatus_accountIds,
+    batchGetMemberEc2DeepInspectionStatusResponse_accountIds,
+    batchGetMemberEc2DeepInspectionStatusResponse_failedAccountIds,
+    batchGetMemberEc2DeepInspectionStatusResponse_httpStatus,
+
+    -- ** BatchUpdateMemberEc2DeepInspectionStatus
+    batchUpdateMemberEc2DeepInspectionStatus_accountIds,
+    batchUpdateMemberEc2DeepInspectionStatusResponse_accountIds,
+    batchUpdateMemberEc2DeepInspectionStatusResponse_failedAccountIds,
+    batchUpdateMemberEc2DeepInspectionStatusResponse_httpStatus,
+
     -- ** CancelFindingsReport
     cancelFindingsReport_reportId,
     cancelFindingsReportResponse_httpStatus,
     cancelFindingsReportResponse_reportId,
+
+    -- ** CancelSbomExport
+    cancelSbomExport_reportId,
+    cancelSbomExportResponse_reportId,
+    cancelSbomExportResponse_httpStatus,
 
     -- ** CreateFilter
     createFilter_description,
@@ -52,6 +75,13 @@ module Amazonka.Inspector2.Lens
     createFindingsReport_s3Destination,
     createFindingsReportResponse_reportId,
     createFindingsReportResponse_httpStatus,
+
+    -- ** CreateSbomExport
+    createSbomExport_resourceFilterCriteria,
+    createSbomExport_reportFormat,
+    createSbomExport_s3Destination,
+    createSbomExportResponse_reportId,
+    createSbomExportResponse_httpStatus,
 
     -- ** DeleteFilter
     deleteFilter_arn,
@@ -102,6 +132,19 @@ module Amazonka.Inspector2.Lens
     getDelegatedAdminAccountResponse_delegatedAdmin,
     getDelegatedAdminAccountResponse_httpStatus,
 
+    -- ** GetEc2DeepInspectionConfiguration
+    getEc2DeepInspectionConfigurationResponse_errorMessage,
+    getEc2DeepInspectionConfigurationResponse_orgPackagePaths,
+    getEc2DeepInspectionConfigurationResponse_packagePaths,
+    getEc2DeepInspectionConfigurationResponse_status,
+    getEc2DeepInspectionConfigurationResponse_httpStatus,
+
+    -- ** GetEncryptionKey
+    getEncryptionKey_resourceType,
+    getEncryptionKey_scanType,
+    getEncryptionKeyResponse_httpStatus,
+    getEncryptionKeyResponse_kmsKeyId,
+
     -- ** GetFindingsReportStatus
     getFindingsReportStatus_reportId,
     getFindingsReportStatusResponse_destination,
@@ -116,6 +159,17 @@ module Amazonka.Inspector2.Lens
     getMember_accountId,
     getMemberResponse_member,
     getMemberResponse_httpStatus,
+
+    -- ** GetSbomExport
+    getSbomExport_reportId,
+    getSbomExportResponse_errorCode,
+    getSbomExportResponse_errorMessage,
+    getSbomExportResponse_filterCriteria,
+    getSbomExportResponse_format,
+    getSbomExportResponse_reportId,
+    getSbomExportResponse_s3Destination,
+    getSbomExportResponse_status,
+    getSbomExportResponse_httpStatus,
 
     -- ** ListAccountPermissions
     listAccountPermissions_maxResults,
@@ -199,6 +253,18 @@ module Amazonka.Inspector2.Lens
     listUsageTotalsResponse_totals,
     listUsageTotalsResponse_httpStatus,
 
+    -- ** ResetEncryptionKey
+    resetEncryptionKey_resourceType,
+    resetEncryptionKey_scanType,
+    resetEncryptionKeyResponse_httpStatus,
+
+    -- ** SearchVulnerabilities
+    searchVulnerabilities_nextToken,
+    searchVulnerabilities_filterCriteria,
+    searchVulnerabilitiesResponse_nextToken,
+    searchVulnerabilitiesResponse_httpStatus,
+    searchVulnerabilitiesResponse_vulnerabilities,
+
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
@@ -213,6 +279,21 @@ module Amazonka.Inspector2.Lens
     updateConfiguration_ecrConfiguration,
     updateConfigurationResponse_httpStatus,
 
+    -- ** UpdateEc2DeepInspectionConfiguration
+    updateEc2DeepInspectionConfiguration_activateDeepInspection,
+    updateEc2DeepInspectionConfiguration_packagePaths,
+    updateEc2DeepInspectionConfigurationResponse_errorMessage,
+    updateEc2DeepInspectionConfigurationResponse_orgPackagePaths,
+    updateEc2DeepInspectionConfigurationResponse_packagePaths,
+    updateEc2DeepInspectionConfigurationResponse_status,
+    updateEc2DeepInspectionConfigurationResponse_httpStatus,
+
+    -- ** UpdateEncryptionKey
+    updateEncryptionKey_kmsKeyId,
+    updateEncryptionKey_resourceType,
+    updateEncryptionKey_scanType,
+    updateEncryptionKeyResponse_httpStatus,
+
     -- ** UpdateFilter
     updateFilter_action,
     updateFilter_description,
@@ -222,6 +303,10 @@ module Amazonka.Inspector2.Lens
     updateFilter_filterArn,
     updateFilterResponse_httpStatus,
     updateFilterResponse_arn,
+
+    -- ** UpdateOrgEc2DeepInspectionConfiguration
+    updateOrgEc2DeepInspectionConfiguration_orgPackagePaths,
+    updateOrgEc2DeepInspectionConfigurationResponse_httpStatus,
 
     -- ** UpdateOrganizationConfiguration
     updateOrganizationConfiguration_autoEnable,
@@ -287,8 +372,15 @@ module Amazonka.Inspector2.Lens
     amiAggregationResponse_severityCounts,
     amiAggregationResponse_ami,
 
+    -- ** AtigData
+    atigData_firstSeen,
+    atigData_lastSeen,
+    atigData_targets,
+    atigData_ttps,
+
     -- ** AutoEnable
     autoEnable_lambda,
+    autoEnable_lambdaCode,
     autoEnable_ec2,
     autoEnable_ecr,
 
@@ -344,9 +436,50 @@ module Amazonka.Inspector2.Lens
     awsLambdaFunctionDetails_runtime,
     awsLambdaFunctionDetails_version,
 
+    -- ** CisaData
+    cisaData_action,
+    cisaData_dateAdded,
+    cisaData_dateDue,
+
+    -- ** CodeFilePath
+    codeFilePath_endLine,
+    codeFilePath_fileName,
+    codeFilePath_filePath,
+    codeFilePath_startLine,
+
+    -- ** CodeLine
+    codeLine_content,
+    codeLine_lineNumber,
+
+    -- ** CodeSnippetError
+    codeSnippetError_errorCode,
+    codeSnippetError_errorMessage,
+    codeSnippetError_findingArn,
+
+    -- ** CodeSnippetResult
+    codeSnippetResult_codeSnippet,
+    codeSnippetResult_endLine,
+    codeSnippetResult_findingArn,
+    codeSnippetResult_startLine,
+    codeSnippetResult_suggestedFixes,
+
+    -- ** CodeVulnerabilityDetails
+    codeVulnerabilityDetails_detectorTags,
+    codeVulnerabilityDetails_referenceUrls,
+    codeVulnerabilityDetails_ruleId,
+    codeVulnerabilityDetails_sourceLambdaLayerArn,
+    codeVulnerabilityDetails_cwes,
+    codeVulnerabilityDetails_detectorId,
+    codeVulnerabilityDetails_detectorName,
+    codeVulnerabilityDetails_filePath,
+
     -- ** Counts
     counts_count,
     counts_groupKey,
+
+    -- ** CoverageDateFilter
+    coverageDateFilter_endInclusive,
+    coverageDateFilter_startInclusive,
 
     -- ** CoverageFilterCriteria
     coverageFilterCriteria_accountId,
@@ -356,6 +489,7 @@ module Amazonka.Inspector2.Lens
     coverageFilterCriteria_lambdaFunctionName,
     coverageFilterCriteria_lambdaFunctionRuntime,
     coverageFilterCriteria_lambdaFunctionTags,
+    coverageFilterCriteria_lastScannedAt,
     coverageFilterCriteria_resourceId,
     coverageFilterCriteria_resourceType,
     coverageFilterCriteria_scanStatusCode,
@@ -372,12 +506,21 @@ module Amazonka.Inspector2.Lens
     coverageStringFilter_value,
 
     -- ** CoveredResource
+    coveredResource_lastScannedAt,
     coveredResource_resourceMetadata,
     coveredResource_scanStatus,
     coveredResource_accountId,
     coveredResource_resourceId,
     coveredResource_resourceType,
     coveredResource_scanType,
+
+    -- ** Cvss2
+    cvss2_baseScore,
+    cvss2_scoringVector,
+
+    -- ** Cvss3
+    cvss3_baseScore,
+    cvss3_scoringVector,
 
     -- ** CvssScore
     cvssScore_baseScore,
@@ -454,6 +597,16 @@ module Amazonka.Inspector2.Lens
     ecrRescanDurationState_status,
     ecrRescanDurationState_updatedAt,
 
+    -- ** Epss
+    epss_score,
+
+    -- ** EpssDetails
+    epssDetails_score,
+
+    -- ** ExploitObserved
+    exploitObserved_firstSeen,
+    exploitObserved_lastSeen,
+
     -- ** ExploitabilityDetails
     exploitabilityDetails_lastKnownExploitAt,
 
@@ -463,6 +616,11 @@ module Amazonka.Inspector2.Lens
     failedAccount_accountId,
     failedAccount_errorCode,
     failedAccount_errorMessage,
+
+    -- ** FailedMemberAccountEc2DeepInspectionStatusState
+    failedMemberAccountEc2DeepInspectionStatusState_ec2ScanStatus,
+    failedMemberAccountEc2DeepInspectionStatusState_errorMessage,
+    failedMemberAccountEc2DeepInspectionStatusState_accountId,
 
     -- ** Filter
     filter_description,
@@ -478,6 +636,9 @@ module Amazonka.Inspector2.Lens
 
     -- ** FilterCriteria
     filterCriteria_awsAccountId,
+    filterCriteria_codeVulnerabilityDetectorName,
+    filterCriteria_codeVulnerabilityDetectorTags,
+    filterCriteria_codeVulnerabilityFilePath,
     filterCriteria_componentId,
     filterCriteria_componentType,
     filterCriteria_ec2InstanceImageId,
@@ -489,6 +650,7 @@ module Amazonka.Inspector2.Lens
     filterCriteria_ecrImageRegistry,
     filterCriteria_ecrImageRepositoryName,
     filterCriteria_ecrImageTags,
+    filterCriteria_epssScore,
     filterCriteria_exploitAvailable,
     filterCriteria_findingArn,
     filterCriteria_findingStatus,
@@ -517,6 +679,8 @@ module Amazonka.Inspector2.Lens
     filterCriteria_vulnerablePackages,
 
     -- ** Finding
+    finding_codeVulnerabilityDetails,
+    finding_epss,
     finding_exploitAvailable,
     finding_exploitabilityDetails,
     finding_fixAvailable,
@@ -632,6 +796,15 @@ module Amazonka.Inspector2.Lens
     member_relationshipStatus,
     member_updatedAt,
 
+    -- ** MemberAccountEc2DeepInspectionStatus
+    memberAccountEc2DeepInspectionStatus_accountId,
+    memberAccountEc2DeepInspectionStatus_activateDeepInspection,
+
+    -- ** MemberAccountEc2DeepInspectionStatusState
+    memberAccountEc2DeepInspectionStatusState_errorMessage,
+    memberAccountEc2DeepInspectionStatusState_status,
+    memberAccountEc2DeepInspectionStatusState_accountId,
+
     -- ** NetworkPath
     networkPath_steps,
 
@@ -718,6 +891,21 @@ module Amazonka.Inspector2.Lens
     resourceDetails_awsEcrContainerImage,
     resourceDetails_awsLambdaFunction,
 
+    -- ** ResourceFilterCriteria
+    resourceFilterCriteria_accountId,
+    resourceFilterCriteria_ec2InstanceTags,
+    resourceFilterCriteria_ecrImageTags,
+    resourceFilterCriteria_ecrRepositoryName,
+    resourceFilterCriteria_lambdaFunctionName,
+    resourceFilterCriteria_lambdaFunctionTags,
+    resourceFilterCriteria_resourceId,
+    resourceFilterCriteria_resourceType,
+
+    -- ** ResourceMapFilter
+    resourceMapFilter_value,
+    resourceMapFilter_comparison,
+    resourceMapFilter_key,
+
     -- ** ResourceScanMetadata
     resourceScanMetadata_ec2,
     resourceScanMetadata_ecrImage,
@@ -726,17 +914,26 @@ module Amazonka.Inspector2.Lens
 
     -- ** ResourceState
     resourceState_lambda,
+    resourceState_lambdaCode,
     resourceState_ec2,
     resourceState_ecr,
 
     -- ** ResourceStatus
     resourceStatus_lambda,
+    resourceStatus_lambdaCode,
     resourceStatus_ec2,
     resourceStatus_ecr,
+
+    -- ** ResourceStringFilter
+    resourceStringFilter_comparison,
+    resourceStringFilter_value,
 
     -- ** ScanStatus
     scanStatus_reason,
     scanStatus_statusCode,
+
+    -- ** SearchVulnerabilitiesFilterCriteria
+    searchVulnerabilitiesFilterCriteria_vulnerabilityIds,
 
     -- ** SeverityCounts
     severityCounts_all,
@@ -761,7 +958,12 @@ module Amazonka.Inspector2.Lens
     stringFilter_comparison,
     stringFilter_value,
 
+    -- ** SuggestedFix
+    suggestedFix_code,
+    suggestedFix_description,
+
     -- ** TitleAggregation
+    titleAggregation_findingType,
     titleAggregation_resourceType,
     titleAggregation_sortBy,
     titleAggregation_sortOrder,
@@ -784,6 +986,25 @@ module Amazonka.Inspector2.Lens
     usageTotal_accountId,
     usageTotal_usage,
 
+    -- ** Vulnerability
+    vulnerability_atigData,
+    vulnerability_cisaData,
+    vulnerability_cvss2,
+    vulnerability_cvss3,
+    vulnerability_cwes,
+    vulnerability_description,
+    vulnerability_detectionPlatforms,
+    vulnerability_epss,
+    vulnerability_exploitObserved,
+    vulnerability_referenceUrls,
+    vulnerability_relatedVulnerabilities,
+    vulnerability_source,
+    vulnerability_sourceUrl,
+    vulnerability_vendorCreatedAt,
+    vulnerability_vendorSeverity,
+    vulnerability_vendorUpdatedAt,
+    vulnerability_id,
+
     -- ** VulnerablePackage
     vulnerablePackage_arch,
     vulnerablePackage_epoch,
@@ -801,10 +1022,15 @@ where
 
 import Amazonka.Inspector2.AssociateMember
 import Amazonka.Inspector2.BatchGetAccountStatus
+import Amazonka.Inspector2.BatchGetCodeSnippet
 import Amazonka.Inspector2.BatchGetFreeTrialInfo
+import Amazonka.Inspector2.BatchGetMemberEc2DeepInspectionStatus
+import Amazonka.Inspector2.BatchUpdateMemberEc2DeepInspectionStatus
 import Amazonka.Inspector2.CancelFindingsReport
+import Amazonka.Inspector2.CancelSbomExport
 import Amazonka.Inspector2.CreateFilter
 import Amazonka.Inspector2.CreateFindingsReport
+import Amazonka.Inspector2.CreateSbomExport
 import Amazonka.Inspector2.DeleteFilter
 import Amazonka.Inspector2.DescribeOrganizationConfiguration
 import Amazonka.Inspector2.Disable
@@ -814,8 +1040,11 @@ import Amazonka.Inspector2.Enable
 import Amazonka.Inspector2.EnableDelegatedAdminAccount
 import Amazonka.Inspector2.GetConfiguration
 import Amazonka.Inspector2.GetDelegatedAdminAccount
+import Amazonka.Inspector2.GetEc2DeepInspectionConfiguration
+import Amazonka.Inspector2.GetEncryptionKey
 import Amazonka.Inspector2.GetFindingsReportStatus
 import Amazonka.Inspector2.GetMember
+import Amazonka.Inspector2.GetSbomExport
 import Amazonka.Inspector2.ListAccountPermissions
 import Amazonka.Inspector2.ListCoverage
 import Amazonka.Inspector2.ListCoverageStatistics
@@ -826,6 +1055,8 @@ import Amazonka.Inspector2.ListFindings
 import Amazonka.Inspector2.ListMembers
 import Amazonka.Inspector2.ListTagsForResource
 import Amazonka.Inspector2.ListUsageTotals
+import Amazonka.Inspector2.ResetEncryptionKey
+import Amazonka.Inspector2.SearchVulnerabilities
 import Amazonka.Inspector2.TagResource
 import Amazonka.Inspector2.Types.Account
 import Amazonka.Inspector2.Types.AccountAggregation
@@ -835,17 +1066,27 @@ import Amazonka.Inspector2.Types.AggregationRequest
 import Amazonka.Inspector2.Types.AggregationResponse
 import Amazonka.Inspector2.Types.AmiAggregation
 import Amazonka.Inspector2.Types.AmiAggregationResponse
+import Amazonka.Inspector2.Types.AtigData
 import Amazonka.Inspector2.Types.AutoEnable
 import Amazonka.Inspector2.Types.AwsEc2InstanceDetails
 import Amazonka.Inspector2.Types.AwsEcrContainerAggregation
 import Amazonka.Inspector2.Types.AwsEcrContainerAggregationResponse
 import Amazonka.Inspector2.Types.AwsEcrContainerImageDetails
 import Amazonka.Inspector2.Types.AwsLambdaFunctionDetails
+import Amazonka.Inspector2.Types.CisaData
+import Amazonka.Inspector2.Types.CodeFilePath
+import Amazonka.Inspector2.Types.CodeLine
+import Amazonka.Inspector2.Types.CodeSnippetError
+import Amazonka.Inspector2.Types.CodeSnippetResult
+import Amazonka.Inspector2.Types.CodeVulnerabilityDetails
 import Amazonka.Inspector2.Types.Counts
+import Amazonka.Inspector2.Types.CoverageDateFilter
 import Amazonka.Inspector2.Types.CoverageFilterCriteria
 import Amazonka.Inspector2.Types.CoverageMapFilter
 import Amazonka.Inspector2.Types.CoverageStringFilter
 import Amazonka.Inspector2.Types.CoveredResource
+import Amazonka.Inspector2.Types.Cvss2
+import Amazonka.Inspector2.Types.Cvss3
 import Amazonka.Inspector2.Types.CvssScore
 import Amazonka.Inspector2.Types.CvssScoreAdjustment
 import Amazonka.Inspector2.Types.CvssScoreDetails
@@ -861,8 +1102,12 @@ import Amazonka.Inspector2.Types.EcrConfigurationState
 import Amazonka.Inspector2.Types.EcrContainerImageMetadata
 import Amazonka.Inspector2.Types.EcrRepositoryMetadata
 import Amazonka.Inspector2.Types.EcrRescanDurationState
+import Amazonka.Inspector2.Types.Epss
+import Amazonka.Inspector2.Types.EpssDetails
+import Amazonka.Inspector2.Types.ExploitObserved
 import Amazonka.Inspector2.Types.ExploitabilityDetails
 import Amazonka.Inspector2.Types.FailedAccount
+import Amazonka.Inspector2.Types.FailedMemberAccountEc2DeepInspectionStatusState
 import Amazonka.Inspector2.Types.Filter
 import Amazonka.Inspector2.Types.FilterCriteria
 import Amazonka.Inspector2.Types.Finding
@@ -882,6 +1127,8 @@ import Amazonka.Inspector2.Types.LambdaLayerAggregationResponse
 import Amazonka.Inspector2.Types.LambdaVpcConfig
 import Amazonka.Inspector2.Types.MapFilter
 import Amazonka.Inspector2.Types.Member
+import Amazonka.Inspector2.Types.MemberAccountEc2DeepInspectionStatus
+import Amazonka.Inspector2.Types.MemberAccountEc2DeepInspectionStatusState
 import Amazonka.Inspector2.Types.NetworkPath
 import Amazonka.Inspector2.Types.NetworkReachabilityDetails
 import Amazonka.Inspector2.Types.NumberFilter
@@ -898,21 +1145,30 @@ import Amazonka.Inspector2.Types.RepositoryAggregation
 import Amazonka.Inspector2.Types.RepositoryAggregationResponse
 import Amazonka.Inspector2.Types.Resource
 import Amazonka.Inspector2.Types.ResourceDetails
+import Amazonka.Inspector2.Types.ResourceFilterCriteria
+import Amazonka.Inspector2.Types.ResourceMapFilter
 import Amazonka.Inspector2.Types.ResourceScanMetadata
 import Amazonka.Inspector2.Types.ResourceState
 import Amazonka.Inspector2.Types.ResourceStatus
+import Amazonka.Inspector2.Types.ResourceStringFilter
 import Amazonka.Inspector2.Types.ScanStatus
+import Amazonka.Inspector2.Types.SearchVulnerabilitiesFilterCriteria
 import Amazonka.Inspector2.Types.SeverityCounts
 import Amazonka.Inspector2.Types.SortCriteria
 import Amazonka.Inspector2.Types.State
 import Amazonka.Inspector2.Types.Step
 import Amazonka.Inspector2.Types.StringFilter
+import Amazonka.Inspector2.Types.SuggestedFix
 import Amazonka.Inspector2.Types.TitleAggregation
 import Amazonka.Inspector2.Types.TitleAggregationResponse
 import Amazonka.Inspector2.Types.Usage
 import Amazonka.Inspector2.Types.UsageTotal
+import Amazonka.Inspector2.Types.Vulnerability
 import Amazonka.Inspector2.Types.VulnerablePackage
 import Amazonka.Inspector2.UntagResource
 import Amazonka.Inspector2.UpdateConfiguration
+import Amazonka.Inspector2.UpdateEc2DeepInspectionConfiguration
+import Amazonka.Inspector2.UpdateEncryptionKey
 import Amazonka.Inspector2.UpdateFilter
+import Amazonka.Inspector2.UpdateOrgEc2DeepInspectionConfiguration
 import Amazonka.Inspector2.UpdateOrganizationConfiguration

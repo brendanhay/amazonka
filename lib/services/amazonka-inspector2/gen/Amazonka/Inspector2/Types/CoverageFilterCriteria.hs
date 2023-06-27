@@ -22,6 +22,7 @@ module Amazonka.Inspector2.Types.CoverageFilterCriteria where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.Inspector2.Types.CoverageDateFilter
 import Amazonka.Inspector2.Types.CoverageMapFilter
 import Amazonka.Inspector2.Types.CoverageStringFilter
 import qualified Amazonka.Prelude as Prelude
@@ -47,12 +48,15 @@ data CoverageFilterCriteria = CoverageFilterCriteria'
     lambdaFunctionRuntime :: Prelude.Maybe (Prelude.NonEmpty CoverageStringFilter),
     -- | Returns coverage statistics for AWS Lambda functions filtered by tag.
     lambdaFunctionTags :: Prelude.Maybe (Prelude.NonEmpty CoverageMapFilter),
+    -- | Filters Amazon Web Services resources based on whether Amazon Inspector
+    -- has checked them for vulnerabilities within the specified time range.
+    lastScannedAt :: Prelude.Maybe (Prelude.NonEmpty CoverageDateFilter),
     -- | An array of Amazon Web Services resource IDs to return coverage
     -- statistics for.
     resourceId :: Prelude.Maybe (Prelude.NonEmpty CoverageStringFilter),
     -- | An array of Amazon Web Services resource types to return coverage
-    -- statistics for. The values can be @AWS_EC2_INSTANCE@ or
-    -- @AWS_ECR_REPOSITORY@.
+    -- statistics for. The values can be @AWS_EC2_INSTANCE@,
+    -- @AWS_LAMBDA_FUNCTION@ or @AWS_ECR_REPOSITORY@.
     resourceType :: Prelude.Maybe (Prelude.NonEmpty CoverageStringFilter),
     -- | The scan status code to filter on.
     scanStatusCode :: Prelude.Maybe (Prelude.NonEmpty CoverageStringFilter),
@@ -89,12 +93,15 @@ data CoverageFilterCriteria = CoverageFilterCriteria'
 --
 -- 'lambdaFunctionTags', 'coverageFilterCriteria_lambdaFunctionTags' - Returns coverage statistics for AWS Lambda functions filtered by tag.
 --
+-- 'lastScannedAt', 'coverageFilterCriteria_lastScannedAt' - Filters Amazon Web Services resources based on whether Amazon Inspector
+-- has checked them for vulnerabilities within the specified time range.
+--
 -- 'resourceId', 'coverageFilterCriteria_resourceId' - An array of Amazon Web Services resource IDs to return coverage
 -- statistics for.
 --
 -- 'resourceType', 'coverageFilterCriteria_resourceType' - An array of Amazon Web Services resource types to return coverage
--- statistics for. The values can be @AWS_EC2_INSTANCE@ or
--- @AWS_ECR_REPOSITORY@.
+-- statistics for. The values can be @AWS_EC2_INSTANCE@,
+-- @AWS_LAMBDA_FUNCTION@ or @AWS_ECR_REPOSITORY@.
 --
 -- 'scanStatusCode', 'coverageFilterCriteria_scanStatusCode' - The scan status code to filter on.
 --
@@ -114,6 +121,7 @@ newCoverageFilterCriteria =
       lambdaFunctionName = Prelude.Nothing,
       lambdaFunctionRuntime = Prelude.Nothing,
       lambdaFunctionTags = Prelude.Nothing,
+      lastScannedAt = Prelude.Nothing,
       resourceId = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       scanStatusCode = Prelude.Nothing,
@@ -152,14 +160,19 @@ coverageFilterCriteria_lambdaFunctionRuntime = Lens.lens (\CoverageFilterCriteri
 coverageFilterCriteria_lambdaFunctionTags :: Lens.Lens' CoverageFilterCriteria (Prelude.Maybe (Prelude.NonEmpty CoverageMapFilter))
 coverageFilterCriteria_lambdaFunctionTags = Lens.lens (\CoverageFilterCriteria' {lambdaFunctionTags} -> lambdaFunctionTags) (\s@CoverageFilterCriteria' {} a -> s {lambdaFunctionTags = a} :: CoverageFilterCriteria) Prelude.. Lens.mapping Lens.coerced
 
+-- | Filters Amazon Web Services resources based on whether Amazon Inspector
+-- has checked them for vulnerabilities within the specified time range.
+coverageFilterCriteria_lastScannedAt :: Lens.Lens' CoverageFilterCriteria (Prelude.Maybe (Prelude.NonEmpty CoverageDateFilter))
+coverageFilterCriteria_lastScannedAt = Lens.lens (\CoverageFilterCriteria' {lastScannedAt} -> lastScannedAt) (\s@CoverageFilterCriteria' {} a -> s {lastScannedAt = a} :: CoverageFilterCriteria) Prelude.. Lens.mapping Lens.coerced
+
 -- | An array of Amazon Web Services resource IDs to return coverage
 -- statistics for.
 coverageFilterCriteria_resourceId :: Lens.Lens' CoverageFilterCriteria (Prelude.Maybe (Prelude.NonEmpty CoverageStringFilter))
 coverageFilterCriteria_resourceId = Lens.lens (\CoverageFilterCriteria' {resourceId} -> resourceId) (\s@CoverageFilterCriteria' {} a -> s {resourceId = a} :: CoverageFilterCriteria) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of Amazon Web Services resource types to return coverage
--- statistics for. The values can be @AWS_EC2_INSTANCE@ or
--- @AWS_ECR_REPOSITORY@.
+-- statistics for. The values can be @AWS_EC2_INSTANCE@,
+-- @AWS_LAMBDA_FUNCTION@ or @AWS_ECR_REPOSITORY@.
 coverageFilterCriteria_resourceType :: Lens.Lens' CoverageFilterCriteria (Prelude.Maybe (Prelude.NonEmpty CoverageStringFilter))
 coverageFilterCriteria_resourceType = Lens.lens (\CoverageFilterCriteria' {resourceType} -> resourceType) (\s@CoverageFilterCriteria' {} a -> s {resourceType = a} :: CoverageFilterCriteria) Prelude.. Lens.mapping Lens.coerced
 
@@ -178,13 +191,15 @@ coverageFilterCriteria_scanType = Lens.lens (\CoverageFilterCriteria' {scanType}
 
 instance Prelude.Hashable CoverageFilterCriteria where
   hashWithSalt _salt CoverageFilterCriteria' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` ec2InstanceTags
       `Prelude.hashWithSalt` ecrImageTags
       `Prelude.hashWithSalt` ecrRepositoryName
       `Prelude.hashWithSalt` lambdaFunctionName
       `Prelude.hashWithSalt` lambdaFunctionRuntime
       `Prelude.hashWithSalt` lambdaFunctionTags
+      `Prelude.hashWithSalt` lastScannedAt
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` scanStatusCode
@@ -200,6 +215,7 @@ instance Prelude.NFData CoverageFilterCriteria where
       `Prelude.seq` Prelude.rnf lambdaFunctionName
       `Prelude.seq` Prelude.rnf lambdaFunctionRuntime
       `Prelude.seq` Prelude.rnf lambdaFunctionTags
+      `Prelude.seq` Prelude.rnf lastScannedAt
       `Prelude.seq` Prelude.rnf resourceId
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf scanStatusCode
@@ -222,6 +238,7 @@ instance Data.ToJSON CoverageFilterCriteria where
               Prelude.<$> lambdaFunctionRuntime,
             ("lambdaFunctionTags" Data..=)
               Prelude.<$> lambdaFunctionTags,
+            ("lastScannedAt" Data..=) Prelude.<$> lastScannedAt,
             ("resourceId" Data..=) Prelude.<$> resourceId,
             ("resourceType" Data..=) Prelude.<$> resourceType,
             ("scanStatusCode" Data..=)

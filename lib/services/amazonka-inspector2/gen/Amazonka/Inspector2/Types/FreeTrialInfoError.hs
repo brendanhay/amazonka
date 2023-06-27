@@ -92,7 +92,8 @@ instance Data.FromJSON FreeTrialInfoError where
 
 instance Prelude.Hashable FreeTrialInfoError where
   hashWithSalt _salt FreeTrialInfoError' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 

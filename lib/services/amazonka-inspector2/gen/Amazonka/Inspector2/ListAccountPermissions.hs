@@ -112,21 +112,21 @@ instance Core.AWSPager ListAccountPermissions where
     | Core.stop
         ( rs
             Lens.^? listAccountPermissionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listAccountPermissionsResponse_permissions
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAccountPermissions_nextToken
           Lens..~ rs
           Lens.^? listAccountPermissionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccountPermissions where
   type
@@ -145,7 +145,8 @@ instance Core.AWSRequest ListAccountPermissions where
 
 instance Prelude.Hashable ListAccountPermissions where
   hashWithSalt _salt ListAccountPermissions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` service
 

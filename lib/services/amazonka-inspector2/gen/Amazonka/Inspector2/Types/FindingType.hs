@@ -20,6 +20,7 @@
 module Amazonka.Inspector2.Types.FindingType
   ( FindingType
       ( ..,
+        FindingType_CODE_VULNERABILITY,
         FindingType_NETWORK_REACHABILITY,
         FindingType_PACKAGE_VULNERABILITY
       ),
@@ -58,6 +59,9 @@ newtype FindingType = FindingType'
       Data.ToXML
     )
 
+pattern FindingType_CODE_VULNERABILITY :: FindingType
+pattern FindingType_CODE_VULNERABILITY = FindingType' "CODE_VULNERABILITY"
+
 pattern FindingType_NETWORK_REACHABILITY :: FindingType
 pattern FindingType_NETWORK_REACHABILITY = FindingType' "NETWORK_REACHABILITY"
 
@@ -65,6 +69,7 @@ pattern FindingType_PACKAGE_VULNERABILITY :: FindingType
 pattern FindingType_PACKAGE_VULNERABILITY = FindingType' "PACKAGE_VULNERABILITY"
 
 {-# COMPLETE
+  FindingType_CODE_VULNERABILITY,
   FindingType_NETWORK_REACHABILITY,
   FindingType_PACKAGE_VULNERABILITY,
   FindingType'

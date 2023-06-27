@@ -139,7 +139,8 @@ instance
   hashWithSalt
     _salt
     LambdaFunctionAggregationResponse' {..} =
-      _salt `Prelude.hashWithSalt` accountId
+      _salt
+        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` functionName
         `Prelude.hashWithSalt` lambdaTags
         `Prelude.hashWithSalt` lastModifiedAt

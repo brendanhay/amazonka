@@ -22,6 +22,7 @@ module Amazonka.Inspector2.Types.TitleAggregation where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.Inspector2.Types.AggregationFindingType
 import Amazonka.Inspector2.Types.AggregationResourceType
 import Amazonka.Inspector2.Types.SortOrder
 import Amazonka.Inspector2.Types.StringFilter
@@ -32,7 +33,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTitleAggregation' smart constructor.
 data TitleAggregation = TitleAggregation'
-  { -- | The resource type to aggregate on.
+  { -- | The type of finding to aggregate on.
+    findingType :: Prelude.Maybe AggregationFindingType,
+    -- | The resource type to aggregate on.
     resourceType :: Prelude.Maybe AggregationResourceType,
     -- | The value to sort results by.
     sortBy :: Prelude.Maybe TitleSortBy,
@@ -53,6 +56,8 @@ data TitleAggregation = TitleAggregation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'findingType', 'titleAggregation_findingType' - The type of finding to aggregate on.
+--
 -- 'resourceType', 'titleAggregation_resourceType' - The resource type to aggregate on.
 --
 -- 'sortBy', 'titleAggregation_sortBy' - The value to sort results by.
@@ -66,12 +71,17 @@ newTitleAggregation ::
   TitleAggregation
 newTitleAggregation =
   TitleAggregation'
-    { resourceType = Prelude.Nothing,
+    { findingType = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
       sortBy = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
       titles = Prelude.Nothing,
       vulnerabilityIds = Prelude.Nothing
     }
+
+-- | The type of finding to aggregate on.
+titleAggregation_findingType :: Lens.Lens' TitleAggregation (Prelude.Maybe AggregationFindingType)
+titleAggregation_findingType = Lens.lens (\TitleAggregation' {findingType} -> findingType) (\s@TitleAggregation' {} a -> s {findingType = a} :: TitleAggregation)
 
 -- | The resource type to aggregate on.
 titleAggregation_resourceType :: Lens.Lens' TitleAggregation (Prelude.Maybe AggregationResourceType)
@@ -95,7 +105,9 @@ titleAggregation_vulnerabilityIds = Lens.lens (\TitleAggregation' {vulnerability
 
 instance Prelude.Hashable TitleAggregation where
   hashWithSalt _salt TitleAggregation' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt
+      `Prelude.hashWithSalt` findingType
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` titles
@@ -103,7 +115,8 @@ instance Prelude.Hashable TitleAggregation where
 
 instance Prelude.NFData TitleAggregation where
   rnf TitleAggregation' {..} =
-    Prelude.rnf resourceType
+    Prelude.rnf findingType
+      `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf sortBy
       `Prelude.seq` Prelude.rnf sortOrder
       `Prelude.seq` Prelude.rnf titles
@@ -113,7 +126,8 @@ instance Data.ToJSON TitleAggregation where
   toJSON TitleAggregation' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("resourceType" Data..=) Prelude.<$> resourceType,
+          [ ("findingType" Data..=) Prelude.<$> findingType,
+            ("resourceType" Data..=) Prelude.<$> resourceType,
             ("sortBy" Data..=) Prelude.<$> sortBy,
             ("sortOrder" Data..=) Prelude.<$> sortOrder,
             ("titles" Data..=) Prelude.<$> titles,

@@ -22,7 +22,8 @@ module Amazonka.Inspector2.Types.ResourceScanType
       ( ..,
         ResourceScanType_EC2,
         ResourceScanType_ECR,
-        ResourceScanType_LAMBDA
+        ResourceScanType_LAMBDA,
+        ResourceScanType_LAMBDA_CODE
       ),
   )
 where
@@ -68,9 +69,13 @@ pattern ResourceScanType_ECR = ResourceScanType' "ECR"
 pattern ResourceScanType_LAMBDA :: ResourceScanType
 pattern ResourceScanType_LAMBDA = ResourceScanType' "LAMBDA"
 
+pattern ResourceScanType_LAMBDA_CODE :: ResourceScanType
+pattern ResourceScanType_LAMBDA_CODE = ResourceScanType' "LAMBDA_CODE"
+
 {-# COMPLETE
   ResourceScanType_EC2,
   ResourceScanType_ECR,
   ResourceScanType_LAMBDA,
+  ResourceScanType_LAMBDA_CODE,
   ResourceScanType'
   #-}

@@ -25,6 +25,7 @@ module Amazonka.Inspector2.Types.SortField
         SortField_ECR_IMAGE_PUSHED_AT,
         SortField_ECR_IMAGE_REGISTRY,
         SortField_ECR_IMAGE_REPOSITORY_NAME,
+        SortField_EPSS_SCORE,
         SortField_FINDING_STATUS,
         SortField_FINDING_TYPE,
         SortField_FIRST_OBSERVED_AT,
@@ -87,6 +88,9 @@ pattern SortField_ECR_IMAGE_REGISTRY = SortField' "ECR_IMAGE_REGISTRY"
 pattern SortField_ECR_IMAGE_REPOSITORY_NAME :: SortField
 pattern SortField_ECR_IMAGE_REPOSITORY_NAME = SortField' "ECR_IMAGE_REPOSITORY_NAME"
 
+pattern SortField_EPSS_SCORE :: SortField
+pattern SortField_EPSS_SCORE = SortField' "EPSS_SCORE"
+
 pattern SortField_FINDING_STATUS :: SortField
 pattern SortField_FINDING_STATUS = SortField' "FINDING_STATUS"
 
@@ -126,6 +130,7 @@ pattern SortField_VULNERABILITY_SOURCE = SortField' "VULNERABILITY_SOURCE"
   SortField_ECR_IMAGE_PUSHED_AT,
   SortField_ECR_IMAGE_REGISTRY,
   SortField_ECR_IMAGE_REPOSITORY_NAME,
+  SortField_EPSS_SCORE,
   SortField_FINDING_STATUS,
   SortField_FINDING_TYPE,
   SortField_FIRST_OBSERVED_AT,

@@ -85,7 +85,8 @@ instance Data.FromJSON Ec2Metadata where
 
 instance Prelude.Hashable Ec2Metadata where
   hashWithSalt _salt Ec2Metadata' {..} =
-    _salt `Prelude.hashWithSalt` amiId
+    _salt
+      `Prelude.hashWithSalt` amiId
       `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` tags
 

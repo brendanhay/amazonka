@@ -63,17 +63,41 @@ module Amazonka.Inspector2
     BatchGetAccountStatusResponse (BatchGetAccountStatusResponse'),
     newBatchGetAccountStatusResponse,
 
+    -- ** BatchGetCodeSnippet
+    BatchGetCodeSnippet (BatchGetCodeSnippet'),
+    newBatchGetCodeSnippet,
+    BatchGetCodeSnippetResponse (BatchGetCodeSnippetResponse'),
+    newBatchGetCodeSnippetResponse,
+
     -- ** BatchGetFreeTrialInfo
     BatchGetFreeTrialInfo (BatchGetFreeTrialInfo'),
     newBatchGetFreeTrialInfo,
     BatchGetFreeTrialInfoResponse (BatchGetFreeTrialInfoResponse'),
     newBatchGetFreeTrialInfoResponse,
 
+    -- ** BatchGetMemberEc2DeepInspectionStatus
+    BatchGetMemberEc2DeepInspectionStatus (BatchGetMemberEc2DeepInspectionStatus'),
+    newBatchGetMemberEc2DeepInspectionStatus,
+    BatchGetMemberEc2DeepInspectionStatusResponse (BatchGetMemberEc2DeepInspectionStatusResponse'),
+    newBatchGetMemberEc2DeepInspectionStatusResponse,
+
+    -- ** BatchUpdateMemberEc2DeepInspectionStatus
+    BatchUpdateMemberEc2DeepInspectionStatus (BatchUpdateMemberEc2DeepInspectionStatus'),
+    newBatchUpdateMemberEc2DeepInspectionStatus,
+    BatchUpdateMemberEc2DeepInspectionStatusResponse (BatchUpdateMemberEc2DeepInspectionStatusResponse'),
+    newBatchUpdateMemberEc2DeepInspectionStatusResponse,
+
     -- ** CancelFindingsReport
     CancelFindingsReport (CancelFindingsReport'),
     newCancelFindingsReport,
     CancelFindingsReportResponse (CancelFindingsReportResponse'),
     newCancelFindingsReportResponse,
+
+    -- ** CancelSbomExport
+    CancelSbomExport (CancelSbomExport'),
+    newCancelSbomExport,
+    CancelSbomExportResponse (CancelSbomExportResponse'),
+    newCancelSbomExportResponse,
 
     -- ** CreateFilter
     CreateFilter (CreateFilter'),
@@ -86,6 +110,12 @@ module Amazonka.Inspector2
     newCreateFindingsReport,
     CreateFindingsReportResponse (CreateFindingsReportResponse'),
     newCreateFindingsReportResponse,
+
+    -- ** CreateSbomExport
+    CreateSbomExport (CreateSbomExport'),
+    newCreateSbomExport,
+    CreateSbomExportResponse (CreateSbomExportResponse'),
+    newCreateSbomExportResponse,
 
     -- ** DeleteFilter
     DeleteFilter (DeleteFilter'),
@@ -141,6 +171,18 @@ module Amazonka.Inspector2
     GetDelegatedAdminAccountResponse (GetDelegatedAdminAccountResponse'),
     newGetDelegatedAdminAccountResponse,
 
+    -- ** GetEc2DeepInspectionConfiguration
+    GetEc2DeepInspectionConfiguration (GetEc2DeepInspectionConfiguration'),
+    newGetEc2DeepInspectionConfiguration,
+    GetEc2DeepInspectionConfigurationResponse (GetEc2DeepInspectionConfigurationResponse'),
+    newGetEc2DeepInspectionConfigurationResponse,
+
+    -- ** GetEncryptionKey
+    GetEncryptionKey (GetEncryptionKey'),
+    newGetEncryptionKey,
+    GetEncryptionKeyResponse (GetEncryptionKeyResponse'),
+    newGetEncryptionKeyResponse,
+
     -- ** GetFindingsReportStatus
     GetFindingsReportStatus (GetFindingsReportStatus'),
     newGetFindingsReportStatus,
@@ -152,6 +194,12 @@ module Amazonka.Inspector2
     newGetMember,
     GetMemberResponse (GetMemberResponse'),
     newGetMemberResponse,
+
+    -- ** GetSbomExport
+    GetSbomExport (GetSbomExport'),
+    newGetSbomExport,
+    GetSbomExportResponse (GetSbomExportResponse'),
+    newGetSbomExportResponse,
 
     -- ** ListAccountPermissions (Paginated)
     ListAccountPermissions (ListAccountPermissions'),
@@ -213,6 +261,18 @@ module Amazonka.Inspector2
     ListUsageTotalsResponse (ListUsageTotalsResponse'),
     newListUsageTotalsResponse,
 
+    -- ** ResetEncryptionKey
+    ResetEncryptionKey (ResetEncryptionKey'),
+    newResetEncryptionKey,
+    ResetEncryptionKeyResponse (ResetEncryptionKeyResponse'),
+    newResetEncryptionKeyResponse,
+
+    -- ** SearchVulnerabilities (Paginated)
+    SearchVulnerabilities (SearchVulnerabilities'),
+    newSearchVulnerabilities,
+    SearchVulnerabilitiesResponse (SearchVulnerabilitiesResponse'),
+    newSearchVulnerabilitiesResponse,
+
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
@@ -231,11 +291,29 @@ module Amazonka.Inspector2
     UpdateConfigurationResponse (UpdateConfigurationResponse'),
     newUpdateConfigurationResponse,
 
+    -- ** UpdateEc2DeepInspectionConfiguration
+    UpdateEc2DeepInspectionConfiguration (UpdateEc2DeepInspectionConfiguration'),
+    newUpdateEc2DeepInspectionConfiguration,
+    UpdateEc2DeepInspectionConfigurationResponse (UpdateEc2DeepInspectionConfigurationResponse'),
+    newUpdateEc2DeepInspectionConfigurationResponse,
+
+    -- ** UpdateEncryptionKey
+    UpdateEncryptionKey (UpdateEncryptionKey'),
+    newUpdateEncryptionKey,
+    UpdateEncryptionKeyResponse (UpdateEncryptionKeyResponse'),
+    newUpdateEncryptionKeyResponse,
+
     -- ** UpdateFilter
     UpdateFilter (UpdateFilter'),
     newUpdateFilter,
     UpdateFilterResponse (UpdateFilterResponse'),
     newUpdateFilterResponse,
+
+    -- ** UpdateOrgEc2DeepInspectionConfiguration
+    UpdateOrgEc2DeepInspectionConfiguration (UpdateOrgEc2DeepInspectionConfiguration'),
+    newUpdateOrgEc2DeepInspectionConfiguration,
+    UpdateOrgEc2DeepInspectionConfigurationResponse (UpdateOrgEc2DeepInspectionConfigurationResponse'),
+    newUpdateOrgEc2DeepInspectionConfigurationResponse,
 
     -- ** UpdateOrganizationConfiguration
     UpdateOrganizationConfiguration (UpdateOrganizationConfiguration'),
@@ -266,6 +344,9 @@ module Amazonka.Inspector2
     -- ** AwsEcrContainerSortBy
     AwsEcrContainerSortBy (..),
 
+    -- ** CodeSnippetErrorCode
+    CodeSnippetErrorCode (..),
+
     -- ** CoverageMapComparison
     CoverageMapComparison (..),
 
@@ -280,6 +361,9 @@ module Amazonka.Inspector2
 
     -- ** DelegatedAdminStatus
     DelegatedAdminStatus (..),
+
+    -- ** Ec2DeepInspectionStatus
+    Ec2DeepInspectionStatus (..),
 
     -- ** Ec2InstanceSortBy
     Ec2InstanceSortBy (..),
@@ -371,14 +455,23 @@ module Amazonka.Inspector2
     -- ** RepositorySortBy
     RepositorySortBy (..),
 
+    -- ** ResourceMapComparison
+    ResourceMapComparison (..),
+
     -- ** ResourceScanType
     ResourceScanType (..),
+
+    -- ** ResourceStringComparison
+    ResourceStringComparison (..),
 
     -- ** ResourceType
     ResourceType (..),
 
     -- ** Runtime
     Runtime (..),
+
+    -- ** SbomReportFormat
+    SbomReportFormat (..),
 
     -- ** ScanStatusCode
     ScanStatusCode (..),
@@ -413,6 +506,9 @@ module Amazonka.Inspector2
     -- ** UsageType
     UsageType (..),
 
+    -- ** VulnerabilitySource
+    VulnerabilitySource (..),
+
     -- ** Account
     Account (Account'),
     newAccount,
@@ -445,6 +541,10 @@ module Amazonka.Inspector2
     AmiAggregationResponse (AmiAggregationResponse'),
     newAmiAggregationResponse,
 
+    -- ** AtigData
+    AtigData (AtigData'),
+    newAtigData,
+
     -- ** AutoEnable
     AutoEnable (AutoEnable'),
     newAutoEnable,
@@ -469,9 +569,37 @@ module Amazonka.Inspector2
     AwsLambdaFunctionDetails (AwsLambdaFunctionDetails'),
     newAwsLambdaFunctionDetails,
 
+    -- ** CisaData
+    CisaData (CisaData'),
+    newCisaData,
+
+    -- ** CodeFilePath
+    CodeFilePath (CodeFilePath'),
+    newCodeFilePath,
+
+    -- ** CodeLine
+    CodeLine (CodeLine'),
+    newCodeLine,
+
+    -- ** CodeSnippetError
+    CodeSnippetError (CodeSnippetError'),
+    newCodeSnippetError,
+
+    -- ** CodeSnippetResult
+    CodeSnippetResult (CodeSnippetResult'),
+    newCodeSnippetResult,
+
+    -- ** CodeVulnerabilityDetails
+    CodeVulnerabilityDetails (CodeVulnerabilityDetails'),
+    newCodeVulnerabilityDetails,
+
     -- ** Counts
     Counts (Counts'),
     newCounts,
+
+    -- ** CoverageDateFilter
+    CoverageDateFilter (CoverageDateFilter'),
+    newCoverageDateFilter,
 
     -- ** CoverageFilterCriteria
     CoverageFilterCriteria (CoverageFilterCriteria'),
@@ -488,6 +616,14 @@ module Amazonka.Inspector2
     -- ** CoveredResource
     CoveredResource (CoveredResource'),
     newCoveredResource,
+
+    -- ** Cvss2
+    Cvss2 (Cvss2'),
+    newCvss2,
+
+    -- ** Cvss3
+    Cvss3 (Cvss3'),
+    newCvss3,
 
     -- ** CvssScore
     CvssScore (CvssScore'),
@@ -549,6 +685,18 @@ module Amazonka.Inspector2
     EcrRescanDurationState (EcrRescanDurationState'),
     newEcrRescanDurationState,
 
+    -- ** Epss
+    Epss (Epss'),
+    newEpss,
+
+    -- ** EpssDetails
+    EpssDetails (EpssDetails'),
+    newEpssDetails,
+
+    -- ** ExploitObserved
+    ExploitObserved (ExploitObserved'),
+    newExploitObserved,
+
     -- ** ExploitabilityDetails
     ExploitabilityDetails (ExploitabilityDetails'),
     newExploitabilityDetails,
@@ -556,6 +704,10 @@ module Amazonka.Inspector2
     -- ** FailedAccount
     FailedAccount (FailedAccount'),
     newFailedAccount,
+
+    -- ** FailedMemberAccountEc2DeepInspectionStatusState
+    FailedMemberAccountEc2DeepInspectionStatusState (FailedMemberAccountEc2DeepInspectionStatusState'),
+    newFailedMemberAccountEc2DeepInspectionStatusState,
 
     -- ** Filter
     Filter (Filter'),
@@ -633,6 +785,14 @@ module Amazonka.Inspector2
     Member (Member'),
     newMember,
 
+    -- ** MemberAccountEc2DeepInspectionStatus
+    MemberAccountEc2DeepInspectionStatus (MemberAccountEc2DeepInspectionStatus'),
+    newMemberAccountEc2DeepInspectionStatus,
+
+    -- ** MemberAccountEc2DeepInspectionStatusState
+    MemberAccountEc2DeepInspectionStatusState (MemberAccountEc2DeepInspectionStatusState'),
+    newMemberAccountEc2DeepInspectionStatusState,
+
     -- ** NetworkPath
     NetworkPath (NetworkPath'),
     newNetworkPath,
@@ -697,6 +857,14 @@ module Amazonka.Inspector2
     ResourceDetails (ResourceDetails'),
     newResourceDetails,
 
+    -- ** ResourceFilterCriteria
+    ResourceFilterCriteria (ResourceFilterCriteria'),
+    newResourceFilterCriteria,
+
+    -- ** ResourceMapFilter
+    ResourceMapFilter (ResourceMapFilter'),
+    newResourceMapFilter,
+
     -- ** ResourceScanMetadata
     ResourceScanMetadata (ResourceScanMetadata'),
     newResourceScanMetadata,
@@ -709,9 +877,17 @@ module Amazonka.Inspector2
     ResourceStatus (ResourceStatus'),
     newResourceStatus,
 
+    -- ** ResourceStringFilter
+    ResourceStringFilter (ResourceStringFilter'),
+    newResourceStringFilter,
+
     -- ** ScanStatus
     ScanStatus (ScanStatus'),
     newScanStatus,
+
+    -- ** SearchVulnerabilitiesFilterCriteria
+    SearchVulnerabilitiesFilterCriteria (SearchVulnerabilitiesFilterCriteria'),
+    newSearchVulnerabilitiesFilterCriteria,
 
     -- ** SeverityCounts
     SeverityCounts (SeverityCounts'),
@@ -733,6 +909,10 @@ module Amazonka.Inspector2
     StringFilter (StringFilter'),
     newStringFilter,
 
+    -- ** SuggestedFix
+    SuggestedFix (SuggestedFix'),
+    newSuggestedFix,
+
     -- ** TitleAggregation
     TitleAggregation (TitleAggregation'),
     newTitleAggregation,
@@ -749,6 +929,10 @@ module Amazonka.Inspector2
     UsageTotal (UsageTotal'),
     newUsageTotal,
 
+    -- ** Vulnerability
+    Vulnerability (Vulnerability'),
+    newVulnerability,
+
     -- ** VulnerablePackage
     VulnerablePackage (VulnerablePackage'),
     newVulnerablePackage,
@@ -757,10 +941,15 @@ where
 
 import Amazonka.Inspector2.AssociateMember
 import Amazonka.Inspector2.BatchGetAccountStatus
+import Amazonka.Inspector2.BatchGetCodeSnippet
 import Amazonka.Inspector2.BatchGetFreeTrialInfo
+import Amazonka.Inspector2.BatchGetMemberEc2DeepInspectionStatus
+import Amazonka.Inspector2.BatchUpdateMemberEc2DeepInspectionStatus
 import Amazonka.Inspector2.CancelFindingsReport
+import Amazonka.Inspector2.CancelSbomExport
 import Amazonka.Inspector2.CreateFilter
 import Amazonka.Inspector2.CreateFindingsReport
+import Amazonka.Inspector2.CreateSbomExport
 import Amazonka.Inspector2.DeleteFilter
 import Amazonka.Inspector2.DescribeOrganizationConfiguration
 import Amazonka.Inspector2.Disable
@@ -770,8 +959,11 @@ import Amazonka.Inspector2.Enable
 import Amazonka.Inspector2.EnableDelegatedAdminAccount
 import Amazonka.Inspector2.GetConfiguration
 import Amazonka.Inspector2.GetDelegatedAdminAccount
+import Amazonka.Inspector2.GetEc2DeepInspectionConfiguration
+import Amazonka.Inspector2.GetEncryptionKey
 import Amazonka.Inspector2.GetFindingsReportStatus
 import Amazonka.Inspector2.GetMember
+import Amazonka.Inspector2.GetSbomExport
 import Amazonka.Inspector2.Lens
 import Amazonka.Inspector2.ListAccountPermissions
 import Amazonka.Inspector2.ListCoverage
@@ -783,11 +975,16 @@ import Amazonka.Inspector2.ListFindings
 import Amazonka.Inspector2.ListMembers
 import Amazonka.Inspector2.ListTagsForResource
 import Amazonka.Inspector2.ListUsageTotals
+import Amazonka.Inspector2.ResetEncryptionKey
+import Amazonka.Inspector2.SearchVulnerabilities
 import Amazonka.Inspector2.TagResource
 import Amazonka.Inspector2.Types
 import Amazonka.Inspector2.UntagResource
 import Amazonka.Inspector2.UpdateConfiguration
+import Amazonka.Inspector2.UpdateEc2DeepInspectionConfiguration
+import Amazonka.Inspector2.UpdateEncryptionKey
 import Amazonka.Inspector2.UpdateFilter
+import Amazonka.Inspector2.UpdateOrgEc2DeepInspectionConfiguration
 import Amazonka.Inspector2.UpdateOrganizationConfiguration
 import Amazonka.Inspector2.Waiters
 

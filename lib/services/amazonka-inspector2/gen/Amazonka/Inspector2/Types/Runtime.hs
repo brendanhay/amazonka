@@ -22,6 +22,7 @@ module Amazonka.Inspector2.Types.Runtime
       ( ..,
         Runtime_GO_1_X,
         Runtime_JAVA_11,
+        Runtime_JAVA_17,
         Runtime_JAVA_8,
         Runtime_JAVA_8_AL2,
         Runtime_NODEJS,
@@ -29,6 +30,7 @@ module Amazonka.Inspector2.Types.Runtime
         Runtime_NODEJS_14_X,
         Runtime_NODEJS_16_X,
         Runtime_NODEJS_18_X,
+        Runtime_PYTHON_3_10,
         Runtime_PYTHON_3_7,
         Runtime_PYTHON_3_8,
         Runtime_PYTHON_3_9,
@@ -72,6 +74,9 @@ pattern Runtime_GO_1_X = Runtime' "GO_1_X"
 pattern Runtime_JAVA_11 :: Runtime
 pattern Runtime_JAVA_11 = Runtime' "JAVA_11"
 
+pattern Runtime_JAVA_17 :: Runtime
+pattern Runtime_JAVA_17 = Runtime' "JAVA_17"
+
 pattern Runtime_JAVA_8 :: Runtime
 pattern Runtime_JAVA_8 = Runtime' "JAVA_8"
 
@@ -93,6 +98,9 @@ pattern Runtime_NODEJS_16_X = Runtime' "NODEJS_16_X"
 pattern Runtime_NODEJS_18_X :: Runtime
 pattern Runtime_NODEJS_18_X = Runtime' "NODEJS_18_X"
 
+pattern Runtime_PYTHON_3_10 :: Runtime
+pattern Runtime_PYTHON_3_10 = Runtime' "PYTHON_3_10"
+
 pattern Runtime_PYTHON_3_7 :: Runtime
 pattern Runtime_PYTHON_3_7 = Runtime' "PYTHON_3_7"
 
@@ -108,6 +116,7 @@ pattern Runtime_UNSUPPORTED = Runtime' "UNSUPPORTED"
 {-# COMPLETE
   Runtime_GO_1_X,
   Runtime_JAVA_11,
+  Runtime_JAVA_17,
   Runtime_JAVA_8,
   Runtime_JAVA_8_AL2,
   Runtime_NODEJS,
@@ -115,6 +124,7 @@ pattern Runtime_UNSUPPORTED = Runtime' "UNSUPPORTED"
   Runtime_NODEJS_14_X,
   Runtime_NODEJS_16_X,
   Runtime_NODEJS_18_X,
+  Runtime_PYTHON_3_10,
   Runtime_PYTHON_3_7,
   Runtime_PYTHON_3_8,
   Runtime_PYTHON_3_9,

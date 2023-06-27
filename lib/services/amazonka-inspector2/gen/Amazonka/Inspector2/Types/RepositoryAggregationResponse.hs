@@ -102,7 +102,8 @@ instance
     RepositoryAggregationResponse
   where
   hashWithSalt _salt RepositoryAggregationResponse' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` affectedImages
       `Prelude.hashWithSalt` severityCounts
       `Prelude.hashWithSalt` repository

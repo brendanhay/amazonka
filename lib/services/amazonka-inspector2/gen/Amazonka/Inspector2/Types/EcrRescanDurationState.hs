@@ -103,7 +103,8 @@ instance Data.FromJSON EcrRescanDurationState where
 
 instance Prelude.Hashable EcrRescanDurationState where
   hashWithSalt _salt EcrRescanDurationState' {..} =
-    _salt `Prelude.hashWithSalt` rescanDuration
+    _salt
+      `Prelude.hashWithSalt` rescanDuration
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` updatedAt
 

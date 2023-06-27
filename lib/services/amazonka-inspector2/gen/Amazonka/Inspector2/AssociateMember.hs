@@ -21,7 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Associates an Amazon Web Services account with an Amazon Inspector
--- delegated administrator.
+-- delegated administrator. An HTTP 200 response indicates the association
+-- was successfully started, but doesn’t indicate whether it was completed.
+-- You can check if the association completed by using
+-- <https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListMembers.html ListMembers>
+-- for multiple accounts or
+-- <https://docs.aws.amazon.com/inspector/v2/APIReference/API_GetMember.html GetMembers>
+-- for a single account.
 module Amazonka.Inspector2.AssociateMember
   ( -- * Creating a Request
     AssociateMember (..),

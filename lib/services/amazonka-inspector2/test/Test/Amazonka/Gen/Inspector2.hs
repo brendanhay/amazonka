@@ -33,17 +33,32 @@ import Test.Tasty
 --         , requestBatchGetAccountStatus $
 --             newBatchGetAccountStatus
 --
+--         , requestBatchGetCodeSnippet $
+--             newBatchGetCodeSnippet
+--
 --         , requestBatchGetFreeTrialInfo $
 --             newBatchGetFreeTrialInfo
 --
+--         , requestBatchGetMemberEc2DeepInspectionStatus $
+--             newBatchGetMemberEc2DeepInspectionStatus
+--
+--         , requestBatchUpdateMemberEc2DeepInspectionStatus $
+--             newBatchUpdateMemberEc2DeepInspectionStatus
+--
 --         , requestCancelFindingsReport $
 --             newCancelFindingsReport
+--
+--         , requestCancelSbomExport $
+--             newCancelSbomExport
 --
 --         , requestCreateFilter $
 --             newCreateFilter
 --
 --         , requestCreateFindingsReport $
 --             newCreateFindingsReport
+--
+--         , requestCreateSbomExport $
+--             newCreateSbomExport
 --
 --         , requestDeleteFilter $
 --             newDeleteFilter
@@ -72,11 +87,20 @@ import Test.Tasty
 --         , requestGetDelegatedAdminAccount $
 --             newGetDelegatedAdminAccount
 --
+--         , requestGetEc2DeepInspectionConfiguration $
+--             newGetEc2DeepInspectionConfiguration
+--
+--         , requestGetEncryptionKey $
+--             newGetEncryptionKey
+--
 --         , requestGetFindingsReportStatus $
 --             newGetFindingsReportStatus
 --
 --         , requestGetMember $
 --             newGetMember
+--
+--         , requestGetSbomExport $
+--             newGetSbomExport
 --
 --         , requestListAccountPermissions $
 --             newListAccountPermissions
@@ -108,6 +132,12 @@ import Test.Tasty
 --         , requestListUsageTotals $
 --             newListUsageTotals
 --
+--         , requestResetEncryptionKey $
+--             newResetEncryptionKey
+--
+--         , requestSearchVulnerabilities $
+--             newSearchVulnerabilities
+--
 --         , requestTagResource $
 --             newTagResource
 --
@@ -117,8 +147,17 @@ import Test.Tasty
 --         , requestUpdateConfiguration $
 --             newUpdateConfiguration
 --
+--         , requestUpdateEc2DeepInspectionConfiguration $
+--             newUpdateEc2DeepInspectionConfiguration
+--
+--         , requestUpdateEncryptionKey $
+--             newUpdateEncryptionKey
+--
 --         , requestUpdateFilter $
 --             newUpdateFilter
+--
+--         , requestUpdateOrgEc2DeepInspectionConfiguration $
+--             newUpdateOrgEc2DeepInspectionConfiguration
 --
 --         , requestUpdateOrganizationConfiguration $
 --             newUpdateOrganizationConfiguration
@@ -132,17 +171,32 @@ import Test.Tasty
 --         , responseBatchGetAccountStatus $
 --             newBatchGetAccountStatusResponse
 --
+--         , responseBatchGetCodeSnippet $
+--             newBatchGetCodeSnippetResponse
+--
 --         , responseBatchGetFreeTrialInfo $
 --             newBatchGetFreeTrialInfoResponse
 --
+--         , responseBatchGetMemberEc2DeepInspectionStatus $
+--             newBatchGetMemberEc2DeepInspectionStatusResponse
+--
+--         , responseBatchUpdateMemberEc2DeepInspectionStatus $
+--             newBatchUpdateMemberEc2DeepInspectionStatusResponse
+--
 --         , responseCancelFindingsReport $
 --             newCancelFindingsReportResponse
+--
+--         , responseCancelSbomExport $
+--             newCancelSbomExportResponse
 --
 --         , responseCreateFilter $
 --             newCreateFilterResponse
 --
 --         , responseCreateFindingsReport $
 --             newCreateFindingsReportResponse
+--
+--         , responseCreateSbomExport $
+--             newCreateSbomExportResponse
 --
 --         , responseDeleteFilter $
 --             newDeleteFilterResponse
@@ -171,11 +225,20 @@ import Test.Tasty
 --         , responseGetDelegatedAdminAccount $
 --             newGetDelegatedAdminAccountResponse
 --
+--         , responseGetEc2DeepInspectionConfiguration $
+--             newGetEc2DeepInspectionConfigurationResponse
+--
+--         , responseGetEncryptionKey $
+--             newGetEncryptionKeyResponse
+--
 --         , responseGetFindingsReportStatus $
 --             newGetFindingsReportStatusResponse
 --
 --         , responseGetMember $
 --             newGetMemberResponse
+--
+--         , responseGetSbomExport $
+--             newGetSbomExportResponse
 --
 --         , responseListAccountPermissions $
 --             newListAccountPermissionsResponse
@@ -207,6 +270,12 @@ import Test.Tasty
 --         , responseListUsageTotals $
 --             newListUsageTotalsResponse
 --
+--         , responseResetEncryptionKey $
+--             newResetEncryptionKeyResponse
+--
+--         , responseSearchVulnerabilities $
+--             newSearchVulnerabilitiesResponse
+--
 --         , responseTagResource $
 --             newTagResourceResponse
 --
@@ -216,8 +285,17 @@ import Test.Tasty
 --         , responseUpdateConfiguration $
 --             newUpdateConfigurationResponse
 --
+--         , responseUpdateEc2DeepInspectionConfiguration $
+--             newUpdateEc2DeepInspectionConfigurationResponse
+--
+--         , responseUpdateEncryptionKey $
+--             newUpdateEncryptionKeyResponse
+--
 --         , responseUpdateFilter $
 --             newUpdateFilterResponse
+--
+--         , responseUpdateOrgEc2DeepInspectionConfiguration $
+--             newUpdateOrgEc2DeepInspectionConfigurationResponse
 --
 --         , responseUpdateOrganizationConfiguration $
 --             newUpdateOrganizationConfigurationResponse
@@ -239,17 +317,41 @@ requestBatchGetAccountStatus =
     "BatchGetAccountStatus"
     "fixture/BatchGetAccountStatus.yaml"
 
+requestBatchGetCodeSnippet :: BatchGetCodeSnippet -> TestTree
+requestBatchGetCodeSnippet =
+  req
+    "BatchGetCodeSnippet"
+    "fixture/BatchGetCodeSnippet.yaml"
+
 requestBatchGetFreeTrialInfo :: BatchGetFreeTrialInfo -> TestTree
 requestBatchGetFreeTrialInfo =
   req
     "BatchGetFreeTrialInfo"
     "fixture/BatchGetFreeTrialInfo.yaml"
 
+requestBatchGetMemberEc2DeepInspectionStatus :: BatchGetMemberEc2DeepInspectionStatus -> TestTree
+requestBatchGetMemberEc2DeepInspectionStatus =
+  req
+    "BatchGetMemberEc2DeepInspectionStatus"
+    "fixture/BatchGetMemberEc2DeepInspectionStatus.yaml"
+
+requestBatchUpdateMemberEc2DeepInspectionStatus :: BatchUpdateMemberEc2DeepInspectionStatus -> TestTree
+requestBatchUpdateMemberEc2DeepInspectionStatus =
+  req
+    "BatchUpdateMemberEc2DeepInspectionStatus"
+    "fixture/BatchUpdateMemberEc2DeepInspectionStatus.yaml"
+
 requestCancelFindingsReport :: CancelFindingsReport -> TestTree
 requestCancelFindingsReport =
   req
     "CancelFindingsReport"
     "fixture/CancelFindingsReport.yaml"
+
+requestCancelSbomExport :: CancelSbomExport -> TestTree
+requestCancelSbomExport =
+  req
+    "CancelSbomExport"
+    "fixture/CancelSbomExport.yaml"
 
 requestCreateFilter :: CreateFilter -> TestTree
 requestCreateFilter =
@@ -262,6 +364,12 @@ requestCreateFindingsReport =
   req
     "CreateFindingsReport"
     "fixture/CreateFindingsReport.yaml"
+
+requestCreateSbomExport :: CreateSbomExport -> TestTree
+requestCreateSbomExport =
+  req
+    "CreateSbomExport"
+    "fixture/CreateSbomExport.yaml"
 
 requestDeleteFilter :: DeleteFilter -> TestTree
 requestDeleteFilter =
@@ -317,6 +425,18 @@ requestGetDelegatedAdminAccount =
     "GetDelegatedAdminAccount"
     "fixture/GetDelegatedAdminAccount.yaml"
 
+requestGetEc2DeepInspectionConfiguration :: GetEc2DeepInspectionConfiguration -> TestTree
+requestGetEc2DeepInspectionConfiguration =
+  req
+    "GetEc2DeepInspectionConfiguration"
+    "fixture/GetEc2DeepInspectionConfiguration.yaml"
+
+requestGetEncryptionKey :: GetEncryptionKey -> TestTree
+requestGetEncryptionKey =
+  req
+    "GetEncryptionKey"
+    "fixture/GetEncryptionKey.yaml"
+
 requestGetFindingsReportStatus :: GetFindingsReportStatus -> TestTree
 requestGetFindingsReportStatus =
   req
@@ -328,6 +448,12 @@ requestGetMember =
   req
     "GetMember"
     "fixture/GetMember.yaml"
+
+requestGetSbomExport :: GetSbomExport -> TestTree
+requestGetSbomExport =
+  req
+    "GetSbomExport"
+    "fixture/GetSbomExport.yaml"
 
 requestListAccountPermissions :: ListAccountPermissions -> TestTree
 requestListAccountPermissions =
@@ -389,6 +515,18 @@ requestListUsageTotals =
     "ListUsageTotals"
     "fixture/ListUsageTotals.yaml"
 
+requestResetEncryptionKey :: ResetEncryptionKey -> TestTree
+requestResetEncryptionKey =
+  req
+    "ResetEncryptionKey"
+    "fixture/ResetEncryptionKey.yaml"
+
+requestSearchVulnerabilities :: SearchVulnerabilities -> TestTree
+requestSearchVulnerabilities =
+  req
+    "SearchVulnerabilities"
+    "fixture/SearchVulnerabilities.yaml"
+
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
@@ -407,11 +545,29 @@ requestUpdateConfiguration =
     "UpdateConfiguration"
     "fixture/UpdateConfiguration.yaml"
 
+requestUpdateEc2DeepInspectionConfiguration :: UpdateEc2DeepInspectionConfiguration -> TestTree
+requestUpdateEc2DeepInspectionConfiguration =
+  req
+    "UpdateEc2DeepInspectionConfiguration"
+    "fixture/UpdateEc2DeepInspectionConfiguration.yaml"
+
+requestUpdateEncryptionKey :: UpdateEncryptionKey -> TestTree
+requestUpdateEncryptionKey =
+  req
+    "UpdateEncryptionKey"
+    "fixture/UpdateEncryptionKey.yaml"
+
 requestUpdateFilter :: UpdateFilter -> TestTree
 requestUpdateFilter =
   req
     "UpdateFilter"
     "fixture/UpdateFilter.yaml"
+
+requestUpdateOrgEc2DeepInspectionConfiguration :: UpdateOrgEc2DeepInspectionConfiguration -> TestTree
+requestUpdateOrgEc2DeepInspectionConfiguration =
+  req
+    "UpdateOrgEc2DeepInspectionConfiguration"
+    "fixture/UpdateOrgEc2DeepInspectionConfiguration.yaml"
 
 requestUpdateOrganizationConfiguration :: UpdateOrganizationConfiguration -> TestTree
 requestUpdateOrganizationConfiguration =
@@ -437,6 +593,14 @@ responseBatchGetAccountStatus =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchGetAccountStatus)
 
+responseBatchGetCodeSnippet :: BatchGetCodeSnippetResponse -> TestTree
+responseBatchGetCodeSnippet =
+  res
+    "BatchGetCodeSnippetResponse"
+    "fixture/BatchGetCodeSnippetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchGetCodeSnippet)
+
 responseBatchGetFreeTrialInfo :: BatchGetFreeTrialInfoResponse -> TestTree
 responseBatchGetFreeTrialInfo =
   res
@@ -445,6 +609,22 @@ responseBatchGetFreeTrialInfo =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchGetFreeTrialInfo)
 
+responseBatchGetMemberEc2DeepInspectionStatus :: BatchGetMemberEc2DeepInspectionStatusResponse -> TestTree
+responseBatchGetMemberEc2DeepInspectionStatus =
+  res
+    "BatchGetMemberEc2DeepInspectionStatusResponse"
+    "fixture/BatchGetMemberEc2DeepInspectionStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchGetMemberEc2DeepInspectionStatus)
+
+responseBatchUpdateMemberEc2DeepInspectionStatus :: BatchUpdateMemberEc2DeepInspectionStatusResponse -> TestTree
+responseBatchUpdateMemberEc2DeepInspectionStatus =
+  res
+    "BatchUpdateMemberEc2DeepInspectionStatusResponse"
+    "fixture/BatchUpdateMemberEc2DeepInspectionStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchUpdateMemberEc2DeepInspectionStatus)
+
 responseCancelFindingsReport :: CancelFindingsReportResponse -> TestTree
 responseCancelFindingsReport =
   res
@@ -452,6 +632,14 @@ responseCancelFindingsReport =
     "fixture/CancelFindingsReportResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CancelFindingsReport)
+
+responseCancelSbomExport :: CancelSbomExportResponse -> TestTree
+responseCancelSbomExport =
+  res
+    "CancelSbomExportResponse"
+    "fixture/CancelSbomExportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CancelSbomExport)
 
 responseCreateFilter :: CreateFilterResponse -> TestTree
 responseCreateFilter =
@@ -468,6 +656,14 @@ responseCreateFindingsReport =
     "fixture/CreateFindingsReportResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateFindingsReport)
+
+responseCreateSbomExport :: CreateSbomExportResponse -> TestTree
+responseCreateSbomExport =
+  res
+    "CreateSbomExportResponse"
+    "fixture/CreateSbomExportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateSbomExport)
 
 responseDeleteFilter :: DeleteFilterResponse -> TestTree
 responseDeleteFilter =
@@ -541,6 +737,22 @@ responseGetDelegatedAdminAccount =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetDelegatedAdminAccount)
 
+responseGetEc2DeepInspectionConfiguration :: GetEc2DeepInspectionConfigurationResponse -> TestTree
+responseGetEc2DeepInspectionConfiguration =
+  res
+    "GetEc2DeepInspectionConfigurationResponse"
+    "fixture/GetEc2DeepInspectionConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEc2DeepInspectionConfiguration)
+
+responseGetEncryptionKey :: GetEncryptionKeyResponse -> TestTree
+responseGetEncryptionKey =
+  res
+    "GetEncryptionKeyResponse"
+    "fixture/GetEncryptionKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEncryptionKey)
+
 responseGetFindingsReportStatus :: GetFindingsReportStatusResponse -> TestTree
 responseGetFindingsReportStatus =
   res
@@ -556,6 +768,14 @@ responseGetMember =
     "fixture/GetMemberResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetMember)
+
+responseGetSbomExport :: GetSbomExportResponse -> TestTree
+responseGetSbomExport =
+  res
+    "GetSbomExportResponse"
+    "fixture/GetSbomExportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSbomExport)
 
 responseListAccountPermissions :: ListAccountPermissionsResponse -> TestTree
 responseListAccountPermissions =
@@ -637,6 +857,22 @@ responseListUsageTotals =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListUsageTotals)
 
+responseResetEncryptionKey :: ResetEncryptionKeyResponse -> TestTree
+responseResetEncryptionKey =
+  res
+    "ResetEncryptionKeyResponse"
+    "fixture/ResetEncryptionKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ResetEncryptionKey)
+
+responseSearchVulnerabilities :: SearchVulnerabilitiesResponse -> TestTree
+responseSearchVulnerabilities =
+  res
+    "SearchVulnerabilitiesResponse"
+    "fixture/SearchVulnerabilitiesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchVulnerabilities)
+
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
   res
@@ -661,6 +897,22 @@ responseUpdateConfiguration =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateConfiguration)
 
+responseUpdateEc2DeepInspectionConfiguration :: UpdateEc2DeepInspectionConfigurationResponse -> TestTree
+responseUpdateEc2DeepInspectionConfiguration =
+  res
+    "UpdateEc2DeepInspectionConfigurationResponse"
+    "fixture/UpdateEc2DeepInspectionConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateEc2DeepInspectionConfiguration)
+
+responseUpdateEncryptionKey :: UpdateEncryptionKeyResponse -> TestTree
+responseUpdateEncryptionKey =
+  res
+    "UpdateEncryptionKeyResponse"
+    "fixture/UpdateEncryptionKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateEncryptionKey)
+
 responseUpdateFilter :: UpdateFilterResponse -> TestTree
 responseUpdateFilter =
   res
@@ -668,6 +920,14 @@ responseUpdateFilter =
     "fixture/UpdateFilterResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateFilter)
+
+responseUpdateOrgEc2DeepInspectionConfiguration :: UpdateOrgEc2DeepInspectionConfigurationResponse -> TestTree
+responseUpdateOrgEc2DeepInspectionConfiguration =
+  res
+    "UpdateOrgEc2DeepInspectionConfigurationResponse"
+    "fixture/UpdateOrgEc2DeepInspectionConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateOrgEc2DeepInspectionConfiguration)
 
 responseUpdateOrganizationConfiguration :: UpdateOrganizationConfigurationResponse -> TestTree
 responseUpdateOrganizationConfiguration =

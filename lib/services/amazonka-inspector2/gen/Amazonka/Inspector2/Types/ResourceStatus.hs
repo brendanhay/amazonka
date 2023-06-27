@@ -30,9 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceStatus' smart constructor.
 data ResourceStatus = ResourceStatus'
-  { -- | The status of Amazon Inspector scanning for AWS Lambda function
-    -- resources.
+  { -- | The status of Amazon Inspector scanning for AWS Lambda function.
     lambda :: Prelude.Maybe Status,
+    -- | The status of Amazon Inspector scanning for custom application code for
+    -- Amazon Web Services Lambda functions.
+    lambdaCode :: Prelude.Maybe Status,
     -- | The status of Amazon Inspector scanning for Amazon EC2 resources.
     ec2 :: Status,
     -- | The status of Amazon Inspector scanning for Amazon ECR resources.
@@ -48,8 +50,10 @@ data ResourceStatus = ResourceStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lambda', 'resourceStatus_lambda' - The status of Amazon Inspector scanning for AWS Lambda function
--- resources.
+-- 'lambda', 'resourceStatus_lambda' - The status of Amazon Inspector scanning for AWS Lambda function.
+--
+-- 'lambdaCode', 'resourceStatus_lambdaCode' - The status of Amazon Inspector scanning for custom application code for
+-- Amazon Web Services Lambda functions.
 --
 -- 'ec2', 'resourceStatus_ec2' - The status of Amazon Inspector scanning for Amazon EC2 resources.
 --
@@ -63,14 +67,19 @@ newResourceStatus ::
 newResourceStatus pEc2_ pEcr_ =
   ResourceStatus'
     { lambda = Prelude.Nothing,
+      lambdaCode = Prelude.Nothing,
       ec2 = pEc2_,
       ecr = pEcr_
     }
 
--- | The status of Amazon Inspector scanning for AWS Lambda function
--- resources.
+-- | The status of Amazon Inspector scanning for AWS Lambda function.
 resourceStatus_lambda :: Lens.Lens' ResourceStatus (Prelude.Maybe Status)
 resourceStatus_lambda = Lens.lens (\ResourceStatus' {lambda} -> lambda) (\s@ResourceStatus' {} a -> s {lambda = a} :: ResourceStatus)
+
+-- | The status of Amazon Inspector scanning for custom application code for
+-- Amazon Web Services Lambda functions.
+resourceStatus_lambdaCode :: Lens.Lens' ResourceStatus (Prelude.Maybe Status)
+resourceStatus_lambdaCode = Lens.lens (\ResourceStatus' {lambdaCode} -> lambdaCode) (\s@ResourceStatus' {} a -> s {lambdaCode = a} :: ResourceStatus)
 
 -- | The status of Amazon Inspector scanning for Amazon EC2 resources.
 resourceStatus_ec2 :: Lens.Lens' ResourceStatus Status
@@ -87,18 +96,22 @@ instance Data.FromJSON ResourceStatus where
       ( \x ->
           ResourceStatus'
             Prelude.<$> (x Data..:? "lambda")
+            Prelude.<*> (x Data..:? "lambdaCode")
             Prelude.<*> (x Data..: "ec2")
             Prelude.<*> (x Data..: "ecr")
       )
 
 instance Prelude.Hashable ResourceStatus where
   hashWithSalt _salt ResourceStatus' {..} =
-    _salt `Prelude.hashWithSalt` lambda
+    _salt
+      `Prelude.hashWithSalt` lambda
+      `Prelude.hashWithSalt` lambdaCode
       `Prelude.hashWithSalt` ec2
       `Prelude.hashWithSalt` ecr
 
 instance Prelude.NFData ResourceStatus where
   rnf ResourceStatus' {..} =
     Prelude.rnf lambda
+      `Prelude.seq` Prelude.rnf lambdaCode
       `Prelude.seq` Prelude.rnf ec2
       `Prelude.seq` Prelude.rnf ecr

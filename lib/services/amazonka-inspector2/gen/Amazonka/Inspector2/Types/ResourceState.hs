@@ -31,6 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newResourceState' smart constructor.
 data ResourceState = ResourceState'
   { lambda :: Prelude.Maybe State,
+    lambdaCode :: Prelude.Maybe State,
     -- | An object detailing the state of Amazon Inspector scanning for Amazon
     -- EC2 resources.
     ec2 :: State,
@@ -50,6 +51,8 @@ data ResourceState = ResourceState'
 --
 -- 'lambda', 'resourceState_lambda' - Undocumented member.
 --
+-- 'lambdaCode', 'resourceState_lambdaCode' - Undocumented member.
+--
 -- 'ec2', 'resourceState_ec2' - An object detailing the state of Amazon Inspector scanning for Amazon
 -- EC2 resources.
 --
@@ -64,6 +67,7 @@ newResourceState ::
 newResourceState pEc2_ pEcr_ =
   ResourceState'
     { lambda = Prelude.Nothing,
+      lambdaCode = Prelude.Nothing,
       ec2 = pEc2_,
       ecr = pEcr_
     }
@@ -71,6 +75,10 @@ newResourceState pEc2_ pEcr_ =
 -- | Undocumented member.
 resourceState_lambda :: Lens.Lens' ResourceState (Prelude.Maybe State)
 resourceState_lambda = Lens.lens (\ResourceState' {lambda} -> lambda) (\s@ResourceState' {} a -> s {lambda = a} :: ResourceState)
+
+-- | Undocumented member.
+resourceState_lambdaCode :: Lens.Lens' ResourceState (Prelude.Maybe State)
+resourceState_lambdaCode = Lens.lens (\ResourceState' {lambdaCode} -> lambdaCode) (\s@ResourceState' {} a -> s {lambdaCode = a} :: ResourceState)
 
 -- | An object detailing the state of Amazon Inspector scanning for Amazon
 -- EC2 resources.
@@ -89,18 +97,22 @@ instance Data.FromJSON ResourceState where
       ( \x ->
           ResourceState'
             Prelude.<$> (x Data..:? "lambda")
+            Prelude.<*> (x Data..:? "lambdaCode")
             Prelude.<*> (x Data..: "ec2")
             Prelude.<*> (x Data..: "ecr")
       )
 
 instance Prelude.Hashable ResourceState where
   hashWithSalt _salt ResourceState' {..} =
-    _salt `Prelude.hashWithSalt` lambda
+    _salt
+      `Prelude.hashWithSalt` lambda
+      `Prelude.hashWithSalt` lambdaCode
       `Prelude.hashWithSalt` ec2
       `Prelude.hashWithSalt` ecr
 
 instance Prelude.NFData ResourceState where
   rnf ResourceState' {..} =
     Prelude.rnf lambda
+      `Prelude.seq` Prelude.rnf lambdaCode
       `Prelude.seq` Prelude.rnf ec2
       `Prelude.seq` Prelude.rnf ecr

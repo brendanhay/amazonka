@@ -105,7 +105,8 @@ instance Data.FromJSON ResourceScanMetadata where
 
 instance Prelude.Hashable ResourceScanMetadata where
   hashWithSalt _salt ResourceScanMetadata' {..} =
-    _salt `Prelude.hashWithSalt` ec2
+    _salt
+      `Prelude.hashWithSalt` ec2
       `Prelude.hashWithSalt` ecrImage
       `Prelude.hashWithSalt` ecrRepository
       `Prelude.hashWithSalt` lambdaFunction

@@ -144,7 +144,8 @@ instance Data.FromJSON AwsEcrContainerImageDetails where
 
 instance Prelude.Hashable AwsEcrContainerImageDetails where
   hashWithSalt _salt AwsEcrContainerImageDetails' {..} =
-    _salt `Prelude.hashWithSalt` architecture
+    _salt
+      `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` author
       `Prelude.hashWithSalt` imageTags
       `Prelude.hashWithSalt` platform

@@ -33,7 +33,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCoveredResource' smart constructor.
 data CoveredResource = CoveredResource'
-  { -- | An object that contains details about the metadata.
+  { -- | The date and time the resource was last checked for vulnerabilities.
+    lastScannedAt :: Prelude.Maybe Data.POSIX,
+    -- | An object that contains details about the metadata.
     resourceMetadata :: Prelude.Maybe ResourceScanMetadata,
     -- | The status of the scan covering the resource.
     scanStatus :: Prelude.Maybe ScanStatus,
@@ -55,6 +57,8 @@ data CoveredResource = CoveredResource'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'lastScannedAt', 'coveredResource_lastScannedAt' - The date and time the resource was last checked for vulnerabilities.
 --
 -- 'resourceMetadata', 'coveredResource_resourceMetadata' - An object that contains details about the metadata.
 --
@@ -83,14 +87,18 @@ newCoveredResource
   pResourceType_
   pScanType_ =
     CoveredResource'
-      { resourceMetadata =
-          Prelude.Nothing,
+      { lastScannedAt = Prelude.Nothing,
+        resourceMetadata = Prelude.Nothing,
         scanStatus = Prelude.Nothing,
         accountId = pAccountId_,
         resourceId = pResourceId_,
         resourceType = pResourceType_,
         scanType = pScanType_
       }
+
+-- | The date and time the resource was last checked for vulnerabilities.
+coveredResource_lastScannedAt :: Lens.Lens' CoveredResource (Prelude.Maybe Prelude.UTCTime)
+coveredResource_lastScannedAt = Lens.lens (\CoveredResource' {lastScannedAt} -> lastScannedAt) (\s@CoveredResource' {} a -> s {lastScannedAt = a} :: CoveredResource) Prelude.. Lens.mapping Data._Time
 
 -- | An object that contains details about the metadata.
 coveredResource_resourceMetadata :: Lens.Lens' CoveredResource (Prelude.Maybe ResourceScanMetadata)
@@ -122,7 +130,8 @@ instance Data.FromJSON CoveredResource where
       "CoveredResource"
       ( \x ->
           CoveredResource'
-            Prelude.<$> (x Data..:? "resourceMetadata")
+            Prelude.<$> (x Data..:? "lastScannedAt")
+            Prelude.<*> (x Data..:? "resourceMetadata")
             Prelude.<*> (x Data..:? "scanStatus")
             Prelude.<*> (x Data..: "accountId")
             Prelude.<*> (x Data..: "resourceId")
@@ -132,7 +141,9 @@ instance Data.FromJSON CoveredResource where
 
 instance Prelude.Hashable CoveredResource where
   hashWithSalt _salt CoveredResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceMetadata
+    _salt
+      `Prelude.hashWithSalt` lastScannedAt
+      `Prelude.hashWithSalt` resourceMetadata
       `Prelude.hashWithSalt` scanStatus
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` resourceId
@@ -141,7 +152,8 @@ instance Prelude.Hashable CoveredResource where
 
 instance Prelude.NFData CoveredResource where
   rnf CoveredResource' {..} =
-    Prelude.rnf resourceMetadata
+    Prelude.rnf lastScannedAt
+      `Prelude.seq` Prelude.rnf resourceMetadata
       `Prelude.seq` Prelude.rnf scanStatus
       `Prelude.seq` Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf resourceId

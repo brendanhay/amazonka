@@ -80,7 +80,8 @@ instance Data.FromJSON FreeTrialAccountInfo where
 
 instance Prelude.Hashable FreeTrialAccountInfo where
   hashWithSalt _salt FreeTrialAccountInfo' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` freeTrialInfo
 
 instance Prelude.NFData FreeTrialAccountInfo where

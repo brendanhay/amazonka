@@ -78,7 +78,8 @@ instance Data.FromJSON Step where
 
 instance Prelude.Hashable Step where
   hashWithSalt _salt Step' {..} =
-    _salt `Prelude.hashWithSalt` componentId
+    _salt
+      `Prelude.hashWithSalt` componentId
       `Prelude.hashWithSalt` componentType
 
 instance Prelude.NFData Step where

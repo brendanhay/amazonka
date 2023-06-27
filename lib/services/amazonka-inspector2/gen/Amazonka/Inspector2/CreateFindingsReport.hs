@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a finding report.
+-- Creates a finding report. By default only @ACTIVE@ findings are returned
+-- in the report. To see @SUPRESSED@ or @CLOSED@ findings you must specify
+-- a value for the @findingStatus@ filter criteria.
 module Amazonka.Inspector2.CreateFindingsReport
   ( -- * Creating a Request
     CreateFindingsReport (..),
@@ -117,7 +119,8 @@ instance Core.AWSRequest CreateFindingsReport where
 
 instance Prelude.Hashable CreateFindingsReport where
   hashWithSalt _salt CreateFindingsReport' {..} =
-    _salt `Prelude.hashWithSalt` filterCriteria
+    _salt
+      `Prelude.hashWithSalt` filterCriteria
       `Prelude.hashWithSalt` reportFormat
       `Prelude.hashWithSalt` s3Destination
 

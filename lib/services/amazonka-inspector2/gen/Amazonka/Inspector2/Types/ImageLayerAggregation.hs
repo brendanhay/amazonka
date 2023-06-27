@@ -95,7 +95,8 @@ imageLayerAggregation_sortOrder = Lens.lens (\ImageLayerAggregation' {sortOrder}
 
 instance Prelude.Hashable ImageLayerAggregation where
   hashWithSalt _salt ImageLayerAggregation' {..} =
-    _salt `Prelude.hashWithSalt` layerHashes
+    _salt
+      `Prelude.hashWithSalt` layerHashes
       `Prelude.hashWithSalt` repositories
       `Prelude.hashWithSalt` resourceIds
       `Prelude.hashWithSalt` sortBy

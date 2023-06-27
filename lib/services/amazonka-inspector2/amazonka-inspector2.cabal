@@ -46,10 +46,15 @@ library
     Amazonka.Inspector2
     Amazonka.Inspector2.AssociateMember
     Amazonka.Inspector2.BatchGetAccountStatus
+    Amazonka.Inspector2.BatchGetCodeSnippet
     Amazonka.Inspector2.BatchGetFreeTrialInfo
+    Amazonka.Inspector2.BatchGetMemberEc2DeepInspectionStatus
+    Amazonka.Inspector2.BatchUpdateMemberEc2DeepInspectionStatus
     Amazonka.Inspector2.CancelFindingsReport
+    Amazonka.Inspector2.CancelSbomExport
     Amazonka.Inspector2.CreateFilter
     Amazonka.Inspector2.CreateFindingsReport
+    Amazonka.Inspector2.CreateSbomExport
     Amazonka.Inspector2.DeleteFilter
     Amazonka.Inspector2.DescribeOrganizationConfiguration
     Amazonka.Inspector2.Disable
@@ -59,8 +64,11 @@ library
     Amazonka.Inspector2.EnableDelegatedAdminAccount
     Amazonka.Inspector2.GetConfiguration
     Amazonka.Inspector2.GetDelegatedAdminAccount
+    Amazonka.Inspector2.GetEc2DeepInspectionConfiguration
+    Amazonka.Inspector2.GetEncryptionKey
     Amazonka.Inspector2.GetFindingsReportStatus
     Amazonka.Inspector2.GetMember
+    Amazonka.Inspector2.GetSbomExport
     Amazonka.Inspector2.Lens
     Amazonka.Inspector2.ListAccountPermissions
     Amazonka.Inspector2.ListCoverage
@@ -72,6 +80,8 @@ library
     Amazonka.Inspector2.ListMembers
     Amazonka.Inspector2.ListTagsForResource
     Amazonka.Inspector2.ListUsageTotals
+    Amazonka.Inspector2.ResetEncryptionKey
+    Amazonka.Inspector2.SearchVulnerabilities
     Amazonka.Inspector2.TagResource
     Amazonka.Inspector2.Types
     Amazonka.Inspector2.Types.Account
@@ -88,6 +98,7 @@ library
     Amazonka.Inspector2.Types.AmiAggregationResponse
     Amazonka.Inspector2.Types.AmiSortBy
     Amazonka.Inspector2.Types.Architecture
+    Amazonka.Inspector2.Types.AtigData
     Amazonka.Inspector2.Types.AutoEnable
     Amazonka.Inspector2.Types.AwsEc2InstanceDetails
     Amazonka.Inspector2.Types.AwsEcrContainerAggregation
@@ -95,7 +106,15 @@ library
     Amazonka.Inspector2.Types.AwsEcrContainerImageDetails
     Amazonka.Inspector2.Types.AwsEcrContainerSortBy
     Amazonka.Inspector2.Types.AwsLambdaFunctionDetails
+    Amazonka.Inspector2.Types.CisaData
+    Amazonka.Inspector2.Types.CodeFilePath
+    Amazonka.Inspector2.Types.CodeLine
+    Amazonka.Inspector2.Types.CodeSnippetError
+    Amazonka.Inspector2.Types.CodeSnippetErrorCode
+    Amazonka.Inspector2.Types.CodeSnippetResult
+    Amazonka.Inspector2.Types.CodeVulnerabilityDetails
     Amazonka.Inspector2.Types.Counts
+    Amazonka.Inspector2.Types.CoverageDateFilter
     Amazonka.Inspector2.Types.CoverageFilterCriteria
     Amazonka.Inspector2.Types.CoverageMapComparison
     Amazonka.Inspector2.Types.CoverageMapFilter
@@ -104,6 +123,8 @@ library
     Amazonka.Inspector2.Types.CoverageStringFilter
     Amazonka.Inspector2.Types.CoveredResource
     Amazonka.Inspector2.Types.Currency
+    Amazonka.Inspector2.Types.Cvss2
+    Amazonka.Inspector2.Types.Cvss3
     Amazonka.Inspector2.Types.CvssScore
     Amazonka.Inspector2.Types.CvssScoreAdjustment
     Amazonka.Inspector2.Types.CvssScoreDetails
@@ -112,6 +133,7 @@ library
     Amazonka.Inspector2.Types.DelegatedAdminAccount
     Amazonka.Inspector2.Types.DelegatedAdminStatus
     Amazonka.Inspector2.Types.Destination
+    Amazonka.Inspector2.Types.Ec2DeepInspectionStatus
     Amazonka.Inspector2.Types.Ec2InstanceAggregation
     Amazonka.Inspector2.Types.Ec2InstanceAggregationResponse
     Amazonka.Inspector2.Types.Ec2InstanceSortBy
@@ -125,11 +147,15 @@ library
     Amazonka.Inspector2.Types.EcrRescanDurationState
     Amazonka.Inspector2.Types.EcrRescanDurationStatus
     Amazonka.Inspector2.Types.EcrScanFrequency
+    Amazonka.Inspector2.Types.Epss
+    Amazonka.Inspector2.Types.EpssDetails
     Amazonka.Inspector2.Types.ErrorCode
     Amazonka.Inspector2.Types.ExploitabilityDetails
     Amazonka.Inspector2.Types.ExploitAvailable
+    Amazonka.Inspector2.Types.ExploitObserved
     Amazonka.Inspector2.Types.ExternalReportStatus
     Amazonka.Inspector2.Types.FailedAccount
+    Amazonka.Inspector2.Types.FailedMemberAccountEc2DeepInspectionStatusState
     Amazonka.Inspector2.Types.Filter
     Amazonka.Inspector2.Types.FilterAction
     Amazonka.Inspector2.Types.FilterCriteria
@@ -162,6 +188,8 @@ library
     Amazonka.Inspector2.Types.MapComparison
     Amazonka.Inspector2.Types.MapFilter
     Amazonka.Inspector2.Types.Member
+    Amazonka.Inspector2.Types.MemberAccountEc2DeepInspectionStatus
+    Amazonka.Inspector2.Types.MemberAccountEc2DeepInspectionStatusState
     Amazonka.Inspector2.Types.NetworkPath
     Amazonka.Inspector2.Types.NetworkProtocol
     Amazonka.Inspector2.Types.NetworkReachabilityDetails
@@ -187,16 +215,23 @@ library
     Amazonka.Inspector2.Types.RepositorySortBy
     Amazonka.Inspector2.Types.Resource
     Amazonka.Inspector2.Types.ResourceDetails
+    Amazonka.Inspector2.Types.ResourceFilterCriteria
+    Amazonka.Inspector2.Types.ResourceMapComparison
+    Amazonka.Inspector2.Types.ResourceMapFilter
     Amazonka.Inspector2.Types.ResourceScanMetadata
     Amazonka.Inspector2.Types.ResourceScanType
     Amazonka.Inspector2.Types.ResourceState
     Amazonka.Inspector2.Types.ResourceStatus
+    Amazonka.Inspector2.Types.ResourceStringComparison
+    Amazonka.Inspector2.Types.ResourceStringFilter
     Amazonka.Inspector2.Types.ResourceType
     Amazonka.Inspector2.Types.Runtime
+    Amazonka.Inspector2.Types.SbomReportFormat
     Amazonka.Inspector2.Types.ScanStatus
     Amazonka.Inspector2.Types.ScanStatusCode
     Amazonka.Inspector2.Types.ScanStatusReason
     Amazonka.Inspector2.Types.ScanType
+    Amazonka.Inspector2.Types.SearchVulnerabilitiesFilterCriteria
     Amazonka.Inspector2.Types.Service
     Amazonka.Inspector2.Types.Severity
     Amazonka.Inspector2.Types.SeverityCounts
@@ -208,17 +243,23 @@ library
     Amazonka.Inspector2.Types.Step
     Amazonka.Inspector2.Types.StringComparison
     Amazonka.Inspector2.Types.StringFilter
+    Amazonka.Inspector2.Types.SuggestedFix
     Amazonka.Inspector2.Types.TitleAggregation
     Amazonka.Inspector2.Types.TitleAggregationResponse
     Amazonka.Inspector2.Types.TitleSortBy
     Amazonka.Inspector2.Types.Usage
     Amazonka.Inspector2.Types.UsageTotal
     Amazonka.Inspector2.Types.UsageType
+    Amazonka.Inspector2.Types.Vulnerability
+    Amazonka.Inspector2.Types.VulnerabilitySource
     Amazonka.Inspector2.Types.VulnerablePackage
     Amazonka.Inspector2.UntagResource
     Amazonka.Inspector2.UpdateConfiguration
+    Amazonka.Inspector2.UpdateEc2DeepInspectionConfiguration
+    Amazonka.Inspector2.UpdateEncryptionKey
     Amazonka.Inspector2.UpdateFilter
     Amazonka.Inspector2.UpdateOrganizationConfiguration
+    Amazonka.Inspector2.UpdateOrgEc2DeepInspectionConfiguration
     Amazonka.Inspector2.Waiters
 
   build-depends:

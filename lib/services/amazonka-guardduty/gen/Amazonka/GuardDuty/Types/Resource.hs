@@ -29,6 +29,9 @@ import Amazonka.GuardDuty.Types.EcsClusterDetails
 import Amazonka.GuardDuty.Types.EksClusterDetails
 import Amazonka.GuardDuty.Types.InstanceDetails
 import Amazonka.GuardDuty.Types.KubernetesDetails
+import Amazonka.GuardDuty.Types.LambdaDetails
+import Amazonka.GuardDuty.Types.RdsDbInstanceDetails
+import Amazonka.GuardDuty.Types.RdsDbUserDetails
 import Amazonka.GuardDuty.Types.S3BucketDetail
 import qualified Amazonka.Prelude as Prelude
 
@@ -37,8 +40,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResource' smart constructor.
 data Resource = Resource'
-  { -- | The IAM access key details (IAM user information) of a user that engaged
-    -- in the activity that prompted GuardDuty to generate a finding.
+  { -- | The IAM access key details (user information) of a user that engaged in
+    -- the activity that prompted GuardDuty to generate a finding.
     accessKeyDetails :: Prelude.Maybe AccessKeyDetails,
     containerDetails :: Prelude.Maybe Container,
     -- | Contains list of scanned and skipped EBS volumes with details.
@@ -53,6 +56,15 @@ data Resource = Resource'
     -- | Details about the Kubernetes user and workload involved in a Kubernetes
     -- finding.
     kubernetesDetails :: Prelude.Maybe KubernetesDetails,
+    -- | Contains information about the Lambda function that was involved in a
+    -- finding.
+    lambdaDetails :: Prelude.Maybe LambdaDetails,
+    -- | Contains information about the database instance to which an anomalous
+    -- login attempt was made.
+    rdsDbInstanceDetails :: Prelude.Maybe RdsDbInstanceDetails,
+    -- | Contains information about the user details through which anomalous
+    -- login attempt was made.
+    rdsDbUserDetails :: Prelude.Maybe RdsDbUserDetails,
     -- | The type of Amazon Web Services resource.
     resourceType :: Prelude.Maybe Prelude.Text,
     -- | Contains information on the S3 bucket.
@@ -68,8 +80,8 @@ data Resource = Resource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessKeyDetails', 'resource_accessKeyDetails' - The IAM access key details (IAM user information) of a user that engaged
--- in the activity that prompted GuardDuty to generate a finding.
+-- 'accessKeyDetails', 'resource_accessKeyDetails' - The IAM access key details (user information) of a user that engaged in
+-- the activity that prompted GuardDuty to generate a finding.
 --
 -- 'containerDetails', 'resource_containerDetails' - Undocumented member.
 --
@@ -85,6 +97,15 @@ data Resource = Resource'
 -- 'kubernetesDetails', 'resource_kubernetesDetails' - Details about the Kubernetes user and workload involved in a Kubernetes
 -- finding.
 --
+-- 'lambdaDetails', 'resource_lambdaDetails' - Contains information about the Lambda function that was involved in a
+-- finding.
+--
+-- 'rdsDbInstanceDetails', 'resource_rdsDbInstanceDetails' - Contains information about the database instance to which an anomalous
+-- login attempt was made.
+--
+-- 'rdsDbUserDetails', 'resource_rdsDbUserDetails' - Contains information about the user details through which anomalous
+-- login attempt was made.
+--
 -- 'resourceType', 'resource_resourceType' - The type of Amazon Web Services resource.
 --
 -- 's3BucketDetails', 'resource_s3BucketDetails' - Contains information on the S3 bucket.
@@ -99,12 +120,15 @@ newResource =
       eksClusterDetails = Prelude.Nothing,
       instanceDetails = Prelude.Nothing,
       kubernetesDetails = Prelude.Nothing,
+      lambdaDetails = Prelude.Nothing,
+      rdsDbInstanceDetails = Prelude.Nothing,
+      rdsDbUserDetails = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       s3BucketDetails = Prelude.Nothing
     }
 
--- | The IAM access key details (IAM user information) of a user that engaged
--- in the activity that prompted GuardDuty to generate a finding.
+-- | The IAM access key details (user information) of a user that engaged in
+-- the activity that prompted GuardDuty to generate a finding.
 resource_accessKeyDetails :: Lens.Lens' Resource (Prelude.Maybe AccessKeyDetails)
 resource_accessKeyDetails = Lens.lens (\Resource' {accessKeyDetails} -> accessKeyDetails) (\s@Resource' {} a -> s {accessKeyDetails = a} :: Resource)
 
@@ -134,6 +158,21 @@ resource_instanceDetails = Lens.lens (\Resource' {instanceDetails} -> instanceDe
 resource_kubernetesDetails :: Lens.Lens' Resource (Prelude.Maybe KubernetesDetails)
 resource_kubernetesDetails = Lens.lens (\Resource' {kubernetesDetails} -> kubernetesDetails) (\s@Resource' {} a -> s {kubernetesDetails = a} :: Resource)
 
+-- | Contains information about the Lambda function that was involved in a
+-- finding.
+resource_lambdaDetails :: Lens.Lens' Resource (Prelude.Maybe LambdaDetails)
+resource_lambdaDetails = Lens.lens (\Resource' {lambdaDetails} -> lambdaDetails) (\s@Resource' {} a -> s {lambdaDetails = a} :: Resource)
+
+-- | Contains information about the database instance to which an anomalous
+-- login attempt was made.
+resource_rdsDbInstanceDetails :: Lens.Lens' Resource (Prelude.Maybe RdsDbInstanceDetails)
+resource_rdsDbInstanceDetails = Lens.lens (\Resource' {rdsDbInstanceDetails} -> rdsDbInstanceDetails) (\s@Resource' {} a -> s {rdsDbInstanceDetails = a} :: Resource)
+
+-- | Contains information about the user details through which anomalous
+-- login attempt was made.
+resource_rdsDbUserDetails :: Lens.Lens' Resource (Prelude.Maybe RdsDbUserDetails)
+resource_rdsDbUserDetails = Lens.lens (\Resource' {rdsDbUserDetails} -> rdsDbUserDetails) (\s@Resource' {} a -> s {rdsDbUserDetails = a} :: Resource)
+
 -- | The type of Amazon Web Services resource.
 resource_resourceType :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_resourceType = Lens.lens (\Resource' {resourceType} -> resourceType) (\s@Resource' {} a -> s {resourceType = a} :: Resource)
@@ -155,21 +194,29 @@ instance Data.FromJSON Resource where
             Prelude.<*> (x Data..:? "eksClusterDetails")
             Prelude.<*> (x Data..:? "instanceDetails")
             Prelude.<*> (x Data..:? "kubernetesDetails")
+            Prelude.<*> (x Data..:? "lambdaDetails")
+            Prelude.<*> (x Data..:? "rdsDbInstanceDetails")
+            Prelude.<*> (x Data..:? "rdsDbUserDetails")
             Prelude.<*> (x Data..:? "resourceType")
-            Prelude.<*> ( x Data..:? "s3BucketDetails"
+            Prelude.<*> ( x
+                            Data..:? "s3BucketDetails"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Resource where
   hashWithSalt _salt Resource' {..} =
-    _salt `Prelude.hashWithSalt` accessKeyDetails
+    _salt
+      `Prelude.hashWithSalt` accessKeyDetails
       `Prelude.hashWithSalt` containerDetails
       `Prelude.hashWithSalt` ebsVolumeDetails
       `Prelude.hashWithSalt` ecsClusterDetails
       `Prelude.hashWithSalt` eksClusterDetails
       `Prelude.hashWithSalt` instanceDetails
       `Prelude.hashWithSalt` kubernetesDetails
+      `Prelude.hashWithSalt` lambdaDetails
+      `Prelude.hashWithSalt` rdsDbInstanceDetails
+      `Prelude.hashWithSalt` rdsDbUserDetails
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` s3BucketDetails
 
@@ -182,5 +229,8 @@ instance Prelude.NFData Resource where
       `Prelude.seq` Prelude.rnf eksClusterDetails
       `Prelude.seq` Prelude.rnf instanceDetails
       `Prelude.seq` Prelude.rnf kubernetesDetails
+      `Prelude.seq` Prelude.rnf lambdaDetails
+      `Prelude.seq` Prelude.rnf rdsDbInstanceDetails
+      `Prelude.seq` Prelude.rnf rdsDbUserDetails
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf s3BucketDetails

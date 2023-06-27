@@ -57,9 +57,11 @@ data UpdateFilter = UpdateFilter'
   { -- | Specifies the action that is to be applied to the findings that match
     -- the filter.
     action :: Prelude.Maybe FilterAction,
-    -- | The description of the filter. Valid special characters include period
-    -- (.), underscore (_), dash (-), and whitespace. The new line character is
-    -- considered to be an invalid input for description.
+    -- | The description of the filter. Valid characters include alphanumeric
+    -- characters, and special characters such as hyphen, period, colon,
+    -- underscore, parentheses (@{ }@, @[ ]@, and @( )@), forward slash,
+    -- horizontal tab, vertical tab, newline, form feed, return, and
+    -- whitespace.
     description :: Prelude.Maybe Prelude.Text,
     -- | Represents the criteria to be used in the filter for querying findings.
     findingCriteria :: Prelude.Maybe FindingCriteria,
@@ -86,9 +88,11 @@ data UpdateFilter = UpdateFilter'
 -- 'action', 'updateFilter_action' - Specifies the action that is to be applied to the findings that match
 -- the filter.
 --
--- 'description', 'updateFilter_description' - The description of the filter. Valid special characters include period
--- (.), underscore (_), dash (-), and whitespace. The new line character is
--- considered to be an invalid input for description.
+-- 'description', 'updateFilter_description' - The description of the filter. Valid characters include alphanumeric
+-- characters, and special characters such as hyphen, period, colon,
+-- underscore, parentheses (@{ }@, @[ ]@, and @( )@), forward slash,
+-- horizontal tab, vertical tab, newline, form feed, return, and
+-- whitespace.
 --
 -- 'findingCriteria', 'updateFilter_findingCriteria' - Represents the criteria to be used in the filter for querying findings.
 --
@@ -121,9 +125,11 @@ newUpdateFilter pDetectorId_ pFilterName_ =
 updateFilter_action :: Lens.Lens' UpdateFilter (Prelude.Maybe FilterAction)
 updateFilter_action = Lens.lens (\UpdateFilter' {action} -> action) (\s@UpdateFilter' {} a -> s {action = a} :: UpdateFilter)
 
--- | The description of the filter. Valid special characters include period
--- (.), underscore (_), dash (-), and whitespace. The new line character is
--- considered to be an invalid input for description.
+-- | The description of the filter. Valid characters include alphanumeric
+-- characters, and special characters such as hyphen, period, colon,
+-- underscore, parentheses (@{ }@, @[ ]@, and @( )@), forward slash,
+-- horizontal tab, vertical tab, newline, form feed, return, and
+-- whitespace.
 updateFilter_description :: Lens.Lens' UpdateFilter (Prelude.Maybe Prelude.Text)
 updateFilter_description = Lens.lens (\UpdateFilter' {description} -> description) (\s@UpdateFilter' {} a -> s {description = a} :: UpdateFilter)
 
@@ -160,7 +166,8 @@ instance Core.AWSRequest UpdateFilter where
 
 instance Prelude.Hashable UpdateFilter where
   hashWithSalt _salt UpdateFilter' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` findingCriteria
       `Prelude.hashWithSalt` rank

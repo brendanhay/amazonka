@@ -21,6 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves an Amazon GuardDuty detector specified by the detectorId.
+--
+-- There might be regional differences because some data sources might not
+-- be available in all the Amazon Web Services Regions where GuardDuty is
+-- presently supported. For more information, see
+-- <https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html Regions and endpoints>.
 module Amazonka.GuardDuty.GetDetector
   ( -- * Creating a Request
     GetDetector (..),
@@ -36,6 +41,7 @@ module Amazonka.GuardDuty.GetDetector
     -- * Response Lenses
     getDetectorResponse_createdAt,
     getDetectorResponse_dataSources,
+    getDetectorResponse_features,
     getDetectorResponse_findingPublishingFrequency,
     getDetectorResponse_tags,
     getDetectorResponse_updatedAt,
@@ -90,6 +96,7 @@ instance Core.AWSRequest GetDetector where
           GetDetectorResponse'
             Prelude.<$> (x Data..?> "createdAt")
             Prelude.<*> (x Data..?> "dataSources")
+            Prelude.<*> (x Data..?> "features" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "findingPublishingFrequency")
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "updatedAt")
@@ -130,6 +137,8 @@ data GetDetectorResponse = GetDetectorResponse'
     createdAt :: Prelude.Maybe Prelude.Text,
     -- | Describes which data sources are enabled for the detector.
     dataSources :: Prelude.Maybe DataSourceConfigurationsResult,
+    -- | Describes the features that have been enabled for the detector.
+    features :: Prelude.Maybe [DetectorFeatureConfigurationResult],
     -- | The publishing frequency of the finding.
     findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency,
     -- | The tags of the detector resource.
@@ -157,6 +166,8 @@ data GetDetectorResponse = GetDetectorResponse'
 --
 -- 'dataSources', 'getDetectorResponse_dataSources' - Describes which data sources are enabled for the detector.
 --
+-- 'features', 'getDetectorResponse_features' - Describes the features that have been enabled for the detector.
+--
 -- 'findingPublishingFrequency', 'getDetectorResponse_findingPublishingFrequency' - The publishing frequency of the finding.
 --
 -- 'tags', 'getDetectorResponse_tags' - The tags of the detector resource.
@@ -183,6 +194,7 @@ newGetDetectorResponse
     GetDetectorResponse'
       { createdAt = Prelude.Nothing,
         dataSources = Prelude.Nothing,
+        features = Prelude.Nothing,
         findingPublishingFrequency = Prelude.Nothing,
         tags = Prelude.Nothing,
         updatedAt = Prelude.Nothing,
@@ -198,6 +210,10 @@ getDetectorResponse_createdAt = Lens.lens (\GetDetectorResponse' {createdAt} -> 
 -- | Describes which data sources are enabled for the detector.
 getDetectorResponse_dataSources :: Lens.Lens' GetDetectorResponse (Prelude.Maybe DataSourceConfigurationsResult)
 getDetectorResponse_dataSources = Lens.lens (\GetDetectorResponse' {dataSources} -> dataSources) (\s@GetDetectorResponse' {} a -> s {dataSources = a} :: GetDetectorResponse)
+
+-- | Describes the features that have been enabled for the detector.
+getDetectorResponse_features :: Lens.Lens' GetDetectorResponse (Prelude.Maybe [DetectorFeatureConfigurationResult])
+getDetectorResponse_features = Lens.lens (\GetDetectorResponse' {features} -> features) (\s@GetDetectorResponse' {} a -> s {features = a} :: GetDetectorResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The publishing frequency of the finding.
 getDetectorResponse_findingPublishingFrequency :: Lens.Lens' GetDetectorResponse (Prelude.Maybe FindingPublishingFrequency)
@@ -227,6 +243,7 @@ instance Prelude.NFData GetDetectorResponse where
   rnf GetDetectorResponse' {..} =
     Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf features
       `Prelude.seq` Prelude.rnf findingPublishingFrequency
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf updatedAt

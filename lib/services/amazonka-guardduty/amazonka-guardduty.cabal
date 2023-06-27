@@ -69,6 +69,7 @@ library
     Amazonka.GuardDuty.DisassociateMembers
     Amazonka.GuardDuty.EnableOrganizationAdminAccount
     Amazonka.GuardDuty.GetAdministratorAccount
+    Amazonka.GuardDuty.GetCoverageStatistics
     Amazonka.GuardDuty.GetDetector
     Amazonka.GuardDuty.GetFilter
     Amazonka.GuardDuty.GetFindings
@@ -83,6 +84,7 @@ library
     Amazonka.GuardDuty.GetUsageStatistics
     Amazonka.GuardDuty.InviteMembers
     Amazonka.GuardDuty.Lens
+    Amazonka.GuardDuty.ListCoverage
     Amazonka.GuardDuty.ListDetectors
     Amazonka.GuardDuty.ListFilters
     Amazonka.GuardDuty.ListFindings
@@ -93,6 +95,7 @@ library
     Amazonka.GuardDuty.ListPublishingDestinations
     Amazonka.GuardDuty.ListTagsForResource
     Amazonka.GuardDuty.ListThreatIntelSets
+    Amazonka.GuardDuty.StartMalwareScan
     Amazonka.GuardDuty.StartMonitoringMembers
     Amazonka.GuardDuty.StopMonitoringMembers
     Amazonka.GuardDuty.TagResource
@@ -103,9 +106,11 @@ library
     Amazonka.GuardDuty.Types.AccountFreeTrialInfo
     Amazonka.GuardDuty.Types.AccountLevelPermissions
     Amazonka.GuardDuty.Types.Action
+    Amazonka.GuardDuty.Types.AddonDetails
     Amazonka.GuardDuty.Types.AdminAccount
     Amazonka.GuardDuty.Types.Administrator
     Amazonka.GuardDuty.Types.AdminStatus
+    Amazonka.GuardDuty.Types.AutoEnableMembers
     Amazonka.GuardDuty.Types.AwsApiCallAction
     Amazonka.GuardDuty.Types.BlockPublicAccess
     Amazonka.GuardDuty.Types.BucketLevelPermissions
@@ -115,6 +120,18 @@ library
     Amazonka.GuardDuty.Types.Condition
     Amazonka.GuardDuty.Types.Container
     Amazonka.GuardDuty.Types.Country
+    Amazonka.GuardDuty.Types.CoverageEksClusterDetails
+    Amazonka.GuardDuty.Types.CoverageFilterCondition
+    Amazonka.GuardDuty.Types.CoverageFilterCriteria
+    Amazonka.GuardDuty.Types.CoverageFilterCriterion
+    Amazonka.GuardDuty.Types.CoverageFilterCriterionKey
+    Amazonka.GuardDuty.Types.CoverageResource
+    Amazonka.GuardDuty.Types.CoverageResourceDetails
+    Amazonka.GuardDuty.Types.CoverageSortCriteria
+    Amazonka.GuardDuty.Types.CoverageSortKey
+    Amazonka.GuardDuty.Types.CoverageStatistics
+    Amazonka.GuardDuty.Types.CoverageStatisticsType
+    Amazonka.GuardDuty.Types.CoverageStatus
     Amazonka.GuardDuty.Types.CriterionKey
     Amazonka.GuardDuty.Types.DataSource
     Amazonka.GuardDuty.Types.DataSourceConfigurations
@@ -126,6 +143,12 @@ library
     Amazonka.GuardDuty.Types.Destination
     Amazonka.GuardDuty.Types.DestinationProperties
     Amazonka.GuardDuty.Types.DestinationType
+    Amazonka.GuardDuty.Types.DetectorAdditionalConfiguration
+    Amazonka.GuardDuty.Types.DetectorAdditionalConfigurationResult
+    Amazonka.GuardDuty.Types.DetectorFeature
+    Amazonka.GuardDuty.Types.DetectorFeatureConfiguration
+    Amazonka.GuardDuty.Types.DetectorFeatureConfigurationResult
+    Amazonka.GuardDuty.Types.DetectorFeatureResult
     Amazonka.GuardDuty.Types.DetectorStatus
     Amazonka.GuardDuty.Types.DNSLogsConfigurationResult
     Amazonka.GuardDuty.Types.DnsRequestAction
@@ -138,6 +161,8 @@ library
     Amazonka.GuardDuty.Types.EcsTaskDetails
     Amazonka.GuardDuty.Types.EksClusterDetails
     Amazonka.GuardDuty.Types.Evidence
+    Amazonka.GuardDuty.Types.FeatureAdditionalConfiguration
+    Amazonka.GuardDuty.Types.FeatureStatus
     Amazonka.GuardDuty.Types.Feedback
     Amazonka.GuardDuty.Types.FilterAction
     Amazonka.GuardDuty.Types.FilterCondition
@@ -149,6 +174,8 @@ library
     Amazonka.GuardDuty.Types.FindingStatistics
     Amazonka.GuardDuty.Types.FindingStatisticType
     Amazonka.GuardDuty.Types.FlowLogsConfigurationResult
+    Amazonka.GuardDuty.Types.FreeTrialFeatureConfigurationResult
+    Amazonka.GuardDuty.Types.FreeTrialFeatureResult
     Amazonka.GuardDuty.Types.GeoLocation
     Amazonka.GuardDuty.Types.HighestSeverityThreatDetails
     Amazonka.GuardDuty.Types.HostPath
@@ -166,21 +193,32 @@ library
     Amazonka.GuardDuty.Types.KubernetesDetails
     Amazonka.GuardDuty.Types.KubernetesUserDetails
     Amazonka.GuardDuty.Types.KubernetesWorkloadDetails
+    Amazonka.GuardDuty.Types.LambdaDetails
+    Amazonka.GuardDuty.Types.LineageObject
     Amazonka.GuardDuty.Types.LocalIpDetails
     Amazonka.GuardDuty.Types.LocalPortDetails
+    Amazonka.GuardDuty.Types.LoginAttribute
     Amazonka.GuardDuty.Types.MalwareProtectionConfiguration
     Amazonka.GuardDuty.Types.MalwareProtectionConfigurationResult
     Amazonka.GuardDuty.Types.MalwareProtectionDataSourceFreeTrial
     Amazonka.GuardDuty.Types.Member
+    Amazonka.GuardDuty.Types.MemberAdditionalConfiguration
+    Amazonka.GuardDuty.Types.MemberAdditionalConfigurationResult
     Amazonka.GuardDuty.Types.MemberDataSourceConfiguration
+    Amazonka.GuardDuty.Types.MemberFeaturesConfiguration
+    Amazonka.GuardDuty.Types.MemberFeaturesConfigurationResult
     Amazonka.GuardDuty.Types.NetworkConnectionAction
     Amazonka.GuardDuty.Types.NetworkInterface
     Amazonka.GuardDuty.Types.OrderBy
     Amazonka.GuardDuty.Types.Organization
+    Amazonka.GuardDuty.Types.OrganizationAdditionalConfiguration
+    Amazonka.GuardDuty.Types.OrganizationAdditionalConfigurationResult
     Amazonka.GuardDuty.Types.OrganizationDataSourceConfigurations
     Amazonka.GuardDuty.Types.OrganizationDataSourceConfigurationsResult
     Amazonka.GuardDuty.Types.OrganizationEbsVolumes
     Amazonka.GuardDuty.Types.OrganizationEbsVolumesResult
+    Amazonka.GuardDuty.Types.OrganizationFeatureConfiguration
+    Amazonka.GuardDuty.Types.OrganizationFeatureConfigurationResult
     Amazonka.GuardDuty.Types.OrganizationKubernetesAuditLogsConfiguration
     Amazonka.GuardDuty.Types.OrganizationKubernetesAuditLogsConfigurationResult
     Amazonka.GuardDuty.Types.OrganizationKubernetesConfiguration
@@ -191,19 +229,29 @@ library
     Amazonka.GuardDuty.Types.OrganizationS3LogsConfigurationResult
     Amazonka.GuardDuty.Types.OrganizationScanEc2InstanceWithFindings
     Amazonka.GuardDuty.Types.OrganizationScanEc2InstanceWithFindingsResult
+    Amazonka.GuardDuty.Types.OrgFeature
+    Amazonka.GuardDuty.Types.OrgFeatureAdditionalConfiguration
+    Amazonka.GuardDuty.Types.OrgFeatureStatus
     Amazonka.GuardDuty.Types.Owner
     Amazonka.GuardDuty.Types.PermissionConfiguration
     Amazonka.GuardDuty.Types.PortProbeAction
     Amazonka.GuardDuty.Types.PortProbeDetail
     Amazonka.GuardDuty.Types.PrivateIpAddressDetails
+    Amazonka.GuardDuty.Types.ProcessDetails
     Amazonka.GuardDuty.Types.ProductCode
     Amazonka.GuardDuty.Types.PublicAccess
     Amazonka.GuardDuty.Types.PublishingStatus
+    Amazonka.GuardDuty.Types.RdsDbInstanceDetails
+    Amazonka.GuardDuty.Types.RdsDbUserDetails
+    Amazonka.GuardDuty.Types.RdsLoginAttemptAction
     Amazonka.GuardDuty.Types.RemoteAccountDetails
     Amazonka.GuardDuty.Types.RemoteIpDetails
     Amazonka.GuardDuty.Types.RemotePortDetails
     Amazonka.GuardDuty.Types.Resource
     Amazonka.GuardDuty.Types.ResourceDetails
+    Amazonka.GuardDuty.Types.ResourceType
+    Amazonka.GuardDuty.Types.RuntimeContext
+    Amazonka.GuardDuty.Types.RuntimeDetails
     Amazonka.GuardDuty.Types.S3BucketDetail
     Amazonka.GuardDuty.Types.S3LogsConfiguration
     Amazonka.GuardDuty.Types.S3LogsConfigurationResult
@@ -221,6 +269,7 @@ library
     Amazonka.GuardDuty.Types.ScanResultDetails
     Amazonka.GuardDuty.Types.ScanStatus
     Amazonka.GuardDuty.Types.ScanThreatName
+    Amazonka.GuardDuty.Types.ScanType
     Amazonka.GuardDuty.Types.SecurityContext
     Amazonka.GuardDuty.Types.SecurityGroup
     Amazonka.GuardDuty.Types.ServiceAdditionalInfo
@@ -239,12 +288,15 @@ library
     Amazonka.GuardDuty.Types.UsageAccountResult
     Amazonka.GuardDuty.Types.UsageCriteria
     Amazonka.GuardDuty.Types.UsageDataSourceResult
+    Amazonka.GuardDuty.Types.UsageFeature
+    Amazonka.GuardDuty.Types.UsageFeatureResult
     Amazonka.GuardDuty.Types.UsageResourceResult
     Amazonka.GuardDuty.Types.UsageStatistics
     Amazonka.GuardDuty.Types.UsageStatisticType
     Amazonka.GuardDuty.Types.Volume
     Amazonka.GuardDuty.Types.VolumeDetail
     Amazonka.GuardDuty.Types.VolumeMount
+    Amazonka.GuardDuty.Types.VpcConfig
     Amazonka.GuardDuty.UnarchiveFindings
     Amazonka.GuardDuty.UntagResource
     Amazonka.GuardDuty.UpdateDetector

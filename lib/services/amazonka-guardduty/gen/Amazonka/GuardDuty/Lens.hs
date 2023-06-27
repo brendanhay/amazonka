@@ -28,6 +28,7 @@ module Amazonka.GuardDuty.Lens
     -- ** CreateDetector
     createDetector_clientToken,
     createDetector_dataSources,
+    createDetector_features,
     createDetector_findingPublishingFrequency,
     createDetector_tags,
     createDetector_enable,
@@ -139,10 +140,15 @@ module Amazonka.GuardDuty.Lens
     describeMalwareScansResponse_scans,
 
     -- ** DescribeOrganizationConfiguration
+    describeOrganizationConfiguration_maxResults,
+    describeOrganizationConfiguration_nextToken,
     describeOrganizationConfiguration_detectorId,
-    describeOrganizationConfigurationResponse_dataSources,
-    describeOrganizationConfigurationResponse_httpStatus,
     describeOrganizationConfigurationResponse_autoEnable,
+    describeOrganizationConfigurationResponse_autoEnableOrganizationMembers,
+    describeOrganizationConfigurationResponse_dataSources,
+    describeOrganizationConfigurationResponse_features,
+    describeOrganizationConfigurationResponse_nextToken,
+    describeOrganizationConfigurationResponse_httpStatus,
     describeOrganizationConfigurationResponse_memberAccountLimitReached,
 
     -- ** DescribePublishingDestination
@@ -178,10 +184,18 @@ module Amazonka.GuardDuty.Lens
     getAdministratorAccountResponse_httpStatus,
     getAdministratorAccountResponse_administrator,
 
+    -- ** GetCoverageStatistics
+    getCoverageStatistics_filterCriteria,
+    getCoverageStatistics_detectorId,
+    getCoverageStatistics_statisticsType,
+    getCoverageStatisticsResponse_coverageStatistics,
+    getCoverageStatisticsResponse_httpStatus,
+
     -- ** GetDetector
     getDetector_detectorId,
     getDetectorResponse_createdAt,
     getDetectorResponse_dataSources,
+    getDetectorResponse_features,
     getDetectorResponse_findingPublishingFrequency,
     getDetectorResponse_tags,
     getDetectorResponse_updatedAt,
@@ -284,6 +298,16 @@ module Amazonka.GuardDuty.Lens
     inviteMembersResponse_httpStatus,
     inviteMembersResponse_unprocessedAccounts,
 
+    -- ** ListCoverage
+    listCoverage_filterCriteria,
+    listCoverage_maxResults,
+    listCoverage_nextToken,
+    listCoverage_sortCriteria,
+    listCoverage_detectorId,
+    listCoverageResponse_nextToken,
+    listCoverageResponse_httpStatus,
+    listCoverageResponse_resources,
+
     -- ** ListDetectors
     listDetectors_maxResults,
     listDetectors_nextToken,
@@ -361,6 +385,11 @@ module Amazonka.GuardDuty.Lens
     listThreatIntelSetsResponse_httpStatus,
     listThreatIntelSetsResponse_threatIntelSetIds,
 
+    -- ** StartMalwareScan
+    startMalwareScan_resourceArn,
+    startMalwareScanResponse_scanId,
+    startMalwareScanResponse_httpStatus,
+
     -- ** StartMonitoringMembers
     startMonitoringMembers_detectorId,
     startMonitoringMembers_accountIds,
@@ -391,6 +420,7 @@ module Amazonka.GuardDuty.Lens
     -- ** UpdateDetector
     updateDetector_dataSources,
     updateDetector_enable,
+    updateDetector_features,
     updateDetector_findingPublishingFrequency,
     updateDetector_detectorId,
     updateDetectorResponse_httpStatus,
@@ -428,15 +458,18 @@ module Amazonka.GuardDuty.Lens
 
     -- ** UpdateMemberDetectors
     updateMemberDetectors_dataSources,
+    updateMemberDetectors_features,
     updateMemberDetectors_detectorId,
     updateMemberDetectors_accountIds,
     updateMemberDetectorsResponse_httpStatus,
     updateMemberDetectorsResponse_unprocessedAccounts,
 
     -- ** UpdateOrganizationConfiguration
-    updateOrganizationConfiguration_dataSources,
-    updateOrganizationConfiguration_detectorId,
     updateOrganizationConfiguration_autoEnable,
+    updateOrganizationConfiguration_autoEnableOrganizationMembers,
+    updateOrganizationConfiguration_dataSources,
+    updateOrganizationConfiguration_features,
+    updateOrganizationConfiguration_detectorId,
     updateOrganizationConfigurationResponse_httpStatus,
 
     -- ** UpdatePublishingDestination
@@ -472,6 +505,7 @@ module Amazonka.GuardDuty.Lens
     -- ** AccountFreeTrialInfo
     accountFreeTrialInfo_accountId,
     accountFreeTrialInfo_dataSources,
+    accountFreeTrialInfo_features,
 
     -- ** AccountLevelPermissions
     accountLevelPermissions_blockPublicAccess,
@@ -483,6 +517,11 @@ module Amazonka.GuardDuty.Lens
     action_kubernetesApiCallAction,
     action_networkConnectionAction,
     action_portProbeAction,
+    action_rdsLoginAttemptAction,
+
+    -- ** AddonDetails
+    addonDetails_addonStatus,
+    addonDetails_addonVersion,
 
     -- ** AdminAccount
     adminAccount_adminAccountId,
@@ -553,6 +592,44 @@ module Amazonka.GuardDuty.Lens
     country_countryCode,
     country_countryName,
 
+    -- ** CoverageEksClusterDetails
+    coverageEksClusterDetails_addonDetails,
+    coverageEksClusterDetails_clusterName,
+    coverageEksClusterDetails_compatibleNodes,
+    coverageEksClusterDetails_coveredNodes,
+
+    -- ** CoverageFilterCondition
+    coverageFilterCondition_equals,
+    coverageFilterCondition_notEquals,
+
+    -- ** CoverageFilterCriteria
+    coverageFilterCriteria_filterCriterion,
+
+    -- ** CoverageFilterCriterion
+    coverageFilterCriterion_criterionKey,
+    coverageFilterCriterion_filterCondition,
+
+    -- ** CoverageResource
+    coverageResource_accountId,
+    coverageResource_coverageStatus,
+    coverageResource_detectorId,
+    coverageResource_issue,
+    coverageResource_resourceDetails,
+    coverageResource_resourceId,
+    coverageResource_updatedAt,
+
+    -- ** CoverageResourceDetails
+    coverageResourceDetails_eksClusterDetails,
+    coverageResourceDetails_resourceType,
+
+    -- ** CoverageSortCriteria
+    coverageSortCriteria_attributeName,
+    coverageSortCriteria_orderBy,
+
+    -- ** CoverageStatistics
+    coverageStatistics_countByCoverageStatus,
+    coverageStatistics_countByResourceType,
+
     -- ** DNSLogsConfigurationResult
     dNSLogsConfigurationResult_status,
 
@@ -593,6 +670,26 @@ module Amazonka.GuardDuty.Lens
     destinationProperties_destinationArn,
     destinationProperties_kmsKeyArn,
 
+    -- ** DetectorAdditionalConfiguration
+    detectorAdditionalConfiguration_name,
+    detectorAdditionalConfiguration_status,
+
+    -- ** DetectorAdditionalConfigurationResult
+    detectorAdditionalConfigurationResult_name,
+    detectorAdditionalConfigurationResult_status,
+    detectorAdditionalConfigurationResult_updatedAt,
+
+    -- ** DetectorFeatureConfiguration
+    detectorFeatureConfiguration_additionalConfiguration,
+    detectorFeatureConfiguration_name,
+    detectorFeatureConfiguration_status,
+
+    -- ** DetectorFeatureConfigurationResult
+    detectorFeatureConfigurationResult_additionalConfiguration,
+    detectorFeatureConfigurationResult_name,
+    detectorFeatureConfigurationResult_status,
+    detectorFeatureConfigurationResult_updatedAt,
+
     -- ** DnsRequestAction
     dnsRequestAction_blocked,
     dnsRequestAction_domain,
@@ -610,6 +707,7 @@ module Amazonka.GuardDuty.Lens
     ebsVolumeScanDetails_scanDetections,
     ebsVolumeScanDetails_scanId,
     ebsVolumeScanDetails_scanStartedAt,
+    ebsVolumeScanDetails_scanType,
     ebsVolumeScanDetails_sources,
     ebsVolumeScanDetails_triggerFindingId,
 
@@ -688,6 +786,10 @@ module Amazonka.GuardDuty.Lens
     -- ** FlowLogsConfigurationResult
     flowLogsConfigurationResult_status,
 
+    -- ** FreeTrialFeatureConfigurationResult
+    freeTrialFeatureConfigurationResult_freeTrialDaysRemaining,
+    freeTrialFeatureConfigurationResult_name,
+
     -- ** GeoLocation
     geoLocation_lat,
     geoLocation_lon,
@@ -755,6 +857,7 @@ module Amazonka.GuardDuty.Lens
 
     -- ** KubernetesUserDetails
     kubernetesUserDetails_groups,
+    kubernetesUserDetails_sessionName,
     kubernetesUserDetails_uid,
     kubernetesUserDetails_username,
 
@@ -767,12 +870,40 @@ module Amazonka.GuardDuty.Lens
     kubernetesWorkloadDetails_uid,
     kubernetesWorkloadDetails_volumes,
 
+    -- ** LambdaDetails
+    lambdaDetails_description,
+    lambdaDetails_functionArn,
+    lambdaDetails_functionName,
+    lambdaDetails_functionVersion,
+    lambdaDetails_lastModifiedAt,
+    lambdaDetails_revisionId,
+    lambdaDetails_role,
+    lambdaDetails_tags,
+    lambdaDetails_vpcConfig,
+
+    -- ** LineageObject
+    lineageObject_euid,
+    lineageObject_executablePath,
+    lineageObject_name,
+    lineageObject_namespacePid,
+    lineageObject_parentUuid,
+    lineageObject_pid,
+    lineageObject_startTime,
+    lineageObject_userId,
+    lineageObject_uuid,
+
     -- ** LocalIpDetails
     localIpDetails_ipAddressV4,
 
     -- ** LocalPortDetails
     localPortDetails_port,
     localPortDetails_portName,
+
+    -- ** LoginAttribute
+    loginAttribute_application,
+    loginAttribute_failedLoginAttempts,
+    loginAttribute_successfulLoginAttempts,
+    loginAttribute_user,
 
     -- ** MalwareProtectionConfiguration
     malwareProtectionConfiguration_scanEc2InstanceWithFindings,
@@ -794,9 +925,30 @@ module Amazonka.GuardDuty.Lens
     member_relationshipStatus,
     member_updatedAt,
 
+    -- ** MemberAdditionalConfiguration
+    memberAdditionalConfiguration_name,
+    memberAdditionalConfiguration_status,
+
+    -- ** MemberAdditionalConfigurationResult
+    memberAdditionalConfigurationResult_name,
+    memberAdditionalConfigurationResult_status,
+    memberAdditionalConfigurationResult_updatedAt,
+
     -- ** MemberDataSourceConfiguration
-    memberDataSourceConfiguration_accountId,
     memberDataSourceConfiguration_dataSources,
+    memberDataSourceConfiguration_features,
+    memberDataSourceConfiguration_accountId,
+
+    -- ** MemberFeaturesConfiguration
+    memberFeaturesConfiguration_additionalConfiguration,
+    memberFeaturesConfiguration_name,
+    memberFeaturesConfiguration_status,
+
+    -- ** MemberFeaturesConfigurationResult
+    memberFeaturesConfigurationResult_additionalConfiguration,
+    memberFeaturesConfigurationResult_name,
+    memberFeaturesConfigurationResult_status,
+    memberFeaturesConfigurationResult_updatedAt,
 
     -- ** NetworkConnectionAction
     networkConnectionAction_blocked,
@@ -825,6 +977,14 @@ module Amazonka.GuardDuty.Lens
     organization_isp,
     organization_org,
 
+    -- ** OrganizationAdditionalConfiguration
+    organizationAdditionalConfiguration_autoEnable,
+    organizationAdditionalConfiguration_name,
+
+    -- ** OrganizationAdditionalConfigurationResult
+    organizationAdditionalConfigurationResult_autoEnable,
+    organizationAdditionalConfigurationResult_name,
+
     -- ** OrganizationDataSourceConfigurations
     organizationDataSourceConfigurations_kubernetes,
     organizationDataSourceConfigurations_malwareProtection,
@@ -840,6 +1000,16 @@ module Amazonka.GuardDuty.Lens
 
     -- ** OrganizationEbsVolumesResult
     organizationEbsVolumesResult_autoEnable,
+
+    -- ** OrganizationFeatureConfiguration
+    organizationFeatureConfiguration_additionalConfiguration,
+    organizationFeatureConfiguration_autoEnable,
+    organizationFeatureConfiguration_name,
+
+    -- ** OrganizationFeatureConfigurationResult
+    organizationFeatureConfigurationResult_additionalConfiguration,
+    organizationFeatureConfigurationResult_autoEnable,
+    organizationFeatureConfigurationResult_name,
 
     -- ** OrganizationKubernetesAuditLogsConfiguration
     organizationKubernetesAuditLogsConfiguration_autoEnable,
@@ -891,6 +1061,21 @@ module Amazonka.GuardDuty.Lens
     privateIpAddressDetails_privateDnsName,
     privateIpAddressDetails_privateIpAddress,
 
+    -- ** ProcessDetails
+    processDetails_euid,
+    processDetails_executablePath,
+    processDetails_executableSha256,
+    processDetails_lineage,
+    processDetails_name,
+    processDetails_namespacePid,
+    processDetails_parentUuid,
+    processDetails_pid,
+    processDetails_pwd,
+    processDetails_startTime,
+    processDetails_user,
+    processDetails_userId,
+    processDetails_uuid,
+
     -- ** ProductCode
     productCode_code,
     productCode_productType,
@@ -898,6 +1083,25 @@ module Amazonka.GuardDuty.Lens
     -- ** PublicAccess
     publicAccess_effectivePermission,
     publicAccess_permissionConfiguration,
+
+    -- ** RdsDbInstanceDetails
+    rdsDbInstanceDetails_dbClusterIdentifier,
+    rdsDbInstanceDetails_dbInstanceArn,
+    rdsDbInstanceDetails_dbInstanceIdentifier,
+    rdsDbInstanceDetails_engine,
+    rdsDbInstanceDetails_engineVersion,
+    rdsDbInstanceDetails_tags,
+
+    -- ** RdsDbUserDetails
+    rdsDbUserDetails_application,
+    rdsDbUserDetails_authMethod,
+    rdsDbUserDetails_database,
+    rdsDbUserDetails_ssl,
+    rdsDbUserDetails_user,
+
+    -- ** RdsLoginAttemptAction
+    rdsLoginAttemptAction_loginAttributes,
+    rdsLoginAttemptAction_remoteIpDetails,
 
     -- ** RemoteAccountDetails
     remoteAccountDetails_accountId,
@@ -922,11 +1126,40 @@ module Amazonka.GuardDuty.Lens
     resource_eksClusterDetails,
     resource_instanceDetails,
     resource_kubernetesDetails,
+    resource_lambdaDetails,
+    resource_rdsDbInstanceDetails,
+    resource_rdsDbUserDetails,
     resource_resourceType,
     resource_s3BucketDetails,
 
     -- ** ResourceDetails
     resourceDetails_instanceArn,
+
+    -- ** RuntimeContext
+    runtimeContext_addressFamily,
+    runtimeContext_fileSystemType,
+    runtimeContext_flags,
+    runtimeContext_ianaProtocolNumber,
+    runtimeContext_ldPreloadValue,
+    runtimeContext_libraryPath,
+    runtimeContext_memoryRegions,
+    runtimeContext_modifiedAt,
+    runtimeContext_modifyingProcess,
+    runtimeContext_moduleFilePath,
+    runtimeContext_moduleName,
+    runtimeContext_moduleSha256,
+    runtimeContext_mountSource,
+    runtimeContext_mountTarget,
+    runtimeContext_releaseAgentPath,
+    runtimeContext_runcBinaryPath,
+    runtimeContext_scriptPath,
+    runtimeContext_shellHistoryFilePath,
+    runtimeContext_socketPath,
+    runtimeContext_targetProcess,
+
+    -- ** RuntimeDetails
+    runtimeDetails_context,
+    runtimeDetails_process,
 
     -- ** S3BucketDetail
     s3BucketDetail_arn,
@@ -957,6 +1190,7 @@ module Amazonka.GuardDuty.Lens
     scan_scanResultDetails,
     scan_scanStartTime,
     scan_scanStatus,
+    scan_scanType,
     scan_totalBytes,
     scan_triggerDetails,
 
@@ -1026,6 +1260,7 @@ module Amazonka.GuardDuty.Lens
     serviceInfo_evidence,
     serviceInfo_featureName,
     serviceInfo_resourceRole,
+    serviceInfo_runtimeDetails,
     serviceInfo_serviceName,
     serviceInfo_userFeedback,
 
@@ -1071,12 +1306,17 @@ module Amazonka.GuardDuty.Lens
 
     -- ** UsageCriteria
     usageCriteria_accountIds,
-    usageCriteria_resources,
     usageCriteria_dataSources,
+    usageCriteria_features,
+    usageCriteria_resources,
 
     -- ** UsageDataSourceResult
     usageDataSourceResult_dataSource,
     usageDataSourceResult_total,
+
+    -- ** UsageFeatureResult
+    usageFeatureResult_feature,
+    usageFeatureResult_total,
 
     -- ** UsageResourceResult
     usageResourceResult_resource,
@@ -1085,6 +1325,7 @@ module Amazonka.GuardDuty.Lens
     -- ** UsageStatistics
     usageStatistics_sumByAccount,
     usageStatistics_sumByDataSource,
+    usageStatistics_sumByFeature,
     usageStatistics_sumByResource,
     usageStatistics_topResources,
 
@@ -1104,6 +1345,11 @@ module Amazonka.GuardDuty.Lens
     -- ** VolumeMount
     volumeMount_mountPath,
     volumeMount_name,
+
+    -- ** VpcConfig
+    vpcConfig_securityGroups,
+    vpcConfig_subnetIds,
+    vpcConfig_vpcId,
   )
 where
 
@@ -1132,6 +1378,7 @@ import Amazonka.GuardDuty.DisassociateFromAdministratorAccount
 import Amazonka.GuardDuty.DisassociateMembers
 import Amazonka.GuardDuty.EnableOrganizationAdminAccount
 import Amazonka.GuardDuty.GetAdministratorAccount
+import Amazonka.GuardDuty.GetCoverageStatistics
 import Amazonka.GuardDuty.GetDetector
 import Amazonka.GuardDuty.GetFilter
 import Amazonka.GuardDuty.GetFindings
@@ -1145,6 +1392,7 @@ import Amazonka.GuardDuty.GetRemainingFreeTrialDays
 import Amazonka.GuardDuty.GetThreatIntelSet
 import Amazonka.GuardDuty.GetUsageStatistics
 import Amazonka.GuardDuty.InviteMembers
+import Amazonka.GuardDuty.ListCoverage
 import Amazonka.GuardDuty.ListDetectors
 import Amazonka.GuardDuty.ListFilters
 import Amazonka.GuardDuty.ListFindings
@@ -1155,6 +1403,7 @@ import Amazonka.GuardDuty.ListOrganizationAdminAccounts
 import Amazonka.GuardDuty.ListPublishingDestinations
 import Amazonka.GuardDuty.ListTagsForResource
 import Amazonka.GuardDuty.ListThreatIntelSets
+import Amazonka.GuardDuty.StartMalwareScan
 import Amazonka.GuardDuty.StartMonitoringMembers
 import Amazonka.GuardDuty.StopMonitoringMembers
 import Amazonka.GuardDuty.TagResource
@@ -1164,6 +1413,7 @@ import Amazonka.GuardDuty.Types.AccountDetail
 import Amazonka.GuardDuty.Types.AccountFreeTrialInfo
 import Amazonka.GuardDuty.Types.AccountLevelPermissions
 import Amazonka.GuardDuty.Types.Action
+import Amazonka.GuardDuty.Types.AddonDetails
 import Amazonka.GuardDuty.Types.AdminAccount
 import Amazonka.GuardDuty.Types.Administrator
 import Amazonka.GuardDuty.Types.AwsApiCallAction
@@ -1175,6 +1425,14 @@ import Amazonka.GuardDuty.Types.CloudTrailConfigurationResult
 import Amazonka.GuardDuty.Types.Condition
 import Amazonka.GuardDuty.Types.Container
 import Amazonka.GuardDuty.Types.Country
+import Amazonka.GuardDuty.Types.CoverageEksClusterDetails
+import Amazonka.GuardDuty.Types.CoverageFilterCondition
+import Amazonka.GuardDuty.Types.CoverageFilterCriteria
+import Amazonka.GuardDuty.Types.CoverageFilterCriterion
+import Amazonka.GuardDuty.Types.CoverageResource
+import Amazonka.GuardDuty.Types.CoverageResourceDetails
+import Amazonka.GuardDuty.Types.CoverageSortCriteria
+import Amazonka.GuardDuty.Types.CoverageStatistics
 import Amazonka.GuardDuty.Types.DNSLogsConfigurationResult
 import Amazonka.GuardDuty.Types.DataSourceConfigurations
 import Amazonka.GuardDuty.Types.DataSourceConfigurationsResult
@@ -1183,6 +1441,10 @@ import Amazonka.GuardDuty.Types.DataSourcesFreeTrial
 import Amazonka.GuardDuty.Types.DefaultServerSideEncryption
 import Amazonka.GuardDuty.Types.Destination
 import Amazonka.GuardDuty.Types.DestinationProperties
+import Amazonka.GuardDuty.Types.DetectorAdditionalConfiguration
+import Amazonka.GuardDuty.Types.DetectorAdditionalConfigurationResult
+import Amazonka.GuardDuty.Types.DetectorFeatureConfiguration
+import Amazonka.GuardDuty.Types.DetectorFeatureConfigurationResult
 import Amazonka.GuardDuty.Types.DnsRequestAction
 import Amazonka.GuardDuty.Types.DomainDetails
 import Amazonka.GuardDuty.Types.EbsVolumeDetails
@@ -1199,6 +1461,7 @@ import Amazonka.GuardDuty.Types.Finding
 import Amazonka.GuardDuty.Types.FindingCriteria
 import Amazonka.GuardDuty.Types.FindingStatistics
 import Amazonka.GuardDuty.Types.FlowLogsConfigurationResult
+import Amazonka.GuardDuty.Types.FreeTrialFeatureConfigurationResult
 import Amazonka.GuardDuty.Types.GeoLocation
 import Amazonka.GuardDuty.Types.HighestSeverityThreatDetails
 import Amazonka.GuardDuty.Types.HostPath
@@ -1214,20 +1477,31 @@ import Amazonka.GuardDuty.Types.KubernetesDataSourceFreeTrial
 import Amazonka.GuardDuty.Types.KubernetesDetails
 import Amazonka.GuardDuty.Types.KubernetesUserDetails
 import Amazonka.GuardDuty.Types.KubernetesWorkloadDetails
+import Amazonka.GuardDuty.Types.LambdaDetails
+import Amazonka.GuardDuty.Types.LineageObject
 import Amazonka.GuardDuty.Types.LocalIpDetails
 import Amazonka.GuardDuty.Types.LocalPortDetails
+import Amazonka.GuardDuty.Types.LoginAttribute
 import Amazonka.GuardDuty.Types.MalwareProtectionConfiguration
 import Amazonka.GuardDuty.Types.MalwareProtectionConfigurationResult
 import Amazonka.GuardDuty.Types.MalwareProtectionDataSourceFreeTrial
 import Amazonka.GuardDuty.Types.Member
+import Amazonka.GuardDuty.Types.MemberAdditionalConfiguration
+import Amazonka.GuardDuty.Types.MemberAdditionalConfigurationResult
 import Amazonka.GuardDuty.Types.MemberDataSourceConfiguration
+import Amazonka.GuardDuty.Types.MemberFeaturesConfiguration
+import Amazonka.GuardDuty.Types.MemberFeaturesConfigurationResult
 import Amazonka.GuardDuty.Types.NetworkConnectionAction
 import Amazonka.GuardDuty.Types.NetworkInterface
 import Amazonka.GuardDuty.Types.Organization
+import Amazonka.GuardDuty.Types.OrganizationAdditionalConfiguration
+import Amazonka.GuardDuty.Types.OrganizationAdditionalConfigurationResult
 import Amazonka.GuardDuty.Types.OrganizationDataSourceConfigurations
 import Amazonka.GuardDuty.Types.OrganizationDataSourceConfigurationsResult
 import Amazonka.GuardDuty.Types.OrganizationEbsVolumes
 import Amazonka.GuardDuty.Types.OrganizationEbsVolumesResult
+import Amazonka.GuardDuty.Types.OrganizationFeatureConfiguration
+import Amazonka.GuardDuty.Types.OrganizationFeatureConfigurationResult
 import Amazonka.GuardDuty.Types.OrganizationKubernetesAuditLogsConfiguration
 import Amazonka.GuardDuty.Types.OrganizationKubernetesAuditLogsConfigurationResult
 import Amazonka.GuardDuty.Types.OrganizationKubernetesConfiguration
@@ -1243,13 +1517,19 @@ import Amazonka.GuardDuty.Types.PermissionConfiguration
 import Amazonka.GuardDuty.Types.PortProbeAction
 import Amazonka.GuardDuty.Types.PortProbeDetail
 import Amazonka.GuardDuty.Types.PrivateIpAddressDetails
+import Amazonka.GuardDuty.Types.ProcessDetails
 import Amazonka.GuardDuty.Types.ProductCode
 import Amazonka.GuardDuty.Types.PublicAccess
+import Amazonka.GuardDuty.Types.RdsDbInstanceDetails
+import Amazonka.GuardDuty.Types.RdsDbUserDetails
+import Amazonka.GuardDuty.Types.RdsLoginAttemptAction
 import Amazonka.GuardDuty.Types.RemoteAccountDetails
 import Amazonka.GuardDuty.Types.RemoteIpDetails
 import Amazonka.GuardDuty.Types.RemotePortDetails
 import Amazonka.GuardDuty.Types.Resource
 import Amazonka.GuardDuty.Types.ResourceDetails
+import Amazonka.GuardDuty.Types.RuntimeContext
+import Amazonka.GuardDuty.Types.RuntimeDetails
 import Amazonka.GuardDuty.Types.S3BucketDetail
 import Amazonka.GuardDuty.Types.S3LogsConfiguration
 import Amazonka.GuardDuty.Types.S3LogsConfigurationResult
@@ -1280,11 +1560,13 @@ import Amazonka.GuardDuty.Types.UnprocessedDataSourcesResult
 import Amazonka.GuardDuty.Types.UsageAccountResult
 import Amazonka.GuardDuty.Types.UsageCriteria
 import Amazonka.GuardDuty.Types.UsageDataSourceResult
+import Amazonka.GuardDuty.Types.UsageFeatureResult
 import Amazonka.GuardDuty.Types.UsageResourceResult
 import Amazonka.GuardDuty.Types.UsageStatistics
 import Amazonka.GuardDuty.Types.Volume
 import Amazonka.GuardDuty.Types.VolumeDetail
 import Amazonka.GuardDuty.Types.VolumeMount
+import Amazonka.GuardDuty.Types.VpcConfig
 import Amazonka.GuardDuty.UnarchiveFindings
 import Amazonka.GuardDuty.UntagResource
 import Amazonka.GuardDuty.UpdateDetector

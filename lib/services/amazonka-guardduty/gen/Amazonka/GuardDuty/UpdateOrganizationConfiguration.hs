@@ -20,16 +20,25 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the delegated administrator account with the values provided.
+-- Configures the delegated administrator account with the provided values.
+-- You must provide the value for either @autoEnableOrganizationMembers@ or
+-- @autoEnable@.
+--
+-- There might be regional differences because some data sources might not
+-- be available in all the Amazon Web Services Regions where GuardDuty is
+-- presently supported. For more information, see
+-- <https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html Regions and endpoints>.
 module Amazonka.GuardDuty.UpdateOrganizationConfiguration
   ( -- * Creating a Request
     UpdateOrganizationConfiguration (..),
     newUpdateOrganizationConfiguration,
 
     -- * Request Lenses
-    updateOrganizationConfiguration_dataSources,
-    updateOrganizationConfiguration_detectorId,
     updateOrganizationConfiguration_autoEnable,
+    updateOrganizationConfiguration_autoEnableOrganizationMembers,
+    updateOrganizationConfiguration_dataSources,
+    updateOrganizationConfiguration_features,
+    updateOrganizationConfiguration_detectorId,
 
     -- * Destructuring the Response
     UpdateOrganizationConfigurationResponse (..),
@@ -50,13 +59,33 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateOrganizationConfiguration' smart constructor.
 data UpdateOrganizationConfiguration = UpdateOrganizationConfiguration'
-  { -- | Describes which data sources will be updated.
-    dataSources :: Prelude.Maybe OrganizationDataSourceConfigurations,
-    -- | The ID of the detector to update the delegated administrator for.
-    detectorId :: Prelude.Text,
-    -- | Indicates whether to automatically enable member accounts in the
+  { -- | Indicates whether to automatically enable member accounts in the
     -- organization.
-    autoEnable :: Prelude.Bool
+    --
+    -- Even though this is still supported, we recommend using
+    -- @AutoEnableOrganizationMembers@ to achieve the similar results.
+    autoEnable :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates the auto-enablement configuration of GuardDuty for the member
+    -- accounts in the organization.
+    --
+    -- -   @NEW@: Indicates that when a new account joins the organization,
+    --     they will have GuardDuty enabled automatically.
+    --
+    -- -   @ALL@: Indicates that all accounts in the Amazon Web Services
+    --     Organization have GuardDuty enabled automatically. This includes
+    --     @NEW@ accounts that join the organization and accounts that may have
+    --     been suspended or removed from the organization in GuardDuty.
+    --
+    -- -   @NONE@: Indicates that GuardDuty will not be automatically enabled
+    --     for any accounts in the organization. GuardDuty must be managed for
+    --     each account individually by the administrator.
+    autoEnableOrganizationMembers :: Prelude.Maybe AutoEnableMembers,
+    -- | Describes which data sources will be updated.
+    dataSources :: Prelude.Maybe OrganizationDataSourceConfigurations,
+    -- | A list of features that will be configured for the organization.
+    features :: Prelude.Maybe [OrganizationFeatureConfiguration],
+    -- | The ID of the detector that configures the delegated administrator.
+    detectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,40 +97,83 @@ data UpdateOrganizationConfiguration = UpdateOrganizationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataSources', 'updateOrganizationConfiguration_dataSources' - Describes which data sources will be updated.
---
--- 'detectorId', 'updateOrganizationConfiguration_detectorId' - The ID of the detector to update the delegated administrator for.
---
 -- 'autoEnable', 'updateOrganizationConfiguration_autoEnable' - Indicates whether to automatically enable member accounts in the
 -- organization.
+--
+-- Even though this is still supported, we recommend using
+-- @AutoEnableOrganizationMembers@ to achieve the similar results.
+--
+-- 'autoEnableOrganizationMembers', 'updateOrganizationConfiguration_autoEnableOrganizationMembers' - Indicates the auto-enablement configuration of GuardDuty for the member
+-- accounts in the organization.
+--
+-- -   @NEW@: Indicates that when a new account joins the organization,
+--     they will have GuardDuty enabled automatically.
+--
+-- -   @ALL@: Indicates that all accounts in the Amazon Web Services
+--     Organization have GuardDuty enabled automatically. This includes
+--     @NEW@ accounts that join the organization and accounts that may have
+--     been suspended or removed from the organization in GuardDuty.
+--
+-- -   @NONE@: Indicates that GuardDuty will not be automatically enabled
+--     for any accounts in the organization. GuardDuty must be managed for
+--     each account individually by the administrator.
+--
+-- 'dataSources', 'updateOrganizationConfiguration_dataSources' - Describes which data sources will be updated.
+--
+-- 'features', 'updateOrganizationConfiguration_features' - A list of features that will be configured for the organization.
+--
+-- 'detectorId', 'updateOrganizationConfiguration_detectorId' - The ID of the detector that configures the delegated administrator.
 newUpdateOrganizationConfiguration ::
   -- | 'detectorId'
   Prelude.Text ->
-  -- | 'autoEnable'
-  Prelude.Bool ->
   UpdateOrganizationConfiguration
-newUpdateOrganizationConfiguration
-  pDetectorId_
-  pAutoEnable_ =
-    UpdateOrganizationConfiguration'
-      { dataSources =
-          Prelude.Nothing,
-        detectorId = pDetectorId_,
-        autoEnable = pAutoEnable_
-      }
+newUpdateOrganizationConfiguration pDetectorId_ =
+  UpdateOrganizationConfiguration'
+    { autoEnable =
+        Prelude.Nothing,
+      autoEnableOrganizationMembers =
+        Prelude.Nothing,
+      dataSources = Prelude.Nothing,
+      features = Prelude.Nothing,
+      detectorId = pDetectorId_
+    }
+
+-- | Indicates whether to automatically enable member accounts in the
+-- organization.
+--
+-- Even though this is still supported, we recommend using
+-- @AutoEnableOrganizationMembers@ to achieve the similar results.
+updateOrganizationConfiguration_autoEnable :: Lens.Lens' UpdateOrganizationConfiguration (Prelude.Maybe Prelude.Bool)
+updateOrganizationConfiguration_autoEnable = Lens.lens (\UpdateOrganizationConfiguration' {autoEnable} -> autoEnable) (\s@UpdateOrganizationConfiguration' {} a -> s {autoEnable = a} :: UpdateOrganizationConfiguration)
+
+-- | Indicates the auto-enablement configuration of GuardDuty for the member
+-- accounts in the organization.
+--
+-- -   @NEW@: Indicates that when a new account joins the organization,
+--     they will have GuardDuty enabled automatically.
+--
+-- -   @ALL@: Indicates that all accounts in the Amazon Web Services
+--     Organization have GuardDuty enabled automatically. This includes
+--     @NEW@ accounts that join the organization and accounts that may have
+--     been suspended or removed from the organization in GuardDuty.
+--
+-- -   @NONE@: Indicates that GuardDuty will not be automatically enabled
+--     for any accounts in the organization. GuardDuty must be managed for
+--     each account individually by the administrator.
+updateOrganizationConfiguration_autoEnableOrganizationMembers :: Lens.Lens' UpdateOrganizationConfiguration (Prelude.Maybe AutoEnableMembers)
+updateOrganizationConfiguration_autoEnableOrganizationMembers = Lens.lens (\UpdateOrganizationConfiguration' {autoEnableOrganizationMembers} -> autoEnableOrganizationMembers) (\s@UpdateOrganizationConfiguration' {} a -> s {autoEnableOrganizationMembers = a} :: UpdateOrganizationConfiguration)
 
 -- | Describes which data sources will be updated.
 updateOrganizationConfiguration_dataSources :: Lens.Lens' UpdateOrganizationConfiguration (Prelude.Maybe OrganizationDataSourceConfigurations)
 updateOrganizationConfiguration_dataSources = Lens.lens (\UpdateOrganizationConfiguration' {dataSources} -> dataSources) (\s@UpdateOrganizationConfiguration' {} a -> s {dataSources = a} :: UpdateOrganizationConfiguration)
 
--- | The ID of the detector to update the delegated administrator for.
+-- | A list of features that will be configured for the organization.
+updateOrganizationConfiguration_features :: Lens.Lens' UpdateOrganizationConfiguration (Prelude.Maybe [OrganizationFeatureConfiguration])
+updateOrganizationConfiguration_features = Lens.lens (\UpdateOrganizationConfiguration' {features} -> features) (\s@UpdateOrganizationConfiguration' {} a -> s {features = a} :: UpdateOrganizationConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the detector that configures the delegated administrator.
 updateOrganizationConfiguration_detectorId :: Lens.Lens' UpdateOrganizationConfiguration Prelude.Text
 updateOrganizationConfiguration_detectorId = Lens.lens (\UpdateOrganizationConfiguration' {detectorId} -> detectorId) (\s@UpdateOrganizationConfiguration' {} a -> s {detectorId = a} :: UpdateOrganizationConfiguration)
-
--- | Indicates whether to automatically enable member accounts in the
--- organization.
-updateOrganizationConfiguration_autoEnable :: Lens.Lens' UpdateOrganizationConfiguration Prelude.Bool
-updateOrganizationConfiguration_autoEnable = Lens.lens (\UpdateOrganizationConfiguration' {autoEnable} -> autoEnable) (\s@UpdateOrganizationConfiguration' {} a -> s {autoEnable = a} :: UpdateOrganizationConfiguration)
 
 instance
   Core.AWSRequest
@@ -126,18 +198,23 @@ instance
   hashWithSalt
     _salt
     UpdateOrganizationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` dataSources
-        `Prelude.hashWithSalt` detectorId
+      _salt
         `Prelude.hashWithSalt` autoEnable
+        `Prelude.hashWithSalt` autoEnableOrganizationMembers
+        `Prelude.hashWithSalt` dataSources
+        `Prelude.hashWithSalt` features
+        `Prelude.hashWithSalt` detectorId
 
 instance
   Prelude.NFData
     UpdateOrganizationConfiguration
   where
   rnf UpdateOrganizationConfiguration' {..} =
-    Prelude.rnf dataSources
+    Prelude.rnf autoEnable
+      `Prelude.seq` Prelude.rnf autoEnableOrganizationMembers
+      `Prelude.seq` Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf features
       `Prelude.seq` Prelude.rnf detectorId
-      `Prelude.seq` Prelude.rnf autoEnable
 
 instance
   Data.ToHeaders
@@ -157,8 +234,11 @@ instance Data.ToJSON UpdateOrganizationConfiguration where
   toJSON UpdateOrganizationConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("dataSources" Data..=) Prelude.<$> dataSources,
-            Prelude.Just ("autoEnable" Data..= autoEnable)
+          [ ("autoEnable" Data..=) Prelude.<$> autoEnable,
+            ("autoEnableOrganizationMembers" Data..=)
+              Prelude.<$> autoEnableOrganizationMembers,
+            ("dataSources" Data..=) Prelude.<$> dataSources,
+            ("features" Data..=) Prelude.<$> features
           ]
       )
 

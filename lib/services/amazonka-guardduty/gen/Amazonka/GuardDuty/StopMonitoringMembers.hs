@@ -23,6 +23,10 @@
 -- Stops GuardDuty monitoring for the specified member accounts. Use the
 -- @StartMonitoringMembers@ operation to restart monitoring for those
 -- accounts.
+--
+-- With @autoEnableOrganizationMembers@ configuration for your organization
+-- set to @ALL@, you\'ll receive an error if you attempt to stop monitoring
+-- the member accounts in your organization.
 module Amazonka.GuardDuty.StopMonitoringMembers
   ( -- * Creating a Request
     StopMonitoringMembers (..),
@@ -104,14 +108,16 @@ instance Core.AWSRequest StopMonitoringMembers where
       ( \s h x ->
           StopMonitoringMembersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "unprocessedAccounts"
+            Prelude.<*> ( x
+                            Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable StopMonitoringMembers where
   hashWithSalt _salt StopMonitoringMembers' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` accountIds
 
 instance Prelude.NFData StopMonitoringMembers where

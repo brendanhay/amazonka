@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data DnsRequestAction = DnsRequestAction'
   { -- | Indicates whether the targeted port is blocked.
     blocked :: Prelude.Maybe Prelude.Bool,
-    -- | The domain information for the API request.
+    -- | The domain information for the DNS query.
     domain :: Prelude.Maybe Prelude.Text,
     -- | The network connection protocol observed in the activity that prompted
     -- GuardDuty to generate the finding.
@@ -49,7 +49,7 @@ data DnsRequestAction = DnsRequestAction'
 --
 -- 'blocked', 'dnsRequestAction_blocked' - Indicates whether the targeted port is blocked.
 --
--- 'domain', 'dnsRequestAction_domain' - The domain information for the API request.
+-- 'domain', 'dnsRequestAction_domain' - The domain information for the DNS query.
 --
 -- 'protocol', 'dnsRequestAction_protocol' - The network connection protocol observed in the activity that prompted
 -- GuardDuty to generate the finding.
@@ -66,7 +66,7 @@ newDnsRequestAction =
 dnsRequestAction_blocked :: Lens.Lens' DnsRequestAction (Prelude.Maybe Prelude.Bool)
 dnsRequestAction_blocked = Lens.lens (\DnsRequestAction' {blocked} -> blocked) (\s@DnsRequestAction' {} a -> s {blocked = a} :: DnsRequestAction)
 
--- | The domain information for the API request.
+-- | The domain information for the DNS query.
 dnsRequestAction_domain :: Lens.Lens' DnsRequestAction (Prelude.Maybe Prelude.Text)
 dnsRequestAction_domain = Lens.lens (\DnsRequestAction' {domain} -> domain) (\s@DnsRequestAction' {} a -> s {domain = a} :: DnsRequestAction)
 
@@ -88,7 +88,8 @@ instance Data.FromJSON DnsRequestAction where
 
 instance Prelude.Hashable DnsRequestAction where
   hashWithSalt _salt DnsRequestAction' {..} =
-    _salt `Prelude.hashWithSalt` blocked
+    _salt
+      `Prelude.hashWithSalt` blocked
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` protocol
 

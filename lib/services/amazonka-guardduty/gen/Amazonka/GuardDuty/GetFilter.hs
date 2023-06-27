@@ -112,7 +112,8 @@ instance Core.AWSRequest GetFilter where
 
 instance Prelude.Hashable GetFilter where
   hashWithSalt _salt GetFilter' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` filterName
 
 instance Prelude.NFData GetFilter where

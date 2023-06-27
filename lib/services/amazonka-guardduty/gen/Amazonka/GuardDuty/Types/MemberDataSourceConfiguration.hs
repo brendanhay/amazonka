@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.DataSourceConfigurationsResult
+import Amazonka.GuardDuty.Types.MemberFeaturesConfigurationResult
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information on which data sources are enabled for a member
@@ -30,10 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMemberDataSourceConfiguration' smart constructor.
 data MemberDataSourceConfiguration = MemberDataSourceConfiguration'
-  { -- | The account ID for the member account.
-    accountId :: Prelude.Text,
-    -- | Contains information on the status of data sources for the account.
-    dataSources :: DataSourceConfigurationsResult
+  { -- | Contains information on the status of data sources for the account.
+    dataSources :: Prelude.Maybe DataSourceConfigurationsResult,
+    -- | Contains information about the status of the features for the member
+    -- account.
+    features :: Prelude.Maybe [MemberFeaturesConfigurationResult],
+    -- | The account ID for the member account.
+    accountId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +49,36 @@ data MemberDataSourceConfiguration = MemberDataSourceConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'memberDataSourceConfiguration_accountId' - The account ID for the member account.
---
 -- 'dataSources', 'memberDataSourceConfiguration_dataSources' - Contains information on the status of data sources for the account.
+--
+-- 'features', 'memberDataSourceConfiguration_features' - Contains information about the status of the features for the member
+-- account.
+--
+-- 'accountId', 'memberDataSourceConfiguration_accountId' - The account ID for the member account.
 newMemberDataSourceConfiguration ::
   -- | 'accountId'
   Prelude.Text ->
-  -- | 'dataSources'
-  DataSourceConfigurationsResult ->
   MemberDataSourceConfiguration
-newMemberDataSourceConfiguration
-  pAccountId_
-  pDataSources_ =
-    MemberDataSourceConfiguration'
-      { accountId =
-          pAccountId_,
-        dataSources = pDataSources_
-      }
+newMemberDataSourceConfiguration pAccountId_ =
+  MemberDataSourceConfiguration'
+    { dataSources =
+        Prelude.Nothing,
+      features = Prelude.Nothing,
+      accountId = pAccountId_
+    }
+
+-- | Contains information on the status of data sources for the account.
+memberDataSourceConfiguration_dataSources :: Lens.Lens' MemberDataSourceConfiguration (Prelude.Maybe DataSourceConfigurationsResult)
+memberDataSourceConfiguration_dataSources = Lens.lens (\MemberDataSourceConfiguration' {dataSources} -> dataSources) (\s@MemberDataSourceConfiguration' {} a -> s {dataSources = a} :: MemberDataSourceConfiguration)
+
+-- | Contains information about the status of the features for the member
+-- account.
+memberDataSourceConfiguration_features :: Lens.Lens' MemberDataSourceConfiguration (Prelude.Maybe [MemberFeaturesConfigurationResult])
+memberDataSourceConfiguration_features = Lens.lens (\MemberDataSourceConfiguration' {features} -> features) (\s@MemberDataSourceConfiguration' {} a -> s {features = a} :: MemberDataSourceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The account ID for the member account.
 memberDataSourceConfiguration_accountId :: Lens.Lens' MemberDataSourceConfiguration Prelude.Text
 memberDataSourceConfiguration_accountId = Lens.lens (\MemberDataSourceConfiguration' {accountId} -> accountId) (\s@MemberDataSourceConfiguration' {} a -> s {accountId = a} :: MemberDataSourceConfiguration)
-
--- | Contains information on the status of data sources for the account.
-memberDataSourceConfiguration_dataSources :: Lens.Lens' MemberDataSourceConfiguration DataSourceConfigurationsResult
-memberDataSourceConfiguration_dataSources = Lens.lens (\MemberDataSourceConfiguration' {dataSources} -> dataSources) (\s@MemberDataSourceConfiguration' {} a -> s {dataSources = a} :: MemberDataSourceConfiguration)
 
 instance Data.FromJSON MemberDataSourceConfiguration where
   parseJSON =
@@ -77,8 +86,9 @@ instance Data.FromJSON MemberDataSourceConfiguration where
       "MemberDataSourceConfiguration"
       ( \x ->
           MemberDataSourceConfiguration'
-            Prelude.<$> (x Data..: "accountId")
-            Prelude.<*> (x Data..: "dataSources")
+            Prelude.<$> (x Data..:? "dataSources")
+            Prelude.<*> (x Data..:? "features" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..: "accountId")
       )
 
 instance
@@ -86,10 +96,13 @@ instance
     MemberDataSourceConfiguration
   where
   hashWithSalt _salt MemberDataSourceConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
       `Prelude.hashWithSalt` dataSources
+      `Prelude.hashWithSalt` features
+      `Prelude.hashWithSalt` accountId
 
 instance Prelude.NFData MemberDataSourceConfiguration where
   rnf MemberDataSourceConfiguration' {..} =
-    Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf dataSources
+    Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf features
+      `Prelude.seq` Prelude.rnf accountId

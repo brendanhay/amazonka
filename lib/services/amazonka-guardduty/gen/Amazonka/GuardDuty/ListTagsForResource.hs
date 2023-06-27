@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists tags for a resource. Tagging is currently supported for detectors,
--- finding filters, IP sets, and threat intel sets, with a limit of 50 tags
--- per resource. When invoked, this operation returns all assigned tags for
--- a given resource.
+-- finding filters, IP sets, threat intel sets, publishing destination,
+-- with a limit of 50 tags per resource. When invoked, this operation
+-- returns all assigned tags for a given resource.
 module Amazonka.GuardDuty.ListTagsForResource
   ( -- * Creating a Request
     ListTagsForResource (..),

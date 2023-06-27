@@ -78,7 +78,8 @@ instance Data.FromJSON Volume where
 
 instance Prelude.Hashable Volume where
   hashWithSalt _salt Volume' {..} =
-    _salt `Prelude.hashWithSalt` hostPath
+    _salt
+      `Prelude.hashWithSalt` hostPath
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Volume where

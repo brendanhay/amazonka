@@ -22,6 +22,10 @@
 --
 -- Deletes GuardDuty member accounts (to the current GuardDuty
 -- administrator account) specified by the account IDs.
+--
+-- With @autoEnableOrganizationMembers@ configuration for your organization
+-- set to @ALL@, you\'ll receive an error if you attempt to disable
+-- GuardDuty for a member account in your organization.
 module Amazonka.GuardDuty.DeleteMembers
   ( -- * Creating a Request
     DeleteMembers (..),
@@ -106,14 +110,16 @@ instance Core.AWSRequest DeleteMembers where
       ( \s h x ->
           DeleteMembersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "unprocessedAccounts"
+            Prelude.<*> ( x
+                            Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable DeleteMembers where
   hashWithSalt _salt DeleteMembers' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` accountIds
 
 instance Prelude.NFData DeleteMembers where

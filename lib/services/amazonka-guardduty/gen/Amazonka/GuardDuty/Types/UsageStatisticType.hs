@@ -22,6 +22,7 @@ module Amazonka.GuardDuty.Types.UsageStatisticType
       ( ..,
         UsageStatisticType_SUM_BY_ACCOUNT,
         UsageStatisticType_SUM_BY_DATA_SOURCE,
+        UsageStatisticType_SUM_BY_FEATURES,
         UsageStatisticType_SUM_BY_RESOURCE,
         UsageStatisticType_TOP_RESOURCES
       ),
@@ -66,6 +67,9 @@ pattern UsageStatisticType_SUM_BY_ACCOUNT = UsageStatisticType' "SUM_BY_ACCOUNT"
 pattern UsageStatisticType_SUM_BY_DATA_SOURCE :: UsageStatisticType
 pattern UsageStatisticType_SUM_BY_DATA_SOURCE = UsageStatisticType' "SUM_BY_DATA_SOURCE"
 
+pattern UsageStatisticType_SUM_BY_FEATURES :: UsageStatisticType
+pattern UsageStatisticType_SUM_BY_FEATURES = UsageStatisticType' "SUM_BY_FEATURES"
+
 pattern UsageStatisticType_SUM_BY_RESOURCE :: UsageStatisticType
 pattern UsageStatisticType_SUM_BY_RESOURCE = UsageStatisticType' "SUM_BY_RESOURCE"
 
@@ -75,6 +79,7 @@ pattern UsageStatisticType_TOP_RESOURCES = UsageStatisticType' "TOP_RESOURCES"
 {-# COMPLETE
   UsageStatisticType_SUM_BY_ACCOUNT,
   UsageStatisticType_SUM_BY_DATA_SOURCE,
+  UsageStatisticType_SUM_BY_FEATURES,
   UsageStatisticType_SUM_BY_RESOURCE,
   UsageStatisticType_TOP_RESOURCES,
   UsageStatisticType'

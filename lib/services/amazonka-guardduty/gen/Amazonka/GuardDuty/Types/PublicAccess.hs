@@ -82,7 +82,8 @@ instance Data.FromJSON PublicAccess where
 
 instance Prelude.Hashable PublicAccess where
   hashWithSalt _salt PublicAccess' {..} =
-    _salt `Prelude.hashWithSalt` effectivePermission
+    _salt
+      `Prelude.hashWithSalt` effectivePermission
       `Prelude.hashWithSalt` permissionConfiguration
 
 instance Prelude.NFData PublicAccess where

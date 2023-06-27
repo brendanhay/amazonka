@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.UsageAccountResult
 import Amazonka.GuardDuty.Types.UsageDataSourceResult
+import Amazonka.GuardDuty.Types.UsageFeatureResult
 import Amazonka.GuardDuty.Types.UsageResourceResult
 import qualified Amazonka.Prelude as Prelude
 
@@ -36,6 +37,8 @@ data UsageStatistics = UsageStatistics'
     sumByAccount :: Prelude.Maybe [UsageAccountResult],
     -- | The usage statistic sum organized by on data source.
     sumByDataSource :: Prelude.Maybe [UsageDataSourceResult],
+    -- | The usage statistic sum organized by feature.
+    sumByFeature :: Prelude.Maybe [UsageFeatureResult],
     -- | The usage statistic sum organized by resource.
     sumByResource :: Prelude.Maybe [UsageResourceResult],
     -- | Lists the top 50 resources that have generated the most GuardDuty usage,
@@ -56,6 +59,8 @@ data UsageStatistics = UsageStatistics'
 --
 -- 'sumByDataSource', 'usageStatistics_sumByDataSource' - The usage statistic sum organized by on data source.
 --
+-- 'sumByFeature', 'usageStatistics_sumByFeature' - The usage statistic sum organized by feature.
+--
 -- 'sumByResource', 'usageStatistics_sumByResource' - The usage statistic sum organized by resource.
 --
 -- 'topResources', 'usageStatistics_topResources' - Lists the top 50 resources that have generated the most GuardDuty usage,
@@ -66,6 +71,7 @@ newUsageStatistics =
   UsageStatistics'
     { sumByAccount = Prelude.Nothing,
       sumByDataSource = Prelude.Nothing,
+      sumByFeature = Prelude.Nothing,
       sumByResource = Prelude.Nothing,
       topResources = Prelude.Nothing
     }
@@ -77,6 +83,10 @@ usageStatistics_sumByAccount = Lens.lens (\UsageStatistics' {sumByAccount} -> su
 -- | The usage statistic sum organized by on data source.
 usageStatistics_sumByDataSource :: Lens.Lens' UsageStatistics (Prelude.Maybe [UsageDataSourceResult])
 usageStatistics_sumByDataSource = Lens.lens (\UsageStatistics' {sumByDataSource} -> sumByDataSource) (\s@UsageStatistics' {} a -> s {sumByDataSource = a} :: UsageStatistics) Prelude.. Lens.mapping Lens.coerced
+
+-- | The usage statistic sum organized by feature.
+usageStatistics_sumByFeature :: Lens.Lens' UsageStatistics (Prelude.Maybe [UsageFeatureResult])
+usageStatistics_sumByFeature = Lens.lens (\UsageStatistics' {sumByFeature} -> sumByFeature) (\s@UsageStatistics' {} a -> s {sumByFeature = a} :: UsageStatistics) Prelude.. Lens.mapping Lens.coerced
 
 -- | The usage statistic sum organized by resource.
 usageStatistics_sumByResource :: Lens.Lens' UsageStatistics (Prelude.Maybe [UsageResourceResult])
@@ -94,17 +104,21 @@ instance Data.FromJSON UsageStatistics where
       ( \x ->
           UsageStatistics'
             Prelude.<$> (x Data..:? "sumByAccount" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "sumByDataSource"
+            Prelude.<*> ( x
+                            Data..:? "sumByDataSource"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "sumByFeature" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "sumByResource" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "topResources" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable UsageStatistics where
   hashWithSalt _salt UsageStatistics' {..} =
-    _salt `Prelude.hashWithSalt` sumByAccount
+    _salt
+      `Prelude.hashWithSalt` sumByAccount
       `Prelude.hashWithSalt` sumByDataSource
+      `Prelude.hashWithSalt` sumByFeature
       `Prelude.hashWithSalt` sumByResource
       `Prelude.hashWithSalt` topResources
 
@@ -112,5 +126,6 @@ instance Prelude.NFData UsageStatistics where
   rnf UsageStatistics' {..} =
     Prelude.rnf sumByAccount
       `Prelude.seq` Prelude.rnf sumByDataSource
+      `Prelude.seq` Prelude.rnf sumByFeature
       `Prelude.seq` Prelude.rnf sumByResource
       `Prelude.seq` Prelude.rnf topResources

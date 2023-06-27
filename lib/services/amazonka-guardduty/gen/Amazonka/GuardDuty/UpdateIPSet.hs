@@ -136,7 +136,8 @@ instance Core.AWSRequest UpdateIPSet where
 
 instance Prelude.Hashable UpdateIPSet where
   hashWithSalt _salt UpdateIPSet' {..} =
-    _salt `Prelude.hashWithSalt` activate
+    _salt
+      `Prelude.hashWithSalt` activate
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` detectorId

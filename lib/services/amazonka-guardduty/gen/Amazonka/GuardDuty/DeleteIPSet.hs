@@ -101,7 +101,8 @@ instance Core.AWSRequest DeleteIPSet where
 
 instance Prelude.Hashable DeleteIPSet where
   hashWithSalt _salt DeleteIPSet' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` ipSetId
 
 instance Prelude.NFData DeleteIPSet where

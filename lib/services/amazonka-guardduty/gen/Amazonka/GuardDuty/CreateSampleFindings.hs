@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates example findings of types specified by the list of finding
+-- Generates sample findings of types specified by the list of finding
 -- types. If \'NULL\' is specified for @findingTypes@, the API generates
--- example findings of all supported finding types.
+-- sample findings of all supported finding types.
 module Amazonka.GuardDuty.CreateSampleFindings
   ( -- * Creating a Request
     CreateSampleFindings (..),
@@ -103,7 +103,8 @@ instance Core.AWSRequest CreateSampleFindings where
 
 instance Prelude.Hashable CreateSampleFindings where
   hashWithSalt _salt CreateSampleFindings' {..} =
-    _salt `Prelude.hashWithSalt` findingTypes
+    _salt
+      `Prelude.hashWithSalt` findingTypes
       `Prelude.hashWithSalt` detectorId
 
 instance Prelude.NFData CreateSampleFindings where

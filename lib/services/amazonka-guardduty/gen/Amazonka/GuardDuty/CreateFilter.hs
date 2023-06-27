@@ -20,7 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a filter using the specified finding criteria.
+-- Creates a filter using the specified finding criteria. The maximum
+-- number of saved filters per Amazon Web Services account per Region is
+-- 100. For more information, see
+-- <https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_limits.html Quotas for GuardDuty>.
 module Amazonka.GuardDuty.CreateFilter
   ( -- * Creating a Request
     CreateFilter (..),
@@ -61,9 +64,11 @@ data CreateFilter = CreateFilter'
     action :: Prelude.Maybe FilterAction,
     -- | The idempotency token for the create request.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The description of the filter. Valid special characters include period
-    -- (.), underscore (_), dash (-), and whitespace. The new line character is
-    -- considered to be an invalid input for description.
+    -- | The description of the filter. Valid characters include alphanumeric
+    -- characters, and special characters such as hyphen, period, colon,
+    -- underscore, parentheses (@{ }@, @[ ]@, and @( )@), forward slash,
+    -- horizontal tab, vertical tab, newline, form feed, return, and
+    -- whitespace.
     description :: Prelude.Maybe Prelude.Text,
     -- | Specifies the position of the filter in the list of current filters.
     -- Also specifies the order in which this filter is applied to the
@@ -85,8 +90,6 @@ data CreateFilter = CreateFilter'
     -- -   accountId
     --
     -- -   region
-    --
-    -- -   confidence
     --
     -- -   id
     --
@@ -186,13 +189,6 @@ data CreateFilter = CreateFilter'
     --
     -- -   resource.s3BucketDetails.type
     --
-    -- -   service.archived
-    --
-    --     When this attribute is set to TRUE, only archived findings are
-    --     listed. When it\'s set to FALSE, only unarchived findings are
-    --     listed. When this attribute is not set, all existing findings are
-    --     listed.
-    --
     -- -   service.resourceRole
     --
     -- -   severity
@@ -221,9 +217,11 @@ data CreateFilter = CreateFilter'
 --
 -- 'clientToken', 'createFilter_clientToken' - The idempotency token for the create request.
 --
--- 'description', 'createFilter_description' - The description of the filter. Valid special characters include period
--- (.), underscore (_), dash (-), and whitespace. The new line character is
--- considered to be an invalid input for description.
+-- 'description', 'createFilter_description' - The description of the filter. Valid characters include alphanumeric
+-- characters, and special characters such as hyphen, period, colon,
+-- underscore, parentheses (@{ }@, @[ ]@, and @( )@), forward slash,
+-- horizontal tab, vertical tab, newline, form feed, return, and
+-- whitespace.
 --
 -- 'rank', 'createFilter_rank' - Specifies the position of the filter in the list of current filters.
 -- Also specifies the order in which this filter is applied to the
@@ -245,8 +243,6 @@ data CreateFilter = CreateFilter'
 -- -   accountId
 --
 -- -   region
---
--- -   confidence
 --
 -- -   id
 --
@@ -345,13 +341,6 @@ data CreateFilter = CreateFilter'
 -- -   resource.s3BucketDetails.tags.value
 --
 -- -   resource.s3BucketDetails.type
---
--- -   service.archived
---
---     When this attribute is set to TRUE, only archived findings are
---     listed. When it\'s set to FALSE, only unarchived findings are
---     listed. When this attribute is not set, all existing findings are
---     listed.
 --
 -- -   service.resourceRole
 --
@@ -393,9 +382,11 @@ createFilter_action = Lens.lens (\CreateFilter' {action} -> action) (\s@CreateFi
 createFilter_clientToken :: Lens.Lens' CreateFilter (Prelude.Maybe Prelude.Text)
 createFilter_clientToken = Lens.lens (\CreateFilter' {clientToken} -> clientToken) (\s@CreateFilter' {} a -> s {clientToken = a} :: CreateFilter)
 
--- | The description of the filter. Valid special characters include period
--- (.), underscore (_), dash (-), and whitespace. The new line character is
--- considered to be an invalid input for description.
+-- | The description of the filter. Valid characters include alphanumeric
+-- characters, and special characters such as hyphen, period, colon,
+-- underscore, parentheses (@{ }@, @[ ]@, and @( )@), forward slash,
+-- horizontal tab, vertical tab, newline, form feed, return, and
+-- whitespace.
 createFilter_description :: Lens.Lens' CreateFilter (Prelude.Maybe Prelude.Text)
 createFilter_description = Lens.lens (\CreateFilter' {description} -> description) (\s@CreateFilter' {} a -> s {description = a} :: CreateFilter)
 
@@ -427,8 +418,6 @@ createFilter_name = Lens.lens (\CreateFilter' {name} -> name) (\s@CreateFilter' 
 -- -   accountId
 --
 -- -   region
---
--- -   confidence
 --
 -- -   id
 --
@@ -528,13 +517,6 @@ createFilter_name = Lens.lens (\CreateFilter' {name} -> name) (\s@CreateFilter' 
 --
 -- -   resource.s3BucketDetails.type
 --
--- -   service.archived
---
---     When this attribute is set to TRUE, only archived findings are
---     listed. When it\'s set to FALSE, only unarchived findings are
---     listed. When this attribute is not set, all existing findings are
---     listed.
---
 -- -   service.resourceRole
 --
 -- -   severity
@@ -563,7 +545,8 @@ instance Core.AWSRequest CreateFilter where
 
 instance Prelude.Hashable CreateFilter where
   hashWithSalt _salt CreateFilter' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` rank

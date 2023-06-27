@@ -27,6 +27,7 @@ import Amazonka.GuardDuty.Types.DnsRequestAction
 import Amazonka.GuardDuty.Types.KubernetesApiCallAction
 import Amazonka.GuardDuty.Types.NetworkConnectionAction
 import Amazonka.GuardDuty.Types.PortProbeAction
+import Amazonka.GuardDuty.Types.RdsLoginAttemptAction
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about actions.
@@ -46,7 +47,9 @@ data Action = Action'
     -- finding.
     networkConnectionAction :: Prelude.Maybe NetworkConnectionAction,
     -- | Information about the PORT_PROBE action described in this finding.
-    portProbeAction :: Prelude.Maybe PortProbeAction
+    portProbeAction :: Prelude.Maybe PortProbeAction,
+    -- | Information about @RDS_LOGIN_ATTEMPT@ action described in this finding.
+    rdsLoginAttemptAction :: Prelude.Maybe RdsLoginAttemptAction
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,6 +74,8 @@ data Action = Action'
 -- finding.
 --
 -- 'portProbeAction', 'action_portProbeAction' - Information about the PORT_PROBE action described in this finding.
+--
+-- 'rdsLoginAttemptAction', 'action_rdsLoginAttemptAction' - Information about @RDS_LOGIN_ATTEMPT@ action described in this finding.
 newAction ::
   Action
 newAction =
@@ -80,7 +85,8 @@ newAction =
       dnsRequestAction = Prelude.Nothing,
       kubernetesApiCallAction = Prelude.Nothing,
       networkConnectionAction = Prelude.Nothing,
-      portProbeAction = Prelude.Nothing
+      portProbeAction = Prelude.Nothing,
+      rdsLoginAttemptAction = Prelude.Nothing
     }
 
 -- | The GuardDuty finding activity type.
@@ -109,6 +115,10 @@ action_networkConnectionAction = Lens.lens (\Action' {networkConnectionAction} -
 action_portProbeAction :: Lens.Lens' Action (Prelude.Maybe PortProbeAction)
 action_portProbeAction = Lens.lens (\Action' {portProbeAction} -> portProbeAction) (\s@Action' {} a -> s {portProbeAction = a} :: Action)
 
+-- | Information about @RDS_LOGIN_ATTEMPT@ action described in this finding.
+action_rdsLoginAttemptAction :: Lens.Lens' Action (Prelude.Maybe RdsLoginAttemptAction)
+action_rdsLoginAttemptAction = Lens.lens (\Action' {rdsLoginAttemptAction} -> rdsLoginAttemptAction) (\s@Action' {} a -> s {rdsLoginAttemptAction = a} :: Action)
+
 instance Data.FromJSON Action where
   parseJSON =
     Data.withObject
@@ -121,16 +131,19 @@ instance Data.FromJSON Action where
             Prelude.<*> (x Data..:? "kubernetesApiCallAction")
             Prelude.<*> (x Data..:? "networkConnectionAction")
             Prelude.<*> (x Data..:? "portProbeAction")
+            Prelude.<*> (x Data..:? "rdsLoginAttemptAction")
       )
 
 instance Prelude.Hashable Action where
   hashWithSalt _salt Action' {..} =
-    _salt `Prelude.hashWithSalt` actionType
+    _salt
+      `Prelude.hashWithSalt` actionType
       `Prelude.hashWithSalt` awsApiCallAction
       `Prelude.hashWithSalt` dnsRequestAction
       `Prelude.hashWithSalt` kubernetesApiCallAction
       `Prelude.hashWithSalt` networkConnectionAction
       `Prelude.hashWithSalt` portProbeAction
+      `Prelude.hashWithSalt` rdsLoginAttemptAction
 
 instance Prelude.NFData Action where
   rnf Action' {..} =
@@ -140,3 +153,4 @@ instance Prelude.NFData Action where
       `Prelude.seq` Prelude.rnf kubernetesApiCallAction
       `Prelude.seq` Prelude.rnf networkConnectionAction
       `Prelude.seq` Prelude.rnf portProbeAction
+      `Prelude.seq` Prelude.rnf rdsLoginAttemptAction

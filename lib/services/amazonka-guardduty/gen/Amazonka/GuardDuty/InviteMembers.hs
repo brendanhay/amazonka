@@ -20,11 +20,34 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Invites other Amazon Web Services accounts (created as members of the
--- current Amazon Web Services account by CreateMembers) to enable
--- GuardDuty, and allow the current Amazon Web Services account to view and
--- manage these accounts\' findings on their behalf as the GuardDuty
--- administrator account.
+-- Invites Amazon Web Services accounts to become members of an
+-- organization administered by the Amazon Web Services account that
+-- invokes this API. If you are using Amazon Web Services Organizations to
+-- manager your GuardDuty environment, this step is not needed. For more
+-- information, see
+-- <https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html Managing accounts with Amazon Web Services Organizations>.
+--
+-- To invite Amazon Web Services accounts, the first step is to ensure that
+-- GuardDuty has been enabled in the potential member accounts. You can now
+-- invoke this API to add accounts by invitation. The invited accounts can
+-- either accept or decline the invitation from their GuardDuty accounts.
+-- Each invited Amazon Web Services account can choose to accept the
+-- invitation from only one Amazon Web Services account. For more
+-- information, see
+-- <https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_invitations.html Managing GuardDuty accounts by invitation>.
+--
+-- After the invite has been accepted and you choose to disassociate a
+-- member account (by using
+-- <https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DisassociateMembers.html DisassociateMembers>)
+-- from your account, the details of the member account obtained by
+-- invoking
+-- <https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html CreateMembers>,
+-- including the associated email addresses, will be retained. This is done
+-- so that you can invoke InviteMembers without the need to invoke
+-- <https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html CreateMembers>
+-- again. To remove the details associated with a member account, you must
+-- also invoke
+-- <https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html DeleteMembers>.
 module Amazonka.GuardDuty.InviteMembers
   ( -- * Creating a Request
     InviteMembers (..),
@@ -139,7 +162,8 @@ instance Core.AWSRequest InviteMembers where
       ( \s h x ->
           InviteMembersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "unprocessedAccounts"
+            Prelude.<*> ( x
+                            Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )

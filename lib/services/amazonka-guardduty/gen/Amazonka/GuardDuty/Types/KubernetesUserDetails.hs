@@ -30,6 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 data KubernetesUserDetails = KubernetesUserDetails'
   { -- | The groups that include the user who called the Kubernetes API.
     groups :: Prelude.Maybe [Prelude.Text],
+    -- | Entity that assumes the IAM role when Kubernetes RBAC permissions are
+    -- assigned to that role.
+    sessionName :: Prelude.Maybe [Prelude.Text],
     -- | The user ID of the user who called the Kubernetes API.
     uid :: Prelude.Maybe Prelude.Text,
     -- | The username of the user who called the Kubernetes API.
@@ -47,6 +50,9 @@ data KubernetesUserDetails = KubernetesUserDetails'
 --
 -- 'groups', 'kubernetesUserDetails_groups' - The groups that include the user who called the Kubernetes API.
 --
+-- 'sessionName', 'kubernetesUserDetails_sessionName' - Entity that assumes the IAM role when Kubernetes RBAC permissions are
+-- assigned to that role.
+--
 -- 'uid', 'kubernetesUserDetails_uid' - The user ID of the user who called the Kubernetes API.
 --
 -- 'username', 'kubernetesUserDetails_username' - The username of the user who called the Kubernetes API.
@@ -55,6 +61,7 @@ newKubernetesUserDetails ::
 newKubernetesUserDetails =
   KubernetesUserDetails'
     { groups = Prelude.Nothing,
+      sessionName = Prelude.Nothing,
       uid = Prelude.Nothing,
       username = Prelude.Nothing
     }
@@ -62,6 +69,11 @@ newKubernetesUserDetails =
 -- | The groups that include the user who called the Kubernetes API.
 kubernetesUserDetails_groups :: Lens.Lens' KubernetesUserDetails (Prelude.Maybe [Prelude.Text])
 kubernetesUserDetails_groups = Lens.lens (\KubernetesUserDetails' {groups} -> groups) (\s@KubernetesUserDetails' {} a -> s {groups = a} :: KubernetesUserDetails) Prelude.. Lens.mapping Lens.coerced
+
+-- | Entity that assumes the IAM role when Kubernetes RBAC permissions are
+-- assigned to that role.
+kubernetesUserDetails_sessionName :: Lens.Lens' KubernetesUserDetails (Prelude.Maybe [Prelude.Text])
+kubernetesUserDetails_sessionName = Lens.lens (\KubernetesUserDetails' {sessionName} -> sessionName) (\s@KubernetesUserDetails' {} a -> s {sessionName = a} :: KubernetesUserDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The user ID of the user who called the Kubernetes API.
 kubernetesUserDetails_uid :: Lens.Lens' KubernetesUserDetails (Prelude.Maybe Prelude.Text)
@@ -78,18 +90,22 @@ instance Data.FromJSON KubernetesUserDetails where
       ( \x ->
           KubernetesUserDetails'
             Prelude.<$> (x Data..:? "groups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "sessionName" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "uid")
             Prelude.<*> (x Data..:? "username")
       )
 
 instance Prelude.Hashable KubernetesUserDetails where
   hashWithSalt _salt KubernetesUserDetails' {..} =
-    _salt `Prelude.hashWithSalt` groups
+    _salt
+      `Prelude.hashWithSalt` groups
+      `Prelude.hashWithSalt` sessionName
       `Prelude.hashWithSalt` uid
       `Prelude.hashWithSalt` username
 
 instance Prelude.NFData KubernetesUserDetails where
   rnf KubernetesUserDetails' {..} =
     Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf sessionName
       `Prelude.seq` Prelude.rnf uid
       `Prelude.seq` Prelude.rnf username

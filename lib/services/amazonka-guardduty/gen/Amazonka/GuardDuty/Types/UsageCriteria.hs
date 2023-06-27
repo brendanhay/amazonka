@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.DataSource
+import Amazonka.GuardDuty.Types.UsageFeature
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the criteria used to query usage statistics.
@@ -31,11 +32,13 @@ import qualified Amazonka.Prelude as Prelude
 data UsageCriteria = UsageCriteria'
   { -- | The account IDs to aggregate usage statistics from.
     accountIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The data sources to aggregate usage statistics from.
+    dataSources :: Prelude.Maybe [DataSource],
+    -- | The features to aggregate usage statistics from.
+    features :: Prelude.Maybe [UsageFeature],
     -- | The resources to aggregate usage statistics from. Only accepts exact
     -- resource names.
-    resources :: Prelude.Maybe [Prelude.Text],
-    -- | The data sources to aggregate usage statistics from.
-    dataSources :: [DataSource]
+    resources :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,50 +52,61 @@ data UsageCriteria = UsageCriteria'
 --
 -- 'accountIds', 'usageCriteria_accountIds' - The account IDs to aggregate usage statistics from.
 --
+-- 'dataSources', 'usageCriteria_dataSources' - The data sources to aggregate usage statistics from.
+--
+-- 'features', 'usageCriteria_features' - The features to aggregate usage statistics from.
+--
 -- 'resources', 'usageCriteria_resources' - The resources to aggregate usage statistics from. Only accepts exact
 -- resource names.
---
--- 'dataSources', 'usageCriteria_dataSources' - The data sources to aggregate usage statistics from.
 newUsageCriteria ::
   UsageCriteria
 newUsageCriteria =
   UsageCriteria'
     { accountIds = Prelude.Nothing,
-      resources = Prelude.Nothing,
-      dataSources = Prelude.mempty
+      dataSources = Prelude.Nothing,
+      features = Prelude.Nothing,
+      resources = Prelude.Nothing
     }
 
 -- | The account IDs to aggregate usage statistics from.
 usageCriteria_accountIds :: Lens.Lens' UsageCriteria (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 usageCriteria_accountIds = Lens.lens (\UsageCriteria' {accountIds} -> accountIds) (\s@UsageCriteria' {} a -> s {accountIds = a} :: UsageCriteria) Prelude.. Lens.mapping Lens.coerced
 
+-- | The data sources to aggregate usage statistics from.
+usageCriteria_dataSources :: Lens.Lens' UsageCriteria (Prelude.Maybe [DataSource])
+usageCriteria_dataSources = Lens.lens (\UsageCriteria' {dataSources} -> dataSources) (\s@UsageCriteria' {} a -> s {dataSources = a} :: UsageCriteria) Prelude.. Lens.mapping Lens.coerced
+
+-- | The features to aggregate usage statistics from.
+usageCriteria_features :: Lens.Lens' UsageCriteria (Prelude.Maybe [UsageFeature])
+usageCriteria_features = Lens.lens (\UsageCriteria' {features} -> features) (\s@UsageCriteria' {} a -> s {features = a} :: UsageCriteria) Prelude.. Lens.mapping Lens.coerced
+
 -- | The resources to aggregate usage statistics from. Only accepts exact
 -- resource names.
 usageCriteria_resources :: Lens.Lens' UsageCriteria (Prelude.Maybe [Prelude.Text])
 usageCriteria_resources = Lens.lens (\UsageCriteria' {resources} -> resources) (\s@UsageCriteria' {} a -> s {resources = a} :: UsageCriteria) Prelude.. Lens.mapping Lens.coerced
 
--- | The data sources to aggregate usage statistics from.
-usageCriteria_dataSources :: Lens.Lens' UsageCriteria [DataSource]
-usageCriteria_dataSources = Lens.lens (\UsageCriteria' {dataSources} -> dataSources) (\s@UsageCriteria' {} a -> s {dataSources = a} :: UsageCriteria) Prelude.. Lens.coerced
-
 instance Prelude.Hashable UsageCriteria where
   hashWithSalt _salt UsageCriteria' {..} =
-    _salt `Prelude.hashWithSalt` accountIds
-      `Prelude.hashWithSalt` resources
+    _salt
+      `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` dataSources
+      `Prelude.hashWithSalt` features
+      `Prelude.hashWithSalt` resources
 
 instance Prelude.NFData UsageCriteria where
   rnf UsageCriteria' {..} =
     Prelude.rnf accountIds
-      `Prelude.seq` Prelude.rnf resources
       `Prelude.seq` Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf features
+      `Prelude.seq` Prelude.rnf resources
 
 instance Data.ToJSON UsageCriteria where
   toJSON UsageCriteria' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("accountIds" Data..=) Prelude.<$> accountIds,
-            ("resources" Data..=) Prelude.<$> resources,
-            Prelude.Just ("dataSources" Data..= dataSources)
+            ("dataSources" Data..=) Prelude.<$> dataSources,
+            ("features" Data..=) Prelude.<$> features,
+            ("resources" Data..=) Prelude.<$> resources
           ]
       )

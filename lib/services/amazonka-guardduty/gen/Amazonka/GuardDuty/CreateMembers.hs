@@ -25,15 +25,26 @@
 -- prerequisite for managing the associated member accounts either by
 -- invitation or through an organization.
 --
--- When using @Create Members@ as an organizations delegated administrator
--- this action will enable GuardDuty in the added member accounts, with the
--- exception of the organization delegated administrator account, which
+-- As a delegated administrator, using @CreateMembers@ will enable
+-- GuardDuty in the added member accounts, with the exception of the
+-- organization delegated administrator account. A delegated administrator
 -- must enable GuardDuty prior to being added as a member.
 --
--- If you are adding accounts by invitation use this action after GuardDuty
--- has been enabled in potential member accounts and before using
--- <https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html Invite Members>
--- .
+-- If you are adding accounts by invitation, before using
+-- <https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html InviteMembers>,
+-- use @CreateMembers@ after GuardDuty has been enabled in potential member
+-- accounts.
+--
+-- If you disassociate a member from a GuardDuty delegated administrator,
+-- the member account details obtained from this API, including the
+-- associated email addresses, will be retained. This is done so that the
+-- delegated administrator can invoke the
+-- <https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html InviteMembers>
+-- API without the need to invoke the CreateMembers API again. To remove
+-- the details associated with a member account, the delegated
+-- administrator must invoke the
+-- <https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html DeleteMembers>
+-- API.
 module Amazonka.GuardDuty.CreateMembers
   ( -- * Creating a Request
     CreateMembers (..),
@@ -119,14 +130,16 @@ instance Core.AWSRequest CreateMembers where
       ( \s h x ->
           CreateMembersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "unprocessedAccounts"
+            Prelude.<*> ( x
+                            Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable CreateMembers where
   hashWithSalt _salt CreateMembers' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` accountDetails
 
 instance Prelude.NFData CreateMembers where

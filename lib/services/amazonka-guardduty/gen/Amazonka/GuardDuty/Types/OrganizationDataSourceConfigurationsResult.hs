@@ -93,8 +93,8 @@ instance
       ( \x ->
           OrganizationDataSourceConfigurationsResult'
             Prelude.<$> (x Data..:? "kubernetes")
-              Prelude.<*> (x Data..:? "malwareProtection")
-              Prelude.<*> (x Data..: "s3Logs")
+            Prelude.<*> (x Data..:? "malwareProtection")
+            Prelude.<*> (x Data..: "s3Logs")
       )
 
 instance
@@ -104,7 +104,8 @@ instance
   hashWithSalt
     _salt
     OrganizationDataSourceConfigurationsResult' {..} =
-      _salt `Prelude.hashWithSalt` kubernetes
+      _salt
+        `Prelude.hashWithSalt` kubernetes
         `Prelude.hashWithSalt` malwareProtection
         `Prelude.hashWithSalt` s3Logs
 

@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data TriggerDetails = TriggerDetails'
   { -- | The description of the scan trigger.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the GuardDuty finding that triggered the BirdDog scan.
+    -- | The ID of the GuardDuty finding that triggered the malware scan.
     guardDutyFindingId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,7 +45,7 @@ data TriggerDetails = TriggerDetails'
 --
 -- 'description', 'triggerDetails_description' - The description of the scan trigger.
 --
--- 'guardDutyFindingId', 'triggerDetails_guardDutyFindingId' - The ID of the GuardDuty finding that triggered the BirdDog scan.
+-- 'guardDutyFindingId', 'triggerDetails_guardDutyFindingId' - The ID of the GuardDuty finding that triggered the malware scan.
 newTriggerDetails ::
   TriggerDetails
 newTriggerDetails =
@@ -58,7 +58,7 @@ newTriggerDetails =
 triggerDetails_description :: Lens.Lens' TriggerDetails (Prelude.Maybe Prelude.Text)
 triggerDetails_description = Lens.lens (\TriggerDetails' {description} -> description) (\s@TriggerDetails' {} a -> s {description = a} :: TriggerDetails)
 
--- | The ID of the GuardDuty finding that triggered the BirdDog scan.
+-- | The ID of the GuardDuty finding that triggered the malware scan.
 triggerDetails_guardDutyFindingId :: Lens.Lens' TriggerDetails (Prelude.Maybe Prelude.Text)
 triggerDetails_guardDutyFindingId = Lens.lens (\TriggerDetails' {guardDutyFindingId} -> guardDutyFindingId) (\s@TriggerDetails' {} a -> s {guardDutyFindingId = a} :: TriggerDetails)
 
@@ -74,7 +74,8 @@ instance Data.FromJSON TriggerDetails where
 
 instance Prelude.Hashable TriggerDetails where
   hashWithSalt _salt TriggerDetails' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` guardDutyFindingId
 
 instance Prelude.NFData TriggerDetails where

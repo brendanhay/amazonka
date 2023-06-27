@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.ResourceDetails
 import Amazonka.GuardDuty.Types.ScanResultDetails
 import Amazonka.GuardDuty.Types.ScanStatus
+import Amazonka.GuardDuty.Types.ScanType
 import Amazonka.GuardDuty.Types.TriggerDetails
 import Amazonka.GuardDuty.Types.VolumeDetail
 import qualified Amazonka.Prelude as Prelude
@@ -60,6 +61,8 @@ data Scan = Scan'
     scanStartTime :: Prelude.Maybe Data.POSIX,
     -- | An enum value representing possible scan statuses.
     scanStatus :: Prelude.Maybe ScanStatus,
+    -- | Specifies the scan type that invoked the malware scan.
+    scanType :: Prelude.Maybe ScanType,
     -- | Represents total bytes that were scanned.
     totalBytes :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the reason why the scan was initiated.
@@ -102,6 +105,8 @@ data Scan = Scan'
 --
 -- 'scanStatus', 'scan_scanStatus' - An enum value representing possible scan statuses.
 --
+-- 'scanType', 'scan_scanType' - Specifies the scan type that invoked the malware scan.
+--
 -- 'totalBytes', 'scan_totalBytes' - Represents total bytes that were scanned.
 --
 -- 'triggerDetails', 'scan_triggerDetails' - Specifies the reason why the scan was initiated.
@@ -121,6 +126,7 @@ newScan =
       scanResultDetails = Prelude.Nothing,
       scanStartTime = Prelude.Nothing,
       scanStatus = Prelude.Nothing,
+      scanType = Prelude.Nothing,
       totalBytes = Prelude.Nothing,
       triggerDetails = Prelude.Nothing
     }
@@ -176,6 +182,10 @@ scan_scanStartTime = Lens.lens (\Scan' {scanStartTime} -> scanStartTime) (\s@Sca
 scan_scanStatus :: Lens.Lens' Scan (Prelude.Maybe ScanStatus)
 scan_scanStatus = Lens.lens (\Scan' {scanStatus} -> scanStatus) (\s@Scan' {} a -> s {scanStatus = a} :: Scan)
 
+-- | Specifies the scan type that invoked the malware scan.
+scan_scanType :: Lens.Lens' Scan (Prelude.Maybe ScanType)
+scan_scanType = Lens.lens (\Scan' {scanType} -> scanType) (\s@Scan' {} a -> s {scanType = a} :: Scan)
+
 -- | Represents total bytes that were scanned.
 scan_totalBytes :: Lens.Lens' Scan (Prelude.Maybe Prelude.Natural)
 scan_totalBytes = Lens.lens (\Scan' {totalBytes} -> totalBytes) (\s@Scan' {} a -> s {totalBytes = a} :: Scan)
@@ -192,7 +202,8 @@ instance Data.FromJSON Scan where
           Scan'
             Prelude.<$> (x Data..:? "accountId")
             Prelude.<*> (x Data..:? "adminDetectorId")
-            Prelude.<*> ( x Data..:? "attachedVolumes"
+            Prelude.<*> ( x
+                            Data..:? "attachedVolumes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "detectorId")
@@ -204,13 +215,15 @@ instance Data.FromJSON Scan where
             Prelude.<*> (x Data..:? "scanResultDetails")
             Prelude.<*> (x Data..:? "scanStartTime")
             Prelude.<*> (x Data..:? "scanStatus")
+            Prelude.<*> (x Data..:? "scanType")
             Prelude.<*> (x Data..:? "totalBytes")
             Prelude.<*> (x Data..:? "triggerDetails")
       )
 
 instance Prelude.Hashable Scan where
   hashWithSalt _salt Scan' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` adminDetectorId
       `Prelude.hashWithSalt` attachedVolumes
       `Prelude.hashWithSalt` detectorId
@@ -222,6 +235,7 @@ instance Prelude.Hashable Scan where
       `Prelude.hashWithSalt` scanResultDetails
       `Prelude.hashWithSalt` scanStartTime
       `Prelude.hashWithSalt` scanStatus
+      `Prelude.hashWithSalt` scanType
       `Prelude.hashWithSalt` totalBytes
       `Prelude.hashWithSalt` triggerDetails
 
@@ -239,5 +253,6 @@ instance Prelude.NFData Scan where
       `Prelude.seq` Prelude.rnf scanResultDetails
       `Prelude.seq` Prelude.rnf scanStartTime
       `Prelude.seq` Prelude.rnf scanStatus
+      `Prelude.seq` Prelude.rnf scanType
       `Prelude.seq` Prelude.rnf totalBytes
       `Prelude.seq` Prelude.rnf triggerDetails

@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.ScanDetections
+import Amazonka.GuardDuty.Types.ScanType
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains details from the malware scan that created a finding.
@@ -37,6 +38,8 @@ data EbsVolumeScanDetails = EbsVolumeScanDetails'
     scanId :: Prelude.Maybe Prelude.Text,
     -- | Returns the start date and time of the malware scan.
     scanStartedAt :: Prelude.Maybe Data.POSIX,
+    -- | Specifies the scan type that invoked the malware scan.
+    scanType :: Prelude.Maybe ScanType,
     -- | Contains list of threat intelligence sources used to detect threats.
     sources :: Prelude.Maybe [Prelude.Text],
     -- | GuardDuty finding ID that triggered a malware scan.
@@ -60,6 +63,8 @@ data EbsVolumeScanDetails = EbsVolumeScanDetails'
 --
 -- 'scanStartedAt', 'ebsVolumeScanDetails_scanStartedAt' - Returns the start date and time of the malware scan.
 --
+-- 'scanType', 'ebsVolumeScanDetails_scanType' - Specifies the scan type that invoked the malware scan.
+--
 -- 'sources', 'ebsVolumeScanDetails_sources' - Contains list of threat intelligence sources used to detect threats.
 --
 -- 'triggerFindingId', 'ebsVolumeScanDetails_triggerFindingId' - GuardDuty finding ID that triggered a malware scan.
@@ -72,6 +77,7 @@ newEbsVolumeScanDetails =
       scanDetections = Prelude.Nothing,
       scanId = Prelude.Nothing,
       scanStartedAt = Prelude.Nothing,
+      scanType = Prelude.Nothing,
       sources = Prelude.Nothing,
       triggerFindingId = Prelude.Nothing
     }
@@ -92,6 +98,10 @@ ebsVolumeScanDetails_scanId = Lens.lens (\EbsVolumeScanDetails' {scanId} -> scan
 ebsVolumeScanDetails_scanStartedAt :: Lens.Lens' EbsVolumeScanDetails (Prelude.Maybe Prelude.UTCTime)
 ebsVolumeScanDetails_scanStartedAt = Lens.lens (\EbsVolumeScanDetails' {scanStartedAt} -> scanStartedAt) (\s@EbsVolumeScanDetails' {} a -> s {scanStartedAt = a} :: EbsVolumeScanDetails) Prelude.. Lens.mapping Data._Time
 
+-- | Specifies the scan type that invoked the malware scan.
+ebsVolumeScanDetails_scanType :: Lens.Lens' EbsVolumeScanDetails (Prelude.Maybe ScanType)
+ebsVolumeScanDetails_scanType = Lens.lens (\EbsVolumeScanDetails' {scanType} -> scanType) (\s@EbsVolumeScanDetails' {} a -> s {scanType = a} :: EbsVolumeScanDetails)
+
 -- | Contains list of threat intelligence sources used to detect threats.
 ebsVolumeScanDetails_sources :: Lens.Lens' EbsVolumeScanDetails (Prelude.Maybe [Prelude.Text])
 ebsVolumeScanDetails_sources = Lens.lens (\EbsVolumeScanDetails' {sources} -> sources) (\s@EbsVolumeScanDetails' {} a -> s {sources = a} :: EbsVolumeScanDetails) Prelude.. Lens.mapping Lens.coerced
@@ -110,16 +120,19 @@ instance Data.FromJSON EbsVolumeScanDetails where
             Prelude.<*> (x Data..:? "scanDetections")
             Prelude.<*> (x Data..:? "scanId")
             Prelude.<*> (x Data..:? "scanStartedAt")
+            Prelude.<*> (x Data..:? "scanType")
             Prelude.<*> (x Data..:? "sources" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "triggerFindingId")
       )
 
 instance Prelude.Hashable EbsVolumeScanDetails where
   hashWithSalt _salt EbsVolumeScanDetails' {..} =
-    _salt `Prelude.hashWithSalt` scanCompletedAt
+    _salt
+      `Prelude.hashWithSalt` scanCompletedAt
       `Prelude.hashWithSalt` scanDetections
       `Prelude.hashWithSalt` scanId
       `Prelude.hashWithSalt` scanStartedAt
+      `Prelude.hashWithSalt` scanType
       `Prelude.hashWithSalt` sources
       `Prelude.hashWithSalt` triggerFindingId
 
@@ -129,5 +142,6 @@ instance Prelude.NFData EbsVolumeScanDetails where
       `Prelude.seq` Prelude.rnf scanDetections
       `Prelude.seq` Prelude.rnf scanId
       `Prelude.seq` Prelude.rnf scanStartedAt
+      `Prelude.seq` Prelude.rnf scanType
       `Prelude.seq` Prelude.rnf sources
       `Prelude.seq` Prelude.rnf triggerFindingId

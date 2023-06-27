@@ -25,6 +25,11 @@
 -- must create a detector in each Region where you enable the service. You
 -- can have only one detector per account per Region. All data sources are
 -- enabled in a new detector by default.
+--
+-- There might be regional differences because some data sources might not
+-- be available in all the Amazon Web Services Regions where GuardDuty is
+-- presently supported. For more information, see
+-- <https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html Regions and endpoints>.
 module Amazonka.GuardDuty.CreateDetector
   ( -- * Creating a Request
     CreateDetector (..),
@@ -33,6 +38,7 @@ module Amazonka.GuardDuty.CreateDetector
     -- * Request Lenses
     createDetector_clientToken,
     createDetector_dataSources,
+    createDetector_features,
     createDetector_findingPublishingFrequency,
     createDetector_tags,
     createDetector_enable,
@@ -61,7 +67,14 @@ data CreateDetector = CreateDetector'
   { -- | The idempotency token for the create request.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | Describes which data sources will be enabled for the detector.
+    --
+    -- There might be regional differences because some data sources might not
+    -- be available in all the Amazon Web Services Regions where GuardDuty is
+    -- presently supported. For more information, see
+    -- <https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html Regions and endpoints>.
     dataSources :: Prelude.Maybe DataSourceConfigurations,
+    -- | A list of features that will be configured for the detector.
+    features :: Prelude.Maybe [DetectorFeatureConfiguration],
     -- | A value that specifies how frequently updated findings are exported.
     findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency,
     -- | The tags to be added to a new detector resource.
@@ -83,6 +96,13 @@ data CreateDetector = CreateDetector'
 --
 -- 'dataSources', 'createDetector_dataSources' - Describes which data sources will be enabled for the detector.
 --
+-- There might be regional differences because some data sources might not
+-- be available in all the Amazon Web Services Regions where GuardDuty is
+-- presently supported. For more information, see
+-- <https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html Regions and endpoints>.
+--
+-- 'features', 'createDetector_features' - A list of features that will be configured for the detector.
+--
 -- 'findingPublishingFrequency', 'createDetector_findingPublishingFrequency' - A value that specifies how frequently updated findings are exported.
 --
 -- 'tags', 'createDetector_tags' - The tags to be added to a new detector resource.
@@ -96,6 +116,7 @@ newCreateDetector pEnable_ =
   CreateDetector'
     { clientToken = Prelude.Nothing,
       dataSources = Prelude.Nothing,
+      features = Prelude.Nothing,
       findingPublishingFrequency = Prelude.Nothing,
       tags = Prelude.Nothing,
       enable = pEnable_
@@ -106,8 +127,17 @@ createDetector_clientToken :: Lens.Lens' CreateDetector (Prelude.Maybe Prelude.T
 createDetector_clientToken = Lens.lens (\CreateDetector' {clientToken} -> clientToken) (\s@CreateDetector' {} a -> s {clientToken = a} :: CreateDetector)
 
 -- | Describes which data sources will be enabled for the detector.
+--
+-- There might be regional differences because some data sources might not
+-- be available in all the Amazon Web Services Regions where GuardDuty is
+-- presently supported. For more information, see
+-- <https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html Regions and endpoints>.
 createDetector_dataSources :: Lens.Lens' CreateDetector (Prelude.Maybe DataSourceConfigurations)
 createDetector_dataSources = Lens.lens (\CreateDetector' {dataSources} -> dataSources) (\s@CreateDetector' {} a -> s {dataSources = a} :: CreateDetector)
+
+-- | A list of features that will be configured for the detector.
+createDetector_features :: Lens.Lens' CreateDetector (Prelude.Maybe [DetectorFeatureConfiguration])
+createDetector_features = Lens.lens (\CreateDetector' {features} -> features) (\s@CreateDetector' {} a -> s {features = a} :: CreateDetector) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that specifies how frequently updated findings are exported.
 createDetector_findingPublishingFrequency :: Lens.Lens' CreateDetector (Prelude.Maybe FindingPublishingFrequency)
@@ -138,8 +168,10 @@ instance Core.AWSRequest CreateDetector where
 
 instance Prelude.Hashable CreateDetector where
   hashWithSalt _salt CreateDetector' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dataSources
+      `Prelude.hashWithSalt` features
       `Prelude.hashWithSalt` findingPublishingFrequency
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` enable
@@ -148,6 +180,7 @@ instance Prelude.NFData CreateDetector where
   rnf CreateDetector' {..} =
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf features
       `Prelude.seq` Prelude.rnf findingPublishingFrequency
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf enable
@@ -169,6 +202,7 @@ instance Data.ToJSON CreateDetector where
       ( Prelude.catMaybes
           [ ("clientToken" Data..=) Prelude.<$> clientToken,
             ("dataSources" Data..=) Prelude.<$> dataSources,
+            ("features" Data..=) Prelude.<$> features,
             ("findingPublishingFrequency" Data..=)
               Prelude.<$> findingPublishingFrequency,
             ("tags" Data..=) Prelude.<$> tags,

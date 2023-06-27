@@ -21,6 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Contains information on member accounts to be updated.
+--
+-- There might be regional differences because some data sources might not
+-- be available in all the Amazon Web Services Regions where GuardDuty is
+-- presently supported. For more information, see
+-- <https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html Regions and endpoints>.
 module Amazonka.GuardDuty.UpdateMemberDetectors
   ( -- * Creating a Request
     UpdateMemberDetectors (..),
@@ -28,6 +33,7 @@ module Amazonka.GuardDuty.UpdateMemberDetectors
 
     -- * Request Lenses
     updateMemberDetectors_dataSources,
+    updateMemberDetectors_features,
     updateMemberDetectors_detectorId,
     updateMemberDetectors_accountIds,
 
@@ -53,6 +59,9 @@ import qualified Amazonka.Response as Response
 data UpdateMemberDetectors = UpdateMemberDetectors'
   { -- | Describes which data sources will be updated.
     dataSources :: Prelude.Maybe DataSourceConfigurations,
+    -- | A list of features that will be updated for the specified member
+    -- accounts.
+    features :: Prelude.Maybe [MemberFeaturesConfiguration],
     -- | The detector ID of the administrator account.
     detectorId :: Prelude.Text,
     -- | A list of member account IDs to be updated.
@@ -70,6 +79,9 @@ data UpdateMemberDetectors = UpdateMemberDetectors'
 --
 -- 'dataSources', 'updateMemberDetectors_dataSources' - Describes which data sources will be updated.
 --
+-- 'features', 'updateMemberDetectors_features' - A list of features that will be updated for the specified member
+-- accounts.
+--
 -- 'detectorId', 'updateMemberDetectors_detectorId' - The detector ID of the administrator account.
 --
 -- 'accountIds', 'updateMemberDetectors_accountIds' - A list of member account IDs to be updated.
@@ -83,6 +95,7 @@ newUpdateMemberDetectors pDetectorId_ pAccountIds_ =
   UpdateMemberDetectors'
     { dataSources =
         Prelude.Nothing,
+      features = Prelude.Nothing,
       detectorId = pDetectorId_,
       accountIds = Lens.coerced Lens.# pAccountIds_
     }
@@ -90,6 +103,11 @@ newUpdateMemberDetectors pDetectorId_ pAccountIds_ =
 -- | Describes which data sources will be updated.
 updateMemberDetectors_dataSources :: Lens.Lens' UpdateMemberDetectors (Prelude.Maybe DataSourceConfigurations)
 updateMemberDetectors_dataSources = Lens.lens (\UpdateMemberDetectors' {dataSources} -> dataSources) (\s@UpdateMemberDetectors' {} a -> s {dataSources = a} :: UpdateMemberDetectors)
+
+-- | A list of features that will be updated for the specified member
+-- accounts.
+updateMemberDetectors_features :: Lens.Lens' UpdateMemberDetectors (Prelude.Maybe [MemberFeaturesConfiguration])
+updateMemberDetectors_features = Lens.lens (\UpdateMemberDetectors' {features} -> features) (\s@UpdateMemberDetectors' {} a -> s {features = a} :: UpdateMemberDetectors) Prelude.. Lens.mapping Lens.coerced
 
 -- | The detector ID of the administrator account.
 updateMemberDetectors_detectorId :: Lens.Lens' UpdateMemberDetectors Prelude.Text
@@ -110,20 +128,24 @@ instance Core.AWSRequest UpdateMemberDetectors where
       ( \s h x ->
           UpdateMemberDetectorsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "unprocessedAccounts"
+            Prelude.<*> ( x
+                            Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable UpdateMemberDetectors where
   hashWithSalt _salt UpdateMemberDetectors' {..} =
-    _salt `Prelude.hashWithSalt` dataSources
+    _salt
+      `Prelude.hashWithSalt` dataSources
+      `Prelude.hashWithSalt` features
       `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` accountIds
 
 instance Prelude.NFData UpdateMemberDetectors where
   rnf UpdateMemberDetectors' {..} =
     Prelude.rnf dataSources
+      `Prelude.seq` Prelude.rnf features
       `Prelude.seq` Prelude.rnf detectorId
       `Prelude.seq` Prelude.rnf accountIds
 
@@ -143,6 +165,7 @@ instance Data.ToJSON UpdateMemberDetectors where
     Data.object
       ( Prelude.catMaybes
           [ ("dataSources" Data..=) Prelude.<$> dataSources,
+            ("features" Data..=) Prelude.<$> features,
             Prelude.Just ("accountIds" Data..= accountIds)
           ]
       )

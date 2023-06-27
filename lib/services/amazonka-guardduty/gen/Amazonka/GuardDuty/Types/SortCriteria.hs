@@ -29,8 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSortCriteria' smart constructor.
 data SortCriteria = SortCriteria'
-  { -- | Represents the finding attribute (for example, accountId) to sort
-    -- findings by.
+  { -- | Represents the finding attribute, such as @accountId@, that sorts the
+    -- findings.
     attributeName :: Prelude.Maybe Prelude.Text,
     -- | The order by which the sorted findings are to be displayed.
     orderBy :: Prelude.Maybe OrderBy
@@ -45,8 +45,8 @@ data SortCriteria = SortCriteria'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attributeName', 'sortCriteria_attributeName' - Represents the finding attribute (for example, accountId) to sort
--- findings by.
+-- 'attributeName', 'sortCriteria_attributeName' - Represents the finding attribute, such as @accountId@, that sorts the
+-- findings.
 --
 -- 'orderBy', 'sortCriteria_orderBy' - The order by which the sorted findings are to be displayed.
 newSortCriteria ::
@@ -57,8 +57,8 @@ newSortCriteria =
       orderBy = Prelude.Nothing
     }
 
--- | Represents the finding attribute (for example, accountId) to sort
--- findings by.
+-- | Represents the finding attribute, such as @accountId@, that sorts the
+-- findings.
 sortCriteria_attributeName :: Lens.Lens' SortCriteria (Prelude.Maybe Prelude.Text)
 sortCriteria_attributeName = Lens.lens (\SortCriteria' {attributeName} -> attributeName) (\s@SortCriteria' {} a -> s {attributeName = a} :: SortCriteria)
 
@@ -68,7 +68,8 @@ sortCriteria_orderBy = Lens.lens (\SortCriteria' {orderBy} -> orderBy) (\s@SortC
 
 instance Prelude.Hashable SortCriteria where
   hashWithSalt _salt SortCriteria' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` orderBy
 
 instance Prelude.NFData SortCriteria where

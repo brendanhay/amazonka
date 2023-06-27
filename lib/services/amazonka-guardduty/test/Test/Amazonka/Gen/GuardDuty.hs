@@ -102,6 +102,9 @@ import Test.Tasty
 --         , requestGetAdministratorAccount $
 --             newGetAdministratorAccount
 --
+--         , requestGetCoverageStatistics $
+--             newGetCoverageStatistics
+--
 --         , requestGetDetector $
 --             newGetDetector
 --
@@ -141,6 +144,9 @@ import Test.Tasty
 --         , requestInviteMembers $
 --             newInviteMembers
 --
+--         , requestListCoverage $
+--             newListCoverage
+--
 --         , requestListDetectors $
 --             newListDetectors
 --
@@ -170,6 +176,9 @@ import Test.Tasty
 --
 --         , requestListThreatIntelSets $
 --             newListThreatIntelSets
+--
+--         , requestStartMalwareScan $
+--             newStartMalwareScan
 --
 --         , requestStartMonitoringMembers $
 --             newStartMonitoringMembers
@@ -291,6 +300,9 @@ import Test.Tasty
 --         , responseGetAdministratorAccount $
 --             newGetAdministratorAccountResponse
 --
+--         , responseGetCoverageStatistics $
+--             newGetCoverageStatisticsResponse
+--
 --         , responseGetDetector $
 --             newGetDetectorResponse
 --
@@ -330,6 +342,9 @@ import Test.Tasty
 --         , responseInviteMembers $
 --             newInviteMembersResponse
 --
+--         , responseListCoverage $
+--             newListCoverageResponse
+--
 --         , responseListDetectors $
 --             newListDetectorsResponse
 --
@@ -359,6 +374,9 @@ import Test.Tasty
 --
 --         , responseListThreatIntelSets $
 --             newListThreatIntelSetsResponse
+--
+--         , responseStartMalwareScan $
+--             newStartMalwareScanResponse
 --
 --         , responseStartMonitoringMembers $
 --             newStartMonitoringMembersResponse
@@ -557,6 +575,12 @@ requestGetAdministratorAccount =
     "GetAdministratorAccount"
     "fixture/GetAdministratorAccount.yaml"
 
+requestGetCoverageStatistics :: GetCoverageStatistics -> TestTree
+requestGetCoverageStatistics =
+  req
+    "GetCoverageStatistics"
+    "fixture/GetCoverageStatistics.yaml"
+
 requestGetDetector :: GetDetector -> TestTree
 requestGetDetector =
   req
@@ -635,6 +659,12 @@ requestInviteMembers =
     "InviteMembers"
     "fixture/InviteMembers.yaml"
 
+requestListCoverage :: ListCoverage -> TestTree
+requestListCoverage =
+  req
+    "ListCoverage"
+    "fixture/ListCoverage.yaml"
+
 requestListDetectors :: ListDetectors -> TestTree
 requestListDetectors =
   req
@@ -694,6 +724,12 @@ requestListThreatIntelSets =
   req
     "ListThreatIntelSets"
     "fixture/ListThreatIntelSets.yaml"
+
+requestStartMalwareScan :: StartMalwareScan -> TestTree
+requestStartMalwareScan =
+  req
+    "StartMalwareScan"
+    "fixture/StartMalwareScan.yaml"
 
 requestStartMonitoringMembers :: StartMonitoringMembers -> TestTree
 requestStartMonitoringMembers =
@@ -981,6 +1017,14 @@ responseGetAdministratorAccount =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetAdministratorAccount)
 
+responseGetCoverageStatistics :: GetCoverageStatisticsResponse -> TestTree
+responseGetCoverageStatistics =
+  res
+    "GetCoverageStatisticsResponse"
+    "fixture/GetCoverageStatisticsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetCoverageStatistics)
+
 responseGetDetector :: GetDetectorResponse -> TestTree
 responseGetDetector =
   res
@@ -1085,6 +1129,14 @@ responseInviteMembers =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy InviteMembers)
 
+responseListCoverage :: ListCoverageResponse -> TestTree
+responseListCoverage =
+  res
+    "ListCoverageResponse"
+    "fixture/ListCoverageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCoverage)
+
 responseListDetectors :: ListDetectorsResponse -> TestTree
 responseListDetectors =
   res
@@ -1164,6 +1216,14 @@ responseListThreatIntelSets =
     "fixture/ListThreatIntelSetsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListThreatIntelSets)
+
+responseStartMalwareScan :: StartMalwareScanResponse -> TestTree
+responseStartMalwareScan =
+  res
+    "StartMalwareScanResponse"
+    "fixture/StartMalwareScanResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartMalwareScan)
 
 responseStartMonitoringMembers :: StartMonitoringMembersResponse -> TestTree
 responseStartMonitoringMembers =

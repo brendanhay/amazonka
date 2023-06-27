@@ -22,6 +22,11 @@
 --
 -- Describes which data sources are enabled for the member account\'s
 -- detector.
+--
+-- There might be regional differences because some data sources might not
+-- be available in all the Amazon Web Services Regions where GuardDuty is
+-- presently supported. For more information, see
+-- <https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html Regions and endpoints>.
 module Amazonka.GuardDuty.GetMemberDetectors
   ( -- * Creating a Request
     GetMemberDetectors (..),
@@ -102,14 +107,16 @@ instance Core.AWSRequest GetMemberDetectors where
           GetMemberDetectorsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "members")
-            Prelude.<*> ( x Data..?> "unprocessedAccounts"
+            Prelude.<*> ( x
+                            Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable GetMemberDetectors where
   hashWithSalt _salt GetMemberDetectors' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` accountIds
 
 instance Prelude.NFData GetMemberDetectors where

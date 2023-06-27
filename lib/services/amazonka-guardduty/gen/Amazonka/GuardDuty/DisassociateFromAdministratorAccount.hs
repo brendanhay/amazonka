@@ -22,6 +22,22 @@
 --
 -- Disassociates the current GuardDuty member account from its
 -- administrator account.
+--
+-- When you disassociate an invited member from a GuardDuty delegated
+-- administrator, the member account details obtained from the
+-- <https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html CreateMembers>
+-- API, including the associated email addresses, are retained. This is
+-- done so that the delegated administrator can invoke the
+-- <https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html InviteMembers>
+-- API without the need to invoke the CreateMembers API again. To remove
+-- the details associated with a member account, the delegated
+-- administrator must invoke the
+-- <https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html DeleteMembers>
+-- API.
+--
+-- With @autoEnableOrganizationMembers@ configuration for your organization
+-- set to @ALL@, you\'ll receive an error if you attempt to disable
+-- GuardDuty in a member account.
 module Amazonka.GuardDuty.DisassociateFromAdministratorAccount
   ( -- * Creating a Request
     DisassociateFromAdministratorAccount (..),

@@ -125,7 +125,8 @@ instance
     DescribePublishingDestination
   where
   hashWithSalt _salt DescribePublishingDestination' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` destinationId
 
 instance Prelude.NFData DescribePublishingDestination where

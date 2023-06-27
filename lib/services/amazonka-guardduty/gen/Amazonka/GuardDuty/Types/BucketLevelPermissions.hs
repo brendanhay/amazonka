@@ -95,7 +95,8 @@ instance Data.FromJSON BucketLevelPermissions where
 
 instance Prelude.Hashable BucketLevelPermissions where
   hashWithSalt _salt BucketLevelPermissions' {..} =
-    _salt `Prelude.hashWithSalt` accessControlList
+    _salt
+      `Prelude.hashWithSalt` accessControlList
       `Prelude.hashWithSalt` blockPublicAccess
       `Prelude.hashWithSalt` bucketPolicy
 

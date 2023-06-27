@@ -25,7 +25,8 @@ module Amazonka.GuardDuty.Types.CriterionKey
         CriterionKey_GUARDDUTY_FINDING_ID,
         CriterionKey_SCAN_ID,
         CriterionKey_SCAN_START_TIME,
-        CriterionKey_SCAN_STATUS
+        CriterionKey_SCAN_STATUS,
+        CriterionKey_SCAN_TYPE
       ),
   )
 where
@@ -80,6 +81,9 @@ pattern CriterionKey_SCAN_START_TIME = CriterionKey' "SCAN_START_TIME"
 pattern CriterionKey_SCAN_STATUS :: CriterionKey
 pattern CriterionKey_SCAN_STATUS = CriterionKey' "SCAN_STATUS"
 
+pattern CriterionKey_SCAN_TYPE :: CriterionKey
+pattern CriterionKey_SCAN_TYPE = CriterionKey' "SCAN_TYPE"
+
 {-# COMPLETE
   CriterionKey_ACCOUNT_ID,
   CriterionKey_EC2_INSTANCE_ARN,
@@ -87,5 +91,6 @@ pattern CriterionKey_SCAN_STATUS = CriterionKey' "SCAN_STATUS"
   CriterionKey_SCAN_ID,
   CriterionKey_SCAN_START_TIME,
   CriterionKey_SCAN_STATUS,
+  CriterionKey_SCAN_TYPE,
   CriterionKey'
   #-}

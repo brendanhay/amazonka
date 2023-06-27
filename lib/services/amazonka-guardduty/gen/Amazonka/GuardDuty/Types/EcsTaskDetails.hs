@@ -157,7 +157,8 @@ instance Data.FromJSON EcsTaskDetails where
 
 instance Prelude.Hashable EcsTaskDetails where
   hashWithSalt _salt EcsTaskDetails' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` containers
       `Prelude.hashWithSalt` definitionArn
       `Prelude.hashWithSalt` group'

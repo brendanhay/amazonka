@@ -108,7 +108,8 @@ instance Data.FromJSON RemoteIpDetails where
 
 instance Prelude.Hashable RemoteIpDetails where
   hashWithSalt _salt RemoteIpDetails' {..} =
-    _salt `Prelude.hashWithSalt` city
+    _salt
+      `Prelude.hashWithSalt` city
       `Prelude.hashWithSalt` country
       `Prelude.hashWithSalt` geoLocation
       `Prelude.hashWithSalt` ipAddressV4

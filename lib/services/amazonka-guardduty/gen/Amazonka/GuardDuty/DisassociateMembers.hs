@@ -20,8 +20,25 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates GuardDuty member accounts (to the current administrator
+-- Disassociates GuardDuty member accounts (from the current administrator
 -- account) specified by the account IDs.
+--
+-- When you disassociate an invited member from a GuardDuty delegated
+-- administrator, the member account details obtained from the
+-- <https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html CreateMembers>
+-- API, including the associated email addresses, are retained. This is
+-- done so that the delegated administrator can invoke the
+-- <https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html InviteMembers>
+-- API without the need to invoke the CreateMembers API again. To remove
+-- the details associated with a member account, the delegated
+-- administrator must invoke the
+-- <https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html DeleteMembers>
+-- API.
+--
+-- With @autoEnableOrganizationMembers@ configuration for your organization
+-- set to @ALL@, you\'ll receive an error if you attempt to disassociate a
+-- member account before removing them from your Amazon Web Services
+-- organization.
 module Amazonka.GuardDuty.DisassociateMembers
   ( -- * Creating a Request
     DisassociateMembers (..),
@@ -106,14 +123,16 @@ instance Core.AWSRequest DisassociateMembers where
       ( \s h x ->
           DisassociateMembersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "unprocessedAccounts"
+            Prelude.<*> ( x
+                            Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable DisassociateMembers where
   hashWithSalt _salt DisassociateMembers' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` accountIds
 
 instance Prelude.NFData DisassociateMembers where

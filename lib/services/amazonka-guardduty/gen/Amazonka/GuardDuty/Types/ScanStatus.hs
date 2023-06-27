@@ -22,7 +22,8 @@ module Amazonka.GuardDuty.Types.ScanStatus
       ( ..,
         ScanStatus_COMPLETED,
         ScanStatus_FAILED,
-        ScanStatus_RUNNING
+        ScanStatus_RUNNING,
+        ScanStatus_SKIPPED
       ),
   )
 where
@@ -68,9 +69,13 @@ pattern ScanStatus_FAILED = ScanStatus' "FAILED"
 pattern ScanStatus_RUNNING :: ScanStatus
 pattern ScanStatus_RUNNING = ScanStatus' "RUNNING"
 
+pattern ScanStatus_SKIPPED :: ScanStatus
+pattern ScanStatus_SKIPPED = ScanStatus' "SKIPPED"
+
 {-# COMPLETE
   ScanStatus_COMPLETED,
   ScanStatus_FAILED,
   ScanStatus_RUNNING,
+  ScanStatus_SKIPPED,
   ScanStatus'
   #-}

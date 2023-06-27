@@ -138,7 +138,8 @@ instance Data.FromJSON S3BucketDetail where
 
 instance Prelude.Hashable S3BucketDetail where
   hashWithSalt _salt S3BucketDetail' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` defaultServerSideEncryption
       `Prelude.hashWithSalt` name

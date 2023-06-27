@@ -95,7 +95,8 @@ instance Core.AWSRequest DeclineInvitations where
       ( \s h x ->
           DeclineInvitationsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "unprocessedAccounts"
+            Prelude.<*> ( x
+                            Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )

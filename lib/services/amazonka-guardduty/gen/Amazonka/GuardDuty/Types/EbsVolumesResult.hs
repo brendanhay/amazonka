@@ -78,7 +78,8 @@ instance Data.FromJSON EbsVolumesResult where
 
 instance Prelude.Hashable EbsVolumesResult where
   hashWithSalt _salt EbsVolumesResult' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData EbsVolumesResult where

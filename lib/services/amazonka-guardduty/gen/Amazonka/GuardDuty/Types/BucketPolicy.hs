@@ -81,7 +81,8 @@ instance Data.FromJSON BucketPolicy where
 
 instance Prelude.Hashable BucketPolicy where
   hashWithSalt _salt BucketPolicy' {..} =
-    _salt `Prelude.hashWithSalt` allowsPublicReadAccess
+    _salt
+      `Prelude.hashWithSalt` allowsPublicReadAccess
       `Prelude.hashWithSalt` allowsPublicWriteAccess
 
 instance Prelude.NFData BucketPolicy where

@@ -43,8 +43,14 @@ module Amazonka.GuardDuty
     -- * Errors
     -- $errors
 
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
     -- ** BadRequestException
     _BadRequestException,
+
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** InternalServerErrorException
     _InternalServerErrorException,
@@ -205,6 +211,12 @@ module Amazonka.GuardDuty
     GetAdministratorAccountResponse (GetAdministratorAccountResponse'),
     newGetAdministratorAccountResponse,
 
+    -- ** GetCoverageStatistics
+    GetCoverageStatistics (GetCoverageStatistics'),
+    newGetCoverageStatistics,
+    GetCoverageStatisticsResponse (GetCoverageStatisticsResponse'),
+    newGetCoverageStatisticsResponse,
+
     -- ** GetDetector
     GetDetector (GetDetector'),
     newGetDetector,
@@ -283,6 +295,12 @@ module Amazonka.GuardDuty
     InviteMembersResponse (InviteMembersResponse'),
     newInviteMembersResponse,
 
+    -- ** ListCoverage (Paginated)
+    ListCoverage (ListCoverage'),
+    newListCoverage,
+    ListCoverageResponse (ListCoverageResponse'),
+    newListCoverageResponse,
+
     -- ** ListDetectors (Paginated)
     ListDetectors (ListDetectors'),
     newListDetectors,
@@ -342,6 +360,12 @@ module Amazonka.GuardDuty
     newListThreatIntelSets,
     ListThreatIntelSetsResponse (ListThreatIntelSetsResponse'),
     newListThreatIntelSetsResponse,
+
+    -- ** StartMalwareScan
+    StartMalwareScan (StartMalwareScan'),
+    newStartMalwareScan,
+    StartMalwareScanResponse (StartMalwareScanResponse'),
+    newStartMalwareScanResponse,
 
     -- ** StartMonitoringMembers
     StartMonitoringMembers (StartMonitoringMembers'),
@@ -432,6 +456,21 @@ module Amazonka.GuardDuty
     -- ** AdminStatus
     AdminStatus (..),
 
+    -- ** AutoEnableMembers
+    AutoEnableMembers (..),
+
+    -- ** CoverageFilterCriterionKey
+    CoverageFilterCriterionKey (..),
+
+    -- ** CoverageSortKey
+    CoverageSortKey (..),
+
+    -- ** CoverageStatisticsType
+    CoverageStatisticsType (..),
+
+    -- ** CoverageStatus
+    CoverageStatus (..),
+
     -- ** CriterionKey
     CriterionKey (..),
 
@@ -444,11 +483,23 @@ module Amazonka.GuardDuty
     -- ** DestinationType
     DestinationType (..),
 
+    -- ** DetectorFeature
+    DetectorFeature (..),
+
+    -- ** DetectorFeatureResult
+    DetectorFeatureResult (..),
+
     -- ** DetectorStatus
     DetectorStatus (..),
 
     -- ** EbsSnapshotPreservation
     EbsSnapshotPreservation (..),
+
+    -- ** FeatureAdditionalConfiguration
+    FeatureAdditionalConfiguration (..),
+
+    -- ** FeatureStatus
+    FeatureStatus (..),
 
     -- ** Feedback
     Feedback (..),
@@ -462,6 +513,9 @@ module Amazonka.GuardDuty
     -- ** FindingStatisticType
     FindingStatisticType (..),
 
+    -- ** FreeTrialFeatureResult
+    FreeTrialFeatureResult (..),
+
     -- ** IpSetFormat
     IpSetFormat (..),
 
@@ -471,8 +525,20 @@ module Amazonka.GuardDuty
     -- ** OrderBy
     OrderBy (..),
 
+    -- ** OrgFeature
+    OrgFeature (..),
+
+    -- ** OrgFeatureAdditionalConfiguration
+    OrgFeatureAdditionalConfiguration (..),
+
+    -- ** OrgFeatureStatus
+    OrgFeatureStatus (..),
+
     -- ** PublishingStatus
     PublishingStatus (..),
+
+    -- ** ResourceType
+    ResourceType (..),
 
     -- ** ScanCriterionKey
     ScanCriterionKey (..),
@@ -483,11 +549,17 @@ module Amazonka.GuardDuty
     -- ** ScanStatus
     ScanStatus (..),
 
+    -- ** ScanType
+    ScanType (..),
+
     -- ** ThreatIntelSetFormat
     ThreatIntelSetFormat (..),
 
     -- ** ThreatIntelSetStatus
     ThreatIntelSetStatus (..),
+
+    -- ** UsageFeature
+    UsageFeature (..),
 
     -- ** UsageStatisticType
     UsageStatisticType (..),
@@ -515,6 +587,10 @@ module Amazonka.GuardDuty
     -- ** Action
     Action (Action'),
     newAction,
+
+    -- ** AddonDetails
+    AddonDetails (AddonDetails'),
+    newAddonDetails,
 
     -- ** AdminAccount
     AdminAccount (AdminAccount'),
@@ -560,6 +636,38 @@ module Amazonka.GuardDuty
     Country (Country'),
     newCountry,
 
+    -- ** CoverageEksClusterDetails
+    CoverageEksClusterDetails (CoverageEksClusterDetails'),
+    newCoverageEksClusterDetails,
+
+    -- ** CoverageFilterCondition
+    CoverageFilterCondition (CoverageFilterCondition'),
+    newCoverageFilterCondition,
+
+    -- ** CoverageFilterCriteria
+    CoverageFilterCriteria (CoverageFilterCriteria'),
+    newCoverageFilterCriteria,
+
+    -- ** CoverageFilterCriterion
+    CoverageFilterCriterion (CoverageFilterCriterion'),
+    newCoverageFilterCriterion,
+
+    -- ** CoverageResource
+    CoverageResource (CoverageResource'),
+    newCoverageResource,
+
+    -- ** CoverageResourceDetails
+    CoverageResourceDetails (CoverageResourceDetails'),
+    newCoverageResourceDetails,
+
+    -- ** CoverageSortCriteria
+    CoverageSortCriteria (CoverageSortCriteria'),
+    newCoverageSortCriteria,
+
+    -- ** CoverageStatistics
+    CoverageStatistics (CoverageStatistics'),
+    newCoverageStatistics,
+
     -- ** DNSLogsConfigurationResult
     DNSLogsConfigurationResult (DNSLogsConfigurationResult'),
     newDNSLogsConfigurationResult,
@@ -591,6 +699,22 @@ module Amazonka.GuardDuty
     -- ** DestinationProperties
     DestinationProperties (DestinationProperties'),
     newDestinationProperties,
+
+    -- ** DetectorAdditionalConfiguration
+    DetectorAdditionalConfiguration (DetectorAdditionalConfiguration'),
+    newDetectorAdditionalConfiguration,
+
+    -- ** DetectorAdditionalConfigurationResult
+    DetectorAdditionalConfigurationResult (DetectorAdditionalConfigurationResult'),
+    newDetectorAdditionalConfigurationResult,
+
+    -- ** DetectorFeatureConfiguration
+    DetectorFeatureConfiguration (DetectorFeatureConfiguration'),
+    newDetectorFeatureConfiguration,
+
+    -- ** DetectorFeatureConfigurationResult
+    DetectorFeatureConfigurationResult (DetectorFeatureConfigurationResult'),
+    newDetectorFeatureConfigurationResult,
 
     -- ** DnsRequestAction
     DnsRequestAction (DnsRequestAction'),
@@ -656,6 +780,10 @@ module Amazonka.GuardDuty
     FlowLogsConfigurationResult (FlowLogsConfigurationResult'),
     newFlowLogsConfigurationResult,
 
+    -- ** FreeTrialFeatureConfigurationResult
+    FreeTrialFeatureConfigurationResult (FreeTrialFeatureConfigurationResult'),
+    newFreeTrialFeatureConfigurationResult,
+
     -- ** GeoLocation
     GeoLocation (GeoLocation'),
     newGeoLocation,
@@ -716,6 +844,14 @@ module Amazonka.GuardDuty
     KubernetesWorkloadDetails (KubernetesWorkloadDetails'),
     newKubernetesWorkloadDetails,
 
+    -- ** LambdaDetails
+    LambdaDetails (LambdaDetails'),
+    newLambdaDetails,
+
+    -- ** LineageObject
+    LineageObject (LineageObject'),
+    newLineageObject,
+
     -- ** LocalIpDetails
     LocalIpDetails (LocalIpDetails'),
     newLocalIpDetails,
@@ -723,6 +859,10 @@ module Amazonka.GuardDuty
     -- ** LocalPortDetails
     LocalPortDetails (LocalPortDetails'),
     newLocalPortDetails,
+
+    -- ** LoginAttribute
+    LoginAttribute (LoginAttribute'),
+    newLoginAttribute,
 
     -- ** MalwareProtectionConfiguration
     MalwareProtectionConfiguration (MalwareProtectionConfiguration'),
@@ -740,9 +880,25 @@ module Amazonka.GuardDuty
     Member (Member'),
     newMember,
 
+    -- ** MemberAdditionalConfiguration
+    MemberAdditionalConfiguration (MemberAdditionalConfiguration'),
+    newMemberAdditionalConfiguration,
+
+    -- ** MemberAdditionalConfigurationResult
+    MemberAdditionalConfigurationResult (MemberAdditionalConfigurationResult'),
+    newMemberAdditionalConfigurationResult,
+
     -- ** MemberDataSourceConfiguration
     MemberDataSourceConfiguration (MemberDataSourceConfiguration'),
     newMemberDataSourceConfiguration,
+
+    -- ** MemberFeaturesConfiguration
+    MemberFeaturesConfiguration (MemberFeaturesConfiguration'),
+    newMemberFeaturesConfiguration,
+
+    -- ** MemberFeaturesConfigurationResult
+    MemberFeaturesConfigurationResult (MemberFeaturesConfigurationResult'),
+    newMemberFeaturesConfigurationResult,
 
     -- ** NetworkConnectionAction
     NetworkConnectionAction (NetworkConnectionAction'),
@@ -755,6 +911,14 @@ module Amazonka.GuardDuty
     -- ** Organization
     Organization (Organization'),
     newOrganization,
+
+    -- ** OrganizationAdditionalConfiguration
+    OrganizationAdditionalConfiguration (OrganizationAdditionalConfiguration'),
+    newOrganizationAdditionalConfiguration,
+
+    -- ** OrganizationAdditionalConfigurationResult
+    OrganizationAdditionalConfigurationResult (OrganizationAdditionalConfigurationResult'),
+    newOrganizationAdditionalConfigurationResult,
 
     -- ** OrganizationDataSourceConfigurations
     OrganizationDataSourceConfigurations (OrganizationDataSourceConfigurations'),
@@ -771,6 +935,14 @@ module Amazonka.GuardDuty
     -- ** OrganizationEbsVolumesResult
     OrganizationEbsVolumesResult (OrganizationEbsVolumesResult'),
     newOrganizationEbsVolumesResult,
+
+    -- ** OrganizationFeatureConfiguration
+    OrganizationFeatureConfiguration (OrganizationFeatureConfiguration'),
+    newOrganizationFeatureConfiguration,
+
+    -- ** OrganizationFeatureConfigurationResult
+    OrganizationFeatureConfigurationResult (OrganizationFeatureConfigurationResult'),
+    newOrganizationFeatureConfigurationResult,
 
     -- ** OrganizationKubernetesAuditLogsConfiguration
     OrganizationKubernetesAuditLogsConfiguration (OrganizationKubernetesAuditLogsConfiguration'),
@@ -832,6 +1004,10 @@ module Amazonka.GuardDuty
     PrivateIpAddressDetails (PrivateIpAddressDetails'),
     newPrivateIpAddressDetails,
 
+    -- ** ProcessDetails
+    ProcessDetails (ProcessDetails'),
+    newProcessDetails,
+
     -- ** ProductCode
     ProductCode (ProductCode'),
     newProductCode,
@@ -839,6 +1015,18 @@ module Amazonka.GuardDuty
     -- ** PublicAccess
     PublicAccess (PublicAccess'),
     newPublicAccess,
+
+    -- ** RdsDbInstanceDetails
+    RdsDbInstanceDetails (RdsDbInstanceDetails'),
+    newRdsDbInstanceDetails,
+
+    -- ** RdsDbUserDetails
+    RdsDbUserDetails (RdsDbUserDetails'),
+    newRdsDbUserDetails,
+
+    -- ** RdsLoginAttemptAction
+    RdsLoginAttemptAction (RdsLoginAttemptAction'),
+    newRdsLoginAttemptAction,
 
     -- ** RemoteAccountDetails
     RemoteAccountDetails (RemoteAccountDetails'),
@@ -859,6 +1047,14 @@ module Amazonka.GuardDuty
     -- ** ResourceDetails
     ResourceDetails (ResourceDetails'),
     newResourceDetails,
+
+    -- ** RuntimeContext
+    RuntimeContext (RuntimeContext'),
+    newRuntimeContext,
+
+    -- ** RuntimeDetails
+    RuntimeDetails (RuntimeDetails'),
+    newRuntimeDetails,
 
     -- ** S3BucketDetail
     S3BucketDetail (S3BucketDetail'),
@@ -980,6 +1176,10 @@ module Amazonka.GuardDuty
     UsageDataSourceResult (UsageDataSourceResult'),
     newUsageDataSourceResult,
 
+    -- ** UsageFeatureResult
+    UsageFeatureResult (UsageFeatureResult'),
+    newUsageFeatureResult,
+
     -- ** UsageResourceResult
     UsageResourceResult (UsageResourceResult'),
     newUsageResourceResult,
@@ -999,6 +1199,10 @@ module Amazonka.GuardDuty
     -- ** VolumeMount
     VolumeMount (VolumeMount'),
     newVolumeMount,
+
+    -- ** VpcConfig
+    VpcConfig (VpcConfig'),
+    newVpcConfig,
   )
 where
 
@@ -1027,6 +1231,7 @@ import Amazonka.GuardDuty.DisassociateFromAdministratorAccount
 import Amazonka.GuardDuty.DisassociateMembers
 import Amazonka.GuardDuty.EnableOrganizationAdminAccount
 import Amazonka.GuardDuty.GetAdministratorAccount
+import Amazonka.GuardDuty.GetCoverageStatistics
 import Amazonka.GuardDuty.GetDetector
 import Amazonka.GuardDuty.GetFilter
 import Amazonka.GuardDuty.GetFindings
@@ -1041,6 +1246,7 @@ import Amazonka.GuardDuty.GetThreatIntelSet
 import Amazonka.GuardDuty.GetUsageStatistics
 import Amazonka.GuardDuty.InviteMembers
 import Amazonka.GuardDuty.Lens
+import Amazonka.GuardDuty.ListCoverage
 import Amazonka.GuardDuty.ListDetectors
 import Amazonka.GuardDuty.ListFilters
 import Amazonka.GuardDuty.ListFindings
@@ -1051,6 +1257,7 @@ import Amazonka.GuardDuty.ListOrganizationAdminAccounts
 import Amazonka.GuardDuty.ListPublishingDestinations
 import Amazonka.GuardDuty.ListTagsForResource
 import Amazonka.GuardDuty.ListThreatIntelSets
+import Amazonka.GuardDuty.StartMalwareScan
 import Amazonka.GuardDuty.StartMonitoringMembers
 import Amazonka.GuardDuty.StopMonitoringMembers
 import Amazonka.GuardDuty.TagResource

@@ -75,7 +75,8 @@ instance Data.FromJSON Total where
 
 instance Prelude.Hashable Total where
   hashWithSalt _salt Total' {..} =
-    _salt `Prelude.hashWithSalt` amount
+    _salt
+      `Prelude.hashWithSalt` amount
       `Prelude.hashWithSalt` unit
 
 instance Prelude.NFData Total where

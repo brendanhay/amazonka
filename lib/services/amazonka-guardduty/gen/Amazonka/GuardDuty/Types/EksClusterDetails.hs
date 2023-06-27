@@ -115,7 +115,8 @@ instance Data.FromJSON EksClusterDetails where
 
 instance Prelude.Hashable EksClusterDetails where
   hashWithSalt _salt EksClusterDetails' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status

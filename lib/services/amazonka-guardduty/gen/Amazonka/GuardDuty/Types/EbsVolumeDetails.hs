@@ -70,17 +70,20 @@ instance Data.FromJSON EbsVolumeDetails where
       "EbsVolumeDetails"
       ( \x ->
           EbsVolumeDetails'
-            Prelude.<$> ( x Data..:? "scannedVolumeDetails"
+            Prelude.<$> ( x
+                            Data..:? "scannedVolumeDetails"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "skippedVolumeDetails"
+            Prelude.<*> ( x
+                            Data..:? "skippedVolumeDetails"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable EbsVolumeDetails where
   hashWithSalt _salt EbsVolumeDetails' {..} =
-    _salt `Prelude.hashWithSalt` scannedVolumeDetails
+    _salt
+      `Prelude.hashWithSalt` scannedVolumeDetails
       `Prelude.hashWithSalt` skippedVolumeDetails
 
 instance Prelude.NFData EbsVolumeDetails where

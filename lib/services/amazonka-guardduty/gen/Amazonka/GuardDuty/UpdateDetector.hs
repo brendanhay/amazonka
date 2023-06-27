@@ -21,6 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the Amazon GuardDuty detector specified by the detectorId.
+--
+-- There might be regional differences because some data sources might not
+-- be available in all the Amazon Web Services Regions where GuardDuty is
+-- presently supported. For more information, see
+-- <https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html Regions and endpoints>.
 module Amazonka.GuardDuty.UpdateDetector
   ( -- * Creating a Request
     UpdateDetector (..),
@@ -29,6 +34,7 @@ module Amazonka.GuardDuty.UpdateDetector
     -- * Request Lenses
     updateDetector_dataSources,
     updateDetector_enable,
+    updateDetector_features,
     updateDetector_findingPublishingFrequency,
     updateDetector_detectorId,
 
@@ -52,9 +58,16 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateDetector' smart constructor.
 data UpdateDetector = UpdateDetector'
   { -- | Describes which data sources will be updated.
+    --
+    -- There might be regional differences because some data sources might not
+    -- be available in all the Amazon Web Services Regions where GuardDuty is
+    -- presently supported. For more information, see
+    -- <https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html Regions and endpoints>.
     dataSources :: Prelude.Maybe DataSourceConfigurations,
     -- | Specifies whether the detector is enabled or not enabled.
     enable :: Prelude.Maybe Prelude.Bool,
+    -- | Provides the features that will be updated for the detector.
+    features :: Prelude.Maybe [DetectorFeatureConfiguration],
     -- | An enum value that specifies how frequently findings are exported, such
     -- as to CloudWatch Events.
     findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency,
@@ -73,7 +86,14 @@ data UpdateDetector = UpdateDetector'
 --
 -- 'dataSources', 'updateDetector_dataSources' - Describes which data sources will be updated.
 --
+-- There might be regional differences because some data sources might not
+-- be available in all the Amazon Web Services Regions where GuardDuty is
+-- presently supported. For more information, see
+-- <https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html Regions and endpoints>.
+--
 -- 'enable', 'updateDetector_enable' - Specifies whether the detector is enabled or not enabled.
+--
+-- 'features', 'updateDetector_features' - Provides the features that will be updated for the detector.
 --
 -- 'findingPublishingFrequency', 'updateDetector_findingPublishingFrequency' - An enum value that specifies how frequently findings are exported, such
 -- as to CloudWatch Events.
@@ -87,17 +107,27 @@ newUpdateDetector pDetectorId_ =
   UpdateDetector'
     { dataSources = Prelude.Nothing,
       enable = Prelude.Nothing,
+      features = Prelude.Nothing,
       findingPublishingFrequency = Prelude.Nothing,
       detectorId = pDetectorId_
     }
 
 -- | Describes which data sources will be updated.
+--
+-- There might be regional differences because some data sources might not
+-- be available in all the Amazon Web Services Regions where GuardDuty is
+-- presently supported. For more information, see
+-- <https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html Regions and endpoints>.
 updateDetector_dataSources :: Lens.Lens' UpdateDetector (Prelude.Maybe DataSourceConfigurations)
 updateDetector_dataSources = Lens.lens (\UpdateDetector' {dataSources} -> dataSources) (\s@UpdateDetector' {} a -> s {dataSources = a} :: UpdateDetector)
 
 -- | Specifies whether the detector is enabled or not enabled.
 updateDetector_enable :: Lens.Lens' UpdateDetector (Prelude.Maybe Prelude.Bool)
 updateDetector_enable = Lens.lens (\UpdateDetector' {enable} -> enable) (\s@UpdateDetector' {} a -> s {enable = a} :: UpdateDetector)
+
+-- | Provides the features that will be updated for the detector.
+updateDetector_features :: Lens.Lens' UpdateDetector (Prelude.Maybe [DetectorFeatureConfiguration])
+updateDetector_features = Lens.lens (\UpdateDetector' {features} -> features) (\s@UpdateDetector' {} a -> s {features = a} :: UpdateDetector) Prelude.. Lens.mapping Lens.coerced
 
 -- | An enum value that specifies how frequently findings are exported, such
 -- as to CloudWatch Events.
@@ -123,8 +153,10 @@ instance Core.AWSRequest UpdateDetector where
 
 instance Prelude.Hashable UpdateDetector where
   hashWithSalt _salt UpdateDetector' {..} =
-    _salt `Prelude.hashWithSalt` dataSources
+    _salt
+      `Prelude.hashWithSalt` dataSources
       `Prelude.hashWithSalt` enable
+      `Prelude.hashWithSalt` features
       `Prelude.hashWithSalt` findingPublishingFrequency
       `Prelude.hashWithSalt` detectorId
 
@@ -132,6 +164,7 @@ instance Prelude.NFData UpdateDetector where
   rnf UpdateDetector' {..} =
     Prelude.rnf dataSources
       `Prelude.seq` Prelude.rnf enable
+      `Prelude.seq` Prelude.rnf features
       `Prelude.seq` Prelude.rnf findingPublishingFrequency
       `Prelude.seq` Prelude.rnf detectorId
 
@@ -152,6 +185,7 @@ instance Data.ToJSON UpdateDetector where
       ( Prelude.catMaybes
           [ ("dataSources" Data..=) Prelude.<$> dataSources,
             ("enable" Data..=) Prelude.<$> enable,
+            ("features" Data..=) Prelude.<$> features,
             ("findingPublishingFrequency" Data..=)
               Prelude.<$> findingPublishingFrequency
           ]

@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.GuardDuty.Types.Action
 import Amazonka.GuardDuty.Types.EbsVolumeScanDetails
 import Amazonka.GuardDuty.Types.Evidence
+import Amazonka.GuardDuty.Types.RuntimeDetails
 import Amazonka.GuardDuty.Types.ServiceAdditionalInfo
 import qualified Amazonka.Prelude as Prelude
 
@@ -56,6 +57,9 @@ data ServiceInfo = ServiceInfo'
     featureName :: Prelude.Maybe Prelude.Text,
     -- | The resource role information for this finding.
     resourceRole :: Prelude.Maybe Prelude.Text,
+    -- | Information about the process and any required context values for a
+    -- specific finding
+    runtimeDetails :: Prelude.Maybe RuntimeDetails,
     -- | The name of the Amazon Web Services service (GuardDuty) that generated a
     -- finding.
     serviceName :: Prelude.Maybe Prelude.Text,
@@ -96,6 +100,9 @@ data ServiceInfo = ServiceInfo'
 --
 -- 'resourceRole', 'serviceInfo_resourceRole' - The resource role information for this finding.
 --
+-- 'runtimeDetails', 'serviceInfo_runtimeDetails' - Information about the process and any required context values for a
+-- specific finding
+--
 -- 'serviceName', 'serviceInfo_serviceName' - The name of the Amazon Web Services service (GuardDuty) that generated a
 -- finding.
 --
@@ -115,6 +122,7 @@ newServiceInfo =
       evidence = Prelude.Nothing,
       featureName = Prelude.Nothing,
       resourceRole = Prelude.Nothing,
+      runtimeDetails = Prelude.Nothing,
       serviceName = Prelude.Nothing,
       userFeedback = Prelude.Nothing
     }
@@ -165,6 +173,11 @@ serviceInfo_featureName = Lens.lens (\ServiceInfo' {featureName} -> featureName)
 serviceInfo_resourceRole :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
 serviceInfo_resourceRole = Lens.lens (\ServiceInfo' {resourceRole} -> resourceRole) (\s@ServiceInfo' {} a -> s {resourceRole = a} :: ServiceInfo)
 
+-- | Information about the process and any required context values for a
+-- specific finding
+serviceInfo_runtimeDetails :: Lens.Lens' ServiceInfo (Prelude.Maybe RuntimeDetails)
+serviceInfo_runtimeDetails = Lens.lens (\ServiceInfo' {runtimeDetails} -> runtimeDetails) (\s@ServiceInfo' {} a -> s {runtimeDetails = a} :: ServiceInfo)
+
 -- | The name of the Amazon Web Services service (GuardDuty) that generated a
 -- finding.
 serviceInfo_serviceName :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
@@ -191,13 +204,15 @@ instance Data.FromJSON ServiceInfo where
             Prelude.<*> (x Data..:? "evidence")
             Prelude.<*> (x Data..:? "featureName")
             Prelude.<*> (x Data..:? "resourceRole")
+            Prelude.<*> (x Data..:? "runtimeDetails")
             Prelude.<*> (x Data..:? "serviceName")
             Prelude.<*> (x Data..:? "userFeedback")
       )
 
 instance Prelude.Hashable ServiceInfo where
   hashWithSalt _salt ServiceInfo' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` additionalInfo
       `Prelude.hashWithSalt` archived
       `Prelude.hashWithSalt` count
@@ -208,6 +223,7 @@ instance Prelude.Hashable ServiceInfo where
       `Prelude.hashWithSalt` evidence
       `Prelude.hashWithSalt` featureName
       `Prelude.hashWithSalt` resourceRole
+      `Prelude.hashWithSalt` runtimeDetails
       `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` userFeedback
 
@@ -224,5 +240,6 @@ instance Prelude.NFData ServiceInfo where
       `Prelude.seq` Prelude.rnf evidence
       `Prelude.seq` Prelude.rnf featureName
       `Prelude.seq` Prelude.rnf resourceRole
+      `Prelude.seq` Prelude.rnf runtimeDetails
       `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf userFeedback

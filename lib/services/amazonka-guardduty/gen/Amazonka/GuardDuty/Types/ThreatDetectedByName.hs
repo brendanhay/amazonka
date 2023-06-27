@@ -101,7 +101,8 @@ instance Data.FromJSON ThreatDetectedByName where
 
 instance Prelude.Hashable ThreatDetectedByName where
   hashWithSalt _salt ThreatDetectedByName' {..} =
-    _salt `Prelude.hashWithSalt` itemCount
+    _salt
+      `Prelude.hashWithSalt` itemCount
       `Prelude.hashWithSalt` shortened
       `Prelude.hashWithSalt` threatNames
       `Prelude.hashWithSalt` uniqueThreatNameCount

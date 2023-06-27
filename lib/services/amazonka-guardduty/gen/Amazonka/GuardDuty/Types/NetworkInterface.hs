@@ -147,7 +147,8 @@ instance Data.FromJSON NetworkInterface where
             Prelude.<*> (x Data..:? "networkInterfaceId")
             Prelude.<*> (x Data..:? "privateDnsName")
             Prelude.<*> (x Data..:? "privateIpAddress")
-            Prelude.<*> ( x Data..:? "privateIpAddresses"
+            Prelude.<*> ( x
+                            Data..:? "privateIpAddresses"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "publicDnsName")
@@ -159,7 +160,8 @@ instance Data.FromJSON NetworkInterface where
 
 instance Prelude.Hashable NetworkInterface where
   hashWithSalt _salt NetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` ipv6Addresses
+    _salt
+      `Prelude.hashWithSalt` ipv6Addresses
       `Prelude.hashWithSalt` networkInterfaceId
       `Prelude.hashWithSalt` privateDnsName
       `Prelude.hashWithSalt` privateIpAddress

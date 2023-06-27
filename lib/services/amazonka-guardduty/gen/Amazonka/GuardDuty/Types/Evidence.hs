@@ -61,7 +61,8 @@ instance Data.FromJSON Evidence where
       "Evidence"
       ( \x ->
           Evidence'
-            Prelude.<$> ( x Data..:? "threatIntelligenceDetails"
+            Prelude.<$> ( x
+                            Data..:? "threatIntelligenceDetails"
                             Data..!= Prelude.mempty
                         )
       )

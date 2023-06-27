@@ -210,7 +210,8 @@ instance Data.FromJSON Condition where
 
 instance Prelude.Hashable Condition where
   hashWithSalt _salt Condition' {..} =
-    _salt `Prelude.hashWithSalt` eq
+    _salt
+      `Prelude.hashWithSalt` eq
       `Prelude.hashWithSalt` equals
       `Prelude.hashWithSalt` greaterThan
       `Prelude.hashWithSalt` greaterThanOrEqual

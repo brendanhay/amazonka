@@ -69,7 +69,7 @@ data CreateIPSet = CreateIPSet'
     detectorId :: Prelude.Text,
     -- | The user-friendly name to identify the IPSet.
     --
-    -- Allowed characters are alphanumerics, spaces, hyphens (-), and
+    -- Allowed characters are alphanumeric, whitespace, dash (-), and
     -- underscores (_).
     name :: Prelude.Text,
     -- | The format of the file that contains the IPSet.
@@ -99,7 +99,7 @@ data CreateIPSet = CreateIPSet'
 --
 -- 'name', 'createIPSet_name' - The user-friendly name to identify the IPSet.
 --
--- Allowed characters are alphanumerics, spaces, hyphens (-), and
+-- Allowed characters are alphanumeric, whitespace, dash (-), and
 -- underscores (_).
 --
 -- 'format', 'createIPSet_format' - The format of the file that contains the IPSet.
@@ -151,7 +151,7 @@ createIPSet_detectorId = Lens.lens (\CreateIPSet' {detectorId} -> detectorId) (\
 
 -- | The user-friendly name to identify the IPSet.
 --
--- Allowed characters are alphanumerics, spaces, hyphens (-), and
+-- Allowed characters are alphanumeric, whitespace, dash (-), and
 -- underscores (_).
 createIPSet_name :: Lens.Lens' CreateIPSet Prelude.Text
 createIPSet_name = Lens.lens (\CreateIPSet' {name} -> name) (\s@CreateIPSet' {} a -> s {name = a} :: CreateIPSet)
@@ -183,7 +183,8 @@ instance Core.AWSRequest CreateIPSet where
 
 instance Prelude.Hashable CreateIPSet where
   hashWithSalt _salt CreateIPSet' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` name

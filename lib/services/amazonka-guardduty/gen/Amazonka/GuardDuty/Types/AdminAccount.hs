@@ -76,7 +76,8 @@ instance Data.FromJSON AdminAccount where
 
 instance Prelude.Hashable AdminAccount where
   hashWithSalt _salt AdminAccount' {..} =
-    _salt `Prelude.hashWithSalt` adminAccountId
+    _salt
+      `Prelude.hashWithSalt` adminAccountId
       `Prelude.hashWithSalt` adminStatus
 
 instance Prelude.NFData AdminAccount where

@@ -22,7 +22,9 @@
 --
 -- Turns on GuardDuty monitoring of the specified member accounts. Use this
 -- operation to restart monitoring of accounts that you stopped monitoring
--- with the @StopMonitoringMembers@ operation.
+-- with the
+-- <https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StopMonitoringMembers.html StopMonitoringMembers>
+-- operation.
 module Amazonka.GuardDuty.StartMonitoringMembers
   ( -- * Creating a Request
     StartMonitoringMembers (..),
@@ -107,14 +109,16 @@ instance Core.AWSRequest StartMonitoringMembers where
       ( \s h x ->
           StartMonitoringMembersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "unprocessedAccounts"
+            Prelude.<*> ( x
+                            Data..?> "unprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable StartMonitoringMembers where
   hashWithSalt _salt StartMonitoringMembers' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` accountIds
 
 instance Prelude.NFData StartMonitoringMembers where

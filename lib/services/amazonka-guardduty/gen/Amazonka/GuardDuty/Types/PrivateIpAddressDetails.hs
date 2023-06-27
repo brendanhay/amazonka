@@ -75,7 +75,8 @@ instance Data.FromJSON PrivateIpAddressDetails where
 
 instance Prelude.Hashable PrivateIpAddressDetails where
   hashWithSalt _salt PrivateIpAddressDetails' {..} =
-    _salt `Prelude.hashWithSalt` privateDnsName
+    _salt
+      `Prelude.hashWithSalt` privateDnsName
       `Prelude.hashWithSalt` privateIpAddress
 
 instance Prelude.NFData PrivateIpAddressDetails where

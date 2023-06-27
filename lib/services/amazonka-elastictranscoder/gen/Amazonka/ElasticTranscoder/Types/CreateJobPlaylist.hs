@@ -246,7 +246,8 @@ createJobPlaylist_playReadyDrm = Lens.lens (\CreateJobPlaylist' {playReadyDrm} -
 
 instance Prelude.Hashable CreateJobPlaylist where
   hashWithSalt _salt CreateJobPlaylist' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` hlsContentProtection
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` outputKeys

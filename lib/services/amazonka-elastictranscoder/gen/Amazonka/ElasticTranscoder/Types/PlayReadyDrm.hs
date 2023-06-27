@@ -198,7 +198,8 @@ instance Data.FromJSON PlayReadyDrm where
 
 instance Prelude.Hashable PlayReadyDrm where
   hashWithSalt _salt PlayReadyDrm' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` initializationVector
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` keyId

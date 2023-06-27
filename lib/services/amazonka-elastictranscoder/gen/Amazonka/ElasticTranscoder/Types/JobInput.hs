@@ -428,7 +428,8 @@ instance Data.FromJSON JobInput where
 
 instance Prelude.Hashable JobInput where
   hashWithSalt _salt JobInput' {..} =
-    _salt `Prelude.hashWithSalt` aspectRatio
+    _salt
+      `Prelude.hashWithSalt` aspectRatio
       `Prelude.hashWithSalt` container
       `Prelude.hashWithSalt` detectedProperties
       `Prelude.hashWithSalt` encryption

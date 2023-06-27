@@ -123,7 +123,8 @@ instance Data.FromJSON JobAlbumArt where
 
 instance Prelude.Hashable JobAlbumArt where
   hashWithSalt _salt JobAlbumArt' {..} =
-    _salt `Prelude.hashWithSalt` artwork
+    _salt
+      `Prelude.hashWithSalt` artwork
       `Prelude.hashWithSalt` mergePolicy
 
 instance Prelude.NFData JobAlbumArt where

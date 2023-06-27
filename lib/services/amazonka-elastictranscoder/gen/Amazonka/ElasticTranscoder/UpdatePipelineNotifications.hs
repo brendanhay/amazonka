@@ -179,7 +179,8 @@ instance Core.AWSRequest UpdatePipelineNotifications where
 
 instance Prelude.Hashable UpdatePipelineNotifications where
   hashWithSalt _salt UpdatePipelineNotifications' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` notifications
 
 instance Prelude.NFData UpdatePipelineNotifications where

@@ -272,7 +272,8 @@ instance Data.FromJSON Artwork where
 
 instance Prelude.Hashable Artwork where
   hashWithSalt _salt Artwork' {..} =
-    _salt `Prelude.hashWithSalt` albumArtFormat
+    _salt
+      `Prelude.hashWithSalt` albumArtFormat
       `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` inputKey
       `Prelude.hashWithSalt` maxHeight

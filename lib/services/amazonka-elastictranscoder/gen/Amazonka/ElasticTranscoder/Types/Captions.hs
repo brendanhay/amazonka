@@ -149,7 +149,8 @@ instance Data.FromJSON Captions where
 
 instance Prelude.Hashable Captions where
   hashWithSalt _salt Captions' {..} =
-    _salt `Prelude.hashWithSalt` captionFormats
+    _salt
+      `Prelude.hashWithSalt` captionFormats
       `Prelude.hashWithSalt` captionSources
       `Prelude.hashWithSalt` mergePolicy
 

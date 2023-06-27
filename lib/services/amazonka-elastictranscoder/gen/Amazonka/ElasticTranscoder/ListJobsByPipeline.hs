@@ -123,21 +123,22 @@ instance Core.AWSPager ListJobsByPipeline where
     | Core.stop
         ( rs
             Lens.^? listJobsByPipelineResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listJobsByPipelineResponse_jobs Prelude.. Lens._Just
+            Lens.^? listJobsByPipelineResponse_jobs
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listJobsByPipeline_pageToken
           Lens..~ rs
           Lens.^? listJobsByPipelineResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListJobsByPipeline where
   type
@@ -156,7 +157,8 @@ instance Core.AWSRequest ListJobsByPipeline where
 
 instance Prelude.Hashable ListJobsByPipeline where
   hashWithSalt _salt ListJobsByPipeline' {..} =
-    _salt `Prelude.hashWithSalt` ascending
+    _salt
+      `Prelude.hashWithSalt` ascending
       `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` pipelineId
 

@@ -104,7 +104,8 @@ instance Data.FromJSON TimeSpan where
 
 instance Prelude.Hashable TimeSpan where
   hashWithSalt _salt TimeSpan' {..} =
-    _salt `Prelude.hashWithSalt` duration
+    _salt
+      `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData TimeSpan where

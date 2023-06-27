@@ -229,7 +229,8 @@ instance Core.AWSRequest CreateJob where
 
 instance Prelude.Hashable CreateJob where
   hashWithSalt _salt CreateJob' {..} =
-    _salt `Prelude.hashWithSalt` input
+    _salt
+      `Prelude.hashWithSalt` input
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` output
       `Prelude.hashWithSalt` outputKeyPrefix

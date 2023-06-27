@@ -106,7 +106,8 @@ instance Data.FromJSON DetectedProperties where
 
 instance Prelude.Hashable DetectedProperties where
   hashWithSalt _salt DetectedProperties' {..} =
-    _salt `Prelude.hashWithSalt` durationMillis
+    _salt
+      `Prelude.hashWithSalt` durationMillis
       `Prelude.hashWithSalt` fileSize
       `Prelude.hashWithSalt` frameRate
       `Prelude.hashWithSalt` height

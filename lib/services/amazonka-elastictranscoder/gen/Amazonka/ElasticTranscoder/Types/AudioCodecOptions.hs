@@ -223,7 +223,8 @@ instance Data.FromJSON AudioCodecOptions where
 
 instance Prelude.Hashable AudioCodecOptions where
   hashWithSalt _salt AudioCodecOptions' {..} =
-    _salt `Prelude.hashWithSalt` bitDepth
+    _salt
+      `Prelude.hashWithSalt` bitDepth
       `Prelude.hashWithSalt` bitOrder
       `Prelude.hashWithSalt` profile
       `Prelude.hashWithSalt` signed

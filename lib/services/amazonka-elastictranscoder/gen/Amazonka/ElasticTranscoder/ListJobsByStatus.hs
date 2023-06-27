@@ -126,21 +126,22 @@ instance Core.AWSPager ListJobsByStatus where
     | Core.stop
         ( rs
             Lens.^? listJobsByStatusResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listJobsByStatusResponse_jobs Prelude.. Lens._Just
+            Lens.^? listJobsByStatusResponse_jobs
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listJobsByStatus_pageToken
           Lens..~ rs
           Lens.^? listJobsByStatusResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListJobsByStatus where
   type
@@ -159,7 +160,8 @@ instance Core.AWSRequest ListJobsByStatus where
 
 instance Prelude.Hashable ListJobsByStatus where
   hashWithSalt _salt ListJobsByStatus' {..} =
-    _salt `Prelude.hashWithSalt` ascending
+    _salt
+      `Prelude.hashWithSalt` ascending
       `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` status
 

@@ -215,7 +215,8 @@ instance Data.FromJSON CaptionFormat where
 
 instance Prelude.Hashable CaptionFormat where
   hashWithSalt _salt CaptionFormat' {..} =
-    _salt `Prelude.hashWithSalt` encryption
+    _salt
+      `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` pattern'
 

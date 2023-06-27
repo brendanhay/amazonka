@@ -79,7 +79,8 @@ instance Data.FromJSON Identity where
 
 instance Prelude.Hashable Identity where
   hashWithSalt _salt Identity' {..} =
-    _salt `Prelude.hashWithSalt` sourceIp
+    _salt
+      `Prelude.hashWithSalt` sourceIp
       `Prelude.hashWithSalt` userAgent
 
 instance Prelude.NFData Identity where

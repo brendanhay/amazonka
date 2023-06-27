@@ -95,7 +95,8 @@ instance Core.AWSRequest PostToConnection where
 
 instance Prelude.Hashable PostToConnection where
   hashWithSalt _salt PostToConnection' {..} =
-    _salt `Prelude.hashWithSalt` connectionId
+    _salt
+      `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` data'
 
 instance Prelude.NFData PostToConnection where

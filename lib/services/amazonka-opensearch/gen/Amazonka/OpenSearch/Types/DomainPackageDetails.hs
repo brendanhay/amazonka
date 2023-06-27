@@ -50,8 +50,8 @@ data DomainPackageDetails = DomainPackageDetails'
     packageType :: Prelude.Maybe PackageType,
     -- | The current version of the package.
     packageVersion :: Prelude.Maybe Prelude.Text,
-    -- | Denotes the location of the package on the OpenSearch Service cluster
-    -- nodes. It\'s the same as @synonym_path@ for dictionary files.
+    -- | The relative path of the package on the OpenSearch Service cluster
+    -- nodes. This is @synonym_path@ when the package is for synonym files.
     referencePath :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,8 +81,8 @@ data DomainPackageDetails = DomainPackageDetails'
 --
 -- 'packageVersion', 'domainPackageDetails_packageVersion' - The current version of the package.
 --
--- 'referencePath', 'domainPackageDetails_referencePath' - Denotes the location of the package on the OpenSearch Service cluster
--- nodes. It\'s the same as @synonym_path@ for dictionary files.
+-- 'referencePath', 'domainPackageDetails_referencePath' - The relative path of the package on the OpenSearch Service cluster
+-- nodes. This is @synonym_path@ when the package is for synonym files.
 newDomainPackageDetails ::
   DomainPackageDetails
 newDomainPackageDetails =
@@ -131,8 +131,8 @@ domainPackageDetails_packageType = Lens.lens (\DomainPackageDetails' {packageTyp
 domainPackageDetails_packageVersion :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.Text)
 domainPackageDetails_packageVersion = Lens.lens (\DomainPackageDetails' {packageVersion} -> packageVersion) (\s@DomainPackageDetails' {} a -> s {packageVersion = a} :: DomainPackageDetails)
 
--- | Denotes the location of the package on the OpenSearch Service cluster
--- nodes. It\'s the same as @synonym_path@ for dictionary files.
+-- | The relative path of the package on the OpenSearch Service cluster
+-- nodes. This is @synonym_path@ when the package is for synonym files.
 domainPackageDetails_referencePath :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.Text)
 domainPackageDetails_referencePath = Lens.lens (\DomainPackageDetails' {referencePath} -> referencePath) (\s@DomainPackageDetails' {} a -> s {referencePath = a} :: DomainPackageDetails)
 
@@ -155,7 +155,8 @@ instance Data.FromJSON DomainPackageDetails where
 
 instance Prelude.Hashable DomainPackageDetails where
   hashWithSalt _salt DomainPackageDetails' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` domainPackageStatus
       `Prelude.hashWithSalt` errorDetails
       `Prelude.hashWithSalt` lastUpdated

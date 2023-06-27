@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the cluster configuration of the specified Amazon OpenSearch
--- Service domain.
+-- Service domain.sl
 module Amazonka.OpenSearch.UpdateDomainConfig
   ( -- * Creating a Request
     UpdateDomainConfig (..),
@@ -36,11 +36,14 @@ module Amazonka.OpenSearch.UpdateDomainConfig
     updateDomainConfig_cognitoOptions,
     updateDomainConfig_domainEndpointOptions,
     updateDomainConfig_dryRun,
+    updateDomainConfig_dryRunMode,
     updateDomainConfig_eBSOptions,
     updateDomainConfig_encryptionAtRestOptions,
     updateDomainConfig_logPublishingOptions,
     updateDomainConfig_nodeToNodeEncryptionOptions,
+    updateDomainConfig_offPeakWindowOptions,
     updateDomainConfig_snapshotOptions,
+    updateDomainConfig_softwareUpdateOptions,
     updateDomainConfig_vPCOptions,
     updateDomainConfig_domainName,
 
@@ -49,6 +52,7 @@ module Amazonka.OpenSearch.UpdateDomainConfig
     newUpdateDomainConfigResponse,
 
     -- * Response Lenses
+    updateDomainConfigResponse_dryRunProgressStatus,
     updateDomainConfigResponse_dryRunResults,
     updateDomainConfigResponse_httpStatus,
     updateDomainConfigResponse_domainConfig,
@@ -90,12 +94,6 @@ data UpdateDomainConfig = UpdateDomainConfig'
     --     with more than the permitted number of clauses result in a
     --     @TooManyClauses@ error.
     --
-    -- -   @\"override_main_response_version\": \"true\" | \"false\"@ - Note
-    --     the use of a string rather than a boolean. Specifies whether the
-    --     domain reports its version as 7.10 to allow Elasticsearch OSS
-    --     clients and plugins to continue working with it. Default is false
-    --     when creating a domain and true when upgrading a domain.
-    --
     -- For more information, see
     -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced cluster parameters>.
     advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -113,21 +111,35 @@ data UpdateDomainConfig = UpdateDomainConfig'
     -- HTTPS for all traffic.
     domainEndpointOptions :: Prelude.Maybe DomainEndpointOptions,
     -- | This flag, when set to True, specifies whether the @UpdateDomain@
-    -- request should return the results of validation check without actually
-    -- applying the change.
+    -- request should return the results of a dry run analysis without actually
+    -- applying the change. A dry run determines what type of deployment the
+    -- update will cause.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The type of dry run to perform.
+    --
+    -- -   @Basic@ only returns the type of deployment (blue\/green or dynamic)
+    --     that the update will cause.
+    --
+    -- -   @Verbose@ runs an additional check to validate the changes you\'re
+    --     making. For more information, see
+    --     <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check Validating a domain update>.
+    dryRunMode :: Prelude.Maybe DryRunMode,
     -- | The type and size of the EBS volume to attach to instances in the
     -- domain.
     eBSOptions :: Prelude.Maybe EBSOptions,
     -- | Encryption at rest options for the domain.
     encryptionAtRestOptions :: Prelude.Maybe EncryptionAtRestOptions,
-    -- | Options to publish OpenSearch lots to Amazon CloudWatch Logs.
+    -- | Options to publish OpenSearch logs to Amazon CloudWatch Logs.
     logPublishingOptions :: Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption),
-    -- | Node-To-Node Encryption options for the domain.
+    -- | Node-to-node encryption options for the domain.
     nodeToNodeEncryptionOptions :: Prelude.Maybe NodeToNodeEncryptionOptions,
+    -- | Off-peak window options for the domain.
+    offPeakWindowOptions :: Prelude.Maybe OffPeakWindowOptions,
     -- | Option to set the time, in UTC format, for the daily automated snapshot.
     -- Default value is @0@ hours.
     snapshotOptions :: Prelude.Maybe SnapshotOptions,
+    -- | Service software update options for the domain.
+    softwareUpdateOptions :: Prelude.Maybe SoftwareUpdateOptions,
     -- | Options to specify the subnets and security groups for a VPC endpoint.
     -- For more information, see
     -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html Launching your Amazon OpenSearch Service domains using a VPC>.
@@ -168,12 +180,6 @@ data UpdateDomainConfig = UpdateDomainConfig'
 --     with more than the permitted number of clauses result in a
 --     @TooManyClauses@ error.
 --
--- -   @\"override_main_response_version\": \"true\" | \"false\"@ - Note
---     the use of a string rather than a boolean. Specifies whether the
---     domain reports its version as 7.10 to allow Elasticsearch OSS
---     clients and plugins to continue working with it. Default is false
---     when creating a domain and true when upgrading a domain.
---
 -- For more information, see
 -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced cluster parameters>.
 --
@@ -191,20 +197,34 @@ data UpdateDomainConfig = UpdateDomainConfig'
 -- HTTPS for all traffic.
 --
 -- 'dryRun', 'updateDomainConfig_dryRun' - This flag, when set to True, specifies whether the @UpdateDomain@
--- request should return the results of validation check without actually
--- applying the change.
+-- request should return the results of a dry run analysis without actually
+-- applying the change. A dry run determines what type of deployment the
+-- update will cause.
+--
+-- 'dryRunMode', 'updateDomainConfig_dryRunMode' - The type of dry run to perform.
+--
+-- -   @Basic@ only returns the type of deployment (blue\/green or dynamic)
+--     that the update will cause.
+--
+-- -   @Verbose@ runs an additional check to validate the changes you\'re
+--     making. For more information, see
+--     <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check Validating a domain update>.
 --
 -- 'eBSOptions', 'updateDomainConfig_eBSOptions' - The type and size of the EBS volume to attach to instances in the
 -- domain.
 --
 -- 'encryptionAtRestOptions', 'updateDomainConfig_encryptionAtRestOptions' - Encryption at rest options for the domain.
 --
--- 'logPublishingOptions', 'updateDomainConfig_logPublishingOptions' - Options to publish OpenSearch lots to Amazon CloudWatch Logs.
+-- 'logPublishingOptions', 'updateDomainConfig_logPublishingOptions' - Options to publish OpenSearch logs to Amazon CloudWatch Logs.
 --
--- 'nodeToNodeEncryptionOptions', 'updateDomainConfig_nodeToNodeEncryptionOptions' - Node-To-Node Encryption options for the domain.
+-- 'nodeToNodeEncryptionOptions', 'updateDomainConfig_nodeToNodeEncryptionOptions' - Node-to-node encryption options for the domain.
+--
+-- 'offPeakWindowOptions', 'updateDomainConfig_offPeakWindowOptions' - Off-peak window options for the domain.
 --
 -- 'snapshotOptions', 'updateDomainConfig_snapshotOptions' - Option to set the time, in UTC format, for the daily automated snapshot.
 -- Default value is @0@ hours.
+--
+-- 'softwareUpdateOptions', 'updateDomainConfig_softwareUpdateOptions' - Service software update options for the domain.
 --
 -- 'vPCOptions', 'updateDomainConfig_vPCOptions' - Options to specify the subnets and security groups for a VPC endpoint.
 -- For more information, see
@@ -226,11 +246,14 @@ newUpdateDomainConfig pDomainName_ =
       cognitoOptions = Prelude.Nothing,
       domainEndpointOptions = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      dryRunMode = Prelude.Nothing,
       eBSOptions = Prelude.Nothing,
       encryptionAtRestOptions = Prelude.Nothing,
       logPublishingOptions = Prelude.Nothing,
       nodeToNodeEncryptionOptions = Prelude.Nothing,
+      offPeakWindowOptions = Prelude.Nothing,
       snapshotOptions = Prelude.Nothing,
+      softwareUpdateOptions = Prelude.Nothing,
       vPCOptions = Prelude.Nothing,
       domainName = pDomainName_
     }
@@ -259,12 +282,6 @@ updateDomainConfig_accessPolicies = Lens.lens (\UpdateDomainConfig' {accessPolic
 --     clauses allowed in a Lucene boolean query. Default is 1,024. Queries
 --     with more than the permitted number of clauses result in a
 --     @TooManyClauses@ error.
---
--- -   @\"override_main_response_version\": \"true\" | \"false\"@ - Note
---     the use of a string rather than a boolean. Specifies whether the
---     domain reports its version as 7.10 to allow Elasticsearch OSS
---     clients and plugins to continue working with it. Default is false
---     when creating a domain and true when upgrading a domain.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced cluster parameters>.
@@ -295,10 +312,22 @@ updateDomainConfig_domainEndpointOptions :: Lens.Lens' UpdateDomainConfig (Prelu
 updateDomainConfig_domainEndpointOptions = Lens.lens (\UpdateDomainConfig' {domainEndpointOptions} -> domainEndpointOptions) (\s@UpdateDomainConfig' {} a -> s {domainEndpointOptions = a} :: UpdateDomainConfig)
 
 -- | This flag, when set to True, specifies whether the @UpdateDomain@
--- request should return the results of validation check without actually
--- applying the change.
+-- request should return the results of a dry run analysis without actually
+-- applying the change. A dry run determines what type of deployment the
+-- update will cause.
 updateDomainConfig_dryRun :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe Prelude.Bool)
 updateDomainConfig_dryRun = Lens.lens (\UpdateDomainConfig' {dryRun} -> dryRun) (\s@UpdateDomainConfig' {} a -> s {dryRun = a} :: UpdateDomainConfig)
+
+-- | The type of dry run to perform.
+--
+-- -   @Basic@ only returns the type of deployment (blue\/green or dynamic)
+--     that the update will cause.
+--
+-- -   @Verbose@ runs an additional check to validate the changes you\'re
+--     making. For more information, see
+--     <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check Validating a domain update>.
+updateDomainConfig_dryRunMode :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe DryRunMode)
+updateDomainConfig_dryRunMode = Lens.lens (\UpdateDomainConfig' {dryRunMode} -> dryRunMode) (\s@UpdateDomainConfig' {} a -> s {dryRunMode = a} :: UpdateDomainConfig)
 
 -- | The type and size of the EBS volume to attach to instances in the
 -- domain.
@@ -309,18 +338,26 @@ updateDomainConfig_eBSOptions = Lens.lens (\UpdateDomainConfig' {eBSOptions} -> 
 updateDomainConfig_encryptionAtRestOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe EncryptionAtRestOptions)
 updateDomainConfig_encryptionAtRestOptions = Lens.lens (\UpdateDomainConfig' {encryptionAtRestOptions} -> encryptionAtRestOptions) (\s@UpdateDomainConfig' {} a -> s {encryptionAtRestOptions = a} :: UpdateDomainConfig)
 
--- | Options to publish OpenSearch lots to Amazon CloudWatch Logs.
+-- | Options to publish OpenSearch logs to Amazon CloudWatch Logs.
 updateDomainConfig_logPublishingOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption))
 updateDomainConfig_logPublishingOptions = Lens.lens (\UpdateDomainConfig' {logPublishingOptions} -> logPublishingOptions) (\s@UpdateDomainConfig' {} a -> s {logPublishingOptions = a} :: UpdateDomainConfig) Prelude.. Lens.mapping Lens.coerced
 
--- | Node-To-Node Encryption options for the domain.
+-- | Node-to-node encryption options for the domain.
 updateDomainConfig_nodeToNodeEncryptionOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe NodeToNodeEncryptionOptions)
 updateDomainConfig_nodeToNodeEncryptionOptions = Lens.lens (\UpdateDomainConfig' {nodeToNodeEncryptionOptions} -> nodeToNodeEncryptionOptions) (\s@UpdateDomainConfig' {} a -> s {nodeToNodeEncryptionOptions = a} :: UpdateDomainConfig)
+
+-- | Off-peak window options for the domain.
+updateDomainConfig_offPeakWindowOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe OffPeakWindowOptions)
+updateDomainConfig_offPeakWindowOptions = Lens.lens (\UpdateDomainConfig' {offPeakWindowOptions} -> offPeakWindowOptions) (\s@UpdateDomainConfig' {} a -> s {offPeakWindowOptions = a} :: UpdateDomainConfig)
 
 -- | Option to set the time, in UTC format, for the daily automated snapshot.
 -- Default value is @0@ hours.
 updateDomainConfig_snapshotOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe SnapshotOptions)
 updateDomainConfig_snapshotOptions = Lens.lens (\UpdateDomainConfig' {snapshotOptions} -> snapshotOptions) (\s@UpdateDomainConfig' {} a -> s {snapshotOptions = a} :: UpdateDomainConfig)
+
+-- | Service software update options for the domain.
+updateDomainConfig_softwareUpdateOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe SoftwareUpdateOptions)
+updateDomainConfig_softwareUpdateOptions = Lens.lens (\UpdateDomainConfig' {softwareUpdateOptions} -> softwareUpdateOptions) (\s@UpdateDomainConfig' {} a -> s {softwareUpdateOptions = a} :: UpdateDomainConfig)
 
 -- | Options to specify the subnets and security groups for a VPC endpoint.
 -- For more information, see
@@ -342,14 +379,16 @@ instance Core.AWSRequest UpdateDomainConfig where
     Response.receiveJSON
       ( \s h x ->
           UpdateDomainConfigResponse'
-            Prelude.<$> (x Data..?> "DryRunResults")
+            Prelude.<$> (x Data..?> "DryRunProgressStatus")
+            Prelude.<*> (x Data..?> "DryRunResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "DomainConfig")
       )
 
 instance Prelude.Hashable UpdateDomainConfig where
   hashWithSalt _salt UpdateDomainConfig' {..} =
-    _salt `Prelude.hashWithSalt` accessPolicies
+    _salt
+      `Prelude.hashWithSalt` accessPolicies
       `Prelude.hashWithSalt` advancedOptions
       `Prelude.hashWithSalt` advancedSecurityOptions
       `Prelude.hashWithSalt` autoTuneOptions
@@ -357,11 +396,14 @@ instance Prelude.Hashable UpdateDomainConfig where
       `Prelude.hashWithSalt` cognitoOptions
       `Prelude.hashWithSalt` domainEndpointOptions
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` dryRunMode
       `Prelude.hashWithSalt` eBSOptions
       `Prelude.hashWithSalt` encryptionAtRestOptions
       `Prelude.hashWithSalt` logPublishingOptions
       `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
+      `Prelude.hashWithSalt` offPeakWindowOptions
       `Prelude.hashWithSalt` snapshotOptions
+      `Prelude.hashWithSalt` softwareUpdateOptions
       `Prelude.hashWithSalt` vPCOptions
       `Prelude.hashWithSalt` domainName
 
@@ -375,11 +417,14 @@ instance Prelude.NFData UpdateDomainConfig where
       `Prelude.seq` Prelude.rnf cognitoOptions
       `Prelude.seq` Prelude.rnf domainEndpointOptions
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf dryRunMode
       `Prelude.seq` Prelude.rnf eBSOptions
       `Prelude.seq` Prelude.rnf encryptionAtRestOptions
       `Prelude.seq` Prelude.rnf logPublishingOptions
       `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
+      `Prelude.seq` Prelude.rnf offPeakWindowOptions
       `Prelude.seq` Prelude.rnf snapshotOptions
+      `Prelude.seq` Prelude.rnf softwareUpdateOptions
       `Prelude.seq` Prelude.rnf vPCOptions
       `Prelude.seq` Prelude.rnf domainName
 
@@ -404,6 +449,7 @@ instance Data.ToJSON UpdateDomainConfig where
             ("DomainEndpointOptions" Data..=)
               Prelude.<$> domainEndpointOptions,
             ("DryRun" Data..=) Prelude.<$> dryRun,
+            ("DryRunMode" Data..=) Prelude.<$> dryRunMode,
             ("EBSOptions" Data..=) Prelude.<$> eBSOptions,
             ("EncryptionAtRestOptions" Data..=)
               Prelude.<$> encryptionAtRestOptions,
@@ -411,8 +457,12 @@ instance Data.ToJSON UpdateDomainConfig where
               Prelude.<$> logPublishingOptions,
             ("NodeToNodeEncryptionOptions" Data..=)
               Prelude.<$> nodeToNodeEncryptionOptions,
+            ("OffPeakWindowOptions" Data..=)
+              Prelude.<$> offPeakWindowOptions,
             ("SnapshotOptions" Data..=)
               Prelude.<$> snapshotOptions,
+            ("SoftwareUpdateOptions" Data..=)
+              Prelude.<$> softwareUpdateOptions,
             ("VPCOptions" Data..=) Prelude.<$> vPCOptions
           ]
       )
@@ -433,7 +483,9 @@ instance Data.ToQuery UpdateDomainConfig where
 --
 -- /See:/ 'newUpdateDomainConfigResponse' smart constructor.
 data UpdateDomainConfigResponse = UpdateDomainConfigResponse'
-  { -- | Results of a dry run performed in an update domain request.
+  { -- | The status of the dry run being performed on the domain, if any.
+    dryRunProgressStatus :: Prelude.Maybe DryRunProgressStatus,
+    -- | Results of the dry run performed in the update domain request.
     dryRunResults :: Prelude.Maybe DryRunResults,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -450,7 +502,9 @@ data UpdateDomainConfigResponse = UpdateDomainConfigResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dryRunResults', 'updateDomainConfigResponse_dryRunResults' - Results of a dry run performed in an update domain request.
+-- 'dryRunProgressStatus', 'updateDomainConfigResponse_dryRunProgressStatus' - The status of the dry run being performed on the domain, if any.
+--
+-- 'dryRunResults', 'updateDomainConfigResponse_dryRunResults' - Results of the dry run performed in the update domain request.
 --
 -- 'httpStatus', 'updateDomainConfigResponse_httpStatus' - The response's http status code.
 --
@@ -465,13 +519,18 @@ newUpdateDomainConfigResponse
   pHttpStatus_
   pDomainConfig_ =
     UpdateDomainConfigResponse'
-      { dryRunResults =
+      { dryRunProgressStatus =
           Prelude.Nothing,
+        dryRunResults = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         domainConfig = pDomainConfig_
       }
 
--- | Results of a dry run performed in an update domain request.
+-- | The status of the dry run being performed on the domain, if any.
+updateDomainConfigResponse_dryRunProgressStatus :: Lens.Lens' UpdateDomainConfigResponse (Prelude.Maybe DryRunProgressStatus)
+updateDomainConfigResponse_dryRunProgressStatus = Lens.lens (\UpdateDomainConfigResponse' {dryRunProgressStatus} -> dryRunProgressStatus) (\s@UpdateDomainConfigResponse' {} a -> s {dryRunProgressStatus = a} :: UpdateDomainConfigResponse)
+
+-- | Results of the dry run performed in the update domain request.
 updateDomainConfigResponse_dryRunResults :: Lens.Lens' UpdateDomainConfigResponse (Prelude.Maybe DryRunResults)
 updateDomainConfigResponse_dryRunResults = Lens.lens (\UpdateDomainConfigResponse' {dryRunResults} -> dryRunResults) (\s@UpdateDomainConfigResponse' {} a -> s {dryRunResults = a} :: UpdateDomainConfigResponse)
 
@@ -485,6 +544,7 @@ updateDomainConfigResponse_domainConfig = Lens.lens (\UpdateDomainConfigResponse
 
 instance Prelude.NFData UpdateDomainConfigResponse where
   rnf UpdateDomainConfigResponse' {..} =
-    Prelude.rnf dryRunResults
+    Prelude.rnf dryRunProgressStatus
+      `Prelude.seq` Prelude.rnf dryRunResults
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf domainConfig

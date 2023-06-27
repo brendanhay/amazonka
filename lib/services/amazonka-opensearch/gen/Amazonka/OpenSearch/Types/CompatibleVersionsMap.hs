@@ -71,14 +71,16 @@ instance Data.FromJSON CompatibleVersionsMap where
       ( \x ->
           CompatibleVersionsMap'
             Prelude.<$> (x Data..:? "SourceVersion")
-            Prelude.<*> ( x Data..:? "TargetVersions"
+            Prelude.<*> ( x
+                            Data..:? "TargetVersions"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable CompatibleVersionsMap where
   hashWithSalt _salt CompatibleVersionsMap' {..} =
-    _salt `Prelude.hashWithSalt` sourceVersion
+    _salt
+      `Prelude.hashWithSalt` sourceVersion
       `Prelude.hashWithSalt` targetVersions
 
 instance Prelude.NFData CompatibleVersionsMap where

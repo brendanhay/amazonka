@@ -131,7 +131,8 @@ instance
   hashWithSalt
     _salt
     PurchaseReservedInstanceOffering' {..} =
-      _salt `Prelude.hashWithSalt` instanceCount
+      _salt
+        `Prelude.hashWithSalt` instanceCount
         `Prelude.hashWithSalt` reservedInstanceOfferingId
         `Prelude.hashWithSalt` reservationName
 

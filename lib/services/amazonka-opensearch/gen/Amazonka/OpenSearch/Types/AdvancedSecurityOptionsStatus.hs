@@ -83,7 +83,8 @@ instance
     AdvancedSecurityOptionsStatus
   where
   hashWithSalt _salt AdvancedSecurityOptionsStatus' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AdvancedSecurityOptionsStatus where

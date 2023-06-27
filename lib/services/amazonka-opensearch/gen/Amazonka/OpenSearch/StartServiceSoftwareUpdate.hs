@@ -29,6 +29,8 @@ module Amazonka.OpenSearch.StartServiceSoftwareUpdate
     newStartServiceSoftwareUpdate,
 
     -- * Request Lenses
+    startServiceSoftwareUpdate_desiredStartTime,
+    startServiceSoftwareUpdate_scheduleAt,
     startServiceSoftwareUpdate_domainName,
 
     -- * Destructuring the Response
@@ -54,7 +56,28 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newStartServiceSoftwareUpdate' smart constructor.
 data StartServiceSoftwareUpdate = StartServiceSoftwareUpdate'
-  { -- | The name of the domain that you want to update to the latest service
+  { -- | The Epoch timestamp when you want the service software update to start.
+    -- You only need to specify this parameter if you set @ScheduleAt@ to
+    -- @TIMESTAMP@.
+    desiredStartTime :: Prelude.Maybe Prelude.Integer,
+    -- | When to start the service software update.
+    --
+    -- -   @NOW@ - Immediately schedules the update to happen in the current
+    --     hour if there\'s capacity available.
+    --
+    -- -   @TIMESTAMP@ - Lets you specify a custom date and time to apply the
+    --     update. If you specify this value, you must also provide a value for
+    --     @DesiredStartTime@.
+    --
+    -- -   @OFF_PEAK_WINDOW@ - Marks the update to be picked up during an
+    --     upcoming off-peak window. There\'s no guarantee that the update will
+    --     happen during the next immediate window. Depending on capacity, it
+    --     might happen in subsequent days.
+    --
+    -- Default: @NOW@ if you don\'t specify a value for @DesiredStartTime@, and
+    -- @TIMESTAMP@ if you do.
+    scheduleAt :: Prelude.Maybe ScheduleAt,
+    -- | The name of the domain that you want to update to the latest service
     -- software.
     domainName :: Prelude.Text
   }
@@ -68,6 +91,27 @@ data StartServiceSoftwareUpdate = StartServiceSoftwareUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'desiredStartTime', 'startServiceSoftwareUpdate_desiredStartTime' - The Epoch timestamp when you want the service software update to start.
+-- You only need to specify this parameter if you set @ScheduleAt@ to
+-- @TIMESTAMP@.
+--
+-- 'scheduleAt', 'startServiceSoftwareUpdate_scheduleAt' - When to start the service software update.
+--
+-- -   @NOW@ - Immediately schedules the update to happen in the current
+--     hour if there\'s capacity available.
+--
+-- -   @TIMESTAMP@ - Lets you specify a custom date and time to apply the
+--     update. If you specify this value, you must also provide a value for
+--     @DesiredStartTime@.
+--
+-- -   @OFF_PEAK_WINDOW@ - Marks the update to be picked up during an
+--     upcoming off-peak window. There\'s no guarantee that the update will
+--     happen during the next immediate window. Depending on capacity, it
+--     might happen in subsequent days.
+--
+-- Default: @NOW@ if you don\'t specify a value for @DesiredStartTime@, and
+-- @TIMESTAMP@ if you do.
+--
 -- 'domainName', 'startServiceSoftwareUpdate_domainName' - The name of the domain that you want to update to the latest service
 -- software.
 newStartServiceSoftwareUpdate ::
@@ -76,9 +120,36 @@ newStartServiceSoftwareUpdate ::
   StartServiceSoftwareUpdate
 newStartServiceSoftwareUpdate pDomainName_ =
   StartServiceSoftwareUpdate'
-    { domainName =
-        pDomainName_
+    { desiredStartTime =
+        Prelude.Nothing,
+      scheduleAt = Prelude.Nothing,
+      domainName = pDomainName_
     }
+
+-- | The Epoch timestamp when you want the service software update to start.
+-- You only need to specify this parameter if you set @ScheduleAt@ to
+-- @TIMESTAMP@.
+startServiceSoftwareUpdate_desiredStartTime :: Lens.Lens' StartServiceSoftwareUpdate (Prelude.Maybe Prelude.Integer)
+startServiceSoftwareUpdate_desiredStartTime = Lens.lens (\StartServiceSoftwareUpdate' {desiredStartTime} -> desiredStartTime) (\s@StartServiceSoftwareUpdate' {} a -> s {desiredStartTime = a} :: StartServiceSoftwareUpdate)
+
+-- | When to start the service software update.
+--
+-- -   @NOW@ - Immediately schedules the update to happen in the current
+--     hour if there\'s capacity available.
+--
+-- -   @TIMESTAMP@ - Lets you specify a custom date and time to apply the
+--     update. If you specify this value, you must also provide a value for
+--     @DesiredStartTime@.
+--
+-- -   @OFF_PEAK_WINDOW@ - Marks the update to be picked up during an
+--     upcoming off-peak window. There\'s no guarantee that the update will
+--     happen during the next immediate window. Depending on capacity, it
+--     might happen in subsequent days.
+--
+-- Default: @NOW@ if you don\'t specify a value for @DesiredStartTime@, and
+-- @TIMESTAMP@ if you do.
+startServiceSoftwareUpdate_scheduleAt :: Lens.Lens' StartServiceSoftwareUpdate (Prelude.Maybe ScheduleAt)
+startServiceSoftwareUpdate_scheduleAt = Lens.lens (\StartServiceSoftwareUpdate' {scheduleAt} -> scheduleAt) (\s@StartServiceSoftwareUpdate' {} a -> s {scheduleAt = a} :: StartServiceSoftwareUpdate)
 
 -- | The name of the domain that you want to update to the latest service
 -- software.
@@ -101,11 +172,16 @@ instance Core.AWSRequest StartServiceSoftwareUpdate where
 
 instance Prelude.Hashable StartServiceSoftwareUpdate where
   hashWithSalt _salt StartServiceSoftwareUpdate' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` desiredStartTime
+      `Prelude.hashWithSalt` scheduleAt
+      `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData StartServiceSoftwareUpdate where
   rnf StartServiceSoftwareUpdate' {..} =
-    Prelude.rnf domainName
+    Prelude.rnf desiredStartTime
+      `Prelude.seq` Prelude.rnf scheduleAt
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Data.ToHeaders StartServiceSoftwareUpdate where
   toHeaders = Prelude.const Prelude.mempty
@@ -114,7 +190,11 @@ instance Data.ToJSON StartServiceSoftwareUpdate where
   toJSON StartServiceSoftwareUpdate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("DomainName" Data..= domainName)]
+          [ ("DesiredStartTime" Data..=)
+              Prelude.<$> desiredStartTime,
+            ("ScheduleAt" Data..=) Prelude.<$> scheduleAt,
+            Prelude.Just ("DomainName" Data..= domainName)
+          ]
       )
 
 instance Data.ToPath StartServiceSoftwareUpdate where

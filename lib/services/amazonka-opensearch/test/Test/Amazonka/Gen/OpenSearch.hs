@@ -81,8 +81,17 @@ import Test.Tasty
 --         , requestDescribeDomainConfig $
 --             newDescribeDomainConfig
 --
+--         , requestDescribeDomainHealth $
+--             newDescribeDomainHealth
+--
+--         , requestDescribeDomainNodes $
+--             newDescribeDomainNodes
+--
 --         , requestDescribeDomains $
 --             newDescribeDomains
+--
+--         , requestDescribeDryRunProgress $
+--             newDescribeDryRunProgress
 --
 --         , requestDescribeInboundConnections $
 --             newDescribeInboundConnections
@@ -132,6 +141,9 @@ import Test.Tasty
 --         , requestListPackagesForDomain $
 --             newListPackagesForDomain
 --
+--         , requestListScheduledActions $
+--             newListScheduledActions
+--
 --         , requestListTags $
 --             newListTags
 --
@@ -167,6 +179,9 @@ import Test.Tasty
 --
 --         , requestUpdatePackage $
 --             newUpdatePackage
+--
+--         , requestUpdateScheduledAction $
+--             newUpdateScheduledAction
 --
 --         , requestUpdateVpcEndpoint $
 --             newUpdateVpcEndpoint
@@ -231,8 +246,17 @@ import Test.Tasty
 --         , responseDescribeDomainConfig $
 --             newDescribeDomainConfigResponse
 --
+--         , responseDescribeDomainHealth $
+--             newDescribeDomainHealthResponse
+--
+--         , responseDescribeDomainNodes $
+--             newDescribeDomainNodesResponse
+--
 --         , responseDescribeDomains $
 --             newDescribeDomainsResponse
+--
+--         , responseDescribeDryRunProgress $
+--             newDescribeDryRunProgressResponse
 --
 --         , responseDescribeInboundConnections $
 --             newDescribeInboundConnectionsResponse
@@ -282,6 +306,9 @@ import Test.Tasty
 --         , responseListPackagesForDomain $
 --             newListPackagesForDomainResponse
 --
+--         , responseListScheduledActions $
+--             newListScheduledActionsResponse
+--
 --         , responseListTags $
 --             newListTagsResponse
 --
@@ -317,6 +344,9 @@ import Test.Tasty
 --
 --         , responseUpdatePackage $
 --             newUpdatePackageResponse
+--
+--         , responseUpdateScheduledAction $
+--             newUpdateScheduledActionResponse
 --
 --         , responseUpdateVpcEndpoint $
 --             newUpdateVpcEndpointResponse
@@ -437,11 +467,29 @@ requestDescribeDomainConfig =
     "DescribeDomainConfig"
     "fixture/DescribeDomainConfig.yaml"
 
+requestDescribeDomainHealth :: DescribeDomainHealth -> TestTree
+requestDescribeDomainHealth =
+  req
+    "DescribeDomainHealth"
+    "fixture/DescribeDomainHealth.yaml"
+
+requestDescribeDomainNodes :: DescribeDomainNodes -> TestTree
+requestDescribeDomainNodes =
+  req
+    "DescribeDomainNodes"
+    "fixture/DescribeDomainNodes.yaml"
+
 requestDescribeDomains :: DescribeDomains -> TestTree
 requestDescribeDomains =
   req
     "DescribeDomains"
     "fixture/DescribeDomains.yaml"
+
+requestDescribeDryRunProgress :: DescribeDryRunProgress -> TestTree
+requestDescribeDryRunProgress =
+  req
+    "DescribeDryRunProgress"
+    "fixture/DescribeDryRunProgress.yaml"
 
 requestDescribeInboundConnections :: DescribeInboundConnections -> TestTree
 requestDescribeInboundConnections =
@@ -539,6 +587,12 @@ requestListPackagesForDomain =
     "ListPackagesForDomain"
     "fixture/ListPackagesForDomain.yaml"
 
+requestListScheduledActions :: ListScheduledActions -> TestTree
+requestListScheduledActions =
+  req
+    "ListScheduledActions"
+    "fixture/ListScheduledActions.yaml"
+
 requestListTags :: ListTags -> TestTree
 requestListTags =
   req
@@ -610,6 +664,12 @@ requestUpdatePackage =
   req
     "UpdatePackage"
     "fixture/UpdatePackage.yaml"
+
+requestUpdateScheduledAction :: UpdateScheduledAction -> TestTree
+requestUpdateScheduledAction =
+  req
+    "UpdateScheduledAction"
+    "fixture/UpdateScheduledAction.yaml"
 
 requestUpdateVpcEndpoint :: UpdateVpcEndpoint -> TestTree
 requestUpdateVpcEndpoint =
@@ -769,6 +829,22 @@ responseDescribeDomainConfig =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeDomainConfig)
 
+responseDescribeDomainHealth :: DescribeDomainHealthResponse -> TestTree
+responseDescribeDomainHealth =
+  res
+    "DescribeDomainHealthResponse"
+    "fixture/DescribeDomainHealthResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomainHealth)
+
+responseDescribeDomainNodes :: DescribeDomainNodesResponse -> TestTree
+responseDescribeDomainNodes =
+  res
+    "DescribeDomainNodesResponse"
+    "fixture/DescribeDomainNodesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomainNodes)
+
 responseDescribeDomains :: DescribeDomainsResponse -> TestTree
 responseDescribeDomains =
   res
@@ -776,6 +852,14 @@ responseDescribeDomains =
     "fixture/DescribeDomainsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeDomains)
+
+responseDescribeDryRunProgress :: DescribeDryRunProgressResponse -> TestTree
+responseDescribeDryRunProgress =
+  res
+    "DescribeDryRunProgressResponse"
+    "fixture/DescribeDryRunProgressResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDryRunProgress)
 
 responseDescribeInboundConnections :: DescribeInboundConnectionsResponse -> TestTree
 responseDescribeInboundConnections =
@@ -905,6 +989,14 @@ responseListPackagesForDomain =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListPackagesForDomain)
 
+responseListScheduledActions :: ListScheduledActionsResponse -> TestTree
+responseListScheduledActions =
+  res
+    "ListScheduledActionsResponse"
+    "fixture/ListScheduledActionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListScheduledActions)
+
 responseListTags :: ListTagsResponse -> TestTree
 responseListTags =
   res
@@ -1000,6 +1092,14 @@ responseUpdatePackage =
     "fixture/UpdatePackageResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdatePackage)
+
+responseUpdateScheduledAction :: UpdateScheduledActionResponse -> TestTree
+responseUpdateScheduledAction =
+  res
+    "UpdateScheduledActionResponse"
+    "fixture/UpdateScheduledActionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateScheduledAction)
 
 responseUpdateVpcEndpoint :: UpdateVpcEndpointResponse -> TestTree
 responseUpdateVpcEndpoint =

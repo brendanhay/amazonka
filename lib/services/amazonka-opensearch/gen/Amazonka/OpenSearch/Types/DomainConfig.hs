@@ -34,7 +34,9 @@ import Amazonka.OpenSearch.Types.EBSOptionsStatus
 import Amazonka.OpenSearch.Types.EncryptionAtRestOptionsStatus
 import Amazonka.OpenSearch.Types.LogPublishingOptionsStatus
 import Amazonka.OpenSearch.Types.NodeToNodeEncryptionOptionsStatus
+import Amazonka.OpenSearch.Types.OffPeakWindowOptionsStatus
 import Amazonka.OpenSearch.Types.SnapshotOptionsStatus
+import Amazonka.OpenSearch.Types.SoftwareUpdateOptionsStatus
 import Amazonka.OpenSearch.Types.VPCDerivedInfoStatus
 import Amazonka.OpenSearch.Types.VersionStatus
 import qualified Amazonka.Prelude as Prelude
@@ -63,19 +65,23 @@ data DomainConfig = DomainConfig'
     -- | Additional options for the domain endpoint, such as whether to require
     -- HTTPS for all traffic.
     domainEndpointOptions :: Prelude.Maybe DomainEndpointOptionsStatus,
-    -- | Container for EBS options configured for an OpenSearch Service domain.
+    -- | Container for EBS options configured for the domain.
     eBSOptions :: Prelude.Maybe EBSOptionsStatus,
     -- | Key-value pairs to enable encryption at rest.
     encryptionAtRestOptions :: Prelude.Maybe EncryptionAtRestOptionsStatus,
     -- | The OpenSearch or Elasticsearch version that the domain is running.
     engineVersion :: Prelude.Maybe VersionStatus,
-    -- | Key-value pairs to configure slow log publishing.
+    -- | Key-value pairs to configure log publishing.
     logPublishingOptions :: Prelude.Maybe LogPublishingOptionsStatus,
     -- | Whether node-to-node encryption is enabled or disabled.
     nodeToNodeEncryptionOptions :: Prelude.Maybe NodeToNodeEncryptionOptionsStatus,
+    -- | Container for off-peak window options for the domain.
+    offPeakWindowOptions :: Prelude.Maybe OffPeakWindowOptionsStatus,
     -- | DEPRECATED. Container for parameters required to configure automated
     -- snapshots of domain indexes.
     snapshotOptions :: Prelude.Maybe SnapshotOptionsStatus,
+    -- | Software update options for the domain.
+    softwareUpdateOptions :: Prelude.Maybe SoftwareUpdateOptionsStatus,
     -- | The current VPC options for the domain and the status of any updates to
     -- their configuration.
     vPCOptions :: Prelude.Maybe VPCDerivedInfoStatus
@@ -110,18 +116,22 @@ data DomainConfig = DomainConfig'
 -- 'domainEndpointOptions', 'domainConfig_domainEndpointOptions' - Additional options for the domain endpoint, such as whether to require
 -- HTTPS for all traffic.
 --
--- 'eBSOptions', 'domainConfig_eBSOptions' - Container for EBS options configured for an OpenSearch Service domain.
+-- 'eBSOptions', 'domainConfig_eBSOptions' - Container for EBS options configured for the domain.
 --
 -- 'encryptionAtRestOptions', 'domainConfig_encryptionAtRestOptions' - Key-value pairs to enable encryption at rest.
 --
 -- 'engineVersion', 'domainConfig_engineVersion' - The OpenSearch or Elasticsearch version that the domain is running.
 --
--- 'logPublishingOptions', 'domainConfig_logPublishingOptions' - Key-value pairs to configure slow log publishing.
+-- 'logPublishingOptions', 'domainConfig_logPublishingOptions' - Key-value pairs to configure log publishing.
 --
 -- 'nodeToNodeEncryptionOptions', 'domainConfig_nodeToNodeEncryptionOptions' - Whether node-to-node encryption is enabled or disabled.
 --
+-- 'offPeakWindowOptions', 'domainConfig_offPeakWindowOptions' - Container for off-peak window options for the domain.
+--
 -- 'snapshotOptions', 'domainConfig_snapshotOptions' - DEPRECATED. Container for parameters required to configure automated
 -- snapshots of domain indexes.
+--
+-- 'softwareUpdateOptions', 'domainConfig_softwareUpdateOptions' - Software update options for the domain.
 --
 -- 'vPCOptions', 'domainConfig_vPCOptions' - The current VPC options for the domain and the status of any updates to
 -- their configuration.
@@ -142,7 +152,9 @@ newDomainConfig =
       engineVersion = Prelude.Nothing,
       logPublishingOptions = Prelude.Nothing,
       nodeToNodeEncryptionOptions = Prelude.Nothing,
+      offPeakWindowOptions = Prelude.Nothing,
       snapshotOptions = Prelude.Nothing,
+      softwareUpdateOptions = Prelude.Nothing,
       vPCOptions = Prelude.Nothing
     }
 
@@ -182,7 +194,7 @@ domainConfig_cognitoOptions = Lens.lens (\DomainConfig' {cognitoOptions} -> cogn
 domainConfig_domainEndpointOptions :: Lens.Lens' DomainConfig (Prelude.Maybe DomainEndpointOptionsStatus)
 domainConfig_domainEndpointOptions = Lens.lens (\DomainConfig' {domainEndpointOptions} -> domainEndpointOptions) (\s@DomainConfig' {} a -> s {domainEndpointOptions = a} :: DomainConfig)
 
--- | Container for EBS options configured for an OpenSearch Service domain.
+-- | Container for EBS options configured for the domain.
 domainConfig_eBSOptions :: Lens.Lens' DomainConfig (Prelude.Maybe EBSOptionsStatus)
 domainConfig_eBSOptions = Lens.lens (\DomainConfig' {eBSOptions} -> eBSOptions) (\s@DomainConfig' {} a -> s {eBSOptions = a} :: DomainConfig)
 
@@ -194,7 +206,7 @@ domainConfig_encryptionAtRestOptions = Lens.lens (\DomainConfig' {encryptionAtRe
 domainConfig_engineVersion :: Lens.Lens' DomainConfig (Prelude.Maybe VersionStatus)
 domainConfig_engineVersion = Lens.lens (\DomainConfig' {engineVersion} -> engineVersion) (\s@DomainConfig' {} a -> s {engineVersion = a} :: DomainConfig)
 
--- | Key-value pairs to configure slow log publishing.
+-- | Key-value pairs to configure log publishing.
 domainConfig_logPublishingOptions :: Lens.Lens' DomainConfig (Prelude.Maybe LogPublishingOptionsStatus)
 domainConfig_logPublishingOptions = Lens.lens (\DomainConfig' {logPublishingOptions} -> logPublishingOptions) (\s@DomainConfig' {} a -> s {logPublishingOptions = a} :: DomainConfig)
 
@@ -202,10 +214,18 @@ domainConfig_logPublishingOptions = Lens.lens (\DomainConfig' {logPublishingOpti
 domainConfig_nodeToNodeEncryptionOptions :: Lens.Lens' DomainConfig (Prelude.Maybe NodeToNodeEncryptionOptionsStatus)
 domainConfig_nodeToNodeEncryptionOptions = Lens.lens (\DomainConfig' {nodeToNodeEncryptionOptions} -> nodeToNodeEncryptionOptions) (\s@DomainConfig' {} a -> s {nodeToNodeEncryptionOptions = a} :: DomainConfig)
 
+-- | Container for off-peak window options for the domain.
+domainConfig_offPeakWindowOptions :: Lens.Lens' DomainConfig (Prelude.Maybe OffPeakWindowOptionsStatus)
+domainConfig_offPeakWindowOptions = Lens.lens (\DomainConfig' {offPeakWindowOptions} -> offPeakWindowOptions) (\s@DomainConfig' {} a -> s {offPeakWindowOptions = a} :: DomainConfig)
+
 -- | DEPRECATED. Container for parameters required to configure automated
 -- snapshots of domain indexes.
 domainConfig_snapshotOptions :: Lens.Lens' DomainConfig (Prelude.Maybe SnapshotOptionsStatus)
 domainConfig_snapshotOptions = Lens.lens (\DomainConfig' {snapshotOptions} -> snapshotOptions) (\s@DomainConfig' {} a -> s {snapshotOptions = a} :: DomainConfig)
+
+-- | Software update options for the domain.
+domainConfig_softwareUpdateOptions :: Lens.Lens' DomainConfig (Prelude.Maybe SoftwareUpdateOptionsStatus)
+domainConfig_softwareUpdateOptions = Lens.lens (\DomainConfig' {softwareUpdateOptions} -> softwareUpdateOptions) (\s@DomainConfig' {} a -> s {softwareUpdateOptions = a} :: DomainConfig)
 
 -- | The current VPC options for the domain and the status of any updates to
 -- their configuration.
@@ -231,13 +251,16 @@ instance Data.FromJSON DomainConfig where
             Prelude.<*> (x Data..:? "EngineVersion")
             Prelude.<*> (x Data..:? "LogPublishingOptions")
             Prelude.<*> (x Data..:? "NodeToNodeEncryptionOptions")
+            Prelude.<*> (x Data..:? "OffPeakWindowOptions")
             Prelude.<*> (x Data..:? "SnapshotOptions")
+            Prelude.<*> (x Data..:? "SoftwareUpdateOptions")
             Prelude.<*> (x Data..:? "VPCOptions")
       )
 
 instance Prelude.Hashable DomainConfig where
   hashWithSalt _salt DomainConfig' {..} =
-    _salt `Prelude.hashWithSalt` accessPolicies
+    _salt
+      `Prelude.hashWithSalt` accessPolicies
       `Prelude.hashWithSalt` advancedOptions
       `Prelude.hashWithSalt` advancedSecurityOptions
       `Prelude.hashWithSalt` autoTuneOptions
@@ -250,7 +273,9 @@ instance Prelude.Hashable DomainConfig where
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` logPublishingOptions
       `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
+      `Prelude.hashWithSalt` offPeakWindowOptions
       `Prelude.hashWithSalt` snapshotOptions
+      `Prelude.hashWithSalt` softwareUpdateOptions
       `Prelude.hashWithSalt` vPCOptions
 
 instance Prelude.NFData DomainConfig where
@@ -268,5 +293,7 @@ instance Prelude.NFData DomainConfig where
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf logPublishingOptions
       `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
+      `Prelude.seq` Prelude.rnf offPeakWindowOptions
       `Prelude.seq` Prelude.rnf snapshotOptions
+      `Prelude.seq` Prelude.rnf softwareUpdateOptions
       `Prelude.seq` Prelude.rnf vPCOptions

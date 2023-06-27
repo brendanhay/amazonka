@@ -33,7 +33,10 @@ data AutoTuneOptionsOutput = AutoTuneOptionsOutput'
   { -- | Any errors that occurred while enabling or disabling Auto-Tune.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The current state of Auto-Tune on the domain.
-    state :: Prelude.Maybe AutoTuneState
+    state :: Prelude.Maybe AutoTuneState,
+    -- | Whether the domain\'s off-peak window will be used to deploy Auto-Tune
+    -- changes rather than a maintenance schedule.
+    useOffPeakWindow :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,13 +51,17 @@ data AutoTuneOptionsOutput = AutoTuneOptionsOutput'
 -- 'errorMessage', 'autoTuneOptionsOutput_errorMessage' - Any errors that occurred while enabling or disabling Auto-Tune.
 --
 -- 'state', 'autoTuneOptionsOutput_state' - The current state of Auto-Tune on the domain.
+--
+-- 'useOffPeakWindow', 'autoTuneOptionsOutput_useOffPeakWindow' - Whether the domain\'s off-peak window will be used to deploy Auto-Tune
+-- changes rather than a maintenance schedule.
 newAutoTuneOptionsOutput ::
   AutoTuneOptionsOutput
 newAutoTuneOptionsOutput =
   AutoTuneOptionsOutput'
     { errorMessage =
         Prelude.Nothing,
-      state = Prelude.Nothing
+      state = Prelude.Nothing,
+      useOffPeakWindow = Prelude.Nothing
     }
 
 -- | Any errors that occurred while enabling or disabling Auto-Tune.
@@ -65,6 +72,11 @@ autoTuneOptionsOutput_errorMessage = Lens.lens (\AutoTuneOptionsOutput' {errorMe
 autoTuneOptionsOutput_state :: Lens.Lens' AutoTuneOptionsOutput (Prelude.Maybe AutoTuneState)
 autoTuneOptionsOutput_state = Lens.lens (\AutoTuneOptionsOutput' {state} -> state) (\s@AutoTuneOptionsOutput' {} a -> s {state = a} :: AutoTuneOptionsOutput)
 
+-- | Whether the domain\'s off-peak window will be used to deploy Auto-Tune
+-- changes rather than a maintenance schedule.
+autoTuneOptionsOutput_useOffPeakWindow :: Lens.Lens' AutoTuneOptionsOutput (Prelude.Maybe Prelude.Bool)
+autoTuneOptionsOutput_useOffPeakWindow = Lens.lens (\AutoTuneOptionsOutput' {useOffPeakWindow} -> useOffPeakWindow) (\s@AutoTuneOptionsOutput' {} a -> s {useOffPeakWindow = a} :: AutoTuneOptionsOutput)
+
 instance Data.FromJSON AutoTuneOptionsOutput where
   parseJSON =
     Data.withObject
@@ -73,14 +85,18 @@ instance Data.FromJSON AutoTuneOptionsOutput where
           AutoTuneOptionsOutput'
             Prelude.<$> (x Data..:? "ErrorMessage")
             Prelude.<*> (x Data..:? "State")
+            Prelude.<*> (x Data..:? "UseOffPeakWindow")
       )
 
 instance Prelude.Hashable AutoTuneOptionsOutput where
   hashWithSalt _salt AutoTuneOptionsOutput' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
+    _salt
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` useOffPeakWindow
 
 instance Prelude.NFData AutoTuneOptionsOutput where
   rnf AutoTuneOptionsOutput' {..} =
     Prelude.rnf errorMessage
       `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf useOffPeakWindow

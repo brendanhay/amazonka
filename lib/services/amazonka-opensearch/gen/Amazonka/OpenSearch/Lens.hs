@@ -53,7 +53,9 @@ module Amazonka.OpenSearch.Lens
     createDomain_engineVersion,
     createDomain_logPublishingOptions,
     createDomain_nodeToNodeEncryptionOptions,
+    createDomain_offPeakWindowOptions,
     createDomain_snapshotOptions,
+    createDomain_softwareUpdateOptions,
     createDomain_tagList,
     createDomain_vPCOptions,
     createDomain_domainName,
@@ -61,11 +63,15 @@ module Amazonka.OpenSearch.Lens
     createDomainResponse_httpStatus,
 
     -- ** CreateOutboundConnection
+    createOutboundConnection_connectionMode,
+    createOutboundConnection_connectionProperties,
     createOutboundConnection_localDomainInfo,
     createOutboundConnection_remoteDomainInfo,
     createOutboundConnection_connectionAlias,
     createOutboundConnectionResponse_connectionAlias,
     createOutboundConnectionResponse_connectionId,
+    createOutboundConnectionResponse_connectionMode,
+    createOutboundConnectionResponse_connectionProperties,
     createOutboundConnectionResponse_connectionStatus,
     createOutboundConnectionResponse_localDomainInfo,
     createOutboundConnectionResponse_remoteDomainInfo,
@@ -135,10 +141,41 @@ module Amazonka.OpenSearch.Lens
     describeDomainConfigResponse_httpStatus,
     describeDomainConfigResponse_domainConfig,
 
+    -- ** DescribeDomainHealth
+    describeDomainHealth_domainName,
+    describeDomainHealthResponse_activeAvailabilityZoneCount,
+    describeDomainHealthResponse_availabilityZoneCount,
+    describeDomainHealthResponse_clusterHealth,
+    describeDomainHealthResponse_dataNodeCount,
+    describeDomainHealthResponse_dedicatedMaster,
+    describeDomainHealthResponse_domainState,
+    describeDomainHealthResponse_environmentInformation,
+    describeDomainHealthResponse_masterEligibleNodeCount,
+    describeDomainHealthResponse_masterNode,
+    describeDomainHealthResponse_standByAvailabilityZoneCount,
+    describeDomainHealthResponse_totalShards,
+    describeDomainHealthResponse_totalUnAssignedShards,
+    describeDomainHealthResponse_warmNodeCount,
+    describeDomainHealthResponse_httpStatus,
+
+    -- ** DescribeDomainNodes
+    describeDomainNodes_domainName,
+    describeDomainNodesResponse_domainNodesStatusList,
+    describeDomainNodesResponse_httpStatus,
+
     -- ** DescribeDomains
     describeDomains_domainNames,
     describeDomainsResponse_httpStatus,
     describeDomainsResponse_domainStatusList,
+
+    -- ** DescribeDryRunProgress
+    describeDryRunProgress_dryRunId,
+    describeDryRunProgress_loadDryRunConfig,
+    describeDryRunProgress_domainName,
+    describeDryRunProgressResponse_dryRunConfig,
+    describeDryRunProgressResponse_dryRunProgressStatus,
+    describeDryRunProgressResponse_dryRunResults,
+    describeDryRunProgressResponse_httpStatus,
 
     -- ** DescribeInboundConnections
     describeInboundConnections_filters,
@@ -243,8 +280,10 @@ module Amazonka.OpenSearch.Lens
 
     -- ** ListInstanceTypeDetails
     listInstanceTypeDetails_domainName,
+    listInstanceTypeDetails_instanceType,
     listInstanceTypeDetails_maxResults,
     listInstanceTypeDetails_nextToken,
+    listInstanceTypeDetails_retrieveAZs,
     listInstanceTypeDetails_engineVersion,
     listInstanceTypeDetailsResponse_instanceTypeDetails,
     listInstanceTypeDetailsResponse_nextToken,
@@ -257,6 +296,14 @@ module Amazonka.OpenSearch.Lens
     listPackagesForDomainResponse_domainPackageDetailsList,
     listPackagesForDomainResponse_nextToken,
     listPackagesForDomainResponse_httpStatus,
+
+    -- ** ListScheduledActions
+    listScheduledActions_maxResults,
+    listScheduledActions_nextToken,
+    listScheduledActions_domainName,
+    listScheduledActionsResponse_nextToken,
+    listScheduledActionsResponse_scheduledActions,
+    listScheduledActionsResponse_httpStatus,
 
     -- ** ListTags
     listTags_arn,
@@ -313,6 +360,8 @@ module Amazonka.OpenSearch.Lens
     revokeVpcEndpointAccessResponse_httpStatus,
 
     -- ** StartServiceSoftwareUpdate
+    startServiceSoftwareUpdate_desiredStartTime,
+    startServiceSoftwareUpdate_scheduleAt,
     startServiceSoftwareUpdate_domainName,
     startServiceSoftwareUpdateResponse_serviceSoftwareOptions,
     startServiceSoftwareUpdateResponse_httpStatus,
@@ -326,13 +375,17 @@ module Amazonka.OpenSearch.Lens
     updateDomainConfig_cognitoOptions,
     updateDomainConfig_domainEndpointOptions,
     updateDomainConfig_dryRun,
+    updateDomainConfig_dryRunMode,
     updateDomainConfig_eBSOptions,
     updateDomainConfig_encryptionAtRestOptions,
     updateDomainConfig_logPublishingOptions,
     updateDomainConfig_nodeToNodeEncryptionOptions,
+    updateDomainConfig_offPeakWindowOptions,
     updateDomainConfig_snapshotOptions,
+    updateDomainConfig_softwareUpdateOptions,
     updateDomainConfig_vPCOptions,
     updateDomainConfig_domainName,
+    updateDomainConfigResponse_dryRunProgressStatus,
     updateDomainConfigResponse_dryRunResults,
     updateDomainConfigResponse_httpStatus,
     updateDomainConfigResponse_domainConfig,
@@ -344,6 +397,15 @@ module Amazonka.OpenSearch.Lens
     updatePackage_packageSource,
     updatePackageResponse_packageDetails,
     updatePackageResponse_httpStatus,
+
+    -- ** UpdateScheduledAction
+    updateScheduledAction_desiredStartTime,
+    updateScheduledAction_domainName,
+    updateScheduledAction_actionID,
+    updateScheduledAction_actionType,
+    updateScheduledAction_scheduleAt,
+    updateScheduledActionResponse_scheduledAction,
+    updateScheduledActionResponse_httpStatus,
 
     -- ** UpdateVpcEndpoint
     updateVpcEndpoint_vpcEndpointId,
@@ -421,14 +483,17 @@ module Amazonka.OpenSearch.Lens
     autoTuneOptions_desiredState,
     autoTuneOptions_maintenanceSchedules,
     autoTuneOptions_rollbackOnDisable,
+    autoTuneOptions_useOffPeakWindow,
 
     -- ** AutoTuneOptionsInput
     autoTuneOptionsInput_desiredState,
     autoTuneOptionsInput_maintenanceSchedules,
+    autoTuneOptionsInput_useOffPeakWindow,
 
     -- ** AutoTuneOptionsOutput
     autoTuneOptionsOutput_errorMessage,
     autoTuneOptionsOutput_state,
+    autoTuneOptionsOutput_useOffPeakWindow,
 
     -- ** AutoTuneOptionsStatus
     autoTuneOptionsStatus_options,
@@ -441,6 +506,14 @@ module Amazonka.OpenSearch.Lens
     autoTuneStatus_creationDate,
     autoTuneStatus_updateDate,
     autoTuneStatus_state,
+
+    -- ** AvailabilityZoneInfo
+    availabilityZoneInfo_availabilityZoneName,
+    availabilityZoneInfo_availableDataNodeCount,
+    availabilityZoneInfo_configuredDataNodeCount,
+    availabilityZoneInfo_totalShards,
+    availabilityZoneInfo_totalUnAssignedShards,
+    availabilityZoneInfo_zoneStatus,
 
     -- ** ChangeProgressDetails
     changeProgressDetails_changeId,
@@ -468,6 +541,7 @@ module Amazonka.OpenSearch.Lens
     clusterConfig_dedicatedMasterType,
     clusterConfig_instanceCount,
     clusterConfig_instanceType,
+    clusterConfig_multiAZWithStandbyEnabled,
     clusterConfig_warmCount,
     clusterConfig_warmEnabled,
     clusterConfig_warmType,
@@ -495,6 +569,13 @@ module Amazonka.OpenSearch.Lens
     compatibleVersionsMap_sourceVersion,
     compatibleVersionsMap_targetVersions,
 
+    -- ** ConnectionProperties
+    connectionProperties_crossClusterSearch,
+    connectionProperties_endpoint,
+
+    -- ** CrossClusterSearchConnectionProperties
+    crossClusterSearchConnectionProperties_skipUnavailable,
+
     -- ** DescribePackagesFilter
     describePackagesFilter_name,
     describePackagesFilter_value,
@@ -513,7 +594,9 @@ module Amazonka.OpenSearch.Lens
     domainConfig_engineVersion,
     domainConfig_logPublishingOptions,
     domainConfig_nodeToNodeEncryptionOptions,
+    domainConfig_offPeakWindowOptions,
     domainConfig_snapshotOptions,
+    domainConfig_softwareUpdateOptions,
     domainConfig_vPCOptions,
 
     -- ** DomainEndpointOptions
@@ -533,6 +616,16 @@ module Amazonka.OpenSearch.Lens
 
     -- ** DomainInformationContainer
     domainInformationContainer_aWSDomainInformation,
+
+    -- ** DomainNodesStatus
+    domainNodesStatus_availabilityZone,
+    domainNodesStatus_instanceType,
+    domainNodesStatus_nodeId,
+    domainNodesStatus_nodeStatus,
+    domainNodesStatus_nodeType,
+    domainNodesStatus_storageSize,
+    domainNodesStatus_storageType,
+    domainNodesStatus_storageVolumeType,
 
     -- ** DomainPackageDetails
     domainPackageDetails_domainName,
@@ -562,15 +655,24 @@ module Amazonka.OpenSearch.Lens
     domainStatus_engineVersion,
     domainStatus_logPublishingOptions,
     domainStatus_nodeToNodeEncryptionOptions,
+    domainStatus_offPeakWindowOptions,
     domainStatus_processing,
     domainStatus_serviceSoftwareOptions,
     domainStatus_snapshotOptions,
+    domainStatus_softwareUpdateOptions,
     domainStatus_upgradeProcessing,
     domainStatus_vPCOptions,
     domainStatus_domainId,
     domainStatus_domainName,
     domainStatus_arn,
     domainStatus_clusterConfig,
+
+    -- ** DryRunProgressStatus
+    dryRunProgressStatus_validationFailures,
+    dryRunProgressStatus_dryRunId,
+    dryRunProgressStatus_dryRunStatus,
+    dryRunProgressStatus_creationDate,
+    dryRunProgressStatus_updateDate,
 
     -- ** DryRunResults
     dryRunResults_deploymentType,
@@ -599,6 +701,9 @@ module Amazonka.OpenSearch.Lens
     encryptionAtRestOptionsStatus_options,
     encryptionAtRestOptionsStatus_status,
 
+    -- ** EnvironmentInfo
+    environmentInfo_availabilityZoneInformation,
+
     -- ** ErrorDetails
     errorDetails_errorMessage,
     errorDetails_errorType,
@@ -609,6 +714,7 @@ module Amazonka.OpenSearch.Lens
 
     -- ** InboundConnection
     inboundConnection_connectionId,
+    inboundConnection_connectionMode,
     inboundConnection_connectionStatus,
     inboundConnection_localDomainInfo,
     inboundConnection_remoteDomainInfo,
@@ -627,6 +733,7 @@ module Amazonka.OpenSearch.Lens
     -- ** InstanceTypeDetails
     instanceTypeDetails_advancedSecurityEnabled,
     instanceTypeDetails_appLogsEnabled,
+    instanceTypeDetails_availabilityZones,
     instanceTypeDetails_cognitoEnabled,
     instanceTypeDetails_encryptionEnabled,
     instanceTypeDetails_instanceRole,
@@ -658,6 +765,17 @@ module Amazonka.OpenSearch.Lens
     nodeToNodeEncryptionOptionsStatus_options,
     nodeToNodeEncryptionOptionsStatus_status,
 
+    -- ** OffPeakWindow
+    offPeakWindow_windowStartTime,
+
+    -- ** OffPeakWindowOptions
+    offPeakWindowOptions_enabled,
+    offPeakWindowOptions_offPeakWindow,
+
+    -- ** OffPeakWindowOptionsStatus
+    offPeakWindowOptionsStatus_options,
+    offPeakWindowOptionsStatus_status,
+
     -- ** OptionStatus
     optionStatus_pendingDeletion,
     optionStatus_updateVersion,
@@ -668,6 +786,8 @@ module Amazonka.OpenSearch.Lens
     -- ** OutboundConnection
     outboundConnection_connectionAlias,
     outboundConnection_connectionId,
+    outboundConnection_connectionMode,
+    outboundConnection_connectionProperties,
     outboundConnection_connectionStatus,
     outboundConnection_localDomainInfo,
     outboundConnection_remoteDomainInfo,
@@ -746,6 +866,17 @@ module Amazonka.OpenSearch.Lens
     sAMLOptionsOutput_sessionTimeoutMinutes,
     sAMLOptionsOutput_subjectKey,
 
+    -- ** ScheduledAction
+    scheduledAction_cancellable,
+    scheduledAction_description,
+    scheduledAction_mandatory,
+    scheduledAction_scheduledBy,
+    scheduledAction_status,
+    scheduledAction_id,
+    scheduledAction_type,
+    scheduledAction_severity,
+    scheduledAction_scheduledTime,
+
     -- ** ScheduledAutoTuneDetails
     scheduledAutoTuneDetails_action,
     scheduledAutoTuneDetails_actionType,
@@ -768,6 +899,13 @@ module Amazonka.OpenSearch.Lens
     -- ** SnapshotOptionsStatus
     snapshotOptionsStatus_options,
     snapshotOptionsStatus_status,
+
+    -- ** SoftwareUpdateOptions
+    softwareUpdateOptions_autoSoftwareUpdateEnabled,
+
+    -- ** SoftwareUpdateOptionsStatus
+    softwareUpdateOptionsStatus_options,
+    softwareUpdateOptionsStatus_status,
 
     -- ** StorageType
     storageType_storageSubTypeName,
@@ -808,6 +946,10 @@ module Amazonka.OpenSearch.Lens
     vPCOptions_securityGroupIds,
     vPCOptions_subnetIds,
 
+    -- ** ValidationFailure
+    validationFailure_code,
+    validationFailure_message,
+
     -- ** VersionStatus
     versionStatus_options,
     versionStatus_status,
@@ -830,6 +972,10 @@ module Amazonka.OpenSearch.Lens
     vpcEndpointSummary_status,
     vpcEndpointSummary_vpcEndpointId,
     vpcEndpointSummary_vpcEndpointOwner,
+
+    -- ** WindowStartTime
+    windowStartTime_hours,
+    windowStartTime_minutes,
 
     -- ** ZoneAwarenessConfig
     zoneAwarenessConfig_availabilityZoneCount,
@@ -854,7 +1000,10 @@ import Amazonka.OpenSearch.DescribeDomain
 import Amazonka.OpenSearch.DescribeDomainAutoTunes
 import Amazonka.OpenSearch.DescribeDomainChangeProgress
 import Amazonka.OpenSearch.DescribeDomainConfig
+import Amazonka.OpenSearch.DescribeDomainHealth
+import Amazonka.OpenSearch.DescribeDomainNodes
 import Amazonka.OpenSearch.DescribeDomains
+import Amazonka.OpenSearch.DescribeDryRunProgress
 import Amazonka.OpenSearch.DescribeInboundConnections
 import Amazonka.OpenSearch.DescribeInstanceTypeLimits
 import Amazonka.OpenSearch.DescribeOutboundConnections
@@ -871,6 +1020,7 @@ import Amazonka.OpenSearch.ListDomainNames
 import Amazonka.OpenSearch.ListDomainsForPackage
 import Amazonka.OpenSearch.ListInstanceTypeDetails
 import Amazonka.OpenSearch.ListPackagesForDomain
+import Amazonka.OpenSearch.ListScheduledActions
 import Amazonka.OpenSearch.ListTags
 import Amazonka.OpenSearch.ListVersions
 import Amazonka.OpenSearch.ListVpcEndpointAccess
@@ -897,6 +1047,7 @@ import Amazonka.OpenSearch.Types.AutoTuneOptionsInput
 import Amazonka.OpenSearch.Types.AutoTuneOptionsOutput
 import Amazonka.OpenSearch.Types.AutoTuneOptionsStatus
 import Amazonka.OpenSearch.Types.AutoTuneStatus
+import Amazonka.OpenSearch.Types.AvailabilityZoneInfo
 import Amazonka.OpenSearch.Types.ChangeProgressDetails
 import Amazonka.OpenSearch.Types.ChangeProgressStage
 import Amazonka.OpenSearch.Types.ChangeProgressStatusDetails
@@ -906,20 +1057,25 @@ import Amazonka.OpenSearch.Types.CognitoOptions
 import Amazonka.OpenSearch.Types.CognitoOptionsStatus
 import Amazonka.OpenSearch.Types.ColdStorageOptions
 import Amazonka.OpenSearch.Types.CompatibleVersionsMap
+import Amazonka.OpenSearch.Types.ConnectionProperties
+import Amazonka.OpenSearch.Types.CrossClusterSearchConnectionProperties
 import Amazonka.OpenSearch.Types.DescribePackagesFilter
 import Amazonka.OpenSearch.Types.DomainConfig
 import Amazonka.OpenSearch.Types.DomainEndpointOptions
 import Amazonka.OpenSearch.Types.DomainEndpointOptionsStatus
 import Amazonka.OpenSearch.Types.DomainInfo
 import Amazonka.OpenSearch.Types.DomainInformationContainer
+import Amazonka.OpenSearch.Types.DomainNodesStatus
 import Amazonka.OpenSearch.Types.DomainPackageDetails
 import Amazonka.OpenSearch.Types.DomainStatus
+import Amazonka.OpenSearch.Types.DryRunProgressStatus
 import Amazonka.OpenSearch.Types.DryRunResults
 import Amazonka.OpenSearch.Types.Duration
 import Amazonka.OpenSearch.Types.EBSOptions
 import Amazonka.OpenSearch.Types.EBSOptionsStatus
 import Amazonka.OpenSearch.Types.EncryptionAtRestOptions
 import Amazonka.OpenSearch.Types.EncryptionAtRestOptionsStatus
+import Amazonka.OpenSearch.Types.EnvironmentInfo
 import Amazonka.OpenSearch.Types.ErrorDetails
 import Amazonka.OpenSearch.Types.Filter
 import Amazonka.OpenSearch.Types.InboundConnection
@@ -933,6 +1089,9 @@ import Amazonka.OpenSearch.Types.LogPublishingOptionsStatus
 import Amazonka.OpenSearch.Types.MasterUserOptions
 import Amazonka.OpenSearch.Types.NodeToNodeEncryptionOptions
 import Amazonka.OpenSearch.Types.NodeToNodeEncryptionOptionsStatus
+import Amazonka.OpenSearch.Types.OffPeakWindow
+import Amazonka.OpenSearch.Types.OffPeakWindowOptions
+import Amazonka.OpenSearch.Types.OffPeakWindowOptionsStatus
 import Amazonka.OpenSearch.Types.OptionStatus
 import Amazonka.OpenSearch.Types.OutboundConnection
 import Amazonka.OpenSearch.Types.OutboundConnectionStatus
@@ -945,10 +1104,13 @@ import Amazonka.OpenSearch.Types.ReservedInstanceOffering
 import Amazonka.OpenSearch.Types.SAMLIdp
 import Amazonka.OpenSearch.Types.SAMLOptionsInput
 import Amazonka.OpenSearch.Types.SAMLOptionsOutput
+import Amazonka.OpenSearch.Types.ScheduledAction
 import Amazonka.OpenSearch.Types.ScheduledAutoTuneDetails
 import Amazonka.OpenSearch.Types.ServiceSoftwareOptions
 import Amazonka.OpenSearch.Types.SnapshotOptions
 import Amazonka.OpenSearch.Types.SnapshotOptionsStatus
+import Amazonka.OpenSearch.Types.SoftwareUpdateOptions
+import Amazonka.OpenSearch.Types.SoftwareUpdateOptionsStatus
 import Amazonka.OpenSearch.Types.StorageType
 import Amazonka.OpenSearch.Types.StorageTypeLimit
 import Amazonka.OpenSearch.Types.Tag
@@ -957,12 +1119,15 @@ import Amazonka.OpenSearch.Types.UpgradeStepItem
 import Amazonka.OpenSearch.Types.VPCDerivedInfo
 import Amazonka.OpenSearch.Types.VPCDerivedInfoStatus
 import Amazonka.OpenSearch.Types.VPCOptions
+import Amazonka.OpenSearch.Types.ValidationFailure
 import Amazonka.OpenSearch.Types.VersionStatus
 import Amazonka.OpenSearch.Types.VpcEndpoint
 import Amazonka.OpenSearch.Types.VpcEndpointError
 import Amazonka.OpenSearch.Types.VpcEndpointSummary
+import Amazonka.OpenSearch.Types.WindowStartTime
 import Amazonka.OpenSearch.Types.ZoneAwarenessConfig
 import Amazonka.OpenSearch.UpdateDomainConfig
 import Amazonka.OpenSearch.UpdatePackage
+import Amazonka.OpenSearch.UpdateScheduledAction
 import Amazonka.OpenSearch.UpdateVpcEndpoint
 import Amazonka.OpenSearch.UpgradeDomain

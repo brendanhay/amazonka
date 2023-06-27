@@ -79,7 +79,8 @@ instance Data.FromJSON LogPublishingOptionsStatus where
 
 instance Prelude.Hashable LogPublishingOptionsStatus where
   hashWithSalt _salt LogPublishingOptionsStatus' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData LogPublishingOptionsStatus where

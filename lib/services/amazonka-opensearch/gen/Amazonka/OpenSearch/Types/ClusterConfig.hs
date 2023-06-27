@@ -37,7 +37,7 @@ data ClusterConfig = ClusterConfig'
   { -- | Container for cold storage configuration options.
     coldStorageOptions :: Prelude.Maybe ColdStorageOptions,
     -- | Number of dedicated master nodes in the cluster. This number must be
-    -- greater than 1, otherwise you receive a validation exception.
+    -- greater than 2 and not 4, otherwise you receive a validation exception.
     dedicatedMasterCount :: Prelude.Maybe Prelude.Int,
     -- | Indicates whether dedicated master nodes are enabled for the
     -- cluster.@True@ if the cluster will use a dedicated master node.@False@
@@ -51,6 +51,10 @@ data ClusterConfig = ClusterConfig'
     instanceCount :: Prelude.Maybe Prelude.Int,
     -- | Instance type of data nodes in the cluster.
     instanceType :: Prelude.Maybe OpenSearchPartitionInstanceType,
+    -- | A boolean that indicates whether a multi-AZ domain is turned on with a
+    -- standby AZ. For more information, see
+    -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html Configuring a multi-AZ domain in Amazon OpenSearch Service>.
+    multiAZWithStandbyEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The number of warm nodes in the cluster.
     warmCount :: Prelude.Maybe Prelude.Int,
     -- | Whether to enable warm storage for the cluster.
@@ -78,7 +82,7 @@ data ClusterConfig = ClusterConfig'
 -- 'coldStorageOptions', 'clusterConfig_coldStorageOptions' - Container for cold storage configuration options.
 --
 -- 'dedicatedMasterCount', 'clusterConfig_dedicatedMasterCount' - Number of dedicated master nodes in the cluster. This number must be
--- greater than 1, otherwise you receive a validation exception.
+-- greater than 2 and not 4, otherwise you receive a validation exception.
 --
 -- 'dedicatedMasterEnabled', 'clusterConfig_dedicatedMasterEnabled' - Indicates whether dedicated master nodes are enabled for the
 -- cluster.@True@ if the cluster will use a dedicated master node.@False@
@@ -91,6 +95,10 @@ data ClusterConfig = ClusterConfig'
 -- greater than 1, otherwise you receive a validation exception.
 --
 -- 'instanceType', 'clusterConfig_instanceType' - Instance type of data nodes in the cluster.
+--
+-- 'multiAZWithStandbyEnabled', 'clusterConfig_multiAZWithStandbyEnabled' - A boolean that indicates whether a multi-AZ domain is turned on with a
+-- standby AZ. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html Configuring a multi-AZ domain in Amazon OpenSearch Service>.
 --
 -- 'warmCount', 'clusterConfig_warmCount' - The number of warm nodes in the cluster.
 --
@@ -115,6 +123,7 @@ newClusterConfig =
       dedicatedMasterType = Prelude.Nothing,
       instanceCount = Prelude.Nothing,
       instanceType = Prelude.Nothing,
+      multiAZWithStandbyEnabled = Prelude.Nothing,
       warmCount = Prelude.Nothing,
       warmEnabled = Prelude.Nothing,
       warmType = Prelude.Nothing,
@@ -127,7 +136,7 @@ clusterConfig_coldStorageOptions :: Lens.Lens' ClusterConfig (Prelude.Maybe Cold
 clusterConfig_coldStorageOptions = Lens.lens (\ClusterConfig' {coldStorageOptions} -> coldStorageOptions) (\s@ClusterConfig' {} a -> s {coldStorageOptions = a} :: ClusterConfig)
 
 -- | Number of dedicated master nodes in the cluster. This number must be
--- greater than 1, otherwise you receive a validation exception.
+-- greater than 2 and not 4, otherwise you receive a validation exception.
 clusterConfig_dedicatedMasterCount :: Lens.Lens' ClusterConfig (Prelude.Maybe Prelude.Int)
 clusterConfig_dedicatedMasterCount = Lens.lens (\ClusterConfig' {dedicatedMasterCount} -> dedicatedMasterCount) (\s@ClusterConfig' {} a -> s {dedicatedMasterCount = a} :: ClusterConfig)
 
@@ -150,6 +159,12 @@ clusterConfig_instanceCount = Lens.lens (\ClusterConfig' {instanceCount} -> inst
 -- | Instance type of data nodes in the cluster.
 clusterConfig_instanceType :: Lens.Lens' ClusterConfig (Prelude.Maybe OpenSearchPartitionInstanceType)
 clusterConfig_instanceType = Lens.lens (\ClusterConfig' {instanceType} -> instanceType) (\s@ClusterConfig' {} a -> s {instanceType = a} :: ClusterConfig)
+
+-- | A boolean that indicates whether a multi-AZ domain is turned on with a
+-- standby AZ. For more information, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html Configuring a multi-AZ domain in Amazon OpenSearch Service>.
+clusterConfig_multiAZWithStandbyEnabled :: Lens.Lens' ClusterConfig (Prelude.Maybe Prelude.Bool)
+clusterConfig_multiAZWithStandbyEnabled = Lens.lens (\ClusterConfig' {multiAZWithStandbyEnabled} -> multiAZWithStandbyEnabled) (\s@ClusterConfig' {} a -> s {multiAZWithStandbyEnabled = a} :: ClusterConfig)
 
 -- | The number of warm nodes in the cluster.
 clusterConfig_warmCount :: Lens.Lens' ClusterConfig (Prelude.Maybe Prelude.Int)
@@ -186,6 +201,7 @@ instance Data.FromJSON ClusterConfig where
             Prelude.<*> (x Data..:? "DedicatedMasterType")
             Prelude.<*> (x Data..:? "InstanceCount")
             Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "MultiAZWithStandbyEnabled")
             Prelude.<*> (x Data..:? "WarmCount")
             Prelude.<*> (x Data..:? "WarmEnabled")
             Prelude.<*> (x Data..:? "WarmType")
@@ -195,12 +211,14 @@ instance Data.FromJSON ClusterConfig where
 
 instance Prelude.Hashable ClusterConfig where
   hashWithSalt _salt ClusterConfig' {..} =
-    _salt `Prelude.hashWithSalt` coldStorageOptions
+    _salt
+      `Prelude.hashWithSalt` coldStorageOptions
       `Prelude.hashWithSalt` dedicatedMasterCount
       `Prelude.hashWithSalt` dedicatedMasterEnabled
       `Prelude.hashWithSalt` dedicatedMasterType
       `Prelude.hashWithSalt` instanceCount
       `Prelude.hashWithSalt` instanceType
+      `Prelude.hashWithSalt` multiAZWithStandbyEnabled
       `Prelude.hashWithSalt` warmCount
       `Prelude.hashWithSalt` warmEnabled
       `Prelude.hashWithSalt` warmType
@@ -215,6 +233,7 @@ instance Prelude.NFData ClusterConfig where
       `Prelude.seq` Prelude.rnf dedicatedMasterType
       `Prelude.seq` Prelude.rnf instanceCount
       `Prelude.seq` Prelude.rnf instanceType
+      `Prelude.seq` Prelude.rnf multiAZWithStandbyEnabled
       `Prelude.seq` Prelude.rnf warmCount
       `Prelude.seq` Prelude.rnf warmEnabled
       `Prelude.seq` Prelude.rnf warmType
@@ -235,6 +254,8 @@ instance Data.ToJSON ClusterConfig where
               Prelude.<$> dedicatedMasterType,
             ("InstanceCount" Data..=) Prelude.<$> instanceCount,
             ("InstanceType" Data..=) Prelude.<$> instanceType,
+            ("MultiAZWithStandbyEnabled" Data..=)
+              Prelude.<$> multiAZWithStandbyEnabled,
             ("WarmCount" Data..=) Prelude.<$> warmCount,
             ("WarmEnabled" Data..=) Prelude.<$> warmEnabled,
             ("WarmType" Data..=) Prelude.<$> warmType,

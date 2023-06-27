@@ -83,7 +83,8 @@ instance Data.FromJSON Limits where
       "Limits"
       ( \x ->
           Limits'
-            Prelude.<$> ( x Data..:? "AdditionalLimits"
+            Prelude.<$> ( x
+                            Data..:? "AdditionalLimits"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "InstanceLimits")
@@ -92,7 +93,8 @@ instance Data.FromJSON Limits where
 
 instance Prelude.Hashable Limits where
   hashWithSalt _salt Limits' {..} =
-    _salt `Prelude.hashWithSalt` additionalLimits
+    _salt
+      `Prelude.hashWithSalt` additionalLimits
       `Prelude.hashWithSalt` instanceLimits
       `Prelude.hashWithSalt` storageTypes
 

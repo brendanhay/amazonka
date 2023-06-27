@@ -133,7 +133,8 @@ instance Data.FromJSON InboundConnectionStatus where
 
 instance Prelude.Hashable InboundConnectionStatus where
   hashWithSalt _salt InboundConnectionStatus' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` statusCode
 
 instance Prelude.NFData InboundConnectionStatus where

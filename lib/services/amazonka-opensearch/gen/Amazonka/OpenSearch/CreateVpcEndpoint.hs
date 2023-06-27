@@ -53,7 +53,7 @@ import qualified Amazonka.Response as Response
 data CreateVpcEndpoint = CreateVpcEndpoint'
   { -- | Unique, case-sensitive identifier to ensure idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the domain to grant access to.
+    -- | The Amazon Resource Name (ARN) of the domain to create the endpoint for.
     domainArn :: Prelude.Text,
     -- | Options to specify the subnets and security groups for the endpoint.
     vpcOptions :: VPCOptions
@@ -70,7 +70,7 @@ data CreateVpcEndpoint = CreateVpcEndpoint'
 --
 -- 'clientToken', 'createVpcEndpoint_clientToken' - Unique, case-sensitive identifier to ensure idempotency of the request.
 --
--- 'domainArn', 'createVpcEndpoint_domainArn' - The Amazon Resource Name (ARN) of the domain to grant access to.
+-- 'domainArn', 'createVpcEndpoint_domainArn' - The Amazon Resource Name (ARN) of the domain to create the endpoint for.
 --
 -- 'vpcOptions', 'createVpcEndpoint_vpcOptions' - Options to specify the subnets and security groups for the endpoint.
 newCreateVpcEndpoint ::
@@ -90,7 +90,7 @@ newCreateVpcEndpoint pDomainArn_ pVpcOptions_ =
 createVpcEndpoint_clientToken :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe Prelude.Text)
 createVpcEndpoint_clientToken = Lens.lens (\CreateVpcEndpoint' {clientToken} -> clientToken) (\s@CreateVpcEndpoint' {} a -> s {clientToken = a} :: CreateVpcEndpoint)
 
--- | The Amazon Resource Name (ARN) of the domain to grant access to.
+-- | The Amazon Resource Name (ARN) of the domain to create the endpoint for.
 createVpcEndpoint_domainArn :: Lens.Lens' CreateVpcEndpoint Prelude.Text
 createVpcEndpoint_domainArn = Lens.lens (\CreateVpcEndpoint' {domainArn} -> domainArn) (\s@CreateVpcEndpoint' {} a -> s {domainArn = a} :: CreateVpcEndpoint)
 
@@ -114,7 +114,8 @@ instance Core.AWSRequest CreateVpcEndpoint where
 
 instance Prelude.Hashable CreateVpcEndpoint where
   hashWithSalt _salt CreateVpcEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` domainArn
       `Prelude.hashWithSalt` vpcOptions
 

@@ -22,6 +22,7 @@ module Amazonka.OpenSearch.Types.InboundConnection where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.OpenSearch.Types.ConnectionMode
 import Amazonka.OpenSearch.Types.DomainInformationContainer
 import Amazonka.OpenSearch.Types.InboundConnectionStatus
 import qualified Amazonka.Prelude as Prelude
@@ -34,6 +35,8 @@ import qualified Amazonka.Prelude as Prelude
 data InboundConnection = InboundConnection'
   { -- | The unique identifier of the connection.
     connectionId :: Prelude.Maybe Prelude.Text,
+    -- | The connection mode.
+    connectionMode :: Prelude.Maybe ConnectionMode,
     -- | The current status of the connection.
     connectionStatus :: Prelude.Maybe InboundConnectionStatus,
     -- | Information about the source (local) domain.
@@ -53,6 +56,8 @@ data InboundConnection = InboundConnection'
 --
 -- 'connectionId', 'inboundConnection_connectionId' - The unique identifier of the connection.
 --
+-- 'connectionMode', 'inboundConnection_connectionMode' - The connection mode.
+--
 -- 'connectionStatus', 'inboundConnection_connectionStatus' - The current status of the connection.
 --
 -- 'localDomainInfo', 'inboundConnection_localDomainInfo' - Information about the source (local) domain.
@@ -63,6 +68,7 @@ newInboundConnection ::
 newInboundConnection =
   InboundConnection'
     { connectionId = Prelude.Nothing,
+      connectionMode = Prelude.Nothing,
       connectionStatus = Prelude.Nothing,
       localDomainInfo = Prelude.Nothing,
       remoteDomainInfo = Prelude.Nothing
@@ -71,6 +77,10 @@ newInboundConnection =
 -- | The unique identifier of the connection.
 inboundConnection_connectionId :: Lens.Lens' InboundConnection (Prelude.Maybe Prelude.Text)
 inboundConnection_connectionId = Lens.lens (\InboundConnection' {connectionId} -> connectionId) (\s@InboundConnection' {} a -> s {connectionId = a} :: InboundConnection)
+
+-- | The connection mode.
+inboundConnection_connectionMode :: Lens.Lens' InboundConnection (Prelude.Maybe ConnectionMode)
+inboundConnection_connectionMode = Lens.lens (\InboundConnection' {connectionMode} -> connectionMode) (\s@InboundConnection' {} a -> s {connectionMode = a} :: InboundConnection)
 
 -- | The current status of the connection.
 inboundConnection_connectionStatus :: Lens.Lens' InboundConnection (Prelude.Maybe InboundConnectionStatus)
@@ -91,6 +101,7 @@ instance Data.FromJSON InboundConnection where
       ( \x ->
           InboundConnection'
             Prelude.<$> (x Data..:? "ConnectionId")
+            Prelude.<*> (x Data..:? "ConnectionMode")
             Prelude.<*> (x Data..:? "ConnectionStatus")
             Prelude.<*> (x Data..:? "LocalDomainInfo")
             Prelude.<*> (x Data..:? "RemoteDomainInfo")
@@ -98,7 +109,9 @@ instance Data.FromJSON InboundConnection where
 
 instance Prelude.Hashable InboundConnection where
   hashWithSalt _salt InboundConnection' {..} =
-    _salt `Prelude.hashWithSalt` connectionId
+    _salt
+      `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` connectionMode
       `Prelude.hashWithSalt` connectionStatus
       `Prelude.hashWithSalt` localDomainInfo
       `Prelude.hashWithSalt` remoteDomainInfo
@@ -106,6 +119,7 @@ instance Prelude.Hashable InboundConnection where
 instance Prelude.NFData InboundConnection where
   rnf InboundConnection' {..} =
     Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf connectionMode
       `Prelude.seq` Prelude.rnf connectionStatus
       `Prelude.seq` Prelude.rnf localDomainInfo
       `Prelude.seq` Prelude.rnf remoteDomainInfo

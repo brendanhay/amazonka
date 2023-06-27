@@ -30,6 +30,8 @@ module Amazonka.OpenSearch.CreateOutboundConnection
     newCreateOutboundConnection,
 
     -- * Request Lenses
+    createOutboundConnection_connectionMode,
+    createOutboundConnection_connectionProperties,
     createOutboundConnection_localDomainInfo,
     createOutboundConnection_remoteDomainInfo,
     createOutboundConnection_connectionAlias,
@@ -41,6 +43,8 @@ module Amazonka.OpenSearch.CreateOutboundConnection
     -- * Response Lenses
     createOutboundConnectionResponse_connectionAlias,
     createOutboundConnectionResponse_connectionId,
+    createOutboundConnectionResponse_connectionMode,
+    createOutboundConnectionResponse_connectionProperties,
     createOutboundConnectionResponse_connectionStatus,
     createOutboundConnectionResponse_localDomainInfo,
     createOutboundConnectionResponse_remoteDomainInfo,
@@ -61,7 +65,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateOutboundConnection' smart constructor.
 data CreateOutboundConnection = CreateOutboundConnection'
-  { -- | Name and Region of the source (local) domain.
+  { -- | The connection mode.
+    connectionMode :: Prelude.Maybe ConnectionMode,
+    -- | The @ConnectionProperties@ for the outbound connection.
+    connectionProperties :: Prelude.Maybe ConnectionProperties,
+    -- | Name and Region of the source (local) domain.
     localDomainInfo :: DomainInformationContainer,
     -- | Name and Region of the destination (remote) domain.
     remoteDomainInfo :: DomainInformationContainer,
@@ -77,6 +85,10 @@ data CreateOutboundConnection = CreateOutboundConnection'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'connectionMode', 'createOutboundConnection_connectionMode' - The connection mode.
+--
+-- 'connectionProperties', 'createOutboundConnection_connectionProperties' - The @ConnectionProperties@ for the outbound connection.
 --
 -- 'localDomainInfo', 'createOutboundConnection_localDomainInfo' - Name and Region of the source (local) domain.
 --
@@ -96,11 +108,21 @@ newCreateOutboundConnection
   pRemoteDomainInfo_
   pConnectionAlias_ =
     CreateOutboundConnection'
-      { localDomainInfo =
-          pLocalDomainInfo_,
+      { connectionMode =
+          Prelude.Nothing,
+        connectionProperties = Prelude.Nothing,
+        localDomainInfo = pLocalDomainInfo_,
         remoteDomainInfo = pRemoteDomainInfo_,
         connectionAlias = pConnectionAlias_
       }
+
+-- | The connection mode.
+createOutboundConnection_connectionMode :: Lens.Lens' CreateOutboundConnection (Prelude.Maybe ConnectionMode)
+createOutboundConnection_connectionMode = Lens.lens (\CreateOutboundConnection' {connectionMode} -> connectionMode) (\s@CreateOutboundConnection' {} a -> s {connectionMode = a} :: CreateOutboundConnection)
+
+-- | The @ConnectionProperties@ for the outbound connection.
+createOutboundConnection_connectionProperties :: Lens.Lens' CreateOutboundConnection (Prelude.Maybe ConnectionProperties)
+createOutboundConnection_connectionProperties = Lens.lens (\CreateOutboundConnection' {connectionProperties} -> connectionProperties) (\s@CreateOutboundConnection' {} a -> s {connectionProperties = a} :: CreateOutboundConnection)
 
 -- | Name and Region of the source (local) domain.
 createOutboundConnection_localDomainInfo :: Lens.Lens' CreateOutboundConnection DomainInformationContainer
@@ -126,6 +148,8 @@ instance Core.AWSRequest CreateOutboundConnection where
           CreateOutboundConnectionResponse'
             Prelude.<$> (x Data..?> "ConnectionAlias")
             Prelude.<*> (x Data..?> "ConnectionId")
+            Prelude.<*> (x Data..?> "ConnectionMode")
+            Prelude.<*> (x Data..?> "ConnectionProperties")
             Prelude.<*> (x Data..?> "ConnectionStatus")
             Prelude.<*> (x Data..?> "LocalDomainInfo")
             Prelude.<*> (x Data..?> "RemoteDomainInfo")
@@ -134,13 +158,18 @@ instance Core.AWSRequest CreateOutboundConnection where
 
 instance Prelude.Hashable CreateOutboundConnection where
   hashWithSalt _salt CreateOutboundConnection' {..} =
-    _salt `Prelude.hashWithSalt` localDomainInfo
+    _salt
+      `Prelude.hashWithSalt` connectionMode
+      `Prelude.hashWithSalt` connectionProperties
+      `Prelude.hashWithSalt` localDomainInfo
       `Prelude.hashWithSalt` remoteDomainInfo
       `Prelude.hashWithSalt` connectionAlias
 
 instance Prelude.NFData CreateOutboundConnection where
   rnf CreateOutboundConnection' {..} =
-    Prelude.rnf localDomainInfo
+    Prelude.rnf connectionMode
+      `Prelude.seq` Prelude.rnf connectionProperties
+      `Prelude.seq` Prelude.rnf localDomainInfo
       `Prelude.seq` Prelude.rnf remoteDomainInfo
       `Prelude.seq` Prelude.rnf connectionAlias
 
@@ -151,7 +180,11 @@ instance Data.ToJSON CreateOutboundConnection where
   toJSON CreateOutboundConnection' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("ConnectionMode" Data..=)
+              Prelude.<$> connectionMode,
+            ("ConnectionProperties" Data..=)
+              Prelude.<$> connectionProperties,
+            Prelude.Just
               ("LocalDomainInfo" Data..= localDomainInfo),
             Prelude.Just
               ("RemoteDomainInfo" Data..= remoteDomainInfo),
@@ -178,6 +211,10 @@ data CreateOutboundConnectionResponse = CreateOutboundConnectionResponse'
     -- | The unique identifier for the created outbound connection, which is used
     -- for subsequent operations on the connection.
     connectionId :: Prelude.Maybe Prelude.Text,
+    -- | The connection mode.
+    connectionMode :: Prelude.Maybe ConnectionMode,
+    -- | The @ConnectionProperties@ for the newly created connection.
+    connectionProperties :: Prelude.Maybe ConnectionProperties,
     -- | The status of the connection.
     connectionStatus :: Prelude.Maybe OutboundConnectionStatus,
     -- | Information about the source (local) domain.
@@ -202,6 +239,10 @@ data CreateOutboundConnectionResponse = CreateOutboundConnectionResponse'
 -- 'connectionId', 'createOutboundConnectionResponse_connectionId' - The unique identifier for the created outbound connection, which is used
 -- for subsequent operations on the connection.
 --
+-- 'connectionMode', 'createOutboundConnectionResponse_connectionMode' - The connection mode.
+--
+-- 'connectionProperties', 'createOutboundConnectionResponse_connectionProperties' - The @ConnectionProperties@ for the newly created connection.
+--
 -- 'connectionStatus', 'createOutboundConnectionResponse_connectionStatus' - The status of the connection.
 --
 -- 'localDomainInfo', 'createOutboundConnectionResponse_localDomainInfo' - Information about the source (local) domain.
@@ -218,6 +259,8 @@ newCreateOutboundConnectionResponse pHttpStatus_ =
     { connectionAlias =
         Prelude.Nothing,
       connectionId = Prelude.Nothing,
+      connectionMode = Prelude.Nothing,
+      connectionProperties = Prelude.Nothing,
       connectionStatus = Prelude.Nothing,
       localDomainInfo = Prelude.Nothing,
       remoteDomainInfo = Prelude.Nothing,
@@ -232,6 +275,14 @@ createOutboundConnectionResponse_connectionAlias = Lens.lens (\CreateOutboundCon
 -- for subsequent operations on the connection.
 createOutboundConnectionResponse_connectionId :: Lens.Lens' CreateOutboundConnectionResponse (Prelude.Maybe Prelude.Text)
 createOutboundConnectionResponse_connectionId = Lens.lens (\CreateOutboundConnectionResponse' {connectionId} -> connectionId) (\s@CreateOutboundConnectionResponse' {} a -> s {connectionId = a} :: CreateOutboundConnectionResponse)
+
+-- | The connection mode.
+createOutboundConnectionResponse_connectionMode :: Lens.Lens' CreateOutboundConnectionResponse (Prelude.Maybe ConnectionMode)
+createOutboundConnectionResponse_connectionMode = Lens.lens (\CreateOutboundConnectionResponse' {connectionMode} -> connectionMode) (\s@CreateOutboundConnectionResponse' {} a -> s {connectionMode = a} :: CreateOutboundConnectionResponse)
+
+-- | The @ConnectionProperties@ for the newly created connection.
+createOutboundConnectionResponse_connectionProperties :: Lens.Lens' CreateOutboundConnectionResponse (Prelude.Maybe ConnectionProperties)
+createOutboundConnectionResponse_connectionProperties = Lens.lens (\CreateOutboundConnectionResponse' {connectionProperties} -> connectionProperties) (\s@CreateOutboundConnectionResponse' {} a -> s {connectionProperties = a} :: CreateOutboundConnectionResponse)
 
 -- | The status of the connection.
 createOutboundConnectionResponse_connectionStatus :: Lens.Lens' CreateOutboundConnectionResponse (Prelude.Maybe OutboundConnectionStatus)
@@ -256,6 +307,8 @@ instance
   rnf CreateOutboundConnectionResponse' {..} =
     Prelude.rnf connectionAlias
       `Prelude.seq` Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf connectionMode
+      `Prelude.seq` Prelude.rnf connectionProperties
       `Prelude.seq` Prelude.rnf connectionStatus
       `Prelude.seq` Prelude.rnf localDomainInfo
       `Prelude.seq` Prelude.rnf remoteDomainInfo

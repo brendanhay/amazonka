@@ -60,7 +60,7 @@ data CreatePackage = CreatePackage'
     packageDescription :: Prelude.Maybe Prelude.Text,
     -- | Unique name for the package.
     packageName :: Prelude.Text,
-    -- | Type of package.
+    -- | The type of package.
     packageType :: PackageType,
     -- | The Amazon S3 location from which to import the package.
     packageSource :: PackageSource
@@ -79,7 +79,7 @@ data CreatePackage = CreatePackage'
 --
 -- 'packageName', 'createPackage_packageName' - Unique name for the package.
 --
--- 'packageType', 'createPackage_packageType' - Type of package.
+-- 'packageType', 'createPackage_packageType' - The type of package.
 --
 -- 'packageSource', 'createPackage_packageSource' - The Amazon S3 location from which to import the package.
 newCreatePackage ::
@@ -110,7 +110,7 @@ createPackage_packageDescription = Lens.lens (\CreatePackage' {packageDescriptio
 createPackage_packageName :: Lens.Lens' CreatePackage Prelude.Text
 createPackage_packageName = Lens.lens (\CreatePackage' {packageName} -> packageName) (\s@CreatePackage' {} a -> s {packageName = a} :: CreatePackage)
 
--- | Type of package.
+-- | The type of package.
 createPackage_packageType :: Lens.Lens' CreatePackage PackageType
 createPackage_packageType = Lens.lens (\CreatePackage' {packageType} -> packageType) (\s@CreatePackage' {} a -> s {packageType = a} :: CreatePackage)
 
@@ -134,7 +134,8 @@ instance Core.AWSRequest CreatePackage where
 
 instance Prelude.Hashable CreatePackage where
   hashWithSalt _salt CreatePackage' {..} =
-    _salt `Prelude.hashWithSalt` packageDescription
+    _salt
+      `Prelude.hashWithSalt` packageDescription
       `Prelude.hashWithSalt` packageName
       `Prelude.hashWithSalt` packageType
       `Prelude.hashWithSalt` packageSource

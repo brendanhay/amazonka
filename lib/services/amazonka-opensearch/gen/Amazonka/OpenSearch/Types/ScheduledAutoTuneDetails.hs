@@ -101,7 +101,8 @@ instance Data.FromJSON ScheduledAutoTuneDetails where
 
 instance Prelude.Hashable ScheduledAutoTuneDetails where
   hashWithSalt _salt ScheduledAutoTuneDetails' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` actionType
       `Prelude.hashWithSalt` date
       `Prelude.hashWithSalt` severity

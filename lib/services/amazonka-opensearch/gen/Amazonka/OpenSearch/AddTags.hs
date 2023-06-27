@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Attaches tags to an existing Amazon OpenSearch Service domain. Tags are
--- a set of case-sensitive key-value pairs. An domain can have up to 10
+-- a set of case-sensitive key-value pairs. A domain can have up to 10
 -- tags. For more information, see
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging Tagging Amazon OpenSearch Service domains>.
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html Tagging Amazon OpenSearch Service domains>.
 module Amazonka.OpenSearch.AddTags
   ( -- * Creating a Request
     AddTags (..),
@@ -96,7 +96,8 @@ instance Core.AWSRequest AddTags where
 
 instance Prelude.Hashable AddTags where
   hashWithSalt _salt AddTags' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` tagList
 
 instance Prelude.NFData AddTags where

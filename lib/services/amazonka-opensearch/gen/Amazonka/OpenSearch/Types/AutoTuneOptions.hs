@@ -34,7 +34,11 @@ import qualified Amazonka.Prelude as Prelude
 data AutoTuneOptions = AutoTuneOptions'
   { -- | Whether Auto-Tune is enabled or disabled.
     desiredState :: Prelude.Maybe AutoTuneDesiredState,
-    -- | A list of maintenance schedules during which Auto-Tune can deploy
+    -- | DEPRECATED. Use
+    -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html off-peak window>
+    -- instead.
+    --
+    -- A list of maintenance schedules during which Auto-Tune can deploy
     -- changes.
     maintenanceSchedules :: Prelude.Maybe [AutoTuneMaintenanceSchedule],
     -- | When disabling Auto-Tune, specify @NO_ROLLBACK@ to retain all prior
@@ -42,7 +46,12 @@ data AutoTuneOptions = AutoTuneOptions'
     -- Service defaults. If you specify @DEFAULT_ROLLBACK@, you must include a
     -- @MaintenanceSchedule@ in the request. Otherwise, OpenSearch Service is
     -- unable to perform the rollback.
-    rollbackOnDisable :: Prelude.Maybe RollbackOnDisable
+    rollbackOnDisable :: Prelude.Maybe RollbackOnDisable,
+    -- | Whether to use the domain\'s
+    -- <https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_OffPeakWindow.html off-peak window>
+    -- to deploy configuration changes on the domain rather than a maintenance
+    -- schedule.
+    useOffPeakWindow :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,7 +65,11 @@ data AutoTuneOptions = AutoTuneOptions'
 --
 -- 'desiredState', 'autoTuneOptions_desiredState' - Whether Auto-Tune is enabled or disabled.
 --
--- 'maintenanceSchedules', 'autoTuneOptions_maintenanceSchedules' - A list of maintenance schedules during which Auto-Tune can deploy
+-- 'maintenanceSchedules', 'autoTuneOptions_maintenanceSchedules' - DEPRECATED. Use
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html off-peak window>
+-- instead.
+--
+-- A list of maintenance schedules during which Auto-Tune can deploy
 -- changes.
 --
 -- 'rollbackOnDisable', 'autoTuneOptions_rollbackOnDisable' - When disabling Auto-Tune, specify @NO_ROLLBACK@ to retain all prior
@@ -64,20 +77,30 @@ data AutoTuneOptions = AutoTuneOptions'
 -- Service defaults. If you specify @DEFAULT_ROLLBACK@, you must include a
 -- @MaintenanceSchedule@ in the request. Otherwise, OpenSearch Service is
 -- unable to perform the rollback.
+--
+-- 'useOffPeakWindow', 'autoTuneOptions_useOffPeakWindow' - Whether to use the domain\'s
+-- <https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_OffPeakWindow.html off-peak window>
+-- to deploy configuration changes on the domain rather than a maintenance
+-- schedule.
 newAutoTuneOptions ::
   AutoTuneOptions
 newAutoTuneOptions =
   AutoTuneOptions'
     { desiredState = Prelude.Nothing,
       maintenanceSchedules = Prelude.Nothing,
-      rollbackOnDisable = Prelude.Nothing
+      rollbackOnDisable = Prelude.Nothing,
+      useOffPeakWindow = Prelude.Nothing
     }
 
 -- | Whether Auto-Tune is enabled or disabled.
 autoTuneOptions_desiredState :: Lens.Lens' AutoTuneOptions (Prelude.Maybe AutoTuneDesiredState)
 autoTuneOptions_desiredState = Lens.lens (\AutoTuneOptions' {desiredState} -> desiredState) (\s@AutoTuneOptions' {} a -> s {desiredState = a} :: AutoTuneOptions)
 
--- | A list of maintenance schedules during which Auto-Tune can deploy
+-- | DEPRECATED. Use
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html off-peak window>
+-- instead.
+--
+-- A list of maintenance schedules during which Auto-Tune can deploy
 -- changes.
 autoTuneOptions_maintenanceSchedules :: Lens.Lens' AutoTuneOptions (Prelude.Maybe [AutoTuneMaintenanceSchedule])
 autoTuneOptions_maintenanceSchedules = Lens.lens (\AutoTuneOptions' {maintenanceSchedules} -> maintenanceSchedules) (\s@AutoTuneOptions' {} a -> s {maintenanceSchedules = a} :: AutoTuneOptions) Prelude.. Lens.mapping Lens.coerced
@@ -90,6 +113,13 @@ autoTuneOptions_maintenanceSchedules = Lens.lens (\AutoTuneOptions' {maintenance
 autoTuneOptions_rollbackOnDisable :: Lens.Lens' AutoTuneOptions (Prelude.Maybe RollbackOnDisable)
 autoTuneOptions_rollbackOnDisable = Lens.lens (\AutoTuneOptions' {rollbackOnDisable} -> rollbackOnDisable) (\s@AutoTuneOptions' {} a -> s {rollbackOnDisable = a} :: AutoTuneOptions)
 
+-- | Whether to use the domain\'s
+-- <https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_OffPeakWindow.html off-peak window>
+-- to deploy configuration changes on the domain rather than a maintenance
+-- schedule.
+autoTuneOptions_useOffPeakWindow :: Lens.Lens' AutoTuneOptions (Prelude.Maybe Prelude.Bool)
+autoTuneOptions_useOffPeakWindow = Lens.lens (\AutoTuneOptions' {useOffPeakWindow} -> useOffPeakWindow) (\s@AutoTuneOptions' {} a -> s {useOffPeakWindow = a} :: AutoTuneOptions)
+
 instance Data.FromJSON AutoTuneOptions where
   parseJSON =
     Data.withObject
@@ -97,23 +127,28 @@ instance Data.FromJSON AutoTuneOptions where
       ( \x ->
           AutoTuneOptions'
             Prelude.<$> (x Data..:? "DesiredState")
-            Prelude.<*> ( x Data..:? "MaintenanceSchedules"
+            Prelude.<*> ( x
+                            Data..:? "MaintenanceSchedules"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RollbackOnDisable")
+            Prelude.<*> (x Data..:? "UseOffPeakWindow")
       )
 
 instance Prelude.Hashable AutoTuneOptions where
   hashWithSalt _salt AutoTuneOptions' {..} =
-    _salt `Prelude.hashWithSalt` desiredState
+    _salt
+      `Prelude.hashWithSalt` desiredState
       `Prelude.hashWithSalt` maintenanceSchedules
       `Prelude.hashWithSalt` rollbackOnDisable
+      `Prelude.hashWithSalt` useOffPeakWindow
 
 instance Prelude.NFData AutoTuneOptions where
   rnf AutoTuneOptions' {..} =
     Prelude.rnf desiredState
       `Prelude.seq` Prelude.rnf maintenanceSchedules
       `Prelude.seq` Prelude.rnf rollbackOnDisable
+      `Prelude.seq` Prelude.rnf useOffPeakWindow
 
 instance Data.ToJSON AutoTuneOptions where
   toJSON AutoTuneOptions' {..} =
@@ -123,6 +158,8 @@ instance Data.ToJSON AutoTuneOptions where
             ("MaintenanceSchedules" Data..=)
               Prelude.<$> maintenanceSchedules,
             ("RollbackOnDisable" Data..=)
-              Prelude.<$> rollbackOnDisable
+              Prelude.<$> rollbackOnDisable,
+            ("UseOffPeakWindow" Data..=)
+              Prelude.<$> useOffPeakWindow
           ]
       )

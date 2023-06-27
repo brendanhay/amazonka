@@ -22,6 +22,8 @@ module Amazonka.OpenSearch.Types.OutboundConnection where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.OpenSearch.Types.ConnectionMode
+import Amazonka.OpenSearch.Types.ConnectionProperties
 import Amazonka.OpenSearch.Types.DomainInformationContainer
 import Amazonka.OpenSearch.Types.OutboundConnectionStatus
 import qualified Amazonka.Prelude as Prelude
@@ -34,6 +36,10 @@ data OutboundConnection = OutboundConnection'
     connectionAlias :: Prelude.Maybe Prelude.Text,
     -- | Unique identifier of the connection.
     connectionId :: Prelude.Maybe Prelude.Text,
+    -- | The connection mode.
+    connectionMode :: Prelude.Maybe ConnectionMode,
+    -- | Properties for the outbound connection.
+    connectionProperties :: Prelude.Maybe ConnectionProperties,
     -- | Status of the connection.
     connectionStatus :: Prelude.Maybe OutboundConnectionStatus,
     -- | Information about the source (local) domain.
@@ -55,6 +61,10 @@ data OutboundConnection = OutboundConnection'
 --
 -- 'connectionId', 'outboundConnection_connectionId' - Unique identifier of the connection.
 --
+-- 'connectionMode', 'outboundConnection_connectionMode' - The connection mode.
+--
+-- 'connectionProperties', 'outboundConnection_connectionProperties' - Properties for the outbound connection.
+--
 -- 'connectionStatus', 'outboundConnection_connectionStatus' - Status of the connection.
 --
 -- 'localDomainInfo', 'outboundConnection_localDomainInfo' - Information about the source (local) domain.
@@ -67,6 +77,8 @@ newOutboundConnection =
     { connectionAlias =
         Prelude.Nothing,
       connectionId = Prelude.Nothing,
+      connectionMode = Prelude.Nothing,
+      connectionProperties = Prelude.Nothing,
       connectionStatus = Prelude.Nothing,
       localDomainInfo = Prelude.Nothing,
       remoteDomainInfo = Prelude.Nothing
@@ -79,6 +91,14 @@ outboundConnection_connectionAlias = Lens.lens (\OutboundConnection' {connection
 -- | Unique identifier of the connection.
 outboundConnection_connectionId :: Lens.Lens' OutboundConnection (Prelude.Maybe Prelude.Text)
 outboundConnection_connectionId = Lens.lens (\OutboundConnection' {connectionId} -> connectionId) (\s@OutboundConnection' {} a -> s {connectionId = a} :: OutboundConnection)
+
+-- | The connection mode.
+outboundConnection_connectionMode :: Lens.Lens' OutboundConnection (Prelude.Maybe ConnectionMode)
+outboundConnection_connectionMode = Lens.lens (\OutboundConnection' {connectionMode} -> connectionMode) (\s@OutboundConnection' {} a -> s {connectionMode = a} :: OutboundConnection)
+
+-- | Properties for the outbound connection.
+outboundConnection_connectionProperties :: Lens.Lens' OutboundConnection (Prelude.Maybe ConnectionProperties)
+outboundConnection_connectionProperties = Lens.lens (\OutboundConnection' {connectionProperties} -> connectionProperties) (\s@OutboundConnection' {} a -> s {connectionProperties = a} :: OutboundConnection)
 
 -- | Status of the connection.
 outboundConnection_connectionStatus :: Lens.Lens' OutboundConnection (Prelude.Maybe OutboundConnectionStatus)
@@ -100,6 +120,8 @@ instance Data.FromJSON OutboundConnection where
           OutboundConnection'
             Prelude.<$> (x Data..:? "ConnectionAlias")
             Prelude.<*> (x Data..:? "ConnectionId")
+            Prelude.<*> (x Data..:? "ConnectionMode")
+            Prelude.<*> (x Data..:? "ConnectionProperties")
             Prelude.<*> (x Data..:? "ConnectionStatus")
             Prelude.<*> (x Data..:? "LocalDomainInfo")
             Prelude.<*> (x Data..:? "RemoteDomainInfo")
@@ -107,8 +129,11 @@ instance Data.FromJSON OutboundConnection where
 
 instance Prelude.Hashable OutboundConnection where
   hashWithSalt _salt OutboundConnection' {..} =
-    _salt `Prelude.hashWithSalt` connectionAlias
+    _salt
+      `Prelude.hashWithSalt` connectionAlias
       `Prelude.hashWithSalt` connectionId
+      `Prelude.hashWithSalt` connectionMode
+      `Prelude.hashWithSalt` connectionProperties
       `Prelude.hashWithSalt` connectionStatus
       `Prelude.hashWithSalt` localDomainInfo
       `Prelude.hashWithSalt` remoteDomainInfo
@@ -117,6 +142,8 @@ instance Prelude.NFData OutboundConnection where
   rnf OutboundConnection' {..} =
     Prelude.rnf connectionAlias
       `Prelude.seq` Prelude.rnf connectionId
+      `Prelude.seq` Prelude.rnf connectionMode
+      `Prelude.seq` Prelude.rnf connectionProperties
       `Prelude.seq` Prelude.rnf connectionStatus
       `Prelude.seq` Prelude.rnf localDomainInfo
       `Prelude.seq` Prelude.rnf remoteDomainInfo

@@ -40,7 +40,9 @@ module Amazonka.OpenSearch.CreateDomain
     createDomain_engineVersion,
     createDomain_logPublishingOptions,
     createDomain_nodeToNodeEncryptionOptions,
+    createDomain_offPeakWindowOptions,
     createDomain_snapshotOptions,
+    createDomain_softwareUpdateOptions,
     createDomain_tagList,
     createDomain_vPCOptions,
     createDomain_domainName,
@@ -120,13 +122,21 @@ data CreateDomain = CreateDomain'
     -- @OpenSearch_1.0@ or @Elasticsearch_7.9@. For more information, see
     -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains Creating and managing Amazon OpenSearch Service domains>.
     engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | Key-value pairs to configure slow log publishing.
+    -- | Key-value pairs to configure log publishing.
     logPublishingOptions :: Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption),
     -- | Enables node-to-node encryption.
     nodeToNodeEncryptionOptions :: Prelude.Maybe NodeToNodeEncryptionOptions,
+    -- | Specifies a daily 10-hour time block during which OpenSearch Service can
+    -- perform configuration changes on the domain, including service software
+    -- updates and Auto-Tune enhancements that require a blue\/green
+    -- deployment. If no options are specified, the default start time of 10:00
+    -- P.M. local time (for the Region that the domain is created in) is used.
+    offPeakWindowOptions :: Prelude.Maybe OffPeakWindowOptions,
     -- | DEPRECATED. Container for the parameters required to configure automated
     -- snapshots of domain indexes.
     snapshotOptions :: Prelude.Maybe SnapshotOptions,
+    -- | Software update options for the domain.
+    softwareUpdateOptions :: Prelude.Maybe SoftwareUpdateOptions,
     -- | List of tags to add to the domain upon creation.
     tagList :: Prelude.Maybe [Tag],
     -- | Container for the values required to configure VPC access domains. If
@@ -204,12 +214,20 @@ data CreateDomain = CreateDomain'
 -- @OpenSearch_1.0@ or @Elasticsearch_7.9@. For more information, see
 -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains Creating and managing Amazon OpenSearch Service domains>.
 --
--- 'logPublishingOptions', 'createDomain_logPublishingOptions' - Key-value pairs to configure slow log publishing.
+-- 'logPublishingOptions', 'createDomain_logPublishingOptions' - Key-value pairs to configure log publishing.
 --
 -- 'nodeToNodeEncryptionOptions', 'createDomain_nodeToNodeEncryptionOptions' - Enables node-to-node encryption.
 --
+-- 'offPeakWindowOptions', 'createDomain_offPeakWindowOptions' - Specifies a daily 10-hour time block during which OpenSearch Service can
+-- perform configuration changes on the domain, including service software
+-- updates and Auto-Tune enhancements that require a blue\/green
+-- deployment. If no options are specified, the default start time of 10:00
+-- P.M. local time (for the Region that the domain is created in) is used.
+--
 -- 'snapshotOptions', 'createDomain_snapshotOptions' - DEPRECATED. Container for the parameters required to configure automated
 -- snapshots of domain indexes.
+--
+-- 'softwareUpdateOptions', 'createDomain_softwareUpdateOptions' - Software update options for the domain.
 --
 -- 'tagList', 'createDomain_tagList' - List of tags to add to the domain upon creation.
 --
@@ -239,7 +257,9 @@ newCreateDomain pDomainName_ =
       engineVersion = Prelude.Nothing,
       logPublishingOptions = Prelude.Nothing,
       nodeToNodeEncryptionOptions = Prelude.Nothing,
+      offPeakWindowOptions = Prelude.Nothing,
       snapshotOptions = Prelude.Nothing,
+      softwareUpdateOptions = Prelude.Nothing,
       tagList = Prelude.Nothing,
       vPCOptions = Prelude.Nothing,
       domainName = pDomainName_
@@ -320,7 +340,7 @@ createDomain_encryptionAtRestOptions = Lens.lens (\CreateDomain' {encryptionAtRe
 createDomain_engineVersion :: Lens.Lens' CreateDomain (Prelude.Maybe Prelude.Text)
 createDomain_engineVersion = Lens.lens (\CreateDomain' {engineVersion} -> engineVersion) (\s@CreateDomain' {} a -> s {engineVersion = a} :: CreateDomain)
 
--- | Key-value pairs to configure slow log publishing.
+-- | Key-value pairs to configure log publishing.
 createDomain_logPublishingOptions :: Lens.Lens' CreateDomain (Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption))
 createDomain_logPublishingOptions = Lens.lens (\CreateDomain' {logPublishingOptions} -> logPublishingOptions) (\s@CreateDomain' {} a -> s {logPublishingOptions = a} :: CreateDomain) Prelude.. Lens.mapping Lens.coerced
 
@@ -328,10 +348,22 @@ createDomain_logPublishingOptions = Lens.lens (\CreateDomain' {logPublishingOpti
 createDomain_nodeToNodeEncryptionOptions :: Lens.Lens' CreateDomain (Prelude.Maybe NodeToNodeEncryptionOptions)
 createDomain_nodeToNodeEncryptionOptions = Lens.lens (\CreateDomain' {nodeToNodeEncryptionOptions} -> nodeToNodeEncryptionOptions) (\s@CreateDomain' {} a -> s {nodeToNodeEncryptionOptions = a} :: CreateDomain)
 
+-- | Specifies a daily 10-hour time block during which OpenSearch Service can
+-- perform configuration changes on the domain, including service software
+-- updates and Auto-Tune enhancements that require a blue\/green
+-- deployment. If no options are specified, the default start time of 10:00
+-- P.M. local time (for the Region that the domain is created in) is used.
+createDomain_offPeakWindowOptions :: Lens.Lens' CreateDomain (Prelude.Maybe OffPeakWindowOptions)
+createDomain_offPeakWindowOptions = Lens.lens (\CreateDomain' {offPeakWindowOptions} -> offPeakWindowOptions) (\s@CreateDomain' {} a -> s {offPeakWindowOptions = a} :: CreateDomain)
+
 -- | DEPRECATED. Container for the parameters required to configure automated
 -- snapshots of domain indexes.
 createDomain_snapshotOptions :: Lens.Lens' CreateDomain (Prelude.Maybe SnapshotOptions)
 createDomain_snapshotOptions = Lens.lens (\CreateDomain' {snapshotOptions} -> snapshotOptions) (\s@CreateDomain' {} a -> s {snapshotOptions = a} :: CreateDomain)
+
+-- | Software update options for the domain.
+createDomain_softwareUpdateOptions :: Lens.Lens' CreateDomain (Prelude.Maybe SoftwareUpdateOptions)
+createDomain_softwareUpdateOptions = Lens.lens (\CreateDomain' {softwareUpdateOptions} -> softwareUpdateOptions) (\s@CreateDomain' {} a -> s {softwareUpdateOptions = a} :: CreateDomain)
 
 -- | List of tags to add to the domain upon creation.
 createDomain_tagList :: Lens.Lens' CreateDomain (Prelude.Maybe [Tag])
@@ -364,7 +396,8 @@ instance Core.AWSRequest CreateDomain where
 
 instance Prelude.Hashable CreateDomain where
   hashWithSalt _salt CreateDomain' {..} =
-    _salt `Prelude.hashWithSalt` accessPolicies
+    _salt
+      `Prelude.hashWithSalt` accessPolicies
       `Prelude.hashWithSalt` advancedOptions
       `Prelude.hashWithSalt` advancedSecurityOptions
       `Prelude.hashWithSalt` autoTuneOptions
@@ -376,7 +409,9 @@ instance Prelude.Hashable CreateDomain where
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` logPublishingOptions
       `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
+      `Prelude.hashWithSalt` offPeakWindowOptions
       `Prelude.hashWithSalt` snapshotOptions
+      `Prelude.hashWithSalt` softwareUpdateOptions
       `Prelude.hashWithSalt` tagList
       `Prelude.hashWithSalt` vPCOptions
       `Prelude.hashWithSalt` domainName
@@ -395,7 +430,9 @@ instance Prelude.NFData CreateDomain where
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf logPublishingOptions
       `Prelude.seq` Prelude.rnf nodeToNodeEncryptionOptions
+      `Prelude.seq` Prelude.rnf offPeakWindowOptions
       `Prelude.seq` Prelude.rnf snapshotOptions
+      `Prelude.seq` Prelude.rnf softwareUpdateOptions
       `Prelude.seq` Prelude.rnf tagList
       `Prelude.seq` Prelude.rnf vPCOptions
       `Prelude.seq` Prelude.rnf domainName
@@ -428,8 +465,12 @@ instance Data.ToJSON CreateDomain where
               Prelude.<$> logPublishingOptions,
             ("NodeToNodeEncryptionOptions" Data..=)
               Prelude.<$> nodeToNodeEncryptionOptions,
+            ("OffPeakWindowOptions" Data..=)
+              Prelude.<$> offPeakWindowOptions,
             ("SnapshotOptions" Data..=)
               Prelude.<$> snapshotOptions,
+            ("SoftwareUpdateOptions" Data..=)
+              Prelude.<$> softwareUpdateOptions,
             ("TagList" Data..=) Prelude.<$> tagList,
             ("VPCOptions" Data..=) Prelude.<$> vPCOptions,
             Prelude.Just ("DomainName" Data..= domainName)

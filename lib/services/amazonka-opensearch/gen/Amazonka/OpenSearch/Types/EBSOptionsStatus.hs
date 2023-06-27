@@ -81,7 +81,8 @@ instance Data.FromJSON EBSOptionsStatus where
 
 instance Prelude.Hashable EBSOptionsStatus where
   hashWithSalt _salt EBSOptionsStatus' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData EBSOptionsStatus where

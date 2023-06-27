@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of Amazon OpenSearch Service package versions, along with
--- their creation time and commit message. For more information, see
+-- their creation time, commit message, and plugin properties (if the
+-- package is a zip plugin package). For more information, see
 -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html Custom packages for Amazon OpenSearch Service>.
 module Amazonka.OpenSearch.GetPackageVersionHistory
   ( -- * Creating a Request
@@ -128,7 +129,8 @@ instance Core.AWSRequest GetPackageVersionHistory where
           GetPackageVersionHistoryResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "PackageID")
-            Prelude.<*> ( x Data..?> "PackageVersionHistoryList"
+            Prelude.<*> ( x
+                            Data..?> "PackageVersionHistoryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -136,7 +138,8 @@ instance Core.AWSRequest GetPackageVersionHistory where
 
 instance Prelude.Hashable GetPackageVersionHistory where
   hashWithSalt _salt GetPackageVersionHistory' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` packageID
 

@@ -29,8 +29,10 @@ module Amazonka.OpenSearch.ListInstanceTypeDetails
 
     -- * Request Lenses
     listInstanceTypeDetails_domainName,
+    listInstanceTypeDetails_instanceType,
     listInstanceTypeDetails_maxResults,
     listInstanceTypeDetails_nextToken,
+    listInstanceTypeDetails_retrieveAZs,
     listInstanceTypeDetails_engineVersion,
 
     -- * Destructuring the Response
@@ -54,8 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListInstanceTypeDetails' smart constructor.
 data ListInstanceTypeDetails = ListInstanceTypeDetails'
-  { -- | Name of the domain to list instance type details for.
+  { -- | The name of the domain.
     domainName :: Prelude.Maybe Prelude.Text,
+    -- | An optional parameter that lists information for a given instance type.
+    instanceType :: Prelude.Maybe Prelude.Text,
     -- | An optional parameter that specifies the maximum number of results to
     -- return. You can use @nextToken@ to get the next page of results.
     maxResults :: Prelude.Maybe Prelude.Int,
@@ -64,8 +68,12 @@ data ListInstanceTypeDetails = ListInstanceTypeDetails'
     -- @ListInstanceTypeDetails@ operations, which returns results in the next
     -- page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y
-    -- or OpenSearch_X.Y. Defaults to the latest version of OpenSearch.
+    -- | An optional parameter that specifies the Availability Zones for the
+    -- domain.
+    retrieveAZs :: Prelude.Maybe Prelude.Bool,
+    -- | The version of OpenSearch or Elasticsearch, in the format
+    -- Elasticsearch_X.Y or OpenSearch_X.Y. Defaults to the latest version of
+    -- OpenSearch.
     engineVersion :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,7 +86,9 @@ data ListInstanceTypeDetails = ListInstanceTypeDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainName', 'listInstanceTypeDetails_domainName' - Name of the domain to list instance type details for.
+-- 'domainName', 'listInstanceTypeDetails_domainName' - The name of the domain.
+--
+-- 'instanceType', 'listInstanceTypeDetails_instanceType' - An optional parameter that lists information for a given instance type.
 --
 -- 'maxResults', 'listInstanceTypeDetails_maxResults' - An optional parameter that specifies the maximum number of results to
 -- return. You can use @nextToken@ to get the next page of results.
@@ -88,8 +98,12 @@ data ListInstanceTypeDetails = ListInstanceTypeDetails'
 -- @ListInstanceTypeDetails@ operations, which returns results in the next
 -- page.
 --
--- 'engineVersion', 'listInstanceTypeDetails_engineVersion' - Version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y
--- or OpenSearch_X.Y. Defaults to the latest version of OpenSearch.
+-- 'retrieveAZs', 'listInstanceTypeDetails_retrieveAZs' - An optional parameter that specifies the Availability Zones for the
+-- domain.
+--
+-- 'engineVersion', 'listInstanceTypeDetails_engineVersion' - The version of OpenSearch or Elasticsearch, in the format
+-- Elasticsearch_X.Y or OpenSearch_X.Y. Defaults to the latest version of
+-- OpenSearch.
 newListInstanceTypeDetails ::
   -- | 'engineVersion'
   Prelude.Text ->
@@ -98,14 +112,20 @@ newListInstanceTypeDetails pEngineVersion_ =
   ListInstanceTypeDetails'
     { domainName =
         Prelude.Nothing,
+      instanceType = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      retrieveAZs = Prelude.Nothing,
       engineVersion = pEngineVersion_
     }
 
--- | Name of the domain to list instance type details for.
+-- | The name of the domain.
 listInstanceTypeDetails_domainName :: Lens.Lens' ListInstanceTypeDetails (Prelude.Maybe Prelude.Text)
 listInstanceTypeDetails_domainName = Lens.lens (\ListInstanceTypeDetails' {domainName} -> domainName) (\s@ListInstanceTypeDetails' {} a -> s {domainName = a} :: ListInstanceTypeDetails)
+
+-- | An optional parameter that lists information for a given instance type.
+listInstanceTypeDetails_instanceType :: Lens.Lens' ListInstanceTypeDetails (Prelude.Maybe Prelude.Text)
+listInstanceTypeDetails_instanceType = Lens.lens (\ListInstanceTypeDetails' {instanceType} -> instanceType) (\s@ListInstanceTypeDetails' {} a -> s {instanceType = a} :: ListInstanceTypeDetails)
 
 -- | An optional parameter that specifies the maximum number of results to
 -- return. You can use @nextToken@ to get the next page of results.
@@ -119,8 +139,14 @@ listInstanceTypeDetails_maxResults = Lens.lens (\ListInstanceTypeDetails' {maxRe
 listInstanceTypeDetails_nextToken :: Lens.Lens' ListInstanceTypeDetails (Prelude.Maybe Prelude.Text)
 listInstanceTypeDetails_nextToken = Lens.lens (\ListInstanceTypeDetails' {nextToken} -> nextToken) (\s@ListInstanceTypeDetails' {} a -> s {nextToken = a} :: ListInstanceTypeDetails)
 
--- | Version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y
--- or OpenSearch_X.Y. Defaults to the latest version of OpenSearch.
+-- | An optional parameter that specifies the Availability Zones for the
+-- domain.
+listInstanceTypeDetails_retrieveAZs :: Lens.Lens' ListInstanceTypeDetails (Prelude.Maybe Prelude.Bool)
+listInstanceTypeDetails_retrieveAZs = Lens.lens (\ListInstanceTypeDetails' {retrieveAZs} -> retrieveAZs) (\s@ListInstanceTypeDetails' {} a -> s {retrieveAZs = a} :: ListInstanceTypeDetails)
+
+-- | The version of OpenSearch or Elasticsearch, in the format
+-- Elasticsearch_X.Y or OpenSearch_X.Y. Defaults to the latest version of
+-- OpenSearch.
 listInstanceTypeDetails_engineVersion :: Lens.Lens' ListInstanceTypeDetails Prelude.Text
 listInstanceTypeDetails_engineVersion = Lens.lens (\ListInstanceTypeDetails' {engineVersion} -> engineVersion) (\s@ListInstanceTypeDetails' {} a -> s {engineVersion = a} :: ListInstanceTypeDetails)
 
@@ -134,7 +160,8 @@ instance Core.AWSRequest ListInstanceTypeDetails where
     Response.receiveJSON
       ( \s h x ->
           ListInstanceTypeDetailsResponse'
-            Prelude.<$> ( x Data..?> "InstanceTypeDetails"
+            Prelude.<$> ( x
+                            Data..?> "InstanceTypeDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -143,16 +170,21 @@ instance Core.AWSRequest ListInstanceTypeDetails where
 
 instance Prelude.Hashable ListInstanceTypeDetails where
   hashWithSalt _salt ListInstanceTypeDetails' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
+      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` retrieveAZs
       `Prelude.hashWithSalt` engineVersion
 
 instance Prelude.NFData ListInstanceTypeDetails where
   rnf ListInstanceTypeDetails' {..} =
     Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf retrieveAZs
       `Prelude.seq` Prelude.rnf engineVersion
 
 instance Data.ToHeaders ListInstanceTypeDetails where
@@ -169,8 +201,10 @@ instance Data.ToQuery ListInstanceTypeDetails where
   toQuery ListInstanceTypeDetails' {..} =
     Prelude.mconcat
       [ "domainName" Data.=: domainName,
+        "instanceType" Data.=: instanceType,
         "maxResults" Data.=: maxResults,
-        "nextToken" Data.=: nextToken
+        "nextToken" Data.=: nextToken,
+        "retrieveAZs" Data.=: retrieveAZs
       ]
 
 -- | /See:/ 'newListInstanceTypeDetailsResponse' smart constructor.

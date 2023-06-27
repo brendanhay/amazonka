@@ -103,7 +103,8 @@ instance Core.AWSRequest RevokeVpcEndpointAccess where
 
 instance Prelude.Hashable RevokeVpcEndpointAccess where
   hashWithSalt _salt RevokeVpcEndpointAccess' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` account
 
 instance Prelude.NFData RevokeVpcEndpointAccess where

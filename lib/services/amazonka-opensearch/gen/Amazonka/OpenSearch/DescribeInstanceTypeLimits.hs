@@ -130,7 +130,8 @@ instance Core.AWSRequest DescribeInstanceTypeLimits where
 
 instance Prelude.Hashable DescribeInstanceTypeLimits where
   hashWithSalt _salt DescribeInstanceTypeLimits' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` engineVersion
 

@@ -62,7 +62,10 @@ library
     Amazonka.OpenSearch.DescribeDomainAutoTunes
     Amazonka.OpenSearch.DescribeDomainChangeProgress
     Amazonka.OpenSearch.DescribeDomainConfig
+    Amazonka.OpenSearch.DescribeDomainHealth
+    Amazonka.OpenSearch.DescribeDomainNodes
     Amazonka.OpenSearch.DescribeDomains
+    Amazonka.OpenSearch.DescribeDryRunProgress
     Amazonka.OpenSearch.DescribeInboundConnections
     Amazonka.OpenSearch.DescribeInstanceTypeLimits
     Amazonka.OpenSearch.DescribeOutboundConnections
@@ -80,6 +83,7 @@ library
     Amazonka.OpenSearch.ListDomainsForPackage
     Amazonka.OpenSearch.ListInstanceTypeDetails
     Amazonka.OpenSearch.ListPackagesForDomain
+    Amazonka.OpenSearch.ListScheduledActions
     Amazonka.OpenSearch.ListTags
     Amazonka.OpenSearch.ListVersions
     Amazonka.OpenSearch.ListVpcEndpointAccess
@@ -92,6 +96,9 @@ library
     Amazonka.OpenSearch.StartServiceSoftwareUpdate
     Amazonka.OpenSearch.Types
     Amazonka.OpenSearch.Types.AccessPoliciesStatus
+    Amazonka.OpenSearch.Types.ActionSeverity
+    Amazonka.OpenSearch.Types.ActionStatus
+    Amazonka.OpenSearch.Types.ActionType
     Amazonka.OpenSearch.Types.AdditionalLimit
     Amazonka.OpenSearch.Types.AdvancedOptionsStatus
     Amazonka.OpenSearch.Types.AdvancedSecurityOptions
@@ -109,6 +116,7 @@ library
     Amazonka.OpenSearch.Types.AutoTuneState
     Amazonka.OpenSearch.Types.AutoTuneStatus
     Amazonka.OpenSearch.Types.AutoTuneType
+    Amazonka.OpenSearch.Types.AvailabilityZoneInfo
     Amazonka.OpenSearch.Types.AWSDomainInformation
     Amazonka.OpenSearch.Types.ChangeProgressDetails
     Amazonka.OpenSearch.Types.ChangeProgressStage
@@ -119,17 +127,25 @@ library
     Amazonka.OpenSearch.Types.CognitoOptionsStatus
     Amazonka.OpenSearch.Types.ColdStorageOptions
     Amazonka.OpenSearch.Types.CompatibleVersionsMap
+    Amazonka.OpenSearch.Types.ConnectionMode
+    Amazonka.OpenSearch.Types.ConnectionProperties
+    Amazonka.OpenSearch.Types.CrossClusterSearchConnectionProperties
     Amazonka.OpenSearch.Types.DeploymentStatus
     Amazonka.OpenSearch.Types.DescribePackagesFilter
     Amazonka.OpenSearch.Types.DescribePackagesFilterName
     Amazonka.OpenSearch.Types.DomainConfig
     Amazonka.OpenSearch.Types.DomainEndpointOptions
     Amazonka.OpenSearch.Types.DomainEndpointOptionsStatus
+    Amazonka.OpenSearch.Types.DomainHealth
     Amazonka.OpenSearch.Types.DomainInfo
     Amazonka.OpenSearch.Types.DomainInformationContainer
+    Amazonka.OpenSearch.Types.DomainNodesStatus
     Amazonka.OpenSearch.Types.DomainPackageDetails
     Amazonka.OpenSearch.Types.DomainPackageStatus
+    Amazonka.OpenSearch.Types.DomainState
     Amazonka.OpenSearch.Types.DomainStatus
+    Amazonka.OpenSearch.Types.DryRunMode
+    Amazonka.OpenSearch.Types.DryRunProgressStatus
     Amazonka.OpenSearch.Types.DryRunResults
     Amazonka.OpenSearch.Types.Duration
     Amazonka.OpenSearch.Types.EBSOptions
@@ -137,6 +153,7 @@ library
     Amazonka.OpenSearch.Types.EncryptionAtRestOptions
     Amazonka.OpenSearch.Types.EncryptionAtRestOptionsStatus
     Amazonka.OpenSearch.Types.EngineType
+    Amazonka.OpenSearch.Types.EnvironmentInfo
     Amazonka.OpenSearch.Types.ErrorDetails
     Amazonka.OpenSearch.Types.Filter
     Amazonka.OpenSearch.Types.InboundConnection
@@ -149,9 +166,15 @@ library
     Amazonka.OpenSearch.Types.LogPublishingOption
     Amazonka.OpenSearch.Types.LogPublishingOptionsStatus
     Amazonka.OpenSearch.Types.LogType
+    Amazonka.OpenSearch.Types.MasterNodeStatus
     Amazonka.OpenSearch.Types.MasterUserOptions
+    Amazonka.OpenSearch.Types.NodeStatus
     Amazonka.OpenSearch.Types.NodeToNodeEncryptionOptions
     Amazonka.OpenSearch.Types.NodeToNodeEncryptionOptionsStatus
+    Amazonka.OpenSearch.Types.NodeType
+    Amazonka.OpenSearch.Types.OffPeakWindow
+    Amazonka.OpenSearch.Types.OffPeakWindowOptions
+    Amazonka.OpenSearch.Types.OffPeakWindowOptionsStatus
     Amazonka.OpenSearch.Types.OpenSearchPartitionInstanceType
     Amazonka.OpenSearch.Types.OpenSearchWarmPartitionInstanceType
     Amazonka.OpenSearch.Types.OptionState
@@ -174,12 +197,18 @@ library
     Amazonka.OpenSearch.Types.SAMLIdp
     Amazonka.OpenSearch.Types.SAMLOptionsInput
     Amazonka.OpenSearch.Types.SAMLOptionsOutput
+    Amazonka.OpenSearch.Types.ScheduleAt
+    Amazonka.OpenSearch.Types.ScheduledAction
     Amazonka.OpenSearch.Types.ScheduledAutoTuneActionType
     Amazonka.OpenSearch.Types.ScheduledAutoTuneDetails
     Amazonka.OpenSearch.Types.ScheduledAutoTuneSeverityType
+    Amazonka.OpenSearch.Types.ScheduledBy
     Amazonka.OpenSearch.Types.ServiceSoftwareOptions
+    Amazonka.OpenSearch.Types.SkipUnavailableStatus
     Amazonka.OpenSearch.Types.SnapshotOptions
     Amazonka.OpenSearch.Types.SnapshotOptionsStatus
+    Amazonka.OpenSearch.Types.SoftwareUpdateOptions
+    Amazonka.OpenSearch.Types.SoftwareUpdateOptionsStatus
     Amazonka.OpenSearch.Types.StorageType
     Amazonka.OpenSearch.Types.StorageTypeLimit
     Amazonka.OpenSearch.Types.Tag
@@ -189,6 +218,7 @@ library
     Amazonka.OpenSearch.Types.UpgradeStatus
     Amazonka.OpenSearch.Types.UpgradeStep
     Amazonka.OpenSearch.Types.UpgradeStepItem
+    Amazonka.OpenSearch.Types.ValidationFailure
     Amazonka.OpenSearch.Types.VersionStatus
     Amazonka.OpenSearch.Types.VolumeType
     Amazonka.OpenSearch.Types.VPCDerivedInfo
@@ -199,9 +229,12 @@ library
     Amazonka.OpenSearch.Types.VpcEndpointStatus
     Amazonka.OpenSearch.Types.VpcEndpointSummary
     Amazonka.OpenSearch.Types.VPCOptions
+    Amazonka.OpenSearch.Types.WindowStartTime
     Amazonka.OpenSearch.Types.ZoneAwarenessConfig
+    Amazonka.OpenSearch.Types.ZoneStatus
     Amazonka.OpenSearch.UpdateDomainConfig
     Amazonka.OpenSearch.UpdatePackage
+    Amazonka.OpenSearch.UpdateScheduledAction
     Amazonka.OpenSearch.UpdateVpcEndpoint
     Amazonka.OpenSearch.UpgradeDomain
     Amazonka.OpenSearch.Waiters

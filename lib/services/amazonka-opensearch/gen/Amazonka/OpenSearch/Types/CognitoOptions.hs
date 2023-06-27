@@ -108,7 +108,8 @@ instance Data.FromJSON CognitoOptions where
 
 instance Prelude.Hashable CognitoOptions where
   hashWithSalt _salt CognitoOptions' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` identityPoolId
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` userPoolId

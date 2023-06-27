@@ -34,6 +34,8 @@ data InstanceTypeDetails = InstanceTypeDetails'
     advancedSecurityEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether logging is supported for the instance type.
     appLogsEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The supported Availability Zones for the instance type.
+    availabilityZones :: Prelude.Maybe [Prelude.Text],
     -- | Whether Amazon Cognito access is supported for the instance type.
     cognitoEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether encryption at rest and node-to-node encryption are supported for
@@ -61,6 +63,8 @@ data InstanceTypeDetails = InstanceTypeDetails'
 --
 -- 'appLogsEnabled', 'instanceTypeDetails_appLogsEnabled' - Whether logging is supported for the instance type.
 --
+-- 'availabilityZones', 'instanceTypeDetails_availabilityZones' - The supported Availability Zones for the instance type.
+--
 -- 'cognitoEnabled', 'instanceTypeDetails_cognitoEnabled' - Whether Amazon Cognito access is supported for the instance type.
 --
 -- 'encryptionEnabled', 'instanceTypeDetails_encryptionEnabled' - Whether encryption at rest and node-to-node encryption are supported for
@@ -79,6 +83,7 @@ newInstanceTypeDetails =
     { advancedSecurityEnabled =
         Prelude.Nothing,
       appLogsEnabled = Prelude.Nothing,
+      availabilityZones = Prelude.Nothing,
       cognitoEnabled = Prelude.Nothing,
       encryptionEnabled = Prelude.Nothing,
       instanceRole = Prelude.Nothing,
@@ -93,6 +98,10 @@ instanceTypeDetails_advancedSecurityEnabled = Lens.lens (\InstanceTypeDetails' {
 -- | Whether logging is supported for the instance type.
 instanceTypeDetails_appLogsEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
 instanceTypeDetails_appLogsEnabled = Lens.lens (\InstanceTypeDetails' {appLogsEnabled} -> appLogsEnabled) (\s@InstanceTypeDetails' {} a -> s {appLogsEnabled = a} :: InstanceTypeDetails)
+
+-- | The supported Availability Zones for the instance type.
+instanceTypeDetails_availabilityZones :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe [Prelude.Text])
+instanceTypeDetails_availabilityZones = Lens.lens (\InstanceTypeDetails' {availabilityZones} -> availabilityZones) (\s@InstanceTypeDetails' {} a -> s {availabilityZones = a} :: InstanceTypeDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether Amazon Cognito access is supported for the instance type.
 instanceTypeDetails_cognitoEnabled :: Lens.Lens' InstanceTypeDetails (Prelude.Maybe Prelude.Bool)
@@ -124,6 +133,10 @@ instance Data.FromJSON InstanceTypeDetails where
           InstanceTypeDetails'
             Prelude.<$> (x Data..:? "AdvancedSecurityEnabled")
             Prelude.<*> (x Data..:? "AppLogsEnabled")
+            Prelude.<*> ( x
+                            Data..:? "AvailabilityZones"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "CognitoEnabled")
             Prelude.<*> (x Data..:? "EncryptionEnabled")
             Prelude.<*> (x Data..:? "InstanceRole" Data..!= Prelude.mempty)
@@ -136,6 +149,7 @@ instance Prelude.Hashable InstanceTypeDetails where
     _salt
       `Prelude.hashWithSalt` advancedSecurityEnabled
       `Prelude.hashWithSalt` appLogsEnabled
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` cognitoEnabled
       `Prelude.hashWithSalt` encryptionEnabled
       `Prelude.hashWithSalt` instanceRole
@@ -146,6 +160,7 @@ instance Prelude.NFData InstanceTypeDetails where
   rnf InstanceTypeDetails' {..} =
     Prelude.rnf advancedSecurityEnabled
       `Prelude.seq` Prelude.rnf appLogsEnabled
+      `Prelude.seq` Prelude.rnf availabilityZones
       `Prelude.seq` Prelude.rnf cognitoEnabled
       `Prelude.seq` Prelude.rnf encryptionEnabled
       `Prelude.seq` Prelude.rnf instanceRole

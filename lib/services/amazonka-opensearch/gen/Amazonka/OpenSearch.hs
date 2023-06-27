@@ -39,6 +39,9 @@ module Amazonka.OpenSearch
     -- ** ConflictException
     _ConflictException,
 
+    -- ** DependencyFailureException
+    _DependencyFailureException,
+
     -- ** DisabledOperationException
     _DisabledOperationException,
 
@@ -59,6 +62,9 @@ module Amazonka.OpenSearch
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** SlotNotAvailableException
+    _SlotNotAvailableException,
 
     -- ** ValidationException
     _ValidationException,
@@ -177,11 +183,29 @@ module Amazonka.OpenSearch
     DescribeDomainConfigResponse (DescribeDomainConfigResponse'),
     newDescribeDomainConfigResponse,
 
+    -- ** DescribeDomainHealth
+    DescribeDomainHealth (DescribeDomainHealth'),
+    newDescribeDomainHealth,
+    DescribeDomainHealthResponse (DescribeDomainHealthResponse'),
+    newDescribeDomainHealthResponse,
+
+    -- ** DescribeDomainNodes
+    DescribeDomainNodes (DescribeDomainNodes'),
+    newDescribeDomainNodes,
+    DescribeDomainNodesResponse (DescribeDomainNodesResponse'),
+    newDescribeDomainNodesResponse,
+
     -- ** DescribeDomains
     DescribeDomains (DescribeDomains'),
     newDescribeDomains,
     DescribeDomainsResponse (DescribeDomainsResponse'),
     newDescribeDomainsResponse,
+
+    -- ** DescribeDryRunProgress
+    DescribeDryRunProgress (DescribeDryRunProgress'),
+    newDescribeDryRunProgress,
+    DescribeDryRunProgressResponse (DescribeDryRunProgressResponse'),
+    newDescribeDryRunProgressResponse,
 
     -- ** DescribeInboundConnections
     DescribeInboundConnections (DescribeInboundConnections'),
@@ -279,6 +303,12 @@ module Amazonka.OpenSearch
     ListPackagesForDomainResponse (ListPackagesForDomainResponse'),
     newListPackagesForDomainResponse,
 
+    -- ** ListScheduledActions
+    ListScheduledActions (ListScheduledActions'),
+    newListScheduledActions,
+    ListScheduledActionsResponse (ListScheduledActionsResponse'),
+    newListScheduledActionsResponse,
+
     -- ** ListTags
     ListTags (ListTags'),
     newListTags,
@@ -351,6 +381,12 @@ module Amazonka.OpenSearch
     UpdatePackageResponse (UpdatePackageResponse'),
     newUpdatePackageResponse,
 
+    -- ** UpdateScheduledAction
+    UpdateScheduledAction (UpdateScheduledAction'),
+    newUpdateScheduledAction,
+    UpdateScheduledActionResponse (UpdateScheduledActionResponse'),
+    newUpdateScheduledActionResponse,
+
     -- ** UpdateVpcEndpoint
     UpdateVpcEndpoint (UpdateVpcEndpoint'),
     newUpdateVpcEndpoint,
@@ -365,6 +401,15 @@ module Amazonka.OpenSearch
 
     -- * Types
 
+    -- ** ActionSeverity
+    ActionSeverity (..),
+
+    -- ** ActionStatus
+    ActionStatus (..),
+
+    -- ** ActionType
+    ActionType (..),
+
     -- ** AutoTuneDesiredState
     AutoTuneDesiredState (..),
 
@@ -374,14 +419,26 @@ module Amazonka.OpenSearch
     -- ** AutoTuneType
     AutoTuneType (..),
 
+    -- ** ConnectionMode
+    ConnectionMode (..),
+
     -- ** DeploymentStatus
     DeploymentStatus (..),
 
     -- ** DescribePackagesFilterName
     DescribePackagesFilterName (..),
 
+    -- ** DomainHealth
+    DomainHealth (..),
+
     -- ** DomainPackageStatus
     DomainPackageStatus (..),
+
+    -- ** DomainState
+    DomainState (..),
+
+    -- ** DryRunMode
+    DryRunMode (..),
 
     -- ** EngineType
     EngineType (..),
@@ -391,6 +448,15 @@ module Amazonka.OpenSearch
 
     -- ** LogType
     LogType (..),
+
+    -- ** MasterNodeStatus
+    MasterNodeStatus (..),
+
+    -- ** NodeStatus
+    NodeStatus (..),
+
+    -- ** NodeType
+    NodeType (..),
 
     -- ** OpenSearchPartitionInstanceType
     OpenSearchPartitionInstanceType (..),
@@ -422,11 +488,20 @@ module Amazonka.OpenSearch
     -- ** RollbackOnDisable
     RollbackOnDisable (..),
 
+    -- ** ScheduleAt
+    ScheduleAt (..),
+
     -- ** ScheduledAutoTuneActionType
     ScheduledAutoTuneActionType (..),
 
     -- ** ScheduledAutoTuneSeverityType
     ScheduledAutoTuneSeverityType (..),
+
+    -- ** ScheduledBy
+    ScheduledBy (..),
+
+    -- ** SkipUnavailableStatus
+    SkipUnavailableStatus (..),
 
     -- ** TLSSecurityPolicy
     TLSSecurityPolicy (..),
@@ -448,6 +523,9 @@ module Amazonka.OpenSearch
 
     -- ** VpcEndpointStatus
     VpcEndpointStatus (..),
+
+    -- ** ZoneStatus
+    ZoneStatus (..),
 
     -- ** AWSDomainInformation
     AWSDomainInformation (AWSDomainInformation'),
@@ -513,6 +591,10 @@ module Amazonka.OpenSearch
     AutoTuneStatus (AutoTuneStatus'),
     newAutoTuneStatus,
 
+    -- ** AvailabilityZoneInfo
+    AvailabilityZoneInfo (AvailabilityZoneInfo'),
+    newAvailabilityZoneInfo,
+
     -- ** ChangeProgressDetails
     ChangeProgressDetails (ChangeProgressDetails'),
     newChangeProgressDetails,
@@ -549,6 +631,14 @@ module Amazonka.OpenSearch
     CompatibleVersionsMap (CompatibleVersionsMap'),
     newCompatibleVersionsMap,
 
+    -- ** ConnectionProperties
+    ConnectionProperties (ConnectionProperties'),
+    newConnectionProperties,
+
+    -- ** CrossClusterSearchConnectionProperties
+    CrossClusterSearchConnectionProperties (CrossClusterSearchConnectionProperties'),
+    newCrossClusterSearchConnectionProperties,
+
     -- ** DescribePackagesFilter
     DescribePackagesFilter (DescribePackagesFilter'),
     newDescribePackagesFilter,
@@ -573,6 +663,10 @@ module Amazonka.OpenSearch
     DomainInformationContainer (DomainInformationContainer'),
     newDomainInformationContainer,
 
+    -- ** DomainNodesStatus
+    DomainNodesStatus (DomainNodesStatus'),
+    newDomainNodesStatus,
+
     -- ** DomainPackageDetails
     DomainPackageDetails (DomainPackageDetails'),
     newDomainPackageDetails,
@@ -580,6 +674,10 @@ module Amazonka.OpenSearch
     -- ** DomainStatus
     DomainStatus (DomainStatus'),
     newDomainStatus,
+
+    -- ** DryRunProgressStatus
+    DryRunProgressStatus (DryRunProgressStatus'),
+    newDryRunProgressStatus,
 
     -- ** DryRunResults
     DryRunResults (DryRunResults'),
@@ -604,6 +702,10 @@ module Amazonka.OpenSearch
     -- ** EncryptionAtRestOptionsStatus
     EncryptionAtRestOptionsStatus (EncryptionAtRestOptionsStatus'),
     newEncryptionAtRestOptionsStatus,
+
+    -- ** EnvironmentInfo
+    EnvironmentInfo (EnvironmentInfo'),
+    newEnvironmentInfo,
 
     -- ** ErrorDetails
     ErrorDetails (ErrorDetails'),
@@ -657,6 +759,18 @@ module Amazonka.OpenSearch
     NodeToNodeEncryptionOptionsStatus (NodeToNodeEncryptionOptionsStatus'),
     newNodeToNodeEncryptionOptionsStatus,
 
+    -- ** OffPeakWindow
+    OffPeakWindow (OffPeakWindow'),
+    newOffPeakWindow,
+
+    -- ** OffPeakWindowOptions
+    OffPeakWindowOptions (OffPeakWindowOptions'),
+    newOffPeakWindowOptions,
+
+    -- ** OffPeakWindowOptionsStatus
+    OffPeakWindowOptionsStatus (OffPeakWindowOptionsStatus'),
+    newOffPeakWindowOptionsStatus,
+
     -- ** OptionStatus
     OptionStatus (OptionStatus'),
     newOptionStatus,
@@ -705,6 +819,10 @@ module Amazonka.OpenSearch
     SAMLOptionsOutput (SAMLOptionsOutput'),
     newSAMLOptionsOutput,
 
+    -- ** ScheduledAction
+    ScheduledAction (ScheduledAction'),
+    newScheduledAction,
+
     -- ** ScheduledAutoTuneDetails
     ScheduledAutoTuneDetails (ScheduledAutoTuneDetails'),
     newScheduledAutoTuneDetails,
@@ -720,6 +838,14 @@ module Amazonka.OpenSearch
     -- ** SnapshotOptionsStatus
     SnapshotOptionsStatus (SnapshotOptionsStatus'),
     newSnapshotOptionsStatus,
+
+    -- ** SoftwareUpdateOptions
+    SoftwareUpdateOptions (SoftwareUpdateOptions'),
+    newSoftwareUpdateOptions,
+
+    -- ** SoftwareUpdateOptionsStatus
+    SoftwareUpdateOptionsStatus (SoftwareUpdateOptionsStatus'),
+    newSoftwareUpdateOptionsStatus,
 
     -- ** StorageType
     StorageType (StorageType'),
@@ -753,6 +879,10 @@ module Amazonka.OpenSearch
     VPCOptions (VPCOptions'),
     newVPCOptions,
 
+    -- ** ValidationFailure
+    ValidationFailure (ValidationFailure'),
+    newValidationFailure,
+
     -- ** VersionStatus
     VersionStatus (VersionStatus'),
     newVersionStatus,
@@ -768,6 +898,10 @@ module Amazonka.OpenSearch
     -- ** VpcEndpointSummary
     VpcEndpointSummary (VpcEndpointSummary'),
     newVpcEndpointSummary,
+
+    -- ** WindowStartTime
+    WindowStartTime (WindowStartTime'),
+    newWindowStartTime,
 
     -- ** ZoneAwarenessConfig
     ZoneAwarenessConfig (ZoneAwarenessConfig'),
@@ -793,7 +927,10 @@ import Amazonka.OpenSearch.DescribeDomain
 import Amazonka.OpenSearch.DescribeDomainAutoTunes
 import Amazonka.OpenSearch.DescribeDomainChangeProgress
 import Amazonka.OpenSearch.DescribeDomainConfig
+import Amazonka.OpenSearch.DescribeDomainHealth
+import Amazonka.OpenSearch.DescribeDomainNodes
 import Amazonka.OpenSearch.DescribeDomains
+import Amazonka.OpenSearch.DescribeDryRunProgress
 import Amazonka.OpenSearch.DescribeInboundConnections
 import Amazonka.OpenSearch.DescribeInstanceTypeLimits
 import Amazonka.OpenSearch.DescribeOutboundConnections
@@ -811,6 +948,7 @@ import Amazonka.OpenSearch.ListDomainNames
 import Amazonka.OpenSearch.ListDomainsForPackage
 import Amazonka.OpenSearch.ListInstanceTypeDetails
 import Amazonka.OpenSearch.ListPackagesForDomain
+import Amazonka.OpenSearch.ListScheduledActions
 import Amazonka.OpenSearch.ListTags
 import Amazonka.OpenSearch.ListVersions
 import Amazonka.OpenSearch.ListVpcEndpointAccess
@@ -824,6 +962,7 @@ import Amazonka.OpenSearch.StartServiceSoftwareUpdate
 import Amazonka.OpenSearch.Types
 import Amazonka.OpenSearch.UpdateDomainConfig
 import Amazonka.OpenSearch.UpdatePackage
+import Amazonka.OpenSearch.UpdateScheduledAction
 import Amazonka.OpenSearch.UpdateVpcEndpoint
 import Amazonka.OpenSearch.UpgradeDomain
 import Amazonka.OpenSearch.Waiters

@@ -25,7 +25,12 @@ import qualified Amazonka.Data as Data
 import Amazonka.OpenSearch.Types.Duration
 import qualified Amazonka.Prelude as Prelude
 
--- | The Auto-Tune maintenance schedule. For more information, see
+-- | This object is deprecated. Use the domain\'s
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html off-peak window>
+-- to schedule Auto-Tune optimizations. For migration instructions, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html#off-peak-migrate Migrating from Auto-Tune maintenance windows>.
+--
+-- The Auto-Tune maintenance schedule. For more information, see
 -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service>.
 --
 -- /See:/ 'newAutoTuneMaintenanceSchedule' smart constructor.

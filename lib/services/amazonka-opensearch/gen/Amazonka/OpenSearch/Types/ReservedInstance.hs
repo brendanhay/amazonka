@@ -196,7 +196,8 @@ instance Data.FromJSON ReservedInstance where
             Prelude.<*> (x Data..:? "InstanceCount")
             Prelude.<*> (x Data..:? "InstanceType")
             Prelude.<*> (x Data..:? "PaymentOption")
-            Prelude.<*> ( x Data..:? "RecurringCharges"
+            Prelude.<*> ( x
+                            Data..:? "RecurringCharges"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ReservationName")
@@ -209,7 +210,8 @@ instance Data.FromJSON ReservedInstance where
 
 instance Prelude.Hashable ReservedInstance where
   hashWithSalt _salt ReservedInstance' {..} =
-    _salt `Prelude.hashWithSalt` billingSubscriptionId
+    _salt
+      `Prelude.hashWithSalt` billingSubscriptionId
       `Prelude.hashWithSalt` currencyCode
       `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` fixedPrice

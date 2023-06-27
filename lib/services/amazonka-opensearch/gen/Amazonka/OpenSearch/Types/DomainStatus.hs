@@ -33,8 +33,10 @@ import Amazonka.OpenSearch.Types.EncryptionAtRestOptions
 import Amazonka.OpenSearch.Types.LogPublishingOption
 import Amazonka.OpenSearch.Types.LogType
 import Amazonka.OpenSearch.Types.NodeToNodeEncryptionOptions
+import Amazonka.OpenSearch.Types.OffPeakWindowOptions
 import Amazonka.OpenSearch.Types.ServiceSoftwareOptions
 import Amazonka.OpenSearch.Types.SnapshotOptions
+import Amazonka.OpenSearch.Types.SoftwareUpdateOptions
 import Amazonka.OpenSearch.Types.VPCDerivedInfo
 import qualified Amazonka.Prelude as Prelude
 
@@ -84,6 +86,9 @@ data DomainStatus = DomainStatus'
     logPublishingOptions :: Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption),
     -- | Whether node-to-node encryption is enabled or disabled.
     nodeToNodeEncryptionOptions :: Prelude.Maybe NodeToNodeEncryptionOptions,
+    -- | Options that specify a custom 10-hour window during which OpenSearch
+    -- Service can perform configuration changes on the domain.
+    offPeakWindowOptions :: Prelude.Maybe OffPeakWindowOptions,
     -- | The status of the domain configuration. True if OpenSearch Service is
     -- processing configuration changes. False if the configuration is active.
     processing :: Prelude.Maybe Prelude.Bool,
@@ -92,6 +97,8 @@ data DomainStatus = DomainStatus'
     -- | DEPRECATED. Container for parameters required to configure automated
     -- snapshots of domain indexes.
     snapshotOptions :: Prelude.Maybe SnapshotOptions,
+    -- | Service software update options for the domain.
+    softwareUpdateOptions :: Prelude.Maybe SoftwareUpdateOptions,
     -- | The status of a domain version upgrade to a new version of OpenSearch or
     -- Elasticsearch. True if OpenSearch Service is in the process of a version
     -- upgrade. False if the configuration is active.
@@ -162,6 +169,9 @@ data DomainStatus = DomainStatus'
 --
 -- 'nodeToNodeEncryptionOptions', 'domainStatus_nodeToNodeEncryptionOptions' - Whether node-to-node encryption is enabled or disabled.
 --
+-- 'offPeakWindowOptions', 'domainStatus_offPeakWindowOptions' - Options that specify a custom 10-hour window during which OpenSearch
+-- Service can perform configuration changes on the domain.
+--
 -- 'processing', 'domainStatus_processing' - The status of the domain configuration. True if OpenSearch Service is
 -- processing configuration changes. False if the configuration is active.
 --
@@ -169,6 +179,8 @@ data DomainStatus = DomainStatus'
 --
 -- 'snapshotOptions', 'domainStatus_snapshotOptions' - DEPRECATED. Container for parameters required to configure automated
 -- snapshots of domain indexes.
+--
+-- 'softwareUpdateOptions', 'domainStatus_softwareUpdateOptions' - Service software update options for the domain.
 --
 -- 'upgradeProcessing', 'domainStatus_upgradeProcessing' - The status of a domain version upgrade to a new version of OpenSearch or
 -- Elasticsearch. True if OpenSearch Service is in the process of a version
@@ -218,9 +230,11 @@ newDomainStatus
         engineVersion = Prelude.Nothing,
         logPublishingOptions = Prelude.Nothing,
         nodeToNodeEncryptionOptions = Prelude.Nothing,
+        offPeakWindowOptions = Prelude.Nothing,
         processing = Prelude.Nothing,
         serviceSoftwareOptions = Prelude.Nothing,
         snapshotOptions = Prelude.Nothing,
+        softwareUpdateOptions = Prelude.Nothing,
         upgradeProcessing = Prelude.Nothing,
         vPCOptions = Prelude.Nothing,
         domainId = pDomainId_,
@@ -303,6 +317,11 @@ domainStatus_logPublishingOptions = Lens.lens (\DomainStatus' {logPublishingOpti
 domainStatus_nodeToNodeEncryptionOptions :: Lens.Lens' DomainStatus (Prelude.Maybe NodeToNodeEncryptionOptions)
 domainStatus_nodeToNodeEncryptionOptions = Lens.lens (\DomainStatus' {nodeToNodeEncryptionOptions} -> nodeToNodeEncryptionOptions) (\s@DomainStatus' {} a -> s {nodeToNodeEncryptionOptions = a} :: DomainStatus)
 
+-- | Options that specify a custom 10-hour window during which OpenSearch
+-- Service can perform configuration changes on the domain.
+domainStatus_offPeakWindowOptions :: Lens.Lens' DomainStatus (Prelude.Maybe OffPeakWindowOptions)
+domainStatus_offPeakWindowOptions = Lens.lens (\DomainStatus' {offPeakWindowOptions} -> offPeakWindowOptions) (\s@DomainStatus' {} a -> s {offPeakWindowOptions = a} :: DomainStatus)
+
 -- | The status of the domain configuration. True if OpenSearch Service is
 -- processing configuration changes. False if the configuration is active.
 domainStatus_processing :: Lens.Lens' DomainStatus (Prelude.Maybe Prelude.Bool)
@@ -316,6 +335,10 @@ domainStatus_serviceSoftwareOptions = Lens.lens (\DomainStatus' {serviceSoftware
 -- snapshots of domain indexes.
 domainStatus_snapshotOptions :: Lens.Lens' DomainStatus (Prelude.Maybe SnapshotOptions)
 domainStatus_snapshotOptions = Lens.lens (\DomainStatus' {snapshotOptions} -> snapshotOptions) (\s@DomainStatus' {} a -> s {snapshotOptions = a} :: DomainStatus)
+
+-- | Service software update options for the domain.
+domainStatus_softwareUpdateOptions :: Lens.Lens' DomainStatus (Prelude.Maybe SoftwareUpdateOptions)
+domainStatus_softwareUpdateOptions = Lens.lens (\DomainStatus' {softwareUpdateOptions} -> softwareUpdateOptions) (\s@DomainStatus' {} a -> s {softwareUpdateOptions = a} :: DomainStatus)
 
 -- | The status of a domain version upgrade to a new version of OpenSearch or
 -- Elasticsearch. True if OpenSearch Service is in the process of a version
@@ -353,7 +376,8 @@ instance Data.FromJSON DomainStatus where
       ( \x ->
           DomainStatus'
             Prelude.<$> (x Data..:? "AccessPolicies")
-            Prelude.<*> ( x Data..:? "AdvancedOptions"
+            Prelude.<*> ( x
+                            Data..:? "AdvancedOptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "AdvancedSecurityOptions")
@@ -368,13 +392,16 @@ instance Data.FromJSON DomainStatus where
             Prelude.<*> (x Data..:? "Endpoint")
             Prelude.<*> (x Data..:? "Endpoints" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "EngineVersion")
-            Prelude.<*> ( x Data..:? "LogPublishingOptions"
+            Prelude.<*> ( x
+                            Data..:? "LogPublishingOptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "NodeToNodeEncryptionOptions")
+            Prelude.<*> (x Data..:? "OffPeakWindowOptions")
             Prelude.<*> (x Data..:? "Processing")
             Prelude.<*> (x Data..:? "ServiceSoftwareOptions")
             Prelude.<*> (x Data..:? "SnapshotOptions")
+            Prelude.<*> (x Data..:? "SoftwareUpdateOptions")
             Prelude.<*> (x Data..:? "UpgradeProcessing")
             Prelude.<*> (x Data..:? "VPCOptions")
             Prelude.<*> (x Data..: "DomainId")
@@ -385,7 +412,8 @@ instance Data.FromJSON DomainStatus where
 
 instance Prelude.Hashable DomainStatus where
   hashWithSalt _salt DomainStatus' {..} =
-    _salt `Prelude.hashWithSalt` accessPolicies
+    _salt
+      `Prelude.hashWithSalt` accessPolicies
       `Prelude.hashWithSalt` advancedOptions
       `Prelude.hashWithSalt` advancedSecurityOptions
       `Prelude.hashWithSalt` autoTuneOptions
@@ -401,9 +429,11 @@ instance Prelude.Hashable DomainStatus where
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` logPublishingOptions
       `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
+      `Prelude.hashWithSalt` offPeakWindowOptions
       `Prelude.hashWithSalt` processing
       `Prelude.hashWithSalt` serviceSoftwareOptions
       `Prelude.hashWithSalt` snapshotOptions
+      `Prelude.hashWithSalt` softwareUpdateOptions
       `Prelude.hashWithSalt` upgradeProcessing
       `Prelude.hashWithSalt` vPCOptions
       `Prelude.hashWithSalt` domainId
@@ -430,13 +460,19 @@ instance Prelude.NFData DomainStatus where
       `Prelude.seq` Prelude.rnf logPublishingOptions
       `Prelude.seq` Prelude.rnf
         nodeToNodeEncryptionOptions
+      `Prelude.seq` Prelude.rnf offPeakWindowOptions
       `Prelude.seq` Prelude.rnf processing
-      `Prelude.seq` Prelude.rnf serviceSoftwareOptions
+      `Prelude.seq` Prelude.rnf
+        serviceSoftwareOptions
       `Prelude.seq` Prelude.rnf snapshotOptions
-      `Prelude.seq` Prelude.rnf upgradeProcessing
+      `Prelude.seq` Prelude.rnf
+        softwareUpdateOptions
+      `Prelude.seq` Prelude.rnf
+        upgradeProcessing
       `Prelude.seq` Prelude.rnf vPCOptions
       `Prelude.seq` Prelude.rnf domainId
-      `Prelude.seq` Prelude.rnf domainName
+      `Prelude.seq` Prelude.rnf
+        domainName
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf
         clusterConfig

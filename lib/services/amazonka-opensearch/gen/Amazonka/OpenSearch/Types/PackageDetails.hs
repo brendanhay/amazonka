@@ -44,9 +44,11 @@ data PackageDetails = PackageDetails'
     packageDescription :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the package.
     packageID :: Prelude.Maybe Prelude.Text,
-    -- | User-specified name of the package.
+    -- | The user-specified name of the package.
     packageName :: Prelude.Maybe Prelude.Text,
-    -- | Current status of the package.
+    -- | The current status of the package. The available options are
+    -- @AVAILABLE@, @COPYING@, @COPY_FAILED@, @VALIDATNG@, @VALIDATION_FAILED@,
+    -- @DELETING@, and @DELETE_FAILED@.
     packageStatus :: Prelude.Maybe PackageStatus,
     -- | The type of package.
     packageType :: Prelude.Maybe PackageType
@@ -74,9 +76,11 @@ data PackageDetails = PackageDetails'
 --
 -- 'packageID', 'packageDetails_packageID' - The unique identifier of the package.
 --
--- 'packageName', 'packageDetails_packageName' - User-specified name of the package.
+-- 'packageName', 'packageDetails_packageName' - The user-specified name of the package.
 --
--- 'packageStatus', 'packageDetails_packageStatus' - Current status of the package.
+-- 'packageStatus', 'packageDetails_packageStatus' - The current status of the package. The available options are
+-- @AVAILABLE@, @COPYING@, @COPY_FAILED@, @VALIDATNG@, @VALIDATION_FAILED@,
+-- @DELETING@, and @DELETE_FAILED@.
 --
 -- 'packageType', 'packageDetails_packageType' - The type of package.
 newPackageDetails ::
@@ -120,11 +124,13 @@ packageDetails_packageDescription = Lens.lens (\PackageDetails' {packageDescript
 packageDetails_packageID :: Lens.Lens' PackageDetails (Prelude.Maybe Prelude.Text)
 packageDetails_packageID = Lens.lens (\PackageDetails' {packageID} -> packageID) (\s@PackageDetails' {} a -> s {packageID = a} :: PackageDetails)
 
--- | User-specified name of the package.
+-- | The user-specified name of the package.
 packageDetails_packageName :: Lens.Lens' PackageDetails (Prelude.Maybe Prelude.Text)
 packageDetails_packageName = Lens.lens (\PackageDetails' {packageName} -> packageName) (\s@PackageDetails' {} a -> s {packageName = a} :: PackageDetails)
 
--- | Current status of the package.
+-- | The current status of the package. The available options are
+-- @AVAILABLE@, @COPYING@, @COPY_FAILED@, @VALIDATNG@, @VALIDATION_FAILED@,
+-- @DELETING@, and @DELETE_FAILED@.
 packageDetails_packageStatus :: Lens.Lens' PackageDetails (Prelude.Maybe PackageStatus)
 packageDetails_packageStatus = Lens.lens (\PackageDetails' {packageStatus} -> packageStatus) (\s@PackageDetails' {} a -> s {packageStatus = a} :: PackageDetails)
 

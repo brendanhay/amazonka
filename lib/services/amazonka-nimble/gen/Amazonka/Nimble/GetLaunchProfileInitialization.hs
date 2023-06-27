@@ -158,7 +158,8 @@ instance
   hashWithSalt
     _salt
     GetLaunchProfileInitialization' {..} =
-      _salt `Prelude.hashWithSalt` launchProfileId
+      _salt
+        `Prelude.hashWithSalt` launchProfileId
         `Prelude.hashWithSalt` launchProfileProtocolVersions
         `Prelude.hashWithSalt` launchPurpose
         `Prelude.hashWithSalt` platform

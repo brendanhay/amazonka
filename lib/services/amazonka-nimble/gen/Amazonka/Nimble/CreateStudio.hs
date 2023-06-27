@@ -210,7 +210,8 @@ instance Core.AWSRequest CreateStudio where
 
 instance Prelude.Hashable CreateStudio where
   hashWithSalt _salt CreateStudio' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` studioEncryptionConfiguration
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` adminRoleArn

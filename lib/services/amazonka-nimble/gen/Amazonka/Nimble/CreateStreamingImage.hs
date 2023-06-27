@@ -165,7 +165,8 @@ instance Core.AWSRequest CreateStreamingImage where
 
 instance Prelude.Hashable CreateStreamingImage where
   hashWithSalt _salt CreateStreamingImage' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` ec2ImageId

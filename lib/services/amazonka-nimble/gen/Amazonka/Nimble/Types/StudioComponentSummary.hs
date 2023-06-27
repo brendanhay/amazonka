@@ -147,7 +147,8 @@ instance Data.FromJSON StudioComponentSummary where
 
 instance Prelude.Hashable StudioComponentSummary where
   hashWithSalt _salt StudioComponentSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name

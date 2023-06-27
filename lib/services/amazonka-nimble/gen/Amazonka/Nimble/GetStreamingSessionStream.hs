@@ -125,7 +125,8 @@ instance Core.AWSRequest GetStreamingSessionStream where
 
 instance Prelude.Hashable GetStreamingSessionStream where
   hashWithSalt _salt GetStreamingSessionStream' {..} =
-    _salt `Prelude.hashWithSalt` sessionId
+    _salt
+      `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` streamId
       `Prelude.hashWithSalt` studioId
 

@@ -127,7 +127,8 @@ instance
   hashWithSalt
     _salt
     LaunchProfileInitializationScript' {..} =
-      _salt `Prelude.hashWithSalt` runtimeRoleArn
+      _salt
+        `Prelude.hashWithSalt` runtimeRoleArn
         `Prelude.hashWithSalt` script
         `Prelude.hashWithSalt` secureInitializationRoleArn
         `Prelude.hashWithSalt` studioComponentId

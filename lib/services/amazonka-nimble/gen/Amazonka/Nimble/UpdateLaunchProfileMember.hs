@@ -155,7 +155,8 @@ instance Core.AWSRequest UpdateLaunchProfileMember where
 
 instance Prelude.Hashable UpdateLaunchProfileMember where
   hashWithSalt _salt UpdateLaunchProfileMember' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` launchProfileId
       `Prelude.hashWithSalt` persona
       `Prelude.hashWithSalt` principalId

@@ -126,15 +126,16 @@ instance
       "LaunchProfileInitializationActiveDirectory"
       ( \x ->
           LaunchProfileInitializationActiveDirectory'
-            Prelude.<$> ( x Data..:? "computerAttributes"
+            Prelude.<$> ( x
+                            Data..:? "computerAttributes"
                             Data..!= Prelude.mempty
                         )
-              Prelude.<*> (x Data..:? "directoryId")
-              Prelude.<*> (x Data..:? "directoryName")
-              Prelude.<*> (x Data..:? "dnsIpAddresses" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "organizationalUnitDistinguishedName")
-              Prelude.<*> (x Data..:? "studioComponentId")
-              Prelude.<*> (x Data..:? "studioComponentName")
+            Prelude.<*> (x Data..:? "directoryId")
+            Prelude.<*> (x Data..:? "directoryName")
+            Prelude.<*> (x Data..:? "dnsIpAddresses" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "organizationalUnitDistinguishedName")
+            Prelude.<*> (x Data..:? "studioComponentId")
+            Prelude.<*> (x Data..:? "studioComponentName")
       )
 
 instance
@@ -144,7 +145,8 @@ instance
   hashWithSalt
     _salt
     LaunchProfileInitializationActiveDirectory' {..} =
-      _salt `Prelude.hashWithSalt` computerAttributes
+      _salt
+        `Prelude.hashWithSalt` computerAttributes
         `Prelude.hashWithSalt` directoryId
         `Prelude.hashWithSalt` directoryName
         `Prelude.hashWithSalt` dnsIpAddresses

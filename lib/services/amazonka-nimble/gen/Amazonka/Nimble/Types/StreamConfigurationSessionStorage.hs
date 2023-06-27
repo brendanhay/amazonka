@@ -79,7 +79,8 @@ instance
       "StreamConfigurationSessionStorage"
       ( \x ->
           StreamConfigurationSessionStorage'
-            Prelude.<$> (x Data..:? "root") Prelude.<*> (x Data..: "mode")
+            Prelude.<$> (x Data..:? "root")
+            Prelude.<*> (x Data..: "mode")
       )
 
 instance
@@ -89,7 +90,8 @@ instance
   hashWithSalt
     _salt
     StreamConfigurationSessionStorage' {..} =
-      _salt `Prelude.hashWithSalt` root
+      _salt
+        `Prelude.hashWithSalt` root
         `Prelude.hashWithSalt` mode
 
 instance

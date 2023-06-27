@@ -108,22 +108,22 @@ instance Core.AWSPager ListStreamingSessionBackups where
     | Core.stop
         ( rs
             Lens.^? listStreamingSessionBackupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listStreamingSessionBackupsResponse_streamingSessionBackups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listStreamingSessionBackups_nextToken
           Lens..~ rs
           Lens.^? listStreamingSessionBackupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStreamingSessionBackups where
   type
@@ -136,7 +136,8 @@ instance Core.AWSRequest ListStreamingSessionBackups where
       ( \s h x ->
           ListStreamingSessionBackupsResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "streamingSessionBackups"
+            Prelude.<*> ( x
+                            Data..?> "streamingSessionBackups"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -144,7 +145,8 @@ instance Core.AWSRequest ListStreamingSessionBackups where
 
 instance Prelude.Hashable ListStreamingSessionBackups where
   hashWithSalt _salt ListStreamingSessionBackups' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` ownedBy
       `Prelude.hashWithSalt` studioId
 

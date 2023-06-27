@@ -181,7 +181,8 @@ instance Core.AWSRequest CreateStreamingSession where
 
 instance Prelude.Hashable CreateStreamingSession where
   hashWithSalt _salt CreateStreamingSession' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` ec2InstanceType
       `Prelude.hashWithSalt` ownedBy
       `Prelude.hashWithSalt` streamingImageId

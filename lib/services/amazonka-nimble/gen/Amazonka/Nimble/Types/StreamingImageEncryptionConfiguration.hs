@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     StreamingImageEncryptionConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` keyArn
+      _salt
+        `Prelude.hashWithSalt` keyArn
         `Prelude.hashWithSalt` keyType
 
 instance

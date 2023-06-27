@@ -260,7 +260,8 @@ instance Data.FromJSON Studio where
 
 instance Prelude.Hashable Studio where
   hashWithSalt _salt Studio' {..} =
-    _salt `Prelude.hashWithSalt` adminRoleArn
+    _salt
+      `Prelude.hashWithSalt` adminRoleArn
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` displayName

@@ -87,7 +87,8 @@ instance Data.FromJSON ActiveDirectoryConfiguration where
       "ActiveDirectoryConfiguration"
       ( \x ->
           ActiveDirectoryConfiguration'
-            Prelude.<$> ( x Data..:? "computerAttributes"
+            Prelude.<$> ( x
+                            Data..:? "computerAttributes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "directoryId")
@@ -99,7 +100,8 @@ instance
     ActiveDirectoryConfiguration
   where
   hashWithSalt _salt ActiveDirectoryConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` computerAttributes
+    _salt
+      `Prelude.hashWithSalt` computerAttributes
       `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` organizationalUnitDistinguishedName
 

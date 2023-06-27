@@ -238,7 +238,8 @@ instance Core.AWSRequest UpdateStudioComponent where
 
 instance Prelude.Hashable UpdateStudioComponent where
   hashWithSalt _salt UpdateStudioComponent' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` ec2SecurityGroupIds

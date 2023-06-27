@@ -76,7 +76,8 @@ instance Data.FromJSON StreamingSessionStorageRoot where
 
 instance Prelude.Hashable StreamingSessionStorageRoot where
   hashWithSalt _salt StreamingSessionStorageRoot' {..} =
-    _salt `Prelude.hashWithSalt` linux
+    _salt
+      `Prelude.hashWithSalt` linux
       `Prelude.hashWithSalt` windows
 
 instance Prelude.NFData StreamingSessionStorageRoot where

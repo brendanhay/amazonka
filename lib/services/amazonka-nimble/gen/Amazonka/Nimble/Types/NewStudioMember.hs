@@ -69,7 +69,8 @@ newStudioMember_principalId = Lens.lens (\NewStudioMember' {principalId} -> prin
 
 instance Prelude.Hashable NewStudioMember where
   hashWithSalt _salt NewStudioMember' {..} =
-    _salt `Prelude.hashWithSalt` persona
+    _salt
+      `Prelude.hashWithSalt` persona
       `Prelude.hashWithSalt` principalId
 
 instance Prelude.NFData NewStudioMember where

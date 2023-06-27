@@ -130,7 +130,8 @@ instance Core.AWSRequest DeleteStreamingSession where
 
 instance Prelude.Hashable DeleteStreamingSession where
   hashWithSalt _salt DeleteStreamingSession' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` studioId
 

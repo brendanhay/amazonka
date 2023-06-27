@@ -105,7 +105,8 @@ instance Core.AWSRequest GetStudioComponent where
 
 instance Prelude.Hashable GetStudioComponent where
   hashWithSalt _salt GetStudioComponent' {..} =
-    _salt `Prelude.hashWithSalt` studioComponentId
+    _salt
+      `Prelude.hashWithSalt` studioComponentId
       `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData GetStudioComponent where

@@ -139,7 +139,8 @@ instance Core.AWSRequest StopStreamingSession where
 
 instance Prelude.Hashable StopStreamingSession where
   hashWithSalt _salt StopStreamingSession' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` volumeRetentionMode
       `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` studioId

@@ -111,10 +111,12 @@ instance Core.AWSRequest GetLaunchProfileDetails where
       ( \s h x ->
           GetLaunchProfileDetailsResponse'
             Prelude.<$> (x Data..?> "launchProfile")
-            Prelude.<*> ( x Data..?> "streamingImages"
+            Prelude.<*> ( x
+                            Data..?> "streamingImages"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "studioComponentSummaries"
+            Prelude.<*> ( x
+                            Data..?> "studioComponentSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -122,7 +124,8 @@ instance Core.AWSRequest GetLaunchProfileDetails where
 
 instance Prelude.Hashable GetLaunchProfileDetails where
   hashWithSalt _salt GetLaunchProfileDetails' {..} =
-    _salt `Prelude.hashWithSalt` launchProfileId
+    _salt
+      `Prelude.hashWithSalt` launchProfileId
       `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData GetLaunchProfileDetails where

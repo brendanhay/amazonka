@@ -122,7 +122,7 @@ instance
       ( \s h x ->
           StartStudioSSOConfigurationRepairResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "studio")
+            Prelude.<*> (x Data..:> "studio")
       )
 
 instance
@@ -132,7 +132,8 @@ instance
   hashWithSalt
     _salt
     StartStudioSSOConfigurationRepair' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` studioId
 
 instance

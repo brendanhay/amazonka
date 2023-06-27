@@ -237,7 +237,8 @@ instance Data.FromJSON LaunchProfile where
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "ec2SubnetIds" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "launchProfileId")
-            Prelude.<*> ( x Data..:? "launchProfileProtocolVersions"
+            Prelude.<*> ( x
+                            Data..:? "launchProfileProtocolVersions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "name")
@@ -249,14 +250,16 @@ instance Data.FromJSON LaunchProfile where
             Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "updatedAt")
             Prelude.<*> (x Data..:? "updatedBy")
-            Prelude.<*> ( x Data..:? "validationResults"
+            Prelude.<*> ( x
+                            Data..:? "validationResults"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable LaunchProfile where
   hashWithSalt _salt LaunchProfile' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` description

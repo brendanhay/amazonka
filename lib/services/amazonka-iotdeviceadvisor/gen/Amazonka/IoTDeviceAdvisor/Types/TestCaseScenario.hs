@@ -52,6 +52,7 @@ data TestCaseScenario = TestCaseScenario'
     --
     -- -   @ERORR@: Test faced an error when running due to an internal issue.
     status :: Prelude.Maybe TestCaseScenarioStatus,
+    -- | Provides test case scenario system messages if any.
     systemMessage :: Prelude.Maybe Prelude.Text,
     -- | Provides test case scenario ID.
     testCaseScenarioId :: Prelude.Maybe Prelude.Text,
@@ -94,7 +95,7 @@ data TestCaseScenario = TestCaseScenario'
 --
 -- -   @ERORR@: Test faced an error when running due to an internal issue.
 --
--- 'systemMessage', 'testCaseScenario_systemMessage' -
+-- 'systemMessage', 'testCaseScenario_systemMessage' - Provides test case scenario system messages if any.
 --
 -- 'testCaseScenarioId', 'testCaseScenario_testCaseScenarioId' - Provides test case scenario ID.
 --
@@ -140,7 +141,7 @@ testCaseScenario_failure = Lens.lens (\TestCaseScenario' {failure} -> failure) (
 testCaseScenario_status :: Lens.Lens' TestCaseScenario (Prelude.Maybe TestCaseScenarioStatus)
 testCaseScenario_status = Lens.lens (\TestCaseScenario' {status} -> status) (\s@TestCaseScenario' {} a -> s {status = a} :: TestCaseScenario)
 
--- |
+-- | Provides test case scenario system messages if any.
 testCaseScenario_systemMessage :: Lens.Lens' TestCaseScenario (Prelude.Maybe Prelude.Text)
 testCaseScenario_systemMessage = Lens.lens (\TestCaseScenario' {systemMessage} -> systemMessage) (\s@TestCaseScenario' {} a -> s {systemMessage = a} :: TestCaseScenario)
 
@@ -171,7 +172,8 @@ instance Data.FromJSON TestCaseScenario where
 
 instance Prelude.Hashable TestCaseScenario where
   hashWithSalt _salt TestCaseScenario' {..} =
-    _salt `Prelude.hashWithSalt` failure
+    _salt
+      `Prelude.hashWithSalt` failure
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` systemMessage
       `Prelude.hashWithSalt` testCaseScenarioId

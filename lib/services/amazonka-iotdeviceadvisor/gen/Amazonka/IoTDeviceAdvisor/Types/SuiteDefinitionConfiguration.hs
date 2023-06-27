@@ -40,7 +40,17 @@ data SuiteDefinitionConfiguration = SuiteDefinitionConfiguration'
     protocol :: Prelude.Maybe Protocol,
     -- | Gets the suite definition name. This is a required parameter.
     suiteDefinitionName :: Prelude.Text,
-    -- | Gets the test suite root group. This is a required parameter.
+    -- | Gets the test suite root group. This is a required parameter. For
+    -- updating or creating the latest qualification suite, if
+    -- @intendedForQualification@ is set to true, @rootGroup@ can be an empty
+    -- string. If @intendedForQualification@ is false, @rootGroup@ cannot be an
+    -- empty string. If @rootGroup@ is empty, and @intendedForQualification@ is
+    -- set to true, all the qualification tests are included, and the
+    -- configuration is default.
+    --
+    -- For a qualification suite, the minimum length is 0, and the maximum is
+    -- 2048. For a non-qualification suite, the minimum length is 1, and the
+    -- maximum is 2048.
     rootGroup :: Prelude.Text,
     -- | Gets the device permission ARN. This is a required parameter.
     devicePermissionRoleArn :: Prelude.Text
@@ -65,7 +75,17 @@ data SuiteDefinitionConfiguration = SuiteDefinitionConfiguration'
 --
 -- 'suiteDefinitionName', 'suiteDefinitionConfiguration_suiteDefinitionName' - Gets the suite definition name. This is a required parameter.
 --
--- 'rootGroup', 'suiteDefinitionConfiguration_rootGroup' - Gets the test suite root group. This is a required parameter.
+-- 'rootGroup', 'suiteDefinitionConfiguration_rootGroup' - Gets the test suite root group. This is a required parameter. For
+-- updating or creating the latest qualification suite, if
+-- @intendedForQualification@ is set to true, @rootGroup@ can be an empty
+-- string. If @intendedForQualification@ is false, @rootGroup@ cannot be an
+-- empty string. If @rootGroup@ is empty, and @intendedForQualification@ is
+-- set to true, all the qualification tests are included, and the
+-- configuration is default.
+--
+-- For a qualification suite, the minimum length is 0, and the maximum is
+-- 2048. For a non-qualification suite, the minimum length is 1, and the
+-- maximum is 2048.
 --
 -- 'devicePermissionRoleArn', 'suiteDefinitionConfiguration_devicePermissionRoleArn' - Gets the device permission ARN. This is a required parameter.
 newSuiteDefinitionConfiguration ::
@@ -112,7 +132,17 @@ suiteDefinitionConfiguration_protocol = Lens.lens (\SuiteDefinitionConfiguration
 suiteDefinitionConfiguration_suiteDefinitionName :: Lens.Lens' SuiteDefinitionConfiguration Prelude.Text
 suiteDefinitionConfiguration_suiteDefinitionName = Lens.lens (\SuiteDefinitionConfiguration' {suiteDefinitionName} -> suiteDefinitionName) (\s@SuiteDefinitionConfiguration' {} a -> s {suiteDefinitionName = a} :: SuiteDefinitionConfiguration)
 
--- | Gets the test suite root group. This is a required parameter.
+-- | Gets the test suite root group. This is a required parameter. For
+-- updating or creating the latest qualification suite, if
+-- @intendedForQualification@ is set to true, @rootGroup@ can be an empty
+-- string. If @intendedForQualification@ is false, @rootGroup@ cannot be an
+-- empty string. If @rootGroup@ is empty, and @intendedForQualification@ is
+-- set to true, all the qualification tests are included, and the
+-- configuration is default.
+--
+-- For a qualification suite, the minimum length is 0, and the maximum is
+-- 2048. For a non-qualification suite, the minimum length is 1, and the
+-- maximum is 2048.
 suiteDefinitionConfiguration_rootGroup :: Lens.Lens' SuiteDefinitionConfiguration Prelude.Text
 suiteDefinitionConfiguration_rootGroup = Lens.lens (\SuiteDefinitionConfiguration' {rootGroup} -> rootGroup) (\s@SuiteDefinitionConfiguration' {} a -> s {rootGroup = a} :: SuiteDefinitionConfiguration)
 
@@ -140,7 +170,8 @@ instance
     SuiteDefinitionConfiguration
   where
   hashWithSalt _salt SuiteDefinitionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` devices
+    _salt
+      `Prelude.hashWithSalt` devices
       `Prelude.hashWithSalt` intendedForQualification
       `Prelude.hashWithSalt` isLongDurationTest
       `Prelude.hashWithSalt` protocol

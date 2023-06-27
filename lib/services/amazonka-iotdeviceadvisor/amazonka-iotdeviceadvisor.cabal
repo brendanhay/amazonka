@@ -58,6 +58,7 @@ library
     Amazonka.IoTDeviceAdvisor.StopSuiteRun
     Amazonka.IoTDeviceAdvisor.TagResource
     Amazonka.IoTDeviceAdvisor.Types
+    Amazonka.IoTDeviceAdvisor.Types.AuthenticationMethod
     Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest
     Amazonka.IoTDeviceAdvisor.Types.GroupResult
     Amazonka.IoTDeviceAdvisor.Types.Protocol

@@ -11,19 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.IoTDeviceAdvisor.Types.Protocol
+-- Module      : Amazonka.IoTDeviceAdvisor.Types.AuthenticationMethod
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.IoTDeviceAdvisor.Types.Protocol
-  ( Protocol
+module Amazonka.IoTDeviceAdvisor.Types.AuthenticationMethod
+  ( AuthenticationMethod
       ( ..,
-        Protocol_MqttV3_1_1,
-        Protocol_MqttV3_1_1_OverWebSocket,
-        Protocol_MqttV5,
-        Protocol_MqttV5_OverWebSocket
+        AuthenticationMethod_SignatureVersion4,
+        AuthenticationMethod_X509ClientCertificate
       ),
   )
 where
@@ -32,8 +30,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype Protocol = Protocol'
-  { fromProtocol ::
+newtype AuthenticationMethod = AuthenticationMethod'
+  { fromAuthenticationMethod ::
       Data.Text
   }
   deriving stock
@@ -60,22 +58,14 @@ newtype Protocol = Protocol'
       Data.ToXML
     )
 
-pattern Protocol_MqttV3_1_1 :: Protocol
-pattern Protocol_MqttV3_1_1 = Protocol' "MqttV3_1_1"
+pattern AuthenticationMethod_SignatureVersion4 :: AuthenticationMethod
+pattern AuthenticationMethod_SignatureVersion4 = AuthenticationMethod' "SignatureVersion4"
 
-pattern Protocol_MqttV3_1_1_OverWebSocket :: Protocol
-pattern Protocol_MqttV3_1_1_OverWebSocket = Protocol' "MqttV3_1_1_OverWebSocket"
-
-pattern Protocol_MqttV5 :: Protocol
-pattern Protocol_MqttV5 = Protocol' "MqttV5"
-
-pattern Protocol_MqttV5_OverWebSocket :: Protocol
-pattern Protocol_MqttV5_OverWebSocket = Protocol' "MqttV5_OverWebSocket"
+pattern AuthenticationMethod_X509ClientCertificate :: AuthenticationMethod
+pattern AuthenticationMethod_X509ClientCertificate = AuthenticationMethod' "X509ClientCertificate"
 
 {-# COMPLETE
-  Protocol_MqttV3_1_1,
-  Protocol_MqttV3_1_1_OverWebSocket,
-  Protocol_MqttV5,
-  Protocol_MqttV5_OverWebSocket,
-  Protocol'
+  AuthenticationMethod_SignatureVersion4,
+  AuthenticationMethod_X509ClientCertificate,
+  AuthenticationMethod'
   #-}

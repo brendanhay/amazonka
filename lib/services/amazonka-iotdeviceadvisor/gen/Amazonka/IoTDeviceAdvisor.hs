@@ -134,6 +134,9 @@ module Amazonka.IoTDeviceAdvisor
 
     -- * Types
 
+    -- ** AuthenticationMethod
+    AuthenticationMethod (..),
+
     -- ** Protocol
     Protocol (..),
 

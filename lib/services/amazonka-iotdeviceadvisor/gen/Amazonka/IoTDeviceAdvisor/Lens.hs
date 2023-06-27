@@ -28,7 +28,9 @@ module Amazonka.IoTDeviceAdvisor.Lens
     deleteSuiteDefinitionResponse_httpStatus,
 
     -- ** GetEndpoint
+    getEndpoint_authenticationMethod,
     getEndpoint_certificateArn,
+    getEndpoint_deviceRoleArn,
     getEndpoint_thingArn,
     getEndpointResponse_endpoint,
     getEndpointResponse_httpStatus,
@@ -130,6 +132,7 @@ module Amazonka.IoTDeviceAdvisor.Lens
 
     -- ** DeviceUnderTest
     deviceUnderTest_certificateArn,
+    deviceUnderTest_deviceRoleArn,
     deviceUnderTest_thingArn,
 
     -- ** GroupResult

@@ -127,7 +127,8 @@ instance Data.FromJSON SuiteDefinitionInformation where
 
 instance Prelude.Hashable SuiteDefinitionInformation where
   hashWithSalt _salt SuiteDefinitionInformation' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` defaultDevices
       `Prelude.hashWithSalt` intendedForQualification
       `Prelude.hashWithSalt` isLongDurationTest

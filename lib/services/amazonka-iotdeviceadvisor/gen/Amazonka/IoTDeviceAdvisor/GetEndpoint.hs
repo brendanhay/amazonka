@@ -27,7 +27,9 @@ module Amazonka.IoTDeviceAdvisor.GetEndpoint
     newGetEndpoint,
 
     -- * Request Lenses
+    getEndpoint_authenticationMethod,
     getEndpoint_certificateArn,
+    getEndpoint_deviceRoleArn,
     getEndpoint_thingArn,
 
     -- * Destructuring the Response
@@ -50,8 +52,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetEndpoint' smart constructor.
 data GetEndpoint = GetEndpoint'
-  { -- | The certificate ARN of the device. This is an optional parameter.
+  { -- | The authentication method used during the device connection.
+    authenticationMethod :: Prelude.Maybe AuthenticationMethod,
+    -- | The certificate ARN of the device. This is an optional parameter.
     certificateArn :: Prelude.Maybe Prelude.Text,
+    -- | The device role ARN of the device. This is an optional parameter.
+    deviceRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The thing ARN of the device. This is an optional parameter.
     thingArn :: Prelude.Maybe Prelude.Text
   }
@@ -65,20 +71,35 @@ data GetEndpoint = GetEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'authenticationMethod', 'getEndpoint_authenticationMethod' - The authentication method used during the device connection.
+--
 -- 'certificateArn', 'getEndpoint_certificateArn' - The certificate ARN of the device. This is an optional parameter.
+--
+-- 'deviceRoleArn', 'getEndpoint_deviceRoleArn' - The device role ARN of the device. This is an optional parameter.
 --
 -- 'thingArn', 'getEndpoint_thingArn' - The thing ARN of the device. This is an optional parameter.
 newGetEndpoint ::
   GetEndpoint
 newGetEndpoint =
   GetEndpoint'
-    { certificateArn = Prelude.Nothing,
+    { authenticationMethod =
+        Prelude.Nothing,
+      certificateArn = Prelude.Nothing,
+      deviceRoleArn = Prelude.Nothing,
       thingArn = Prelude.Nothing
     }
+
+-- | The authentication method used during the device connection.
+getEndpoint_authenticationMethod :: Lens.Lens' GetEndpoint (Prelude.Maybe AuthenticationMethod)
+getEndpoint_authenticationMethod = Lens.lens (\GetEndpoint' {authenticationMethod} -> authenticationMethod) (\s@GetEndpoint' {} a -> s {authenticationMethod = a} :: GetEndpoint)
 
 -- | The certificate ARN of the device. This is an optional parameter.
 getEndpoint_certificateArn :: Lens.Lens' GetEndpoint (Prelude.Maybe Prelude.Text)
 getEndpoint_certificateArn = Lens.lens (\GetEndpoint' {certificateArn} -> certificateArn) (\s@GetEndpoint' {} a -> s {certificateArn = a} :: GetEndpoint)
+
+-- | The device role ARN of the device. This is an optional parameter.
+getEndpoint_deviceRoleArn :: Lens.Lens' GetEndpoint (Prelude.Maybe Prelude.Text)
+getEndpoint_deviceRoleArn = Lens.lens (\GetEndpoint' {deviceRoleArn} -> deviceRoleArn) (\s@GetEndpoint' {} a -> s {deviceRoleArn = a} :: GetEndpoint)
 
 -- | The thing ARN of the device. This is an optional parameter.
 getEndpoint_thingArn :: Lens.Lens' GetEndpoint (Prelude.Maybe Prelude.Text)
@@ -98,12 +119,17 @@ instance Core.AWSRequest GetEndpoint where
 
 instance Prelude.Hashable GetEndpoint where
   hashWithSalt _salt GetEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` authenticationMethod
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` deviceRoleArn
       `Prelude.hashWithSalt` thingArn
 
 instance Prelude.NFData GetEndpoint where
   rnf GetEndpoint' {..} =
-    Prelude.rnf certificateArn
+    Prelude.rnf authenticationMethod
+      `Prelude.seq` Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf deviceRoleArn
       `Prelude.seq` Prelude.rnf thingArn
 
 instance Data.ToHeaders GetEndpoint where
@@ -123,7 +149,9 @@ instance Data.ToPath GetEndpoint where
 instance Data.ToQuery GetEndpoint where
   toQuery GetEndpoint' {..} =
     Prelude.mconcat
-      [ "certificateArn" Data.=: certificateArn,
+      [ "authenticationMethod" Data.=: authenticationMethod,
+        "certificateArn" Data.=: certificateArn,
+        "deviceRoleArn" Data.=: deviceRoleArn,
         "thingArn" Data.=: thingArn
       ]
 

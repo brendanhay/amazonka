@@ -210,7 +210,8 @@ instance Data.FromJSON TestCaseRun where
 
 instance Prelude.Hashable TestCaseRun where
   hashWithSalt _salt TestCaseRun' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` failure
       `Prelude.hashWithSalt` logUrl
       `Prelude.hashWithSalt` startTime

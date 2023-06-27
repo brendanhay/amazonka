@@ -134,7 +134,8 @@ instance Core.AWSRequest ListSuiteRuns where
 
 instance Prelude.Hashable ListSuiteRuns where
   hashWithSalt _salt ListSuiteRuns' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` suiteDefinitionId
       `Prelude.hashWithSalt` suiteDefinitionVersion

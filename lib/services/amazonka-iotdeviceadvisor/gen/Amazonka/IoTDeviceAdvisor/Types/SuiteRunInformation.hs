@@ -159,7 +159,8 @@ instance Data.FromJSON SuiteRunInformation where
 
 instance Prelude.Hashable SuiteRunInformation where
   hashWithSalt _salt SuiteRunInformation' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` endAt
       `Prelude.hashWithSalt` failed
       `Prelude.hashWithSalt` passed

@@ -24,14 +24,16 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Information of a test device. A thing ARN or a certificate ARN is
--- required.
+-- | Information of a test device. A thing ARN, certificate ARN or device
+-- role ARN is required.
 --
 -- /See:/ 'newDeviceUnderTest' smart constructor.
 data DeviceUnderTest = DeviceUnderTest'
-  { -- | Lists devices certificate ARN.
+  { -- | Lists device\'s certificate ARN.
     certificateArn :: Prelude.Maybe Prelude.Text,
-    -- | Lists devices thing ARN.
+    -- | Lists device\'s role ARN.
+    deviceRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | Lists device\'s thing ARN.
     thingArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,22 +46,29 @@ data DeviceUnderTest = DeviceUnderTest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'certificateArn', 'deviceUnderTest_certificateArn' - Lists devices certificate ARN.
+-- 'certificateArn', 'deviceUnderTest_certificateArn' - Lists device\'s certificate ARN.
 --
--- 'thingArn', 'deviceUnderTest_thingArn' - Lists devices thing ARN.
+-- 'deviceRoleArn', 'deviceUnderTest_deviceRoleArn' - Lists device\'s role ARN.
+--
+-- 'thingArn', 'deviceUnderTest_thingArn' - Lists device\'s thing ARN.
 newDeviceUnderTest ::
   DeviceUnderTest
 newDeviceUnderTest =
   DeviceUnderTest'
     { certificateArn = Prelude.Nothing,
+      deviceRoleArn = Prelude.Nothing,
       thingArn = Prelude.Nothing
     }
 
--- | Lists devices certificate ARN.
+-- | Lists device\'s certificate ARN.
 deviceUnderTest_certificateArn :: Lens.Lens' DeviceUnderTest (Prelude.Maybe Prelude.Text)
 deviceUnderTest_certificateArn = Lens.lens (\DeviceUnderTest' {certificateArn} -> certificateArn) (\s@DeviceUnderTest' {} a -> s {certificateArn = a} :: DeviceUnderTest)
 
--- | Lists devices thing ARN.
+-- | Lists device\'s role ARN.
+deviceUnderTest_deviceRoleArn :: Lens.Lens' DeviceUnderTest (Prelude.Maybe Prelude.Text)
+deviceUnderTest_deviceRoleArn = Lens.lens (\DeviceUnderTest' {deviceRoleArn} -> deviceRoleArn) (\s@DeviceUnderTest' {} a -> s {deviceRoleArn = a} :: DeviceUnderTest)
+
+-- | Lists device\'s thing ARN.
 deviceUnderTest_thingArn :: Lens.Lens' DeviceUnderTest (Prelude.Maybe Prelude.Text)
 deviceUnderTest_thingArn = Lens.lens (\DeviceUnderTest' {thingArn} -> thingArn) (\s@DeviceUnderTest' {} a -> s {thingArn = a} :: DeviceUnderTest)
 
@@ -70,17 +79,21 @@ instance Data.FromJSON DeviceUnderTest where
       ( \x ->
           DeviceUnderTest'
             Prelude.<$> (x Data..:? "certificateArn")
+            Prelude.<*> (x Data..:? "deviceRoleArn")
             Prelude.<*> (x Data..:? "thingArn")
       )
 
 instance Prelude.Hashable DeviceUnderTest where
   hashWithSalt _salt DeviceUnderTest' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
+      `Prelude.hashWithSalt` deviceRoleArn
       `Prelude.hashWithSalt` thingArn
 
 instance Prelude.NFData DeviceUnderTest where
   rnf DeviceUnderTest' {..} =
     Prelude.rnf certificateArn
+      `Prelude.seq` Prelude.rnf deviceRoleArn
       `Prelude.seq` Prelude.rnf thingArn
 
 instance Data.ToJSON DeviceUnderTest where
@@ -89,6 +102,7 @@ instance Data.ToJSON DeviceUnderTest where
       ( Prelude.catMaybes
           [ ("certificateArn" Data..=)
               Prelude.<$> certificateArn,
+            ("deviceRoleArn" Data..=) Prelude.<$> deviceRoleArn,
             ("thingArn" Data..=) Prelude.<$> thingArn
           ]
       )

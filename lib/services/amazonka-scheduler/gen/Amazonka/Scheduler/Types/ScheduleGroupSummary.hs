@@ -105,7 +105,8 @@ instance Data.FromJSON ScheduleGroupSummary where
 
 instance Prelude.Hashable ScheduleGroupSummary where
   hashWithSalt _salt ScheduleGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` lastModificationDate
       `Prelude.hashWithSalt` name

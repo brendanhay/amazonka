@@ -122,7 +122,8 @@ instance Core.AWSRequest DeleteSchedule where
 
 instance Prelude.Hashable DeleteSchedule where
   hashWithSalt _salt DeleteSchedule' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` name
 

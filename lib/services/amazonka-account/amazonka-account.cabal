@@ -45,15 +45,21 @@ library
   exposed-modules:
     Amazonka.Account
     Amazonka.Account.DeleteAlternateContact
+    Amazonka.Account.DisableRegion
+    Amazonka.Account.EnableRegion
     Amazonka.Account.GetAlternateContact
     Amazonka.Account.GetContactInformation
+    Amazonka.Account.GetRegionOptStatus
     Amazonka.Account.Lens
+    Amazonka.Account.ListRegions
     Amazonka.Account.PutAlternateContact
     Amazonka.Account.PutContactInformation
     Amazonka.Account.Types
     Amazonka.Account.Types.AlternateContact
     Amazonka.Account.Types.AlternateContactType
     Amazonka.Account.Types.ContactInformation
+    Amazonka.Account.Types.Region
+    Amazonka.Account.Types.RegionOptStatus
     Amazonka.Account.Waiters
 
   build-depends:

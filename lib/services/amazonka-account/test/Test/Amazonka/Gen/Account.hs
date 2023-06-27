@@ -30,11 +30,23 @@ import Test.Tasty
 --         [ requestDeleteAlternateContact $
 --             newDeleteAlternateContact
 --
+--         , requestDisableRegion $
+--             newDisableRegion
+--
+--         , requestEnableRegion $
+--             newEnableRegion
+--
 --         , requestGetAlternateContact $
 --             newGetAlternateContact
 --
 --         , requestGetContactInformation $
 --             newGetContactInformation
+--
+--         , requestGetRegionOptStatus $
+--             newGetRegionOptStatus
+--
+--         , requestListRegions $
+--             newListRegions
 --
 --         , requestPutAlternateContact $
 --             newPutAlternateContact
@@ -48,11 +60,23 @@ import Test.Tasty
 --         [ responseDeleteAlternateContact $
 --             newDeleteAlternateContactResponse
 --
+--         , responseDisableRegion $
+--             newDisableRegionResponse
+--
+--         , responseEnableRegion $
+--             newEnableRegionResponse
+--
 --         , responseGetAlternateContact $
 --             newGetAlternateContactResponse
 --
 --         , responseGetContactInformation $
 --             newGetContactInformationResponse
+--
+--         , responseGetRegionOptStatus $
+--             newGetRegionOptStatusResponse
+--
+--         , responseListRegions $
+--             newListRegionsResponse
 --
 --         , responsePutAlternateContact $
 --             newPutAlternateContactResponse
@@ -71,6 +95,18 @@ requestDeleteAlternateContact =
     "DeleteAlternateContact"
     "fixture/DeleteAlternateContact.yaml"
 
+requestDisableRegion :: DisableRegion -> TestTree
+requestDisableRegion =
+  req
+    "DisableRegion"
+    "fixture/DisableRegion.yaml"
+
+requestEnableRegion :: EnableRegion -> TestTree
+requestEnableRegion =
+  req
+    "EnableRegion"
+    "fixture/EnableRegion.yaml"
+
 requestGetAlternateContact :: GetAlternateContact -> TestTree
 requestGetAlternateContact =
   req
@@ -82,6 +118,18 @@ requestGetContactInformation =
   req
     "GetContactInformation"
     "fixture/GetContactInformation.yaml"
+
+requestGetRegionOptStatus :: GetRegionOptStatus -> TestTree
+requestGetRegionOptStatus =
+  req
+    "GetRegionOptStatus"
+    "fixture/GetRegionOptStatus.yaml"
+
+requestListRegions :: ListRegions -> TestTree
+requestListRegions =
+  req
+    "ListRegions"
+    "fixture/ListRegions.yaml"
 
 requestPutAlternateContact :: PutAlternateContact -> TestTree
 requestPutAlternateContact =
@@ -105,6 +153,22 @@ responseDeleteAlternateContact =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteAlternateContact)
 
+responseDisableRegion :: DisableRegionResponse -> TestTree
+responseDisableRegion =
+  res
+    "DisableRegionResponse"
+    "fixture/DisableRegionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisableRegion)
+
+responseEnableRegion :: EnableRegionResponse -> TestTree
+responseEnableRegion =
+  res
+    "EnableRegionResponse"
+    "fixture/EnableRegionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy EnableRegion)
+
 responseGetAlternateContact :: GetAlternateContactResponse -> TestTree
 responseGetAlternateContact =
   res
@@ -120,6 +184,22 @@ responseGetContactInformation =
     "fixture/GetContactInformationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetContactInformation)
+
+responseGetRegionOptStatus :: GetRegionOptStatusResponse -> TestTree
+responseGetRegionOptStatus =
+  res
+    "GetRegionOptStatusResponse"
+    "fixture/GetRegionOptStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRegionOptStatus)
+
+responseListRegions :: ListRegionsResponse -> TestTree
+responseListRegions =
+  res
+    "ListRegionsResponse"
+    "fixture/ListRegionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRegions)
 
 responsePutAlternateContact :: PutAlternateContactResponse -> TestTree
 responsePutAlternateContact =

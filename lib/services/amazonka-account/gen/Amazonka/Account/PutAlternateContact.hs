@@ -229,7 +229,8 @@ instance Core.AWSRequest PutAlternateContact where
 
 instance Prelude.Hashable PutAlternateContact where
   hashWithSalt _salt PutAlternateContact' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` alternateContactType
       `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` name

@@ -18,6 +18,14 @@ module Amazonka.Account.Lens
     deleteAlternateContact_accountId,
     deleteAlternateContact_alternateContactType,
 
+    -- ** DisableRegion
+    disableRegion_accountId,
+    disableRegion_regionName,
+
+    -- ** EnableRegion
+    enableRegion_accountId,
+    enableRegion_regionName,
+
     -- ** GetAlternateContact
     getAlternateContact_accountId,
     getAlternateContact_alternateContactType,
@@ -28,6 +36,22 @@ module Amazonka.Account.Lens
     getContactInformation_accountId,
     getContactInformationResponse_contactInformation,
     getContactInformationResponse_httpStatus,
+
+    -- ** GetRegionOptStatus
+    getRegionOptStatus_accountId,
+    getRegionOptStatus_regionName,
+    getRegionOptStatusResponse_regionName,
+    getRegionOptStatusResponse_regionOptStatus,
+    getRegionOptStatusResponse_httpStatus,
+
+    -- ** ListRegions
+    listRegions_accountId,
+    listRegions_maxResults,
+    listRegions_nextToken,
+    listRegions_regionOptStatusContains,
+    listRegionsResponse_nextToken,
+    listRegionsResponse_regions,
+    listRegionsResponse_httpStatus,
 
     -- ** PutAlternateContact
     putAlternateContact_accountId,
@@ -63,13 +87,22 @@ module Amazonka.Account.Lens
     contactInformation_fullName,
     contactInformation_phoneNumber,
     contactInformation_postalCode,
+
+    -- ** Region
+    region_regionName,
+    region_regionOptStatus,
   )
 where
 
 import Amazonka.Account.DeleteAlternateContact
+import Amazonka.Account.DisableRegion
+import Amazonka.Account.EnableRegion
 import Amazonka.Account.GetAlternateContact
 import Amazonka.Account.GetContactInformation
+import Amazonka.Account.GetRegionOptStatus
+import Amazonka.Account.ListRegions
 import Amazonka.Account.PutAlternateContact
 import Amazonka.Account.PutContactInformation
 import Amazonka.Account.Types.AlternateContact
 import Amazonka.Account.Types.ContactInformation
+import Amazonka.Account.Types.Region

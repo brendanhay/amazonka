@@ -13,31 +13,26 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Account.PutContactInformation
+-- Module      : Amazonka.Account.DisableRegion
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the primary contact information of an Amazon Web Services
--- account.
---
--- For complete details about how to use the primary contact operations,
--- see
--- <https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html Update the primary and alternate contact information>.
-module Amazonka.Account.PutContactInformation
+-- Disables (opts-out) a particular Region for an account.
+module Amazonka.Account.DisableRegion
   ( -- * Creating a Request
-    PutContactInformation (..),
-    newPutContactInformation,
+    DisableRegion (..),
+    newDisableRegion,
 
     -- * Request Lenses
-    putContactInformation_accountId,
-    putContactInformation_contactInformation,
+    disableRegion_accountId,
+    disableRegion_regionName,
 
     -- * Destructuring the Response
-    PutContactInformationResponse (..),
-    newPutContactInformationResponse,
+    DisableRegionResponse (..),
+    newDisableRegionResponse,
   )
 where
 
@@ -49,8 +44,8 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | /See:/ 'newPutContactInformation' smart constructor.
-data PutContactInformation = PutContactInformation'
+-- | /See:/ 'newDisableRegion' smart constructor.
+data DisableRegion = DisableRegion'
   { -- | Specifies the 12-digit account ID number of the Amazon Web Services
     -- account that you want to access or modify with this operation. If you
     -- don\'t specify this parameter, it defaults to the Amazon Web Services
@@ -75,21 +70,25 @@ data PutContactInformation = PutContactInformation'
     -- using an identity belonging to the account whose contacts you wish to
     -- retrieve or modify.
     accountId :: Prelude.Maybe Prelude.Text,
-    -- | Contains the details of the primary contact information associated with
-    -- an Amazon Web Services account.
-    contactInformation :: ContactInformation
+    -- | Specifies the Region-code for a given Region name (for example,
+    -- @af-south-1@). When you disable a Region, Amazon Web Services performs
+    -- actions to deactivate that Region in your account, such as destroying
+    -- IAM resources in the Region. This process takes a few minutes for most
+    -- accounts, but this can take several hours. You cannot enable the Region
+    -- until the disabling process is fully completed.
+    regionName :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
--- Create a value of 'PutContactInformation' with all optional fields omitted.
+-- Create a value of 'DisableRegion' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'putContactInformation_accountId' - Specifies the 12-digit account ID number of the Amazon Web Services
+-- 'accountId', 'disableRegion_accountId' - Specifies the 12-digit account ID number of the Amazon Web Services
 -- account that you want to access or modify with this operation. If you
 -- don\'t specify this parameter, it defaults to the Amazon Web Services
 -- account of the identity used to call the operation. To use this
@@ -113,16 +112,20 @@ data PutContactInformation = PutContactInformation'
 -- using an identity belonging to the account whose contacts you wish to
 -- retrieve or modify.
 --
--- 'contactInformation', 'putContactInformation_contactInformation' - Contains the details of the primary contact information associated with
--- an Amazon Web Services account.
-newPutContactInformation ::
-  -- | 'contactInformation'
-  ContactInformation ->
-  PutContactInformation
-newPutContactInformation pContactInformation_ =
-  PutContactInformation'
+-- 'regionName', 'disableRegion_regionName' - Specifies the Region-code for a given Region name (for example,
+-- @af-south-1@). When you disable a Region, Amazon Web Services performs
+-- actions to deactivate that Region in your account, such as destroying
+-- IAM resources in the Region. This process takes a few minutes for most
+-- accounts, but this can take several hours. You cannot enable the Region
+-- until the disabling process is fully completed.
+newDisableRegion ::
+  -- | 'regionName'
+  Prelude.Text ->
+  DisableRegion
+newDisableRegion pRegionName_ =
+  DisableRegion'
     { accountId = Prelude.Nothing,
-      contactInformation = pContactInformation_
+      regionName = pRegionName_
     }
 
 -- | Specifies the 12-digit account ID number of the Amazon Web Services
@@ -148,35 +151,39 @@ newPutContactInformation pContactInformation_ =
 -- organization, don\'t specify this parameter. Instead, call the operation
 -- using an identity belonging to the account whose contacts you wish to
 -- retrieve or modify.
-putContactInformation_accountId :: Lens.Lens' PutContactInformation (Prelude.Maybe Prelude.Text)
-putContactInformation_accountId = Lens.lens (\PutContactInformation' {accountId} -> accountId) (\s@PutContactInformation' {} a -> s {accountId = a} :: PutContactInformation)
+disableRegion_accountId :: Lens.Lens' DisableRegion (Prelude.Maybe Prelude.Text)
+disableRegion_accountId = Lens.lens (\DisableRegion' {accountId} -> accountId) (\s@DisableRegion' {} a -> s {accountId = a} :: DisableRegion)
 
--- | Contains the details of the primary contact information associated with
--- an Amazon Web Services account.
-putContactInformation_contactInformation :: Lens.Lens' PutContactInformation ContactInformation
-putContactInformation_contactInformation = Lens.lens (\PutContactInformation' {contactInformation} -> contactInformation) (\s@PutContactInformation' {} a -> s {contactInformation = a} :: PutContactInformation)
+-- | Specifies the Region-code for a given Region name (for example,
+-- @af-south-1@). When you disable a Region, Amazon Web Services performs
+-- actions to deactivate that Region in your account, such as destroying
+-- IAM resources in the Region. This process takes a few minutes for most
+-- accounts, but this can take several hours. You cannot enable the Region
+-- until the disabling process is fully completed.
+disableRegion_regionName :: Lens.Lens' DisableRegion Prelude.Text
+disableRegion_regionName = Lens.lens (\DisableRegion' {regionName} -> regionName) (\s@DisableRegion' {} a -> s {regionName = a} :: DisableRegion)
 
-instance Core.AWSRequest PutContactInformation where
+instance Core.AWSRequest DisableRegion where
   type
-    AWSResponse PutContactInformation =
-      PutContactInformationResponse
+    AWSResponse DisableRegion =
+      DisableRegionResponse
   request overrides =
     Request.postJSON (overrides defaultService)
   response =
-    Response.receiveNull PutContactInformationResponse'
+    Response.receiveNull DisableRegionResponse'
 
-instance Prelude.Hashable PutContactInformation where
-  hashWithSalt _salt PutContactInformation' {..} =
+instance Prelude.Hashable DisableRegion where
+  hashWithSalt _salt DisableRegion' {..} =
     _salt
       `Prelude.hashWithSalt` accountId
-      `Prelude.hashWithSalt` contactInformation
+      `Prelude.hashWithSalt` regionName
 
-instance Prelude.NFData PutContactInformation where
-  rnf PutContactInformation' {..} =
+instance Prelude.NFData DisableRegion where
+  rnf DisableRegion' {..} =
     Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf contactInformation
+      `Prelude.seq` Prelude.rnf regionName
 
-instance Data.ToHeaders PutContactInformation where
+instance Data.ToHeaders DisableRegion where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
@@ -187,36 +194,34 @@ instance Data.ToHeaders PutContactInformation where
           ]
       )
 
-instance Data.ToJSON PutContactInformation where
-  toJSON PutContactInformation' {..} =
+instance Data.ToJSON DisableRegion where
+  toJSON DisableRegion' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("AccountId" Data..=) Prelude.<$> accountId,
-            Prelude.Just
-              ("ContactInformation" Data..= contactInformation)
+            Prelude.Just ("RegionName" Data..= regionName)
           ]
       )
 
-instance Data.ToPath PutContactInformation where
-  toPath = Prelude.const "/putContactInformation"
+instance Data.ToPath DisableRegion where
+  toPath = Prelude.const "/disableRegion"
 
-instance Data.ToQuery PutContactInformation where
+instance Data.ToQuery DisableRegion where
   toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'newPutContactInformationResponse' smart constructor.
-data PutContactInformationResponse = PutContactInformationResponse'
+-- | /See:/ 'newDisableRegionResponse' smart constructor.
+data DisableRegionResponse = DisableRegionResponse'
   {
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
--- Create a value of 'PutContactInformationResponse' with all optional fields omitted.
+-- Create a value of 'DisableRegionResponse' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
-newPutContactInformationResponse ::
-  PutContactInformationResponse
-newPutContactInformationResponse =
-  PutContactInformationResponse'
+newDisableRegionResponse ::
+  DisableRegionResponse
+newDisableRegionResponse = DisableRegionResponse'
 
-instance Prelude.NFData PutContactInformationResponse where
+instance Prelude.NFData DisableRegionResponse where
   rnf _ = ()

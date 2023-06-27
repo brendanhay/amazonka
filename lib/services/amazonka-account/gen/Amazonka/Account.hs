@@ -22,6 +22,9 @@ module Amazonka.Account
     -- ** AccessDeniedException
     _AccessDeniedException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** InternalServerException
     _InternalServerException,
 
@@ -46,6 +49,18 @@ module Amazonka.Account
     DeleteAlternateContactResponse (DeleteAlternateContactResponse'),
     newDeleteAlternateContactResponse,
 
+    -- ** DisableRegion
+    DisableRegion (DisableRegion'),
+    newDisableRegion,
+    DisableRegionResponse (DisableRegionResponse'),
+    newDisableRegionResponse,
+
+    -- ** EnableRegion
+    EnableRegion (EnableRegion'),
+    newEnableRegion,
+    EnableRegionResponse (EnableRegionResponse'),
+    newEnableRegionResponse,
+
     -- ** GetAlternateContact
     GetAlternateContact (GetAlternateContact'),
     newGetAlternateContact,
@@ -57,6 +72,18 @@ module Amazonka.Account
     newGetContactInformation,
     GetContactInformationResponse (GetContactInformationResponse'),
     newGetContactInformationResponse,
+
+    -- ** GetRegionOptStatus
+    GetRegionOptStatus (GetRegionOptStatus'),
+    newGetRegionOptStatus,
+    GetRegionOptStatusResponse (GetRegionOptStatusResponse'),
+    newGetRegionOptStatusResponse,
+
+    -- ** ListRegions (Paginated)
+    ListRegions (ListRegions'),
+    newListRegions,
+    ListRegionsResponse (ListRegionsResponse'),
+    newListRegionsResponse,
 
     -- ** PutAlternateContact
     PutAlternateContact (PutAlternateContact'),
@@ -75,6 +102,9 @@ module Amazonka.Account
     -- ** AlternateContactType
     AlternateContactType (..),
 
+    -- ** RegionOptStatus
+    RegionOptStatus (..),
+
     -- ** AlternateContact
     AlternateContact (AlternateContact'),
     newAlternateContact,
@@ -82,13 +112,21 @@ module Amazonka.Account
     -- ** ContactInformation
     ContactInformation (ContactInformation'),
     newContactInformation,
+
+    -- ** Region
+    Region (Region'),
+    newRegion,
   )
 where
 
 import Amazonka.Account.DeleteAlternateContact
+import Amazonka.Account.DisableRegion
+import Amazonka.Account.EnableRegion
 import Amazonka.Account.GetAlternateContact
 import Amazonka.Account.GetContactInformation
+import Amazonka.Account.GetRegionOptStatus
 import Amazonka.Account.Lens
+import Amazonka.Account.ListRegions
 import Amazonka.Account.PutAlternateContact
 import Amazonka.Account.PutContactInformation
 import Amazonka.Account.Types

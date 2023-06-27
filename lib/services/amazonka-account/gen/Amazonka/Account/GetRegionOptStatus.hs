@@ -13,31 +13,31 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Account.PutContactInformation
+-- Module      : Amazonka.Account.GetRegionOptStatus
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the primary contact information of an Amazon Web Services
--- account.
---
--- For complete details about how to use the primary contact operations,
--- see
--- <https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html Update the primary and alternate contact information>.
-module Amazonka.Account.PutContactInformation
+-- Retrieves the opt-in status of a particular Region.
+module Amazonka.Account.GetRegionOptStatus
   ( -- * Creating a Request
-    PutContactInformation (..),
-    newPutContactInformation,
+    GetRegionOptStatus (..),
+    newGetRegionOptStatus,
 
     -- * Request Lenses
-    putContactInformation_accountId,
-    putContactInformation_contactInformation,
+    getRegionOptStatus_accountId,
+    getRegionOptStatus_regionName,
 
     -- * Destructuring the Response
-    PutContactInformationResponse (..),
-    newPutContactInformationResponse,
+    GetRegionOptStatusResponse (..),
+    newGetRegionOptStatusResponse,
+
+    -- * Response Lenses
+    getRegionOptStatusResponse_regionName,
+    getRegionOptStatusResponse_regionOptStatus,
+    getRegionOptStatusResponse_httpStatus,
   )
 where
 
@@ -49,8 +49,8 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | /See:/ 'newPutContactInformation' smart constructor.
-data PutContactInformation = PutContactInformation'
+-- | /See:/ 'newGetRegionOptStatus' smart constructor.
+data GetRegionOptStatus = GetRegionOptStatus'
   { -- | Specifies the 12-digit account ID number of the Amazon Web Services
     -- account that you want to access or modify with this operation. If you
     -- don\'t specify this parameter, it defaults to the Amazon Web Services
@@ -75,21 +75,22 @@ data PutContactInformation = PutContactInformation'
     -- using an identity belonging to the account whose contacts you wish to
     -- retrieve or modify.
     accountId :: Prelude.Maybe Prelude.Text,
-    -- | Contains the details of the primary contact information associated with
-    -- an Amazon Web Services account.
-    contactInformation :: ContactInformation
+    -- | Specifies the Region-code for a given Region name (for example,
+    -- @af-south-1@). This function will return the status of whatever Region
+    -- you pass into this parameter.
+    regionName :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
--- Create a value of 'PutContactInformation' with all optional fields omitted.
+-- Create a value of 'GetRegionOptStatus' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'putContactInformation_accountId' - Specifies the 12-digit account ID number of the Amazon Web Services
+-- 'accountId', 'getRegionOptStatus_accountId' - Specifies the 12-digit account ID number of the Amazon Web Services
 -- account that you want to access or modify with this operation. If you
 -- don\'t specify this parameter, it defaults to the Amazon Web Services
 -- account of the identity used to call the operation. To use this
@@ -113,16 +114,17 @@ data PutContactInformation = PutContactInformation'
 -- using an identity belonging to the account whose contacts you wish to
 -- retrieve or modify.
 --
--- 'contactInformation', 'putContactInformation_contactInformation' - Contains the details of the primary contact information associated with
--- an Amazon Web Services account.
-newPutContactInformation ::
-  -- | 'contactInformation'
-  ContactInformation ->
-  PutContactInformation
-newPutContactInformation pContactInformation_ =
-  PutContactInformation'
+-- 'regionName', 'getRegionOptStatus_regionName' - Specifies the Region-code for a given Region name (for example,
+-- @af-south-1@). This function will return the status of whatever Region
+-- you pass into this parameter.
+newGetRegionOptStatus ::
+  -- | 'regionName'
+  Prelude.Text ->
+  GetRegionOptStatus
+newGetRegionOptStatus pRegionName_ =
+  GetRegionOptStatus'
     { accountId = Prelude.Nothing,
-      contactInformation = pContactInformation_
+      regionName = pRegionName_
     }
 
 -- | Specifies the 12-digit account ID number of the Amazon Web Services
@@ -148,35 +150,42 @@ newPutContactInformation pContactInformation_ =
 -- organization, don\'t specify this parameter. Instead, call the operation
 -- using an identity belonging to the account whose contacts you wish to
 -- retrieve or modify.
-putContactInformation_accountId :: Lens.Lens' PutContactInformation (Prelude.Maybe Prelude.Text)
-putContactInformation_accountId = Lens.lens (\PutContactInformation' {accountId} -> accountId) (\s@PutContactInformation' {} a -> s {accountId = a} :: PutContactInformation)
+getRegionOptStatus_accountId :: Lens.Lens' GetRegionOptStatus (Prelude.Maybe Prelude.Text)
+getRegionOptStatus_accountId = Lens.lens (\GetRegionOptStatus' {accountId} -> accountId) (\s@GetRegionOptStatus' {} a -> s {accountId = a} :: GetRegionOptStatus)
 
--- | Contains the details of the primary contact information associated with
--- an Amazon Web Services account.
-putContactInformation_contactInformation :: Lens.Lens' PutContactInformation ContactInformation
-putContactInformation_contactInformation = Lens.lens (\PutContactInformation' {contactInformation} -> contactInformation) (\s@PutContactInformation' {} a -> s {contactInformation = a} :: PutContactInformation)
+-- | Specifies the Region-code for a given Region name (for example,
+-- @af-south-1@). This function will return the status of whatever Region
+-- you pass into this parameter.
+getRegionOptStatus_regionName :: Lens.Lens' GetRegionOptStatus Prelude.Text
+getRegionOptStatus_regionName = Lens.lens (\GetRegionOptStatus' {regionName} -> regionName) (\s@GetRegionOptStatus' {} a -> s {regionName = a} :: GetRegionOptStatus)
 
-instance Core.AWSRequest PutContactInformation where
+instance Core.AWSRequest GetRegionOptStatus where
   type
-    AWSResponse PutContactInformation =
-      PutContactInformationResponse
+    AWSResponse GetRegionOptStatus =
+      GetRegionOptStatusResponse
   request overrides =
     Request.postJSON (overrides defaultService)
   response =
-    Response.receiveNull PutContactInformationResponse'
+    Response.receiveJSON
+      ( \s h x ->
+          GetRegionOptStatusResponse'
+            Prelude.<$> (x Data..?> "RegionName")
+            Prelude.<*> (x Data..?> "RegionOptStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Prelude.Hashable PutContactInformation where
-  hashWithSalt _salt PutContactInformation' {..} =
+instance Prelude.Hashable GetRegionOptStatus where
+  hashWithSalt _salt GetRegionOptStatus' {..} =
     _salt
       `Prelude.hashWithSalt` accountId
-      `Prelude.hashWithSalt` contactInformation
+      `Prelude.hashWithSalt` regionName
 
-instance Prelude.NFData PutContactInformation where
-  rnf PutContactInformation' {..} =
+instance Prelude.NFData GetRegionOptStatus where
+  rnf GetRegionOptStatus' {..} =
     Prelude.rnf accountId
-      `Prelude.seq` Prelude.rnf contactInformation
+      `Prelude.seq` Prelude.rnf regionName
 
-instance Data.ToHeaders PutContactInformation where
+instance Data.ToHeaders GetRegionOptStatus where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
@@ -187,36 +196,74 @@ instance Data.ToHeaders PutContactInformation where
           ]
       )
 
-instance Data.ToJSON PutContactInformation where
-  toJSON PutContactInformation' {..} =
+instance Data.ToJSON GetRegionOptStatus where
+  toJSON GetRegionOptStatus' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("AccountId" Data..=) Prelude.<$> accountId,
-            Prelude.Just
-              ("ContactInformation" Data..= contactInformation)
+            Prelude.Just ("RegionName" Data..= regionName)
           ]
       )
 
-instance Data.ToPath PutContactInformation where
-  toPath = Prelude.const "/putContactInformation"
+instance Data.ToPath GetRegionOptStatus where
+  toPath = Prelude.const "/getRegionOptStatus"
 
-instance Data.ToQuery PutContactInformation where
+instance Data.ToQuery GetRegionOptStatus where
   toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'newPutContactInformationResponse' smart constructor.
-data PutContactInformationResponse = PutContactInformationResponse'
-  {
+-- | /See:/ 'newGetRegionOptStatusResponse' smart constructor.
+data GetRegionOptStatusResponse = GetRegionOptStatusResponse'
+  { -- | The Region code that was passed in.
+    regionName :: Prelude.Maybe Prelude.Text,
+    -- | One of the potential statuses a Region can undergo (Enabled, Enabling,
+    -- Disabled, Disabling, Enabled_By_Default).
+    regionOptStatus :: Prelude.Maybe RegionOptStatus,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
--- Create a value of 'PutContactInformationResponse' with all optional fields omitted.
+-- Create a value of 'GetRegionOptStatusResponse' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
-newPutContactInformationResponse ::
-  PutContactInformationResponse
-newPutContactInformationResponse =
-  PutContactInformationResponse'
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'regionName', 'getRegionOptStatusResponse_regionName' - The Region code that was passed in.
+--
+-- 'regionOptStatus', 'getRegionOptStatusResponse_regionOptStatus' - One of the potential statuses a Region can undergo (Enabled, Enabling,
+-- Disabled, Disabling, Enabled_By_Default).
+--
+-- 'httpStatus', 'getRegionOptStatusResponse_httpStatus' - The response's http status code.
+newGetRegionOptStatusResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetRegionOptStatusResponse
+newGetRegionOptStatusResponse pHttpStatus_ =
+  GetRegionOptStatusResponse'
+    { regionName =
+        Prelude.Nothing,
+      regionOptStatus = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
-instance Prelude.NFData PutContactInformationResponse where
-  rnf _ = ()
+-- | The Region code that was passed in.
+getRegionOptStatusResponse_regionName :: Lens.Lens' GetRegionOptStatusResponse (Prelude.Maybe Prelude.Text)
+getRegionOptStatusResponse_regionName = Lens.lens (\GetRegionOptStatusResponse' {regionName} -> regionName) (\s@GetRegionOptStatusResponse' {} a -> s {regionName = a} :: GetRegionOptStatusResponse)
+
+-- | One of the potential statuses a Region can undergo (Enabled, Enabling,
+-- Disabled, Disabling, Enabled_By_Default).
+getRegionOptStatusResponse_regionOptStatus :: Lens.Lens' GetRegionOptStatusResponse (Prelude.Maybe RegionOptStatus)
+getRegionOptStatusResponse_regionOptStatus = Lens.lens (\GetRegionOptStatusResponse' {regionOptStatus} -> regionOptStatus) (\s@GetRegionOptStatusResponse' {} a -> s {regionOptStatus = a} :: GetRegionOptStatusResponse)
+
+-- | The response's http status code.
+getRegionOptStatusResponse_httpStatus :: Lens.Lens' GetRegionOptStatusResponse Prelude.Int
+getRegionOptStatusResponse_httpStatus = Lens.lens (\GetRegionOptStatusResponse' {httpStatus} -> httpStatus) (\s@GetRegionOptStatusResponse' {} a -> s {httpStatus = a} :: GetRegionOptStatusResponse)
+
+instance Prelude.NFData GetRegionOptStatusResponse where
+  rnf GetRegionOptStatusResponse' {..} =
+    Prelude.rnf regionName
+      `Prelude.seq` Prelude.rnf regionOptStatus
+      `Prelude.seq` Prelude.rnf httpStatus

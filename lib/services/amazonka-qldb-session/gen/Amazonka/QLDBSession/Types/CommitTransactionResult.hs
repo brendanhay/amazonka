@@ -105,7 +105,8 @@ instance Data.FromJSON CommitTransactionResult where
 
 instance Prelude.Hashable CommitTransactionResult where
   hashWithSalt _salt CommitTransactionResult' {..} =
-    _salt `Prelude.hashWithSalt` commitDigest
+    _salt
+      `Prelude.hashWithSalt` commitDigest
       `Prelude.hashWithSalt` consumedIOs
       `Prelude.hashWithSalt` timingInformation
       `Prelude.hashWithSalt` transactionId

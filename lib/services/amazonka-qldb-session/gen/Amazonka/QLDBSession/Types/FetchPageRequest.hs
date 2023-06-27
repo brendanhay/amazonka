@@ -68,7 +68,8 @@ fetchPageRequest_nextPageToken = Lens.lens (\FetchPageRequest' {nextPageToken} -
 
 instance Prelude.Hashable FetchPageRequest where
   hashWithSalt _salt FetchPageRequest' {..} =
-    _salt `Prelude.hashWithSalt` transactionId
+    _salt
+      `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` nextPageToken
 
 instance Prelude.NFData FetchPageRequest where

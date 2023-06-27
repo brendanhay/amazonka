@@ -76,7 +76,8 @@ instance Data.FromJSON StartTransactionResult where
 
 instance Prelude.Hashable StartTransactionResult where
   hashWithSalt _salt StartTransactionResult' {..} =
-    _salt `Prelude.hashWithSalt` timingInformation
+    _salt
+      `Prelude.hashWithSalt` timingInformation
       `Prelude.hashWithSalt` transactionId
 
 instance Prelude.NFData StartTransactionResult where

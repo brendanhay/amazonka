@@ -115,7 +115,8 @@ instance Data.FromJSON InputSummary where
 
 instance Prelude.Hashable InputSummary where
   hashWithSalt _salt InputSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` inputArn
       `Prelude.hashWithSalt` inputDescription
       `Prelude.hashWithSalt` inputName

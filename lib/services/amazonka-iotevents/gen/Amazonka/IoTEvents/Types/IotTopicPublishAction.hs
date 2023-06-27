@@ -87,7 +87,8 @@ instance Data.FromJSON IotTopicPublishAction where
 
 instance Prelude.Hashable IotTopicPublishAction where
   hashWithSalt _salt IotTopicPublishAction' {..} =
-    _salt `Prelude.hashWithSalt` payload
+    _salt
+      `Prelude.hashWithSalt` payload
       `Prelude.hashWithSalt` mqttTopic
 
 instance Prelude.NFData IotTopicPublishAction where

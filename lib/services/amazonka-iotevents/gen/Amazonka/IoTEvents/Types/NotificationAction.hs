@@ -97,7 +97,8 @@ instance Data.FromJSON NotificationAction where
 
 instance Prelude.Hashable NotificationAction where
   hashWithSalt _salt NotificationAction' {..} =
-    _salt `Prelude.hashWithSalt` emailConfigurations
+    _salt
+      `Prelude.hashWithSalt` emailConfigurations
       `Prelude.hashWithSalt` smsConfigurations
       `Prelude.hashWithSalt` action
 

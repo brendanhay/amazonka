@@ -96,7 +96,8 @@ instance Core.AWSRequest ListAlarmModels where
     Response.receiveJSON
       ( \s h x ->
           ListAlarmModelsResponse'
-            Prelude.<$> ( x Data..?> "alarmModelSummaries"
+            Prelude.<$> ( x
+                            Data..?> "alarmModelSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -105,7 +106,8 @@ instance Core.AWSRequest ListAlarmModels where
 
 instance Prelude.Hashable ListAlarmModels where
   hashWithSalt _salt ListAlarmModels' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListAlarmModels where

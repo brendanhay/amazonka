@@ -108,7 +108,8 @@ instance Core.AWSRequest ListInputRoutings where
       ( \s h x ->
           ListInputRoutingsResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "routedResources"
+            Prelude.<*> ( x
+                            Data..?> "routedResources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -116,7 +117,8 @@ instance Core.AWSRequest ListInputRoutings where
 
 instance Prelude.Hashable ListInputRoutings where
   hashWithSalt _salt ListInputRoutings' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` inputIdentifier
 

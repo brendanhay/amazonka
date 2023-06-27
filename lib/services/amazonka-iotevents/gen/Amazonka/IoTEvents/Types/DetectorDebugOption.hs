@@ -80,7 +80,8 @@ instance Data.FromJSON DetectorDebugOption where
 
 instance Prelude.Hashable DetectorDebugOption where
   hashWithSalt _salt DetectorDebugOption' {..} =
-    _salt `Prelude.hashWithSalt` keyValue
+    _salt
+      `Prelude.hashWithSalt` keyValue
       `Prelude.hashWithSalt` detectorModelName
 
 instance Prelude.NFData DetectorDebugOption where

@@ -100,7 +100,8 @@ instance Data.FromJSON Payload where
 
 instance Prelude.Hashable Payload where
   hashWithSalt _salt Payload' {..} =
-    _salt `Prelude.hashWithSalt` contentExpression
+    _salt
+      `Prelude.hashWithSalt` contentExpression
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Payload where

@@ -112,7 +112,8 @@ instance Core.AWSRequest UpdateInput where
 
 instance Prelude.Hashable UpdateInput where
   hashWithSalt _salt UpdateInput' {..} =
-    _salt `Prelude.hashWithSalt` inputDescription
+    _salt
+      `Prelude.hashWithSalt` inputDescription
       `Prelude.hashWithSalt` inputName
       `Prelude.hashWithSalt` inputDefinition
 

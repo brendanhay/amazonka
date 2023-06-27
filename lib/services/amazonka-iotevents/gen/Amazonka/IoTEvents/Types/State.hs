@@ -108,7 +108,8 @@ instance Data.FromJSON State where
 
 instance Prelude.Hashable State where
   hashWithSalt _salt State' {..} =
-    _salt `Prelude.hashWithSalt` onEnter
+    _salt
+      `Prelude.hashWithSalt` onEnter
       `Prelude.hashWithSalt` onExit
       `Prelude.hashWithSalt` onInput
       `Prelude.hashWithSalt` stateName

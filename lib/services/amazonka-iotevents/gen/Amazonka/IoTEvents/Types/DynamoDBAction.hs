@@ -331,7 +331,8 @@ instance Data.FromJSON DynamoDBAction where
 
 instance Prelude.Hashable DynamoDBAction where
   hashWithSalt _salt DynamoDBAction' {..} =
-    _salt `Prelude.hashWithSalt` hashKeyType
+    _salt
+      `Prelude.hashWithSalt` hashKeyType
       `Prelude.hashWithSalt` operation
       `Prelude.hashWithSalt` payload
       `Prelude.hashWithSalt` payloadField

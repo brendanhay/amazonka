@@ -100,7 +100,8 @@ instance Core.AWSRequest ListInputs where
 
 instance Prelude.Hashable ListInputs where
   hashWithSalt _salt ListInputs' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListInputs where

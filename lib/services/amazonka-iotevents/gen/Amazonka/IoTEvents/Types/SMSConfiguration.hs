@@ -100,7 +100,8 @@ instance Data.FromJSON SMSConfiguration where
 
 instance Prelude.Hashable SMSConfiguration where
   hashWithSalt _salt SMSConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` additionalMessage
+    _salt
+      `Prelude.hashWithSalt` additionalMessage
       `Prelude.hashWithSalt` senderId
       `Prelude.hashWithSalt` recipients
 

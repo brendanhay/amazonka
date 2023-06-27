@@ -146,7 +146,8 @@ instance Data.FromJSON IotSiteWiseAction where
 
 instance Prelude.Hashable IotSiteWiseAction where
   hashWithSalt _salt IotSiteWiseAction' {..} =
-    _salt `Prelude.hashWithSalt` assetId
+    _salt
+      `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` entryId
       `Prelude.hashWithSalt` propertyAlias
       `Prelude.hashWithSalt` propertyId

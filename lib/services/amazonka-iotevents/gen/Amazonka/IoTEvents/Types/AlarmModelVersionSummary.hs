@@ -193,7 +193,8 @@ instance Data.FromJSON AlarmModelVersionSummary where
 
 instance Prelude.Hashable AlarmModelVersionSummary where
   hashWithSalt _salt AlarmModelVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` alarmModelArn
+    _salt
+      `Prelude.hashWithSalt` alarmModelArn
       `Prelude.hashWithSalt` alarmModelName
       `Prelude.hashWithSalt` alarmModelVersion
       `Prelude.hashWithSalt` creationTime

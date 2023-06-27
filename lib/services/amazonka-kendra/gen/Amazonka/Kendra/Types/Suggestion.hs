@@ -22,6 +22,7 @@ module Amazonka.Kendra.Types.Suggestion where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.Kendra.Types.SourceDocument
 import Amazonka.Kendra.Types.SuggestionValue
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,6 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 data Suggestion = Suggestion'
   { -- | The UUID (universally unique identifier) of a single query suggestion.
     id :: Prelude.Maybe Prelude.Text,
+    -- | The list of document IDs and their fields\/attributes that are used for
+    -- a single query suggestion, if document fields set to use for query
+    -- suggestions.
+    sourceDocuments :: Prelude.Maybe [SourceDocument],
     -- | The value for the UUID (universally unique identifier) of a single query
     -- suggestion.
     --
@@ -49,6 +54,10 @@ data Suggestion = Suggestion'
 --
 -- 'id', 'suggestion_id' - The UUID (universally unique identifier) of a single query suggestion.
 --
+-- 'sourceDocuments', 'suggestion_sourceDocuments' - The list of document IDs and their fields\/attributes that are used for
+-- a single query suggestion, if document fields set to use for query
+-- suggestions.
+--
 -- 'value', 'suggestion_value' - The value for the UUID (universally unique identifier) of a single query
 -- suggestion.
 --
@@ -58,12 +67,19 @@ newSuggestion ::
 newSuggestion =
   Suggestion'
     { id = Prelude.Nothing,
+      sourceDocuments = Prelude.Nothing,
       value = Prelude.Nothing
     }
 
 -- | The UUID (universally unique identifier) of a single query suggestion.
 suggestion_id :: Lens.Lens' Suggestion (Prelude.Maybe Prelude.Text)
 suggestion_id = Lens.lens (\Suggestion' {id} -> id) (\s@Suggestion' {} a -> s {id = a} :: Suggestion)
+
+-- | The list of document IDs and their fields\/attributes that are used for
+-- a single query suggestion, if document fields set to use for query
+-- suggestions.
+suggestion_sourceDocuments :: Lens.Lens' Suggestion (Prelude.Maybe [SourceDocument])
+suggestion_sourceDocuments = Lens.lens (\Suggestion' {sourceDocuments} -> sourceDocuments) (\s@Suggestion' {} a -> s {sourceDocuments = a} :: Suggestion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The value for the UUID (universally unique identifier) of a single query
 -- suggestion.
@@ -78,14 +94,23 @@ instance Data.FromJSON Suggestion where
       "Suggestion"
       ( \x ->
           Suggestion'
-            Prelude.<$> (x Data..:? "Id") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Id")
+            Prelude.<*> ( x
+                            Data..:? "SourceDocuments"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Suggestion where
   hashWithSalt _salt Suggestion' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` sourceDocuments
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Suggestion where
   rnf Suggestion' {..} =
-    Prelude.rnf id `Prelude.seq` Prelude.rnf value
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf sourceDocuments
+      `Prelude.seq` Prelude.rnf value

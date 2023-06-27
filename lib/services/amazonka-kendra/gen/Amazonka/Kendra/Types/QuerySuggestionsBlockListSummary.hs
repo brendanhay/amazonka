@@ -36,8 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQuerySuggestionsBlockListSummary' smart constructor.
 data QuerySuggestionsBlockListSummary = QuerySuggestionsBlockListSummary'
-  { -- | The date-time summary information for a query suggestions block list was
-    -- last created.
+  { -- | The Unix timestamp when the block list was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The identifier of a block list.
     id :: Prelude.Maybe Prelude.Text,
@@ -47,7 +46,7 @@ data QuerySuggestionsBlockListSummary = QuerySuggestionsBlockListSummary'
     name :: Prelude.Maybe Prelude.Text,
     -- | The status of the block list.
     status :: Prelude.Maybe QuerySuggestionsBlockListStatus,
-    -- | The date-time the block list was last updated.
+    -- | The Unix timestamp when the block list was last updated.
     updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,8 +59,7 @@ data QuerySuggestionsBlockListSummary = QuerySuggestionsBlockListSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'querySuggestionsBlockListSummary_createdAt' - The date-time summary information for a query suggestions block list was
--- last created.
+-- 'createdAt', 'querySuggestionsBlockListSummary_createdAt' - The Unix timestamp when the block list was created.
 --
 -- 'id', 'querySuggestionsBlockListSummary_id' - The identifier of a block list.
 --
@@ -71,7 +69,7 @@ data QuerySuggestionsBlockListSummary = QuerySuggestionsBlockListSummary'
 --
 -- 'status', 'querySuggestionsBlockListSummary_status' - The status of the block list.
 --
--- 'updatedAt', 'querySuggestionsBlockListSummary_updatedAt' - The date-time the block list was last updated.
+-- 'updatedAt', 'querySuggestionsBlockListSummary_updatedAt' - The Unix timestamp when the block list was last updated.
 newQuerySuggestionsBlockListSummary ::
   QuerySuggestionsBlockListSummary
 newQuerySuggestionsBlockListSummary =
@@ -85,8 +83,7 @@ newQuerySuggestionsBlockListSummary =
       updatedAt = Prelude.Nothing
     }
 
--- | The date-time summary information for a query suggestions block list was
--- last created.
+-- | The Unix timestamp when the block list was created.
 querySuggestionsBlockListSummary_createdAt :: Lens.Lens' QuerySuggestionsBlockListSummary (Prelude.Maybe Prelude.UTCTime)
 querySuggestionsBlockListSummary_createdAt = Lens.lens (\QuerySuggestionsBlockListSummary' {createdAt} -> createdAt) (\s@QuerySuggestionsBlockListSummary' {} a -> s {createdAt = a} :: QuerySuggestionsBlockListSummary) Prelude.. Lens.mapping Data._Time
 
@@ -106,7 +103,7 @@ querySuggestionsBlockListSummary_name = Lens.lens (\QuerySuggestionsBlockListSum
 querySuggestionsBlockListSummary_status :: Lens.Lens' QuerySuggestionsBlockListSummary (Prelude.Maybe QuerySuggestionsBlockListStatus)
 querySuggestionsBlockListSummary_status = Lens.lens (\QuerySuggestionsBlockListSummary' {status} -> status) (\s@QuerySuggestionsBlockListSummary' {} a -> s {status = a} :: QuerySuggestionsBlockListSummary)
 
--- | The date-time the block list was last updated.
+-- | The Unix timestamp when the block list was last updated.
 querySuggestionsBlockListSummary_updatedAt :: Lens.Lens' QuerySuggestionsBlockListSummary (Prelude.Maybe Prelude.UTCTime)
 querySuggestionsBlockListSummary_updatedAt = Lens.lens (\QuerySuggestionsBlockListSummary' {updatedAt} -> updatedAt) (\s@QuerySuggestionsBlockListSummary' {} a -> s {updatedAt = a} :: QuerySuggestionsBlockListSummary) Prelude.. Lens.mapping Data._Time
 
@@ -134,7 +131,8 @@ instance
   hashWithSalt
     _salt
     QuerySuggestionsBlockListSummary' {..} =
-      _salt `Prelude.hashWithSalt` createdAt
+      _salt
+        `Prelude.hashWithSalt` createdAt
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` itemCount
         `Prelude.hashWithSalt` name

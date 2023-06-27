@@ -35,14 +35,12 @@ data ServiceNowKnowledgeArticleConfiguration = ServiceNowKnowledgeArticleConfigu
     -- | The name of the ServiceNow field that is mapped to the index document
     -- title field.
     documentTitleFieldName :: Prelude.Maybe Prelude.Text,
-    -- | A list of regular expression patterns to exclude certain attachments of
-    -- knowledge articles in your ServiceNow. Item that match the patterns are
+    -- | A list of regular expression patterns applied to exclude certain
+    -- knowledge article attachments. Attachments that match the patterns are
     -- excluded from the index. Items that don\'t match the patterns are
     -- included in the index. If an item matches both an inclusion and
     -- exclusion pattern, the exclusion pattern takes precedence and the item
     -- isn\'t included in the index.
-    --
-    -- The regex is applied to the field specified in the @PatternTargetField@.
     excludeAttachmentFilePatterns :: Prelude.Maybe [Prelude.Text],
     -- | Maps attributes or field names of knoweldge articles to Amazon Kendra
     -- index field names. To create custom fields, use the @UpdateIndex@ API
@@ -59,14 +57,12 @@ data ServiceNowKnowledgeArticleConfiguration = ServiceNowKnowledgeArticleConfigu
     -- more information, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/servicenow-query.html Specifying documents to index with a query>.
     filterQuery :: Prelude.Maybe Prelude.Text,
-    -- | A list of regular expression patterns to include certain attachments of
-    -- knowledge articles in your ServiceNow. Item that match the patterns are
-    -- included in the index. Items that don\'t match the patterns are excluded
-    -- from the index. If an item matches both an inclusion and exclusion
-    -- pattern, the exclusion pattern takes precedence and the item isn\'t
-    -- included in the index.
-    --
-    -- The regex is applied to the field specified in the @PatternTargetField@.
+    -- | A list of regular expression patterns applied to include knowledge
+    -- article attachments. Attachments that match the patterns are included in
+    -- the index. Items that don\'t match the patterns are excluded from the
+    -- index. If an item matches both an inclusion and exclusion pattern, the
+    -- exclusion pattern takes precedence and the item isn\'t included in the
+    -- index.
     includeAttachmentFilePatterns :: Prelude.Maybe [Prelude.Text],
     -- | The name of the ServiceNow field that is mapped to the index document
     -- contents field in the Amazon Kendra index.
@@ -87,14 +83,12 @@ data ServiceNowKnowledgeArticleConfiguration = ServiceNowKnowledgeArticleConfigu
 -- 'documentTitleFieldName', 'serviceNowKnowledgeArticleConfiguration_documentTitleFieldName' - The name of the ServiceNow field that is mapped to the index document
 -- title field.
 --
--- 'excludeAttachmentFilePatterns', 'serviceNowKnowledgeArticleConfiguration_excludeAttachmentFilePatterns' - A list of regular expression patterns to exclude certain attachments of
--- knowledge articles in your ServiceNow. Item that match the patterns are
+-- 'excludeAttachmentFilePatterns', 'serviceNowKnowledgeArticleConfiguration_excludeAttachmentFilePatterns' - A list of regular expression patterns applied to exclude certain
+-- knowledge article attachments. Attachments that match the patterns are
 -- excluded from the index. Items that don\'t match the patterns are
 -- included in the index. If an item matches both an inclusion and
 -- exclusion pattern, the exclusion pattern takes precedence and the item
 -- isn\'t included in the index.
---
--- The regex is applied to the field specified in the @PatternTargetField@.
 --
 -- 'fieldMappings', 'serviceNowKnowledgeArticleConfiguration_fieldMappings' - Maps attributes or field names of knoweldge articles to Amazon Kendra
 -- index field names. To create custom fields, use the @UpdateIndex@ API
@@ -111,14 +105,12 @@ data ServiceNowKnowledgeArticleConfiguration = ServiceNowKnowledgeArticleConfigu
 -- more information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/servicenow-query.html Specifying documents to index with a query>.
 --
--- 'includeAttachmentFilePatterns', 'serviceNowKnowledgeArticleConfiguration_includeAttachmentFilePatterns' - A list of regular expression patterns to include certain attachments of
--- knowledge articles in your ServiceNow. Item that match the patterns are
--- included in the index. Items that don\'t match the patterns are excluded
--- from the index. If an item matches both an inclusion and exclusion
--- pattern, the exclusion pattern takes precedence and the item isn\'t
--- included in the index.
---
--- The regex is applied to the field specified in the @PatternTargetField@.
+-- 'includeAttachmentFilePatterns', 'serviceNowKnowledgeArticleConfiguration_includeAttachmentFilePatterns' - A list of regular expression patterns applied to include knowledge
+-- article attachments. Attachments that match the patterns are included in
+-- the index. Items that don\'t match the patterns are excluded from the
+-- index. If an item matches both an inclusion and exclusion pattern, the
+-- exclusion pattern takes precedence and the item isn\'t included in the
+-- index.
 --
 -- 'documentDataFieldName', 'serviceNowKnowledgeArticleConfiguration_documentDataFieldName' - The name of the ServiceNow field that is mapped to the index document
 -- contents field in the Amazon Kendra index.
@@ -152,14 +144,12 @@ serviceNowKnowledgeArticleConfiguration_crawlAttachments = Lens.lens (\ServiceNo
 serviceNowKnowledgeArticleConfiguration_documentTitleFieldName :: Lens.Lens' ServiceNowKnowledgeArticleConfiguration (Prelude.Maybe Prelude.Text)
 serviceNowKnowledgeArticleConfiguration_documentTitleFieldName = Lens.lens (\ServiceNowKnowledgeArticleConfiguration' {documentTitleFieldName} -> documentTitleFieldName) (\s@ServiceNowKnowledgeArticleConfiguration' {} a -> s {documentTitleFieldName = a} :: ServiceNowKnowledgeArticleConfiguration)
 
--- | A list of regular expression patterns to exclude certain attachments of
--- knowledge articles in your ServiceNow. Item that match the patterns are
+-- | A list of regular expression patterns applied to exclude certain
+-- knowledge article attachments. Attachments that match the patterns are
 -- excluded from the index. Items that don\'t match the patterns are
 -- included in the index. If an item matches both an inclusion and
 -- exclusion pattern, the exclusion pattern takes precedence and the item
 -- isn\'t included in the index.
---
--- The regex is applied to the field specified in the @PatternTargetField@.
 serviceNowKnowledgeArticleConfiguration_excludeAttachmentFilePatterns :: Lens.Lens' ServiceNowKnowledgeArticleConfiguration (Prelude.Maybe [Prelude.Text])
 serviceNowKnowledgeArticleConfiguration_excludeAttachmentFilePatterns = Lens.lens (\ServiceNowKnowledgeArticleConfiguration' {excludeAttachmentFilePatterns} -> excludeAttachmentFilePatterns) (\s@ServiceNowKnowledgeArticleConfiguration' {} a -> s {excludeAttachmentFilePatterns = a} :: ServiceNowKnowledgeArticleConfiguration) Prelude.. Lens.mapping Lens.coerced
 
@@ -182,14 +172,12 @@ serviceNowKnowledgeArticleConfiguration_fieldMappings = Lens.lens (\ServiceNowKn
 serviceNowKnowledgeArticleConfiguration_filterQuery :: Lens.Lens' ServiceNowKnowledgeArticleConfiguration (Prelude.Maybe Prelude.Text)
 serviceNowKnowledgeArticleConfiguration_filterQuery = Lens.lens (\ServiceNowKnowledgeArticleConfiguration' {filterQuery} -> filterQuery) (\s@ServiceNowKnowledgeArticleConfiguration' {} a -> s {filterQuery = a} :: ServiceNowKnowledgeArticleConfiguration)
 
--- | A list of regular expression patterns to include certain attachments of
--- knowledge articles in your ServiceNow. Item that match the patterns are
--- included in the index. Items that don\'t match the patterns are excluded
--- from the index. If an item matches both an inclusion and exclusion
--- pattern, the exclusion pattern takes precedence and the item isn\'t
--- included in the index.
---
--- The regex is applied to the field specified in the @PatternTargetField@.
+-- | A list of regular expression patterns applied to include knowledge
+-- article attachments. Attachments that match the patterns are included in
+-- the index. Items that don\'t match the patterns are excluded from the
+-- index. If an item matches both an inclusion and exclusion pattern, the
+-- exclusion pattern takes precedence and the item isn\'t included in the
+-- index.
 serviceNowKnowledgeArticleConfiguration_includeAttachmentFilePatterns :: Lens.Lens' ServiceNowKnowledgeArticleConfiguration (Prelude.Maybe [Prelude.Text])
 serviceNowKnowledgeArticleConfiguration_includeAttachmentFilePatterns = Lens.lens (\ServiceNowKnowledgeArticleConfiguration' {includeAttachmentFilePatterns} -> includeAttachmentFilePatterns) (\s@ServiceNowKnowledgeArticleConfiguration' {} a -> s {includeAttachmentFilePatterns = a} :: ServiceNowKnowledgeArticleConfiguration) Prelude.. Lens.mapping Lens.coerced
 
@@ -209,12 +197,14 @@ instance
           ServiceNowKnowledgeArticleConfiguration'
             Prelude.<$> (x Data..:? "CrawlAttachments")
             Prelude.<*> (x Data..:? "DocumentTitleFieldName")
-            Prelude.<*> ( x Data..:? "ExcludeAttachmentFilePatterns"
+            Prelude.<*> ( x
+                            Data..:? "ExcludeAttachmentFilePatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FieldMappings")
             Prelude.<*> (x Data..:? "FilterQuery")
-            Prelude.<*> ( x Data..:? "IncludeAttachmentFilePatterns"
+            Prelude.<*> ( x
+                            Data..:? "IncludeAttachmentFilePatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "DocumentDataFieldName")
@@ -227,7 +217,8 @@ instance
   hashWithSalt
     _salt
     ServiceNowKnowledgeArticleConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` crawlAttachments
+      _salt
+        `Prelude.hashWithSalt` crawlAttachments
         `Prelude.hashWithSalt` documentTitleFieldName
         `Prelude.hashWithSalt` excludeAttachmentFilePatterns
         `Prelude.hashWithSalt` fieldMappings

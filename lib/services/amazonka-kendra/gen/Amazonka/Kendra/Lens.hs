@@ -35,6 +35,12 @@ module Amazonka.Kendra.Lens
     batchDeleteDocumentResponse_failedDocuments,
     batchDeleteDocumentResponse_httpStatus,
 
+    -- ** BatchDeleteFeaturedResultsSet
+    batchDeleteFeaturedResultsSet_indexId,
+    batchDeleteFeaturedResultsSet_featuredResultsSetIds,
+    batchDeleteFeaturedResultsSetResponse_httpStatus,
+    batchDeleteFeaturedResultsSetResponse_errors,
+
     -- ** BatchGetDocumentStatus
     batchGetDocumentStatus_indexId,
     batchGetDocumentStatus_documentInfoList,
@@ -101,6 +107,18 @@ module Amazonka.Kendra.Lens
     createFaq_roleArn,
     createFaqResponse_id,
     createFaqResponse_httpStatus,
+
+    -- ** CreateFeaturedResultsSet
+    createFeaturedResultsSet_clientToken,
+    createFeaturedResultsSet_description,
+    createFeaturedResultsSet_featuredDocuments,
+    createFeaturedResultsSet_queryTexts,
+    createFeaturedResultsSet_status,
+    createFeaturedResultsSet_tags,
+    createFeaturedResultsSet_indexId,
+    createFeaturedResultsSet_featuredResultsSetName,
+    createFeaturedResultsSetResponse_featuredResultsSet,
+    createFeaturedResultsSetResponse_httpStatus,
 
     -- ** CreateIndex
     createIndex_clientToken,
@@ -236,6 +254,20 @@ module Amazonka.Kendra.Lens
     describeFaqResponse_updatedAt,
     describeFaqResponse_httpStatus,
 
+    -- ** DescribeFeaturedResultsSet
+    describeFeaturedResultsSet_indexId,
+    describeFeaturedResultsSet_featuredResultsSetId,
+    describeFeaturedResultsSetResponse_creationTimestamp,
+    describeFeaturedResultsSetResponse_description,
+    describeFeaturedResultsSetResponse_featuredDocumentsMissing,
+    describeFeaturedResultsSetResponse_featuredDocumentsWithMetadata,
+    describeFeaturedResultsSetResponse_featuredResultsSetId,
+    describeFeaturedResultsSetResponse_featuredResultsSetName,
+    describeFeaturedResultsSetResponse_lastUpdatedTimestamp,
+    describeFeaturedResultsSetResponse_queryTexts,
+    describeFeaturedResultsSetResponse_status,
+    describeFeaturedResultsSetResponse_httpStatus,
+
     -- ** DescribeIndex
     describeIndex_id,
     describeIndexResponse_capacityUnits,
@@ -285,6 +317,7 @@ module Amazonka.Kendra.Lens
 
     -- ** DescribeQuerySuggestionsConfig
     describeQuerySuggestionsConfig_indexId,
+    describeQuerySuggestionsConfigResponse_attributeSuggestionsConfig,
     describeQuerySuggestionsConfigResponse_includeQueriesWithoutUserInformation,
     describeQuerySuggestionsConfigResponse_lastClearTime,
     describeQuerySuggestionsConfigResponse_lastSuggestionsBuildTime,
@@ -329,7 +362,9 @@ module Amazonka.Kendra.Lens
     disassociatePersonasFromEntitiesResponse_httpStatus,
 
     -- ** GetQuerySuggestions
+    getQuerySuggestions_attributeSuggestionsConfig,
     getQuerySuggestions_maxSuggestionsCount,
+    getQuerySuggestions_suggestionTypes,
     getQuerySuggestions_indexId,
     getQuerySuggestions_queryText,
     getQuerySuggestionsResponse_querySuggestionsId,
@@ -408,6 +443,14 @@ module Amazonka.Kendra.Lens
     listFaqsResponse_nextToken,
     listFaqsResponse_httpStatus,
 
+    -- ** ListFeaturedResultsSets
+    listFeaturedResultsSets_maxResults,
+    listFeaturedResultsSets_nextToken,
+    listFeaturedResultsSets_indexId,
+    listFeaturedResultsSetsResponse_featuredResultsSetSummaryItems,
+    listFeaturedResultsSetsResponse_nextToken,
+    listFeaturedResultsSetsResponse_httpStatus,
+
     -- ** ListGroupsOlderThanOrderingId
     listGroupsOlderThanOrderingId_dataSourceId,
     listGroupsOlderThanOrderingId_maxResults,
@@ -469,12 +512,26 @@ module Amazonka.Kendra.Lens
     query_visitorId,
     query_indexId,
     queryResponse_facetResults,
+    queryResponse_featuredResultsItems,
     queryResponse_queryId,
     queryResponse_resultItems,
     queryResponse_spellCorrectedQueries,
     queryResponse_totalNumberOfResults,
     queryResponse_warnings,
     queryResponse_httpStatus,
+
+    -- ** Retrieve
+    retrieve_attributeFilter,
+    retrieve_documentRelevanceOverrideConfigurations,
+    retrieve_pageNumber,
+    retrieve_pageSize,
+    retrieve_requestedDocumentAttributes,
+    retrieve_userContext,
+    retrieve_indexId,
+    retrieve_queryText,
+    retrieveResponse_queryId,
+    retrieveResponse_resultItems,
+    retrieveResponse_httpStatus,
 
     -- ** StartDataSourceSyncJob
     startDataSourceSyncJob_id,
@@ -531,6 +588,17 @@ module Amazonka.Kendra.Lens
     updateExperience_id,
     updateExperience_indexId,
 
+    -- ** UpdateFeaturedResultsSet
+    updateFeaturedResultsSet_description,
+    updateFeaturedResultsSet_featuredDocuments,
+    updateFeaturedResultsSet_featuredResultsSetName,
+    updateFeaturedResultsSet_queryTexts,
+    updateFeaturedResultsSet_status,
+    updateFeaturedResultsSet_indexId,
+    updateFeaturedResultsSet_featuredResultsSetId,
+    updateFeaturedResultsSetResponse_featuredResultsSet,
+    updateFeaturedResultsSetResponse_httpStatus,
+
     -- ** UpdateIndex
     updateIndex_capacityUnits,
     updateIndex_description,
@@ -551,6 +619,7 @@ module Amazonka.Kendra.Lens
     updateQuerySuggestionsBlockList_id,
 
     -- ** UpdateQuerySuggestionsConfig
+    updateQuerySuggestionsConfig_attributeSuggestionsConfig,
     updateQuerySuggestionsConfig_includeQueriesWithoutUserInformation,
     updateQuerySuggestionsConfig_minimumNumberOfQueryingUsers,
     updateQuerySuggestionsConfig_minimumQueryCount,
@@ -612,6 +681,20 @@ module Amazonka.Kendra.Lens
     attributeFilter_notFilter,
     attributeFilter_orAllFilters,
 
+    -- ** AttributeSuggestionsDescribeConfig
+    attributeSuggestionsDescribeConfig_attributeSuggestionsMode,
+    attributeSuggestionsDescribeConfig_suggestableConfigList,
+
+    -- ** AttributeSuggestionsGetConfig
+    attributeSuggestionsGetConfig_additionalResponseAttributes,
+    attributeSuggestionsGetConfig_attributeFilter,
+    attributeSuggestionsGetConfig_suggestionAttributes,
+    attributeSuggestionsGetConfig_userContext,
+
+    -- ** AttributeSuggestionsUpdateConfig
+    attributeSuggestionsUpdateConfig_attributeSuggestionsMode,
+    attributeSuggestionsUpdateConfig_suggestableConfigList,
+
     -- ** AuthenticationConfiguration
     authenticationConfiguration_basicAuthentication,
 
@@ -624,6 +707,11 @@ module Amazonka.Kendra.Lens
     batchDeleteDocumentResponseFailedDocument_errorCode,
     batchDeleteDocumentResponseFailedDocument_errorMessage,
     batchDeleteDocumentResponseFailedDocument_id,
+
+    -- ** BatchDeleteFeaturedResultsSetError
+    batchDeleteFeaturedResultsSetError_id,
+    batchDeleteFeaturedResultsSetError_errorCode,
+    batchDeleteFeaturedResultsSetError_errorMessage,
 
     -- ** BatchGetDocumentStatusResponseError
     batchGetDocumentStatusResponseError_documentId,
@@ -925,6 +1013,45 @@ module Amazonka.Kendra.Lens
     faqSummary_status,
     faqSummary_updatedAt,
 
+    -- ** FeaturedDocument
+    featuredDocument_id,
+
+    -- ** FeaturedDocumentMissing
+    featuredDocumentMissing_id,
+
+    -- ** FeaturedDocumentWithMetadata
+    featuredDocumentWithMetadata_id,
+    featuredDocumentWithMetadata_title,
+    featuredDocumentWithMetadata_uri,
+
+    -- ** FeaturedResultsItem
+    featuredResultsItem_additionalAttributes,
+    featuredResultsItem_documentAttributes,
+    featuredResultsItem_documentExcerpt,
+    featuredResultsItem_documentId,
+    featuredResultsItem_documentTitle,
+    featuredResultsItem_documentURI,
+    featuredResultsItem_feedbackToken,
+    featuredResultsItem_id,
+    featuredResultsItem_type,
+
+    -- ** FeaturedResultsSet
+    featuredResultsSet_creationTimestamp,
+    featuredResultsSet_description,
+    featuredResultsSet_featuredDocuments,
+    featuredResultsSet_featuredResultsSetId,
+    featuredResultsSet_featuredResultsSetName,
+    featuredResultsSet_lastUpdatedTimestamp,
+    featuredResultsSet_queryTexts,
+    featuredResultsSet_status,
+
+    -- ** FeaturedResultsSetSummary
+    featuredResultsSetSummary_creationTimestamp,
+    featuredResultsSetSummary_featuredResultsSetId,
+    featuredResultsSetSummary_featuredResultsSetName,
+    featuredResultsSetSummary_lastUpdatedTimestamp,
+    featuredResultsSetSummary_status,
+
     -- ** FsxConfiguration
     fsxConfiguration_exclusionPatterns,
     fsxConfiguration_fieldMappings,
@@ -1142,6 +1269,14 @@ module Amazonka.Kendra.Lens
     relevanceFeedback_resultId,
     relevanceFeedback_relevanceValue,
 
+    -- ** RetrieveResultItem
+    retrieveResultItem_content,
+    retrieveResultItem_documentAttributes,
+    retrieveResultItem_documentId,
+    retrieveResultItem_documentTitle,
+    retrieveResultItem_documentURI,
+    retrieveResultItem_id,
+
     -- ** S3DataSourceConfiguration
     s3DataSourceConfiguration_accessControlListConfiguration,
     s3DataSourceConfiguration_documentsMetadataConfiguration,
@@ -1281,6 +1416,11 @@ module Amazonka.Kendra.Lens
     sortingConfiguration_documentAttributeKey,
     sortingConfiguration_sortOrder,
 
+    -- ** SourceDocument
+    sourceDocument_additionalAttributes,
+    sourceDocument_documentId,
+    sourceDocument_suggestionAttributes,
+
     -- ** SpellCorrectedQuery
     spellCorrectedQuery_corrections,
     spellCorrectedQuery_suggestedQueryText,
@@ -1297,8 +1437,13 @@ module Amazonka.Kendra.Lens
     status_failureCode,
     status_failureReason,
 
+    -- ** SuggestableConfig
+    suggestableConfig_attributeName,
+    suggestableConfig_suggestable,
+
     -- ** Suggestion
     suggestion_id,
+    suggestion_sourceDocuments,
     suggestion_value,
 
     -- ** SuggestionHighlight
@@ -1401,6 +1546,7 @@ where
 import Amazonka.Kendra.AssociateEntitiesToExperience
 import Amazonka.Kendra.AssociatePersonasToEntities
 import Amazonka.Kendra.BatchDeleteDocument
+import Amazonka.Kendra.BatchDeleteFeaturedResultsSet
 import Amazonka.Kendra.BatchGetDocumentStatus
 import Amazonka.Kendra.BatchPutDocument
 import Amazonka.Kendra.ClearQuerySuggestions
@@ -1408,6 +1554,7 @@ import Amazonka.Kendra.CreateAccessControlConfiguration
 import Amazonka.Kendra.CreateDataSource
 import Amazonka.Kendra.CreateExperience
 import Amazonka.Kendra.CreateFaq
+import Amazonka.Kendra.CreateFeaturedResultsSet
 import Amazonka.Kendra.CreateIndex
 import Amazonka.Kendra.CreateQuerySuggestionsBlockList
 import Amazonka.Kendra.CreateThesaurus
@@ -1423,6 +1570,7 @@ import Amazonka.Kendra.DescribeAccessControlConfiguration
 import Amazonka.Kendra.DescribeDataSource
 import Amazonka.Kendra.DescribeExperience
 import Amazonka.Kendra.DescribeFaq
+import Amazonka.Kendra.DescribeFeaturedResultsSet
 import Amazonka.Kendra.DescribeIndex
 import Amazonka.Kendra.DescribePrincipalMapping
 import Amazonka.Kendra.DescribeQuerySuggestionsBlockList
@@ -1439,6 +1587,7 @@ import Amazonka.Kendra.ListEntityPersonas
 import Amazonka.Kendra.ListExperienceEntities
 import Amazonka.Kendra.ListExperiences
 import Amazonka.Kendra.ListFaqs
+import Amazonka.Kendra.ListFeaturedResultsSets
 import Amazonka.Kendra.ListGroupsOlderThanOrderingId
 import Amazonka.Kendra.ListIndices
 import Amazonka.Kendra.ListQuerySuggestionsBlockLists
@@ -1446,6 +1595,7 @@ import Amazonka.Kendra.ListTagsForResource
 import Amazonka.Kendra.ListThesauri
 import Amazonka.Kendra.PutPrincipalMapping
 import Amazonka.Kendra.Query
+import Amazonka.Kendra.Retrieve
 import Amazonka.Kendra.StartDataSourceSyncJob
 import Amazonka.Kendra.StopDataSourceSyncJob
 import Amazonka.Kendra.SubmitFeedback
@@ -1457,9 +1607,13 @@ import Amazonka.Kendra.Types.AdditionalResultAttribute
 import Amazonka.Kendra.Types.AdditionalResultAttributeValue
 import Amazonka.Kendra.Types.AlfrescoConfiguration
 import Amazonka.Kendra.Types.AttributeFilter
+import Amazonka.Kendra.Types.AttributeSuggestionsDescribeConfig
+import Amazonka.Kendra.Types.AttributeSuggestionsGetConfig
+import Amazonka.Kendra.Types.AttributeSuggestionsUpdateConfig
 import Amazonka.Kendra.Types.AuthenticationConfiguration
 import Amazonka.Kendra.Types.BasicAuthenticationConfiguration
 import Amazonka.Kendra.Types.BatchDeleteDocumentResponseFailedDocument
+import Amazonka.Kendra.Types.BatchDeleteFeaturedResultsSetError
 import Amazonka.Kendra.Types.BatchGetDocumentStatusResponseError
 import Amazonka.Kendra.Types.BatchPutDocumentResponseFailedDocument
 import Amazonka.Kendra.Types.BoxConfiguration
@@ -1510,6 +1664,12 @@ import Amazonka.Kendra.Types.FacetResult
 import Amazonka.Kendra.Types.FailedEntity
 import Amazonka.Kendra.Types.FaqStatistics
 import Amazonka.Kendra.Types.FaqSummary
+import Amazonka.Kendra.Types.FeaturedDocument
+import Amazonka.Kendra.Types.FeaturedDocumentMissing
+import Amazonka.Kendra.Types.FeaturedDocumentWithMetadata
+import Amazonka.Kendra.Types.FeaturedResultsItem
+import Amazonka.Kendra.Types.FeaturedResultsSet
+import Amazonka.Kendra.Types.FeaturedResultsSetSummary
 import Amazonka.Kendra.Types.FsxConfiguration
 import Amazonka.Kendra.Types.GitHubConfiguration
 import Amazonka.Kendra.Types.GitHubDocumentCrawlProperties
@@ -1539,6 +1699,7 @@ import Amazonka.Kendra.Types.QuerySuggestionsBlockListSummary
 import Amazonka.Kendra.Types.QuipConfiguration
 import Amazonka.Kendra.Types.Relevance
 import Amazonka.Kendra.Types.RelevanceFeedback
+import Amazonka.Kendra.Types.RetrieveResultItem
 import Amazonka.Kendra.Types.S3DataSourceConfiguration
 import Amazonka.Kendra.Types.S3Path
 import Amazonka.Kendra.Types.SaaSConfiguration
@@ -1560,10 +1721,12 @@ import Amazonka.Kendra.Types.SharePointConfiguration
 import Amazonka.Kendra.Types.SiteMapsConfiguration
 import Amazonka.Kendra.Types.SlackConfiguration
 import Amazonka.Kendra.Types.SortingConfiguration
+import Amazonka.Kendra.Types.SourceDocument
 import Amazonka.Kendra.Types.SpellCorrectedQuery
 import Amazonka.Kendra.Types.SpellCorrectionConfiguration
 import Amazonka.Kendra.Types.SqlConfiguration
 import Amazonka.Kendra.Types.Status
+import Amazonka.Kendra.Types.SuggestableConfig
 import Amazonka.Kendra.Types.Suggestion
 import Amazonka.Kendra.Types.SuggestionHighlight
 import Amazonka.Kendra.Types.SuggestionTextWithHighlights
@@ -1590,6 +1753,7 @@ import Amazonka.Kendra.UntagResource
 import Amazonka.Kendra.UpdateAccessControlConfiguration
 import Amazonka.Kendra.UpdateDataSource
 import Amazonka.Kendra.UpdateExperience
+import Amazonka.Kendra.UpdateFeaturedResultsSet
 import Amazonka.Kendra.UpdateIndex
 import Amazonka.Kendra.UpdateQuerySuggestionsBlockList
 import Amazonka.Kendra.UpdateQuerySuggestionsConfig

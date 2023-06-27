@@ -95,7 +95,8 @@ instance Data.FromJSON AdditionalResultAttribute where
 
 instance Prelude.Hashable AdditionalResultAttribute where
   hashWithSalt _salt AdditionalResultAttribute' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` valueType
       `Prelude.hashWithSalt` value
 

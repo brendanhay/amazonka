@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /When selecting websites to index, you must adhere to the
 -- <https://aws.amazon.com/aup/ Amazon Acceptable Use Policy> and all other
 -- Amazon terms. Remember that you must only use Amazon Kendra Web Crawler
--- to index your own webpages, or webpages that you have authorization to
+-- to index your own web pages, or web pages that you have authorization to
 -- index./
 --
 -- /See:/ 'newSiteMapsConfiguration' smart constructor.

@@ -40,11 +40,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQueryResultItem' smart constructor.
 data QueryResultItem = QueryResultItem'
-  { -- | One or more additional attributes associated with the query result.
+  { -- | One or more additional fields\/attributes associated with the query
+    -- result.
     additionalAttributes :: Prelude.Maybe [AdditionalResultAttribute],
-    -- | An array of document attributes assigned to a document in the search
-    -- results. For example, the document author (@_author@) or the source URI
-    -- (@_source_uri@) of the document.
+    -- | An array of document fields\/attributes assigned to a document in the
+    -- search results. For example, the document author (@_author@) or the
+    -- source URI (@_source_uri@) of the document.
     documentAttributes :: Prelude.Maybe [DocumentAttribute],
     -- | An extract of the text in the document. Contains information about
     -- highlighting the relevant terms in the excerpt.
@@ -59,8 +60,7 @@ data QueryResultItem = QueryResultItem'
     -- | A token that identifies a particular result from a particular query. Use
     -- this token to provide click-through feedback for the result. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html Submitting feedback>
-    -- .
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html Submitting feedback>.
     feedbackToken :: Prelude.Maybe Prelude.Text,
     -- | If the @Type@ of document within the response is @ANSWER@, then it is
     -- either a @TABLE@ answer or @TEXT@ answer. If it\'s a table answer, a
@@ -69,15 +69,15 @@ data QueryResultItem = QueryResultItem'
     format :: Prelude.Maybe QueryResultFormat,
     -- | The identifier for the query result.
     id :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the confidence that Amazon Kendra has that a result matches
-    -- the query that you provided. Each result is placed into a bin that
-    -- indicates the confidence, @VERY_HIGH@, @HIGH@, @MEDIUM@ and @LOW@. You
-    -- can use the score to determine if a response meets the confidence needed
-    -- for your application.
+    -- | Indicates the confidence level of Amazon Kendra providing a relevant
+    -- result for the query. Each result is placed into a bin that indicates
+    -- the confidence, @VERY_HIGH@, @HIGH@, @MEDIUM@ and @LOW@. You can use the
+    -- score to determine if a response meets the confidence needed for your
+    -- application.
     --
     -- The field is only set to @LOW@ when the @Type@ field is set to
-    -- @DOCUMENT@ and Amazon Kendra is not confident that the result matches
-    -- the query.
+    -- @DOCUMENT@ and Amazon Kendra is not confident that the result is
+    -- relevant to the query.
     scoreAttributes :: Prelude.Maybe ScoreAttributes,
     -- | An excerpt from a table within a document.
     tableExcerpt :: Prelude.Maybe TableExcerpt,
@@ -95,11 +95,12 @@ data QueryResultItem = QueryResultItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'additionalAttributes', 'queryResultItem_additionalAttributes' - One or more additional attributes associated with the query result.
+-- 'additionalAttributes', 'queryResultItem_additionalAttributes' - One or more additional fields\/attributes associated with the query
+-- result.
 --
--- 'documentAttributes', 'queryResultItem_documentAttributes' - An array of document attributes assigned to a document in the search
--- results. For example, the document author (@_author@) or the source URI
--- (@_source_uri@) of the document.
+-- 'documentAttributes', 'queryResultItem_documentAttributes' - An array of document fields\/attributes assigned to a document in the
+-- search results. For example, the document author (@_author@) or the
+-- source URI (@_source_uri@) of the document.
 --
 -- 'documentExcerpt', 'queryResultItem_documentExcerpt' - An extract of the text in the document. Contains information about
 -- highlighting the relevant terms in the excerpt.
@@ -114,8 +115,7 @@ data QueryResultItem = QueryResultItem'
 -- 'feedbackToken', 'queryResultItem_feedbackToken' - A token that identifies a particular result from a particular query. Use
 -- this token to provide click-through feedback for the result. For more
 -- information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html Submitting feedback>
--- .
+-- <https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html Submitting feedback>.
 --
 -- 'format', 'queryResultItem_format' - If the @Type@ of document within the response is @ANSWER@, then it is
 -- either a @TABLE@ answer or @TEXT@ answer. If it\'s a table answer, a
@@ -124,15 +124,15 @@ data QueryResultItem = QueryResultItem'
 --
 -- 'id', 'queryResultItem_id' - The identifier for the query result.
 --
--- 'scoreAttributes', 'queryResultItem_scoreAttributes' - Indicates the confidence that Amazon Kendra has that a result matches
--- the query that you provided. Each result is placed into a bin that
--- indicates the confidence, @VERY_HIGH@, @HIGH@, @MEDIUM@ and @LOW@. You
--- can use the score to determine if a response meets the confidence needed
--- for your application.
+-- 'scoreAttributes', 'queryResultItem_scoreAttributes' - Indicates the confidence level of Amazon Kendra providing a relevant
+-- result for the query. Each result is placed into a bin that indicates
+-- the confidence, @VERY_HIGH@, @HIGH@, @MEDIUM@ and @LOW@. You can use the
+-- score to determine if a response meets the confidence needed for your
+-- application.
 --
 -- The field is only set to @LOW@ when the @Type@ field is set to
--- @DOCUMENT@ and Amazon Kendra is not confident that the result matches
--- the query.
+-- @DOCUMENT@ and Amazon Kendra is not confident that the result is
+-- relevant to the query.
 --
 -- 'tableExcerpt', 'queryResultItem_tableExcerpt' - An excerpt from a table within a document.
 --
@@ -157,13 +157,14 @@ newQueryResultItem =
       type' = Prelude.Nothing
     }
 
--- | One or more additional attributes associated with the query result.
+-- | One or more additional fields\/attributes associated with the query
+-- result.
 queryResultItem_additionalAttributes :: Lens.Lens' QueryResultItem (Prelude.Maybe [AdditionalResultAttribute])
 queryResultItem_additionalAttributes = Lens.lens (\QueryResultItem' {additionalAttributes} -> additionalAttributes) (\s@QueryResultItem' {} a -> s {additionalAttributes = a} :: QueryResultItem) Prelude.. Lens.mapping Lens.coerced
 
--- | An array of document attributes assigned to a document in the search
--- results. For example, the document author (@_author@) or the source URI
--- (@_source_uri@) of the document.
+-- | An array of document fields\/attributes assigned to a document in the
+-- search results. For example, the document author (@_author@) or the
+-- source URI (@_source_uri@) of the document.
 queryResultItem_documentAttributes :: Lens.Lens' QueryResultItem (Prelude.Maybe [DocumentAttribute])
 queryResultItem_documentAttributes = Lens.lens (\QueryResultItem' {documentAttributes} -> documentAttributes) (\s@QueryResultItem' {} a -> s {documentAttributes = a} :: QueryResultItem) Prelude.. Lens.mapping Lens.coerced
 
@@ -188,8 +189,7 @@ queryResultItem_documentURI = Lens.lens (\QueryResultItem' {documentURI} -> docu
 -- | A token that identifies a particular result from a particular query. Use
 -- this token to provide click-through feedback for the result. For more
 -- information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html Submitting feedback>
--- .
+-- <https://docs.aws.amazon.com/kendra/latest/dg/submitting-feedback.html Submitting feedback>.
 queryResultItem_feedbackToken :: Lens.Lens' QueryResultItem (Prelude.Maybe Prelude.Text)
 queryResultItem_feedbackToken = Lens.lens (\QueryResultItem' {feedbackToken} -> feedbackToken) (\s@QueryResultItem' {} a -> s {feedbackToken = a} :: QueryResultItem)
 
@@ -204,15 +204,15 @@ queryResultItem_format = Lens.lens (\QueryResultItem' {format} -> format) (\s@Qu
 queryResultItem_id :: Lens.Lens' QueryResultItem (Prelude.Maybe Prelude.Text)
 queryResultItem_id = Lens.lens (\QueryResultItem' {id} -> id) (\s@QueryResultItem' {} a -> s {id = a} :: QueryResultItem)
 
--- | Indicates the confidence that Amazon Kendra has that a result matches
--- the query that you provided. Each result is placed into a bin that
--- indicates the confidence, @VERY_HIGH@, @HIGH@, @MEDIUM@ and @LOW@. You
--- can use the score to determine if a response meets the confidence needed
--- for your application.
+-- | Indicates the confidence level of Amazon Kendra providing a relevant
+-- result for the query. Each result is placed into a bin that indicates
+-- the confidence, @VERY_HIGH@, @HIGH@, @MEDIUM@ and @LOW@. You can use the
+-- score to determine if a response meets the confidence needed for your
+-- application.
 --
 -- The field is only set to @LOW@ when the @Type@ field is set to
--- @DOCUMENT@ and Amazon Kendra is not confident that the result matches
--- the query.
+-- @DOCUMENT@ and Amazon Kendra is not confident that the result is
+-- relevant to the query.
 queryResultItem_scoreAttributes :: Lens.Lens' QueryResultItem (Prelude.Maybe ScoreAttributes)
 queryResultItem_scoreAttributes = Lens.lens (\QueryResultItem' {scoreAttributes} -> scoreAttributes) (\s@QueryResultItem' {} a -> s {scoreAttributes = a} :: QueryResultItem)
 
@@ -231,10 +231,12 @@ instance Data.FromJSON QueryResultItem where
       "QueryResultItem"
       ( \x ->
           QueryResultItem'
-            Prelude.<$> ( x Data..:? "AdditionalAttributes"
+            Prelude.<$> ( x
+                            Data..:? "AdditionalAttributes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "DocumentAttributes"
+            Prelude.<*> ( x
+                            Data..:? "DocumentAttributes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DocumentExcerpt")
@@ -251,7 +253,8 @@ instance Data.FromJSON QueryResultItem where
 
 instance Prelude.Hashable QueryResultItem where
   hashWithSalt _salt QueryResultItem' {..} =
-    _salt `Prelude.hashWithSalt` additionalAttributes
+    _salt
+      `Prelude.hashWithSalt` additionalAttributes
       `Prelude.hashWithSalt` documentAttributes
       `Prelude.hashWithSalt` documentExcerpt
       `Prelude.hashWithSalt` documentId

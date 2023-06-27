@@ -69,11 +69,12 @@ data CreateExperience = CreateExperience'
     configuration :: Prelude.Maybe ExperienceConfiguration,
     -- | A description for your Amazon Kendra experience.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of a role with permission to access
-    -- @Query@ API, @QuerySuggestions@ API, @SubmitFeedback@ API, and IAM
-    -- Identity Center that stores your user and group information. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM roles for Amazon Kendra>.
+    -- | The Amazon Resource Name (ARN) of an IAM role with permission to access
+    -- @Query@ API, @GetQuerySuggestions@ API, and other required APIs. The
+    -- role also must include permission to access IAM Identity Center
+    -- (successor to Single Sign-On) that stores your user and group
+    -- information. For more information, see
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM access roles for Amazon Kendra>.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | A name for your Amazon Kendra experience.
     name :: Prelude.Text,
@@ -102,11 +103,12 @@ data CreateExperience = CreateExperience'
 --
 -- 'description', 'createExperience_description' - A description for your Amazon Kendra experience.
 --
--- 'roleArn', 'createExperience_roleArn' - The Amazon Resource Name (ARN) of a role with permission to access
--- @Query@ API, @QuerySuggestions@ API, @SubmitFeedback@ API, and IAM
--- Identity Center that stores your user and group information. For more
--- information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM roles for Amazon Kendra>.
+-- 'roleArn', 'createExperience_roleArn' - The Amazon Resource Name (ARN) of an IAM role with permission to access
+-- @Query@ API, @GetQuerySuggestions@ API, and other required APIs. The
+-- role also must include permission to access IAM Identity Center
+-- (successor to Single Sign-On) that stores your user and group
+-- information. For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM access roles for Amazon Kendra>.
 --
 -- 'name', 'createExperience_name' - A name for your Amazon Kendra experience.
 --
@@ -145,11 +147,12 @@ createExperience_configuration = Lens.lens (\CreateExperience' {configuration} -
 createExperience_description :: Lens.Lens' CreateExperience (Prelude.Maybe Prelude.Text)
 createExperience_description = Lens.lens (\CreateExperience' {description} -> description) (\s@CreateExperience' {} a -> s {description = a} :: CreateExperience)
 
--- | The Amazon Resource Name (ARN) of a role with permission to access
--- @Query@ API, @QuerySuggestions@ API, @SubmitFeedback@ API, and IAM
--- Identity Center that stores your user and group information. For more
--- information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM roles for Amazon Kendra>.
+-- | The Amazon Resource Name (ARN) of an IAM role with permission to access
+-- @Query@ API, @GetQuerySuggestions@ API, and other required APIs. The
+-- role also must include permission to access IAM Identity Center
+-- (successor to Single Sign-On) that stores your user and group
+-- information. For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM access roles for Amazon Kendra>.
 createExperience_roleArn :: Lens.Lens' CreateExperience (Prelude.Maybe Prelude.Text)
 createExperience_roleArn = Lens.lens (\CreateExperience' {roleArn} -> roleArn) (\s@CreateExperience' {} a -> s {roleArn = a} :: CreateExperience)
 
@@ -177,7 +180,8 @@ instance Core.AWSRequest CreateExperience where
 
 instance Prelude.Hashable CreateExperience where
   hashWithSalt _salt CreateExperience' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` roleArn
@@ -231,7 +235,7 @@ instance Data.ToQuery CreateExperience where
 data CreateExperienceResponse = CreateExperienceResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The identifier for your created Amazon Kendra experience.
+    -- | The identifier of your Amazon Kendra experience.
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -246,7 +250,7 @@ data CreateExperienceResponse = CreateExperienceResponse'
 --
 -- 'httpStatus', 'createExperienceResponse_httpStatus' - The response's http status code.
 --
--- 'id', 'createExperienceResponse_id' - The identifier for your created Amazon Kendra experience.
+-- 'id', 'createExperienceResponse_id' - The identifier of your Amazon Kendra experience.
 newCreateExperienceResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -264,7 +268,7 @@ newCreateExperienceResponse pHttpStatus_ pId_ =
 createExperienceResponse_httpStatus :: Lens.Lens' CreateExperienceResponse Prelude.Int
 createExperienceResponse_httpStatus = Lens.lens (\CreateExperienceResponse' {httpStatus} -> httpStatus) (\s@CreateExperienceResponse' {} a -> s {httpStatus = a} :: CreateExperienceResponse)
 
--- | The identifier for your created Amazon Kendra experience.
+-- | The identifier of your Amazon Kendra experience.
 createExperienceResponse_id :: Lens.Lens' CreateExperienceResponse Prelude.Text
 createExperienceResponse_id = Lens.lens (\CreateExperienceResponse' {id} -> id) (\s@CreateExperienceResponse' {} a -> s {id = a} :: CreateExperienceResponse)
 

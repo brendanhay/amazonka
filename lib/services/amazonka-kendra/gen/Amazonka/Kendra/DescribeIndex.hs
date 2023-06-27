@@ -101,7 +101,8 @@ instance Core.AWSRequest DescribeIndex where
             Prelude.<$> (x Data..?> "CapacityUnits")
             Prelude.<*> (x Data..?> "CreatedAt")
             Prelude.<*> (x Data..?> "Description")
-            Prelude.<*> ( x Data..?> "DocumentMetadataConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "DocumentMetadataConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Edition")
@@ -115,7 +116,8 @@ instance Core.AWSRequest DescribeIndex where
             Prelude.<*> (x Data..?> "UpdatedAt")
             Prelude.<*> (x Data..?> "UserContextPolicy")
             Prelude.<*> (x Data..?> "UserGroupResolutionConfiguration")
-            Prelude.<*> ( x Data..?> "UserTokenConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "UserTokenConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -163,7 +165,7 @@ data DescribeIndexResponse = DescribeIndexResponse'
     -- information on the default capacity for an index and adjusting this, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html Adjusting capacity>.
     capacityUnits :: Prelude.Maybe CapacityUnitsConfiguration,
-    -- | The Unix datetime that the index was created.
+    -- | The Unix timestamp when the index was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The description for the index.
     description :: Prelude.Maybe Prelude.Text,
@@ -194,7 +196,7 @@ data DescribeIndexResponse = DescribeIndexResponse'
     -- is ready for use. If the @Status@ field value is @FAILED@, the
     -- @ErrorMessage@ field contains a message that explains why.
     status :: Prelude.Maybe IndexStatus,
-    -- | The Unix datetime that the index was last updated.
+    -- | The Unix when the index was last updated.
     updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The user context policy for the Amazon Kendra index.
     userContextPolicy :: Prelude.Maybe UserContextPolicy,
@@ -224,7 +226,7 @@ data DescribeIndexResponse = DescribeIndexResponse'
 -- information on the default capacity for an index and adjusting this, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html Adjusting capacity>.
 --
--- 'createdAt', 'describeIndexResponse_createdAt' - The Unix datetime that the index was created.
+-- 'createdAt', 'describeIndexResponse_createdAt' - The Unix timestamp when the index was created.
 --
 -- 'description', 'describeIndexResponse_description' - The description for the index.
 --
@@ -255,7 +257,7 @@ data DescribeIndexResponse = DescribeIndexResponse'
 -- is ready for use. If the @Status@ field value is @FAILED@, the
 -- @ErrorMessage@ field contains a message that explains why.
 --
--- 'updatedAt', 'describeIndexResponse_updatedAt' - The Unix datetime that the index was last updated.
+-- 'updatedAt', 'describeIndexResponse_updatedAt' - The Unix when the index was last updated.
 --
 -- 'userContextPolicy', 'describeIndexResponse_userContextPolicy' - The user context policy for the Amazon Kendra index.
 --
@@ -301,7 +303,7 @@ newDescribeIndexResponse pHttpStatus_ =
 describeIndexResponse_capacityUnits :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe CapacityUnitsConfiguration)
 describeIndexResponse_capacityUnits = Lens.lens (\DescribeIndexResponse' {capacityUnits} -> capacityUnits) (\s@DescribeIndexResponse' {} a -> s {capacityUnits = a} :: DescribeIndexResponse)
 
--- | The Unix datetime that the index was created.
+-- | The Unix timestamp when the index was created.
 describeIndexResponse_createdAt :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.UTCTime)
 describeIndexResponse_createdAt = Lens.lens (\DescribeIndexResponse' {createdAt} -> createdAt) (\s@DescribeIndexResponse' {} a -> s {createdAt = a} :: DescribeIndexResponse) Prelude.. Lens.mapping Data._Time
 
@@ -354,7 +356,7 @@ describeIndexResponse_serverSideEncryptionConfiguration = Lens.lens (\DescribeIn
 describeIndexResponse_status :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe IndexStatus)
 describeIndexResponse_status = Lens.lens (\DescribeIndexResponse' {status} -> status) (\s@DescribeIndexResponse' {} a -> s {status = a} :: DescribeIndexResponse)
 
--- | The Unix datetime that the index was last updated.
+-- | The Unix when the index was last updated.
 describeIndexResponse_updatedAt :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.UTCTime)
 describeIndexResponse_updatedAt = Lens.lens (\DescribeIndexResponse' {updatedAt} -> updatedAt) (\s@DescribeIndexResponse' {} a -> s {updatedAt = a} :: DescribeIndexResponse) Prelude.. Lens.mapping Data._Time
 

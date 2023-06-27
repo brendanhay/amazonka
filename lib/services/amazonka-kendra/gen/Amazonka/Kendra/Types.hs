@@ -20,6 +20,7 @@ module Amazonka.Kendra.Types
     -- * Errors
     _AccessDeniedException,
     _ConflictException,
+    _FeaturedResultsConflictException,
     _InternalServerException,
     _InvalidRequestException,
     _ResourceAlreadyExistException,
@@ -35,6 +36,9 @@ module Amazonka.Kendra.Types
 
     -- * AlfrescoEntity
     AlfrescoEntity (..),
+
+    -- * AttributeSuggestionsMode
+    AttributeSuggestionsMode (..),
 
     -- * ConditionOperator
     ConditionOperator (..),
@@ -95,6 +99,9 @@ module Amazonka.Kendra.Types
 
     -- * FaqStatus
     FaqStatus (..),
+
+    -- * FeaturedResultsSetStatus
+    FeaturedResultsSetStatus (..),
 
     -- * FsxFileSystemType
     FsxFileSystemType (..),
@@ -186,6 +193,9 @@ module Amazonka.Kendra.Types
     -- * SortOrder
     SortOrder (..),
 
+    -- * SuggestionType
+    SuggestionType (..),
+
     -- * ThesaurusStatus
     ThesaurusStatus (..),
 
@@ -262,6 +272,26 @@ module Amazonka.Kendra.Types
     attributeFilter_notFilter,
     attributeFilter_orAllFilters,
 
+    -- * AttributeSuggestionsDescribeConfig
+    AttributeSuggestionsDescribeConfig (..),
+    newAttributeSuggestionsDescribeConfig,
+    attributeSuggestionsDescribeConfig_attributeSuggestionsMode,
+    attributeSuggestionsDescribeConfig_suggestableConfigList,
+
+    -- * AttributeSuggestionsGetConfig
+    AttributeSuggestionsGetConfig (..),
+    newAttributeSuggestionsGetConfig,
+    attributeSuggestionsGetConfig_additionalResponseAttributes,
+    attributeSuggestionsGetConfig_attributeFilter,
+    attributeSuggestionsGetConfig_suggestionAttributes,
+    attributeSuggestionsGetConfig_userContext,
+
+    -- * AttributeSuggestionsUpdateConfig
+    AttributeSuggestionsUpdateConfig (..),
+    newAttributeSuggestionsUpdateConfig,
+    attributeSuggestionsUpdateConfig_attributeSuggestionsMode,
+    attributeSuggestionsUpdateConfig_suggestableConfigList,
+
     -- * AuthenticationConfiguration
     AuthenticationConfiguration (..),
     newAuthenticationConfiguration,
@@ -280,6 +310,13 @@ module Amazonka.Kendra.Types
     batchDeleteDocumentResponseFailedDocument_errorCode,
     batchDeleteDocumentResponseFailedDocument_errorMessage,
     batchDeleteDocumentResponseFailedDocument_id,
+
+    -- * BatchDeleteFeaturedResultsSetError
+    BatchDeleteFeaturedResultsSetError (..),
+    newBatchDeleteFeaturedResultsSetError,
+    batchDeleteFeaturedResultsSetError_id,
+    batchDeleteFeaturedResultsSetError_errorCode,
+    batchDeleteFeaturedResultsSetError_errorMessage,
 
     -- * BatchGetDocumentStatusResponseError
     BatchGetDocumentStatusResponseError (..),
@@ -681,6 +718,57 @@ module Amazonka.Kendra.Types
     faqSummary_status,
     faqSummary_updatedAt,
 
+    -- * FeaturedDocument
+    FeaturedDocument (..),
+    newFeaturedDocument,
+    featuredDocument_id,
+
+    -- * FeaturedDocumentMissing
+    FeaturedDocumentMissing (..),
+    newFeaturedDocumentMissing,
+    featuredDocumentMissing_id,
+
+    -- * FeaturedDocumentWithMetadata
+    FeaturedDocumentWithMetadata (..),
+    newFeaturedDocumentWithMetadata,
+    featuredDocumentWithMetadata_id,
+    featuredDocumentWithMetadata_title,
+    featuredDocumentWithMetadata_uri,
+
+    -- * FeaturedResultsItem
+    FeaturedResultsItem (..),
+    newFeaturedResultsItem,
+    featuredResultsItem_additionalAttributes,
+    featuredResultsItem_documentAttributes,
+    featuredResultsItem_documentExcerpt,
+    featuredResultsItem_documentId,
+    featuredResultsItem_documentTitle,
+    featuredResultsItem_documentURI,
+    featuredResultsItem_feedbackToken,
+    featuredResultsItem_id,
+    featuredResultsItem_type,
+
+    -- * FeaturedResultsSet
+    FeaturedResultsSet (..),
+    newFeaturedResultsSet,
+    featuredResultsSet_creationTimestamp,
+    featuredResultsSet_description,
+    featuredResultsSet_featuredDocuments,
+    featuredResultsSet_featuredResultsSetId,
+    featuredResultsSet_featuredResultsSetName,
+    featuredResultsSet_lastUpdatedTimestamp,
+    featuredResultsSet_queryTexts,
+    featuredResultsSet_status,
+
+    -- * FeaturedResultsSetSummary
+    FeaturedResultsSetSummary (..),
+    newFeaturedResultsSetSummary,
+    featuredResultsSetSummary_creationTimestamp,
+    featuredResultsSetSummary_featuredResultsSetId,
+    featuredResultsSetSummary_featuredResultsSetName,
+    featuredResultsSetSummary_lastUpdatedTimestamp,
+    featuredResultsSetSummary_status,
+
     -- * FsxConfiguration
     FsxConfiguration (..),
     newFsxConfiguration,
@@ -956,6 +1044,16 @@ module Amazonka.Kendra.Types
     relevanceFeedback_resultId,
     relevanceFeedback_relevanceValue,
 
+    -- * RetrieveResultItem
+    RetrieveResultItem (..),
+    newRetrieveResultItem,
+    retrieveResultItem_content,
+    retrieveResultItem_documentAttributes,
+    retrieveResultItem_documentId,
+    retrieveResultItem_documentTitle,
+    retrieveResultItem_documentURI,
+    retrieveResultItem_id,
+
     -- * S3DataSourceConfiguration
     S3DataSourceConfiguration (..),
     newS3DataSourceConfiguration,
@@ -1137,6 +1235,13 @@ module Amazonka.Kendra.Types
     sortingConfiguration_documentAttributeKey,
     sortingConfiguration_sortOrder,
 
+    -- * SourceDocument
+    SourceDocument (..),
+    newSourceDocument,
+    sourceDocument_additionalAttributes,
+    sourceDocument_documentId,
+    sourceDocument_suggestionAttributes,
+
     -- * SpellCorrectedQuery
     SpellCorrectedQuery (..),
     newSpellCorrectedQuery,
@@ -1161,10 +1266,17 @@ module Amazonka.Kendra.Types
     status_failureCode,
     status_failureReason,
 
+    -- * SuggestableConfig
+    SuggestableConfig (..),
+    newSuggestableConfig,
+    suggestableConfig_attributeName,
+    suggestableConfig_suggestable,
+
     -- * Suggestion
     Suggestion (..),
     newSuggestion,
     suggestion_id,
+    suggestion_sourceDocuments,
     suggestion_value,
 
     -- * SuggestionHighlight
@@ -1317,9 +1429,14 @@ import Amazonka.Kendra.Types.AdditionalResultAttributeValueType
 import Amazonka.Kendra.Types.AlfrescoConfiguration
 import Amazonka.Kendra.Types.AlfrescoEntity
 import Amazonka.Kendra.Types.AttributeFilter
+import Amazonka.Kendra.Types.AttributeSuggestionsDescribeConfig
+import Amazonka.Kendra.Types.AttributeSuggestionsGetConfig
+import Amazonka.Kendra.Types.AttributeSuggestionsMode
+import Amazonka.Kendra.Types.AttributeSuggestionsUpdateConfig
 import Amazonka.Kendra.Types.AuthenticationConfiguration
 import Amazonka.Kendra.Types.BasicAuthenticationConfiguration
 import Amazonka.Kendra.Types.BatchDeleteDocumentResponseFailedDocument
+import Amazonka.Kendra.Types.BatchDeleteFeaturedResultsSetError
 import Amazonka.Kendra.Types.BatchGetDocumentStatusResponseError
 import Amazonka.Kendra.Types.BatchPutDocumentResponseFailedDocument
 import Amazonka.Kendra.Types.BoxConfiguration
@@ -1390,6 +1507,13 @@ import Amazonka.Kendra.Types.FaqFileFormat
 import Amazonka.Kendra.Types.FaqStatistics
 import Amazonka.Kendra.Types.FaqStatus
 import Amazonka.Kendra.Types.FaqSummary
+import Amazonka.Kendra.Types.FeaturedDocument
+import Amazonka.Kendra.Types.FeaturedDocumentMissing
+import Amazonka.Kendra.Types.FeaturedDocumentWithMetadata
+import Amazonka.Kendra.Types.FeaturedResultsItem
+import Amazonka.Kendra.Types.FeaturedResultsSet
+import Amazonka.Kendra.Types.FeaturedResultsSetStatus
+import Amazonka.Kendra.Types.FeaturedResultsSetSummary
 import Amazonka.Kendra.Types.FsxConfiguration
 import Amazonka.Kendra.Types.FsxFileSystemType
 import Amazonka.Kendra.Types.GitHubConfiguration
@@ -1439,6 +1563,7 @@ import Amazonka.Kendra.Types.ReadAccessType
 import Amazonka.Kendra.Types.Relevance
 import Amazonka.Kendra.Types.RelevanceFeedback
 import Amazonka.Kendra.Types.RelevanceType
+import Amazonka.Kendra.Types.RetrieveResultItem
 import Amazonka.Kendra.Types.S3DataSourceConfiguration
 import Amazonka.Kendra.Types.S3Path
 import Amazonka.Kendra.Types.SaaSConfiguration
@@ -1470,13 +1595,16 @@ import Amazonka.Kendra.Types.SlackConfiguration
 import Amazonka.Kendra.Types.SlackEntity
 import Amazonka.Kendra.Types.SortOrder
 import Amazonka.Kendra.Types.SortingConfiguration
+import Amazonka.Kendra.Types.SourceDocument
 import Amazonka.Kendra.Types.SpellCorrectedQuery
 import Amazonka.Kendra.Types.SpellCorrectionConfiguration
 import Amazonka.Kendra.Types.SqlConfiguration
 import Amazonka.Kendra.Types.Status
+import Amazonka.Kendra.Types.SuggestableConfig
 import Amazonka.Kendra.Types.Suggestion
 import Amazonka.Kendra.Types.SuggestionHighlight
 import Amazonka.Kendra.Types.SuggestionTextWithHighlights
+import Amazonka.Kendra.Types.SuggestionType
 import Amazonka.Kendra.Types.SuggestionValue
 import Amazonka.Kendra.Types.TableCell
 import Amazonka.Kendra.Types.TableExcerpt
@@ -1531,54 +1659,54 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have sufficient access to perform this action. Please ensure
 -- you have the required permission policies and user accounts and try
 -- again.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -1586,16 +1714,26 @@ _AccessDeniedException =
 
 -- | A conflict occurred with the request. Please fix any inconsistences with
 -- your resources and try again.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
 
+-- | An error message with a list of conflicting queries used across
+-- different sets of featured results. This occurred with the request for a
+-- new featured results set. Check that the queries you specified for
+-- featured results are unique per featured results set for each index.
+_FeaturedResultsConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_FeaturedResultsConflictException =
+  Core._MatchServiceError
+    defaultService
+    "FeaturedResultsConflictException"
+
 -- | An issue occurred with the internal server used for your Amazon Kendra
 -- service. Please wait a few minutes and try again, or contact
--- <http://aws.amazon.com/aws.amazon.com/contact-us Support> for help.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- <http://aws.amazon.com/contact-us/ Support> for help.
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -1603,7 +1741,7 @@ _InternalServerException =
 
 -- | The input to the request is not valid. Please provide the correct input
 -- and try again.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -1611,7 +1749,7 @@ _InvalidRequestException =
 
 -- | The resource you want to use already exists. Please check you have
 -- provided the correct resource and try again.
-_ResourceAlreadyExistException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceAlreadyExistException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistException =
   Core._MatchServiceError
     defaultService
@@ -1619,7 +1757,7 @@ _ResourceAlreadyExistException =
 
 -- | The resource you want to use is currently in use. Please check you have
 -- provided the correct resource and try again.
-_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -1627,7 +1765,7 @@ _ResourceInUseException =
 
 -- | The resource you want to use doesn’t exist. Please check you have
 -- provided the correct resource and try again.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1635,17 +1773,18 @@ _ResourceNotFoundException =
 
 -- | The resource you want to use isn\'t available. Please check you have
 -- provided the correct resource and try again.
-_ResourceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceUnavailableException =
   Core._MatchServiceError
     defaultService
     "ResourceUnavailableException"
 
 -- | You have exceeded the set limits for your Amazon Kendra service. Please
--- see Quotas[hyperlink Kendra Quotas pg] for more information, or contact
--- <http://aws.amazon.com/aws.amazon.com/contact-us Support> to inquire
--- about an increase of limits.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- see <https://docs.aws.amazon.com/kendra/latest/dg/quotas.html Quotas>
+-- for more information, or contact
+-- <http://aws.amazon.com/contact-us/ Support> to inquire about an increase
+-- of limits.
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -1653,7 +1792,7 @@ _ServiceQuotaExceededException =
 
 -- | The request was denied due to request throttling. Please reduce the
 -- number of requests and try again.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -1661,7 +1800,7 @@ _ThrottlingException =
 
 -- | The input fails to satisfy the constraints set by the Amazon Kendra
 -- service. Please provide the correct input and try again.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

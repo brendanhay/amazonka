@@ -138,7 +138,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListQuerySuggestionsBlockListsResponse'
-            Prelude.<$> ( x Data..?> "BlockListSummaryItems"
+            Prelude.<$> ( x
+                            Data..?> "BlockListSummaryItems"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -152,7 +153,8 @@ instance
   hashWithSalt
     _salt
     ListQuerySuggestionsBlockLists' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` indexId
 

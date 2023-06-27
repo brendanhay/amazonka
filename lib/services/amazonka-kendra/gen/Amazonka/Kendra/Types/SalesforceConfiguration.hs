@@ -85,8 +85,8 @@ data SalesforceConfiguration = SalesforceConfiguration'
     -- -   password - The password associated with the user logging in to the
     --     Salesforce instance.
     --
-    -- -   securityToken - The token associated with the user account logging
-    --     in to the Salesforce instance.
+    -- -   securityToken - The token associated with the user logging in to the
+    --     Salesforce instance.
     --
     -- -   username - The user name of the user logging in to the Salesforce
     --     instance.
@@ -154,8 +154,8 @@ data SalesforceConfiguration = SalesforceConfiguration'
 -- -   password - The password associated with the user logging in to the
 --     Salesforce instance.
 --
--- -   securityToken - The token associated with the user account logging
---     in to the Salesforce instance.
+-- -   securityToken - The token associated with the user logging in to the
+--     Salesforce instance.
 --
 -- -   username - The user name of the user logging in to the Salesforce
 --     instance.
@@ -248,8 +248,8 @@ salesforceConfiguration_serverUrl = Lens.lens (\SalesforceConfiguration' {server
 -- -   password - The password associated with the user logging in to the
 --     Salesforce instance.
 --
--- -   securityToken - The token associated with the user account logging
---     in to the Salesforce instance.
+-- -   securityToken - The token associated with the user logging in to the
+--     Salesforce instance.
 --
 -- -   username - The user name of the user logging in to the Salesforce
 --     instance.
@@ -264,10 +264,12 @@ instance Data.FromJSON SalesforceConfiguration where
           SalesforceConfiguration'
             Prelude.<$> (x Data..:? "ChatterFeedConfiguration")
             Prelude.<*> (x Data..:? "CrawlAttachments")
-            Prelude.<*> ( x Data..:? "ExcludeAttachmentFilePatterns"
+            Prelude.<*> ( x
+                            Data..:? "ExcludeAttachmentFilePatterns"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "IncludeAttachmentFilePatterns"
+            Prelude.<*> ( x
+                            Data..:? "IncludeAttachmentFilePatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "KnowledgeArticleConfiguration")

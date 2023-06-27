@@ -183,7 +183,8 @@ instance Data.FromJSON ServiceNowConfiguration where
 
 instance Prelude.Hashable ServiceNowConfiguration where
   hashWithSalt _salt ServiceNowConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` authenticationType
+    _salt
+      `Prelude.hashWithSalt` authenticationType
       `Prelude.hashWithSalt` knowledgeArticleConfiguration
       `Prelude.hashWithSalt` serviceCatalogConfiguration
       `Prelude.hashWithSalt` hostUrl

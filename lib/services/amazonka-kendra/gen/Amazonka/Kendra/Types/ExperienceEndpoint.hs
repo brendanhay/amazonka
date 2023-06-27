@@ -82,7 +82,8 @@ instance Data.FromJSON ExperienceEndpoint where
 
 instance Prelude.Hashable ExperienceEndpoint where
   hashWithSalt _salt ExperienceEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` endpoint
+    _salt
+      `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` endpointType
 
 instance Prelude.NFData ExperienceEndpoint where

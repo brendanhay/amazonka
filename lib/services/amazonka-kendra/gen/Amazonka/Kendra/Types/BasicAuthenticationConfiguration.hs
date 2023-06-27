@@ -141,7 +141,8 @@ instance
   hashWithSalt
     _salt
     BasicAuthenticationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` host
+      _salt
+        `Prelude.hashWithSalt` host
         `Prelude.hashWithSalt` port
         `Prelude.hashWithSalt` credentials
 

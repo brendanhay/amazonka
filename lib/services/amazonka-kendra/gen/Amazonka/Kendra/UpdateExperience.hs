@@ -152,7 +152,8 @@ instance Core.AWSRequest UpdateExperience where
 
 instance Prelude.Hashable UpdateExperience where
   hashWithSalt _salt UpdateExperience' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleArn

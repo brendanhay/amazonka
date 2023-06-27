@@ -37,9 +37,6 @@
 --
 -- If more than five @PUT@ actions for a group are currently processing, a
 -- validation exception is thrown.
---
--- @PutPrincipalMapping@ is currently not supported in the Amazon Web
--- Services GovCloud (US-West) region.
 module Amazonka.Kendra.PutPrincipalMapping
   ( -- * Creating a Request
     PutPrincipalMapping (..),
@@ -85,13 +82,13 @@ data PutPrincipalMapping = PutPrincipalMapping'
     -- prevents previous actions with lower number IDs from possibly overriding
     -- the latest action.
     --
-    -- The ordering ID can be the UNIX time of the last update you made to a
+    -- The ordering ID can be the Unix time of the last update you made to a
     -- group members list. You would then provide this list when calling
     -- @PutPrincipalMapping@. This ensures your @PUT@ action for that updated
     -- group with the latest members list doesn\'t get overwritten by earlier
     -- @PUT@ actions for the same group which are yet to be processed.
     --
-    -- The default ordering ID is the current UNIX time in milliseconds that
+    -- The default ordering ID is the current Unix time in milliseconds that
     -- the action was received by Amazon Kendra.
     orderingId :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of a role that has access to the S3 file
@@ -143,13 +140,13 @@ data PutPrincipalMapping = PutPrincipalMapping'
 -- prevents previous actions with lower number IDs from possibly overriding
 -- the latest action.
 --
--- The ordering ID can be the UNIX time of the last update you made to a
+-- The ordering ID can be the Unix time of the last update you made to a
 -- group members list. You would then provide this list when calling
 -- @PutPrincipalMapping@. This ensures your @PUT@ action for that updated
 -- group with the latest members list doesn\'t get overwritten by earlier
 -- @PUT@ actions for the same group which are yet to be processed.
 --
--- The default ordering ID is the current UNIX time in milliseconds that
+-- The default ordering ID is the current Unix time in milliseconds that
 -- the action was received by Amazon Kendra.
 --
 -- 'roleArn', 'putPrincipalMapping_roleArn' - The Amazon Resource Name (ARN) of a role that has access to the S3 file
@@ -213,13 +210,13 @@ putPrincipalMapping_dataSourceId = Lens.lens (\PutPrincipalMapping' {dataSourceI
 -- prevents previous actions with lower number IDs from possibly overriding
 -- the latest action.
 --
--- The ordering ID can be the UNIX time of the last update you made to a
+-- The ordering ID can be the Unix time of the last update you made to a
 -- group members list. You would then provide this list when calling
 -- @PutPrincipalMapping@. This ensures your @PUT@ action for that updated
 -- group with the latest members list doesn\'t get overwritten by earlier
 -- @PUT@ actions for the same group which are yet to be processed.
 --
--- The default ordering ID is the current UNIX time in milliseconds that
+-- The default ordering ID is the current Unix time in milliseconds that
 -- the action was received by Amazon Kendra.
 putPrincipalMapping_orderingId :: Lens.Lens' PutPrincipalMapping (Prelude.Maybe Prelude.Natural)
 putPrincipalMapping_orderingId = Lens.lens (\PutPrincipalMapping' {orderingId} -> orderingId) (\s@PutPrincipalMapping' {} a -> s {orderingId = a} :: PutPrincipalMapping)
@@ -265,7 +262,8 @@ instance Core.AWSRequest PutPrincipalMapping where
 
 instance Prelude.Hashable PutPrincipalMapping where
   hashWithSalt _salt PutPrincipalMapping' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceId
+    _salt
+      `Prelude.hashWithSalt` dataSourceId
       `Prelude.hashWithSalt` orderingId
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` indexId

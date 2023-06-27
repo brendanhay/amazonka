@@ -90,7 +90,8 @@ instance Data.FromJSON OneDriveUsers where
 
 instance Prelude.Hashable OneDriveUsers where
   hashWithSalt _salt OneDriveUsers' {..} =
-    _salt `Prelude.hashWithSalt` oneDriveUserList
+    _salt
+      `Prelude.hashWithSalt` oneDriveUserList
       `Prelude.hashWithSalt` oneDriveUserS3Path
 
 instance Prelude.NFData OneDriveUsers where

@@ -217,7 +217,8 @@ instance Core.AWSRequest GetSnapshots where
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "SnapShotTimeFilter")
             Prelude.<*> (x Data..?> "SnapshotsData" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "SnapshotsDataHeader"
+            Prelude.<*> ( x
+                            Data..?> "SnapshotsDataHeader"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -225,7 +226,8 @@ instance Core.AWSRequest GetSnapshots where
 
 instance Prelude.Hashable GetSnapshots where
   hashWithSalt _salt GetSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` indexId
       `Prelude.hashWithSalt` interval
@@ -278,7 +280,7 @@ data GetSnapshotsResponse = GetSnapshotsResponse'
     -- you can use in a later request to retrieve the next set of search
     -- metrics data.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The date-time for the beginning and end of the time window for the
+    -- | The Unix timestamp for the beginning and end of the time window for the
     -- search metrics data.
     snapShotTimeFilter :: Prelude.Maybe TimeRange,
     -- | The search metrics data. The data returned depends on the metric type
@@ -303,7 +305,7 @@ data GetSnapshotsResponse = GetSnapshotsResponse'
 -- you can use in a later request to retrieve the next set of search
 -- metrics data.
 --
--- 'snapShotTimeFilter', 'getSnapshotsResponse_snapShotTimeFilter' - The date-time for the beginning and end of the time window for the
+-- 'snapShotTimeFilter', 'getSnapshotsResponse_snapShotTimeFilter' - The Unix timestamp for the beginning and end of the time window for the
 -- search metrics data.
 --
 -- 'snapshotsData', 'getSnapshotsResponse_snapshotsData' - The search metrics data. The data returned depends on the metric type
@@ -331,7 +333,7 @@ newGetSnapshotsResponse pHttpStatus_ =
 getSnapshotsResponse_nextToken :: Lens.Lens' GetSnapshotsResponse (Prelude.Maybe Prelude.Text)
 getSnapshotsResponse_nextToken = Lens.lens (\GetSnapshotsResponse' {nextToken} -> nextToken) (\s@GetSnapshotsResponse' {} a -> s {nextToken = a} :: GetSnapshotsResponse)
 
--- | The date-time for the beginning and end of the time window for the
+-- | The Unix timestamp for the beginning and end of the time window for the
 -- search metrics data.
 getSnapshotsResponse_snapShotTimeFilter :: Lens.Lens' GetSnapshotsResponse (Prelude.Maybe TimeRange)
 getSnapshotsResponse_snapShotTimeFilter = Lens.lens (\GetSnapshotsResponse' {snapShotTimeFilter} -> snapShotTimeFilter) (\s@GetSnapshotsResponse' {} a -> s {snapShotTimeFilter = a} :: GetSnapshotsResponse)

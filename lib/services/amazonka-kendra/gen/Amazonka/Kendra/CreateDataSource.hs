@@ -31,11 +31,6 @@
 -- if the data source was successfully created. Otherwise, an exception is
 -- raised.
 --
--- Amazon S3 and
--- <https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html custom>
--- data sources are the only supported data sources in the Amazon Web
--- Services GovCloud (US-West) region.
---
 -- For an example of creating an index and data source using the Python
 -- SDK, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html Getting started with Python SDK>.
@@ -109,9 +104,9 @@ data CreateDataSource = CreateDataSource'
     -- codes, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html Adding documents in languages other than English>.
     languageCode :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of a role with permission to access the
-    -- data source and required resources. For more information, see
-    -- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM roles for Amazon Kendra>.
+    -- | The Amazon Resource Name (ARN) of an IAM role with permission to access
+    -- the data source and required resources. For more information, see
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM access roles for Amazon Kendra.>.
     --
     -- You can\'t specify the @RoleArn@ parameter when the @Type@ parameter is
     -- set to @CUSTOM@. If you do, you receive a @ValidationException@
@@ -124,13 +119,18 @@ data CreateDataSource = CreateDataSource'
     -- Amazon Kendra will not periodically update the index. You can call the
     -- @StartDataSourceSyncJob@ API to update the index.
     --
+    -- Specify a @cron-@ format schedule string or an empty string to indicate
+    -- that the index is updated on demand.
+    --
     -- You can\'t specify the @Schedule@ parameter when the @Type@ parameter is
     -- set to @CUSTOM@. If you do, you receive a @ValidationException@
     -- exception.
     schedule :: Prelude.Maybe Prelude.Text,
-    -- | A list of key-value pairs that identify the data source connector. You
-    -- can use the tags to identify and organize your resources and to control
-    -- access to resources.
+    -- | A list of key-value pairs that identify or categorize the data source
+    -- connector. You can also use tags to help control access to the data
+    -- source connector. Tag keys and values can consist of Unicode letters,
+    -- digits, white space, and any of the following symbols: _ . : \/ = + -
+    -- \@.
     tags :: Prelude.Maybe [Tag],
     -- | Configuration information for an Amazon Virtual Private Cloud to connect
     -- to your data source. For more information, see
@@ -182,9 +182,9 @@ data CreateDataSource = CreateDataSource'
 -- codes, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html Adding documents in languages other than English>.
 --
--- 'roleArn', 'createDataSource_roleArn' - The Amazon Resource Name (ARN) of a role with permission to access the
--- data source and required resources. For more information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM roles for Amazon Kendra>.
+-- 'roleArn', 'createDataSource_roleArn' - The Amazon Resource Name (ARN) of an IAM role with permission to access
+-- the data source and required resources. For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM access roles for Amazon Kendra.>.
 --
 -- You can\'t specify the @RoleArn@ parameter when the @Type@ parameter is
 -- set to @CUSTOM@. If you do, you receive a @ValidationException@
@@ -197,13 +197,18 @@ data CreateDataSource = CreateDataSource'
 -- Amazon Kendra will not periodically update the index. You can call the
 -- @StartDataSourceSyncJob@ API to update the index.
 --
+-- Specify a @cron-@ format schedule string or an empty string to indicate
+-- that the index is updated on demand.
+--
 -- You can\'t specify the @Schedule@ parameter when the @Type@ parameter is
 -- set to @CUSTOM@. If you do, you receive a @ValidationException@
 -- exception.
 --
--- 'tags', 'createDataSource_tags' - A list of key-value pairs that identify the data source connector. You
--- can use the tags to identify and organize your resources and to control
--- access to resources.
+-- 'tags', 'createDataSource_tags' - A list of key-value pairs that identify or categorize the data source
+-- connector. You can also use tags to help control access to the data
+-- source connector. Tag keys and values can consist of Unicode letters,
+-- digits, white space, and any of the following symbols: _ . : \/ = + -
+-- \@.
 --
 -- 'vpcConfiguration', 'createDataSource_vpcConfiguration' - Configuration information for an Amazon Virtual Private Cloud to connect
 -- to your data source. For more information, see
@@ -278,9 +283,9 @@ createDataSource_description = Lens.lens (\CreateDataSource' {description} -> de
 createDataSource_languageCode :: Lens.Lens' CreateDataSource (Prelude.Maybe Prelude.Text)
 createDataSource_languageCode = Lens.lens (\CreateDataSource' {languageCode} -> languageCode) (\s@CreateDataSource' {} a -> s {languageCode = a} :: CreateDataSource)
 
--- | The Amazon Resource Name (ARN) of a role with permission to access the
--- data source and required resources. For more information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM roles for Amazon Kendra>.
+-- | The Amazon Resource Name (ARN) of an IAM role with permission to access
+-- the data source and required resources. For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM access roles for Amazon Kendra.>.
 --
 -- You can\'t specify the @RoleArn@ parameter when the @Type@ parameter is
 -- set to @CUSTOM@. If you do, you receive a @ValidationException@
@@ -295,15 +300,20 @@ createDataSource_roleArn = Lens.lens (\CreateDataSource' {roleArn} -> roleArn) (
 -- Amazon Kendra will not periodically update the index. You can call the
 -- @StartDataSourceSyncJob@ API to update the index.
 --
+-- Specify a @cron-@ format schedule string or an empty string to indicate
+-- that the index is updated on demand.
+--
 -- You can\'t specify the @Schedule@ parameter when the @Type@ parameter is
 -- set to @CUSTOM@. If you do, you receive a @ValidationException@
 -- exception.
 createDataSource_schedule :: Lens.Lens' CreateDataSource (Prelude.Maybe Prelude.Text)
 createDataSource_schedule = Lens.lens (\CreateDataSource' {schedule} -> schedule) (\s@CreateDataSource' {} a -> s {schedule = a} :: CreateDataSource)
 
--- | A list of key-value pairs that identify the data source connector. You
--- can use the tags to identify and organize your resources and to control
--- access to resources.
+-- | A list of key-value pairs that identify or categorize the data source
+-- connector. You can also use tags to help control access to the data
+-- source connector. Tag keys and values can consist of Unicode letters,
+-- digits, white space, and any of the following symbols: _ . : \/ = + -
+-- \@.
 createDataSource_tags :: Lens.Lens' CreateDataSource (Prelude.Maybe [Tag])
 createDataSource_tags = Lens.lens (\CreateDataSource' {tags} -> tags) (\s@CreateDataSource' {} a -> s {tags = a} :: CreateDataSource) Prelude.. Lens.mapping Lens.coerced
 
@@ -342,7 +352,8 @@ instance Core.AWSRequest CreateDataSource where
 
 instance Prelude.Hashable CreateDataSource where
   hashWithSalt _salt CreateDataSource' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` customDocumentEnrichmentConfiguration
       `Prelude.hashWithSalt` description

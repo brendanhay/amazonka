@@ -44,27 +44,21 @@ data WebCrawlerConfiguration = WebCrawlerConfiguration'
     -- host name of https:\/\/a.example.com\/page1.html is \"a.example.com\"
     -- and the port is 443, the standard port for HTTPS.
     authenticationConfiguration :: Prelude.Maybe AuthenticationConfiguration,
-    -- | Specifies the number of levels in a website that you want to crawl.
-    --
-    -- The first level begins from the website seed or starting point URL. For
-    -- example, if a website has 3 levels – index level (i.e. seed in this
-    -- example), sections level, and subsections level – and you are only
-    -- interested in crawling information up to the sections level (i.e. levels
-    -- 0-1), you can set your depth to 1.
-    --
-    -- The default crawl depth is set to 2.
+    -- | The \'depth\' or number of levels from the seed level to crawl. For
+    -- example, the seed URL page is depth 1 and any hyperlinks on this page
+    -- that are also crawled are depth 2.
     crawlDepth :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum size (in MB) of a webpage or attachment to crawl.
+    -- | The maximum size (in MB) of a web page or attachment to crawl.
     --
     -- Files larger than this size (in MB) are skipped\/not crawled.
     --
-    -- The default maximum size of a webpage or attachment is set to 50 MB.
+    -- The default maximum size of a web page or attachment is set to 50 MB.
     maxContentSizePerPageInMegaBytes :: Prelude.Maybe Prelude.Double,
-    -- | The maximum number of URLs on a webpage to include when crawling a
-    -- website. This number is per webpage.
+    -- | The maximum number of URLs on a web page to include when crawling a
+    -- website. This number is per web page.
     --
-    -- As a website’s webpages are crawled, any URLs the webpages link to are
-    -- also crawled. URLs on a webpage are crawled in order of appearance.
+    -- As a website’s web pages are crawled, any URLs the web pages link to are
+    -- also crawled. URLs on a web page are crawled in order of appearance.
     --
     -- The default maximum links per page is 100.
     maxLinksPerPage :: Prelude.Maybe Prelude.Natural,
@@ -113,7 +107,7 @@ data WebCrawlerConfiguration = WebCrawlerConfiguration'
     -- /When selecting websites to index, you must adhere to the
     -- <https://aws.amazon.com/aup/ Amazon Acceptable Use Policy> and all other
     -- Amazon terms. Remember that you must only use Amazon Kendra Web Crawler
-    -- to index your own webpages, or webpages that you have authorization to
+    -- to index your own web pages, or web pages that you have authorization to
     -- index./
     urls :: Urls
   }
@@ -139,27 +133,21 @@ data WebCrawlerConfiguration = WebCrawlerConfiguration'
 -- host name of https:\/\/a.example.com\/page1.html is \"a.example.com\"
 -- and the port is 443, the standard port for HTTPS.
 --
--- 'crawlDepth', 'webCrawlerConfiguration_crawlDepth' - Specifies the number of levels in a website that you want to crawl.
+-- 'crawlDepth', 'webCrawlerConfiguration_crawlDepth' - The \'depth\' or number of levels from the seed level to crawl. For
+-- example, the seed URL page is depth 1 and any hyperlinks on this page
+-- that are also crawled are depth 2.
 --
--- The first level begins from the website seed or starting point URL. For
--- example, if a website has 3 levels – index level (i.e. seed in this
--- example), sections level, and subsections level – and you are only
--- interested in crawling information up to the sections level (i.e. levels
--- 0-1), you can set your depth to 1.
---
--- The default crawl depth is set to 2.
---
--- 'maxContentSizePerPageInMegaBytes', 'webCrawlerConfiguration_maxContentSizePerPageInMegaBytes' - The maximum size (in MB) of a webpage or attachment to crawl.
+-- 'maxContentSizePerPageInMegaBytes', 'webCrawlerConfiguration_maxContentSizePerPageInMegaBytes' - The maximum size (in MB) of a web page or attachment to crawl.
 --
 -- Files larger than this size (in MB) are skipped\/not crawled.
 --
--- The default maximum size of a webpage or attachment is set to 50 MB.
+-- The default maximum size of a web page or attachment is set to 50 MB.
 --
--- 'maxLinksPerPage', 'webCrawlerConfiguration_maxLinksPerPage' - The maximum number of URLs on a webpage to include when crawling a
--- website. This number is per webpage.
+-- 'maxLinksPerPage', 'webCrawlerConfiguration_maxLinksPerPage' - The maximum number of URLs on a web page to include when crawling a
+-- website. This number is per web page.
 --
--- As a website’s webpages are crawled, any URLs the webpages link to are
--- also crawled. URLs on a webpage are crawled in order of appearance.
+-- As a website’s web pages are crawled, any URLs the web pages link to are
+-- also crawled. URLs on a web page are crawled in order of appearance.
 --
 -- The default maximum links per page is 100.
 --
@@ -208,7 +196,7 @@ data WebCrawlerConfiguration = WebCrawlerConfiguration'
 -- /When selecting websites to index, you must adhere to the
 -- <https://aws.amazon.com/aup/ Amazon Acceptable Use Policy> and all other
 -- Amazon terms. Remember that you must only use Amazon Kendra Web Crawler
--- to index your own webpages, or webpages that you have authorization to
+-- to index your own web pages, or web pages that you have authorization to
 -- index./
 newWebCrawlerConfiguration ::
   -- | 'urls'
@@ -242,31 +230,25 @@ newWebCrawlerConfiguration pUrls_ =
 webCrawlerConfiguration_authenticationConfiguration :: Lens.Lens' WebCrawlerConfiguration (Prelude.Maybe AuthenticationConfiguration)
 webCrawlerConfiguration_authenticationConfiguration = Lens.lens (\WebCrawlerConfiguration' {authenticationConfiguration} -> authenticationConfiguration) (\s@WebCrawlerConfiguration' {} a -> s {authenticationConfiguration = a} :: WebCrawlerConfiguration)
 
--- | Specifies the number of levels in a website that you want to crawl.
---
--- The first level begins from the website seed or starting point URL. For
--- example, if a website has 3 levels – index level (i.e. seed in this
--- example), sections level, and subsections level – and you are only
--- interested in crawling information up to the sections level (i.e. levels
--- 0-1), you can set your depth to 1.
---
--- The default crawl depth is set to 2.
+-- | The \'depth\' or number of levels from the seed level to crawl. For
+-- example, the seed URL page is depth 1 and any hyperlinks on this page
+-- that are also crawled are depth 2.
 webCrawlerConfiguration_crawlDepth :: Lens.Lens' WebCrawlerConfiguration (Prelude.Maybe Prelude.Natural)
 webCrawlerConfiguration_crawlDepth = Lens.lens (\WebCrawlerConfiguration' {crawlDepth} -> crawlDepth) (\s@WebCrawlerConfiguration' {} a -> s {crawlDepth = a} :: WebCrawlerConfiguration)
 
--- | The maximum size (in MB) of a webpage or attachment to crawl.
+-- | The maximum size (in MB) of a web page or attachment to crawl.
 --
 -- Files larger than this size (in MB) are skipped\/not crawled.
 --
--- The default maximum size of a webpage or attachment is set to 50 MB.
+-- The default maximum size of a web page or attachment is set to 50 MB.
 webCrawlerConfiguration_maxContentSizePerPageInMegaBytes :: Lens.Lens' WebCrawlerConfiguration (Prelude.Maybe Prelude.Double)
 webCrawlerConfiguration_maxContentSizePerPageInMegaBytes = Lens.lens (\WebCrawlerConfiguration' {maxContentSizePerPageInMegaBytes} -> maxContentSizePerPageInMegaBytes) (\s@WebCrawlerConfiguration' {} a -> s {maxContentSizePerPageInMegaBytes = a} :: WebCrawlerConfiguration)
 
--- | The maximum number of URLs on a webpage to include when crawling a
--- website. This number is per webpage.
+-- | The maximum number of URLs on a web page to include when crawling a
+-- website. This number is per web page.
 --
--- As a website’s webpages are crawled, any URLs the webpages link to are
--- also crawled. URLs on a webpage are crawled in order of appearance.
+-- As a website’s web pages are crawled, any URLs the web pages link to are
+-- also crawled. URLs on a web page are crawled in order of appearance.
 --
 -- The default maximum links per page is 100.
 webCrawlerConfiguration_maxLinksPerPage :: Lens.Lens' WebCrawlerConfiguration (Prelude.Maybe Prelude.Natural)
@@ -325,7 +307,7 @@ webCrawlerConfiguration_urlInclusionPatterns = Lens.lens (\WebCrawlerConfigurati
 -- /When selecting websites to index, you must adhere to the
 -- <https://aws.amazon.com/aup/ Amazon Acceptable Use Policy> and all other
 -- Amazon terms. Remember that you must only use Amazon Kendra Web Crawler
--- to index your own webpages, or webpages that you have authorization to
+-- to index your own web pages, or web pages that you have authorization to
 -- index./
 webCrawlerConfiguration_urls :: Lens.Lens' WebCrawlerConfiguration Urls
 webCrawlerConfiguration_urls = Lens.lens (\WebCrawlerConfiguration' {urls} -> urls) (\s@WebCrawlerConfiguration' {} a -> s {urls = a} :: WebCrawlerConfiguration)
@@ -342,10 +324,12 @@ instance Data.FromJSON WebCrawlerConfiguration where
             Prelude.<*> (x Data..:? "MaxLinksPerPage")
             Prelude.<*> (x Data..:? "MaxUrlsPerMinuteCrawlRate")
             Prelude.<*> (x Data..:? "ProxyConfiguration")
-            Prelude.<*> ( x Data..:? "UrlExclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "UrlExclusionPatterns"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "UrlInclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "UrlInclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "Urls")

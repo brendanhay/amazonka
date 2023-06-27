@@ -106,7 +106,8 @@ instance Data.FromJSON TableCell where
 
 instance Prelude.Hashable TableCell where
   hashWithSalt _salt TableCell' {..} =
-    _salt `Prelude.hashWithSalt` header
+    _salt
+      `Prelude.hashWithSalt` header
       `Prelude.hashWithSalt` highlighted
       `Prelude.hashWithSalt` topAnswer
       `Prelude.hashWithSalt` value

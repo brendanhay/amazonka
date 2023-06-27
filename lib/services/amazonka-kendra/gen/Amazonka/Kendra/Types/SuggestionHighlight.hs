@@ -77,7 +77,8 @@ instance Data.FromJSON SuggestionHighlight where
 
 instance Prelude.Hashable SuggestionHighlight where
   hashWithSalt _salt SuggestionHighlight' {..} =
-    _salt `Prelude.hashWithSalt` beginOffset
+    _salt
+      `Prelude.hashWithSalt` beginOffset
       `Prelude.hashWithSalt` endOffset
 
 instance Prelude.NFData SuggestionHighlight where

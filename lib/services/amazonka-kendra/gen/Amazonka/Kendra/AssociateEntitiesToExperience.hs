@@ -130,7 +130,8 @@ instance
     AssociateEntitiesToExperience
   where
   hashWithSalt _salt AssociateEntitiesToExperience' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId
       `Prelude.hashWithSalt` entityList
 

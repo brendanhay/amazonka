@@ -79,13 +79,13 @@ data CreateIndex = CreateIndex'
     description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Kendra edition to use for the index. Choose
     -- @DEVELOPER_EDITION@ for indexes intended for development, testing, or
-    -- proof of concept. Use @ENTERPRISE_EDITION@ for your production
-    -- databases. Once you set the edition for an index, it can\'t be changed.
+    -- proof of concept. Use @ENTERPRISE_EDITION@ for production. Once you set
+    -- the edition for an index, it can\'t be changed.
     --
     -- The @Edition@ parameter is optional. If you don\'t supply a value, the
     -- default is @ENTERPRISE_EDITION@.
     --
-    -- For more information on quota limits for enterprise and developer
+    -- For more information on quota limits for Enterprise and Developer
     -- editions, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/quotas.html Quotas>.
     edition :: Prelude.Maybe IndexEdition,
@@ -93,9 +93,10 @@ data CreateIndex = CreateIndex'
     -- encrypt data indexed by Amazon Kendra. Amazon Kendra doesn\'t support
     -- asymmetric CMKs.
     serverSideEncryptionConfiguration :: Prelude.Maybe ServerSideEncryptionConfiguration,
-    -- | A list of key-value pairs that identify the index. You can use the tags
-    -- to identify and organize your resources and to control access to
-    -- resources.
+    -- | A list of key-value pairs that identify or categorize the index. You can
+    -- also use tags to help control access to the index. Tag keys and values
+    -- can consist of Unicode letters, digits, white space, and any of the
+    -- following symbols: _ . : \/ = + - \@.
     tags :: Prelude.Maybe [Tag],
     -- | The user context policy.
     --
@@ -110,19 +111,17 @@ data CreateIndex = CreateIndex'
     --     user context. All documents with no access control and all documents
     --     accessible to the user will be searchable and displayable.
     userContextPolicy :: Prelude.Maybe UserContextPolicy,
-    -- | Enables fetching access levels of groups and users from an IAM Identity
-    -- Center (successor to Single Sign-On) identity source. To configure this,
-    -- see
+    -- | Gets users and groups from IAM Identity Center (successor to Single
+    -- Sign-On) identity source. To configure this, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html UserGroupResolutionConfiguration>.
     userGroupResolutionConfiguration :: Prelude.Maybe UserGroupResolutionConfiguration,
     -- | The user token configuration.
     userTokenConfigurations :: Prelude.Maybe [UserTokenConfiguration],
     -- | A name for the index.
     name :: Prelude.Text,
-    -- | An Identity and Access Management (IAM) role that gives Amazon Kendra
-    -- permissions to access your Amazon CloudWatch logs and metrics. This is
-    -- also the role you use when you call the @BatchPutDocument@ API to index
-    -- documents from an Amazon S3 bucket.
+    -- | The Amazon Resource Name (ARN) of an IAM role with permission to access
+    -- your Amazon CloudWatch logs and metrics. For more information, see
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM access roles for Amazon Kendra>.
     roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -143,13 +142,13 @@ data CreateIndex = CreateIndex'
 --
 -- 'edition', 'createIndex_edition' - The Amazon Kendra edition to use for the index. Choose
 -- @DEVELOPER_EDITION@ for indexes intended for development, testing, or
--- proof of concept. Use @ENTERPRISE_EDITION@ for your production
--- databases. Once you set the edition for an index, it can\'t be changed.
+-- proof of concept. Use @ENTERPRISE_EDITION@ for production. Once you set
+-- the edition for an index, it can\'t be changed.
 --
 -- The @Edition@ parameter is optional. If you don\'t supply a value, the
 -- default is @ENTERPRISE_EDITION@.
 --
--- For more information on quota limits for enterprise and developer
+-- For more information on quota limits for Enterprise and Developer
 -- editions, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/quotas.html Quotas>.
 --
@@ -157,9 +156,10 @@ data CreateIndex = CreateIndex'
 -- encrypt data indexed by Amazon Kendra. Amazon Kendra doesn\'t support
 -- asymmetric CMKs.
 --
--- 'tags', 'createIndex_tags' - A list of key-value pairs that identify the index. You can use the tags
--- to identify and organize your resources and to control access to
--- resources.
+-- 'tags', 'createIndex_tags' - A list of key-value pairs that identify or categorize the index. You can
+-- also use tags to help control access to the index. Tag keys and values
+-- can consist of Unicode letters, digits, white space, and any of the
+-- following symbols: _ . : \/ = + - \@.
 --
 -- 'userContextPolicy', 'createIndex_userContextPolicy' - The user context policy.
 --
@@ -174,19 +174,17 @@ data CreateIndex = CreateIndex'
 --     user context. All documents with no access control and all documents
 --     accessible to the user will be searchable and displayable.
 --
--- 'userGroupResolutionConfiguration', 'createIndex_userGroupResolutionConfiguration' - Enables fetching access levels of groups and users from an IAM Identity
--- Center (successor to Single Sign-On) identity source. To configure this,
--- see
+-- 'userGroupResolutionConfiguration', 'createIndex_userGroupResolutionConfiguration' - Gets users and groups from IAM Identity Center (successor to Single
+-- Sign-On) identity source. To configure this, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html UserGroupResolutionConfiguration>.
 --
 -- 'userTokenConfigurations', 'createIndex_userTokenConfigurations' - The user token configuration.
 --
 -- 'name', 'createIndex_name' - A name for the index.
 --
--- 'roleArn', 'createIndex_roleArn' - An Identity and Access Management (IAM) role that gives Amazon Kendra
--- permissions to access your Amazon CloudWatch logs and metrics. This is
--- also the role you use when you call the @BatchPutDocument@ API to index
--- documents from an Amazon S3 bucket.
+-- 'roleArn', 'createIndex_roleArn' - The Amazon Resource Name (ARN) of an IAM role with permission to access
+-- your Amazon CloudWatch logs and metrics. For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM access roles for Amazon Kendra>.
 newCreateIndex ::
   -- | 'name'
   Prelude.Text ->
@@ -219,13 +217,13 @@ createIndex_description = Lens.lens (\CreateIndex' {description} -> description)
 
 -- | The Amazon Kendra edition to use for the index. Choose
 -- @DEVELOPER_EDITION@ for indexes intended for development, testing, or
--- proof of concept. Use @ENTERPRISE_EDITION@ for your production
--- databases. Once you set the edition for an index, it can\'t be changed.
+-- proof of concept. Use @ENTERPRISE_EDITION@ for production. Once you set
+-- the edition for an index, it can\'t be changed.
 --
 -- The @Edition@ parameter is optional. If you don\'t supply a value, the
 -- default is @ENTERPRISE_EDITION@.
 --
--- For more information on quota limits for enterprise and developer
+-- For more information on quota limits for Enterprise and Developer
 -- editions, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/quotas.html Quotas>.
 createIndex_edition :: Lens.Lens' CreateIndex (Prelude.Maybe IndexEdition)
@@ -237,9 +235,10 @@ createIndex_edition = Lens.lens (\CreateIndex' {edition} -> edition) (\s@CreateI
 createIndex_serverSideEncryptionConfiguration :: Lens.Lens' CreateIndex (Prelude.Maybe ServerSideEncryptionConfiguration)
 createIndex_serverSideEncryptionConfiguration = Lens.lens (\CreateIndex' {serverSideEncryptionConfiguration} -> serverSideEncryptionConfiguration) (\s@CreateIndex' {} a -> s {serverSideEncryptionConfiguration = a} :: CreateIndex)
 
--- | A list of key-value pairs that identify the index. You can use the tags
--- to identify and organize your resources and to control access to
--- resources.
+-- | A list of key-value pairs that identify or categorize the index. You can
+-- also use tags to help control access to the index. Tag keys and values
+-- can consist of Unicode letters, digits, white space, and any of the
+-- following symbols: _ . : \/ = + - \@.
 createIndex_tags :: Lens.Lens' CreateIndex (Prelude.Maybe [Tag])
 createIndex_tags = Lens.lens (\CreateIndex' {tags} -> tags) (\s@CreateIndex' {} a -> s {tags = a} :: CreateIndex) Prelude.. Lens.mapping Lens.coerced
 
@@ -258,9 +257,8 @@ createIndex_tags = Lens.lens (\CreateIndex' {tags} -> tags) (\s@CreateIndex' {} 
 createIndex_userContextPolicy :: Lens.Lens' CreateIndex (Prelude.Maybe UserContextPolicy)
 createIndex_userContextPolicy = Lens.lens (\CreateIndex' {userContextPolicy} -> userContextPolicy) (\s@CreateIndex' {} a -> s {userContextPolicy = a} :: CreateIndex)
 
--- | Enables fetching access levels of groups and users from an IAM Identity
--- Center (successor to Single Sign-On) identity source. To configure this,
--- see
+-- | Gets users and groups from IAM Identity Center (successor to Single
+-- Sign-On) identity source. To configure this, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html UserGroupResolutionConfiguration>.
 createIndex_userGroupResolutionConfiguration :: Lens.Lens' CreateIndex (Prelude.Maybe UserGroupResolutionConfiguration)
 createIndex_userGroupResolutionConfiguration = Lens.lens (\CreateIndex' {userGroupResolutionConfiguration} -> userGroupResolutionConfiguration) (\s@CreateIndex' {} a -> s {userGroupResolutionConfiguration = a} :: CreateIndex)
@@ -273,10 +271,9 @@ createIndex_userTokenConfigurations = Lens.lens (\CreateIndex' {userTokenConfigu
 createIndex_name :: Lens.Lens' CreateIndex Prelude.Text
 createIndex_name = Lens.lens (\CreateIndex' {name} -> name) (\s@CreateIndex' {} a -> s {name = a} :: CreateIndex)
 
--- | An Identity and Access Management (IAM) role that gives Amazon Kendra
--- permissions to access your Amazon CloudWatch logs and metrics. This is
--- also the role you use when you call the @BatchPutDocument@ API to index
--- documents from an Amazon S3 bucket.
+-- | The Amazon Resource Name (ARN) of an IAM role with permission to access
+-- your Amazon CloudWatch logs and metrics. For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM access roles for Amazon Kendra>.
 createIndex_roleArn :: Lens.Lens' CreateIndex Prelude.Text
 createIndex_roleArn = Lens.lens (\CreateIndex' {roleArn} -> roleArn) (\s@CreateIndex' {} a -> s {roleArn = a} :: CreateIndex)
 
@@ -294,7 +291,8 @@ instance Core.AWSRequest CreateIndex where
 
 instance Prelude.Hashable CreateIndex where
   hashWithSalt _salt CreateIndex' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` edition
       `Prelude.hashWithSalt` serverSideEncryptionConfiguration

@@ -128,7 +128,8 @@ instance Data.FromJSON JwtTokenTypeConfiguration where
 
 instance Prelude.Hashable JwtTokenTypeConfiguration where
   hashWithSalt _salt JwtTokenTypeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` claimRegex
+    _salt
+      `Prelude.hashWithSalt` claimRegex
       `Prelude.hashWithSalt` groupAttributeField
       `Prelude.hashWithSalt` issuer
       `Prelude.hashWithSalt` secretManagerArn

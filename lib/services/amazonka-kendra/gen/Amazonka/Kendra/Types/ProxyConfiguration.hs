@@ -131,7 +131,8 @@ instance Data.FromJSON ProxyConfiguration where
 
 instance Prelude.Hashable ProxyConfiguration where
   hashWithSalt _salt ProxyConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` credentials
+    _salt
+      `Prelude.hashWithSalt` credentials
       `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` port
 

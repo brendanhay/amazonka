@@ -35,7 +35,7 @@ data DataSourceSyncJob = DataSourceSyncJob'
     -- the underlying data source, this field contains a code that identifies
     -- the error.
     dataSourceErrorCode :: Prelude.Maybe Prelude.Text,
-    -- | The UNIX datetime that the synchronization job completed.
+    -- | The Unix timestamp when the synchronization job completed.
     endTime :: Prelude.Maybe Data.POSIX,
     -- | If the @Status@ field is set to @FAILED@, the @ErrorCode@ field
     -- indicates the reason the synchronization failed.
@@ -50,7 +50,7 @@ data DataSourceSyncJob = DataSourceSyncJob'
     -- This is optional and should only be supplied when documents are deleted
     -- by a data source connector.
     metrics :: Prelude.Maybe DataSourceSyncJobMetrics,
-    -- | The UNIX datetime that the synchronization job started.
+    -- | The Unix timestamp when the synchronization job started.
     startTime :: Prelude.Maybe Data.POSIX,
     -- | The execution status of the synchronization job. When the @Status@ field
     -- is set to @SUCCEEDED@, the synchronization job is done. If the status
@@ -72,7 +72,7 @@ data DataSourceSyncJob = DataSourceSyncJob'
 -- the underlying data source, this field contains a code that identifies
 -- the error.
 --
--- 'endTime', 'dataSourceSyncJob_endTime' - The UNIX datetime that the synchronization job completed.
+-- 'endTime', 'dataSourceSyncJob_endTime' - The Unix timestamp when the synchronization job completed.
 --
 -- 'errorCode', 'dataSourceSyncJob_errorCode' - If the @Status@ field is set to @FAILED@, the @ErrorCode@ field
 -- indicates the reason the synchronization failed.
@@ -87,7 +87,7 @@ data DataSourceSyncJob = DataSourceSyncJob'
 -- This is optional and should only be supplied when documents are deleted
 -- by a data source connector.
 --
--- 'startTime', 'dataSourceSyncJob_startTime' - The UNIX datetime that the synchronization job started.
+-- 'startTime', 'dataSourceSyncJob_startTime' - The Unix timestamp when the synchronization job started.
 --
 -- 'status', 'dataSourceSyncJob_status' - The execution status of the synchronization job. When the @Status@ field
 -- is set to @SUCCEEDED@, the synchronization job is done. If the status
@@ -114,7 +114,7 @@ newDataSourceSyncJob =
 dataSourceSyncJob_dataSourceErrorCode :: Lens.Lens' DataSourceSyncJob (Prelude.Maybe Prelude.Text)
 dataSourceSyncJob_dataSourceErrorCode = Lens.lens (\DataSourceSyncJob' {dataSourceErrorCode} -> dataSourceErrorCode) (\s@DataSourceSyncJob' {} a -> s {dataSourceErrorCode = a} :: DataSourceSyncJob)
 
--- | The UNIX datetime that the synchronization job completed.
+-- | The Unix timestamp when the synchronization job completed.
 dataSourceSyncJob_endTime :: Lens.Lens' DataSourceSyncJob (Prelude.Maybe Prelude.UTCTime)
 dataSourceSyncJob_endTime = Lens.lens (\DataSourceSyncJob' {endTime} -> endTime) (\s@DataSourceSyncJob' {} a -> s {endTime = a} :: DataSourceSyncJob) Prelude.. Lens.mapping Data._Time
 
@@ -139,7 +139,7 @@ dataSourceSyncJob_executionId = Lens.lens (\DataSourceSyncJob' {executionId} -> 
 dataSourceSyncJob_metrics :: Lens.Lens' DataSourceSyncJob (Prelude.Maybe DataSourceSyncJobMetrics)
 dataSourceSyncJob_metrics = Lens.lens (\DataSourceSyncJob' {metrics} -> metrics) (\s@DataSourceSyncJob' {} a -> s {metrics = a} :: DataSourceSyncJob)
 
--- | The UNIX datetime that the synchronization job started.
+-- | The Unix timestamp when the synchronization job started.
 dataSourceSyncJob_startTime :: Lens.Lens' DataSourceSyncJob (Prelude.Maybe Prelude.UTCTime)
 dataSourceSyncJob_startTime = Lens.lens (\DataSourceSyncJob' {startTime} -> startTime) (\s@DataSourceSyncJob' {} a -> s {startTime = a} :: DataSourceSyncJob) Prelude.. Lens.mapping Data._Time
 
@@ -168,7 +168,8 @@ instance Data.FromJSON DataSourceSyncJob where
 
 instance Prelude.Hashable DataSourceSyncJob where
   hashWithSalt _salt DataSourceSyncJob' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceErrorCode
+    _salt
+      `Prelude.hashWithSalt` dataSourceErrorCode
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage

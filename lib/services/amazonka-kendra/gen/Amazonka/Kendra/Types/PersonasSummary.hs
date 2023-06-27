@@ -35,7 +35,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPersonasSummary' smart constructor.
 data PersonasSummary = PersonasSummary'
-  { -- | The date-time the summary information was created.
+  { -- | The Unix timestamp when the summary information was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The identifier of a user or group in your IAM Identity Center identity
     -- source. For example, a user ID could be an email.
@@ -46,7 +46,7 @@ data PersonasSummary = PersonasSummary'
     -- personas, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html#access-search-experience Providing access to your search page>.
     persona :: Prelude.Maybe Persona,
-    -- | The date-time the summary information was last updated.
+    -- | The Unix timestamp when the summary information was last updated.
     updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,7 +59,7 @@ data PersonasSummary = PersonasSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'personasSummary_createdAt' - The date-time the summary information was created.
+-- 'createdAt', 'personasSummary_createdAt' - The Unix timestamp when the summary information was created.
 --
 -- 'entityId', 'personasSummary_entityId' - The identifier of a user or group in your IAM Identity Center identity
 -- source. For example, a user ID could be an email.
@@ -70,7 +70,7 @@ data PersonasSummary = PersonasSummary'
 -- personas, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html#access-search-experience Providing access to your search page>.
 --
--- 'updatedAt', 'personasSummary_updatedAt' - The date-time the summary information was last updated.
+-- 'updatedAt', 'personasSummary_updatedAt' - The Unix timestamp when the summary information was last updated.
 newPersonasSummary ::
   PersonasSummary
 newPersonasSummary =
@@ -81,7 +81,7 @@ newPersonasSummary =
       updatedAt = Prelude.Nothing
     }
 
--- | The date-time the summary information was created.
+-- | The Unix timestamp when the summary information was created.
 personasSummary_createdAt :: Lens.Lens' PersonasSummary (Prelude.Maybe Prelude.UTCTime)
 personasSummary_createdAt = Lens.lens (\PersonasSummary' {createdAt} -> createdAt) (\s@PersonasSummary' {} a -> s {createdAt = a} :: PersonasSummary) Prelude.. Lens.mapping Data._Time
 
@@ -98,7 +98,7 @@ personasSummary_entityId = Lens.lens (\PersonasSummary' {entityId} -> entityId) 
 personasSummary_persona :: Lens.Lens' PersonasSummary (Prelude.Maybe Persona)
 personasSummary_persona = Lens.lens (\PersonasSummary' {persona} -> persona) (\s@PersonasSummary' {} a -> s {persona = a} :: PersonasSummary)
 
--- | The date-time the summary information was last updated.
+-- | The Unix timestamp when the summary information was last updated.
 personasSummary_updatedAt :: Lens.Lens' PersonasSummary (Prelude.Maybe Prelude.UTCTime)
 personasSummary_updatedAt = Lens.lens (\PersonasSummary' {updatedAt} -> updatedAt) (\s@PersonasSummary' {} a -> s {updatedAt = a} :: PersonasSummary) Prelude.. Lens.mapping Data._Time
 
@@ -116,7 +116,8 @@ instance Data.FromJSON PersonasSummary where
 
 instance Prelude.Hashable PersonasSummary where
   hashWithSalt _salt PersonasSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` persona
       `Prelude.hashWithSalt` updatedAt

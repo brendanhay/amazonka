@@ -72,12 +72,14 @@ instance Data.FromJSON DocumentAttribute where
       "DocumentAttribute"
       ( \x ->
           DocumentAttribute'
-            Prelude.<$> (x Data..: "Key") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Key")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable DocumentAttribute where
   hashWithSalt _salt DocumentAttribute' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData DocumentAttribute where

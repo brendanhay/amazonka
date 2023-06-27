@@ -26,11 +26,11 @@ import Amazonka.Kendra.Types.ScoreConfidence
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a relative ranking that indicates how confident Amazon Kendra
--- is that the response matches the query.
+-- is that the response is relevant to the query.
 --
 -- /See:/ 'newScoreAttributes' smart constructor.
 data ScoreAttributes = ScoreAttributes'
-  { -- | A relative ranking for how well the response matches the query.
+  { -- | A relative ranking for how relevant the response is to the query.
     scoreConfidence :: Prelude.Maybe ScoreConfidence
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,13 +43,13 @@ data ScoreAttributes = ScoreAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scoreConfidence', 'scoreAttributes_scoreConfidence' - A relative ranking for how well the response matches the query.
+-- 'scoreConfidence', 'scoreAttributes_scoreConfidence' - A relative ranking for how relevant the response is to the query.
 newScoreAttributes ::
   ScoreAttributes
 newScoreAttributes =
   ScoreAttributes' {scoreConfidence = Prelude.Nothing}
 
--- | A relative ranking for how well the response matches the query.
+-- | A relative ranking for how relevant the response is to the query.
 scoreAttributes_scoreConfidence :: Lens.Lens' ScoreAttributes (Prelude.Maybe ScoreConfidence)
 scoreAttributes_scoreConfidence = Lens.lens (\ScoreAttributes' {scoreConfidence} -> scoreConfidence) (\s@ScoreAttributes' {} a -> s {scoreConfidence = a} :: ScoreAttributes)
 

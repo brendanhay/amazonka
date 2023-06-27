@@ -95,7 +95,8 @@ instance
     DataSourceToIndexFieldMapping
   where
   hashWithSalt _salt DataSourceToIndexFieldMapping' {..} =
-    _salt `Prelude.hashWithSalt` dateFieldFormat
+    _salt
+      `Prelude.hashWithSalt` dateFieldFormat
       `Prelude.hashWithSalt` dataSourceFieldName
       `Prelude.hashWithSalt` indexFieldName
 

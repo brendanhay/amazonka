@@ -39,6 +39,7 @@ module Amazonka.Kendra.DescribeQuerySuggestionsConfig
     newDescribeQuerySuggestionsConfigResponse,
 
     -- * Response Lenses
+    describeQuerySuggestionsConfigResponse_attributeSuggestionsConfig,
     describeQuerySuggestionsConfigResponse_includeQueriesWithoutUserInformation,
     describeQuerySuggestionsConfigResponse_lastClearTime,
     describeQuerySuggestionsConfigResponse_lastSuggestionsBuildTime,
@@ -106,7 +107,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeQuerySuggestionsConfigResponse'
-            Prelude.<$> (x Data..?> "IncludeQueriesWithoutUserInformation")
+            Prelude.<$> (x Data..?> "AttributeSuggestionsConfig")
+            Prelude.<*> (x Data..?> "IncludeQueriesWithoutUserInformation")
             Prelude.<*> (x Data..?> "LastClearTime")
             Prelude.<*> (x Data..?> "LastSuggestionsBuildTime")
             Prelude.<*> (x Data..?> "MinimumNumberOfQueryingUsers")
@@ -167,17 +169,24 @@ instance Data.ToQuery DescribeQuerySuggestionsConfig where
 
 -- | /See:/ 'newDescribeQuerySuggestionsConfigResponse' smart constructor.
 data DescribeQuerySuggestionsConfigResponse = DescribeQuerySuggestionsConfigResponse'
-  { -- | @TRUE@ to use all queries, otherwise use only queries that include user
+  { -- | Configuration information for the document fields\/attributes that you
+    -- want to base query suggestions on.
+    attributeSuggestionsConfig :: Prelude.Maybe AttributeSuggestionsDescribeConfig,
+    -- | @TRUE@ to use all queries, otherwise use only queries that include user
     -- information to generate the query suggestions.
     includeQueriesWithoutUserInformation :: Prelude.Maybe Prelude.Bool,
-    -- | The date-time query suggestions for an index was last cleared.
+    -- | The Unix timestamp when query suggestions for an index was last cleared.
     --
     -- After you clear suggestions, Amazon Kendra learns new suggestions based
     -- on new queries added to the query log from the time you cleared
     -- suggestions. Amazon Kendra only considers re-occurences of a query from
     -- the time you cleared suggestions.
     lastClearTime :: Prelude.Maybe Data.POSIX,
-    -- | The date-time query suggestions for an index was last updated.
+    -- | The Unix timestamp when query suggestions for an index was last updated.
+    --
+    -- Amazon Kendra automatically updates suggestions every 24 hours, after
+    -- you change a setting or after you apply a
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#query-suggestions-blocklist block list>.
     lastSuggestionsBuildTime :: Prelude.Maybe Data.POSIX,
     -- | The minimum number of unique users who must search a query in order for
     -- the query to be eligible to suggest to your users.
@@ -207,6 +216,10 @@ data DescribeQuerySuggestionsConfigResponse = DescribeQuerySuggestionsConfigResp
     -- if you filter out certain queries from suggestions using a block list,
     -- and as the query log accumulates more queries for Amazon Kendra to learn
     -- from.
+    --
+    -- If the count is much lower than you expected, it could be because Amazon
+    -- Kendra needs more queries in the query history to learn from or your
+    -- current query suggestions settings are too strict.
     totalSuggestionsCount :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -221,17 +234,24 @@ data DescribeQuerySuggestionsConfigResponse = DescribeQuerySuggestionsConfigResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attributeSuggestionsConfig', 'describeQuerySuggestionsConfigResponse_attributeSuggestionsConfig' - Configuration information for the document fields\/attributes that you
+-- want to base query suggestions on.
+--
 -- 'includeQueriesWithoutUserInformation', 'describeQuerySuggestionsConfigResponse_includeQueriesWithoutUserInformation' - @TRUE@ to use all queries, otherwise use only queries that include user
 -- information to generate the query suggestions.
 --
--- 'lastClearTime', 'describeQuerySuggestionsConfigResponse_lastClearTime' - The date-time query suggestions for an index was last cleared.
+-- 'lastClearTime', 'describeQuerySuggestionsConfigResponse_lastClearTime' - The Unix timestamp when query suggestions for an index was last cleared.
 --
 -- After you clear suggestions, Amazon Kendra learns new suggestions based
 -- on new queries added to the query log from the time you cleared
 -- suggestions. Amazon Kendra only considers re-occurences of a query from
 -- the time you cleared suggestions.
 --
--- 'lastSuggestionsBuildTime', 'describeQuerySuggestionsConfigResponse_lastSuggestionsBuildTime' - The date-time query suggestions for an index was last updated.
+-- 'lastSuggestionsBuildTime', 'describeQuerySuggestionsConfigResponse_lastSuggestionsBuildTime' - The Unix timestamp when query suggestions for an index was last updated.
+--
+-- Amazon Kendra automatically updates suggestions every 24 hours, after
+-- you change a setting or after you apply a
+-- <https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#query-suggestions-blocklist block list>.
 --
 -- 'minimumNumberOfQueryingUsers', 'describeQuerySuggestionsConfigResponse_minimumNumberOfQueryingUsers' - The minimum number of unique users who must search a query in order for
 -- the query to be eligible to suggest to your users.
@@ -262,6 +282,10 @@ data DescribeQuerySuggestionsConfigResponse = DescribeQuerySuggestionsConfigResp
 -- and as the query log accumulates more queries for Amazon Kendra to learn
 -- from.
 --
+-- If the count is much lower than you expected, it could be because Amazon
+-- Kendra needs more queries in the query history to learn from or your
+-- current query suggestions settings are too strict.
+--
 -- 'httpStatus', 'describeQuerySuggestionsConfigResponse_httpStatus' - The response's http status code.
 newDescribeQuerySuggestionsConfigResponse ::
   -- | 'httpStatus'
@@ -270,7 +294,9 @@ newDescribeQuerySuggestionsConfigResponse ::
 newDescribeQuerySuggestionsConfigResponse
   pHttpStatus_ =
     DescribeQuerySuggestionsConfigResponse'
-      { includeQueriesWithoutUserInformation =
+      { attributeSuggestionsConfig =
+          Prelude.Nothing,
+        includeQueriesWithoutUserInformation =
           Prelude.Nothing,
         lastClearTime = Prelude.Nothing,
         lastSuggestionsBuildTime =
@@ -287,12 +313,17 @@ newDescribeQuerySuggestionsConfigResponse
         httpStatus = pHttpStatus_
       }
 
+-- | Configuration information for the document fields\/attributes that you
+-- want to base query suggestions on.
+describeQuerySuggestionsConfigResponse_attributeSuggestionsConfig :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe AttributeSuggestionsDescribeConfig)
+describeQuerySuggestionsConfigResponse_attributeSuggestionsConfig = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {attributeSuggestionsConfig} -> attributeSuggestionsConfig) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {attributeSuggestionsConfig = a} :: DescribeQuerySuggestionsConfigResponse)
+
 -- | @TRUE@ to use all queries, otherwise use only queries that include user
 -- information to generate the query suggestions.
 describeQuerySuggestionsConfigResponse_includeQueriesWithoutUserInformation :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Prelude.Bool)
 describeQuerySuggestionsConfigResponse_includeQueriesWithoutUserInformation = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {includeQueriesWithoutUserInformation} -> includeQueriesWithoutUserInformation) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {includeQueriesWithoutUserInformation = a} :: DescribeQuerySuggestionsConfigResponse)
 
--- | The date-time query suggestions for an index was last cleared.
+-- | The Unix timestamp when query suggestions for an index was last cleared.
 --
 -- After you clear suggestions, Amazon Kendra learns new suggestions based
 -- on new queries added to the query log from the time you cleared
@@ -301,7 +332,11 @@ describeQuerySuggestionsConfigResponse_includeQueriesWithoutUserInformation = Le
 describeQuerySuggestionsConfigResponse_lastClearTime :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Prelude.UTCTime)
 describeQuerySuggestionsConfigResponse_lastClearTime = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {lastClearTime} -> lastClearTime) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {lastClearTime = a} :: DescribeQuerySuggestionsConfigResponse) Prelude.. Lens.mapping Data._Time
 
--- | The date-time query suggestions for an index was last updated.
+-- | The Unix timestamp when query suggestions for an index was last updated.
+--
+-- Amazon Kendra automatically updates suggestions every 24 hours, after
+-- you change a setting or after you apply a
+-- <https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#query-suggestions-blocklist block list>.
 describeQuerySuggestionsConfigResponse_lastSuggestionsBuildTime :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Prelude.UTCTime)
 describeQuerySuggestionsConfigResponse_lastSuggestionsBuildTime = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {lastSuggestionsBuildTime} -> lastSuggestionsBuildTime) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {lastSuggestionsBuildTime = a} :: DescribeQuerySuggestionsConfigResponse) Prelude.. Lens.mapping Data._Time
 
@@ -343,6 +378,10 @@ describeQuerySuggestionsConfigResponse_status = Lens.lens (\DescribeQuerySuggest
 -- if you filter out certain queries from suggestions using a block list,
 -- and as the query log accumulates more queries for Amazon Kendra to learn
 -- from.
+--
+-- If the count is much lower than you expected, it could be because Amazon
+-- Kendra needs more queries in the query history to learn from or your
+-- current query suggestions settings are too strict.
 describeQuerySuggestionsConfigResponse_totalSuggestionsCount :: Lens.Lens' DescribeQuerySuggestionsConfigResponse (Prelude.Maybe Prelude.Int)
 describeQuerySuggestionsConfigResponse_totalSuggestionsCount = Lens.lens (\DescribeQuerySuggestionsConfigResponse' {totalSuggestionsCount} -> totalSuggestionsCount) (\s@DescribeQuerySuggestionsConfigResponse' {} a -> s {totalSuggestionsCount = a} :: DescribeQuerySuggestionsConfigResponse)
 
@@ -355,7 +394,8 @@ instance
     DescribeQuerySuggestionsConfigResponse
   where
   rnf DescribeQuerySuggestionsConfigResponse' {..} =
-    Prelude.rnf includeQueriesWithoutUserInformation
+    Prelude.rnf attributeSuggestionsConfig
+      `Prelude.seq` Prelude.rnf includeQueriesWithoutUserInformation
       `Prelude.seq` Prelude.rnf lastClearTime
       `Prelude.seq` Prelude.rnf lastSuggestionsBuildTime
       `Prelude.seq` Prelude.rnf minimumNumberOfQueryingUsers

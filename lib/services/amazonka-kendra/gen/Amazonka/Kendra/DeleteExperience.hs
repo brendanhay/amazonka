@@ -101,7 +101,8 @@ instance Core.AWSRequest DeleteExperience where
 
 instance Prelude.Hashable DeleteExperience where
   hashWithSalt _salt DeleteExperience' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData DeleteExperience where

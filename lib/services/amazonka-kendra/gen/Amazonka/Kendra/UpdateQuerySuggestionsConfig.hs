@@ -25,8 +25,8 @@
 -- Amazon Kendra supports partial updates, so you only need to provide the
 -- fields you want to update.
 --
--- If an update is currently processing (i.e. \'happening\'), you need to
--- wait for the update to finish before making another update.
+-- If an update is currently processing, you need to wait for the update to
+-- finish before making another update.
 --
 -- Updates to query suggestions settings might not take effect right away.
 -- The time for your updated settings to take effect depends on the updates
@@ -42,6 +42,7 @@ module Amazonka.Kendra.UpdateQuerySuggestionsConfig
     newUpdateQuerySuggestionsConfig,
 
     -- * Request Lenses
+    updateQuerySuggestionsConfig_attributeSuggestionsConfig,
     updateQuerySuggestionsConfig_includeQueriesWithoutUserInformation,
     updateQuerySuggestionsConfig_minimumNumberOfQueryingUsers,
     updateQuerySuggestionsConfig_minimumQueryCount,
@@ -65,7 +66,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateQuerySuggestionsConfig' smart constructor.
 data UpdateQuerySuggestionsConfig = UpdateQuerySuggestionsConfig'
-  { -- | @TRUE@ to include queries without user information (i.e. all queries,
+  { -- | Configuration information for the document fields\/attributes that you
+    -- want to base query suggestions on.
+    attributeSuggestionsConfig :: Prelude.Maybe AttributeSuggestionsUpdateConfig,
+    -- | @TRUE@ to include queries without user information (i.e. all queries,
     -- irrespective of the user), otherwise @FALSE@ to only include queries
     -- with user information.
     --
@@ -127,6 +131,9 @@ data UpdateQuerySuggestionsConfig = UpdateQuerySuggestionsConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attributeSuggestionsConfig', 'updateQuerySuggestionsConfig_attributeSuggestionsConfig' - Configuration information for the document fields\/attributes that you
+-- want to base query suggestions on.
+--
 -- 'includeQueriesWithoutUserInformation', 'updateQuerySuggestionsConfig_includeQueriesWithoutUserInformation' - @TRUE@ to include queries without user information (i.e. all queries,
 -- irrespective of the user), otherwise @FALSE@ to only include queries
 -- with user information.
@@ -183,7 +190,9 @@ newUpdateQuerySuggestionsConfig ::
   UpdateQuerySuggestionsConfig
 newUpdateQuerySuggestionsConfig pIndexId_ =
   UpdateQuerySuggestionsConfig'
-    { includeQueriesWithoutUserInformation =
+    { attributeSuggestionsConfig =
+        Prelude.Nothing,
+      includeQueriesWithoutUserInformation =
         Prelude.Nothing,
       minimumNumberOfQueryingUsers =
         Prelude.Nothing,
@@ -193,6 +202,11 @@ newUpdateQuerySuggestionsConfig pIndexId_ =
         Prelude.Nothing,
       indexId = pIndexId_
     }
+
+-- | Configuration information for the document fields\/attributes that you
+-- want to base query suggestions on.
+updateQuerySuggestionsConfig_attributeSuggestionsConfig :: Lens.Lens' UpdateQuerySuggestionsConfig (Prelude.Maybe AttributeSuggestionsUpdateConfig)
+updateQuerySuggestionsConfig_attributeSuggestionsConfig = Lens.lens (\UpdateQuerySuggestionsConfig' {attributeSuggestionsConfig} -> attributeSuggestionsConfig) (\s@UpdateQuerySuggestionsConfig' {} a -> s {attributeSuggestionsConfig = a} :: UpdateQuerySuggestionsConfig)
 
 -- | @TRUE@ to include queries without user information (i.e. all queries,
 -- irrespective of the user), otherwise @FALSE@ to only include queries
@@ -273,6 +287,7 @@ instance
   where
   hashWithSalt _salt UpdateQuerySuggestionsConfig' {..} =
     _salt
+      `Prelude.hashWithSalt` attributeSuggestionsConfig
       `Prelude.hashWithSalt` includeQueriesWithoutUserInformation
       `Prelude.hashWithSalt` minimumNumberOfQueryingUsers
       `Prelude.hashWithSalt` minimumQueryCount
@@ -282,7 +297,8 @@ instance
 
 instance Prelude.NFData UpdateQuerySuggestionsConfig where
   rnf UpdateQuerySuggestionsConfig' {..} =
-    Prelude.rnf includeQueriesWithoutUserInformation
+    Prelude.rnf attributeSuggestionsConfig
+      `Prelude.seq` Prelude.rnf includeQueriesWithoutUserInformation
       `Prelude.seq` Prelude.rnf minimumNumberOfQueryingUsers
       `Prelude.seq` Prelude.rnf minimumQueryCount
       `Prelude.seq` Prelude.rnf mode
@@ -308,7 +324,9 @@ instance Data.ToJSON UpdateQuerySuggestionsConfig where
   toJSON UpdateQuerySuggestionsConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("IncludeQueriesWithoutUserInformation" Data..=)
+          [ ("AttributeSuggestionsConfig" Data..=)
+              Prelude.<$> attributeSuggestionsConfig,
+            ("IncludeQueriesWithoutUserInformation" Data..=)
               Prelude.<$> includeQueriesWithoutUserInformation,
             ("MinimumNumberOfQueryingUsers" Data..=)
               Prelude.<$> minimumNumberOfQueryingUsers,

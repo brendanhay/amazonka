@@ -109,7 +109,8 @@ instance
     DocumentMetadataConfiguration
   where
   hashWithSalt _salt DocumentMetadataConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` relevance
+    _salt
+      `Prelude.hashWithSalt` relevance
       `Prelude.hashWithSalt` search
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'

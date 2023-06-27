@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataSourceSummary' smart constructor.
 data DataSourceSummary = DataSourceSummary'
-  { -- | The UNIX datetime that the data source was created.
+  { -- | The Unix timestamp when the data source connector was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The identifier for the data source.
     id :: Prelude.Maybe Prelude.Text,
@@ -46,7 +46,7 @@ data DataSourceSummary = DataSourceSummary'
     status :: Prelude.Maybe DataSourceStatus,
     -- | The type of the data source.
     type' :: Prelude.Maybe DataSourceType,
-    -- | The UNIX datetime that the data source was lasted updated.
+    -- | The Unix timestamp when the data source connector was last updated.
     updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,7 +59,7 @@ data DataSourceSummary = DataSourceSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'dataSourceSummary_createdAt' - The UNIX datetime that the data source was created.
+-- 'createdAt', 'dataSourceSummary_createdAt' - The Unix timestamp when the data source connector was created.
 --
 -- 'id', 'dataSourceSummary_id' - The identifier for the data source.
 --
@@ -75,7 +75,7 @@ data DataSourceSummary = DataSourceSummary'
 --
 -- 'type'', 'dataSourceSummary_type' - The type of the data source.
 --
--- 'updatedAt', 'dataSourceSummary_updatedAt' - The UNIX datetime that the data source was lasted updated.
+-- 'updatedAt', 'dataSourceSummary_updatedAt' - The Unix timestamp when the data source connector was last updated.
 newDataSourceSummary ::
   DataSourceSummary
 newDataSourceSummary =
@@ -89,7 +89,7 @@ newDataSourceSummary =
       updatedAt = Prelude.Nothing
     }
 
--- | The UNIX datetime that the data source was created.
+-- | The Unix timestamp when the data source connector was created.
 dataSourceSummary_createdAt :: Lens.Lens' DataSourceSummary (Prelude.Maybe Prelude.UTCTime)
 dataSourceSummary_createdAt = Lens.lens (\DataSourceSummary' {createdAt} -> createdAt) (\s@DataSourceSummary' {} a -> s {createdAt = a} :: DataSourceSummary) Prelude.. Lens.mapping Data._Time
 
@@ -117,7 +117,7 @@ dataSourceSummary_status = Lens.lens (\DataSourceSummary' {status} -> status) (\
 dataSourceSummary_type :: Lens.Lens' DataSourceSummary (Prelude.Maybe DataSourceType)
 dataSourceSummary_type = Lens.lens (\DataSourceSummary' {type'} -> type') (\s@DataSourceSummary' {} a -> s {type' = a} :: DataSourceSummary)
 
--- | The UNIX datetime that the data source was lasted updated.
+-- | The Unix timestamp when the data source connector was last updated.
 dataSourceSummary_updatedAt :: Lens.Lens' DataSourceSummary (Prelude.Maybe Prelude.UTCTime)
 dataSourceSummary_updatedAt = Lens.lens (\DataSourceSummary' {updatedAt} -> updatedAt) (\s@DataSourceSummary' {} a -> s {updatedAt = a} :: DataSourceSummary) Prelude.. Lens.mapping Data._Time
 
@@ -138,7 +138,8 @@ instance Data.FromJSON DataSourceSummary where
 
 instance Prelude.Hashable DataSourceSummary where
   hashWithSalt _salt DataSourceSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` name

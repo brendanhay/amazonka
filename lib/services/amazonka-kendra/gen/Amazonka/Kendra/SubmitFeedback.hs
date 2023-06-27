@@ -129,7 +129,8 @@ instance Core.AWSRequest SubmitFeedback where
 
 instance Prelude.Hashable SubmitFeedback where
   hashWithSalt _salt SubmitFeedback' {..} =
-    _salt `Prelude.hashWithSalt` clickFeedbackItems
+    _salt
+      `Prelude.hashWithSalt` clickFeedbackItems
       `Prelude.hashWithSalt` relevanceFeedbackItems
       `Prelude.hashWithSalt` indexId
       `Prelude.hashWithSalt` queryId

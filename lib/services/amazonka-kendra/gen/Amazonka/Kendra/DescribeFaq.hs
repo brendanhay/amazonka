@@ -121,7 +121,8 @@ instance Core.AWSRequest DescribeFaq where
 
 instance Prelude.Hashable DescribeFaq where
   hashWithSalt _salt DescribeFaq' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData DescribeFaq where
@@ -160,7 +161,7 @@ instance Data.ToQuery DescribeFaq where
 
 -- | /See:/ 'newDescribeFaqResponse' smart constructor.
 data DescribeFaqResponse = DescribeFaqResponse'
-  { -- | The date and time that the FAQ was created.
+  { -- | The Unix timestamp when the FAQ was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The description of the FAQ that you provided when it was created.
     description :: Prelude.Maybe Prelude.Text,
@@ -186,7 +187,7 @@ data DescribeFaqResponse = DescribeFaqResponse'
     s3Path :: Prelude.Maybe S3Path,
     -- | The status of the FAQ. It is ready to use when the status is @ACTIVE@.
     status :: Prelude.Maybe FaqStatus,
-    -- | The date and time that the FAQ was last updated.
+    -- | The Unix timestamp when the FAQ was last updated.
     updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -201,7 +202,7 @@ data DescribeFaqResponse = DescribeFaqResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'describeFaqResponse_createdAt' - The date and time that the FAQ was created.
+-- 'createdAt', 'describeFaqResponse_createdAt' - The Unix timestamp when the FAQ was created.
 --
 -- 'description', 'describeFaqResponse_description' - The description of the FAQ that you provided when it was created.
 --
@@ -228,7 +229,7 @@ data DescribeFaqResponse = DescribeFaqResponse'
 --
 -- 'status', 'describeFaqResponse_status' - The status of the FAQ. It is ready to use when the status is @ACTIVE@.
 --
--- 'updatedAt', 'describeFaqResponse_updatedAt' - The date and time that the FAQ was last updated.
+-- 'updatedAt', 'describeFaqResponse_updatedAt' - The Unix timestamp when the FAQ was last updated.
 --
 -- 'httpStatus', 'describeFaqResponse_httpStatus' - The response's http status code.
 newDescribeFaqResponse ::
@@ -252,7 +253,7 @@ newDescribeFaqResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The date and time that the FAQ was created.
+-- | The Unix timestamp when the FAQ was created.
 describeFaqResponse_createdAt :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe Prelude.UTCTime)
 describeFaqResponse_createdAt = Lens.lens (\DescribeFaqResponse' {createdAt} -> createdAt) (\s@DescribeFaqResponse' {} a -> s {createdAt = a} :: DescribeFaqResponse) Prelude.. Lens.mapping Data._Time
 
@@ -301,7 +302,7 @@ describeFaqResponse_s3Path = Lens.lens (\DescribeFaqResponse' {s3Path} -> s3Path
 describeFaqResponse_status :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe FaqStatus)
 describeFaqResponse_status = Lens.lens (\DescribeFaqResponse' {status} -> status) (\s@DescribeFaqResponse' {} a -> s {status = a} :: DescribeFaqResponse)
 
--- | The date and time that the FAQ was last updated.
+-- | The Unix timestamp when the FAQ was last updated.
 describeFaqResponse_updatedAt :: Lens.Lens' DescribeFaqResponse (Prelude.Maybe Prelude.UTCTime)
 describeFaqResponse_updatedAt = Lens.lens (\DescribeFaqResponse' {updatedAt} -> updatedAt) (\s@DescribeFaqResponse' {} a -> s {updatedAt = a} :: DescribeFaqResponse) Prelude.. Lens.mapping Data._Time
 

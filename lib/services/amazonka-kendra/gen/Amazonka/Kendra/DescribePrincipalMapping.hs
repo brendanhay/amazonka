@@ -131,7 +131,8 @@ instance Core.AWSRequest DescribePrincipalMapping where
           DescribePrincipalMappingResponse'
             Prelude.<$> (x Data..?> "DataSourceId")
             Prelude.<*> (x Data..?> "GroupId")
-            Prelude.<*> ( x Data..?> "GroupOrderingIdSummaries"
+            Prelude.<*> ( x
+                            Data..?> "GroupOrderingIdSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "IndexId")
@@ -140,7 +141,8 @@ instance Core.AWSRequest DescribePrincipalMapping where
 
 instance Prelude.Hashable DescribePrincipalMapping where
   hashWithSalt _salt DescribePrincipalMapping' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceId
+    _salt
+      `Prelude.hashWithSalt` dataSourceId
       `Prelude.hashWithSalt` indexId
       `Prelude.hashWithSalt` groupId
 
@@ -193,17 +195,17 @@ data DescribePrincipalMappingResponse = DescribePrincipalMappingResponse'
     -- | Shows the following information on the processing of @PUT@ and @DELETE@
     -- actions for mapping users to their groups:
     --
-    -- -   Status – the status can be either @PROCESSING@, @SUCCEEDED@,
+    -- -   Status—the status can be either @PROCESSING@, @SUCCEEDED@,
     --     @DELETING@, @DELETED@, or @FAILED@.
     --
-    -- -   Last updated – the last date-time an action was updated.
+    -- -   Last updated—the last date-time an action was updated.
     --
-    -- -   Received – the last date-time an action was received or submitted.
+    -- -   Received—the last date-time an action was received or submitted.
     --
-    -- -   Ordering ID – the latest action that should process and apply after
+    -- -   Ordering ID—the latest action that should process and apply after
     --     other actions.
     --
-    -- -   Failure reason – the reason an action could not be processed.
+    -- -   Failure reason—the reason an action could not be processed.
     groupOrderingIdSummaries :: Prelude.Maybe [GroupOrderingIdSummary],
     -- | Shows the identifier of the index to see information on the processing
     -- of @PUT@ and @DELETE@ actions for mapping users to their groups.
@@ -231,17 +233,17 @@ data DescribePrincipalMappingResponse = DescribePrincipalMappingResponse'
 -- 'groupOrderingIdSummaries', 'describePrincipalMappingResponse_groupOrderingIdSummaries' - Shows the following information on the processing of @PUT@ and @DELETE@
 -- actions for mapping users to their groups:
 --
--- -   Status – the status can be either @PROCESSING@, @SUCCEEDED@,
+-- -   Status—the status can be either @PROCESSING@, @SUCCEEDED@,
 --     @DELETING@, @DELETED@, or @FAILED@.
 --
--- -   Last updated – the last date-time an action was updated.
+-- -   Last updated—the last date-time an action was updated.
 --
--- -   Received – the last date-time an action was received or submitted.
+-- -   Received—the last date-time an action was received or submitted.
 --
--- -   Ordering ID – the latest action that should process and apply after
+-- -   Ordering ID—the latest action that should process and apply after
 --     other actions.
 --
--- -   Failure reason – the reason an action could not be processed.
+-- -   Failure reason—the reason an action could not be processed.
 --
 -- 'indexId', 'describePrincipalMappingResponse_indexId' - Shows the identifier of the index to see information on the processing
 -- of @PUT@ and @DELETE@ actions for mapping users to their groups.
@@ -276,17 +278,17 @@ describePrincipalMappingResponse_groupId = Lens.lens (\DescribePrincipalMappingR
 -- | Shows the following information on the processing of @PUT@ and @DELETE@
 -- actions for mapping users to their groups:
 --
--- -   Status – the status can be either @PROCESSING@, @SUCCEEDED@,
+-- -   Status—the status can be either @PROCESSING@, @SUCCEEDED@,
 --     @DELETING@, @DELETED@, or @FAILED@.
 --
--- -   Last updated – the last date-time an action was updated.
+-- -   Last updated—the last date-time an action was updated.
 --
--- -   Received – the last date-time an action was received or submitted.
+-- -   Received—the last date-time an action was received or submitted.
 --
--- -   Ordering ID – the latest action that should process and apply after
+-- -   Ordering ID—the latest action that should process and apply after
 --     other actions.
 --
--- -   Failure reason – the reason an action could not be processed.
+-- -   Failure reason—the reason an action could not be processed.
 describePrincipalMappingResponse_groupOrderingIdSummaries :: Lens.Lens' DescribePrincipalMappingResponse (Prelude.Maybe [GroupOrderingIdSummary])
 describePrincipalMappingResponse_groupOrderingIdSummaries = Lens.lens (\DescribePrincipalMappingResponse' {groupOrderingIdSummaries} -> groupOrderingIdSummaries) (\s@DescribePrincipalMappingResponse' {} a -> s {groupOrderingIdSummaries = a} :: DescribePrincipalMappingResponse) Prelude.. Lens.mapping Lens.coerced
 

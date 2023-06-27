@@ -126,7 +126,8 @@ instance Core.AWSRequest ListDataSources where
 
 instance Prelude.Hashable ListDataSources where
   hashWithSalt _salt ListDataSources' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` indexId
 

@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFaqSummary' smart constructor.
 data FaqSummary = FaqSummary'
-  { -- | The UNIX datetime that the FAQ was added to the index.
+  { -- | The Unix timestamp when the FAQ was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The file type used to create the FAQ.
     fileFormat :: Prelude.Maybe FaqFileFormat,
@@ -48,7 +48,7 @@ data FaqSummary = FaqSummary'
     -- | The current status of the FAQ. When the status is @ACTIVE@ the FAQ is
     -- ready for use.
     status :: Prelude.Maybe FaqStatus,
-    -- | The UNIX datetime that the FAQ was last updated.
+    -- | The Unix timestamp when the FAQ was last updated.
     updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,7 +61,7 @@ data FaqSummary = FaqSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'faqSummary_createdAt' - The UNIX datetime that the FAQ was added to the index.
+-- 'createdAt', 'faqSummary_createdAt' - The Unix timestamp when the FAQ was created.
 --
 -- 'fileFormat', 'faqSummary_fileFormat' - The file type used to create the FAQ.
 --
@@ -78,7 +78,7 @@ data FaqSummary = FaqSummary'
 -- 'status', 'faqSummary_status' - The current status of the FAQ. When the status is @ACTIVE@ the FAQ is
 -- ready for use.
 --
--- 'updatedAt', 'faqSummary_updatedAt' - The UNIX datetime that the FAQ was last updated.
+-- 'updatedAt', 'faqSummary_updatedAt' - The Unix timestamp when the FAQ was last updated.
 newFaqSummary ::
   FaqSummary
 newFaqSummary =
@@ -92,7 +92,7 @@ newFaqSummary =
       updatedAt = Prelude.Nothing
     }
 
--- | The UNIX datetime that the FAQ was added to the index.
+-- | The Unix timestamp when the FAQ was created.
 faqSummary_createdAt :: Lens.Lens' FaqSummary (Prelude.Maybe Prelude.UTCTime)
 faqSummary_createdAt = Lens.lens (\FaqSummary' {createdAt} -> createdAt) (\s@FaqSummary' {} a -> s {createdAt = a} :: FaqSummary) Prelude.. Lens.mapping Data._Time
 
@@ -121,7 +121,7 @@ faqSummary_name = Lens.lens (\FaqSummary' {name} -> name) (\s@FaqSummary' {} a -
 faqSummary_status :: Lens.Lens' FaqSummary (Prelude.Maybe FaqStatus)
 faqSummary_status = Lens.lens (\FaqSummary' {status} -> status) (\s@FaqSummary' {} a -> s {status = a} :: FaqSummary)
 
--- | The UNIX datetime that the FAQ was last updated.
+-- | The Unix timestamp when the FAQ was last updated.
 faqSummary_updatedAt :: Lens.Lens' FaqSummary (Prelude.Maybe Prelude.UTCTime)
 faqSummary_updatedAt = Lens.lens (\FaqSummary' {updatedAt} -> updatedAt) (\s@FaqSummary' {} a -> s {updatedAt = a} :: FaqSummary) Prelude.. Lens.mapping Data._Time
 
@@ -142,7 +142,8 @@ instance Data.FromJSON FaqSummary where
 
 instance Prelude.Hashable FaqSummary where
   hashWithSalt _salt FaqSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` fileFormat
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` languageCode

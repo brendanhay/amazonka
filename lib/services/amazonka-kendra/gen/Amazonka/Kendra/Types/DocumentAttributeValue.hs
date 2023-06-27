@@ -108,7 +108,8 @@ instance Data.FromJSON DocumentAttributeValue where
           DocumentAttributeValue'
             Prelude.<$> (x Data..:? "DateValue")
             Prelude.<*> (x Data..:? "LongValue")
-            Prelude.<*> ( x Data..:? "StringListValue"
+            Prelude.<*> ( x
+                            Data..:? "StringListValue"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StringValue")
@@ -116,7 +117,8 @@ instance Data.FromJSON DocumentAttributeValue where
 
 instance Prelude.Hashable DocumentAttributeValue where
   hashWithSalt _salt DocumentAttributeValue' {..} =
-    _salt `Prelude.hashWithSalt` dateValue
+    _salt
+      `Prelude.hashWithSalt` dateValue
       `Prelude.hashWithSalt` longValue
       `Prelude.hashWithSalt` stringListValue
       `Prelude.hashWithSalt` stringValue

@@ -41,8 +41,7 @@ data IndexConfigurationSummary = IndexConfigurationSummary'
     name :: Prelude.Maybe Prelude.Text,
     -- | The Unix timestamp when the index was created.
     createdAt :: Data.POSIX,
-    -- | The Unix timestamp when the index was last updated by the @UpdateIndex@
-    -- API.
+    -- | The Unix timestamp when the index was last updated.
     updatedAt :: Data.POSIX,
     -- | The current status of the index. When the status is @ACTIVE@, the index
     -- is ready to search.
@@ -69,8 +68,7 @@ data IndexConfigurationSummary = IndexConfigurationSummary'
 --
 -- 'createdAt', 'indexConfigurationSummary_createdAt' - The Unix timestamp when the index was created.
 --
--- 'updatedAt', 'indexConfigurationSummary_updatedAt' - The Unix timestamp when the index was last updated by the @UpdateIndex@
--- API.
+-- 'updatedAt', 'indexConfigurationSummary_updatedAt' - The Unix timestamp when the index was last updated.
 --
 -- 'status', 'indexConfigurationSummary_status' - The current status of the index. When the status is @ACTIVE@, the index
 -- is ready to search.
@@ -115,8 +113,7 @@ indexConfigurationSummary_name = Lens.lens (\IndexConfigurationSummary' {name} -
 indexConfigurationSummary_createdAt :: Lens.Lens' IndexConfigurationSummary Prelude.UTCTime
 indexConfigurationSummary_createdAt = Lens.lens (\IndexConfigurationSummary' {createdAt} -> createdAt) (\s@IndexConfigurationSummary' {} a -> s {createdAt = a} :: IndexConfigurationSummary) Prelude.. Data._Time
 
--- | The Unix timestamp when the index was last updated by the @UpdateIndex@
--- API.
+-- | The Unix timestamp when the index was last updated.
 indexConfigurationSummary_updatedAt :: Lens.Lens' IndexConfigurationSummary Prelude.UTCTime
 indexConfigurationSummary_updatedAt = Lens.lens (\IndexConfigurationSummary' {updatedAt} -> updatedAt) (\s@IndexConfigurationSummary' {} a -> s {updatedAt = a} :: IndexConfigurationSummary) Prelude.. Data._Time
 
@@ -141,7 +138,8 @@ instance Data.FromJSON IndexConfigurationSummary where
 
 instance Prelude.Hashable IndexConfigurationSummary where
   hashWithSalt _salt IndexConfigurationSummary' {..} =
-    _salt `Prelude.hashWithSalt` edition
+    _salt
+      `Prelude.hashWithSalt` edition
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` createdAt

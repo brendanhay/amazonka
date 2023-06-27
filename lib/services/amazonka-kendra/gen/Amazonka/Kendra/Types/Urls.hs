@@ -36,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /When selecting websites to index, you must adhere to the
 -- <https://aws.amazon.com/aup/ Amazon Acceptable Use Policy> and all other
 -- Amazon terms. Remember that you must only use Amazon Kendra Web Crawler
--- to index your own webpages, or webpages that you have authorization to
+-- to index your own web pages, or web pages that you have authorization to
 -- index./
 --
 -- /See:/ 'newUrls' smart constructor.
@@ -46,7 +46,7 @@ data Urls = Urls'
     --
     -- You can choose to crawl only the website host names, or the website host
     -- names with subdomains, or the website host names with subdomains and
-    -- other domains that the webpages link to.
+    -- other domains that the web pages link to.
     --
     -- You can list up to 100 seed URLs.
     seedUrlConfiguration :: Prelude.Maybe SeedUrlConfiguration,
@@ -71,7 +71,7 @@ data Urls = Urls'
 --
 -- You can choose to crawl only the website host names, or the website host
 -- names with subdomains, or the website host names with subdomains and
--- other domains that the webpages link to.
+-- other domains that the web pages link to.
 --
 -- You can list up to 100 seed URLs.
 --
@@ -92,7 +92,7 @@ newUrls =
 --
 -- You can choose to crawl only the website host names, or the website host
 -- names with subdomains, or the website host names with subdomains and
--- other domains that the webpages link to.
+-- other domains that the web pages link to.
 --
 -- You can list up to 100 seed URLs.
 urls_seedUrlConfiguration :: Lens.Lens' Urls (Prelude.Maybe SeedUrlConfiguration)
@@ -117,7 +117,8 @@ instance Data.FromJSON Urls where
 
 instance Prelude.Hashable Urls where
   hashWithSalt _salt Urls' {..} =
-    _salt `Prelude.hashWithSalt` seedUrlConfiguration
+    _salt
+      `Prelude.hashWithSalt` seedUrlConfiguration
       `Prelude.hashWithSalt` siteMapsConfiguration
 
 instance Prelude.NFData Urls where

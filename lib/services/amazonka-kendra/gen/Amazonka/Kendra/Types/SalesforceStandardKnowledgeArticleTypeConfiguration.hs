@@ -104,8 +104,8 @@ instance
       ( \x ->
           SalesforceStandardKnowledgeArticleTypeConfiguration'
             Prelude.<$> (x Data..:? "DocumentTitleFieldName")
-              Prelude.<*> (x Data..:? "FieldMappings")
-              Prelude.<*> (x Data..: "DocumentDataFieldName")
+            Prelude.<*> (x Data..:? "FieldMappings")
+            Prelude.<*> (x Data..: "DocumentDataFieldName")
       )
 
 instance
@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     SalesforceStandardKnowledgeArticleTypeConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` documentTitleFieldName
+      _salt
+        `Prelude.hashWithSalt` documentTitleFieldName
         `Prelude.hashWithSalt` fieldMappings
         `Prelude.hashWithSalt` documentDataFieldName
 

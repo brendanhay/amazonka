@@ -111,7 +111,8 @@ instance Data.FromJSON Status where
 
 instance Prelude.Hashable Status where
   hashWithSalt _salt Status' {..} =
-    _salt `Prelude.hashWithSalt` documentId
+    _salt
+      `Prelude.hashWithSalt` documentId
       `Prelude.hashWithSalt` documentStatus
       `Prelude.hashWithSalt` failureCode
       `Prelude.hashWithSalt` failureReason

@@ -200,7 +200,8 @@ instance Core.AWSRequest UpdateIndex where
 
 instance Prelude.Hashable UpdateIndex where
   hashWithSalt _salt UpdateIndex' {..} =
-    _salt `Prelude.hashWithSalt` capacityUnits
+    _salt
+      `Prelude.hashWithSalt` capacityUnits
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` documentMetadataConfigurationUpdates
       `Prelude.hashWithSalt` name

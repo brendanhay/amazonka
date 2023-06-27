@@ -127,7 +127,8 @@ instance Core.AWSRequest DescribeExperience where
 
 instance Prelude.Hashable DescribeExperience where
   hashWithSalt _salt DescribeExperience' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData DescribeExperience where
@@ -172,7 +173,7 @@ data DescribeExperienceResponse = DescribeExperienceResponse'
     -- specifies the user or group information to grant access to your Amazon
     -- Kendra experience.
     configuration :: Prelude.Maybe ExperienceConfiguration,
-    -- | Shows the date-time your Amazon Kendra experience was created.
+    -- | The Unix timestamp when your Amazon Kendra experience was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | Shows the description for your Amazon Kendra experience.
     description :: Prelude.Maybe Prelude.Text,
@@ -196,7 +197,7 @@ data DescribeExperienceResponse = DescribeExperienceResponse'
     -- the status is @FAILED@, the @ErrorMessage@ field contains the reason
     -- that this failed.
     status :: Prelude.Maybe ExperienceStatus,
-    -- | Shows the date-time your Amazon Kendra experience was last updated.
+    -- | The Unix timestamp when your Amazon Kendra experience was last updated.
     updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -217,7 +218,7 @@ data DescribeExperienceResponse = DescribeExperienceResponse'
 -- specifies the user or group information to grant access to your Amazon
 -- Kendra experience.
 --
--- 'createdAt', 'describeExperienceResponse_createdAt' - Shows the date-time your Amazon Kendra experience was created.
+-- 'createdAt', 'describeExperienceResponse_createdAt' - The Unix timestamp when your Amazon Kendra experience was created.
 --
 -- 'description', 'describeExperienceResponse_description' - Shows the description for your Amazon Kendra experience.
 --
@@ -241,7 +242,7 @@ data DescribeExperienceResponse = DescribeExperienceResponse'
 -- the status is @FAILED@, the @ErrorMessage@ field contains the reason
 -- that this failed.
 --
--- 'updatedAt', 'describeExperienceResponse_updatedAt' - Shows the date-time your Amazon Kendra experience was last updated.
+-- 'updatedAt', 'describeExperienceResponse_updatedAt' - The Unix timestamp when your Amazon Kendra experience was last updated.
 --
 -- 'httpStatus', 'describeExperienceResponse_httpStatus' - The response's http status code.
 newDescribeExperienceResponse ::
@@ -273,7 +274,7 @@ newDescribeExperienceResponse pHttpStatus_ =
 describeExperienceResponse_configuration :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe ExperienceConfiguration)
 describeExperienceResponse_configuration = Lens.lens (\DescribeExperienceResponse' {configuration} -> configuration) (\s@DescribeExperienceResponse' {} a -> s {configuration = a} :: DescribeExperienceResponse)
 
--- | Shows the date-time your Amazon Kendra experience was created.
+-- | The Unix timestamp when your Amazon Kendra experience was created.
 describeExperienceResponse_createdAt :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe Prelude.UTCTime)
 describeExperienceResponse_createdAt = Lens.lens (\DescribeExperienceResponse' {createdAt} -> createdAt) (\s@DescribeExperienceResponse' {} a -> s {createdAt = a} :: DescribeExperienceResponse) Prelude.. Lens.mapping Data._Time
 
@@ -315,7 +316,7 @@ describeExperienceResponse_roleArn = Lens.lens (\DescribeExperienceResponse' {ro
 describeExperienceResponse_status :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe ExperienceStatus)
 describeExperienceResponse_status = Lens.lens (\DescribeExperienceResponse' {status} -> status) (\s@DescribeExperienceResponse' {} a -> s {status = a} :: DescribeExperienceResponse)
 
--- | Shows the date-time your Amazon Kendra experience was last updated.
+-- | The Unix timestamp when your Amazon Kendra experience was last updated.
 describeExperienceResponse_updatedAt :: Lens.Lens' DescribeExperienceResponse (Prelude.Maybe Prelude.UTCTime)
 describeExperienceResponse_updatedAt = Lens.lens (\DescribeExperienceResponse' {updatedAt} -> updatedAt) (\s@DescribeExperienceResponse' {} a -> s {updatedAt = a} :: DescribeExperienceResponse) Prelude.. Lens.mapping Data._Time
 

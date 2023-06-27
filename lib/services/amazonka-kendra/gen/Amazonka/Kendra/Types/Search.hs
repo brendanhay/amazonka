@@ -116,7 +116,8 @@ instance Data.FromJSON Search where
 
 instance Prelude.Hashable Search where
   hashWithSalt _salt Search' {..} =
-    _salt `Prelude.hashWithSalt` displayable
+    _salt
+      `Prelude.hashWithSalt` displayable
       `Prelude.hashWithSalt` facetable
       `Prelude.hashWithSalt` searchable
       `Prelude.hashWithSalt` sortable

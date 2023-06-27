@@ -48,6 +48,11 @@ import qualified Amazonka.Prelude as Prelude
 data DataSourceConfiguration = DataSourceConfiguration'
   { -- | Provides the configuration information to connect to Alfresco as your
     -- data source.
+    --
+    -- Support for @AlfrescoConfiguration@ ended May 2023. We recommend
+    -- migrating to or using the Alfresco data source template schema \/
+    -- <https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html TemplateConfiguration>
+    -- API.
     alfrescoConfiguration :: Prelude.Maybe AlfrescoConfiguration,
     -- | Provides the configuration information to connect to Box as your data
     -- source.
@@ -111,6 +116,11 @@ data DataSourceConfiguration = DataSourceConfiguration'
 --
 -- 'alfrescoConfiguration', 'dataSourceConfiguration_alfrescoConfiguration' - Provides the configuration information to connect to Alfresco as your
 -- data source.
+--
+-- Support for @AlfrescoConfiguration@ ended May 2023. We recommend
+-- migrating to or using the Alfresco data source template schema \/
+-- <https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html TemplateConfiguration>
+-- API.
 --
 -- 'boxConfiguration', 'dataSourceConfiguration_boxConfiguration' - Provides the configuration information to connect to Box as your data
 -- source.
@@ -188,6 +198,11 @@ newDataSourceConfiguration =
 
 -- | Provides the configuration information to connect to Alfresco as your
 -- data source.
+--
+-- Support for @AlfrescoConfiguration@ ended May 2023. We recommend
+-- migrating to or using the Alfresco data source template schema \/
+-- <https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html TemplateConfiguration>
+-- API.
 dataSourceConfiguration_alfrescoConfiguration :: Lens.Lens' DataSourceConfiguration (Prelude.Maybe AlfrescoConfiguration)
 dataSourceConfiguration_alfrescoConfiguration = Lens.lens (\DataSourceConfiguration' {alfrescoConfiguration} -> alfrescoConfiguration) (\s@DataSourceConfiguration' {} a -> s {alfrescoConfiguration = a} :: DataSourceConfiguration)
 
@@ -303,7 +318,8 @@ instance Data.FromJSON DataSourceConfiguration where
 
 instance Prelude.Hashable DataSourceConfiguration where
   hashWithSalt _salt DataSourceConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` alfrescoConfiguration
+    _salt
+      `Prelude.hashWithSalt` alfrescoConfiguration
       `Prelude.hashWithSalt` boxConfiguration
       `Prelude.hashWithSalt` confluenceConfiguration
       `Prelude.hashWithSalt` databaseConfiguration

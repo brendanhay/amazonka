@@ -31,10 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 -- | Provides the configuration information to connect to Alfresco as your
 -- data source.
 --
--- Alfresco data source connector is currently in preview mode. Basic
--- authentication is currently supported. If you would like to use Alfresco
--- connector in production, contact
--- <http://aws.amazon.com/contact-us/ Support>.
+-- Support for @AlfrescoConfiguration@ ended May 2023. We recommend
+-- migrating to or using the Alfresco data source template schema \/
+-- <https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html TemplateConfiguration>
+-- API.
 --
 -- /See:/ 'newAlfrescoConfiguration' smart constructor.
 data AlfrescoConfiguration = AlfrescoConfiguration'
@@ -327,10 +327,12 @@ instance Data.FromJSON AlfrescoConfiguration where
             Prelude.<*> (x Data..:? "CrawlSystemFolders")
             Prelude.<*> (x Data..:? "DocumentLibraryFieldMappings")
             Prelude.<*> (x Data..:? "EntityFilter")
-            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "ExclusionPatterns"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "InclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "InclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "VpcConfiguration")
@@ -343,7 +345,8 @@ instance Data.FromJSON AlfrescoConfiguration where
 
 instance Prelude.Hashable AlfrescoConfiguration where
   hashWithSalt _salt AlfrescoConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` blogFieldMappings
+    _salt
+      `Prelude.hashWithSalt` blogFieldMappings
       `Prelude.hashWithSalt` crawlComments
       `Prelude.hashWithSalt` crawlSystemFolders
       `Prelude.hashWithSalt` documentLibraryFieldMappings

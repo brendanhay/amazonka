@@ -100,7 +100,8 @@ instance Data.FromJSON Correction where
 
 instance Prelude.Hashable Correction where
   hashWithSalt _salt Correction' {..} =
-    _salt `Prelude.hashWithSalt` beginOffset
+    _salt
+      `Prelude.hashWithSalt` beginOffset
       `Prelude.hashWithSalt` correctedTerm
       `Prelude.hashWithSalt` endOffset
       `Prelude.hashWithSalt` term

@@ -34,7 +34,7 @@ data RelevanceFeedback = RelevanceFeedback'
   { -- | The identifier of the search result that the user provided relevance
     -- feedback for.
     resultId :: Prelude.Text,
-    -- | Whether to document was relevant or not relevant to the search.
+    -- | Whether the document was relevant or not relevant to the search.
     relevanceValue :: RelevanceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,7 +50,7 @@ data RelevanceFeedback = RelevanceFeedback'
 -- 'resultId', 'relevanceFeedback_resultId' - The identifier of the search result that the user provided relevance
 -- feedback for.
 --
--- 'relevanceValue', 'relevanceFeedback_relevanceValue' - Whether to document was relevant or not relevant to the search.
+-- 'relevanceValue', 'relevanceFeedback_relevanceValue' - Whether the document was relevant or not relevant to the search.
 newRelevanceFeedback ::
   -- | 'resultId'
   Prelude.Text ->
@@ -68,13 +68,14 @@ newRelevanceFeedback pResultId_ pRelevanceValue_ =
 relevanceFeedback_resultId :: Lens.Lens' RelevanceFeedback Prelude.Text
 relevanceFeedback_resultId = Lens.lens (\RelevanceFeedback' {resultId} -> resultId) (\s@RelevanceFeedback' {} a -> s {resultId = a} :: RelevanceFeedback)
 
--- | Whether to document was relevant or not relevant to the search.
+-- | Whether the document was relevant or not relevant to the search.
 relevanceFeedback_relevanceValue :: Lens.Lens' RelevanceFeedback RelevanceType
 relevanceFeedback_relevanceValue = Lens.lens (\RelevanceFeedback' {relevanceValue} -> relevanceValue) (\s@RelevanceFeedback' {} a -> s {relevanceValue = a} :: RelevanceFeedback)
 
 instance Prelude.Hashable RelevanceFeedback where
   hashWithSalt _salt RelevanceFeedback' {..} =
-    _salt `Prelude.hashWithSalt` resultId
+    _salt
+      `Prelude.hashWithSalt` resultId
       `Prelude.hashWithSalt` relevanceValue
 
 instance Prelude.NFData RelevanceFeedback where

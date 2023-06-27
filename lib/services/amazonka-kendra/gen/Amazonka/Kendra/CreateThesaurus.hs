@@ -65,16 +65,19 @@ data CreateThesaurus = CreateThesaurus'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A description for the thesaurus.
     description :: Prelude.Maybe Prelude.Text,
-    -- | A list of key-value pairs that identify the thesaurus. You can use the
-    -- tags to identify and organize your resources and to control access to
-    -- resources.
+    -- | A list of key-value pairs that identify or categorize the thesaurus. You
+    -- can also use tags to help control access to the thesaurus. Tag keys and
+    -- values can consist of Unicode letters, digits, white space, and any of
+    -- the following symbols: _ . : \/ = + - \@.
     tags :: Prelude.Maybe [Tag],
     -- | The identifier of the index for the thesaurus.
     indexId :: Prelude.Text,
     -- | A name for the thesaurus.
     name :: Prelude.Text,
-    -- | An IAM role that gives Amazon Kendra permissions to access thesaurus
-    -- file specified in @SourceS3Path@.
+    -- | The Amazon Resource Name (ARN) of an IAM role with permission to access
+    -- your S3 bucket that contains the thesaurus file. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM access roles for Amazon Kendra>.
     roleArn :: Prelude.Text,
     -- | The path to the thesaurus file in S3.
     sourceS3Path :: S3Path
@@ -95,16 +98,19 @@ data CreateThesaurus = CreateThesaurus'
 --
 -- 'description', 'createThesaurus_description' - A description for the thesaurus.
 --
--- 'tags', 'createThesaurus_tags' - A list of key-value pairs that identify the thesaurus. You can use the
--- tags to identify and organize your resources and to control access to
--- resources.
+-- 'tags', 'createThesaurus_tags' - A list of key-value pairs that identify or categorize the thesaurus. You
+-- can also use tags to help control access to the thesaurus. Tag keys and
+-- values can consist of Unicode letters, digits, white space, and any of
+-- the following symbols: _ . : \/ = + - \@.
 --
 -- 'indexId', 'createThesaurus_indexId' - The identifier of the index for the thesaurus.
 --
 -- 'name', 'createThesaurus_name' - A name for the thesaurus.
 --
--- 'roleArn', 'createThesaurus_roleArn' - An IAM role that gives Amazon Kendra permissions to access thesaurus
--- file specified in @SourceS3Path@.
+-- 'roleArn', 'createThesaurus_roleArn' - The Amazon Resource Name (ARN) of an IAM role with permission to access
+-- your S3 bucket that contains the thesaurus file. For more information,
+-- see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM access roles for Amazon Kendra>.
 --
 -- 'sourceS3Path', 'createThesaurus_sourceS3Path' - The path to the thesaurus file in S3.
 newCreateThesaurus ::
@@ -142,9 +148,10 @@ createThesaurus_clientToken = Lens.lens (\CreateThesaurus' {clientToken} -> clie
 createThesaurus_description :: Lens.Lens' CreateThesaurus (Prelude.Maybe Prelude.Text)
 createThesaurus_description = Lens.lens (\CreateThesaurus' {description} -> description) (\s@CreateThesaurus' {} a -> s {description = a} :: CreateThesaurus)
 
--- | A list of key-value pairs that identify the thesaurus. You can use the
--- tags to identify and organize your resources and to control access to
--- resources.
+-- | A list of key-value pairs that identify or categorize the thesaurus. You
+-- can also use tags to help control access to the thesaurus. Tag keys and
+-- values can consist of Unicode letters, digits, white space, and any of
+-- the following symbols: _ . : \/ = + - \@.
 createThesaurus_tags :: Lens.Lens' CreateThesaurus (Prelude.Maybe [Tag])
 createThesaurus_tags = Lens.lens (\CreateThesaurus' {tags} -> tags) (\s@CreateThesaurus' {} a -> s {tags = a} :: CreateThesaurus) Prelude.. Lens.mapping Lens.coerced
 
@@ -156,8 +163,10 @@ createThesaurus_indexId = Lens.lens (\CreateThesaurus' {indexId} -> indexId) (\s
 createThesaurus_name :: Lens.Lens' CreateThesaurus Prelude.Text
 createThesaurus_name = Lens.lens (\CreateThesaurus' {name} -> name) (\s@CreateThesaurus' {} a -> s {name = a} :: CreateThesaurus)
 
--- | An IAM role that gives Amazon Kendra permissions to access thesaurus
--- file specified in @SourceS3Path@.
+-- | The Amazon Resource Name (ARN) of an IAM role with permission to access
+-- your S3 bucket that contains the thesaurus file. For more information,
+-- see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM access roles for Amazon Kendra>.
 createThesaurus_roleArn :: Lens.Lens' CreateThesaurus Prelude.Text
 createThesaurus_roleArn = Lens.lens (\CreateThesaurus' {roleArn} -> roleArn) (\s@CreateThesaurus' {} a -> s {roleArn = a} :: CreateThesaurus)
 
@@ -181,7 +190,8 @@ instance Core.AWSRequest CreateThesaurus where
 
 instance Prelude.Hashable CreateThesaurus where
   hashWithSalt _salt CreateThesaurus' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` indexId

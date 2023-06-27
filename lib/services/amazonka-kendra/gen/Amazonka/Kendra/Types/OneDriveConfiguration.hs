@@ -62,7 +62,7 @@ data OneDriveConfiguration = OneDriveConfiguration'
     -- | The Azure Active Directory domain of the organization.
     tenantDomain :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of an Secrets Managersecret that contains
-    -- the user name and password to connect to OneDrive. The user namd should
+    -- the user name and password to connect to OneDrive. The user name should
     -- be the application ID for the OneDrive application, and the password is
     -- the application key for the OneDrive application.
     secretArn :: Prelude.Text,
@@ -110,7 +110,7 @@ data OneDriveConfiguration = OneDriveConfiguration'
 -- 'tenantDomain', 'oneDriveConfiguration_tenantDomain' - The Azure Active Directory domain of the organization.
 --
 -- 'secretArn', 'oneDriveConfiguration_secretArn' - The Amazon Resource Name (ARN) of an Secrets Managersecret that contains
--- the user name and password to connect to OneDrive. The user namd should
+-- the user name and password to connect to OneDrive. The user name should
 -- be the application ID for the OneDrive application, and the password is
 -- the application key for the OneDrive application.
 --
@@ -179,7 +179,7 @@ oneDriveConfiguration_tenantDomain :: Lens.Lens' OneDriveConfiguration Prelude.T
 oneDriveConfiguration_tenantDomain = Lens.lens (\OneDriveConfiguration' {tenantDomain} -> tenantDomain) (\s@OneDriveConfiguration' {} a -> s {tenantDomain = a} :: OneDriveConfiguration)
 
 -- | The Amazon Resource Name (ARN) of an Secrets Managersecret that contains
--- the user name and password to connect to OneDrive. The user namd should
+-- the user name and password to connect to OneDrive. The user name should
 -- be the application ID for the OneDrive application, and the password is
 -- the application key for the OneDrive application.
 oneDriveConfiguration_secretArn :: Lens.Lens' OneDriveConfiguration Prelude.Text
@@ -196,11 +196,13 @@ instance Data.FromJSON OneDriveConfiguration where
       ( \x ->
           OneDriveConfiguration'
             Prelude.<$> (x Data..:? "DisableLocalGroups")
-            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "ExclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FieldMappings")
-            Prelude.<*> ( x Data..:? "InclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "InclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "TenantDomain")
@@ -210,7 +212,8 @@ instance Data.FromJSON OneDriveConfiguration where
 
 instance Prelude.Hashable OneDriveConfiguration where
   hashWithSalt _salt OneDriveConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` disableLocalGroups
+    _salt
+      `Prelude.hashWithSalt` disableLocalGroups
       `Prelude.hashWithSalt` exclusionPatterns
       `Prelude.hashWithSalt` fieldMappings
       `Prelude.hashWithSalt` inclusionPatterns

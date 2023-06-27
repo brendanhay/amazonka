@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTimeRange' smart constructor.
 data TimeRange = TimeRange'
-  { -- | The UNIX datetime of the end of the time range.
+  { -- | The Unix timestamp for the end of the time range.
     endTime :: Prelude.Maybe Data.POSIX,
-    -- | The UNIX datetime of the beginning of the time range.
+    -- | The Unix timestamp for the beginning of the time range.
     startTime :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,9 +43,9 @@ data TimeRange = TimeRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endTime', 'timeRange_endTime' - The UNIX datetime of the end of the time range.
+-- 'endTime', 'timeRange_endTime' - The Unix timestamp for the end of the time range.
 --
--- 'startTime', 'timeRange_startTime' - The UNIX datetime of the beginning of the time range.
+-- 'startTime', 'timeRange_startTime' - The Unix timestamp for the beginning of the time range.
 newTimeRange ::
   TimeRange
 newTimeRange =
@@ -54,11 +54,11 @@ newTimeRange =
       startTime = Prelude.Nothing
     }
 
--- | The UNIX datetime of the end of the time range.
+-- | The Unix timestamp for the end of the time range.
 timeRange_endTime :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
 timeRange_endTime = Lens.lens (\TimeRange' {endTime} -> endTime) (\s@TimeRange' {} a -> s {endTime = a} :: TimeRange) Prelude.. Lens.mapping Data._Time
 
--- | The UNIX datetime of the beginning of the time range.
+-- | The Unix timestamp for the beginning of the time range.
 timeRange_startTime :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
 timeRange_startTime = Lens.lens (\TimeRange' {startTime} -> startTime) (\s@TimeRange' {} a -> s {startTime = a} :: TimeRange) Prelude.. Lens.mapping Data._Time
 
@@ -74,7 +74,8 @@ instance Data.FromJSON TimeRange where
 
 instance Prelude.Hashable TimeRange where
   hashWithSalt _salt TimeRange' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData TimeRange where

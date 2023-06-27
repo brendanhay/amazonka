@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.ConfluencePageFieldName
 import qualified Amazonka.Prelude as Prelude
 
--- | >Maps attributes or field names of Confluence pages to Amazon Kendra
+-- | Maps attributes or field names of Confluence pages to Amazon Kendra
 -- index field names. To create custom fields, use the @UpdateIndex@ API
 -- before you map to Confluence fields. For more information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
@@ -108,7 +108,8 @@ instance
   hashWithSalt
     _salt
     ConfluencePageToIndexFieldMapping' {..} =
-      _salt `Prelude.hashWithSalt` dataSourceFieldName
+      _salt
+        `Prelude.hashWithSalt` dataSourceFieldName
         `Prelude.hashWithSalt` dateFieldFormat
         `Prelude.hashWithSalt` indexFieldName
 

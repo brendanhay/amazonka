@@ -121,18 +121,18 @@ instance
       ( \s h x ->
           DescribeQuerySuggestionsBlockListResponse'
             Prelude.<$> (x Data..?> "CreatedAt")
-              Prelude.<*> (x Data..?> "Description")
-              Prelude.<*> (x Data..?> "ErrorMessage")
-              Prelude.<*> (x Data..?> "FileSizeBytes")
-              Prelude.<*> (x Data..?> "Id")
-              Prelude.<*> (x Data..?> "IndexId")
-              Prelude.<*> (x Data..?> "ItemCount")
-              Prelude.<*> (x Data..?> "Name")
-              Prelude.<*> (x Data..?> "RoleArn")
-              Prelude.<*> (x Data..?> "SourceS3Path")
-              Prelude.<*> (x Data..?> "Status")
-              Prelude.<*> (x Data..?> "UpdatedAt")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "Description")
+            Prelude.<*> (x Data..?> "ErrorMessage")
+            Prelude.<*> (x Data..?> "FileSizeBytes")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "IndexId")
+            Prelude.<*> (x Data..?> "ItemCount")
+            Prelude.<*> (x Data..?> "Name")
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (x Data..?> "SourceS3Path")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "UpdatedAt")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -142,7 +142,8 @@ instance
   hashWithSalt
     _salt
     DescribeQuerySuggestionsBlockList' {..} =
-      _salt `Prelude.hashWithSalt` indexId
+      _salt
+        `Prelude.hashWithSalt` indexId
         `Prelude.hashWithSalt` id
 
 instance
@@ -196,7 +197,7 @@ instance
 
 -- | /See:/ 'newDescribeQuerySuggestionsBlockListResponse' smart constructor.
 data DescribeQuerySuggestionsBlockListResponse = DescribeQuerySuggestionsBlockListResponse'
-  { -- | The date-time a block list for query suggestions was created.
+  { -- | The Unix timestamp when a block list for query suggestions was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The description for the block list.
     description :: Prelude.Maybe Prelude.Text,
@@ -231,7 +232,8 @@ data DescribeQuerySuggestionsBlockListResponse = DescribeQuerySuggestionsBlockLi
     -- | The current status of the block list. When the value is @ACTIVE@, the
     -- block list is ready for use.
     status :: Prelude.Maybe QuerySuggestionsBlockListStatus,
-    -- | The date-time a block list for query suggestions was last updated.
+    -- | The Unix timestamp when a block list for query suggestions was last
+    -- updated.
     updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -246,7 +248,7 @@ data DescribeQuerySuggestionsBlockListResponse = DescribeQuerySuggestionsBlockLi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'describeQuerySuggestionsBlockListResponse_createdAt' - The date-time a block list for query suggestions was created.
+-- 'createdAt', 'describeQuerySuggestionsBlockListResponse_createdAt' - The Unix timestamp when a block list for query suggestions was created.
 --
 -- 'description', 'describeQuerySuggestionsBlockListResponse_description' - The description for the block list.
 --
@@ -281,7 +283,8 @@ data DescribeQuerySuggestionsBlockListResponse = DescribeQuerySuggestionsBlockLi
 -- 'status', 'describeQuerySuggestionsBlockListResponse_status' - The current status of the block list. When the value is @ACTIVE@, the
 -- block list is ready for use.
 --
--- 'updatedAt', 'describeQuerySuggestionsBlockListResponse_updatedAt' - The date-time a block list for query suggestions was last updated.
+-- 'updatedAt', 'describeQuerySuggestionsBlockListResponse_updatedAt' - The Unix timestamp when a block list for query suggestions was last
+-- updated.
 --
 -- 'httpStatus', 'describeQuerySuggestionsBlockListResponse_httpStatus' - The response's http status code.
 newDescribeQuerySuggestionsBlockListResponse ::
@@ -307,7 +310,7 @@ newDescribeQuerySuggestionsBlockListResponse
         httpStatus = pHttpStatus_
       }
 
--- | The date-time a block list for query suggestions was created.
+-- | The Unix timestamp when a block list for query suggestions was created.
 describeQuerySuggestionsBlockListResponse_createdAt :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.UTCTime)
 describeQuerySuggestionsBlockListResponse_createdAt = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {createdAt} -> createdAt) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {createdAt = a} :: DescribeQuerySuggestionsBlockListResponse) Prelude.. Lens.mapping Data._Time
 
@@ -364,7 +367,8 @@ describeQuerySuggestionsBlockListResponse_sourceS3Path = Lens.lens (\DescribeQue
 describeQuerySuggestionsBlockListResponse_status :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe QuerySuggestionsBlockListStatus)
 describeQuerySuggestionsBlockListResponse_status = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {status} -> status) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {status = a} :: DescribeQuerySuggestionsBlockListResponse)
 
--- | The date-time a block list for query suggestions was last updated.
+-- | The Unix timestamp when a block list for query suggestions was last
+-- updated.
 describeQuerySuggestionsBlockListResponse_updatedAt :: Lens.Lens' DescribeQuerySuggestionsBlockListResponse (Prelude.Maybe Prelude.UTCTime)
 describeQuerySuggestionsBlockListResponse_updatedAt = Lens.lens (\DescribeQuerySuggestionsBlockListResponse' {updatedAt} -> updatedAt) (\s@DescribeQuerySuggestionsBlockListResponse' {} a -> s {updatedAt = a} :: DescribeQuerySuggestionsBlockListResponse) Prelude.. Lens.mapping Data._Time
 

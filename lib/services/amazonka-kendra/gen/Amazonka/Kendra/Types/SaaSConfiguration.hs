@@ -92,7 +92,8 @@ instance Data.FromJSON SaaSConfiguration where
 
 instance Prelude.Hashable SaaSConfiguration where
   hashWithSalt _salt SaaSConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` organizationName
+    _salt
+      `Prelude.hashWithSalt` organizationName
       `Prelude.hashWithSalt` hostUrl
 
 instance Prelude.NFData SaaSConfiguration where

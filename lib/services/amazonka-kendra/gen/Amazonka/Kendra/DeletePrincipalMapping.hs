@@ -82,14 +82,14 @@ data DeletePrincipalMapping = DeletePrincipalMapping'
     -- prevents previous actions with lower number IDs from possibly overriding
     -- the latest action.
     --
-    -- The ordering ID can be the UNIX time of the last update you made to a
+    -- The ordering ID can be the Unix time of the last update you made to a
     -- group members list. You would then provide this list when calling
     -- @PutPrincipalMapping@. This ensures your @DELETE@ action for that
     -- updated group with the latest members list doesn\'t get overwritten by
     -- earlier @DELETE@ actions for the same group which are yet to be
     -- processed.
     --
-    -- The default ordering ID is the current UNIX time in milliseconds that
+    -- The default ordering ID is the current Unix time in milliseconds that
     -- the action was received by Amazon Kendra.
     orderingId :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the index you want to delete a group from.
@@ -125,14 +125,14 @@ data DeletePrincipalMapping = DeletePrincipalMapping'
 -- prevents previous actions with lower number IDs from possibly overriding
 -- the latest action.
 --
--- The ordering ID can be the UNIX time of the last update you made to a
+-- The ordering ID can be the Unix time of the last update you made to a
 -- group members list. You would then provide this list when calling
 -- @PutPrincipalMapping@. This ensures your @DELETE@ action for that
 -- updated group with the latest members list doesn\'t get overwritten by
 -- earlier @DELETE@ actions for the same group which are yet to be
 -- processed.
 --
--- The default ordering ID is the current UNIX time in milliseconds that
+-- The default ordering ID is the current Unix time in milliseconds that
 -- the action was received by Amazon Kendra.
 --
 -- 'indexId', 'deletePrincipalMapping_indexId' - The identifier of the index you want to delete a group from.
@@ -173,14 +173,14 @@ deletePrincipalMapping_dataSourceId = Lens.lens (\DeletePrincipalMapping' {dataS
 -- prevents previous actions with lower number IDs from possibly overriding
 -- the latest action.
 --
--- The ordering ID can be the UNIX time of the last update you made to a
+-- The ordering ID can be the Unix time of the last update you made to a
 -- group members list. You would then provide this list when calling
 -- @PutPrincipalMapping@. This ensures your @DELETE@ action for that
 -- updated group with the latest members list doesn\'t get overwritten by
 -- earlier @DELETE@ actions for the same group which are yet to be
 -- processed.
 --
--- The default ordering ID is the current UNIX time in milliseconds that
+-- The default ordering ID is the current Unix time in milliseconds that
 -- the action was received by Amazon Kendra.
 deletePrincipalMapping_orderingId :: Lens.Lens' DeletePrincipalMapping (Prelude.Maybe Prelude.Natural)
 deletePrincipalMapping_orderingId = Lens.lens (\DeletePrincipalMapping' {orderingId} -> orderingId) (\s@DeletePrincipalMapping' {} a -> s {orderingId = a} :: DeletePrincipalMapping)
@@ -205,7 +205,8 @@ instance Core.AWSRequest DeletePrincipalMapping where
 
 instance Prelude.Hashable DeletePrincipalMapping where
   hashWithSalt _salt DeletePrincipalMapping' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceId
+    _salt
+      `Prelude.hashWithSalt` dataSourceId
       `Prelude.hashWithSalt` orderingId
       `Prelude.hashWithSalt` indexId
       `Prelude.hashWithSalt` groupId

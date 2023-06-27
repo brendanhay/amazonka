@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an new set of frequently asked question (FAQ) questions and
--- answers.
+-- Creates a set of frequently ask questions (FAQs) using a specified FAQ
+-- file stored in an Amazon S3 bucket.
 --
 -- Adding FAQs to an index is an asynchronous operation.
 --
@@ -74,6 +74,8 @@ data CreateFaq = CreateFaq'
     -- format, a CSV format that includes customs attributes in a header, and a
     -- JSON format that includes custom attributes.
     --
+    -- The default format is CSV.
+    --
     -- The format must match the format of the file stored in the S3 bucket
     -- identified in the @S3Path@ parameter.
     --
@@ -94,9 +96,9 @@ data CreateFaq = CreateFaq'
     name :: Prelude.Text,
     -- | The path to the FAQ file in S3.
     s3Path :: S3Path,
-    -- | The Amazon Resource Name (ARN) of a role with permission to access the
-    -- S3 bucket that contains the FAQs. For more information, see
-    -- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM Roles for Amazon Kendra>.
+    -- | The Amazon Resource Name (ARN) of an IAM role with permission to access
+    -- the S3 bucket that contains the FAQs. For more information, see
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM access roles for Amazon Kendra>.
     roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -119,6 +121,8 @@ data CreateFaq = CreateFaq'
 -- format, a CSV format that includes customs attributes in a header, and a
 -- JSON format that includes custom attributes.
 --
+-- The default format is CSV.
+--
 -- The format must match the format of the file stored in the S3 bucket
 -- identified in the @S3Path@ parameter.
 --
@@ -139,9 +143,9 @@ data CreateFaq = CreateFaq'
 --
 -- 's3Path', 'createFaq_s3Path' - The path to the FAQ file in S3.
 --
--- 'roleArn', 'createFaq_roleArn' - The Amazon Resource Name (ARN) of a role with permission to access the
--- S3 bucket that contains the FAQs. For more information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM Roles for Amazon Kendra>.
+-- 'roleArn', 'createFaq_roleArn' - The Amazon Resource Name (ARN) of an IAM role with permission to access
+-- the S3 bucket that contains the FAQs. For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM access roles for Amazon Kendra>.
 newCreateFaq ::
   -- | 'indexId'
   Prelude.Text ->
@@ -179,6 +183,8 @@ createFaq_description = Lens.lens (\CreateFaq' {description} -> description) (\s
 -- format, a CSV format that includes customs attributes in a header, and a
 -- JSON format that includes custom attributes.
 --
+-- The default format is CSV.
+--
 -- The format must match the format of the file stored in the S3 bucket
 -- identified in the @S3Path@ parameter.
 --
@@ -211,9 +217,9 @@ createFaq_name = Lens.lens (\CreateFaq' {name} -> name) (\s@CreateFaq' {} a -> s
 createFaq_s3Path :: Lens.Lens' CreateFaq S3Path
 createFaq_s3Path = Lens.lens (\CreateFaq' {s3Path} -> s3Path) (\s@CreateFaq' {} a -> s {s3Path = a} :: CreateFaq)
 
--- | The Amazon Resource Name (ARN) of a role with permission to access the
--- S3 bucket that contains the FAQs. For more information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM Roles for Amazon Kendra>.
+-- | The Amazon Resource Name (ARN) of an IAM role with permission to access
+-- the S3 bucket that contains the FAQs. For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM access roles for Amazon Kendra>.
 createFaq_roleArn :: Lens.Lens' CreateFaq Prelude.Text
 createFaq_roleArn = Lens.lens (\CreateFaq' {roleArn} -> roleArn) (\s@CreateFaq' {} a -> s {roleArn = a} :: CreateFaq)
 
@@ -231,7 +237,8 @@ instance Core.AWSRequest CreateFaq where
 
 instance Prelude.Hashable CreateFaq where
   hashWithSalt _salt CreateFaq' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` fileFormat
       `Prelude.hashWithSalt` languageCode

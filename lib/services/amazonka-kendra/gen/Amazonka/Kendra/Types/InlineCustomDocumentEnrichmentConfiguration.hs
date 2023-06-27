@@ -101,8 +101,8 @@ instance
       ( \x ->
           InlineCustomDocumentEnrichmentConfiguration'
             Prelude.<$> (x Data..:? "Condition")
-              Prelude.<*> (x Data..:? "DocumentContentDeletion")
-              Prelude.<*> (x Data..:? "Target")
+            Prelude.<*> (x Data..:? "DocumentContentDeletion")
+            Prelude.<*> (x Data..:? "Target")
       )
 
 instance
@@ -112,7 +112,8 @@ instance
   hashWithSalt
     _salt
     InlineCustomDocumentEnrichmentConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` condition
+      _salt
+        `Prelude.hashWithSalt` condition
         `Prelude.hashWithSalt` documentContentDeletion
         `Prelude.hashWithSalt` target
 

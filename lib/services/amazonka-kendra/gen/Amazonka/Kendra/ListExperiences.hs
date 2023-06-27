@@ -126,7 +126,8 @@ instance Core.AWSRequest ListExperiences where
 
 instance Prelude.Hashable ListExperiences where
   hashWithSalt _salt ListExperiences' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` indexId
 

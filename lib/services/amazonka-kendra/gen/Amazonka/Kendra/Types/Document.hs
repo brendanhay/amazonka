@@ -61,6 +61,10 @@ data Document = Document'
     -- encode the contents before sending.
     blob :: Prelude.Maybe Data.Base64,
     -- | The file type of the document in the @Blob@ field.
+    --
+    -- If you want to index snippets or subsets of HTML documents instead of
+    -- the entirety of the HTML documents, you must add the @HTML@ start and
+    -- closing tags (@\<HTML>content\<\/HTML>@) around the content.
     contentType :: Prelude.Maybe ContentType,
     -- | The list of
     -- <https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html principal>
@@ -121,6 +125,10 @@ data Document = Document'
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- 'contentType', 'document_contentType' - The file type of the document in the @Blob@ field.
+--
+-- If you want to index snippets or subsets of HTML documents instead of
+-- the entirety of the HTML documents, you must add the @HTML@ start and
+-- closing tags (@\<HTML>content\<\/HTML>@) around the content.
 --
 -- 'hierarchicalAccessControlList', 'document_hierarchicalAccessControlList' - The list of
 -- <https://docs.aws.amazon.com/kendra/latest/dg/API_Principal.html principal>
@@ -196,6 +204,10 @@ document_blob :: Lens.Lens' Document (Prelude.Maybe Prelude.ByteString)
 document_blob = Lens.lens (\Document' {blob} -> blob) (\s@Document' {} a -> s {blob = a} :: Document) Prelude.. Lens.mapping Data._Base64
 
 -- | The file type of the document in the @Blob@ field.
+--
+-- If you want to index snippets or subsets of HTML documents instead of
+-- the entirety of the HTML documents, you must add the @HTML@ start and
+-- closing tags (@\<HTML>content\<\/HTML>@) around the content.
 document_contentType :: Lens.Lens' Document (Prelude.Maybe ContentType)
 document_contentType = Lens.lens (\Document' {contentType} -> contentType) (\s@Document' {} a -> s {contentType = a} :: Document)
 

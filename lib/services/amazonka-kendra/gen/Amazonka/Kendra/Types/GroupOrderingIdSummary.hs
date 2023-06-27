@@ -33,14 +33,15 @@ data GroupOrderingIdSummary = GroupOrderingIdSummary'
   { -- | The reason an action could not be processed. An action can be a @PUT@ or
     -- @DELETE@ action for mapping users to their groups.
     failureReason :: Prelude.Maybe Prelude.Text,
-    -- | The last date-time an action was updated. An action can be a @PUT@ or
-    -- @DELETE@ action for mapping users to their groups.
+    -- | The Unix timestamp when an action was last updated. An action can be a
+    -- @PUT@ or @DELETE@ action for mapping users to their groups.
     lastUpdatedAt :: Prelude.Maybe Data.POSIX,
     -- | The order in which actions should complete processing. An action can be
     -- a @PUT@ or @DELETE@ action for mapping users to their groups.
     orderingId :: Prelude.Maybe Prelude.Natural,
-    -- | The date-time an action was received by Amazon Kendra. An action can be
-    -- a @PUT@ or @DELETE@ action for mapping users to their groups.
+    -- | The Unix timestamp when an action was received by Amazon Kendra. An
+    -- action can be a @PUT@ or @DELETE@ action for mapping users to their
+    -- groups.
     receivedAt :: Prelude.Maybe Data.POSIX,
     -- | The current processing status of actions for mapping users to their
     -- groups. The status can be either @PROCESSING@, @SUCCEEDED@, @DELETING@,
@@ -60,14 +61,15 @@ data GroupOrderingIdSummary = GroupOrderingIdSummary'
 -- 'failureReason', 'groupOrderingIdSummary_failureReason' - The reason an action could not be processed. An action can be a @PUT@ or
 -- @DELETE@ action for mapping users to their groups.
 --
--- 'lastUpdatedAt', 'groupOrderingIdSummary_lastUpdatedAt' - The last date-time an action was updated. An action can be a @PUT@ or
--- @DELETE@ action for mapping users to their groups.
+-- 'lastUpdatedAt', 'groupOrderingIdSummary_lastUpdatedAt' - The Unix timestamp when an action was last updated. An action can be a
+-- @PUT@ or @DELETE@ action for mapping users to their groups.
 --
 -- 'orderingId', 'groupOrderingIdSummary_orderingId' - The order in which actions should complete processing. An action can be
 -- a @PUT@ or @DELETE@ action for mapping users to their groups.
 --
--- 'receivedAt', 'groupOrderingIdSummary_receivedAt' - The date-time an action was received by Amazon Kendra. An action can be
--- a @PUT@ or @DELETE@ action for mapping users to their groups.
+-- 'receivedAt', 'groupOrderingIdSummary_receivedAt' - The Unix timestamp when an action was received by Amazon Kendra. An
+-- action can be a @PUT@ or @DELETE@ action for mapping users to their
+-- groups.
 --
 -- 'status', 'groupOrderingIdSummary_status' - The current processing status of actions for mapping users to their
 -- groups. The status can be either @PROCESSING@, @SUCCEEDED@, @DELETING@,
@@ -89,8 +91,8 @@ newGroupOrderingIdSummary =
 groupOrderingIdSummary_failureReason :: Lens.Lens' GroupOrderingIdSummary (Prelude.Maybe Prelude.Text)
 groupOrderingIdSummary_failureReason = Lens.lens (\GroupOrderingIdSummary' {failureReason} -> failureReason) (\s@GroupOrderingIdSummary' {} a -> s {failureReason = a} :: GroupOrderingIdSummary)
 
--- | The last date-time an action was updated. An action can be a @PUT@ or
--- @DELETE@ action for mapping users to their groups.
+-- | The Unix timestamp when an action was last updated. An action can be a
+-- @PUT@ or @DELETE@ action for mapping users to their groups.
 groupOrderingIdSummary_lastUpdatedAt :: Lens.Lens' GroupOrderingIdSummary (Prelude.Maybe Prelude.UTCTime)
 groupOrderingIdSummary_lastUpdatedAt = Lens.lens (\GroupOrderingIdSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@GroupOrderingIdSummary' {} a -> s {lastUpdatedAt = a} :: GroupOrderingIdSummary) Prelude.. Lens.mapping Data._Time
 
@@ -99,8 +101,9 @@ groupOrderingIdSummary_lastUpdatedAt = Lens.lens (\GroupOrderingIdSummary' {last
 groupOrderingIdSummary_orderingId :: Lens.Lens' GroupOrderingIdSummary (Prelude.Maybe Prelude.Natural)
 groupOrderingIdSummary_orderingId = Lens.lens (\GroupOrderingIdSummary' {orderingId} -> orderingId) (\s@GroupOrderingIdSummary' {} a -> s {orderingId = a} :: GroupOrderingIdSummary)
 
--- | The date-time an action was received by Amazon Kendra. An action can be
--- a @PUT@ or @DELETE@ action for mapping users to their groups.
+-- | The Unix timestamp when an action was received by Amazon Kendra. An
+-- action can be a @PUT@ or @DELETE@ action for mapping users to their
+-- groups.
 groupOrderingIdSummary_receivedAt :: Lens.Lens' GroupOrderingIdSummary (Prelude.Maybe Prelude.UTCTime)
 groupOrderingIdSummary_receivedAt = Lens.lens (\GroupOrderingIdSummary' {receivedAt} -> receivedAt) (\s@GroupOrderingIdSummary' {} a -> s {receivedAt = a} :: GroupOrderingIdSummary) Prelude.. Lens.mapping Data._Time
 
@@ -125,7 +128,8 @@ instance Data.FromJSON GroupOrderingIdSummary where
 
 instance Prelude.Hashable GroupOrderingIdSummary where
   hashWithSalt _salt GroupOrderingIdSummary' {..} =
-    _salt `Prelude.hashWithSalt` failureReason
+    _salt
+      `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` orderingId
       `Prelude.hashWithSalt` receivedAt

@@ -127,7 +127,8 @@ instance Data.FromJSON HookConfiguration where
 
 instance Prelude.Hashable HookConfiguration where
   hashWithSalt _salt HookConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` invocationCondition
+    _salt
+      `Prelude.hashWithSalt` invocationCondition
       `Prelude.hashWithSalt` lambdaArn
       `Prelude.hashWithSalt` s3Bucket
 

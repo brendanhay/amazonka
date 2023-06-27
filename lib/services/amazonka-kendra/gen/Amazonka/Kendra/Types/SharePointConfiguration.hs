@@ -35,10 +35,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSharePointConfiguration' smart constructor.
 data SharePointConfiguration = SharePointConfiguration'
-  { -- | Whether you want to connect to SharePoint using basic authentication of
-    -- user name and password, or OAuth authentication of user name, password,
-    -- client ID, and client secret. You can use OAuth authentication for
-    -- SharePoint Online.
+  { -- | Whether you want to connect to SharePoint Online using basic
+    -- authentication of user name and password, or OAuth authentication of
+    -- user name, password, client ID, and client secret, or AD App-only
+    -- authentication of client secret.
     authenticationType :: Prelude.Maybe SharePointOnlineAuthenticationType,
     -- | @TRUE@ to index document attachments.
     crawlAttachments :: Prelude.Maybe Prelude.Bool,
@@ -98,9 +98,9 @@ data SharePointConfiguration = SharePointConfiguration'
     -- this to connect to SharePoint Server if you require a secure SSL
     -- connection.
     --
-    -- You can simply generate a self-signed X509 certificate on any computer
-    -- using OpenSSL. For an example of using OpenSSL to create an X509
-    -- certificate, see
+    -- You can generate a self-signed X509 certificate on any computer using
+    -- OpenSSL. For an example of using OpenSSL to create an X509 certificate,
+    -- see
     -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-ssl.html Create and sign an X509 certificate>.
     sslCertificateS3Path :: Prelude.Maybe S3Path,
     -- | @TRUE@ to use the SharePoint change log to determine which documents
@@ -118,14 +118,8 @@ data SharePointConfiguration = SharePointConfiguration'
     urls :: Prelude.NonEmpty Prelude.Text,
     -- | The Amazon Resource Name (ARN) of an Secrets Manager secret that
     -- contains the user name and password required to connect to the
-    -- SharePoint instance. If you use SharePoint Server, you also need to
-    -- provide the sever domain name as part of the credentials. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html Using a Microsoft SharePoint Data Source>.
-    --
-    -- You can also provide OAuth authentication credentials of user name,
-    -- password, client ID, and client secret. For more information, see
-    -- <https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html Using a SharePoint data source>.
+    -- SharePoint instance. For more information, see
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html Microsoft SharePoint>.
     secretArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -138,10 +132,10 @@ data SharePointConfiguration = SharePointConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationType', 'sharePointConfiguration_authenticationType' - Whether you want to connect to SharePoint using basic authentication of
--- user name and password, or OAuth authentication of user name, password,
--- client ID, and client secret. You can use OAuth authentication for
--- SharePoint Online.
+-- 'authenticationType', 'sharePointConfiguration_authenticationType' - Whether you want to connect to SharePoint Online using basic
+-- authentication of user name and password, or OAuth authentication of
+-- user name, password, client ID, and client secret, or AD App-only
+-- authentication of client secret.
 --
 -- 'crawlAttachments', 'sharePointConfiguration_crawlAttachments' - @TRUE@ to index document attachments.
 --
@@ -201,9 +195,9 @@ data SharePointConfiguration = SharePointConfiguration'
 -- this to connect to SharePoint Server if you require a secure SSL
 -- connection.
 --
--- You can simply generate a self-signed X509 certificate on any computer
--- using OpenSSL. For an example of using OpenSSL to create an X509
--- certificate, see
+-- You can generate a self-signed X509 certificate on any computer using
+-- OpenSSL. For an example of using OpenSSL to create an X509 certificate,
+-- see
 -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-ssl.html Create and sign an X509 certificate>.
 --
 -- 'useChangeLog', 'sharePointConfiguration_useChangeLog' - @TRUE@ to use the SharePoint change log to determine which documents
@@ -221,14 +215,8 @@ data SharePointConfiguration = SharePointConfiguration'
 --
 -- 'secretArn', 'sharePointConfiguration_secretArn' - The Amazon Resource Name (ARN) of an Secrets Manager secret that
 -- contains the user name and password required to connect to the
--- SharePoint instance. If you use SharePoint Server, you also need to
--- provide the sever domain name as part of the credentials. For more
--- information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html Using a Microsoft SharePoint Data Source>.
---
--- You can also provide OAuth authentication credentials of user name,
--- password, client ID, and client secret. For more information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html Using a SharePoint data source>.
+-- SharePoint instance. For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html Microsoft SharePoint>.
 newSharePointConfiguration ::
   -- | 'sharePointVersion'
   SharePointVersion ->
@@ -259,10 +247,10 @@ newSharePointConfiguration
         secretArn = pSecretArn_
       }
 
--- | Whether you want to connect to SharePoint using basic authentication of
--- user name and password, or OAuth authentication of user name, password,
--- client ID, and client secret. You can use OAuth authentication for
--- SharePoint Online.
+-- | Whether you want to connect to SharePoint Online using basic
+-- authentication of user name and password, or OAuth authentication of
+-- user name, password, client ID, and client secret, or AD App-only
+-- authentication of client secret.
 sharePointConfiguration_authenticationType :: Lens.Lens' SharePointConfiguration (Prelude.Maybe SharePointOnlineAuthenticationType)
 sharePointConfiguration_authenticationType = Lens.lens (\SharePointConfiguration' {authenticationType} -> authenticationType) (\s@SharePointConfiguration' {} a -> s {authenticationType = a} :: SharePointConfiguration)
 
@@ -338,9 +326,9 @@ sharePointConfiguration_proxyConfiguration = Lens.lens (\SharePointConfiguration
 -- this to connect to SharePoint Server if you require a secure SSL
 -- connection.
 --
--- You can simply generate a self-signed X509 certificate on any computer
--- using OpenSSL. For an example of using OpenSSL to create an X509
--- certificate, see
+-- You can generate a self-signed X509 certificate on any computer using
+-- OpenSSL. For an example of using OpenSSL to create an X509 certificate,
+-- see
 -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-ssl.html Create and sign an X509 certificate>.
 sharePointConfiguration_sslCertificateS3Path :: Lens.Lens' SharePointConfiguration (Prelude.Maybe S3Path)
 sharePointConfiguration_sslCertificateS3Path = Lens.lens (\SharePointConfiguration' {sslCertificateS3Path} -> sslCertificateS3Path) (\s@SharePointConfiguration' {} a -> s {sslCertificateS3Path = a} :: SharePointConfiguration)
@@ -368,14 +356,8 @@ sharePointConfiguration_urls = Lens.lens (\SharePointConfiguration' {urls} -> ur
 
 -- | The Amazon Resource Name (ARN) of an Secrets Manager secret that
 -- contains the user name and password required to connect to the
--- SharePoint instance. If you use SharePoint Server, you also need to
--- provide the sever domain name as part of the credentials. For more
--- information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html Using a Microsoft SharePoint Data Source>.
---
--- You can also provide OAuth authentication credentials of user name,
--- password, client ID, and client secret. For more information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html Using a SharePoint data source>.
+-- SharePoint instance. For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/data-source-sharepoint.html Microsoft SharePoint>.
 sharePointConfiguration_secretArn :: Lens.Lens' SharePointConfiguration Prelude.Text
 sharePointConfiguration_secretArn = Lens.lens (\SharePointConfiguration' {secretArn} -> secretArn) (\s@SharePointConfiguration' {} a -> s {secretArn = a} :: SharePointConfiguration)
 
@@ -389,11 +371,13 @@ instance Data.FromJSON SharePointConfiguration where
             Prelude.<*> (x Data..:? "CrawlAttachments")
             Prelude.<*> (x Data..:? "DisableLocalGroups")
             Prelude.<*> (x Data..:? "DocumentTitleFieldName")
-            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "ExclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FieldMappings")
-            Prelude.<*> ( x Data..:? "InclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "InclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProxyConfiguration")
@@ -407,7 +391,8 @@ instance Data.FromJSON SharePointConfiguration where
 
 instance Prelude.Hashable SharePointConfiguration where
   hashWithSalt _salt SharePointConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` authenticationType
+    _salt
+      `Prelude.hashWithSalt` authenticationType
       `Prelude.hashWithSalt` crawlAttachments
       `Prelude.hashWithSalt` disableLocalGroups
       `Prelude.hashWithSalt` documentTitleFieldName

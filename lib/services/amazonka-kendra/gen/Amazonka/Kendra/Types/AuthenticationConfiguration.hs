@@ -71,7 +71,8 @@ instance Data.FromJSON AuthenticationConfiguration where
       "AuthenticationConfiguration"
       ( \x ->
           AuthenticationConfiguration'
-            Prelude.<$> ( x Data..:? "BasicAuthentication"
+            Prelude.<$> ( x
+                            Data..:? "BasicAuthentication"
                             Data..!= Prelude.mempty
                         )
       )

@@ -80,7 +80,8 @@ instance
   hashWithSalt
     _salt
     DocumentRelevanceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` relevance
 
 instance

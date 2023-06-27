@@ -125,7 +125,8 @@ instance Core.AWSRequest DescribeThesaurus where
 
 instance Prelude.Hashable DescribeThesaurus where
   hashWithSalt _salt DescribeThesaurus' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData DescribeThesaurus where
@@ -164,7 +165,7 @@ instance Data.ToQuery DescribeThesaurus where
 
 -- | /See:/ 'newDescribeThesaurusResponse' smart constructor.
 data DescribeThesaurusResponse = DescribeThesaurusResponse'
-  { -- | The Unix datetime that the thesaurus was created.
+  { -- | The Unix timestamp when the thesaurus was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The thesaurus description.
     description :: Prelude.Maybe Prelude.Text,
@@ -196,7 +197,7 @@ data DescribeThesaurusResponse = DescribeThesaurusResponse'
     -- | The number of unique terms in the thesaurus file. For example, the
     -- synonyms @a,b,c@ and @a=>d@, the term count would be 4.
     termCount :: Prelude.Maybe Prelude.Integer,
-    -- | The Unix datetime that the thesaurus was last updated.
+    -- | The Unix timestamp when the thesaurus was last updated.
     updatedAt :: Prelude.Maybe Data.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -211,7 +212,7 @@ data DescribeThesaurusResponse = DescribeThesaurusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'describeThesaurusResponse_createdAt' - The Unix datetime that the thesaurus was created.
+-- 'createdAt', 'describeThesaurusResponse_createdAt' - The Unix timestamp when the thesaurus was created.
 --
 -- 'description', 'describeThesaurusResponse_description' - The thesaurus description.
 --
@@ -244,7 +245,7 @@ data DescribeThesaurusResponse = DescribeThesaurusResponse'
 -- 'termCount', 'describeThesaurusResponse_termCount' - The number of unique terms in the thesaurus file. For example, the
 -- synonyms @a,b,c@ and @a=>d@, the term count would be 4.
 --
--- 'updatedAt', 'describeThesaurusResponse_updatedAt' - The Unix datetime that the thesaurus was last updated.
+-- 'updatedAt', 'describeThesaurusResponse_updatedAt' - The Unix timestamp when the thesaurus was last updated.
 --
 -- 'httpStatus', 'describeThesaurusResponse_httpStatus' - The response's http status code.
 newDescribeThesaurusResponse ::
@@ -270,7 +271,7 @@ newDescribeThesaurusResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Unix datetime that the thesaurus was created.
+-- | The Unix timestamp when the thesaurus was created.
 describeThesaurusResponse_createdAt :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.UTCTime)
 describeThesaurusResponse_createdAt = Lens.lens (\DescribeThesaurusResponse' {createdAt} -> createdAt) (\s@DescribeThesaurusResponse' {} a -> s {createdAt = a} :: DescribeThesaurusResponse) Prelude.. Lens.mapping Data._Time
 
@@ -327,7 +328,7 @@ describeThesaurusResponse_synonymRuleCount = Lens.lens (\DescribeThesaurusRespon
 describeThesaurusResponse_termCount :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.Integer)
 describeThesaurusResponse_termCount = Lens.lens (\DescribeThesaurusResponse' {termCount} -> termCount) (\s@DescribeThesaurusResponse' {} a -> s {termCount = a} :: DescribeThesaurusResponse)
 
--- | The Unix datetime that the thesaurus was last updated.
+-- | The Unix timestamp when the thesaurus was last updated.
 describeThesaurusResponse_updatedAt :: Lens.Lens' DescribeThesaurusResponse (Prelude.Maybe Prelude.UTCTime)
 describeThesaurusResponse_updatedAt = Lens.lens (\DescribeThesaurusResponse' {updatedAt} -> updatedAt) (\s@DescribeThesaurusResponse' {} a -> s {updatedAt = a} :: DescribeThesaurusResponse) Prelude.. Lens.mapping Data._Time
 

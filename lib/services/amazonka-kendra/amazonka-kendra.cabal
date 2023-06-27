@@ -47,6 +47,7 @@ library
     Amazonka.Kendra.AssociateEntitiesToExperience
     Amazonka.Kendra.AssociatePersonasToEntities
     Amazonka.Kendra.BatchDeleteDocument
+    Amazonka.Kendra.BatchDeleteFeaturedResultsSet
     Amazonka.Kendra.BatchGetDocumentStatus
     Amazonka.Kendra.BatchPutDocument
     Amazonka.Kendra.ClearQuerySuggestions
@@ -54,6 +55,7 @@ library
     Amazonka.Kendra.CreateDataSource
     Amazonka.Kendra.CreateExperience
     Amazonka.Kendra.CreateFaq
+    Amazonka.Kendra.CreateFeaturedResultsSet
     Amazonka.Kendra.CreateIndex
     Amazonka.Kendra.CreateQuerySuggestionsBlockList
     Amazonka.Kendra.CreateThesaurus
@@ -69,6 +71,7 @@ library
     Amazonka.Kendra.DescribeDataSource
     Amazonka.Kendra.DescribeExperience
     Amazonka.Kendra.DescribeFaq
+    Amazonka.Kendra.DescribeFeaturedResultsSet
     Amazonka.Kendra.DescribeIndex
     Amazonka.Kendra.DescribePrincipalMapping
     Amazonka.Kendra.DescribeQuerySuggestionsBlockList
@@ -86,6 +89,7 @@ library
     Amazonka.Kendra.ListExperienceEntities
     Amazonka.Kendra.ListExperiences
     Amazonka.Kendra.ListFaqs
+    Amazonka.Kendra.ListFeaturedResultsSets
     Amazonka.Kendra.ListGroupsOlderThanOrderingId
     Amazonka.Kendra.ListIndices
     Amazonka.Kendra.ListQuerySuggestionsBlockLists
@@ -93,6 +97,7 @@ library
     Amazonka.Kendra.ListThesauri
     Amazonka.Kendra.PutPrincipalMapping
     Amazonka.Kendra.Query
+    Amazonka.Kendra.Retrieve
     Amazonka.Kendra.StartDataSourceSyncJob
     Amazonka.Kendra.StopDataSourceSyncJob
     Amazonka.Kendra.SubmitFeedback
@@ -107,9 +112,14 @@ library
     Amazonka.Kendra.Types.AlfrescoConfiguration
     Amazonka.Kendra.Types.AlfrescoEntity
     Amazonka.Kendra.Types.AttributeFilter
+    Amazonka.Kendra.Types.AttributeSuggestionsDescribeConfig
+    Amazonka.Kendra.Types.AttributeSuggestionsGetConfig
+    Amazonka.Kendra.Types.AttributeSuggestionsMode
+    Amazonka.Kendra.Types.AttributeSuggestionsUpdateConfig
     Amazonka.Kendra.Types.AuthenticationConfiguration
     Amazonka.Kendra.Types.BasicAuthenticationConfiguration
     Amazonka.Kendra.Types.BatchDeleteDocumentResponseFailedDocument
+    Amazonka.Kendra.Types.BatchDeleteFeaturedResultsSetError
     Amazonka.Kendra.Types.BatchGetDocumentStatusResponseError
     Amazonka.Kendra.Types.BatchPutDocumentResponseFailedDocument
     Amazonka.Kendra.Types.BoxConfiguration
@@ -180,6 +190,13 @@ library
     Amazonka.Kendra.Types.FaqStatistics
     Amazonka.Kendra.Types.FaqStatus
     Amazonka.Kendra.Types.FaqSummary
+    Amazonka.Kendra.Types.FeaturedDocument
+    Amazonka.Kendra.Types.FeaturedDocumentMissing
+    Amazonka.Kendra.Types.FeaturedDocumentWithMetadata
+    Amazonka.Kendra.Types.FeaturedResultsItem
+    Amazonka.Kendra.Types.FeaturedResultsSet
+    Amazonka.Kendra.Types.FeaturedResultsSetStatus
+    Amazonka.Kendra.Types.FeaturedResultsSetSummary
     Amazonka.Kendra.Types.FsxConfiguration
     Amazonka.Kendra.Types.FsxFileSystemType
     Amazonka.Kendra.Types.GitHubConfiguration
@@ -229,6 +246,7 @@ library
     Amazonka.Kendra.Types.Relevance
     Amazonka.Kendra.Types.RelevanceFeedback
     Amazonka.Kendra.Types.RelevanceType
+    Amazonka.Kendra.Types.RetrieveResultItem
     Amazonka.Kendra.Types.S3DataSourceConfiguration
     Amazonka.Kendra.Types.S3Path
     Amazonka.Kendra.Types.SaaSConfiguration
@@ -260,13 +278,16 @@ library
     Amazonka.Kendra.Types.SlackEntity
     Amazonka.Kendra.Types.SortingConfiguration
     Amazonka.Kendra.Types.SortOrder
+    Amazonka.Kendra.Types.SourceDocument
     Amazonka.Kendra.Types.SpellCorrectedQuery
     Amazonka.Kendra.Types.SpellCorrectionConfiguration
     Amazonka.Kendra.Types.SqlConfiguration
     Amazonka.Kendra.Types.Status
+    Amazonka.Kendra.Types.SuggestableConfig
     Amazonka.Kendra.Types.Suggestion
     Amazonka.Kendra.Types.SuggestionHighlight
     Amazonka.Kendra.Types.SuggestionTextWithHighlights
+    Amazonka.Kendra.Types.SuggestionType
     Amazonka.Kendra.Types.SuggestionValue
     Amazonka.Kendra.Types.TableCell
     Amazonka.Kendra.Types.TableExcerpt
@@ -296,6 +317,7 @@ library
     Amazonka.Kendra.UpdateAccessControlConfiguration
     Amazonka.Kendra.UpdateDataSource
     Amazonka.Kendra.UpdateExperience
+    Amazonka.Kendra.UpdateFeaturedResultsSet
     Amazonka.Kendra.UpdateIndex
     Amazonka.Kendra.UpdateQuerySuggestionsBlockList
     Amazonka.Kendra.UpdateQuerySuggestionsConfig

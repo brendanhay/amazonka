@@ -76,9 +76,9 @@ data BatchPutDocument = BatchPutDocument'
     -- into Amazon Kendra, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html Customizing document metadata during the ingestion process>.
     customDocumentEnrichmentConfiguration :: Prelude.Maybe CustomDocumentEnrichmentConfiguration,
-    -- | The Amazon Resource Name (ARN) of a role that is allowed to run the
-    -- @BatchPutDocument@ API. For more information, see
-    -- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM Roles for Amazon Kendra>.
+    -- | The Amazon Resource Name (ARN) of an IAM role with permission to access
+    -- your S3 bucket. For more information, see
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM access roles for Amazon Kendra>.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the index to add the documents to. You need to create
     -- the index first using the @CreateIndex@ API.
@@ -87,14 +87,12 @@ data BatchPutDocument = BatchPutDocument'
     --
     -- Documents have the following file size limits.
     --
-    -- -   5 MB total size for inline documents
-    --
-    -- -   50 MB total size for files from an S3 bucket
+    -- -   50 MB total size for any file
     --
     -- -   5 MB extracted text for any file
     --
-    -- For more information about file size and transaction per second quotas,
-    -- see <https://docs.aws.amazon.com/kendra/latest/dg/quotas.html Quotas>.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/quotas.html Quotas>.
     documents :: Prelude.NonEmpty Document
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -116,9 +114,9 @@ data BatchPutDocument = BatchPutDocument'
 -- into Amazon Kendra, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html Customizing document metadata during the ingestion process>.
 --
--- 'roleArn', 'batchPutDocument_roleArn' - The Amazon Resource Name (ARN) of a role that is allowed to run the
--- @BatchPutDocument@ API. For more information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM Roles for Amazon Kendra>.
+-- 'roleArn', 'batchPutDocument_roleArn' - The Amazon Resource Name (ARN) of an IAM role with permission to access
+-- your S3 bucket. For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM access roles for Amazon Kendra>.
 --
 -- 'indexId', 'batchPutDocument_indexId' - The identifier of the index to add the documents to. You need to create
 -- the index first using the @CreateIndex@ API.
@@ -127,14 +125,12 @@ data BatchPutDocument = BatchPutDocument'
 --
 -- Documents have the following file size limits.
 --
--- -   5 MB total size for inline documents
---
--- -   50 MB total size for files from an S3 bucket
+-- -   50 MB total size for any file
 --
 -- -   5 MB extracted text for any file
 --
--- For more information about file size and transaction per second quotas,
--- see <https://docs.aws.amazon.com/kendra/latest/dg/quotas.html Quotas>.
+-- For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/quotas.html Quotas>.
 newBatchPutDocument ::
   -- | 'indexId'
   Prelude.Text ->
@@ -161,9 +157,9 @@ newBatchPutDocument pIndexId_ pDocuments_ =
 batchPutDocument_customDocumentEnrichmentConfiguration :: Lens.Lens' BatchPutDocument (Prelude.Maybe CustomDocumentEnrichmentConfiguration)
 batchPutDocument_customDocumentEnrichmentConfiguration = Lens.lens (\BatchPutDocument' {customDocumentEnrichmentConfiguration} -> customDocumentEnrichmentConfiguration) (\s@BatchPutDocument' {} a -> s {customDocumentEnrichmentConfiguration = a} :: BatchPutDocument)
 
--- | The Amazon Resource Name (ARN) of a role that is allowed to run the
--- @BatchPutDocument@ API. For more information, see
--- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM Roles for Amazon Kendra>.
+-- | The Amazon Resource Name (ARN) of an IAM role with permission to access
+-- your S3 bucket. For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html IAM access roles for Amazon Kendra>.
 batchPutDocument_roleArn :: Lens.Lens' BatchPutDocument (Prelude.Maybe Prelude.Text)
 batchPutDocument_roleArn = Lens.lens (\BatchPutDocument' {roleArn} -> roleArn) (\s@BatchPutDocument' {} a -> s {roleArn = a} :: BatchPutDocument)
 
@@ -176,14 +172,12 @@ batchPutDocument_indexId = Lens.lens (\BatchPutDocument' {indexId} -> indexId) (
 --
 -- Documents have the following file size limits.
 --
--- -   5 MB total size for inline documents
---
--- -   50 MB total size for files from an S3 bucket
+-- -   50 MB total size for any file
 --
 -- -   5 MB extracted text for any file
 --
--- For more information about file size and transaction per second quotas,
--- see <https://docs.aws.amazon.com/kendra/latest/dg/quotas.html Quotas>.
+-- For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/quotas.html Quotas>.
 batchPutDocument_documents :: Lens.Lens' BatchPutDocument (Prelude.NonEmpty Document)
 batchPutDocument_documents = Lens.lens (\BatchPutDocument' {documents} -> documents) (\s@BatchPutDocument' {} a -> s {documents = a} :: BatchPutDocument) Prelude.. Lens.coerced
 
@@ -197,7 +191,8 @@ instance Core.AWSRequest BatchPutDocument where
     Response.receiveJSON
       ( \s h x ->
           BatchPutDocumentResponse'
-            Prelude.<$> ( x Data..?> "FailedDocuments"
+            Prelude.<$> ( x
+                            Data..?> "FailedDocuments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

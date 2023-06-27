@@ -142,7 +142,8 @@ instance Data.FromJSON ConnectionConfiguration where
 
 instance Prelude.Hashable ConnectionConfiguration where
   hashWithSalt _salt ConnectionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` databaseHost
+    _salt
+      `Prelude.hashWithSalt` databaseHost
       `Prelude.hashWithSalt` databasePort
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName

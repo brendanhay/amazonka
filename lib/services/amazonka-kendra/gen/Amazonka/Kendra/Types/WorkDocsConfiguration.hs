@@ -209,11 +209,13 @@ instance Data.FromJSON WorkDocsConfiguration where
       ( \x ->
           WorkDocsConfiguration'
             Prelude.<$> (x Data..:? "CrawlComments")
-            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "ExclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FieldMappings")
-            Prelude.<*> ( x Data..:? "InclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "InclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "UseChangeLog")
@@ -222,7 +224,8 @@ instance Data.FromJSON WorkDocsConfiguration where
 
 instance Prelude.Hashable WorkDocsConfiguration where
   hashWithSalt _salt WorkDocsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` crawlComments
+    _salt
+      `Prelude.hashWithSalt` crawlComments
       `Prelude.hashWithSalt` exclusionPatterns
       `Prelude.hashWithSalt` fieldMappings
       `Prelude.hashWithSalt` inclusionPatterns

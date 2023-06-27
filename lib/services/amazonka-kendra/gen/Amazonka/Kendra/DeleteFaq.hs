@@ -89,7 +89,8 @@ instance Core.AWSRequest DeleteFaq where
 
 instance Prelude.Hashable DeleteFaq where
   hashWithSalt _salt DeleteFaq' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData DeleteFaq where

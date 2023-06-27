@@ -33,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newExperiencesSummary' smart constructor.
 data ExperiencesSummary = ExperiencesSummary'
-  { -- | The date-time your Amazon Kendra experience was created.
+  { -- | The Unix timestamp when your Amazon Kendra experience was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The endpoint URLs for your Amazon Kendra experiences. The URLs are
     -- unique and fully hosted by Amazon Web Services.
@@ -55,7 +55,7 @@ data ExperiencesSummary = ExperiencesSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'experiencesSummary_createdAt' - The date-time your Amazon Kendra experience was created.
+-- 'createdAt', 'experiencesSummary_createdAt' - The Unix timestamp when your Amazon Kendra experience was created.
 --
 -- 'endpoints', 'experiencesSummary_endpoints' - The endpoint URLs for your Amazon Kendra experiences. The URLs are
 -- unique and fully hosted by Amazon Web Services.
@@ -76,7 +76,7 @@ newExperiencesSummary =
       status = Prelude.Nothing
     }
 
--- | The date-time your Amazon Kendra experience was created.
+-- | The Unix timestamp when your Amazon Kendra experience was created.
 experiencesSummary_createdAt :: Lens.Lens' ExperiencesSummary (Prelude.Maybe Prelude.UTCTime)
 experiencesSummary_createdAt = Lens.lens (\ExperiencesSummary' {createdAt} -> createdAt) (\s@ExperiencesSummary' {} a -> s {createdAt = a} :: ExperiencesSummary) Prelude.. Lens.mapping Data._Time
 
@@ -112,7 +112,8 @@ instance Data.FromJSON ExperiencesSummary where
 
 instance Prelude.Hashable ExperiencesSummary where
   hashWithSalt _salt ExperiencesSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` endpoints
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name

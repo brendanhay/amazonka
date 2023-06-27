@@ -25,11 +25,11 @@ import qualified Amazonka.Data as Data
 import Amazonka.Kendra.Types.UserGroupResolutionMode
 import qualified Amazonka.Prelude as Prelude
 
--- | Provides the configuration information to fetch access levels of groups
--- and users from an IAM Identity Center (successor to Single Sign-On)
--- identity source. This is useful for user context filtering, where search
--- results are filtered based on the user or their group access to
--- documents. You can also use the
+-- | Provides the configuration information to get users and groups from an
+-- IAM Identity Center (successor to Single Sign-On) identity source. This
+-- is useful for user context filtering, where search results are filtered
+-- based on the user or their group access to documents. You can also use
+-- the
 -- <https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html PutPrincipalMapping>
 -- API to map users to their groups so that you only need to provide the
 -- user ID when you issue the query.
@@ -49,11 +49,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUserGroupResolutionConfiguration' smart constructor.
 data UserGroupResolutionConfiguration = UserGroupResolutionConfiguration'
-  { -- | The identity store provider (mode) you want to use to fetch access
-    -- levels of groups and users. IAM Identity Center (successor to Single
-    -- Sign-On) is currently the only available mode. Your users and groups
-    -- must exist in an IAM Identity Center identity source in order to use
-    -- this mode.
+  { -- | The identity store provider (mode) you want to use to get users and
+    -- groups. IAM Identity Center (successor to Single Sign-On) is currently
+    -- the only available mode. Your users and groups must exist in an IAM
+    -- Identity Center identity source in order to use this mode.
     userGroupResolutionMode :: UserGroupResolutionMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,11 +65,10 @@ data UserGroupResolutionConfiguration = UserGroupResolutionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userGroupResolutionMode', 'userGroupResolutionConfiguration_userGroupResolutionMode' - The identity store provider (mode) you want to use to fetch access
--- levels of groups and users. IAM Identity Center (successor to Single
--- Sign-On) is currently the only available mode. Your users and groups
--- must exist in an IAM Identity Center identity source in order to use
--- this mode.
+-- 'userGroupResolutionMode', 'userGroupResolutionConfiguration_userGroupResolutionMode' - The identity store provider (mode) you want to use to get users and
+-- groups. IAM Identity Center (successor to Single Sign-On) is currently
+-- the only available mode. Your users and groups must exist in an IAM
+-- Identity Center identity source in order to use this mode.
 newUserGroupResolutionConfiguration ::
   -- | 'userGroupResolutionMode'
   UserGroupResolutionMode ->
@@ -82,11 +80,10 @@ newUserGroupResolutionConfiguration
           pUserGroupResolutionMode_
       }
 
--- | The identity store provider (mode) you want to use to fetch access
--- levels of groups and users. IAM Identity Center (successor to Single
--- Sign-On) is currently the only available mode. Your users and groups
--- must exist in an IAM Identity Center identity source in order to use
--- this mode.
+-- | The identity store provider (mode) you want to use to get users and
+-- groups. IAM Identity Center (successor to Single Sign-On) is currently
+-- the only available mode. Your users and groups must exist in an IAM
+-- Identity Center identity source in order to use this mode.
 userGroupResolutionConfiguration_userGroupResolutionMode :: Lens.Lens' UserGroupResolutionConfiguration UserGroupResolutionMode
 userGroupResolutionConfiguration_userGroupResolutionMode = Lens.lens (\UserGroupResolutionConfiguration' {userGroupResolutionMode} -> userGroupResolutionMode) (\s@UserGroupResolutionConfiguration' {} a -> s {userGroupResolutionMode = a} :: UserGroupResolutionConfiguration)
 

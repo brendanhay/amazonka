@@ -31,23 +31,23 @@ import qualified Amazonka.Prelude as Prelude
 -- /When selecting websites to index, you must adhere to the
 -- <https://aws.amazon.com/aup/ Amazon Acceptable Use Policy> and all other
 -- Amazon terms. Remember that you must only use Amazon Kendra Web Crawler
--- to index your own webpages, or webpages that you have authorization to
+-- to index your own web pages, or web pages that you have authorization to
 -- index./
 --
 -- /See:/ 'newSeedUrlConfiguration' smart constructor.
 data SeedUrlConfiguration = SeedUrlConfiguration'
   { -- | You can choose one of the following modes:
     --
-    -- -   @HOST_ONLY@ – crawl only the website host names. For example, if the
+    -- -   @HOST_ONLY@—crawl only the website host names. For example, if the
     --     seed URL is \"abc.example.com\", then only URLs with host name
     --     \"abc.example.com\" are crawled.
     --
-    -- -   @SUBDOMAINS@ – crawl the website host names with subdomains. For
+    -- -   @SUBDOMAINS@—crawl the website host names with subdomains. For
     --     example, if the seed URL is \"abc.example.com\", then
     --     \"a.abc.example.com\" and \"b.abc.example.com\" are also crawled.
     --
-    -- -   @EVERYTHING@ – crawl the website host names with subdomains and
-    --     other domains that the webpages link to.
+    -- -   @EVERYTHING@—crawl the website host names with subdomains and other
+    --     domains that the web pages link to.
     --
     -- The default mode is set to @HOST_ONLY@.
     webCrawlerMode :: Prelude.Maybe WebCrawlerMode,
@@ -69,16 +69,16 @@ data SeedUrlConfiguration = SeedUrlConfiguration'
 --
 -- 'webCrawlerMode', 'seedUrlConfiguration_webCrawlerMode' - You can choose one of the following modes:
 --
--- -   @HOST_ONLY@ – crawl only the website host names. For example, if the
+-- -   @HOST_ONLY@—crawl only the website host names. For example, if the
 --     seed URL is \"abc.example.com\", then only URLs with host name
 --     \"abc.example.com\" are crawled.
 --
--- -   @SUBDOMAINS@ – crawl the website host names with subdomains. For
+-- -   @SUBDOMAINS@—crawl the website host names with subdomains. For
 --     example, if the seed URL is \"abc.example.com\", then
 --     \"a.abc.example.com\" and \"b.abc.example.com\" are also crawled.
 --
--- -   @EVERYTHING@ – crawl the website host names with subdomains and
---     other domains that the webpages link to.
+-- -   @EVERYTHING@—crawl the website host names with subdomains and other
+--     domains that the web pages link to.
 --
 -- The default mode is set to @HOST_ONLY@.
 --
@@ -97,16 +97,16 @@ newSeedUrlConfiguration =
 
 -- | You can choose one of the following modes:
 --
--- -   @HOST_ONLY@ – crawl only the website host names. For example, if the
+-- -   @HOST_ONLY@—crawl only the website host names. For example, if the
 --     seed URL is \"abc.example.com\", then only URLs with host name
 --     \"abc.example.com\" are crawled.
 --
--- -   @SUBDOMAINS@ – crawl the website host names with subdomains. For
+-- -   @SUBDOMAINS@—crawl the website host names with subdomains. For
 --     example, if the seed URL is \"abc.example.com\", then
 --     \"a.abc.example.com\" and \"b.abc.example.com\" are also crawled.
 --
--- -   @EVERYTHING@ – crawl the website host names with subdomains and
---     other domains that the webpages link to.
+-- -   @EVERYTHING@—crawl the website host names with subdomains and other
+--     domains that the web pages link to.
 --
 -- The default mode is set to @HOST_ONLY@.
 seedUrlConfiguration_webCrawlerMode :: Lens.Lens' SeedUrlConfiguration (Prelude.Maybe WebCrawlerMode)
@@ -131,7 +131,8 @@ instance Data.FromJSON SeedUrlConfiguration where
 
 instance Prelude.Hashable SeedUrlConfiguration where
   hashWithSalt _salt SeedUrlConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` webCrawlerMode
+    _salt
+      `Prelude.hashWithSalt` webCrawlerMode
       `Prelude.hashWithSalt` seedUrls
 
 instance Prelude.NFData SeedUrlConfiguration where

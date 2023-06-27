@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newThesaurusSummary' smart constructor.
 data ThesaurusSummary = ThesaurusSummary'
-  { -- | The Unix datetime that the thesaurus was created.
+  { -- | The Unix timestamp when the thesaurus was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | The identifier of the thesaurus.
     id :: Prelude.Maybe Prelude.Text,
@@ -37,7 +37,7 @@ data ThesaurusSummary = ThesaurusSummary'
     name :: Prelude.Maybe Prelude.Text,
     -- | The status of the thesaurus.
     status :: Prelude.Maybe ThesaurusStatus,
-    -- | The Unix datetime that the thesaurus was last updated.
+    -- | The Unix timestamp when the thesaurus was last updated.
     updatedAt :: Prelude.Maybe Data.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,7 +50,7 @@ data ThesaurusSummary = ThesaurusSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'thesaurusSummary_createdAt' - The Unix datetime that the thesaurus was created.
+-- 'createdAt', 'thesaurusSummary_createdAt' - The Unix timestamp when the thesaurus was created.
 --
 -- 'id', 'thesaurusSummary_id' - The identifier of the thesaurus.
 --
@@ -58,7 +58,7 @@ data ThesaurusSummary = ThesaurusSummary'
 --
 -- 'status', 'thesaurusSummary_status' - The status of the thesaurus.
 --
--- 'updatedAt', 'thesaurusSummary_updatedAt' - The Unix datetime that the thesaurus was last updated.
+-- 'updatedAt', 'thesaurusSummary_updatedAt' - The Unix timestamp when the thesaurus was last updated.
 newThesaurusSummary ::
   ThesaurusSummary
 newThesaurusSummary =
@@ -70,7 +70,7 @@ newThesaurusSummary =
       updatedAt = Prelude.Nothing
     }
 
--- | The Unix datetime that the thesaurus was created.
+-- | The Unix timestamp when the thesaurus was created.
 thesaurusSummary_createdAt :: Lens.Lens' ThesaurusSummary (Prelude.Maybe Prelude.UTCTime)
 thesaurusSummary_createdAt = Lens.lens (\ThesaurusSummary' {createdAt} -> createdAt) (\s@ThesaurusSummary' {} a -> s {createdAt = a} :: ThesaurusSummary) Prelude.. Lens.mapping Data._Time
 
@@ -86,7 +86,7 @@ thesaurusSummary_name = Lens.lens (\ThesaurusSummary' {name} -> name) (\s@Thesau
 thesaurusSummary_status :: Lens.Lens' ThesaurusSummary (Prelude.Maybe ThesaurusStatus)
 thesaurusSummary_status = Lens.lens (\ThesaurusSummary' {status} -> status) (\s@ThesaurusSummary' {} a -> s {status = a} :: ThesaurusSummary)
 
--- | The Unix datetime that the thesaurus was last updated.
+-- | The Unix timestamp when the thesaurus was last updated.
 thesaurusSummary_updatedAt :: Lens.Lens' ThesaurusSummary (Prelude.Maybe Prelude.UTCTime)
 thesaurusSummary_updatedAt = Lens.lens (\ThesaurusSummary' {updatedAt} -> updatedAt) (\s@ThesaurusSummary' {} a -> s {updatedAt = a} :: ThesaurusSummary) Prelude.. Lens.mapping Data._Time
 
@@ -105,7 +105,8 @@ instance Data.FromJSON ThesaurusSummary where
 
 instance Prelude.Hashable ThesaurusSummary where
   hashWithSalt _salt ThesaurusSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status

@@ -30,7 +30,9 @@ module Amazonka.Kendra.GetQuerySuggestions
     newGetQuerySuggestions,
 
     -- * Request Lenses
+    getQuerySuggestions_attributeSuggestionsConfig,
     getQuerySuggestions_maxSuggestionsCount,
+    getQuerySuggestions_suggestionTypes,
     getQuerySuggestions_indexId,
     getQuerySuggestions_queryText,
 
@@ -55,8 +57,23 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetQuerySuggestions' smart constructor.
 data GetQuerySuggestions = GetQuerySuggestions'
-  { -- | The maximum number of query suggestions you want to show to your users.
+  { -- | Configuration information for the document fields\/attributes that you
+    -- want to base query suggestions on.
+    attributeSuggestionsConfig :: Prelude.Maybe AttributeSuggestionsGetConfig,
+    -- | The maximum number of query suggestions you want to show to your users.
     maxSuggestionsCount :: Prelude.Maybe Prelude.Int,
+    -- | The suggestions type to base query suggestions on. The suggestion types
+    -- are query history or document fields\/attributes. You can set one type
+    -- or the other.
+    --
+    -- If you set query history as your suggestions type, Amazon Kendra
+    -- suggests queries relevant to your users based on popular queries in the
+    -- query history.
+    --
+    -- If you set document fields\/attributes as your suggestions type, Amazon
+    -- Kendra suggests queries relevant to your users based on the contents of
+    -- document fields.
+    suggestionTypes :: Prelude.Maybe [SuggestionType],
     -- | The identifier of the index you want to get query suggestions from.
     indexId :: Prelude.Text,
     -- | The text of a user\'s query to generate query suggestions.
@@ -80,7 +97,22 @@ data GetQuerySuggestions = GetQuerySuggestions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attributeSuggestionsConfig', 'getQuerySuggestions_attributeSuggestionsConfig' - Configuration information for the document fields\/attributes that you
+-- want to base query suggestions on.
+--
 -- 'maxSuggestionsCount', 'getQuerySuggestions_maxSuggestionsCount' - The maximum number of query suggestions you want to show to your users.
+--
+-- 'suggestionTypes', 'getQuerySuggestions_suggestionTypes' - The suggestions type to base query suggestions on. The suggestion types
+-- are query history or document fields\/attributes. You can set one type
+-- or the other.
+--
+-- If you set query history as your suggestions type, Amazon Kendra
+-- suggests queries relevant to your users based on popular queries in the
+-- query history.
+--
+-- If you set document fields\/attributes as your suggestions type, Amazon
+-- Kendra suggests queries relevant to your users based on the contents of
+-- document fields.
 --
 -- 'indexId', 'getQuerySuggestions_indexId' - The identifier of the index you want to get query suggestions from.
 --
@@ -101,15 +133,36 @@ newGetQuerySuggestions ::
   GetQuerySuggestions
 newGetQuerySuggestions pIndexId_ pQueryText_ =
   GetQuerySuggestions'
-    { maxSuggestionsCount =
+    { attributeSuggestionsConfig =
         Prelude.Nothing,
+      maxSuggestionsCount = Prelude.Nothing,
+      suggestionTypes = Prelude.Nothing,
       indexId = pIndexId_,
       queryText = pQueryText_
     }
 
+-- | Configuration information for the document fields\/attributes that you
+-- want to base query suggestions on.
+getQuerySuggestions_attributeSuggestionsConfig :: Lens.Lens' GetQuerySuggestions (Prelude.Maybe AttributeSuggestionsGetConfig)
+getQuerySuggestions_attributeSuggestionsConfig = Lens.lens (\GetQuerySuggestions' {attributeSuggestionsConfig} -> attributeSuggestionsConfig) (\s@GetQuerySuggestions' {} a -> s {attributeSuggestionsConfig = a} :: GetQuerySuggestions)
+
 -- | The maximum number of query suggestions you want to show to your users.
 getQuerySuggestions_maxSuggestionsCount :: Lens.Lens' GetQuerySuggestions (Prelude.Maybe Prelude.Int)
 getQuerySuggestions_maxSuggestionsCount = Lens.lens (\GetQuerySuggestions' {maxSuggestionsCount} -> maxSuggestionsCount) (\s@GetQuerySuggestions' {} a -> s {maxSuggestionsCount = a} :: GetQuerySuggestions)
+
+-- | The suggestions type to base query suggestions on. The suggestion types
+-- are query history or document fields\/attributes. You can set one type
+-- or the other.
+--
+-- If you set query history as your suggestions type, Amazon Kendra
+-- suggests queries relevant to your users based on popular queries in the
+-- query history.
+--
+-- If you set document fields\/attributes as your suggestions type, Amazon
+-- Kendra suggests queries relevant to your users based on the contents of
+-- document fields.
+getQuerySuggestions_suggestionTypes :: Lens.Lens' GetQuerySuggestions (Prelude.Maybe [SuggestionType])
+getQuerySuggestions_suggestionTypes = Lens.lens (\GetQuerySuggestions' {suggestionTypes} -> suggestionTypes) (\s@GetQuerySuggestions' {} a -> s {suggestionTypes = a} :: GetQuerySuggestions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the index you want to get query suggestions from.
 getQuerySuggestions_indexId :: Lens.Lens' GetQuerySuggestions Prelude.Text
@@ -144,13 +197,18 @@ instance Core.AWSRequest GetQuerySuggestions where
 
 instance Prelude.Hashable GetQuerySuggestions where
   hashWithSalt _salt GetQuerySuggestions' {..} =
-    _salt `Prelude.hashWithSalt` maxSuggestionsCount
+    _salt
+      `Prelude.hashWithSalt` attributeSuggestionsConfig
+      `Prelude.hashWithSalt` maxSuggestionsCount
+      `Prelude.hashWithSalt` suggestionTypes
       `Prelude.hashWithSalt` indexId
       `Prelude.hashWithSalt` queryText
 
 instance Prelude.NFData GetQuerySuggestions where
   rnf GetQuerySuggestions' {..} =
-    Prelude.rnf maxSuggestionsCount
+    Prelude.rnf attributeSuggestionsConfig
+      `Prelude.seq` Prelude.rnf maxSuggestionsCount
+      `Prelude.seq` Prelude.rnf suggestionTypes
       `Prelude.seq` Prelude.rnf indexId
       `Prelude.seq` Prelude.rnf queryText
 
@@ -173,8 +231,12 @@ instance Data.ToJSON GetQuerySuggestions where
   toJSON GetQuerySuggestions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MaxSuggestionsCount" Data..=)
+          [ ("AttributeSuggestionsConfig" Data..=)
+              Prelude.<$> attributeSuggestionsConfig,
+            ("MaxSuggestionsCount" Data..=)
               Prelude.<$> maxSuggestionsCount,
+            ("SuggestionTypes" Data..=)
+              Prelude.<$> suggestionTypes,
             Prelude.Just ("IndexId" Data..= indexId),
             Prelude.Just ("QueryText" Data..= queryText)
           ]

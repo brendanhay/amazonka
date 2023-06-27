@@ -36,6 +36,9 @@ import Test.Tasty
 --         , requestBatchDeleteDocument $
 --             newBatchDeleteDocument
 --
+--         , requestBatchDeleteFeaturedResultsSet $
+--             newBatchDeleteFeaturedResultsSet
+--
 --         , requestBatchGetDocumentStatus $
 --             newBatchGetDocumentStatus
 --
@@ -56,6 +59,9 @@ import Test.Tasty
 --
 --         , requestCreateFaq $
 --             newCreateFaq
+--
+--         , requestCreateFeaturedResultsSet $
+--             newCreateFeaturedResultsSet
 --
 --         , requestCreateIndex $
 --             newCreateIndex
@@ -101,6 +107,9 @@ import Test.Tasty
 --
 --         , requestDescribeFaq $
 --             newDescribeFaq
+--
+--         , requestDescribeFeaturedResultsSet $
+--             newDescribeFeaturedResultsSet
 --
 --         , requestDescribeIndex $
 --             newDescribeIndex
@@ -150,6 +159,9 @@ import Test.Tasty
 --         , requestListFaqs $
 --             newListFaqs
 --
+--         , requestListFeaturedResultsSets $
+--             newListFeaturedResultsSets
+--
 --         , requestListGroupsOlderThanOrderingId $
 --             newListGroupsOlderThanOrderingId
 --
@@ -170,6 +182,9 @@ import Test.Tasty
 --
 --         , requestQuery $
 --             newQuery
+--
+--         , requestRetrieve $
+--             newRetrieve
 --
 --         , requestStartDataSourceSyncJob $
 --             newStartDataSourceSyncJob
@@ -195,6 +210,9 @@ import Test.Tasty
 --         , requestUpdateExperience $
 --             newUpdateExperience
 --
+--         , requestUpdateFeaturedResultsSet $
+--             newUpdateFeaturedResultsSet
+--
 --         , requestUpdateIndex $
 --             newUpdateIndex
 --
@@ -219,6 +237,9 @@ import Test.Tasty
 --         , responseBatchDeleteDocument $
 --             newBatchDeleteDocumentResponse
 --
+--         , responseBatchDeleteFeaturedResultsSet $
+--             newBatchDeleteFeaturedResultsSetResponse
+--
 --         , responseBatchGetDocumentStatus $
 --             newBatchGetDocumentStatusResponse
 --
@@ -239,6 +260,9 @@ import Test.Tasty
 --
 --         , responseCreateFaq $
 --             newCreateFaqResponse
+--
+--         , responseCreateFeaturedResultsSet $
+--             newCreateFeaturedResultsSetResponse
 --
 --         , responseCreateIndex $
 --             newCreateIndexResponse
@@ -284,6 +308,9 @@ import Test.Tasty
 --
 --         , responseDescribeFaq $
 --             newDescribeFaqResponse
+--
+--         , responseDescribeFeaturedResultsSet $
+--             newDescribeFeaturedResultsSetResponse
 --
 --         , responseDescribeIndex $
 --             newDescribeIndexResponse
@@ -333,6 +360,9 @@ import Test.Tasty
 --         , responseListFaqs $
 --             newListFaqsResponse
 --
+--         , responseListFeaturedResultsSets $
+--             newListFeaturedResultsSetsResponse
+--
 --         , responseListGroupsOlderThanOrderingId $
 --             newListGroupsOlderThanOrderingIdResponse
 --
@@ -353,6 +383,9 @@ import Test.Tasty
 --
 --         , responseQuery $
 --             newQueryResponse
+--
+--         , responseRetrieve $
+--             newRetrieveResponse
 --
 --         , responseStartDataSourceSyncJob $
 --             newStartDataSourceSyncJobResponse
@@ -377,6 +410,9 @@ import Test.Tasty
 --
 --         , responseUpdateExperience $
 --             newUpdateExperienceResponse
+--
+--         , responseUpdateFeaturedResultsSet $
+--             newUpdateFeaturedResultsSetResponse
 --
 --         , responseUpdateIndex $
 --             newUpdateIndexResponse
@@ -412,6 +448,12 @@ requestBatchDeleteDocument =
   req
     "BatchDeleteDocument"
     "fixture/BatchDeleteDocument.yaml"
+
+requestBatchDeleteFeaturedResultsSet :: BatchDeleteFeaturedResultsSet -> TestTree
+requestBatchDeleteFeaturedResultsSet =
+  req
+    "BatchDeleteFeaturedResultsSet"
+    "fixture/BatchDeleteFeaturedResultsSet.yaml"
 
 requestBatchGetDocumentStatus :: BatchGetDocumentStatus -> TestTree
 requestBatchGetDocumentStatus =
@@ -454,6 +496,12 @@ requestCreateFaq =
   req
     "CreateFaq"
     "fixture/CreateFaq.yaml"
+
+requestCreateFeaturedResultsSet :: CreateFeaturedResultsSet -> TestTree
+requestCreateFeaturedResultsSet =
+  req
+    "CreateFeaturedResultsSet"
+    "fixture/CreateFeaturedResultsSet.yaml"
 
 requestCreateIndex :: CreateIndex -> TestTree
 requestCreateIndex =
@@ -544,6 +592,12 @@ requestDescribeFaq =
   req
     "DescribeFaq"
     "fixture/DescribeFaq.yaml"
+
+requestDescribeFeaturedResultsSet :: DescribeFeaturedResultsSet -> TestTree
+requestDescribeFeaturedResultsSet =
+  req
+    "DescribeFeaturedResultsSet"
+    "fixture/DescribeFeaturedResultsSet.yaml"
 
 requestDescribeIndex :: DescribeIndex -> TestTree
 requestDescribeIndex =
@@ -641,6 +695,12 @@ requestListFaqs =
     "ListFaqs"
     "fixture/ListFaqs.yaml"
 
+requestListFeaturedResultsSets :: ListFeaturedResultsSets -> TestTree
+requestListFeaturedResultsSets =
+  req
+    "ListFeaturedResultsSets"
+    "fixture/ListFeaturedResultsSets.yaml"
+
 requestListGroupsOlderThanOrderingId :: ListGroupsOlderThanOrderingId -> TestTree
 requestListGroupsOlderThanOrderingId =
   req
@@ -682,6 +742,12 @@ requestQuery =
   req
     "Query"
     "fixture/Query.yaml"
+
+requestRetrieve :: Retrieve -> TestTree
+requestRetrieve =
+  req
+    "Retrieve"
+    "fixture/Retrieve.yaml"
 
 requestStartDataSourceSyncJob :: StartDataSourceSyncJob -> TestTree
 requestStartDataSourceSyncJob =
@@ -730,6 +796,12 @@ requestUpdateExperience =
   req
     "UpdateExperience"
     "fixture/UpdateExperience.yaml"
+
+requestUpdateFeaturedResultsSet :: UpdateFeaturedResultsSet -> TestTree
+requestUpdateFeaturedResultsSet =
+  req
+    "UpdateFeaturedResultsSet"
+    "fixture/UpdateFeaturedResultsSet.yaml"
 
 requestUpdateIndex :: UpdateIndex -> TestTree
 requestUpdateIndex =
@@ -780,6 +852,14 @@ responseBatchDeleteDocument =
     "fixture/BatchDeleteDocumentResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchDeleteDocument)
+
+responseBatchDeleteFeaturedResultsSet :: BatchDeleteFeaturedResultsSetResponse -> TestTree
+responseBatchDeleteFeaturedResultsSet =
+  res
+    "BatchDeleteFeaturedResultsSetResponse"
+    "fixture/BatchDeleteFeaturedResultsSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchDeleteFeaturedResultsSet)
 
 responseBatchGetDocumentStatus :: BatchGetDocumentStatusResponse -> TestTree
 responseBatchGetDocumentStatus =
@@ -836,6 +916,14 @@ responseCreateFaq =
     "fixture/CreateFaqResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateFaq)
+
+responseCreateFeaturedResultsSet :: CreateFeaturedResultsSetResponse -> TestTree
+responseCreateFeaturedResultsSet =
+  res
+    "CreateFeaturedResultsSetResponse"
+    "fixture/CreateFeaturedResultsSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateFeaturedResultsSet)
 
 responseCreateIndex :: CreateIndexResponse -> TestTree
 responseCreateIndex =
@@ -956,6 +1044,14 @@ responseDescribeFaq =
     "fixture/DescribeFaqResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeFaq)
+
+responseDescribeFeaturedResultsSet :: DescribeFeaturedResultsSetResponse -> TestTree
+responseDescribeFeaturedResultsSet =
+  res
+    "DescribeFeaturedResultsSetResponse"
+    "fixture/DescribeFeaturedResultsSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFeaturedResultsSet)
 
 responseDescribeIndex :: DescribeIndexResponse -> TestTree
 responseDescribeIndex =
@@ -1085,6 +1181,14 @@ responseListFaqs =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListFaqs)
 
+responseListFeaturedResultsSets :: ListFeaturedResultsSetsResponse -> TestTree
+responseListFeaturedResultsSets =
+  res
+    "ListFeaturedResultsSetsResponse"
+    "fixture/ListFeaturedResultsSetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFeaturedResultsSets)
+
 responseListGroupsOlderThanOrderingId :: ListGroupsOlderThanOrderingIdResponse -> TestTree
 responseListGroupsOlderThanOrderingId =
   res
@@ -1140,6 +1244,14 @@ responseQuery =
     "fixture/QueryResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy Query)
+
+responseRetrieve :: RetrieveResponse -> TestTree
+responseRetrieve =
+  res
+    "RetrieveResponse"
+    "fixture/RetrieveResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy Retrieve)
 
 responseStartDataSourceSyncJob :: StartDataSourceSyncJobResponse -> TestTree
 responseStartDataSourceSyncJob =
@@ -1204,6 +1316,14 @@ responseUpdateExperience =
     "fixture/UpdateExperienceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateExperience)
+
+responseUpdateFeaturedResultsSet :: UpdateFeaturedResultsSetResponse -> TestTree
+responseUpdateFeaturedResultsSet =
+  res
+    "UpdateFeaturedResultsSetResponse"
+    "fixture/UpdateFeaturedResultsSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFeaturedResultsSet)
 
 responseUpdateIndex :: UpdateIndexResponse -> TestTree
 responseUpdateIndex =

@@ -32,17 +32,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newJiraConfiguration' smart constructor.
 data JiraConfiguration = JiraConfiguration'
-  { -- | A list of DataSourceToIndexFieldMapping objects that map attributes or
+  { -- | A list of @DataSourceToIndexFieldMapping@ objects that map attributes or
     -- field names of Jira attachments to Amazon Kendra index field names. To
-    -- create custom fields, use the UpdateIndex API before you map to Jira
+    -- create custom fields, use the @UpdateIndex@ API before you map to Jira
     -- fields. For more information, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
     -- The Jira data source field names must exist in your Jira custom
     -- metadata.
     attachmentFieldMappings :: Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping),
-    -- | A list of DataSourceToIndexFieldMapping objects that map attributes or
+    -- | A list of @DataSourceToIndexFieldMapping@ objects that map attributes or
     -- field names of Jira comments to Amazon Kendra index field names. To
-    -- create custom fields, use the UpdateIndex API before you map to Jira
+    -- create custom fields, use the @UpdateIndex@ API before you map to Jira
     -- fields. For more information, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
     -- The Jira data source field names must exist in your Jira custom
@@ -62,9 +62,9 @@ data JiraConfiguration = JiraConfiguration'
     -- inclusion pattern and an exclusion pattern, the exclusion pattern takes
     -- precedence and the file isn\'t included in the index.
     inclusionPatterns :: Prelude.Maybe [Prelude.Text],
-    -- | A list of DataSourceToIndexFieldMapping objects that map attributes or
+    -- | A list of @DataSourceToIndexFieldMapping@ objects that map attributes or
     -- field names of Jira issues to Amazon Kendra index field names. To create
-    -- custom fields, use the UpdateIndex API before you map to Jira fields.
+    -- custom fields, use the @UpdateIndex@ API before you map to Jira fields.
     -- For more information, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
     -- The Jira data source field names must exist in your Jira custom
@@ -79,9 +79,9 @@ data JiraConfiguration = JiraConfiguration'
     -- | Specify which projects to crawl in your Jira data source. You can
     -- specify one or more Jira project IDs.
     project :: Prelude.Maybe [Prelude.Text],
-    -- | A list of DataSourceToIndexFieldMapping objects that map attributes or
+    -- | A list of @DataSourceToIndexFieldMapping@ objects that map attributes or
     -- field names of Jira projects to Amazon Kendra index field names. To
-    -- create custom fields, use the UpdateIndex API before you map to Jira
+    -- create custom fields, use the @UpdateIndex@ API before you map to Jira
     -- fields. For more information, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
     -- The Jira data source field names must exist in your Jira custom
@@ -96,28 +96,26 @@ data JiraConfiguration = JiraConfiguration'
     -- documents in Jira.
     useChangeLog :: Prelude.Maybe Prelude.Bool,
     -- | Configuration information for an Amazon Virtual Private Cloud to connect
-    -- to your Jira. Your Jira account must reside inside your VPC.
+    -- to your Jira. For more information, see
+    -- <https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html Configuring a VPC>.
     vpcConfiguration :: Prelude.Maybe DataSourceVpcConfiguration,
-    -- | A list of DataSourceToIndexFieldMapping objects that map attributes or
+    -- | A list of @DataSourceToIndexFieldMapping@ objects that map attributes or
     -- field names of Jira work logs to Amazon Kendra index field names. To
-    -- create custom fields, use the UpdateIndex API before you map to Jira
+    -- create custom fields, use the @UpdateIndex@ API before you map to Jira
     -- fields. For more information, see
     -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
     -- The Jira data source field names must exist in your Jira custom
     -- metadata.
     workLogFieldMappings :: Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping),
-    -- | The URL of the Jira account. For example, /company.atlassian.net/ or
-    -- /https:\/\/jira.company.com/. You can find your Jira account URL in the
-    -- URL of your profile page for Jira desktop.
+    -- | The URL of the Jira account. For example, /company.atlassian.net/.
     jiraAccountUrl :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of a secret in Secrets Manager contains
     -- the key-value pairs required to connect to your Jira data source. The
     -- secret must contain a JSON structure with the following keys:
     --
-    -- -   jiraId—The Jira username.
+    -- -   jiraId—The Jira user name or email.
     --
-    -- -   jiraCredentials—The Jira API token. For more information on creating
-    --     an API token in Jira, see
+    -- -   jiraCredentials—The Jira API token. For more information, see
     --     <https://docs.aws.amazon.com/kendra/latest/dg/data-source-jira.html Using a Jira data source>.
     secretArn :: Prelude.Text
   }
@@ -131,17 +129,17 @@ data JiraConfiguration = JiraConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attachmentFieldMappings', 'jiraConfiguration_attachmentFieldMappings' - A list of DataSourceToIndexFieldMapping objects that map attributes or
+-- 'attachmentFieldMappings', 'jiraConfiguration_attachmentFieldMappings' - A list of @DataSourceToIndexFieldMapping@ objects that map attributes or
 -- field names of Jira attachments to Amazon Kendra index field names. To
--- create custom fields, use the UpdateIndex API before you map to Jira
+-- create custom fields, use the @UpdateIndex@ API before you map to Jira
 -- fields. For more information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
 -- The Jira data source field names must exist in your Jira custom
 -- metadata.
 --
--- 'commentFieldMappings', 'jiraConfiguration_commentFieldMappings' - A list of DataSourceToIndexFieldMapping objects that map attributes or
+-- 'commentFieldMappings', 'jiraConfiguration_commentFieldMappings' - A list of @DataSourceToIndexFieldMapping@ objects that map attributes or
 -- field names of Jira comments to Amazon Kendra index field names. To
--- create custom fields, use the UpdateIndex API before you map to Jira
+-- create custom fields, use the @UpdateIndex@ API before you map to Jira
 -- fields. For more information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
 -- The Jira data source field names must exist in your Jira custom
@@ -161,9 +159,9 @@ data JiraConfiguration = JiraConfiguration'
 -- inclusion pattern and an exclusion pattern, the exclusion pattern takes
 -- precedence and the file isn\'t included in the index.
 --
--- 'issueFieldMappings', 'jiraConfiguration_issueFieldMappings' - A list of DataSourceToIndexFieldMapping objects that map attributes or
+-- 'issueFieldMappings', 'jiraConfiguration_issueFieldMappings' - A list of @DataSourceToIndexFieldMapping@ objects that map attributes or
 -- field names of Jira issues to Amazon Kendra index field names. To create
--- custom fields, use the UpdateIndex API before you map to Jira fields.
+-- custom fields, use the @UpdateIndex@ API before you map to Jira fields.
 -- For more information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
 -- The Jira data source field names must exist in your Jira custom
@@ -178,9 +176,9 @@ data JiraConfiguration = JiraConfiguration'
 -- 'project', 'jiraConfiguration_project' - Specify which projects to crawl in your Jira data source. You can
 -- specify one or more Jira project IDs.
 --
--- 'projectFieldMappings', 'jiraConfiguration_projectFieldMappings' - A list of DataSourceToIndexFieldMapping objects that map attributes or
+-- 'projectFieldMappings', 'jiraConfiguration_projectFieldMappings' - A list of @DataSourceToIndexFieldMapping@ objects that map attributes or
 -- field names of Jira projects to Amazon Kendra index field names. To
--- create custom fields, use the UpdateIndex API before you map to Jira
+-- create custom fields, use the @UpdateIndex@ API before you map to Jira
 -- fields. For more information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
 -- The Jira data source field names must exist in your Jira custom
@@ -195,28 +193,26 @@ data JiraConfiguration = JiraConfiguration'
 -- documents in Jira.
 --
 -- 'vpcConfiguration', 'jiraConfiguration_vpcConfiguration' - Configuration information for an Amazon Virtual Private Cloud to connect
--- to your Jira. Your Jira account must reside inside your VPC.
+-- to your Jira. For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html Configuring a VPC>.
 --
--- 'workLogFieldMappings', 'jiraConfiguration_workLogFieldMappings' - A list of DataSourceToIndexFieldMapping objects that map attributes or
+-- 'workLogFieldMappings', 'jiraConfiguration_workLogFieldMappings' - A list of @DataSourceToIndexFieldMapping@ objects that map attributes or
 -- field names of Jira work logs to Amazon Kendra index field names. To
--- create custom fields, use the UpdateIndex API before you map to Jira
+-- create custom fields, use the @UpdateIndex@ API before you map to Jira
 -- fields. For more information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
 -- The Jira data source field names must exist in your Jira custom
 -- metadata.
 --
--- 'jiraAccountUrl', 'jiraConfiguration_jiraAccountUrl' - The URL of the Jira account. For example, /company.atlassian.net/ or
--- /https:\/\/jira.company.com/. You can find your Jira account URL in the
--- URL of your profile page for Jira desktop.
+-- 'jiraAccountUrl', 'jiraConfiguration_jiraAccountUrl' - The URL of the Jira account. For example, /company.atlassian.net/.
 --
 -- 'secretArn', 'jiraConfiguration_secretArn' - The Amazon Resource Name (ARN) of a secret in Secrets Manager contains
 -- the key-value pairs required to connect to your Jira data source. The
 -- secret must contain a JSON structure with the following keys:
 --
--- -   jiraId—The Jira username.
+-- -   jiraId—The Jira user name or email.
 --
--- -   jiraCredentials—The Jira API token. For more information on creating
---     an API token in Jira, see
+-- -   jiraCredentials—The Jira API token. For more information, see
 --     <https://docs.aws.amazon.com/kendra/latest/dg/data-source-jira.html Using a Jira data source>.
 newJiraConfiguration ::
   -- | 'jiraAccountUrl'
@@ -244,9 +240,9 @@ newJiraConfiguration pJiraAccountUrl_ pSecretArn_ =
       secretArn = pSecretArn_
     }
 
--- | A list of DataSourceToIndexFieldMapping objects that map attributes or
+-- | A list of @DataSourceToIndexFieldMapping@ objects that map attributes or
 -- field names of Jira attachments to Amazon Kendra index field names. To
--- create custom fields, use the UpdateIndex API before you map to Jira
+-- create custom fields, use the @UpdateIndex@ API before you map to Jira
 -- fields. For more information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
 -- The Jira data source field names must exist in your Jira custom
@@ -254,9 +250,9 @@ newJiraConfiguration pJiraAccountUrl_ pSecretArn_ =
 jiraConfiguration_attachmentFieldMappings :: Lens.Lens' JiraConfiguration (Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping))
 jiraConfiguration_attachmentFieldMappings = Lens.lens (\JiraConfiguration' {attachmentFieldMappings} -> attachmentFieldMappings) (\s@JiraConfiguration' {} a -> s {attachmentFieldMappings = a} :: JiraConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of DataSourceToIndexFieldMapping objects that map attributes or
+-- | A list of @DataSourceToIndexFieldMapping@ objects that map attributes or
 -- field names of Jira comments to Amazon Kendra index field names. To
--- create custom fields, use the UpdateIndex API before you map to Jira
+-- create custom fields, use the @UpdateIndex@ API before you map to Jira
 -- fields. For more information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
 -- The Jira data source field names must exist in your Jira custom
@@ -282,9 +278,9 @@ jiraConfiguration_exclusionPatterns = Lens.lens (\JiraConfiguration' {exclusionP
 jiraConfiguration_inclusionPatterns :: Lens.Lens' JiraConfiguration (Prelude.Maybe [Prelude.Text])
 jiraConfiguration_inclusionPatterns = Lens.lens (\JiraConfiguration' {inclusionPatterns} -> inclusionPatterns) (\s@JiraConfiguration' {} a -> s {inclusionPatterns = a} :: JiraConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of DataSourceToIndexFieldMapping objects that map attributes or
+-- | A list of @DataSourceToIndexFieldMapping@ objects that map attributes or
 -- field names of Jira issues to Amazon Kendra index field names. To create
--- custom fields, use the UpdateIndex API before you map to Jira fields.
+-- custom fields, use the @UpdateIndex@ API before you map to Jira fields.
 -- For more information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
 -- The Jira data source field names must exist in your Jira custom
@@ -307,9 +303,9 @@ jiraConfiguration_issueType = Lens.lens (\JiraConfiguration' {issueType} -> issu
 jiraConfiguration_project :: Lens.Lens' JiraConfiguration (Prelude.Maybe [Prelude.Text])
 jiraConfiguration_project = Lens.lens (\JiraConfiguration' {project} -> project) (\s@JiraConfiguration' {} a -> s {project = a} :: JiraConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of DataSourceToIndexFieldMapping objects that map attributes or
+-- | A list of @DataSourceToIndexFieldMapping@ objects that map attributes or
 -- field names of Jira projects to Amazon Kendra index field names. To
--- create custom fields, use the UpdateIndex API before you map to Jira
+-- create custom fields, use the @UpdateIndex@ API before you map to Jira
 -- fields. For more information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
 -- The Jira data source field names must exist in your Jira custom
@@ -330,13 +326,14 @@ jiraConfiguration_useChangeLog :: Lens.Lens' JiraConfiguration (Prelude.Maybe Pr
 jiraConfiguration_useChangeLog = Lens.lens (\JiraConfiguration' {useChangeLog} -> useChangeLog) (\s@JiraConfiguration' {} a -> s {useChangeLog = a} :: JiraConfiguration)
 
 -- | Configuration information for an Amazon Virtual Private Cloud to connect
--- to your Jira. Your Jira account must reside inside your VPC.
+-- to your Jira. For more information, see
+-- <https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html Configuring a VPC>.
 jiraConfiguration_vpcConfiguration :: Lens.Lens' JiraConfiguration (Prelude.Maybe DataSourceVpcConfiguration)
 jiraConfiguration_vpcConfiguration = Lens.lens (\JiraConfiguration' {vpcConfiguration} -> vpcConfiguration) (\s@JiraConfiguration' {} a -> s {vpcConfiguration = a} :: JiraConfiguration)
 
--- | A list of DataSourceToIndexFieldMapping objects that map attributes or
+-- | A list of @DataSourceToIndexFieldMapping@ objects that map attributes or
 -- field names of Jira work logs to Amazon Kendra index field names. To
--- create custom fields, use the UpdateIndex API before you map to Jira
+-- create custom fields, use the @UpdateIndex@ API before you map to Jira
 -- fields. For more information, see
 -- <https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html Mapping data source fields>.
 -- The Jira data source field names must exist in your Jira custom
@@ -344,9 +341,7 @@ jiraConfiguration_vpcConfiguration = Lens.lens (\JiraConfiguration' {vpcConfigur
 jiraConfiguration_workLogFieldMappings :: Lens.Lens' JiraConfiguration (Prelude.Maybe (Prelude.NonEmpty DataSourceToIndexFieldMapping))
 jiraConfiguration_workLogFieldMappings = Lens.lens (\JiraConfiguration' {workLogFieldMappings} -> workLogFieldMappings) (\s@JiraConfiguration' {} a -> s {workLogFieldMappings = a} :: JiraConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | The URL of the Jira account. For example, /company.atlassian.net/ or
--- /https:\/\/jira.company.com/. You can find your Jira account URL in the
--- URL of your profile page for Jira desktop.
+-- | The URL of the Jira account. For example, /company.atlassian.net/.
 jiraConfiguration_jiraAccountUrl :: Lens.Lens' JiraConfiguration Prelude.Text
 jiraConfiguration_jiraAccountUrl = Lens.lens (\JiraConfiguration' {jiraAccountUrl} -> jiraAccountUrl) (\s@JiraConfiguration' {} a -> s {jiraAccountUrl = a} :: JiraConfiguration)
 
@@ -354,10 +349,9 @@ jiraConfiguration_jiraAccountUrl = Lens.lens (\JiraConfiguration' {jiraAccountUr
 -- the key-value pairs required to connect to your Jira data source. The
 -- secret must contain a JSON structure with the following keys:
 --
--- -   jiraId—The Jira username.
+-- -   jiraId—The Jira user name or email.
 --
--- -   jiraCredentials—The Jira API token. For more information on creating
---     an API token in Jira, see
+-- -   jiraCredentials—The Jira API token. For more information, see
 --     <https://docs.aws.amazon.com/kendra/latest/dg/data-source-jira.html Using a Jira data source>.
 jiraConfiguration_secretArn :: Lens.Lens' JiraConfiguration Prelude.Text
 jiraConfiguration_secretArn = Lens.lens (\JiraConfiguration' {secretArn} -> secretArn) (\s@JiraConfiguration' {} a -> s {secretArn = a} :: JiraConfiguration)
@@ -370,14 +364,17 @@ instance Data.FromJSON JiraConfiguration where
           JiraConfiguration'
             Prelude.<$> (x Data..:? "AttachmentFieldMappings")
             Prelude.<*> (x Data..:? "CommentFieldMappings")
-            Prelude.<*> ( x Data..:? "ExclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "ExclusionPatterns"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "InclusionPatterns"
+            Prelude.<*> ( x
+                            Data..:? "InclusionPatterns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "IssueFieldMappings")
-            Prelude.<*> ( x Data..:? "IssueSubEntityFilter"
+            Prelude.<*> ( x
+                            Data..:? "IssueSubEntityFilter"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "IssueType" Data..!= Prelude.mempty)

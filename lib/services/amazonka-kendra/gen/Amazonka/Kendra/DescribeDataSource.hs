@@ -129,7 +129,8 @@ instance Core.AWSRequest DescribeDataSource where
 
 instance Prelude.Hashable DescribeDataSource where
   hashWithSalt _salt DescribeDataSource' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` indexId
 
 instance Prelude.NFData DescribeDataSource where
@@ -172,7 +173,7 @@ data DescribeDataSourceResponse = DescribeDataSourceResponse'
     -- data source is configured. The configuration options for a data source
     -- depend on the data source provider.
     configuration :: Prelude.Maybe DataSourceConfiguration,
-    -- | The Unix timestamp of when the data source connector was created.
+    -- | The Unix timestamp when the data source connector was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | Configuration information for altering document metadata and content
     -- during the document ingestion process when you describe a data source.
@@ -210,7 +211,7 @@ data DescribeDataSourceResponse = DescribeDataSourceResponse'
     status :: Prelude.Maybe DataSourceStatus,
     -- | The type of the data source. For example, @SHAREPOINT@.
     type' :: Prelude.Maybe DataSourceType,
-    -- | The Unix timestamp of when the data source connector was last updated.
+    -- | The Unix timestamp when the data source connector was last updated.
     updatedAt :: Prelude.Maybe Data.POSIX,
     -- | Configuration information for an Amazon Virtual Private Cloud to connect
     -- to your data source. For more information, see
@@ -233,7 +234,7 @@ data DescribeDataSourceResponse = DescribeDataSourceResponse'
 -- data source is configured. The configuration options for a data source
 -- depend on the data source provider.
 --
--- 'createdAt', 'describeDataSourceResponse_createdAt' - The Unix timestamp of when the data source connector was created.
+-- 'createdAt', 'describeDataSourceResponse_createdAt' - The Unix timestamp when the data source connector was created.
 --
 -- 'customDocumentEnrichmentConfiguration', 'describeDataSourceResponse_customDocumentEnrichmentConfiguration' - Configuration information for altering document metadata and content
 -- during the document ingestion process when you describe a data source.
@@ -271,7 +272,7 @@ data DescribeDataSourceResponse = DescribeDataSourceResponse'
 --
 -- 'type'', 'describeDataSourceResponse_type' - The type of the data source. For example, @SHAREPOINT@.
 --
--- 'updatedAt', 'describeDataSourceResponse_updatedAt' - The Unix timestamp of when the data source connector was last updated.
+-- 'updatedAt', 'describeDataSourceResponse_updatedAt' - The Unix timestamp when the data source connector was last updated.
 --
 -- 'vpcConfiguration', 'describeDataSourceResponse_vpcConfiguration' - Configuration information for an Amazon Virtual Private Cloud to connect
 -- to your data source. For more information, see
@@ -310,7 +311,7 @@ newDescribeDataSourceResponse pHttpStatus_ =
 describeDataSourceResponse_configuration :: Lens.Lens' DescribeDataSourceResponse (Prelude.Maybe DataSourceConfiguration)
 describeDataSourceResponse_configuration = Lens.lens (\DescribeDataSourceResponse' {configuration} -> configuration) (\s@DescribeDataSourceResponse' {} a -> s {configuration = a} :: DescribeDataSourceResponse)
 
--- | The Unix timestamp of when the data source connector was created.
+-- | The Unix timestamp when the data source connector was created.
 describeDataSourceResponse_createdAt :: Lens.Lens' DescribeDataSourceResponse (Prelude.Maybe Prelude.UTCTime)
 describeDataSourceResponse_createdAt = Lens.lens (\DescribeDataSourceResponse' {createdAt} -> createdAt) (\s@DescribeDataSourceResponse' {} a -> s {createdAt = a} :: DescribeDataSourceResponse) Prelude.. Lens.mapping Data._Time
 
@@ -372,7 +373,7 @@ describeDataSourceResponse_status = Lens.lens (\DescribeDataSourceResponse' {sta
 describeDataSourceResponse_type :: Lens.Lens' DescribeDataSourceResponse (Prelude.Maybe DataSourceType)
 describeDataSourceResponse_type = Lens.lens (\DescribeDataSourceResponse' {type'} -> type') (\s@DescribeDataSourceResponse' {} a -> s {type' = a} :: DescribeDataSourceResponse)
 
--- | The Unix timestamp of when the data source connector was last updated.
+-- | The Unix timestamp when the data source connector was last updated.
 describeDataSourceResponse_updatedAt :: Lens.Lens' DescribeDataSourceResponse (Prelude.Maybe Prelude.UTCTime)
 describeDataSourceResponse_updatedAt = Lens.lens (\DescribeDataSourceResponse' {updatedAt} -> updatedAt) (\s@DescribeDataSourceResponse' {} a -> s {updatedAt = a} :: DescribeDataSourceResponse) Prelude.. Lens.mapping Data._Time
 

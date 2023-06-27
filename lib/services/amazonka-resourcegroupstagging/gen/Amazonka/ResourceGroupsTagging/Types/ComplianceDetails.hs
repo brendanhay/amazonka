@@ -86,17 +86,20 @@ instance Data.FromJSON ComplianceDetails where
       ( \x ->
           ComplianceDetails'
             Prelude.<$> (x Data..:? "ComplianceStatus")
-            Prelude.<*> ( x Data..:? "KeysWithNoncompliantValues"
+            Prelude.<*> ( x
+                            Data..:? "KeysWithNoncompliantValues"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NoncompliantKeys"
+            Prelude.<*> ( x
+                            Data..:? "NoncompliantKeys"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ComplianceDetails where
   hashWithSalt _salt ComplianceDetails' {..} =
-    _salt `Prelude.hashWithSalt` complianceStatus
+    _salt
+      `Prelude.hashWithSalt` complianceStatus
       `Prelude.hashWithSalt` keysWithNoncompliantValues
       `Prelude.hashWithSalt` noncompliantKeys
 

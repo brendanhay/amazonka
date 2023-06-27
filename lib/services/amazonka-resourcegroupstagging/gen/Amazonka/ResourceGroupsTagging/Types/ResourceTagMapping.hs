@@ -94,7 +94,8 @@ instance Data.FromJSON ResourceTagMapping where
 
 instance Prelude.Hashable ResourceTagMapping where
   hashWithSalt _salt ResourceTagMapping' {..} =
-    _salt `Prelude.hashWithSalt` complianceDetails
+    _salt
+      `Prelude.hashWithSalt` complianceDetails
       `Prelude.hashWithSalt` resourceARN
       `Prelude.hashWithSalt` tags
 

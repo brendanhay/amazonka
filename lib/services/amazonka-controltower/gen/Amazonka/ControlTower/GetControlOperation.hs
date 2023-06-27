@@ -168,7 +168,6 @@ newGetControlOperationResponse
 getControlOperationResponse_httpStatus :: Lens.Lens' GetControlOperationResponse Prelude.Int
 getControlOperationResponse_httpStatus = Lens.lens (\GetControlOperationResponse' {httpStatus} -> httpStatus) (\s@GetControlOperationResponse' {} a -> s {httpStatus = a} :: GetControlOperationResponse)
 
--- |
 getControlOperationResponse_controlOperation :: Lens.Lens' GetControlOperationResponse ControlOperation
 getControlOperationResponse_controlOperation = Lens.lens (\GetControlOperationResponse' {controlOperation} -> controlOperation) (\s@GetControlOperationResponse' {} a -> s {controlOperation = a} :: GetControlOperationResponse)
 

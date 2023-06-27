@@ -108,21 +108,21 @@ instance Core.AWSPager ListEnabledControls where
     | Core.stop
         ( rs
             Lens.^? listEnabledControlsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listEnabledControlsResponse_enabledControls
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listEnabledControls_nextToken
           Lens..~ rs
           Lens.^? listEnabledControlsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEnabledControls where
   type
@@ -136,14 +136,16 @@ instance Core.AWSRequest ListEnabledControls where
           ListEnabledControlsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "enabledControls"
+            Prelude.<*> ( x
+                            Data..?> "enabledControls"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListEnabledControls where
   hashWithSalt _salt ListEnabledControls' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` targetIdentifier
 

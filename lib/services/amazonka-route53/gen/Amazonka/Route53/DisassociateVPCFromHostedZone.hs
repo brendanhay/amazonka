@@ -169,7 +169,8 @@ instance
     DisassociateVPCFromHostedZone
   where
   hashWithSalt _salt DisassociateVPCFromHostedZone' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` vpc
 

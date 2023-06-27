@@ -993,7 +993,8 @@ instance Core.AWSRequest UpdateHealthCheck where
 
 instance Prelude.Hashable UpdateHealthCheck where
   hashWithSalt _salt UpdateHealthCheck' {..} =
-    _salt `Prelude.hashWithSalt` alarmIdentifier
+    _salt
+      `Prelude.hashWithSalt` alarmIdentifier
       `Prelude.hashWithSalt` childHealthChecks
       `Prelude.hashWithSalt` disabled
       `Prelude.hashWithSalt` enableSNI

@@ -155,7 +155,8 @@ instance Data.FromXML HostedZone where
 
 instance Prelude.Hashable HostedZone where
   hashWithSalt _salt HostedZone' {..} =
-    _salt `Prelude.hashWithSalt` config
+    _salt
+      `Prelude.hashWithSalt` config
       `Prelude.hashWithSalt` linkedService
       `Prelude.hashWithSalt` resourceRecordSetCount
       `Prelude.hashWithSalt` id

@@ -177,7 +177,8 @@ instance Core.AWSRequest ChangeCidrCollection where
 
 instance Prelude.Hashable ChangeCidrCollection where
   hashWithSalt _salt ChangeCidrCollection' {..} =
-    _salt `Prelude.hashWithSalt` collectionVersion
+    _salt
+      `Prelude.hashWithSalt` collectionVersion
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` changes
 

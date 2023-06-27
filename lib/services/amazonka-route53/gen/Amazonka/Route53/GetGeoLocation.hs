@@ -29,17 +29,17 @@
 -- Use the following syntax to determine whether a continent is supported
 -- for geolocation:
 --
--- @GET \/2013-04-01\/geolocation?continentcode=two-letter abbreviation for a continent @
+-- @GET \/2013-04-01\/geolocation?continentcode=@/@two-letter abbreviation for a continent@/@ @
 --
 -- Use the following syntax to determine whether a country is supported for
 -- geolocation:
 --
--- @GET \/2013-04-01\/geolocation?countrycode=two-character country code @
+-- @GET \/2013-04-01\/geolocation?countrycode=@/@two-character country code@/@ @
 --
 -- Use the following syntax to determine whether a subdivision of a country
 -- is supported for geolocation:
 --
--- @GET \/2013-04-01\/geolocation?countrycode=two-character country code&subdivisioncode=subdivision code @
+-- @GET \/2013-04-01\/geolocation?countrycode=@/@two-character country code@/@&subdivisioncode=@/@subdivision code@/@ @
 module Amazonka.Route53.GetGeoLocation
   ( -- * Creating a Request
     GetGeoLocation (..),
@@ -201,7 +201,8 @@ instance Core.AWSRequest GetGeoLocation where
 
 instance Prelude.Hashable GetGeoLocation where
   hashWithSalt _salt GetGeoLocation' {..} =
-    _salt `Prelude.hashWithSalt` continentCode
+    _salt
+      `Prelude.hashWithSalt` continentCode
       `Prelude.hashWithSalt` countryCode
       `Prelude.hashWithSalt` subdivisionCode
 

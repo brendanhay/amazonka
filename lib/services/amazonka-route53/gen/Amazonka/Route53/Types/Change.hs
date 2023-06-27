@@ -125,7 +125,8 @@ change_resourceRecordSet = Lens.lens (\Change' {resourceRecordSet} -> resourceRe
 
 instance Prelude.Hashable Change where
   hashWithSalt _salt Change' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` resourceRecordSet
 
 instance Prelude.NFData Change where

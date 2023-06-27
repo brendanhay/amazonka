@@ -30,6 +30,7 @@ module Amazonka.Route53.Types.CloudWatchRegion
         CloudWatchRegion_Ap_southeast_1,
         CloudWatchRegion_Ap_southeast_2,
         CloudWatchRegion_Ap_southeast_3,
+        CloudWatchRegion_Ap_southeast_4,
         CloudWatchRegion_Ca_central_1,
         CloudWatchRegion_Cn_north_1,
         CloudWatchRegion_Cn_northwest_1,
@@ -120,6 +121,9 @@ pattern CloudWatchRegion_Ap_southeast_2 = CloudWatchRegion' "ap-southeast-2"
 pattern CloudWatchRegion_Ap_southeast_3 :: CloudWatchRegion
 pattern CloudWatchRegion_Ap_southeast_3 = CloudWatchRegion' "ap-southeast-3"
 
+pattern CloudWatchRegion_Ap_southeast_4 :: CloudWatchRegion
+pattern CloudWatchRegion_Ap_southeast_4 = CloudWatchRegion' "ap-southeast-4"
+
 pattern CloudWatchRegion_Ca_central_1 :: CloudWatchRegion
 pattern CloudWatchRegion_Ca_central_1 = CloudWatchRegion' "ca-central-1"
 
@@ -200,6 +204,7 @@ pattern CloudWatchRegion_Us_west_2 = CloudWatchRegion' "us-west-2"
   CloudWatchRegion_Ap_southeast_1,
   CloudWatchRegion_Ap_southeast_2,
   CloudWatchRegion_Ap_southeast_3,
+  CloudWatchRegion_Ap_southeast_4,
   CloudWatchRegion_Ca_central_1,
   CloudWatchRegion_Cn_north_1,
   CloudWatchRegion_Cn_northwest_1,

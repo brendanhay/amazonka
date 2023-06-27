@@ -78,11 +78,13 @@ reusableDelegationSetLimit_value = Lens.lens (\ReusableDelegationSetLimit' {valu
 instance Data.FromXML ReusableDelegationSetLimit where
   parseXML x =
     ReusableDelegationSetLimit'
-      Prelude.<$> (x Data..@ "Type") Prelude.<*> (x Data..@ "Value")
+      Prelude.<$> (x Data..@ "Type")
+      Prelude.<*> (x Data..@ "Value")
 
 instance Prelude.Hashable ReusableDelegationSetLimit where
   hashWithSalt _salt ReusableDelegationSetLimit' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ReusableDelegationSetLimit where

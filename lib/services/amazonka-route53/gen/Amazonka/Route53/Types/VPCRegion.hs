@@ -30,6 +30,7 @@ module Amazonka.Route53.Types.VPCRegion
         VPCRegion_Ap_southeast_1,
         VPCRegion_Ap_southeast_2,
         VPCRegion_Ap_southeast_3,
+        VPCRegion_Ap_southeast_4,
         VPCRegion_Ca_central_1,
         VPCRegion_Cn_north_1,
         VPCRegion_Eu_central_1,
@@ -119,6 +120,9 @@ pattern VPCRegion_Ap_southeast_2 = VPCRegion' "ap-southeast-2"
 pattern VPCRegion_Ap_southeast_3 :: VPCRegion
 pattern VPCRegion_Ap_southeast_3 = VPCRegion' "ap-southeast-3"
 
+pattern VPCRegion_Ap_southeast_4 :: VPCRegion
+pattern VPCRegion_Ap_southeast_4 = VPCRegion' "ap-southeast-4"
+
 pattern VPCRegion_Ca_central_1 :: VPCRegion
 pattern VPCRegion_Ca_central_1 = VPCRegion' "ca-central-1"
 
@@ -196,6 +200,7 @@ pattern VPCRegion_Us_west_2 = VPCRegion' "us-west-2"
   VPCRegion_Ap_southeast_1,
   VPCRegion_Ap_southeast_2,
   VPCRegion_Ap_southeast_3,
+  VPCRegion_Ap_southeast_4,
   VPCRegion_Ca_central_1,
   VPCRegion_Cn_north_1,
   VPCRegion_Eu_central_1,

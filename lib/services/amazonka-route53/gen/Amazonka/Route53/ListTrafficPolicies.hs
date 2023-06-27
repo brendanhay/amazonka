@@ -147,7 +147,8 @@ instance Core.AWSRequest ListTrafficPolicies where
       ( \s h x ->
           ListTrafficPoliciesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "TrafficPolicySummaries"
+            Prelude.<*> ( x
+                            Data..@? "TrafficPolicySummaries"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "TrafficPolicySummary"
                         )
@@ -158,7 +159,8 @@ instance Core.AWSRequest ListTrafficPolicies where
 
 instance Prelude.Hashable ListTrafficPolicies where
   hashWithSalt _salt ListTrafficPolicies' {..} =
-    _salt `Prelude.hashWithSalt` maxItems
+    _salt
+      `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` trafficPolicyIdMarker
 
 instance Prelude.NFData ListTrafficPolicies where

@@ -106,7 +106,8 @@ instance Core.AWSRequest DeactivateKeySigningKey where
 
 instance Prelude.Hashable DeactivateKeySigningKey where
   hashWithSalt _salt DeactivateKeySigningKey' {..} =
-    _salt `Prelude.hashWithSalt` hostedZoneId
+    _salt
+      `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeactivateKeySigningKey where

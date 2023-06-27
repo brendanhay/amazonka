@@ -160,7 +160,9 @@ instance Core.AWSRequest ListTrafficPolicyVersions where
       ( \s h x ->
           ListTrafficPolicyVersionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "TrafficPolicies" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "TrafficPolicies"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "TrafficPolicy"
                         )
             Prelude.<*> (x Data..@ "IsTruncated")
@@ -170,7 +172,8 @@ instance Core.AWSRequest ListTrafficPolicyVersions where
 
 instance Prelude.Hashable ListTrafficPolicyVersions where
   hashWithSalt _salt ListTrafficPolicyVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxItems
+    _salt
+      `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` trafficPolicyVersionMarker
       `Prelude.hashWithSalt` id
 

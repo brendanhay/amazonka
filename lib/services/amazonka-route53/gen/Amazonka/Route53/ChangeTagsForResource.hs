@@ -162,7 +162,8 @@ instance Core.AWSRequest ChangeTagsForResource where
 
 instance Prelude.Hashable ChangeTagsForResource where
   hashWithSalt _salt ChangeTagsForResource' {..} =
-    _salt `Prelude.hashWithSalt` addTags
+    _salt
+      `Prelude.hashWithSalt` addTags
       `Prelude.hashWithSalt` removeTagKeys
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resourceId

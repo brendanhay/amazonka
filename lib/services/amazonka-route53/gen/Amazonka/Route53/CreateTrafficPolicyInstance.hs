@@ -178,7 +178,8 @@ instance Core.AWSRequest CreateTrafficPolicyInstance where
 
 instance Prelude.Hashable CreateTrafficPolicyInstance where
   hashWithSalt _salt CreateTrafficPolicyInstance' {..} =
-    _salt `Prelude.hashWithSalt` hostedZoneId
+    _salt
+      `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ttl
       `Prelude.hashWithSalt` trafficPolicyId

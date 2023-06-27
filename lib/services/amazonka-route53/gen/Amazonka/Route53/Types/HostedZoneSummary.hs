@@ -101,7 +101,8 @@ instance Data.FromXML HostedZoneSummary where
 
 instance Prelude.Hashable HostedZoneSummary where
   hashWithSalt _salt HostedZoneSummary' {..} =
-    _salt `Prelude.hashWithSalt` hostedZoneId
+    _salt
+      `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` owner
 

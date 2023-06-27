@@ -105,22 +105,22 @@ instance Core.AWSPager ListCidrCollections where
     | Core.stop
         ( rs
             Lens.^? listCidrCollectionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCidrCollectionsResponse_cidrCollections
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCidrCollections_nextToken
           Lens..~ rs
           Lens.^? listCidrCollectionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCidrCollections where
   type
@@ -132,7 +132,9 @@ instance Core.AWSRequest ListCidrCollections where
     Response.receiveXML
       ( \s h x ->
           ListCidrCollectionsResponse'
-            Prelude.<$> ( x Data..@? "CidrCollections" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "CidrCollections"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")
@@ -141,7 +143,8 @@ instance Core.AWSRequest ListCidrCollections where
 
 instance Prelude.Hashable ListCidrCollections where
   hashWithSalt _salt ListCidrCollections' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCidrCollections where

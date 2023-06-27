@@ -203,7 +203,8 @@ instance Core.AWSRequest ChangeResourceRecordSets where
 
 instance Prelude.Hashable ChangeResourceRecordSets where
   hashWithSalt _salt ChangeResourceRecordSets' {..} =
-    _salt `Prelude.hashWithSalt` hostedZoneId
+    _salt
+      `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` changeBatch
 
 instance Prelude.NFData ChangeResourceRecordSets where

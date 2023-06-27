@@ -139,7 +139,8 @@ instance Core.AWSRequest CreateTrafficPolicyVersion where
 
 instance Prelude.Hashable CreateTrafficPolicyVersion where
   hashWithSalt _salt CreateTrafficPolicyVersion' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` document
 

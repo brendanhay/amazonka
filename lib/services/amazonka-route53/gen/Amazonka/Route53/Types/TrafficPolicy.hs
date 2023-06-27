@@ -148,7 +148,8 @@ instance Data.FromXML TrafficPolicy where
 
 instance Prelude.Hashable TrafficPolicy where
   hashWithSalt _salt TrafficPolicy' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` name

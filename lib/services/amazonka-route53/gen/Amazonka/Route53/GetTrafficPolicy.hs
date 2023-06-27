@@ -110,7 +110,8 @@ instance Core.AWSRequest GetTrafficPolicy where
 
 instance Prelude.Hashable GetTrafficPolicy where
   hashWithSalt _salt GetTrafficPolicy' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData GetTrafficPolicy where

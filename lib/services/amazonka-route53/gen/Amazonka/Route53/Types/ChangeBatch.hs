@@ -71,7 +71,8 @@ changeBatch_changes = Lens.lens (\ChangeBatch' {changes} -> changes) (\s@ChangeB
 
 instance Prelude.Hashable ChangeBatch where
   hashWithSalt _salt ChangeBatch' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` changes
 
 instance Prelude.NFData ChangeBatch where

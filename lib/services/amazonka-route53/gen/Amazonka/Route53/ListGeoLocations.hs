@@ -207,7 +207,8 @@ instance Core.AWSRequest ListGeoLocations where
             Prelude.<*> (x Data..@? "NextCountryCode")
             Prelude.<*> (x Data..@? "NextSubdivisionCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "GeoLocationDetailsList"
+            Prelude.<*> ( x
+                            Data..@? "GeoLocationDetailsList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "GeoLocationDetails"
                         )
@@ -217,7 +218,8 @@ instance Core.AWSRequest ListGeoLocations where
 
 instance Prelude.Hashable ListGeoLocations where
   hashWithSalt _salt ListGeoLocations' {..} =
-    _salt `Prelude.hashWithSalt` maxItems
+    _salt
+      `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` startContinentCode
       `Prelude.hashWithSalt` startCountryCode
       `Prelude.hashWithSalt` startSubdivisionCode

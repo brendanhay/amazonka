@@ -86,13 +86,16 @@ instance Data.FromXML DelegationSet where
     DelegationSet'
       Prelude.<$> (x Data..@? "CallerReference")
       Prelude.<*> (x Data..@? "Id")
-      Prelude.<*> ( x Data..@? "NameServers" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "NameServers"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList1 "NameServer"
                   )
 
 instance Prelude.Hashable DelegationSet where
   hashWithSalt _salt DelegationSet' {..} =
-    _salt `Prelude.hashWithSalt` callerReference
+    _salt
+      `Prelude.hashWithSalt` callerReference
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` nameServers
 

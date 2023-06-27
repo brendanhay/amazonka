@@ -437,7 +437,8 @@ instance Data.FromXML KeySigningKey where
 
 instance Prelude.Hashable KeySigningKey where
   hashWithSalt _salt KeySigningKey' {..} =
-    _salt `Prelude.hashWithSalt` createdDate
+    _salt
+      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` dNSKEYRecord
       `Prelude.hashWithSalt` dSRecord
       `Prelude.hashWithSalt` digestAlgorithmMnemonic

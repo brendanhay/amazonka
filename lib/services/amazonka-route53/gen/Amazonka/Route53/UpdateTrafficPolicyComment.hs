@@ -128,7 +128,8 @@ instance Core.AWSRequest UpdateTrafficPolicyComment where
 
 instance Prelude.Hashable UpdateTrafficPolicyComment where
   hashWithSalt _salt UpdateTrafficPolicyComment' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` comment
 

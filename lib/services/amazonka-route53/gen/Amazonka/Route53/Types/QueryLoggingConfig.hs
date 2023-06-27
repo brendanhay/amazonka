@@ -95,7 +95,8 @@ instance Data.FromXML QueryLoggingConfig where
 
 instance Prelude.Hashable QueryLoggingConfig where
   hashWithSalt _salt QueryLoggingConfig' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` cloudWatchLogsLogGroupArn
 

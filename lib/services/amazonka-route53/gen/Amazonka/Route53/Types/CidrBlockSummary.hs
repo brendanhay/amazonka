@@ -71,7 +71,8 @@ instance Data.FromXML CidrBlockSummary where
 
 instance Prelude.Hashable CidrBlockSummary where
   hashWithSalt _salt CidrBlockSummary' {..} =
-    _salt `Prelude.hashWithSalt` cidrBlock
+    _salt
+      `Prelude.hashWithSalt` cidrBlock
       `Prelude.hashWithSalt` locationName
 
 instance Prelude.NFData CidrBlockSummary where

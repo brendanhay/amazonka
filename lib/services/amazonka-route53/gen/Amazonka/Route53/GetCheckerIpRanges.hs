@@ -78,7 +78,9 @@ instance Core.AWSRequest GetCheckerIpRanges where
       ( \s h x ->
           GetCheckerIpRangesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "CheckerIpRanges" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "CheckerIpRanges"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )

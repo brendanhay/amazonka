@@ -131,22 +131,22 @@ instance Core.AWSPager ListUserAssociations where
     | Core.stop
         ( rs
             Lens.^? listUserAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listUserAssociationsResponse_instanceUserSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listUserAssociations_nextToken
           Lens..~ rs
           Lens.^? listUserAssociationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUserAssociations where
   type
@@ -158,7 +158,8 @@ instance Core.AWSRequest ListUserAssociations where
     Response.receiveJSON
       ( \s h x ->
           ListUserAssociationsResponse'
-            Prelude.<$> ( x Data..?> "InstanceUserSummaries"
+            Prelude.<$> ( x
+                            Data..?> "InstanceUserSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -167,7 +168,8 @@ instance Core.AWSRequest ListUserAssociations where
 
 instance Prelude.Hashable ListUserAssociations where
   hashWithSalt _salt ListUserAssociations' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` identityProvider

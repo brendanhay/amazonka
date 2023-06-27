@@ -125,7 +125,8 @@ instance Data.FromJSON IdentityProviderSummary where
 
 instance Prelude.Hashable IdentityProviderSummary where
   hashWithSalt _salt IdentityProviderSummary' {..} =
-    _salt `Prelude.hashWithSalt` failureMessage
+    _salt
+      `Prelude.hashWithSalt` failureMessage
       `Prelude.hashWithSalt` identityProvider
       `Prelude.hashWithSalt` product
       `Prelude.hashWithSalt` settings

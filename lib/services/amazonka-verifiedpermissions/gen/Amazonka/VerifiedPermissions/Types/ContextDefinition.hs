@@ -1,0 +1,93 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.VerifiedPermissions.Types.ContextDefinition
+-- Copyright   : (c) 2013-2023 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Amazonka.VerifiedPermissions.Types.ContextDefinition where
+
+import qualified Amazonka.Core as Core
+import qualified Amazonka.Core.Lens.Internal as Lens
+import qualified Amazonka.Data as Data
+import qualified Amazonka.Prelude as Prelude
+import Amazonka.VerifiedPermissions.Types.AttributeValue
+
+-- | Contains additional details about the context of the request. Verified
+-- Permissions evaluates this information in an authorization request as
+-- part of the @when@ and @unless@ clauses in a policy.
+--
+-- This data type is used as a request parameter for the
+-- <https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html IsAuthorized>
+-- and
+-- <https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html IsAuthorizedWithToken>
+-- operations.
+--
+-- Example:
+-- @\"context\":{\"Context\":{\"\<KeyName1>\":{\"boolean\":true},\"\<KeyName2>\":{\"long\":1234}}}@
+--
+-- /See:/ 'newContextDefinition' smart constructor.
+data ContextDefinition = ContextDefinition'
+  { -- | An list of attributes that are needed to successfully evaluate an
+    -- authorization request. Each attribute in this array must include a map
+    -- of a data type and its value.
+    --
+    -- Example:
+    -- @\"Context\":{\"\<KeyName1>\":{\"boolean\":true},\"\<KeyName2>\":{\"long\":1234}}@
+    contextMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue)
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'ContextDefinition' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'contextMap', 'contextDefinition_contextMap' - An list of attributes that are needed to successfully evaluate an
+-- authorization request. Each attribute in this array must include a map
+-- of a data type and its value.
+--
+-- Example:
+-- @\"Context\":{\"\<KeyName1>\":{\"boolean\":true},\"\<KeyName2>\":{\"long\":1234}}@
+newContextDefinition ::
+  ContextDefinition
+newContextDefinition =
+  ContextDefinition' {contextMap = Prelude.Nothing}
+
+-- | An list of attributes that are needed to successfully evaluate an
+-- authorization request. Each attribute in this array must include a map
+-- of a data type and its value.
+--
+-- Example:
+-- @\"Context\":{\"\<KeyName1>\":{\"boolean\":true},\"\<KeyName2>\":{\"long\":1234}}@
+contextDefinition_contextMap :: Lens.Lens' ContextDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+contextDefinition_contextMap = Lens.lens (\ContextDefinition' {contextMap} -> contextMap) (\s@ContextDefinition' {} a -> s {contextMap = a} :: ContextDefinition) Prelude.. Lens.mapping Lens.coerced
+
+instance Prelude.Hashable ContextDefinition where
+  hashWithSalt _salt ContextDefinition' {..} =
+    _salt `Prelude.hashWithSalt` contextMap
+
+instance Prelude.NFData ContextDefinition where
+  rnf ContextDefinition' {..} = Prelude.rnf contextMap
+
+instance Data.ToJSON ContextDefinition where
+  toJSON ContextDefinition' {..} =
+    Data.object
+      ( Prelude.catMaybes
+          [("contextMap" Data..=) Prelude.<$> contextMap]
+      )

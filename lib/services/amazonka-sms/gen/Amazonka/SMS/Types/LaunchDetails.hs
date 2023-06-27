@@ -84,7 +84,8 @@ instance Data.FromJSON LaunchDetails where
 
 instance Prelude.Hashable LaunchDetails where
   hashWithSalt _salt LaunchDetails' {..} =
-    _salt `Prelude.hashWithSalt` latestLaunchTime
+    _salt
+      `Prelude.hashWithSalt` latestLaunchTime
       `Prelude.hashWithSalt` stackId
       `Prelude.hashWithSalt` stackName
 

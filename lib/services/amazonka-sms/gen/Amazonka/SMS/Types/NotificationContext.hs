@@ -74,7 +74,8 @@ notificationContext_validationId = Lens.lens (\NotificationContext' {validationI
 
 instance Prelude.Hashable NotificationContext where
   hashWithSalt _salt NotificationContext' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` validationId
 

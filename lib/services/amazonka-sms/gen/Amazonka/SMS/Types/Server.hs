@@ -106,7 +106,8 @@ instance Data.FromJSON Server where
 
 instance Prelude.Hashable Server where
   hashWithSalt _salt Server' {..} =
-    _salt `Prelude.hashWithSalt` replicationJobId
+    _salt
+      `Prelude.hashWithSalt` replicationJobId
       `Prelude.hashWithSalt` replicationJobTerminated
       `Prelude.hashWithSalt` serverId
       `Prelude.hashWithSalt` serverType

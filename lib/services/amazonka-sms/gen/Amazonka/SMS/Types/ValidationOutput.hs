@@ -128,7 +128,8 @@ instance Data.FromJSON ValidationOutput where
 
 instance Prelude.Hashable ValidationOutput where
   hashWithSalt _salt ValidationOutput' {..} =
-    _salt `Prelude.hashWithSalt` appValidationOutput
+    _salt
+      `Prelude.hashWithSalt` appValidationOutput
       `Prelude.hashWithSalt` latestValidationTime
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` serverValidationOutput

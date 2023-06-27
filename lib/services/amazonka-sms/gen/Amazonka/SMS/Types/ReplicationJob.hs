@@ -271,7 +271,8 @@ instance Data.FromJSON ReplicationJob where
             Prelude.<*> (x Data..:? "nextReplicationRunStartTime")
             Prelude.<*> (x Data..:? "numberOfRecentAmisToKeep")
             Prelude.<*> (x Data..:? "replicationJobId")
-            Prelude.<*> ( x Data..:? "replicationRunList"
+            Prelude.<*> ( x
+                            Data..:? "replicationRunList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "roleName")
@@ -286,7 +287,8 @@ instance Data.FromJSON ReplicationJob where
 
 instance Prelude.Hashable ReplicationJob where
   hashWithSalt _salt ReplicationJob' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` frequency
       `Prelude.hashWithSalt` kmsKeyId

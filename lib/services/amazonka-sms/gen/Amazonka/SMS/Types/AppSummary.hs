@@ -253,7 +253,8 @@ instance Data.FromJSON AppSummary where
 
 instance Prelude.Hashable AppSummary where
   hashWithSalt _salt AppSummary' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` importedAppId

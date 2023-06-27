@@ -106,7 +106,8 @@ instance Data.FromJSON VmServer where
 
 instance Prelude.Hashable VmServer where
   hashWithSalt _salt VmServer' {..} =
-    _salt `Prelude.hashWithSalt` vmManagerName
+    _salt
+      `Prelude.hashWithSalt` vmManagerName
       `Prelude.hashWithSalt` vmManagerType
       `Prelude.hashWithSalt` vmName
       `Prelude.hashWithSalt` vmPath

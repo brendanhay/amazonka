@@ -165,7 +165,8 @@ instance Data.FromJSON ServerReplicationParameters where
 
 instance Prelude.Hashable ServerReplicationParameters where
   hashWithSalt _salt ServerReplicationParameters' {..} =
-    _salt `Prelude.hashWithSalt` encrypted
+    _salt
+      `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` frequency
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` licenseType

@@ -74,7 +74,8 @@ instance Data.FromJSON VmServerAddress where
 
 instance Prelude.Hashable VmServerAddress where
   hashWithSalt _salt VmServerAddress' {..} =
-    _salt `Prelude.hashWithSalt` vmId
+    _salt
+      `Prelude.hashWithSalt` vmId
       `Prelude.hashWithSalt` vmManagerId
 
 instance Prelude.NFData VmServerAddress where

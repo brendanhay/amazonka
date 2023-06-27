@@ -97,21 +97,23 @@ instance Core.AWSPager GetConnectors where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getConnectorsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getConnectorsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getConnectorsResponse_connectorList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getConnectors_nextToken
           Lens..~ rs
-          Lens.^? getConnectorsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getConnectorsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetConnectors where
   type
@@ -130,7 +132,8 @@ instance Core.AWSRequest GetConnectors where
 
 instance Prelude.Hashable GetConnectors where
   hashWithSalt _salt GetConnectors' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData GetConnectors where

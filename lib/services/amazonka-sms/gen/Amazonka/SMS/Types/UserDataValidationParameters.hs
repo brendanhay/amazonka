@@ -80,7 +80,8 @@ instance
     UserDataValidationParameters
   where
   hashWithSalt _salt UserDataValidationParameters' {..} =
-    _salt `Prelude.hashWithSalt` scriptType
+    _salt
+      `Prelude.hashWithSalt` scriptType
       `Prelude.hashWithSalt` source
 
 instance Prelude.NFData UserDataValidationParameters where

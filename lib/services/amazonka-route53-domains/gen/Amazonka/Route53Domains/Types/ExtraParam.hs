@@ -315,23 +315,6 @@ data ExtraParam = ExtraParam'
     --
     --         -   @TOWNSHIP@
     --
-    -- [.fr]
-    --     -   @BIRTH_CITY@
-    --
-    --     -   @BIRTH_COUNTRY@
-    --
-    --     -   @BIRTH_DATE_IN_YYYY_MM_DD@
-    --
-    --     -   @BIRTH_DEPARTMENT@: Specify the INSEE code that corresponds with
-    --         the department where the contact was born. If the contact was
-    --         born somewhere other than France or its overseas departments,
-    --         specify @99@. For more information, including a list of
-    --         departments and the corresponding INSEE numbers, see the
-    --         Wikipedia entry
-    --         <https://en.wikipedia.org/wiki/Departments_of_France Departments of France>.
-    --
-    --     -   @BRAND_NUMBER@
-    --
     -- [.it]
     --     -   @IT_NATIONALITY@
     --
@@ -708,23 +691,6 @@ data ExtraParam = ExtraParam'
 --         -   @PUBLIC_COMMUNITY@
 --
 --         -   @TOWNSHIP@
---
--- [.fr]
---     -   @BIRTH_CITY@
---
---     -   @BIRTH_COUNTRY@
---
---     -   @BIRTH_DATE_IN_YYYY_MM_DD@
---
---     -   @BIRTH_DEPARTMENT@: Specify the INSEE code that corresponds with
---         the department where the contact was born. If the contact was
---         born somewhere other than France or its overseas departments,
---         specify @99@. For more information, including a list of
---         departments and the corresponding INSEE numbers, see the
---         Wikipedia entry
---         <https://en.wikipedia.org/wiki/Departments_of_France Departments of France>.
---
---     -   @BRAND_NUMBER@
 --
 -- [.it]
 --     -   @IT_NATIONALITY@
@@ -1103,23 +1069,6 @@ newExtraParam pName_ pValue_ =
 --
 --         -   @TOWNSHIP@
 --
--- [.fr]
---     -   @BIRTH_CITY@
---
---     -   @BIRTH_COUNTRY@
---
---     -   @BIRTH_DATE_IN_YYYY_MM_DD@
---
---     -   @BIRTH_DEPARTMENT@: Specify the INSEE code that corresponds with
---         the department where the contact was born. If the contact was
---         born somewhere other than France or its overseas departments,
---         specify @99@. For more information, including a list of
---         departments and the corresponding INSEE numbers, see the
---         Wikipedia entry
---         <https://en.wikipedia.org/wiki/Departments_of_France Departments of France>.
---
---     -   @BRAND_NUMBER@
---
 -- [.it]
 --     -   @IT_NATIONALITY@
 --
@@ -1210,12 +1159,14 @@ instance Data.FromJSON ExtraParam where
       "ExtraParam"
       ( \x ->
           ExtraParam'
-            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable ExtraParam where
   hashWithSalt _salt ExtraParam' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ExtraParam where

@@ -145,7 +145,8 @@ instance Core.AWSRequest RenewDomain where
 
 instance Prelude.Hashable RenewDomain where
   hashWithSalt _salt RenewDomain' {..} =
-    _salt `Prelude.hashWithSalt` durationInYears
+    _salt
+      `Prelude.hashWithSalt` durationInYears
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` currentExpiryYear
 

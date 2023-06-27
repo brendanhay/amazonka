@@ -178,22 +178,22 @@ instance Core.AWSPager ListOperations where
     | Core.stop
         ( rs
             Lens.^? listOperationsResponse_nextPageMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listOperationsResponse_operations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listOperations_marker
           Lens..~ rs
           Lens.^? listOperationsResponse_nextPageMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOperations where
   type
@@ -212,7 +212,8 @@ instance Core.AWSRequest ListOperations where
 
 instance Prelude.Hashable ListOperations where
   hashWithSalt _salt ListOperations' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` sortOrder

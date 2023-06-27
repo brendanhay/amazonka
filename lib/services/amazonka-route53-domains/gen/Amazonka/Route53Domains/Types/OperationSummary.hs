@@ -197,7 +197,8 @@ instance Data.FromJSON OperationSummary where
 
 instance Prelude.Hashable OperationSummary where
   hashWithSalt _salt OperationSummary' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` lastUpdatedDate
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` operationId

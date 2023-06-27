@@ -155,21 +155,22 @@ instance Core.AWSPager ListPrices where
     | Core.stop
         ( rs
             Lens.^? listPricesResponse_nextPageMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listPricesResponse_prices Prelude.. Lens._Just
+            Lens.^? listPricesResponse_prices
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPrices_marker
           Lens..~ rs
           Lens.^? listPricesResponse_nextPageMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPrices where
   type AWSResponse ListPrices = ListPricesResponse
@@ -186,7 +187,8 @@ instance Core.AWSRequest ListPrices where
 
 instance Prelude.Hashable ListPrices where
   hashWithSalt _salt ListPrices' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` tld
 

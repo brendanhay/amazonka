@@ -185,7 +185,8 @@ instance Data.FromJSON DomainSuggestion where
 
 instance Prelude.Hashable DomainSuggestion where
   hashWithSalt _salt DomainSuggestion' {..} =
-    _salt `Prelude.hashWithSalt` availability
+    _salt
+      `Prelude.hashWithSalt` availability
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData DomainSuggestion where

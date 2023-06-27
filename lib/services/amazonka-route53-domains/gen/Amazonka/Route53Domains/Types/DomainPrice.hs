@@ -116,7 +116,8 @@ instance Data.FromJSON DomainPrice where
 
 instance Prelude.Hashable DomainPrice where
   hashWithSalt _salt DomainPrice' {..} =
-    _salt `Prelude.hashWithSalt` changeOwnershipPrice
+    _salt
+      `Prelude.hashWithSalt` changeOwnershipPrice
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` registrationPrice
       `Prelude.hashWithSalt` renewalPrice

@@ -20,10 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation registers a domain. Domains are registered either by
--- Amazon Registrar (for .com, .net, and .org domains) or by our registrar
--- associate, Gandi (for all other domains). For some top-level domains
--- (TLDs), this operation requires extra parameters.
+-- This operation registers a domain. For some top-level domains (TLDs),
+-- this operation requires extra parameters.
 --
 -- When you register a domain, Amazon Route 53 does the following:
 --
@@ -37,14 +35,13 @@
 --     date so you can choose whether to renew the registration.
 --
 -- -   Optionally enables privacy protection, so WHOIS queries return
---     contact information either for Amazon Registrar (for .com, .net, and
---     .org domains) or for our registrar associate, Gandi (for all other
---     TLDs). If you don\'t enable privacy protection, WHOIS queries return
---     the information that you entered for the administrative, registrant,
---     and technical contacts.
+--     contact for the registrar or the phrase \"REDACTED FOR PRIVACY\", or
+--     \"On behalf of \<domain name> owner.\" If you don\'t enable privacy
+--     protection, WHOIS queries return the information that you entered
+--     for the administrative, registrant, and technical contacts.
 --
---     You must specify the same privacy setting for the administrative,
---     registrant, and technical contacts.
+--     While some domains may allow different privacy settings per contact,
+--     we recommend specifying the same privacy setting for all contacts.
 --
 -- -   If registration is successful, returns an operation ID that you can
 --     use to track the progress and completion of the action. If the
@@ -438,7 +435,8 @@ instance Core.AWSRequest RegisterDomain where
 
 instance Prelude.Hashable RegisterDomain where
   hashWithSalt _salt RegisterDomain' {..} =
-    _salt `Prelude.hashWithSalt` autoRenew
+    _salt
+      `Prelude.hashWithSalt` autoRenew
       `Prelude.hashWithSalt` idnLangCode
       `Prelude.hashWithSalt` privacyProtectAdminContact
       `Prelude.hashWithSalt` privacyProtectRegistrantContact

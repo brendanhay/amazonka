@@ -159,7 +159,8 @@ instance Core.AWSRequest CheckDomainTransferability where
 
 instance Prelude.Hashable CheckDomainTransferability where
   hashWithSalt _salt CheckDomainTransferability' {..} =
-    _salt `Prelude.hashWithSalt` authCode
+    _salt
+      `Prelude.hashWithSalt` authCode
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData CheckDomainTransferability where

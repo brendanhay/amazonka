@@ -192,7 +192,8 @@ instance Core.AWSRequest GetDomainSuggestions where
     Response.receiveJSON
       ( \s h x ->
           GetDomainSuggestionsResponse'
-            Prelude.<$> ( x Data..?> "SuggestionsList"
+            Prelude.<$> ( x
+                            Data..?> "SuggestionsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -200,7 +201,8 @@ instance Core.AWSRequest GetDomainSuggestions where
 
 instance Prelude.Hashable GetDomainSuggestions where
   hashWithSalt _salt GetDomainSuggestions' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` suggestionCount
       `Prelude.hashWithSalt` onlyAvailable
 

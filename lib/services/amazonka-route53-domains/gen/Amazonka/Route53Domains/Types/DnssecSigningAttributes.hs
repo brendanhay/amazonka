@@ -100,7 +100,8 @@ dnssecSigningAttributes_publicKey = Lens.lens (\DnssecSigningAttributes' {public
 
 instance Prelude.Hashable DnssecSigningAttributes where
   hashWithSalt _salt DnssecSigningAttributes' {..} =
-    _salt `Prelude.hashWithSalt` algorithm
+    _salt
+      `Prelude.hashWithSalt` algorithm
       `Prelude.hashWithSalt` flags
       `Prelude.hashWithSalt` publicKey
 

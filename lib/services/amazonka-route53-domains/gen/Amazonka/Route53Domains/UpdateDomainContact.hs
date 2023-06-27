@@ -64,7 +64,8 @@ import Amazonka.Route53Domains.Types
 data UpdateDomainContact = UpdateDomainContact'
   { -- | Provides detailed contact information.
     adminContact :: Prelude.Maybe (Data.Sensitive ContactDetail),
-    -- | Customer\'s consent for the owner change request.
+    -- | Customer\'s consent for the owner change request. Required if the domain
+    -- is not free (consent price is more than $0.00).
     consent :: Prelude.Maybe Consent,
     -- | Provides detailed contact information.
     registrantContact :: Prelude.Maybe (Data.Sensitive ContactDetail),
@@ -85,7 +86,8 @@ data UpdateDomainContact = UpdateDomainContact'
 --
 -- 'adminContact', 'updateDomainContact_adminContact' - Provides detailed contact information.
 --
--- 'consent', 'updateDomainContact_consent' - Customer\'s consent for the owner change request.
+-- 'consent', 'updateDomainContact_consent' - Customer\'s consent for the owner change request. Required if the domain
+-- is not free (consent price is more than $0.00).
 --
 -- 'registrantContact', 'updateDomainContact_registrantContact' - Provides detailed contact information.
 --
@@ -110,7 +112,8 @@ newUpdateDomainContact pDomainName_ =
 updateDomainContact_adminContact :: Lens.Lens' UpdateDomainContact (Prelude.Maybe ContactDetail)
 updateDomainContact_adminContact = Lens.lens (\UpdateDomainContact' {adminContact} -> adminContact) (\s@UpdateDomainContact' {} a -> s {adminContact = a} :: UpdateDomainContact) Prelude.. Lens.mapping Data._Sensitive
 
--- | Customer\'s consent for the owner change request.
+-- | Customer\'s consent for the owner change request. Required if the domain
+-- is not free (consent price is more than $0.00).
 updateDomainContact_consent :: Lens.Lens' UpdateDomainContact (Prelude.Maybe Consent)
 updateDomainContact_consent = Lens.lens (\UpdateDomainContact' {consent} -> consent) (\s@UpdateDomainContact' {} a -> s {consent = a} :: UpdateDomainContact)
 
@@ -142,7 +145,8 @@ instance Core.AWSRequest UpdateDomainContact where
 
 instance Prelude.Hashable UpdateDomainContact where
   hashWithSalt _salt UpdateDomainContact' {..} =
-    _salt `Prelude.hashWithSalt` adminContact
+    _salt
+      `Prelude.hashWithSalt` adminContact
       `Prelude.hashWithSalt` consent
       `Prelude.hashWithSalt` registrantContact
       `Prelude.hashWithSalt` techContact

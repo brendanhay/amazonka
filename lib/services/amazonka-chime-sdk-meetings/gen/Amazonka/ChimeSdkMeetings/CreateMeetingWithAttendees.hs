@@ -97,6 +97,11 @@ data CreateMeetingWithAttendees = CreateMeetingWithAttendees'
     -- @us-gov-west-1@.
     mediaRegion :: Prelude.Text,
     -- | The external meeting ID.
+    --
+    -- Pattern: @[-_&\@+=,(){}\\[\\]\\\/«».:|\'\"#a-zA-Z0-9À-ÿ\\s]*@
+    --
+    -- Values that begin with @aws:@ are reserved. You can\'t configure a value
+    -- that uses this prefix. Case insensitive.
     externalMeetingId :: Data.Sensitive Prelude.Text,
     -- | The attendee information, including attendees\' IDs and join tokens.
     attendees :: Prelude.NonEmpty CreateAttendeeRequestItem
@@ -142,6 +147,11 @@ data CreateMeetingWithAttendees = CreateMeetingWithAttendees'
 -- @us-gov-west-1@.
 --
 -- 'externalMeetingId', 'createMeetingWithAttendees_externalMeetingId' - The external meeting ID.
+--
+-- Pattern: @[-_&\@+=,(){}\\[\\]\\\/«».:|\'\"#a-zA-Z0-9À-ÿ\\s]*@
+--
+-- Values that begin with @aws:@ are reserved. You can\'t configure a value
+-- that uses this prefix. Case insensitive.
 --
 -- 'attendees', 'createMeetingWithAttendees_attendees' - The attendee information, including attendees\' IDs and join tokens.
 newCreateMeetingWithAttendees ::
@@ -222,6 +232,11 @@ createMeetingWithAttendees_mediaRegion :: Lens.Lens' CreateMeetingWithAttendees 
 createMeetingWithAttendees_mediaRegion = Lens.lens (\CreateMeetingWithAttendees' {mediaRegion} -> mediaRegion) (\s@CreateMeetingWithAttendees' {} a -> s {mediaRegion = a} :: CreateMeetingWithAttendees)
 
 -- | The external meeting ID.
+--
+-- Pattern: @[-_&\@+=,(){}\\[\\]\\\/«».:|\'\"#a-zA-Z0-9À-ÿ\\s]*@
+--
+-- Values that begin with @aws:@ are reserved. You can\'t configure a value
+-- that uses this prefix. Case insensitive.
 createMeetingWithAttendees_externalMeetingId :: Lens.Lens' CreateMeetingWithAttendees Prelude.Text
 createMeetingWithAttendees_externalMeetingId = Lens.lens (\CreateMeetingWithAttendees' {externalMeetingId} -> externalMeetingId) (\s@CreateMeetingWithAttendees' {} a -> s {externalMeetingId = a} :: CreateMeetingWithAttendees) Prelude.. Data._Sensitive
 
@@ -247,7 +262,8 @@ instance Core.AWSRequest CreateMeetingWithAttendees where
 
 instance Prelude.Hashable CreateMeetingWithAttendees where
   hashWithSalt _salt CreateMeetingWithAttendees' {..} =
-    _salt `Prelude.hashWithSalt` meetingFeatures
+    _salt
+      `Prelude.hashWithSalt` meetingFeatures
       `Prelude.hashWithSalt` meetingHostId
       `Prelude.hashWithSalt` notificationsConfiguration
       `Prelude.hashWithSalt` primaryMeetingId

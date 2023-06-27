@@ -20,7 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops transcription for the specified @meetingId@.
+-- Stops transcription for the specified @meetingId@. For more information,
+-- refer to
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html Using Amazon Chime SDK live transcription>
+-- in the /Amazon Chime SDK Developer Guide/.
+--
+-- Amazon Chime SDK live transcription is powered by Amazon Transcribe. Use
+-- of Amazon Transcribe is subject to the
+-- <https://aws.amazon.com/service-terms/ AWS Service Terms>, including the
+-- terms specific to the AWS Machine Learning and Artificial Intelligence
+-- Services.
 module Amazonka.ChimeSdkMeetings.StopMeetingTranscription
   ( -- * Creating a Request
     StopMeetingTranscription (..),

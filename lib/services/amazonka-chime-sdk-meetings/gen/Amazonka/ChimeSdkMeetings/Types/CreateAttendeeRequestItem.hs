@@ -34,6 +34,11 @@ data CreateAttendeeRequestItem = CreateAttendeeRequestItem'
     capabilities :: Prelude.Maybe AttendeeCapabilities,
     -- | The Amazon Chime SDK external user ID. An idempotency token. Links the
     -- attendee to an identity managed by a builder application.
+    --
+    -- Pattern: @[-_&\@+=,(){}\\[\\]\\\/«».:|\'\"#a-zA-Z0-9À-ÿ\\s]*@
+    --
+    -- Values that begin with @aws:@ are reserved. You can\'t configure a value
+    -- that uses this prefix. Case insensitive.
     externalUserId :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -50,6 +55,11 @@ data CreateAttendeeRequestItem = CreateAttendeeRequestItem'
 --
 -- 'externalUserId', 'createAttendeeRequestItem_externalUserId' - The Amazon Chime SDK external user ID. An idempotency token. Links the
 -- attendee to an identity managed by a builder application.
+--
+-- Pattern: @[-_&\@+=,(){}\\[\\]\\\/«».:|\'\"#a-zA-Z0-9À-ÿ\\s]*@
+--
+-- Values that begin with @aws:@ are reserved. You can\'t configure a value
+-- that uses this prefix. Case insensitive.
 newCreateAttendeeRequestItem ::
   -- | 'externalUserId'
   Prelude.Text ->
@@ -68,12 +78,18 @@ createAttendeeRequestItem_capabilities = Lens.lens (\CreateAttendeeRequestItem' 
 
 -- | The Amazon Chime SDK external user ID. An idempotency token. Links the
 -- attendee to an identity managed by a builder application.
+--
+-- Pattern: @[-_&\@+=,(){}\\[\\]\\\/«».:|\'\"#a-zA-Z0-9À-ÿ\\s]*@
+--
+-- Values that begin with @aws:@ are reserved. You can\'t configure a value
+-- that uses this prefix. Case insensitive.
 createAttendeeRequestItem_externalUserId :: Lens.Lens' CreateAttendeeRequestItem Prelude.Text
 createAttendeeRequestItem_externalUserId = Lens.lens (\CreateAttendeeRequestItem' {externalUserId} -> externalUserId) (\s@CreateAttendeeRequestItem' {} a -> s {externalUserId = a} :: CreateAttendeeRequestItem) Prelude.. Data._Sensitive
 
 instance Prelude.Hashable CreateAttendeeRequestItem where
   hashWithSalt _salt CreateAttendeeRequestItem' {..} =
-    _salt `Prelude.hashWithSalt` capabilities
+    _salt
+      `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` externalUserId
 
 instance Prelude.NFData CreateAttendeeRequestItem where

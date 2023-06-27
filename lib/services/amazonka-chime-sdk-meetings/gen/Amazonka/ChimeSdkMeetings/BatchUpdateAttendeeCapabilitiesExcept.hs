@@ -43,7 +43,7 @@
 --
 -- -   When you change a @video@ or @content@ capability from @None@ or
 --     @Receive@ to @Send@ or @SendReceive@ , and if the attendee turned on
---     their video or content streams, remote attendess can receive those
+--     their video or content streams, remote attendees can receive those
 --     streams, but only after media renegotiation between the client and
 --     the Amazon Chime back-end server.
 module Amazonka.ChimeSdkMeetings.BatchUpdateAttendeeCapabilitiesExcept
@@ -154,7 +154,8 @@ instance
   hashWithSalt
     _salt
     BatchUpdateAttendeeCapabilitiesExcept' {..} =
-      _salt `Prelude.hashWithSalt` meetingId
+      _salt
+        `Prelude.hashWithSalt` meetingId
         `Prelude.hashWithSalt` excludedAttendeeIds
         `Prelude.hashWithSalt` capabilities
 

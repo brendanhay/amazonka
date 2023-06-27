@@ -47,7 +47,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- -   When you change a @video@ or @content@ capability from @None@ or
 --     @Receive@ to @Send@ or @SendReceive@ , and if the attendee turned on
---     their video or content streams, remote attendess can receive those
+--     their video or content streams, remote attendees can receive those
 --     streams, but only after media renegotiation between the client and
 --     the Amazon Chime back-end server.
 --
@@ -115,7 +115,8 @@ instance Data.FromJSON AttendeeCapabilities where
 
 instance Prelude.Hashable AttendeeCapabilities where
   hashWithSalt _salt AttendeeCapabilities' {..} =
-    _salt `Prelude.hashWithSalt` audio
+    _salt
+      `Prelude.hashWithSalt` audio
       `Prelude.hashWithSalt` video
       `Prelude.hashWithSalt` content
 

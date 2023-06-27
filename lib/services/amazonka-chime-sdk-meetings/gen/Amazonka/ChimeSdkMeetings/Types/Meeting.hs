@@ -31,6 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newMeeting' smart constructor.
 data Meeting = Meeting'
   { -- | The external meeting ID.
+    --
+    -- Pattern: @[-_&\@+=,(){}\\[\\]\\\/«».:|\'\"#a-zA-Z0-9À-ÿ\\s]*@
+    --
+    -- Values that begin with @aws:@ are reserved. You can\'t configure a value
+    -- that uses this prefix. Case insensitive.
     externalMeetingId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The media placement for the meeting.
     mediaPlacement :: Prelude.Maybe MediaPlacement,
@@ -45,7 +50,7 @@ data Meeting = Meeting'
     mediaRegion :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the meeting.
     meetingArn :: Prelude.Maybe Prelude.Text,
-    -- | The features available to a meeting, such as Amazon Voice Focus.
+    -- | The features available to a meeting, such as echo reduction.
     meetingFeatures :: Prelude.Maybe MeetingFeaturesConfiguration,
     -- | Reserved.
     meetingHostId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
@@ -69,6 +74,11 @@ data Meeting = Meeting'
 --
 -- 'externalMeetingId', 'meeting_externalMeetingId' - The external meeting ID.
 --
+-- Pattern: @[-_&\@+=,(){}\\[\\]\\\/«».:|\'\"#a-zA-Z0-9À-ÿ\\s]*@
+--
+-- Values that begin with @aws:@ are reserved. You can\'t configure a value
+-- that uses this prefix. Case insensitive.
+--
 -- 'mediaPlacement', 'meeting_mediaPlacement' - The media placement for the meeting.
 --
 -- 'mediaRegion', 'meeting_mediaRegion' - The Region in which you create the meeting. Available values:
@@ -82,7 +92,7 @@ data Meeting = Meeting'
 --
 -- 'meetingArn', 'meeting_meetingArn' - The ARN of the meeting.
 --
--- 'meetingFeatures', 'meeting_meetingFeatures' - The features available to a meeting, such as Amazon Voice Focus.
+-- 'meetingFeatures', 'meeting_meetingFeatures' - The features available to a meeting, such as echo reduction.
 --
 -- 'meetingHostId', 'meeting_meetingHostId' - Reserved.
 --
@@ -108,6 +118,11 @@ newMeeting =
     }
 
 -- | The external meeting ID.
+--
+-- Pattern: @[-_&\@+=,(){}\\[\\]\\\/«».:|\'\"#a-zA-Z0-9À-ÿ\\s]*@
+--
+-- Values that begin with @aws:@ are reserved. You can\'t configure a value
+-- that uses this prefix. Case insensitive.
 meeting_externalMeetingId :: Lens.Lens' Meeting (Prelude.Maybe Prelude.Text)
 meeting_externalMeetingId = Lens.lens (\Meeting' {externalMeetingId} -> externalMeetingId) (\s@Meeting' {} a -> s {externalMeetingId = a} :: Meeting) Prelude.. Lens.mapping Data._Sensitive
 
@@ -130,7 +145,7 @@ meeting_mediaRegion = Lens.lens (\Meeting' {mediaRegion} -> mediaRegion) (\s@Mee
 meeting_meetingArn :: Lens.Lens' Meeting (Prelude.Maybe Prelude.Text)
 meeting_meetingArn = Lens.lens (\Meeting' {meetingArn} -> meetingArn) (\s@Meeting' {} a -> s {meetingArn = a} :: Meeting)
 
--- | The features available to a meeting, such as Amazon Voice Focus.
+-- | The features available to a meeting, such as echo reduction.
 meeting_meetingFeatures :: Lens.Lens' Meeting (Prelude.Maybe MeetingFeaturesConfiguration)
 meeting_meetingFeatures = Lens.lens (\Meeting' {meetingFeatures} -> meetingFeatures) (\s@Meeting' {} a -> s {meetingFeatures = a} :: Meeting)
 
@@ -170,7 +185,8 @@ instance Data.FromJSON Meeting where
 
 instance Prelude.Hashable Meeting where
   hashWithSalt _salt Meeting' {..} =
-    _salt `Prelude.hashWithSalt` externalMeetingId
+    _salt
+      `Prelude.hashWithSalt` externalMeetingId
       `Prelude.hashWithSalt` mediaPlacement
       `Prelude.hashWithSalt` mediaRegion
       `Prelude.hashWithSalt` meetingArn

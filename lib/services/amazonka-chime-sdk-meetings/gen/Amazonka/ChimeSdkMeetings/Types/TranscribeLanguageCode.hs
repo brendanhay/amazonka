@@ -27,10 +27,12 @@ module Amazonka.ChimeSdkMeetings.Types.TranscribeLanguageCode
         TranscribeLanguageCode_Es_US,
         TranscribeLanguageCode_Fr_CA,
         TranscribeLanguageCode_Fr_FR,
+        TranscribeLanguageCode_Hi_IN,
         TranscribeLanguageCode_It_IT,
         TranscribeLanguageCode_Ja_JP,
         TranscribeLanguageCode_Ko_KR,
         TranscribeLanguageCode_Pt_BR,
+        TranscribeLanguageCode_Th_TH,
         TranscribeLanguageCode_Zh_CN
       ),
   )
@@ -89,6 +91,9 @@ pattern TranscribeLanguageCode_Fr_CA = TranscribeLanguageCode' "fr-CA"
 pattern TranscribeLanguageCode_Fr_FR :: TranscribeLanguageCode
 pattern TranscribeLanguageCode_Fr_FR = TranscribeLanguageCode' "fr-FR"
 
+pattern TranscribeLanguageCode_Hi_IN :: TranscribeLanguageCode
+pattern TranscribeLanguageCode_Hi_IN = TranscribeLanguageCode' "hi-IN"
+
 pattern TranscribeLanguageCode_It_IT :: TranscribeLanguageCode
 pattern TranscribeLanguageCode_It_IT = TranscribeLanguageCode' "it-IT"
 
@@ -101,6 +106,9 @@ pattern TranscribeLanguageCode_Ko_KR = TranscribeLanguageCode' "ko-KR"
 pattern TranscribeLanguageCode_Pt_BR :: TranscribeLanguageCode
 pattern TranscribeLanguageCode_Pt_BR = TranscribeLanguageCode' "pt-BR"
 
+pattern TranscribeLanguageCode_Th_TH :: TranscribeLanguageCode
+pattern TranscribeLanguageCode_Th_TH = TranscribeLanguageCode' "th-TH"
+
 pattern TranscribeLanguageCode_Zh_CN :: TranscribeLanguageCode
 pattern TranscribeLanguageCode_Zh_CN = TranscribeLanguageCode' "zh-CN"
 
@@ -112,10 +120,12 @@ pattern TranscribeLanguageCode_Zh_CN = TranscribeLanguageCode' "zh-CN"
   TranscribeLanguageCode_Es_US,
   TranscribeLanguageCode_Fr_CA,
   TranscribeLanguageCode_Fr_FR,
+  TranscribeLanguageCode_Hi_IN,
   TranscribeLanguageCode_It_IT,
   TranscribeLanguageCode_Ja_JP,
   TranscribeLanguageCode_Ko_KR,
   TranscribeLanguageCode_Pt_BR,
+  TranscribeLanguageCode_Th_TH,
   TranscribeLanguageCode_Zh_CN,
   TranscribeLanguageCode'
   #-}

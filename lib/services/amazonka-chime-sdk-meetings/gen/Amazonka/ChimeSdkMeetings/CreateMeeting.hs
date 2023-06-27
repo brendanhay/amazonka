@@ -104,7 +104,7 @@ data CreateMeeting = CreateMeeting'
     --
     -- __Minimum permissions__
     --
-    -- In addition to the @tag:TagResources @permission required by this
+    -- In addition to the @tag:TagResources@ permission required by this
     -- operation, you must also have the tagging permission defined by the
     -- service that created the resource. For example, to tag a
     -- @ChimeSDKMeetings@ instance using the @TagResources@ operation, you must
@@ -138,6 +138,11 @@ data CreateMeeting = CreateMeeting'
     -- @us-gov-west-1@.
     mediaRegion :: Prelude.Text,
     -- | The external meeting ID.
+    --
+    -- Pattern: @[-_&\@+=,(){}\\[\\]\\\/«».:|\'\"#a-zA-Z0-9À-ÿ\\s]*@
+    --
+    -- Values that begin with @aws:@ are reserved. You can\'t configure a value
+    -- that uses this prefix. Case insensitive.
     externalMeetingId :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -190,7 +195,7 @@ data CreateMeeting = CreateMeeting'
 --
 -- __Minimum permissions__
 --
--- In addition to the @tag:TagResources @permission required by this
+-- In addition to the @tag:TagResources@ permission required by this
 -- operation, you must also have the tagging permission defined by the
 -- service that created the resource. For example, to tag a
 -- @ChimeSDKMeetings@ instance using the @TagResources@ operation, you must
@@ -224,6 +229,11 @@ data CreateMeeting = CreateMeeting'
 -- @us-gov-west-1@.
 --
 -- 'externalMeetingId', 'createMeeting_externalMeetingId' - The external meeting ID.
+--
+-- Pattern: @[-_&\@+=,(){}\\[\\]\\\/«».:|\'\"#a-zA-Z0-9À-ÿ\\s]*@
+--
+-- Values that begin with @aws:@ are reserved. You can\'t configure a value
+-- that uses this prefix. Case insensitive.
 newCreateMeeting ::
   -- | 'clientRequestToken'
   Prelude.Text ->
@@ -298,7 +308,7 @@ createMeeting_primaryMeetingId = Lens.lens (\CreateMeeting' {primaryMeetingId} -
 --
 -- __Minimum permissions__
 --
--- In addition to the @tag:TagResources @permission required by this
+-- In addition to the @tag:TagResources@ permission required by this
 -- operation, you must also have the tagging permission defined by the
 -- service that created the resource. For example, to tag a
 -- @ChimeSDKMeetings@ instance using the @TagResources@ operation, you must
@@ -340,6 +350,11 @@ createMeeting_mediaRegion :: Lens.Lens' CreateMeeting Prelude.Text
 createMeeting_mediaRegion = Lens.lens (\CreateMeeting' {mediaRegion} -> mediaRegion) (\s@CreateMeeting' {} a -> s {mediaRegion = a} :: CreateMeeting)
 
 -- | The external meeting ID.
+--
+-- Pattern: @[-_&\@+=,(){}\\[\\]\\\/«».:|\'\"#a-zA-Z0-9À-ÿ\\s]*@
+--
+-- Values that begin with @aws:@ are reserved. You can\'t configure a value
+-- that uses this prefix. Case insensitive.
 createMeeting_externalMeetingId :: Lens.Lens' CreateMeeting Prelude.Text
 createMeeting_externalMeetingId = Lens.lens (\CreateMeeting' {externalMeetingId} -> externalMeetingId) (\s@CreateMeeting' {} a -> s {externalMeetingId = a} :: CreateMeeting) Prelude.. Data._Sensitive
 
@@ -359,7 +374,8 @@ instance Core.AWSRequest CreateMeeting where
 
 instance Prelude.Hashable CreateMeeting where
   hashWithSalt _salt CreateMeeting' {..} =
-    _salt `Prelude.hashWithSalt` meetingFeatures
+    _salt
+      `Prelude.hashWithSalt` meetingFeatures
       `Prelude.hashWithSalt` meetingHostId
       `Prelude.hashWithSalt` notificationsConfiguration
       `Prelude.hashWithSalt` primaryMeetingId

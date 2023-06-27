@@ -167,7 +167,9 @@ module Amazonka.ChimeSdkMeetings.Lens
     engineTranscribeSettings_region,
     engineTranscribeSettings_vocabularyFilterMethod,
     engineTranscribeSettings_vocabularyFilterName,
+    engineTranscribeSettings_vocabularyFilterNames,
     engineTranscribeSettings_vocabularyName,
+    engineTranscribeSettings_vocabularyNames,
 
     -- ** MediaPlacement
     mediaPlacement_audioFallbackUrl,

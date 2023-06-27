@@ -78,7 +78,7 @@ data CreateAttendee = CreateAttendee'
     --
     -- -   When you change a @video@ or @content@ capability from @None@ or
     --     @Receive@ to @Send@ or @SendReceive@ , and if the attendee turned on
-    --     their video or content streams, remote attendess can receive those
+    --     their video or content streams, remote attendees can receive those
     --     streams, but only after media renegotiation between the client and
     --     the Amazon Chime back-end server.
     capabilities :: Prelude.Maybe AttendeeCapabilities,
@@ -86,6 +86,11 @@ data CreateAttendee = CreateAttendee'
     meetingId :: Prelude.Text,
     -- | The Amazon Chime SDK external user ID. An idempotency token. Links the
     -- attendee to an identity managed by a builder application.
+    --
+    -- Pattern: @[-_&\@+=,(){}\\[\\]\\\/«».:|\'\"#a-zA-Z0-9À-ÿ\\s]*@
+    --
+    -- Values that begin with @aws:@ are reserved. You can\'t configure a value
+    -- that uses this prefix.
     externalUserId :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -122,7 +127,7 @@ data CreateAttendee = CreateAttendee'
 --
 -- -   When you change a @video@ or @content@ capability from @None@ or
 --     @Receive@ to @Send@ or @SendReceive@ , and if the attendee turned on
---     their video or content streams, remote attendess can receive those
+--     their video or content streams, remote attendees can receive those
 --     streams, but only after media renegotiation between the client and
 --     the Amazon Chime back-end server.
 --
@@ -130,6 +135,11 @@ data CreateAttendee = CreateAttendee'
 --
 -- 'externalUserId', 'createAttendee_externalUserId' - The Amazon Chime SDK external user ID. An idempotency token. Links the
 -- attendee to an identity managed by a builder application.
+--
+-- Pattern: @[-_&\@+=,(){}\\[\\]\\\/«».:|\'\"#a-zA-Z0-9À-ÿ\\s]*@
+--
+-- Values that begin with @aws:@ are reserved. You can\'t configure a value
+-- that uses this prefix.
 newCreateAttendee ::
   -- | 'meetingId'
   Prelude.Text ->
@@ -168,7 +178,7 @@ newCreateAttendee pMeetingId_ pExternalUserId_ =
 --
 -- -   When you change a @video@ or @content@ capability from @None@ or
 --     @Receive@ to @Send@ or @SendReceive@ , and if the attendee turned on
---     their video or content streams, remote attendess can receive those
+--     their video or content streams, remote attendees can receive those
 --     streams, but only after media renegotiation between the client and
 --     the Amazon Chime back-end server.
 createAttendee_capabilities :: Lens.Lens' CreateAttendee (Prelude.Maybe AttendeeCapabilities)
@@ -180,6 +190,11 @@ createAttendee_meetingId = Lens.lens (\CreateAttendee' {meetingId} -> meetingId)
 
 -- | The Amazon Chime SDK external user ID. An idempotency token. Links the
 -- attendee to an identity managed by a builder application.
+--
+-- Pattern: @[-_&\@+=,(){}\\[\\]\\\/«».:|\'\"#a-zA-Z0-9À-ÿ\\s]*@
+--
+-- Values that begin with @aws:@ are reserved. You can\'t configure a value
+-- that uses this prefix.
 createAttendee_externalUserId :: Lens.Lens' CreateAttendee Prelude.Text
 createAttendee_externalUserId = Lens.lens (\CreateAttendee' {externalUserId} -> externalUserId) (\s@CreateAttendee' {} a -> s {externalUserId = a} :: CreateAttendee) Prelude.. Data._Sensitive
 
@@ -199,7 +214,8 @@ instance Core.AWSRequest CreateAttendee where
 
 instance Prelude.Hashable CreateAttendee where
   hashWithSalt _salt CreateAttendee' {..} =
-    _salt `Prelude.hashWithSalt` capabilities
+    _salt
+      `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` meetingId
       `Prelude.hashWithSalt` externalUserId
 

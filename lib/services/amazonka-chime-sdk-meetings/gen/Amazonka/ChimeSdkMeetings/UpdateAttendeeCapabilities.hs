@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The capabilties that you want to update.
+-- The capabilities that you want to update.
 --
 -- You use the capabilities with a set of values that control what the
 -- capabilities can do, such as @SendReceive@ data. For more information
@@ -42,7 +42,7 @@
 --
 -- -   When you change a @video@ or @content@ capability from @None@ or
 --     @Receive@ to @Send@ or @SendReceive@ , and if the attendee turned on
---     their video or content streams, remote attendess can receive those
+--     their video or content streams, remote attendees can receive those
 --     streams, but only after media renegotiation between the client and
 --     the Amazon Chime back-end server.
 module Amazonka.ChimeSdkMeetings.UpdateAttendeeCapabilities
@@ -79,7 +79,7 @@ data UpdateAttendeeCapabilities = UpdateAttendeeCapabilities'
     meetingId :: Prelude.Text,
     -- | The ID of the attendee associated with the update request.
     attendeeId :: Prelude.Text,
-    -- | The capabilties that you want to update.
+    -- | The capabilities that you want to update.
     capabilities :: AttendeeCapabilities
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -96,7 +96,7 @@ data UpdateAttendeeCapabilities = UpdateAttendeeCapabilities'
 --
 -- 'attendeeId', 'updateAttendeeCapabilities_attendeeId' - The ID of the attendee associated with the update request.
 --
--- 'capabilities', 'updateAttendeeCapabilities_capabilities' - The capabilties that you want to update.
+-- 'capabilities', 'updateAttendeeCapabilities_capabilities' - The capabilities that you want to update.
 newUpdateAttendeeCapabilities ::
   -- | 'meetingId'
   Prelude.Text ->
@@ -124,7 +124,7 @@ updateAttendeeCapabilities_meetingId = Lens.lens (\UpdateAttendeeCapabilities' {
 updateAttendeeCapabilities_attendeeId :: Lens.Lens' UpdateAttendeeCapabilities Prelude.Text
 updateAttendeeCapabilities_attendeeId = Lens.lens (\UpdateAttendeeCapabilities' {attendeeId} -> attendeeId) (\s@UpdateAttendeeCapabilities' {} a -> s {attendeeId = a} :: UpdateAttendeeCapabilities)
 
--- | The capabilties that you want to update.
+-- | The capabilities that you want to update.
 updateAttendeeCapabilities_capabilities :: Lens.Lens' UpdateAttendeeCapabilities AttendeeCapabilities
 updateAttendeeCapabilities_capabilities = Lens.lens (\UpdateAttendeeCapabilities' {capabilities} -> capabilities) (\s@UpdateAttendeeCapabilities' {} a -> s {capabilities = a} :: UpdateAttendeeCapabilities)
 
@@ -144,7 +144,8 @@ instance Core.AWSRequest UpdateAttendeeCapabilities where
 
 instance Prelude.Hashable UpdateAttendeeCapabilities where
   hashWithSalt _salt UpdateAttendeeCapabilities' {..} =
-    _salt `Prelude.hashWithSalt` meetingId
+    _salt
+      `Prelude.hashWithSalt` meetingId
       `Prelude.hashWithSalt` attendeeId
       `Prelude.hashWithSalt` capabilities
 

@@ -112,7 +112,8 @@ instance Core.AWSRequest BatchCreateAttendee where
 
 instance Prelude.Hashable BatchCreateAttendee where
   hashWithSalt _salt BatchCreateAttendee' {..} =
-    _salt `Prelude.hashWithSalt` meetingId
+    _salt
+      `Prelude.hashWithSalt` meetingId
       `Prelude.hashWithSalt` attendees
 
 instance Prelude.NFData BatchCreateAttendee where

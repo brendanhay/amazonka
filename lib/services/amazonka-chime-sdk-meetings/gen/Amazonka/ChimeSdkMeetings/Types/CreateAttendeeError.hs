@@ -36,6 +36,11 @@ data CreateAttendeeError = CreateAttendeeError'
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Chime SDK external user ID. An idempotency token. Links the
     -- attendee to an identity managed by a builder application.
+    --
+    -- Pattern: @[-_&\@+=,(){}\\[\\]\\\/«».:|\'\"#a-zA-Z0-9À-ÿ\\s]*@
+    --
+    -- Values that begin with @aws:@ are reserved. You can\'t configure a value
+    -- that uses this prefix. Case insensitive.
     externalUserId :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -54,6 +59,11 @@ data CreateAttendeeError = CreateAttendeeError'
 --
 -- 'externalUserId', 'createAttendeeError_externalUserId' - The Amazon Chime SDK external user ID. An idempotency token. Links the
 -- attendee to an identity managed by a builder application.
+--
+-- Pattern: @[-_&\@+=,(){}\\[\\]\\\/«».:|\'\"#a-zA-Z0-9À-ÿ\\s]*@
+--
+-- Values that begin with @aws:@ are reserved. You can\'t configure a value
+-- that uses this prefix. Case insensitive.
 newCreateAttendeeError ::
   CreateAttendeeError
 newCreateAttendeeError =
@@ -73,6 +83,11 @@ createAttendeeError_errorMessage = Lens.lens (\CreateAttendeeError' {errorMessag
 
 -- | The Amazon Chime SDK external user ID. An idempotency token. Links the
 -- attendee to an identity managed by a builder application.
+--
+-- Pattern: @[-_&\@+=,(){}\\[\\]\\\/«».:|\'\"#a-zA-Z0-9À-ÿ\\s]*@
+--
+-- Values that begin with @aws:@ are reserved. You can\'t configure a value
+-- that uses this prefix. Case insensitive.
 createAttendeeError_externalUserId :: Lens.Lens' CreateAttendeeError (Prelude.Maybe Prelude.Text)
 createAttendeeError_externalUserId = Lens.lens (\CreateAttendeeError' {externalUserId} -> externalUserId) (\s@CreateAttendeeError' {} a -> s {externalUserId = a} :: CreateAttendeeError) Prelude.. Lens.mapping Data._Sensitive
 
@@ -89,7 +104,8 @@ instance Data.FromJSON CreateAttendeeError where
 
 instance Prelude.Hashable CreateAttendeeError where
   hashWithSalt _salt CreateAttendeeError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` externalUserId
 

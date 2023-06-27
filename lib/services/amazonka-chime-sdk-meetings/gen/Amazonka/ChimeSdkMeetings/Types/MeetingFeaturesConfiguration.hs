@@ -25,7 +25,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The configuration settings of the features available to a meeting.>
+-- | The configuration settings of the features available to a meeting.
 --
 -- /See:/ 'newMeetingFeaturesConfiguration' smart constructor.
 data MeetingFeaturesConfiguration = MeetingFeaturesConfiguration'

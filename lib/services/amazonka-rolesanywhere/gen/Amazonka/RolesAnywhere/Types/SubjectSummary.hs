@@ -24,20 +24,17 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | A summary representation of Subject resources returned in read
--- operations; primarily ListSubjects.
+-- | A summary representation of subjects.
 --
 -- /See:/ 'newSubjectSummary' smart constructor.
 data SubjectSummary = SubjectSummary'
   { -- | The ISO-8601 time stamp of when the certificate was first used in a
-    -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
-    -- operation.
+    -- temporary credential request.
     createdAt :: Prelude.Maybe Data.ISO8601,
-    -- | The enabled status of the Subject.
+    -- | The enabled status of the subject.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The ISO-8601 time stamp of when the certificate was last used in a
-    -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
-    -- operation.
+    -- temporary credential request.
     lastSeenAt :: Prelude.Maybe Data.ISO8601,
     -- | The ARN of the resource.
     subjectArn :: Prelude.Maybe Prelude.Text,
@@ -59,14 +56,12 @@ data SubjectSummary = SubjectSummary'
 -- for backwards compatibility:
 --
 -- 'createdAt', 'subjectSummary_createdAt' - The ISO-8601 time stamp of when the certificate was first used in a
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operation.
+-- temporary credential request.
 --
--- 'enabled', 'subjectSummary_enabled' - The enabled status of the Subject.
+-- 'enabled', 'subjectSummary_enabled' - The enabled status of the subject.
 --
 -- 'lastSeenAt', 'subjectSummary_lastSeenAt' - The ISO-8601 time stamp of when the certificate was last used in a
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operation.
+-- temporary credential request.
 --
 -- 'subjectArn', 'subjectSummary_subjectArn' - The ARN of the resource.
 --
@@ -89,18 +84,16 @@ newSubjectSummary =
     }
 
 -- | The ISO-8601 time stamp of when the certificate was first used in a
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operation.
+-- temporary credential request.
 subjectSummary_createdAt :: Lens.Lens' SubjectSummary (Prelude.Maybe Prelude.UTCTime)
 subjectSummary_createdAt = Lens.lens (\SubjectSummary' {createdAt} -> createdAt) (\s@SubjectSummary' {} a -> s {createdAt = a} :: SubjectSummary) Prelude.. Lens.mapping Data._Time
 
--- | The enabled status of the Subject.
+-- | The enabled status of the subject.
 subjectSummary_enabled :: Lens.Lens' SubjectSummary (Prelude.Maybe Prelude.Bool)
 subjectSummary_enabled = Lens.lens (\SubjectSummary' {enabled} -> enabled) (\s@SubjectSummary' {} a -> s {enabled = a} :: SubjectSummary)
 
 -- | The ISO-8601 time stamp of when the certificate was last used in a
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operation.
+-- temporary credential request.
 subjectSummary_lastSeenAt :: Lens.Lens' SubjectSummary (Prelude.Maybe Prelude.UTCTime)
 subjectSummary_lastSeenAt = Lens.lens (\SubjectSummary' {lastSeenAt} -> lastSeenAt) (\s@SubjectSummary' {} a -> s {lastSeenAt = a} :: SubjectSummary) Prelude.. Lens.mapping Data._Time
 
@@ -137,7 +130,8 @@ instance Data.FromJSON SubjectSummary where
 
 instance Prelude.Hashable SubjectSummary where
   hashWithSalt _salt SubjectSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` lastSeenAt
       `Prelude.hashWithSalt` subjectArn

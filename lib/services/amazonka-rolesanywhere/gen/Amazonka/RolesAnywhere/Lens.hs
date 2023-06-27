@@ -27,6 +27,7 @@ module Amazonka.RolesAnywhere.Lens
 
     -- ** CreateTrustAnchor
     createTrustAnchor_enabled,
+    createTrustAnchor_notificationSettings,
     createTrustAnchor_tags,
     createTrustAnchor_name,
     createTrustAnchor_source,
@@ -126,6 +127,18 @@ module Amazonka.RolesAnywhere.Lens
     listTrustAnchorsResponse_trustAnchors,
     listTrustAnchorsResponse_httpStatus,
 
+    -- ** PutNotificationSettings
+    putNotificationSettings_notificationSettings,
+    putNotificationSettings_trustAnchorId,
+    putNotificationSettingsResponse_httpStatus,
+    putNotificationSettingsResponse_trustAnchor,
+
+    -- ** ResetNotificationSettings
+    resetNotificationSettings_notificationSettingKeys,
+    resetNotificationSettings_trustAnchorId,
+    resetNotificationSettingsResponse_httpStatus,
+    resetNotificationSettingsResponse_trustAnchor,
+
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
@@ -189,6 +202,23 @@ module Amazonka.RolesAnywhere.Lens
     listRequest_nextToken,
     listRequest_pageSize,
 
+    -- ** NotificationSetting
+    notificationSetting_channel,
+    notificationSetting_threshold,
+    notificationSetting_enabled,
+    notificationSetting_event,
+
+    -- ** NotificationSettingDetail
+    notificationSettingDetail_channel,
+    notificationSettingDetail_configuredBy,
+    notificationSettingDetail_threshold,
+    notificationSettingDetail_enabled,
+    notificationSettingDetail_event,
+
+    -- ** NotificationSettingKey
+    notificationSettingKey_channel,
+    notificationSettingKey_event,
+
     -- ** ProfileDetail
     profileDetail_createdAt,
     profileDetail_createdBy,
@@ -251,6 +281,7 @@ module Amazonka.RolesAnywhere.Lens
     trustAnchorDetail_createdAt,
     trustAnchorDetail_enabled,
     trustAnchorDetail_name,
+    trustAnchorDetail_notificationSettings,
     trustAnchorDetail_source,
     trustAnchorDetail_trustAnchorArn,
     trustAnchorDetail_trustAnchorId,
@@ -282,12 +313,17 @@ import Amazonka.RolesAnywhere.ListProfiles
 import Amazonka.RolesAnywhere.ListSubjects
 import Amazonka.RolesAnywhere.ListTagsForResource
 import Amazonka.RolesAnywhere.ListTrustAnchors
+import Amazonka.RolesAnywhere.PutNotificationSettings
+import Amazonka.RolesAnywhere.ResetNotificationSettings
 import Amazonka.RolesAnywhere.TagResource
 import Amazonka.RolesAnywhere.Types.CredentialSummary
 import Amazonka.RolesAnywhere.Types.CrlDetail
 import Amazonka.RolesAnywhere.Types.CrlDetailResponse
 import Amazonka.RolesAnywhere.Types.InstanceProperty
 import Amazonka.RolesAnywhere.Types.ListRequest
+import Amazonka.RolesAnywhere.Types.NotificationSetting
+import Amazonka.RolesAnywhere.Types.NotificationSettingDetail
+import Amazonka.RolesAnywhere.Types.NotificationSettingKey
 import Amazonka.RolesAnywhere.Types.ProfileDetail
 import Amazonka.RolesAnywhere.Types.ProfileDetailResponse
 import Amazonka.RolesAnywhere.Types.ScalarCrlRequest

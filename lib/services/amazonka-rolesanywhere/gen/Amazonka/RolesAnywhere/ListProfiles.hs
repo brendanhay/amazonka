@@ -57,8 +57,8 @@ import Amazonka.RolesAnywhere.Types
 -- | /See:/ 'newListProfiles' smart constructor.
 data ListProfiles = ListProfiles'
   { -- | A token that indicates where the output should continue from, if a
-    -- previous operation did not show all results. To get the next results,
-    -- call the operation again with this value.
+    -- previous request did not show all results. To get the next results, make
+    -- the request again with this value.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of resources in the paginated list.
     pageSize :: Prelude.Maybe Prelude.Int
@@ -74,8 +74,8 @@ data ListProfiles = ListProfiles'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listProfiles_nextToken' - A token that indicates where the output should continue from, if a
--- previous operation did not show all results. To get the next results,
--- call the operation again with this value.
+-- previous request did not show all results. To get the next results, make
+-- the request again with this value.
 --
 -- 'pageSize', 'listProfiles_pageSize' - The number of resources in the paginated list.
 newListProfiles ::
@@ -87,8 +87,8 @@ newListProfiles =
     }
 
 -- | A token that indicates where the output should continue from, if a
--- previous operation did not show all results. To get the next results,
--- call the operation again with this value.
+-- previous request did not show all results. To get the next results, make
+-- the request again with this value.
 listProfiles_nextToken :: Lens.Lens' ListProfiles (Prelude.Maybe Prelude.Text)
 listProfiles_nextToken = Lens.lens (\ListProfiles' {nextToken} -> nextToken) (\s@ListProfiles' {} a -> s {nextToken = a} :: ListProfiles)
 
@@ -100,20 +100,23 @@ instance Core.AWSPager ListProfiles where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listProfilesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listProfilesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listProfilesResponse_profiles Prelude.. Lens._Just
+            Lens.^? listProfilesResponse_profiles
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listProfiles_nextToken
           Lens..~ rs
-          Lens.^? listProfilesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listProfilesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProfiles where
   type AWSResponse ListProfiles = ListProfilesResponse
@@ -130,7 +133,8 @@ instance Core.AWSRequest ListProfiles where
 
 instance Prelude.Hashable ListProfiles where
   hashWithSalt _salt ListProfiles' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
 
 instance Prelude.NFData ListProfiles where
@@ -162,8 +166,8 @@ instance Data.ToQuery ListProfiles where
 -- | /See:/ 'newListProfilesResponse' smart constructor.
 data ListProfilesResponse = ListProfilesResponse'
   { -- | A token that indicates where the output should continue from, if a
-    -- previous operation did not show all results. To get the next results,
-    -- call the operation again with this value.
+    -- previous request did not show all results. To get the next results, make
+    -- the request again with this value.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of profiles.
     profiles :: Prelude.Maybe [ProfileDetail],
@@ -181,8 +185,8 @@ data ListProfilesResponse = ListProfilesResponse'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listProfilesResponse_nextToken' - A token that indicates where the output should continue from, if a
--- previous operation did not show all results. To get the next results,
--- call the operation again with this value.
+-- previous request did not show all results. To get the next results, make
+-- the request again with this value.
 --
 -- 'profiles', 'listProfilesResponse_profiles' - A list of profiles.
 --
@@ -199,8 +203,8 @@ newListProfilesResponse pHttpStatus_ =
     }
 
 -- | A token that indicates where the output should continue from, if a
--- previous operation did not show all results. To get the next results,
--- call the operation again with this value.
+-- previous request did not show all results. To get the next results, make
+-- the request again with this value.
 listProfilesResponse_nextToken :: Lens.Lens' ListProfilesResponse (Prelude.Maybe Prelude.Text)
 listProfilesResponse_nextToken = Lens.lens (\ListProfilesResponse' {nextToken} -> nextToken) (\s@ListProfilesResponse' {} a -> s {nextToken = a} :: ListProfilesResponse)
 

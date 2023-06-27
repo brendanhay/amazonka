@@ -20,9 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables a profile. When disabled,
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- requests with this profile fail.
+-- Disables a profile. When disabled, temporary credential requests with
+-- this profile fail.
 --
 -- __Required permissions:__ @rolesanywhere:DisableProfile@.
 module Amazonka.RolesAnywhere.DisableProfile

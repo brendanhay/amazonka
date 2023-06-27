@@ -76,7 +76,8 @@ instance Data.FromJSON Source where
 
 instance Prelude.Hashable Source where
   hashWithSalt _salt Source' {..} =
-    _salt `Prelude.hashWithSalt` sourceData
+    _salt
+      `Prelude.hashWithSalt` sourceData
       `Prelude.hashWithSalt` sourceType
 
 instance Prelude.NFData Source where

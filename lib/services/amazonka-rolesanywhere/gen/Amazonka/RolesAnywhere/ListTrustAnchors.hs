@@ -57,8 +57,8 @@ import Amazonka.RolesAnywhere.Types
 -- | /See:/ 'newListTrustAnchors' smart constructor.
 data ListTrustAnchors = ListTrustAnchors'
   { -- | A token that indicates where the output should continue from, if a
-    -- previous operation did not show all results. To get the next results,
-    -- call the operation again with this value.
+    -- previous request did not show all results. To get the next results, make
+    -- the request again with this value.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of resources in the paginated list.
     pageSize :: Prelude.Maybe Prelude.Int
@@ -74,8 +74,8 @@ data ListTrustAnchors = ListTrustAnchors'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listTrustAnchors_nextToken' - A token that indicates where the output should continue from, if a
--- previous operation did not show all results. To get the next results,
--- call the operation again with this value.
+-- previous request did not show all results. To get the next results, make
+-- the request again with this value.
 --
 -- 'pageSize', 'listTrustAnchors_pageSize' - The number of resources in the paginated list.
 newListTrustAnchors ::
@@ -87,8 +87,8 @@ newListTrustAnchors =
     }
 
 -- | A token that indicates where the output should continue from, if a
--- previous operation did not show all results. To get the next results,
--- call the operation again with this value.
+-- previous request did not show all results. To get the next results, make
+-- the request again with this value.
 listTrustAnchors_nextToken :: Lens.Lens' ListTrustAnchors (Prelude.Maybe Prelude.Text)
 listTrustAnchors_nextToken = Lens.lens (\ListTrustAnchors' {nextToken} -> nextToken) (\s@ListTrustAnchors' {} a -> s {nextToken = a} :: ListTrustAnchors)
 
@@ -101,22 +101,22 @@ instance Core.AWSPager ListTrustAnchors where
     | Core.stop
         ( rs
             Lens.^? listTrustAnchorsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTrustAnchorsResponse_trustAnchors
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTrustAnchors_nextToken
           Lens..~ rs
           Lens.^? listTrustAnchorsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTrustAnchors where
   type
@@ -135,7 +135,8 @@ instance Core.AWSRequest ListTrustAnchors where
 
 instance Prelude.Hashable ListTrustAnchors where
   hashWithSalt _salt ListTrustAnchors' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
 
 instance Prelude.NFData ListTrustAnchors where
@@ -167,8 +168,8 @@ instance Data.ToQuery ListTrustAnchors where
 -- | /See:/ 'newListTrustAnchorsResponse' smart constructor.
 data ListTrustAnchorsResponse = ListTrustAnchorsResponse'
   { -- | A token that indicates where the output should continue from, if a
-    -- previous operation did not show all results. To get the next results,
-    -- call the operation again with this value.
+    -- previous request did not show all results. To get the next results, make
+    -- the request again with this value.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of trust anchors.
     trustAnchors :: Prelude.Maybe [TrustAnchorDetail],
@@ -186,8 +187,8 @@ data ListTrustAnchorsResponse = ListTrustAnchorsResponse'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listTrustAnchorsResponse_nextToken' - A token that indicates where the output should continue from, if a
--- previous operation did not show all results. To get the next results,
--- call the operation again with this value.
+-- previous request did not show all results. To get the next results, make
+-- the request again with this value.
 --
 -- 'trustAnchors', 'listTrustAnchorsResponse_trustAnchors' - A list of trust anchors.
 --
@@ -205,8 +206,8 @@ newListTrustAnchorsResponse pHttpStatus_ =
     }
 
 -- | A token that indicates where the output should continue from, if a
--- previous operation did not show all results. To get the next results,
--- call the operation again with this value.
+-- previous request did not show all results. To get the next results, make
+-- the request again with this value.
 listTrustAnchorsResponse_nextToken :: Lens.Lens' ListTrustAnchorsResponse (Prelude.Maybe Prelude.Text)
 listTrustAnchorsResponse_nextToken = Lens.lens (\ListTrustAnchorsResponse' {nextToken} -> nextToken) (\s@ListTrustAnchorsResponse' {} a -> s {nextToken = a} :: ListTrustAnchorsResponse)
 

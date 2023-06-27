@@ -57,8 +57,8 @@ import Amazonka.RolesAnywhere.Types
 -- | /See:/ 'newListSubjects' smart constructor.
 data ListSubjects = ListSubjects'
   { -- | A token that indicates where the output should continue from, if a
-    -- previous operation did not show all results. To get the next results,
-    -- call the operation again with this value.
+    -- previous request did not show all results. To get the next results, make
+    -- the request again with this value.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of resources in the paginated list.
     pageSize :: Prelude.Maybe Prelude.Int
@@ -74,8 +74,8 @@ data ListSubjects = ListSubjects'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listSubjects_nextToken' - A token that indicates where the output should continue from, if a
--- previous operation did not show all results. To get the next results,
--- call the operation again with this value.
+-- previous request did not show all results. To get the next results, make
+-- the request again with this value.
 --
 -- 'pageSize', 'listSubjects_pageSize' - The number of resources in the paginated list.
 newListSubjects ::
@@ -87,8 +87,8 @@ newListSubjects =
     }
 
 -- | A token that indicates where the output should continue from, if a
--- previous operation did not show all results. To get the next results,
--- call the operation again with this value.
+-- previous request did not show all results. To get the next results, make
+-- the request again with this value.
 listSubjects_nextToken :: Lens.Lens' ListSubjects (Prelude.Maybe Prelude.Text)
 listSubjects_nextToken = Lens.lens (\ListSubjects' {nextToken} -> nextToken) (\s@ListSubjects' {} a -> s {nextToken = a} :: ListSubjects)
 
@@ -100,20 +100,23 @@ instance Core.AWSPager ListSubjects where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listSubjectsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listSubjectsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listSubjectsResponse_subjects Prelude.. Lens._Just
+            Lens.^? listSubjectsResponse_subjects
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSubjects_nextToken
           Lens..~ rs
-          Lens.^? listSubjectsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listSubjectsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSubjects where
   type AWSResponse ListSubjects = ListSubjectsResponse
@@ -130,7 +133,8 @@ instance Core.AWSRequest ListSubjects where
 
 instance Prelude.Hashable ListSubjects where
   hashWithSalt _salt ListSubjects' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
 
 instance Prelude.NFData ListSubjects where
@@ -162,8 +166,8 @@ instance Data.ToQuery ListSubjects where
 -- | /See:/ 'newListSubjectsResponse' smart constructor.
 data ListSubjectsResponse = ListSubjectsResponse'
   { -- | A token that indicates where the output should continue from, if a
-    -- previous operation did not show all results. To get the next results,
-    -- call the operation again with this value.
+    -- previous request did not show all results. To get the next results, make
+    -- the request again with this value.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of subjects.
     subjects :: Prelude.Maybe [SubjectSummary],
@@ -181,8 +185,8 @@ data ListSubjectsResponse = ListSubjectsResponse'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listSubjectsResponse_nextToken' - A token that indicates where the output should continue from, if a
--- previous operation did not show all results. To get the next results,
--- call the operation again with this value.
+-- previous request did not show all results. To get the next results, make
+-- the request again with this value.
 --
 -- 'subjects', 'listSubjectsResponse_subjects' - A list of subjects.
 --
@@ -199,8 +203,8 @@ newListSubjectsResponse pHttpStatus_ =
     }
 
 -- | A token that indicates where the output should continue from, if a
--- previous operation did not show all results. To get the next results,
--- call the operation again with this value.
+-- previous request did not show all results. To get the next results, make
+-- the request again with this value.
 listSubjectsResponse_nextToken :: Lens.Lens' ListSubjectsResponse (Prelude.Maybe Prelude.Text)
 listSubjectsResponse_nextToken = Lens.lens (\ListSubjectsResponse' {nextToken} -> nextToken) (\s@ListSubjectsResponse' {} a -> s {nextToken = a} :: ListSubjectsResponse)
 

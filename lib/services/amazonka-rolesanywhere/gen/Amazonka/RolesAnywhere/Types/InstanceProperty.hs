@@ -29,15 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceProperty' smart constructor.
 data InstanceProperty = InstanceProperty'
-  { -- | Indicates whether the
-    -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
-    -- operation was successful.
+  { -- | Indicates whether the temporary credential request was successful.
     failed :: Prelude.Maybe Prelude.Bool,
     -- | A list of instanceProperty objects.
     properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ISO-8601 time stamp of when the certificate was last used in a
-    -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
-    -- operation.
+    -- temporary credential request.
     seenAt :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,15 +47,12 @@ data InstanceProperty = InstanceProperty'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failed', 'instanceProperty_failed' - Indicates whether the
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operation was successful.
+-- 'failed', 'instanceProperty_failed' - Indicates whether the temporary credential request was successful.
 --
 -- 'properties', 'instanceProperty_properties' - A list of instanceProperty objects.
 --
 -- 'seenAt', 'instanceProperty_seenAt' - The ISO-8601 time stamp of when the certificate was last used in a
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operation.
+-- temporary credential request.
 newInstanceProperty ::
   InstanceProperty
 newInstanceProperty =
@@ -68,9 +62,7 @@ newInstanceProperty =
       seenAt = Prelude.Nothing
     }
 
--- | Indicates whether the
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operation was successful.
+-- | Indicates whether the temporary credential request was successful.
 instanceProperty_failed :: Lens.Lens' InstanceProperty (Prelude.Maybe Prelude.Bool)
 instanceProperty_failed = Lens.lens (\InstanceProperty' {failed} -> failed) (\s@InstanceProperty' {} a -> s {failed = a} :: InstanceProperty)
 
@@ -79,8 +71,7 @@ instanceProperty_properties :: Lens.Lens' InstanceProperty (Prelude.Maybe (Prelu
 instanceProperty_properties = Lens.lens (\InstanceProperty' {properties} -> properties) (\s@InstanceProperty' {} a -> s {properties = a} :: InstanceProperty) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ISO-8601 time stamp of when the certificate was last used in a
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operation.
+-- temporary credential request.
 instanceProperty_seenAt :: Lens.Lens' InstanceProperty (Prelude.Maybe Prelude.UTCTime)
 instanceProperty_seenAt = Lens.lens (\InstanceProperty' {seenAt} -> seenAt) (\s@InstanceProperty' {} a -> s {seenAt = a} :: InstanceProperty) Prelude.. Lens.mapping Data._Time
 
@@ -97,7 +88,8 @@ instance Data.FromJSON InstanceProperty where
 
 instance Prelude.Hashable InstanceProperty where
   hashWithSalt _salt InstanceProperty' {..} =
-    _salt `Prelude.hashWithSalt` failed
+    _salt
+      `Prelude.hashWithSalt` failed
       `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` seenAt
 

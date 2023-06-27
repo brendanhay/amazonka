@@ -20,14 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a trust anchor. You establish trust between IAM Roles Anywhere
--- and your certificate authority (CA) by configuring a trust anchor. A
--- Trust Anchor is defined either as a reference to a AWS Certificate
--- Manager Private Certificate Authority (ACM PCA), or by uploading a
--- Certificate Authority (CA) certificate. Your AWS workloads can
--- authenticate with the trust anchor using certificates issued by the
--- trusted Certificate Authority (CA) in exchange for temporary AWS
--- credentials.
+-- Creates a trust anchor to establish trust between IAM Roles Anywhere and
+-- your certificate authority (CA). You can define a trust anchor as a
+-- reference to an Private Certificate Authority (Private CA) or by
+-- uploading a CA certificate. Your Amazon Web Services workloads can
+-- authenticate with the trust anchor using certificates issued by the CA
+-- in exchange for temporary Amazon Web Services credentials.
 --
 -- __Required permissions:__ @rolesanywhere:CreateTrustAnchor@.
 module Amazonka.RolesAnywhere.CreateTrustAnchor
@@ -37,6 +35,7 @@ module Amazonka.RolesAnywhere.CreateTrustAnchor
 
     -- * Request Lenses
     createTrustAnchor_enabled,
+    createTrustAnchor_notificationSettings,
     createTrustAnchor_tags,
     createTrustAnchor_name,
     createTrustAnchor_source,
@@ -62,6 +61,8 @@ import Amazonka.RolesAnywhere.Types
 data CreateTrustAnchor = CreateTrustAnchor'
   { -- | Specifies whether the trust anchor is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
+    -- | A list of notification settings to be associated to the trust anchor.
+    notificationSettings :: Prelude.Maybe [NotificationSetting],
     -- | The tags to attach to the trust anchor.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the trust anchor.
@@ -81,6 +82,8 @@ data CreateTrustAnchor = CreateTrustAnchor'
 --
 -- 'enabled', 'createTrustAnchor_enabled' - Specifies whether the trust anchor is enabled.
 --
+-- 'notificationSettings', 'createTrustAnchor_notificationSettings' - A list of notification settings to be associated to the trust anchor.
+--
 -- 'tags', 'createTrustAnchor_tags' - The tags to attach to the trust anchor.
 --
 -- 'name', 'createTrustAnchor_name' - The name of the trust anchor.
@@ -95,6 +98,7 @@ newCreateTrustAnchor ::
 newCreateTrustAnchor pName_ pSource_ =
   CreateTrustAnchor'
     { enabled = Prelude.Nothing,
+      notificationSettings = Prelude.Nothing,
       tags = Prelude.Nothing,
       name = pName_,
       source = pSource_
@@ -103,6 +107,10 @@ newCreateTrustAnchor pName_ pSource_ =
 -- | Specifies whether the trust anchor is enabled.
 createTrustAnchor_enabled :: Lens.Lens' CreateTrustAnchor (Prelude.Maybe Prelude.Bool)
 createTrustAnchor_enabled = Lens.lens (\CreateTrustAnchor' {enabled} -> enabled) (\s@CreateTrustAnchor' {} a -> s {enabled = a} :: CreateTrustAnchor)
+
+-- | A list of notification settings to be associated to the trust anchor.
+createTrustAnchor_notificationSettings :: Lens.Lens' CreateTrustAnchor (Prelude.Maybe [NotificationSetting])
+createTrustAnchor_notificationSettings = Lens.lens (\CreateTrustAnchor' {notificationSettings} -> notificationSettings) (\s@CreateTrustAnchor' {} a -> s {notificationSettings = a} :: CreateTrustAnchor) Prelude.. Lens.mapping Lens.coerced
 
 -- | The tags to attach to the trust anchor.
 createTrustAnchor_tags :: Lens.Lens' CreateTrustAnchor (Prelude.Maybe [Tag])
@@ -128,7 +136,9 @@ instance Core.AWSRequest CreateTrustAnchor where
 
 instance Prelude.Hashable CreateTrustAnchor where
   hashWithSalt _salt CreateTrustAnchor' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` notificationSettings
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` source
@@ -136,6 +146,7 @@ instance Prelude.Hashable CreateTrustAnchor where
 instance Prelude.NFData CreateTrustAnchor where
   rnf CreateTrustAnchor' {..} =
     Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf notificationSettings
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf source
@@ -156,6 +167,8 @@ instance Data.ToJSON CreateTrustAnchor where
     Data.object
       ( Prelude.catMaybes
           [ ("enabled" Data..=) Prelude.<$> enabled,
+            ("notificationSettings" Data..=)
+              Prelude.<$> notificationSettings,
             ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),
             Prelude.Just ("source" Data..= source)

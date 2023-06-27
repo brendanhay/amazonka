@@ -27,8 +27,8 @@ import qualified Amazonka.Prelude as Prelude
 -- | /See:/ 'newListRequest' smart constructor.
 data ListRequest = ListRequest'
   { -- | A token that indicates where the output should continue from, if a
-    -- previous operation did not show all results. To get the next results,
-    -- call the operation again with this value.
+    -- previous request did not show all results. To get the next results, make
+    -- the request again with this value.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of resources in the paginated list.
     pageSize :: Prelude.Maybe Prelude.Int
@@ -44,8 +44,8 @@ data ListRequest = ListRequest'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listRequest_nextToken' - A token that indicates where the output should continue from, if a
--- previous operation did not show all results. To get the next results,
--- call the operation again with this value.
+-- previous request did not show all results. To get the next results, make
+-- the request again with this value.
 --
 -- 'pageSize', 'listRequest_pageSize' - The number of resources in the paginated list.
 newListRequest ::
@@ -57,8 +57,8 @@ newListRequest =
     }
 
 -- | A token that indicates where the output should continue from, if a
--- previous operation did not show all results. To get the next results,
--- call the operation again with this value.
+-- previous request did not show all results. To get the next results, make
+-- the request again with this value.
 listRequest_nextToken :: Lens.Lens' ListRequest (Prelude.Maybe Prelude.Text)
 listRequest_nextToken = Lens.lens (\ListRequest' {nextToken} -> nextToken) (\s@ListRequest' {} a -> s {nextToken = a} :: ListRequest)
 
@@ -68,7 +68,8 @@ listRequest_pageSize = Lens.lens (\ListRequest' {pageSize} -> pageSize) (\s@List
 
 instance Prelude.Hashable ListRequest where
   hashWithSalt _salt ListRequest' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
 
 instance Prelude.NFData ListRequest where

@@ -155,7 +155,8 @@ instance Data.FromJSON CrlDetail where
 
 instance Prelude.Hashable CrlDetail where
   hashWithSalt _salt CrlDetail' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` crlArn
       `Prelude.hashWithSalt` crlData
       `Prelude.hashWithSalt` crlId

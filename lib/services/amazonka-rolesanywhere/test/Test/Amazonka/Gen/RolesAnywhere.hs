@@ -90,6 +90,12 @@ import Test.Tasty
 --         , requestListTrustAnchors $
 --             newListTrustAnchors
 --
+--         , requestPutNotificationSettings $
+--             newPutNotificationSettings
+--
+--         , requestResetNotificationSettings $
+--             newResetNotificationSettings
+--
 --         , requestTagResource $
 --             newTagResource
 --
@@ -170,6 +176,12 @@ import Test.Tasty
 --
 --         , responseListTrustAnchors $
 --             newListTrustAnchorsResponse
+--
+--         , responsePutNotificationSettings $
+--             newPutNotificationSettingsResponse
+--
+--         , responseResetNotificationSettings $
+--             newResetNotificationSettingsResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -316,6 +328,18 @@ requestListTrustAnchors =
   req
     "ListTrustAnchors"
     "fixture/ListTrustAnchors.yaml"
+
+requestPutNotificationSettings :: PutNotificationSettings -> TestTree
+requestPutNotificationSettings =
+  req
+    "PutNotificationSettings"
+    "fixture/PutNotificationSettings.yaml"
+
+requestResetNotificationSettings :: ResetNotificationSettings -> TestTree
+requestResetNotificationSettings =
+  req
+    "ResetNotificationSettings"
+    "fixture/ResetNotificationSettings.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -516,6 +540,22 @@ responseListTrustAnchors =
     "fixture/ListTrustAnchorsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTrustAnchors)
+
+responsePutNotificationSettings :: PutNotificationSettingsResponse -> TestTree
+responsePutNotificationSettings =
+  res
+    "PutNotificationSettingsResponse"
+    "fixture/PutNotificationSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutNotificationSettings)
+
+responseResetNotificationSettings :: ResetNotificationSettingsResponse -> TestTree
+responseResetNotificationSettings =
+  res
+    "ResetNotificationSettingsResponse"
+    "fixture/ResetNotificationSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ResetNotificationSettings)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =

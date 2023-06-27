@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the certificate revocation list (CRL). CRl is a list of
--- certificates that have been revoked by the issuing certificate Authority
--- (CA). IAM Roles Anywhere validates against the crl list before issuing
+-- Updates the certificate revocation list (CRL). A CRL is a list of
+-- certificates that have been revoked by the issuing certificate authority
+-- (CA). IAM Roles Anywhere validates against the CRL before issuing
 -- credentials.
 --
 -- __Required permissions:__ @rolesanywhere:UpdateCrl@.
@@ -55,7 +55,7 @@ import Amazonka.RolesAnywhere.Types
 
 -- | /See:/ 'newUpdateCrl' smart constructor.
 data UpdateCrl = UpdateCrl'
-  { -- | The x509 v3 specified certificate revocation list
+  { -- | The x509 v3 specified certificate revocation list (CRL).
     crlData :: Prelude.Maybe Data.Base64,
     -- | The name of the Crl.
     name :: Prelude.Maybe Prelude.Text,
@@ -72,7 +72,7 @@ data UpdateCrl = UpdateCrl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'crlData', 'updateCrl_crlData' - The x509 v3 specified certificate revocation list--
+-- 'crlData', 'updateCrl_crlData' - The x509 v3 specified certificate revocation list (CRL).--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -92,7 +92,7 @@ newUpdateCrl pCrlId_ =
       crlId = pCrlId_
     }
 
--- | The x509 v3 specified certificate revocation list--
+-- | The x509 v3 specified certificate revocation list (CRL).--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -118,7 +118,8 @@ instance Core.AWSRequest UpdateCrl where
 
 instance Prelude.Hashable UpdateCrl where
   hashWithSalt _salt UpdateCrl' {..} =
-    _salt `Prelude.hashWithSalt` crlData
+    _salt
+      `Prelude.hashWithSalt` crlData
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` crlId
 

@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Imports the certificate revocation list (CRL). CRl is a list of
+-- Imports the certificate revocation list (CRL). A CRL is a list of
 -- certificates that have been revoked by the issuing certificate Authority
--- (CA). IAM Roles Anywhere validates against the crl list before issuing
+-- (CA). IAM Roles Anywhere validates against the CRL before issuing
 -- credentials.
 --
 -- __Required permissions:__ @rolesanywhere:ImportCrl@.
@@ -61,7 +61,7 @@ data ImportCrl = ImportCrl'
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | A list of tags to attach to the certificate revocation list (CRL).
     tags :: Prelude.Maybe [Tag],
-    -- | The x509 v3 specified certificate revocation list
+    -- | The x509 v3 specified certificate revocation list (CRL).
     crlData :: Data.Base64,
     -- | The name of the certificate revocation list (CRL).
     name :: Prelude.Text,
@@ -83,7 +83,7 @@ data ImportCrl = ImportCrl'
 --
 -- 'tags', 'importCrl_tags' - A list of tags to attach to the certificate revocation list (CRL).
 --
--- 'crlData', 'importCrl_crlData' - The x509 v3 specified certificate revocation list--
+-- 'crlData', 'importCrl_crlData' - The x509 v3 specified certificate revocation list (CRL).--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -118,7 +118,7 @@ importCrl_enabled = Lens.lens (\ImportCrl' {enabled} -> enabled) (\s@ImportCrl' 
 importCrl_tags :: Lens.Lens' ImportCrl (Prelude.Maybe [Tag])
 importCrl_tags = Lens.lens (\ImportCrl' {tags} -> tags) (\s@ImportCrl' {} a -> s {tags = a} :: ImportCrl) Prelude.. Lens.mapping Lens.coerced
 
--- | The x509 v3 specified certificate revocation list--
+-- | The x509 v3 specified certificate revocation list (CRL).--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -145,7 +145,8 @@ instance Core.AWSRequest ImportCrl where
 
 instance Prelude.Hashable ImportCrl where
   hashWithSalt _salt ImportCrl' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` crlData
       `Prelude.hashWithSalt` name

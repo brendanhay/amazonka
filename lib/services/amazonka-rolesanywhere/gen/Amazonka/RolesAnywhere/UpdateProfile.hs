@@ -20,10 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the profile. A profile is configuration resource to list the
--- roles that RolesAnywhere service is trusted to assume. In addition, by
--- applying a profile you can scope-down permissions with IAM managed
--- policies.
+-- Updates a /profile/, a list of the roles that IAM Roles Anywhere service
+-- is trusted to assume. You use profiles to intersect permissions with IAM
+-- managed policies.
 --
 -- __Required permissions:__ @rolesanywhere:UpdateProfile@.
 module Amazonka.RolesAnywhere.UpdateProfile
@@ -65,9 +64,8 @@ data UpdateProfile = UpdateProfile'
     managedPolicyArns :: Prelude.Maybe [Prelude.Text],
     -- | The name of the profile.
     name :: Prelude.Maybe Prelude.Text,
-    -- | A list of IAM roles that this profile can assume in a
-    -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
-    -- operation.
+    -- | A list of IAM roles that this profile can assume in a temporary
+    -- credential request.
     roleArns :: Prelude.Maybe [Prelude.Text],
     -- | A session policy that applies to the trust boundary of the vended
     -- session credentials.
@@ -92,9 +90,8 @@ data UpdateProfile = UpdateProfile'
 --
 -- 'name', 'updateProfile_name' - The name of the profile.
 --
--- 'roleArns', 'updateProfile_roleArns' - A list of IAM roles that this profile can assume in a
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operation.
+-- 'roleArns', 'updateProfile_roleArns' - A list of IAM roles that this profile can assume in a temporary
+-- credential request.
 --
 -- 'sessionPolicy', 'updateProfile_sessionPolicy' - A session policy that applies to the trust boundary of the vended
 -- session credentials.
@@ -127,9 +124,8 @@ updateProfile_managedPolicyArns = Lens.lens (\UpdateProfile' {managedPolicyArns}
 updateProfile_name :: Lens.Lens' UpdateProfile (Prelude.Maybe Prelude.Text)
 updateProfile_name = Lens.lens (\UpdateProfile' {name} -> name) (\s@UpdateProfile' {} a -> s {name = a} :: UpdateProfile)
 
--- | A list of IAM roles that this profile can assume in a
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operation.
+-- | A list of IAM roles that this profile can assume in a temporary
+-- credential request.
 updateProfile_roleArns :: Lens.Lens' UpdateProfile (Prelude.Maybe [Prelude.Text])
 updateProfile_roleArns = Lens.lens (\UpdateProfile' {roleArns} -> roleArns) (\s@UpdateProfile' {} a -> s {roleArns = a} :: UpdateProfile) Prelude.. Lens.mapping Lens.coerced
 
@@ -154,7 +150,8 @@ instance Core.AWSRequest UpdateProfile where
 
 instance Prelude.Hashable UpdateProfile where
   hashWithSalt _salt UpdateProfile' {..} =
-    _salt `Prelude.hashWithSalt` durationSeconds
+    _salt
+      `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` managedPolicyArns
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleArns

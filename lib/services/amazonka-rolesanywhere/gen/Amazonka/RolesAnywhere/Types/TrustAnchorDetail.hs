@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.RolesAnywhere.Types.NotificationSettingDetail
 import Amazonka.RolesAnywhere.Types.Source
 
 -- | The state of the trust anchor after a read or write operation.
@@ -35,6 +36,8 @@ data TrustAnchorDetail = TrustAnchorDetail'
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the trust anchor.
     name :: Prelude.Maybe Prelude.Text,
+    -- | A list of notification settings to be associated to the trust anchor.
+    notificationSettings :: Prelude.Maybe [NotificationSettingDetail],
     -- | The trust anchor type and its related certificate data.
     source :: Prelude.Maybe Source,
     -- | The ARN of the trust anchor.
@@ -60,6 +63,8 @@ data TrustAnchorDetail = TrustAnchorDetail'
 --
 -- 'name', 'trustAnchorDetail_name' - The name of the trust anchor.
 --
+-- 'notificationSettings', 'trustAnchorDetail_notificationSettings' - A list of notification settings to be associated to the trust anchor.
+--
 -- 'source', 'trustAnchorDetail_source' - The trust anchor type and its related certificate data.
 --
 -- 'trustAnchorArn', 'trustAnchorDetail_trustAnchorArn' - The ARN of the trust anchor.
@@ -74,6 +79,7 @@ newTrustAnchorDetail =
     { createdAt = Prelude.Nothing,
       enabled = Prelude.Nothing,
       name = Prelude.Nothing,
+      notificationSettings = Prelude.Nothing,
       source = Prelude.Nothing,
       trustAnchorArn = Prelude.Nothing,
       trustAnchorId = Prelude.Nothing,
@@ -91,6 +97,10 @@ trustAnchorDetail_enabled = Lens.lens (\TrustAnchorDetail' {enabled} -> enabled)
 -- | The name of the trust anchor.
 trustAnchorDetail_name :: Lens.Lens' TrustAnchorDetail (Prelude.Maybe Prelude.Text)
 trustAnchorDetail_name = Lens.lens (\TrustAnchorDetail' {name} -> name) (\s@TrustAnchorDetail' {} a -> s {name = a} :: TrustAnchorDetail)
+
+-- | A list of notification settings to be associated to the trust anchor.
+trustAnchorDetail_notificationSettings :: Lens.Lens' TrustAnchorDetail (Prelude.Maybe [NotificationSettingDetail])
+trustAnchorDetail_notificationSettings = Lens.lens (\TrustAnchorDetail' {notificationSettings} -> notificationSettings) (\s@TrustAnchorDetail' {} a -> s {notificationSettings = a} :: TrustAnchorDetail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The trust anchor type and its related certificate data.
 trustAnchorDetail_source :: Lens.Lens' TrustAnchorDetail (Prelude.Maybe Source)
@@ -117,6 +127,10 @@ instance Data.FromJSON TrustAnchorDetail where
             Prelude.<$> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "enabled")
             Prelude.<*> (x Data..:? "name")
+            Prelude.<*> ( x
+                            Data..:? "notificationSettings"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "source")
             Prelude.<*> (x Data..:? "trustAnchorArn")
             Prelude.<*> (x Data..:? "trustAnchorId")
@@ -125,9 +139,11 @@ instance Data.FromJSON TrustAnchorDetail where
 
 instance Prelude.Hashable TrustAnchorDetail where
   hashWithSalt _salt TrustAnchorDetail' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` notificationSettings
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` trustAnchorArn
       `Prelude.hashWithSalt` trustAnchorId
@@ -138,6 +154,7 @@ instance Prelude.NFData TrustAnchorDetail where
     Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf notificationSettings
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf trustAnchorArn
       `Prelude.seq` Prelude.rnf trustAnchorId

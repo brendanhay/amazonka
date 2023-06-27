@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables the roles in a profile to receive session credentials in
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>.
+-- Enables temporary credential requests for a profile.
 --
 -- __Required permissions:__ @rolesanywhere:EnableProfile@.
 module Amazonka.RolesAnywhere.EnableProfile

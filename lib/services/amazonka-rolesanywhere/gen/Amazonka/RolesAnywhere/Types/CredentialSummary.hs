@@ -24,23 +24,20 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | A record of a presented X509 credential to
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>.
+-- | A record of a presented X509 credential from a temporary credential
+-- request.
 --
 -- /See:/ 'newCredentialSummary' smart constructor.
 data CredentialSummary = CredentialSummary'
   { -- | Indicates whether the credential is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether the
-    -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
-    -- operation was successful.
+    -- | Indicates whether the temporary credential request was successful.
     failed :: Prelude.Maybe Prelude.Bool,
     -- | The fully qualified domain name of the issuing certificate for the
     -- presented end-entity certificate.
     issuer :: Prelude.Maybe Prelude.Text,
     -- | The ISO-8601 time stamp of when the certificate was last used in a
-    -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
-    -- operation.
+    -- temporary credential request.
     seenAt :: Prelude.Maybe Data.ISO8601,
     -- | The serial number of the certificate.
     serialNumber :: Prelude.Maybe Prelude.Text,
@@ -59,16 +56,13 @@ data CredentialSummary = CredentialSummary'
 --
 -- 'enabled', 'credentialSummary_enabled' - Indicates whether the credential is enabled.
 --
--- 'failed', 'credentialSummary_failed' - Indicates whether the
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operation was successful.
+-- 'failed', 'credentialSummary_failed' - Indicates whether the temporary credential request was successful.
 --
 -- 'issuer', 'credentialSummary_issuer' - The fully qualified domain name of the issuing certificate for the
 -- presented end-entity certificate.
 --
 -- 'seenAt', 'credentialSummary_seenAt' - The ISO-8601 time stamp of when the certificate was last used in a
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operation.
+-- temporary credential request.
 --
 -- 'serialNumber', 'credentialSummary_serialNumber' - The serial number of the certificate.
 --
@@ -89,9 +83,7 @@ newCredentialSummary =
 credentialSummary_enabled :: Lens.Lens' CredentialSummary (Prelude.Maybe Prelude.Bool)
 credentialSummary_enabled = Lens.lens (\CredentialSummary' {enabled} -> enabled) (\s@CredentialSummary' {} a -> s {enabled = a} :: CredentialSummary)
 
--- | Indicates whether the
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operation was successful.
+-- | Indicates whether the temporary credential request was successful.
 credentialSummary_failed :: Lens.Lens' CredentialSummary (Prelude.Maybe Prelude.Bool)
 credentialSummary_failed = Lens.lens (\CredentialSummary' {failed} -> failed) (\s@CredentialSummary' {} a -> s {failed = a} :: CredentialSummary)
 
@@ -101,8 +93,7 @@ credentialSummary_issuer :: Lens.Lens' CredentialSummary (Prelude.Maybe Prelude.
 credentialSummary_issuer = Lens.lens (\CredentialSummary' {issuer} -> issuer) (\s@CredentialSummary' {} a -> s {issuer = a} :: CredentialSummary)
 
 -- | The ISO-8601 time stamp of when the certificate was last used in a
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operation.
+-- temporary credential request.
 credentialSummary_seenAt :: Lens.Lens' CredentialSummary (Prelude.Maybe Prelude.UTCTime)
 credentialSummary_seenAt = Lens.lens (\CredentialSummary' {seenAt} -> seenAt) (\s@CredentialSummary' {} a -> s {seenAt = a} :: CredentialSummary) Prelude.. Lens.mapping Data._Time
 
@@ -130,7 +121,8 @@ instance Data.FromJSON CredentialSummary where
 
 instance Prelude.Hashable CredentialSummary where
   hashWithSalt _salt CredentialSummary' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` failed
       `Prelude.hashWithSalt` issuer
       `Prelude.hashWithSalt` seenAt

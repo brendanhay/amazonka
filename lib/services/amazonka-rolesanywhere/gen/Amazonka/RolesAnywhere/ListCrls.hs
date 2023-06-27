@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all Crls in the authenticated account and Amazon Web Services
--- Region.
+-- Lists all certificate revocation lists (CRL) in the authenticated
+-- account and Amazon Web Services Region.
 --
 -- __Required permissions:__ @rolesanywhere:ListCrls@.
 --
@@ -57,8 +57,8 @@ import Amazonka.RolesAnywhere.Types
 -- | /See:/ 'newListCrls' smart constructor.
 data ListCrls = ListCrls'
   { -- | A token that indicates where the output should continue from, if a
-    -- previous operation did not show all results. To get the next results,
-    -- call the operation again with this value.
+    -- previous request did not show all results. To get the next results, make
+    -- the request again with this value.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of resources in the paginated list.
     pageSize :: Prelude.Maybe Prelude.Int
@@ -74,8 +74,8 @@ data ListCrls = ListCrls'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listCrls_nextToken' - A token that indicates where the output should continue from, if a
--- previous operation did not show all results. To get the next results,
--- call the operation again with this value.
+-- previous request did not show all results. To get the next results, make
+-- the request again with this value.
 --
 -- 'pageSize', 'listCrls_pageSize' - The number of resources in the paginated list.
 newListCrls ::
@@ -87,8 +87,8 @@ newListCrls =
     }
 
 -- | A token that indicates where the output should continue from, if a
--- previous operation did not show all results. To get the next results,
--- call the operation again with this value.
+-- previous request did not show all results. To get the next results, make
+-- the request again with this value.
 listCrls_nextToken :: Lens.Lens' ListCrls (Prelude.Maybe Prelude.Text)
 listCrls_nextToken = Lens.lens (\ListCrls' {nextToken} -> nextToken) (\s@ListCrls' {} a -> s {nextToken = a} :: ListCrls)
 
@@ -100,20 +100,23 @@ instance Core.AWSPager ListCrls where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listCrlsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listCrlsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listCrlsResponse_crls Prelude.. Lens._Just
+            Lens.^? listCrlsResponse_crls
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCrls_nextToken
           Lens..~ rs
-          Lens.^? listCrlsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listCrlsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCrls where
   type AWSResponse ListCrls = ListCrlsResponse
@@ -130,7 +133,8 @@ instance Core.AWSRequest ListCrls where
 
 instance Prelude.Hashable ListCrls where
   hashWithSalt _salt ListCrls' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
 
 instance Prelude.NFData ListCrls where
@@ -164,8 +168,8 @@ data ListCrlsResponse = ListCrlsResponse'
   { -- | A list of certificate revocation lists (CRL).
     crls :: Prelude.Maybe [CrlDetail],
     -- | A token that indicates where the output should continue from, if a
-    -- previous operation did not show all results. To get the next results,
-    -- call the operation again with this value.
+    -- previous request did not show all results. To get the next results, make
+    -- the request again with this value.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -183,8 +187,8 @@ data ListCrlsResponse = ListCrlsResponse'
 -- 'crls', 'listCrlsResponse_crls' - A list of certificate revocation lists (CRL).
 --
 -- 'nextToken', 'listCrlsResponse_nextToken' - A token that indicates where the output should continue from, if a
--- previous operation did not show all results. To get the next results,
--- call the operation again with this value.
+-- previous request did not show all results. To get the next results, make
+-- the request again with this value.
 --
 -- 'httpStatus', 'listCrlsResponse_httpStatus' - The response's http status code.
 newListCrlsResponse ::
@@ -203,8 +207,8 @@ listCrlsResponse_crls :: Lens.Lens' ListCrlsResponse (Prelude.Maybe [CrlDetail])
 listCrlsResponse_crls = Lens.lens (\ListCrlsResponse' {crls} -> crls) (\s@ListCrlsResponse' {} a -> s {crls = a} :: ListCrlsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates where the output should continue from, if a
--- previous operation did not show all results. To get the next results,
--- call the operation again with this value.
+-- previous request did not show all results. To get the next results, make
+-- the request again with this value.
 listCrlsResponse_nextToken :: Lens.Lens' ListCrlsResponse (Prelude.Maybe Prelude.Text)
 listCrlsResponse_nextToken = Lens.lens (\ListCrlsResponse' {nextToken} -> nextToken) (\s@ListCrlsResponse' {} a -> s {nextToken = a} :: ListCrlsResponse)
 

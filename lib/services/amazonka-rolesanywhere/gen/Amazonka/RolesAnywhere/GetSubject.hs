@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a Subject. A Subject associates a certificate identity with
--- authentication attempts by CreateSession. The Subject resources stores
--- audit information such as status of the last authentication attempt, the
--- certificate data used in the attempt, and the last time the associated
--- identity attempted authentication.
+-- Gets a /subject/, which associates a certificate identity with
+-- authentication attempts. The subject stores auditing information such as
+-- the status of the last authentication attempt, the certificate data used
+-- in the attempt, and the last time the associated identity attempted
+-- authentication.
 --
 -- __Required permissions:__ @rolesanywhere:GetSubject@.
 module Amazonka.RolesAnywhere.GetSubject

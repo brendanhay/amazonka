@@ -20,10 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a profile. A profile is configuration resource to list the roles
--- that RolesAnywhere service is trusted to assume. In addition, by
--- applying a profile you can intersect permissions with IAM managed
--- policies.
+-- Creates a /profile/, a list of the roles that Roles Anywhere service is
+-- trusted to assume. You use profiles to intersect permissions with IAM
+-- managed policies.
 --
 -- __Required permissions:__ @rolesanywhere:CreateProfile@.
 module Amazonka.RolesAnywhere.CreateProfile
@@ -67,9 +66,8 @@ data CreateProfile = CreateProfile'
     -- | A list of managed policy ARNs that apply to the vended session
     -- credentials.
     managedPolicyArns :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies whether instance properties are required in
-    -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
-    -- requests with this profile.
+    -- | Specifies whether instance properties are required in temporary
+    -- credential requests with this profile.
     requireInstanceProperties :: Prelude.Maybe Prelude.Bool,
     -- | A session policy that applies to the trust boundary of the vended
     -- session credentials.
@@ -78,9 +76,8 @@ data CreateProfile = CreateProfile'
     tags :: Prelude.Maybe [Tag],
     -- | The name of the profile.
     name :: Prelude.Text,
-    -- | A list of IAM roles that this profile can assume in a
-    -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
-    -- operation.
+    -- | A list of IAM roles that this profile can assume in a temporary
+    -- credential request.
     roleArns :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -100,9 +97,8 @@ data CreateProfile = CreateProfile'
 -- 'managedPolicyArns', 'createProfile_managedPolicyArns' - A list of managed policy ARNs that apply to the vended session
 -- credentials.
 --
--- 'requireInstanceProperties', 'createProfile_requireInstanceProperties' - Specifies whether instance properties are required in
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- requests with this profile.
+-- 'requireInstanceProperties', 'createProfile_requireInstanceProperties' - Specifies whether instance properties are required in temporary
+-- credential requests with this profile.
 --
 -- 'sessionPolicy', 'createProfile_sessionPolicy' - A session policy that applies to the trust boundary of the vended
 -- session credentials.
@@ -111,9 +107,8 @@ data CreateProfile = CreateProfile'
 --
 -- 'name', 'createProfile_name' - The name of the profile.
 --
--- 'roleArns', 'createProfile_roleArns' - A list of IAM roles that this profile can assume in a
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operation.
+-- 'roleArns', 'createProfile_roleArns' - A list of IAM roles that this profile can assume in a temporary
+-- credential request.
 newCreateProfile ::
   -- | 'name'
   Prelude.Text ->
@@ -143,9 +138,8 @@ createProfile_enabled = Lens.lens (\CreateProfile' {enabled} -> enabled) (\s@Cre
 createProfile_managedPolicyArns :: Lens.Lens' CreateProfile (Prelude.Maybe [Prelude.Text])
 createProfile_managedPolicyArns = Lens.lens (\CreateProfile' {managedPolicyArns} -> managedPolicyArns) (\s@CreateProfile' {} a -> s {managedPolicyArns = a} :: CreateProfile) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies whether instance properties are required in
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- requests with this profile.
+-- | Specifies whether instance properties are required in temporary
+-- credential requests with this profile.
 createProfile_requireInstanceProperties :: Lens.Lens' CreateProfile (Prelude.Maybe Prelude.Bool)
 createProfile_requireInstanceProperties = Lens.lens (\CreateProfile' {requireInstanceProperties} -> requireInstanceProperties) (\s@CreateProfile' {} a -> s {requireInstanceProperties = a} :: CreateProfile)
 
@@ -162,9 +156,8 @@ createProfile_tags = Lens.lens (\CreateProfile' {tags} -> tags) (\s@CreateProfil
 createProfile_name :: Lens.Lens' CreateProfile Prelude.Text
 createProfile_name = Lens.lens (\CreateProfile' {name} -> name) (\s@CreateProfile' {} a -> s {name = a} :: CreateProfile)
 
--- | A list of IAM roles that this profile can assume in a
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operation.
+-- | A list of IAM roles that this profile can assume in a temporary
+-- credential request.
 createProfile_roleArns :: Lens.Lens' CreateProfile [Prelude.Text]
 createProfile_roleArns = Lens.lens (\CreateProfile' {roleArns} -> roleArns) (\s@CreateProfile' {} a -> s {roleArns = a} :: CreateProfile) Prelude.. Lens.coerced
 
@@ -180,7 +173,8 @@ instance Core.AWSRequest CreateProfile where
 
 instance Prelude.Hashable CreateProfile where
   hashWithSalt _salt CreateProfile' {..} =
-    _salt `Prelude.hashWithSalt` durationSeconds
+    _salt
+      `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` managedPolicyArns
       `Prelude.hashWithSalt` requireInstanceProperties

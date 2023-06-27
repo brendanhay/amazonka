@@ -11,26 +11,25 @@
 --
 -- Derived from API version @2018-05-10@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Identity and Access Management Roles Anywhere provides a secure way
--- for your workloads such as servers, containers, and applications running
--- outside of AWS to obtain Temporary AWS credentials. Your workloads can
--- use the same IAM policies and roles that you have configured with native
--- AWS applications to access AWS resources. Using IAM Roles Anywhere will
--- eliminate the need to manage long term credentials for workloads running
--- outside of AWS.
+-- Identity and Access Management Roles Anywhere provides a secure way for
+-- your workloads such as servers, containers, and applications that run
+-- outside of Amazon Web Services to obtain temporary Amazon Web Services
+-- credentials. Your workloads can use the same IAM policies and roles you
+-- have for native Amazon Web Services applications to access Amazon Web
+-- Services resources. Using IAM Roles Anywhere eliminates the need to
+-- manage long-term credentials for workloads running outside of Amazon Web
+-- Services.
 --
--- To use IAM Roles Anywhere customer workloads will need to use X.509
--- certificates issued by their Certificate Authority (CA) . The
--- Certificate Authority (CA) needs to be registered with IAM Roles
--- Anywhere as a trust anchor to establish trust between customer PKI and
--- IAM Roles Anywhere. Customers who do not manage their own PKI system can
--- use AWS Certificate Manager Private Certificate Authority (ACM PCA) to
--- create a Certificate Authority and use that to establish trust with IAM
--- Roles Anywhere
+-- To use IAM Roles Anywhere, your workloads must use X.509 certificates
+-- issued by their certificate authority (CA). You register the CA with IAM
+-- Roles Anywhere as a trust anchor to establish trust between your public
+-- key infrastructure (PKI) and IAM Roles Anywhere. If you don\'t manage
+-- your own PKI system, you can use Private Certificate Authority to create
+-- a CA and then use that to establish trust with IAM Roles Anywhere.
 --
--- This guide describes the IAM rolesanywhere operations that you can call
--- programmatically. For general information about IAM Roles Anywhere see
--- <https://docs.aws.amazon.com/>
+-- This guide describes the IAM Roles Anywhere operations that you can call
+-- programmatically. For more information about IAM Roles Anywhere, see the
+-- <https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html IAM Roles Anywhere User Guide>.
 module Amazonka.RolesAnywhere
   ( -- * Service Configuration
     defaultService,
@@ -182,6 +181,18 @@ module Amazonka.RolesAnywhere
     ListTrustAnchorsResponse (ListTrustAnchorsResponse'),
     newListTrustAnchorsResponse,
 
+    -- ** PutNotificationSettings
+    PutNotificationSettings (PutNotificationSettings'),
+    newPutNotificationSettings,
+    PutNotificationSettingsResponse (PutNotificationSettingsResponse'),
+    newPutNotificationSettingsResponse,
+
+    -- ** ResetNotificationSettings
+    ResetNotificationSettings (ResetNotificationSettings'),
+    newResetNotificationSettings,
+    ResetNotificationSettingsResponse (ResetNotificationSettingsResponse'),
+    newResetNotificationSettingsResponse,
+
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
@@ -214,6 +225,12 @@ module Amazonka.RolesAnywhere
 
     -- * Types
 
+    -- ** NotificationChannel
+    NotificationChannel (..),
+
+    -- ** NotificationEvent
+    NotificationEvent (..),
+
     -- ** TrustAnchorType
     TrustAnchorType (..),
 
@@ -236,6 +253,18 @@ module Amazonka.RolesAnywhere
     -- ** ListRequest
     ListRequest (ListRequest'),
     newListRequest,
+
+    -- ** NotificationSetting
+    NotificationSetting (NotificationSetting'),
+    newNotificationSetting,
+
+    -- ** NotificationSettingDetail
+    NotificationSettingDetail (NotificationSettingDetail'),
+    newNotificationSettingDetail,
+
+    -- ** NotificationSettingKey
+    NotificationSettingKey (NotificationSettingKey'),
+    newNotificationSettingKey,
 
     -- ** ProfileDetail
     ProfileDetail (ProfileDetail'),
@@ -309,6 +338,8 @@ import Amazonka.RolesAnywhere.ListProfiles
 import Amazonka.RolesAnywhere.ListSubjects
 import Amazonka.RolesAnywhere.ListTagsForResource
 import Amazonka.RolesAnywhere.ListTrustAnchors
+import Amazonka.RolesAnywhere.PutNotificationSettings
+import Amazonka.RolesAnywhere.ResetNotificationSettings
 import Amazonka.RolesAnywhere.TagResource
 import Amazonka.RolesAnywhere.Types
 import Amazonka.RolesAnywhere.UntagResource

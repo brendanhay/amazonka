@@ -45,13 +45,11 @@ data ProfileDetail = ProfileDetail'
     profileArn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the profile.
     profileId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether instance properties are required in
-    -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
-    -- requests with this profile.
+    -- | Specifies whether instance properties are required in temporary
+    -- credential requests with this profile.
     requireInstanceProperties :: Prelude.Maybe Prelude.Bool,
-    -- | A list of IAM roles that this profile can assume in a
-    -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
-    -- operation.
+    -- | A list of IAM roles that this profile can assume in a temporary
+    -- credential request.
     roleArns :: Prelude.Maybe [Prelude.Text],
     -- | A session policy that applies to the trust boundary of the vended
     -- session credentials.
@@ -86,13 +84,11 @@ data ProfileDetail = ProfileDetail'
 --
 -- 'profileId', 'profileDetail_profileId' - The unique identifier of the profile.
 --
--- 'requireInstanceProperties', 'profileDetail_requireInstanceProperties' - Specifies whether instance properties are required in
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- requests with this profile.
+-- 'requireInstanceProperties', 'profileDetail_requireInstanceProperties' - Specifies whether instance properties are required in temporary
+-- credential requests with this profile.
 --
--- 'roleArns', 'profileDetail_roleArns' - A list of IAM roles that this profile can assume in a
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operation.
+-- 'roleArns', 'profileDetail_roleArns' - A list of IAM roles that this profile can assume in a temporary
+-- credential request.
 --
 -- 'sessionPolicy', 'profileDetail_sessionPolicy' - A session policy that applies to the trust boundary of the vended
 -- session credentials.
@@ -149,15 +145,13 @@ profileDetail_profileArn = Lens.lens (\ProfileDetail' {profileArn} -> profileArn
 profileDetail_profileId :: Lens.Lens' ProfileDetail (Prelude.Maybe Prelude.Text)
 profileDetail_profileId = Lens.lens (\ProfileDetail' {profileId} -> profileId) (\s@ProfileDetail' {} a -> s {profileId = a} :: ProfileDetail)
 
--- | Specifies whether instance properties are required in
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- requests with this profile.
+-- | Specifies whether instance properties are required in temporary
+-- credential requests with this profile.
 profileDetail_requireInstanceProperties :: Lens.Lens' ProfileDetail (Prelude.Maybe Prelude.Bool)
 profileDetail_requireInstanceProperties = Lens.lens (\ProfileDetail' {requireInstanceProperties} -> requireInstanceProperties) (\s@ProfileDetail' {} a -> s {requireInstanceProperties = a} :: ProfileDetail)
 
--- | A list of IAM roles that this profile can assume in a
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operation.
+-- | A list of IAM roles that this profile can assume in a temporary
+-- credential request.
 profileDetail_roleArns :: Lens.Lens' ProfileDetail (Prelude.Maybe [Prelude.Text])
 profileDetail_roleArns = Lens.lens (\ProfileDetail' {roleArns} -> roleArns) (\s@ProfileDetail' {} a -> s {roleArns = a} :: ProfileDetail) Prelude.. Lens.mapping Lens.coerced
 
@@ -180,7 +174,8 @@ instance Data.FromJSON ProfileDetail where
             Prelude.<*> (x Data..:? "createdBy")
             Prelude.<*> (x Data..:? "durationSeconds")
             Prelude.<*> (x Data..:? "enabled")
-            Prelude.<*> ( x Data..:? "managedPolicyArns"
+            Prelude.<*> ( x
+                            Data..:? "managedPolicyArns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "name")
@@ -194,7 +189,8 @@ instance Data.FromJSON ProfileDetail where
 
 instance Prelude.Hashable ProfileDetail where
   hashWithSalt _salt ProfileDetail' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` enabled

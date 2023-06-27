@@ -20,9 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables a trust anchor. When disabled,
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- requests specifying this trust anchor are unauthorized.
+-- Disables a trust anchor. When disabled, temporary credential requests
+-- specifying this trust anchor are unauthorized.
 --
 -- __Required permissions:__ @rolesanywhere:DisableTrustAnchor@.
 module Amazonka.RolesAnywhere.DisableTrustAnchor

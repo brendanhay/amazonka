@@ -66,6 +66,8 @@ library
     Amazonka.RolesAnywhere.ListSubjects
     Amazonka.RolesAnywhere.ListTagsForResource
     Amazonka.RolesAnywhere.ListTrustAnchors
+    Amazonka.RolesAnywhere.PutNotificationSettings
+    Amazonka.RolesAnywhere.ResetNotificationSettings
     Amazonka.RolesAnywhere.TagResource
     Amazonka.RolesAnywhere.Types
     Amazonka.RolesAnywhere.Types.CredentialSummary
@@ -73,6 +75,11 @@ library
     Amazonka.RolesAnywhere.Types.CrlDetailResponse
     Amazonka.RolesAnywhere.Types.InstanceProperty
     Amazonka.RolesAnywhere.Types.ListRequest
+    Amazonka.RolesAnywhere.Types.NotificationChannel
+    Amazonka.RolesAnywhere.Types.NotificationEvent
+    Amazonka.RolesAnywhere.Types.NotificationSetting
+    Amazonka.RolesAnywhere.Types.NotificationSettingDetail
+    Amazonka.RolesAnywhere.Types.NotificationSettingKey
     Amazonka.RolesAnywhere.Types.ProfileDetail
     Amazonka.RolesAnywhere.Types.ProfileDetailResponse
     Amazonka.RolesAnywhere.Types.ScalarCrlRequest

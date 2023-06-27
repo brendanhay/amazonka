@@ -33,13 +33,13 @@ data SubjectDetail = SubjectDetail'
   { -- | The ISO-8601 timestamp when the subject was created.
     createdAt :: Prelude.Maybe Data.ISO8601,
     -- | The temporary session credentials vended at the last authenticating call
-    -- with this Subject.
+    -- with this subject.
     credentials :: Prelude.Maybe [CredentialSummary],
     -- | The enabled status of the subject.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The specified instance properties associated with the request.
     instanceProperties :: Prelude.Maybe [InstanceProperty],
-    -- | The ISO-8601 timestamp of the last time this Subject requested temporary
+    -- | The ISO-8601 timestamp of the last time this subject requested temporary
     -- session credentials.
     lastSeenAt :: Prelude.Maybe Data.ISO8601,
     -- | The ARN of the resource.
@@ -64,13 +64,13 @@ data SubjectDetail = SubjectDetail'
 -- 'createdAt', 'subjectDetail_createdAt' - The ISO-8601 timestamp when the subject was created.
 --
 -- 'credentials', 'subjectDetail_credentials' - The temporary session credentials vended at the last authenticating call
--- with this Subject.
+-- with this subject.
 --
 -- 'enabled', 'subjectDetail_enabled' - The enabled status of the subject.
 --
 -- 'instanceProperties', 'subjectDetail_instanceProperties' - The specified instance properties associated with the request.
 --
--- 'lastSeenAt', 'subjectDetail_lastSeenAt' - The ISO-8601 timestamp of the last time this Subject requested temporary
+-- 'lastSeenAt', 'subjectDetail_lastSeenAt' - The ISO-8601 timestamp of the last time this subject requested temporary
 -- session credentials.
 --
 -- 'subjectArn', 'subjectDetail_subjectArn' - The ARN of the resource.
@@ -100,7 +100,7 @@ subjectDetail_createdAt :: Lens.Lens' SubjectDetail (Prelude.Maybe Prelude.UTCTi
 subjectDetail_createdAt = Lens.lens (\SubjectDetail' {createdAt} -> createdAt) (\s@SubjectDetail' {} a -> s {createdAt = a} :: SubjectDetail) Prelude.. Lens.mapping Data._Time
 
 -- | The temporary session credentials vended at the last authenticating call
--- with this Subject.
+-- with this subject.
 subjectDetail_credentials :: Lens.Lens' SubjectDetail (Prelude.Maybe [CredentialSummary])
 subjectDetail_credentials = Lens.lens (\SubjectDetail' {credentials} -> credentials) (\s@SubjectDetail' {} a -> s {credentials = a} :: SubjectDetail) Prelude.. Lens.mapping Lens.coerced
 
@@ -112,7 +112,7 @@ subjectDetail_enabled = Lens.lens (\SubjectDetail' {enabled} -> enabled) (\s@Sub
 subjectDetail_instanceProperties :: Lens.Lens' SubjectDetail (Prelude.Maybe [InstanceProperty])
 subjectDetail_instanceProperties = Lens.lens (\SubjectDetail' {instanceProperties} -> instanceProperties) (\s@SubjectDetail' {} a -> s {instanceProperties = a} :: SubjectDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | The ISO-8601 timestamp of the last time this Subject requested temporary
+-- | The ISO-8601 timestamp of the last time this subject requested temporary
 -- session credentials.
 subjectDetail_lastSeenAt :: Lens.Lens' SubjectDetail (Prelude.Maybe Prelude.UTCTime)
 subjectDetail_lastSeenAt = Lens.lens (\SubjectDetail' {lastSeenAt} -> lastSeenAt) (\s@SubjectDetail' {} a -> s {lastSeenAt = a} :: SubjectDetail) Prelude.. Lens.mapping Data._Time
@@ -142,7 +142,8 @@ instance Data.FromJSON SubjectDetail where
             Prelude.<$> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "credentials" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "enabled")
-            Prelude.<*> ( x Data..:? "instanceProperties"
+            Prelude.<*> ( x
+                            Data..:? "instanceProperties"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "lastSeenAt")
@@ -154,7 +155,8 @@ instance Data.FromJSON SubjectDetail where
 
 instance Prelude.Hashable SubjectDetail where
   hashWithSalt _salt SubjectDetail' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` credentials
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` instanceProperties

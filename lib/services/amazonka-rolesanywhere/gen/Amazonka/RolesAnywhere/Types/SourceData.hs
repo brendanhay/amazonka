@@ -28,10 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSourceData' smart constructor.
 data SourceData = SourceData'
-  { -- | The root certificate of the Certificate Manager Private Certificate
-    -- Authority specified by this ARN is used in trust validation for
-    -- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
-    -- operations. Included for trust anchors of type @AWS_ACM_PCA@.
+  { -- | The root certificate of the Private Certificate Authority specified by
+    -- this ARN is used in trust validation for temporary credential requests.
+    -- Included for trust anchors of type @AWS_ACM_PCA@.
     acmPcaArn :: Prelude.Maybe Prelude.Text,
     -- | The PEM-encoded data for the certificate anchor. Included for trust
     -- anchors of type @CERTIFICATE_BUNDLE@.
@@ -47,10 +46,9 @@ data SourceData = SourceData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'acmPcaArn', 'sourceData_acmPcaArn' - The root certificate of the Certificate Manager Private Certificate
--- Authority specified by this ARN is used in trust validation for
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operations. Included for trust anchors of type @AWS_ACM_PCA@.
+-- 'acmPcaArn', 'sourceData_acmPcaArn' - The root certificate of the Private Certificate Authority specified by
+-- this ARN is used in trust validation for temporary credential requests.
+-- Included for trust anchors of type @AWS_ACM_PCA@.
 --
 -- 'x509CertificateData', 'sourceData_x509CertificateData' - The PEM-encoded data for the certificate anchor. Included for trust
 -- anchors of type @CERTIFICATE_BUNDLE@.
@@ -62,10 +60,9 @@ newSourceData =
       x509CertificateData = Prelude.Nothing
     }
 
--- | The root certificate of the Certificate Manager Private Certificate
--- Authority specified by this ARN is used in trust validation for
--- <https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html CreateSession>
--- operations. Included for trust anchors of type @AWS_ACM_PCA@.
+-- | The root certificate of the Private Certificate Authority specified by
+-- this ARN is used in trust validation for temporary credential requests.
+-- Included for trust anchors of type @AWS_ACM_PCA@.
 sourceData_acmPcaArn :: Lens.Lens' SourceData (Prelude.Maybe Prelude.Text)
 sourceData_acmPcaArn = Lens.lens (\SourceData' {acmPcaArn} -> acmPcaArn) (\s@SourceData' {} a -> s {acmPcaArn = a} :: SourceData)
 
@@ -86,7 +83,8 @@ instance Data.FromJSON SourceData where
 
 instance Prelude.Hashable SourceData where
   hashWithSalt _salt SourceData' {..} =
-    _salt `Prelude.hashWithSalt` acmPcaArn
+    _salt
+      `Prelude.hashWithSalt` acmPcaArn
       `Prelude.hashWithSalt` x509CertificateData
 
 instance Prelude.NFData SourceData where

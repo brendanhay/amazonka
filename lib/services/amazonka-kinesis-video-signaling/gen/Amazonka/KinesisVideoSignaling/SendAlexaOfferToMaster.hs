@@ -128,7 +128,8 @@ instance Core.AWSRequest SendAlexaOfferToMaster where
 
 instance Prelude.Hashable SendAlexaOfferToMaster where
   hashWithSalt _salt SendAlexaOfferToMaster' {..} =
-    _salt `Prelude.hashWithSalt` channelARN
+    _salt
+      `Prelude.hashWithSalt` channelARN
       `Prelude.hashWithSalt` senderClientId
       `Prelude.hashWithSalt` messagePayload
 

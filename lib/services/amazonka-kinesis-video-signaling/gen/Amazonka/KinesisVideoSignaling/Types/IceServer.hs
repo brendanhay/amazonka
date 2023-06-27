@@ -106,7 +106,8 @@ instance Data.FromJSON IceServer where
 
 instance Prelude.Hashable IceServer where
   hashWithSalt _salt IceServer' {..} =
-    _salt `Prelude.hashWithSalt` password
+    _salt
+      `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` ttl
       `Prelude.hashWithSalt` uris
       `Prelude.hashWithSalt` username

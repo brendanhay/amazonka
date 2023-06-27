@@ -130,7 +130,8 @@ instance Core.AWSRequest GetCodeBindingSource where
 
 instance Prelude.Hashable GetCodeBindingSource where
   hashWithSalt _salt GetCodeBindingSource' {..} =
-    _salt `Prelude.hashWithSalt` schemaVersion
+    _salt
+      `Prelude.hashWithSalt` schemaVersion
       `Prelude.hashWithSalt` registryName
       `Prelude.hashWithSalt` schemaName
       `Prelude.hashWithSalt` language

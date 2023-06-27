@@ -136,7 +136,8 @@ instance Core.AWSRequest DescribeCodeBinding where
 
 instance Prelude.Hashable DescribeCodeBinding where
   hashWithSalt _salt DescribeCodeBinding' {..} =
-    _salt `Prelude.hashWithSalt` schemaVersion
+    _salt
+      `Prelude.hashWithSalt` schemaVersion
       `Prelude.hashWithSalt` registryName
       `Prelude.hashWithSalt` schemaName
       `Prelude.hashWithSalt` language

@@ -89,14 +89,16 @@ instance Data.FromJSON SearchSchemaSummary where
             Prelude.<$> (x Data..:? "RegistryName")
             Prelude.<*> (x Data..:? "SchemaArn")
             Prelude.<*> (x Data..:? "SchemaName")
-            Prelude.<*> ( x Data..:? "SchemaVersions"
+            Prelude.<*> ( x
+                            Data..:? "SchemaVersions"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable SearchSchemaSummary where
   hashWithSalt _salt SearchSchemaSummary' {..} =
-    _salt `Prelude.hashWithSalt` registryName
+    _salt
+      `Prelude.hashWithSalt` registryName
       `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` schemaName
       `Prelude.hashWithSalt` schemaVersions

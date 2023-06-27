@@ -130,7 +130,8 @@ instance Core.AWSRequest DescribeSchema where
 
 instance Prelude.Hashable DescribeSchema where
   hashWithSalt _salt DescribeSchema' {..} =
-    _salt `Prelude.hashWithSalt` schemaVersion
+    _salt
+      `Prelude.hashWithSalt` schemaVersion
       `Prelude.hashWithSalt` registryName
       `Prelude.hashWithSalt` schemaName
 

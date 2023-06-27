@@ -158,7 +158,8 @@ instance Core.AWSRequest UpdateSchema where
 
 instance Prelude.Hashable UpdateSchema where
   hashWithSalt _salt UpdateSchema' {..} =
-    _salt `Prelude.hashWithSalt` clientTokenId
+    _salt
+      `Prelude.hashWithSalt` clientTokenId
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` type'

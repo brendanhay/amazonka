@@ -92,7 +92,8 @@ instance Core.AWSRequest DeleteSchema where
 
 instance Prelude.Hashable DeleteSchema where
   hashWithSalt _salt DeleteSchema' {..} =
-    _salt `Prelude.hashWithSalt` registryName
+    _salt
+      `Prelude.hashWithSalt` registryName
       `Prelude.hashWithSalt` schemaName
 
 instance Prelude.NFData DeleteSchema where

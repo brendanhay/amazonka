@@ -147,7 +147,8 @@ instance Data.FromJSON View where
       ( \x ->
           View'
             Prelude.<$> (x Data..:? "Filters")
-            Prelude.<*> ( x Data..:? "IncludedProperties"
+            Prelude.<*> ( x
+                            Data..:? "IncludedProperties"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LastUpdatedAt")
@@ -158,7 +159,8 @@ instance Data.FromJSON View where
 
 instance Prelude.Hashable View where
   hashWithSalt _salt View' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` includedProperties
       `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` owner

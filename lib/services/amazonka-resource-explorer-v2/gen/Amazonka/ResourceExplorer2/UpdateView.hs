@@ -181,7 +181,8 @@ instance Core.AWSRequest UpdateView where
 
 instance Prelude.Hashable UpdateView where
   hashWithSalt _salt UpdateView' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` includedProperties
       `Prelude.hashWithSalt` viewArn
 

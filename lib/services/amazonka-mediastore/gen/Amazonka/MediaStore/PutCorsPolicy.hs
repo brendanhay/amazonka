@@ -117,7 +117,8 @@ instance Core.AWSRequest PutCorsPolicy where
 
 instance Prelude.Hashable PutCorsPolicy where
   hashWithSalt _salt PutCorsPolicy' {..} =
-    _salt `Prelude.hashWithSalt` containerName
+    _salt
+      `Prelude.hashWithSalt` containerName
       `Prelude.hashWithSalt` corsPolicy
 
 instance Prelude.NFData PutCorsPolicy where

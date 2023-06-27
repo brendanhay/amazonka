@@ -114,7 +114,8 @@ instance Core.AWSRequest PutLifecyclePolicy where
 
 instance Prelude.Hashable PutLifecyclePolicy where
   hashWithSalt _salt PutLifecyclePolicy' {..} =
-    _salt `Prelude.hashWithSalt` containerName
+    _salt
+      `Prelude.hashWithSalt` containerName
       `Prelude.hashWithSalt` lifecyclePolicy
 
 instance Prelude.NFData PutLifecyclePolicy where

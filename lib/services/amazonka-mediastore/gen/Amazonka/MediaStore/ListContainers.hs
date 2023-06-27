@@ -114,18 +114,19 @@ instance Core.AWSPager ListContainers where
     | Core.stop
         ( rs
             Lens.^? listContainersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listContainersResponse_containers) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listContainers_nextToken
           Lens..~ rs
-          Lens.^? listContainersResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listContainersResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListContainers where
   type
@@ -144,7 +145,8 @@ instance Core.AWSRequest ListContainers where
 
 instance Prelude.Hashable ListContainers where
   hashWithSalt _salt ListContainers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListContainers where

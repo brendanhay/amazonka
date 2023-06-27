@@ -177,14 +177,16 @@ instance Data.FromJSON CorsRule where
             Prelude.<*> (x Data..:? "ExposeHeaders" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "MaxAgeSeconds")
             Prelude.<*> (x Data..: "AllowedOrigins")
-            Prelude.<*> ( x Data..:? "AllowedHeaders"
+            Prelude.<*> ( x
+                            Data..:? "AllowedHeaders"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable CorsRule where
   hashWithSalt _salt CorsRule' {..} =
-    _salt `Prelude.hashWithSalt` allowedMethods
+    _salt
+      `Prelude.hashWithSalt` allowedMethods
       `Prelude.hashWithSalt` exposeHeaders
       `Prelude.hashWithSalt` maxAgeSeconds
       `Prelude.hashWithSalt` allowedOrigins

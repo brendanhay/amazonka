@@ -133,7 +133,8 @@ instance Core.AWSRequest CreateContainer where
 
 instance Prelude.Hashable CreateContainer where
   hashWithSalt _salt CreateContainer' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` containerName
 
 instance Prelude.NFData CreateContainer where

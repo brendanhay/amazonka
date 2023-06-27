@@ -101,7 +101,8 @@ instance Data.FromJSON MetricPolicy where
 
 instance Prelude.Hashable MetricPolicy where
   hashWithSalt _salt MetricPolicy' {..} =
-    _salt `Prelude.hashWithSalt` metricPolicyRules
+    _salt
+      `Prelude.hashWithSalt` metricPolicyRules
       `Prelude.hashWithSalt` containerLevelMetrics
 
 instance Prelude.NFData MetricPolicy where

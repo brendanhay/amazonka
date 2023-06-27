@@ -87,7 +87,8 @@ code_destination = Lens.lens (\Code' {destination} -> destination) (\s@Code' {} 
 
 instance Prelude.Hashable Code where
   hashWithSalt _salt Code' {..} =
-    _salt `Prelude.hashWithSalt` source
+    _salt
+      `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` destination
 
 instance Prelude.NFData Code where

@@ -90,7 +90,8 @@ toolchain_source = Lens.lens (\Toolchain' {source} -> source) (\s@Toolchain' {} 
 
 instance Prelude.Hashable Toolchain where
   hashWithSalt _salt Toolchain' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` stackParameters
       `Prelude.hashWithSalt` source
 

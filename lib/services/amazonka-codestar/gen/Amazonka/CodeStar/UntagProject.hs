@@ -95,7 +95,8 @@ instance Core.AWSRequest UntagProject where
 
 instance Prelude.Hashable UntagProject where
   hashWithSalt _salt UntagProject' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData UntagProject where

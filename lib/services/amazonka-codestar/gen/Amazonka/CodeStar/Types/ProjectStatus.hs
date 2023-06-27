@@ -80,7 +80,8 @@ instance Data.FromJSON ProjectStatus where
 
 instance Prelude.Hashable ProjectStatus where
   hashWithSalt _salt ProjectStatus' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData ProjectStatus where

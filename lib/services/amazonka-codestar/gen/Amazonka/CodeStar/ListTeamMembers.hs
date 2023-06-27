@@ -107,19 +107,19 @@ instance Core.AWSPager ListTeamMembers where
     | Core.stop
         ( rs
             Lens.^? listTeamMembersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listTeamMembersResponse_teamMembers) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTeamMembers_nextToken
           Lens..~ rs
           Lens.^? listTeamMembersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTeamMembers where
   type
@@ -138,7 +138,8 @@ instance Core.AWSRequest ListTeamMembers where
 
 instance Prelude.Hashable ListTeamMembers where
   hashWithSalt _salt ListTeamMembers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` projectId
 

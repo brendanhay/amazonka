@@ -97,7 +97,8 @@ instance Core.AWSRequest TagProject where
 
 instance Prelude.Hashable TagProject where
   hashWithSalt _salt TagProject' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagProject where

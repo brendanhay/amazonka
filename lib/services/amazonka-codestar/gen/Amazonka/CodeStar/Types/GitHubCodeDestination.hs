@@ -142,7 +142,8 @@ gitHubCodeDestination_token = Lens.lens (\GitHubCodeDestination' {token} -> toke
 
 instance Prelude.Hashable GitHubCodeDestination where
   hashWithSalt _salt GitHubCodeDestination' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` owner

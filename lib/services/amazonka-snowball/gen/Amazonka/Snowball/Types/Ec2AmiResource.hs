@@ -79,7 +79,8 @@ instance Data.FromJSON Ec2AmiResource where
 
 instance Prelude.Hashable Ec2AmiResource where
   hashWithSalt _salt Ec2AmiResource' {..} =
-    _salt `Prelude.hashWithSalt` snowballAmiId
+    _salt
+      `Prelude.hashWithSalt` snowballAmiId
       `Prelude.hashWithSalt` amiId
 
 instance Prelude.NFData Ec2AmiResource where

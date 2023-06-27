@@ -66,6 +66,7 @@ library
     Amazonka.Snowball.ListCompatibleImages
     Amazonka.Snowball.ListJobs
     Amazonka.Snowball.ListLongTermPricing
+    Amazonka.Snowball.ListServiceVersions
     Amazonka.Snowball.Types
     Amazonka.Snowball.Types.Address
     Amazonka.Snowball.Types.ClusterListEntry
@@ -73,9 +74,11 @@ library
     Amazonka.Snowball.Types.ClusterState
     Amazonka.Snowball.Types.CompatibleImage
     Amazonka.Snowball.Types.DataTransfer
+    Amazonka.Snowball.Types.DependentService
     Amazonka.Snowball.Types.DeviceConfiguration
     Amazonka.Snowball.Types.DeviceServiceName
     Amazonka.Snowball.Types.Ec2AmiResource
+    Amazonka.Snowball.Types.EKSOnDeviceServiceConfiguration
     Amazonka.Snowball.Types.EventTriggerDefinition
     Amazonka.Snowball.Types.INDTaxDocuments
     Amazonka.Snowball.Types.JobListEntry
@@ -92,7 +95,10 @@ library
     Amazonka.Snowball.Types.Notification
     Amazonka.Snowball.Types.OnDeviceServiceConfiguration
     Amazonka.Snowball.Types.RemoteManagement
+    Amazonka.Snowball.Types.S3OnDeviceServiceConfiguration
     Amazonka.Snowball.Types.S3Resource
+    Amazonka.Snowball.Types.ServiceName
+    Amazonka.Snowball.Types.ServiceVersion
     Amazonka.Snowball.Types.Shipment
     Amazonka.Snowball.Types.ShipmentState
     Amazonka.Snowball.Types.ShippingDetails

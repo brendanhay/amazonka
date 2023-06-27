@@ -29,19 +29,24 @@ module Amazonka.Snowball.Lens
 
     -- ** CreateCluster
     createCluster_description,
+    createCluster_forceCreateJobs,
     createCluster_forwardingAddressId,
+    createCluster_initialClusterSize,
     createCluster_kmsKeyARN,
+    createCluster_longTermPricingIds,
     createCluster_notification,
     createCluster_onDeviceServiceConfiguration,
     createCluster_remoteManagement,
+    createCluster_resources,
+    createCluster_roleARN,
+    createCluster_snowballCapacityPreference,
     createCluster_taxDocuments,
     createCluster_jobType,
-    createCluster_resources,
     createCluster_addressId,
-    createCluster_roleARN,
     createCluster_snowballType,
     createCluster_shippingOption,
     createClusterResponse_clusterId,
+    createClusterResponse_jobListEntries,
     createClusterResponse_httpStatus,
 
     -- ** CreateJob
@@ -164,6 +169,17 @@ module Amazonka.Snowball.Lens
     listLongTermPricingResponse_nextToken,
     listLongTermPricingResponse_httpStatus,
 
+    -- ** ListServiceVersions
+    listServiceVersions_dependentServices,
+    listServiceVersions_maxResults,
+    listServiceVersions_nextToken,
+    listServiceVersions_serviceName,
+    listServiceVersionsResponse_dependentServices,
+    listServiceVersionsResponse_nextToken,
+    listServiceVersionsResponse_httpStatus,
+    listServiceVersionsResponse_serviceVersions,
+    listServiceVersionsResponse_serviceName,
+
     -- ** UpdateCluster
     updateCluster_addressId,
     updateCluster_description,
@@ -251,8 +267,16 @@ module Amazonka.Snowball.Lens
     dataTransfer_totalBytes,
     dataTransfer_totalObjects,
 
+    -- ** DependentService
+    dependentService_serviceName,
+    dependentService_serviceVersion,
+
     -- ** DeviceConfiguration
     deviceConfiguration_snowconeDeviceConfiguration,
+
+    -- ** EKSOnDeviceServiceConfiguration
+    eKSOnDeviceServiceConfiguration_eKSAnywhereVersion,
+    eKSOnDeviceServiceConfiguration_kubernetesVersion,
 
     -- ** Ec2AmiResource
     ec2AmiResource_snowballAmiId,
@@ -337,13 +361,24 @@ module Amazonka.Snowball.Lens
     notification_snsTopicARN,
 
     -- ** OnDeviceServiceConfiguration
+    onDeviceServiceConfiguration_eKSOnDeviceService,
     onDeviceServiceConfiguration_nFSOnDeviceService,
+    onDeviceServiceConfiguration_s3OnDeviceService,
     onDeviceServiceConfiguration_tGWOnDeviceService,
+
+    -- ** S3OnDeviceServiceConfiguration
+    s3OnDeviceServiceConfiguration_faultTolerance,
+    s3OnDeviceServiceConfiguration_serviceSize,
+    s3OnDeviceServiceConfiguration_storageLimit,
+    s3OnDeviceServiceConfiguration_storageUnit,
 
     -- ** S3Resource
     s3Resource_bucketArn,
     s3Resource_keyRange,
     s3Resource_targetOnDeviceServices,
+
+    -- ** ServiceVersion
+    serviceVersion_version,
 
     -- ** Shipment
     shipment_status,
@@ -394,12 +429,15 @@ import Amazonka.Snowball.ListClusters
 import Amazonka.Snowball.ListCompatibleImages
 import Amazonka.Snowball.ListJobs
 import Amazonka.Snowball.ListLongTermPricing
+import Amazonka.Snowball.ListServiceVersions
 import Amazonka.Snowball.Types.Address
 import Amazonka.Snowball.Types.ClusterListEntry
 import Amazonka.Snowball.Types.ClusterMetadata
 import Amazonka.Snowball.Types.CompatibleImage
 import Amazonka.Snowball.Types.DataTransfer
+import Amazonka.Snowball.Types.DependentService
 import Amazonka.Snowball.Types.DeviceConfiguration
+import Amazonka.Snowball.Types.EKSOnDeviceServiceConfiguration
 import Amazonka.Snowball.Types.Ec2AmiResource
 import Amazonka.Snowball.Types.EventTriggerDefinition
 import Amazonka.Snowball.Types.INDTaxDocuments
@@ -413,7 +451,9 @@ import Amazonka.Snowball.Types.LongTermPricingListEntry
 import Amazonka.Snowball.Types.NFSOnDeviceServiceConfiguration
 import Amazonka.Snowball.Types.Notification
 import Amazonka.Snowball.Types.OnDeviceServiceConfiguration
+import Amazonka.Snowball.Types.S3OnDeviceServiceConfiguration
 import Amazonka.Snowball.Types.S3Resource
+import Amazonka.Snowball.Types.ServiceVersion
 import Amazonka.Snowball.Types.Shipment
 import Amazonka.Snowball.Types.ShippingDetails
 import Amazonka.Snowball.Types.SnowconeDeviceConfiguration

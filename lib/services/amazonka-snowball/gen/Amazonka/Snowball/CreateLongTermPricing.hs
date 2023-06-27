@@ -54,9 +54,7 @@ import Amazonka.Snowball.Types
 
 -- | /See:/ 'newCreateLongTermPricing' smart constructor.
 data CreateLongTermPricing = CreateLongTermPricing'
-  { -- | snowballty
-    --
-    -- Specifies whether the current long-term pricing type for the device
+  { -- | Specifies whether the current long-term pricing type for the device
     -- should be renewed.
     isLongTermPricingAutoRenew :: Prelude.Maybe Prelude.Bool,
     -- | The type of Snow Family devices to use for the long-term pricing job.
@@ -75,9 +73,7 @@ data CreateLongTermPricing = CreateLongTermPricing'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isLongTermPricingAutoRenew', 'createLongTermPricing_isLongTermPricingAutoRenew' - snowballty
---
--- Specifies whether the current long-term pricing type for the device
+-- 'isLongTermPricingAutoRenew', 'createLongTermPricing_isLongTermPricingAutoRenew' - Specifies whether the current long-term pricing type for the device
 -- should be renewed.
 --
 -- 'snowballType', 'createLongTermPricing_snowballType' - The type of Snow Family devices to use for the long-term pricing job.
@@ -96,9 +92,7 @@ newCreateLongTermPricing pLongTermPricingType_ =
       longTermPricingType = pLongTermPricingType_
     }
 
--- | snowballty
---
--- Specifies whether the current long-term pricing type for the device
+-- | Specifies whether the current long-term pricing type for the device
 -- should be renewed.
 createLongTermPricing_isLongTermPricingAutoRenew :: Lens.Lens' CreateLongTermPricing (Prelude.Maybe Prelude.Bool)
 createLongTermPricing_isLongTermPricingAutoRenew = Lens.lens (\CreateLongTermPricing' {isLongTermPricingAutoRenew} -> isLongTermPricingAutoRenew) (\s@CreateLongTermPricing' {} a -> s {isLongTermPricingAutoRenew = a} :: CreateLongTermPricing)

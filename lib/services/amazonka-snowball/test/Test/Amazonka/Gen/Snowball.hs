@@ -90,6 +90,9 @@ import Test.Tasty
 --         , requestListLongTermPricing $
 --             newListLongTermPricing
 --
+--         , requestListServiceVersions $
+--             newListServiceVersions
+--
 --         , requestUpdateCluster $
 --             newUpdateCluster
 --
@@ -167,6 +170,9 @@ import Test.Tasty
 --
 --         , responseListLongTermPricing $
 --             newListLongTermPricingResponse
+--
+--         , responseListServiceVersions $
+--             newListServiceVersionsResponse
 --
 --         , responseUpdateCluster $
 --             newUpdateClusterResponse
@@ -310,6 +316,12 @@ requestListLongTermPricing =
   req
     "ListLongTermPricing"
     "fixture/ListLongTermPricing.yaml"
+
+requestListServiceVersions :: ListServiceVersions -> TestTree
+requestListServiceVersions =
+  req
+    "ListServiceVersions"
+    "fixture/ListServiceVersions.yaml"
 
 requestUpdateCluster :: UpdateCluster -> TestTree
 requestUpdateCluster =
@@ -504,6 +516,14 @@ responseListLongTermPricing =
     "fixture/ListLongTermPricingResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListLongTermPricing)
+
+responseListServiceVersions :: ListServiceVersionsResponse -> TestTree
+responseListServiceVersions =
+  res
+    "ListServiceVersionsResponse"
+    "fixture/ListServiceVersionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListServiceVersions)
 
 responseUpdateCluster :: UpdateClusterResponse -> TestTree
 responseUpdateCluster =

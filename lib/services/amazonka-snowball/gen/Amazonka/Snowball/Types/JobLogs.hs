@@ -114,7 +114,8 @@ instance Data.FromJSON JobLogs where
 
 instance Prelude.Hashable JobLogs where
   hashWithSalt _salt JobLogs' {..} =
-    _salt `Prelude.hashWithSalt` jobCompletionReportURI
+    _salt
+      `Prelude.hashWithSalt` jobCompletionReportURI
       `Prelude.hashWithSalt` jobFailureLogURI
       `Prelude.hashWithSalt` jobSuccessLogURI
 

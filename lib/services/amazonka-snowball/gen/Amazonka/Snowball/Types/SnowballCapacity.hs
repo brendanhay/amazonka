@@ -23,6 +23,7 @@ module Amazonka.Snowball.Types.SnowballCapacity
         SnowballCapacity_NoPreference,
         SnowballCapacity_T100,
         SnowballCapacity_T14,
+        SnowballCapacity_T240,
         SnowballCapacity_T32,
         SnowballCapacity_T42,
         SnowballCapacity_T50,
@@ -74,6 +75,9 @@ pattern SnowballCapacity_T100 = SnowballCapacity' "T100"
 pattern SnowballCapacity_T14 :: SnowballCapacity
 pattern SnowballCapacity_T14 = SnowballCapacity' "T14"
 
+pattern SnowballCapacity_T240 :: SnowballCapacity
+pattern SnowballCapacity_T240 = SnowballCapacity' "T240"
+
 pattern SnowballCapacity_T32 :: SnowballCapacity
 pattern SnowballCapacity_T32 = SnowballCapacity' "T32"
 
@@ -96,6 +100,7 @@ pattern SnowballCapacity_T98 = SnowballCapacity' "T98"
   SnowballCapacity_NoPreference,
   SnowballCapacity_T100,
   SnowballCapacity_T14,
+  SnowballCapacity_T240,
   SnowballCapacity_T32,
   SnowballCapacity_T42,
   SnowballCapacity_T50,

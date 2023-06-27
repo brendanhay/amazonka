@@ -226,7 +226,8 @@ instance Core.AWSRequest UpdateJob where
 
 instance Prelude.Hashable UpdateJob where
   hashWithSalt _salt UpdateJob' {..} =
-    _salt `Prelude.hashWithSalt` addressId
+    _salt
+      `Prelude.hashWithSalt` addressId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` forwardingAddressId
       `Prelude.hashWithSalt` notification

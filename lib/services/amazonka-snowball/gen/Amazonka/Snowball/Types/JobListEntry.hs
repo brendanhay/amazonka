@@ -153,7 +153,8 @@ instance Data.FromJSON JobListEntry where
 
 instance Prelude.Hashable JobListEntry where
   hashWithSalt _salt JobListEntry' {..} =
-    _salt `Prelude.hashWithSalt` creationDate
+    _salt
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` isMaster
       `Prelude.hashWithSalt` jobId

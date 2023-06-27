@@ -38,13 +38,13 @@
 --
 -- __Snow Family devices and their capacities.__
 --
--- -   Snow Family device type: __SNC1_SSD__
+-- -   Device type: __SNC1_SSD__
 --
 --     -   Capacity: T14
 --
 --     -   Description: Snowcone
 --
--- -   Snow Family device type: __SNC1_HDD__
+-- -   Device type: __SNC1_HDD__
 --
 --     -   Capacity: T8
 --
@@ -75,12 +75,6 @@
 --
 --     -   Description: Snowball Edge Storage Optimized with EC2 Compute
 --
--- -   Device type: __V3_5C__
---
---     -   Capacity: T32
---
---     -   Description: Snowball Edge Compute Optimized without GPU
---
 -- -   Device type: __STANDARD__
 --
 --     -   Capacity: T50
@@ -98,6 +92,18 @@
 --
 --         This device is only available in the Ningxia, Beijing, and
 --         Singapore Amazon Web Services Region.
+--
+-- -   Device type: __V3_5C__
+--
+--     -   Capacity: T32
+--
+--     -   Description: Snowball Edge Compute Optimized without GPU
+--
+-- -   Device type: __V3_5S__
+--
+--     -   Capacity: T240
+--
+--     -   Description: Snowball Edge Storage Optimized 210TB
 module Amazonka.Snowball.CreateJob
   ( -- * Creating a Request
     CreateJob (..),
@@ -544,7 +550,8 @@ instance Core.AWSRequest CreateJob where
 
 instance Prelude.Hashable CreateJob where
   hashWithSalt _salt CreateJob' {..} =
-    _salt `Prelude.hashWithSalt` addressId
+    _salt
+      `Prelude.hashWithSalt` addressId
       `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` deviceConfiguration

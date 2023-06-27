@@ -90,7 +90,8 @@ instance Data.FromJSON Shipment where
 
 instance Prelude.Hashable Shipment where
   hashWithSalt _salt Shipment' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` trackingNumber
 
 instance Prelude.NFData Shipment where

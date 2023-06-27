@@ -27,7 +27,8 @@ module Amazonka.Snowball.Types.SnowballType
         SnowballType_SNC1_HDD,
         SnowballType_SNC1_SSD,
         SnowballType_STANDARD,
-        SnowballType_V3_5C
+        SnowballType_V3_5C,
+        SnowballType_V3_5S
       ),
   )
 where
@@ -88,6 +89,9 @@ pattern SnowballType_STANDARD = SnowballType' "STANDARD"
 pattern SnowballType_V3_5C :: SnowballType
 pattern SnowballType_V3_5C = SnowballType' "V3_5C"
 
+pattern SnowballType_V3_5S :: SnowballType
+pattern SnowballType_V3_5S = SnowballType' "V3_5S"
+
 {-# COMPLETE
   SnowballType_EDGE,
   SnowballType_EDGE_C,
@@ -97,5 +101,6 @@ pattern SnowballType_V3_5C = SnowballType' "V3_5C"
   SnowballType_SNC1_SSD,
   SnowballType_STANDARD,
   SnowballType_V3_5C,
+  SnowballType_V3_5S,
   SnowballType'
   #-}

@@ -194,6 +194,12 @@ module Amazonka.Snowball
     ListLongTermPricingResponse (ListLongTermPricingResponse'),
     newListLongTermPricingResponse,
 
+    -- ** ListServiceVersions
+    ListServiceVersions (ListServiceVersions'),
+    newListServiceVersions,
+    ListServiceVersionsResponse (ListServiceVersionsResponse'),
+    newListServiceVersionsResponse,
+
     -- ** UpdateCluster
     UpdateCluster (UpdateCluster'),
     newUpdateCluster,
@@ -238,6 +244,9 @@ module Amazonka.Snowball
     -- ** RemoteManagement
     RemoteManagement (..),
 
+    -- ** ServiceName
+    ServiceName (..),
+
     -- ** ShipmentState
     ShipmentState (..),
 
@@ -279,9 +288,17 @@ module Amazonka.Snowball
     DataTransfer (DataTransfer'),
     newDataTransfer,
 
+    -- ** DependentService
+    DependentService (DependentService'),
+    newDependentService,
+
     -- ** DeviceConfiguration
     DeviceConfiguration (DeviceConfiguration'),
     newDeviceConfiguration,
+
+    -- ** EKSOnDeviceServiceConfiguration
+    EKSOnDeviceServiceConfiguration (EKSOnDeviceServiceConfiguration'),
+    newEKSOnDeviceServiceConfiguration,
 
     -- ** Ec2AmiResource
     Ec2AmiResource (Ec2AmiResource'),
@@ -335,9 +352,17 @@ module Amazonka.Snowball
     OnDeviceServiceConfiguration (OnDeviceServiceConfiguration'),
     newOnDeviceServiceConfiguration,
 
+    -- ** S3OnDeviceServiceConfiguration
+    S3OnDeviceServiceConfiguration (S3OnDeviceServiceConfiguration'),
+    newS3OnDeviceServiceConfiguration,
+
     -- ** S3Resource
     S3Resource (S3Resource'),
     newS3Resource,
+
+    -- ** ServiceVersion
+    ServiceVersion (ServiceVersion'),
+    newServiceVersion,
 
     -- ** Shipment
     Shipment (Shipment'),
@@ -391,6 +416,7 @@ import Amazonka.Snowball.ListClusters
 import Amazonka.Snowball.ListCompatibleImages
 import Amazonka.Snowball.ListJobs
 import Amazonka.Snowball.ListLongTermPricing
+import Amazonka.Snowball.ListServiceVersions
 import Amazonka.Snowball.Types
 import Amazonka.Snowball.UpdateCluster
 import Amazonka.Snowball.UpdateJob

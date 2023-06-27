@@ -397,7 +397,8 @@ instance Data.FromJSON JobMetadata where
 
 instance Prelude.Hashable JobMetadata where
   hashWithSalt _salt JobMetadata' {..} =
-    _salt `Prelude.hashWithSalt` addressId
+    _salt
+      `Prelude.hashWithSalt` addressId
       `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` dataTransferProgress

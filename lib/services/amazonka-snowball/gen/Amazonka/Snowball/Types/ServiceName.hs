@@ -11,18 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Snowball.Types.LongTermPricingType
+-- Module      : Amazonka.Snowball.Types.ServiceName
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Snowball.Types.LongTermPricingType
-  ( LongTermPricingType
+module Amazonka.Snowball.Types.ServiceName
+  ( ServiceName
       ( ..,
-        LongTermPricingType_OneMonth,
-        LongTermPricingType_OneYear,
-        LongTermPricingType_ThreeYear
+        ServiceName_EKS_ANYWHERE,
+        ServiceName_KUBERNETES
       ),
   )
 where
@@ -31,8 +30,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype LongTermPricingType = LongTermPricingType'
-  { fromLongTermPricingType ::
+newtype ServiceName = ServiceName'
+  { fromServiceName ::
       Data.Text
   }
   deriving stock
@@ -59,18 +58,14 @@ newtype LongTermPricingType = LongTermPricingType'
       Data.ToXML
     )
 
-pattern LongTermPricingType_OneMonth :: LongTermPricingType
-pattern LongTermPricingType_OneMonth = LongTermPricingType' "OneMonth"
+pattern ServiceName_EKS_ANYWHERE :: ServiceName
+pattern ServiceName_EKS_ANYWHERE = ServiceName' "EKS_ANYWHERE"
 
-pattern LongTermPricingType_OneYear :: LongTermPricingType
-pattern LongTermPricingType_OneYear = LongTermPricingType' "OneYear"
-
-pattern LongTermPricingType_ThreeYear :: LongTermPricingType
-pattern LongTermPricingType_ThreeYear = LongTermPricingType' "ThreeYear"
+pattern ServiceName_KUBERNETES :: ServiceName
+pattern ServiceName_KUBERNETES = ServiceName' "KUBERNETES"
 
 {-# COMPLETE
-  LongTermPricingType_OneMonth,
-  LongTermPricingType_OneYear,
-  LongTermPricingType_ThreeYear,
-  LongTermPricingType'
+  ServiceName_EKS_ANYWHERE,
+  ServiceName_KUBERNETES,
+  ServiceName'
   #-}

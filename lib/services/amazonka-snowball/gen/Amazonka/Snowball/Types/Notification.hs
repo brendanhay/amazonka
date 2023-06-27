@@ -111,7 +111,8 @@ instance Data.FromJSON Notification where
       "Notification"
       ( \x ->
           Notification'
-            Prelude.<$> ( x Data..:? "JobStatesToNotify"
+            Prelude.<$> ( x
+                            Data..:? "JobStatesToNotify"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "NotifyAll")
@@ -120,7 +121,8 @@ instance Data.FromJSON Notification where
 
 instance Prelude.Hashable Notification where
   hashWithSalt _salt Notification' {..} =
-    _salt `Prelude.hashWithSalt` jobStatesToNotify
+    _salt
+      `Prelude.hashWithSalt` jobStatesToNotify
       `Prelude.hashWithSalt` notifyAll
       `Prelude.hashWithSalt` snsTopicARN
 

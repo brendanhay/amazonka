@@ -141,7 +141,8 @@ instance Data.FromJSON ShippingDetails where
 
 instance Prelude.Hashable ShippingDetails where
   hashWithSalt _salt ShippingDetails' {..} =
-    _salt `Prelude.hashWithSalt` inboundShipment
+    _salt
+      `Prelude.hashWithSalt` inboundShipment
       `Prelude.hashWithSalt` outboundShipment
       `Prelude.hashWithSalt` shippingOption
 

@@ -23,9 +23,11 @@
 -- This action returns a list of the different Amazon EC2 Amazon Machine
 -- Images (AMIs) that are owned by your Amazon Web Services accountthat
 -- would be supported for use on a Snow device. Currently, supported AMIs
--- are based on the CentOS 7 (x86_64) - with Updates HVM, Ubuntu Server
--- 14.04 LTS (HVM), and Ubuntu 16.04 LTS - Xenial (HVM) images, available
--- on the Amazon Web Services Marketplace.
+-- are based on the Amazon Linux-2, Ubuntu 20.04 LTS - Focal, or Ubuntu
+-- 22.04 LTS - Jammy images, available on the Amazon Web Services
+-- Marketplace. Ubuntu 16.04 LTS - Xenial (HVM) images are no longer
+-- supported in the Market, but still supported for use on devices through
+-- Amazon EC2 VM Import\/Export and running locally in AMIs.
 --
 -- This operation returns paginated results.
 module Amazonka.Snowball.ListCompatibleImages
@@ -106,22 +108,22 @@ instance Core.AWSPager ListCompatibleImages where
     | Core.stop
         ( rs
             Lens.^? listCompatibleImagesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCompatibleImagesResponse_compatibleImages
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCompatibleImages_nextToken
           Lens..~ rs
           Lens.^? listCompatibleImagesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCompatibleImages where
   type
@@ -133,7 +135,8 @@ instance Core.AWSRequest ListCompatibleImages where
     Response.receiveJSON
       ( \s h x ->
           ListCompatibleImagesResponse'
-            Prelude.<$> ( x Data..?> "CompatibleImages"
+            Prelude.<$> ( x
+                            Data..?> "CompatibleImages"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -142,7 +145,8 @@ instance Core.AWSRequest ListCompatibleImages where
 
 instance Prelude.Hashable ListCompatibleImages where
   hashWithSalt _salt ListCompatibleImages' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCompatibleImages where

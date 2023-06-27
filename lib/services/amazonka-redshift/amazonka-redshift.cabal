@@ -61,6 +61,7 @@ library
     Amazonka.Redshift.CreateClusterSecurityGroup
     Amazonka.Redshift.CreateClusterSnapshot
     Amazonka.Redshift.CreateClusterSubnetGroup
+    Amazonka.Redshift.CreateCustomDomainAssociation
     Amazonka.Redshift.CreateEndpointAccess
     Amazonka.Redshift.CreateEventSubscription
     Amazonka.Redshift.CreateHsmClientCertificate
@@ -77,6 +78,7 @@ library
     Amazonka.Redshift.DeleteClusterSecurityGroup
     Amazonka.Redshift.DeleteClusterSnapshot
     Amazonka.Redshift.DeleteClusterSubnetGroup
+    Amazonka.Redshift.DeleteCustomDomainAssociation
     Amazonka.Redshift.DeleteEndpointAccess
     Amazonka.Redshift.DeleteEventSubscription
     Amazonka.Redshift.DeleteHsmClientCertificate
@@ -98,6 +100,7 @@ library
     Amazonka.Redshift.DescribeClusterSubnetGroups
     Amazonka.Redshift.DescribeClusterTracks
     Amazonka.Redshift.DescribeClusterVersions
+    Amazonka.Redshift.DescribeCustomDomainAssociations
     Amazonka.Redshift.DescribeDataShares
     Amazonka.Redshift.DescribeDataSharesForConsumer
     Amazonka.Redshift.DescribeDataSharesForProducer
@@ -145,6 +148,7 @@ library
     Amazonka.Redshift.ModifyClusterSnapshot
     Amazonka.Redshift.ModifyClusterSnapshotSchedule
     Amazonka.Redshift.ModifyClusterSubnetGroup
+    Amazonka.Redshift.ModifyCustomDomainAssociation
     Amazonka.Redshift.ModifyEndpointAccess
     Amazonka.Redshift.ModifyEventSubscription
     Amazonka.Redshift.ModifyScheduledAction
@@ -171,10 +175,12 @@ library
     Amazonka.Redshift.Types.AquaConfiguration
     Amazonka.Redshift.Types.AquaConfigurationStatus
     Amazonka.Redshift.Types.AquaStatus
+    Amazonka.Redshift.Types.Association
     Amazonka.Redshift.Types.AttributeValueTarget
     Amazonka.Redshift.Types.AuthenticationProfile
     Amazonka.Redshift.Types.AuthorizationStatus
     Amazonka.Redshift.Types.AvailabilityZone
+    Amazonka.Redshift.Types.CertificateAssociation
     Amazonka.Redshift.Types.Cluster
     Amazonka.Redshift.Types.ClusterAssociatedToSchedule
     Amazonka.Redshift.Types.ClusterDbRevision

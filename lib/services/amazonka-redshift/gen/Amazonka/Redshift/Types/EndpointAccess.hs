@@ -151,14 +151,16 @@ instance Data.FromXML EndpointAccess where
       Prelude.<*> (x Data..@? "ResourceOwner")
       Prelude.<*> (x Data..@? "SubnetGroupName")
       Prelude.<*> (x Data..@? "VpcEndpoint")
-      Prelude.<*> ( x Data..@? "VpcSecurityGroups"
+      Prelude.<*> ( x
+                      Data..@? "VpcSecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "VpcSecurityGroup")
                   )
 
 instance Prelude.Hashable EndpointAccess where
   hashWithSalt _salt EndpointAccess' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` endpointCreateTime
       `Prelude.hashWithSalt` endpointName

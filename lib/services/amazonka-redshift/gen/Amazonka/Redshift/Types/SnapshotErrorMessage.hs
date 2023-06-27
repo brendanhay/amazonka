@@ -92,7 +92,8 @@ instance Data.FromXML SnapshotErrorMessage where
 
 instance Prelude.Hashable SnapshotErrorMessage where
   hashWithSalt _salt SnapshotErrorMessage' {..} =
-    _salt `Prelude.hashWithSalt` failureCode
+    _salt
+      `Prelude.hashWithSalt` failureCode
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` snapshotClusterIdentifier
       `Prelude.hashWithSalt` snapshotIdentifier

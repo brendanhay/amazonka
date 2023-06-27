@@ -157,7 +157,8 @@ instance Data.FromXML TaggedResource where
 
 instance Prelude.Hashable TaggedResource where
   hashWithSalt _salt TaggedResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceName
+    _salt
+      `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` tag
 

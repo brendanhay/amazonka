@@ -34,6 +34,9 @@
 -- @NewTableName@ parameter value in the call to
 -- @RestoreTableFromClusterSnapshot@. This way, you can replace the
 -- original table with the table created from the snapshot.
+--
+-- You can\'t use this operation to restore tables with
+-- <https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved interleaved sort keys>.
 module Amazonka.Redshift.RestoreTableFromClusterSnapshot
   ( -- * Creating a Request
     RestoreTableFromClusterSnapshot (..),

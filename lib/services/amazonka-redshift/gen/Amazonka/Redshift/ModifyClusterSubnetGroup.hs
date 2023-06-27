@@ -121,7 +121,8 @@ instance Core.AWSRequest ModifyClusterSubnetGroup where
 
 instance Prelude.Hashable ModifyClusterSubnetGroup where
   hashWithSalt _salt ModifyClusterSubnetGroup' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` clusterSubnetGroupName
       `Prelude.hashWithSalt` subnetIds
 

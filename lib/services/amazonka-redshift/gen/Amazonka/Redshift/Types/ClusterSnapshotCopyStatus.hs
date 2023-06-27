@@ -111,7 +111,8 @@ instance Data.FromXML ClusterSnapshotCopyStatus where
 
 instance Prelude.Hashable ClusterSnapshotCopyStatus where
   hashWithSalt _salt ClusterSnapshotCopyStatus' {..} =
-    _salt `Prelude.hashWithSalt` destinationRegion
+    _salt
+      `Prelude.hashWithSalt` destinationRegion
       `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
       `Prelude.hashWithSalt` retentionPeriod
       `Prelude.hashWithSalt` snapshotCopyGrantName

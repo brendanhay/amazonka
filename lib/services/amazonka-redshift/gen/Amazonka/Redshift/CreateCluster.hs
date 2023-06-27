@@ -342,10 +342,15 @@ data CreateCluster = CreateCluster'
     --
     -- Constraints:
     --
-    -- -   Must be 1 - 128 alphanumeric characters. The user name can\'t be
-    --     @PUBLIC@.
+    -- -   Must be 1 - 128 alphanumeric characters or hyphens. The user name
+    --     can\'t be @PUBLIC@.
     --
-    -- -   First character must be a letter.
+    -- -   Must contain only lowercase letters, numbers, underscore, plus sign,
+    --     period (dot), at symbol (\@), or hyphen.
+    --
+    -- -   The first character must be a letter.
+    --
+    -- -   Must not contain a colon (:) or a slash (\/).
     --
     -- -   Cannot be a reserved word. A list of reserved words can be found in
     --     <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
@@ -629,10 +634,15 @@ data CreateCluster = CreateCluster'
 --
 -- Constraints:
 --
--- -   Must be 1 - 128 alphanumeric characters. The user name can\'t be
---     @PUBLIC@.
+-- -   Must be 1 - 128 alphanumeric characters or hyphens. The user name
+--     can\'t be @PUBLIC@.
 --
--- -   First character must be a letter.
+-- -   Must contain only lowercase letters, numbers, underscore, plus sign,
+--     period (dot), at symbol (\@), or hyphen.
+--
+-- -   The first character must be a letter.
+--
+-- -   Must not contain a colon (:) or a slash (\/).
 --
 -- -   Cannot be a reserved word. A list of reserved words can be found in
 --     <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
@@ -1020,10 +1030,15 @@ createCluster_nodeType = Lens.lens (\CreateCluster' {nodeType} -> nodeType) (\s@
 --
 -- Constraints:
 --
--- -   Must be 1 - 128 alphanumeric characters. The user name can\'t be
---     @PUBLIC@.
+-- -   Must be 1 - 128 alphanumeric characters or hyphens. The user name
+--     can\'t be @PUBLIC@.
 --
--- -   First character must be a letter.
+-- -   Must contain only lowercase letters, numbers, underscore, plus sign,
+--     period (dot), at symbol (\@), or hyphen.
+--
+-- -   The first character must be a letter.
+--
+-- -   Must not contain a colon (:) or a slash (\/).
 --
 -- -   Cannot be a reserved word. A list of reserved words can be found in
 --     <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
@@ -1066,7 +1081,8 @@ instance Core.AWSRequest CreateCluster where
 
 instance Prelude.Hashable CreateCluster where
   hashWithSalt _salt CreateCluster' {..} =
-    _salt `Prelude.hashWithSalt` additionalInfo
+    _salt
+      `Prelude.hashWithSalt` additionalInfo
       `Prelude.hashWithSalt` allowVersionUpgrade
       `Prelude.hashWithSalt` aquaConfigurationStatus
       `Prelude.hashWithSalt` automatedSnapshotRetentionPeriod

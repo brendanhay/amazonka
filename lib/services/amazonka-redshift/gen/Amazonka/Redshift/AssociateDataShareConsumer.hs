@@ -141,7 +141,8 @@ instance Core.AWSRequest AssociateDataShareConsumer where
 
 instance Prelude.Hashable AssociateDataShareConsumer where
   hashWithSalt _salt AssociateDataShareConsumer' {..} =
-    _salt `Prelude.hashWithSalt` associateEntireAccount
+    _salt
+      `Prelude.hashWithSalt` associateEntireAccount
       `Prelude.hashWithSalt` consumerArn
       `Prelude.hashWithSalt` consumerRegion
       `Prelude.hashWithSalt` dataShareArn

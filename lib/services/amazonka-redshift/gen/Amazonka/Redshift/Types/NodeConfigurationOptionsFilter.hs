@@ -100,7 +100,8 @@ instance
   hashWithSalt
     _salt
     NodeConfigurationOptionsFilter' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` operator
         `Prelude.hashWithSalt` values
 

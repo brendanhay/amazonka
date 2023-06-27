@@ -195,6 +195,16 @@ module Amazonka.Redshift.Lens
     createClusterSubnetGroupResponse_clusterSubnetGroup,
     createClusterSubnetGroupResponse_httpStatus,
 
+    -- ** CreateCustomDomainAssociation
+    createCustomDomainAssociation_customDomainName,
+    createCustomDomainAssociation_customDomainCertificateArn,
+    createCustomDomainAssociation_clusterIdentifier,
+    createCustomDomainAssociationResponse_clusterIdentifier,
+    createCustomDomainAssociationResponse_customDomainCertExpiryTime,
+    createCustomDomainAssociationResponse_customDomainCertificateArn,
+    createCustomDomainAssociationResponse_customDomainName,
+    createCustomDomainAssociationResponse_httpStatus,
+
     -- ** CreateEndpointAccess
     createEndpointAccess_clusterIdentifier,
     createEndpointAccess_resourceOwner,
@@ -339,6 +349,9 @@ module Amazonka.Redshift.Lens
 
     -- ** DeleteClusterSubnetGroup
     deleteClusterSubnetGroup_clusterSubnetGroupName,
+
+    -- ** DeleteCustomDomainAssociation
+    deleteCustomDomainAssociation_clusterIdentifier,
 
     -- ** DeleteEndpointAccess
     deleteEndpointAccess_endpointName,
@@ -487,6 +500,15 @@ module Amazonka.Redshift.Lens
     describeClustersResponse_clusters,
     describeClustersResponse_marker,
     describeClustersResponse_httpStatus,
+
+    -- ** DescribeCustomDomainAssociations
+    describeCustomDomainAssociations_customDomainCertificateArn,
+    describeCustomDomainAssociations_customDomainName,
+    describeCustomDomainAssociations_marker,
+    describeCustomDomainAssociations_maxRecords,
+    describeCustomDomainAssociationsResponse_associations,
+    describeCustomDomainAssociationsResponse_marker,
+    describeCustomDomainAssociationsResponse_httpStatus,
 
     -- ** DescribeDataShares
     describeDataShares_dataShareArn,
@@ -798,20 +820,22 @@ module Amazonka.Redshift.Lens
 
     -- ** GetClusterCredentials
     getClusterCredentials_autoCreate,
+    getClusterCredentials_clusterIdentifier,
+    getClusterCredentials_customDomainName,
     getClusterCredentials_dbGroups,
     getClusterCredentials_dbName,
     getClusterCredentials_durationSeconds,
     getClusterCredentials_dbUser,
-    getClusterCredentials_clusterIdentifier,
     getClusterCredentialsResponse_dbPassword,
     getClusterCredentialsResponse_dbUser,
     getClusterCredentialsResponse_expiration,
     getClusterCredentialsResponse_httpStatus,
 
     -- ** GetClusterCredentialsWithIAM
+    getClusterCredentialsWithIAM_clusterIdentifier,
+    getClusterCredentialsWithIAM_customDomainName,
     getClusterCredentialsWithIAM_dbName,
     getClusterCredentialsWithIAM_durationSeconds,
-    getClusterCredentialsWithIAM_clusterIdentifier,
     getClusterCredentialsWithIAMResponse_dbPassword,
     getClusterCredentialsWithIAMResponse_dbUser,
     getClusterCredentialsWithIAMResponse_expiration,
@@ -926,6 +950,16 @@ module Amazonka.Redshift.Lens
     modifyClusterSubnetGroup_subnetIds,
     modifyClusterSubnetGroupResponse_clusterSubnetGroup,
     modifyClusterSubnetGroupResponse_httpStatus,
+
+    -- ** ModifyCustomDomainAssociation
+    modifyCustomDomainAssociation_customDomainCertificateArn,
+    modifyCustomDomainAssociation_customDomainName,
+    modifyCustomDomainAssociation_clusterIdentifier,
+    modifyCustomDomainAssociationResponse_clusterIdentifier,
+    modifyCustomDomainAssociationResponse_customDomainCertExpiryTime,
+    modifyCustomDomainAssociationResponse_customDomainCertificateArn,
+    modifyCustomDomainAssociationResponse_customDomainName,
+    modifyCustomDomainAssociationResponse_httpStatus,
 
     -- ** ModifyEndpointAccess
     modifyEndpointAccess_vpcSecurityGroupIds,
@@ -1159,6 +1193,11 @@ module Amazonka.Redshift.Lens
     aquaConfiguration_aquaConfigurationStatus,
     aquaConfiguration_aquaStatus,
 
+    -- ** Association
+    association_certificateAssociations,
+    association_customDomainCertificateArn,
+    association_customDomainCertificateExpiryDate,
+
     -- ** AttributeValueTarget
     attributeValueTarget_attributeValue,
 
@@ -1169,6 +1208,10 @@ module Amazonka.Redshift.Lens
     -- ** AvailabilityZone
     availabilityZone_name,
     availabilityZone_supportedPlatforms,
+
+    -- ** CertificateAssociation
+    certificateAssociation_clusterIdentifier,
+    certificateAssociation_customDomainName,
 
     -- ** Cluster
     cluster_allowVersionUpgrade,
@@ -1189,6 +1232,9 @@ module Amazonka.Redshift.Lens
     cluster_clusterStatus,
     cluster_clusterSubnetGroupName,
     cluster_clusterVersion,
+    cluster_customDomainCertificateArn,
+    cluster_customDomainCertificateExpiryDate,
+    cluster_customDomainName,
     cluster_dbName,
     cluster_dataTransferProgress,
     cluster_defaultIamRoleArn,
@@ -1756,6 +1802,7 @@ import Amazonka.Redshift.CreateClusterParameterGroup
 import Amazonka.Redshift.CreateClusterSecurityGroup
 import Amazonka.Redshift.CreateClusterSnapshot
 import Amazonka.Redshift.CreateClusterSubnetGroup
+import Amazonka.Redshift.CreateCustomDomainAssociation
 import Amazonka.Redshift.CreateEndpointAccess
 import Amazonka.Redshift.CreateEventSubscription
 import Amazonka.Redshift.CreateHsmClientCertificate
@@ -1772,6 +1819,7 @@ import Amazonka.Redshift.DeleteClusterParameterGroup
 import Amazonka.Redshift.DeleteClusterSecurityGroup
 import Amazonka.Redshift.DeleteClusterSnapshot
 import Amazonka.Redshift.DeleteClusterSubnetGroup
+import Amazonka.Redshift.DeleteCustomDomainAssociation
 import Amazonka.Redshift.DeleteEndpointAccess
 import Amazonka.Redshift.DeleteEventSubscription
 import Amazonka.Redshift.DeleteHsmClientCertificate
@@ -1793,6 +1841,7 @@ import Amazonka.Redshift.DescribeClusterSubnetGroups
 import Amazonka.Redshift.DescribeClusterTracks
 import Amazonka.Redshift.DescribeClusterVersions
 import Amazonka.Redshift.DescribeClusters
+import Amazonka.Redshift.DescribeCustomDomainAssociations
 import Amazonka.Redshift.DescribeDataShares
 import Amazonka.Redshift.DescribeDataSharesForConsumer
 import Amazonka.Redshift.DescribeDataSharesForProducer
@@ -1838,6 +1887,7 @@ import Amazonka.Redshift.ModifyClusterParameterGroup
 import Amazonka.Redshift.ModifyClusterSnapshot
 import Amazonka.Redshift.ModifyClusterSnapshotSchedule
 import Amazonka.Redshift.ModifyClusterSubnetGroup
+import Amazonka.Redshift.ModifyCustomDomainAssociation
 import Amazonka.Redshift.ModifyEndpointAccess
 import Amazonka.Redshift.ModifyEventSubscription
 import Amazonka.Redshift.ModifyScheduledAction
@@ -1860,9 +1910,11 @@ import Amazonka.Redshift.RotateEncryptionKey
 import Amazonka.Redshift.Types.AccountAttribute
 import Amazonka.Redshift.Types.AccountWithRestoreAccess
 import Amazonka.Redshift.Types.AquaConfiguration
+import Amazonka.Redshift.Types.Association
 import Amazonka.Redshift.Types.AttributeValueTarget
 import Amazonka.Redshift.Types.AuthenticationProfile
 import Amazonka.Redshift.Types.AvailabilityZone
+import Amazonka.Redshift.Types.CertificateAssociation
 import Amazonka.Redshift.Types.Cluster
 import Amazonka.Redshift.Types.ClusterAssociatedToSchedule
 import Amazonka.Redshift.Types.ClusterDbRevision

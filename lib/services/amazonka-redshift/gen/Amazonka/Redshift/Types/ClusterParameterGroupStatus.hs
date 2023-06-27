@@ -89,7 +89,8 @@ clusterParameterGroupStatus_parameterGroupName = Lens.lens (\ClusterParameterGro
 instance Data.FromXML ClusterParameterGroupStatus where
   parseXML x =
     ClusterParameterGroupStatus'
-      Prelude.<$> ( x Data..@? "ClusterParameterStatusList"
+      Prelude.<$> ( x
+                      Data..@? "ClusterParameterStatusList"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )

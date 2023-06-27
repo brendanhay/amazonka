@@ -226,21 +226,23 @@ instance Core.AWSPager DescribeClusters where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeClustersResponse_marker Prelude.. Lens._Just
+            Lens.^? describeClustersResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeClustersResponse_clusters
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeClusters_marker
           Lens..~ rs
-          Lens.^? describeClustersResponse_marker Prelude.. Lens._Just
+          Lens.^? describeClustersResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClusters where
   type
@@ -253,7 +255,9 @@ instance Core.AWSRequest DescribeClusters where
       "DescribeClustersResult"
       ( \s h x ->
           DescribeClustersResponse'
-            Prelude.<$> ( x Data..@? "Clusters" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Clusters"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Cluster")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -262,7 +266,8 @@ instance Core.AWSRequest DescribeClusters where
 
 instance Prelude.Hashable DescribeClusters where
   hashWithSalt _salt DescribeClusters' {..} =
-    _salt `Prelude.hashWithSalt` clusterIdentifier
+    _salt
+      `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` tagKeys

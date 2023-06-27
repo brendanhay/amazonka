@@ -116,7 +116,8 @@ instance Core.AWSRequest AuthorizeDataShare where
 
 instance Prelude.Hashable AuthorizeDataShare where
   hashWithSalt _salt AuthorizeDataShare' {..} =
-    _salt `Prelude.hashWithSalt` dataShareArn
+    _salt
+      `Prelude.hashWithSalt` dataShareArn
       `Prelude.hashWithSalt` consumerIdentifier
 
 instance Prelude.NFData AuthorizeDataShare where

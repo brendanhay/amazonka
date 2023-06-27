@@ -78,13 +78,16 @@ instance Data.FromXML Endpoint where
     Endpoint'
       Prelude.<$> (x Data..@? "Address")
       Prelude.<*> (x Data..@? "Port")
-      Prelude.<*> ( x Data..@? "VpcEndpoints" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "VpcEndpoints"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "VpcEndpoint")
                   )
 
 instance Prelude.Hashable Endpoint where
   hashWithSalt _salt Endpoint' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` vpcEndpoints
 

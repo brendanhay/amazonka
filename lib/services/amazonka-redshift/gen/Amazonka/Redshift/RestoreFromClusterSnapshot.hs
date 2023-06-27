@@ -261,7 +261,7 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     -- | The identifier of the target reserved node offering.
     reservedNodeId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the snapshot associated with the
-    -- message to restore from a cluster. You can specify this parameter or
+    -- message to restore from a cluster. You must specify this parameter or
     -- @snapshotIdentifier@, but not both.
     snapshotArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the cluster the source snapshot was created from. This
@@ -270,7 +270,7 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     -- cluster name.
     snapshotClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The name of the snapshot from which to create the new cluster. This
-    -- parameter isn\'t case sensitive. You can specify this parameter or
+    -- parameter isn\'t case sensitive. You must specify this parameter or
     -- @snapshotArn@, but not both.
     --
     -- Example: @my-snapshot-id@
@@ -476,7 +476,7 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 -- 'reservedNodeId', 'restoreFromClusterSnapshot_reservedNodeId' - The identifier of the target reserved node offering.
 --
 -- 'snapshotArn', 'restoreFromClusterSnapshot_snapshotArn' - The Amazon Resource Name (ARN) of the snapshot associated with the
--- message to restore from a cluster. You can specify this parameter or
+-- message to restore from a cluster. You must specify this parameter or
 -- @snapshotIdentifier@, but not both.
 --
 -- 'snapshotClusterIdentifier', 'restoreFromClusterSnapshot_snapshotClusterIdentifier' - The name of the cluster the source snapshot was created from. This
@@ -485,7 +485,7 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 -- cluster name.
 --
 -- 'snapshotIdentifier', 'restoreFromClusterSnapshot_snapshotIdentifier' - The name of the snapshot from which to create the new cluster. This
--- parameter isn\'t case sensitive. You can specify this parameter or
+-- parameter isn\'t case sensitive. You must specify this parameter or
 -- @snapshotArn@, but not both.
 --
 -- Example: @my-snapshot-id@
@@ -775,7 +775,7 @@ restoreFromClusterSnapshot_reservedNodeId :: Lens.Lens' RestoreFromClusterSnapsh
 restoreFromClusterSnapshot_reservedNodeId = Lens.lens (\RestoreFromClusterSnapshot' {reservedNodeId} -> reservedNodeId) (\s@RestoreFromClusterSnapshot' {} a -> s {reservedNodeId = a} :: RestoreFromClusterSnapshot)
 
 -- | The Amazon Resource Name (ARN) of the snapshot associated with the
--- message to restore from a cluster. You can specify this parameter or
+-- message to restore from a cluster. You must specify this parameter or
 -- @snapshotIdentifier@, but not both.
 restoreFromClusterSnapshot_snapshotArn :: Lens.Lens' RestoreFromClusterSnapshot (Prelude.Maybe Prelude.Text)
 restoreFromClusterSnapshot_snapshotArn = Lens.lens (\RestoreFromClusterSnapshot' {snapshotArn} -> snapshotArn) (\s@RestoreFromClusterSnapshot' {} a -> s {snapshotArn = a} :: RestoreFromClusterSnapshot)
@@ -788,7 +788,7 @@ restoreFromClusterSnapshot_snapshotClusterIdentifier :: Lens.Lens' RestoreFromCl
 restoreFromClusterSnapshot_snapshotClusterIdentifier = Lens.lens (\RestoreFromClusterSnapshot' {snapshotClusterIdentifier} -> snapshotClusterIdentifier) (\s@RestoreFromClusterSnapshot' {} a -> s {snapshotClusterIdentifier = a} :: RestoreFromClusterSnapshot)
 
 -- | The name of the snapshot from which to create the new cluster. This
--- parameter isn\'t case sensitive. You can specify this parameter or
+-- parameter isn\'t case sensitive. You must specify this parameter or
 -- @snapshotArn@, but not both.
 --
 -- Example: @my-snapshot-id@
@@ -847,7 +847,8 @@ instance Core.AWSRequest RestoreFromClusterSnapshot where
 
 instance Prelude.Hashable RestoreFromClusterSnapshot where
   hashWithSalt _salt RestoreFromClusterSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` additionalInfo
+    _salt
+      `Prelude.hashWithSalt` additionalInfo
       `Prelude.hashWithSalt` allowVersionUpgrade
       `Prelude.hashWithSalt` aquaConfigurationStatus
       `Prelude.hashWithSalt` automatedSnapshotRetentionPeriod

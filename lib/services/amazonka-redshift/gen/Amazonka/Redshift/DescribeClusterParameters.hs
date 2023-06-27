@@ -186,22 +186,22 @@ instance Core.AWSPager DescribeClusterParameters where
     | Core.stop
         ( rs
             Lens.^? describeClusterParametersResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeClusterParametersResponse_parameters
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeClusterParameters_marker
           Lens..~ rs
           Lens.^? describeClusterParametersResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeClusterParameters where
   type
@@ -215,7 +215,9 @@ instance Core.AWSRequest DescribeClusterParameters where
       ( \s h x ->
           DescribeClusterParametersResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "Parameters" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Parameters"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Parameter")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -223,7 +225,8 @@ instance Core.AWSRequest DescribeClusterParameters where
 
 instance Prelude.Hashable DescribeClusterParameters where
   hashWithSalt _salt DescribeClusterParameters' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` parameterGroupName

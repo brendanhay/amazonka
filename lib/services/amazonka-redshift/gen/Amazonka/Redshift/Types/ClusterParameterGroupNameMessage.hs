@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     ClusterParameterGroupNameMessage' {..} =
-      _salt `Prelude.hashWithSalt` parameterGroupName
+      _salt
+        `Prelude.hashWithSalt` parameterGroupName
         `Prelude.hashWithSalt` parameterGroupStatus
 
 instance

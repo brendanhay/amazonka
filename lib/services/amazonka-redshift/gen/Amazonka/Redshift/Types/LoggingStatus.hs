@@ -41,8 +41,8 @@ data LoggingStatus = LoggingStatus'
     -- | The log destination type. An enum with possible values of @s3@ and
     -- @cloudwatch@.
     logDestinationType :: Prelude.Maybe LogDestinationType,
-    -- | The collection of exported log types. Log types include the connection
-    -- log, user log and user activity log.
+    -- | The collection of exported log types. Possible values are
+    -- @connectionlog@, @useractivitylog@, and @userlog@.
     logExports :: Prelude.Maybe [Prelude.Text],
     -- | @true@ if logging is on, @false@ if logging is off.
     loggingEnabled :: Prelude.Maybe Prelude.Bool,
@@ -70,8 +70,8 @@ data LoggingStatus = LoggingStatus'
 -- 'logDestinationType', 'loggingStatus_logDestinationType' - The log destination type. An enum with possible values of @s3@ and
 -- @cloudwatch@.
 --
--- 'logExports', 'loggingStatus_logExports' - The collection of exported log types. Log types include the connection
--- log, user log and user activity log.
+-- 'logExports', 'loggingStatus_logExports' - The collection of exported log types. Possible values are
+-- @connectionlog@, @useractivitylog@, and @userlog@.
 --
 -- 'loggingEnabled', 'loggingStatus_loggingEnabled' - @true@ if logging is on, @false@ if logging is off.
 --
@@ -111,8 +111,8 @@ loggingStatus_lastSuccessfulDeliveryTime = Lens.lens (\LoggingStatus' {lastSucce
 loggingStatus_logDestinationType :: Lens.Lens' LoggingStatus (Prelude.Maybe LogDestinationType)
 loggingStatus_logDestinationType = Lens.lens (\LoggingStatus' {logDestinationType} -> logDestinationType) (\s@LoggingStatus' {} a -> s {logDestinationType = a} :: LoggingStatus)
 
--- | The collection of exported log types. Log types include the connection
--- log, user log and user activity log.
+-- | The collection of exported log types. Possible values are
+-- @connectionlog@, @useractivitylog@, and @userlog@.
 loggingStatus_logExports :: Lens.Lens' LoggingStatus (Prelude.Maybe [Prelude.Text])
 loggingStatus_logExports = Lens.lens (\LoggingStatus' {logExports} -> logExports) (\s@LoggingStatus' {} a -> s {logExports = a} :: LoggingStatus) Prelude.. Lens.mapping Lens.coerced
 
@@ -132,7 +132,9 @@ instance Data.FromXML LoggingStatus where
       Prelude.<*> (x Data..@? "LastFailureTime")
       Prelude.<*> (x Data..@? "LastSuccessfulDeliveryTime")
       Prelude.<*> (x Data..@? "LogDestinationType")
-      Prelude.<*> ( x Data..@? "LogExports" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "LogExports"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "LoggingEnabled")
@@ -140,7 +142,8 @@ instance Data.FromXML LoggingStatus where
 
 instance Prelude.Hashable LoggingStatus where
   hashWithSalt _salt LoggingStatus' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` lastFailureMessage
       `Prelude.hashWithSalt` lastFailureTime
       `Prelude.hashWithSalt` lastSuccessfulDeliveryTime

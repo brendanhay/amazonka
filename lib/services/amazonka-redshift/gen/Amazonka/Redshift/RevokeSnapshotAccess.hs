@@ -148,7 +148,8 @@ instance Core.AWSRequest RevokeSnapshotAccess where
 
 instance Prelude.Hashable RevokeSnapshotAccess where
   hashWithSalt _salt RevokeSnapshotAccess' {..} =
-    _salt `Prelude.hashWithSalt` snapshotArn
+    _salt
+      `Prelude.hashWithSalt` snapshotArn
       `Prelude.hashWithSalt` snapshotClusterIdentifier
       `Prelude.hashWithSalt` snapshotIdentifier
       `Prelude.hashWithSalt` accountWithRestoreAccess

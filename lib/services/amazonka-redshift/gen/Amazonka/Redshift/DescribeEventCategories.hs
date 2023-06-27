@@ -103,7 +103,8 @@ instance Core.AWSRequest DescribeEventCategories where
       "DescribeEventCategoriesResult"
       ( \s h x ->
           DescribeEventCategoriesResponse'
-            Prelude.<$> ( x Data..@? "EventCategoriesMapList"
+            Prelude.<$> ( x
+                            Data..@? "EventCategoriesMapList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "EventCategoriesMap")
                         )

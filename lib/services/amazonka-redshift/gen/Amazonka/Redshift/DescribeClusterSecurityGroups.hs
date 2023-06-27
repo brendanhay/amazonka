@@ -75,7 +75,7 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newDescribeClusterSecurityGroups' smart constructor.
 data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
   { -- | The name of a cluster security group for which you are requesting
-    -- details. You can specify either the __Marker__ parameter or a
+    -- details. You must specify either the __Marker__ parameter or a
     -- __ClusterSecurityGroupName__ parameter, but not both.
     --
     -- Example: @securitygroup1@
@@ -87,7 +87,7 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
     -- the next set of response records by providing the returned marker value
     -- in the @Marker@ parameter and retrying the request.
     --
-    -- Constraints: You can specify either the __ClusterSecurityGroupName__
+    -- Constraints: You must specify either the __ClusterSecurityGroupName__
     -- parameter or the __Marker__ parameter, but not both.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
@@ -127,7 +127,7 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
 -- for backwards compatibility:
 --
 -- 'clusterSecurityGroupName', 'describeClusterSecurityGroups_clusterSecurityGroupName' - The name of a cluster security group for which you are requesting
--- details. You can specify either the __Marker__ parameter or a
+-- details. You must specify either the __Marker__ parameter or a
 -- __ClusterSecurityGroupName__ parameter, but not both.
 --
 -- Example: @securitygroup1@
@@ -139,7 +139,7 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
 -- the next set of response records by providing the returned marker value
 -- in the @Marker@ parameter and retrying the request.
 --
--- Constraints: You can specify either the __ClusterSecurityGroupName__
+-- Constraints: You must specify either the __ClusterSecurityGroupName__
 -- parameter or the __Marker__ parameter, but not both.
 --
 -- 'maxRecords', 'describeClusterSecurityGroups_maxRecords' - The maximum number of response records to return in each call. If the
@@ -179,7 +179,7 @@ newDescribeClusterSecurityGroups =
     }
 
 -- | The name of a cluster security group for which you are requesting
--- details. You can specify either the __Marker__ parameter or a
+-- details. You must specify either the __Marker__ parameter or a
 -- __ClusterSecurityGroupName__ parameter, but not both.
 --
 -- Example: @securitygroup1@
@@ -193,7 +193,7 @@ describeClusterSecurityGroups_clusterSecurityGroupName = Lens.lens (\DescribeClu
 -- the next set of response records by providing the returned marker value
 -- in the @Marker@ parameter and retrying the request.
 --
--- Constraints: You can specify either the __ClusterSecurityGroupName__
+-- Constraints: You must specify either the __ClusterSecurityGroupName__
 -- parameter or the __Marker__ parameter, but not both.
 describeClusterSecurityGroups_marker :: Lens.Lens' DescribeClusterSecurityGroups (Prelude.Maybe Prelude.Text)
 describeClusterSecurityGroups_marker = Lens.lens (\DescribeClusterSecurityGroups' {marker} -> marker) (\s@DescribeClusterSecurityGroups' {} a -> s {marker = a} :: DescribeClusterSecurityGroups)
@@ -234,22 +234,22 @@ instance Core.AWSPager DescribeClusterSecurityGroups where
     | Core.stop
         ( rs
             Lens.^? describeClusterSecurityGroupsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeClusterSecurityGroupsResponse_clusterSecurityGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeClusterSecurityGroups_marker
           Lens..~ rs
           Lens.^? describeClusterSecurityGroupsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -265,7 +265,8 @@ instance
       "DescribeClusterSecurityGroupsResult"
       ( \s h x ->
           DescribeClusterSecurityGroupsResponse'
-            Prelude.<$> ( x Data..@? "ClusterSecurityGroups"
+            Prelude.<$> ( x
+                            Data..@? "ClusterSecurityGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "ClusterSecurityGroup")
                         )

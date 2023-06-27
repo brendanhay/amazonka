@@ -149,22 +149,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeReservedNodeExchangeStatusResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeReservedNodeExchangeStatusResponse_reservedNodeExchangeStatusDetails
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeReservedNodeExchangeStatus_marker
           Lens..~ rs
           Lens.^? describeReservedNodeExchangeStatusResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -181,12 +181,13 @@ instance
       ( \s h x ->
           DescribeReservedNodeExchangeStatusResponse'
             Prelude.<$> (x Data..@? "Marker")
-              Prelude.<*> ( x Data..@? "ReservedNodeExchangeStatusDetails"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may
-                                (Data.parseXMLList "ReservedNodeExchangeStatus")
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..@? "ReservedNodeExchangeStatusDetails"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may
+                              (Data.parseXMLList "ReservedNodeExchangeStatus")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -196,7 +197,8 @@ instance
   hashWithSalt
     _salt
     DescribeReservedNodeExchangeStatus' {..} =
-      _salt `Prelude.hashWithSalt` marker
+      _salt
+        `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` reservedNodeExchangeRequestId
         `Prelude.hashWithSalt` reservedNodeId

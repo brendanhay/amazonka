@@ -78,6 +78,9 @@ import Test.Tasty
 --         , requestCreateClusterSubnetGroup $
 --             newCreateClusterSubnetGroup
 --
+--         , requestCreateCustomDomainAssociation $
+--             newCreateCustomDomainAssociation
+--
 --         , requestCreateEndpointAccess $
 --             newCreateEndpointAccess
 --
@@ -125,6 +128,9 @@ import Test.Tasty
 --
 --         , requestDeleteClusterSubnetGroup $
 --             newDeleteClusterSubnetGroup
+--
+--         , requestDeleteCustomDomainAssociation $
+--             newDeleteCustomDomainAssociation
 --
 --         , requestDeleteEndpointAccess $
 --             newDeleteEndpointAccess
@@ -188,6 +194,9 @@ import Test.Tasty
 --
 --         , requestDescribeClusters $
 --             newDescribeClusters
+--
+--         , requestDescribeCustomDomainAssociations $
+--             newDescribeCustomDomainAssociations
 --
 --         , requestDescribeDataShares $
 --             newDescribeDataShares
@@ -324,6 +333,9 @@ import Test.Tasty
 --         , requestModifyClusterSubnetGroup $
 --             newModifyClusterSubnetGroup
 --
+--         , requestModifyCustomDomainAssociation $
+--             newModifyCustomDomainAssociation
+--
 --         , requestModifyEndpointAccess $
 --             newModifyEndpointAccess
 --
@@ -438,6 +450,9 @@ import Test.Tasty
 --         , responseCreateClusterSubnetGroup $
 --             newCreateClusterSubnetGroupResponse
 --
+--         , responseCreateCustomDomainAssociation $
+--             newCreateCustomDomainAssociationResponse
+--
 --         , responseCreateEndpointAccess $
 --             newEndpointAccess
 --
@@ -485,6 +500,9 @@ import Test.Tasty
 --
 --         , responseDeleteClusterSubnetGroup $
 --             newDeleteClusterSubnetGroupResponse
+--
+--         , responseDeleteCustomDomainAssociation $
+--             newDeleteCustomDomainAssociationResponse
 --
 --         , responseDeleteEndpointAccess $
 --             newEndpointAccess
@@ -548,6 +566,9 @@ import Test.Tasty
 --
 --         , responseDescribeClusters $
 --             newDescribeClustersResponse
+--
+--         , responseDescribeCustomDomainAssociations $
+--             newDescribeCustomDomainAssociationsResponse
 --
 --         , responseDescribeDataShares $
 --             newDescribeDataSharesResponse
@@ -683,6 +704,9 @@ import Test.Tasty
 --
 --         , responseModifyClusterSubnetGroup $
 --             newModifyClusterSubnetGroupResponse
+--
+--         , responseModifyCustomDomainAssociation $
+--             newModifyCustomDomainAssociationResponse
 --
 --         , responseModifyEndpointAccess $
 --             newEndpointAccess
@@ -851,6 +875,12 @@ requestCreateClusterSubnetGroup =
     "CreateClusterSubnetGroup"
     "fixture/CreateClusterSubnetGroup.yaml"
 
+requestCreateCustomDomainAssociation :: CreateCustomDomainAssociation -> TestTree
+requestCreateCustomDomainAssociation =
+  req
+    "CreateCustomDomainAssociation"
+    "fixture/CreateCustomDomainAssociation.yaml"
+
 requestCreateEndpointAccess :: CreateEndpointAccess -> TestTree
 requestCreateEndpointAccess =
   req
@@ -946,6 +976,12 @@ requestDeleteClusterSubnetGroup =
   req
     "DeleteClusterSubnetGroup"
     "fixture/DeleteClusterSubnetGroup.yaml"
+
+requestDeleteCustomDomainAssociation :: DeleteCustomDomainAssociation -> TestTree
+requestDeleteCustomDomainAssociation =
+  req
+    "DeleteCustomDomainAssociation"
+    "fixture/DeleteCustomDomainAssociation.yaml"
 
 requestDeleteEndpointAccess :: DeleteEndpointAccess -> TestTree
 requestDeleteEndpointAccess =
@@ -1072,6 +1108,12 @@ requestDescribeClusters =
   req
     "DescribeClusters"
     "fixture/DescribeClusters.yaml"
+
+requestDescribeCustomDomainAssociations :: DescribeCustomDomainAssociations -> TestTree
+requestDescribeCustomDomainAssociations =
+  req
+    "DescribeCustomDomainAssociations"
+    "fixture/DescribeCustomDomainAssociations.yaml"
 
 requestDescribeDataShares :: DescribeDataShares -> TestTree
 requestDescribeDataShares =
@@ -1343,6 +1385,12 @@ requestModifyClusterSubnetGroup =
     "ModifyClusterSubnetGroup"
     "fixture/ModifyClusterSubnetGroup.yaml"
 
+requestModifyCustomDomainAssociation :: ModifyCustomDomainAssociation -> TestTree
+requestModifyCustomDomainAssociation =
+  req
+    "ModifyCustomDomainAssociation"
+    "fixture/ModifyCustomDomainAssociation.yaml"
+
 requestModifyEndpointAccess :: ModifyEndpointAccess -> TestTree
 requestModifyEndpointAccess =
   req
@@ -1601,6 +1649,14 @@ responseCreateClusterSubnetGroup =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateClusterSubnetGroup)
 
+responseCreateCustomDomainAssociation :: CreateCustomDomainAssociationResponse -> TestTree
+responseCreateCustomDomainAssociation =
+  res
+    "CreateCustomDomainAssociationResponse"
+    "fixture/CreateCustomDomainAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateCustomDomainAssociation)
+
 responseCreateEndpointAccess :: EndpointAccess -> TestTree
 responseCreateEndpointAccess =
   res
@@ -1728,6 +1784,14 @@ responseDeleteClusterSubnetGroup =
     "fixture/DeleteClusterSubnetGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteClusterSubnetGroup)
+
+responseDeleteCustomDomainAssociation :: DeleteCustomDomainAssociationResponse -> TestTree
+responseDeleteCustomDomainAssociation =
+  res
+    "DeleteCustomDomainAssociationResponse"
+    "fixture/DeleteCustomDomainAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteCustomDomainAssociation)
 
 responseDeleteEndpointAccess :: EndpointAccess -> TestTree
 responseDeleteEndpointAccess =
@@ -1896,6 +1960,14 @@ responseDescribeClusters =
     "fixture/DescribeClustersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeClusters)
+
+responseDescribeCustomDomainAssociations :: DescribeCustomDomainAssociationsResponse -> TestTree
+responseDescribeCustomDomainAssociations =
+  res
+    "DescribeCustomDomainAssociationsResponse"
+    "fixture/DescribeCustomDomainAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeCustomDomainAssociations)
 
 responseDescribeDataShares :: DescribeDataSharesResponse -> TestTree
 responseDescribeDataShares =
@@ -2256,6 +2328,14 @@ responseModifyClusterSubnetGroup =
     "fixture/ModifyClusterSubnetGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ModifyClusterSubnetGroup)
+
+responseModifyCustomDomainAssociation :: ModifyCustomDomainAssociationResponse -> TestTree
+responseModifyCustomDomainAssociation =
+  res
+    "ModifyCustomDomainAssociationResponse"
+    "fixture/ModifyCustomDomainAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyCustomDomainAssociation)
 
 responseModifyEndpointAccess :: EndpointAccess -> TestTree
 responseModifyEndpointAccess =

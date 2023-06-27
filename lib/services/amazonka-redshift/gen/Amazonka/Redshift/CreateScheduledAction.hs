@@ -211,7 +211,8 @@ instance Core.AWSRequest CreateScheduledAction where
 
 instance Prelude.Hashable CreateScheduledAction where
   hashWithSalt _salt CreateScheduledAction' {..} =
-    _salt `Prelude.hashWithSalt` enable
+    _salt
+      `Prelude.hashWithSalt` enable
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` scheduledActionDescription
       `Prelude.hashWithSalt` startTime

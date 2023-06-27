@@ -129,7 +129,8 @@ instance
     PurchaseReservedNodeOffering
   where
   hashWithSalt _salt PurchaseReservedNodeOffering' {..} =
-    _salt `Prelude.hashWithSalt` nodeCount
+    _salt
+      `Prelude.hashWithSalt` nodeCount
       `Prelude.hashWithSalt` reservedNodeOfferingId
 
 instance Prelude.NFData PurchaseReservedNodeOffering where

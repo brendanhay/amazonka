@@ -172,7 +172,8 @@ instance Data.FromXML Parameter where
 
 instance Prelude.Hashable Parameter where
   hashWithSalt _salt Parameter' {..} =
-    _salt `Prelude.hashWithSalt` allowedValues
+    _salt
+      `Prelude.hashWithSalt` allowedValues
       `Prelude.hashWithSalt` applyType
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` description

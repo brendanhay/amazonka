@@ -56,9 +56,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeEndpointAuthorization' smart constructor.
 data DescribeEndpointAuthorization = DescribeEndpointAuthorization'
-  { -- | The AAmazon Web Services account ID of either the cluster owner
-    -- (grantor) or grantee. If @Grantee@ parameter is true, then the @Account@
-    -- value is of the grantor.
+  { -- | The Amazon Web Services account ID of either the cluster owner (grantor)
+    -- or grantee. If @Grantee@ parameter is true, then the @Account@ value is
+    -- of the grantor.
     account :: Prelude.Maybe Prelude.Text,
     -- | The cluster identifier of the cluster to access.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
@@ -88,9 +88,9 @@ data DescribeEndpointAuthorization = DescribeEndpointAuthorization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'account', 'describeEndpointAuthorization_account' - The AAmazon Web Services account ID of either the cluster owner
--- (grantor) or grantee. If @Grantee@ parameter is true, then the @Account@
--- value is of the grantor.
+-- 'account', 'describeEndpointAuthorization_account' - The Amazon Web Services account ID of either the cluster owner (grantor)
+-- or grantee. If @Grantee@ parameter is true, then the @Account@ value is
+-- of the grantor.
 --
 -- 'clusterIdentifier', 'describeEndpointAuthorization_clusterIdentifier' - The cluster identifier of the cluster to access.
 --
@@ -120,9 +120,9 @@ newDescribeEndpointAuthorization =
       maxRecords = Prelude.Nothing
     }
 
--- | The AAmazon Web Services account ID of either the cluster owner
--- (grantor) or grantee. If @Grantee@ parameter is true, then the @Account@
--- value is of the grantor.
+-- | The Amazon Web Services account ID of either the cluster owner (grantor)
+-- or grantee. If @Grantee@ parameter is true, then the @Account@ value is
+-- of the grantor.
 describeEndpointAuthorization_account :: Lens.Lens' DescribeEndpointAuthorization (Prelude.Maybe Prelude.Text)
 describeEndpointAuthorization_account = Lens.lens (\DescribeEndpointAuthorization' {account} -> account) (\s@DescribeEndpointAuthorization' {} a -> s {account = a} :: DescribeEndpointAuthorization)
 
@@ -156,22 +156,22 @@ instance Core.AWSPager DescribeEndpointAuthorization where
     | Core.stop
         ( rs
             Lens.^? describeEndpointAuthorizationResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeEndpointAuthorizationResponse_endpointAuthorizationList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeEndpointAuthorization_marker
           Lens..~ rs
           Lens.^? describeEndpointAuthorizationResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -187,7 +187,8 @@ instance
       "DescribeEndpointAuthorizationResult"
       ( \s h x ->
           DescribeEndpointAuthorizationResponse'
-            Prelude.<$> ( x Data..@? "EndpointAuthorizationList"
+            Prelude.<$> ( x
+                            Data..@? "EndpointAuthorizationList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -200,7 +201,8 @@ instance
     DescribeEndpointAuthorization
   where
   hashWithSalt _salt DescribeEndpointAuthorization' {..} =
-    _salt `Prelude.hashWithSalt` account
+    _salt
+      `Prelude.hashWithSalt` account
       `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` grantee
       `Prelude.hashWithSalt` marker

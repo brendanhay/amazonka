@@ -141,7 +141,8 @@ instance Core.AWSRequest ModifyClusterIamRoles where
 
 instance Prelude.Hashable ModifyClusterIamRoles where
   hashWithSalt _salt ModifyClusterIamRoles' {..} =
-    _salt `Prelude.hashWithSalt` addIamRoles
+    _salt
+      `Prelude.hashWithSalt` addIamRoles
       `Prelude.hashWithSalt` defaultIamRoleArn
       `Prelude.hashWithSalt` removeIamRoles
       `Prelude.hashWithSalt` clusterIdentifier

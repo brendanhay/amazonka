@@ -190,22 +190,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeOrderableClusterOptionsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeOrderableClusterOptionsResponse_orderableClusterOptions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeOrderableClusterOptions_marker
           Lens..~ rs
           Lens.^? describeOrderableClusterOptionsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -222,7 +222,8 @@ instance
       ( \s h x ->
           DescribeOrderableClusterOptionsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "OrderableClusterOptions"
+            Prelude.<*> ( x
+                            Data..@? "OrderableClusterOptions"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may
                               (Data.parseXMLList "OrderableClusterOption")
@@ -237,7 +238,8 @@ instance
   hashWithSalt
     _salt
     DescribeOrderableClusterOptions' {..} =
-      _salt `Prelude.hashWithSalt` clusterVersion
+      _salt
+        `Prelude.hashWithSalt` clusterVersion
         `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` nodeType

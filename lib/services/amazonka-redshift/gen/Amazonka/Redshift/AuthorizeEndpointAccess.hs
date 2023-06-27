@@ -117,7 +117,8 @@ instance Core.AWSRequest AuthorizeEndpointAccess where
 
 instance Prelude.Hashable AuthorizeEndpointAccess where
   hashWithSalt _salt AuthorizeEndpointAccess' {..} =
-    _salt `Prelude.hashWithSalt` clusterIdentifier
+    _salt
+      `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` vpcIds
       `Prelude.hashWithSalt` account
 

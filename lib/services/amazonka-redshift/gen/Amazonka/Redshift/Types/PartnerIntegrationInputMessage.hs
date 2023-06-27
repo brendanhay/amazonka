@@ -102,7 +102,8 @@ instance
   hashWithSalt
     _salt
     PartnerIntegrationInputMessage' {..} =
-      _salt `Prelude.hashWithSalt` accountId
+      _salt
+        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` clusterIdentifier
         `Prelude.hashWithSalt` databaseName
         `Prelude.hashWithSalt` partnerName

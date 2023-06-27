@@ -81,7 +81,8 @@ instance Data.FromXML ClusterNode where
 
 instance Prelude.Hashable ClusterNode where
   hashWithSalt _salt ClusterNode' {..} =
-    _salt `Prelude.hashWithSalt` nodeRole
+    _salt
+      `Prelude.hashWithSalt` nodeRole
       `Prelude.hashWithSalt` privateIPAddress
       `Prelude.hashWithSalt` publicIPAddress
 

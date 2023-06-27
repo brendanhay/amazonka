@@ -115,7 +115,8 @@ instance Core.AWSRequest DeauthorizeDataShare where
 
 instance Prelude.Hashable DeauthorizeDataShare where
   hashWithSalt _salt DeauthorizeDataShare' {..} =
-    _salt `Prelude.hashWithSalt` dataShareArn
+    _salt
+      `Prelude.hashWithSalt` dataShareArn
       `Prelude.hashWithSalt` consumerIdentifier
 
 instance Prelude.NFData DeauthorizeDataShare where

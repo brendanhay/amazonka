@@ -139,7 +139,9 @@ instance Data.FromXML EndpointAuthorization where
   parseXML x =
     EndpointAuthorization'
       Prelude.<$> (x Data..@? "AllowedAllVPCs")
-      Prelude.<*> ( x Data..@? "AllowedVPCs" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "AllowedVPCs"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "VpcIdentifier")
                   )
       Prelude.<*> (x Data..@? "AuthorizeTime")
@@ -152,7 +154,8 @@ instance Data.FromXML EndpointAuthorization where
 
 instance Prelude.Hashable EndpointAuthorization where
   hashWithSalt _salt EndpointAuthorization' {..} =
-    _salt `Prelude.hashWithSalt` allowedAllVPCs
+    _salt
+      `Prelude.hashWithSalt` allowedAllVPCs
       `Prelude.hashWithSalt` allowedVPCs
       `Prelude.hashWithSalt` authorizeTime
       `Prelude.hashWithSalt` clusterIdentifier

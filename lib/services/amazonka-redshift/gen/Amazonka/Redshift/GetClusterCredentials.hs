@@ -53,11 +53,12 @@ module Amazonka.Redshift.GetClusterCredentials
 
     -- * Request Lenses
     getClusterCredentials_autoCreate,
+    getClusterCredentials_clusterIdentifier,
+    getClusterCredentials_customDomainName,
     getClusterCredentials_dbGroups,
     getClusterCredentials_dbName,
     getClusterCredentials_durationSeconds,
     getClusterCredentials_dbUser,
-    getClusterCredentials_clusterIdentifier,
 
     -- * Destructuring the Response
     GetClusterCredentialsResponse (..),
@@ -86,6 +87,11 @@ data GetClusterCredentials = GetClusterCredentials'
   { -- | Create a database user with the name specified for the user named in
     -- @DbUser@ if one does not exist.
     autoCreate :: Prelude.Maybe Prelude.Bool,
+    -- | The unique identifier of the cluster that contains the database for
+    -- which you are requesting credentials. This parameter is case sensitive.
+    clusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The custom domain name for the cluster credentials.
+    customDomainName :: Prelude.Maybe Prelude.Text,
     -- | A list of the names of existing database groups that the user named in
     -- @DbUser@ will join for the current session, in addition to any group
     -- memberships for an existing user. If not specified, a new user is added
@@ -158,10 +164,7 @@ data GetClusterCredentials = GetClusterCredentials'
     -- -   Cannot be a reserved word. A list of reserved words can be found in
     --     <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
     --     in the Amazon Redshift Database Developer Guide.
-    dbUser :: Prelude.Text,
-    -- | The unique identifier of the cluster that contains the database for
-    -- which you are requesting credentials. This parameter is case sensitive.
-    clusterIdentifier :: Prelude.Text
+    dbUser :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -175,6 +178,11 @@ data GetClusterCredentials = GetClusterCredentials'
 --
 -- 'autoCreate', 'getClusterCredentials_autoCreate' - Create a database user with the name specified for the user named in
 -- @DbUser@ if one does not exist.
+--
+-- 'clusterIdentifier', 'getClusterCredentials_clusterIdentifier' - The unique identifier of the cluster that contains the database for
+-- which you are requesting credentials. This parameter is case sensitive.
+--
+-- 'customDomainName', 'getClusterCredentials_customDomainName' - The custom domain name for the cluster credentials.
 --
 -- 'dbGroups', 'getClusterCredentials_dbGroups' - A list of the names of existing database groups that the user named in
 -- @DbUser@ will join for the current session, in addition to any group
@@ -248,30 +256,35 @@ data GetClusterCredentials = GetClusterCredentials'
 -- -   Cannot be a reserved word. A list of reserved words can be found in
 --     <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
 --     in the Amazon Redshift Database Developer Guide.
---
--- 'clusterIdentifier', 'getClusterCredentials_clusterIdentifier' - The unique identifier of the cluster that contains the database for
--- which you are requesting credentials. This parameter is case sensitive.
 newGetClusterCredentials ::
   -- | 'dbUser'
   Prelude.Text ->
-  -- | 'clusterIdentifier'
-  Prelude.Text ->
   GetClusterCredentials
-newGetClusterCredentials pDbUser_ pClusterIdentifier_ =
+newGetClusterCredentials pDbUser_ =
   GetClusterCredentials'
     { autoCreate =
         Prelude.Nothing,
+      clusterIdentifier = Prelude.Nothing,
+      customDomainName = Prelude.Nothing,
       dbGroups = Prelude.Nothing,
       dbName = Prelude.Nothing,
       durationSeconds = Prelude.Nothing,
-      dbUser = pDbUser_,
-      clusterIdentifier = pClusterIdentifier_
+      dbUser = pDbUser_
     }
 
 -- | Create a database user with the name specified for the user named in
 -- @DbUser@ if one does not exist.
 getClusterCredentials_autoCreate :: Lens.Lens' GetClusterCredentials (Prelude.Maybe Prelude.Bool)
 getClusterCredentials_autoCreate = Lens.lens (\GetClusterCredentials' {autoCreate} -> autoCreate) (\s@GetClusterCredentials' {} a -> s {autoCreate = a} :: GetClusterCredentials)
+
+-- | The unique identifier of the cluster that contains the database for
+-- which you are requesting credentials. This parameter is case sensitive.
+getClusterCredentials_clusterIdentifier :: Lens.Lens' GetClusterCredentials (Prelude.Maybe Prelude.Text)
+getClusterCredentials_clusterIdentifier = Lens.lens (\GetClusterCredentials' {clusterIdentifier} -> clusterIdentifier) (\s@GetClusterCredentials' {} a -> s {clusterIdentifier = a} :: GetClusterCredentials)
+
+-- | The custom domain name for the cluster credentials.
+getClusterCredentials_customDomainName :: Lens.Lens' GetClusterCredentials (Prelude.Maybe Prelude.Text)
+getClusterCredentials_customDomainName = Lens.lens (\GetClusterCredentials' {customDomainName} -> customDomainName) (\s@GetClusterCredentials' {} a -> s {customDomainName = a} :: GetClusterCredentials)
 
 -- | A list of the names of existing database groups that the user named in
 -- @DbUser@ will join for the current session, in addition to any group
@@ -354,11 +367,6 @@ getClusterCredentials_durationSeconds = Lens.lens (\GetClusterCredentials' {dura
 getClusterCredentials_dbUser :: Lens.Lens' GetClusterCredentials Prelude.Text
 getClusterCredentials_dbUser = Lens.lens (\GetClusterCredentials' {dbUser} -> dbUser) (\s@GetClusterCredentials' {} a -> s {dbUser = a} :: GetClusterCredentials)
 
--- | The unique identifier of the cluster that contains the database for
--- which you are requesting credentials. This parameter is case sensitive.
-getClusterCredentials_clusterIdentifier :: Lens.Lens' GetClusterCredentials Prelude.Text
-getClusterCredentials_clusterIdentifier = Lens.lens (\GetClusterCredentials' {clusterIdentifier} -> clusterIdentifier) (\s@GetClusterCredentials' {} a -> s {clusterIdentifier = a} :: GetClusterCredentials)
-
 instance Core.AWSRequest GetClusterCredentials where
   type
     AWSResponse GetClusterCredentials =
@@ -378,21 +386,24 @@ instance Core.AWSRequest GetClusterCredentials where
 
 instance Prelude.Hashable GetClusterCredentials where
   hashWithSalt _salt GetClusterCredentials' {..} =
-    _salt `Prelude.hashWithSalt` autoCreate
+    _salt
+      `Prelude.hashWithSalt` autoCreate
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` customDomainName
       `Prelude.hashWithSalt` dbGroups
       `Prelude.hashWithSalt` dbName
       `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` dbUser
-      `Prelude.hashWithSalt` clusterIdentifier
 
 instance Prelude.NFData GetClusterCredentials where
   rnf GetClusterCredentials' {..} =
     Prelude.rnf autoCreate
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf customDomainName
       `Prelude.seq` Prelude.rnf dbGroups
       `Prelude.seq` Prelude.rnf dbName
       `Prelude.seq` Prelude.rnf durationSeconds
       `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf clusterIdentifier
 
 instance Data.ToHeaders GetClusterCredentials where
   toHeaders = Prelude.const Prelude.mempty
@@ -408,13 +419,14 @@ instance Data.ToQuery GetClusterCredentials where
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
         "AutoCreate" Data.=: autoCreate,
+        "ClusterIdentifier" Data.=: clusterIdentifier,
+        "CustomDomainName" Data.=: customDomainName,
         "DbGroups"
           Data.=: Data.toQuery
             (Data.toQueryList "DbGroup" Prelude.<$> dbGroups),
         "DbName" Data.=: dbName,
         "DurationSeconds" Data.=: durationSeconds,
-        "DbUser" Data.=: dbUser,
-        "ClusterIdentifier" Data.=: clusterIdentifier
+        "DbUser" Data.=: dbUser
       ]
 
 -- | Temporary credentials with authorization to log on to an Amazon Redshift

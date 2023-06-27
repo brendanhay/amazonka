@@ -159,7 +159,8 @@ instance Core.AWSRequest UpdatePartnerStatus where
 
 instance Prelude.Hashable UpdatePartnerStatus where
   hashWithSalt _salt UpdatePartnerStatus' {..} =
-    _salt `Prelude.hashWithSalt` statusMessage
+    _salt
+      `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` databaseName

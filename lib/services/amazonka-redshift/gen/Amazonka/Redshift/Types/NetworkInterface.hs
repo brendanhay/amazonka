@@ -92,7 +92,8 @@ instance Data.FromXML NetworkInterface where
 
 instance Prelude.Hashable NetworkInterface where
   hashWithSalt _salt NetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` networkInterfaceId
       `Prelude.hashWithSalt` privateIpAddress
       `Prelude.hashWithSalt` subnetId

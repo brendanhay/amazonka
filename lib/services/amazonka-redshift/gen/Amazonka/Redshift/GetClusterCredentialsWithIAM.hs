@@ -39,9 +39,10 @@ module Amazonka.Redshift.GetClusterCredentialsWithIAM
     newGetClusterCredentialsWithIAM,
 
     -- * Request Lenses
+    getClusterCredentialsWithIAM_clusterIdentifier,
+    getClusterCredentialsWithIAM_customDomainName,
     getClusterCredentialsWithIAM_dbName,
     getClusterCredentialsWithIAM_durationSeconds,
-    getClusterCredentialsWithIAM_clusterIdentifier,
 
     -- * Destructuring the Response
     GetClusterCredentialsWithIAMResponse (..),
@@ -66,7 +67,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetClusterCredentialsWithIAM' smart constructor.
 data GetClusterCredentialsWithIAM = GetClusterCredentialsWithIAM'
-  { -- | The name of the database for which you are requesting credentials. If
+  { -- | The unique identifier of the cluster that contains the database for
+    -- which you are requesting credentials.
+    clusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The custom domain name for the IAM message cluster credentials.
+    customDomainName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the database for which you are requesting credentials. If
     -- the database name is specified, the IAM policy must allow access to the
     -- resource @dbname@ for the specified database name. If the database name
     -- is not specified, access to all databases is allowed.
@@ -74,10 +80,7 @@ data GetClusterCredentialsWithIAM = GetClusterCredentialsWithIAM'
     -- | The number of seconds until the returned temporary password expires.
     --
     -- Range: 900-3600. Default: 900.
-    durationSeconds :: Prelude.Maybe Prelude.Int,
-    -- | The unique identifier of the cluster that contains the database for
-    -- which you are requesting credentials.
-    clusterIdentifier :: Prelude.Text
+    durationSeconds :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,6 +92,11 @@ data GetClusterCredentialsWithIAM = GetClusterCredentialsWithIAM'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clusterIdentifier', 'getClusterCredentialsWithIAM_clusterIdentifier' - The unique identifier of the cluster that contains the database for
+-- which you are requesting credentials.
+--
+-- 'customDomainName', 'getClusterCredentialsWithIAM_customDomainName' - The custom domain name for the IAM message cluster credentials.
+--
 -- 'dbName', 'getClusterCredentialsWithIAM_dbName' - The name of the database for which you are requesting credentials. If
 -- the database name is specified, the IAM policy must allow access to the
 -- resource @dbname@ for the specified database name. If the database name
@@ -97,20 +105,25 @@ data GetClusterCredentialsWithIAM = GetClusterCredentialsWithIAM'
 -- 'durationSeconds', 'getClusterCredentialsWithIAM_durationSeconds' - The number of seconds until the returned temporary password expires.
 --
 -- Range: 900-3600. Default: 900.
---
--- 'clusterIdentifier', 'getClusterCredentialsWithIAM_clusterIdentifier' - The unique identifier of the cluster that contains the database for
--- which you are requesting credentials.
 newGetClusterCredentialsWithIAM ::
-  -- | 'clusterIdentifier'
-  Prelude.Text ->
   GetClusterCredentialsWithIAM
-newGetClusterCredentialsWithIAM pClusterIdentifier_ =
+newGetClusterCredentialsWithIAM =
   GetClusterCredentialsWithIAM'
-    { dbName =
+    { clusterIdentifier =
         Prelude.Nothing,
-      durationSeconds = Prelude.Nothing,
-      clusterIdentifier = pClusterIdentifier_
+      customDomainName = Prelude.Nothing,
+      dbName = Prelude.Nothing,
+      durationSeconds = Prelude.Nothing
     }
+
+-- | The unique identifier of the cluster that contains the database for
+-- which you are requesting credentials.
+getClusterCredentialsWithIAM_clusterIdentifier :: Lens.Lens' GetClusterCredentialsWithIAM (Prelude.Maybe Prelude.Text)
+getClusterCredentialsWithIAM_clusterIdentifier = Lens.lens (\GetClusterCredentialsWithIAM' {clusterIdentifier} -> clusterIdentifier) (\s@GetClusterCredentialsWithIAM' {} a -> s {clusterIdentifier = a} :: GetClusterCredentialsWithIAM)
+
+-- | The custom domain name for the IAM message cluster credentials.
+getClusterCredentialsWithIAM_customDomainName :: Lens.Lens' GetClusterCredentialsWithIAM (Prelude.Maybe Prelude.Text)
+getClusterCredentialsWithIAM_customDomainName = Lens.lens (\GetClusterCredentialsWithIAM' {customDomainName} -> customDomainName) (\s@GetClusterCredentialsWithIAM' {} a -> s {customDomainName = a} :: GetClusterCredentialsWithIAM)
 
 -- | The name of the database for which you are requesting credentials. If
 -- the database name is specified, the IAM policy must allow access to the
@@ -124,11 +137,6 @@ getClusterCredentialsWithIAM_dbName = Lens.lens (\GetClusterCredentialsWithIAM' 
 -- Range: 900-3600. Default: 900.
 getClusterCredentialsWithIAM_durationSeconds :: Lens.Lens' GetClusterCredentialsWithIAM (Prelude.Maybe Prelude.Int)
 getClusterCredentialsWithIAM_durationSeconds = Lens.lens (\GetClusterCredentialsWithIAM' {durationSeconds} -> durationSeconds) (\s@GetClusterCredentialsWithIAM' {} a -> s {durationSeconds = a} :: GetClusterCredentialsWithIAM)
-
--- | The unique identifier of the cluster that contains the database for
--- which you are requesting credentials.
-getClusterCredentialsWithIAM_clusterIdentifier :: Lens.Lens' GetClusterCredentialsWithIAM Prelude.Text
-getClusterCredentialsWithIAM_clusterIdentifier = Lens.lens (\GetClusterCredentialsWithIAM' {clusterIdentifier} -> clusterIdentifier) (\s@GetClusterCredentialsWithIAM' {} a -> s {clusterIdentifier = a} :: GetClusterCredentialsWithIAM)
 
 instance Core.AWSRequest GetClusterCredentialsWithIAM where
   type
@@ -153,15 +161,18 @@ instance
     GetClusterCredentialsWithIAM
   where
   hashWithSalt _salt GetClusterCredentialsWithIAM' {..} =
-    _salt `Prelude.hashWithSalt` dbName
-      `Prelude.hashWithSalt` durationSeconds
+    _salt
       `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` customDomainName
+      `Prelude.hashWithSalt` dbName
+      `Prelude.hashWithSalt` durationSeconds
 
 instance Prelude.NFData GetClusterCredentialsWithIAM where
   rnf GetClusterCredentialsWithIAM' {..} =
-    Prelude.rnf dbName
+    Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf customDomainName
+      `Prelude.seq` Prelude.rnf dbName
       `Prelude.seq` Prelude.rnf durationSeconds
-      `Prelude.seq` Prelude.rnf clusterIdentifier
 
 instance Data.ToHeaders GetClusterCredentialsWithIAM where
   toHeaders = Prelude.const Prelude.mempty
@@ -178,9 +189,10 @@ instance Data.ToQuery GetClusterCredentialsWithIAM where
                   ),
         "Version"
           Data.=: ("2012-12-01" :: Prelude.ByteString),
+        "ClusterIdentifier" Data.=: clusterIdentifier,
+        "CustomDomainName" Data.=: customDomainName,
         "DbName" Data.=: dbName,
-        "DurationSeconds" Data.=: durationSeconds,
-        "ClusterIdentifier" Data.=: clusterIdentifier
+        "DurationSeconds" Data.=: durationSeconds
       ]
 
 -- | /See:/ 'newGetClusterCredentialsWithIAMResponse' smart constructor.

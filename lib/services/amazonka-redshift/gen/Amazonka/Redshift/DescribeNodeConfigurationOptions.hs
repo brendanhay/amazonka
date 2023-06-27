@@ -231,22 +231,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeNodeConfigurationOptionsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeNodeConfigurationOptionsResponse_nodeConfigurationOptionList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeNodeConfigurationOptions_marker
           Lens..~ rs
           Lens.^? describeNodeConfigurationOptionsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -263,7 +263,8 @@ instance
       ( \s h x ->
           DescribeNodeConfigurationOptionsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "NodeConfigurationOptionList"
+            Prelude.<*> ( x
+                            Data..@? "NodeConfigurationOptionList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may
                               (Data.parseXMLList "NodeConfigurationOption")
@@ -278,7 +279,8 @@ instance
   hashWithSalt
     _salt
     DescribeNodeConfigurationOptions' {..} =
-      _salt `Prelude.hashWithSalt` clusterIdentifier
+      _salt
+        `Prelude.hashWithSalt` clusterIdentifier
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxRecords

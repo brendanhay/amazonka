@@ -73,8 +73,8 @@ data EnableLogging = EnableLogging'
     -- | The log destination type. An enum with possible values of @s3@ and
     -- @cloudwatch@.
     logDestinationType :: Prelude.Maybe LogDestinationType,
-    -- | The collection of exported log types. Log types include the connection
-    -- log, user log and user activity log.
+    -- | The collection of exported log types. Possible values are
+    -- @connectionlog@, @useractivitylog@, and @userlog@.
     logExports :: Prelude.Maybe [Prelude.Text],
     -- | The prefix applied to the log file names.
     --
@@ -122,8 +122,8 @@ data EnableLogging = EnableLogging'
 -- 'logDestinationType', 'enableLogging_logDestinationType' - The log destination type. An enum with possible values of @s3@ and
 -- @cloudwatch@.
 --
--- 'logExports', 'enableLogging_logExports' - The collection of exported log types. Log types include the connection
--- log, user log and user activity log.
+-- 'logExports', 'enableLogging_logExports' - The collection of exported log types. Possible values are
+-- @connectionlog@, @useractivitylog@, and @userlog@.
 --
 -- 's3KeyPrefix', 'enableLogging_s3KeyPrefix' - The prefix applied to the log file names.
 --
@@ -176,8 +176,8 @@ enableLogging_bucketName = Lens.lens (\EnableLogging' {bucketName} -> bucketName
 enableLogging_logDestinationType :: Lens.Lens' EnableLogging (Prelude.Maybe LogDestinationType)
 enableLogging_logDestinationType = Lens.lens (\EnableLogging' {logDestinationType} -> logDestinationType) (\s@EnableLogging' {} a -> s {logDestinationType = a} :: EnableLogging)
 
--- | The collection of exported log types. Log types include the connection
--- log, user log and user activity log.
+-- | The collection of exported log types. Possible values are
+-- @connectionlog@, @useractivitylog@, and @userlog@.
 enableLogging_logExports :: Lens.Lens' EnableLogging (Prelude.Maybe [Prelude.Text])
 enableLogging_logExports = Lens.lens (\EnableLogging' {logExports} -> logExports) (\s@EnableLogging' {} a -> s {logExports = a} :: EnableLogging) Prelude.. Lens.mapping Lens.coerced
 
@@ -220,7 +220,8 @@ instance Core.AWSRequest EnableLogging where
 
 instance Prelude.Hashable EnableLogging where
   hashWithSalt _salt EnableLogging' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` logDestinationType
       `Prelude.hashWithSalt` logExports
       `Prelude.hashWithSalt` s3KeyPrefix

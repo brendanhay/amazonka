@@ -134,6 +134,12 @@ module Amazonka.Redshift
     -- ** CopyToRegionDisabledFault
     _CopyToRegionDisabledFault,
 
+    -- ** CustomCnameAssociationFault
+    _CustomCnameAssociationFault,
+
+    -- ** CustomDomainAssociationNotFoundFault
+    _CustomDomainAssociationNotFoundFault,
+
     -- ** DependentServiceRequestThrottlingFault
     _DependentServiceRequestThrottlingFault,
 
@@ -545,6 +551,12 @@ module Amazonka.Redshift
     CreateClusterSubnetGroupResponse (CreateClusterSubnetGroupResponse'),
     newCreateClusterSubnetGroupResponse,
 
+    -- ** CreateCustomDomainAssociation
+    CreateCustomDomainAssociation (CreateCustomDomainAssociation'),
+    newCreateCustomDomainAssociation,
+    CreateCustomDomainAssociationResponse (CreateCustomDomainAssociationResponse'),
+    newCreateCustomDomainAssociationResponse,
+
     -- ** CreateEndpointAccess
     CreateEndpointAccess (CreateEndpointAccess'),
     newCreateEndpointAccess,
@@ -640,6 +652,12 @@ module Amazonka.Redshift
     newDeleteClusterSubnetGroup,
     DeleteClusterSubnetGroupResponse (DeleteClusterSubnetGroupResponse'),
     newDeleteClusterSubnetGroupResponse,
+
+    -- ** DeleteCustomDomainAssociation
+    DeleteCustomDomainAssociation (DeleteCustomDomainAssociation'),
+    newDeleteCustomDomainAssociation,
+    DeleteCustomDomainAssociationResponse (DeleteCustomDomainAssociationResponse'),
+    newDeleteCustomDomainAssociationResponse,
 
     -- ** DeleteEndpointAccess
     DeleteEndpointAccess (DeleteEndpointAccess'),
@@ -766,6 +784,12 @@ module Amazonka.Redshift
     newDescribeClusters,
     DescribeClustersResponse (DescribeClustersResponse'),
     newDescribeClustersResponse,
+
+    -- ** DescribeCustomDomainAssociations (Paginated)
+    DescribeCustomDomainAssociations (DescribeCustomDomainAssociations'),
+    newDescribeCustomDomainAssociations,
+    DescribeCustomDomainAssociationsResponse (DescribeCustomDomainAssociationsResponse'),
+    newDescribeCustomDomainAssociationsResponse,
 
     -- ** DescribeDataShares (Paginated)
     DescribeDataShares (DescribeDataShares'),
@@ -1037,6 +1061,12 @@ module Amazonka.Redshift
     ModifyClusterSubnetGroupResponse (ModifyClusterSubnetGroupResponse'),
     newModifyClusterSubnetGroupResponse,
 
+    -- ** ModifyCustomDomainAssociation
+    ModifyCustomDomainAssociation (ModifyCustomDomainAssociation'),
+    newModifyCustomDomainAssociation,
+    ModifyCustomDomainAssociationResponse (ModifyCustomDomainAssociationResponse'),
+    newModifyCustomDomainAssociationResponse,
+
     -- ** ModifyEndpointAccess
     ModifyEndpointAccess (ModifyEndpointAccess'),
     newModifyEndpointAccess,
@@ -1258,6 +1288,10 @@ module Amazonka.Redshift
     AquaConfiguration (AquaConfiguration'),
     newAquaConfiguration,
 
+    -- ** Association
+    Association (Association'),
+    newAssociation,
+
     -- ** AttributeValueTarget
     AttributeValueTarget (AttributeValueTarget'),
     newAttributeValueTarget,
@@ -1269,6 +1303,10 @@ module Amazonka.Redshift
     -- ** AvailabilityZone
     AvailabilityZone (AvailabilityZone'),
     newAvailabilityZone,
+
+    -- ** CertificateAssociation
+    CertificateAssociation (CertificateAssociation'),
+    newCertificateAssociation,
 
     -- ** Cluster
     Cluster (Cluster'),
@@ -1585,6 +1623,7 @@ import Amazonka.Redshift.CreateClusterParameterGroup
 import Amazonka.Redshift.CreateClusterSecurityGroup
 import Amazonka.Redshift.CreateClusterSnapshot
 import Amazonka.Redshift.CreateClusterSubnetGroup
+import Amazonka.Redshift.CreateCustomDomainAssociation
 import Amazonka.Redshift.CreateEndpointAccess
 import Amazonka.Redshift.CreateEventSubscription
 import Amazonka.Redshift.CreateHsmClientCertificate
@@ -1601,6 +1640,7 @@ import Amazonka.Redshift.DeleteClusterParameterGroup
 import Amazonka.Redshift.DeleteClusterSecurityGroup
 import Amazonka.Redshift.DeleteClusterSnapshot
 import Amazonka.Redshift.DeleteClusterSubnetGroup
+import Amazonka.Redshift.DeleteCustomDomainAssociation
 import Amazonka.Redshift.DeleteEndpointAccess
 import Amazonka.Redshift.DeleteEventSubscription
 import Amazonka.Redshift.DeleteHsmClientCertificate
@@ -1622,6 +1662,7 @@ import Amazonka.Redshift.DescribeClusterSubnetGroups
 import Amazonka.Redshift.DescribeClusterTracks
 import Amazonka.Redshift.DescribeClusterVersions
 import Amazonka.Redshift.DescribeClusters
+import Amazonka.Redshift.DescribeCustomDomainAssociations
 import Amazonka.Redshift.DescribeDataShares
 import Amazonka.Redshift.DescribeDataSharesForConsumer
 import Amazonka.Redshift.DescribeDataSharesForProducer
@@ -1669,6 +1710,7 @@ import Amazonka.Redshift.ModifyClusterParameterGroup
 import Amazonka.Redshift.ModifyClusterSnapshot
 import Amazonka.Redshift.ModifyClusterSnapshotSchedule
 import Amazonka.Redshift.ModifyClusterSubnetGroup
+import Amazonka.Redshift.ModifyCustomDomainAssociation
 import Amazonka.Redshift.ModifyEndpointAccess
 import Amazonka.Redshift.ModifyEventSubscription
 import Amazonka.Redshift.ModifyScheduledAction

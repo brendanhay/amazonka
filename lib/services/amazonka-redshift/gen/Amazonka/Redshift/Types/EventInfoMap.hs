@@ -90,7 +90,9 @@ eventInfoMap_severity = Lens.lens (\EventInfoMap' {severity} -> severity) (\s@Ev
 instance Data.FromXML EventInfoMap where
   parseXML x =
     EventInfoMap'
-      Prelude.<$> ( x Data..@? "EventCategories" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "EventCategories"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "EventCategory")
                   )
       Prelude.<*> (x Data..@? "EventDescription")
@@ -99,7 +101,8 @@ instance Data.FromXML EventInfoMap where
 
 instance Prelude.Hashable EventInfoMap where
   hashWithSalt _salt EventInfoMap' {..} =
-    _salt `Prelude.hashWithSalt` eventCategories
+    _salt
+      `Prelude.hashWithSalt` eventCategories
       `Prelude.hashWithSalt` eventDescription
       `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` severity

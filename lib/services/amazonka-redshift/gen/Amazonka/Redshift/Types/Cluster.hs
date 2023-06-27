@@ -151,6 +151,13 @@ data Cluster = Cluster'
     -- | The version ID of the Amazon Redshift engine that is running on the
     -- cluster.
     clusterVersion :: Prelude.Maybe Prelude.Text,
+    -- | The certificate Amazon Resource Name (ARN) for the custom domain name.
+    customDomainCertificateArn :: Prelude.Maybe Prelude.Text,
+    -- | The expiration date for the certificate associated with the custom
+    -- domain name.
+    customDomainCertificateExpiryDate :: Prelude.Maybe Data.ISO8601,
+    -- | The custom domain name associated with the cluster.
+    customDomainName :: Prelude.Maybe Prelude.Text,
     -- | The name of the initial database that was created when the cluster was
     -- created. This same name is returned for the life of the cluster. If an
     -- initial database was not specified, a database named @dev@dev was
@@ -378,6 +385,13 @@ data Cluster = Cluster'
 -- 'clusterVersion', 'cluster_clusterVersion' - The version ID of the Amazon Redshift engine that is running on the
 -- cluster.
 --
+-- 'customDomainCertificateArn', 'cluster_customDomainCertificateArn' - The certificate Amazon Resource Name (ARN) for the custom domain name.
+--
+-- 'customDomainCertificateExpiryDate', 'cluster_customDomainCertificateExpiryDate' - The expiration date for the certificate associated with the custom
+-- domain name.
+--
+-- 'customDomainName', 'cluster_customDomainName' - The custom domain name associated with the cluster.
+--
 -- 'dbName', 'cluster_dbName' - The name of the initial database that was created when the cluster was
 -- created. This same name is returned for the life of the cluster. If an
 -- initial database was not specified, a database named @dev@dev was
@@ -512,6 +526,9 @@ newCluster =
       clusterStatus = Prelude.Nothing,
       clusterSubnetGroupName = Prelude.Nothing,
       clusterVersion = Prelude.Nothing,
+      customDomainCertificateArn = Prelude.Nothing,
+      customDomainCertificateExpiryDate = Prelude.Nothing,
+      customDomainName = Prelude.Nothing,
       dbName = Prelude.Nothing,
       dataTransferProgress = Prelude.Nothing,
       defaultIamRoleArn = Prelude.Nothing,
@@ -689,6 +706,19 @@ cluster_clusterSubnetGroupName = Lens.lens (\Cluster' {clusterSubnetGroupName} -
 cluster_clusterVersion :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_clusterVersion = Lens.lens (\Cluster' {clusterVersion} -> clusterVersion) (\s@Cluster' {} a -> s {clusterVersion = a} :: Cluster)
 
+-- | The certificate Amazon Resource Name (ARN) for the custom domain name.
+cluster_customDomainCertificateArn :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_customDomainCertificateArn = Lens.lens (\Cluster' {customDomainCertificateArn} -> customDomainCertificateArn) (\s@Cluster' {} a -> s {customDomainCertificateArn = a} :: Cluster)
+
+-- | The expiration date for the certificate associated with the custom
+-- domain name.
+cluster_customDomainCertificateExpiryDate :: Lens.Lens' Cluster (Prelude.Maybe Prelude.UTCTime)
+cluster_customDomainCertificateExpiryDate = Lens.lens (\Cluster' {customDomainCertificateExpiryDate} -> customDomainCertificateExpiryDate) (\s@Cluster' {} a -> s {customDomainCertificateExpiryDate = a} :: Cluster) Prelude.. Lens.mapping Data._Time
+
+-- | The custom domain name associated with the cluster.
+cluster_customDomainName :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_customDomainName = Lens.lens (\Cluster' {customDomainName} -> customDomainName) (\s@Cluster' {} a -> s {customDomainName = a} :: Cluster)
+
 -- | The name of the initial database that was created when the cluster was
 -- created. This same name is returned for the life of the cluster. If an
 -- initial database was not specified, a database named @dev@dev was
@@ -696,7 +726,6 @@ cluster_clusterVersion = Lens.lens (\Cluster' {clusterVersion} -> clusterVersion
 cluster_dbName :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_dbName = Lens.lens (\Cluster' {dbName} -> dbName) (\s@Cluster' {} a -> s {dbName = a} :: Cluster)
 
--- |
 cluster_dataTransferProgress :: Lens.Lens' Cluster (Prelude.Maybe DataTransferProgress)
 cluster_dataTransferProgress = Lens.lens (\Cluster' {dataTransferProgress} -> dataTransferProgress) (\s@Cluster' {} a -> s {dataTransferProgress = a} :: Cluster)
 
@@ -882,16 +911,20 @@ instance Data.FromXML Cluster where
       Prelude.<*> (x Data..@? "ClusterCreateTime")
       Prelude.<*> (x Data..@? "ClusterIdentifier")
       Prelude.<*> (x Data..@? "ClusterNamespaceArn")
-      Prelude.<*> ( x Data..@? "ClusterNodes" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "ClusterNodes"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "ClusterParameterGroups"
+      Prelude.<*> ( x
+                      Data..@? "ClusterParameterGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ClusterParameterGroup")
                   )
       Prelude.<*> (x Data..@? "ClusterPublicKey")
       Prelude.<*> (x Data..@? "ClusterRevisionNumber")
-      Prelude.<*> ( x Data..@? "ClusterSecurityGroups"
+      Prelude.<*> ( x
+                      Data..@? "ClusterSecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ClusterSecurityGroup")
                   )
@@ -899,10 +932,14 @@ instance Data.FromXML Cluster where
       Prelude.<*> (x Data..@? "ClusterStatus")
       Prelude.<*> (x Data..@? "ClusterSubnetGroupName")
       Prelude.<*> (x Data..@? "ClusterVersion")
+      Prelude.<*> (x Data..@? "CustomDomainCertificateArn")
+      Prelude.<*> (x Data..@? "CustomDomainCertificateExpiryDate")
+      Prelude.<*> (x Data..@? "CustomDomainName")
       Prelude.<*> (x Data..@? "DBName")
       Prelude.<*> (x Data..@? "DataTransferProgress")
       Prelude.<*> (x Data..@? "DefaultIamRoleArn")
-      Prelude.<*> ( x Data..@? "DeferredMaintenanceWindows"
+      Prelude.<*> ( x
+                      Data..@? "DeferredMaintenanceWindows"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "DeferredMaintenanceWindow")
@@ -915,7 +952,9 @@ instance Data.FromXML Cluster where
       Prelude.<*> (x Data..@? "ExpectedNextSnapshotScheduleTime")
       Prelude.<*> (x Data..@? "ExpectedNextSnapshotScheduleTimeStatus")
       Prelude.<*> (x Data..@? "HsmStatus")
-      Prelude.<*> ( x Data..@? "IamRoles" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "IamRoles"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ClusterIamRole")
                   )
       Prelude.<*> (x Data..@? "KmsKeyId")
@@ -926,7 +965,9 @@ instance Data.FromXML Cluster where
       Prelude.<*> (x Data..@? "NextMaintenanceWindowStartTime")
       Prelude.<*> (x Data..@? "NodeType")
       Prelude.<*> (x Data..@? "NumberOfNodes")
-      Prelude.<*> ( x Data..@? "PendingActions" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "PendingActions"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "PendingModifiedValues")
@@ -937,19 +978,23 @@ instance Data.FromXML Cluster where
       Prelude.<*> (x Data..@? "RestoreStatus")
       Prelude.<*> (x Data..@? "SnapshotScheduleIdentifier")
       Prelude.<*> (x Data..@? "SnapshotScheduleState")
-      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
       Prelude.<*> (x Data..@? "TotalStorageCapacityInMegaBytes")
       Prelude.<*> (x Data..@? "VpcId")
-      Prelude.<*> ( x Data..@? "VpcSecurityGroups"
+      Prelude.<*> ( x
+                      Data..@? "VpcSecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "VpcSecurityGroup")
                   )
 
 instance Prelude.Hashable Cluster where
   hashWithSalt _salt Cluster' {..} =
-    _salt `Prelude.hashWithSalt` allowVersionUpgrade
+    _salt
+      `Prelude.hashWithSalt` allowVersionUpgrade
       `Prelude.hashWithSalt` aquaConfiguration
       `Prelude.hashWithSalt` automatedSnapshotRetentionPeriod
       `Prelude.hashWithSalt` availabilityZone
@@ -967,6 +1012,9 @@ instance Prelude.Hashable Cluster where
       `Prelude.hashWithSalt` clusterStatus
       `Prelude.hashWithSalt` clusterSubnetGroupName
       `Prelude.hashWithSalt` clusterVersion
+      `Prelude.hashWithSalt` customDomainCertificateArn
+      `Prelude.hashWithSalt` customDomainCertificateExpiryDate
+      `Prelude.hashWithSalt` customDomainName
       `Prelude.hashWithSalt` dbName
       `Prelude.hashWithSalt` dataTransferProgress
       `Prelude.hashWithSalt` defaultIamRoleArn
@@ -1022,6 +1070,11 @@ instance Prelude.NFData Cluster where
       `Prelude.seq` Prelude.rnf clusterStatus
       `Prelude.seq` Prelude.rnf clusterSubnetGroupName
       `Prelude.seq` Prelude.rnf clusterVersion
+      `Prelude.seq` Prelude.rnf
+        customDomainCertificateArn
+      `Prelude.seq` Prelude.rnf
+        customDomainCertificateExpiryDate
+      `Prelude.seq` Prelude.rnf customDomainName
       `Prelude.seq` Prelude.rnf dbName
       `Prelude.seq` Prelude.rnf
         dataTransferProgress

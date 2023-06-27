@@ -165,7 +165,7 @@ instance
       ( \s h x ->
           RevokeClusterSecurityGroupIngressResponse'
             Prelude.<$> (x Data..@? "ClusterSecurityGroup")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -175,7 +175,8 @@ instance
   hashWithSalt
     _salt
     RevokeClusterSecurityGroupIngress' {..} =
-      _salt `Prelude.hashWithSalt` cidrip
+      _salt
+        `Prelude.hashWithSalt` cidrip
         `Prelude.hashWithSalt` eC2SecurityGroupName
         `Prelude.hashWithSalt` eC2SecurityGroupOwnerId
         `Prelude.hashWithSalt` clusterSecurityGroupName

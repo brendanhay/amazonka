@@ -90,7 +90,8 @@ instance
   hashWithSalt
     _salt
     ReservedNodeConfigurationOption' {..} =
-      _salt `Prelude.hashWithSalt` sourceReservedNode
+      _salt
+        `Prelude.hashWithSalt` sourceReservedNode
         `Prelude.hashWithSalt` targetReservedNodeCount
         `Prelude.hashWithSalt` targetReservedNodeOffering
 

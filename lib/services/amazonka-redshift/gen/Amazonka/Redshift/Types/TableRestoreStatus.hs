@@ -214,7 +214,8 @@ instance Data.FromXML TableRestoreStatus where
 
 instance Prelude.Hashable TableRestoreStatus where
   hashWithSalt _salt TableRestoreStatus' {..} =
-    _salt `Prelude.hashWithSalt` clusterIdentifier
+    _salt
+      `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` newTableName'
       `Prelude.hashWithSalt` progressInMegaBytes

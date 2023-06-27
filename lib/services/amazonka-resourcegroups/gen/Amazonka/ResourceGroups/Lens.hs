@@ -32,6 +32,10 @@ module Amazonka.ResourceGroups.Lens
     deleteGroupResponse_group,
     deleteGroupResponse_httpStatus,
 
+    -- ** GetAccountSettings
+    getAccountSettingsResponse_accountSettings,
+    getAccountSettingsResponse_httpStatus,
+
     -- ** GetGroup
     getGroup_group,
     getGroup_groupName,
@@ -120,6 +124,11 @@ module Amazonka.ResourceGroups.Lens
     untagResponse_keys,
     untagResponse_httpStatus,
 
+    -- ** UpdateAccountSettings
+    updateAccountSettings_groupLifecycleEventsDesiredStatus,
+    updateAccountSettingsResponse_accountSettings,
+    updateAccountSettingsResponse_httpStatus,
+
     -- ** UpdateGroup
     updateGroup_description,
     updateGroup_group,
@@ -135,6 +144,11 @@ module Amazonka.ResourceGroups.Lens
     updateGroupQueryResponse_httpStatus,
 
     -- * Types
+
+    -- ** AccountSettings
+    accountSettings_groupLifecycleEventsDesiredStatus,
+    accountSettings_groupLifecycleEventsStatus,
+    accountSettings_groupLifecycleEventsStatusMessage,
 
     -- ** FailedResource
     failedResource_errorCode,
@@ -202,6 +216,7 @@ where
 
 import Amazonka.ResourceGroups.CreateGroup
 import Amazonka.ResourceGroups.DeleteGroup
+import Amazonka.ResourceGroups.GetAccountSettings
 import Amazonka.ResourceGroups.GetGroup
 import Amazonka.ResourceGroups.GetGroupConfiguration
 import Amazonka.ResourceGroups.GetGroupQuery
@@ -212,6 +227,7 @@ import Amazonka.ResourceGroups.ListGroups
 import Amazonka.ResourceGroups.PutGroupConfiguration
 import Amazonka.ResourceGroups.SearchResources
 import Amazonka.ResourceGroups.Tag
+import Amazonka.ResourceGroups.Types.AccountSettings
 import Amazonka.ResourceGroups.Types.FailedResource
 import Amazonka.ResourceGroups.Types.Group
 import Amazonka.ResourceGroups.Types.GroupConfiguration
@@ -229,5 +245,6 @@ import Amazonka.ResourceGroups.Types.ResourceQuery
 import Amazonka.ResourceGroups.Types.ResourceStatus
 import Amazonka.ResourceGroups.UngroupResources
 import Amazonka.ResourceGroups.Untag
+import Amazonka.ResourceGroups.UpdateAccountSettings
 import Amazonka.ResourceGroups.UpdateGroup
 import Amazonka.ResourceGroups.UpdateGroupQuery

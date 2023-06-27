@@ -91,7 +91,8 @@ instance Data.FromJSON GroupConfigurationParameter where
 
 instance Prelude.Hashable GroupConfigurationParameter where
   hashWithSalt _salt GroupConfigurationParameter' {..} =
-    _salt `Prelude.hashWithSalt` values
+    _salt
+      `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GroupConfigurationParameter where

@@ -104,7 +104,8 @@ instance Core.AWSRequest GetGroup where
 
 instance Prelude.Hashable GetGroup where
   hashWithSalt _salt GetGroup' {..} =
-    _salt `Prelude.hashWithSalt` group'
+    _salt
+      `Prelude.hashWithSalt` group'
       `Prelude.hashWithSalt` groupName
 
 instance Prelude.NFData GetGroup where
@@ -132,7 +133,9 @@ instance Data.ToQuery GetGroup where
 
 -- | /See:/ 'newGetGroupResponse' smart constructor.
 data GetGroupResponse = GetGroupResponse'
-  { -- | A full description of the resource group.
+  { -- | A structure that contains the metadata details for the specified
+    -- resource group. Use GetGroupQuery and GetGroupConfiguration to get those
+    -- additional details of the resource group.
     group' :: Prelude.Maybe Group,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -147,7 +150,9 @@ data GetGroupResponse = GetGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'group'', 'getGroupResponse_group' - A full description of the resource group.
+-- 'group'', 'getGroupResponse_group' - A structure that contains the metadata details for the specified
+-- resource group. Use GetGroupQuery and GetGroupConfiguration to get those
+-- additional details of the resource group.
 --
 -- 'httpStatus', 'getGroupResponse_httpStatus' - The response's http status code.
 newGetGroupResponse ::
@@ -160,7 +165,9 @@ newGetGroupResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A full description of the resource group.
+-- | A structure that contains the metadata details for the specified
+-- resource group. Use GetGroupQuery and GetGroupConfiguration to get those
+-- additional details of the resource group.
 getGroupResponse_group :: Lens.Lens' GetGroupResponse (Prelude.Maybe Group)
 getGroupResponse_group = Lens.lens (\GetGroupResponse' {group'} -> group') (\s@GetGroupResponse' {} a -> s {group' = a} :: GetGroupResponse)
 

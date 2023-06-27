@@ -21,11 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a resource group with the specified name and description. You
--- can optionally include a resource query, or a service configuration. For
--- more information about constructing a resource query, see
--- <https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups>.
--- For more information about service configurations, see
--- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
+-- can optionally include either a resource query or a service
+-- configuration. For more information about constructing a resource query,
+-- see
+-- <https://docs.aws.amazon.com/ARG/latest/userguide/getting_started-query.html Build queries and groups in Resource Groups>
+-- in the /Resource Groups User Guide/. For more information about
+-- service-linked groups and service configurations, see
+-- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for Resource Groups>.
 --
 -- __Minimum permissions__
 --
@@ -67,11 +69,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateGroup' smart constructor.
 data CreateGroup = CreateGroup'
-  { -- | A configuration associates the resource group with an AWS service and
-    -- specifies how the service can interact with the resources in the group.
-    -- A configuration is an array of GroupConfigurationItem elements. For
-    -- details about the syntax of service configurations, see
-    -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
+  { -- | A configuration associates the resource group with an Amazon Web
+    -- Services service and specifies how the service can interact with the
+    -- resources in the group. A configuration is an array of
+    -- GroupConfigurationItem elements. For details about the syntax of service
+    -- configurations, see
+    -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for Resource Groups>.
     --
     -- A resource group can contain either a @Configuration@ or a
     -- @ResourceQuery@, but not both.
@@ -79,8 +82,9 @@ data CreateGroup = CreateGroup'
     -- | The description of the resource group. Descriptions can consist of
     -- letters, numbers, hyphens, underscores, periods, and spaces.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The resource query that determines which AWS resources are members of
-    -- this group. For more information about resource queries, see
+    -- | The resource query that determines which Amazon Web Services resources
+    -- are members of this group. For more information about resource queries,
+    -- see
     -- <https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups>.
     --
     -- A resource group can contain either a @ResourceQuery@ or a
@@ -93,7 +97,7 @@ data CreateGroup = CreateGroup'
     -- create it. A resource group name can consist of letters, numbers,
     -- hyphens, periods, and underscores. The name cannot start with @AWS@ or
     -- @aws@; these are reserved. A resource group name must be unique within
-    -- each AWS Region in your AWS account.
+    -- each Amazon Web Services Region in your Amazon Web Services account.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -106,11 +110,12 @@ data CreateGroup = CreateGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configuration', 'createGroup_configuration' - A configuration associates the resource group with an AWS service and
--- specifies how the service can interact with the resources in the group.
--- A configuration is an array of GroupConfigurationItem elements. For
--- details about the syntax of service configurations, see
--- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
+-- 'configuration', 'createGroup_configuration' - A configuration associates the resource group with an Amazon Web
+-- Services service and specifies how the service can interact with the
+-- resources in the group. A configuration is an array of
+-- GroupConfigurationItem elements. For details about the syntax of service
+-- configurations, see
+-- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for Resource Groups>.
 --
 -- A resource group can contain either a @Configuration@ or a
 -- @ResourceQuery@, but not both.
@@ -118,8 +123,9 @@ data CreateGroup = CreateGroup'
 -- 'description', 'createGroup_description' - The description of the resource group. Descriptions can consist of
 -- letters, numbers, hyphens, underscores, periods, and spaces.
 --
--- 'resourceQuery', 'createGroup_resourceQuery' - The resource query that determines which AWS resources are members of
--- this group. For more information about resource queries, see
+-- 'resourceQuery', 'createGroup_resourceQuery' - The resource query that determines which Amazon Web Services resources
+-- are members of this group. For more information about resource queries,
+-- see
 -- <https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups>.
 --
 -- A resource group can contain either a @ResourceQuery@ or a
@@ -132,7 +138,7 @@ data CreateGroup = CreateGroup'
 -- create it. A resource group name can consist of letters, numbers,
 -- hyphens, periods, and underscores. The name cannot start with @AWS@ or
 -- @aws@; these are reserved. A resource group name must be unique within
--- each AWS Region in your AWS account.
+-- each Amazon Web Services Region in your Amazon Web Services account.
 newCreateGroup ::
   -- | 'name'
   Prelude.Text ->
@@ -146,11 +152,12 @@ newCreateGroup pName_ =
       name = pName_
     }
 
--- | A configuration associates the resource group with an AWS service and
--- specifies how the service can interact with the resources in the group.
--- A configuration is an array of GroupConfigurationItem elements. For
--- details about the syntax of service configurations, see
--- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
+-- | A configuration associates the resource group with an Amazon Web
+-- Services service and specifies how the service can interact with the
+-- resources in the group. A configuration is an array of
+-- GroupConfigurationItem elements. For details about the syntax of service
+-- configurations, see
+-- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for Resource Groups>.
 --
 -- A resource group can contain either a @Configuration@ or a
 -- @ResourceQuery@, but not both.
@@ -162,8 +169,9 @@ createGroup_configuration = Lens.lens (\CreateGroup' {configuration} -> configur
 createGroup_description :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
 createGroup_description = Lens.lens (\CreateGroup' {description} -> description) (\s@CreateGroup' {} a -> s {description = a} :: CreateGroup)
 
--- | The resource query that determines which AWS resources are members of
--- this group. For more information about resource queries, see
+-- | The resource query that determines which Amazon Web Services resources
+-- are members of this group. For more information about resource queries,
+-- see
 -- <https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag Create a tag-based group in Resource Groups>.
 --
 -- A resource group can contain either a @ResourceQuery@ or a
@@ -180,7 +188,7 @@ createGroup_tags = Lens.lens (\CreateGroup' {tags} -> tags) (\s@CreateGroup' {} 
 -- create it. A resource group name can consist of letters, numbers,
 -- hyphens, periods, and underscores. The name cannot start with @AWS@ or
 -- @aws@; these are reserved. A resource group name must be unique within
--- each AWS Region in your AWS account.
+-- each Amazon Web Services Region in your Amazon Web Services account.
 createGroup_name :: Lens.Lens' CreateGroup Prelude.Text
 createGroup_name = Lens.lens (\CreateGroup' {name} -> name) (\s@CreateGroup' {} a -> s {name = a} :: CreateGroup)
 
@@ -201,7 +209,8 @@ instance Core.AWSRequest CreateGroup where
 
 instance Prelude.Hashable CreateGroup where
   hashWithSalt _salt CreateGroup' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` resourceQuery
       `Prelude.hashWithSalt` tags
@@ -242,7 +251,7 @@ data CreateGroupResponse = CreateGroupResponse'
     group' :: Prelude.Maybe Group,
     -- | The service configuration associated with the resource group. For
     -- details about the syntax of a service configuration, see
-    -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
+    -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for Resource Groups>.
     groupConfiguration :: Prelude.Maybe GroupConfiguration,
     -- | The resource query associated with the group. For more information about
     -- resource queries, see
@@ -267,7 +276,7 @@ data CreateGroupResponse = CreateGroupResponse'
 --
 -- 'groupConfiguration', 'createGroupResponse_groupConfiguration' - The service configuration associated with the resource group. For
 -- details about the syntax of a service configuration, see
--- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
+-- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for Resource Groups>.
 --
 -- 'resourceQuery', 'createGroupResponse_resourceQuery' - The resource query associated with the group. For more information about
 -- resource queries, see
@@ -295,7 +304,7 @@ createGroupResponse_group = Lens.lens (\CreateGroupResponse' {group'} -> group')
 
 -- | The service configuration associated with the resource group. For
 -- details about the syntax of a service configuration, see
--- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
+-- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for Resource Groups>.
 createGroupResponse_groupConfiguration :: Lens.Lens' CreateGroupResponse (Prelude.Maybe GroupConfiguration)
 createGroupResponse_groupConfiguration = Lens.lens (\CreateGroupResponse' {groupConfiguration} -> groupConfiguration) (\s@CreateGroupResponse' {} a -> s {groupConfiguration = a} :: CreateGroupResponse)
 

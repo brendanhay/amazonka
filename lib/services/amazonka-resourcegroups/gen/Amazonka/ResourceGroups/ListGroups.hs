@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of existing resource groups in your account.
+-- Returns a list of existing Resource Groups in your account.
 --
 -- __Minimum permissions__
 --
@@ -66,16 +66,16 @@ data ListGroups = ListGroups'
     --
     -- -   @resource-type@ - Filter the results to include only those of the
     --     specified resource types. Specify up to five resource types in the
-    --     format @AWS::ServiceCode::ResourceType @. For example,
+    --     format @AWS::@/@ServiceCode@/@::@/@ResourceType@/@ @. For example,
     --     @AWS::EC2::Instance@, or @AWS::S3::Bucket@.
     --
     -- -   @configuration-type@ - Filter the results to include only those
     --     groups that have the specified configuration types attached. The
     --     current supported values are:
     --
-    --     -   @AWS:EC2::CapacityReservationPool@
+    --     -   @AWS::EC2::CapacityReservationPool@
     --
-    --     -   @AWS:EC2::HostManagement@
+    --     -   @AWS::EC2::HostManagement@
     filters :: Prelude.Maybe [GroupFilter],
     -- | The total number of results that you want included on each page of the
     -- response. If you do not include this parameter, it defaults to a value
@@ -110,16 +110,16 @@ data ListGroups = ListGroups'
 --
 -- -   @resource-type@ - Filter the results to include only those of the
 --     specified resource types. Specify up to five resource types in the
---     format @AWS::ServiceCode::ResourceType @. For example,
+--     format @AWS::@/@ServiceCode@/@::@/@ResourceType@/@ @. For example,
 --     @AWS::EC2::Instance@, or @AWS::S3::Bucket@.
 --
 -- -   @configuration-type@ - Filter the results to include only those
 --     groups that have the specified configuration types attached. The
 --     current supported values are:
 --
---     -   @AWS:EC2::CapacityReservationPool@
+--     -   @AWS::EC2::CapacityReservationPool@
 --
---     -   @AWS:EC2::HostManagement@
+--     -   @AWS::EC2::HostManagement@
 --
 -- 'maxResults', 'listGroups_maxResults' - The total number of results that you want included on each page of the
 -- response. If you do not include this parameter, it defaults to a value
@@ -151,16 +151,16 @@ newListGroups =
 --
 -- -   @resource-type@ - Filter the results to include only those of the
 --     specified resource types. Specify up to five resource types in the
---     format @AWS::ServiceCode::ResourceType @. For example,
+--     format @AWS::@/@ServiceCode@/@::@/@ResourceType@/@ @. For example,
 --     @AWS::EC2::Instance@, or @AWS::S3::Bucket@.
 --
 -- -   @configuration-type@ - Filter the results to include only those
 --     groups that have the specified configuration types attached. The
 --     current supported values are:
 --
---     -   @AWS:EC2::CapacityReservationPool@
+--     -   @AWS::EC2::CapacityReservationPool@
 --
---     -   @AWS:EC2::HostManagement@
+--     -   @AWS::EC2::HostManagement@
 listGroups_filters :: Lens.Lens' ListGroups (Prelude.Maybe [GroupFilter])
 listGroups_filters = Lens.lens (\ListGroups' {filters} -> filters) (\s@ListGroups' {} a -> s {filters = a} :: ListGroups) Prelude.. Lens.mapping Lens.coerced
 
@@ -189,26 +189,29 @@ instance Core.AWSPager ListGroups where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listGroupsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listGroupsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listGroupsResponse_groupIdentifiers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listGroupsResponse_groups Prelude.. Lens._Just
+            Lens.^? listGroupsResponse_groups
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGroups_nextToken
           Lens..~ rs
-          Lens.^? listGroupsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listGroupsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGroups where
   type AWSResponse ListGroups = ListGroupsResponse
@@ -218,7 +221,8 @@ instance Core.AWSRequest ListGroups where
     Response.receiveJSON
       ( \s h x ->
           ListGroupsResponse'
-            Prelude.<$> ( x Data..?> "GroupIdentifiers"
+            Prelude.<$> ( x
+                            Data..?> "GroupIdentifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Groups" Core..!@ Prelude.mempty)
@@ -228,7 +232,8 @@ instance Core.AWSRequest ListGroups where
 
 instance Prelude.Hashable ListGroups where
   hashWithSalt _salt ListGroups' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

@@ -58,12 +58,13 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newPutGroupConfiguration' smart constructor.
 data PutGroupConfiguration = PutGroupConfiguration'
   { -- | The new configuration to associate with the specified group. A
-    -- configuration associates the resource group with an AWS service and
-    -- specifies how the service can interact with the resources in the group.
-    -- A configuration is an array of GroupConfigurationItem elements.
+    -- configuration associates the resource group with an Amazon Web Services
+    -- service and specifies how the service can interact with the resources in
+    -- the group. A configuration is an array of GroupConfigurationItem
+    -- elements.
     --
     -- For information about the syntax of a service configuration, see
-    -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
+    -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for Resource Groups>.
     --
     -- A resource group can contain either a @Configuration@ or a
     -- @ResourceQuery@, but not both.
@@ -83,12 +84,13 @@ data PutGroupConfiguration = PutGroupConfiguration'
 -- for backwards compatibility:
 --
 -- 'configuration', 'putGroupConfiguration_configuration' - The new configuration to associate with the specified group. A
--- configuration associates the resource group with an AWS service and
--- specifies how the service can interact with the resources in the group.
--- A configuration is an array of GroupConfigurationItem elements.
+-- configuration associates the resource group with an Amazon Web Services
+-- service and specifies how the service can interact with the resources in
+-- the group. A configuration is an array of GroupConfigurationItem
+-- elements.
 --
 -- For information about the syntax of a service configuration, see
--- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
+-- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for Resource Groups>.
 --
 -- A resource group can contain either a @Configuration@ or a
 -- @ResourceQuery@, but not both.
@@ -105,12 +107,13 @@ newPutGroupConfiguration =
     }
 
 -- | The new configuration to associate with the specified group. A
--- configuration associates the resource group with an AWS service and
--- specifies how the service can interact with the resources in the group.
--- A configuration is an array of GroupConfigurationItem elements.
+-- configuration associates the resource group with an Amazon Web Services
+-- service and specifies how the service can interact with the resources in
+-- the group. A configuration is an array of GroupConfigurationItem
+-- elements.
 --
 -- For information about the syntax of a service configuration, see
--- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
+-- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for Resource Groups>.
 --
 -- A resource group can contain either a @Configuration@ or a
 -- @ResourceQuery@, but not both.
@@ -137,7 +140,8 @@ instance Core.AWSRequest PutGroupConfiguration where
 
 instance Prelude.Hashable PutGroupConfiguration where
   hashWithSalt _salt PutGroupConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` group'
 
 instance Prelude.NFData PutGroupConfiguration where

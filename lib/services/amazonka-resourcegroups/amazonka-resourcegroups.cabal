@@ -46,6 +46,7 @@ library
     Amazonka.ResourceGroups
     Amazonka.ResourceGroups.CreateGroup
     Amazonka.ResourceGroups.DeleteGroup
+    Amazonka.ResourceGroups.GetAccountSettings
     Amazonka.ResourceGroups.GetGroup
     Amazonka.ResourceGroups.GetGroupConfiguration
     Amazonka.ResourceGroups.GetGroupQuery
@@ -58,6 +59,7 @@ library
     Amazonka.ResourceGroups.SearchResources
     Amazonka.ResourceGroups.Tag
     Amazonka.ResourceGroups.Types
+    Amazonka.ResourceGroups.Types.AccountSettings
     Amazonka.ResourceGroups.Types.FailedResource
     Amazonka.ResourceGroups.Types.Group
     Amazonka.ResourceGroups.Types.GroupConfiguration
@@ -67,6 +69,8 @@ library
     Amazonka.ResourceGroups.Types.GroupFilter
     Amazonka.ResourceGroups.Types.GroupFilterName
     Amazonka.ResourceGroups.Types.GroupIdentifier
+    Amazonka.ResourceGroups.Types.GroupLifecycleEventsDesiredStatus
+    Amazonka.ResourceGroups.Types.GroupLifecycleEventsStatus
     Amazonka.ResourceGroups.Types.GroupQuery
     Amazonka.ResourceGroups.Types.ListGroupResourcesItem
     Amazonka.ResourceGroups.Types.PendingResource
@@ -81,6 +85,7 @@ library
     Amazonka.ResourceGroups.Types.ResourceStatusValue
     Amazonka.ResourceGroups.UngroupResources
     Amazonka.ResourceGroups.Untag
+    Amazonka.ResourceGroups.UpdateAccountSettings
     Amazonka.ResourceGroups.UpdateGroup
     Amazonka.ResourceGroups.UpdateGroupQuery
     Amazonka.ResourceGroups.Waiters

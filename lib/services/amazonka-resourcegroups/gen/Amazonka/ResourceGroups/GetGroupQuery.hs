@@ -108,7 +108,8 @@ instance Core.AWSRequest GetGroupQuery where
 
 instance Prelude.Hashable GetGroupQuery where
   hashWithSalt _salt GetGroupQuery' {..} =
-    _salt `Prelude.hashWithSalt` group'
+    _salt
+      `Prelude.hashWithSalt` group'
       `Prelude.hashWithSalt` groupName
 
 instance Prelude.NFData GetGroupQuery where

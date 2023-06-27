@@ -26,15 +26,15 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResourceGroups.Types.ResourceQuery
 
 -- | A mapping of a query attached to a resource group that determines the
--- AWS resources that are members of the group.
+-- Amazon Web Services resources that are members of the group.
 --
 -- /See:/ 'newGroupQuery' smart constructor.
 data GroupQuery = GroupQuery'
   { -- | The name of the resource group that is associated with the specified
     -- resource query.
     groupName :: Prelude.Text,
-    -- | The resource query that determines which AWS resources are members of
-    -- the associated resource group.
+    -- | The resource query that determines which Amazon Web Services resources
+    -- are members of the associated resource group.
     resourceQuery :: ResourceQuery
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,8 +50,8 @@ data GroupQuery = GroupQuery'
 -- 'groupName', 'groupQuery_groupName' - The name of the resource group that is associated with the specified
 -- resource query.
 --
--- 'resourceQuery', 'groupQuery_resourceQuery' - The resource query that determines which AWS resources are members of
--- the associated resource group.
+-- 'resourceQuery', 'groupQuery_resourceQuery' - The resource query that determines which Amazon Web Services resources
+-- are members of the associated resource group.
 newGroupQuery ::
   -- | 'groupName'
   Prelude.Text ->
@@ -69,8 +69,8 @@ newGroupQuery pGroupName_ pResourceQuery_ =
 groupQuery_groupName :: Lens.Lens' GroupQuery Prelude.Text
 groupQuery_groupName = Lens.lens (\GroupQuery' {groupName} -> groupName) (\s@GroupQuery' {} a -> s {groupName = a} :: GroupQuery)
 
--- | The resource query that determines which AWS resources are members of
--- the associated resource group.
+-- | The resource query that determines which Amazon Web Services resources
+-- are members of the associated resource group.
 groupQuery_resourceQuery :: Lens.Lens' GroupQuery ResourceQuery
 groupQuery_resourceQuery = Lens.lens (\GroupQuery' {resourceQuery} -> resourceQuery) (\s@GroupQuery' {} a -> s {resourceQuery = a} :: GroupQuery)
 
@@ -86,7 +86,8 @@ instance Data.FromJSON GroupQuery where
 
 instance Prelude.Hashable GroupQuery where
   hashWithSalt _salt GroupQuery' {..} =
-    _salt `Prelude.hashWithSalt` groupName
+    _salt
+      `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` resourceQuery
 
 instance Prelude.NFData GroupQuery where

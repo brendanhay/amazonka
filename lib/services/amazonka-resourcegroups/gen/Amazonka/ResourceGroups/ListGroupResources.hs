@@ -79,7 +79,7 @@ data ListGroupResources = ListGroupResources'
     --     resource types in the format @AWS::ServiceCode::ResourceType@. For
     --     example, @AWS::EC2::Instance@, or @AWS::S3::Bucket@.
     --
-    -- When you specify a @resource-type@ filter for @ListGroupResources@, AWS
+    -- When you specify a @resource-type@ filter for @ListGroupResources@,
     -- Resource Groups validates your filter resource types against the types
     -- that are defined in the query associated with the group. For example, if
     -- a group contains only S3 buckets because its query specifies only that
@@ -94,8 +94,8 @@ data ListGroupResources = ListGroupResources'
     -- because they are not part of the query associated with the group. This
     -- validation doesn\'t occur when the group query specifies
     -- @AWS::AllSupported@, because a group based on such a query can contain
-    -- any of the allowed resource types for the query type (tag-based or AWS
-    -- CloudFormation stack-based queries).
+    -- any of the allowed resource types for the query type (tag-based or
+    -- Amazon CloudFront stack-based queries).
     filters :: Prelude.Maybe [ResourceFilter],
     -- | The name or the ARN of the resource group
     group' :: Prelude.Maybe Prelude.Text,
@@ -138,7 +138,7 @@ data ListGroupResources = ListGroupResources'
 --     resource types in the format @AWS::ServiceCode::ResourceType@. For
 --     example, @AWS::EC2::Instance@, or @AWS::S3::Bucket@.
 --
--- When you specify a @resource-type@ filter for @ListGroupResources@, AWS
+-- When you specify a @resource-type@ filter for @ListGroupResources@,
 -- Resource Groups validates your filter resource types against the types
 -- that are defined in the query associated with the group. For example, if
 -- a group contains only S3 buckets because its query specifies only that
@@ -153,8 +153,8 @@ data ListGroupResources = ListGroupResources'
 -- because they are not part of the query associated with the group. This
 -- validation doesn\'t occur when the group query specifies
 -- @AWS::AllSupported@, because a group based on such a query can contain
--- any of the allowed resource types for the query type (tag-based or AWS
--- CloudFormation stack-based queries).
+-- any of the allowed resource types for the query type (tag-based or
+-- Amazon CloudFront stack-based queries).
 --
 -- 'group'', 'listGroupResources_group' - The name or the ARN of the resource group
 --
@@ -196,7 +196,7 @@ newListGroupResources =
 --     resource types in the format @AWS::ServiceCode::ResourceType@. For
 --     example, @AWS::EC2::Instance@, or @AWS::S3::Bucket@.
 --
--- When you specify a @resource-type@ filter for @ListGroupResources@, AWS
+-- When you specify a @resource-type@ filter for @ListGroupResources@,
 -- Resource Groups validates your filter resource types against the types
 -- that are defined in the query associated with the group. For example, if
 -- a group contains only S3 buckets because its query specifies only that
@@ -211,8 +211,8 @@ newListGroupResources =
 -- because they are not part of the query associated with the group. This
 -- validation doesn\'t occur when the group query specifies
 -- @AWS::AllSupported@, because a group based on such a query can contain
--- any of the allowed resource types for the query type (tag-based or AWS
--- CloudFormation stack-based queries).
+-- any of the allowed resource types for the query type (tag-based or
+-- Amazon CloudFront stack-based queries).
 listGroupResources_filters :: Lens.Lens' ListGroupResources (Prelude.Maybe [ResourceFilter])
 listGroupResources_filters = Lens.lens (\ListGroupResources' {filters} -> filters) (\s@ListGroupResources' {} a -> s {filters = a} :: ListGroupResources) Prelude.. Lens.mapping Lens.coerced
 
@@ -251,28 +251,28 @@ instance Core.AWSPager ListGroupResources where
     | Core.stop
         ( rs
             Lens.^? listGroupResourcesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listGroupResourcesResponse_resourceIdentifiers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listGroupResourcesResponse_resources
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGroupResources_nextToken
           Lens..~ rs
           Lens.^? listGroupResourcesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGroupResources where
   type
@@ -286,7 +286,8 @@ instance Core.AWSRequest ListGroupResources where
           ListGroupResourcesResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "QueryErrors" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "ResourceIdentifiers"
+            Prelude.<*> ( x
+                            Data..?> "ResourceIdentifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Resources" Core..!@ Prelude.mempty)
@@ -295,7 +296,8 @@ instance Core.AWSRequest ListGroupResources where
 
 instance Prelude.Hashable ListGroupResources where
   hashWithSalt _salt ListGroupResources' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` group'
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` maxResults

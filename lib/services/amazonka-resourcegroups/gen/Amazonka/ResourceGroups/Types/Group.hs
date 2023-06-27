@@ -24,19 +24,20 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | A resource group that contains AWS resources. You can assign resources
--- to the group by associating either of the following elements with the
--- group:
+-- | A resource group that contains Amazon Web Services resources. You can
+-- assign resources to the group by associating either of the following
+-- elements with the group:
 --
 -- -   ResourceQuery - Use a resource query to specify a set of tag keys
---     and values. All resources in the same AWS Region and AWS account
---     that have those keys with the same values are included in the group.
---     You can add a resource query when you create the group, or later by
---     using the PutGroupConfiguration operation.
+--     and values. All resources in the same Amazon Web Services Region and
+--     Amazon Web Services account that have those keys with the same
+--     values are included in the group. You can add a resource query when
+--     you create the group, or later by using the PutGroupConfiguration
+--     operation.
 --
 -- -   GroupConfiguration - Use a service configuration to associate the
---     group with an AWS service. The configuration specifies which
---     resource types can be included in the group.
+--     group with an Amazon Web Services service. The configuration
+--     specifies which resource types can be included in the group.
 --
 -- /See:/ 'newGroup' smart constructor.
 data Group = Group'
@@ -100,7 +101,8 @@ instance Data.FromJSON Group where
 
 instance Prelude.Hashable Group where
   hashWithSalt _salt Group' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` groupArn
       `Prelude.hashWithSalt` name
 

@@ -27,11 +27,11 @@ import Amazonka.ResourceGroups.Types.GroupConfigurationItem
 import Amazonka.ResourceGroups.Types.GroupConfigurationStatus
 
 -- | A service configuration associated with a resource group. The
--- configuration options are determined by the AWS service that defines the
--- @Type@, and specifies which resources can be included in the group. You
--- can add a service configuration when you create the group by using
--- CreateGroup, or later by using the PutGroupConfiguration operation. For
--- details about group service configuration syntax, see
+-- configuration options are determined by the Amazon Web Services service
+-- that defines the @Type@, and specifies which resources can be included
+-- in the group. You can add a service configuration when you create the
+-- group by using CreateGroup, or later by using the PutGroupConfiguration
+-- operation. For details about group service configuration syntax, see
 -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
 --
 -- /See:/ 'newGroupConfiguration' smart constructor.
@@ -103,7 +103,8 @@ instance Data.FromJSON GroupConfiguration where
           GroupConfiguration'
             Prelude.<$> (x Data..:? "Configuration" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "FailureReason")
-            Prelude.<*> ( x Data..:? "ProposedConfiguration"
+            Prelude.<*> ( x
+                            Data..:? "ProposedConfiguration"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Status")
@@ -111,7 +112,8 @@ instance Data.FromJSON GroupConfiguration where
 
 instance Prelude.Hashable GroupConfiguration where
   hashWithSalt _salt GroupConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` proposedConfiguration
       `Prelude.hashWithSalt` status

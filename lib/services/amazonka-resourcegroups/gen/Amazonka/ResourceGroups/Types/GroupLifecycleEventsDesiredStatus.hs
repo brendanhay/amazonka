@@ -11,18 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.ResourceGroups.Types.QueryErrorCode
+-- Module      : Amazonka.ResourceGroups.Types.GroupLifecycleEventsDesiredStatus
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.ResourceGroups.Types.QueryErrorCode
-  ( QueryErrorCode
+module Amazonka.ResourceGroups.Types.GroupLifecycleEventsDesiredStatus
+  ( GroupLifecycleEventsDesiredStatus
       ( ..,
-        QueryErrorCode_CLOUDFORMATION_STACK_INACTIVE,
-        QueryErrorCode_CLOUDFORMATION_STACK_NOT_EXISTING,
-        QueryErrorCode_CLOUDFORMATION_STACK_UNASSUMABLE_ROLE
+        GroupLifecycleEventsDesiredStatus_ACTIVE,
+        GroupLifecycleEventsDesiredStatus_INACTIVE
       ),
   )
 where
@@ -31,8 +30,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype QueryErrorCode = QueryErrorCode'
-  { fromQueryErrorCode ::
+newtype GroupLifecycleEventsDesiredStatus = GroupLifecycleEventsDesiredStatus'
+  { fromGroupLifecycleEventsDesiredStatus ::
       Data.Text
   }
   deriving stock
@@ -59,18 +58,14 @@ newtype QueryErrorCode = QueryErrorCode'
       Data.ToXML
     )
 
-pattern QueryErrorCode_CLOUDFORMATION_STACK_INACTIVE :: QueryErrorCode
-pattern QueryErrorCode_CLOUDFORMATION_STACK_INACTIVE = QueryErrorCode' "CLOUDFORMATION_STACK_INACTIVE"
+pattern GroupLifecycleEventsDesiredStatus_ACTIVE :: GroupLifecycleEventsDesiredStatus
+pattern GroupLifecycleEventsDesiredStatus_ACTIVE = GroupLifecycleEventsDesiredStatus' "ACTIVE"
 
-pattern QueryErrorCode_CLOUDFORMATION_STACK_NOT_EXISTING :: QueryErrorCode
-pattern QueryErrorCode_CLOUDFORMATION_STACK_NOT_EXISTING = QueryErrorCode' "CLOUDFORMATION_STACK_NOT_EXISTING"
-
-pattern QueryErrorCode_CLOUDFORMATION_STACK_UNASSUMABLE_ROLE :: QueryErrorCode
-pattern QueryErrorCode_CLOUDFORMATION_STACK_UNASSUMABLE_ROLE = QueryErrorCode' "CLOUDFORMATION_STACK_UNASSUMABLE_ROLE"
+pattern GroupLifecycleEventsDesiredStatus_INACTIVE :: GroupLifecycleEventsDesiredStatus
+pattern GroupLifecycleEventsDesiredStatus_INACTIVE = GroupLifecycleEventsDesiredStatus' "INACTIVE"
 
 {-# COMPLETE
-  QueryErrorCode_CLOUDFORMATION_STACK_INACTIVE,
-  QueryErrorCode_CLOUDFORMATION_STACK_NOT_EXISTING,
-  QueryErrorCode_CLOUDFORMATION_STACK_UNASSUMABLE_ROLE,
-  QueryErrorCode'
+  GroupLifecycleEventsDesiredStatus_ACTIVE,
+  GroupLifecycleEventsDesiredStatus_INACTIVE,
+  GroupLifecycleEventsDesiredStatus'
   #-}

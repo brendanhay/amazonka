@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the specified resources from the specified group.
+-- Removes the specified resources from the specified group. This operation
+-- works only with static groups that you populated using the
+-- GroupResources operation. It doesn\'t work with any resource groups that
+-- are automatically populated by tag-based or CloudFormation stack-based
+-- queries.
 --
 -- __Minimum permissions__
 --
@@ -117,7 +121,8 @@ instance Core.AWSRequest UngroupResources where
 
 instance Prelude.Hashable UngroupResources where
   hashWithSalt _salt UngroupResources' {..} =
-    _salt `Prelude.hashWithSalt` group'
+    _salt
+      `Prelude.hashWithSalt` group'
       `Prelude.hashWithSalt` resourceArns
 
 instance Prelude.NFData UngroupResources where
@@ -151,8 +156,8 @@ data UngroupResourcesResponse = UngroupResourcesResponse'
     -- | A list of any resources that are still in the process of being removed
     -- from the group by this operation. These pending removals continue
     -- asynchronously. You can check the status of pending removals by using
-    -- the @ ListGroupResources @ operation. After the resource is successfully
-    -- removed, it no longer appears in the response.
+    -- the @ @@ListGroupResources@@ @ operation. After the resource is
+    -- successfully removed, it no longer appears in the response.
     pending :: Prelude.Maybe [PendingResource],
     -- | A list of resources that were successfully removed from the group by
     -- this operation.
@@ -176,8 +181,8 @@ data UngroupResourcesResponse = UngroupResourcesResponse'
 -- 'pending', 'ungroupResourcesResponse_pending' - A list of any resources that are still in the process of being removed
 -- from the group by this operation. These pending removals continue
 -- asynchronously. You can check the status of pending removals by using
--- the @ ListGroupResources @ operation. After the resource is successfully
--- removed, it no longer appears in the response.
+-- the @ @@ListGroupResources@@ @ operation. After the resource is
+-- successfully removed, it no longer appears in the response.
 --
 -- 'succeeded', 'ungroupResourcesResponse_succeeded' - A list of resources that were successfully removed from the group by
 -- this operation.
@@ -203,8 +208,8 @@ ungroupResourcesResponse_failed = Lens.lens (\UngroupResourcesResponse' {failed}
 -- | A list of any resources that are still in the process of being removed
 -- from the group by this operation. These pending removals continue
 -- asynchronously. You can check the status of pending removals by using
--- the @ ListGroupResources @ operation. After the resource is successfully
--- removed, it no longer appears in the response.
+-- the @ @@ListGroupResources@@ @ operation. After the resource is
+-- successfully removed, it no longer appears in the response.
 ungroupResourcesResponse_pending :: Lens.Lens' UngroupResourcesResponse (Prelude.Maybe [PendingResource])
 ungroupResourcesResponse_pending = Lens.lens (\UngroupResourcesResponse' {pending} -> pending) (\s@UngroupResourcesResponse' {} a -> s {pending = a} :: UngroupResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 

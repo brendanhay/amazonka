@@ -33,6 +33,9 @@ import Test.Tasty
 --         , requestDeleteGroup $
 --             newDeleteGroup
 --
+--         , requestGetAccountSettings $
+--             newGetAccountSettings
+--
 --         , requestGetGroup $
 --             newGetGroup
 --
@@ -69,6 +72,9 @@ import Test.Tasty
 --         , requestUntag $
 --             newUntag
 --
+--         , requestUpdateAccountSettings $
+--             newUpdateAccountSettings
+--
 --         , requestUpdateGroup $
 --             newUpdateGroup
 --
@@ -83,6 +89,9 @@ import Test.Tasty
 --
 --         , responseDeleteGroup $
 --             newDeleteGroupResponse
+--
+--         , responseGetAccountSettings $
+--             newGetAccountSettingsResponse
 --
 --         , responseGetGroup $
 --             newGetGroupResponse
@@ -120,6 +129,9 @@ import Test.Tasty
 --         , responseUntag $
 --             newUntagResponse
 --
+--         , responseUpdateAccountSettings $
+--             newUpdateAccountSettingsResponse
+--
 --         , responseUpdateGroup $
 --             newUpdateGroupResponse
 --
@@ -142,6 +154,12 @@ requestDeleteGroup =
   req
     "DeleteGroup"
     "fixture/DeleteGroup.yaml"
+
+requestGetAccountSettings :: GetAccountSettings -> TestTree
+requestGetAccountSettings =
+  req
+    "GetAccountSettings"
+    "fixture/GetAccountSettings.yaml"
 
 requestGetGroup :: GetGroup -> TestTree
 requestGetGroup =
@@ -215,6 +233,12 @@ requestUntag =
     "Untag"
     "fixture/Untag.yaml"
 
+requestUpdateAccountSettings :: UpdateAccountSettings -> TestTree
+requestUpdateAccountSettings =
+  req
+    "UpdateAccountSettings"
+    "fixture/UpdateAccountSettings.yaml"
+
 requestUpdateGroup :: UpdateGroup -> TestTree
 requestUpdateGroup =
   req
@@ -244,6 +268,14 @@ responseDeleteGroup =
     "fixture/DeleteGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteGroup)
+
+responseGetAccountSettings :: GetAccountSettingsResponse -> TestTree
+responseGetAccountSettings =
+  res
+    "GetAccountSettingsResponse"
+    "fixture/GetAccountSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAccountSettings)
 
 responseGetGroup :: GetGroupResponse -> TestTree
 responseGetGroup =
@@ -340,6 +372,14 @@ responseUntag =
     "fixture/UntagResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy Untag)
+
+responseUpdateAccountSettings :: UpdateAccountSettingsResponse -> TestTree
+responseUpdateAccountSettings =
+  res
+    "UpdateAccountSettingsResponse"
+    "fixture/UpdateAccountSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAccountSettings)
 
 responseUpdateGroup :: UpdateGroupResponse -> TestTree
 responseUpdateGroup =

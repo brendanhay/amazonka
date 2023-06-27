@@ -25,96 +25,96 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResourceGroups.Types.QueryType
 
--- | The query that is used to define a resource group or a search for
--- resources. A query specifies both a query type and a query string as a
--- JSON object. See the examples section for example JSON strings.
+-- | The query you can use to define a resource group or a search for
+-- resources. A @ResourceQuery@ specifies both a query @Type@ and a @Query@
+-- string as JSON string objects. See the examples section for example JSON
+-- strings. For more information about creating a resource group with a
+-- resource query, see
+-- <https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html Build queries and groups in Resource Groups>
+-- in the /Resource Groups User Guide/
 --
--- The examples that follow are shown as standard JSON strings. If you
--- include such a string as a parameter to the AWS CLI or an SDK API, you
--- might need to \'escape\' the string into a single line. For example, see
--- the
+-- When you combine all of the elements together into a single string, any
+-- double quotes that are embedded inside another double quote pair must be
+-- escaped by preceding the embedded double quote with a backslash
+-- character (\\). For example, a complete @ResourceQuery@ parameter must
+-- be formatted like the following CLI parameter example:
+--
+-- @--resource-query \'{\"Type\":\"TAG_FILTERS_1_0\",\"Query\":\"{\\\"ResourceTypeFilters\\\":[\\\"AWS::AllSupported\\\"],\\\"TagFilters\\\":[{\\\"Key\\\":\\\"Stage\\\",\\\"Values\\\":[\\\"Test\\\"]}]}\"}\'@
+--
+-- In the preceding example, all of the double quote characters in the
+-- value part of the @Query@ element must be escaped because the value
+-- itself is surrounded by double quotes. For more information, see
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html Quoting strings>
--- in the /AWS CLI User Guide/.
+-- in the /Command Line Interface User Guide/.
 --
--- __Example 1__
+-- For the complete list of resource types that you can use in the array
+-- value for @ResourceTypeFilters@, see
+-- <https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html Resources you can use with Resource Groups and Tag Editor>
+-- in the /Resource Groups User Guide/. For example:
 --
--- The following generic example shows a resource query JSON string that
--- includes only resources that meet the following criteria:
---
--- -   The resource type must be either @resource_type1@ or
---     @resource_type2@.
---
--- -   The resource must have a tag @Key1@ with a value of either @ValueA@
---     or @ValueB@.
---
--- -   The resource must have a tag @Key2@ with a value of either @ValueC@
---     or @ValueD@.
---
--- @{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": { \"ResourceTypeFilters\": [ \"resource_type1\", \"resource_type2\"], \"TagFilters\": [ { \"Key\": \"Key1\", \"Values\": [\"ValueA\",\"ValueB\"] }, { \"Key\":\"Key2\", \"Values\":[\"ValueC\",\"ValueD\"] } ] } }@
---
--- This has the equivalent \"shortcut\" syntax of the following:
---
--- @{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": { \"ResourceTypeFilters\": [ \"resource_type1\", \"resource_type2\"], \"TagFilters\": [ { \"Key1\": [\"ValueA\",\"ValueB\"] }, { \"Key2\": [\"ValueC\",\"ValueD\"] } ] } }@
---
--- __Example 2__
---
--- The following example shows a resource query JSON string that includes
--- only Amazon EC2 instances that are tagged @Stage@ with a value of
--- @Test@.
---
--- @{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": \"{ \"ResourceTypeFilters\": \"AWS::EC2::Instance\", \"TagFilters\": { \"Stage\": \"Test\" } } }@
---
--- __Example 3__
---
--- The following example shows a resource query JSON string that includes
--- resource of any supported type as long as it is tagged @Stage@ with a
--- value of @Prod@.
---
--- @{ \"Type\": \"TAG_FILTERS_1_0\", \"Query\": { \"ResourceTypeFilters\": \"AWS::AllSupported\", \"TagFilters\": { \"Stage\": \"Prod\" } } }@
---
--- __Example 4__
---
--- The following example shows a resource query JSON string that includes
--- only Amazon EC2 instances and Amazon S3 buckets that are part of the
--- specified AWS CloudFormation stack.
---
--- @{ \"Type\": \"CLOUDFORMATION_STACK_1_0\", \"Query\": { \"ResourceTypeFilters\": [ \"AWS::EC2::Instance\", \"AWS::S3::Bucket\" ], \"StackIdentifier\": \"arn:aws:cloudformation:us-west-2:123456789012:stack\/AWStestuseraccount\/fb0d5000-aba8-00e8-aa9e-50d5cEXAMPLE\" } }@
+-- @\"ResourceTypeFilters\":[\"AWS::S3::Bucket\", \"AWS::EC2::Instance\"]@
 --
 -- /See:/ 'newResourceQuery' smart constructor.
 data ResourceQuery = ResourceQuery'
-  { -- | The type of the query. You can use the following values:
+  { -- | The type of the query to perform. This can have one of two values:
     --
-    -- -   /@CLOUDFORMATION_STACK_1_0:@/ Specifies that the @Query@ contains an
-    --     ARN for a CloudFormation stack.
+    -- -   /@CLOUDFORMATION_STACK_1_0:@/ Specifies that you want the group to
+    --     contain the members of an CloudFormation stack. The @Query@ contains
+    --     a @StackIdentifier@ element with an ARN for a CloudFormation stack.
     --
-    -- -   /@TAG_FILTERS_1_0:@/ Specifies that the @Query@ parameter contains a
-    --     JSON string that represents a collection of simple tag filters for
-    --     resource types and tags. The JSON string uses a syntax similar to
-    --     the @ GetResources @ operation, but uses only the
-    --     @  ResourceTypeFilters @ and @ TagFilters @ fields. If you specify
-    --     more than one tag key, only resources that match all tag keys, and
-    --     at least one value of each specified tag key, are returned in your
-    --     query. If you specify more than one value for a tag key, a resource
-    --     matches the filter if it has a tag key value that matches /any/ of
-    --     the specified values.
+    -- -   /@TAG_FILTERS_1_0:@/ Specifies that you want the group to include
+    --     resource that have tags that match the query.
+    type' :: QueryType,
+    -- | The query that defines a group or a search. The contents depends on the
+    -- value of the @Type@ element.
+    --
+    -- -   @ResourceTypeFilters@ – Applies to all @ResourceQuery@ objects of
+    --     either @Type@. This element contains one of the following two items:
+    --
+    --     -   The value @AWS::AllSupported@. This causes the ResourceQuery to
+    --         match resources of any resource type that also match the query.
+    --
+    --     -   A list (a JSON array) of resource type identifiers that limit
+    --         the query to only resources of the specified types. For the
+    --         complete list of resource types that you can use in the array
+    --         value for @ResourceTypeFilters@, see
+    --         <https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html Resources you can use with Resource Groups and Tag Editor>
+    --         in the /Resource Groups User Guide/.
+    --
+    --     Example: @\"ResourceTypeFilters\": [\"AWS::AllSupported\"]@ or
+    --     @\"ResourceTypeFilters\": [\"AWS::EC2::Instance\", \"AWS::S3::Bucket\"]@
+    --
+    -- -   @TagFilters@ – applicable only if @Type@ = @TAG_FILTERS_1_0@. The
+    --     @Query@ contains a JSON string that represents a collection of
+    --     simple tag filters. The JSON string uses a syntax similar to the
+    --     @ @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html GetResources>@ @
+    --     operation, but uses only the
+    --     @ @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-ResourceTypeFilters ResourceTypeFilters>@ @
+    --     and
+    --     @ @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-TagFiltersTagFilters TagFilters>@ @
+    --     fields. If you specify more than one tag key, only resources that
+    --     match all tag keys, and at least one value of each specified tag
+    --     key, are returned in your query. If you specify more than one value
+    --     for a tag key, a resource matches the filter if it has a tag key
+    --     value that matches /any/ of the specified values.
     --
     --     For example, consider the following sample query for resources that
     --     have two tags, @Stage@ and @Version@, with two values each:
     --
     --     @[{\"Stage\":[\"Test\",\"Deploy\"]},{\"Version\":[\"1\",\"2\"]}]@
     --
-    --     The results of this query could include the following.
+    --     The results of this resource query could include the following.
     --
-    --     -   An EC2 instance that has the following two tags:
+    --     -   An Amazon EC2 instance that has the following two tags:
     --         @{\"Stage\":\"Deploy\"}@, and @{\"Version\":\"2\"}@
     --
     --     -   An S3 bucket that has the following two tags:
     --         @{\"Stage\":\"Test\"}@, and @{\"Version\":\"1\"}@
     --
-    --     The query would not include the following items in the results,
-    --     however.
+    --     The resource query results would /not/ include the following items
+    --     in the results, however.
     --
-    --     -   An EC2 instance that has only the following tag:
+    --     -   An Amazon EC2 instance that has only the following tag:
     --         @{\"Stage\":\"Deploy\"}@.
     --
     --         The instance does not have __all__ of the tag keys specified in
@@ -126,8 +126,14 @@ data ResourceQuery = ResourceQuery'
     --         The database has all of the tag keys, but none of those keys has
     --         an associated value that matches at least one of the specified
     --         values in the filter.
-    type' :: QueryType,
-    -- | The query that defines a group or a search.
+    --
+    --     Example:
+    --     @\"TagFilters\": [ { \"Key\": \"Stage\", \"Values\": [ \"Gamma\", \"Beta\" ] }@
+    --
+    -- -   @StackIdentifier@ – applicable only if @Type@ =
+    --     @CLOUDFORMATION_STACK_1_0@. The value of this parameter is the
+    --     Amazon Resource Name (ARN) of the CloudFormation stack whose
+    --     resources you want included in the group.
     query :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -140,39 +146,65 @@ data ResourceQuery = ResourceQuery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'resourceQuery_type' - The type of the query. You can use the following values:
+-- 'type'', 'resourceQuery_type' - The type of the query to perform. This can have one of two values:
 --
--- -   /@CLOUDFORMATION_STACK_1_0:@/ Specifies that the @Query@ contains an
---     ARN for a CloudFormation stack.
+-- -   /@CLOUDFORMATION_STACK_1_0:@/ Specifies that you want the group to
+--     contain the members of an CloudFormation stack. The @Query@ contains
+--     a @StackIdentifier@ element with an ARN for a CloudFormation stack.
 --
--- -   /@TAG_FILTERS_1_0:@/ Specifies that the @Query@ parameter contains a
---     JSON string that represents a collection of simple tag filters for
---     resource types and tags. The JSON string uses a syntax similar to
---     the @ GetResources @ operation, but uses only the
---     @  ResourceTypeFilters @ and @ TagFilters @ fields. If you specify
---     more than one tag key, only resources that match all tag keys, and
---     at least one value of each specified tag key, are returned in your
---     query. If you specify more than one value for a tag key, a resource
---     matches the filter if it has a tag key value that matches /any/ of
---     the specified values.
+-- -   /@TAG_FILTERS_1_0:@/ Specifies that you want the group to include
+--     resource that have tags that match the query.
+--
+-- 'query', 'resourceQuery_searchQuery' - The query that defines a group or a search. The contents depends on the
+-- value of the @Type@ element.
+--
+-- -   @ResourceTypeFilters@ – Applies to all @ResourceQuery@ objects of
+--     either @Type@. This element contains one of the following two items:
+--
+--     -   The value @AWS::AllSupported@. This causes the ResourceQuery to
+--         match resources of any resource type that also match the query.
+--
+--     -   A list (a JSON array) of resource type identifiers that limit
+--         the query to only resources of the specified types. For the
+--         complete list of resource types that you can use in the array
+--         value for @ResourceTypeFilters@, see
+--         <https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html Resources you can use with Resource Groups and Tag Editor>
+--         in the /Resource Groups User Guide/.
+--
+--     Example: @\"ResourceTypeFilters\": [\"AWS::AllSupported\"]@ or
+--     @\"ResourceTypeFilters\": [\"AWS::EC2::Instance\", \"AWS::S3::Bucket\"]@
+--
+-- -   @TagFilters@ – applicable only if @Type@ = @TAG_FILTERS_1_0@. The
+--     @Query@ contains a JSON string that represents a collection of
+--     simple tag filters. The JSON string uses a syntax similar to the
+--     @ @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html GetResources>@ @
+--     operation, but uses only the
+--     @ @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-ResourceTypeFilters ResourceTypeFilters>@ @
+--     and
+--     @ @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-TagFiltersTagFilters TagFilters>@ @
+--     fields. If you specify more than one tag key, only resources that
+--     match all tag keys, and at least one value of each specified tag
+--     key, are returned in your query. If you specify more than one value
+--     for a tag key, a resource matches the filter if it has a tag key
+--     value that matches /any/ of the specified values.
 --
 --     For example, consider the following sample query for resources that
 --     have two tags, @Stage@ and @Version@, with two values each:
 --
 --     @[{\"Stage\":[\"Test\",\"Deploy\"]},{\"Version\":[\"1\",\"2\"]}]@
 --
---     The results of this query could include the following.
+--     The results of this resource query could include the following.
 --
---     -   An EC2 instance that has the following two tags:
+--     -   An Amazon EC2 instance that has the following two tags:
 --         @{\"Stage\":\"Deploy\"}@, and @{\"Version\":\"2\"}@
 --
 --     -   An S3 bucket that has the following two tags:
 --         @{\"Stage\":\"Test\"}@, and @{\"Version\":\"1\"}@
 --
---     The query would not include the following items in the results,
---     however.
+--     The resource query results would /not/ include the following items
+--     in the results, however.
 --
---     -   An EC2 instance that has only the following tag:
+--     -   An Amazon EC2 instance that has only the following tag:
 --         @{\"Stage\":\"Deploy\"}@.
 --
 --         The instance does not have __all__ of the tag keys specified in
@@ -185,7 +217,13 @@ data ResourceQuery = ResourceQuery'
 --         an associated value that matches at least one of the specified
 --         values in the filter.
 --
--- 'query', 'resourceQuery_searchQuery' - The query that defines a group or a search.
+--     Example:
+--     @\"TagFilters\": [ { \"Key\": \"Stage\", \"Values\": [ \"Gamma\", \"Beta\" ] }@
+--
+-- -   @StackIdentifier@ – applicable only if @Type@ =
+--     @CLOUDFORMATION_STACK_1_0@. The value of this parameter is the
+--     Amazon Resource Name (ARN) of the CloudFormation stack whose
+--     resources you want included in the group.
 newResourceQuery ::
   -- | 'type''
   QueryType ->
@@ -198,39 +236,67 @@ newResourceQuery pType_ pSearchQuery_ =
       query = pSearchQuery_
     }
 
--- | The type of the query. You can use the following values:
+-- | The type of the query to perform. This can have one of two values:
 --
--- -   /@CLOUDFORMATION_STACK_1_0:@/ Specifies that the @Query@ contains an
---     ARN for a CloudFormation stack.
+-- -   /@CLOUDFORMATION_STACK_1_0:@/ Specifies that you want the group to
+--     contain the members of an CloudFormation stack. The @Query@ contains
+--     a @StackIdentifier@ element with an ARN for a CloudFormation stack.
 --
--- -   /@TAG_FILTERS_1_0:@/ Specifies that the @Query@ parameter contains a
---     JSON string that represents a collection of simple tag filters for
---     resource types and tags. The JSON string uses a syntax similar to
---     the @ GetResources @ operation, but uses only the
---     @  ResourceTypeFilters @ and @ TagFilters @ fields. If you specify
---     more than one tag key, only resources that match all tag keys, and
---     at least one value of each specified tag key, are returned in your
---     query. If you specify more than one value for a tag key, a resource
---     matches the filter if it has a tag key value that matches /any/ of
---     the specified values.
+-- -   /@TAG_FILTERS_1_0:@/ Specifies that you want the group to include
+--     resource that have tags that match the query.
+resourceQuery_type :: Lens.Lens' ResourceQuery QueryType
+resourceQuery_type = Lens.lens (\ResourceQuery' {type'} -> type') (\s@ResourceQuery' {} a -> s {type' = a} :: ResourceQuery)
+
+-- | The query that defines a group or a search. The contents depends on the
+-- value of the @Type@ element.
+--
+-- -   @ResourceTypeFilters@ – Applies to all @ResourceQuery@ objects of
+--     either @Type@. This element contains one of the following two items:
+--
+--     -   The value @AWS::AllSupported@. This causes the ResourceQuery to
+--         match resources of any resource type that also match the query.
+--
+--     -   A list (a JSON array) of resource type identifiers that limit
+--         the query to only resources of the specified types. For the
+--         complete list of resource types that you can use in the array
+--         value for @ResourceTypeFilters@, see
+--         <https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html Resources you can use with Resource Groups and Tag Editor>
+--         in the /Resource Groups User Guide/.
+--
+--     Example: @\"ResourceTypeFilters\": [\"AWS::AllSupported\"]@ or
+--     @\"ResourceTypeFilters\": [\"AWS::EC2::Instance\", \"AWS::S3::Bucket\"]@
+--
+-- -   @TagFilters@ – applicable only if @Type@ = @TAG_FILTERS_1_0@. The
+--     @Query@ contains a JSON string that represents a collection of
+--     simple tag filters. The JSON string uses a syntax similar to the
+--     @ @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html GetResources>@ @
+--     operation, but uses only the
+--     @ @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-ResourceTypeFilters ResourceTypeFilters>@ @
+--     and
+--     @ @<https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-TagFiltersTagFilters TagFilters>@ @
+--     fields. If you specify more than one tag key, only resources that
+--     match all tag keys, and at least one value of each specified tag
+--     key, are returned in your query. If you specify more than one value
+--     for a tag key, a resource matches the filter if it has a tag key
+--     value that matches /any/ of the specified values.
 --
 --     For example, consider the following sample query for resources that
 --     have two tags, @Stage@ and @Version@, with two values each:
 --
 --     @[{\"Stage\":[\"Test\",\"Deploy\"]},{\"Version\":[\"1\",\"2\"]}]@
 --
---     The results of this query could include the following.
+--     The results of this resource query could include the following.
 --
---     -   An EC2 instance that has the following two tags:
+--     -   An Amazon EC2 instance that has the following two tags:
 --         @{\"Stage\":\"Deploy\"}@, and @{\"Version\":\"2\"}@
 --
 --     -   An S3 bucket that has the following two tags:
 --         @{\"Stage\":\"Test\"}@, and @{\"Version\":\"1\"}@
 --
---     The query would not include the following items in the results,
---     however.
+--     The resource query results would /not/ include the following items
+--     in the results, however.
 --
---     -   An EC2 instance that has only the following tag:
+--     -   An Amazon EC2 instance that has only the following tag:
 --         @{\"Stage\":\"Deploy\"}@.
 --
 --         The instance does not have __all__ of the tag keys specified in
@@ -242,10 +308,14 @@ newResourceQuery pType_ pSearchQuery_ =
 --         The database has all of the tag keys, but none of those keys has
 --         an associated value that matches at least one of the specified
 --         values in the filter.
-resourceQuery_type :: Lens.Lens' ResourceQuery QueryType
-resourceQuery_type = Lens.lens (\ResourceQuery' {type'} -> type') (\s@ResourceQuery' {} a -> s {type' = a} :: ResourceQuery)
-
--- | The query that defines a group or a search.
+--
+--     Example:
+--     @\"TagFilters\": [ { \"Key\": \"Stage\", \"Values\": [ \"Gamma\", \"Beta\" ] }@
+--
+-- -   @StackIdentifier@ – applicable only if @Type@ =
+--     @CLOUDFORMATION_STACK_1_0@. The value of this parameter is the
+--     Amazon Resource Name (ARN) of the CloudFormation stack whose
+--     resources you want included in the group.
 resourceQuery_searchQuery :: Lens.Lens' ResourceQuery Prelude.Text
 resourceQuery_searchQuery = Lens.lens (\ResourceQuery' {query} -> query) (\s@ResourceQuery' {} a -> s {query = a} :: ResourceQuery)
 
@@ -255,12 +325,14 @@ instance Data.FromJSON ResourceQuery where
       "ResourceQuery"
       ( \x ->
           ResourceQuery'
-            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Query")
+            Prelude.<$> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Query")
       )
 
 instance Prelude.Hashable ResourceQuery where
   hashWithSalt _salt ResourceQuery' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` query
 
 instance Prelude.NFData ResourceQuery where

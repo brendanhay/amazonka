@@ -63,8 +63,8 @@ data UpdateGroupQuery = UpdateGroupQuery'
     group' :: Prelude.Maybe Prelude.Text,
     -- | Don\'t use this parameter. Use @Group@ instead.
     groupName :: Prelude.Maybe Prelude.Text,
-    -- | The resource query to determine which AWS resources are members of this
-    -- resource group.
+    -- | The resource query to determine which Amazon Web Services resources are
+    -- members of this resource group.
     --
     -- A resource group can contain either a @Configuration@ or a
     -- @ResourceQuery@, but not both.
@@ -84,8 +84,8 @@ data UpdateGroupQuery = UpdateGroupQuery'
 --
 -- 'groupName', 'updateGroupQuery_groupName' - Don\'t use this parameter. Use @Group@ instead.
 --
--- 'resourceQuery', 'updateGroupQuery_resourceQuery' - The resource query to determine which AWS resources are members of this
--- resource group.
+-- 'resourceQuery', 'updateGroupQuery_resourceQuery' - The resource query to determine which Amazon Web Services resources are
+-- members of this resource group.
 --
 -- A resource group can contain either a @Configuration@ or a
 -- @ResourceQuery@, but not both.
@@ -108,8 +108,8 @@ updateGroupQuery_group = Lens.lens (\UpdateGroupQuery' {group'} -> group') (\s@U
 updateGroupQuery_groupName :: Lens.Lens' UpdateGroupQuery (Prelude.Maybe Prelude.Text)
 updateGroupQuery_groupName = Lens.lens (\UpdateGroupQuery' {groupName} -> groupName) (\s@UpdateGroupQuery' {} a -> s {groupName = a} :: UpdateGroupQuery)
 
--- | The resource query to determine which AWS resources are members of this
--- resource group.
+-- | The resource query to determine which Amazon Web Services resources are
+-- members of this resource group.
 --
 -- A resource group can contain either a @Configuration@ or a
 -- @ResourceQuery@, but not both.
@@ -132,7 +132,8 @@ instance Core.AWSRequest UpdateGroupQuery where
 
 instance Prelude.Hashable UpdateGroupQuery where
   hashWithSalt _salt UpdateGroupQuery' {..} =
-    _salt `Prelude.hashWithSalt` group'
+    _salt
+      `Prelude.hashWithSalt` group'
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` resourceQuery
 

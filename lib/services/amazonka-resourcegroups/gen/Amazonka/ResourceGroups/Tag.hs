@@ -115,7 +115,8 @@ instance Core.AWSRequest Tag where
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData Tag where

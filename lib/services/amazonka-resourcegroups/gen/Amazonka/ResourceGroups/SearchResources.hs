@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of AWS resource identifiers that matches the specified
--- query. The query uses the same format as a resource query in a
--- CreateGroup or UpdateGroupQuery operation.
+-- Returns a list of Amazon Web Services resource identifiers that matches
+-- the specified query. The query uses the same format as a resource query
+-- in a CreateGroup or UpdateGroupQuery operation.
 --
 -- __Minimum permissions__
 --
@@ -161,22 +161,22 @@ instance Core.AWSPager SearchResources where
     | Core.stop
         ( rs
             Lens.^? searchResourcesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? searchResourcesResponse_resourceIdentifiers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchResources_nextToken
           Lens..~ rs
           Lens.^? searchResourcesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchResources where
   type
@@ -190,7 +190,8 @@ instance Core.AWSRequest SearchResources where
           SearchResourcesResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "QueryErrors" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "ResourceIdentifiers"
+            Prelude.<*> ( x
+                            Data..?> "ResourceIdentifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -198,7 +199,8 @@ instance Core.AWSRequest SearchResources where
 
 instance Prelude.Hashable SearchResources where
   hashWithSalt _salt SearchResources' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceQuery
 
@@ -237,9 +239,13 @@ data SearchResourcesResponse = SearchResourcesResponse'
     -- element comes back as @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of @QueryError@ objects. Each error is an object that contains
-    -- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@
-    -- are @CLOUDFORMATION_STACK_INACTIVE@ and
-    -- @CLOUDFORMATION_STACK_NOT_EXISTING@.
+    -- @ErrorCode@ and @Message@ structures.
+    --
+    -- Possible values for @ErrorCode@:
+    --
+    -- -   @CLOUDFORMATION_STACK_INACTIVE@
+    --
+    -- -   @CLOUDFORMATION_STACK_NOT_EXISTING@
     queryErrors :: Prelude.Maybe [QueryError],
     -- | The ARNs and resource types of resources that are members of the group
     -- that you specified.
@@ -264,9 +270,13 @@ data SearchResourcesResponse = SearchResourcesResponse'
 -- element comes back as @null@.
 --
 -- 'queryErrors', 'searchResourcesResponse_queryErrors' - A list of @QueryError@ objects. Each error is an object that contains
--- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@
--- are @CLOUDFORMATION_STACK_INACTIVE@ and
--- @CLOUDFORMATION_STACK_NOT_EXISTING@.
+-- @ErrorCode@ and @Message@ structures.
+--
+-- Possible values for @ErrorCode@:
+--
+-- -   @CLOUDFORMATION_STACK_INACTIVE@
+--
+-- -   @CLOUDFORMATION_STACK_NOT_EXISTING@
 --
 -- 'resourceIdentifiers', 'searchResourcesResponse_resourceIdentifiers' - The ARNs and resource types of resources that are members of the group
 -- that you specified.
@@ -294,9 +304,13 @@ searchResourcesResponse_nextToken :: Lens.Lens' SearchResourcesResponse (Prelude
 searchResourcesResponse_nextToken = Lens.lens (\SearchResourcesResponse' {nextToken} -> nextToken) (\s@SearchResourcesResponse' {} a -> s {nextToken = a} :: SearchResourcesResponse)
 
 -- | A list of @QueryError@ objects. Each error is an object that contains
--- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@
--- are @CLOUDFORMATION_STACK_INACTIVE@ and
--- @CLOUDFORMATION_STACK_NOT_EXISTING@.
+-- @ErrorCode@ and @Message@ structures.
+--
+-- Possible values for @ErrorCode@:
+--
+-- -   @CLOUDFORMATION_STACK_INACTIVE@
+--
+-- -   @CLOUDFORMATION_STACK_NOT_EXISTING@
 searchResourcesResponse_queryErrors :: Lens.Lens' SearchResourcesResponse (Prelude.Maybe [QueryError])
 searchResourcesResponse_queryErrors = Lens.lens (\SearchResourcesResponse' {queryErrors} -> queryErrors) (\s@SearchResourcesResponse' {} a -> s {queryErrors = a} :: SearchResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 

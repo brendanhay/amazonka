@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the service configuration associated with the specified resource
--- group. For details about the service configuration syntax, see
--- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
+-- Retrieves the service configuration associated with the specified
+-- resource group. For details about the service configuration syntax, see
+-- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for Resource Groups>.
 --
 -- __Minimum permissions__
 --
@@ -57,7 +57,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetGroupConfiguration' smart constructor.
 data GetGroupConfiguration = GetGroupConfiguration'
-  { -- | The name or the ARN of the resource group.
+  { -- | The name or the ARN of the resource group for which you want to retrive
+    -- the service configuration.
     group' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,13 +71,15 @@ data GetGroupConfiguration = GetGroupConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'group'', 'getGroupConfiguration_group' - The name or the ARN of the resource group.
+-- 'group'', 'getGroupConfiguration_group' - The name or the ARN of the resource group for which you want to retrive
+-- the service configuration.
 newGetGroupConfiguration ::
   GetGroupConfiguration
 newGetGroupConfiguration =
   GetGroupConfiguration' {group' = Prelude.Nothing}
 
--- | The name or the ARN of the resource group.
+-- | The name or the ARN of the resource group for which you want to retrive
+-- the service configuration.
 getGroupConfiguration_group :: Lens.Lens' GetGroupConfiguration (Prelude.Maybe Prelude.Text)
 getGroupConfiguration_group = Lens.lens (\GetGroupConfiguration' {group'} -> group') (\s@GetGroupConfiguration' {} a -> s {group' = a} :: GetGroupConfiguration)
 
@@ -119,9 +122,9 @@ instance Data.ToQuery GetGroupConfiguration where
 
 -- | /See:/ 'newGetGroupConfigurationResponse' smart constructor.
 data GetGroupConfigurationResponse = GetGroupConfigurationResponse'
-  { -- | The service configuration associated with the specified group. For
-    -- details about the service configuration syntax, see
-    -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
+  { -- | A structure that describes the service configuration attached with the
+    -- specified group. For details about the service configuration syntax, see
+    -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for Resource Groups>.
     groupConfiguration :: Prelude.Maybe GroupConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -136,9 +139,9 @@ data GetGroupConfigurationResponse = GetGroupConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupConfiguration', 'getGroupConfigurationResponse_groupConfiguration' - The service configuration associated with the specified group. For
--- details about the service configuration syntax, see
--- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
+-- 'groupConfiguration', 'getGroupConfigurationResponse_groupConfiguration' - A structure that describes the service configuration attached with the
+-- specified group. For details about the service configuration syntax, see
+-- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for Resource Groups>.
 --
 -- 'httpStatus', 'getGroupConfigurationResponse_httpStatus' - The response's http status code.
 newGetGroupConfigurationResponse ::
@@ -152,9 +155,9 @@ newGetGroupConfigurationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The service configuration associated with the specified group. For
--- details about the service configuration syntax, see
--- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
+-- | A structure that describes the service configuration attached with the
+-- specified group. For details about the service configuration syntax, see
+-- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for Resource Groups>.
 getGroupConfigurationResponse_groupConfiguration :: Lens.Lens' GetGroupConfigurationResponse (Prelude.Maybe GroupConfiguration)
 getGroupConfigurationResponse_groupConfiguration = Lens.lens (\GetGroupConfigurationResponse' {groupConfiguration} -> groupConfiguration) (\s@GetGroupConfigurationResponse' {} a -> s {groupConfiguration = a} :: GetGroupConfigurationResponse)
 

@@ -22,8 +22,9 @@
 -- In addition to supporting Cassandra Query Language (CQL) requests via
 -- open-source Cassandra drivers, Amazon Keyspaces supports data definition
 -- language (DDL) operations to manage keyspaces and tables using the
--- Amazon Web Services SDK and CLI. This API reference describes the
--- supported DDL operations in detail.
+-- Amazon Web Services SDK and CLI, as well as infrastructure as code (IaC)
+-- services and tools such as CloudFormation and Terraform. This API
+-- reference describes the supported DDL operations in detail.
 --
 -- For the list of all supported CQL APIs, see
 -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/cassandra-apis.html Supported Cassandra APIs, operations, and data types in Amazon Keyspaces>
@@ -150,11 +151,17 @@ module Amazonka.KeySpaces
 
     -- * Types
 
+    -- ** ClientSideTimestampsStatus
+    ClientSideTimestampsStatus (..),
+
     -- ** EncryptionType
     EncryptionType (..),
 
     -- ** PointInTimeRecoveryStatus
     PointInTimeRecoveryStatus (..),
+
+    -- ** Rs
+    Rs (..),
 
     -- ** SortOrder
     SortOrder (..),
@@ -175,6 +182,10 @@ module Amazonka.KeySpaces
     -- ** CapacitySpecificationSummary
     CapacitySpecificationSummary (CapacitySpecificationSummary'),
     newCapacitySpecificationSummary,
+
+    -- ** ClientSideTimestamps
+    ClientSideTimestamps (ClientSideTimestamps'),
+    newClientSideTimestamps,
 
     -- ** ClusteringKey
     ClusteringKey (ClusteringKey'),
@@ -207,6 +218,10 @@ module Amazonka.KeySpaces
     -- ** PointInTimeRecoverySummary
     PointInTimeRecoverySummary (PointInTimeRecoverySummary'),
     newPointInTimeRecoverySummary,
+
+    -- ** ReplicationSpecification
+    ReplicationSpecification (ReplicationSpecification'),
+    newReplicationSpecification,
 
     -- ** SchemaDefinition
     SchemaDefinition (SchemaDefinition'),

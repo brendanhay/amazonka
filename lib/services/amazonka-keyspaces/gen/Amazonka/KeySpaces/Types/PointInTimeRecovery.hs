@@ -37,9 +37,9 @@ import qualified Amazonka.Prelude as Prelude
 data PointInTimeRecovery = PointInTimeRecovery'
   { -- | The options are:
     --
-    -- • @ENABLED@
+    -- -   @status=ENABLED@
     --
-    -- • @DISABLED@
+    -- -   @status=DISABLED@
     status :: PointInTimeRecoveryStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -54,9 +54,9 @@ data PointInTimeRecovery = PointInTimeRecovery'
 --
 -- 'status', 'pointInTimeRecovery_status' - The options are:
 --
--- • @ENABLED@
+-- -   @status=ENABLED@
 --
--- • @DISABLED@
+-- -   @status=DISABLED@
 newPointInTimeRecovery ::
   -- | 'status'
   PointInTimeRecoveryStatus ->
@@ -66,9 +66,9 @@ newPointInTimeRecovery pStatus_ =
 
 -- | The options are:
 --
--- • @ENABLED@
+-- -   @status=ENABLED@
 --
--- • @DISABLED@
+-- -   @status=DISABLED@
 pointInTimeRecovery_status :: Lens.Lens' PointInTimeRecovery PointInTimeRecoveryStatus
 pointInTimeRecovery_status = Lens.lens (\PointInTimeRecovery' {status} -> status) (\s@PointInTimeRecovery' {} a -> s {status = a} :: PointInTimeRecovery)
 

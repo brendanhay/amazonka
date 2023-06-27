@@ -44,13 +44,13 @@
 --
 -- You can also overwrite these settings during restore:
 --
--- • Read\/write capacity mode
+-- -   Read\/write capacity mode
 --
--- • Provisioned throughput capacity settings
+-- -   Provisioned throughput capacity settings
 --
--- • Point-in-time (PITR) settings
+-- -   Point-in-time (PITR) settings
 --
--- • Tags
+-- -   Tags
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery_HowItWorks.html#howitworks_backup_settings PITR restore settings>
@@ -59,12 +59,12 @@
 -- Note that the following settings are not restored, and you must
 -- configure them manually for the new table:
 --
--- • Automatic scaling policies (for tables that use provisioned capacity
--- mode)
+-- -   Automatic scaling policies (for tables that use provisioned capacity
+--     mode)
 --
--- • Identity and Access Management (IAM) policies
+-- -   Identity and Access Management (IAM) policies
 --
--- • Amazon CloudWatch metrics and alarms
+-- -   Amazon CloudWatch metrics and alarms
 module Amazonka.KeySpaces.RestoreTable
   ( -- * Creating a Request
     RestoreTable (..),
@@ -104,10 +104,10 @@ data RestoreTable = RestoreTable'
   { -- | Specifies the read\/write throughput capacity mode for the target table.
     -- The options are:
     --
-    -- • @throughputMode:PAY_PER_REQUEST@
+    -- -   @throughputMode:PAY_PER_REQUEST@
     --
-    -- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
-    -- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+    -- -   @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+    --     @readCapacityUnits@ and @writeCapacityUnits@ as input.
     --
     -- The default is @throughput_mode:PAY_PER_REQUEST@.
     --
@@ -118,12 +118,12 @@ data RestoreTable = RestoreTable'
     -- | Specifies the encryption settings for the target table. You can choose
     -- one of the following KMS key (KMS key):
     --
-    -- • @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
+    -- -   @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
     --
-    -- • @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
-    -- and is created, owned, and managed by you. This option requires the
-    -- @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN) format
-    -- as input.
+    -- -   @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
+    --     and is created, owned, and managed by you. This option requires the
+    --     @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN)
+    --     format as input.
     --
     -- The default is @type:AWS_OWNED_KMS_KEY@.
     --
@@ -134,11 +134,11 @@ data RestoreTable = RestoreTable'
     -- | Specifies the @pointInTimeRecovery@ settings for the target table. The
     -- options are:
     --
-    -- • @ENABLED@
+    -- -   @status=ENABLED@
     --
-    -- • @DISABLED@
+    -- -   @status=DISABLED@
     --
-    -- If it\'s not specified, the default is @DISABLED@.
+    -- If it\'s not specified, the default is @status=DISABLED@.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html Point-in-time recovery>
@@ -174,10 +174,10 @@ data RestoreTable = RestoreTable'
 -- 'capacitySpecificationOverride', 'restoreTable_capacitySpecificationOverride' - Specifies the read\/write throughput capacity mode for the target table.
 -- The options are:
 --
--- • @throughputMode:PAY_PER_REQUEST@
+-- -   @throughputMode:PAY_PER_REQUEST@
 --
--- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
--- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+-- -   @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+--     @readCapacityUnits@ and @writeCapacityUnits@ as input.
 --
 -- The default is @throughput_mode:PAY_PER_REQUEST@.
 --
@@ -188,12 +188,12 @@ data RestoreTable = RestoreTable'
 -- 'encryptionSpecificationOverride', 'restoreTable_encryptionSpecificationOverride' - Specifies the encryption settings for the target table. You can choose
 -- one of the following KMS key (KMS key):
 --
--- • @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
+-- -   @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
 --
--- • @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
--- and is created, owned, and managed by you. This option requires the
--- @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN) format
--- as input.
+-- -   @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
+--     and is created, owned, and managed by you. This option requires the
+--     @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN)
+--     format as input.
 --
 -- The default is @type:AWS_OWNED_KMS_KEY@.
 --
@@ -204,11 +204,11 @@ data RestoreTable = RestoreTable'
 -- 'pointInTimeRecoveryOverride', 'restoreTable_pointInTimeRecoveryOverride' - Specifies the @pointInTimeRecovery@ settings for the target table. The
 -- options are:
 --
--- • @ENABLED@
+-- -   @status=ENABLED@
 --
--- • @DISABLED@
+-- -   @status=DISABLED@
 --
--- If it\'s not specified, the default is @DISABLED@.
+-- If it\'s not specified, the default is @status=DISABLED@.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html Point-in-time recovery>
@@ -260,10 +260,10 @@ newRestoreTable
 -- | Specifies the read\/write throughput capacity mode for the target table.
 -- The options are:
 --
--- • @throughputMode:PAY_PER_REQUEST@
+-- -   @throughputMode:PAY_PER_REQUEST@
 --
--- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
--- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+-- -   @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+--     @readCapacityUnits@ and @writeCapacityUnits@ as input.
 --
 -- The default is @throughput_mode:PAY_PER_REQUEST@.
 --
@@ -276,12 +276,12 @@ restoreTable_capacitySpecificationOverride = Lens.lens (\RestoreTable' {capacity
 -- | Specifies the encryption settings for the target table. You can choose
 -- one of the following KMS key (KMS key):
 --
--- • @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
+-- -   @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
 --
--- • @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
--- and is created, owned, and managed by you. This option requires the
--- @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN) format
--- as input.
+-- -   @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
+--     and is created, owned, and managed by you. This option requires the
+--     @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN)
+--     format as input.
 --
 -- The default is @type:AWS_OWNED_KMS_KEY@.
 --
@@ -294,11 +294,11 @@ restoreTable_encryptionSpecificationOverride = Lens.lens (\RestoreTable' {encryp
 -- | Specifies the @pointInTimeRecovery@ settings for the target table. The
 -- options are:
 --
--- • @ENABLED@
+-- -   @status=ENABLED@
 --
--- • @DISABLED@
+-- -   @status=DISABLED@
 --
--- If it\'s not specified, the default is @DISABLED@.
+-- If it\'s not specified, the default is @status=DISABLED@.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html Point-in-time recovery>

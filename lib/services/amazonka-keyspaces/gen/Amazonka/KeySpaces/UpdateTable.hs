@@ -32,6 +32,7 @@ module Amazonka.KeySpaces.UpdateTable
     -- * Request Lenses
     updateTable_addColumns,
     updateTable_capacitySpecification,
+    updateTable_clientSideTimestamps,
     updateTable_defaultTimeToLive,
     updateTable_encryptionSpecification,
     updateTable_pointInTimeRecovery,
@@ -61,19 +62,19 @@ import qualified Amazonka.Response as Response
 data UpdateTable = UpdateTable'
   { -- | For each column to be added to the specified table:
     --
-    -- • @name@ - The name of the column.
+    -- -   @name@ - The name of the column.
     --
-    -- • @type@ - An Amazon Keyspaces data type. For more information, see
-    -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types Data types>
-    -- in the /Amazon Keyspaces Developer Guide/.
+    -- -   @type@ - An Amazon Keyspaces data type. For more information, see
+    --     <https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types Data types>
+    --     in the /Amazon Keyspaces Developer Guide/.
     addColumns :: Prelude.Maybe (Prelude.NonEmpty ColumnDefinition),
     -- | Modifies the read\/write throughput capacity mode for the table. The
     -- options are:
     --
-    -- • @throughputMode:PAY_PER_REQUEST@ and
+    -- -   @throughputMode:PAY_PER_REQUEST@ and
     --
-    -- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
-    -- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+    -- -   @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+    --     @readCapacityUnits@ and @writeCapacityUnits@ as input.
     --
     -- The default is @throughput_mode:PAY_PER_REQUEST@.
     --
@@ -81,6 +82,15 @@ data UpdateTable = UpdateTable'
     -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html Read\/write capacity modes>
     -- in the /Amazon Keyspaces Developer Guide/.
     capacitySpecification :: Prelude.Maybe CapacitySpecification,
+    -- | Enables client-side timestamps for the table. By default, the setting is
+    -- disabled. You can enable client-side timestamps with the following
+    -- option:
+    --
+    -- -   @status: \"enabled\"@
+    --
+    -- Once client-side timestamps are enabled for a table, this setting cannot
+    -- be disabled.
+    clientSideTimestamps :: Prelude.Maybe ClientSideTimestamps,
     -- | The default Time to Live setting in seconds for the table.
     --
     -- For more information, see
@@ -90,12 +100,12 @@ data UpdateTable = UpdateTable'
     -- | Modifies the encryption settings of the table. You can choose one of the
     -- following KMS key (KMS key):
     --
-    -- • @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
+    -- -   @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
     --
-    -- • @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
-    -- and is created, owned, and managed by you. This option requires the
-    -- @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN) format
-    -- as input.
+    -- -   @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
+    --     and is created, owned, and managed by you. This option requires the
+    --     @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN)
+    --     format as input.
     --
     -- The default is @AWS_OWNED_KMS_KEY@.
     --
@@ -106,11 +116,11 @@ data UpdateTable = UpdateTable'
     -- | Modifies the @pointInTimeRecovery@ settings of the table. The options
     -- are:
     --
-    -- • @ENABLED@
+    -- -   @status=ENABLED@
     --
-    -- • @DISABLED@
+    -- -   @status=DISABLED@
     --
-    -- If it\'s not specified, the default is @DISABLED@.
+    -- If it\'s not specified, the default is @status=DISABLED@.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html Point-in-time recovery>
@@ -118,9 +128,9 @@ data UpdateTable = UpdateTable'
     pointInTimeRecovery :: Prelude.Maybe PointInTimeRecovery,
     -- | Modifies Time to Live custom settings for the table. The options are:
     --
-    -- • @status:enabled@
+    -- -   @status:enabled@
     --
-    -- • @status:disabled@
+    -- -   @status:disabled@
     --
     -- The default is @status:disabled@. After @ttl@ is enabled, you can\'t
     -- disable it for the table.
@@ -146,25 +156,34 @@ data UpdateTable = UpdateTable'
 --
 -- 'addColumns', 'updateTable_addColumns' - For each column to be added to the specified table:
 --
--- • @name@ - The name of the column.
+-- -   @name@ - The name of the column.
 --
--- • @type@ - An Amazon Keyspaces data type. For more information, see
--- <https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types Data types>
--- in the /Amazon Keyspaces Developer Guide/.
+-- -   @type@ - An Amazon Keyspaces data type. For more information, see
+--     <https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types Data types>
+--     in the /Amazon Keyspaces Developer Guide/.
 --
 -- 'capacitySpecification', 'updateTable_capacitySpecification' - Modifies the read\/write throughput capacity mode for the table. The
 -- options are:
 --
--- • @throughputMode:PAY_PER_REQUEST@ and
+-- -   @throughputMode:PAY_PER_REQUEST@ and
 --
--- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
--- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+-- -   @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+--     @readCapacityUnits@ and @writeCapacityUnits@ as input.
 --
 -- The default is @throughput_mode:PAY_PER_REQUEST@.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html Read\/write capacity modes>
 -- in the /Amazon Keyspaces Developer Guide/.
+--
+-- 'clientSideTimestamps', 'updateTable_clientSideTimestamps' - Enables client-side timestamps for the table. By default, the setting is
+-- disabled. You can enable client-side timestamps with the following
+-- option:
+--
+-- -   @status: \"enabled\"@
+--
+-- Once client-side timestamps are enabled for a table, this setting cannot
+-- be disabled.
 --
 -- 'defaultTimeToLive', 'updateTable_defaultTimeToLive' - The default Time to Live setting in seconds for the table.
 --
@@ -175,12 +194,12 @@ data UpdateTable = UpdateTable'
 -- 'encryptionSpecification', 'updateTable_encryptionSpecification' - Modifies the encryption settings of the table. You can choose one of the
 -- following KMS key (KMS key):
 --
--- • @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
+-- -   @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
 --
--- • @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
--- and is created, owned, and managed by you. This option requires the
--- @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN) format
--- as input.
+-- -   @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
+--     and is created, owned, and managed by you. This option requires the
+--     @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN)
+--     format as input.
 --
 -- The default is @AWS_OWNED_KMS_KEY@.
 --
@@ -191,11 +210,11 @@ data UpdateTable = UpdateTable'
 -- 'pointInTimeRecovery', 'updateTable_pointInTimeRecovery' - Modifies the @pointInTimeRecovery@ settings of the table. The options
 -- are:
 --
--- • @ENABLED@
+-- -   @status=ENABLED@
 --
--- • @DISABLED@
+-- -   @status=DISABLED@
 --
--- If it\'s not specified, the default is @DISABLED@.
+-- If it\'s not specified, the default is @status=DISABLED@.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html Point-in-time recovery>
@@ -203,9 +222,9 @@ data UpdateTable = UpdateTable'
 --
 -- 'ttl', 'updateTable_ttl' - Modifies Time to Live custom settings for the table. The options are:
 --
--- • @status:enabled@
+-- -   @status:enabled@
 --
--- • @status:disabled@
+-- -   @status:disabled@
 --
 -- The default is @status:disabled@. After @ttl@ is enabled, you can\'t
 -- disable it for the table.
@@ -227,6 +246,7 @@ newUpdateTable pKeyspaceName_ pTableName_ =
   UpdateTable'
     { addColumns = Prelude.Nothing,
       capacitySpecification = Prelude.Nothing,
+      clientSideTimestamps = Prelude.Nothing,
       defaultTimeToLive = Prelude.Nothing,
       encryptionSpecification = Prelude.Nothing,
       pointInTimeRecovery = Prelude.Nothing,
@@ -237,21 +257,21 @@ newUpdateTable pKeyspaceName_ pTableName_ =
 
 -- | For each column to be added to the specified table:
 --
--- • @name@ - The name of the column.
+-- -   @name@ - The name of the column.
 --
--- • @type@ - An Amazon Keyspaces data type. For more information, see
--- <https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types Data types>
--- in the /Amazon Keyspaces Developer Guide/.
+-- -   @type@ - An Amazon Keyspaces data type. For more information, see
+--     <https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types Data types>
+--     in the /Amazon Keyspaces Developer Guide/.
 updateTable_addColumns :: Lens.Lens' UpdateTable (Prelude.Maybe (Prelude.NonEmpty ColumnDefinition))
 updateTable_addColumns = Lens.lens (\UpdateTable' {addColumns} -> addColumns) (\s@UpdateTable' {} a -> s {addColumns = a} :: UpdateTable) Prelude.. Lens.mapping Lens.coerced
 
 -- | Modifies the read\/write throughput capacity mode for the table. The
 -- options are:
 --
--- • @throughputMode:PAY_PER_REQUEST@ and
+-- -   @throughputMode:PAY_PER_REQUEST@ and
 --
--- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
--- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+-- -   @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+--     @readCapacityUnits@ and @writeCapacityUnits@ as input.
 --
 -- The default is @throughput_mode:PAY_PER_REQUEST@.
 --
@@ -260,6 +280,17 @@ updateTable_addColumns = Lens.lens (\UpdateTable' {addColumns} -> addColumns) (\
 -- in the /Amazon Keyspaces Developer Guide/.
 updateTable_capacitySpecification :: Lens.Lens' UpdateTable (Prelude.Maybe CapacitySpecification)
 updateTable_capacitySpecification = Lens.lens (\UpdateTable' {capacitySpecification} -> capacitySpecification) (\s@UpdateTable' {} a -> s {capacitySpecification = a} :: UpdateTable)
+
+-- | Enables client-side timestamps for the table. By default, the setting is
+-- disabled. You can enable client-side timestamps with the following
+-- option:
+--
+-- -   @status: \"enabled\"@
+--
+-- Once client-side timestamps are enabled for a table, this setting cannot
+-- be disabled.
+updateTable_clientSideTimestamps :: Lens.Lens' UpdateTable (Prelude.Maybe ClientSideTimestamps)
+updateTable_clientSideTimestamps = Lens.lens (\UpdateTable' {clientSideTimestamps} -> clientSideTimestamps) (\s@UpdateTable' {} a -> s {clientSideTimestamps = a} :: UpdateTable)
 
 -- | The default Time to Live setting in seconds for the table.
 --
@@ -272,12 +303,12 @@ updateTable_defaultTimeToLive = Lens.lens (\UpdateTable' {defaultTimeToLive} -> 
 -- | Modifies the encryption settings of the table. You can choose one of the
 -- following KMS key (KMS key):
 --
--- • @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
+-- -   @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
 --
--- • @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
--- and is created, owned, and managed by you. This option requires the
--- @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN) format
--- as input.
+-- -   @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
+--     and is created, owned, and managed by you. This option requires the
+--     @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN)
+--     format as input.
 --
 -- The default is @AWS_OWNED_KMS_KEY@.
 --
@@ -290,11 +321,11 @@ updateTable_encryptionSpecification = Lens.lens (\UpdateTable' {encryptionSpecif
 -- | Modifies the @pointInTimeRecovery@ settings of the table. The options
 -- are:
 --
--- • @ENABLED@
+-- -   @status=ENABLED@
 --
--- • @DISABLED@
+-- -   @status=DISABLED@
 --
--- If it\'s not specified, the default is @DISABLED@.
+-- If it\'s not specified, the default is @status=DISABLED@.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html Point-in-time recovery>
@@ -304,9 +335,9 @@ updateTable_pointInTimeRecovery = Lens.lens (\UpdateTable' {pointInTimeRecovery}
 
 -- | Modifies Time to Live custom settings for the table. The options are:
 --
--- • @status:enabled@
+-- -   @status:enabled@
 --
--- • @status:disabled@
+-- -   @status:disabled@
 --
 -- The default is @status:disabled@. After @ttl@ is enabled, you can\'t
 -- disable it for the table.
@@ -339,8 +370,10 @@ instance Core.AWSRequest UpdateTable where
 
 instance Prelude.Hashable UpdateTable where
   hashWithSalt _salt UpdateTable' {..} =
-    _salt `Prelude.hashWithSalt` addColumns
+    _salt
+      `Prelude.hashWithSalt` addColumns
       `Prelude.hashWithSalt` capacitySpecification
+      `Prelude.hashWithSalt` clientSideTimestamps
       `Prelude.hashWithSalt` defaultTimeToLive
       `Prelude.hashWithSalt` encryptionSpecification
       `Prelude.hashWithSalt` pointInTimeRecovery
@@ -352,6 +385,7 @@ instance Prelude.NFData UpdateTable where
   rnf UpdateTable' {..} =
     Prelude.rnf addColumns
       `Prelude.seq` Prelude.rnf capacitySpecification
+      `Prelude.seq` Prelude.rnf clientSideTimestamps
       `Prelude.seq` Prelude.rnf defaultTimeToLive
       `Prelude.seq` Prelude.rnf encryptionSpecification
       `Prelude.seq` Prelude.rnf pointInTimeRecovery
@@ -381,6 +415,8 @@ instance Data.ToJSON UpdateTable where
           [ ("addColumns" Data..=) Prelude.<$> addColumns,
             ("capacitySpecification" Data..=)
               Prelude.<$> capacitySpecification,
+            ("clientSideTimestamps" Data..=)
+              Prelude.<$> clientSideTimestamps,
             ("defaultTimeToLive" Data..=)
               Prelude.<$> defaultTimeToLive,
             ("encryptionSpecification" Data..=)

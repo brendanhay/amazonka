@@ -29,7 +29,7 @@
 --
 -- For IAM policy examples that show how to control access to Amazon
 -- Keyspaces resources based on tags, see
--- <https://docs.aws.amazon.com/keyspaces/latest/devguide/security_iam_id-based-policy-examples-tags Amazon Keyspaces resource access based on tags>
+-- <https://docs.aws.amazon.com/keyspaces/latest/devguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-tags Amazon Keyspaces resource access based on tags>
 -- in the /Amazon Keyspaces Developer Guide/.
 module Amazonka.KeySpaces.TagResource
   ( -- * Creating a Request
@@ -113,7 +113,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

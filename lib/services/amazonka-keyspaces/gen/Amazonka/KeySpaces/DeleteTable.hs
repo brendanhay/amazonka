@@ -107,7 +107,8 @@ instance Core.AWSRequest DeleteTable where
 
 instance Prelude.Hashable DeleteTable where
   hashWithSalt _salt DeleteTable' {..} =
-    _salt `Prelude.hashWithSalt` keyspaceName
+    _salt
+      `Prelude.hashWithSalt` keyspaceName
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData DeleteTable where

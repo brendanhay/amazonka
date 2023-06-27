@@ -15,6 +15,7 @@ module Amazonka.KeySpaces.Lens
   ( -- * Operations
 
     -- ** CreateKeyspace
+    createKeyspace_replicationSpecification,
     createKeyspace_tags,
     createKeyspace_keyspaceName,
     createKeyspaceResponse_httpStatus,
@@ -22,6 +23,7 @@ module Amazonka.KeySpaces.Lens
 
     -- ** CreateTable
     createTable_capacitySpecification,
+    createTable_clientSideTimestamps,
     createTable_comment,
     createTable_defaultTimeToLive,
     createTable_encryptionSpecification,
@@ -45,14 +47,17 @@ module Amazonka.KeySpaces.Lens
 
     -- ** GetKeyspace
     getKeyspace_keyspaceName,
+    getKeyspaceResponse_replicationRegions,
     getKeyspaceResponse_httpStatus,
     getKeyspaceResponse_keyspaceName,
     getKeyspaceResponse_resourceArn,
+    getKeyspaceResponse_replicationStrategy,
 
     -- ** GetTable
     getTable_keyspaceName,
     getTable_tableName,
     getTableResponse_capacitySpecification,
+    getTableResponse_clientSideTimestamps,
     getTableResponse_comment,
     getTableResponse_creationTimestamp,
     getTableResponse_defaultTimeToLive,
@@ -115,6 +120,7 @@ module Amazonka.KeySpaces.Lens
     -- ** UpdateTable
     updateTable_addColumns,
     updateTable_capacitySpecification,
+    updateTable_clientSideTimestamps,
     updateTable_defaultTimeToLive,
     updateTable_encryptionSpecification,
     updateTable_pointInTimeRecovery,
@@ -137,6 +143,9 @@ module Amazonka.KeySpaces.Lens
     capacitySpecificationSummary_writeCapacityUnits,
     capacitySpecificationSummary_throughputMode,
 
+    -- ** ClientSideTimestamps
+    clientSideTimestamps_status,
+
     -- ** ClusteringKey
     clusteringKey_name,
     clusteringKey_orderBy,
@@ -153,8 +162,10 @@ module Amazonka.KeySpaces.Lens
     encryptionSpecification_type,
 
     -- ** KeyspaceSummary
+    keyspaceSummary_replicationRegions,
     keyspaceSummary_keyspaceName,
     keyspaceSummary_resourceArn,
+    keyspaceSummary_replicationStrategy,
 
     -- ** PartitionKey
     partitionKey_name,
@@ -165,6 +176,10 @@ module Amazonka.KeySpaces.Lens
     -- ** PointInTimeRecoverySummary
     pointInTimeRecoverySummary_earliestRestorableTimestamp,
     pointInTimeRecoverySummary_status,
+
+    -- ** ReplicationSpecification
+    replicationSpecification_regionList,
+    replicationSpecification_replicationStrategy,
 
     -- ** SchemaDefinition
     schemaDefinition_clusteringKeys,
@@ -202,6 +217,7 @@ import Amazonka.KeySpaces.RestoreTable
 import Amazonka.KeySpaces.TagResource
 import Amazonka.KeySpaces.Types.CapacitySpecification
 import Amazonka.KeySpaces.Types.CapacitySpecificationSummary
+import Amazonka.KeySpaces.Types.ClientSideTimestamps
 import Amazonka.KeySpaces.Types.ClusteringKey
 import Amazonka.KeySpaces.Types.ColumnDefinition
 import Amazonka.KeySpaces.Types.Comment
@@ -210,6 +226,7 @@ import Amazonka.KeySpaces.Types.KeyspaceSummary
 import Amazonka.KeySpaces.Types.PartitionKey
 import Amazonka.KeySpaces.Types.PointInTimeRecovery
 import Amazonka.KeySpaces.Types.PointInTimeRecoverySummary
+import Amazonka.KeySpaces.Types.ReplicationSpecification
 import Amazonka.KeySpaces.Types.SchemaDefinition
 import Amazonka.KeySpaces.Types.StaticColumn
 import Amazonka.KeySpaces.Types.TableSummary

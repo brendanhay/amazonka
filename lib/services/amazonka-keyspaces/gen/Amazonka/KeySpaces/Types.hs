@@ -25,11 +25,17 @@ module Amazonka.KeySpaces.Types
     _ServiceQuotaExceededException,
     _ValidationException,
 
+    -- * ClientSideTimestampsStatus
+    ClientSideTimestampsStatus (..),
+
     -- * EncryptionType
     EncryptionType (..),
 
     -- * PointInTimeRecoveryStatus
     PointInTimeRecoveryStatus (..),
+
+    -- * Rs
+    Rs (..),
 
     -- * SortOrder
     SortOrder (..),
@@ -58,6 +64,11 @@ module Amazonka.KeySpaces.Types
     capacitySpecificationSummary_writeCapacityUnits,
     capacitySpecificationSummary_throughputMode,
 
+    -- * ClientSideTimestamps
+    ClientSideTimestamps (..),
+    newClientSideTimestamps,
+    clientSideTimestamps_status,
+
     -- * ClusteringKey
     ClusteringKey (..),
     newClusteringKey,
@@ -84,8 +95,10 @@ module Amazonka.KeySpaces.Types
     -- * KeyspaceSummary
     KeyspaceSummary (..),
     newKeyspaceSummary,
+    keyspaceSummary_replicationRegions,
     keyspaceSummary_keyspaceName,
     keyspaceSummary_resourceArn,
+    keyspaceSummary_replicationStrategy,
 
     -- * PartitionKey
     PartitionKey (..),
@@ -102,6 +115,12 @@ module Amazonka.KeySpaces.Types
     newPointInTimeRecoverySummary,
     pointInTimeRecoverySummary_earliestRestorableTimestamp,
     pointInTimeRecoverySummary_status,
+
+    -- * ReplicationSpecification
+    ReplicationSpecification (..),
+    newReplicationSpecification,
+    replicationSpecification_regionList,
+    replicationSpecification_replicationStrategy,
 
     -- * SchemaDefinition
     SchemaDefinition (..),
@@ -140,6 +159,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.KeySpaces.Types.CapacitySpecification
 import Amazonka.KeySpaces.Types.CapacitySpecificationSummary
+import Amazonka.KeySpaces.Types.ClientSideTimestamps
+import Amazonka.KeySpaces.Types.ClientSideTimestampsStatus
 import Amazonka.KeySpaces.Types.ClusteringKey
 import Amazonka.KeySpaces.Types.ColumnDefinition
 import Amazonka.KeySpaces.Types.Comment
@@ -150,6 +171,8 @@ import Amazonka.KeySpaces.Types.PartitionKey
 import Amazonka.KeySpaces.Types.PointInTimeRecovery
 import Amazonka.KeySpaces.Types.PointInTimeRecoveryStatus
 import Amazonka.KeySpaces.Types.PointInTimeRecoverySummary
+import Amazonka.KeySpaces.Types.ReplicationSpecification
+import Amazonka.KeySpaces.Types.Rs
 import Amazonka.KeySpaces.Types.SchemaDefinition
 import Amazonka.KeySpaces.Types.SortOrder
 import Amazonka.KeySpaces.Types.StaticColumn
@@ -188,52 +211,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -243,7 +266,7 @@ _AccessDeniedException =
 -- occur if you try to perform an action and the same or a different action
 -- is already in progress, or if you try to create a resource that already
 -- exists.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -251,7 +274,7 @@ _ConflictException =
 
 -- | Amazon Keyspaces was unable to fully process this request because of an
 -- internal server error.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -260,7 +283,7 @@ _InternalServerException =
 -- | The operation tried to access a keyspace or table that doesn\'t exist.
 -- The resource might not be specified correctly, or its status might not
 -- be @ACTIVE@.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -270,14 +293,14 @@ _ResourceNotFoundException =
 -- information on service quotas, see
 -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html Quotas>
 -- in the /Amazon Keyspaces Developer Guide/.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
     "ServiceQuotaExceededException"
 
 -- | The operation failed due to an invalid or malformed request.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

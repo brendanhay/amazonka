@@ -35,9 +35,11 @@ module Amazonka.KeySpaces.GetKeyspace
     newGetKeyspaceResponse,
 
     -- * Response Lenses
+    getKeyspaceResponse_replicationRegions,
     getKeyspaceResponse_httpStatus,
     getKeyspaceResponse_keyspaceName,
     getKeyspaceResponse_resourceArn,
+    getKeyspaceResponse_replicationStrategy,
   )
 where
 
@@ -84,9 +86,11 @@ instance Core.AWSRequest GetKeyspace where
     Response.receiveJSON
       ( \s h x ->
           GetKeyspaceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (x Data..?> "replicationRegions")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "keyspaceName")
             Prelude.<*> (x Data..:> "resourceArn")
+            Prelude.<*> (x Data..:> "replicationStrategy")
       )
 
 instance Prelude.Hashable GetKeyspace where
@@ -126,12 +130,18 @@ instance Data.ToQuery GetKeyspace where
 
 -- | /See:/ 'newGetKeyspaceResponse' smart constructor.
 data GetKeyspaceResponse = GetKeyspaceResponse'
-  { -- | The response's http status code.
+  { -- | If the @replicationStrategy@ of the keyspace is @MULTI_REGION@, a list
+    -- of replication Regions is returned.
+    replicationRegions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the keyspace.
     keyspaceName :: Prelude.Text,
-    -- | The ARN of the keyspace.
-    resourceArn :: Prelude.Text
+    -- | Returns the ARN of the keyspace.
+    resourceArn :: Prelude.Text,
+    -- | Returns the replication strategy of the keyspace. The options are
+    -- @SINGLE_REGION@ or @MULTI_REGION@.
+    replicationStrategy :: Rs
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -143,11 +153,17 @@ data GetKeyspaceResponse = GetKeyspaceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'replicationRegions', 'getKeyspaceResponse_replicationRegions' - If the @replicationStrategy@ of the keyspace is @MULTI_REGION@, a list
+-- of replication Regions is returned.
+--
 -- 'httpStatus', 'getKeyspaceResponse_httpStatus' - The response's http status code.
 --
 -- 'keyspaceName', 'getKeyspaceResponse_keyspaceName' - The name of the keyspace.
 --
--- 'resourceArn', 'getKeyspaceResponse_resourceArn' - The ARN of the keyspace.
+-- 'resourceArn', 'getKeyspaceResponse_resourceArn' - Returns the ARN of the keyspace.
+--
+-- 'replicationStrategy', 'getKeyspaceResponse_replicationStrategy' - Returns the replication strategy of the keyspace. The options are
+-- @SINGLE_REGION@ or @MULTI_REGION@.
 newGetKeyspaceResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -155,16 +171,27 @@ newGetKeyspaceResponse ::
   Prelude.Text ->
   -- | 'resourceArn'
   Prelude.Text ->
+  -- | 'replicationStrategy'
+  Rs ->
   GetKeyspaceResponse
 newGetKeyspaceResponse
   pHttpStatus_
   pKeyspaceName_
-  pResourceArn_ =
+  pResourceArn_
+  pReplicationStrategy_ =
     GetKeyspaceResponse'
-      { httpStatus = pHttpStatus_,
+      { replicationRegions =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_,
         keyspaceName = pKeyspaceName_,
-        resourceArn = pResourceArn_
+        resourceArn = pResourceArn_,
+        replicationStrategy = pReplicationStrategy_
       }
+
+-- | If the @replicationStrategy@ of the keyspace is @MULTI_REGION@, a list
+-- of replication Regions is returned.
+getKeyspaceResponse_replicationRegions :: Lens.Lens' GetKeyspaceResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getKeyspaceResponse_replicationRegions = Lens.lens (\GetKeyspaceResponse' {replicationRegions} -> replicationRegions) (\s@GetKeyspaceResponse' {} a -> s {replicationRegions = a} :: GetKeyspaceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getKeyspaceResponse_httpStatus :: Lens.Lens' GetKeyspaceResponse Prelude.Int
@@ -174,12 +201,19 @@ getKeyspaceResponse_httpStatus = Lens.lens (\GetKeyspaceResponse' {httpStatus} -
 getKeyspaceResponse_keyspaceName :: Lens.Lens' GetKeyspaceResponse Prelude.Text
 getKeyspaceResponse_keyspaceName = Lens.lens (\GetKeyspaceResponse' {keyspaceName} -> keyspaceName) (\s@GetKeyspaceResponse' {} a -> s {keyspaceName = a} :: GetKeyspaceResponse)
 
--- | The ARN of the keyspace.
+-- | Returns the ARN of the keyspace.
 getKeyspaceResponse_resourceArn :: Lens.Lens' GetKeyspaceResponse Prelude.Text
 getKeyspaceResponse_resourceArn = Lens.lens (\GetKeyspaceResponse' {resourceArn} -> resourceArn) (\s@GetKeyspaceResponse' {} a -> s {resourceArn = a} :: GetKeyspaceResponse)
 
+-- | Returns the replication strategy of the keyspace. The options are
+-- @SINGLE_REGION@ or @MULTI_REGION@.
+getKeyspaceResponse_replicationStrategy :: Lens.Lens' GetKeyspaceResponse Rs
+getKeyspaceResponse_replicationStrategy = Lens.lens (\GetKeyspaceResponse' {replicationStrategy} -> replicationStrategy) (\s@GetKeyspaceResponse' {} a -> s {replicationStrategy = a} :: GetKeyspaceResponse)
+
 instance Prelude.NFData GetKeyspaceResponse where
   rnf GetKeyspaceResponse' {..} =
-    Prelude.rnf httpStatus
+    Prelude.rnf replicationRegions
+      `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf keyspaceName
       `Prelude.seq` Prelude.rnf resourceArn
+      `Prelude.seq` Prelude.rnf replicationStrategy

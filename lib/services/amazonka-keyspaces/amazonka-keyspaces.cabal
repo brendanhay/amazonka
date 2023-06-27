@@ -59,6 +59,8 @@ library
     Amazonka.KeySpaces.Types
     Amazonka.KeySpaces.Types.CapacitySpecification
     Amazonka.KeySpaces.Types.CapacitySpecificationSummary
+    Amazonka.KeySpaces.Types.ClientSideTimestamps
+    Amazonka.KeySpaces.Types.ClientSideTimestampsStatus
     Amazonka.KeySpaces.Types.ClusteringKey
     Amazonka.KeySpaces.Types.ColumnDefinition
     Amazonka.KeySpaces.Types.Comment
@@ -69,6 +71,8 @@ library
     Amazonka.KeySpaces.Types.PointInTimeRecovery
     Amazonka.KeySpaces.Types.PointInTimeRecoveryStatus
     Amazonka.KeySpaces.Types.PointInTimeRecoverySummary
+    Amazonka.KeySpaces.Types.ReplicationSpecification
+    Amazonka.KeySpaces.Types.Rs
     Amazonka.KeySpaces.Types.SchemaDefinition
     Amazonka.KeySpaces.Types.SortOrder
     Amazonka.KeySpaces.Types.StaticColumn

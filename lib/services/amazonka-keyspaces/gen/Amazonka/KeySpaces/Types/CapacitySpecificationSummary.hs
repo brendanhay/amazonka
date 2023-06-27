@@ -27,9 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | The read\/write throughput capacity mode for a table. The options are:
 --
--- • @throughputMode:PAY_PER_REQUEST@ and
+-- -   @throughputMode:PAY_PER_REQUEST@ and
 --
--- • @throughputMode:PROVISIONED@.
+-- -   @throughputMode:PROVISIONED@.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html Read\/write capacity modes>
@@ -48,10 +48,10 @@ data CapacitySpecificationSummary = CapacitySpecificationSummary'
     writeCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | The read\/write throughput capacity mode for a table. The options are:
     --
-    -- • @throughputMode:PAY_PER_REQUEST@ and
+    -- -   @throughputMode:PAY_PER_REQUEST@ and
     --
-    -- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
-    -- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+    -- -   @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+    --     @readCapacityUnits@ and @writeCapacityUnits@ as input.
     --
     -- The default is @throughput_mode:PAY_PER_REQUEST@.
     --
@@ -81,10 +81,10 @@ data CapacitySpecificationSummary = CapacitySpecificationSummary'
 --
 -- 'throughputMode', 'capacitySpecificationSummary_throughputMode' - The read\/write throughput capacity mode for a table. The options are:
 --
--- • @throughputMode:PAY_PER_REQUEST@ and
+-- -   @throughputMode:PAY_PER_REQUEST@ and
 --
--- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
--- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+-- -   @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+--     @readCapacityUnits@ and @writeCapacityUnits@ as input.
 --
 -- The default is @throughput_mode:PAY_PER_REQUEST@.
 --
@@ -121,10 +121,10 @@ capacitySpecificationSummary_writeCapacityUnits = Lens.lens (\CapacitySpecificat
 
 -- | The read\/write throughput capacity mode for a table. The options are:
 --
--- • @throughputMode:PAY_PER_REQUEST@ and
+-- -   @throughputMode:PAY_PER_REQUEST@ and
 --
--- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
--- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+-- -   @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+--     @readCapacityUnits@ and @writeCapacityUnits@ as input.
 --
 -- The default is @throughput_mode:PAY_PER_REQUEST@.
 --

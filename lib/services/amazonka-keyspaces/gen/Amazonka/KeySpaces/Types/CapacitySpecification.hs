@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 -- | Amazon Keyspaces has two read\/write capacity modes for processing reads
 -- and writes on your tables:
 --
--- • On-demand (default)
+-- -   On-demand (default)
 --
--- • Provisioned
+-- -   Provisioned
 --
 -- The read\/write capacity mode that you choose controls how you are
 -- charged for read and write throughput and how table throughput capacity
@@ -50,10 +50,10 @@ data CapacitySpecification = CapacitySpecification'
     writeCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | The read\/write throughput capacity mode for a table. The options are:
     --
-    -- • @throughputMode:PAY_PER_REQUEST@ and
+    -- -   @throughputMode:PAY_PER_REQUEST@ and
     --
-    -- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
-    -- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+    -- -   @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+    --     @readCapacityUnits@ and @writeCapacityUnits@ as input.
     --
     -- The default is @throughput_mode:PAY_PER_REQUEST@.
     --
@@ -80,10 +80,10 @@ data CapacitySpecification = CapacitySpecification'
 --
 -- 'throughputMode', 'capacitySpecification_throughputMode' - The read\/write throughput capacity mode for a table. The options are:
 --
--- • @throughputMode:PAY_PER_REQUEST@ and
+-- -   @throughputMode:PAY_PER_REQUEST@ and
 --
--- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
--- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+-- -   @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+--     @readCapacityUnits@ and @writeCapacityUnits@ as input.
 --
 -- The default is @throughput_mode:PAY_PER_REQUEST@.
 --
@@ -114,10 +114,10 @@ capacitySpecification_writeCapacityUnits = Lens.lens (\CapacitySpecification' {w
 
 -- | The read\/write throughput capacity mode for a table. The options are:
 --
--- • @throughputMode:PAY_PER_REQUEST@ and
+-- -   @throughputMode:PAY_PER_REQUEST@ and
 --
--- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
--- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+-- -   @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+--     @readCapacityUnits@ and @writeCapacityUnits@ as input.
 --
 -- The default is @throughput_mode:PAY_PER_REQUEST@.
 --
@@ -129,7 +129,8 @@ capacitySpecification_throughputMode = Lens.lens (\CapacitySpecification' {throu
 
 instance Prelude.Hashable CapacitySpecification where
   hashWithSalt _salt CapacitySpecification' {..} =
-    _salt `Prelude.hashWithSalt` readCapacityUnits
+    _salt
+      `Prelude.hashWithSalt` readCapacityUnits
       `Prelude.hashWithSalt` writeCapacityUnits
       `Prelude.hashWithSalt` throughputMode
 

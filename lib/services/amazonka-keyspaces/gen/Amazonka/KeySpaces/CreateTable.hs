@@ -39,6 +39,7 @@ module Amazonka.KeySpaces.CreateTable
 
     -- * Request Lenses
     createTable_capacitySpecification,
+    createTable_clientSideTimestamps,
     createTable_comment,
     createTable_defaultTimeToLive,
     createTable_encryptionSpecification,
@@ -72,10 +73,10 @@ data CreateTable = CreateTable'
   { -- | Specifies the read\/write throughput capacity mode for the table. The
     -- options are:
     --
-    -- • @throughputMode:PAY_PER_REQUEST@ and
+    -- -   @throughputMode:PAY_PER_REQUEST@ and
     --
-    -- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
-    -- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+    -- -   @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+    --     @readCapacityUnits@ and @writeCapacityUnits@ as input.
     --
     -- The default is @throughput_mode:PAY_PER_REQUEST@.
     --
@@ -83,6 +84,15 @@ data CreateTable = CreateTable'
     -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html Read\/write capacity modes>
     -- in the /Amazon Keyspaces Developer Guide/.
     capacitySpecification :: Prelude.Maybe CapacitySpecification,
+    -- | Enables client-side timestamps for the table. By default, the setting is
+    -- disabled. You can enable client-side timestamps with the following
+    -- option:
+    --
+    -- -   @status: \"enabled\"@
+    --
+    -- Once client-side timestamps are enabled for a table, this setting cannot
+    -- be disabled.
+    clientSideTimestamps :: Prelude.Maybe ClientSideTimestamps,
     -- | This parameter allows to enter a description of the table.
     comment :: Prelude.Maybe Comment,
     -- | The default Time to Live setting in seconds for the table.
@@ -94,12 +104,12 @@ data CreateTable = CreateTable'
     -- | Specifies how the encryption key for encryption at rest is managed for
     -- the table. You can choose one of the following KMS key (KMS key):
     --
-    -- • @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
+    -- -   @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
     --
-    -- • @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
-    -- and is created, owned, and managed by you. This option requires the
-    -- @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN) format
-    -- as input.
+    -- -   @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
+    --     and is created, owned, and managed by you. This option requires the
+    --     @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN)
+    --     format as input.
     --
     -- The default is @type:AWS_OWNED_KMS_KEY@.
     --
@@ -110,11 +120,11 @@ data CreateTable = CreateTable'
     -- | Specifies if @pointInTimeRecovery@ is enabled or disabled for the table.
     -- The options are:
     --
-    -- • @ENABLED@
+    -- -   @status=ENABLED@
     --
-    -- • @DISABLED@
+    -- -   @status=DISABLED@
     --
-    -- If it\'s not specified, the default is @DISABLED@.
+    -- If it\'s not specified, the default is @status=DISABLED@.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html Point-in-time recovery>
@@ -128,9 +138,9 @@ data CreateTable = CreateTable'
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | Enables Time to Live custom settings for the table. The options are:
     --
-    -- • @status:enabled@
+    -- -   @status:enabled@
     --
-    -- • @status:disabled@
+    -- -   @status:disabled@
     --
     -- The default is @status:disabled@. After @ttl@ is enabled, you can\'t
     -- disable it for the table.
@@ -147,36 +157,36 @@ data CreateTable = CreateTable'
     --
     -- For each column to be created:
     --
-    -- • @name@ - The name of the column.
+    -- -   @name@ - The name of the column.
     --
-    -- • @type@ - An Amazon Keyspaces data type. For more information, see
-    -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types Data types>
-    -- in the /Amazon Keyspaces Developer Guide/.
+    -- -   @type@ - An Amazon Keyspaces data type. For more information, see
+    --     <https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types Data types>
+    --     in the /Amazon Keyspaces Developer Guide/.
     --
     -- The primary key of the table consists of the following columns:
     --
-    -- • @partitionKeys@ - The partition key can be a single column, or it can
-    -- be a compound value composed of two or more columns. The partition key
-    -- portion of the primary key is required and determines how Amazon
-    -- Keyspaces stores your data.
+    -- -   @partitionKeys@ - The partition key can be a single column, or it
+    --     can be a compound value composed of two or more columns. The
+    --     partition key portion of the primary key is required and determines
+    --     how Amazon Keyspaces stores your data.
     --
-    -- • @name@ - The name of each partition key column.
+    -- -   @name@ - The name of each partition key column.
     --
-    -- • @clusteringKeys@ - The optional clustering column portion of your
-    -- primary key determines how the data is clustered and sorted within each
-    -- partition.
+    -- -   @clusteringKeys@ - The optional clustering column portion of your
+    --     primary key determines how the data is clustered and sorted within
+    --     each partition.
     --
-    -- • @name@ - The name of the clustering column.
+    -- -   @name@ - The name of the clustering column.
     --
-    -- • @orderBy@ - Sets the ascendant (@ASC@) or descendant (@DESC@) order
-    -- modifier.
+    -- -   @orderBy@ - Sets the ascendant (@ASC@) or descendant (@DESC@) order
+    --     modifier.
     --
-    -- To define a column as static use @staticColumns@ - Static columns store
-    -- values that are shared by all rows in the same partition:
+    --     To define a column as static use @staticColumns@ - Static columns
+    --     store values that are shared by all rows in the same partition:
     --
-    -- • @name@ - The name of the column.
+    -- -   @name@ - The name of the column.
     --
-    -- • @type@ - An Amazon Keyspaces data type.
+    -- -   @type@ - An Amazon Keyspaces data type.
     schemaDefinition :: SchemaDefinition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -192,16 +202,25 @@ data CreateTable = CreateTable'
 -- 'capacitySpecification', 'createTable_capacitySpecification' - Specifies the read\/write throughput capacity mode for the table. The
 -- options are:
 --
--- • @throughputMode:PAY_PER_REQUEST@ and
+-- -   @throughputMode:PAY_PER_REQUEST@ and
 --
--- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
--- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+-- -   @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+--     @readCapacityUnits@ and @writeCapacityUnits@ as input.
 --
 -- The default is @throughput_mode:PAY_PER_REQUEST@.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html Read\/write capacity modes>
 -- in the /Amazon Keyspaces Developer Guide/.
+--
+-- 'clientSideTimestamps', 'createTable_clientSideTimestamps' - Enables client-side timestamps for the table. By default, the setting is
+-- disabled. You can enable client-side timestamps with the following
+-- option:
+--
+-- -   @status: \"enabled\"@
+--
+-- Once client-side timestamps are enabled for a table, this setting cannot
+-- be disabled.
 --
 -- 'comment', 'createTable_comment' - This parameter allows to enter a description of the table.
 --
@@ -214,12 +233,12 @@ data CreateTable = CreateTable'
 -- 'encryptionSpecification', 'createTable_encryptionSpecification' - Specifies how the encryption key for encryption at rest is managed for
 -- the table. You can choose one of the following KMS key (KMS key):
 --
--- • @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
+-- -   @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
 --
--- • @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
--- and is created, owned, and managed by you. This option requires the
--- @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN) format
--- as input.
+-- -   @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
+--     and is created, owned, and managed by you. This option requires the
+--     @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN)
+--     format as input.
 --
 -- The default is @type:AWS_OWNED_KMS_KEY@.
 --
@@ -230,11 +249,11 @@ data CreateTable = CreateTable'
 -- 'pointInTimeRecovery', 'createTable_pointInTimeRecovery' - Specifies if @pointInTimeRecovery@ is enabled or disabled for the table.
 -- The options are:
 --
--- • @ENABLED@
+-- -   @status=ENABLED@
 --
--- • @DISABLED@
+-- -   @status=DISABLED@
 --
--- If it\'s not specified, the default is @DISABLED@.
+-- If it\'s not specified, the default is @status=DISABLED@.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html Point-in-time recovery>
@@ -248,9 +267,9 @@ data CreateTable = CreateTable'
 --
 -- 'ttl', 'createTable_ttl' - Enables Time to Live custom settings for the table. The options are:
 --
--- • @status:enabled@
+-- -   @status:enabled@
 --
--- • @status:disabled@
+-- -   @status:disabled@
 --
 -- The default is @status:disabled@. After @ttl@ is enabled, you can\'t
 -- disable it for the table.
@@ -267,36 +286,36 @@ data CreateTable = CreateTable'
 --
 -- For each column to be created:
 --
--- • @name@ - The name of the column.
+-- -   @name@ - The name of the column.
 --
--- • @type@ - An Amazon Keyspaces data type. For more information, see
--- <https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types Data types>
--- in the /Amazon Keyspaces Developer Guide/.
+-- -   @type@ - An Amazon Keyspaces data type. For more information, see
+--     <https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types Data types>
+--     in the /Amazon Keyspaces Developer Guide/.
 --
 -- The primary key of the table consists of the following columns:
 --
--- • @partitionKeys@ - The partition key can be a single column, or it can
--- be a compound value composed of two or more columns. The partition key
--- portion of the primary key is required and determines how Amazon
--- Keyspaces stores your data.
+-- -   @partitionKeys@ - The partition key can be a single column, or it
+--     can be a compound value composed of two or more columns. The
+--     partition key portion of the primary key is required and determines
+--     how Amazon Keyspaces stores your data.
 --
--- • @name@ - The name of each partition key column.
+-- -   @name@ - The name of each partition key column.
 --
--- • @clusteringKeys@ - The optional clustering column portion of your
--- primary key determines how the data is clustered and sorted within each
--- partition.
+-- -   @clusteringKeys@ - The optional clustering column portion of your
+--     primary key determines how the data is clustered and sorted within
+--     each partition.
 --
--- • @name@ - The name of the clustering column.
+-- -   @name@ - The name of the clustering column.
 --
--- • @orderBy@ - Sets the ascendant (@ASC@) or descendant (@DESC@) order
--- modifier.
+-- -   @orderBy@ - Sets the ascendant (@ASC@) or descendant (@DESC@) order
+--     modifier.
 --
--- To define a column as static use @staticColumns@ - Static columns store
--- values that are shared by all rows in the same partition:
+--     To define a column as static use @staticColumns@ - Static columns
+--     store values that are shared by all rows in the same partition:
 --
--- • @name@ - The name of the column.
+-- -   @name@ - The name of the column.
 --
--- • @type@ - An Amazon Keyspaces data type.
+-- -   @type@ - An Amazon Keyspaces data type.
 newCreateTable ::
   -- | 'keyspaceName'
   Prelude.Text ->
@@ -312,6 +331,7 @@ newCreateTable
     CreateTable'
       { capacitySpecification =
           Prelude.Nothing,
+        clientSideTimestamps = Prelude.Nothing,
         comment = Prelude.Nothing,
         defaultTimeToLive = Prelude.Nothing,
         encryptionSpecification = Prelude.Nothing,
@@ -326,10 +346,10 @@ newCreateTable
 -- | Specifies the read\/write throughput capacity mode for the table. The
 -- options are:
 --
--- • @throughputMode:PAY_PER_REQUEST@ and
+-- -   @throughputMode:PAY_PER_REQUEST@ and
 --
--- • @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
--- @readCapacityUnits@ and @writeCapacityUnits@ as input.
+-- -   @throughputMode:PROVISIONED@ - Provisioned capacity mode requires
+--     @readCapacityUnits@ and @writeCapacityUnits@ as input.
 --
 -- The default is @throughput_mode:PAY_PER_REQUEST@.
 --
@@ -338,6 +358,17 @@ newCreateTable
 -- in the /Amazon Keyspaces Developer Guide/.
 createTable_capacitySpecification :: Lens.Lens' CreateTable (Prelude.Maybe CapacitySpecification)
 createTable_capacitySpecification = Lens.lens (\CreateTable' {capacitySpecification} -> capacitySpecification) (\s@CreateTable' {} a -> s {capacitySpecification = a} :: CreateTable)
+
+-- | Enables client-side timestamps for the table. By default, the setting is
+-- disabled. You can enable client-side timestamps with the following
+-- option:
+--
+-- -   @status: \"enabled\"@
+--
+-- Once client-side timestamps are enabled for a table, this setting cannot
+-- be disabled.
+createTable_clientSideTimestamps :: Lens.Lens' CreateTable (Prelude.Maybe ClientSideTimestamps)
+createTable_clientSideTimestamps = Lens.lens (\CreateTable' {clientSideTimestamps} -> clientSideTimestamps) (\s@CreateTable' {} a -> s {clientSideTimestamps = a} :: CreateTable)
 
 -- | This parameter allows to enter a description of the table.
 createTable_comment :: Lens.Lens' CreateTable (Prelude.Maybe Comment)
@@ -354,12 +385,12 @@ createTable_defaultTimeToLive = Lens.lens (\CreateTable' {defaultTimeToLive} -> 
 -- | Specifies how the encryption key for encryption at rest is managed for
 -- the table. You can choose one of the following KMS key (KMS key):
 --
--- • @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
+-- -   @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
 --
--- • @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
--- and is created, owned, and managed by you. This option requires the
--- @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN) format
--- as input.
+-- -   @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
+--     and is created, owned, and managed by you. This option requires the
+--     @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN)
+--     format as input.
 --
 -- The default is @type:AWS_OWNED_KMS_KEY@.
 --
@@ -372,11 +403,11 @@ createTable_encryptionSpecification = Lens.lens (\CreateTable' {encryptionSpecif
 -- | Specifies if @pointInTimeRecovery@ is enabled or disabled for the table.
 -- The options are:
 --
--- • @ENABLED@
+-- -   @status=ENABLED@
 --
--- • @DISABLED@
+-- -   @status=DISABLED@
 --
--- If it\'s not specified, the default is @DISABLED@.
+-- If it\'s not specified, the default is @status=DISABLED@.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html Point-in-time recovery>
@@ -394,9 +425,9 @@ createTable_tags = Lens.lens (\CreateTable' {tags} -> tags) (\s@CreateTable' {} 
 
 -- | Enables Time to Live custom settings for the table. The options are:
 --
--- • @status:enabled@
+-- -   @status:enabled@
 --
--- • @status:disabled@
+-- -   @status:disabled@
 --
 -- The default is @status:disabled@. After @ttl@ is enabled, you can\'t
 -- disable it for the table.
@@ -419,36 +450,36 @@ createTable_tableName = Lens.lens (\CreateTable' {tableName} -> tableName) (\s@C
 --
 -- For each column to be created:
 --
--- • @name@ - The name of the column.
+-- -   @name@ - The name of the column.
 --
--- • @type@ - An Amazon Keyspaces data type. For more information, see
--- <https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types Data types>
--- in the /Amazon Keyspaces Developer Guide/.
+-- -   @type@ - An Amazon Keyspaces data type. For more information, see
+--     <https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types Data types>
+--     in the /Amazon Keyspaces Developer Guide/.
 --
 -- The primary key of the table consists of the following columns:
 --
--- • @partitionKeys@ - The partition key can be a single column, or it can
--- be a compound value composed of two or more columns. The partition key
--- portion of the primary key is required and determines how Amazon
--- Keyspaces stores your data.
+-- -   @partitionKeys@ - The partition key can be a single column, or it
+--     can be a compound value composed of two or more columns. The
+--     partition key portion of the primary key is required and determines
+--     how Amazon Keyspaces stores your data.
 --
--- • @name@ - The name of each partition key column.
+-- -   @name@ - The name of each partition key column.
 --
--- • @clusteringKeys@ - The optional clustering column portion of your
--- primary key determines how the data is clustered and sorted within each
--- partition.
+-- -   @clusteringKeys@ - The optional clustering column portion of your
+--     primary key determines how the data is clustered and sorted within
+--     each partition.
 --
--- • @name@ - The name of the clustering column.
+-- -   @name@ - The name of the clustering column.
 --
--- • @orderBy@ - Sets the ascendant (@ASC@) or descendant (@DESC@) order
--- modifier.
+-- -   @orderBy@ - Sets the ascendant (@ASC@) or descendant (@DESC@) order
+--     modifier.
 --
--- To define a column as static use @staticColumns@ - Static columns store
--- values that are shared by all rows in the same partition:
+--     To define a column as static use @staticColumns@ - Static columns
+--     store values that are shared by all rows in the same partition:
 --
--- • @name@ - The name of the column.
+-- -   @name@ - The name of the column.
 --
--- • @type@ - An Amazon Keyspaces data type.
+-- -   @type@ - An Amazon Keyspaces data type.
 createTable_schemaDefinition :: Lens.Lens' CreateTable SchemaDefinition
 createTable_schemaDefinition = Lens.lens (\CreateTable' {schemaDefinition} -> schemaDefinition) (\s@CreateTable' {} a -> s {schemaDefinition = a} :: CreateTable)
 
@@ -466,7 +497,9 @@ instance Core.AWSRequest CreateTable where
 
 instance Prelude.Hashable CreateTable where
   hashWithSalt _salt CreateTable' {..} =
-    _salt `Prelude.hashWithSalt` capacitySpecification
+    _salt
+      `Prelude.hashWithSalt` capacitySpecification
+      `Prelude.hashWithSalt` clientSideTimestamps
       `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` defaultTimeToLive
       `Prelude.hashWithSalt` encryptionSpecification
@@ -480,6 +513,7 @@ instance Prelude.Hashable CreateTable where
 instance Prelude.NFData CreateTable where
   rnf CreateTable' {..} =
     Prelude.rnf capacitySpecification
+      `Prelude.seq` Prelude.rnf clientSideTimestamps
       `Prelude.seq` Prelude.rnf comment
       `Prelude.seq` Prelude.rnf defaultTimeToLive
       `Prelude.seq` Prelude.rnf encryptionSpecification
@@ -511,6 +545,8 @@ instance Data.ToJSON CreateTable where
       ( Prelude.catMaybes
           [ ("capacitySpecification" Data..=)
               Prelude.<$> capacitySpecification,
+            ("clientSideTimestamps" Data..=)
+              Prelude.<$> clientSideTimestamps,
             ("comment" Data..=) Prelude.<$> comment,
             ("defaultTimeToLive" Data..=)
               Prelude.<$> defaultTimeToLive,

@@ -30,12 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 -- managing the encryption key. You can choose one of the following KMS
 -- keys (KMS keys):
 --
--- • Amazon Web Services owned key - This is the default encryption type.
--- The key is owned by Amazon Keyspaces (no additional charge).
+-- -   Amazon Web Services owned key - This is the default encryption type.
+--     The key is owned by Amazon Keyspaces (no additional charge).
 --
--- • Customer managed key - This key is stored in your account and is
--- created, owned, and managed by you. You have full control over the
--- customer managed key (KMS charges apply).
+-- -   Customer managed key - This key is stored in your account and is
+--     created, owned, and managed by you. You have full control over the
+--     customer managed key (KMS charges apply).
 --
 -- For more information about encryption at rest in Amazon Keyspaces, see
 -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html Encryption at rest>
@@ -53,12 +53,12 @@ data EncryptionSpecification = EncryptionSpecification'
     -- | The encryption option specified for the table. You can choose one of the
     -- following KMS keys (KMS keys):
     --
-    -- • @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
+    -- -   @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
     --
-    -- • @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
-    -- and is created, owned, and managed by you. This option requires the
-    -- @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN) format
-    -- as input.
+    -- -   @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
+    --     and is created, owned, and managed by you. This option requires the
+    --     @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN)
+    --     format as input.
     --
     -- The default is @type:AWS_OWNED_KMS_KEY@.
     --
@@ -83,12 +83,12 @@ data EncryptionSpecification = EncryptionSpecification'
 -- 'type'', 'encryptionSpecification_type' - The encryption option specified for the table. You can choose one of the
 -- following KMS keys (KMS keys):
 --
--- • @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
+-- -   @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
 --
--- • @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
--- and is created, owned, and managed by you. This option requires the
--- @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN) format
--- as input.
+-- -   @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
+--     and is created, owned, and managed by you. This option requires the
+--     @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN)
+--     format as input.
 --
 -- The default is @type:AWS_OWNED_KMS_KEY@.
 --
@@ -114,12 +114,12 @@ encryptionSpecification_kmsKeyIdentifier = Lens.lens (\EncryptionSpecification' 
 -- | The encryption option specified for the table. You can choose one of the
 -- following KMS keys (KMS keys):
 --
--- • @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
+-- -   @type:AWS_OWNED_KMS_KEY@ - This key is owned by Amazon Keyspaces.
 --
--- • @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
--- and is created, owned, and managed by you. This option requires the
--- @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN) format
--- as input.
+-- -   @type:CUSTOMER_MANAGED_KMS_KEY@ - This key is stored in your account
+--     and is created, owned, and managed by you. This option requires the
+--     @kms_key_identifier@ of the KMS key in Amazon Resource Name (ARN)
+--     format as input.
 --
 -- The default is @type:AWS_OWNED_KMS_KEY@.
 --
@@ -141,7 +141,8 @@ instance Data.FromJSON EncryptionSpecification where
 
 instance Prelude.Hashable EncryptionSpecification where
   hashWithSalt _salt EncryptionSpecification' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyIdentifier
+    _salt
+      `Prelude.hashWithSalt` kmsKeyIdentifier
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData EncryptionSpecification where

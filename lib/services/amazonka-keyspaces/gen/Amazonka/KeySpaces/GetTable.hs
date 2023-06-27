@@ -40,6 +40,7 @@ module Amazonka.KeySpaces.GetTable
 
     -- * Response Lenses
     getTableResponse_capacitySpecification,
+    getTableResponse_clientSideTimestamps,
     getTableResponse_comment,
     getTableResponse_creationTimestamp,
     getTableResponse_defaultTimeToLive,
@@ -112,6 +113,7 @@ instance Core.AWSRequest GetTable where
       ( \s h x ->
           GetTableResponse'
             Prelude.<$> (x Data..?> "capacitySpecification")
+            Prelude.<*> (x Data..?> "clientSideTimestamps")
             Prelude.<*> (x Data..?> "comment")
             Prelude.<*> (x Data..?> "creationTimestamp")
             Prelude.<*> (x Data..?> "defaultTimeToLive")
@@ -128,7 +130,8 @@ instance Core.AWSRequest GetTable where
 
 instance Prelude.Hashable GetTable where
   hashWithSalt _salt GetTable' {..} =
-    _salt `Prelude.hashWithSalt` keyspaceName
+    _salt
+      `Prelude.hashWithSalt` keyspaceName
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData GetTable where
@@ -168,15 +171,17 @@ instance Data.ToQuery GetTable where
 data GetTableResponse = GetTableResponse'
   { -- | The read\/write throughput capacity mode for a table. The options are:
     --
-    -- • @throughputMode:PAY_PER_REQUEST@
+    -- -   @throughputMode:PAY_PER_REQUEST@
     --
-    -- • @throughputMode:PROVISIONED@
+    -- -   @throughputMode:PROVISIONED@
     capacitySpecification :: Prelude.Maybe CapacitySpecificationSummary,
+    -- | The client-side timestamps setting of the table.
+    clientSideTimestamps :: Prelude.Maybe ClientSideTimestamps,
     -- | The the description of the specified table.
     comment :: Prelude.Maybe Comment,
     -- | The creation timestamp of the specified table.
     creationTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The default Time to Live settings of the specified table.
+    -- | The default Time to Live settings in seconds of the specified table.
     defaultTimeToLive :: Prelude.Maybe Prelude.Natural,
     -- | The encryption settings of the specified table.
     encryptionSpecification :: Prelude.Maybe EncryptionSpecification,
@@ -209,15 +214,17 @@ data GetTableResponse = GetTableResponse'
 --
 -- 'capacitySpecification', 'getTableResponse_capacitySpecification' - The read\/write throughput capacity mode for a table. The options are:
 --
--- • @throughputMode:PAY_PER_REQUEST@
+-- -   @throughputMode:PAY_PER_REQUEST@
 --
--- • @throughputMode:PROVISIONED@
+-- -   @throughputMode:PROVISIONED@
+--
+-- 'clientSideTimestamps', 'getTableResponse_clientSideTimestamps' - The client-side timestamps setting of the table.
 --
 -- 'comment', 'getTableResponse_comment' - The the description of the specified table.
 --
 -- 'creationTimestamp', 'getTableResponse_creationTimestamp' - The creation timestamp of the specified table.
 --
--- 'defaultTimeToLive', 'getTableResponse_defaultTimeToLive' - The default Time to Live settings of the specified table.
+-- 'defaultTimeToLive', 'getTableResponse_defaultTimeToLive' - The default Time to Live settings in seconds of the specified table.
 --
 -- 'encryptionSpecification', 'getTableResponse_encryptionSpecification' - The encryption settings of the specified table.
 --
@@ -254,6 +261,7 @@ newGetTableResponse
     GetTableResponse'
       { capacitySpecification =
           Prelude.Nothing,
+        clientSideTimestamps = Prelude.Nothing,
         comment = Prelude.Nothing,
         creationTimestamp = Prelude.Nothing,
         defaultTimeToLive = Prelude.Nothing,
@@ -270,11 +278,15 @@ newGetTableResponse
 
 -- | The read\/write throughput capacity mode for a table. The options are:
 --
--- • @throughputMode:PAY_PER_REQUEST@
+-- -   @throughputMode:PAY_PER_REQUEST@
 --
--- • @throughputMode:PROVISIONED@
+-- -   @throughputMode:PROVISIONED@
 getTableResponse_capacitySpecification :: Lens.Lens' GetTableResponse (Prelude.Maybe CapacitySpecificationSummary)
 getTableResponse_capacitySpecification = Lens.lens (\GetTableResponse' {capacitySpecification} -> capacitySpecification) (\s@GetTableResponse' {} a -> s {capacitySpecification = a} :: GetTableResponse)
+
+-- | The client-side timestamps setting of the table.
+getTableResponse_clientSideTimestamps :: Lens.Lens' GetTableResponse (Prelude.Maybe ClientSideTimestamps)
+getTableResponse_clientSideTimestamps = Lens.lens (\GetTableResponse' {clientSideTimestamps} -> clientSideTimestamps) (\s@GetTableResponse' {} a -> s {clientSideTimestamps = a} :: GetTableResponse)
 
 -- | The the description of the specified table.
 getTableResponse_comment :: Lens.Lens' GetTableResponse (Prelude.Maybe Comment)
@@ -284,7 +296,7 @@ getTableResponse_comment = Lens.lens (\GetTableResponse' {comment} -> comment) (
 getTableResponse_creationTimestamp :: Lens.Lens' GetTableResponse (Prelude.Maybe Prelude.UTCTime)
 getTableResponse_creationTimestamp = Lens.lens (\GetTableResponse' {creationTimestamp} -> creationTimestamp) (\s@GetTableResponse' {} a -> s {creationTimestamp = a} :: GetTableResponse) Prelude.. Lens.mapping Data._Time
 
--- | The default Time to Live settings of the specified table.
+-- | The default Time to Live settings in seconds of the specified table.
 getTableResponse_defaultTimeToLive :: Lens.Lens' GetTableResponse (Prelude.Maybe Prelude.Natural)
 getTableResponse_defaultTimeToLive = Lens.lens (\GetTableResponse' {defaultTimeToLive} -> defaultTimeToLive) (\s@GetTableResponse' {} a -> s {defaultTimeToLive = a} :: GetTableResponse)
 
@@ -327,6 +339,7 @@ getTableResponse_resourceArn = Lens.lens (\GetTableResponse' {resourceArn} -> re
 instance Prelude.NFData GetTableResponse where
   rnf GetTableResponse' {..} =
     Prelude.rnf capacitySpecification
+      `Prelude.seq` Prelude.rnf clientSideTimestamps
       `Prelude.seq` Prelude.rnf comment
       `Prelude.seq` Prelude.rnf creationTimestamp
       `Prelude.seq` Prelude.rnf defaultTimeToLive

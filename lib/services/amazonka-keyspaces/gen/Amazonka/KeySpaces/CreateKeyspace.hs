@@ -37,6 +37,7 @@ module Amazonka.KeySpaces.CreateKeyspace
     newCreateKeyspace,
 
     -- * Request Lenses
+    createKeyspace_replicationSpecification,
     createKeyspace_tags,
     createKeyspace_keyspaceName,
 
@@ -60,7 +61,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateKeyspace' smart constructor.
 data CreateKeyspace = CreateKeyspace'
-  { -- | A list of key-value pair tags to be attached to the keyspace.
+  { -- | The replication specification of the keyspace includes:
+    --
+    -- -   @replicationStrategy@ - the required value is @SINGLE_REGION@ or
+    --     @MULTI_REGION@.
+    --
+    -- -   @regionList@ - if the @replicationStrategy@ is @MULTI_REGION@, the
+    --     @regionList@ requires the current Region and at least one additional
+    --     Amazon Web Services Region where the keyspace is going to be
+    --     replicated in. The maximum number of supported replication Regions
+    --     including the current Region is six.
+    replicationSpecification :: Prelude.Maybe ReplicationSpecification,
+    -- | A list of key-value pair tags to be attached to the keyspace.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html Adding tags and labels to Amazon Keyspaces resources>
@@ -79,6 +91,17 @@ data CreateKeyspace = CreateKeyspace'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'replicationSpecification', 'createKeyspace_replicationSpecification' - The replication specification of the keyspace includes:
+--
+-- -   @replicationStrategy@ - the required value is @SINGLE_REGION@ or
+--     @MULTI_REGION@.
+--
+-- -   @regionList@ - if the @replicationStrategy@ is @MULTI_REGION@, the
+--     @regionList@ requires the current Region and at least one additional
+--     Amazon Web Services Region where the keyspace is going to be
+--     replicated in. The maximum number of supported replication Regions
+--     including the current Region is six.
+--
 -- 'tags', 'createKeyspace_tags' - A list of key-value pair tags to be attached to the keyspace.
 --
 -- For more information, see
@@ -92,9 +115,24 @@ newCreateKeyspace ::
   CreateKeyspace
 newCreateKeyspace pKeyspaceName_ =
   CreateKeyspace'
-    { tags = Prelude.Nothing,
+    { replicationSpecification =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       keyspaceName = pKeyspaceName_
     }
+
+-- | The replication specification of the keyspace includes:
+--
+-- -   @replicationStrategy@ - the required value is @SINGLE_REGION@ or
+--     @MULTI_REGION@.
+--
+-- -   @regionList@ - if the @replicationStrategy@ is @MULTI_REGION@, the
+--     @regionList@ requires the current Region and at least one additional
+--     Amazon Web Services Region where the keyspace is going to be
+--     replicated in. The maximum number of supported replication Regions
+--     including the current Region is six.
+createKeyspace_replicationSpecification :: Lens.Lens' CreateKeyspace (Prelude.Maybe ReplicationSpecification)
+createKeyspace_replicationSpecification = Lens.lens (\CreateKeyspace' {replicationSpecification} -> replicationSpecification) (\s@CreateKeyspace' {} a -> s {replicationSpecification = a} :: CreateKeyspace)
 
 -- | A list of key-value pair tags to be attached to the keyspace.
 --
@@ -124,12 +162,15 @@ instance Core.AWSRequest CreateKeyspace where
 
 instance Prelude.Hashable CreateKeyspace where
   hashWithSalt _salt CreateKeyspace' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` replicationSpecification
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` keyspaceName
 
 instance Prelude.NFData CreateKeyspace where
   rnf CreateKeyspace' {..} =
-    Prelude.rnf tags
+    Prelude.rnf replicationSpecification
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf keyspaceName
 
 instance Data.ToHeaders CreateKeyspace where
@@ -151,7 +192,9 @@ instance Data.ToJSON CreateKeyspace where
   toJSON CreateKeyspace' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("tags" Data..=) Prelude.<$> tags,
+          [ ("replicationSpecification" Data..=)
+              Prelude.<$> replicationSpecification,
+            ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("keyspaceName" Data..= keyspaceName)
           ]
       )

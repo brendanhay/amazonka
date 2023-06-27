@@ -82,14 +82,16 @@ instance Data.FromJSON AcceleratorType where
           AcceleratorType'
             Prelude.<$> (x Data..:? "acceleratorTypeName")
             Prelude.<*> (x Data..:? "memoryInfo")
-            Prelude.<*> ( x Data..:? "throughputInfo"
+            Prelude.<*> ( x
+                            Data..:? "throughputInfo"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AcceleratorType where
   hashWithSalt _salt AcceleratorType' {..} =
-    _salt `Prelude.hashWithSalt` acceleratorTypeName
+    _salt
+      `Prelude.hashWithSalt` acceleratorTypeName
       `Prelude.hashWithSalt` memoryInfo
       `Prelude.hashWithSalt` throughputInfo
 

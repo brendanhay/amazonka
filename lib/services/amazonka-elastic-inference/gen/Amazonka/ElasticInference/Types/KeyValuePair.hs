@@ -77,12 +77,14 @@ instance Data.FromJSON KeyValuePair where
       "KeyValuePair"
       ( \x ->
           KeyValuePair'
-            Prelude.<$> (x Data..:? "key") Prelude.<*> (x Data..:? "value")
+            Prelude.<$> (x Data..:? "key")
+            Prelude.<*> (x Data..:? "value")
       )
 
 instance Prelude.Hashable KeyValuePair where
   hashWithSalt _salt KeyValuePair' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData KeyValuePair where

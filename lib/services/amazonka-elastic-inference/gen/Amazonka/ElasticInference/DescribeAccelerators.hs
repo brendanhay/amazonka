@@ -23,6 +23,15 @@
 -- Describes information over a provided set of accelerators belonging to
 -- an account.
 --
+-- February 15, 2023: Starting April 15, 2023, AWS will not onboard new
+-- customers to Amazon Elastic Inference (EI), and will help current
+-- customers migrate their workloads to options that offer better price and
+-- performance. After April 15, 2023, new customers will not be able to
+-- launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon
+-- ECS, or Amazon EC2. However, customers who have used Amazon EI at least
+-- once during the past 30-day period are considered current customers and
+-- will be able to continue using the service.
+--
 -- This operation returns paginated results.
 module Amazonka.ElasticInference.DescribeAccelerators
   ( -- * Creating a Request
@@ -141,22 +150,22 @@ instance Core.AWSPager DescribeAccelerators where
     | Core.stop
         ( rs
             Lens.^? describeAcceleratorsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAcceleratorsResponse_acceleratorSet
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeAccelerators_nextToken
           Lens..~ rs
           Lens.^? describeAcceleratorsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAccelerators where
   type
@@ -175,7 +184,8 @@ instance Core.AWSRequest DescribeAccelerators where
 
 instance Prelude.Hashable DescribeAccelerators where
   hashWithSalt _salt DescribeAccelerators' {..} =
-    _salt `Prelude.hashWithSalt` acceleratorIds
+    _salt
+      `Prelude.hashWithSalt` acceleratorIds
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

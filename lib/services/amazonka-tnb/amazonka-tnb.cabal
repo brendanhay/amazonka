@@ -1,0 +1,161 @@
+cabal-version:      2.2
+name:               amazonka-tnb
+version:            2.0
+synopsis:           Amazon Telco Network Builder SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2023 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2008-10-21@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.TNB.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.TNB" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-tnb
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.TNB
+    Amazonka.TNB.CancelSolNetworkOperation
+    Amazonka.TNB.CreateSolFunctionPackage
+    Amazonka.TNB.CreateSolNetworkInstance
+    Amazonka.TNB.CreateSolNetworkPackage
+    Amazonka.TNB.DeleteSolFunctionPackage
+    Amazonka.TNB.DeleteSolNetworkInstance
+    Amazonka.TNB.DeleteSolNetworkPackage
+    Amazonka.TNB.GetSolFunctionInstance
+    Amazonka.TNB.GetSolFunctionPackage
+    Amazonka.TNB.GetSolFunctionPackageContent
+    Amazonka.TNB.GetSolFunctionPackageDescriptor
+    Amazonka.TNB.GetSolNetworkInstance
+    Amazonka.TNB.GetSolNetworkOperation
+    Amazonka.TNB.GetSolNetworkPackage
+    Amazonka.TNB.GetSolNetworkPackageContent
+    Amazonka.TNB.GetSolNetworkPackageDescriptor
+    Amazonka.TNB.InstantiateSolNetworkInstance
+    Amazonka.TNB.Lens
+    Amazonka.TNB.ListSolFunctionInstances
+    Amazonka.TNB.ListSolFunctionPackages
+    Amazonka.TNB.ListSolNetworkInstances
+    Amazonka.TNB.ListSolNetworkOperations
+    Amazonka.TNB.ListSolNetworkPackages
+    Amazonka.TNB.ListTagsForResource
+    Amazonka.TNB.PutSolFunctionPackageContent
+    Amazonka.TNB.PutSolNetworkPackageContent
+    Amazonka.TNB.TagResource
+    Amazonka.TNB.TerminateSolNetworkInstance
+    Amazonka.TNB.Types
+    Amazonka.TNB.Types.DescriptorContentType
+    Amazonka.TNB.Types.Document
+    Amazonka.TNB.Types.ErrorInfo
+    Amazonka.TNB.Types.FunctionArtifactMeta
+    Amazonka.TNB.Types.GetSolFunctionInstanceMetadata
+    Amazonka.TNB.Types.GetSolFunctionPackageMetadata
+    Amazonka.TNB.Types.GetSolInstantiatedVnfInfo
+    Amazonka.TNB.Types.GetSolNetworkInstanceMetadata
+    Amazonka.TNB.Types.GetSolNetworkOperationMetadata
+    Amazonka.TNB.Types.GetSolNetworkOperationTaskDetails
+    Amazonka.TNB.Types.GetSolNetworkPackageMetadata
+    Amazonka.TNB.Types.GetSolVnfcResourceInfo
+    Amazonka.TNB.Types.GetSolVnfcResourceInfoMetadata
+    Amazonka.TNB.Types.GetSolVnfInfo
+    Amazonka.TNB.Types.LcmOperationInfo
+    Amazonka.TNB.Types.LcmOperationType
+    Amazonka.TNB.Types.ListSolFunctionInstanceInfo
+    Amazonka.TNB.Types.ListSolFunctionInstanceMetadata
+    Amazonka.TNB.Types.ListSolFunctionPackageInfo
+    Amazonka.TNB.Types.ListSolFunctionPackageMetadata
+    Amazonka.TNB.Types.ListSolNetworkInstanceInfo
+    Amazonka.TNB.Types.ListSolNetworkInstanceMetadata
+    Amazonka.TNB.Types.ListSolNetworkOperationsInfo
+    Amazonka.TNB.Types.ListSolNetworkOperationsMetadata
+    Amazonka.TNB.Types.ListSolNetworkPackageInfo
+    Amazonka.TNB.Types.ListSolNetworkPackageMetadata
+    Amazonka.TNB.Types.NetworkArtifactMeta
+    Amazonka.TNB.Types.NsdOnboardingState
+    Amazonka.TNB.Types.NsdOperationalState
+    Amazonka.TNB.Types.NsdUsageState
+    Amazonka.TNB.Types.NsLcmOperationState
+    Amazonka.TNB.Types.NsState
+    Amazonka.TNB.Types.OnboardingState
+    Amazonka.TNB.Types.OperationalState
+    Amazonka.TNB.Types.PackageContentType
+    Amazonka.TNB.Types.ProblemDetails
+    Amazonka.TNB.Types.PutSolFunctionPackageContentMetadata
+    Amazonka.TNB.Types.PutSolNetworkPackageContentMetadata
+    Amazonka.TNB.Types.TaskStatus
+    Amazonka.TNB.Types.ToscaOverride
+    Amazonka.TNB.Types.UpdateSolNetworkModify
+    Amazonka.TNB.Types.UpdateSolNetworkType
+    Amazonka.TNB.Types.UsageState
+    Amazonka.TNB.Types.ValidateSolFunctionPackageContentMetadata
+    Amazonka.TNB.Types.ValidateSolNetworkPackageContentMetadata
+    Amazonka.TNB.Types.VnfInstantiationState
+    Amazonka.TNB.Types.VnfOperationalState
+    Amazonka.TNB.UntagResource
+    Amazonka.TNB.UpdateSolFunctionPackage
+    Amazonka.TNB.UpdateSolNetworkInstance
+    Amazonka.TNB.UpdateSolNetworkPackage
+    Amazonka.TNB.ValidateSolFunctionPackageContent
+    Amazonka.TNB.ValidateSolNetworkPackageContent
+    Amazonka.TNB.Waiters
+
+  build-depends:
+    , amazonka-core  >=2.0  && <2.1
+    , base           >=4.12 && <5
+
+test-suite amazonka-tnb-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.Gen.TNB
+    Test.Amazonka.TNB
+    Test.Amazonka.TNB.Internal
+
+  build-depends:
+    , amazonka-core         >=2.0 && <2.1
+    , amazonka-test         >=2.0 && <2.1
+    , amazonka-tnb
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

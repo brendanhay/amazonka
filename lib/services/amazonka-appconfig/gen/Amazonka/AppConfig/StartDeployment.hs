@@ -28,6 +28,7 @@ module Amazonka.AppConfig.StartDeployment
 
     -- * Request Lenses
     startDeployment_description,
+    startDeployment_kmsKeyIdentifier,
     startDeployment_tags,
     startDeployment_applicationId,
     startDeployment_environmentId,
@@ -56,6 +57,8 @@ module Amazonka.AppConfig.StartDeployment
     deployment_finalBakeTimeInMinutes,
     deployment_growthFactor,
     deployment_growthType,
+    deployment_kmsKeyArn,
+    deployment_kmsKeyIdentifier,
     deployment_percentageComplete,
     deployment_startedAt,
     deployment_state,
@@ -74,6 +77,9 @@ import qualified Amazonka.Response as Response
 data StartDeployment = StartDeployment'
   { -- | A description of the deployment.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses
+    -- this ID to encrypt the configuration data using a customer managed key.
+    kmsKeyIdentifier :: Prelude.Maybe Prelude.Text,
     -- | Metadata to assign to the deployment. Tags help organize and categorize
     -- your AppConfig resources. Each tag consists of a key and an optional
     -- value, both of which you define.
@@ -86,7 +92,9 @@ data StartDeployment = StartDeployment'
     deploymentStrategyId :: Prelude.Text,
     -- | The configuration profile ID.
     configurationProfileId :: Prelude.Text,
-    -- | The configuration version to deploy.
+    -- | The configuration version to deploy. If deploying an AppConfig hosted
+    -- configuration version, you can specify either the version number or
+    -- version label.
     configurationVersion :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -101,6 +109,9 @@ data StartDeployment = StartDeployment'
 --
 -- 'description', 'startDeployment_description' - A description of the deployment.
 --
+-- 'kmsKeyIdentifier', 'startDeployment_kmsKeyIdentifier' - The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses
+-- this ID to encrypt the configuration data using a customer managed key.
+--
 -- 'tags', 'startDeployment_tags' - Metadata to assign to the deployment. Tags help organize and categorize
 -- your AppConfig resources. Each tag consists of a key and an optional
 -- value, both of which you define.
@@ -113,7 +124,9 @@ data StartDeployment = StartDeployment'
 --
 -- 'configurationProfileId', 'startDeployment_configurationProfileId' - The configuration profile ID.
 --
--- 'configurationVersion', 'startDeployment_configurationVersion' - The configuration version to deploy.
+-- 'configurationVersion', 'startDeployment_configurationVersion' - The configuration version to deploy. If deploying an AppConfig hosted
+-- configuration version, you can specify either the version number or
+-- version label.
 newStartDeployment ::
   -- | 'applicationId'
   Prelude.Text ->
@@ -134,6 +147,7 @@ newStartDeployment
   pConfigurationVersion_ =
     StartDeployment'
       { description = Prelude.Nothing,
+        kmsKeyIdentifier = Prelude.Nothing,
         tags = Prelude.Nothing,
         applicationId = pApplicationId_,
         environmentId = pEnvironmentId_,
@@ -145,6 +159,11 @@ newStartDeployment
 -- | A description of the deployment.
 startDeployment_description :: Lens.Lens' StartDeployment (Prelude.Maybe Prelude.Text)
 startDeployment_description = Lens.lens (\StartDeployment' {description} -> description) (\s@StartDeployment' {} a -> s {description = a} :: StartDeployment)
+
+-- | The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses
+-- this ID to encrypt the configuration data using a customer managed key.
+startDeployment_kmsKeyIdentifier :: Lens.Lens' StartDeployment (Prelude.Maybe Prelude.Text)
+startDeployment_kmsKeyIdentifier = Lens.lens (\StartDeployment' {kmsKeyIdentifier} -> kmsKeyIdentifier) (\s@StartDeployment' {} a -> s {kmsKeyIdentifier = a} :: StartDeployment)
 
 -- | Metadata to assign to the deployment. Tags help organize and categorize
 -- your AppConfig resources. Each tag consists of a key and an optional
@@ -168,7 +187,9 @@ startDeployment_deploymentStrategyId = Lens.lens (\StartDeployment' {deploymentS
 startDeployment_configurationProfileId :: Lens.Lens' StartDeployment Prelude.Text
 startDeployment_configurationProfileId = Lens.lens (\StartDeployment' {configurationProfileId} -> configurationProfileId) (\s@StartDeployment' {} a -> s {configurationProfileId = a} :: StartDeployment)
 
--- | The configuration version to deploy.
+-- | The configuration version to deploy. If deploying an AppConfig hosted
+-- configuration version, you can specify either the version number or
+-- version label.
 startDeployment_configurationVersion :: Lens.Lens' StartDeployment Prelude.Text
 startDeployment_configurationVersion = Lens.lens (\StartDeployment' {configurationVersion} -> configurationVersion) (\s@StartDeployment' {} a -> s {configurationVersion = a} :: StartDeployment)
 
@@ -182,7 +203,9 @@ instance Core.AWSRequest StartDeployment where
 
 instance Prelude.Hashable StartDeployment where
   hashWithSalt _salt StartDeployment' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` kmsKeyIdentifier
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` environmentId
@@ -193,6 +216,7 @@ instance Prelude.Hashable StartDeployment where
 instance Prelude.NFData StartDeployment where
   rnf StartDeployment' {..} =
     Prelude.rnf description
+      `Prelude.seq` Prelude.rnf kmsKeyIdentifier
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf environmentId
@@ -216,6 +240,8 @@ instance Data.ToJSON StartDeployment where
     Data.object
       ( Prelude.catMaybes
           [ ("Description" Data..=) Prelude.<$> description,
+            ("KmsKeyIdentifier" Data..=)
+              Prelude.<$> kmsKeyIdentifier,
             ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ( "DeploymentStrategyId"

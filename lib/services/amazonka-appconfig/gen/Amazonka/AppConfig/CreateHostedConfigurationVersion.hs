@@ -29,6 +29,7 @@ module Amazonka.AppConfig.CreateHostedConfigurationVersion
     -- * Request Lenses
     createHostedConfigurationVersion_description,
     createHostedConfigurationVersion_latestVersionNumber,
+    createHostedConfigurationVersion_versionLabel,
     createHostedConfigurationVersion_applicationId,
     createHostedConfigurationVersion_configurationProfileId,
     createHostedConfigurationVersion_content,
@@ -44,6 +45,7 @@ module Amazonka.AppConfig.CreateHostedConfigurationVersion
     hostedConfigurationVersion_content,
     hostedConfigurationVersion_contentType,
     hostedConfigurationVersion_description,
+    hostedConfigurationVersion_versionLabel,
     hostedConfigurationVersion_versionNumber,
   )
 where
@@ -66,6 +68,10 @@ data CreateHostedConfigurationVersion = CreateHostedConfigurationVersion'
     -- versions in rapid succession, specify the version number of the latest
     -- hosted configuration version.
     latestVersionNumber :: Prelude.Maybe Prelude.Int,
+    -- | An optional, user-defined label for the AppConfig hosted configuration
+    -- version. This value must contain at least one non-numeric character. For
+    -- example, \"v2.2.0\".
+    versionLabel :: Prelude.Maybe Prelude.Text,
     -- | The application ID.
     applicationId :: Prelude.Text,
     -- | The configuration profile ID.
@@ -95,6 +101,10 @@ data CreateHostedConfigurationVersion = CreateHostedConfigurationVersion'
 -- versions in rapid succession, specify the version number of the latest
 -- hosted configuration version.
 --
+-- 'versionLabel', 'createHostedConfigurationVersion_versionLabel' - An optional, user-defined label for the AppConfig hosted configuration
+-- version. This value must contain at least one non-numeric character. For
+-- example, \"v2.2.0\".
+--
 -- 'applicationId', 'createHostedConfigurationVersion_applicationId' - The application ID.
 --
 -- 'configurationProfileId', 'createHostedConfigurationVersion_configurationProfileId' - The configuration profile ID.
@@ -123,6 +133,7 @@ newCreateHostedConfigurationVersion
       { description =
           Prelude.Nothing,
         latestVersionNumber = Prelude.Nothing,
+        versionLabel = Prelude.Nothing,
         applicationId = pApplicationId_,
         configurationProfileId =
           pConfigurationProfileId_,
@@ -142,6 +153,12 @@ createHostedConfigurationVersion_description = Lens.lens (\CreateHostedConfigura
 -- hosted configuration version.
 createHostedConfigurationVersion_latestVersionNumber :: Lens.Lens' CreateHostedConfigurationVersion (Prelude.Maybe Prelude.Int)
 createHostedConfigurationVersion_latestVersionNumber = Lens.lens (\CreateHostedConfigurationVersion' {latestVersionNumber} -> latestVersionNumber) (\s@CreateHostedConfigurationVersion' {} a -> s {latestVersionNumber = a} :: CreateHostedConfigurationVersion)
+
+-- | An optional, user-defined label for the AppConfig hosted configuration
+-- version. This value must contain at least one non-numeric character. For
+-- example, \"v2.2.0\".
+createHostedConfigurationVersion_versionLabel :: Lens.Lens' CreateHostedConfigurationVersion (Prelude.Maybe Prelude.Text)
+createHostedConfigurationVersion_versionLabel = Lens.lens (\CreateHostedConfigurationVersion' {versionLabel} -> versionLabel) (\s@CreateHostedConfigurationVersion' {} a -> s {versionLabel = a} :: CreateHostedConfigurationVersion)
 
 -- | The application ID.
 createHostedConfigurationVersion_applicationId :: Lens.Lens' CreateHostedConfigurationVersion Prelude.Text
@@ -179,6 +196,7 @@ instance
             Prelude.<*> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (h Data..#? "Description")
+            Prelude.<*> (h Data..#? "VersionLabel")
             Prelude.<*> (h Data..#? "Version-Number")
       )
 
@@ -189,8 +207,10 @@ instance
   hashWithSalt
     _salt
     CreateHostedConfigurationVersion' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` latestVersionNumber
+        `Prelude.hashWithSalt` versionLabel
         `Prelude.hashWithSalt` applicationId
         `Prelude.hashWithSalt` configurationProfileId
         `Prelude.hashWithSalt` content
@@ -203,6 +223,7 @@ instance
   rnf CreateHostedConfigurationVersion' {..} =
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf latestVersionNumber
+      `Prelude.seq` Prelude.rnf versionLabel
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf configurationProfileId
       `Prelude.seq` Prelude.rnf content
@@ -220,6 +241,7 @@ instance
     Prelude.mconcat
       [ "Description" Data.=# description,
         "Latest-Version-Number" Data.=# latestVersionNumber,
+        "VersionLabel" Data.=# versionLabel,
         "Content-Type" Data.=# contentType
       ]
 

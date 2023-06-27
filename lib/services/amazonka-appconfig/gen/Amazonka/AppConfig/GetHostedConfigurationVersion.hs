@@ -41,6 +41,7 @@ module Amazonka.AppConfig.GetHostedConfigurationVersion
     hostedConfigurationVersion_content,
     hostedConfigurationVersion_contentType,
     hostedConfigurationVersion_description,
+    hostedConfigurationVersion_versionLabel,
     hostedConfigurationVersion_versionNumber,
   )
 where
@@ -127,6 +128,7 @@ instance
             Prelude.<*> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (h Data..#? "Description")
+            Prelude.<*> (h Data..#? "VersionLabel")
             Prelude.<*> (h Data..#? "Version-Number")
       )
 
@@ -135,7 +137,8 @@ instance
     GetHostedConfigurationVersion
   where
   hashWithSalt _salt GetHostedConfigurationVersion' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` configurationProfileId
       `Prelude.hashWithSalt` versionNumber
 

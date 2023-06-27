@@ -38,6 +38,8 @@ data HostedConfigurationVersion = HostedConfigurationVersion'
     contentType :: Prelude.Maybe Prelude.Text,
     -- | A description of the configuration.
     description :: Prelude.Maybe Prelude.Text,
+    -- | A user-defined label for an AppConfig hosted configuration version.
+    versionLabel :: Prelude.Maybe Prelude.Text,
     -- | The configuration version.
     versionNumber :: Prelude.Maybe Prelude.Int
   }
@@ -63,6 +65,8 @@ data HostedConfigurationVersion = HostedConfigurationVersion'
 --
 -- 'description', 'hostedConfigurationVersion_description' - A description of the configuration.
 --
+-- 'versionLabel', 'hostedConfigurationVersion_versionLabel' - A user-defined label for an AppConfig hosted configuration version.
+--
 -- 'versionNumber', 'hostedConfigurationVersion_versionNumber' - The configuration version.
 newHostedConfigurationVersion ::
   HostedConfigurationVersion
@@ -74,6 +78,7 @@ newHostedConfigurationVersion =
       content = Prelude.Nothing,
       contentType = Prelude.Nothing,
       description = Prelude.Nothing,
+      versionLabel = Prelude.Nothing,
       versionNumber = Prelude.Nothing
     }
 
@@ -99,17 +104,23 @@ hostedConfigurationVersion_contentType = Lens.lens (\HostedConfigurationVersion'
 hostedConfigurationVersion_description :: Lens.Lens' HostedConfigurationVersion (Prelude.Maybe Prelude.Text)
 hostedConfigurationVersion_description = Lens.lens (\HostedConfigurationVersion' {description} -> description) (\s@HostedConfigurationVersion' {} a -> s {description = a} :: HostedConfigurationVersion)
 
+-- | A user-defined label for an AppConfig hosted configuration version.
+hostedConfigurationVersion_versionLabel :: Lens.Lens' HostedConfigurationVersion (Prelude.Maybe Prelude.Text)
+hostedConfigurationVersion_versionLabel = Lens.lens (\HostedConfigurationVersion' {versionLabel} -> versionLabel) (\s@HostedConfigurationVersion' {} a -> s {versionLabel = a} :: HostedConfigurationVersion)
+
 -- | The configuration version.
 hostedConfigurationVersion_versionNumber :: Lens.Lens' HostedConfigurationVersion (Prelude.Maybe Prelude.Int)
 hostedConfigurationVersion_versionNumber = Lens.lens (\HostedConfigurationVersion' {versionNumber} -> versionNumber) (\s@HostedConfigurationVersion' {} a -> s {versionNumber = a} :: HostedConfigurationVersion)
 
 instance Prelude.Hashable HostedConfigurationVersion where
   hashWithSalt _salt HostedConfigurationVersion' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` configurationProfileId
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` versionLabel
       `Prelude.hashWithSalt` versionNumber
 
 instance Prelude.NFData HostedConfigurationVersion where
@@ -119,4 +130,5 @@ instance Prelude.NFData HostedConfigurationVersion where
       `Prelude.seq` Prelude.rnf content
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf versionLabel
       `Prelude.seq` Prelude.rnf versionNumber

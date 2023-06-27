@@ -104,7 +104,8 @@ instance Core.AWSRequest GetExtension where
 
 instance Prelude.Hashable GetExtension where
   hashWithSalt _salt GetExtension' {..} =
-    _salt `Prelude.hashWithSalt` versionNumber
+    _salt
+      `Prelude.hashWithSalt` versionNumber
       `Prelude.hashWithSalt` extensionIdentifier
 
 instance Prelude.NFData GetExtension where

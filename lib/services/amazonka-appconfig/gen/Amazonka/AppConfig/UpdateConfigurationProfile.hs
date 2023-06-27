@@ -153,7 +153,8 @@ instance Core.AWSRequest UpdateConfigurationProfile where
 
 instance Prelude.Hashable UpdateConfigurationProfile where
   hashWithSalt _salt UpdateConfigurationProfile' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` retrievalRoleArn
       `Prelude.hashWithSalt` validators

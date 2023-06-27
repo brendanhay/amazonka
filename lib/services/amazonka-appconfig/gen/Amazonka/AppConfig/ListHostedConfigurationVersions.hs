@@ -30,6 +30,7 @@ module Amazonka.AppConfig.ListHostedConfigurationVersions
     -- * Request Lenses
     listHostedConfigurationVersions_maxResults,
     listHostedConfigurationVersions_nextToken,
+    listHostedConfigurationVersions_versionLabel,
     listHostedConfigurationVersions_applicationId,
     listHostedConfigurationVersions_configurationProfileId,
 
@@ -61,6 +62,12 @@ data ListHostedConfigurationVersions = ListHostedConfigurationVersions'
     -- | A token to start the list. Use this token to get the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An optional filter that can be used to specify the version label of an
+    -- AppConfig hosted configuration version. This parameter supports
+    -- filtering by prefix using a wildcard, for example \"v2*\". If you don\'t
+    -- specify an asterisk at the end of the value, only an exact match is
+    -- returned.
+    versionLabel :: Prelude.Maybe Prelude.Text,
     -- | The application ID.
     applicationId :: Prelude.Text,
     -- | The configuration profile ID.
@@ -83,6 +90,12 @@ data ListHostedConfigurationVersions = ListHostedConfigurationVersions'
 -- 'nextToken', 'listHostedConfigurationVersions_nextToken' - A token to start the list. Use this token to get the next set of
 -- results.
 --
+-- 'versionLabel', 'listHostedConfigurationVersions_versionLabel' - An optional filter that can be used to specify the version label of an
+-- AppConfig hosted configuration version. This parameter supports
+-- filtering by prefix using a wildcard, for example \"v2*\". If you don\'t
+-- specify an asterisk at the end of the value, only an exact match is
+-- returned.
+--
 -- 'applicationId', 'listHostedConfigurationVersions_applicationId' - The application ID.
 --
 -- 'configurationProfileId', 'listHostedConfigurationVersions_configurationProfileId' - The configuration profile ID.
@@ -99,6 +112,7 @@ newListHostedConfigurationVersions
       { maxResults =
           Prelude.Nothing,
         nextToken = Prelude.Nothing,
+        versionLabel = Prelude.Nothing,
         applicationId = pApplicationId_,
         configurationProfileId =
           pConfigurationProfileId_
@@ -114,6 +128,14 @@ listHostedConfigurationVersions_maxResults = Lens.lens (\ListHostedConfiguration
 -- results.
 listHostedConfigurationVersions_nextToken :: Lens.Lens' ListHostedConfigurationVersions (Prelude.Maybe Prelude.Text)
 listHostedConfigurationVersions_nextToken = Lens.lens (\ListHostedConfigurationVersions' {nextToken} -> nextToken) (\s@ListHostedConfigurationVersions' {} a -> s {nextToken = a} :: ListHostedConfigurationVersions)
+
+-- | An optional filter that can be used to specify the version label of an
+-- AppConfig hosted configuration version. This parameter supports
+-- filtering by prefix using a wildcard, for example \"v2*\". If you don\'t
+-- specify an asterisk at the end of the value, only an exact match is
+-- returned.
+listHostedConfigurationVersions_versionLabel :: Lens.Lens' ListHostedConfigurationVersions (Prelude.Maybe Prelude.Text)
+listHostedConfigurationVersions_versionLabel = Lens.lens (\ListHostedConfigurationVersions' {versionLabel} -> versionLabel) (\s@ListHostedConfigurationVersions' {} a -> s {versionLabel = a} :: ListHostedConfigurationVersions)
 
 -- | The application ID.
 listHostedConfigurationVersions_applicationId :: Lens.Lens' ListHostedConfigurationVersions Prelude.Text
@@ -148,8 +170,10 @@ instance
   hashWithSalt
     _salt
     ListHostedConfigurationVersions' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` versionLabel
         `Prelude.hashWithSalt` applicationId
         `Prelude.hashWithSalt` configurationProfileId
 
@@ -160,6 +184,7 @@ instance
   rnf ListHostedConfigurationVersions' {..} =
     Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf versionLabel
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf configurationProfileId
 
@@ -191,7 +216,8 @@ instance Data.ToQuery ListHostedConfigurationVersions where
   toQuery ListHostedConfigurationVersions' {..} =
     Prelude.mconcat
       [ "max_results" Data.=: maxResults,
-        "next_token" Data.=: nextToken
+        "next_token" Data.=: nextToken,
+        "version_label" Data.=: versionLabel
       ]
 
 -- | /See:/ 'newListHostedConfigurationVersionsResponse' smart constructor.

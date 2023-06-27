@@ -24,11 +24,11 @@
 -- inject logic or behavior at different points during the AppConfig
 -- workflow of creating or deploying a configuration.
 --
--- You can create your own extensions or use the Amazon Web
--- Services-authored extensions provided by AppConfig. For most use-cases,
--- to create your own extension, you must create an Lambda function to
--- perform any computation and processing defined in the extension. For
--- more information about extensions, see
+-- You can create your own extensions or use the Amazon Web Services
+-- authored extensions provided by AppConfig. For most use cases, to create
+-- your own extension, you must create an Lambda function to perform any
+-- computation and processing defined in the extension. For more
+-- information about extensions, see
 -- <https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html Working with AppConfig extensions>
 -- in the /AppConfig User Guide/.
 module Amazonka.AppConfig.CreateExtension
@@ -178,7 +178,8 @@ instance Core.AWSRequest CreateExtension where
 
 instance Prelude.Hashable CreateExtension where
   hashWithSalt _salt CreateExtension' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` latestVersionNumber
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` tags

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all custom and Amazon Web Services-authored AppConfig extensions
+-- Lists all custom and Amazon Web Services authored AppConfig extensions
 -- in the account. For more information about extensions, see
 -- <https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html Working with AppConfig extensions>
 -- in the /AppConfig User Guide/.
@@ -124,7 +124,8 @@ instance Core.AWSRequest ListExtensions where
 
 instance Prelude.Hashable ListExtensions where
   hashWithSalt _salt ListExtensions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
 
@@ -158,8 +159,8 @@ instance Data.ToQuery ListExtensions where
 
 -- | /See:/ 'newListExtensionsResponse' smart constructor.
 data ListExtensionsResponse = ListExtensionsResponse'
-  { -- | The list of available extensions. The list includes Amazon Web
-    -- Services-authored and user-created extensions.
+  { -- | The list of available extensions. The list includes Amazon Web Services
+    -- authored and user-created extensions.
     items :: Prelude.Maybe [ExtensionSummary],
     -- | The token for the next set of items to return. Use this token to get the
     -- next set of results.
@@ -177,8 +178,8 @@ data ListExtensionsResponse = ListExtensionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'items', 'listExtensionsResponse_items' - The list of available extensions. The list includes Amazon Web
--- Services-authored and user-created extensions.
+-- 'items', 'listExtensionsResponse_items' - The list of available extensions. The list includes Amazon Web Services
+-- authored and user-created extensions.
 --
 -- 'nextToken', 'listExtensionsResponse_nextToken' - The token for the next set of items to return. Use this token to get the
 -- next set of results.
@@ -195,8 +196,8 @@ newListExtensionsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The list of available extensions. The list includes Amazon Web
--- Services-authored and user-created extensions.
+-- | The list of available extensions. The list includes Amazon Web Services
+-- authored and user-created extensions.
 listExtensionsResponse_items :: Lens.Lens' ListExtensionsResponse (Prelude.Maybe [ExtensionSummary])
 listExtensionsResponse_items = Lens.lens (\ListExtensionsResponse' {items} -> items) (\s@ListExtensionsResponse' {} a -> s {items = a} :: ListExtensionsResponse) Prelude.. Lens.mapping Lens.coerced
 

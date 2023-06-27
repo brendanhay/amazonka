@@ -52,6 +52,8 @@ module Amazonka.AppConfig.GetDeployment
     deployment_finalBakeTimeInMinutes,
     deployment_growthFactor,
     deployment_growthType,
+    deployment_kmsKeyArn,
+    deployment_kmsKeyIdentifier,
     deployment_percentageComplete,
     deployment_startedAt,
     deployment_state,
@@ -130,7 +132,8 @@ instance Core.AWSRequest GetDeployment where
 
 instance Prelude.Hashable GetDeployment where
   hashWithSalt _salt GetDeployment' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` deploymentNumber
 

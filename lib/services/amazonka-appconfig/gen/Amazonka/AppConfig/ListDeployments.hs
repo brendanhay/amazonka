@@ -142,7 +142,8 @@ instance Core.AWSRequest ListDeployments where
 
 instance Prelude.Hashable ListDeployments where
   hashWithSalt _salt ListDeployments' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` environmentId

@@ -68,6 +68,15 @@ data Deployment = Deployment'
     growthFactor :: Prelude.Maybe Prelude.Double,
     -- | The algorithm used to define how percentage grew over time.
     growthType :: Prelude.Maybe GrowthType,
+    -- | The Amazon Resource Name of the Key Management Service key used to
+    -- encrypt configuration data. You can encrypt secrets stored in Secrets
+    -- Manager, Amazon Simple Storage Service (Amazon S3) objects encrypted
+    -- with SSE-KMS, or secure string parameters stored in Amazon Web Services
+    -- Systems Manager Parameter Store.
+    kmsKeyArn :: Prelude.Maybe Prelude.Text,
+    -- | The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses
+    -- this ID to encrypt the configuration data using a customer managed key.
+    kmsKeyIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The percentage of targets for which the deployment is available.
     percentageComplete :: Prelude.Maybe Prelude.Double,
     -- | The time the deployment started.
@@ -123,6 +132,15 @@ data Deployment = Deployment'
 --
 -- 'growthType', 'deployment_growthType' - The algorithm used to define how percentage grew over time.
 --
+-- 'kmsKeyArn', 'deployment_kmsKeyArn' - The Amazon Resource Name of the Key Management Service key used to
+-- encrypt configuration data. You can encrypt secrets stored in Secrets
+-- Manager, Amazon Simple Storage Service (Amazon S3) objects encrypted
+-- with SSE-KMS, or secure string parameters stored in Amazon Web Services
+-- Systems Manager Parameter Store.
+--
+-- 'kmsKeyIdentifier', 'deployment_kmsKeyIdentifier' - The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses
+-- this ID to encrypt the configuration data using a customer managed key.
+--
 -- 'percentageComplete', 'deployment_percentageComplete' - The percentage of targets for which the deployment is available.
 --
 -- 'startedAt', 'deployment_startedAt' - The time the deployment started.
@@ -148,6 +166,8 @@ newDeployment =
       finalBakeTimeInMinutes = Prelude.Nothing,
       growthFactor = Prelude.Nothing,
       growthType = Prelude.Nothing,
+      kmsKeyArn = Prelude.Nothing,
+      kmsKeyIdentifier = Prelude.Nothing,
       percentageComplete = Prelude.Nothing,
       startedAt = Prelude.Nothing,
       state = Prelude.Nothing
@@ -223,6 +243,19 @@ deployment_growthFactor = Lens.lens (\Deployment' {growthFactor} -> growthFactor
 deployment_growthType :: Lens.Lens' Deployment (Prelude.Maybe GrowthType)
 deployment_growthType = Lens.lens (\Deployment' {growthType} -> growthType) (\s@Deployment' {} a -> s {growthType = a} :: Deployment)
 
+-- | The Amazon Resource Name of the Key Management Service key used to
+-- encrypt configuration data. You can encrypt secrets stored in Secrets
+-- Manager, Amazon Simple Storage Service (Amazon S3) objects encrypted
+-- with SSE-KMS, or secure string parameters stored in Amazon Web Services
+-- Systems Manager Parameter Store.
+deployment_kmsKeyArn :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
+deployment_kmsKeyArn = Lens.lens (\Deployment' {kmsKeyArn} -> kmsKeyArn) (\s@Deployment' {} a -> s {kmsKeyArn = a} :: Deployment)
+
+-- | The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses
+-- this ID to encrypt the configuration data using a customer managed key.
+deployment_kmsKeyIdentifier :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
+deployment_kmsKeyIdentifier = Lens.lens (\Deployment' {kmsKeyIdentifier} -> kmsKeyIdentifier) (\s@Deployment' {} a -> s {kmsKeyIdentifier = a} :: Deployment)
+
 -- | The percentage of targets for which the deployment is available.
 deployment_percentageComplete :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Double)
 deployment_percentageComplete = Lens.lens (\Deployment' {percentageComplete} -> percentageComplete) (\s@Deployment' {} a -> s {percentageComplete = a} :: Deployment)
@@ -242,7 +275,8 @@ instance Data.FromJSON Deployment where
       ( \x ->
           Deployment'
             Prelude.<$> (x Data..:? "ApplicationId")
-            Prelude.<*> ( x Data..:? "AppliedExtensions"
+            Prelude.<*> ( x
+                            Data..:? "AppliedExtensions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CompletedAt")
@@ -259,6 +293,8 @@ instance Data.FromJSON Deployment where
             Prelude.<*> (x Data..:? "FinalBakeTimeInMinutes")
             Prelude.<*> (x Data..:? "GrowthFactor")
             Prelude.<*> (x Data..:? "GrowthType")
+            Prelude.<*> (x Data..:? "KmsKeyArn")
+            Prelude.<*> (x Data..:? "KmsKeyIdentifier")
             Prelude.<*> (x Data..:? "PercentageComplete")
             Prelude.<*> (x Data..:? "StartedAt")
             Prelude.<*> (x Data..:? "State")
@@ -266,7 +302,8 @@ instance Data.FromJSON Deployment where
 
 instance Prelude.Hashable Deployment where
   hashWithSalt _salt Deployment' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` appliedExtensions
       `Prelude.hashWithSalt` completedAt
       `Prelude.hashWithSalt` configurationLocationUri
@@ -282,6 +319,8 @@ instance Prelude.Hashable Deployment where
       `Prelude.hashWithSalt` finalBakeTimeInMinutes
       `Prelude.hashWithSalt` growthFactor
       `Prelude.hashWithSalt` growthType
+      `Prelude.hashWithSalt` kmsKeyArn
+      `Prelude.hashWithSalt` kmsKeyIdentifier
       `Prelude.hashWithSalt` percentageComplete
       `Prelude.hashWithSalt` startedAt
       `Prelude.hashWithSalt` state
@@ -304,6 +343,8 @@ instance Prelude.NFData Deployment where
       `Prelude.seq` Prelude.rnf finalBakeTimeInMinutes
       `Prelude.seq` Prelude.rnf growthFactor
       `Prelude.seq` Prelude.rnf growthType
+      `Prelude.seq` Prelude.rnf kmsKeyArn
+      `Prelude.seq` Prelude.rnf kmsKeyIdentifier
       `Prelude.seq` Prelude.rnf percentageComplete
       `Prelude.seq` Prelude.rnf startedAt
       `Prelude.seq` Prelude.rnf state

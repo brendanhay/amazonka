@@ -112,7 +112,8 @@ instance Core.AWSRequest ListDeploymentStrategies where
 
 instance Prelude.Hashable ListDeploymentStrategies where
   hashWithSalt _salt ListDeploymentStrategies' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDeploymentStrategies where

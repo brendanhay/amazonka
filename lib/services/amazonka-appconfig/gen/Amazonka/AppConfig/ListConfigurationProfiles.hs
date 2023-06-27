@@ -140,7 +140,8 @@ instance Core.AWSRequest ListConfigurationProfiles where
 
 instance Prelude.Hashable ListConfigurationProfiles where
   hashWithSalt _salt ListConfigurationProfiles' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` applicationId

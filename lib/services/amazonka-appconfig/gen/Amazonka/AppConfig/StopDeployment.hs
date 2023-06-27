@@ -54,6 +54,8 @@ module Amazonka.AppConfig.StopDeployment
     deployment_finalBakeTimeInMinutes,
     deployment_growthFactor,
     deployment_growthType,
+    deployment_kmsKeyArn,
+    deployment_kmsKeyIdentifier,
     deployment_percentageComplete,
     deployment_startedAt,
     deployment_state,
@@ -132,7 +134,8 @@ instance Core.AWSRequest StopDeployment where
 
 instance Prelude.Hashable StopDeployment where
   hashWithSalt _salt StopDeployment' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` deploymentNumber
 

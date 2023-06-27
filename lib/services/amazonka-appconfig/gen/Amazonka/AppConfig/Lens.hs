@@ -102,6 +102,7 @@ module Amazonka.AppConfig.Lens
     -- ** CreateHostedConfigurationVersion
     createHostedConfigurationVersion_description,
     createHostedConfigurationVersion_latestVersionNumber,
+    createHostedConfigurationVersion_versionLabel,
     createHostedConfigurationVersion_applicationId,
     createHostedConfigurationVersion_configurationProfileId,
     createHostedConfigurationVersion_content,
@@ -111,6 +112,7 @@ module Amazonka.AppConfig.Lens
     hostedConfigurationVersion_content,
     hostedConfigurationVersion_contentType,
     hostedConfigurationVersion_description,
+    hostedConfigurationVersion_versionLabel,
     hostedConfigurationVersion_versionNumber,
 
     -- ** DeleteApplication
@@ -177,6 +179,8 @@ module Amazonka.AppConfig.Lens
     deployment_finalBakeTimeInMinutes,
     deployment_growthFactor,
     deployment_growthType,
+    deployment_kmsKeyArn,
+    deployment_kmsKeyIdentifier,
     deployment_percentageComplete,
     deployment_startedAt,
     deployment_state,
@@ -231,6 +235,7 @@ module Amazonka.AppConfig.Lens
     hostedConfigurationVersion_content,
     hostedConfigurationVersion_contentType,
     hostedConfigurationVersion_description,
+    hostedConfigurationVersion_versionLabel,
     hostedConfigurationVersion_versionNumber,
 
     -- ** ListApplications
@@ -294,6 +299,7 @@ module Amazonka.AppConfig.Lens
     -- ** ListHostedConfigurationVersions
     listHostedConfigurationVersions_maxResults,
     listHostedConfigurationVersions_nextToken,
+    listHostedConfigurationVersions_versionLabel,
     listHostedConfigurationVersions_applicationId,
     listHostedConfigurationVersions_configurationProfileId,
     listHostedConfigurationVersionsResponse_items,
@@ -307,6 +313,7 @@ module Amazonka.AppConfig.Lens
 
     -- ** StartDeployment
     startDeployment_description,
+    startDeployment_kmsKeyIdentifier,
     startDeployment_tags,
     startDeployment_applicationId,
     startDeployment_environmentId,
@@ -329,6 +336,8 @@ module Amazonka.AppConfig.Lens
     deployment_finalBakeTimeInMinutes,
     deployment_growthFactor,
     deployment_growthType,
+    deployment_kmsKeyArn,
+    deployment_kmsKeyIdentifier,
     deployment_percentageComplete,
     deployment_startedAt,
     deployment_state,
@@ -353,6 +362,8 @@ module Amazonka.AppConfig.Lens
     deployment_finalBakeTimeInMinutes,
     deployment_growthFactor,
     deployment_growthType,
+    deployment_kmsKeyArn,
+    deployment_kmsKeyIdentifier,
     deployment_percentageComplete,
     deployment_startedAt,
     deployment_state,
@@ -510,6 +521,8 @@ module Amazonka.AppConfig.Lens
     deployment_finalBakeTimeInMinutes,
     deployment_growthFactor,
     deployment_growthType,
+    deployment_kmsKeyArn,
+    deployment_kmsKeyIdentifier,
     deployment_percentageComplete,
     deployment_startedAt,
     deployment_state,
@@ -587,6 +600,7 @@ module Amazonka.AppConfig.Lens
     hostedConfigurationVersion_content,
     hostedConfigurationVersion_contentType,
     hostedConfigurationVersion_description,
+    hostedConfigurationVersion_versionLabel,
     hostedConfigurationVersion_versionNumber,
 
     -- ** HostedConfigurationVersionSummary
@@ -594,6 +608,7 @@ module Amazonka.AppConfig.Lens
     hostedConfigurationVersionSummary_configurationProfileId,
     hostedConfigurationVersionSummary_contentType,
     hostedConfigurationVersionSummary_description,
+    hostedConfigurationVersionSummary_versionLabel,
     hostedConfigurationVersionSummary_versionNumber,
 
     -- ** Monitor

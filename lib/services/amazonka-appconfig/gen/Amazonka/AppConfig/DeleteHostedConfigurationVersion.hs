@@ -122,7 +122,8 @@ instance
   hashWithSalt
     _salt
     DeleteHostedConfigurationVersion' {..} =
-      _salt `Prelude.hashWithSalt` applicationId
+      _salt
+        `Prelude.hashWithSalt` applicationId
         `Prelude.hashWithSalt` configurationProfileId
         `Prelude.hashWithSalt` versionNumber
 

@@ -161,7 +161,8 @@ instance Data.FromJSON ConfigurationProfile where
 
 instance Prelude.Hashable ConfigurationProfile where
   hashWithSalt _salt ConfigurationProfile' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` locationUri

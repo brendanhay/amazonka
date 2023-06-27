@@ -24,8 +24,8 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | An action defines the tasks the extension performs during the AppConfig
--- workflow. Each action includes an action point such as
+-- | An action defines the tasks that the extension performs during the
+-- AppConfig workflow. Each action includes an action point such as
 -- @ON_CREATE_HOSTED_CONFIGURATION@, @PRE_DEPLOYMENT@, or @ON_DEPLOYMENT@.
 -- Each action also includes a name, a URI to an Lambda function, and an
 -- Amazon Resource Name (ARN) for an Identity and Access Management assume
@@ -130,7 +130,8 @@ instance Data.FromJSON Action where
 
 instance Prelude.Hashable Action where
   hashWithSalt _salt Action' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` uri

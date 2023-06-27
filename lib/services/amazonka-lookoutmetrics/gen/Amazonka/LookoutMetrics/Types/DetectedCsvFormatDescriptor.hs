@@ -116,7 +116,8 @@ instance Data.FromJSON DetectedCsvFormatDescriptor where
 
 instance Prelude.Hashable DetectedCsvFormatDescriptor where
   hashWithSalt _salt DetectedCsvFormatDescriptor' {..} =
-    _salt `Prelude.hashWithSalt` charset
+    _salt
+      `Prelude.hashWithSalt` charset
       `Prelude.hashWithSalt` containsHeader
       `Prelude.hashWithSalt` delimiter
       `Prelude.hashWithSalt` fileCompression

@@ -74,7 +74,8 @@ instance Data.FromJSON TimeSeriesFeedback where
 
 instance Prelude.Hashable TimeSeriesFeedback where
   hashWithSalt _salt TimeSeriesFeedback' {..} =
-    _salt `Prelude.hashWithSalt` isAnomaly
+    _salt
+      `Prelude.hashWithSalt` isAnomaly
       `Prelude.hashWithSalt` timeSeriesId
 
 instance Prelude.NFData TimeSeriesFeedback where

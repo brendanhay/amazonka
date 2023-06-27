@@ -90,7 +90,8 @@ instance Data.FromJSON Metric where
 
 instance Prelude.Hashable Metric where
   hashWithSalt _salt Metric' {..} =
-    _salt `Prelude.hashWithSalt` namespace
+    _salt
+      `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` aggregationFunction
 

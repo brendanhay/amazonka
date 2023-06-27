@@ -151,7 +151,8 @@ instance Core.AWSRequest ListAnomalyGroupTimeSeries where
 
 instance Prelude.Hashable ListAnomalyGroupTimeSeries where
   hashWithSalt _salt ListAnomalyGroupTimeSeries' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` anomalyDetectorArn
       `Prelude.hashWithSalt` anomalyGroupId

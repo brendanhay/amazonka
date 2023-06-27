@@ -166,7 +166,8 @@ instance Core.AWSRequest CreateAlert where
 
 instance Prelude.Hashable CreateAlert where
   hashWithSalt _salt CreateAlert' {..} =
-    _salt `Prelude.hashWithSalt` alertDescription
+    _salt
+      `Prelude.hashWithSalt` alertDescription
       `Prelude.hashWithSalt` alertFilters
       `Prelude.hashWithSalt` alertSensitivityThreshold
       `Prelude.hashWithSalt` tags

@@ -100,7 +100,8 @@ instance Core.AWSRequest GetDataQualityMetrics where
     Response.receiveJSON
       ( \s h x ->
           GetDataQualityMetricsResponse'
-            Prelude.<$> ( x Data..?> "AnomalyDetectorDataQualityMetricList"
+            Prelude.<$> ( x
+                            Data..?> "AnomalyDetectorDataQualityMetricList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -108,7 +109,8 @@ instance Core.AWSRequest GetDataQualityMetrics where
 
 instance Prelude.Hashable GetDataQualityMetrics where
   hashWithSalt _salt GetDataQualityMetrics' {..} =
-    _salt `Prelude.hashWithSalt` metricSetArn
+    _salt
+      `Prelude.hashWithSalt` metricSetArn
       `Prelude.hashWithSalt` anomalyDetectorArn
 
 instance Prelude.NFData GetDataQualityMetrics where

@@ -190,7 +190,8 @@ instance Core.AWSRequest UpdateMetricSet where
 
 instance Prelude.Hashable UpdateMetricSet where
   hashWithSalt _salt UpdateMetricSet' {..} =
-    _salt `Prelude.hashWithSalt` dimensionFilterList
+    _salt
+      `Prelude.hashWithSalt` dimensionFilterList
       `Prelude.hashWithSalt` dimensionList
       `Prelude.hashWithSalt` metricList
       `Prelude.hashWithSalt` metricSetDescription

@@ -104,7 +104,8 @@ instance Core.AWSRequest PutFeedback where
 
 instance Prelude.Hashable PutFeedback where
   hashWithSalt _salt PutFeedback' {..} =
-    _salt `Prelude.hashWithSalt` anomalyDetectorArn
+    _salt
+      `Prelude.hashWithSalt` anomalyDetectorArn
       `Prelude.hashWithSalt` anomalyGroupTimeSeriesFeedback
 
 instance Prelude.NFData PutFeedback where

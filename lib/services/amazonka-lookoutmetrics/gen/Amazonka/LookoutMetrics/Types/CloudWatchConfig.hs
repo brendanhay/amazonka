@@ -79,7 +79,8 @@ instance Data.FromJSON CloudWatchConfig where
 
 instance Prelude.Hashable CloudWatchConfig where
   hashWithSalt _salt CloudWatchConfig' {..} =
-    _salt `Prelude.hashWithSalt` backTestConfiguration
+    _salt
+      `Prelude.hashWithSalt` backTestConfiguration
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData CloudWatchConfig where

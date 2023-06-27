@@ -74,7 +74,8 @@ instance Data.FromJSON ItemizedMetricStats where
 
 instance Prelude.Hashable ItemizedMetricStats where
   hashWithSalt _salt ItemizedMetricStats' {..} =
-    _salt `Prelude.hashWithSalt` metricName
+    _salt
+      `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` occurrenceCount
 
 instance Prelude.NFData ItemizedMetricStats where

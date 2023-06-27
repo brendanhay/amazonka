@@ -114,7 +114,8 @@ instance Core.AWSRequest ListAlerts where
     Response.receiveJSON
       ( \s h x ->
           ListAlertsResponse'
-            Prelude.<$> ( x Data..?> "AlertSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "AlertSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -123,7 +124,8 @@ instance Core.AWSRequest ListAlerts where
 
 instance Prelude.Hashable ListAlerts where
   hashWithSalt _salt ListAlerts' {..} =
-    _salt `Prelude.hashWithSalt` anomalyDetectorArn
+    _salt
+      `Prelude.hashWithSalt` anomalyDetectorArn
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

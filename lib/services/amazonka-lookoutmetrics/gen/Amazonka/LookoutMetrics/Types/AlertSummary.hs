@@ -149,7 +149,8 @@ instance Data.FromJSON AlertSummary where
 
 instance Prelude.Hashable AlertSummary where
   hashWithSalt _salt AlertSummary' {..} =
-    _salt `Prelude.hashWithSalt` alertArn
+    _salt
+      `Prelude.hashWithSalt` alertArn
       `Prelude.hashWithSalt` alertName
       `Prelude.hashWithSalt` alertSensitivityThreshold
       `Prelude.hashWithSalt` alertStatus

@@ -61,7 +61,8 @@ instance Data.FromJSON ContributionMatrix where
       "ContributionMatrix"
       ( \x ->
           ContributionMatrix'
-            Prelude.<$> ( x Data..:? "DimensionContributionList"
+            Prelude.<$> ( x
+                            Data..:? "DimensionContributionList"
                             Data..!= Prelude.mempty
                         )
       )

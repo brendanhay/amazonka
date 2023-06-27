@@ -69,7 +69,18 @@
             pkgs.haskell-language-server
             pkgs.hlint
             pkgs.nixpkgs-fmt
-            pkgs.ormolu
+
+            # This is regrettable (long build times), but ormolu
+            # 0.5.0.1 generates really ugly pyramids of `Prelude.seq`
+            # or `Prelude.hashWithSalt` applications when generating code.
+            #
+            # When this assertion fails, check if pkgs.ormolu is newer
+            # than 0.7.0.0 and see if we can switch back to it.
+            (
+              assert (pkgs.ormolu.version == "0.5.0.1");
+              pkgs.haskell.packages.ghc96.ormolu_0_7_0_0
+            )
+
             pkgs.parallel
           ];
 

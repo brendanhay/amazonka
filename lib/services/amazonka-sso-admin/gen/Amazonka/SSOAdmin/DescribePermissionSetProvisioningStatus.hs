@@ -119,7 +119,7 @@ instance
       ( \s h x ->
           DescribePermissionSetProvisioningStatusResponse'
             Prelude.<$> (x Data..?> "PermissionSetProvisioningStatus")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -129,7 +129,8 @@ instance
   hashWithSalt
     _salt
     DescribePermissionSetProvisioningStatus' {..} =
-      _salt `Prelude.hashWithSalt` instanceArn
+      _salt
+        `Prelude.hashWithSalt` instanceArn
         `Prelude.hashWithSalt` provisionPermissionSetRequestId
 
 instance

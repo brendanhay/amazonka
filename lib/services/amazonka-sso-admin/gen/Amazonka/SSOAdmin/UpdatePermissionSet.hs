@@ -149,7 +149,8 @@ instance Core.AWSRequest UpdatePermissionSet where
 
 instance Prelude.Hashable UpdatePermissionSet where
   hashWithSalt _salt UpdatePermissionSet' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` relayState
       `Prelude.hashWithSalt` sessionDuration
       `Prelude.hashWithSalt` instanceArn

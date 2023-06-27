@@ -142,7 +142,8 @@ instance Core.AWSRequest ProvisionPermissionSet where
 
 instance Prelude.Hashable ProvisionPermissionSet where
   hashWithSalt _salt ProvisionPermissionSet' {..} =
-    _salt `Prelude.hashWithSalt` targetId
+    _salt
+      `Prelude.hashWithSalt` targetId
       `Prelude.hashWithSalt` instanceArn
       `Prelude.hashWithSalt` permissionSetArn
       `Prelude.hashWithSalt` targetType

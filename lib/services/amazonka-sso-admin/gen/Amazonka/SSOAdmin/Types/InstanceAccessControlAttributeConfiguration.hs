@@ -68,7 +68,8 @@ instance
       "InstanceAccessControlAttributeConfiguration"
       ( \x ->
           InstanceAccessControlAttributeConfiguration'
-            Prelude.<$> ( x Data..:? "AccessControlAttributes"
+            Prelude.<$> ( x
+                            Data..:? "AccessControlAttributes"
                             Data..!= Prelude.mempty
                         )
       )

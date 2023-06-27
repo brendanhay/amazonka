@@ -184,7 +184,8 @@ instance
   hashWithSalt
     _salt
     AccountAssignmentOperationStatus' {..} =
-      _salt `Prelude.hashWithSalt` createdDate
+      _salt
+        `Prelude.hashWithSalt` createdDate
         `Prelude.hashWithSalt` failureReason
         `Prelude.hashWithSalt` permissionSetArn
         `Prelude.hashWithSalt` principalId

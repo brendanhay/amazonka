@@ -24,7 +24,7 @@
 -- instance.
 --
 -- To grant users and groups access to AWS account resources, use
--- @ CreateAccountAssignment @.
+-- @ @@CreateAccountAssignment@@ @.
 module Amazonka.SSOAdmin.CreatePermissionSet
   ( -- * Creating a Request
     CreatePermissionSet (..),
@@ -163,7 +163,8 @@ instance Core.AWSRequest CreatePermissionSet where
 
 instance Prelude.Hashable CreatePermissionSet where
   hashWithSalt _salt CreatePermissionSet' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` relayState
       `Prelude.hashWithSalt` sessionDuration
       `Prelude.hashWithSalt` tags

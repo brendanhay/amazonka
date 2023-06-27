@@ -136,7 +136,8 @@ instance
   hashWithSalt
     _salt
     DetachManagedPolicyFromPermissionSet' {..} =
-      _salt `Prelude.hashWithSalt` instanceArn
+      _salt
+        `Prelude.hashWithSalt` instanceArn
         `Prelude.hashWithSalt` permissionSetArn
         `Prelude.hashWithSalt` managedPolicyArn
 

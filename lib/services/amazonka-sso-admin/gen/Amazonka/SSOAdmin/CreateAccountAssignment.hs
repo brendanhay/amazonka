@@ -32,7 +32,7 @@
 -- in IAM Identity Center. If the permission set is subsequently updated,
 -- the corresponding IAM policies attached to roles in your accounts will
 -- not be updated automatically. In this case, you must call
--- @ ProvisionPermissionSet @ to make these updates.
+-- @ @@ProvisionPermissionSet@@ @ to make these updates.
 --
 -- After a successful response, call
 -- @DescribeAccountAssignmentCreationStatus@ to describe the status of an
@@ -202,7 +202,8 @@ instance Core.AWSRequest CreateAccountAssignment where
 
 instance Prelude.Hashable CreateAccountAssignment where
   hashWithSalt _salt CreateAccountAssignment' {..} =
-    _salt `Prelude.hashWithSalt` instanceArn
+    _salt
+      `Prelude.hashWithSalt` instanceArn
       `Prelude.hashWithSalt` targetId
       `Prelude.hashWithSalt` targetType
       `Prelude.hashWithSalt` permissionSetArn

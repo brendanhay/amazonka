@@ -126,7 +126,8 @@ instance Core.AWSRequest UntagResource where
 
 instance Prelude.Hashable UntagResource where
   hashWithSalt _salt UntagResource' {..} =
-    _salt `Prelude.hashWithSalt` instanceArn
+    _salt
+      `Prelude.hashWithSalt` instanceArn
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tagKeys
 

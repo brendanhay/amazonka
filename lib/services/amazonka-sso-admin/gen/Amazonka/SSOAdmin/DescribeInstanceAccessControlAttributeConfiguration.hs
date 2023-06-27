@@ -106,9 +106,9 @@ instance
             Prelude.<$> ( x
                             Data..?> "InstanceAccessControlAttributeConfiguration"
                         )
-              Prelude.<*> (x Data..?> "Status")
-              Prelude.<*> (x Data..?> "StatusReason")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "StatusReason")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

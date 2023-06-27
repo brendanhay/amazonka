@@ -127,7 +127,8 @@ instance
   hashWithSalt
     _salt
     UpdateInstanceAccessControlAttributeConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` instanceArn
+      _salt
+        `Prelude.hashWithSalt` instanceArn
         `Prelude.hashWithSalt` instanceAccessControlAttributeConfiguration
 
 instance

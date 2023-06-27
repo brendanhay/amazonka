@@ -119,7 +119,8 @@ instance Core.AWSRequest DescribeChannelMembership where
 
 instance Prelude.Hashable DescribeChannelMembership where
   hashWithSalt _salt DescribeChannelMembership' {..} =
-    _salt `Prelude.hashWithSalt` chimeBearer
+    _salt
+      `Prelude.hashWithSalt` chimeBearer
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` memberArn
 

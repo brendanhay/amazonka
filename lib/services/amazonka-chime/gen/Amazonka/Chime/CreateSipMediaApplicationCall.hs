@@ -144,7 +144,8 @@ instance
     CreateSipMediaApplicationCall
   where
   hashWithSalt _salt CreateSipMediaApplicationCall' {..} =
-    _salt `Prelude.hashWithSalt` sipHeaders
+    _salt
+      `Prelude.hashWithSalt` sipHeaders
       `Prelude.hashWithSalt` fromPhoneNumber
       `Prelude.hashWithSalt` toPhoneNumber
       `Prelude.hashWithSalt` sipMediaApplicationId

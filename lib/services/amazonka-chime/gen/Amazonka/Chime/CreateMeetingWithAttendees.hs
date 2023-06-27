@@ -22,11 +22,11 @@
 --
 -- Creates a new Amazon Chime SDK meeting in the specified media Region,
 -- with attendees. For more information about specifying media Regions, see
--- <https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html Amazon Chime SDK Media Regions>
--- in the /Amazon Chime Developer Guide/ . For more information about the
--- Amazon Chime SDK, see
--- <https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html Using the Amazon Chime SDK>
--- in the /Amazon Chime Developer Guide/ .
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html Amazon Chime SDK Media Regions>
+-- in the /Amazon Chime SDK Developer Guide/ . For more information about
+-- the Amazon Chime SDK, see
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html Using the Amazon Chime SDK>
+-- in the /Amazon Chime SDK Developer Guide/ .
 module Amazonka.Chime.CreateMeetingWithAttendees
   ( -- * Creating a Request
     CreateMeetingWithAttendees (..),
@@ -77,6 +77,10 @@ data CreateMeetingWithAttendees = CreateMeetingWithAttendees'
     mediaRegion :: Prelude.Maybe Prelude.Text,
     -- | Reserved.
     meetingHostId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The resource target configurations for receiving Amazon Chime SDK
+    -- meeting and attendee event notifications. The Amazon Chime SDK supports
+    -- resource targets located in the US East (N. Virginia) AWS Region
+    -- (us-east-1).
     notificationsConfiguration :: Prelude.Maybe MeetingNotificationConfiguration,
     -- | The tag key-value pairs.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
@@ -108,7 +112,10 @@ data CreateMeetingWithAttendees = CreateMeetingWithAttendees'
 --
 -- 'meetingHostId', 'createMeetingWithAttendees_meetingHostId' - Reserved.
 --
--- 'notificationsConfiguration', 'createMeetingWithAttendees_notificationsConfiguration' - Undocumented member.
+-- 'notificationsConfiguration', 'createMeetingWithAttendees_notificationsConfiguration' - The resource target configurations for receiving Amazon Chime SDK
+-- meeting and attendee event notifications. The Amazon Chime SDK supports
+-- resource targets located in the US East (N. Virginia) AWS Region
+-- (us-east-1).
 --
 -- 'tags', 'createMeetingWithAttendees_tags' - The tag key-value pairs.
 --
@@ -153,7 +160,10 @@ createMeetingWithAttendees_mediaRegion = Lens.lens (\CreateMeetingWithAttendees'
 createMeetingWithAttendees_meetingHostId :: Lens.Lens' CreateMeetingWithAttendees (Prelude.Maybe Prelude.Text)
 createMeetingWithAttendees_meetingHostId = Lens.lens (\CreateMeetingWithAttendees' {meetingHostId} -> meetingHostId) (\s@CreateMeetingWithAttendees' {} a -> s {meetingHostId = a} :: CreateMeetingWithAttendees) Prelude.. Lens.mapping Data._Sensitive
 
--- | Undocumented member.
+-- | The resource target configurations for receiving Amazon Chime SDK
+-- meeting and attendee event notifications. The Amazon Chime SDK supports
+-- resource targets located in the US East (N. Virginia) AWS Region
+-- (us-east-1).
 createMeetingWithAttendees_notificationsConfiguration :: Lens.Lens' CreateMeetingWithAttendees (Prelude.Maybe MeetingNotificationConfiguration)
 createMeetingWithAttendees_notificationsConfiguration = Lens.lens (\CreateMeetingWithAttendees' {notificationsConfiguration} -> notificationsConfiguration) (\s@CreateMeetingWithAttendees' {} a -> s {notificationsConfiguration = a} :: CreateMeetingWithAttendees)
 
@@ -184,7 +194,8 @@ instance Core.AWSRequest CreateMeetingWithAttendees where
 
 instance Prelude.Hashable CreateMeetingWithAttendees where
   hashWithSalt _salt CreateMeetingWithAttendees' {..} =
-    _salt `Prelude.hashWithSalt` attendees
+    _salt
+      `Prelude.hashWithSalt` attendees
       `Prelude.hashWithSalt` externalMeetingId
       `Prelude.hashWithSalt` mediaRegion
       `Prelude.hashWithSalt` meetingHostId
@@ -238,6 +249,7 @@ data CreateMeetingWithAttendeesResponse = CreateMeetingWithAttendeesResponse'
     -- list of the attendees is returned, along with error codes and error
     -- messages.
     errors :: Prelude.Maybe [CreateAttendeeError],
+    -- | A meeting created using the Amazon Chime SDK.
     meeting :: Prelude.Maybe Meeting,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -258,7 +270,7 @@ data CreateMeetingWithAttendeesResponse = CreateMeetingWithAttendeesResponse'
 -- list of the attendees is returned, along with error codes and error
 -- messages.
 --
--- 'meeting', 'createMeetingWithAttendeesResponse_meeting' - Undocumented member.
+-- 'meeting', 'createMeetingWithAttendeesResponse_meeting' - A meeting created using the Amazon Chime SDK.
 --
 -- 'httpStatus', 'createMeetingWithAttendeesResponse_httpStatus' - The response's http status code.
 newCreateMeetingWithAttendeesResponse ::
@@ -284,7 +296,7 @@ createMeetingWithAttendeesResponse_attendees = Lens.lens (\CreateMeetingWithAtte
 createMeetingWithAttendeesResponse_errors :: Lens.Lens' CreateMeetingWithAttendeesResponse (Prelude.Maybe [CreateAttendeeError])
 createMeetingWithAttendeesResponse_errors = Lens.lens (\CreateMeetingWithAttendeesResponse' {errors} -> errors) (\s@CreateMeetingWithAttendeesResponse' {} a -> s {errors = a} :: CreateMeetingWithAttendeesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | A meeting created using the Amazon Chime SDK.
 createMeetingWithAttendeesResponse_meeting :: Lens.Lens' CreateMeetingWithAttendeesResponse (Prelude.Maybe Meeting)
 createMeetingWithAttendeesResponse_meeting = Lens.lens (\CreateMeetingWithAttendeesResponse' {meeting} -> meeting) (\s@CreateMeetingWithAttendeesResponse' {} a -> s {meeting = a} :: CreateMeetingWithAttendeesResponse)
 

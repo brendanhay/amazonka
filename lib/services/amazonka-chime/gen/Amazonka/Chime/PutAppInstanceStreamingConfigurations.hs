@@ -108,7 +108,7 @@ instance
       ( \s h x ->
           PutAppInstanceStreamingConfigurationsResponse'
             Prelude.<$> (x Data..?> "AppInstanceStreamingConfigurations")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -118,7 +118,8 @@ instance
   hashWithSalt
     _salt
     PutAppInstanceStreamingConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` appInstanceArn
+      _salt
+        `Prelude.hashWithSalt` appInstanceArn
         `Prelude.hashWithSalt` appInstanceStreamingConfigurations
 
 instance

@@ -121,7 +121,8 @@ instance Core.AWSRequest DescribeChannelModerator where
 
 instance Prelude.Hashable DescribeChannelModerator where
   hashWithSalt _salt DescribeChannelModerator' {..} =
-    _salt `Prelude.hashWithSalt` chimeBearer
+    _salt
+      `Prelude.hashWithSalt` chimeBearer
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` channelModeratorArn
 

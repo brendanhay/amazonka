@@ -87,7 +87,8 @@ instance Data.FromJSON UserError where
 
 instance Prelude.Hashable UserError where
   hashWithSalt _salt UserError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` userId
 

@@ -127,7 +127,8 @@ instance Core.AWSRequest PutEventsConfiguration where
 
 instance Prelude.Hashable PutEventsConfiguration where
   hashWithSalt _salt PutEventsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` lambdaFunctionArn
+    _salt
+      `Prelude.hashWithSalt` lambdaFunctionArn
       `Prelude.hashWithSalt` outboundEventsHTTPSEndpoint
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` botId
@@ -168,7 +169,9 @@ instance Data.ToQuery PutEventsConfiguration where
 
 -- | /See:/ 'newPutEventsConfigurationResponse' smart constructor.
 data PutEventsConfigurationResponse = PutEventsConfigurationResponse'
-  { eventsConfiguration :: Prelude.Maybe EventsConfiguration,
+  { -- | The configuration that allows a bot to receive outgoing events. Can be
+    -- an HTTPS endpoint or an AWS Lambda function ARN.
+    eventsConfiguration :: Prelude.Maybe EventsConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,7 +185,8 @@ data PutEventsConfigurationResponse = PutEventsConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventsConfiguration', 'putEventsConfigurationResponse_eventsConfiguration' - Undocumented member.
+-- 'eventsConfiguration', 'putEventsConfigurationResponse_eventsConfiguration' - The configuration that allows a bot to receive outgoing events. Can be
+-- an HTTPS endpoint or an AWS Lambda function ARN.
 --
 -- 'httpStatus', 'putEventsConfigurationResponse_httpStatus' - The response's http status code.
 newPutEventsConfigurationResponse ::
@@ -196,7 +200,8 @@ newPutEventsConfigurationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The configuration that allows a bot to receive outgoing events. Can be
+-- an HTTPS endpoint or an AWS Lambda function ARN.
 putEventsConfigurationResponse_eventsConfiguration :: Lens.Lens' PutEventsConfigurationResponse (Prelude.Maybe EventsConfiguration)
 putEventsConfigurationResponse_eventsConfiguration = Lens.lens (\PutEventsConfigurationResponse' {eventsConfiguration} -> eventsConfiguration) (\s@PutEventsConfigurationResponse' {} a -> s {eventsConfiguration = a} :: PutEventsConfigurationResponse)
 

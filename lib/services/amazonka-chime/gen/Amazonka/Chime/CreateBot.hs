@@ -112,7 +112,8 @@ instance Core.AWSRequest CreateBot where
 
 instance Prelude.Hashable CreateBot where
   hashWithSalt _salt CreateBot' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` accountId
 

@@ -95,7 +95,8 @@ instance Data.FromJSON ChannelBan where
 
 instance Prelude.Hashable ChannelBan where
   hashWithSalt _salt ChannelBan' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` member

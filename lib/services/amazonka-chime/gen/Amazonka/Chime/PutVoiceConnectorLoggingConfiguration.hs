@@ -109,7 +109,7 @@ instance
       ( \s h x ->
           PutVoiceConnectorLoggingConfigurationResponse'
             Prelude.<$> (x Data..?> "LoggingConfiguration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -119,7 +119,8 @@ instance
   hashWithSalt
     _salt
     PutVoiceConnectorLoggingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` voiceConnectorId
+      _salt
+        `Prelude.hashWithSalt` voiceConnectorId
         `Prelude.hashWithSalt` loggingConfiguration
 
 instance

@@ -108,7 +108,8 @@ instance Core.AWSRequest GetProxySession where
 
 instance Prelude.Hashable GetProxySession where
   hashWithSalt _salt GetProxySession' {..} =
-    _salt `Prelude.hashWithSalt` voiceConnectorId
+    _salt
+      `Prelude.hashWithSalt` voiceConnectorId
       `Prelude.hashWithSalt` proxySessionId
 
 instance Prelude.NFData GetProxySession where

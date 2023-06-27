@@ -166,7 +166,8 @@ instance Core.AWSRequest CreateChannelMembership where
 
 instance Prelude.Hashable CreateChannelMembership where
   hashWithSalt _salt CreateChannelMembership' {..} =
-    _salt `Prelude.hashWithSalt` chimeBearer
+    _salt
+      `Prelude.hashWithSalt` chimeBearer
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` memberArn
       `Prelude.hashWithSalt` type'

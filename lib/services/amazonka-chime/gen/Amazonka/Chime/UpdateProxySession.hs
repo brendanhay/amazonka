@@ -128,7 +128,8 @@ instance Core.AWSRequest UpdateProxySession where
 
 instance Prelude.Hashable UpdateProxySession where
   hashWithSalt _salt UpdateProxySession' {..} =
-    _salt `Prelude.hashWithSalt` expiryMinutes
+    _salt
+      `Prelude.hashWithSalt` expiryMinutes
       `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` voiceConnectorId
       `Prelude.hashWithSalt` proxySessionId

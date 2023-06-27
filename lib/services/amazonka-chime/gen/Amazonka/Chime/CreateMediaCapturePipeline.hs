@@ -57,7 +57,9 @@ data CreateMediaCapturePipeline = CreateMediaCapturePipeline'
   { -- | The configuration for a specified media capture pipeline. @SourceType@
     -- must be @ChimeSdkMeeting@.
     chimeSdkMeetingConfiguration :: Prelude.Maybe ChimeSdkMeetingConfiguration,
-    -- | The token assigned to the client making the pipeline request.
+    -- | The unique identifier for the client request. The token makes the API
+    -- request idempotent. Use a different token for different media pipeline
+    -- requests.
     clientRequestToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Source type from which the media artifacts will be captured. A Chime SDK
     -- Meeting is the only supported source.
@@ -83,7 +85,9 @@ data CreateMediaCapturePipeline = CreateMediaCapturePipeline'
 -- 'chimeSdkMeetingConfiguration', 'createMediaCapturePipeline_chimeSdkMeetingConfiguration' - The configuration for a specified media capture pipeline. @SourceType@
 -- must be @ChimeSdkMeeting@.
 --
--- 'clientRequestToken', 'createMediaCapturePipeline_clientRequestToken' - The token assigned to the client making the pipeline request.
+-- 'clientRequestToken', 'createMediaCapturePipeline_clientRequestToken' - The unique identifier for the client request. The token makes the API
+-- request idempotent. Use a different token for different media pipeline
+-- requests.
 --
 -- 'sourceType', 'createMediaCapturePipeline_sourceType' - Source type from which the media artifacts will be captured. A Chime SDK
 -- Meeting is the only supported source.
@@ -124,7 +128,9 @@ newCreateMediaCapturePipeline
 createMediaCapturePipeline_chimeSdkMeetingConfiguration :: Lens.Lens' CreateMediaCapturePipeline (Prelude.Maybe ChimeSdkMeetingConfiguration)
 createMediaCapturePipeline_chimeSdkMeetingConfiguration = Lens.lens (\CreateMediaCapturePipeline' {chimeSdkMeetingConfiguration} -> chimeSdkMeetingConfiguration) (\s@CreateMediaCapturePipeline' {} a -> s {chimeSdkMeetingConfiguration = a} :: CreateMediaCapturePipeline)
 
--- | The token assigned to the client making the pipeline request.
+-- | The unique identifier for the client request. The token makes the API
+-- request idempotent. Use a different token for different media pipeline
+-- requests.
 createMediaCapturePipeline_clientRequestToken :: Lens.Lens' CreateMediaCapturePipeline (Prelude.Maybe Prelude.Text)
 createMediaCapturePipeline_clientRequestToken = Lens.lens (\CreateMediaCapturePipeline' {clientRequestToken} -> clientRequestToken) (\s@CreateMediaCapturePipeline' {} a -> s {clientRequestToken = a} :: CreateMediaCapturePipeline) Prelude.. Lens.mapping Data._Sensitive
 

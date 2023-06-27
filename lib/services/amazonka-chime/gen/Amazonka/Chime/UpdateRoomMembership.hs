@@ -132,7 +132,8 @@ instance Core.AWSRequest UpdateRoomMembership where
 
 instance Prelude.Hashable UpdateRoomMembership where
   hashWithSalt _salt UpdateRoomMembership' {..} =
-    _salt `Prelude.hashWithSalt` role'
+    _salt
+      `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` roomId
       `Prelude.hashWithSalt` memberId

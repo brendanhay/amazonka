@@ -167,7 +167,8 @@ instance Data.FromJSON ChannelMessage where
 
 instance Prelude.Hashable ChannelMessage where
   hashWithSalt _salt ChannelMessage' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` lastEditedTimestamp

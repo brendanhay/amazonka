@@ -129,11 +129,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListChannelMembershipsForAppInstanceUserResponse'
-            Prelude.<$> ( x Data..?> "ChannelMemberships"
+            Prelude.<$> ( x
+                            Data..?> "ChannelMemberships"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -143,7 +144,8 @@ instance
   hashWithSalt
     _salt
     ListChannelMembershipsForAppInstanceUser' {..} =
-      _salt `Prelude.hashWithSalt` appInstanceUserArn
+      _salt
+        `Prelude.hashWithSalt` appInstanceUserArn
         `Prelude.hashWithSalt` chimeBearer
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
@@ -187,8 +189,7 @@ instance
 
 -- | /See:/ 'newListChannelMembershipsForAppInstanceUserResponse' smart constructor.
 data ListChannelMembershipsForAppInstanceUserResponse = ListChannelMembershipsForAppInstanceUserResponse'
-  { -- | The token passed by previous API calls until all requested users are
-    -- returned.
+  { -- | The information for the requested channel memberships.
     channelMemberships :: Prelude.Maybe [ChannelMembershipForAppInstanceUserSummary],
     -- | The token passed by previous API calls until all requested users are
     -- returned.
@@ -206,8 +207,7 @@ data ListChannelMembershipsForAppInstanceUserResponse = ListChannelMembershipsFo
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelMemberships', 'listChannelMembershipsForAppInstanceUserResponse_channelMemberships' - The token passed by previous API calls until all requested users are
--- returned.
+-- 'channelMemberships', 'listChannelMembershipsForAppInstanceUserResponse_channelMemberships' - The information for the requested channel memberships.
 --
 -- 'nextToken', 'listChannelMembershipsForAppInstanceUserResponse_nextToken' - The token passed by previous API calls until all requested users are
 -- returned.
@@ -227,8 +227,7 @@ newListChannelMembershipsForAppInstanceUserResponse
         httpStatus = pHttpStatus_
       }
 
--- | The token passed by previous API calls until all requested users are
--- returned.
+-- | The information for the requested channel memberships.
 listChannelMembershipsForAppInstanceUserResponse_channelMemberships :: Lens.Lens' ListChannelMembershipsForAppInstanceUserResponse (Prelude.Maybe [ChannelMembershipForAppInstanceUserSummary])
 listChannelMembershipsForAppInstanceUserResponse_channelMemberships = Lens.lens (\ListChannelMembershipsForAppInstanceUserResponse' {channelMemberships} -> channelMemberships) (\s@ListChannelMembershipsForAppInstanceUserResponse' {} a -> s {channelMemberships = a} :: ListChannelMembershipsForAppInstanceUserResponse) Prelude.. Lens.mapping Lens.coerced
 

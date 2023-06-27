@@ -22,8 +22,8 @@
 --
 -- Creates up to 100 new attendees for an active Amazon Chime SDK meeting.
 -- For more information about the Amazon Chime SDK, see
--- <https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html Using the Amazon Chime SDK>
--- in the /Amazon Chime Developer Guide/.
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html Using the Amazon Chime SDK>
+-- in the /Amazon Chime SDK Developer Guide/.
 module Amazonka.Chime.BatchCreateAttendee
   ( -- * Creating a Request
     BatchCreateAttendee (..),
@@ -107,7 +107,8 @@ instance Core.AWSRequest BatchCreateAttendee where
 
 instance Prelude.Hashable BatchCreateAttendee where
   hashWithSalt _salt BatchCreateAttendee' {..} =
-    _salt `Prelude.hashWithSalt` meetingId
+    _salt
+      `Prelude.hashWithSalt` meetingId
       `Prelude.hashWithSalt` attendees
 
 instance Prelude.NFData BatchCreateAttendee where

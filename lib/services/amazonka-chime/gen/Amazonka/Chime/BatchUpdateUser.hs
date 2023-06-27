@@ -104,7 +104,8 @@ instance Core.AWSRequest BatchUpdateUser where
 
 instance Prelude.Hashable BatchUpdateUser where
   hashWithSalt _salt BatchUpdateUser' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` updateUserRequestItems
 
 instance Prelude.NFData BatchUpdateUser where

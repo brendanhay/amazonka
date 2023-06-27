@@ -73,7 +73,8 @@ instance
   hashWithSalt
     _salt
     MeetingNotificationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` snsTopicArn
+      _salt
+        `Prelude.hashWithSalt` snsTopicArn
         `Prelude.hashWithSalt` sqsQueueArn
 
 instance

@@ -22,8 +22,8 @@
 --
 -- Lists up to 100 active Amazon Chime SDK meetings. For more information
 -- about the Amazon Chime SDK, see
--- <https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html Using the Amazon Chime SDK>
--- in the /Amazon Chime Developer Guide/.
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html Using the Amazon Chime SDK>
+-- in the /Amazon Chime SDK Developer Guide/.
 module Amazonka.Chime.ListMeetings
   ( -- * Creating a Request
     ListMeetings (..),
@@ -103,7 +103,8 @@ instance Core.AWSRequest ListMeetings where
 
 instance Prelude.Hashable ListMeetings where
   hashWithSalt _salt ListMeetings' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListMeetings where

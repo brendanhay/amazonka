@@ -113,7 +113,8 @@ instance Core.AWSRequest UpdateSipMediaApplication where
 
 instance Prelude.Hashable UpdateSipMediaApplication where
   hashWithSalt _salt UpdateSipMediaApplication' {..} =
-    _salt `Prelude.hashWithSalt` endpoints
+    _salt
+      `Prelude.hashWithSalt` endpoints
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sipMediaApplicationId
 

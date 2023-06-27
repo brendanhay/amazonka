@@ -89,7 +89,8 @@ instance Data.FromJSON AccountSettings where
 
 instance Prelude.Hashable AccountSettings where
   hashWithSalt _salt AccountSettings' {..} =
-    _salt `Prelude.hashWithSalt` disableRemoteControl
+    _salt
+      `Prelude.hashWithSalt` disableRemoteControl
       `Prelude.hashWithSalt` enableDialOut
 
 instance Prelude.NFData AccountSettings where

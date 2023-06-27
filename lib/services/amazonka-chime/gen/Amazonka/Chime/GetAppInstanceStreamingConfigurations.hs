@@ -93,7 +93,7 @@ instance
       ( \s h x ->
           GetAppInstanceStreamingConfigurationsResponse'
             Prelude.<$> (x Data..?> "AppInstanceStreamingConfigurations")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

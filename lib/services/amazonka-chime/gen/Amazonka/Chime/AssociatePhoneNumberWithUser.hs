@@ -122,7 +122,8 @@ instance
     AssociatePhoneNumberWithUser
   where
   hashWithSalt _salt AssociatePhoneNumberWithUser' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` e164PhoneNumber
 

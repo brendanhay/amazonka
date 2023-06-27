@@ -110,7 +110,8 @@ instance
   hashWithSalt
     _salt
     DeleteVoiceConnectorTerminationCredentials' {..} =
-      _salt `Prelude.hashWithSalt` usernames
+      _salt
+        `Prelude.hashWithSalt` usernames
         `Prelude.hashWithSalt` voiceConnectorId
 
 instance

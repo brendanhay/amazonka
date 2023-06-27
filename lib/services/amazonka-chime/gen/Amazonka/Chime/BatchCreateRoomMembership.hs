@@ -117,7 +117,8 @@ instance Core.AWSRequest BatchCreateRoomMembership where
 
 instance Prelude.Hashable BatchCreateRoomMembership where
   hashWithSalt _salt BatchCreateRoomMembership' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` roomId
       `Prelude.hashWithSalt` membershipItemList
 

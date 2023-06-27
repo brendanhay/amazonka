@@ -117,7 +117,8 @@ instance Data.FromJSON PhoneNumberCapabilities where
 
 instance Prelude.Hashable PhoneNumberCapabilities where
   hashWithSalt _salt PhoneNumberCapabilities' {..} =
-    _salt `Prelude.hashWithSalt` inboundCall
+    _salt
+      `Prelude.hashWithSalt` inboundCall
       `Prelude.hashWithSalt` inboundMMS
       `Prelude.hashWithSalt` inboundSMS
       `Prelude.hashWithSalt` outboundCall

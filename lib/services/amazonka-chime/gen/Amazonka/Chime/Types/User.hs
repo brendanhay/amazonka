@@ -194,7 +194,8 @@ instance Data.FromJSON User where
 
 instance Prelude.Hashable User where
   hashWithSalt _salt User' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` alexaForBusinessMetadata
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` invitedOn

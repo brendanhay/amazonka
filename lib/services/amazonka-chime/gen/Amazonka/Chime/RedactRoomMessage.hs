@@ -114,7 +114,8 @@ instance Core.AWSRequest RedactRoomMessage where
 
 instance Prelude.Hashable RedactRoomMessage where
   hashWithSalt _salt RedactRoomMessage' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` roomId
       `Prelude.hashWithSalt` messageId
 

@@ -97,7 +97,8 @@ instance Data.FromJSON Invite where
 
 instance Prelude.Hashable Invite where
   hashWithSalt _salt Invite' {..} =
-    _salt `Prelude.hashWithSalt` emailAddress
+    _salt
+      `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` emailStatus
       `Prelude.hashWithSalt` inviteId
       `Prelude.hashWithSalt` status

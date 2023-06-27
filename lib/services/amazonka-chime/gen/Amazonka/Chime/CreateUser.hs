@@ -120,7 +120,8 @@ instance Core.AWSRequest CreateUser where
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
-    _salt `Prelude.hashWithSalt` email
+    _salt
+      `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` userType
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` accountId
@@ -157,7 +158,8 @@ instance Data.ToQuery CreateUser where
 
 -- | /See:/ 'newCreateUserResponse' smart constructor.
 data CreateUserResponse = CreateUserResponse'
-  { user :: Prelude.Maybe User,
+  { -- | The user on the Amazon Chime account.
+    user :: Prelude.Maybe User,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,7 +173,7 @@ data CreateUserResponse = CreateUserResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'user', 'createUserResponse_user' - Undocumented member.
+-- 'user', 'createUserResponse_user' - The user on the Amazon Chime account.
 --
 -- 'httpStatus', 'createUserResponse_httpStatus' - The response's http status code.
 newCreateUserResponse ::
@@ -184,7 +186,7 @@ newCreateUserResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The user on the Amazon Chime account.
 createUserResponse_user :: Lens.Lens' CreateUserResponse (Prelude.Maybe User)
 createUserResponse_user = Lens.lens (\CreateUserResponse' {user} -> user) (\s@CreateUserResponse' {} a -> s {user = a} :: CreateUserResponse)
 

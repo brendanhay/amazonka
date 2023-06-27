@@ -30,7 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannelMembershipForAppInstanceUserSummary' smart constructor.
 data ChannelMembershipForAppInstanceUserSummary = ChannelMembershipForAppInstanceUserSummary'
-  { appInstanceUserMembershipSummary :: Prelude.Maybe AppInstanceUserMembershipSummary,
+  { -- | Summary of the membership details of an @AppInstanceUser@.
+    appInstanceUserMembershipSummary :: Prelude.Maybe AppInstanceUserMembershipSummary,
+    -- | Summary of the details of a @Channel@.
     channelSummary :: Prelude.Maybe ChannelSummary
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -43,9 +45,9 @@ data ChannelMembershipForAppInstanceUserSummary = ChannelMembershipForAppInstanc
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appInstanceUserMembershipSummary', 'channelMembershipForAppInstanceUserSummary_appInstanceUserMembershipSummary' - Undocumented member.
+-- 'appInstanceUserMembershipSummary', 'channelMembershipForAppInstanceUserSummary_appInstanceUserMembershipSummary' - Summary of the membership details of an @AppInstanceUser@.
 --
--- 'channelSummary', 'channelMembershipForAppInstanceUserSummary_channelSummary' - Undocumented member.
+-- 'channelSummary', 'channelMembershipForAppInstanceUserSummary_channelSummary' - Summary of the details of a @Channel@.
 newChannelMembershipForAppInstanceUserSummary ::
   ChannelMembershipForAppInstanceUserSummary
 newChannelMembershipForAppInstanceUserSummary =
@@ -56,11 +58,11 @@ newChannelMembershipForAppInstanceUserSummary =
         Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | Summary of the membership details of an @AppInstanceUser@.
 channelMembershipForAppInstanceUserSummary_appInstanceUserMembershipSummary :: Lens.Lens' ChannelMembershipForAppInstanceUserSummary (Prelude.Maybe AppInstanceUserMembershipSummary)
 channelMembershipForAppInstanceUserSummary_appInstanceUserMembershipSummary = Lens.lens (\ChannelMembershipForAppInstanceUserSummary' {appInstanceUserMembershipSummary} -> appInstanceUserMembershipSummary) (\s@ChannelMembershipForAppInstanceUserSummary' {} a -> s {appInstanceUserMembershipSummary = a} :: ChannelMembershipForAppInstanceUserSummary)
 
--- | Undocumented member.
+-- | Summary of the details of a @Channel@.
 channelMembershipForAppInstanceUserSummary_channelSummary :: Lens.Lens' ChannelMembershipForAppInstanceUserSummary (Prelude.Maybe ChannelSummary)
 channelMembershipForAppInstanceUserSummary_channelSummary = Lens.lens (\ChannelMembershipForAppInstanceUserSummary' {channelSummary} -> channelSummary) (\s@ChannelMembershipForAppInstanceUserSummary' {} a -> s {channelSummary = a} :: ChannelMembershipForAppInstanceUserSummary)
 
@@ -74,7 +76,7 @@ instance
       ( \x ->
           ChannelMembershipForAppInstanceUserSummary'
             Prelude.<$> (x Data..:? "AppInstanceUserMembershipSummary")
-              Prelude.<*> (x Data..:? "ChannelSummary")
+            Prelude.<*> (x Data..:? "ChannelSummary")
       )
 
 instance

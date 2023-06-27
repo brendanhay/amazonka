@@ -105,7 +105,8 @@ instance Core.AWSRequest GetUserSettings where
 
 instance Prelude.Hashable GetUserSettings where
   hashWithSalt _salt GetUserSettings' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData GetUserSettings where

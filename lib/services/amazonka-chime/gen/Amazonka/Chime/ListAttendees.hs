@@ -22,8 +22,8 @@
 --
 -- Lists the attendees for the specified Amazon Chime SDK meeting. For more
 -- information about the Amazon Chime SDK, see
--- <https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html Using the Amazon Chime SDK>
--- in the /Amazon Chime Developer Guide/.
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html Using the Amazon Chime SDK>
+-- in the /Amazon Chime SDK Developer Guide/.
 module Amazonka.Chime.ListAttendees
   ( -- * Creating a Request
     ListAttendees (..),
@@ -117,7 +117,8 @@ instance Core.AWSRequest ListAttendees where
 
 instance Prelude.Hashable ListAttendees where
   hashWithSalt _salt ListAttendees' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` meetingId
 

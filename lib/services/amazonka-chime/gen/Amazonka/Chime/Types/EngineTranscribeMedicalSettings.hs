@@ -33,8 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEngineTranscribeMedicalSettings' smart constructor.
 data EngineTranscribeMedicalSettings = EngineTranscribeMedicalSettings'
-  { -- | Set this field to @PHI@ to identify personal health information in the
-    -- transcription output.
+  { -- | Labels all personally identifiable information (PII) identified in your
+    -- transcript. If you don\'t include @PiiEntityTypes@, all PII is
+    -- identified.
+    --
+    -- You can’t set @ContentIdentificationType@ and @ContentRedactionType@.
     contentIdentificationType :: Prelude.Maybe TranscribeMedicalContentIdentificationType,
     -- | The AWS Region passed to Amazon Transcribe Medical. If you don\'t
     -- specify a Region, Amazon Chime uses the meeting\'s Region.
@@ -58,8 +61,11 @@ data EngineTranscribeMedicalSettings = EngineTranscribeMedicalSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contentIdentificationType', 'engineTranscribeMedicalSettings_contentIdentificationType' - Set this field to @PHI@ to identify personal health information in the
--- transcription output.
+-- 'contentIdentificationType', 'engineTranscribeMedicalSettings_contentIdentificationType' - Labels all personally identifiable information (PII) identified in your
+-- transcript. If you don\'t include @PiiEntityTypes@, all PII is
+-- identified.
+--
+-- You can’t set @ContentIdentificationType@ and @ContentRedactionType@.
 --
 -- 'region', 'engineTranscribeMedicalSettings_region' - The AWS Region passed to Amazon Transcribe Medical. If you don\'t
 -- specify a Region, Amazon Chime uses the meeting\'s Region.
@@ -93,8 +99,11 @@ newEngineTranscribeMedicalSettings
         type' = pType_
       }
 
--- | Set this field to @PHI@ to identify personal health information in the
--- transcription output.
+-- | Labels all personally identifiable information (PII) identified in your
+-- transcript. If you don\'t include @PiiEntityTypes@, all PII is
+-- identified.
+--
+-- You can’t set @ContentIdentificationType@ and @ContentRedactionType@.
 engineTranscribeMedicalSettings_contentIdentificationType :: Lens.Lens' EngineTranscribeMedicalSettings (Prelude.Maybe TranscribeMedicalContentIdentificationType)
 engineTranscribeMedicalSettings_contentIdentificationType = Lens.lens (\EngineTranscribeMedicalSettings' {contentIdentificationType} -> contentIdentificationType) (\s@EngineTranscribeMedicalSettings' {} a -> s {contentIdentificationType = a} :: EngineTranscribeMedicalSettings)
 

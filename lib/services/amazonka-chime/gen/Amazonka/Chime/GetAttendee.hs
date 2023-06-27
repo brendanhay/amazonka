@@ -22,8 +22,8 @@
 --
 -- Gets the Amazon Chime SDK attendee details for a specified meeting ID
 -- and attendee ID. For more information about the Amazon Chime SDK, see
--- <https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html Using the Amazon Chime SDK>
--- in the /Amazon Chime Developer Guide/ .
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html Using the Amazon Chime SDK>
+-- in the /Amazon Chime SDK Developer Guide/ .
 module Amazonka.Chime.GetAttendee
   ( -- * Creating a Request
     GetAttendee (..),
@@ -105,7 +105,8 @@ instance Core.AWSRequest GetAttendee where
 
 instance Prelude.Hashable GetAttendee where
   hashWithSalt _salt GetAttendee' {..} =
-    _salt `Prelude.hashWithSalt` meetingId
+    _salt
+      `Prelude.hashWithSalt` meetingId
       `Prelude.hashWithSalt` attendeeId
 
 instance Prelude.NFData GetAttendee where

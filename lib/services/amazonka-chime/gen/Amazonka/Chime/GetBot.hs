@@ -100,7 +100,8 @@ instance Core.AWSRequest GetBot where
 
 instance Prelude.Hashable GetBot where
   hashWithSalt _salt GetBot' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` botId
 
 instance Prelude.NFData GetBot where

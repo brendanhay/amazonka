@@ -22,8 +22,8 @@
 --
 -- Creates a new attendee for an active Amazon Chime SDK meeting. For more
 -- information about the Amazon Chime SDK, see
--- <https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html Using the Amazon Chime SDK>
--- in the /Amazon Chime Developer Guide/.
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html Using the Amazon Chime SDK>
+-- in the /Amazon Chime SDK Developer Guide/.
 module Amazonka.Chime.CreateAttendee
   ( -- * Creating a Request
     CreateAttendee (..),
@@ -121,7 +121,8 @@ instance Core.AWSRequest CreateAttendee where
 
 instance Prelude.Hashable CreateAttendee where
   hashWithSalt _salt CreateAttendee' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` meetingId
       `Prelude.hashWithSalt` externalUserId
 

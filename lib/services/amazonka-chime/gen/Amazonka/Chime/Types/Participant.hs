@@ -75,7 +75,8 @@ instance Data.FromJSON Participant where
 
 instance Prelude.Hashable Participant where
   hashWithSalt _salt Participant' {..} =
-    _salt `Prelude.hashWithSalt` phoneNumber
+    _salt
+      `Prelude.hashWithSalt` phoneNumber
       `Prelude.hashWithSalt` proxyPhoneNumber
 
 instance Prelude.NFData Participant where

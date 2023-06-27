@@ -107,7 +107,7 @@ instance
             Prelude.<$> ( x
                             Data..?> "SipMediaApplicationLoggingConfiguration"
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -168,7 +168,8 @@ instance
 
 -- | /See:/ 'newPutSipMediaApplicationLoggingConfigurationResponse' smart constructor.
 data PutSipMediaApplicationLoggingConfigurationResponse = PutSipMediaApplicationLoggingConfigurationResponse'
-  { sipMediaApplicationLoggingConfiguration :: Prelude.Maybe SipMediaApplicationLoggingConfiguration,
+  { -- | The logging configuration of the SIP media application.
+    sipMediaApplicationLoggingConfiguration :: Prelude.Maybe SipMediaApplicationLoggingConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,7 +183,7 @@ data PutSipMediaApplicationLoggingConfigurationResponse = PutSipMediaApplication
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipMediaApplicationLoggingConfiguration', 'putSipMediaApplicationLoggingConfigurationResponse_sipMediaApplicationLoggingConfiguration' - Undocumented member.
+-- 'sipMediaApplicationLoggingConfiguration', 'putSipMediaApplicationLoggingConfigurationResponse_sipMediaApplicationLoggingConfiguration' - The logging configuration of the SIP media application.
 --
 -- 'httpStatus', 'putSipMediaApplicationLoggingConfigurationResponse_httpStatus' - The response's http status code.
 newPutSipMediaApplicationLoggingConfigurationResponse ::
@@ -198,7 +199,7 @@ newPutSipMediaApplicationLoggingConfigurationResponse
           pHttpStatus_
       }
 
--- | Undocumented member.
+-- | The logging configuration of the SIP media application.
 putSipMediaApplicationLoggingConfigurationResponse_sipMediaApplicationLoggingConfiguration :: Lens.Lens' PutSipMediaApplicationLoggingConfigurationResponse (Prelude.Maybe SipMediaApplicationLoggingConfiguration)
 putSipMediaApplicationLoggingConfigurationResponse_sipMediaApplicationLoggingConfiguration = Lens.lens (\PutSipMediaApplicationLoggingConfigurationResponse' {sipMediaApplicationLoggingConfiguration} -> sipMediaApplicationLoggingConfiguration) (\s@PutSipMediaApplicationLoggingConfigurationResponse' {} a -> s {sipMediaApplicationLoggingConfiguration = a} :: PutSipMediaApplicationLoggingConfigurationResponse)
 

@@ -120,14 +120,16 @@ instance Data.FromJSON VoiceConnectorGroup where
             Prelude.<*> (x Data..:? "UpdatedTimestamp")
             Prelude.<*> (x Data..:? "VoiceConnectorGroupArn")
             Prelude.<*> (x Data..:? "VoiceConnectorGroupId")
-            Prelude.<*> ( x Data..:? "VoiceConnectorItems"
+            Prelude.<*> ( x
+                            Data..:? "VoiceConnectorItems"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable VoiceConnectorGroup where
   hashWithSalt _salt VoiceConnectorGroup' {..} =
-    _salt `Prelude.hashWithSalt` createdTimestamp
+    _salt
+      `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` updatedTimestamp
       `Prelude.hashWithSalt` voiceConnectorGroupArn

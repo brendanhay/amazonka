@@ -104,7 +104,8 @@ instance Core.AWSRequest ListAttendeeTags where
 
 instance Prelude.Hashable ListAttendeeTags where
   hashWithSalt _salt ListAttendeeTags' {..} =
-    _salt `Prelude.hashWithSalt` meetingId
+    _salt
+      `Prelude.hashWithSalt` meetingId
       `Prelude.hashWithSalt` attendeeId
 
 instance Prelude.NFData ListAttendeeTags where

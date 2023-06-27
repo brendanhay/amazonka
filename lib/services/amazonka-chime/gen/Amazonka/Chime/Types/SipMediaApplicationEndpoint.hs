@@ -28,8 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSipMediaApplicationEndpoint' smart constructor.
 data SipMediaApplicationEndpoint = SipMediaApplicationEndpoint'
-  { -- | Valid Amazon Resource Name (ARN) of the Lambda function. The function
-    -- must be created in the same AWS Region as the SIP media application.
+  { -- | Valid Amazon Resource Name (ARN) of the Lambda function, version, or
+    -- alias. The function must be created in the same AWS Region as the SIP
+    -- media application.
     lambdaArn :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -42,8 +43,9 @@ data SipMediaApplicationEndpoint = SipMediaApplicationEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lambdaArn', 'sipMediaApplicationEndpoint_lambdaArn' - Valid Amazon Resource Name (ARN) of the Lambda function. The function
--- must be created in the same AWS Region as the SIP media application.
+-- 'lambdaArn', 'sipMediaApplicationEndpoint_lambdaArn' - Valid Amazon Resource Name (ARN) of the Lambda function, version, or
+-- alias. The function must be created in the same AWS Region as the SIP
+-- media application.
 newSipMediaApplicationEndpoint ::
   SipMediaApplicationEndpoint
 newSipMediaApplicationEndpoint =
@@ -52,8 +54,9 @@ newSipMediaApplicationEndpoint =
         Prelude.Nothing
     }
 
--- | Valid Amazon Resource Name (ARN) of the Lambda function. The function
--- must be created in the same AWS Region as the SIP media application.
+-- | Valid Amazon Resource Name (ARN) of the Lambda function, version, or
+-- alias. The function must be created in the same AWS Region as the SIP
+-- media application.
 sipMediaApplicationEndpoint_lambdaArn :: Lens.Lens' SipMediaApplicationEndpoint (Prelude.Maybe Prelude.Text)
 sipMediaApplicationEndpoint_lambdaArn = Lens.lens (\SipMediaApplicationEndpoint' {lambdaArn} -> lambdaArn) (\s@SipMediaApplicationEndpoint' {} a -> s {lambdaArn = a} :: SipMediaApplicationEndpoint) Prelude.. Lens.mapping Data._Sensitive
 

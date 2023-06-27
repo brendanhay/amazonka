@@ -32,6 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 data RoomMembership = RoomMembership'
   { -- | The identifier of the user that invited the room member.
     invitedBy :: Prelude.Maybe Prelude.Text,
+    -- | The member details, such as email address, name, member ID, and member
+    -- type.
     member :: Prelude.Maybe Member,
     -- | The membership role.
     role' :: Prelude.Maybe RoomMembershipRole,
@@ -52,7 +54,8 @@ data RoomMembership = RoomMembership'
 --
 -- 'invitedBy', 'roomMembership_invitedBy' - The identifier of the user that invited the room member.
 --
--- 'member', 'roomMembership_member' - Undocumented member.
+-- 'member', 'roomMembership_member' - The member details, such as email address, name, member ID, and member
+-- type.
 --
 -- 'role'', 'roomMembership_role' - The membership role.
 --
@@ -74,7 +77,8 @@ newRoomMembership =
 roomMembership_invitedBy :: Lens.Lens' RoomMembership (Prelude.Maybe Prelude.Text)
 roomMembership_invitedBy = Lens.lens (\RoomMembership' {invitedBy} -> invitedBy) (\s@RoomMembership' {} a -> s {invitedBy = a} :: RoomMembership)
 
--- | Undocumented member.
+-- | The member details, such as email address, name, member ID, and member
+-- type.
 roomMembership_member :: Lens.Lens' RoomMembership (Prelude.Maybe Member)
 roomMembership_member = Lens.lens (\RoomMembership' {member} -> member) (\s@RoomMembership' {} a -> s {member = a} :: RoomMembership)
 
@@ -105,7 +109,8 @@ instance Data.FromJSON RoomMembership where
 
 instance Prelude.Hashable RoomMembership where
   hashWithSalt _salt RoomMembership' {..} =
-    _salt `Prelude.hashWithSalt` invitedBy
+    _salt
+      `Prelude.hashWithSalt` invitedBy
       `Prelude.hashWithSalt` member
       `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` roomId

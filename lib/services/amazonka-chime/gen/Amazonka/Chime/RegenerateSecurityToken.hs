@@ -104,7 +104,8 @@ instance Core.AWSRequest RegenerateSecurityToken where
 
 instance Prelude.Hashable RegenerateSecurityToken where
   hashWithSalt _salt RegenerateSecurityToken' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` botId
 
 instance Prelude.NFData RegenerateSecurityToken where
@@ -136,7 +137,9 @@ instance Data.ToQuery RegenerateSecurityToken where
 
 -- | /See:/ 'newRegenerateSecurityTokenResponse' smart constructor.
 data RegenerateSecurityTokenResponse = RegenerateSecurityTokenResponse'
-  { bot :: Prelude.Maybe Bot,
+  { -- | A resource that allows Enterprise account administrators to configure an
+    -- interface that receives events from Amazon Chime.
+    bot :: Prelude.Maybe Bot,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -150,7 +153,8 @@ data RegenerateSecurityTokenResponse = RegenerateSecurityTokenResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bot', 'regenerateSecurityTokenResponse_bot' - Undocumented member.
+-- 'bot', 'regenerateSecurityTokenResponse_bot' - A resource that allows Enterprise account administrators to configure an
+-- interface that receives events from Amazon Chime.
 --
 -- 'httpStatus', 'regenerateSecurityTokenResponse_httpStatus' - The response's http status code.
 newRegenerateSecurityTokenResponse ::
@@ -164,7 +168,8 @@ newRegenerateSecurityTokenResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | A resource that allows Enterprise account administrators to configure an
+-- interface that receives events from Amazon Chime.
 regenerateSecurityTokenResponse_bot :: Lens.Lens' RegenerateSecurityTokenResponse (Prelude.Maybe Bot)
 regenerateSecurityTokenResponse_bot = Lens.lens (\RegenerateSecurityTokenResponse' {bot} -> bot) (\s@RegenerateSecurityTokenResponse' {} a -> s {bot = a} :: RegenerateSecurityTokenResponse)
 

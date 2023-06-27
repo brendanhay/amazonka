@@ -150,7 +150,8 @@ instance Core.AWSRequest CreateMeetingDialOut where
 
 instance Prelude.Hashable CreateMeetingDialOut where
   hashWithSalt _salt CreateMeetingDialOut' {..} =
-    _salt `Prelude.hashWithSalt` meetingId
+    _salt
+      `Prelude.hashWithSalt` meetingId
       `Prelude.hashWithSalt` fromPhoneNumber
       `Prelude.hashWithSalt` toPhoneNumber
       `Prelude.hashWithSalt` joinToken

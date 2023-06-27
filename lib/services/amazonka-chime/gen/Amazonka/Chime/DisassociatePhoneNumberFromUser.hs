@@ -114,7 +114,8 @@ instance
   hashWithSalt
     _salt
     DisassociatePhoneNumberFromUser' {..} =
-      _salt `Prelude.hashWithSalt` accountId
+      _salt
+        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` userId
 
 instance

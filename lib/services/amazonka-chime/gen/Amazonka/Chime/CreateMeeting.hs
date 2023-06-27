@@ -23,11 +23,11 @@
 -- Creates a new Amazon Chime SDK meeting in the specified media Region
 -- with no initial attendees. For more information about specifying media
 -- Regions, see
--- <https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html Amazon Chime SDK Media Regions>
--- in the /Amazon Chime Developer Guide/ . For more information about the
--- Amazon Chime SDK, see
--- <https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html Using the Amazon Chime SDK>
--- in the /Amazon Chime Developer Guide/ .
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html Amazon Chime SDK Media Regions>
+-- in the /Amazon Chime SDK Developer Guide/ . For more information about
+-- the Amazon Chime SDK, see
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html Using the Amazon Chime SDK>
+-- in the /Amazon Chime SDK Developer Guide/ .
 module Amazonka.Chime.CreateMeeting
   ( -- * Creating a Request
     CreateMeeting (..),
@@ -174,7 +174,8 @@ instance Core.AWSRequest CreateMeeting where
 
 instance Prelude.Hashable CreateMeeting where
   hashWithSalt _salt CreateMeeting' {..} =
-    _salt `Prelude.hashWithSalt` externalMeetingId
+    _salt
+      `Prelude.hashWithSalt` externalMeetingId
       `Prelude.hashWithSalt` mediaRegion
       `Prelude.hashWithSalt` meetingHostId
       `Prelude.hashWithSalt` notificationsConfiguration

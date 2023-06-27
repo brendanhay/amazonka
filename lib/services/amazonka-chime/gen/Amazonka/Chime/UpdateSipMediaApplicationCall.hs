@@ -128,7 +128,8 @@ instance
     UpdateSipMediaApplicationCall
   where
   hashWithSalt _salt UpdateSipMediaApplicationCall' {..} =
-    _salt `Prelude.hashWithSalt` sipMediaApplicationId
+    _salt
+      `Prelude.hashWithSalt` sipMediaApplicationId
       `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` arguments
 
@@ -162,7 +163,8 @@ instance Data.ToQuery UpdateSipMediaApplicationCall where
 
 -- | /See:/ 'newUpdateSipMediaApplicationCallResponse' smart constructor.
 data UpdateSipMediaApplicationCallResponse = UpdateSipMediaApplicationCallResponse'
-  { sipMediaApplicationCall :: Prelude.Maybe SipMediaApplicationCall,
+  { -- | A @Call@ instance for a SIP media application.
+    sipMediaApplicationCall :: Prelude.Maybe SipMediaApplicationCall,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -176,7 +178,7 @@ data UpdateSipMediaApplicationCallResponse = UpdateSipMediaApplicationCallRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipMediaApplicationCall', 'updateSipMediaApplicationCallResponse_sipMediaApplicationCall' - Undocumented member.
+-- 'sipMediaApplicationCall', 'updateSipMediaApplicationCallResponse_sipMediaApplicationCall' - A @Call@ instance for a SIP media application.
 --
 -- 'httpStatus', 'updateSipMediaApplicationCallResponse_httpStatus' - The response's http status code.
 newUpdateSipMediaApplicationCallResponse ::
@@ -190,7 +192,7 @@ newUpdateSipMediaApplicationCallResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | A @Call@ instance for a SIP media application.
 updateSipMediaApplicationCallResponse_sipMediaApplicationCall :: Lens.Lens' UpdateSipMediaApplicationCallResponse (Prelude.Maybe SipMediaApplicationCall)
 updateSipMediaApplicationCallResponse_sipMediaApplicationCall = Lens.lens (\UpdateSipMediaApplicationCallResponse' {sipMediaApplicationCall} -> sipMediaApplicationCall) (\s@UpdateSipMediaApplicationCallResponse' {} a -> s {sipMediaApplicationCall = a} :: UpdateSipMediaApplicationCallResponse)
 

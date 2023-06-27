@@ -109,7 +109,8 @@ instance Core.AWSRequest DeleteChannelBan where
 
 instance Prelude.Hashable DeleteChannelBan where
   hashWithSalt _salt DeleteChannelBan' {..} =
-    _salt `Prelude.hashWithSalt` chimeBearer
+    _salt
+      `Prelude.hashWithSalt` chimeBearer
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` memberArn
 

@@ -101,7 +101,8 @@ instance Core.AWSRequest LogoutUser where
 
 instance Prelude.Hashable LogoutUser where
   hashWithSalt _salt LogoutUser' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData LogoutUser where

@@ -24,8 +24,8 @@
 -- deletes their @JoinToken@. Attendees are automatically deleted when a
 -- Amazon Chime SDK meeting is deleted. For more information about the
 -- Amazon Chime SDK, see
--- <https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html Using the Amazon Chime SDK>
--- in the /Amazon Chime Developer Guide/.
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html Using the Amazon Chime SDK>
+-- in the /Amazon Chime SDK Developer Guide/.
 module Amazonka.Chime.DeleteAttendee
   ( -- * Creating a Request
     DeleteAttendee (..),
@@ -100,7 +100,8 @@ instance Core.AWSRequest DeleteAttendee where
 
 instance Prelude.Hashable DeleteAttendee where
   hashWithSalt _salt DeleteAttendee' {..} =
-    _salt `Prelude.hashWithSalt` meetingId
+    _salt
+      `Prelude.hashWithSalt` meetingId
       `Prelude.hashWithSalt` attendeeId
 
 instance Prelude.NFData DeleteAttendee where

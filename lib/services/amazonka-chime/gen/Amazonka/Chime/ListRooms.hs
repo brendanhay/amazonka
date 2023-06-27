@@ -124,7 +124,8 @@ instance Core.AWSRequest ListRooms where
 
 instance Prelude.Hashable ListRooms where
   hashWithSalt _salt ListRooms' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` memberId
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` accountId

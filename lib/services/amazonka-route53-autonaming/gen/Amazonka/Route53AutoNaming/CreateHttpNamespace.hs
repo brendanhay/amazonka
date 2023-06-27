@@ -145,7 +145,8 @@ instance Core.AWSRequest CreateHttpNamespace where
 
 instance Prelude.Hashable CreateHttpNamespace where
   hashWithSalt _salt CreateHttpNamespace' {..} =
-    _salt `Prelude.hashWithSalt` creatorRequestId
+    _salt
+      `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

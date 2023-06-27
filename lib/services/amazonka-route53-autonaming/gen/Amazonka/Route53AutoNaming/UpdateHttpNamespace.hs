@@ -124,7 +124,8 @@ instance Core.AWSRequest UpdateHttpNamespace where
 
 instance Prelude.Hashable UpdateHttpNamespace where
   hashWithSalt _salt UpdateHttpNamespace' {..} =
-    _salt `Prelude.hashWithSalt` updaterRequestId
+    _salt
+      `Prelude.hashWithSalt` updaterRequestId
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` namespace
 

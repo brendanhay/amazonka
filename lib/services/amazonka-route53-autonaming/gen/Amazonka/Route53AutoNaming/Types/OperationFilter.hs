@@ -207,7 +207,8 @@ operationFilter_values = Lens.lens (\OperationFilter' {values} -> values) (\s@Op
 
 instance Prelude.Hashable OperationFilter where
   hashWithSalt _salt OperationFilter' {..} =
-    _salt `Prelude.hashWithSalt` condition
+    _salt
+      `Prelude.hashWithSalt` condition
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 

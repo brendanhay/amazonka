@@ -66,7 +66,8 @@ privateDnsNamespaceChange_properties = Lens.lens (\PrivateDnsNamespaceChange' {p
 
 instance Prelude.Hashable PrivateDnsNamespaceChange where
   hashWithSalt _salt PrivateDnsNamespaceChange' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` properties
 
 instance Prelude.NFData PrivateDnsNamespaceChange where

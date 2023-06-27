@@ -79,7 +79,8 @@ instance Data.FromJSON DnsProperties where
 
 instance Prelude.Hashable DnsProperties where
   hashWithSalt _salt DnsProperties' {..} =
-    _salt `Prelude.hashWithSalt` hostedZoneId
+    _salt
+      `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` soa
 
 instance Prelude.NFData DnsProperties where

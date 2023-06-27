@@ -259,7 +259,8 @@ instance Data.FromJSON HealthCheckConfig where
 
 instance Prelude.Hashable HealthCheckConfig where
   hashWithSalt _salt HealthCheckConfig' {..} =
-    _salt `Prelude.hashWithSalt` failureThreshold
+    _salt
+      `Prelude.hashWithSalt` failureThreshold
       `Prelude.hashWithSalt` resourcePath
       `Prelude.hashWithSalt` type'
 

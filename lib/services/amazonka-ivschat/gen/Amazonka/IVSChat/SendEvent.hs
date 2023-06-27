@@ -120,7 +120,8 @@ instance Core.AWSRequest SendEvent where
 
 instance Prelude.Hashable SendEvent where
   hashWithSalt _salt SendEvent' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` eventName
       `Prelude.hashWithSalt` roomIdentifier
 

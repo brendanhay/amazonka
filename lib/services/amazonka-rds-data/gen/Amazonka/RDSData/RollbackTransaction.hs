@@ -123,7 +123,8 @@ instance Core.AWSRequest RollbackTransaction where
 
 instance Prelude.Hashable RollbackTransaction where
   hashWithSalt _salt RollbackTransaction' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` transactionId
 

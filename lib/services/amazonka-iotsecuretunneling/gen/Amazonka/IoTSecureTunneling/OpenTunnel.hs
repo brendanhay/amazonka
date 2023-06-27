@@ -129,7 +129,8 @@ instance Core.AWSRequest OpenTunnel where
 
 instance Prelude.Hashable OpenTunnel where
   hashWithSalt _salt OpenTunnel' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destinationConfig
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` timeoutConfig

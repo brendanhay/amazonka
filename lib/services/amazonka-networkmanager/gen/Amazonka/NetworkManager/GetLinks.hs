@@ -147,20 +147,23 @@ instance Core.AWSPager GetLinks where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getLinksResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getLinksResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getLinksResponse_links Prelude.. Lens._Just
+            Lens.^? getLinksResponse_links
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getLinks_nextToken
           Lens..~ rs
-          Lens.^? getLinksResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getLinksResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetLinks where
   type AWSResponse GetLinks = GetLinksResponse
@@ -177,7 +180,8 @@ instance Core.AWSRequest GetLinks where
 
 instance Prelude.Hashable GetLinks where
   hashWithSalt _salt GetLinks' {..} =
-    _salt `Prelude.hashWithSalt` linkIds
+    _salt
+      `Prelude.hashWithSalt` linkIds
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` provider

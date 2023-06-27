@@ -77,7 +77,8 @@ instance Data.FromJSON RouteAnalysisPath where
 
 instance Prelude.Hashable RouteAnalysisPath where
   hashWithSalt _salt RouteAnalysisPath' {..} =
-    _salt `Prelude.hashWithSalt` completionStatus
+    _salt
+      `Prelude.hashWithSalt` completionStatus
       `Prelude.hashWithSalt` path
 
 instance Prelude.NFData RouteAnalysisPath where

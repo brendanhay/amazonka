@@ -173,7 +173,8 @@ instance Data.FromJSON RouteAnalysis where
 
 instance Prelude.Hashable RouteAnalysis where
   hashWithSalt _salt RouteAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` forwardPath
       `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` includeReturnPath

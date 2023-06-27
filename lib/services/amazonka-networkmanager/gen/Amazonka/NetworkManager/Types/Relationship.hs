@@ -68,12 +68,14 @@ instance Data.FromJSON Relationship where
       "Relationship"
       ( \x ->
           Relationship'
-            Prelude.<$> (x Data..:? "From") Prelude.<*> (x Data..:? "To")
+            Prelude.<$> (x Data..:? "From")
+            Prelude.<*> (x Data..:? "To")
       )
 
 instance Prelude.Hashable Relationship where
   hashWithSalt _salt Relationship' {..} =
-    _salt `Prelude.hashWithSalt` from
+    _salt
+      `Prelude.hashWithSalt` from
       `Prelude.hashWithSalt` to
 
 instance Prelude.NFData Relationship where

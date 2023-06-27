@@ -119,22 +119,22 @@ instance Core.AWSPager GetCustomerGatewayAssociations where
     | Core.stop
         ( rs
             Lens.^? getCustomerGatewayAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getCustomerGatewayAssociationsResponse_customerGatewayAssociations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getCustomerGatewayAssociations_nextToken
           Lens..~ rs
           Lens.^? getCustomerGatewayAssociationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -149,7 +149,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetCustomerGatewayAssociationsResponse'
-            Prelude.<$> ( x Data..?> "CustomerGatewayAssociations"
+            Prelude.<$> ( x
+                            Data..?> "CustomerGatewayAssociations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -163,7 +164,8 @@ instance
   hashWithSalt
     _salt
     GetCustomerGatewayAssociations' {..} =
-      _salt `Prelude.hashWithSalt` customerGatewayArns
+      _salt
+        `Prelude.hashWithSalt` customerGatewayArns
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` globalNetworkId

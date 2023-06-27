@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteConnection where
 
 instance Prelude.Hashable DeleteConnection where
   hashWithSalt _salt DeleteConnection' {..} =
-    _salt `Prelude.hashWithSalt` globalNetworkId
+    _salt
+      `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` connectionId
 
 instance Prelude.NFData DeleteConnection where

@@ -120,22 +120,22 @@ instance Core.AWSPager GetCoreNetworkChangeSet where
     | Core.stop
         ( rs
             Lens.^? getCoreNetworkChangeSetResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getCoreNetworkChangeSetResponse_coreNetworkChanges
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getCoreNetworkChangeSet_nextToken
           Lens..~ rs
           Lens.^? getCoreNetworkChangeSetResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetCoreNetworkChangeSet where
   type
@@ -147,7 +147,8 @@ instance Core.AWSRequest GetCoreNetworkChangeSet where
     Response.receiveJSON
       ( \s h x ->
           GetCoreNetworkChangeSetResponse'
-            Prelude.<$> ( x Data..?> "CoreNetworkChanges"
+            Prelude.<$> ( x
+                            Data..?> "CoreNetworkChanges"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -156,7 +157,8 @@ instance Core.AWSRequest GetCoreNetworkChangeSet where
 
 instance Prelude.Hashable GetCoreNetworkChangeSet where
   hashWithSalt _salt GetCoreNetworkChangeSet' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` policyVersionId

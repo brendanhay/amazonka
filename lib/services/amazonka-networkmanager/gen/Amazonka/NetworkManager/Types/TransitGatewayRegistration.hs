@@ -86,7 +86,8 @@ instance Data.FromJSON TransitGatewayRegistration where
 
 instance Prelude.Hashable TransitGatewayRegistration where
   hashWithSalt _salt TransitGatewayRegistration' {..} =
-    _salt `Prelude.hashWithSalt` globalNetworkId
+    _salt
+      `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` transitGatewayArn
 

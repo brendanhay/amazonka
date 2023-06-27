@@ -260,22 +260,22 @@ instance Core.AWSPager GetNetworkTelemetry where
     | Core.stop
         ( rs
             Lens.^? getNetworkTelemetryResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getNetworkTelemetryResponse_networkTelemetry
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getNetworkTelemetry_nextToken
           Lens..~ rs
           Lens.^? getNetworkTelemetryResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetNetworkTelemetry where
   type
@@ -287,7 +287,8 @@ instance Core.AWSRequest GetNetworkTelemetry where
     Response.receiveJSON
       ( \s h x ->
           GetNetworkTelemetryResponse'
-            Prelude.<$> ( x Data..?> "NetworkTelemetry"
+            Prelude.<$> ( x
+                            Data..?> "NetworkTelemetry"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -296,7 +297,8 @@ instance Core.AWSRequest GetNetworkTelemetry where
 
 instance Prelude.Hashable GetNetworkTelemetry where
   hashWithSalt _salt GetNetworkTelemetry' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` maxResults

@@ -74,7 +74,8 @@ instance Data.FromJSON NetworkResourceCount where
 
 instance Prelude.Hashable NetworkResourceCount where
   hashWithSalt _salt NetworkResourceCount' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData NetworkResourceCount where

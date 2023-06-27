@@ -106,22 +106,22 @@ instance Core.AWSPager DescribeGlobalNetworks where
     | Core.stop
         ( rs
             Lens.^? describeGlobalNetworksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeGlobalNetworksResponse_globalNetworks
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeGlobalNetworks_nextToken
           Lens..~ rs
           Lens.^? describeGlobalNetworksResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeGlobalNetworks where
   type
@@ -140,7 +140,8 @@ instance Core.AWSRequest DescribeGlobalNetworks where
 
 instance Prelude.Hashable DescribeGlobalNetworks where
   hashWithSalt _salt DescribeGlobalNetworks' {..} =
-    _salt `Prelude.hashWithSalt` globalNetworkIds
+    _salt
+      `Prelude.hashWithSalt` globalNetworkIds
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

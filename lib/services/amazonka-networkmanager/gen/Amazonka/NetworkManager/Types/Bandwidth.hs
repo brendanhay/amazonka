@@ -74,7 +74,8 @@ instance Data.FromJSON Bandwidth where
 
 instance Prelude.Hashable Bandwidth where
   hashWithSalt _salt Bandwidth' {..} =
-    _salt `Prelude.hashWithSalt` downloadSpeed
+    _salt
+      `Prelude.hashWithSalt` downloadSpeed
       `Prelude.hashWithSalt` uploadSpeed
 
 instance Prelude.NFData Bandwidth where

@@ -95,7 +95,8 @@ instance Data.FromJSON LinkAssociation where
 
 instance Prelude.Hashable LinkAssociation where
   hashWithSalt _salt LinkAssociation' {..} =
-    _salt `Prelude.hashWithSalt` deviceId
+    _salt
+      `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` linkAssociationState
       `Prelude.hashWithSalt` linkId

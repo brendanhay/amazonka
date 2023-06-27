@@ -103,7 +103,8 @@ instance Core.AWSRequest DeleteLink where
 
 instance Prelude.Hashable DeleteLink where
   hashWithSalt _salt DeleteLink' {..} =
-    _salt `Prelude.hashWithSalt` globalNetworkId
+    _salt
+      `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` linkId
 
 instance Prelude.NFData DeleteLink where

@@ -85,7 +85,8 @@ instance Data.FromJSON TransitGatewayPeering where
 
 instance Prelude.Hashable TransitGatewayPeering where
   hashWithSalt _salt TransitGatewayPeering' {..} =
-    _salt `Prelude.hashWithSalt` peering
+    _salt
+      `Prelude.hashWithSalt` peering
       `Prelude.hashWithSalt` transitGatewayArn
       `Prelude.hashWithSalt` transitGatewayPeeringAttachmentId
 

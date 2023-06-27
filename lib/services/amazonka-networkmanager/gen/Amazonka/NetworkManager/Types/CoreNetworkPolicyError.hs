@@ -88,7 +88,8 @@ instance Data.FromJSON CoreNetworkPolicyError where
 
 instance Prelude.Hashable CoreNetworkPolicyError where
   hashWithSalt _salt CoreNetworkPolicyError' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` message
 

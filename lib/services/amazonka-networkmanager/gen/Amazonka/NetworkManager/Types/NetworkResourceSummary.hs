@@ -118,7 +118,8 @@ instance Data.FromJSON NetworkResourceSummary where
 
 instance Prelude.Hashable NetworkResourceSummary where
   hashWithSalt _salt NetworkResourceSummary' {..} =
-    _salt `Prelude.hashWithSalt` definition
+    _salt
+      `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` isMiddlebox
       `Prelude.hashWithSalt` nameTag
       `Prelude.hashWithSalt` registeredGatewayArn

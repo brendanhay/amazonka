@@ -59,6 +59,8 @@ data CreateTransitGatewayRouteTableAttachment = CreateTransitGatewayRouteTableAt
     -- | The ID of the peer for the
     peeringId :: Prelude.Text,
     -- | The ARN of the transit gateway route table for the attachment request.
+    -- For example,
+    -- @\"TransitGatewayRouteTableArn\": \"arn:aws:ec2:us-west-2:123456789012:transit-gateway-route-table\/tgw-rtb-9876543210123456\"@.
     transitGatewayRouteTableArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,6 +80,8 @@ data CreateTransitGatewayRouteTableAttachment = CreateTransitGatewayRouteTableAt
 -- 'peeringId', 'createTransitGatewayRouteTableAttachment_peeringId' - The ID of the peer for the
 --
 -- 'transitGatewayRouteTableArn', 'createTransitGatewayRouteTableAttachment_transitGatewayRouteTableArn' - The ARN of the transit gateway route table for the attachment request.
+-- For example,
+-- @\"TransitGatewayRouteTableArn\": \"arn:aws:ec2:us-west-2:123456789012:transit-gateway-route-table\/tgw-rtb-9876543210123456\"@.
 newCreateTransitGatewayRouteTableAttachment ::
   -- | 'peeringId'
   Prelude.Text ->
@@ -109,6 +113,8 @@ createTransitGatewayRouteTableAttachment_peeringId :: Lens.Lens' CreateTransitGa
 createTransitGatewayRouteTableAttachment_peeringId = Lens.lens (\CreateTransitGatewayRouteTableAttachment' {peeringId} -> peeringId) (\s@CreateTransitGatewayRouteTableAttachment' {} a -> s {peeringId = a} :: CreateTransitGatewayRouteTableAttachment)
 
 -- | The ARN of the transit gateway route table for the attachment request.
+-- For example,
+-- @\"TransitGatewayRouteTableArn\": \"arn:aws:ec2:us-west-2:123456789012:transit-gateway-route-table\/tgw-rtb-9876543210123456\"@.
 createTransitGatewayRouteTableAttachment_transitGatewayRouteTableArn :: Lens.Lens' CreateTransitGatewayRouteTableAttachment Prelude.Text
 createTransitGatewayRouteTableAttachment_transitGatewayRouteTableArn = Lens.lens (\CreateTransitGatewayRouteTableAttachment' {transitGatewayRouteTableArn} -> transitGatewayRouteTableArn) (\s@CreateTransitGatewayRouteTableAttachment' {} a -> s {transitGatewayRouteTableArn = a} :: CreateTransitGatewayRouteTableAttachment)
 
@@ -127,7 +133,7 @@ instance
       ( \s h x ->
           CreateTransitGatewayRouteTableAttachmentResponse'
             Prelude.<$> (x Data..?> "TransitGatewayRouteTableAttachment")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -137,7 +143,8 @@ instance
   hashWithSalt
     _salt
     CreateTransitGatewayRouteTableAttachment' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` peeringId
         `Prelude.hashWithSalt` transitGatewayRouteTableArn

@@ -125,7 +125,8 @@ instance
     UpdateNetworkResourceMetadata
   where
   hashWithSalt _salt UpdateNetworkResourceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` globalNetworkId
+    _salt
+      `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` metadata
 

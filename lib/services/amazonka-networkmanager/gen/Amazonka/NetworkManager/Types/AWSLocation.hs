@@ -80,7 +80,8 @@ instance Data.FromJSON AWSLocation where
 
 instance Prelude.Hashable AWSLocation where
   hashWithSalt _salt AWSLocation' {..} =
-    _salt `Prelude.hashWithSalt` subnetArn
+    _salt
+      `Prelude.hashWithSalt` subnetArn
       `Prelude.hashWithSalt` zone
 
 instance Prelude.NFData AWSLocation where

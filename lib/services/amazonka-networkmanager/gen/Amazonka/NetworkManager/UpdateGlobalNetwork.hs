@@ -109,7 +109,8 @@ instance Core.AWSRequest UpdateGlobalNetwork where
 
 instance Prelude.Hashable UpdateGlobalNetwork where
   hashWithSalt _salt UpdateGlobalNetwork' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` globalNetworkId
 
 instance Prelude.NFData UpdateGlobalNetwork where

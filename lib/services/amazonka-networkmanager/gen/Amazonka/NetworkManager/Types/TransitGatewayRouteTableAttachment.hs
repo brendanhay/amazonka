@@ -32,7 +32,8 @@ data TransitGatewayRouteTableAttachment = TransitGatewayRouteTableAttachment'
   { attachment :: Prelude.Maybe Attachment,
     -- | The ID of the peering attachment.
     peeringId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the transit gateway attachment route table.
+    -- | The ARN of the transit gateway attachment route table. For example,
+    -- @\"TransitGatewayRouteTableArn\": \"arn:aws:ec2:us-west-2:123456789012:transit-gateway-route-table\/tgw-rtb-9876543210123456\"@.
     transitGatewayRouteTableArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,7 +50,8 @@ data TransitGatewayRouteTableAttachment = TransitGatewayRouteTableAttachment'
 --
 -- 'peeringId', 'transitGatewayRouteTableAttachment_peeringId' - The ID of the peering attachment.
 --
--- 'transitGatewayRouteTableArn', 'transitGatewayRouteTableAttachment_transitGatewayRouteTableArn' - The ARN of the transit gateway attachment route table.
+-- 'transitGatewayRouteTableArn', 'transitGatewayRouteTableAttachment_transitGatewayRouteTableArn' - The ARN of the transit gateway attachment route table. For example,
+-- @\"TransitGatewayRouteTableArn\": \"arn:aws:ec2:us-west-2:123456789012:transit-gateway-route-table\/tgw-rtb-9876543210123456\"@.
 newTransitGatewayRouteTableAttachment ::
   TransitGatewayRouteTableAttachment
 newTransitGatewayRouteTableAttachment =
@@ -69,7 +71,8 @@ transitGatewayRouteTableAttachment_attachment = Lens.lens (\TransitGatewayRouteT
 transitGatewayRouteTableAttachment_peeringId :: Lens.Lens' TransitGatewayRouteTableAttachment (Prelude.Maybe Prelude.Text)
 transitGatewayRouteTableAttachment_peeringId = Lens.lens (\TransitGatewayRouteTableAttachment' {peeringId} -> peeringId) (\s@TransitGatewayRouteTableAttachment' {} a -> s {peeringId = a} :: TransitGatewayRouteTableAttachment)
 
--- | The ARN of the transit gateway attachment route table.
+-- | The ARN of the transit gateway attachment route table. For example,
+-- @\"TransitGatewayRouteTableArn\": \"arn:aws:ec2:us-west-2:123456789012:transit-gateway-route-table\/tgw-rtb-9876543210123456\"@.
 transitGatewayRouteTableAttachment_transitGatewayRouteTableArn :: Lens.Lens' TransitGatewayRouteTableAttachment (Prelude.Maybe Prelude.Text)
 transitGatewayRouteTableAttachment_transitGatewayRouteTableArn = Lens.lens (\TransitGatewayRouteTableAttachment' {transitGatewayRouteTableArn} -> transitGatewayRouteTableArn) (\s@TransitGatewayRouteTableAttachment' {} a -> s {transitGatewayRouteTableArn = a} :: TransitGatewayRouteTableAttachment)
 
@@ -94,7 +97,8 @@ instance
   hashWithSalt
     _salt
     TransitGatewayRouteTableAttachment' {..} =
-      _salt `Prelude.hashWithSalt` attachment
+      _salt
+        `Prelude.hashWithSalt` attachment
         `Prelude.hashWithSalt` peeringId
         `Prelude.hashWithSalt` transitGatewayRouteTableArn
 

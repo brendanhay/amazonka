@@ -127,7 +127,8 @@ instance Data.FromJSON ConnectPeerSummary where
 
 instance Prelude.Hashable ConnectPeerSummary where
   hashWithSalt _salt ConnectPeerSummary' {..} =
-    _salt `Prelude.hashWithSalt` connectAttachmentId
+    _salt
+      `Prelude.hashWithSalt` connectAttachmentId
       `Prelude.hashWithSalt` connectPeerId
       `Prelude.hashWithSalt` connectPeerState
       `Prelude.hashWithSalt` coreNetworkId

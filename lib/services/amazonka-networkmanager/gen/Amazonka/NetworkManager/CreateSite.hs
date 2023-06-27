@@ -150,7 +150,8 @@ instance Core.AWSRequest CreateSite where
 
 instance Prelude.Hashable CreateSite where
   hashWithSalt _salt CreateSite' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` globalNetworkId

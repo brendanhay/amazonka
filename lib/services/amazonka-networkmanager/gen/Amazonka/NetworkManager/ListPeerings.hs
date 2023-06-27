@@ -131,20 +131,23 @@ instance Core.AWSPager ListPeerings where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listPeeringsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listPeeringsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listPeeringsResponse_peerings Prelude.. Lens._Just
+            Lens.^? listPeeringsResponse_peerings
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPeerings_nextToken
           Lens..~ rs
-          Lens.^? listPeeringsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listPeeringsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPeerings where
   type AWSResponse ListPeerings = ListPeeringsResponse
@@ -161,7 +164,8 @@ instance Core.AWSRequest ListPeerings where
 
 instance Prelude.Hashable ListPeerings where
   hashWithSalt _salt ListPeerings' {..} =
-    _salt `Prelude.hashWithSalt` coreNetworkId
+    _salt
+      `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` edgeLocation
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

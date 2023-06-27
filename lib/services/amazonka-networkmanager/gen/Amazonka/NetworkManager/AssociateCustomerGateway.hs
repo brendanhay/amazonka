@@ -142,7 +142,8 @@ instance Core.AWSRequest AssociateCustomerGateway where
 
 instance Prelude.Hashable AssociateCustomerGateway where
   hashWithSalt _salt AssociateCustomerGateway' {..} =
-    _salt `Prelude.hashWithSalt` linkId
+    _salt
+      `Prelude.hashWithSalt` linkId
       `Prelude.hashWithSalt` customerGatewayArn
       `Prelude.hashWithSalt` globalNetworkId
       `Prelude.hashWithSalt` deviceId

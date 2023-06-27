@@ -38,9 +38,9 @@ module Amazonka.Omics.GetReferenceStore
     getReferenceStoreResponse_name,
     getReferenceStoreResponse_sseConfig,
     getReferenceStoreResponse_httpStatus,
+    getReferenceStoreResponse_id,
     getReferenceStoreResponse_arn,
     getReferenceStoreResponse_creationTime,
-    getReferenceStoreResponse_id,
   )
 where
 
@@ -93,9 +93,9 @@ instance Core.AWSRequest GetReferenceStore where
             Prelude.<*> (x Data..?> "name")
             Prelude.<*> (x Data..?> "sseConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..:> "id")
             Prelude.<*> (x Data..:> "arn")
             Prelude.<*> (x Data..:> "creationTime")
-            Prelude.<*> (x Data..:> "id")
       )
 
 instance Prelude.Hashable GetReferenceStore where
@@ -133,12 +133,12 @@ data GetReferenceStoreResponse = GetReferenceStoreResponse'
     sseConfig :: Prelude.Maybe SseConfig,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
+    -- | The store\'s ID.
+    id :: Prelude.Text,
     -- | The store\'s ARN.
     arn :: Prelude.Text,
     -- | When the store was created.
-    creationTime :: Data.ISO8601,
-    -- | The store\'s ID.
-    id :: Prelude.Text
+    creationTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -158,35 +158,35 @@ data GetReferenceStoreResponse = GetReferenceStoreResponse'
 --
 -- 'httpStatus', 'getReferenceStoreResponse_httpStatus' - The response's http status code.
 --
+-- 'id', 'getReferenceStoreResponse_id' - The store\'s ID.
+--
 -- 'arn', 'getReferenceStoreResponse_arn' - The store\'s ARN.
 --
 -- 'creationTime', 'getReferenceStoreResponse_creationTime' - When the store was created.
---
--- 'id', 'getReferenceStoreResponse_id' - The store\'s ID.
 newGetReferenceStoreResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
+  -- | 'id'
+  Prelude.Text ->
   -- | 'arn'
   Prelude.Text ->
   -- | 'creationTime'
   Prelude.UTCTime ->
-  -- | 'id'
-  Prelude.Text ->
   GetReferenceStoreResponse
 newGetReferenceStoreResponse
   pHttpStatus_
+  pId_
   pArn_
-  pCreationTime_
-  pId_ =
+  pCreationTime_ =
     GetReferenceStoreResponse'
       { description =
           Prelude.Nothing,
         name = Prelude.Nothing,
         sseConfig = Prelude.Nothing,
         httpStatus = pHttpStatus_,
+        id = pId_,
         arn = pArn_,
-        creationTime = Data._Time Lens.# pCreationTime_,
-        id = pId_
+        creationTime = Data._Time Lens.# pCreationTime_
       }
 
 -- | The store\'s description.
@@ -205,6 +205,10 @@ getReferenceStoreResponse_sseConfig = Lens.lens (\GetReferenceStoreResponse' {ss
 getReferenceStoreResponse_httpStatus :: Lens.Lens' GetReferenceStoreResponse Prelude.Int
 getReferenceStoreResponse_httpStatus = Lens.lens (\GetReferenceStoreResponse' {httpStatus} -> httpStatus) (\s@GetReferenceStoreResponse' {} a -> s {httpStatus = a} :: GetReferenceStoreResponse)
 
+-- | The store\'s ID.
+getReferenceStoreResponse_id :: Lens.Lens' GetReferenceStoreResponse Prelude.Text
+getReferenceStoreResponse_id = Lens.lens (\GetReferenceStoreResponse' {id} -> id) (\s@GetReferenceStoreResponse' {} a -> s {id = a} :: GetReferenceStoreResponse)
+
 -- | The store\'s ARN.
 getReferenceStoreResponse_arn :: Lens.Lens' GetReferenceStoreResponse Prelude.Text
 getReferenceStoreResponse_arn = Lens.lens (\GetReferenceStoreResponse' {arn} -> arn) (\s@GetReferenceStoreResponse' {} a -> s {arn = a} :: GetReferenceStoreResponse)
@@ -213,16 +217,12 @@ getReferenceStoreResponse_arn = Lens.lens (\GetReferenceStoreResponse' {arn} -> 
 getReferenceStoreResponse_creationTime :: Lens.Lens' GetReferenceStoreResponse Prelude.UTCTime
 getReferenceStoreResponse_creationTime = Lens.lens (\GetReferenceStoreResponse' {creationTime} -> creationTime) (\s@GetReferenceStoreResponse' {} a -> s {creationTime = a} :: GetReferenceStoreResponse) Prelude.. Data._Time
 
--- | The store\'s ID.
-getReferenceStoreResponse_id :: Lens.Lens' GetReferenceStoreResponse Prelude.Text
-getReferenceStoreResponse_id = Lens.lens (\GetReferenceStoreResponse' {id} -> id) (\s@GetReferenceStoreResponse' {} a -> s {id = a} :: GetReferenceStoreResponse)
-
 instance Prelude.NFData GetReferenceStoreResponse where
   rnf GetReferenceStoreResponse' {..} =
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf sseConfig
       `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id

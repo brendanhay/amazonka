@@ -24,7 +24,9 @@ module Amazonka.Omics.Types.ReadSetStatus
         ReadSetStatus_ACTIVE,
         ReadSetStatus_ARCHIVED,
         ReadSetStatus_DELETED,
-        ReadSetStatus_DELETING
+        ReadSetStatus_DELETING,
+        ReadSetStatus_PROCESSING_UPLOAD,
+        ReadSetStatus_UPLOAD_FAILED
       ),
   )
 where
@@ -76,11 +78,19 @@ pattern ReadSetStatus_DELETED = ReadSetStatus' "DELETED"
 pattern ReadSetStatus_DELETING :: ReadSetStatus
 pattern ReadSetStatus_DELETING = ReadSetStatus' "DELETING"
 
+pattern ReadSetStatus_PROCESSING_UPLOAD :: ReadSetStatus
+pattern ReadSetStatus_PROCESSING_UPLOAD = ReadSetStatus' "PROCESSING_UPLOAD"
+
+pattern ReadSetStatus_UPLOAD_FAILED :: ReadSetStatus
+pattern ReadSetStatus_UPLOAD_FAILED = ReadSetStatus' "UPLOAD_FAILED"
+
 {-# COMPLETE
   ReadSetStatus_ACTIVATING,
   ReadSetStatus_ACTIVE,
   ReadSetStatus_ARCHIVED,
   ReadSetStatus_DELETED,
   ReadSetStatus_DELETING,
+  ReadSetStatus_PROCESSING_UPLOAD,
+  ReadSetStatus_UPLOAD_FAILED,
   ReadSetStatus'
   #-}

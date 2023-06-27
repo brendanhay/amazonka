@@ -44,10 +44,10 @@ module Amazonka.Omics.CreateAnnotationStore
     createAnnotationStoreResponse_storeFormat,
     createAnnotationStoreResponse_storeOptions,
     createAnnotationStoreResponse_httpStatus,
-    createAnnotationStoreResponse_creationTime,
     createAnnotationStoreResponse_id,
-    createAnnotationStoreResponse_name,
     createAnnotationStoreResponse_status,
+    createAnnotationStoreResponse_name,
+    createAnnotationStoreResponse_creationTime,
   )
 where
 
@@ -157,15 +157,16 @@ instance Core.AWSRequest CreateAnnotationStore where
             Prelude.<*> (x Data..?> "storeFormat")
             Prelude.<*> (x Data..?> "storeOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "creationTime")
             Prelude.<*> (x Data..:> "id")
-            Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "creationTime")
       )
 
 instance Prelude.Hashable CreateAnnotationStore where
   hashWithSalt _salt CreateAnnotationStore' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` reference
       `Prelude.hashWithSalt` sseConfig
@@ -216,7 +217,8 @@ instance Data.ToQuery CreateAnnotationStore where
 
 -- | /See:/ 'newCreateAnnotationStoreResponse' smart constructor.
 data CreateAnnotationStoreResponse = CreateAnnotationStoreResponse'
-  { -- | The store\'s genome reference.
+  { -- | The store\'s genome reference. Required for all stores except TSV format
+    -- with generic annotations.
     reference :: Prelude.Maybe ReferenceItem,
     -- | The annotation file format of the store.
     storeFormat :: Prelude.Maybe StoreFormat,
@@ -224,14 +226,14 @@ data CreateAnnotationStoreResponse = CreateAnnotationStoreResponse'
     storeOptions :: Prelude.Maybe StoreOptions,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | When the store was created.
-    creationTime :: Data.ISO8601,
     -- | The store\'s ID.
     id :: Prelude.Text,
+    -- | The store\'s status.
+    status :: StoreStatus,
     -- | The store\'s name.
     name :: Prelude.Text,
-    -- | The store\'s status.
-    status :: StoreStatus
+    -- | When the store was created.
+    creationTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -243,7 +245,8 @@ data CreateAnnotationStoreResponse = CreateAnnotationStoreResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reference', 'createAnnotationStoreResponse_reference' - The store\'s genome reference.
+-- 'reference', 'createAnnotationStoreResponse_reference' - The store\'s genome reference. Required for all stores except TSV format
+-- with generic annotations.
 --
 -- 'storeFormat', 'createAnnotationStoreResponse_storeFormat' - The annotation file format of the store.
 --
@@ -251,45 +254,46 @@ data CreateAnnotationStoreResponse = CreateAnnotationStoreResponse'
 --
 -- 'httpStatus', 'createAnnotationStoreResponse_httpStatus' - The response's http status code.
 --
--- 'creationTime', 'createAnnotationStoreResponse_creationTime' - When the store was created.
---
 -- 'id', 'createAnnotationStoreResponse_id' - The store\'s ID.
+--
+-- 'status', 'createAnnotationStoreResponse_status' - The store\'s status.
 --
 -- 'name', 'createAnnotationStoreResponse_name' - The store\'s name.
 --
--- 'status', 'createAnnotationStoreResponse_status' - The store\'s status.
+-- 'creationTime', 'createAnnotationStoreResponse_creationTime' - When the store was created.
 newCreateAnnotationStoreResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'creationTime'
-  Prelude.UTCTime ->
   -- | 'id'
-  Prelude.Text ->
-  -- | 'name'
   Prelude.Text ->
   -- | 'status'
   StoreStatus ->
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'creationTime'
+  Prelude.UTCTime ->
   CreateAnnotationStoreResponse
 newCreateAnnotationStoreResponse
   pHttpStatus_
-  pCreationTime_
   pId_
+  pStatus_
   pName_
-  pStatus_ =
+  pCreationTime_ =
     CreateAnnotationStoreResponse'
       { reference =
           Prelude.Nothing,
         storeFormat = Prelude.Nothing,
         storeOptions = Prelude.Nothing,
         httpStatus = pHttpStatus_,
-        creationTime =
-          Data._Time Lens.# pCreationTime_,
         id = pId_,
+        status = pStatus_,
         name = pName_,
-        status = pStatus_
+        creationTime =
+          Data._Time Lens.# pCreationTime_
       }
 
--- | The store\'s genome reference.
+-- | The store\'s genome reference. Required for all stores except TSV format
+-- with generic annotations.
 createAnnotationStoreResponse_reference :: Lens.Lens' CreateAnnotationStoreResponse (Prelude.Maybe ReferenceItem)
 createAnnotationStoreResponse_reference = Lens.lens (\CreateAnnotationStoreResponse' {reference} -> reference) (\s@CreateAnnotationStoreResponse' {} a -> s {reference = a} :: CreateAnnotationStoreResponse)
 
@@ -305,21 +309,21 @@ createAnnotationStoreResponse_storeOptions = Lens.lens (\CreateAnnotationStoreRe
 createAnnotationStoreResponse_httpStatus :: Lens.Lens' CreateAnnotationStoreResponse Prelude.Int
 createAnnotationStoreResponse_httpStatus = Lens.lens (\CreateAnnotationStoreResponse' {httpStatus} -> httpStatus) (\s@CreateAnnotationStoreResponse' {} a -> s {httpStatus = a} :: CreateAnnotationStoreResponse)
 
--- | When the store was created.
-createAnnotationStoreResponse_creationTime :: Lens.Lens' CreateAnnotationStoreResponse Prelude.UTCTime
-createAnnotationStoreResponse_creationTime = Lens.lens (\CreateAnnotationStoreResponse' {creationTime} -> creationTime) (\s@CreateAnnotationStoreResponse' {} a -> s {creationTime = a} :: CreateAnnotationStoreResponse) Prelude.. Data._Time
-
 -- | The store\'s ID.
 createAnnotationStoreResponse_id :: Lens.Lens' CreateAnnotationStoreResponse Prelude.Text
 createAnnotationStoreResponse_id = Lens.lens (\CreateAnnotationStoreResponse' {id} -> id) (\s@CreateAnnotationStoreResponse' {} a -> s {id = a} :: CreateAnnotationStoreResponse)
+
+-- | The store\'s status.
+createAnnotationStoreResponse_status :: Lens.Lens' CreateAnnotationStoreResponse StoreStatus
+createAnnotationStoreResponse_status = Lens.lens (\CreateAnnotationStoreResponse' {status} -> status) (\s@CreateAnnotationStoreResponse' {} a -> s {status = a} :: CreateAnnotationStoreResponse)
 
 -- | The store\'s name.
 createAnnotationStoreResponse_name :: Lens.Lens' CreateAnnotationStoreResponse Prelude.Text
 createAnnotationStoreResponse_name = Lens.lens (\CreateAnnotationStoreResponse' {name} -> name) (\s@CreateAnnotationStoreResponse' {} a -> s {name = a} :: CreateAnnotationStoreResponse)
 
--- | The store\'s status.
-createAnnotationStoreResponse_status :: Lens.Lens' CreateAnnotationStoreResponse StoreStatus
-createAnnotationStoreResponse_status = Lens.lens (\CreateAnnotationStoreResponse' {status} -> status) (\s@CreateAnnotationStoreResponse' {} a -> s {status = a} :: CreateAnnotationStoreResponse)
+-- | When the store was created.
+createAnnotationStoreResponse_creationTime :: Lens.Lens' CreateAnnotationStoreResponse Prelude.UTCTime
+createAnnotationStoreResponse_creationTime = Lens.lens (\CreateAnnotationStoreResponse' {creationTime} -> creationTime) (\s@CreateAnnotationStoreResponse' {} a -> s {creationTime = a} :: CreateAnnotationStoreResponse) Prelude.. Data._Time
 
 instance Prelude.NFData CreateAnnotationStoreResponse where
   rnf CreateAnnotationStoreResponse' {..} =
@@ -327,7 +331,7 @@ instance Prelude.NFData CreateAnnotationStoreResponse where
       `Prelude.seq` Prelude.rnf storeFormat
       `Prelude.seq` Prelude.rnf storeOptions
       `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationTime

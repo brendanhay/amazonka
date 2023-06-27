@@ -32,10 +32,10 @@ data StartReferenceImportJobSourceItem = StartReferenceImportJobSourceItem'
     description :: Prelude.Maybe Prelude.Text,
     -- | The source\'s tags.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The source\'s name.
-    name :: Prelude.Text,
     -- | The source file\'s location in Amazon S3.
-    sourceFile :: Prelude.Text
+    sourceFile :: Prelude.Text,
+    -- | The source\'s name.
+    name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,24 +51,24 @@ data StartReferenceImportJobSourceItem = StartReferenceImportJobSourceItem'
 --
 -- 'tags', 'startReferenceImportJobSourceItem_tags' - The source\'s tags.
 --
--- 'name', 'startReferenceImportJobSourceItem_name' - The source\'s name.
---
 -- 'sourceFile', 'startReferenceImportJobSourceItem_sourceFile' - The source file\'s location in Amazon S3.
+--
+-- 'name', 'startReferenceImportJobSourceItem_name' - The source\'s name.
 newStartReferenceImportJobSourceItem ::
-  -- | 'name'
-  Prelude.Text ->
   -- | 'sourceFile'
+  Prelude.Text ->
+  -- | 'name'
   Prelude.Text ->
   StartReferenceImportJobSourceItem
 newStartReferenceImportJobSourceItem
-  pName_
-  pSourceFile_ =
+  pSourceFile_
+  pName_ =
     StartReferenceImportJobSourceItem'
       { description =
           Prelude.Nothing,
         tags = Prelude.Nothing,
-        name = pName_,
-        sourceFile = pSourceFile_
+        sourceFile = pSourceFile_,
+        name = pName_
       }
 
 -- | The source\'s description.
@@ -79,13 +79,13 @@ startReferenceImportJobSourceItem_description = Lens.lens (\StartReferenceImport
 startReferenceImportJobSourceItem_tags :: Lens.Lens' StartReferenceImportJobSourceItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 startReferenceImportJobSourceItem_tags = Lens.lens (\StartReferenceImportJobSourceItem' {tags} -> tags) (\s@StartReferenceImportJobSourceItem' {} a -> s {tags = a} :: StartReferenceImportJobSourceItem) Prelude.. Lens.mapping Lens.coerced
 
--- | The source\'s name.
-startReferenceImportJobSourceItem_name :: Lens.Lens' StartReferenceImportJobSourceItem Prelude.Text
-startReferenceImportJobSourceItem_name = Lens.lens (\StartReferenceImportJobSourceItem' {name} -> name) (\s@StartReferenceImportJobSourceItem' {} a -> s {name = a} :: StartReferenceImportJobSourceItem)
-
 -- | The source file\'s location in Amazon S3.
 startReferenceImportJobSourceItem_sourceFile :: Lens.Lens' StartReferenceImportJobSourceItem Prelude.Text
 startReferenceImportJobSourceItem_sourceFile = Lens.lens (\StartReferenceImportJobSourceItem' {sourceFile} -> sourceFile) (\s@StartReferenceImportJobSourceItem' {} a -> s {sourceFile = a} :: StartReferenceImportJobSourceItem)
+
+-- | The source\'s name.
+startReferenceImportJobSourceItem_name :: Lens.Lens' StartReferenceImportJobSourceItem Prelude.Text
+startReferenceImportJobSourceItem_name = Lens.lens (\StartReferenceImportJobSourceItem' {name} -> name) (\s@StartReferenceImportJobSourceItem' {} a -> s {name = a} :: StartReferenceImportJobSourceItem)
 
 instance
   Prelude.Hashable
@@ -94,10 +94,11 @@ instance
   hashWithSalt
     _salt
     StartReferenceImportJobSourceItem' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` sourceFile
+        `Prelude.hashWithSalt` name
 
 instance
   Prelude.NFData
@@ -106,8 +107,8 @@ instance
   rnf StartReferenceImportJobSourceItem' {..} =
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf sourceFile
+      `Prelude.seq` Prelude.rnf name
 
 instance
   Data.ToJSON
@@ -118,7 +119,7 @@ instance
       ( Prelude.catMaybes
           [ ("description" Data..=) Prelude.<$> description,
             ("tags" Data..=) Prelude.<$> tags,
-            Prelude.Just ("name" Data..= name),
-            Prelude.Just ("sourceFile" Data..= sourceFile)
+            Prelude.Just ("sourceFile" Data..= sourceFile),
+            Prelude.Just ("name" Data..= name)
           ]
       )

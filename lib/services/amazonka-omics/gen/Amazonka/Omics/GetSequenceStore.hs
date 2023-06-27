@@ -35,12 +35,13 @@ module Amazonka.Omics.GetSequenceStore
 
     -- * Response Lenses
     getSequenceStoreResponse_description,
+    getSequenceStoreResponse_fallbackLocation,
     getSequenceStoreResponse_name,
     getSequenceStoreResponse_sseConfig,
     getSequenceStoreResponse_httpStatus,
+    getSequenceStoreResponse_id,
     getSequenceStoreResponse_arn,
     getSequenceStoreResponse_creationTime,
-    getSequenceStoreResponse_id,
   )
 where
 
@@ -90,12 +91,13 @@ instance Core.AWSRequest GetSequenceStore where
       ( \s h x ->
           GetSequenceStoreResponse'
             Prelude.<$> (x Data..?> "description")
+            Prelude.<*> (x Data..?> "fallbackLocation")
             Prelude.<*> (x Data..?> "name")
             Prelude.<*> (x Data..?> "sseConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..:> "id")
             Prelude.<*> (x Data..:> "arn")
             Prelude.<*> (x Data..:> "creationTime")
-            Prelude.<*> (x Data..:> "id")
       )
 
 instance Prelude.Hashable GetSequenceStore where
@@ -127,18 +129,21 @@ instance Data.ToQuery GetSequenceStore where
 data GetSequenceStoreResponse = GetSequenceStoreResponse'
   { -- | The store\'s description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | An S3 location that is used to store files that have failed a direct
+    -- upload.
+    fallbackLocation :: Prelude.Maybe Prelude.Text,
     -- | The store\'s name.
     name :: Prelude.Maybe Prelude.Text,
     -- | The store\'s server-side encryption (SSE) settings.
     sseConfig :: Prelude.Maybe SseConfig,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
+    -- | The store\'s ID.
+    id :: Prelude.Text,
     -- | The store\'s ARN.
     arn :: Prelude.Text,
     -- | When the store was created.
-    creationTime :: Data.ISO8601,
-    -- | The store\'s ID.
-    id :: Prelude.Text
+    creationTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -152,46 +157,55 @@ data GetSequenceStoreResponse = GetSequenceStoreResponse'
 --
 -- 'description', 'getSequenceStoreResponse_description' - The store\'s description.
 --
+-- 'fallbackLocation', 'getSequenceStoreResponse_fallbackLocation' - An S3 location that is used to store files that have failed a direct
+-- upload.
+--
 -- 'name', 'getSequenceStoreResponse_name' - The store\'s name.
 --
 -- 'sseConfig', 'getSequenceStoreResponse_sseConfig' - The store\'s server-side encryption (SSE) settings.
 --
 -- 'httpStatus', 'getSequenceStoreResponse_httpStatus' - The response's http status code.
 --
+-- 'id', 'getSequenceStoreResponse_id' - The store\'s ID.
+--
 -- 'arn', 'getSequenceStoreResponse_arn' - The store\'s ARN.
 --
 -- 'creationTime', 'getSequenceStoreResponse_creationTime' - When the store was created.
---
--- 'id', 'getSequenceStoreResponse_id' - The store\'s ID.
 newGetSequenceStoreResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
+  -- | 'id'
+  Prelude.Text ->
   -- | 'arn'
   Prelude.Text ->
   -- | 'creationTime'
   Prelude.UTCTime ->
-  -- | 'id'
-  Prelude.Text ->
   GetSequenceStoreResponse
 newGetSequenceStoreResponse
   pHttpStatus_
+  pId_
   pArn_
-  pCreationTime_
-  pId_ =
+  pCreationTime_ =
     GetSequenceStoreResponse'
       { description =
           Prelude.Nothing,
+        fallbackLocation = Prelude.Nothing,
         name = Prelude.Nothing,
         sseConfig = Prelude.Nothing,
         httpStatus = pHttpStatus_,
+        id = pId_,
         arn = pArn_,
-        creationTime = Data._Time Lens.# pCreationTime_,
-        id = pId_
+        creationTime = Data._Time Lens.# pCreationTime_
       }
 
 -- | The store\'s description.
 getSequenceStoreResponse_description :: Lens.Lens' GetSequenceStoreResponse (Prelude.Maybe Prelude.Text)
 getSequenceStoreResponse_description = Lens.lens (\GetSequenceStoreResponse' {description} -> description) (\s@GetSequenceStoreResponse' {} a -> s {description = a} :: GetSequenceStoreResponse)
+
+-- | An S3 location that is used to store files that have failed a direct
+-- upload.
+getSequenceStoreResponse_fallbackLocation :: Lens.Lens' GetSequenceStoreResponse (Prelude.Maybe Prelude.Text)
+getSequenceStoreResponse_fallbackLocation = Lens.lens (\GetSequenceStoreResponse' {fallbackLocation} -> fallbackLocation) (\s@GetSequenceStoreResponse' {} a -> s {fallbackLocation = a} :: GetSequenceStoreResponse)
 
 -- | The store\'s name.
 getSequenceStoreResponse_name :: Lens.Lens' GetSequenceStoreResponse (Prelude.Maybe Prelude.Text)
@@ -205,6 +219,10 @@ getSequenceStoreResponse_sseConfig = Lens.lens (\GetSequenceStoreResponse' {sseC
 getSequenceStoreResponse_httpStatus :: Lens.Lens' GetSequenceStoreResponse Prelude.Int
 getSequenceStoreResponse_httpStatus = Lens.lens (\GetSequenceStoreResponse' {httpStatus} -> httpStatus) (\s@GetSequenceStoreResponse' {} a -> s {httpStatus = a} :: GetSequenceStoreResponse)
 
+-- | The store\'s ID.
+getSequenceStoreResponse_id :: Lens.Lens' GetSequenceStoreResponse Prelude.Text
+getSequenceStoreResponse_id = Lens.lens (\GetSequenceStoreResponse' {id} -> id) (\s@GetSequenceStoreResponse' {} a -> s {id = a} :: GetSequenceStoreResponse)
+
 -- | The store\'s ARN.
 getSequenceStoreResponse_arn :: Lens.Lens' GetSequenceStoreResponse Prelude.Text
 getSequenceStoreResponse_arn = Lens.lens (\GetSequenceStoreResponse' {arn} -> arn) (\s@GetSequenceStoreResponse' {} a -> s {arn = a} :: GetSequenceStoreResponse)
@@ -213,16 +231,13 @@ getSequenceStoreResponse_arn = Lens.lens (\GetSequenceStoreResponse' {arn} -> ar
 getSequenceStoreResponse_creationTime :: Lens.Lens' GetSequenceStoreResponse Prelude.UTCTime
 getSequenceStoreResponse_creationTime = Lens.lens (\GetSequenceStoreResponse' {creationTime} -> creationTime) (\s@GetSequenceStoreResponse' {} a -> s {creationTime = a} :: GetSequenceStoreResponse) Prelude.. Data._Time
 
--- | The store\'s ID.
-getSequenceStoreResponse_id :: Lens.Lens' GetSequenceStoreResponse Prelude.Text
-getSequenceStoreResponse_id = Lens.lens (\GetSequenceStoreResponse' {id} -> id) (\s@GetSequenceStoreResponse' {} a -> s {id = a} :: GetSequenceStoreResponse)
-
 instance Prelude.NFData GetSequenceStoreResponse where
   rnf GetSequenceStoreResponse' {..} =
     Prelude.rnf description
+      `Prelude.seq` Prelude.rnf fallbackLocation
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf sseConfig
       `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf id

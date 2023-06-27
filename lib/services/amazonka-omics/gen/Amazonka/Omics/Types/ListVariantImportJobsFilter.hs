@@ -66,7 +66,8 @@ listVariantImportJobsFilter_storeName = Lens.lens (\ListVariantImportJobsFilter'
 
 instance Prelude.Hashable ListVariantImportJobsFilter where
   hashWithSalt _salt ListVariantImportJobsFilter' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` storeName
 
 instance Prelude.NFData ListVariantImportJobsFilter where

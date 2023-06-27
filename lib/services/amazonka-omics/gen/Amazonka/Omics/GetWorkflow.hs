@@ -36,6 +36,7 @@ module Amazonka.Omics.GetWorkflow
     newGetWorkflowResponse,
 
     -- * Response Lenses
+    getWorkflowResponse_accelerators,
     getWorkflowResponse_arn,
     getWorkflowResponse_creationTime,
     getWorkflowResponse_definition,
@@ -44,6 +45,7 @@ module Amazonka.Omics.GetWorkflow
     getWorkflowResponse_engine,
     getWorkflowResponse_id,
     getWorkflowResponse_main,
+    getWorkflowResponse_metadata,
     getWorkflowResponse_name,
     getWorkflowResponse_parameterTemplate,
     getWorkflowResponse_status,
@@ -118,7 +120,8 @@ instance Core.AWSRequest GetWorkflow where
     Response.receiveJSON
       ( \s h x ->
           GetWorkflowResponse'
-            Prelude.<$> (x Data..?> "arn")
+            Prelude.<$> (x Data..?> "accelerators")
+            Prelude.<*> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "creationTime")
             Prelude.<*> (x Data..?> "definition")
             Prelude.<*> (x Data..?> "description")
@@ -126,8 +129,10 @@ instance Core.AWSRequest GetWorkflow where
             Prelude.<*> (x Data..?> "engine")
             Prelude.<*> (x Data..?> "id")
             Prelude.<*> (x Data..?> "main")
+            Prelude.<*> (x Data..?> "metadata" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "name")
-            Prelude.<*> ( x Data..?> "parameterTemplate"
+            Prelude.<*> ( x
+                            Data..?> "parameterTemplate"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "status")
@@ -140,7 +145,8 @@ instance Core.AWSRequest GetWorkflow where
 
 instance Prelude.Hashable GetWorkflow where
   hashWithSalt _salt GetWorkflow' {..} =
-    _salt `Prelude.hashWithSalt` export'
+    _salt
+      `Prelude.hashWithSalt` export'
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` id
 
@@ -176,7 +182,9 @@ instance Data.ToQuery GetWorkflow where
 
 -- | /See:/ 'newGetWorkflowResponse' smart constructor.
 data GetWorkflowResponse = GetWorkflowResponse'
-  { -- | The workflow\'s ARN.
+  { -- | The computational accelerator specified to run the workflow.
+    accelerators :: Prelude.Maybe Accelerators,
+    -- | The workflow\'s ARN.
     arn :: Prelude.Maybe Prelude.Text,
     -- | When the workflow was created.
     creationTime :: Prelude.Maybe Data.ISO8601,
@@ -192,6 +200,8 @@ data GetWorkflowResponse = GetWorkflowResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | The path of the main definition file for the workflow.
     main :: Prelude.Maybe Prelude.Text,
+    -- | Gets metadata for workflow.
+    metadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The workflow\'s name.
     name :: Prelude.Maybe Prelude.Text,
     -- | The workflow\'s parameter template.
@@ -200,7 +210,7 @@ data GetWorkflowResponse = GetWorkflowResponse'
     status :: Prelude.Maybe WorkflowStatus,
     -- | The workflow\'s status message.
     statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The workflow\'s storage capacity.
+    -- | The workflow\'s storage capacity in gigabytes.
     storageCapacity :: Prelude.Maybe Prelude.Natural,
     -- | The workflow\'s tags.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -219,6 +229,8 @@ data GetWorkflowResponse = GetWorkflowResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accelerators', 'getWorkflowResponse_accelerators' - The computational accelerator specified to run the workflow.
+--
 -- 'arn', 'getWorkflowResponse_arn' - The workflow\'s ARN.
 --
 -- 'creationTime', 'getWorkflowResponse_creationTime' - When the workflow was created.
@@ -235,6 +247,8 @@ data GetWorkflowResponse = GetWorkflowResponse'
 --
 -- 'main', 'getWorkflowResponse_main' - The path of the main definition file for the workflow.
 --
+-- 'metadata', 'getWorkflowResponse_metadata' - Gets metadata for workflow.
+--
 -- 'name', 'getWorkflowResponse_name' - The workflow\'s name.
 --
 -- 'parameterTemplate', 'getWorkflowResponse_parameterTemplate' - The workflow\'s parameter template.
@@ -243,7 +257,7 @@ data GetWorkflowResponse = GetWorkflowResponse'
 --
 -- 'statusMessage', 'getWorkflowResponse_statusMessage' - The workflow\'s status message.
 --
--- 'storageCapacity', 'getWorkflowResponse_storageCapacity' - The workflow\'s storage capacity.
+-- 'storageCapacity', 'getWorkflowResponse_storageCapacity' - The workflow\'s storage capacity in gigabytes.
 --
 -- 'tags', 'getWorkflowResponse_tags' - The workflow\'s tags.
 --
@@ -256,7 +270,9 @@ newGetWorkflowResponse ::
   GetWorkflowResponse
 newGetWorkflowResponse pHttpStatus_ =
   GetWorkflowResponse'
-    { arn = Prelude.Nothing,
+    { accelerators =
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       definition = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -264,6 +280,7 @@ newGetWorkflowResponse pHttpStatus_ =
       engine = Prelude.Nothing,
       id = Prelude.Nothing,
       main = Prelude.Nothing,
+      metadata = Prelude.Nothing,
       name = Prelude.Nothing,
       parameterTemplate = Prelude.Nothing,
       status = Prelude.Nothing,
@@ -273,6 +290,10 @@ newGetWorkflowResponse pHttpStatus_ =
       type' = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The computational accelerator specified to run the workflow.
+getWorkflowResponse_accelerators :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Accelerators)
+getWorkflowResponse_accelerators = Lens.lens (\GetWorkflowResponse' {accelerators} -> accelerators) (\s@GetWorkflowResponse' {} a -> s {accelerators = a} :: GetWorkflowResponse)
 
 -- | The workflow\'s ARN.
 getWorkflowResponse_arn :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
@@ -306,6 +327,10 @@ getWorkflowResponse_id = Lens.lens (\GetWorkflowResponse' {id} -> id) (\s@GetWor
 getWorkflowResponse_main :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
 getWorkflowResponse_main = Lens.lens (\GetWorkflowResponse' {main} -> main) (\s@GetWorkflowResponse' {} a -> s {main = a} :: GetWorkflowResponse)
 
+-- | Gets metadata for workflow.
+getWorkflowResponse_metadata :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getWorkflowResponse_metadata = Lens.lens (\GetWorkflowResponse' {metadata} -> metadata) (\s@GetWorkflowResponse' {} a -> s {metadata = a} :: GetWorkflowResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The workflow\'s name.
 getWorkflowResponse_name :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
 getWorkflowResponse_name = Lens.lens (\GetWorkflowResponse' {name} -> name) (\s@GetWorkflowResponse' {} a -> s {name = a} :: GetWorkflowResponse)
@@ -322,7 +347,7 @@ getWorkflowResponse_status = Lens.lens (\GetWorkflowResponse' {status} -> status
 getWorkflowResponse_statusMessage :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Text)
 getWorkflowResponse_statusMessage = Lens.lens (\GetWorkflowResponse' {statusMessage} -> statusMessage) (\s@GetWorkflowResponse' {} a -> s {statusMessage = a} :: GetWorkflowResponse)
 
--- | The workflow\'s storage capacity.
+-- | The workflow\'s storage capacity in gigabytes.
 getWorkflowResponse_storageCapacity :: Lens.Lens' GetWorkflowResponse (Prelude.Maybe Prelude.Natural)
 getWorkflowResponse_storageCapacity = Lens.lens (\GetWorkflowResponse' {storageCapacity} -> storageCapacity) (\s@GetWorkflowResponse' {} a -> s {storageCapacity = a} :: GetWorkflowResponse)
 
@@ -340,7 +365,8 @@ getWorkflowResponse_httpStatus = Lens.lens (\GetWorkflowResponse' {httpStatus} -
 
 instance Prelude.NFData GetWorkflowResponse where
   rnf GetWorkflowResponse' {..} =
-    Prelude.rnf arn
+    Prelude.rnf accelerators
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf definition
       `Prelude.seq` Prelude.rnf description
@@ -348,6 +374,7 @@ instance Prelude.NFData GetWorkflowResponse where
       `Prelude.seq` Prelude.rnf engine
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf main
+      `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf parameterTemplate
       `Prelude.seq` Prelude.rnf status

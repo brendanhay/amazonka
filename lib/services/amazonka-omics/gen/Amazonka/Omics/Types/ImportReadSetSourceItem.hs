@@ -43,16 +43,16 @@ data ImportReadSetSourceItem = ImportReadSetSourceItem'
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The source\'s tags.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The source\'s sample ID.
-    sampleId :: Prelude.Text,
-    -- | The source\'s file type.
-    sourceFileType :: FileType,
     -- | The source files\' location in Amazon S3.
     sourceFiles :: SourceFiles,
+    -- | The source\'s file type.
+    sourceFileType :: FileType,
     -- | The source\'s status.
     status :: ReadSetImportJobItemStatus,
     -- | The source\'s subject ID.
-    subjectId :: Prelude.Text
+    subjectId :: Prelude.Text,
+    -- | The source\'s sample ID.
+    sampleId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,33 +76,33 @@ data ImportReadSetSourceItem = ImportReadSetSourceItem'
 --
 -- 'tags', 'importReadSetSourceItem_tags' - The source\'s tags.
 --
--- 'sampleId', 'importReadSetSourceItem_sampleId' - The source\'s sample ID.
+-- 'sourceFiles', 'importReadSetSourceItem_sourceFiles' - The source files\' location in Amazon S3.
 --
 -- 'sourceFileType', 'importReadSetSourceItem_sourceFileType' - The source\'s file type.
---
--- 'sourceFiles', 'importReadSetSourceItem_sourceFiles' - The source files\' location in Amazon S3.
 --
 -- 'status', 'importReadSetSourceItem_status' - The source\'s status.
 --
 -- 'subjectId', 'importReadSetSourceItem_subjectId' - The source\'s subject ID.
+--
+-- 'sampleId', 'importReadSetSourceItem_sampleId' - The source\'s sample ID.
 newImportReadSetSourceItem ::
-  -- | 'sampleId'
-  Prelude.Text ->
-  -- | 'sourceFileType'
-  FileType ->
   -- | 'sourceFiles'
   SourceFiles ->
+  -- | 'sourceFileType'
+  FileType ->
   -- | 'status'
   ReadSetImportJobItemStatus ->
   -- | 'subjectId'
   Prelude.Text ->
+  -- | 'sampleId'
+  Prelude.Text ->
   ImportReadSetSourceItem
 newImportReadSetSourceItem
-  pSampleId_
-  pSourceFileType_
   pSourceFiles_
+  pSourceFileType_
   pStatus_
-  pSubjectId_ =
+  pSubjectId_
+  pSampleId_ =
     ImportReadSetSourceItem'
       { description =
           Prelude.Nothing,
@@ -111,11 +111,11 @@ newImportReadSetSourceItem
         referenceArn = Prelude.Nothing,
         statusMessage = Prelude.Nothing,
         tags = Prelude.Nothing,
-        sampleId = pSampleId_,
-        sourceFileType = pSourceFileType_,
         sourceFiles = pSourceFiles_,
+        sourceFileType = pSourceFileType_,
         status = pStatus_,
-        subjectId = pSubjectId_
+        subjectId = pSubjectId_,
+        sampleId = pSampleId_
       }
 
 -- | The source\'s description.
@@ -142,17 +142,13 @@ importReadSetSourceItem_statusMessage = Lens.lens (\ImportReadSetSourceItem' {st
 importReadSetSourceItem_tags :: Lens.Lens' ImportReadSetSourceItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 importReadSetSourceItem_tags = Lens.lens (\ImportReadSetSourceItem' {tags} -> tags) (\s@ImportReadSetSourceItem' {} a -> s {tags = a} :: ImportReadSetSourceItem) Prelude.. Lens.mapping Lens.coerced
 
--- | The source\'s sample ID.
-importReadSetSourceItem_sampleId :: Lens.Lens' ImportReadSetSourceItem Prelude.Text
-importReadSetSourceItem_sampleId = Lens.lens (\ImportReadSetSourceItem' {sampleId} -> sampleId) (\s@ImportReadSetSourceItem' {} a -> s {sampleId = a} :: ImportReadSetSourceItem)
+-- | The source files\' location in Amazon S3.
+importReadSetSourceItem_sourceFiles :: Lens.Lens' ImportReadSetSourceItem SourceFiles
+importReadSetSourceItem_sourceFiles = Lens.lens (\ImportReadSetSourceItem' {sourceFiles} -> sourceFiles) (\s@ImportReadSetSourceItem' {} a -> s {sourceFiles = a} :: ImportReadSetSourceItem)
 
 -- | The source\'s file type.
 importReadSetSourceItem_sourceFileType :: Lens.Lens' ImportReadSetSourceItem FileType
 importReadSetSourceItem_sourceFileType = Lens.lens (\ImportReadSetSourceItem' {sourceFileType} -> sourceFileType) (\s@ImportReadSetSourceItem' {} a -> s {sourceFileType = a} :: ImportReadSetSourceItem)
-
--- | The source files\' location in Amazon S3.
-importReadSetSourceItem_sourceFiles :: Lens.Lens' ImportReadSetSourceItem SourceFiles
-importReadSetSourceItem_sourceFiles = Lens.lens (\ImportReadSetSourceItem' {sourceFiles} -> sourceFiles) (\s@ImportReadSetSourceItem' {} a -> s {sourceFiles = a} :: ImportReadSetSourceItem)
 
 -- | The source\'s status.
 importReadSetSourceItem_status :: Lens.Lens' ImportReadSetSourceItem ReadSetImportJobItemStatus
@@ -161,6 +157,10 @@ importReadSetSourceItem_status = Lens.lens (\ImportReadSetSourceItem' {status} -
 -- | The source\'s subject ID.
 importReadSetSourceItem_subjectId :: Lens.Lens' ImportReadSetSourceItem Prelude.Text
 importReadSetSourceItem_subjectId = Lens.lens (\ImportReadSetSourceItem' {subjectId} -> subjectId) (\s@ImportReadSetSourceItem' {} a -> s {subjectId = a} :: ImportReadSetSourceItem)
+
+-- | The source\'s sample ID.
+importReadSetSourceItem_sampleId :: Lens.Lens' ImportReadSetSourceItem Prelude.Text
+importReadSetSourceItem_sampleId = Lens.lens (\ImportReadSetSourceItem' {sampleId} -> sampleId) (\s@ImportReadSetSourceItem' {} a -> s {sampleId = a} :: ImportReadSetSourceItem)
 
 instance Data.FromJSON ImportReadSetSourceItem where
   parseJSON =
@@ -174,26 +174,27 @@ instance Data.FromJSON ImportReadSetSourceItem where
             Prelude.<*> (x Data..:? "referenceArn")
             Prelude.<*> (x Data..:? "statusMessage")
             Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..: "sampleId")
-            Prelude.<*> (x Data..: "sourceFileType")
             Prelude.<*> (x Data..: "sourceFiles")
+            Prelude.<*> (x Data..: "sourceFileType")
             Prelude.<*> (x Data..: "status")
             Prelude.<*> (x Data..: "subjectId")
+            Prelude.<*> (x Data..: "sampleId")
       )
 
 instance Prelude.Hashable ImportReadSetSourceItem where
   hashWithSalt _salt ImportReadSetSourceItem' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` generatedFrom
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` referenceArn
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` tags
-      `Prelude.hashWithSalt` sampleId
-      `Prelude.hashWithSalt` sourceFileType
       `Prelude.hashWithSalt` sourceFiles
+      `Prelude.hashWithSalt` sourceFileType
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` subjectId
+      `Prelude.hashWithSalt` sampleId
 
 instance Prelude.NFData ImportReadSetSourceItem where
   rnf ImportReadSetSourceItem' {..} =
@@ -203,8 +204,8 @@ instance Prelude.NFData ImportReadSetSourceItem where
       `Prelude.seq` Prelude.rnf referenceArn
       `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf sampleId
-      `Prelude.seq` Prelude.rnf sourceFileType
       `Prelude.seq` Prelude.rnf sourceFiles
+      `Prelude.seq` Prelude.rnf sourceFileType
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf subjectId
+      `Prelude.seq` Prelude.rnf sampleId

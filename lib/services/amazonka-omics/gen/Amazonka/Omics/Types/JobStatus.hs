@@ -22,6 +22,7 @@ module Amazonka.Omics.Types.JobStatus
       ( ..,
         JobStatus_CANCELLED,
         JobStatus_COMPLETED,
+        JobStatus_COMPLETED_WITH_FAILURES,
         JobStatus_FAILED,
         JobStatus_IN_PROGRESS,
         JobStatus_SUBMITTED
@@ -67,6 +68,9 @@ pattern JobStatus_CANCELLED = JobStatus' "CANCELLED"
 pattern JobStatus_COMPLETED :: JobStatus
 pattern JobStatus_COMPLETED = JobStatus' "COMPLETED"
 
+pattern JobStatus_COMPLETED_WITH_FAILURES :: JobStatus
+pattern JobStatus_COMPLETED_WITH_FAILURES = JobStatus' "COMPLETED_WITH_FAILURES"
+
 pattern JobStatus_FAILED :: JobStatus
 pattern JobStatus_FAILED = JobStatus' "FAILED"
 
@@ -79,6 +83,7 @@ pattern JobStatus_SUBMITTED = JobStatus' "SUBMITTED"
 {-# COMPLETE
   JobStatus_CANCELLED,
   JobStatus_COMPLETED,
+  JobStatus_COMPLETED_WITH_FAILURES,
   JobStatus_FAILED,
   JobStatus_IN_PROGRESS,
   JobStatus_SUBMITTED,

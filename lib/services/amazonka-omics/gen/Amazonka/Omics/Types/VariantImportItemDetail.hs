@@ -29,10 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVariantImportItemDetail' smart constructor.
 data VariantImportItemDetail = VariantImportItemDetail'
-  { -- | The item\'s job status.
-    jobStatus :: JobStatus,
+  { -- | A message that provides additional context about a job
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The source file\'s location in Amazon S3.
-    source :: Prelude.Text
+    source :: Prelude.Text,
+    -- | The item\'s job status.
+    jobStatus :: JobStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,28 +46,36 @@ data VariantImportItemDetail = VariantImportItemDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobStatus', 'variantImportItemDetail_jobStatus' - The item\'s job status.
+-- 'statusMessage', 'variantImportItemDetail_statusMessage' - A message that provides additional context about a job
 --
 -- 'source', 'variantImportItemDetail_source' - The source file\'s location in Amazon S3.
+--
+-- 'jobStatus', 'variantImportItemDetail_jobStatus' - The item\'s job status.
 newVariantImportItemDetail ::
-  -- | 'jobStatus'
-  JobStatus ->
   -- | 'source'
   Prelude.Text ->
+  -- | 'jobStatus'
+  JobStatus ->
   VariantImportItemDetail
-newVariantImportItemDetail pJobStatus_ pSource_ =
+newVariantImportItemDetail pSource_ pJobStatus_ =
   VariantImportItemDetail'
-    { jobStatus = pJobStatus_,
-      source = pSource_
+    { statusMessage =
+        Prelude.Nothing,
+      source = pSource_,
+      jobStatus = pJobStatus_
     }
 
--- | The item\'s job status.
-variantImportItemDetail_jobStatus :: Lens.Lens' VariantImportItemDetail JobStatus
-variantImportItemDetail_jobStatus = Lens.lens (\VariantImportItemDetail' {jobStatus} -> jobStatus) (\s@VariantImportItemDetail' {} a -> s {jobStatus = a} :: VariantImportItemDetail)
+-- | A message that provides additional context about a job
+variantImportItemDetail_statusMessage :: Lens.Lens' VariantImportItemDetail (Prelude.Maybe Prelude.Text)
+variantImportItemDetail_statusMessage = Lens.lens (\VariantImportItemDetail' {statusMessage} -> statusMessage) (\s@VariantImportItemDetail' {} a -> s {statusMessage = a} :: VariantImportItemDetail)
 
 -- | The source file\'s location in Amazon S3.
 variantImportItemDetail_source :: Lens.Lens' VariantImportItemDetail Prelude.Text
 variantImportItemDetail_source = Lens.lens (\VariantImportItemDetail' {source} -> source) (\s@VariantImportItemDetail' {} a -> s {source = a} :: VariantImportItemDetail)
+
+-- | The item\'s job status.
+variantImportItemDetail_jobStatus :: Lens.Lens' VariantImportItemDetail JobStatus
+variantImportItemDetail_jobStatus = Lens.lens (\VariantImportItemDetail' {jobStatus} -> jobStatus) (\s@VariantImportItemDetail' {} a -> s {jobStatus = a} :: VariantImportItemDetail)
 
 instance Data.FromJSON VariantImportItemDetail where
   parseJSON =
@@ -73,16 +83,20 @@ instance Data.FromJSON VariantImportItemDetail where
       "VariantImportItemDetail"
       ( \x ->
           VariantImportItemDetail'
-            Prelude.<$> (x Data..: "jobStatus")
+            Prelude.<$> (x Data..:? "statusMessage")
             Prelude.<*> (x Data..: "source")
+            Prelude.<*> (x Data..: "jobStatus")
       )
 
 instance Prelude.Hashable VariantImportItemDetail where
   hashWithSalt _salt VariantImportItemDetail' {..} =
-    _salt `Prelude.hashWithSalt` jobStatus
+    _salt
+      `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` jobStatus
 
 instance Prelude.NFData VariantImportItemDetail where
   rnf VariantImportItemDetail' {..} =
-    Prelude.rnf jobStatus
+    Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf jobStatus

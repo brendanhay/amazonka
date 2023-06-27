@@ -27,6 +27,7 @@ module Amazonka.Omics.CreateWorkflow
     newCreateWorkflow,
 
     -- * Request Lenses
+    createWorkflow_accelerators,
     createWorkflow_definitionUri,
     createWorkflow_definitionZip,
     createWorkflow_description,
@@ -61,7 +62,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateWorkflow' smart constructor.
 data CreateWorkflow = CreateWorkflow'
-  { -- | The URI of a definition for the workflow.
+  { -- | The computational accelerator specified to run the workflow.
+    accelerators :: Prelude.Maybe Accelerators,
+    -- | The URI of a definition for the workflow.
     definitionUri :: Prelude.Maybe Prelude.Text,
     -- | A ZIP archive for the workflow.
     definitionZip :: Prelude.Maybe Data.Base64,
@@ -75,11 +78,12 @@ data CreateWorkflow = CreateWorkflow'
     name :: Prelude.Maybe Prelude.Text,
     -- | A parameter template for the workflow.
     parameterTemplate :: Prelude.Maybe (Prelude.HashMap Prelude.Text WorkflowParameter),
-    -- | A storage capacity for the workflow.
+    -- | A storage capacity for the workflow in gigabytes.
     storageCapacity :: Prelude.Maybe Prelude.Natural,
     -- | Tags for the workflow.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A request ID for the workflow.
+    -- | To ensure that requests don\'t run multiple times, specify a unique ID
+    -- for each request.
     requestId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -91,6 +95,8 @@ data CreateWorkflow = CreateWorkflow'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'accelerators', 'createWorkflow_accelerators' - The computational accelerator specified to run the workflow.
 --
 -- 'definitionUri', 'createWorkflow_definitionUri' - The URI of a definition for the workflow.
 --
@@ -110,18 +116,20 @@ data CreateWorkflow = CreateWorkflow'
 --
 -- 'parameterTemplate', 'createWorkflow_parameterTemplate' - A parameter template for the workflow.
 --
--- 'storageCapacity', 'createWorkflow_storageCapacity' - A storage capacity for the workflow.
+-- 'storageCapacity', 'createWorkflow_storageCapacity' - A storage capacity for the workflow in gigabytes.
 --
 -- 'tags', 'createWorkflow_tags' - Tags for the workflow.
 --
--- 'requestId', 'createWorkflow_requestId' - A request ID for the workflow.
+-- 'requestId', 'createWorkflow_requestId' - To ensure that requests don\'t run multiple times, specify a unique ID
+-- for each request.
 newCreateWorkflow ::
   -- | 'requestId'
   Prelude.Text ->
   CreateWorkflow
 newCreateWorkflow pRequestId_ =
   CreateWorkflow'
-    { definitionUri = Prelude.Nothing,
+    { accelerators = Prelude.Nothing,
+      definitionUri = Prelude.Nothing,
       definitionZip = Prelude.Nothing,
       description = Prelude.Nothing,
       engine = Prelude.Nothing,
@@ -132,6 +140,10 @@ newCreateWorkflow pRequestId_ =
       tags = Prelude.Nothing,
       requestId = pRequestId_
     }
+
+-- | The computational accelerator specified to run the workflow.
+createWorkflow_accelerators :: Lens.Lens' CreateWorkflow (Prelude.Maybe Accelerators)
+createWorkflow_accelerators = Lens.lens (\CreateWorkflow' {accelerators} -> accelerators) (\s@CreateWorkflow' {} a -> s {accelerators = a} :: CreateWorkflow)
 
 -- | The URI of a definition for the workflow.
 createWorkflow_definitionUri :: Lens.Lens' CreateWorkflow (Prelude.Maybe Prelude.Text)
@@ -165,7 +177,7 @@ createWorkflow_name = Lens.lens (\CreateWorkflow' {name} -> name) (\s@CreateWork
 createWorkflow_parameterTemplate :: Lens.Lens' CreateWorkflow (Prelude.Maybe (Prelude.HashMap Prelude.Text WorkflowParameter))
 createWorkflow_parameterTemplate = Lens.lens (\CreateWorkflow' {parameterTemplate} -> parameterTemplate) (\s@CreateWorkflow' {} a -> s {parameterTemplate = a} :: CreateWorkflow) Prelude.. Lens.mapping Lens.coerced
 
--- | A storage capacity for the workflow.
+-- | A storage capacity for the workflow in gigabytes.
 createWorkflow_storageCapacity :: Lens.Lens' CreateWorkflow (Prelude.Maybe Prelude.Natural)
 createWorkflow_storageCapacity = Lens.lens (\CreateWorkflow' {storageCapacity} -> storageCapacity) (\s@CreateWorkflow' {} a -> s {storageCapacity = a} :: CreateWorkflow)
 
@@ -173,7 +185,8 @@ createWorkflow_storageCapacity = Lens.lens (\CreateWorkflow' {storageCapacity} -
 createWorkflow_tags :: Lens.Lens' CreateWorkflow (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createWorkflow_tags = Lens.lens (\CreateWorkflow' {tags} -> tags) (\s@CreateWorkflow' {} a -> s {tags = a} :: CreateWorkflow) Prelude.. Lens.mapping Lens.coerced
 
--- | A request ID for the workflow.
+-- | To ensure that requests don\'t run multiple times, specify a unique ID
+-- for each request.
 createWorkflow_requestId :: Lens.Lens' CreateWorkflow Prelude.Text
 createWorkflow_requestId = Lens.lens (\CreateWorkflow' {requestId} -> requestId) (\s@CreateWorkflow' {} a -> s {requestId = a} :: CreateWorkflow)
 
@@ -196,7 +209,9 @@ instance Core.AWSRequest CreateWorkflow where
 
 instance Prelude.Hashable CreateWorkflow where
   hashWithSalt _salt CreateWorkflow' {..} =
-    _salt `Prelude.hashWithSalt` definitionUri
+    _salt
+      `Prelude.hashWithSalt` accelerators
+      `Prelude.hashWithSalt` definitionUri
       `Prelude.hashWithSalt` definitionZip
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` engine
@@ -209,7 +224,8 @@ instance Prelude.Hashable CreateWorkflow where
 
 instance Prelude.NFData CreateWorkflow where
   rnf CreateWorkflow' {..} =
-    Prelude.rnf definitionUri
+    Prelude.rnf accelerators
+      `Prelude.seq` Prelude.rnf definitionUri
       `Prelude.seq` Prelude.rnf definitionZip
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf engine
@@ -235,7 +251,8 @@ instance Data.ToJSON CreateWorkflow where
   toJSON CreateWorkflow' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("definitionUri" Data..=) Prelude.<$> definitionUri,
+          [ ("accelerators" Data..=) Prelude.<$> accelerators,
+            ("definitionUri" Data..=) Prelude.<$> definitionUri,
             ("definitionZip" Data..=) Prelude.<$> definitionZip,
             ("description" Data..=) Prelude.<$> description,
             ("engine" Data..=) Prelude.<$> engine,

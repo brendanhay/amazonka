@@ -29,8 +29,8 @@ module Amazonka.Omics.GetReadSet
     -- * Request Lenses
     getReadSet_file,
     getReadSet_id,
-    getReadSet_partNumber,
     getReadSet_sequenceStoreId,
+    getReadSet_partNumber,
 
     -- * Destructuring the Response
     GetReadSetResponse (..),
@@ -56,10 +56,10 @@ data GetReadSet = GetReadSet'
     file :: Prelude.Maybe ReadSetFile,
     -- | The read set\'s ID.
     id :: Prelude.Text,
-    -- | The part number to retrieve.
-    partNumber :: Prelude.Natural,
     -- | The read set\'s sequence store ID.
-    sequenceStoreId :: Prelude.Text
+    sequenceStoreId :: Prelude.Text,
+    -- | The part number to retrieve.
+    partNumber :: Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,23 +75,23 @@ data GetReadSet = GetReadSet'
 --
 -- 'id', 'getReadSet_id' - The read set\'s ID.
 --
--- 'partNumber', 'getReadSet_partNumber' - The part number to retrieve.
---
 -- 'sequenceStoreId', 'getReadSet_sequenceStoreId' - The read set\'s sequence store ID.
+--
+-- 'partNumber', 'getReadSet_partNumber' - The part number to retrieve.
 newGetReadSet ::
   -- | 'id'
   Prelude.Text ->
-  -- | 'partNumber'
-  Prelude.Natural ->
   -- | 'sequenceStoreId'
   Prelude.Text ->
+  -- | 'partNumber'
+  Prelude.Natural ->
   GetReadSet
-newGetReadSet pId_ pPartNumber_ pSequenceStoreId_ =
+newGetReadSet pId_ pSequenceStoreId_ pPartNumber_ =
   GetReadSet'
     { file = Prelude.Nothing,
       id = pId_,
-      partNumber = pPartNumber_,
-      sequenceStoreId = pSequenceStoreId_
+      sequenceStoreId = pSequenceStoreId_,
+      partNumber = pPartNumber_
     }
 
 -- | The file to retrieve.
@@ -102,13 +102,13 @@ getReadSet_file = Lens.lens (\GetReadSet' {file} -> file) (\s@GetReadSet' {} a -
 getReadSet_id :: Lens.Lens' GetReadSet Prelude.Text
 getReadSet_id = Lens.lens (\GetReadSet' {id} -> id) (\s@GetReadSet' {} a -> s {id = a} :: GetReadSet)
 
--- | The part number to retrieve.
-getReadSet_partNumber :: Lens.Lens' GetReadSet Prelude.Natural
-getReadSet_partNumber = Lens.lens (\GetReadSet' {partNumber} -> partNumber) (\s@GetReadSet' {} a -> s {partNumber = a} :: GetReadSet)
-
 -- | The read set\'s sequence store ID.
 getReadSet_sequenceStoreId :: Lens.Lens' GetReadSet Prelude.Text
 getReadSet_sequenceStoreId = Lens.lens (\GetReadSet' {sequenceStoreId} -> sequenceStoreId) (\s@GetReadSet' {} a -> s {sequenceStoreId = a} :: GetReadSet)
+
+-- | The part number to retrieve.
+getReadSet_partNumber :: Lens.Lens' GetReadSet Prelude.Natural
+getReadSet_partNumber = Lens.lens (\GetReadSet' {partNumber} -> partNumber) (\s@GetReadSet' {} a -> s {partNumber = a} :: GetReadSet)
 
 instance Core.AWSRequest GetReadSet where
   type AWSResponse GetReadSet = GetReadSetResponse
@@ -124,17 +124,18 @@ instance Core.AWSRequest GetReadSet where
 
 instance Prelude.Hashable GetReadSet where
   hashWithSalt _salt GetReadSet' {..} =
-    _salt `Prelude.hashWithSalt` file
+    _salt
+      `Prelude.hashWithSalt` file
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` partNumber
       `Prelude.hashWithSalt` sequenceStoreId
+      `Prelude.hashWithSalt` partNumber
 
 instance Prelude.NFData GetReadSet where
   rnf GetReadSet' {..} =
     Prelude.rnf file
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf partNumber
       `Prelude.seq` Prelude.rnf sequenceStoreId
+      `Prelude.seq` Prelude.rnf partNumber
 
 instance Data.ToHeaders GetReadSet where
   toHeaders =

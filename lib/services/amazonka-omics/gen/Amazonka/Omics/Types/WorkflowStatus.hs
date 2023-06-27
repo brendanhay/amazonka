@@ -24,6 +24,7 @@ module Amazonka.Omics.Types.WorkflowStatus
         WorkflowStatus_CREATING,
         WorkflowStatus_DELETED,
         WorkflowStatus_FAILED,
+        WorkflowStatus_INACTIVE,
         WorkflowStatus_UPDATING
       ),
   )
@@ -73,6 +74,9 @@ pattern WorkflowStatus_DELETED = WorkflowStatus' "DELETED"
 pattern WorkflowStatus_FAILED :: WorkflowStatus
 pattern WorkflowStatus_FAILED = WorkflowStatus' "FAILED"
 
+pattern WorkflowStatus_INACTIVE :: WorkflowStatus
+pattern WorkflowStatus_INACTIVE = WorkflowStatus' "INACTIVE"
+
 pattern WorkflowStatus_UPDATING :: WorkflowStatus
 pattern WorkflowStatus_UPDATING = WorkflowStatus' "UPDATING"
 
@@ -81,6 +85,7 @@ pattern WorkflowStatus_UPDATING = WorkflowStatus' "UPDATING"
   WorkflowStatus_CREATING,
   WorkflowStatus_DELETED,
   WorkflowStatus_FAILED,
+  WorkflowStatus_INACTIVE,
   WorkflowStatus_UPDATING,
   WorkflowStatus'
   #-}

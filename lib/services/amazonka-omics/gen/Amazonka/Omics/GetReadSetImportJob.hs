@@ -38,12 +38,12 @@ module Amazonka.Omics.GetReadSetImportJob
     getReadSetImportJobResponse_completionTime,
     getReadSetImportJobResponse_statusMessage,
     getReadSetImportJobResponse_httpStatus,
-    getReadSetImportJobResponse_creationTime,
     getReadSetImportJobResponse_id,
-    getReadSetImportJobResponse_roleArn,
     getReadSetImportJobResponse_sequenceStoreId,
-    getReadSetImportJobResponse_sources,
+    getReadSetImportJobResponse_roleArn,
     getReadSetImportJobResponse_status,
+    getReadSetImportJobResponse_creationTime,
+    getReadSetImportJobResponse_sources,
   )
 where
 
@@ -108,17 +108,18 @@ instance Core.AWSRequest GetReadSetImportJob where
             Prelude.<$> (x Data..?> "completionTime")
             Prelude.<*> (x Data..?> "statusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "creationTime")
             Prelude.<*> (x Data..:> "id")
-            Prelude.<*> (x Data..:> "roleArn")
             Prelude.<*> (x Data..:> "sequenceStoreId")
-            Prelude.<*> (x Data..?> "sources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..:> "roleArn")
             Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..:> "creationTime")
+            Prelude.<*> (x Data..?> "sources" Core..!@ Prelude.mempty)
       )
 
 instance Prelude.Hashable GetReadSetImportJob where
   hashWithSalt _salt GetReadSetImportJob' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` sequenceStoreId
 
 instance Prelude.NFData GetReadSetImportJob where
@@ -157,18 +158,18 @@ data GetReadSetImportJobResponse = GetReadSetImportJobResponse'
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | When the job was created.
-    creationTime :: Data.ISO8601,
     -- | The job\'s ID.
     id :: Prelude.Text,
-    -- | The job\'s service role ARN.
-    roleArn :: Prelude.Text,
     -- | The job\'s sequence store ID.
     sequenceStoreId :: Prelude.Text,
-    -- | The job\'s sources.
-    sources :: [ImportReadSetSourceItem],
+    -- | The job\'s service role ARN.
+    roleArn :: Prelude.Text,
     -- | The job\'s status.
-    status :: ReadSetImportJobStatus
+    status :: ReadSetImportJobStatus,
+    -- | When the job was created.
+    creationTime :: Data.ISO8601,
+    -- | The job\'s source files.
+    sources :: [ImportReadSetSourceItem]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -186,50 +187,50 @@ data GetReadSetImportJobResponse = GetReadSetImportJobResponse'
 --
 -- 'httpStatus', 'getReadSetImportJobResponse_httpStatus' - The response's http status code.
 --
--- 'creationTime', 'getReadSetImportJobResponse_creationTime' - When the job was created.
---
 -- 'id', 'getReadSetImportJobResponse_id' - The job\'s ID.
---
--- 'roleArn', 'getReadSetImportJobResponse_roleArn' - The job\'s service role ARN.
 --
 -- 'sequenceStoreId', 'getReadSetImportJobResponse_sequenceStoreId' - The job\'s sequence store ID.
 --
--- 'sources', 'getReadSetImportJobResponse_sources' - The job\'s sources.
+-- 'roleArn', 'getReadSetImportJobResponse_roleArn' - The job\'s service role ARN.
 --
 -- 'status', 'getReadSetImportJobResponse_status' - The job\'s status.
+--
+-- 'creationTime', 'getReadSetImportJobResponse_creationTime' - When the job was created.
+--
+-- 'sources', 'getReadSetImportJobResponse_sources' - The job\'s source files.
 newGetReadSetImportJobResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'creationTime'
-  Prelude.UTCTime ->
   -- | 'id'
-  Prelude.Text ->
-  -- | 'roleArn'
   Prelude.Text ->
   -- | 'sequenceStoreId'
   Prelude.Text ->
+  -- | 'roleArn'
+  Prelude.Text ->
   -- | 'status'
   ReadSetImportJobStatus ->
+  -- | 'creationTime'
+  Prelude.UTCTime ->
   GetReadSetImportJobResponse
 newGetReadSetImportJobResponse
   pHttpStatus_
-  pCreationTime_
   pId_
-  pRoleArn_
   pSequenceStoreId_
-  pStatus_ =
+  pRoleArn_
+  pStatus_
+  pCreationTime_ =
     GetReadSetImportJobResponse'
       { completionTime =
           Prelude.Nothing,
         statusMessage = Prelude.Nothing,
         httpStatus = pHttpStatus_,
+        id = pId_,
+        sequenceStoreId = pSequenceStoreId_,
+        roleArn = pRoleArn_,
+        status = pStatus_,
         creationTime =
           Data._Time Lens.# pCreationTime_,
-        id = pId_,
-        roleArn = pRoleArn_,
-        sequenceStoreId = pSequenceStoreId_,
-        sources = Prelude.mempty,
-        status = pStatus_
+        sources = Prelude.mempty
       }
 
 -- | When the job completed.
@@ -244,38 +245,38 @@ getReadSetImportJobResponse_statusMessage = Lens.lens (\GetReadSetImportJobRespo
 getReadSetImportJobResponse_httpStatus :: Lens.Lens' GetReadSetImportJobResponse Prelude.Int
 getReadSetImportJobResponse_httpStatus = Lens.lens (\GetReadSetImportJobResponse' {httpStatus} -> httpStatus) (\s@GetReadSetImportJobResponse' {} a -> s {httpStatus = a} :: GetReadSetImportJobResponse)
 
--- | When the job was created.
-getReadSetImportJobResponse_creationTime :: Lens.Lens' GetReadSetImportJobResponse Prelude.UTCTime
-getReadSetImportJobResponse_creationTime = Lens.lens (\GetReadSetImportJobResponse' {creationTime} -> creationTime) (\s@GetReadSetImportJobResponse' {} a -> s {creationTime = a} :: GetReadSetImportJobResponse) Prelude.. Data._Time
-
 -- | The job\'s ID.
 getReadSetImportJobResponse_id :: Lens.Lens' GetReadSetImportJobResponse Prelude.Text
 getReadSetImportJobResponse_id = Lens.lens (\GetReadSetImportJobResponse' {id} -> id) (\s@GetReadSetImportJobResponse' {} a -> s {id = a} :: GetReadSetImportJobResponse)
-
--- | The job\'s service role ARN.
-getReadSetImportJobResponse_roleArn :: Lens.Lens' GetReadSetImportJobResponse Prelude.Text
-getReadSetImportJobResponse_roleArn = Lens.lens (\GetReadSetImportJobResponse' {roleArn} -> roleArn) (\s@GetReadSetImportJobResponse' {} a -> s {roleArn = a} :: GetReadSetImportJobResponse)
 
 -- | The job\'s sequence store ID.
 getReadSetImportJobResponse_sequenceStoreId :: Lens.Lens' GetReadSetImportJobResponse Prelude.Text
 getReadSetImportJobResponse_sequenceStoreId = Lens.lens (\GetReadSetImportJobResponse' {sequenceStoreId} -> sequenceStoreId) (\s@GetReadSetImportJobResponse' {} a -> s {sequenceStoreId = a} :: GetReadSetImportJobResponse)
 
--- | The job\'s sources.
-getReadSetImportJobResponse_sources :: Lens.Lens' GetReadSetImportJobResponse [ImportReadSetSourceItem]
-getReadSetImportJobResponse_sources = Lens.lens (\GetReadSetImportJobResponse' {sources} -> sources) (\s@GetReadSetImportJobResponse' {} a -> s {sources = a} :: GetReadSetImportJobResponse) Prelude.. Lens.coerced
+-- | The job\'s service role ARN.
+getReadSetImportJobResponse_roleArn :: Lens.Lens' GetReadSetImportJobResponse Prelude.Text
+getReadSetImportJobResponse_roleArn = Lens.lens (\GetReadSetImportJobResponse' {roleArn} -> roleArn) (\s@GetReadSetImportJobResponse' {} a -> s {roleArn = a} :: GetReadSetImportJobResponse)
 
 -- | The job\'s status.
 getReadSetImportJobResponse_status :: Lens.Lens' GetReadSetImportJobResponse ReadSetImportJobStatus
 getReadSetImportJobResponse_status = Lens.lens (\GetReadSetImportJobResponse' {status} -> status) (\s@GetReadSetImportJobResponse' {} a -> s {status = a} :: GetReadSetImportJobResponse)
+
+-- | When the job was created.
+getReadSetImportJobResponse_creationTime :: Lens.Lens' GetReadSetImportJobResponse Prelude.UTCTime
+getReadSetImportJobResponse_creationTime = Lens.lens (\GetReadSetImportJobResponse' {creationTime} -> creationTime) (\s@GetReadSetImportJobResponse' {} a -> s {creationTime = a} :: GetReadSetImportJobResponse) Prelude.. Data._Time
+
+-- | The job\'s source files.
+getReadSetImportJobResponse_sources :: Lens.Lens' GetReadSetImportJobResponse [ImportReadSetSourceItem]
+getReadSetImportJobResponse_sources = Lens.lens (\GetReadSetImportJobResponse' {sources} -> sources) (\s@GetReadSetImportJobResponse' {} a -> s {sources = a} :: GetReadSetImportJobResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData GetReadSetImportJobResponse where
   rnf GetReadSetImportJobResponse' {..} =
     Prelude.rnf completionTime
       `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf sequenceStoreId
-      `Prelude.seq` Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf sources

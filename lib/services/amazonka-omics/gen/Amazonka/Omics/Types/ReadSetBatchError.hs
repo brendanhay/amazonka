@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReadSetBatchError' smart constructor.
 data ReadSetBatchError = ReadSetBatchError'
-  { -- | The error\'s code.
-    code :: Prelude.Text,
-    -- | The error\'s ID.
+  { -- | The error\'s ID.
     id :: Prelude.Text,
+    -- | The error\'s code.
+    code :: Prelude.Text,
     -- | The error\'s message.
     message :: Prelude.Text
   }
@@ -45,33 +45,33 @@ data ReadSetBatchError = ReadSetBatchError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'code', 'readSetBatchError_code' - The error\'s code.
---
 -- 'id', 'readSetBatchError_id' - The error\'s ID.
+--
+-- 'code', 'readSetBatchError_code' - The error\'s code.
 --
 -- 'message', 'readSetBatchError_message' - The error\'s message.
 newReadSetBatchError ::
-  -- | 'code'
-  Prelude.Text ->
   -- | 'id'
+  Prelude.Text ->
+  -- | 'code'
   Prelude.Text ->
   -- | 'message'
   Prelude.Text ->
   ReadSetBatchError
-newReadSetBatchError pCode_ pId_ pMessage_ =
+newReadSetBatchError pId_ pCode_ pMessage_ =
   ReadSetBatchError'
-    { code = pCode_,
-      id = pId_,
+    { id = pId_,
+      code = pCode_,
       message = pMessage_
     }
-
--- | The error\'s code.
-readSetBatchError_code :: Lens.Lens' ReadSetBatchError Prelude.Text
-readSetBatchError_code = Lens.lens (\ReadSetBatchError' {code} -> code) (\s@ReadSetBatchError' {} a -> s {code = a} :: ReadSetBatchError)
 
 -- | The error\'s ID.
 readSetBatchError_id :: Lens.Lens' ReadSetBatchError Prelude.Text
 readSetBatchError_id = Lens.lens (\ReadSetBatchError' {id} -> id) (\s@ReadSetBatchError' {} a -> s {id = a} :: ReadSetBatchError)
+
+-- | The error\'s code.
+readSetBatchError_code :: Lens.Lens' ReadSetBatchError Prelude.Text
+readSetBatchError_code = Lens.lens (\ReadSetBatchError' {code} -> code) (\s@ReadSetBatchError' {} a -> s {code = a} :: ReadSetBatchError)
 
 -- | The error\'s message.
 readSetBatchError_message :: Lens.Lens' ReadSetBatchError Prelude.Text
@@ -83,19 +83,20 @@ instance Data.FromJSON ReadSetBatchError where
       "ReadSetBatchError"
       ( \x ->
           ReadSetBatchError'
-            Prelude.<$> (x Data..: "code")
-            Prelude.<*> (x Data..: "id")
+            Prelude.<$> (x Data..: "id")
+            Prelude.<*> (x Data..: "code")
             Prelude.<*> (x Data..: "message")
       )
 
 instance Prelude.Hashable ReadSetBatchError where
   hashWithSalt _salt ReadSetBatchError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ReadSetBatchError where
   rnf ReadSetBatchError' {..} =
-    Prelude.rnf code
-      `Prelude.seq` Prelude.rnf id
+    Prelude.rnf id
+      `Prelude.seq` Prelude.rnf code
       `Prelude.seq` Prelude.rnf message

@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteVariantStore where
 
 instance Prelude.Hashable DeleteVariantStore where
   hashWithSalt _salt DeleteVariantStore' {..} =
-    _salt `Prelude.hashWithSalt` force
+    _salt
+      `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeleteVariantStore where

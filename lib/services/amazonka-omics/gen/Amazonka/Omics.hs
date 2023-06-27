@@ -14,7 +14,7 @@
 -- This is the /Amazon Omics API Reference/. For an introduction to the
 -- service, see
 -- <https://docs.aws.amazon.com/omics/latest/dev/ What is Amazon Omics?> in
--- the /Amazon Omics Developer Guide/.
+-- the /Amazon Omics User Guide/.
 module Amazonka.Omics
   ( -- * Service Configuration
     defaultService,
@@ -30,6 +30,9 @@ module Amazonka.Omics
 
     -- ** InternalServerException
     _InternalServerException,
+
+    -- ** NotSupportedOperationException
+    _NotSupportedOperationException,
 
     -- ** RangeNotSatisfiableException
     _RangeNotSatisfiableException,
@@ -100,6 +103,12 @@ module Amazonka.Omics
     -- * Operations
     -- $operations
 
+    -- ** AbortMultipartReadSetUpload
+    AbortMultipartReadSetUpload (AbortMultipartReadSetUpload'),
+    newAbortMultipartReadSetUpload,
+    AbortMultipartReadSetUploadResponse (AbortMultipartReadSetUploadResponse'),
+    newAbortMultipartReadSetUploadResponse,
+
     -- ** BatchDeleteReadSet
     BatchDeleteReadSet (BatchDeleteReadSet'),
     newBatchDeleteReadSet,
@@ -124,11 +133,23 @@ module Amazonka.Omics
     CancelVariantImportJobResponse (CancelVariantImportJobResponse'),
     newCancelVariantImportJobResponse,
 
+    -- ** CompleteMultipartReadSetUpload
+    CompleteMultipartReadSetUpload (CompleteMultipartReadSetUpload'),
+    newCompleteMultipartReadSetUpload,
+    CompleteMultipartReadSetUploadResponse (CompleteMultipartReadSetUploadResponse'),
+    newCompleteMultipartReadSetUploadResponse,
+
     -- ** CreateAnnotationStore
     CreateAnnotationStore (CreateAnnotationStore'),
     newCreateAnnotationStore,
     CreateAnnotationStoreResponse (CreateAnnotationStoreResponse'),
     newCreateAnnotationStoreResponse,
+
+    -- ** CreateMultipartReadSetUpload
+    CreateMultipartReadSetUpload (CreateMultipartReadSetUpload'),
+    newCreateMultipartReadSetUpload,
+    CreateMultipartReadSetUploadResponse (CreateMultipartReadSetUploadResponse'),
+    newCreateMultipartReadSetUploadResponse,
 
     -- ** CreateReferenceStore
     CreateReferenceStore (CreateReferenceStore'),
@@ -328,6 +349,12 @@ module Amazonka.Omics
     ListAnnotationStoresResponse (ListAnnotationStoresResponse'),
     newListAnnotationStoresResponse,
 
+    -- ** ListMultipartReadSetUploads (Paginated)
+    ListMultipartReadSetUploads (ListMultipartReadSetUploads'),
+    newListMultipartReadSetUploads,
+    ListMultipartReadSetUploadsResponse (ListMultipartReadSetUploadsResponse'),
+    newListMultipartReadSetUploadsResponse,
+
     -- ** ListReadSetActivationJobs (Paginated)
     ListReadSetActivationJobs (ListReadSetActivationJobs'),
     newListReadSetActivationJobs,
@@ -345,6 +372,12 @@ module Amazonka.Omics
     newListReadSetImportJobs,
     ListReadSetImportJobsResponse (ListReadSetImportJobsResponse'),
     newListReadSetImportJobsResponse,
+
+    -- ** ListReadSetUploadParts (Paginated)
+    ListReadSetUploadParts (ListReadSetUploadParts'),
+    newListReadSetUploadParts,
+    ListReadSetUploadPartsResponse (ListReadSetUploadPartsResponse'),
+    newListReadSetUploadPartsResponse,
 
     -- ** ListReadSets (Paginated)
     ListReadSets (ListReadSets'),
@@ -496,7 +529,16 @@ module Amazonka.Omics
     UpdateWorkflowResponse (UpdateWorkflowResponse'),
     newUpdateWorkflowResponse,
 
+    -- ** UploadReadSetPart
+    UploadReadSetPart (UploadReadSetPart'),
+    newUploadReadSetPart,
+    UploadReadSetPartResponse (UploadReadSetPartResponse'),
+    newUploadReadSetPartResponse,
+
     -- * Types
+
+    -- ** Accelerators
+    Accelerators (..),
 
     -- ** AnnotationType
     AnnotationType (..),
@@ -533,6 +575,9 @@ module Amazonka.Omics
 
     -- ** ReadSetImportJobStatus
     ReadSetImportJobStatus (..),
+
+    -- ** ReadSetPartSource
+    ReadSetPartSource (..),
 
     -- ** ReadSetStatus
     ReadSetStatus (..),
@@ -610,6 +655,10 @@ module Amazonka.Omics
     AnnotationStoreItem (AnnotationStoreItem'),
     newAnnotationStoreItem,
 
+    -- ** CompleteReadSetUploadPartListItem
+    CompleteReadSetUploadPartListItem (CompleteReadSetUploadPartListItem'),
+    newCompleteReadSetUploadPartListItem,
+
     -- ** ExportReadSet
     ExportReadSet (ExportReadSet'),
     newExportReadSet,
@@ -674,6 +723,10 @@ module Amazonka.Omics
     ListVariantStoresFilter (ListVariantStoresFilter'),
     newListVariantStoresFilter,
 
+    -- ** MultipartReadSetUploadListItem
+    MultipartReadSetUploadListItem (MultipartReadSetUploadListItem'),
+    newMultipartReadSetUploadListItem,
+
     -- ** ReadOptions
     ReadOptions (ReadOptions'),
     newReadOptions,
@@ -693,6 +746,14 @@ module Amazonka.Omics
     -- ** ReadSetListItem
     ReadSetListItem (ReadSetListItem'),
     newReadSetListItem,
+
+    -- ** ReadSetUploadPartListFilter
+    ReadSetUploadPartListFilter (ReadSetUploadPartListFilter'),
+    newReadSetUploadPartListFilter,
+
+    -- ** ReadSetUploadPartListItem
+    ReadSetUploadPartListItem (ReadSetUploadPartListItem'),
+    newReadSetUploadPartListItem,
 
     -- ** ReferenceFiles
     ReferenceFiles (ReferenceFiles'),
@@ -808,11 +869,14 @@ module Amazonka.Omics
   )
 where
 
+import Amazonka.Omics.AbortMultipartReadSetUpload
 import Amazonka.Omics.BatchDeleteReadSet
 import Amazonka.Omics.CancelAnnotationImportJob
 import Amazonka.Omics.CancelRun
 import Amazonka.Omics.CancelVariantImportJob
+import Amazonka.Omics.CompleteMultipartReadSetUpload
 import Amazonka.Omics.CreateAnnotationStore
+import Amazonka.Omics.CreateMultipartReadSetUpload
 import Amazonka.Omics.CreateReferenceStore
 import Amazonka.Omics.CreateRunGroup
 import Amazonka.Omics.CreateSequenceStore
@@ -847,9 +911,11 @@ import Amazonka.Omics.GetWorkflow
 import Amazonka.Omics.Lens
 import Amazonka.Omics.ListAnnotationImportJobs
 import Amazonka.Omics.ListAnnotationStores
+import Amazonka.Omics.ListMultipartReadSetUploads
 import Amazonka.Omics.ListReadSetActivationJobs
 import Amazonka.Omics.ListReadSetExportJobs
 import Amazonka.Omics.ListReadSetImportJobs
+import Amazonka.Omics.ListReadSetUploadParts
 import Amazonka.Omics.ListReadSets
 import Amazonka.Omics.ListReferenceImportJobs
 import Amazonka.Omics.ListReferenceStores
@@ -876,6 +942,7 @@ import Amazonka.Omics.UpdateAnnotationStore
 import Amazonka.Omics.UpdateRunGroup
 import Amazonka.Omics.UpdateVariantStore
 import Amazonka.Omics.UpdateWorkflow
+import Amazonka.Omics.UploadReadSetPart
 import Amazonka.Omics.Waiters
 
 -- $errors

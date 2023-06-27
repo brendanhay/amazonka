@@ -33,12 +33,18 @@ data ReadSetFilter = ReadSetFilter'
     createdAfter :: Prelude.Maybe Data.ISO8601,
     -- | The filter\'s end date.
     createdBefore :: Prelude.Maybe Data.ISO8601,
+    -- | Where the source originated.
+    generatedFrom :: Prelude.Maybe Prelude.Text,
     -- | A name to filter on.
     name :: Prelude.Maybe Prelude.Text,
     -- | A genome reference ARN to filter on.
     referenceArn :: Prelude.Maybe Prelude.Text,
+    -- | The read set source\'s sample ID.
+    sampleId :: Prelude.Maybe Prelude.Text,
     -- | A status to filter on.
-    status :: Prelude.Maybe ReadSetStatus
+    status :: Prelude.Maybe ReadSetStatus,
+    -- | The read set source\'s subject ID.
+    subjectId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,20 +60,29 @@ data ReadSetFilter = ReadSetFilter'
 --
 -- 'createdBefore', 'readSetFilter_createdBefore' - The filter\'s end date.
 --
+-- 'generatedFrom', 'readSetFilter_generatedFrom' - Where the source originated.
+--
 -- 'name', 'readSetFilter_name' - A name to filter on.
 --
 -- 'referenceArn', 'readSetFilter_referenceArn' - A genome reference ARN to filter on.
 --
+-- 'sampleId', 'readSetFilter_sampleId' - The read set source\'s sample ID.
+--
 -- 'status', 'readSetFilter_status' - A status to filter on.
+--
+-- 'subjectId', 'readSetFilter_subjectId' - The read set source\'s subject ID.
 newReadSetFilter ::
   ReadSetFilter
 newReadSetFilter =
   ReadSetFilter'
     { createdAfter = Prelude.Nothing,
       createdBefore = Prelude.Nothing,
+      generatedFrom = Prelude.Nothing,
       name = Prelude.Nothing,
       referenceArn = Prelude.Nothing,
-      status = Prelude.Nothing
+      sampleId = Prelude.Nothing,
+      status = Prelude.Nothing,
+      subjectId = Prelude.Nothing
     }
 
 -- | The filter\'s start date.
@@ -78,6 +93,10 @@ readSetFilter_createdAfter = Lens.lens (\ReadSetFilter' {createdAfter} -> create
 readSetFilter_createdBefore :: Lens.Lens' ReadSetFilter (Prelude.Maybe Prelude.UTCTime)
 readSetFilter_createdBefore = Lens.lens (\ReadSetFilter' {createdBefore} -> createdBefore) (\s@ReadSetFilter' {} a -> s {createdBefore = a} :: ReadSetFilter) Prelude.. Lens.mapping Data._Time
 
+-- | Where the source originated.
+readSetFilter_generatedFrom :: Lens.Lens' ReadSetFilter (Prelude.Maybe Prelude.Text)
+readSetFilter_generatedFrom = Lens.lens (\ReadSetFilter' {generatedFrom} -> generatedFrom) (\s@ReadSetFilter' {} a -> s {generatedFrom = a} :: ReadSetFilter)
+
 -- | A name to filter on.
 readSetFilter_name :: Lens.Lens' ReadSetFilter (Prelude.Maybe Prelude.Text)
 readSetFilter_name = Lens.lens (\ReadSetFilter' {name} -> name) (\s@ReadSetFilter' {} a -> s {name = a} :: ReadSetFilter)
@@ -86,25 +105,40 @@ readSetFilter_name = Lens.lens (\ReadSetFilter' {name} -> name) (\s@ReadSetFilte
 readSetFilter_referenceArn :: Lens.Lens' ReadSetFilter (Prelude.Maybe Prelude.Text)
 readSetFilter_referenceArn = Lens.lens (\ReadSetFilter' {referenceArn} -> referenceArn) (\s@ReadSetFilter' {} a -> s {referenceArn = a} :: ReadSetFilter)
 
+-- | The read set source\'s sample ID.
+readSetFilter_sampleId :: Lens.Lens' ReadSetFilter (Prelude.Maybe Prelude.Text)
+readSetFilter_sampleId = Lens.lens (\ReadSetFilter' {sampleId} -> sampleId) (\s@ReadSetFilter' {} a -> s {sampleId = a} :: ReadSetFilter)
+
 -- | A status to filter on.
 readSetFilter_status :: Lens.Lens' ReadSetFilter (Prelude.Maybe ReadSetStatus)
 readSetFilter_status = Lens.lens (\ReadSetFilter' {status} -> status) (\s@ReadSetFilter' {} a -> s {status = a} :: ReadSetFilter)
 
+-- | The read set source\'s subject ID.
+readSetFilter_subjectId :: Lens.Lens' ReadSetFilter (Prelude.Maybe Prelude.Text)
+readSetFilter_subjectId = Lens.lens (\ReadSetFilter' {subjectId} -> subjectId) (\s@ReadSetFilter' {} a -> s {subjectId = a} :: ReadSetFilter)
+
 instance Prelude.Hashable ReadSetFilter where
   hashWithSalt _salt ReadSetFilter' {..} =
-    _salt `Prelude.hashWithSalt` createdAfter
+    _salt
+      `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
+      `Prelude.hashWithSalt` generatedFrom
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` referenceArn
+      `Prelude.hashWithSalt` sampleId
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` subjectId
 
 instance Prelude.NFData ReadSetFilter where
   rnf ReadSetFilter' {..} =
     Prelude.rnf createdAfter
       `Prelude.seq` Prelude.rnf createdBefore
+      `Prelude.seq` Prelude.rnf generatedFrom
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf referenceArn
+      `Prelude.seq` Prelude.rnf sampleId
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf subjectId
 
 instance Data.ToJSON ReadSetFilter where
   toJSON ReadSetFilter' {..} =
@@ -112,8 +146,11 @@ instance Data.ToJSON ReadSetFilter where
       ( Prelude.catMaybes
           [ ("createdAfter" Data..=) Prelude.<$> createdAfter,
             ("createdBefore" Data..=) Prelude.<$> createdBefore,
+            ("generatedFrom" Data..=) Prelude.<$> generatedFrom,
             ("name" Data..=) Prelude.<$> name,
             ("referenceArn" Data..=) Prelude.<$> referenceArn,
-            ("status" Data..=) Prelude.<$> status
+            ("sampleId" Data..=) Prelude.<$> sampleId,
+            ("status" Data..=) Prelude.<$> status,
+            ("subjectId" Data..=) Prelude.<$> subjectId
           ]
       )

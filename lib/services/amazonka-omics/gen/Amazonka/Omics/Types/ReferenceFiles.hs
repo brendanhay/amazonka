@@ -75,7 +75,8 @@ instance Data.FromJSON ReferenceFiles where
 
 instance Prelude.Hashable ReferenceFiles where
   hashWithSalt _salt ReferenceFiles' {..} =
-    _salt `Prelude.hashWithSalt` index
+    _salt
+      `Prelude.hashWithSalt` index
       `Prelude.hashWithSalt` source
 
 instance Prelude.NFData ReferenceFiles where

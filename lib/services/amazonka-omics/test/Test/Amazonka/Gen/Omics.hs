@@ -27,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestBatchDeleteReadSet $
+--         [ requestAbortMultipartReadSetUpload $
+--             newAbortMultipartReadSetUpload
+--
+--         , requestBatchDeleteReadSet $
 --             newBatchDeleteReadSet
 --
 --         , requestCancelAnnotationImportJob $
@@ -39,8 +42,14 @@ import Test.Tasty
 --         , requestCancelVariantImportJob $
 --             newCancelVariantImportJob
 --
+--         , requestCompleteMultipartReadSetUpload $
+--             newCompleteMultipartReadSetUpload
+--
 --         , requestCreateAnnotationStore $
 --             newCreateAnnotationStore
+--
+--         , requestCreateMultipartReadSetUpload $
+--             newCreateMultipartReadSetUpload
 --
 --         , requestCreateReferenceStore $
 --             newCreateReferenceStore
@@ -141,6 +150,9 @@ import Test.Tasty
 --         , requestListAnnotationStores $
 --             newListAnnotationStores
 --
+--         , requestListMultipartReadSetUploads $
+--             newListMultipartReadSetUploads
+--
 --         , requestListReadSetActivationJobs $
 --             newListReadSetActivationJobs
 --
@@ -149,6 +161,9 @@ import Test.Tasty
 --
 --         , requestListReadSetImportJobs $
 --             newListReadSetImportJobs
+--
+--         , requestListReadSetUploadParts $
+--             newListReadSetUploadParts
 --
 --         , requestListReadSets $
 --             newListReadSets
@@ -225,10 +240,16 @@ import Test.Tasty
 --         , requestUpdateWorkflow $
 --             newUpdateWorkflow
 --
+--         , requestUploadReadSetPart $
+--             newUploadReadSetPart
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseBatchDeleteReadSet $
+--         [ responseAbortMultipartReadSetUpload $
+--             newAbortMultipartReadSetUploadResponse
+--
+--         , responseBatchDeleteReadSet $
 --             newBatchDeleteReadSetResponse
 --
 --         , responseCancelAnnotationImportJob $
@@ -240,8 +261,14 @@ import Test.Tasty
 --         , responseCancelVariantImportJob $
 --             newCancelVariantImportJobResponse
 --
+--         , responseCompleteMultipartReadSetUpload $
+--             newCompleteMultipartReadSetUploadResponse
+--
 --         , responseCreateAnnotationStore $
 --             newCreateAnnotationStoreResponse
+--
+--         , responseCreateMultipartReadSetUpload $
+--             newCreateMultipartReadSetUploadResponse
 --
 --         , responseCreateReferenceStore $
 --             newCreateReferenceStoreResponse
@@ -342,6 +369,9 @@ import Test.Tasty
 --         , responseListAnnotationStores $
 --             newListAnnotationStoresResponse
 --
+--         , responseListMultipartReadSetUploads $
+--             newListMultipartReadSetUploadsResponse
+--
 --         , responseListReadSetActivationJobs $
 --             newListReadSetActivationJobsResponse
 --
@@ -350,6 +380,9 @@ import Test.Tasty
 --
 --         , responseListReadSetImportJobs $
 --             newListReadSetImportJobsResponse
+--
+--         , responseListReadSetUploadParts $
+--             newListReadSetUploadPartsResponse
 --
 --         , responseListReadSets $
 --             newListReadSetsResponse
@@ -426,10 +459,19 @@ import Test.Tasty
 --         , responseUpdateWorkflow $
 --             newUpdateWorkflowResponse
 --
+--         , responseUploadReadSetPart $
+--             newUploadReadSetPartResponse
+--
 --           ]
 --     ]
 
 -- Requests
+
+requestAbortMultipartReadSetUpload :: AbortMultipartReadSetUpload -> TestTree
+requestAbortMultipartReadSetUpload =
+  req
+    "AbortMultipartReadSetUpload"
+    "fixture/AbortMultipartReadSetUpload.yaml"
 
 requestBatchDeleteReadSet :: BatchDeleteReadSet -> TestTree
 requestBatchDeleteReadSet =
@@ -455,11 +497,23 @@ requestCancelVariantImportJob =
     "CancelVariantImportJob"
     "fixture/CancelVariantImportJob.yaml"
 
+requestCompleteMultipartReadSetUpload :: CompleteMultipartReadSetUpload -> TestTree
+requestCompleteMultipartReadSetUpload =
+  req
+    "CompleteMultipartReadSetUpload"
+    "fixture/CompleteMultipartReadSetUpload.yaml"
+
 requestCreateAnnotationStore :: CreateAnnotationStore -> TestTree
 requestCreateAnnotationStore =
   req
     "CreateAnnotationStore"
     "fixture/CreateAnnotationStore.yaml"
+
+requestCreateMultipartReadSetUpload :: CreateMultipartReadSetUpload -> TestTree
+requestCreateMultipartReadSetUpload =
+  req
+    "CreateMultipartReadSetUpload"
+    "fixture/CreateMultipartReadSetUpload.yaml"
 
 requestCreateReferenceStore :: CreateReferenceStore -> TestTree
 requestCreateReferenceStore =
@@ -659,6 +713,12 @@ requestListAnnotationStores =
     "ListAnnotationStores"
     "fixture/ListAnnotationStores.yaml"
 
+requestListMultipartReadSetUploads :: ListMultipartReadSetUploads -> TestTree
+requestListMultipartReadSetUploads =
+  req
+    "ListMultipartReadSetUploads"
+    "fixture/ListMultipartReadSetUploads.yaml"
+
 requestListReadSetActivationJobs :: ListReadSetActivationJobs -> TestTree
 requestListReadSetActivationJobs =
   req
@@ -676,6 +736,12 @@ requestListReadSetImportJobs =
   req
     "ListReadSetImportJobs"
     "fixture/ListReadSetImportJobs.yaml"
+
+requestListReadSetUploadParts :: ListReadSetUploadParts -> TestTree
+requestListReadSetUploadParts =
+  req
+    "ListReadSetUploadParts"
+    "fixture/ListReadSetUploadParts.yaml"
 
 requestListReadSets :: ListReadSets -> TestTree
 requestListReadSets =
@@ -829,6 +895,14 @@ requestUpdateWorkflow =
 
 -- Responses
 
+responseAbortMultipartReadSetUpload :: AbortMultipartReadSetUploadResponse -> TestTree
+responseAbortMultipartReadSetUpload =
+  res
+    "AbortMultipartReadSetUploadResponse"
+    "fixture/AbortMultipartReadSetUploadResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AbortMultipartReadSetUpload)
+
 responseBatchDeleteReadSet :: BatchDeleteReadSetResponse -> TestTree
 responseBatchDeleteReadSet =
   res
@@ -861,6 +935,14 @@ responseCancelVariantImportJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CancelVariantImportJob)
 
+responseCompleteMultipartReadSetUpload :: CompleteMultipartReadSetUploadResponse -> TestTree
+responseCompleteMultipartReadSetUpload =
+  res
+    "CompleteMultipartReadSetUploadResponse"
+    "fixture/CompleteMultipartReadSetUploadResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CompleteMultipartReadSetUpload)
+
 responseCreateAnnotationStore :: CreateAnnotationStoreResponse -> TestTree
 responseCreateAnnotationStore =
   res
@@ -868,6 +950,14 @@ responseCreateAnnotationStore =
     "fixture/CreateAnnotationStoreResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateAnnotationStore)
+
+responseCreateMultipartReadSetUpload :: CreateMultipartReadSetUploadResponse -> TestTree
+responseCreateMultipartReadSetUpload =
+  res
+    "CreateMultipartReadSetUploadResponse"
+    "fixture/CreateMultipartReadSetUploadResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateMultipartReadSetUpload)
 
 responseCreateReferenceStore :: CreateReferenceStoreResponse -> TestTree
 responseCreateReferenceStore =
@@ -1117,6 +1207,14 @@ responseListAnnotationStores =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAnnotationStores)
 
+responseListMultipartReadSetUploads :: ListMultipartReadSetUploadsResponse -> TestTree
+responseListMultipartReadSetUploads =
+  res
+    "ListMultipartReadSetUploadsResponse"
+    "fixture/ListMultipartReadSetUploadsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMultipartReadSetUploads)
+
 responseListReadSetActivationJobs :: ListReadSetActivationJobsResponse -> TestTree
 responseListReadSetActivationJobs =
   res
@@ -1140,6 +1238,14 @@ responseListReadSetImportJobs =
     "fixture/ListReadSetImportJobsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListReadSetImportJobs)
+
+responseListReadSetUploadParts :: ListReadSetUploadPartsResponse -> TestTree
+responseListReadSetUploadParts =
+  res
+    "ListReadSetUploadPartsResponse"
+    "fixture/ListReadSetUploadPartsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListReadSetUploadParts)
 
 responseListReadSets :: ListReadSetsResponse -> TestTree
 responseListReadSets =
@@ -1340,3 +1446,11 @@ responseUpdateWorkflow =
     "fixture/UpdateWorkflowResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateWorkflow)
+
+responseUploadReadSetPart :: UploadReadSetPartResponse -> TestTree
+responseUploadReadSetPart =
+  res
+    "UploadReadSetPartResponse"
+    "fixture/UploadReadSetPartResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UploadReadSetPart)

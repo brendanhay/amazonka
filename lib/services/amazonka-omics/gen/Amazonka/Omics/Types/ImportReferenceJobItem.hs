@@ -31,8 +31,6 @@ import qualified Amazonka.Prelude as Prelude
 data ImportReferenceJobItem = ImportReferenceJobItem'
   { -- | When the job completed.
     completionTime :: Prelude.Maybe Data.ISO8601,
-    -- | When the job was created.
-    creationTime :: Data.ISO8601,
     -- | The job\'s ID.
     id :: Prelude.Text,
     -- | The job\'s reference store ID.
@@ -40,7 +38,9 @@ data ImportReferenceJobItem = ImportReferenceJobItem'
     -- | The job\'s service role ARN.
     roleArn :: Prelude.Text,
     -- | The job\'s status.
-    status :: ReferenceImportJobStatus
+    status :: ReferenceImportJobStatus,
+    -- | When the job was created.
+    creationTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,8 +54,6 @@ data ImportReferenceJobItem = ImportReferenceJobItem'
 --
 -- 'completionTime', 'importReferenceJobItem_completionTime' - When the job completed.
 --
--- 'creationTime', 'importReferenceJobItem_creationTime' - When the job was created.
---
 -- 'id', 'importReferenceJobItem_id' - The job\'s ID.
 --
 -- 'referenceStoreId', 'importReferenceJobItem_referenceStoreId' - The job\'s reference store ID.
@@ -63,9 +61,9 @@ data ImportReferenceJobItem = ImportReferenceJobItem'
 -- 'roleArn', 'importReferenceJobItem_roleArn' - The job\'s service role ARN.
 --
 -- 'status', 'importReferenceJobItem_status' - The job\'s status.
+--
+-- 'creationTime', 'importReferenceJobItem_creationTime' - When the job was created.
 newImportReferenceJobItem ::
-  -- | 'creationTime'
-  Prelude.UTCTime ->
   -- | 'id'
   Prelude.Text ->
   -- | 'referenceStoreId'
@@ -74,30 +72,28 @@ newImportReferenceJobItem ::
   Prelude.Text ->
   -- | 'status'
   ReferenceImportJobStatus ->
+  -- | 'creationTime'
+  Prelude.UTCTime ->
   ImportReferenceJobItem
 newImportReferenceJobItem
-  pCreationTime_
   pId_
   pReferenceStoreId_
   pRoleArn_
-  pStatus_ =
+  pStatus_
+  pCreationTime_ =
     ImportReferenceJobItem'
       { completionTime =
           Prelude.Nothing,
-        creationTime = Data._Time Lens.# pCreationTime_,
         id = pId_,
         referenceStoreId = pReferenceStoreId_,
         roleArn = pRoleArn_,
-        status = pStatus_
+        status = pStatus_,
+        creationTime = Data._Time Lens.# pCreationTime_
       }
 
 -- | When the job completed.
 importReferenceJobItem_completionTime :: Lens.Lens' ImportReferenceJobItem (Prelude.Maybe Prelude.UTCTime)
 importReferenceJobItem_completionTime = Lens.lens (\ImportReferenceJobItem' {completionTime} -> completionTime) (\s@ImportReferenceJobItem' {} a -> s {completionTime = a} :: ImportReferenceJobItem) Prelude.. Lens.mapping Data._Time
-
--- | When the job was created.
-importReferenceJobItem_creationTime :: Lens.Lens' ImportReferenceJobItem Prelude.UTCTime
-importReferenceJobItem_creationTime = Lens.lens (\ImportReferenceJobItem' {creationTime} -> creationTime) (\s@ImportReferenceJobItem' {} a -> s {creationTime = a} :: ImportReferenceJobItem) Prelude.. Data._Time
 
 -- | The job\'s ID.
 importReferenceJobItem_id :: Lens.Lens' ImportReferenceJobItem Prelude.Text
@@ -115,6 +111,10 @@ importReferenceJobItem_roleArn = Lens.lens (\ImportReferenceJobItem' {roleArn} -
 importReferenceJobItem_status :: Lens.Lens' ImportReferenceJobItem ReferenceImportJobStatus
 importReferenceJobItem_status = Lens.lens (\ImportReferenceJobItem' {status} -> status) (\s@ImportReferenceJobItem' {} a -> s {status = a} :: ImportReferenceJobItem)
 
+-- | When the job was created.
+importReferenceJobItem_creationTime :: Lens.Lens' ImportReferenceJobItem Prelude.UTCTime
+importReferenceJobItem_creationTime = Lens.lens (\ImportReferenceJobItem' {creationTime} -> creationTime) (\s@ImportReferenceJobItem' {} a -> s {creationTime = a} :: ImportReferenceJobItem) Prelude.. Data._Time
+
 instance Data.FromJSON ImportReferenceJobItem where
   parseJSON =
     Data.withObject
@@ -122,27 +122,28 @@ instance Data.FromJSON ImportReferenceJobItem where
       ( \x ->
           ImportReferenceJobItem'
             Prelude.<$> (x Data..:? "completionTime")
-            Prelude.<*> (x Data..: "creationTime")
             Prelude.<*> (x Data..: "id")
             Prelude.<*> (x Data..: "referenceStoreId")
             Prelude.<*> (x Data..: "roleArn")
             Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "creationTime")
       )
 
 instance Prelude.Hashable ImportReferenceJobItem where
   hashWithSalt _salt ImportReferenceJobItem' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
-      `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` referenceStoreId
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
 instance Prelude.NFData ImportReferenceJobItem where
   rnf ImportReferenceJobItem' {..} =
     Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf referenceStoreId
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationTime

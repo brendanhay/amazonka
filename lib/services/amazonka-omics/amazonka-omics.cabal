@@ -44,11 +44,14 @@ library
 
   exposed-modules:
     Amazonka.Omics
+    Amazonka.Omics.AbortMultipartReadSetUpload
     Amazonka.Omics.BatchDeleteReadSet
     Amazonka.Omics.CancelAnnotationImportJob
     Amazonka.Omics.CancelRun
     Amazonka.Omics.CancelVariantImportJob
+    Amazonka.Omics.CompleteMultipartReadSetUpload
     Amazonka.Omics.CreateAnnotationStore
+    Amazonka.Omics.CreateMultipartReadSetUpload
     Amazonka.Omics.CreateReferenceStore
     Amazonka.Omics.CreateRunGroup
     Amazonka.Omics.CreateSequenceStore
@@ -83,10 +86,12 @@ library
     Amazonka.Omics.Lens
     Amazonka.Omics.ListAnnotationImportJobs
     Amazonka.Omics.ListAnnotationStores
+    Amazonka.Omics.ListMultipartReadSetUploads
     Amazonka.Omics.ListReadSetActivationJobs
     Amazonka.Omics.ListReadSetExportJobs
     Amazonka.Omics.ListReadSetImportJobs
     Amazonka.Omics.ListReadSets
+    Amazonka.Omics.ListReadSetUploadParts
     Amazonka.Omics.ListReferenceImportJobs
     Amazonka.Omics.ListReferences
     Amazonka.Omics.ListReferenceStores
@@ -107,6 +112,7 @@ library
     Amazonka.Omics.StartVariantImportJob
     Amazonka.Omics.TagResource
     Amazonka.Omics.Types
+    Amazonka.Omics.Types.Accelerators
     Amazonka.Omics.Types.ActivateReadSetFilter
     Amazonka.Omics.Types.ActivateReadSetJobItem
     Amazonka.Omics.Types.ActivateReadSetSourceItem
@@ -115,6 +121,7 @@ library
     Amazonka.Omics.Types.AnnotationImportJobItem
     Amazonka.Omics.Types.AnnotationStoreItem
     Amazonka.Omics.Types.AnnotationType
+    Amazonka.Omics.Types.CompleteReadSetUploadPartListItem
     Amazonka.Omics.Types.EncryptionType
     Amazonka.Omics.Types.ExportReadSet
     Amazonka.Omics.Types.ExportReadSetDetail
@@ -135,6 +142,7 @@ library
     Amazonka.Omics.Types.ListAnnotationStoresFilter
     Amazonka.Omics.Types.ListVariantImportJobsFilter
     Amazonka.Omics.Types.ListVariantStoresFilter
+    Amazonka.Omics.Types.MultipartReadSetUploadListItem
     Amazonka.Omics.Types.ReadOptions
     Amazonka.Omics.Types.ReadSetActivationJobItemStatus
     Amazonka.Omics.Types.ReadSetActivationJobStatus
@@ -147,7 +155,10 @@ library
     Amazonka.Omics.Types.ReadSetImportJobItemStatus
     Amazonka.Omics.Types.ReadSetImportJobStatus
     Amazonka.Omics.Types.ReadSetListItem
+    Amazonka.Omics.Types.ReadSetPartSource
     Amazonka.Omics.Types.ReadSetStatus
+    Amazonka.Omics.Types.ReadSetUploadPartListFilter
+    Amazonka.Omics.Types.ReadSetUploadPartListItem
     Amazonka.Omics.Types.ReferenceFile
     Amazonka.Omics.Types.ReferenceFiles
     Amazonka.Omics.Types.ReferenceFilter
@@ -196,6 +207,7 @@ library
     Amazonka.Omics.UpdateRunGroup
     Amazonka.Omics.UpdateVariantStore
     Amazonka.Omics.UpdateWorkflow
+    Amazonka.Omics.UploadReadSetPart
     Amazonka.Omics.Waiters
 
   build-depends:

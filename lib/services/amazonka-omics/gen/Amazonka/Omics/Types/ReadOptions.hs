@@ -144,7 +144,8 @@ instance Data.FromJSON ReadOptions where
 
 instance Prelude.Hashable ReadOptions where
   hashWithSalt _salt ReadOptions' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` encoding
       `Prelude.hashWithSalt` escape
       `Prelude.hashWithSalt` escapeQuotes

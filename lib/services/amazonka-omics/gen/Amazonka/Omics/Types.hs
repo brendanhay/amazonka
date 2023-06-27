@@ -21,12 +21,16 @@ module Amazonka.Omics.Types
     _AccessDeniedException,
     _ConflictException,
     _InternalServerException,
+    _NotSupportedOperationException,
     _RangeNotSatisfiableException,
     _RequestTimeoutException,
     _ResourceNotFoundException,
     _ServiceQuotaExceededException,
     _ThrottlingException,
     _ValidationException,
+
+    -- * Accelerators
+    Accelerators (..),
 
     -- * AnnotationType
     AnnotationType (..),
@@ -63,6 +67,9 @@ module Amazonka.Omics.Types
 
     -- * ReadSetImportJobStatus
     ReadSetImportJobStatus (..),
+
+    -- * ReadSetPartSource
+    ReadSetPartSource (..),
 
     -- * ReadSetStatus
     ReadSetStatus (..),
@@ -123,10 +130,10 @@ module Amazonka.Omics.Types
     ActivateReadSetJobItem (..),
     newActivateReadSetJobItem,
     activateReadSetJobItem_completionTime,
-    activateReadSetJobItem_creationTime,
     activateReadSetJobItem_id,
     activateReadSetJobItem_sequenceStoreId,
     activateReadSetJobItem_status,
+    activateReadSetJobItem_creationTime,
 
     -- * ActivateReadSetSourceItem
     ActivateReadSetSourceItem (..),
@@ -138,8 +145,8 @@ module Amazonka.Omics.Types
     -- * AnnotationImportItemDetail
     AnnotationImportItemDetail (..),
     newAnnotationImportItemDetail,
-    annotationImportItemDetail_jobStatus,
     annotationImportItemDetail_source,
+    annotationImportItemDetail_jobStatus,
 
     -- * AnnotationImportItemSource
     AnnotationImportItemSource (..),
@@ -149,30 +156,38 @@ module Amazonka.Omics.Types
     -- * AnnotationImportJobItem
     AnnotationImportJobItem (..),
     newAnnotationImportJobItem,
+    annotationImportJobItem_annotationFields,
     annotationImportJobItem_completionTime,
     annotationImportJobItem_runLeftNormalization,
-    annotationImportJobItem_creationTime,
-    annotationImportJobItem_destinationName,
     annotationImportJobItem_id,
+    annotationImportJobItem_destinationName,
     annotationImportJobItem_roleArn,
     annotationImportJobItem_status,
+    annotationImportJobItem_creationTime,
     annotationImportJobItem_updateTime,
 
     -- * AnnotationStoreItem
     AnnotationStoreItem (..),
     newAnnotationStoreItem,
-    annotationStoreItem_creationTime,
-    annotationStoreItem_description,
     annotationStoreItem_id,
-    annotationStoreItem_name,
     annotationStoreItem_reference,
-    annotationStoreItem_sseConfig,
     annotationStoreItem_status,
-    annotationStoreItem_statusMessage,
     annotationStoreItem_storeArn,
+    annotationStoreItem_name,
     annotationStoreItem_storeFormat,
-    annotationStoreItem_storeSizeBytes,
+    annotationStoreItem_description,
+    annotationStoreItem_sseConfig,
+    annotationStoreItem_creationTime,
     annotationStoreItem_updateTime,
+    annotationStoreItem_statusMessage,
+    annotationStoreItem_storeSizeBytes,
+
+    -- * CompleteReadSetUploadPartListItem
+    CompleteReadSetUploadPartListItem (..),
+    newCompleteReadSetUploadPartListItem,
+    completeReadSetUploadPartListItem_partNumber,
+    completeReadSetUploadPartListItem_partSource,
+    completeReadSetUploadPartListItem_checksum,
 
     -- * ExportReadSet
     ExportReadSet (..),
@@ -197,11 +212,11 @@ module Amazonka.Omics.Types
     ExportReadSetJobDetail (..),
     newExportReadSetJobDetail,
     exportReadSetJobDetail_completionTime,
-    exportReadSetJobDetail_creationTime,
-    exportReadSetJobDetail_destination,
     exportReadSetJobDetail_id,
     exportReadSetJobDetail_sequenceStoreId,
+    exportReadSetJobDetail_destination,
     exportReadSetJobDetail_status,
+    exportReadSetJobDetail_creationTime,
 
     -- * FileInformation
     FileInformation (..),
@@ -227,11 +242,11 @@ module Amazonka.Omics.Types
     ImportReadSetJobItem (..),
     newImportReadSetJobItem,
     importReadSetJobItem_completionTime,
-    importReadSetJobItem_creationTime,
     importReadSetJobItem_id,
-    importReadSetJobItem_roleArn,
     importReadSetJobItem_sequenceStoreId,
+    importReadSetJobItem_roleArn,
     importReadSetJobItem_status,
+    importReadSetJobItem_creationTime,
 
     -- * ImportReadSetSourceItem
     ImportReadSetSourceItem (..),
@@ -242,11 +257,11 @@ module Amazonka.Omics.Types
     importReadSetSourceItem_referenceArn,
     importReadSetSourceItem_statusMessage,
     importReadSetSourceItem_tags,
-    importReadSetSourceItem_sampleId,
-    importReadSetSourceItem_sourceFileType,
     importReadSetSourceItem_sourceFiles,
+    importReadSetSourceItem_sourceFileType,
     importReadSetSourceItem_status,
     importReadSetSourceItem_subjectId,
+    importReadSetSourceItem_sampleId,
 
     -- * ImportReferenceFilter
     ImportReferenceFilter (..),
@@ -259,11 +274,11 @@ module Amazonka.Omics.Types
     ImportReferenceJobItem (..),
     newImportReferenceJobItem,
     importReferenceJobItem_completionTime,
-    importReferenceJobItem_creationTime,
     importReferenceJobItem_id,
     importReferenceJobItem_referenceStoreId,
     importReferenceJobItem_roleArn,
     importReferenceJobItem_status,
+    importReferenceJobItem_creationTime,
 
     -- * ImportReferenceSourceItem
     ImportReferenceSourceItem (..),
@@ -297,6 +312,21 @@ module Amazonka.Omics.Types
     newListVariantStoresFilter,
     listVariantStoresFilter_status,
 
+    -- * MultipartReadSetUploadListItem
+    MultipartReadSetUploadListItem (..),
+    newMultipartReadSetUploadListItem,
+    multipartReadSetUploadListItem_description,
+    multipartReadSetUploadListItem_name,
+    multipartReadSetUploadListItem_tags,
+    multipartReadSetUploadListItem_sequenceStoreId,
+    multipartReadSetUploadListItem_uploadId,
+    multipartReadSetUploadListItem_sourceFileType,
+    multipartReadSetUploadListItem_subjectId,
+    multipartReadSetUploadListItem_sampleId,
+    multipartReadSetUploadListItem_generatedFrom,
+    multipartReadSetUploadListItem_referenceArn,
+    multipartReadSetUploadListItem_creationTime,
+
     -- * ReadOptions
     ReadOptions (..),
     newReadOptions,
@@ -313,8 +343,8 @@ module Amazonka.Omics.Types
     -- * ReadSetBatchError
     ReadSetBatchError (..),
     newReadSetBatchError,
-    readSetBatchError_code,
     readSetBatchError_id,
+    readSetBatchError_code,
     readSetBatchError_message,
 
     -- * ReadSetFiles
@@ -329,9 +359,12 @@ module Amazonka.Omics.Types
     newReadSetFilter,
     readSetFilter_createdAfter,
     readSetFilter_createdBefore,
+    readSetFilter_generatedFrom,
     readSetFilter_name,
     readSetFilter_referenceArn,
+    readSetFilter_sampleId,
     readSetFilter_status,
+    readSetFilter_subjectId,
 
     -- * ReadSetListItem
     ReadSetListItem (..),
@@ -341,13 +374,30 @@ module Amazonka.Omics.Types
     readSetListItem_referenceArn,
     readSetListItem_sampleId,
     readSetListItem_sequenceInformation,
+    readSetListItem_statusMessage,
     readSetListItem_subjectId,
-    readSetListItem_arn,
-    readSetListItem_creationTime,
-    readSetListItem_fileType,
     readSetListItem_id,
+    readSetListItem_arn,
     readSetListItem_sequenceStoreId,
     readSetListItem_status,
+    readSetListItem_fileType,
+    readSetListItem_creationTime,
+
+    -- * ReadSetUploadPartListFilter
+    ReadSetUploadPartListFilter (..),
+    newReadSetUploadPartListFilter,
+    readSetUploadPartListFilter_createdAfter,
+    readSetUploadPartListFilter_createdBefore,
+
+    -- * ReadSetUploadPartListItem
+    ReadSetUploadPartListItem (..),
+    newReadSetUploadPartListItem,
+    readSetUploadPartListItem_creationTime,
+    readSetUploadPartListItem_lastUpdatedTime,
+    readSetUploadPartListItem_partNumber,
+    readSetUploadPartListItem_partSize,
+    readSetUploadPartListItem_partSource,
+    readSetUploadPartListItem_checksum,
 
     -- * ReferenceFiles
     ReferenceFiles (..),
@@ -374,11 +424,11 @@ module Amazonka.Omics.Types
     referenceListItem_description,
     referenceListItem_name,
     referenceListItem_status,
-    referenceListItem_arn,
-    referenceListItem_creationTime,
     referenceListItem_id,
-    referenceListItem_md5,
+    referenceListItem_arn,
     referenceListItem_referenceStoreId,
+    referenceListItem_md5,
+    referenceListItem_creationTime,
     referenceListItem_updateTime,
 
     -- * ReferenceStoreDetail
@@ -388,8 +438,8 @@ module Amazonka.Omics.Types
     referenceStoreDetail_name,
     referenceStoreDetail_sseConfig,
     referenceStoreDetail_arn,
-    referenceStoreDetail_creationTime,
     referenceStoreDetail_id,
+    referenceStoreDetail_creationTime,
 
     -- * ReferenceStoreFilter
     ReferenceStoreFilter (..),
@@ -406,6 +456,7 @@ module Amazonka.Omics.Types
     runGroupListItem_id,
     runGroupListItem_maxCpus,
     runGroupListItem_maxDuration,
+    runGroupListItem_maxGpus,
     runGroupListItem_maxRuns,
     runGroupListItem_name,
 
@@ -439,11 +490,12 @@ module Amazonka.Omics.Types
     SequenceStoreDetail (..),
     newSequenceStoreDetail,
     sequenceStoreDetail_description,
+    sequenceStoreDetail_fallbackLocation,
     sequenceStoreDetail_name,
     sequenceStoreDetail_sseConfig,
     sequenceStoreDetail_arn,
-    sequenceStoreDetail_creationTime,
     sequenceStoreDetail_id,
+    sequenceStoreDetail_creationTime,
 
     -- * SequenceStoreFilter
     SequenceStoreFilter (..),
@@ -476,19 +528,19 @@ module Amazonka.Omics.Types
     startReadSetImportJobSourceItem_generatedFrom,
     startReadSetImportJobSourceItem_name,
     startReadSetImportJobSourceItem_tags,
-    startReadSetImportJobSourceItem_referenceArn,
-    startReadSetImportJobSourceItem_sampleId,
-    startReadSetImportJobSourceItem_sourceFileType,
     startReadSetImportJobSourceItem_sourceFiles,
+    startReadSetImportJobSourceItem_sourceFileType,
     startReadSetImportJobSourceItem_subjectId,
+    startReadSetImportJobSourceItem_sampleId,
+    startReadSetImportJobSourceItem_referenceArn,
 
     -- * StartReferenceImportJobSourceItem
     StartReferenceImportJobSourceItem (..),
     newStartReferenceImportJobSourceItem,
     startReferenceImportJobSourceItem_description,
     startReferenceImportJobSourceItem_tags,
-    startReferenceImportJobSourceItem_name,
     startReferenceImportJobSourceItem_sourceFile,
+    startReferenceImportJobSourceItem_name,
 
     -- * StoreOptions
     StoreOptions (..),
@@ -500,6 +552,7 @@ module Amazonka.Omics.Types
     newTaskListItem,
     taskListItem_cpus,
     taskListItem_creationTime,
+    taskListItem_gpus,
     taskListItem_memory,
     taskListItem_name,
     taskListItem_startTime,
@@ -522,8 +575,9 @@ module Amazonka.Omics.Types
     -- * VariantImportItemDetail
     VariantImportItemDetail (..),
     newVariantImportItemDetail,
-    variantImportItemDetail_jobStatus,
+    variantImportItemDetail_statusMessage,
     variantImportItemDetail_source,
+    variantImportItemDetail_jobStatus,
 
     -- * VariantImportItemSource
     VariantImportItemSource (..),
@@ -533,29 +587,30 @@ module Amazonka.Omics.Types
     -- * VariantImportJobItem
     VariantImportJobItem (..),
     newVariantImportJobItem,
+    variantImportJobItem_annotationFields,
     variantImportJobItem_completionTime,
     variantImportJobItem_runLeftNormalization,
-    variantImportJobItem_creationTime,
-    variantImportJobItem_destinationName,
     variantImportJobItem_id,
+    variantImportJobItem_destinationName,
     variantImportJobItem_roleArn,
     variantImportJobItem_status,
+    variantImportJobItem_creationTime,
     variantImportJobItem_updateTime,
 
     -- * VariantStoreItem
     VariantStoreItem (..),
     newVariantStoreItem,
-    variantStoreItem_creationTime,
-    variantStoreItem_description,
     variantStoreItem_id,
-    variantStoreItem_name,
     variantStoreItem_reference,
-    variantStoreItem_sseConfig,
     variantStoreItem_status,
-    variantStoreItem_statusMessage,
     variantStoreItem_storeArn,
-    variantStoreItem_storeSizeBytes,
+    variantStoreItem_name,
+    variantStoreItem_description,
+    variantStoreItem_sseConfig,
+    variantStoreItem_creationTime,
     variantStoreItem_updateTime,
+    variantStoreItem_statusMessage,
+    variantStoreItem_storeSizeBytes,
 
     -- * VcfOptions
     VcfOptions (..),
@@ -570,6 +625,7 @@ module Amazonka.Omics.Types
     workflowListItem_creationTime,
     workflowListItem_digest,
     workflowListItem_id,
+    workflowListItem_metadata,
     workflowListItem_name,
     workflowListItem_status,
     workflowListItem_type,
@@ -584,6 +640,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import Amazonka.Omics.Types.Accelerators
 import Amazonka.Omics.Types.ActivateReadSetFilter
 import Amazonka.Omics.Types.ActivateReadSetJobItem
 import Amazonka.Omics.Types.ActivateReadSetSourceItem
@@ -592,6 +649,7 @@ import Amazonka.Omics.Types.AnnotationImportItemSource
 import Amazonka.Omics.Types.AnnotationImportJobItem
 import Amazonka.Omics.Types.AnnotationStoreItem
 import Amazonka.Omics.Types.AnnotationType
+import Amazonka.Omics.Types.CompleteReadSetUploadPartListItem
 import Amazonka.Omics.Types.EncryptionType
 import Amazonka.Omics.Types.ExportReadSet
 import Amazonka.Omics.Types.ExportReadSetDetail
@@ -612,6 +670,7 @@ import Amazonka.Omics.Types.ListAnnotationImportJobsFilter
 import Amazonka.Omics.Types.ListAnnotationStoresFilter
 import Amazonka.Omics.Types.ListVariantImportJobsFilter
 import Amazonka.Omics.Types.ListVariantStoresFilter
+import Amazonka.Omics.Types.MultipartReadSetUploadListItem
 import Amazonka.Omics.Types.ReadOptions
 import Amazonka.Omics.Types.ReadSetActivationJobItemStatus
 import Amazonka.Omics.Types.ReadSetActivationJobStatus
@@ -624,7 +683,10 @@ import Amazonka.Omics.Types.ReadSetFilter
 import Amazonka.Omics.Types.ReadSetImportJobItemStatus
 import Amazonka.Omics.Types.ReadSetImportJobStatus
 import Amazonka.Omics.Types.ReadSetListItem
+import Amazonka.Omics.Types.ReadSetPartSource
 import Amazonka.Omics.Types.ReadSetStatus
+import Amazonka.Omics.Types.ReadSetUploadPartListFilter
+import Amazonka.Omics.Types.ReadSetUploadPartListItem
 import Amazonka.Omics.Types.ReferenceFile
 import Amazonka.Omics.Types.ReferenceFiles
 import Amazonka.Omics.Types.ReferenceFilter
@@ -697,52 +759,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -751,7 +813,7 @@ _AccessDeniedException =
 
 -- | The request cannot be applied to the target resource in its current
 -- state.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -759,15 +821,24 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | An unexpected error occurred. Try the request again.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
 
+-- | The operation is not supported by Amazon Omics, or the API does not
+-- exist.
+_NotSupportedOperationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_NotSupportedOperationException =
+  Core._MatchServiceError
+    defaultService
+    "NotSupportedOperationException"
+    Prelude.. Core.hasStatus 405
+
 -- | The ranges specified in the request are not valid.
-_RangeNotSatisfiableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RangeNotSatisfiableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RangeNotSatisfiableException =
   Core._MatchServiceError
     defaultService
@@ -775,7 +846,7 @@ _RangeNotSatisfiableException =
     Prelude.. Core.hasStatus 416
 
 -- | The request timed out.
-_RequestTimeoutException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RequestTimeoutException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RequestTimeoutException =
   Core._MatchServiceError
     defaultService
@@ -783,7 +854,7 @@ _RequestTimeoutException =
     Prelude.. Core.hasStatus 408
 
 -- | The target resource was not found in the current Region.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -791,7 +862,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The request exceeds a service quota.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -799,7 +870,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -807,7 +878,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | The input fails to satisfy the constraints specified by an AWS service.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

@@ -105,7 +105,8 @@ instance Core.AWSRequest BatchDeleteReadSet where
 
 instance Prelude.Hashable BatchDeleteReadSet where
   hashWithSalt _salt BatchDeleteReadSet' {..} =
-    _salt `Prelude.hashWithSalt` ids
+    _salt
+      `Prelude.hashWithSalt` ids
       `Prelude.hashWithSalt` sequenceStoreId
 
 instance Prelude.NFData BatchDeleteReadSet where

@@ -33,6 +33,7 @@ module Amazonka.Omics.ListRuns
     listRuns_name,
     listRuns_runGroupId,
     listRuns_startingToken,
+    listRuns_status,
 
     -- * Destructuring the Response
     ListRunsResponse (..),
@@ -63,7 +64,9 @@ data ListRuns = ListRuns'
     runGroupId :: Prelude.Maybe Prelude.Text,
     -- | Specify the pagination token from a previous request to retrieve the
     -- next page of results.
-    startingToken :: Prelude.Maybe Prelude.Text
+    startingToken :: Prelude.Maybe Prelude.Text,
+    -- | The status of a run.
+    status :: Prelude.Maybe RunStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,6 +86,8 @@ data ListRuns = ListRuns'
 --
 -- 'startingToken', 'listRuns_startingToken' - Specify the pagination token from a previous request to retrieve the
 -- next page of results.
+--
+-- 'status', 'listRuns_status' - The status of a run.
 newListRuns ::
   ListRuns
 newListRuns =
@@ -90,7 +95,8 @@ newListRuns =
     { maxResults = Prelude.Nothing,
       name = Prelude.Nothing,
       runGroupId = Prelude.Nothing,
-      startingToken = Prelude.Nothing
+      startingToken = Prelude.Nothing,
+      status = Prelude.Nothing
     }
 
 -- | The maximum number of runs to return in one page of results.
@@ -110,24 +116,31 @@ listRuns_runGroupId = Lens.lens (\ListRuns' {runGroupId} -> runGroupId) (\s@List
 listRuns_startingToken :: Lens.Lens' ListRuns (Prelude.Maybe Prelude.Text)
 listRuns_startingToken = Lens.lens (\ListRuns' {startingToken} -> startingToken) (\s@ListRuns' {} a -> s {startingToken = a} :: ListRuns)
 
+-- | The status of a run.
+listRuns_status :: Lens.Lens' ListRuns (Prelude.Maybe RunStatus)
+listRuns_status = Lens.lens (\ListRuns' {status} -> status) (\s@ListRuns' {} a -> s {status = a} :: ListRuns)
+
 instance Core.AWSPager ListRuns where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listRunsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listRunsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listRunsResponse_items Prelude.. Lens._Just
+            Lens.^? listRunsResponse_items
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRuns_startingToken
           Lens..~ rs
-          Lens.^? listRunsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listRunsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRuns where
   type AWSResponse ListRuns = ListRunsResponse
@@ -144,10 +157,12 @@ instance Core.AWSRequest ListRuns where
 
 instance Prelude.Hashable ListRuns where
   hashWithSalt _salt ListRuns' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` runGroupId
       `Prelude.hashWithSalt` startingToken
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ListRuns where
   rnf ListRuns' {..} =
@@ -155,6 +170,7 @@ instance Prelude.NFData ListRuns where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf runGroupId
       `Prelude.seq` Prelude.rnf startingToken
+      `Prelude.seq` Prelude.rnf status
 
 instance Data.ToHeaders ListRuns where
   toHeaders =
@@ -176,7 +192,8 @@ instance Data.ToQuery ListRuns where
       [ "maxResults" Data.=: maxResults,
         "name" Data.=: name,
         "runGroupId" Data.=: runGroupId,
-        "startingToken" Data.=: startingToken
+        "startingToken" Data.=: startingToken,
+        "status" Data.=: status
       ]
 
 -- | /See:/ 'newListRunsResponse' smart constructor.

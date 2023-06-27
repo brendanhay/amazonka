@@ -38,12 +38,12 @@ module Amazonka.Omics.UpdateAnnotationStore
     updateAnnotationStoreResponse_storeFormat,
     updateAnnotationStoreResponse_storeOptions,
     updateAnnotationStoreResponse_httpStatus,
-    updateAnnotationStoreResponse_creationTime,
-    updateAnnotationStoreResponse_description,
     updateAnnotationStoreResponse_id,
-    updateAnnotationStoreResponse_name,
     updateAnnotationStoreResponse_reference,
     updateAnnotationStoreResponse_status,
+    updateAnnotationStoreResponse_name,
+    updateAnnotationStoreResponse_description,
+    updateAnnotationStoreResponse_creationTime,
     updateAnnotationStoreResponse_updateTime,
   )
 where
@@ -108,18 +108,19 @@ instance Core.AWSRequest UpdateAnnotationStore where
             Prelude.<$> (x Data..?> "storeFormat")
             Prelude.<*> (x Data..?> "storeOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "creationTime")
-            Prelude.<*> (x Data..:> "description")
             Prelude.<*> (x Data..:> "id")
-            Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "reference")
             Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "description")
+            Prelude.<*> (x Data..:> "creationTime")
             Prelude.<*> (x Data..:> "updateTime")
       )
 
 instance Prelude.Hashable UpdateAnnotationStore where
   hashWithSalt _salt UpdateAnnotationStore' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateAnnotationStore where
@@ -161,18 +162,18 @@ data UpdateAnnotationStoreResponse = UpdateAnnotationStoreResponse'
     storeOptions :: Prelude.Maybe StoreOptions,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | When the store was created.
-    creationTime :: Data.ISO8601,
-    -- | The store\'s description.
-    description :: Prelude.Text,
     -- | The store\'s ID.
     id :: Prelude.Text,
-    -- | The store\'s name.
-    name :: Prelude.Text,
     -- | The store\'s genome reference.
     reference :: ReferenceItem,
     -- | The store\'s status.
     status :: StoreStatus,
+    -- | The store\'s name.
+    name :: Prelude.Text,
+    -- | The store\'s description.
+    description :: Prelude.Text,
+    -- | When the store was created.
+    creationTime :: Data.ISO8601,
     -- | When the store was updated.
     updateTime :: Data.ISO8601
   }
@@ -192,58 +193,58 @@ data UpdateAnnotationStoreResponse = UpdateAnnotationStoreResponse'
 --
 -- 'httpStatus', 'updateAnnotationStoreResponse_httpStatus' - The response's http status code.
 --
--- 'creationTime', 'updateAnnotationStoreResponse_creationTime' - When the store was created.
---
--- 'description', 'updateAnnotationStoreResponse_description' - The store\'s description.
---
 -- 'id', 'updateAnnotationStoreResponse_id' - The store\'s ID.
---
--- 'name', 'updateAnnotationStoreResponse_name' - The store\'s name.
 --
 -- 'reference', 'updateAnnotationStoreResponse_reference' - The store\'s genome reference.
 --
 -- 'status', 'updateAnnotationStoreResponse_status' - The store\'s status.
 --
+-- 'name', 'updateAnnotationStoreResponse_name' - The store\'s name.
+--
+-- 'description', 'updateAnnotationStoreResponse_description' - The store\'s description.
+--
+-- 'creationTime', 'updateAnnotationStoreResponse_creationTime' - When the store was created.
+--
 -- 'updateTime', 'updateAnnotationStoreResponse_updateTime' - When the store was updated.
 newUpdateAnnotationStoreResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'creationTime'
-  Prelude.UTCTime ->
-  -- | 'description'
-  Prelude.Text ->
   -- | 'id'
-  Prelude.Text ->
-  -- | 'name'
   Prelude.Text ->
   -- | 'reference'
   ReferenceItem ->
   -- | 'status'
   StoreStatus ->
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'description'
+  Prelude.Text ->
+  -- | 'creationTime'
+  Prelude.UTCTime ->
   -- | 'updateTime'
   Prelude.UTCTime ->
   UpdateAnnotationStoreResponse
 newUpdateAnnotationStoreResponse
   pHttpStatus_
-  pCreationTime_
-  pDescription_
   pId_
-  pName_
   pReference_
   pStatus_
+  pName_
+  pDescription_
+  pCreationTime_
   pUpdateTime_ =
     UpdateAnnotationStoreResponse'
       { storeFormat =
           Prelude.Nothing,
         storeOptions = Prelude.Nothing,
         httpStatus = pHttpStatus_,
-        creationTime =
-          Data._Time Lens.# pCreationTime_,
-        description = pDescription_,
         id = pId_,
-        name = pName_,
         reference = pReference_,
         status = pStatus_,
+        name = pName_,
+        description = pDescription_,
+        creationTime =
+          Data._Time Lens.# pCreationTime_,
         updateTime = Data._Time Lens.# pUpdateTime_
       }
 
@@ -259,21 +260,9 @@ updateAnnotationStoreResponse_storeOptions = Lens.lens (\UpdateAnnotationStoreRe
 updateAnnotationStoreResponse_httpStatus :: Lens.Lens' UpdateAnnotationStoreResponse Prelude.Int
 updateAnnotationStoreResponse_httpStatus = Lens.lens (\UpdateAnnotationStoreResponse' {httpStatus} -> httpStatus) (\s@UpdateAnnotationStoreResponse' {} a -> s {httpStatus = a} :: UpdateAnnotationStoreResponse)
 
--- | When the store was created.
-updateAnnotationStoreResponse_creationTime :: Lens.Lens' UpdateAnnotationStoreResponse Prelude.UTCTime
-updateAnnotationStoreResponse_creationTime = Lens.lens (\UpdateAnnotationStoreResponse' {creationTime} -> creationTime) (\s@UpdateAnnotationStoreResponse' {} a -> s {creationTime = a} :: UpdateAnnotationStoreResponse) Prelude.. Data._Time
-
--- | The store\'s description.
-updateAnnotationStoreResponse_description :: Lens.Lens' UpdateAnnotationStoreResponse Prelude.Text
-updateAnnotationStoreResponse_description = Lens.lens (\UpdateAnnotationStoreResponse' {description} -> description) (\s@UpdateAnnotationStoreResponse' {} a -> s {description = a} :: UpdateAnnotationStoreResponse)
-
 -- | The store\'s ID.
 updateAnnotationStoreResponse_id :: Lens.Lens' UpdateAnnotationStoreResponse Prelude.Text
 updateAnnotationStoreResponse_id = Lens.lens (\UpdateAnnotationStoreResponse' {id} -> id) (\s@UpdateAnnotationStoreResponse' {} a -> s {id = a} :: UpdateAnnotationStoreResponse)
-
--- | The store\'s name.
-updateAnnotationStoreResponse_name :: Lens.Lens' UpdateAnnotationStoreResponse Prelude.Text
-updateAnnotationStoreResponse_name = Lens.lens (\UpdateAnnotationStoreResponse' {name} -> name) (\s@UpdateAnnotationStoreResponse' {} a -> s {name = a} :: UpdateAnnotationStoreResponse)
 
 -- | The store\'s genome reference.
 updateAnnotationStoreResponse_reference :: Lens.Lens' UpdateAnnotationStoreResponse ReferenceItem
@@ -282,6 +271,18 @@ updateAnnotationStoreResponse_reference = Lens.lens (\UpdateAnnotationStoreRespo
 -- | The store\'s status.
 updateAnnotationStoreResponse_status :: Lens.Lens' UpdateAnnotationStoreResponse StoreStatus
 updateAnnotationStoreResponse_status = Lens.lens (\UpdateAnnotationStoreResponse' {status} -> status) (\s@UpdateAnnotationStoreResponse' {} a -> s {status = a} :: UpdateAnnotationStoreResponse)
+
+-- | The store\'s name.
+updateAnnotationStoreResponse_name :: Lens.Lens' UpdateAnnotationStoreResponse Prelude.Text
+updateAnnotationStoreResponse_name = Lens.lens (\UpdateAnnotationStoreResponse' {name} -> name) (\s@UpdateAnnotationStoreResponse' {} a -> s {name = a} :: UpdateAnnotationStoreResponse)
+
+-- | The store\'s description.
+updateAnnotationStoreResponse_description :: Lens.Lens' UpdateAnnotationStoreResponse Prelude.Text
+updateAnnotationStoreResponse_description = Lens.lens (\UpdateAnnotationStoreResponse' {description} -> description) (\s@UpdateAnnotationStoreResponse' {} a -> s {description = a} :: UpdateAnnotationStoreResponse)
+
+-- | When the store was created.
+updateAnnotationStoreResponse_creationTime :: Lens.Lens' UpdateAnnotationStoreResponse Prelude.UTCTime
+updateAnnotationStoreResponse_creationTime = Lens.lens (\UpdateAnnotationStoreResponse' {creationTime} -> creationTime) (\s@UpdateAnnotationStoreResponse' {} a -> s {creationTime = a} :: UpdateAnnotationStoreResponse) Prelude.. Data._Time
 
 -- | When the store was updated.
 updateAnnotationStoreResponse_updateTime :: Lens.Lens' UpdateAnnotationStoreResponse Prelude.UTCTime
@@ -292,10 +293,10 @@ instance Prelude.NFData UpdateAnnotationStoreResponse where
     Prelude.rnf storeFormat
       `Prelude.seq` Prelude.rnf storeOptions
       `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf reference
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf updateTime

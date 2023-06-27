@@ -37,6 +37,7 @@ module Amazonka.Omics.GetRunTask
     -- * Response Lenses
     getRunTaskResponse_cpus,
     getRunTaskResponse_creationTime,
+    getRunTaskResponse_gpus,
     getRunTaskResponse_logStream,
     getRunTaskResponse_memory,
     getRunTaskResponse_name,
@@ -104,6 +105,7 @@ instance Core.AWSRequest GetRunTask where
           GetRunTaskResponse'
             Prelude.<$> (x Data..?> "cpus")
             Prelude.<*> (x Data..?> "creationTime")
+            Prelude.<*> (x Data..?> "gpus")
             Prelude.<*> (x Data..?> "logStream")
             Prelude.<*> (x Data..?> "memory")
             Prelude.<*> (x Data..?> "name")
@@ -117,7 +119,8 @@ instance Core.AWSRequest GetRunTask where
 
 instance Prelude.Hashable GetRunTask where
   hashWithSalt _salt GetRunTask' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` taskId
 
 instance Prelude.NFData GetRunTask where
@@ -149,9 +152,11 @@ data GetRunTaskResponse = GetRunTaskResponse'
     cpus :: Prelude.Maybe Prelude.Natural,
     -- | When the task was created.
     creationTime :: Prelude.Maybe Data.ISO8601,
+    -- | The number of Graphics Processing Units (GPU) specified in the task.
+    gpus :: Prelude.Maybe Prelude.Natural,
     -- | The task\'s log stream.
     logStream :: Prelude.Maybe Prelude.Text,
-    -- | The task\'s memory setting.
+    -- | The task\'s memory use in gigabytes.
     memory :: Prelude.Maybe Prelude.Natural,
     -- | The task\'s name.
     name :: Prelude.Maybe Prelude.Text,
@@ -182,9 +187,11 @@ data GetRunTaskResponse = GetRunTaskResponse'
 --
 -- 'creationTime', 'getRunTaskResponse_creationTime' - When the task was created.
 --
+-- 'gpus', 'getRunTaskResponse_gpus' - The number of Graphics Processing Units (GPU) specified in the task.
+--
 -- 'logStream', 'getRunTaskResponse_logStream' - The task\'s log stream.
 --
--- 'memory', 'getRunTaskResponse_memory' - The task\'s memory setting.
+-- 'memory', 'getRunTaskResponse_memory' - The task\'s memory use in gigabytes.
 --
 -- 'name', 'getRunTaskResponse_name' - The task\'s name.
 --
@@ -207,6 +214,7 @@ newGetRunTaskResponse pHttpStatus_ =
   GetRunTaskResponse'
     { cpus = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      gpus = Prelude.Nothing,
       logStream = Prelude.Nothing,
       memory = Prelude.Nothing,
       name = Prelude.Nothing,
@@ -226,11 +234,15 @@ getRunTaskResponse_cpus = Lens.lens (\GetRunTaskResponse' {cpus} -> cpus) (\s@Ge
 getRunTaskResponse_creationTime :: Lens.Lens' GetRunTaskResponse (Prelude.Maybe Prelude.UTCTime)
 getRunTaskResponse_creationTime = Lens.lens (\GetRunTaskResponse' {creationTime} -> creationTime) (\s@GetRunTaskResponse' {} a -> s {creationTime = a} :: GetRunTaskResponse) Prelude.. Lens.mapping Data._Time
 
+-- | The number of Graphics Processing Units (GPU) specified in the task.
+getRunTaskResponse_gpus :: Lens.Lens' GetRunTaskResponse (Prelude.Maybe Prelude.Natural)
+getRunTaskResponse_gpus = Lens.lens (\GetRunTaskResponse' {gpus} -> gpus) (\s@GetRunTaskResponse' {} a -> s {gpus = a} :: GetRunTaskResponse)
+
 -- | The task\'s log stream.
 getRunTaskResponse_logStream :: Lens.Lens' GetRunTaskResponse (Prelude.Maybe Prelude.Text)
 getRunTaskResponse_logStream = Lens.lens (\GetRunTaskResponse' {logStream} -> logStream) (\s@GetRunTaskResponse' {} a -> s {logStream = a} :: GetRunTaskResponse)
 
--- | The task\'s memory setting.
+-- | The task\'s memory use in gigabytes.
 getRunTaskResponse_memory :: Lens.Lens' GetRunTaskResponse (Prelude.Maybe Prelude.Natural)
 getRunTaskResponse_memory = Lens.lens (\GetRunTaskResponse' {memory} -> memory) (\s@GetRunTaskResponse' {} a -> s {memory = a} :: GetRunTaskResponse)
 
@@ -266,6 +278,7 @@ instance Prelude.NFData GetRunTaskResponse where
   rnf GetRunTaskResponse' {..} =
     Prelude.rnf cpus
       `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf gpus
       `Prelude.seq` Prelude.rnf logStream
       `Prelude.seq` Prelude.rnf memory
       `Prelude.seq` Prelude.rnf name

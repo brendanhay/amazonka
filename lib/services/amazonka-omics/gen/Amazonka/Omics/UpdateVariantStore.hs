@@ -36,12 +36,12 @@ module Amazonka.Omics.UpdateVariantStore
 
     -- * Response Lenses
     updateVariantStoreResponse_httpStatus,
-    updateVariantStoreResponse_creationTime,
-    updateVariantStoreResponse_description,
     updateVariantStoreResponse_id,
-    updateVariantStoreResponse_name,
     updateVariantStoreResponse_reference,
     updateVariantStoreResponse_status,
+    updateVariantStoreResponse_name,
+    updateVariantStoreResponse_description,
+    updateVariantStoreResponse_creationTime,
     updateVariantStoreResponse_updateTime,
   )
 where
@@ -103,18 +103,19 @@ instance Core.AWSRequest UpdateVariantStore where
       ( \s h x ->
           UpdateVariantStoreResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "creationTime")
-            Prelude.<*> (x Data..:> "description")
             Prelude.<*> (x Data..:> "id")
-            Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "reference")
             Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "description")
+            Prelude.<*> (x Data..:> "creationTime")
             Prelude.<*> (x Data..:> "updateTime")
       )
 
 instance Prelude.Hashable UpdateVariantStore where
   hashWithSalt _salt UpdateVariantStore' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateVariantStore where
@@ -151,18 +152,18 @@ instance Data.ToQuery UpdateVariantStore where
 data UpdateVariantStoreResponse = UpdateVariantStoreResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | When the store was created.
-    creationTime :: Data.ISO8601,
-    -- | The store\'s description.
-    description :: Prelude.Text,
     -- | The store\'s ID.
     id :: Prelude.Text,
-    -- | The store\'s name.
-    name :: Prelude.Text,
     -- | The store\'s genome reference.
     reference :: ReferenceItem,
     -- | The store\'s status.
     status :: StoreStatus,
+    -- | The store\'s name.
+    name :: Prelude.Text,
+    -- | The store\'s description.
+    description :: Prelude.Text,
+    -- | When the store was created.
+    creationTime :: Data.ISO8601,
     -- | When the store was updated.
     updateTime :: Data.ISO8601
   }
@@ -178,55 +179,55 @@ data UpdateVariantStoreResponse = UpdateVariantStoreResponse'
 --
 -- 'httpStatus', 'updateVariantStoreResponse_httpStatus' - The response's http status code.
 --
--- 'creationTime', 'updateVariantStoreResponse_creationTime' - When the store was created.
---
--- 'description', 'updateVariantStoreResponse_description' - The store\'s description.
---
 -- 'id', 'updateVariantStoreResponse_id' - The store\'s ID.
---
--- 'name', 'updateVariantStoreResponse_name' - The store\'s name.
 --
 -- 'reference', 'updateVariantStoreResponse_reference' - The store\'s genome reference.
 --
 -- 'status', 'updateVariantStoreResponse_status' - The store\'s status.
 --
+-- 'name', 'updateVariantStoreResponse_name' - The store\'s name.
+--
+-- 'description', 'updateVariantStoreResponse_description' - The store\'s description.
+--
+-- 'creationTime', 'updateVariantStoreResponse_creationTime' - When the store was created.
+--
 -- 'updateTime', 'updateVariantStoreResponse_updateTime' - When the store was updated.
 newUpdateVariantStoreResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'creationTime'
-  Prelude.UTCTime ->
-  -- | 'description'
-  Prelude.Text ->
   -- | 'id'
-  Prelude.Text ->
-  -- | 'name'
   Prelude.Text ->
   -- | 'reference'
   ReferenceItem ->
   -- | 'status'
   StoreStatus ->
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'description'
+  Prelude.Text ->
+  -- | 'creationTime'
+  Prelude.UTCTime ->
   -- | 'updateTime'
   Prelude.UTCTime ->
   UpdateVariantStoreResponse
 newUpdateVariantStoreResponse
   pHttpStatus_
-  pCreationTime_
-  pDescription_
   pId_
-  pName_
   pReference_
   pStatus_
+  pName_
+  pDescription_
+  pCreationTime_
   pUpdateTime_ =
     UpdateVariantStoreResponse'
       { httpStatus =
           pHttpStatus_,
-        creationTime = Data._Time Lens.# pCreationTime_,
-        description = pDescription_,
         id = pId_,
-        name = pName_,
         reference = pReference_,
         status = pStatus_,
+        name = pName_,
+        description = pDescription_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         updateTime = Data._Time Lens.# pUpdateTime_
       }
 
@@ -234,21 +235,9 @@ newUpdateVariantStoreResponse
 updateVariantStoreResponse_httpStatus :: Lens.Lens' UpdateVariantStoreResponse Prelude.Int
 updateVariantStoreResponse_httpStatus = Lens.lens (\UpdateVariantStoreResponse' {httpStatus} -> httpStatus) (\s@UpdateVariantStoreResponse' {} a -> s {httpStatus = a} :: UpdateVariantStoreResponse)
 
--- | When the store was created.
-updateVariantStoreResponse_creationTime :: Lens.Lens' UpdateVariantStoreResponse Prelude.UTCTime
-updateVariantStoreResponse_creationTime = Lens.lens (\UpdateVariantStoreResponse' {creationTime} -> creationTime) (\s@UpdateVariantStoreResponse' {} a -> s {creationTime = a} :: UpdateVariantStoreResponse) Prelude.. Data._Time
-
--- | The store\'s description.
-updateVariantStoreResponse_description :: Lens.Lens' UpdateVariantStoreResponse Prelude.Text
-updateVariantStoreResponse_description = Lens.lens (\UpdateVariantStoreResponse' {description} -> description) (\s@UpdateVariantStoreResponse' {} a -> s {description = a} :: UpdateVariantStoreResponse)
-
 -- | The store\'s ID.
 updateVariantStoreResponse_id :: Lens.Lens' UpdateVariantStoreResponse Prelude.Text
 updateVariantStoreResponse_id = Lens.lens (\UpdateVariantStoreResponse' {id} -> id) (\s@UpdateVariantStoreResponse' {} a -> s {id = a} :: UpdateVariantStoreResponse)
-
--- | The store\'s name.
-updateVariantStoreResponse_name :: Lens.Lens' UpdateVariantStoreResponse Prelude.Text
-updateVariantStoreResponse_name = Lens.lens (\UpdateVariantStoreResponse' {name} -> name) (\s@UpdateVariantStoreResponse' {} a -> s {name = a} :: UpdateVariantStoreResponse)
 
 -- | The store\'s genome reference.
 updateVariantStoreResponse_reference :: Lens.Lens' UpdateVariantStoreResponse ReferenceItem
@@ -258,6 +247,18 @@ updateVariantStoreResponse_reference = Lens.lens (\UpdateVariantStoreResponse' {
 updateVariantStoreResponse_status :: Lens.Lens' UpdateVariantStoreResponse StoreStatus
 updateVariantStoreResponse_status = Lens.lens (\UpdateVariantStoreResponse' {status} -> status) (\s@UpdateVariantStoreResponse' {} a -> s {status = a} :: UpdateVariantStoreResponse)
 
+-- | The store\'s name.
+updateVariantStoreResponse_name :: Lens.Lens' UpdateVariantStoreResponse Prelude.Text
+updateVariantStoreResponse_name = Lens.lens (\UpdateVariantStoreResponse' {name} -> name) (\s@UpdateVariantStoreResponse' {} a -> s {name = a} :: UpdateVariantStoreResponse)
+
+-- | The store\'s description.
+updateVariantStoreResponse_description :: Lens.Lens' UpdateVariantStoreResponse Prelude.Text
+updateVariantStoreResponse_description = Lens.lens (\UpdateVariantStoreResponse' {description} -> description) (\s@UpdateVariantStoreResponse' {} a -> s {description = a} :: UpdateVariantStoreResponse)
+
+-- | When the store was created.
+updateVariantStoreResponse_creationTime :: Lens.Lens' UpdateVariantStoreResponse Prelude.UTCTime
+updateVariantStoreResponse_creationTime = Lens.lens (\UpdateVariantStoreResponse' {creationTime} -> creationTime) (\s@UpdateVariantStoreResponse' {} a -> s {creationTime = a} :: UpdateVariantStoreResponse) Prelude.. Data._Time
+
 -- | When the store was updated.
 updateVariantStoreResponse_updateTime :: Lens.Lens' UpdateVariantStoreResponse Prelude.UTCTime
 updateVariantStoreResponse_updateTime = Lens.lens (\UpdateVariantStoreResponse' {updateTime} -> updateTime) (\s@UpdateVariantStoreResponse' {} a -> s {updateTime = a} :: UpdateVariantStoreResponse) Prelude.. Data._Time
@@ -265,10 +266,10 @@ updateVariantStoreResponse_updateTime = Lens.lens (\UpdateVariantStoreResponse' 
 instance Prelude.NFData UpdateVariantStoreResponse where
   rnf UpdateVariantStoreResponse' {..} =
     Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf reference
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf updateTime

@@ -38,11 +38,11 @@ module Amazonka.Omics.StartReferenceImportJob
 
     -- * Response Lenses
     startReferenceImportJobResponse_httpStatus,
-    startReferenceImportJobResponse_creationTime,
     startReferenceImportJobResponse_id,
     startReferenceImportJobResponse_referenceStoreId,
     startReferenceImportJobResponse_roleArn,
     startReferenceImportJobResponse_status,
+    startReferenceImportJobResponse_creationTime,
   )
 where
 
@@ -63,7 +63,7 @@ data StartReferenceImportJob = StartReferenceImportJob'
     referenceStoreId :: Prelude.Text,
     -- | A service role for the job.
     roleArn :: Prelude.Text,
-    -- | Sources for the job.
+    -- | The job\'s source files.
     sources :: Prelude.NonEmpty StartReferenceImportJobSourceItem
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,7 +83,7 @@ data StartReferenceImportJob = StartReferenceImportJob'
 --
 -- 'roleArn', 'startReferenceImportJob_roleArn' - A service role for the job.
 --
--- 'sources', 'startReferenceImportJob_sources' - Sources for the job.
+-- 'sources', 'startReferenceImportJob_sources' - The job\'s source files.
 newStartReferenceImportJob ::
   -- | 'referenceStoreId'
   Prelude.Text ->
@@ -117,7 +117,7 @@ startReferenceImportJob_referenceStoreId = Lens.lens (\StartReferenceImportJob' 
 startReferenceImportJob_roleArn :: Lens.Lens' StartReferenceImportJob Prelude.Text
 startReferenceImportJob_roleArn = Lens.lens (\StartReferenceImportJob' {roleArn} -> roleArn) (\s@StartReferenceImportJob' {} a -> s {roleArn = a} :: StartReferenceImportJob)
 
--- | Sources for the job.
+-- | The job\'s source files.
 startReferenceImportJob_sources :: Lens.Lens' StartReferenceImportJob (Prelude.NonEmpty StartReferenceImportJobSourceItem)
 startReferenceImportJob_sources = Lens.lens (\StartReferenceImportJob' {sources} -> sources) (\s@StartReferenceImportJob' {} a -> s {sources = a} :: StartReferenceImportJob) Prelude.. Lens.coerced
 
@@ -132,16 +132,17 @@ instance Core.AWSRequest StartReferenceImportJob where
       ( \s h x ->
           StartReferenceImportJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "creationTime")
             Prelude.<*> (x Data..:> "id")
             Prelude.<*> (x Data..:> "referenceStoreId")
             Prelude.<*> (x Data..:> "roleArn")
             Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..:> "creationTime")
       )
 
 instance Prelude.Hashable StartReferenceImportJob where
   hashWithSalt _salt StartReferenceImportJob' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` referenceStoreId
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` sources
@@ -189,8 +190,6 @@ instance Data.ToQuery StartReferenceImportJob where
 data StartReferenceImportJobResponse = StartReferenceImportJobResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | When the job was created.
-    creationTime :: Data.ISO8601,
     -- | The job\'s ID.
     id :: Prelude.Text,
     -- | The job\'s reference store ID.
@@ -198,7 +197,9 @@ data StartReferenceImportJobResponse = StartReferenceImportJobResponse'
     -- | The job\'s service role ARN.
     roleArn :: Prelude.Text,
     -- | The job\'s status.
-    status :: ReferenceImportJobStatus
+    status :: ReferenceImportJobStatus,
+    -- | When the job was created.
+    creationTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -212,8 +213,6 @@ data StartReferenceImportJobResponse = StartReferenceImportJobResponse'
 --
 -- 'httpStatus', 'startReferenceImportJobResponse_httpStatus' - The response's http status code.
 --
--- 'creationTime', 'startReferenceImportJobResponse_creationTime' - When the job was created.
---
 -- 'id', 'startReferenceImportJobResponse_id' - The job\'s ID.
 --
 -- 'referenceStoreId', 'startReferenceImportJobResponse_referenceStoreId' - The job\'s reference store ID.
@@ -221,11 +220,11 @@ data StartReferenceImportJobResponse = StartReferenceImportJobResponse'
 -- 'roleArn', 'startReferenceImportJobResponse_roleArn' - The job\'s service role ARN.
 --
 -- 'status', 'startReferenceImportJobResponse_status' - The job\'s status.
+--
+-- 'creationTime', 'startReferenceImportJobResponse_creationTime' - When the job was created.
 newStartReferenceImportJobResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'creationTime'
-  Prelude.UTCTime ->
   -- | 'id'
   Prelude.Text ->
   -- | 'referenceStoreId'
@@ -234,32 +233,30 @@ newStartReferenceImportJobResponse ::
   Prelude.Text ->
   -- | 'status'
   ReferenceImportJobStatus ->
+  -- | 'creationTime'
+  Prelude.UTCTime ->
   StartReferenceImportJobResponse
 newStartReferenceImportJobResponse
   pHttpStatus_
-  pCreationTime_
   pId_
   pReferenceStoreId_
   pRoleArn_
-  pStatus_ =
+  pStatus_
+  pCreationTime_ =
     StartReferenceImportJobResponse'
       { httpStatus =
           pHttpStatus_,
-        creationTime =
-          Data._Time Lens.# pCreationTime_,
         id = pId_,
         referenceStoreId = pReferenceStoreId_,
         roleArn = pRoleArn_,
-        status = pStatus_
+        status = pStatus_,
+        creationTime =
+          Data._Time Lens.# pCreationTime_
       }
 
 -- | The response's http status code.
 startReferenceImportJobResponse_httpStatus :: Lens.Lens' StartReferenceImportJobResponse Prelude.Int
 startReferenceImportJobResponse_httpStatus = Lens.lens (\StartReferenceImportJobResponse' {httpStatus} -> httpStatus) (\s@StartReferenceImportJobResponse' {} a -> s {httpStatus = a} :: StartReferenceImportJobResponse)
-
--- | When the job was created.
-startReferenceImportJobResponse_creationTime :: Lens.Lens' StartReferenceImportJobResponse Prelude.UTCTime
-startReferenceImportJobResponse_creationTime = Lens.lens (\StartReferenceImportJobResponse' {creationTime} -> creationTime) (\s@StartReferenceImportJobResponse' {} a -> s {creationTime = a} :: StartReferenceImportJobResponse) Prelude.. Data._Time
 
 -- | The job\'s ID.
 startReferenceImportJobResponse_id :: Lens.Lens' StartReferenceImportJobResponse Prelude.Text
@@ -277,14 +274,18 @@ startReferenceImportJobResponse_roleArn = Lens.lens (\StartReferenceImportJobRes
 startReferenceImportJobResponse_status :: Lens.Lens' StartReferenceImportJobResponse ReferenceImportJobStatus
 startReferenceImportJobResponse_status = Lens.lens (\StartReferenceImportJobResponse' {status} -> status) (\s@StartReferenceImportJobResponse' {} a -> s {status = a} :: StartReferenceImportJobResponse)
 
+-- | When the job was created.
+startReferenceImportJobResponse_creationTime :: Lens.Lens' StartReferenceImportJobResponse Prelude.UTCTime
+startReferenceImportJobResponse_creationTime = Lens.lens (\StartReferenceImportJobResponse' {creationTime} -> creationTime) (\s@StartReferenceImportJobResponse' {} a -> s {creationTime = a} :: StartReferenceImportJobResponse) Prelude.. Data._Time
+
 instance
   Prelude.NFData
     StartReferenceImportJobResponse
   where
   rnf StartReferenceImportJobResponse' {..} =
     Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf referenceStoreId
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationTime

@@ -82,7 +82,8 @@ referenceFilter_name = Lens.lens (\ReferenceFilter' {name} -> name) (\s@Referenc
 
 instance Prelude.Hashable ReferenceFilter where
   hashWithSalt _salt ReferenceFilter' {..} =
-    _salt `Prelude.hashWithSalt` createdAfter
+    _salt
+      `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` md5
       `Prelude.hashWithSalt` name

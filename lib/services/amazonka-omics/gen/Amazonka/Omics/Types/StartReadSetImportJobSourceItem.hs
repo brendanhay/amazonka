@@ -38,16 +38,16 @@ data StartReadSetImportJobSourceItem = StartReadSetImportJobSourceItem'
     name :: Prelude.Maybe Prelude.Text,
     -- | The source\'s tags.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The source\'s reference ARN.
-    referenceArn :: Prelude.Text,
-    -- | The source\'s sample ID.
-    sampleId :: Prelude.Text,
-    -- | The source\'s file type.
-    sourceFileType :: FileType,
     -- | The source files\' location in Amazon S3.
     sourceFiles :: SourceFiles,
+    -- | The source\'s file type.
+    sourceFileType :: FileType,
     -- | The source\'s subject ID.
-    subjectId :: Prelude.Text
+    subjectId :: Prelude.Text,
+    -- | The source\'s sample ID.
+    sampleId :: Prelude.Text,
+    -- | The source\'s reference ARN.
+    referenceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,44 +67,44 @@ data StartReadSetImportJobSourceItem = StartReadSetImportJobSourceItem'
 --
 -- 'tags', 'startReadSetImportJobSourceItem_tags' - The source\'s tags.
 --
--- 'referenceArn', 'startReadSetImportJobSourceItem_referenceArn' - The source\'s reference ARN.
---
--- 'sampleId', 'startReadSetImportJobSourceItem_sampleId' - The source\'s sample ID.
+-- 'sourceFiles', 'startReadSetImportJobSourceItem_sourceFiles' - The source files\' location in Amazon S3.
 --
 -- 'sourceFileType', 'startReadSetImportJobSourceItem_sourceFileType' - The source\'s file type.
 --
--- 'sourceFiles', 'startReadSetImportJobSourceItem_sourceFiles' - The source files\' location in Amazon S3.
---
 -- 'subjectId', 'startReadSetImportJobSourceItem_subjectId' - The source\'s subject ID.
+--
+-- 'sampleId', 'startReadSetImportJobSourceItem_sampleId' - The source\'s sample ID.
+--
+-- 'referenceArn', 'startReadSetImportJobSourceItem_referenceArn' - The source\'s reference ARN.
 newStartReadSetImportJobSourceItem ::
-  -- | 'referenceArn'
+  -- | 'sourceFiles'
+  SourceFiles ->
+  -- | 'sourceFileType'
+  FileType ->
+  -- | 'subjectId'
   Prelude.Text ->
   -- | 'sampleId'
   Prelude.Text ->
-  -- | 'sourceFileType'
-  FileType ->
-  -- | 'sourceFiles'
-  SourceFiles ->
-  -- | 'subjectId'
+  -- | 'referenceArn'
   Prelude.Text ->
   StartReadSetImportJobSourceItem
 newStartReadSetImportJobSourceItem
-  pReferenceArn_
-  pSampleId_
-  pSourceFileType_
   pSourceFiles_
-  pSubjectId_ =
+  pSourceFileType_
+  pSubjectId_
+  pSampleId_
+  pReferenceArn_ =
     StartReadSetImportJobSourceItem'
       { description =
           Prelude.Nothing,
         generatedFrom = Prelude.Nothing,
         name = Prelude.Nothing,
         tags = Prelude.Nothing,
-        referenceArn = pReferenceArn_,
-        sampleId = pSampleId_,
-        sourceFileType = pSourceFileType_,
         sourceFiles = pSourceFiles_,
-        subjectId = pSubjectId_
+        sourceFileType = pSourceFileType_,
+        subjectId = pSubjectId_,
+        sampleId = pSampleId_,
+        referenceArn = pReferenceArn_
       }
 
 -- | The source\'s description.
@@ -123,25 +123,25 @@ startReadSetImportJobSourceItem_name = Lens.lens (\StartReadSetImportJobSourceIt
 startReadSetImportJobSourceItem_tags :: Lens.Lens' StartReadSetImportJobSourceItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 startReadSetImportJobSourceItem_tags = Lens.lens (\StartReadSetImportJobSourceItem' {tags} -> tags) (\s@StartReadSetImportJobSourceItem' {} a -> s {tags = a} :: StartReadSetImportJobSourceItem) Prelude.. Lens.mapping Lens.coerced
 
--- | The source\'s reference ARN.
-startReadSetImportJobSourceItem_referenceArn :: Lens.Lens' StartReadSetImportJobSourceItem Prelude.Text
-startReadSetImportJobSourceItem_referenceArn = Lens.lens (\StartReadSetImportJobSourceItem' {referenceArn} -> referenceArn) (\s@StartReadSetImportJobSourceItem' {} a -> s {referenceArn = a} :: StartReadSetImportJobSourceItem)
-
--- | The source\'s sample ID.
-startReadSetImportJobSourceItem_sampleId :: Lens.Lens' StartReadSetImportJobSourceItem Prelude.Text
-startReadSetImportJobSourceItem_sampleId = Lens.lens (\StartReadSetImportJobSourceItem' {sampleId} -> sampleId) (\s@StartReadSetImportJobSourceItem' {} a -> s {sampleId = a} :: StartReadSetImportJobSourceItem)
+-- | The source files\' location in Amazon S3.
+startReadSetImportJobSourceItem_sourceFiles :: Lens.Lens' StartReadSetImportJobSourceItem SourceFiles
+startReadSetImportJobSourceItem_sourceFiles = Lens.lens (\StartReadSetImportJobSourceItem' {sourceFiles} -> sourceFiles) (\s@StartReadSetImportJobSourceItem' {} a -> s {sourceFiles = a} :: StartReadSetImportJobSourceItem)
 
 -- | The source\'s file type.
 startReadSetImportJobSourceItem_sourceFileType :: Lens.Lens' StartReadSetImportJobSourceItem FileType
 startReadSetImportJobSourceItem_sourceFileType = Lens.lens (\StartReadSetImportJobSourceItem' {sourceFileType} -> sourceFileType) (\s@StartReadSetImportJobSourceItem' {} a -> s {sourceFileType = a} :: StartReadSetImportJobSourceItem)
 
--- | The source files\' location in Amazon S3.
-startReadSetImportJobSourceItem_sourceFiles :: Lens.Lens' StartReadSetImportJobSourceItem SourceFiles
-startReadSetImportJobSourceItem_sourceFiles = Lens.lens (\StartReadSetImportJobSourceItem' {sourceFiles} -> sourceFiles) (\s@StartReadSetImportJobSourceItem' {} a -> s {sourceFiles = a} :: StartReadSetImportJobSourceItem)
-
 -- | The source\'s subject ID.
 startReadSetImportJobSourceItem_subjectId :: Lens.Lens' StartReadSetImportJobSourceItem Prelude.Text
 startReadSetImportJobSourceItem_subjectId = Lens.lens (\StartReadSetImportJobSourceItem' {subjectId} -> subjectId) (\s@StartReadSetImportJobSourceItem' {} a -> s {subjectId = a} :: StartReadSetImportJobSourceItem)
+
+-- | The source\'s sample ID.
+startReadSetImportJobSourceItem_sampleId :: Lens.Lens' StartReadSetImportJobSourceItem Prelude.Text
+startReadSetImportJobSourceItem_sampleId = Lens.lens (\StartReadSetImportJobSourceItem' {sampleId} -> sampleId) (\s@StartReadSetImportJobSourceItem' {} a -> s {sampleId = a} :: StartReadSetImportJobSourceItem)
+
+-- | The source\'s reference ARN.
+startReadSetImportJobSourceItem_referenceArn :: Lens.Lens' StartReadSetImportJobSourceItem Prelude.Text
+startReadSetImportJobSourceItem_referenceArn = Lens.lens (\StartReadSetImportJobSourceItem' {referenceArn} -> referenceArn) (\s@StartReadSetImportJobSourceItem' {} a -> s {referenceArn = a} :: StartReadSetImportJobSourceItem)
 
 instance
   Prelude.Hashable
@@ -150,15 +150,16 @@ instance
   hashWithSalt
     _salt
     StartReadSetImportJobSourceItem' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` generatedFrom
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` tags
-        `Prelude.hashWithSalt` referenceArn
-        `Prelude.hashWithSalt` sampleId
-        `Prelude.hashWithSalt` sourceFileType
         `Prelude.hashWithSalt` sourceFiles
+        `Prelude.hashWithSalt` sourceFileType
         `Prelude.hashWithSalt` subjectId
+        `Prelude.hashWithSalt` sampleId
+        `Prelude.hashWithSalt` referenceArn
 
 instance
   Prelude.NFData
@@ -169,11 +170,11 @@ instance
       `Prelude.seq` Prelude.rnf generatedFrom
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf tags
-      `Prelude.seq` Prelude.rnf referenceArn
-      `Prelude.seq` Prelude.rnf sampleId
-      `Prelude.seq` Prelude.rnf sourceFileType
       `Prelude.seq` Prelude.rnf sourceFiles
+      `Prelude.seq` Prelude.rnf sourceFileType
       `Prelude.seq` Prelude.rnf subjectId
+      `Prelude.seq` Prelude.rnf sampleId
+      `Prelude.seq` Prelude.rnf referenceArn
 
 instance Data.ToJSON StartReadSetImportJobSourceItem where
   toJSON StartReadSetImportJobSourceItem' {..} =
@@ -183,11 +184,11 @@ instance Data.ToJSON StartReadSetImportJobSourceItem where
             ("generatedFrom" Data..=) Prelude.<$> generatedFrom,
             ("name" Data..=) Prelude.<$> name,
             ("tags" Data..=) Prelude.<$> tags,
-            Prelude.Just ("referenceArn" Data..= referenceArn),
-            Prelude.Just ("sampleId" Data..= sampleId),
+            Prelude.Just ("sourceFiles" Data..= sourceFiles),
             Prelude.Just
               ("sourceFileType" Data..= sourceFileType),
-            Prelude.Just ("sourceFiles" Data..= sourceFiles),
-            Prelude.Just ("subjectId" Data..= subjectId)
+            Prelude.Just ("subjectId" Data..= subjectId),
+            Prelude.Just ("sampleId" Data..= sampleId),
+            Prelude.Just ("referenceArn" Data..= referenceArn)
           ]
       )

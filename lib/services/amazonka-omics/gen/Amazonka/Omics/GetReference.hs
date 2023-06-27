@@ -30,8 +30,8 @@ module Amazonka.Omics.GetReference
     getReference_file,
     getReference_range,
     getReference_id,
-    getReference_partNumber,
     getReference_referenceStoreId,
+    getReference_partNumber,
 
     -- * Destructuring the Response
     GetReferenceResponse (..),
@@ -59,10 +59,10 @@ data GetReference = GetReference'
     range :: Prelude.Maybe Prelude.Text,
     -- | The reference\'s ID.
     id :: Prelude.Text,
-    -- | The part number to retrieve.
-    partNumber :: Prelude.Natural,
     -- | The reference\'s store ID.
-    referenceStoreId :: Prelude.Text
+    referenceStoreId :: Prelude.Text,
+    -- | The part number to retrieve.
+    partNumber :: Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,24 +80,24 @@ data GetReference = GetReference'
 --
 -- 'id', 'getReference_id' - The reference\'s ID.
 --
--- 'partNumber', 'getReference_partNumber' - The part number to retrieve.
---
 -- 'referenceStoreId', 'getReference_referenceStoreId' - The reference\'s store ID.
+--
+-- 'partNumber', 'getReference_partNumber' - The part number to retrieve.
 newGetReference ::
   -- | 'id'
   Prelude.Text ->
-  -- | 'partNumber'
-  Prelude.Natural ->
   -- | 'referenceStoreId'
   Prelude.Text ->
+  -- | 'partNumber'
+  Prelude.Natural ->
   GetReference
-newGetReference pId_ pPartNumber_ pReferenceStoreId_ =
+newGetReference pId_ pReferenceStoreId_ pPartNumber_ =
   GetReference'
     { file = Prelude.Nothing,
       range = Prelude.Nothing,
       id = pId_,
-      partNumber = pPartNumber_,
-      referenceStoreId = pReferenceStoreId_
+      referenceStoreId = pReferenceStoreId_,
+      partNumber = pPartNumber_
     }
 
 -- | The file to retrieve.
@@ -112,13 +112,13 @@ getReference_range = Lens.lens (\GetReference' {range} -> range) (\s@GetReferenc
 getReference_id :: Lens.Lens' GetReference Prelude.Text
 getReference_id = Lens.lens (\GetReference' {id} -> id) (\s@GetReference' {} a -> s {id = a} :: GetReference)
 
--- | The part number to retrieve.
-getReference_partNumber :: Lens.Lens' GetReference Prelude.Natural
-getReference_partNumber = Lens.lens (\GetReference' {partNumber} -> partNumber) (\s@GetReference' {} a -> s {partNumber = a} :: GetReference)
-
 -- | The reference\'s store ID.
 getReference_referenceStoreId :: Lens.Lens' GetReference Prelude.Text
 getReference_referenceStoreId = Lens.lens (\GetReference' {referenceStoreId} -> referenceStoreId) (\s@GetReference' {} a -> s {referenceStoreId = a} :: GetReference)
+
+-- | The part number to retrieve.
+getReference_partNumber :: Lens.Lens' GetReference Prelude.Natural
+getReference_partNumber = Lens.lens (\GetReference' {partNumber} -> partNumber) (\s@GetReference' {} a -> s {partNumber = a} :: GetReference)
 
 instance Core.AWSRequest GetReference where
   type AWSResponse GetReference = GetReferenceResponse
@@ -134,19 +134,20 @@ instance Core.AWSRequest GetReference where
 
 instance Prelude.Hashable GetReference where
   hashWithSalt _salt GetReference' {..} =
-    _salt `Prelude.hashWithSalt` file
+    _salt
+      `Prelude.hashWithSalt` file
       `Prelude.hashWithSalt` range
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` partNumber
       `Prelude.hashWithSalt` referenceStoreId
+      `Prelude.hashWithSalt` partNumber
 
 instance Prelude.NFData GetReference where
   rnf GetReference' {..} =
     Prelude.rnf file
       `Prelude.seq` Prelude.rnf range
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf partNumber
       `Prelude.seq` Prelude.rnf referenceStoreId
+      `Prelude.seq` Prelude.rnf partNumber
 
 instance Data.ToHeaders GetReference where
   toHeaders GetReference' {..} =

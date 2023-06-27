@@ -31,16 +31,16 @@ import qualified Amazonka.Prelude as Prelude
 data ExportReadSetJobDetail = ExportReadSetJobDetail'
   { -- | When the job completed.
     completionTime :: Prelude.Maybe Data.ISO8601,
-    -- | When the job was created.
-    creationTime :: Data.ISO8601,
-    -- | The job\'s destination in Amazon S3.
-    destination :: Prelude.Text,
     -- | The job\'s ID.
     id :: Prelude.Text,
     -- | The job\'s sequence store ID.
     sequenceStoreId :: Prelude.Text,
+    -- | The job\'s destination in Amazon S3.
+    destination :: Prelude.Text,
     -- | The job\'s status.
-    status :: ReadSetExportJobStatus
+    status :: ReadSetExportJobStatus,
+    -- | When the job was created.
+    creationTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,54 +54,46 @@ data ExportReadSetJobDetail = ExportReadSetJobDetail'
 --
 -- 'completionTime', 'exportReadSetJobDetail_completionTime' - When the job completed.
 --
--- 'creationTime', 'exportReadSetJobDetail_creationTime' - When the job was created.
---
--- 'destination', 'exportReadSetJobDetail_destination' - The job\'s destination in Amazon S3.
---
 -- 'id', 'exportReadSetJobDetail_id' - The job\'s ID.
 --
 -- 'sequenceStoreId', 'exportReadSetJobDetail_sequenceStoreId' - The job\'s sequence store ID.
 --
+-- 'destination', 'exportReadSetJobDetail_destination' - The job\'s destination in Amazon S3.
+--
 -- 'status', 'exportReadSetJobDetail_status' - The job\'s status.
+--
+-- 'creationTime', 'exportReadSetJobDetail_creationTime' - When the job was created.
 newExportReadSetJobDetail ::
-  -- | 'creationTime'
-  Prelude.UTCTime ->
-  -- | 'destination'
-  Prelude.Text ->
   -- | 'id'
   Prelude.Text ->
   -- | 'sequenceStoreId'
   Prelude.Text ->
+  -- | 'destination'
+  Prelude.Text ->
   -- | 'status'
   ReadSetExportJobStatus ->
+  -- | 'creationTime'
+  Prelude.UTCTime ->
   ExportReadSetJobDetail
 newExportReadSetJobDetail
-  pCreationTime_
-  pDestination_
   pId_
   pSequenceStoreId_
-  pStatus_ =
+  pDestination_
+  pStatus_
+  pCreationTime_ =
     ExportReadSetJobDetail'
       { completionTime =
           Prelude.Nothing,
-        creationTime = Data._Time Lens.# pCreationTime_,
-        destination = pDestination_,
         id = pId_,
         sequenceStoreId = pSequenceStoreId_,
-        status = pStatus_
+        destination = pDestination_,
+        status = pStatus_,
+        creationTime = Data._Time Lens.# pCreationTime_
       }
 
 -- | When the job completed.
 exportReadSetJobDetail_completionTime :: Lens.Lens' ExportReadSetJobDetail (Prelude.Maybe Prelude.UTCTime)
 exportReadSetJobDetail_completionTime = Lens.lens (\ExportReadSetJobDetail' {completionTime} -> completionTime) (\s@ExportReadSetJobDetail' {} a -> s {completionTime = a} :: ExportReadSetJobDetail) Prelude.. Lens.mapping Data._Time
-
--- | When the job was created.
-exportReadSetJobDetail_creationTime :: Lens.Lens' ExportReadSetJobDetail Prelude.UTCTime
-exportReadSetJobDetail_creationTime = Lens.lens (\ExportReadSetJobDetail' {creationTime} -> creationTime) (\s@ExportReadSetJobDetail' {} a -> s {creationTime = a} :: ExportReadSetJobDetail) Prelude.. Data._Time
-
--- | The job\'s destination in Amazon S3.
-exportReadSetJobDetail_destination :: Lens.Lens' ExportReadSetJobDetail Prelude.Text
-exportReadSetJobDetail_destination = Lens.lens (\ExportReadSetJobDetail' {destination} -> destination) (\s@ExportReadSetJobDetail' {} a -> s {destination = a} :: ExportReadSetJobDetail)
 
 -- | The job\'s ID.
 exportReadSetJobDetail_id :: Lens.Lens' ExportReadSetJobDetail Prelude.Text
@@ -111,9 +103,17 @@ exportReadSetJobDetail_id = Lens.lens (\ExportReadSetJobDetail' {id} -> id) (\s@
 exportReadSetJobDetail_sequenceStoreId :: Lens.Lens' ExportReadSetJobDetail Prelude.Text
 exportReadSetJobDetail_sequenceStoreId = Lens.lens (\ExportReadSetJobDetail' {sequenceStoreId} -> sequenceStoreId) (\s@ExportReadSetJobDetail' {} a -> s {sequenceStoreId = a} :: ExportReadSetJobDetail)
 
+-- | The job\'s destination in Amazon S3.
+exportReadSetJobDetail_destination :: Lens.Lens' ExportReadSetJobDetail Prelude.Text
+exportReadSetJobDetail_destination = Lens.lens (\ExportReadSetJobDetail' {destination} -> destination) (\s@ExportReadSetJobDetail' {} a -> s {destination = a} :: ExportReadSetJobDetail)
+
 -- | The job\'s status.
 exportReadSetJobDetail_status :: Lens.Lens' ExportReadSetJobDetail ReadSetExportJobStatus
 exportReadSetJobDetail_status = Lens.lens (\ExportReadSetJobDetail' {status} -> status) (\s@ExportReadSetJobDetail' {} a -> s {status = a} :: ExportReadSetJobDetail)
+
+-- | When the job was created.
+exportReadSetJobDetail_creationTime :: Lens.Lens' ExportReadSetJobDetail Prelude.UTCTime
+exportReadSetJobDetail_creationTime = Lens.lens (\ExportReadSetJobDetail' {creationTime} -> creationTime) (\s@ExportReadSetJobDetail' {} a -> s {creationTime = a} :: ExportReadSetJobDetail) Prelude.. Data._Time
 
 instance Data.FromJSON ExportReadSetJobDetail where
   parseJSON =
@@ -122,27 +122,28 @@ instance Data.FromJSON ExportReadSetJobDetail where
       ( \x ->
           ExportReadSetJobDetail'
             Prelude.<$> (x Data..:? "completionTime")
-            Prelude.<*> (x Data..: "creationTime")
-            Prelude.<*> (x Data..: "destination")
             Prelude.<*> (x Data..: "id")
             Prelude.<*> (x Data..: "sequenceStoreId")
+            Prelude.<*> (x Data..: "destination")
             Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "creationTime")
       )
 
 instance Prelude.Hashable ExportReadSetJobDetail where
   hashWithSalt _salt ExportReadSetJobDetail' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
-      `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` sequenceStoreId
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` creationTime
 
 instance Prelude.NFData ExportReadSetJobDetail where
   rnf ExportReadSetJobDetail' {..} =
     Prelude.rnf completionTime
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf destination
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf sequenceStoreId
+      `Prelude.seq` Prelude.rnf destination
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationTime

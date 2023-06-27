@@ -39,6 +39,7 @@ module Amazonka.Omics.GetRunGroup
     getRunGroupResponse_id,
     getRunGroupResponse_maxCpus,
     getRunGroupResponse_maxDuration,
+    getRunGroupResponse_maxGpus,
     getRunGroupResponse_maxRuns,
     getRunGroupResponse_name,
     getRunGroupResponse_tags,
@@ -93,6 +94,7 @@ instance Core.AWSRequest GetRunGroup where
             Prelude.<*> (x Data..?> "id")
             Prelude.<*> (x Data..?> "maxCpus")
             Prelude.<*> (x Data..?> "maxDuration")
+            Prelude.<*> (x Data..?> "maxGpus")
             Prelude.<*> (x Data..?> "maxRuns")
             Prelude.<*> (x Data..?> "name")
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
@@ -134,8 +136,10 @@ data GetRunGroupResponse = GetRunGroupResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | The group\'s maximum number of CPUs to use.
     maxCpus :: Prelude.Maybe Prelude.Natural,
-    -- | The group\'s maximum run duration.
+    -- | The group\'s maximum run time in minutes.
     maxDuration :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum GPUs that can be used by a run group.
+    maxGpus :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of concurrent runs for the group.
     maxRuns :: Prelude.Maybe Prelude.Natural,
     -- | The group\'s name.
@@ -163,7 +167,9 @@ data GetRunGroupResponse = GetRunGroupResponse'
 --
 -- 'maxCpus', 'getRunGroupResponse_maxCpus' - The group\'s maximum number of CPUs to use.
 --
--- 'maxDuration', 'getRunGroupResponse_maxDuration' - The group\'s maximum run duration.
+-- 'maxDuration', 'getRunGroupResponse_maxDuration' - The group\'s maximum run time in minutes.
+--
+-- 'maxGpus', 'getRunGroupResponse_maxGpus' - The maximum GPUs that can be used by a run group.
 --
 -- 'maxRuns', 'getRunGroupResponse_maxRuns' - The maximum number of concurrent runs for the group.
 --
@@ -183,6 +189,7 @@ newGetRunGroupResponse pHttpStatus_ =
       id = Prelude.Nothing,
       maxCpus = Prelude.Nothing,
       maxDuration = Prelude.Nothing,
+      maxGpus = Prelude.Nothing,
       maxRuns = Prelude.Nothing,
       name = Prelude.Nothing,
       tags = Prelude.Nothing,
@@ -205,9 +212,13 @@ getRunGroupResponse_id = Lens.lens (\GetRunGroupResponse' {id} -> id) (\s@GetRun
 getRunGroupResponse_maxCpus :: Lens.Lens' GetRunGroupResponse (Prelude.Maybe Prelude.Natural)
 getRunGroupResponse_maxCpus = Lens.lens (\GetRunGroupResponse' {maxCpus} -> maxCpus) (\s@GetRunGroupResponse' {} a -> s {maxCpus = a} :: GetRunGroupResponse)
 
--- | The group\'s maximum run duration.
+-- | The group\'s maximum run time in minutes.
 getRunGroupResponse_maxDuration :: Lens.Lens' GetRunGroupResponse (Prelude.Maybe Prelude.Natural)
 getRunGroupResponse_maxDuration = Lens.lens (\GetRunGroupResponse' {maxDuration} -> maxDuration) (\s@GetRunGroupResponse' {} a -> s {maxDuration = a} :: GetRunGroupResponse)
+
+-- | The maximum GPUs that can be used by a run group.
+getRunGroupResponse_maxGpus :: Lens.Lens' GetRunGroupResponse (Prelude.Maybe Prelude.Natural)
+getRunGroupResponse_maxGpus = Lens.lens (\GetRunGroupResponse' {maxGpus} -> maxGpus) (\s@GetRunGroupResponse' {} a -> s {maxGpus = a} :: GetRunGroupResponse)
 
 -- | The maximum number of concurrent runs for the group.
 getRunGroupResponse_maxRuns :: Lens.Lens' GetRunGroupResponse (Prelude.Maybe Prelude.Natural)
@@ -232,6 +243,7 @@ instance Prelude.NFData GetRunGroupResponse where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf maxCpus
       `Prelude.seq` Prelude.rnf maxDuration
+      `Prelude.seq` Prelude.rnf maxGpus
       `Prelude.seq` Prelude.rnf maxRuns
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf tags

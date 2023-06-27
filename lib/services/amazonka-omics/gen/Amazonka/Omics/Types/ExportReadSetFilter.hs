@@ -75,7 +75,8 @@ exportReadSetFilter_status = Lens.lens (\ExportReadSetFilter' {status} -> status
 
 instance Prelude.Hashable ExportReadSetFilter where
   hashWithSalt _salt ExportReadSetFilter' {..} =
-    _salt `Prelude.hashWithSalt` createdAfter
+    _salt
+      `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` status
 

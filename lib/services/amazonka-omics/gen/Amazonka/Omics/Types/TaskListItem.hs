@@ -33,7 +33,9 @@ data TaskListItem = TaskListItem'
     cpus :: Prelude.Maybe Prelude.Natural,
     -- | When the task was created.
     creationTime :: Prelude.Maybe Data.ISO8601,
-    -- | The task\'s memory.
+    -- | The number of Graphics Processing Units (GPU) specified for the task.
+    gpus :: Prelude.Maybe Prelude.Natural,
+    -- | The task\'s memory use in gigabyes.
     memory :: Prelude.Maybe Prelude.Natural,
     -- | The task\'s name.
     name :: Prelude.Maybe Prelude.Text,
@@ -60,7 +62,9 @@ data TaskListItem = TaskListItem'
 --
 -- 'creationTime', 'taskListItem_creationTime' - When the task was created.
 --
--- 'memory', 'taskListItem_memory' - The task\'s memory.
+-- 'gpus', 'taskListItem_gpus' - The number of Graphics Processing Units (GPU) specified for the task.
+--
+-- 'memory', 'taskListItem_memory' - The task\'s memory use in gigabyes.
 --
 -- 'name', 'taskListItem_name' - The task\'s name.
 --
@@ -77,6 +81,7 @@ newTaskListItem =
   TaskListItem'
     { cpus = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      gpus = Prelude.Nothing,
       memory = Prelude.Nothing,
       name = Prelude.Nothing,
       startTime = Prelude.Nothing,
@@ -93,7 +98,11 @@ taskListItem_cpus = Lens.lens (\TaskListItem' {cpus} -> cpus) (\s@TaskListItem' 
 taskListItem_creationTime :: Lens.Lens' TaskListItem (Prelude.Maybe Prelude.UTCTime)
 taskListItem_creationTime = Lens.lens (\TaskListItem' {creationTime} -> creationTime) (\s@TaskListItem' {} a -> s {creationTime = a} :: TaskListItem) Prelude.. Lens.mapping Data._Time
 
--- | The task\'s memory.
+-- | The number of Graphics Processing Units (GPU) specified for the task.
+taskListItem_gpus :: Lens.Lens' TaskListItem (Prelude.Maybe Prelude.Natural)
+taskListItem_gpus = Lens.lens (\TaskListItem' {gpus} -> gpus) (\s@TaskListItem' {} a -> s {gpus = a} :: TaskListItem)
+
+-- | The task\'s memory use in gigabyes.
 taskListItem_memory :: Lens.Lens' TaskListItem (Prelude.Maybe Prelude.Natural)
 taskListItem_memory = Lens.lens (\TaskListItem' {memory} -> memory) (\s@TaskListItem' {} a -> s {memory = a} :: TaskListItem)
 
@@ -125,6 +134,7 @@ instance Data.FromJSON TaskListItem where
           TaskListItem'
             Prelude.<$> (x Data..:? "cpus")
             Prelude.<*> (x Data..:? "creationTime")
+            Prelude.<*> (x Data..:? "gpus")
             Prelude.<*> (x Data..:? "memory")
             Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "startTime")
@@ -135,8 +145,10 @@ instance Data.FromJSON TaskListItem where
 
 instance Prelude.Hashable TaskListItem where
   hashWithSalt _salt TaskListItem' {..} =
-    _salt `Prelude.hashWithSalt` cpus
+    _salt
+      `Prelude.hashWithSalt` cpus
       `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` gpus
       `Prelude.hashWithSalt` memory
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` startTime
@@ -148,6 +160,7 @@ instance Prelude.NFData TaskListItem where
   rnf TaskListItem' {..} =
     Prelude.rnf cpus
       `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf gpus
       `Prelude.seq` Prelude.rnf memory
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf startTime

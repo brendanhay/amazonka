@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts a read set export job.
+-- Exports a read set to Amazon S3.
 module Amazonka.Omics.StartReadSetExportJob
   ( -- * Creating a Request
     StartReadSetExportJob (..),
@@ -28,9 +28,9 @@ module Amazonka.Omics.StartReadSetExportJob
 
     -- * Request Lenses
     startReadSetExportJob_clientToken,
+    startReadSetExportJob_sequenceStoreId,
     startReadSetExportJob_destination,
     startReadSetExportJob_roleArn,
-    startReadSetExportJob_sequenceStoreId,
     startReadSetExportJob_sources,
 
     -- * Destructuring the Response
@@ -39,11 +39,11 @@ module Amazonka.Omics.StartReadSetExportJob
 
     -- * Response Lenses
     startReadSetExportJobResponse_httpStatus,
-    startReadSetExportJobResponse_creationTime,
-    startReadSetExportJobResponse_destination,
     startReadSetExportJobResponse_id,
     startReadSetExportJobResponse_sequenceStoreId,
+    startReadSetExportJobResponse_destination,
     startReadSetExportJobResponse_status,
+    startReadSetExportJobResponse_creationTime,
   )
 where
 
@@ -60,13 +60,13 @@ data StartReadSetExportJob = StartReadSetExportJob'
   { -- | To ensure that jobs don\'t run multiple times, specify a unique token
     -- for each job.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The read set\'s sequence store ID.
+    sequenceStoreId :: Prelude.Text,
     -- | A location for exported files in Amazon S3.
     destination :: Prelude.Text,
     -- | A service role for the job.
     roleArn :: Prelude.Text,
-    -- | The read set\'s sequence store ID.
-    sequenceStoreId :: Prelude.Text,
-    -- | Sources for the job.
+    -- | The job\'s source files.
     sources :: Prelude.NonEmpty ExportReadSet
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,34 +82,34 @@ data StartReadSetExportJob = StartReadSetExportJob'
 -- 'clientToken', 'startReadSetExportJob_clientToken' - To ensure that jobs don\'t run multiple times, specify a unique token
 -- for each job.
 --
+-- 'sequenceStoreId', 'startReadSetExportJob_sequenceStoreId' - The read set\'s sequence store ID.
+--
 -- 'destination', 'startReadSetExportJob_destination' - A location for exported files in Amazon S3.
 --
 -- 'roleArn', 'startReadSetExportJob_roleArn' - A service role for the job.
 --
--- 'sequenceStoreId', 'startReadSetExportJob_sequenceStoreId' - The read set\'s sequence store ID.
---
--- 'sources', 'startReadSetExportJob_sources' - Sources for the job.
+-- 'sources', 'startReadSetExportJob_sources' - The job\'s source files.
 newStartReadSetExportJob ::
+  -- | 'sequenceStoreId'
+  Prelude.Text ->
   -- | 'destination'
   Prelude.Text ->
   -- | 'roleArn'
-  Prelude.Text ->
-  -- | 'sequenceStoreId'
   Prelude.Text ->
   -- | 'sources'
   Prelude.NonEmpty ExportReadSet ->
   StartReadSetExportJob
 newStartReadSetExportJob
+  pSequenceStoreId_
   pDestination_
   pRoleArn_
-  pSequenceStoreId_
   pSources_ =
     StartReadSetExportJob'
       { clientToken =
           Prelude.Nothing,
+        sequenceStoreId = pSequenceStoreId_,
         destination = pDestination_,
         roleArn = pRoleArn_,
-        sequenceStoreId = pSequenceStoreId_,
         sources = Lens.coerced Lens.# pSources_
       }
 
@@ -117,6 +117,10 @@ newStartReadSetExportJob
 -- for each job.
 startReadSetExportJob_clientToken :: Lens.Lens' StartReadSetExportJob (Prelude.Maybe Prelude.Text)
 startReadSetExportJob_clientToken = Lens.lens (\StartReadSetExportJob' {clientToken} -> clientToken) (\s@StartReadSetExportJob' {} a -> s {clientToken = a} :: StartReadSetExportJob)
+
+-- | The read set\'s sequence store ID.
+startReadSetExportJob_sequenceStoreId :: Lens.Lens' StartReadSetExportJob Prelude.Text
+startReadSetExportJob_sequenceStoreId = Lens.lens (\StartReadSetExportJob' {sequenceStoreId} -> sequenceStoreId) (\s@StartReadSetExportJob' {} a -> s {sequenceStoreId = a} :: StartReadSetExportJob)
 
 -- | A location for exported files in Amazon S3.
 startReadSetExportJob_destination :: Lens.Lens' StartReadSetExportJob Prelude.Text
@@ -126,11 +130,7 @@ startReadSetExportJob_destination = Lens.lens (\StartReadSetExportJob' {destinat
 startReadSetExportJob_roleArn :: Lens.Lens' StartReadSetExportJob Prelude.Text
 startReadSetExportJob_roleArn = Lens.lens (\StartReadSetExportJob' {roleArn} -> roleArn) (\s@StartReadSetExportJob' {} a -> s {roleArn = a} :: StartReadSetExportJob)
 
--- | The read set\'s sequence store ID.
-startReadSetExportJob_sequenceStoreId :: Lens.Lens' StartReadSetExportJob Prelude.Text
-startReadSetExportJob_sequenceStoreId = Lens.lens (\StartReadSetExportJob' {sequenceStoreId} -> sequenceStoreId) (\s@StartReadSetExportJob' {} a -> s {sequenceStoreId = a} :: StartReadSetExportJob)
-
--- | Sources for the job.
+-- | The job\'s source files.
 startReadSetExportJob_sources :: Lens.Lens' StartReadSetExportJob (Prelude.NonEmpty ExportReadSet)
 startReadSetExportJob_sources = Lens.lens (\StartReadSetExportJob' {sources} -> sources) (\s@StartReadSetExportJob' {} a -> s {sources = a} :: StartReadSetExportJob) Prelude.. Lens.coerced
 
@@ -145,27 +145,28 @@ instance Core.AWSRequest StartReadSetExportJob where
       ( \s h x ->
           StartReadSetExportJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "creationTime")
-            Prelude.<*> (x Data..:> "destination")
             Prelude.<*> (x Data..:> "id")
             Prelude.<*> (x Data..:> "sequenceStoreId")
+            Prelude.<*> (x Data..:> "destination")
             Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..:> "creationTime")
       )
 
 instance Prelude.Hashable StartReadSetExportJob where
   hashWithSalt _salt StartReadSetExportJob' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` sequenceStoreId
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` sequenceStoreId
       `Prelude.hashWithSalt` sources
 
 instance Prelude.NFData StartReadSetExportJob where
   rnf StartReadSetExportJob' {..} =
     Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf sequenceStoreId
       `Prelude.seq` Prelude.rnf destination
       `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf sequenceStoreId
       `Prelude.seq` Prelude.rnf sources
 
 instance Data.ToHeaders StartReadSetExportJob where
@@ -205,16 +206,16 @@ instance Data.ToQuery StartReadSetExportJob where
 data StartReadSetExportJobResponse = StartReadSetExportJobResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | When the job was created.
-    creationTime :: Data.ISO8601,
-    -- | The job\'s output location.
-    destination :: Prelude.Text,
     -- | The job\'s ID.
     id :: Prelude.Text,
     -- | The read set\'s sequence store ID.
     sequenceStoreId :: Prelude.Text,
+    -- | The job\'s output location.
+    destination :: Prelude.Text,
     -- | The job\'s status.
-    status :: ReadSetExportJobStatus
+    status :: ReadSetExportJobStatus,
+    -- | When the job was created.
+    creationTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -228,58 +229,50 @@ data StartReadSetExportJobResponse = StartReadSetExportJobResponse'
 --
 -- 'httpStatus', 'startReadSetExportJobResponse_httpStatus' - The response's http status code.
 --
--- 'creationTime', 'startReadSetExportJobResponse_creationTime' - When the job was created.
---
--- 'destination', 'startReadSetExportJobResponse_destination' - The job\'s output location.
---
 -- 'id', 'startReadSetExportJobResponse_id' - The job\'s ID.
 --
 -- 'sequenceStoreId', 'startReadSetExportJobResponse_sequenceStoreId' - The read set\'s sequence store ID.
 --
+-- 'destination', 'startReadSetExportJobResponse_destination' - The job\'s output location.
+--
 -- 'status', 'startReadSetExportJobResponse_status' - The job\'s status.
+--
+-- 'creationTime', 'startReadSetExportJobResponse_creationTime' - When the job was created.
 newStartReadSetExportJobResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'creationTime'
-  Prelude.UTCTime ->
-  -- | 'destination'
-  Prelude.Text ->
   -- | 'id'
   Prelude.Text ->
   -- | 'sequenceStoreId'
   Prelude.Text ->
+  -- | 'destination'
+  Prelude.Text ->
   -- | 'status'
   ReadSetExportJobStatus ->
+  -- | 'creationTime'
+  Prelude.UTCTime ->
   StartReadSetExportJobResponse
 newStartReadSetExportJobResponse
   pHttpStatus_
-  pCreationTime_
-  pDestination_
   pId_
   pSequenceStoreId_
-  pStatus_ =
+  pDestination_
+  pStatus_
+  pCreationTime_ =
     StartReadSetExportJobResponse'
       { httpStatus =
           pHttpStatus_,
-        creationTime =
-          Data._Time Lens.# pCreationTime_,
-        destination = pDestination_,
         id = pId_,
         sequenceStoreId = pSequenceStoreId_,
-        status = pStatus_
+        destination = pDestination_,
+        status = pStatus_,
+        creationTime =
+          Data._Time Lens.# pCreationTime_
       }
 
 -- | The response's http status code.
 startReadSetExportJobResponse_httpStatus :: Lens.Lens' StartReadSetExportJobResponse Prelude.Int
 startReadSetExportJobResponse_httpStatus = Lens.lens (\StartReadSetExportJobResponse' {httpStatus} -> httpStatus) (\s@StartReadSetExportJobResponse' {} a -> s {httpStatus = a} :: StartReadSetExportJobResponse)
-
--- | When the job was created.
-startReadSetExportJobResponse_creationTime :: Lens.Lens' StartReadSetExportJobResponse Prelude.UTCTime
-startReadSetExportJobResponse_creationTime = Lens.lens (\StartReadSetExportJobResponse' {creationTime} -> creationTime) (\s@StartReadSetExportJobResponse' {} a -> s {creationTime = a} :: StartReadSetExportJobResponse) Prelude.. Data._Time
-
--- | The job\'s output location.
-startReadSetExportJobResponse_destination :: Lens.Lens' StartReadSetExportJobResponse Prelude.Text
-startReadSetExportJobResponse_destination = Lens.lens (\StartReadSetExportJobResponse' {destination} -> destination) (\s@StartReadSetExportJobResponse' {} a -> s {destination = a} :: StartReadSetExportJobResponse)
 
 -- | The job\'s ID.
 startReadSetExportJobResponse_id :: Lens.Lens' StartReadSetExportJobResponse Prelude.Text
@@ -289,15 +282,23 @@ startReadSetExportJobResponse_id = Lens.lens (\StartReadSetExportJobResponse' {i
 startReadSetExportJobResponse_sequenceStoreId :: Lens.Lens' StartReadSetExportJobResponse Prelude.Text
 startReadSetExportJobResponse_sequenceStoreId = Lens.lens (\StartReadSetExportJobResponse' {sequenceStoreId} -> sequenceStoreId) (\s@StartReadSetExportJobResponse' {} a -> s {sequenceStoreId = a} :: StartReadSetExportJobResponse)
 
+-- | The job\'s output location.
+startReadSetExportJobResponse_destination :: Lens.Lens' StartReadSetExportJobResponse Prelude.Text
+startReadSetExportJobResponse_destination = Lens.lens (\StartReadSetExportJobResponse' {destination} -> destination) (\s@StartReadSetExportJobResponse' {} a -> s {destination = a} :: StartReadSetExportJobResponse)
+
 -- | The job\'s status.
 startReadSetExportJobResponse_status :: Lens.Lens' StartReadSetExportJobResponse ReadSetExportJobStatus
 startReadSetExportJobResponse_status = Lens.lens (\StartReadSetExportJobResponse' {status} -> status) (\s@StartReadSetExportJobResponse' {} a -> s {status = a} :: StartReadSetExportJobResponse)
 
+-- | When the job was created.
+startReadSetExportJobResponse_creationTime :: Lens.Lens' StartReadSetExportJobResponse Prelude.UTCTime
+startReadSetExportJobResponse_creationTime = Lens.lens (\StartReadSetExportJobResponse' {creationTime} -> creationTime) (\s@StartReadSetExportJobResponse' {} a -> s {creationTime = a} :: StartReadSetExportJobResponse) Prelude.. Data._Time
+
 instance Prelude.NFData StartReadSetExportJobResponse where
   rnf StartReadSetExportJobResponse' {..} =
     Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf destination
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf sequenceStoreId
+      `Prelude.seq` Prelude.rnf destination
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationTime

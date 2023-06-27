@@ -36,8 +36,10 @@ data RunGroupListItem = RunGroupListItem'
     id :: Prelude.Maybe Prelude.Text,
     -- | The group\'s maximum CPU count setting.
     maxCpus :: Prelude.Maybe Prelude.Natural,
-    -- | The group\'s maximum duration setting.
+    -- | The group\'s maximum duration setting in minutes.
     maxDuration :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum GPUs that can be used by a run group.
+    maxGpus :: Prelude.Maybe Prelude.Natural,
     -- | The group\'s maximum concurrent run setting.
     maxRuns :: Prelude.Maybe Prelude.Natural,
     -- | The group\'s name.
@@ -61,7 +63,9 @@ data RunGroupListItem = RunGroupListItem'
 --
 -- 'maxCpus', 'runGroupListItem_maxCpus' - The group\'s maximum CPU count setting.
 --
--- 'maxDuration', 'runGroupListItem_maxDuration' - The group\'s maximum duration setting.
+-- 'maxDuration', 'runGroupListItem_maxDuration' - The group\'s maximum duration setting in minutes.
+--
+-- 'maxGpus', 'runGroupListItem_maxGpus' - The maximum GPUs that can be used by a run group.
 --
 -- 'maxRuns', 'runGroupListItem_maxRuns' - The group\'s maximum concurrent run setting.
 --
@@ -75,6 +79,7 @@ newRunGroupListItem =
       id = Prelude.Nothing,
       maxCpus = Prelude.Nothing,
       maxDuration = Prelude.Nothing,
+      maxGpus = Prelude.Nothing,
       maxRuns = Prelude.Nothing,
       name = Prelude.Nothing
     }
@@ -95,9 +100,13 @@ runGroupListItem_id = Lens.lens (\RunGroupListItem' {id} -> id) (\s@RunGroupList
 runGroupListItem_maxCpus :: Lens.Lens' RunGroupListItem (Prelude.Maybe Prelude.Natural)
 runGroupListItem_maxCpus = Lens.lens (\RunGroupListItem' {maxCpus} -> maxCpus) (\s@RunGroupListItem' {} a -> s {maxCpus = a} :: RunGroupListItem)
 
--- | The group\'s maximum duration setting.
+-- | The group\'s maximum duration setting in minutes.
 runGroupListItem_maxDuration :: Lens.Lens' RunGroupListItem (Prelude.Maybe Prelude.Natural)
 runGroupListItem_maxDuration = Lens.lens (\RunGroupListItem' {maxDuration} -> maxDuration) (\s@RunGroupListItem' {} a -> s {maxDuration = a} :: RunGroupListItem)
+
+-- | The maximum GPUs that can be used by a run group.
+runGroupListItem_maxGpus :: Lens.Lens' RunGroupListItem (Prelude.Maybe Prelude.Natural)
+runGroupListItem_maxGpus = Lens.lens (\RunGroupListItem' {maxGpus} -> maxGpus) (\s@RunGroupListItem' {} a -> s {maxGpus = a} :: RunGroupListItem)
 
 -- | The group\'s maximum concurrent run setting.
 runGroupListItem_maxRuns :: Lens.Lens' RunGroupListItem (Prelude.Maybe Prelude.Natural)
@@ -118,17 +127,20 @@ instance Data.FromJSON RunGroupListItem where
             Prelude.<*> (x Data..:? "id")
             Prelude.<*> (x Data..:? "maxCpus")
             Prelude.<*> (x Data..:? "maxDuration")
+            Prelude.<*> (x Data..:? "maxGpus")
             Prelude.<*> (x Data..:? "maxRuns")
             Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable RunGroupListItem where
   hashWithSalt _salt RunGroupListItem' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` maxCpus
       `Prelude.hashWithSalt` maxDuration
+      `Prelude.hashWithSalt` maxGpus
       `Prelude.hashWithSalt` maxRuns
       `Prelude.hashWithSalt` name
 
@@ -139,5 +151,6 @@ instance Prelude.NFData RunGroupListItem where
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf maxCpus
       `Prelude.seq` Prelude.rnf maxDuration
+      `Prelude.seq` Prelude.rnf maxGpus
       `Prelude.seq` Prelude.rnf maxRuns
       `Prelude.seq` Prelude.rnf name

@@ -37,10 +37,10 @@ data ReferenceStoreDetail = ReferenceStoreDetail'
     sseConfig :: Prelude.Maybe SseConfig,
     -- | The store\'s ARN.
     arn :: Prelude.Text,
-    -- | When the store was created.
-    creationTime :: Data.ISO8601,
     -- | The store\'s ID.
-    id :: Prelude.Text
+    id :: Prelude.Text,
+    -- | When the store was created.
+    creationTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,26 +60,26 @@ data ReferenceStoreDetail = ReferenceStoreDetail'
 --
 -- 'arn', 'referenceStoreDetail_arn' - The store\'s ARN.
 --
--- 'creationTime', 'referenceStoreDetail_creationTime' - When the store was created.
---
 -- 'id', 'referenceStoreDetail_id' - The store\'s ID.
+--
+-- 'creationTime', 'referenceStoreDetail_creationTime' - When the store was created.
 newReferenceStoreDetail ::
   -- | 'arn'
   Prelude.Text ->
-  -- | 'creationTime'
-  Prelude.UTCTime ->
   -- | 'id'
   Prelude.Text ->
+  -- | 'creationTime'
+  Prelude.UTCTime ->
   ReferenceStoreDetail
-newReferenceStoreDetail pArn_ pCreationTime_ pId_ =
+newReferenceStoreDetail pArn_ pId_ pCreationTime_ =
   ReferenceStoreDetail'
     { description =
         Prelude.Nothing,
       name = Prelude.Nothing,
       sseConfig = Prelude.Nothing,
       arn = pArn_,
-      creationTime = Data._Time Lens.# pCreationTime_,
-      id = pId_
+      id = pId_,
+      creationTime = Data._Time Lens.# pCreationTime_
     }
 
 -- | The store\'s description.
@@ -98,13 +98,13 @@ referenceStoreDetail_sseConfig = Lens.lens (\ReferenceStoreDetail' {sseConfig} -
 referenceStoreDetail_arn :: Lens.Lens' ReferenceStoreDetail Prelude.Text
 referenceStoreDetail_arn = Lens.lens (\ReferenceStoreDetail' {arn} -> arn) (\s@ReferenceStoreDetail' {} a -> s {arn = a} :: ReferenceStoreDetail)
 
--- | When the store was created.
-referenceStoreDetail_creationTime :: Lens.Lens' ReferenceStoreDetail Prelude.UTCTime
-referenceStoreDetail_creationTime = Lens.lens (\ReferenceStoreDetail' {creationTime} -> creationTime) (\s@ReferenceStoreDetail' {} a -> s {creationTime = a} :: ReferenceStoreDetail) Prelude.. Data._Time
-
 -- | The store\'s ID.
 referenceStoreDetail_id :: Lens.Lens' ReferenceStoreDetail Prelude.Text
 referenceStoreDetail_id = Lens.lens (\ReferenceStoreDetail' {id} -> id) (\s@ReferenceStoreDetail' {} a -> s {id = a} :: ReferenceStoreDetail)
+
+-- | When the store was created.
+referenceStoreDetail_creationTime :: Lens.Lens' ReferenceStoreDetail Prelude.UTCTime
+referenceStoreDetail_creationTime = Lens.lens (\ReferenceStoreDetail' {creationTime} -> creationTime) (\s@ReferenceStoreDetail' {} a -> s {creationTime = a} :: ReferenceStoreDetail) Prelude.. Data._Time
 
 instance Data.FromJSON ReferenceStoreDetail where
   parseJSON =
@@ -116,18 +116,19 @@ instance Data.FromJSON ReferenceStoreDetail where
             Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "sseConfig")
             Prelude.<*> (x Data..: "arn")
-            Prelude.<*> (x Data..: "creationTime")
             Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "creationTime")
       )
 
 instance Prelude.Hashable ReferenceStoreDetail where
   hashWithSalt _salt ReferenceStoreDetail' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sseConfig
       `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` creationTime
 
 instance Prelude.NFData ReferenceStoreDetail where
   rnf ReferenceStoreDetail' {..} =
@@ -135,5 +136,5 @@ instance Prelude.NFData ReferenceStoreDetail where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf sseConfig
       `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf creationTime

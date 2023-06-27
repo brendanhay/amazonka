@@ -14,6 +14,11 @@
 module Amazonka.Omics.Lens
   ( -- * Operations
 
+    -- ** AbortMultipartReadSetUpload
+    abortMultipartReadSetUpload_sequenceStoreId,
+    abortMultipartReadSetUpload_uploadId,
+    abortMultipartReadSetUploadResponse_httpStatus,
+
     -- ** BatchDeleteReadSet
     batchDeleteReadSet_ids,
     batchDeleteReadSet_sequenceStoreId,
@@ -31,6 +36,13 @@ module Amazonka.Omics.Lens
     cancelVariantImportJob_jobId,
     cancelVariantImportJobResponse_httpStatus,
 
+    -- ** CompleteMultipartReadSetUpload
+    completeMultipartReadSetUpload_sequenceStoreId,
+    completeMultipartReadSetUpload_uploadId,
+    completeMultipartReadSetUpload_parts,
+    completeMultipartReadSetUploadResponse_httpStatus,
+    completeMultipartReadSetUploadResponse_readSetId,
+
     -- ** CreateAnnotationStore
     createAnnotationStore_description,
     createAnnotationStore_name,
@@ -43,10 +55,34 @@ module Amazonka.Omics.Lens
     createAnnotationStoreResponse_storeFormat,
     createAnnotationStoreResponse_storeOptions,
     createAnnotationStoreResponse_httpStatus,
-    createAnnotationStoreResponse_creationTime,
     createAnnotationStoreResponse_id,
-    createAnnotationStoreResponse_name,
     createAnnotationStoreResponse_status,
+    createAnnotationStoreResponse_name,
+    createAnnotationStoreResponse_creationTime,
+
+    -- ** CreateMultipartReadSetUpload
+    createMultipartReadSetUpload_clientToken,
+    createMultipartReadSetUpload_description,
+    createMultipartReadSetUpload_generatedFrom,
+    createMultipartReadSetUpload_tags,
+    createMultipartReadSetUpload_sequenceStoreId,
+    createMultipartReadSetUpload_sourceFileType,
+    createMultipartReadSetUpload_subjectId,
+    createMultipartReadSetUpload_sampleId,
+    createMultipartReadSetUpload_referenceArn,
+    createMultipartReadSetUpload_name,
+    createMultipartReadSetUploadResponse_description,
+    createMultipartReadSetUploadResponse_generatedFrom,
+    createMultipartReadSetUploadResponse_name,
+    createMultipartReadSetUploadResponse_tags,
+    createMultipartReadSetUploadResponse_httpStatus,
+    createMultipartReadSetUploadResponse_sequenceStoreId,
+    createMultipartReadSetUploadResponse_uploadId,
+    createMultipartReadSetUploadResponse_sourceFileType,
+    createMultipartReadSetUploadResponse_subjectId,
+    createMultipartReadSetUploadResponse_sampleId,
+    createMultipartReadSetUploadResponse_referenceArn,
+    createMultipartReadSetUploadResponse_creationTime,
 
     -- ** CreateReferenceStore
     createReferenceStore_clientToken,
@@ -58,13 +94,14 @@ module Amazonka.Omics.Lens
     createReferenceStoreResponse_name,
     createReferenceStoreResponse_sseConfig,
     createReferenceStoreResponse_httpStatus,
+    createReferenceStoreResponse_id,
     createReferenceStoreResponse_arn,
     createReferenceStoreResponse_creationTime,
-    createReferenceStoreResponse_id,
 
     -- ** CreateRunGroup
     createRunGroup_maxCpus,
     createRunGroup_maxDuration,
+    createRunGroup_maxGpus,
     createRunGroup_maxRuns,
     createRunGroup_name,
     createRunGroup_tags,
@@ -77,16 +114,18 @@ module Amazonka.Omics.Lens
     -- ** CreateSequenceStore
     createSequenceStore_clientToken,
     createSequenceStore_description,
+    createSequenceStore_fallbackLocation,
     createSequenceStore_sseConfig,
     createSequenceStore_tags,
     createSequenceStore_name,
     createSequenceStoreResponse_description,
+    createSequenceStoreResponse_fallbackLocation,
     createSequenceStoreResponse_name,
     createSequenceStoreResponse_sseConfig,
     createSequenceStoreResponse_httpStatus,
+    createSequenceStoreResponse_id,
     createSequenceStoreResponse_arn,
     createSequenceStoreResponse_creationTime,
-    createSequenceStoreResponse_id,
 
     -- ** CreateVariantStore
     createVariantStore_description,
@@ -96,12 +135,13 @@ module Amazonka.Omics.Lens
     createVariantStore_reference,
     createVariantStoreResponse_reference,
     createVariantStoreResponse_httpStatus,
-    createVariantStoreResponse_creationTime,
     createVariantStoreResponse_id,
-    createVariantStoreResponse_name,
     createVariantStoreResponse_status,
+    createVariantStoreResponse_name,
+    createVariantStoreResponse_creationTime,
 
     -- ** CreateWorkflow
+    createWorkflow_accelerators,
     createWorkflow_definitionUri,
     createWorkflow_definitionZip,
     createWorkflow_description,
@@ -154,42 +194,43 @@ module Amazonka.Omics.Lens
 
     -- ** GetAnnotationImportJob
     getAnnotationImportJob_jobId,
+    getAnnotationImportJobResponse_annotationFields,
     getAnnotationImportJobResponse_httpStatus,
-    getAnnotationImportJobResponse_completionTime,
-    getAnnotationImportJobResponse_creationTime,
-    getAnnotationImportJobResponse_destinationName,
-    getAnnotationImportJobResponse_formatOptions,
     getAnnotationImportJobResponse_id,
-    getAnnotationImportJobResponse_items,
+    getAnnotationImportJobResponse_destinationName,
     getAnnotationImportJobResponse_roleArn,
-    getAnnotationImportJobResponse_runLeftNormalization,
     getAnnotationImportJobResponse_status,
     getAnnotationImportJobResponse_statusMessage,
+    getAnnotationImportJobResponse_creationTime,
     getAnnotationImportJobResponse_updateTime,
+    getAnnotationImportJobResponse_completionTime,
+    getAnnotationImportJobResponse_items,
+    getAnnotationImportJobResponse_runLeftNormalization,
+    getAnnotationImportJobResponse_formatOptions,
 
     -- ** GetAnnotationStore
     getAnnotationStore_name,
     getAnnotationStoreResponse_storeFormat,
     getAnnotationStoreResponse_storeOptions,
     getAnnotationStoreResponse_httpStatus,
-    getAnnotationStoreResponse_creationTime,
-    getAnnotationStoreResponse_description,
     getAnnotationStoreResponse_id,
-    getAnnotationStoreResponse_name,
     getAnnotationStoreResponse_reference,
-    getAnnotationStoreResponse_sseConfig,
     getAnnotationStoreResponse_status,
-    getAnnotationStoreResponse_statusMessage,
     getAnnotationStoreResponse_storeArn,
-    getAnnotationStoreResponse_storeSizeBytes,
-    getAnnotationStoreResponse_tags,
+    getAnnotationStoreResponse_name,
+    getAnnotationStoreResponse_description,
+    getAnnotationStoreResponse_sseConfig,
+    getAnnotationStoreResponse_creationTime,
     getAnnotationStoreResponse_updateTime,
+    getAnnotationStoreResponse_tags,
+    getAnnotationStoreResponse_statusMessage,
+    getAnnotationStoreResponse_storeSizeBytes,
 
     -- ** GetReadSet
     getReadSet_file,
     getReadSet_id,
-    getReadSet_partNumber,
     getReadSet_sequenceStoreId,
+    getReadSet_partNumber,
     getReadSetResponse_httpStatus,
     getReadSetResponse_payload,
 
@@ -200,23 +241,23 @@ module Amazonka.Omics.Lens
     getReadSetActivationJobResponse_sources,
     getReadSetActivationJobResponse_statusMessage,
     getReadSetActivationJobResponse_httpStatus,
-    getReadSetActivationJobResponse_creationTime,
     getReadSetActivationJobResponse_id,
     getReadSetActivationJobResponse_sequenceStoreId,
     getReadSetActivationJobResponse_status,
+    getReadSetActivationJobResponse_creationTime,
 
     -- ** GetReadSetExportJob
-    getReadSetExportJob_id,
     getReadSetExportJob_sequenceStoreId,
+    getReadSetExportJob_id,
     getReadSetExportJobResponse_completionTime,
     getReadSetExportJobResponse_readSets,
     getReadSetExportJobResponse_statusMessage,
     getReadSetExportJobResponse_httpStatus,
-    getReadSetExportJobResponse_creationTime,
-    getReadSetExportJobResponse_destination,
     getReadSetExportJobResponse_id,
     getReadSetExportJobResponse_sequenceStoreId,
+    getReadSetExportJobResponse_destination,
     getReadSetExportJobResponse_status,
+    getReadSetExportJobResponse_creationTime,
 
     -- ** GetReadSetImportJob
     getReadSetImportJob_id,
@@ -224,12 +265,12 @@ module Amazonka.Omics.Lens
     getReadSetImportJobResponse_completionTime,
     getReadSetImportJobResponse_statusMessage,
     getReadSetImportJobResponse_httpStatus,
-    getReadSetImportJobResponse_creationTime,
     getReadSetImportJobResponse_id,
-    getReadSetImportJobResponse_roleArn,
     getReadSetImportJobResponse_sequenceStoreId,
-    getReadSetImportJobResponse_sources,
+    getReadSetImportJobResponse_roleArn,
     getReadSetImportJobResponse_status,
+    getReadSetImportJobResponse_creationTime,
+    getReadSetImportJobResponse_sources,
 
     -- ** GetReadSetMetadata
     getReadSetMetadata_id,
@@ -240,21 +281,22 @@ module Amazonka.Omics.Lens
     getReadSetMetadataResponse_referenceArn,
     getReadSetMetadataResponse_sampleId,
     getReadSetMetadataResponse_sequenceInformation,
+    getReadSetMetadataResponse_statusMessage,
     getReadSetMetadataResponse_subjectId,
     getReadSetMetadataResponse_httpStatus,
-    getReadSetMetadataResponse_arn,
-    getReadSetMetadataResponse_creationTime,
-    getReadSetMetadataResponse_fileType,
     getReadSetMetadataResponse_id,
+    getReadSetMetadataResponse_arn,
     getReadSetMetadataResponse_sequenceStoreId,
     getReadSetMetadataResponse_status,
+    getReadSetMetadataResponse_fileType,
+    getReadSetMetadataResponse_creationTime,
 
     -- ** GetReference
     getReference_file,
     getReference_range,
     getReference_id,
-    getReference_partNumber,
     getReference_referenceStoreId,
+    getReference_partNumber,
     getReferenceResponse_httpStatus,
     getReferenceResponse_payload,
 
@@ -264,12 +306,12 @@ module Amazonka.Omics.Lens
     getReferenceImportJobResponse_completionTime,
     getReferenceImportJobResponse_statusMessage,
     getReferenceImportJobResponse_httpStatus,
-    getReferenceImportJobResponse_creationTime,
     getReferenceImportJobResponse_id,
     getReferenceImportJobResponse_referenceStoreId,
     getReferenceImportJobResponse_roleArn,
-    getReferenceImportJobResponse_sources,
     getReferenceImportJobResponse_status,
+    getReferenceImportJobResponse_creationTime,
+    getReferenceImportJobResponse_sources,
 
     -- ** GetReferenceMetadata
     getReferenceMetadata_id,
@@ -279,11 +321,11 @@ module Amazonka.Omics.Lens
     getReferenceMetadataResponse_name,
     getReferenceMetadataResponse_status,
     getReferenceMetadataResponse_httpStatus,
-    getReferenceMetadataResponse_arn,
-    getReferenceMetadataResponse_creationTime,
     getReferenceMetadataResponse_id,
-    getReferenceMetadataResponse_md5,
+    getReferenceMetadataResponse_arn,
     getReferenceMetadataResponse_referenceStoreId,
+    getReferenceMetadataResponse_md5,
+    getReferenceMetadataResponse_creationTime,
     getReferenceMetadataResponse_updateTime,
 
     -- ** GetReferenceStore
@@ -292,13 +334,14 @@ module Amazonka.Omics.Lens
     getReferenceStoreResponse_name,
     getReferenceStoreResponse_sseConfig,
     getReferenceStoreResponse_httpStatus,
+    getReferenceStoreResponse_id,
     getReferenceStoreResponse_arn,
     getReferenceStoreResponse_creationTime,
-    getReferenceStoreResponse_id,
 
     -- ** GetRun
     getRun_export,
     getRun_id,
+    getRunResponse_accelerators,
     getRunResponse_arn,
     getRunResponse_creationTime,
     getRunResponse_definition,
@@ -331,6 +374,7 @@ module Amazonka.Omics.Lens
     getRunGroupResponse_id,
     getRunGroupResponse_maxCpus,
     getRunGroupResponse_maxDuration,
+    getRunGroupResponse_maxGpus,
     getRunGroupResponse_maxRuns,
     getRunGroupResponse_name,
     getRunGroupResponse_tags,
@@ -341,6 +385,7 @@ module Amazonka.Omics.Lens
     getRunTask_taskId,
     getRunTaskResponse_cpus,
     getRunTaskResponse_creationTime,
+    getRunTaskResponse_gpus,
     getRunTaskResponse_logStream,
     getRunTaskResponse_memory,
     getRunTaskResponse_name,
@@ -354,47 +399,50 @@ module Amazonka.Omics.Lens
     -- ** GetSequenceStore
     getSequenceStore_id,
     getSequenceStoreResponse_description,
+    getSequenceStoreResponse_fallbackLocation,
     getSequenceStoreResponse_name,
     getSequenceStoreResponse_sseConfig,
     getSequenceStoreResponse_httpStatus,
+    getSequenceStoreResponse_id,
     getSequenceStoreResponse_arn,
     getSequenceStoreResponse_creationTime,
-    getSequenceStoreResponse_id,
 
     -- ** GetVariantImportJob
     getVariantImportJob_jobId,
+    getVariantImportJobResponse_annotationFields,
     getVariantImportJobResponse_completionTime,
     getVariantImportJobResponse_httpStatus,
-    getVariantImportJobResponse_creationTime,
-    getVariantImportJobResponse_destinationName,
     getVariantImportJobResponse_id,
-    getVariantImportJobResponse_items,
+    getVariantImportJobResponse_destinationName,
     getVariantImportJobResponse_roleArn,
-    getVariantImportJobResponse_runLeftNormalization,
     getVariantImportJobResponse_status,
     getVariantImportJobResponse_statusMessage,
+    getVariantImportJobResponse_creationTime,
     getVariantImportJobResponse_updateTime,
+    getVariantImportJobResponse_items,
+    getVariantImportJobResponse_runLeftNormalization,
 
     -- ** GetVariantStore
     getVariantStore_name,
     getVariantStoreResponse_httpStatus,
-    getVariantStoreResponse_creationTime,
-    getVariantStoreResponse_description,
     getVariantStoreResponse_id,
-    getVariantStoreResponse_name,
     getVariantStoreResponse_reference,
-    getVariantStoreResponse_sseConfig,
     getVariantStoreResponse_status,
-    getVariantStoreResponse_statusMessage,
     getVariantStoreResponse_storeArn,
-    getVariantStoreResponse_storeSizeBytes,
-    getVariantStoreResponse_tags,
+    getVariantStoreResponse_name,
+    getVariantStoreResponse_description,
+    getVariantStoreResponse_sseConfig,
+    getVariantStoreResponse_creationTime,
     getVariantStoreResponse_updateTime,
+    getVariantStoreResponse_tags,
+    getVariantStoreResponse_statusMessage,
+    getVariantStoreResponse_storeSizeBytes,
 
     -- ** GetWorkflow
     getWorkflow_export,
     getWorkflow_type,
     getWorkflow_id,
+    getWorkflowResponse_accelerators,
     getWorkflowResponse_arn,
     getWorkflowResponse_creationTime,
     getWorkflowResponse_definition,
@@ -403,6 +451,7 @@ module Amazonka.Omics.Lens
     getWorkflowResponse_engine,
     getWorkflowResponse_id,
     getWorkflowResponse_main,
+    getWorkflowResponse_metadata,
     getWorkflowResponse_name,
     getWorkflowResponse_parameterTemplate,
     getWorkflowResponse_status,
@@ -430,6 +479,14 @@ module Amazonka.Omics.Lens
     listAnnotationStoresResponse_nextToken,
     listAnnotationStoresResponse_httpStatus,
 
+    -- ** ListMultipartReadSetUploads
+    listMultipartReadSetUploads_maxResults,
+    listMultipartReadSetUploads_nextToken,
+    listMultipartReadSetUploads_sequenceStoreId,
+    listMultipartReadSetUploadsResponse_nextToken,
+    listMultipartReadSetUploadsResponse_uploads,
+    listMultipartReadSetUploadsResponse_httpStatus,
+
     -- ** ListReadSetActivationJobs
     listReadSetActivationJobs_filter,
     listReadSetActivationJobs_maxResults,
@@ -456,6 +513,17 @@ module Amazonka.Omics.Lens
     listReadSetImportJobsResponse_importJobs,
     listReadSetImportJobsResponse_nextToken,
     listReadSetImportJobsResponse_httpStatus,
+
+    -- ** ListReadSetUploadParts
+    listReadSetUploadParts_filter,
+    listReadSetUploadParts_maxResults,
+    listReadSetUploadParts_nextToken,
+    listReadSetUploadParts_sequenceStoreId,
+    listReadSetUploadParts_uploadId,
+    listReadSetUploadParts_partSource,
+    listReadSetUploadPartsResponse_nextToken,
+    listReadSetUploadPartsResponse_parts,
+    listReadSetUploadPartsResponse_httpStatus,
 
     -- ** ListReadSets
     listReadSets_filter,
@@ -514,6 +582,7 @@ module Amazonka.Omics.Lens
     listRuns_name,
     listRuns_runGroupId,
     listRuns_startingToken,
+    listRuns_status,
     listRunsResponse_items,
     listRunsResponse_nextToken,
     listRunsResponse_httpStatus,
@@ -559,11 +628,12 @@ module Amazonka.Omics.Lens
     listWorkflowsResponse_httpStatus,
 
     -- ** StartAnnotationImportJob
+    startAnnotationImportJob_annotationFields,
     startAnnotationImportJob_formatOptions,
     startAnnotationImportJob_runLeftNormalization,
     startAnnotationImportJob_destinationName,
-    startAnnotationImportJob_items,
     startAnnotationImportJob_roleArn,
+    startAnnotationImportJob_items,
     startAnnotationImportJobResponse_httpStatus,
     startAnnotationImportJobResponse_jobId,
 
@@ -572,35 +642,35 @@ module Amazonka.Omics.Lens
     startReadSetActivationJob_sequenceStoreId,
     startReadSetActivationJob_sources,
     startReadSetActivationJobResponse_httpStatus,
-    startReadSetActivationJobResponse_creationTime,
     startReadSetActivationJobResponse_id,
     startReadSetActivationJobResponse_sequenceStoreId,
     startReadSetActivationJobResponse_status,
+    startReadSetActivationJobResponse_creationTime,
 
     -- ** StartReadSetExportJob
     startReadSetExportJob_clientToken,
+    startReadSetExportJob_sequenceStoreId,
     startReadSetExportJob_destination,
     startReadSetExportJob_roleArn,
-    startReadSetExportJob_sequenceStoreId,
     startReadSetExportJob_sources,
     startReadSetExportJobResponse_httpStatus,
-    startReadSetExportJobResponse_creationTime,
-    startReadSetExportJobResponse_destination,
     startReadSetExportJobResponse_id,
     startReadSetExportJobResponse_sequenceStoreId,
+    startReadSetExportJobResponse_destination,
     startReadSetExportJobResponse_status,
+    startReadSetExportJobResponse_creationTime,
 
     -- ** StartReadSetImportJob
     startReadSetImportJob_clientToken,
-    startReadSetImportJob_roleArn,
     startReadSetImportJob_sequenceStoreId,
+    startReadSetImportJob_roleArn,
     startReadSetImportJob_sources,
     startReadSetImportJobResponse_httpStatus,
-    startReadSetImportJobResponse_creationTime,
     startReadSetImportJobResponse_id,
-    startReadSetImportJobResponse_roleArn,
     startReadSetImportJobResponse_sequenceStoreId,
+    startReadSetImportJobResponse_roleArn,
     startReadSetImportJobResponse_status,
+    startReadSetImportJobResponse_creationTime,
 
     -- ** StartReferenceImportJob
     startReferenceImportJob_clientToken,
@@ -608,11 +678,11 @@ module Amazonka.Omics.Lens
     startReferenceImportJob_roleArn,
     startReferenceImportJob_sources,
     startReferenceImportJobResponse_httpStatus,
-    startReferenceImportJobResponse_creationTime,
     startReferenceImportJobResponse_id,
     startReferenceImportJobResponse_referenceStoreId,
     startReferenceImportJobResponse_roleArn,
     startReferenceImportJobResponse_status,
+    startReferenceImportJobResponse_creationTime,
 
     -- ** StartRun
     startRun_logLevel,
@@ -626,8 +696,8 @@ module Amazonka.Omics.Lens
     startRun_tags,
     startRun_workflowId,
     startRun_workflowType,
-    startRun_requestId,
     startRun_roleArn,
+    startRun_requestId,
     startRunResponse_arn,
     startRunResponse_id,
     startRunResponse_status,
@@ -635,10 +705,11 @@ module Amazonka.Omics.Lens
     startRunResponse_httpStatus,
 
     -- ** StartVariantImportJob
+    startVariantImportJob_annotationFields,
     startVariantImportJob_runLeftNormalization,
     startVariantImportJob_destinationName,
-    startVariantImportJob_items,
     startVariantImportJob_roleArn,
+    startVariantImportJob_items,
     startVariantImportJobResponse_httpStatus,
     startVariantImportJobResponse_jobId,
 
@@ -658,17 +729,18 @@ module Amazonka.Omics.Lens
     updateAnnotationStoreResponse_storeFormat,
     updateAnnotationStoreResponse_storeOptions,
     updateAnnotationStoreResponse_httpStatus,
-    updateAnnotationStoreResponse_creationTime,
-    updateAnnotationStoreResponse_description,
     updateAnnotationStoreResponse_id,
-    updateAnnotationStoreResponse_name,
     updateAnnotationStoreResponse_reference,
     updateAnnotationStoreResponse_status,
+    updateAnnotationStoreResponse_name,
+    updateAnnotationStoreResponse_description,
+    updateAnnotationStoreResponse_creationTime,
     updateAnnotationStoreResponse_updateTime,
 
     -- ** UpdateRunGroup
     updateRunGroup_maxCpus,
     updateRunGroup_maxDuration,
+    updateRunGroup_maxGpus,
     updateRunGroup_maxRuns,
     updateRunGroup_name,
     updateRunGroup_id,
@@ -677,18 +749,27 @@ module Amazonka.Omics.Lens
     updateVariantStore_description,
     updateVariantStore_name,
     updateVariantStoreResponse_httpStatus,
-    updateVariantStoreResponse_creationTime,
-    updateVariantStoreResponse_description,
     updateVariantStoreResponse_id,
-    updateVariantStoreResponse_name,
     updateVariantStoreResponse_reference,
     updateVariantStoreResponse_status,
+    updateVariantStoreResponse_name,
+    updateVariantStoreResponse_description,
+    updateVariantStoreResponse_creationTime,
     updateVariantStoreResponse_updateTime,
 
     -- ** UpdateWorkflow
     updateWorkflow_description,
     updateWorkflow_name,
     updateWorkflow_id,
+
+    -- ** UploadReadSetPart
+    uploadReadSetPart_sequenceStoreId,
+    uploadReadSetPart_uploadId,
+    uploadReadSetPart_partSource,
+    uploadReadSetPart_partNumber,
+    uploadReadSetPart_payload,
+    uploadReadSetPartResponse_httpStatus,
+    uploadReadSetPartResponse_checksum,
 
     -- * Types
 
@@ -699,10 +780,10 @@ module Amazonka.Omics.Lens
 
     -- ** ActivateReadSetJobItem
     activateReadSetJobItem_completionTime,
-    activateReadSetJobItem_creationTime,
     activateReadSetJobItem_id,
     activateReadSetJobItem_sequenceStoreId,
     activateReadSetJobItem_status,
+    activateReadSetJobItem_creationTime,
 
     -- ** ActivateReadSetSourceItem
     activateReadSetSourceItem_statusMessage,
@@ -710,35 +791,41 @@ module Amazonka.Omics.Lens
     activateReadSetSourceItem_status,
 
     -- ** AnnotationImportItemDetail
-    annotationImportItemDetail_jobStatus,
     annotationImportItemDetail_source,
+    annotationImportItemDetail_jobStatus,
 
     -- ** AnnotationImportItemSource
     annotationImportItemSource_source,
 
     -- ** AnnotationImportJobItem
+    annotationImportJobItem_annotationFields,
     annotationImportJobItem_completionTime,
     annotationImportJobItem_runLeftNormalization,
-    annotationImportJobItem_creationTime,
-    annotationImportJobItem_destinationName,
     annotationImportJobItem_id,
+    annotationImportJobItem_destinationName,
     annotationImportJobItem_roleArn,
     annotationImportJobItem_status,
+    annotationImportJobItem_creationTime,
     annotationImportJobItem_updateTime,
 
     -- ** AnnotationStoreItem
-    annotationStoreItem_creationTime,
-    annotationStoreItem_description,
     annotationStoreItem_id,
-    annotationStoreItem_name,
     annotationStoreItem_reference,
-    annotationStoreItem_sseConfig,
     annotationStoreItem_status,
-    annotationStoreItem_statusMessage,
     annotationStoreItem_storeArn,
+    annotationStoreItem_name,
     annotationStoreItem_storeFormat,
-    annotationStoreItem_storeSizeBytes,
+    annotationStoreItem_description,
+    annotationStoreItem_sseConfig,
+    annotationStoreItem_creationTime,
     annotationStoreItem_updateTime,
+    annotationStoreItem_statusMessage,
+    annotationStoreItem_storeSizeBytes,
+
+    -- ** CompleteReadSetUploadPartListItem
+    completeReadSetUploadPartListItem_partNumber,
+    completeReadSetUploadPartListItem_partSource,
+    completeReadSetUploadPartListItem_checksum,
 
     -- ** ExportReadSet
     exportReadSet_readSetId,
@@ -755,11 +842,11 @@ module Amazonka.Omics.Lens
 
     -- ** ExportReadSetJobDetail
     exportReadSetJobDetail_completionTime,
-    exportReadSetJobDetail_creationTime,
-    exportReadSetJobDetail_destination,
     exportReadSetJobDetail_id,
     exportReadSetJobDetail_sequenceStoreId,
+    exportReadSetJobDetail_destination,
     exportReadSetJobDetail_status,
+    exportReadSetJobDetail_creationTime,
 
     -- ** FileInformation
     fileInformation_contentLength,
@@ -777,11 +864,11 @@ module Amazonka.Omics.Lens
 
     -- ** ImportReadSetJobItem
     importReadSetJobItem_completionTime,
-    importReadSetJobItem_creationTime,
     importReadSetJobItem_id,
-    importReadSetJobItem_roleArn,
     importReadSetJobItem_sequenceStoreId,
+    importReadSetJobItem_roleArn,
     importReadSetJobItem_status,
+    importReadSetJobItem_creationTime,
 
     -- ** ImportReadSetSourceItem
     importReadSetSourceItem_description,
@@ -790,11 +877,11 @@ module Amazonka.Omics.Lens
     importReadSetSourceItem_referenceArn,
     importReadSetSourceItem_statusMessage,
     importReadSetSourceItem_tags,
-    importReadSetSourceItem_sampleId,
-    importReadSetSourceItem_sourceFileType,
     importReadSetSourceItem_sourceFiles,
+    importReadSetSourceItem_sourceFileType,
     importReadSetSourceItem_status,
     importReadSetSourceItem_subjectId,
+    importReadSetSourceItem_sampleId,
 
     -- ** ImportReferenceFilter
     importReferenceFilter_createdAfter,
@@ -803,11 +890,11 @@ module Amazonka.Omics.Lens
 
     -- ** ImportReferenceJobItem
     importReferenceJobItem_completionTime,
-    importReferenceJobItem_creationTime,
     importReferenceJobItem_id,
     importReferenceJobItem_referenceStoreId,
     importReferenceJobItem_roleArn,
     importReferenceJobItem_status,
+    importReferenceJobItem_creationTime,
 
     -- ** ImportReferenceSourceItem
     importReferenceSourceItem_description,
@@ -831,6 +918,19 @@ module Amazonka.Omics.Lens
     -- ** ListVariantStoresFilter
     listVariantStoresFilter_status,
 
+    -- ** MultipartReadSetUploadListItem
+    multipartReadSetUploadListItem_description,
+    multipartReadSetUploadListItem_name,
+    multipartReadSetUploadListItem_tags,
+    multipartReadSetUploadListItem_sequenceStoreId,
+    multipartReadSetUploadListItem_uploadId,
+    multipartReadSetUploadListItem_sourceFileType,
+    multipartReadSetUploadListItem_subjectId,
+    multipartReadSetUploadListItem_sampleId,
+    multipartReadSetUploadListItem_generatedFrom,
+    multipartReadSetUploadListItem_referenceArn,
+    multipartReadSetUploadListItem_creationTime,
+
     -- ** ReadOptions
     readOptions_comment,
     readOptions_encoding,
@@ -843,8 +943,8 @@ module Amazonka.Omics.Lens
     readOptions_sep,
 
     -- ** ReadSetBatchError
-    readSetBatchError_code,
     readSetBatchError_id,
+    readSetBatchError_code,
     readSetBatchError_message,
 
     -- ** ReadSetFiles
@@ -855,9 +955,12 @@ module Amazonka.Omics.Lens
     -- ** ReadSetFilter
     readSetFilter_createdAfter,
     readSetFilter_createdBefore,
+    readSetFilter_generatedFrom,
     readSetFilter_name,
     readSetFilter_referenceArn,
+    readSetFilter_sampleId,
     readSetFilter_status,
+    readSetFilter_subjectId,
 
     -- ** ReadSetListItem
     readSetListItem_description,
@@ -865,13 +968,26 @@ module Amazonka.Omics.Lens
     readSetListItem_referenceArn,
     readSetListItem_sampleId,
     readSetListItem_sequenceInformation,
+    readSetListItem_statusMessage,
     readSetListItem_subjectId,
-    readSetListItem_arn,
-    readSetListItem_creationTime,
-    readSetListItem_fileType,
     readSetListItem_id,
+    readSetListItem_arn,
     readSetListItem_sequenceStoreId,
     readSetListItem_status,
+    readSetListItem_fileType,
+    readSetListItem_creationTime,
+
+    -- ** ReadSetUploadPartListFilter
+    readSetUploadPartListFilter_createdAfter,
+    readSetUploadPartListFilter_createdBefore,
+
+    -- ** ReadSetUploadPartListItem
+    readSetUploadPartListItem_creationTime,
+    readSetUploadPartListItem_lastUpdatedTime,
+    readSetUploadPartListItem_partNumber,
+    readSetUploadPartListItem_partSize,
+    readSetUploadPartListItem_partSource,
+    readSetUploadPartListItem_checksum,
 
     -- ** ReferenceFiles
     referenceFiles_index,
@@ -890,11 +1006,11 @@ module Amazonka.Omics.Lens
     referenceListItem_description,
     referenceListItem_name,
     referenceListItem_status,
-    referenceListItem_arn,
-    referenceListItem_creationTime,
     referenceListItem_id,
-    referenceListItem_md5,
+    referenceListItem_arn,
     referenceListItem_referenceStoreId,
+    referenceListItem_md5,
+    referenceListItem_creationTime,
     referenceListItem_updateTime,
 
     -- ** ReferenceStoreDetail
@@ -902,8 +1018,8 @@ module Amazonka.Omics.Lens
     referenceStoreDetail_name,
     referenceStoreDetail_sseConfig,
     referenceStoreDetail_arn,
-    referenceStoreDetail_creationTime,
     referenceStoreDetail_id,
+    referenceStoreDetail_creationTime,
 
     -- ** ReferenceStoreFilter
     referenceStoreFilter_createdAfter,
@@ -916,6 +1032,7 @@ module Amazonka.Omics.Lens
     runGroupListItem_id,
     runGroupListItem_maxCpus,
     runGroupListItem_maxDuration,
+    runGroupListItem_maxGpus,
     runGroupListItem_maxRuns,
     runGroupListItem_name,
 
@@ -941,11 +1058,12 @@ module Amazonka.Omics.Lens
 
     -- ** SequenceStoreDetail
     sequenceStoreDetail_description,
+    sequenceStoreDetail_fallbackLocation,
     sequenceStoreDetail_name,
     sequenceStoreDetail_sseConfig,
     sequenceStoreDetail_arn,
-    sequenceStoreDetail_creationTime,
     sequenceStoreDetail_id,
+    sequenceStoreDetail_creationTime,
 
     -- ** SequenceStoreFilter
     sequenceStoreFilter_createdAfter,
@@ -968,17 +1086,17 @@ module Amazonka.Omics.Lens
     startReadSetImportJobSourceItem_generatedFrom,
     startReadSetImportJobSourceItem_name,
     startReadSetImportJobSourceItem_tags,
-    startReadSetImportJobSourceItem_referenceArn,
-    startReadSetImportJobSourceItem_sampleId,
-    startReadSetImportJobSourceItem_sourceFileType,
     startReadSetImportJobSourceItem_sourceFiles,
+    startReadSetImportJobSourceItem_sourceFileType,
     startReadSetImportJobSourceItem_subjectId,
+    startReadSetImportJobSourceItem_sampleId,
+    startReadSetImportJobSourceItem_referenceArn,
 
     -- ** StartReferenceImportJobSourceItem
     startReferenceImportJobSourceItem_description,
     startReferenceImportJobSourceItem_tags,
-    startReferenceImportJobSourceItem_name,
     startReferenceImportJobSourceItem_sourceFile,
+    startReferenceImportJobSourceItem_name,
 
     -- ** StoreOptions
     storeOptions_tsvStoreOptions,
@@ -986,6 +1104,7 @@ module Amazonka.Omics.Lens
     -- ** TaskListItem
     taskListItem_cpus,
     taskListItem_creationTime,
+    taskListItem_gpus,
     taskListItem_memory,
     taskListItem_name,
     taskListItem_startTime,
@@ -1002,34 +1121,36 @@ module Amazonka.Omics.Lens
     tsvStoreOptions_schema,
 
     -- ** VariantImportItemDetail
-    variantImportItemDetail_jobStatus,
+    variantImportItemDetail_statusMessage,
     variantImportItemDetail_source,
+    variantImportItemDetail_jobStatus,
 
     -- ** VariantImportItemSource
     variantImportItemSource_source,
 
     -- ** VariantImportJobItem
+    variantImportJobItem_annotationFields,
     variantImportJobItem_completionTime,
     variantImportJobItem_runLeftNormalization,
-    variantImportJobItem_creationTime,
-    variantImportJobItem_destinationName,
     variantImportJobItem_id,
+    variantImportJobItem_destinationName,
     variantImportJobItem_roleArn,
     variantImportJobItem_status,
+    variantImportJobItem_creationTime,
     variantImportJobItem_updateTime,
 
     -- ** VariantStoreItem
-    variantStoreItem_creationTime,
-    variantStoreItem_description,
     variantStoreItem_id,
-    variantStoreItem_name,
     variantStoreItem_reference,
-    variantStoreItem_sseConfig,
     variantStoreItem_status,
-    variantStoreItem_statusMessage,
     variantStoreItem_storeArn,
-    variantStoreItem_storeSizeBytes,
+    variantStoreItem_name,
+    variantStoreItem_description,
+    variantStoreItem_sseConfig,
+    variantStoreItem_creationTime,
     variantStoreItem_updateTime,
+    variantStoreItem_statusMessage,
+    variantStoreItem_storeSizeBytes,
 
     -- ** VcfOptions
     vcfOptions_ignoreFilterField,
@@ -1040,6 +1161,7 @@ module Amazonka.Omics.Lens
     workflowListItem_creationTime,
     workflowListItem_digest,
     workflowListItem_id,
+    workflowListItem_metadata,
     workflowListItem_name,
     workflowListItem_status,
     workflowListItem_type,
@@ -1050,11 +1172,14 @@ module Amazonka.Omics.Lens
   )
 where
 
+import Amazonka.Omics.AbortMultipartReadSetUpload
 import Amazonka.Omics.BatchDeleteReadSet
 import Amazonka.Omics.CancelAnnotationImportJob
 import Amazonka.Omics.CancelRun
 import Amazonka.Omics.CancelVariantImportJob
+import Amazonka.Omics.CompleteMultipartReadSetUpload
 import Amazonka.Omics.CreateAnnotationStore
+import Amazonka.Omics.CreateMultipartReadSetUpload
 import Amazonka.Omics.CreateReferenceStore
 import Amazonka.Omics.CreateRunGroup
 import Amazonka.Omics.CreateSequenceStore
@@ -1088,9 +1213,11 @@ import Amazonka.Omics.GetVariantStore
 import Amazonka.Omics.GetWorkflow
 import Amazonka.Omics.ListAnnotationImportJobs
 import Amazonka.Omics.ListAnnotationStores
+import Amazonka.Omics.ListMultipartReadSetUploads
 import Amazonka.Omics.ListReadSetActivationJobs
 import Amazonka.Omics.ListReadSetExportJobs
 import Amazonka.Omics.ListReadSetImportJobs
+import Amazonka.Omics.ListReadSetUploadParts
 import Amazonka.Omics.ListReadSets
 import Amazonka.Omics.ListReferenceImportJobs
 import Amazonka.Omics.ListReferenceStores
@@ -1118,6 +1245,7 @@ import Amazonka.Omics.Types.AnnotationImportItemDetail
 import Amazonka.Omics.Types.AnnotationImportItemSource
 import Amazonka.Omics.Types.AnnotationImportJobItem
 import Amazonka.Omics.Types.AnnotationStoreItem
+import Amazonka.Omics.Types.CompleteReadSetUploadPartListItem
 import Amazonka.Omics.Types.ExportReadSet
 import Amazonka.Omics.Types.ExportReadSetDetail
 import Amazonka.Omics.Types.ExportReadSetFilter
@@ -1134,11 +1262,14 @@ import Amazonka.Omics.Types.ListAnnotationImportJobsFilter
 import Amazonka.Omics.Types.ListAnnotationStoresFilter
 import Amazonka.Omics.Types.ListVariantImportJobsFilter
 import Amazonka.Omics.Types.ListVariantStoresFilter
+import Amazonka.Omics.Types.MultipartReadSetUploadListItem
 import Amazonka.Omics.Types.ReadOptions
 import Amazonka.Omics.Types.ReadSetBatchError
 import Amazonka.Omics.Types.ReadSetFiles
 import Amazonka.Omics.Types.ReadSetFilter
 import Amazonka.Omics.Types.ReadSetListItem
+import Amazonka.Omics.Types.ReadSetUploadPartListFilter
+import Amazonka.Omics.Types.ReadSetUploadPartListItem
 import Amazonka.Omics.Types.ReferenceFiles
 import Amazonka.Omics.Types.ReferenceFilter
 import Amazonka.Omics.Types.ReferenceItem
@@ -1172,3 +1303,4 @@ import Amazonka.Omics.UpdateAnnotationStore
 import Amazonka.Omics.UpdateRunGroup
 import Amazonka.Omics.UpdateVariantStore
 import Amazonka.Omics.UpdateWorkflow
+import Amazonka.Omics.UploadReadSetPart

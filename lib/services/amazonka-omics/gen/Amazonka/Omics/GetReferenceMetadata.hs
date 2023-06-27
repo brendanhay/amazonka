@@ -40,11 +40,11 @@ module Amazonka.Omics.GetReferenceMetadata
     getReferenceMetadataResponse_name,
     getReferenceMetadataResponse_status,
     getReferenceMetadataResponse_httpStatus,
-    getReferenceMetadataResponse_arn,
-    getReferenceMetadataResponse_creationTime,
     getReferenceMetadataResponse_id,
-    getReferenceMetadataResponse_md5,
+    getReferenceMetadataResponse_arn,
     getReferenceMetadataResponse_referenceStoreId,
+    getReferenceMetadataResponse_md5,
+    getReferenceMetadataResponse_creationTime,
     getReferenceMetadataResponse_updateTime,
   )
 where
@@ -112,17 +112,18 @@ instance Core.AWSRequest GetReferenceMetadata where
             Prelude.<*> (x Data..?> "name")
             Prelude.<*> (x Data..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "arn")
-            Prelude.<*> (x Data..:> "creationTime")
             Prelude.<*> (x Data..:> "id")
-            Prelude.<*> (x Data..:> "md5")
+            Prelude.<*> (x Data..:> "arn")
             Prelude.<*> (x Data..:> "referenceStoreId")
+            Prelude.<*> (x Data..:> "md5")
+            Prelude.<*> (x Data..:> "creationTime")
             Prelude.<*> (x Data..:> "updateTime")
       )
 
 instance Prelude.Hashable GetReferenceMetadata where
   hashWithSalt _salt GetReferenceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` referenceStoreId
 
 instance Prelude.NFData GetReferenceMetadata where
@@ -166,16 +167,16 @@ data GetReferenceMetadataResponse = GetReferenceMetadataResponse'
     status :: Prelude.Maybe ReferenceStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The reference\'s ARN.
-    arn :: Prelude.Text,
-    -- | When the reference was created.
-    creationTime :: Data.ISO8601,
     -- | The reference\'s ID.
     id :: Prelude.Text,
-    -- | The reference\'s MD5 checksum.
-    md5 :: Prelude.Text,
+    -- | The reference\'s ARN.
+    arn :: Prelude.Text,
     -- | The reference\'s reference store ID.
     referenceStoreId :: Prelude.Text,
+    -- | The reference\'s MD5 checksum.
+    md5 :: Prelude.Text,
+    -- | When the reference was created.
+    creationTime :: Data.ISO8601,
     -- | When the reference was updated.
     updateTime :: Data.ISO8601
   }
@@ -199,40 +200,40 @@ data GetReferenceMetadataResponse = GetReferenceMetadataResponse'
 --
 -- 'httpStatus', 'getReferenceMetadataResponse_httpStatus' - The response's http status code.
 --
+-- 'id', 'getReferenceMetadataResponse_id' - The reference\'s ID.
+--
 -- 'arn', 'getReferenceMetadataResponse_arn' - The reference\'s ARN.
 --
--- 'creationTime', 'getReferenceMetadataResponse_creationTime' - When the reference was created.
---
--- 'id', 'getReferenceMetadataResponse_id' - The reference\'s ID.
+-- 'referenceStoreId', 'getReferenceMetadataResponse_referenceStoreId' - The reference\'s reference store ID.
 --
 -- 'md5', 'getReferenceMetadataResponse_md5' - The reference\'s MD5 checksum.
 --
--- 'referenceStoreId', 'getReferenceMetadataResponse_referenceStoreId' - The reference\'s reference store ID.
+-- 'creationTime', 'getReferenceMetadataResponse_creationTime' - When the reference was created.
 --
 -- 'updateTime', 'getReferenceMetadataResponse_updateTime' - When the reference was updated.
 newGetReferenceMetadataResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'arn'
-  Prelude.Text ->
-  -- | 'creationTime'
-  Prelude.UTCTime ->
   -- | 'id'
   Prelude.Text ->
-  -- | 'md5'
+  -- | 'arn'
   Prelude.Text ->
   -- | 'referenceStoreId'
   Prelude.Text ->
+  -- | 'md5'
+  Prelude.Text ->
+  -- | 'creationTime'
+  Prelude.UTCTime ->
   -- | 'updateTime'
   Prelude.UTCTime ->
   GetReferenceMetadataResponse
 newGetReferenceMetadataResponse
   pHttpStatus_
-  pArn_
-  pCreationTime_
   pId_
-  pMd5_
+  pArn_
   pReferenceStoreId_
+  pMd5_
+  pCreationTime_
   pUpdateTime_ =
     GetReferenceMetadataResponse'
       { description =
@@ -241,12 +242,12 @@ newGetReferenceMetadataResponse
         name = Prelude.Nothing,
         status = Prelude.Nothing,
         httpStatus = pHttpStatus_,
+        id = pId_,
         arn = pArn_,
+        referenceStoreId = pReferenceStoreId_,
+        md5 = pMd5_,
         creationTime =
           Data._Time Lens.# pCreationTime_,
-        id = pId_,
-        md5 = pMd5_,
-        referenceStoreId = pReferenceStoreId_,
         updateTime = Data._Time Lens.# pUpdateTime_
       }
 
@@ -270,25 +271,25 @@ getReferenceMetadataResponse_status = Lens.lens (\GetReferenceMetadataResponse' 
 getReferenceMetadataResponse_httpStatus :: Lens.Lens' GetReferenceMetadataResponse Prelude.Int
 getReferenceMetadataResponse_httpStatus = Lens.lens (\GetReferenceMetadataResponse' {httpStatus} -> httpStatus) (\s@GetReferenceMetadataResponse' {} a -> s {httpStatus = a} :: GetReferenceMetadataResponse)
 
+-- | The reference\'s ID.
+getReferenceMetadataResponse_id :: Lens.Lens' GetReferenceMetadataResponse Prelude.Text
+getReferenceMetadataResponse_id = Lens.lens (\GetReferenceMetadataResponse' {id} -> id) (\s@GetReferenceMetadataResponse' {} a -> s {id = a} :: GetReferenceMetadataResponse)
+
 -- | The reference\'s ARN.
 getReferenceMetadataResponse_arn :: Lens.Lens' GetReferenceMetadataResponse Prelude.Text
 getReferenceMetadataResponse_arn = Lens.lens (\GetReferenceMetadataResponse' {arn} -> arn) (\s@GetReferenceMetadataResponse' {} a -> s {arn = a} :: GetReferenceMetadataResponse)
 
--- | When the reference was created.
-getReferenceMetadataResponse_creationTime :: Lens.Lens' GetReferenceMetadataResponse Prelude.UTCTime
-getReferenceMetadataResponse_creationTime = Lens.lens (\GetReferenceMetadataResponse' {creationTime} -> creationTime) (\s@GetReferenceMetadataResponse' {} a -> s {creationTime = a} :: GetReferenceMetadataResponse) Prelude.. Data._Time
-
--- | The reference\'s ID.
-getReferenceMetadataResponse_id :: Lens.Lens' GetReferenceMetadataResponse Prelude.Text
-getReferenceMetadataResponse_id = Lens.lens (\GetReferenceMetadataResponse' {id} -> id) (\s@GetReferenceMetadataResponse' {} a -> s {id = a} :: GetReferenceMetadataResponse)
+-- | The reference\'s reference store ID.
+getReferenceMetadataResponse_referenceStoreId :: Lens.Lens' GetReferenceMetadataResponse Prelude.Text
+getReferenceMetadataResponse_referenceStoreId = Lens.lens (\GetReferenceMetadataResponse' {referenceStoreId} -> referenceStoreId) (\s@GetReferenceMetadataResponse' {} a -> s {referenceStoreId = a} :: GetReferenceMetadataResponse)
 
 -- | The reference\'s MD5 checksum.
 getReferenceMetadataResponse_md5 :: Lens.Lens' GetReferenceMetadataResponse Prelude.Text
 getReferenceMetadataResponse_md5 = Lens.lens (\GetReferenceMetadataResponse' {md5} -> md5) (\s@GetReferenceMetadataResponse' {} a -> s {md5 = a} :: GetReferenceMetadataResponse)
 
--- | The reference\'s reference store ID.
-getReferenceMetadataResponse_referenceStoreId :: Lens.Lens' GetReferenceMetadataResponse Prelude.Text
-getReferenceMetadataResponse_referenceStoreId = Lens.lens (\GetReferenceMetadataResponse' {referenceStoreId} -> referenceStoreId) (\s@GetReferenceMetadataResponse' {} a -> s {referenceStoreId = a} :: GetReferenceMetadataResponse)
+-- | When the reference was created.
+getReferenceMetadataResponse_creationTime :: Lens.Lens' GetReferenceMetadataResponse Prelude.UTCTime
+getReferenceMetadataResponse_creationTime = Lens.lens (\GetReferenceMetadataResponse' {creationTime} -> creationTime) (\s@GetReferenceMetadataResponse' {} a -> s {creationTime = a} :: GetReferenceMetadataResponse) Prelude.. Data._Time
 
 -- | When the reference was updated.
 getReferenceMetadataResponse_updateTime :: Lens.Lens' GetReferenceMetadataResponse Prelude.UTCTime
@@ -301,9 +302,9 @@ instance Prelude.NFData GetReferenceMetadataResponse where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf md5
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf referenceStoreId
+      `Prelude.seq` Prelude.rnf md5
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf updateTime

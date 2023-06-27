@@ -84,7 +84,8 @@ instance Data.FromJSON FileInformation where
 
 instance Prelude.Hashable FileInformation where
   hashWithSalt _salt FileInformation' {..} =
-    _salt `Prelude.hashWithSalt` contentLength
+    _salt
+      `Prelude.hashWithSalt` contentLength
       `Prelude.hashWithSalt` partSize
       `Prelude.hashWithSalt` totalParts
 

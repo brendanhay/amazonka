@@ -117,22 +117,22 @@ instance Core.AWSPager ListReadSetImportJobs where
     | Core.stop
         ( rs
             Lens.^? listReadSetImportJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listReadSetImportJobsResponse_importJobs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listReadSetImportJobs_nextToken
           Lens..~ rs
           Lens.^? listReadSetImportJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListReadSetImportJobs where
   type
@@ -151,7 +151,8 @@ instance Core.AWSRequest ListReadSetImportJobs where
 
 instance Prelude.Hashable ListReadSetImportJobs where
   hashWithSalt _salt ListReadSetImportJobs' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sequenceStoreId

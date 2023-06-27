@@ -29,6 +29,7 @@ module Amazonka.Omics.UpdateRunGroup
     -- * Request Lenses
     updateRunGroup_maxCpus,
     updateRunGroup_maxDuration,
+    updateRunGroup_maxGpus,
     updateRunGroup_maxRuns,
     updateRunGroup_name,
     updateRunGroup_id,
@@ -51,8 +52,10 @@ import qualified Amazonka.Response as Response
 data UpdateRunGroup = UpdateRunGroup'
   { -- | The maximum number of CPUs to use.
     maxCpus :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum amount of time to run.
+    -- | A maximum run time for the group in minutes.
     maxDuration :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum GPUs that can be used by a run group.
+    maxGpus :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of concurrent runs for the group.
     maxRuns :: Prelude.Maybe Prelude.Natural,
     -- | A name for the group.
@@ -72,7 +75,9 @@ data UpdateRunGroup = UpdateRunGroup'
 --
 -- 'maxCpus', 'updateRunGroup_maxCpus' - The maximum number of CPUs to use.
 --
--- 'maxDuration', 'updateRunGroup_maxDuration' - The maximum amount of time to run.
+-- 'maxDuration', 'updateRunGroup_maxDuration' - A maximum run time for the group in minutes.
+--
+-- 'maxGpus', 'updateRunGroup_maxGpus' - The maximum GPUs that can be used by a run group.
 --
 -- 'maxRuns', 'updateRunGroup_maxRuns' - The maximum number of concurrent runs for the group.
 --
@@ -87,6 +92,7 @@ newUpdateRunGroup pId_ =
   UpdateRunGroup'
     { maxCpus = Prelude.Nothing,
       maxDuration = Prelude.Nothing,
+      maxGpus = Prelude.Nothing,
       maxRuns = Prelude.Nothing,
       name = Prelude.Nothing,
       id = pId_
@@ -96,9 +102,13 @@ newUpdateRunGroup pId_ =
 updateRunGroup_maxCpus :: Lens.Lens' UpdateRunGroup (Prelude.Maybe Prelude.Natural)
 updateRunGroup_maxCpus = Lens.lens (\UpdateRunGroup' {maxCpus} -> maxCpus) (\s@UpdateRunGroup' {} a -> s {maxCpus = a} :: UpdateRunGroup)
 
--- | The maximum amount of time to run.
+-- | A maximum run time for the group in minutes.
 updateRunGroup_maxDuration :: Lens.Lens' UpdateRunGroup (Prelude.Maybe Prelude.Natural)
 updateRunGroup_maxDuration = Lens.lens (\UpdateRunGroup' {maxDuration} -> maxDuration) (\s@UpdateRunGroup' {} a -> s {maxDuration = a} :: UpdateRunGroup)
+
+-- | The maximum GPUs that can be used by a run group.
+updateRunGroup_maxGpus :: Lens.Lens' UpdateRunGroup (Prelude.Maybe Prelude.Natural)
+updateRunGroup_maxGpus = Lens.lens (\UpdateRunGroup' {maxGpus} -> maxGpus) (\s@UpdateRunGroup' {} a -> s {maxGpus = a} :: UpdateRunGroup)
 
 -- | The maximum number of concurrent runs for the group.
 updateRunGroup_maxRuns :: Lens.Lens' UpdateRunGroup (Prelude.Maybe Prelude.Natural)
@@ -123,8 +133,10 @@ instance Core.AWSRequest UpdateRunGroup where
 
 instance Prelude.Hashable UpdateRunGroup where
   hashWithSalt _salt UpdateRunGroup' {..} =
-    _salt `Prelude.hashWithSalt` maxCpus
+    _salt
+      `Prelude.hashWithSalt` maxCpus
       `Prelude.hashWithSalt` maxDuration
+      `Prelude.hashWithSalt` maxGpus
       `Prelude.hashWithSalt` maxRuns
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id
@@ -133,6 +145,7 @@ instance Prelude.NFData UpdateRunGroup where
   rnf UpdateRunGroup' {..} =
     Prelude.rnf maxCpus
       `Prelude.seq` Prelude.rnf maxDuration
+      `Prelude.seq` Prelude.rnf maxGpus
       `Prelude.seq` Prelude.rnf maxRuns
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf id
@@ -154,6 +167,7 @@ instance Data.ToJSON UpdateRunGroup where
       ( Prelude.catMaybes
           [ ("maxCpus" Data..=) Prelude.<$> maxCpus,
             ("maxDuration" Data..=) Prelude.<$> maxDuration,
+            ("maxGpus" Data..=) Prelude.<$> maxGpus,
             ("maxRuns" Data..=) Prelude.<$> maxRuns,
             ("name" Data..=) Prelude.<$> name
           ]

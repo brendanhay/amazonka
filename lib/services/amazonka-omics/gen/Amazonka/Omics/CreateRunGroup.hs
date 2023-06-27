@@ -29,6 +29,7 @@ module Amazonka.Omics.CreateRunGroup
     -- * Request Lenses
     createRunGroup_maxCpus,
     createRunGroup_maxDuration,
+    createRunGroup_maxGpus,
     createRunGroup_maxRuns,
     createRunGroup_name,
     createRunGroup_tags,
@@ -58,15 +59,18 @@ import qualified Amazonka.Response as Response
 data CreateRunGroup = CreateRunGroup'
   { -- | The maximum number of CPUs to use in the group.
     maxCpus :: Prelude.Maybe Prelude.Natural,
-    -- | A max duration for the group.
+    -- | A maximum run time for the group in minutes.
     maxDuration :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum GPUs that can be used by a run group.
+    maxGpus :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of concurrent runs for the group.
     maxRuns :: Prelude.Maybe Prelude.Natural,
     -- | A name for the group.
     name :: Prelude.Maybe Prelude.Text,
     -- | Tags for the group.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A request ID for the group.
+    -- | To ensure that requests don\'t run multiple times, specify a unique ID
+    -- for each request.
     requestId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,7 +85,9 @@ data CreateRunGroup = CreateRunGroup'
 --
 -- 'maxCpus', 'createRunGroup_maxCpus' - The maximum number of CPUs to use in the group.
 --
--- 'maxDuration', 'createRunGroup_maxDuration' - A max duration for the group.
+-- 'maxDuration', 'createRunGroup_maxDuration' - A maximum run time for the group in minutes.
+--
+-- 'maxGpus', 'createRunGroup_maxGpus' - The maximum GPUs that can be used by a run group.
 --
 -- 'maxRuns', 'createRunGroup_maxRuns' - The maximum number of concurrent runs for the group.
 --
@@ -89,7 +95,8 @@ data CreateRunGroup = CreateRunGroup'
 --
 -- 'tags', 'createRunGroup_tags' - Tags for the group.
 --
--- 'requestId', 'createRunGroup_requestId' - A request ID for the group.
+-- 'requestId', 'createRunGroup_requestId' - To ensure that requests don\'t run multiple times, specify a unique ID
+-- for each request.
 newCreateRunGroup ::
   -- | 'requestId'
   Prelude.Text ->
@@ -98,6 +105,7 @@ newCreateRunGroup pRequestId_ =
   CreateRunGroup'
     { maxCpus = Prelude.Nothing,
       maxDuration = Prelude.Nothing,
+      maxGpus = Prelude.Nothing,
       maxRuns = Prelude.Nothing,
       name = Prelude.Nothing,
       tags = Prelude.Nothing,
@@ -108,9 +116,13 @@ newCreateRunGroup pRequestId_ =
 createRunGroup_maxCpus :: Lens.Lens' CreateRunGroup (Prelude.Maybe Prelude.Natural)
 createRunGroup_maxCpus = Lens.lens (\CreateRunGroup' {maxCpus} -> maxCpus) (\s@CreateRunGroup' {} a -> s {maxCpus = a} :: CreateRunGroup)
 
--- | A max duration for the group.
+-- | A maximum run time for the group in minutes.
 createRunGroup_maxDuration :: Lens.Lens' CreateRunGroup (Prelude.Maybe Prelude.Natural)
 createRunGroup_maxDuration = Lens.lens (\CreateRunGroup' {maxDuration} -> maxDuration) (\s@CreateRunGroup' {} a -> s {maxDuration = a} :: CreateRunGroup)
+
+-- | The maximum GPUs that can be used by a run group.
+createRunGroup_maxGpus :: Lens.Lens' CreateRunGroup (Prelude.Maybe Prelude.Natural)
+createRunGroup_maxGpus = Lens.lens (\CreateRunGroup' {maxGpus} -> maxGpus) (\s@CreateRunGroup' {} a -> s {maxGpus = a} :: CreateRunGroup)
 
 -- | The maximum number of concurrent runs for the group.
 createRunGroup_maxRuns :: Lens.Lens' CreateRunGroup (Prelude.Maybe Prelude.Natural)
@@ -124,7 +136,8 @@ createRunGroup_name = Lens.lens (\CreateRunGroup' {name} -> name) (\s@CreateRunG
 createRunGroup_tags :: Lens.Lens' CreateRunGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createRunGroup_tags = Lens.lens (\CreateRunGroup' {tags} -> tags) (\s@CreateRunGroup' {} a -> s {tags = a} :: CreateRunGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | A request ID for the group.
+-- | To ensure that requests don\'t run multiple times, specify a unique ID
+-- for each request.
 createRunGroup_requestId :: Lens.Lens' CreateRunGroup Prelude.Text
 createRunGroup_requestId = Lens.lens (\CreateRunGroup' {requestId} -> requestId) (\s@CreateRunGroup' {} a -> s {requestId = a} :: CreateRunGroup)
 
@@ -146,8 +159,10 @@ instance Core.AWSRequest CreateRunGroup where
 
 instance Prelude.Hashable CreateRunGroup where
   hashWithSalt _salt CreateRunGroup' {..} =
-    _salt `Prelude.hashWithSalt` maxCpus
+    _salt
+      `Prelude.hashWithSalt` maxCpus
       `Prelude.hashWithSalt` maxDuration
+      `Prelude.hashWithSalt` maxGpus
       `Prelude.hashWithSalt` maxRuns
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags
@@ -157,6 +172,7 @@ instance Prelude.NFData CreateRunGroup where
   rnf CreateRunGroup' {..} =
     Prelude.rnf maxCpus
       `Prelude.seq` Prelude.rnf maxDuration
+      `Prelude.seq` Prelude.rnf maxGpus
       `Prelude.seq` Prelude.rnf maxRuns
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf tags
@@ -179,6 +195,7 @@ instance Data.ToJSON CreateRunGroup where
       ( Prelude.catMaybes
           [ ("maxCpus" Data..=) Prelude.<$> maxCpus,
             ("maxDuration" Data..=) Prelude.<$> maxDuration,
+            ("maxGpus" Data..=) Prelude.<$> maxGpus,
             ("maxRuns" Data..=) Prelude.<$> maxRuns,
             ("name" Data..=) Prelude.<$> name,
             ("tags" Data..=) Prelude.<$> tags,

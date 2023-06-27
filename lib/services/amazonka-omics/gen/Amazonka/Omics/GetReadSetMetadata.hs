@@ -41,14 +41,15 @@ module Amazonka.Omics.GetReadSetMetadata
     getReadSetMetadataResponse_referenceArn,
     getReadSetMetadataResponse_sampleId,
     getReadSetMetadataResponse_sequenceInformation,
+    getReadSetMetadataResponse_statusMessage,
     getReadSetMetadataResponse_subjectId,
     getReadSetMetadataResponse_httpStatus,
-    getReadSetMetadataResponse_arn,
-    getReadSetMetadataResponse_creationTime,
-    getReadSetMetadataResponse_fileType,
     getReadSetMetadataResponse_id,
+    getReadSetMetadataResponse_arn,
     getReadSetMetadataResponse_sequenceStoreId,
     getReadSetMetadataResponse_status,
+    getReadSetMetadataResponse_fileType,
+    getReadSetMetadataResponse_creationTime,
   )
 where
 
@@ -116,19 +117,21 @@ instance Core.AWSRequest GetReadSetMetadata where
             Prelude.<*> (x Data..?> "referenceArn")
             Prelude.<*> (x Data..?> "sampleId")
             Prelude.<*> (x Data..?> "sequenceInformation")
+            Prelude.<*> (x Data..?> "statusMessage")
             Prelude.<*> (x Data..?> "subjectId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "arn")
-            Prelude.<*> (x Data..:> "creationTime")
-            Prelude.<*> (x Data..:> "fileType")
             Prelude.<*> (x Data..:> "id")
+            Prelude.<*> (x Data..:> "arn")
             Prelude.<*> (x Data..:> "sequenceStoreId")
             Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..:> "fileType")
+            Prelude.<*> (x Data..:> "creationTime")
       )
 
 instance Prelude.Hashable GetReadSetMetadata where
   hashWithSalt _salt GetReadSetMetadata' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` sequenceStoreId
 
 instance Prelude.NFData GetReadSetMetadata where
@@ -174,22 +177,25 @@ data GetReadSetMetadataResponse = GetReadSetMetadataResponse'
     sampleId :: Prelude.Maybe Prelude.Text,
     -- | The read set\'s sequence information.
     sequenceInformation :: Prelude.Maybe SequenceInformation,
+    -- | The status message for a read set. It provides more detail as to why the
+    -- read set has a status.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The read set\'s subject ID.
     subjectId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The read set\'s ARN.
-    arn :: Prelude.Text,
-    -- | When the read set was created.
-    creationTime :: Data.ISO8601,
-    -- | The read set\'s file type.
-    fileType :: FileType,
     -- | The read set\'s ID.
     id :: Prelude.Text,
+    -- | The read set\'s ARN.
+    arn :: Prelude.Text,
     -- | The read set\'s sequence store ID.
     sequenceStoreId :: Prelude.Text,
     -- | The read set\'s status.
-    status :: ReadSetStatus
+    status :: ReadSetStatus,
+    -- | The read set\'s file type.
+    fileType :: FileType,
+    -- | When the read set was created.
+    creationTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -213,45 +219,48 @@ data GetReadSetMetadataResponse = GetReadSetMetadataResponse'
 --
 -- 'sequenceInformation', 'getReadSetMetadataResponse_sequenceInformation' - The read set\'s sequence information.
 --
+-- 'statusMessage', 'getReadSetMetadataResponse_statusMessage' - The status message for a read set. It provides more detail as to why the
+-- read set has a status.
+--
 -- 'subjectId', 'getReadSetMetadataResponse_subjectId' - The read set\'s subject ID.
 --
 -- 'httpStatus', 'getReadSetMetadataResponse_httpStatus' - The response's http status code.
 --
--- 'arn', 'getReadSetMetadataResponse_arn' - The read set\'s ARN.
---
--- 'creationTime', 'getReadSetMetadataResponse_creationTime' - When the read set was created.
---
--- 'fileType', 'getReadSetMetadataResponse_fileType' - The read set\'s file type.
---
 -- 'id', 'getReadSetMetadataResponse_id' - The read set\'s ID.
+--
+-- 'arn', 'getReadSetMetadataResponse_arn' - The read set\'s ARN.
 --
 -- 'sequenceStoreId', 'getReadSetMetadataResponse_sequenceStoreId' - The read set\'s sequence store ID.
 --
 -- 'status', 'getReadSetMetadataResponse_status' - The read set\'s status.
+--
+-- 'fileType', 'getReadSetMetadataResponse_fileType' - The read set\'s file type.
+--
+-- 'creationTime', 'getReadSetMetadataResponse_creationTime' - When the read set was created.
 newGetReadSetMetadataResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'arn'
-  Prelude.Text ->
-  -- | 'creationTime'
-  Prelude.UTCTime ->
-  -- | 'fileType'
-  FileType ->
   -- | 'id'
+  Prelude.Text ->
+  -- | 'arn'
   Prelude.Text ->
   -- | 'sequenceStoreId'
   Prelude.Text ->
   -- | 'status'
   ReadSetStatus ->
+  -- | 'fileType'
+  FileType ->
+  -- | 'creationTime'
+  Prelude.UTCTime ->
   GetReadSetMetadataResponse
 newGetReadSetMetadataResponse
   pHttpStatus_
-  pArn_
-  pCreationTime_
-  pFileType_
   pId_
+  pArn_
   pSequenceStoreId_
-  pStatus_ =
+  pStatus_
+  pFileType_
+  pCreationTime_ =
     GetReadSetMetadataResponse'
       { description =
           Prelude.Nothing,
@@ -260,14 +269,15 @@ newGetReadSetMetadataResponse
         referenceArn = Prelude.Nothing,
         sampleId = Prelude.Nothing,
         sequenceInformation = Prelude.Nothing,
+        statusMessage = Prelude.Nothing,
         subjectId = Prelude.Nothing,
         httpStatus = pHttpStatus_,
-        arn = pArn_,
-        creationTime = Data._Time Lens.# pCreationTime_,
-        fileType = pFileType_,
         id = pId_,
+        arn = pArn_,
         sequenceStoreId = pSequenceStoreId_,
-        status = pStatus_
+        status = pStatus_,
+        fileType = pFileType_,
+        creationTime = Data._Time Lens.# pCreationTime_
       }
 
 -- | The read set\'s description.
@@ -294,6 +304,11 @@ getReadSetMetadataResponse_sampleId = Lens.lens (\GetReadSetMetadataResponse' {s
 getReadSetMetadataResponse_sequenceInformation :: Lens.Lens' GetReadSetMetadataResponse (Prelude.Maybe SequenceInformation)
 getReadSetMetadataResponse_sequenceInformation = Lens.lens (\GetReadSetMetadataResponse' {sequenceInformation} -> sequenceInformation) (\s@GetReadSetMetadataResponse' {} a -> s {sequenceInformation = a} :: GetReadSetMetadataResponse)
 
+-- | The status message for a read set. It provides more detail as to why the
+-- read set has a status.
+getReadSetMetadataResponse_statusMessage :: Lens.Lens' GetReadSetMetadataResponse (Prelude.Maybe Prelude.Text)
+getReadSetMetadataResponse_statusMessage = Lens.lens (\GetReadSetMetadataResponse' {statusMessage} -> statusMessage) (\s@GetReadSetMetadataResponse' {} a -> s {statusMessage = a} :: GetReadSetMetadataResponse)
+
 -- | The read set\'s subject ID.
 getReadSetMetadataResponse_subjectId :: Lens.Lens' GetReadSetMetadataResponse (Prelude.Maybe Prelude.Text)
 getReadSetMetadataResponse_subjectId = Lens.lens (\GetReadSetMetadataResponse' {subjectId} -> subjectId) (\s@GetReadSetMetadataResponse' {} a -> s {subjectId = a} :: GetReadSetMetadataResponse)
@@ -302,21 +317,13 @@ getReadSetMetadataResponse_subjectId = Lens.lens (\GetReadSetMetadataResponse' {
 getReadSetMetadataResponse_httpStatus :: Lens.Lens' GetReadSetMetadataResponse Prelude.Int
 getReadSetMetadataResponse_httpStatus = Lens.lens (\GetReadSetMetadataResponse' {httpStatus} -> httpStatus) (\s@GetReadSetMetadataResponse' {} a -> s {httpStatus = a} :: GetReadSetMetadataResponse)
 
--- | The read set\'s ARN.
-getReadSetMetadataResponse_arn :: Lens.Lens' GetReadSetMetadataResponse Prelude.Text
-getReadSetMetadataResponse_arn = Lens.lens (\GetReadSetMetadataResponse' {arn} -> arn) (\s@GetReadSetMetadataResponse' {} a -> s {arn = a} :: GetReadSetMetadataResponse)
-
--- | When the read set was created.
-getReadSetMetadataResponse_creationTime :: Lens.Lens' GetReadSetMetadataResponse Prelude.UTCTime
-getReadSetMetadataResponse_creationTime = Lens.lens (\GetReadSetMetadataResponse' {creationTime} -> creationTime) (\s@GetReadSetMetadataResponse' {} a -> s {creationTime = a} :: GetReadSetMetadataResponse) Prelude.. Data._Time
-
--- | The read set\'s file type.
-getReadSetMetadataResponse_fileType :: Lens.Lens' GetReadSetMetadataResponse FileType
-getReadSetMetadataResponse_fileType = Lens.lens (\GetReadSetMetadataResponse' {fileType} -> fileType) (\s@GetReadSetMetadataResponse' {} a -> s {fileType = a} :: GetReadSetMetadataResponse)
-
 -- | The read set\'s ID.
 getReadSetMetadataResponse_id :: Lens.Lens' GetReadSetMetadataResponse Prelude.Text
 getReadSetMetadataResponse_id = Lens.lens (\GetReadSetMetadataResponse' {id} -> id) (\s@GetReadSetMetadataResponse' {} a -> s {id = a} :: GetReadSetMetadataResponse)
+
+-- | The read set\'s ARN.
+getReadSetMetadataResponse_arn :: Lens.Lens' GetReadSetMetadataResponse Prelude.Text
+getReadSetMetadataResponse_arn = Lens.lens (\GetReadSetMetadataResponse' {arn} -> arn) (\s@GetReadSetMetadataResponse' {} a -> s {arn = a} :: GetReadSetMetadataResponse)
 
 -- | The read set\'s sequence store ID.
 getReadSetMetadataResponse_sequenceStoreId :: Lens.Lens' GetReadSetMetadataResponse Prelude.Text
@@ -326,6 +333,14 @@ getReadSetMetadataResponse_sequenceStoreId = Lens.lens (\GetReadSetMetadataRespo
 getReadSetMetadataResponse_status :: Lens.Lens' GetReadSetMetadataResponse ReadSetStatus
 getReadSetMetadataResponse_status = Lens.lens (\GetReadSetMetadataResponse' {status} -> status) (\s@GetReadSetMetadataResponse' {} a -> s {status = a} :: GetReadSetMetadataResponse)
 
+-- | The read set\'s file type.
+getReadSetMetadataResponse_fileType :: Lens.Lens' GetReadSetMetadataResponse FileType
+getReadSetMetadataResponse_fileType = Lens.lens (\GetReadSetMetadataResponse' {fileType} -> fileType) (\s@GetReadSetMetadataResponse' {} a -> s {fileType = a} :: GetReadSetMetadataResponse)
+
+-- | When the read set was created.
+getReadSetMetadataResponse_creationTime :: Lens.Lens' GetReadSetMetadataResponse Prelude.UTCTime
+getReadSetMetadataResponse_creationTime = Lens.lens (\GetReadSetMetadataResponse' {creationTime} -> creationTime) (\s@GetReadSetMetadataResponse' {} a -> s {creationTime = a} :: GetReadSetMetadataResponse) Prelude.. Data._Time
+
 instance Prelude.NFData GetReadSetMetadataResponse where
   rnf GetReadSetMetadataResponse' {..} =
     Prelude.rnf description
@@ -334,11 +349,12 @@ instance Prelude.NFData GetReadSetMetadataResponse where
       `Prelude.seq` Prelude.rnf referenceArn
       `Prelude.seq` Prelude.rnf sampleId
       `Prelude.seq` Prelude.rnf sequenceInformation
+      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf subjectId
       `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf fileType
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf sequenceStoreId
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf fileType
+      `Prelude.seq` Prelude.rnf creationTime

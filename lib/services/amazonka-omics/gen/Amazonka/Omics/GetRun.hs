@@ -35,6 +35,7 @@ module Amazonka.Omics.GetRun
     newGetRunResponse,
 
     -- * Response Lenses
+    getRunResponse_accelerators,
     getRunResponse_arn,
     getRunResponse_creationTime,
     getRunResponse_definition,
@@ -113,7 +114,8 @@ instance Core.AWSRequest GetRun where
     Response.receiveJSON
       ( \s h x ->
           GetRunResponse'
-            Prelude.<$> (x Data..?> "arn")
+            Prelude.<$> (x Data..?> "accelerators")
+            Prelude.<*> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "creationTime")
             Prelude.<*> (x Data..?> "definition")
             Prelude.<*> (x Data..?> "digest")
@@ -123,7 +125,8 @@ instance Core.AWSRequest GetRun where
             Prelude.<*> (x Data..?> "outputUri")
             Prelude.<*> (x Data..?> "parameters")
             Prelude.<*> (x Data..?> "priority")
-            Prelude.<*> ( x Data..?> "resourceDigests"
+            Prelude.<*> ( x
+                            Data..?> "resourceDigests"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "roleArn")
@@ -143,7 +146,8 @@ instance Core.AWSRequest GetRun where
 
 instance Prelude.Hashable GetRun where
   hashWithSalt _salt GetRun' {..} =
-    _salt `Prelude.hashWithSalt` export'
+    _salt
+      `Prelude.hashWithSalt` export'
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData GetRun where
@@ -175,7 +179,9 @@ instance Data.ToQuery GetRun where
 
 -- | /See:/ 'newGetRunResponse' smart constructor.
 data GetRunResponse = GetRunResponse'
-  { -- | The run\'s ARN.
+  { -- | The computational accelerator used to run the workflow.
+    accelerators :: Prelude.Maybe Accelerators,
+    -- | The run\'s ARN.
     arn :: Prelude.Maybe Prelude.Text,
     -- | When the run was created.
     creationTime :: Prelude.Maybe Data.ISO8601,
@@ -213,7 +219,7 @@ data GetRunResponse = GetRunResponse'
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The run\'s stop time.
     stopTime :: Prelude.Maybe Data.ISO8601,
-    -- | The run\'s storage capacity.
+    -- | The run\'s storage capacity in gigabytes.
     storageCapacity :: Prelude.Maybe Prelude.Natural,
     -- | The run\'s tags.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -233,6 +239,8 @@ data GetRunResponse = GetRunResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'accelerators', 'getRunResponse_accelerators' - The computational accelerator used to run the workflow.
 --
 -- 'arn', 'getRunResponse_arn' - The run\'s ARN.
 --
@@ -272,7 +280,7 @@ data GetRunResponse = GetRunResponse'
 --
 -- 'stopTime', 'getRunResponse_stopTime' - The run\'s stop time.
 --
--- 'storageCapacity', 'getRunResponse_storageCapacity' - The run\'s storage capacity.
+-- 'storageCapacity', 'getRunResponse_storageCapacity' - The run\'s storage capacity in gigabytes.
 --
 -- 'tags', 'getRunResponse_tags' - The run\'s tags.
 --
@@ -287,7 +295,8 @@ newGetRunResponse ::
   GetRunResponse
 newGetRunResponse pHttpStatus_ =
   GetRunResponse'
-    { arn = Prelude.Nothing,
+    { accelerators = Prelude.Nothing,
+      arn = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       definition = Prelude.Nothing,
       digest = Prelude.Nothing,
@@ -312,6 +321,10 @@ newGetRunResponse pHttpStatus_ =
       workflowType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The computational accelerator used to run the workflow.
+getRunResponse_accelerators :: Lens.Lens' GetRunResponse (Prelude.Maybe Accelerators)
+getRunResponse_accelerators = Lens.lens (\GetRunResponse' {accelerators} -> accelerators) (\s@GetRunResponse' {} a -> s {accelerators = a} :: GetRunResponse)
 
 -- | The run\'s ARN.
 getRunResponse_arn :: Lens.Lens' GetRunResponse (Prelude.Maybe Prelude.Text)
@@ -389,7 +402,7 @@ getRunResponse_statusMessage = Lens.lens (\GetRunResponse' {statusMessage} -> st
 getRunResponse_stopTime :: Lens.Lens' GetRunResponse (Prelude.Maybe Prelude.UTCTime)
 getRunResponse_stopTime = Lens.lens (\GetRunResponse' {stopTime} -> stopTime) (\s@GetRunResponse' {} a -> s {stopTime = a} :: GetRunResponse) Prelude.. Lens.mapping Data._Time
 
--- | The run\'s storage capacity.
+-- | The run\'s storage capacity in gigabytes.
 getRunResponse_storageCapacity :: Lens.Lens' GetRunResponse (Prelude.Maybe Prelude.Natural)
 getRunResponse_storageCapacity = Lens.lens (\GetRunResponse' {storageCapacity} -> storageCapacity) (\s@GetRunResponse' {} a -> s {storageCapacity = a} :: GetRunResponse)
 
@@ -411,7 +424,8 @@ getRunResponse_httpStatus = Lens.lens (\GetRunResponse' {httpStatus} -> httpStat
 
 instance Prelude.NFData GetRunResponse where
   rnf GetRunResponse' {..} =
-    Prelude.rnf arn
+    Prelude.rnf accelerators
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf definition
       `Prelude.seq` Prelude.rnf digest
@@ -433,5 +447,7 @@ instance Prelude.NFData GetRunResponse where
       `Prelude.seq` Prelude.rnf storageCapacity
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf workflowId
-      `Prelude.seq` Prelude.rnf workflowType
-      `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf
+        workflowType
+      `Prelude.seq` Prelude.rnf
+        httpStatus

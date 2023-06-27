@@ -40,20 +40,23 @@ data ReadSetListItem = ReadSetListItem'
     -- | The read set\'s sample ID.
     sampleId :: Prelude.Maybe Prelude.Text,
     sequenceInformation :: Prelude.Maybe SequenceInformation,
+    -- | The status for a read set. It provides more detail as to why the read
+    -- set has a status.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The read set\'s subject ID.
     subjectId :: Prelude.Maybe Prelude.Text,
-    -- | The read set\'s ARN.
-    arn :: Prelude.Text,
-    -- | When the read set was created.
-    creationTime :: Data.ISO8601,
-    -- | The read set\'s file type.
-    fileType :: FileType,
     -- | The read set\'s ID.
     id :: Prelude.Text,
+    -- | The read set\'s ARN.
+    arn :: Prelude.Text,
     -- | The read set\'s sequence store ID.
     sequenceStoreId :: Prelude.Text,
     -- | The read set\'s status.
-    status :: ReadSetStatus
+    status :: ReadSetStatus,
+    -- | The read set\'s file type.
+    fileType :: FileType,
+    -- | When the read set was created.
+    creationTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,53 +78,57 @@ data ReadSetListItem = ReadSetListItem'
 --
 -- 'sequenceInformation', 'readSetListItem_sequenceInformation' - Undocumented member.
 --
+-- 'statusMessage', 'readSetListItem_statusMessage' - The status for a read set. It provides more detail as to why the read
+-- set has a status.
+--
 -- 'subjectId', 'readSetListItem_subjectId' - The read set\'s subject ID.
 --
--- 'arn', 'readSetListItem_arn' - The read set\'s ARN.
---
--- 'creationTime', 'readSetListItem_creationTime' - When the read set was created.
---
--- 'fileType', 'readSetListItem_fileType' - The read set\'s file type.
---
 -- 'id', 'readSetListItem_id' - The read set\'s ID.
+--
+-- 'arn', 'readSetListItem_arn' - The read set\'s ARN.
 --
 -- 'sequenceStoreId', 'readSetListItem_sequenceStoreId' - The read set\'s sequence store ID.
 --
 -- 'status', 'readSetListItem_status' - The read set\'s status.
+--
+-- 'fileType', 'readSetListItem_fileType' - The read set\'s file type.
+--
+-- 'creationTime', 'readSetListItem_creationTime' - When the read set was created.
 newReadSetListItem ::
-  -- | 'arn'
-  Prelude.Text ->
-  -- | 'creationTime'
-  Prelude.UTCTime ->
-  -- | 'fileType'
-  FileType ->
   -- | 'id'
+  Prelude.Text ->
+  -- | 'arn'
   Prelude.Text ->
   -- | 'sequenceStoreId'
   Prelude.Text ->
   -- | 'status'
   ReadSetStatus ->
+  -- | 'fileType'
+  FileType ->
+  -- | 'creationTime'
+  Prelude.UTCTime ->
   ReadSetListItem
 newReadSetListItem
-  pArn_
-  pCreationTime_
-  pFileType_
   pId_
+  pArn_
   pSequenceStoreId_
-  pStatus_ =
+  pStatus_
+  pFileType_
+  pCreationTime_ =
     ReadSetListItem'
       { description = Prelude.Nothing,
         name = Prelude.Nothing,
         referenceArn = Prelude.Nothing,
         sampleId = Prelude.Nothing,
         sequenceInformation = Prelude.Nothing,
+        statusMessage = Prelude.Nothing,
         subjectId = Prelude.Nothing,
-        arn = pArn_,
-        creationTime = Data._Time Lens.# pCreationTime_,
-        fileType = pFileType_,
         id = pId_,
+        arn = pArn_,
         sequenceStoreId = pSequenceStoreId_,
-        status = pStatus_
+        status = pStatus_,
+        fileType = pFileType_,
+        creationTime = Data._Time Lens.# pCreationTime_
       }
 
 -- | The read set\'s description.
@@ -144,25 +151,22 @@ readSetListItem_sampleId = Lens.lens (\ReadSetListItem' {sampleId} -> sampleId) 
 readSetListItem_sequenceInformation :: Lens.Lens' ReadSetListItem (Prelude.Maybe SequenceInformation)
 readSetListItem_sequenceInformation = Lens.lens (\ReadSetListItem' {sequenceInformation} -> sequenceInformation) (\s@ReadSetListItem' {} a -> s {sequenceInformation = a} :: ReadSetListItem)
 
+-- | The status for a read set. It provides more detail as to why the read
+-- set has a status.
+readSetListItem_statusMessage :: Lens.Lens' ReadSetListItem (Prelude.Maybe Prelude.Text)
+readSetListItem_statusMessage = Lens.lens (\ReadSetListItem' {statusMessage} -> statusMessage) (\s@ReadSetListItem' {} a -> s {statusMessage = a} :: ReadSetListItem)
+
 -- | The read set\'s subject ID.
 readSetListItem_subjectId :: Lens.Lens' ReadSetListItem (Prelude.Maybe Prelude.Text)
 readSetListItem_subjectId = Lens.lens (\ReadSetListItem' {subjectId} -> subjectId) (\s@ReadSetListItem' {} a -> s {subjectId = a} :: ReadSetListItem)
 
--- | The read set\'s ARN.
-readSetListItem_arn :: Lens.Lens' ReadSetListItem Prelude.Text
-readSetListItem_arn = Lens.lens (\ReadSetListItem' {arn} -> arn) (\s@ReadSetListItem' {} a -> s {arn = a} :: ReadSetListItem)
-
--- | When the read set was created.
-readSetListItem_creationTime :: Lens.Lens' ReadSetListItem Prelude.UTCTime
-readSetListItem_creationTime = Lens.lens (\ReadSetListItem' {creationTime} -> creationTime) (\s@ReadSetListItem' {} a -> s {creationTime = a} :: ReadSetListItem) Prelude.. Data._Time
-
--- | The read set\'s file type.
-readSetListItem_fileType :: Lens.Lens' ReadSetListItem FileType
-readSetListItem_fileType = Lens.lens (\ReadSetListItem' {fileType} -> fileType) (\s@ReadSetListItem' {} a -> s {fileType = a} :: ReadSetListItem)
-
 -- | The read set\'s ID.
 readSetListItem_id :: Lens.Lens' ReadSetListItem Prelude.Text
 readSetListItem_id = Lens.lens (\ReadSetListItem' {id} -> id) (\s@ReadSetListItem' {} a -> s {id = a} :: ReadSetListItem)
+
+-- | The read set\'s ARN.
+readSetListItem_arn :: Lens.Lens' ReadSetListItem Prelude.Text
+readSetListItem_arn = Lens.lens (\ReadSetListItem' {arn} -> arn) (\s@ReadSetListItem' {} a -> s {arn = a} :: ReadSetListItem)
 
 -- | The read set\'s sequence store ID.
 readSetListItem_sequenceStoreId :: Lens.Lens' ReadSetListItem Prelude.Text
@@ -171,6 +175,14 @@ readSetListItem_sequenceStoreId = Lens.lens (\ReadSetListItem' {sequenceStoreId}
 -- | The read set\'s status.
 readSetListItem_status :: Lens.Lens' ReadSetListItem ReadSetStatus
 readSetListItem_status = Lens.lens (\ReadSetListItem' {status} -> status) (\s@ReadSetListItem' {} a -> s {status = a} :: ReadSetListItem)
+
+-- | The read set\'s file type.
+readSetListItem_fileType :: Lens.Lens' ReadSetListItem FileType
+readSetListItem_fileType = Lens.lens (\ReadSetListItem' {fileType} -> fileType) (\s@ReadSetListItem' {} a -> s {fileType = a} :: ReadSetListItem)
+
+-- | When the read set was created.
+readSetListItem_creationTime :: Lens.Lens' ReadSetListItem Prelude.UTCTime
+readSetListItem_creationTime = Lens.lens (\ReadSetListItem' {creationTime} -> creationTime) (\s@ReadSetListItem' {} a -> s {creationTime = a} :: ReadSetListItem) Prelude.. Data._Time
 
 instance Data.FromJSON ReadSetListItem where
   parseJSON =
@@ -183,29 +195,32 @@ instance Data.FromJSON ReadSetListItem where
             Prelude.<*> (x Data..:? "referenceArn")
             Prelude.<*> (x Data..:? "sampleId")
             Prelude.<*> (x Data..:? "sequenceInformation")
+            Prelude.<*> (x Data..:? "statusMessage")
             Prelude.<*> (x Data..:? "subjectId")
-            Prelude.<*> (x Data..: "arn")
-            Prelude.<*> (x Data..: "creationTime")
-            Prelude.<*> (x Data..: "fileType")
             Prelude.<*> (x Data..: "id")
+            Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "sequenceStoreId")
             Prelude.<*> (x Data..: "status")
+            Prelude.<*> (x Data..: "fileType")
+            Prelude.<*> (x Data..: "creationTime")
       )
 
 instance Prelude.Hashable ReadSetListItem where
   hashWithSalt _salt ReadSetListItem' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` referenceArn
       `Prelude.hashWithSalt` sampleId
       `Prelude.hashWithSalt` sequenceInformation
+      `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` subjectId
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` creationTime
-      `Prelude.hashWithSalt` fileType
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` sequenceStoreId
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` fileType
+      `Prelude.hashWithSalt` creationTime
 
 instance Prelude.NFData ReadSetListItem where
   rnf ReadSetListItem' {..} =
@@ -214,10 +229,11 @@ instance Prelude.NFData ReadSetListItem where
       `Prelude.seq` Prelude.rnf referenceArn
       `Prelude.seq` Prelude.rnf sampleId
       `Prelude.seq` Prelude.rnf sequenceInformation
+      `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf subjectId
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf fileType
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf sequenceStoreId
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf fileType
+      `Prelude.seq` Prelude.rnf creationTime

@@ -29,10 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAnnotationImportItemDetail' smart constructor.
 data AnnotationImportItemDetail = AnnotationImportItemDetail'
-  { -- | The item\'s job status.
-    jobStatus :: JobStatus,
-    -- | The source file\'s location in Amazon S3.
-    source :: Prelude.Text
+  { -- | The source file\'s location in Amazon S3.
+    source :: Prelude.Text,
+    -- | The item\'s job status.
+    jobStatus :: JobStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,29 +44,28 @@ data AnnotationImportItemDetail = AnnotationImportItemDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobStatus', 'annotationImportItemDetail_jobStatus' - The item\'s job status.
---
 -- 'source', 'annotationImportItemDetail_source' - The source file\'s location in Amazon S3.
+--
+-- 'jobStatus', 'annotationImportItemDetail_jobStatus' - The item\'s job status.
 newAnnotationImportItemDetail ::
-  -- | 'jobStatus'
-  JobStatus ->
   -- | 'source'
   Prelude.Text ->
+  -- | 'jobStatus'
+  JobStatus ->
   AnnotationImportItemDetail
-newAnnotationImportItemDetail pJobStatus_ pSource_ =
+newAnnotationImportItemDetail pSource_ pJobStatus_ =
   AnnotationImportItemDetail'
-    { jobStatus =
-        pJobStatus_,
-      source = pSource_
+    { source = pSource_,
+      jobStatus = pJobStatus_
     }
-
--- | The item\'s job status.
-annotationImportItemDetail_jobStatus :: Lens.Lens' AnnotationImportItemDetail JobStatus
-annotationImportItemDetail_jobStatus = Lens.lens (\AnnotationImportItemDetail' {jobStatus} -> jobStatus) (\s@AnnotationImportItemDetail' {} a -> s {jobStatus = a} :: AnnotationImportItemDetail)
 
 -- | The source file\'s location in Amazon S3.
 annotationImportItemDetail_source :: Lens.Lens' AnnotationImportItemDetail Prelude.Text
 annotationImportItemDetail_source = Lens.lens (\AnnotationImportItemDetail' {source} -> source) (\s@AnnotationImportItemDetail' {} a -> s {source = a} :: AnnotationImportItemDetail)
+
+-- | The item\'s job status.
+annotationImportItemDetail_jobStatus :: Lens.Lens' AnnotationImportItemDetail JobStatus
+annotationImportItemDetail_jobStatus = Lens.lens (\AnnotationImportItemDetail' {jobStatus} -> jobStatus) (\s@AnnotationImportItemDetail' {} a -> s {jobStatus = a} :: AnnotationImportItemDetail)
 
 instance Data.FromJSON AnnotationImportItemDetail where
   parseJSON =
@@ -74,16 +73,17 @@ instance Data.FromJSON AnnotationImportItemDetail where
       "AnnotationImportItemDetail"
       ( \x ->
           AnnotationImportItemDetail'
-            Prelude.<$> (x Data..: "jobStatus")
-            Prelude.<*> (x Data..: "source")
+            Prelude.<$> (x Data..: "source")
+            Prelude.<*> (x Data..: "jobStatus")
       )
 
 instance Prelude.Hashable AnnotationImportItemDetail where
   hashWithSalt _salt AnnotationImportItemDetail' {..} =
-    _salt `Prelude.hashWithSalt` jobStatus
+    _salt
       `Prelude.hashWithSalt` source
+      `Prelude.hashWithSalt` jobStatus
 
 instance Prelude.NFData AnnotationImportItemDetail where
   rnf AnnotationImportItemDetail' {..} =
-    Prelude.rnf jobStatus
-      `Prelude.seq` Prelude.rnf source
+    Prelude.rnf source
+      `Prelude.seq` Prelude.rnf jobStatus

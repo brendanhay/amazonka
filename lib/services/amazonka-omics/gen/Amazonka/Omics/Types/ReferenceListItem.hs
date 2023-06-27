@@ -35,16 +35,16 @@ data ReferenceListItem = ReferenceListItem'
     name :: Prelude.Maybe Prelude.Text,
     -- | The reference\'s status.
     status :: Prelude.Maybe ReferenceStatus,
-    -- | The reference\'s ARN.
-    arn :: Prelude.Text,
-    -- | When the reference was created.
-    creationTime :: Data.ISO8601,
     -- | The reference\'s ID.
     id :: Prelude.Text,
-    -- | The reference\'s MD5 checksum.
-    md5 :: Prelude.Text,
+    -- | The reference\'s ARN.
+    arn :: Prelude.Text,
     -- | The reference\'s store ID.
     referenceStoreId :: Prelude.Text,
+    -- | The reference\'s MD5 checksum.
+    md5 :: Prelude.Text,
+    -- | When the reference was created.
+    creationTime :: Data.ISO8601,
     -- | When the reference was updated.
     updateTime :: Data.ISO8601
   }
@@ -64,47 +64,47 @@ data ReferenceListItem = ReferenceListItem'
 --
 -- 'status', 'referenceListItem_status' - The reference\'s status.
 --
--- 'arn', 'referenceListItem_arn' - The reference\'s ARN.
---
--- 'creationTime', 'referenceListItem_creationTime' - When the reference was created.
---
 -- 'id', 'referenceListItem_id' - The reference\'s ID.
 --
--- 'md5', 'referenceListItem_md5' - The reference\'s MD5 checksum.
+-- 'arn', 'referenceListItem_arn' - The reference\'s ARN.
 --
 -- 'referenceStoreId', 'referenceListItem_referenceStoreId' - The reference\'s store ID.
 --
+-- 'md5', 'referenceListItem_md5' - The reference\'s MD5 checksum.
+--
+-- 'creationTime', 'referenceListItem_creationTime' - When the reference was created.
+--
 -- 'updateTime', 'referenceListItem_updateTime' - When the reference was updated.
 newReferenceListItem ::
-  -- | 'arn'
-  Prelude.Text ->
-  -- | 'creationTime'
-  Prelude.UTCTime ->
   -- | 'id'
   Prelude.Text ->
-  -- | 'md5'
+  -- | 'arn'
   Prelude.Text ->
   -- | 'referenceStoreId'
   Prelude.Text ->
+  -- | 'md5'
+  Prelude.Text ->
+  -- | 'creationTime'
+  Prelude.UTCTime ->
   -- | 'updateTime'
   Prelude.UTCTime ->
   ReferenceListItem
 newReferenceListItem
-  pArn_
-  pCreationTime_
   pId_
-  pMd5_
+  pArn_
   pReferenceStoreId_
+  pMd5_
+  pCreationTime_
   pUpdateTime_ =
     ReferenceListItem'
       { description = Prelude.Nothing,
         name = Prelude.Nothing,
         status = Prelude.Nothing,
-        arn = pArn_,
-        creationTime = Data._Time Lens.# pCreationTime_,
         id = pId_,
-        md5 = pMd5_,
+        arn = pArn_,
         referenceStoreId = pReferenceStoreId_,
+        md5 = pMd5_,
+        creationTime = Data._Time Lens.# pCreationTime_,
         updateTime = Data._Time Lens.# pUpdateTime_
       }
 
@@ -120,25 +120,25 @@ referenceListItem_name = Lens.lens (\ReferenceListItem' {name} -> name) (\s@Refe
 referenceListItem_status :: Lens.Lens' ReferenceListItem (Prelude.Maybe ReferenceStatus)
 referenceListItem_status = Lens.lens (\ReferenceListItem' {status} -> status) (\s@ReferenceListItem' {} a -> s {status = a} :: ReferenceListItem)
 
+-- | The reference\'s ID.
+referenceListItem_id :: Lens.Lens' ReferenceListItem Prelude.Text
+referenceListItem_id = Lens.lens (\ReferenceListItem' {id} -> id) (\s@ReferenceListItem' {} a -> s {id = a} :: ReferenceListItem)
+
 -- | The reference\'s ARN.
 referenceListItem_arn :: Lens.Lens' ReferenceListItem Prelude.Text
 referenceListItem_arn = Lens.lens (\ReferenceListItem' {arn} -> arn) (\s@ReferenceListItem' {} a -> s {arn = a} :: ReferenceListItem)
 
--- | When the reference was created.
-referenceListItem_creationTime :: Lens.Lens' ReferenceListItem Prelude.UTCTime
-referenceListItem_creationTime = Lens.lens (\ReferenceListItem' {creationTime} -> creationTime) (\s@ReferenceListItem' {} a -> s {creationTime = a} :: ReferenceListItem) Prelude.. Data._Time
-
--- | The reference\'s ID.
-referenceListItem_id :: Lens.Lens' ReferenceListItem Prelude.Text
-referenceListItem_id = Lens.lens (\ReferenceListItem' {id} -> id) (\s@ReferenceListItem' {} a -> s {id = a} :: ReferenceListItem)
+-- | The reference\'s store ID.
+referenceListItem_referenceStoreId :: Lens.Lens' ReferenceListItem Prelude.Text
+referenceListItem_referenceStoreId = Lens.lens (\ReferenceListItem' {referenceStoreId} -> referenceStoreId) (\s@ReferenceListItem' {} a -> s {referenceStoreId = a} :: ReferenceListItem)
 
 -- | The reference\'s MD5 checksum.
 referenceListItem_md5 :: Lens.Lens' ReferenceListItem Prelude.Text
 referenceListItem_md5 = Lens.lens (\ReferenceListItem' {md5} -> md5) (\s@ReferenceListItem' {} a -> s {md5 = a} :: ReferenceListItem)
 
--- | The reference\'s store ID.
-referenceListItem_referenceStoreId :: Lens.Lens' ReferenceListItem Prelude.Text
-referenceListItem_referenceStoreId = Lens.lens (\ReferenceListItem' {referenceStoreId} -> referenceStoreId) (\s@ReferenceListItem' {} a -> s {referenceStoreId = a} :: ReferenceListItem)
+-- | When the reference was created.
+referenceListItem_creationTime :: Lens.Lens' ReferenceListItem Prelude.UTCTime
+referenceListItem_creationTime = Lens.lens (\ReferenceListItem' {creationTime} -> creationTime) (\s@ReferenceListItem' {} a -> s {creationTime = a} :: ReferenceListItem) Prelude.. Data._Time
 
 -- | When the reference was updated.
 referenceListItem_updateTime :: Lens.Lens' ReferenceListItem Prelude.UTCTime
@@ -153,24 +153,25 @@ instance Data.FromJSON ReferenceListItem where
             Prelude.<$> (x Data..:? "description")
             Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "status")
-            Prelude.<*> (x Data..: "arn")
-            Prelude.<*> (x Data..: "creationTime")
             Prelude.<*> (x Data..: "id")
-            Prelude.<*> (x Data..: "md5")
+            Prelude.<*> (x Data..: "arn")
             Prelude.<*> (x Data..: "referenceStoreId")
+            Prelude.<*> (x Data..: "md5")
+            Prelude.<*> (x Data..: "creationTime")
             Prelude.<*> (x Data..: "updateTime")
       )
 
 instance Prelude.Hashable ReferenceListItem where
   hashWithSalt _salt ReferenceListItem' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
-      `Prelude.hashWithSalt` arn
-      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` md5
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` referenceStoreId
+      `Prelude.hashWithSalt` md5
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` updateTime
 
 instance Prelude.NFData ReferenceListItem where
@@ -178,9 +179,9 @@ instance Prelude.NFData ReferenceListItem where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf arn
-      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf md5
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf referenceStoreId
+      `Prelude.seq` Prelude.rnf md5
+      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf updateTime

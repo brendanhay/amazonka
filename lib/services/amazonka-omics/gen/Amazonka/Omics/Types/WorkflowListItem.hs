@@ -38,6 +38,9 @@ data WorkflowListItem = WorkflowListItem'
     digest :: Prelude.Maybe Prelude.Text,
     -- | The workflow\'s ID.
     id :: Prelude.Maybe Prelude.Text,
+    -- | Any metadata available for workflow. The information listed may vary
+    -- depending on the workflow, and there may also be no metadata to return.
+    metadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The workflow\'s name.
     name :: Prelude.Maybe Prelude.Text,
     -- | The workflow\'s status.
@@ -63,6 +66,9 @@ data WorkflowListItem = WorkflowListItem'
 --
 -- 'id', 'workflowListItem_id' - The workflow\'s ID.
 --
+-- 'metadata', 'workflowListItem_metadata' - Any metadata available for workflow. The information listed may vary
+-- depending on the workflow, and there may also be no metadata to return.
+--
 -- 'name', 'workflowListItem_name' - The workflow\'s name.
 --
 -- 'status', 'workflowListItem_status' - The workflow\'s status.
@@ -76,6 +82,7 @@ newWorkflowListItem =
       creationTime = Prelude.Nothing,
       digest = Prelude.Nothing,
       id = Prelude.Nothing,
+      metadata = Prelude.Nothing,
       name = Prelude.Nothing,
       status = Prelude.Nothing,
       type' = Prelude.Nothing
@@ -96,6 +103,11 @@ workflowListItem_digest = Lens.lens (\WorkflowListItem' {digest} -> digest) (\s@
 -- | The workflow\'s ID.
 workflowListItem_id :: Lens.Lens' WorkflowListItem (Prelude.Maybe Prelude.Text)
 workflowListItem_id = Lens.lens (\WorkflowListItem' {id} -> id) (\s@WorkflowListItem' {} a -> s {id = a} :: WorkflowListItem)
+
+-- | Any metadata available for workflow. The information listed may vary
+-- depending on the workflow, and there may also be no metadata to return.
+workflowListItem_metadata :: Lens.Lens' WorkflowListItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+workflowListItem_metadata = Lens.lens (\WorkflowListItem' {metadata} -> metadata) (\s@WorkflowListItem' {} a -> s {metadata = a} :: WorkflowListItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | The workflow\'s name.
 workflowListItem_name :: Lens.Lens' WorkflowListItem (Prelude.Maybe Prelude.Text)
@@ -119,6 +131,7 @@ instance Data.FromJSON WorkflowListItem where
             Prelude.<*> (x Data..:? "creationTime")
             Prelude.<*> (x Data..:? "digest")
             Prelude.<*> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "metadata" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "status")
             Prelude.<*> (x Data..:? "type")
@@ -126,10 +139,12 @@ instance Data.FromJSON WorkflowListItem where
 
 instance Prelude.Hashable WorkflowListItem where
   hashWithSalt _salt WorkflowListItem' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` digest
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` type'
@@ -140,6 +155,7 @@ instance Prelude.NFData WorkflowListItem where
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf digest
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf type'

@@ -20,7 +20,8 @@
 module Amazonka.Omics.Types.WorkflowType
   ( WorkflowType
       ( ..,
-        WorkflowType_PRIVATE
+        WorkflowType_PRIVATE,
+        WorkflowType_READY2RUN
       ),
   )
 where
@@ -60,7 +61,11 @@ newtype WorkflowType = WorkflowType'
 pattern WorkflowType_PRIVATE :: WorkflowType
 pattern WorkflowType_PRIVATE = WorkflowType' "PRIVATE"
 
+pattern WorkflowType_READY2RUN :: WorkflowType
+pattern WorkflowType_READY2RUN = WorkflowType' "READY2RUN"
+
 {-# COMPLETE
   WorkflowType_PRIVATE,
+  WorkflowType_READY2RUN,
   WorkflowType'
   #-}

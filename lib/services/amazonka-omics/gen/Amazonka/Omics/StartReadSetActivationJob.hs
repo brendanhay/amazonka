@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts a read set activation job.
+-- Activates an archived read set. To reduce storage charges, Amazon Omics
+-- archives unused read sets after 30 days.
 module Amazonka.Omics.StartReadSetActivationJob
   ( -- * Creating a Request
     StartReadSetActivationJob (..),
@@ -37,10 +38,10 @@ module Amazonka.Omics.StartReadSetActivationJob
 
     -- * Response Lenses
     startReadSetActivationJobResponse_httpStatus,
-    startReadSetActivationJobResponse_creationTime,
     startReadSetActivationJobResponse_id,
     startReadSetActivationJobResponse_sequenceStoreId,
     startReadSetActivationJobResponse_status,
+    startReadSetActivationJobResponse_creationTime,
   )
 where
 
@@ -59,7 +60,7 @@ data StartReadSetActivationJob = StartReadSetActivationJob'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The read set\'s sequence store ID.
     sequenceStoreId :: Prelude.Text,
-    -- | The job\'s sources.
+    -- | The job\'s source files.
     sources :: Prelude.NonEmpty StartReadSetActivationJobSourceItem
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,7 +78,7 @@ data StartReadSetActivationJob = StartReadSetActivationJob'
 --
 -- 'sequenceStoreId', 'startReadSetActivationJob_sequenceStoreId' - The read set\'s sequence store ID.
 --
--- 'sources', 'startReadSetActivationJob_sources' - The job\'s sources.
+-- 'sources', 'startReadSetActivationJob_sources' - The job\'s source files.
 newStartReadSetActivationJob ::
   -- | 'sequenceStoreId'
   Prelude.Text ->
@@ -103,7 +104,7 @@ startReadSetActivationJob_clientToken = Lens.lens (\StartReadSetActivationJob' {
 startReadSetActivationJob_sequenceStoreId :: Lens.Lens' StartReadSetActivationJob Prelude.Text
 startReadSetActivationJob_sequenceStoreId = Lens.lens (\StartReadSetActivationJob' {sequenceStoreId} -> sequenceStoreId) (\s@StartReadSetActivationJob' {} a -> s {sequenceStoreId = a} :: StartReadSetActivationJob)
 
--- | The job\'s sources.
+-- | The job\'s source files.
 startReadSetActivationJob_sources :: Lens.Lens' StartReadSetActivationJob (Prelude.NonEmpty StartReadSetActivationJobSourceItem)
 startReadSetActivationJob_sources = Lens.lens (\StartReadSetActivationJob' {sources} -> sources) (\s@StartReadSetActivationJob' {} a -> s {sources = a} :: StartReadSetActivationJob) Prelude.. Lens.coerced
 
@@ -118,15 +119,16 @@ instance Core.AWSRequest StartReadSetActivationJob where
       ( \s h x ->
           StartReadSetActivationJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "creationTime")
             Prelude.<*> (x Data..:> "id")
             Prelude.<*> (x Data..:> "sequenceStoreId")
             Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..:> "creationTime")
       )
 
 instance Prelude.Hashable StartReadSetActivationJob where
   hashWithSalt _salt StartReadSetActivationJob' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` sequenceStoreId
       `Prelude.hashWithSalt` sources
 
@@ -171,14 +173,14 @@ instance Data.ToQuery StartReadSetActivationJob where
 data StartReadSetActivationJobResponse = StartReadSetActivationJobResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | When the job was created.
-    creationTime :: Data.ISO8601,
     -- | The job\'s ID.
     id :: Prelude.Text,
     -- | The read set\'s sequence store ID.
     sequenceStoreId :: Prelude.Text,
     -- | The job\'s status.
-    status :: ReadSetActivationJobStatus
+    status :: ReadSetActivationJobStatus,
+    -- | When the job was created.
+    creationTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -192,48 +194,44 @@ data StartReadSetActivationJobResponse = StartReadSetActivationJobResponse'
 --
 -- 'httpStatus', 'startReadSetActivationJobResponse_httpStatus' - The response's http status code.
 --
--- 'creationTime', 'startReadSetActivationJobResponse_creationTime' - When the job was created.
---
 -- 'id', 'startReadSetActivationJobResponse_id' - The job\'s ID.
 --
 -- 'sequenceStoreId', 'startReadSetActivationJobResponse_sequenceStoreId' - The read set\'s sequence store ID.
 --
 -- 'status', 'startReadSetActivationJobResponse_status' - The job\'s status.
+--
+-- 'creationTime', 'startReadSetActivationJobResponse_creationTime' - When the job was created.
 newStartReadSetActivationJobResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'creationTime'
-  Prelude.UTCTime ->
   -- | 'id'
   Prelude.Text ->
   -- | 'sequenceStoreId'
   Prelude.Text ->
   -- | 'status'
   ReadSetActivationJobStatus ->
+  -- | 'creationTime'
+  Prelude.UTCTime ->
   StartReadSetActivationJobResponse
 newStartReadSetActivationJobResponse
   pHttpStatus_
-  pCreationTime_
   pId_
   pSequenceStoreId_
-  pStatus_ =
+  pStatus_
+  pCreationTime_ =
     StartReadSetActivationJobResponse'
       { httpStatus =
           pHttpStatus_,
-        creationTime =
-          Data._Time Lens.# pCreationTime_,
         id = pId_,
         sequenceStoreId = pSequenceStoreId_,
-        status = pStatus_
+        status = pStatus_,
+        creationTime =
+          Data._Time Lens.# pCreationTime_
       }
 
 -- | The response's http status code.
 startReadSetActivationJobResponse_httpStatus :: Lens.Lens' StartReadSetActivationJobResponse Prelude.Int
 startReadSetActivationJobResponse_httpStatus = Lens.lens (\StartReadSetActivationJobResponse' {httpStatus} -> httpStatus) (\s@StartReadSetActivationJobResponse' {} a -> s {httpStatus = a} :: StartReadSetActivationJobResponse)
-
--- | When the job was created.
-startReadSetActivationJobResponse_creationTime :: Lens.Lens' StartReadSetActivationJobResponse Prelude.UTCTime
-startReadSetActivationJobResponse_creationTime = Lens.lens (\StartReadSetActivationJobResponse' {creationTime} -> creationTime) (\s@StartReadSetActivationJobResponse' {} a -> s {creationTime = a} :: StartReadSetActivationJobResponse) Prelude.. Data._Time
 
 -- | The job\'s ID.
 startReadSetActivationJobResponse_id :: Lens.Lens' StartReadSetActivationJobResponse Prelude.Text
@@ -247,13 +245,17 @@ startReadSetActivationJobResponse_sequenceStoreId = Lens.lens (\StartReadSetActi
 startReadSetActivationJobResponse_status :: Lens.Lens' StartReadSetActivationJobResponse ReadSetActivationJobStatus
 startReadSetActivationJobResponse_status = Lens.lens (\StartReadSetActivationJobResponse' {status} -> status) (\s@StartReadSetActivationJobResponse' {} a -> s {status = a} :: StartReadSetActivationJobResponse)
 
+-- | When the job was created.
+startReadSetActivationJobResponse_creationTime :: Lens.Lens' StartReadSetActivationJobResponse Prelude.UTCTime
+startReadSetActivationJobResponse_creationTime = Lens.lens (\StartReadSetActivationJobResponse' {creationTime} -> creationTime) (\s@StartReadSetActivationJobResponse' {} a -> s {creationTime = a} :: StartReadSetActivationJobResponse) Prelude.. Data._Time
+
 instance
   Prelude.NFData
     StartReadSetActivationJobResponse
   where
   rnf StartReadSetActivationJobResponse' {..} =
     Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf sequenceStoreId
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf creationTime

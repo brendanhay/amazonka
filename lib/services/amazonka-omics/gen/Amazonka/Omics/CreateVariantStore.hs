@@ -40,10 +40,10 @@ module Amazonka.Omics.CreateVariantStore
     -- * Response Lenses
     createVariantStoreResponse_reference,
     createVariantStoreResponse_httpStatus,
-    createVariantStoreResponse_creationTime,
     createVariantStoreResponse_id,
-    createVariantStoreResponse_name,
     createVariantStoreResponse_status,
+    createVariantStoreResponse_name,
+    createVariantStoreResponse_creationTime,
   )
 where
 
@@ -132,15 +132,16 @@ instance Core.AWSRequest CreateVariantStore where
           CreateVariantStoreResponse'
             Prelude.<$> (x Data..?> "reference")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "creationTime")
             Prelude.<*> (x Data..:> "id")
-            Prelude.<*> (x Data..:> "name")
             Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..:> "name")
+            Prelude.<*> (x Data..:> "creationTime")
       )
 
 instance Prelude.Hashable CreateVariantStore where
   hashWithSalt _salt CreateVariantStore' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sseConfig
       `Prelude.hashWithSalt` tags
@@ -189,14 +190,14 @@ data CreateVariantStoreResponse = CreateVariantStoreResponse'
     reference :: Prelude.Maybe ReferenceItem,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | When the store was created.
-    creationTime :: Data.ISO8601,
     -- | The store\'s ID.
     id :: Prelude.Text,
+    -- | The store\'s status.
+    status :: StoreStatus,
     -- | The store\'s name.
     name :: Prelude.Text,
-    -- | The store\'s status.
-    status :: StoreStatus
+    -- | When the store was created.
+    creationTime :: Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -212,39 +213,39 @@ data CreateVariantStoreResponse = CreateVariantStoreResponse'
 --
 -- 'httpStatus', 'createVariantStoreResponse_httpStatus' - The response's http status code.
 --
--- 'creationTime', 'createVariantStoreResponse_creationTime' - When the store was created.
---
 -- 'id', 'createVariantStoreResponse_id' - The store\'s ID.
+--
+-- 'status', 'createVariantStoreResponse_status' - The store\'s status.
 --
 -- 'name', 'createVariantStoreResponse_name' - The store\'s name.
 --
--- 'status', 'createVariantStoreResponse_status' - The store\'s status.
+-- 'creationTime', 'createVariantStoreResponse_creationTime' - When the store was created.
 newCreateVariantStoreResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'creationTime'
-  Prelude.UTCTime ->
   -- | 'id'
-  Prelude.Text ->
-  -- | 'name'
   Prelude.Text ->
   -- | 'status'
   StoreStatus ->
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'creationTime'
+  Prelude.UTCTime ->
   CreateVariantStoreResponse
 newCreateVariantStoreResponse
   pHttpStatus_
-  pCreationTime_
   pId_
+  pStatus_
   pName_
-  pStatus_ =
+  pCreationTime_ =
     CreateVariantStoreResponse'
       { reference =
           Prelude.Nothing,
         httpStatus = pHttpStatus_,
-        creationTime = Data._Time Lens.# pCreationTime_,
         id = pId_,
+        status = pStatus_,
         name = pName_,
-        status = pStatus_
+        creationTime = Data._Time Lens.# pCreationTime_
       }
 
 -- | The store\'s genome reference.
@@ -255,27 +256,27 @@ createVariantStoreResponse_reference = Lens.lens (\CreateVariantStoreResponse' {
 createVariantStoreResponse_httpStatus :: Lens.Lens' CreateVariantStoreResponse Prelude.Int
 createVariantStoreResponse_httpStatus = Lens.lens (\CreateVariantStoreResponse' {httpStatus} -> httpStatus) (\s@CreateVariantStoreResponse' {} a -> s {httpStatus = a} :: CreateVariantStoreResponse)
 
--- | When the store was created.
-createVariantStoreResponse_creationTime :: Lens.Lens' CreateVariantStoreResponse Prelude.UTCTime
-createVariantStoreResponse_creationTime = Lens.lens (\CreateVariantStoreResponse' {creationTime} -> creationTime) (\s@CreateVariantStoreResponse' {} a -> s {creationTime = a} :: CreateVariantStoreResponse) Prelude.. Data._Time
-
 -- | The store\'s ID.
 createVariantStoreResponse_id :: Lens.Lens' CreateVariantStoreResponse Prelude.Text
 createVariantStoreResponse_id = Lens.lens (\CreateVariantStoreResponse' {id} -> id) (\s@CreateVariantStoreResponse' {} a -> s {id = a} :: CreateVariantStoreResponse)
-
--- | The store\'s name.
-createVariantStoreResponse_name :: Lens.Lens' CreateVariantStoreResponse Prelude.Text
-createVariantStoreResponse_name = Lens.lens (\CreateVariantStoreResponse' {name} -> name) (\s@CreateVariantStoreResponse' {} a -> s {name = a} :: CreateVariantStoreResponse)
 
 -- | The store\'s status.
 createVariantStoreResponse_status :: Lens.Lens' CreateVariantStoreResponse StoreStatus
 createVariantStoreResponse_status = Lens.lens (\CreateVariantStoreResponse' {status} -> status) (\s@CreateVariantStoreResponse' {} a -> s {status = a} :: CreateVariantStoreResponse)
 
+-- | The store\'s name.
+createVariantStoreResponse_name :: Lens.Lens' CreateVariantStoreResponse Prelude.Text
+createVariantStoreResponse_name = Lens.lens (\CreateVariantStoreResponse' {name} -> name) (\s@CreateVariantStoreResponse' {} a -> s {name = a} :: CreateVariantStoreResponse)
+
+-- | When the store was created.
+createVariantStoreResponse_creationTime :: Lens.Lens' CreateVariantStoreResponse Prelude.UTCTime
+createVariantStoreResponse_creationTime = Lens.lens (\CreateVariantStoreResponse' {creationTime} -> creationTime) (\s@CreateVariantStoreResponse' {} a -> s {creationTime = a} :: CreateVariantStoreResponse) Prelude.. Data._Time
+
 instance Prelude.NFData CreateVariantStoreResponse where
   rnf CreateVariantStoreResponse' {..} =
     Prelude.rnf reference
       `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf creationTime

@@ -38,8 +38,8 @@ module Amazonka.Omics.StartRun
     startRun_tags,
     startRun_workflowId,
     startRun_workflowType,
-    startRun_requestId,
     startRun_roleArn,
+    startRun_requestId,
 
     -- * Destructuring the Response
     StartRunResponse (..),
@@ -78,7 +78,7 @@ data StartRun = StartRun'
     runGroupId :: Prelude.Maybe Prelude.Text,
     -- | The run\'s ID.
     runId :: Prelude.Maybe Prelude.Text,
-    -- | A storage capacity for the run.
+    -- | A storage capacity for the run in gigabytes.
     storageCapacity :: Prelude.Maybe Prelude.Natural,
     -- | Tags for the run.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -86,10 +86,11 @@ data StartRun = StartRun'
     workflowId :: Prelude.Maybe Prelude.Text,
     -- | The run\'s workflows type.
     workflowType :: Prelude.Maybe WorkflowType,
-    -- | A request ID for the run.
-    requestId :: Prelude.Text,
     -- | A service role for the run.
-    roleArn :: Prelude.Text
+    roleArn :: Prelude.Text,
+    -- | To ensure that requests don\'t run multiple times, specify a unique ID
+    -- for each request.
+    requestId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -115,7 +116,7 @@ data StartRun = StartRun'
 --
 -- 'runId', 'startRun_runId' - The run\'s ID.
 --
--- 'storageCapacity', 'startRun_storageCapacity' - A storage capacity for the run.
+-- 'storageCapacity', 'startRun_storageCapacity' - A storage capacity for the run in gigabytes.
 --
 -- 'tags', 'startRun_tags' - Tags for the run.
 --
@@ -123,16 +124,17 @@ data StartRun = StartRun'
 --
 -- 'workflowType', 'startRun_workflowType' - The run\'s workflows type.
 --
--- 'requestId', 'startRun_requestId' - A request ID for the run.
---
 -- 'roleArn', 'startRun_roleArn' - A service role for the run.
+--
+-- 'requestId', 'startRun_requestId' - To ensure that requests don\'t run multiple times, specify a unique ID
+-- for each request.
 newStartRun ::
-  -- | 'requestId'
-  Prelude.Text ->
   -- | 'roleArn'
   Prelude.Text ->
+  -- | 'requestId'
+  Prelude.Text ->
   StartRun
-newStartRun pRequestId_ pRoleArn_ =
+newStartRun pRoleArn_ pRequestId_ =
   StartRun'
     { logLevel = Prelude.Nothing,
       name = Prelude.Nothing,
@@ -145,8 +147,8 @@ newStartRun pRequestId_ pRoleArn_ =
       tags = Prelude.Nothing,
       workflowId = Prelude.Nothing,
       workflowType = Prelude.Nothing,
-      requestId = pRequestId_,
-      roleArn = pRoleArn_
+      roleArn = pRoleArn_,
+      requestId = pRequestId_
     }
 
 -- | A log level for the run.
@@ -177,7 +179,7 @@ startRun_runGroupId = Lens.lens (\StartRun' {runGroupId} -> runGroupId) (\s@Star
 startRun_runId :: Lens.Lens' StartRun (Prelude.Maybe Prelude.Text)
 startRun_runId = Lens.lens (\StartRun' {runId} -> runId) (\s@StartRun' {} a -> s {runId = a} :: StartRun)
 
--- | A storage capacity for the run.
+-- | A storage capacity for the run in gigabytes.
 startRun_storageCapacity :: Lens.Lens' StartRun (Prelude.Maybe Prelude.Natural)
 startRun_storageCapacity = Lens.lens (\StartRun' {storageCapacity} -> storageCapacity) (\s@StartRun' {} a -> s {storageCapacity = a} :: StartRun)
 
@@ -193,13 +195,14 @@ startRun_workflowId = Lens.lens (\StartRun' {workflowId} -> workflowId) (\s@Star
 startRun_workflowType :: Lens.Lens' StartRun (Prelude.Maybe WorkflowType)
 startRun_workflowType = Lens.lens (\StartRun' {workflowType} -> workflowType) (\s@StartRun' {} a -> s {workflowType = a} :: StartRun)
 
--- | A request ID for the run.
-startRun_requestId :: Lens.Lens' StartRun Prelude.Text
-startRun_requestId = Lens.lens (\StartRun' {requestId} -> requestId) (\s@StartRun' {} a -> s {requestId = a} :: StartRun)
-
 -- | A service role for the run.
 startRun_roleArn :: Lens.Lens' StartRun Prelude.Text
 startRun_roleArn = Lens.lens (\StartRun' {roleArn} -> roleArn) (\s@StartRun' {} a -> s {roleArn = a} :: StartRun)
+
+-- | To ensure that requests don\'t run multiple times, specify a unique ID
+-- for each request.
+startRun_requestId :: Lens.Lens' StartRun Prelude.Text
+startRun_requestId = Lens.lens (\StartRun' {requestId} -> requestId) (\s@StartRun' {} a -> s {requestId = a} :: StartRun)
 
 instance Core.AWSRequest StartRun where
   type AWSResponse StartRun = StartRunResponse
@@ -218,7 +221,8 @@ instance Core.AWSRequest StartRun where
 
 instance Prelude.Hashable StartRun where
   hashWithSalt _salt StartRun' {..} =
-    _salt `Prelude.hashWithSalt` logLevel
+    _salt
+      `Prelude.hashWithSalt` logLevel
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` outputUri
       `Prelude.hashWithSalt` parameters
@@ -229,8 +233,8 @@ instance Prelude.Hashable StartRun where
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` workflowId
       `Prelude.hashWithSalt` workflowType
-      `Prelude.hashWithSalt` requestId
       `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` requestId
 
 instance Prelude.NFData StartRun where
   rnf StartRun' {..} =
@@ -245,8 +249,8 @@ instance Prelude.NFData StartRun where
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf workflowId
       `Prelude.seq` Prelude.rnf workflowType
-      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf requestId
 
 instance Data.ToHeaders StartRun where
   toHeaders =
@@ -275,8 +279,8 @@ instance Data.ToJSON StartRun where
             ("tags" Data..=) Prelude.<$> tags,
             ("workflowId" Data..=) Prelude.<$> workflowId,
             ("workflowType" Data..=) Prelude.<$> workflowType,
-            Prelude.Just ("requestId" Data..= requestId),
-            Prelude.Just ("roleArn" Data..= roleArn)
+            Prelude.Just ("roleArn" Data..= roleArn),
+            Prelude.Just ("requestId" Data..= requestId)
           ]
       )
 

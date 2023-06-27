@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a managed endpoint. A managed endpoint is a gateway that
--- connects EMR Studio to Amazon EMR on EKS so that EMR Studio can
--- communicate with your virtual cluster.
+-- connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR
+-- Studio can communicate with your virtual cluster.
 module Amazonka.EMRContainers.DeleteManagedEndpoint
   ( -- * Creating a Request
     DeleteManagedEndpoint (..),
@@ -108,7 +108,8 @@ instance Core.AWSRequest DeleteManagedEndpoint where
 
 instance Prelude.Hashable DeleteManagedEndpoint where
   hashWithSalt _salt DeleteManagedEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` virtualClusterId
 
 instance Prelude.NFData DeleteManagedEndpoint where

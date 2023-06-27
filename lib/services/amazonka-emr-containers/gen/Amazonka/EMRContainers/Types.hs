@@ -19,6 +19,7 @@ module Amazonka.EMRContainers.Types
 
     -- * Errors
     _InternalServerException,
+    _RequestThrottledException,
     _ResourceNotFoundException,
     _ValidationException,
 
@@ -73,12 +74,23 @@ module Amazonka.EMRContainers.Types
     newContainerInfo,
     containerInfo_eksInfo,
 
+    -- * ContainerLogRotationConfiguration
+    ContainerLogRotationConfiguration (..),
+    newContainerLogRotationConfiguration,
+    containerLogRotationConfiguration_rotationSize,
+    containerLogRotationConfiguration_maxFilesToKeep,
+
     -- * ContainerProvider
     ContainerProvider (..),
     newContainerProvider,
     containerProvider_info,
     containerProvider_type,
     containerProvider_id,
+
+    -- * Credentials
+    Credentials (..),
+    newCredentials,
+    credentials_token,
 
     -- * EksInfo
     EksInfo (..),
@@ -128,6 +140,8 @@ module Amazonka.EMRContainers.Types
     jobRun_jobDriver,
     jobRun_name,
     jobRun_releaseLabel,
+    jobRun_retryPolicyConfiguration,
+    jobRun_retryPolicyExecution,
     jobRun_state,
     jobRun_stateDetails,
     jobRun_tags,
@@ -160,6 +174,7 @@ module Amazonka.EMRContainers.Types
     MonitoringConfiguration (..),
     newMonitoringConfiguration,
     monitoringConfiguration_cloudWatchMonitoringConfiguration,
+    monitoringConfiguration_containerLogRotationConfiguration,
     monitoringConfiguration_persistentAppUI,
     monitoringConfiguration_s3MonitoringConfiguration,
 
@@ -186,6 +201,16 @@ module Amazonka.EMRContainers.Types
     ParametricS3MonitoringConfiguration (..),
     newParametricS3MonitoringConfiguration,
     parametricS3MonitoringConfiguration_logUri,
+
+    -- * RetryPolicyConfiguration
+    RetryPolicyConfiguration (..),
+    newRetryPolicyConfiguration,
+    retryPolicyConfiguration_maxAttempts,
+
+    -- * RetryPolicyExecution
+    RetryPolicyExecution (..),
+    newRetryPolicyExecution,
+    retryPolicyExecution_currentAttemptCount,
 
     -- * S3MonitoringConfiguration
     S3MonitoringConfiguration (..),
@@ -231,8 +256,10 @@ import Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration
 import Amazonka.EMRContainers.Types.Configuration
 import Amazonka.EMRContainers.Types.ConfigurationOverrides
 import Amazonka.EMRContainers.Types.ContainerInfo
+import Amazonka.EMRContainers.Types.ContainerLogRotationConfiguration
 import Amazonka.EMRContainers.Types.ContainerProvider
 import Amazonka.EMRContainers.Types.ContainerProviderType
+import Amazonka.EMRContainers.Types.Credentials
 import Amazonka.EMRContainers.Types.EksInfo
 import Amazonka.EMRContainers.Types.Endpoint
 import Amazonka.EMRContainers.Types.EndpointState
@@ -248,6 +275,8 @@ import Amazonka.EMRContainers.Types.ParametricConfigurationOverrides
 import Amazonka.EMRContainers.Types.ParametricMonitoringConfiguration
 import Amazonka.EMRContainers.Types.ParametricS3MonitoringConfiguration
 import Amazonka.EMRContainers.Types.PersistentAppUI
+import Amazonka.EMRContainers.Types.RetryPolicyConfiguration
+import Amazonka.EMRContainers.Types.RetryPolicyExecution
 import Amazonka.EMRContainers.Types.S3MonitoringConfiguration
 import Amazonka.EMRContainers.Types.SparkSqlJobDriver
 import Amazonka.EMRContainers.Types.SparkSubmitJobDriver
@@ -284,60 +313,68 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | This is an internal server exception.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
 
+-- | The request throttled.
+_RequestThrottledException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_RequestThrottledException =
+  Core._MatchServiceError
+    defaultService
+    "RequestThrottledException"
+    Prelude.. Core.hasStatus 400
+
 -- | The specified resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -345,7 +382,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 400
 
 -- | There are invalid parameters in the client request.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

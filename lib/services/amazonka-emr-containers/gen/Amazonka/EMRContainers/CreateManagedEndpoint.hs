@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a managed endpoint. A managed endpoint is a gateway that
--- connects EMR Studio to Amazon EMR on EKS so that EMR Studio can
--- communicate with your virtual cluster.
+-- connects Amazon EMR Studio to Amazon EMR on EKS so that Amazon EMR
+-- Studio can communicate with your virtual cluster.
 module Amazonka.EMRContainers.CreateManagedEndpoint
   ( -- * Creating a Request
     CreateManagedEndpoint (..),
@@ -203,7 +203,8 @@ instance Core.AWSRequest CreateManagedEndpoint where
 
 instance Prelude.Hashable CreateManagedEndpoint where
   hashWithSalt _salt CreateManagedEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` configurationOverrides
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

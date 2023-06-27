@@ -17,7 +17,7 @@
 -- focus on running analytics workloads while Amazon EMR on EKS builds,
 -- configures, and manages containers for open-source applications. For
 -- more information about Amazon EMR on EKS concepts and tasks, see
--- <https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks.html What is Amazon EMR on EKS>.
+-- <https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks.html What is shared id=\"EMR-EKS\"\/>>.
 --
 -- /Amazon EMR containers/ is the API name for Amazon EMR on EKS. The
 -- @emr-containers@ prefix is used in the following scenarios:
@@ -33,7 +33,7 @@
 -- -   It is the prefix used in Amazon EMR on EKS service endpoints. For
 --     example, @emr-containers.us-east-2.amazonaws.com@. For more
 --     information, see
---     <https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/service-quotas.html#service-endpoints Amazon EMR on EKS Service Endpoints>.
+--     <https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/service-quotas.html#service-endpoints Amazon EMR on EKSService Endpoints>.
 module Amazonka.EMRContainers
   ( -- * Service Configuration
     defaultService,
@@ -43,6 +43,9 @@ module Amazonka.EMRContainers
 
     -- ** InternalServerException
     _InternalServerException,
+
+    -- ** RequestThrottledException
+    _RequestThrottledException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -121,6 +124,12 @@ module Amazonka.EMRContainers
     newDescribeVirtualCluster,
     DescribeVirtualClusterResponse (DescribeVirtualClusterResponse'),
     newDescribeVirtualClusterResponse,
+
+    -- ** GetManagedEndpointSessionCredentials
+    GetManagedEndpointSessionCredentials (GetManagedEndpointSessionCredentials'),
+    newGetManagedEndpointSessionCredentials,
+    GetManagedEndpointSessionCredentialsResponse (GetManagedEndpointSessionCredentialsResponse'),
+    newGetManagedEndpointSessionCredentialsResponse,
 
     -- ** ListJobRuns (Paginated)
     ListJobRuns (ListJobRuns'),
@@ -213,9 +222,17 @@ module Amazonka.EMRContainers
     ContainerInfo (ContainerInfo'),
     newContainerInfo,
 
+    -- ** ContainerLogRotationConfiguration
+    ContainerLogRotationConfiguration (ContainerLogRotationConfiguration'),
+    newContainerLogRotationConfiguration,
+
     -- ** ContainerProvider
     ContainerProvider (ContainerProvider'),
     newContainerProvider,
+
+    -- ** Credentials
+    Credentials (Credentials'),
+    newCredentials,
 
     -- ** EksInfo
     EksInfo (EksInfo'),
@@ -261,6 +278,14 @@ module Amazonka.EMRContainers
     ParametricS3MonitoringConfiguration (ParametricS3MonitoringConfiguration'),
     newParametricS3MonitoringConfiguration,
 
+    -- ** RetryPolicyConfiguration
+    RetryPolicyConfiguration (RetryPolicyConfiguration'),
+    newRetryPolicyConfiguration,
+
+    -- ** RetryPolicyExecution
+    RetryPolicyExecution (RetryPolicyExecution'),
+    newRetryPolicyExecution,
+
     -- ** S3MonitoringConfiguration
     S3MonitoringConfiguration (S3MonitoringConfiguration'),
     newS3MonitoringConfiguration,
@@ -294,6 +319,7 @@ import Amazonka.EMRContainers.DescribeJobRun
 import Amazonka.EMRContainers.DescribeJobTemplate
 import Amazonka.EMRContainers.DescribeManagedEndpoint
 import Amazonka.EMRContainers.DescribeVirtualCluster
+import Amazonka.EMRContainers.GetManagedEndpointSessionCredentials
 import Amazonka.EMRContainers.Lens
 import Amazonka.EMRContainers.ListJobRuns
 import Amazonka.EMRContainers.ListJobTemplates

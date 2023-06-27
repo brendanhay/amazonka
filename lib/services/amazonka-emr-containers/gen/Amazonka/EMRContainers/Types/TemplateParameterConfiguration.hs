@@ -31,8 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 data TemplateParameterConfiguration = TemplateParameterConfiguration'
   { -- | The default value for the job template parameter.
     defaultValue :: Prelude.Maybe Prelude.Text,
-    -- | The type of the job template parameter. Allowed values are: ‘String’,
-    -- ‘Number’.
+    -- | The type of the job template parameter. Allowed values are: ‘STRING’,
+    -- ‘NUMBER’.
     type' :: Prelude.Maybe TemplateParameterDataType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,8 +47,8 @@ data TemplateParameterConfiguration = TemplateParameterConfiguration'
 --
 -- 'defaultValue', 'templateParameterConfiguration_defaultValue' - The default value for the job template parameter.
 --
--- 'type'', 'templateParameterConfiguration_type' - The type of the job template parameter. Allowed values are: ‘String’,
--- ‘Number’.
+-- 'type'', 'templateParameterConfiguration_type' - The type of the job template parameter. Allowed values are: ‘STRING’,
+-- ‘NUMBER’.
 newTemplateParameterConfiguration ::
   TemplateParameterConfiguration
 newTemplateParameterConfiguration =
@@ -62,8 +62,8 @@ newTemplateParameterConfiguration =
 templateParameterConfiguration_defaultValue :: Lens.Lens' TemplateParameterConfiguration (Prelude.Maybe Prelude.Text)
 templateParameterConfiguration_defaultValue = Lens.lens (\TemplateParameterConfiguration' {defaultValue} -> defaultValue) (\s@TemplateParameterConfiguration' {} a -> s {defaultValue = a} :: TemplateParameterConfiguration)
 
--- | The type of the job template parameter. Allowed values are: ‘String’,
--- ‘Number’.
+-- | The type of the job template parameter. Allowed values are: ‘STRING’,
+-- ‘NUMBER’.
 templateParameterConfiguration_type :: Lens.Lens' TemplateParameterConfiguration (Prelude.Maybe TemplateParameterDataType)
 templateParameterConfiguration_type = Lens.lens (\TemplateParameterConfiguration' {type'} -> type') (\s@TemplateParameterConfiguration' {} a -> s {type' = a} :: TemplateParameterConfiguration)
 
@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     TemplateParameterConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` defaultValue
+      _salt
+        `Prelude.hashWithSalt` defaultValue
         `Prelude.hashWithSalt` type'
 
 instance

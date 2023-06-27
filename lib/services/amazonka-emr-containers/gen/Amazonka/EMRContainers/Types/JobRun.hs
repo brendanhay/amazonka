@@ -26,6 +26,8 @@ import Amazonka.EMRContainers.Types.ConfigurationOverrides
 import Amazonka.EMRContainers.Types.FailureReason
 import Amazonka.EMRContainers.Types.JobDriver
 import Amazonka.EMRContainers.Types.JobRunState
+import Amazonka.EMRContainers.Types.RetryPolicyConfiguration
+import Amazonka.EMRContainers.Types.RetryPolicyExecution
 import qualified Amazonka.Prelude as Prelude
 
 -- | This entity describes a job run. A job run is a unit of work, such as a
@@ -59,6 +61,10 @@ data JobRun = JobRun'
     name :: Prelude.Maybe Prelude.Text,
     -- | The release version of Amazon EMR.
     releaseLabel :: Prelude.Maybe Prelude.Text,
+    -- | The configuration of the retry policy that the job runs on.
+    retryPolicyConfiguration :: Prelude.Maybe RetryPolicyConfiguration,
+    -- | The current status of the retry policy executed on the job.
+    retryPolicyExecution :: Prelude.Maybe RetryPolicyExecution,
     -- | The state of the job run.
     state :: Prelude.Maybe JobRunState,
     -- | Additional details of the job run state.
@@ -103,6 +109,10 @@ data JobRun = JobRun'
 --
 -- 'releaseLabel', 'jobRun_releaseLabel' - The release version of Amazon EMR.
 --
+-- 'retryPolicyConfiguration', 'jobRun_retryPolicyConfiguration' - The configuration of the retry policy that the job runs on.
+--
+-- 'retryPolicyExecution', 'jobRun_retryPolicyExecution' - The current status of the retry policy executed on the job.
+--
 -- 'state', 'jobRun_state' - The state of the job run.
 --
 -- 'stateDetails', 'jobRun_stateDetails' - Additional details of the job run state.
@@ -126,6 +136,8 @@ newJobRun =
       jobDriver = Prelude.Nothing,
       name = Prelude.Nothing,
       releaseLabel = Prelude.Nothing,
+      retryPolicyConfiguration = Prelude.Nothing,
+      retryPolicyExecution = Prelude.Nothing,
       state = Prelude.Nothing,
       stateDetails = Prelude.Nothing,
       tags = Prelude.Nothing,
@@ -181,6 +193,14 @@ jobRun_name = Lens.lens (\JobRun' {name} -> name) (\s@JobRun' {} a -> s {name = 
 jobRun_releaseLabel :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Text)
 jobRun_releaseLabel = Lens.lens (\JobRun' {releaseLabel} -> releaseLabel) (\s@JobRun' {} a -> s {releaseLabel = a} :: JobRun)
 
+-- | The configuration of the retry policy that the job runs on.
+jobRun_retryPolicyConfiguration :: Lens.Lens' JobRun (Prelude.Maybe RetryPolicyConfiguration)
+jobRun_retryPolicyConfiguration = Lens.lens (\JobRun' {retryPolicyConfiguration} -> retryPolicyConfiguration) (\s@JobRun' {} a -> s {retryPolicyConfiguration = a} :: JobRun)
+
+-- | The current status of the retry policy executed on the job.
+jobRun_retryPolicyExecution :: Lens.Lens' JobRun (Prelude.Maybe RetryPolicyExecution)
+jobRun_retryPolicyExecution = Lens.lens (\JobRun' {retryPolicyExecution} -> retryPolicyExecution) (\s@JobRun' {} a -> s {retryPolicyExecution = a} :: JobRun)
+
 -- | The state of the job run.
 jobRun_state :: Lens.Lens' JobRun (Prelude.Maybe JobRunState)
 jobRun_state = Lens.lens (\JobRun' {state} -> state) (\s@JobRun' {} a -> s {state = a} :: JobRun)
@@ -215,6 +235,8 @@ instance Data.FromJSON JobRun where
             Prelude.<*> (x Data..:? "jobDriver")
             Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "releaseLabel")
+            Prelude.<*> (x Data..:? "retryPolicyConfiguration")
+            Prelude.<*> (x Data..:? "retryPolicyExecution")
             Prelude.<*> (x Data..:? "state")
             Prelude.<*> (x Data..:? "stateDetails")
             Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
@@ -223,7 +245,8 @@ instance Data.FromJSON JobRun where
 
 instance Prelude.Hashable JobRun where
   hashWithSalt _salt JobRun' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` configurationOverrides
       `Prelude.hashWithSalt` createdAt
@@ -235,6 +258,8 @@ instance Prelude.Hashable JobRun where
       `Prelude.hashWithSalt` jobDriver
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` releaseLabel
+      `Prelude.hashWithSalt` retryPolicyConfiguration
+      `Prelude.hashWithSalt` retryPolicyExecution
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` stateDetails
       `Prelude.hashWithSalt` tags
@@ -254,6 +279,8 @@ instance Prelude.NFData JobRun where
       `Prelude.seq` Prelude.rnf jobDriver
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf releaseLabel
+      `Prelude.seq` Prelude.rnf retryPolicyConfiguration
+      `Prelude.seq` Prelude.rnf retryPolicyExecution
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf stateDetails
       `Prelude.seq` Prelude.rnf tags

@@ -98,6 +98,19 @@ module Amazonka.EMRContainers.Lens
     describeVirtualClusterResponse_virtualCluster,
     describeVirtualClusterResponse_httpStatus,
 
+    -- ** GetManagedEndpointSessionCredentials
+    getManagedEndpointSessionCredentials_clientToken,
+    getManagedEndpointSessionCredentials_durationInSeconds,
+    getManagedEndpointSessionCredentials_logContext,
+    getManagedEndpointSessionCredentials_executionRoleArn,
+    getManagedEndpointSessionCredentials_credentialType,
+    getManagedEndpointSessionCredentials_endpointIdentifier,
+    getManagedEndpointSessionCredentials_virtualClusterIdentifier,
+    getManagedEndpointSessionCredentialsResponse_credentials,
+    getManagedEndpointSessionCredentialsResponse_expiresAt,
+    getManagedEndpointSessionCredentialsResponse_id,
+    getManagedEndpointSessionCredentialsResponse_httpStatus,
+
     -- ** ListJobRuns
     listJobRuns_createdAfter,
     listJobRuns_createdBefore,
@@ -156,6 +169,7 @@ module Amazonka.EMRContainers.Lens
     startJobRun_jobTemplateParameters,
     startJobRun_name,
     startJobRun_releaseLabel,
+    startJobRun_retryPolicyConfiguration,
     startJobRun_tags,
     startJobRun_virtualClusterId,
     startJobRun_clientToken,
@@ -197,10 +211,17 @@ module Amazonka.EMRContainers.Lens
     -- ** ContainerInfo
     containerInfo_eksInfo,
 
+    -- ** ContainerLogRotationConfiguration
+    containerLogRotationConfiguration_rotationSize,
+    containerLogRotationConfiguration_maxFilesToKeep,
+
     -- ** ContainerProvider
     containerProvider_info,
     containerProvider_type,
     containerProvider_id,
+
+    -- ** Credentials
+    credentials_token,
 
     -- ** EksInfo
     eksInfo_namespace,
@@ -242,6 +263,8 @@ module Amazonka.EMRContainers.Lens
     jobRun_jobDriver,
     jobRun_name,
     jobRun_releaseLabel,
+    jobRun_retryPolicyConfiguration,
+    jobRun_retryPolicyExecution,
     jobRun_state,
     jobRun_stateDetails,
     jobRun_tags,
@@ -268,6 +291,7 @@ module Amazonka.EMRContainers.Lens
 
     -- ** MonitoringConfiguration
     monitoringConfiguration_cloudWatchMonitoringConfiguration,
+    monitoringConfiguration_containerLogRotationConfiguration,
     monitoringConfiguration_persistentAppUI,
     monitoringConfiguration_s3MonitoringConfiguration,
 
@@ -286,6 +310,12 @@ module Amazonka.EMRContainers.Lens
 
     -- ** ParametricS3MonitoringConfiguration
     parametricS3MonitoringConfiguration_logUri,
+
+    -- ** RetryPolicyConfiguration
+    retryPolicyConfiguration_maxAttempts,
+
+    -- ** RetryPolicyExecution
+    retryPolicyExecution_currentAttemptCount,
 
     -- ** S3MonitoringConfiguration
     s3MonitoringConfiguration_logUri,
@@ -325,6 +355,7 @@ import Amazonka.EMRContainers.DescribeJobRun
 import Amazonka.EMRContainers.DescribeJobTemplate
 import Amazonka.EMRContainers.DescribeManagedEndpoint
 import Amazonka.EMRContainers.DescribeVirtualCluster
+import Amazonka.EMRContainers.GetManagedEndpointSessionCredentials
 import Amazonka.EMRContainers.ListJobRuns
 import Amazonka.EMRContainers.ListJobTemplates
 import Amazonka.EMRContainers.ListManagedEndpoints
@@ -337,7 +368,9 @@ import Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration
 import Amazonka.EMRContainers.Types.Configuration
 import Amazonka.EMRContainers.Types.ConfigurationOverrides
 import Amazonka.EMRContainers.Types.ContainerInfo
+import Amazonka.EMRContainers.Types.ContainerLogRotationConfiguration
 import Amazonka.EMRContainers.Types.ContainerProvider
+import Amazonka.EMRContainers.Types.Credentials
 import Amazonka.EMRContainers.Types.EksInfo
 import Amazonka.EMRContainers.Types.Endpoint
 import Amazonka.EMRContainers.Types.JobDriver
@@ -349,6 +382,8 @@ import Amazonka.EMRContainers.Types.ParametricCloudWatchMonitoringConfiguration
 import Amazonka.EMRContainers.Types.ParametricConfigurationOverrides
 import Amazonka.EMRContainers.Types.ParametricMonitoringConfiguration
 import Amazonka.EMRContainers.Types.ParametricS3MonitoringConfiguration
+import Amazonka.EMRContainers.Types.RetryPolicyConfiguration
+import Amazonka.EMRContainers.Types.RetryPolicyExecution
 import Amazonka.EMRContainers.Types.S3MonitoringConfiguration
 import Amazonka.EMRContainers.Types.SparkSqlJobDriver
 import Amazonka.EMRContainers.Types.SparkSubmitJobDriver

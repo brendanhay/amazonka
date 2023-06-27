@@ -151,7 +151,8 @@ instance Data.FromJSON JobTemplate where
 
 instance Prelude.Hashable JobTemplate where
   hashWithSalt _salt JobTemplate' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` decryptionError

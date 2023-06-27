@@ -65,8 +65,8 @@ import qualified Amazonka.Response as Response
 data ListVirtualClusters = ListVirtualClusters'
   { -- | The container provider ID of the virtual cluster.
     containerProviderId :: Prelude.Maybe Prelude.Text,
-    -- | The container provider type of the virtual cluster. EKS is the only
-    -- supported type as of now.
+    -- | The container provider type of the virtual cluster. Amazon EKS is the
+    -- only supported type as of now.
     containerProviderType :: Prelude.Maybe ContainerProviderType,
     -- | The date and time after which the virtual clusters are created.
     createdAfter :: Prelude.Maybe Data.ISO8601,
@@ -91,8 +91,8 @@ data ListVirtualClusters = ListVirtualClusters'
 --
 -- 'containerProviderId', 'listVirtualClusters_containerProviderId' - The container provider ID of the virtual cluster.
 --
--- 'containerProviderType', 'listVirtualClusters_containerProviderType' - The container provider type of the virtual cluster. EKS is the only
--- supported type as of now.
+-- 'containerProviderType', 'listVirtualClusters_containerProviderType' - The container provider type of the virtual cluster. Amazon EKS is the
+-- only supported type as of now.
 --
 -- 'createdAfter', 'listVirtualClusters_createdAfter' - The date and time after which the virtual clusters are created.
 --
@@ -121,8 +121,8 @@ newListVirtualClusters =
 listVirtualClusters_containerProviderId :: Lens.Lens' ListVirtualClusters (Prelude.Maybe Prelude.Text)
 listVirtualClusters_containerProviderId = Lens.lens (\ListVirtualClusters' {containerProviderId} -> containerProviderId) (\s@ListVirtualClusters' {} a -> s {containerProviderId = a} :: ListVirtualClusters)
 
--- | The container provider type of the virtual cluster. EKS is the only
--- supported type as of now.
+-- | The container provider type of the virtual cluster. Amazon EKS is the
+-- only supported type as of now.
 listVirtualClusters_containerProviderType :: Lens.Lens' ListVirtualClusters (Prelude.Maybe ContainerProviderType)
 listVirtualClusters_containerProviderType = Lens.lens (\ListVirtualClusters' {containerProviderType} -> containerProviderType) (\s@ListVirtualClusters' {} a -> s {containerProviderType = a} :: ListVirtualClusters)
 
@@ -151,22 +151,22 @@ instance Core.AWSPager ListVirtualClusters where
     | Core.stop
         ( rs
             Lens.^? listVirtualClustersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listVirtualClustersResponse_virtualClusters
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listVirtualClusters_nextToken
           Lens..~ rs
           Lens.^? listVirtualClustersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVirtualClusters where
   type
@@ -179,7 +179,8 @@ instance Core.AWSRequest ListVirtualClusters where
       ( \s h x ->
           ListVirtualClustersResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "virtualClusters"
+            Prelude.<*> ( x
+                            Data..?> "virtualClusters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -187,7 +188,8 @@ instance Core.AWSRequest ListVirtualClusters where
 
 instance Prelude.Hashable ListVirtualClusters where
   hashWithSalt _salt ListVirtualClusters' {..} =
-    _salt `Prelude.hashWithSalt` containerProviderId
+    _salt
+      `Prelude.hashWithSalt` containerProviderId
       `Prelude.hashWithSalt` containerProviderType
       `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore

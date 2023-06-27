@@ -60,6 +60,9 @@ import Test.Tasty
 --         , requestDescribeVirtualCluster $
 --             newDescribeVirtualCluster
 --
+--         , requestGetManagedEndpointSessionCredentials $
+--             newGetManagedEndpointSessionCredentials
+--
 --         , requestListJobRuns $
 --             newListJobRuns
 --
@@ -119,6 +122,9 @@ import Test.Tasty
 --
 --         , responseDescribeVirtualCluster $
 --             newDescribeVirtualClusterResponse
+--
+--         , responseGetManagedEndpointSessionCredentials $
+--             newGetManagedEndpointSessionCredentialsResponse
 --
 --         , responseListJobRuns $
 --             newListJobRunsResponse
@@ -214,6 +220,12 @@ requestDescribeVirtualCluster =
   req
     "DescribeVirtualCluster"
     "fixture/DescribeVirtualCluster.yaml"
+
+requestGetManagedEndpointSessionCredentials :: GetManagedEndpointSessionCredentials -> TestTree
+requestGetManagedEndpointSessionCredentials =
+  req
+    "GetManagedEndpointSessionCredentials"
+    "fixture/GetManagedEndpointSessionCredentials.yaml"
 
 requestListJobRuns :: ListJobRuns -> TestTree
 requestListJobRuns =
@@ -352,6 +364,14 @@ responseDescribeVirtualCluster =
     "fixture/DescribeVirtualClusterResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeVirtualCluster)
+
+responseGetManagedEndpointSessionCredentials :: GetManagedEndpointSessionCredentialsResponse -> TestTree
+responseGetManagedEndpointSessionCredentials =
+  res
+    "GetManagedEndpointSessionCredentialsResponse"
+    "fixture/GetManagedEndpointSessionCredentialsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetManagedEndpointSessionCredentials)
 
 responseListJobRuns :: ListJobRunsResponse -> TestTree
 responseListJobRuns =

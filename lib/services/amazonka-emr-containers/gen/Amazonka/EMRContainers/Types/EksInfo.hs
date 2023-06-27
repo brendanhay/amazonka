@@ -24,11 +24,11 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The information about the EKS cluster.
+-- | The information about the Amazon EKS cluster.
 --
 -- /See:/ 'newEksInfo' smart constructor.
 data EksInfo = EksInfo'
-  { -- | The namespaces of the EKS cluster.
+  { -- | The namespaces of the Amazon EKS cluster.
     namespace :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,12 +41,12 @@ data EksInfo = EksInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'namespace', 'eksInfo_namespace' - The namespaces of the EKS cluster.
+-- 'namespace', 'eksInfo_namespace' - The namespaces of the Amazon EKS cluster.
 newEksInfo ::
   EksInfo
 newEksInfo = EksInfo' {namespace = Prelude.Nothing}
 
--- | The namespaces of the EKS cluster.
+-- | The namespaces of the Amazon EKS cluster.
 eksInfo_namespace :: Lens.Lens' EksInfo (Prelude.Maybe Prelude.Text)
 eksInfo_namespace = Lens.lens (\EksInfo' {namespace} -> namespace) (\s@EksInfo' {} a -> s {namespace = a} :: EksInfo)
 

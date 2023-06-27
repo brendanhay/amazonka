@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Displays detailed information about a managed endpoint. A managed
--- endpoint is a gateway that connects EMR Studio to Amazon EMR on EKS so
--- that EMR Studio can communicate with your virtual cluster.
+-- endpoint is a gateway that connects Amazon EMR Studio to Amazon EMR on
+-- EKS so that Amazon EMR Studio can communicate with your virtual cluster.
 module Amazonka.EMRContainers.DescribeManagedEndpoint
   ( -- * Creating a Request
     DescribeManagedEndpoint (..),
@@ -106,7 +106,8 @@ instance Core.AWSRequest DescribeManagedEndpoint where
 
 instance Prelude.Hashable DescribeManagedEndpoint where
   hashWithSalt _salt DescribeManagedEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` virtualClusterId
 
 instance Prelude.NFData DescribeManagedEndpoint where

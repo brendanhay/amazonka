@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newContainerInfo' smart constructor.
 data ContainerInfo = ContainerInfo'
-  { -- | The information about the EKS cluster.
+  { -- | The information about the Amazon EKS cluster.
     eksInfo :: Prelude.Maybe EksInfo
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,13 +43,13 @@ data ContainerInfo = ContainerInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eksInfo', 'containerInfo_eksInfo' - The information about the EKS cluster.
+-- 'eksInfo', 'containerInfo_eksInfo' - The information about the Amazon EKS cluster.
 newContainerInfo ::
   ContainerInfo
 newContainerInfo =
   ContainerInfo' {eksInfo = Prelude.Nothing}
 
--- | The information about the EKS cluster.
+-- | The information about the Amazon EKS cluster.
 containerInfo_eksInfo :: Lens.Lens' ContainerInfo (Prelude.Maybe EksInfo)
 containerInfo_eksInfo = Lens.lens (\ContainerInfo' {eksInfo} -> eksInfo) (\s@ContainerInfo' {} a -> s {eksInfo = a} :: ContainerInfo)
 

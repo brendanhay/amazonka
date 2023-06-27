@@ -55,6 +55,7 @@ library
     Amazonka.EMRContainers.DescribeJobTemplate
     Amazonka.EMRContainers.DescribeManagedEndpoint
     Amazonka.EMRContainers.DescribeVirtualCluster
+    Amazonka.EMRContainers.GetManagedEndpointSessionCredentials
     Amazonka.EMRContainers.Lens
     Amazonka.EMRContainers.ListJobRuns
     Amazonka.EMRContainers.ListJobTemplates
@@ -69,8 +70,10 @@ library
     Amazonka.EMRContainers.Types.Configuration
     Amazonka.EMRContainers.Types.ConfigurationOverrides
     Amazonka.EMRContainers.Types.ContainerInfo
+    Amazonka.EMRContainers.Types.ContainerLogRotationConfiguration
     Amazonka.EMRContainers.Types.ContainerProvider
     Amazonka.EMRContainers.Types.ContainerProviderType
+    Amazonka.EMRContainers.Types.Credentials
     Amazonka.EMRContainers.Types.EksInfo
     Amazonka.EMRContainers.Types.Endpoint
     Amazonka.EMRContainers.Types.EndpointState
@@ -86,6 +89,8 @@ library
     Amazonka.EMRContainers.Types.ParametricMonitoringConfiguration
     Amazonka.EMRContainers.Types.ParametricS3MonitoringConfiguration
     Amazonka.EMRContainers.Types.PersistentAppUI
+    Amazonka.EMRContainers.Types.RetryPolicyConfiguration
+    Amazonka.EMRContainers.Types.RetryPolicyExecution
     Amazonka.EMRContainers.Types.S3MonitoringConfiguration
     Amazonka.EMRContainers.Types.SparkSqlJobDriver
     Amazonka.EMRContainers.Types.SparkSubmitJobDriver

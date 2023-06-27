@@ -32,8 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 data ContainerProvider = ContainerProvider'
   { -- | The information about the container cluster.
     info :: Prelude.Maybe ContainerInfo,
-    -- | The type of the container provider. EKS is the only supported type as of
-    -- now.
+    -- | The type of the container provider. Amazon EKS is the only supported
+    -- type as of now.
     type' :: ContainerProviderType,
     -- | The ID of the container cluster.
     id :: Prelude.Text
@@ -50,8 +50,8 @@ data ContainerProvider = ContainerProvider'
 --
 -- 'info', 'containerProvider_info' - The information about the container cluster.
 --
--- 'type'', 'containerProvider_type' - The type of the container provider. EKS is the only supported type as of
--- now.
+-- 'type'', 'containerProvider_type' - The type of the container provider. Amazon EKS is the only supported
+-- type as of now.
 --
 -- 'id', 'containerProvider_id' - The ID of the container cluster.
 newContainerProvider ::
@@ -71,8 +71,8 @@ newContainerProvider pType_ pId_ =
 containerProvider_info :: Lens.Lens' ContainerProvider (Prelude.Maybe ContainerInfo)
 containerProvider_info = Lens.lens (\ContainerProvider' {info} -> info) (\s@ContainerProvider' {} a -> s {info = a} :: ContainerProvider)
 
--- | The type of the container provider. EKS is the only supported type as of
--- now.
+-- | The type of the container provider. Amazon EKS is the only supported
+-- type as of now.
 containerProvider_type :: Lens.Lens' ContainerProvider ContainerProviderType
 containerProvider_type = Lens.lens (\ContainerProvider' {type'} -> type') (\s@ContainerProvider' {} a -> s {type' = a} :: ContainerProvider)
 
@@ -93,7 +93,8 @@ instance Data.FromJSON ContainerProvider where
 
 instance Prelude.Hashable ContainerProvider where
   hashWithSalt _salt ContainerProvider' {..} =
-    _salt `Prelude.hashWithSalt` info
+    _salt
+      `Prelude.hashWithSalt` info
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` id
 

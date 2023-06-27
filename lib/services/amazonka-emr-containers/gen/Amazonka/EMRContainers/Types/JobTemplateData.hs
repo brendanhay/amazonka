@@ -122,7 +122,8 @@ instance Data.FromJSON JobTemplateData where
           JobTemplateData'
             Prelude.<$> (x Data..:? "configurationOverrides")
             Prelude.<*> (x Data..:? "jobTags" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "parameterConfiguration"
+            Prelude.<*> ( x
+                            Data..:? "parameterConfiguration"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "executionRoleArn")
@@ -132,7 +133,8 @@ instance Data.FromJSON JobTemplateData where
 
 instance Prelude.Hashable JobTemplateData where
   hashWithSalt _salt JobTemplateData' {..} =
-    _salt `Prelude.hashWithSalt` configurationOverrides
+    _salt
+      `Prelude.hashWithSalt` configurationOverrides
       `Prelude.hashWithSalt` jobTags
       `Prelude.hashWithSalt` parameterConfiguration
       `Prelude.hashWithSalt` executionRoleArn

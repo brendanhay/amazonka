@@ -35,6 +35,7 @@ module Amazonka.EMRContainers.StartJobRun
     startJobRun_jobTemplateParameters,
     startJobRun_name,
     startJobRun_releaseLabel,
+    startJobRun_retryPolicyConfiguration,
     startJobRun_tags,
     startJobRun_virtualClusterId,
     startJobRun_clientToken,
@@ -76,6 +77,8 @@ data StartJobRun = StartJobRun'
     name :: Prelude.Maybe Prelude.Text,
     -- | The Amazon EMR release version to use for the job run.
     releaseLabel :: Prelude.Maybe Prelude.Text,
+    -- | The retry policy configuration for the job run.
+    retryPolicyConfiguration :: Prelude.Maybe RetryPolicyConfiguration,
     -- | The tags assigned to job runs.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The virtual cluster ID for which the job run request is submitted.
@@ -107,6 +110,8 @@ data StartJobRun = StartJobRun'
 --
 -- 'releaseLabel', 'startJobRun_releaseLabel' - The Amazon EMR release version to use for the job run.
 --
+-- 'retryPolicyConfiguration', 'startJobRun_retryPolicyConfiguration' - The retry policy configuration for the job run.
+--
 -- 'tags', 'startJobRun_tags' - The tags assigned to job runs.
 --
 -- 'virtualClusterId', 'startJobRun_virtualClusterId' - The virtual cluster ID for which the job run request is submitted.
@@ -128,6 +133,7 @@ newStartJobRun pVirtualClusterId_ pClientToken_ =
       jobTemplateParameters = Prelude.Nothing,
       name = Prelude.Nothing,
       releaseLabel = Prelude.Nothing,
+      retryPolicyConfiguration = Prelude.Nothing,
       tags = Prelude.Nothing,
       virtualClusterId = pVirtualClusterId_,
       clientToken = pClientToken_
@@ -161,6 +167,10 @@ startJobRun_name = Lens.lens (\StartJobRun' {name} -> name) (\s@StartJobRun' {} 
 startJobRun_releaseLabel :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Text)
 startJobRun_releaseLabel = Lens.lens (\StartJobRun' {releaseLabel} -> releaseLabel) (\s@StartJobRun' {} a -> s {releaseLabel = a} :: StartJobRun)
 
+-- | The retry policy configuration for the job run.
+startJobRun_retryPolicyConfiguration :: Lens.Lens' StartJobRun (Prelude.Maybe RetryPolicyConfiguration)
+startJobRun_retryPolicyConfiguration = Lens.lens (\StartJobRun' {retryPolicyConfiguration} -> retryPolicyConfiguration) (\s@StartJobRun' {} a -> s {retryPolicyConfiguration = a} :: StartJobRun)
+
 -- | The tags assigned to job runs.
 startJobRun_tags :: Lens.Lens' StartJobRun (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 startJobRun_tags = Lens.lens (\StartJobRun' {tags} -> tags) (\s@StartJobRun' {} a -> s {tags = a} :: StartJobRun) Prelude.. Lens.mapping Lens.coerced
@@ -190,13 +200,15 @@ instance Core.AWSRequest StartJobRun where
 
 instance Prelude.Hashable StartJobRun where
   hashWithSalt _salt StartJobRun' {..} =
-    _salt `Prelude.hashWithSalt` configurationOverrides
+    _salt
+      `Prelude.hashWithSalt` configurationOverrides
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` jobDriver
       `Prelude.hashWithSalt` jobTemplateId
       `Prelude.hashWithSalt` jobTemplateParameters
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` releaseLabel
+      `Prelude.hashWithSalt` retryPolicyConfiguration
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` virtualClusterId
       `Prelude.hashWithSalt` clientToken
@@ -210,6 +222,7 @@ instance Prelude.NFData StartJobRun where
       `Prelude.seq` Prelude.rnf jobTemplateParameters
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf releaseLabel
+      `Prelude.seq` Prelude.rnf retryPolicyConfiguration
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf virtualClusterId
       `Prelude.seq` Prelude.rnf clientToken
@@ -239,6 +252,8 @@ instance Data.ToJSON StartJobRun where
               Prelude.<$> jobTemplateParameters,
             ("name" Data..=) Prelude.<$> name,
             ("releaseLabel" Data..=) Prelude.<$> releaseLabel,
+            ("retryPolicyConfiguration" Data..=)
+              Prelude.<$> retryPolicyConfiguration,
             ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("clientToken" Data..= clientToken)
           ]

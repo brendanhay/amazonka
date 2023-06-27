@@ -155,7 +155,8 @@ instance
     ListActivatedRulesInRuleGroup
   where
   hashWithSalt _salt ListActivatedRulesInRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` ruleGroupId
 

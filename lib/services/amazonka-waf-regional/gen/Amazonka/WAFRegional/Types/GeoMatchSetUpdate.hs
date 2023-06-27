@@ -83,7 +83,8 @@ geoMatchSetUpdate_geoMatchConstraint = Lens.lens (\GeoMatchSetUpdate' {geoMatchC
 
 instance Prelude.Hashable GeoMatchSetUpdate where
   hashWithSalt _salt GeoMatchSetUpdate' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` geoMatchConstraint
 
 instance Prelude.NFData GeoMatchSetUpdate where

@@ -127,7 +127,8 @@ instance Core.AWSRequest GetRateBasedRuleManagedKeys where
 
 instance Prelude.Hashable GetRateBasedRuleManagedKeys where
   hashWithSalt _salt GetRateBasedRuleManagedKeys' {..} =
-    _salt `Prelude.hashWithSalt` nextMarker
+    _salt
+      `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` ruleId
 
 instance Prelude.NFData GetRateBasedRuleManagedKeys where

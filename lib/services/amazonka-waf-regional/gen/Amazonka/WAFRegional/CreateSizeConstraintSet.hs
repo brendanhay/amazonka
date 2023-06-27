@@ -142,7 +142,8 @@ instance Core.AWSRequest CreateSizeConstraintSet where
 
 instance Prelude.Hashable CreateSizeConstraintSet where
   hashWithSalt _salt CreateSizeConstraintSet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` changeToken
 
 instance Prelude.NFData CreateSizeConstraintSet where

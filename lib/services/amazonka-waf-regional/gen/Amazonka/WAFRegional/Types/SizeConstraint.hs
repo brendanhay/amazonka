@@ -446,7 +446,8 @@ instance Data.FromJSON SizeConstraint where
 
 instance Prelude.Hashable SizeConstraint where
   hashWithSalt _salt SizeConstraint' {..} =
-    _salt `Prelude.hashWithSalt` fieldToMatch
+    _salt
+      `Prelude.hashWithSalt` fieldToMatch
       `Prelude.hashWithSalt` textTransformation
       `Prelude.hashWithSalt` comparisonOperator
       `Prelude.hashWithSalt` size

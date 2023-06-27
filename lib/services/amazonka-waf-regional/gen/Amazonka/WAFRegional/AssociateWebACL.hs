@@ -68,10 +68,10 @@ data AssociateWebACL = AssociateWebACL'
     -- The ARN should be in one of the following formats:
     --
     -- -   For an Application Load Balancer:
-    --     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @
+    --     @arn:aws:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/app\/@/@load-balancer-name@/@\/@/@load-balancer-id@/@ @
     --
     -- -   For an Amazon API Gateway stage:
-    --     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
+    --     @arn:aws:apigateway:@/@region@/@::\/restapis\/@/@api-id@/@\/stages\/@/@stage-name@/@ @
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -92,10 +92,10 @@ data AssociateWebACL = AssociateWebACL'
 -- The ARN should be in one of the following formats:
 --
 -- -   For an Application Load Balancer:
---     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @
+--     @arn:aws:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/app\/@/@load-balancer-name@/@\/@/@load-balancer-id@/@ @
 --
 -- -   For an Amazon API Gateway stage:
---     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
+--     @arn:aws:apigateway:@/@region@/@::\/restapis\/@/@api-id@/@\/stages\/@/@stage-name@/@ @
 newAssociateWebACL ::
   -- | 'webACLId'
   Prelude.Text ->
@@ -118,10 +118,10 @@ associateWebACL_webACLId = Lens.lens (\AssociateWebACL' {webACLId} -> webACLId) 
 -- The ARN should be in one of the following formats:
 --
 -- -   For an Application Load Balancer:
---     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @
+--     @arn:aws:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/app\/@/@load-balancer-name@/@\/@/@load-balancer-id@/@ @
 --
 -- -   For an Amazon API Gateway stage:
---     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
+--     @arn:aws:apigateway:@/@region@/@::\/restapis\/@/@api-id@/@\/stages\/@/@stage-name@/@ @
 associateWebACL_resourceArn :: Lens.Lens' AssociateWebACL Prelude.Text
 associateWebACL_resourceArn = Lens.lens (\AssociateWebACL' {resourceArn} -> resourceArn) (\s@AssociateWebACL' {} a -> s {resourceArn = a} :: AssociateWebACL)
 
@@ -140,7 +140,8 @@ instance Core.AWSRequest AssociateWebACL where
 
 instance Prelude.Hashable AssociateWebACL where
   hashWithSalt _salt AssociateWebACL' {..} =
-    _salt `Prelude.hashWithSalt` webACLId
+    _salt
+      `Prelude.hashWithSalt` webACLId
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData AssociateWebACL where

@@ -119,7 +119,8 @@ instance Core.AWSRequest ListResourcesForWebACL where
 
 instance Prelude.Hashable ListResourcesForWebACL where
   hashWithSalt _salt ListResourcesForWebACL' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` webACLId
 
 instance Prelude.NFData ListResourcesForWebACL where

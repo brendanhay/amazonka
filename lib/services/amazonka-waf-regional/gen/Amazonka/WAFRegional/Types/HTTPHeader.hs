@@ -81,12 +81,14 @@ instance Data.FromJSON HTTPHeader where
       "HTTPHeader"
       ( \x ->
           HTTPHeader'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable HTTPHeader where
   hashWithSalt _salt HTTPHeader' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData HTTPHeader where

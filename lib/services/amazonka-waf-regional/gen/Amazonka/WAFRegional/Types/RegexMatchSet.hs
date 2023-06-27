@@ -158,14 +158,16 @@ instance Data.FromJSON RegexMatchSet where
           RegexMatchSet'
             Prelude.<$> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "RegexMatchSetId")
-            Prelude.<*> ( x Data..:? "RegexMatchTuples"
+            Prelude.<*> ( x
+                            Data..:? "RegexMatchTuples"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable RegexMatchSet where
   hashWithSalt _salt RegexMatchSet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` regexMatchSetId
       `Prelude.hashWithSalt` regexMatchTuples
 

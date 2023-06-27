@@ -310,7 +310,8 @@ instance Data.FromJSON XssMatchTuple where
 
 instance Prelude.Hashable XssMatchTuple where
   hashWithSalt _salt XssMatchTuple' {..} =
-    _salt `Prelude.hashWithSalt` fieldToMatch
+    _salt
+      `Prelude.hashWithSalt` fieldToMatch
       `Prelude.hashWithSalt` textTransformation
 
 instance Prelude.NFData XssMatchTuple where

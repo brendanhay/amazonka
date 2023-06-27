@@ -109,7 +109,8 @@ instance Data.FromJSON XssMatchSetSummary where
 
 instance Prelude.Hashable XssMatchSetSummary where
   hashWithSalt _salt XssMatchSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` xssMatchSetId
+    _salt
+      `Prelude.hashWithSalt` xssMatchSetId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData XssMatchSetSummary where

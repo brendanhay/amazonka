@@ -131,14 +131,16 @@ instance Data.FromJSON IPSet where
           IPSet'
             Prelude.<$> (x Data..:? "Name")
             Prelude.<*> (x Data..: "IPSetId")
-            Prelude.<*> ( x Data..:? "IPSetDescriptors"
+            Prelude.<*> ( x
+                            Data..:? "IPSetDescriptors"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable IPSet where
   hashWithSalt _salt IPSet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` iPSetId
       `Prelude.hashWithSalt` iPSetDescriptors
 

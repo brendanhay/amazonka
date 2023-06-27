@@ -143,7 +143,8 @@ instance Core.AWSRequest CreateRegexMatchSet where
 
 instance Prelude.Hashable CreateRegexMatchSet where
   hashWithSalt _salt CreateRegexMatchSet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` changeToken
 
 instance Prelude.NFData CreateRegexMatchSet where

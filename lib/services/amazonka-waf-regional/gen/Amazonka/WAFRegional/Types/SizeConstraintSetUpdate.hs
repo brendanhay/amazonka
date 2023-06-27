@@ -99,7 +99,8 @@ sizeConstraintSetUpdate_sizeConstraint = Lens.lens (\SizeConstraintSetUpdate' {s
 
 instance Prelude.Hashable SizeConstraintSetUpdate where
   hashWithSalt _salt SizeConstraintSetUpdate' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` sizeConstraint
 
 instance Prelude.NFData SizeConstraintSetUpdate where

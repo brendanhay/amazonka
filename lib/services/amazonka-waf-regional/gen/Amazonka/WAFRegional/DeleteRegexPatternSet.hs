@@ -124,7 +124,8 @@ instance Core.AWSRequest DeleteRegexPatternSet where
 
 instance Prelude.Hashable DeleteRegexPatternSet where
   hashWithSalt _salt DeleteRegexPatternSet' {..} =
-    _salt `Prelude.hashWithSalt` regexPatternSetId
+    _salt
+      `Prelude.hashWithSalt` regexPatternSetId
       `Prelude.hashWithSalt` changeToken
 
 instance Prelude.NFData DeleteRegexPatternSet where

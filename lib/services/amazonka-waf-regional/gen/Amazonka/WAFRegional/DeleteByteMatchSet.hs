@@ -135,7 +135,8 @@ instance Core.AWSRequest DeleteByteMatchSet where
 
 instance Prelude.Hashable DeleteByteMatchSet where
   hashWithSalt _salt DeleteByteMatchSet' {..} =
-    _salt `Prelude.hashWithSalt` byteMatchSetId
+    _salt
+      `Prelude.hashWithSalt` byteMatchSetId
       `Prelude.hashWithSalt` changeToken
 
 instance Prelude.NFData DeleteByteMatchSet where

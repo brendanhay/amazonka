@@ -137,7 +137,8 @@ instance Core.AWSRequest DeleteXssMatchSet where
 
 instance Prelude.Hashable DeleteXssMatchSet where
   hashWithSalt _salt DeleteXssMatchSet' {..} =
-    _salt `Prelude.hashWithSalt` xssMatchSetId
+    _salt
+      `Prelude.hashWithSalt` xssMatchSetId
       `Prelude.hashWithSalt` changeToken
 
 instance Prelude.NFData DeleteXssMatchSet where

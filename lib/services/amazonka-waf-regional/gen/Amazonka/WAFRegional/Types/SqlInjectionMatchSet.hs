@@ -127,14 +127,16 @@ instance Data.FromJSON SqlInjectionMatchSet where
           SqlInjectionMatchSet'
             Prelude.<$> (x Data..:? "Name")
             Prelude.<*> (x Data..: "SqlInjectionMatchSetId")
-            Prelude.<*> ( x Data..:? "SqlInjectionMatchTuples"
+            Prelude.<*> ( x
+                            Data..:? "SqlInjectionMatchTuples"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable SqlInjectionMatchSet where
   hashWithSalt _salt SqlInjectionMatchSet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sqlInjectionMatchSetId
       `Prelude.hashWithSalt` sqlInjectionMatchTuples
 

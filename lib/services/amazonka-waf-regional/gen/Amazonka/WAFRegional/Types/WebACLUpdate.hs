@@ -92,7 +92,8 @@ webACLUpdate_activatedRule = Lens.lens (\WebACLUpdate' {activatedRule} -> activa
 
 instance Prelude.Hashable WebACLUpdate where
   hashWithSalt _salt WebACLUpdate' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` activatedRule
 
 instance Prelude.NFData WebACLUpdate where

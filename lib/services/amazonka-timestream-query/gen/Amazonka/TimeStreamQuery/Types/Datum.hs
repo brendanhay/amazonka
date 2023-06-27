@@ -104,14 +104,16 @@ instance Data.FromJSON Datum where
             Prelude.<*> (x Data..:? "NullValue")
             Prelude.<*> (x Data..:? "RowValue")
             Prelude.<*> (x Data..:? "ScalarValue")
-            Prelude.<*> ( x Data..:? "TimeSeriesValue"
+            Prelude.<*> ( x
+                            Data..:? "TimeSeriesValue"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Datum where
   hashWithSalt _salt Datum' {..} =
-    _salt `Prelude.hashWithSalt` arrayValue
+    _salt
+      `Prelude.hashWithSalt` arrayValue
       `Prelude.hashWithSalt` nullValue
       `Prelude.hashWithSalt` rowValue
       `Prelude.hashWithSalt` scalarValue

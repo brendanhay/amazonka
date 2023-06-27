@@ -75,7 +75,8 @@ instance Data.FromJSON TimestreamDestination where
 
 instance Prelude.Hashable TimestreamDestination where
   hashWithSalt _salt TimestreamDestination' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData TimestreamDestination where

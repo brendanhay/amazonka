@@ -94,7 +94,8 @@ instance Data.FromJSON MultiMeasureMappings where
 
 instance Prelude.Hashable MultiMeasureMappings where
   hashWithSalt _salt MultiMeasureMappings' {..} =
-    _salt `Prelude.hashWithSalt` targetMultiMeasureName
+    _salt
+      `Prelude.hashWithSalt` targetMultiMeasureName
       `Prelude.hashWithSalt` multiMeasureAttributeMappings
 
 instance Prelude.NFData MultiMeasureMappings where

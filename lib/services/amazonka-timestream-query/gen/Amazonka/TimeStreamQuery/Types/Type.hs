@@ -102,7 +102,8 @@ instance Data.FromJSON Type where
 
 instance Prelude.Hashable Type where
   hashWithSalt _salt Type' {..} =
-    _salt `Prelude.hashWithSalt` arrayColumnInfo
+    _salt
+      `Prelude.hashWithSalt` arrayColumnInfo
       `Prelude.hashWithSalt` rowColumnInfo
       `Prelude.hashWithSalt` scalarType
       `Prelude.hashWithSalt` timeSeriesMeasureValueColumnInfo

@@ -104,7 +104,8 @@ instance Data.FromJSON QueryStatus where
 
 instance Prelude.Hashable QueryStatus where
   hashWithSalt _salt QueryStatus' {..} =
-    _salt `Prelude.hashWithSalt` cumulativeBytesMetered
+    _salt
+      `Prelude.hashWithSalt` cumulativeBytesMetered
       `Prelude.hashWithSalt` cumulativeBytesScanned
       `Prelude.hashWithSalt` progressPercentage
 

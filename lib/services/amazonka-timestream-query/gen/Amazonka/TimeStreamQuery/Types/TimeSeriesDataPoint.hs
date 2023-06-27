@@ -77,12 +77,14 @@ instance Data.FromJSON TimeSeriesDataPoint where
       "TimeSeriesDataPoint"
       ( \x ->
           TimeSeriesDataPoint'
-            Prelude.<$> (x Data..: "Time") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Time")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable TimeSeriesDataPoint where
   hashWithSalt _salt TimeSeriesDataPoint' {..} =
-    _salt `Prelude.hashWithSalt` time
+    _salt
+      `Prelude.hashWithSalt` time
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData TimeSeriesDataPoint where

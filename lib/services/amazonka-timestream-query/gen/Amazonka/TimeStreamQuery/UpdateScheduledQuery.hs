@@ -96,7 +96,8 @@ instance Core.AWSRequest UpdateScheduledQuery where
 
 instance Prelude.Hashable UpdateScheduledQuery where
   hashWithSalt _salt UpdateScheduledQuery' {..} =
-    _salt `Prelude.hashWithSalt` scheduledQueryArn
+    _salt
+      `Prelude.hashWithSalt` scheduledQueryArn
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData UpdateScheduledQuery where

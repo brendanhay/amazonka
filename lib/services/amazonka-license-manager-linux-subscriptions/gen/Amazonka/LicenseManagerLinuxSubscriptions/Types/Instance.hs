@@ -170,7 +170,8 @@ instance Data.FromJSON Instance where
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =
-    _salt `Prelude.hashWithSalt` accountID
+    _salt
+      `Prelude.hashWithSalt` accountID
       `Prelude.hashWithSalt` amiId
       `Prelude.hashWithSalt` instanceID
       `Prelude.hashWithSalt` instanceType

@@ -96,7 +96,8 @@ instance Data.FromJSON Subscription where
 
 instance Prelude.Hashable Subscription where
   hashWithSalt _salt Subscription' {..} =
-    _salt `Prelude.hashWithSalt` instanceCount
+    _salt
+      `Prelude.hashWithSalt` instanceCount
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 

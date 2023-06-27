@@ -31,6 +31,7 @@ module Amazonka.AppFlow.Types.ConnectorType
         ConnectorType_Infornexus,
         ConnectorType_LookoutMetrics,
         ConnectorType_Marketo,
+        ConnectorType_Pardot,
         ConnectorType_Redshift,
         ConnectorType_S3,
         ConnectorType_SAPOData,
@@ -112,6 +113,9 @@ pattern ConnectorType_LookoutMetrics = ConnectorType' "LookoutMetrics"
 pattern ConnectorType_Marketo :: ConnectorType
 pattern ConnectorType_Marketo = ConnectorType' "Marketo"
 
+pattern ConnectorType_Pardot :: ConnectorType
+pattern ConnectorType_Pardot = ConnectorType' "Pardot"
+
 pattern ConnectorType_Redshift :: ConnectorType
 pattern ConnectorType_Redshift = ConnectorType' "Redshift"
 
@@ -160,6 +164,7 @@ pattern ConnectorType_Zendesk = ConnectorType' "Zendesk"
   ConnectorType_Infornexus,
   ConnectorType_LookoutMetrics,
   ConnectorType_Marketo,
+  ConnectorType_Pardot,
   ConnectorType_Redshift,
   ConnectorType_S3,
   ConnectorType_SAPOData,

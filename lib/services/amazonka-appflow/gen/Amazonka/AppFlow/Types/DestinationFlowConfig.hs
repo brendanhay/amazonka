@@ -111,7 +111,8 @@ instance Data.FromJSON DestinationFlowConfig where
 
 instance Prelude.Hashable DestinationFlowConfig where
   hashWithSalt _salt DestinationFlowConfig' {..} =
-    _salt `Prelude.hashWithSalt` apiVersion
+    _salt
+      `Prelude.hashWithSalt` apiVersion
       `Prelude.hashWithSalt` connectorProfileName
       `Prelude.hashWithSalt` connectorType
       `Prelude.hashWithSalt` destinationConnectorProperties

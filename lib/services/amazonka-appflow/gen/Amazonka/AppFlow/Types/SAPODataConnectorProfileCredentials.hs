@@ -72,7 +72,8 @@ instance
   hashWithSalt
     _salt
     SAPODataConnectorProfileCredentials' {..} =
-      _salt `Prelude.hashWithSalt` basicAuthCredentials
+      _salt
+        `Prelude.hashWithSalt` basicAuthCredentials
         `Prelude.hashWithSalt` oAuthCredentials
 
 instance

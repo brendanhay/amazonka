@@ -21,6 +21,7 @@ module Amazonka.AppFlow.Types.ConnectorDetail where
 
 import Amazonka.AppFlow.Types.ConnectorProvisioningType
 import Amazonka.AppFlow.Types.ConnectorType
+import Amazonka.AppFlow.Types.SupportedDataTransferType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
@@ -51,7 +52,15 @@ data ConnectorDetail = ConnectorDetail'
     -- | The time at which the connector was registered.
     registeredAt :: Prelude.Maybe Data.POSIX,
     -- | The user who registered the connector.
-    registeredBy :: Prelude.Maybe Prelude.Text
+    registeredBy :: Prelude.Maybe Prelude.Text,
+    -- | The data transfer types that the connector supports.
+    --
+    -- [RECORD]
+    --     Structured records.
+    --
+    -- [FILE]
+    --     Files or binary data.
+    supportedDataTransferTypes :: Prelude.Maybe [SupportedDataTransferType]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,6 +93,14 @@ data ConnectorDetail = ConnectorDetail'
 -- 'registeredAt', 'connectorDetail_registeredAt' - The time at which the connector was registered.
 --
 -- 'registeredBy', 'connectorDetail_registeredBy' - The user who registered the connector.
+--
+-- 'supportedDataTransferTypes', 'connectorDetail_supportedDataTransferTypes' - The data transfer types that the connector supports.
+--
+-- [RECORD]
+--     Structured records.
+--
+-- [FILE]
+--     Files or binary data.
 newConnectorDetail ::
   ConnectorDetail
 newConnectorDetail =
@@ -98,7 +115,8 @@ newConnectorDetail =
       connectorType = Prelude.Nothing,
       connectorVersion = Prelude.Nothing,
       registeredAt = Prelude.Nothing,
-      registeredBy = Prelude.Nothing
+      registeredBy = Prelude.Nothing,
+      supportedDataTransferTypes = Prelude.Nothing
     }
 
 -- | The application type of the connector.
@@ -145,6 +163,16 @@ connectorDetail_registeredAt = Lens.lens (\ConnectorDetail' {registeredAt} -> re
 connectorDetail_registeredBy :: Lens.Lens' ConnectorDetail (Prelude.Maybe Prelude.Text)
 connectorDetail_registeredBy = Lens.lens (\ConnectorDetail' {registeredBy} -> registeredBy) (\s@ConnectorDetail' {} a -> s {registeredBy = a} :: ConnectorDetail)
 
+-- | The data transfer types that the connector supports.
+--
+-- [RECORD]
+--     Structured records.
+--
+-- [FILE]
+--     Files or binary data.
+connectorDetail_supportedDataTransferTypes :: Lens.Lens' ConnectorDetail (Prelude.Maybe [SupportedDataTransferType])
+connectorDetail_supportedDataTransferTypes = Lens.lens (\ConnectorDetail' {supportedDataTransferTypes} -> supportedDataTransferTypes) (\s@ConnectorDetail' {} a -> s {supportedDataTransferTypes = a} :: ConnectorDetail) Prelude.. Lens.mapping Lens.coerced
+
 instance Data.FromJSON ConnectorDetail where
   parseJSON =
     Data.withObject
@@ -162,11 +190,16 @@ instance Data.FromJSON ConnectorDetail where
             Prelude.<*> (x Data..:? "connectorVersion")
             Prelude.<*> (x Data..:? "registeredAt")
             Prelude.<*> (x Data..:? "registeredBy")
+            Prelude.<*> ( x
+                            Data..:? "supportedDataTransferTypes"
+                            Data..!= Prelude.mempty
+                        )
       )
 
 instance Prelude.Hashable ConnectorDetail where
   hashWithSalt _salt ConnectorDetail' {..} =
-    _salt `Prelude.hashWithSalt` applicationType
+    _salt
+      `Prelude.hashWithSalt` applicationType
       `Prelude.hashWithSalt` connectorDescription
       `Prelude.hashWithSalt` connectorLabel
       `Prelude.hashWithSalt` connectorModes
@@ -177,6 +210,7 @@ instance Prelude.Hashable ConnectorDetail where
       `Prelude.hashWithSalt` connectorVersion
       `Prelude.hashWithSalt` registeredAt
       `Prelude.hashWithSalt` registeredBy
+      `Prelude.hashWithSalt` supportedDataTransferTypes
 
 instance Prelude.NFData ConnectorDetail where
   rnf ConnectorDetail' {..} =
@@ -191,3 +225,4 @@ instance Prelude.NFData ConnectorDetail where
       `Prelude.seq` Prelude.rnf connectorVersion
       `Prelude.seq` Prelude.rnf registeredAt
       `Prelude.seq` Prelude.rnf registeredBy
+      `Prelude.seq` Prelude.rnf supportedDataTransferTypes

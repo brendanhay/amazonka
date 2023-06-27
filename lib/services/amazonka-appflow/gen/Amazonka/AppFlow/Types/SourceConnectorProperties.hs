@@ -26,6 +26,7 @@ import Amazonka.AppFlow.Types.DynatraceSourceProperties
 import Amazonka.AppFlow.Types.GoogleAnalyticsSourceProperties
 import Amazonka.AppFlow.Types.InforNexusSourceProperties
 import Amazonka.AppFlow.Types.MarketoSourceProperties
+import Amazonka.AppFlow.Types.PardotSourceProperties
 import Amazonka.AppFlow.Types.S3SourceProperties
 import Amazonka.AppFlow.Types.SAPODataSourceProperties
 import Amazonka.AppFlow.Types.SalesforceSourceProperties
@@ -59,6 +60,9 @@ data SourceConnectorProperties = SourceConnectorProperties'
     inforNexus :: Prelude.Maybe InforNexusSourceProperties,
     -- | Specifies the information that is required for querying Marketo.
     marketo :: Prelude.Maybe MarketoSourceProperties,
+    -- | Specifies the information that is required for querying Salesforce
+    -- Pardot.
+    pardot :: Prelude.Maybe PardotSourceProperties,
     -- | Specifies the information that is required for querying Amazon S3.
     s3 :: Prelude.Maybe S3SourceProperties,
     sAPOData :: Prelude.Maybe SAPODataSourceProperties,
@@ -102,6 +106,9 @@ data SourceConnectorProperties = SourceConnectorProperties'
 --
 -- 'marketo', 'sourceConnectorProperties_marketo' - Specifies the information that is required for querying Marketo.
 --
+-- 'pardot', 'sourceConnectorProperties_pardot' - Specifies the information that is required for querying Salesforce
+-- Pardot.
+--
 -- 's3', 'sourceConnectorProperties_s3' - Specifies the information that is required for querying Amazon S3.
 --
 -- 'sAPOData', 'sourceConnectorProperties_sAPOData' - Undocumented member.
@@ -131,6 +138,7 @@ newSourceConnectorProperties =
       googleAnalytics = Prelude.Nothing,
       inforNexus = Prelude.Nothing,
       marketo = Prelude.Nothing,
+      pardot = Prelude.Nothing,
       s3 = Prelude.Nothing,
       sAPOData = Prelude.Nothing,
       salesforce = Prelude.Nothing,
@@ -170,6 +178,11 @@ sourceConnectorProperties_inforNexus = Lens.lens (\SourceConnectorProperties' {i
 -- | Specifies the information that is required for querying Marketo.
 sourceConnectorProperties_marketo :: Lens.Lens' SourceConnectorProperties (Prelude.Maybe MarketoSourceProperties)
 sourceConnectorProperties_marketo = Lens.lens (\SourceConnectorProperties' {marketo} -> marketo) (\s@SourceConnectorProperties' {} a -> s {marketo = a} :: SourceConnectorProperties)
+
+-- | Specifies the information that is required for querying Salesforce
+-- Pardot.
+sourceConnectorProperties_pardot :: Lens.Lens' SourceConnectorProperties (Prelude.Maybe PardotSourceProperties)
+sourceConnectorProperties_pardot = Lens.lens (\SourceConnectorProperties' {pardot} -> pardot) (\s@SourceConnectorProperties' {} a -> s {pardot = a} :: SourceConnectorProperties)
 
 -- | Specifies the information that is required for querying Amazon S3.
 sourceConnectorProperties_s3 :: Lens.Lens' SourceConnectorProperties (Prelude.Maybe S3SourceProperties)
@@ -220,6 +233,7 @@ instance Data.FromJSON SourceConnectorProperties where
             Prelude.<*> (x Data..:? "GoogleAnalytics")
             Prelude.<*> (x Data..:? "InforNexus")
             Prelude.<*> (x Data..:? "Marketo")
+            Prelude.<*> (x Data..:? "Pardot")
             Prelude.<*> (x Data..:? "S3")
             Prelude.<*> (x Data..:? "SAPOData")
             Prelude.<*> (x Data..:? "Salesforce")
@@ -233,13 +247,15 @@ instance Data.FromJSON SourceConnectorProperties where
 
 instance Prelude.Hashable SourceConnectorProperties where
   hashWithSalt _salt SourceConnectorProperties' {..} =
-    _salt `Prelude.hashWithSalt` amplitude
+    _salt
+      `Prelude.hashWithSalt` amplitude
       `Prelude.hashWithSalt` customConnector
       `Prelude.hashWithSalt` datadog
       `Prelude.hashWithSalt` dynatrace
       `Prelude.hashWithSalt` googleAnalytics
       `Prelude.hashWithSalt` inforNexus
       `Prelude.hashWithSalt` marketo
+      `Prelude.hashWithSalt` pardot
       `Prelude.hashWithSalt` s3
       `Prelude.hashWithSalt` sAPOData
       `Prelude.hashWithSalt` salesforce
@@ -259,6 +275,7 @@ instance Prelude.NFData SourceConnectorProperties where
       `Prelude.seq` Prelude.rnf googleAnalytics
       `Prelude.seq` Prelude.rnf inforNexus
       `Prelude.seq` Prelude.rnf marketo
+      `Prelude.seq` Prelude.rnf pardot
       `Prelude.seq` Prelude.rnf s3
       `Prelude.seq` Prelude.rnf sAPOData
       `Prelude.seq` Prelude.rnf salesforce
@@ -282,6 +299,7 @@ instance Data.ToJSON SourceConnectorProperties where
               Prelude.<$> googleAnalytics,
             ("InforNexus" Data..=) Prelude.<$> inforNexus,
             ("Marketo" Data..=) Prelude.<$> marketo,
+            ("Pardot" Data..=) Prelude.<$> pardot,
             ("S3" Data..=) Prelude.<$> s3,
             ("SAPOData" Data..=) Prelude.<$> sAPOData,
             ("Salesforce" Data..=) Prelude.<$> salesforce,

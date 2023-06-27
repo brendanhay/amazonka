@@ -130,7 +130,8 @@ instance
   hashWithSalt
     _salt
     SnowflakeDestinationProperties' {..} =
-      _salt `Prelude.hashWithSalt` bucketPrefix
+      _salt
+        `Prelude.hashWithSalt` bucketPrefix
         `Prelude.hashWithSalt` errorHandlingConfig
         `Prelude.hashWithSalt` object'
         `Prelude.hashWithSalt` intermediateBucketName

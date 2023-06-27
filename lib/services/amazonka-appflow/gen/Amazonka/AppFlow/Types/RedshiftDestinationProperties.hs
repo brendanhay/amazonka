@@ -128,7 +128,8 @@ instance
     RedshiftDestinationProperties
   where
   hashWithSalt _salt RedshiftDestinationProperties' {..} =
-    _salt `Prelude.hashWithSalt` bucketPrefix
+    _salt
+      `Prelude.hashWithSalt` bucketPrefix
       `Prelude.hashWithSalt` errorHandlingConfig
       `Prelude.hashWithSalt` object'
       `Prelude.hashWithSalt` intermediateBucketName

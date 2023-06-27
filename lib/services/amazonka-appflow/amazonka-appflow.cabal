@@ -44,6 +44,7 @@ library
 
   exposed-modules:
     Amazonka.AppFlow
+    Amazonka.AppFlow.CancelFlowExecutions
     Amazonka.AppFlow.CreateConnectorProfile
     Amazonka.AppFlow.CreateFlow
     Amazonka.AppFlow.DeleteConnectorProfile
@@ -60,6 +61,7 @@ library
     Amazonka.AppFlow.ListFlows
     Amazonka.AppFlow.ListTagsForResource
     Amazonka.AppFlow.RegisterConnector
+    Amazonka.AppFlow.ResetConnectorMetadataCache
     Amazonka.AppFlow.StartFlow
     Amazonka.AppFlow.StopFlow
     Amazonka.AppFlow.TagResource
@@ -107,6 +109,8 @@ library
     Amazonka.AppFlow.Types.DatadogMetadata
     Amazonka.AppFlow.Types.DatadogSourceProperties
     Amazonka.AppFlow.Types.DataPullMode
+    Amazonka.AppFlow.Types.DataTransferApi
+    Amazonka.AppFlow.Types.DataTransferApiType
     Amazonka.AppFlow.Types.DestinationConnectorProperties
     Amazonka.AppFlow.Types.DestinationFieldProperties
     Amazonka.AppFlow.Types.DestinationFlowConfig
@@ -164,6 +168,11 @@ library
     Amazonka.AppFlow.Types.Operator
     Amazonka.AppFlow.Types.OperatorPropertiesKeys
     Amazonka.AppFlow.Types.Operators
+    Amazonka.AppFlow.Types.PardotConnectorOperator
+    Amazonka.AppFlow.Types.PardotConnectorProfileCredentials
+    Amazonka.AppFlow.Types.PardotConnectorProfileProperties
+    Amazonka.AppFlow.Types.PardotMetadata
+    Amazonka.AppFlow.Types.PardotSourceProperties
     Amazonka.AppFlow.Types.PathPrefix
     Amazonka.AppFlow.Types.PrefixConfig
     Amazonka.AppFlow.Types.PrefixFormat
@@ -222,6 +231,7 @@ library
     Amazonka.AppFlow.Types.SourceFieldProperties
     Amazonka.AppFlow.Types.SourceFlowConfig
     Amazonka.AppFlow.Types.SuccessResponseHandlingConfig
+    Amazonka.AppFlow.Types.SupportedDataTransferType
     Amazonka.AppFlow.Types.SupportedFieldTypeDetails
     Amazonka.AppFlow.Types.Task
     Amazonka.AppFlow.Types.TaskType

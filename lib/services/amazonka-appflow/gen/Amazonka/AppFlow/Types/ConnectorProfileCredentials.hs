@@ -27,6 +27,7 @@ import Amazonka.AppFlow.Types.GoogleAnalyticsConnectorProfileCredentials
 import Amazonka.AppFlow.Types.HoneycodeConnectorProfileCredentials
 import Amazonka.AppFlow.Types.InforNexusConnectorProfileCredentials
 import Amazonka.AppFlow.Types.MarketoConnectorProfileCredentials
+import Amazonka.AppFlow.Types.PardotConnectorProfileCredentials
 import Amazonka.AppFlow.Types.RedshiftConnectorProfileCredentials
 import Amazonka.AppFlow.Types.SAPODataConnectorProfileCredentials
 import Amazonka.AppFlow.Types.SalesforceConnectorProfileCredentials
@@ -61,6 +62,9 @@ data ConnectorProfileCredentials = ConnectorProfileCredentials'
     inforNexus :: Prelude.Maybe InforNexusConnectorProfileCredentials,
     -- | The connector-specific credentials required when using Marketo.
     marketo :: Prelude.Maybe MarketoConnectorProfileCredentials,
+    -- | The connector-specific credentials required when using Salesforce
+    -- Pardot.
+    pardot :: Prelude.Maybe PardotConnectorProfileCredentials,
     -- | The connector-specific credentials required when using Amazon Redshift.
     redshift :: Prelude.Maybe RedshiftConnectorProfileCredentials,
     sAPOData :: Prelude.Maybe SAPODataConnectorProfileCredentials,
@@ -107,6 +111,9 @@ data ConnectorProfileCredentials = ConnectorProfileCredentials'
 --
 -- 'marketo', 'connectorProfileCredentials_marketo' - The connector-specific credentials required when using Marketo.
 --
+-- 'pardot', 'connectorProfileCredentials_pardot' - The connector-specific credentials required when using Salesforce
+-- Pardot.
+--
 -- 'redshift', 'connectorProfileCredentials_redshift' - The connector-specific credentials required when using Amazon Redshift.
 --
 -- 'sAPOData', 'connectorProfileCredentials_sAPOData' - Undocumented member.
@@ -139,6 +146,7 @@ newConnectorProfileCredentials =
       honeycode = Prelude.Nothing,
       inforNexus = Prelude.Nothing,
       marketo = Prelude.Nothing,
+      pardot = Prelude.Nothing,
       redshift = Prelude.Nothing,
       sAPOData = Prelude.Nothing,
       salesforce = Prelude.Nothing,
@@ -183,6 +191,11 @@ connectorProfileCredentials_inforNexus = Lens.lens (\ConnectorProfileCredentials
 connectorProfileCredentials_marketo :: Lens.Lens' ConnectorProfileCredentials (Prelude.Maybe MarketoConnectorProfileCredentials)
 connectorProfileCredentials_marketo = Lens.lens (\ConnectorProfileCredentials' {marketo} -> marketo) (\s@ConnectorProfileCredentials' {} a -> s {marketo = a} :: ConnectorProfileCredentials)
 
+-- | The connector-specific credentials required when using Salesforce
+-- Pardot.
+connectorProfileCredentials_pardot :: Lens.Lens' ConnectorProfileCredentials (Prelude.Maybe PardotConnectorProfileCredentials)
+connectorProfileCredentials_pardot = Lens.lens (\ConnectorProfileCredentials' {pardot} -> pardot) (\s@ConnectorProfileCredentials' {} a -> s {pardot = a} :: ConnectorProfileCredentials)
+
 -- | The connector-specific credentials required when using Amazon Redshift.
 connectorProfileCredentials_redshift :: Lens.Lens' ConnectorProfileCredentials (Prelude.Maybe RedshiftConnectorProfileCredentials)
 connectorProfileCredentials_redshift = Lens.lens (\ConnectorProfileCredentials' {redshift} -> redshift) (\s@ConnectorProfileCredentials' {} a -> s {redshift = a} :: ConnectorProfileCredentials)
@@ -225,7 +238,8 @@ connectorProfileCredentials_zendesk = Lens.lens (\ConnectorProfileCredentials' {
 
 instance Prelude.Hashable ConnectorProfileCredentials where
   hashWithSalt _salt ConnectorProfileCredentials' {..} =
-    _salt `Prelude.hashWithSalt` amplitude
+    _salt
+      `Prelude.hashWithSalt` amplitude
       `Prelude.hashWithSalt` customConnector
       `Prelude.hashWithSalt` datadog
       `Prelude.hashWithSalt` dynatrace
@@ -233,6 +247,7 @@ instance Prelude.Hashable ConnectorProfileCredentials where
       `Prelude.hashWithSalt` honeycode
       `Prelude.hashWithSalt` inforNexus
       `Prelude.hashWithSalt` marketo
+      `Prelude.hashWithSalt` pardot
       `Prelude.hashWithSalt` redshift
       `Prelude.hashWithSalt` sAPOData
       `Prelude.hashWithSalt` salesforce
@@ -254,6 +269,7 @@ instance Prelude.NFData ConnectorProfileCredentials where
       `Prelude.seq` Prelude.rnf honeycode
       `Prelude.seq` Prelude.rnf inforNexus
       `Prelude.seq` Prelude.rnf marketo
+      `Prelude.seq` Prelude.rnf pardot
       `Prelude.seq` Prelude.rnf redshift
       `Prelude.seq` Prelude.rnf sAPOData
       `Prelude.seq` Prelude.rnf salesforce
@@ -279,6 +295,7 @@ instance Data.ToJSON ConnectorProfileCredentials where
             ("Honeycode" Data..=) Prelude.<$> honeycode,
             ("InforNexus" Data..=) Prelude.<$> inforNexus,
             ("Marketo" Data..=) Prelude.<$> marketo,
+            ("Pardot" Data..=) Prelude.<$> pardot,
             ("Redshift" Data..=) Prelude.<$> redshift,
             ("SAPOData" Data..=) Prelude.<$> sAPOData,
             ("Salesforce" Data..=) Prelude.<$> salesforce,

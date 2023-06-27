@@ -26,6 +26,7 @@ import Amazonka.AppFlow.Types.GoogleAnalyticsConnectorOperator
 import Amazonka.AppFlow.Types.InforNexusConnectorOperator
 import Amazonka.AppFlow.Types.MarketoConnectorOperator
 import Amazonka.AppFlow.Types.Operator
+import Amazonka.AppFlow.Types.PardotConnectorOperator
 import Amazonka.AppFlow.Types.S3ConnectorOperator
 import Amazonka.AppFlow.Types.SAPODataConnectorOperator
 import Amazonka.AppFlow.Types.SalesforceConnectorOperator
@@ -59,6 +60,9 @@ data ConnectorOperator = ConnectorOperator'
     inforNexus :: Prelude.Maybe InforNexusConnectorOperator,
     -- | The operation to be performed on the provided Marketo source fields.
     marketo :: Prelude.Maybe MarketoConnectorOperator,
+    -- | The operation to be performed on the provided Salesforce Pardot source
+    -- fields.
+    pardot :: Prelude.Maybe PardotConnectorOperator,
     -- | The operation to be performed on the provided Amazon S3 source fields.
     s3 :: Prelude.Maybe S3ConnectorOperator,
     -- | The operation to be performed on the provided SAPOData source fields.
@@ -103,6 +107,9 @@ data ConnectorOperator = ConnectorOperator'
 --
 -- 'marketo', 'connectorOperator_marketo' - The operation to be performed on the provided Marketo source fields.
 --
+-- 'pardot', 'connectorOperator_pardot' - The operation to be performed on the provided Salesforce Pardot source
+-- fields.
+--
 -- 's3', 'connectorOperator_s3' - The operation to be performed on the provided Amazon S3 source fields.
 --
 -- 'sAPOData', 'connectorOperator_sAPOData' - The operation to be performed on the provided SAPOData source fields.
@@ -131,6 +138,7 @@ newConnectorOperator =
       googleAnalytics = Prelude.Nothing,
       inforNexus = Prelude.Nothing,
       marketo = Prelude.Nothing,
+      pardot = Prelude.Nothing,
       s3 = Prelude.Nothing,
       sAPOData = Prelude.Nothing,
       salesforce = Prelude.Nothing,
@@ -170,6 +178,11 @@ connectorOperator_inforNexus = Lens.lens (\ConnectorOperator' {inforNexus} -> in
 -- | The operation to be performed on the provided Marketo source fields.
 connectorOperator_marketo :: Lens.Lens' ConnectorOperator (Prelude.Maybe MarketoConnectorOperator)
 connectorOperator_marketo = Lens.lens (\ConnectorOperator' {marketo} -> marketo) (\s@ConnectorOperator' {} a -> s {marketo = a} :: ConnectorOperator)
+
+-- | The operation to be performed on the provided Salesforce Pardot source
+-- fields.
+connectorOperator_pardot :: Lens.Lens' ConnectorOperator (Prelude.Maybe PardotConnectorOperator)
+connectorOperator_pardot = Lens.lens (\ConnectorOperator' {pardot} -> pardot) (\s@ConnectorOperator' {} a -> s {pardot = a} :: ConnectorOperator)
 
 -- | The operation to be performed on the provided Amazon S3 source fields.
 connectorOperator_s3 :: Lens.Lens' ConnectorOperator (Prelude.Maybe S3ConnectorOperator)
@@ -220,6 +233,7 @@ instance Data.FromJSON ConnectorOperator where
             Prelude.<*> (x Data..:? "GoogleAnalytics")
             Prelude.<*> (x Data..:? "InforNexus")
             Prelude.<*> (x Data..:? "Marketo")
+            Prelude.<*> (x Data..:? "Pardot")
             Prelude.<*> (x Data..:? "S3")
             Prelude.<*> (x Data..:? "SAPOData")
             Prelude.<*> (x Data..:? "Salesforce")
@@ -233,13 +247,15 @@ instance Data.FromJSON ConnectorOperator where
 
 instance Prelude.Hashable ConnectorOperator where
   hashWithSalt _salt ConnectorOperator' {..} =
-    _salt `Prelude.hashWithSalt` amplitude
+    _salt
+      `Prelude.hashWithSalt` amplitude
       `Prelude.hashWithSalt` customConnector
       `Prelude.hashWithSalt` datadog
       `Prelude.hashWithSalt` dynatrace
       `Prelude.hashWithSalt` googleAnalytics
       `Prelude.hashWithSalt` inforNexus
       `Prelude.hashWithSalt` marketo
+      `Prelude.hashWithSalt` pardot
       `Prelude.hashWithSalt` s3
       `Prelude.hashWithSalt` sAPOData
       `Prelude.hashWithSalt` salesforce
@@ -259,6 +275,7 @@ instance Prelude.NFData ConnectorOperator where
       `Prelude.seq` Prelude.rnf googleAnalytics
       `Prelude.seq` Prelude.rnf inforNexus
       `Prelude.seq` Prelude.rnf marketo
+      `Prelude.seq` Prelude.rnf pardot
       `Prelude.seq` Prelude.rnf s3
       `Prelude.seq` Prelude.rnf sAPOData
       `Prelude.seq` Prelude.rnf salesforce
@@ -282,6 +299,7 @@ instance Data.ToJSON ConnectorOperator where
               Prelude.<$> googleAnalytics,
             ("InforNexus" Data..=) Prelude.<$> inforNexus,
             ("Marketo" Data..=) Prelude.<$> marketo,
+            ("Pardot" Data..=) Prelude.<$> pardot,
             ("S3" Data..=) Prelude.<$> s3,
             ("SAPOData" Data..=) Prelude.<$> sAPOData,
             ("Salesforce" Data..=) Prelude.<$> salesforce,

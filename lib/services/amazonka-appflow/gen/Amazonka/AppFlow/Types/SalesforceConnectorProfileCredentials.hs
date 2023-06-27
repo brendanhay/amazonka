@@ -20,6 +20,7 @@
 module Amazonka.AppFlow.Types.SalesforceConnectorProfileCredentials where
 
 import Amazonka.AppFlow.Types.ConnectorOAuthRequest
+import Amazonka.AppFlow.Types.OAuth2GrantType
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
@@ -35,6 +36,35 @@ data SalesforceConnectorProfileCredentials = SalesforceConnectorProfileCredentia
     -- | The secret manager ARN, which contains the client ID and client secret
     -- of the connected app.
     clientCredentialsArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | A JSON web token (JWT) that authorizes Amazon AppFlow to access your
+    -- Salesforce records.
+    jwtToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Specifies the OAuth 2.0 grant type that Amazon AppFlow uses when it
+    -- requests an access token from Salesforce. Amazon AppFlow requires an
+    -- access token each time it attempts to access your Salesforce records.
+    --
+    -- You can specify one of the following values:
+    --
+    -- [AUTHORIZATION_CODE]
+    --     Amazon AppFlow passes an authorization code when it requests the
+    --     access token from Salesforce. Amazon AppFlow receives the
+    --     authorization code from Salesforce after you log in to your
+    --     Salesforce account and authorize Amazon AppFlow to access your
+    --     records.
+    --
+    -- [CLIENT_CREDENTIALS]
+    --     Amazon AppFlow passes client credentials (a client ID and client
+    --     secret) when it requests the access token from Salesforce. You
+    --     provide these credentials to Amazon AppFlow when you define the
+    --     connection to your Salesforce account.
+    --
+    -- [JWT_BEARER]
+    --     Amazon AppFlow passes a JSON web token (JWT) when it requests the
+    --     access token from Salesforce. You provide the JWT to Amazon AppFlow
+    --     when you define the connection to your Salesforce account. When you
+    --     use this grant type, you don\'t need to log in to your Salesforce
+    --     account to authorize Amazon AppFlow to access your records.
+    oAuth2GrantType :: Prelude.Maybe OAuth2GrantType,
     -- | The OAuth requirement needed to request security tokens from the
     -- connector endpoint.
     oAuthRequest :: Prelude.Maybe ConnectorOAuthRequest,
@@ -56,6 +86,35 @@ data SalesforceConnectorProfileCredentials = SalesforceConnectorProfileCredentia
 -- 'clientCredentialsArn', 'salesforceConnectorProfileCredentials_clientCredentialsArn' - The secret manager ARN, which contains the client ID and client secret
 -- of the connected app.
 --
+-- 'jwtToken', 'salesforceConnectorProfileCredentials_jwtToken' - A JSON web token (JWT) that authorizes Amazon AppFlow to access your
+-- Salesforce records.
+--
+-- 'oAuth2GrantType', 'salesforceConnectorProfileCredentials_oAuth2GrantType' - Specifies the OAuth 2.0 grant type that Amazon AppFlow uses when it
+-- requests an access token from Salesforce. Amazon AppFlow requires an
+-- access token each time it attempts to access your Salesforce records.
+--
+-- You can specify one of the following values:
+--
+-- [AUTHORIZATION_CODE]
+--     Amazon AppFlow passes an authorization code when it requests the
+--     access token from Salesforce. Amazon AppFlow receives the
+--     authorization code from Salesforce after you log in to your
+--     Salesforce account and authorize Amazon AppFlow to access your
+--     records.
+--
+-- [CLIENT_CREDENTIALS]
+--     Amazon AppFlow passes client credentials (a client ID and client
+--     secret) when it requests the access token from Salesforce. You
+--     provide these credentials to Amazon AppFlow when you define the
+--     connection to your Salesforce account.
+--
+-- [JWT_BEARER]
+--     Amazon AppFlow passes a JSON web token (JWT) when it requests the
+--     access token from Salesforce. You provide the JWT to Amazon AppFlow
+--     when you define the connection to your Salesforce account. When you
+--     use this grant type, you don\'t need to log in to your Salesforce
+--     account to authorize Amazon AppFlow to access your records.
+--
 -- 'oAuthRequest', 'salesforceConnectorProfileCredentials_oAuthRequest' - The OAuth requirement needed to request security tokens from the
 -- connector endpoint.
 --
@@ -68,6 +127,8 @@ newSalesforceConnectorProfileCredentials =
         Prelude.Nothing,
       clientCredentialsArn =
         Prelude.Nothing,
+      jwtToken = Prelude.Nothing,
+      oAuth2GrantType = Prelude.Nothing,
       oAuthRequest = Prelude.Nothing,
       refreshToken = Prelude.Nothing
     }
@@ -80,6 +141,39 @@ salesforceConnectorProfileCredentials_accessToken = Lens.lens (\SalesforceConnec
 -- of the connected app.
 salesforceConnectorProfileCredentials_clientCredentialsArn :: Lens.Lens' SalesforceConnectorProfileCredentials (Prelude.Maybe Prelude.Text)
 salesforceConnectorProfileCredentials_clientCredentialsArn = Lens.lens (\SalesforceConnectorProfileCredentials' {clientCredentialsArn} -> clientCredentialsArn) (\s@SalesforceConnectorProfileCredentials' {} a -> s {clientCredentialsArn = a} :: SalesforceConnectorProfileCredentials) Prelude.. Lens.mapping Data._Sensitive
+
+-- | A JSON web token (JWT) that authorizes Amazon AppFlow to access your
+-- Salesforce records.
+salesforceConnectorProfileCredentials_jwtToken :: Lens.Lens' SalesforceConnectorProfileCredentials (Prelude.Maybe Prelude.Text)
+salesforceConnectorProfileCredentials_jwtToken = Lens.lens (\SalesforceConnectorProfileCredentials' {jwtToken} -> jwtToken) (\s@SalesforceConnectorProfileCredentials' {} a -> s {jwtToken = a} :: SalesforceConnectorProfileCredentials) Prelude.. Lens.mapping Data._Sensitive
+
+-- | Specifies the OAuth 2.0 grant type that Amazon AppFlow uses when it
+-- requests an access token from Salesforce. Amazon AppFlow requires an
+-- access token each time it attempts to access your Salesforce records.
+--
+-- You can specify one of the following values:
+--
+-- [AUTHORIZATION_CODE]
+--     Amazon AppFlow passes an authorization code when it requests the
+--     access token from Salesforce. Amazon AppFlow receives the
+--     authorization code from Salesforce after you log in to your
+--     Salesforce account and authorize Amazon AppFlow to access your
+--     records.
+--
+-- [CLIENT_CREDENTIALS]
+--     Amazon AppFlow passes client credentials (a client ID and client
+--     secret) when it requests the access token from Salesforce. You
+--     provide these credentials to Amazon AppFlow when you define the
+--     connection to your Salesforce account.
+--
+-- [JWT_BEARER]
+--     Amazon AppFlow passes a JSON web token (JWT) when it requests the
+--     access token from Salesforce. You provide the JWT to Amazon AppFlow
+--     when you define the connection to your Salesforce account. When you
+--     use this grant type, you don\'t need to log in to your Salesforce
+--     account to authorize Amazon AppFlow to access your records.
+salesforceConnectorProfileCredentials_oAuth2GrantType :: Lens.Lens' SalesforceConnectorProfileCredentials (Prelude.Maybe OAuth2GrantType)
+salesforceConnectorProfileCredentials_oAuth2GrantType = Lens.lens (\SalesforceConnectorProfileCredentials' {oAuth2GrantType} -> oAuth2GrantType) (\s@SalesforceConnectorProfileCredentials' {} a -> s {oAuth2GrantType = a} :: SalesforceConnectorProfileCredentials)
 
 -- | The OAuth requirement needed to request security tokens from the
 -- connector endpoint.
@@ -97,8 +191,11 @@ instance
   hashWithSalt
     _salt
     SalesforceConnectorProfileCredentials' {..} =
-      _salt `Prelude.hashWithSalt` accessToken
+      _salt
+        `Prelude.hashWithSalt` accessToken
         `Prelude.hashWithSalt` clientCredentialsArn
+        `Prelude.hashWithSalt` jwtToken
+        `Prelude.hashWithSalt` oAuth2GrantType
         `Prelude.hashWithSalt` oAuthRequest
         `Prelude.hashWithSalt` refreshToken
 
@@ -109,6 +206,8 @@ instance
   rnf SalesforceConnectorProfileCredentials' {..} =
     Prelude.rnf accessToken
       `Prelude.seq` Prelude.rnf clientCredentialsArn
+      `Prelude.seq` Prelude.rnf jwtToken
+      `Prelude.seq` Prelude.rnf oAuth2GrantType
       `Prelude.seq` Prelude.rnf oAuthRequest
       `Prelude.seq` Prelude.rnf refreshToken
 
@@ -122,6 +221,9 @@ instance
           [ ("accessToken" Data..=) Prelude.<$> accessToken,
             ("clientCredentialsArn" Data..=)
               Prelude.<$> clientCredentialsArn,
+            ("jwtToken" Data..=) Prelude.<$> jwtToken,
+            ("oAuth2GrantType" Data..=)
+              Prelude.<$> oAuth2GrantType,
             ("oAuthRequest" Data..=) Prelude.<$> oAuthRequest,
             ("refreshToken" Data..=) Prelude.<$> refreshToken
           ]

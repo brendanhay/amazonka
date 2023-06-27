@@ -124,7 +124,8 @@ instance
     SAPODataDestinationProperties
   where
   hashWithSalt _salt SAPODataDestinationProperties' {..} =
-    _salt `Prelude.hashWithSalt` errorHandlingConfig
+    _salt
+      `Prelude.hashWithSalt` errorHandlingConfig
       `Prelude.hashWithSalt` idFieldNames
       `Prelude.hashWithSalt` successResponseHandlingConfig
       `Prelude.hashWithSalt` writeOperationType

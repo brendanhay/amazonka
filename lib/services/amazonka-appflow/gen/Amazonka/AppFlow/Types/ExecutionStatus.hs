@@ -20,6 +20,8 @@
 module Amazonka.AppFlow.Types.ExecutionStatus
   ( ExecutionStatus
       ( ..,
+        ExecutionStatus_CancelStarted,
+        ExecutionStatus_Canceled,
         ExecutionStatus_Error,
         ExecutionStatus_InProgress,
         ExecutionStatus_Successful
@@ -59,6 +61,12 @@ newtype ExecutionStatus = ExecutionStatus'
       Data.ToXML
     )
 
+pattern ExecutionStatus_CancelStarted :: ExecutionStatus
+pattern ExecutionStatus_CancelStarted = ExecutionStatus' "CancelStarted"
+
+pattern ExecutionStatus_Canceled :: ExecutionStatus
+pattern ExecutionStatus_Canceled = ExecutionStatus' "Canceled"
+
 pattern ExecutionStatus_Error :: ExecutionStatus
 pattern ExecutionStatus_Error = ExecutionStatus' "Error"
 
@@ -69,6 +77,8 @@ pattern ExecutionStatus_Successful :: ExecutionStatus
 pattern ExecutionStatus_Successful = ExecutionStatus' "Successful"
 
 {-# COMPLETE
+  ExecutionStatus_CancelStarted,
+  ExecutionStatus_Canceled,
   ExecutionStatus_Error,
   ExecutionStatus_InProgress,
   ExecutionStatus_Successful,

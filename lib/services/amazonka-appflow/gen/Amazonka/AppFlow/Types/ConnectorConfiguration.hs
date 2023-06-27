@@ -25,8 +25,10 @@ import Amazonka.AppFlow.Types.ConnectorProvisioningConfig
 import Amazonka.AppFlow.Types.ConnectorProvisioningType
 import Amazonka.AppFlow.Types.ConnectorRuntimeSetting
 import Amazonka.AppFlow.Types.ConnectorType
+import Amazonka.AppFlow.Types.DataTransferApi
 import Amazonka.AppFlow.Types.Operators
 import Amazonka.AppFlow.Types.ScheduleFrequencyType
+import Amazonka.AppFlow.Types.SupportedDataTransferType
 import Amazonka.AppFlow.Types.TriggerType
 import Amazonka.AppFlow.Types.WriteOperationType
 import qualified Amazonka.Core as Core
@@ -81,6 +83,17 @@ data ConnectorConfiguration = ConnectorConfiguration'
     registeredBy :: Prelude.Maybe Prelude.Text,
     -- | A list of API versions that are supported by the connector.
     supportedApiVersions :: Prelude.Maybe [Prelude.Text],
+    -- | The APIs of the connector application that Amazon AppFlow can use to
+    -- transfer your data.
+    supportedDataTransferApis :: Prelude.Maybe [DataTransferApi],
+    -- | The data transfer types that the connector supports.
+    --
+    -- [RECORD]
+    --     Structured records.
+    --
+    -- [FILE]
+    --     Files or binary data.
+    supportedDataTransferTypes :: Prelude.Maybe [SupportedDataTransferType],
     -- | Lists the connectors that are available for use as destinations.
     supportedDestinationConnectors :: Prelude.Maybe [ConnectorType],
     -- | A list of operators supported by the connector.
@@ -145,6 +158,17 @@ data ConnectorConfiguration = ConnectorConfiguration'
 --
 -- 'supportedApiVersions', 'connectorConfiguration_supportedApiVersions' - A list of API versions that are supported by the connector.
 --
+-- 'supportedDataTransferApis', 'connectorConfiguration_supportedDataTransferApis' - The APIs of the connector application that Amazon AppFlow can use to
+-- transfer your data.
+--
+-- 'supportedDataTransferTypes', 'connectorConfiguration_supportedDataTransferTypes' - The data transfer types that the connector supports.
+--
+-- [RECORD]
+--     Structured records.
+--
+-- [FILE]
+--     Files or binary data.
+--
 -- 'supportedDestinationConnectors', 'connectorConfiguration_supportedDestinationConnectors' - Lists the connectors that are available for use as destinations.
 --
 -- 'supportedOperators', 'connectorConfiguration_supportedOperators' - A list of operators supported by the connector.
@@ -180,6 +204,8 @@ newConnectorConfiguration =
       registeredAt = Prelude.Nothing,
       registeredBy = Prelude.Nothing,
       supportedApiVersions = Prelude.Nothing,
+      supportedDataTransferApis = Prelude.Nothing,
+      supportedDataTransferTypes = Prelude.Nothing,
       supportedDestinationConnectors = Prelude.Nothing,
       supportedOperators = Prelude.Nothing,
       supportedSchedulingFrequencies = Prelude.Nothing,
@@ -272,6 +298,21 @@ connectorConfiguration_registeredBy = Lens.lens (\ConnectorConfiguration' {regis
 connectorConfiguration_supportedApiVersions :: Lens.Lens' ConnectorConfiguration (Prelude.Maybe [Prelude.Text])
 connectorConfiguration_supportedApiVersions = Lens.lens (\ConnectorConfiguration' {supportedApiVersions} -> supportedApiVersions) (\s@ConnectorConfiguration' {} a -> s {supportedApiVersions = a} :: ConnectorConfiguration) Prelude.. Lens.mapping Lens.coerced
 
+-- | The APIs of the connector application that Amazon AppFlow can use to
+-- transfer your data.
+connectorConfiguration_supportedDataTransferApis :: Lens.Lens' ConnectorConfiguration (Prelude.Maybe [DataTransferApi])
+connectorConfiguration_supportedDataTransferApis = Lens.lens (\ConnectorConfiguration' {supportedDataTransferApis} -> supportedDataTransferApis) (\s@ConnectorConfiguration' {} a -> s {supportedDataTransferApis = a} :: ConnectorConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | The data transfer types that the connector supports.
+--
+-- [RECORD]
+--     Structured records.
+--
+-- [FILE]
+--     Files or binary data.
+connectorConfiguration_supportedDataTransferTypes :: Lens.Lens' ConnectorConfiguration (Prelude.Maybe [SupportedDataTransferType])
+connectorConfiguration_supportedDataTransferTypes = Lens.lens (\ConnectorConfiguration' {supportedDataTransferTypes} -> supportedDataTransferTypes) (\s@ConnectorConfiguration' {} a -> s {supportedDataTransferTypes = a} :: ConnectorConfiguration) Prelude.. Lens.mapping Lens.coerced
+
 -- | Lists the connectors that are available for use as destinations.
 connectorConfiguration_supportedDestinationConnectors :: Lens.Lens' ConnectorConfiguration (Prelude.Maybe [ConnectorType])
 connectorConfiguration_supportedDestinationConnectors = Lens.lens (\ConnectorConfiguration' {supportedDestinationConnectors} -> supportedDestinationConnectors) (\s@ConnectorConfiguration' {} a -> s {supportedDestinationConnectors = a} :: ConnectorConfiguration) Prelude.. Lens.mapping Lens.coerced
@@ -310,7 +351,8 @@ instance Data.FromJSON ConnectorConfiguration where
             Prelude.<*> (x Data..:? "connectorOwner")
             Prelude.<*> (x Data..:? "connectorProvisioningConfig")
             Prelude.<*> (x Data..:? "connectorProvisioningType")
-            Prelude.<*> ( x Data..:? "connectorRuntimeSettings"
+            Prelude.<*> ( x
+                            Data..:? "connectorRuntimeSettings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "connectorType")
@@ -320,29 +362,44 @@ instance Data.FromJSON ConnectorConfiguration where
             Prelude.<*> (x Data..:? "logoURL")
             Prelude.<*> (x Data..:? "registeredAt")
             Prelude.<*> (x Data..:? "registeredBy")
-            Prelude.<*> ( x Data..:? "supportedApiVersions"
+            Prelude.<*> ( x
+                            Data..:? "supportedApiVersions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "supportedDestinationConnectors"
+            Prelude.<*> ( x
+                            Data..:? "supportedDataTransferApis"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "supportedOperators"
+            Prelude.<*> ( x
+                            Data..:? "supportedDataTransferTypes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "supportedSchedulingFrequencies"
+            Prelude.<*> ( x
+                            Data..:? "supportedDestinationConnectors"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "supportedTriggerTypes"
+            Prelude.<*> ( x
+                            Data..:? "supportedOperators"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "supportedWriteOperations"
+            Prelude.<*> ( x
+                            Data..:? "supportedSchedulingFrequencies"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "supportedTriggerTypes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "supportedWriteOperations"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ConnectorConfiguration where
   hashWithSalt _salt ConnectorConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` authenticationConfig
+    _salt
+      `Prelude.hashWithSalt` authenticationConfig
       `Prelude.hashWithSalt` canUseAsDestination
       `Prelude.hashWithSalt` canUseAsSource
       `Prelude.hashWithSalt` connectorArn
@@ -363,6 +420,8 @@ instance Prelude.Hashable ConnectorConfiguration where
       `Prelude.hashWithSalt` registeredAt
       `Prelude.hashWithSalt` registeredBy
       `Prelude.hashWithSalt` supportedApiVersions
+      `Prelude.hashWithSalt` supportedDataTransferApis
+      `Prelude.hashWithSalt` supportedDataTransferTypes
       `Prelude.hashWithSalt` supportedDestinationConnectors
       `Prelude.hashWithSalt` supportedOperators
       `Prelude.hashWithSalt` supportedSchedulingFrequencies
@@ -394,6 +453,10 @@ instance Prelude.NFData ConnectorConfiguration where
       `Prelude.seq` Prelude.rnf registeredBy
       `Prelude.seq` Prelude.rnf
         supportedApiVersions
+      `Prelude.seq` Prelude.rnf
+        supportedDataTransferApis
+      `Prelude.seq` Prelude.rnf
+        supportedDataTransferTypes
       `Prelude.seq` Prelude.rnf
         supportedDestinationConnectors
       `Prelude.seq` Prelude.rnf

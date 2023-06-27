@@ -80,7 +80,8 @@ instance
   hashWithSalt
     _salt
     AmplitudeConnectorProfileCredentials' {..} =
-      _salt `Prelude.hashWithSalt` apiKey
+      _salt
+        `Prelude.hashWithSalt` apiKey
         `Prelude.hashWithSalt` secretKey
 
 instance

@@ -33,6 +33,7 @@ module Amazonka.AppFlow.UpdateConnectorRegistration
     newUpdateConnectorRegistration,
 
     -- * Request Lenses
+    updateConnectorRegistration_clientToken,
     updateConnectorRegistration_connectorProvisioningConfig,
     updateConnectorRegistration_description,
     updateConnectorRegistration_connectorLabel,
@@ -57,7 +58,23 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateConnectorRegistration' smart constructor.
 data UpdateConnectorRegistration = UpdateConnectorRegistration'
-  { connectorProvisioningConfig :: Prelude.Maybe ConnectorProvisioningConfig,
+  { -- | The @clientToken@ parameter is an idempotency token. It ensures that
+    -- your @UpdateConnectorRegistration@ request completes only once. You
+    -- choose the value to pass. For example, if you don\'t receive a response
+    -- from your request, you can safely retry the request with the same
+    -- @clientToken@ parameter value.
+    --
+    -- If you omit a @clientToken@ value, the Amazon Web Services SDK that you
+    -- are using inserts a value for you. This way, the SDK can safely retry
+    -- requests multiple times after a network error. You must provide your own
+    -- value for other use cases.
+    --
+    -- If you specify input parameters that differ from your first request, an
+    -- error occurs. If you use a different value for @clientToken@, Amazon
+    -- AppFlow considers it a new call to @UpdateConnectorRegistration@. The
+    -- token is active for 8 hours.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    connectorProvisioningConfig :: Prelude.Maybe ConnectorProvisioningConfig,
     -- | A description about the update that you\'re applying to the connector.
     description :: Prelude.Maybe Prelude.Text,
     -- | The name of the connector. The name is unique for each connector
@@ -74,6 +91,22 @@ data UpdateConnectorRegistration = UpdateConnectorRegistration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'updateConnectorRegistration_clientToken' - The @clientToken@ parameter is an idempotency token. It ensures that
+-- your @UpdateConnectorRegistration@ request completes only once. You
+-- choose the value to pass. For example, if you don\'t receive a response
+-- from your request, you can safely retry the request with the same
+-- @clientToken@ parameter value.
+--
+-- If you omit a @clientToken@ value, the Amazon Web Services SDK that you
+-- are using inserts a value for you. This way, the SDK can safely retry
+-- requests multiple times after a network error. You must provide your own
+-- value for other use cases.
+--
+-- If you specify input parameters that differ from your first request, an
+-- error occurs. If you use a different value for @clientToken@, Amazon
+-- AppFlow considers it a new call to @UpdateConnectorRegistration@. The
+-- token is active for 8 hours.
+--
 -- 'connectorProvisioningConfig', 'updateConnectorRegistration_connectorProvisioningConfig' - Undocumented member.
 --
 -- 'description', 'updateConnectorRegistration_description' - A description about the update that you\'re applying to the connector.
@@ -86,11 +119,30 @@ newUpdateConnectorRegistration ::
   UpdateConnectorRegistration
 newUpdateConnectorRegistration pConnectorLabel_ =
   UpdateConnectorRegistration'
-    { connectorProvisioningConfig =
+    { clientToken =
         Prelude.Nothing,
+      connectorProvisioningConfig = Prelude.Nothing,
       description = Prelude.Nothing,
       connectorLabel = pConnectorLabel_
     }
+
+-- | The @clientToken@ parameter is an idempotency token. It ensures that
+-- your @UpdateConnectorRegistration@ request completes only once. You
+-- choose the value to pass. For example, if you don\'t receive a response
+-- from your request, you can safely retry the request with the same
+-- @clientToken@ parameter value.
+--
+-- If you omit a @clientToken@ value, the Amazon Web Services SDK that you
+-- are using inserts a value for you. This way, the SDK can safely retry
+-- requests multiple times after a network error. You must provide your own
+-- value for other use cases.
+--
+-- If you specify input parameters that differ from your first request, an
+-- error occurs. If you use a different value for @clientToken@, Amazon
+-- AppFlow considers it a new call to @UpdateConnectorRegistration@. The
+-- token is active for 8 hours.
+updateConnectorRegistration_clientToken :: Lens.Lens' UpdateConnectorRegistration (Prelude.Maybe Prelude.Text)
+updateConnectorRegistration_clientToken = Lens.lens (\UpdateConnectorRegistration' {clientToken} -> clientToken) (\s@UpdateConnectorRegistration' {} a -> s {clientToken = a} :: UpdateConnectorRegistration)
 
 -- | Undocumented member.
 updateConnectorRegistration_connectorProvisioningConfig :: Lens.Lens' UpdateConnectorRegistration (Prelude.Maybe ConnectorProvisioningConfig)
@@ -122,13 +174,15 @@ instance Core.AWSRequest UpdateConnectorRegistration where
 instance Prelude.Hashable UpdateConnectorRegistration where
   hashWithSalt _salt UpdateConnectorRegistration' {..} =
     _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` connectorProvisioningConfig
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` connectorLabel
 
 instance Prelude.NFData UpdateConnectorRegistration where
   rnf UpdateConnectorRegistration' {..} =
-    Prelude.rnf connectorProvisioningConfig
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf connectorProvisioningConfig
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf connectorLabel
 
@@ -147,7 +201,8 @@ instance Data.ToJSON UpdateConnectorRegistration where
   toJSON UpdateConnectorRegistration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("connectorProvisioningConfig" Data..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("connectorProvisioningConfig" Data..=)
               Prelude.<$> connectorProvisioningConfig,
             ("description" Data..=) Prelude.<$> description,
             Prelude.Just

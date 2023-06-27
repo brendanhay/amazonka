@@ -95,7 +95,8 @@ instance Data.FromJSON ExecutionResult where
 
 instance Prelude.Hashable ExecutionResult where
   hashWithSalt _salt ExecutionResult' {..} =
-    _salt `Prelude.hashWithSalt` bytesProcessed
+    _salt
+      `Prelude.hashWithSalt` bytesProcessed
       `Prelude.hashWithSalt` bytesWritten
       `Prelude.hashWithSalt` errorInfo
       `Prelude.hashWithSalt` recordsProcessed

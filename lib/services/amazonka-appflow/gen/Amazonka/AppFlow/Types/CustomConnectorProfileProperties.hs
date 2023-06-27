@@ -76,7 +76,8 @@ instance
       ( \x ->
           CustomConnectorProfileProperties'
             Prelude.<$> (x Data..:? "oAuth2Properties")
-            Prelude.<*> ( x Data..:? "profileProperties"
+            Prelude.<*> ( x
+                            Data..:? "profileProperties"
                             Data..!= Prelude.mempty
                         )
       )
@@ -88,7 +89,8 @@ instance
   hashWithSalt
     _salt
     CustomConnectorProfileProperties' {..} =
-      _salt `Prelude.hashWithSalt` oAuth2Properties
+      _salt
+        `Prelude.hashWithSalt` oAuth2Properties
         `Prelude.hashWithSalt` profileProperties
 
 instance

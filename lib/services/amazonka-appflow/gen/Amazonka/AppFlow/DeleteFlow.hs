@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteFlow where
 
 instance Prelude.Hashable DeleteFlow where
   hashWithSalt _salt DeleteFlow' {..} =
-    _salt `Prelude.hashWithSalt` forceDelete
+    _salt
+      `Prelude.hashWithSalt` forceDelete
       `Prelude.hashWithSalt` flowName
 
 instance Prelude.NFData DeleteFlow where

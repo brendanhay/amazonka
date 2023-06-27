@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.AppFlow.Types.CustomConnectorSourceProperties where
 
+import Amazonka.AppFlow.Types.DataTransferApi
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
@@ -32,6 +33,9 @@ data CustomConnectorSourceProperties = CustomConnectorSourceProperties'
   { -- | Custom properties that are required to use the custom connector as a
     -- source.
     customProperties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The API of the connector application that Amazon AppFlow uses to
+    -- transfer your data.
+    dataTransferApi :: Prelude.Maybe DataTransferApi,
     -- | The entity specified in the custom connector as a source in the flow.
     entityName :: Prelude.Text
   }
@@ -48,6 +52,9 @@ data CustomConnectorSourceProperties = CustomConnectorSourceProperties'
 -- 'customProperties', 'customConnectorSourceProperties_customProperties' - Custom properties that are required to use the custom connector as a
 -- source.
 --
+-- 'dataTransferApi', 'customConnectorSourceProperties_dataTransferApi' - The API of the connector application that Amazon AppFlow uses to
+-- transfer your data.
+--
 -- 'entityName', 'customConnectorSourceProperties_entityName' - The entity specified in the custom connector as a source in the flow.
 newCustomConnectorSourceProperties ::
   -- | 'entityName'
@@ -57,6 +64,7 @@ newCustomConnectorSourceProperties pEntityName_ =
   CustomConnectorSourceProperties'
     { customProperties =
         Prelude.Nothing,
+      dataTransferApi = Prelude.Nothing,
       entityName = pEntityName_
     }
 
@@ -64,6 +72,11 @@ newCustomConnectorSourceProperties pEntityName_ =
 -- source.
 customConnectorSourceProperties_customProperties :: Lens.Lens' CustomConnectorSourceProperties (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 customConnectorSourceProperties_customProperties = Lens.lens (\CustomConnectorSourceProperties' {customProperties} -> customProperties) (\s@CustomConnectorSourceProperties' {} a -> s {customProperties = a} :: CustomConnectorSourceProperties) Prelude.. Lens.mapping Lens.coerced
+
+-- | The API of the connector application that Amazon AppFlow uses to
+-- transfer your data.
+customConnectorSourceProperties_dataTransferApi :: Lens.Lens' CustomConnectorSourceProperties (Prelude.Maybe DataTransferApi)
+customConnectorSourceProperties_dataTransferApi = Lens.lens (\CustomConnectorSourceProperties' {dataTransferApi} -> dataTransferApi) (\s@CustomConnectorSourceProperties' {} a -> s {dataTransferApi = a} :: CustomConnectorSourceProperties)
 
 -- | The entity specified in the custom connector as a source in the flow.
 customConnectorSourceProperties_entityName :: Lens.Lens' CustomConnectorSourceProperties Prelude.Text
@@ -78,9 +91,11 @@ instance
       "CustomConnectorSourceProperties"
       ( \x ->
           CustomConnectorSourceProperties'
-            Prelude.<$> ( x Data..:? "customProperties"
+            Prelude.<$> ( x
+                            Data..:? "customProperties"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "dataTransferApi")
             Prelude.<*> (x Data..: "entityName")
       )
 
@@ -91,7 +106,9 @@ instance
   hashWithSalt
     _salt
     CustomConnectorSourceProperties' {..} =
-      _salt `Prelude.hashWithSalt` customProperties
+      _salt
+        `Prelude.hashWithSalt` customProperties
+        `Prelude.hashWithSalt` dataTransferApi
         `Prelude.hashWithSalt` entityName
 
 instance
@@ -100,6 +117,7 @@ instance
   where
   rnf CustomConnectorSourceProperties' {..} =
     Prelude.rnf customProperties
+      `Prelude.seq` Prelude.rnf dataTransferApi
       `Prelude.seq` Prelude.rnf entityName
 
 instance Data.ToJSON CustomConnectorSourceProperties where
@@ -108,6 +126,8 @@ instance Data.ToJSON CustomConnectorSourceProperties where
       ( Prelude.catMaybes
           [ ("customProperties" Data..=)
               Prelude.<$> customProperties,
+            ("dataTransferApi" Data..=)
+              Prelude.<$> dataTransferApi,
             Prelude.Just ("entityName" Data..= entityName)
           ]
       )

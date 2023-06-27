@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     InforNexusConnectorProfileCredentials' {..} =
-      _salt `Prelude.hashWithSalt` accessKeyId
+      _salt
+        `Prelude.hashWithSalt` accessKeyId
         `Prelude.hashWithSalt` userId
         `Prelude.hashWithSalt` secretAccessKey
         `Prelude.hashWithSalt` datakey

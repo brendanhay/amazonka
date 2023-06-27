@@ -33,6 +33,7 @@ module Amazonka.AppFlow.CreateConnectorProfile
     newCreateConnectorProfile,
 
     -- * Request Lenses
+    createConnectorProfile_clientToken,
     createConnectorProfile_connectorLabel,
     createConnectorProfile_kmsArn,
     createConnectorProfile_connectorProfileName,
@@ -60,7 +61,23 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateConnectorProfile' smart constructor.
 data CreateConnectorProfile = CreateConnectorProfile'
-  { -- | The label of the connector. The label is unique for each
+  { -- | The @clientToken@ parameter is an idempotency token. It ensures that
+    -- your @CreateConnectorProfile@ request completes only once. You choose
+    -- the value to pass. For example, if you don\'t receive a response from
+    -- your request, you can safely retry the request with the same
+    -- @clientToken@ parameter value.
+    --
+    -- If you omit a @clientToken@ value, the Amazon Web Services SDK that you
+    -- are using inserts a value for you. This way, the SDK can safely retry
+    -- requests multiple times after a network error. You must provide your own
+    -- value for other use cases.
+    --
+    -- If you specify input parameters that differ from your first request, an
+    -- error occurs. If you use a different value for @clientToken@, Amazon
+    -- AppFlow considers it a new call to @CreateConnectorProfile@. The token
+    -- is active for 8 hours.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The label of the connector. The label is unique for each
     -- @ConnectorRegistration@ in your Amazon Web Services account. Only needed
     -- if calling for CUSTOMCONNECTOR connector type\/.
     connectorLabel :: Prelude.Maybe Prelude.Text,
@@ -91,6 +108,22 @@ data CreateConnectorProfile = CreateConnectorProfile'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'clientToken', 'createConnectorProfile_clientToken' - The @clientToken@ parameter is an idempotency token. It ensures that
+-- your @CreateConnectorProfile@ request completes only once. You choose
+-- the value to pass. For example, if you don\'t receive a response from
+-- your request, you can safely retry the request with the same
+-- @clientToken@ parameter value.
+--
+-- If you omit a @clientToken@ value, the Amazon Web Services SDK that you
+-- are using inserts a value for you. This way, the SDK can safely retry
+-- requests multiple times after a network error. You must provide your own
+-- value for other use cases.
+--
+-- If you specify input parameters that differ from your first request, an
+-- error occurs. If you use a different value for @clientToken@, Amazon
+-- AppFlow considers it a new call to @CreateConnectorProfile@. The token
+-- is active for 8 hours.
 --
 -- 'connectorLabel', 'createConnectorProfile_connectorLabel' - The label of the connector. The label is unique for each
 -- @ConnectorRegistration@ in your Amazon Web Services account. Only needed
@@ -128,14 +161,33 @@ newCreateConnectorProfile
   pConnectionMode_
   pConnectorProfileConfig_ =
     CreateConnectorProfile'
-      { connectorLabel =
+      { clientToken =
           Prelude.Nothing,
+        connectorLabel = Prelude.Nothing,
         kmsArn = Prelude.Nothing,
         connectorProfileName = pConnectorProfileName_,
         connectorType = pConnectorType_,
         connectionMode = pConnectionMode_,
         connectorProfileConfig = pConnectorProfileConfig_
       }
+
+-- | The @clientToken@ parameter is an idempotency token. It ensures that
+-- your @CreateConnectorProfile@ request completes only once. You choose
+-- the value to pass. For example, if you don\'t receive a response from
+-- your request, you can safely retry the request with the same
+-- @clientToken@ parameter value.
+--
+-- If you omit a @clientToken@ value, the Amazon Web Services SDK that you
+-- are using inserts a value for you. This way, the SDK can safely retry
+-- requests multiple times after a network error. You must provide your own
+-- value for other use cases.
+--
+-- If you specify input parameters that differ from your first request, an
+-- error occurs. If you use a different value for @clientToken@, Amazon
+-- AppFlow considers it a new call to @CreateConnectorProfile@. The token
+-- is active for 8 hours.
+createConnectorProfile_clientToken :: Lens.Lens' CreateConnectorProfile (Prelude.Maybe Prelude.Text)
+createConnectorProfile_clientToken = Lens.lens (\CreateConnectorProfile' {clientToken} -> clientToken) (\s@CreateConnectorProfile' {} a -> s {clientToken = a} :: CreateConnectorProfile)
 
 -- | The label of the connector. The label is unique for each
 -- @ConnectorRegistration@ in your Amazon Web Services account. Only needed
@@ -186,7 +238,9 @@ instance Core.AWSRequest CreateConnectorProfile where
 
 instance Prelude.Hashable CreateConnectorProfile where
   hashWithSalt _salt CreateConnectorProfile' {..} =
-    _salt `Prelude.hashWithSalt` connectorLabel
+    _salt
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` connectorLabel
       `Prelude.hashWithSalt` kmsArn
       `Prelude.hashWithSalt` connectorProfileName
       `Prelude.hashWithSalt` connectorType
@@ -195,7 +249,8 @@ instance Prelude.Hashable CreateConnectorProfile where
 
 instance Prelude.NFData CreateConnectorProfile where
   rnf CreateConnectorProfile' {..} =
-    Prelude.rnf connectorLabel
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf connectorLabel
       `Prelude.seq` Prelude.rnf kmsArn
       `Prelude.seq` Prelude.rnf connectorProfileName
       `Prelude.seq` Prelude.rnf connectorType
@@ -217,7 +272,8 @@ instance Data.ToJSON CreateConnectorProfile where
   toJSON CreateConnectorProfile' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("connectorLabel" Data..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("connectorLabel" Data..=)
               Prelude.<$> connectorLabel,
             ("kmsArn" Data..=) Prelude.<$> kmsArn,
             Prelude.Just

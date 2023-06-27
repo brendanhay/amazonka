@@ -28,6 +28,7 @@ import Amazonka.AppFlow.Types.GoogleAnalyticsMetadata
 import Amazonka.AppFlow.Types.HoneycodeMetadata
 import Amazonka.AppFlow.Types.InforNexusMetadata
 import Amazonka.AppFlow.Types.MarketoMetadata
+import Amazonka.AppFlow.Types.PardotMetadata
 import Amazonka.AppFlow.Types.RedshiftMetadata
 import Amazonka.AppFlow.Types.S3Metadata
 import Amazonka.AppFlow.Types.SAPODataMetadata
@@ -68,6 +69,8 @@ data ConnectorMetadata = ConnectorMetadata'
     inforNexus :: Prelude.Maybe InforNexusMetadata,
     -- | The connector metadata specific to Marketo.
     marketo :: Prelude.Maybe MarketoMetadata,
+    -- | The connector metadata specific to Salesforce Pardot.
+    pardot :: Prelude.Maybe PardotMetadata,
     -- | The connector metadata specific to Amazon Redshift.
     redshift :: Prelude.Maybe RedshiftMetadata,
     -- | The connector metadata specific to Amazon S3.
@@ -120,6 +123,8 @@ data ConnectorMetadata = ConnectorMetadata'
 --
 -- 'marketo', 'connectorMetadata_marketo' - The connector metadata specific to Marketo.
 --
+-- 'pardot', 'connectorMetadata_pardot' - The connector metadata specific to Salesforce Pardot.
+--
 -- 'redshift', 'connectorMetadata_redshift' - The connector metadata specific to Amazon Redshift.
 --
 -- 's3', 'connectorMetadata_s3' - The connector metadata specific to Amazon S3.
@@ -156,6 +161,7 @@ newConnectorMetadata =
       honeycode = Prelude.Nothing,
       inforNexus = Prelude.Nothing,
       marketo = Prelude.Nothing,
+      pardot = Prelude.Nothing,
       redshift = Prelude.Nothing,
       s3 = Prelude.Nothing,
       sAPOData = Prelude.Nothing,
@@ -205,6 +211,10 @@ connectorMetadata_inforNexus = Lens.lens (\ConnectorMetadata' {inforNexus} -> in
 -- | The connector metadata specific to Marketo.
 connectorMetadata_marketo :: Lens.Lens' ConnectorMetadata (Prelude.Maybe MarketoMetadata)
 connectorMetadata_marketo = Lens.lens (\ConnectorMetadata' {marketo} -> marketo) (\s@ConnectorMetadata' {} a -> s {marketo = a} :: ConnectorMetadata)
+
+-- | The connector metadata specific to Salesforce Pardot.
+connectorMetadata_pardot :: Lens.Lens' ConnectorMetadata (Prelude.Maybe PardotMetadata)
+connectorMetadata_pardot = Lens.lens (\ConnectorMetadata' {pardot} -> pardot) (\s@ConnectorMetadata' {} a -> s {pardot = a} :: ConnectorMetadata)
 
 -- | The connector metadata specific to Amazon Redshift.
 connectorMetadata_redshift :: Lens.Lens' ConnectorMetadata (Prelude.Maybe RedshiftMetadata)
@@ -269,6 +279,7 @@ instance Data.FromJSON ConnectorMetadata where
             Prelude.<*> (x Data..:? "Honeycode")
             Prelude.<*> (x Data..:? "InforNexus")
             Prelude.<*> (x Data..:? "Marketo")
+            Prelude.<*> (x Data..:? "Pardot")
             Prelude.<*> (x Data..:? "Redshift")
             Prelude.<*> (x Data..:? "S3")
             Prelude.<*> (x Data..:? "SAPOData")
@@ -285,7 +296,8 @@ instance Data.FromJSON ConnectorMetadata where
 
 instance Prelude.Hashable ConnectorMetadata where
   hashWithSalt _salt ConnectorMetadata' {..} =
-    _salt `Prelude.hashWithSalt` amplitude
+    _salt
+      `Prelude.hashWithSalt` amplitude
       `Prelude.hashWithSalt` customerProfiles
       `Prelude.hashWithSalt` datadog
       `Prelude.hashWithSalt` dynatrace
@@ -294,6 +306,7 @@ instance Prelude.Hashable ConnectorMetadata where
       `Prelude.hashWithSalt` honeycode
       `Prelude.hashWithSalt` inforNexus
       `Prelude.hashWithSalt` marketo
+      `Prelude.hashWithSalt` pardot
       `Prelude.hashWithSalt` redshift
       `Prelude.hashWithSalt` s3
       `Prelude.hashWithSalt` sAPOData
@@ -318,6 +331,7 @@ instance Prelude.NFData ConnectorMetadata where
       `Prelude.seq` Prelude.rnf honeycode
       `Prelude.seq` Prelude.rnf inforNexus
       `Prelude.seq` Prelude.rnf marketo
+      `Prelude.seq` Prelude.rnf pardot
       `Prelude.seq` Prelude.rnf redshift
       `Prelude.seq` Prelude.rnf s3
       `Prelude.seq` Prelude.rnf sAPOData

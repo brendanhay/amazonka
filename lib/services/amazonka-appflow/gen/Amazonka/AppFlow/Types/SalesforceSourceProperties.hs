@@ -219,7 +219,8 @@ instance Data.FromJSON SalesforceSourceProperties where
 
 instance Prelude.Hashable SalesforceSourceProperties where
   hashWithSalt _salt SalesforceSourceProperties' {..} =
-    _salt `Prelude.hashWithSalt` dataTransferApi
+    _salt
+      `Prelude.hashWithSalt` dataTransferApi
       `Prelude.hashWithSalt` enableDynamicFieldUpdate
       `Prelude.hashWithSalt` includeDeletedRecords
       `Prelude.hashWithSalt` object'

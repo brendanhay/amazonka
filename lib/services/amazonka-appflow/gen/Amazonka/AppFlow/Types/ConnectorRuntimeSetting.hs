@@ -118,7 +118,8 @@ instance Data.FromJSON ConnectorRuntimeSetting where
       "ConnectorRuntimeSetting"
       ( \x ->
           ConnectorRuntimeSetting'
-            Prelude.<$> ( x Data..:? "connectorSuppliedValueOptions"
+            Prelude.<$> ( x
+                            Data..:? "connectorSuppliedValueOptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "dataType")

@@ -29,6 +29,7 @@ module Amazonka.AppFlow.RegisterConnector
     newRegisterConnector,
 
     -- * Request Lenses
+    registerConnector_clientToken,
     registerConnector_connectorLabel,
     registerConnector_connectorProvisioningConfig,
     registerConnector_connectorProvisioningType,
@@ -54,7 +55,23 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRegisterConnector' smart constructor.
 data RegisterConnector = RegisterConnector'
-  { -- | The name of the connector. The name is unique for each
+  { -- | The @clientToken@ parameter is an idempotency token. It ensures that
+    -- your @RegisterConnector@ request completes only once. You choose the
+    -- value to pass. For example, if you don\'t receive a response from your
+    -- request, you can safely retry the request with the same @clientToken@
+    -- parameter value.
+    --
+    -- If you omit a @clientToken@ value, the Amazon Web Services SDK that you
+    -- are using inserts a value for you. This way, the SDK can safely retry
+    -- requests multiple times after a network error. You must provide your own
+    -- value for other use cases.
+    --
+    -- If you specify input parameters that differ from your first request, an
+    -- error occurs. If you use a different value for @clientToken@, Amazon
+    -- AppFlow considers it a new call to @RegisterConnector@. The token is
+    -- active for 8 hours.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the connector. The name is unique for each
     -- @ConnectorRegistration@ in your Amazon Web Services account.
     connectorLabel :: Prelude.Maybe Prelude.Text,
     -- | The provisioning type of the connector. Currently the only supported
@@ -76,6 +93,22 @@ data RegisterConnector = RegisterConnector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'registerConnector_clientToken' - The @clientToken@ parameter is an idempotency token. It ensures that
+-- your @RegisterConnector@ request completes only once. You choose the
+-- value to pass. For example, if you don\'t receive a response from your
+-- request, you can safely retry the request with the same @clientToken@
+-- parameter value.
+--
+-- If you omit a @clientToken@ value, the Amazon Web Services SDK that you
+-- are using inserts a value for you. This way, the SDK can safely retry
+-- requests multiple times after a network error. You must provide your own
+-- value for other use cases.
+--
+-- If you specify input parameters that differ from your first request, an
+-- error occurs. If you use a different value for @clientToken@, Amazon
+-- AppFlow considers it a new call to @RegisterConnector@. The token is
+-- active for 8 hours.
+--
 -- 'connectorLabel', 'registerConnector_connectorLabel' - The name of the connector. The name is unique for each
 -- @ConnectorRegistration@ in your Amazon Web Services account.
 --
@@ -90,12 +123,30 @@ newRegisterConnector ::
   RegisterConnector
 newRegisterConnector =
   RegisterConnector'
-    { connectorLabel =
-        Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
+      connectorLabel = Prelude.Nothing,
       connectorProvisioningConfig = Prelude.Nothing,
       connectorProvisioningType = Prelude.Nothing,
       description = Prelude.Nothing
     }
+
+-- | The @clientToken@ parameter is an idempotency token. It ensures that
+-- your @RegisterConnector@ request completes only once. You choose the
+-- value to pass. For example, if you don\'t receive a response from your
+-- request, you can safely retry the request with the same @clientToken@
+-- parameter value.
+--
+-- If you omit a @clientToken@ value, the Amazon Web Services SDK that you
+-- are using inserts a value for you. This way, the SDK can safely retry
+-- requests multiple times after a network error. You must provide your own
+-- value for other use cases.
+--
+-- If you specify input parameters that differ from your first request, an
+-- error occurs. If you use a different value for @clientToken@, Amazon
+-- AppFlow considers it a new call to @RegisterConnector@. The token is
+-- active for 8 hours.
+registerConnector_clientToken :: Lens.Lens' RegisterConnector (Prelude.Maybe Prelude.Text)
+registerConnector_clientToken = Lens.lens (\RegisterConnector' {clientToken} -> clientToken) (\s@RegisterConnector' {} a -> s {clientToken = a} :: RegisterConnector)
 
 -- | The name of the connector. The name is unique for each
 -- @ConnectorRegistration@ in your Amazon Web Services account.
@@ -132,14 +183,17 @@ instance Core.AWSRequest RegisterConnector where
 
 instance Prelude.Hashable RegisterConnector where
   hashWithSalt _salt RegisterConnector' {..} =
-    _salt `Prelude.hashWithSalt` connectorLabel
+    _salt
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` connectorLabel
       `Prelude.hashWithSalt` connectorProvisioningConfig
       `Prelude.hashWithSalt` connectorProvisioningType
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData RegisterConnector where
   rnf RegisterConnector' {..} =
-    Prelude.rnf connectorLabel
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf connectorLabel
       `Prelude.seq` Prelude.rnf connectorProvisioningConfig
       `Prelude.seq` Prelude.rnf connectorProvisioningType
       `Prelude.seq` Prelude.rnf description
@@ -159,7 +213,8 @@ instance Data.ToJSON RegisterConnector where
   toJSON RegisterConnector' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("connectorLabel" Data..=)
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("connectorLabel" Data..=)
               Prelude.<$> connectorLabel,
             ("connectorProvisioningConfig" Data..=)
               Prelude.<$> connectorProvisioningConfig,

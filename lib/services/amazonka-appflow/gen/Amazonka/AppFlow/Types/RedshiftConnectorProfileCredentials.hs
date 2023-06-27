@@ -71,7 +71,8 @@ instance
   hashWithSalt
     _salt
     RedshiftConnectorProfileCredentials' {..} =
-      _salt `Prelude.hashWithSalt` password
+      _salt
+        `Prelude.hashWithSalt` password
         `Prelude.hashWithSalt` username
 
 instance

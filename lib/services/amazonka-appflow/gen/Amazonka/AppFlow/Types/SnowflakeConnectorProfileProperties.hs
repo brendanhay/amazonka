@@ -155,7 +155,8 @@ instance
   hashWithSalt
     _salt
     SnowflakeConnectorProfileProperties' {..} =
-      _salt `Prelude.hashWithSalt` accountName
+      _salt
+        `Prelude.hashWithSalt` accountName
         `Prelude.hashWithSalt` bucketPrefix
         `Prelude.hashWithSalt` privateLinkServiceName
         `Prelude.hashWithSalt` region

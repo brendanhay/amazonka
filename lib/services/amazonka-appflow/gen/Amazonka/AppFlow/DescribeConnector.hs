@@ -114,7 +114,8 @@ instance Core.AWSRequest DescribeConnector where
 
 instance Prelude.Hashable DescribeConnector where
   hashWithSalt _salt DescribeConnector' {..} =
-    _salt `Prelude.hashWithSalt` connectorLabel
+    _salt
+      `Prelude.hashWithSalt` connectorLabel
       `Prelude.hashWithSalt` connectorType
 
 instance Prelude.NFData DescribeConnector where

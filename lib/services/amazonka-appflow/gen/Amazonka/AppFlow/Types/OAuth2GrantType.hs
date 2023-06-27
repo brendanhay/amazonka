@@ -21,7 +21,8 @@ module Amazonka.AppFlow.Types.OAuth2GrantType
   ( OAuth2GrantType
       ( ..,
         OAuth2GrantType_AUTHORIZATION_CODE,
-        OAuth2GrantType_CLIENT_CREDENTIALS
+        OAuth2GrantType_CLIENT_CREDENTIALS,
+        OAuth2GrantType_JWT_BEARER
       ),
   )
 where
@@ -64,8 +65,12 @@ pattern OAuth2GrantType_AUTHORIZATION_CODE = OAuth2GrantType' "AUTHORIZATION_COD
 pattern OAuth2GrantType_CLIENT_CREDENTIALS :: OAuth2GrantType
 pattern OAuth2GrantType_CLIENT_CREDENTIALS = OAuth2GrantType' "CLIENT_CREDENTIALS"
 
+pattern OAuth2GrantType_JWT_BEARER :: OAuth2GrantType
+pattern OAuth2GrantType_JWT_BEARER = OAuth2GrantType' "JWT_BEARER"
+
 {-# COMPLETE
   OAuth2GrantType_AUTHORIZATION_CODE,
   OAuth2GrantType_CLIENT_CREDENTIALS,
+  OAuth2GrantType_JWT_BEARER,
   OAuth2GrantType'
   #-}

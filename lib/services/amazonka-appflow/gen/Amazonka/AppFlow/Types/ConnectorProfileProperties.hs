@@ -27,6 +27,7 @@ import Amazonka.AppFlow.Types.GoogleAnalyticsConnectorProfileProperties
 import Amazonka.AppFlow.Types.HoneycodeConnectorProfileProperties
 import Amazonka.AppFlow.Types.InforNexusConnectorProfileProperties
 import Amazonka.AppFlow.Types.MarketoConnectorProfileProperties
+import Amazonka.AppFlow.Types.PardotConnectorProfileProperties
 import Amazonka.AppFlow.Types.RedshiftConnectorProfileProperties
 import Amazonka.AppFlow.Types.SAPODataConnectorProfileProperties
 import Amazonka.AppFlow.Types.SalesforceConnectorProfileProperties
@@ -62,6 +63,8 @@ data ConnectorProfileProperties = ConnectorProfileProperties'
     inforNexus :: Prelude.Maybe InforNexusConnectorProfileProperties,
     -- | The connector-specific properties required by Marketo.
     marketo :: Prelude.Maybe MarketoConnectorProfileProperties,
+    -- | The connector-specific properties required by Salesforce Pardot.
+    pardot :: Prelude.Maybe PardotConnectorProfileProperties,
     -- | The connector-specific properties required by Amazon Redshift.
     redshift :: Prelude.Maybe RedshiftConnectorProfileProperties,
     sAPOData :: Prelude.Maybe SAPODataConnectorProfileProperties,
@@ -108,6 +111,8 @@ data ConnectorProfileProperties = ConnectorProfileProperties'
 --
 -- 'marketo', 'connectorProfileProperties_marketo' - The connector-specific properties required by Marketo.
 --
+-- 'pardot', 'connectorProfileProperties_pardot' - The connector-specific properties required by Salesforce Pardot.
+--
 -- 'redshift', 'connectorProfileProperties_redshift' - The connector-specific properties required by Amazon Redshift.
 --
 -- 'sAPOData', 'connectorProfileProperties_sAPOData' - Undocumented member.
@@ -140,6 +145,7 @@ newConnectorProfileProperties =
       honeycode = Prelude.Nothing,
       inforNexus = Prelude.Nothing,
       marketo = Prelude.Nothing,
+      pardot = Prelude.Nothing,
       redshift = Prelude.Nothing,
       sAPOData = Prelude.Nothing,
       salesforce = Prelude.Nothing,
@@ -183,6 +189,10 @@ connectorProfileProperties_inforNexus = Lens.lens (\ConnectorProfileProperties' 
 -- | The connector-specific properties required by Marketo.
 connectorProfileProperties_marketo :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe MarketoConnectorProfileProperties)
 connectorProfileProperties_marketo = Lens.lens (\ConnectorProfileProperties' {marketo} -> marketo) (\s@ConnectorProfileProperties' {} a -> s {marketo = a} :: ConnectorProfileProperties)
+
+-- | The connector-specific properties required by Salesforce Pardot.
+connectorProfileProperties_pardot :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe PardotConnectorProfileProperties)
+connectorProfileProperties_pardot = Lens.lens (\ConnectorProfileProperties' {pardot} -> pardot) (\s@ConnectorProfileProperties' {} a -> s {pardot = a} :: ConnectorProfileProperties)
 
 -- | The connector-specific properties required by Amazon Redshift.
 connectorProfileProperties_redshift :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe RedshiftConnectorProfileProperties)
@@ -238,6 +248,7 @@ instance Data.FromJSON ConnectorProfileProperties where
             Prelude.<*> (x Data..:? "Honeycode")
             Prelude.<*> (x Data..:? "InforNexus")
             Prelude.<*> (x Data..:? "Marketo")
+            Prelude.<*> (x Data..:? "Pardot")
             Prelude.<*> (x Data..:? "Redshift")
             Prelude.<*> (x Data..:? "SAPOData")
             Prelude.<*> (x Data..:? "Salesforce")
@@ -252,7 +263,8 @@ instance Data.FromJSON ConnectorProfileProperties where
 
 instance Prelude.Hashable ConnectorProfileProperties where
   hashWithSalt _salt ConnectorProfileProperties' {..} =
-    _salt `Prelude.hashWithSalt` amplitude
+    _salt
+      `Prelude.hashWithSalt` amplitude
       `Prelude.hashWithSalt` customConnector
       `Prelude.hashWithSalt` datadog
       `Prelude.hashWithSalt` dynatrace
@@ -260,6 +272,7 @@ instance Prelude.Hashable ConnectorProfileProperties where
       `Prelude.hashWithSalt` honeycode
       `Prelude.hashWithSalt` inforNexus
       `Prelude.hashWithSalt` marketo
+      `Prelude.hashWithSalt` pardot
       `Prelude.hashWithSalt` redshift
       `Prelude.hashWithSalt` sAPOData
       `Prelude.hashWithSalt` salesforce
@@ -281,6 +294,7 @@ instance Prelude.NFData ConnectorProfileProperties where
       `Prelude.seq` Prelude.rnf honeycode
       `Prelude.seq` Prelude.rnf inforNexus
       `Prelude.seq` Prelude.rnf marketo
+      `Prelude.seq` Prelude.rnf pardot
       `Prelude.seq` Prelude.rnf redshift
       `Prelude.seq` Prelude.rnf sAPOData
       `Prelude.seq` Prelude.rnf salesforce
@@ -306,6 +320,7 @@ instance Data.ToJSON ConnectorProfileProperties where
             ("Honeycode" Data..=) Prelude.<$> honeycode,
             ("InforNexus" Data..=) Prelude.<$> inforNexus,
             ("Marketo" Data..=) Prelude.<$> marketo,
+            ("Pardot" Data..=) Prelude.<$> pardot,
             ("Redshift" Data..=) Prelude.<$> redshift,
             ("SAPOData" Data..=) Prelude.<$> sAPOData,
             ("Salesforce" Data..=) Prelude.<$> salesforce,

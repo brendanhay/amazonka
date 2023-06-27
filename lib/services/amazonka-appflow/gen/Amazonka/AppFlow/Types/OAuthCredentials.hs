@@ -102,7 +102,8 @@ oAuthCredentials_clientSecret = Lens.lens (\OAuthCredentials' {clientSecret} -> 
 
 instance Prelude.Hashable OAuthCredentials where
   hashWithSalt _salt OAuthCredentials' {..} =
-    _salt `Prelude.hashWithSalt` accessToken
+    _salt
+      `Prelude.hashWithSalt` accessToken
       `Prelude.hashWithSalt` oAuthRequest
       `Prelude.hashWithSalt` refreshToken
       `Prelude.hashWithSalt` clientId

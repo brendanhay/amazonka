@@ -116,7 +116,8 @@ instance
   hashWithSalt
     _salt
     CustomConnectorProfileCredentials' {..} =
-      _salt `Prelude.hashWithSalt` apiKey
+      _salt
+        `Prelude.hashWithSalt` apiKey
         `Prelude.hashWithSalt` basic
         `Prelude.hashWithSalt` custom
         `Prelude.hashWithSalt` oauth2

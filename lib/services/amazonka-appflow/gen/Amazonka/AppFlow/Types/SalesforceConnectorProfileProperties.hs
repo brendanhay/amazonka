@@ -33,7 +33,44 @@ data SalesforceConnectorProfileProperties = SalesforceConnectorProfileProperties
     instanceUrl :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the connector profile applies to a sandbox or
     -- production environment.
-    isSandboxEnvironment :: Prelude.Maybe Prelude.Bool
+    isSandboxEnvironment :: Prelude.Maybe Prelude.Bool,
+    -- | If the connection mode for the connector profile is private, this
+    -- parameter sets whether Amazon AppFlow uses the private network to send
+    -- metadata and authorization calls to Salesforce. Amazon AppFlow sends
+    -- private calls through Amazon Web Services PrivateLink. These calls
+    -- travel through Amazon Web Services infrastructure without being exposed
+    -- to the public internet.
+    --
+    -- Set either of the following values:
+    --
+    -- [true]
+    --     Amazon AppFlow sends all calls to Salesforce over the private
+    --     network.
+    --
+    --     These private calls are:
+    --
+    --     -   Calls to get metadata about your Salesforce records. This
+    --         metadata describes your Salesforce objects and their fields.
+    --
+    --     -   Calls to get or refresh access tokens that allow Amazon AppFlow
+    --         to access your Salesforce records.
+    --
+    --     -   Calls to transfer your Salesforce records as part of a flow run.
+    --
+    -- [false]
+    --     The default value. Amazon AppFlow sends some calls to Salesforce
+    --     privately and other calls over the public internet.
+    --
+    --     The public calls are:
+    --
+    --     -   Calls to get metadata about your Salesforce records.
+    --
+    --     -   Calls to get or refresh access tokens.
+    --
+    --     The private calls are:
+    --
+    --     -   Calls to transfer your Salesforce records as part of a flow run.
+    usePrivateLinkForMetadataAndAuthorization :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,6 +86,43 @@ data SalesforceConnectorProfileProperties = SalesforceConnectorProfileProperties
 --
 -- 'isSandboxEnvironment', 'salesforceConnectorProfileProperties_isSandboxEnvironment' - Indicates whether the connector profile applies to a sandbox or
 -- production environment.
+--
+-- 'usePrivateLinkForMetadataAndAuthorization', 'salesforceConnectorProfileProperties_usePrivateLinkForMetadataAndAuthorization' - If the connection mode for the connector profile is private, this
+-- parameter sets whether Amazon AppFlow uses the private network to send
+-- metadata and authorization calls to Salesforce. Amazon AppFlow sends
+-- private calls through Amazon Web Services PrivateLink. These calls
+-- travel through Amazon Web Services infrastructure without being exposed
+-- to the public internet.
+--
+-- Set either of the following values:
+--
+-- [true]
+--     Amazon AppFlow sends all calls to Salesforce over the private
+--     network.
+--
+--     These private calls are:
+--
+--     -   Calls to get metadata about your Salesforce records. This
+--         metadata describes your Salesforce objects and their fields.
+--
+--     -   Calls to get or refresh access tokens that allow Amazon AppFlow
+--         to access your Salesforce records.
+--
+--     -   Calls to transfer your Salesforce records as part of a flow run.
+--
+-- [false]
+--     The default value. Amazon AppFlow sends some calls to Salesforce
+--     privately and other calls over the public internet.
+--
+--     The public calls are:
+--
+--     -   Calls to get metadata about your Salesforce records.
+--
+--     -   Calls to get or refresh access tokens.
+--
+--     The private calls are:
+--
+--     -   Calls to transfer your Salesforce records as part of a flow run.
 newSalesforceConnectorProfileProperties ::
   SalesforceConnectorProfileProperties
 newSalesforceConnectorProfileProperties =
@@ -56,6 +130,8 @@ newSalesforceConnectorProfileProperties =
     { instanceUrl =
         Prelude.Nothing,
       isSandboxEnvironment =
+        Prelude.Nothing,
+      usePrivateLinkForMetadataAndAuthorization =
         Prelude.Nothing
     }
 
@@ -68,6 +144,45 @@ salesforceConnectorProfileProperties_instanceUrl = Lens.lens (\SalesforceConnect
 salesforceConnectorProfileProperties_isSandboxEnvironment :: Lens.Lens' SalesforceConnectorProfileProperties (Prelude.Maybe Prelude.Bool)
 salesforceConnectorProfileProperties_isSandboxEnvironment = Lens.lens (\SalesforceConnectorProfileProperties' {isSandboxEnvironment} -> isSandboxEnvironment) (\s@SalesforceConnectorProfileProperties' {} a -> s {isSandboxEnvironment = a} :: SalesforceConnectorProfileProperties)
 
+-- | If the connection mode for the connector profile is private, this
+-- parameter sets whether Amazon AppFlow uses the private network to send
+-- metadata and authorization calls to Salesforce. Amazon AppFlow sends
+-- private calls through Amazon Web Services PrivateLink. These calls
+-- travel through Amazon Web Services infrastructure without being exposed
+-- to the public internet.
+--
+-- Set either of the following values:
+--
+-- [true]
+--     Amazon AppFlow sends all calls to Salesforce over the private
+--     network.
+--
+--     These private calls are:
+--
+--     -   Calls to get metadata about your Salesforce records. This
+--         metadata describes your Salesforce objects and their fields.
+--
+--     -   Calls to get or refresh access tokens that allow Amazon AppFlow
+--         to access your Salesforce records.
+--
+--     -   Calls to transfer your Salesforce records as part of a flow run.
+--
+-- [false]
+--     The default value. Amazon AppFlow sends some calls to Salesforce
+--     privately and other calls over the public internet.
+--
+--     The public calls are:
+--
+--     -   Calls to get metadata about your Salesforce records.
+--
+--     -   Calls to get or refresh access tokens.
+--
+--     The private calls are:
+--
+--     -   Calls to transfer your Salesforce records as part of a flow run.
+salesforceConnectorProfileProperties_usePrivateLinkForMetadataAndAuthorization :: Lens.Lens' SalesforceConnectorProfileProperties (Prelude.Maybe Prelude.Bool)
+salesforceConnectorProfileProperties_usePrivateLinkForMetadataAndAuthorization = Lens.lens (\SalesforceConnectorProfileProperties' {usePrivateLinkForMetadataAndAuthorization} -> usePrivateLinkForMetadataAndAuthorization) (\s@SalesforceConnectorProfileProperties' {} a -> s {usePrivateLinkForMetadataAndAuthorization = a} :: SalesforceConnectorProfileProperties)
+
 instance
   Data.FromJSON
     SalesforceConnectorProfileProperties
@@ -79,6 +194,9 @@ instance
           SalesforceConnectorProfileProperties'
             Prelude.<$> (x Data..:? "instanceUrl")
             Prelude.<*> (x Data..:? "isSandboxEnvironment")
+            Prelude.<*> ( x
+                            Data..:? "usePrivateLinkForMetadataAndAuthorization"
+                        )
       )
 
 instance
@@ -88,8 +206,10 @@ instance
   hashWithSalt
     _salt
     SalesforceConnectorProfileProperties' {..} =
-      _salt `Prelude.hashWithSalt` instanceUrl
+      _salt
+        `Prelude.hashWithSalt` instanceUrl
         `Prelude.hashWithSalt` isSandboxEnvironment
+        `Prelude.hashWithSalt` usePrivateLinkForMetadataAndAuthorization
 
 instance
   Prelude.NFData
@@ -98,6 +218,7 @@ instance
   rnf SalesforceConnectorProfileProperties' {..} =
     Prelude.rnf instanceUrl
       `Prelude.seq` Prelude.rnf isSandboxEnvironment
+      `Prelude.seq` Prelude.rnf usePrivateLinkForMetadataAndAuthorization
 
 instance
   Data.ToJSON
@@ -108,6 +229,8 @@ instance
       ( Prelude.catMaybes
           [ ("instanceUrl" Data..=) Prelude.<$> instanceUrl,
             ("isSandboxEnvironment" Data..=)
-              Prelude.<$> isSandboxEnvironment
+              Prelude.<$> isSandboxEnvironment,
+            ("usePrivateLinkForMetadataAndAuthorization" Data..=)
+              Prelude.<$> usePrivateLinkForMetadataAndAuthorization
           ]
       )

@@ -94,7 +94,8 @@ oAuth2Credentials_refreshToken = Lens.lens (\OAuth2Credentials' {refreshToken} -
 
 instance Prelude.Hashable OAuth2Credentials where
   hashWithSalt _salt OAuth2Credentials' {..} =
-    _salt `Prelude.hashWithSalt` accessToken
+    _salt
+      `Prelude.hashWithSalt` accessToken
       `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` clientSecret
       `Prelude.hashWithSalt` oAuthRequest

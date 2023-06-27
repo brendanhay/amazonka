@@ -27,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateConnectorProfile $
+--         [ requestCancelFlowExecutions $
+--             newCancelFlowExecutions
+--
+--         , requestCreateConnectorProfile $
 --             newCreateConnectorProfile
 --
 --         , requestCreateFlow $
@@ -72,6 +75,9 @@ import Test.Tasty
 --         , requestRegisterConnector $
 --             newRegisterConnector
 --
+--         , requestResetConnectorMetadataCache $
+--             newResetConnectorMetadataCache
+--
 --         , requestStartFlow $
 --             newStartFlow
 --
@@ -99,7 +105,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateConnectorProfile $
+--         [ responseCancelFlowExecutions $
+--             newCancelFlowExecutionsResponse
+--
+--         , responseCreateConnectorProfile $
 --             newCreateConnectorProfileResponse
 --
 --         , responseCreateFlow $
@@ -144,6 +153,9 @@ import Test.Tasty
 --         , responseRegisterConnector $
 --             newRegisterConnectorResponse
 --
+--         , responseResetConnectorMetadataCache $
+--             newResetConnectorMetadataCacheResponse
+--
 --         , responseStartFlow $
 --             newStartFlowResponse
 --
@@ -172,6 +184,12 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestCancelFlowExecutions :: CancelFlowExecutions -> TestTree
+requestCancelFlowExecutions =
+  req
+    "CancelFlowExecutions"
+    "fixture/CancelFlowExecutions.yaml"
 
 requestCreateConnectorProfile :: CreateConnectorProfile -> TestTree
 requestCreateConnectorProfile =
@@ -263,6 +281,12 @@ requestRegisterConnector =
     "RegisterConnector"
     "fixture/RegisterConnector.yaml"
 
+requestResetConnectorMetadataCache :: ResetConnectorMetadataCache -> TestTree
+requestResetConnectorMetadataCache =
+  req
+    "ResetConnectorMetadataCache"
+    "fixture/ResetConnectorMetadataCache.yaml"
+
 requestStartFlow :: StartFlow -> TestTree
 requestStartFlow =
   req
@@ -312,6 +336,14 @@ requestUpdateFlow =
     "fixture/UpdateFlow.yaml"
 
 -- Responses
+
+responseCancelFlowExecutions :: CancelFlowExecutionsResponse -> TestTree
+responseCancelFlowExecutions =
+  res
+    "CancelFlowExecutionsResponse"
+    "fixture/CancelFlowExecutionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CancelFlowExecutions)
 
 responseCreateConnectorProfile :: CreateConnectorProfileResponse -> TestTree
 responseCreateConnectorProfile =
@@ -432,6 +464,14 @@ responseRegisterConnector =
     "fixture/RegisterConnectorResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RegisterConnector)
+
+responseResetConnectorMetadataCache :: ResetConnectorMetadataCacheResponse -> TestTree
+responseResetConnectorMetadataCache =
+  res
+    "ResetConnectorMetadataCacheResponse"
+    "fixture/ResetConnectorMetadataCacheResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ResetConnectorMetadataCache)
 
 responseStartFlow :: StartFlowResponse -> TestTree
 responseStartFlow =

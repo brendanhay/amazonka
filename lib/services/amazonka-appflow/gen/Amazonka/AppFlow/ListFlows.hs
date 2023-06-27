@@ -103,7 +103,8 @@ instance Core.AWSRequest ListFlows where
 
 instance Prelude.Hashable ListFlows where
   hashWithSalt _salt ListFlows' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListFlows where

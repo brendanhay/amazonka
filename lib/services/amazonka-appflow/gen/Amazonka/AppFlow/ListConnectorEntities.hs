@@ -167,14 +167,16 @@ instance Core.AWSRequest ListConnectorEntities where
           ListConnectorEntitiesResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "connectorEntityMap"
+            Prelude.<*> ( x
+                            Data..?> "connectorEntityMap"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListConnectorEntities where
   hashWithSalt _salt ListConnectorEntities' {..} =
-    _salt `Prelude.hashWithSalt` apiVersion
+    _salt
+      `Prelude.hashWithSalt` apiVersion
       `Prelude.hashWithSalt` connectorProfileName
       `Prelude.hashWithSalt` connectorType
       `Prelude.hashWithSalt` entitiesPath

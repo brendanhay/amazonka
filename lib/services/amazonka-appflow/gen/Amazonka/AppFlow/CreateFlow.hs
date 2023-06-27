@@ -32,6 +32,7 @@ module Amazonka.AppFlow.CreateFlow
     newCreateFlow,
 
     -- * Request Lenses
+    createFlow_clientToken,
     createFlow_description,
     createFlow_kmsArn,
     createFlow_metadataCatalogConfig,
@@ -63,7 +64,23 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFlow' smart constructor.
 data CreateFlow = CreateFlow'
-  { -- | A description of the flow you want to create.
+  { -- | The @clientToken@ parameter is an idempotency token. It ensures that
+    -- your @CreateFlow@ request completes only once. You choose the value to
+    -- pass. For example, if you don\'t receive a response from your request,
+    -- you can safely retry the request with the same @clientToken@ parameter
+    -- value.
+    --
+    -- If you omit a @clientToken@ value, the Amazon Web Services SDK that you
+    -- are using inserts a value for you. This way, the SDK can safely retry
+    -- requests multiple times after a network error. You must provide your own
+    -- value for other use cases.
+    --
+    -- If you specify input parameters that differ from your first request, an
+    -- error occurs. If you use a different value for @clientToken@, Amazon
+    -- AppFlow considers it a new call to @CreateFlow@. The token is active for
+    -- 8 hours.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A description of the flow you want to create.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ARN (Amazon Resource Name) of the Key Management Service (KMS) key
     -- you provide for encryption. This is required if you do not want to use
@@ -100,6 +117,22 @@ data CreateFlow = CreateFlow'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'clientToken', 'createFlow_clientToken' - The @clientToken@ parameter is an idempotency token. It ensures that
+-- your @CreateFlow@ request completes only once. You choose the value to
+-- pass. For example, if you don\'t receive a response from your request,
+-- you can safely retry the request with the same @clientToken@ parameter
+-- value.
+--
+-- If you omit a @clientToken@ value, the Amazon Web Services SDK that you
+-- are using inserts a value for you. This way, the SDK can safely retry
+-- requests multiple times after a network error. You must provide your own
+-- value for other use cases.
+--
+-- If you specify input parameters that differ from your first request, an
+-- error occurs. If you use a different value for @clientToken@, Amazon
+-- AppFlow considers it a new call to @CreateFlow@. The token is active for
+-- 8 hours.
 --
 -- 'description', 'createFlow_description' - A description of the flow you want to create.
 --
@@ -140,7 +173,8 @@ newCreateFlow
   pTriggerConfig_
   pSourceFlowConfig_ =
     CreateFlow'
-      { description = Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
+        description = Prelude.Nothing,
         kmsArn = Prelude.Nothing,
         metadataCatalogConfig = Prelude.Nothing,
         tags = Prelude.Nothing,
@@ -150,6 +184,24 @@ newCreateFlow
         destinationFlowConfigList = Prelude.mempty,
         tasks = Prelude.mempty
       }
+
+-- | The @clientToken@ parameter is an idempotency token. It ensures that
+-- your @CreateFlow@ request completes only once. You choose the value to
+-- pass. For example, if you don\'t receive a response from your request,
+-- you can safely retry the request with the same @clientToken@ parameter
+-- value.
+--
+-- If you omit a @clientToken@ value, the Amazon Web Services SDK that you
+-- are using inserts a value for you. This way, the SDK can safely retry
+-- requests multiple times after a network error. You must provide your own
+-- value for other use cases.
+--
+-- If you specify input parameters that differ from your first request, an
+-- error occurs. If you use a different value for @clientToken@, Amazon
+-- AppFlow considers it a new call to @CreateFlow@. The token is active for
+-- 8 hours.
+createFlow_clientToken :: Lens.Lens' CreateFlow (Prelude.Maybe Prelude.Text)
+createFlow_clientToken = Lens.lens (\CreateFlow' {clientToken} -> clientToken) (\s@CreateFlow' {} a -> s {clientToken = a} :: CreateFlow)
 
 -- | A description of the flow you want to create.
 createFlow_description :: Lens.Lens' CreateFlow (Prelude.Maybe Prelude.Text)
@@ -211,7 +263,9 @@ instance Core.AWSRequest CreateFlow where
 
 instance Prelude.Hashable CreateFlow where
   hashWithSalt _salt CreateFlow' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsArn
       `Prelude.hashWithSalt` metadataCatalogConfig
       `Prelude.hashWithSalt` tags
@@ -223,7 +277,8 @@ instance Prelude.Hashable CreateFlow where
 
 instance Prelude.NFData CreateFlow where
   rnf CreateFlow' {..} =
-    Prelude.rnf description
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf kmsArn
       `Prelude.seq` Prelude.rnf metadataCatalogConfig
       `Prelude.seq` Prelude.rnf tags
@@ -248,7 +303,8 @@ instance Data.ToJSON CreateFlow where
   toJSON CreateFlow' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("description" Data..=) Prelude.<$> description,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("description" Data..=) Prelude.<$> description,
             ("kmsArn" Data..=) Prelude.<$> kmsArn,
             ("metadataCatalogConfig" Data..=)
               Prelude.<$> metadataCatalogConfig,

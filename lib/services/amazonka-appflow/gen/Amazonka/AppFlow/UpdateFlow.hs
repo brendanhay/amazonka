@@ -27,6 +27,7 @@ module Amazonka.AppFlow.UpdateFlow
     newUpdateFlow,
 
     -- * Request Lenses
+    updateFlow_clientToken,
     updateFlow_description,
     updateFlow_metadataCatalogConfig,
     updateFlow_flowName,
@@ -55,7 +56,23 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateFlow' smart constructor.
 data UpdateFlow = UpdateFlow'
-  { -- | A description of the flow.
+  { -- | The @clientToken@ parameter is an idempotency token. It ensures that
+    -- your @UpdateFlow@ request completes only once. You choose the value to
+    -- pass. For example, if you don\'t receive a response from your request,
+    -- you can safely retry the request with the same @clientToken@ parameter
+    -- value.
+    --
+    -- If you omit a @clientToken@ value, the Amazon Web Services SDK that you
+    -- are using inserts a value for you. This way, the SDK can safely retry
+    -- requests multiple times after a network error. You must provide your own
+    -- value for other use cases.
+    --
+    -- If you specify input parameters that differ from your first request, an
+    -- error occurs. If you use a different value for @clientToken@, Amazon
+    -- AppFlow considers it a new call to @UpdateFlow@. The token is active for
+    -- 8 hours.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A description of the flow.
     description :: Prelude.Maybe Prelude.Text,
     -- | Specifies the configuration that Amazon AppFlow uses when it catalogs
     -- the data that\'s transferred by the associated flow. When Amazon AppFlow
@@ -83,6 +100,22 @@ data UpdateFlow = UpdateFlow'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'clientToken', 'updateFlow_clientToken' - The @clientToken@ parameter is an idempotency token. It ensures that
+-- your @UpdateFlow@ request completes only once. You choose the value to
+-- pass. For example, if you don\'t receive a response from your request,
+-- you can safely retry the request with the same @clientToken@ parameter
+-- value.
+--
+-- If you omit a @clientToken@ value, the Amazon Web Services SDK that you
+-- are using inserts a value for you. This way, the SDK can safely retry
+-- requests multiple times after a network error. You must provide your own
+-- value for other use cases.
+--
+-- If you specify input parameters that differ from your first request, an
+-- error occurs. If you use a different value for @clientToken@, Amazon
+-- AppFlow considers it a new call to @UpdateFlow@. The token is active for
+-- 8 hours.
 --
 -- 'description', 'updateFlow_description' - A description of the flow.
 --
@@ -115,7 +148,8 @@ newUpdateFlow
   pTriggerConfig_
   pSourceFlowConfig_ =
     UpdateFlow'
-      { description = Prelude.Nothing,
+      { clientToken = Prelude.Nothing,
+        description = Prelude.Nothing,
         metadataCatalogConfig = Prelude.Nothing,
         flowName = pFlowName_,
         triggerConfig = pTriggerConfig_,
@@ -123,6 +157,24 @@ newUpdateFlow
         destinationFlowConfigList = Prelude.mempty,
         tasks = Prelude.mempty
       }
+
+-- | The @clientToken@ parameter is an idempotency token. It ensures that
+-- your @UpdateFlow@ request completes only once. You choose the value to
+-- pass. For example, if you don\'t receive a response from your request,
+-- you can safely retry the request with the same @clientToken@ parameter
+-- value.
+--
+-- If you omit a @clientToken@ value, the Amazon Web Services SDK that you
+-- are using inserts a value for you. This way, the SDK can safely retry
+-- requests multiple times after a network error. You must provide your own
+-- value for other use cases.
+--
+-- If you specify input parameters that differ from your first request, an
+-- error occurs. If you use a different value for @clientToken@, Amazon
+-- AppFlow considers it a new call to @UpdateFlow@. The token is active for
+-- 8 hours.
+updateFlow_clientToken :: Lens.Lens' UpdateFlow (Prelude.Maybe Prelude.Text)
+updateFlow_clientToken = Lens.lens (\UpdateFlow' {clientToken} -> clientToken) (\s@UpdateFlow' {} a -> s {clientToken = a} :: UpdateFlow)
 
 -- | A description of the flow.
 updateFlow_description :: Lens.Lens' UpdateFlow (Prelude.Maybe Prelude.Text)
@@ -171,7 +223,9 @@ instance Core.AWSRequest UpdateFlow where
 
 instance Prelude.Hashable UpdateFlow where
   hashWithSalt _salt UpdateFlow' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` metadataCatalogConfig
       `Prelude.hashWithSalt` flowName
       `Prelude.hashWithSalt` triggerConfig
@@ -181,7 +235,8 @@ instance Prelude.Hashable UpdateFlow where
 
 instance Prelude.NFData UpdateFlow where
   rnf UpdateFlow' {..} =
-    Prelude.rnf description
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf metadataCatalogConfig
       `Prelude.seq` Prelude.rnf flowName
       `Prelude.seq` Prelude.rnf triggerConfig
@@ -204,7 +259,8 @@ instance Data.ToJSON UpdateFlow where
   toJSON UpdateFlow' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("description" Data..=) Prelude.<$> description,
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            ("description" Data..=) Prelude.<$> description,
             ("metadataCatalogConfig" Data..=)
               Prelude.<$> metadataCatalogConfig,
             Prelude.Just ("flowName" Data..= flowName),

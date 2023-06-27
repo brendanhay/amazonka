@@ -102,7 +102,8 @@ instance
   hashWithSalt
     _salt
     SlackConnectorProfileCredentials' {..} =
-      _salt `Prelude.hashWithSalt` accessToken
+      _salt
+        `Prelude.hashWithSalt` accessToken
         `Prelude.hashWithSalt` oAuthRequest
         `Prelude.hashWithSalt` clientId
         `Prelude.hashWithSalt` clientSecret

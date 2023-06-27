@@ -110,7 +110,8 @@ instance Core.AWSRequest UnregisterConnector where
 
 instance Prelude.Hashable UnregisterConnector where
   hashWithSalt _salt UnregisterConnector' {..} =
-    _salt `Prelude.hashWithSalt` forceDelete
+    _salt
+      `Prelude.hashWithSalt` forceDelete
       `Prelude.hashWithSalt` connectorLabel
 
 instance Prelude.NFData UnregisterConnector where

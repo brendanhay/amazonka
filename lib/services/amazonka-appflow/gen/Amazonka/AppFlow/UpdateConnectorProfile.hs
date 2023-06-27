@@ -27,6 +27,7 @@ module Amazonka.AppFlow.UpdateConnectorProfile
     newUpdateConnectorProfile,
 
     -- * Request Lenses
+    updateConnectorProfile_clientToken,
     updateConnectorProfile_connectorProfileName,
     updateConnectorProfile_connectionMode,
     updateConnectorProfile_connectorProfileConfig,
@@ -51,7 +52,23 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateConnectorProfile' smart constructor.
 data UpdateConnectorProfile = UpdateConnectorProfile'
-  { -- | The name of the connector profile and is unique for each
+  { -- | The @clientToken@ parameter is an idempotency token. It ensures that
+    -- your @UpdateConnectorProfile@ request completes only once. You choose
+    -- the value to pass. For example, if you don\'t receive a response from
+    -- your request, you can safely retry the request with the same
+    -- @clientToken@ parameter value.
+    --
+    -- If you omit a @clientToken@ value, the Amazon Web Services SDK that you
+    -- are using inserts a value for you. This way, the SDK can safely retry
+    -- requests multiple times after a network error. You must provide your own
+    -- value for other use cases.
+    --
+    -- If you specify input parameters that differ from your first request, an
+    -- error occurs. If you use a different value for @clientToken@, Amazon
+    -- AppFlow considers it a new call to @UpdateConnectorProfile@. The token
+    -- is active for 8 hours.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the connector profile and is unique for each
     -- @ConnectorProfile@ in the Amazon Web Services account.
     connectorProfileName :: Prelude.Text,
     -- | Indicates the connection mode and if it is public or private.
@@ -68,6 +85,22 @@ data UpdateConnectorProfile = UpdateConnectorProfile'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'clientToken', 'updateConnectorProfile_clientToken' - The @clientToken@ parameter is an idempotency token. It ensures that
+-- your @UpdateConnectorProfile@ request completes only once. You choose
+-- the value to pass. For example, if you don\'t receive a response from
+-- your request, you can safely retry the request with the same
+-- @clientToken@ parameter value.
+--
+-- If you omit a @clientToken@ value, the Amazon Web Services SDK that you
+-- are using inserts a value for you. This way, the SDK can safely retry
+-- requests multiple times after a network error. You must provide your own
+-- value for other use cases.
+--
+-- If you specify input parameters that differ from your first request, an
+-- error occurs. If you use a different value for @clientToken@, Amazon
+-- AppFlow considers it a new call to @UpdateConnectorProfile@. The token
+-- is active for 8 hours.
 --
 -- 'connectorProfileName', 'updateConnectorProfile_connectorProfileName' - The name of the connector profile and is unique for each
 -- @ConnectorProfile@ in the Amazon Web Services account.
@@ -88,11 +121,30 @@ newUpdateConnectorProfile
   pConnectionMode_
   pConnectorProfileConfig_ =
     UpdateConnectorProfile'
-      { connectorProfileName =
-          pConnectorProfileName_,
+      { clientToken =
+          Prelude.Nothing,
+        connectorProfileName = pConnectorProfileName_,
         connectionMode = pConnectionMode_,
         connectorProfileConfig = pConnectorProfileConfig_
       }
+
+-- | The @clientToken@ parameter is an idempotency token. It ensures that
+-- your @UpdateConnectorProfile@ request completes only once. You choose
+-- the value to pass. For example, if you don\'t receive a response from
+-- your request, you can safely retry the request with the same
+-- @clientToken@ parameter value.
+--
+-- If you omit a @clientToken@ value, the Amazon Web Services SDK that you
+-- are using inserts a value for you. This way, the SDK can safely retry
+-- requests multiple times after a network error. You must provide your own
+-- value for other use cases.
+--
+-- If you specify input parameters that differ from your first request, an
+-- error occurs. If you use a different value for @clientToken@, Amazon
+-- AppFlow considers it a new call to @UpdateConnectorProfile@. The token
+-- is active for 8 hours.
+updateConnectorProfile_clientToken :: Lens.Lens' UpdateConnectorProfile (Prelude.Maybe Prelude.Text)
+updateConnectorProfile_clientToken = Lens.lens (\UpdateConnectorProfile' {clientToken} -> clientToken) (\s@UpdateConnectorProfile' {} a -> s {clientToken = a} :: UpdateConnectorProfile)
 
 -- | The name of the connector profile and is unique for each
 -- @ConnectorProfile@ in the Amazon Web Services account.
@@ -123,13 +175,16 @@ instance Core.AWSRequest UpdateConnectorProfile where
 
 instance Prelude.Hashable UpdateConnectorProfile where
   hashWithSalt _salt UpdateConnectorProfile' {..} =
-    _salt `Prelude.hashWithSalt` connectorProfileName
+    _salt
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` connectorProfileName
       `Prelude.hashWithSalt` connectionMode
       `Prelude.hashWithSalt` connectorProfileConfig
 
 instance Prelude.NFData UpdateConnectorProfile where
   rnf UpdateConnectorProfile' {..} =
-    Prelude.rnf connectorProfileName
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf connectorProfileName
       `Prelude.seq` Prelude.rnf connectionMode
       `Prelude.seq` Prelude.rnf connectorProfileConfig
 
@@ -148,7 +203,8 @@ instance Data.ToJSON UpdateConnectorProfile where
   toJSON UpdateConnectorProfile' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("clientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just
               ( "connectorProfileName"
                   Data..= connectorProfileName
               ),

@@ -89,7 +89,8 @@ instance
   hashWithSalt
     _salt
     CustomerProfilesDestinationProperties' {..} =
-      _salt `Prelude.hashWithSalt` objectTypeName
+      _salt
+        `Prelude.hashWithSalt` objectTypeName
         `Prelude.hashWithSalt` domainName
 
 instance

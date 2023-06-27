@@ -53,6 +53,9 @@ module Amazonka.AppFlow.Types
     -- * DataPullMode
     DataPullMode (..),
 
+    -- * DataTransferApiType
+    DataTransferApiType (..),
+
     -- * DatadogConnectorOperator
     DatadogConnectorOperator (..),
 
@@ -91,6 +94,9 @@ module Amazonka.AppFlow.Types
 
     -- * Operators
     Operators (..),
+
+    -- * PardotConnectorOperator
+    PardotConnectorOperator (..),
 
     -- * PathPrefix
     PathPrefix (..),
@@ -133,6 +139,9 @@ module Amazonka.AppFlow.Types
 
     -- * SlackConnectorOperator
     SlackConnectorOperator (..),
+
+    -- * SupportedDataTransferType
+    SupportedDataTransferType (..),
 
     -- * TaskType
     TaskType (..),
@@ -233,6 +242,8 @@ module Amazonka.AppFlow.Types
     connectorConfiguration_registeredAt,
     connectorConfiguration_registeredBy,
     connectorConfiguration_supportedApiVersions,
+    connectorConfiguration_supportedDataTransferApis,
+    connectorConfiguration_supportedDataTransferTypes,
     connectorConfiguration_supportedDestinationConnectors,
     connectorConfiguration_supportedOperators,
     connectorConfiguration_supportedSchedulingFrequencies,
@@ -253,6 +264,7 @@ module Amazonka.AppFlow.Types
     connectorDetail_connectorVersion,
     connectorDetail_registeredAt,
     connectorDetail_registeredBy,
+    connectorDetail_supportedDataTransferTypes,
 
     -- * ConnectorEntity
     ConnectorEntity (..),
@@ -288,6 +300,7 @@ module Amazonka.AppFlow.Types
     connectorMetadata_honeycode,
     connectorMetadata_inforNexus,
     connectorMetadata_marketo,
+    connectorMetadata_pardot,
     connectorMetadata_redshift,
     connectorMetadata_s3,
     connectorMetadata_sAPOData,
@@ -317,6 +330,7 @@ module Amazonka.AppFlow.Types
     connectorOperator_googleAnalytics,
     connectorOperator_inforNexus,
     connectorOperator_marketo,
+    connectorOperator_pardot,
     connectorOperator_s3,
     connectorOperator_sAPOData,
     connectorOperator_salesforce,
@@ -358,6 +372,7 @@ module Amazonka.AppFlow.Types
     connectorProfileCredentials_honeycode,
     connectorProfileCredentials_inforNexus,
     connectorProfileCredentials_marketo,
+    connectorProfileCredentials_pardot,
     connectorProfileCredentials_redshift,
     connectorProfileCredentials_sAPOData,
     connectorProfileCredentials_salesforce,
@@ -380,6 +395,7 @@ module Amazonka.AppFlow.Types
     connectorProfileProperties_honeycode,
     connectorProfileProperties_inforNexus,
     connectorProfileProperties_marketo,
+    connectorProfileProperties_pardot,
     connectorProfileProperties_redshift,
     connectorProfileProperties_sAPOData,
     connectorProfileProperties_salesforce,
@@ -447,6 +463,7 @@ module Amazonka.AppFlow.Types
     CustomConnectorSourceProperties (..),
     newCustomConnectorSourceProperties,
     customConnectorSourceProperties_customProperties,
+    customConnectorSourceProperties_dataTransferApi,
     customConnectorSourceProperties_entityName,
 
     -- * CustomerProfilesDestinationProperties
@@ -458,6 +475,12 @@ module Amazonka.AppFlow.Types
     -- * CustomerProfilesMetadata
     CustomerProfilesMetadata (..),
     newCustomerProfilesMetadata,
+
+    -- * DataTransferApi
+    DataTransferApi (..),
+    newDataTransferApi,
+    dataTransferApi_name,
+    dataTransferApi_type,
 
     -- * DatadogConnectorProfileCredentials
     DatadogConnectorProfileCredentials (..),
@@ -794,6 +817,30 @@ module Amazonka.AppFlow.Types
     oAuthProperties_authCodeUrl,
     oAuthProperties_oAuthScopes,
 
+    -- * PardotConnectorProfileCredentials
+    PardotConnectorProfileCredentials (..),
+    newPardotConnectorProfileCredentials,
+    pardotConnectorProfileCredentials_accessToken,
+    pardotConnectorProfileCredentials_clientCredentialsArn,
+    pardotConnectorProfileCredentials_oAuthRequest,
+    pardotConnectorProfileCredentials_refreshToken,
+
+    -- * PardotConnectorProfileProperties
+    PardotConnectorProfileProperties (..),
+    newPardotConnectorProfileProperties,
+    pardotConnectorProfileProperties_businessUnitId,
+    pardotConnectorProfileProperties_instanceUrl,
+    pardotConnectorProfileProperties_isSandboxEnvironment,
+
+    -- * PardotMetadata
+    PardotMetadata (..),
+    newPardotMetadata,
+
+    -- * PardotSourceProperties
+    PardotSourceProperties (..),
+    newPardotSourceProperties,
+    pardotSourceProperties_object,
+
     -- * PrefixConfig
     PrefixConfig (..),
     newPrefixConfig,
@@ -923,6 +970,8 @@ module Amazonka.AppFlow.Types
     newSalesforceConnectorProfileCredentials,
     salesforceConnectorProfileCredentials_accessToken,
     salesforceConnectorProfileCredentials_clientCredentialsArn,
+    salesforceConnectorProfileCredentials_jwtToken,
+    salesforceConnectorProfileCredentials_oAuth2GrantType,
     salesforceConnectorProfileCredentials_oAuthRequest,
     salesforceConnectorProfileCredentials_refreshToken,
 
@@ -931,6 +980,7 @@ module Amazonka.AppFlow.Types
     newSalesforceConnectorProfileProperties,
     salesforceConnectorProfileProperties_instanceUrl,
     salesforceConnectorProfileProperties_isSandboxEnvironment,
+    salesforceConnectorProfileProperties_usePrivateLinkForMetadataAndAuthorization,
 
     -- * SalesforceDestinationProperties
     SalesforceDestinationProperties (..),
@@ -946,6 +996,7 @@ module Amazonka.AppFlow.Types
     newSalesforceMetadata,
     salesforceMetadata_dataTransferApis,
     salesforceMetadata_oAuthScopes,
+    salesforceMetadata_oauth2GrantTypesSupported,
 
     -- * SalesforceSourceProperties
     SalesforceSourceProperties (..),
@@ -1068,6 +1119,7 @@ module Amazonka.AppFlow.Types
     sourceConnectorProperties_googleAnalytics,
     sourceConnectorProperties_inforNexus,
     sourceConnectorProperties_marketo,
+    sourceConnectorProperties_pardot,
     sourceConnectorProperties_s3,
     sourceConnectorProperties_sAPOData,
     sourceConnectorProperties_salesforce,
@@ -1256,6 +1308,8 @@ import Amazonka.AppFlow.Types.CustomConnectorSourceProperties
 import Amazonka.AppFlow.Types.CustomerProfilesDestinationProperties
 import Amazonka.AppFlow.Types.CustomerProfilesMetadata
 import Amazonka.AppFlow.Types.DataPullMode
+import Amazonka.AppFlow.Types.DataTransferApi
+import Amazonka.AppFlow.Types.DataTransferApiType
 import Amazonka.AppFlow.Types.DatadogConnectorOperator
 import Amazonka.AppFlow.Types.DatadogConnectorProfileCredentials
 import Amazonka.AppFlow.Types.DatadogConnectorProfileProperties
@@ -1318,6 +1372,11 @@ import Amazonka.AppFlow.Types.OAuthProperties
 import Amazonka.AppFlow.Types.Operator
 import Amazonka.AppFlow.Types.OperatorPropertiesKeys
 import Amazonka.AppFlow.Types.Operators
+import Amazonka.AppFlow.Types.PardotConnectorOperator
+import Amazonka.AppFlow.Types.PardotConnectorProfileCredentials
+import Amazonka.AppFlow.Types.PardotConnectorProfileProperties
+import Amazonka.AppFlow.Types.PardotMetadata
+import Amazonka.AppFlow.Types.PardotSourceProperties
 import Amazonka.AppFlow.Types.PathPrefix
 import Amazonka.AppFlow.Types.PrefixConfig
 import Amazonka.AppFlow.Types.PrefixFormat
@@ -1376,6 +1435,7 @@ import Amazonka.AppFlow.Types.SourceConnectorProperties
 import Amazonka.AppFlow.Types.SourceFieldProperties
 import Amazonka.AppFlow.Types.SourceFlowConfig
 import Amazonka.AppFlow.Types.SuccessResponseHandlingConfig
+import Amazonka.AppFlow.Types.SupportedDataTransferType
 import Amazonka.AppFlow.Types.SupportedFieldTypeDetails
 import Amazonka.AppFlow.Types.Task
 import Amazonka.AppFlow.Types.TaskType
@@ -1433,52 +1493,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | AppFlow\/Requester has invalid or missing permissions.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -1488,7 +1548,7 @@ _AccessDeniedException =
 -- | There was a conflict when processing the request (for example, a flow
 -- with the given name already exists within the account. Check for
 -- conflicting resource names and try again.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -1496,7 +1556,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | An error occurred when authenticating with the connector endpoint.
-_ConnectorAuthenticationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConnectorAuthenticationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConnectorAuthenticationException =
   Core._MatchServiceError
     defaultService
@@ -1504,7 +1564,7 @@ _ConnectorAuthenticationException =
     Prelude.. Core.hasStatus 401
 
 -- | An error occurred when retrieving data from the connector endpoint.
-_ConnectorServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConnectorServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConnectorServerException =
   Core._MatchServiceError
     defaultService
@@ -1513,7 +1573,7 @@ _ConnectorServerException =
 
 -- | An internal service error occurred during the processing of your
 -- request. Try again later.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -1522,7 +1582,7 @@ _InternalServerException =
 
 -- | The resource specified in the request (such as the source or destination
 -- connector profile) is not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1531,7 +1591,7 @@ _ResourceNotFoundException =
 
 -- | The request would cause a service quota (such as the number of flows) to
 -- be exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -1540,7 +1600,7 @@ _ServiceQuotaExceededException =
 
 -- | API calls have exceeded the maximum allowed API request rate per account
 -- and per Region.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -1548,7 +1608,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | The requested operation is not supported for the current flow.
-_UnsupportedOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedOperationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedOperationException =
   Core._MatchServiceError
     defaultService
@@ -1556,7 +1616,7 @@ _UnsupportedOperationException =
     Prelude.. Core.hasStatus 400
 
 -- | The request has invalid or missing parameters.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

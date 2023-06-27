@@ -87,6 +87,12 @@ module Amazonka.AppFlow
     -- * Operations
     -- $operations
 
+    -- ** CancelFlowExecutions
+    CancelFlowExecutions (CancelFlowExecutions'),
+    newCancelFlowExecutions,
+    CancelFlowExecutionsResponse (CancelFlowExecutionsResponse'),
+    newCancelFlowExecutionsResponse,
+
     -- ** CreateConnectorProfile
     CreateConnectorProfile (CreateConnectorProfile'),
     newCreateConnectorProfile,
@@ -177,6 +183,12 @@ module Amazonka.AppFlow
     RegisterConnectorResponse (RegisterConnectorResponse'),
     newRegisterConnectorResponse,
 
+    -- ** ResetConnectorMetadataCache
+    ResetConnectorMetadataCache (ResetConnectorMetadataCache'),
+    newResetConnectorMetadataCache,
+    ResetConnectorMetadataCacheResponse (ResetConnectorMetadataCacheResponse'),
+    newResetConnectorMetadataCacheResponse,
+
     -- ** StartFlow
     StartFlow (StartFlow'),
     newStartFlow,
@@ -251,6 +263,9 @@ module Amazonka.AppFlow
     -- ** DataPullMode
     DataPullMode (..),
 
+    -- ** DataTransferApiType
+    DataTransferApiType (..),
+
     -- ** DatadogConnectorOperator
     DatadogConnectorOperator (..),
 
@@ -289,6 +304,9 @@ module Amazonka.AppFlow
 
     -- ** Operators
     Operators (..),
+
+    -- ** PardotConnectorOperator
+    PardotConnectorOperator (..),
 
     -- ** PathPrefix
     PathPrefix (..),
@@ -331,6 +349,9 @@ module Amazonka.AppFlow
 
     -- ** SlackConnectorOperator
     SlackConnectorOperator (..),
+
+    -- ** SupportedDataTransferType
+    SupportedDataTransferType (..),
 
     -- ** TaskType
     TaskType (..),
@@ -469,6 +490,10 @@ module Amazonka.AppFlow
     -- ** CustomerProfilesMetadata
     CustomerProfilesMetadata (CustomerProfilesMetadata'),
     newCustomerProfilesMetadata,
+
+    -- ** DataTransferApi
+    DataTransferApi (DataTransferApi'),
+    newDataTransferApi,
 
     -- ** DatadogConnectorProfileCredentials
     DatadogConnectorProfileCredentials (DatadogConnectorProfileCredentials'),
@@ -665,6 +690,22 @@ module Amazonka.AppFlow
     -- ** OAuthProperties
     OAuthProperties (OAuthProperties'),
     newOAuthProperties,
+
+    -- ** PardotConnectorProfileCredentials
+    PardotConnectorProfileCredentials (PardotConnectorProfileCredentials'),
+    newPardotConnectorProfileCredentials,
+
+    -- ** PardotConnectorProfileProperties
+    PardotConnectorProfileProperties (PardotConnectorProfileProperties'),
+    newPardotConnectorProfileProperties,
+
+    -- ** PardotMetadata
+    PardotMetadata (PardotMetadata'),
+    newPardotMetadata,
+
+    -- ** PardotSourceProperties
+    PardotSourceProperties (PardotSourceProperties'),
+    newPardotSourceProperties,
 
     -- ** PrefixConfig
     PrefixConfig (PrefixConfig'),
@@ -924,6 +965,7 @@ module Amazonka.AppFlow
   )
 where
 
+import Amazonka.AppFlow.CancelFlowExecutions
 import Amazonka.AppFlow.CreateConnectorProfile
 import Amazonka.AppFlow.CreateFlow
 import Amazonka.AppFlow.DeleteConnectorProfile
@@ -940,6 +982,7 @@ import Amazonka.AppFlow.ListConnectors
 import Amazonka.AppFlow.ListFlows
 import Amazonka.AppFlow.ListTagsForResource
 import Amazonka.AppFlow.RegisterConnector
+import Amazonka.AppFlow.ResetConnectorMetadataCache
 import Amazonka.AppFlow.StartFlow
 import Amazonka.AppFlow.StopFlow
 import Amazonka.AppFlow.TagResource

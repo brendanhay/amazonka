@@ -133,7 +133,8 @@ instance Data.FromJSON Impact where
 
 instance Prelude.Hashable Impact where
   hashWithSalt _salt Impact' {..} =
-    _salt `Prelude.hashWithSalt` totalActualSpend
+    _salt
+      `Prelude.hashWithSalt` totalActualSpend
       `Prelude.hashWithSalt` totalExpectedSpend
       `Prelude.hashWithSalt` totalImpact
       `Prelude.hashWithSalt` totalImpactPercentage

@@ -176,7 +176,8 @@ instance Core.AWSRequest CreateAnomalyMonitor where
 
 instance Prelude.Hashable CreateAnomalyMonitor where
   hashWithSalt _salt CreateAnomalyMonitor' {..} =
-    _salt `Prelude.hashWithSalt` resourceTags
+    _salt
+      `Prelude.hashWithSalt` resourceTags
       `Prelude.hashWithSalt` anomalyMonitor
 
 instance Prelude.NFData CreateAnomalyMonitor where

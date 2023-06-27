@@ -202,18 +202,18 @@ instance
       ( \x ->
           SavingsPlansPurchaseRecommendationSummary'
             Prelude.<$> (x Data..:? "CurrencyCode")
-              Prelude.<*> (x Data..:? "CurrentOnDemandSpend")
-              Prelude.<*> (x Data..:? "DailyCommitmentToPurchase")
-              Prelude.<*> (x Data..:? "EstimatedMonthlySavingsAmount")
-              Prelude.<*> ( x
-                              Data..:? "EstimatedOnDemandCostWithCurrentCommitment"
-                          )
-              Prelude.<*> (x Data..:? "EstimatedROI")
-              Prelude.<*> (x Data..:? "EstimatedSavingsAmount")
-              Prelude.<*> (x Data..:? "EstimatedSavingsPercentage")
-              Prelude.<*> (x Data..:? "EstimatedTotalCost")
-              Prelude.<*> (x Data..:? "HourlyCommitmentToPurchase")
-              Prelude.<*> (x Data..:? "TotalRecommendationCount")
+            Prelude.<*> (x Data..:? "CurrentOnDemandSpend")
+            Prelude.<*> (x Data..:? "DailyCommitmentToPurchase")
+            Prelude.<*> (x Data..:? "EstimatedMonthlySavingsAmount")
+            Prelude.<*> ( x
+                            Data..:? "EstimatedOnDemandCostWithCurrentCommitment"
+                        )
+            Prelude.<*> (x Data..:? "EstimatedROI")
+            Prelude.<*> (x Data..:? "EstimatedSavingsAmount")
+            Prelude.<*> (x Data..:? "EstimatedSavingsPercentage")
+            Prelude.<*> (x Data..:? "EstimatedTotalCost")
+            Prelude.<*> (x Data..:? "HourlyCommitmentToPurchase")
+            Prelude.<*> (x Data..:? "TotalRecommendationCount")
       )
 
 instance
@@ -223,7 +223,8 @@ instance
   hashWithSalt
     _salt
     SavingsPlansPurchaseRecommendationSummary' {..} =
-      _salt `Prelude.hashWithSalt` currencyCode
+      _salt
+        `Prelude.hashWithSalt` currencyCode
         `Prelude.hashWithSalt` currentOnDemandSpend
         `Prelude.hashWithSalt` dailyCommitmentToPurchase
         `Prelude.hashWithSalt` estimatedMonthlySavingsAmount

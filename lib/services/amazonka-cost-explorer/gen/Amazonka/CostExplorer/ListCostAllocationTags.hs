@@ -151,7 +151,8 @@ instance Core.AWSRequest ListCostAllocationTags where
     Response.receiveJSON
       ( \s h x ->
           ListCostAllocationTagsResponse'
-            Prelude.<$> ( x Data..?> "CostAllocationTags"
+            Prelude.<$> ( x
+                            Data..?> "CostAllocationTags"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -160,7 +161,8 @@ instance Core.AWSRequest ListCostAllocationTags where
 
 instance Prelude.Hashable ListCostAllocationTags where
   hashWithSalt _salt ListCostAllocationTags' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` tagKeys

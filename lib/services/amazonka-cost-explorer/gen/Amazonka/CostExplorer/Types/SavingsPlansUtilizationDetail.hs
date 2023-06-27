@@ -126,7 +126,8 @@ instance
     SavingsPlansUtilizationDetail
   where
   hashWithSalt _salt SavingsPlansUtilizationDetail' {..} =
-    _salt `Prelude.hashWithSalt` amortizedCommitment
+    _salt
+      `Prelude.hashWithSalt` amortizedCommitment
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` savings
       `Prelude.hashWithSalt` savingsPlanArn

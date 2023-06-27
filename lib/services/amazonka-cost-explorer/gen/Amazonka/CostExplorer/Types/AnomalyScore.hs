@@ -79,7 +79,8 @@ instance Data.FromJSON AnomalyScore where
 
 instance Prelude.Hashable AnomalyScore where
   hashWithSalt _salt AnomalyScore' {..} =
-    _salt `Prelude.hashWithSalt` maxScore
+    _salt
+      `Prelude.hashWithSalt` maxScore
       `Prelude.hashWithSalt` currentScore
 
 instance Prelude.NFData AnomalyScore where

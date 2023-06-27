@@ -162,7 +162,8 @@ instance Data.FromJSON CostCategory where
           CostCategory'
             Prelude.<$> (x Data..:? "DefaultValue")
             Prelude.<*> (x Data..:? "EffectiveEnd")
-            Prelude.<*> ( x Data..:? "ProcessingStatus"
+            Prelude.<*> ( x
+                            Data..:? "ProcessingStatus"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SplitChargeRules")
@@ -175,7 +176,8 @@ instance Data.FromJSON CostCategory where
 
 instance Prelude.Hashable CostCategory where
   hashWithSalt _salt CostCategory' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` effectiveEnd
       `Prelude.hashWithSalt` processingStatus
       `Prelude.hashWithSalt` splitChargeRules

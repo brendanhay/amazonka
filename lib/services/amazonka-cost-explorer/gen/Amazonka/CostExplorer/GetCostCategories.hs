@@ -265,10 +265,12 @@ instance Core.AWSRequest GetCostCategories where
     Response.receiveJSON
       ( \s h x ->
           GetCostCategoriesResponse'
-            Prelude.<$> ( x Data..?> "CostCategoryNames"
+            Prelude.<$> ( x
+                            Data..?> "CostCategoryNames"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "CostCategoryValues"
+            Prelude.<*> ( x
+                            Data..?> "CostCategoryValues"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextPageToken")
@@ -279,7 +281,8 @@ instance Core.AWSRequest GetCostCategories where
 
 instance Prelude.Hashable GetCostCategories where
   hashWithSalt _salt GetCostCategories' {..} =
-    _salt `Prelude.hashWithSalt` costCategoryName
+    _salt
+      `Prelude.hashWithSalt` costCategoryName
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextPageToken

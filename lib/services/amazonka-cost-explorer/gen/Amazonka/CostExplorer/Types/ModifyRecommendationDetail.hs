@@ -64,7 +64,8 @@ instance Data.FromJSON ModifyRecommendationDetail where
       "ModifyRecommendationDetail"
       ( \x ->
           ModifyRecommendationDetail'
-            Prelude.<$> ( x Data..:? "TargetInstances"
+            Prelude.<$> ( x
+                            Data..:? "TargetInstances"
                             Data..!= Prelude.mempty
                         )
       )

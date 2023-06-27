@@ -242,7 +242,8 @@ instance Core.AWSRequest GetSavingsPlansUtilization where
     Response.receiveJSON
       ( \s h x ->
           GetSavingsPlansUtilizationResponse'
-            Prelude.<$> ( x Data..?> "SavingsPlansUtilizationsByTime"
+            Prelude.<$> ( x
+                            Data..?> "SavingsPlansUtilizationsByTime"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -251,7 +252,8 @@ instance Core.AWSRequest GetSavingsPlansUtilization where
 
 instance Prelude.Hashable GetSavingsPlansUtilization where
   hashWithSalt _salt GetSavingsPlansUtilization' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` granularity
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` timePeriod

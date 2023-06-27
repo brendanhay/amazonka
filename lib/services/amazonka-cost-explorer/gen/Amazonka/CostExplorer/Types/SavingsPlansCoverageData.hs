@@ -108,7 +108,8 @@ instance Data.FromJSON SavingsPlansCoverageData where
 
 instance Prelude.Hashable SavingsPlansCoverageData where
   hashWithSalt _salt SavingsPlansCoverageData' {..} =
-    _salt `Prelude.hashWithSalt` coveragePercentage
+    _salt
+      `Prelude.hashWithSalt` coveragePercentage
       `Prelude.hashWithSalt` onDemandCost
       `Prelude.hashWithSalt` spendCoveredBySavingsPlans
       `Prelude.hashWithSalt` totalCost

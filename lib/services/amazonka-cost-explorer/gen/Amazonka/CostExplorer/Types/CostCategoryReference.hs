@@ -135,7 +135,8 @@ instance Data.FromJSON CostCategoryReference where
             Prelude.<*> (x Data..:? "EffectiveStart")
             Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "NumberOfRules")
-            Prelude.<*> ( x Data..:? "ProcessingStatus"
+            Prelude.<*> ( x
+                            Data..:? "ProcessingStatus"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Values" Data..!= Prelude.mempty)
@@ -143,7 +144,8 @@ instance Data.FromJSON CostCategoryReference where
 
 instance Prelude.Hashable CostCategoryReference where
   hashWithSalt _salt CostCategoryReference' {..} =
-    _salt `Prelude.hashWithSalt` costCategoryArn
+    _salt
+      `Prelude.hashWithSalt` costCategoryArn
       `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` effectiveEnd
       `Prelude.hashWithSalt` effectiveStart

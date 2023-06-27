@@ -78,7 +78,8 @@ totalImpactFilter_startValue = Lens.lens (\TotalImpactFilter' {startValue} -> st
 
 instance Prelude.Hashable TotalImpactFilter where
   hashWithSalt _salt TotalImpactFilter' {..} =
-    _salt `Prelude.hashWithSalt` endValue
+    _salt
+      `Prelude.hashWithSalt` endValue
       `Prelude.hashWithSalt` numericOperator
       `Prelude.hashWithSalt` startValue
 

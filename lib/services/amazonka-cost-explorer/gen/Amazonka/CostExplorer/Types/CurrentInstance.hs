@@ -197,7 +197,8 @@ instance Data.FromJSON CurrentInstance where
 
 instance Prelude.Hashable CurrentInstance where
   hashWithSalt _salt CurrentInstance' {..} =
-    _salt `Prelude.hashWithSalt` currencyCode
+    _salt
+      `Prelude.hashWithSalt` currencyCode
       `Prelude.hashWithSalt` instanceName
       `Prelude.hashWithSalt` monthlyCost
       `Prelude.hashWithSalt` onDemandHoursInLookbackPeriod

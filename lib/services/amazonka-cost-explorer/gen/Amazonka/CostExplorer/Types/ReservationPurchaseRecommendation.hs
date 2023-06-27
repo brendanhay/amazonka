@@ -142,7 +142,8 @@ instance
             Prelude.<$> (x Data..:? "AccountScope")
             Prelude.<*> (x Data..:? "LookbackPeriodInDays")
             Prelude.<*> (x Data..:? "PaymentOption")
-            Prelude.<*> ( x Data..:? "RecommendationDetails"
+            Prelude.<*> ( x
+                            Data..:? "RecommendationDetails"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RecommendationSummary")
@@ -157,7 +158,8 @@ instance
   hashWithSalt
     _salt
     ReservationPurchaseRecommendation' {..} =
-      _salt `Prelude.hashWithSalt` accountScope
+      _salt
+        `Prelude.hashWithSalt` accountScope
         `Prelude.hashWithSalt` lookbackPeriodInDays
         `Prelude.hashWithSalt` paymentOption
         `Prelude.hashWithSalt` recommendationDetails

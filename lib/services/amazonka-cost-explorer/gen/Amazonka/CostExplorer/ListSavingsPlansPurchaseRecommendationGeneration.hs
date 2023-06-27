@@ -127,11 +127,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListSavingsPlansPurchaseRecommendationGenerationResponse'
-            Prelude.<$> ( x Data..?> "GenerationSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "GenerationSummaryList"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "NextPageToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextPageToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -141,7 +142,8 @@ instance
   hashWithSalt
     _salt
     ListSavingsPlansPurchaseRecommendationGeneration' {..} =
-      _salt `Prelude.hashWithSalt` generationStatus
+      _salt
+        `Prelude.hashWithSalt` generationStatus
         `Prelude.hashWithSalt` nextPageToken
         `Prelude.hashWithSalt` pageSize
         `Prelude.hashWithSalt` recommendationIds

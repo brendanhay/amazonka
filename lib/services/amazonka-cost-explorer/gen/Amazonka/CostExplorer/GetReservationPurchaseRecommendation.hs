@@ -232,11 +232,12 @@ instance
       ( \s h x ->
           GetReservationPurchaseRecommendationResponse'
             Prelude.<$> (x Data..?> "Metadata")
-              Prelude.<*> (x Data..?> "NextPageToken")
-              Prelude.<*> ( x Data..?> "Recommendations"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextPageToken")
+            Prelude.<*> ( x
+                            Data..?> "Recommendations"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -246,7 +247,8 @@ instance
   hashWithSalt
     _salt
     GetReservationPurchaseRecommendation' {..} =
-      _salt `Prelude.hashWithSalt` accountId
+      _salt
+        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` accountScope
         `Prelude.hashWithSalt` filter'
         `Prelude.hashWithSalt` lookbackPeriodInDays

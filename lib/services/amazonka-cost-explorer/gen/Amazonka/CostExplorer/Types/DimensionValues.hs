@@ -141,7 +141,8 @@ instance Data.FromJSON DimensionValues where
 
 instance Prelude.Hashable DimensionValues where
   hashWithSalt _salt DimensionValues' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` matchOptions
       `Prelude.hashWithSalt` values
 

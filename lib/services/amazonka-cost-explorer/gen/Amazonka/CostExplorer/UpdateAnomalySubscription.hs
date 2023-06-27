@@ -237,7 +237,8 @@ instance Core.AWSRequest UpdateAnomalySubscription where
 
 instance Prelude.Hashable UpdateAnomalySubscription where
   hashWithSalt _salt UpdateAnomalySubscription' {..} =
-    _salt `Prelude.hashWithSalt` frequency
+    _salt
+      `Prelude.hashWithSalt` frequency
       `Prelude.hashWithSalt` monitorArnList
       `Prelude.hashWithSalt` subscribers
       `Prelude.hashWithSalt` subscriptionName

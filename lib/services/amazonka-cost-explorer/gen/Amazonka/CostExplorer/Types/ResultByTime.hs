@@ -97,7 +97,8 @@ instance Data.FromJSON ResultByTime where
 
 instance Prelude.Hashable ResultByTime where
   hashWithSalt _salt ResultByTime' {..} =
-    _salt `Prelude.hashWithSalt` estimated
+    _salt
+      `Prelude.hashWithSalt` estimated
       `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` timePeriod
       `Prelude.hashWithSalt` total

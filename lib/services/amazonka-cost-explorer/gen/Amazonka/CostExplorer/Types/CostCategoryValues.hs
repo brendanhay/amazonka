@@ -98,7 +98,8 @@ instance Data.FromJSON CostCategoryValues where
 
 instance Prelude.Hashable CostCategoryValues where
   hashWithSalt _salt CostCategoryValues' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` matchOptions
       `Prelude.hashWithSalt` values
 

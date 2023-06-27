@@ -255,7 +255,8 @@ instance Core.AWSRequest GetTags where
 
 instance Prelude.Hashable GetTags where
   hashWithSalt _salt GetTags' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextPageToken
       `Prelude.hashWithSalt` searchString

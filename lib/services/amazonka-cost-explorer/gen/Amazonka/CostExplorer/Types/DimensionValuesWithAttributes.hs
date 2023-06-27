@@ -79,7 +79,8 @@ instance
     DimensionValuesWithAttributes
   where
   hashWithSalt _salt DimensionValuesWithAttributes' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData DimensionValuesWithAttributes where

@@ -70,12 +70,14 @@ instance Data.FromJSON GroupDefinition where
       "GroupDefinition"
       ( \x ->
           GroupDefinition'
-            Prelude.<$> (x Data..:? "Key") Prelude.<*> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable GroupDefinition where
   hashWithSalt _salt GroupDefinition' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData GroupDefinition where

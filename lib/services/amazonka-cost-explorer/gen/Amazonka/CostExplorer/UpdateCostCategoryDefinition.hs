@@ -176,7 +176,8 @@ instance
     UpdateCostCategoryDefinition
   where
   hashWithSalt _salt UpdateCostCategoryDefinition' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` effectiveStart
       `Prelude.hashWithSalt` splitChargeRules
       `Prelude.hashWithSalt` costCategoryArn

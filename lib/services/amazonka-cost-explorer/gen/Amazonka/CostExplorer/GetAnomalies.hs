@@ -165,7 +165,8 @@ instance Core.AWSRequest GetAnomalies where
 
 instance Prelude.Hashable GetAnomalies where
   hashWithSalt _salt GetAnomalies' {..} =
-    _salt `Prelude.hashWithSalt` feedback
+    _salt
+      `Prelude.hashWithSalt` feedback
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` monitorArn
       `Prelude.hashWithSalt` nextPageToken

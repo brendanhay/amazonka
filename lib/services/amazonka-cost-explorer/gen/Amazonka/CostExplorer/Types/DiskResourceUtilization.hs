@@ -96,7 +96,8 @@ instance Data.FromJSON DiskResourceUtilization where
 
 instance Prelude.Hashable DiskResourceUtilization where
   hashWithSalt _salt DiskResourceUtilization' {..} =
-    _salt `Prelude.hashWithSalt` diskReadBytesPerSecond
+    _salt
+      `Prelude.hashWithSalt` diskReadBytesPerSecond
       `Prelude.hashWithSalt` diskReadOpsPerSecond
       `Prelude.hashWithSalt` diskWriteBytesPerSecond
       `Prelude.hashWithSalt` diskWriteOpsPerSecond

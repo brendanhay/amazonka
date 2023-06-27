@@ -79,7 +79,8 @@ instance
       "CostCategorySplitChargeRuleParameter"
       ( \x ->
           CostCategorySplitChargeRuleParameter'
-            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Values")
+            Prelude.<$> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Values")
       )
 
 instance
@@ -89,7 +90,8 @@ instance
   hashWithSalt
     _salt
     CostCategorySplitChargeRuleParameter' {..} =
-      _salt `Prelude.hashWithSalt` type'
+      _salt
+        `Prelude.hashWithSalt` type'
         `Prelude.hashWithSalt` values
 
 instance

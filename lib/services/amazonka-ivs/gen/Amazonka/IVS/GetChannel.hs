@@ -146,7 +146,6 @@ newGetChannelResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 getChannelResponse_channel :: Lens.Lens' GetChannelResponse (Prelude.Maybe Channel)
 getChannelResponse_channel = Lens.lens (\GetChannelResponse' {channel} -> channel) (\s@GetChannelResponse' {} a -> s {channel = a} :: GetChannelResponse)
 

@@ -40,7 +40,9 @@ data Stream = Stream'
     -- | Time of the stream’s start. This is an ISO 8601 timestamp; /note that
     -- this is returned as a string/.
     startTime :: Prelude.Maybe Data.ISO8601,
-    -- | The stream’s state.
+    -- | The stream’s state. Do not rely on the @OFFLINE@ state, as the API may
+    -- not return it; instead, a \"NotBroadcasting\" error will indicate that
+    -- the stream is not live.
     state :: Prelude.Maybe StreamState,
     -- | Unique identifier for a live or previously live stream in the specified
     -- channel.
@@ -72,7 +74,9 @@ data Stream = Stream'
 -- 'startTime', 'stream_startTime' - Time of the stream’s start. This is an ISO 8601 timestamp; /note that
 -- this is returned as a string/.
 --
--- 'state', 'stream_state' - The stream’s state.
+-- 'state', 'stream_state' - The stream’s state. Do not rely on the @OFFLINE@ state, as the API may
+-- not return it; instead, a \"NotBroadcasting\" error will indicate that
+-- the stream is not live.
 --
 -- 'streamId', 'stream_streamId' - Unique identifier for a live or previously live stream in the specified
 -- channel.
@@ -113,7 +117,9 @@ stream_playbackUrl = Lens.lens (\Stream' {playbackUrl} -> playbackUrl) (\s@Strea
 stream_startTime :: Lens.Lens' Stream (Prelude.Maybe Prelude.UTCTime)
 stream_startTime = Lens.lens (\Stream' {startTime} -> startTime) (\s@Stream' {} a -> s {startTime = a} :: Stream) Prelude.. Lens.mapping Data._Time
 
--- | The stream’s state.
+-- | The stream’s state. Do not rely on the @OFFLINE@ state, as the API may
+-- not return it; instead, a \"NotBroadcasting\" error will indicate that
+-- the stream is not live.
 stream_state :: Lens.Lens' Stream (Prelude.Maybe StreamState)
 stream_state = Lens.lens (\Stream' {state} -> state) (\s@Stream' {} a -> s {state = a} :: Stream)
 
@@ -147,7 +153,8 @@ instance Data.FromJSON Stream where
 
 instance Prelude.Hashable Stream where
   hashWithSalt _salt Stream' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` health
       `Prelude.hashWithSalt` playbackUrl
       `Prelude.hashWithSalt` startTime

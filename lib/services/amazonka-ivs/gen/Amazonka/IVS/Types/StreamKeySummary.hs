@@ -32,7 +32,8 @@ data StreamKeySummary = StreamKeySummary'
     arn :: Prelude.Maybe Prelude.Text,
     -- | Channel ARN for the stream.
     channelArn :: Prelude.Maybe Prelude.Text,
-    -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+    -- | Tags attached to the resource. Array of 1-50 maps, each of the form
+    -- @string:string (key:value)@. See
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
     -- for more information, including restrictions that apply to tags and
     -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -53,7 +54,8 @@ data StreamKeySummary = StreamKeySummary'
 --
 -- 'channelArn', 'streamKeySummary_channelArn' - Channel ARN for the stream.
 --
--- 'tags', 'streamKeySummary_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- 'tags', 'streamKeySummary_tags' - Tags attached to the resource. Array of 1-50 maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -75,7 +77,8 @@ streamKeySummary_arn = Lens.lens (\StreamKeySummary' {arn} -> arn) (\s@StreamKey
 streamKeySummary_channelArn :: Lens.Lens' StreamKeySummary (Prelude.Maybe Prelude.Text)
 streamKeySummary_channelArn = Lens.lens (\StreamKeySummary' {channelArn} -> channelArn) (\s@StreamKeySummary' {} a -> s {channelArn = a} :: StreamKeySummary)
 
--- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- | Tags attached to the resource. Array of 1-50 maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -96,7 +99,8 @@ instance Data.FromJSON StreamKeySummary where
 
 instance Prelude.Hashable StreamKeySummary where
   hashWithSalt _salt StreamKeySummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` tags
 

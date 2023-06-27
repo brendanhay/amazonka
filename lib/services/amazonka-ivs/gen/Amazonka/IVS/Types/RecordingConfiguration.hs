@@ -37,7 +37,8 @@ data RecordingConfiguration = RecordingConfiguration'
     -- interval, the multiple streams will be considered a single broadcast and
     -- merged together. Default: 0.
     recordingReconnectWindowSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+    -- | Tags attached to the resource. Array of 1-50 maps, each of the form
+    -- @string:string (key:value)@. See
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
     -- for more information, including restrictions that apply to tags and
     -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -73,7 +74,8 @@ data RecordingConfiguration = RecordingConfiguration'
 -- interval, the multiple streams will be considered a single broadcast and
 -- merged together. Default: 0.
 --
--- 'tags', 'recordingConfiguration_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- 'tags', 'recordingConfiguration_tags' - Tags attached to the resource. Array of 1-50 maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -124,7 +126,8 @@ recordingConfiguration_name = Lens.lens (\RecordingConfiguration' {name} -> name
 recordingConfiguration_recordingReconnectWindowSeconds :: Lens.Lens' RecordingConfiguration (Prelude.Maybe Prelude.Natural)
 recordingConfiguration_recordingReconnectWindowSeconds = Lens.lens (\RecordingConfiguration' {recordingReconnectWindowSeconds} -> recordingReconnectWindowSeconds) (\s@RecordingConfiguration' {} a -> s {recordingReconnectWindowSeconds = a} :: RecordingConfiguration)
 
--- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- | Tags attached to the resource. Array of 1-50 maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -170,7 +173,8 @@ instance Data.FromJSON RecordingConfiguration where
 
 instance Prelude.Hashable RecordingConfiguration where
   hashWithSalt _salt RecordingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` recordingReconnectWindowSeconds
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` thumbnailConfiguration

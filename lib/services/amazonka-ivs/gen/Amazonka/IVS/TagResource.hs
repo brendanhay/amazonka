@@ -53,7 +53,8 @@ data TagResource = TagResource'
   { -- | ARN of the resource for which tags are to be added or updated. The ARN
     -- must be URL-encoded.
     resourceArn :: Prelude.Text,
-    -- | Array of tags to be added or updated. See
+    -- | Array of tags to be added or updated. Array of maps, each of the form
+    -- @string:string (key:value)@. See
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
     -- for more information, including restrictions that apply to tags and
     -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -73,7 +74,8 @@ data TagResource = TagResource'
 -- 'resourceArn', 'tagResource_resourceArn' - ARN of the resource for which tags are to be added or updated. The ARN
 -- must be URL-encoded.
 --
--- 'tags', 'tagResource_tags' - Array of tags to be added or updated. See
+-- 'tags', 'tagResource_tags' - Array of tags to be added or updated. Array of maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -93,7 +95,8 @@ newTagResource pResourceArn_ =
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
--- | Array of tags to be added or updated. See
+-- | Array of tags to be added or updated. Array of maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -114,7 +117,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

@@ -143,14 +143,16 @@ instance Data.FromJSON StreamSession where
             Prelude.<*> (x Data..:? "recordingConfiguration")
             Prelude.<*> (x Data..:? "startTime")
             Prelude.<*> (x Data..:? "streamId")
-            Prelude.<*> ( x Data..:? "truncatedEvents"
+            Prelude.<*> ( x
+                            Data..:? "truncatedEvents"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable StreamSession where
   hashWithSalt _salt StreamSession' {..} =
-    _salt `Prelude.hashWithSalt` channel
+    _salt
+      `Prelude.hashWithSalt` channel
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` ingestConfiguration
       `Prelude.hashWithSalt` recordingConfiguration

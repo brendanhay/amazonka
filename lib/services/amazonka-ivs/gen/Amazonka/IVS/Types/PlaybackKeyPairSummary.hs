@@ -32,7 +32,8 @@ data PlaybackKeyPairSummary = PlaybackKeyPairSummary'
     arn :: Prelude.Maybe Prelude.Text,
     -- | Playback-key-pair name. The value does not need to be unique.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+    -- | Tags attached to the resource. Array of 1-50 maps, each of the form
+    -- @string:string (key:value)@. See
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
     -- for more information, including restrictions that apply to tags and
     -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -53,7 +54,8 @@ data PlaybackKeyPairSummary = PlaybackKeyPairSummary'
 --
 -- 'name', 'playbackKeyPairSummary_name' - Playback-key-pair name. The value does not need to be unique.
 --
--- 'tags', 'playbackKeyPairSummary_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- 'tags', 'playbackKeyPairSummary_tags' - Tags attached to the resource. Array of 1-50 maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -75,7 +77,8 @@ playbackKeyPairSummary_arn = Lens.lens (\PlaybackKeyPairSummary' {arn} -> arn) (
 playbackKeyPairSummary_name :: Lens.Lens' PlaybackKeyPairSummary (Prelude.Maybe Prelude.Text)
 playbackKeyPairSummary_name = Lens.lens (\PlaybackKeyPairSummary' {name} -> name) (\s@PlaybackKeyPairSummary' {} a -> s {name = a} :: PlaybackKeyPairSummary)
 
--- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- | Tags attached to the resource. Array of 1-50 maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -96,7 +99,8 @@ instance Data.FromJSON PlaybackKeyPairSummary where
 
 instance Prelude.Hashable PlaybackKeyPairSummary where
   hashWithSalt _salt PlaybackKeyPairSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags
 

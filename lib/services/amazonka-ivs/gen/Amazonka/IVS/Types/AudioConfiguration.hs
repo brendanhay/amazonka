@@ -99,7 +99,8 @@ instance Data.FromJSON AudioConfiguration where
 
 instance Prelude.Hashable AudioConfiguration where
   hashWithSalt _salt AudioConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` channels
+    _salt
+      `Prelude.hashWithSalt` channels
       `Prelude.hashWithSalt` codec
       `Prelude.hashWithSalt` sampleRate
       `Prelude.hashWithSalt` targetBitrate

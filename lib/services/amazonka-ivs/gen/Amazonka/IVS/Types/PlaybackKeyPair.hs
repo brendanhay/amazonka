@@ -34,7 +34,8 @@ data PlaybackKeyPair = PlaybackKeyPair'
     fingerprint :: Prelude.Maybe Prelude.Text,
     -- | Playback-key-pair name. The value does not need to be unique.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+    -- | Tags attached to the resource. Array of 1-50 maps, each of the form
+    -- @string:string (key:value)@. See
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
     -- for more information, including restrictions that apply to tags and
     -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -57,7 +58,8 @@ data PlaybackKeyPair = PlaybackKeyPair'
 --
 -- 'name', 'playbackKeyPair_name' - Playback-key-pair name. The value does not need to be unique.
 --
--- 'tags', 'playbackKeyPair_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- 'tags', 'playbackKeyPair_tags' - Tags attached to the resource. Array of 1-50 maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -84,7 +86,8 @@ playbackKeyPair_fingerprint = Lens.lens (\PlaybackKeyPair' {fingerprint} -> fing
 playbackKeyPair_name :: Lens.Lens' PlaybackKeyPair (Prelude.Maybe Prelude.Text)
 playbackKeyPair_name = Lens.lens (\PlaybackKeyPair' {name} -> name) (\s@PlaybackKeyPair' {} a -> s {name = a} :: PlaybackKeyPair)
 
--- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- | Tags attached to the resource. Array of 1-50 maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -106,7 +109,8 @@ instance Data.FromJSON PlaybackKeyPair where
 
 instance Prelude.Hashable PlaybackKeyPair where
   hashWithSalt _salt PlaybackKeyPair' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` fingerprint
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags

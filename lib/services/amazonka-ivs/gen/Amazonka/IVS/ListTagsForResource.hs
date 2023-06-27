@@ -118,6 +118,8 @@ instance Data.ToQuery ListTagsForResource where
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
+    -- | Tags attached to the resource. Array of maps, each of the form
+    -- @string:string (key:value)@.
     tags :: Prelude.HashMap Prelude.Text Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -132,7 +134,8 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 --
--- 'tags', 'listTagsForResourceResponse_tags' -
+-- 'tags', 'listTagsForResourceResponse_tags' - Tags attached to the resource. Array of maps, each of the form
+-- @string:string (key:value)@.
 newListTagsForResourceResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -148,7 +151,8 @@ newListTagsForResourceResponse pHttpStatus_ =
 listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
 listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsForResourceResponse' {} a -> s {httpStatus = a} :: ListTagsForResourceResponse)
 
--- |
+-- | Tags attached to the resource. Array of maps, each of the form
+-- @string:string (key:value)@.
 listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.HashMap Prelude.Text Prelude.Text)
 listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.coerced
 

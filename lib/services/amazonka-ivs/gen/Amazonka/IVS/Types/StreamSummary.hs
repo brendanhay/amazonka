@@ -37,7 +37,9 @@ data StreamSummary = StreamSummary'
     -- | Time of the stream’s start. This is an ISO 8601 timestamp; /note that
     -- this is returned as a string/.
     startTime :: Prelude.Maybe Data.ISO8601,
-    -- | The stream’s state.
+    -- | The stream’s state. Do not rely on the @OFFLINE@ state, as the API may
+    -- not return it; instead, a \"NotBroadcasting\" error will indicate that
+    -- the stream is not live.
     state :: Prelude.Maybe StreamState,
     -- | Unique identifier for a live or previously live stream in the specified
     -- channel.
@@ -66,7 +68,9 @@ data StreamSummary = StreamSummary'
 -- 'startTime', 'streamSummary_startTime' - Time of the stream’s start. This is an ISO 8601 timestamp; /note that
 -- this is returned as a string/.
 --
--- 'state', 'streamSummary_state' - The stream’s state.
+-- 'state', 'streamSummary_state' - The stream’s state. Do not rely on the @OFFLINE@ state, as the API may
+-- not return it; instead, a \"NotBroadcasting\" error will indicate that
+-- the stream is not live.
 --
 -- 'streamId', 'streamSummary_streamId' - Unique identifier for a live or previously live stream in the specified
 -- channel.
@@ -101,7 +105,9 @@ streamSummary_health = Lens.lens (\StreamSummary' {health} -> health) (\s@Stream
 streamSummary_startTime :: Lens.Lens' StreamSummary (Prelude.Maybe Prelude.UTCTime)
 streamSummary_startTime = Lens.lens (\StreamSummary' {startTime} -> startTime) (\s@StreamSummary' {} a -> s {startTime = a} :: StreamSummary) Prelude.. Lens.mapping Data._Time
 
--- | The stream’s state.
+-- | The stream’s state. Do not rely on the @OFFLINE@ state, as the API may
+-- not return it; instead, a \"NotBroadcasting\" error will indicate that
+-- the stream is not live.
 streamSummary_state :: Lens.Lens' StreamSummary (Prelude.Maybe StreamState)
 streamSummary_state = Lens.lens (\StreamSummary' {state} -> state) (\s@StreamSummary' {} a -> s {state = a} :: StreamSummary)
 
@@ -134,7 +140,8 @@ instance Data.FromJSON StreamSummary where
 
 instance Prelude.Hashable StreamSummary where
   hashWithSalt _salt StreamSummary' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` health
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` state

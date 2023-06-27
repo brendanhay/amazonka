@@ -98,6 +98,7 @@ library
     Amazonka.IVS.Types.StreamState
     Amazonka.IVS.Types.StreamSummary
     Amazonka.IVS.Types.ThumbnailConfiguration
+    Amazonka.IVS.Types.TranscodePreset
     Amazonka.IVS.Types.VideoConfiguration
     Amazonka.IVS.UntagResource
     Amazonka.IVS.UpdateChannel

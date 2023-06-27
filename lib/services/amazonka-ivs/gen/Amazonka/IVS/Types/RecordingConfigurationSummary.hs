@@ -32,7 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 data RecordingConfigurationSummary = RecordingConfigurationSummary'
   { -- | Recording-configuration name. The value does not need to be unique.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+    -- | Tags attached to the resource. Array of 1-50 maps, each of the form
+    -- @string:string (key:value)@. See
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
     -- for more information, including restrictions that apply to tags and
     -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -60,7 +61,8 @@ data RecordingConfigurationSummary = RecordingConfigurationSummary'
 --
 -- 'name', 'recordingConfigurationSummary_name' - Recording-configuration name. The value does not need to be unique.
 --
--- 'tags', 'recordingConfigurationSummary_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- 'tags', 'recordingConfigurationSummary_tags' - Tags attached to the resource. Array of 1-50 maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -100,7 +102,8 @@ newRecordingConfigurationSummary
 recordingConfigurationSummary_name :: Lens.Lens' RecordingConfigurationSummary (Prelude.Maybe Prelude.Text)
 recordingConfigurationSummary_name = Lens.lens (\RecordingConfigurationSummary' {name} -> name) (\s@RecordingConfigurationSummary' {} a -> s {name = a} :: RecordingConfigurationSummary)
 
--- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- | Tags attached to the resource. Array of 1-50 maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -141,7 +144,8 @@ instance
     RecordingConfigurationSummary
   where
   hashWithSalt _salt RecordingConfigurationSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` destinationConfiguration

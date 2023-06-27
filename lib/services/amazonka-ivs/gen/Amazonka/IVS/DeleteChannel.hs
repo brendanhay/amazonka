@@ -25,8 +25,7 @@
 -- If you try to delete a live channel, you will get an error (409
 -- ConflictException). To delete a channel that is live, call StopStream,
 -- wait for the Amazon EventBridge \"Stream End\" event (to verify that the
--- stream\'s state was changed from Live to Offline), then call
--- DeleteChannel. (See
+-- stream\'s state is no longer Live), then call DeleteChannel. (See
 -- <https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html Using EventBridge with Amazon IVS>.)
 module Amazonka.IVS.DeleteChannel
   ( -- * Creating a Request

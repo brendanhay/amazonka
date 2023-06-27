@@ -28,8 +28,10 @@ module Amazonka.IVS.Lens
 
     -- ** CreateChannel
     createChannel_authorized,
+    createChannel_insecureIngest,
     createChannel_latencyMode,
     createChannel_name,
+    createChannel_preset,
     createChannel_recordingConfigurationArn,
     createChannel_tags,
     createChannel_type,
@@ -175,8 +177,10 @@ module Amazonka.IVS.Lens
 
     -- ** UpdateChannel
     updateChannel_authorized,
+    updateChannel_insecureIngest,
     updateChannel_latencyMode,
     updateChannel_name,
+    updateChannel_preset,
     updateChannel_recordingConfigurationArn,
     updateChannel_type,
     updateChannel_arn,
@@ -200,9 +204,11 @@ module Amazonka.IVS.Lens
     channel_arn,
     channel_authorized,
     channel_ingestEndpoint,
+    channel_insecureIngest,
     channel_latencyMode,
     channel_name,
     channel_playbackUrl,
+    channel_preset,
     channel_recordingConfigurationArn,
     channel_tags,
     channel_type,
@@ -210,10 +216,13 @@ module Amazonka.IVS.Lens
     -- ** ChannelSummary
     channelSummary_arn,
     channelSummary_authorized,
+    channelSummary_insecureIngest,
     channelSummary_latencyMode,
     channelSummary_name,
+    channelSummary_preset,
     channelSummary_recordingConfigurationArn,
     channelSummary_tags,
+    channelSummary_type,
 
     -- ** DestinationConfiguration
     destinationConfiguration_s3,

@@ -88,7 +88,8 @@ instance Data.FromJSON StreamEvent where
 
 instance Prelude.Hashable StreamEvent where
   hashWithSalt _salt StreamEvent' {..} =
-    _salt `Prelude.hashWithSalt` eventTime
+    _salt
+      `Prelude.hashWithSalt` eventTime
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 

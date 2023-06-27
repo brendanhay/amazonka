@@ -11,19 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.IVS.Types.ChannelType
+-- Module      : Amazonka.IVS.Types.TranscodePreset
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.IVS.Types.ChannelType
-  ( ChannelType
+module Amazonka.IVS.Types.TranscodePreset
+  ( TranscodePreset
       ( ..,
-        ChannelType_ADVANCED_HD,
-        ChannelType_ADVANCED_SD,
-        ChannelType_BASIC,
-        ChannelType_STANDARD
+        TranscodePreset_CONSTRAINED_BANDWIDTH_DELIVERY,
+        TranscodePreset_HIGHER_BANDWIDTH_DELIVERY
       ),
   )
 where
@@ -32,8 +30,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype ChannelType = ChannelType'
-  { fromChannelType ::
+newtype TranscodePreset = TranscodePreset'
+  { fromTranscodePreset ::
       Data.Text
   }
   deriving stock
@@ -60,22 +58,14 @@ newtype ChannelType = ChannelType'
       Data.ToXML
     )
 
-pattern ChannelType_ADVANCED_HD :: ChannelType
-pattern ChannelType_ADVANCED_HD = ChannelType' "ADVANCED_HD"
+pattern TranscodePreset_CONSTRAINED_BANDWIDTH_DELIVERY :: TranscodePreset
+pattern TranscodePreset_CONSTRAINED_BANDWIDTH_DELIVERY = TranscodePreset' "CONSTRAINED_BANDWIDTH_DELIVERY"
 
-pattern ChannelType_ADVANCED_SD :: ChannelType
-pattern ChannelType_ADVANCED_SD = ChannelType' "ADVANCED_SD"
-
-pattern ChannelType_BASIC :: ChannelType
-pattern ChannelType_BASIC = ChannelType' "BASIC"
-
-pattern ChannelType_STANDARD :: ChannelType
-pattern ChannelType_STANDARD = ChannelType' "STANDARD"
+pattern TranscodePreset_HIGHER_BANDWIDTH_DELIVERY :: TranscodePreset
+pattern TranscodePreset_HIGHER_BANDWIDTH_DELIVERY = TranscodePreset' "HIGHER_BANDWIDTH_DELIVERY"
 
 {-# COMPLETE
-  ChannelType_ADVANCED_HD,
-  ChannelType_ADVANCED_SD,
-  ChannelType_BASIC,
-  ChannelType_STANDARD,
-  ChannelType'
+  TranscodePreset_CONSTRAINED_BANDWIDTH_DELIVERY,
+  TranscodePreset_HIGHER_BANDWIDTH_DELIVERY,
+  TranscodePreset'
   #-}

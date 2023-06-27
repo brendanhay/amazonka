@@ -156,7 +156,6 @@ newBatchGetChannelResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 batchGetChannelResponse_channels :: Lens.Lens' BatchGetChannelResponse (Prelude.Maybe [Channel])
 batchGetChannelResponse_channels = Lens.lens (\BatchGetChannelResponse' {channels} -> channels) (\s@BatchGetChannelResponse' {} a -> s {channels = a} :: BatchGetChannelResponse) Prelude.. Lens.mapping Lens.coerced
 

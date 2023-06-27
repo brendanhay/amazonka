@@ -50,7 +50,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchGetStreamKey' smart constructor.
 data BatchGetStreamKey = BatchGetStreamKey'
-  { -- | Array of ARNs, one per channel.
+  { -- | Array of ARNs, one per stream key.
     arns :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,7 +63,7 @@ data BatchGetStreamKey = BatchGetStreamKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arns', 'batchGetStreamKey_arns' - Array of ARNs, one per channel.
+-- 'arns', 'batchGetStreamKey_arns' - Array of ARNs, one per stream key.
 newBatchGetStreamKey ::
   -- | 'arns'
   Prelude.NonEmpty Prelude.Text ->
@@ -74,7 +74,7 @@ newBatchGetStreamKey pArns_ =
         Lens.coerced Lens.# pArns_
     }
 
--- | Array of ARNs, one per channel.
+-- | Array of ARNs, one per stream key.
 batchGetStreamKey_arns :: Lens.Lens' BatchGetStreamKey (Prelude.NonEmpty Prelude.Text)
 batchGetStreamKey_arns = Lens.lens (\BatchGetStreamKey' {arns} -> arns) (\s@BatchGetStreamKey' {} a -> s {arns = a} :: BatchGetStreamKey) Prelude.. Lens.coerced
 
@@ -158,11 +158,9 @@ newBatchGetStreamKeyResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 batchGetStreamKeyResponse_errors :: Lens.Lens' BatchGetStreamKeyResponse (Prelude.Maybe [BatchError])
 batchGetStreamKeyResponse_errors = Lens.lens (\BatchGetStreamKeyResponse' {errors} -> errors) (\s@BatchGetStreamKeyResponse' {} a -> s {errors = a} :: BatchGetStreamKeyResponse) Prelude.. Lens.mapping Lens.coerced
 
--- |
 batchGetStreamKeyResponse_streamKeys :: Lens.Lens' BatchGetStreamKeyResponse (Prelude.Maybe [StreamKey])
 batchGetStreamKeyResponse_streamKeys = Lens.lens (\BatchGetStreamKeyResponse' {streamKeys} -> streamKeys) (\s@BatchGetStreamKeyResponse' {} a -> s {streamKeys = a} :: BatchGetStreamKeyResponse) Prelude.. Lens.mapping Lens.coerced
 

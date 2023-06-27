@@ -32,7 +32,8 @@ data StreamKey = StreamKey'
     arn :: Prelude.Maybe Prelude.Text,
     -- | Channel ARN for the stream.
     channelArn :: Prelude.Maybe Prelude.Text,
-    -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+    -- | Tags attached to the resource. Array of 1-50 maps, each of the form
+    -- @string:string (key:value)@. See
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
     -- for more information, including restrictions that apply to tags and
     -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -55,7 +56,8 @@ data StreamKey = StreamKey'
 --
 -- 'channelArn', 'streamKey_channelArn' - Channel ARN for the stream.
 --
--- 'tags', 'streamKey_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- 'tags', 'streamKey_tags' - Tags attached to the resource. Array of 1-50 maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -80,7 +82,8 @@ streamKey_arn = Lens.lens (\StreamKey' {arn} -> arn) (\s@StreamKey' {} a -> s {a
 streamKey_channelArn :: Lens.Lens' StreamKey (Prelude.Maybe Prelude.Text)
 streamKey_channelArn = Lens.lens (\StreamKey' {channelArn} -> channelArn) (\s@StreamKey' {} a -> s {channelArn = a} :: StreamKey)
 
--- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- | Tags attached to the resource. Array of 1-50 maps, each of the form
+-- @string:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -106,7 +109,8 @@ instance Data.FromJSON StreamKey where
 
 instance Prelude.Hashable StreamKey where
   hashWithSalt _salt StreamKey' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` value

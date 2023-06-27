@@ -30,11 +30,11 @@
 --
 -- __Allowed Header Values__
 --
--- -   @ Accept: @ application\/json
+-- -   @ @__@Accept:@__@ @ application\/json
 --
--- -   @ Accept-Encoding: @ gzip, deflate
+-- -   @ @__@Accept-Encoding:@__@ @ gzip, deflate
 --
--- -   @ Content-Type: @application\/json
+-- -   @ @__@Content-Type:@__@ @application\/json
 --
 -- __Resources__
 --
@@ -42,26 +42,26 @@
 -- (see
 -- <https://docs.aws.amazon.com/ivs/latest/userguide/getting-started.html Getting Started with Amazon IVS>):
 --
--- -   Channel — Stores configuration data related to your live stream. You
---     first create a channel and then use the channel’s stream key to
+-- -   __Channel__ — Stores configuration data related to your live stream.
+--     You first create a channel and then use the channel’s stream key to
 --     start your live stream. See the Channel endpoints for more
 --     information.
 --
--- -   Stream key — An identifier assigned by Amazon IVS when you create a
---     channel, which is then used to authorize streaming. See the
+-- -   __Stream key__ — An identifier assigned by Amazon IVS when you
+--     create a channel, which is then used to authorize streaming. See the
 --     StreamKey endpoints for more information. /__Treat the stream key
 --     like a secret, since it allows anyone to stream to the channel.__/
 --
--- -   Playback key pair — Video playback may be restricted using
+-- -   __Playback key pair__ — Video playback may be restricted using
 --     playback-authorization tokens, which use public-key encryption. A
 --     playback key pair is the public-private pair of keys used to sign
 --     and validate the playback-authorization token. See the
 --     PlaybackKeyPair endpoints for more information.
 --
--- -   Recording configuration — Stores configuration related to recording
---     a live stream and where to store the recorded content. Multiple
---     channels can reference the same recording configuration. See the
---     Recording Configuration endpoints for more information.
+-- -   __Recording configuration__ — Stores configuration related to
+--     recording a live stream and where to store the recorded content.
+--     Multiple channels can reference the same recording configuration.
+--     See the Recording Configuration endpoints for more information.
 --
 -- __Tagging__
 --
@@ -111,8 +111,8 @@
 --
 -- You generate a signature using valid Amazon Web Services credentials
 -- that have permission to perform the requested action. For example, you
--- must sign PutMetadata requests with a signature generated from an IAM
--- user account that has the @ivs:PutMetadata@ permission.
+-- must sign PutMetadata requests with a signature generated from a user
+-- account that has the @ivs:PutMetadata@ permission.
 --
 -- For more information:
 --
@@ -477,6 +477,9 @@ module Amazonka.IVS
 
     -- ** StreamState
     StreamState (..),
+
+    -- ** TranscodePreset
+    TranscodePreset (..),
 
     -- ** AudioConfiguration
     AudioConfiguration (AudioConfiguration'),

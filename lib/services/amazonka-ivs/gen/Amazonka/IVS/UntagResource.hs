@@ -52,7 +52,8 @@ data UntagResource = UntagResource'
   { -- | ARN of the resource for which tags are to be removed. The ARN must be
     -- URL-encoded.
     resourceArn :: Prelude.Text,
-    -- | Array of tags to be removed. See
+    -- | Array of tags to be removed. Array of maps, each of the form
+    -- s@tring:string (key:value)@. See
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
     -- for more information, including restrictions that apply to tags and
     -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -72,7 +73,8 @@ data UntagResource = UntagResource'
 -- 'resourceArn', 'untagResource_resourceArn' - ARN of the resource for which tags are to be removed. The ARN must be
 -- URL-encoded.
 --
--- 'tagKeys', 'untagResource_tagKeys' - Array of tags to be removed. See
+-- 'tagKeys', 'untagResource_tagKeys' - Array of tags to be removed. Array of maps, each of the form
+-- s@tring:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -92,7 +94,8 @@ newUntagResource pResourceArn_ =
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 
--- | Array of tags to be removed. See
+-- | Array of tags to be removed. Array of maps, each of the form
+-- s@tring:string (key:value)@. See
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for more information, including restrictions that apply to tags and
 -- \"Tag naming limits and requirements\"; Amazon IVS has no
@@ -115,7 +118,8 @@ instance Core.AWSRequest UntagResource where
 
 instance Prelude.Hashable UntagResource where
   hashWithSalt _salt UntagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagResource where

@@ -107,18 +107,19 @@ instance Core.AWSPager ListStreamKeys where
     | Core.stop
         ( rs
             Lens.^? listStreamKeysResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listStreamKeysResponse_streamKeys) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listStreamKeys_nextToken
           Lens..~ rs
-          Lens.^? listStreamKeysResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listStreamKeysResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStreamKeys where
   type
@@ -137,7 +138,8 @@ instance Core.AWSRequest ListStreamKeys where
 
 instance Prelude.Hashable ListStreamKeys where
   hashWithSalt _salt ListStreamKeys' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` channelArn
 

@@ -198,7 +198,8 @@ instance Core.AWSRequest GetObject where
 
 instance Prelude.Hashable GetObject where
   hashWithSalt _salt GetObject' {..} =
-    _salt `Prelude.hashWithSalt` range
+    _salt
+      `Prelude.hashWithSalt` range
       `Prelude.hashWithSalt` path
 
 instance Prelude.NFData GetObject where

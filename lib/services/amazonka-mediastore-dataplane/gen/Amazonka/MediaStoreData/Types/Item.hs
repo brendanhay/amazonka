@@ -115,7 +115,8 @@ instance Data.FromJSON Item where
 
 instance Prelude.Hashable Item where
   hashWithSalt _salt Item' {..} =
-    _salt `Prelude.hashWithSalt` contentLength
+    _salt
+      `Prelude.hashWithSalt` contentLength
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` eTag
       `Prelude.hashWithSalt` lastModified

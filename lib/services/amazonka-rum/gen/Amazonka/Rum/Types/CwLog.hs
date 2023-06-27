@@ -79,7 +79,8 @@ instance Data.FromJSON CwLog where
 
 instance Prelude.Hashable CwLog where
   hashWithSalt _salt CwLog' {..} =
-    _salt `Prelude.hashWithSalt` cwLogEnabled
+    _salt
+      `Prelude.hashWithSalt` cwLogEnabled
       `Prelude.hashWithSalt` cwLogGroup
 
 instance Prelude.NFData CwLog where

@@ -112,7 +112,8 @@ rumEvent_type = Lens.lens (\RumEvent' {type'} -> type') (\s@RumEvent' {} a -> s 
 
 instance Prelude.Hashable RumEvent where
   hashWithSalt _salt RumEvent' {..} =
-    _salt `Prelude.hashWithSalt` metadata
+    _salt
+      `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` timestamp

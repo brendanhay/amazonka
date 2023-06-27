@@ -44,6 +44,10 @@ data MetricDefinition = MetricDefinition'
     -- value in @DimensionKeys@, then the metric is published with the
     -- specified dimensions.
     eventPattern :: Prelude.Maybe Prelude.Text,
+    -- | If this metric definition is for a custom metric instead of an extended
+    -- metric, this field displays the metric namespace that the custom metric
+    -- is published to.
+    namespace :: Prelude.Maybe Prelude.Text,
     -- | Use this field only if you are sending this metric to CloudWatch. It
     -- defines the CloudWatch metric unit that this metric is measured in.
     unitLabel :: Prelude.Maybe Prelude.Text,
@@ -78,6 +82,10 @@ data MetricDefinition = MetricDefinition'
 -- value in @DimensionKeys@, then the metric is published with the
 -- specified dimensions.
 --
+-- 'namespace', 'metricDefinition_namespace' - If this metric definition is for a custom metric instead of an extended
+-- metric, this field displays the metric namespace that the custom metric
+-- is published to.
+--
 -- 'unitLabel', 'metricDefinition_unitLabel' - Use this field only if you are sending this metric to CloudWatch. It
 -- defines the CloudWatch metric unit that this metric is measured in.
 --
@@ -96,6 +104,7 @@ newMetricDefinition pMetricDefinitionId_ pName_ =
   MetricDefinition'
     { dimensionKeys = Prelude.Nothing,
       eventPattern = Prelude.Nothing,
+      namespace = Prelude.Nothing,
       unitLabel = Prelude.Nothing,
       valueKey = Prelude.Nothing,
       metricDefinitionId = pMetricDefinitionId_,
@@ -119,6 +128,12 @@ metricDefinition_dimensionKeys = Lens.lens (\MetricDefinition' {dimensionKeys} -
 -- specified dimensions.
 metricDefinition_eventPattern :: Lens.Lens' MetricDefinition (Prelude.Maybe Prelude.Text)
 metricDefinition_eventPattern = Lens.lens (\MetricDefinition' {eventPattern} -> eventPattern) (\s@MetricDefinition' {} a -> s {eventPattern = a} :: MetricDefinition)
+
+-- | If this metric definition is for a custom metric instead of an extended
+-- metric, this field displays the metric namespace that the custom metric
+-- is published to.
+metricDefinition_namespace :: Lens.Lens' MetricDefinition (Prelude.Maybe Prelude.Text)
+metricDefinition_namespace = Lens.lens (\MetricDefinition' {namespace} -> namespace) (\s@MetricDefinition' {} a -> s {namespace = a} :: MetricDefinition)
 
 -- | Use this field only if you are sending this metric to CloudWatch. It
 -- defines the CloudWatch metric unit that this metric is measured in.
@@ -145,6 +160,7 @@ instance Data.FromJSON MetricDefinition where
           MetricDefinition'
             Prelude.<$> (x Data..:? "DimensionKeys" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "EventPattern")
+            Prelude.<*> (x Data..:? "Namespace")
             Prelude.<*> (x Data..:? "UnitLabel")
             Prelude.<*> (x Data..:? "ValueKey")
             Prelude.<*> (x Data..: "MetricDefinitionId")
@@ -153,8 +169,10 @@ instance Data.FromJSON MetricDefinition where
 
 instance Prelude.Hashable MetricDefinition where
   hashWithSalt _salt MetricDefinition' {..} =
-    _salt `Prelude.hashWithSalt` dimensionKeys
+    _salt
+      `Prelude.hashWithSalt` dimensionKeys
       `Prelude.hashWithSalt` eventPattern
+      `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` unitLabel
       `Prelude.hashWithSalt` valueKey
       `Prelude.hashWithSalt` metricDefinitionId
@@ -164,6 +182,7 @@ instance Prelude.NFData MetricDefinition where
   rnf MetricDefinition' {..} =
     Prelude.rnf dimensionKeys
       `Prelude.seq` Prelude.rnf eventPattern
+      `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf unitLabel
       `Prelude.seq` Prelude.rnf valueKey
       `Prelude.seq` Prelude.rnf metricDefinitionId

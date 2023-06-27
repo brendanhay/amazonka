@@ -24,66 +24,138 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Use this structure to define one extended metric that RUM will send to
--- CloudWatch or CloudWatch Evidently. For more information, see
+-- | Use this structure to define one extended metric or custom metric that
+-- RUM will send to CloudWatch or CloudWatch Evidently. For more
+-- information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-vended-metrics.html Additional metrics that you can send to CloudWatch and CloudWatch Evidently>.
 --
--- Only certain combinations of values for @Name@, @ValueKey@, and
--- @EventPattern@ are valid. In addition to what is displayed in the list
--- below, the @EventPattern@ can also include information used by the
--- @DimensionKeys@ field.
+-- This structure is validated differently for extended metrics and custom
+-- metrics. For extended metrics that are sent to the @AWS\/RUM@ namespace,
+-- the following validations apply:
 --
--- -   If @Name@ is @PerformanceNavigationDuration@, then @ValueKey@must be
---     @event_details.duration@ and the @EventPattern@ must include
---     @{\"event_type\":[\"com.amazon.rum.performance_navigation_event\"]}@
+-- -   The @Namespace@ parameter must be omitted or set to @AWS\/RUM@.
 --
--- -   If @Name@ is @PerformanceResourceDuration@, then @ValueKey@must be
---     @event_details.duration@ and the @EventPattern@ must include
---     @{\"event_type\":[\"com.amazon.rum.performance_resource_event\"]}@
+-- -   Only certain combinations of values for @Name@, @ValueKey@, and
+--     @EventPattern@ are valid. In addition to what is displayed in the
+--     list below, the @EventPattern@ can also include information used by
+--     the @DimensionKeys@ field.
 --
--- -   If @Name@ is @NavigationSatisfiedTransaction@, then @ValueKey@must
---     be null and the @EventPattern@ must include
---     @{ \"event_type\": [\"com.amazon.rum.performance_navigation_event\"], \"event_details\": { \"duration\": [{ \"numeric\": [\">\",2000] }] } }@
+--     -   If @Name@ is @PerformanceNavigationDuration@, then
+--         @ValueKey@must be @event_details.duration@ and the
+--         @EventPattern@ must include
+--         @{\"event_type\":[\"com.amazon.rum.performance_navigation_event\"]}@
 --
--- -   If @Name@ is @NavigationToleratedTransaction@, then @ValueKey@must
---     be null and the @EventPattern@ must include
---     @{ \"event_type\": [\"com.amazon.rum.performance_navigation_event\"], \"event_details\": { \"duration\": [{ \"numeric\": [\">=\",2000,\"\<\"8000] }] } }@
+--     -   If @Name@ is @PerformanceResourceDuration@, then @ValueKey@must
+--         be @event_details.duration@ and the @EventPattern@ must include
+--         @{\"event_type\":[\"com.amazon.rum.performance_resource_event\"]}@
 --
--- -   If @Name@ is @NavigationFrustratedTransaction@, then @ValueKey@must
---     be null and the @EventPattern@ must include
---     @{ \"event_type\": [\"com.amazon.rum.performance_navigation_event\"], \"event_details\": { \"duration\": [{ \"numeric\": [\">=\",8000] }] } }@
+--     -   If @Name@ is @NavigationSatisfiedTransaction@, then
+--         @ValueKey@must be null and the @EventPattern@ must include
+--         @{ \"event_type\": [\"com.amazon.rum.performance_navigation_event\"], \"event_details\": { \"duration\": [{ \"numeric\": [\">\",2000] }] } }@
 --
--- -   If @Name@ is @WebVitalsCumulativeLayoutShift@, then @ValueKey@must
---     be @event_details.value@ and the @EventPattern@ must include
---     @{\"event_type\":[\"com.amazon.rum.cumulative_layout_shift_event\"]}@
+--     -   If @Name@ is @NavigationToleratedTransaction@, then
+--         @ValueKey@must be null and the @EventPattern@ must include
+--         @{ \"event_type\": [\"com.amazon.rum.performance_navigation_event\"], \"event_details\": { \"duration\": [{ \"numeric\": [\">=\",2000,\"\<\"8000] }] } }@
 --
--- -   If @Name@ is @WebVitalsFirstInputDelay@, then @ValueKey@must be
---     @event_details.value@ and the @EventPattern@ must include
---     @{\"event_type\":[\"com.amazon.rum.first_input_delay_event\"]}@
+--     -   If @Name@ is @NavigationFrustratedTransaction@, then
+--         @ValueKey@must be null and the @EventPattern@ must include
+--         @{ \"event_type\": [\"com.amazon.rum.performance_navigation_event\"], \"event_details\": { \"duration\": [{ \"numeric\": [\">=\",8000] }] } }@
 --
--- -   If @Name@ is @WebVitalsLargestContentfulPaint@, then @ValueKey@must
---     be @event_details.value@ and the @EventPattern@ must include
---     @{\"event_type\":[\"com.amazon.rum.largest_contentful_paint_event\"]}@
+--     -   If @Name@ is @WebVitalsCumulativeLayoutShift@, then
+--         @ValueKey@must be @event_details.value@ and the @EventPattern@
+--         must include
+--         @{\"event_type\":[\"com.amazon.rum.cumulative_layout_shift_event\"]}@
 --
--- -   If @Name@ is @JsErrorCount@, then @ValueKey@must be null and the
---     @EventPattern@ must include
---     @{\"event_type\":[\"com.amazon.rum.js_error_event\"]}@
+--     -   If @Name@ is @WebVitalsFirstInputDelay@, then @ValueKey@must be
+--         @event_details.value@ and the @EventPattern@ must include
+--         @{\"event_type\":[\"com.amazon.rum.first_input_delay_event\"]}@
 --
--- -   If @Name@ is @HttpErrorCount@, then @ValueKey@must be null and the
---     @EventPattern@ must include
---     @{\"event_type\":[\"com.amazon.rum.http_event\"]}@
+--     -   If @Name@ is @WebVitalsLargestContentfulPaint@, then
+--         @ValueKey@must be @event_details.value@ and the @EventPattern@
+--         must include
+--         @{\"event_type\":[\"com.amazon.rum.largest_contentful_paint_event\"]}@
 --
--- -   If @Name@ is @SessionCount@, then @ValueKey@must be null and the
---     @EventPattern@ must include
---     @{\"event_type\":[\"com.amazon.rum.session_start_event\"]}@
+--     -   If @Name@ is @JsErrorCount@, then @ValueKey@must be null and the
+--         @EventPattern@ must include
+--         @{\"event_type\":[\"com.amazon.rum.js_error_event\"]}@
+--
+--     -   If @Name@ is @HttpErrorCount@, then @ValueKey@must be null and
+--         the @EventPattern@ must include
+--         @{\"event_type\":[\"com.amazon.rum.http_event\"]}@
+--
+--     -   If @Name@ is @SessionCount@, then @ValueKey@must be null and the
+--         @EventPattern@ must include
+--         @{\"event_type\":[\"com.amazon.rum.session_start_event\"]}@
+--
+-- For custom metrics, the following validation rules apply:
+--
+-- -   The namespace can\'t be omitted and can\'t be @AWS\/RUM@. You can
+--     use the @AWS\/RUM@ namespace only for extended metrics.
+--
+-- -   All dimensions listed in the @DimensionKeys@ field must be present
+--     in the value of @EventPattern@.
+--
+-- -   The values that you specify for @ValueKey@, @EventPattern@, and
+--     @DimensionKeys@ must be fields in RUM events, so all first-level
+--     keys in these fields must be one of the keys in the list later in
+--     this section.
+--
+-- -   If you set a value for @EventPattern@, it must be a JSON object.
+--
+-- -   For every non-empty @event_details@, there must be a non-empty
+--     @event_type@.
+--
+-- -   If @EventPattern@ contains an @event_details@ field, it must also
+--     contain an @event_type@. For every built-in @event_type@ that you
+--     use, you must use a value for @event_details@ that corresponds to
+--     that @event_type@. For information about event details that
+--     correspond to event types, see
+--     <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-datacollected.html#CloudWatch-RUM-datacollected-eventDetails RUM event details>.
+--
+-- -   In @EventPattern@, any JSON array must contain only one value.
+--
+-- Valid key values for first-level keys in the @ValueKey@, @EventPattern@,
+-- and @DimensionKeys@ fields:
+--
+-- -   @account_id@
+--
+-- -   @application_Id@
+--
+-- -   @application_version@
+--
+-- -   @application_name@
+--
+-- -   @batch_id@
+--
+-- -   @event_details@
+--
+-- -   @event_id@
+--
+-- -   @event_interaction@
+--
+-- -   @event_timestamp@
+--
+-- -   @event_type@
+--
+-- -   @event_version@
+--
+-- -   @log_stream@
+--
+-- -   @metadata@
+--
+-- -   @sessionId@
+--
+-- -   @user_details@
+--
+-- -   @userId@
 --
 -- /See:/ 'newMetricDefinitionRequest' smart constructor.
 data MetricDefinitionRequest = MetricDefinitionRequest'
   { -- | Use this field only if you are sending the metric to CloudWatch.
     --
     -- This field is a map of field paths to dimension names. It defines the
-    -- dimensions to associate with this metric in CloudWatch. Valid values for
-    -- the entries in this field are the following:
+    -- dimensions to associate with this metric in CloudWatch. For extended
+    -- metrics, valid values for the entries in this field are the following:
     --
     -- -   @\"metadata.pageId\": \"PageId\"@
     --
@@ -97,8 +169,8 @@ data MetricDefinitionRequest = MetricDefinitionRequest'
     --
     -- -   @\"event_details.fileType\": \"FileType\"@
     --
-    -- All dimensions listed in this field must also be included in
-    -- @EventPattern@.
+    -- For both extended metrics and custom metrics, all dimensions listed in
+    -- this field must also be included in @EventPattern@.
     dimensionKeys :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The pattern that defines the metric, specified as a JSON object. RUM
     -- checks events that happen in a user\'s session against the pattern, and
@@ -119,6 +191,13 @@ data MetricDefinitionRequest = MetricDefinitionRequest'
     -- a value in @DimensionKeys@, then the metric is published with the
     -- specified dimensions.
     eventPattern :: Prelude.Maybe Prelude.Text,
+    -- | If this structure is for a custom metric instead of an extended metrics,
+    -- use this parameter to define the metric namespace for that custom
+    -- metric. Do not specify this parameter if this structure is for an
+    -- extended metric.
+    --
+    -- You cannot use any string that starts with @AWS\/@ for your namespace.
+    namespace :: Prelude.Maybe Prelude.Text,
     -- | The CloudWatch metric unit to use for this metric. If you omit this
     -- field, the metric is recorded with no unit.
     unitLabel :: Prelude.Maybe Prelude.Text,
@@ -132,8 +211,9 @@ data MetricDefinitionRequest = MetricDefinitionRequest'
     -- passed to Evidently raw and Evidently will handle data extraction from
     -- the event.
     valueKey :: Prelude.Maybe Prelude.Text,
-    -- | The name for the metric that is defined in this structure. Valid values
-    -- are the following:
+    -- | The name for the metric that is defined in this structure. For custom
+    -- metrics, you can specify any name that you like. For extended metrics,
+    -- valid values are the following:
     --
     -- -   @PerformanceNavigationDuration@
     --
@@ -171,8 +251,8 @@ data MetricDefinitionRequest = MetricDefinitionRequest'
 -- 'dimensionKeys', 'metricDefinitionRequest_dimensionKeys' - Use this field only if you are sending the metric to CloudWatch.
 --
 -- This field is a map of field paths to dimension names. It defines the
--- dimensions to associate with this metric in CloudWatch. Valid values for
--- the entries in this field are the following:
+-- dimensions to associate with this metric in CloudWatch. For extended
+-- metrics, valid values for the entries in this field are the following:
 --
 -- -   @\"metadata.pageId\": \"PageId\"@
 --
@@ -186,8 +266,8 @@ data MetricDefinitionRequest = MetricDefinitionRequest'
 --
 -- -   @\"event_details.fileType\": \"FileType\"@
 --
--- All dimensions listed in this field must also be included in
--- @EventPattern@.
+-- For both extended metrics and custom metrics, all dimensions listed in
+-- this field must also be included in @EventPattern@.
 --
 -- 'eventPattern', 'metricDefinitionRequest_eventPattern' - The pattern that defines the metric, specified as a JSON object. RUM
 -- checks events that happen in a user\'s session against the pattern, and
@@ -208,6 +288,13 @@ data MetricDefinitionRequest = MetricDefinitionRequest'
 -- a value in @DimensionKeys@, then the metric is published with the
 -- specified dimensions.
 --
+-- 'namespace', 'metricDefinitionRequest_namespace' - If this structure is for a custom metric instead of an extended metrics,
+-- use this parameter to define the metric namespace for that custom
+-- metric. Do not specify this parameter if this structure is for an
+-- extended metric.
+--
+-- You cannot use any string that starts with @AWS\/@ for your namespace.
+--
 -- 'unitLabel', 'metricDefinitionRequest_unitLabel' - The CloudWatch metric unit to use for this metric. If you omit this
 -- field, the metric is recorded with no unit.
 --
@@ -221,8 +308,9 @@ data MetricDefinitionRequest = MetricDefinitionRequest'
 -- passed to Evidently raw and Evidently will handle data extraction from
 -- the event.
 --
--- 'name', 'metricDefinitionRequest_name' - The name for the metric that is defined in this structure. Valid values
--- are the following:
+-- 'name', 'metricDefinitionRequest_name' - The name for the metric that is defined in this structure. For custom
+-- metrics, you can specify any name that you like. For extended metrics,
+-- valid values are the following:
 --
 -- -   @PerformanceNavigationDuration@
 --
@@ -254,6 +342,7 @@ newMetricDefinitionRequest pName_ =
     { dimensionKeys =
         Prelude.Nothing,
       eventPattern = Prelude.Nothing,
+      namespace = Prelude.Nothing,
       unitLabel = Prelude.Nothing,
       valueKey = Prelude.Nothing,
       name = pName_
@@ -262,8 +351,8 @@ newMetricDefinitionRequest pName_ =
 -- | Use this field only if you are sending the metric to CloudWatch.
 --
 -- This field is a map of field paths to dimension names. It defines the
--- dimensions to associate with this metric in CloudWatch. Valid values for
--- the entries in this field are the following:
+-- dimensions to associate with this metric in CloudWatch. For extended
+-- metrics, valid values for the entries in this field are the following:
 --
 -- -   @\"metadata.pageId\": \"PageId\"@
 --
@@ -277,8 +366,8 @@ newMetricDefinitionRequest pName_ =
 --
 -- -   @\"event_details.fileType\": \"FileType\"@
 --
--- All dimensions listed in this field must also be included in
--- @EventPattern@.
+-- For both extended metrics and custom metrics, all dimensions listed in
+-- this field must also be included in @EventPattern@.
 metricDefinitionRequest_dimensionKeys :: Lens.Lens' MetricDefinitionRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 metricDefinitionRequest_dimensionKeys = Lens.lens (\MetricDefinitionRequest' {dimensionKeys} -> dimensionKeys) (\s@MetricDefinitionRequest' {} a -> s {dimensionKeys = a} :: MetricDefinitionRequest) Prelude.. Lens.mapping Lens.coerced
 
@@ -303,6 +392,15 @@ metricDefinitionRequest_dimensionKeys = Lens.lens (\MetricDefinitionRequest' {di
 metricDefinitionRequest_eventPattern :: Lens.Lens' MetricDefinitionRequest (Prelude.Maybe Prelude.Text)
 metricDefinitionRequest_eventPattern = Lens.lens (\MetricDefinitionRequest' {eventPattern} -> eventPattern) (\s@MetricDefinitionRequest' {} a -> s {eventPattern = a} :: MetricDefinitionRequest)
 
+-- | If this structure is for a custom metric instead of an extended metrics,
+-- use this parameter to define the metric namespace for that custom
+-- metric. Do not specify this parameter if this structure is for an
+-- extended metric.
+--
+-- You cannot use any string that starts with @AWS\/@ for your namespace.
+metricDefinitionRequest_namespace :: Lens.Lens' MetricDefinitionRequest (Prelude.Maybe Prelude.Text)
+metricDefinitionRequest_namespace = Lens.lens (\MetricDefinitionRequest' {namespace} -> namespace) (\s@MetricDefinitionRequest' {} a -> s {namespace = a} :: MetricDefinitionRequest)
+
 -- | The CloudWatch metric unit to use for this metric. If you omit this
 -- field, the metric is recorded with no unit.
 metricDefinitionRequest_unitLabel :: Lens.Lens' MetricDefinitionRequest (Prelude.Maybe Prelude.Text)
@@ -320,8 +418,9 @@ metricDefinitionRequest_unitLabel = Lens.lens (\MetricDefinitionRequest' {unitLa
 metricDefinitionRequest_valueKey :: Lens.Lens' MetricDefinitionRequest (Prelude.Maybe Prelude.Text)
 metricDefinitionRequest_valueKey = Lens.lens (\MetricDefinitionRequest' {valueKey} -> valueKey) (\s@MetricDefinitionRequest' {} a -> s {valueKey = a} :: MetricDefinitionRequest)
 
--- | The name for the metric that is defined in this structure. Valid values
--- are the following:
+-- | The name for the metric that is defined in this structure. For custom
+-- metrics, you can specify any name that you like. For extended metrics,
+-- valid values are the following:
 --
 -- -   @PerformanceNavigationDuration@
 --
@@ -355,6 +454,7 @@ instance Data.FromJSON MetricDefinitionRequest where
           MetricDefinitionRequest'
             Prelude.<$> (x Data..:? "DimensionKeys" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "EventPattern")
+            Prelude.<*> (x Data..:? "Namespace")
             Prelude.<*> (x Data..:? "UnitLabel")
             Prelude.<*> (x Data..:? "ValueKey")
             Prelude.<*> (x Data..: "Name")
@@ -362,8 +462,10 @@ instance Data.FromJSON MetricDefinitionRequest where
 
 instance Prelude.Hashable MetricDefinitionRequest where
   hashWithSalt _salt MetricDefinitionRequest' {..} =
-    _salt `Prelude.hashWithSalt` dimensionKeys
+    _salt
+      `Prelude.hashWithSalt` dimensionKeys
       `Prelude.hashWithSalt` eventPattern
+      `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` unitLabel
       `Prelude.hashWithSalt` valueKey
       `Prelude.hashWithSalt` name
@@ -372,6 +474,7 @@ instance Prelude.NFData MetricDefinitionRequest where
   rnf MetricDefinitionRequest' {..} =
     Prelude.rnf dimensionKeys
       `Prelude.seq` Prelude.rnf eventPattern
+      `Prelude.seq` Prelude.rnf namespace
       `Prelude.seq` Prelude.rnf unitLabel
       `Prelude.seq` Prelude.rnf valueKey
       `Prelude.seq` Prelude.rnf name
@@ -382,6 +485,7 @@ instance Data.ToJSON MetricDefinitionRequest where
       ( Prelude.catMaybes
           [ ("DimensionKeys" Data..=) Prelude.<$> dimensionKeys,
             ("EventPattern" Data..=) Prelude.<$> eventPattern,
+            ("Namespace" Data..=) Prelude.<$> namespace,
             ("UnitLabel" Data..=) Prelude.<$> unitLabel,
             ("ValueKey" Data..=) Prelude.<$> valueKey,
             Prelude.Just ("Name" Data..= name)

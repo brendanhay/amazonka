@@ -199,6 +199,7 @@ module Amazonka.Rum.Lens
     -- ** MetricDefinition
     metricDefinition_dimensionKeys,
     metricDefinition_eventPattern,
+    metricDefinition_namespace,
     metricDefinition_unitLabel,
     metricDefinition_valueKey,
     metricDefinition_metricDefinitionId,
@@ -207,6 +208,7 @@ module Amazonka.Rum.Lens
     -- ** MetricDefinitionRequest
     metricDefinitionRequest_dimensionKeys,
     metricDefinitionRequest_eventPattern,
+    metricDefinitionRequest_namespace,
     metricDefinitionRequest_unitLabel,
     metricDefinitionRequest_valueKey,
     metricDefinitionRequest_name,

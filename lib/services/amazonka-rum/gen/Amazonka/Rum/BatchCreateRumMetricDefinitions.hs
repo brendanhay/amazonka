@@ -20,20 +20,37 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Specifies the extended metrics that you want a CloudWatch RUM app
--- monitor to send to a destination. Valid destinations include CloudWatch
--- and Evidently.
+-- Specifies the extended metrics and custom metrics that you want a
+-- CloudWatch RUM app monitor to send to a destination. Valid destinations
+-- include CloudWatch and Evidently.
 --
 -- By default, RUM app monitors send some metrics to CloudWatch. These
 -- default metrics are listed in
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-metrics.html CloudWatch metrics that you can collect with CloudWatch RUM>.
 --
--- If you also send extended metrics, you can send metrics to Evidently as
--- well as CloudWatch, and you can also optionally send the metrics with
--- additional dimensions. The valid dimension names for the additional
--- dimensions are @BrowserName@, @CountryCode@, @DeviceType@, @FileType@,
--- @OSName@, and @PageId@. For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-vended-metrics.html Extended metrics that you can send to CloudWatch and CloudWatch Evidently>.
+-- In addition to these default metrics, you can choose to send extended
+-- metrics or custom metrics or both.
+--
+-- -   Extended metrics enable you to send metrics with additional
+--     dimensions not included in the default metrics. You can also send
+--     extended metrics to Evidently as well as CloudWatch. The valid
+--     dimension names for the additional dimensions for extended metrics
+--     are @BrowserName@, @CountryCode@, @DeviceType@, @FileType@,
+--     @OSName@, and @PageId@. For more information, see
+--     <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-vended-metrics.html Extended metrics that you can send to CloudWatch and CloudWatch Evidently>.
+--
+-- -   Custom metrics are metrics that you define. You can send custom
+--     metrics to CloudWatch or to CloudWatch Evidently or to both. With
+--     custom metrics, you can use any metric name and namespace, and to
+--     derive the metrics you can use any custom events, built-in events,
+--     custom attributes, or default attributes.
+--
+--     You can\'t send custom metrics to the @AWS\/RUM@ namespace. You must
+--     send custom metrics to a custom namespace that you define. The
+--     namespace that you use can\'t start with @AWS\/@. CloudWatch RUM
+--     prepends @RUM\/CustomMetrics\/@ to the custom namespace that you
+--     define, so the final namespace for your metrics in CloudWatch is
+--     @RUM\/CustomMetrics\/@/@your-custom-namespace@/@ @.
 --
 -- The maximum number of metric definitions that you can specify in one
 -- @BatchCreateRumMetricDefinitions@ operation is 200.
@@ -41,9 +58,10 @@
 -- The maximum number of metric definitions that one destination can
 -- contain is 2000.
 --
--- Extended metrics sent are charged as CloudWatch custom metrics. Each
--- combination of additional dimension name and dimension value counts as a
--- custom metric. For more information, see
+-- Extended metrics sent to CloudWatch and RUM custom metrics are charged
+-- as CloudWatch custom metrics. Each combination of additional dimension
+-- name and dimension value counts as a custom metric. For more
+-- information, see
 -- <https://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing>.
 --
 -- You must have already created a destination for the metrics before you
@@ -185,7 +203,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchCreateRumMetricDefinitionsResponse'
-            Prelude.<$> ( x Data..?> "MetricDefinitions"
+            Prelude.<$> ( x
+                            Data..?> "MetricDefinitions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -199,7 +218,8 @@ instance
   hashWithSalt
     _salt
     BatchCreateRumMetricDefinitions' {..} =
-      _salt `Prelude.hashWithSalt` destinationArn
+      _salt
+        `Prelude.hashWithSalt` destinationArn
         `Prelude.hashWithSalt` appMonitorName
         `Prelude.hashWithSalt` destination
         `Prelude.hashWithSalt` metricDefinitions

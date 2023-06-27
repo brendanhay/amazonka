@@ -25,7 +25,7 @@
 -- CloudWatch Evidently experiment.
 --
 -- For more information about extended metrics, see
--- <https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_AddRumMetrics.html AddRumMetrics>.
+-- <https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricDefinitions.html BatchCreateRumMetricDefinitions>.
 module Amazonka.Rum.PutRumMetricsDestination
   ( -- * Creating a Request
     PutRumMetricsDestination (..),
@@ -163,7 +163,8 @@ instance Core.AWSRequest PutRumMetricsDestination where
 
 instance Prelude.Hashable PutRumMetricsDestination where
   hashWithSalt _salt PutRumMetricsDestination' {..} =
-    _salt `Prelude.hashWithSalt` destinationArn
+    _salt
+      `Prelude.hashWithSalt` destinationArn
       `Prelude.hashWithSalt` iamRoleArn
       `Prelude.hashWithSalt` appMonitorName
       `Prelude.hashWithSalt` destination

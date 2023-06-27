@@ -78,7 +78,8 @@ instance Data.FromJSON SAMLIdp where
 
 instance Prelude.Hashable SAMLIdp where
   hashWithSalt _salt SAMLIdp' {..} =
-    _salt `Prelude.hashWithSalt` metadataContent
+    _salt
+      `Prelude.hashWithSalt` metadataContent
       `Prelude.hashWithSalt` entityId
 
 instance Prelude.NFData SAMLIdp where

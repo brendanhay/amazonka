@@ -48,7 +48,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for request parameters to @ DissociatePackage @ operation.
+-- | Container for request parameters to @ @@DissociatePackage@@ @ operation.
 --
 -- /See:/ 'newDissociatePackage' smart constructor.
 data DissociatePackage = DissociatePackage'
@@ -109,7 +109,8 @@ instance Core.AWSRequest DissociatePackage where
 
 instance Prelude.Hashable DissociatePackage where
   hashWithSalt _salt DissociatePackage' {..} =
-    _salt `Prelude.hashWithSalt` packageID
+    _salt
+      `Prelude.hashWithSalt` packageID
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData DissociatePackage where
@@ -135,7 +136,7 @@ instance Data.ToPath DissociatePackage where
 instance Data.ToQuery DissociatePackage where
   toQuery = Prelude.const Prelude.mempty
 
--- | Container for response returned by @ DissociatePackage @ operation.
+-- | Container for response returned by @ @@DissociatePackage@@ @ operation.
 --
 -- /See:/ 'newDissociatePackageResponse' smart constructor.
 data DissociatePackageResponse = DissociatePackageResponse'

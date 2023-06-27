@@ -116,7 +116,8 @@ sAMLOptionsInput_subjectKey = Lens.lens (\SAMLOptionsInput' {subjectKey} -> subj
 
 instance Prelude.Hashable SAMLOptionsInput where
   hashWithSalt _salt SAMLOptionsInput' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` idp
       `Prelude.hashWithSalt` masterBackendRole
       `Prelude.hashWithSalt` masterUserName

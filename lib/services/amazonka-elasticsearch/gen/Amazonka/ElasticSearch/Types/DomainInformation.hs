@@ -81,7 +81,8 @@ instance Data.FromJSON DomainInformation where
 
 instance Prelude.Hashable DomainInformation where
   hashWithSalt _salt DomainInformation' {..} =
-    _salt `Prelude.hashWithSalt` ownerId
+    _salt
+      `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` domainName
 

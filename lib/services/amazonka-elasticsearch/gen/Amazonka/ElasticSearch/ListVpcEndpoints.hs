@@ -87,7 +87,8 @@ instance Core.AWSRequest ListVpcEndpoints where
       ( \s h x ->
           ListVpcEndpointsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "VpcEndpointSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "VpcEndpointSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..:> "NextToken")

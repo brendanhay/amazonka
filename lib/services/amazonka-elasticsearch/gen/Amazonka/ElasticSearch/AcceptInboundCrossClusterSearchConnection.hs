@@ -97,7 +97,7 @@ instance
       ( \s h x ->
           AcceptInboundCrossClusterSearchConnectionResponse'
             Prelude.<$> (x Data..?> "CrossClusterSearchConnection")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

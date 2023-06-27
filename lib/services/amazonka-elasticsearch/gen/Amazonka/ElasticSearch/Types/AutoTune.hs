@@ -82,7 +82,8 @@ instance Data.FromJSON AutoTune where
 
 instance Prelude.Hashable AutoTune where
   hashWithSalt _salt AutoTune' {..} =
-    _salt `Prelude.hashWithSalt` autoTuneDetails
+    _salt
+      `Prelude.hashWithSalt` autoTuneDetails
       `Prelude.hashWithSalt` autoTuneType
 
 instance Prelude.NFData AutoTune where

@@ -73,7 +73,8 @@ instance Data.FromJSON DomainInfo where
 
 instance Prelude.Hashable DomainInfo where
   hashWithSalt _salt DomainInfo' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` engineType
 
 instance Prelude.NFData DomainInfo where

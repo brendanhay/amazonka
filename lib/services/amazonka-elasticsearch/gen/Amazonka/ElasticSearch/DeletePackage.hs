@@ -47,7 +47,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for request parameters to @ DeletePackage @ operation.
+-- | Container for request parameters to @ @@DeletePackage@@ @ operation.
 --
 -- /See:/ 'newDeletePackage' smart constructor.
 data DeletePackage = DeletePackage'
@@ -111,7 +111,7 @@ instance Data.ToPath DeletePackage where
 instance Data.ToQuery DeletePackage where
   toQuery = Prelude.const Prelude.mempty
 
--- | Container for response parameters to @ DeletePackage @ operation.
+-- | Container for response parameters to @ @@DeletePackage@@ @ operation.
 --
 -- /See:/ 'newDeletePackageResponse' smart constructor.
 data DeletePackageResponse = DeletePackageResponse'

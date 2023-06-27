@@ -95,7 +95,8 @@ instance Data.FromJSON AutoTuneOptions where
       ( \x ->
           AutoTuneOptions'
             Prelude.<$> (x Data..:? "DesiredState")
-            Prelude.<*> ( x Data..:? "MaintenanceSchedules"
+            Prelude.<*> ( x
+                            Data..:? "MaintenanceSchedules"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RollbackOnDisable")
@@ -103,7 +104,8 @@ instance Data.FromJSON AutoTuneOptions where
 
 instance Prelude.Hashable AutoTuneOptions where
   hashWithSalt _salt AutoTuneOptions' {..} =
-    _salt `Prelude.hashWithSalt` desiredState
+    _salt
+      `Prelude.hashWithSalt` desiredState
       `Prelude.hashWithSalt` maintenanceSchedules
       `Prelude.hashWithSalt` rollbackOnDisable
 

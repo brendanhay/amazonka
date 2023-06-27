@@ -103,7 +103,7 @@ instance
       ( \s h x ->
           CancelElasticsearchServiceSoftwareUpdateResponse'
             Prelude.<$> (x Data..?> "ServiceSoftwareOptions")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

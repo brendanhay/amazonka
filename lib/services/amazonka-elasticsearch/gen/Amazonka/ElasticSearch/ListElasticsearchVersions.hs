@@ -51,15 +51,15 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for the parameters to the @ ListElasticsearchVersions @
+-- | Container for the parameters to the @ @@ListElasticsearchVersions@@ @
 -- operation.
 --
--- Use @ MaxResults @ to control the maximum number of results to retrieve
--- in a single call.
+-- Use @ @@MaxResults@@ @ to control the maximum number of results to
+-- retrieve in a single call.
 --
--- Use @ NextToken @ in response to retrieve more results. If the received
--- response does not contain a NextToken, then there are no more results to
--- retrieve.
+-- Use @ @@NextToken@@ @ in response to retrieve more results. If the
+-- received response does not contain a NextToken, then there are no more
+-- results to retrieve.
 --
 -- /See:/ 'newListElasticsearchVersions' smart constructor.
 data ListElasticsearchVersions = ListElasticsearchVersions'
@@ -105,22 +105,22 @@ instance Core.AWSPager ListElasticsearchVersions where
     | Core.stop
         ( rs
             Lens.^? listElasticsearchVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listElasticsearchVersionsResponse_elasticsearchVersions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listElasticsearchVersions_nextToken
           Lens..~ rs
           Lens.^? listElasticsearchVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListElasticsearchVersions where
   type
@@ -132,7 +132,8 @@ instance Core.AWSRequest ListElasticsearchVersions where
     Response.receiveJSON
       ( \s h x ->
           ListElasticsearchVersionsResponse'
-            Prelude.<$> ( x Data..?> "ElasticsearchVersions"
+            Prelude.<$> ( x
+                            Data..?> "ElasticsearchVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -141,7 +142,8 @@ instance Core.AWSRequest ListElasticsearchVersions where
 
 instance Prelude.Hashable ListElasticsearchVersions where
   hashWithSalt _salt ListElasticsearchVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListElasticsearchVersions where
@@ -163,7 +165,7 @@ instance Data.ToQuery ListElasticsearchVersions where
       ]
 
 -- | Container for the parameters for response received from
--- @ ListElasticsearchVersions @ operation.
+-- @ @@ListElasticsearchVersions@@ @ operation.
 --
 -- /See:/ 'newListElasticsearchVersionsResponse' smart constructor.
 data ListElasticsearchVersionsResponse = ListElasticsearchVersionsResponse'

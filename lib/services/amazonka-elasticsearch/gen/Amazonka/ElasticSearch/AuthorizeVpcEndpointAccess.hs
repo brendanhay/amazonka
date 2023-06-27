@@ -110,7 +110,8 @@ instance Core.AWSRequest AuthorizeVpcEndpointAccess where
 
 instance Prelude.Hashable AuthorizeVpcEndpointAccess where
   hashWithSalt _salt AuthorizeVpcEndpointAccess' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` account
 
 instance Prelude.NFData AuthorizeVpcEndpointAccess where

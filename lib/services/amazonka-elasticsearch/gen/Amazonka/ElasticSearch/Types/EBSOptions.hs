@@ -107,7 +107,8 @@ instance Data.FromJSON EBSOptions where
 
 instance Prelude.Hashable EBSOptions where
   hashWithSalt _salt EBSOptions' {..} =
-    _salt `Prelude.hashWithSalt` eBSEnabled
+    _salt
+      `Prelude.hashWithSalt` eBSEnabled
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` throughput
       `Prelude.hashWithSalt` volumeSize

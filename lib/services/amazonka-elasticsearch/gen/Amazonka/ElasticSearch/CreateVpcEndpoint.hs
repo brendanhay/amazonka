@@ -117,7 +117,8 @@ instance Core.AWSRequest CreateVpcEndpoint where
 
 instance Prelude.Hashable CreateVpcEndpoint where
   hashWithSalt _salt CreateVpcEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` domainArn
       `Prelude.hashWithSalt` vpcOptions
 

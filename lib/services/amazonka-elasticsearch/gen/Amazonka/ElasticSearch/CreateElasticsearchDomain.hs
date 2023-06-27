@@ -305,7 +305,8 @@ instance Core.AWSRequest CreateElasticsearchDomain where
 
 instance Prelude.Hashable CreateElasticsearchDomain where
   hashWithSalt _salt CreateElasticsearchDomain' {..} =
-    _salt `Prelude.hashWithSalt` accessPolicies
+    _salt
+      `Prelude.hashWithSalt` accessPolicies
       `Prelude.hashWithSalt` advancedOptions
       `Prelude.hashWithSalt` advancedSecurityOptions
       `Prelude.hashWithSalt` autoTuneOptions

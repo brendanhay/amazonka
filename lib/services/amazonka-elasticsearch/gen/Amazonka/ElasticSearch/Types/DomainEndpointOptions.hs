@@ -133,7 +133,8 @@ instance Data.FromJSON DomainEndpointOptions where
 
 instance Prelude.Hashable DomainEndpointOptions where
   hashWithSalt _salt DomainEndpointOptions' {..} =
-    _salt `Prelude.hashWithSalt` customEndpoint
+    _salt
+      `Prelude.hashWithSalt` customEndpoint
       `Prelude.hashWithSalt` customEndpointCertificateArn
       `Prelude.hashWithSalt` customEndpointEnabled
       `Prelude.hashWithSalt` enforceHTTPS

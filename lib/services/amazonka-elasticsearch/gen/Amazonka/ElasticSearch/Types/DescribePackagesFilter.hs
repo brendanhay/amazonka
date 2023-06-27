@@ -31,8 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 data DescribePackagesFilter = DescribePackagesFilter'
   { -- | Any field from @PackageDetails@.
     name :: Prelude.Maybe DescribePackagesFilterName,
-    -- | A list of values for the specified field.
-    value :: Prelude.Maybe [Prelude.Text]
+    -- | A non-empty list of values for the specified field.
+    value :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,7 +46,7 @@ data DescribePackagesFilter = DescribePackagesFilter'
 --
 -- 'name', 'describePackagesFilter_name' - Any field from @PackageDetails@.
 --
--- 'value', 'describePackagesFilter_value' - A list of values for the specified field.
+-- 'value', 'describePackagesFilter_value' - A non-empty list of values for the specified field.
 newDescribePackagesFilter ::
   DescribePackagesFilter
 newDescribePackagesFilter =
@@ -59,13 +59,14 @@ newDescribePackagesFilter =
 describePackagesFilter_name :: Lens.Lens' DescribePackagesFilter (Prelude.Maybe DescribePackagesFilterName)
 describePackagesFilter_name = Lens.lens (\DescribePackagesFilter' {name} -> name) (\s@DescribePackagesFilter' {} a -> s {name = a} :: DescribePackagesFilter)
 
--- | A list of values for the specified field.
-describePackagesFilter_value :: Lens.Lens' DescribePackagesFilter (Prelude.Maybe [Prelude.Text])
+-- | A non-empty list of values for the specified field.
+describePackagesFilter_value :: Lens.Lens' DescribePackagesFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 describePackagesFilter_value = Lens.lens (\DescribePackagesFilter' {value} -> value) (\s@DescribePackagesFilter' {} a -> s {value = a} :: DescribePackagesFilter) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable DescribePackagesFilter where
   hashWithSalt _salt DescribePackagesFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData DescribePackagesFilter where

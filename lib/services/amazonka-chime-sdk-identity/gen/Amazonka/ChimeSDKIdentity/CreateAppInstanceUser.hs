@@ -28,6 +28,7 @@ module Amazonka.ChimeSDKIdentity.CreateAppInstanceUser
     newCreateAppInstanceUser,
 
     -- * Request Lenses
+    createAppInstanceUser_expirationSettings,
     createAppInstanceUser_metadata,
     createAppInstanceUser_tags,
     createAppInstanceUser_appInstanceArn,
@@ -55,7 +56,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAppInstanceUser' smart constructor.
 data CreateAppInstanceUser = CreateAppInstanceUser'
-  { -- | The request\'s metadata. Limited to a 1KB string in UTF-8.
+  { -- | Settings that control the interval after which the @AppInstanceUser@ is
+    -- automatically deleted.
+    expirationSettings :: Prelude.Maybe ExpirationSettings,
+    -- | The request\'s metadata. Limited to a 1KB string in UTF-8.
     metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Tags assigned to the @AppInstanceUser@.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
@@ -65,8 +69,9 @@ data CreateAppInstanceUser = CreateAppInstanceUser'
     appInstanceUserId :: Data.Sensitive Prelude.Text,
     -- | The user\'s name.
     name :: Data.Sensitive Prelude.Text,
-    -- | The token assigned to the user requesting an @AppInstance@.
-    clientRequestToken :: Data.Sensitive Prelude.Text
+    -- | The unique ID of the request. Use different tokens to request additional
+    -- @AppInstances@.
+    clientRequestToken :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -78,6 +83,9 @@ data CreateAppInstanceUser = CreateAppInstanceUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'expirationSettings', 'createAppInstanceUser_expirationSettings' - Settings that control the interval after which the @AppInstanceUser@ is
+-- automatically deleted.
+--
 -- 'metadata', 'createAppInstanceUser_metadata' - The request\'s metadata. Limited to a 1KB string in UTF-8.
 --
 -- 'tags', 'createAppInstanceUser_tags' - Tags assigned to the @AppInstanceUser@.
@@ -88,7 +96,8 @@ data CreateAppInstanceUser = CreateAppInstanceUser'
 --
 -- 'name', 'createAppInstanceUser_name' - The user\'s name.
 --
--- 'clientRequestToken', 'createAppInstanceUser_clientRequestToken' - The token assigned to the user requesting an @AppInstance@.
+-- 'clientRequestToken', 'createAppInstanceUser_clientRequestToken' - The unique ID of the request. Use different tokens to request additional
+-- @AppInstances@.
 newCreateAppInstanceUser ::
   -- | 'appInstanceArn'
   Prelude.Text ->
@@ -105,15 +114,21 @@ newCreateAppInstanceUser
   pName_
   pClientRequestToken_ =
     CreateAppInstanceUser'
-      { metadata = Prelude.Nothing,
+      { expirationSettings =
+          Prelude.Nothing,
+        metadata = Prelude.Nothing,
         tags = Prelude.Nothing,
         appInstanceArn = pAppInstanceArn_,
         appInstanceUserId =
           Data._Sensitive Lens.# pAppInstanceUserId_,
         name = Data._Sensitive Lens.# pName_,
-        clientRequestToken =
-          Data._Sensitive Lens.# pClientRequestToken_
+        clientRequestToken = pClientRequestToken_
       }
+
+-- | Settings that control the interval after which the @AppInstanceUser@ is
+-- automatically deleted.
+createAppInstanceUser_expirationSettings :: Lens.Lens' CreateAppInstanceUser (Prelude.Maybe ExpirationSettings)
+createAppInstanceUser_expirationSettings = Lens.lens (\CreateAppInstanceUser' {expirationSettings} -> expirationSettings) (\s@CreateAppInstanceUser' {} a -> s {expirationSettings = a} :: CreateAppInstanceUser)
 
 -- | The request\'s metadata. Limited to a 1KB string in UTF-8.
 createAppInstanceUser_metadata :: Lens.Lens' CreateAppInstanceUser (Prelude.Maybe Prelude.Text)
@@ -135,9 +150,10 @@ createAppInstanceUser_appInstanceUserId = Lens.lens (\CreateAppInstanceUser' {ap
 createAppInstanceUser_name :: Lens.Lens' CreateAppInstanceUser Prelude.Text
 createAppInstanceUser_name = Lens.lens (\CreateAppInstanceUser' {name} -> name) (\s@CreateAppInstanceUser' {} a -> s {name = a} :: CreateAppInstanceUser) Prelude.. Data._Sensitive
 
--- | The token assigned to the user requesting an @AppInstance@.
+-- | The unique ID of the request. Use different tokens to request additional
+-- @AppInstances@.
 createAppInstanceUser_clientRequestToken :: Lens.Lens' CreateAppInstanceUser Prelude.Text
-createAppInstanceUser_clientRequestToken = Lens.lens (\CreateAppInstanceUser' {clientRequestToken} -> clientRequestToken) (\s@CreateAppInstanceUser' {} a -> s {clientRequestToken = a} :: CreateAppInstanceUser) Prelude.. Data._Sensitive
+createAppInstanceUser_clientRequestToken = Lens.lens (\CreateAppInstanceUser' {clientRequestToken} -> clientRequestToken) (\s@CreateAppInstanceUser' {} a -> s {clientRequestToken = a} :: CreateAppInstanceUser)
 
 instance Core.AWSRequest CreateAppInstanceUser where
   type
@@ -155,7 +171,9 @@ instance Core.AWSRequest CreateAppInstanceUser where
 
 instance Prelude.Hashable CreateAppInstanceUser where
   hashWithSalt _salt CreateAppInstanceUser' {..} =
-    _salt `Prelude.hashWithSalt` metadata
+    _salt
+      `Prelude.hashWithSalt` expirationSettings
+      `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` appInstanceArn
       `Prelude.hashWithSalt` appInstanceUserId
@@ -164,7 +182,8 @@ instance Prelude.Hashable CreateAppInstanceUser where
 
 instance Prelude.NFData CreateAppInstanceUser where
   rnf CreateAppInstanceUser' {..} =
-    Prelude.rnf metadata
+    Prelude.rnf expirationSettings
+      `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf appInstanceArn
       `Prelude.seq` Prelude.rnf appInstanceUserId
@@ -178,7 +197,9 @@ instance Data.ToJSON CreateAppInstanceUser where
   toJSON CreateAppInstanceUser' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Metadata" Data..=) Prelude.<$> metadata,
+          [ ("ExpirationSettings" Data..=)
+              Prelude.<$> expirationSettings,
+            ("Metadata" Data..=) Prelude.<$> metadata,
             ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("AppInstanceArn" Data..= appInstanceArn),

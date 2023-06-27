@@ -79,11 +79,12 @@ data RegisterAppInstanceUserEndpoint = RegisterAppInstanceUserEndpoint'
     -- Populate the @ResourceArn@ value of each type as @PinpointAppArn@.
     type' :: AppInstanceUserEndpointType,
     -- | The ARN of the resource to which the endpoint belongs.
-    resourceArn :: Data.Sensitive Prelude.Text,
+    resourceArn :: Prelude.Text,
     -- | The attributes of an @Endpoint@.
     endpointAttributes :: EndpointAttributes,
-    -- | The idempotency token for each client request.
-    clientRequestToken :: Data.Sensitive Prelude.Text
+    -- | The unique ID assigned to the request. Use different tokens to register
+    -- other endpoints.
+    clientRequestToken :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -118,7 +119,8 @@ data RegisterAppInstanceUserEndpoint = RegisterAppInstanceUserEndpoint'
 --
 -- 'endpointAttributes', 'registerAppInstanceUserEndpoint_endpointAttributes' - The attributes of an @Endpoint@.
 --
--- 'clientRequestToken', 'registerAppInstanceUserEndpoint_clientRequestToken' - The idempotency token for each client request.
+-- 'clientRequestToken', 'registerAppInstanceUserEndpoint_clientRequestToken' - The unique ID assigned to the request. Use different tokens to register
+-- other endpoints.
 newRegisterAppInstanceUserEndpoint ::
   -- | 'appInstanceUserArn'
   Prelude.Text ->
@@ -145,12 +147,9 @@ newRegisterAppInstanceUserEndpoint
           Data._Sensitive
             Lens.# pAppInstanceUserArn_,
         type' = pType_,
-        resourceArn =
-          Data._Sensitive Lens.# pResourceArn_,
+        resourceArn = pResourceArn_,
         endpointAttributes = pEndpointAttributes_,
-        clientRequestToken =
-          Data._Sensitive
-            Lens.# pClientRequestToken_
+        clientRequestToken = pClientRequestToken_
       }
 
 -- | Boolean that controls whether the AppInstanceUserEndpoint is opted in to
@@ -182,15 +181,16 @@ registerAppInstanceUserEndpoint_type = Lens.lens (\RegisterAppInstanceUserEndpoi
 
 -- | The ARN of the resource to which the endpoint belongs.
 registerAppInstanceUserEndpoint_resourceArn :: Lens.Lens' RegisterAppInstanceUserEndpoint Prelude.Text
-registerAppInstanceUserEndpoint_resourceArn = Lens.lens (\RegisterAppInstanceUserEndpoint' {resourceArn} -> resourceArn) (\s@RegisterAppInstanceUserEndpoint' {} a -> s {resourceArn = a} :: RegisterAppInstanceUserEndpoint) Prelude.. Data._Sensitive
+registerAppInstanceUserEndpoint_resourceArn = Lens.lens (\RegisterAppInstanceUserEndpoint' {resourceArn} -> resourceArn) (\s@RegisterAppInstanceUserEndpoint' {} a -> s {resourceArn = a} :: RegisterAppInstanceUserEndpoint)
 
 -- | The attributes of an @Endpoint@.
 registerAppInstanceUserEndpoint_endpointAttributes :: Lens.Lens' RegisterAppInstanceUserEndpoint EndpointAttributes
 registerAppInstanceUserEndpoint_endpointAttributes = Lens.lens (\RegisterAppInstanceUserEndpoint' {endpointAttributes} -> endpointAttributes) (\s@RegisterAppInstanceUserEndpoint' {} a -> s {endpointAttributes = a} :: RegisterAppInstanceUserEndpoint)
 
--- | The idempotency token for each client request.
+-- | The unique ID assigned to the request. Use different tokens to register
+-- other endpoints.
 registerAppInstanceUserEndpoint_clientRequestToken :: Lens.Lens' RegisterAppInstanceUserEndpoint Prelude.Text
-registerAppInstanceUserEndpoint_clientRequestToken = Lens.lens (\RegisterAppInstanceUserEndpoint' {clientRequestToken} -> clientRequestToken) (\s@RegisterAppInstanceUserEndpoint' {} a -> s {clientRequestToken = a} :: RegisterAppInstanceUserEndpoint) Prelude.. Data._Sensitive
+registerAppInstanceUserEndpoint_clientRequestToken = Lens.lens (\RegisterAppInstanceUserEndpoint' {clientRequestToken} -> clientRequestToken) (\s@RegisterAppInstanceUserEndpoint' {} a -> s {clientRequestToken = a} :: RegisterAppInstanceUserEndpoint)
 
 instance
   Core.AWSRequest
@@ -217,7 +217,8 @@ instance
   hashWithSalt
     _salt
     RegisterAppInstanceUserEndpoint' {..} =
-      _salt `Prelude.hashWithSalt` allowMessages
+      _salt
+        `Prelude.hashWithSalt` allowMessages
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` appInstanceUserArn
         `Prelude.hashWithSalt` type'
@@ -273,13 +274,13 @@ instance Data.ToQuery RegisterAppInstanceUserEndpoint where
 -- | /See:/ 'newRegisterAppInstanceUserEndpointResponse' smart constructor.
 data RegisterAppInstanceUserEndpointResponse = RegisterAppInstanceUserEndpointResponse'
   { -- | The ARN of the @AppInstanceUser@.
-    appInstanceUserArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    appInstanceUserArn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the @AppInstanceUserEndpoint@.
-    endpointId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    endpointId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RegisterAppInstanceUserEndpointResponse' with all optional fields omitted.
@@ -309,11 +310,11 @@ newRegisterAppInstanceUserEndpointResponse
 
 -- | The ARN of the @AppInstanceUser@.
 registerAppInstanceUserEndpointResponse_appInstanceUserArn :: Lens.Lens' RegisterAppInstanceUserEndpointResponse (Prelude.Maybe Prelude.Text)
-registerAppInstanceUserEndpointResponse_appInstanceUserArn = Lens.lens (\RegisterAppInstanceUserEndpointResponse' {appInstanceUserArn} -> appInstanceUserArn) (\s@RegisterAppInstanceUserEndpointResponse' {} a -> s {appInstanceUserArn = a} :: RegisterAppInstanceUserEndpointResponse) Prelude.. Lens.mapping Data._Sensitive
+registerAppInstanceUserEndpointResponse_appInstanceUserArn = Lens.lens (\RegisterAppInstanceUserEndpointResponse' {appInstanceUserArn} -> appInstanceUserArn) (\s@RegisterAppInstanceUserEndpointResponse' {} a -> s {appInstanceUserArn = a} :: RegisterAppInstanceUserEndpointResponse)
 
 -- | The unique identifier of the @AppInstanceUserEndpoint@.
 registerAppInstanceUserEndpointResponse_endpointId :: Lens.Lens' RegisterAppInstanceUserEndpointResponse (Prelude.Maybe Prelude.Text)
-registerAppInstanceUserEndpointResponse_endpointId = Lens.lens (\RegisterAppInstanceUserEndpointResponse' {endpointId} -> endpointId) (\s@RegisterAppInstanceUserEndpointResponse' {} a -> s {endpointId = a} :: RegisterAppInstanceUserEndpointResponse) Prelude.. Lens.mapping Data._Sensitive
+registerAppInstanceUserEndpointResponse_endpointId = Lens.lens (\RegisterAppInstanceUserEndpointResponse' {endpointId} -> endpointId) (\s@RegisterAppInstanceUserEndpointResponse' {} a -> s {endpointId = a} :: RegisterAppInstanceUserEndpointResponse)
 
 -- | The response's http status code.
 registerAppInstanceUserEndpointResponse_httpStatus :: Lens.Lens' RegisterAppInstanceUserEndpointResponse Prelude.Int

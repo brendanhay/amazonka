@@ -46,23 +46,28 @@ library
     Amazonka.ChimeSDKIdentity
     Amazonka.ChimeSDKIdentity.CreateAppInstance
     Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin
+    Amazonka.ChimeSDKIdentity.CreateAppInstanceBot
     Amazonka.ChimeSDKIdentity.CreateAppInstanceUser
     Amazonka.ChimeSDKIdentity.DeleteAppInstance
     Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin
+    Amazonka.ChimeSDKIdentity.DeleteAppInstanceBot
     Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser
     Amazonka.ChimeSDKIdentity.DeregisterAppInstanceUserEndpoint
     Amazonka.ChimeSDKIdentity.DescribeAppInstance
     Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin
+    Amazonka.ChimeSDKIdentity.DescribeAppInstanceBot
     Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser
     Amazonka.ChimeSDKIdentity.DescribeAppInstanceUserEndpoint
     Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings
     Amazonka.ChimeSDKIdentity.Lens
     Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins
+    Amazonka.ChimeSDKIdentity.ListAppInstanceBots
     Amazonka.ChimeSDKIdentity.ListAppInstances
     Amazonka.ChimeSDKIdentity.ListAppInstanceUserEndpoints
     Amazonka.ChimeSDKIdentity.ListAppInstanceUsers
     Amazonka.ChimeSDKIdentity.ListTagsForResource
     Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings
+    Amazonka.ChimeSDKIdentity.PutAppInstanceUserExpirationSettings
     Amazonka.ChimeSDKIdentity.RegisterAppInstanceUserEndpoint
     Amazonka.ChimeSDKIdentity.TagResource
     Amazonka.ChimeSDKIdentity.Types
@@ -70,6 +75,8 @@ library
     Amazonka.ChimeSDKIdentity.Types.AppInstance
     Amazonka.ChimeSDKIdentity.Types.AppInstanceAdmin
     Amazonka.ChimeSDKIdentity.Types.AppInstanceAdminSummary
+    Amazonka.ChimeSDKIdentity.Types.AppInstanceBot
+    Amazonka.ChimeSDKIdentity.Types.AppInstanceBotSummary
     Amazonka.ChimeSDKIdentity.Types.AppInstanceRetentionSettings
     Amazonka.ChimeSDKIdentity.Types.AppInstanceSummary
     Amazonka.ChimeSDKIdentity.Types.AppInstanceUser
@@ -78,14 +85,23 @@ library
     Amazonka.ChimeSDKIdentity.Types.AppInstanceUserEndpointType
     Amazonka.ChimeSDKIdentity.Types.AppInstanceUserSummary
     Amazonka.ChimeSDKIdentity.Types.ChannelRetentionSettings
+    Amazonka.ChimeSDKIdentity.Types.Configuration
     Amazonka.ChimeSDKIdentity.Types.EndpointAttributes
     Amazonka.ChimeSDKIdentity.Types.EndpointState
     Amazonka.ChimeSDKIdentity.Types.EndpointStatus
     Amazonka.ChimeSDKIdentity.Types.EndpointStatusReason
+    Amazonka.ChimeSDKIdentity.Types.ExpirationCriterion
+    Amazonka.ChimeSDKIdentity.Types.ExpirationSettings
     Amazonka.ChimeSDKIdentity.Types.Identity
+    Amazonka.ChimeSDKIdentity.Types.InvokedBy
+    Amazonka.ChimeSDKIdentity.Types.LexConfiguration
+    Amazonka.ChimeSDKIdentity.Types.RespondsTo
+    Amazonka.ChimeSDKIdentity.Types.StandardMessages
     Amazonka.ChimeSDKIdentity.Types.Tag
+    Amazonka.ChimeSDKIdentity.Types.TargetedMessages
     Amazonka.ChimeSDKIdentity.UntagResource
     Amazonka.ChimeSDKIdentity.UpdateAppInstance
+    Amazonka.ChimeSDKIdentity.UpdateAppInstanceBot
     Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser
     Amazonka.ChimeSDKIdentity.UpdateAppInstanceUserEndpoint
     Amazonka.ChimeSDKIdentity.Waiters

@@ -25,7 +25,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The details of an @AppInstanceAdmin@.
+-- | The name and ARN of the admin for the @AppInstance@.
 --
 -- /See:/ 'newAppInstanceAdmin' smart constructor.
 data AppInstanceAdmin = AppInstanceAdmin'
@@ -85,7 +85,8 @@ instance Data.FromJSON AppInstanceAdmin where
 
 instance Prelude.Hashable AppInstanceAdmin where
   hashWithSalt _salt AppInstanceAdmin' {..} =
-    _salt `Prelude.hashWithSalt` admin
+    _salt
+      `Prelude.hashWithSalt` admin
       `Prelude.hashWithSalt` appInstanceArn
       `Prelude.hashWithSalt` createdTimestamp
 

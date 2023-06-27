@@ -94,7 +94,8 @@ instance Data.FromJSON EndpointState where
 
 instance Prelude.Hashable EndpointState where
   hashWithSalt _salt EndpointState' {..} =
-    _salt `Prelude.hashWithSalt` statusReason
+    _salt
+      `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData EndpointState where

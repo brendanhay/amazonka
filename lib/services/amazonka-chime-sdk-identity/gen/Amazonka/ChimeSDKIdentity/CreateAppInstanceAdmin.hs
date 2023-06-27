@@ -20,14 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Promotes an @AppInstanceUser@ to an @AppInstanceAdmin@. The promoted
--- user can perform the following actions.
+-- Promotes an @AppInstanceUser@ or @AppInstanceBot@ to an
+-- @AppInstanceAdmin@. The promoted entity can perform the following
+-- actions.
 --
 -- -   @ChannelModerator@ actions across all channels in the @AppInstance@.
 --
 -- -   @DeleteChannelMessage@ actions.
 --
--- Only an @AppInstanceUser@ can be promoted to an @AppInstanceAdmin@ role.
+-- Only an @AppInstanceUser@ and @AppInstanceBot@ can be promoted to an
+-- @AppInstanceAdmin@ role.
 module Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin
   ( -- * Creating a Request
     CreateAppInstanceAdmin (..),
@@ -116,7 +118,8 @@ instance Core.AWSRequest CreateAppInstanceAdmin where
 
 instance Prelude.Hashable CreateAppInstanceAdmin where
   hashWithSalt _salt CreateAppInstanceAdmin' {..} =
-    _salt `Prelude.hashWithSalt` appInstanceAdminArn
+    _salt
+      `Prelude.hashWithSalt` appInstanceAdminArn
       `Prelude.hashWithSalt` appInstanceArn
 
 instance Prelude.NFData CreateAppInstanceAdmin where
@@ -149,7 +152,9 @@ instance Data.ToQuery CreateAppInstanceAdmin where
 
 -- | /See:/ 'newCreateAppInstanceAdminResponse' smart constructor.
 data CreateAppInstanceAdminResponse = CreateAppInstanceAdminResponse'
-  { -- | The name and ARN of the admin for the @AppInstance@.
+  { -- | The ARN and name of the administrator, the ARN of the @AppInstance@, and
+    -- the created and last-updated timestamps. All timestamps use epoch
+    -- milliseconds.
     appInstanceAdmin :: Prelude.Maybe Identity,
     -- | The ARN of the of the admin for the @AppInstance@.
     appInstanceArn :: Prelude.Maybe Prelude.Text,
@@ -166,7 +171,9 @@ data CreateAppInstanceAdminResponse = CreateAppInstanceAdminResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appInstanceAdmin', 'createAppInstanceAdminResponse_appInstanceAdmin' - The name and ARN of the admin for the @AppInstance@.
+-- 'appInstanceAdmin', 'createAppInstanceAdminResponse_appInstanceAdmin' - The ARN and name of the administrator, the ARN of the @AppInstance@, and
+-- the created and last-updated timestamps. All timestamps use epoch
+-- milliseconds.
 --
 -- 'appInstanceArn', 'createAppInstanceAdminResponse_appInstanceArn' - The ARN of the of the admin for the @AppInstance@.
 --
@@ -183,7 +190,9 @@ newCreateAppInstanceAdminResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The name and ARN of the admin for the @AppInstance@.
+-- | The ARN and name of the administrator, the ARN of the @AppInstance@, and
+-- the created and last-updated timestamps. All timestamps use epoch
+-- milliseconds.
 createAppInstanceAdminResponse_appInstanceAdmin :: Lens.Lens' CreateAppInstanceAdminResponse (Prelude.Maybe Identity)
 createAppInstanceAdminResponse_appInstanceAdmin = Lens.lens (\CreateAppInstanceAdminResponse' {appInstanceAdmin} -> appInstanceAdmin) (\s@CreateAppInstanceAdminResponse' {} a -> s {appInstanceAdmin = a} :: CreateAppInstanceAdminResponse)
 

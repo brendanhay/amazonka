@@ -39,13 +39,13 @@ data AppInstanceUserEndpoint = AppInstanceUserEndpoint'
     -- messages. @NONE@ indicates the endpoint will receive no messages.
     allowMessages :: Prelude.Maybe AllowMessages,
     -- | The ARN of the @AppInstanceUser@.
-    appInstanceUserArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    appInstanceUserArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which an @AppInstanceUserEndpoint@ was created.
     createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The attributes of an @Endpoint@.
     endpointAttributes :: Prelude.Maybe EndpointAttributes,
     -- | The unique identifier of the @AppInstanceUserEndpoint@.
-    endpointId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    endpointId :: Prelude.Maybe Prelude.Text,
     -- | A read-only field that represents the state of an
     -- @AppInstanceUserEndpoint@. Supported values:
     --
@@ -69,7 +69,7 @@ data AppInstanceUserEndpoint = AppInstanceUserEndpoint'
     -- | The name of the @AppInstanceUserEndpoint@.
     name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the resource to which the endpoint belongs.
-    resourceArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The type of the @AppInstanceUserEndpoint@.
     type' :: Prelude.Maybe AppInstanceUserEndpointType
   }
@@ -145,7 +145,7 @@ appInstanceUserEndpoint_allowMessages = Lens.lens (\AppInstanceUserEndpoint' {al
 
 -- | The ARN of the @AppInstanceUser@.
 appInstanceUserEndpoint_appInstanceUserArn :: Lens.Lens' AppInstanceUserEndpoint (Prelude.Maybe Prelude.Text)
-appInstanceUserEndpoint_appInstanceUserArn = Lens.lens (\AppInstanceUserEndpoint' {appInstanceUserArn} -> appInstanceUserArn) (\s@AppInstanceUserEndpoint' {} a -> s {appInstanceUserArn = a} :: AppInstanceUserEndpoint) Prelude.. Lens.mapping Data._Sensitive
+appInstanceUserEndpoint_appInstanceUserArn = Lens.lens (\AppInstanceUserEndpoint' {appInstanceUserArn} -> appInstanceUserArn) (\s@AppInstanceUserEndpoint' {} a -> s {appInstanceUserArn = a} :: AppInstanceUserEndpoint)
 
 -- | The time at which an @AppInstanceUserEndpoint@ was created.
 appInstanceUserEndpoint_createdTimestamp :: Lens.Lens' AppInstanceUserEndpoint (Prelude.Maybe Prelude.UTCTime)
@@ -157,7 +157,7 @@ appInstanceUserEndpoint_endpointAttributes = Lens.lens (\AppInstanceUserEndpoint
 
 -- | The unique identifier of the @AppInstanceUserEndpoint@.
 appInstanceUserEndpoint_endpointId :: Lens.Lens' AppInstanceUserEndpoint (Prelude.Maybe Prelude.Text)
-appInstanceUserEndpoint_endpointId = Lens.lens (\AppInstanceUserEndpoint' {endpointId} -> endpointId) (\s@AppInstanceUserEndpoint' {} a -> s {endpointId = a} :: AppInstanceUserEndpoint) Prelude.. Lens.mapping Data._Sensitive
+appInstanceUserEndpoint_endpointId = Lens.lens (\AppInstanceUserEndpoint' {endpointId} -> endpointId) (\s@AppInstanceUserEndpoint' {} a -> s {endpointId = a} :: AppInstanceUserEndpoint)
 
 -- | A read-only field that represents the state of an
 -- @AppInstanceUserEndpoint@. Supported values:
@@ -189,7 +189,7 @@ appInstanceUserEndpoint_name = Lens.lens (\AppInstanceUserEndpoint' {name} -> na
 
 -- | The ARN of the resource to which the endpoint belongs.
 appInstanceUserEndpoint_resourceArn :: Lens.Lens' AppInstanceUserEndpoint (Prelude.Maybe Prelude.Text)
-appInstanceUserEndpoint_resourceArn = Lens.lens (\AppInstanceUserEndpoint' {resourceArn} -> resourceArn) (\s@AppInstanceUserEndpoint' {} a -> s {resourceArn = a} :: AppInstanceUserEndpoint) Prelude.. Lens.mapping Data._Sensitive
+appInstanceUserEndpoint_resourceArn = Lens.lens (\AppInstanceUserEndpoint' {resourceArn} -> resourceArn) (\s@AppInstanceUserEndpoint' {} a -> s {resourceArn = a} :: AppInstanceUserEndpoint)
 
 -- | The type of the @AppInstanceUserEndpoint@.
 appInstanceUserEndpoint_type :: Lens.Lens' AppInstanceUserEndpoint (Prelude.Maybe AppInstanceUserEndpointType)
@@ -215,7 +215,8 @@ instance Data.FromJSON AppInstanceUserEndpoint where
 
 instance Prelude.Hashable AppInstanceUserEndpoint where
   hashWithSalt _salt AppInstanceUserEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` allowMessages
+    _salt
+      `Prelude.hashWithSalt` allowMessages
       `Prelude.hashWithSalt` appInstanceUserArn
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` endpointAttributes

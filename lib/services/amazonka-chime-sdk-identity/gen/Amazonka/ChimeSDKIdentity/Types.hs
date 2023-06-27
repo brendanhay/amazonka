@@ -21,6 +21,7 @@ module Amazonka.ChimeSDKIdentity.Types
     _BadRequestException,
     _ConflictException,
     _ForbiddenException,
+    _NotFoundException,
     _ResourceLimitExceededException,
     _ServiceFailureException,
     _ServiceUnavailableException,
@@ -38,6 +39,18 @@ module Amazonka.ChimeSDKIdentity.Types
 
     -- * EndpointStatusReason
     EndpointStatusReason (..),
+
+    -- * ExpirationCriterion
+    ExpirationCriterion (..),
+
+    -- * RespondsTo
+    RespondsTo (..),
+
+    -- * StandardMessages
+    StandardMessages (..),
+
+    -- * TargetedMessages
+    TargetedMessages (..),
 
     -- * AppInstance
     AppInstance (..),
@@ -60,6 +73,23 @@ module Amazonka.ChimeSDKIdentity.Types
     newAppInstanceAdminSummary,
     appInstanceAdminSummary_admin,
 
+    -- * AppInstanceBot
+    AppInstanceBot (..),
+    newAppInstanceBot,
+    appInstanceBot_appInstanceBotArn,
+    appInstanceBot_configuration,
+    appInstanceBot_createdTimestamp,
+    appInstanceBot_lastUpdatedTimestamp,
+    appInstanceBot_metadata,
+    appInstanceBot_name,
+
+    -- * AppInstanceBotSummary
+    AppInstanceBotSummary (..),
+    newAppInstanceBotSummary,
+    appInstanceBotSummary_appInstanceBotArn,
+    appInstanceBotSummary_metadata,
+    appInstanceBotSummary_name,
+
     -- * AppInstanceRetentionSettings
     AppInstanceRetentionSettings (..),
     newAppInstanceRetentionSettings,
@@ -77,6 +107,7 @@ module Amazonka.ChimeSDKIdentity.Types
     newAppInstanceUser,
     appInstanceUser_appInstanceUserArn,
     appInstanceUser_createdTimestamp,
+    appInstanceUser_expirationSettings,
     appInstanceUser_lastUpdatedTimestamp,
     appInstanceUser_metadata,
     appInstanceUser_name,
@@ -117,6 +148,11 @@ module Amazonka.ChimeSDKIdentity.Types
     newChannelRetentionSettings,
     channelRetentionSettings_retentionDays,
 
+    -- * Configuration
+    Configuration (..),
+    newConfiguration,
+    configuration_lex,
+
     -- * EndpointAttributes
     EndpointAttributes (..),
     newEndpointAttributes,
@@ -129,11 +165,32 @@ module Amazonka.ChimeSDKIdentity.Types
     endpointState_statusReason,
     endpointState_status,
 
+    -- * ExpirationSettings
+    ExpirationSettings (..),
+    newExpirationSettings,
+    expirationSettings_expirationDays,
+    expirationSettings_expirationCriterion,
+
     -- * Identity
     Identity (..),
     newIdentity,
     identity_arn,
     identity_name,
+
+    -- * InvokedBy
+    InvokedBy (..),
+    newInvokedBy,
+    invokedBy_standardMessages,
+    invokedBy_targetedMessages,
+
+    -- * LexConfiguration
+    LexConfiguration (..),
+    newLexConfiguration,
+    lexConfiguration_invokedBy,
+    lexConfiguration_respondsTo,
+    lexConfiguration_welcomeIntent,
+    lexConfiguration_lexBotAliasArn,
+    lexConfiguration_localeId,
 
     -- * Tag
     Tag (..),
@@ -147,6 +204,8 @@ import Amazonka.ChimeSDKIdentity.Types.AllowMessages
 import Amazonka.ChimeSDKIdentity.Types.AppInstance
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceAdmin
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceAdminSummary
+import Amazonka.ChimeSDKIdentity.Types.AppInstanceBot
+import Amazonka.ChimeSDKIdentity.Types.AppInstanceBotSummary
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceRetentionSettings
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceSummary
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceUser
@@ -155,12 +214,20 @@ import Amazonka.ChimeSDKIdentity.Types.AppInstanceUserEndpointSummary
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceUserEndpointType
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceUserSummary
 import Amazonka.ChimeSDKIdentity.Types.ChannelRetentionSettings
+import Amazonka.ChimeSDKIdentity.Types.Configuration
 import Amazonka.ChimeSDKIdentity.Types.EndpointAttributes
 import Amazonka.ChimeSDKIdentity.Types.EndpointState
 import Amazonka.ChimeSDKIdentity.Types.EndpointStatus
 import Amazonka.ChimeSDKIdentity.Types.EndpointStatusReason
+import Amazonka.ChimeSDKIdentity.Types.ExpirationCriterion
+import Amazonka.ChimeSDKIdentity.Types.ExpirationSettings
 import Amazonka.ChimeSDKIdentity.Types.Identity
+import Amazonka.ChimeSDKIdentity.Types.InvokedBy
+import Amazonka.ChimeSDKIdentity.Types.LexConfiguration
+import Amazonka.ChimeSDKIdentity.Types.RespondsTo
+import Amazonka.ChimeSDKIdentity.Types.StandardMessages
 import Amazonka.ChimeSDKIdentity.Types.Tag
+import Amazonka.ChimeSDKIdentity.Types.TargetedMessages
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -192,52 +259,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The input parameters don\'t match the service\'s restrictions.
-_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BadRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -246,7 +313,7 @@ _BadRequestException =
 
 -- | The request could not be processed because of conflict in the current
 -- state of the resource.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -254,15 +321,24 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | The client is permanently forbidden from making the request.
-_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ForbiddenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
     "ForbiddenException"
     Prelude.. Core.hasStatus 403
 
+-- | One or more of the resources in the request does not exist in the
+-- system.
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
+    Prelude.. Core.hasStatus 404
+
 -- | The request exceeds the resource limit.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -270,7 +346,7 @@ _ResourceLimitExceededException =
     Prelude.. Core.hasStatus 400
 
 -- | The service encountered an unexpected error.
-_ServiceFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceFailureException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceFailureException =
   Core._MatchServiceError
     defaultService
@@ -278,7 +354,7 @@ _ServiceFailureException =
     Prelude.. Core.hasStatus 500
 
 -- | The service is currently unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -286,7 +362,7 @@ _ServiceUnavailableException =
     Prelude.. Core.hasStatus 503
 
 -- | The client exceeded its request rate limit.
-_ThrottledClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottledClientException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottledClientException =
   Core._MatchServiceError
     defaultService
@@ -294,7 +370,7 @@ _ThrottledClientException =
     Prelude.. Core.hasStatus 429
 
 -- | The client is not currently authorized to make the request.
-_UnauthorizedClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnauthorizedClientException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnauthorizedClientException =
   Core._MatchServiceError
     defaultService

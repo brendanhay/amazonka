@@ -47,11 +47,11 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeregisterAppInstanceUserEndpoint' smart constructor.
 data DeregisterAppInstanceUserEndpoint = DeregisterAppInstanceUserEndpoint'
   { -- | The ARN of the @AppInstanceUser@.
-    appInstanceUserArn :: Data.Sensitive Prelude.Text,
+    appInstanceUserArn :: Prelude.Text,
     -- | The unique identifier of the @AppInstanceUserEndpoint@.
-    endpointId :: Data.Sensitive Prelude.Text
+    endpointId :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeregisterAppInstanceUserEndpoint' with all optional fields omitted.
@@ -75,19 +75,17 @@ newDeregisterAppInstanceUserEndpoint
   pEndpointId_ =
     DeregisterAppInstanceUserEndpoint'
       { appInstanceUserArn =
-          Data._Sensitive
-            Lens.# pAppInstanceUserArn_,
-        endpointId =
-          Data._Sensitive Lens.# pEndpointId_
+          pAppInstanceUserArn_,
+        endpointId = pEndpointId_
       }
 
 -- | The ARN of the @AppInstanceUser@.
 deregisterAppInstanceUserEndpoint_appInstanceUserArn :: Lens.Lens' DeregisterAppInstanceUserEndpoint Prelude.Text
-deregisterAppInstanceUserEndpoint_appInstanceUserArn = Lens.lens (\DeregisterAppInstanceUserEndpoint' {appInstanceUserArn} -> appInstanceUserArn) (\s@DeregisterAppInstanceUserEndpoint' {} a -> s {appInstanceUserArn = a} :: DeregisterAppInstanceUserEndpoint) Prelude.. Data._Sensitive
+deregisterAppInstanceUserEndpoint_appInstanceUserArn = Lens.lens (\DeregisterAppInstanceUserEndpoint' {appInstanceUserArn} -> appInstanceUserArn) (\s@DeregisterAppInstanceUserEndpoint' {} a -> s {appInstanceUserArn = a} :: DeregisterAppInstanceUserEndpoint)
 
 -- | The unique identifier of the @AppInstanceUserEndpoint@.
 deregisterAppInstanceUserEndpoint_endpointId :: Lens.Lens' DeregisterAppInstanceUserEndpoint Prelude.Text
-deregisterAppInstanceUserEndpoint_endpointId = Lens.lens (\DeregisterAppInstanceUserEndpoint' {endpointId} -> endpointId) (\s@DeregisterAppInstanceUserEndpoint' {} a -> s {endpointId = a} :: DeregisterAppInstanceUserEndpoint) Prelude.. Data._Sensitive
+deregisterAppInstanceUserEndpoint_endpointId = Lens.lens (\DeregisterAppInstanceUserEndpoint' {endpointId} -> endpointId) (\s@DeregisterAppInstanceUserEndpoint' {} a -> s {endpointId = a} :: DeregisterAppInstanceUserEndpoint)
 
 instance
   Core.AWSRequest
@@ -109,7 +107,8 @@ instance
   hashWithSalt
     _salt
     DeregisterAppInstanceUserEndpoint' {..} =
-      _salt `Prelude.hashWithSalt` appInstanceUserArn
+      _salt
+        `Prelude.hashWithSalt` appInstanceUserArn
         `Prelude.hashWithSalt` endpointId
 
 instance

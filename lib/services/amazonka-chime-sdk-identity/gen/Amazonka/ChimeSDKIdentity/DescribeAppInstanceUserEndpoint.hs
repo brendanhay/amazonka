@@ -51,11 +51,11 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDescribeAppInstanceUserEndpoint' smart constructor.
 data DescribeAppInstanceUserEndpoint = DescribeAppInstanceUserEndpoint'
   { -- | The ARN of the @AppInstanceUser@.
-    appInstanceUserArn :: Data.Sensitive Prelude.Text,
+    appInstanceUserArn :: Prelude.Text,
     -- | The unique identifier of the @AppInstanceUserEndpoint@.
-    endpointId :: Data.Sensitive Prelude.Text
+    endpointId :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAppInstanceUserEndpoint' with all optional fields omitted.
@@ -79,19 +79,17 @@ newDescribeAppInstanceUserEndpoint
   pEndpointId_ =
     DescribeAppInstanceUserEndpoint'
       { appInstanceUserArn =
-          Data._Sensitive
-            Lens.# pAppInstanceUserArn_,
-        endpointId =
-          Data._Sensitive Lens.# pEndpointId_
+          pAppInstanceUserArn_,
+        endpointId = pEndpointId_
       }
 
 -- | The ARN of the @AppInstanceUser@.
 describeAppInstanceUserEndpoint_appInstanceUserArn :: Lens.Lens' DescribeAppInstanceUserEndpoint Prelude.Text
-describeAppInstanceUserEndpoint_appInstanceUserArn = Lens.lens (\DescribeAppInstanceUserEndpoint' {appInstanceUserArn} -> appInstanceUserArn) (\s@DescribeAppInstanceUserEndpoint' {} a -> s {appInstanceUserArn = a} :: DescribeAppInstanceUserEndpoint) Prelude.. Data._Sensitive
+describeAppInstanceUserEndpoint_appInstanceUserArn = Lens.lens (\DescribeAppInstanceUserEndpoint' {appInstanceUserArn} -> appInstanceUserArn) (\s@DescribeAppInstanceUserEndpoint' {} a -> s {appInstanceUserArn = a} :: DescribeAppInstanceUserEndpoint)
 
 -- | The unique identifier of the @AppInstanceUserEndpoint@.
 describeAppInstanceUserEndpoint_endpointId :: Lens.Lens' DescribeAppInstanceUserEndpoint Prelude.Text
-describeAppInstanceUserEndpoint_endpointId = Lens.lens (\DescribeAppInstanceUserEndpoint' {endpointId} -> endpointId) (\s@DescribeAppInstanceUserEndpoint' {} a -> s {endpointId = a} :: DescribeAppInstanceUserEndpoint) Prelude.. Data._Sensitive
+describeAppInstanceUserEndpoint_endpointId = Lens.lens (\DescribeAppInstanceUserEndpoint' {endpointId} -> endpointId) (\s@DescribeAppInstanceUserEndpoint' {} a -> s {endpointId = a} :: DescribeAppInstanceUserEndpoint)
 
 instance
   Core.AWSRequest
@@ -117,7 +115,8 @@ instance
   hashWithSalt
     _salt
     DescribeAppInstanceUserEndpoint' {..} =
-      _salt `Prelude.hashWithSalt` appInstanceUserArn
+      _salt
+        `Prelude.hashWithSalt` appInstanceUserArn
         `Prelude.hashWithSalt` endpointId
 
 instance

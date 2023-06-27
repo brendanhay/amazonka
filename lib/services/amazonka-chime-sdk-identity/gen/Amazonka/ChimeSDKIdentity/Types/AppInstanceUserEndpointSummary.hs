@@ -36,9 +36,9 @@ data AppInstanceUserEndpointSummary = AppInstanceUserEndpointSummary'
     -- messages. @NONE@ indicates the endpoint will receive no messages.
     allowMessages :: Prelude.Maybe AllowMessages,
     -- | The ARN of the @AppInstanceUser@.
-    appInstanceUserArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    appInstanceUserArn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the @AppInstanceUserEndpoint@.
-    endpointId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    endpointId :: Prelude.Maybe Prelude.Text,
     -- | A read-only field that represent the state of an
     -- @AppInstanceUserEndpoint@.
     endpointState :: Prelude.Maybe EndpointState,
@@ -92,11 +92,11 @@ appInstanceUserEndpointSummary_allowMessages = Lens.lens (\AppInstanceUserEndpoi
 
 -- | The ARN of the @AppInstanceUser@.
 appInstanceUserEndpointSummary_appInstanceUserArn :: Lens.Lens' AppInstanceUserEndpointSummary (Prelude.Maybe Prelude.Text)
-appInstanceUserEndpointSummary_appInstanceUserArn = Lens.lens (\AppInstanceUserEndpointSummary' {appInstanceUserArn} -> appInstanceUserArn) (\s@AppInstanceUserEndpointSummary' {} a -> s {appInstanceUserArn = a} :: AppInstanceUserEndpointSummary) Prelude.. Lens.mapping Data._Sensitive
+appInstanceUserEndpointSummary_appInstanceUserArn = Lens.lens (\AppInstanceUserEndpointSummary' {appInstanceUserArn} -> appInstanceUserArn) (\s@AppInstanceUserEndpointSummary' {} a -> s {appInstanceUserArn = a} :: AppInstanceUserEndpointSummary)
 
 -- | The unique identifier of the @AppInstanceUserEndpoint@.
 appInstanceUserEndpointSummary_endpointId :: Lens.Lens' AppInstanceUserEndpointSummary (Prelude.Maybe Prelude.Text)
-appInstanceUserEndpointSummary_endpointId = Lens.lens (\AppInstanceUserEndpointSummary' {endpointId} -> endpointId) (\s@AppInstanceUserEndpointSummary' {} a -> s {endpointId = a} :: AppInstanceUserEndpointSummary) Prelude.. Lens.mapping Data._Sensitive
+appInstanceUserEndpointSummary_endpointId = Lens.lens (\AppInstanceUserEndpointSummary' {endpointId} -> endpointId) (\s@AppInstanceUserEndpointSummary' {} a -> s {endpointId = a} :: AppInstanceUserEndpointSummary)
 
 -- | A read-only field that represent the state of an
 -- @AppInstanceUserEndpoint@.
@@ -132,7 +132,8 @@ instance
   hashWithSalt
     _salt
     AppInstanceUserEndpointSummary' {..} =
-      _salt `Prelude.hashWithSalt` allowMessages
+      _salt
+        `Prelude.hashWithSalt` allowMessages
         `Prelude.hashWithSalt` appInstanceUserArn
         `Prelude.hashWithSalt` endpointId
         `Prelude.hashWithSalt` endpointState

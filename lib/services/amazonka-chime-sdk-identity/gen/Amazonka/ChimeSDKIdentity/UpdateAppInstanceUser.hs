@@ -121,7 +121,8 @@ instance Core.AWSRequest UpdateAppInstanceUser where
 
 instance Prelude.Hashable UpdateAppInstanceUser where
   hashWithSalt _salt UpdateAppInstanceUser' {..} =
-    _salt `Prelude.hashWithSalt` appInstanceUserArn
+    _salt
+      `Prelude.hashWithSalt` appInstanceUserArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` metadata
 

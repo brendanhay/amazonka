@@ -33,6 +33,9 @@ import Test.Tasty
 --         , requestCreateAppInstanceAdmin $
 --             newCreateAppInstanceAdmin
 --
+--         , requestCreateAppInstanceBot $
+--             newCreateAppInstanceBot
+--
 --         , requestCreateAppInstanceUser $
 --             newCreateAppInstanceUser
 --
@@ -41,6 +44,9 @@ import Test.Tasty
 --
 --         , requestDeleteAppInstanceAdmin $
 --             newDeleteAppInstanceAdmin
+--
+--         , requestDeleteAppInstanceBot $
+--             newDeleteAppInstanceBot
 --
 --         , requestDeleteAppInstanceUser $
 --             newDeleteAppInstanceUser
@@ -54,6 +60,9 @@ import Test.Tasty
 --         , requestDescribeAppInstanceAdmin $
 --             newDescribeAppInstanceAdmin
 --
+--         , requestDescribeAppInstanceBot $
+--             newDescribeAppInstanceBot
+--
 --         , requestDescribeAppInstanceUser $
 --             newDescribeAppInstanceUser
 --
@@ -65,6 +74,9 @@ import Test.Tasty
 --
 --         , requestListAppInstanceAdmins $
 --             newListAppInstanceAdmins
+--
+--         , requestListAppInstanceBots $
+--             newListAppInstanceBots
 --
 --         , requestListAppInstanceUserEndpoints $
 --             newListAppInstanceUserEndpoints
@@ -81,6 +93,9 @@ import Test.Tasty
 --         , requestPutAppInstanceRetentionSettings $
 --             newPutAppInstanceRetentionSettings
 --
+--         , requestPutAppInstanceUserExpirationSettings $
+--             newPutAppInstanceUserExpirationSettings
+--
 --         , requestRegisterAppInstanceUserEndpoint $
 --             newRegisterAppInstanceUserEndpoint
 --
@@ -92,6 +107,9 @@ import Test.Tasty
 --
 --         , requestUpdateAppInstance $
 --             newUpdateAppInstance
+--
+--         , requestUpdateAppInstanceBot $
+--             newUpdateAppInstanceBot
 --
 --         , requestUpdateAppInstanceUser $
 --             newUpdateAppInstanceUser
@@ -108,6 +126,9 @@ import Test.Tasty
 --         , responseCreateAppInstanceAdmin $
 --             newCreateAppInstanceAdminResponse
 --
+--         , responseCreateAppInstanceBot $
+--             newCreateAppInstanceBotResponse
+--
 --         , responseCreateAppInstanceUser $
 --             newCreateAppInstanceUserResponse
 --
@@ -116,6 +137,9 @@ import Test.Tasty
 --
 --         , responseDeleteAppInstanceAdmin $
 --             newDeleteAppInstanceAdminResponse
+--
+--         , responseDeleteAppInstanceBot $
+--             newDeleteAppInstanceBotResponse
 --
 --         , responseDeleteAppInstanceUser $
 --             newDeleteAppInstanceUserResponse
@@ -129,6 +153,9 @@ import Test.Tasty
 --         , responseDescribeAppInstanceAdmin $
 --             newDescribeAppInstanceAdminResponse
 --
+--         , responseDescribeAppInstanceBot $
+--             newDescribeAppInstanceBotResponse
+--
 --         , responseDescribeAppInstanceUser $
 --             newDescribeAppInstanceUserResponse
 --
@@ -140,6 +167,9 @@ import Test.Tasty
 --
 --         , responseListAppInstanceAdmins $
 --             newListAppInstanceAdminsResponse
+--
+--         , responseListAppInstanceBots $
+--             newListAppInstanceBotsResponse
 --
 --         , responseListAppInstanceUserEndpoints $
 --             newListAppInstanceUserEndpointsResponse
@@ -156,6 +186,9 @@ import Test.Tasty
 --         , responsePutAppInstanceRetentionSettings $
 --             newPutAppInstanceRetentionSettingsResponse
 --
+--         , responsePutAppInstanceUserExpirationSettings $
+--             newPutAppInstanceUserExpirationSettingsResponse
+--
 --         , responseRegisterAppInstanceUserEndpoint $
 --             newRegisterAppInstanceUserEndpointResponse
 --
@@ -167,6 +200,9 @@ import Test.Tasty
 --
 --         , responseUpdateAppInstance $
 --             newUpdateAppInstanceResponse
+--
+--         , responseUpdateAppInstanceBot $
+--             newUpdateAppInstanceBotResponse
 --
 --         , responseUpdateAppInstanceUser $
 --             newUpdateAppInstanceUserResponse
@@ -191,6 +227,12 @@ requestCreateAppInstanceAdmin =
     "CreateAppInstanceAdmin"
     "fixture/CreateAppInstanceAdmin.yaml"
 
+requestCreateAppInstanceBot :: CreateAppInstanceBot -> TestTree
+requestCreateAppInstanceBot =
+  req
+    "CreateAppInstanceBot"
+    "fixture/CreateAppInstanceBot.yaml"
+
 requestCreateAppInstanceUser :: CreateAppInstanceUser -> TestTree
 requestCreateAppInstanceUser =
   req
@@ -208,6 +250,12 @@ requestDeleteAppInstanceAdmin =
   req
     "DeleteAppInstanceAdmin"
     "fixture/DeleteAppInstanceAdmin.yaml"
+
+requestDeleteAppInstanceBot :: DeleteAppInstanceBot -> TestTree
+requestDeleteAppInstanceBot =
+  req
+    "DeleteAppInstanceBot"
+    "fixture/DeleteAppInstanceBot.yaml"
 
 requestDeleteAppInstanceUser :: DeleteAppInstanceUser -> TestTree
 requestDeleteAppInstanceUser =
@@ -233,6 +281,12 @@ requestDescribeAppInstanceAdmin =
     "DescribeAppInstanceAdmin"
     "fixture/DescribeAppInstanceAdmin.yaml"
 
+requestDescribeAppInstanceBot :: DescribeAppInstanceBot -> TestTree
+requestDescribeAppInstanceBot =
+  req
+    "DescribeAppInstanceBot"
+    "fixture/DescribeAppInstanceBot.yaml"
+
 requestDescribeAppInstanceUser :: DescribeAppInstanceUser -> TestTree
 requestDescribeAppInstanceUser =
   req
@@ -256,6 +310,12 @@ requestListAppInstanceAdmins =
   req
     "ListAppInstanceAdmins"
     "fixture/ListAppInstanceAdmins.yaml"
+
+requestListAppInstanceBots :: ListAppInstanceBots -> TestTree
+requestListAppInstanceBots =
+  req
+    "ListAppInstanceBots"
+    "fixture/ListAppInstanceBots.yaml"
 
 requestListAppInstanceUserEndpoints :: ListAppInstanceUserEndpoints -> TestTree
 requestListAppInstanceUserEndpoints =
@@ -287,6 +347,12 @@ requestPutAppInstanceRetentionSettings =
     "PutAppInstanceRetentionSettings"
     "fixture/PutAppInstanceRetentionSettings.yaml"
 
+requestPutAppInstanceUserExpirationSettings :: PutAppInstanceUserExpirationSettings -> TestTree
+requestPutAppInstanceUserExpirationSettings =
+  req
+    "PutAppInstanceUserExpirationSettings"
+    "fixture/PutAppInstanceUserExpirationSettings.yaml"
+
 requestRegisterAppInstanceUserEndpoint :: RegisterAppInstanceUserEndpoint -> TestTree
 requestRegisterAppInstanceUserEndpoint =
   req
@@ -310,6 +376,12 @@ requestUpdateAppInstance =
   req
     "UpdateAppInstance"
     "fixture/UpdateAppInstance.yaml"
+
+requestUpdateAppInstanceBot :: UpdateAppInstanceBot -> TestTree
+requestUpdateAppInstanceBot =
+  req
+    "UpdateAppInstanceBot"
+    "fixture/UpdateAppInstanceBot.yaml"
 
 requestUpdateAppInstanceUser :: UpdateAppInstanceUser -> TestTree
 requestUpdateAppInstanceUser =
@@ -341,6 +413,14 @@ responseCreateAppInstanceAdmin =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateAppInstanceAdmin)
 
+responseCreateAppInstanceBot :: CreateAppInstanceBotResponse -> TestTree
+responseCreateAppInstanceBot =
+  res
+    "CreateAppInstanceBotResponse"
+    "fixture/CreateAppInstanceBotResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateAppInstanceBot)
+
 responseCreateAppInstanceUser :: CreateAppInstanceUserResponse -> TestTree
 responseCreateAppInstanceUser =
   res
@@ -364,6 +444,14 @@ responseDeleteAppInstanceAdmin =
     "fixture/DeleteAppInstanceAdminResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteAppInstanceAdmin)
+
+responseDeleteAppInstanceBot :: DeleteAppInstanceBotResponse -> TestTree
+responseDeleteAppInstanceBot =
+  res
+    "DeleteAppInstanceBotResponse"
+    "fixture/DeleteAppInstanceBotResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppInstanceBot)
 
 responseDeleteAppInstanceUser :: DeleteAppInstanceUserResponse -> TestTree
 responseDeleteAppInstanceUser =
@@ -397,6 +485,14 @@ responseDescribeAppInstanceAdmin =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAppInstanceAdmin)
 
+responseDescribeAppInstanceBot :: DescribeAppInstanceBotResponse -> TestTree
+responseDescribeAppInstanceBot =
+  res
+    "DescribeAppInstanceBotResponse"
+    "fixture/DescribeAppInstanceBotResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstanceBot)
+
 responseDescribeAppInstanceUser :: DescribeAppInstanceUserResponse -> TestTree
 responseDescribeAppInstanceUser =
   res
@@ -428,6 +524,14 @@ responseListAppInstanceAdmins =
     "fixture/ListAppInstanceAdminsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAppInstanceAdmins)
+
+responseListAppInstanceBots :: ListAppInstanceBotsResponse -> TestTree
+responseListAppInstanceBots =
+  res
+    "ListAppInstanceBotsResponse"
+    "fixture/ListAppInstanceBotsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAppInstanceBots)
 
 responseListAppInstanceUserEndpoints :: ListAppInstanceUserEndpointsResponse -> TestTree
 responseListAppInstanceUserEndpoints =
@@ -469,6 +573,14 @@ responsePutAppInstanceRetentionSettings =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutAppInstanceRetentionSettings)
 
+responsePutAppInstanceUserExpirationSettings :: PutAppInstanceUserExpirationSettingsResponse -> TestTree
+responsePutAppInstanceUserExpirationSettings =
+  res
+    "PutAppInstanceUserExpirationSettingsResponse"
+    "fixture/PutAppInstanceUserExpirationSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutAppInstanceUserExpirationSettings)
+
 responseRegisterAppInstanceUserEndpoint :: RegisterAppInstanceUserEndpointResponse -> TestTree
 responseRegisterAppInstanceUserEndpoint =
   res
@@ -500,6 +612,14 @@ responseUpdateAppInstance =
     "fixture/UpdateAppInstanceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateAppInstance)
+
+responseUpdateAppInstanceBot :: UpdateAppInstanceBotResponse -> TestTree
+responseUpdateAppInstanceBot =
+  res
+    "UpdateAppInstanceBotResponse"
+    "fixture/UpdateAppInstanceBotResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAppInstanceBot)
 
 responseUpdateAppInstanceUser :: UpdateAppInstanceUserResponse -> TestTree
 responseUpdateAppInstanceUser =

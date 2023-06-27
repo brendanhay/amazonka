@@ -33,6 +33,9 @@ module Amazonka.ChimeSDKIdentity
     -- ** ForbiddenException
     _ForbiddenException,
 
+    -- ** NotFoundException
+    _NotFoundException,
+
     -- ** ResourceLimitExceededException
     _ResourceLimitExceededException,
 
@@ -66,6 +69,12 @@ module Amazonka.ChimeSDKIdentity
     CreateAppInstanceAdminResponse (CreateAppInstanceAdminResponse'),
     newCreateAppInstanceAdminResponse,
 
+    -- ** CreateAppInstanceBot
+    CreateAppInstanceBot (CreateAppInstanceBot'),
+    newCreateAppInstanceBot,
+    CreateAppInstanceBotResponse (CreateAppInstanceBotResponse'),
+    newCreateAppInstanceBotResponse,
+
     -- ** CreateAppInstanceUser
     CreateAppInstanceUser (CreateAppInstanceUser'),
     newCreateAppInstanceUser,
@@ -83,6 +92,12 @@ module Amazonka.ChimeSDKIdentity
     newDeleteAppInstanceAdmin,
     DeleteAppInstanceAdminResponse (DeleteAppInstanceAdminResponse'),
     newDeleteAppInstanceAdminResponse,
+
+    -- ** DeleteAppInstanceBot
+    DeleteAppInstanceBot (DeleteAppInstanceBot'),
+    newDeleteAppInstanceBot,
+    DeleteAppInstanceBotResponse (DeleteAppInstanceBotResponse'),
+    newDeleteAppInstanceBotResponse,
 
     -- ** DeleteAppInstanceUser
     DeleteAppInstanceUser (DeleteAppInstanceUser'),
@@ -108,6 +123,12 @@ module Amazonka.ChimeSDKIdentity
     DescribeAppInstanceAdminResponse (DescribeAppInstanceAdminResponse'),
     newDescribeAppInstanceAdminResponse,
 
+    -- ** DescribeAppInstanceBot
+    DescribeAppInstanceBot (DescribeAppInstanceBot'),
+    newDescribeAppInstanceBot,
+    DescribeAppInstanceBotResponse (DescribeAppInstanceBotResponse'),
+    newDescribeAppInstanceBotResponse,
+
     -- ** DescribeAppInstanceUser
     DescribeAppInstanceUser (DescribeAppInstanceUser'),
     newDescribeAppInstanceUser,
@@ -131,6 +152,12 @@ module Amazonka.ChimeSDKIdentity
     newListAppInstanceAdmins,
     ListAppInstanceAdminsResponse (ListAppInstanceAdminsResponse'),
     newListAppInstanceAdminsResponse,
+
+    -- ** ListAppInstanceBots
+    ListAppInstanceBots (ListAppInstanceBots'),
+    newListAppInstanceBots,
+    ListAppInstanceBotsResponse (ListAppInstanceBotsResponse'),
+    newListAppInstanceBotsResponse,
 
     -- ** ListAppInstanceUserEndpoints
     ListAppInstanceUserEndpoints (ListAppInstanceUserEndpoints'),
@@ -162,6 +189,12 @@ module Amazonka.ChimeSDKIdentity
     PutAppInstanceRetentionSettingsResponse (PutAppInstanceRetentionSettingsResponse'),
     newPutAppInstanceRetentionSettingsResponse,
 
+    -- ** PutAppInstanceUserExpirationSettings
+    PutAppInstanceUserExpirationSettings (PutAppInstanceUserExpirationSettings'),
+    newPutAppInstanceUserExpirationSettings,
+    PutAppInstanceUserExpirationSettingsResponse (PutAppInstanceUserExpirationSettingsResponse'),
+    newPutAppInstanceUserExpirationSettingsResponse,
+
     -- ** RegisterAppInstanceUserEndpoint
     RegisterAppInstanceUserEndpoint (RegisterAppInstanceUserEndpoint'),
     newRegisterAppInstanceUserEndpoint,
@@ -185,6 +218,12 @@ module Amazonka.ChimeSDKIdentity
     newUpdateAppInstance,
     UpdateAppInstanceResponse (UpdateAppInstanceResponse'),
     newUpdateAppInstanceResponse,
+
+    -- ** UpdateAppInstanceBot
+    UpdateAppInstanceBot (UpdateAppInstanceBot'),
+    newUpdateAppInstanceBot,
+    UpdateAppInstanceBotResponse (UpdateAppInstanceBotResponse'),
+    newUpdateAppInstanceBotResponse,
 
     -- ** UpdateAppInstanceUser
     UpdateAppInstanceUser (UpdateAppInstanceUser'),
@@ -212,6 +251,18 @@ module Amazonka.ChimeSDKIdentity
     -- ** EndpointStatusReason
     EndpointStatusReason (..),
 
+    -- ** ExpirationCriterion
+    ExpirationCriterion (..),
+
+    -- ** RespondsTo
+    RespondsTo (..),
+
+    -- ** StandardMessages
+    StandardMessages (..),
+
+    -- ** TargetedMessages
+    TargetedMessages (..),
+
     -- ** AppInstance
     AppInstance (AppInstance'),
     newAppInstance,
@@ -223,6 +274,14 @@ module Amazonka.ChimeSDKIdentity
     -- ** AppInstanceAdminSummary
     AppInstanceAdminSummary (AppInstanceAdminSummary'),
     newAppInstanceAdminSummary,
+
+    -- ** AppInstanceBot
+    AppInstanceBot (AppInstanceBot'),
+    newAppInstanceBot,
+
+    -- ** AppInstanceBotSummary
+    AppInstanceBotSummary (AppInstanceBotSummary'),
+    newAppInstanceBotSummary,
 
     -- ** AppInstanceRetentionSettings
     AppInstanceRetentionSettings (AppInstanceRetentionSettings'),
@@ -252,6 +311,10 @@ module Amazonka.ChimeSDKIdentity
     ChannelRetentionSettings (ChannelRetentionSettings'),
     newChannelRetentionSettings,
 
+    -- ** Configuration
+    Configuration (Configuration'),
+    newConfiguration,
+
     -- ** EndpointAttributes
     EndpointAttributes (EndpointAttributes'),
     newEndpointAttributes,
@@ -260,9 +323,21 @@ module Amazonka.ChimeSDKIdentity
     EndpointState (EndpointState'),
     newEndpointState,
 
+    -- ** ExpirationSettings
+    ExpirationSettings (ExpirationSettings'),
+    newExpirationSettings,
+
     -- ** Identity
     Identity (Identity'),
     newIdentity,
+
+    -- ** InvokedBy
+    InvokedBy (InvokedBy'),
+    newInvokedBy,
+
+    -- ** LexConfiguration
+    LexConfiguration (LexConfiguration'),
+    newLexConfiguration,
 
     -- ** Tag
     Tag (Tag'),
@@ -272,28 +347,34 @@ where
 
 import Amazonka.ChimeSDKIdentity.CreateAppInstance
 import Amazonka.ChimeSDKIdentity.CreateAppInstanceAdmin
+import Amazonka.ChimeSDKIdentity.CreateAppInstanceBot
 import Amazonka.ChimeSDKIdentity.CreateAppInstanceUser
 import Amazonka.ChimeSDKIdentity.DeleteAppInstance
 import Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin
+import Amazonka.ChimeSDKIdentity.DeleteAppInstanceBot
 import Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser
 import Amazonka.ChimeSDKIdentity.DeregisterAppInstanceUserEndpoint
 import Amazonka.ChimeSDKIdentity.DescribeAppInstance
 import Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin
+import Amazonka.ChimeSDKIdentity.DescribeAppInstanceBot
 import Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser
 import Amazonka.ChimeSDKIdentity.DescribeAppInstanceUserEndpoint
 import Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings
 import Amazonka.ChimeSDKIdentity.Lens
 import Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins
+import Amazonka.ChimeSDKIdentity.ListAppInstanceBots
 import Amazonka.ChimeSDKIdentity.ListAppInstanceUserEndpoints
 import Amazonka.ChimeSDKIdentity.ListAppInstanceUsers
 import Amazonka.ChimeSDKIdentity.ListAppInstances
 import Amazonka.ChimeSDKIdentity.ListTagsForResource
 import Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings
+import Amazonka.ChimeSDKIdentity.PutAppInstanceUserExpirationSettings
 import Amazonka.ChimeSDKIdentity.RegisterAppInstanceUserEndpoint
 import Amazonka.ChimeSDKIdentity.TagResource
 import Amazonka.ChimeSDKIdentity.Types
 import Amazonka.ChimeSDKIdentity.UntagResource
 import Amazonka.ChimeSDKIdentity.UpdateAppInstance
+import Amazonka.ChimeSDKIdentity.UpdateAppInstanceBot
 import Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser
 import Amazonka.ChimeSDKIdentity.UpdateAppInstanceUserEndpoint
 import Amazonka.ChimeSDKIdentity.Waiters

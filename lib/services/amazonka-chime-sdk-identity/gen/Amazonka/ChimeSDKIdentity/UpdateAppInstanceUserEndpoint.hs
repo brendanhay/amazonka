@@ -61,9 +61,9 @@ data UpdateAppInstanceUserEndpoint = UpdateAppInstanceUserEndpoint'
     -- | The name of the @AppInstanceUserEndpoint@.
     name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the @AppInstanceUser@.
-    appInstanceUserArn :: Data.Sensitive Prelude.Text,
+    appInstanceUserArn :: Prelude.Text,
     -- | The unique identifier of the @AppInstanceUserEndpoint@.
-    endpointId :: Data.Sensitive Prelude.Text
+    endpointId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -97,11 +97,8 @@ newUpdateAppInstanceUserEndpoint
       { allowMessages =
           Prelude.Nothing,
         name = Prelude.Nothing,
-        appInstanceUserArn =
-          Data._Sensitive
-            Lens.# pAppInstanceUserArn_,
-        endpointId =
-          Data._Sensitive Lens.# pEndpointId_
+        appInstanceUserArn = pAppInstanceUserArn_,
+        endpointId = pEndpointId_
       }
 
 -- | Boolean that controls whether the @AppInstanceUserEndpoint@ is opted in
@@ -116,11 +113,11 @@ updateAppInstanceUserEndpoint_name = Lens.lens (\UpdateAppInstanceUserEndpoint' 
 
 -- | The ARN of the @AppInstanceUser@.
 updateAppInstanceUserEndpoint_appInstanceUserArn :: Lens.Lens' UpdateAppInstanceUserEndpoint Prelude.Text
-updateAppInstanceUserEndpoint_appInstanceUserArn = Lens.lens (\UpdateAppInstanceUserEndpoint' {appInstanceUserArn} -> appInstanceUserArn) (\s@UpdateAppInstanceUserEndpoint' {} a -> s {appInstanceUserArn = a} :: UpdateAppInstanceUserEndpoint) Prelude.. Data._Sensitive
+updateAppInstanceUserEndpoint_appInstanceUserArn = Lens.lens (\UpdateAppInstanceUserEndpoint' {appInstanceUserArn} -> appInstanceUserArn) (\s@UpdateAppInstanceUserEndpoint' {} a -> s {appInstanceUserArn = a} :: UpdateAppInstanceUserEndpoint)
 
 -- | The unique identifier of the @AppInstanceUserEndpoint@.
 updateAppInstanceUserEndpoint_endpointId :: Lens.Lens' UpdateAppInstanceUserEndpoint Prelude.Text
-updateAppInstanceUserEndpoint_endpointId = Lens.lens (\UpdateAppInstanceUserEndpoint' {endpointId} -> endpointId) (\s@UpdateAppInstanceUserEndpoint' {} a -> s {endpointId = a} :: UpdateAppInstanceUserEndpoint) Prelude.. Data._Sensitive
+updateAppInstanceUserEndpoint_endpointId = Lens.lens (\UpdateAppInstanceUserEndpoint' {endpointId} -> endpointId) (\s@UpdateAppInstanceUserEndpoint' {} a -> s {endpointId = a} :: UpdateAppInstanceUserEndpoint)
 
 instance
   Core.AWSRequest
@@ -145,7 +142,8 @@ instance
     UpdateAppInstanceUserEndpoint
   where
   hashWithSalt _salt UpdateAppInstanceUserEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` allowMessages
+    _salt
+      `Prelude.hashWithSalt` allowMessages
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` appInstanceUserArn
       `Prelude.hashWithSalt` endpointId
@@ -184,13 +182,13 @@ instance Data.ToQuery UpdateAppInstanceUserEndpoint where
 -- | /See:/ 'newUpdateAppInstanceUserEndpointResponse' smart constructor.
 data UpdateAppInstanceUserEndpointResponse = UpdateAppInstanceUserEndpointResponse'
   { -- | The ARN of the @AppInstanceUser@.
-    appInstanceUserArn :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    appInstanceUserArn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the @AppInstanceUserEndpoint@.
-    endpointId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    endpointId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAppInstanceUserEndpointResponse' with all optional fields omitted.
@@ -219,11 +217,11 @@ newUpdateAppInstanceUserEndpointResponse pHttpStatus_ =
 
 -- | The ARN of the @AppInstanceUser@.
 updateAppInstanceUserEndpointResponse_appInstanceUserArn :: Lens.Lens' UpdateAppInstanceUserEndpointResponse (Prelude.Maybe Prelude.Text)
-updateAppInstanceUserEndpointResponse_appInstanceUserArn = Lens.lens (\UpdateAppInstanceUserEndpointResponse' {appInstanceUserArn} -> appInstanceUserArn) (\s@UpdateAppInstanceUserEndpointResponse' {} a -> s {appInstanceUserArn = a} :: UpdateAppInstanceUserEndpointResponse) Prelude.. Lens.mapping Data._Sensitive
+updateAppInstanceUserEndpointResponse_appInstanceUserArn = Lens.lens (\UpdateAppInstanceUserEndpointResponse' {appInstanceUserArn} -> appInstanceUserArn) (\s@UpdateAppInstanceUserEndpointResponse' {} a -> s {appInstanceUserArn = a} :: UpdateAppInstanceUserEndpointResponse)
 
 -- | The unique identifier of the @AppInstanceUserEndpoint@.
 updateAppInstanceUserEndpointResponse_endpointId :: Lens.Lens' UpdateAppInstanceUserEndpointResponse (Prelude.Maybe Prelude.Text)
-updateAppInstanceUserEndpointResponse_endpointId = Lens.lens (\UpdateAppInstanceUserEndpointResponse' {endpointId} -> endpointId) (\s@UpdateAppInstanceUserEndpointResponse' {} a -> s {endpointId = a} :: UpdateAppInstanceUserEndpointResponse) Prelude.. Lens.mapping Data._Sensitive
+updateAppInstanceUserEndpointResponse_endpointId = Lens.lens (\UpdateAppInstanceUserEndpointResponse' {endpointId} -> endpointId) (\s@UpdateAppInstanceUserEndpointResponse' {} a -> s {endpointId = a} :: UpdateAppInstanceUserEndpointResponse)
 
 -- | The response's http status code.
 updateAppInstanceUserEndpointResponse_httpStatus :: Lens.Lens' UpdateAppInstanceUserEndpointResponse Prelude.Int

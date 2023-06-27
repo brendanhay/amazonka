@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Demotes an @AppInstanceAdmin@ to an @AppInstanceUser@. This action does
--- not delete the user.
+-- Demotes an @AppInstanceAdmin@ to an @AppInstanceUser@ or
+-- @AppInstanceBot@. This action does not delete the user.
 module Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin
   ( -- * Creating a Request
     DeleteAppInstanceAdmin (..),
@@ -100,7 +100,8 @@ instance Core.AWSRequest DeleteAppInstanceAdmin where
 
 instance Prelude.Hashable DeleteAppInstanceAdmin where
   hashWithSalt _salt DeleteAppInstanceAdmin' {..} =
-    _salt `Prelude.hashWithSalt` appInstanceAdminArn
+    _salt
+      `Prelude.hashWithSalt` appInstanceAdminArn
       `Prelude.hashWithSalt` appInstanceArn
 
 instance Prelude.NFData DeleteAppInstanceAdmin where

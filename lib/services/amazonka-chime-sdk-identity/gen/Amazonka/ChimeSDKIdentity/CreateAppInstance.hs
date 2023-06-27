@@ -58,12 +58,13 @@ import qualified Amazonka.Response as Response
 data CreateAppInstance = CreateAppInstance'
   { -- | The metadata of the @AppInstance@. Limited to a 1KB string in UTF-8.
     metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | Tags assigned to the @AppInstanceUser@.
+    -- | Tags assigned to the @AppInstance@.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The name of the @AppInstance@.
     name :: Data.Sensitive Prelude.Text,
-    -- | The @ClientRequestToken@ of the @AppInstance@.
-    clientRequestToken :: Data.Sensitive Prelude.Text
+    -- | The unique ID of the request. Use different tokens to create different
+    -- @AppInstances@.
+    clientRequestToken :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -77,11 +78,12 @@ data CreateAppInstance = CreateAppInstance'
 --
 -- 'metadata', 'createAppInstance_metadata' - The metadata of the @AppInstance@. Limited to a 1KB string in UTF-8.
 --
--- 'tags', 'createAppInstance_tags' - Tags assigned to the @AppInstanceUser@.
+-- 'tags', 'createAppInstance_tags' - Tags assigned to the @AppInstance@.
 --
 -- 'name', 'createAppInstance_name' - The name of the @AppInstance@.
 --
--- 'clientRequestToken', 'createAppInstance_clientRequestToken' - The @ClientRequestToken@ of the @AppInstance@.
+-- 'clientRequestToken', 'createAppInstance_clientRequestToken' - The unique ID of the request. Use different tokens to create different
+-- @AppInstances@.
 newCreateAppInstance ::
   -- | 'name'
   Prelude.Text ->
@@ -93,15 +95,14 @@ newCreateAppInstance pName_ pClientRequestToken_ =
     { metadata = Prelude.Nothing,
       tags = Prelude.Nothing,
       name = Data._Sensitive Lens.# pName_,
-      clientRequestToken =
-        Data._Sensitive Lens.# pClientRequestToken_
+      clientRequestToken = pClientRequestToken_
     }
 
 -- | The metadata of the @AppInstance@. Limited to a 1KB string in UTF-8.
 createAppInstance_metadata :: Lens.Lens' CreateAppInstance (Prelude.Maybe Prelude.Text)
 createAppInstance_metadata = Lens.lens (\CreateAppInstance' {metadata} -> metadata) (\s@CreateAppInstance' {} a -> s {metadata = a} :: CreateAppInstance) Prelude.. Lens.mapping Data._Sensitive
 
--- | Tags assigned to the @AppInstanceUser@.
+-- | Tags assigned to the @AppInstance@.
 createAppInstance_tags :: Lens.Lens' CreateAppInstance (Prelude.Maybe (Prelude.NonEmpty Tag))
 createAppInstance_tags = Lens.lens (\CreateAppInstance' {tags} -> tags) (\s@CreateAppInstance' {} a -> s {tags = a} :: CreateAppInstance) Prelude.. Lens.mapping Lens.coerced
 
@@ -109,9 +110,10 @@ createAppInstance_tags = Lens.lens (\CreateAppInstance' {tags} -> tags) (\s@Crea
 createAppInstance_name :: Lens.Lens' CreateAppInstance Prelude.Text
 createAppInstance_name = Lens.lens (\CreateAppInstance' {name} -> name) (\s@CreateAppInstance' {} a -> s {name = a} :: CreateAppInstance) Prelude.. Data._Sensitive
 
--- | The @ClientRequestToken@ of the @AppInstance@.
+-- | The unique ID of the request. Use different tokens to create different
+-- @AppInstances@.
 createAppInstance_clientRequestToken :: Lens.Lens' CreateAppInstance Prelude.Text
-createAppInstance_clientRequestToken = Lens.lens (\CreateAppInstance' {clientRequestToken} -> clientRequestToken) (\s@CreateAppInstance' {} a -> s {clientRequestToken = a} :: CreateAppInstance) Prelude.. Data._Sensitive
+createAppInstance_clientRequestToken = Lens.lens (\CreateAppInstance' {clientRequestToken} -> clientRequestToken) (\s@CreateAppInstance' {} a -> s {clientRequestToken = a} :: CreateAppInstance)
 
 instance Core.AWSRequest CreateAppInstance where
   type
@@ -129,7 +131,8 @@ instance Core.AWSRequest CreateAppInstance where
 
 instance Prelude.Hashable CreateAppInstance where
   hashWithSalt _salt CreateAppInstance' {..} =
-    _salt `Prelude.hashWithSalt` metadata
+    _salt
+      `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` clientRequestToken

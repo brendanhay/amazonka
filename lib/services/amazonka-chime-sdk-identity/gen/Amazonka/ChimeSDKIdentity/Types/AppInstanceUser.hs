@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.ChimeSDKIdentity.Types.AppInstanceUser where
 
+import Amazonka.ChimeSDKIdentity.Types.ExpirationSettings
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
@@ -32,6 +33,8 @@ data AppInstanceUser = AppInstanceUser'
     appInstanceUserArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which the @AppInstanceUser@ was created.
     createdTimestamp :: Prelude.Maybe Data.POSIX,
+    -- | The interval after which an @AppInstanceUser@ is automatically deleted.
+    expirationSettings :: Prelude.Maybe ExpirationSettings,
     -- | The time at which the @AppInstanceUser@ was last updated.
     lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The metadata of the @AppInstanceUser@.
@@ -53,6 +56,8 @@ data AppInstanceUser = AppInstanceUser'
 --
 -- 'createdTimestamp', 'appInstanceUser_createdTimestamp' - The time at which the @AppInstanceUser@ was created.
 --
+-- 'expirationSettings', 'appInstanceUser_expirationSettings' - The interval after which an @AppInstanceUser@ is automatically deleted.
+--
 -- 'lastUpdatedTimestamp', 'appInstanceUser_lastUpdatedTimestamp' - The time at which the @AppInstanceUser@ was last updated.
 --
 -- 'metadata', 'appInstanceUser_metadata' - The metadata of the @AppInstanceUser@.
@@ -65,6 +70,7 @@ newAppInstanceUser =
     { appInstanceUserArn =
         Prelude.Nothing,
       createdTimestamp = Prelude.Nothing,
+      expirationSettings = Prelude.Nothing,
       lastUpdatedTimestamp = Prelude.Nothing,
       metadata = Prelude.Nothing,
       name = Prelude.Nothing
@@ -77,6 +83,10 @@ appInstanceUser_appInstanceUserArn = Lens.lens (\AppInstanceUser' {appInstanceUs
 -- | The time at which the @AppInstanceUser@ was created.
 appInstanceUser_createdTimestamp :: Lens.Lens' AppInstanceUser (Prelude.Maybe Prelude.UTCTime)
 appInstanceUser_createdTimestamp = Lens.lens (\AppInstanceUser' {createdTimestamp} -> createdTimestamp) (\s@AppInstanceUser' {} a -> s {createdTimestamp = a} :: AppInstanceUser) Prelude.. Lens.mapping Data._Time
+
+-- | The interval after which an @AppInstanceUser@ is automatically deleted.
+appInstanceUser_expirationSettings :: Lens.Lens' AppInstanceUser (Prelude.Maybe ExpirationSettings)
+appInstanceUser_expirationSettings = Lens.lens (\AppInstanceUser' {expirationSettings} -> expirationSettings) (\s@AppInstanceUser' {} a -> s {expirationSettings = a} :: AppInstanceUser)
 
 -- | The time at which the @AppInstanceUser@ was last updated.
 appInstanceUser_lastUpdatedTimestamp :: Lens.Lens' AppInstanceUser (Prelude.Maybe Prelude.UTCTime)
@@ -98,6 +108,7 @@ instance Data.FromJSON AppInstanceUser where
           AppInstanceUser'
             Prelude.<$> (x Data..:? "AppInstanceUserArn")
             Prelude.<*> (x Data..:? "CreatedTimestamp")
+            Prelude.<*> (x Data..:? "ExpirationSettings")
             Prelude.<*> (x Data..:? "LastUpdatedTimestamp")
             Prelude.<*> (x Data..:? "Metadata")
             Prelude.<*> (x Data..:? "Name")
@@ -105,8 +116,10 @@ instance Data.FromJSON AppInstanceUser where
 
 instance Prelude.Hashable AppInstanceUser where
   hashWithSalt _salt AppInstanceUser' {..} =
-    _salt `Prelude.hashWithSalt` appInstanceUserArn
+    _salt
+      `Prelude.hashWithSalt` appInstanceUserArn
       `Prelude.hashWithSalt` createdTimestamp
+      `Prelude.hashWithSalt` expirationSettings
       `Prelude.hashWithSalt` lastUpdatedTimestamp
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` name
@@ -115,6 +128,7 @@ instance Prelude.NFData AppInstanceUser where
   rnf AppInstanceUser' {..} =
     Prelude.rnf appInstanceUserArn
       `Prelude.seq` Prelude.rnf createdTimestamp
+      `Prelude.seq` Prelude.rnf expirationSettings
       `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
       `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf name

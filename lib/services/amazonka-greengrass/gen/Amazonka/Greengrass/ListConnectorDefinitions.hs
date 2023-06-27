@@ -96,22 +96,22 @@ instance Core.AWSPager ListConnectorDefinitions where
     | Core.stop
         ( rs
             Lens.^? listConnectorDefinitionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listConnectorDefinitionsResponse_definitions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listConnectorDefinitions_nextToken
           Lens..~ rs
           Lens.^? listConnectorDefinitionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListConnectorDefinitions where
   type
@@ -130,7 +130,8 @@ instance Core.AWSRequest ListConnectorDefinitions where
 
 instance Prelude.Hashable ListConnectorDefinitions where
   hashWithSalt _salt ListConnectorDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListConnectorDefinitions where

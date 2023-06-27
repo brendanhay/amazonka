@@ -135,7 +135,8 @@ instance Core.AWSRequest CreateLoggerDefinition where
 
 instance Prelude.Hashable CreateLoggerDefinition where
   hashWithSalt _salt CreateLoggerDefinition' {..} =
-    _salt `Prelude.hashWithSalt` amznClientToken
+    _salt
+      `Prelude.hashWithSalt` amznClientToken
       `Prelude.hashWithSalt` initialVersion
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags

@@ -136,7 +136,8 @@ instance Core.AWSRequest CreateGroup where
 
 instance Prelude.Hashable CreateGroup where
   hashWithSalt _salt CreateGroup' {..} =
-    _salt `Prelude.hashWithSalt` amznClientToken
+    _salt
+      `Prelude.hashWithSalt` amznClientToken
       `Prelude.hashWithSalt` initialVersion
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

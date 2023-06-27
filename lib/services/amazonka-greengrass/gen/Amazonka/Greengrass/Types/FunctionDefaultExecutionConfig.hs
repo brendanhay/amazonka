@@ -80,7 +80,8 @@ instance
   hashWithSalt
     _salt
     FunctionDefaultExecutionConfig' {..} =
-      _salt `Prelude.hashWithSalt` isolationMode
+      _salt
+        `Prelude.hashWithSalt` isolationMode
         `Prelude.hashWithSalt` runAs
 
 instance

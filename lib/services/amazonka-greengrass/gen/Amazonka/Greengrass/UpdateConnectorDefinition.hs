@@ -100,7 +100,8 @@ instance Core.AWSRequest UpdateConnectorDefinition where
 
 instance Prelude.Hashable UpdateConnectorDefinition where
   hashWithSalt _salt UpdateConnectorDefinition' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` connectorDefinitionId
 
 instance Prelude.NFData UpdateConnectorDefinition where

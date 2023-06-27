@@ -83,7 +83,8 @@ instance Data.FromJSON FunctionDefinitionVersion where
 
 instance Prelude.Hashable FunctionDefinitionVersion where
   hashWithSalt _salt FunctionDefinitionVersion' {..} =
-    _salt `Prelude.hashWithSalt` defaultConfig
+    _salt
+      `Prelude.hashWithSalt` defaultConfig
       `Prelude.hashWithSalt` functions
 
 instance Prelude.NFData FunctionDefinitionVersion where

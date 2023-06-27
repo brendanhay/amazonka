@@ -94,7 +94,8 @@ instance Data.FromJSON ConnectivityInfo where
 
 instance Prelude.Hashable ConnectivityInfo where
   hashWithSalt _salt ConnectivityInfo' {..} =
-    _salt `Prelude.hashWithSalt` hostAddress
+    _salt
+      `Prelude.hashWithSalt` hostAddress
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` portNumber

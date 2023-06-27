@@ -100,7 +100,8 @@ instance Core.AWSRequest UpdateLoggerDefinition where
 
 instance Prelude.Hashable UpdateLoggerDefinition where
   hashWithSalt _salt UpdateLoggerDefinition' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` loggerDefinitionId
 
 instance Prelude.NFData UpdateLoggerDefinition where

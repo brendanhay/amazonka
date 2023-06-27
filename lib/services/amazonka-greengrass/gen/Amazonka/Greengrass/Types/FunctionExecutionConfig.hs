@@ -75,7 +75,8 @@ instance Data.FromJSON FunctionExecutionConfig where
 
 instance Prelude.Hashable FunctionExecutionConfig where
   hashWithSalt _salt FunctionExecutionConfig' {..} =
-    _salt `Prelude.hashWithSalt` isolationMode
+    _salt
+      `Prelude.hashWithSalt` isolationMode
       `Prelude.hashWithSalt` runAs
 
 instance Prelude.NFData FunctionExecutionConfig where

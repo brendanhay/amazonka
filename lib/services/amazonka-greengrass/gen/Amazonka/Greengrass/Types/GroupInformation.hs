@@ -127,7 +127,8 @@ instance Data.FromJSON GroupInformation where
 
 instance Prelude.Hashable GroupInformation where
   hashWithSalt _salt GroupInformation' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastUpdatedTimestamp

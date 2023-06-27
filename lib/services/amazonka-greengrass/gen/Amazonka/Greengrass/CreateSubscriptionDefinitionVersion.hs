@@ -117,10 +117,10 @@ instance
       ( \s h x ->
           CreateSubscriptionDefinitionVersionResponse'
             Prelude.<$> (x Data..?> "Arn")
-              Prelude.<*> (x Data..?> "CreationTimestamp")
-              Prelude.<*> (x Data..?> "Id")
-              Prelude.<*> (x Data..?> "Version")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "CreationTimestamp")
+            Prelude.<*> (x Data..?> "Id")
+            Prelude.<*> (x Data..?> "Version")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -130,7 +130,8 @@ instance
   hashWithSalt
     _salt
     CreateSubscriptionDefinitionVersion' {..} =
-      _salt `Prelude.hashWithSalt` amznClientToken
+      _salt
+        `Prelude.hashWithSalt` amznClientToken
         `Prelude.hashWithSalt` subscriptions
         `Prelude.hashWithSalt` subscriptionDefinitionId
 

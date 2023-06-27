@@ -87,7 +87,8 @@ instance Data.FromJSON BulkDeployment where
 
 instance Prelude.Hashable BulkDeployment where
   hashWithSalt _salt BulkDeployment' {..} =
-    _salt `Prelude.hashWithSalt` bulkDeploymentArn
+    _salt
+      `Prelude.hashWithSalt` bulkDeploymentArn
       `Prelude.hashWithSalt` bulkDeploymentId
       `Prelude.hashWithSalt` createdAt
 

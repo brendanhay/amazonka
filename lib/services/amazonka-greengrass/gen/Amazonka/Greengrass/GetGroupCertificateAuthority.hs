@@ -115,7 +115,8 @@ instance
     GetGroupCertificateAuthority
   where
   hashWithSalt _salt GetGroupCertificateAuthority' {..} =
-    _salt `Prelude.hashWithSalt` certificateAuthorityId
+    _salt
+      `Prelude.hashWithSalt` certificateAuthorityId
       `Prelude.hashWithSalt` groupId
 
 instance Prelude.NFData GetGroupCertificateAuthority where

@@ -125,7 +125,8 @@ instance
     CreateLoggerDefinitionVersion
   where
   hashWithSalt _salt CreateLoggerDefinitionVersion' {..} =
-    _salt `Prelude.hashWithSalt` amznClientToken
+    _salt
+      `Prelude.hashWithSalt` amznClientToken
       `Prelude.hashWithSalt` loggers
       `Prelude.hashWithSalt` loggerDefinitionId
 

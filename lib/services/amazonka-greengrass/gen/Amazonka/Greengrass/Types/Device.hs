@@ -109,7 +109,8 @@ instance Data.FromJSON Device where
 
 instance Prelude.Hashable Device where
   hashWithSalt _salt Device' {..} =
-    _salt `Prelude.hashWithSalt` syncShadow
+    _salt
+      `Prelude.hashWithSalt` syncShadow
       `Prelude.hashWithSalt` thingArn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` certificateArn

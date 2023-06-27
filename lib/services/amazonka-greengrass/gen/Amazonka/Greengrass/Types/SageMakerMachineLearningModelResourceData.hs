@@ -86,8 +86,8 @@ instance
       ( \x ->
           SageMakerMachineLearningModelResourceData'
             Prelude.<$> (x Data..:? "DestinationPath")
-              Prelude.<*> (x Data..:? "OwnerSetting")
-              Prelude.<*> (x Data..:? "SageMakerJobArn")
+            Prelude.<*> (x Data..:? "OwnerSetting")
+            Prelude.<*> (x Data..:? "SageMakerJobArn")
       )
 
 instance
@@ -97,7 +97,8 @@ instance
   hashWithSalt
     _salt
     SageMakerMachineLearningModelResourceData' {..} =
-      _salt `Prelude.hashWithSalt` destinationPath
+      _salt
+        `Prelude.hashWithSalt` destinationPath
         `Prelude.hashWithSalt` ownerSetting
         `Prelude.hashWithSalt` sageMakerJobArn
 

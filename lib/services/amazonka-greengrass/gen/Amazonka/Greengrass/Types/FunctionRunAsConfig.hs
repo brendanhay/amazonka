@@ -75,12 +75,14 @@ instance Data.FromJSON FunctionRunAsConfig where
       "FunctionRunAsConfig"
       ( \x ->
           FunctionRunAsConfig'
-            Prelude.<$> (x Data..:? "Gid") Prelude.<*> (x Data..:? "Uid")
+            Prelude.<$> (x Data..:? "Gid")
+            Prelude.<*> (x Data..:? "Uid")
       )
 
 instance Prelude.Hashable FunctionRunAsConfig where
   hashWithSalt _salt FunctionRunAsConfig' {..} =
-    _salt `Prelude.hashWithSalt` gid
+    _salt
+      `Prelude.hashWithSalt` gid
       `Prelude.hashWithSalt` uid
 
 instance Prelude.NFData FunctionRunAsConfig where

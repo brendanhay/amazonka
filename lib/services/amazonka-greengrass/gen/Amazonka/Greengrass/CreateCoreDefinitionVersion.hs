@@ -120,7 +120,8 @@ instance Core.AWSRequest CreateCoreDefinitionVersion where
 
 instance Prelude.Hashable CreateCoreDefinitionVersion where
   hashWithSalt _salt CreateCoreDefinitionVersion' {..} =
-    _salt `Prelude.hashWithSalt` amznClientToken
+    _salt
+      `Prelude.hashWithSalt` amznClientToken
       `Prelude.hashWithSalt` cores
       `Prelude.hashWithSalt` coreDefinitionId
 

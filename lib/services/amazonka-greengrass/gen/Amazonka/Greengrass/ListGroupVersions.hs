@@ -107,22 +107,22 @@ instance Core.AWSPager ListGroupVersions where
     | Core.stop
         ( rs
             Lens.^? listGroupVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listGroupVersionsResponse_versions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGroupVersions_nextToken
           Lens..~ rs
           Lens.^? listGroupVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGroupVersions where
   type
@@ -141,7 +141,8 @@ instance Core.AWSRequest ListGroupVersions where
 
 instance Prelude.Hashable ListGroupVersions where
   hashWithSalt _salt ListGroupVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` groupId
 

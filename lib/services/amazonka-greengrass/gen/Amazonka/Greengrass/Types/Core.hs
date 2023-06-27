@@ -109,7 +109,8 @@ instance Data.FromJSON Core where
 
 instance Prelude.Hashable Core where
   hashWithSalt _salt Core' {..} =
-    _salt `Prelude.hashWithSalt` syncShadow
+    _salt
+      `Prelude.hashWithSalt` syncShadow
       `Prelude.hashWithSalt` thingArn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` certificateArn

@@ -93,7 +93,8 @@ instance Data.FromJSON Function where
 
 instance Prelude.Hashable Function where
   hashWithSalt _salt Function' {..} =
-    _salt `Prelude.hashWithSalt` functionArn
+    _salt
+      `Prelude.hashWithSalt` functionArn
       `Prelude.hashWithSalt` functionConfiguration
       `Prelude.hashWithSalt` id
 

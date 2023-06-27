@@ -135,7 +135,8 @@ instance Core.AWSRequest CreateDeviceDefinition where
 
 instance Prelude.Hashable CreateDeviceDefinition where
   hashWithSalt _salt CreateDeviceDefinition' {..} =
-    _salt `Prelude.hashWithSalt` amznClientToken
+    _salt
+      `Prelude.hashWithSalt` amznClientToken
       `Prelude.hashWithSalt` initialVersion
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags

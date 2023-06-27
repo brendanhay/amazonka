@@ -109,7 +109,8 @@ instance Data.FromJSON BulkDeploymentMetrics where
 
 instance Prelude.Hashable BulkDeploymentMetrics where
   hashWithSalt _salt BulkDeploymentMetrics' {..} =
-    _salt `Prelude.hashWithSalt` invalidInputRecords
+    _salt
+      `Prelude.hashWithSalt` invalidInputRecords
       `Prelude.hashWithSalt` recordsProcessed
       `Prelude.hashWithSalt` retryAttempts
 

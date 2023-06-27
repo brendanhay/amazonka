@@ -162,7 +162,8 @@ instance Core.AWSRequest StartBulkDeployment where
 
 instance Prelude.Hashable StartBulkDeployment where
   hashWithSalt _salt StartBulkDeployment' {..} =
-    _salt `Prelude.hashWithSalt` amznClientToken
+    _salt
+      `Prelude.hashWithSalt` amznClientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` inputFileUri

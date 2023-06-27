@@ -140,7 +140,8 @@ instance Data.FromJSON DefinitionInformation where
 
 instance Prelude.Hashable DefinitionInformation where
   hashWithSalt _salt DefinitionInformation' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastUpdatedTimestamp

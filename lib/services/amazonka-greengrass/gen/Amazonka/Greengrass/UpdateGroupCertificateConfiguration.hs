@@ -108,9 +108,9 @@ instance
             Prelude.<$> ( x
                             Data..?> "CertificateAuthorityExpiryInMilliseconds"
                         )
-              Prelude.<*> (x Data..?> "CertificateExpiryInMilliseconds")
-              Prelude.<*> (x Data..?> "GroupId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "CertificateExpiryInMilliseconds")
+            Prelude.<*> (x Data..?> "GroupId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

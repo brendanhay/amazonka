@@ -158,7 +158,8 @@ instance
   hashWithSalt
     _salt
     GetSubscriptionDefinitionVersion' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` subscriptionDefinitionId
         `Prelude.hashWithSalt` subscriptionDefinitionVersionId
 

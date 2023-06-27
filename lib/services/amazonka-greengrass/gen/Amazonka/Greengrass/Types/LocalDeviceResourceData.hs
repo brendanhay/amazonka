@@ -82,7 +82,8 @@ instance Data.FromJSON LocalDeviceResourceData where
 
 instance Prelude.Hashable LocalDeviceResourceData where
   hashWithSalt _salt LocalDeviceResourceData' {..} =
-    _salt `Prelude.hashWithSalt` groupOwnerSetting
+    _salt
+      `Prelude.hashWithSalt` groupOwnerSetting
       `Prelude.hashWithSalt` sourcePath
 
 instance Prelude.NFData LocalDeviceResourceData where

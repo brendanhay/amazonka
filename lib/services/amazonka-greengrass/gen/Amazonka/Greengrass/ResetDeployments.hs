@@ -117,7 +117,8 @@ instance Core.AWSRequest ResetDeployments where
 
 instance Prelude.Hashable ResetDeployments where
   hashWithSalt _salt ResetDeployments' {..} =
-    _salt `Prelude.hashWithSalt` amznClientToken
+    _salt
+      `Prelude.hashWithSalt` amznClientToken
       `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` groupId
 

@@ -122,7 +122,8 @@ instance Core.AWSRequest UpdateCertificate where
 
 instance Prelude.Hashable UpdateCertificate where
   hashWithSalt _salt UpdateCertificate' {..} =
-    _salt `Prelude.hashWithSalt` activeDate
+    _salt
+      `Prelude.hashWithSalt` activeDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` inactiveDate
       `Prelude.hashWithSalt` certificateId

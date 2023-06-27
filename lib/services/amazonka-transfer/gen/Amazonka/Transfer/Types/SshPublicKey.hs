@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the public Secure Shell (SSH) key that is
--- associated with a user account for the specific file transfer
+-- associated with a Transfer Family user for the specific file transfer
 -- protocol-enabled server (as identified by @ServerId@). The information
 -- returned includes the date the key was imported, the public key
 -- contents, and the public key ID. A user can store more than one SSH
@@ -33,7 +33,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSshPublicKey' smart constructor.
 data SshPublicKey = SshPublicKey'
-  { -- | Specifies the date that the public key was added to the user account.
+  { -- | Specifies the date that the public key was added to the Transfer Family
+    -- user.
     dateImported :: Data.POSIX,
     -- | Specifies the content of the SSH public key as specified by the
     -- @PublicKeyId@.
@@ -54,7 +55,8 @@ data SshPublicKey = SshPublicKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dateImported', 'sshPublicKey_dateImported' - Specifies the date that the public key was added to the user account.
+-- 'dateImported', 'sshPublicKey_dateImported' - Specifies the date that the public key was added to the Transfer Family
+-- user.
 --
 -- 'sshPublicKeyBody', 'sshPublicKey_sshPublicKeyBody' - Specifies the content of the SSH public key as specified by the
 -- @PublicKeyId@.
@@ -82,7 +84,8 @@ newSshPublicKey
         sshPublicKeyId = pSshPublicKeyId_
       }
 
--- | Specifies the date that the public key was added to the user account.
+-- | Specifies the date that the public key was added to the Transfer Family
+-- user.
 sshPublicKey_dateImported :: Lens.Lens' SshPublicKey Prelude.UTCTime
 sshPublicKey_dateImported = Lens.lens (\SshPublicKey' {dateImported} -> dateImported) (\s@SshPublicKey' {} a -> s {dateImported = a} :: SshPublicKey) Prelude.. Data._Time
 
@@ -111,7 +114,8 @@ instance Data.FromJSON SshPublicKey where
 
 instance Prelude.Hashable SshPublicKey where
   hashWithSalt _salt SshPublicKey' {..} =
-    _salt `Prelude.hashWithSalt` dateImported
+    _salt
+      `Prelude.hashWithSalt` dateImported
       `Prelude.hashWithSalt` sshPublicKeyBody
       `Prelude.hashWithSalt` sshPublicKeyId
 

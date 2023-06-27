@@ -30,25 +30,45 @@ import Amazonka.Transfer.Types.OverwriteExisting
 --
 -- /See:/ 'newCopyStepDetails' smart constructor.
 data CopyStepDetails = CopyStepDetails'
-  { -- | Specifies the location for the file being copied. Only applicable for
-    -- Copy type workflow steps. Use @${Transfer:username}@ in this field to
-    -- parametrize the destination prefix by username.
+  { -- | Specifies the location for the file being copied. Use
+    -- @${Transfer:UserName}@ or @${Transfer:UploadDate}@ in this field to
+    -- parametrize the destination prefix by username or uploaded date.
+    --
+    -- -   Set the value of @DestinationFileLocation@ to @${Transfer:UserName}@
+    --     to copy uploaded files to an Amazon S3 bucket that is prefixed with
+    --     the name of the Transfer Family user that uploaded the file.
+    --
+    -- -   Set the value of @DestinationFileLocation@ to
+    --     @${Transfer:UploadDate}@ to copy uploaded files to an Amazon S3
+    --     bucket that is prefixed with the date of the upload.
+    --
+    --     The system resolves @UploadDate@ to a date format of /YYYY-MM-DD/,
+    --     based on the date the file is uploaded in UTC.
     destinationFileLocation :: Prelude.Maybe InputFileLocation,
     -- | The name of the step, used as an identifier.
     name :: Prelude.Maybe Prelude.Text,
-    -- | A flag that indicates whether or not to overwrite an existing file of
-    -- the same name. The default is @FALSE@.
+    -- | A flag that indicates whether to overwrite an existing file of the same
+    -- name. The default is @FALSE@.
+    --
+    -- If the workflow is processing a file that has the same name as an
+    -- existing file, the behavior is as follows:
+    --
+    -- -   If @OverwriteExisting@ is @TRUE@, the existing file is replaced with
+    --     the file being processed.
+    --
+    -- -   If @OverwriteExisting@ is @FALSE@, nothing happens, and the workflow
+    --     processing stops.
     overwriteExisting :: Prelude.Maybe OverwriteExisting,
     -- | Specifies which file to use as input to the workflow step: either the
     -- output from the previous step, or the originally uploaded file for the
     -- workflow.
     --
-    -- -   Enter @${previous.file}@ to use the previous file as the input. In
+    -- -   To use the previous file as the input, enter @${previous.file}@. In
     --     this case, this workflow step uses the output file from the previous
     --     workflow step as input. This is the default value.
     --
-    -- -   Enter @${original.file}@ to use the originally-uploaded file
-    --     location as input for this step.
+    -- -   To use the originally uploaded file location as input for this step,
+    --     enter @${original.file}@.
     sourceFileLocation :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,25 +81,45 @@ data CopyStepDetails = CopyStepDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'destinationFileLocation', 'copyStepDetails_destinationFileLocation' - Specifies the location for the file being copied. Only applicable for
--- Copy type workflow steps. Use @${Transfer:username}@ in this field to
--- parametrize the destination prefix by username.
+-- 'destinationFileLocation', 'copyStepDetails_destinationFileLocation' - Specifies the location for the file being copied. Use
+-- @${Transfer:UserName}@ or @${Transfer:UploadDate}@ in this field to
+-- parametrize the destination prefix by username or uploaded date.
+--
+-- -   Set the value of @DestinationFileLocation@ to @${Transfer:UserName}@
+--     to copy uploaded files to an Amazon S3 bucket that is prefixed with
+--     the name of the Transfer Family user that uploaded the file.
+--
+-- -   Set the value of @DestinationFileLocation@ to
+--     @${Transfer:UploadDate}@ to copy uploaded files to an Amazon S3
+--     bucket that is prefixed with the date of the upload.
+--
+--     The system resolves @UploadDate@ to a date format of /YYYY-MM-DD/,
+--     based on the date the file is uploaded in UTC.
 --
 -- 'name', 'copyStepDetails_name' - The name of the step, used as an identifier.
 --
--- 'overwriteExisting', 'copyStepDetails_overwriteExisting' - A flag that indicates whether or not to overwrite an existing file of
--- the same name. The default is @FALSE@.
+-- 'overwriteExisting', 'copyStepDetails_overwriteExisting' - A flag that indicates whether to overwrite an existing file of the same
+-- name. The default is @FALSE@.
+--
+-- If the workflow is processing a file that has the same name as an
+-- existing file, the behavior is as follows:
+--
+-- -   If @OverwriteExisting@ is @TRUE@, the existing file is replaced with
+--     the file being processed.
+--
+-- -   If @OverwriteExisting@ is @FALSE@, nothing happens, and the workflow
+--     processing stops.
 --
 -- 'sourceFileLocation', 'copyStepDetails_sourceFileLocation' - Specifies which file to use as input to the workflow step: either the
 -- output from the previous step, or the originally uploaded file for the
 -- workflow.
 --
--- -   Enter @${previous.file}@ to use the previous file as the input. In
+-- -   To use the previous file as the input, enter @${previous.file}@. In
 --     this case, this workflow step uses the output file from the previous
 --     workflow step as input. This is the default value.
 --
--- -   Enter @${original.file}@ to use the originally-uploaded file
---     location as input for this step.
+-- -   To use the originally uploaded file location as input for this step,
+--     enter @${original.file}@.
 newCopyStepDetails ::
   CopyStepDetails
 newCopyStepDetails =
@@ -91,9 +131,20 @@ newCopyStepDetails =
       sourceFileLocation = Prelude.Nothing
     }
 
--- | Specifies the location for the file being copied. Only applicable for
--- Copy type workflow steps. Use @${Transfer:username}@ in this field to
--- parametrize the destination prefix by username.
+-- | Specifies the location for the file being copied. Use
+-- @${Transfer:UserName}@ or @${Transfer:UploadDate}@ in this field to
+-- parametrize the destination prefix by username or uploaded date.
+--
+-- -   Set the value of @DestinationFileLocation@ to @${Transfer:UserName}@
+--     to copy uploaded files to an Amazon S3 bucket that is prefixed with
+--     the name of the Transfer Family user that uploaded the file.
+--
+-- -   Set the value of @DestinationFileLocation@ to
+--     @${Transfer:UploadDate}@ to copy uploaded files to an Amazon S3
+--     bucket that is prefixed with the date of the upload.
+--
+--     The system resolves @UploadDate@ to a date format of /YYYY-MM-DD/,
+--     based on the date the file is uploaded in UTC.
 copyStepDetails_destinationFileLocation :: Lens.Lens' CopyStepDetails (Prelude.Maybe InputFileLocation)
 copyStepDetails_destinationFileLocation = Lens.lens (\CopyStepDetails' {destinationFileLocation} -> destinationFileLocation) (\s@CopyStepDetails' {} a -> s {destinationFileLocation = a} :: CopyStepDetails)
 
@@ -101,8 +152,17 @@ copyStepDetails_destinationFileLocation = Lens.lens (\CopyStepDetails' {destinat
 copyStepDetails_name :: Lens.Lens' CopyStepDetails (Prelude.Maybe Prelude.Text)
 copyStepDetails_name = Lens.lens (\CopyStepDetails' {name} -> name) (\s@CopyStepDetails' {} a -> s {name = a} :: CopyStepDetails)
 
--- | A flag that indicates whether or not to overwrite an existing file of
--- the same name. The default is @FALSE@.
+-- | A flag that indicates whether to overwrite an existing file of the same
+-- name. The default is @FALSE@.
+--
+-- If the workflow is processing a file that has the same name as an
+-- existing file, the behavior is as follows:
+--
+-- -   If @OverwriteExisting@ is @TRUE@, the existing file is replaced with
+--     the file being processed.
+--
+-- -   If @OverwriteExisting@ is @FALSE@, nothing happens, and the workflow
+--     processing stops.
 copyStepDetails_overwriteExisting :: Lens.Lens' CopyStepDetails (Prelude.Maybe OverwriteExisting)
 copyStepDetails_overwriteExisting = Lens.lens (\CopyStepDetails' {overwriteExisting} -> overwriteExisting) (\s@CopyStepDetails' {} a -> s {overwriteExisting = a} :: CopyStepDetails)
 
@@ -110,12 +170,12 @@ copyStepDetails_overwriteExisting = Lens.lens (\CopyStepDetails' {overwriteExist
 -- output from the previous step, or the originally uploaded file for the
 -- workflow.
 --
--- -   Enter @${previous.file}@ to use the previous file as the input. In
+-- -   To use the previous file as the input, enter @${previous.file}@. In
 --     this case, this workflow step uses the output file from the previous
 --     workflow step as input. This is the default value.
 --
--- -   Enter @${original.file}@ to use the originally-uploaded file
---     location as input for this step.
+-- -   To use the originally uploaded file location as input for this step,
+--     enter @${original.file}@.
 copyStepDetails_sourceFileLocation :: Lens.Lens' CopyStepDetails (Prelude.Maybe Prelude.Text)
 copyStepDetails_sourceFileLocation = Lens.lens (\CopyStepDetails' {sourceFileLocation} -> sourceFileLocation) (\s@CopyStepDetails' {} a -> s {sourceFileLocation = a} :: CopyStepDetails)
 

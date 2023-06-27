@@ -31,7 +31,8 @@ data UserDetails = UserDetails'
   { -- | The system-assigned unique identifier for a session that corresponds to
     -- the workflow.
     sessionId :: Prelude.Maybe Prelude.Text,
-    -- | A unique string that identifies a user account associated with a server.
+    -- | A unique string that identifies a Transfer Family user associated with a
+    -- server.
     userName :: Prelude.Text,
     -- | The system-assigned unique identifier for a Transfer server instance.
     serverId :: Prelude.Text
@@ -49,7 +50,8 @@ data UserDetails = UserDetails'
 -- 'sessionId', 'userDetails_sessionId' - The system-assigned unique identifier for a session that corresponds to
 -- the workflow.
 --
--- 'userName', 'userDetails_userName' - A unique string that identifies a user account associated with a server.
+-- 'userName', 'userDetails_userName' - A unique string that identifies a Transfer Family user associated with a
+-- server.
 --
 -- 'serverId', 'userDetails_serverId' - The system-assigned unique identifier for a Transfer server instance.
 newUserDetails ::
@@ -70,7 +72,8 @@ newUserDetails pUserName_ pServerId_ =
 userDetails_sessionId :: Lens.Lens' UserDetails (Prelude.Maybe Prelude.Text)
 userDetails_sessionId = Lens.lens (\UserDetails' {sessionId} -> sessionId) (\s@UserDetails' {} a -> s {sessionId = a} :: UserDetails)
 
--- | A unique string that identifies a user account associated with a server.
+-- | A unique string that identifies a Transfer Family user associated with a
+-- server.
 userDetails_userName :: Lens.Lens' UserDetails Prelude.Text
 userDetails_userName = Lens.lens (\UserDetails' {userName} -> userName) (\s@UserDetails' {} a -> s {userName = a} :: UserDetails)
 
@@ -91,7 +94,8 @@ instance Data.FromJSON UserDetails where
 
 instance Prelude.Hashable UserDetails where
   hashWithSalt _salt UserDetails' {..} =
-    _salt `Prelude.hashWithSalt` sessionId
+    _salt
+      `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` serverId
 

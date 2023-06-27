@@ -34,12 +34,12 @@ data DeleteStepDetails = DeleteStepDetails'
     -- output from the previous step, or the originally uploaded file for the
     -- workflow.
     --
-    -- -   Enter @${previous.file}@ to use the previous file as the input. In
+    -- -   To use the previous file as the input, enter @${previous.file}@. In
     --     this case, this workflow step uses the output file from the previous
     --     workflow step as input. This is the default value.
     --
-    -- -   Enter @${original.file}@ to use the originally-uploaded file
-    --     location as input for this step.
+    -- -   To use the originally uploaded file location as input for this step,
+    --     enter @${original.file}@.
     sourceFileLocation :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,12 +58,12 @@ data DeleteStepDetails = DeleteStepDetails'
 -- output from the previous step, or the originally uploaded file for the
 -- workflow.
 --
--- -   Enter @${previous.file}@ to use the previous file as the input. In
+-- -   To use the previous file as the input, enter @${previous.file}@. In
 --     this case, this workflow step uses the output file from the previous
 --     workflow step as input. This is the default value.
 --
--- -   Enter @${original.file}@ to use the originally-uploaded file
---     location as input for this step.
+-- -   To use the originally uploaded file location as input for this step,
+--     enter @${original.file}@.
 newDeleteStepDetails ::
   DeleteStepDetails
 newDeleteStepDetails =
@@ -80,12 +80,12 @@ deleteStepDetails_name = Lens.lens (\DeleteStepDetails' {name} -> name) (\s@Dele
 -- output from the previous step, or the originally uploaded file for the
 -- workflow.
 --
--- -   Enter @${previous.file}@ to use the previous file as the input. In
+-- -   To use the previous file as the input, enter @${previous.file}@. In
 --     this case, this workflow step uses the output file from the previous
 --     workflow step as input. This is the default value.
 --
--- -   Enter @${original.file}@ to use the originally-uploaded file
---     location as input for this step.
+-- -   To use the originally uploaded file location as input for this step,
+--     enter @${original.file}@.
 deleteStepDetails_sourceFileLocation :: Lens.Lens' DeleteStepDetails (Prelude.Maybe Prelude.Text)
 deleteStepDetails_sourceFileLocation = Lens.lens (\DeleteStepDetails' {sourceFileLocation} -> sourceFileLocation) (\s@DeleteStepDetails' {} a -> s {sourceFileLocation = a} :: DeleteStepDetails)
 
@@ -101,7 +101,8 @@ instance Data.FromJSON DeleteStepDetails where
 
 instance Prelude.Hashable DeleteStepDetails where
   hashWithSalt _salt DeleteStepDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sourceFileLocation
 
 instance Prelude.NFData DeleteStepDetails where

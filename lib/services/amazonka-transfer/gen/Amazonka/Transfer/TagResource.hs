@@ -54,8 +54,8 @@ data TagResource = TagResource'
     -- resource, such as a server, user, or role.
     arn :: Prelude.Text,
     -- | Key-value pairs assigned to ARNs that you can use to group and search
-    -- for resources by type. You can attach this metadata to user accounts for
-    -- any purpose.
+    -- for resources by type. You can attach this metadata to resources
+    -- (servers, users, workflows, and so on) for any purpose.
     tags :: Prelude.NonEmpty Tag
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,8 +72,8 @@ data TagResource = TagResource'
 -- resource, such as a server, user, or role.
 --
 -- 'tags', 'tagResource_tags' - Key-value pairs assigned to ARNs that you can use to group and search
--- for resources by type. You can attach this metadata to user accounts for
--- any purpose.
+-- for resources by type. You can attach this metadata to resources
+-- (servers, users, workflows, and so on) for any purpose.
 newTagResource ::
   -- | 'arn'
   Prelude.Text ->
@@ -92,8 +92,8 @@ tagResource_arn :: Lens.Lens' TagResource Prelude.Text
 tagResource_arn = Lens.lens (\TagResource' {arn} -> arn) (\s@TagResource' {} a -> s {arn = a} :: TagResource)
 
 -- | Key-value pairs assigned to ARNs that you can use to group and search
--- for resources by type. You can attach this metadata to user accounts for
--- any purpose.
+-- for resources by type. You can attach this metadata to resources
+-- (servers, users, workflows, and so on) for any purpose.
 tagResource_tags :: Lens.Lens' TagResource (Prelude.NonEmpty Tag)
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 
@@ -105,7 +105,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

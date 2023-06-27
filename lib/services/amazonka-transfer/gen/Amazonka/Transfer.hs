@@ -483,6 +483,9 @@ module Amazonka.Transfer
     -- ** SetStatOption
     SetStatOption (..),
 
+    -- ** SftpAuthenticationMethods
+    SftpAuthenticationMethods (..),
+
     -- ** SigningAlg
     SigningAlg (..),
 

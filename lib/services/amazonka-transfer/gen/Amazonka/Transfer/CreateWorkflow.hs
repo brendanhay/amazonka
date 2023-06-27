@@ -61,9 +61,9 @@ data CreateWorkflow = CreateWorkflow'
     -- | Specifies the steps (actions) to take if errors are encountered during
     -- execution of the workflow.
     --
-    -- For custom steps, the lambda function needs to send @FAILURE@ to the
+    -- For custom steps, the Lambda function needs to send @FAILURE@ to the
     -- call back API to kick off the exception steps. Additionally, if the
-    -- lambda does not send @SUCCESS@ before it times out, the exception steps
+    -- Lambda does not send @SUCCESS@ before it times out, the exception steps
     -- are executed.
     onExceptionSteps :: Prelude.Maybe [WorkflowStep],
     -- | Key-value pairs that can be used to group and search for workflows. Tags
@@ -74,18 +74,21 @@ data CreateWorkflow = CreateWorkflow'
     -- The @TYPE@ specifies which of the following actions is being taken for
     -- this step.
     --
-    -- -   /COPY/: Copy the file to another location.
+    -- -   __@COPY@__ - Copy the file to another location.
     --
-    -- -   /CUSTOM/: Perform a custom step with an Lambda function target.
+    -- -   __@CUSTOM@__ - Perform a custom step with an Lambda function target.
     --
-    -- -   /DELETE/: Delete the file.
+    -- -   __@DECRYPT@__ - Decrypt a file that was encrypted before it was
+    --     uploaded.
     --
-    -- -   /TAG/: Add a tag to the file.
+    -- -   __@DELETE@__ - Delete the file.
+    --
+    -- -   __@TAG@__ - Add a tag to the file.
     --
     -- Currently, copying and tagging are supported only on S3.
     --
-    -- For file location, you specify either the S3 bucket and key, or the EFS
-    -- file system ID and path.
+    -- For file location, you specify either the Amazon S3 bucket and key, or
+    -- the Amazon EFS file system ID and path.
     steps :: [WorkflowStep]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -103,9 +106,9 @@ data CreateWorkflow = CreateWorkflow'
 -- 'onExceptionSteps', 'createWorkflow_onExceptionSteps' - Specifies the steps (actions) to take if errors are encountered during
 -- execution of the workflow.
 --
--- For custom steps, the lambda function needs to send @FAILURE@ to the
+-- For custom steps, the Lambda function needs to send @FAILURE@ to the
 -- call back API to kick off the exception steps. Additionally, if the
--- lambda does not send @SUCCESS@ before it times out, the exception steps
+-- Lambda does not send @SUCCESS@ before it times out, the exception steps
 -- are executed.
 --
 -- 'tags', 'createWorkflow_tags' - Key-value pairs that can be used to group and search for workflows. Tags
@@ -116,18 +119,21 @@ data CreateWorkflow = CreateWorkflow'
 -- The @TYPE@ specifies which of the following actions is being taken for
 -- this step.
 --
--- -   /COPY/: Copy the file to another location.
+-- -   __@COPY@__ - Copy the file to another location.
 --
--- -   /CUSTOM/: Perform a custom step with an Lambda function target.
+-- -   __@CUSTOM@__ - Perform a custom step with an Lambda function target.
 --
--- -   /DELETE/: Delete the file.
+-- -   __@DECRYPT@__ - Decrypt a file that was encrypted before it was
+--     uploaded.
 --
--- -   /TAG/: Add a tag to the file.
+-- -   __@DELETE@__ - Delete the file.
+--
+-- -   __@TAG@__ - Add a tag to the file.
 --
 -- Currently, copying and tagging are supported only on S3.
 --
--- For file location, you specify either the S3 bucket and key, or the EFS
--- file system ID and path.
+-- For file location, you specify either the Amazon S3 bucket and key, or
+-- the Amazon EFS file system ID and path.
 newCreateWorkflow ::
   CreateWorkflow
 newCreateWorkflow =
@@ -145,9 +151,9 @@ createWorkflow_description = Lens.lens (\CreateWorkflow' {description} -> descri
 -- | Specifies the steps (actions) to take if errors are encountered during
 -- execution of the workflow.
 --
--- For custom steps, the lambda function needs to send @FAILURE@ to the
+-- For custom steps, the Lambda function needs to send @FAILURE@ to the
 -- call back API to kick off the exception steps. Additionally, if the
--- lambda does not send @SUCCESS@ before it times out, the exception steps
+-- Lambda does not send @SUCCESS@ before it times out, the exception steps
 -- are executed.
 createWorkflow_onExceptionSteps :: Lens.Lens' CreateWorkflow (Prelude.Maybe [WorkflowStep])
 createWorkflow_onExceptionSteps = Lens.lens (\CreateWorkflow' {onExceptionSteps} -> onExceptionSteps) (\s@CreateWorkflow' {} a -> s {onExceptionSteps = a} :: CreateWorkflow) Prelude.. Lens.mapping Lens.coerced
@@ -162,18 +168,21 @@ createWorkflow_tags = Lens.lens (\CreateWorkflow' {tags} -> tags) (\s@CreateWork
 -- The @TYPE@ specifies which of the following actions is being taken for
 -- this step.
 --
--- -   /COPY/: Copy the file to another location.
+-- -   __@COPY@__ - Copy the file to another location.
 --
--- -   /CUSTOM/: Perform a custom step with an Lambda function target.
+-- -   __@CUSTOM@__ - Perform a custom step with an Lambda function target.
 --
--- -   /DELETE/: Delete the file.
+-- -   __@DECRYPT@__ - Decrypt a file that was encrypted before it was
+--     uploaded.
 --
--- -   /TAG/: Add a tag to the file.
+-- -   __@DELETE@__ - Delete the file.
+--
+-- -   __@TAG@__ - Add a tag to the file.
 --
 -- Currently, copying and tagging are supported only on S3.
 --
--- For file location, you specify either the S3 bucket and key, or the EFS
--- file system ID and path.
+-- For file location, you specify either the Amazon S3 bucket and key, or
+-- the Amazon EFS file system ID and path.
 createWorkflow_steps :: Lens.Lens' CreateWorkflow [WorkflowStep]
 createWorkflow_steps = Lens.lens (\CreateWorkflow' {steps} -> steps) (\s@CreateWorkflow' {} a -> s {steps = a} :: CreateWorkflow) Prelude.. Lens.coerced
 
@@ -193,7 +202,8 @@ instance Core.AWSRequest CreateWorkflow where
 
 instance Prelude.Hashable CreateWorkflow where
   hashWithSalt _salt CreateWorkflow' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` onExceptionSteps
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` steps

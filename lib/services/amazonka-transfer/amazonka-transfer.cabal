@@ -158,6 +158,7 @@ library
     Amazonka.Transfer.Types.S3Tag
     Amazonka.Transfer.Types.ServiceMetadata
     Amazonka.Transfer.Types.SetStatOption
+    Amazonka.Transfer.Types.SftpAuthenticationMethods
     Amazonka.Transfer.Types.SigningAlg
     Amazonka.Transfer.Types.SshPublicKey
     Amazonka.Transfer.Types.State

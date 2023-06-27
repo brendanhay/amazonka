@@ -130,7 +130,19 @@ data CreateUser = CreateUser'
     -- | The public portion of the Secure Shell (SSH) key used to authenticate
     -- the user to the server.
     --
+    -- The three standard SSH public key format elements are @\<key type>@,
+    -- @\<body base64>@, and an optional @\<comment>@, with spaces between each
+    -- element.
+    --
     -- Transfer Family accepts RSA, ECDSA, and ED25519 keys.
+    --
+    -- -   For RSA keys, the key type is @ssh-rsa@.
+    --
+    -- -   For ED25519 keys, the key type is @ssh-ed25519@.
+    --
+    -- -   For ECDSA keys, the key type is either @ecdsa-sha2-nistp256@,
+    --     @ecdsa-sha2-nistp384@, or @ecdsa-sha2-nistp521@, depending on the
+    --     size of the key you generated.
     sshPublicKeyBody :: Prelude.Maybe Prelude.Text,
     -- | Key-value pairs that can be used to group and search for users. Tags are
     -- metadata attached to users for any purpose.
@@ -228,7 +240,19 @@ data CreateUser = CreateUser'
 -- 'sshPublicKeyBody', 'createUser_sshPublicKeyBody' - The public portion of the Secure Shell (SSH) key used to authenticate
 -- the user to the server.
 --
+-- The three standard SSH public key format elements are @\<key type>@,
+-- @\<body base64>@, and an optional @\<comment>@, with spaces between each
+-- element.
+--
 -- Transfer Family accepts RSA, ECDSA, and ED25519 keys.
+--
+-- -   For RSA keys, the key type is @ssh-rsa@.
+--
+-- -   For ED25519 keys, the key type is @ssh-ed25519@.
+--
+-- -   For ECDSA keys, the key type is either @ecdsa-sha2-nistp256@,
+--     @ecdsa-sha2-nistp384@, or @ecdsa-sha2-nistp521@, depending on the
+--     size of the key you generated.
 --
 -- 'tags', 'createUser_tags' - Key-value pairs that can be used to group and search for users. Tags are
 -- metadata attached to users for any purpose.
@@ -346,7 +370,19 @@ createUser_posixProfile = Lens.lens (\CreateUser' {posixProfile} -> posixProfile
 -- | The public portion of the Secure Shell (SSH) key used to authenticate
 -- the user to the server.
 --
+-- The three standard SSH public key format elements are @\<key type>@,
+-- @\<body base64>@, and an optional @\<comment>@, with spaces between each
+-- element.
+--
 -- Transfer Family accepts RSA, ECDSA, and ED25519 keys.
+--
+-- -   For RSA keys, the key type is @ssh-rsa@.
+--
+-- -   For ED25519 keys, the key type is @ssh-ed25519@.
+--
+-- -   For ECDSA keys, the key type is either @ecdsa-sha2-nistp256@,
+--     @ecdsa-sha2-nistp384@, or @ecdsa-sha2-nistp521@, depending on the
+--     size of the key you generated.
 createUser_sshPublicKeyBody :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_sshPublicKeyBody = Lens.lens (\CreateUser' {sshPublicKeyBody} -> sshPublicKeyBody) (\s@CreateUser' {} a -> s {sshPublicKeyBody = a} :: CreateUser)
 
@@ -394,7 +430,8 @@ instance Core.AWSRequest CreateUser where
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
-    _salt `Prelude.hashWithSalt` homeDirectory
+    _salt
+      `Prelude.hashWithSalt` homeDirectory
       `Prelude.hashWithSalt` homeDirectoryMappings
       `Prelude.hashWithSalt` homeDirectoryType
       `Prelude.hashWithSalt` policy
@@ -463,7 +500,7 @@ data CreateUserResponse = CreateUserResponse'
     httpStatus :: Prelude.Int,
     -- | The identifier of the server that the user is attached to.
     serverId :: Prelude.Text,
-    -- | A unique string that identifies a user account associated with a server.
+    -- | A unique string that identifies a Transfer Family user.
     userName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -480,7 +517,7 @@ data CreateUserResponse = CreateUserResponse'
 --
 -- 'serverId', 'createUserResponse_serverId' - The identifier of the server that the user is attached to.
 --
--- 'userName', 'createUserResponse_userName' - A unique string that identifies a user account associated with a server.
+-- 'userName', 'createUserResponse_userName' - A unique string that identifies a Transfer Family user.
 newCreateUserResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -507,7 +544,7 @@ createUserResponse_httpStatus = Lens.lens (\CreateUserResponse' {httpStatus} -> 
 createUserResponse_serverId :: Lens.Lens' CreateUserResponse Prelude.Text
 createUserResponse_serverId = Lens.lens (\CreateUserResponse' {serverId} -> serverId) (\s@CreateUserResponse' {} a -> s {serverId = a} :: CreateUserResponse)
 
--- | A unique string that identifies a user account associated with a server.
+-- | A unique string that identifies a Transfer Family user.
 createUserResponse_userName :: Lens.Lens' CreateUserResponse Prelude.Text
 createUserResponse_userName = Lens.lens (\CreateUserResponse' {userName} -> userName) (\s@CreateUserResponse' {} a -> s {userName = a} :: CreateUserResponse)
 

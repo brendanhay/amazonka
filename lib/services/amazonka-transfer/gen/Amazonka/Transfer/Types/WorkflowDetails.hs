@@ -103,7 +103,8 @@ instance Data.FromJSON WorkflowDetails where
       "WorkflowDetails"
       ( \x ->
           WorkflowDetails'
-            Prelude.<$> ( x Data..:? "OnPartialUpload"
+            Prelude.<$> ( x
+                            Data..:? "OnPartialUpload"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "OnUpload" Data..!= Prelude.mempty)
@@ -111,7 +112,8 @@ instance Data.FromJSON WorkflowDetails where
 
 instance Prelude.Hashable WorkflowDetails where
   hashWithSalt _salt WorkflowDetails' {..} =
-    _salt `Prelude.hashWithSalt` onPartialUpload
+    _salt
+      `Prelude.hashWithSalt` onPartialUpload
       `Prelude.hashWithSalt` onUpload
 
 instance Prelude.NFData WorkflowDetails where

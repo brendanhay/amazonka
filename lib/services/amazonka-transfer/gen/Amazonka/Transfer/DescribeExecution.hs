@@ -22,6 +22,12 @@
 --
 -- You can use @DescribeExecution@ to check the details of the execution of
 -- the specified workflow.
+--
+-- This API call only returns details for in-progress workflows.
+--
+-- If you provide an ID for an execution that is not in progress, or if the
+-- execution doesn\'t match the specified workflow ID, you receive a
+-- @ResourceNotFound@ exception.
 module Amazonka.Transfer.DescribeExecution
   ( -- * Creating a Request
     DescribeExecution (..),
@@ -107,7 +113,8 @@ instance Core.AWSRequest DescribeExecution where
 
 instance Prelude.Hashable DescribeExecution where
   hashWithSalt _salt DescribeExecution' {..} =
-    _salt `Prelude.hashWithSalt` executionId
+    _salt
+      `Prelude.hashWithSalt` executionId
       `Prelude.hashWithSalt` workflowId
 
 instance Prelude.NFData DescribeExecution where

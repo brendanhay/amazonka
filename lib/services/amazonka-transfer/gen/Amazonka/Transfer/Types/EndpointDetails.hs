@@ -191,10 +191,12 @@ instance Data.FromJSON EndpointDetails where
       "EndpointDetails"
       ( \x ->
           EndpointDetails'
-            Prelude.<$> ( x Data..:? "AddressAllocationIds"
+            Prelude.<$> ( x
+                            Data..:? "AddressAllocationIds"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "SecurityGroupIds"
+            Prelude.<*> ( x
+                            Data..:? "SecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
@@ -204,7 +206,8 @@ instance Data.FromJSON EndpointDetails where
 
 instance Prelude.Hashable EndpointDetails where
   hashWithSalt _salt EndpointDetails' {..} =
-    _salt `Prelude.hashWithSalt` addressAllocationIds
+    _salt
+      `Prelude.hashWithSalt` addressAllocationIds
       `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` vpcEndpointId

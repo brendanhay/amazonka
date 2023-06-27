@@ -27,12 +27,51 @@ import Amazonka.Transfer.Types.EncryptionType
 import Amazonka.Transfer.Types.InputFileLocation
 import Amazonka.Transfer.Types.OverwriteExisting
 
--- | /See:/ 'newDecryptStepDetails' smart constructor.
+-- | Each step type has its own @StepDetails@ structure.
+--
+-- /See:/ 'newDecryptStepDetails' smart constructor.
 data DecryptStepDetails = DecryptStepDetails'
-  { name :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the step, used as an identifier.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A flag that indicates whether to overwrite an existing file of the same
+    -- name. The default is @FALSE@.
+    --
+    -- If the workflow is processing a file that has the same name as an
+    -- existing file, the behavior is as follows:
+    --
+    -- -   If @OverwriteExisting@ is @TRUE@, the existing file is replaced with
+    --     the file being processed.
+    --
+    -- -   If @OverwriteExisting@ is @FALSE@, nothing happens, and the workflow
+    --     processing stops.
     overwriteExisting :: Prelude.Maybe OverwriteExisting,
+    -- | Specifies which file to use as input to the workflow step: either the
+    -- output from the previous step, or the originally uploaded file for the
+    -- workflow.
+    --
+    -- -   To use the previous file as the input, enter @${previous.file}@. In
+    --     this case, this workflow step uses the output file from the previous
+    --     workflow step as input. This is the default value.
+    --
+    -- -   To use the originally uploaded file location as input for this step,
+    --     enter @${original.file}@.
     sourceFileLocation :: Prelude.Maybe Prelude.Text,
+    -- | The type of encryption used. Currently, this value must be @PGP@.
     type' :: EncryptionType,
+    -- | Specifies the location for the file being decrypted. Use
+    -- @${Transfer:UserName}@ or @${Transfer:UploadDate}@ in this field to
+    -- parametrize the destination prefix by username or uploaded date.
+    --
+    -- -   Set the value of @DestinationFileLocation@ to @${Transfer:UserName}@
+    --     to decrypt uploaded files to an Amazon S3 bucket that is prefixed
+    --     with the name of the Transfer Family user that uploaded the file.
+    --
+    -- -   Set the value of @DestinationFileLocation@ to
+    --     @${Transfer:UploadDate}@ to decrypt uploaded files to an Amazon S3
+    --     bucket that is prefixed with the date of the upload.
+    --
+    --     The system resolves @UploadDate@ to a date format of /YYYY-MM-DD/,
+    --     based on the date the file is uploaded in UTC.
     destinationFileLocation :: InputFileLocation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,15 +84,47 @@ data DecryptStepDetails = DecryptStepDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'decryptStepDetails_name' - Undocumented member.
+-- 'name', 'decryptStepDetails_name' - The name of the step, used as an identifier.
 --
--- 'overwriteExisting', 'decryptStepDetails_overwriteExisting' - Undocumented member.
+-- 'overwriteExisting', 'decryptStepDetails_overwriteExisting' - A flag that indicates whether to overwrite an existing file of the same
+-- name. The default is @FALSE@.
 --
--- 'sourceFileLocation', 'decryptStepDetails_sourceFileLocation' - Undocumented member.
+-- If the workflow is processing a file that has the same name as an
+-- existing file, the behavior is as follows:
 --
--- 'type'', 'decryptStepDetails_type' - Undocumented member.
+-- -   If @OverwriteExisting@ is @TRUE@, the existing file is replaced with
+--     the file being processed.
 --
--- 'destinationFileLocation', 'decryptStepDetails_destinationFileLocation' - Undocumented member.
+-- -   If @OverwriteExisting@ is @FALSE@, nothing happens, and the workflow
+--     processing stops.
+--
+-- 'sourceFileLocation', 'decryptStepDetails_sourceFileLocation' - Specifies which file to use as input to the workflow step: either the
+-- output from the previous step, or the originally uploaded file for the
+-- workflow.
+--
+-- -   To use the previous file as the input, enter @${previous.file}@. In
+--     this case, this workflow step uses the output file from the previous
+--     workflow step as input. This is the default value.
+--
+-- -   To use the originally uploaded file location as input for this step,
+--     enter @${original.file}@.
+--
+-- 'type'', 'decryptStepDetails_type' - The type of encryption used. Currently, this value must be @PGP@.
+--
+-- 'destinationFileLocation', 'decryptStepDetails_destinationFileLocation' - Specifies the location for the file being decrypted. Use
+-- @${Transfer:UserName}@ or @${Transfer:UploadDate}@ in this field to
+-- parametrize the destination prefix by username or uploaded date.
+--
+-- -   Set the value of @DestinationFileLocation@ to @${Transfer:UserName}@
+--     to decrypt uploaded files to an Amazon S3 bucket that is prefixed
+--     with the name of the Transfer Family user that uploaded the file.
+--
+-- -   Set the value of @DestinationFileLocation@ to
+--     @${Transfer:UploadDate}@ to decrypt uploaded files to an Amazon S3
+--     bucket that is prefixed with the date of the upload.
+--
+--     The system resolves @UploadDate@ to a date format of /YYYY-MM-DD/,
+--     based on the date the file is uploaded in UTC.
 newDecryptStepDetails ::
   -- | 'type''
   EncryptionType ->
@@ -71,23 +142,55 @@ newDecryptStepDetails
         destinationFileLocation = pDestinationFileLocation_
       }
 
--- | Undocumented member.
+-- | The name of the step, used as an identifier.
 decryptStepDetails_name :: Lens.Lens' DecryptStepDetails (Prelude.Maybe Prelude.Text)
 decryptStepDetails_name = Lens.lens (\DecryptStepDetails' {name} -> name) (\s@DecryptStepDetails' {} a -> s {name = a} :: DecryptStepDetails)
 
--- | Undocumented member.
+-- | A flag that indicates whether to overwrite an existing file of the same
+-- name. The default is @FALSE@.
+--
+-- If the workflow is processing a file that has the same name as an
+-- existing file, the behavior is as follows:
+--
+-- -   If @OverwriteExisting@ is @TRUE@, the existing file is replaced with
+--     the file being processed.
+--
+-- -   If @OverwriteExisting@ is @FALSE@, nothing happens, and the workflow
+--     processing stops.
 decryptStepDetails_overwriteExisting :: Lens.Lens' DecryptStepDetails (Prelude.Maybe OverwriteExisting)
 decryptStepDetails_overwriteExisting = Lens.lens (\DecryptStepDetails' {overwriteExisting} -> overwriteExisting) (\s@DecryptStepDetails' {} a -> s {overwriteExisting = a} :: DecryptStepDetails)
 
--- | Undocumented member.
+-- | Specifies which file to use as input to the workflow step: either the
+-- output from the previous step, or the originally uploaded file for the
+-- workflow.
+--
+-- -   To use the previous file as the input, enter @${previous.file}@. In
+--     this case, this workflow step uses the output file from the previous
+--     workflow step as input. This is the default value.
+--
+-- -   To use the originally uploaded file location as input for this step,
+--     enter @${original.file}@.
 decryptStepDetails_sourceFileLocation :: Lens.Lens' DecryptStepDetails (Prelude.Maybe Prelude.Text)
 decryptStepDetails_sourceFileLocation = Lens.lens (\DecryptStepDetails' {sourceFileLocation} -> sourceFileLocation) (\s@DecryptStepDetails' {} a -> s {sourceFileLocation = a} :: DecryptStepDetails)
 
--- | Undocumented member.
+-- | The type of encryption used. Currently, this value must be @PGP@.
 decryptStepDetails_type :: Lens.Lens' DecryptStepDetails EncryptionType
 decryptStepDetails_type = Lens.lens (\DecryptStepDetails' {type'} -> type') (\s@DecryptStepDetails' {} a -> s {type' = a} :: DecryptStepDetails)
 
--- | Undocumented member.
+-- | Specifies the location for the file being decrypted. Use
+-- @${Transfer:UserName}@ or @${Transfer:UploadDate}@ in this field to
+-- parametrize the destination prefix by username or uploaded date.
+--
+-- -   Set the value of @DestinationFileLocation@ to @${Transfer:UserName}@
+--     to decrypt uploaded files to an Amazon S3 bucket that is prefixed
+--     with the name of the Transfer Family user that uploaded the file.
+--
+-- -   Set the value of @DestinationFileLocation@ to
+--     @${Transfer:UploadDate}@ to decrypt uploaded files to an Amazon S3
+--     bucket that is prefixed with the date of the upload.
+--
+--     The system resolves @UploadDate@ to a date format of /YYYY-MM-DD/,
+--     based on the date the file is uploaded in UTC.
 decryptStepDetails_destinationFileLocation :: Lens.Lens' DecryptStepDetails InputFileLocation
 decryptStepDetails_destinationFileLocation = Lens.lens (\DecryptStepDetails' {destinationFileLocation} -> destinationFileLocation) (\s@DecryptStepDetails' {} a -> s {destinationFileLocation = a} :: DecryptStepDetails)
 
@@ -106,7 +209,8 @@ instance Data.FromJSON DecryptStepDetails where
 
 instance Prelude.Hashable DecryptStepDetails where
   hashWithSalt _salt DecryptStepDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` overwriteExisting
       `Prelude.hashWithSalt` sourceFileLocation
       `Prelude.hashWithSalt` type'

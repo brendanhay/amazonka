@@ -182,7 +182,8 @@ instance Core.AWSRequest CreateConnector where
 
 instance Prelude.Hashable CreateConnector where
   hashWithSalt _salt CreateConnector' {..} =
-    _salt `Prelude.hashWithSalt` loggingRole
+    _salt
+      `Prelude.hashWithSalt` loggingRole
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` as2Config

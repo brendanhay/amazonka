@@ -108,7 +108,8 @@ instance Core.AWSRequest DescribeHostKey where
 
 instance Prelude.Hashable DescribeHostKey where
   hashWithSalt _salt DescribeHostKey' {..} =
-    _salt `Prelude.hashWithSalt` serverId
+    _salt
+      `Prelude.hashWithSalt` serverId
       `Prelude.hashWithSalt` hostKeyId
 
 instance Prelude.NFData DescribeHostKey where

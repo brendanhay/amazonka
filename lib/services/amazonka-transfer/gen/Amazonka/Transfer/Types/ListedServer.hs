@@ -57,7 +57,7 @@ data ListedServer = ListedServer'
     --
     -- Use the @AWS_LAMBDA@ value to directly use an Lambda function as your
     -- identity provider. If you choose this value, you must specify the ARN
-    -- for the Lambda function in the @Function@ parameter or the
+    -- for the Lambda function in the @Function@ parameter for the
     -- @IdentityProviderDetails@ data type.
     identityProviderType :: Prelude.Maybe IdentityProviderType,
     -- | The Amazon Resource Name (ARN) of the Identity and Access Management
@@ -119,7 +119,7 @@ data ListedServer = ListedServer'
 --
 -- Use the @AWS_LAMBDA@ value to directly use an Lambda function as your
 -- identity provider. If you choose this value, you must specify the ARN
--- for the Lambda function in the @Function@ parameter or the
+-- for the Lambda function in the @Function@ parameter for the
 -- @IdentityProviderDetails@ data type.
 --
 -- 'loggingRole', 'listedServer_loggingRole' - The Amazon Resource Name (ARN) of the Identity and Access Management
@@ -189,7 +189,7 @@ listedServer_endpointType = Lens.lens (\ListedServer' {endpointType} -> endpoint
 --
 -- Use the @AWS_LAMBDA@ value to directly use an Lambda function as your
 -- identity provider. If you choose this value, you must specify the ARN
--- for the Lambda function in the @Function@ parameter or the
+-- for the Lambda function in the @Function@ parameter for the
 -- @IdentityProviderDetails@ data type.
 listedServer_identityProviderType :: Lens.Lens' ListedServer (Prelude.Maybe IdentityProviderType)
 listedServer_identityProviderType = Lens.lens (\ListedServer' {identityProviderType} -> identityProviderType) (\s@ListedServer' {} a -> s {identityProviderType = a} :: ListedServer)
@@ -246,7 +246,8 @@ instance Data.FromJSON ListedServer where
 
 instance Prelude.Hashable ListedServer where
   hashWithSalt _salt ListedServer' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` endpointType
       `Prelude.hashWithSalt` identityProviderType
       `Prelude.hashWithSalt` loggingRole

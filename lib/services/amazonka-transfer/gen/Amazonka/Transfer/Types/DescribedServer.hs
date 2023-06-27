@@ -81,7 +81,7 @@ data DescribedServer = DescribedServer'
     --
     -- Use the @AWS_LAMBDA@ value to directly use an Lambda function as your
     -- identity provider. If you choose this value, you must specify the ARN
-    -- for the Lambda function in the @Function@ parameter or the
+    -- for the Lambda function in the @Function@ parameter for the
     -- @IdentityProviderDetails@ data type.
     identityProviderType :: Prelude.Maybe IdentityProviderType,
     -- | The Amazon Resource Name (ARN) of the Identity and Access Management
@@ -144,14 +144,15 @@ data DescribedServer = DescribedServer'
     --
     -- -   If @Protocol@ includes either @FTP@ or @FTPS@, then the
     --     @EndpointType@ must be @VPC@ and the @IdentityProviderType@ must be
-    --     @AWS_DIRECTORY_SERVICE@ or @API_GATEWAY@.
+    --     either @AWS_DIRECTORY_SERVICE@, @AWS_LAMBDA@, or @API_GATEWAY@.
     --
     -- -   If @Protocol@ includes @FTP@, then @AddressAllocationIds@ cannot be
     --     associated.
     --
     -- -   If @Protocol@ is set only to @SFTP@, the @EndpointType@ can be set
-    --     to @PUBLIC@ and the @IdentityProviderType@ can be set to
-    --     @SERVICE_MANAGED@.
+    --     to @PUBLIC@ and the @IdentityProviderType@ can be set any of the
+    --     supported identity types: @SERVICE_MANAGED@,
+    --     @AWS_DIRECTORY_SERVICE@, @AWS_LAMBDA@, or @API_GATEWAY@.
     --
     -- -   If @Protocol@ includes @AS2@, then the @EndpointType@ must be @VPC@,
     --     and domain must be Amazon S3.
@@ -172,6 +173,22 @@ data DescribedServer = DescribedServer'
     -- offline. The values of @START_FAILED@ or @STOP_FAILED@ can indicate an
     -- error condition.
     state :: Prelude.Maybe State,
+    -- | Specifies the log groups to which your server logs are sent.
+    --
+    -- To specify a log group, you must provide the ARN for an existing log
+    -- group. In this case, the format of the log group is as follows:
+    --
+    -- @arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*@
+    --
+    -- For example,
+    -- @arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*@
+    --
+    -- If you have previously specified a log group for a server, you can clear
+    -- it, and in effect turn off structured logging, by providing an empty
+    -- value for this parameter in an @update-server@ call. For example:
+    --
+    -- @update-server --server-id s-1234567890abcdef0 --structured-log-destinations@
+    structuredLogDestinations :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the key-value pairs that you can use to search for and group
     -- servers that were assigned to the server that was described.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
@@ -181,10 +198,11 @@ data DescribedServer = DescribedServer'
     -- | Specifies the workflow ID for the workflow to assign and the execution
     -- role that\'s used for executing the workflow.
     --
-    -- In additon to a workflow to execute when a file is uploaded completely,
-    -- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
+    -- In addition to a workflow to execute when a file is uploaded completely,
+    -- @WorkflowDetails@ can also contain a workflow ID (and execution role)
     -- for a workflow to execute on partial upload. A partial upload occurs
-    -- when a file is open when the session disconnects.
+    -- when the server session disconnects while the file is still being
+    -- uploaded.
     workflowDetails :: Prelude.Maybe WorkflowDetails,
     -- | Specifies the unique Amazon Resource Name (ARN) of the server.
     arn :: Prelude.Text
@@ -241,7 +259,7 @@ data DescribedServer = DescribedServer'
 --
 -- Use the @AWS_LAMBDA@ value to directly use an Lambda function as your
 -- identity provider. If you choose this value, you must specify the ARN
--- for the Lambda function in the @Function@ parameter or the
+-- for the Lambda function in the @Function@ parameter for the
 -- @IdentityProviderDetails@ data type.
 --
 -- 'loggingRole', 'describedServer_loggingRole' - The Amazon Resource Name (ARN) of the Identity and Access Management
@@ -304,14 +322,15 @@ data DescribedServer = DescribedServer'
 --
 -- -   If @Protocol@ includes either @FTP@ or @FTPS@, then the
 --     @EndpointType@ must be @VPC@ and the @IdentityProviderType@ must be
---     @AWS_DIRECTORY_SERVICE@ or @API_GATEWAY@.
+--     either @AWS_DIRECTORY_SERVICE@, @AWS_LAMBDA@, or @API_GATEWAY@.
 --
 -- -   If @Protocol@ includes @FTP@, then @AddressAllocationIds@ cannot be
 --     associated.
 --
 -- -   If @Protocol@ is set only to @SFTP@, the @EndpointType@ can be set
---     to @PUBLIC@ and the @IdentityProviderType@ can be set to
---     @SERVICE_MANAGED@.
+--     to @PUBLIC@ and the @IdentityProviderType@ can be set any of the
+--     supported identity types: @SERVICE_MANAGED@,
+--     @AWS_DIRECTORY_SERVICE@, @AWS_LAMBDA@, or @API_GATEWAY@.
 --
 -- -   If @Protocol@ includes @AS2@, then the @EndpointType@ must be @VPC@,
 --     and domain must be Amazon S3.
@@ -332,6 +351,22 @@ data DescribedServer = DescribedServer'
 -- offline. The values of @START_FAILED@ or @STOP_FAILED@ can indicate an
 -- error condition.
 --
+-- 'structuredLogDestinations', 'describedServer_structuredLogDestinations' - Specifies the log groups to which your server logs are sent.
+--
+-- To specify a log group, you must provide the ARN for an existing log
+-- group. In this case, the format of the log group is as follows:
+--
+-- @arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*@
+--
+-- For example,
+-- @arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*@
+--
+-- If you have previously specified a log group for a server, you can clear
+-- it, and in effect turn off structured logging, by providing an empty
+-- value for this parameter in an @update-server@ call. For example:
+--
+-- @update-server --server-id s-1234567890abcdef0 --structured-log-destinations@
+--
 -- 'tags', 'describedServer_tags' - Specifies the key-value pairs that you can use to search for and group
 -- servers that were assigned to the server that was described.
 --
@@ -341,10 +376,11 @@ data DescribedServer = DescribedServer'
 -- 'workflowDetails', 'describedServer_workflowDetails' - Specifies the workflow ID for the workflow to assign and the execution
 -- role that\'s used for executing the workflow.
 --
--- In additon to a workflow to execute when a file is uploaded completely,
--- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
+-- In addition to a workflow to execute when a file is uploaded completely,
+-- @WorkflowDetails@ can also contain a workflow ID (and execution role)
 -- for a workflow to execute on partial upload. A partial upload occurs
--- when a file is open when the session disconnects.
+-- when the server session disconnects while the file is still being
+-- uploaded.
 --
 -- 'arn', 'describedServer_arn' - Specifies the unique Amazon Resource Name (ARN) of the server.
 newDescribedServer ::
@@ -368,6 +404,7 @@ newDescribedServer pArn_ =
       securityPolicyName = Prelude.Nothing,
       serverId = Prelude.Nothing,
       state = Prelude.Nothing,
+      structuredLogDestinations = Prelude.Nothing,
       tags = Prelude.Nothing,
       userCount = Prelude.Nothing,
       workflowDetails = Prelude.Nothing,
@@ -428,7 +465,7 @@ describedServer_identityProviderDetails = Lens.lens (\DescribedServer' {identity
 --
 -- Use the @AWS_LAMBDA@ value to directly use an Lambda function as your
 -- identity provider. If you choose this value, you must specify the ARN
--- for the Lambda function in the @Function@ parameter or the
+-- for the Lambda function in the @Function@ parameter for the
 -- @IdentityProviderDetails@ data type.
 describedServer_identityProviderType :: Lens.Lens' DescribedServer (Prelude.Maybe IdentityProviderType)
 describedServer_identityProviderType = Lens.lens (\DescribedServer' {identityProviderType} -> identityProviderType) (\s@DescribedServer' {} a -> s {identityProviderType = a} :: DescribedServer)
@@ -501,14 +538,15 @@ describedServer_protocolDetails = Lens.lens (\DescribedServer' {protocolDetails}
 --
 -- -   If @Protocol@ includes either @FTP@ or @FTPS@, then the
 --     @EndpointType@ must be @VPC@ and the @IdentityProviderType@ must be
---     @AWS_DIRECTORY_SERVICE@ or @API_GATEWAY@.
+--     either @AWS_DIRECTORY_SERVICE@, @AWS_LAMBDA@, or @API_GATEWAY@.
 --
 -- -   If @Protocol@ includes @FTP@, then @AddressAllocationIds@ cannot be
 --     associated.
 --
 -- -   If @Protocol@ is set only to @SFTP@, the @EndpointType@ can be set
---     to @PUBLIC@ and the @IdentityProviderType@ can be set to
---     @SERVICE_MANAGED@.
+--     to @PUBLIC@ and the @IdentityProviderType@ can be set any of the
+--     supported identity types: @SERVICE_MANAGED@,
+--     @AWS_DIRECTORY_SERVICE@, @AWS_LAMBDA@, or @API_GATEWAY@.
 --
 -- -   If @Protocol@ includes @AS2@, then the @EndpointType@ must be @VPC@,
 --     and domain must be Amazon S3.
@@ -537,6 +575,24 @@ describedServer_serverId = Lens.lens (\DescribedServer' {serverId} -> serverId) 
 describedServer_state :: Lens.Lens' DescribedServer (Prelude.Maybe State)
 describedServer_state = Lens.lens (\DescribedServer' {state} -> state) (\s@DescribedServer' {} a -> s {state = a} :: DescribedServer)
 
+-- | Specifies the log groups to which your server logs are sent.
+--
+-- To specify a log group, you must provide the ARN for an existing log
+-- group. In this case, the format of the log group is as follows:
+--
+-- @arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*@
+--
+-- For example,
+-- @arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*@
+--
+-- If you have previously specified a log group for a server, you can clear
+-- it, and in effect turn off structured logging, by providing an empty
+-- value for this parameter in an @update-server@ call. For example:
+--
+-- @update-server --server-id s-1234567890abcdef0 --structured-log-destinations@
+describedServer_structuredLogDestinations :: Lens.Lens' DescribedServer (Prelude.Maybe [Prelude.Text])
+describedServer_structuredLogDestinations = Lens.lens (\DescribedServer' {structuredLogDestinations} -> structuredLogDestinations) (\s@DescribedServer' {} a -> s {structuredLogDestinations = a} :: DescribedServer) Prelude.. Lens.mapping Lens.coerced
+
 -- | Specifies the key-value pairs that you can use to search for and group
 -- servers that were assigned to the server that was described.
 describedServer_tags :: Lens.Lens' DescribedServer (Prelude.Maybe (Prelude.NonEmpty Tag))
@@ -550,10 +606,11 @@ describedServer_userCount = Lens.lens (\DescribedServer' {userCount} -> userCoun
 -- | Specifies the workflow ID for the workflow to assign and the execution
 -- role that\'s used for executing the workflow.
 --
--- In additon to a workflow to execute when a file is uploaded completely,
--- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
+-- In addition to a workflow to execute when a file is uploaded completely,
+-- @WorkflowDetails@ can also contain a workflow ID (and execution role)
 -- for a workflow to execute on partial upload. A partial upload occurs
--- when a file is open when the session disconnects.
+-- when the server session disconnects while the file is still being
+-- uploaded.
 describedServer_workflowDetails :: Lens.Lens' DescribedServer (Prelude.Maybe WorkflowDetails)
 describedServer_workflowDetails = Lens.lens (\DescribedServer' {workflowDetails} -> workflowDetails) (\s@DescribedServer' {} a -> s {workflowDetails = a} :: DescribedServer)
 
@@ -582,6 +639,10 @@ instance Data.FromJSON DescribedServer where
             Prelude.<*> (x Data..:? "SecurityPolicyName")
             Prelude.<*> (x Data..:? "ServerId")
             Prelude.<*> (x Data..:? "State")
+            Prelude.<*> ( x
+                            Data..:? "StructuredLogDestinations"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "Tags")
             Prelude.<*> (x Data..:? "UserCount")
             Prelude.<*> (x Data..:? "WorkflowDetails")
@@ -590,7 +651,8 @@ instance Data.FromJSON DescribedServer where
 
 instance Prelude.Hashable DescribedServer where
   hashWithSalt _salt DescribedServer' {..} =
-    _salt `Prelude.hashWithSalt` certificate
+    _salt
+      `Prelude.hashWithSalt` certificate
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` endpointDetails
       `Prelude.hashWithSalt` endpointType
@@ -605,6 +667,7 @@ instance Prelude.Hashable DescribedServer where
       `Prelude.hashWithSalt` securityPolicyName
       `Prelude.hashWithSalt` serverId
       `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` structuredLogDestinations
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` userCount
       `Prelude.hashWithSalt` workflowDetails
@@ -627,6 +690,7 @@ instance Prelude.NFData DescribedServer where
       `Prelude.seq` Prelude.rnf securityPolicyName
       `Prelude.seq` Prelude.rnf serverId
       `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf structuredLogDestinations
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf userCount
       `Prelude.seq` Prelude.rnf workflowDetails

@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a Secure Shell (SSH) public key to a user account identified by a
--- @UserName@ value assigned to the specific file transfer protocol-enabled
--- server, identified by @ServerId@.
+-- Adds a Secure Shell (SSH) public key to a Transfer Family user
+-- identified by a @UserName@ value assigned to the specific file transfer
+-- protocol-enabled server, identified by @ServerId@.
 --
 -- The response returns the @UserName@ value, the @ServerId@ value, and the
 -- name of the @SshPublicKeyId@.
@@ -64,7 +64,8 @@ data ImportSshPublicKey = ImportSshPublicKey'
     --
     -- Transfer Family accepts RSA, ECDSA, and ED25519 keys.
     sshPublicKeyBody :: Prelude.Text,
-    -- | The name of the user account that is assigned to one or more servers.
+    -- | The name of the Transfer Family user that is assigned to one or more
+    -- servers.
     userName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,7 +84,8 @@ data ImportSshPublicKey = ImportSshPublicKey'
 --
 -- Transfer Family accepts RSA, ECDSA, and ED25519 keys.
 --
--- 'userName', 'importSshPublicKey_userName' - The name of the user account that is assigned to one or more servers.
+-- 'userName', 'importSshPublicKey_userName' - The name of the Transfer Family user that is assigned to one or more
+-- servers.
 newImportSshPublicKey ::
   -- | 'serverId'
   Prelude.Text ->
@@ -112,7 +114,8 @@ importSshPublicKey_serverId = Lens.lens (\ImportSshPublicKey' {serverId} -> serv
 importSshPublicKey_sshPublicKeyBody :: Lens.Lens' ImportSshPublicKey Prelude.Text
 importSshPublicKey_sshPublicKeyBody = Lens.lens (\ImportSshPublicKey' {sshPublicKeyBody} -> sshPublicKeyBody) (\s@ImportSshPublicKey' {} a -> s {sshPublicKeyBody = a} :: ImportSshPublicKey)
 
--- | The name of the user account that is assigned to one or more servers.
+-- | The name of the Transfer Family user that is assigned to one or more
+-- servers.
 importSshPublicKey_userName :: Lens.Lens' ImportSshPublicKey Prelude.Text
 importSshPublicKey_userName = Lens.lens (\ImportSshPublicKey' {userName} -> userName) (\s@ImportSshPublicKey' {} a -> s {userName = a} :: ImportSshPublicKey)
 
@@ -134,7 +137,8 @@ instance Core.AWSRequest ImportSshPublicKey where
 
 instance Prelude.Hashable ImportSshPublicKey where
   hashWithSalt _salt ImportSshPublicKey' {..} =
-    _salt `Prelude.hashWithSalt` serverId
+    _salt
+      `Prelude.hashWithSalt` serverId
       `Prelude.hashWithSalt` sshPublicKeyBody
       `Prelude.hashWithSalt` userName
 

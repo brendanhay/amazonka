@@ -38,6 +38,9 @@ data As2ConnectorConfig = As2ConnectorConfig'
   { -- | Specifies whether the AS2 file is compressed.
     compression :: Prelude.Maybe CompressionEnum,
     -- | The algorithm that is used to encrypt the file.
+    --
+    -- You can only specify @NONE@ if the URL for your connector uses HTTPS.
+    -- This ensures that no traffic is sent in clear text.
     encryptionAlgorithm :: Prelude.Maybe EncryptionAlg,
     -- | A unique identifier for the AS2 local profile.
     localProfileId :: Prelude.Maybe Prelude.Text,
@@ -52,7 +55,7 @@ data As2ConnectorConfig = As2ConnectorConfig'
     mdnResponse :: Prelude.Maybe MdnResponse,
     -- | The signing algorithm for the MDN response.
     --
-    -- If set to DEFAULT (or not set at all), the value for @SigningAlogorithm@
+    -- If set to DEFAULT (or not set at all), the value for @SigningAlgorithm@
     -- is used.
     mdnSigningAlgorithm :: Prelude.Maybe MdnSigningAlg,
     -- | Used as the @Subject@ HTTP header attribute in AS2 messages that are
@@ -78,6 +81,9 @@ data As2ConnectorConfig = As2ConnectorConfig'
 --
 -- 'encryptionAlgorithm', 'as2ConnectorConfig_encryptionAlgorithm' - The algorithm that is used to encrypt the file.
 --
+-- You can only specify @NONE@ if the URL for your connector uses HTTPS.
+-- This ensures that no traffic is sent in clear text.
+--
 -- 'localProfileId', 'as2ConnectorConfig_localProfileId' - A unique identifier for the AS2 local profile.
 --
 -- 'mdnResponse', 'as2ConnectorConfig_mdnResponse' - Used for outbound requests (from an Transfer Family server to a partner
@@ -91,7 +97,7 @@ data As2ConnectorConfig = As2ConnectorConfig'
 --
 -- 'mdnSigningAlgorithm', 'as2ConnectorConfig_mdnSigningAlgorithm' - The signing algorithm for the MDN response.
 --
--- If set to DEFAULT (or not set at all), the value for @SigningAlogorithm@
+-- If set to DEFAULT (or not set at all), the value for @SigningAlgorithm@
 -- is used.
 --
 -- 'messageSubject', 'as2ConnectorConfig_messageSubject' - Used as the @Subject@ HTTP header attribute in AS2 messages that are
@@ -120,6 +126,9 @@ as2ConnectorConfig_compression :: Lens.Lens' As2ConnectorConfig (Prelude.Maybe C
 as2ConnectorConfig_compression = Lens.lens (\As2ConnectorConfig' {compression} -> compression) (\s@As2ConnectorConfig' {} a -> s {compression = a} :: As2ConnectorConfig)
 
 -- | The algorithm that is used to encrypt the file.
+--
+-- You can only specify @NONE@ if the URL for your connector uses HTTPS.
+-- This ensures that no traffic is sent in clear text.
 as2ConnectorConfig_encryptionAlgorithm :: Lens.Lens' As2ConnectorConfig (Prelude.Maybe EncryptionAlg)
 as2ConnectorConfig_encryptionAlgorithm = Lens.lens (\As2ConnectorConfig' {encryptionAlgorithm} -> encryptionAlgorithm) (\s@As2ConnectorConfig' {} a -> s {encryptionAlgorithm = a} :: As2ConnectorConfig)
 
@@ -140,7 +149,7 @@ as2ConnectorConfig_mdnResponse = Lens.lens (\As2ConnectorConfig' {mdnResponse} -
 
 -- | The signing algorithm for the MDN response.
 --
--- If set to DEFAULT (or not set at all), the value for @SigningAlogorithm@
+-- If set to DEFAULT (or not set at all), the value for @SigningAlgorithm@
 -- is used.
 as2ConnectorConfig_mdnSigningAlgorithm :: Lens.Lens' As2ConnectorConfig (Prelude.Maybe MdnSigningAlg)
 as2ConnectorConfig_mdnSigningAlgorithm = Lens.lens (\As2ConnectorConfig' {mdnSigningAlgorithm} -> mdnSigningAlgorithm) (\s@As2ConnectorConfig' {} a -> s {mdnSigningAlgorithm = a} :: As2ConnectorConfig)
@@ -177,7 +186,8 @@ instance Data.FromJSON As2ConnectorConfig where
 
 instance Prelude.Hashable As2ConnectorConfig where
   hashWithSalt _salt As2ConnectorConfig' {..} =
-    _salt `Prelude.hashWithSalt` compression
+    _salt
+      `Prelude.hashWithSalt` compression
       `Prelude.hashWithSalt` encryptionAlgorithm
       `Prelude.hashWithSalt` localProfileId
       `Prelude.hashWithSalt` mdnResponse

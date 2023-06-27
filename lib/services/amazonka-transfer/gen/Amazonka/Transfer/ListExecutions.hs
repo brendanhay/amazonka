@@ -20,7 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all executions for the specified workflow.
+-- Lists all in-progress executions for the specified workflow.
+--
+-- If the specified workflow ID cannot be found, @ListExecutions@ returns a
+-- @ResourceNotFound@ exception.
 --
 -- This operation returns paginated results.
 module Amazonka.Transfer.ListExecutions
@@ -159,18 +162,19 @@ instance Core.AWSPager ListExecutions where
     | Core.stop
         ( rs
             Lens.^? listExecutionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listExecutionsResponse_executions) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listExecutions_nextToken
           Lens..~ rs
-          Lens.^? listExecutionsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listExecutionsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListExecutions where
   type
@@ -190,7 +194,8 @@ instance Core.AWSRequest ListExecutions where
 
 instance Prelude.Hashable ListExecutions where
   hashWithSalt _salt ListExecutions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` workflowId
 
@@ -241,19 +246,7 @@ data ListExecutionsResponse = ListExecutionsResponse'
     httpStatus :: Prelude.Int,
     -- | A unique identifier for the workflow.
     workflowId :: Prelude.Text,
-    -- | Returns the details for each execution.
-    --
-    -- -   __NextToken__: returned from a call to several APIs, you can use
-    --     pass it to a subsequent command to continue listing additional
-    --     executions.
-    --
-    -- -   __StartTime__: timestamp indicating when the execution began.
-    --
-    -- -   __Executions__: details of the execution, including the execution
-    --     ID, initial file location, and Service metadata.
-    --
-    -- -   __Status__: one of the following values: @IN_PROGRESS@, @COMPLETED@,
-    --     @EXCEPTION@, @HANDLING_EXEPTION@.
+    -- | Returns the details for each execution, in a @ListedExecution@ array.
     executions :: [ListedExecution]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -274,19 +267,7 @@ data ListExecutionsResponse = ListExecutionsResponse'
 --
 -- 'workflowId', 'listExecutionsResponse_workflowId' - A unique identifier for the workflow.
 --
--- 'executions', 'listExecutionsResponse_executions' - Returns the details for each execution.
---
--- -   __NextToken__: returned from a call to several APIs, you can use
---     pass it to a subsequent command to continue listing additional
---     executions.
---
--- -   __StartTime__: timestamp indicating when the execution began.
---
--- -   __Executions__: details of the execution, including the execution
---     ID, initial file location, and Service metadata.
---
--- -   __Status__: one of the following values: @IN_PROGRESS@, @COMPLETED@,
---     @EXCEPTION@, @HANDLING_EXEPTION@.
+-- 'executions', 'listExecutionsResponse_executions' - Returns the details for each execution, in a @ListedExecution@ array.
 newListExecutionsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -316,19 +297,7 @@ listExecutionsResponse_httpStatus = Lens.lens (\ListExecutionsResponse' {httpSta
 listExecutionsResponse_workflowId :: Lens.Lens' ListExecutionsResponse Prelude.Text
 listExecutionsResponse_workflowId = Lens.lens (\ListExecutionsResponse' {workflowId} -> workflowId) (\s@ListExecutionsResponse' {} a -> s {workflowId = a} :: ListExecutionsResponse)
 
--- | Returns the details for each execution.
---
--- -   __NextToken__: returned from a call to several APIs, you can use
---     pass it to a subsequent command to continue listing additional
---     executions.
---
--- -   __StartTime__: timestamp indicating when the execution began.
---
--- -   __Executions__: details of the execution, including the execution
---     ID, initial file location, and Service metadata.
---
--- -   __Status__: one of the following values: @IN_PROGRESS@, @COMPLETED@,
---     @EXCEPTION@, @HANDLING_EXEPTION@.
+-- | Returns the details for each execution, in a @ListedExecution@ array.
 listExecutionsResponse_executions :: Lens.Lens' ListExecutionsResponse [ListedExecution]
 listExecutionsResponse_executions = Lens.lens (\ListExecutionsResponse' {executions} -> executions) (\s@ListExecutionsResponse' {} a -> s {executions = a} :: ListExecutionsResponse) Prelude.. Lens.coerced
 

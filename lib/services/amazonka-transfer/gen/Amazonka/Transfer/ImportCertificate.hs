@@ -66,14 +66,23 @@ data ImportCertificate = ImportCertificate'
     description :: Prelude.Maybe Prelude.Text,
     -- | An optional date that specifies when the certificate becomes inactive.
     inactiveDate :: Prelude.Maybe Data.POSIX,
-    -- | The file that contains the private key for the certificate that\'s being
-    -- imported.
+    -- | -   For the CLI, provide a file path for a private key in URI format.For
+    --     example, @--private-key file:\/\/encryption-key.pem@. Alternatively,
+    --     you can provide the raw content of the private key file.
+    --
+    -- -   For the SDK, specify the raw content of a private key file. For
+    --     example, @--private-key \"\`cat encryption-key.pem\`\"@
     privateKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Key-value pairs that can be used to group and search for certificates.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | Specifies whether this certificate is used for signing or encryption.
     usage :: CertificateUsageType,
-    -- | The file that contains the certificate to import.
+    -- | -   For the CLI, provide a file path for a certificate in URI format.
+    --     For example, @--certificate file:\/\/encryption-cert.pem@.
+    --     Alternatively, you can provide the raw content.
+    --
+    -- -   For the SDK, specify the raw content of a certificate file. For
+    --     example, @--certificate \"\`cat encryption-cert.pem\`\"@.
     certificate :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -95,14 +104,23 @@ data ImportCertificate = ImportCertificate'
 --
 -- 'inactiveDate', 'importCertificate_inactiveDate' - An optional date that specifies when the certificate becomes inactive.
 --
--- 'privateKey', 'importCertificate_privateKey' - The file that contains the private key for the certificate that\'s being
--- imported.
+-- 'privateKey', 'importCertificate_privateKey' - -   For the CLI, provide a file path for a private key in URI format.For
+--     example, @--private-key file:\/\/encryption-key.pem@. Alternatively,
+--     you can provide the raw content of the private key file.
+--
+-- -   For the SDK, specify the raw content of a private key file. For
+--     example, @--private-key \"\`cat encryption-key.pem\`\"@
 --
 -- 'tags', 'importCertificate_tags' - Key-value pairs that can be used to group and search for certificates.
 --
 -- 'usage', 'importCertificate_usage' - Specifies whether this certificate is used for signing or encryption.
 --
--- 'certificate', 'importCertificate_certificate' - The file that contains the certificate to import.
+-- 'certificate', 'importCertificate_certificate' - -   For the CLI, provide a file path for a certificate in URI format.
+--     For example, @--certificate file:\/\/encryption-cert.pem@.
+--     Alternatively, you can provide the raw content.
+--
+-- -   For the SDK, specify the raw content of a certificate file. For
+--     example, @--certificate \"\`cat encryption-cert.pem\`\"@.
 newImportCertificate ::
   -- | 'usage'
   CertificateUsageType ->
@@ -138,8 +156,12 @@ importCertificate_description = Lens.lens (\ImportCertificate' {description} -> 
 importCertificate_inactiveDate :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.UTCTime)
 importCertificate_inactiveDate = Lens.lens (\ImportCertificate' {inactiveDate} -> inactiveDate) (\s@ImportCertificate' {} a -> s {inactiveDate = a} :: ImportCertificate) Prelude.. Lens.mapping Data._Time
 
--- | The file that contains the private key for the certificate that\'s being
--- imported.
+-- | -   For the CLI, provide a file path for a private key in URI format.For
+--     example, @--private-key file:\/\/encryption-key.pem@. Alternatively,
+--     you can provide the raw content of the private key file.
+--
+-- -   For the SDK, specify the raw content of a private key file. For
+--     example, @--private-key \"\`cat encryption-key.pem\`\"@
 importCertificate_privateKey :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.Text)
 importCertificate_privateKey = Lens.lens (\ImportCertificate' {privateKey} -> privateKey) (\s@ImportCertificate' {} a -> s {privateKey = a} :: ImportCertificate) Prelude.. Lens.mapping Data._Sensitive
 
@@ -151,7 +173,12 @@ importCertificate_tags = Lens.lens (\ImportCertificate' {tags} -> tags) (\s@Impo
 importCertificate_usage :: Lens.Lens' ImportCertificate CertificateUsageType
 importCertificate_usage = Lens.lens (\ImportCertificate' {usage} -> usage) (\s@ImportCertificate' {} a -> s {usage = a} :: ImportCertificate)
 
--- | The file that contains the certificate to import.
+-- | -   For the CLI, provide a file path for a certificate in URI format.
+--     For example, @--certificate file:\/\/encryption-cert.pem@.
+--     Alternatively, you can provide the raw content.
+--
+-- -   For the SDK, specify the raw content of a certificate file. For
+--     example, @--certificate \"\`cat encryption-cert.pem\`\"@.
 importCertificate_certificate :: Lens.Lens' ImportCertificate Prelude.Text
 importCertificate_certificate = Lens.lens (\ImportCertificate' {certificate} -> certificate) (\s@ImportCertificate' {} a -> s {certificate = a} :: ImportCertificate) Prelude.. Data._Sensitive
 
@@ -171,7 +198,8 @@ instance Core.AWSRequest ImportCertificate where
 
 instance Prelude.Hashable ImportCertificate where
   hashWithSalt _salt ImportCertificate' {..} =
-    _salt `Prelude.hashWithSalt` activeDate
+    _salt
+      `Prelude.hashWithSalt` activeDate
       `Prelude.hashWithSalt` certificateChain
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` inactiveDate

@@ -24,7 +24,9 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Reserved for future use.
+-- | Specifies the details for the file location for the file that\'s being
+-- used in the workflow. Only applicable if you are using Amazon Elastic
+-- File Systems (Amazon EFS) for storage.
 --
 -- /See:/ 'newEfsFileLocation' smart constructor.
 data EfsFileLocation = EfsFileLocation'
@@ -74,7 +76,8 @@ instance Data.FromJSON EfsFileLocation where
 
 instance Prelude.Hashable EfsFileLocation where
   hashWithSalt _salt EfsFileLocation' {..} =
-    _salt `Prelude.hashWithSalt` fileSystemId
+    _salt
+      `Prelude.hashWithSalt` fileSystemId
       `Prelude.hashWithSalt` path
 
 instance Prelude.NFData EfsFileLocation where

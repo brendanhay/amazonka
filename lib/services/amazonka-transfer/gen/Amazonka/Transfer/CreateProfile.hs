@@ -163,7 +163,8 @@ instance Core.AWSRequest CreateProfile where
 
 instance Prelude.Hashable CreateProfile where
   hashWithSalt _salt CreateProfile' {..} =
-    _salt `Prelude.hashWithSalt` certificateIds
+    _salt
+      `Prelude.hashWithSalt` certificateIds
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` as2Id
       `Prelude.hashWithSalt` profileType

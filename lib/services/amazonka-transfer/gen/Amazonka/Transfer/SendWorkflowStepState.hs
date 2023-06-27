@@ -137,7 +137,8 @@ instance Core.AWSRequest SendWorkflowStepState where
 
 instance Prelude.Hashable SendWorkflowStepState where
   hashWithSalt _salt SendWorkflowStepState' {..} =
-    _salt `Prelude.hashWithSalt` workflowId
+    _salt
+      `Prelude.hashWithSalt` workflowId
       `Prelude.hashWithSalt` executionId
       `Prelude.hashWithSalt` token
       `Prelude.hashWithSalt` status

@@ -84,7 +84,8 @@ instance Data.FromJSON ListedConnector where
 
 instance Prelude.Hashable ListedConnector where
   hashWithSalt _salt ListedConnector' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` connectorId
       `Prelude.hashWithSalt` url
 

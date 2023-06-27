@@ -42,6 +42,7 @@ module Amazonka.Transfer.UpdateServer
     updateServer_protocolDetails,
     updateServer_protocols,
     updateServer_securityPolicyName,
+    updateServer_structuredLogDestinations,
     updateServer_workflowDetails,
     updateServer_serverId,
 
@@ -159,7 +160,7 @@ data UpdateServer = UpdateServer'
     -- Accidentally changing a server\'s host key can be disruptive.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Update host keys for your SFTP-enabled server>
+    -- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Manage host keys for your SFTP-enabled server>
     -- in the /Transfer Family User Guide/.
     hostKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | An array containing all of the information required to call a
@@ -225,14 +226,15 @@ data UpdateServer = UpdateServer'
     --
     -- -   If @Protocol@ includes either @FTP@ or @FTPS@, then the
     --     @EndpointType@ must be @VPC@ and the @IdentityProviderType@ must be
-    --     @AWS_DIRECTORY_SERVICE@ or @API_GATEWAY@.
+    --     either @AWS_DIRECTORY_SERVICE@, @AWS_LAMBDA@, or @API_GATEWAY@.
     --
     -- -   If @Protocol@ includes @FTP@, then @AddressAllocationIds@ cannot be
     --     associated.
     --
     -- -   If @Protocol@ is set only to @SFTP@, the @EndpointType@ can be set
-    --     to @PUBLIC@ and the @IdentityProviderType@ can be set to
-    --     @SERVICE_MANAGED@.
+    --     to @PUBLIC@ and the @IdentityProviderType@ can be set any of the
+    --     supported identity types: @SERVICE_MANAGED@,
+    --     @AWS_DIRECTORY_SERVICE@, @AWS_LAMBDA@, or @API_GATEWAY@.
     --
     -- -   If @Protocol@ includes @AS2@, then the @EndpointType@ must be @VPC@,
     --     and domain must be Amazon S3.
@@ -240,21 +242,38 @@ data UpdateServer = UpdateServer'
     -- | Specifies the name of the security policy that is attached to the
     -- server.
     securityPolicyName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the log groups to which your server logs are sent.
+    --
+    -- To specify a log group, you must provide the ARN for an existing log
+    -- group. In this case, the format of the log group is as follows:
+    --
+    -- @arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*@
+    --
+    -- For example,
+    -- @arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*@
+    --
+    -- If you have previously specified a log group for a server, you can clear
+    -- it, and in effect turn off structured logging, by providing an empty
+    -- value for this parameter in an @update-server@ call. For example:
+    --
+    -- @update-server --server-id s-1234567890abcdef0 --structured-log-destinations@
+    structuredLogDestinations :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the workflow ID for the workflow to assign and the execution
     -- role that\'s used for executing the workflow.
     --
-    -- In additon to a workflow to execute when a file is uploaded completely,
-    -- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
+    -- In addition to a workflow to execute when a file is uploaded completely,
+    -- @WorkflowDetails@ can also contain a workflow ID (and execution role)
     -- for a workflow to execute on partial upload. A partial upload occurs
-    -- when a file is open when the session disconnects.
+    -- when the server session disconnects while the file is still being
+    -- uploaded.
     --
     -- To remove an associated workflow from a server, you can provide an empty
     -- @OnUpload@ object, as in the following example.
     --
     -- @aws transfer update-server --server-id s-01234567890abcdef --workflow-details \'{\"OnUpload\":[]}\'@
     workflowDetails :: Prelude.Maybe WorkflowDetails,
-    -- | A system-assigned unique identifier for a server instance that the user
-    -- account is assigned to.
+    -- | A system-assigned unique identifier for a server instance that the
+    -- Transfer Family user is assigned to.
     serverId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -361,7 +380,7 @@ data UpdateServer = UpdateServer'
 -- Accidentally changing a server\'s host key can be disruptive.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Update host keys for your SFTP-enabled server>
+-- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Manage host keys for your SFTP-enabled server>
 -- in the /Transfer Family User Guide/.
 --
 -- 'identityProviderDetails', 'updateServer_identityProviderDetails' - An array containing all of the information required to call a
@@ -427,14 +446,15 @@ data UpdateServer = UpdateServer'
 --
 -- -   If @Protocol@ includes either @FTP@ or @FTPS@, then the
 --     @EndpointType@ must be @VPC@ and the @IdentityProviderType@ must be
---     @AWS_DIRECTORY_SERVICE@ or @API_GATEWAY@.
+--     either @AWS_DIRECTORY_SERVICE@, @AWS_LAMBDA@, or @API_GATEWAY@.
 --
 -- -   If @Protocol@ includes @FTP@, then @AddressAllocationIds@ cannot be
 --     associated.
 --
 -- -   If @Protocol@ is set only to @SFTP@, the @EndpointType@ can be set
---     to @PUBLIC@ and the @IdentityProviderType@ can be set to
---     @SERVICE_MANAGED@.
+--     to @PUBLIC@ and the @IdentityProviderType@ can be set any of the
+--     supported identity types: @SERVICE_MANAGED@,
+--     @AWS_DIRECTORY_SERVICE@, @AWS_LAMBDA@, or @API_GATEWAY@.
 --
 -- -   If @Protocol@ includes @AS2@, then the @EndpointType@ must be @VPC@,
 --     and domain must be Amazon S3.
@@ -442,21 +462,38 @@ data UpdateServer = UpdateServer'
 -- 'securityPolicyName', 'updateServer_securityPolicyName' - Specifies the name of the security policy that is attached to the
 -- server.
 --
+-- 'structuredLogDestinations', 'updateServer_structuredLogDestinations' - Specifies the log groups to which your server logs are sent.
+--
+-- To specify a log group, you must provide the ARN for an existing log
+-- group. In this case, the format of the log group is as follows:
+--
+-- @arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*@
+--
+-- For example,
+-- @arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*@
+--
+-- If you have previously specified a log group for a server, you can clear
+-- it, and in effect turn off structured logging, by providing an empty
+-- value for this parameter in an @update-server@ call. For example:
+--
+-- @update-server --server-id s-1234567890abcdef0 --structured-log-destinations@
+--
 -- 'workflowDetails', 'updateServer_workflowDetails' - Specifies the workflow ID for the workflow to assign and the execution
 -- role that\'s used for executing the workflow.
 --
--- In additon to a workflow to execute when a file is uploaded completely,
--- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
+-- In addition to a workflow to execute when a file is uploaded completely,
+-- @WorkflowDetails@ can also contain a workflow ID (and execution role)
 -- for a workflow to execute on partial upload. A partial upload occurs
--- when a file is open when the session disconnects.
+-- when the server session disconnects while the file is still being
+-- uploaded.
 --
 -- To remove an associated workflow from a server, you can provide an empty
 -- @OnUpload@ object, as in the following example.
 --
 -- @aws transfer update-server --server-id s-01234567890abcdef --workflow-details \'{\"OnUpload\":[]}\'@
 --
--- 'serverId', 'updateServer_serverId' - A system-assigned unique identifier for a server instance that the user
--- account is assigned to.
+-- 'serverId', 'updateServer_serverId' - A system-assigned unique identifier for a server instance that the
+-- Transfer Family user is assigned to.
 newUpdateServer ::
   -- | 'serverId'
   Prelude.Text ->
@@ -474,6 +511,7 @@ newUpdateServer pServerId_ =
       protocolDetails = Prelude.Nothing,
       protocols = Prelude.Nothing,
       securityPolicyName = Prelude.Nothing,
+      structuredLogDestinations = Prelude.Nothing,
       workflowDetails = Prelude.Nothing,
       serverId = pServerId_
     }
@@ -578,7 +616,7 @@ updateServer_endpointType = Lens.lens (\UpdateServer' {endpointType} -> endpoint
 -- Accidentally changing a server\'s host key can be disruptive.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Update host keys for your SFTP-enabled server>
+-- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Manage host keys for your SFTP-enabled server>
 -- in the /Transfer Family User Guide/.
 updateServer_hostKey :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Text)
 updateServer_hostKey = Lens.lens (\UpdateServer' {hostKey} -> hostKey) (\s@UpdateServer' {} a -> s {hostKey = a} :: UpdateServer) Prelude.. Lens.mapping Data._Sensitive
@@ -656,14 +694,15 @@ updateServer_protocolDetails = Lens.lens (\UpdateServer' {protocolDetails} -> pr
 --
 -- -   If @Protocol@ includes either @FTP@ or @FTPS@, then the
 --     @EndpointType@ must be @VPC@ and the @IdentityProviderType@ must be
---     @AWS_DIRECTORY_SERVICE@ or @API_GATEWAY@.
+--     either @AWS_DIRECTORY_SERVICE@, @AWS_LAMBDA@, or @API_GATEWAY@.
 --
 -- -   If @Protocol@ includes @FTP@, then @AddressAllocationIds@ cannot be
 --     associated.
 --
 -- -   If @Protocol@ is set only to @SFTP@, the @EndpointType@ can be set
---     to @PUBLIC@ and the @IdentityProviderType@ can be set to
---     @SERVICE_MANAGED@.
+--     to @PUBLIC@ and the @IdentityProviderType@ can be set any of the
+--     supported identity types: @SERVICE_MANAGED@,
+--     @AWS_DIRECTORY_SERVICE@, @AWS_LAMBDA@, or @API_GATEWAY@.
 --
 -- -   If @Protocol@ includes @AS2@, then the @EndpointType@ must be @VPC@,
 --     and domain must be Amazon S3.
@@ -675,13 +714,32 @@ updateServer_protocols = Lens.lens (\UpdateServer' {protocols} -> protocols) (\s
 updateServer_securityPolicyName :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Text)
 updateServer_securityPolicyName = Lens.lens (\UpdateServer' {securityPolicyName} -> securityPolicyName) (\s@UpdateServer' {} a -> s {securityPolicyName = a} :: UpdateServer)
 
+-- | Specifies the log groups to which your server logs are sent.
+--
+-- To specify a log group, you must provide the ARN for an existing log
+-- group. In this case, the format of the log group is as follows:
+--
+-- @arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*@
+--
+-- For example,
+-- @arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*@
+--
+-- If you have previously specified a log group for a server, you can clear
+-- it, and in effect turn off structured logging, by providing an empty
+-- value for this parameter in an @update-server@ call. For example:
+--
+-- @update-server --server-id s-1234567890abcdef0 --structured-log-destinations@
+updateServer_structuredLogDestinations :: Lens.Lens' UpdateServer (Prelude.Maybe [Prelude.Text])
+updateServer_structuredLogDestinations = Lens.lens (\UpdateServer' {structuredLogDestinations} -> structuredLogDestinations) (\s@UpdateServer' {} a -> s {structuredLogDestinations = a} :: UpdateServer) Prelude.. Lens.mapping Lens.coerced
+
 -- | Specifies the workflow ID for the workflow to assign and the execution
 -- role that\'s used for executing the workflow.
 --
--- In additon to a workflow to execute when a file is uploaded completely,
--- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
+-- In addition to a workflow to execute when a file is uploaded completely,
+-- @WorkflowDetails@ can also contain a workflow ID (and execution role)
 -- for a workflow to execute on partial upload. A partial upload occurs
--- when a file is open when the session disconnects.
+-- when the server session disconnects while the file is still being
+-- uploaded.
 --
 -- To remove an associated workflow from a server, you can provide an empty
 -- @OnUpload@ object, as in the following example.
@@ -690,8 +748,8 @@ updateServer_securityPolicyName = Lens.lens (\UpdateServer' {securityPolicyName}
 updateServer_workflowDetails :: Lens.Lens' UpdateServer (Prelude.Maybe WorkflowDetails)
 updateServer_workflowDetails = Lens.lens (\UpdateServer' {workflowDetails} -> workflowDetails) (\s@UpdateServer' {} a -> s {workflowDetails = a} :: UpdateServer)
 
--- | A system-assigned unique identifier for a server instance that the user
--- account is assigned to.
+-- | A system-assigned unique identifier for a server instance that the
+-- Transfer Family user is assigned to.
 updateServer_serverId :: Lens.Lens' UpdateServer Prelude.Text
 updateServer_serverId = Lens.lens (\UpdateServer' {serverId} -> serverId) (\s@UpdateServer' {} a -> s {serverId = a} :: UpdateServer)
 
@@ -709,7 +767,8 @@ instance Core.AWSRequest UpdateServer where
 
 instance Prelude.Hashable UpdateServer where
   hashWithSalt _salt UpdateServer' {..} =
-    _salt `Prelude.hashWithSalt` certificate
+    _salt
+      `Prelude.hashWithSalt` certificate
       `Prelude.hashWithSalt` endpointDetails
       `Prelude.hashWithSalt` endpointType
       `Prelude.hashWithSalt` hostKey
@@ -720,6 +779,7 @@ instance Prelude.Hashable UpdateServer where
       `Prelude.hashWithSalt` protocolDetails
       `Prelude.hashWithSalt` protocols
       `Prelude.hashWithSalt` securityPolicyName
+      `Prelude.hashWithSalt` structuredLogDestinations
       `Prelude.hashWithSalt` workflowDetails
       `Prelude.hashWithSalt` serverId
 
@@ -736,6 +796,7 @@ instance Prelude.NFData UpdateServer where
       `Prelude.seq` Prelude.rnf protocolDetails
       `Prelude.seq` Prelude.rnf protocols
       `Prelude.seq` Prelude.rnf securityPolicyName
+      `Prelude.seq` Prelude.rnf structuredLogDestinations
       `Prelude.seq` Prelude.rnf workflowDetails
       `Prelude.seq` Prelude.rnf serverId
 
@@ -775,6 +836,8 @@ instance Data.ToJSON UpdateServer where
             ("Protocols" Data..=) Prelude.<$> protocols,
             ("SecurityPolicyName" Data..=)
               Prelude.<$> securityPolicyName,
+            ("StructuredLogDestinations" Data..=)
+              Prelude.<$> structuredLogDestinations,
             ("WorkflowDetails" Data..=)
               Prelude.<$> workflowDetails,
             Prelude.Just ("ServerId" Data..= serverId)
@@ -791,8 +854,8 @@ instance Data.ToQuery UpdateServer where
 data UpdateServerResponse = UpdateServerResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | A system-assigned unique identifier for a server that the user account
-    -- is assigned to.
+    -- | A system-assigned unique identifier for a server that the Transfer
+    -- Family user is assigned to.
     serverId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -807,8 +870,8 @@ data UpdateServerResponse = UpdateServerResponse'
 --
 -- 'httpStatus', 'updateServerResponse_httpStatus' - The response's http status code.
 --
--- 'serverId', 'updateServerResponse_serverId' - A system-assigned unique identifier for a server that the user account
--- is assigned to.
+-- 'serverId', 'updateServerResponse_serverId' - A system-assigned unique identifier for a server that the Transfer
+-- Family user is assigned to.
 newUpdateServerResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -825,8 +888,8 @@ newUpdateServerResponse pHttpStatus_ pServerId_ =
 updateServerResponse_httpStatus :: Lens.Lens' UpdateServerResponse Prelude.Int
 updateServerResponse_httpStatus = Lens.lens (\UpdateServerResponse' {httpStatus} -> httpStatus) (\s@UpdateServerResponse' {} a -> s {httpStatus = a} :: UpdateServerResponse)
 
--- | A system-assigned unique identifier for a server that the user account
--- is assigned to.
+-- | A system-assigned unique identifier for a server that the Transfer
+-- Family user is assigned to.
 updateServerResponse_serverId :: Lens.Lens' UpdateServerResponse Prelude.Text
 updateServerResponse_serverId = Lens.lens (\UpdateServerResponse' {serverId} -> serverId) (\s@UpdateServerResponse' {} a -> s {serverId = a} :: UpdateServerResponse)
 

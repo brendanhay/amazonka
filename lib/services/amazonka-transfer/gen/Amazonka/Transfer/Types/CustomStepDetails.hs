@@ -34,14 +34,14 @@ data CustomStepDetails = CustomStepDetails'
     -- output from the previous step, or the originally uploaded file for the
     -- workflow.
     --
-    -- -   Enter @${previous.file}@ to use the previous file as the input. In
+    -- -   To use the previous file as the input, enter @${previous.file}@. In
     --     this case, this workflow step uses the output file from the previous
     --     workflow step as input. This is the default value.
     --
-    -- -   Enter @${original.file}@ to use the originally-uploaded file
-    --     location as input for this step.
+    -- -   To use the originally uploaded file location as input for this step,
+    --     enter @${original.file}@.
     sourceFileLocation :: Prelude.Maybe Prelude.Text,
-    -- | The ARN for the lambda function that is being called.
+    -- | The ARN for the Lambda function that is being called.
     target :: Prelude.Maybe Prelude.Text,
     -- | Timeout, in seconds, for the step.
     timeoutSeconds :: Prelude.Maybe Prelude.Natural
@@ -62,14 +62,14 @@ data CustomStepDetails = CustomStepDetails'
 -- output from the previous step, or the originally uploaded file for the
 -- workflow.
 --
--- -   Enter @${previous.file}@ to use the previous file as the input. In
+-- -   To use the previous file as the input, enter @${previous.file}@. In
 --     this case, this workflow step uses the output file from the previous
 --     workflow step as input. This is the default value.
 --
--- -   Enter @${original.file}@ to use the originally-uploaded file
---     location as input for this step.
+-- -   To use the originally uploaded file location as input for this step,
+--     enter @${original.file}@.
 --
--- 'target', 'customStepDetails_target' - The ARN for the lambda function that is being called.
+-- 'target', 'customStepDetails_target' - The ARN for the Lambda function that is being called.
 --
 -- 'timeoutSeconds', 'customStepDetails_timeoutSeconds' - Timeout, in seconds, for the step.
 newCustomStepDetails ::
@@ -90,16 +90,16 @@ customStepDetails_name = Lens.lens (\CustomStepDetails' {name} -> name) (\s@Cust
 -- output from the previous step, or the originally uploaded file for the
 -- workflow.
 --
--- -   Enter @${previous.file}@ to use the previous file as the input. In
+-- -   To use the previous file as the input, enter @${previous.file}@. In
 --     this case, this workflow step uses the output file from the previous
 --     workflow step as input. This is the default value.
 --
--- -   Enter @${original.file}@ to use the originally-uploaded file
---     location as input for this step.
+-- -   To use the originally uploaded file location as input for this step,
+--     enter @${original.file}@.
 customStepDetails_sourceFileLocation :: Lens.Lens' CustomStepDetails (Prelude.Maybe Prelude.Text)
 customStepDetails_sourceFileLocation = Lens.lens (\CustomStepDetails' {sourceFileLocation} -> sourceFileLocation) (\s@CustomStepDetails' {} a -> s {sourceFileLocation = a} :: CustomStepDetails)
 
--- | The ARN for the lambda function that is being called.
+-- | The ARN for the Lambda function that is being called.
 customStepDetails_target :: Lens.Lens' CustomStepDetails (Prelude.Maybe Prelude.Text)
 customStepDetails_target = Lens.lens (\CustomStepDetails' {target} -> target) (\s@CustomStepDetails' {} a -> s {target = a} :: CustomStepDetails)
 
@@ -121,7 +121,8 @@ instance Data.FromJSON CustomStepDetails where
 
 instance Prelude.Hashable CustomStepDetails where
   hashWithSalt _salt CustomStepDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sourceFileLocation
       `Prelude.hashWithSalt` target
       `Prelude.hashWithSalt` timeoutSeconds

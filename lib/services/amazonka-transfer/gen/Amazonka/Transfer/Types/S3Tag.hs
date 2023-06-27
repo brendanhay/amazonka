@@ -70,12 +70,14 @@ instance Data.FromJSON S3Tag where
       "S3Tag"
       ( \x ->
           S3Tag'
-            Prelude.<$> (x Data..: "Key") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Key")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable S3Tag where
   hashWithSalt _salt S3Tag' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData S3Tag where

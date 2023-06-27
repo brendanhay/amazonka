@@ -61,7 +61,7 @@ data ImportHostKey = ImportHostKey'
     -- | The identifier of the server that contains the host key that you are
     -- importing.
     serverId :: Prelude.Text,
-    -- | The public key portion of an SSH key pair.
+    -- | The private key portion of an SSH key pair.
     --
     -- Transfer Family accepts RSA, ECDSA, and ED25519 keys.
     hostKeyBody :: Data.Sensitive Prelude.Text
@@ -83,7 +83,7 @@ data ImportHostKey = ImportHostKey'
 -- 'serverId', 'importHostKey_serverId' - The identifier of the server that contains the host key that you are
 -- importing.
 --
--- 'hostKeyBody', 'importHostKey_hostKeyBody' - The public key portion of an SSH key pair.
+-- 'hostKeyBody', 'importHostKey_hostKeyBody' - The private key portion of an SSH key pair.
 --
 -- Transfer Family accepts RSA, ECDSA, and ED25519 keys.
 newImportHostKey ::
@@ -113,7 +113,7 @@ importHostKey_tags = Lens.lens (\ImportHostKey' {tags} -> tags) (\s@ImportHostKe
 importHostKey_serverId :: Lens.Lens' ImportHostKey Prelude.Text
 importHostKey_serverId = Lens.lens (\ImportHostKey' {serverId} -> serverId) (\s@ImportHostKey' {} a -> s {serverId = a} :: ImportHostKey)
 
--- | The public key portion of an SSH key pair.
+-- | The private key portion of an SSH key pair.
 --
 -- Transfer Family accepts RSA, ECDSA, and ED25519 keys.
 importHostKey_hostKeyBody :: Lens.Lens' ImportHostKey Prelude.Text
@@ -136,7 +136,8 @@ instance Core.AWSRequest ImportHostKey where
 
 instance Prelude.Hashable ImportHostKey where
   hashWithSalt _salt ImportHostKey' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serverId
       `Prelude.hashWithSalt` hostKeyBody

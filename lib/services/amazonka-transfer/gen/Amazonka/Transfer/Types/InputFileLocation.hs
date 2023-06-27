@@ -26,14 +26,15 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transfer.Types.EfsFileLocation
 import Amazonka.Transfer.Types.S3InputFileLocation
 
--- | Specifies the location for the file being copied. Only applicable for
--- the Copy type of workflow steps.
+-- | Specifies the location for the file that\'s being processed.
 --
 -- /See:/ 'newInputFileLocation' smart constructor.
 data InputFileLocation = InputFileLocation'
-  { -- | Reserved for future use.
+  { -- | Specifies the details for the Amazon Elastic File System (Amazon EFS)
+    -- file that\'s being decrypted.
     efsFileLocation :: Prelude.Maybe EfsFileLocation,
-    -- | Specifies the details for the S3 file being copied.
+    -- | Specifies the details for the Amazon S3 file that\'s being copied or
+    -- decrypted.
     s3FileLocation :: Prelude.Maybe S3InputFileLocation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,9 +47,11 @@ data InputFileLocation = InputFileLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'efsFileLocation', 'inputFileLocation_efsFileLocation' - Reserved for future use.
+-- 'efsFileLocation', 'inputFileLocation_efsFileLocation' - Specifies the details for the Amazon Elastic File System (Amazon EFS)
+-- file that\'s being decrypted.
 --
--- 's3FileLocation', 'inputFileLocation_s3FileLocation' - Specifies the details for the S3 file being copied.
+-- 's3FileLocation', 'inputFileLocation_s3FileLocation' - Specifies the details for the Amazon S3 file that\'s being copied or
+-- decrypted.
 newInputFileLocation ::
   InputFileLocation
 newInputFileLocation =
@@ -58,11 +61,13 @@ newInputFileLocation =
       s3FileLocation = Prelude.Nothing
     }
 
--- | Reserved for future use.
+-- | Specifies the details for the Amazon Elastic File System (Amazon EFS)
+-- file that\'s being decrypted.
 inputFileLocation_efsFileLocation :: Lens.Lens' InputFileLocation (Prelude.Maybe EfsFileLocation)
 inputFileLocation_efsFileLocation = Lens.lens (\InputFileLocation' {efsFileLocation} -> efsFileLocation) (\s@InputFileLocation' {} a -> s {efsFileLocation = a} :: InputFileLocation)
 
--- | Specifies the details for the S3 file being copied.
+-- | Specifies the details for the Amazon S3 file that\'s being copied or
+-- decrypted.
 inputFileLocation_s3FileLocation :: Lens.Lens' InputFileLocation (Prelude.Maybe S3InputFileLocation)
 inputFileLocation_s3FileLocation = Lens.lens (\InputFileLocation' {s3FileLocation} -> s3FileLocation) (\s@InputFileLocation' {} a -> s {s3FileLocation = a} :: InputFileLocation)
 
@@ -78,7 +83,8 @@ instance Data.FromJSON InputFileLocation where
 
 instance Prelude.Hashable InputFileLocation where
   hashWithSalt _salt InputFileLocation' {..} =
-    _salt `Prelude.hashWithSalt` efsFileLocation
+    _salt
+      `Prelude.hashWithSalt` efsFileLocation
       `Prelude.hashWithSalt` s3FileLocation
 
 instance Prelude.NFData InputFileLocation where

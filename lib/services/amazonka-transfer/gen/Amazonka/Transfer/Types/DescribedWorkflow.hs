@@ -115,7 +115,8 @@ instance Data.FromJSON DescribedWorkflow where
       ( \x ->
           DescribedWorkflow'
             Prelude.<$> (x Data..:? "Description")
-            Prelude.<*> ( x Data..:? "OnExceptionSteps"
+            Prelude.<*> ( x
+                            Data..:? "OnExceptionSteps"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Steps" Data..!= Prelude.mempty)
@@ -126,7 +127,8 @@ instance Data.FromJSON DescribedWorkflow where
 
 instance Prelude.Hashable DescribedWorkflow where
   hashWithSalt _salt DescribedWorkflow' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` onExceptionSteps
       `Prelude.hashWithSalt` steps
       `Prelude.hashWithSalt` tags

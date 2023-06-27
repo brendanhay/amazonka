@@ -117,7 +117,8 @@ instance Core.AWSRequest DescribeUser where
 
 instance Prelude.Hashable DescribeUser where
   hashWithSalt _salt DescribeUser' {..} =
-    _salt `Prelude.hashWithSalt` serverId
+    _salt
+      `Prelude.hashWithSalt` serverId
       `Prelude.hashWithSalt` userName
 
 instance Prelude.NFData DescribeUser where
@@ -162,7 +163,7 @@ data DescribeUserResponse = DescribeUserResponse'
     -- | A system-assigned unique identifier for a server that has this user
     -- assigned.
     serverId :: Prelude.Text,
-    -- | An array containing the properties of the user account for the
+    -- | An array containing the properties of the Transfer Family user for the
     -- @ServerID@ value that you specified.
     user :: DescribedUser
   }
@@ -181,7 +182,7 @@ data DescribeUserResponse = DescribeUserResponse'
 -- 'serverId', 'describeUserResponse_serverId' - A system-assigned unique identifier for a server that has this user
 -- assigned.
 --
--- 'user', 'describeUserResponse_user' - An array containing the properties of the user account for the
+-- 'user', 'describeUserResponse_user' - An array containing the properties of the Transfer Family user for the
 -- @ServerID@ value that you specified.
 newDescribeUserResponse ::
   -- | 'httpStatus'
@@ -210,7 +211,7 @@ describeUserResponse_httpStatus = Lens.lens (\DescribeUserResponse' {httpStatus}
 describeUserResponse_serverId :: Lens.Lens' DescribeUserResponse Prelude.Text
 describeUserResponse_serverId = Lens.lens (\DescribeUserResponse' {serverId} -> serverId) (\s@DescribeUserResponse' {} a -> s {serverId = a} :: DescribeUserResponse)
 
--- | An array containing the properties of the user account for the
+-- | An array containing the properties of the Transfer Family user for the
 -- @ServerID@ value that you specified.
 describeUserResponse_user :: Lens.Lens' DescribeUserResponse DescribedUser
 describeUserResponse_user = Lens.lens (\DescribeUserResponse' {user} -> user) (\s@DescribeUserResponse' {} a -> s {user = a} :: DescribeUserResponse)

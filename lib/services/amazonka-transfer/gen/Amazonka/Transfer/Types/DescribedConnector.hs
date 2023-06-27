@@ -168,7 +168,8 @@ instance Data.FromJSON DescribedConnector where
 
 instance Prelude.Hashable DescribedConnector where
   hashWithSalt _salt DescribedConnector' {..} =
-    _salt `Prelude.hashWithSalt` accessRole
+    _salt
+      `Prelude.hashWithSalt` accessRole
       `Prelude.hashWithSalt` as2Config
       `Prelude.hashWithSalt` connectorId
       `Prelude.hashWithSalt` loggingRole

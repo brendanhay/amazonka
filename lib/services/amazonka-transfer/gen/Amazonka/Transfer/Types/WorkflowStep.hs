@@ -40,31 +40,52 @@ data WorkflowStep = WorkflowStep'
     --
     -- -   A description
     --
-    -- -   An S3 location for the destination of the file copy.
+    -- -   An Amazon S3 location for the destination of the file copy.
     --
-    -- -   A flag that indicates whether or not to overwrite an existing file
-    --     of the same name. The default is @FALSE@.
+    -- -   A flag that indicates whether to overwrite an existing file of the
+    --     same name. The default is @FALSE@.
     copyStepDetails :: Prelude.Maybe CopyStepDetails,
-    -- | Details for a step that invokes a lambda function.
+    -- | Details for a step that invokes an Lambda function.
     --
-    -- Consists of the lambda function name, target, and timeout (in seconds).
+    -- Consists of the Lambda function\'s name, target, and timeout (in
+    -- seconds).
     customStepDetails :: Prelude.Maybe CustomStepDetails,
+    -- | Details for a step that decrypts an encrypted file.
+    --
+    -- Consists of the following values:
+    --
+    -- -   A descriptive name
+    --
+    -- -   An Amazon S3 or Amazon Elastic File System (Amazon EFS) location for
+    --     the source file to decrypt.
+    --
+    -- -   An S3 or Amazon EFS location for the destination of the file
+    --     decryption.
+    --
+    -- -   A flag that indicates whether to overwrite an existing file of the
+    --     same name. The default is @FALSE@.
+    --
+    -- -   The type of encryption that\'s used. Currently, only PGP encryption
+    --     is supported.
     decryptStepDetails :: Prelude.Maybe DecryptStepDetails,
     -- | Details for a step that deletes the file.
     deleteStepDetails :: Prelude.Maybe DeleteStepDetails,
     -- | Details for a step that creates one or more tags.
     --
-    -- You specify one or more tags: each tag contains a key\/value pair.
+    -- You specify one or more tags. Each tag contains a key-value pair.
     tagStepDetails :: Prelude.Maybe TagStepDetails,
     -- | Currently, the following step types are supported.
     --
-    -- -   /COPY/: Copy the file to another location.
+    -- -   __@COPY@__ - Copy the file to another location.
     --
-    -- -   /CUSTOM/: Perform a custom step with an Lambda function target.
+    -- -   __@CUSTOM@__ - Perform a custom step with an Lambda function target.
     --
-    -- -   /DELETE/: Delete the file.
+    -- -   __@DECRYPT@__ - Decrypt a file that was encrypted before it was
+    --     uploaded.
     --
-    -- -   /TAG/: Add a tag to the file.
+    -- -   __@DELETE@__ - Delete the file.
+    --
+    -- -   __@TAG@__ - Add a tag to the file.
     type' :: Prelude.Maybe WorkflowStepType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,32 +104,52 @@ data WorkflowStep = WorkflowStep'
 --
 -- -   A description
 --
--- -   An S3 location for the destination of the file copy.
+-- -   An Amazon S3 location for the destination of the file copy.
 --
--- -   A flag that indicates whether or not to overwrite an existing file
---     of the same name. The default is @FALSE@.
+-- -   A flag that indicates whether to overwrite an existing file of the
+--     same name. The default is @FALSE@.
 --
--- 'customStepDetails', 'workflowStep_customStepDetails' - Details for a step that invokes a lambda function.
+-- 'customStepDetails', 'workflowStep_customStepDetails' - Details for a step that invokes an Lambda function.
 --
--- Consists of the lambda function name, target, and timeout (in seconds).
+-- Consists of the Lambda function\'s name, target, and timeout (in
+-- seconds).
 --
--- 'decryptStepDetails', 'workflowStep_decryptStepDetails' - Undocumented member.
+-- 'decryptStepDetails', 'workflowStep_decryptStepDetails' - Details for a step that decrypts an encrypted file.
+--
+-- Consists of the following values:
+--
+-- -   A descriptive name
+--
+-- -   An Amazon S3 or Amazon Elastic File System (Amazon EFS) location for
+--     the source file to decrypt.
+--
+-- -   An S3 or Amazon EFS location for the destination of the file
+--     decryption.
+--
+-- -   A flag that indicates whether to overwrite an existing file of the
+--     same name. The default is @FALSE@.
+--
+-- -   The type of encryption that\'s used. Currently, only PGP encryption
+--     is supported.
 --
 -- 'deleteStepDetails', 'workflowStep_deleteStepDetails' - Details for a step that deletes the file.
 --
 -- 'tagStepDetails', 'workflowStep_tagStepDetails' - Details for a step that creates one or more tags.
 --
--- You specify one or more tags: each tag contains a key\/value pair.
+-- You specify one or more tags. Each tag contains a key-value pair.
 --
 -- 'type'', 'workflowStep_type' - Currently, the following step types are supported.
 --
--- -   /COPY/: Copy the file to another location.
+-- -   __@COPY@__ - Copy the file to another location.
 --
--- -   /CUSTOM/: Perform a custom step with an Lambda function target.
+-- -   __@CUSTOM@__ - Perform a custom step with an Lambda function target.
 --
--- -   /DELETE/: Delete the file.
+-- -   __@DECRYPT@__ - Decrypt a file that was encrypted before it was
+--     uploaded.
 --
--- -   /TAG/: Add a tag to the file.
+-- -   __@DELETE@__ - Delete the file.
+--
+-- -   __@TAG@__ - Add a tag to the file.
 newWorkflowStep ::
   WorkflowStep
 newWorkflowStep =
@@ -127,20 +168,37 @@ newWorkflowStep =
 --
 -- -   A description
 --
--- -   An S3 location for the destination of the file copy.
+-- -   An Amazon S3 location for the destination of the file copy.
 --
--- -   A flag that indicates whether or not to overwrite an existing file
---     of the same name. The default is @FALSE@.
+-- -   A flag that indicates whether to overwrite an existing file of the
+--     same name. The default is @FALSE@.
 workflowStep_copyStepDetails :: Lens.Lens' WorkflowStep (Prelude.Maybe CopyStepDetails)
 workflowStep_copyStepDetails = Lens.lens (\WorkflowStep' {copyStepDetails} -> copyStepDetails) (\s@WorkflowStep' {} a -> s {copyStepDetails = a} :: WorkflowStep)
 
--- | Details for a step that invokes a lambda function.
+-- | Details for a step that invokes an Lambda function.
 --
--- Consists of the lambda function name, target, and timeout (in seconds).
+-- Consists of the Lambda function\'s name, target, and timeout (in
+-- seconds).
 workflowStep_customStepDetails :: Lens.Lens' WorkflowStep (Prelude.Maybe CustomStepDetails)
 workflowStep_customStepDetails = Lens.lens (\WorkflowStep' {customStepDetails} -> customStepDetails) (\s@WorkflowStep' {} a -> s {customStepDetails = a} :: WorkflowStep)
 
--- | Undocumented member.
+-- | Details for a step that decrypts an encrypted file.
+--
+-- Consists of the following values:
+--
+-- -   A descriptive name
+--
+-- -   An Amazon S3 or Amazon Elastic File System (Amazon EFS) location for
+--     the source file to decrypt.
+--
+-- -   An S3 or Amazon EFS location for the destination of the file
+--     decryption.
+--
+-- -   A flag that indicates whether to overwrite an existing file of the
+--     same name. The default is @FALSE@.
+--
+-- -   The type of encryption that\'s used. Currently, only PGP encryption
+--     is supported.
 workflowStep_decryptStepDetails :: Lens.Lens' WorkflowStep (Prelude.Maybe DecryptStepDetails)
 workflowStep_decryptStepDetails = Lens.lens (\WorkflowStep' {decryptStepDetails} -> decryptStepDetails) (\s@WorkflowStep' {} a -> s {decryptStepDetails = a} :: WorkflowStep)
 
@@ -150,19 +208,22 @@ workflowStep_deleteStepDetails = Lens.lens (\WorkflowStep' {deleteStepDetails} -
 
 -- | Details for a step that creates one or more tags.
 --
--- You specify one or more tags: each tag contains a key\/value pair.
+-- You specify one or more tags. Each tag contains a key-value pair.
 workflowStep_tagStepDetails :: Lens.Lens' WorkflowStep (Prelude.Maybe TagStepDetails)
 workflowStep_tagStepDetails = Lens.lens (\WorkflowStep' {tagStepDetails} -> tagStepDetails) (\s@WorkflowStep' {} a -> s {tagStepDetails = a} :: WorkflowStep)
 
 -- | Currently, the following step types are supported.
 --
--- -   /COPY/: Copy the file to another location.
+-- -   __@COPY@__ - Copy the file to another location.
 --
--- -   /CUSTOM/: Perform a custom step with an Lambda function target.
+-- -   __@CUSTOM@__ - Perform a custom step with an Lambda function target.
 --
--- -   /DELETE/: Delete the file.
+-- -   __@DECRYPT@__ - Decrypt a file that was encrypted before it was
+--     uploaded.
 --
--- -   /TAG/: Add a tag to the file.
+-- -   __@DELETE@__ - Delete the file.
+--
+-- -   __@TAG@__ - Add a tag to the file.
 workflowStep_type :: Lens.Lens' WorkflowStep (Prelude.Maybe WorkflowStepType)
 workflowStep_type = Lens.lens (\WorkflowStep' {type'} -> type') (\s@WorkflowStep' {} a -> s {type' = a} :: WorkflowStep)
 
@@ -182,7 +243,8 @@ instance Data.FromJSON WorkflowStep where
 
 instance Prelude.Hashable WorkflowStep where
   hashWithSalt _salt WorkflowStep' {..} =
-    _salt `Prelude.hashWithSalt` copyStepDetails
+    _salt
+      `Prelude.hashWithSalt` copyStepDetails
       `Prelude.hashWithSalt` customStepDetails
       `Prelude.hashWithSalt` decryptStepDetails
       `Prelude.hashWithSalt` deleteStepDetails

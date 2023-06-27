@@ -70,6 +70,7 @@ module Amazonka.Transfer.Lens
     createServer_protocolDetails,
     createServer_protocols,
     createServer_securityPolicyName,
+    createServer_structuredLogDestinations,
     createServer_tags,
     createServer_workflowDetails,
     createServerResponse_httpStatus,
@@ -430,6 +431,7 @@ module Amazonka.Transfer.Lens
     updateServer_protocolDetails,
     updateServer_protocols,
     updateServer_securityPolicyName,
+    updateServer_structuredLogDestinations,
     updateServer_workflowDetails,
     updateServer_serverId,
     updateServerResponse_httpStatus,
@@ -580,6 +582,7 @@ module Amazonka.Transfer.Lens
     describedServer_securityPolicyName,
     describedServer_serverId,
     describedServer_state,
+    describedServer_structuredLogDestinations,
     describedServer_tags,
     describedServer_userCount,
     describedServer_workflowDetails,
@@ -641,6 +644,7 @@ module Amazonka.Transfer.Lens
     identityProviderDetails_directoryId,
     identityProviderDetails_function,
     identityProviderDetails_invocationRole,
+    identityProviderDetails_sftpAuthenticationMethods,
     identityProviderDetails_url,
 
     -- ** InputFileLocation

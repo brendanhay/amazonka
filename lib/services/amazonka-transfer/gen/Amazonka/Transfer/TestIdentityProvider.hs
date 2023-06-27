@@ -31,8 +31,16 @@
 -- The @ServerId@ and @UserName@ parameters are required. The
 -- @ServerProtocol@, @SourceIp@, and @UserPassword@ are all optional.
 --
--- You cannot use @TestIdentityProvider@ if the @IdentityProviderType@ of
--- your server is @SERVICE_MANAGED@.
+-- Note the following:
+--
+-- -   You cannot use @TestIdentityProvider@ if the @IdentityProviderType@
+--     of your server is @SERVICE_MANAGED@.
+--
+-- -   @TestIdentityProvider@ does not work with keys: it only accepts
+--     passwords.
+--
+-- -   @TestIdentityProvider@ can test the password operation for a custom
+--     Identity Provider that handles keys and passwords.
 --
 -- -   If you provide any incorrect values for any parameters, the
 --     @Response@ field is empty.
@@ -40,13 +48,17 @@
 -- -   If you provide a server ID for a server that uses service-managed
 --     users, you get an error:
 --
---     @ An error occurred (InvalidRequestException) when calling the TestIdentityProvider operation: s-server-ID not configured for external auth @
+--     @ An error occurred (InvalidRequestException) when calling the TestIdentityProvider operation: s-@/@server-ID@/@ not configured for external auth @
 --
 -- -   If you enter a Server ID for the @--server-id@ parameter that does
 --     not identify an actual Transfer server, you receive the following
 --     error:
 --
---     @An error occurred (ResourceNotFoundException) when calling the TestIdentityProvider operation: Unknown server@
+--     @An error occurred (ResourceNotFoundException) when calling the TestIdentityProvider operation: Unknown server@.
+--
+--     It is possible your sever is in a different region. You can specify
+--     a region by adding the following: @--region region-code@, such as
+--     @--region us-east-2@ to specify a server in __US East (Ohio)__.
 module Amazonka.Transfer.TestIdentityProvider
   ( -- * Creating a Request
     TestIdentityProvider (..),
@@ -91,15 +103,17 @@ data TestIdentityProvider = TestIdentityProvider'
     -- -   File Transfer Protocol Secure (FTPS)
     --
     -- -   File Transfer Protocol (FTP)
+    --
+    -- -   Applicability Statement 2 (AS2)
     serverProtocol :: Prelude.Maybe Protocol,
-    -- | The source IP address of the user account to be tested.
+    -- | The source IP address of the account to be tested.
     sourceIp :: Prelude.Maybe Prelude.Text,
-    -- | The password of the user account to be tested.
+    -- | The password of the account to be tested.
     userPassword :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A system-assigned identifier for a specific server. That server\'s user
     -- authentication method is tested with a user name and password.
     serverId :: Prelude.Text,
-    -- | The name of the user account to be tested.
+    -- | The name of the account to be tested.
     userName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -122,14 +136,16 @@ data TestIdentityProvider = TestIdentityProvider'
 --
 -- -   File Transfer Protocol (FTP)
 --
--- 'sourceIp', 'testIdentityProvider_sourceIp' - The source IP address of the user account to be tested.
+-- -   Applicability Statement 2 (AS2)
 --
--- 'userPassword', 'testIdentityProvider_userPassword' - The password of the user account to be tested.
+-- 'sourceIp', 'testIdentityProvider_sourceIp' - The source IP address of the account to be tested.
+--
+-- 'userPassword', 'testIdentityProvider_userPassword' - The password of the account to be tested.
 --
 -- 'serverId', 'testIdentityProvider_serverId' - A system-assigned identifier for a specific server. That server\'s user
 -- authentication method is tested with a user name and password.
 --
--- 'userName', 'testIdentityProvider_userName' - The name of the user account to be tested.
+-- 'userName', 'testIdentityProvider_userName' - The name of the account to be tested.
 newTestIdentityProvider ::
   -- | 'serverId'
   Prelude.Text ->
@@ -155,14 +171,16 @@ newTestIdentityProvider pServerId_ pUserName_ =
 -- -   File Transfer Protocol Secure (FTPS)
 --
 -- -   File Transfer Protocol (FTP)
+--
+-- -   Applicability Statement 2 (AS2)
 testIdentityProvider_serverProtocol :: Lens.Lens' TestIdentityProvider (Prelude.Maybe Protocol)
 testIdentityProvider_serverProtocol = Lens.lens (\TestIdentityProvider' {serverProtocol} -> serverProtocol) (\s@TestIdentityProvider' {} a -> s {serverProtocol = a} :: TestIdentityProvider)
 
--- | The source IP address of the user account to be tested.
+-- | The source IP address of the account to be tested.
 testIdentityProvider_sourceIp :: Lens.Lens' TestIdentityProvider (Prelude.Maybe Prelude.Text)
 testIdentityProvider_sourceIp = Lens.lens (\TestIdentityProvider' {sourceIp} -> sourceIp) (\s@TestIdentityProvider' {} a -> s {sourceIp = a} :: TestIdentityProvider)
 
--- | The password of the user account to be tested.
+-- | The password of the account to be tested.
 testIdentityProvider_userPassword :: Lens.Lens' TestIdentityProvider (Prelude.Maybe Prelude.Text)
 testIdentityProvider_userPassword = Lens.lens (\TestIdentityProvider' {userPassword} -> userPassword) (\s@TestIdentityProvider' {} a -> s {userPassword = a} :: TestIdentityProvider) Prelude.. Lens.mapping Data._Sensitive
 
@@ -171,7 +189,7 @@ testIdentityProvider_userPassword = Lens.lens (\TestIdentityProvider' {userPassw
 testIdentityProvider_serverId :: Lens.Lens' TestIdentityProvider Prelude.Text
 testIdentityProvider_serverId = Lens.lens (\TestIdentityProvider' {serverId} -> serverId) (\s@TestIdentityProvider' {} a -> s {serverId = a} :: TestIdentityProvider)
 
--- | The name of the user account to be tested.
+-- | The name of the account to be tested.
 testIdentityProvider_userName :: Lens.Lens' TestIdentityProvider Prelude.Text
 testIdentityProvider_userName = Lens.lens (\TestIdentityProvider' {userName} -> userName) (\s@TestIdentityProvider' {} a -> s {userName = a} :: TestIdentityProvider)
 
@@ -194,7 +212,8 @@ instance Core.AWSRequest TestIdentityProvider where
 
 instance Prelude.Hashable TestIdentityProvider where
   hashWithSalt _salt TestIdentityProvider' {..} =
-    _salt `Prelude.hashWithSalt` serverProtocol
+    _salt
+      `Prelude.hashWithSalt` serverProtocol
       `Prelude.hashWithSalt` sourceIp
       `Prelude.hashWithSalt` userPassword
       `Prelude.hashWithSalt` serverId
@@ -249,11 +268,13 @@ data TestIdentityProviderResponse = TestIdentityProviderResponse'
     -- If an empty string is returned, the most likely cause is that the
     -- authentication failed due to an incorrect username or password.
     message :: Prelude.Maybe Prelude.Text,
-    -- | The response that is returned from your API Gateway.
+    -- | The response that is returned from your API Gateway or your Lambda
+    -- function.
     response :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The HTTP status code that is the response from your API Gateway.
+    -- | The HTTP status code that is the response from your API Gateway or your
+    -- Lambda function.
     statusCode :: Prelude.Int,
     -- | The endpoint of the service used to authenticate a user.
     url :: Prelude.Text
@@ -273,11 +294,13 @@ data TestIdentityProviderResponse = TestIdentityProviderResponse'
 -- If an empty string is returned, the most likely cause is that the
 -- authentication failed due to an incorrect username or password.
 --
--- 'response', 'testIdentityProviderResponse_response' - The response that is returned from your API Gateway.
+-- 'response', 'testIdentityProviderResponse_response' - The response that is returned from your API Gateway or your Lambda
+-- function.
 --
 -- 'httpStatus', 'testIdentityProviderResponse_httpStatus' - The response's http status code.
 --
--- 'statusCode', 'testIdentityProviderResponse_statusCode' - The HTTP status code that is the response from your API Gateway.
+-- 'statusCode', 'testIdentityProviderResponse_statusCode' - The HTTP status code that is the response from your API Gateway or your
+-- Lambda function.
 --
 -- 'url', 'testIdentityProviderResponse_url' - The endpoint of the service used to authenticate a user.
 newTestIdentityProviderResponse ::
@@ -308,7 +331,8 @@ newTestIdentityProviderResponse
 testIdentityProviderResponse_message :: Lens.Lens' TestIdentityProviderResponse (Prelude.Maybe Prelude.Text)
 testIdentityProviderResponse_message = Lens.lens (\TestIdentityProviderResponse' {message} -> message) (\s@TestIdentityProviderResponse' {} a -> s {message = a} :: TestIdentityProviderResponse)
 
--- | The response that is returned from your API Gateway.
+-- | The response that is returned from your API Gateway or your Lambda
+-- function.
 testIdentityProviderResponse_response :: Lens.Lens' TestIdentityProviderResponse (Prelude.Maybe Prelude.Text)
 testIdentityProviderResponse_response = Lens.lens (\TestIdentityProviderResponse' {response} -> response) (\s@TestIdentityProviderResponse' {} a -> s {response = a} :: TestIdentityProviderResponse)
 
@@ -316,7 +340,8 @@ testIdentityProviderResponse_response = Lens.lens (\TestIdentityProviderResponse
 testIdentityProviderResponse_httpStatus :: Lens.Lens' TestIdentityProviderResponse Prelude.Int
 testIdentityProviderResponse_httpStatus = Lens.lens (\TestIdentityProviderResponse' {httpStatus} -> httpStatus) (\s@TestIdentityProviderResponse' {} a -> s {httpStatus = a} :: TestIdentityProviderResponse)
 
--- | The HTTP status code that is the response from your API Gateway.
+-- | The HTTP status code that is the response from your API Gateway or your
+-- Lambda function.
 testIdentityProviderResponse_statusCode :: Lens.Lens' TestIdentityProviderResponse Prelude.Int
 testIdentityProviderResponse_statusCode = Lens.lens (\TestIdentityProviderResponse' {statusCode} -> statusCode) (\s@TestIdentityProviderResponse' {} a -> s {statusCode = a} :: TestIdentityProviderResponse)
 

@@ -197,7 +197,8 @@ instance Data.FromJSON DescribedAgreement where
 
 instance Prelude.Hashable DescribedAgreement where
   hashWithSalt _salt DescribedAgreement' {..} =
-    _salt `Prelude.hashWithSalt` accessRole
+    _salt
+      `Prelude.hashWithSalt` accessRole
       `Prelude.hashWithSalt` agreementId
       `Prelude.hashWithSalt` baseDirectory
       `Prelude.hashWithSalt` description

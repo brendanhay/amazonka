@@ -105,21 +105,21 @@ instance Core.AWSPager ListSecurityPolicies where
     | Core.stop
         ( rs
             Lens.^? listSecurityPoliciesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listSecurityPoliciesResponse_securityPolicyNames
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSecurityPolicies_nextToken
           Lens..~ rs
           Lens.^? listSecurityPoliciesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSecurityPolicies where
   type
@@ -133,14 +133,16 @@ instance Core.AWSRequest ListSecurityPolicies where
           ListSecurityPoliciesResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "SecurityPolicyNames"
+            Prelude.<*> ( x
+                            Data..?> "SecurityPolicyNames"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListSecurityPolicies where
   hashWithSalt _salt ListSecurityPolicies' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSecurityPolicies where

@@ -155,7 +155,8 @@ instance Data.FromJSON ListedHostKey where
 
 instance Prelude.Hashable ListedHostKey where
   hashWithSalt _salt ListedHostKey' {..} =
-    _salt `Prelude.hashWithSalt` dateImported
+    _salt
+      `Prelude.hashWithSalt` dateImported
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` fingerprint
       `Prelude.hashWithSalt` hostKeyId

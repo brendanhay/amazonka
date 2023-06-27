@@ -44,6 +44,7 @@ module Amazonka.Transfer.CreateServer
     createServer_protocolDetails,
     createServer_protocols,
     createServer_securityPolicyName,
+    createServer_structuredLogDestinations,
     createServer_tags,
     createServer_workflowDetails,
 
@@ -167,14 +168,15 @@ data CreateServer = CreateServer'
     -- Accidentally changing a server\'s host key can be disruptive.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Update host keys for your SFTP-enabled server>
+    -- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Manage host keys for your SFTP-enabled server>
     -- in the /Transfer Family User Guide/.
     hostKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | Required when @IdentityProviderType@ is set to @AWS_DIRECTORY_SERVICE@
-    -- or @API_GATEWAY@. Accepts an array containing all of the information
-    -- required to use a directory in @AWS_DIRECTORY_SERVICE@ or invoke a
-    -- customer-supplied authentication API, including the API Gateway URL. Not
-    -- required when @IdentityProviderType@ is set to @SERVICE_MANAGED@.
+    -- | Required when @IdentityProviderType@ is set to @AWS_DIRECTORY_SERVICE@,
+    -- @Amazon Web Services_LAMBDA@ or @API_GATEWAY@. Accepts an array
+    -- containing all of the information required to use a directory in
+    -- @AWS_DIRECTORY_SERVICE@ or invoke a customer-supplied authentication
+    -- API, including the API Gateway URL. Not required when
+    -- @IdentityProviderType@ is set to @SERVICE_MANAGED@.
     identityProviderDetails :: Prelude.Maybe IdentityProviderDetails,
     -- | The mode of authentication for a server. The default value is
     -- @SERVICE_MANAGED@, which allows you to store and access user credentials
@@ -193,7 +195,7 @@ data CreateServer = CreateServer'
     --
     -- Use the @AWS_LAMBDA@ value to directly use an Lambda function as your
     -- identity provider. If you choose this value, you must specify the ARN
-    -- for the Lambda function in the @Function@ parameter or the
+    -- for the Lambda function in the @Function@ parameter for the
     -- @IdentityProviderDetails@ data type.
     identityProviderType :: Prelude.Maybe IdentityProviderType,
     -- | The Amazon Resource Name (ARN) of the Identity and Access Management
@@ -256,14 +258,15 @@ data CreateServer = CreateServer'
     --
     -- -   If @Protocol@ includes either @FTP@ or @FTPS@, then the
     --     @EndpointType@ must be @VPC@ and the @IdentityProviderType@ must be
-    --     @AWS_DIRECTORY_SERVICE@ or @API_GATEWAY@.
+    --     either @AWS_DIRECTORY_SERVICE@, @AWS_LAMBDA@, or @API_GATEWAY@.
     --
     -- -   If @Protocol@ includes @FTP@, then @AddressAllocationIds@ cannot be
     --     associated.
     --
     -- -   If @Protocol@ is set only to @SFTP@, the @EndpointType@ can be set
-    --     to @PUBLIC@ and the @IdentityProviderType@ can be set to
-    --     @SERVICE_MANAGED@.
+    --     to @PUBLIC@ and the @IdentityProviderType@ can be set any of the
+    --     supported identity types: @SERVICE_MANAGED@,
+    --     @AWS_DIRECTORY_SERVICE@, @AWS_LAMBDA@, or @API_GATEWAY@.
     --
     -- -   If @Protocol@ includes @AS2@, then the @EndpointType@ must be @VPC@,
     --     and domain must be Amazon S3.
@@ -271,15 +274,32 @@ data CreateServer = CreateServer'
     -- | Specifies the name of the security policy that is attached to the
     -- server.
     securityPolicyName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the log groups to which your server logs are sent.
+    --
+    -- To specify a log group, you must provide the ARN for an existing log
+    -- group. In this case, the format of the log group is as follows:
+    --
+    -- @arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*@
+    --
+    -- For example,
+    -- @arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*@
+    --
+    -- If you have previously specified a log group for a server, you can clear
+    -- it, and in effect turn off structured logging, by providing an empty
+    -- value for this parameter in an @update-server@ call. For example:
+    --
+    -- @update-server --server-id s-1234567890abcdef0 --structured-log-destinations@
+    structuredLogDestinations :: Prelude.Maybe [Prelude.Text],
     -- | Key-value pairs that can be used to group and search for servers.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | Specifies the workflow ID for the workflow to assign and the execution
     -- role that\'s used for executing the workflow.
     --
-    -- In additon to a workflow to execute when a file is uploaded completely,
-    -- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
+    -- In addition to a workflow to execute when a file is uploaded completely,
+    -- @WorkflowDetails@ can also contain a workflow ID (and execution role)
     -- for a workflow to execute on partial upload. A partial upload occurs
-    -- when a file is open when the session disconnects.
+    -- when the server session disconnects while the file is still being
+    -- uploaded.
     workflowDetails :: Prelude.Maybe WorkflowDetails
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -392,14 +412,15 @@ data CreateServer = CreateServer'
 -- Accidentally changing a server\'s host key can be disruptive.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Update host keys for your SFTP-enabled server>
+-- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Manage host keys for your SFTP-enabled server>
 -- in the /Transfer Family User Guide/.
 --
--- 'identityProviderDetails', 'createServer_identityProviderDetails' - Required when @IdentityProviderType@ is set to @AWS_DIRECTORY_SERVICE@
--- or @API_GATEWAY@. Accepts an array containing all of the information
--- required to use a directory in @AWS_DIRECTORY_SERVICE@ or invoke a
--- customer-supplied authentication API, including the API Gateway URL. Not
--- required when @IdentityProviderType@ is set to @SERVICE_MANAGED@.
+-- 'identityProviderDetails', 'createServer_identityProviderDetails' - Required when @IdentityProviderType@ is set to @AWS_DIRECTORY_SERVICE@,
+-- @Amazon Web Services_LAMBDA@ or @API_GATEWAY@. Accepts an array
+-- containing all of the information required to use a directory in
+-- @AWS_DIRECTORY_SERVICE@ or invoke a customer-supplied authentication
+-- API, including the API Gateway URL. Not required when
+-- @IdentityProviderType@ is set to @SERVICE_MANAGED@.
 --
 -- 'identityProviderType', 'createServer_identityProviderType' - The mode of authentication for a server. The default value is
 -- @SERVICE_MANAGED@, which allows you to store and access user credentials
@@ -418,7 +439,7 @@ data CreateServer = CreateServer'
 --
 -- Use the @AWS_LAMBDA@ value to directly use an Lambda function as your
 -- identity provider. If you choose this value, you must specify the ARN
--- for the Lambda function in the @Function@ parameter or the
+-- for the Lambda function in the @Function@ parameter for the
 -- @IdentityProviderDetails@ data type.
 --
 -- 'loggingRole', 'createServer_loggingRole' - The Amazon Resource Name (ARN) of the Identity and Access Management
@@ -481,14 +502,15 @@ data CreateServer = CreateServer'
 --
 -- -   If @Protocol@ includes either @FTP@ or @FTPS@, then the
 --     @EndpointType@ must be @VPC@ and the @IdentityProviderType@ must be
---     @AWS_DIRECTORY_SERVICE@ or @API_GATEWAY@.
+--     either @AWS_DIRECTORY_SERVICE@, @AWS_LAMBDA@, or @API_GATEWAY@.
 --
 -- -   If @Protocol@ includes @FTP@, then @AddressAllocationIds@ cannot be
 --     associated.
 --
 -- -   If @Protocol@ is set only to @SFTP@, the @EndpointType@ can be set
---     to @PUBLIC@ and the @IdentityProviderType@ can be set to
---     @SERVICE_MANAGED@.
+--     to @PUBLIC@ and the @IdentityProviderType@ can be set any of the
+--     supported identity types: @SERVICE_MANAGED@,
+--     @AWS_DIRECTORY_SERVICE@, @AWS_LAMBDA@, or @API_GATEWAY@.
 --
 -- -   If @Protocol@ includes @AS2@, then the @EndpointType@ must be @VPC@,
 --     and domain must be Amazon S3.
@@ -496,15 +518,32 @@ data CreateServer = CreateServer'
 -- 'securityPolicyName', 'createServer_securityPolicyName' - Specifies the name of the security policy that is attached to the
 -- server.
 --
+-- 'structuredLogDestinations', 'createServer_structuredLogDestinations' - Specifies the log groups to which your server logs are sent.
+--
+-- To specify a log group, you must provide the ARN for an existing log
+-- group. In this case, the format of the log group is as follows:
+--
+-- @arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*@
+--
+-- For example,
+-- @arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*@
+--
+-- If you have previously specified a log group for a server, you can clear
+-- it, and in effect turn off structured logging, by providing an empty
+-- value for this parameter in an @update-server@ call. For example:
+--
+-- @update-server --server-id s-1234567890abcdef0 --structured-log-destinations@
+--
 -- 'tags', 'createServer_tags' - Key-value pairs that can be used to group and search for servers.
 --
 -- 'workflowDetails', 'createServer_workflowDetails' - Specifies the workflow ID for the workflow to assign and the execution
 -- role that\'s used for executing the workflow.
 --
--- In additon to a workflow to execute when a file is uploaded completely,
--- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
+-- In addition to a workflow to execute when a file is uploaded completely,
+-- @WorkflowDetails@ can also contain a workflow ID (and execution role)
 -- for a workflow to execute on partial upload. A partial upload occurs
--- when a file is open when the session disconnects.
+-- when the server session disconnects while the file is still being
+-- uploaded.
 newCreateServer ::
   CreateServer
 newCreateServer =
@@ -522,6 +561,7 @@ newCreateServer =
       protocolDetails = Prelude.Nothing,
       protocols = Prelude.Nothing,
       securityPolicyName = Prelude.Nothing,
+      structuredLogDestinations = Prelude.Nothing,
       tags = Prelude.Nothing,
       workflowDetails = Prelude.Nothing
     }
@@ -634,16 +674,17 @@ createServer_endpointType = Lens.lens (\CreateServer' {endpointType} -> endpoint
 -- Accidentally changing a server\'s host key can be disruptive.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Update host keys for your SFTP-enabled server>
+-- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Manage host keys for your SFTP-enabled server>
 -- in the /Transfer Family User Guide/.
 createServer_hostKey :: Lens.Lens' CreateServer (Prelude.Maybe Prelude.Text)
 createServer_hostKey = Lens.lens (\CreateServer' {hostKey} -> hostKey) (\s@CreateServer' {} a -> s {hostKey = a} :: CreateServer) Prelude.. Lens.mapping Data._Sensitive
 
--- | Required when @IdentityProviderType@ is set to @AWS_DIRECTORY_SERVICE@
--- or @API_GATEWAY@. Accepts an array containing all of the information
--- required to use a directory in @AWS_DIRECTORY_SERVICE@ or invoke a
--- customer-supplied authentication API, including the API Gateway URL. Not
--- required when @IdentityProviderType@ is set to @SERVICE_MANAGED@.
+-- | Required when @IdentityProviderType@ is set to @AWS_DIRECTORY_SERVICE@,
+-- @Amazon Web Services_LAMBDA@ or @API_GATEWAY@. Accepts an array
+-- containing all of the information required to use a directory in
+-- @AWS_DIRECTORY_SERVICE@ or invoke a customer-supplied authentication
+-- API, including the API Gateway URL. Not required when
+-- @IdentityProviderType@ is set to @SERVICE_MANAGED@.
 createServer_identityProviderDetails :: Lens.Lens' CreateServer (Prelude.Maybe IdentityProviderDetails)
 createServer_identityProviderDetails = Lens.lens (\CreateServer' {identityProviderDetails} -> identityProviderDetails) (\s@CreateServer' {} a -> s {identityProviderDetails = a} :: CreateServer)
 
@@ -664,7 +705,7 @@ createServer_identityProviderDetails = Lens.lens (\CreateServer' {identityProvid
 --
 -- Use the @AWS_LAMBDA@ value to directly use an Lambda function as your
 -- identity provider. If you choose this value, you must specify the ARN
--- for the Lambda function in the @Function@ parameter or the
+-- for the Lambda function in the @Function@ parameter for the
 -- @IdentityProviderDetails@ data type.
 createServer_identityProviderType :: Lens.Lens' CreateServer (Prelude.Maybe IdentityProviderType)
 createServer_identityProviderType = Lens.lens (\CreateServer' {identityProviderType} -> identityProviderType) (\s@CreateServer' {} a -> s {identityProviderType = a} :: CreateServer)
@@ -737,14 +778,15 @@ createServer_protocolDetails = Lens.lens (\CreateServer' {protocolDetails} -> pr
 --
 -- -   If @Protocol@ includes either @FTP@ or @FTPS@, then the
 --     @EndpointType@ must be @VPC@ and the @IdentityProviderType@ must be
---     @AWS_DIRECTORY_SERVICE@ or @API_GATEWAY@.
+--     either @AWS_DIRECTORY_SERVICE@, @AWS_LAMBDA@, or @API_GATEWAY@.
 --
 -- -   If @Protocol@ includes @FTP@, then @AddressAllocationIds@ cannot be
 --     associated.
 --
 -- -   If @Protocol@ is set only to @SFTP@, the @EndpointType@ can be set
---     to @PUBLIC@ and the @IdentityProviderType@ can be set to
---     @SERVICE_MANAGED@.
+--     to @PUBLIC@ and the @IdentityProviderType@ can be set any of the
+--     supported identity types: @SERVICE_MANAGED@,
+--     @AWS_DIRECTORY_SERVICE@, @AWS_LAMBDA@, or @API_GATEWAY@.
 --
 -- -   If @Protocol@ includes @AS2@, then the @EndpointType@ must be @VPC@,
 --     and domain must be Amazon S3.
@@ -756,6 +798,24 @@ createServer_protocols = Lens.lens (\CreateServer' {protocols} -> protocols) (\s
 createServer_securityPolicyName :: Lens.Lens' CreateServer (Prelude.Maybe Prelude.Text)
 createServer_securityPolicyName = Lens.lens (\CreateServer' {securityPolicyName} -> securityPolicyName) (\s@CreateServer' {} a -> s {securityPolicyName = a} :: CreateServer)
 
+-- | Specifies the log groups to which your server logs are sent.
+--
+-- To specify a log group, you must provide the ARN for an existing log
+-- group. In this case, the format of the log group is as follows:
+--
+-- @arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*@
+--
+-- For example,
+-- @arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*@
+--
+-- If you have previously specified a log group for a server, you can clear
+-- it, and in effect turn off structured logging, by providing an empty
+-- value for this parameter in an @update-server@ call. For example:
+--
+-- @update-server --server-id s-1234567890abcdef0 --structured-log-destinations@
+createServer_structuredLogDestinations :: Lens.Lens' CreateServer (Prelude.Maybe [Prelude.Text])
+createServer_structuredLogDestinations = Lens.lens (\CreateServer' {structuredLogDestinations} -> structuredLogDestinations) (\s@CreateServer' {} a -> s {structuredLogDestinations = a} :: CreateServer) Prelude.. Lens.mapping Lens.coerced
+
 -- | Key-value pairs that can be used to group and search for servers.
 createServer_tags :: Lens.Lens' CreateServer (Prelude.Maybe (Prelude.NonEmpty Tag))
 createServer_tags = Lens.lens (\CreateServer' {tags} -> tags) (\s@CreateServer' {} a -> s {tags = a} :: CreateServer) Prelude.. Lens.mapping Lens.coerced
@@ -763,10 +823,11 @@ createServer_tags = Lens.lens (\CreateServer' {tags} -> tags) (\s@CreateServer' 
 -- | Specifies the workflow ID for the workflow to assign and the execution
 -- role that\'s used for executing the workflow.
 --
--- In additon to a workflow to execute when a file is uploaded completely,
--- @WorkflowDeatails@ can also contain a workflow ID (and execution role)
+-- In addition to a workflow to execute when a file is uploaded completely,
+-- @WorkflowDetails@ can also contain a workflow ID (and execution role)
 -- for a workflow to execute on partial upload. A partial upload occurs
--- when a file is open when the session disconnects.
+-- when the server session disconnects while the file is still being
+-- uploaded.
 createServer_workflowDetails :: Lens.Lens' CreateServer (Prelude.Maybe WorkflowDetails)
 createServer_workflowDetails = Lens.lens (\CreateServer' {workflowDetails} -> workflowDetails) (\s@CreateServer' {} a -> s {workflowDetails = a} :: CreateServer)
 
@@ -784,7 +845,8 @@ instance Core.AWSRequest CreateServer where
 
 instance Prelude.Hashable CreateServer where
   hashWithSalt _salt CreateServer' {..} =
-    _salt `Prelude.hashWithSalt` certificate
+    _salt
+      `Prelude.hashWithSalt` certificate
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` endpointDetails
       `Prelude.hashWithSalt` endpointType
@@ -797,6 +859,7 @@ instance Prelude.Hashable CreateServer where
       `Prelude.hashWithSalt` protocolDetails
       `Prelude.hashWithSalt` protocols
       `Prelude.hashWithSalt` securityPolicyName
+      `Prelude.hashWithSalt` structuredLogDestinations
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` workflowDetails
 
@@ -815,6 +878,7 @@ instance Prelude.NFData CreateServer where
       `Prelude.seq` Prelude.rnf protocolDetails
       `Prelude.seq` Prelude.rnf protocols
       `Prelude.seq` Prelude.rnf securityPolicyName
+      `Prelude.seq` Prelude.rnf structuredLogDestinations
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf workflowDetails
 
@@ -857,6 +921,8 @@ instance Data.ToJSON CreateServer where
             ("Protocols" Data..=) Prelude.<$> protocols,
             ("SecurityPolicyName" Data..=)
               Prelude.<$> securityPolicyName,
+            ("StructuredLogDestinations" Data..=)
+              Prelude.<$> structuredLogDestinations,
             ("Tags" Data..=) Prelude.<$> tags,
             ("WorkflowDetails" Data..=)
               Prelude.<$> workflowDetails

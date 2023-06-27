@@ -77,12 +77,14 @@ instance Data.FromJSON HomeDirectoryMapEntry where
       "HomeDirectoryMapEntry"
       ( \x ->
           HomeDirectoryMapEntry'
-            Prelude.<$> (x Data..: "Entry") Prelude.<*> (x Data..: "Target")
+            Prelude.<$> (x Data..: "Entry")
+            Prelude.<*> (x Data..: "Target")
       )
 
 instance Prelude.Hashable HomeDirectoryMapEntry where
   hashWithSalt _salt HomeDirectoryMapEntry' {..} =
-    _salt `Prelude.hashWithSalt` entry
+    _salt
+      `Prelude.hashWithSalt` entry
       `Prelude.hashWithSalt` target
 
 instance Prelude.NFData HomeDirectoryMapEntry where

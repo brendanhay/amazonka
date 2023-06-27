@@ -39,13 +39,16 @@ data ExecutionStepResult = ExecutionStepResult'
     outputs :: Prelude.Maybe Prelude.Text,
     -- | One of the available step types.
     --
-    -- -   /COPY/: Copy the file to another location.
+    -- -   __@COPY@__ - Copy the file to another location.
     --
-    -- -   /CUSTOM/: Perform a custom step with an Lambda function target.
+    -- -   __@CUSTOM@__ - Perform a custom step with an Lambda function target.
     --
-    -- -   /DELETE/: Delete the file.
+    -- -   __@DECRYPT@__ - Decrypt a file that was encrypted before it was
+    --     uploaded.
     --
-    -- -   /TAG/: Add a tag to the file.
+    -- -   __@DELETE@__ - Delete the file.
+    --
+    -- -   __@TAG@__ - Add a tag to the file.
     stepType :: Prelude.Maybe WorkflowStepType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,13 +69,16 @@ data ExecutionStepResult = ExecutionStepResult'
 --
 -- 'stepType', 'executionStepResult_stepType' - One of the available step types.
 --
--- -   /COPY/: Copy the file to another location.
+-- -   __@COPY@__ - Copy the file to another location.
 --
--- -   /CUSTOM/: Perform a custom step with an Lambda function target.
+-- -   __@CUSTOM@__ - Perform a custom step with an Lambda function target.
 --
--- -   /DELETE/: Delete the file.
+-- -   __@DECRYPT@__ - Decrypt a file that was encrypted before it was
+--     uploaded.
 --
--- -   /TAG/: Add a tag to the file.
+-- -   __@DELETE@__ - Delete the file.
+--
+-- -   __@TAG@__ - Add a tag to the file.
 newExecutionStepResult ::
   ExecutionStepResult
 newExecutionStepResult =
@@ -94,13 +100,16 @@ executionStepResult_outputs = Lens.lens (\ExecutionStepResult' {outputs} -> outp
 
 -- | One of the available step types.
 --
--- -   /COPY/: Copy the file to another location.
+-- -   __@COPY@__ - Copy the file to another location.
 --
--- -   /CUSTOM/: Perform a custom step with an Lambda function target.
+-- -   __@CUSTOM@__ - Perform a custom step with an Lambda function target.
 --
--- -   /DELETE/: Delete the file.
+-- -   __@DECRYPT@__ - Decrypt a file that was encrypted before it was
+--     uploaded.
 --
--- -   /TAG/: Add a tag to the file.
+-- -   __@DELETE@__ - Delete the file.
+--
+-- -   __@TAG@__ - Add a tag to the file.
 executionStepResult_stepType :: Lens.Lens' ExecutionStepResult (Prelude.Maybe WorkflowStepType)
 executionStepResult_stepType = Lens.lens (\ExecutionStepResult' {stepType} -> stepType) (\s@ExecutionStepResult' {} a -> s {stepType = a} :: ExecutionStepResult)
 
@@ -117,7 +126,8 @@ instance Data.FromJSON ExecutionStepResult where
 
 instance Prelude.Hashable ExecutionStepResult where
   hashWithSalt _salt ExecutionStepResult' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` outputs
       `Prelude.hashWithSalt` stepType
 

@@ -120,17 +120,19 @@ instance Core.AWSPager ListUsers where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listUsersResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listUsersResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop (rs Lens.^. listUsersResponse_users) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listUsers_nextToken
           Lens..~ rs
-          Lens.^? listUsersResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listUsersResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUsers where
   type AWSResponse ListUsers = ListUsersResponse
@@ -148,7 +150,8 @@ instance Core.AWSRequest ListUsers where
 
 instance Prelude.Hashable ListUsers where
   hashWithSalt _salt ListUsers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serverId
 
@@ -199,8 +202,8 @@ data ListUsersResponse = ListUsersResponse'
     -- | A system-assigned unique identifier for a server that the users are
     -- assigned to.
     serverId :: Prelude.Text,
-    -- | Returns the user accounts and their properties for the @ServerId@ value
-    -- that you specify.
+    -- | Returns the Transfer Family users and their properties for the
+    -- @ServerId@ value that you specify.
     users :: [ListedUser]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -223,8 +226,8 @@ data ListUsersResponse = ListUsersResponse'
 -- 'serverId', 'listUsersResponse_serverId' - A system-assigned unique identifier for a server that the users are
 -- assigned to.
 --
--- 'users', 'listUsersResponse_users' - Returns the user accounts and their properties for the @ServerId@ value
--- that you specify.
+-- 'users', 'listUsersResponse_users' - Returns the Transfer Family users and their properties for the
+-- @ServerId@ value that you specify.
 newListUsersResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -255,8 +258,8 @@ listUsersResponse_httpStatus = Lens.lens (\ListUsersResponse' {httpStatus} -> ht
 listUsersResponse_serverId :: Lens.Lens' ListUsersResponse Prelude.Text
 listUsersResponse_serverId = Lens.lens (\ListUsersResponse' {serverId} -> serverId) (\s@ListUsersResponse' {} a -> s {serverId = a} :: ListUsersResponse)
 
--- | Returns the user accounts and their properties for the @ServerId@ value
--- that you specify.
+-- | Returns the Transfer Family users and their properties for the
+-- @ServerId@ value that you specify.
 listUsersResponse_users :: Lens.Lens' ListUsersResponse [ListedUser]
 listUsersResponse_users = Lens.lens (\ListUsersResponse' {users} -> users) (\s@ListUsersResponse' {} a -> s {users = a} :: ListUsersResponse) Prelude.. Lens.coerced
 

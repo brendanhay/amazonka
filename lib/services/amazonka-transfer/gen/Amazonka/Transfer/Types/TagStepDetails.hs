@@ -38,12 +38,12 @@ data TagStepDetails = TagStepDetails'
     -- output from the previous step, or the originally uploaded file for the
     -- workflow.
     --
-    -- -   Enter @${previous.file}@ to use the previous file as the input. In
+    -- -   To use the previous file as the input, enter @${previous.file}@. In
     --     this case, this workflow step uses the output file from the previous
     --     workflow step as input. This is the default value.
     --
-    -- -   Enter @${original.file}@ to use the originally-uploaded file
-    --     location as input for this step.
+    -- -   To use the originally uploaded file location as input for this step,
+    --     enter @${original.file}@.
     sourceFileLocation :: Prelude.Maybe Prelude.Text,
     -- | Array that contains from 1 to 10 key\/value pairs.
     tags :: Prelude.Maybe (Prelude.NonEmpty S3Tag)
@@ -64,12 +64,12 @@ data TagStepDetails = TagStepDetails'
 -- output from the previous step, or the originally uploaded file for the
 -- workflow.
 --
--- -   Enter @${previous.file}@ to use the previous file as the input. In
+-- -   To use the previous file as the input, enter @${previous.file}@. In
 --     this case, this workflow step uses the output file from the previous
 --     workflow step as input. This is the default value.
 --
--- -   Enter @${original.file}@ to use the originally-uploaded file
---     location as input for this step.
+-- -   To use the originally uploaded file location as input for this step,
+--     enter @${original.file}@.
 --
 -- 'tags', 'tagStepDetails_tags' - Array that contains from 1 to 10 key\/value pairs.
 newTagStepDetails ::
@@ -89,12 +89,12 @@ tagStepDetails_name = Lens.lens (\TagStepDetails' {name} -> name) (\s@TagStepDet
 -- output from the previous step, or the originally uploaded file for the
 -- workflow.
 --
--- -   Enter @${previous.file}@ to use the previous file as the input. In
+-- -   To use the previous file as the input, enter @${previous.file}@. In
 --     this case, this workflow step uses the output file from the previous
 --     workflow step as input. This is the default value.
 --
--- -   Enter @${original.file}@ to use the originally-uploaded file
---     location as input for this step.
+-- -   To use the originally uploaded file location as input for this step,
+--     enter @${original.file}@.
 tagStepDetails_sourceFileLocation :: Lens.Lens' TagStepDetails (Prelude.Maybe Prelude.Text)
 tagStepDetails_sourceFileLocation = Lens.lens (\TagStepDetails' {sourceFileLocation} -> sourceFileLocation) (\s@TagStepDetails' {} a -> s {sourceFileLocation = a} :: TagStepDetails)
 
@@ -115,7 +115,8 @@ instance Data.FromJSON TagStepDetails where
 
 instance Prelude.Hashable TagStepDetails where
   hashWithSalt _salt TagStepDetails' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sourceFileLocation
       `Prelude.hashWithSalt` tags
 

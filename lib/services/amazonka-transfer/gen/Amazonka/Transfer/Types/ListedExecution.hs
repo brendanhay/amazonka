@@ -109,7 +109,8 @@ instance Data.FromJSON ListedExecution where
 
 instance Prelude.Hashable ListedExecution where
   hashWithSalt _salt ListedExecution' {..} =
-    _salt `Prelude.hashWithSalt` executionId
+    _salt
+      `Prelude.hashWithSalt` executionId
       `Prelude.hashWithSalt` initialFileLocation
       `Prelude.hashWithSalt` serviceMetadata
       `Prelude.hashWithSalt` status

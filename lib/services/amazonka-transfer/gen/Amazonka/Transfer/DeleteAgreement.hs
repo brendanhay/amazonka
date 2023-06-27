@@ -101,7 +101,8 @@ instance Core.AWSRequest DeleteAgreement where
 
 instance Prelude.Hashable DeleteAgreement where
   hashWithSalt _salt DeleteAgreement' {..} =
-    _salt `Prelude.hashWithSalt` agreementId
+    _salt
+      `Prelude.hashWithSalt` agreementId
       `Prelude.hashWithSalt` serverId
 
 instance Prelude.NFData DeleteAgreement where

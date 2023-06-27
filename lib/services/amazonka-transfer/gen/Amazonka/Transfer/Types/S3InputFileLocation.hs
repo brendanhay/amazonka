@@ -24,9 +24,9 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies the customer input S3 file location. If it is used inside
--- @copyStepDetails.DestinationFileLocation@, it should be the S3 copy
--- destination.
+-- | Specifies the customer input Amazon S3 file location. If it is used
+-- inside @copyStepDetails.DestinationFileLocation@, it should be the S3
+-- copy destination.
 --
 -- You need to provide the bucket and key. The key can represent either a
 -- path or a file. This is determined by whether or not you end the key
@@ -87,12 +87,14 @@ instance Data.FromJSON S3InputFileLocation where
       "S3InputFileLocation"
       ( \x ->
           S3InputFileLocation'
-            Prelude.<$> (x Data..:? "Bucket") Prelude.<*> (x Data..:? "Key")
+            Prelude.<$> (x Data..:? "Bucket")
+            Prelude.<*> (x Data..:? "Key")
       )
 
 instance Prelude.Hashable S3InputFileLocation where
   hashWithSalt _salt S3InputFileLocation' {..} =
-    _salt `Prelude.hashWithSalt` bucket
+    _salt
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData S3InputFileLocation where

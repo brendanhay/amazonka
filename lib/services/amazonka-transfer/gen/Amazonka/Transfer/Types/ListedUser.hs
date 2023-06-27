@@ -195,7 +195,8 @@ instance Data.FromJSON ListedUser where
 
 instance Prelude.Hashable ListedUser where
   hashWithSalt _salt ListedUser' {..} =
-    _salt `Prelude.hashWithSalt` homeDirectory
+    _salt
+      `Prelude.hashWithSalt` homeDirectory
       `Prelude.hashWithSalt` homeDirectoryType
       `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` sshPublicKeyCount

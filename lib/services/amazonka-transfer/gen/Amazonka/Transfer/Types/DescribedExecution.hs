@@ -157,7 +157,8 @@ instance Data.FromJSON DescribedExecution where
 
 instance Prelude.Hashable DescribedExecution where
   hashWithSalt _salt DescribedExecution' {..} =
-    _salt `Prelude.hashWithSalt` executionId
+    _salt
+      `Prelude.hashWithSalt` executionId
       `Prelude.hashWithSalt` executionRole
       `Prelude.hashWithSalt` initialFileLocation
       `Prelude.hashWithSalt` loggingConfiguration

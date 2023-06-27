@@ -132,8 +132,8 @@ data UpdateUser = UpdateUser'
     -- server to access your resources when servicing your users\' transfer
     -- requests.
     role' :: Prelude.Maybe Prelude.Text,
-    -- | A system-assigned unique identifier for a server instance that the user
-    -- account is assigned to.
+    -- | A system-assigned unique identifier for a Transfer Family server
+    -- instance that the user is assigned to.
     serverId :: Prelude.Text,
     -- | A unique string that identifies a user and is associated with a server
     -- as specified by the @ServerId@. This user name must be a minimum of 3
@@ -223,8 +223,8 @@ data UpdateUser = UpdateUser'
 -- server to access your resources when servicing your users\' transfer
 -- requests.
 --
--- 'serverId', 'updateUser_serverId' - A system-assigned unique identifier for a server instance that the user
--- account is assigned to.
+-- 'serverId', 'updateUser_serverId' - A system-assigned unique identifier for a Transfer Family server
+-- instance that the user is assigned to.
 --
 -- 'userName', 'updateUser_userName' - A unique string that identifies a user and is associated with a server
 -- as specified by the @ServerId@. This user name must be a minimum of 3
@@ -332,8 +332,8 @@ updateUser_posixProfile = Lens.lens (\UpdateUser' {posixProfile} -> posixProfile
 updateUser_role :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
 updateUser_role = Lens.lens (\UpdateUser' {role'} -> role') (\s@UpdateUser' {} a -> s {role' = a} :: UpdateUser)
 
--- | A system-assigned unique identifier for a server instance that the user
--- account is assigned to.
+-- | A system-assigned unique identifier for a Transfer Family server
+-- instance that the user is assigned to.
 updateUser_serverId :: Lens.Lens' UpdateUser Prelude.Text
 updateUser_serverId = Lens.lens (\UpdateUser' {serverId} -> serverId) (\s@UpdateUser' {} a -> s {serverId = a} :: UpdateUser)
 
@@ -361,7 +361,8 @@ instance Core.AWSRequest UpdateUser where
 
 instance Prelude.Hashable UpdateUser where
   hashWithSalt _salt UpdateUser' {..} =
-    _salt `Prelude.hashWithSalt` homeDirectory
+    _salt
+      `Prelude.hashWithSalt` homeDirectory
       `Prelude.hashWithSalt` homeDirectoryMappings
       `Prelude.hashWithSalt` homeDirectoryType
       `Prelude.hashWithSalt` policy
@@ -424,8 +425,8 @@ instance Data.ToQuery UpdateUser where
 data UpdateUserResponse = UpdateUserResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | A system-assigned unique identifier for a server instance that the user
-    -- account is assigned to.
+    -- | A system-assigned unique identifier for a Transfer Family server
+    -- instance that the account is assigned to.
     serverId :: Prelude.Text,
     -- | The unique identifier for a user that is assigned to a server instance
     -- that was specified in the request.
@@ -443,8 +444,8 @@ data UpdateUserResponse = UpdateUserResponse'
 --
 -- 'httpStatus', 'updateUserResponse_httpStatus' - The response's http status code.
 --
--- 'serverId', 'updateUserResponse_serverId' - A system-assigned unique identifier for a server instance that the user
--- account is assigned to.
+-- 'serverId', 'updateUserResponse_serverId' - A system-assigned unique identifier for a Transfer Family server
+-- instance that the account is assigned to.
 --
 -- 'userName', 'updateUserResponse_userName' - The unique identifier for a user that is assigned to a server instance
 -- that was specified in the request.
@@ -470,8 +471,8 @@ newUpdateUserResponse
 updateUserResponse_httpStatus :: Lens.Lens' UpdateUserResponse Prelude.Int
 updateUserResponse_httpStatus = Lens.lens (\UpdateUserResponse' {httpStatus} -> httpStatus) (\s@UpdateUserResponse' {} a -> s {httpStatus = a} :: UpdateUserResponse)
 
--- | A system-assigned unique identifier for a server instance that the user
--- account is assigned to.
+-- | A system-assigned unique identifier for a Transfer Family server
+-- instance that the account is assigned to.
 updateUserResponse_serverId :: Lens.Lens' UpdateUserResponse Prelude.Text
 updateUserResponse_serverId = Lens.lens (\UpdateUserResponse' {serverId} -> serverId) (\s@UpdateUserResponse' {} a -> s {serverId = a} :: UpdateUserResponse)
 

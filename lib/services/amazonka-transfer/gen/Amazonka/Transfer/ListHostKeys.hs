@@ -124,7 +124,8 @@ instance Core.AWSRequest ListHostKeys where
 
 instance Prelude.Hashable ListHostKeys where
   hashWithSalt _salt ListHostKeys' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serverId
 

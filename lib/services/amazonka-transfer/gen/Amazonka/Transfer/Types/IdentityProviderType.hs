@@ -32,13 +32,25 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Returns information related to the type of user authentication that is
--- in use for a file transfer protocol-enabled server\'s users. For
--- @AWS_DIRECTORY_SERVICE@ or @SERVICE_MANAGED@ authentication, the Secure
--- Shell (SSH) public keys are stored with a user on the server instance.
--- For @API_GATEWAY@ authentication, your custom authentication method is
--- implemented by using an API call. The server can have only one method of
--- authentication.
+-- | The mode of authentication for a server. The default value is
+-- @SERVICE_MANAGED@, which allows you to store and access user credentials
+-- within the Transfer Family service.
+--
+-- Use @AWS_DIRECTORY_SERVICE@ to provide access to Active Directory groups
+-- in Directory Service for Microsoft Active Directory or Microsoft Active
+-- Directory in your on-premises environment or in Amazon Web Services
+-- using AD Connector. This option also requires you to provide a Directory
+-- ID by using the @IdentityProviderDetails@ parameter.
+--
+-- Use the @API_GATEWAY@ value to integrate with an identity provider of
+-- your choosing. The @API_GATEWAY@ setting requires you to provide an
+-- Amazon API Gateway endpoint URL to call for authentication by using the
+-- @IdentityProviderDetails@ parameter.
+--
+-- Use the @AWS_LAMBDA@ value to directly use an Lambda function as your
+-- identity provider. If you choose this value, you must specify the ARN
+-- for the Lambda function in the @Function@ parameter for the
+-- @IdentityProviderDetails@ data type.
 newtype IdentityProviderType = IdentityProviderType'
   { fromIdentityProviderType ::
       Data.Text

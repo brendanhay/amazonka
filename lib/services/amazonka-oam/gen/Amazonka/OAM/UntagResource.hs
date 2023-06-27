@@ -57,10 +57,10 @@ data UntagResource = UntagResource'
   { -- | The ARN of the resource that you\'re removing tags from.
     --
     -- The ARN format of a sink is
-    -- @arn:aws:oam:Region:account-id:sink\/sink-id @
+    -- @arn:aws:oam:@/@Region@/@:@/@account-id@/@:sink\/@/@sink-id@/@ @
     --
     -- The ARN format of a link is
-    -- @arn:aws:oam:Region:account-id:link\/link-id @
+    -- @arn:aws:oam:@/@Region@/@:@/@account-id@/@:link\/@/@link-id@/@ @
     --
     -- For more information about ARN format, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html CloudWatch Logs resources and operations>.
@@ -81,10 +81,10 @@ data UntagResource = UntagResource'
 -- 'resourceArn', 'untagResource_resourceArn' - The ARN of the resource that you\'re removing tags from.
 --
 -- The ARN format of a sink is
--- @arn:aws:oam:Region:account-id:sink\/sink-id @
+-- @arn:aws:oam:@/@Region@/@:@/@account-id@/@:sink\/@/@sink-id@/@ @
 --
 -- The ARN format of a link is
--- @arn:aws:oam:Region:account-id:link\/link-id @
+-- @arn:aws:oam:@/@Region@/@:@/@account-id@/@:link\/@/@link-id@/@ @
 --
 -- For more information about ARN format, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html CloudWatch Logs resources and operations>.
@@ -103,10 +103,10 @@ newUntagResource pResourceArn_ =
 -- | The ARN of the resource that you\'re removing tags from.
 --
 -- The ARN format of a sink is
--- @arn:aws:oam:Region:account-id:sink\/sink-id @
+-- @arn:aws:oam:@/@Region@/@:@/@account-id@/@:sink\/@/@sink-id@/@ @
 --
 -- The ARN format of a link is
--- @arn:aws:oam:Region:account-id:link\/link-id @
+-- @arn:aws:oam:@/@Region@/@:@/@account-id@/@:link\/@/@link-id@/@ @
 --
 -- For more information about ARN format, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html CloudWatch Logs resources and operations>.
@@ -132,7 +132,8 @@ instance Core.AWSRequest UntagResource where
 
 instance Prelude.Hashable UntagResource where
   hashWithSalt _salt UntagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagResource where

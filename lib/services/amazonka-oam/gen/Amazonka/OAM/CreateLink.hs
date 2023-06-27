@@ -226,7 +226,8 @@ instance Core.AWSRequest CreateLink where
 
 instance Prelude.Hashable CreateLink where
   hashWithSalt _salt CreateLink' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` labelTemplate
       `Prelude.hashWithSalt` resourceTypes
       `Prelude.hashWithSalt` sinkIdentifier

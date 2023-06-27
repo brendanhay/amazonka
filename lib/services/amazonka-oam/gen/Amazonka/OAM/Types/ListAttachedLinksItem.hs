@@ -88,7 +88,8 @@ instance Data.FromJSON ListAttachedLinksItem where
 
 instance Prelude.Hashable ListAttachedLinksItem where
   hashWithSalt _salt ListAttachedLinksItem' {..} =
-    _salt `Prelude.hashWithSalt` label
+    _salt
+      `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` linkArn
       `Prelude.hashWithSalt` resourceTypes
 

@@ -131,7 +131,8 @@ promotion_percentPromotedItems = Lens.lens (\Promotion' {percentPromotedItems} -
 
 instance Prelude.Hashable Promotion where
   hashWithSalt _salt Promotion' {..} =
-    _salt `Prelude.hashWithSalt` filterArn
+    _salt
+      `Prelude.hashWithSalt` filterArn
       `Prelude.hashWithSalt` filterValues
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` percentPromotedItems

@@ -106,7 +106,8 @@ instance Core.AWSRequest GetUICustomization where
 
 instance Prelude.Hashable GetUICustomization where
   hashWithSalt _salt GetUICustomization' {..} =
-    _salt `Prelude.hashWithSalt` clientId
+    _salt
+      `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` userPoolId
 
 instance Prelude.NFData GetUICustomization where

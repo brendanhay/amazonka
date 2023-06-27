@@ -112,7 +112,8 @@ instance Data.FromJSON AccountTakeoverActionType where
 
 instance Prelude.Hashable AccountTakeoverActionType where
   hashWithSalt _salt AccountTakeoverActionType' {..} =
-    _salt `Prelude.hashWithSalt` notify
+    _salt
+      `Prelude.hashWithSalt` notify
       `Prelude.hashWithSalt` eventAction
 
 instance Prelude.NFData AccountTakeoverActionType where

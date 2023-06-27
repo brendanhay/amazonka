@@ -118,7 +118,8 @@ instance Core.AWSRequest AdminGetUser where
             Prelude.<*> (x Data..?> "UserAttributes" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "UserCreateDate")
             Prelude.<*> (x Data..?> "UserLastModifiedDate")
-            Prelude.<*> ( x Data..?> "UserMFASettingList"
+            Prelude.<*> ( x
+                            Data..?> "UserMFASettingList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "UserStatus")
@@ -128,7 +129,8 @@ instance Core.AWSRequest AdminGetUser where
 
 instance Prelude.Hashable AdminGetUser where
   hashWithSalt _salt AdminGetUser' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` username
 
 instance Prelude.NFData AdminGetUser where

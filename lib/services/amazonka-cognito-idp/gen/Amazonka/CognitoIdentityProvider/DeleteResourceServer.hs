@@ -95,7 +95,8 @@ instance Core.AWSRequest DeleteResourceServer where
 
 instance Prelude.Hashable DeleteResourceServer where
   hashWithSalt _salt DeleteResourceServer' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` identifier
 
 instance Prelude.NFData DeleteResourceServer where

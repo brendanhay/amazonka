@@ -136,7 +136,8 @@ instance Core.AWSRequest AdminDeleteUserAttributes where
 
 instance Prelude.Hashable AdminDeleteUserAttributes where
   hashWithSalt _salt AdminDeleteUserAttributes' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` userAttributeNames
 

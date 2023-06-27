@@ -109,7 +109,8 @@ instance Core.AWSRequest DescribeUserImportJob where
 
 instance Prelude.Hashable DescribeUserImportJob where
   hashWithSalt _salt DescribeUserImportJob' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData DescribeUserImportJob where

@@ -328,13 +328,15 @@ instance Data.FromJSON IdentityProviderType where
       "IdentityProviderType"
       ( \x ->
           IdentityProviderType'
-            Prelude.<$> ( x Data..:? "AttributeMapping"
+            Prelude.<$> ( x
+                            Data..:? "AttributeMapping"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreationDate")
             Prelude.<*> (x Data..:? "IdpIdentifiers" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "LastModifiedDate")
-            Prelude.<*> ( x Data..:? "ProviderDetails"
+            Prelude.<*> ( x
+                            Data..:? "ProviderDetails"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProviderName")
@@ -344,7 +346,8 @@ instance Data.FromJSON IdentityProviderType where
 
 instance Prelude.Hashable IdentityProviderType where
   hashWithSalt _salt IdentityProviderType' {..} =
-    _salt `Prelude.hashWithSalt` attributeMapping
+    _salt
+      `Prelude.hashWithSalt` attributeMapping
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` idpIdentifiers
       `Prelude.hashWithSalt` lastModifiedDate

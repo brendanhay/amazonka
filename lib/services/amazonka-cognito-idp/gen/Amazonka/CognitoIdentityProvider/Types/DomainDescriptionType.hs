@@ -146,7 +146,8 @@ instance Data.FromJSON DomainDescriptionType where
 
 instance Prelude.Hashable DomainDescriptionType where
   hashWithSalt _salt DomainDescriptionType' {..} =
-    _salt `Prelude.hashWithSalt` aWSAccountId
+    _salt
+      `Prelude.hashWithSalt` aWSAccountId
       `Prelude.hashWithSalt` cloudFrontDistribution
       `Prelude.hashWithSalt` customDomainConfig
       `Prelude.hashWithSalt` domain

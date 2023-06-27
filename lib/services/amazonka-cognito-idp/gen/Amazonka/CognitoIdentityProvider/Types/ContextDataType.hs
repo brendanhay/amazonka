@@ -111,7 +111,8 @@ contextDataType_httpHeaders = Lens.lens (\ContextDataType' {httpHeaders} -> http
 
 instance Prelude.Hashable ContextDataType where
   hashWithSalt _salt ContextDataType' {..} =
-    _salt `Prelude.hashWithSalt` encodedData
+    _salt
+      `Prelude.hashWithSalt` encodedData
       `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` serverName
       `Prelude.hashWithSalt` serverPath

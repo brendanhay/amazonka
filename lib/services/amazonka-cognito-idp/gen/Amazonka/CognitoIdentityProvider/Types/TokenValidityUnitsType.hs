@@ -105,7 +105,8 @@ instance Data.FromJSON TokenValidityUnitsType where
 
 instance Prelude.Hashable TokenValidityUnitsType where
   hashWithSalt _salt TokenValidityUnitsType' {..} =
-    _salt `Prelude.hashWithSalt` accessToken
+    _salt
+      `Prelude.hashWithSalt` accessToken
       `Prelude.hashWithSalt` idToken
       `Prelude.hashWithSalt` refreshToken
 

@@ -120,7 +120,8 @@ instance Core.AWSRequest AdminGetDevice where
 
 instance Prelude.Hashable AdminGetDevice where
   hashWithSalt _salt AdminGetDevice' {..} =
-    _salt `Prelude.hashWithSalt` deviceKey
+    _salt
+      `Prelude.hashWithSalt` deviceKey
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` username
 

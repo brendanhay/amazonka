@@ -81,7 +81,8 @@ instance
   hashWithSalt
     _salt
     NumberAttributeConstraintsType' {..} =
-      _salt `Prelude.hashWithSalt` maxValue
+      _salt
+        `Prelude.hashWithSalt` maxValue
         `Prelude.hashWithSalt` minValue
 
 instance

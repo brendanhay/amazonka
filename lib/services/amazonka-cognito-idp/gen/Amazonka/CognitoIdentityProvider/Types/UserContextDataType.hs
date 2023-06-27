@@ -75,7 +75,8 @@ userContextDataType_ipAddress = Lens.lens (\UserContextDataType' {ipAddress} -> 
 
 instance Prelude.Hashable UserContextDataType where
   hashWithSalt _salt UserContextDataType' {..} =
-    _salt `Prelude.hashWithSalt` encodedData
+    _salt
+      `Prelude.hashWithSalt` encodedData
       `Prelude.hashWithSalt` ipAddress
 
 instance Prelude.NFData UserContextDataType where

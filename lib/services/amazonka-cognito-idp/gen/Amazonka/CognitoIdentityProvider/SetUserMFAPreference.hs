@@ -124,7 +124,8 @@ instance Core.AWSRequest SetUserMFAPreference where
 
 instance Prelude.Hashable SetUserMFAPreference where
   hashWithSalt _salt SetUserMFAPreference' {..} =
-    _salt `Prelude.hashWithSalt` sMSMfaSettings
+    _salt
+      `Prelude.hashWithSalt` sMSMfaSettings
       `Prelude.hashWithSalt` softwareTokenMfaSettings
       `Prelude.hashWithSalt` accessToken
 

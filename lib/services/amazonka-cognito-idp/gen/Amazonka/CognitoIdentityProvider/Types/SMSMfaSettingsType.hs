@@ -80,7 +80,8 @@ sMSMfaSettingsType_preferredMfa = Lens.lens (\SMSMfaSettingsType' {preferredMfa}
 
 instance Prelude.Hashable SMSMfaSettingsType where
   hashWithSalt _salt SMSMfaSettingsType' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` preferredMfa
 
 instance Prelude.NFData SMSMfaSettingsType where

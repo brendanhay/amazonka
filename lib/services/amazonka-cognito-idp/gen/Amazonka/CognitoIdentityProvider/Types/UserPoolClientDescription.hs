@@ -88,7 +88,8 @@ instance Data.FromJSON UserPoolClientDescription where
 
 instance Prelude.Hashable UserPoolClientDescription where
   hashWithSalt _salt UserPoolClientDescription' {..} =
-    _salt `Prelude.hashWithSalt` clientId
+    _salt
+      `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` clientName
       `Prelude.hashWithSalt` userPoolId
 

@@ -96,7 +96,8 @@ instance Data.FromJSON DeviceType where
       "DeviceType"
       ( \x ->
           DeviceType'
-            Prelude.<$> ( x Data..:? "DeviceAttributes"
+            Prelude.<$> ( x
+                            Data..:? "DeviceAttributes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DeviceCreateDate")
@@ -107,7 +108,8 @@ instance Data.FromJSON DeviceType where
 
 instance Prelude.Hashable DeviceType where
   hashWithSalt _salt DeviceType' {..} =
-    _salt `Prelude.hashWithSalt` deviceAttributes
+    _salt
+      `Prelude.hashWithSalt` deviceAttributes
       `Prelude.hashWithSalt` deviceCreateDate
       `Prelude.hashWithSalt` deviceKey
       `Prelude.hashWithSalt` deviceLastAuthenticatedDate

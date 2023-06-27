@@ -75,7 +75,8 @@ instance Data.FromJSON NewDeviceMetadataType where
 
 instance Prelude.Hashable NewDeviceMetadataType where
   hashWithSalt _salt NewDeviceMetadataType' {..} =
-    _salt `Prelude.hashWithSalt` deviceGroupKey
+    _salt
+      `Prelude.hashWithSalt` deviceGroupKey
       `Prelude.hashWithSalt` deviceKey
 
 instance Prelude.NFData NewDeviceMetadataType where

@@ -112,7 +112,8 @@ instance Core.AWSRequest AdminUserGlobalSignOut where
 
 instance Prelude.Hashable AdminUserGlobalSignOut where
   hashWithSalt _salt AdminUserGlobalSignOut' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` username
 
 instance Prelude.NFData AdminUserGlobalSignOut where

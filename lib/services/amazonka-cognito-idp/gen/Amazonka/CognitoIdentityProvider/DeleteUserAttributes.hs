@@ -118,7 +118,8 @@ instance Core.AWSRequest DeleteUserAttributes where
 
 instance Prelude.Hashable DeleteUserAttributes where
   hashWithSalt _salt DeleteUserAttributes' {..} =
-    _salt `Prelude.hashWithSalt` userAttributeNames
+    _salt
+      `Prelude.hashWithSalt` userAttributeNames
       `Prelude.hashWithSalt` accessToken
 
 instance Prelude.NFData DeleteUserAttributes where

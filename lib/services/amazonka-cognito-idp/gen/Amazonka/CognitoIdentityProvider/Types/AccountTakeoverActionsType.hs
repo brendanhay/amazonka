@@ -86,7 +86,8 @@ instance Data.FromJSON AccountTakeoverActionsType where
 
 instance Prelude.Hashable AccountTakeoverActionsType where
   hashWithSalt _salt AccountTakeoverActionsType' {..} =
-    _salt `Prelude.hashWithSalt` highAction
+    _salt
+      `Prelude.hashWithSalt` highAction
       `Prelude.hashWithSalt` lowAction
       `Prelude.hashWithSalt` mediumAction
 

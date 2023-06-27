@@ -202,7 +202,8 @@ instance Core.AWSRequest AdminConfirmSignUp where
 
 instance Prelude.Hashable AdminConfirmSignUp where
   hashWithSalt _salt AdminConfirmSignUp' {..} =
-    _salt `Prelude.hashWithSalt` clientMetadata
+    _salt
+      `Prelude.hashWithSalt` clientMetadata
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` username
 

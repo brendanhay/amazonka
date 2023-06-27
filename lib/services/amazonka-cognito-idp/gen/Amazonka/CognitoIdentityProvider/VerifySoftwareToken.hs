@@ -136,7 +136,8 @@ instance Core.AWSRequest VerifySoftwareToken where
 
 instance Prelude.Hashable VerifySoftwareToken where
   hashWithSalt _salt VerifySoftwareToken' {..} =
-    _salt `Prelude.hashWithSalt` accessToken
+    _salt
+      `Prelude.hashWithSalt` accessToken
       `Prelude.hashWithSalt` friendlyDeviceName
       `Prelude.hashWithSalt` session
       `Prelude.hashWithSalt` userCode

@@ -95,7 +95,8 @@ instance Core.AWSRequest ForgetDevice where
 
 instance Prelude.Hashable ForgetDevice where
   hashWithSalt _salt ForgetDevice' {..} =
-    _salt `Prelude.hashWithSalt` accessToken
+    _salt
+      `Prelude.hashWithSalt` accessToken
       `Prelude.hashWithSalt` deviceKey
 
 instance Prelude.NFData ForgetDevice where

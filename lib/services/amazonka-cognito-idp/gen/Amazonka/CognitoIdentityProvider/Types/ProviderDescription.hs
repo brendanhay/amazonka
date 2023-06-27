@@ -96,7 +96,8 @@ instance Data.FromJSON ProviderDescription where
 
 instance Prelude.Hashable ProviderDescription where
   hashWithSalt _salt ProviderDescription' {..} =
-    _salt `Prelude.hashWithSalt` creationDate
+    _salt
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` providerName
       `Prelude.hashWithSalt` providerType

@@ -126,7 +126,8 @@ instance Data.FromJSON AnalyticsConfigurationType where
 
 instance Prelude.Hashable AnalyticsConfigurationType where
   hashWithSalt _salt AnalyticsConfigurationType' {..} =
-    _salt `Prelude.hashWithSalt` applicationArn
+    _salt
+      `Prelude.hashWithSalt` applicationArn
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` roleArn

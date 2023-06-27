@@ -141,7 +141,8 @@ instance Core.AWSRequest AdminSetUserPassword where
 
 instance Prelude.Hashable AdminSetUserPassword where
   hashWithSalt _salt AdminSetUserPassword' {..} =
-    _salt `Prelude.hashWithSalt` permanent
+    _salt
+      `Prelude.hashWithSalt` permanent
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` password

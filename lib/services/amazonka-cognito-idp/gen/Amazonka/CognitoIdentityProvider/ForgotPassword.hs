@@ -283,7 +283,8 @@ instance Core.AWSRequest ForgotPassword where
 
 instance Prelude.Hashable ForgotPassword where
   hashWithSalt _salt ForgotPassword' {..} =
-    _salt `Prelude.hashWithSalt` analyticsMetadata
+    _salt
+      `Prelude.hashWithSalt` analyticsMetadata
       `Prelude.hashWithSalt` clientMetadata
       `Prelude.hashWithSalt` secretHash
       `Prelude.hashWithSalt` userContextData

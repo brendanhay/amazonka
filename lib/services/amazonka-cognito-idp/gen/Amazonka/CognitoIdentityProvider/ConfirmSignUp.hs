@@ -286,7 +286,8 @@ instance Core.AWSRequest ConfirmSignUp where
 
 instance Prelude.Hashable ConfirmSignUp where
   hashWithSalt _salt ConfirmSignUp' {..} =
-    _salt `Prelude.hashWithSalt` analyticsMetadata
+    _salt
+      `Prelude.hashWithSalt` analyticsMetadata
       `Prelude.hashWithSalt` clientMetadata
       `Prelude.hashWithSalt` forceAliasCreation
       `Prelude.hashWithSalt` secretHash

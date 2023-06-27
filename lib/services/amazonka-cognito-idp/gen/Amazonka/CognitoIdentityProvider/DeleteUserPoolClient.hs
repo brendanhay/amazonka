@@ -97,7 +97,8 @@ instance Core.AWSRequest DeleteUserPoolClient where
 
 instance Prelude.Hashable DeleteUserPoolClient where
   hashWithSalt _salt DeleteUserPoolClient' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` clientId
 
 instance Prelude.NFData DeleteUserPoolClient where

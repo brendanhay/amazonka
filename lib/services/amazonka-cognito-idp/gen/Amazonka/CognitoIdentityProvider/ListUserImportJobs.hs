@@ -128,7 +128,8 @@ instance Core.AWSRequest ListUserImportJobs where
 
 instance Prelude.Hashable ListUserImportJobs where
   hashWithSalt _salt ListUserImportJobs' {..} =
-    _salt `Prelude.hashWithSalt` paginationToken
+    _salt
+      `Prelude.hashWithSalt` paginationToken
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` maxResults
 

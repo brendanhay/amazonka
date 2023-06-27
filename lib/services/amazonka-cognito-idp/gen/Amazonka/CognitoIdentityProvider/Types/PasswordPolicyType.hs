@@ -148,7 +148,8 @@ instance Data.FromJSON PasswordPolicyType where
 
 instance Prelude.Hashable PasswordPolicyType where
   hashWithSalt _salt PasswordPolicyType' {..} =
-    _salt `Prelude.hashWithSalt` minimumLength
+    _salt
+      `Prelude.hashWithSalt` minimumLength
       `Prelude.hashWithSalt` requireLowercase
       `Prelude.hashWithSalt` requireNumbers
       `Prelude.hashWithSalt` requireSymbols

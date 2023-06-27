@@ -124,22 +124,22 @@ instance Core.AWSPager AdminListUserAuthEvents where
     | Core.stop
         ( rs
             Lens.^? adminListUserAuthEventsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? adminListUserAuthEventsResponse_authEvents
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& adminListUserAuthEvents_nextToken
           Lens..~ rs
           Lens.^? adminListUserAuthEventsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest AdminListUserAuthEvents where
   type
@@ -158,7 +158,8 @@ instance Core.AWSRequest AdminListUserAuthEvents where
 
 instance Prelude.Hashable AdminListUserAuthEvents where
   hashWithSalt _salt AdminListUserAuthEvents' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` username

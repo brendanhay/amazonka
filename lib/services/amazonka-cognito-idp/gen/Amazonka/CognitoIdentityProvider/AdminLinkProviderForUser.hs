@@ -248,7 +248,8 @@ instance Core.AWSRequest AdminLinkProviderForUser where
 
 instance Prelude.Hashable AdminLinkProviderForUser where
   hashWithSalt _salt AdminLinkProviderForUser' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` destinationUser
       `Prelude.hashWithSalt` sourceUser
 

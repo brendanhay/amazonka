@@ -125,7 +125,8 @@ instance Core.AWSRequest AdminSetUserSettings where
 
 instance Prelude.Hashable AdminSetUserSettings where
   hashWithSalt _salt AdminSetUserSettings' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` mfaOptions
 

@@ -99,7 +99,8 @@ instance
   hashWithSalt
     _salt
     CustomEmailLambdaVersionConfigType' {..} =
-      _salt `Prelude.hashWithSalt` lambdaVersion
+      _salt
+        `Prelude.hashWithSalt` lambdaVersion
         `Prelude.hashWithSalt` lambdaArn
 
 instance

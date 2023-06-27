@@ -799,11 +799,13 @@ instance Data.FromJSON UserPoolClientType where
       ( \x ->
           UserPoolClientType'
             Prelude.<$> (x Data..:? "AccessTokenValidity")
-            Prelude.<*> ( x Data..:? "AllowedOAuthFlows"
+            Prelude.<*> ( x
+                            Data..:? "AllowedOAuthFlows"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "AllowedOAuthFlowsUserPoolClient")
-            Prelude.<*> ( x Data..:? "AllowedOAuthScopes"
+            Prelude.<*> ( x
+                            Data..:? "AllowedOAuthScopes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "AnalyticsConfiguration")
@@ -818,7 +820,8 @@ instance Data.FromJSON UserPoolClientType where
                             Data..:? "EnablePropagateAdditionalUserContextData"
                         )
             Prelude.<*> (x Data..:? "EnableTokenRevocation")
-            Prelude.<*> ( x Data..:? "ExplicitAuthFlows"
+            Prelude.<*> ( x
+                            Data..:? "ExplicitAuthFlows"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "IdTokenValidity")
@@ -827,19 +830,22 @@ instance Data.FromJSON UserPoolClientType where
             Prelude.<*> (x Data..:? "PreventUserExistenceErrors")
             Prelude.<*> (x Data..:? "ReadAttributes" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "RefreshTokenValidity")
-            Prelude.<*> ( x Data..:? "SupportedIdentityProviders"
+            Prelude.<*> ( x
+                            Data..:? "SupportedIdentityProviders"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TokenValidityUnits")
             Prelude.<*> (x Data..:? "UserPoolId")
-            Prelude.<*> ( x Data..:? "WriteAttributes"
+            Prelude.<*> ( x
+                            Data..:? "WriteAttributes"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable UserPoolClientType where
   hashWithSalt _salt UserPoolClientType' {..} =
-    _salt `Prelude.hashWithSalt` accessTokenValidity
+    _salt
+      `Prelude.hashWithSalt` accessTokenValidity
       `Prelude.hashWithSalt` allowedOAuthFlows
       `Prelude.hashWithSalt` allowedOAuthFlowsUserPoolClient
       `Prelude.hashWithSalt` allowedOAuthScopes

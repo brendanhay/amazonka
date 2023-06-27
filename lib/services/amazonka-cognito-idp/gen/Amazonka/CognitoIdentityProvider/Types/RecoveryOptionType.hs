@@ -83,7 +83,8 @@ instance Data.FromJSON RecoveryOptionType where
 
 instance Prelude.Hashable RecoveryOptionType where
   hashWithSalt _salt RecoveryOptionType' {..} =
-    _salt `Prelude.hashWithSalt` priority
+    _salt
+      `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData RecoveryOptionType where

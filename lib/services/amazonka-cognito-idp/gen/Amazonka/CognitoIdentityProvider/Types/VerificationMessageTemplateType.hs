@@ -199,7 +199,8 @@ instance
   hashWithSalt
     _salt
     VerificationMessageTemplateType' {..} =
-      _salt `Prelude.hashWithSalt` defaultEmailOption
+      _salt
+        `Prelude.hashWithSalt` defaultEmailOption
         `Prelude.hashWithSalt` emailMessage
         `Prelude.hashWithSalt` emailMessageByLink
         `Prelude.hashWithSalt` emailSubject

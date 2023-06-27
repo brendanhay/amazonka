@@ -131,7 +131,8 @@ instance Core.AWSRequest AssociateSoftwareToken where
 
 instance Prelude.Hashable AssociateSoftwareToken where
   hashWithSalt _salt AssociateSoftwareToken' {..} =
-    _salt `Prelude.hashWithSalt` accessToken
+    _salt
+      `Prelude.hashWithSalt` accessToken
       `Prelude.hashWithSalt` session
 
 instance Prelude.NFData AssociateSoftwareToken where

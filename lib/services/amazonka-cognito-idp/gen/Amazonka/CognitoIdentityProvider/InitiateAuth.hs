@@ -465,7 +465,8 @@ instance Core.AWSRequest InitiateAuth where
           InitiateAuthResponse'
             Prelude.<$> (x Data..?> "AuthenticationResult")
             Prelude.<*> (x Data..?> "ChallengeName")
-            Prelude.<*> ( x Data..?> "ChallengeParameters"
+            Prelude.<*> ( x
+                            Data..?> "ChallengeParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Session")
@@ -474,7 +475,8 @@ instance Core.AWSRequest InitiateAuth where
 
 instance Prelude.Hashable InitiateAuth where
   hashWithSalt _salt InitiateAuth' {..} =
-    _salt `Prelude.hashWithSalt` analyticsMetadata
+    _salt
+      `Prelude.hashWithSalt` analyticsMetadata
       `Prelude.hashWithSalt` authParameters
       `Prelude.hashWithSalt` clientMetadata
       `Prelude.hashWithSalt` userContextData

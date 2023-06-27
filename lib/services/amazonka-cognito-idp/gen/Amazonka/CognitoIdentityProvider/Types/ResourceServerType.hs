@@ -95,7 +95,8 @@ instance Data.FromJSON ResourceServerType where
 
 instance Prelude.Hashable ResourceServerType where
   hashWithSalt _salt ResourceServerType' {..} =
-    _salt `Prelude.hashWithSalt` identifier
+    _salt
+      `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scopes
       `Prelude.hashWithSalt` userPoolId

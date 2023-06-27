@@ -127,7 +127,8 @@ instance Core.AWSRequest CreateUserImportJob where
 
 instance Prelude.Hashable CreateUserImportJob where
   hashWithSalt _salt CreateUserImportJob' {..} =
-    _salt `Prelude.hashWithSalt` jobName
+    _salt
+      `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` cloudWatchLogsRoleArn
 

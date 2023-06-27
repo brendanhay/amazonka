@@ -234,7 +234,8 @@ instance Core.AWSRequest AdminResetUserPassword where
 
 instance Prelude.Hashable AdminResetUserPassword where
   hashWithSalt _salt AdminResetUserPassword' {..} =
-    _salt `Prelude.hashWithSalt` clientMetadata
+    _salt
+      `Prelude.hashWithSalt` clientMetadata
       `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` username
 

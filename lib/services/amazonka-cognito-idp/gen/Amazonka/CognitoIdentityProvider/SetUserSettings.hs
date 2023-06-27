@@ -113,7 +113,8 @@ instance Core.AWSRequest SetUserSettings where
 
 instance Prelude.Hashable SetUserSettings where
   hashWithSalt _salt SetUserSettings' {..} =
-    _salt `Prelude.hashWithSalt` accessToken
+    _salt
+      `Prelude.hashWithSalt` accessToken
       `Prelude.hashWithSalt` mfaOptions
 
 instance Prelude.NFData SetUserSettings where

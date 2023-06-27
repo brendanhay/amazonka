@@ -182,7 +182,8 @@ instance Data.FromJSON SchemaAttributeType where
 
 instance Prelude.Hashable SchemaAttributeType where
   hashWithSalt _salt SchemaAttributeType' {..} =
-    _salt `Prelude.hashWithSalt` attributeDataType
+    _salt
+      `Prelude.hashWithSalt` attributeDataType
       `Prelude.hashWithSalt` developerOnlyAttribute
       `Prelude.hashWithSalt` mutable
       `Prelude.hashWithSalt` name

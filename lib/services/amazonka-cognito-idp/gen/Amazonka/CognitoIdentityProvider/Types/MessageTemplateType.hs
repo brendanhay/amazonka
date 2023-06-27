@@ -97,7 +97,8 @@ instance Data.FromJSON MessageTemplateType where
 
 instance Prelude.Hashable MessageTemplateType where
   hashWithSalt _salt MessageTemplateType' {..} =
-    _salt `Prelude.hashWithSalt` emailMessage
+    _salt
+      `Prelude.hashWithSalt` emailMessage
       `Prelude.hashWithSalt` emailSubject
       `Prelude.hashWithSalt` sMSMessage
 

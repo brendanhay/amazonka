@@ -176,7 +176,8 @@ instance Core.AWSRequest SetUserPoolMfaConfig where
 
 instance Prelude.Hashable SetUserPoolMfaConfig where
   hashWithSalt _salt SetUserPoolMfaConfig' {..} =
-    _salt `Prelude.hashWithSalt` mfaConfiguration
+    _salt
+      `Prelude.hashWithSalt` mfaConfiguration
       `Prelude.hashWithSalt` smsMfaConfiguration
       `Prelude.hashWithSalt` softwareTokenMfaConfiguration
       `Prelude.hashWithSalt` userPoolId

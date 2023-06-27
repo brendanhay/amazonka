@@ -70,12 +70,14 @@ instance Data.FromJSON AttributeType where
       "AttributeType"
       ( \x ->
           AttributeType'
-            Prelude.<$> (x Data..:? "Value") Prelude.<*> (x Data..: "Name")
+            Prelude.<$> (x Data..:? "Value")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable AttributeType where
   hashWithSalt _salt AttributeType' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AttributeType where

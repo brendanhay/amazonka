@@ -130,7 +130,8 @@ instance Core.AWSRequest ConfirmDevice where
 
 instance Prelude.Hashable ConfirmDevice where
   hashWithSalt _salt ConfirmDevice' {..} =
-    _salt `Prelude.hashWithSalt` deviceName
+    _salt
+      `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` deviceSecretVerifierConfig
       `Prelude.hashWithSalt` accessToken
       `Prelude.hashWithSalt` deviceKey

@@ -147,7 +147,8 @@ instance Core.AWSRequest UpdateAuthEventFeedback where
 
 instance Prelude.Hashable UpdateAuthEventFeedback where
   hashWithSalt _salt UpdateAuthEventFeedback' {..} =
-    _salt `Prelude.hashWithSalt` userPoolId
+    _salt
+      `Prelude.hashWithSalt` userPoolId
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` feedbackToken

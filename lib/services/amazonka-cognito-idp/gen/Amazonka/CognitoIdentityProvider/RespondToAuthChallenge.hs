@@ -100,9 +100,9 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
     --     (if app client is configured with client secret). To set any
     --     required attributes that Amazon Cognito returned as
     --     @requiredAttributes@ in the @InitiateAuth@ response, add a
-    --     @userAttributes.attributename @ parameter. This parameter can also
-    --     set values for writable attributes that aren\'t required by your
-    --     user pool.
+    --     @userAttributes.@/@attributename@/@ @ parameter. This parameter can
+    --     also set values for writable attributes that aren\'t required by
+    --     your user pool.
     --
     --     In a @NEW_PASSWORD_REQUIRED@ challenge response, you can\'t modify a
     --     required attribute that already has a value. In
@@ -205,9 +205,9 @@ data RespondToAuthChallenge = RespondToAuthChallenge'
 --     (if app client is configured with client secret). To set any
 --     required attributes that Amazon Cognito returned as
 --     @requiredAttributes@ in the @InitiateAuth@ response, add a
---     @userAttributes.attributename @ parameter. This parameter can also
---     set values for writable attributes that aren\'t required by your
---     user pool.
+--     @userAttributes.@/@attributename@/@ @ parameter. This parameter can
+--     also set values for writable attributes that aren\'t required by
+--     your user pool.
 --
 --     In a @NEW_PASSWORD_REQUIRED@ challenge response, you can\'t modify a
 --     required attribute that already has a value. In
@@ -318,9 +318,9 @@ respondToAuthChallenge_analyticsMetadata = Lens.lens (\RespondToAuthChallenge' {
 --     (if app client is configured with client secret). To set any
 --     required attributes that Amazon Cognito returned as
 --     @requiredAttributes@ in the @InitiateAuth@ response, add a
---     @userAttributes.attributename @ parameter. This parameter can also
---     set values for writable attributes that aren\'t required by your
---     user pool.
+--     @userAttributes.@/@attributename@/@ @ parameter. This parameter can
+--     also set values for writable attributes that aren\'t required by
+--     your user pool.
 --
 --     In a @NEW_PASSWORD_REQUIRED@ challenge response, you can\'t modify a
 --     required attribute that already has a value. In
@@ -415,7 +415,8 @@ instance Core.AWSRequest RespondToAuthChallenge where
           RespondToAuthChallengeResponse'
             Prelude.<$> (x Data..?> "AuthenticationResult")
             Prelude.<*> (x Data..?> "ChallengeName")
-            Prelude.<*> ( x Data..?> "ChallengeParameters"
+            Prelude.<*> ( x
+                            Data..?> "ChallengeParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Session")
@@ -424,7 +425,8 @@ instance Core.AWSRequest RespondToAuthChallenge where
 
 instance Prelude.Hashable RespondToAuthChallenge where
   hashWithSalt _salt RespondToAuthChallenge' {..} =
-    _salt `Prelude.hashWithSalt` analyticsMetadata
+    _salt
+      `Prelude.hashWithSalt` analyticsMetadata
       `Prelude.hashWithSalt` challengeResponses
       `Prelude.hashWithSalt` clientMetadata
       `Prelude.hashWithSalt` session

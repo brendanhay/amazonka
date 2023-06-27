@@ -1,0 +1,174 @@
+cabal-version:      2.2
+name:               amazonka-vpc-lattice
+version:            2.0
+synopsis:           Amazon VPC Lattice SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2023 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2022-11-30@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.VPCLattice.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.VPCLattice" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-vpc-lattice
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.VPCLattice
+    Amazonka.VPCLattice.BatchUpdateRule
+    Amazonka.VPCLattice.CreateAccessLogSubscription
+    Amazonka.VPCLattice.CreateListener
+    Amazonka.VPCLattice.CreateRule
+    Amazonka.VPCLattice.CreateService
+    Amazonka.VPCLattice.CreateServiceNetwork
+    Amazonka.VPCLattice.CreateServiceNetworkServiceAssociation
+    Amazonka.VPCLattice.CreateServiceNetworkVpcAssociation
+    Amazonka.VPCLattice.CreateTargetGroup
+    Amazonka.VPCLattice.DeleteAccessLogSubscription
+    Amazonka.VPCLattice.DeleteAuthPolicy
+    Amazonka.VPCLattice.DeleteListener
+    Amazonka.VPCLattice.DeleteResourcePolicy
+    Amazonka.VPCLattice.DeleteRule
+    Amazonka.VPCLattice.DeleteService
+    Amazonka.VPCLattice.DeleteServiceNetwork
+    Amazonka.VPCLattice.DeleteServiceNetworkServiceAssociation
+    Amazonka.VPCLattice.DeleteServiceNetworkVpcAssociation
+    Amazonka.VPCLattice.DeleteTargetGroup
+    Amazonka.VPCLattice.DeregisterTargets
+    Amazonka.VPCLattice.GetAccessLogSubscription
+    Amazonka.VPCLattice.GetAuthPolicy
+    Amazonka.VPCLattice.GetListener
+    Amazonka.VPCLattice.GetResourcePolicy
+    Amazonka.VPCLattice.GetRule
+    Amazonka.VPCLattice.GetService
+    Amazonka.VPCLattice.GetServiceNetwork
+    Amazonka.VPCLattice.GetServiceNetworkServiceAssociation
+    Amazonka.VPCLattice.GetServiceNetworkVpcAssociation
+    Amazonka.VPCLattice.GetTargetGroup
+    Amazonka.VPCLattice.Lens
+    Amazonka.VPCLattice.ListAccessLogSubscriptions
+    Amazonka.VPCLattice.ListListeners
+    Amazonka.VPCLattice.ListRules
+    Amazonka.VPCLattice.ListServiceNetworks
+    Amazonka.VPCLattice.ListServiceNetworkServiceAssociations
+    Amazonka.VPCLattice.ListServiceNetworkVpcAssociations
+    Amazonka.VPCLattice.ListServices
+    Amazonka.VPCLattice.ListTagsForResource
+    Amazonka.VPCLattice.ListTargetGroups
+    Amazonka.VPCLattice.ListTargets
+    Amazonka.VPCLattice.PutAuthPolicy
+    Amazonka.VPCLattice.PutResourcePolicy
+    Amazonka.VPCLattice.RegisterTargets
+    Amazonka.VPCLattice.TagResource
+    Amazonka.VPCLattice.Types
+    Amazonka.VPCLattice.Types.AccessLogSubscriptionSummary
+    Amazonka.VPCLattice.Types.AuthPolicyState
+    Amazonka.VPCLattice.Types.AuthType
+    Amazonka.VPCLattice.Types.DnsEntry
+    Amazonka.VPCLattice.Types.FixedResponseAction
+    Amazonka.VPCLattice.Types.ForwardAction
+    Amazonka.VPCLattice.Types.HeaderMatch
+    Amazonka.VPCLattice.Types.HeaderMatchType
+    Amazonka.VPCLattice.Types.HealthCheckConfig
+    Amazonka.VPCLattice.Types.HealthCheckProtocolVersion
+    Amazonka.VPCLattice.Types.HttpMatch
+    Amazonka.VPCLattice.Types.IpAddressType
+    Amazonka.VPCLattice.Types.ListenerProtocol
+    Amazonka.VPCLattice.Types.ListenerSummary
+    Amazonka.VPCLattice.Types.Matcher
+    Amazonka.VPCLattice.Types.PathMatch
+    Amazonka.VPCLattice.Types.PathMatchType
+    Amazonka.VPCLattice.Types.RuleAction
+    Amazonka.VPCLattice.Types.RuleMatch
+    Amazonka.VPCLattice.Types.RuleSummary
+    Amazonka.VPCLattice.Types.RuleUpdate
+    Amazonka.VPCLattice.Types.RuleUpdateFailure
+    Amazonka.VPCLattice.Types.RuleUpdateSuccess
+    Amazonka.VPCLattice.Types.ServiceNetworkServiceAssociationStatus
+    Amazonka.VPCLattice.Types.ServiceNetworkServiceAssociationSummary
+    Amazonka.VPCLattice.Types.ServiceNetworkSummary
+    Amazonka.VPCLattice.Types.ServiceNetworkVpcAssociationStatus
+    Amazonka.VPCLattice.Types.ServiceNetworkVpcAssociationSummary
+    Amazonka.VPCLattice.Types.ServiceStatus
+    Amazonka.VPCLattice.Types.ServiceSummary
+    Amazonka.VPCLattice.Types.Target
+    Amazonka.VPCLattice.Types.TargetFailure
+    Amazonka.VPCLattice.Types.TargetGroupConfig
+    Amazonka.VPCLattice.Types.TargetGroupProtocol
+    Amazonka.VPCLattice.Types.TargetGroupProtocolVersion
+    Amazonka.VPCLattice.Types.TargetGroupStatus
+    Amazonka.VPCLattice.Types.TargetGroupSummary
+    Amazonka.VPCLattice.Types.TargetGroupType
+    Amazonka.VPCLattice.Types.TargetStatus
+    Amazonka.VPCLattice.Types.TargetSummary
+    Amazonka.VPCLattice.Types.WeightedTargetGroup
+    Amazonka.VPCLattice.UntagResource
+    Amazonka.VPCLattice.UpdateAccessLogSubscription
+    Amazonka.VPCLattice.UpdateListener
+    Amazonka.VPCLattice.UpdateRule
+    Amazonka.VPCLattice.UpdateService
+    Amazonka.VPCLattice.UpdateServiceNetwork
+    Amazonka.VPCLattice.UpdateServiceNetworkVpcAssociation
+    Amazonka.VPCLattice.UpdateTargetGroup
+    Amazonka.VPCLattice.Waiters
+
+  build-depends:
+    , amazonka-core  >=2.0  && <2.1
+    , base           >=4.12 && <5
+
+test-suite amazonka-vpc-lattice-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.Gen.VPCLattice
+    Test.Amazonka.VPCLattice
+    Test.Amazonka.VPCLattice.Internal
+
+  build-depends:
+    , amazonka-core         >=2.0 && <2.1
+    , amazonka-test         >=2.0 && <2.1
+    , amazonka-vpc-lattice
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

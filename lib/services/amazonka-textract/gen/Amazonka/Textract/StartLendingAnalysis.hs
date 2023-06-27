@@ -203,7 +203,8 @@ instance Core.AWSRequest StartLendingAnalysis where
 
 instance Prelude.Hashable StartLendingAnalysis where
   hashWithSalt _salt StartLendingAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobTag
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` notificationChannel

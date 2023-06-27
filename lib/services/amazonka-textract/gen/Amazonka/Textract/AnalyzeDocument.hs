@@ -221,7 +221,8 @@ instance Core.AWSRequest AnalyzeDocument where
 
 instance Prelude.Hashable AnalyzeDocument where
   hashWithSalt _salt AnalyzeDocument' {..} =
-    _salt `Prelude.hashWithSalt` humanLoopConfig
+    _salt
+      `Prelude.hashWithSalt` humanLoopConfig
       `Prelude.hashWithSalt` queriesConfig
       `Prelude.hashWithSalt` document
       `Prelude.hashWithSalt` featureTypes

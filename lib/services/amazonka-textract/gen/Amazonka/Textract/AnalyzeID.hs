@@ -22,7 +22,7 @@
 --
 -- Analyzes identity documents for relevant information. This information
 -- is extracted and returned as @IdentityDocumentFields@, which records
--- both the normalized field and value of the extracted text.Unlike other
+-- both the normalized field and value of the extracted text. Unlike other
 -- Amazon Textract operations, @AnalyzeID@ doesn\'t return any Geometry
 -- data.
 module Amazonka.Textract.AnalyzeID
@@ -93,7 +93,8 @@ instance Core.AWSRequest AnalyzeID where
           AnalyzeIDResponse'
             Prelude.<$> (x Data..?> "AnalyzeIDModelVersion")
             Prelude.<*> (x Data..?> "DocumentMetadata")
-            Prelude.<*> ( x Data..?> "IdentityDocuments"
+            Prelude.<*> ( x
+                            Data..?> "IdentityDocuments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

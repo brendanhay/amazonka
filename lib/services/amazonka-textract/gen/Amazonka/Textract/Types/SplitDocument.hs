@@ -78,7 +78,8 @@ instance Data.FromJSON SplitDocument where
 
 instance Prelude.Hashable SplitDocument where
   hashWithSalt _salt SplitDocument' {..} =
-    _salt `Prelude.hashWithSalt` index
+    _salt
+      `Prelude.hashWithSalt` index
       `Prelude.hashWithSalt` pages
 
 instance Prelude.NFData SplitDocument where

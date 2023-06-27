@@ -91,14 +91,16 @@ instance Data.FromJSON IdentityDocument where
           IdentityDocument'
             Prelude.<$> (x Data..:? "Blocks" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "DocumentIndex")
-            Prelude.<*> ( x Data..:? "IdentityDocumentFields"
+            Prelude.<*> ( x
+                            Data..:? "IdentityDocumentFields"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable IdentityDocument where
   hashWithSalt _salt IdentityDocument' {..} =
-    _salt `Prelude.hashWithSalt` blocks
+    _salt
+      `Prelude.hashWithSalt` blocks
       `Prelude.hashWithSalt` documentIndex
       `Prelude.hashWithSalt` identityDocumentFields
 

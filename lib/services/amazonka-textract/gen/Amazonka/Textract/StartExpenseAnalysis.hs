@@ -208,7 +208,8 @@ instance Core.AWSRequest StartExpenseAnalysis where
 
 instance Prelude.Hashable StartExpenseAnalysis where
   hashWithSalt _salt StartExpenseAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobTag
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` notificationChannel

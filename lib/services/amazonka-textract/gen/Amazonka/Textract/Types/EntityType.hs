@@ -22,6 +22,12 @@ module Amazonka.Textract.Types.EntityType
       ( ..,
         EntityType_COLUMN_HEADER,
         EntityType_KEY,
+        EntityType_SEMI_STRUCTURED_TABLE,
+        EntityType_STRUCTURED_TABLE,
+        EntityType_TABLE_FOOTER,
+        EntityType_TABLE_SECTION_TITLE,
+        EntityType_TABLE_SUMMARY,
+        EntityType_TABLE_TITLE,
         EntityType_VALUE
       ),
   )
@@ -65,12 +71,36 @@ pattern EntityType_COLUMN_HEADER = EntityType' "COLUMN_HEADER"
 pattern EntityType_KEY :: EntityType
 pattern EntityType_KEY = EntityType' "KEY"
 
+pattern EntityType_SEMI_STRUCTURED_TABLE :: EntityType
+pattern EntityType_SEMI_STRUCTURED_TABLE = EntityType' "SEMI_STRUCTURED_TABLE"
+
+pattern EntityType_STRUCTURED_TABLE :: EntityType
+pattern EntityType_STRUCTURED_TABLE = EntityType' "STRUCTURED_TABLE"
+
+pattern EntityType_TABLE_FOOTER :: EntityType
+pattern EntityType_TABLE_FOOTER = EntityType' "TABLE_FOOTER"
+
+pattern EntityType_TABLE_SECTION_TITLE :: EntityType
+pattern EntityType_TABLE_SECTION_TITLE = EntityType' "TABLE_SECTION_TITLE"
+
+pattern EntityType_TABLE_SUMMARY :: EntityType
+pattern EntityType_TABLE_SUMMARY = EntityType' "TABLE_SUMMARY"
+
+pattern EntityType_TABLE_TITLE :: EntityType
+pattern EntityType_TABLE_TITLE = EntityType' "TABLE_TITLE"
+
 pattern EntityType_VALUE :: EntityType
 pattern EntityType_VALUE = EntityType' "VALUE"
 
 {-# COMPLETE
   EntityType_COLUMN_HEADER,
   EntityType_KEY,
+  EntityType_SEMI_STRUCTURED_TABLE,
+  EntityType_STRUCTURED_TABLE,
+  EntityType_TABLE_FOOTER,
+  EntityType_TABLE_SECTION_TITLE,
+  EntityType_TABLE_SUMMARY,
+  EntityType_TABLE_TITLE,
   EntityType_VALUE,
   EntityType'
   #-}

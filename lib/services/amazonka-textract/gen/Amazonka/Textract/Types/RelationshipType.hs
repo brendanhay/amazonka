@@ -24,6 +24,9 @@ module Amazonka.Textract.Types.RelationshipType
         RelationshipType_CHILD,
         RelationshipType_COMPLEX_FEATURES,
         RelationshipType_MERGED_CELL,
+        RelationshipType_TABLE,
+        RelationshipType_TABLE_FOOTER,
+        RelationshipType_TABLE_TITLE,
         RelationshipType_TITLE,
         RelationshipType_VALUE
       ),
@@ -74,6 +77,15 @@ pattern RelationshipType_COMPLEX_FEATURES = RelationshipType' "COMPLEX_FEATURES"
 pattern RelationshipType_MERGED_CELL :: RelationshipType
 pattern RelationshipType_MERGED_CELL = RelationshipType' "MERGED_CELL"
 
+pattern RelationshipType_TABLE :: RelationshipType
+pattern RelationshipType_TABLE = RelationshipType' "TABLE"
+
+pattern RelationshipType_TABLE_FOOTER :: RelationshipType
+pattern RelationshipType_TABLE_FOOTER = RelationshipType' "TABLE_FOOTER"
+
+pattern RelationshipType_TABLE_TITLE :: RelationshipType
+pattern RelationshipType_TABLE_TITLE = RelationshipType' "TABLE_TITLE"
+
 pattern RelationshipType_TITLE :: RelationshipType
 pattern RelationshipType_TITLE = RelationshipType' "TITLE"
 
@@ -85,6 +97,9 @@ pattern RelationshipType_VALUE = RelationshipType' "VALUE"
   RelationshipType_CHILD,
   RelationshipType_COMPLEX_FEATURES,
   RelationshipType_MERGED_CELL,
+  RelationshipType_TABLE,
+  RelationshipType_TABLE_FOOTER,
+  RelationshipType_TABLE_TITLE,
   RelationshipType_TITLE,
   RelationshipType_VALUE,
   RelationshipType'

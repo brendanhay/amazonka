@@ -37,13 +37,30 @@ data Relationship = Relationship'
   { -- | An array of IDs for related blocks. You can get the type of the
     -- relationship from the @Type@ element.
     ids :: Prelude.Maybe [Prelude.Text],
-    -- | The type of relationship that the blocks in the IDs array have with the
-    -- current block. The relationship can be @VALUE@ or @CHILD@. A
-    -- relationship of type VALUE is a list that contains the ID of the VALUE
-    -- block that\'s associated with the KEY of a key-value pair. A
-    -- relationship of type CHILD is a list of IDs that identify WORD blocks in
-    -- the case of lines Cell blocks in the case of Tables, and WORD blocks in
-    -- the case of Selection Elements.
+    -- | The type of relationship between the blocks in the IDs array and the
+    -- current block. The following list describes the relationship types that
+    -- can be returned.
+    --
+    -- -   /VALUE/ - A list that contains the ID of the VALUE block that\'s
+    --     associated with the KEY of a key-value pair.
+    --
+    -- -   /CHILD/ - A list of IDs that identify blocks found within the
+    --     current block object. For example, WORD blocks have a CHILD
+    --     relationship to the LINE block type.
+    --
+    -- -   /MERGED_CELL/ - A list of IDs that identify each of the MERGED_CELL
+    --     block types in a table.
+    --
+    -- -   /ANSWER/ - A list that contains the ID of the QUERY_RESULT block
+    --     that’s associated with the corresponding QUERY block.
+    --
+    -- -   /TABLE/ - A list of IDs that identify associated TABLE block types.
+    --
+    -- -   /TABLE_TITLE/ - A list that contains the ID for the TABLE_TITLE
+    --     block type in a table.
+    --
+    -- -   /TABLE_FOOTER/ - A list of IDs that identify the TABLE_FOOTER block
+    --     types in a table.
     type' :: Prelude.Maybe RelationshipType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,13 +76,30 @@ data Relationship = Relationship'
 -- 'ids', 'relationship_ids' - An array of IDs for related blocks. You can get the type of the
 -- relationship from the @Type@ element.
 --
--- 'type'', 'relationship_type' - The type of relationship that the blocks in the IDs array have with the
--- current block. The relationship can be @VALUE@ or @CHILD@. A
--- relationship of type VALUE is a list that contains the ID of the VALUE
--- block that\'s associated with the KEY of a key-value pair. A
--- relationship of type CHILD is a list of IDs that identify WORD blocks in
--- the case of lines Cell blocks in the case of Tables, and WORD blocks in
--- the case of Selection Elements.
+-- 'type'', 'relationship_type' - The type of relationship between the blocks in the IDs array and the
+-- current block. The following list describes the relationship types that
+-- can be returned.
+--
+-- -   /VALUE/ - A list that contains the ID of the VALUE block that\'s
+--     associated with the KEY of a key-value pair.
+--
+-- -   /CHILD/ - A list of IDs that identify blocks found within the
+--     current block object. For example, WORD blocks have a CHILD
+--     relationship to the LINE block type.
+--
+-- -   /MERGED_CELL/ - A list of IDs that identify each of the MERGED_CELL
+--     block types in a table.
+--
+-- -   /ANSWER/ - A list that contains the ID of the QUERY_RESULT block
+--     that’s associated with the corresponding QUERY block.
+--
+-- -   /TABLE/ - A list of IDs that identify associated TABLE block types.
+--
+-- -   /TABLE_TITLE/ - A list that contains the ID for the TABLE_TITLE
+--     block type in a table.
+--
+-- -   /TABLE_FOOTER/ - A list of IDs that identify the TABLE_FOOTER block
+--     types in a table.
 newRelationship ::
   Relationship
 newRelationship =
@@ -79,13 +113,30 @@ newRelationship =
 relationship_ids :: Lens.Lens' Relationship (Prelude.Maybe [Prelude.Text])
 relationship_ids = Lens.lens (\Relationship' {ids} -> ids) (\s@Relationship' {} a -> s {ids = a} :: Relationship) Prelude.. Lens.mapping Lens.coerced
 
--- | The type of relationship that the blocks in the IDs array have with the
--- current block. The relationship can be @VALUE@ or @CHILD@. A
--- relationship of type VALUE is a list that contains the ID of the VALUE
--- block that\'s associated with the KEY of a key-value pair. A
--- relationship of type CHILD is a list of IDs that identify WORD blocks in
--- the case of lines Cell blocks in the case of Tables, and WORD blocks in
--- the case of Selection Elements.
+-- | The type of relationship between the blocks in the IDs array and the
+-- current block. The following list describes the relationship types that
+-- can be returned.
+--
+-- -   /VALUE/ - A list that contains the ID of the VALUE block that\'s
+--     associated with the KEY of a key-value pair.
+--
+-- -   /CHILD/ - A list of IDs that identify blocks found within the
+--     current block object. For example, WORD blocks have a CHILD
+--     relationship to the LINE block type.
+--
+-- -   /MERGED_CELL/ - A list of IDs that identify each of the MERGED_CELL
+--     block types in a table.
+--
+-- -   /ANSWER/ - A list that contains the ID of the QUERY_RESULT block
+--     that’s associated with the corresponding QUERY block.
+--
+-- -   /TABLE/ - A list of IDs that identify associated TABLE block types.
+--
+-- -   /TABLE_TITLE/ - A list that contains the ID for the TABLE_TITLE
+--     block type in a table.
+--
+-- -   /TABLE_FOOTER/ - A list of IDs that identify the TABLE_FOOTER block
+--     types in a table.
 relationship_type :: Lens.Lens' Relationship (Prelude.Maybe RelationshipType)
 relationship_type = Lens.lens (\Relationship' {type'} -> type') (\s@Relationship' {} a -> s {type' = a} :: Relationship)
 
@@ -101,7 +152,8 @@ instance Data.FromJSON Relationship where
 
 instance Prelude.Hashable Relationship where
   hashWithSalt _salt Relationship' {..} =
-    _salt `Prelude.hashWithSalt` ids
+    _salt
+      `Prelude.hashWithSalt` ids
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Relationship where

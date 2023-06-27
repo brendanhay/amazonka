@@ -77,7 +77,8 @@ instance Data.FromJSON SignatureDetection where
 
 instance Prelude.Hashable SignatureDetection where
   hashWithSalt _salt SignatureDetection' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` geometry
 
 instance Prelude.NFData SignatureDetection where

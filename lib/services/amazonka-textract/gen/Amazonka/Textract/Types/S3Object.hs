@@ -91,7 +91,8 @@ s3Object_version = Lens.lens (\S3Object' {version} -> version) (\s@S3Object' {} 
 
 instance Prelude.Hashable S3Object where
   hashWithSalt _salt S3Object' {..} =
-    _salt `Prelude.hashWithSalt` bucket
+    _salt
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 

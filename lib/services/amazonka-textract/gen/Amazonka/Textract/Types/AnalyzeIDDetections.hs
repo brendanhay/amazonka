@@ -90,7 +90,8 @@ instance Data.FromJSON AnalyzeIDDetections where
 
 instance Prelude.Hashable AnalyzeIDDetections where
   hashWithSalt _salt AnalyzeIDDetections' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` normalizedValue
       `Prelude.hashWithSalt` text
 

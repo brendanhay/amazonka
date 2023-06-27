@@ -62,7 +62,8 @@ instance Data.FromJSON LineItemFields where
       "LineItemFields"
       ( \x ->
           LineItemFields'
-            Prelude.<$> ( x Data..:? "LineItemExpenseFields"
+            Prelude.<$> ( x
+                            Data..:? "LineItemExpenseFields"
                             Data..!= Prelude.mempty
                         )
       )

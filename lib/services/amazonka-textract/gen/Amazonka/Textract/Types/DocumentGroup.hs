@@ -36,8 +36,9 @@ data DocumentGroup = DocumentGroup'
     -- | An array that contains information about the pages of a document,
     -- defined by logical boundary.
     splitDocuments :: Prelude.Maybe [SplitDocument],
-    -- | The type of document that Amazon Textract has detected. See LINK for a
-    -- list of all types returned by Textract.
+    -- | The type of document that Amazon Textract has detected. See
+    -- <https://docs.aws.amazon.com/textract/latest/dg/lending-response-objects.html Analyze Lending Response Objects>
+    -- for a list of all types returned by Textract.
     type' :: Prelude.Maybe Prelude.Text,
     -- | A list of any expected signatures not found in a document group.
     undetectedSignatures :: Prelude.Maybe [UndetectedSignature]
@@ -57,8 +58,9 @@ data DocumentGroup = DocumentGroup'
 -- 'splitDocuments', 'documentGroup_splitDocuments' - An array that contains information about the pages of a document,
 -- defined by logical boundary.
 --
--- 'type'', 'documentGroup_type' - The type of document that Amazon Textract has detected. See LINK for a
--- list of all types returned by Textract.
+-- 'type'', 'documentGroup_type' - The type of document that Amazon Textract has detected. See
+-- <https://docs.aws.amazon.com/textract/latest/dg/lending-response-objects.html Analyze Lending Response Objects>
+-- for a list of all types returned by Textract.
 --
 -- 'undetectedSignatures', 'documentGroup_undetectedSignatures' - A list of any expected signatures not found in a document group.
 newDocumentGroup ::
@@ -81,8 +83,9 @@ documentGroup_detectedSignatures = Lens.lens (\DocumentGroup' {detectedSignature
 documentGroup_splitDocuments :: Lens.Lens' DocumentGroup (Prelude.Maybe [SplitDocument])
 documentGroup_splitDocuments = Lens.lens (\DocumentGroup' {splitDocuments} -> splitDocuments) (\s@DocumentGroup' {} a -> s {splitDocuments = a} :: DocumentGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | The type of document that Amazon Textract has detected. See LINK for a
--- list of all types returned by Textract.
+-- | The type of document that Amazon Textract has detected. See
+-- <https://docs.aws.amazon.com/textract/latest/dg/lending-response-objects.html Analyze Lending Response Objects>
+-- for a list of all types returned by Textract.
 documentGroup_type :: Lens.Lens' DocumentGroup (Prelude.Maybe Prelude.Text)
 documentGroup_type = Lens.lens (\DocumentGroup' {type'} -> type') (\s@DocumentGroup' {} a -> s {type' = a} :: DocumentGroup)
 
@@ -96,19 +99,22 @@ instance Data.FromJSON DocumentGroup where
       "DocumentGroup"
       ( \x ->
           DocumentGroup'
-            Prelude.<$> ( x Data..:? "DetectedSignatures"
+            Prelude.<$> ( x
+                            Data..:? "DetectedSignatures"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SplitDocuments" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> ( x Data..:? "UndetectedSignatures"
+            Prelude.<*> ( x
+                            Data..:? "UndetectedSignatures"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable DocumentGroup where
   hashWithSalt _salt DocumentGroup' {..} =
-    _salt `Prelude.hashWithSalt` detectedSignatures
+    _salt
+      `Prelude.hashWithSalt` detectedSignatures
       `Prelude.hashWithSalt` splitDocuments
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` undetectedSignatures

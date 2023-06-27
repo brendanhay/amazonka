@@ -30,6 +30,8 @@ module Amazonka.Textract.Types.BlockType
         BlockType_SELECTION_ELEMENT,
         BlockType_SIGNATURE,
         BlockType_TABLE,
+        BlockType_TABLE_FOOTER,
+        BlockType_TABLE_TITLE,
         BlockType_TITLE,
         BlockType_WORD
       ),
@@ -98,6 +100,12 @@ pattern BlockType_SIGNATURE = BlockType' "SIGNATURE"
 pattern BlockType_TABLE :: BlockType
 pattern BlockType_TABLE = BlockType' "TABLE"
 
+pattern BlockType_TABLE_FOOTER :: BlockType
+pattern BlockType_TABLE_FOOTER = BlockType' "TABLE_FOOTER"
+
+pattern BlockType_TABLE_TITLE :: BlockType
+pattern BlockType_TABLE_TITLE = BlockType' "TABLE_TITLE"
+
 pattern BlockType_TITLE :: BlockType
 pattern BlockType_TITLE = BlockType' "TITLE"
 
@@ -115,6 +123,8 @@ pattern BlockType_WORD = BlockType' "WORD"
   BlockType_SELECTION_ELEMENT,
   BlockType_SIGNATURE,
   BlockType_TABLE,
+  BlockType_TABLE_FOOTER,
+  BlockType_TABLE_TITLE,
   BlockType_TITLE,
   BlockType_WORD,
   BlockType'

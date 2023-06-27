@@ -72,14 +72,16 @@ instance Data.FromJSON LendingDocument where
       ( \x ->
           LendingDocument'
             Prelude.<$> (x Data..:? "LendingFields" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "SignatureDetections"
+            Prelude.<*> ( x
+                            Data..:? "SignatureDetections"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable LendingDocument where
   hashWithSalt _salt LendingDocument' {..} =
-    _salt `Prelude.hashWithSalt` lendingFields
+    _salt
+      `Prelude.hashWithSalt` lendingFields
       `Prelude.hashWithSalt` signatureDetections
 
 instance Prelude.NFData LendingDocument where

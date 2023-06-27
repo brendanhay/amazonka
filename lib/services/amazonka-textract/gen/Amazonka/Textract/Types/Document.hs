@@ -113,7 +113,8 @@ document_s3Object = Lens.lens (\Document' {s3Object} -> s3Object) (\s@Document' 
 
 instance Prelude.Hashable Document where
   hashWithSalt _salt Document' {..} =
-    _salt `Prelude.hashWithSalt` bytes
+    _salt
+      `Prelude.hashWithSalt` bytes
       `Prelude.hashWithSalt` s3Object
 
 instance Prelude.NFData Document where

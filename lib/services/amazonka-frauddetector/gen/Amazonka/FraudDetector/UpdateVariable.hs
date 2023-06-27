@@ -123,7 +123,8 @@ instance Core.AWSRequest UpdateVariable where
 
 instance Prelude.Hashable UpdateVariable where
   hashWithSalt _salt UpdateVariable' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` variableType
       `Prelude.hashWithSalt` name

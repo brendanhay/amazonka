@@ -111,7 +111,8 @@ instance Core.AWSRequest DescribeDetector where
           DescribeDetectorResponse'
             Prelude.<$> (x Data..?> "arn")
             Prelude.<*> (x Data..?> "detectorId")
-            Prelude.<*> ( x Data..?> "detectorVersionSummaries"
+            Prelude.<*> ( x
+                            Data..?> "detectorVersionSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -120,7 +121,8 @@ instance Core.AWSRequest DescribeDetector where
 
 instance Prelude.Hashable DescribeDetector where
   hashWithSalt _salt DescribeDetector' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` detectorId
 

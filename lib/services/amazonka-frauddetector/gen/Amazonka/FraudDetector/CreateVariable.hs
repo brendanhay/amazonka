@@ -66,7 +66,7 @@ data CreateVariable = CreateVariable'
     variableType :: Prelude.Maybe Prelude.Text,
     -- | The name of the variable.
     name :: Prelude.Text,
-    -- | The data type.
+    -- | The data type of the variable.
     dataType :: DataType,
     -- | The source of the data.
     dataSource :: DataSource,
@@ -95,7 +95,7 @@ data CreateVariable = CreateVariable'
 --
 -- 'name', 'createVariable_name' - The name of the variable.
 --
--- 'dataType', 'createVariable_dataType' - The data type.
+-- 'dataType', 'createVariable_dataType' - The data type of the variable.
 --
 -- 'dataSource', 'createVariable_dataSource' - The source of the data.
 --
@@ -145,7 +145,7 @@ createVariable_variableType = Lens.lens (\CreateVariable' {variableType} -> vari
 createVariable_name :: Lens.Lens' CreateVariable Prelude.Text
 createVariable_name = Lens.lens (\CreateVariable' {name} -> name) (\s@CreateVariable' {} a -> s {name = a} :: CreateVariable)
 
--- | The data type.
+-- | The data type of the variable.
 createVariable_dataType :: Lens.Lens' CreateVariable DataType
 createVariable_dataType = Lens.lens (\CreateVariable' {dataType} -> dataType) (\s@CreateVariable' {} a -> s {dataType = a} :: CreateVariable)
 
@@ -172,7 +172,8 @@ instance Core.AWSRequest CreateVariable where
 
 instance Prelude.Hashable CreateVariable where
   hashWithSalt _salt CreateVariable' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` variableType
       `Prelude.hashWithSalt` name

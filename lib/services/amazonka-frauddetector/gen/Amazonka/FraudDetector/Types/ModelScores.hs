@@ -75,7 +75,8 @@ instance Data.FromJSON ModelScores where
 
 instance Prelude.Hashable ModelScores where
   hashWithSalt _salt ModelScores' {..} =
-    _salt `Prelude.hashWithSalt` modelVersion
+    _salt
+      `Prelude.hashWithSalt` modelVersion
       `Prelude.hashWithSalt` scores
 
 instance Prelude.NFData ModelScores where

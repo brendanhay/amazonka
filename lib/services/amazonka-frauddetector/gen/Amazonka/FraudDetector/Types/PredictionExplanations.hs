@@ -93,10 +93,12 @@ instance Data.FromJSON PredictionExplanations where
       "PredictionExplanations"
       ( \x ->
           PredictionExplanations'
-            Prelude.<$> ( x Data..:? "aggregatedVariablesImpactExplanations"
+            Prelude.<$> ( x
+                            Data..:? "aggregatedVariablesImpactExplanations"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "variableImpactExplanations"
+            Prelude.<*> ( x
+                            Data..:? "variableImpactExplanations"
                             Data..!= Prelude.mempty
                         )
       )

@@ -132,7 +132,8 @@ instance Core.AWSRequest CreateModel where
 
 instance Prelude.Hashable CreateModel where
   hashWithSalt _salt CreateModel' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` modelId
       `Prelude.hashWithSalt` modelType

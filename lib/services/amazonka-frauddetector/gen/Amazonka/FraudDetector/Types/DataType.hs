@@ -21,6 +21,7 @@ module Amazonka.FraudDetector.Types.DataType
   ( DataType
       ( ..,
         DataType_BOOLEAN,
+        DataType_DATETIME,
         DataType_FLOAT,
         DataType_INTEGER,
         DataType_STRING
@@ -63,6 +64,9 @@ newtype DataType = DataType'
 pattern DataType_BOOLEAN :: DataType
 pattern DataType_BOOLEAN = DataType' "BOOLEAN"
 
+pattern DataType_DATETIME :: DataType
+pattern DataType_DATETIME = DataType' "DATETIME"
+
 pattern DataType_FLOAT :: DataType
 pattern DataType_FLOAT = DataType' "FLOAT"
 
@@ -74,6 +78,7 @@ pattern DataType_STRING = DataType' "STRING"
 
 {-# COMPLETE
   DataType_BOOLEAN,
+  DataType_DATETIME,
   DataType_FLOAT,
   DataType_INTEGER,
   DataType_STRING,

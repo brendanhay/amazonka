@@ -71,7 +71,8 @@ instance Data.FromJSON TFITrainingMetricsValue where
       "TFITrainingMetricsValue"
       ( \x ->
           TFITrainingMetricsValue'
-            Prelude.<$> ( x Data..:? "metricDataPoints"
+            Prelude.<$> ( x
+                            Data..:? "metricDataPoints"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "modelPerformance")
@@ -79,7 +80,8 @@ instance Data.FromJSON TFITrainingMetricsValue where
 
 instance Prelude.Hashable TFITrainingMetricsValue where
   hashWithSalt _salt TFITrainingMetricsValue' {..} =
-    _salt `Prelude.hashWithSalt` metricDataPoints
+    _salt
+      `Prelude.hashWithSalt` metricDataPoints
       `Prelude.hashWithSalt` modelPerformance
 
 instance Prelude.NFData TFITrainingMetricsValue where

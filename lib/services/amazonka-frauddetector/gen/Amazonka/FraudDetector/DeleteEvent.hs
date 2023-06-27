@@ -24,6 +24,8 @@
 --
 -- When you delete an event, Amazon Fraud Detector permanently deletes that
 -- event and the event data is no longer stored in Amazon Fraud Detector.
+-- If @deleteAuditHistory@ is @True@, event data is available through
+-- search for up to 30 seconds after the delete operation is completed.
 module Amazonka.FraudDetector.DeleteEvent
   ( -- * Creating a Request
     DeleteEvent (..),
@@ -54,7 +56,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeleteEvent' smart constructor.
 data DeleteEvent = DeleteEvent'
   { -- | Specifies whether or not to delete any predictions associated with the
-    -- event.
+    -- event. If set to @True@,
     deleteAuditHistory :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the event to delete.
     eventId :: Prelude.Text,
@@ -72,7 +74,7 @@ data DeleteEvent = DeleteEvent'
 -- for backwards compatibility:
 --
 -- 'deleteAuditHistory', 'deleteEvent_deleteAuditHistory' - Specifies whether or not to delete any predictions associated with the
--- event.
+-- event. If set to @True@,
 --
 -- 'eventId', 'deleteEvent_eventId' - The ID of the event to delete.
 --
@@ -91,7 +93,7 @@ newDeleteEvent pEventId_ pEventTypeName_ =
     }
 
 -- | Specifies whether or not to delete any predictions associated with the
--- event.
+-- event. If set to @True@,
 deleteEvent_deleteAuditHistory :: Lens.Lens' DeleteEvent (Prelude.Maybe Prelude.Bool)
 deleteEvent_deleteAuditHistory = Lens.lens (\DeleteEvent' {deleteAuditHistory} -> deleteAuditHistory) (\s@DeleteEvent' {} a -> s {deleteAuditHistory = a} :: DeleteEvent)
 
@@ -116,7 +118,8 @@ instance Core.AWSRequest DeleteEvent where
 
 instance Prelude.Hashable DeleteEvent where
   hashWithSalt _salt DeleteEvent' {..} =
-    _salt `Prelude.hashWithSalt` deleteAuditHistory
+    _salt
+      `Prelude.hashWithSalt` deleteAuditHistory
       `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` eventTypeName
 

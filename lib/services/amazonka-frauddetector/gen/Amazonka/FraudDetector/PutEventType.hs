@@ -35,6 +35,7 @@ module Amazonka.FraudDetector.PutEventType
     -- * Request Lenses
     putEventType_description,
     putEventType_eventIngestion,
+    putEventType_eventOrchestration,
     putEventType_labels,
     putEventType_tags,
     putEventType_name,
@@ -62,8 +63,12 @@ import qualified Amazonka.Response as Response
 data PutEventType = PutEventType'
   { -- | The description of the event type.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Specifies if ingenstion is enabled or disabled.
+    -- | Specifies if ingestion is enabled or disabled.
     eventIngestion :: Prelude.Maybe EventIngestion,
+    -- | Enables or disables event orchestration. If enabled, you can send event
+    -- predictions to select AWS services for downstream processing of the
+    -- events.
+    eventOrchestration :: Prelude.Maybe EventOrchestration,
     -- | The event type labels.
     labels :: Prelude.Maybe [Prelude.Text],
     -- | A collection of key and value pairs.
@@ -88,7 +93,11 @@ data PutEventType = PutEventType'
 --
 -- 'description', 'putEventType_description' - The description of the event type.
 --
--- 'eventIngestion', 'putEventType_eventIngestion' - Specifies if ingenstion is enabled or disabled.
+-- 'eventIngestion', 'putEventType_eventIngestion' - Specifies if ingestion is enabled or disabled.
+--
+-- 'eventOrchestration', 'putEventType_eventOrchestration' - Enables or disables event orchestration. If enabled, you can send event
+-- predictions to select AWS services for downstream processing of the
+-- events.
 --
 -- 'labels', 'putEventType_labels' - The event type labels.
 --
@@ -112,6 +121,7 @@ newPutEventType pName_ pEventVariables_ pEntityTypes_ =
   PutEventType'
     { description = Prelude.Nothing,
       eventIngestion = Prelude.Nothing,
+      eventOrchestration = Prelude.Nothing,
       labels = Prelude.Nothing,
       tags = Prelude.Nothing,
       name = pName_,
@@ -124,9 +134,15 @@ newPutEventType pName_ pEventVariables_ pEntityTypes_ =
 putEventType_description :: Lens.Lens' PutEventType (Prelude.Maybe Prelude.Text)
 putEventType_description = Lens.lens (\PutEventType' {description} -> description) (\s@PutEventType' {} a -> s {description = a} :: PutEventType)
 
--- | Specifies if ingenstion is enabled or disabled.
+-- | Specifies if ingestion is enabled or disabled.
 putEventType_eventIngestion :: Lens.Lens' PutEventType (Prelude.Maybe EventIngestion)
 putEventType_eventIngestion = Lens.lens (\PutEventType' {eventIngestion} -> eventIngestion) (\s@PutEventType' {} a -> s {eventIngestion = a} :: PutEventType)
+
+-- | Enables or disables event orchestration. If enabled, you can send event
+-- predictions to select AWS services for downstream processing of the
+-- events.
+putEventType_eventOrchestration :: Lens.Lens' PutEventType (Prelude.Maybe EventOrchestration)
+putEventType_eventOrchestration = Lens.lens (\PutEventType' {eventOrchestration} -> eventOrchestration) (\s@PutEventType' {} a -> s {eventOrchestration = a} :: PutEventType)
 
 -- | The event type labels.
 putEventType_labels :: Lens.Lens' PutEventType (Prelude.Maybe [Prelude.Text])
@@ -162,8 +178,10 @@ instance Core.AWSRequest PutEventType where
 
 instance Prelude.Hashable PutEventType where
   hashWithSalt _salt PutEventType' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventIngestion
+      `Prelude.hashWithSalt` eventOrchestration
       `Prelude.hashWithSalt` labels
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
@@ -174,6 +192,7 @@ instance Prelude.NFData PutEventType where
   rnf PutEventType' {..} =
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf eventIngestion
+      `Prelude.seq` Prelude.rnf eventOrchestration
       `Prelude.seq` Prelude.rnf labels
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
@@ -202,6 +221,8 @@ instance Data.ToJSON PutEventType where
           [ ("description" Data..=) Prelude.<$> description,
             ("eventIngestion" Data..=)
               Prelude.<$> eventIngestion,
+            ("eventOrchestration" Data..=)
+              Prelude.<$> eventOrchestration,
             ("labels" Data..=) Prelude.<$> labels,
             ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("name" Data..= name),

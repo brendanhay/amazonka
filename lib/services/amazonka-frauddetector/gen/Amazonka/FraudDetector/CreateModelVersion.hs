@@ -176,7 +176,8 @@ instance Core.AWSRequest CreateModelVersion where
 
 instance Prelude.Hashable CreateModelVersion where
   hashWithSalt _salt CreateModelVersion' {..} =
-    _salt `Prelude.hashWithSalt` externalEventsDetail
+    _salt
+      `Prelude.hashWithSalt` externalEventsDetail
       `Prelude.hashWithSalt` ingestedEventsDetail
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` modelId

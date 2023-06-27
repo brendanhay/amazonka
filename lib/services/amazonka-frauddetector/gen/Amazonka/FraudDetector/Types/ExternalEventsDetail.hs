@@ -84,7 +84,8 @@ instance Data.FromJSON ExternalEventsDetail where
 
 instance Prelude.Hashable ExternalEventsDetail where
   hashWithSalt _salt ExternalEventsDetail' {..} =
-    _salt `Prelude.hashWithSalt` dataLocation
+    _salt
+      `Prelude.hashWithSalt` dataLocation
       `Prelude.hashWithSalt` dataAccessRoleArn
 
 instance Prelude.NFData ExternalEventsDetail where

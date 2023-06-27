@@ -124,7 +124,8 @@ instance Core.AWSRequest DeleteModelVersion where
 
 instance Prelude.Hashable DeleteModelVersion where
   hashWithSalt _salt DeleteModelVersion' {..} =
-    _salt `Prelude.hashWithSalt` modelId
+    _salt
+      `Prelude.hashWithSalt` modelId
       `Prelude.hashWithSalt` modelType
       `Prelude.hashWithSalt` modelVersionNumber
 

@@ -125,7 +125,8 @@ instance
     UpdateDetectorVersionMetadata
   where
   hashWithSalt _salt UpdateDetectorVersionMetadata' {..} =
-    _salt `Prelude.hashWithSalt` detectorId
+    _salt
+      `Prelude.hashWithSalt` detectorId
       `Prelude.hashWithSalt` detectorVersionId
       `Prelude.hashWithSalt` description
 

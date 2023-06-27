@@ -28,8 +28,10 @@
 -- provide basic functions that automatically take care of tasks such as
 -- cryptographically signing your requests, retrying requests, and handling
 -- error responses, so that it is easier for you to get started. For more
--- information about the AWS SDKs, see
--- <https://docs.aws.amazon.com/https:/aws.amazon.com/tools/ Tools to build on AWS>.
+-- information about the AWS SDKs, go to
+-- <https://aws.amazon.com/developer/tools/ Tools to build on AWS> page,
+-- scroll down to the __SDK__ section, and choose plus (+) sign to expand
+-- the section.
 module Amazonka.FraudDetector
   ( -- * Service Configuration
     defaultService,
@@ -105,6 +107,12 @@ module Amazonka.FraudDetector
     newCreateDetectorVersion,
     CreateDetectorVersionResponse (CreateDetectorVersionResponse'),
     newCreateDetectorVersionResponse,
+
+    -- ** CreateList
+    CreateList (CreateList'),
+    newCreateList,
+    CreateListResponse (CreateListResponse'),
+    newCreateListResponse,
 
     -- ** CreateModel
     CreateModel (CreateModel'),
@@ -189,6 +197,12 @@ module Amazonka.FraudDetector
     newDeleteLabel,
     DeleteLabelResponse (DeleteLabelResponse'),
     newDeleteLabelResponse,
+
+    -- ** DeleteList
+    DeleteList (DeleteList'),
+    newDeleteList,
+    DeleteListResponse (DeleteListResponse'),
+    newDeleteListResponse,
 
     -- ** DeleteModel
     DeleteModel (DeleteModel'),
@@ -309,6 +323,18 @@ module Amazonka.FraudDetector
     newGetLabels,
     GetLabelsResponse (GetLabelsResponse'),
     newGetLabelsResponse,
+
+    -- ** GetListElements
+    GetListElements (GetListElements'),
+    newGetListElements,
+    GetListElementsResponse (GetListElementsResponse'),
+    newGetListElementsResponse,
+
+    -- ** GetListsMetadata
+    GetListsMetadata (GetListsMetadata'),
+    newGetListsMetadata,
+    GetListsMetadataResponse (GetListsMetadataResponse'),
+    newGetListsMetadataResponse,
 
     -- ** GetModelVersion
     GetModelVersion (GetModelVersion'),
@@ -436,6 +462,12 @@ module Amazonka.FraudDetector
     UpdateEventLabelResponse (UpdateEventLabelResponse'),
     newUpdateEventLabelResponse,
 
+    -- ** UpdateList
+    UpdateList (UpdateList'),
+    newUpdateList,
+    UpdateListResponse (UpdateListResponse'),
+    newUpdateListResponse,
+
     -- ** UpdateModel
     UpdateModel (UpdateModel'),
     newUpdateModel,
@@ -492,6 +524,9 @@ module Amazonka.FraudDetector
     -- ** Language
     Language (..),
 
+    -- ** ListUpdateMode
+    ListUpdateMode (..),
+
     -- ** ModelEndpointStatus
     ModelEndpointStatus (..),
 
@@ -542,6 +577,10 @@ module Amazonka.FraudDetector
     -- ** AggregatedVariablesImportanceMetrics
     AggregatedVariablesImportanceMetrics (AggregatedVariablesImportanceMetrics'),
     newAggregatedVariablesImportanceMetrics,
+
+    -- ** AllowDenyList
+    AllowDenyList (AllowDenyList'),
+    newAllowDenyList,
 
     -- ** BatchCreateVariableError
     BatchCreateVariableError (BatchCreateVariableError'),
@@ -594,6 +633,10 @@ module Amazonka.FraudDetector
     -- ** Event
     Event (Event'),
     newEvent,
+
+    -- ** EventOrchestration
+    EventOrchestration (EventOrchestration'),
+    newEventOrchestration,
 
     -- ** EventPredictionSummary
     EventPredictionSummary (EventPredictionSummary'),
@@ -771,6 +814,10 @@ module Amazonka.FraudDetector
     TrainingResultV2 (TrainingResultV2'),
     newTrainingResultV2,
 
+    -- ** UncertaintyRange
+    UncertaintyRange (UncertaintyRange'),
+    newUncertaintyRange,
+
     -- ** Variable
     Variable (Variable'),
     newVariable,
@@ -796,6 +843,7 @@ import Amazonka.FraudDetector.CancelBatchPredictionJob
 import Amazonka.FraudDetector.CreateBatchImportJob
 import Amazonka.FraudDetector.CreateBatchPredictionJob
 import Amazonka.FraudDetector.CreateDetectorVersion
+import Amazonka.FraudDetector.CreateList
 import Amazonka.FraudDetector.CreateModel
 import Amazonka.FraudDetector.CreateModelVersion
 import Amazonka.FraudDetector.CreateRule
@@ -810,6 +858,7 @@ import Amazonka.FraudDetector.DeleteEventType
 import Amazonka.FraudDetector.DeleteEventsByEventType
 import Amazonka.FraudDetector.DeleteExternalModel
 import Amazonka.FraudDetector.DeleteLabel
+import Amazonka.FraudDetector.DeleteList
 import Amazonka.FraudDetector.DeleteModel
 import Amazonka.FraudDetector.DeleteModelVersion
 import Amazonka.FraudDetector.DeleteOutcome
@@ -830,6 +879,8 @@ import Amazonka.FraudDetector.GetEventTypes
 import Amazonka.FraudDetector.GetExternalModels
 import Amazonka.FraudDetector.GetKMSEncryptionKey
 import Amazonka.FraudDetector.GetLabels
+import Amazonka.FraudDetector.GetListElements
+import Amazonka.FraudDetector.GetListsMetadata
 import Amazonka.FraudDetector.GetModelVersion
 import Amazonka.FraudDetector.GetModels
 import Amazonka.FraudDetector.GetOutcomes
@@ -853,6 +904,7 @@ import Amazonka.FraudDetector.UpdateDetectorVersion
 import Amazonka.FraudDetector.UpdateDetectorVersionMetadata
 import Amazonka.FraudDetector.UpdateDetectorVersionStatus
 import Amazonka.FraudDetector.UpdateEventLabel
+import Amazonka.FraudDetector.UpdateList
 import Amazonka.FraudDetector.UpdateModel
 import Amazonka.FraudDetector.UpdateModelVersion
 import Amazonka.FraudDetector.UpdateModelVersionStatus

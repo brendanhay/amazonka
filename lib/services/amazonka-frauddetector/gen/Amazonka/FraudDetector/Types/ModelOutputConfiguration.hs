@@ -87,10 +87,12 @@ instance Data.FromJSON ModelOutputConfiguration where
       "ModelOutputConfiguration"
       ( \x ->
           ModelOutputConfiguration'
-            Prelude.<$> ( x Data..:? "csvIndexToVariableMap"
+            Prelude.<$> ( x
+                            Data..:? "csvIndexToVariableMap"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "jsonKeyToVariableMap"
+            Prelude.<*> ( x
+                            Data..:? "jsonKeyToVariableMap"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "format")
@@ -98,7 +100,8 @@ instance Data.FromJSON ModelOutputConfiguration where
 
 instance Prelude.Hashable ModelOutputConfiguration where
   hashWithSalt _salt ModelOutputConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` csvIndexToVariableMap
+    _salt
+      `Prelude.hashWithSalt` csvIndexToVariableMap
       `Prelude.hashWithSalt` jsonKeyToVariableMap
       `Prelude.hashWithSalt` format
 

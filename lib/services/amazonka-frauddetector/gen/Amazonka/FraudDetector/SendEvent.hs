@@ -173,7 +173,8 @@ instance Core.AWSRequest SendEvent where
 
 instance Prelude.Hashable SendEvent where
   hashWithSalt _salt SendEvent' {..} =
-    _salt `Prelude.hashWithSalt` assignedLabel
+    _salt
+      `Prelude.hashWithSalt` assignedLabel
       `Prelude.hashWithSalt` labelTimestamp
       `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` eventTypeName

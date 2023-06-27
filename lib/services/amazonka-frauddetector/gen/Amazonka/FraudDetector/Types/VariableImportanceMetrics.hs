@@ -61,7 +61,8 @@ instance Data.FromJSON VariableImportanceMetrics where
       "VariableImportanceMetrics"
       ( \x ->
           VariableImportanceMetrics'
-            Prelude.<$> ( x Data..:? "logOddsMetrics"
+            Prelude.<$> ( x
+                            Data..:? "logOddsMetrics"
                             Data..!= Prelude.mempty
                         )
       )

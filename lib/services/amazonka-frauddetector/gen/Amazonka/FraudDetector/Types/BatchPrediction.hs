@@ -208,7 +208,8 @@ instance Data.FromJSON BatchPrediction where
 
 instance Prelude.Hashable BatchPrediction where
   hashWithSalt _salt BatchPrediction' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` detectorName
       `Prelude.hashWithSalt` detectorVersion

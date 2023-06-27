@@ -48,6 +48,9 @@ import Test.Tasty
 --         , requestCreateDetectorVersion $
 --             newCreateDetectorVersion
 --
+--         , requestCreateList $
+--             newCreateList
+--
 --         , requestCreateModel $
 --             newCreateModel
 --
@@ -89,6 +92,9 @@ import Test.Tasty
 --
 --         , requestDeleteLabel $
 --             newDeleteLabel
+--
+--         , requestDeleteList $
+--             newDeleteList
 --
 --         , requestDeleteModel $
 --             newDeleteModel
@@ -149,6 +155,12 @@ import Test.Tasty
 --
 --         , requestGetLabels $
 --             newGetLabels
+--
+--         , requestGetListElements $
+--             newGetListElements
+--
+--         , requestGetListsMetadata $
+--             newGetListsMetadata
 --
 --         , requestGetModelVersion $
 --             newGetModelVersion
@@ -213,6 +225,9 @@ import Test.Tasty
 --         , requestUpdateEventLabel $
 --             newUpdateEventLabel
 --
+--         , requestUpdateList $
+--             newUpdateList
+--
 --         , requestUpdateModel $
 --             newUpdateModel
 --
@@ -255,6 +270,9 @@ import Test.Tasty
 --         , responseCreateDetectorVersion $
 --             newCreateDetectorVersionResponse
 --
+--         , responseCreateList $
+--             newCreateListResponse
+--
 --         , responseCreateModel $
 --             newCreateModelResponse
 --
@@ -296,6 +314,9 @@ import Test.Tasty
 --
 --         , responseDeleteLabel $
 --             newDeleteLabelResponse
+--
+--         , responseDeleteList $
+--             newDeleteListResponse
 --
 --         , responseDeleteModel $
 --             newDeleteModelResponse
@@ -356,6 +377,12 @@ import Test.Tasty
 --
 --         , responseGetLabels $
 --             newGetLabelsResponse
+--
+--         , responseGetListElements $
+--             newGetListElementsResponse
+--
+--         , responseGetListsMetadata $
+--             newGetListsMetadataResponse
 --
 --         , responseGetModelVersion $
 --             newGetModelVersionResponse
@@ -419,6 +446,9 @@ import Test.Tasty
 --
 --         , responseUpdateEventLabel $
 --             newUpdateEventLabelResponse
+--
+--         , responseUpdateList $
+--             newUpdateListResponse
 --
 --         , responseUpdateModel $
 --             newUpdateModelResponse
@@ -484,6 +514,12 @@ requestCreateDetectorVersion =
   req
     "CreateDetectorVersion"
     "fixture/CreateDetectorVersion.yaml"
+
+requestCreateList :: CreateList -> TestTree
+requestCreateList =
+  req
+    "CreateList"
+    "fixture/CreateList.yaml"
 
 requestCreateModel :: CreateModel -> TestTree
 requestCreateModel =
@@ -568,6 +604,12 @@ requestDeleteLabel =
   req
     "DeleteLabel"
     "fixture/DeleteLabel.yaml"
+
+requestDeleteList :: DeleteList -> TestTree
+requestDeleteList =
+  req
+    "DeleteList"
+    "fixture/DeleteList.yaml"
 
 requestDeleteModel :: DeleteModel -> TestTree
 requestDeleteModel =
@@ -688,6 +730,18 @@ requestGetLabels =
   req
     "GetLabels"
     "fixture/GetLabels.yaml"
+
+requestGetListElements :: GetListElements -> TestTree
+requestGetListElements =
+  req
+    "GetListElements"
+    "fixture/GetListElements.yaml"
+
+requestGetListsMetadata :: GetListsMetadata -> TestTree
+requestGetListsMetadata =
+  req
+    "GetListsMetadata"
+    "fixture/GetListsMetadata.yaml"
 
 requestGetModelVersion :: GetModelVersion -> TestTree
 requestGetModelVersion =
@@ -815,6 +869,12 @@ requestUpdateEventLabel =
     "UpdateEventLabel"
     "fixture/UpdateEventLabel.yaml"
 
+requestUpdateList :: UpdateList -> TestTree
+requestUpdateList =
+  req
+    "UpdateList"
+    "fixture/UpdateList.yaml"
+
 requestUpdateModel :: UpdateModel -> TestTree
 requestUpdateModel =
   req
@@ -908,6 +968,14 @@ responseCreateDetectorVersion =
     "fixture/CreateDetectorVersionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDetectorVersion)
+
+responseCreateList :: CreateListResponse -> TestTree
+responseCreateList =
+  res
+    "CreateListResponse"
+    "fixture/CreateListResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateList)
 
 responseCreateModel :: CreateModelResponse -> TestTree
 responseCreateModel =
@@ -1020,6 +1088,14 @@ responseDeleteLabel =
     "fixture/DeleteLabelResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteLabel)
+
+responseDeleteList :: DeleteListResponse -> TestTree
+responseDeleteList =
+  res
+    "DeleteListResponse"
+    "fixture/DeleteListResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteList)
 
 responseDeleteModel :: DeleteModelResponse -> TestTree
 responseDeleteModel =
@@ -1180,6 +1256,22 @@ responseGetLabels =
     "fixture/GetLabelsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetLabels)
+
+responseGetListElements :: GetListElementsResponse -> TestTree
+responseGetListElements =
+  res
+    "GetListElementsResponse"
+    "fixture/GetListElementsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetListElements)
+
+responseGetListsMetadata :: GetListsMetadataResponse -> TestTree
+responseGetListsMetadata =
+  res
+    "GetListsMetadataResponse"
+    "fixture/GetListsMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetListsMetadata)
 
 responseGetModelVersion :: GetModelVersionResponse -> TestTree
 responseGetModelVersion =
@@ -1348,6 +1440,14 @@ responseUpdateEventLabel =
     "fixture/UpdateEventLabelResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateEventLabel)
+
+responseUpdateList :: UpdateListResponse -> TestTree
+responseUpdateList =
+  res
+    "UpdateListResponse"
+    "fixture/UpdateListResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateList)
 
 responseUpdateModel :: UpdateModelResponse -> TestTree
 responseUpdateModel =

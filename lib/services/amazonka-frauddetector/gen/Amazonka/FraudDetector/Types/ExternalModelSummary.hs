@@ -76,7 +76,8 @@ instance Data.FromJSON ExternalModelSummary where
 
 instance Prelude.Hashable ExternalModelSummary where
   hashWithSalt _salt ExternalModelSummary' {..} =
-    _salt `Prelude.hashWithSalt` modelEndpoint
+    _salt
+      `Prelude.hashWithSalt` modelEndpoint
       `Prelude.hashWithSalt` modelSource
 
 instance Prelude.NFData ExternalModelSummary where

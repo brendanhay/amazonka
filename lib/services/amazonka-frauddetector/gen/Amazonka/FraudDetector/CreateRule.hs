@@ -163,7 +163,8 @@ instance Core.AWSRequest CreateRule where
 
 instance Prelude.Hashable CreateRule where
   hashWithSalt _salt CreateRule' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` ruleId
       `Prelude.hashWithSalt` detectorId

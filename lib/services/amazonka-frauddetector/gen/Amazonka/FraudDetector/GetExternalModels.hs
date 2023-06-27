@@ -118,7 +118,8 @@ instance Core.AWSRequest GetExternalModels where
 
 instance Prelude.Hashable GetExternalModels where
   hashWithSalt _salt GetExternalModels' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` modelEndpoint
       `Prelude.hashWithSalt` nextToken
 

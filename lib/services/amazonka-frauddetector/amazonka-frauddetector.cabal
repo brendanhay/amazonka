@@ -51,6 +51,7 @@ library
     Amazonka.FraudDetector.CreateBatchImportJob
     Amazonka.FraudDetector.CreateBatchPredictionJob
     Amazonka.FraudDetector.CreateDetectorVersion
+    Amazonka.FraudDetector.CreateList
     Amazonka.FraudDetector.CreateModel
     Amazonka.FraudDetector.CreateModelVersion
     Amazonka.FraudDetector.CreateRule
@@ -65,6 +66,7 @@ library
     Amazonka.FraudDetector.DeleteEventType
     Amazonka.FraudDetector.DeleteExternalModel
     Amazonka.FraudDetector.DeleteLabel
+    Amazonka.FraudDetector.DeleteList
     Amazonka.FraudDetector.DeleteModel
     Amazonka.FraudDetector.DeleteModelVersion
     Amazonka.FraudDetector.DeleteOutcome
@@ -85,6 +87,8 @@ library
     Amazonka.FraudDetector.GetExternalModels
     Amazonka.FraudDetector.GetKMSEncryptionKey
     Amazonka.FraudDetector.GetLabels
+    Amazonka.FraudDetector.GetListElements
+    Amazonka.FraudDetector.GetListsMetadata
     Amazonka.FraudDetector.GetModels
     Amazonka.FraudDetector.GetModelVersion
     Amazonka.FraudDetector.GetOutcomes
@@ -106,6 +110,7 @@ library
     Amazonka.FraudDetector.Types.AggregatedLogOddsMetric
     Amazonka.FraudDetector.Types.AggregatedVariablesImpactExplanation
     Amazonka.FraudDetector.Types.AggregatedVariablesImportanceMetrics
+    Amazonka.FraudDetector.Types.AllowDenyList
     Amazonka.FraudDetector.Types.AsyncJobStatus
     Amazonka.FraudDetector.Types.ATIMetricDataPoint
     Amazonka.FraudDetector.Types.ATIModelPerformance
@@ -127,6 +132,7 @@ library
     Amazonka.FraudDetector.Types.EvaluatedRule
     Amazonka.FraudDetector.Types.Event
     Amazonka.FraudDetector.Types.EventIngestion
+    Amazonka.FraudDetector.Types.EventOrchestration
     Amazonka.FraudDetector.Types.EventPredictionSummary
     Amazonka.FraudDetector.Types.EventType
     Amazonka.FraudDetector.Types.EventVariableSummary
@@ -144,6 +150,7 @@ library
     Amazonka.FraudDetector.Types.Label
     Amazonka.FraudDetector.Types.LabelSchema
     Amazonka.FraudDetector.Types.Language
+    Amazonka.FraudDetector.Types.ListUpdateMode
     Amazonka.FraudDetector.Types.LogOddsMetric
     Amazonka.FraudDetector.Types.MetricDataPoint
     Amazonka.FraudDetector.Types.Model
@@ -180,6 +187,7 @@ library
     Amazonka.FraudDetector.Types.TrainingMetricsV2
     Amazonka.FraudDetector.Types.TrainingResult
     Amazonka.FraudDetector.Types.TrainingResultV2
+    Amazonka.FraudDetector.Types.UncertaintyRange
     Amazonka.FraudDetector.Types.UnlabeledEventsTreatment
     Amazonka.FraudDetector.Types.Variable
     Amazonka.FraudDetector.Types.VariableEntry
@@ -190,6 +198,7 @@ library
     Amazonka.FraudDetector.UpdateDetectorVersionMetadata
     Amazonka.FraudDetector.UpdateDetectorVersionStatus
     Amazonka.FraudDetector.UpdateEventLabel
+    Amazonka.FraudDetector.UpdateList
     Amazonka.FraudDetector.UpdateModel
     Amazonka.FraudDetector.UpdateModelVersion
     Amazonka.FraudDetector.UpdateModelVersionStatus

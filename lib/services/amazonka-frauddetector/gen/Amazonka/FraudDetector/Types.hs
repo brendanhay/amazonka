@@ -44,6 +44,9 @@ module Amazonka.FraudDetector.Types
     -- * Language
     Language (..),
 
+    -- * ListUpdateMode
+    ListUpdateMode (..),
+
     -- * ModelEndpointStatus
     ModelEndpointStatus (..),
 
@@ -107,6 +110,16 @@ module Amazonka.FraudDetector.Types
     AggregatedVariablesImportanceMetrics (..),
     newAggregatedVariablesImportanceMetrics,
     aggregatedVariablesImportanceMetrics_logOddsMetrics,
+
+    -- * AllowDenyList
+    AllowDenyList (..),
+    newAllowDenyList,
+    allowDenyList_arn,
+    allowDenyList_createdTime,
+    allowDenyList_description,
+    allowDenyList_updatedTime,
+    allowDenyList_variableType,
+    allowDenyList_name,
 
     -- * BatchCreateVariableError
     BatchCreateVariableError (..),
@@ -235,6 +248,11 @@ module Amazonka.FraudDetector.Types
     event_eventVariables,
     event_labelTimestamp,
 
+    -- * EventOrchestration
+    EventOrchestration (..),
+    newEventOrchestration,
+    eventOrchestration_eventBridgeEnabled,
+
     -- * EventPredictionSummary
     EventPredictionSummary (..),
     newEventPredictionSummary,
@@ -253,6 +271,7 @@ module Amazonka.FraudDetector.Types
     eventType_description,
     eventType_entityTypes,
     eventType_eventIngestion,
+    eventType_eventOrchestration,
     eventType_eventVariables,
     eventType_ingestedEventStatistics,
     eventType_labels,
@@ -456,6 +475,7 @@ module Amazonka.FraudDetector.Types
     OFIModelPerformance (..),
     newOFIModelPerformance,
     oFIModelPerformance_auc,
+    oFIModelPerformance_uncertaintyRange,
 
     -- * OFITrainingMetricsValue
     OFITrainingMetricsValue (..),
@@ -523,6 +543,7 @@ module Amazonka.FraudDetector.Types
     TFIModelPerformance (..),
     newTFIModelPerformance,
     tFIModelPerformance_auc,
+    tFIModelPerformance_uncertaintyRange,
 
     -- * TFITrainingMetricsValue
     TFITrainingMetricsValue (..),
@@ -570,6 +591,12 @@ module Amazonka.FraudDetector.Types
     trainingResultV2_trainingMetricsV2,
     trainingResultV2_variableImportanceMetrics,
 
+    -- * UncertaintyRange
+    UncertaintyRange (..),
+    newUncertaintyRange,
+    uncertaintyRange_lowerBoundValue,
+    uncertaintyRange_upperBoundValue,
+
     -- * Variable
     Variable (..),
     newVariable,
@@ -615,6 +642,7 @@ import Amazonka.FraudDetector.Types.ATITrainingMetricsValue
 import Amazonka.FraudDetector.Types.AggregatedLogOddsMetric
 import Amazonka.FraudDetector.Types.AggregatedVariablesImpactExplanation
 import Amazonka.FraudDetector.Types.AggregatedVariablesImportanceMetrics
+import Amazonka.FraudDetector.Types.AllowDenyList
 import Amazonka.FraudDetector.Types.AsyncJobStatus
 import Amazonka.FraudDetector.Types.BatchCreateVariableError
 import Amazonka.FraudDetector.Types.BatchGetVariableError
@@ -633,6 +661,7 @@ import Amazonka.FraudDetector.Types.EvaluatedModelVersion
 import Amazonka.FraudDetector.Types.EvaluatedRule
 import Amazonka.FraudDetector.Types.Event
 import Amazonka.FraudDetector.Types.EventIngestion
+import Amazonka.FraudDetector.Types.EventOrchestration
 import Amazonka.FraudDetector.Types.EventPredictionSummary
 import Amazonka.FraudDetector.Types.EventType
 import Amazonka.FraudDetector.Types.EventVariableSummary
@@ -650,6 +679,7 @@ import Amazonka.FraudDetector.Types.KMSKey
 import Amazonka.FraudDetector.Types.Label
 import Amazonka.FraudDetector.Types.LabelSchema
 import Amazonka.FraudDetector.Types.Language
+import Amazonka.FraudDetector.Types.ListUpdateMode
 import Amazonka.FraudDetector.Types.LogOddsMetric
 import Amazonka.FraudDetector.Types.MetricDataPoint
 import Amazonka.FraudDetector.Types.Model
@@ -686,6 +716,7 @@ import Amazonka.FraudDetector.Types.TrainingMetrics
 import Amazonka.FraudDetector.Types.TrainingMetricsV2
 import Amazonka.FraudDetector.Types.TrainingResult
 import Amazonka.FraudDetector.Types.TrainingResultV2
+import Amazonka.FraudDetector.Types.UncertaintyRange
 import Amazonka.FraudDetector.Types.UnlabeledEventsTreatment
 import Amazonka.FraudDetector.Types.Variable
 import Amazonka.FraudDetector.Types.VariableEntry
@@ -720,75 +751,75 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An exception indicating Amazon Fraud Detector does not have the needed
 -- permissions. This can occur if you submit a request, such as
 -- @PutExternalModel@, that specifies a role that is not in your account.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
 -- | An exception indicating there was a conflict during a delete operation.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
 
 -- | An exception indicating an internal server error.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
 
 -- | An exception indicating the specified resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -796,21 +827,21 @@ _ResourceNotFoundException =
 
 -- | An exception indicating that the attached customer-owned (external)
 -- model threw an exception when Amazon Fraud Detector invoked the model.
-_ResourceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceUnavailableException =
   Core._MatchServiceError
     defaultService
     "ResourceUnavailableException"
 
 -- | An exception indicating a throttling error.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
     "ThrottlingException"
 
 -- | An exception indicating a specified value is not allowed.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

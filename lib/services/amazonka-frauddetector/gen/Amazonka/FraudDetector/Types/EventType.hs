@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.FraudDetector.Types.EventIngestion
+import Amazonka.FraudDetector.Types.EventOrchestration
 import Amazonka.FraudDetector.Types.IngestedEventStatistics
 import qualified Amazonka.Prelude as Prelude
 
@@ -43,6 +44,8 @@ data EventType = EventType'
     -- real-time. Amazon Fraud Detector uses this data, known as
     -- @INGESTED_EVENTS@, to train your model and improve fraud predictions.
     eventIngestion :: Prelude.Maybe EventIngestion,
+    -- | The event orchestration status.
+    eventOrchestration :: Prelude.Maybe EventOrchestration,
     -- | The event type event variables.
     eventVariables :: Prelude.Maybe [Prelude.Text],
     -- | Data about the stored events.
@@ -77,6 +80,8 @@ data EventType = EventType'
 -- real-time. Amazon Fraud Detector uses this data, known as
 -- @INGESTED_EVENTS@, to train your model and improve fraud predictions.
 --
+-- 'eventOrchestration', 'eventType_eventOrchestration' - The event orchestration status.
+--
 -- 'eventVariables', 'eventType_eventVariables' - The event type event variables.
 --
 -- 'ingestedEventStatistics', 'eventType_ingestedEventStatistics' - Data about the stored events.
@@ -95,6 +100,7 @@ newEventType =
       description = Prelude.Nothing,
       entityTypes = Prelude.Nothing,
       eventIngestion = Prelude.Nothing,
+      eventOrchestration = Prelude.Nothing,
       eventVariables = Prelude.Nothing,
       ingestedEventStatistics = Prelude.Nothing,
       labels = Prelude.Nothing,
@@ -124,6 +130,10 @@ eventType_entityTypes = Lens.lens (\EventType' {entityTypes} -> entityTypes) (\s
 -- @INGESTED_EVENTS@, to train your model and improve fraud predictions.
 eventType_eventIngestion :: Lens.Lens' EventType (Prelude.Maybe EventIngestion)
 eventType_eventIngestion = Lens.lens (\EventType' {eventIngestion} -> eventIngestion) (\s@EventType' {} a -> s {eventIngestion = a} :: EventType)
+
+-- | The event orchestration status.
+eventType_eventOrchestration :: Lens.Lens' EventType (Prelude.Maybe EventOrchestration)
+eventType_eventOrchestration = Lens.lens (\EventType' {eventOrchestration} -> eventOrchestration) (\s@EventType' {} a -> s {eventOrchestration = a} :: EventType)
 
 -- | The event type event variables.
 eventType_eventVariables :: Lens.Lens' EventType (Prelude.Maybe [Prelude.Text])
@@ -156,6 +166,7 @@ instance Data.FromJSON EventType where
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "entityTypes")
             Prelude.<*> (x Data..:? "eventIngestion")
+            Prelude.<*> (x Data..:? "eventOrchestration")
             Prelude.<*> (x Data..:? "eventVariables" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ingestedEventStatistics")
             Prelude.<*> (x Data..:? "labels" Data..!= Prelude.mempty)
@@ -165,11 +176,13 @@ instance Data.FromJSON EventType where
 
 instance Prelude.Hashable EventType where
   hashWithSalt _salt EventType' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` entityTypes
       `Prelude.hashWithSalt` eventIngestion
+      `Prelude.hashWithSalt` eventOrchestration
       `Prelude.hashWithSalt` eventVariables
       `Prelude.hashWithSalt` ingestedEventStatistics
       `Prelude.hashWithSalt` labels
@@ -183,6 +196,7 @@ instance Prelude.NFData EventType where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf entityTypes
       `Prelude.seq` Prelude.rnf eventIngestion
+      `Prelude.seq` Prelude.rnf eventOrchestration
       `Prelude.seq` Prelude.rnf eventVariables
       `Prelude.seq` Prelude.rnf ingestedEventStatistics
       `Prelude.seq` Prelude.rnf labels

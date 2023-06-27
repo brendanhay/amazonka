@@ -75,7 +75,8 @@ modelEndpointDataBlob_contentType = Lens.lens (\ModelEndpointDataBlob' {contentT
 
 instance Prelude.Hashable ModelEndpointDataBlob where
   hashWithSalt _salt ModelEndpointDataBlob' {..} =
-    _salt `Prelude.hashWithSalt` byteBuffer
+    _salt
+      `Prelude.hashWithSalt` byteBuffer
       `Prelude.hashWithSalt` contentType
 
 instance Prelude.NFData ModelEndpointDataBlob where

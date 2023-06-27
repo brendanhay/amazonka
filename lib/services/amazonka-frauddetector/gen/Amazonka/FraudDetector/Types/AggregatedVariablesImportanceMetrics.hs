@@ -71,7 +71,8 @@ instance
       "AggregatedVariablesImportanceMetrics"
       ( \x ->
           AggregatedVariablesImportanceMetrics'
-            Prelude.<$> ( x Data..:? "logOddsMetrics"
+            Prelude.<$> ( x
+                            Data..:? "logOddsMetrics"
                             Data..!= Prelude.mempty
                         )
       )

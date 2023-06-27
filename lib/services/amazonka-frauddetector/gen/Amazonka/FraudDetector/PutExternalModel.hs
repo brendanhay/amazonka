@@ -169,7 +169,8 @@ instance Core.AWSRequest PutExternalModel where
 
 instance Prelude.Hashable PutExternalModel where
   hashWithSalt _salt PutExternalModel' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` modelEndpoint
       `Prelude.hashWithSalt` modelSource
       `Prelude.hashWithSalt` invokeModelEndpointRoleArn

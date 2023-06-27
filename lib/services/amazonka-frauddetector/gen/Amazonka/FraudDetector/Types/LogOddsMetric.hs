@@ -96,7 +96,8 @@ instance Data.FromJSON LogOddsMetric where
 
 instance Prelude.Hashable LogOddsMetric where
   hashWithSalt _salt LogOddsMetric' {..} =
-    _salt `Prelude.hashWithSalt` variableName
+    _salt
+      `Prelude.hashWithSalt` variableName
       `Prelude.hashWithSalt` variableType
       `Prelude.hashWithSalt` variableImportance
 

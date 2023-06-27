@@ -118,7 +118,8 @@ instance Core.AWSRequest GetBatchImportJobs where
 
 instance Prelude.Hashable GetBatchImportJobs where
   hashWithSalt _salt GetBatchImportJobs' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

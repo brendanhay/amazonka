@@ -115,7 +115,8 @@ instance Core.AWSRequest GetOutcomes where
 
 instance Prelude.Hashable GetOutcomes where
   hashWithSalt _salt GetOutcomes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
 

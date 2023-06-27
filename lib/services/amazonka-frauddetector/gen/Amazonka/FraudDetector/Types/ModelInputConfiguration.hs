@@ -132,7 +132,8 @@ instance Data.FromJSON ModelInputConfiguration where
 
 instance Prelude.Hashable ModelInputConfiguration where
   hashWithSalt _salt ModelInputConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` csvInputTemplate
+    _salt
+      `Prelude.hashWithSalt` csvInputTemplate
       `Prelude.hashWithSalt` eventTypeName
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` jsonInputTemplate

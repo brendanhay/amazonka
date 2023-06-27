@@ -76,7 +76,8 @@ instance Data.FromJSON ExternalModelOutputs where
 
 instance Prelude.Hashable ExternalModelOutputs where
   hashWithSalt _salt ExternalModelOutputs' {..} =
-    _salt `Prelude.hashWithSalt` externalModel
+    _salt
+      `Prelude.hashWithSalt` externalModel
       `Prelude.hashWithSalt` outputs
 
 instance Prelude.NFData ExternalModelOutputs where

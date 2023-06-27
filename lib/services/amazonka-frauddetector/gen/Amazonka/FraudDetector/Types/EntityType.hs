@@ -104,7 +104,8 @@ instance Data.FromJSON EntityType where
 
 instance Prelude.Hashable EntityType where
   hashWithSalt _salt EntityType' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastUpdatedTime

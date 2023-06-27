@@ -103,7 +103,8 @@ instance Core.AWSRequest BatchCreateVariable where
 
 instance Prelude.Hashable BatchCreateVariable where
   hashWithSalt _salt BatchCreateVariable' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` variableEntries
 
 instance Prelude.NFData BatchCreateVariable where

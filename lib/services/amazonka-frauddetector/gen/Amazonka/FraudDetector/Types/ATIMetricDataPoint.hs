@@ -131,7 +131,8 @@ instance Data.FromJSON ATIMetricDataPoint where
 
 instance Prelude.Hashable ATIMetricDataPoint where
   hashWithSalt _salt ATIMetricDataPoint' {..} =
-    _salt `Prelude.hashWithSalt` adr
+    _salt
+      `Prelude.hashWithSalt` adr
       `Prelude.hashWithSalt` atodr
       `Prelude.hashWithSalt` cr
       `Prelude.hashWithSalt` threshold

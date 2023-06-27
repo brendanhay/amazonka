@@ -67,6 +67,14 @@ module Amazonka.FraudDetector.Lens
     createDetectorVersionResponse_status,
     createDetectorVersionResponse_httpStatus,
 
+    -- ** CreateList
+    createList_description,
+    createList_elements,
+    createList_tags,
+    createList_variableType,
+    createList_name,
+    createListResponse_httpStatus,
+
     -- ** CreateModel
     createModel_description,
     createModel_tags,
@@ -154,6 +162,10 @@ module Amazonka.FraudDetector.Lens
     -- ** DeleteLabel
     deleteLabel_name,
     deleteLabelResponse_httpStatus,
+
+    -- ** DeleteList
+    deleteList_name,
+    deleteListResponse_httpStatus,
 
     -- ** DeleteModel
     deleteModel_modelId,
@@ -323,6 +335,22 @@ module Amazonka.FraudDetector.Lens
     getLabelsResponse_nextToken,
     getLabelsResponse_httpStatus,
 
+    -- ** GetListElements
+    getListElements_maxResults,
+    getListElements_nextToken,
+    getListElements_name,
+    getListElementsResponse_elements,
+    getListElementsResponse_nextToken,
+    getListElementsResponse_httpStatus,
+
+    -- ** GetListsMetadata
+    getListsMetadata_maxResults,
+    getListsMetadata_name,
+    getListsMetadata_nextToken,
+    getListsMetadataResponse_lists,
+    getListsMetadataResponse_nextToken,
+    getListsMetadataResponse_httpStatus,
+
     -- ** GetModelVersion
     getModelVersion_modelId,
     getModelVersion_modelType,
@@ -409,6 +437,7 @@ module Amazonka.FraudDetector.Lens
     -- ** PutEventType
     putEventType_description,
     putEventType_eventIngestion,
+    putEventType_eventOrchestration,
     putEventType_labels,
     putEventType_tags,
     putEventType_name,
@@ -491,6 +520,14 @@ module Amazonka.FraudDetector.Lens
     updateEventLabel_labelTimestamp,
     updateEventLabelResponse_httpStatus,
 
+    -- ** UpdateList
+    updateList_description,
+    updateList_elements,
+    updateList_updateMode,
+    updateList_variableType,
+    updateList_name,
+    updateListResponse_httpStatus,
+
     -- ** UpdateModel
     updateModel_description,
     updateModel_modelId,
@@ -565,6 +602,14 @@ module Amazonka.FraudDetector.Lens
 
     -- ** AggregatedVariablesImportanceMetrics
     aggregatedVariablesImportanceMetrics_logOddsMetrics,
+
+    -- ** AllowDenyList
+    allowDenyList_arn,
+    allowDenyList_createdTime,
+    allowDenyList_description,
+    allowDenyList_updatedTime,
+    allowDenyList_variableType,
+    allowDenyList_name,
 
     -- ** BatchCreateVariableError
     batchCreateVariableError_code,
@@ -667,6 +712,9 @@ module Amazonka.FraudDetector.Lens
     event_eventVariables,
     event_labelTimestamp,
 
+    -- ** EventOrchestration
+    eventOrchestration_eventBridgeEnabled,
+
     -- ** EventPredictionSummary
     eventPredictionSummary_detectorId,
     eventPredictionSummary_detectorVersionId,
@@ -681,6 +729,7 @@ module Amazonka.FraudDetector.Lens
     eventType_description,
     eventType_entityTypes,
     eventType_eventIngestion,
+    eventType_eventOrchestration,
     eventType_eventVariables,
     eventType_ingestedEventStatistics,
     eventType_labels,
@@ -832,6 +881,7 @@ module Amazonka.FraudDetector.Lens
 
     -- ** OFIModelPerformance
     oFIModelPerformance_auc,
+    oFIModelPerformance_uncertaintyRange,
 
     -- ** OFITrainingMetricsValue
     oFITrainingMetricsValue_metricDataPoints,
@@ -881,6 +931,7 @@ module Amazonka.FraudDetector.Lens
 
     -- ** TFIModelPerformance
     tFIModelPerformance_auc,
+    tFIModelPerformance_uncertaintyRange,
 
     -- ** TFITrainingMetricsValue
     tFITrainingMetricsValue_metricDataPoints,
@@ -913,6 +964,10 @@ module Amazonka.FraudDetector.Lens
     trainingResultV2_dataValidationMetrics,
     trainingResultV2_trainingMetricsV2,
     trainingResultV2_variableImportanceMetrics,
+
+    -- ** UncertaintyRange
+    uncertaintyRange_lowerBoundValue,
+    uncertaintyRange_upperBoundValue,
 
     -- ** Variable
     variable_arn,
@@ -950,6 +1005,7 @@ import Amazonka.FraudDetector.CancelBatchPredictionJob
 import Amazonka.FraudDetector.CreateBatchImportJob
 import Amazonka.FraudDetector.CreateBatchPredictionJob
 import Amazonka.FraudDetector.CreateDetectorVersion
+import Amazonka.FraudDetector.CreateList
 import Amazonka.FraudDetector.CreateModel
 import Amazonka.FraudDetector.CreateModelVersion
 import Amazonka.FraudDetector.CreateRule
@@ -964,6 +1020,7 @@ import Amazonka.FraudDetector.DeleteEventType
 import Amazonka.FraudDetector.DeleteEventsByEventType
 import Amazonka.FraudDetector.DeleteExternalModel
 import Amazonka.FraudDetector.DeleteLabel
+import Amazonka.FraudDetector.DeleteList
 import Amazonka.FraudDetector.DeleteModel
 import Amazonka.FraudDetector.DeleteModelVersion
 import Amazonka.FraudDetector.DeleteOutcome
@@ -984,6 +1041,8 @@ import Amazonka.FraudDetector.GetEventTypes
 import Amazonka.FraudDetector.GetExternalModels
 import Amazonka.FraudDetector.GetKMSEncryptionKey
 import Amazonka.FraudDetector.GetLabels
+import Amazonka.FraudDetector.GetListElements
+import Amazonka.FraudDetector.GetListsMetadata
 import Amazonka.FraudDetector.GetModelVersion
 import Amazonka.FraudDetector.GetModels
 import Amazonka.FraudDetector.GetOutcomes
@@ -1006,6 +1065,7 @@ import Amazonka.FraudDetector.Types.ATITrainingMetricsValue
 import Amazonka.FraudDetector.Types.AggregatedLogOddsMetric
 import Amazonka.FraudDetector.Types.AggregatedVariablesImpactExplanation
 import Amazonka.FraudDetector.Types.AggregatedVariablesImportanceMetrics
+import Amazonka.FraudDetector.Types.AllowDenyList
 import Amazonka.FraudDetector.Types.BatchCreateVariableError
 import Amazonka.FraudDetector.Types.BatchGetVariableError
 import Amazonka.FraudDetector.Types.BatchImport
@@ -1019,6 +1079,7 @@ import Amazonka.FraudDetector.Types.EvaluatedExternalModel
 import Amazonka.FraudDetector.Types.EvaluatedModelVersion
 import Amazonka.FraudDetector.Types.EvaluatedRule
 import Amazonka.FraudDetector.Types.Event
+import Amazonka.FraudDetector.Types.EventOrchestration
 import Amazonka.FraudDetector.Types.EventPredictionSummary
 import Amazonka.FraudDetector.Types.EventType
 import Amazonka.FraudDetector.Types.EventVariableSummary
@@ -1063,6 +1124,7 @@ import Amazonka.FraudDetector.Types.TrainingMetrics
 import Amazonka.FraudDetector.Types.TrainingMetricsV2
 import Amazonka.FraudDetector.Types.TrainingResult
 import Amazonka.FraudDetector.Types.TrainingResultV2
+import Amazonka.FraudDetector.Types.UncertaintyRange
 import Amazonka.FraudDetector.Types.Variable
 import Amazonka.FraudDetector.Types.VariableEntry
 import Amazonka.FraudDetector.Types.VariableImpactExplanation
@@ -1072,6 +1134,7 @@ import Amazonka.FraudDetector.UpdateDetectorVersion
 import Amazonka.FraudDetector.UpdateDetectorVersionMetadata
 import Amazonka.FraudDetector.UpdateDetectorVersionStatus
 import Amazonka.FraudDetector.UpdateEventLabel
+import Amazonka.FraudDetector.UpdateList
 import Amazonka.FraudDetector.UpdateModel
 import Amazonka.FraudDetector.UpdateModelVersion
 import Amazonka.FraudDetector.UpdateModelVersionStatus

@@ -20,6 +20,7 @@
 module Amazonka.FraudDetector.Types.UnlabeledEventsTreatment
   ( UnlabeledEventsTreatment
       ( ..,
+        UnlabeledEventsTreatment_AUTO,
         UnlabeledEventsTreatment_FRAUD,
         UnlabeledEventsTreatment_IGNORE,
         UnlabeledEventsTreatment_LEGIT
@@ -59,6 +60,9 @@ newtype UnlabeledEventsTreatment = UnlabeledEventsTreatment'
       Data.ToXML
     )
 
+pattern UnlabeledEventsTreatment_AUTO :: UnlabeledEventsTreatment
+pattern UnlabeledEventsTreatment_AUTO = UnlabeledEventsTreatment' "AUTO"
+
 pattern UnlabeledEventsTreatment_FRAUD :: UnlabeledEventsTreatment
 pattern UnlabeledEventsTreatment_FRAUD = UnlabeledEventsTreatment' "FRAUD"
 
@@ -69,6 +73,7 @@ pattern UnlabeledEventsTreatment_LEGIT :: UnlabeledEventsTreatment
 pattern UnlabeledEventsTreatment_LEGIT = UnlabeledEventsTreatment' "LEGIT"
 
 {-# COMPLETE
+  UnlabeledEventsTreatment_AUTO,
   UnlabeledEventsTreatment_FRAUD,
   UnlabeledEventsTreatment_IGNORE,
   UnlabeledEventsTreatment_LEGIT,

@@ -195,7 +195,8 @@ instance Core.AWSRequest CreateBatchPredictionJob where
 
 instance Prelude.Hashable CreateBatchPredictionJob where
   hashWithSalt _salt CreateBatchPredictionJob' {..} =
-    _salt `Prelude.hashWithSalt` detectorVersion
+    _salt
+      `Prelude.hashWithSalt` detectorVersion
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` inputPath

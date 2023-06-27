@@ -154,7 +154,8 @@ instance Core.AWSRequest SubscribeToShard where
 
 instance Prelude.Hashable SubscribeToShard where
   hashWithSalt _salt SubscribeToShard' {..} =
-    _salt `Prelude.hashWithSalt` consumerARN
+    _salt
+      `Prelude.hashWithSalt` consumerARN
       `Prelude.hashWithSalt` shardId
       `Prelude.hashWithSalt` startingPosition
 

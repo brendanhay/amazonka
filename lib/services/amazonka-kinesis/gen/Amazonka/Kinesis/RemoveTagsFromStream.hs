@@ -115,7 +115,8 @@ instance Core.AWSRequest RemoveTagsFromStream where
 
 instance Prelude.Hashable RemoveTagsFromStream where
   hashWithSalt _salt RemoveTagsFromStream' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` tagKeys
 

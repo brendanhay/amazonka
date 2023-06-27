@@ -114,7 +114,6 @@ consumer_consumerARN = Lens.lens (\Consumer' {consumerARN} -> consumerARN) (\s@C
 consumer_consumerStatus :: Lens.Lens' Consumer ConsumerStatus
 consumer_consumerStatus = Lens.lens (\Consumer' {consumerStatus} -> consumerStatus) (\s@Consumer' {} a -> s {consumerStatus = a} :: Consumer)
 
--- |
 consumer_consumerCreationTimestamp :: Lens.Lens' Consumer Prelude.UTCTime
 consumer_consumerCreationTimestamp = Lens.lens (\Consumer' {consumerCreationTimestamp} -> consumerCreationTimestamp) (\s@Consumer' {} a -> s {consumerCreationTimestamp = a} :: Consumer) Prelude.. Data._Time
 
@@ -132,7 +131,8 @@ instance Data.FromJSON Consumer where
 
 instance Prelude.Hashable Consumer where
   hashWithSalt _salt Consumer' {..} =
-    _salt `Prelude.hashWithSalt` consumerName
+    _salt
+      `Prelude.hashWithSalt` consumerName
       `Prelude.hashWithSalt` consumerARN
       `Prelude.hashWithSalt` consumerStatus
       `Prelude.hashWithSalt` consumerCreationTimestamp

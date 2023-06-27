@@ -187,7 +187,8 @@ instance Core.AWSRequest StartStreamEncryption where
 
 instance Prelude.Hashable StartStreamEncryption where
   hashWithSalt _salt StartStreamEncryption' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` encryptionType
       `Prelude.hashWithSalt` keyId

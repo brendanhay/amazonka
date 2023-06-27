@@ -177,7 +177,8 @@ instance Core.AWSRequest CreateStream where
 
 instance Prelude.Hashable CreateStream where
   hashWithSalt _salt CreateStream' {..} =
-    _salt `Prelude.hashWithSalt` shardCount
+    _salt
+      `Prelude.hashWithSalt` shardCount
       `Prelude.hashWithSalt` streamModeDetails
       `Prelude.hashWithSalt` streamName
 

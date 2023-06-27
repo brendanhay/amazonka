@@ -189,7 +189,8 @@ instance Core.AWSRequest SplitShard where
 
 instance Prelude.Hashable SplitShard where
   hashWithSalt _salt SplitShard' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` shardToSplit
       `Prelude.hashWithSalt` newStartingHashKey'

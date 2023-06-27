@@ -90,7 +90,8 @@ instance Core.AWSRequest GetCampaignStateBatch where
       ( \s h x ->
           GetCampaignStateBatchResponse'
             Prelude.<$> (x Data..?> "failedRequests" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "successfulRequests"
+            Prelude.<*> ( x
+                            Data..?> "successfulRequests"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

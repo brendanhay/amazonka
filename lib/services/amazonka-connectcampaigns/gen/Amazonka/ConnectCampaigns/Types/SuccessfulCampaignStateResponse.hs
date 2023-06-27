@@ -82,7 +82,8 @@ instance
   hashWithSalt
     _salt
     SuccessfulCampaignStateResponse' {..} =
-      _salt `Prelude.hashWithSalt` campaignId
+      _salt
+        `Prelude.hashWithSalt` campaignId
         `Prelude.hashWithSalt` state
 
 instance

@@ -75,7 +75,8 @@ instance Data.FromJSON DialerConfig where
 
 instance Prelude.Hashable DialerConfig where
   hashWithSalt _salt DialerConfig' {..} =
-    _salt `Prelude.hashWithSalt` predictiveDialerConfig
+    _salt
+      `Prelude.hashWithSalt` predictiveDialerConfig
       `Prelude.hashWithSalt` progressiveDialerConfig
 
 instance Prelude.NFData DialerConfig where

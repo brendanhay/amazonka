@@ -102,7 +102,8 @@ instance Core.AWSRequest PutDialRequestBatch where
       ( \s h x ->
           PutDialRequestBatchResponse'
             Prelude.<$> (x Data..?> "failedRequests" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "successfulRequests"
+            Prelude.<*> ( x
+                            Data..?> "successfulRequests"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -110,7 +111,8 @@ instance Core.AWSRequest PutDialRequestBatch where
 
 instance Prelude.Hashable PutDialRequestBatch where
   hashWithSalt _salt PutDialRequestBatch' {..} =
-    _salt `Prelude.hashWithSalt` dialRequests
+    _salt
+      `Prelude.hashWithSalt` dialRequests
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData PutDialRequestBatch where

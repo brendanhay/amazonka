@@ -46,59 +46,67 @@ library
     Amazonka.SecurityLake
     Amazonka.SecurityLake.CreateAwsLogSource
     Amazonka.SecurityLake.CreateCustomLogSource
-    Amazonka.SecurityLake.CreateDatalake
-    Amazonka.SecurityLake.CreateDatalakeAutoEnable
-    Amazonka.SecurityLake.CreateDatalakeDelegatedAdmin
-    Amazonka.SecurityLake.CreateDatalakeExceptionsSubscription
+    Amazonka.SecurityLake.CreateDataLake
+    Amazonka.SecurityLake.CreateDataLakeExceptionSubscription
+    Amazonka.SecurityLake.CreateDataLakeOrganizationConfiguration
     Amazonka.SecurityLake.CreateSubscriber
-    Amazonka.SecurityLake.CreateSubscriptionNotificationConfiguration
+    Amazonka.SecurityLake.CreateSubscriberNotification
     Amazonka.SecurityLake.DeleteAwsLogSource
     Amazonka.SecurityLake.DeleteCustomLogSource
-    Amazonka.SecurityLake.DeleteDatalake
-    Amazonka.SecurityLake.DeleteDatalakeAutoEnable
-    Amazonka.SecurityLake.DeleteDatalakeDelegatedAdmin
-    Amazonka.SecurityLake.DeleteDatalakeExceptionsSubscription
+    Amazonka.SecurityLake.DeleteDataLake
+    Amazonka.SecurityLake.DeleteDataLakeExceptionSubscription
+    Amazonka.SecurityLake.DeleteDataLakeOrganizationConfiguration
     Amazonka.SecurityLake.DeleteSubscriber
-    Amazonka.SecurityLake.DeleteSubscriptionNotificationConfiguration
-    Amazonka.SecurityLake.GetDatalake
-    Amazonka.SecurityLake.GetDatalakeAutoEnable
-    Amazonka.SecurityLake.GetDatalakeExceptionsExpiry
-    Amazonka.SecurityLake.GetDatalakeExceptionsSubscription
-    Amazonka.SecurityLake.GetDatalakeStatus
+    Amazonka.SecurityLake.DeleteSubscriberNotification
+    Amazonka.SecurityLake.DeregisterDataLakeDelegatedAdministrator
+    Amazonka.SecurityLake.GetDataLakeExceptionSubscription
+    Amazonka.SecurityLake.GetDataLakeOrganizationConfiguration
+    Amazonka.SecurityLake.GetDataLakeSources
     Amazonka.SecurityLake.GetSubscriber
     Amazonka.SecurityLake.Lens
-    Amazonka.SecurityLake.ListDatalakeExceptions
+    Amazonka.SecurityLake.ListDataLakeExceptions
+    Amazonka.SecurityLake.ListDataLakes
     Amazonka.SecurityLake.ListLogSources
     Amazonka.SecurityLake.ListSubscribers
+    Amazonka.SecurityLake.RegisterDataLakeDelegatedAdministrator
     Amazonka.SecurityLake.Types
     Amazonka.SecurityLake.Types.AccessType
-    Amazonka.SecurityLake.Types.AccountSources
-    Amazonka.SecurityLake.Types.AutoEnableNewRegionConfiguration
-    Amazonka.SecurityLake.Types.AwsLogSourceType
-    Amazonka.SecurityLake.Types.Dimension
-    Amazonka.SecurityLake.Types.EndpointProtocol
-    Amazonka.SecurityLake.Types.Failures
-    Amazonka.SecurityLake.Types.FailuresResponse
-    Amazonka.SecurityLake.Types.HttpsMethod
-    Amazonka.SecurityLake.Types.LakeConfigurationRequest
-    Amazonka.SecurityLake.Types.LakeConfigurationResponse
-    Amazonka.SecurityLake.Types.LogsStatus
-    Amazonka.SecurityLake.Types.OcsfEventClass
-    Amazonka.SecurityLake.Types.ProtocolAndNotificationEndpoint
-    Amazonka.SecurityLake.Types.Region
-    Amazonka.SecurityLake.Types.RetentionSetting
-    Amazonka.SecurityLake.Types.SettingsStatus
-    Amazonka.SecurityLake.Types.SourceStatus
-    Amazonka.SecurityLake.Types.SourceType
-    Amazonka.SecurityLake.Types.StorageClass
+    Amazonka.SecurityLake.Types.AwsIdentity
+    Amazonka.SecurityLake.Types.AwsLogSourceConfiguration
+    Amazonka.SecurityLake.Types.AwsLogSourceName
+    Amazonka.SecurityLake.Types.AwsLogSourceResource
+    Amazonka.SecurityLake.Types.CustomLogSourceAttributes
+    Amazonka.SecurityLake.Types.CustomLogSourceConfiguration
+    Amazonka.SecurityLake.Types.CustomLogSourceCrawlerConfiguration
+    Amazonka.SecurityLake.Types.CustomLogSourceProvider
+    Amazonka.SecurityLake.Types.CustomLogSourceResource
+    Amazonka.SecurityLake.Types.DataLakeAutoEnableNewAccountConfiguration
+    Amazonka.SecurityLake.Types.DataLakeConfiguration
+    Amazonka.SecurityLake.Types.DataLakeEncryptionConfiguration
+    Amazonka.SecurityLake.Types.DataLakeException
+    Amazonka.SecurityLake.Types.DataLakeLifecycleConfiguration
+    Amazonka.SecurityLake.Types.DataLakeLifecycleExpiration
+    Amazonka.SecurityLake.Types.DataLakeLifecycleTransition
+    Amazonka.SecurityLake.Types.DataLakeReplicationConfiguration
+    Amazonka.SecurityLake.Types.DataLakeResource
+    Amazonka.SecurityLake.Types.DataLakeSource
+    Amazonka.SecurityLake.Types.DataLakeSourceStatus
+    Amazonka.SecurityLake.Types.DataLakeStatus
+    Amazonka.SecurityLake.Types.DataLakeUpdateException
+    Amazonka.SecurityLake.Types.DataLakeUpdateStatus
+    Amazonka.SecurityLake.Types.HttpMethod
+    Amazonka.SecurityLake.Types.HttpsNotificationConfiguration
+    Amazonka.SecurityLake.Types.LogSource
+    Amazonka.SecurityLake.Types.LogSourceResource
+    Amazonka.SecurityLake.Types.NotificationConfiguration
+    Amazonka.SecurityLake.Types.SourceCollectionStatus
+    Amazonka.SecurityLake.Types.SqsNotificationConfiguration
     Amazonka.SecurityLake.Types.SubscriberResource
-    Amazonka.SecurityLake.Types.SubscriptionProtocolType
-    Amazonka.SecurityLake.Types.SubscriptionStatus
-    Amazonka.SecurityLake.UpdateDatalake
-    Amazonka.SecurityLake.UpdateDatalakeExceptionsExpiry
-    Amazonka.SecurityLake.UpdateDatalakeExceptionsSubscription
+    Amazonka.SecurityLake.Types.SubscriberStatus
+    Amazonka.SecurityLake.UpdateDataLake
+    Amazonka.SecurityLake.UpdateDataLakeExceptionSubscription
     Amazonka.SecurityLake.UpdateSubscriber
-    Amazonka.SecurityLake.UpdateSubscriptionNotificationConfiguration
+    Amazonka.SecurityLake.UpdateSubscriberNotification
     Amazonka.SecurityLake.Waiters
 
   build-depends:

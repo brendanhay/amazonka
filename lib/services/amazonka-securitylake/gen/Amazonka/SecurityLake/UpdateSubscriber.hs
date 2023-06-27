@@ -29,11 +29,11 @@ module Amazonka.SecurityLake.UpdateSubscriber
     newUpdateSubscriber,
 
     -- * Request Lenses
-    updateSubscriber_externalId,
+    updateSubscriber_sources,
     updateSubscriber_subscriberDescription,
+    updateSubscriber_subscriberIdentity,
     updateSubscriber_subscriberName,
-    updateSubscriber_id,
-    updateSubscriber_sourceTypes,
+    updateSubscriber_subscriberId,
 
     -- * Destructuring the Response
     UpdateSubscriberResponse (..),
@@ -55,19 +55,19 @@ import Amazonka.SecurityLake.Types
 
 -- | /See:/ 'newUpdateSubscriber' smart constructor.
 data UpdateSubscriber = UpdateSubscriber'
-  { -- | The external ID of the Security Lake account.
-    externalId :: Prelude.Maybe Prelude.Text,
+  { -- | The supported Amazon Web Services from which logs and events are
+    -- collected. For the list of supported Amazon Web Services, see the
+    -- <https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html Amazon Security Lake User Guide>.
+    sources :: Prelude.Maybe [LogSourceResource],
     -- | The description of the Security Lake account subscriber.
     subscriberDescription :: Prelude.Maybe Prelude.Text,
+    -- | The AWS identity used to access your data.
+    subscriberIdentity :: Prelude.Maybe AwsIdentity,
     -- | The name of the Security Lake account subscriber.
     subscriberName :: Prelude.Maybe Prelude.Text,
     -- | A value created by Security Lake that uniquely identifies your
     -- subscription.
-    id :: Prelude.Text,
-    -- | The supported Amazon Web Services from which logs and events are
-    -- collected. For the list of supported Amazon Web Services, see the
-    -- <https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html Amazon Security Lake User Guide>.
-    sourceTypes :: [SourceType]
+    subscriberId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,38 +79,44 @@ data UpdateSubscriber = UpdateSubscriber'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'externalId', 'updateSubscriber_externalId' - The external ID of the Security Lake account.
+-- 'sources', 'updateSubscriber_sources' - The supported Amazon Web Services from which logs and events are
+-- collected. For the list of supported Amazon Web Services, see the
+-- <https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html Amazon Security Lake User Guide>.
 --
 -- 'subscriberDescription', 'updateSubscriber_subscriberDescription' - The description of the Security Lake account subscriber.
 --
+-- 'subscriberIdentity', 'updateSubscriber_subscriberIdentity' - The AWS identity used to access your data.
+--
 -- 'subscriberName', 'updateSubscriber_subscriberName' - The name of the Security Lake account subscriber.
 --
--- 'id', 'updateSubscriber_id' - A value created by Security Lake that uniquely identifies your
+-- 'subscriberId', 'updateSubscriber_subscriberId' - A value created by Security Lake that uniquely identifies your
 -- subscription.
---
--- 'sourceTypes', 'updateSubscriber_sourceTypes' - The supported Amazon Web Services from which logs and events are
--- collected. For the list of supported Amazon Web Services, see the
--- <https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html Amazon Security Lake User Guide>.
 newUpdateSubscriber ::
-  -- | 'id'
+  -- | 'subscriberId'
   Prelude.Text ->
   UpdateSubscriber
-newUpdateSubscriber pId_ =
+newUpdateSubscriber pSubscriberId_ =
   UpdateSubscriber'
-    { externalId = Prelude.Nothing,
+    { sources = Prelude.Nothing,
       subscriberDescription = Prelude.Nothing,
+      subscriberIdentity = Prelude.Nothing,
       subscriberName = Prelude.Nothing,
-      id = pId_,
-      sourceTypes = Prelude.mempty
+      subscriberId = pSubscriberId_
     }
 
--- | The external ID of the Security Lake account.
-updateSubscriber_externalId :: Lens.Lens' UpdateSubscriber (Prelude.Maybe Prelude.Text)
-updateSubscriber_externalId = Lens.lens (\UpdateSubscriber' {externalId} -> externalId) (\s@UpdateSubscriber' {} a -> s {externalId = a} :: UpdateSubscriber)
+-- | The supported Amazon Web Services from which logs and events are
+-- collected. For the list of supported Amazon Web Services, see the
+-- <https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html Amazon Security Lake User Guide>.
+updateSubscriber_sources :: Lens.Lens' UpdateSubscriber (Prelude.Maybe [LogSourceResource])
+updateSubscriber_sources = Lens.lens (\UpdateSubscriber' {sources} -> sources) (\s@UpdateSubscriber' {} a -> s {sources = a} :: UpdateSubscriber) Prelude.. Lens.mapping Lens.coerced
 
 -- | The description of the Security Lake account subscriber.
 updateSubscriber_subscriberDescription :: Lens.Lens' UpdateSubscriber (Prelude.Maybe Prelude.Text)
 updateSubscriber_subscriberDescription = Lens.lens (\UpdateSubscriber' {subscriberDescription} -> subscriberDescription) (\s@UpdateSubscriber' {} a -> s {subscriberDescription = a} :: UpdateSubscriber)
+
+-- | The AWS identity used to access your data.
+updateSubscriber_subscriberIdentity :: Lens.Lens' UpdateSubscriber (Prelude.Maybe AwsIdentity)
+updateSubscriber_subscriberIdentity = Lens.lens (\UpdateSubscriber' {subscriberIdentity} -> subscriberIdentity) (\s@UpdateSubscriber' {} a -> s {subscriberIdentity = a} :: UpdateSubscriber)
 
 -- | The name of the Security Lake account subscriber.
 updateSubscriber_subscriberName :: Lens.Lens' UpdateSubscriber (Prelude.Maybe Prelude.Text)
@@ -118,14 +124,8 @@ updateSubscriber_subscriberName = Lens.lens (\UpdateSubscriber' {subscriberName}
 
 -- | A value created by Security Lake that uniquely identifies your
 -- subscription.
-updateSubscriber_id :: Lens.Lens' UpdateSubscriber Prelude.Text
-updateSubscriber_id = Lens.lens (\UpdateSubscriber' {id} -> id) (\s@UpdateSubscriber' {} a -> s {id = a} :: UpdateSubscriber)
-
--- | The supported Amazon Web Services from which logs and events are
--- collected. For the list of supported Amazon Web Services, see the
--- <https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html Amazon Security Lake User Guide>.
-updateSubscriber_sourceTypes :: Lens.Lens' UpdateSubscriber [SourceType]
-updateSubscriber_sourceTypes = Lens.lens (\UpdateSubscriber' {sourceTypes} -> sourceTypes) (\s@UpdateSubscriber' {} a -> s {sourceTypes = a} :: UpdateSubscriber) Prelude.. Lens.coerced
+updateSubscriber_subscriberId :: Lens.Lens' UpdateSubscriber Prelude.Text
+updateSubscriber_subscriberId = Lens.lens (\UpdateSubscriber' {subscriberId} -> subscriberId) (\s@UpdateSubscriber' {} a -> s {subscriberId = a} :: UpdateSubscriber)
 
 instance Core.AWSRequest UpdateSubscriber where
   type
@@ -143,19 +143,20 @@ instance Core.AWSRequest UpdateSubscriber where
 
 instance Prelude.Hashable UpdateSubscriber where
   hashWithSalt _salt UpdateSubscriber' {..} =
-    _salt `Prelude.hashWithSalt` externalId
+    _salt
+      `Prelude.hashWithSalt` sources
       `Prelude.hashWithSalt` subscriberDescription
+      `Prelude.hashWithSalt` subscriberIdentity
       `Prelude.hashWithSalt` subscriberName
-      `Prelude.hashWithSalt` id
-      `Prelude.hashWithSalt` sourceTypes
+      `Prelude.hashWithSalt` subscriberId
 
 instance Prelude.NFData UpdateSubscriber where
   rnf UpdateSubscriber' {..} =
-    Prelude.rnf externalId
+    Prelude.rnf sources
       `Prelude.seq` Prelude.rnf subscriberDescription
+      `Prelude.seq` Prelude.rnf subscriberIdentity
       `Prelude.seq` Prelude.rnf subscriberName
-      `Prelude.seq` Prelude.rnf id
-      `Prelude.seq` Prelude.rnf sourceTypes
+      `Prelude.seq` Prelude.rnf subscriberId
 
 instance Data.ToHeaders UpdateSubscriber where
   toHeaders =
@@ -172,25 +173,27 @@ instance Data.ToJSON UpdateSubscriber where
   toJSON UpdateSubscriber' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("externalId" Data..=) Prelude.<$> externalId,
+          [ ("sources" Data..=) Prelude.<$> sources,
             ("subscriberDescription" Data..=)
               Prelude.<$> subscriberDescription,
+            ("subscriberIdentity" Data..=)
+              Prelude.<$> subscriberIdentity,
             ("subscriberName" Data..=)
-              Prelude.<$> subscriberName,
-            Prelude.Just ("sourceTypes" Data..= sourceTypes)
+              Prelude.<$> subscriberName
           ]
       )
 
 instance Data.ToPath UpdateSubscriber where
   toPath UpdateSubscriber' {..} =
-    Prelude.mconcat ["/v1/subscribers/", Data.toBS id]
+    Prelude.mconcat
+      ["/v1/subscribers/", Data.toBS subscriberId]
 
 instance Data.ToQuery UpdateSubscriber where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newUpdateSubscriberResponse' smart constructor.
 data UpdateSubscriberResponse = UpdateSubscriberResponse'
-  { -- | The account of the subscriber.
+  { -- | The updated subscriber information.
     subscriber :: Prelude.Maybe SubscriberResource,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -205,7 +208,7 @@ data UpdateSubscriberResponse = UpdateSubscriberResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subscriber', 'updateSubscriberResponse_subscriber' - The account of the subscriber.
+-- 'subscriber', 'updateSubscriberResponse_subscriber' - The updated subscriber information.
 --
 -- 'httpStatus', 'updateSubscriberResponse_httpStatus' - The response's http status code.
 newUpdateSubscriberResponse ::
@@ -219,7 +222,7 @@ newUpdateSubscriberResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The account of the subscriber.
+-- | The updated subscriber information.
 updateSubscriberResponse_subscriber :: Lens.Lens' UpdateSubscriberResponse (Prelude.Maybe SubscriberResource)
 updateSubscriberResponse_subscriber = Lens.lens (\UpdateSubscriberResponse' {subscriber} -> subscriber) (\s@UpdateSubscriberResponse' {} a -> s {subscriber = a} :: UpdateSubscriberResponse)
 

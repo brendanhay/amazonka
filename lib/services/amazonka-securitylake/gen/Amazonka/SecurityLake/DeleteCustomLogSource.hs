@@ -20,14 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes a custom log source from Amazon Security Lake.
+-- Removes a custom log source from Amazon Security Lake, to stop sending
+-- data from the custom source to Security Lake.
 module Amazonka.SecurityLake.DeleteCustomLogSource
   ( -- * Creating a Request
     DeleteCustomLogSource (..),
     newDeleteCustomLogSource,
 
     -- * Request Lenses
-    deleteCustomLogSource_customSourceName,
+    deleteCustomLogSource_sourceVersion,
+    deleteCustomLogSource_sourceName,
 
     -- * Destructuring the Response
     DeleteCustomLogSourceResponse (..),
@@ -35,7 +37,6 @@ module Amazonka.SecurityLake.DeleteCustomLogSource
 
     -- * Response Lenses
     deleteCustomLogSourceResponse_httpStatus,
-    deleteCustomLogSourceResponse_customDataLocation,
   )
 where
 
@@ -49,8 +50,11 @@ import Amazonka.SecurityLake.Types
 
 -- | /See:/ 'newDeleteCustomLogSource' smart constructor.
 data DeleteCustomLogSource = DeleteCustomLogSource'
-  { -- | The custom source name for the custom log source.
-    customSourceName :: Prelude.Text
+  { -- | The source version for the third-party custom source. You can limit the
+    -- custom source removal to the specified source version.
+    sourceVersion :: Prelude.Maybe Prelude.Text,
+    -- | The source name of custom log source that you want to delete.
+    sourceName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,20 +66,29 @@ data DeleteCustomLogSource = DeleteCustomLogSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customSourceName', 'deleteCustomLogSource_customSourceName' - The custom source name for the custom log source.
+-- 'sourceVersion', 'deleteCustomLogSource_sourceVersion' - The source version for the third-party custom source. You can limit the
+-- custom source removal to the specified source version.
+--
+-- 'sourceName', 'deleteCustomLogSource_sourceName' - The source name of custom log source that you want to delete.
 newDeleteCustomLogSource ::
-  -- | 'customSourceName'
+  -- | 'sourceName'
   Prelude.Text ->
   DeleteCustomLogSource
-newDeleteCustomLogSource pCustomSourceName_ =
+newDeleteCustomLogSource pSourceName_ =
   DeleteCustomLogSource'
-    { customSourceName =
-        pCustomSourceName_
+    { sourceVersion =
+        Prelude.Nothing,
+      sourceName = pSourceName_
     }
 
--- | The custom source name for the custom log source.
-deleteCustomLogSource_customSourceName :: Lens.Lens' DeleteCustomLogSource Prelude.Text
-deleteCustomLogSource_customSourceName = Lens.lens (\DeleteCustomLogSource' {customSourceName} -> customSourceName) (\s@DeleteCustomLogSource' {} a -> s {customSourceName = a} :: DeleteCustomLogSource)
+-- | The source version for the third-party custom source. You can limit the
+-- custom source removal to the specified source version.
+deleteCustomLogSource_sourceVersion :: Lens.Lens' DeleteCustomLogSource (Prelude.Maybe Prelude.Text)
+deleteCustomLogSource_sourceVersion = Lens.lens (\DeleteCustomLogSource' {sourceVersion} -> sourceVersion) (\s@DeleteCustomLogSource' {} a -> s {sourceVersion = a} :: DeleteCustomLogSource)
+
+-- | The source name of custom log source that you want to delete.
+deleteCustomLogSource_sourceName :: Lens.Lens' DeleteCustomLogSource Prelude.Text
+deleteCustomLogSource_sourceName = Lens.lens (\DeleteCustomLogSource' {sourceName} -> sourceName) (\s@DeleteCustomLogSource' {} a -> s {sourceName = a} :: DeleteCustomLogSource)
 
 instance Core.AWSRequest DeleteCustomLogSource where
   type
@@ -84,20 +97,22 @@ instance Core.AWSRequest DeleteCustomLogSource where
   request overrides =
     Request.delete (overrides defaultService)
   response =
-    Response.receiveJSON
+    Response.receiveEmpty
       ( \s h x ->
           DeleteCustomLogSourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "customDataLocation")
       )
 
 instance Prelude.Hashable DeleteCustomLogSource where
   hashWithSalt _salt DeleteCustomLogSource' {..} =
-    _salt `Prelude.hashWithSalt` customSourceName
+    _salt
+      `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` sourceName
 
 instance Prelude.NFData DeleteCustomLogSource where
   rnf DeleteCustomLogSource' {..} =
-    Prelude.rnf customSourceName
+    Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf sourceName
 
 instance Data.ToHeaders DeleteCustomLogSource where
   toHeaders =
@@ -111,19 +126,21 @@ instance Data.ToHeaders DeleteCustomLogSource where
       )
 
 instance Data.ToPath DeleteCustomLogSource where
-  toPath = Prelude.const "/v1/logsources/custom"
+  toPath DeleteCustomLogSource' {..} =
+    Prelude.mconcat
+      [ "/v1/datalake/logsources/custom/",
+        Data.toBS sourceName
+      ]
 
 instance Data.ToQuery DeleteCustomLogSource where
   toQuery DeleteCustomLogSource' {..} =
     Prelude.mconcat
-      ["customSourceName" Data.=: customSourceName]
+      ["sourceVersion" Data.=: sourceVersion]
 
 -- | /See:/ 'newDeleteCustomLogSourceResponse' smart constructor.
 data DeleteCustomLogSourceResponse = DeleteCustomLogSourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
-    -- | The location of the partition in the Amazon S3 bucket for Security Lake.
-    customDataLocation :: Prelude.Text
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -136,32 +153,20 @@ data DeleteCustomLogSourceResponse = DeleteCustomLogSourceResponse'
 -- for backwards compatibility:
 --
 -- 'httpStatus', 'deleteCustomLogSourceResponse_httpStatus' - The response's http status code.
---
--- 'customDataLocation', 'deleteCustomLogSourceResponse_customDataLocation' - The location of the partition in the Amazon S3 bucket for Security Lake.
 newDeleteCustomLogSourceResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'customDataLocation'
-  Prelude.Text ->
   DeleteCustomLogSourceResponse
-newDeleteCustomLogSourceResponse
-  pHttpStatus_
-  pCustomDataLocation_ =
-    DeleteCustomLogSourceResponse'
-      { httpStatus =
-          pHttpStatus_,
-        customDataLocation = pCustomDataLocation_
-      }
+newDeleteCustomLogSourceResponse pHttpStatus_ =
+  DeleteCustomLogSourceResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
 -- | The response's http status code.
 deleteCustomLogSourceResponse_httpStatus :: Lens.Lens' DeleteCustomLogSourceResponse Prelude.Int
 deleteCustomLogSourceResponse_httpStatus = Lens.lens (\DeleteCustomLogSourceResponse' {httpStatus} -> httpStatus) (\s@DeleteCustomLogSourceResponse' {} a -> s {httpStatus = a} :: DeleteCustomLogSourceResponse)
 
--- | The location of the partition in the Amazon S3 bucket for Security Lake.
-deleteCustomLogSourceResponse_customDataLocation :: Lens.Lens' DeleteCustomLogSourceResponse Prelude.Text
-deleteCustomLogSourceResponse_customDataLocation = Lens.lens (\DeleteCustomLogSourceResponse' {customDataLocation} -> customDataLocation) (\s@DeleteCustomLogSourceResponse' {} a -> s {customDataLocation = a} :: DeleteCustomLogSourceResponse)
-
 instance Prelude.NFData DeleteCustomLogSourceResponse where
   rnf DeleteCustomLogSourceResponse' {..} =
     Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf customDataLocation

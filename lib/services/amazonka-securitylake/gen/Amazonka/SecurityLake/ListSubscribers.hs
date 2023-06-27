@@ -40,8 +40,8 @@ module Amazonka.SecurityLake.ListSubscribers
 
     -- * Response Lenses
     listSubscribersResponse_nextToken,
-    listSubscribersResponse_httpStatus,
     listSubscribersResponse_subscribers,
+    listSubscribersResponse_httpStatus,
   )
 where
 
@@ -56,7 +56,7 @@ import Amazonka.SecurityLake.Types
 -- | /See:/ 'newListSubscribers' smart constructor.
 data ListSubscribers = ListSubscribers'
   { -- | The maximum number of accounts for which the configuration is displayed.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | If nextToken is returned, there are more results available. You can
     -- repeat the call using the returned token to retrieve the next page.
     nextToken :: Prelude.Maybe Prelude.Text
@@ -84,7 +84,7 @@ newListSubscribers =
     }
 
 -- | The maximum number of accounts for which the configuration is displayed.
-listSubscribers_maxResults :: Lens.Lens' ListSubscribers (Prelude.Maybe Prelude.Int)
+listSubscribers_maxResults :: Lens.Lens' ListSubscribers (Prelude.Maybe Prelude.Natural)
 listSubscribers_maxResults = Lens.lens (\ListSubscribers' {maxResults} -> maxResults) (\s@ListSubscribers' {} a -> s {maxResults = a} :: ListSubscribers)
 
 -- | If nextToken is returned, there are more results available. You can
@@ -97,19 +97,22 @@ instance Core.AWSPager ListSubscribers where
     | Core.stop
         ( rs
             Lens.^? listSubscribersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
-        (rs Lens.^. listSubscribersResponse_subscribers) =
-      Prelude.Nothing
+        ( rs
+            Lens.^? listSubscribersResponse_subscribers
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSubscribers_nextToken
           Lens..~ rs
           Lens.^? listSubscribersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSubscribers where
   type
@@ -122,13 +125,14 @@ instance Core.AWSRequest ListSubscribers where
       ( \s h x ->
           ListSubscribersResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "subscribers" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListSubscribers where
   hashWithSalt _salt ListSubscribers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSubscribers where
@@ -162,10 +166,10 @@ data ListSubscribersResponse = ListSubscribersResponse'
   { -- | If nextToken is returned, there are more results available. You can
     -- repeat the call using the returned token to retrieve the next page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The response's http status code.
-    httpStatus :: Prelude.Int,
     -- | The subscribers available for the specified Security Lake account ID.
-    subscribers :: [SubscriberResource]
+    subscribers :: Prelude.Maybe [SubscriberResource],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -180,9 +184,9 @@ data ListSubscribersResponse = ListSubscribersResponse'
 -- 'nextToken', 'listSubscribersResponse_nextToken' - If nextToken is returned, there are more results available. You can
 -- repeat the call using the returned token to retrieve the next page.
 --
--- 'httpStatus', 'listSubscribersResponse_httpStatus' - The response's http status code.
---
 -- 'subscribers', 'listSubscribersResponse_subscribers' - The subscribers available for the specified Security Lake account ID.
+--
+-- 'httpStatus', 'listSubscribersResponse_httpStatus' - The response's http status code.
 newListSubscribersResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -191,8 +195,8 @@ newListSubscribersResponse pHttpStatus_ =
   ListSubscribersResponse'
     { nextToken =
         Prelude.Nothing,
-      httpStatus = pHttpStatus_,
-      subscribers = Prelude.mempty
+      subscribers = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
 -- | If nextToken is returned, there are more results available. You can
@@ -200,16 +204,16 @@ newListSubscribersResponse pHttpStatus_ =
 listSubscribersResponse_nextToken :: Lens.Lens' ListSubscribersResponse (Prelude.Maybe Prelude.Text)
 listSubscribersResponse_nextToken = Lens.lens (\ListSubscribersResponse' {nextToken} -> nextToken) (\s@ListSubscribersResponse' {} a -> s {nextToken = a} :: ListSubscribersResponse)
 
+-- | The subscribers available for the specified Security Lake account ID.
+listSubscribersResponse_subscribers :: Lens.Lens' ListSubscribersResponse (Prelude.Maybe [SubscriberResource])
+listSubscribersResponse_subscribers = Lens.lens (\ListSubscribersResponse' {subscribers} -> subscribers) (\s@ListSubscribersResponse' {} a -> s {subscribers = a} :: ListSubscribersResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listSubscribersResponse_httpStatus :: Lens.Lens' ListSubscribersResponse Prelude.Int
 listSubscribersResponse_httpStatus = Lens.lens (\ListSubscribersResponse' {httpStatus} -> httpStatus) (\s@ListSubscribersResponse' {} a -> s {httpStatus = a} :: ListSubscribersResponse)
 
--- | The subscribers available for the specified Security Lake account ID.
-listSubscribersResponse_subscribers :: Lens.Lens' ListSubscribersResponse [SubscriberResource]
-listSubscribersResponse_subscribers = Lens.lens (\ListSubscribersResponse' {subscribers} -> subscribers) (\s@ListSubscribersResponse' {} a -> s {subscribers = a} :: ListSubscribersResponse) Prelude.. Lens.coerced
-
 instance Prelude.NFData ListSubscribersResponse where
   rnf ListSubscribersResponse' {..} =
     Prelude.rnf nextToken
-      `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf subscribers
+      `Prelude.seq` Prelude.rnf httpStatus

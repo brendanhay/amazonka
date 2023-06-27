@@ -33,23 +33,20 @@ import Test.Tasty
 --         , requestCreateCustomLogSource $
 --             newCreateCustomLogSource
 --
---         , requestCreateDatalake $
---             newCreateDatalake
+--         , requestCreateDataLake $
+--             newCreateDataLake
 --
---         , requestCreateDatalakeAutoEnable $
---             newCreateDatalakeAutoEnable
+--         , requestCreateDataLakeExceptionSubscription $
+--             newCreateDataLakeExceptionSubscription
 --
---         , requestCreateDatalakeDelegatedAdmin $
---             newCreateDatalakeDelegatedAdmin
---
---         , requestCreateDatalakeExceptionsSubscription $
---             newCreateDatalakeExceptionsSubscription
+--         , requestCreateDataLakeOrganizationConfiguration $
+--             newCreateDataLakeOrganizationConfiguration
 --
 --         , requestCreateSubscriber $
 --             newCreateSubscriber
 --
---         , requestCreateSubscriptionNotificationConfiguration $
---             newCreateSubscriptionNotificationConfiguration
+--         , requestCreateSubscriberNotification $
+--             newCreateSubscriberNotification
 --
 --         , requestDeleteAwsLogSource $
 --             newDeleteAwsLogSource
@@ -57,44 +54,41 @@ import Test.Tasty
 --         , requestDeleteCustomLogSource $
 --             newDeleteCustomLogSource
 --
---         , requestDeleteDatalake $
---             newDeleteDatalake
+--         , requestDeleteDataLake $
+--             newDeleteDataLake
 --
---         , requestDeleteDatalakeAutoEnable $
---             newDeleteDatalakeAutoEnable
+--         , requestDeleteDataLakeExceptionSubscription $
+--             newDeleteDataLakeExceptionSubscription
 --
---         , requestDeleteDatalakeDelegatedAdmin $
---             newDeleteDatalakeDelegatedAdmin
---
---         , requestDeleteDatalakeExceptionsSubscription $
---             newDeleteDatalakeExceptionsSubscription
+--         , requestDeleteDataLakeOrganizationConfiguration $
+--             newDeleteDataLakeOrganizationConfiguration
 --
 --         , requestDeleteSubscriber $
 --             newDeleteSubscriber
 --
---         , requestDeleteSubscriptionNotificationConfiguration $
---             newDeleteSubscriptionNotificationConfiguration
+--         , requestDeleteSubscriberNotification $
+--             newDeleteSubscriberNotification
 --
---         , requestGetDatalake $
---             newGetDatalake
+--         , requestDeregisterDataLakeDelegatedAdministrator $
+--             newDeregisterDataLakeDelegatedAdministrator
 --
---         , requestGetDatalakeAutoEnable $
---             newGetDatalakeAutoEnable
+--         , requestGetDataLakeExceptionSubscription $
+--             newGetDataLakeExceptionSubscription
 --
---         , requestGetDatalakeExceptionsExpiry $
---             newGetDatalakeExceptionsExpiry
+--         , requestGetDataLakeOrganizationConfiguration $
+--             newGetDataLakeOrganizationConfiguration
 --
---         , requestGetDatalakeExceptionsSubscription $
---             newGetDatalakeExceptionsSubscription
---
---         , requestGetDatalakeStatus $
---             newGetDatalakeStatus
+--         , requestGetDataLakeSources $
+--             newGetDataLakeSources
 --
 --         , requestGetSubscriber $
 --             newGetSubscriber
 --
---         , requestListDatalakeExceptions $
---             newListDatalakeExceptions
+--         , requestListDataLakeExceptions $
+--             newListDataLakeExceptions
+--
+--         , requestListDataLakes $
+--             newListDataLakes
 --
 --         , requestListLogSources $
 --             newListLogSources
@@ -102,20 +96,20 @@ import Test.Tasty
 --         , requestListSubscribers $
 --             newListSubscribers
 --
---         , requestUpdateDatalake $
---             newUpdateDatalake
+--         , requestRegisterDataLakeDelegatedAdministrator $
+--             newRegisterDataLakeDelegatedAdministrator
 --
---         , requestUpdateDatalakeExceptionsExpiry $
---             newUpdateDatalakeExceptionsExpiry
+--         , requestUpdateDataLake $
+--             newUpdateDataLake
 --
---         , requestUpdateDatalakeExceptionsSubscription $
---             newUpdateDatalakeExceptionsSubscription
+--         , requestUpdateDataLakeExceptionSubscription $
+--             newUpdateDataLakeExceptionSubscription
 --
 --         , requestUpdateSubscriber $
 --             newUpdateSubscriber
 --
---         , requestUpdateSubscriptionNotificationConfiguration $
---             newUpdateSubscriptionNotificationConfiguration
+--         , requestUpdateSubscriberNotification $
+--             newUpdateSubscriberNotification
 --
 --           ]
 
@@ -126,23 +120,20 @@ import Test.Tasty
 --         , responseCreateCustomLogSource $
 --             newCreateCustomLogSourceResponse
 --
---         , responseCreateDatalake $
---             newCreateDatalakeResponse
+--         , responseCreateDataLake $
+--             newCreateDataLakeResponse
 --
---         , responseCreateDatalakeAutoEnable $
---             newCreateDatalakeAutoEnableResponse
+--         , responseCreateDataLakeExceptionSubscription $
+--             newCreateDataLakeExceptionSubscriptionResponse
 --
---         , responseCreateDatalakeDelegatedAdmin $
---             newCreateDatalakeDelegatedAdminResponse
---
---         , responseCreateDatalakeExceptionsSubscription $
---             newCreateDatalakeExceptionsSubscriptionResponse
+--         , responseCreateDataLakeOrganizationConfiguration $
+--             newCreateDataLakeOrganizationConfigurationResponse
 --
 --         , responseCreateSubscriber $
 --             newCreateSubscriberResponse
 --
---         , responseCreateSubscriptionNotificationConfiguration $
---             newCreateSubscriptionNotificationConfigurationResponse
+--         , responseCreateSubscriberNotification $
+--             newCreateSubscriberNotificationResponse
 --
 --         , responseDeleteAwsLogSource $
 --             newDeleteAwsLogSourceResponse
@@ -150,44 +141,41 @@ import Test.Tasty
 --         , responseDeleteCustomLogSource $
 --             newDeleteCustomLogSourceResponse
 --
---         , responseDeleteDatalake $
---             newDeleteDatalakeResponse
+--         , responseDeleteDataLake $
+--             newDeleteDataLakeResponse
 --
---         , responseDeleteDatalakeAutoEnable $
---             newDeleteDatalakeAutoEnableResponse
+--         , responseDeleteDataLakeExceptionSubscription $
+--             newDeleteDataLakeExceptionSubscriptionResponse
 --
---         , responseDeleteDatalakeDelegatedAdmin $
---             newDeleteDatalakeDelegatedAdminResponse
---
---         , responseDeleteDatalakeExceptionsSubscription $
---             newDeleteDatalakeExceptionsSubscriptionResponse
+--         , responseDeleteDataLakeOrganizationConfiguration $
+--             newDeleteDataLakeOrganizationConfigurationResponse
 --
 --         , responseDeleteSubscriber $
 --             newDeleteSubscriberResponse
 --
---         , responseDeleteSubscriptionNotificationConfiguration $
---             newDeleteSubscriptionNotificationConfigurationResponse
+--         , responseDeleteSubscriberNotification $
+--             newDeleteSubscriberNotificationResponse
 --
---         , responseGetDatalake $
---             newGetDatalakeResponse
+--         , responseDeregisterDataLakeDelegatedAdministrator $
+--             newDeregisterDataLakeDelegatedAdministratorResponse
 --
---         , responseGetDatalakeAutoEnable $
---             newGetDatalakeAutoEnableResponse
+--         , responseGetDataLakeExceptionSubscription $
+--             newGetDataLakeExceptionSubscriptionResponse
 --
---         , responseGetDatalakeExceptionsExpiry $
---             newGetDatalakeExceptionsExpiryResponse
+--         , responseGetDataLakeOrganizationConfiguration $
+--             newGetDataLakeOrganizationConfigurationResponse
 --
---         , responseGetDatalakeExceptionsSubscription $
---             newGetDatalakeExceptionsSubscriptionResponse
---
---         , responseGetDatalakeStatus $
---             newGetDatalakeStatusResponse
+--         , responseGetDataLakeSources $
+--             newGetDataLakeSourcesResponse
 --
 --         , responseGetSubscriber $
 --             newGetSubscriberResponse
 --
---         , responseListDatalakeExceptions $
---             newListDatalakeExceptionsResponse
+--         , responseListDataLakeExceptions $
+--             newListDataLakeExceptionsResponse
+--
+--         , responseListDataLakes $
+--             newListDataLakesResponse
 --
 --         , responseListLogSources $
 --             newListLogSourcesResponse
@@ -195,20 +183,20 @@ import Test.Tasty
 --         , responseListSubscribers $
 --             newListSubscribersResponse
 --
---         , responseUpdateDatalake $
---             newUpdateDatalakeResponse
+--         , responseRegisterDataLakeDelegatedAdministrator $
+--             newRegisterDataLakeDelegatedAdministratorResponse
 --
---         , responseUpdateDatalakeExceptionsExpiry $
---             newUpdateDatalakeExceptionsExpiryResponse
+--         , responseUpdateDataLake $
+--             newUpdateDataLakeResponse
 --
---         , responseUpdateDatalakeExceptionsSubscription $
---             newUpdateDatalakeExceptionsSubscriptionResponse
+--         , responseUpdateDataLakeExceptionSubscription $
+--             newUpdateDataLakeExceptionSubscriptionResponse
 --
 --         , responseUpdateSubscriber $
 --             newUpdateSubscriberResponse
 --
---         , responseUpdateSubscriptionNotificationConfiguration $
---             newUpdateSubscriptionNotificationConfigurationResponse
+--         , responseUpdateSubscriberNotification $
+--             newUpdateSubscriberNotificationResponse
 --
 --           ]
 --     ]
@@ -227,29 +215,23 @@ requestCreateCustomLogSource =
     "CreateCustomLogSource"
     "fixture/CreateCustomLogSource.yaml"
 
-requestCreateDatalake :: CreateDatalake -> TestTree
-requestCreateDatalake =
+requestCreateDataLake :: CreateDataLake -> TestTree
+requestCreateDataLake =
   req
-    "CreateDatalake"
-    "fixture/CreateDatalake.yaml"
+    "CreateDataLake"
+    "fixture/CreateDataLake.yaml"
 
-requestCreateDatalakeAutoEnable :: CreateDatalakeAutoEnable -> TestTree
-requestCreateDatalakeAutoEnable =
+requestCreateDataLakeExceptionSubscription :: CreateDataLakeExceptionSubscription -> TestTree
+requestCreateDataLakeExceptionSubscription =
   req
-    "CreateDatalakeAutoEnable"
-    "fixture/CreateDatalakeAutoEnable.yaml"
+    "CreateDataLakeExceptionSubscription"
+    "fixture/CreateDataLakeExceptionSubscription.yaml"
 
-requestCreateDatalakeDelegatedAdmin :: CreateDatalakeDelegatedAdmin -> TestTree
-requestCreateDatalakeDelegatedAdmin =
+requestCreateDataLakeOrganizationConfiguration :: CreateDataLakeOrganizationConfiguration -> TestTree
+requestCreateDataLakeOrganizationConfiguration =
   req
-    "CreateDatalakeDelegatedAdmin"
-    "fixture/CreateDatalakeDelegatedAdmin.yaml"
-
-requestCreateDatalakeExceptionsSubscription :: CreateDatalakeExceptionsSubscription -> TestTree
-requestCreateDatalakeExceptionsSubscription =
-  req
-    "CreateDatalakeExceptionsSubscription"
-    "fixture/CreateDatalakeExceptionsSubscription.yaml"
+    "CreateDataLakeOrganizationConfiguration"
+    "fixture/CreateDataLakeOrganizationConfiguration.yaml"
 
 requestCreateSubscriber :: CreateSubscriber -> TestTree
 requestCreateSubscriber =
@@ -257,11 +239,11 @@ requestCreateSubscriber =
     "CreateSubscriber"
     "fixture/CreateSubscriber.yaml"
 
-requestCreateSubscriptionNotificationConfiguration :: CreateSubscriptionNotificationConfiguration -> TestTree
-requestCreateSubscriptionNotificationConfiguration =
+requestCreateSubscriberNotification :: CreateSubscriberNotification -> TestTree
+requestCreateSubscriberNotification =
   req
-    "CreateSubscriptionNotificationConfiguration"
-    "fixture/CreateSubscriptionNotificationConfiguration.yaml"
+    "CreateSubscriberNotification"
+    "fixture/CreateSubscriberNotification.yaml"
 
 requestDeleteAwsLogSource :: DeleteAwsLogSource -> TestTree
 requestDeleteAwsLogSource =
@@ -275,29 +257,23 @@ requestDeleteCustomLogSource =
     "DeleteCustomLogSource"
     "fixture/DeleteCustomLogSource.yaml"
 
-requestDeleteDatalake :: DeleteDatalake -> TestTree
-requestDeleteDatalake =
+requestDeleteDataLake :: DeleteDataLake -> TestTree
+requestDeleteDataLake =
   req
-    "DeleteDatalake"
-    "fixture/DeleteDatalake.yaml"
+    "DeleteDataLake"
+    "fixture/DeleteDataLake.yaml"
 
-requestDeleteDatalakeAutoEnable :: DeleteDatalakeAutoEnable -> TestTree
-requestDeleteDatalakeAutoEnable =
+requestDeleteDataLakeExceptionSubscription :: DeleteDataLakeExceptionSubscription -> TestTree
+requestDeleteDataLakeExceptionSubscription =
   req
-    "DeleteDatalakeAutoEnable"
-    "fixture/DeleteDatalakeAutoEnable.yaml"
+    "DeleteDataLakeExceptionSubscription"
+    "fixture/DeleteDataLakeExceptionSubscription.yaml"
 
-requestDeleteDatalakeDelegatedAdmin :: DeleteDatalakeDelegatedAdmin -> TestTree
-requestDeleteDatalakeDelegatedAdmin =
+requestDeleteDataLakeOrganizationConfiguration :: DeleteDataLakeOrganizationConfiguration -> TestTree
+requestDeleteDataLakeOrganizationConfiguration =
   req
-    "DeleteDatalakeDelegatedAdmin"
-    "fixture/DeleteDatalakeDelegatedAdmin.yaml"
-
-requestDeleteDatalakeExceptionsSubscription :: DeleteDatalakeExceptionsSubscription -> TestTree
-requestDeleteDatalakeExceptionsSubscription =
-  req
-    "DeleteDatalakeExceptionsSubscription"
-    "fixture/DeleteDatalakeExceptionsSubscription.yaml"
+    "DeleteDataLakeOrganizationConfiguration"
+    "fixture/DeleteDataLakeOrganizationConfiguration.yaml"
 
 requestDeleteSubscriber :: DeleteSubscriber -> TestTree
 requestDeleteSubscriber =
@@ -305,41 +281,35 @@ requestDeleteSubscriber =
     "DeleteSubscriber"
     "fixture/DeleteSubscriber.yaml"
 
-requestDeleteSubscriptionNotificationConfiguration :: DeleteSubscriptionNotificationConfiguration -> TestTree
-requestDeleteSubscriptionNotificationConfiguration =
+requestDeleteSubscriberNotification :: DeleteSubscriberNotification -> TestTree
+requestDeleteSubscriberNotification =
   req
-    "DeleteSubscriptionNotificationConfiguration"
-    "fixture/DeleteSubscriptionNotificationConfiguration.yaml"
+    "DeleteSubscriberNotification"
+    "fixture/DeleteSubscriberNotification.yaml"
 
-requestGetDatalake :: GetDatalake -> TestTree
-requestGetDatalake =
+requestDeregisterDataLakeDelegatedAdministrator :: DeregisterDataLakeDelegatedAdministrator -> TestTree
+requestDeregisterDataLakeDelegatedAdministrator =
   req
-    "GetDatalake"
-    "fixture/GetDatalake.yaml"
+    "DeregisterDataLakeDelegatedAdministrator"
+    "fixture/DeregisterDataLakeDelegatedAdministrator.yaml"
 
-requestGetDatalakeAutoEnable :: GetDatalakeAutoEnable -> TestTree
-requestGetDatalakeAutoEnable =
+requestGetDataLakeExceptionSubscription :: GetDataLakeExceptionSubscription -> TestTree
+requestGetDataLakeExceptionSubscription =
   req
-    "GetDatalakeAutoEnable"
-    "fixture/GetDatalakeAutoEnable.yaml"
+    "GetDataLakeExceptionSubscription"
+    "fixture/GetDataLakeExceptionSubscription.yaml"
 
-requestGetDatalakeExceptionsExpiry :: GetDatalakeExceptionsExpiry -> TestTree
-requestGetDatalakeExceptionsExpiry =
+requestGetDataLakeOrganizationConfiguration :: GetDataLakeOrganizationConfiguration -> TestTree
+requestGetDataLakeOrganizationConfiguration =
   req
-    "GetDatalakeExceptionsExpiry"
-    "fixture/GetDatalakeExceptionsExpiry.yaml"
+    "GetDataLakeOrganizationConfiguration"
+    "fixture/GetDataLakeOrganizationConfiguration.yaml"
 
-requestGetDatalakeExceptionsSubscription :: GetDatalakeExceptionsSubscription -> TestTree
-requestGetDatalakeExceptionsSubscription =
+requestGetDataLakeSources :: GetDataLakeSources -> TestTree
+requestGetDataLakeSources =
   req
-    "GetDatalakeExceptionsSubscription"
-    "fixture/GetDatalakeExceptionsSubscription.yaml"
-
-requestGetDatalakeStatus :: GetDatalakeStatus -> TestTree
-requestGetDatalakeStatus =
-  req
-    "GetDatalakeStatus"
-    "fixture/GetDatalakeStatus.yaml"
+    "GetDataLakeSources"
+    "fixture/GetDataLakeSources.yaml"
 
 requestGetSubscriber :: GetSubscriber -> TestTree
 requestGetSubscriber =
@@ -347,11 +317,17 @@ requestGetSubscriber =
     "GetSubscriber"
     "fixture/GetSubscriber.yaml"
 
-requestListDatalakeExceptions :: ListDatalakeExceptions -> TestTree
-requestListDatalakeExceptions =
+requestListDataLakeExceptions :: ListDataLakeExceptions -> TestTree
+requestListDataLakeExceptions =
   req
-    "ListDatalakeExceptions"
-    "fixture/ListDatalakeExceptions.yaml"
+    "ListDataLakeExceptions"
+    "fixture/ListDataLakeExceptions.yaml"
+
+requestListDataLakes :: ListDataLakes -> TestTree
+requestListDataLakes =
+  req
+    "ListDataLakes"
+    "fixture/ListDataLakes.yaml"
 
 requestListLogSources :: ListLogSources -> TestTree
 requestListLogSources =
@@ -365,23 +341,23 @@ requestListSubscribers =
     "ListSubscribers"
     "fixture/ListSubscribers.yaml"
 
-requestUpdateDatalake :: UpdateDatalake -> TestTree
-requestUpdateDatalake =
+requestRegisterDataLakeDelegatedAdministrator :: RegisterDataLakeDelegatedAdministrator -> TestTree
+requestRegisterDataLakeDelegatedAdministrator =
   req
-    "UpdateDatalake"
-    "fixture/UpdateDatalake.yaml"
+    "RegisterDataLakeDelegatedAdministrator"
+    "fixture/RegisterDataLakeDelegatedAdministrator.yaml"
 
-requestUpdateDatalakeExceptionsExpiry :: UpdateDatalakeExceptionsExpiry -> TestTree
-requestUpdateDatalakeExceptionsExpiry =
+requestUpdateDataLake :: UpdateDataLake -> TestTree
+requestUpdateDataLake =
   req
-    "UpdateDatalakeExceptionsExpiry"
-    "fixture/UpdateDatalakeExceptionsExpiry.yaml"
+    "UpdateDataLake"
+    "fixture/UpdateDataLake.yaml"
 
-requestUpdateDatalakeExceptionsSubscription :: UpdateDatalakeExceptionsSubscription -> TestTree
-requestUpdateDatalakeExceptionsSubscription =
+requestUpdateDataLakeExceptionSubscription :: UpdateDataLakeExceptionSubscription -> TestTree
+requestUpdateDataLakeExceptionSubscription =
   req
-    "UpdateDatalakeExceptionsSubscription"
-    "fixture/UpdateDatalakeExceptionsSubscription.yaml"
+    "UpdateDataLakeExceptionSubscription"
+    "fixture/UpdateDataLakeExceptionSubscription.yaml"
 
 requestUpdateSubscriber :: UpdateSubscriber -> TestTree
 requestUpdateSubscriber =
@@ -389,11 +365,11 @@ requestUpdateSubscriber =
     "UpdateSubscriber"
     "fixture/UpdateSubscriber.yaml"
 
-requestUpdateSubscriptionNotificationConfiguration :: UpdateSubscriptionNotificationConfiguration -> TestTree
-requestUpdateSubscriptionNotificationConfiguration =
+requestUpdateSubscriberNotification :: UpdateSubscriberNotification -> TestTree
+requestUpdateSubscriberNotification =
   req
-    "UpdateSubscriptionNotificationConfiguration"
-    "fixture/UpdateSubscriptionNotificationConfiguration.yaml"
+    "UpdateSubscriberNotification"
+    "fixture/UpdateSubscriberNotification.yaml"
 
 -- Responses
 
@@ -413,37 +389,29 @@ responseCreateCustomLogSource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateCustomLogSource)
 
-responseCreateDatalake :: CreateDatalakeResponse -> TestTree
-responseCreateDatalake =
+responseCreateDataLake :: CreateDataLakeResponse -> TestTree
+responseCreateDataLake =
   res
-    "CreateDatalakeResponse"
-    "fixture/CreateDatalakeResponse.proto"
+    "CreateDataLakeResponse"
+    "fixture/CreateDataLakeResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDatalake)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataLake)
 
-responseCreateDatalakeAutoEnable :: CreateDatalakeAutoEnableResponse -> TestTree
-responseCreateDatalakeAutoEnable =
+responseCreateDataLakeExceptionSubscription :: CreateDataLakeExceptionSubscriptionResponse -> TestTree
+responseCreateDataLakeExceptionSubscription =
   res
-    "CreateDatalakeAutoEnableResponse"
-    "fixture/CreateDatalakeAutoEnableResponse.proto"
+    "CreateDataLakeExceptionSubscriptionResponse"
+    "fixture/CreateDataLakeExceptionSubscriptionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDatalakeAutoEnable)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataLakeExceptionSubscription)
 
-responseCreateDatalakeDelegatedAdmin :: CreateDatalakeDelegatedAdminResponse -> TestTree
-responseCreateDatalakeDelegatedAdmin =
+responseCreateDataLakeOrganizationConfiguration :: CreateDataLakeOrganizationConfigurationResponse -> TestTree
+responseCreateDataLakeOrganizationConfiguration =
   res
-    "CreateDatalakeDelegatedAdminResponse"
-    "fixture/CreateDatalakeDelegatedAdminResponse.proto"
+    "CreateDataLakeOrganizationConfigurationResponse"
+    "fixture/CreateDataLakeOrganizationConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDatalakeDelegatedAdmin)
-
-responseCreateDatalakeExceptionsSubscription :: CreateDatalakeExceptionsSubscriptionResponse -> TestTree
-responseCreateDatalakeExceptionsSubscription =
-  res
-    "CreateDatalakeExceptionsSubscriptionResponse"
-    "fixture/CreateDatalakeExceptionsSubscriptionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDatalakeExceptionsSubscription)
+    (Proxy.Proxy :: Proxy.Proxy CreateDataLakeOrganizationConfiguration)
 
 responseCreateSubscriber :: CreateSubscriberResponse -> TestTree
 responseCreateSubscriber =
@@ -453,13 +421,13 @@ responseCreateSubscriber =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateSubscriber)
 
-responseCreateSubscriptionNotificationConfiguration :: CreateSubscriptionNotificationConfigurationResponse -> TestTree
-responseCreateSubscriptionNotificationConfiguration =
+responseCreateSubscriberNotification :: CreateSubscriberNotificationResponse -> TestTree
+responseCreateSubscriberNotification =
   res
-    "CreateSubscriptionNotificationConfigurationResponse"
-    "fixture/CreateSubscriptionNotificationConfigurationResponse.proto"
+    "CreateSubscriberNotificationResponse"
+    "fixture/CreateSubscriberNotificationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateSubscriptionNotificationConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy CreateSubscriberNotification)
 
 responseDeleteAwsLogSource :: DeleteAwsLogSourceResponse -> TestTree
 responseDeleteAwsLogSource =
@@ -477,37 +445,29 @@ responseDeleteCustomLogSource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteCustomLogSource)
 
-responseDeleteDatalake :: DeleteDatalakeResponse -> TestTree
-responseDeleteDatalake =
+responseDeleteDataLake :: DeleteDataLakeResponse -> TestTree
+responseDeleteDataLake =
   res
-    "DeleteDatalakeResponse"
-    "fixture/DeleteDatalakeResponse.proto"
+    "DeleteDataLakeResponse"
+    "fixture/DeleteDataLakeResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDatalake)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataLake)
 
-responseDeleteDatalakeAutoEnable :: DeleteDatalakeAutoEnableResponse -> TestTree
-responseDeleteDatalakeAutoEnable =
+responseDeleteDataLakeExceptionSubscription :: DeleteDataLakeExceptionSubscriptionResponse -> TestTree
+responseDeleteDataLakeExceptionSubscription =
   res
-    "DeleteDatalakeAutoEnableResponse"
-    "fixture/DeleteDatalakeAutoEnableResponse.proto"
+    "DeleteDataLakeExceptionSubscriptionResponse"
+    "fixture/DeleteDataLakeExceptionSubscriptionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDatalakeAutoEnable)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataLakeExceptionSubscription)
 
-responseDeleteDatalakeDelegatedAdmin :: DeleteDatalakeDelegatedAdminResponse -> TestTree
-responseDeleteDatalakeDelegatedAdmin =
+responseDeleteDataLakeOrganizationConfiguration :: DeleteDataLakeOrganizationConfigurationResponse -> TestTree
+responseDeleteDataLakeOrganizationConfiguration =
   res
-    "DeleteDatalakeDelegatedAdminResponse"
-    "fixture/DeleteDatalakeDelegatedAdminResponse.proto"
+    "DeleteDataLakeOrganizationConfigurationResponse"
+    "fixture/DeleteDataLakeOrganizationConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDatalakeDelegatedAdmin)
-
-responseDeleteDatalakeExceptionsSubscription :: DeleteDatalakeExceptionsSubscriptionResponse -> TestTree
-responseDeleteDatalakeExceptionsSubscription =
-  res
-    "DeleteDatalakeExceptionsSubscriptionResponse"
-    "fixture/DeleteDatalakeExceptionsSubscriptionResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteDatalakeExceptionsSubscription)
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataLakeOrganizationConfiguration)
 
 responseDeleteSubscriber :: DeleteSubscriberResponse -> TestTree
 responseDeleteSubscriber =
@@ -517,53 +477,45 @@ responseDeleteSubscriber =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteSubscriber)
 
-responseDeleteSubscriptionNotificationConfiguration :: DeleteSubscriptionNotificationConfigurationResponse -> TestTree
-responseDeleteSubscriptionNotificationConfiguration =
+responseDeleteSubscriberNotification :: DeleteSubscriberNotificationResponse -> TestTree
+responseDeleteSubscriberNotification =
   res
-    "DeleteSubscriptionNotificationConfigurationResponse"
-    "fixture/DeleteSubscriptionNotificationConfigurationResponse.proto"
+    "DeleteSubscriberNotificationResponse"
+    "fixture/DeleteSubscriberNotificationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteSubscriptionNotificationConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy DeleteSubscriberNotification)
 
-responseGetDatalake :: GetDatalakeResponse -> TestTree
-responseGetDatalake =
+responseDeregisterDataLakeDelegatedAdministrator :: DeregisterDataLakeDelegatedAdministratorResponse -> TestTree
+responseDeregisterDataLakeDelegatedAdministrator =
   res
-    "GetDatalakeResponse"
-    "fixture/GetDatalakeResponse.proto"
+    "DeregisterDataLakeDelegatedAdministratorResponse"
+    "fixture/DeregisterDataLakeDelegatedAdministratorResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDatalake)
+    (Proxy.Proxy :: Proxy.Proxy DeregisterDataLakeDelegatedAdministrator)
 
-responseGetDatalakeAutoEnable :: GetDatalakeAutoEnableResponse -> TestTree
-responseGetDatalakeAutoEnable =
+responseGetDataLakeExceptionSubscription :: GetDataLakeExceptionSubscriptionResponse -> TestTree
+responseGetDataLakeExceptionSubscription =
   res
-    "GetDatalakeAutoEnableResponse"
-    "fixture/GetDatalakeAutoEnableResponse.proto"
+    "GetDataLakeExceptionSubscriptionResponse"
+    "fixture/GetDataLakeExceptionSubscriptionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDatalakeAutoEnable)
+    (Proxy.Proxy :: Proxy.Proxy GetDataLakeExceptionSubscription)
 
-responseGetDatalakeExceptionsExpiry :: GetDatalakeExceptionsExpiryResponse -> TestTree
-responseGetDatalakeExceptionsExpiry =
+responseGetDataLakeOrganizationConfiguration :: GetDataLakeOrganizationConfigurationResponse -> TestTree
+responseGetDataLakeOrganizationConfiguration =
   res
-    "GetDatalakeExceptionsExpiryResponse"
-    "fixture/GetDatalakeExceptionsExpiryResponse.proto"
+    "GetDataLakeOrganizationConfigurationResponse"
+    "fixture/GetDataLakeOrganizationConfigurationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDatalakeExceptionsExpiry)
+    (Proxy.Proxy :: Proxy.Proxy GetDataLakeOrganizationConfiguration)
 
-responseGetDatalakeExceptionsSubscription :: GetDatalakeExceptionsSubscriptionResponse -> TestTree
-responseGetDatalakeExceptionsSubscription =
+responseGetDataLakeSources :: GetDataLakeSourcesResponse -> TestTree
+responseGetDataLakeSources =
   res
-    "GetDatalakeExceptionsSubscriptionResponse"
-    "fixture/GetDatalakeExceptionsSubscriptionResponse.proto"
+    "GetDataLakeSourcesResponse"
+    "fixture/GetDataLakeSourcesResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDatalakeExceptionsSubscription)
-
-responseGetDatalakeStatus :: GetDatalakeStatusResponse -> TestTree
-responseGetDatalakeStatus =
-  res
-    "GetDatalakeStatusResponse"
-    "fixture/GetDatalakeStatusResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetDatalakeStatus)
+    (Proxy.Proxy :: Proxy.Proxy GetDataLakeSources)
 
 responseGetSubscriber :: GetSubscriberResponse -> TestTree
 responseGetSubscriber =
@@ -573,13 +525,21 @@ responseGetSubscriber =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetSubscriber)
 
-responseListDatalakeExceptions :: ListDatalakeExceptionsResponse -> TestTree
-responseListDatalakeExceptions =
+responseListDataLakeExceptions :: ListDataLakeExceptionsResponse -> TestTree
+responseListDataLakeExceptions =
   res
-    "ListDatalakeExceptionsResponse"
-    "fixture/ListDatalakeExceptionsResponse.proto"
+    "ListDataLakeExceptionsResponse"
+    "fixture/ListDataLakeExceptionsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDatalakeExceptions)
+    (Proxy.Proxy :: Proxy.Proxy ListDataLakeExceptions)
+
+responseListDataLakes :: ListDataLakesResponse -> TestTree
+responseListDataLakes =
+  res
+    "ListDataLakesResponse"
+    "fixture/ListDataLakesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDataLakes)
 
 responseListLogSources :: ListLogSourcesResponse -> TestTree
 responseListLogSources =
@@ -597,29 +557,29 @@ responseListSubscribers =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListSubscribers)
 
-responseUpdateDatalake :: UpdateDatalakeResponse -> TestTree
-responseUpdateDatalake =
+responseRegisterDataLakeDelegatedAdministrator :: RegisterDataLakeDelegatedAdministratorResponse -> TestTree
+responseRegisterDataLakeDelegatedAdministrator =
   res
-    "UpdateDatalakeResponse"
-    "fixture/UpdateDatalakeResponse.proto"
+    "RegisterDataLakeDelegatedAdministratorResponse"
+    "fixture/RegisterDataLakeDelegatedAdministratorResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDatalake)
+    (Proxy.Proxy :: Proxy.Proxy RegisterDataLakeDelegatedAdministrator)
 
-responseUpdateDatalakeExceptionsExpiry :: UpdateDatalakeExceptionsExpiryResponse -> TestTree
-responseUpdateDatalakeExceptionsExpiry =
+responseUpdateDataLake :: UpdateDataLakeResponse -> TestTree
+responseUpdateDataLake =
   res
-    "UpdateDatalakeExceptionsExpiryResponse"
-    "fixture/UpdateDatalakeExceptionsExpiryResponse.proto"
+    "UpdateDataLakeResponse"
+    "fixture/UpdateDataLakeResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDatalakeExceptionsExpiry)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataLake)
 
-responseUpdateDatalakeExceptionsSubscription :: UpdateDatalakeExceptionsSubscriptionResponse -> TestTree
-responseUpdateDatalakeExceptionsSubscription =
+responseUpdateDataLakeExceptionSubscription :: UpdateDataLakeExceptionSubscriptionResponse -> TestTree
+responseUpdateDataLakeExceptionSubscription =
   res
-    "UpdateDatalakeExceptionsSubscriptionResponse"
-    "fixture/UpdateDatalakeExceptionsSubscriptionResponse.proto"
+    "UpdateDataLakeExceptionSubscriptionResponse"
+    "fixture/UpdateDataLakeExceptionSubscriptionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateDatalakeExceptionsSubscription)
+    (Proxy.Proxy :: Proxy.Proxy UpdateDataLakeExceptionSubscription)
 
 responseUpdateSubscriber :: UpdateSubscriberResponse -> TestTree
 responseUpdateSubscriber =
@@ -629,10 +589,10 @@ responseUpdateSubscriber =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateSubscriber)
 
-responseUpdateSubscriptionNotificationConfiguration :: UpdateSubscriptionNotificationConfigurationResponse -> TestTree
-responseUpdateSubscriptionNotificationConfiguration =
+responseUpdateSubscriberNotification :: UpdateSubscriberNotificationResponse -> TestTree
+responseUpdateSubscriberNotification =
   res
-    "UpdateSubscriptionNotificationConfigurationResponse"
-    "fixture/UpdateSubscriptionNotificationConfigurationResponse.proto"
+    "UpdateSubscriberNotificationResponse"
+    "fixture/UpdateSubscriberNotificationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy UpdateSubscriptionNotificationConfiguration)
+    (Proxy.Proxy :: Proxy.Proxy UpdateSubscriberNotification)

@@ -26,30 +26,27 @@
 -- sources. After creating the appropriate IAM role to invoke Glue crawler,
 -- use this API to add a custom source name in Security Lake. This
 -- operation creates a partition in the Amazon S3 bucket for Security Lake
--- as the target location for log files from the custom source in addition
--- to an associated Glue table and an Glue crawler.
+-- as the target location for log files from the custom source. In
+-- addition, this operation also creates an associated Glue table and an
+-- Glue crawler.
 module Amazonka.SecurityLake.CreateCustomLogSource
   ( -- * Creating a Request
     CreateCustomLogSource (..),
     newCreateCustomLogSource,
 
     -- * Request Lenses
-    createCustomLogSource_customSourceName,
-    createCustomLogSource_eventClass,
-    createCustomLogSource_glueInvocationRoleArn,
-    createCustomLogSource_logProviderAccountId,
+    createCustomLogSource_configuration,
+    createCustomLogSource_eventClasses,
+    createCustomLogSource_sourceVersion,
+    createCustomLogSource_sourceName,
 
     -- * Destructuring the Response
     CreateCustomLogSourceResponse (..),
     newCreateCustomLogSourceResponse,
 
     -- * Response Lenses
+    createCustomLogSourceResponse_source,
     createCustomLogSourceResponse_httpStatus,
-    createCustomLogSourceResponse_customDataLocation,
-    createCustomLogSourceResponse_glueCrawlerName,
-    createCustomLogSourceResponse_glueDatabaseName,
-    createCustomLogSourceResponse_glueTableName,
-    createCustomLogSourceResponse_logProviderAccessRoleArn,
   )
 where
 
@@ -63,24 +60,76 @@ import Amazonka.SecurityLake.Types
 
 -- | /See:/ 'newCreateCustomLogSource' smart constructor.
 data CreateCustomLogSource = CreateCustomLogSource'
-  { -- | The name for a third-party custom source. This must be a Regionally
-    -- unique value.
-    customSourceName :: Prelude.Text,
-    -- | The Open Cybersecurity Schema Framework (OCSF) event class which
+  { -- | The configuration for the third-party custom source.
+    configuration :: Prelude.Maybe CustomLogSourceConfiguration,
+    -- | The Open Cybersecurity Schema Framework (OCSF) event classes which
     -- describes the type of data that the custom source will send to Security
-    -- Lake.
-    eventClass :: OcsfEventClass,
-    -- | The Amazon Resource Name (ARN) of the Identity and Access Management
-    -- (IAM) role to be used by the Glue crawler. The recommended IAM policies
-    -- are:
+    -- Lake. The supported event classes are:
     --
-    -- -   The managed policy @AWSGlueServiceRole@
+    -- -   @ACCESS_ACTIVITY@
     --
-    -- -   A custom policy granting access to your Amazon S3 Data Lake
-    glueInvocationRoleArn :: Prelude.Text,
-    -- | The Amazon Web Services account ID of the custom source that will write
-    -- logs and events into the Amazon S3 Data Lake.
-    logProviderAccountId :: Prelude.Text
+    -- -   @FILE_ACTIVITY@
+    --
+    -- -   @KERNEL_ACTIVITY@
+    --
+    -- -   @KERNEL_EXTENSION@
+    --
+    -- -   @MEMORY_ACTIVITY@
+    --
+    -- -   @MODULE_ACTIVITY@
+    --
+    -- -   @PROCESS_ACTIVITY@
+    --
+    -- -   @REGISTRY_KEY_ACTIVITY@
+    --
+    -- -   @REGISTRY_VALUE_ACTIVITY@
+    --
+    -- -   @RESOURCE_ACTIVITY@
+    --
+    -- -   @SCHEDULED_JOB_ACTIVITY@
+    --
+    -- -   @SECURITY_FINDING@
+    --
+    -- -   @ACCOUNT_CHANGE@
+    --
+    -- -   @AUTHENTICATION@
+    --
+    -- -   @AUTHORIZATION@
+    --
+    -- -   @ENTITY_MANAGEMENT_AUDIT@
+    --
+    -- -   @DHCP_ACTIVITY@
+    --
+    -- -   @NETWORK_ACTIVITY@
+    --
+    -- -   @DNS_ACTIVITY@
+    --
+    -- -   @FTP_ACTIVITY@
+    --
+    -- -   @HTTP_ACTIVITY@
+    --
+    -- -   @RDP_ACTIVITY@
+    --
+    -- -   @SMB_ACTIVITY@
+    --
+    -- -   @SSH_ACTIVITY@
+    --
+    -- -   @CONFIG_STATE@
+    --
+    -- -   @INVENTORY_INFO@
+    --
+    -- -   @EMAIL_ACTIVITY@
+    --
+    -- -   @API_ACTIVITY@
+    --
+    -- -   @CLOUD_API@
+    eventClasses :: Prelude.Maybe [Prelude.Text],
+    -- | Specify the source version for the third-party custom source, to limit
+    -- log collection to a specific version of custom data source.
+    sourceVersion :: Prelude.Maybe Prelude.Text,
+    -- | Specify the name for a third-party custom source. This must be a
+    -- Regionally unique value.
+    sourceName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,71 +141,165 @@ data CreateCustomLogSource = CreateCustomLogSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customSourceName', 'createCustomLogSource_customSourceName' - The name for a third-party custom source. This must be a Regionally
--- unique value.
+-- 'configuration', 'createCustomLogSource_configuration' - The configuration for the third-party custom source.
 --
--- 'eventClass', 'createCustomLogSource_eventClass' - The Open Cybersecurity Schema Framework (OCSF) event class which
+-- 'eventClasses', 'createCustomLogSource_eventClasses' - The Open Cybersecurity Schema Framework (OCSF) event classes which
 -- describes the type of data that the custom source will send to Security
--- Lake.
+-- Lake. The supported event classes are:
 --
--- 'glueInvocationRoleArn', 'createCustomLogSource_glueInvocationRoleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) role to be used by the Glue crawler. The recommended IAM policies
--- are:
+-- -   @ACCESS_ACTIVITY@
 --
--- -   The managed policy @AWSGlueServiceRole@
+-- -   @FILE_ACTIVITY@
 --
--- -   A custom policy granting access to your Amazon S3 Data Lake
+-- -   @KERNEL_ACTIVITY@
 --
--- 'logProviderAccountId', 'createCustomLogSource_logProviderAccountId' - The Amazon Web Services account ID of the custom source that will write
--- logs and events into the Amazon S3 Data Lake.
+-- -   @KERNEL_EXTENSION@
+--
+-- -   @MEMORY_ACTIVITY@
+--
+-- -   @MODULE_ACTIVITY@
+--
+-- -   @PROCESS_ACTIVITY@
+--
+-- -   @REGISTRY_KEY_ACTIVITY@
+--
+-- -   @REGISTRY_VALUE_ACTIVITY@
+--
+-- -   @RESOURCE_ACTIVITY@
+--
+-- -   @SCHEDULED_JOB_ACTIVITY@
+--
+-- -   @SECURITY_FINDING@
+--
+-- -   @ACCOUNT_CHANGE@
+--
+-- -   @AUTHENTICATION@
+--
+-- -   @AUTHORIZATION@
+--
+-- -   @ENTITY_MANAGEMENT_AUDIT@
+--
+-- -   @DHCP_ACTIVITY@
+--
+-- -   @NETWORK_ACTIVITY@
+--
+-- -   @DNS_ACTIVITY@
+--
+-- -   @FTP_ACTIVITY@
+--
+-- -   @HTTP_ACTIVITY@
+--
+-- -   @RDP_ACTIVITY@
+--
+-- -   @SMB_ACTIVITY@
+--
+-- -   @SSH_ACTIVITY@
+--
+-- -   @CONFIG_STATE@
+--
+-- -   @INVENTORY_INFO@
+--
+-- -   @EMAIL_ACTIVITY@
+--
+-- -   @API_ACTIVITY@
+--
+-- -   @CLOUD_API@
+--
+-- 'sourceVersion', 'createCustomLogSource_sourceVersion' - Specify the source version for the third-party custom source, to limit
+-- log collection to a specific version of custom data source.
+--
+-- 'sourceName', 'createCustomLogSource_sourceName' - Specify the name for a third-party custom source. This must be a
+-- Regionally unique value.
 newCreateCustomLogSource ::
-  -- | 'customSourceName'
-  Prelude.Text ->
-  -- | 'eventClass'
-  OcsfEventClass ->
-  -- | 'glueInvocationRoleArn'
-  Prelude.Text ->
-  -- | 'logProviderAccountId'
+  -- | 'sourceName'
   Prelude.Text ->
   CreateCustomLogSource
-newCreateCustomLogSource
-  pCustomSourceName_
-  pEventClass_
-  pGlueInvocationRoleArn_
-  pLogProviderAccountId_ =
-    CreateCustomLogSource'
-      { customSourceName =
-          pCustomSourceName_,
-        eventClass = pEventClass_,
-        glueInvocationRoleArn = pGlueInvocationRoleArn_,
-        logProviderAccountId = pLogProviderAccountId_
-      }
+newCreateCustomLogSource pSourceName_ =
+  CreateCustomLogSource'
+    { configuration =
+        Prelude.Nothing,
+      eventClasses = Prelude.Nothing,
+      sourceVersion = Prelude.Nothing,
+      sourceName = pSourceName_
+    }
 
--- | The name for a third-party custom source. This must be a Regionally
--- unique value.
-createCustomLogSource_customSourceName :: Lens.Lens' CreateCustomLogSource Prelude.Text
-createCustomLogSource_customSourceName = Lens.lens (\CreateCustomLogSource' {customSourceName} -> customSourceName) (\s@CreateCustomLogSource' {} a -> s {customSourceName = a} :: CreateCustomLogSource)
+-- | The configuration for the third-party custom source.
+createCustomLogSource_configuration :: Lens.Lens' CreateCustomLogSource (Prelude.Maybe CustomLogSourceConfiguration)
+createCustomLogSource_configuration = Lens.lens (\CreateCustomLogSource' {configuration} -> configuration) (\s@CreateCustomLogSource' {} a -> s {configuration = a} :: CreateCustomLogSource)
 
--- | The Open Cybersecurity Schema Framework (OCSF) event class which
+-- | The Open Cybersecurity Schema Framework (OCSF) event classes which
 -- describes the type of data that the custom source will send to Security
--- Lake.
-createCustomLogSource_eventClass :: Lens.Lens' CreateCustomLogSource OcsfEventClass
-createCustomLogSource_eventClass = Lens.lens (\CreateCustomLogSource' {eventClass} -> eventClass) (\s@CreateCustomLogSource' {} a -> s {eventClass = a} :: CreateCustomLogSource)
-
--- | The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) role to be used by the Glue crawler. The recommended IAM policies
--- are:
+-- Lake. The supported event classes are:
 --
--- -   The managed policy @AWSGlueServiceRole@
+-- -   @ACCESS_ACTIVITY@
 --
--- -   A custom policy granting access to your Amazon S3 Data Lake
-createCustomLogSource_glueInvocationRoleArn :: Lens.Lens' CreateCustomLogSource Prelude.Text
-createCustomLogSource_glueInvocationRoleArn = Lens.lens (\CreateCustomLogSource' {glueInvocationRoleArn} -> glueInvocationRoleArn) (\s@CreateCustomLogSource' {} a -> s {glueInvocationRoleArn = a} :: CreateCustomLogSource)
+-- -   @FILE_ACTIVITY@
+--
+-- -   @KERNEL_ACTIVITY@
+--
+-- -   @KERNEL_EXTENSION@
+--
+-- -   @MEMORY_ACTIVITY@
+--
+-- -   @MODULE_ACTIVITY@
+--
+-- -   @PROCESS_ACTIVITY@
+--
+-- -   @REGISTRY_KEY_ACTIVITY@
+--
+-- -   @REGISTRY_VALUE_ACTIVITY@
+--
+-- -   @RESOURCE_ACTIVITY@
+--
+-- -   @SCHEDULED_JOB_ACTIVITY@
+--
+-- -   @SECURITY_FINDING@
+--
+-- -   @ACCOUNT_CHANGE@
+--
+-- -   @AUTHENTICATION@
+--
+-- -   @AUTHORIZATION@
+--
+-- -   @ENTITY_MANAGEMENT_AUDIT@
+--
+-- -   @DHCP_ACTIVITY@
+--
+-- -   @NETWORK_ACTIVITY@
+--
+-- -   @DNS_ACTIVITY@
+--
+-- -   @FTP_ACTIVITY@
+--
+-- -   @HTTP_ACTIVITY@
+--
+-- -   @RDP_ACTIVITY@
+--
+-- -   @SMB_ACTIVITY@
+--
+-- -   @SSH_ACTIVITY@
+--
+-- -   @CONFIG_STATE@
+--
+-- -   @INVENTORY_INFO@
+--
+-- -   @EMAIL_ACTIVITY@
+--
+-- -   @API_ACTIVITY@
+--
+-- -   @CLOUD_API@
+createCustomLogSource_eventClasses :: Lens.Lens' CreateCustomLogSource (Prelude.Maybe [Prelude.Text])
+createCustomLogSource_eventClasses = Lens.lens (\CreateCustomLogSource' {eventClasses} -> eventClasses) (\s@CreateCustomLogSource' {} a -> s {eventClasses = a} :: CreateCustomLogSource) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Web Services account ID of the custom source that will write
--- logs and events into the Amazon S3 Data Lake.
-createCustomLogSource_logProviderAccountId :: Lens.Lens' CreateCustomLogSource Prelude.Text
-createCustomLogSource_logProviderAccountId = Lens.lens (\CreateCustomLogSource' {logProviderAccountId} -> logProviderAccountId) (\s@CreateCustomLogSource' {} a -> s {logProviderAccountId = a} :: CreateCustomLogSource)
+-- | Specify the source version for the third-party custom source, to limit
+-- log collection to a specific version of custom data source.
+createCustomLogSource_sourceVersion :: Lens.Lens' CreateCustomLogSource (Prelude.Maybe Prelude.Text)
+createCustomLogSource_sourceVersion = Lens.lens (\CreateCustomLogSource' {sourceVersion} -> sourceVersion) (\s@CreateCustomLogSource' {} a -> s {sourceVersion = a} :: CreateCustomLogSource)
+
+-- | Specify the name for a third-party custom source. This must be a
+-- Regionally unique value.
+createCustomLogSource_sourceName :: Lens.Lens' CreateCustomLogSource Prelude.Text
+createCustomLogSource_sourceName = Lens.lens (\CreateCustomLogSource' {sourceName} -> sourceName) (\s@CreateCustomLogSource' {} a -> s {sourceName = a} :: CreateCustomLogSource)
 
 instance Core.AWSRequest CreateCustomLogSource where
   type
@@ -168,27 +311,24 @@ instance Core.AWSRequest CreateCustomLogSource where
     Response.receiveJSON
       ( \s h x ->
           CreateCustomLogSourceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Data..:> "customDataLocation")
-            Prelude.<*> (x Data..:> "glueCrawlerName")
-            Prelude.<*> (x Data..:> "glueDatabaseName")
-            Prelude.<*> (x Data..:> "glueTableName")
-            Prelude.<*> (x Data..:> "logProviderAccessRoleArn")
+            Prelude.<$> (x Data..?> "source")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateCustomLogSource where
   hashWithSalt _salt CreateCustomLogSource' {..} =
-    _salt `Prelude.hashWithSalt` customSourceName
-      `Prelude.hashWithSalt` eventClass
-      `Prelude.hashWithSalt` glueInvocationRoleArn
-      `Prelude.hashWithSalt` logProviderAccountId
+    _salt
+      `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` eventClasses
+      `Prelude.hashWithSalt` sourceVersion
+      `Prelude.hashWithSalt` sourceName
 
 instance Prelude.NFData CreateCustomLogSource where
   rnf CreateCustomLogSource' {..} =
-    Prelude.rnf customSourceName
-      `Prelude.seq` Prelude.rnf eventClass
-      `Prelude.seq` Prelude.rnf glueInvocationRoleArn
-      `Prelude.seq` Prelude.rnf logProviderAccountId
+    Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf eventClasses
+      `Prelude.seq` Prelude.rnf sourceVersion
+      `Prelude.seq` Prelude.rnf sourceName
 
 instance Data.ToHeaders CreateCustomLogSource where
   toHeaders =
@@ -205,46 +345,26 @@ instance Data.ToJSON CreateCustomLogSource where
   toJSON CreateCustomLogSource' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just
-              ("customSourceName" Data..= customSourceName),
-            Prelude.Just ("eventClass" Data..= eventClass),
-            Prelude.Just
-              ( "glueInvocationRoleArn"
-                  Data..= glueInvocationRoleArn
-              ),
-            Prelude.Just
-              ( "logProviderAccountId"
-                  Data..= logProviderAccountId
-              )
+          [ ("configuration" Data..=) Prelude.<$> configuration,
+            ("eventClasses" Data..=) Prelude.<$> eventClasses,
+            ("sourceVersion" Data..=) Prelude.<$> sourceVersion,
+            Prelude.Just ("sourceName" Data..= sourceName)
           ]
       )
 
 instance Data.ToPath CreateCustomLogSource where
-  toPath = Prelude.const "/v1/logsources/custom"
+  toPath =
+    Prelude.const "/v1/datalake/logsources/custom"
 
 instance Data.ToQuery CreateCustomLogSource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newCreateCustomLogSourceResponse' smart constructor.
 data CreateCustomLogSourceResponse = CreateCustomLogSourceResponse'
-  { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
-    -- | The location of the partition in the Amazon S3 bucket for Security Lake.
-    customDataLocation :: Prelude.Text,
-    -- | The name of the Glue crawler.
-    glueCrawlerName :: Prelude.Text,
-    -- | The Glue database where results are written, such as:
-    -- @arn:aws:daylight:us-east-1::database\/sometable\/*@.
-    glueDatabaseName :: Prelude.Text,
-    -- | The table name of the Glue crawler.
-    glueTableName :: Prelude.Text,
-    -- | The ARN of the IAM role to be used by the entity putting logs into your
-    -- custom source partition. Security Lake will apply the correct access
-    -- policies to this role, but you must first manually create the trust
-    -- policy for this role. The IAM role name must start with the text
-    -- \'Security Lake\'. The IAM role must trust the @logProviderAccountId@ to
-    -- assume the role.
-    logProviderAccessRoleArn :: Prelude.Text
+  { -- | The created third-party custom source.
+    source :: Prelude.Maybe CustomLogSourceResource,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -256,90 +376,29 @@ data CreateCustomLogSourceResponse = CreateCustomLogSourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'source', 'createCustomLogSourceResponse_source' - The created third-party custom source.
+--
 -- 'httpStatus', 'createCustomLogSourceResponse_httpStatus' - The response's http status code.
---
--- 'customDataLocation', 'createCustomLogSourceResponse_customDataLocation' - The location of the partition in the Amazon S3 bucket for Security Lake.
---
--- 'glueCrawlerName', 'createCustomLogSourceResponse_glueCrawlerName' - The name of the Glue crawler.
---
--- 'glueDatabaseName', 'createCustomLogSourceResponse_glueDatabaseName' - The Glue database where results are written, such as:
--- @arn:aws:daylight:us-east-1::database\/sometable\/*@.
---
--- 'glueTableName', 'createCustomLogSourceResponse_glueTableName' - The table name of the Glue crawler.
---
--- 'logProviderAccessRoleArn', 'createCustomLogSourceResponse_logProviderAccessRoleArn' - The ARN of the IAM role to be used by the entity putting logs into your
--- custom source partition. Security Lake will apply the correct access
--- policies to this role, but you must first manually create the trust
--- policy for this role. The IAM role name must start with the text
--- \'Security Lake\'. The IAM role must trust the @logProviderAccountId@ to
--- assume the role.
 newCreateCustomLogSourceResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  -- | 'customDataLocation'
-  Prelude.Text ->
-  -- | 'glueCrawlerName'
-  Prelude.Text ->
-  -- | 'glueDatabaseName'
-  Prelude.Text ->
-  -- | 'glueTableName'
-  Prelude.Text ->
-  -- | 'logProviderAccessRoleArn'
-  Prelude.Text ->
   CreateCustomLogSourceResponse
-newCreateCustomLogSourceResponse
-  pHttpStatus_
-  pCustomDataLocation_
-  pGlueCrawlerName_
-  pGlueDatabaseName_
-  pGlueTableName_
-  pLogProviderAccessRoleArn_ =
-    CreateCustomLogSourceResponse'
-      { httpStatus =
-          pHttpStatus_,
-        customDataLocation = pCustomDataLocation_,
-        glueCrawlerName = pGlueCrawlerName_,
-        glueDatabaseName = pGlueDatabaseName_,
-        glueTableName = pGlueTableName_,
-        logProviderAccessRoleArn =
-          pLogProviderAccessRoleArn_
-      }
+newCreateCustomLogSourceResponse pHttpStatus_ =
+  CreateCustomLogSourceResponse'
+    { source =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The created third-party custom source.
+createCustomLogSourceResponse_source :: Lens.Lens' CreateCustomLogSourceResponse (Prelude.Maybe CustomLogSourceResource)
+createCustomLogSourceResponse_source = Lens.lens (\CreateCustomLogSourceResponse' {source} -> source) (\s@CreateCustomLogSourceResponse' {} a -> s {source = a} :: CreateCustomLogSourceResponse)
 
 -- | The response's http status code.
 createCustomLogSourceResponse_httpStatus :: Lens.Lens' CreateCustomLogSourceResponse Prelude.Int
 createCustomLogSourceResponse_httpStatus = Lens.lens (\CreateCustomLogSourceResponse' {httpStatus} -> httpStatus) (\s@CreateCustomLogSourceResponse' {} a -> s {httpStatus = a} :: CreateCustomLogSourceResponse)
 
--- | The location of the partition in the Amazon S3 bucket for Security Lake.
-createCustomLogSourceResponse_customDataLocation :: Lens.Lens' CreateCustomLogSourceResponse Prelude.Text
-createCustomLogSourceResponse_customDataLocation = Lens.lens (\CreateCustomLogSourceResponse' {customDataLocation} -> customDataLocation) (\s@CreateCustomLogSourceResponse' {} a -> s {customDataLocation = a} :: CreateCustomLogSourceResponse)
-
--- | The name of the Glue crawler.
-createCustomLogSourceResponse_glueCrawlerName :: Lens.Lens' CreateCustomLogSourceResponse Prelude.Text
-createCustomLogSourceResponse_glueCrawlerName = Lens.lens (\CreateCustomLogSourceResponse' {glueCrawlerName} -> glueCrawlerName) (\s@CreateCustomLogSourceResponse' {} a -> s {glueCrawlerName = a} :: CreateCustomLogSourceResponse)
-
--- | The Glue database where results are written, such as:
--- @arn:aws:daylight:us-east-1::database\/sometable\/*@.
-createCustomLogSourceResponse_glueDatabaseName :: Lens.Lens' CreateCustomLogSourceResponse Prelude.Text
-createCustomLogSourceResponse_glueDatabaseName = Lens.lens (\CreateCustomLogSourceResponse' {glueDatabaseName} -> glueDatabaseName) (\s@CreateCustomLogSourceResponse' {} a -> s {glueDatabaseName = a} :: CreateCustomLogSourceResponse)
-
--- | The table name of the Glue crawler.
-createCustomLogSourceResponse_glueTableName :: Lens.Lens' CreateCustomLogSourceResponse Prelude.Text
-createCustomLogSourceResponse_glueTableName = Lens.lens (\CreateCustomLogSourceResponse' {glueTableName} -> glueTableName) (\s@CreateCustomLogSourceResponse' {} a -> s {glueTableName = a} :: CreateCustomLogSourceResponse)
-
--- | The ARN of the IAM role to be used by the entity putting logs into your
--- custom source partition. Security Lake will apply the correct access
--- policies to this role, but you must first manually create the trust
--- policy for this role. The IAM role name must start with the text
--- \'Security Lake\'. The IAM role must trust the @logProviderAccountId@ to
--- assume the role.
-createCustomLogSourceResponse_logProviderAccessRoleArn :: Lens.Lens' CreateCustomLogSourceResponse Prelude.Text
-createCustomLogSourceResponse_logProviderAccessRoleArn = Lens.lens (\CreateCustomLogSourceResponse' {logProviderAccessRoleArn} -> logProviderAccessRoleArn) (\s@CreateCustomLogSourceResponse' {} a -> s {logProviderAccessRoleArn = a} :: CreateCustomLogSourceResponse)
-
 instance Prelude.NFData CreateCustomLogSourceResponse where
   rnf CreateCustomLogSourceResponse' {..} =
-    Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf customDataLocation
-      `Prelude.seq` Prelude.rnf glueCrawlerName
-      `Prelude.seq` Prelude.rnf glueDatabaseName
-      `Prelude.seq` Prelude.rnf glueTableName
-      `Prelude.seq` Prelude.rnf logProviderAccessRoleArn
+    Prelude.rnf source
+      `Prelude.seq` Prelude.rnf httpStatus

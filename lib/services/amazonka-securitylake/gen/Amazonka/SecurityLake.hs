@@ -11,30 +11,25 @@
 --
 -- Derived from API version @2018-05-10@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Amazon Security Lake is in preview release. Your use of the Security
--- Lake preview is subject to Section 2 of the
--- <http://aws.amazon.com/service-terms/ Amazon Web Services Service Terms>(\"Betas
--- and Previews\").
---
 -- Amazon Security Lake is a fully managed security data lake service. You
 -- can use Security Lake to automatically centralize security data from
 -- cloud, on-premises, and custom sources into a data lake that\'s stored
--- in your Amazon Web Servicesaccount. Amazon Web Services Organizations is
--- an account management service that lets you consolidate multiple Amazon
--- Web Services accounts into an organization that you create and centrally
--- manage. With Organizations, you can create member accounts and invite
--- existing accounts to join your organization. Security Lake helps you
--- analyze security data for a more complete understanding of your security
--- posture across the entire organization. It can also help you improve the
--- protection of your workloads, applications, and data.
+-- in your Amazon Web Services account. Amazon Web Services Organizations
+-- is an account management service that lets you consolidate multiple
+-- Amazon Web Services accounts into an organization that you create and
+-- centrally manage. With Organizations, you can create member accounts and
+-- invite existing accounts to join your organization. Security Lake helps
+-- you analyze security data for a more complete understanding of your
+-- security posture across the entire organization. It can also help you
+-- improve the protection of your workloads, applications, and data.
 --
 -- The data lake is backed by Amazon Simple Storage Service (Amazon S3)
 -- buckets, and you retain ownership over your data.
 --
 -- Amazon Security Lake integrates with CloudTrail, a service that provides
 -- a record of actions taken by a user, role, or an Amazon Web Services
--- service in Security Lake CloudTrail captures API calls for Security Lake
--- as events. The calls captured include calls from the Security Lake
+-- service. In Security Lake, CloudTrail captures API calls for Security
+-- Lake as events. The calls captured include calls from the Security Lake
 -- console and code calls to the Security Lake API operations. If you
 -- create a trail, you can enable continuous delivery of CloudTrail events
 -- to an Amazon S3 bucket, including events for Security Lake. If you
@@ -66,47 +61,20 @@ module Amazonka.SecurityLake
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** AccountNotFoundException
-    _AccountNotFoundException,
-
-    -- ** BucketNotFoundException
-    _BucketNotFoundException,
-
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- ** ConflictException
     _ConflictException,
 
-    -- ** ConflictSourceNamesException
-    _ConflictSourceNamesException,
-
-    -- ** ConflictSubscriptionException
-    _ConflictSubscriptionException,
-
-    -- ** EventBridgeException
-    _EventBridgeException,
-
     -- ** InternalServerException
     _InternalServerException,
-
-    -- ** InvalidInputException
-    _InvalidInputException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** S3Exception
-    _S3Exception,
-
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
     -- ** ThrottlingException
     _ThrottlingException,
-
-    -- ** ValidationException
-    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -126,29 +94,23 @@ module Amazonka.SecurityLake
     CreateCustomLogSourceResponse (CreateCustomLogSourceResponse'),
     newCreateCustomLogSourceResponse,
 
-    -- ** CreateDatalake
-    CreateDatalake (CreateDatalake'),
-    newCreateDatalake,
-    CreateDatalakeResponse (CreateDatalakeResponse'),
-    newCreateDatalakeResponse,
+    -- ** CreateDataLake
+    CreateDataLake (CreateDataLake'),
+    newCreateDataLake,
+    CreateDataLakeResponse (CreateDataLakeResponse'),
+    newCreateDataLakeResponse,
 
-    -- ** CreateDatalakeAutoEnable
-    CreateDatalakeAutoEnable (CreateDatalakeAutoEnable'),
-    newCreateDatalakeAutoEnable,
-    CreateDatalakeAutoEnableResponse (CreateDatalakeAutoEnableResponse'),
-    newCreateDatalakeAutoEnableResponse,
+    -- ** CreateDataLakeExceptionSubscription
+    CreateDataLakeExceptionSubscription (CreateDataLakeExceptionSubscription'),
+    newCreateDataLakeExceptionSubscription,
+    CreateDataLakeExceptionSubscriptionResponse (CreateDataLakeExceptionSubscriptionResponse'),
+    newCreateDataLakeExceptionSubscriptionResponse,
 
-    -- ** CreateDatalakeDelegatedAdmin
-    CreateDatalakeDelegatedAdmin (CreateDatalakeDelegatedAdmin'),
-    newCreateDatalakeDelegatedAdmin,
-    CreateDatalakeDelegatedAdminResponse (CreateDatalakeDelegatedAdminResponse'),
-    newCreateDatalakeDelegatedAdminResponse,
-
-    -- ** CreateDatalakeExceptionsSubscription
-    CreateDatalakeExceptionsSubscription (CreateDatalakeExceptionsSubscription'),
-    newCreateDatalakeExceptionsSubscription,
-    CreateDatalakeExceptionsSubscriptionResponse (CreateDatalakeExceptionsSubscriptionResponse'),
-    newCreateDatalakeExceptionsSubscriptionResponse,
+    -- ** CreateDataLakeOrganizationConfiguration
+    CreateDataLakeOrganizationConfiguration (CreateDataLakeOrganizationConfiguration'),
+    newCreateDataLakeOrganizationConfiguration,
+    CreateDataLakeOrganizationConfigurationResponse (CreateDataLakeOrganizationConfigurationResponse'),
+    newCreateDataLakeOrganizationConfigurationResponse,
 
     -- ** CreateSubscriber
     CreateSubscriber (CreateSubscriber'),
@@ -156,11 +118,11 @@ module Amazonka.SecurityLake
     CreateSubscriberResponse (CreateSubscriberResponse'),
     newCreateSubscriberResponse,
 
-    -- ** CreateSubscriptionNotificationConfiguration
-    CreateSubscriptionNotificationConfiguration (CreateSubscriptionNotificationConfiguration'),
-    newCreateSubscriptionNotificationConfiguration,
-    CreateSubscriptionNotificationConfigurationResponse (CreateSubscriptionNotificationConfigurationResponse'),
-    newCreateSubscriptionNotificationConfigurationResponse,
+    -- ** CreateSubscriberNotification
+    CreateSubscriberNotification (CreateSubscriberNotification'),
+    newCreateSubscriberNotification,
+    CreateSubscriberNotificationResponse (CreateSubscriberNotificationResponse'),
+    newCreateSubscriberNotificationResponse,
 
     -- ** DeleteAwsLogSource
     DeleteAwsLogSource (DeleteAwsLogSource'),
@@ -174,29 +136,23 @@ module Amazonka.SecurityLake
     DeleteCustomLogSourceResponse (DeleteCustomLogSourceResponse'),
     newDeleteCustomLogSourceResponse,
 
-    -- ** DeleteDatalake
-    DeleteDatalake (DeleteDatalake'),
-    newDeleteDatalake,
-    DeleteDatalakeResponse (DeleteDatalakeResponse'),
-    newDeleteDatalakeResponse,
+    -- ** DeleteDataLake
+    DeleteDataLake (DeleteDataLake'),
+    newDeleteDataLake,
+    DeleteDataLakeResponse (DeleteDataLakeResponse'),
+    newDeleteDataLakeResponse,
 
-    -- ** DeleteDatalakeAutoEnable
-    DeleteDatalakeAutoEnable (DeleteDatalakeAutoEnable'),
-    newDeleteDatalakeAutoEnable,
-    DeleteDatalakeAutoEnableResponse (DeleteDatalakeAutoEnableResponse'),
-    newDeleteDatalakeAutoEnableResponse,
+    -- ** DeleteDataLakeExceptionSubscription
+    DeleteDataLakeExceptionSubscription (DeleteDataLakeExceptionSubscription'),
+    newDeleteDataLakeExceptionSubscription,
+    DeleteDataLakeExceptionSubscriptionResponse (DeleteDataLakeExceptionSubscriptionResponse'),
+    newDeleteDataLakeExceptionSubscriptionResponse,
 
-    -- ** DeleteDatalakeDelegatedAdmin
-    DeleteDatalakeDelegatedAdmin (DeleteDatalakeDelegatedAdmin'),
-    newDeleteDatalakeDelegatedAdmin,
-    DeleteDatalakeDelegatedAdminResponse (DeleteDatalakeDelegatedAdminResponse'),
-    newDeleteDatalakeDelegatedAdminResponse,
-
-    -- ** DeleteDatalakeExceptionsSubscription
-    DeleteDatalakeExceptionsSubscription (DeleteDatalakeExceptionsSubscription'),
-    newDeleteDatalakeExceptionsSubscription,
-    DeleteDatalakeExceptionsSubscriptionResponse (DeleteDatalakeExceptionsSubscriptionResponse'),
-    newDeleteDatalakeExceptionsSubscriptionResponse,
+    -- ** DeleteDataLakeOrganizationConfiguration
+    DeleteDataLakeOrganizationConfiguration (DeleteDataLakeOrganizationConfiguration'),
+    newDeleteDataLakeOrganizationConfiguration,
+    DeleteDataLakeOrganizationConfigurationResponse (DeleteDataLakeOrganizationConfigurationResponse'),
+    newDeleteDataLakeOrganizationConfigurationResponse,
 
     -- ** DeleteSubscriber
     DeleteSubscriber (DeleteSubscriber'),
@@ -204,41 +160,35 @@ module Amazonka.SecurityLake
     DeleteSubscriberResponse (DeleteSubscriberResponse'),
     newDeleteSubscriberResponse,
 
-    -- ** DeleteSubscriptionNotificationConfiguration
-    DeleteSubscriptionNotificationConfiguration (DeleteSubscriptionNotificationConfiguration'),
-    newDeleteSubscriptionNotificationConfiguration,
-    DeleteSubscriptionNotificationConfigurationResponse (DeleteSubscriptionNotificationConfigurationResponse'),
-    newDeleteSubscriptionNotificationConfigurationResponse,
+    -- ** DeleteSubscriberNotification
+    DeleteSubscriberNotification (DeleteSubscriberNotification'),
+    newDeleteSubscriberNotification,
+    DeleteSubscriberNotificationResponse (DeleteSubscriberNotificationResponse'),
+    newDeleteSubscriberNotificationResponse,
 
-    -- ** GetDatalake
-    GetDatalake (GetDatalake'),
-    newGetDatalake,
-    GetDatalakeResponse (GetDatalakeResponse'),
-    newGetDatalakeResponse,
+    -- ** DeregisterDataLakeDelegatedAdministrator
+    DeregisterDataLakeDelegatedAdministrator (DeregisterDataLakeDelegatedAdministrator'),
+    newDeregisterDataLakeDelegatedAdministrator,
+    DeregisterDataLakeDelegatedAdministratorResponse (DeregisterDataLakeDelegatedAdministratorResponse'),
+    newDeregisterDataLakeDelegatedAdministratorResponse,
 
-    -- ** GetDatalakeAutoEnable
-    GetDatalakeAutoEnable (GetDatalakeAutoEnable'),
-    newGetDatalakeAutoEnable,
-    GetDatalakeAutoEnableResponse (GetDatalakeAutoEnableResponse'),
-    newGetDatalakeAutoEnableResponse,
+    -- ** GetDataLakeExceptionSubscription
+    GetDataLakeExceptionSubscription (GetDataLakeExceptionSubscription'),
+    newGetDataLakeExceptionSubscription,
+    GetDataLakeExceptionSubscriptionResponse (GetDataLakeExceptionSubscriptionResponse'),
+    newGetDataLakeExceptionSubscriptionResponse,
 
-    -- ** GetDatalakeExceptionsExpiry
-    GetDatalakeExceptionsExpiry (GetDatalakeExceptionsExpiry'),
-    newGetDatalakeExceptionsExpiry,
-    GetDatalakeExceptionsExpiryResponse (GetDatalakeExceptionsExpiryResponse'),
-    newGetDatalakeExceptionsExpiryResponse,
+    -- ** GetDataLakeOrganizationConfiguration
+    GetDataLakeOrganizationConfiguration (GetDataLakeOrganizationConfiguration'),
+    newGetDataLakeOrganizationConfiguration,
+    GetDataLakeOrganizationConfigurationResponse (GetDataLakeOrganizationConfigurationResponse'),
+    newGetDataLakeOrganizationConfigurationResponse,
 
-    -- ** GetDatalakeExceptionsSubscription
-    GetDatalakeExceptionsSubscription (GetDatalakeExceptionsSubscription'),
-    newGetDatalakeExceptionsSubscription,
-    GetDatalakeExceptionsSubscriptionResponse (GetDatalakeExceptionsSubscriptionResponse'),
-    newGetDatalakeExceptionsSubscriptionResponse,
-
-    -- ** GetDatalakeStatus (Paginated)
-    GetDatalakeStatus (GetDatalakeStatus'),
-    newGetDatalakeStatus,
-    GetDatalakeStatusResponse (GetDatalakeStatusResponse'),
-    newGetDatalakeStatusResponse,
+    -- ** GetDataLakeSources (Paginated)
+    GetDataLakeSources (GetDataLakeSources'),
+    newGetDataLakeSources,
+    GetDataLakeSourcesResponse (GetDataLakeSourcesResponse'),
+    newGetDataLakeSourcesResponse,
 
     -- ** GetSubscriber
     GetSubscriber (GetSubscriber'),
@@ -246,11 +196,17 @@ module Amazonka.SecurityLake
     GetSubscriberResponse (GetSubscriberResponse'),
     newGetSubscriberResponse,
 
-    -- ** ListDatalakeExceptions (Paginated)
-    ListDatalakeExceptions (ListDatalakeExceptions'),
-    newListDatalakeExceptions,
-    ListDatalakeExceptionsResponse (ListDatalakeExceptionsResponse'),
-    newListDatalakeExceptionsResponse,
+    -- ** ListDataLakeExceptions (Paginated)
+    ListDataLakeExceptions (ListDataLakeExceptions'),
+    newListDataLakeExceptions,
+    ListDataLakeExceptionsResponse (ListDataLakeExceptionsResponse'),
+    newListDataLakeExceptionsResponse,
+
+    -- ** ListDataLakes
+    ListDataLakes (ListDataLakes'),
+    newListDataLakes,
+    ListDataLakesResponse (ListDataLakesResponse'),
+    newListDataLakesResponse,
 
     -- ** ListLogSources (Paginated)
     ListLogSources (ListLogSources'),
@@ -264,23 +220,23 @@ module Amazonka.SecurityLake
     ListSubscribersResponse (ListSubscribersResponse'),
     newListSubscribersResponse,
 
-    -- ** UpdateDatalake
-    UpdateDatalake (UpdateDatalake'),
-    newUpdateDatalake,
-    UpdateDatalakeResponse (UpdateDatalakeResponse'),
-    newUpdateDatalakeResponse,
+    -- ** RegisterDataLakeDelegatedAdministrator
+    RegisterDataLakeDelegatedAdministrator (RegisterDataLakeDelegatedAdministrator'),
+    newRegisterDataLakeDelegatedAdministrator,
+    RegisterDataLakeDelegatedAdministratorResponse (RegisterDataLakeDelegatedAdministratorResponse'),
+    newRegisterDataLakeDelegatedAdministratorResponse,
 
-    -- ** UpdateDatalakeExceptionsExpiry
-    UpdateDatalakeExceptionsExpiry (UpdateDatalakeExceptionsExpiry'),
-    newUpdateDatalakeExceptionsExpiry,
-    UpdateDatalakeExceptionsExpiryResponse (UpdateDatalakeExceptionsExpiryResponse'),
-    newUpdateDatalakeExceptionsExpiryResponse,
+    -- ** UpdateDataLake
+    UpdateDataLake (UpdateDataLake'),
+    newUpdateDataLake,
+    UpdateDataLakeResponse (UpdateDataLakeResponse'),
+    newUpdateDataLakeResponse,
 
-    -- ** UpdateDatalakeExceptionsSubscription
-    UpdateDatalakeExceptionsSubscription (UpdateDatalakeExceptionsSubscription'),
-    newUpdateDatalakeExceptionsSubscription,
-    UpdateDatalakeExceptionsSubscriptionResponse (UpdateDatalakeExceptionsSubscriptionResponse'),
-    newUpdateDatalakeExceptionsSubscriptionResponse,
+    -- ** UpdateDataLakeExceptionSubscription
+    UpdateDataLakeExceptionSubscription (UpdateDataLakeExceptionSubscription'),
+    newUpdateDataLakeExceptionSubscription,
+    UpdateDataLakeExceptionSubscriptionResponse (UpdateDataLakeExceptionSubscriptionResponse'),
+    newUpdateDataLakeExceptionSubscriptionResponse,
 
     -- ** UpdateSubscriber
     UpdateSubscriber (UpdateSubscriber'),
@@ -288,89 +244,135 @@ module Amazonka.SecurityLake
     UpdateSubscriberResponse (UpdateSubscriberResponse'),
     newUpdateSubscriberResponse,
 
-    -- ** UpdateSubscriptionNotificationConfiguration
-    UpdateSubscriptionNotificationConfiguration (UpdateSubscriptionNotificationConfiguration'),
-    newUpdateSubscriptionNotificationConfiguration,
-    UpdateSubscriptionNotificationConfigurationResponse (UpdateSubscriptionNotificationConfigurationResponse'),
-    newUpdateSubscriptionNotificationConfigurationResponse,
+    -- ** UpdateSubscriberNotification
+    UpdateSubscriberNotification (UpdateSubscriberNotification'),
+    newUpdateSubscriberNotification,
+    UpdateSubscriberNotificationResponse (UpdateSubscriberNotificationResponse'),
+    newUpdateSubscriberNotificationResponse,
 
     -- * Types
 
     -- ** AccessType
     AccessType (..),
 
-    -- ** AwsLogSourceType
-    AwsLogSourceType (..),
+    -- ** AwsLogSourceName
+    AwsLogSourceName (..),
 
-    -- ** Dimension
-    Dimension (..),
+    -- ** DataLakeStatus
+    DataLakeStatus (..),
 
-    -- ** EndpointProtocol
-    EndpointProtocol (..),
+    -- ** HttpMethod
+    HttpMethod (..),
 
-    -- ** HttpsMethod
-    HttpsMethod (..),
+    -- ** SourceCollectionStatus
+    SourceCollectionStatus (..),
 
-    -- ** OcsfEventClass
-    OcsfEventClass (..),
+    -- ** SubscriberStatus
+    SubscriberStatus (..),
 
-    -- ** Region
-    Region (..),
+    -- ** AwsIdentity
+    AwsIdentity (AwsIdentity'),
+    newAwsIdentity,
 
-    -- ** SettingsStatus
-    SettingsStatus (..),
+    -- ** AwsLogSourceConfiguration
+    AwsLogSourceConfiguration (AwsLogSourceConfiguration'),
+    newAwsLogSourceConfiguration,
 
-    -- ** SourceStatus
-    SourceStatus (..),
+    -- ** AwsLogSourceResource
+    AwsLogSourceResource (AwsLogSourceResource'),
+    newAwsLogSourceResource,
 
-    -- ** StorageClass
-    StorageClass (..),
+    -- ** CustomLogSourceAttributes
+    CustomLogSourceAttributes (CustomLogSourceAttributes'),
+    newCustomLogSourceAttributes,
 
-    -- ** SubscriptionProtocolType
-    SubscriptionProtocolType (..),
+    -- ** CustomLogSourceConfiguration
+    CustomLogSourceConfiguration (CustomLogSourceConfiguration'),
+    newCustomLogSourceConfiguration,
 
-    -- ** SubscriptionStatus
-    SubscriptionStatus (..),
+    -- ** CustomLogSourceCrawlerConfiguration
+    CustomLogSourceCrawlerConfiguration (CustomLogSourceCrawlerConfiguration'),
+    newCustomLogSourceCrawlerConfiguration,
 
-    -- ** AccountSources
-    AccountSources (AccountSources'),
-    newAccountSources,
+    -- ** CustomLogSourceProvider
+    CustomLogSourceProvider (CustomLogSourceProvider'),
+    newCustomLogSourceProvider,
 
-    -- ** AutoEnableNewRegionConfiguration
-    AutoEnableNewRegionConfiguration (AutoEnableNewRegionConfiguration'),
-    newAutoEnableNewRegionConfiguration,
+    -- ** CustomLogSourceResource
+    CustomLogSourceResource (CustomLogSourceResource'),
+    newCustomLogSourceResource,
 
-    -- ** Failures
-    Failures (Failures'),
-    newFailures,
+    -- ** DataLakeAutoEnableNewAccountConfiguration
+    DataLakeAutoEnableNewAccountConfiguration (DataLakeAutoEnableNewAccountConfiguration'),
+    newDataLakeAutoEnableNewAccountConfiguration,
 
-    -- ** FailuresResponse
-    FailuresResponse (FailuresResponse'),
-    newFailuresResponse,
+    -- ** DataLakeConfiguration
+    DataLakeConfiguration (DataLakeConfiguration'),
+    newDataLakeConfiguration,
 
-    -- ** LakeConfigurationRequest
-    LakeConfigurationRequest (LakeConfigurationRequest'),
-    newLakeConfigurationRequest,
+    -- ** DataLakeEncryptionConfiguration
+    DataLakeEncryptionConfiguration (DataLakeEncryptionConfiguration'),
+    newDataLakeEncryptionConfiguration,
 
-    -- ** LakeConfigurationResponse
-    LakeConfigurationResponse (LakeConfigurationResponse'),
-    newLakeConfigurationResponse,
+    -- ** DataLakeException
+    DataLakeException (DataLakeException'),
+    newDataLakeException,
 
-    -- ** LogsStatus
-    LogsStatus (LogsStatus'),
-    newLogsStatus,
+    -- ** DataLakeLifecycleConfiguration
+    DataLakeLifecycleConfiguration (DataLakeLifecycleConfiguration'),
+    newDataLakeLifecycleConfiguration,
 
-    -- ** ProtocolAndNotificationEndpoint
-    ProtocolAndNotificationEndpoint (ProtocolAndNotificationEndpoint'),
-    newProtocolAndNotificationEndpoint,
+    -- ** DataLakeLifecycleExpiration
+    DataLakeLifecycleExpiration (DataLakeLifecycleExpiration'),
+    newDataLakeLifecycleExpiration,
 
-    -- ** RetentionSetting
-    RetentionSetting (RetentionSetting'),
-    newRetentionSetting,
+    -- ** DataLakeLifecycleTransition
+    DataLakeLifecycleTransition (DataLakeLifecycleTransition'),
+    newDataLakeLifecycleTransition,
 
-    -- ** SourceType
-    SourceType (SourceType'),
-    newSourceType,
+    -- ** DataLakeReplicationConfiguration
+    DataLakeReplicationConfiguration (DataLakeReplicationConfiguration'),
+    newDataLakeReplicationConfiguration,
+
+    -- ** DataLakeResource
+    DataLakeResource (DataLakeResource'),
+    newDataLakeResource,
+
+    -- ** DataLakeSource
+    DataLakeSource (DataLakeSource'),
+    newDataLakeSource,
+
+    -- ** DataLakeSourceStatus
+    DataLakeSourceStatus (DataLakeSourceStatus'),
+    newDataLakeSourceStatus,
+
+    -- ** DataLakeUpdateException
+    DataLakeUpdateException (DataLakeUpdateException'),
+    newDataLakeUpdateException,
+
+    -- ** DataLakeUpdateStatus
+    DataLakeUpdateStatus (DataLakeUpdateStatus'),
+    newDataLakeUpdateStatus,
+
+    -- ** HttpsNotificationConfiguration
+    HttpsNotificationConfiguration (HttpsNotificationConfiguration'),
+    newHttpsNotificationConfiguration,
+
+    -- ** LogSource
+    LogSource (LogSource'),
+    newLogSource,
+
+    -- ** LogSourceResource
+    LogSourceResource (LogSourceResource'),
+    newLogSourceResource,
+
+    -- ** NotificationConfiguration
+    NotificationConfiguration (NotificationConfiguration'),
+    newNotificationConfiguration,
+
+    -- ** SqsNotificationConfiguration
+    SqsNotificationConfiguration (SqsNotificationConfiguration'),
+    newSqsNotificationConfiguration,
 
     -- ** SubscriberResource
     SubscriberResource (SubscriberResource'),
@@ -380,36 +382,34 @@ where
 
 import Amazonka.SecurityLake.CreateAwsLogSource
 import Amazonka.SecurityLake.CreateCustomLogSource
-import Amazonka.SecurityLake.CreateDatalake
-import Amazonka.SecurityLake.CreateDatalakeAutoEnable
-import Amazonka.SecurityLake.CreateDatalakeDelegatedAdmin
-import Amazonka.SecurityLake.CreateDatalakeExceptionsSubscription
+import Amazonka.SecurityLake.CreateDataLake
+import Amazonka.SecurityLake.CreateDataLakeExceptionSubscription
+import Amazonka.SecurityLake.CreateDataLakeOrganizationConfiguration
 import Amazonka.SecurityLake.CreateSubscriber
-import Amazonka.SecurityLake.CreateSubscriptionNotificationConfiguration
+import Amazonka.SecurityLake.CreateSubscriberNotification
 import Amazonka.SecurityLake.DeleteAwsLogSource
 import Amazonka.SecurityLake.DeleteCustomLogSource
-import Amazonka.SecurityLake.DeleteDatalake
-import Amazonka.SecurityLake.DeleteDatalakeAutoEnable
-import Amazonka.SecurityLake.DeleteDatalakeDelegatedAdmin
-import Amazonka.SecurityLake.DeleteDatalakeExceptionsSubscription
+import Amazonka.SecurityLake.DeleteDataLake
+import Amazonka.SecurityLake.DeleteDataLakeExceptionSubscription
+import Amazonka.SecurityLake.DeleteDataLakeOrganizationConfiguration
 import Amazonka.SecurityLake.DeleteSubscriber
-import Amazonka.SecurityLake.DeleteSubscriptionNotificationConfiguration
-import Amazonka.SecurityLake.GetDatalake
-import Amazonka.SecurityLake.GetDatalakeAutoEnable
-import Amazonka.SecurityLake.GetDatalakeExceptionsExpiry
-import Amazonka.SecurityLake.GetDatalakeExceptionsSubscription
-import Amazonka.SecurityLake.GetDatalakeStatus
+import Amazonka.SecurityLake.DeleteSubscriberNotification
+import Amazonka.SecurityLake.DeregisterDataLakeDelegatedAdministrator
+import Amazonka.SecurityLake.GetDataLakeExceptionSubscription
+import Amazonka.SecurityLake.GetDataLakeOrganizationConfiguration
+import Amazonka.SecurityLake.GetDataLakeSources
 import Amazonka.SecurityLake.GetSubscriber
 import Amazonka.SecurityLake.Lens
-import Amazonka.SecurityLake.ListDatalakeExceptions
+import Amazonka.SecurityLake.ListDataLakeExceptions
+import Amazonka.SecurityLake.ListDataLakes
 import Amazonka.SecurityLake.ListLogSources
 import Amazonka.SecurityLake.ListSubscribers
+import Amazonka.SecurityLake.RegisterDataLakeDelegatedAdministrator
 import Amazonka.SecurityLake.Types
-import Amazonka.SecurityLake.UpdateDatalake
-import Amazonka.SecurityLake.UpdateDatalakeExceptionsExpiry
-import Amazonka.SecurityLake.UpdateDatalakeExceptionsSubscription
+import Amazonka.SecurityLake.UpdateDataLake
+import Amazonka.SecurityLake.UpdateDataLakeExceptionSubscription
 import Amazonka.SecurityLake.UpdateSubscriber
-import Amazonka.SecurityLake.UpdateSubscriptionNotificationConfiguration
+import Amazonka.SecurityLake.UpdateSubscriberNotification
 import Amazonka.SecurityLake.Waiters
 
 -- $errors

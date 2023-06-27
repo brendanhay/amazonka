@@ -29,12 +29,11 @@ module Amazonka.SecurityLake.ListLogSources
     newListLogSources,
 
     -- * Request Lenses
-    listLogSources_inputOrder,
-    listLogSources_listAllDimensions,
-    listLogSources_listSingleDimension,
-    listLogSources_listTwoDimensions,
+    listLogSources_accounts,
     listLogSources_maxResults,
     listLogSources_nextToken,
+    listLogSources_regions,
+    listLogSources_sources,
 
     -- * Destructuring the Response
     ListLogSourcesResponse (..),
@@ -42,8 +41,8 @@ module Amazonka.SecurityLake.ListLogSources
 
     -- * Response Lenses
     listLogSourcesResponse_nextToken,
+    listLogSourcesResponse_sources,
     listLogSourcesResponse_httpStatus,
-    listLogSourcesResponse_regionSourceTypesAccountsList,
   )
 where
 
@@ -57,25 +56,18 @@ import Amazonka.SecurityLake.Types
 
 -- | /See:/ 'newListLogSources' smart constructor.
 data ListLogSources = ListLogSources'
-  { -- | Lists the log sources in input order, namely Region, source type, and
-    -- member account.
-    inputOrder :: Prelude.Maybe [Dimension],
-    -- | List the view of log sources for enabled Amazon Security Lake accounts
-    -- for specific Amazon Web Services sources from specific accounts and
-    -- specific Regions.
-    listAllDimensions :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text [Prelude.Text])),
-    -- | List the view of log sources for enabled Security Lake accounts for all
-    -- Amazon Web Services sources from specific accounts or specific Regions.
-    listSingleDimension :: Prelude.Maybe [Prelude.Text],
-    -- | Lists the view of log sources for enabled Security Lake accounts for
-    -- specific Amazon Web Services sources from specific accounts or specific
-    -- Regions.
-    listTwoDimensions :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+  { -- | The list of Amazon Web Services accounts for which log sources are
+    -- displayed.
+    accounts :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of accounts for which the log sources are displayed.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | If nextToken is returned, there are more results available. You can
     -- repeat the call using the returned token to retrieve the next page.
-    nextToken :: Prelude.Maybe Prelude.Text
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of regions for which log sources are displayed.
+    regions :: Prelude.Maybe [Prelude.Text],
+    -- | The list of sources for which log sources are displayed.
+    sources :: Prelude.Maybe [LogSourceResource]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,60 +79,35 @@ data ListLogSources = ListLogSources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inputOrder', 'listLogSources_inputOrder' - Lists the log sources in input order, namely Region, source type, and
--- member account.
---
--- 'listAllDimensions', 'listLogSources_listAllDimensions' - List the view of log sources for enabled Amazon Security Lake accounts
--- for specific Amazon Web Services sources from specific accounts and
--- specific Regions.
---
--- 'listSingleDimension', 'listLogSources_listSingleDimension' - List the view of log sources for enabled Security Lake accounts for all
--- Amazon Web Services sources from specific accounts or specific Regions.
---
--- 'listTwoDimensions', 'listLogSources_listTwoDimensions' - Lists the view of log sources for enabled Security Lake accounts for
--- specific Amazon Web Services sources from specific accounts or specific
--- Regions.
+-- 'accounts', 'listLogSources_accounts' - The list of Amazon Web Services accounts for which log sources are
+-- displayed.
 --
 -- 'maxResults', 'listLogSources_maxResults' - The maximum number of accounts for which the log sources are displayed.
 --
 -- 'nextToken', 'listLogSources_nextToken' - If nextToken is returned, there are more results available. You can
 -- repeat the call using the returned token to retrieve the next page.
+--
+-- 'regions', 'listLogSources_regions' - The list of regions for which log sources are displayed.
+--
+-- 'sources', 'listLogSources_sources' - The list of sources for which log sources are displayed.
 newListLogSources ::
   ListLogSources
 newListLogSources =
   ListLogSources'
-    { inputOrder = Prelude.Nothing,
-      listAllDimensions = Prelude.Nothing,
-      listSingleDimension = Prelude.Nothing,
-      listTwoDimensions = Prelude.Nothing,
+    { accounts = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      nextToken = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      regions = Prelude.Nothing,
+      sources = Prelude.Nothing
     }
 
--- | Lists the log sources in input order, namely Region, source type, and
--- member account.
-listLogSources_inputOrder :: Lens.Lens' ListLogSources (Prelude.Maybe [Dimension])
-listLogSources_inputOrder = Lens.lens (\ListLogSources' {inputOrder} -> inputOrder) (\s@ListLogSources' {} a -> s {inputOrder = a} :: ListLogSources) Prelude.. Lens.mapping Lens.coerced
-
--- | List the view of log sources for enabled Amazon Security Lake accounts
--- for specific Amazon Web Services sources from specific accounts and
--- specific Regions.
-listLogSources_listAllDimensions :: Lens.Lens' ListLogSources (Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text [Prelude.Text])))
-listLogSources_listAllDimensions = Lens.lens (\ListLogSources' {listAllDimensions} -> listAllDimensions) (\s@ListLogSources' {} a -> s {listAllDimensions = a} :: ListLogSources) Prelude.. Lens.mapping Lens.coerced
-
--- | List the view of log sources for enabled Security Lake accounts for all
--- Amazon Web Services sources from specific accounts or specific Regions.
-listLogSources_listSingleDimension :: Lens.Lens' ListLogSources (Prelude.Maybe [Prelude.Text])
-listLogSources_listSingleDimension = Lens.lens (\ListLogSources' {listSingleDimension} -> listSingleDimension) (\s@ListLogSources' {} a -> s {listSingleDimension = a} :: ListLogSources) Prelude.. Lens.mapping Lens.coerced
-
--- | Lists the view of log sources for enabled Security Lake accounts for
--- specific Amazon Web Services sources from specific accounts or specific
--- Regions.
-listLogSources_listTwoDimensions :: Lens.Lens' ListLogSources (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-listLogSources_listTwoDimensions = Lens.lens (\ListLogSources' {listTwoDimensions} -> listTwoDimensions) (\s@ListLogSources' {} a -> s {listTwoDimensions = a} :: ListLogSources) Prelude.. Lens.mapping Lens.coerced
+-- | The list of Amazon Web Services accounts for which log sources are
+-- displayed.
+listLogSources_accounts :: Lens.Lens' ListLogSources (Prelude.Maybe [Prelude.Text])
+listLogSources_accounts = Lens.lens (\ListLogSources' {accounts} -> accounts) (\s@ListLogSources' {} a -> s {accounts = a} :: ListLogSources) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of accounts for which the log sources are displayed.
-listLogSources_maxResults :: Lens.Lens' ListLogSources (Prelude.Maybe Prelude.Int)
+listLogSources_maxResults :: Lens.Lens' ListLogSources (Prelude.Maybe Prelude.Natural)
 listLogSources_maxResults = Lens.lens (\ListLogSources' {maxResults} -> maxResults) (\s@ListLogSources' {} a -> s {maxResults = a} :: ListLogSources)
 
 -- | If nextToken is returned, there are more results available. You can
@@ -148,25 +115,35 @@ listLogSources_maxResults = Lens.lens (\ListLogSources' {maxResults} -> maxResul
 listLogSources_nextToken :: Lens.Lens' ListLogSources (Prelude.Maybe Prelude.Text)
 listLogSources_nextToken = Lens.lens (\ListLogSources' {nextToken} -> nextToken) (\s@ListLogSources' {} a -> s {nextToken = a} :: ListLogSources)
 
+-- | The list of regions for which log sources are displayed.
+listLogSources_regions :: Lens.Lens' ListLogSources (Prelude.Maybe [Prelude.Text])
+listLogSources_regions = Lens.lens (\ListLogSources' {regions} -> regions) (\s@ListLogSources' {} a -> s {regions = a} :: ListLogSources) Prelude.. Lens.mapping Lens.coerced
+
+-- | The list of sources for which log sources are displayed.
+listLogSources_sources :: Lens.Lens' ListLogSources (Prelude.Maybe [LogSourceResource])
+listLogSources_sources = Lens.lens (\ListLogSources' {sources} -> sources) (\s@ListLogSources' {} a -> s {sources = a} :: ListLogSources) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.AWSPager ListLogSources where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? listLogSourcesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^. listLogSourcesResponse_regionSourceTypesAccountsList
+            Lens.^? listLogSourcesResponse_sources
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listLogSources_nextToken
           Lens..~ rs
-          Lens.^? listLogSourcesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listLogSourcesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLogSources where
   type
@@ -179,29 +156,26 @@ instance Core.AWSRequest ListLogSources where
       ( \s h x ->
           ListLogSourcesResponse'
             Prelude.<$> (x Data..?> "nextToken")
+            Prelude.<*> (x Data..?> "sources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "regionSourceTypesAccountsList"
-                            Core..!@ Prelude.mempty
-                        )
       )
 
 instance Prelude.Hashable ListLogSources where
   hashWithSalt _salt ListLogSources' {..} =
-    _salt `Prelude.hashWithSalt` inputOrder
-      `Prelude.hashWithSalt` listAllDimensions
-      `Prelude.hashWithSalt` listSingleDimension
-      `Prelude.hashWithSalt` listTwoDimensions
+    _salt
+      `Prelude.hashWithSalt` accounts
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` regions
+      `Prelude.hashWithSalt` sources
 
 instance Prelude.NFData ListLogSources where
   rnf ListLogSources' {..} =
-    Prelude.rnf inputOrder
-      `Prelude.seq` Prelude.rnf listAllDimensions
-      `Prelude.seq` Prelude.rnf listSingleDimension
-      `Prelude.seq` Prelude.rnf listTwoDimensions
+    Prelude.rnf accounts
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf regions
+      `Prelude.seq` Prelude.rnf sources
 
 instance Data.ToHeaders ListLogSources where
   toHeaders =
@@ -218,20 +192,16 @@ instance Data.ToJSON ListLogSources where
   toJSON ListLogSources' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("inputOrder" Data..=) Prelude.<$> inputOrder,
-            ("listAllDimensions" Data..=)
-              Prelude.<$> listAllDimensions,
-            ("listSingleDimension" Data..=)
-              Prelude.<$> listSingleDimension,
-            ("listTwoDimensions" Data..=)
-              Prelude.<$> listTwoDimensions,
+          [ ("accounts" Data..=) Prelude.<$> accounts,
             ("maxResults" Data..=) Prelude.<$> maxResults,
-            ("nextToken" Data..=) Prelude.<$> nextToken
+            ("nextToken" Data..=) Prelude.<$> nextToken,
+            ("regions" Data..=) Prelude.<$> regions,
+            ("sources" Data..=) Prelude.<$> sources
           ]
       )
 
 instance Data.ToPath ListLogSources where
-  toPath = Prelude.const "/v1/logsources/list"
+  toPath = Prelude.const "/v1/datalake/logsources/list"
 
 instance Data.ToQuery ListLogSources where
   toQuery = Prelude.const Prelude.mempty
@@ -241,10 +211,11 @@ data ListLogSourcesResponse = ListLogSourcesResponse'
   { -- | If nextToken is returned, there are more results available. You can
     -- repeat the call using the returned token to retrieve the next page.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of log sources in your organization that send data to the data
+    -- lake.
+    sources :: Prelude.Maybe [LogSource],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
-    -- | Lists the log sources by Regions for enabled Security Lake accounts.
-    regionSourceTypesAccountsList :: [Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text [Prelude.Text])]
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -259,9 +230,10 @@ data ListLogSourcesResponse = ListLogSourcesResponse'
 -- 'nextToken', 'listLogSourcesResponse_nextToken' - If nextToken is returned, there are more results available. You can
 -- repeat the call using the returned token to retrieve the next page.
 --
--- 'httpStatus', 'listLogSourcesResponse_httpStatus' - The response's http status code.
+-- 'sources', 'listLogSourcesResponse_sources' - The list of log sources in your organization that send data to the data
+-- lake.
 --
--- 'regionSourceTypesAccountsList', 'listLogSourcesResponse_regionSourceTypesAccountsList' - Lists the log sources by Regions for enabled Security Lake accounts.
+-- 'httpStatus', 'listLogSourcesResponse_httpStatus' - The response's http status code.
 newListLogSourcesResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -270,8 +242,8 @@ newListLogSourcesResponse pHttpStatus_ =
   ListLogSourcesResponse'
     { nextToken =
         Prelude.Nothing,
-      httpStatus = pHttpStatus_,
-      regionSourceTypesAccountsList = Prelude.mempty
+      sources = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
 -- | If nextToken is returned, there are more results available. You can
@@ -279,16 +251,17 @@ newListLogSourcesResponse pHttpStatus_ =
 listLogSourcesResponse_nextToken :: Lens.Lens' ListLogSourcesResponse (Prelude.Maybe Prelude.Text)
 listLogSourcesResponse_nextToken = Lens.lens (\ListLogSourcesResponse' {nextToken} -> nextToken) (\s@ListLogSourcesResponse' {} a -> s {nextToken = a} :: ListLogSourcesResponse)
 
+-- | The list of log sources in your organization that send data to the data
+-- lake.
+listLogSourcesResponse_sources :: Lens.Lens' ListLogSourcesResponse (Prelude.Maybe [LogSource])
+listLogSourcesResponse_sources = Lens.lens (\ListLogSourcesResponse' {sources} -> sources) (\s@ListLogSourcesResponse' {} a -> s {sources = a} :: ListLogSourcesResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 listLogSourcesResponse_httpStatus :: Lens.Lens' ListLogSourcesResponse Prelude.Int
 listLogSourcesResponse_httpStatus = Lens.lens (\ListLogSourcesResponse' {httpStatus} -> httpStatus) (\s@ListLogSourcesResponse' {} a -> s {httpStatus = a} :: ListLogSourcesResponse)
 
--- | Lists the log sources by Regions for enabled Security Lake accounts.
-listLogSourcesResponse_regionSourceTypesAccountsList :: Lens.Lens' ListLogSourcesResponse [Prelude.HashMap Prelude.Text (Prelude.HashMap Prelude.Text [Prelude.Text])]
-listLogSourcesResponse_regionSourceTypesAccountsList = Lens.lens (\ListLogSourcesResponse' {regionSourceTypesAccountsList} -> regionSourceTypesAccountsList) (\s@ListLogSourcesResponse' {} a -> s {regionSourceTypesAccountsList = a} :: ListLogSourcesResponse) Prelude.. Lens.coerced
-
 instance Prelude.NFData ListLogSourcesResponse where
   rnf ListLogSourcesResponse' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf sources
       `Prelude.seq` Prelude.rnf httpStatus
-      `Prelude.seq` Prelude.rnf regionSourceTypesAccountsList

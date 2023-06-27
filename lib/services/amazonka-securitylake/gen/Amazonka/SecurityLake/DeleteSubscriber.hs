@@ -20,16 +20,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the subscription permission for accounts that are already
--- enabled in Amazon Security Lake. You can delete a subscriber and remove
--- access to data in the current Amazon Web Services Region.
+-- Deletes the subscription permission and all notification settings for
+-- accounts that are already enabled in Amazon Security Lake. When you run
+-- @DeleteSubscriber@, the subscriber will no longer consume data from
+-- Security Lake and the subscriber is removed. This operation deletes the
+-- subscriber and removes access to data in the current Amazon Web Services
+-- Region.
 module Amazonka.SecurityLake.DeleteSubscriber
   ( -- * Creating a Request
     DeleteSubscriber (..),
     newDeleteSubscriber,
 
     -- * Request Lenses
-    deleteSubscriber_id,
+    deleteSubscriber_subscriberId,
 
     -- * Destructuring the Response
     DeleteSubscriberResponse (..),
@@ -52,7 +55,7 @@ import Amazonka.SecurityLake.Types
 data DeleteSubscriber = DeleteSubscriber'
   { -- | A value created by Security Lake that uniquely identifies your
     -- @DeleteSubscriber@ API request.
-    id :: Prelude.Text
+    subscriberId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,19 +67,19 @@ data DeleteSubscriber = DeleteSubscriber'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'deleteSubscriber_id' - A value created by Security Lake that uniquely identifies your
+-- 'subscriberId', 'deleteSubscriber_subscriberId' - A value created by Security Lake that uniquely identifies your
 -- @DeleteSubscriber@ API request.
 newDeleteSubscriber ::
-  -- | 'id'
+  -- | 'subscriberId'
   Prelude.Text ->
   DeleteSubscriber
-newDeleteSubscriber pId_ =
-  DeleteSubscriber' {id = pId_}
+newDeleteSubscriber pSubscriberId_ =
+  DeleteSubscriber' {subscriberId = pSubscriberId_}
 
 -- | A value created by Security Lake that uniquely identifies your
 -- @DeleteSubscriber@ API request.
-deleteSubscriber_id :: Lens.Lens' DeleteSubscriber Prelude.Text
-deleteSubscriber_id = Lens.lens (\DeleteSubscriber' {id} -> id) (\s@DeleteSubscriber' {} a -> s {id = a} :: DeleteSubscriber)
+deleteSubscriber_subscriberId :: Lens.Lens' DeleteSubscriber Prelude.Text
+deleteSubscriber_subscriberId = Lens.lens (\DeleteSubscriber' {subscriberId} -> subscriberId) (\s@DeleteSubscriber' {} a -> s {subscriberId = a} :: DeleteSubscriber)
 
 instance Core.AWSRequest DeleteSubscriber where
   type
@@ -93,10 +96,10 @@ instance Core.AWSRequest DeleteSubscriber where
 
 instance Prelude.Hashable DeleteSubscriber where
   hashWithSalt _salt DeleteSubscriber' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` subscriberId
 
 instance Prelude.NFData DeleteSubscriber where
-  rnf DeleteSubscriber' {..} = Prelude.rnf id
+  rnf DeleteSubscriber' {..} = Prelude.rnf subscriberId
 
 instance Data.ToHeaders DeleteSubscriber where
   toHeaders =
@@ -110,11 +113,12 @@ instance Data.ToHeaders DeleteSubscriber where
       )
 
 instance Data.ToPath DeleteSubscriber where
-  toPath = Prelude.const "/v1/subscribers"
+  toPath DeleteSubscriber' {..} =
+    Prelude.mconcat
+      ["/v1/subscribers/", Data.toBS subscriberId]
 
 instance Data.ToQuery DeleteSubscriber where
-  toQuery DeleteSubscriber' {..} =
-    Prelude.mconcat ["id" Data.=: id]
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteSubscriberResponse' smart constructor.
 data DeleteSubscriberResponse = DeleteSubscriberResponse'

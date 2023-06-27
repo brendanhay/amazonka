@@ -25,13 +25,6 @@
 -- export job can write the data objects in either the text or binary
 -- representation of Amazon Ion format, or in /JSON Lines/ text format.
 --
--- In JSON Lines format, each journal block in the exported data object is
--- a valid JSON object that is delimited by a newline. You can use this
--- format to easily integrate JSON exports with analytics tools such as
--- Glue and Amazon Athena because these services can parse
--- newline-delimited JSON automatically. For more information about the
--- format, see <https://jsonlines.org/ JSON Lines>.
---
 -- If the ledger with the given @Name@ doesn\'t exist, then throws
 -- @ResourceNotFoundException@.
 --
@@ -74,8 +67,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newExportJournalToS3' smart constructor.
 data ExportJournalToS3 = ExportJournalToS3'
-  { -- | The output format of your exported journal data. If this parameter is
-    -- not specified, the exported data defaults to @ION_TEXT@ format.
+  { -- | The output format of your exported journal data. A journal export job
+    -- can write the data objects in either the text or binary representation
+    -- of
+    -- <https://docs.aws.amazon.com/qldb/latest/developerguide/ion.html Amazon Ion>
+    -- format, or in <https://jsonlines.org/ JSON Lines> text format.
+    --
+    -- Default: @ION_TEXT@
+    --
+    -- In JSON Lines format, each journal block in an exported data object is a
+    -- valid JSON object that is delimited by a newline. You can use this
+    -- format to directly integrate JSON exports with analytics tools such as
+    -- Amazon Athena and Glue because these services can parse
+    -- newline-delimited JSON automatically.
     outputFormat :: Prelude.Maybe OutputFormat,
     -- | The name of the ledger.
     name :: Prelude.Text,
@@ -107,8 +111,7 @@ data ExportJournalToS3 = ExportJournalToS3'
     -- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB
     -- permissions for a journal export job to do the following:
     --
-    -- -   Write objects into your Amazon Simple Storage Service (Amazon S3)
-    --     bucket.
+    -- -   Write objects into your Amazon S3 bucket.
     --
     -- -   (Optional) Use your customer managed key in Key Management Service
     --     (KMS) for server-side encryption of your exported data.
@@ -128,8 +131,19 @@ data ExportJournalToS3 = ExportJournalToS3'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputFormat', 'exportJournalToS3_outputFormat' - The output format of your exported journal data. If this parameter is
--- not specified, the exported data defaults to @ION_TEXT@ format.
+-- 'outputFormat', 'exportJournalToS3_outputFormat' - The output format of your exported journal data. A journal export job
+-- can write the data objects in either the text or binary representation
+-- of
+-- <https://docs.aws.amazon.com/qldb/latest/developerguide/ion.html Amazon Ion>
+-- format, or in <https://jsonlines.org/ JSON Lines> text format.
+--
+-- Default: @ION_TEXT@
+--
+-- In JSON Lines format, each journal block in an exported data object is a
+-- valid JSON object that is delimited by a newline. You can use this
+-- format to directly integrate JSON exports with analytics tools such as
+-- Amazon Athena and Glue because these services can parse
+-- newline-delimited JSON automatically.
 --
 -- 'name', 'exportJournalToS3_name' - The name of the ledger.
 --
@@ -161,8 +175,7 @@ data ExportJournalToS3 = ExportJournalToS3'
 -- 'roleArn', 'exportJournalToS3_roleArn' - The Amazon Resource Name (ARN) of the IAM role that grants QLDB
 -- permissions for a journal export job to do the following:
 --
--- -   Write objects into your Amazon Simple Storage Service (Amazon S3)
---     bucket.
+-- -   Write objects into your Amazon S3 bucket.
 --
 -- -   (Optional) Use your customer managed key in Key Management Service
 --     (KMS) for server-side encryption of your exported data.
@@ -199,8 +212,19 @@ newExportJournalToS3
         roleArn = pRoleArn_
       }
 
--- | The output format of your exported journal data. If this parameter is
--- not specified, the exported data defaults to @ION_TEXT@ format.
+-- | The output format of your exported journal data. A journal export job
+-- can write the data objects in either the text or binary representation
+-- of
+-- <https://docs.aws.amazon.com/qldb/latest/developerguide/ion.html Amazon Ion>
+-- format, or in <https://jsonlines.org/ JSON Lines> text format.
+--
+-- Default: @ION_TEXT@
+--
+-- In JSON Lines format, each journal block in an exported data object is a
+-- valid JSON object that is delimited by a newline. You can use this
+-- format to directly integrate JSON exports with analytics tools such as
+-- Amazon Athena and Glue because these services can parse
+-- newline-delimited JSON automatically.
 exportJournalToS3_outputFormat :: Lens.Lens' ExportJournalToS3 (Prelude.Maybe OutputFormat)
 exportJournalToS3_outputFormat = Lens.lens (\ExportJournalToS3' {outputFormat} -> outputFormat) (\s@ExportJournalToS3' {} a -> s {outputFormat = a} :: ExportJournalToS3)
 
@@ -242,8 +266,7 @@ exportJournalToS3_s3ExportConfiguration = Lens.lens (\ExportJournalToS3' {s3Expo
 -- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB
 -- permissions for a journal export job to do the following:
 --
--- -   Write objects into your Amazon Simple Storage Service (Amazon S3)
---     bucket.
+-- -   Write objects into your Amazon S3 bucket.
 --
 -- -   (Optional) Use your customer managed key in Key Management Service
 --     (KMS) for server-side encryption of your exported data.
@@ -270,7 +293,8 @@ instance Core.AWSRequest ExportJournalToS3 where
 
 instance Prelude.Hashable ExportJournalToS3 where
   hashWithSalt _salt ExportJournalToS3' {..} =
-    _salt `Prelude.hashWithSalt` outputFormat
+    _salt
+      `Prelude.hashWithSalt` outputFormat
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inclusiveStartTime
       `Prelude.hashWithSalt` exclusiveEndTime

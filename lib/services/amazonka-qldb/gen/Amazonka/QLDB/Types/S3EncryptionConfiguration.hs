@@ -30,8 +30,9 @@ import Amazonka.QLDB.Types.S3ObjectEncryptionType
 --
 -- /See:/ 'newS3EncryptionConfiguration' smart constructor.
 data S3EncryptionConfiguration = S3EncryptionConfiguration'
-  { -- | The Amazon Resource Name (ARN) of a symmetric key in Key Management
-    -- Service (KMS). Amazon S3 does not support asymmetric KMS keys.
+  { -- | The Amazon Resource Name (ARN) of a symmetric encryption key in Key
+    -- Management Service (KMS). Amazon S3 does not support asymmetric KMS
+    -- keys.
     --
     -- You must provide a @KmsKeyArn@ if you specify @SSE_KMS@ as the
     -- @ObjectEncryptionType@.
@@ -56,8 +57,9 @@ data S3EncryptionConfiguration = S3EncryptionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyArn', 's3EncryptionConfiguration_kmsKeyArn' - The Amazon Resource Name (ARN) of a symmetric key in Key Management
--- Service (KMS). Amazon S3 does not support asymmetric KMS keys.
+-- 'kmsKeyArn', 's3EncryptionConfiguration_kmsKeyArn' - The Amazon Resource Name (ARN) of a symmetric encryption key in Key
+-- Management Service (KMS). Amazon S3 does not support asymmetric KMS
+-- keys.
 --
 -- You must provide a @KmsKeyArn@ if you specify @SSE_KMS@ as the
 -- @ObjectEncryptionType@.
@@ -81,8 +83,9 @@ newS3EncryptionConfiguration pObjectEncryptionType_ =
       objectEncryptionType = pObjectEncryptionType_
     }
 
--- | The Amazon Resource Name (ARN) of a symmetric key in Key Management
--- Service (KMS). Amazon S3 does not support asymmetric KMS keys.
+-- | The Amazon Resource Name (ARN) of a symmetric encryption key in Key
+-- Management Service (KMS). Amazon S3 does not support asymmetric KMS
+-- keys.
 --
 -- You must provide a @KmsKeyArn@ if you specify @SSE_KMS@ as the
 -- @ObjectEncryptionType@.
@@ -112,7 +115,8 @@ instance Data.FromJSON S3EncryptionConfiguration where
 
 instance Prelude.Hashable S3EncryptionConfiguration where
   hashWithSalt _salt S3EncryptionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyArn
+    _salt
+      `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` objectEncryptionType
 
 instance Prelude.NFData S3EncryptionConfiguration where

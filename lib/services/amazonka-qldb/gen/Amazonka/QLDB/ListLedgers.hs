@@ -20,11 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of ledger summaries that are associated with the
--- current Amazon Web Services account and Region.
+-- Returns all ledgers that are associated with the current Amazon Web
+-- Services account and Region.
 --
--- This action returns a maximum of 100 items and is paginated so that you
--- can retrieve all the items by calling @ListLedgers@ multiple times.
+-- This action returns a maximum of @MaxResults@ items and is paginated so
+-- that you can retrieve all the items by calling @ListLedgers@ multiple
+-- times.
 module Amazonka.QLDB.ListLedgers
   ( -- * Creating a Request
     ListLedgers (..),
@@ -116,7 +117,8 @@ instance Core.AWSRequest ListLedgers where
 
 instance Prelude.Hashable ListLedgers where
   hashWithSalt _salt ListLedgers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListLedgers where
@@ -147,8 +149,8 @@ instance Data.ToQuery ListLedgers where
 
 -- | /See:/ 'newListLedgersResponse' smart constructor.
 data ListLedgersResponse = ListLedgersResponse'
-  { -- | The array of ledger summaries that are associated with the current
-    -- Amazon Web Services account and Region.
+  { -- | The ledgers that are associated with the current Amazon Web Services
+    -- account and Region.
     ledgers :: Prelude.Maybe [LedgerSummary],
     -- | A pagination token, indicating whether there are more results available:
     --
@@ -172,8 +174,8 @@ data ListLedgersResponse = ListLedgersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ledgers', 'listLedgersResponse_ledgers' - The array of ledger summaries that are associated with the current
--- Amazon Web Services account and Region.
+-- 'ledgers', 'listLedgersResponse_ledgers' - The ledgers that are associated with the current Amazon Web Services
+-- account and Region.
 --
 -- 'nextToken', 'listLedgersResponse_nextToken' - A pagination token, indicating whether there are more results available:
 --
@@ -196,8 +198,8 @@ newListLedgersResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The array of ledger summaries that are associated with the current
--- Amazon Web Services account and Region.
+-- | The ledgers that are associated with the current Amazon Web Services
+-- account and Region.
 listLedgersResponse_ledgers :: Lens.Lens' ListLedgersResponse (Prelude.Maybe [LedgerSummary])
 listLedgersResponse_ledgers = Lens.lens (\ListLedgersResponse' {ledgers} -> ledgers) (\s@ListLedgersResponse' {} a -> s {ledgers = a} :: ListLedgersResponse) Prelude.. Lens.mapping Lens.coerced
 

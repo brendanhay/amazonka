@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of journal export job descriptions for all ledgers that
--- are associated with the current Amazon Web Services account and Region.
+-- Returns all journal export jobs for all ledgers that are associated with
+-- the current Amazon Web Services account and Region.
 --
 -- This action returns a maximum of @MaxResults@ items, and is paginated so
 -- that you can retrieve all the items by calling @ListJournalS3Exports@
@@ -120,7 +120,8 @@ instance Core.AWSRequest ListJournalS3Exports where
     Response.receiveJSON
       ( \s h x ->
           ListJournalS3ExportsResponse'
-            Prelude.<$> ( x Data..?> "JournalS3Exports"
+            Prelude.<$> ( x
+                            Data..?> "JournalS3Exports"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -129,7 +130,8 @@ instance Core.AWSRequest ListJournalS3Exports where
 
 instance Prelude.Hashable ListJournalS3Exports where
   hashWithSalt _salt ListJournalS3Exports' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListJournalS3Exports where
@@ -160,8 +162,8 @@ instance Data.ToQuery ListJournalS3Exports where
 
 -- | /See:/ 'newListJournalS3ExportsResponse' smart constructor.
 data ListJournalS3ExportsResponse = ListJournalS3ExportsResponse'
-  { -- | The array of journal export job descriptions for all ledgers that are
-    -- associated with the current Amazon Web Services account and Region.
+  { -- | The journal export jobs for all ledgers that are associated with the
+    -- current Amazon Web Services account and Region.
     journalS3Exports :: Prelude.Maybe [JournalS3ExportDescription],
     -- | -   If @NextToken@ is empty, then the last page of results has been
     --     processed and there are no more results to be retrieved.
@@ -183,8 +185,8 @@ data ListJournalS3ExportsResponse = ListJournalS3ExportsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'journalS3Exports', 'listJournalS3ExportsResponse_journalS3Exports' - The array of journal export job descriptions for all ledgers that are
--- associated with the current Amazon Web Services account and Region.
+-- 'journalS3Exports', 'listJournalS3ExportsResponse_journalS3Exports' - The journal export jobs for all ledgers that are associated with the
+-- current Amazon Web Services account and Region.
 --
 -- 'nextToken', 'listJournalS3ExportsResponse_nextToken' - -   If @NextToken@ is empty, then the last page of results has been
 --     processed and there are no more results to be retrieved.
@@ -206,8 +208,8 @@ newListJournalS3ExportsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The array of journal export job descriptions for all ledgers that are
--- associated with the current Amazon Web Services account and Region.
+-- | The journal export jobs for all ledgers that are associated with the
+-- current Amazon Web Services account and Region.
 listJournalS3ExportsResponse_journalS3Exports :: Lens.Lens' ListJournalS3ExportsResponse (Prelude.Maybe [JournalS3ExportDescription])
 listJournalS3ExportsResponse_journalS3Exports = Lens.lens (\ListJournalS3ExportsResponse' {journalS3Exports} -> journalS3Exports) (\s@ListJournalS3ExportsResponse' {} a -> s {journalS3Exports = a} :: ListJournalS3ExportsResponse) Prelude.. Lens.mapping Lens.coerced
 

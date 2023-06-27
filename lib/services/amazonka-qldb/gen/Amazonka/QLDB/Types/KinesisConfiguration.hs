@@ -32,9 +32,10 @@ data KinesisConfiguration = KinesisConfiguration'
   { -- | Enables QLDB to publish multiple data records in a single Kinesis Data
     -- Streams record, increasing the number of records sent per API call.
     --
-    -- /This option is enabled by default./ Record aggregation has important
-    -- implications for processing records and requires de-aggregation in your
-    -- stream consumer. To learn more, see
+    -- Default: @True@
+    --
+    -- Record aggregation has important implications for processing records and
+    -- requires de-aggregation in your stream consumer. To learn more, see
     -- <https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html KPL Key Concepts>
     -- and
     -- <https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-consumer-deaggregation.html Consumer De-aggregation>
@@ -56,9 +57,10 @@ data KinesisConfiguration = KinesisConfiguration'
 -- 'aggregationEnabled', 'kinesisConfiguration_aggregationEnabled' - Enables QLDB to publish multiple data records in a single Kinesis Data
 -- Streams record, increasing the number of records sent per API call.
 --
--- /This option is enabled by default./ Record aggregation has important
--- implications for processing records and requires de-aggregation in your
--- stream consumer. To learn more, see
+-- Default: @True@
+--
+-- Record aggregation has important implications for processing records and
+-- requires de-aggregation in your stream consumer. To learn more, see
 -- <https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html KPL Key Concepts>
 -- and
 -- <https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-consumer-deaggregation.html Consumer De-aggregation>
@@ -79,9 +81,10 @@ newKinesisConfiguration pStreamArn_ =
 -- | Enables QLDB to publish multiple data records in a single Kinesis Data
 -- Streams record, increasing the number of records sent per API call.
 --
--- /This option is enabled by default./ Record aggregation has important
--- implications for processing records and requires de-aggregation in your
--- stream consumer. To learn more, see
+-- Default: @True@
+--
+-- Record aggregation has important implications for processing records and
+-- requires de-aggregation in your stream consumer. To learn more, see
 -- <https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html KPL Key Concepts>
 -- and
 -- <https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-consumer-deaggregation.html Consumer De-aggregation>
@@ -105,7 +108,8 @@ instance Data.FromJSON KinesisConfiguration where
 
 instance Prelude.Hashable KinesisConfiguration where
   hashWithSalt _salt KinesisConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` aggregationEnabled
+    _salt
+      `Prelude.hashWithSalt` aggregationEnabled
       `Prelude.hashWithSalt` streamArn
 
 instance Prelude.NFData KinesisConfiguration where

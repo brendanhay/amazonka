@@ -20,9 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of all Amazon QLDB journal stream descriptors for a
--- given ledger. The output of each stream descriptor includes the same
--- details that are returned by @DescribeJournalKinesisStream@.
+-- Returns all Amazon QLDB journal streams for a given ledger.
 --
 -- This action does not return any expired journal streams. For more
 -- information, see
@@ -138,8 +136,8 @@ instance
       ( \s h x ->
           ListJournalKinesisStreamsForLedgerResponse'
             Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> (x Data..?> "Streams" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "Streams" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -149,7 +147,8 @@ instance
   hashWithSalt
     _salt
     ListJournalKinesisStreamsForLedger' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` ledgerName
 
@@ -206,8 +205,8 @@ data ListJournalKinesisStreamsForLedgerResponse = ListJournalKinesisStreamsForLe
     --     retrieve the next page of results, use the value of @NextToken@ in a
     --     subsequent @ListJournalKinesisStreamsForLedger@ call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The array of QLDB journal stream descriptors that are associated with
-    -- the given ledger.
+    -- | The QLDB journal streams that are currently associated with the given
+    -- ledger.
     streams :: Prelude.Maybe [JournalKinesisStreamDescription],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -229,8 +228,8 @@ data ListJournalKinesisStreamsForLedgerResponse = ListJournalKinesisStreamsForLe
 --     retrieve the next page of results, use the value of @NextToken@ in a
 --     subsequent @ListJournalKinesisStreamsForLedger@ call.
 --
--- 'streams', 'listJournalKinesisStreamsForLedgerResponse_streams' - The array of QLDB journal stream descriptors that are associated with
--- the given ledger.
+-- 'streams', 'listJournalKinesisStreamsForLedgerResponse_streams' - The QLDB journal streams that are currently associated with the given
+-- ledger.
 --
 -- 'httpStatus', 'listJournalKinesisStreamsForLedgerResponse_httpStatus' - The response's http status code.
 newListJournalKinesisStreamsForLedgerResponse ::
@@ -255,8 +254,8 @@ newListJournalKinesisStreamsForLedgerResponse
 listJournalKinesisStreamsForLedgerResponse_nextToken :: Lens.Lens' ListJournalKinesisStreamsForLedgerResponse (Prelude.Maybe Prelude.Text)
 listJournalKinesisStreamsForLedgerResponse_nextToken = Lens.lens (\ListJournalKinesisStreamsForLedgerResponse' {nextToken} -> nextToken) (\s@ListJournalKinesisStreamsForLedgerResponse' {} a -> s {nextToken = a} :: ListJournalKinesisStreamsForLedgerResponse)
 
--- | The array of QLDB journal stream descriptors that are associated with
--- the given ledger.
+-- | The QLDB journal streams that are currently associated with the given
+-- ledger.
 listJournalKinesisStreamsForLedgerResponse_streams :: Lens.Lens' ListJournalKinesisStreamsForLedgerResponse (Prelude.Maybe [JournalKinesisStreamDescription])
 listJournalKinesisStreamsForLedgerResponse_streams = Lens.lens (\ListJournalKinesisStreamsForLedgerResponse' {streams} -> streams) (\s@ListJournalKinesisStreamsForLedgerResponse' {} a -> s {streams = a} :: ListJournalKinesisStreamsForLedgerResponse) Prelude.. Lens.mapping Lens.coerced
 

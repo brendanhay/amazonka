@@ -11,7 +11,7 @@
 --
 -- Derived from API version @2019-01-02@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- The control plane for Amazon QLDB
+-- The resource management API for Amazon QLDB
 module Amazonka.QLDB
   ( -- * Service Configuration
     defaultService,

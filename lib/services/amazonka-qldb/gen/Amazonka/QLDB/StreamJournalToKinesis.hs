@@ -263,7 +263,8 @@ instance Core.AWSRequest StreamJournalToKinesis where
 
 instance Prelude.Hashable StreamJournalToKinesis where
   hashWithSalt _salt StreamJournalToKinesis' {..} =
-    _salt `Prelude.hashWithSalt` exclusiveEndTime
+    _salt
+      `Prelude.hashWithSalt` exclusiveEndTime
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` ledgerName
       `Prelude.hashWithSalt` roleArn

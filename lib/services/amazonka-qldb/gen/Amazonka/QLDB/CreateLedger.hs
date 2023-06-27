@@ -60,13 +60,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLedger' smart constructor.
 data CreateLedger = CreateLedger'
-  { -- | The flag that prevents a ledger from being deleted by any user. If not
-    -- provided on ledger creation, this feature is enabled (@true@) by
-    -- default.
+  { -- | Specifies whether the ledger is protected from being deleted by any
+    -- user. If not defined during ledger creation, this feature is enabled
+    -- (@true@) by default.
     --
     -- If deletion protection is enabled, you must first disable it before you
     -- can delete the ledger. You can disable it by calling the @UpdateLedger@
-    -- operation to set the flag to @false@.
+    -- operation to set this parameter to @false@.
     deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | The key in Key Management Service (KMS) to use for encryption of data at
     -- rest in the ledger. For more information, see
@@ -81,7 +81,8 @@ data CreateLedger = CreateLedger'
     -- -   __Undefined__: By default, use an Amazon Web Services owned KMS key.
     --
     -- -   __A valid symmetric customer managed KMS key__: Use the specified
-    --     KMS key in your account that you create, own, and manage.
+    --     symmetric encryption KMS key in your account that you create, own,
+    --     and manage.
     --
     --     Amazon QLDB does not support asymmetric keys. For more information,
     --     see
@@ -158,13 +159,13 @@ data CreateLedger = CreateLedger'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deletionProtection', 'createLedger_deletionProtection' - The flag that prevents a ledger from being deleted by any user. If not
--- provided on ledger creation, this feature is enabled (@true@) by
--- default.
+-- 'deletionProtection', 'createLedger_deletionProtection' - Specifies whether the ledger is protected from being deleted by any
+-- user. If not defined during ledger creation, this feature is enabled
+-- (@true@) by default.
 --
 -- If deletion protection is enabled, you must first disable it before you
 -- can delete the ledger. You can disable it by calling the @UpdateLedger@
--- operation to set the flag to @false@.
+-- operation to set this parameter to @false@.
 --
 -- 'kmsKey', 'createLedger_kmsKey' - The key in Key Management Service (KMS) to use for encryption of data at
 -- rest in the ledger. For more information, see
@@ -179,7 +180,8 @@ data CreateLedger = CreateLedger'
 -- -   __Undefined__: By default, use an Amazon Web Services owned KMS key.
 --
 -- -   __A valid symmetric customer managed KMS key__: Use the specified
---     KMS key in your account that you create, own, and manage.
+--     symmetric encryption KMS key in your account that you create, own,
+--     and manage.
 --
 --     Amazon QLDB does not support asymmetric keys. For more information,
 --     see
@@ -259,13 +261,13 @@ newCreateLedger pName_ pPermissionsMode_ =
       permissionsMode = pPermissionsMode_
     }
 
--- | The flag that prevents a ledger from being deleted by any user. If not
--- provided on ledger creation, this feature is enabled (@true@) by
--- default.
+-- | Specifies whether the ledger is protected from being deleted by any
+-- user. If not defined during ledger creation, this feature is enabled
+-- (@true@) by default.
 --
 -- If deletion protection is enabled, you must first disable it before you
 -- can delete the ledger. You can disable it by calling the @UpdateLedger@
--- operation to set the flag to @false@.
+-- operation to set this parameter to @false@.
 createLedger_deletionProtection :: Lens.Lens' CreateLedger (Prelude.Maybe Prelude.Bool)
 createLedger_deletionProtection = Lens.lens (\CreateLedger' {deletionProtection} -> deletionProtection) (\s@CreateLedger' {} a -> s {deletionProtection = a} :: CreateLedger)
 
@@ -282,7 +284,8 @@ createLedger_deletionProtection = Lens.lens (\CreateLedger' {deletionProtection}
 -- -   __Undefined__: By default, use an Amazon Web Services owned KMS key.
 --
 -- -   __A valid symmetric customer managed KMS key__: Use the specified
---     KMS key in your account that you create, own, and manage.
+--     symmetric encryption KMS key in your account that you create, own,
+--     and manage.
 --
 --     Amazon QLDB does not support asymmetric keys. For more information,
 --     see
@@ -376,7 +379,8 @@ instance Core.AWSRequest CreateLedger where
 
 instance Prelude.Hashable CreateLedger where
   hashWithSalt _salt CreateLedger' {..} =
-    _salt `Prelude.hashWithSalt` deletionProtection
+    _salt
+      `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
@@ -429,13 +433,13 @@ data CreateLedgerResponse = CreateLedgerResponse'
     -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
     -- January 1, 1970 UTC.)
     creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The flag that prevents a ledger from being deleted by any user. If not
-    -- provided on ledger creation, this feature is enabled (@true@) by
-    -- default.
+    -- | Specifies whether the ledger is protected from being deleted by any
+    -- user. If not defined during ledger creation, this feature is enabled
+    -- (@true@) by default.
     --
     -- If deletion protection is enabled, you must first disable it before you
     -- can delete the ledger. You can disable it by calling the @UpdateLedger@
-    -- operation to set the flag to @false@.
+    -- operation to set this parameter to @false@.
     deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | The ARN of the customer managed KMS key that the ledger uses for
     -- encryption at rest. If this parameter is undefined, the ledger uses an
@@ -466,13 +470,13 @@ data CreateLedgerResponse = CreateLedgerResponse'
 -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 -- January 1, 1970 UTC.)
 --
--- 'deletionProtection', 'createLedgerResponse_deletionProtection' - The flag that prevents a ledger from being deleted by any user. If not
--- provided on ledger creation, this feature is enabled (@true@) by
--- default.
+-- 'deletionProtection', 'createLedgerResponse_deletionProtection' - Specifies whether the ledger is protected from being deleted by any
+-- user. If not defined during ledger creation, this feature is enabled
+-- (@true@) by default.
 --
 -- If deletion protection is enabled, you must first disable it before you
 -- can delete the ledger. You can disable it by calling the @UpdateLedger@
--- operation to set the flag to @false@.
+-- operation to set this parameter to @false@.
 --
 -- 'kmsKeyArn', 'createLedgerResponse_kmsKeyArn' - The ARN of the customer managed KMS key that the ledger uses for
 -- encryption at rest. If this parameter is undefined, the ledger uses an
@@ -511,13 +515,13 @@ createLedgerResponse_arn = Lens.lens (\CreateLedgerResponse' {arn} -> arn) (\s@C
 createLedgerResponse_creationDateTime :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.UTCTime)
 createLedgerResponse_creationDateTime = Lens.lens (\CreateLedgerResponse' {creationDateTime} -> creationDateTime) (\s@CreateLedgerResponse' {} a -> s {creationDateTime = a} :: CreateLedgerResponse) Prelude.. Lens.mapping Data._Time
 
--- | The flag that prevents a ledger from being deleted by any user. If not
--- provided on ledger creation, this feature is enabled (@true@) by
--- default.
+-- | Specifies whether the ledger is protected from being deleted by any
+-- user. If not defined during ledger creation, this feature is enabled
+-- (@true@) by default.
 --
 -- If deletion protection is enabled, you must first disable it before you
 -- can delete the ledger. You can disable it by calling the @UpdateLedger@
--- operation to set the flag to @false@.
+-- operation to set this parameter to @false@.
 createLedgerResponse_deletionProtection :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.Bool)
 createLedgerResponse_deletionProtection = Lens.lens (\CreateLedgerResponse' {deletionProtection} -> deletionProtection) (\s@CreateLedgerResponse' {} a -> s {deletionProtection = a} :: CreateLedgerResponse)
 

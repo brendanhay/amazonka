@@ -56,13 +56,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateLedger' smart constructor.
 data UpdateLedger = UpdateLedger'
-  { -- | The flag that prevents a ledger from being deleted by any user. If not
-    -- provided on ledger creation, this feature is enabled (@true@) by
-    -- default.
+  { -- | Specifies whether the ledger is protected from being deleted by any
+    -- user. If not defined during ledger creation, this feature is enabled
+    -- (@true@) by default.
     --
     -- If deletion protection is enabled, you must first disable it before you
     -- can delete the ledger. You can disable it by calling the @UpdateLedger@
-    -- operation to set the flag to @false@.
+    -- operation to set this parameter to @false@.
     deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | The key in Key Management Service (KMS) to use for encryption of data at
     -- rest in the ledger. For more information, see
@@ -77,7 +77,8 @@ data UpdateLedger = UpdateLedger'
     -- -   __Undefined__: Make no changes to the KMS key of the ledger.
     --
     -- -   __A valid symmetric customer managed KMS key__: Use the specified
-    --     KMS key in your account that you create, own, and manage.
+    --     symmetric encryption KMS key in your account that you create, own,
+    --     and manage.
     --
     --     Amazon QLDB does not support asymmetric keys. For more information,
     --     see
@@ -117,13 +118,13 @@ data UpdateLedger = UpdateLedger'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deletionProtection', 'updateLedger_deletionProtection' - The flag that prevents a ledger from being deleted by any user. If not
--- provided on ledger creation, this feature is enabled (@true@) by
--- default.
+-- 'deletionProtection', 'updateLedger_deletionProtection' - Specifies whether the ledger is protected from being deleted by any
+-- user. If not defined during ledger creation, this feature is enabled
+-- (@true@) by default.
 --
 -- If deletion protection is enabled, you must first disable it before you
 -- can delete the ledger. You can disable it by calling the @UpdateLedger@
--- operation to set the flag to @false@.
+-- operation to set this parameter to @false@.
 --
 -- 'kmsKey', 'updateLedger_kmsKey' - The key in Key Management Service (KMS) to use for encryption of data at
 -- rest in the ledger. For more information, see
@@ -138,7 +139,8 @@ data UpdateLedger = UpdateLedger'
 -- -   __Undefined__: Make no changes to the KMS key of the ledger.
 --
 -- -   __A valid symmetric customer managed KMS key__: Use the specified
---     KMS key in your account that you create, own, and manage.
+--     symmetric encryption KMS key in your account that you create, own,
+--     and manage.
 --
 --     Amazon QLDB does not support asymmetric keys. For more information,
 --     see
@@ -177,13 +179,13 @@ newUpdateLedger pName_ =
       name = pName_
     }
 
--- | The flag that prevents a ledger from being deleted by any user. If not
--- provided on ledger creation, this feature is enabled (@true@) by
--- default.
+-- | Specifies whether the ledger is protected from being deleted by any
+-- user. If not defined during ledger creation, this feature is enabled
+-- (@true@) by default.
 --
 -- If deletion protection is enabled, you must first disable it before you
 -- can delete the ledger. You can disable it by calling the @UpdateLedger@
--- operation to set the flag to @false@.
+-- operation to set this parameter to @false@.
 updateLedger_deletionProtection :: Lens.Lens' UpdateLedger (Prelude.Maybe Prelude.Bool)
 updateLedger_deletionProtection = Lens.lens (\UpdateLedger' {deletionProtection} -> deletionProtection) (\s@UpdateLedger' {} a -> s {deletionProtection = a} :: UpdateLedger)
 
@@ -200,7 +202,8 @@ updateLedger_deletionProtection = Lens.lens (\UpdateLedger' {deletionProtection}
 -- -   __Undefined__: Make no changes to the KMS key of the ledger.
 --
 -- -   __A valid symmetric customer managed KMS key__: Use the specified
---     KMS key in your account that you create, own, and manage.
+--     symmetric encryption KMS key in your account that you create, own,
+--     and manage.
 --
 --     Amazon QLDB does not support asymmetric keys. For more information,
 --     see
@@ -252,7 +255,8 @@ instance Core.AWSRequest UpdateLedger where
 
 instance Prelude.Hashable UpdateLedger where
   hashWithSalt _salt UpdateLedger' {..} =
-    _salt `Prelude.hashWithSalt` deletionProtection
+    _salt
+      `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` name
 
@@ -298,13 +302,13 @@ data UpdateLedgerResponse = UpdateLedgerResponse'
     -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
     -- January 1, 1970 UTC.)
     creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The flag that prevents a ledger from being deleted by any user. If not
-    -- provided on ledger creation, this feature is enabled (@true@) by
-    -- default.
+    -- | Specifies whether the ledger is protected from being deleted by any
+    -- user. If not defined during ledger creation, this feature is enabled
+    -- (@true@) by default.
     --
     -- If deletion protection is enabled, you must first disable it before you
     -- can delete the ledger. You can disable it by calling the @UpdateLedger@
-    -- operation to set the flag to @false@.
+    -- operation to set this parameter to @false@.
     deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | Information about the encryption of data at rest in the ledger. This
     -- includes the current status, the KMS key, and when the key became
@@ -333,13 +337,13 @@ data UpdateLedgerResponse = UpdateLedgerResponse'
 -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 -- January 1, 1970 UTC.)
 --
--- 'deletionProtection', 'updateLedgerResponse_deletionProtection' - The flag that prevents a ledger from being deleted by any user. If not
--- provided on ledger creation, this feature is enabled (@true@) by
--- default.
+-- 'deletionProtection', 'updateLedgerResponse_deletionProtection' - Specifies whether the ledger is protected from being deleted by any
+-- user. If not defined during ledger creation, this feature is enabled
+-- (@true@) by default.
 --
 -- If deletion protection is enabled, you must first disable it before you
 -- can delete the ledger. You can disable it by calling the @UpdateLedger@
--- operation to set the flag to @false@.
+-- operation to set this parameter to @false@.
 --
 -- 'encryptionDescription', 'updateLedgerResponse_encryptionDescription' - Information about the encryption of data at rest in the ledger. This
 -- includes the current status, the KMS key, and when the key became
@@ -375,13 +379,13 @@ updateLedgerResponse_arn = Lens.lens (\UpdateLedgerResponse' {arn} -> arn) (\s@U
 updateLedgerResponse_creationDateTime :: Lens.Lens' UpdateLedgerResponse (Prelude.Maybe Prelude.UTCTime)
 updateLedgerResponse_creationDateTime = Lens.lens (\UpdateLedgerResponse' {creationDateTime} -> creationDateTime) (\s@UpdateLedgerResponse' {} a -> s {creationDateTime = a} :: UpdateLedgerResponse) Prelude.. Lens.mapping Data._Time
 
--- | The flag that prevents a ledger from being deleted by any user. If not
--- provided on ledger creation, this feature is enabled (@true@) by
--- default.
+-- | Specifies whether the ledger is protected from being deleted by any
+-- user. If not defined during ledger creation, this feature is enabled
+-- (@true@) by default.
 --
 -- If deletion protection is enabled, you must first disable it before you
 -- can delete the ledger. You can disable it by calling the @UpdateLedger@
--- operation to set the flag to @false@.
+-- operation to set this parameter to @false@.
 updateLedgerResponse_deletionProtection :: Lens.Lens' UpdateLedgerResponse (Prelude.Maybe Prelude.Bool)
 updateLedgerResponse_deletionProtection = Lens.lens (\UpdateLedgerResponse' {deletionProtection} -> deletionProtection) (\s@UpdateLedgerResponse' {} a -> s {deletionProtection = a} :: UpdateLedgerResponse)
 

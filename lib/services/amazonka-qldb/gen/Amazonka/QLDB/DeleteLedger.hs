@@ -24,7 +24,7 @@
 --
 -- If deletion protection is enabled, you must first disable it before you
 -- can delete the ledger. You can disable it by calling the @UpdateLedger@
--- operation to set the flag to @false@.
+-- operation to set this parameter to @false@.
 module Amazonka.QLDB.DeleteLedger
   ( -- * Creating a Request
     DeleteLedger (..),

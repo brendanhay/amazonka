@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of journal export job descriptions for a specified
--- ledger.
+-- Returns all journal export jobs for a specified ledger.
 --
 -- This action returns a maximum of @MaxResults@ items, and is paginated so
 -- that you can retrieve all the items by calling
@@ -136,7 +135,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListJournalS3ExportsForLedgerResponse'
-            Prelude.<$> ( x Data..?> "JournalS3Exports"
+            Prelude.<$> ( x
+                            Data..?> "JournalS3Exports"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -148,7 +148,8 @@ instance
     ListJournalS3ExportsForLedger
   where
   hashWithSalt _salt ListJournalS3ExportsForLedger' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` name
 
@@ -183,8 +184,8 @@ instance Data.ToQuery ListJournalS3ExportsForLedger where
 
 -- | /See:/ 'newListJournalS3ExportsForLedgerResponse' smart constructor.
 data ListJournalS3ExportsForLedgerResponse = ListJournalS3ExportsForLedgerResponse'
-  { -- | The array of journal export job descriptions that are associated with
-    -- the specified ledger.
+  { -- | The journal export jobs that are currently associated with the specified
+    -- ledger.
     journalS3Exports :: Prelude.Maybe [JournalS3ExportDescription],
     -- | -   If @NextToken@ is empty, then the last page of results has been
     --     processed and there are no more results to be retrieved.
@@ -206,8 +207,8 @@ data ListJournalS3ExportsForLedgerResponse = ListJournalS3ExportsForLedgerRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'journalS3Exports', 'listJournalS3ExportsForLedgerResponse_journalS3Exports' - The array of journal export job descriptions that are associated with
--- the specified ledger.
+-- 'journalS3Exports', 'listJournalS3ExportsForLedgerResponse_journalS3Exports' - The journal export jobs that are currently associated with the specified
+-- ledger.
 --
 -- 'nextToken', 'listJournalS3ExportsForLedgerResponse_nextToken' - -   If @NextToken@ is empty, then the last page of results has been
 --     processed and there are no more results to be retrieved.
@@ -229,8 +230,8 @@ newListJournalS3ExportsForLedgerResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The array of journal export job descriptions that are associated with
--- the specified ledger.
+-- | The journal export jobs that are currently associated with the specified
+-- ledger.
 listJournalS3ExportsForLedgerResponse_journalS3Exports :: Lens.Lens' ListJournalS3ExportsForLedgerResponse (Prelude.Maybe [JournalS3ExportDescription])
 listJournalS3ExportsForLedgerResponse_journalS3Exports = Lens.lens (\ListJournalS3ExportsForLedgerResponse' {journalS3Exports} -> journalS3Exports) (\s@ListJournalS3ExportsForLedgerResponse' {} a -> s {journalS3Exports = a} :: ListJournalS3ExportsForLedgerResponse) Prelude.. Lens.mapping Lens.coerced
 

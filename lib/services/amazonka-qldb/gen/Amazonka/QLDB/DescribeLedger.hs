@@ -134,13 +134,13 @@ data DescribeLedgerResponse = DescribeLedgerResponse'
     -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
     -- January 1, 1970 UTC.)
     creationDateTime :: Prelude.Maybe Data.POSIX,
-    -- | The flag that prevents a ledger from being deleted by any user. If not
-    -- provided on ledger creation, this feature is enabled (@true@) by
-    -- default.
+    -- | Specifies whether the ledger is protected from being deleted by any
+    -- user. If not defined during ledger creation, this feature is enabled
+    -- (@true@) by default.
     --
     -- If deletion protection is enabled, you must first disable it before you
     -- can delete the ledger. You can disable it by calling the @UpdateLedger@
-    -- operation to set the flag to @false@.
+    -- operation to set this parameter to @false@.
     deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | Information about the encryption of data at rest in the ledger. This
     -- includes the current status, the KMS key, and when the key became
@@ -171,13 +171,13 @@ data DescribeLedgerResponse = DescribeLedgerResponse'
 -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 -- January 1, 1970 UTC.)
 --
--- 'deletionProtection', 'describeLedgerResponse_deletionProtection' - The flag that prevents a ledger from being deleted by any user. If not
--- provided on ledger creation, this feature is enabled (@true@) by
--- default.
+-- 'deletionProtection', 'describeLedgerResponse_deletionProtection' - Specifies whether the ledger is protected from being deleted by any
+-- user. If not defined during ledger creation, this feature is enabled
+-- (@true@) by default.
 --
 -- If deletion protection is enabled, you must first disable it before you
 -- can delete the ledger. You can disable it by calling the @UpdateLedger@
--- operation to set the flag to @false@.
+-- operation to set this parameter to @false@.
 --
 -- 'encryptionDescription', 'describeLedgerResponse_encryptionDescription' - Information about the encryption of data at rest in the ledger. This
 -- includes the current status, the KMS key, and when the key became
@@ -216,13 +216,13 @@ describeLedgerResponse_arn = Lens.lens (\DescribeLedgerResponse' {arn} -> arn) (
 describeLedgerResponse_creationDateTime :: Lens.Lens' DescribeLedgerResponse (Prelude.Maybe Prelude.UTCTime)
 describeLedgerResponse_creationDateTime = Lens.lens (\DescribeLedgerResponse' {creationDateTime} -> creationDateTime) (\s@DescribeLedgerResponse' {} a -> s {creationDateTime = a} :: DescribeLedgerResponse) Prelude.. Lens.mapping Data._Time
 
--- | The flag that prevents a ledger from being deleted by any user. If not
--- provided on ledger creation, this feature is enabled (@true@) by
--- default.
+-- | Specifies whether the ledger is protected from being deleted by any
+-- user. If not defined during ledger creation, this feature is enabled
+-- (@true@) by default.
 --
 -- If deletion protection is enabled, you must first disable it before you
 -- can delete the ledger. You can disable it by calling the @UpdateLedger@
--- operation to set the flag to @false@.
+-- operation to set this parameter to @false@.
 describeLedgerResponse_deletionProtection :: Lens.Lens' DescribeLedgerResponse (Prelude.Maybe Prelude.Bool)
 describeLedgerResponse_deletionProtection = Lens.lens (\DescribeLedgerResponse' {deletionProtection} -> deletionProtection) (\s@DescribeLedgerResponse' {} a -> s {deletionProtection = a} :: DescribeLedgerResponse)
 

@@ -171,60 +171,60 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The action you attempted is not allowed unless Service Access with
 -- Service Quotas is enabled in your organization.
-_AWSServiceAccessNotEnabledException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AWSServiceAccessNotEnabledException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AWSServiceAccessNotEnabledException =
   Core._MatchServiceError
     defaultService
     "AWSServiceAccessNotEnabledException"
 
 -- | You do not have sufficient permission to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -232,42 +232,42 @@ _AccessDeniedException =
 
 -- | You can\'t perform this action because a dependency does not have
 -- access.
-_DependencyAccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DependencyAccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DependencyAccessDeniedException =
   Core._MatchServiceError
     defaultService
     "DependencyAccessDeniedException"
 
 -- | Invalid input was provided.
-_IllegalArgumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IllegalArgumentException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IllegalArgumentException =
   Core._MatchServiceError
     defaultService
     "IllegalArgumentException"
 
 -- | Invalid input was provided.
-_InvalidPaginationTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidPaginationTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidPaginationTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidPaginationTokenException"
 
 -- | The resource is in an invalid state.
-_InvalidResourceStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidResourceStateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidResourceStateException =
   Core._MatchServiceError
     defaultService
     "InvalidResourceStateException"
 
 -- | The account making this call is not a member of an organization.
-_NoAvailableOrganizationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NoAvailableOrganizationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NoAvailableOrganizationException =
   Core._MatchServiceError
     defaultService
     "NoAvailableOrganizationException"
 
 -- | The specified resource does not exist.
-_NoSuchResourceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NoSuchResourceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NoSuchResourceException =
   Core._MatchServiceError
     defaultService
@@ -275,7 +275,7 @@ _NoSuchResourceException =
 
 -- | The organization that your account belongs to is not in All Features
 -- mode.
-_OrganizationNotInAllFeaturesModeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OrganizationNotInAllFeaturesModeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OrganizationNotInAllFeaturesModeException =
   Core._MatchServiceError
     defaultService
@@ -284,42 +284,42 @@ _OrganizationNotInAllFeaturesModeException =
 -- | You have exceeded your service quota. To perform the requested action,
 -- remove some of the relevant resources, or use Service Quotas to request
 -- a service quota increase.
-_QuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_QuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _QuotaExceededException =
   Core._MatchServiceError
     defaultService
     "QuotaExceededException"
 
 -- | The specified resource already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ResourceAlreadyExistsException"
 
 -- | Something went wrong.
-_ServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceException =
   Core._MatchServiceError
     defaultService
     "ServiceException"
 
 -- | The quota request template is not associated with your organization.
-_ServiceQuotaTemplateNotInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaTemplateNotInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaTemplateNotInUseException =
   Core._MatchServiceError
     defaultService
     "ServiceQuotaTemplateNotInUseException"
 
 -- | The specified tag is a reserved word and cannot be used.
-_TagPolicyViolationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TagPolicyViolationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TagPolicyViolationException =
   Core._MatchServiceError
     defaultService
     "TagPolicyViolationException"
 
 -- | The Service Quotas template is not available in this AWS Region.
-_TemplatesNotAvailableInRegionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TemplatesNotAvailableInRegionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TemplatesNotAvailableInRegionException =
   Core._MatchServiceError
     defaultService
@@ -327,7 +327,7 @@ _TemplatesNotAvailableInRegionException =
 
 -- | Due to throttling, the request was denied. Slow down the rate of request
 -- calls, or request an increase for this quota.
-_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyRequestsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
@@ -337,7 +337,7 @@ _TooManyRequestsException =
 -- information, see
 -- <https://docs.aws.amazon.com/servicequotas/latest/userguide/sq-tagging.html#sq-tagging-restrictions Tag restrictions>
 -- in the /Service Quotas User Guide/.
-_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyTagsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService

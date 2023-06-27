@@ -128,7 +128,8 @@ instance
   hashWithSalt
     _salt
     DeleteServiceQuotaIncreaseRequestFromTemplate' {..} =
-      _salt `Prelude.hashWithSalt` serviceCode
+      _salt
+        `Prelude.hashWithSalt` serviceCode
         `Prelude.hashWithSalt` quotaCode
         `Prelude.hashWithSalt` awsRegion
 

@@ -120,7 +120,7 @@ instance
       ( \s h x ->
           GetServiceQuotaIncreaseRequestFromTemplateResponse'
             Prelude.<$> (x Data..?> "ServiceQuotaIncreaseRequestInTemplate")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -130,7 +130,8 @@ instance
   hashWithSalt
     _salt
     GetServiceQuotaIncreaseRequestFromTemplate' {..} =
-      _salt `Prelude.hashWithSalt` serviceCode
+      _salt
+        `Prelude.hashWithSalt` serviceCode
         `Prelude.hashWithSalt` quotaCode
         `Prelude.hashWithSalt` awsRegion
 

@@ -111,7 +111,8 @@ instance Data.FromJSON ErrorReason where
 
 instance Prelude.Hashable ErrorReason where
   hashWithSalt _salt ErrorReason' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
 
 instance Prelude.NFData ErrorReason where

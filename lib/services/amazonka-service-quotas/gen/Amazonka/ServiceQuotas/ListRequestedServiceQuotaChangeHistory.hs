@@ -122,22 +122,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listRequestedServiceQuotaChangeHistoryResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listRequestedServiceQuotaChangeHistoryResponse_requestedQuotas
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRequestedServiceQuotaChangeHistory_nextToken
           Lens..~ rs
-            Lens.^? listRequestedServiceQuotaChangeHistoryResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? listRequestedServiceQuotaChangeHistoryResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -154,10 +154,11 @@ instance
       ( \s h x ->
           ListRequestedServiceQuotaChangeHistoryResponse'
             Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "RequestedQuotas"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "RequestedQuotas"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -167,7 +168,8 @@ instance
   hashWithSalt
     _salt
     ListRequestedServiceQuotaChangeHistory' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` serviceCode
         `Prelude.hashWithSalt` status

@@ -177,7 +177,8 @@ instance Data.FromJSON ServiceQuota where
 
 instance Prelude.Hashable ServiceQuota where
   hashWithSalt _salt ServiceQuota' {..} =
-    _salt `Prelude.hashWithSalt` adjustable
+    _salt
+      `Prelude.hashWithSalt` adjustable
       `Prelude.hashWithSalt` errorReason
       `Prelude.hashWithSalt` globalQuota
       `Prelude.hashWithSalt` period

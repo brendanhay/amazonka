@@ -112,7 +112,8 @@ instance Core.AWSRequest DescribeProtection where
 
 instance Prelude.Hashable DescribeProtection where
   hashWithSalt _salt DescribeProtection' {..} =
-    _salt `Prelude.hashWithSalt` protectionId
+    _salt
+      `Prelude.hashWithSalt` protectionId
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData DescribeProtection where

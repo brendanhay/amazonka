@@ -83,12 +83,14 @@ instance Data.FromJSON Contributor where
       "Contributor"
       ( \x ->
           Contributor'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable Contributor where
   hashWithSalt _salt Contributor' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Contributor where

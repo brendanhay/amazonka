@@ -85,7 +85,8 @@ instance Data.FromJSON ProtectionGroupLimits where
 
 instance Prelude.Hashable ProtectionGroupLimits where
   hashWithSalt _salt ProtectionGroupLimits' {..} =
-    _salt `Prelude.hashWithSalt` maxProtectionGroups
+    _salt
+      `Prelude.hashWithSalt` maxProtectionGroups
       `Prelude.hashWithSalt` patternTypeLimits
 
 instance Prelude.NFData ProtectionGroupLimits where

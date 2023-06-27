@@ -212,21 +212,23 @@ instance Core.AWSPager ListAttacks where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listAttacksResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listAttacksResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAttacksResponse_attackSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAttacks_nextToken
           Lens..~ rs
-          Lens.^? listAttacksResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listAttacksResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAttacks where
   type AWSResponse ListAttacks = ListAttacksResponse
@@ -236,7 +238,8 @@ instance Core.AWSRequest ListAttacks where
     Response.receiveJSON
       ( \s h x ->
           ListAttacksResponse'
-            Prelude.<$> ( x Data..?> "AttackSummaries"
+            Prelude.<$> ( x
+                            Data..?> "AttackSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -245,7 +248,8 @@ instance Core.AWSRequest ListAttacks where
 
 instance Prelude.Hashable ListAttacks where
   hashWithSalt _salt ListAttacks' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceArns

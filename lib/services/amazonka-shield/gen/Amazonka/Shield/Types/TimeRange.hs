@@ -74,7 +74,8 @@ instance Data.FromJSON TimeRange where
 
 instance Prelude.Hashable TimeRange where
   hashWithSalt _salt TimeRange' {..} =
-    _salt `Prelude.hashWithSalt` fromInclusive
+    _salt
+      `Prelude.hashWithSalt` fromInclusive
       `Prelude.hashWithSalt` toExclusive
 
 instance Prelude.NFData TimeRange where

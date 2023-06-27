@@ -215,7 +215,8 @@ instance Core.AWSRequest UpdateProtectionGroup where
 
 instance Prelude.Hashable UpdateProtectionGroup where
   hashWithSalt _salt UpdateProtectionGroup' {..} =
-    _salt `Prelude.hashWithSalt` members
+    _salt
+      `Prelude.hashWithSalt` members
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` protectionGroupId
       `Prelude.hashWithSalt` aggregation

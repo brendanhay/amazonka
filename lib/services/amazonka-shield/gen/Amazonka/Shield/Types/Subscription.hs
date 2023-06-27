@@ -188,7 +188,8 @@ instance Data.FromJSON Subscription where
 
 instance Prelude.Hashable Subscription where
   hashWithSalt _salt Subscription' {..} =
-    _salt `Prelude.hashWithSalt` autoRenew
+    _salt
+      `Prelude.hashWithSalt` autoRenew
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` limits
       `Prelude.hashWithSalt` proactiveEngagementStatus

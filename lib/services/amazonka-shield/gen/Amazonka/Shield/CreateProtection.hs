@@ -75,21 +75,22 @@ data CreateProtection = CreateProtection'
     -- The ARN should be in one of the following formats:
     --
     -- -   For an Application Load Balancer:
-    --     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @
+    --     @arn:aws:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/app\/@/@load-balancer-name@/@\/@/@load-balancer-id@/@ @
     --
     -- -   For an Elastic Load Balancer (Classic Load Balancer):
-    --     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/load-balancer-name @
+    --     @arn:aws:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/@/@load-balancer-name@/@ @
     --
     -- -   For an Amazon CloudFront distribution:
-    --     @arn:aws:cloudfront::account-id:distribution\/distribution-id @
+    --     @arn:aws:cloudfront::@/@account-id@/@:distribution\/@/@distribution-id@/@ @
     --
     -- -   For an Global Accelerator standard accelerator:
-    --     @arn:aws:globalaccelerator::account-id:accelerator\/accelerator-id @
+    --     @arn:aws:globalaccelerator::@/@account-id@/@:accelerator\/@/@accelerator-id@/@ @
     --
-    -- -   For Amazon Route 53: @arn:aws:route53:::hostedzone\/hosted-zone-id @
+    -- -   For Amazon Route 53:
+    --     @arn:aws:route53:::hostedzone\/@/@hosted-zone-id@/@ @
     --
     -- -   For an Elastic IP address:
-    --     @arn:aws:ec2:region:account-id:eip-allocation\/allocation-id @
+    --     @arn:aws:ec2:@/@region@/@:@/@account-id@/@:eip-allocation\/@/@allocation-id@/@ @
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -112,21 +113,22 @@ data CreateProtection = CreateProtection'
 -- The ARN should be in one of the following formats:
 --
 -- -   For an Application Load Balancer:
---     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @
+--     @arn:aws:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/app\/@/@load-balancer-name@/@\/@/@load-balancer-id@/@ @
 --
 -- -   For an Elastic Load Balancer (Classic Load Balancer):
---     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/load-balancer-name @
+--     @arn:aws:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/@/@load-balancer-name@/@ @
 --
 -- -   For an Amazon CloudFront distribution:
---     @arn:aws:cloudfront::account-id:distribution\/distribution-id @
+--     @arn:aws:cloudfront::@/@account-id@/@:distribution\/@/@distribution-id@/@ @
 --
 -- -   For an Global Accelerator standard accelerator:
---     @arn:aws:globalaccelerator::account-id:accelerator\/accelerator-id @
+--     @arn:aws:globalaccelerator::@/@account-id@/@:accelerator\/@/@accelerator-id@/@ @
 --
--- -   For Amazon Route 53: @arn:aws:route53:::hostedzone\/hosted-zone-id @
+-- -   For Amazon Route 53:
+--     @arn:aws:route53:::hostedzone\/@/@hosted-zone-id@/@ @
 --
 -- -   For an Elastic IP address:
---     @arn:aws:ec2:region:account-id:eip-allocation\/allocation-id @
+--     @arn:aws:ec2:@/@region@/@:@/@account-id@/@:eip-allocation\/@/@allocation-id@/@ @
 newCreateProtection ::
   -- | 'name'
   Prelude.Text ->
@@ -154,21 +156,22 @@ createProtection_name = Lens.lens (\CreateProtection' {name} -> name) (\s@Create
 -- The ARN should be in one of the following formats:
 --
 -- -   For an Application Load Balancer:
---     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @
+--     @arn:aws:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/app\/@/@load-balancer-name@/@\/@/@load-balancer-id@/@ @
 --
 -- -   For an Elastic Load Balancer (Classic Load Balancer):
---     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/load-balancer-name @
+--     @arn:aws:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/@/@load-balancer-name@/@ @
 --
 -- -   For an Amazon CloudFront distribution:
---     @arn:aws:cloudfront::account-id:distribution\/distribution-id @
+--     @arn:aws:cloudfront::@/@account-id@/@:distribution\/@/@distribution-id@/@ @
 --
 -- -   For an Global Accelerator standard accelerator:
---     @arn:aws:globalaccelerator::account-id:accelerator\/accelerator-id @
+--     @arn:aws:globalaccelerator::@/@account-id@/@:accelerator\/@/@accelerator-id@/@ @
 --
--- -   For Amazon Route 53: @arn:aws:route53:::hostedzone\/hosted-zone-id @
+-- -   For Amazon Route 53:
+--     @arn:aws:route53:::hostedzone\/@/@hosted-zone-id@/@ @
 --
 -- -   For an Elastic IP address:
---     @arn:aws:ec2:region:account-id:eip-allocation\/allocation-id @
+--     @arn:aws:ec2:@/@region@/@:@/@account-id@/@:eip-allocation\/@/@allocation-id@/@ @
 createProtection_resourceArn :: Lens.Lens' CreateProtection Prelude.Text
 createProtection_resourceArn = Lens.lens (\CreateProtection' {resourceArn} -> resourceArn) (\s@CreateProtection' {} a -> s {resourceArn = a} :: CreateProtection)
 
@@ -188,7 +191,8 @@ instance Core.AWSRequest CreateProtection where
 
 instance Prelude.Hashable CreateProtection where
   hashWithSalt _salt CreateProtection' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resourceArn
 

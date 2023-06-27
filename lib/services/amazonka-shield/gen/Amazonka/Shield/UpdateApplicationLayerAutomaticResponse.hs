@@ -133,7 +133,8 @@ instance
   hashWithSalt
     _salt
     UpdateApplicationLayerAutomaticResponse' {..} =
-      _salt `Prelude.hashWithSalt` resourceArn
+      _salt
+        `Prelude.hashWithSalt` resourceArn
         `Prelude.hashWithSalt` action
 
 instance

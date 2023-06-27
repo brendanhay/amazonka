@@ -180,22 +180,22 @@ instance Core.AWSPager ListProtections where
     | Core.stop
         ( rs
             Lens.^? listProtectionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listProtectionsResponse_protections
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listProtections_nextToken
           Lens..~ rs
           Lens.^? listProtectionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProtections where
   type
@@ -214,7 +214,8 @@ instance Core.AWSRequest ListProtections where
 
 instance Prelude.Hashable ListProtections where
   hashWithSalt _salt ListProtections' {..} =
-    _salt `Prelude.hashWithSalt` inclusionFilters
+    _salt
+      `Prelude.hashWithSalt` inclusionFilters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

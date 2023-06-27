@@ -204,7 +204,8 @@ instance Data.FromJSON ProtectionGroup where
 
 instance Prelude.Hashable ProtectionGroup where
   hashWithSalt _salt ProtectionGroup' {..} =
-    _salt `Prelude.hashWithSalt` protectionGroupArn
+    _salt
+      `Prelude.hashWithSalt` protectionGroupArn
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` protectionGroupId
       `Prelude.hashWithSalt` aggregation

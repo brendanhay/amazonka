@@ -119,7 +119,8 @@ instance Core.AWSRequest AssociateHealthCheck where
 
 instance Prelude.Hashable AssociateHealthCheck where
   hashWithSalt _salt AssociateHealthCheck' {..} =
-    _salt `Prelude.hashWithSalt` protectionId
+    _salt
+      `Prelude.hashWithSalt` protectionId
       `Prelude.hashWithSalt` healthCheckArn
 
 instance Prelude.NFData AssociateHealthCheck where

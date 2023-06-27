@@ -64,7 +64,8 @@ instance Data.FromJSON ProtectionLimits where
       "ProtectionLimits"
       ( \x ->
           ProtectionLimits'
-            Prelude.<$> ( x Data..:? "ProtectedResourceTypeLimits"
+            Prelude.<$> ( x
+                            Data..:? "ProtectedResourceTypeLimits"
                             Data..!= Prelude.mempty
                         )
       )

@@ -86,7 +86,8 @@ instance Data.FromJSON AttackStatisticsDataItem where
 
 instance Prelude.Hashable AttackStatisticsDataItem where
   hashWithSalt _salt AttackStatisticsDataItem' {..} =
-    _salt `Prelude.hashWithSalt` attackVolume
+    _salt
+      `Prelude.hashWithSalt` attackVolume
       `Prelude.hashWithSalt` attackCount
 
 instance Prelude.NFData AttackStatisticsDataItem where

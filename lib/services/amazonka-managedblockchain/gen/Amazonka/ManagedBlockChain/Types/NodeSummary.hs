@@ -124,7 +124,8 @@ instance Data.FromJSON NodeSummary where
 
 instance Prelude.Hashable NodeSummary where
   hashWithSalt _salt NodeSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` id

@@ -59,12 +59,11 @@ data CreateNode = CreateNode'
     --
     -- Applies only to Hyperledger Fabric.
     memberId :: Prelude.Maybe Prelude.Text,
-    -- | Tags to assign to the node. Each tag consists of a key and optional
-    -- value.
+    -- | Tags to assign to the node.
     --
-    -- When specifying tags during creation, you can specify multiple key-value
-    -- pairs in a single request, with an overall maximum of 50 tags added to
-    -- each resource.
+    -- Each tag consists of a key and an optional value. You can specify
+    -- multiple key-value pairs in a single request with an overall maximum of
+    -- 50 tags allowed per resource.
     --
     -- For more information about tags, see
     -- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
@@ -87,8 +86,6 @@ data CreateNode = CreateNode'
     -- -   @n-ethereum-goerli@
     --
     -- -   @n-ethereum-rinkeby@
-    --
-    -- -   @n-ethereum-ropsten@
     networkId :: Prelude.Text,
     -- | The properties of a node configuration.
     nodeConfiguration :: NodeConfiguration
@@ -107,12 +104,11 @@ data CreateNode = CreateNode'
 --
 -- Applies only to Hyperledger Fabric.
 --
--- 'tags', 'createNode_tags' - Tags to assign to the node. Each tag consists of a key and optional
--- value.
+-- 'tags', 'createNode_tags' - Tags to assign to the node.
 --
--- When specifying tags during creation, you can specify multiple key-value
--- pairs in a single request, with an overall maximum of 50 tags added to
--- each resource.
+-- Each tag consists of a key and an optional value. You can specify
+-- multiple key-value pairs in a single request with an overall maximum of
+-- 50 tags allowed per resource.
 --
 -- For more information about tags, see
 -- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
@@ -135,8 +131,6 @@ data CreateNode = CreateNode'
 -- -   @n-ethereum-goerli@
 --
 -- -   @n-ethereum-rinkeby@
---
--- -   @n-ethereum-ropsten@
 --
 -- 'nodeConfiguration', 'createNode_nodeConfiguration' - The properties of a node configuration.
 newCreateNode ::
@@ -165,12 +159,11 @@ newCreateNode
 createNode_memberId :: Lens.Lens' CreateNode (Prelude.Maybe Prelude.Text)
 createNode_memberId = Lens.lens (\CreateNode' {memberId} -> memberId) (\s@CreateNode' {} a -> s {memberId = a} :: CreateNode)
 
--- | Tags to assign to the node. Each tag consists of a key and optional
--- value.
+-- | Tags to assign to the node.
 --
--- When specifying tags during creation, you can specify multiple key-value
--- pairs in a single request, with an overall maximum of 50 tags added to
--- each resource.
+-- Each tag consists of a key and an optional value. You can specify
+-- multiple key-value pairs in a single request with an overall maximum of
+-- 50 tags allowed per resource.
 --
 -- For more information about tags, see
 -- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
@@ -197,8 +190,6 @@ createNode_clientRequestToken = Lens.lens (\CreateNode' {clientRequestToken} -> 
 -- -   @n-ethereum-goerli@
 --
 -- -   @n-ethereum-rinkeby@
---
--- -   @n-ethereum-ropsten@
 createNode_networkId :: Lens.Lens' CreateNode Prelude.Text
 createNode_networkId = Lens.lens (\CreateNode' {networkId} -> networkId) (\s@CreateNode' {} a -> s {networkId = a} :: CreateNode)
 
@@ -220,7 +211,8 @@ instance Core.AWSRequest CreateNode where
 
 instance Prelude.Hashable CreateNode where
   hashWithSalt _salt CreateNode' {..} =
-    _salt `Prelude.hashWithSalt` memberId
+    _salt
+      `Prelude.hashWithSalt` memberId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` networkId

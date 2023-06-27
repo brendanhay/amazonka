@@ -20,20 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The token based access feature is in preview release for Ethereum on
--- Amazon Managed Blockchain and is subject to change. We recommend that
--- you use this feature only with test scenarios, and not in production
--- environments.
---
 -- Creates a new accessor for use with Managed Blockchain Ethereum nodes.
--- An accessor object is a container that has the information required for
--- token based access to your Ethereum nodes.
+-- An accessor contains information required for token based access to your
+-- Ethereum nodes.
 module Amazonka.ManagedBlockChain.CreateAccessor
   ( -- * Creating a Request
     CreateAccessor (..),
     newCreateAccessor,
 
     -- * Request Lenses
+    createAccessor_tags,
     createAccessor_clientRequestToken,
     createAccessor_accessorType,
 
@@ -58,7 +54,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAccessor' smart constructor.
 data CreateAccessor = CreateAccessor'
-  { -- | This is a unique, case-sensitive identifier that you provide to ensure
+  { -- | Tags to assign to the Accessor.
+    --
+    -- Each tag consists of a key and an optional value. You can specify
+    -- multiple key-value pairs in a single request with an overall maximum of
+    -- 50 tags allowed per resource.
+    --
+    -- For more information about tags, see
+    -- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
+    -- in the /Amazon Managed Blockchain Ethereum Developer Guide/, or
+    -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
+    -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | This is a unique, case-sensitive identifier that you provide to ensure
     -- the idempotency of the operation. An idempotent operation completes no
     -- more than once. This identifier is required only if you make a service
     -- request directly using an HTTP client. It is generated automatically if
@@ -66,7 +74,7 @@ data CreateAccessor = CreateAccessor'
     clientRequestToken :: Prelude.Text,
     -- | The type of accessor.
     --
-    -- Currently accessor type is restricted to @BILLING_TOKEN@.
+    -- Currently, accessor type is restricted to @BILLING_TOKEN@.
     accessorType :: AccessorType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,6 +87,18 @@ data CreateAccessor = CreateAccessor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createAccessor_tags' - Tags to assign to the Accessor.
+--
+-- Each tag consists of a key and an optional value. You can specify
+-- multiple key-value pairs in a single request with an overall maximum of
+-- 50 tags allowed per resource.
+--
+-- For more information about tags, see
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
+-- in the /Amazon Managed Blockchain Ethereum Developer Guide/, or
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
+-- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
+--
 -- 'clientRequestToken', 'createAccessor_clientRequestToken' - This is a unique, case-sensitive identifier that you provide to ensure
 -- the idempotency of the operation. An idempotent operation completes no
 -- more than once. This identifier is required only if you make a service
@@ -87,7 +107,7 @@ data CreateAccessor = CreateAccessor'
 --
 -- 'accessorType', 'createAccessor_accessorType' - The type of accessor.
 --
--- Currently accessor type is restricted to @BILLING_TOKEN@.
+-- Currently, accessor type is restricted to @BILLING_TOKEN@.
 newCreateAccessor ::
   -- | 'clientRequestToken'
   Prelude.Text ->
@@ -96,10 +116,24 @@ newCreateAccessor ::
   CreateAccessor
 newCreateAccessor pClientRequestToken_ pAccessorType_ =
   CreateAccessor'
-    { clientRequestToken =
-        pClientRequestToken_,
+    { tags = Prelude.Nothing,
+      clientRequestToken = pClientRequestToken_,
       accessorType = pAccessorType_
     }
+
+-- | Tags to assign to the Accessor.
+--
+-- Each tag consists of a key and an optional value. You can specify
+-- multiple key-value pairs in a single request with an overall maximum of
+-- 50 tags allowed per resource.
+--
+-- For more information about tags, see
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
+-- in the /Amazon Managed Blockchain Ethereum Developer Guide/, or
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
+-- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
+createAccessor_tags :: Lens.Lens' CreateAccessor (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createAccessor_tags = Lens.lens (\CreateAccessor' {tags} -> tags) (\s@CreateAccessor' {} a -> s {tags = a} :: CreateAccessor) Prelude.. Lens.mapping Lens.coerced
 
 -- | This is a unique, case-sensitive identifier that you provide to ensure
 -- the idempotency of the operation. An idempotent operation completes no
@@ -111,7 +145,7 @@ createAccessor_clientRequestToken = Lens.lens (\CreateAccessor' {clientRequestTo
 
 -- | The type of accessor.
 --
--- Currently accessor type is restricted to @BILLING_TOKEN@.
+-- Currently, accessor type is restricted to @BILLING_TOKEN@.
 createAccessor_accessorType :: Lens.Lens' CreateAccessor AccessorType
 createAccessor_accessorType = Lens.lens (\CreateAccessor' {accessorType} -> accessorType) (\s@CreateAccessor' {} a -> s {accessorType = a} :: CreateAccessor)
 
@@ -132,12 +166,15 @@ instance Core.AWSRequest CreateAccessor where
 
 instance Prelude.Hashable CreateAccessor where
   hashWithSalt _salt CreateAccessor' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` accessorType
 
 instance Prelude.NFData CreateAccessor where
   rnf CreateAccessor' {..} =
-    Prelude.rnf clientRequestToken
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf accessorType
 
 instance Data.ToHeaders CreateAccessor where
@@ -155,7 +192,8 @@ instance Data.ToJSON CreateAccessor where
   toJSON CreateAccessor' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just
               ("ClientRequestToken" Data..= clientRequestToken),
             Prelude.Just ("AccessorType" Data..= accessorType)
           ]

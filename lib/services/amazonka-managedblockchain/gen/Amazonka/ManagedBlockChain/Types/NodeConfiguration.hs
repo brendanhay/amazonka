@@ -105,7 +105,8 @@ nodeConfiguration_instanceType = Lens.lens (\NodeConfiguration' {instanceType} -
 
 instance Prelude.Hashable NodeConfiguration where
   hashWithSalt _salt NodeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` logPublishingConfiguration
       `Prelude.hashWithSalt` stateDB
       `Prelude.hashWithSalt` instanceType

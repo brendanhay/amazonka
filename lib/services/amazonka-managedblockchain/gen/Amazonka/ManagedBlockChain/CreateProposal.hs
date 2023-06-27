@@ -61,13 +61,11 @@ data CreateProposal = CreateProposal'
   { -- | A description for the proposal that is visible to voting members, for
     -- example, \"Proposal to add Example Corp. as member.\"
     description :: Prelude.Maybe Prelude.Text,
-    -- | Tags to assign to the proposal. Each tag consists of a key and optional
-    -- value.
+    -- | Tags to assign to the proposal.
     --
-    -- When specifying tags during creation, you can specify multiple key-value
-    -- pairs in a single request, with an overall maximum of 50 tags added to
-    -- each resource. If the proposal is for a network invitation, the
-    -- invitation inherits the tags added to the proposal.
+    -- Each tag consists of a key and an optional value. You can specify
+    -- multiple key-value pairs in a single request with an overall maximum of
+    -- 50 tags allowed per resource.
     --
     -- For more information about tags, see
     -- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
@@ -107,13 +105,11 @@ data CreateProposal = CreateProposal'
 -- 'description', 'createProposal_description' - A description for the proposal that is visible to voting members, for
 -- example, \"Proposal to add Example Corp. as member.\"
 --
--- 'tags', 'createProposal_tags' - Tags to assign to the proposal. Each tag consists of a key and optional
--- value.
+-- 'tags', 'createProposal_tags' - Tags to assign to the proposal.
 --
--- When specifying tags during creation, you can specify multiple key-value
--- pairs in a single request, with an overall maximum of 50 tags added to
--- each resource. If the proposal is for a network invitation, the
--- invitation inherits the tags added to the proposal.
+-- Each tag consists of a key and an optional value. You can specify
+-- multiple key-value pairs in a single request with an overall maximum of
+-- 50 tags allowed per resource.
 --
 -- For more information about tags, see
 -- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
@@ -167,13 +163,11 @@ newCreateProposal
 createProposal_description :: Lens.Lens' CreateProposal (Prelude.Maybe Prelude.Text)
 createProposal_description = Lens.lens (\CreateProposal' {description} -> description) (\s@CreateProposal' {} a -> s {description = a} :: CreateProposal)
 
--- | Tags to assign to the proposal. Each tag consists of a key and optional
--- value.
+-- | Tags to assign to the proposal.
 --
--- When specifying tags during creation, you can specify multiple key-value
--- pairs in a single request, with an overall maximum of 50 tags added to
--- each resource. If the proposal is for a network invitation, the
--- invitation inherits the tags added to the proposal.
+-- Each tag consists of a key and an optional value. You can specify
+-- multiple key-value pairs in a single request with an overall maximum of
+-- 50 tags allowed per resource.
 --
 -- For more information about tags, see
 -- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
@@ -225,7 +219,8 @@ instance Core.AWSRequest CreateProposal where
 
 instance Prelude.Hashable CreateProposal where
   hashWithSalt _salt CreateProposal' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` networkId

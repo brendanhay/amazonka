@@ -129,7 +129,8 @@ instance Core.AWSRequest ListProposalVotes where
 
 instance Prelude.Hashable ListProposalVotes where
   hashWithSalt _salt ListProposalVotes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` networkId
       `Prelude.hashWithSalt` proposalId

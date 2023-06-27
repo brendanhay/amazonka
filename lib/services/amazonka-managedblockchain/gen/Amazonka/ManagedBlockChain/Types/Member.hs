@@ -98,7 +98,10 @@ data Member = Member'
     --     state, we recommend deleting and recreating the resource.
     status :: Prelude.Maybe MemberStatus,
     -- | Tags assigned to the member. Tags consist of a key and optional value.
+    --
     -- For more information about tags, see
+    -- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
+    -- in the /Amazon Managed Blockchain Ethereum Developer Guide/, or
     -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
     -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
@@ -178,7 +181,10 @@ data Member = Member'
 --     state, we recommend deleting and recreating the resource.
 --
 -- 'tags', 'member_tags' - Tags assigned to the member. Tags consist of a key and optional value.
+--
 -- For more information about tags, see
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
+-- in the /Amazon Managed Blockchain Ethereum Developer Guide/, or
 -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
 -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
 newMember ::
@@ -283,7 +289,10 @@ member_status :: Lens.Lens' Member (Prelude.Maybe MemberStatus)
 member_status = Lens.lens (\Member' {status} -> status) (\s@Member' {} a -> s {status = a} :: Member)
 
 -- | Tags assigned to the member. Tags consist of a key and optional value.
+--
 -- For more information about tags, see
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
+-- in the /Amazon Managed Blockchain Ethereum Developer Guide/, or
 -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
 -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
 member_tags :: Lens.Lens' Member (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -310,7 +319,8 @@ instance Data.FromJSON Member where
 
 instance Prelude.Hashable Member where
   hashWithSalt _salt Member' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` frameworkAttributes

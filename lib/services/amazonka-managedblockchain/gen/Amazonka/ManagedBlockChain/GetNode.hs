@@ -123,7 +123,8 @@ instance Core.AWSRequest GetNode where
 
 instance Prelude.Hashable GetNode where
   hashWithSalt _salt GetNode' {..} =
-    _salt `Prelude.hashWithSalt` memberId
+    _salt
+      `Prelude.hashWithSalt` memberId
       `Prelude.hashWithSalt` networkId
       `Prelude.hashWithSalt` nodeId
 

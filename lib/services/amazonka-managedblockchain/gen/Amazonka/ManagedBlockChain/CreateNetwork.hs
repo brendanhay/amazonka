@@ -65,12 +65,11 @@ data CreateNetwork = CreateNetwork'
     -- | Configuration properties of the blockchain framework relevant to the
     -- network configuration.
     frameworkConfiguration :: Prelude.Maybe NetworkFrameworkConfiguration,
-    -- | Tags to assign to the network. Each tag consists of a key and optional
-    -- value.
+    -- | Tags to assign to the network.
     --
-    -- When specifying tags during creation, you can specify multiple key-value
-    -- pairs in a single request, with an overall maximum of 50 tags added to
-    -- each resource.
+    -- Each tag consists of a key and an optional value. You can specify
+    -- multiple key-value pairs in a single request with an overall maximum of
+    -- 50 tags allowed per resource.
     --
     -- For more information about tags, see
     -- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
@@ -111,12 +110,11 @@ data CreateNetwork = CreateNetwork'
 -- 'frameworkConfiguration', 'createNetwork_frameworkConfiguration' - Configuration properties of the blockchain framework relevant to the
 -- network configuration.
 --
--- 'tags', 'createNetwork_tags' - Tags to assign to the network. Each tag consists of a key and optional
--- value.
+-- 'tags', 'createNetwork_tags' - Tags to assign to the network.
 --
--- When specifying tags during creation, you can specify multiple key-value
--- pairs in a single request, with an overall maximum of 50 tags added to
--- each resource.
+-- Each tag consists of a key and an optional value. You can specify
+-- multiple key-value pairs in a single request with an overall maximum of
+-- 50 tags allowed per resource.
 --
 -- For more information about tags, see
 -- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
@@ -182,12 +180,11 @@ createNetwork_description = Lens.lens (\CreateNetwork' {description} -> descript
 createNetwork_frameworkConfiguration :: Lens.Lens' CreateNetwork (Prelude.Maybe NetworkFrameworkConfiguration)
 createNetwork_frameworkConfiguration = Lens.lens (\CreateNetwork' {frameworkConfiguration} -> frameworkConfiguration) (\s@CreateNetwork' {} a -> s {frameworkConfiguration = a} :: CreateNetwork)
 
--- | Tags to assign to the network. Each tag consists of a key and optional
--- value.
+-- | Tags to assign to the network.
 --
--- When specifying tags during creation, you can specify multiple key-value
--- pairs in a single request, with an overall maximum of 50 tags added to
--- each resource.
+-- Each tag consists of a key and an optional value. You can specify
+-- multiple key-value pairs in a single request with an overall maximum of
+-- 50 tags allowed per resource.
 --
 -- For more information about tags, see
 -- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
@@ -243,7 +240,8 @@ instance Core.AWSRequest CreateNetwork where
 
 instance Prelude.Hashable CreateNetwork where
   hashWithSalt _salt CreateNetwork' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` frameworkConfiguration
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientRequestToken

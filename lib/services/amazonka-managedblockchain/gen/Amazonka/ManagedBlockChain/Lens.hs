@@ -15,6 +15,7 @@ module Amazonka.ManagedBlockChain.Lens
   ( -- * Operations
 
     -- ** CreateAccessor
+    createAccessor_tags,
     createAccessor_clientRequestToken,
     createAccessor_accessorType,
     createAccessorResponse_accessorId,
@@ -215,6 +216,7 @@ module Amazonka.ManagedBlockChain.Lens
     accessor_creationDate,
     accessor_id,
     accessor_status,
+    accessor_tags,
     accessor_type,
 
     -- ** AccessorSummary

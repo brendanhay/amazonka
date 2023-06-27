@@ -146,7 +146,8 @@ instance Core.AWSRequest ListNodes where
 
 instance Prelude.Hashable ListNodes where
   hashWithSalt _salt ListNodes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` memberId
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status

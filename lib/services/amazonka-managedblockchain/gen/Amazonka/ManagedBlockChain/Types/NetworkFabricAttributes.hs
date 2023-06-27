@@ -81,7 +81,8 @@ instance Data.FromJSON NetworkFabricAttributes where
 
 instance Prelude.Hashable NetworkFabricAttributes where
   hashWithSalt _salt NetworkFabricAttributes' {..} =
-    _salt `Prelude.hashWithSalt` edition
+    _salt
+      `Prelude.hashWithSalt` edition
       `Prelude.hashWithSalt` orderingServiceEndpoint
 
 instance Prelude.NFData NetworkFabricAttributes where

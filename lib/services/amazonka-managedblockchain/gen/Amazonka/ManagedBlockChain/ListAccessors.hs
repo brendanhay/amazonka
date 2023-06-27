@@ -20,11 +20,6 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The token based access feature is in preview release for Ethereum on
--- Amazon Managed Blockchain and is subject to change. We recommend that
--- you use this feature only with test scenarios, and not in production
--- environments.
---
 -- Returns a list of the accessors and their properties. Accessor objects
 -- are containers that have the information required for token based access
 -- to your Ethereum nodes.
@@ -98,20 +93,23 @@ instance Core.AWSPager ListAccessors where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listAccessorsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listAccessorsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listAccessorsResponse_accessors Prelude.. Lens._Just
+            Lens.^? listAccessorsResponse_accessors
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAccessors_nextToken
           Lens..~ rs
-          Lens.^? listAccessorsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listAccessorsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccessors where
   type
@@ -130,7 +128,8 @@ instance Core.AWSRequest ListAccessors where
 
 instance Prelude.Hashable ListAccessors where
   hashWithSalt _salt ListAccessors' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListAccessors where

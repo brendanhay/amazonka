@@ -99,7 +99,8 @@ instance Data.FromJSON NodeEthereumAttributes where
 
 instance Prelude.Hashable NodeEthereumAttributes where
   hashWithSalt _salt NodeEthereumAttributes' {..} =
-    _salt `Prelude.hashWithSalt` httpEndpoint
+    _salt
+      `Prelude.hashWithSalt` httpEndpoint
       `Prelude.hashWithSalt` webSocketEndpoint
 
 instance Prelude.NFData NodeEthereumAttributes where

@@ -26,12 +26,7 @@ import Amazonka.ManagedBlockChain.Types.AccessorStatus
 import Amazonka.ManagedBlockChain.Types.AccessorType
 import qualified Amazonka.Prelude as Prelude
 
--- | The token based access feature is in preview release for Ethereum on
--- Amazon Managed Blockchain and is subject to change. We recommend that
--- you use this feature only with test scenarios, and not in production
--- environments.
---
--- A summary of accessor properties.
+-- | A summary of accessor properties.
 --
 -- /See:/ 'newAccessorSummary' smart constructor.
 data AccessorSummary = AccessorSummary'
@@ -126,7 +121,8 @@ instance Data.FromJSON AccessorSummary where
 
 instance Prelude.Hashable AccessorSummary where
   hashWithSalt _salt AccessorSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` status

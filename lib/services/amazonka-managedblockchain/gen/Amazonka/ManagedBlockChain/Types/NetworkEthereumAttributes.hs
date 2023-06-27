@@ -36,8 +36,6 @@ data NetworkEthereumAttributes = NetworkEthereumAttributes'
     -- -   goerli = @5@
     --
     -- -   rinkeby = @4@
-    --
-    -- -   ropsten = @3@
     chainId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,8 +56,6 @@ data NetworkEthereumAttributes = NetworkEthereumAttributes'
 -- -   goerli = @5@
 --
 -- -   rinkeby = @4@
---
--- -   ropsten = @3@
 newNetworkEthereumAttributes ::
   NetworkEthereumAttributes
 newNetworkEthereumAttributes =
@@ -76,8 +72,6 @@ newNetworkEthereumAttributes =
 -- -   goerli = @5@
 --
 -- -   rinkeby = @4@
---
--- -   ropsten = @3@
 networkEthereumAttributes_chainId :: Lens.Lens' NetworkEthereumAttributes (Prelude.Maybe Prelude.Text)
 networkEthereumAttributes_chainId = Lens.lens (\NetworkEthereumAttributes' {chainId} -> chainId) (\s@NetworkEthereumAttributes' {} a -> s {chainId = a} :: NetworkEthereumAttributes)
 

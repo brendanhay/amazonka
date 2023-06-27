@@ -73,6 +73,7 @@ module Amazonka.ManagedBlockChain.Types
     accessor_creationDate,
     accessor_id,
     accessor_status,
+    accessor_tags,
     accessor_type,
 
     -- * AccessorSummary
@@ -438,60 +439,59 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- |
-_IllegalActionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IllegalActionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IllegalActionException =
   Core._MatchServiceError
     defaultService
@@ -500,7 +500,7 @@ _IllegalActionException =
 
 -- | The request processing has failed because of an unknown error, exception
 -- or failure.
-_InternalServiceErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServiceErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServiceErrorException =
   Core._MatchServiceError
     defaultService
@@ -509,7 +509,7 @@ _InternalServiceErrorException =
 
 -- | The action or operation requested is invalid. Verify that the action is
 -- typed correctly.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -517,7 +517,7 @@ _InvalidRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | A resource request is issued for a resource that already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -527,7 +527,7 @@ _ResourceAlreadyExistsException =
 -- | The maximum number of resources of that type already exist. Ensure the
 -- resources requested are within the boundaries of the service edition and
 -- your account limits.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -536,7 +536,7 @@ _ResourceLimitExceededException =
 
 -- | A requested resource doesn\'t exist. It may have been deleted or
 -- referenced incorrectly.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -545,7 +545,7 @@ _ResourceNotFoundException =
 
 -- | The requested resource exists but isn\'t in a status that can complete
 -- the operation.
-_ResourceNotReadyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotReadyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotReadyException =
   Core._MatchServiceError
     defaultService
@@ -556,15 +556,14 @@ _ResourceNotReadyException =
 -- throttling requests. The most common source of throttling errors is
 -- creating resources that exceed your service limit for this resource
 -- type. Request a limit increase or delete unused resources if possible.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
 
--- |
-_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyTagsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService

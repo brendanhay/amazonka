@@ -25,18 +25,19 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration properties for Hyperledger Fabric for a member in a
--- Managed Blockchain network using the Hyperledger Fabric framework.
+-- Managed Blockchain network that is using the Hyperledger Fabric
+-- framework.
 --
 -- /See:/ 'newMemberFabricConfiguration' smart constructor.
 data MemberFabricConfiguration = MemberFabricConfiguration'
   { -- | The user name for the member\'s initial administrative user.
     adminUsername :: Prelude.Text,
     -- | The password for the member\'s initial administrative user. The
-    -- @AdminPassword@ must be at least eight characters long and no more than
-    -- 32 characters. It must contain at least one uppercase letter, one
-    -- lowercase letter, and one digit. It cannot have a single quotation mark
-    -- (‘), a double quotation marks (“), a forward slash(\/), a backward
-    -- slash(\\), \@, or a space.
+    -- @AdminPassword@ must be at least 8 characters long and no more than 32
+    -- characters. It must contain at least one uppercase letter, one lowercase
+    -- letter, and one digit. It cannot have a single quotation mark (‘), a
+    -- double quotation marks (“), a forward slash(\/), a backward slash(\\),
+    -- \@, or a space.
     adminPassword :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -52,11 +53,11 @@ data MemberFabricConfiguration = MemberFabricConfiguration'
 -- 'adminUsername', 'memberFabricConfiguration_adminUsername' - The user name for the member\'s initial administrative user.
 --
 -- 'adminPassword', 'memberFabricConfiguration_adminPassword' - The password for the member\'s initial administrative user. The
--- @AdminPassword@ must be at least eight characters long and no more than
--- 32 characters. It must contain at least one uppercase letter, one
--- lowercase letter, and one digit. It cannot have a single quotation mark
--- (‘), a double quotation marks (“), a forward slash(\/), a backward
--- slash(\\), \@, or a space.
+-- @AdminPassword@ must be at least 8 characters long and no more than 32
+-- characters. It must contain at least one uppercase letter, one lowercase
+-- letter, and one digit. It cannot have a single quotation mark (‘), a
+-- double quotation marks (“), a forward slash(\/), a backward slash(\\),
+-- \@, or a space.
 newMemberFabricConfiguration ::
   -- | 'adminUsername'
   Prelude.Text ->
@@ -78,17 +79,18 @@ memberFabricConfiguration_adminUsername :: Lens.Lens' MemberFabricConfiguration 
 memberFabricConfiguration_adminUsername = Lens.lens (\MemberFabricConfiguration' {adminUsername} -> adminUsername) (\s@MemberFabricConfiguration' {} a -> s {adminUsername = a} :: MemberFabricConfiguration)
 
 -- | The password for the member\'s initial administrative user. The
--- @AdminPassword@ must be at least eight characters long and no more than
--- 32 characters. It must contain at least one uppercase letter, one
--- lowercase letter, and one digit. It cannot have a single quotation mark
--- (‘), a double quotation marks (“), a forward slash(\/), a backward
--- slash(\\), \@, or a space.
+-- @AdminPassword@ must be at least 8 characters long and no more than 32
+-- characters. It must contain at least one uppercase letter, one lowercase
+-- letter, and one digit. It cannot have a single quotation mark (‘), a
+-- double quotation marks (“), a forward slash(\/), a backward slash(\\),
+-- \@, or a space.
 memberFabricConfiguration_adminPassword :: Lens.Lens' MemberFabricConfiguration Prelude.Text
 memberFabricConfiguration_adminPassword = Lens.lens (\MemberFabricConfiguration' {adminPassword} -> adminPassword) (\s@MemberFabricConfiguration' {} a -> s {adminPassword = a} :: MemberFabricConfiguration) Prelude.. Data._Sensitive
 
 instance Prelude.Hashable MemberFabricConfiguration where
   hashWithSalt _salt MemberFabricConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` adminUsername
+    _salt
+      `Prelude.hashWithSalt` adminUsername
       `Prelude.hashWithSalt` adminPassword
 
 instance Prelude.NFData MemberFabricConfiguration where

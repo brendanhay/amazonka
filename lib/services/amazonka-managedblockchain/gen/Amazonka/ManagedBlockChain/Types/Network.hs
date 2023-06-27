@@ -62,7 +62,8 @@ data Network = Network'
     -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
     -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The voting rules for the network to decide if a proposal is accepted.
+    -- | The voting rules that the network uses to decide if a proposal is
+    -- accepted.
     votingPolicy :: Prelude.Maybe VotingPolicy,
     -- | The VPC endpoint service name of the VPC endpoint service of the
     -- network. Members use the VPC endpoint service name to create a VPC
@@ -109,7 +110,8 @@ data Network = Network'
 -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
 -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
 --
--- 'votingPolicy', 'network_votingPolicy' - The voting rules for the network to decide if a proposal is accepted.
+-- 'votingPolicy', 'network_votingPolicy' - The voting rules that the network uses to decide if a proposal is
+-- accepted.
 --
 -- 'vpcEndpointServiceName', 'network_vpcEndpointServiceName' - The VPC endpoint service name of the VPC endpoint service of the
 -- network. Members use the VPC endpoint service name to create a VPC
@@ -182,7 +184,8 @@ network_status = Lens.lens (\Network' {status} -> status) (\s@Network' {} a -> s
 network_tags :: Lens.Lens' Network (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 network_tags = Lens.lens (\Network' {tags} -> tags) (\s@Network' {} a -> s {tags = a} :: Network) Prelude.. Lens.mapping Lens.coerced
 
--- | The voting rules for the network to decide if a proposal is accepted.
+-- | The voting rules that the network uses to decide if a proposal is
+-- accepted.
 network_votingPolicy :: Lens.Lens' Network (Prelude.Maybe VotingPolicy)
 network_votingPolicy = Lens.lens (\Network' {votingPolicy} -> votingPolicy) (\s@Network' {} a -> s {votingPolicy = a} :: Network)
 
@@ -214,7 +217,8 @@ instance Data.FromJSON Network where
 
 instance Prelude.Hashable Network where
   hashWithSalt _salt Network' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` framework

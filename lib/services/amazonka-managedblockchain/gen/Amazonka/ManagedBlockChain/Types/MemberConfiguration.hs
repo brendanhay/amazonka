@@ -61,13 +61,16 @@ data MemberConfiguration = MemberConfiguration'
     -- a Managed Blockchain network.
     logPublishingConfiguration :: Prelude.Maybe MemberLogPublishingConfiguration,
     -- | Tags assigned to the member. Tags consist of a key and optional value.
-    -- For more information about tags, see
-    -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
-    -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
     --
     -- When specifying tags during creation, you can specify multiple key-value
     -- pairs in a single request, with an overall maximum of 50 tags added to
     -- each resource.
+    --
+    -- For more information about tags, see
+    -- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
+    -- in the /Amazon Managed Blockchain Ethereum Developer Guide/, or
+    -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
+    -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the member.
     name :: Prelude.Text,
@@ -114,13 +117,16 @@ data MemberConfiguration = MemberConfiguration'
 -- a Managed Blockchain network.
 --
 -- 'tags', 'memberConfiguration_tags' - Tags assigned to the member. Tags consist of a key and optional value.
--- For more information about tags, see
--- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
--- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
 --
 -- When specifying tags during creation, you can specify multiple key-value
 -- pairs in a single request, with an overall maximum of 50 tags added to
 -- each resource.
+--
+-- For more information about tags, see
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
+-- in the /Amazon Managed Blockchain Ethereum Developer Guide/, or
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
+-- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
 --
 -- 'name', 'memberConfiguration_name' - The name of the member.
 --
@@ -179,13 +185,16 @@ memberConfiguration_logPublishingConfiguration :: Lens.Lens' MemberConfiguration
 memberConfiguration_logPublishingConfiguration = Lens.lens (\MemberConfiguration' {logPublishingConfiguration} -> logPublishingConfiguration) (\s@MemberConfiguration' {} a -> s {logPublishingConfiguration = a} :: MemberConfiguration)
 
 -- | Tags assigned to the member. Tags consist of a key and optional value.
--- For more information about tags, see
--- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
--- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
 --
 -- When specifying tags during creation, you can specify multiple key-value
 -- pairs in a single request, with an overall maximum of 50 tags added to
 -- each resource.
+--
+-- For more information about tags, see
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
+-- in the /Amazon Managed Blockchain Ethereum Developer Guide/, or
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
+-- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
 memberConfiguration_tags :: Lens.Lens' MemberConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 memberConfiguration_tags = Lens.lens (\MemberConfiguration' {tags} -> tags) (\s@MemberConfiguration' {} a -> s {tags = a} :: MemberConfiguration) Prelude.. Lens.mapping Lens.coerced
 
@@ -200,7 +209,8 @@ memberConfiguration_frameworkConfiguration = Lens.lens (\MemberConfiguration' {f
 
 instance Prelude.Hashable MemberConfiguration where
   hashWithSalt _salt MemberConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` logPublishingConfiguration
       `Prelude.hashWithSalt` tags

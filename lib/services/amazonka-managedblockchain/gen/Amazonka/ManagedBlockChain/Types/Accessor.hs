@@ -26,12 +26,7 @@ import Amazonka.ManagedBlockChain.Types.AccessorStatus
 import Amazonka.ManagedBlockChain.Types.AccessorType
 import qualified Amazonka.Prelude as Prelude
 
--- | The token based access feature is in preview release for Ethereum on
--- Amazon Managed Blockchain and is subject to change. We recommend that
--- you use this feature only with test scenarios, and not in production
--- environments.
---
--- The properties of the Accessor.
+-- | The properties of the Accessor.
 --
 -- /See:/ 'newAccessor' smart constructor.
 data Accessor = Accessor'
@@ -51,9 +46,17 @@ data Accessor = Accessor'
     id :: Prelude.Maybe Prelude.Text,
     -- | The current status of the accessor.
     status :: Prelude.Maybe AccessorStatus,
+    -- | The tags assigned to the Accessor.
+    --
+    -- For more information about tags, see
+    -- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
+    -- in the /Amazon Managed Blockchain Ethereum Developer Guide/, or
+    -- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
+    -- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The type of the accessor.
     --
-    -- Currently accessor type is restricted to @BILLING_TOKEN@.
+    -- Currently, accessor type is restricted to @BILLING_TOKEN@.
     type' :: Prelude.Maybe AccessorType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,9 +85,17 @@ data Accessor = Accessor'
 --
 -- 'status', 'accessor_status' - The current status of the accessor.
 --
+-- 'tags', 'accessor_tags' - The tags assigned to the Accessor.
+--
+-- For more information about tags, see
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
+-- in the /Amazon Managed Blockchain Ethereum Developer Guide/, or
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
+-- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
+--
 -- 'type'', 'accessor_type' - The type of the accessor.
 --
--- Currently accessor type is restricted to @BILLING_TOKEN@.
+-- Currently, accessor type is restricted to @BILLING_TOKEN@.
 newAccessor ::
   Accessor
 newAccessor =
@@ -94,6 +105,7 @@ newAccessor =
       creationDate = Prelude.Nothing,
       id = Prelude.Nothing,
       status = Prelude.Nothing,
+      tags = Prelude.Nothing,
       type' = Prelude.Nothing
     }
 
@@ -123,9 +135,19 @@ accessor_id = Lens.lens (\Accessor' {id} -> id) (\s@Accessor' {} a -> s {id = a}
 accessor_status :: Lens.Lens' Accessor (Prelude.Maybe AccessorStatus)
 accessor_status = Lens.lens (\Accessor' {status} -> status) (\s@Accessor' {} a -> s {status = a} :: Accessor)
 
+-- | The tags assigned to the Accessor.
+--
+-- For more information about tags, see
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html Tagging Resources>
+-- in the /Amazon Managed Blockchain Ethereum Developer Guide/, or
+-- <https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html Tagging Resources>
+-- in the /Amazon Managed Blockchain Hyperledger Fabric Developer Guide/.
+accessor_tags :: Lens.Lens' Accessor (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+accessor_tags = Lens.lens (\Accessor' {tags} -> tags) (\s@Accessor' {} a -> s {tags = a} :: Accessor) Prelude.. Lens.mapping Lens.coerced
+
 -- | The type of the accessor.
 --
--- Currently accessor type is restricted to @BILLING_TOKEN@.
+-- Currently, accessor type is restricted to @BILLING_TOKEN@.
 accessor_type :: Lens.Lens' Accessor (Prelude.Maybe AccessorType)
 accessor_type = Lens.lens (\Accessor' {type'} -> type') (\s@Accessor' {} a -> s {type' = a} :: Accessor)
 
@@ -140,16 +162,19 @@ instance Data.FromJSON Accessor where
             Prelude.<*> (x Data..:? "CreationDate")
             Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Accessor where
   hashWithSalt _salt Accessor' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` billingToken
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Accessor where
@@ -159,4 +184,5 @@ instance Prelude.NFData Accessor where
       `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf type'

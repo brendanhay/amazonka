@@ -109,7 +109,8 @@ instance Core.AWSRequest DeleteMember where
 
 instance Prelude.Hashable DeleteMember where
   hashWithSalt _salt DeleteMember' {..} =
-    _salt `Prelude.hashWithSalt` networkId
+    _salt
+      `Prelude.hashWithSalt` networkId
       `Prelude.hashWithSalt` memberId
 
 instance Prelude.NFData DeleteMember where

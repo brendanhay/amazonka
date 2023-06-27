@@ -212,7 +212,8 @@ instance Data.FromJSON ProposalSummary where
 
 instance Prelude.Hashable ProposalSummary where
   hashWithSalt _salt ProposalSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` expirationDate

@@ -96,7 +96,8 @@ anomalyDetectorConfiguration_metricTimezone = Lens.lens (\AnomalyDetectorConfigu
 instance Data.FromXML AnomalyDetectorConfiguration where
   parseXML x =
     AnomalyDetectorConfiguration'
-      Prelude.<$> ( x Data..@? "ExcludedTimeRanges"
+      Prelude.<$> ( x
+                      Data..@? "ExcludedTimeRanges"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -107,7 +108,8 @@ instance
     AnomalyDetectorConfiguration
   where
   hashWithSalt _salt AnomalyDetectorConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` excludedTimeRanges
+    _salt
+      `Prelude.hashWithSalt` excludedTimeRanges
       `Prelude.hashWithSalt` metricTimezone
 
 instance Prelude.NFData AnomalyDetectorConfiguration where

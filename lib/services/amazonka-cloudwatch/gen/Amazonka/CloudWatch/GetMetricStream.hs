@@ -39,6 +39,7 @@ module Amazonka.CloudWatch.GetMetricStream
     getMetricStreamResponse_excludeFilters,
     getMetricStreamResponse_firehoseArn,
     getMetricStreamResponse_includeFilters,
+    getMetricStreamResponse_includeLinkedAccountsMetrics,
     getMetricStreamResponse_lastUpdateDate,
     getMetricStreamResponse_name,
     getMetricStreamResponse_outputFormat,
@@ -97,19 +98,25 @@ instance Core.AWSRequest GetMetricStream where
           GetMetricStreamResponse'
             Prelude.<$> (x Data..@? "Arn")
             Prelude.<*> (x Data..@? "CreationDate")
-            Prelude.<*> ( x Data..@? "ExcludeFilters" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "ExcludeFilters"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "FirehoseArn")
-            Prelude.<*> ( x Data..@? "IncludeFilters" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "IncludeFilters"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
+            Prelude.<*> (x Data..@? "IncludeLinkedAccountsMetrics")
             Prelude.<*> (x Data..@? "LastUpdateDate")
             Prelude.<*> (x Data..@? "Name")
             Prelude.<*> (x Data..@? "OutputFormat")
             Prelude.<*> (x Data..@? "RoleArn")
             Prelude.<*> (x Data..@? "State")
-            Prelude.<*> ( x Data..@? "StatisticsConfigurations"
+            Prelude.<*> ( x
+                            Data..@? "StatisticsConfigurations"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -156,6 +163,10 @@ data GetMetricStreamResponse = GetMetricStreamResponse'
     -- | If this array of metric namespaces is present, then these namespaces are
     -- the only metric namespaces that are streamed by this metric stream.
     includeFilters :: Prelude.Maybe [MetricStreamFilter],
+    -- | If this is @true@ and this metric stream is in a monitoring account,
+    -- then the stream includes metrics from source accounts that the
+    -- monitoring account is linked to.
+    includeLinkedAccountsMetrics :: Prelude.Maybe Prelude.Bool,
     -- | The date of the most recent update to the metric stream\'s
     -- configuration.
     lastUpdateDate :: Prelude.Maybe Data.ISO8601,
@@ -204,6 +215,10 @@ data GetMetricStreamResponse = GetMetricStreamResponse'
 -- 'includeFilters', 'getMetricStreamResponse_includeFilters' - If this array of metric namespaces is present, then these namespaces are
 -- the only metric namespaces that are streamed by this metric stream.
 --
+-- 'includeLinkedAccountsMetrics', 'getMetricStreamResponse_includeLinkedAccountsMetrics' - If this is @true@ and this metric stream is in a monitoring account,
+-- then the stream includes metrics from source accounts that the
+-- monitoring account is linked to.
+--
 -- 'lastUpdateDate', 'getMetricStreamResponse_lastUpdateDate' - The date of the most recent update to the metric stream\'s
 -- configuration.
 --
@@ -236,6 +251,7 @@ newGetMetricStreamResponse pHttpStatus_ =
       excludeFilters = Prelude.Nothing,
       firehoseArn = Prelude.Nothing,
       includeFilters = Prelude.Nothing,
+      includeLinkedAccountsMetrics = Prelude.Nothing,
       lastUpdateDate = Prelude.Nothing,
       name = Prelude.Nothing,
       outputFormat = Prelude.Nothing,
@@ -269,6 +285,12 @@ getMetricStreamResponse_firehoseArn = Lens.lens (\GetMetricStreamResponse' {fire
 -- the only metric namespaces that are streamed by this metric stream.
 getMetricStreamResponse_includeFilters :: Lens.Lens' GetMetricStreamResponse (Prelude.Maybe [MetricStreamFilter])
 getMetricStreamResponse_includeFilters = Lens.lens (\GetMetricStreamResponse' {includeFilters} -> includeFilters) (\s@GetMetricStreamResponse' {} a -> s {includeFilters = a} :: GetMetricStreamResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | If this is @true@ and this metric stream is in a monitoring account,
+-- then the stream includes metrics from source accounts that the
+-- monitoring account is linked to.
+getMetricStreamResponse_includeLinkedAccountsMetrics :: Lens.Lens' GetMetricStreamResponse (Prelude.Maybe Prelude.Bool)
+getMetricStreamResponse_includeLinkedAccountsMetrics = Lens.lens (\GetMetricStreamResponse' {includeLinkedAccountsMetrics} -> includeLinkedAccountsMetrics) (\s@GetMetricStreamResponse' {} a -> s {includeLinkedAccountsMetrics = a} :: GetMetricStreamResponse)
 
 -- | The date of the most recent update to the metric stream\'s
 -- configuration.
@@ -313,6 +335,7 @@ instance Prelude.NFData GetMetricStreamResponse where
       `Prelude.seq` Prelude.rnf excludeFilters
       `Prelude.seq` Prelude.rnf firehoseArn
       `Prelude.seq` Prelude.rnf includeFilters
+      `Prelude.seq` Prelude.rnf includeLinkedAccountsMetrics
       `Prelude.seq` Prelude.rnf lastUpdateDate
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf outputFormat

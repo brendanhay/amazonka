@@ -105,7 +105,9 @@ instance Core.AWSRequest DescribeInsightRules where
       "DescribeInsightRulesResult"
       ( \s h x ->
           DescribeInsightRulesResponse'
-            Prelude.<$> ( x Data..@? "InsightRules" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "InsightRules"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")
@@ -114,7 +116,8 @@ instance Core.AWSRequest DescribeInsightRules where
 
 instance Prelude.Hashable DescribeInsightRules where
   hashWithSalt _salt DescribeInsightRules' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeInsightRules where

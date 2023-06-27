@@ -52,6 +52,11 @@
 -- When you use @PutMetricStream@ to create a new metric stream, the stream
 -- is created in the @running@ state. If you use it to update an existing
 -- stream, the state of the stream is not changed.
+--
+-- If you are using CloudWatch cross-account observability and you create a
+-- metric stream in a monitoring account, you can choose whether to include
+-- metrics from source accounts in the stream. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html CloudWatch cross-account observability>.
 module Amazonka.CloudWatch.PutMetricStream
   ( -- * Creating a Request
     PutMetricStream (..),
@@ -60,6 +65,7 @@ module Amazonka.CloudWatch.PutMetricStream
     -- * Request Lenses
     putMetricStream_excludeFilters,
     putMetricStream_includeFilters,
+    putMetricStream_includeLinkedAccountsMetrics,
     putMetricStream_statisticsConfigurations,
     putMetricStream_tags,
     putMetricStream_name,
@@ -99,6 +105,9 @@ data PutMetricStream = PutMetricStream'
     -- You cannot include @IncludeFilters@ and @ExcludeFilters@ in the same
     -- operation.
     includeFilters :: Prelude.Maybe [MetricStreamFilter],
+    -- | If you are creating a metric stream in a monitoring account, specify
+    -- @true@ to include metrics from source accounts in the metric stream.
+    includeLinkedAccountsMetrics :: Prelude.Maybe Prelude.Bool,
     -- | By default, a metric stream always sends the @MAX@, @MIN@, @SUM@, and
     -- @SAMPLECOUNT@ statistics for each metric that is streamed. You can use
     -- this parameter to have the metric stream also send additional statistics
@@ -178,6 +187,9 @@ data PutMetricStream = PutMetricStream'
 -- You cannot include @IncludeFilters@ and @ExcludeFilters@ in the same
 -- operation.
 --
+-- 'includeLinkedAccountsMetrics', 'putMetricStream_includeLinkedAccountsMetrics' - If you are creating a metric stream in a monitoring account, specify
+-- @true@ to include metrics from source accounts in the metric stream.
+--
 -- 'statisticsConfigurations', 'putMetricStream_statisticsConfigurations' - By default, a metric stream always sends the @MAX@, @MIN@, @SUM@, and
 -- @SAMPLECOUNT@ statistics for each metric that is streamed. You can use
 -- this parameter to have the metric stream also send additional statistics
@@ -251,6 +263,7 @@ newPutMetricStream
     PutMetricStream'
       { excludeFilters = Prelude.Nothing,
         includeFilters = Prelude.Nothing,
+        includeLinkedAccountsMetrics = Prelude.Nothing,
         statisticsConfigurations = Prelude.Nothing,
         tags = Prelude.Nothing,
         name = pName_,
@@ -274,6 +287,11 @@ putMetricStream_excludeFilters = Lens.lens (\PutMetricStream' {excludeFilters} -
 -- operation.
 putMetricStream_includeFilters :: Lens.Lens' PutMetricStream (Prelude.Maybe [MetricStreamFilter])
 putMetricStream_includeFilters = Lens.lens (\PutMetricStream' {includeFilters} -> includeFilters) (\s@PutMetricStream' {} a -> s {includeFilters = a} :: PutMetricStream) Prelude.. Lens.mapping Lens.coerced
+
+-- | If you are creating a metric stream in a monitoring account, specify
+-- @true@ to include metrics from source accounts in the metric stream.
+putMetricStream_includeLinkedAccountsMetrics :: Lens.Lens' PutMetricStream (Prelude.Maybe Prelude.Bool)
+putMetricStream_includeLinkedAccountsMetrics = Lens.lens (\PutMetricStream' {includeLinkedAccountsMetrics} -> includeLinkedAccountsMetrics) (\s@PutMetricStream' {} a -> s {includeLinkedAccountsMetrics = a} :: PutMetricStream)
 
 -- | By default, a metric stream always sends the @MAX@, @MIN@, @SUM@, and
 -- @SAMPLECOUNT@ statistics for each metric that is streamed. You can use
@@ -360,8 +378,10 @@ instance Core.AWSRequest PutMetricStream where
 
 instance Prelude.Hashable PutMetricStream where
   hashWithSalt _salt PutMetricStream' {..} =
-    _salt `Prelude.hashWithSalt` excludeFilters
+    _salt
+      `Prelude.hashWithSalt` excludeFilters
       `Prelude.hashWithSalt` includeFilters
+      `Prelude.hashWithSalt` includeLinkedAccountsMetrics
       `Prelude.hashWithSalt` statisticsConfigurations
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
@@ -373,6 +393,7 @@ instance Prelude.NFData PutMetricStream where
   rnf PutMetricStream' {..} =
     Prelude.rnf excludeFilters
       `Prelude.seq` Prelude.rnf includeFilters
+      `Prelude.seq` Prelude.rnf includeLinkedAccountsMetrics
       `Prelude.seq` Prelude.rnf statisticsConfigurations
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
@@ -403,6 +424,8 @@ instance Data.ToQuery PutMetricStream where
             ( Data.toQueryList "member"
                 Prelude.<$> includeFilters
             ),
+        "IncludeLinkedAccountsMetrics"
+          Data.=: includeLinkedAccountsMetrics,
         "StatisticsConfigurations"
           Data.=: Data.toQuery
             ( Data.toQueryList "member"

@@ -46,8 +46,8 @@ data MetricStreamStatisticsConfiguration = MetricStreamStatisticsConfiguration'
     -- list can include as many as 20 statistics.
     --
     -- If the @OutputFormat@ for the stream is @opentelemetry0.7@, the only
-    -- valid values are @p?? @ percentile statistics such as @p90@, @p99@ and
-    -- so on.
+    -- valid values are @p@/@??@/@ @ percentile statistics such as @p90@, @p99@
+    -- and so on.
     --
     -- If the @OutputFormat@ for the stream is @json@, the valid values include
     -- the abbreviations for all of the statistics listed in
@@ -77,8 +77,8 @@ data MetricStreamStatisticsConfiguration = MetricStreamStatisticsConfiguration'
 -- list can include as many as 20 statistics.
 --
 -- If the @OutputFormat@ for the stream is @opentelemetry0.7@, the only
--- valid values are @p?? @ percentile statistics such as @p90@, @p99@ and
--- so on.
+-- valid values are @p@/@??@/@ @ percentile statistics such as @p90@, @p99@
+-- and so on.
 --
 -- If the @OutputFormat@ for the stream is @json@, the valid values include
 -- the abbreviations for all of the statistics listed in
@@ -107,8 +107,8 @@ metricStreamStatisticsConfiguration_includeMetrics = Lens.lens (\MetricStreamSta
 -- list can include as many as 20 statistics.
 --
 -- If the @OutputFormat@ for the stream is @opentelemetry0.7@, the only
--- valid values are @p?? @ percentile statistics such as @p90@, @p99@ and
--- so on.
+-- valid values are @p@/@??@/@ @ percentile statistics such as @p90@, @p99@
+-- and so on.
 --
 -- If the @OutputFormat@ for the stream is @json@, the valid values include
 -- the abbreviations for all of the statistics listed in
@@ -123,10 +123,13 @@ instance
   where
   parseXML x =
     MetricStreamStatisticsConfiguration'
-      Prelude.<$> ( x Data..@? "IncludeMetrics" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "IncludeMetrics"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "member"
                   )
-      Prelude.<*> ( x Data..@? "AdditionalStatistics"
+      Prelude.<*> ( x
+                      Data..@? "AdditionalStatistics"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "member"
                   )
@@ -138,7 +141,8 @@ instance
   hashWithSalt
     _salt
     MetricStreamStatisticsConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` includeMetrics
+      _salt
+        `Prelude.hashWithSalt` includeMetrics
         `Prelude.hashWithSalt` additionalStatistics
 
 instance

@@ -90,7 +90,9 @@ instance Core.AWSRequest DisableInsightRules where
       "DisableInsightRulesResult"
       ( \s h x ->
           DisableInsightRulesResponse'
-            Prelude.<$> ( x Data..@? "Failures" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Failures"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

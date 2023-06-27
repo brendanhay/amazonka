@@ -95,7 +95,8 @@ instance Data.FromXML ManagedRuleDescription where
 
 instance Prelude.Hashable ManagedRuleDescription where
   hashWithSalt _salt ManagedRuleDescription' {..} =
-    _salt `Prelude.hashWithSalt` resourceARN
+    _salt
+      `Prelude.hashWithSalt` resourceARN
       `Prelude.hashWithSalt` ruleState
       `Prelude.hashWithSalt` templateName
 

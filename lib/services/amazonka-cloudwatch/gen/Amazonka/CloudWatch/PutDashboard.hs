@@ -143,7 +143,8 @@ instance Core.AWSRequest PutDashboard where
       "PutDashboardResult"
       ( \s h x ->
           PutDashboardResponse'
-            Prelude.<$> ( x Data..@? "DashboardValidationMessages"
+            Prelude.<$> ( x
+                            Data..@? "DashboardValidationMessages"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -152,7 +153,8 @@ instance Core.AWSRequest PutDashboard where
 
 instance Prelude.Hashable PutDashboard where
   hashWithSalt _salt PutDashboard' {..} =
-    _salt `Prelude.hashWithSalt` dashboardName
+    _salt
+      `Prelude.hashWithSalt` dashboardName
       `Prelude.hashWithSalt` dashboardBody
 
 instance Prelude.NFData PutDashboard where

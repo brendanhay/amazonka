@@ -169,6 +169,7 @@ module Amazonka.CloudWatch.Lens
     getMetricStreamResponse_excludeFilters,
     getMetricStreamResponse_firehoseArn,
     getMetricStreamResponse_includeFilters,
+    getMetricStreamResponse_includeLinkedAccountsMetrics,
     getMetricStreamResponse_lastUpdateDate,
     getMetricStreamResponse_name,
     getMetricStreamResponse_outputFormat,
@@ -295,6 +296,7 @@ module Amazonka.CloudWatch.Lens
     -- ** PutMetricStream
     putMetricStream_excludeFilters,
     putMetricStream_includeFilters,
+    putMetricStream_includeLinkedAccountsMetrics,
     putMetricStream_statisticsConfigurations,
     putMetricStream_tags,
     putMetricStream_name,
@@ -531,6 +533,7 @@ module Amazonka.CloudWatch.Lens
     metricStreamEntry_state,
 
     -- ** MetricStreamFilter
+    metricStreamFilter_metricNames,
     metricStreamFilter_namespace,
 
     -- ** MetricStreamStatisticsConfiguration

@@ -81,7 +81,8 @@ instance Data.FromXML Range where
 
 instance Prelude.Hashable Range where
   hashWithSalt _salt Range' {..} =
-    _salt `Prelude.hashWithSalt` startTime
+    _salt
+      `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endTime
 
 instance Prelude.NFData Range where

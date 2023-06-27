@@ -66,7 +66,8 @@ dimensionFilter_name = Lens.lens (\DimensionFilter' {name} -> name) (\s@Dimensio
 
 instance Prelude.Hashable DimensionFilter where
   hashWithSalt _salt DimensionFilter' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DimensionFilter where

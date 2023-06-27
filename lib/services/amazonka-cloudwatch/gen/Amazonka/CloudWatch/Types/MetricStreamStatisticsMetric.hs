@@ -81,7 +81,8 @@ instance
     MetricStreamStatisticsMetric
   where
   hashWithSalt _salt MetricStreamStatisticsMetric' {..} =
-    _salt `Prelude.hashWithSalt` namespace
+    _salt
+      `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` metricName
 
 instance Prelude.NFData MetricStreamStatisticsMetric where

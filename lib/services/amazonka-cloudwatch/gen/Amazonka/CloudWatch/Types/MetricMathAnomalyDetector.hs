@@ -81,7 +81,8 @@ metricMathAnomalyDetector_metricDataQueries = Lens.lens (\MetricMathAnomalyDetec
 instance Data.FromXML MetricMathAnomalyDetector where
   parseXML x =
     MetricMathAnomalyDetector'
-      Prelude.<$> ( x Data..@? "MetricDataQueries"
+      Prelude.<$> ( x
+                      Data..@? "MetricDataQueries"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )

@@ -293,27 +293,28 @@ instance Core.AWSPager DescribeAlarms where
     | Core.stop
         ( rs
             Lens.^? describeAlarmsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAlarmsResponse_metricAlarms
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAlarmsResponse_compositeAlarms
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeAlarms_nextToken
           Lens..~ rs
-          Lens.^? describeAlarmsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeAlarmsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAlarms where
   type
@@ -326,10 +327,14 @@ instance Core.AWSRequest DescribeAlarms where
       "DescribeAlarmsResult"
       ( \s h x ->
           DescribeAlarmsResponse'
-            Prelude.<$> ( x Data..@? "CompositeAlarms" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "CompositeAlarms"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Data..@? "MetricAlarms" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "MetricAlarms"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "NextToken")
@@ -338,7 +343,8 @@ instance Core.AWSRequest DescribeAlarms where
 
 instance Prelude.Hashable DescribeAlarms where
   hashWithSalt _salt DescribeAlarms' {..} =
-    _salt `Prelude.hashWithSalt` actionPrefix
+    _salt
+      `Prelude.hashWithSalt` actionPrefix
       `Prelude.hashWithSalt` alarmNamePrefix
       `Prelude.hashWithSalt` alarmNames
       `Prelude.hashWithSalt` alarmTypes

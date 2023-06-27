@@ -26,7 +26,11 @@
 -- alarms with one operation, but you can\'t delete two composite alarms
 -- with one operation.
 --
--- In the event of an error, no alarms are deleted.
+-- If you specify an incorrect alarm name or make any other error in the
+-- operation, no alarms are deleted. To confirm that alarms were deleted
+-- successfully, you can use the
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html DescribeAlarms>
+-- operation after using @DeleteAlarms@.
 --
 -- It is possible to create a loop or cycle of composite alarms, where
 -- composite alarm A depends on composite alarm B, and composite alarm B
@@ -66,7 +70,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteAlarms' smart constructor.
 data DeleteAlarms = DeleteAlarms'
-  { -- | The alarms to be deleted.
+  { -- | The alarms to be deleted. Do not enclose the alarm names in quote marks.
     alarmNames :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,13 +83,13 @@ data DeleteAlarms = DeleteAlarms'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'alarmNames', 'deleteAlarms_alarmNames' - The alarms to be deleted.
+-- 'alarmNames', 'deleteAlarms_alarmNames' - The alarms to be deleted. Do not enclose the alarm names in quote marks.
 newDeleteAlarms ::
   DeleteAlarms
 newDeleteAlarms =
   DeleteAlarms' {alarmNames = Prelude.mempty}
 
--- | The alarms to be deleted.
+-- | The alarms to be deleted. Do not enclose the alarm names in quote marks.
 deleteAlarms_alarmNames :: Lens.Lens' DeleteAlarms [Prelude.Text]
 deleteAlarms_alarmNames = Lens.lens (\DeleteAlarms' {alarmNames} -> alarmNames) (\s@DeleteAlarms' {} a -> s {alarmNames = a} :: DeleteAlarms) Prelude.. Lens.coerced
 

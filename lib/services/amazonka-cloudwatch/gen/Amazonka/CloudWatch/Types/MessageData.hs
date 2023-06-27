@@ -72,11 +72,13 @@ messageData_value = Lens.lens (\MessageData' {value} -> value) (\s@MessageData' 
 instance Data.FromXML MessageData where
   parseXML x =
     MessageData'
-      Prelude.<$> (x Data..@? "Code") Prelude.<*> (x Data..@? "Value")
+      Prelude.<$> (x Data..@? "Code")
+      Prelude.<*> (x Data..@? "Value")
 
 instance Prelude.Hashable MessageData where
   hashWithSalt _salt MessageData' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData MessageData where

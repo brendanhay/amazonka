@@ -40,10 +40,11 @@
 -- If you are an IAM user, you must have Amazon EC2 permissions for some
 -- alarm operations:
 --
--- -   The @iam:CreateServiceLinkedRole@ for all alarms with EC2 actions
+-- -   The @iam:CreateServiceLinkedRole@ permission for all alarms with EC2
+--     actions
 --
--- -   The @iam:CreateServiceLinkedRole@ to create an alarm with Systems
---     Manager OpsItem actions.
+-- -   The @iam:CreateServiceLinkedRole@ permissions to create an alarm
+--     with Systems Manager OpsItem or response plan actions.
 --
 -- The first time you create an alarm in the Amazon Web Services Management
 -- Console, the CLI, or by using the PutMetricAlarm API, CloudWatch creates
@@ -51,6 +52,9 @@
 -- called @AWSServiceRoleForCloudWatchEvents@ and
 -- @AWSServiceRoleForCloudWatchAlarms_ActionSSM@. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role Amazon Web Services service-linked role>.
+--
+-- Each @PutMetricAlarm@ action has a maximum uncompressed payload of 120
+-- KB.
 --
 -- __Cross-account alarms__
 --
@@ -124,25 +128,39 @@ data PutMetricAlarm = PutMetricAlarm'
     actionsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The actions to execute when this alarm transitions to the @ALARM@ state
     -- from any other state. Each action is specified as an Amazon Resource
-    -- Name (ARN).
+    -- Name (ARN). Valid values:
     --
-    -- Valid Values: @arn:aws:automate:region:ec2:stop@ |
-    -- @arn:aws:automate:region:ec2:terminate@ |
-    -- @arn:aws:automate:region:ec2:recover@ |
-    -- @arn:aws:automate:region:ec2:reboot@ |
-    -- @arn:aws:sns:region:account-id:sns-topic-name @ |
-    -- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
-    -- | @arn:aws:ssm:region:account-id:opsitem:severity @ |
-    -- @arn:aws:ssm-incidents::account-id:response-plan:response-plan-name @
+    -- __EC2 actions:__
     --
-    -- Valid Values (for use with IAM roles):
-    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
-    -- |
-    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
-    -- |
-    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
-    -- |
-    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
+    -- -   @arn:aws:automate:@/@region@/@:ec2:stop@
+    --
+    -- -   @arn:aws:automate:@/@region@/@:ec2:terminate@
+    --
+    -- -   @arn:aws:automate:@/@region@/@:ec2:reboot@
+    --
+    -- -   @arn:aws:automate:@/@region@/@:ec2:recover@
+    --
+    -- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
+    --
+    -- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
+    --
+    -- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+    --
+    -- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
+    --
+    -- __Autoscaling action:__
+    --
+    -- -   @arn:aws:autoscaling:@/@region@/@:@/@account-id@/@:scalingPolicy:@/@policy-id@/@:autoScalingGroupName\/@/@group-friendly-name@/@:policyName\/@/@policy-friendly-name@/@ @
+    --
+    -- __SNS notification action:__
+    --
+    -- -   @arn:aws:sns:@/@region@/@:@/@account-id@/@:@/@sns-topic-name@/@:autoScalingGroupName\/@/@group-friendly-name@/@:policyName\/@/@policy-friendly-name@/@ @
+    --
+    -- __SSM integration actions:__
+    --
+    -- -   @arn:aws:ssm:@/@region@/@:@/@account-id@/@:opsitem:@/@severity@/@#CATEGORY=@/@category-name@/@ @
+    --
+    -- -   @arn:aws:ssm-incidents::@/@account-id@/@:responseplan\/@/@response-plan-name@/@ @
     alarmActions :: Prelude.Maybe [Prelude.Text],
     -- | The description for the alarm.
     alarmDescription :: Prelude.Maybe Prelude.Text,
@@ -170,21 +188,39 @@ data PutMetricAlarm = PutMetricAlarm'
     extendedStatistic :: Prelude.Maybe Prelude.Text,
     -- | The actions to execute when this alarm transitions to the
     -- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
-    -- as an Amazon Resource Name (ARN).
+    -- as an Amazon Resource Name (ARN). Valid values:
     --
-    -- Valid Values: @arn:aws:automate:region:ec2:stop@ |
-    -- @arn:aws:automate:region:ec2:terminate@ |
-    -- @arn:aws:automate:region:ec2:recover@ |
-    -- @arn:aws:automate:region:ec2:reboot@ |
-    -- @arn:aws:sns:region:account-id:sns-topic-name @ |
-    -- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
+    -- __EC2 actions:__
     --
-    -- Valid Values (for use with IAM roles):
-    -- @>arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
-    -- |
-    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
-    -- |
-    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+    -- -   @arn:aws:automate:@/@region@/@:ec2:stop@
+    --
+    -- -   @arn:aws:automate:@/@region@/@:ec2:terminate@
+    --
+    -- -   @arn:aws:automate:@/@region@/@:ec2:reboot@
+    --
+    -- -   @arn:aws:automate:@/@region@/@:ec2:recover@
+    --
+    -- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
+    --
+    -- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
+    --
+    -- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+    --
+    -- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
+    --
+    -- __Autoscaling action:__
+    --
+    -- -   @arn:aws:autoscaling:@/@region@/@:@/@account-id@/@:scalingPolicy:@/@policy-id@/@:autoScalingGroupName\/@/@group-friendly-name@/@:policyName\/@/@policy-friendly-name@/@ @
+    --
+    -- __SNS notification action:__
+    --
+    -- -   @arn:aws:sns:@/@region@/@:@/@account-id@/@:@/@sns-topic-name@/@:autoScalingGroupName\/@/@group-friendly-name@/@:policyName\/@/@policy-friendly-name@/@ @
+    --
+    -- __SSM integration actions:__
+    --
+    -- -   @arn:aws:ssm:@/@region@/@:@/@account-id@/@:opsitem:@/@severity@/@#CATEGORY=@/@category-name@/@ @
+    --
+    -- -   @arn:aws:ssm-incidents::@/@account-id@/@:responseplan\/@/@response-plan-name@/@ @
     insufficientDataActions :: Prelude.Maybe [Prelude.Text],
     -- | The name for the metric associated with the alarm. For each
     -- @PutMetricAlarm@ operation, you must specify either @MetricName@ or a
@@ -218,23 +254,39 @@ data PutMetricAlarm = PutMetricAlarm'
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The actions to execute when this alarm transitions to an @OK@ state from
     -- any other state. Each action is specified as an Amazon Resource Name
-    -- (ARN).
+    -- (ARN). Valid values:
     --
-    -- Valid Values: @arn:aws:automate:region:ec2:stop@ |
-    -- @arn:aws:automate:region:ec2:terminate@ |
-    -- @arn:aws:automate:region:ec2:recover@ |
-    -- @arn:aws:automate:region:ec2:reboot@ |
-    -- @arn:aws:sns:region:account-id:sns-topic-name @ |
-    -- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
+    -- __EC2 actions:__
     --
-    -- Valid Values (for use with IAM roles):
-    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
-    -- |
-    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
-    -- |
-    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
-    -- |
-    -- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
+    -- -   @arn:aws:automate:@/@region@/@:ec2:stop@
+    --
+    -- -   @arn:aws:automate:@/@region@/@:ec2:terminate@
+    --
+    -- -   @arn:aws:automate:@/@region@/@:ec2:reboot@
+    --
+    -- -   @arn:aws:automate:@/@region@/@:ec2:recover@
+    --
+    -- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
+    --
+    -- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
+    --
+    -- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+    --
+    -- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
+    --
+    -- __Autoscaling action:__
+    --
+    -- -   @arn:aws:autoscaling:@/@region@/@:@/@account-id@/@:scalingPolicy:@/@policy-id@/@:autoScalingGroupName\/@/@group-friendly-name@/@:policyName\/@/@policy-friendly-name@/@ @
+    --
+    -- __SNS notification action:__
+    --
+    -- -   @arn:aws:sns:@/@region@/@:@/@account-id@/@:@/@sns-topic-name@/@:autoScalingGroupName\/@/@group-friendly-name@/@:policyName\/@/@policy-friendly-name@/@ @
+    --
+    -- __SSM integration actions:__
+    --
+    -- -   @arn:aws:ssm:@/@region@/@:@/@account-id@/@:opsitem:@/@severity@/@#CATEGORY=@/@category-name@/@ @
+    --
+    -- -   @arn:aws:ssm-incidents::@/@account-id@/@:responseplan\/@/@response-plan-name@/@ @
     oKActions :: Prelude.Maybe [Prelude.Text],
     -- | The length, in seconds, used each time the metric specified in
     -- @MetricName@ is evaluated. Valid values are 10, 30, and any multiple of
@@ -324,6 +376,9 @@ data PutMetricAlarm = PutMetricAlarm'
     -- the alarm to be stuck in the @INSUFFICIENT DATA@ state.
     unit :: Prelude.Maybe StandardUnit,
     -- | The name for the alarm. This name must be unique within the Region.
+    --
+    -- The name must contain only UTF-8 characters, and can\'t contain ASCII
+    -- control characters
     alarmName :: Prelude.Text,
     -- | The number of periods over which data is compared to the specified
     -- threshold. If you are setting an alarm that requires that a number of
@@ -359,25 +414,39 @@ data PutMetricAlarm = PutMetricAlarm'
 --
 -- 'alarmActions', 'putMetricAlarm_alarmActions' - The actions to execute when this alarm transitions to the @ALARM@ state
 -- from any other state. Each action is specified as an Amazon Resource
--- Name (ARN).
+-- Name (ARN). Valid values:
 --
--- Valid Values: @arn:aws:automate:region:ec2:stop@ |
--- @arn:aws:automate:region:ec2:terminate@ |
--- @arn:aws:automate:region:ec2:recover@ |
--- @arn:aws:automate:region:ec2:reboot@ |
--- @arn:aws:sns:region:account-id:sns-topic-name @ |
--- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
--- | @arn:aws:ssm:region:account-id:opsitem:severity @ |
--- @arn:aws:ssm-incidents::account-id:response-plan:response-plan-name @
+-- __EC2 actions:__
 --
--- Valid Values (for use with IAM roles):
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
+-- -   @arn:aws:automate:@/@region@/@:ec2:stop@
+--
+-- -   @arn:aws:automate:@/@region@/@:ec2:terminate@
+--
+-- -   @arn:aws:automate:@/@region@/@:ec2:reboot@
+--
+-- -   @arn:aws:automate:@/@region@/@:ec2:recover@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
+--
+-- __Autoscaling action:__
+--
+-- -   @arn:aws:autoscaling:@/@region@/@:@/@account-id@/@:scalingPolicy:@/@policy-id@/@:autoScalingGroupName\/@/@group-friendly-name@/@:policyName\/@/@policy-friendly-name@/@ @
+--
+-- __SNS notification action:__
+--
+-- -   @arn:aws:sns:@/@region@/@:@/@account-id@/@:@/@sns-topic-name@/@:autoScalingGroupName\/@/@group-friendly-name@/@:policyName\/@/@policy-friendly-name@/@ @
+--
+-- __SSM integration actions:__
+--
+-- -   @arn:aws:ssm:@/@region@/@:@/@account-id@/@:opsitem:@/@severity@/@#CATEGORY=@/@category-name@/@ @
+--
+-- -   @arn:aws:ssm-incidents::@/@account-id@/@:responseplan\/@/@response-plan-name@/@ @
 --
 -- 'alarmDescription', 'putMetricAlarm_alarmDescription' - The description for the alarm.
 --
@@ -405,21 +474,39 @@ data PutMetricAlarm = PutMetricAlarm'
 --
 -- 'insufficientDataActions', 'putMetricAlarm_insufficientDataActions' - The actions to execute when this alarm transitions to the
 -- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
--- as an Amazon Resource Name (ARN).
+-- as an Amazon Resource Name (ARN). Valid values:
 --
--- Valid Values: @arn:aws:automate:region:ec2:stop@ |
--- @arn:aws:automate:region:ec2:terminate@ |
--- @arn:aws:automate:region:ec2:recover@ |
--- @arn:aws:automate:region:ec2:reboot@ |
--- @arn:aws:sns:region:account-id:sns-topic-name @ |
--- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
+-- __EC2 actions:__
 --
--- Valid Values (for use with IAM roles):
--- @>arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+-- -   @arn:aws:automate:@/@region@/@:ec2:stop@
+--
+-- -   @arn:aws:automate:@/@region@/@:ec2:terminate@
+--
+-- -   @arn:aws:automate:@/@region@/@:ec2:reboot@
+--
+-- -   @arn:aws:automate:@/@region@/@:ec2:recover@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
+--
+-- __Autoscaling action:__
+--
+-- -   @arn:aws:autoscaling:@/@region@/@:@/@account-id@/@:scalingPolicy:@/@policy-id@/@:autoScalingGroupName\/@/@group-friendly-name@/@:policyName\/@/@policy-friendly-name@/@ @
+--
+-- __SNS notification action:__
+--
+-- -   @arn:aws:sns:@/@region@/@:@/@account-id@/@:@/@sns-topic-name@/@:autoScalingGroupName\/@/@group-friendly-name@/@:policyName\/@/@policy-friendly-name@/@ @
+--
+-- __SSM integration actions:__
+--
+-- -   @arn:aws:ssm:@/@region@/@:@/@account-id@/@:opsitem:@/@severity@/@#CATEGORY=@/@category-name@/@ @
+--
+-- -   @arn:aws:ssm-incidents::@/@account-id@/@:responseplan\/@/@response-plan-name@/@ @
 --
 -- 'metricName', 'putMetricAlarm_metricName' - The name for the metric associated with the alarm. For each
 -- @PutMetricAlarm@ operation, you must specify either @MetricName@ or a
@@ -453,23 +540,39 @@ data PutMetricAlarm = PutMetricAlarm'
 --
 -- 'oKActions', 'putMetricAlarm_oKActions' - The actions to execute when this alarm transitions to an @OK@ state from
 -- any other state. Each action is specified as an Amazon Resource Name
--- (ARN).
+-- (ARN). Valid values:
 --
--- Valid Values: @arn:aws:automate:region:ec2:stop@ |
--- @arn:aws:automate:region:ec2:terminate@ |
--- @arn:aws:automate:region:ec2:recover@ |
--- @arn:aws:automate:region:ec2:reboot@ |
--- @arn:aws:sns:region:account-id:sns-topic-name @ |
--- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
+-- __EC2 actions:__
 --
--- Valid Values (for use with IAM roles):
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
+-- -   @arn:aws:automate:@/@region@/@:ec2:stop@
+--
+-- -   @arn:aws:automate:@/@region@/@:ec2:terminate@
+--
+-- -   @arn:aws:automate:@/@region@/@:ec2:reboot@
+--
+-- -   @arn:aws:automate:@/@region@/@:ec2:recover@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
+--
+-- __Autoscaling action:__
+--
+-- -   @arn:aws:autoscaling:@/@region@/@:@/@account-id@/@:scalingPolicy:@/@policy-id@/@:autoScalingGroupName\/@/@group-friendly-name@/@:policyName\/@/@policy-friendly-name@/@ @
+--
+-- __SNS notification action:__
+--
+-- -   @arn:aws:sns:@/@region@/@:@/@account-id@/@:@/@sns-topic-name@/@:autoScalingGroupName\/@/@group-friendly-name@/@:policyName\/@/@policy-friendly-name@/@ @
+--
+-- __SSM integration actions:__
+--
+-- -   @arn:aws:ssm:@/@region@/@:@/@account-id@/@:opsitem:@/@severity@/@#CATEGORY=@/@category-name@/@ @
+--
+-- -   @arn:aws:ssm-incidents::@/@account-id@/@:responseplan\/@/@response-plan-name@/@ @
 --
 -- 'period', 'putMetricAlarm_period' - The length, in seconds, used each time the metric specified in
 -- @MetricName@ is evaluated. Valid values are 10, 30, and any multiple of
@@ -560,6 +663,9 @@ data PutMetricAlarm = PutMetricAlarm'
 --
 -- 'alarmName', 'putMetricAlarm_alarmName' - The name for the alarm. This name must be unique within the Region.
 --
+-- The name must contain only UTF-8 characters, and can\'t contain ASCII
+-- control characters
+--
 -- 'evaluationPeriods', 'putMetricAlarm_evaluationPeriods' - The number of periods over which data is compared to the specified
 -- threshold. If you are setting an alarm that requires that a number of
 -- consecutive data points be breaching to trigger the alarm, this value
@@ -621,25 +727,39 @@ putMetricAlarm_actionsEnabled = Lens.lens (\PutMetricAlarm' {actionsEnabled} -> 
 
 -- | The actions to execute when this alarm transitions to the @ALARM@ state
 -- from any other state. Each action is specified as an Amazon Resource
--- Name (ARN).
+-- Name (ARN). Valid values:
 --
--- Valid Values: @arn:aws:automate:region:ec2:stop@ |
--- @arn:aws:automate:region:ec2:terminate@ |
--- @arn:aws:automate:region:ec2:recover@ |
--- @arn:aws:automate:region:ec2:reboot@ |
--- @arn:aws:sns:region:account-id:sns-topic-name @ |
--- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
--- | @arn:aws:ssm:region:account-id:opsitem:severity @ |
--- @arn:aws:ssm-incidents::account-id:response-plan:response-plan-name @
+-- __EC2 actions:__
 --
--- Valid Values (for use with IAM roles):
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
+-- -   @arn:aws:automate:@/@region@/@:ec2:stop@
+--
+-- -   @arn:aws:automate:@/@region@/@:ec2:terminate@
+--
+-- -   @arn:aws:automate:@/@region@/@:ec2:reboot@
+--
+-- -   @arn:aws:automate:@/@region@/@:ec2:recover@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
+--
+-- __Autoscaling action:__
+--
+-- -   @arn:aws:autoscaling:@/@region@/@:@/@account-id@/@:scalingPolicy:@/@policy-id@/@:autoScalingGroupName\/@/@group-friendly-name@/@:policyName\/@/@policy-friendly-name@/@ @
+--
+-- __SNS notification action:__
+--
+-- -   @arn:aws:sns:@/@region@/@:@/@account-id@/@:@/@sns-topic-name@/@:autoScalingGroupName\/@/@group-friendly-name@/@:policyName\/@/@policy-friendly-name@/@ @
+--
+-- __SSM integration actions:__
+--
+-- -   @arn:aws:ssm:@/@region@/@:@/@account-id@/@:opsitem:@/@severity@/@#CATEGORY=@/@category-name@/@ @
+--
+-- -   @arn:aws:ssm-incidents::@/@account-id@/@:responseplan\/@/@response-plan-name@/@ @
 putMetricAlarm_alarmActions :: Lens.Lens' PutMetricAlarm (Prelude.Maybe [Prelude.Text])
 putMetricAlarm_alarmActions = Lens.lens (\PutMetricAlarm' {alarmActions} -> alarmActions) (\s@PutMetricAlarm' {} a -> s {alarmActions = a} :: PutMetricAlarm) Prelude.. Lens.mapping Lens.coerced
 
@@ -679,21 +799,39 @@ putMetricAlarm_extendedStatistic = Lens.lens (\PutMetricAlarm' {extendedStatisti
 
 -- | The actions to execute when this alarm transitions to the
 -- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
--- as an Amazon Resource Name (ARN).
+-- as an Amazon Resource Name (ARN). Valid values:
 --
--- Valid Values: @arn:aws:automate:region:ec2:stop@ |
--- @arn:aws:automate:region:ec2:terminate@ |
--- @arn:aws:automate:region:ec2:recover@ |
--- @arn:aws:automate:region:ec2:reboot@ |
--- @arn:aws:sns:region:account-id:sns-topic-name @ |
--- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
+-- __EC2 actions:__
 --
--- Valid Values (for use with IAM roles):
--- @>arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+-- -   @arn:aws:automate:@/@region@/@:ec2:stop@
+--
+-- -   @arn:aws:automate:@/@region@/@:ec2:terminate@
+--
+-- -   @arn:aws:automate:@/@region@/@:ec2:reboot@
+--
+-- -   @arn:aws:automate:@/@region@/@:ec2:recover@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
+--
+-- __Autoscaling action:__
+--
+-- -   @arn:aws:autoscaling:@/@region@/@:@/@account-id@/@:scalingPolicy:@/@policy-id@/@:autoScalingGroupName\/@/@group-friendly-name@/@:policyName\/@/@policy-friendly-name@/@ @
+--
+-- __SNS notification action:__
+--
+-- -   @arn:aws:sns:@/@region@/@:@/@account-id@/@:@/@sns-topic-name@/@:autoScalingGroupName\/@/@group-friendly-name@/@:policyName\/@/@policy-friendly-name@/@ @
+--
+-- __SSM integration actions:__
+--
+-- -   @arn:aws:ssm:@/@region@/@:@/@account-id@/@:opsitem:@/@severity@/@#CATEGORY=@/@category-name@/@ @
+--
+-- -   @arn:aws:ssm-incidents::@/@account-id@/@:responseplan\/@/@response-plan-name@/@ @
 putMetricAlarm_insufficientDataActions :: Lens.Lens' PutMetricAlarm (Prelude.Maybe [Prelude.Text])
 putMetricAlarm_insufficientDataActions = Lens.lens (\PutMetricAlarm' {insufficientDataActions} -> insufficientDataActions) (\s@PutMetricAlarm' {} a -> s {insufficientDataActions = a} :: PutMetricAlarm) Prelude.. Lens.mapping Lens.coerced
 
@@ -735,23 +873,39 @@ putMetricAlarm_namespace = Lens.lens (\PutMetricAlarm' {namespace} -> namespace)
 
 -- | The actions to execute when this alarm transitions to an @OK@ state from
 -- any other state. Each action is specified as an Amazon Resource Name
--- (ARN).
+-- (ARN). Valid values:
 --
--- Valid Values: @arn:aws:automate:region:ec2:stop@ |
--- @arn:aws:automate:region:ec2:terminate@ |
--- @arn:aws:automate:region:ec2:recover@ |
--- @arn:aws:automate:region:ec2:reboot@ |
--- @arn:aws:sns:region:account-id:sns-topic-name @ |
--- @arn:aws:autoscaling:region:account-id:scalingPolicy:policy-id:autoScalingGroupName\/group-friendly-name:policyName\/policy-friendly-name @
+-- __EC2 actions:__
 --
--- Valid Values (for use with IAM roles):
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
--- |
--- @arn:aws:swf:region:account-id:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
+-- -   @arn:aws:automate:@/@region@/@:ec2:stop@
+--
+-- -   @arn:aws:automate:@/@region@/@:ec2:terminate@
+--
+-- -   @arn:aws:automate:@/@region@/@:ec2:reboot@
+--
+-- -   @arn:aws:automate:@/@region@/@:ec2:recover@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Stop\/1.0@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Terminate\/1.0@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Reboot\/1.0@
+--
+-- -   @arn:aws:swf:@/@region@/@:@/@account-id@/@:action\/actions\/AWS_EC2.InstanceId.Recover\/1.0@
+--
+-- __Autoscaling action:__
+--
+-- -   @arn:aws:autoscaling:@/@region@/@:@/@account-id@/@:scalingPolicy:@/@policy-id@/@:autoScalingGroupName\/@/@group-friendly-name@/@:policyName\/@/@policy-friendly-name@/@ @
+--
+-- __SNS notification action:__
+--
+-- -   @arn:aws:sns:@/@region@/@:@/@account-id@/@:@/@sns-topic-name@/@:autoScalingGroupName\/@/@group-friendly-name@/@:policyName\/@/@policy-friendly-name@/@ @
+--
+-- __SSM integration actions:__
+--
+-- -   @arn:aws:ssm:@/@region@/@:@/@account-id@/@:opsitem:@/@severity@/@#CATEGORY=@/@category-name@/@ @
+--
+-- -   @arn:aws:ssm-incidents::@/@account-id@/@:responseplan\/@/@response-plan-name@/@ @
 putMetricAlarm_oKActions :: Lens.Lens' PutMetricAlarm (Prelude.Maybe [Prelude.Text])
 putMetricAlarm_oKActions = Lens.lens (\PutMetricAlarm' {oKActions} -> oKActions) (\s@PutMetricAlarm' {} a -> s {oKActions = a} :: PutMetricAlarm) Prelude.. Lens.mapping Lens.coerced
 
@@ -857,6 +1011,9 @@ putMetricAlarm_unit :: Lens.Lens' PutMetricAlarm (Prelude.Maybe StandardUnit)
 putMetricAlarm_unit = Lens.lens (\PutMetricAlarm' {unit} -> unit) (\s@PutMetricAlarm' {} a -> s {unit = a} :: PutMetricAlarm)
 
 -- | The name for the alarm. This name must be unique within the Region.
+--
+-- The name must contain only UTF-8 characters, and can\'t contain ASCII
+-- control characters
 putMetricAlarm_alarmName :: Lens.Lens' PutMetricAlarm Prelude.Text
 putMetricAlarm_alarmName = Lens.lens (\PutMetricAlarm' {alarmName} -> alarmName) (\s@PutMetricAlarm' {} a -> s {alarmName = a} :: PutMetricAlarm)
 
@@ -893,7 +1050,8 @@ instance Core.AWSRequest PutMetricAlarm where
 
 instance Prelude.Hashable PutMetricAlarm where
   hashWithSalt _salt PutMetricAlarm' {..} =
-    _salt `Prelude.hashWithSalt` actionsEnabled
+    _salt
+      `Prelude.hashWithSalt` actionsEnabled
       `Prelude.hashWithSalt` alarmActions
       `Prelude.hashWithSalt` alarmDescription
       `Prelude.hashWithSalt` datapointsToAlarm

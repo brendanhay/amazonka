@@ -77,7 +77,8 @@ instance Data.FromXML ManagedRuleState where
 
 instance Prelude.Hashable ManagedRuleState where
   hashWithSalt _salt ManagedRuleState' {..} =
-    _salt `Prelude.hashWithSalt` ruleName
+    _salt
+      `Prelude.hashWithSalt` ruleName
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData ManagedRuleState where

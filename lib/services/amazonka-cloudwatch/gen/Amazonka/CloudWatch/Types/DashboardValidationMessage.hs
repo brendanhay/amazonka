@@ -71,7 +71,8 @@ instance Data.FromXML DashboardValidationMessage where
 
 instance Prelude.Hashable DashboardValidationMessage where
   hashWithSalt _salt DashboardValidationMessage' {..} =
-    _salt `Prelude.hashWithSalt` dataPath
+    _salt
+      `Prelude.hashWithSalt` dataPath
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData DashboardValidationMessage where

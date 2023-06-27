@@ -99,7 +99,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutMetricData' smart constructor.
 data PutMetricData = PutMetricData'
-  { -- | The namespace for the metric data.
+  { -- | The namespace for the metric data. You can use ASCII characters for the
+    -- namespace, except for control characters which are not supported.
     --
     -- To avoid conflicts with Amazon Web Services service namespaces, you
     -- should not specify a namespace that begins with @AWS\/@
@@ -118,7 +119,8 @@ data PutMetricData = PutMetricData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'namespace', 'putMetricData_namespace' - The namespace for the metric data.
+-- 'namespace', 'putMetricData_namespace' - The namespace for the metric data. You can use ASCII characters for the
+-- namespace, except for control characters which are not supported.
 --
 -- To avoid conflicts with Amazon Web Services service namespaces, you
 -- should not specify a namespace that begins with @AWS\/@
@@ -135,7 +137,8 @@ newPutMetricData pNamespace_ =
       metricData = Prelude.mempty
     }
 
--- | The namespace for the metric data.
+-- | The namespace for the metric data. You can use ASCII characters for the
+-- namespace, except for control characters which are not supported.
 --
 -- To avoid conflicts with Amazon Web Services service namespaces, you
 -- should not specify a namespace that begins with @AWS\/@
@@ -158,7 +161,8 @@ instance Core.AWSRequest PutMetricData where
 
 instance Prelude.Hashable PutMetricData where
   hashWithSalt _salt PutMetricData' {..} =
-    _salt `Prelude.hashWithSalt` namespace
+    _salt
+      `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` metricData
 
 instance Prelude.NFData PutMetricData where

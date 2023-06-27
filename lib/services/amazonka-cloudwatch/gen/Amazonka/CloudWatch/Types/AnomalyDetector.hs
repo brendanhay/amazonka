@@ -136,7 +136,9 @@ instance Data.FromXML AnomalyDetector where
   parseXML x =
     AnomalyDetector'
       Prelude.<$> (x Data..@? "Configuration")
-      Prelude.<*> ( x Data..@? "Dimensions" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Dimensions"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "MetricMathAnomalyDetector")
@@ -148,7 +150,8 @@ instance Data.FromXML AnomalyDetector where
 
 instance Prelude.Hashable AnomalyDetector where
   hashWithSalt _salt AnomalyDetector' {..} =
-    _salt `Prelude.hashWithSalt` configuration
+    _salt
+      `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` metricMathAnomalyDetector
       `Prelude.hashWithSalt` metricName

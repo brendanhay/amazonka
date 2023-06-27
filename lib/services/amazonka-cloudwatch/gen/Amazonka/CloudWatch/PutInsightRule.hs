@@ -178,7 +178,8 @@ instance Core.AWSRequest PutInsightRule where
 
 instance Prelude.Hashable PutInsightRule where
   hashWithSalt _salt PutInsightRule' {..} =
-    _salt `Prelude.hashWithSalt` ruleState
+    _salt
+      `Prelude.hashWithSalt` ruleState
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` ruleName
       `Prelude.hashWithSalt` ruleDefinition

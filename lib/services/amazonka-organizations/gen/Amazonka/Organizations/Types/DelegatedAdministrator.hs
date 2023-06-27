@@ -151,7 +151,8 @@ instance Data.FromJSON DelegatedAdministrator where
 
 instance Prelude.Hashable DelegatedAdministrator where
   hashWithSalt _salt DelegatedAdministrator' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` delegationEnabledDate
       `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` id

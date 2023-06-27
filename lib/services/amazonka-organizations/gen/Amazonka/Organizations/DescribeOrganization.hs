@@ -117,7 +117,8 @@ data DescribeOrganizationResponse = DescribeOrganizationResponse'
     -- The @AvailablePolicyTypes@ part of the response is deprecated, and you
     -- shouldn\'t use it in your apps. It doesn\'t include any policy type
     -- supported by Organizations other than SCPs. To determine which policy
-    -- types are enabled in your organization, use the @ ListRoots @ operation.
+    -- types are enabled in your organization, use the @ @@ListRoots@@ @
+    -- operation.
     organization :: Prelude.Maybe Organization,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -137,7 +138,8 @@ data DescribeOrganizationResponse = DescribeOrganizationResponse'
 -- The @AvailablePolicyTypes@ part of the response is deprecated, and you
 -- shouldn\'t use it in your apps. It doesn\'t include any policy type
 -- supported by Organizations other than SCPs. To determine which policy
--- types are enabled in your organization, use the @ ListRoots @ operation.
+-- types are enabled in your organization, use the @ @@ListRoots@@ @
+-- operation.
 --
 -- 'httpStatus', 'describeOrganizationResponse_httpStatus' - The response's http status code.
 newDescribeOrganizationResponse ::
@@ -156,7 +158,8 @@ newDescribeOrganizationResponse pHttpStatus_ =
 -- The @AvailablePolicyTypes@ part of the response is deprecated, and you
 -- shouldn\'t use it in your apps. It doesn\'t include any policy type
 -- supported by Organizations other than SCPs. To determine which policy
--- types are enabled in your organization, use the @ ListRoots @ operation.
+-- types are enabled in your organization, use the @ @@ListRoots@@ @
+-- operation.
 describeOrganizationResponse_organization :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Organization)
 describeOrganizationResponse_organization = Lens.lens (\DescribeOrganizationResponse' {organization} -> organization) (\s@DescribeOrganizationResponse' {} a -> s {organization = a} :: DescribeOrganizationResponse)
 

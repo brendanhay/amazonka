@@ -53,15 +53,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutResourcePolicy' smart constructor.
 data PutResourcePolicy = PutResourcePolicy'
-  { -- | Updates the list of tags that you want to attach to the newly-created
-    -- resource policy. For each tag in the list, you must specify both a tag
-    -- key and a value. You can set the value to an empty string, but you
-    -- can\'t set it to @null@. For more information about tagging, see
+  { -- | A list of tags that you want to attach to the newly created resource
+    -- policy. For each tag in the list, you must specify both a tag key and a
+    -- value. You can set the value to an empty string, but you can\'t set it
+    -- to @null@. For more information about tagging, see
     -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
     -- in the Organizations User Guide.
     --
     -- Calls with tags apply to the initial creation of the resource policy,
-    -- otherwise an exception is thrown. If any one of the tags is invalid or
+    -- otherwise an exception is thrown. If any one of the tags is not valid or
     -- if you exceed the allowed number of tags for the resource policy, then
     -- the entire request fails and the resource policy is not created.
     tags :: Prelude.Maybe [Tag],
@@ -82,15 +82,15 @@ data PutResourcePolicy = PutResourcePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'putResourcePolicy_tags' - Updates the list of tags that you want to attach to the newly-created
--- resource policy. For each tag in the list, you must specify both a tag
--- key and a value. You can set the value to an empty string, but you
--- can\'t set it to @null@. For more information about tagging, see
+-- 'tags', 'putResourcePolicy_tags' - A list of tags that you want to attach to the newly created resource
+-- policy. For each tag in the list, you must specify both a tag key and a
+-- value. You can set the value to an empty string, but you can\'t set it
+-- to @null@. For more information about tagging, see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
 -- in the Organizations User Guide.
 --
 -- Calls with tags apply to the initial creation of the resource policy,
--- otherwise an exception is thrown. If any one of the tags is invalid or
+-- otherwise an exception is thrown. If any one of the tags is not valid or
 -- if you exceed the allowed number of tags for the resource policy, then
 -- the entire request fails and the resource policy is not created.
 --
@@ -109,15 +109,15 @@ newPutResourcePolicy pContent_ =
       content = pContent_
     }
 
--- | Updates the list of tags that you want to attach to the newly-created
--- resource policy. For each tag in the list, you must specify both a tag
--- key and a value. You can set the value to an empty string, but you
--- can\'t set it to @null@. For more information about tagging, see
+-- | A list of tags that you want to attach to the newly created resource
+-- policy. For each tag in the list, you must specify both a tag key and a
+-- value. You can set the value to an empty string, but you can\'t set it
+-- to @null@. For more information about tagging, see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
 -- in the Organizations User Guide.
 --
 -- Calls with tags apply to the initial creation of the resource policy,
--- otherwise an exception is thrown. If any one of the tags is invalid or
+-- otherwise an exception is thrown. If any one of the tags is not valid or
 -- if you exceed the allowed number of tags for the resource policy, then
 -- the entire request fails and the resource policy is not created.
 putResourcePolicy_tags :: Lens.Lens' PutResourcePolicy (Prelude.Maybe [Tag])
@@ -147,7 +147,8 @@ instance Core.AWSRequest PutResourcePolicy where
 
 instance Prelude.Hashable PutResourcePolicy where
   hashWithSalt _salt PutResourcePolicy' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` content
 
 instance Prelude.NFData PutResourcePolicy where

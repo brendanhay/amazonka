@@ -147,20 +147,23 @@ instance Core.AWSPager ListRoots where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listRootsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listRootsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listRootsResponse_roots Prelude.. Lens._Just
+            Lens.^? listRootsResponse_roots
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRoots_nextToken
           Lens..~ rs
-          Lens.^? listRootsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listRootsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRoots where
   type AWSResponse ListRoots = ListRootsResponse
@@ -177,7 +180,8 @@ instance Core.AWSRequest ListRoots where
 
 instance Prelude.Hashable ListRoots where
   hashWithSalt _salt ListRoots' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListRoots where

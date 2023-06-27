@@ -161,7 +161,8 @@ instance Core.AWSRequest UpdatePolicy where
 
 instance Prelude.Hashable UpdatePolicy where
   hashWithSalt _salt UpdatePolicy' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` policyId

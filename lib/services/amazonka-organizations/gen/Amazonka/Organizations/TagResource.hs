@@ -67,20 +67,20 @@ data TagResource = TagResource'
     -- -   Amazon Web Services account – specify the account ID number.
     --
     -- -   Organizational unit – specify the OU ID that begins with @ou-@ and
-    --     looks similar to: @ou-1a2b-34uvwxyz @
+    --     looks similar to: @ou-@/@1a2b-34uvwxyz@/@ @
     --
     -- -   Root – specify the root ID that begins with @r-@ and looks similar
-    --     to: @r-1a2b @
+    --     to: @r-@/@1a2b@/@ @
     --
     -- -   Policy – specify the policy ID that begins with @p-@ andlooks
-    --     similar to: @p-12abcdefg3 @
+    --     similar to: @p-@/@12abcdefg3@/@ @
     resourceId :: Prelude.Text,
     -- | A list of tags to add to the specified resource.
     --
     -- For each tag in the list, you must specify both a tag key and a value.
     -- The value can be an empty string, but you can\'t set it to @null@.
     --
-    -- If any one of the tags is invalid or if you exceed the maximum allowed
+    -- If any one of the tags is not valid or if you exceed the maximum allowed
     -- number of tags for a resource, then the entire request fails.
     tags :: [Tag]
   }
@@ -101,20 +101,20 @@ data TagResource = TagResource'
 -- -   Amazon Web Services account – specify the account ID number.
 --
 -- -   Organizational unit – specify the OU ID that begins with @ou-@ and
---     looks similar to: @ou-1a2b-34uvwxyz @
+--     looks similar to: @ou-@/@1a2b-34uvwxyz@/@ @
 --
 -- -   Root – specify the root ID that begins with @r-@ and looks similar
---     to: @r-1a2b @
+--     to: @r-@/@1a2b@/@ @
 --
 -- -   Policy – specify the policy ID that begins with @p-@ andlooks
---     similar to: @p-12abcdefg3 @
+--     similar to: @p-@/@12abcdefg3@/@ @
 --
 -- 'tags', 'tagResource_tags' - A list of tags to add to the specified resource.
 --
 -- For each tag in the list, you must specify both a tag key and a value.
 -- The value can be an empty string, but you can\'t set it to @null@.
 --
--- If any one of the tags is invalid or if you exceed the maximum allowed
+-- If any one of the tags is not valid or if you exceed the maximum allowed
 -- number of tags for a resource, then the entire request fails.
 newTagResource ::
   -- | 'resourceId'
@@ -133,13 +133,13 @@ newTagResource pResourceId_ =
 -- -   Amazon Web Services account – specify the account ID number.
 --
 -- -   Organizational unit – specify the OU ID that begins with @ou-@ and
---     looks similar to: @ou-1a2b-34uvwxyz @
+--     looks similar to: @ou-@/@1a2b-34uvwxyz@/@ @
 --
 -- -   Root – specify the root ID that begins with @r-@ and looks similar
---     to: @r-1a2b @
+--     to: @r-@/@1a2b@/@ @
 --
 -- -   Policy – specify the policy ID that begins with @p-@ andlooks
---     similar to: @p-12abcdefg3 @
+--     similar to: @p-@/@12abcdefg3@/@ @
 tagResource_resourceId :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceId = Lens.lens (\TagResource' {resourceId} -> resourceId) (\s@TagResource' {} a -> s {resourceId = a} :: TagResource)
 
@@ -148,7 +148,7 @@ tagResource_resourceId = Lens.lens (\TagResource' {resourceId} -> resourceId) (\
 -- For each tag in the list, you must specify both a tag key and a value.
 -- The value can be an empty string, but you can\'t set it to @null@.
 --
--- If any one of the tags is invalid or if you exceed the maximum allowed
+-- If any one of the tags is not valid or if you exceed the maximum allowed
 -- number of tags for a resource, then the entire request fails.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
@@ -161,7 +161,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

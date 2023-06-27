@@ -159,22 +159,22 @@ instance Core.AWSPager ListCreateAccountStatus where
     | Core.stop
         ( rs
             Lens.^? listCreateAccountStatusResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCreateAccountStatusResponse_createAccountStatuses
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCreateAccountStatus_nextToken
           Lens..~ rs
           Lens.^? listCreateAccountStatusResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCreateAccountStatus where
   type
@@ -186,7 +186,8 @@ instance Core.AWSRequest ListCreateAccountStatus where
     Response.receiveJSON
       ( \s h x ->
           ListCreateAccountStatusResponse'
-            Prelude.<$> ( x Data..?> "CreateAccountStatuses"
+            Prelude.<$> ( x
+                            Data..?> "CreateAccountStatuses"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -195,7 +196,8 @@ instance Core.AWSRequest ListCreateAccountStatus where
 
 instance Prelude.Hashable ListCreateAccountStatus where
   hashWithSalt _salt ListCreateAccountStatus' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` states
 

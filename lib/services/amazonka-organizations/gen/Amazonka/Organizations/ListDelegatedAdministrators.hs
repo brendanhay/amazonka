@@ -159,22 +159,22 @@ instance Core.AWSPager ListDelegatedAdministrators where
     | Core.stop
         ( rs
             Lens.^? listDelegatedAdministratorsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDelegatedAdministratorsResponse_delegatedAdministrators
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDelegatedAdministrators_nextToken
           Lens..~ rs
           Lens.^? listDelegatedAdministratorsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDelegatedAdministrators where
   type
@@ -186,7 +186,8 @@ instance Core.AWSRequest ListDelegatedAdministrators where
     Response.receiveJSON
       ( \s h x ->
           ListDelegatedAdministratorsResponse'
-            Prelude.<$> ( x Data..?> "DelegatedAdministrators"
+            Prelude.<$> ( x
+                            Data..?> "DelegatedAdministrators"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -195,7 +196,8 @@ instance Core.AWSRequest ListDelegatedAdministrators where
 
 instance Prelude.Hashable ListDelegatedAdministrators where
   hashWithSalt _salt ListDelegatedAdministrators' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` servicePrincipal
 

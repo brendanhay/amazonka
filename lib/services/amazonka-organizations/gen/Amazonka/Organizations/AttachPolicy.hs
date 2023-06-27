@@ -169,7 +169,8 @@ instance Core.AWSRequest AttachPolicy where
 
 instance Prelude.Hashable AttachPolicy where
   hashWithSalt _salt AttachPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyId
+    _salt
+      `Prelude.hashWithSalt` policyId
       `Prelude.hashWithSalt` targetId
 
 instance Prelude.NFData AttachPolicy where

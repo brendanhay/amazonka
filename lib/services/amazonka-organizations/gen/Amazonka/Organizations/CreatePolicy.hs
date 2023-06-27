@@ -70,9 +70,9 @@ data CreatePolicy = CreatePolicy'
     -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
     -- in the Organizations User Guide.
     --
-    -- If any one of the tags is invalid or if you exceed the allowed number of
-    -- tags for a policy, then the entire request fails and the policy is not
-    -- created.
+    -- If any one of the tags is not valid or if you exceed the allowed number
+    -- of tags for a policy, then the entire request fails and the policy is
+    -- not created.
     tags :: Prelude.Maybe [Tag],
     -- | The policy text content to add to the new policy. The text that you
     -- supply must adhere to the rules of the policy type you specify in the
@@ -115,9 +115,9 @@ data CreatePolicy = CreatePolicy'
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
 -- in the Organizations User Guide.
 --
--- If any one of the tags is invalid or if you exceed the allowed number of
--- tags for a policy, then the entire request fails and the policy is not
--- created.
+-- If any one of the tags is not valid or if you exceed the allowed number
+-- of tags for a policy, then the entire request fails and the policy is
+-- not created.
 --
 -- 'content', 'createPolicy_content' - The policy text content to add to the new policy. The text that you
 -- supply must adhere to the rules of the policy type you specify in the
@@ -167,9 +167,9 @@ newCreatePolicy pContent_ pDescription_ pName_ pType_ =
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
 -- in the Organizations User Guide.
 --
--- If any one of the tags is invalid or if you exceed the allowed number of
--- tags for a policy, then the entire request fails and the policy is not
--- created.
+-- If any one of the tags is not valid or if you exceed the allowed number
+-- of tags for a policy, then the entire request fails and the policy is
+-- not created.
 createPolicy_tags :: Lens.Lens' CreatePolicy (Prelude.Maybe [Tag])
 createPolicy_tags = Lens.lens (\CreatePolicy' {tags} -> tags) (\s@CreatePolicy' {} a -> s {tags = a} :: CreatePolicy) Prelude.. Lens.mapping Lens.coerced
 
@@ -218,7 +218,8 @@ instance Core.AWSRequest CreatePolicy where
 
 instance Prelude.Hashable CreatePolicy where
   hashWithSalt _salt CreatePolicy' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name

@@ -140,7 +140,8 @@ instance Core.AWSRequest UpdateOrganizationalUnit where
 
 instance Prelude.Hashable UpdateOrganizationalUnit where
   hashWithSalt _salt UpdateOrganizationalUnit' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` organizationalUnitId
 
 instance Prelude.NFData UpdateOrganizationalUnit where

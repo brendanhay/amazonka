@@ -95,15 +95,15 @@ data InviteAccountToOrganization = InviteAccountToOrganization'
     -- invitation and the acceptance, then that tags could potentially be
     -- non-compliant.
     --
-    -- If any one of the tags is invalid or if you exceed the allowed number of
-    -- tags for an account, then the entire request fails and invitations are
-    -- not sent.
+    -- If any one of the tags is not valid or if you exceed the allowed number
+    -- of tags for an account, then the entire request fails and invitations
+    -- are not sent.
     tags :: Prelude.Maybe [Tag],
     -- | The identifier (ID) of the Amazon Web Services account that you want to
     -- invite to join your organization. This is a JSON object that contains
     -- the following elements:
     --
-    -- @{ \"Type\": \"ACCOUNT\", \"Id\": \"\< account id number >\" }@
+    -- @{ \"Type\": \"ACCOUNT\", \"Id\": \"\< @/__@account id number@__/@ >\" }@
     --
     -- If you use the CLI, you can submit this as a single string, similar to
     -- the following example:
@@ -147,15 +147,15 @@ data InviteAccountToOrganization = InviteAccountToOrganization'
 -- invitation and the acceptance, then that tags could potentially be
 -- non-compliant.
 --
--- If any one of the tags is invalid or if you exceed the allowed number of
--- tags for an account, then the entire request fails and invitations are
--- not sent.
+-- If any one of the tags is not valid or if you exceed the allowed number
+-- of tags for an account, then the entire request fails and invitations
+-- are not sent.
 --
 -- 'target', 'inviteAccountToOrganization_target' - The identifier (ID) of the Amazon Web Services account that you want to
 -- invite to join your organization. This is a JSON object that contains
 -- the following elements:
 --
--- @{ \"Type\": \"ACCOUNT\", \"Id\": \"\< account id number >\" }@
+-- @{ \"Type\": \"ACCOUNT\", \"Id\": \"\< @/__@account id number@__/@ >\" }@
 --
 -- If you use the CLI, you can submit this as a single string, similar to
 -- the following example:
@@ -201,9 +201,9 @@ inviteAccountToOrganization_notes = Lens.lens (\InviteAccountToOrganization' {no
 -- invitation and the acceptance, then that tags could potentially be
 -- non-compliant.
 --
--- If any one of the tags is invalid or if you exceed the allowed number of
--- tags for an account, then the entire request fails and invitations are
--- not sent.
+-- If any one of the tags is not valid or if you exceed the allowed number
+-- of tags for an account, then the entire request fails and invitations
+-- are not sent.
 inviteAccountToOrganization_tags :: Lens.Lens' InviteAccountToOrganization (Prelude.Maybe [Tag])
 inviteAccountToOrganization_tags = Lens.lens (\InviteAccountToOrganization' {tags} -> tags) (\s@InviteAccountToOrganization' {} a -> s {tags = a} :: InviteAccountToOrganization) Prelude.. Lens.mapping Lens.coerced
 
@@ -211,7 +211,7 @@ inviteAccountToOrganization_tags = Lens.lens (\InviteAccountToOrganization' {tag
 -- invite to join your organization. This is a JSON object that contains
 -- the following elements:
 --
--- @{ \"Type\": \"ACCOUNT\", \"Id\": \"\< account id number >\" }@
+-- @{ \"Type\": \"ACCOUNT\", \"Id\": \"\< @/__@account id number@__/@ >\" }@
 --
 -- If you use the CLI, you can submit this as a single string, similar to
 -- the following example:
@@ -243,7 +243,8 @@ instance Core.AWSRequest InviteAccountToOrganization where
 
 instance Prelude.Hashable InviteAccountToOrganization where
   hashWithSalt _salt InviteAccountToOrganization' {..} =
-    _salt `Prelude.hashWithSalt` notes
+    _salt
+      `Prelude.hashWithSalt` notes
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` target
 

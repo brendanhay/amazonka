@@ -72,8 +72,9 @@ data CreateOrganizationalUnit = CreateOrganizationalUnit'
     -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
     -- in the Organizations User Guide.
     --
-    -- If any one of the tags is invalid or if you exceed the allowed number of
-    -- tags for an OU, then the entire request fails and the OU is not created.
+    -- If any one of the tags is not valid or if you exceed the allowed number
+    -- of tags for an OU, then the entire request fails and the OU is not
+    -- created.
     tags :: Prelude.Maybe [Tag],
     -- | The unique identifier (ID) of the parent root or OU that you want to
     -- create the new OU in.
@@ -109,8 +110,9 @@ data CreateOrganizationalUnit = CreateOrganizationalUnit'
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
 -- in the Organizations User Guide.
 --
--- If any one of the tags is invalid or if you exceed the allowed number of
--- tags for an OU, then the entire request fails and the OU is not created.
+-- If any one of the tags is not valid or if you exceed the allowed number
+-- of tags for an OU, then the entire request fails and the OU is not
+-- created.
 --
 -- 'parentId', 'createOrganizationalUnit_parentId' - The unique identifier (ID) of the parent root or OU that you want to
 -- create the new OU in.
@@ -147,8 +149,9 @@ newCreateOrganizationalUnit pParentId_ pName_ =
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
 -- in the Organizations User Guide.
 --
--- If any one of the tags is invalid or if you exceed the allowed number of
--- tags for an OU, then the entire request fails and the OU is not created.
+-- If any one of the tags is not valid or if you exceed the allowed number
+-- of tags for an OU, then the entire request fails and the OU is not
+-- created.
 createOrganizationalUnit_tags :: Lens.Lens' CreateOrganizationalUnit (Prelude.Maybe [Tag])
 createOrganizationalUnit_tags = Lens.lens (\CreateOrganizationalUnit' {tags} -> tags) (\s@CreateOrganizationalUnit' {} a -> s {tags = a} :: CreateOrganizationalUnit) Prelude.. Lens.mapping Lens.coerced
 
@@ -188,7 +191,8 @@ instance Core.AWSRequest CreateOrganizationalUnit where
 
 instance Prelude.Hashable CreateOrganizationalUnit where
   hashWithSalt _salt CreateOrganizationalUnit' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` parentId
       `Prelude.hashWithSalt` name
 

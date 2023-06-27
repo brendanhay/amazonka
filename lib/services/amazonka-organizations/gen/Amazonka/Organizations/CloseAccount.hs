@@ -21,7 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Closes an Amazon Web Services member account within an organization. You
--- can\'t close the management account with this API. This is an
+-- can close an account when
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html all features are enabled>
+-- . You can\'t close the management account with this API. This is an
 -- asynchronous request that Amazon Web Services performs in the
 -- background. Because @CloseAccount@ operates asynchronously, it can
 -- return a successful completion message even though account closure might
@@ -42,10 +44,14 @@
 --     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html#orgs_cloudtrail-integration Logging and monitoring in Organizations>
 --     in the /Organizations User Guide./
 --
--- -   You can only close 10% of active member accounts within a rolling 30
---     day period. This quota is not bound by a calendar month, but starts
---     when you close an account. Within 30 days of that initial account
---     closure, you can\'t exceed the 10% account closure limit.
+-- -   You can close only 10% of member accounts, between 10 and 200,
+--     within a rolling 30 day period. This quota is not bound by a
+--     calendar month, but starts when you close an account.
+--
+--     After you reach this limit, you can close additional accounts in the
+--     Billing console. For more information, see
+--     <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/close-account.html Closing an account>
+--     in the Amazon Web Services Billing and Cost Management User Guide.
 --
 -- -   To reinstate a closed account, contact Amazon Web Services Support
 --     within the 90-day grace period while the account is in SUSPENDED

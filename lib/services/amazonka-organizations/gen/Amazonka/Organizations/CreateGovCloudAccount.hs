@@ -222,7 +222,7 @@ data CreateGovCloudAccount = CreateGovCloudAccount'
     -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
     -- in the Organizations User Guide.
     --
-    -- If any one of the tags is invalid or if you exceed the maximum allowed
+    -- If any one of the tags is not valid or if you exceed the maximum allowed
     -- number of tags for an account, then the entire request fails and the
     -- account is not created.
     tags :: Prelude.Maybe [Tag],
@@ -324,7 +324,7 @@ data CreateGovCloudAccount = CreateGovCloudAccount'
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
 -- in the Organizations User Guide.
 --
--- If any one of the tags is invalid or if you exceed the maximum allowed
+-- If any one of the tags is not valid or if you exceed the maximum allowed
 -- number of tags for an account, then the entire request fails and the
 -- account is not created.
 --
@@ -434,7 +434,7 @@ createGovCloudAccount_roleName = Lens.lens (\CreateGovCloudAccount' {roleName} -
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
 -- in the Organizations User Guide.
 --
--- If any one of the tags is invalid or if you exceed the maximum allowed
+-- If any one of the tags is not valid or if you exceed the maximum allowed
 -- number of tags for an account, then the entire request fails and the
 -- account is not created.
 createGovCloudAccount_tags :: Lens.Lens' CreateGovCloudAccount (Prelude.Maybe [Tag])
@@ -499,7 +499,8 @@ instance Core.AWSRequest CreateGovCloudAccount where
 
 instance Prelude.Hashable CreateGovCloudAccount where
   hashWithSalt _salt CreateGovCloudAccount' {..} =
-    _salt `Prelude.hashWithSalt` iamUserAccessToBilling
+    _salt
+      `Prelude.hashWithSalt` iamUserAccessToBilling
       `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` email

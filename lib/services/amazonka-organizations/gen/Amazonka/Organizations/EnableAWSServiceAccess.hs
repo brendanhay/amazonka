@@ -69,7 +69,8 @@ import qualified Amazonka.Response as Response
 data EnableAWSServiceAccess = EnableAWSServiceAccess'
   { -- | The service principal name of the Amazon Web Services service for which
     -- you want to enable integration with your organization. This is typically
-    -- in the form of a URL, such as @ service-abbreviation.amazonaws.com@.
+    -- in the form of a URL, such as
+    -- @ @/@service-abbreviation@/@.amazonaws.com@.
     servicePrincipal :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,7 +85,8 @@ data EnableAWSServiceAccess = EnableAWSServiceAccess'
 --
 -- 'servicePrincipal', 'enableAWSServiceAccess_servicePrincipal' - The service principal name of the Amazon Web Services service for which
 -- you want to enable integration with your organization. This is typically
--- in the form of a URL, such as @ service-abbreviation.amazonaws.com@.
+-- in the form of a URL, such as
+-- @ @/@service-abbreviation@/@.amazonaws.com@.
 newEnableAWSServiceAccess ::
   -- | 'servicePrincipal'
   Prelude.Text ->
@@ -97,7 +99,8 @@ newEnableAWSServiceAccess pServicePrincipal_ =
 
 -- | The service principal name of the Amazon Web Services service for which
 -- you want to enable integration with your organization. This is typically
--- in the form of a URL, such as @ service-abbreviation.amazonaws.com@.
+-- in the form of a URL, such as
+-- @ @/@service-abbreviation@/@.amazonaws.com@.
 enableAWSServiceAccess_servicePrincipal :: Lens.Lens' EnableAWSServiceAccess Prelude.Text
 enableAWSServiceAccess_servicePrincipal = Lens.lens (\EnableAWSServiceAccess' {servicePrincipal} -> servicePrincipal) (\s@EnableAWSServiceAccess' {} a -> s {servicePrincipal = a} :: EnableAWSServiceAccess)
 

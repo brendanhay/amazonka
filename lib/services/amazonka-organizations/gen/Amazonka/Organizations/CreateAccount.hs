@@ -171,7 +171,7 @@ data CreateAccount = CreateAccount'
     -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
     -- in the Organizations User Guide.
     --
-    -- If any one of the tags is invalid or if you exceed the maximum allowed
+    -- If any one of the tags is not valid or if you exceed the maximum allowed
     -- number of tags for an account, then the entire request fails and the
     -- account is not created.
     tags :: Prelude.Maybe [Tag],
@@ -261,7 +261,7 @@ data CreateAccount = CreateAccount'
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
 -- in the Organizations User Guide.
 --
--- If any one of the tags is invalid or if you exceed the maximum allowed
+-- If any one of the tags is not valid or if you exceed the maximum allowed
 -- number of tags for an account, then the entire request fails and the
 -- account is not created.
 --
@@ -359,7 +359,7 @@ createAccount_roleName = Lens.lens (\CreateAccount' {roleName} -> roleName) (\s@
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
 -- in the Organizations User Guide.
 --
--- If any one of the tags is invalid or if you exceed the maximum allowed
+-- If any one of the tags is not valid or if you exceed the maximum allowed
 -- number of tags for an account, then the entire request fails and the
 -- account is not created.
 createAccount_tags :: Lens.Lens' CreateAccount (Prelude.Maybe [Tag])
@@ -418,7 +418,8 @@ instance Core.AWSRequest CreateAccount where
 
 instance Prelude.Hashable CreateAccount where
   hashWithSalt _salt CreateAccount' {..} =
-    _salt `Prelude.hashWithSalt` iamUserAccessToBilling
+    _salt
+      `Prelude.hashWithSalt` iamUserAccessToBilling
       `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` email

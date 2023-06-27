@@ -86,7 +86,8 @@ instance Data.FromJSON PolicyTypeSummary where
 
 instance Prelude.Hashable PolicyTypeSummary where
   hashWithSalt _salt PolicyTypeSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData PolicyTypeSummary where

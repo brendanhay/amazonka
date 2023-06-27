@@ -305,7 +305,8 @@ instance Data.FromJSON Handshake where
 
 instance Prelude.Hashable Handshake where
   hashWithSalt _salt Handshake' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` expirationTimestamp
       `Prelude.hashWithSalt` id

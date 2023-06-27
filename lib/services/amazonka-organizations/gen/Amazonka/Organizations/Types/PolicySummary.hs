@@ -158,7 +158,8 @@ instance Data.FromJSON PolicySummary where
 
 instance Prelude.Hashable PolicySummary where
   hashWithSalt _salt PolicySummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` awsManaged
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id

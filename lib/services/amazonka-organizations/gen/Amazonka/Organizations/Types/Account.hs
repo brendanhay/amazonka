@@ -172,7 +172,8 @@ instance Data.FromJSON Account where
 
 instance Prelude.Hashable Account where
   hashWithSalt _salt Account' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` joinedMethod

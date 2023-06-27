@@ -24,7 +24,7 @@
 --
 -- You can only call this operation from the organization\'s management
 -- account or by a member account that is a delegated administrator for an
--- AWS service.
+-- Amazon Web Services service.
 module Amazonka.Organizations.DescribeResourcePolicy
   ( -- * Creating a Request
     DescribeResourcePolicy (..),

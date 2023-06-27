@@ -94,7 +94,8 @@ instance Data.FromJSON Variant where
 
 instance Prelude.Hashable Variant where
   hashWithSalt _salt Variant' {..} =
-    _salt `Prelude.hashWithSalt` booleanValue
+    _salt
+      `Prelude.hashWithSalt` booleanValue
       `Prelude.hashWithSalt` doubleValue
       `Prelude.hashWithSalt` integerValue
       `Prelude.hashWithSalt` stringValue

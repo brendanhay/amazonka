@@ -58,6 +58,7 @@ module Amazonka.IoTSiteWise.DescribeTimeSeries
     describeTimeSeriesResponse_dataType,
     describeTimeSeriesResponse_timeSeriesCreationDate,
     describeTimeSeriesResponse_timeSeriesLastUpdateDate,
+    describeTimeSeriesResponse_timeSeriesArn,
   )
 where
 
@@ -133,11 +134,13 @@ instance Core.AWSRequest DescribeTimeSeries where
             Prelude.<*> (x Data..:> "dataType")
             Prelude.<*> (x Data..:> "timeSeriesCreationDate")
             Prelude.<*> (x Data..:> "timeSeriesLastUpdateDate")
+            Prelude.<*> (x Data..:> "timeSeriesArn")
       )
 
 instance Prelude.Hashable DescribeTimeSeries where
   hashWithSalt _salt DescribeTimeSeries' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` propertyId
 
@@ -197,7 +200,13 @@ data DescribeTimeSeriesResponse = DescribeTimeSeriesResponse'
     -- | The date that the time series was created, in Unix epoch time.
     timeSeriesCreationDate :: Data.POSIX,
     -- | The date that the time series was last updated, in Unix epoch time.
-    timeSeriesLastUpdateDate :: Data.POSIX
+    timeSeriesLastUpdateDate :: Data.POSIX,
+    -- | The
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
+    -- of the time series, which has the following format.
+    --
+    -- @arn:${Partition}:iotsitewise:${Region}:${Account}:time-series\/${TimeSeriesId}@
+    timeSeriesArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -235,6 +244,12 @@ data DescribeTimeSeriesResponse = DescribeTimeSeriesResponse'
 -- 'timeSeriesCreationDate', 'describeTimeSeriesResponse_timeSeriesCreationDate' - The date that the time series was created, in Unix epoch time.
 --
 -- 'timeSeriesLastUpdateDate', 'describeTimeSeriesResponse_timeSeriesLastUpdateDate' - The date that the time series was last updated, in Unix epoch time.
+--
+-- 'timeSeriesArn', 'describeTimeSeriesResponse_timeSeriesArn' - The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
+-- of the time series, which has the following format.
+--
+-- @arn:${Partition}:iotsitewise:${Region}:${Account}:time-series\/${TimeSeriesId}@
 newDescribeTimeSeriesResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -246,13 +261,16 @@ newDescribeTimeSeriesResponse ::
   Prelude.UTCTime ->
   -- | 'timeSeriesLastUpdateDate'
   Prelude.UTCTime ->
+  -- | 'timeSeriesArn'
+  Prelude.Text ->
   DescribeTimeSeriesResponse
 newDescribeTimeSeriesResponse
   pHttpStatus_
   pTimeSeriesId_
   pDataType_
   pTimeSeriesCreationDate_
-  pTimeSeriesLastUpdateDate_ =
+  pTimeSeriesLastUpdateDate_
+  pTimeSeriesArn_ =
     DescribeTimeSeriesResponse'
       { alias =
           Prelude.Nothing,
@@ -265,7 +283,8 @@ newDescribeTimeSeriesResponse
         timeSeriesCreationDate =
           Data._Time Lens.# pTimeSeriesCreationDate_,
         timeSeriesLastUpdateDate =
-          Data._Time Lens.# pTimeSeriesLastUpdateDate_
+          Data._Time Lens.# pTimeSeriesLastUpdateDate_,
+        timeSeriesArn = pTimeSeriesArn_
       }
 
 -- | The alias that identifies the time series.
@@ -313,6 +332,14 @@ describeTimeSeriesResponse_timeSeriesCreationDate = Lens.lens (\DescribeTimeSeri
 describeTimeSeriesResponse_timeSeriesLastUpdateDate :: Lens.Lens' DescribeTimeSeriesResponse Prelude.UTCTime
 describeTimeSeriesResponse_timeSeriesLastUpdateDate = Lens.lens (\DescribeTimeSeriesResponse' {timeSeriesLastUpdateDate} -> timeSeriesLastUpdateDate) (\s@DescribeTimeSeriesResponse' {} a -> s {timeSeriesLastUpdateDate = a} :: DescribeTimeSeriesResponse) Prelude.. Data._Time
 
+-- | The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
+-- of the time series, which has the following format.
+--
+-- @arn:${Partition}:iotsitewise:${Region}:${Account}:time-series\/${TimeSeriesId}@
+describeTimeSeriesResponse_timeSeriesArn :: Lens.Lens' DescribeTimeSeriesResponse Prelude.Text
+describeTimeSeriesResponse_timeSeriesArn = Lens.lens (\DescribeTimeSeriesResponse' {timeSeriesArn} -> timeSeriesArn) (\s@DescribeTimeSeriesResponse' {} a -> s {timeSeriesArn = a} :: DescribeTimeSeriesResponse)
+
 instance Prelude.NFData DescribeTimeSeriesResponse where
   rnf DescribeTimeSeriesResponse' {..} =
     Prelude.rnf alias
@@ -324,3 +351,4 @@ instance Prelude.NFData DescribeTimeSeriesResponse where
       `Prelude.seq` Prelude.rnf dataType
       `Prelude.seq` Prelude.rnf timeSeriesCreationDate
       `Prelude.seq` Prelude.rnf timeSeriesLastUpdateDate
+      `Prelude.seq` Prelude.rnf timeSeriesArn

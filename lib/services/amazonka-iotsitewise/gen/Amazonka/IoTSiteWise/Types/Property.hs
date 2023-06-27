@@ -154,7 +154,8 @@ instance Data.FromJSON Property where
 
 instance Prelude.Hashable Property where
   hashWithSalt _salt Property' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` notification
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` unit

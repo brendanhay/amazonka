@@ -137,7 +137,8 @@ instance
   hashWithSalt
     _salt
     DisassociateTimeSeriesFromAssetProperty' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` alias
         `Prelude.hashWithSalt` assetId
         `Prelude.hashWithSalt` propertyId

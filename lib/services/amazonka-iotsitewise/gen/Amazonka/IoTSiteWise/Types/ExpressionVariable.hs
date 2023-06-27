@@ -70,12 +70,14 @@ instance Data.FromJSON ExpressionVariable where
       "ExpressionVariable"
       ( \x ->
           ExpressionVariable'
-            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "value")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable ExpressionVariable where
   hashWithSalt _salt ExpressionVariable' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ExpressionVariable where

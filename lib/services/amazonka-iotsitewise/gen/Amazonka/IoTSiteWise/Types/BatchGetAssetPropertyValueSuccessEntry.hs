@@ -87,7 +87,8 @@ instance
   hashWithSalt
     _salt
     BatchGetAssetPropertyValueSuccessEntry' {..} =
-      _salt `Prelude.hashWithSalt` assetPropertyValue
+      _salt
+        `Prelude.hashWithSalt` assetPropertyValue
         `Prelude.hashWithSalt` entryId
 
 instance

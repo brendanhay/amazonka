@@ -53,7 +53,13 @@ data TimeSeriesSummary = TimeSeriesSummary'
     -- | The date that the time series was created, in Unix epoch time.
     timeSeriesCreationDate :: Data.POSIX,
     -- | The date that the time series was last updated, in Unix epoch time.
-    timeSeriesLastUpdateDate :: Data.POSIX
+    timeSeriesLastUpdateDate :: Data.POSIX,
+    -- | The
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
+    -- of the time series, which has the following format.
+    --
+    -- @arn:${Partition}:iotsitewise:${Region}:${Account}:time-series\/${TimeSeriesId}@
+    timeSeriesArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,6 +95,12 @@ data TimeSeriesSummary = TimeSeriesSummary'
 -- 'timeSeriesCreationDate', 'timeSeriesSummary_timeSeriesCreationDate' - The date that the time series was created, in Unix epoch time.
 --
 -- 'timeSeriesLastUpdateDate', 'timeSeriesSummary_timeSeriesLastUpdateDate' - The date that the time series was last updated, in Unix epoch time.
+--
+-- 'timeSeriesArn', 'timeSeriesSummary_timeSeriesArn' - The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
+-- of the time series, which has the following format.
+--
+-- @arn:${Partition}:iotsitewise:${Region}:${Account}:time-series\/${TimeSeriesId}@
 newTimeSeriesSummary ::
   -- | 'timeSeriesId'
   Prelude.Text ->
@@ -98,12 +110,15 @@ newTimeSeriesSummary ::
   Prelude.UTCTime ->
   -- | 'timeSeriesLastUpdateDate'
   Prelude.UTCTime ->
+  -- | 'timeSeriesArn'
+  Prelude.Text ->
   TimeSeriesSummary
 newTimeSeriesSummary
   pTimeSeriesId_
   pDataType_
   pTimeSeriesCreationDate_
-  pTimeSeriesLastUpdateDate_ =
+  pTimeSeriesLastUpdateDate_
+  pTimeSeriesArn_ =
     TimeSeriesSummary'
       { alias = Prelude.Nothing,
         assetId = Prelude.Nothing,
@@ -114,7 +129,8 @@ newTimeSeriesSummary
         timeSeriesCreationDate =
           Data._Time Lens.# pTimeSeriesCreationDate_,
         timeSeriesLastUpdateDate =
-          Data._Time Lens.# pTimeSeriesLastUpdateDate_
+          Data._Time Lens.# pTimeSeriesLastUpdateDate_,
+        timeSeriesArn = pTimeSeriesArn_
       }
 
 -- | The alias that identifies the time series.
@@ -158,6 +174,14 @@ timeSeriesSummary_timeSeriesCreationDate = Lens.lens (\TimeSeriesSummary' {timeS
 timeSeriesSummary_timeSeriesLastUpdateDate :: Lens.Lens' TimeSeriesSummary Prelude.UTCTime
 timeSeriesSummary_timeSeriesLastUpdateDate = Lens.lens (\TimeSeriesSummary' {timeSeriesLastUpdateDate} -> timeSeriesLastUpdateDate) (\s@TimeSeriesSummary' {} a -> s {timeSeriesLastUpdateDate = a} :: TimeSeriesSummary) Prelude.. Data._Time
 
+-- | The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
+-- of the time series, which has the following format.
+--
+-- @arn:${Partition}:iotsitewise:${Region}:${Account}:time-series\/${TimeSeriesId}@
+timeSeriesSummary_timeSeriesArn :: Lens.Lens' TimeSeriesSummary Prelude.Text
+timeSeriesSummary_timeSeriesArn = Lens.lens (\TimeSeriesSummary' {timeSeriesArn} -> timeSeriesArn) (\s@TimeSeriesSummary' {} a -> s {timeSeriesArn = a} :: TimeSeriesSummary)
+
 instance Data.FromJSON TimeSeriesSummary where
   parseJSON =
     Data.withObject
@@ -172,11 +196,13 @@ instance Data.FromJSON TimeSeriesSummary where
             Prelude.<*> (x Data..: "dataType")
             Prelude.<*> (x Data..: "timeSeriesCreationDate")
             Prelude.<*> (x Data..: "timeSeriesLastUpdateDate")
+            Prelude.<*> (x Data..: "timeSeriesArn")
       )
 
 instance Prelude.Hashable TimeSeriesSummary where
   hashWithSalt _salt TimeSeriesSummary' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` dataTypeSpec
       `Prelude.hashWithSalt` propertyId
@@ -184,6 +210,7 @@ instance Prelude.Hashable TimeSeriesSummary where
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` timeSeriesCreationDate
       `Prelude.hashWithSalt` timeSeriesLastUpdateDate
+      `Prelude.hashWithSalt` timeSeriesArn
 
 instance Prelude.NFData TimeSeriesSummary where
   rnf TimeSeriesSummary' {..} =
@@ -195,3 +222,4 @@ instance Prelude.NFData TimeSeriesSummary where
       `Prelude.seq` Prelude.rnf dataType
       `Prelude.seq` Prelude.rnf timeSeriesCreationDate
       `Prelude.seq` Prelude.rnf timeSeriesLastUpdateDate
+      `Prelude.seq` Prelude.rnf timeSeriesArn

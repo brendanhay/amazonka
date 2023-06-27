@@ -153,7 +153,8 @@ instance Core.AWSRequest CreateAsset where
 
 instance Prelude.Hashable CreateAsset where
   hashWithSalt _salt CreateAsset' {..} =
-    _salt `Prelude.hashWithSalt` assetDescription
+    _salt
+      `Prelude.hashWithSalt` assetDescription
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` assetName

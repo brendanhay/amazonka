@@ -95,7 +95,8 @@ instance Core.AWSRequest DescribeGateway where
             Prelude.<*> (x Data..:> "gatewayId")
             Prelude.<*> (x Data..:> "gatewayName")
             Prelude.<*> (x Data..:> "gatewayArn")
-            Prelude.<*> ( x Data..?> "gatewayCapabilitySummaries"
+            Prelude.<*> ( x
+                            Data..?> "gatewayCapabilitySummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..:> "creationDate")

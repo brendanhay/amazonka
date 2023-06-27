@@ -77,9 +77,13 @@ data GetAssetPropertyValueHistory = GetAssetPropertyValueHistory'
     -- | The inclusive end of the range from which to query historical data,
     -- expressed in seconds in Unix epoch time.
     endDate :: Prelude.Maybe Data.POSIX,
-    -- | The maximum number of results to return for each paginated request.
+    -- | The maximum number of results to return for each paginated request. A
+    -- result set is returned in the two cases, whichever occurs first.
     --
-    -- Default: 100
+    -- -   The size of the result set is equal to 4 MB.
+    --
+    -- -   The number of data points in the result set is equal to the value of
+    --     @maxResults@. The maximum value of @maxResults@ is 20000.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token to be used for the next set of paginated results.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -117,9 +121,13 @@ data GetAssetPropertyValueHistory = GetAssetPropertyValueHistory'
 -- 'endDate', 'getAssetPropertyValueHistory_endDate' - The inclusive end of the range from which to query historical data,
 -- expressed in seconds in Unix epoch time.
 --
--- 'maxResults', 'getAssetPropertyValueHistory_maxResults' - The maximum number of results to return for each paginated request.
+-- 'maxResults', 'getAssetPropertyValueHistory_maxResults' - The maximum number of results to return for each paginated request. A
+-- result set is returned in the two cases, whichever occurs first.
 --
--- Default: 100
+-- -   The size of the result set is equal to 4 MB.
+--
+-- -   The number of data points in the result set is equal to the value of
+--     @maxResults@. The maximum value of @maxResults@ is 20000.
 --
 -- 'nextToken', 'getAssetPropertyValueHistory_nextToken' - The token to be used for the next set of paginated results.
 --
@@ -165,9 +173,13 @@ getAssetPropertyValueHistory_assetId = Lens.lens (\GetAssetPropertyValueHistory'
 getAssetPropertyValueHistory_endDate :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe Prelude.UTCTime)
 getAssetPropertyValueHistory_endDate = Lens.lens (\GetAssetPropertyValueHistory' {endDate} -> endDate) (\s@GetAssetPropertyValueHistory' {} a -> s {endDate = a} :: GetAssetPropertyValueHistory) Prelude.. Lens.mapping Data._Time
 
--- | The maximum number of results to return for each paginated request.
+-- | The maximum number of results to return for each paginated request. A
+-- result set is returned in the two cases, whichever occurs first.
 --
--- Default: 100
+-- -   The size of the result set is equal to 4 MB.
+--
+-- -   The number of data points in the result set is equal to the value of
+--     @maxResults@. The maximum value of @maxResults@ is 20000.
 getAssetPropertyValueHistory_maxResults :: Lens.Lens' GetAssetPropertyValueHistory (Prelude.Maybe Prelude.Natural)
 getAssetPropertyValueHistory_maxResults = Lens.lens (\GetAssetPropertyValueHistory' {maxResults} -> maxResults) (\s@GetAssetPropertyValueHistory' {} a -> s {maxResults = a} :: GetAssetPropertyValueHistory)
 
@@ -208,21 +220,21 @@ instance Core.AWSPager GetAssetPropertyValueHistory where
     | Core.stop
         ( rs
             Lens.^? getAssetPropertyValueHistoryResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. getAssetPropertyValueHistoryResponse_assetPropertyValueHistory
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getAssetPropertyValueHistory_nextToken
           Lens..~ rs
           Lens.^? getAssetPropertyValueHistoryResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetAssetPropertyValueHistory where
   type
@@ -236,7 +248,8 @@ instance Core.AWSRequest GetAssetPropertyValueHistory where
           GetAssetPropertyValueHistoryResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "assetPropertyValueHistory"
+            Prelude.<*> ( x
+                            Data..?> "assetPropertyValueHistory"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -246,7 +259,8 @@ instance
     GetAssetPropertyValueHistory
   where
   hashWithSalt _salt GetAssetPropertyValueHistory' {..} =
-    _salt `Prelude.hashWithSalt` assetId
+    _salt
+      `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

@@ -175,7 +175,8 @@ instance Core.AWSRequest CreateDashboard where
 
 instance Prelude.Hashable CreateDashboard where
   hashWithSalt _salt CreateDashboard' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dashboardDescription
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` projectId

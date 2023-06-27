@@ -72,12 +72,14 @@ instance Data.FromJSON PortalStatus where
       "PortalStatus"
       ( \x ->
           PortalStatus'
-            Prelude.<$> (x Data..:? "error") Prelude.<*> (x Data..: "state")
+            Prelude.<$> (x Data..:? "error")
+            Prelude.<*> (x Data..: "state")
       )
 
 instance Prelude.Hashable PortalStatus where
   hashWithSalt _salt PortalStatus' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData PortalStatus where

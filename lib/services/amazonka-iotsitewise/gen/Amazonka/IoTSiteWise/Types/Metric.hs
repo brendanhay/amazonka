@@ -144,7 +144,8 @@ instance Data.FromJSON Metric where
 
 instance Prelude.Hashable Metric where
   hashWithSalt _salt Metric' {..} =
-    _salt `Prelude.hashWithSalt` processingConfig
+    _salt
+      `Prelude.hashWithSalt` processingConfig
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` variables
       `Prelude.hashWithSalt` window

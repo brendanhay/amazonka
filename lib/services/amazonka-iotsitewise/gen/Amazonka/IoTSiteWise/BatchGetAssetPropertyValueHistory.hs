@@ -60,10 +60,10 @@ data BatchGetAssetPropertyValueHistory = BatchGetAssetPropertyValueHistory'
   { -- | The maximum number of results to return for each paginated request. A
     -- result set is returned in the two cases, whichever occurs first.
     --
-    -- -   The size of the result set is less than 1 MB.
+    -- -   The size of the result set is equal to 4 MB.
     --
-    -- -   The number of data points in the result set is less than the value
-    --     of @maxResults@. The maximum value of @maxResults@ is 4000.
+    -- -   The number of data points in the result set is equal to the value of
+    --     @maxResults@. The maximum value of @maxResults@ is 20000.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token to be used for the next set of paginated results.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -84,10 +84,10 @@ data BatchGetAssetPropertyValueHistory = BatchGetAssetPropertyValueHistory'
 -- 'maxResults', 'batchGetAssetPropertyValueHistory_maxResults' - The maximum number of results to return for each paginated request. A
 -- result set is returned in the two cases, whichever occurs first.
 --
--- -   The size of the result set is less than 1 MB.
+-- -   The size of the result set is equal to 4 MB.
 --
--- -   The number of data points in the result set is less than the value
---     of @maxResults@. The maximum value of @maxResults@ is 4000.
+-- -   The number of data points in the result set is equal to the value of
+--     @maxResults@. The maximum value of @maxResults@ is 20000.
 --
 -- 'nextToken', 'batchGetAssetPropertyValueHistory_nextToken' - The token to be used for the next set of paginated results.
 --
@@ -106,10 +106,10 @@ newBatchGetAssetPropertyValueHistory =
 -- | The maximum number of results to return for each paginated request. A
 -- result set is returned in the two cases, whichever occurs first.
 --
--- -   The size of the result set is less than 1 MB.
+-- -   The size of the result set is equal to 4 MB.
 --
--- -   The number of data points in the result set is less than the value
---     of @maxResults@. The maximum value of @maxResults@ is 4000.
+-- -   The number of data points in the result set is equal to the value of
+--     @maxResults@. The maximum value of @maxResults@ is 20000.
 batchGetAssetPropertyValueHistory_maxResults :: Lens.Lens' BatchGetAssetPropertyValueHistory (Prelude.Maybe Prelude.Natural)
 batchGetAssetPropertyValueHistory_maxResults = Lens.lens (\BatchGetAssetPropertyValueHistory' {maxResults} -> maxResults) (\s@BatchGetAssetPropertyValueHistory' {} a -> s {maxResults = a} :: BatchGetAssetPropertyValueHistory)
 
@@ -136,12 +136,13 @@ instance
       ( \s h x ->
           BatchGetAssetPropertyValueHistoryResponse'
             Prelude.<$> (x Data..?> "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..?> "errorEntries" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "successEntries" Core..!@ Prelude.mempty)
-              Prelude.<*> ( x Data..?> "skippedEntries"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "errorEntries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "successEntries" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x
+                            Data..?> "skippedEntries"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
 instance
@@ -151,7 +152,8 @@ instance
   hashWithSalt
     _salt
     BatchGetAssetPropertyValueHistory' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` entries
 

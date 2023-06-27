@@ -259,7 +259,8 @@ instance Data.FromJSON TumblingWindow where
 
 instance Prelude.Hashable TumblingWindow where
   hashWithSalt _salt TumblingWindow' {..} =
-    _salt `Prelude.hashWithSalt` offset
+    _salt
+      `Prelude.hashWithSalt` offset
       `Prelude.hashWithSalt` interval
 
 instance Prelude.NFData TumblingWindow where

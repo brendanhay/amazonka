@@ -118,7 +118,8 @@ instance Data.FromJSON GatewayCapabilitySummary where
 
 instance Prelude.Hashable GatewayCapabilitySummary where
   hashWithSalt _salt GatewayCapabilitySummary' {..} =
-    _salt `Prelude.hashWithSalt` capabilityNamespace
+    _salt
+      `Prelude.hashWithSalt` capabilityNamespace
       `Prelude.hashWithSalt` capabilitySyncStatus
 
 instance Prelude.NFData GatewayCapabilitySummary where

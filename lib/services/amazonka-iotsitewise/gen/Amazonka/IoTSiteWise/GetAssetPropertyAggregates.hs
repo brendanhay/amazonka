@@ -75,9 +75,13 @@ import qualified Amazonka.Response as Response
 data GetAssetPropertyAggregates = GetAssetPropertyAggregates'
   { -- | The ID of the asset.
     assetId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return for each paginated request.
+    -- | The maximum number of results to return for each paginated request. A
+    -- result set is returned in the two cases, whichever occurs first.
     --
-    -- Default: 100
+    -- -   The size of the result set is equal to 1 MB.
+    --
+    -- -   The number of data points in the result set is equal to the value of
+    --     @maxResults@. The maximum value of @maxResults@ is 250.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token to be used for the next set of paginated results.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -119,9 +123,13 @@ data GetAssetPropertyAggregates = GetAssetPropertyAggregates'
 --
 -- 'assetId', 'getAssetPropertyAggregates_assetId' - The ID of the asset.
 --
--- 'maxResults', 'getAssetPropertyAggregates_maxResults' - The maximum number of results to return for each paginated request.
+-- 'maxResults', 'getAssetPropertyAggregates_maxResults' - The maximum number of results to return for each paginated request. A
+-- result set is returned in the two cases, whichever occurs first.
 --
--- Default: 100
+-- -   The size of the result set is equal to 1 MB.
+--
+-- -   The number of data points in the result set is equal to the value of
+--     @maxResults@. The maximum value of @maxResults@ is 250.
 --
 -- 'nextToken', 'getAssetPropertyAggregates_nextToken' - The token to be used for the next set of paginated results.
 --
@@ -184,9 +192,13 @@ newGetAssetPropertyAggregates
 getAssetPropertyAggregates_assetId :: Lens.Lens' GetAssetPropertyAggregates (Prelude.Maybe Prelude.Text)
 getAssetPropertyAggregates_assetId = Lens.lens (\GetAssetPropertyAggregates' {assetId} -> assetId) (\s@GetAssetPropertyAggregates' {} a -> s {assetId = a} :: GetAssetPropertyAggregates)
 
--- | The maximum number of results to return for each paginated request.
+-- | The maximum number of results to return for each paginated request. A
+-- result set is returned in the two cases, whichever occurs first.
 --
--- Default: 100
+-- -   The size of the result set is equal to 1 MB.
+--
+-- -   The number of data points in the result set is equal to the value of
+--     @maxResults@. The maximum value of @maxResults@ is 250.
 getAssetPropertyAggregates_maxResults :: Lens.Lens' GetAssetPropertyAggregates (Prelude.Maybe Prelude.Natural)
 getAssetPropertyAggregates_maxResults = Lens.lens (\GetAssetPropertyAggregates' {maxResults} -> maxResults) (\s@GetAssetPropertyAggregates' {} a -> s {maxResults = a} :: GetAssetPropertyAggregates)
 
@@ -240,21 +252,21 @@ instance Core.AWSPager GetAssetPropertyAggregates where
     | Core.stop
         ( rs
             Lens.^? getAssetPropertyAggregatesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. getAssetPropertyAggregatesResponse_aggregatedValues
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getAssetPropertyAggregates_nextToken
           Lens..~ rs
           Lens.^? getAssetPropertyAggregatesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetAssetPropertyAggregates where
   type
@@ -268,14 +280,16 @@ instance Core.AWSRequest GetAssetPropertyAggregates where
           GetAssetPropertyAggregatesResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "aggregatedValues"
+            Prelude.<*> ( x
+                            Data..?> "aggregatedValues"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable GetAssetPropertyAggregates where
   hashWithSalt _salt GetAssetPropertyAggregates' {..} =
-    _salt `Prelude.hashWithSalt` assetId
+    _salt
+      `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` propertyAlias

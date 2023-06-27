@@ -59,7 +59,7 @@ data BatchGetAssetPropertyValue = BatchGetAssetPropertyValue'
   { -- | The token to be used for the next set of paginated results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of asset property value entries for the batch get request. You
-    -- can specify up to 16 entries per request.
+    -- can specify up to 128 entries per request.
     entries :: [BatchGetAssetPropertyValueEntry]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,7 +75,7 @@ data BatchGetAssetPropertyValue = BatchGetAssetPropertyValue'
 -- 'nextToken', 'batchGetAssetPropertyValue_nextToken' - The token to be used for the next set of paginated results.
 --
 -- 'entries', 'batchGetAssetPropertyValue_entries' - The list of asset property value entries for the batch get request. You
--- can specify up to 16 entries per request.
+-- can specify up to 128 entries per request.
 newBatchGetAssetPropertyValue ::
   BatchGetAssetPropertyValue
 newBatchGetAssetPropertyValue =
@@ -90,7 +90,7 @@ batchGetAssetPropertyValue_nextToken :: Lens.Lens' BatchGetAssetPropertyValue (P
 batchGetAssetPropertyValue_nextToken = Lens.lens (\BatchGetAssetPropertyValue' {nextToken} -> nextToken) (\s@BatchGetAssetPropertyValue' {} a -> s {nextToken = a} :: BatchGetAssetPropertyValue)
 
 -- | The list of asset property value entries for the batch get request. You
--- can specify up to 16 entries per request.
+-- can specify up to 128 entries per request.
 batchGetAssetPropertyValue_entries :: Lens.Lens' BatchGetAssetPropertyValue [BatchGetAssetPropertyValueEntry]
 batchGetAssetPropertyValue_entries = Lens.lens (\BatchGetAssetPropertyValue' {entries} -> entries) (\s@BatchGetAssetPropertyValue' {} a -> s {entries = a} :: BatchGetAssetPropertyValue) Prelude.. Lens.coerced
 
@@ -108,14 +108,16 @@ instance Core.AWSRequest BatchGetAssetPropertyValue where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "errorEntries" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "successEntries" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "skippedEntries"
+            Prelude.<*> ( x
+                            Data..?> "skippedEntries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable BatchGetAssetPropertyValue where
   hashWithSalt _salt BatchGetAssetPropertyValue' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` entries
 
 instance Prelude.NFData BatchGetAssetPropertyValue where

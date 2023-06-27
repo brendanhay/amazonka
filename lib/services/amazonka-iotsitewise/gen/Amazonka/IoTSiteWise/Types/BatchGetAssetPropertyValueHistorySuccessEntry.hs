@@ -80,9 +80,10 @@ instance
       ( \x ->
           BatchGetAssetPropertyValueHistorySuccessEntry'
             Prelude.<$> (x Data..: "entryId")
-              Prelude.<*> ( x Data..:? "assetPropertyValueHistory"
-                              Data..!= Prelude.mempty
-                          )
+            Prelude.<*> ( x
+                            Data..:? "assetPropertyValueHistory"
+                            Data..!= Prelude.mempty
+                        )
       )
 
 instance
@@ -92,7 +93,8 @@ instance
   hashWithSalt
     _salt
     BatchGetAssetPropertyValueHistorySuccessEntry' {..} =
-      _salt `Prelude.hashWithSalt` entryId
+      _salt
+        `Prelude.hashWithSalt` entryId
         `Prelude.hashWithSalt` assetPropertyValueHistory
 
 instance

@@ -127,7 +127,8 @@ instance Data.FromJSON GatewaySummary where
       "GatewaySummary"
       ( \x ->
           GatewaySummary'
-            Prelude.<$> ( x Data..:? "gatewayCapabilitySummaries"
+            Prelude.<$> ( x
+                            Data..:? "gatewayCapabilitySummaries"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "gatewayPlatform")

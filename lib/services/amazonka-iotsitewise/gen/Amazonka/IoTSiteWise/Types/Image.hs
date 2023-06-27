@@ -72,7 +72,8 @@ image_id = Lens.lens (\Image' {id} -> id) (\s@Image' {} a -> s {id = a} :: Image
 
 instance Prelude.Hashable Image where
   hashWithSalt _salt Image' {..} =
-    _salt `Prelude.hashWithSalt` file
+    _salt
+      `Prelude.hashWithSalt` file
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData Image where

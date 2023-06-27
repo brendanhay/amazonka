@@ -367,6 +367,7 @@ module Amazonka.IoTSiteWise.Lens
     describeTimeSeriesResponse_dataType,
     describeTimeSeriesResponse_timeSeriesCreationDate,
     describeTimeSeriesResponse_timeSeriesLastUpdateDate,
+    describeTimeSeriesResponse_timeSeriesArn,
 
     -- ** DisassociateAssets
     disassociateAssets_clientToken,
@@ -1140,6 +1141,7 @@ module Amazonka.IoTSiteWise.Lens
     timeSeriesSummary_dataType,
     timeSeriesSummary_timeSeriesCreationDate,
     timeSeriesSummary_timeSeriesLastUpdateDate,
+    timeSeriesSummary_timeSeriesArn,
 
     -- ** Transform
     transform_processingConfig,

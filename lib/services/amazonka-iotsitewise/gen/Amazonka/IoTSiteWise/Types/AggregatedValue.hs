@@ -91,7 +91,8 @@ instance Data.FromJSON AggregatedValue where
 
 instance Prelude.Hashable AggregatedValue where
   hashWithSalt _salt AggregatedValue' {..} =
-    _salt `Prelude.hashWithSalt` quality
+    _salt
+      `Prelude.hashWithSalt` quality
       `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` value
 

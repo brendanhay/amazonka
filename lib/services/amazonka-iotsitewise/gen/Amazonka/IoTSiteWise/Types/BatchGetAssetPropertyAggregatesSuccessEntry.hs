@@ -83,9 +83,10 @@ instance
       ( \x ->
           BatchGetAssetPropertyAggregatesSuccessEntry'
             Prelude.<$> (x Data..: "entryId")
-              Prelude.<*> ( x Data..:? "aggregatedValues"
-                              Data..!= Prelude.mempty
-                          )
+            Prelude.<*> ( x
+                            Data..:? "aggregatedValues"
+                            Data..!= Prelude.mempty
+                        )
       )
 
 instance
@@ -95,7 +96,8 @@ instance
   hashWithSalt
     _salt
     BatchGetAssetPropertyAggregatesSuccessEntry' {..} =
-      _salt `Prelude.hashWithSalt` entryId
+      _salt
+        `Prelude.hashWithSalt` entryId
         `Prelude.hashWithSalt` aggregatedValues
 
 instance

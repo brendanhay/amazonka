@@ -129,7 +129,8 @@ instance Data.FromJSON PropertyType where
 
 instance Prelude.Hashable PropertyType where
   hashWithSalt _salt PropertyType' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` measurement
       `Prelude.hashWithSalt` metric
       `Prelude.hashWithSalt` transform

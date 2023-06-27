@@ -103,7 +103,8 @@ instance Data.FromJSON VariableValue where
 
 instance Prelude.Hashable VariableValue where
   hashWithSalt _salt VariableValue' {..} =
-    _salt `Prelude.hashWithSalt` hierarchyId
+    _salt
+      `Prelude.hashWithSalt` hierarchyId
       `Prelude.hashWithSalt` propertyId
 
 instance Prelude.NFData VariableValue where

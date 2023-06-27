@@ -70,12 +70,14 @@ instance Data.FromJSON DetailedError where
       "DetailedError"
       ( \x ->
           DetailedError'
-            Prelude.<$> (x Data..: "code") Prelude.<*> (x Data..: "message")
+            Prelude.<$> (x Data..: "code")
+            Prelude.<*> (x Data..: "message")
       )
 
 instance Prelude.Hashable DetailedError where
   hashWithSalt _salt DetailedError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData DetailedError where

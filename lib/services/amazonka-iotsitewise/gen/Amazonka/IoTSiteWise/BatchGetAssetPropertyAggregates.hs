@@ -60,10 +60,10 @@ data BatchGetAssetPropertyAggregates = BatchGetAssetPropertyAggregates'
   { -- | The maximum number of results to return for each paginated request. A
     -- result set is returned in the two cases, whichever occurs first.
     --
-    -- -   The size of the result set is less than 1 MB.
+    -- -   The size of the result set is equal to 1 MB.
     --
-    -- -   The number of data points in the result set is less than the value
-    --     of @maxResults@. The maximum value of @maxResults@ is 4000.
+    -- -   The number of data points in the result set is equal to the value of
+    --     @maxResults@. The maximum value of @maxResults@ is 4000.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token to be used for the next set of paginated results.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -84,10 +84,10 @@ data BatchGetAssetPropertyAggregates = BatchGetAssetPropertyAggregates'
 -- 'maxResults', 'batchGetAssetPropertyAggregates_maxResults' - The maximum number of results to return for each paginated request. A
 -- result set is returned in the two cases, whichever occurs first.
 --
--- -   The size of the result set is less than 1 MB.
+-- -   The size of the result set is equal to 1 MB.
 --
--- -   The number of data points in the result set is less than the value
---     of @maxResults@. The maximum value of @maxResults@ is 4000.
+-- -   The number of data points in the result set is equal to the value of
+--     @maxResults@. The maximum value of @maxResults@ is 4000.
 --
 -- 'nextToken', 'batchGetAssetPropertyAggregates_nextToken' - The token to be used for the next set of paginated results.
 --
@@ -106,10 +106,10 @@ newBatchGetAssetPropertyAggregates =
 -- | The maximum number of results to return for each paginated request. A
 -- result set is returned in the two cases, whichever occurs first.
 --
--- -   The size of the result set is less than 1 MB.
+-- -   The size of the result set is equal to 1 MB.
 --
--- -   The number of data points in the result set is less than the value
---     of @maxResults@. The maximum value of @maxResults@ is 4000.
+-- -   The number of data points in the result set is equal to the value of
+--     @maxResults@. The maximum value of @maxResults@ is 4000.
 batchGetAssetPropertyAggregates_maxResults :: Lens.Lens' BatchGetAssetPropertyAggregates (Prelude.Maybe Prelude.Natural)
 batchGetAssetPropertyAggregates_maxResults = Lens.lens (\BatchGetAssetPropertyAggregates' {maxResults} -> maxResults) (\s@BatchGetAssetPropertyAggregates' {} a -> s {maxResults = a} :: BatchGetAssetPropertyAggregates)
 
@@ -139,7 +139,8 @@ instance
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "errorEntries" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "successEntries" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "skippedEntries"
+            Prelude.<*> ( x
+                            Data..?> "skippedEntries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -151,7 +152,8 @@ instance
   hashWithSalt
     _salt
     BatchGetAssetPropertyAggregates' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` entries
 

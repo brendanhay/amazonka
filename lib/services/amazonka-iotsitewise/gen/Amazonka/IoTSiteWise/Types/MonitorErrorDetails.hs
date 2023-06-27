@@ -75,7 +75,8 @@ instance Data.FromJSON MonitorErrorDetails where
 
 instance Prelude.Hashable MonitorErrorDetails where
   hashWithSalt _salt MonitorErrorDetails' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData MonitorErrorDetails where

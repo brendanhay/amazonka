@@ -192,7 +192,8 @@ instance Core.AWSRequest UpdateAssetProperty where
 
 instance Prelude.Hashable UpdateAssetProperty where
   hashWithSalt _salt UpdateAssetProperty' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` propertyAlias
       `Prelude.hashWithSalt` propertyNotificationState
       `Prelude.hashWithSalt` propertyUnit

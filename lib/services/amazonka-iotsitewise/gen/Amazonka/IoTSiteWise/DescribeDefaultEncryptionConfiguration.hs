@@ -80,9 +80,9 @@ instance
       ( \s h x ->
           DescribeDefaultEncryptionConfigurationResponse'
             Prelude.<$> (x Data..?> "kmsKeyArn")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "encryptionType")
-              Prelude.<*> (x Data..:> "configurationStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..:> "encryptionType")
+            Prelude.<*> (x Data..:> "configurationStatus")
       )
 
 instance

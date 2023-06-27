@@ -135,7 +135,8 @@ instance Core.AWSRequest ListModels where
 
 instance Prelude.Hashable ListModels where
   hashWithSalt _salt ListModels' {..} =
-    _salt `Prelude.hashWithSalt` datasetNameBeginsWith
+    _salt
+      `Prelude.hashWithSalt` datasetNameBeginsWith
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` modelNameBeginsWith
       `Prelude.hashWithSalt` nextToken

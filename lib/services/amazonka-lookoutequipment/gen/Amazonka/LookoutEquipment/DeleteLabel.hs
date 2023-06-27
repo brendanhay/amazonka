@@ -98,7 +98,8 @@ instance Core.AWSRequest DeleteLabel where
 
 instance Prelude.Hashable DeleteLabel where
   hashWithSalt _salt DeleteLabel' {..} =
-    _salt `Prelude.hashWithSalt` labelGroupName
+    _salt
+      `Prelude.hashWithSalt` labelGroupName
       `Prelude.hashWithSalt` labelId
 
 instance Prelude.NFData DeleteLabel where

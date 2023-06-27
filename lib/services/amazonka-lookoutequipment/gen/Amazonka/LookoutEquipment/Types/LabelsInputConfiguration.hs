@@ -80,7 +80,8 @@ instance Data.FromJSON LabelsInputConfiguration where
 
 instance Prelude.Hashable LabelsInputConfiguration where
   hashWithSalt _salt LabelsInputConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` labelGroupName
+    _salt
+      `Prelude.hashWithSalt` labelGroupName
       `Prelude.hashWithSalt` s3InputConfiguration
 
 instance Prelude.NFData LabelsInputConfiguration where

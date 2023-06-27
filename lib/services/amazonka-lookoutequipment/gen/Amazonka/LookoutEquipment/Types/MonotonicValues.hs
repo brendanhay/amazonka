@@ -84,7 +84,8 @@ instance Data.FromJSON MonotonicValues where
 
 instance Prelude.Hashable MonotonicValues where
   hashWithSalt _salt MonotonicValues' {..} =
-    _salt `Prelude.hashWithSalt` monotonicity
+    _salt
+      `Prelude.hashWithSalt` monotonicity
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData MonotonicValues where

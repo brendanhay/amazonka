@@ -146,7 +146,8 @@ instance Core.AWSRequest ListInferenceEvents where
     Response.receiveJSON
       ( \s h x ->
           ListInferenceEventsResponse'
-            Prelude.<$> ( x Data..?> "InferenceEventSummaries"
+            Prelude.<$> ( x
+                            Data..?> "InferenceEventSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -155,7 +156,8 @@ instance Core.AWSRequest ListInferenceEvents where
 
 instance Prelude.Hashable ListInferenceEvents where
   hashWithSalt _salt ListInferenceEvents' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` inferenceSchedulerName
       `Prelude.hashWithSalt` intervalStartTime

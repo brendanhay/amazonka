@@ -130,7 +130,8 @@ instance Core.AWSRequest ListInferenceSchedulers where
     Response.receiveJSON
       ( \s h x ->
           ListInferenceSchedulersResponse'
-            Prelude.<$> ( x Data..?> "InferenceSchedulerSummaries"
+            Prelude.<$> ( x
+                            Data..?> "InferenceSchedulerSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")

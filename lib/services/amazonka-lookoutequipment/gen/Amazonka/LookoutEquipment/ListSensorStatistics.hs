@@ -133,7 +133,8 @@ instance Core.AWSRequest ListSensorStatistics where
       ( \s h x ->
           ListSensorStatisticsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "SensorStatisticsSummaries"
+            Prelude.<*> ( x
+                            Data..?> "SensorStatisticsSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -141,7 +142,8 @@ instance Core.AWSRequest ListSensorStatistics where
 
 instance Prelude.Hashable ListSensorStatistics where
   hashWithSalt _salt ListSensorStatistics' {..} =
-    _salt `Prelude.hashWithSalt` ingestionJobId
+    _salt
+      `Prelude.hashWithSalt` ingestionJobId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` datasetName

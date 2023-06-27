@@ -92,7 +92,8 @@ instance Data.FromJSON LargeTimestampGaps where
 
 instance Prelude.Hashable LargeTimestampGaps where
   hashWithSalt _salt LargeTimestampGaps' {..} =
-    _salt `Prelude.hashWithSalt` maxTimestampGapInDays
+    _salt
+      `Prelude.hashWithSalt` maxTimestampGapInDays
       `Prelude.hashWithSalt` numberOfLargeTimestampGaps
       `Prelude.hashWithSalt` status
 

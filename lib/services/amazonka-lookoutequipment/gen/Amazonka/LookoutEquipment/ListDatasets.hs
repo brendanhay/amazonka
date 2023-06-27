@@ -108,7 +108,8 @@ instance Core.AWSRequest ListDatasets where
     Response.receiveJSON
       ( \s h x ->
           ListDatasetsResponse'
-            Prelude.<$> ( x Data..?> "DatasetSummaries"
+            Prelude.<$> ( x
+                            Data..?> "DatasetSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -117,7 +118,8 @@ instance Core.AWSRequest ListDatasets where
 
 instance Prelude.Hashable ListDatasets where
   hashWithSalt _salt ListDatasets' {..} =
-    _salt `Prelude.hashWithSalt` datasetNameBeginsWith
+    _salt
+      `Prelude.hashWithSalt` datasetNameBeginsWith
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

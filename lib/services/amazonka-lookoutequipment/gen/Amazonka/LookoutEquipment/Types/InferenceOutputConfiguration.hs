@@ -87,7 +87,8 @@ instance
     InferenceOutputConfiguration
   where
   hashWithSalt _salt InferenceOutputConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` s3OutputConfiguration
 
 instance Prelude.NFData InferenceOutputConfiguration where

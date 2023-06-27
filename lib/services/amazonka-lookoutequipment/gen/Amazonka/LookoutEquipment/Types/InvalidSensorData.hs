@@ -83,7 +83,8 @@ instance Data.FromJSON InvalidSensorData where
 
 instance Prelude.Hashable InvalidSensorData where
   hashWithSalt _salt InvalidSensorData' {..} =
-    _salt `Prelude.hashWithSalt` affectedSensorCount
+    _salt
+      `Prelude.hashWithSalt` affectedSensorCount
       `Prelude.hashWithSalt` totalNumberOfInvalidValues
 
 instance Prelude.NFData InvalidSensorData where

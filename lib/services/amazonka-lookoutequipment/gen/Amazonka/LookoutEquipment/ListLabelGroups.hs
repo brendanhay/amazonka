@@ -109,7 +109,8 @@ instance Core.AWSRequest ListLabelGroups where
     Response.receiveJSON
       ( \s h x ->
           ListLabelGroupsResponse'
-            Prelude.<$> ( x Data..?> "LabelGroupSummaries"
+            Prelude.<$> ( x
+                            Data..?> "LabelGroupSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")

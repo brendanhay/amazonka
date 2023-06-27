@@ -159,7 +159,8 @@ instance Core.AWSRequest CreateLabelGroup where
 
 instance Prelude.Hashable CreateLabelGroup where
   hashWithSalt _salt CreateLabelGroup' {..} =
-    _salt `Prelude.hashWithSalt` faultCodes
+    _salt
+      `Prelude.hashWithSalt` faultCodes
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` labelGroupName
       `Prelude.hashWithSalt` clientToken

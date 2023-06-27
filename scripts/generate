@@ -100,7 +100,7 @@ if [ "$commit" = "true" ]; then
 	for service in lib/services/amazonka-*; do
 
 		if git add "$service" >/dev/null 2>&1; then
-			git commit -m "$(basename "$service"): regenerating service"
+			git commit --no-verify -m "$(basename "$service"): regenerating service"
 		fi
 	done
 fi

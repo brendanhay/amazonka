@@ -140,7 +140,8 @@ dASHTimestampRange_startTimestamp = Lens.lens (\DASHTimestampRange' {startTimest
 
 instance Prelude.Hashable DASHTimestampRange where
   hashWithSalt _salt DASHTimestampRange' {..} =
-    _salt `Prelude.hashWithSalt` endTimestamp
+    _salt
+      `Prelude.hashWithSalt` endTimestamp
       `Prelude.hashWithSalt` startTimestamp
 
 instance Prelude.NFData DASHTimestampRange where

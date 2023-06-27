@@ -197,55 +197,55 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Kinesis Video Streams has throttled the request because you have
 -- exceeded a limit. Try making the call later. For information about
 -- limits, see
 -- <http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html Kinesis Video Streams Limits>.
-_ClientLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ClientLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ClientLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -254,7 +254,7 @@ _ClientLimitExceededException =
 
 -- | A specified parameter exceeds its restrictions, is not supported, or
 -- can\'t be used.
-_InvalidArgumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidArgumentException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidArgumentException =
   Core._MatchServiceError
     defaultService
@@ -263,7 +263,7 @@ _InvalidArgumentException =
 
 -- | The codec private data in at least one of the tracks of the video stream
 -- is not valid for this operation.
-_InvalidCodecPrivateDataException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidCodecPrivateDataException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidCodecPrivateDataException =
   Core._MatchServiceError
     defaultService
@@ -272,7 +272,7 @@ _InvalidCodecPrivateDataException =
 
 -- | One or more frames in the requested clip could not be parsed based on
 -- the specified codec.
-_InvalidMediaFrameException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidMediaFrameException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidMediaFrameException =
   Core._MatchServiceError
     defaultService
@@ -281,7 +281,7 @@ _InvalidMediaFrameException =
 
 -- | No codec private data was found in at least one of tracks of the video
 -- stream.
-_MissingCodecPrivateDataException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MissingCodecPrivateDataException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MissingCodecPrivateDataException =
   Core._MatchServiceError
     defaultService
@@ -290,7 +290,7 @@ _MissingCodecPrivateDataException =
 
 -- | A streaming session was requested for a stream that does not retain data
 -- (that is, has a @DataRetentionInHours@ of 0).
-_NoDataRetentionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NoDataRetentionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NoDataRetentionException =
   Core._MatchServiceError
     defaultService
@@ -299,7 +299,7 @@ _NoDataRetentionException =
 
 -- | Status Code: 403, The caller is not authorized to perform an operation
 -- on the given stream, or the token has expired.
-_NotAuthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotAuthorizedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotAuthorizedException =
   Core._MatchServiceError
     defaultService
@@ -314,7 +314,7 @@ _NotAuthorizedException =
 -- @LIVE_REPLAY@is requested for a stream that has no fragments within the
 -- requested time range, or if a session with a @PlaybackMode@ of @LIVE@ is
 -- requested for a stream that has no fragments within the last 30 seconds.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -326,7 +326,7 @@ _ResourceNotFoundException =
 -- first fragment for a playback session. The codec ID for track 1 should
 -- be @V_MPEG\/ISO\/AVC@ and, optionally, the codec ID for track 2 should
 -- be @A_AAC@.
-_UnsupportedStreamMediaTypeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedStreamMediaTypeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedStreamMediaTypeException =
   Core._MatchServiceError
     defaultService

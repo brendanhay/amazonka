@@ -135,7 +135,8 @@ hLSTimestampRange_startTimestamp = Lens.lens (\HLSTimestampRange' {startTimestam
 
 instance Prelude.Hashable HLSTimestampRange where
   hashWithSalt _salt HLSTimestampRange' {..} =
-    _salt `Prelude.hashWithSalt` endTimestamp
+    _salt
+      `Prelude.hashWithSalt` endTimestamp
       `Prelude.hashWithSalt` startTimestamp
 
 instance Prelude.NFData HLSTimestampRange where

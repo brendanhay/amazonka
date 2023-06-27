@@ -158,7 +158,8 @@ dASHFragmentSelector_timestampRange = Lens.lens (\DASHFragmentSelector' {timesta
 
 instance Prelude.Hashable DASHFragmentSelector where
   hashWithSalt _salt DASHFragmentSelector' {..} =
-    _salt `Prelude.hashWithSalt` fragmentSelectorType
+    _salt
+      `Prelude.hashWithSalt` fragmentSelectorType
       `Prelude.hashWithSalt` timestampRange
 
 instance Prelude.NFData DASHFragmentSelector where

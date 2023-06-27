@@ -93,7 +93,8 @@ instance Data.FromXML ReplicationConfiguration where
 
 instance Prelude.Hashable ReplicationConfiguration where
   hashWithSalt _salt ReplicationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` role'
+    _salt
+      `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` rules
 
 instance Prelude.NFData ReplicationConfiguration where

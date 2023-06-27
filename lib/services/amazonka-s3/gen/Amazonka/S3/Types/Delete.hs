@@ -33,7 +33,7 @@ data Delete = Delete'
   { -- | Element to enable quiet mode for the request. When you add this element,
     -- you must set its value to true.
     quiet :: Prelude.Maybe Prelude.Bool,
-    -- | The objects to delete.
+    -- | The object to delete.
     objects :: [ObjectIdentifier]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,7 +49,7 @@ data Delete = Delete'
 -- 'quiet', 'delete_quiet' - Element to enable quiet mode for the request. When you add this element,
 -- you must set its value to true.
 --
--- 'objects', 'delete_objects' - The objects to delete.
+-- 'objects', 'delete_objects' - The object to delete.
 newDelete ::
   Delete
 newDelete =
@@ -63,13 +63,14 @@ newDelete =
 delete_quiet :: Lens.Lens' Delete (Prelude.Maybe Prelude.Bool)
 delete_quiet = Lens.lens (\Delete' {quiet} -> quiet) (\s@Delete' {} a -> s {quiet = a} :: Delete)
 
--- | The objects to delete.
+-- | The object to delete.
 delete_objects :: Lens.Lens' Delete [ObjectIdentifier]
 delete_objects = Lens.lens (\Delete' {objects} -> objects) (\s@Delete' {} a -> s {objects = a} :: Delete) Prelude.. Lens.coerced
 
 instance Prelude.Hashable Delete where
   hashWithSalt _salt Delete' {..} =
-    _salt `Prelude.hashWithSalt` quiet
+    _salt
+      `Prelude.hashWithSalt` quiet
       `Prelude.hashWithSalt` objects
 
 instance Prelude.NFData Delete where

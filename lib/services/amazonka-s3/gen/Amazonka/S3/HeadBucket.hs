@@ -25,9 +25,9 @@
 -- exists and you have permission to access it.
 --
 -- If the bucket does not exist or you do not have permission to access it,
--- the @HEAD@ request returns a generic @404 Not Found@ or @403 Forbidden@
--- code. A message body is not included, so you cannot determine the
--- exception beyond these error codes.
+-- the @HEAD@ request returns a generic @400 Bad Request@, @403 Forbidden@
+-- or @404 Not Found@ code. A message body is not included, so you cannot
+-- determine the exception beyond these error codes.
 --
 -- To use this operation, you must have permissions to perform the
 -- @s3:ListBucket@ action. The bucket owner has this permission by default
@@ -37,14 +37,22 @@
 -- and
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
 --
--- To use this API against an access point, you must provide the alias of
--- the access point in place of the bucket name or specify the access point
--- ARN. When using the access point ARN, you must direct requests to the
--- access point hostname. The access point hostname takes the form
--- AccessPointName-AccountId.s3-accesspoint.Region.amazonaws.com. When
--- using the Amazon Web Services SDKs, you provide the ARN in place of the
--- bucket name. For more information see,
+-- To use this API operation against an access point, you must provide the
+-- alias of the access point in place of the bucket name or specify the
+-- access point ARN. When using the access point ARN, you must direct
+-- requests to the access point hostname. The access point hostname takes
+-- the form
+-- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
+-- When using the Amazon Web Services SDKs, you provide the ARN in place of
+-- the bucket name. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>.
+--
+-- To use this API operation against an Object Lambda access point, provide
+-- the alias of the Object Lambda access point in place of the bucket name.
+-- If the Object Lambda access point alias in a request is not valid, the
+-- error code @InvalidAccessPointAliasError@ is returned. For more
+-- information about @InvalidAccessPointAliasError@, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
 module Amazonka.S3.HeadBucket
   ( -- * Creating a Request
     HeadBucket (..),
@@ -85,14 +93,21 @@ data HeadBucket = HeadBucket'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
     -- in the /Amazon S3 User Guide/.
     --
-    -- When using this action with Amazon S3 on Outposts, you must direct
+    -- When you use this action with an Object Lambda access point, provide the
+    -- alias of the Object Lambda access point in place of the bucket name. If
+    -- the Object Lambda access point alias in a request is not valid, the
+    -- error code @InvalidAccessPointAliasError@ is returned. For more
+    -- information about @InvalidAccessPointAliasError@, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
+    --
+    -- When you use this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
-    -- When using this action with S3 on Outposts through the Amazon Web
-    -- Services SDKs, you provide the Outposts bucket ARN in place of the
+    -- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+    -- When you use this action with S3 on Outposts through the Amazon Web
+    -- Services SDKs, you provide the Outposts access point ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName
   }
@@ -121,14 +136,21 @@ data HeadBucket = HeadBucket'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with an Object Lambda access point, provide the
+-- alias of the Object Lambda access point in place of the bucket name. If
+-- the Object Lambda access point alias in a request is not valid, the
+-- error code @InvalidAccessPointAliasError@ is returned. For more
+-- information about @InvalidAccessPointAliasError@, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
+--
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 newHeadBucket ::
   -- | 'bucket'
@@ -157,14 +179,21 @@ headBucket_expectedBucketOwner = Lens.lens (\HeadBucket' {expectedBucketOwner} -
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with an Object Lambda access point, provide the
+-- alias of the Object Lambda access point in place of the bucket name. If
+-- the Object Lambda access point alias in a request is not valid, the
+-- error code @InvalidAccessPointAliasError@ is returned. For more
+-- information about @InvalidAccessPointAliasError@, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
+--
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 headBucket_bucket :: Lens.Lens' HeadBucket BucketName
 headBucket_bucket = Lens.lens (\HeadBucket' {bucket} -> bucket) (\s@HeadBucket' {} a -> s {bucket = a} :: HeadBucket)
@@ -178,7 +207,8 @@ instance Core.AWSRequest HeadBucket where
 
 instance Prelude.Hashable HeadBucket where
   hashWithSalt _salt HeadBucket' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData HeadBucket where

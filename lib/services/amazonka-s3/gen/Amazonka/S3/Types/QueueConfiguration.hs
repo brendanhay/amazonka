@@ -98,7 +98,8 @@ instance Data.FromXML QueueConfiguration where
 
 instance Prelude.Hashable QueueConfiguration where
   hashWithSalt _salt QueueConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` queueArn
       `Prelude.hashWithSalt` events

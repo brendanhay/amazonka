@@ -31,8 +31,7 @@
 -- parameter in the request. You will need permission for the
 -- @s3:DeleteObjectVersionTagging@ action.
 --
--- The following operations are related to
--- @DeleteBucketMetricsConfiguration@:
+-- The following operations are related to @DeleteObjectTagging@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html PutObjectTagging>
 --
@@ -85,14 +84,14 @@ data DeleteObjectTagging = DeleteObjectTagging'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
     -- in the /Amazon S3 User Guide/.
     --
-    -- When using this action with Amazon S3 on Outposts, you must direct
+    -- When you use this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
-    -- When using this action with S3 on Outposts through the Amazon Web
-    -- Services SDKs, you provide the Outposts bucket ARN in place of the
+    -- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+    -- When you use this action with S3 on Outposts through the Amazon Web
+    -- Services SDKs, you provide the Outposts access point ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | The key that identifies the object in the bucket from which to remove
@@ -126,14 +125,14 @@ data DeleteObjectTagging = DeleteObjectTagging'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 --
 -- 'key', 'deleteObjectTagging_key' - The key that identifies the object in the bucket from which to remove
@@ -174,14 +173,14 @@ deleteObjectTagging_versionId = Lens.lens (\DeleteObjectTagging' {versionId} -> 
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 deleteObjectTagging_bucket :: Lens.Lens' DeleteObjectTagging BucketName
 deleteObjectTagging_bucket = Lens.lens (\DeleteObjectTagging' {bucket} -> bucket) (\s@DeleteObjectTagging' {} a -> s {bucket = a} :: DeleteObjectTagging)
@@ -208,7 +207,8 @@ instance Core.AWSRequest DeleteObjectTagging where
 
 instance Prelude.Hashable DeleteObjectTagging where
   hashWithSalt _salt DeleteObjectTagging' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key

@@ -59,7 +59,7 @@
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html Enabling Cross-Origin Resource Sharing>
 -- in the /Amazon S3 User Guide/.
 --
--- __Related Resources__
+-- The following operations are related to @PutBucketCors@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketCors.html GetBucketCors>
 --
@@ -238,7 +238,8 @@ instance Core.AWSRequest PutBucketCors where
 
 instance Prelude.Hashable PutBucketCors where
   hashWithSalt _salt PutBucketCors' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
+    _salt
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket

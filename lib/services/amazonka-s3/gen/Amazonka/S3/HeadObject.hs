@@ -20,37 +20,39 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The HEAD action retrieves metadata from an object without returning the
--- object itself. This action is useful if you\'re only interested in an
--- object\'s metadata. To use HEAD, you must have READ access to the
+-- The @HEAD@ action retrieves metadata from an object without returning
+-- the object itself. This action is useful if you\'re only interested in
+-- an object\'s metadata. To use @HEAD@, you must have READ access to the
 -- object.
 --
 -- A @HEAD@ request has the same options as a @GET@ action on an object.
 -- The response is identical to the @GET@ response except that there is no
 -- response body. Because of this, if the @HEAD@ request generates an
--- error, it returns a generic @404 Not Found@ or @403 Forbidden@ code. It
--- is not possible to retrieve the exact exception beyond these error
--- codes.
+-- error, it returns a generic @400 Bad Request@, @403 Forbidden@ or
+-- @404 Not Found@ code. It is not possible to retrieve the exact exception
+-- beyond these error codes.
 --
 -- If you encrypt an object by using server-side encryption with
 -- customer-provided encryption keys (SSE-C) when you store the object in
 -- Amazon S3, then when you retrieve the metadata from the object, you must
 -- use the following headers:
 --
--- -   x-amz-server-side-encryption-customer-algorithm
+-- -   @x-amz-server-side-encryption-customer-algorithm@
 --
--- -   x-amz-server-side-encryption-customer-key
+-- -   @x-amz-server-side-encryption-customer-key@
 --
--- -   x-amz-server-side-encryption-customer-key-MD5
+-- -   @x-amz-server-side-encryption-customer-key-MD5@
 --
 -- For more information about SSE-C, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys)>.
 --
 -- -   Encryption request headers, like @x-amz-server-side-encryption@,
---     should not be sent for GET requests if your object uses server-side
---     encryption with KMS keys (SSE-KMS) or server-side encryption with
---     Amazon S3–managed encryption keys (SSE-S3). If your object does use
---     these types of keys, you’ll get an HTTP 400 BadRequest error.
+--     should not be sent for @GET@ requests if your object uses
+--     server-side encryption with Key Management Service (KMS) keys
+--     (SSE-KMS), dual-layer server-side encryption with Amazon Web
+--     Services KMS keys (DSSE-KMS), or server-side encryption with Amazon
+--     S3 managed encryption keys (SSE-S3). If your object does use these
+--     types of keys, you’ll get an HTTP 400 Bad Request error.
 --
 -- -   The last modified property in this case is the creation date of the
 --     object.
@@ -81,19 +83,19 @@
 -- For more information about conditional requests, see
 -- <https://tools.ietf.org/html/rfc7232 RFC 7232>.
 --
--- __Permissions__
+-- [Permissions]
+--     You need the relevant read object (or version) permission for this
+--     operation. For more information, see
+--     <https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html Actions, resources, and condition keys for Amazon S3>.
+--     If the object you request doesn\'t exist, the error that Amazon S3
+--     returns depends on whether you also have the s3:ListBucket
+--     permission.
 --
--- You need the relevant read object (or version) permission for this
--- operation. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html Specifying Permissions in a Policy>.
--- If the object you request does not exist, the error Amazon S3 returns
--- depends on whether you also have the s3:ListBucket permission.
+--     -   If you have the @s3:ListBucket@ permission on the bucket, Amazon
+--         S3 returns an HTTP status code 404 error.
 --
--- -   If you have the @s3:ListBucket@ permission on the bucket, Amazon S3
---     returns an HTTP status code 404 (\"no such key\") error.
---
--- -   If you don’t have the @s3:ListBucket@ permission, Amazon S3 returns
---     an HTTP status code 403 (\"access denied\") error.
+--     -   If you don’t have the @s3:ListBucket@ permission, Amazon S3
+--         returns an HTTP status code 403 error.
 --
 -- The following actions are related to @HeadObject@:
 --
@@ -203,8 +205,10 @@ data HeadObject = HeadObject'
     -- part specified. Useful querying about the size of the part and the
     -- number of parts in this object.
     partNumber :: Prelude.Maybe Prelude.Int,
-    -- | Because @HeadObject@ returns only the metadata for an object, this
-    -- parameter has no effect.
+    -- | HeadObject returns only the metadata for an object. If the Range is
+    -- satisfiable, only the @ContentLength@ is affected in the response. If
+    -- the Range is not satisfiable, S3 returns a
+    -- @416 - Requested Range Not Satisfiable@ error.
     range :: Prelude.Maybe Prelude.Text,
     requestPayer :: Prelude.Maybe RequestPayer,
     -- | Specifies the algorithm to use to when encrypting the object (for
@@ -233,14 +237,14 @@ data HeadObject = HeadObject'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
     -- in the /Amazon S3 User Guide/.
     --
-    -- When using this action with Amazon S3 on Outposts, you must direct
+    -- When you use this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
-    -- When using this action with S3 on Outposts through the Amazon Web
-    -- Services SDKs, you provide the Outposts bucket ARN in place of the
+    -- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+    -- When you use this action with S3 on Outposts through the Amazon Web
+    -- Services SDKs, you provide the Outposts access point ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | The object key.
@@ -284,8 +288,10 @@ data HeadObject = HeadObject'
 -- part specified. Useful querying about the size of the part and the
 -- number of parts in this object.
 --
--- 'range', 'headObject_range' - Because @HeadObject@ returns only the metadata for an object, this
--- parameter has no effect.
+-- 'range', 'headObject_range' - HeadObject returns only the metadata for an object. If the Range is
+-- satisfiable, only the @ContentLength@ is affected in the response. If
+-- the Range is not satisfiable, S3 returns a
+-- @416 - Requested Range Not Satisfiable@ error.
 --
 -- 'requestPayer', 'headObject_requestPayer' - Undocumented member.
 --
@@ -315,14 +321,14 @@ data HeadObject = HeadObject'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 --
 -- 'key', 'headObject_key' - The object key.
@@ -393,8 +399,10 @@ headObject_ifUnmodifiedSince = Lens.lens (\HeadObject' {ifUnmodifiedSince} -> if
 headObject_partNumber :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Int)
 headObject_partNumber = Lens.lens (\HeadObject' {partNumber} -> partNumber) (\s@HeadObject' {} a -> s {partNumber = a} :: HeadObject)
 
--- | Because @HeadObject@ returns only the metadata for an object, this
--- parameter has no effect.
+-- | HeadObject returns only the metadata for an object. If the Range is
+-- satisfiable, only the @ContentLength@ is affected in the response. If
+-- the Range is not satisfiable, S3 returns a
+-- @416 - Requested Range Not Satisfiable@ error.
 headObject_range :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Text)
 headObject_range = Lens.lens (\HeadObject' {range} -> range) (\s@HeadObject' {} a -> s {range = a} :: HeadObject)
 
@@ -436,14 +444,14 @@ headObject_versionId = Lens.lens (\HeadObject' {versionId} -> versionId) (\s@Hea
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 headObject_bucket :: Lens.Lens' HeadObject BucketName
 headObject_bucket = Lens.lens (\HeadObject' {bucket} -> bucket) (\s@HeadObject' {} a -> s {bucket = a} :: HeadObject)
@@ -508,7 +516,8 @@ instance Core.AWSRequest HeadObject where
 
 instance Prelude.Hashable HeadObject where
   hashWithSalt _salt HeadObject' {..} =
-    _salt `Prelude.hashWithSalt` checksumMode
+    _salt
+      `Prelude.hashWithSalt` checksumMode
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` ifMatch
       `Prelude.hashWithSalt` ifModifiedSince
@@ -581,7 +590,7 @@ data HeadObjectResponse = HeadObjectResponse'
     -- | The archive state of the head object.
     archiveStatus :: Prelude.Maybe ArchiveStatus,
     -- | Indicates whether the object uses an S3 Bucket Key for server-side
-    -- encryption with Amazon Web Services KMS (SSE-KMS).
+    -- encryption with Key Management Service (KMS) keys (SSE-KMS).
     bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies caching behavior along the request\/reply chain.
     cacheControl :: Prelude.Maybe Prelude.Text,
@@ -733,15 +742,11 @@ data HeadObjectResponse = HeadObjectResponse'
     -- requested, the response will include this header to provide round-trip
     -- message integrity verification of the customer-provided encryption key.
     sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
-    -- | If present, specifies the ID of the Amazon Web Services Key Management
-    -- Service (Amazon Web Services KMS) symmetric customer managed key that
-    -- was used for the object.
+    -- | If present, specifies the ID of the Key Management Service (KMS)
+    -- symmetric encryption customer managed key that was used for the object.
     sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | If the object is stored using server-side encryption either with an
-    -- Amazon Web Services KMS key or an Amazon S3-managed encryption key, the
-    -- response includes this header with the value of the server-side
-    -- encryption algorithm used when storing this object in Amazon S3 (for
-    -- example, AES256, aws:kms).
+    -- | The server-side encryption algorithm used when storing this object in
+    -- Amazon S3 (for example, @AES256@, @aws:kms@, @aws:kms:dsse@).
     serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
     -- | Provides storage class information of the object. Amazon S3 returns this
     -- header for all objects except for S3 Standard storage class objects.
@@ -773,7 +778,7 @@ data HeadObjectResponse = HeadObjectResponse'
 -- 'archiveStatus', 'headObjectResponse_archiveStatus' - The archive state of the head object.
 --
 -- 'bucketKeyEnabled', 'headObjectResponse_bucketKeyEnabled' - Indicates whether the object uses an S3 Bucket Key for server-side
--- encryption with Amazon Web Services KMS (SSE-KMS).
+-- encryption with Key Management Service (KMS) keys (SSE-KMS).
 --
 -- 'cacheControl', 'headObjectResponse_cacheControl' - Specifies caching behavior along the request\/reply chain.
 --
@@ -926,15 +931,11 @@ data HeadObjectResponse = HeadObjectResponse'
 -- requested, the response will include this header to provide round-trip
 -- message integrity verification of the customer-provided encryption key.
 --
--- 'sSEKMSKeyId', 'headObjectResponse_sSEKMSKeyId' - If present, specifies the ID of the Amazon Web Services Key Management
--- Service (Amazon Web Services KMS) symmetric customer managed key that
--- was used for the object.
+-- 'sSEKMSKeyId', 'headObjectResponse_sSEKMSKeyId' - If present, specifies the ID of the Key Management Service (KMS)
+-- symmetric encryption customer managed key that was used for the object.
 --
--- 'serverSideEncryption', 'headObjectResponse_serverSideEncryption' - If the object is stored using server-side encryption either with an
--- Amazon Web Services KMS key or an Amazon S3-managed encryption key, the
--- response includes this header with the value of the server-side
--- encryption algorithm used when storing this object in Amazon S3 (for
--- example, AES256, aws:kms).
+-- 'serverSideEncryption', 'headObjectResponse_serverSideEncryption' - The server-side encryption algorithm used when storing this object in
+-- Amazon S3 (for example, @AES256@, @aws:kms@, @aws:kms:dsse@).
 --
 -- 'storageClass', 'headObjectResponse_storageClass' - Provides storage class information of the object. Amazon S3 returns this
 -- header for all objects except for S3 Standard storage class objects.
@@ -1001,7 +1002,7 @@ headObjectResponse_archiveStatus :: Lens.Lens' HeadObjectResponse (Prelude.Maybe
 headObjectResponse_archiveStatus = Lens.lens (\HeadObjectResponse' {archiveStatus} -> archiveStatus) (\s@HeadObjectResponse' {} a -> s {archiveStatus = a} :: HeadObjectResponse)
 
 -- | Indicates whether the object uses an S3 Bucket Key for server-side
--- encryption with Amazon Web Services KMS (SSE-KMS).
+-- encryption with Key Management Service (KMS) keys (SSE-KMS).
 headObjectResponse_bucketKeyEnabled :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Bool)
 headObjectResponse_bucketKeyEnabled = Lens.lens (\HeadObjectResponse' {bucketKeyEnabled} -> bucketKeyEnabled) (\s@HeadObjectResponse' {} a -> s {bucketKeyEnabled = a} :: HeadObjectResponse)
 
@@ -1208,17 +1209,13 @@ headObjectResponse_sSECustomerAlgorithm = Lens.lens (\HeadObjectResponse' {sSECu
 headObjectResponse_sSECustomerKeyMD5 :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
 headObjectResponse_sSECustomerKeyMD5 = Lens.lens (\HeadObjectResponse' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@HeadObjectResponse' {} a -> s {sSECustomerKeyMD5 = a} :: HeadObjectResponse)
 
--- | If present, specifies the ID of the Amazon Web Services Key Management
--- Service (Amazon Web Services KMS) symmetric customer managed key that
--- was used for the object.
+-- | If present, specifies the ID of the Key Management Service (KMS)
+-- symmetric encryption customer managed key that was used for the object.
 headObjectResponse_sSEKMSKeyId :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
 headObjectResponse_sSEKMSKeyId = Lens.lens (\HeadObjectResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@HeadObjectResponse' {} a -> s {sSEKMSKeyId = a} :: HeadObjectResponse) Prelude.. Lens.mapping Data._Sensitive
 
--- | If the object is stored using server-side encryption either with an
--- Amazon Web Services KMS key or an Amazon S3-managed encryption key, the
--- response includes this header with the value of the server-side
--- encryption algorithm used when storing this object in Amazon S3 (for
--- example, AES256, aws:kms).
+-- | The server-side encryption algorithm used when storing this object in
+-- Amazon S3 (for example, @AES256@, @aws:kms@, @aws:kms:dsse@).
 headObjectResponse_serverSideEncryption :: Lens.Lens' HeadObjectResponse (Prelude.Maybe ServerSideEncryption)
 headObjectResponse_serverSideEncryption = Lens.lens (\HeadObjectResponse' {serverSideEncryption} -> serverSideEncryption) (\s@HeadObjectResponse' {} a -> s {serverSideEncryption = a} :: HeadObjectResponse)
 

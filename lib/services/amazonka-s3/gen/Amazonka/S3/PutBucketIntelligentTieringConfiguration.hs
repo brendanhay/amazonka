@@ -55,28 +55,24 @@
 -- automatically move objects stored in the S3 Intelligent-Tiering storage
 -- class to the Archive Access or Deep Archive Access tier.
 --
--- __Special Errors__
+-- @PutBucketIntelligentTieringConfiguration@ has the following special
+-- errors:
 --
--- -   __HTTP 400 Bad Request Error__
+-- [HTTP 400 Bad Request Error]
+--     /Code:/ InvalidArgument
 --
---     -   /Code:/ InvalidArgument
+--     /Cause:/ Invalid Argument
 --
---     -   /Cause:/ Invalid Argument
+-- [HTTP 400 Bad Request Error]
+--     /Code:/ TooManyConfigurations
 --
--- -   __HTTP 400 Bad Request Error__
+--     /Cause:/ You are attempting to create a new configuration but have
+--     already reached the 1,000-configuration limit.
 --
---     -   /Code:/ TooManyConfigurations
---
---     -   /Cause:/ You are attempting to create a new configuration but
---         have already reached the 1,000-configuration limit.
---
--- -   __HTTP 403 Forbidden Error__
---
---     -   /Code:/ AccessDenied
---
---     -   /Cause:/ You are not the owner of the specified bucket, or you
---         do not have the @s3:PutIntelligentTieringConfiguration@ bucket
---         permission to set the configuration on the bucket.
+-- [HTTP 403 Forbidden Error]
+--     /Cause:/ You are not the owner of the specified bucket, or you do
+--     not have the @s3:PutIntelligentTieringConfiguration@ bucket
+--     permission to set the configuration on the bucket.
 module Amazonka.S3.PutBucketIntelligentTieringConfiguration
   ( -- * Creating a Request
     PutBucketIntelligentTieringConfiguration (..),
@@ -182,7 +178,8 @@ instance
   hashWithSalt
     _salt
     PutBucketIntelligentTieringConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` bucket
+      _salt
+        `Prelude.hashWithSalt` bucket
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` intelligentTieringConfiguration
 

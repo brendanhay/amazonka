@@ -41,7 +41,9 @@ data MetricsConfiguration = MetricsConfiguration'
     -- a prefix, an object tag, an access point ARN, or a conjunction
     -- (MetricsAndOperator).
     filter' :: Prelude.Maybe MetricsFilter,
-    -- | The ID used to identify the metrics configuration.
+    -- | The ID used to identify the metrics configuration. The ID has a 64
+    -- character limit and can only contain letters, numbers, periods, dashes,
+    -- and underscores.
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,7 +61,9 @@ data MetricsConfiguration = MetricsConfiguration'
 -- a prefix, an object tag, an access point ARN, or a conjunction
 -- (MetricsAndOperator).
 --
--- 'id', 'metricsConfiguration_id' - The ID used to identify the metrics configuration.
+-- 'id', 'metricsConfiguration_id' - The ID used to identify the metrics configuration. The ID has a 64
+-- character limit and can only contain letters, numbers, periods, dashes,
+-- and underscores.
 newMetricsConfiguration ::
   -- | 'id'
   Prelude.Text ->
@@ -77,18 +81,22 @@ newMetricsConfiguration pId_ =
 metricsConfiguration_filter :: Lens.Lens' MetricsConfiguration (Prelude.Maybe MetricsFilter)
 metricsConfiguration_filter = Lens.lens (\MetricsConfiguration' {filter'} -> filter') (\s@MetricsConfiguration' {} a -> s {filter' = a} :: MetricsConfiguration)
 
--- | The ID used to identify the metrics configuration.
+-- | The ID used to identify the metrics configuration. The ID has a 64
+-- character limit and can only contain letters, numbers, periods, dashes,
+-- and underscores.
 metricsConfiguration_id :: Lens.Lens' MetricsConfiguration Prelude.Text
 metricsConfiguration_id = Lens.lens (\MetricsConfiguration' {id} -> id) (\s@MetricsConfiguration' {} a -> s {id = a} :: MetricsConfiguration)
 
 instance Data.FromXML MetricsConfiguration where
   parseXML x =
     MetricsConfiguration'
-      Prelude.<$> (x Data..@? "Filter") Prelude.<*> (x Data..@ "Id")
+      Prelude.<$> (x Data..@? "Filter")
+      Prelude.<*> (x Data..@ "Id")
 
 instance Prelude.Hashable MetricsConfiguration where
   hashWithSalt _salt MetricsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData MetricsConfiguration where

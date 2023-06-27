@@ -31,9 +31,9 @@ import Amazonka.S3.Internal
 data S3ServiceError = S3ServiceError'
   { -- | The error code is a string that uniquely identifies an error condition.
     -- It is meant to be read and understood by programs that detect and handle
-    -- errors by type.
-    --
-    -- __Amazon S3 error codes__
+    -- errors by type. The following is a list of Amazon S3 error codes. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error responses>.
     --
     -- -   -   /Code:/ AccessDenied
     --
@@ -760,7 +760,7 @@ data S3ServiceError = S3ServiceError'
     --
     -- -   -   /Code:/ ServiceUnavailable
     --
-    --     -   /Description:/ Reduce your request rate.
+    --     -   /Description:/ Service is unable to handle request.
     --
     --     -   /HTTP Status Code:/ 503 Service Unavailable
     --
@@ -850,9 +850,9 @@ data S3ServiceError = S3ServiceError'
 --
 -- 'code', 's3ServiceError_code' - The error code is a string that uniquely identifies an error condition.
 -- It is meant to be read and understood by programs that detect and handle
--- errors by type.
---
--- __Amazon S3 error codes__
+-- errors by type. The following is a list of Amazon S3 error codes. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error responses>.
 --
 -- -   -   /Code:/ AccessDenied
 --
@@ -1579,7 +1579,7 @@ data S3ServiceError = S3ServiceError'
 --
 -- -   -   /Code:/ ServiceUnavailable
 --
---     -   /Description:/ Reduce your request rate.
+--     -   /Description:/ Service is unable to handle request.
 --
 --     -   /HTTP Status Code:/ 503 Service Unavailable
 --
@@ -1667,9 +1667,9 @@ newS3ServiceError =
 
 -- | The error code is a string that uniquely identifies an error condition.
 -- It is meant to be read and understood by programs that detect and handle
--- errors by type.
---
--- __Amazon S3 error codes__
+-- errors by type. The following is a list of Amazon S3 error codes. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error responses>.
 --
 -- -   -   /Code:/ AccessDenied
 --
@@ -2396,7 +2396,7 @@ newS3ServiceError =
 --
 -- -   -   /Code:/ ServiceUnavailable
 --
---     -   /Description:/ Reduce your request rate.
+--     -   /Description:/ Service is unable to handle request.
 --
 --     -   /HTTP Status Code:/ 503 Service Unavailable
 --
@@ -2491,7 +2491,8 @@ instance Data.FromXML S3ServiceError where
 
 instance Prelude.Hashable S3ServiceError where
   hashWithSalt _salt S3ServiceError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` versionId

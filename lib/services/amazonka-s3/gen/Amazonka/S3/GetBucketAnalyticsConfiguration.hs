@@ -36,7 +36,8 @@
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html Amazon S3 Analytics – Storage Class Analysis>
 -- in the /Amazon S3 User Guide/.
 --
--- __Related Resources__
+-- The following operations are related to
+-- @GetBucketAnalyticsConfiguration@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketAnalyticsConfiguration.html DeleteBucketAnalyticsConfiguration>
 --
@@ -155,7 +156,8 @@ instance
   hashWithSalt
     _salt
     GetBucketAnalyticsConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` expectedBucketOwner
+      _salt
+        `Prelude.hashWithSalt` expectedBucketOwner
         `Prelude.hashWithSalt` bucket
         `Prelude.hashWithSalt` id
 

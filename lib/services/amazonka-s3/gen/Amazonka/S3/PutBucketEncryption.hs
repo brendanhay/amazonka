@@ -21,16 +21,18 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This action uses the @encryption@ subresource to configure default
--- encryption and Amazon S3 Bucket Key for an existing bucket.
+-- encryption and Amazon S3 Bucket Keys for an existing bucket.
 --
--- Default encryption for a bucket can use server-side encryption with
--- Amazon S3-managed keys (SSE-S3) or customer managed keys (SSE-KMS). If
--- you specify default encryption using SSE-KMS, you can also configure
--- Amazon S3 Bucket Key. When the default encryption is SSE-KMS, if you
--- upload an object to the bucket and do not specify the KMS key to use for
--- encryption, Amazon S3 uses the default Amazon Web Services managed KMS
--- key for your account. For information about default encryption, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 default bucket encryption>
+-- By default, all buckets have a default encryption configuration that
+-- uses server-side encryption with Amazon S3 managed keys (SSE-S3). You
+-- can optionally configure default encryption for a bucket by using
+-- server-side encryption with Key Management Service (KMS) keys (SSE-KMS),
+-- dual-layer server-side encryption with Amazon Web Services KMS keys
+-- (DSSE-KMS), or server-side encryption with customer-provided keys
+-- (SSE-C). If you specify default encryption by using SSE-KMS, you can
+-- also configure Amazon S3 Bucket Keys. For information about bucket
+-- default encryption, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 bucket default encryption>
 -- in the /Amazon S3 User Guide/. For more information about S3 Bucket
 -- Keys, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html Amazon S3 Bucket Keys>
@@ -40,16 +42,16 @@
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html Authenticating Requests (Amazon Web Services Signature Version 4)>.
 --
--- To use this operation, you must have permissions to perform the
+-- To use this operation, you must have permission to perform the
 -- @s3:PutEncryptionConfiguration@ action. The bucket owner has this
 -- permission by default. The bucket owner can grant this permission to
 -- others. For more information about permissions, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations>
 -- and
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>
--- in the Amazon S3 User Guide.
+-- in the /Amazon S3 User Guide/.
 --
--- __Related Resources__
+-- The following operations are related to @PutBucketEncryption@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html GetBucketEncryption>
 --
@@ -106,9 +108,13 @@ data PutBucketEncryption = PutBucketEncryption'
     -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Specifies default encryption for a bucket using server-side encryption
-    -- with Amazon S3-managed keys (SSE-S3) or customer managed keys (SSE-KMS).
-    -- For information about the Amazon S3 default encryption feature, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 Default Bucket Encryption>
+    -- with different key options. By default, all buckets have a default
+    -- encryption configuration that uses server-side encryption with Amazon S3
+    -- managed keys (SSE-S3). You can optionally configure default encryption
+    -- for a bucket by using server-side encryption with an Amazon Web Services
+    -- KMS key (SSE-KMS) or a customer-provided key (SSE-C). For information
+    -- about the bucket default encryption feature, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 Bucket Default Encryption>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     serverSideEncryptionConfiguration :: ServerSideEncryptionConfiguration
@@ -147,9 +153,13 @@ data PutBucketEncryption = PutBucketEncryption'
 -- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'putBucketEncryption_bucket' - Specifies default encryption for a bucket using server-side encryption
--- with Amazon S3-managed keys (SSE-S3) or customer managed keys (SSE-KMS).
--- For information about the Amazon S3 default encryption feature, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 Default Bucket Encryption>
+-- with different key options. By default, all buckets have a default
+-- encryption configuration that uses server-side encryption with Amazon S3
+-- managed keys (SSE-S3). You can optionally configure default encryption
+-- for a bucket by using server-side encryption with an Amazon Web Services
+-- KMS key (SSE-KMS) or a customer-provided key (SSE-C). For information
+-- about the bucket default encryption feature, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 Bucket Default Encryption>
 -- in the /Amazon S3 User Guide/.
 --
 -- 'serverSideEncryptionConfiguration', 'putBucketEncryption_serverSideEncryptionConfiguration' - Undocumented member.
@@ -202,9 +212,13 @@ putBucketEncryption_expectedBucketOwner :: Lens.Lens' PutBucketEncryption (Prelu
 putBucketEncryption_expectedBucketOwner = Lens.lens (\PutBucketEncryption' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketEncryption' {} a -> s {expectedBucketOwner = a} :: PutBucketEncryption)
 
 -- | Specifies default encryption for a bucket using server-side encryption
--- with Amazon S3-managed keys (SSE-S3) or customer managed keys (SSE-KMS).
--- For information about the Amazon S3 default encryption feature, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 Default Bucket Encryption>
+-- with different key options. By default, all buckets have a default
+-- encryption configuration that uses server-side encryption with Amazon S3
+-- managed keys (SSE-S3). You can optionally configure default encryption
+-- for a bucket by using server-side encryption with an Amazon Web Services
+-- KMS key (SSE-KMS) or a customer-provided key (SSE-C). For information
+-- about the bucket default encryption feature, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 Bucket Default Encryption>
 -- in the /Amazon S3 User Guide/.
 putBucketEncryption_bucket :: Lens.Lens' PutBucketEncryption BucketName
 putBucketEncryption_bucket = Lens.lens (\PutBucketEncryption' {bucket} -> bucket) (\s@PutBucketEncryption' {} a -> s {bucket = a} :: PutBucketEncryption)
@@ -225,7 +239,8 @@ instance Core.AWSRequest PutBucketEncryption where
 
 instance Prelude.Hashable PutBucketEncryption where
   hashWithSalt _salt PutBucketEncryption' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
+    _salt
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket

@@ -21,9 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns torrent files from a bucket. BitTorrent can save you bandwidth
--- when you\'re distributing large files. For more information about
--- BitTorrent, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html Using BitTorrent with Amazon S3>.
+-- when you\'re distributing large files.
 --
 -- You can get torrent only for objects that are less than 5 GB in size,
 -- and that are not encrypted using server-side encryption with a
@@ -151,7 +149,8 @@ instance Core.AWSRequest GetObjectTorrent where
 
 instance Prelude.Hashable GetObjectTorrent where
   hashWithSalt _salt GetObjectTorrent' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key

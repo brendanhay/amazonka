@@ -149,14 +149,14 @@ data ListParts = ListParts'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
     -- in the /Amazon S3 User Guide/.
     --
-    -- When using this action with Amazon S3 on Outposts, you must direct
+    -- When you use this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
-    -- When using this action with S3 on Outposts through the Amazon Web
-    -- Services SDKs, you provide the Outposts bucket ARN in place of the
+    -- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+    -- When you use this action with S3 on Outposts through the Amazon Web
+    -- Services SDKs, you provide the Outposts access point ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | Object key for which the multipart upload was initiated.
@@ -214,14 +214,14 @@ data ListParts = ListParts'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 --
 -- 'key', 'listParts_key' - Object key for which the multipart upload was initiated.
@@ -303,14 +303,14 @@ listParts_sSECustomerKeyMD5 = Lens.lens (\ListParts' {sSECustomerKeyMD5} -> sSEC
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 listParts_bucket :: Lens.Lens' ListParts BucketName
 listParts_bucket = Lens.lens (\ListParts' {bucket} -> bucket) (\s@ListParts' {} a -> s {bucket = a} :: ListParts)
@@ -327,22 +327,23 @@ instance Core.AWSPager ListParts where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listPartsResponse_isTruncated Prelude.. Lens._Just
+            Lens.^? listPartsResponse_isTruncated
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? listPartsResponse_nextPartNumberMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listParts_partNumberMarker
           Lens..~ rs
           Lens.^? listPartsResponse_nextPartNumberMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListParts where
   type AWSResponse ListParts = ListPartsResponse
@@ -373,7 +374,8 @@ instance Core.AWSRequest ListParts where
 
 instance Prelude.Hashable ListParts where
   hashWithSalt _salt ListParts' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` maxParts
       `Prelude.hashWithSalt` partNumberMarker
       `Prelude.hashWithSalt` requestPayer
@@ -431,7 +433,7 @@ data ListPartsResponse = ListPartsResponse'
     -- matches the object name in the request, then the response includes this
     -- header indicating when the initiated multipart upload will become
     -- eligible for abort operation. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy>.
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration>.
     --
     -- The response will also include the @x-amz-abort-rule-id@ header that
     -- will provide the ID of the lifecycle configuration rule that defines
@@ -498,7 +500,7 @@ data ListPartsResponse = ListPartsResponse'
 -- matches the object name in the request, then the response includes this
 -- header indicating when the initiated multipart upload will become
 -- eligible for abort operation. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy>.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration>.
 --
 -- The response will also include the @x-amz-abort-rule-id@ header that
 -- will provide the ID of the lifecycle configuration rule that defines
@@ -578,7 +580,7 @@ newListPartsResponse pHttpStatus_ =
 -- matches the object name in the request, then the response includes this
 -- header indicating when the initiated multipart upload will become
 -- eligible for abort operation. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy>.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration>.
 --
 -- The response will also include the @x-amz-abort-rule-id@ header that
 -- will provide the ID of the lifecycle configuration rule that defines

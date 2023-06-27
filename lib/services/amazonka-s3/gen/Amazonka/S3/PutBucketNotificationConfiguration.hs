@@ -60,7 +60,7 @@
 --
 -- By default, only the bucket owner can configure notifications on a
 -- bucket. However, bucket owners can use a bucket policy to grant
--- permission to other users to set this configuration with
+-- permission to other users to set this configuration with the required
 -- @s3:PutBucketNotification@ permission.
 --
 -- The PUT notification is an atomic operation. For example, suppose your
@@ -69,8 +69,6 @@
 -- configuration, Amazon S3 sends test messages to your SNS topic. If the
 -- message fails, the entire PUT action will fail, and Amazon S3 will not
 -- add the configuration to your bucket.
---
--- __Responses__
 --
 -- If the configuration in the request body includes only one
 -- @TopicConfiguration@ specifying only the
@@ -198,7 +196,8 @@ instance
   hashWithSalt
     _salt
     PutBucketNotificationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` expectedBucketOwner
+      _salt
+        `Prelude.hashWithSalt` expectedBucketOwner
         `Prelude.hashWithSalt` skipDestinationValidation
         `Prelude.hashWithSalt` bucket
         `Prelude.hashWithSalt` notificationConfiguration

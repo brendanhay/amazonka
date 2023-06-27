@@ -31,7 +31,7 @@
 -- website configuration by writing a bucket policy granting them the
 -- @S3:GetBucketWebsite@ permission.
 --
--- The following operations are related to @DeleteBucketWebsite@:
+-- The following operations are related to @GetBucketWebsite@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketWebsite.html DeleteBucketWebsite>
 --
@@ -125,7 +125,9 @@ instance Core.AWSRequest GetBucketWebsite where
             Prelude.<$> (x Data..@? "ErrorDocument")
             Prelude.<*> (x Data..@? "IndexDocument")
             Prelude.<*> (x Data..@? "RedirectAllRequestsTo")
-            Prelude.<*> ( x Data..@? "RoutingRules" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "RoutingRules"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "RoutingRule")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -133,7 +135,8 @@ instance Core.AWSRequest GetBucketWebsite where
 
 instance Prelude.Hashable GetBucketWebsite where
   hashWithSalt _salt GetBucketWebsite' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData GetBucketWebsite where

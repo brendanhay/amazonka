@@ -160,10 +160,10 @@ instance
                             (Data.parseXMLList "AnalyticsConfiguration")
                             x
                         )
-              Prelude.<*> (x Data..@? "ContinuationToken")
-              Prelude.<*> (x Data..@? "IsTruncated")
-              Prelude.<*> (x Data..@? "NextContinuationToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "ContinuationToken")
+            Prelude.<*> (x Data..@? "IsTruncated")
+            Prelude.<*> (x Data..@? "NextContinuationToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -173,7 +173,8 @@ instance
   hashWithSalt
     _salt
     ListBucketAnalyticsConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` continuationToken
+      _salt
+        `Prelude.hashWithSalt` continuationToken
         `Prelude.hashWithSalt` expectedBucketOwner
         `Prelude.hashWithSalt` bucket
 

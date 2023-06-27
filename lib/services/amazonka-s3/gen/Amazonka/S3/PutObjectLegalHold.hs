@@ -250,7 +250,8 @@ instance Core.AWSRequest PutObjectLegalHold where
 
 instance Prelude.Hashable PutObjectLegalHold where
   hashWithSalt _salt PutObjectLegalHold' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
+    _salt
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` legalHold

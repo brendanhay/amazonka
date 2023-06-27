@@ -33,9 +33,9 @@ data EncryptionConfiguration = EncryptionConfiguration'
   { -- | Specifies the ID (Key ARN or Alias ARN) of the customer managed Amazon
     -- Web Services KMS key stored in Amazon Web Services Key Management
     -- Service (KMS) for the destination bucket. Amazon S3 uses this key to
-    -- encrypt replica objects. Amazon S3 only supports symmetric, customer
-    -- managed KMS keys. For more information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
+    -- encrypt replica objects. Amazon S3 only supports symmetric encryption
+    -- KMS keys. For more information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Asymmetric keys in Amazon Web Services KMS>
     -- in the /Amazon Web Services Key Management Service Developer Guide/.
     replicaKmsKeyID :: Prelude.Maybe Prelude.Text
   }
@@ -52,9 +52,9 @@ data EncryptionConfiguration = EncryptionConfiguration'
 -- 'replicaKmsKeyID', 'encryptionConfiguration_replicaKmsKeyID' - Specifies the ID (Key ARN or Alias ARN) of the customer managed Amazon
 -- Web Services KMS key stored in Amazon Web Services Key Management
 -- Service (KMS) for the destination bucket. Amazon S3 uses this key to
--- encrypt replica objects. Amazon S3 only supports symmetric, customer
--- managed KMS keys. For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
+-- encrypt replica objects. Amazon S3 only supports symmetric encryption
+-- KMS keys. For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Asymmetric keys in Amazon Web Services KMS>
 -- in the /Amazon Web Services Key Management Service Developer Guide/.
 newEncryptionConfiguration ::
   EncryptionConfiguration
@@ -67,9 +67,9 @@ newEncryptionConfiguration =
 -- | Specifies the ID (Key ARN or Alias ARN) of the customer managed Amazon
 -- Web Services KMS key stored in Amazon Web Services Key Management
 -- Service (KMS) for the destination bucket. Amazon S3 uses this key to
--- encrypt replica objects. Amazon S3 only supports symmetric, customer
--- managed KMS keys. For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
+-- encrypt replica objects. Amazon S3 only supports symmetric encryption
+-- KMS keys. For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Asymmetric keys in Amazon Web Services KMS>
 -- in the /Amazon Web Services Key Management Service Developer Guide/.
 encryptionConfiguration_replicaKmsKeyID :: Lens.Lens' EncryptionConfiguration (Prelude.Maybe Prelude.Text)
 encryptionConfiguration_replicaKmsKeyID = Lens.lens (\EncryptionConfiguration' {replicaKmsKeyID} -> replicaKmsKeyID) (\s@EncryptionConfiguration' {} a -> s {replicaKmsKeyID = a} :: EncryptionConfiguration)

@@ -90,6 +90,7 @@ module Amazonka.S3.ListObjectsV2
     listObjectsV2Response_name,
     listObjectsV2Response_nextContinuationToken,
     listObjectsV2Response_prefix,
+    listObjectsV2Response_requestCharged,
     listObjectsV2Response_startAfter,
     listObjectsV2Response_httpStatus,
   )
@@ -146,14 +147,14 @@ data ListObjectsV2 = ListObjectsV2'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
     -- in the /Amazon S3 User Guide/.
     --
-    -- When using this action with Amazon S3 on Outposts, you must direct
+    -- When you use this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
-    -- When using this action with S3 on Outposts through the Amazon Web
-    -- Services SDKs, you provide the Outposts bucket ARN in place of the
+    -- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+    -- When you use this action with S3 on Outposts through the Amazon Web
+    -- Services SDKs, you provide the Outposts access point ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName
   }
@@ -208,14 +209,14 @@ data ListObjectsV2 = ListObjectsV2'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 newListObjectsV2 ::
   -- | 'bucket'
@@ -294,14 +295,14 @@ listObjectsV2_startAfter = Lens.lens (\ListObjectsV2' {startAfter} -> startAfter
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 listObjectsV2_bucket :: Lens.Lens' ListObjectsV2 BucketName
 listObjectsV2_bucket = Lens.lens (\ListObjectsV2' {bucket} -> bucket) (\s@ListObjectsV2' {} a -> s {bucket = a} :: ListObjectsV2)
@@ -311,22 +312,22 @@ instance Core.AWSPager ListObjectsV2 where
     | Core.stop
         ( rs
             Lens.^? listObjectsV2Response_isTruncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? listObjectsV2Response_nextContinuationToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listObjectsV2_continuationToken
           Lens..~ rs
           Lens.^? listObjectsV2Response_nextContinuationToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListObjectsV2 where
   type
@@ -350,13 +351,15 @@ instance Core.AWSRequest ListObjectsV2 where
             Prelude.<*> (x Data..@? "Name")
             Prelude.<*> (x Data..@? "NextContinuationToken")
             Prelude.<*> (x Data..@? "Prefix")
+            Prelude.<*> (h Data..#? "x-amz-request-charged")
             Prelude.<*> (x Data..@? "StartAfter")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListObjectsV2 where
   hashWithSalt _salt ListObjectsV2' {..} =
-    _salt `Prelude.hashWithSalt` continuationToken
+    _salt
+      `Prelude.hashWithSalt` continuationToken
       `Prelude.hashWithSalt` delimiter
       `Prelude.hashWithSalt` encodingType
       `Prelude.hashWithSalt` expectedBucketOwner
@@ -448,8 +451,8 @@ data ListObjectsV2Response = ListObjectsV2Response'
     -- specified by MaxKeys, all of the results might not be returned.
     isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | KeyCount is the number of keys returned with this request. KeyCount will
-    -- always be less than or equals to MaxKeys field. Say you ask for 50 keys,
-    -- your result will include less than equals 50 keys
+    -- always be less than or equal to the @MaxKeys@ field. Say you ask for 50
+    -- keys, your result will include 50 keys or fewer.
     keyCount :: Prelude.Maybe Prelude.Int,
     -- | Sets the maximum number of keys returned in the response. By default the
     -- action returns up to 1,000 key names. The response might contain fewer
@@ -466,14 +469,14 @@ data ListObjectsV2Response = ListObjectsV2Response'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
     -- in the /Amazon S3 User Guide/.
     --
-    -- When using this action with Amazon S3 on Outposts, you must direct
+    -- When you use this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
-    -- When using this action with S3 on Outposts through the Amazon Web
-    -- Services SDKs, you provide the Outposts bucket ARN in place of the
+    -- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+    -- When you use this action with S3 on Outposts through the Amazon Web
+    -- Services SDKs, you provide the Outposts access point ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     name :: Prelude.Maybe BucketName,
     -- | @NextContinuationToken@ is sent when @isTruncated@ is true, which means
@@ -484,6 +487,7 @@ data ListObjectsV2Response = ListObjectsV2Response'
     nextContinuationToken :: Prelude.Maybe Prelude.Text,
     -- | Keys that begin with the indicated prefix.
     prefix :: Prelude.Maybe Prelude.Text,
+    requestCharged :: Prelude.Maybe RequestCharged,
     -- | If StartAfter was sent with the request, it is included in the response.
     startAfter :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -540,8 +544,8 @@ data ListObjectsV2Response = ListObjectsV2Response'
 -- specified by MaxKeys, all of the results might not be returned.
 --
 -- 'keyCount', 'listObjectsV2Response_keyCount' - KeyCount is the number of keys returned with this request. KeyCount will
--- always be less than or equals to MaxKeys field. Say you ask for 50 keys,
--- your result will include less than equals 50 keys
+-- always be less than or equal to the @MaxKeys@ field. Say you ask for 50
+-- keys, your result will include 50 keys or fewer.
 --
 -- 'maxKeys', 'listObjectsV2Response_maxKeys' - Sets the maximum number of keys returned in the response. By default the
 -- action returns up to 1,000 key names. The response might contain fewer
@@ -558,14 +562,14 @@ data ListObjectsV2Response = ListObjectsV2Response'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 --
 -- 'nextContinuationToken', 'listObjectsV2Response_nextContinuationToken' - @NextContinuationToken@ is sent when @isTruncated@ is true, which means
@@ -575,6 +579,8 @@ data ListObjectsV2Response = ListObjectsV2Response'
 -- not a real key
 --
 -- 'prefix', 'listObjectsV2Response_prefix' - Keys that begin with the indicated prefix.
+--
+-- 'requestCharged', 'listObjectsV2Response_requestCharged' - Undocumented member.
 --
 -- 'startAfter', 'listObjectsV2Response_startAfter' - If StartAfter was sent with the request, it is included in the response.
 --
@@ -597,6 +603,7 @@ newListObjectsV2Response pHttpStatus_ =
       name = Prelude.Nothing,
       nextContinuationToken = Prelude.Nothing,
       prefix = Prelude.Nothing,
+      requestCharged = Prelude.Nothing,
       startAfter = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -654,8 +661,8 @@ listObjectsV2Response_isTruncated :: Lens.Lens' ListObjectsV2Response (Prelude.M
 listObjectsV2Response_isTruncated = Lens.lens (\ListObjectsV2Response' {isTruncated} -> isTruncated) (\s@ListObjectsV2Response' {} a -> s {isTruncated = a} :: ListObjectsV2Response)
 
 -- | KeyCount is the number of keys returned with this request. KeyCount will
--- always be less than or equals to MaxKeys field. Say you ask for 50 keys,
--- your result will include less than equals 50 keys
+-- always be less than or equal to the @MaxKeys@ field. Say you ask for 50
+-- keys, your result will include 50 keys or fewer.
 listObjectsV2Response_keyCount :: Lens.Lens' ListObjectsV2Response (Prelude.Maybe Prelude.Int)
 listObjectsV2Response_keyCount = Lens.lens (\ListObjectsV2Response' {keyCount} -> keyCount) (\s@ListObjectsV2Response' {} a -> s {keyCount = a} :: ListObjectsV2Response)
 
@@ -676,14 +683,14 @@ listObjectsV2Response_maxKeys = Lens.lens (\ListObjectsV2Response' {maxKeys} -> 
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 listObjectsV2Response_name :: Lens.Lens' ListObjectsV2Response (Prelude.Maybe BucketName)
 listObjectsV2Response_name = Lens.lens (\ListObjectsV2Response' {name} -> name) (\s@ListObjectsV2Response' {} a -> s {name = a} :: ListObjectsV2Response)
@@ -699,6 +706,10 @@ listObjectsV2Response_nextContinuationToken = Lens.lens (\ListObjectsV2Response'
 -- | Keys that begin with the indicated prefix.
 listObjectsV2Response_prefix :: Lens.Lens' ListObjectsV2Response (Prelude.Maybe Prelude.Text)
 listObjectsV2Response_prefix = Lens.lens (\ListObjectsV2Response' {prefix} -> prefix) (\s@ListObjectsV2Response' {} a -> s {prefix = a} :: ListObjectsV2Response)
+
+-- | Undocumented member.
+listObjectsV2Response_requestCharged :: Lens.Lens' ListObjectsV2Response (Prelude.Maybe RequestCharged)
+listObjectsV2Response_requestCharged = Lens.lens (\ListObjectsV2Response' {requestCharged} -> requestCharged) (\s@ListObjectsV2Response' {} a -> s {requestCharged = a} :: ListObjectsV2Response)
 
 -- | If StartAfter was sent with the request, it is included in the response.
 listObjectsV2Response_startAfter :: Lens.Lens' ListObjectsV2Response (Prelude.Maybe Prelude.Text)
@@ -721,5 +732,6 @@ instance Prelude.NFData ListObjectsV2Response where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf nextContinuationToken
       `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf requestCharged
       `Prelude.seq` Prelude.rnf startAfter
       `Prelude.seq` Prelude.rnf httpStatus

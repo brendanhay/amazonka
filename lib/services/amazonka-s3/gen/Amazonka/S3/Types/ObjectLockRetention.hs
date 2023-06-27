@@ -72,7 +72,8 @@ instance Data.FromXML ObjectLockRetention where
 
 instance Prelude.Hashable ObjectLockRetention where
   hashWithSalt _salt ObjectLockRetention' {..} =
-    _salt `Prelude.hashWithSalt` mode
+    _salt
+      `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` retainUntilDate
 
 instance Prelude.NFData ObjectLockRetention where

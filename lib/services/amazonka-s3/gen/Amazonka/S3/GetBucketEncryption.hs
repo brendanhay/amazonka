@@ -20,13 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the default encryption configuration for an Amazon S3 bucket. If
--- the bucket does not have a default encryption configuration,
--- GetBucketEncryption returns
--- @ServerSideEncryptionConfigurationNotFoundError@.
---
--- For information about the Amazon S3 default encryption feature, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 Default Bucket Encryption>.
+-- Returns the default encryption configuration for an Amazon S3 bucket. By
+-- default, all buckets have a default encryption configuration that uses
+-- server-side encryption with Amazon S3 managed keys (SSE-S3). For
+-- information about the bucket default encryption feature, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 Bucket Default Encryption>
+-- in the /Amazon S3 User Guide/.
 --
 -- To use this operation, you must have permission to perform the
 -- @s3:GetEncryptionConfiguration@ action. The bucket owner has this
@@ -133,7 +132,8 @@ instance Core.AWSRequest GetBucketEncryption where
 
 instance Prelude.Hashable GetBucketEncryption where
   hashWithSalt _salt GetBucketEncryption' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData GetBucketEncryption where

@@ -24,13 +24,16 @@
 -- to add an object to it.
 --
 -- Amazon S3 never adds partial objects; if you receive a success response,
--- Amazon S3 added the entire object to the bucket.
+-- Amazon S3 added the entire object to the bucket. You cannot use
+-- @PutObject@ to only update a single piece of metadata for an existing
+-- object. You must put the entire object with updated metadata if you want
+-- to update some values.
 --
 -- Amazon S3 is a distributed system. If it receives multiple write
 -- requests for the same object simultaneously, it overwrites all but the
--- last object written. Amazon S3 does not provide object locking; if you
--- need this, make sure to build it into your application layer or use
--- versioning instead.
+-- last object written. To prevent objects from being deleted or
+-- overwritten, you can use
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html Amazon S3 Object Lock>.
 --
 -- To ensure that data is not corrupted traversing the network, use the
 -- @Content-MD5@ header. When you use this header, Amazon S3 checks the
@@ -45,35 +48,31 @@
 -- -   To successfully change the objects acl of your @PutObject@ request,
 --     you must have the @s3:PutObjectAcl@ in your IAM permissions.
 --
+-- -   To successfully set the tag-set with your @PutObject@ request, you
+--     must have the @s3:PutObjectTagging@ in your IAM permissions.
+--
 -- -   The @Content-MD5@ header is required for any request to upload an
 --     object with a retention period configured using Amazon S3 Object
 --     Lock. For more information about Amazon S3 Object Lock, see
 --     <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html Amazon S3 Object Lock Overview>
 --     in the /Amazon S3 User Guide/.
 --
--- __Server-side Encryption__
---
--- You can optionally request server-side encryption. With server-side
--- encryption, Amazon S3 encrypts your data as it writes it to disks in its
--- data centers and decrypts the data when you access it. You have the
--- option to provide your own encryption key or use Amazon Web Services
--- managed encryption keys (SSE-S3 or SSE-KMS). For more information, see
+-- You have four mutually exclusive options to protect data using
+-- server-side encryption in Amazon S3, depending on how you choose to
+-- manage the encryption keys. Specifically, the encryption key options are
+-- Amazon S3 managed keys (SSE-S3), Amazon Web Services KMS keys (SSE-KMS
+-- or DSSE-KMS), and customer-provided keys (SSE-C). Amazon S3 encrypts
+-- data with server-side encryption by using Amazon S3 managed keys
+-- (SSE-S3) by default. You can optionally tell Amazon S3 to encrypt data
+-- at rest by using server-side encryption with other key options. For more
+-- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html Using Server-Side Encryption>.
 --
--- If you request server-side encryption using Amazon Web Services Key
--- Management Service (SSE-KMS), you can enable an S3 Bucket Key at the
--- object-level. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html Amazon S3 Bucket Keys>
--- in the /Amazon S3 User Guide/.
---
--- __Access Control List (ACL)-Specific Request Headers__
---
--- You can use headers to grant ACL- based permissions. By default, all
--- objects are private. Only the owner has full access control. When adding
--- a new object, you can grant permissions to individual Amazon Web
--- Services accounts or to predefined groups defined by Amazon S3. These
--- permissions are then added to the ACL on the object. For more
--- information, see
+-- When adding a new object, you can use headers to grant ACL-based
+-- permissions to individual Amazon Web Services accounts or to predefined
+-- groups defined by Amazon S3. These permissions are then added to the ACL
+-- on the object. By default, all objects are private. Only the owner has
+-- full access control. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html Access Control List (ACL) Overview>
 -- and
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html Managing ACLs Using the REST API>.
@@ -86,17 +85,13 @@
 -- ACL or an equivalent form of this ACL expressed in the XML format. PUT
 -- requests that contain other ACLs (for example, custom grants to certain
 -- Amazon Web Services accounts) fail and return a @400@ error with the
--- error code @AccessControlListNotSupported@.
---
--- For more information, see
+-- error code @AccessControlListNotSupported@. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html Controlling ownership of objects and disabling ACLs>
 -- in the /Amazon S3 User Guide/.
 --
 -- If your bucket uses the bucket owner enforced setting for Object
 -- Ownership, all objects written to the bucket by any account will be
 -- owned by the bucket owner.
---
--- __Storage Class Options__
 --
 -- By default, Amazon S3 uses the STANDARD Storage Class to store newly
 -- created objects. The STANDARD storage class provides high durability and
@@ -106,20 +101,16 @@
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>
 -- in the /Amazon S3 User Guide/.
 --
--- __Versioning__
---
 -- If you enable versioning for a bucket, Amazon S3 automatically generates
 -- a unique version ID for the object being stored. Amazon S3 returns this
 -- ID in the response. When you enable versioning for a bucket, if Amazon
 -- S3 receives multiple write requests for the same object simultaneously,
--- it stores all of the objects.
---
--- For more information about versioning, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/AddingObjectstoVersioningEnabledBuckets.html Adding Objects to Versioning Enabled Buckets>.
+-- it stores all of the objects. For more information about versioning, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/AddingObjectstoVersioningEnabledBuckets.html Adding Objects to Versioning-Enabled Buckets>.
 -- For information about returning the versioning state of a bucket, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html GetBucketVersioning>.
 --
--- __Related Resources__
+-- For more information about related Amazon S3 APIs, see the following:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html CopyObject>
 --
@@ -207,9 +198,9 @@ data PutObject = PutObject'
     -- This action is not supported by Amazon S3 on Outposts.
     acl :: Prelude.Maybe ObjectCannedACL,
     -- | Specifies whether Amazon S3 should use an S3 Bucket Key for object
-    -- encryption with server-side encryption using AWS KMS (SSE-KMS). Setting
-    -- this header to @true@ causes Amazon S3 to use an S3 Bucket Key for
-    -- object encryption with SSE-KMS.
+    -- encryption with server-side encryption using Key Management Service
+    -- (KMS) keys (SSE-KMS). Setting this header to @true@ causes Amazon S3 to
+    -- use an S3 Bucket Key for object encryption with SSE-KMS.
     --
     -- Specifying this header with a PUT action doesn’t affect bucket-level
     -- settings for S3 Bucket Key.
@@ -259,19 +250,18 @@ data PutObject = PutObject'
     -- in the /Amazon S3 User Guide/.
     checksumSHA256 :: Prelude.Maybe Prelude.Text,
     -- | Specifies presentational information for the object. For more
-    -- information, see
-    -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1>.
+    -- information, see <https://www.rfc-editor.org/rfc/rfc6266#section-4>.
     contentDisposition :: Prelude.Maybe Prelude.Text,
     -- | Specifies what content encodings have been applied to the object and
     -- thus what decoding mechanisms must be applied to obtain the media-type
     -- referenced by the Content-Type header field. For more information, see
-    -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11>.
+    -- <https://www.rfc-editor.org/rfc/rfc9110.html#field.content-encoding>.
     contentEncoding :: Prelude.Maybe Prelude.Text,
     -- | The language the content is in.
     contentLanguage :: Prelude.Maybe Prelude.Text,
     -- | Size of the body in bytes. This parameter is useful when the size of the
     -- body cannot be determined automatically. For more information, see
-    -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13>.
+    -- <https://www.rfc-editor.org/rfc/rfc9110.html#name-content-length>.
     contentLength :: Prelude.Maybe Prelude.Integer,
     -- | The base64-encoded 128-bit MD5 digest of the message (without the
     -- headers) according to RFC 1864. This header can be used as a message
@@ -283,15 +273,14 @@ data PutObject = PutObject'
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | A standard MIME type describing the format of the contents. For more
     -- information, see
-    -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17>.
+    -- <https://www.rfc-editor.org/rfc/rfc9110.html#name-content-type>.
     contentType :: Prelude.Maybe Prelude.Text,
     -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request fails with the HTTP status code
     -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The date and time at which the object is no longer cacheable. For more
-    -- information, see
-    -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21>.
+    -- information, see <https://www.rfc-editor.org/rfc/rfc7234#section-5.3>.
     expires :: Prelude.Maybe Data.RFC822,
     -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
     -- object.
@@ -337,20 +326,23 @@ data PutObject = PutObject'
     sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
     -- | Specifies the Amazon Web Services KMS Encryption Context to use for
     -- object encryption. The value of this header is a base64-encoded UTF-8
-    -- string holding JSON with the encryption context key-value pairs.
+    -- string holding JSON with the encryption context key-value pairs. This
+    -- value is stored as object metadata and automatically gets passed on to
+    -- Amazon Web Services KMS for future @GetObject@ or @CopyObject@
+    -- operations on this object.
     sSEKMSEncryptionContext :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | If @x-amz-server-side-encryption@ is present and has the value of
-    -- @aws:kms@, this header specifies the ID of the Amazon Web Services Key
-    -- Management Service (Amazon Web Services KMS) symmetrical customer
-    -- managed key that was used for the object. If you specify
-    -- @x-amz-server-side-encryption:aws:kms@, but do not
+    -- | If @x-amz-server-side-encryption@ has a valid value of @aws:kms@ or
+    -- @aws:kms:dsse@, this header specifies the ID of the Key Management
+    -- Service (KMS) symmetric encryption customer managed key that was used
+    -- for the object. If you specify @x-amz-server-side-encryption:aws:kms@ or
+    -- @x-amz-server-side-encryption:aws:kms:dsse@, but do not
     -- provide@ x-amz-server-side-encryption-aws-kms-key-id@, Amazon S3 uses
-    -- the Amazon Web Services managed key to protect the data. If the KMS key
-    -- does not exist in the same account issuing the command, you must use the
-    -- full ARN and not just the ID.
+    -- the Amazon Web Services managed key (@aws\/s3@) to protect the data. If
+    -- the KMS key does not exist in the same account that\'s issuing the
+    -- command, you must use the full ARN and not just the ID.
     sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The server-side encryption algorithm used when storing this object in
-    -- Amazon S3 (for example, AES256, aws:kms).
+    -- Amazon S3 (for example, @AES256@, @aws:kms@, @aws:kms:dsse@).
     serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
     -- | By default, Amazon S3 uses the STANDARD Storage Class to store newly
     -- created objects. The STANDARD storage class provides high durability and
@@ -395,14 +387,14 @@ data PutObject = PutObject'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
     -- in the /Amazon S3 User Guide/.
     --
-    -- When using this action with Amazon S3 on Outposts, you must direct
+    -- When you use this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
-    -- When using this action with S3 on Outposts through the Amazon Web
-    -- Services SDKs, you provide the Outposts bucket ARN in place of the
+    -- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+    -- When you use this action with S3 on Outposts through the Amazon Web
+    -- Services SDKs, you provide the Outposts access point ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | Object key for which the PUT action was initiated.
@@ -426,9 +418,9 @@ data PutObject = PutObject'
 -- This action is not supported by Amazon S3 on Outposts.
 --
 -- 'bucketKeyEnabled', 'putObject_bucketKeyEnabled' - Specifies whether Amazon S3 should use an S3 Bucket Key for object
--- encryption with server-side encryption using AWS KMS (SSE-KMS). Setting
--- this header to @true@ causes Amazon S3 to use an S3 Bucket Key for
--- object encryption with SSE-KMS.
+-- encryption with server-side encryption using Key Management Service
+-- (KMS) keys (SSE-KMS). Setting this header to @true@ causes Amazon S3 to
+-- use an S3 Bucket Key for object encryption with SSE-KMS.
 --
 -- Specifying this header with a PUT action doesn’t affect bucket-level
 -- settings for S3 Bucket Key.
@@ -478,19 +470,18 @@ data PutObject = PutObject'
 -- in the /Amazon S3 User Guide/.
 --
 -- 'contentDisposition', 'putObject_contentDisposition' - Specifies presentational information for the object. For more
--- information, see
--- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1>.
+-- information, see <https://www.rfc-editor.org/rfc/rfc6266#section-4>.
 --
 -- 'contentEncoding', 'putObject_contentEncoding' - Specifies what content encodings have been applied to the object and
 -- thus what decoding mechanisms must be applied to obtain the media-type
 -- referenced by the Content-Type header field. For more information, see
--- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11>.
+-- <https://www.rfc-editor.org/rfc/rfc9110.html#field.content-encoding>.
 --
 -- 'contentLanguage', 'putObject_contentLanguage' - The language the content is in.
 --
 -- 'contentLength', 'putObject_contentLength' - Size of the body in bytes. This parameter is useful when the size of the
 -- body cannot be determined automatically. For more information, see
--- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13>.
+-- <https://www.rfc-editor.org/rfc/rfc9110.html#name-content-length>.
 --
 -- 'contentMD5', 'putObject_contentMD5' - The base64-encoded 128-bit MD5 digest of the message (without the
 -- headers) according to RFC 1864. This header can be used as a message
@@ -502,15 +493,14 @@ data PutObject = PutObject'
 --
 -- 'contentType', 'putObject_contentType' - A standard MIME type describing the format of the contents. For more
 -- information, see
--- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17>.
+-- <https://www.rfc-editor.org/rfc/rfc9110.html#name-content-type>.
 --
 -- 'expectedBucketOwner', 'putObject_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request fails with the HTTP status code
 -- @403 Forbidden@ (access denied).
 --
 -- 'expires', 'putObject_expires' - The date and time at which the object is no longer cacheable. For more
--- information, see
--- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21>.
+-- information, see <https://www.rfc-editor.org/rfc/rfc7234#section-5.3>.
 --
 -- 'grantFullControl', 'putObject_grantFullControl' - Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
 -- object.
@@ -557,20 +547,23 @@ data PutObject = PutObject'
 --
 -- 'sSEKMSEncryptionContext', 'putObject_sSEKMSEncryptionContext' - Specifies the Amazon Web Services KMS Encryption Context to use for
 -- object encryption. The value of this header is a base64-encoded UTF-8
--- string holding JSON with the encryption context key-value pairs.
+-- string holding JSON with the encryption context key-value pairs. This
+-- value is stored as object metadata and automatically gets passed on to
+-- Amazon Web Services KMS for future @GetObject@ or @CopyObject@
+-- operations on this object.
 --
--- 'sSEKMSKeyId', 'putObject_sSEKMSKeyId' - If @x-amz-server-side-encryption@ is present and has the value of
--- @aws:kms@, this header specifies the ID of the Amazon Web Services Key
--- Management Service (Amazon Web Services KMS) symmetrical customer
--- managed key that was used for the object. If you specify
--- @x-amz-server-side-encryption:aws:kms@, but do not
+-- 'sSEKMSKeyId', 'putObject_sSEKMSKeyId' - If @x-amz-server-side-encryption@ has a valid value of @aws:kms@ or
+-- @aws:kms:dsse@, this header specifies the ID of the Key Management
+-- Service (KMS) symmetric encryption customer managed key that was used
+-- for the object. If you specify @x-amz-server-side-encryption:aws:kms@ or
+-- @x-amz-server-side-encryption:aws:kms:dsse@, but do not
 -- provide@ x-amz-server-side-encryption-aws-kms-key-id@, Amazon S3 uses
--- the Amazon Web Services managed key to protect the data. If the KMS key
--- does not exist in the same account issuing the command, you must use the
--- full ARN and not just the ID.
+-- the Amazon Web Services managed key (@aws\/s3@) to protect the data. If
+-- the KMS key does not exist in the same account that\'s issuing the
+-- command, you must use the full ARN and not just the ID.
 --
 -- 'serverSideEncryption', 'putObject_serverSideEncryption' - The server-side encryption algorithm used when storing this object in
--- Amazon S3 (for example, AES256, aws:kms).
+-- Amazon S3 (for example, @AES256@, @aws:kms@, @aws:kms:dsse@).
 --
 -- 'storageClass', 'putObject_storageClass' - By default, Amazon S3 uses the STANDARD Storage Class to store newly
 -- created objects. The STANDARD storage class provides high durability and
@@ -615,14 +608,14 @@ data PutObject = PutObject'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 --
 -- 'key', 'putObject_key' - Object key for which the PUT action was initiated.
@@ -685,9 +678,9 @@ putObject_acl :: Lens.Lens' PutObject (Prelude.Maybe ObjectCannedACL)
 putObject_acl = Lens.lens (\PutObject' {acl} -> acl) (\s@PutObject' {} a -> s {acl = a} :: PutObject)
 
 -- | Specifies whether Amazon S3 should use an S3 Bucket Key for object
--- encryption with server-side encryption using AWS KMS (SSE-KMS). Setting
--- this header to @true@ causes Amazon S3 to use an S3 Bucket Key for
--- object encryption with SSE-KMS.
+-- encryption with server-side encryption using Key Management Service
+-- (KMS) keys (SSE-KMS). Setting this header to @true@ causes Amazon S3 to
+-- use an S3 Bucket Key for object encryption with SSE-KMS.
 --
 -- Specifying this header with a PUT action doesn’t affect bucket-level
 -- settings for S3 Bucket Key.
@@ -751,15 +744,14 @@ putObject_checksumSHA256 :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
 putObject_checksumSHA256 = Lens.lens (\PutObject' {checksumSHA256} -> checksumSHA256) (\s@PutObject' {} a -> s {checksumSHA256 = a} :: PutObject)
 
 -- | Specifies presentational information for the object. For more
--- information, see
--- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1>.
+-- information, see <https://www.rfc-editor.org/rfc/rfc6266#section-4>.
 putObject_contentDisposition :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
 putObject_contentDisposition = Lens.lens (\PutObject' {contentDisposition} -> contentDisposition) (\s@PutObject' {} a -> s {contentDisposition = a} :: PutObject)
 
 -- | Specifies what content encodings have been applied to the object and
 -- thus what decoding mechanisms must be applied to obtain the media-type
 -- referenced by the Content-Type header field. For more information, see
--- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11>.
+-- <https://www.rfc-editor.org/rfc/rfc9110.html#field.content-encoding>.
 putObject_contentEncoding :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
 putObject_contentEncoding = Lens.lens (\PutObject' {contentEncoding} -> contentEncoding) (\s@PutObject' {} a -> s {contentEncoding = a} :: PutObject)
 
@@ -769,7 +761,7 @@ putObject_contentLanguage = Lens.lens (\PutObject' {contentLanguage} -> contentL
 
 -- | Size of the body in bytes. This parameter is useful when the size of the
 -- body cannot be determined automatically. For more information, see
--- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13>.
+-- <https://www.rfc-editor.org/rfc/rfc9110.html#name-content-length>.
 putObject_contentLength :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Integer)
 putObject_contentLength = Lens.lens (\PutObject' {contentLength} -> contentLength) (\s@PutObject' {} a -> s {contentLength = a} :: PutObject)
 
@@ -785,7 +777,7 @@ putObject_contentMD5 = Lens.lens (\PutObject' {contentMD5} -> contentMD5) (\s@Pu
 
 -- | A standard MIME type describing the format of the contents. For more
 -- information, see
--- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17>.
+-- <https://www.rfc-editor.org/rfc/rfc9110.html#name-content-type>.
 putObject_contentType :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
 putObject_contentType = Lens.lens (\PutObject' {contentType} -> contentType) (\s@PutObject' {} a -> s {contentType = a} :: PutObject)
 
@@ -796,8 +788,7 @@ putObject_expectedBucketOwner :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Tex
 putObject_expectedBucketOwner = Lens.lens (\PutObject' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObject' {} a -> s {expectedBucketOwner = a} :: PutObject)
 
 -- | The date and time at which the object is no longer cacheable. For more
--- information, see
--- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21>.
+-- information, see <https://www.rfc-editor.org/rfc/rfc7234#section-5.3>.
 putObject_expires :: Lens.Lens' PutObject (Prelude.Maybe Prelude.UTCTime)
 putObject_expires = Lens.lens (\PutObject' {expires} -> expires) (\s@PutObject' {} a -> s {expires = a} :: PutObject) Prelude.. Lens.mapping Data._Time
 
@@ -870,24 +861,27 @@ putObject_sSECustomerKeyMD5 = Lens.lens (\PutObject' {sSECustomerKeyMD5} -> sSEC
 
 -- | Specifies the Amazon Web Services KMS Encryption Context to use for
 -- object encryption. The value of this header is a base64-encoded UTF-8
--- string holding JSON with the encryption context key-value pairs.
+-- string holding JSON with the encryption context key-value pairs. This
+-- value is stored as object metadata and automatically gets passed on to
+-- Amazon Web Services KMS for future @GetObject@ or @CopyObject@
+-- operations on this object.
 putObject_sSEKMSEncryptionContext :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
 putObject_sSEKMSEncryptionContext = Lens.lens (\PutObject' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@PutObject' {} a -> s {sSEKMSEncryptionContext = a} :: PutObject) Prelude.. Lens.mapping Data._Sensitive
 
--- | If @x-amz-server-side-encryption@ is present and has the value of
--- @aws:kms@, this header specifies the ID of the Amazon Web Services Key
--- Management Service (Amazon Web Services KMS) symmetrical customer
--- managed key that was used for the object. If you specify
--- @x-amz-server-side-encryption:aws:kms@, but do not
+-- | If @x-amz-server-side-encryption@ has a valid value of @aws:kms@ or
+-- @aws:kms:dsse@, this header specifies the ID of the Key Management
+-- Service (KMS) symmetric encryption customer managed key that was used
+-- for the object. If you specify @x-amz-server-side-encryption:aws:kms@ or
+-- @x-amz-server-side-encryption:aws:kms:dsse@, but do not
 -- provide@ x-amz-server-side-encryption-aws-kms-key-id@, Amazon S3 uses
--- the Amazon Web Services managed key to protect the data. If the KMS key
--- does not exist in the same account issuing the command, you must use the
--- full ARN and not just the ID.
+-- the Amazon Web Services managed key (@aws\/s3@) to protect the data. If
+-- the KMS key does not exist in the same account that\'s issuing the
+-- command, you must use the full ARN and not just the ID.
 putObject_sSEKMSKeyId :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
 putObject_sSEKMSKeyId = Lens.lens (\PutObject' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@PutObject' {} a -> s {sSEKMSKeyId = a} :: PutObject) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The server-side encryption algorithm used when storing this object in
--- Amazon S3 (for example, AES256, aws:kms).
+-- Amazon S3 (for example, @AES256@, @aws:kms@, @aws:kms:dsse@).
 putObject_serverSideEncryption :: Lens.Lens' PutObject (Prelude.Maybe ServerSideEncryption)
 putObject_serverSideEncryption = Lens.lens (\PutObject' {serverSideEncryption} -> serverSideEncryption) (\s@PutObject' {} a -> s {serverSideEncryption = a} :: PutObject)
 
@@ -940,14 +934,14 @@ putObject_websiteRedirectLocation = Lens.lens (\PutObject' {websiteRedirectLocat
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 putObject_bucket :: Lens.Lens' PutObject BucketName
 putObject_bucket = Lens.lens (\PutObject' {bucket} -> bucket) (\s@PutObject' {} a -> s {bucket = a} :: PutObject)
@@ -1060,7 +1054,7 @@ instance Data.ToQuery PutObject where
 -- | /See:/ 'newPutObjectResponse' smart constructor.
 data PutObjectResponse = PutObjectResponse'
   { -- | Indicates whether the uploaded object uses an S3 Bucket Key for
-    -- server-side encryption with Amazon Web Services KMS (SSE-KMS).
+    -- server-side encryption with Key Management Service (KMS) keys (SSE-KMS).
     bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The base64-encoded, 32-bit CRC32 checksum of the object. This will only
     -- be present if it was uploaded with the object. With multipart uploads,
@@ -1110,16 +1104,17 @@ data PutObjectResponse = PutObjectResponse'
     -- | If present, specifies the Amazon Web Services KMS Encryption Context to
     -- use for object encryption. The value of this header is a base64-encoded
     -- UTF-8 string holding JSON with the encryption context key-value pairs.
+    -- This value is stored as object metadata and automatically gets passed on
+    -- to Amazon Web Services KMS for future @GetObject@ or @CopyObject@
+    -- operations on this object.
     sSEKMSEncryptionContext :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | If @x-amz-server-side-encryption@ is present and has the value of
-    -- @aws:kms@, this header specifies the ID of the Amazon Web Services Key
-    -- Management Service (Amazon Web Services KMS) symmetric customer managed
-    -- key that was used for the object.
+    -- | If @x-amz-server-side-encryption@ has a valid value of @aws:kms@ or
+    -- @aws:kms:dsse@, this header specifies the ID of the Key Management
+    -- Service (KMS) symmetric encryption customer managed key that was used
+    -- for the object.
     sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | If you specified server-side encryption either with an Amazon Web
-    -- Services KMS key or Amazon S3-managed encryption key in your PUT
-    -- request, the response includes this header. It confirms the encryption
-    -- algorithm that Amazon S3 used to encrypt the object.
+    -- | The server-side encryption algorithm used when storing this object in
+    -- Amazon S3 (for example, @AES256@, @aws:kms@, @aws:kms:dsse@).
     serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
     -- | Version of the object.
     versionId :: Prelude.Maybe ObjectVersionId,
@@ -1137,7 +1132,7 @@ data PutObjectResponse = PutObjectResponse'
 -- for backwards compatibility:
 --
 -- 'bucketKeyEnabled', 'putObjectResponse_bucketKeyEnabled' - Indicates whether the uploaded object uses an S3 Bucket Key for
--- server-side encryption with Amazon Web Services KMS (SSE-KMS).
+-- server-side encryption with Key Management Service (KMS) keys (SSE-KMS).
 --
 -- 'checksumCRC32', 'putObjectResponse_checksumCRC32' - The base64-encoded, 32-bit CRC32 checksum of the object. This will only
 -- be present if it was uploaded with the object. With multipart uploads,
@@ -1188,16 +1183,17 @@ data PutObjectResponse = PutObjectResponse'
 -- 'sSEKMSEncryptionContext', 'putObjectResponse_sSEKMSEncryptionContext' - If present, specifies the Amazon Web Services KMS Encryption Context to
 -- use for object encryption. The value of this header is a base64-encoded
 -- UTF-8 string holding JSON with the encryption context key-value pairs.
+-- This value is stored as object metadata and automatically gets passed on
+-- to Amazon Web Services KMS for future @GetObject@ or @CopyObject@
+-- operations on this object.
 --
--- 'sSEKMSKeyId', 'putObjectResponse_sSEKMSKeyId' - If @x-amz-server-side-encryption@ is present and has the value of
--- @aws:kms@, this header specifies the ID of the Amazon Web Services Key
--- Management Service (Amazon Web Services KMS) symmetric customer managed
--- key that was used for the object.
+-- 'sSEKMSKeyId', 'putObjectResponse_sSEKMSKeyId' - If @x-amz-server-side-encryption@ has a valid value of @aws:kms@ or
+-- @aws:kms:dsse@, this header specifies the ID of the Key Management
+-- Service (KMS) symmetric encryption customer managed key that was used
+-- for the object.
 --
--- 'serverSideEncryption', 'putObjectResponse_serverSideEncryption' - If you specified server-side encryption either with an Amazon Web
--- Services KMS key or Amazon S3-managed encryption key in your PUT
--- request, the response includes this header. It confirms the encryption
--- algorithm that Amazon S3 used to encrypt the object.
+-- 'serverSideEncryption', 'putObjectResponse_serverSideEncryption' - The server-side encryption algorithm used when storing this object in
+-- Amazon S3 (for example, @AES256@, @aws:kms@, @aws:kms:dsse@).
 --
 -- 'versionId', 'putObjectResponse_versionId' - Version of the object.
 --
@@ -1227,7 +1223,7 @@ newPutObjectResponse pHttpStatus_ =
     }
 
 -- | Indicates whether the uploaded object uses an S3 Bucket Key for
--- server-side encryption with Amazon Web Services KMS (SSE-KMS).
+-- server-side encryption with Key Management Service (KMS) keys (SSE-KMS).
 putObjectResponse_bucketKeyEnabled :: Lens.Lens' PutObjectResponse (Prelude.Maybe Prelude.Bool)
 putObjectResponse_bucketKeyEnabled = Lens.lens (\PutObjectResponse' {bucketKeyEnabled} -> bucketKeyEnabled) (\s@PutObjectResponse' {} a -> s {bucketKeyEnabled = a} :: PutObjectResponse)
 
@@ -1298,20 +1294,21 @@ putObjectResponse_sSECustomerKeyMD5 = Lens.lens (\PutObjectResponse' {sSECustome
 -- | If present, specifies the Amazon Web Services KMS Encryption Context to
 -- use for object encryption. The value of this header is a base64-encoded
 -- UTF-8 string holding JSON with the encryption context key-value pairs.
+-- This value is stored as object metadata and automatically gets passed on
+-- to Amazon Web Services KMS for future @GetObject@ or @CopyObject@
+-- operations on this object.
 putObjectResponse_sSEKMSEncryptionContext :: Lens.Lens' PutObjectResponse (Prelude.Maybe Prelude.Text)
 putObjectResponse_sSEKMSEncryptionContext = Lens.lens (\PutObjectResponse' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@PutObjectResponse' {} a -> s {sSEKMSEncryptionContext = a} :: PutObjectResponse) Prelude.. Lens.mapping Data._Sensitive
 
--- | If @x-amz-server-side-encryption@ is present and has the value of
--- @aws:kms@, this header specifies the ID of the Amazon Web Services Key
--- Management Service (Amazon Web Services KMS) symmetric customer managed
--- key that was used for the object.
+-- | If @x-amz-server-side-encryption@ has a valid value of @aws:kms@ or
+-- @aws:kms:dsse@, this header specifies the ID of the Key Management
+-- Service (KMS) symmetric encryption customer managed key that was used
+-- for the object.
 putObjectResponse_sSEKMSKeyId :: Lens.Lens' PutObjectResponse (Prelude.Maybe Prelude.Text)
 putObjectResponse_sSEKMSKeyId = Lens.lens (\PutObjectResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@PutObjectResponse' {} a -> s {sSEKMSKeyId = a} :: PutObjectResponse) Prelude.. Lens.mapping Data._Sensitive
 
--- | If you specified server-side encryption either with an Amazon Web
--- Services KMS key or Amazon S3-managed encryption key in your PUT
--- request, the response includes this header. It confirms the encryption
--- algorithm that Amazon S3 used to encrypt the object.
+-- | The server-side encryption algorithm used when storing this object in
+-- Amazon S3 (for example, @AES256@, @aws:kms@, @aws:kms:dsse@).
 putObjectResponse_serverSideEncryption :: Lens.Lens' PutObjectResponse (Prelude.Maybe ServerSideEncryption)
 putObjectResponse_serverSideEncryption = Lens.lens (\PutObjectResponse' {serverSideEncryption} -> serverSideEncryption) (\s@PutObjectResponse' {} a -> s {serverSideEncryption = a} :: PutObjectResponse)
 

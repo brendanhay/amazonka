@@ -31,10 +31,23 @@
 -- you\'re not using an identity that belongs to the bucket owner\'s
 -- account, Amazon S3 returns a @405 Method Not Allowed@ error.
 --
--- As a security precaution, the root user of the Amazon Web Services
--- account that owns a bucket can always use this operation, even if the
--- policy explicitly denies the root user the ability to perform this
--- action.
+-- To ensure that bucket owners don\'t inadvertently lock themselves out of
+-- their own buckets, the root principal in a bucket owner\'s Amazon Web
+-- Services account can perform the @GetBucketPolicy@, @PutBucketPolicy@,
+-- and @DeleteBucketPolicy@ API actions, even if their bucket policy
+-- explicitly denies the root principal\'s access. Bucket owner root
+-- principals can only be blocked from performing these API actions by VPC
+-- endpoint policies and Amazon Web Services Organizations policies.
+--
+-- To use this API operation against an access point, provide the alias of
+-- the access point in place of the bucket name.
+--
+-- To use this API operation against an Object Lambda access point, provide
+-- the alias of the Object Lambda access point in place of the bucket name.
+-- If the Object Lambda access point alias in a request is not valid, the
+-- error code @InvalidAccessPointAliasError@ is returned. For more
+-- information about @InvalidAccessPointAliasError@, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
 --
 -- For more information about bucket policies, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html Using Bucket Policies and User Policies>.
@@ -76,6 +89,16 @@ data GetBucketPolicy = GetBucketPolicy'
     -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket name for which to get the bucket policy.
+    --
+    -- To use this API operation against an access point, provide the alias of
+    -- the access point in place of the bucket name.
+    --
+    -- To use this API operation against an Object Lambda access point, provide
+    -- the alias of the Object Lambda access point in place of the bucket name.
+    -- If the Object Lambda access point alias in a request is not valid, the
+    -- error code @InvalidAccessPointAliasError@ is returned. For more
+    -- information about @InvalidAccessPointAliasError@, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
     bucket :: BucketName
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -93,6 +116,16 @@ data GetBucketPolicy = GetBucketPolicy'
 -- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'getBucketPolicy_bucket' - The bucket name for which to get the bucket policy.
+--
+-- To use this API operation against an access point, provide the alias of
+-- the access point in place of the bucket name.
+--
+-- To use this API operation against an Object Lambda access point, provide
+-- the alias of the Object Lambda access point in place of the bucket name.
+-- If the Object Lambda access point alias in a request is not valid, the
+-- error code @InvalidAccessPointAliasError@ is returned. For more
+-- information about @InvalidAccessPointAliasError@, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
 newGetBucketPolicy ::
   -- | 'bucket'
   BucketName ->
@@ -111,6 +144,16 @@ getBucketPolicy_expectedBucketOwner :: Lens.Lens' GetBucketPolicy (Prelude.Maybe
 getBucketPolicy_expectedBucketOwner = Lens.lens (\GetBucketPolicy' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketPolicy' {} a -> s {expectedBucketOwner = a} :: GetBucketPolicy)
 
 -- | The bucket name for which to get the bucket policy.
+--
+-- To use this API operation against an access point, provide the alias of
+-- the access point in place of the bucket name.
+--
+-- To use this API operation against an Object Lambda access point, provide
+-- the alias of the Object Lambda access point in place of the bucket name.
+-- If the Object Lambda access point alias in a request is not valid, the
+-- error code @InvalidAccessPointAliasError@ is returned. For more
+-- information about @InvalidAccessPointAliasError@, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
 getBucketPolicy_bucket :: Lens.Lens' GetBucketPolicy BucketName
 getBucketPolicy_bucket = Lens.lens (\GetBucketPolicy' {bucket} -> bucket) (\s@GetBucketPolicy' {} a -> s {bucket = a} :: GetBucketPolicy)
 
@@ -131,7 +174,8 @@ instance Core.AWSRequest GetBucketPolicy where
 
 instance Prelude.Hashable GetBucketPolicy where
   hashWithSalt _salt GetBucketPolicy' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData GetBucketPolicy where

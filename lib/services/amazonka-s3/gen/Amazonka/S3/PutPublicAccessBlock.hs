@@ -37,7 +37,7 @@
 -- object public, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status The Meaning of \"Public\">.
 --
--- __Related Resources__
+-- The following operations are related to @PutPublicAccessBlock@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetPublicAccessBlock.html GetPublicAccessBlock>
 --
@@ -221,7 +221,8 @@ instance Core.AWSRequest PutPublicAccessBlock where
 
 instance Prelude.Hashable PutPublicAccessBlock where
   hashWithSalt _salt PutPublicAccessBlock' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
+    _salt
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket

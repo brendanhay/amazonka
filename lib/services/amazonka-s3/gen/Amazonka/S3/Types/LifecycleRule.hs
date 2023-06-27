@@ -34,6 +34,10 @@ import Amazonka.S3.Types.Transition
 
 -- | A lifecycle rule for individual objects in an Amazon S3 bucket.
 --
+-- For more information see,
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html Managing your storage lifecycle>
+-- in the /Amazon S3 User Guide/.
+--
 -- /See:/ 'newLifecycleRule' smart constructor.
 data LifecycleRule = LifecycleRule'
   { abortIncompleteMultipartUpload :: Prelude.Maybe AbortIncompleteMultipartUpload,

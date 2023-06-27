@@ -48,7 +48,7 @@
 -- and
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
 --
--- __Special Errors__
+-- @PutBucketAnalyticsConfiguration@ has the following special errors:
 --
 -- -   -   /HTTP Error: HTTP 400 Bad Request/
 --
@@ -71,7 +71,8 @@
 --         not have the s3:PutAnalyticsConfiguration bucket permission to
 --         set the configuration on the bucket./
 --
--- __Related Resources__
+-- The following operations are related to
+-- @PutBucketAnalyticsConfiguration@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAnalyticsConfiguration.html GetBucketAnalyticsConfiguration>
 --
@@ -195,7 +196,8 @@ instance
   hashWithSalt
     _salt
     PutBucketAnalyticsConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` expectedBucketOwner
+      _salt
+        `Prelude.hashWithSalt` expectedBucketOwner
         `Prelude.hashWithSalt` bucket
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` analyticsConfiguration

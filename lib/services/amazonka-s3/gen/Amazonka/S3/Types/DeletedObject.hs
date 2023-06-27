@@ -106,7 +106,8 @@ instance Data.FromXML DeletedObject where
 
 instance Prelude.Hashable DeletedObject where
   hashWithSalt _salt DeletedObject' {..} =
-    _salt `Prelude.hashWithSalt` deleteMarker
+    _salt
+      `Prelude.hashWithSalt` deleteMarker
       `Prelude.hashWithSalt` deleteMarkerVersionId
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` versionId

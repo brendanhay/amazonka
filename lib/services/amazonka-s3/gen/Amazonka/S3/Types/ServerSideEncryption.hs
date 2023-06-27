@@ -21,7 +21,8 @@ module Amazonka.S3.Types.ServerSideEncryption
   ( ServerSideEncryption
       ( ..,
         ServerSideEncryption_AES256,
-        ServerSideEncryption_Aws_kms
+        ServerSideEncryption_Aws_kms,
+        ServerSideEncryption_Aws_kms_dsse
       ),
   )
 where
@@ -65,8 +66,12 @@ pattern ServerSideEncryption_AES256 = ServerSideEncryption' "AES256"
 pattern ServerSideEncryption_Aws_kms :: ServerSideEncryption
 pattern ServerSideEncryption_Aws_kms = ServerSideEncryption' "aws:kms"
 
+pattern ServerSideEncryption_Aws_kms_dsse :: ServerSideEncryption
+pattern ServerSideEncryption_Aws_kms_dsse = ServerSideEncryption' "aws:kms:dsse"
+
 {-# COMPLETE
   ServerSideEncryption_AES256,
   ServerSideEncryption_Aws_kms,
+  ServerSideEncryption_Aws_kms_dsse,
   ServerSideEncryption'
   #-}

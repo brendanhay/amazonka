@@ -80,7 +80,9 @@ data GetBucketMetricsConfiguration = GetBucketMetricsConfiguration'
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket containing the metrics configuration to retrieve.
     bucket :: BucketName,
-    -- | The ID used to identify the metrics configuration.
+    -- | The ID used to identify the metrics configuration. The ID has a 64
+    -- character limit and can only contain letters, numbers, periods, dashes,
+    -- and underscores.
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -99,7 +101,9 @@ data GetBucketMetricsConfiguration = GetBucketMetricsConfiguration'
 --
 -- 'bucket', 'getBucketMetricsConfiguration_bucket' - The name of the bucket containing the metrics configuration to retrieve.
 --
--- 'id', 'getBucketMetricsConfiguration_id' - The ID used to identify the metrics configuration.
+-- 'id', 'getBucketMetricsConfiguration_id' - The ID used to identify the metrics configuration. The ID has a 64
+-- character limit and can only contain letters, numbers, periods, dashes,
+-- and underscores.
 newGetBucketMetricsConfiguration ::
   -- | 'bucket'
   BucketName ->
@@ -124,7 +128,9 @@ getBucketMetricsConfiguration_expectedBucketOwner = Lens.lens (\GetBucketMetrics
 getBucketMetricsConfiguration_bucket :: Lens.Lens' GetBucketMetricsConfiguration BucketName
 getBucketMetricsConfiguration_bucket = Lens.lens (\GetBucketMetricsConfiguration' {bucket} -> bucket) (\s@GetBucketMetricsConfiguration' {} a -> s {bucket = a} :: GetBucketMetricsConfiguration)
 
--- | The ID used to identify the metrics configuration.
+-- | The ID used to identify the metrics configuration. The ID has a 64
+-- character limit and can only contain letters, numbers, periods, dashes,
+-- and underscores.
 getBucketMetricsConfiguration_id :: Lens.Lens' GetBucketMetricsConfiguration Prelude.Text
 getBucketMetricsConfiguration_id = Lens.lens (\GetBucketMetricsConfiguration' {id} -> id) (\s@GetBucketMetricsConfiguration' {} a -> s {id = a} :: GetBucketMetricsConfiguration)
 
@@ -151,7 +157,8 @@ instance
     GetBucketMetricsConfiguration
   where
   hashWithSalt _salt GetBucketMetricsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` id
 

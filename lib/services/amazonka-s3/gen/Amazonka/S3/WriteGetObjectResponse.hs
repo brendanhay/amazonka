@@ -270,16 +270,14 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html Protecting data using server-side encryption with customer-provided encryption keys (SSE-C)>.
     sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
     -- | If present, specifies the ID of the Amazon Web Services Key Management
-    -- Service (Amazon Web Services KMS) symmetric customer managed key that
-    -- was used for stored in Amazon S3 object.
+    -- Service (Amazon Web Services KMS) symmetric encryption customer managed
+    -- key that was used for stored in Amazon S3 object.
     sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The server-side encryption algorithm used when storing requested object
-    -- in Amazon S3 (for example, AES256, aws:kms).
+    -- in Amazon S3 (for example, AES256, @aws:kms@).
     serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
     -- | The integer status code for an HTTP response of a corresponding
-    -- @GetObject@ request.
-    --
-    -- __Status Codes__
+    -- @GetObject@ request. The following is a list of status codes.
     --
     -- -   @200 - OK@
     --
@@ -475,16 +473,14 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html Protecting data using server-side encryption with customer-provided encryption keys (SSE-C)>.
 --
 -- 'sSEKMSKeyId', 'writeGetObjectResponse_sSEKMSKeyId' - If present, specifies the ID of the Amazon Web Services Key Management
--- Service (Amazon Web Services KMS) symmetric customer managed key that
--- was used for stored in Amazon S3 object.
+-- Service (Amazon Web Services KMS) symmetric encryption customer managed
+-- key that was used for stored in Amazon S3 object.
 --
 -- 'serverSideEncryption', 'writeGetObjectResponse_serverSideEncryption' - The server-side encryption algorithm used when storing requested object
--- in Amazon S3 (for example, AES256, aws:kms).
+-- in Amazon S3 (for example, AES256, @aws:kms@).
 --
 -- 'statusCode', 'writeGetObjectResponse_statusCode' - The integer status code for an HTTP response of a corresponding
--- @GetObject@ request.
---
--- __Status Codes__
+-- @GetObject@ request. The following is a list of status codes.
 --
 -- -   @200 - OK@
 --
@@ -786,20 +782,18 @@ writeGetObjectResponse_sSECustomerKeyMD5 :: Lens.Lens' WriteGetObjectResponse (P
 writeGetObjectResponse_sSECustomerKeyMD5 = Lens.lens (\WriteGetObjectResponse' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@WriteGetObjectResponse' {} a -> s {sSECustomerKeyMD5 = a} :: WriteGetObjectResponse)
 
 -- | If present, specifies the ID of the Amazon Web Services Key Management
--- Service (Amazon Web Services KMS) symmetric customer managed key that
--- was used for stored in Amazon S3 object.
+-- Service (Amazon Web Services KMS) symmetric encryption customer managed
+-- key that was used for stored in Amazon S3 object.
 writeGetObjectResponse_sSEKMSKeyId :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe Prelude.Text)
 writeGetObjectResponse_sSEKMSKeyId = Lens.lens (\WriteGetObjectResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@WriteGetObjectResponse' {} a -> s {sSEKMSKeyId = a} :: WriteGetObjectResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The server-side encryption algorithm used when storing requested object
--- in Amazon S3 (for example, AES256, aws:kms).
+-- in Amazon S3 (for example, AES256, @aws:kms@).
 writeGetObjectResponse_serverSideEncryption :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe ServerSideEncryption)
 writeGetObjectResponse_serverSideEncryption = Lens.lens (\WriteGetObjectResponse' {serverSideEncryption} -> serverSideEncryption) (\s@WriteGetObjectResponse' {} a -> s {serverSideEncryption = a} :: WriteGetObjectResponse)
 
 -- | The integer status code for an HTTP response of a corresponding
--- @GetObject@ request.
---
--- __Status Codes__
+-- @GetObject@ request. The following is a list of status codes.
 --
 -- -   @200 - OK@
 --

@@ -75,11 +75,13 @@ replicationTime_time = Lens.lens (\ReplicationTime' {time} -> time) (\s@Replicat
 instance Data.FromXML ReplicationTime where
   parseXML x =
     ReplicationTime'
-      Prelude.<$> (x Data..@ "Status") Prelude.<*> (x Data..@ "Time")
+      Prelude.<$> (x Data..@ "Status")
+      Prelude.<*> (x Data..@ "Time")
 
 instance Prelude.Hashable ReplicationTime where
   hashWithSalt _salt ReplicationTime' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` time
 
 instance Prelude.NFData ReplicationTime where

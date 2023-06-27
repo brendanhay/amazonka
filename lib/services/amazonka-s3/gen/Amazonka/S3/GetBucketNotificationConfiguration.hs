@@ -30,6 +30,16 @@
 -- policy to grant permission to other users to read this configuration
 -- with the @s3:GetBucketNotification@ permission.
 --
+-- To use this API operation against an access point, provide the alias of
+-- the access point in place of the bucket name.
+--
+-- To use this API operation against an Object Lambda access point, provide
+-- the alias of the Object Lambda access point in place of the bucket name.
+-- If the Object Lambda access point alias in a request is not valid, the
+-- error code @InvalidAccessPointAliasError@ is returned. For more
+-- information about @InvalidAccessPointAliasError@, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
+--
 -- For more information about setting and reading the notification
 -- configuration on a bucket, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Setting Up Notification of Bucket Events>.
@@ -75,6 +85,16 @@ data GetBucketNotificationConfiguration = GetBucketNotificationConfiguration'
     -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket for which to get the notification configuration.
+    --
+    -- To use this API operation against an access point, provide the alias of
+    -- the access point in place of the bucket name.
+    --
+    -- To use this API operation against an Object Lambda access point, provide
+    -- the alias of the Object Lambda access point in place of the bucket name.
+    -- If the Object Lambda access point alias in a request is not valid, the
+    -- error code @InvalidAccessPointAliasError@ is returned. For more
+    -- information about @InvalidAccessPointAliasError@, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
     bucket :: BucketName
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -92,6 +112,16 @@ data GetBucketNotificationConfiguration = GetBucketNotificationConfiguration'
 -- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'getBucketNotificationConfiguration_bucket' - The name of the bucket for which to get the notification configuration.
+--
+-- To use this API operation against an access point, provide the alias of
+-- the access point in place of the bucket name.
+--
+-- To use this API operation against an Object Lambda access point, provide
+-- the alias of the Object Lambda access point in place of the bucket name.
+-- If the Object Lambda access point alias in a request is not valid, the
+-- error code @InvalidAccessPointAliasError@ is returned. For more
+-- information about @InvalidAccessPointAliasError@, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
 newGetBucketNotificationConfiguration ::
   -- | 'bucket'
   BucketName ->
@@ -110,6 +140,16 @@ getBucketNotificationConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketNo
 getBucketNotificationConfiguration_expectedBucketOwner = Lens.lens (\GetBucketNotificationConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketNotificationConfiguration' {} a -> s {expectedBucketOwner = a} :: GetBucketNotificationConfiguration)
 
 -- | The name of the bucket for which to get the notification configuration.
+--
+-- To use this API operation against an access point, provide the alias of
+-- the access point in place of the bucket name.
+--
+-- To use this API operation against an Object Lambda access point, provide
+-- the alias of the Object Lambda access point in place of the bucket name.
+-- If the Object Lambda access point alias in a request is not valid, the
+-- error code @InvalidAccessPointAliasError@ is returned. For more
+-- information about @InvalidAccessPointAliasError@, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
 getBucketNotificationConfiguration_bucket :: Lens.Lens' GetBucketNotificationConfiguration BucketName
 getBucketNotificationConfiguration_bucket = Lens.lens (\GetBucketNotificationConfiguration' {bucket} -> bucket) (\s@GetBucketNotificationConfiguration' {} a -> s {bucket = a} :: GetBucketNotificationConfiguration)
 
@@ -133,7 +173,8 @@ instance
   hashWithSalt
     _salt
     GetBucketNotificationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` expectedBucketOwner
+      _salt
+        `Prelude.hashWithSalt` expectedBucketOwner
         `Prelude.hashWithSalt` bucket
 
 instance

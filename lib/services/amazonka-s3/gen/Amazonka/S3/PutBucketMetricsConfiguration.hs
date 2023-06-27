@@ -45,7 +45,7 @@
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketMetricsConfigurations.html ListBucketMetricsConfigurations>
 --
--- @GetBucketLifecycle@ has the following special error:
+-- @PutBucketMetricsConfiguration@ has the following special error:
 --
 -- -   Error code: @TooManyConfigurations@
 --
@@ -86,7 +86,9 @@ data PutBucketMetricsConfiguration = PutBucketMetricsConfiguration'
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket for which the metrics configuration is set.
     bucket :: BucketName,
-    -- | The ID used to identify the metrics configuration.
+    -- | The ID used to identify the metrics configuration. The ID has a 64
+    -- character limit and can only contain letters, numbers, periods, dashes,
+    -- and underscores.
     id :: Prelude.Text,
     -- | Specifies the metrics configuration.
     metricsConfiguration :: MetricsConfiguration
@@ -107,7 +109,9 @@ data PutBucketMetricsConfiguration = PutBucketMetricsConfiguration'
 --
 -- 'bucket', 'putBucketMetricsConfiguration_bucket' - The name of the bucket for which the metrics configuration is set.
 --
--- 'id', 'putBucketMetricsConfiguration_id' - The ID used to identify the metrics configuration.
+-- 'id', 'putBucketMetricsConfiguration_id' - The ID used to identify the metrics configuration. The ID has a 64
+-- character limit and can only contain letters, numbers, periods, dashes,
+-- and underscores.
 --
 -- 'metricsConfiguration', 'putBucketMetricsConfiguration_metricsConfiguration' - Specifies the metrics configuration.
 newPutBucketMetricsConfiguration ::
@@ -141,7 +145,9 @@ putBucketMetricsConfiguration_expectedBucketOwner = Lens.lens (\PutBucketMetrics
 putBucketMetricsConfiguration_bucket :: Lens.Lens' PutBucketMetricsConfiguration BucketName
 putBucketMetricsConfiguration_bucket = Lens.lens (\PutBucketMetricsConfiguration' {bucket} -> bucket) (\s@PutBucketMetricsConfiguration' {} a -> s {bucket = a} :: PutBucketMetricsConfiguration)
 
--- | The ID used to identify the metrics configuration.
+-- | The ID used to identify the metrics configuration. The ID has a 64
+-- character limit and can only contain letters, numbers, periods, dashes,
+-- and underscores.
 putBucketMetricsConfiguration_id :: Lens.Lens' PutBucketMetricsConfiguration Prelude.Text
 putBucketMetricsConfiguration_id = Lens.lens (\PutBucketMetricsConfiguration' {id} -> id) (\s@PutBucketMetricsConfiguration' {} a -> s {id = a} :: PutBucketMetricsConfiguration)
 
@@ -168,7 +174,8 @@ instance
     PutBucketMetricsConfiguration
   where
   hashWithSalt _salt PutBucketMetricsConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` metricsConfiguration

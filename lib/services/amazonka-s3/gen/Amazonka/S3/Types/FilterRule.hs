@@ -83,11 +83,13 @@ filterRule_value = Lens.lens (\FilterRule' {value} -> value) (\s@FilterRule' {} 
 instance Data.FromXML FilterRule where
   parseXML x =
     FilterRule'
-      Prelude.<$> (x Data..@? "Name") Prelude.<*> (x Data..@? "Value")
+      Prelude.<$> (x Data..@? "Name")
+      Prelude.<*> (x Data..@? "Value")
 
 instance Prelude.Hashable FilterRule where
   hashWithSalt _salt FilterRule' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData FilterRule where

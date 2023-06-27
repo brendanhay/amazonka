@@ -48,7 +48,8 @@
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html Transfer Acceleration>
 -- in the Amazon S3 User Guide.
 --
--- __Related Resources__
+-- The following operations are related to
+-- @GetBucketAccelerateConfiguration@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAccelerateConfiguration.html PutBucketAccelerateConfiguration>
 module Amazonka.S3.GetBucketAccelerateConfiguration
@@ -58,6 +59,7 @@ module Amazonka.S3.GetBucketAccelerateConfiguration
 
     -- * Request Lenses
     getBucketAccelerateConfiguration_expectedBucketOwner,
+    getBucketAccelerateConfiguration_requestPayer,
     getBucketAccelerateConfiguration_bucket,
 
     -- * Destructuring the Response
@@ -65,6 +67,7 @@ module Amazonka.S3.GetBucketAccelerateConfiguration
     newGetBucketAccelerateConfigurationResponse,
 
     -- * Response Lenses
+    getBucketAccelerateConfigurationResponse_requestCharged,
     getBucketAccelerateConfigurationResponse_status,
     getBucketAccelerateConfigurationResponse_httpStatus,
   )
@@ -84,6 +87,7 @@ data GetBucketAccelerateConfiguration = GetBucketAccelerateConfiguration'
     -- different account, the request fails with the HTTP status code
     -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The name of the bucket for which the accelerate configuration is
     -- retrieved.
     bucket :: BucketName
@@ -102,6 +106,8 @@ data GetBucketAccelerateConfiguration = GetBucketAccelerateConfiguration'
 -- different account, the request fails with the HTTP status code
 -- @403 Forbidden@ (access denied).
 --
+-- 'requestPayer', 'getBucketAccelerateConfiguration_requestPayer' - Undocumented member.
+--
 -- 'bucket', 'getBucketAccelerateConfiguration_bucket' - The name of the bucket for which the accelerate configuration is
 -- retrieved.
 newGetBucketAccelerateConfiguration ::
@@ -112,6 +118,7 @@ newGetBucketAccelerateConfiguration pBucket_ =
   GetBucketAccelerateConfiguration'
     { expectedBucketOwner =
         Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
       bucket = pBucket_
     }
 
@@ -120,6 +127,10 @@ newGetBucketAccelerateConfiguration pBucket_ =
 -- @403 Forbidden@ (access denied).
 getBucketAccelerateConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketAccelerateConfiguration (Prelude.Maybe Prelude.Text)
 getBucketAccelerateConfiguration_expectedBucketOwner = Lens.lens (\GetBucketAccelerateConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketAccelerateConfiguration' {} a -> s {expectedBucketOwner = a} :: GetBucketAccelerateConfiguration)
+
+-- | Undocumented member.
+getBucketAccelerateConfiguration_requestPayer :: Lens.Lens' GetBucketAccelerateConfiguration (Prelude.Maybe RequestPayer)
+getBucketAccelerateConfiguration_requestPayer = Lens.lens (\GetBucketAccelerateConfiguration' {requestPayer} -> requestPayer) (\s@GetBucketAccelerateConfiguration' {} a -> s {requestPayer = a} :: GetBucketAccelerateConfiguration)
 
 -- | The name of the bucket for which the accelerate configuration is
 -- retrieved.
@@ -140,7 +151,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetBucketAccelerateConfigurationResponse'
-            Prelude.<$> (x Data..@? "Status")
+            Prelude.<$> (h Data..#? "x-amz-request-charged")
+            Prelude.<*> (x Data..@? "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -151,7 +163,9 @@ instance
   hashWithSalt
     _salt
     GetBucketAccelerateConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` expectedBucketOwner
+      _salt
+        `Prelude.hashWithSalt` expectedBucketOwner
+        `Prelude.hashWithSalt` requestPayer
         `Prelude.hashWithSalt` bucket
 
 instance
@@ -160,6 +174,7 @@ instance
   where
   rnf GetBucketAccelerateConfiguration' {..} =
     Prelude.rnf expectedBucketOwner
+      `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf bucket
 
 instance
@@ -169,7 +184,8 @@ instance
   toHeaders GetBucketAccelerateConfiguration' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Data.=# expectedBucketOwner
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer
       ]
 
 instance Data.ToPath GetBucketAccelerateConfiguration where
@@ -185,7 +201,8 @@ instance
 
 -- | /See:/ 'newGetBucketAccelerateConfigurationResponse' smart constructor.
 data GetBucketAccelerateConfigurationResponse = GetBucketAccelerateConfigurationResponse'
-  { -- | The accelerate configuration of the bucket.
+  { requestCharged :: Prelude.Maybe RequestCharged,
+    -- | The accelerate configuration of the bucket.
     status :: Prelude.Maybe BucketAccelerateStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -200,6 +217,8 @@ data GetBucketAccelerateConfigurationResponse = GetBucketAccelerateConfiguration
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'requestCharged', 'getBucketAccelerateConfigurationResponse_requestCharged' - Undocumented member.
+--
 -- 'status', 'getBucketAccelerateConfigurationResponse_status' - The accelerate configuration of the bucket.
 --
 -- 'httpStatus', 'getBucketAccelerateConfigurationResponse_httpStatus' - The response's http status code.
@@ -210,10 +229,15 @@ newGetBucketAccelerateConfigurationResponse ::
 newGetBucketAccelerateConfigurationResponse
   pHttpStatus_ =
     GetBucketAccelerateConfigurationResponse'
-      { status =
+      { requestCharged =
           Prelude.Nothing,
+        status = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Undocumented member.
+getBucketAccelerateConfigurationResponse_requestCharged :: Lens.Lens' GetBucketAccelerateConfigurationResponse (Prelude.Maybe RequestCharged)
+getBucketAccelerateConfigurationResponse_requestCharged = Lens.lens (\GetBucketAccelerateConfigurationResponse' {requestCharged} -> requestCharged) (\s@GetBucketAccelerateConfigurationResponse' {} a -> s {requestCharged = a} :: GetBucketAccelerateConfigurationResponse)
 
 -- | The accelerate configuration of the bucket.
 getBucketAccelerateConfigurationResponse_status :: Lens.Lens' GetBucketAccelerateConfigurationResponse (Prelude.Maybe BucketAccelerateStatus)
@@ -228,5 +252,6 @@ instance
     GetBucketAccelerateConfigurationResponse
   where
   rnf GetBucketAccelerateConfigurationResponse' {..} =
-    Prelude.rnf status
+    Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf httpStatus

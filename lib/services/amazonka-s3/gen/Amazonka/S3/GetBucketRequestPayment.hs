@@ -120,7 +120,8 @@ instance Core.AWSRequest GetBucketRequestPayment where
 
 instance Prelude.Hashable GetBucketRequestPayment where
   hashWithSalt _salt GetBucketRequestPayment' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData GetBucketRequestPayment where

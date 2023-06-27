@@ -114,7 +114,8 @@ instance
   hashWithSalt
     _salt
     IntelligentTieringConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` filter'
+      _salt
+        `Prelude.hashWithSalt` filter'
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` tierings

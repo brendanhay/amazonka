@@ -29,7 +29,24 @@ import Amazonka.S3.Internal
 --
 -- /See:/ 'newOwner' smart constructor.
 data Owner = Owner'
-  { -- | Container for the display name of the owner.
+  { -- | Container for the display name of the owner. This value is only
+    -- supported in the following Amazon Web Services Regions:
+    --
+    -- -   US East (N. Virginia)
+    --
+    -- -   US West (N. California)
+    --
+    -- -   US West (Oregon)
+    --
+    -- -   Asia Pacific (Singapore)
+    --
+    -- -   Asia Pacific (Sydney)
+    --
+    -- -   Asia Pacific (Tokyo)
+    --
+    -- -   Europe (Ireland)
+    --
+    -- -   South America (São Paulo)
     displayName :: Prelude.Maybe Prelude.Text,
     -- | Container for the ID of the owner.
     id :: Prelude.Maybe Prelude.Text
@@ -44,7 +61,24 @@ data Owner = Owner'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'displayName', 'owner_displayName' - Container for the display name of the owner.
+-- 'displayName', 'owner_displayName' - Container for the display name of the owner. This value is only
+-- supported in the following Amazon Web Services Regions:
+--
+-- -   US East (N. Virginia)
+--
+-- -   US West (N. California)
+--
+-- -   US West (Oregon)
+--
+-- -   Asia Pacific (Singapore)
+--
+-- -   Asia Pacific (Sydney)
+--
+-- -   Asia Pacific (Tokyo)
+--
+-- -   Europe (Ireland)
+--
+-- -   South America (São Paulo)
 --
 -- 'id', 'owner_id' - Container for the ID of the owner.
 newOwner ::
@@ -55,7 +89,24 @@ newOwner =
       id = Prelude.Nothing
     }
 
--- | Container for the display name of the owner.
+-- | Container for the display name of the owner. This value is only
+-- supported in the following Amazon Web Services Regions:
+--
+-- -   US East (N. Virginia)
+--
+-- -   US West (N. California)
+--
+-- -   US West (Oregon)
+--
+-- -   Asia Pacific (Singapore)
+--
+-- -   Asia Pacific (Sydney)
+--
+-- -   Asia Pacific (Tokyo)
+--
+-- -   Europe (Ireland)
+--
+-- -   South America (São Paulo)
 owner_displayName :: Lens.Lens' Owner (Prelude.Maybe Prelude.Text)
 owner_displayName = Lens.lens (\Owner' {displayName} -> displayName) (\s@Owner' {} a -> s {displayName = a} :: Owner)
 
@@ -71,7 +122,8 @@ instance Data.FromXML Owner where
 
 instance Prelude.Hashable Owner where
   hashWithSalt _salt Owner' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData Owner where

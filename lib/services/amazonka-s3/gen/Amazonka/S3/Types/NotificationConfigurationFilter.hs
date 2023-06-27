@@ -28,7 +28,7 @@ import Amazonka.S3.Types.S3KeyFilter
 
 -- | Specifies object key name filtering rules. For information about key
 -- name filtering, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-filtering.html Configuring event notifications using object key name filtering>
 -- in the /Amazon S3 User Guide/.
 --
 -- /See:/ 'newNotificationConfigurationFilter' smart constructor.

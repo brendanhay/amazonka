@@ -263,7 +263,9 @@ module Amazonka.S3.Lens
 
     -- ** GetBucketAccelerateConfiguration
     getBucketAccelerateConfiguration_expectedBucketOwner,
+    getBucketAccelerateConfiguration_requestPayer,
     getBucketAccelerateConfiguration_bucket,
+    getBucketAccelerateConfigurationResponse_requestCharged,
     getBucketAccelerateConfigurationResponse_status,
     getBucketAccelerateConfigurationResponse_httpStatus,
 
@@ -641,6 +643,7 @@ module Amazonka.S3.Lens
     listMultipartUploads_keyMarker,
     listMultipartUploads_maxUploads,
     listMultipartUploads_prefix,
+    listMultipartUploads_requestPayer,
     listMultipartUploads_uploadIdMarker,
     listMultipartUploads_bucket,
     listMultipartUploadsResponse_bucket,
@@ -653,6 +656,7 @@ module Amazonka.S3.Lens
     listMultipartUploadsResponse_nextKeyMarker,
     listMultipartUploadsResponse_nextUploadIdMarker,
     listMultipartUploadsResponse_prefix,
+    listMultipartUploadsResponse_requestCharged,
     listMultipartUploadsResponse_uploadIdMarker,
     listMultipartUploadsResponse_uploads,
     listMultipartUploadsResponse_httpStatus,
@@ -664,6 +668,7 @@ module Amazonka.S3.Lens
     listObjectVersions_keyMarker,
     listObjectVersions_maxKeys,
     listObjectVersions_prefix,
+    listObjectVersions_requestPayer,
     listObjectVersions_versionIdMarker,
     listObjectVersions_bucket,
     listObjectVersionsResponse_commonPrefixes,
@@ -677,6 +682,7 @@ module Amazonka.S3.Lens
     listObjectVersionsResponse_nextKeyMarker,
     listObjectVersionsResponse_nextVersionIdMarker,
     listObjectVersionsResponse_prefix,
+    listObjectVersionsResponse_requestCharged,
     listObjectVersionsResponse_versionIdMarker,
     listObjectVersionsResponse_versions,
     listObjectVersionsResponse_httpStatus,
@@ -700,6 +706,7 @@ module Amazonka.S3.Lens
     listObjectsResponse_name,
     listObjectsResponse_nextMarker,
     listObjectsResponse_prefix,
+    listObjectsResponse_requestCharged,
     listObjectsResponse_httpStatus,
 
     -- ** ListObjectsV2
@@ -724,6 +731,7 @@ module Amazonka.S3.Lens
     listObjectsV2Response_name,
     listObjectsV2Response_nextContinuationToken,
     listObjectsV2Response_prefix,
+    listObjectsV2Response_requestCharged,
     listObjectsV2Response_startAfter,
     listObjectsV2Response_httpStatus,
 

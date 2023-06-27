@@ -130,7 +130,8 @@ instance
     InventoryS3BucketDestination
   where
   hashWithSalt _salt InventoryS3BucketDestination' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` bucket

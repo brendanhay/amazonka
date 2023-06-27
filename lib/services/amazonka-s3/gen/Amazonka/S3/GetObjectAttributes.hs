@@ -25,11 +25,9 @@
 -- metadata. To use @GetObjectAttributes@, you must have READ access to the
 -- object.
 --
--- @GetObjectAttributes@ combines the functionality of @GetObjectAcl@,
--- @GetObjectLegalHold@, @GetObjectLockConfiguration@,
--- @GetObjectRetention@, @GetObjectTagging@, @HeadObject@, and @ListParts@.
--- All of the data returned with each of those individual calls can be
--- returned with a single call to @GetObjectAttributes@.
+-- @GetObjectAttributes@ combines the functionality of @HeadObject@ and
+-- @ListParts@. All of the data returned with each of those individual
+-- calls can be returned with a single call to @GetObjectAttributes@.
 --
 -- If you encrypt an object by using server-side encryption with
 -- customer-provided encryption keys (SSE-C) when you store the object in
@@ -50,9 +48,8 @@
 --     should not be sent for GET requests if your object uses server-side
 --     encryption with Amazon Web Services KMS keys stored in Amazon Web
 --     Services Key Management Service (SSE-KMS) or server-side encryption
---     with Amazon S3 managed encryption keys (SSE-S3). If your object does
---     use these types of keys, you\'ll get an HTTP @400 Bad Request@
---     error.
+--     with Amazon S3 managed keys (SSE-S3). If your object does use these
+--     types of keys, you\'ll get an HTTP @400 Bad Request@ error.
 --
 -- -   The last modified property in this case is the creation date of the
 --     object.
@@ -78,24 +75,25 @@
 -- For more information about conditional requests, see
 -- <https://tools.ietf.org/html/rfc7232 RFC 7232>.
 --
--- __Permissions__
+-- [Permissions]
+--     The permissions that you need to use this operation depend on
+--     whether the bucket is versioned. If the bucket is versioned, you
+--     need both the @s3:GetObjectVersion@ and
+--     @s3:GetObjectVersionAttributes@ permissions for this operation. If
+--     the bucket is not versioned, you need the @s3:GetObject@ and
+--     @s3:GetObjectAttributes@ permissions. For more information, see
+--     <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html Specifying Permissions in a Policy>
+--     in the /Amazon S3 User Guide/. If the object that you request does
+--     not exist, the error Amazon S3 returns depends on whether you also
+--     have the @s3:ListBucket@ permission.
 --
--- The permissions that you need to use this operation depend on whether
--- the bucket is versioned. If the bucket is versioned, you need both the
--- @s3:GetObjectVersion@ and @s3:GetObjectVersionAttributes@ permissions
--- for this operation. If the bucket is not versioned, you need the
--- @s3:GetObject@ and @s3:GetObjectAttributes@ permissions. For more
--- information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html Specifying Permissions in a Policy>
--- in the /Amazon S3 User Guide/. If the object that you request does not
--- exist, the error Amazon S3 returns depends on whether you also have the
--- @s3:ListBucket@ permission.
+--     -   If you have the @s3:ListBucket@ permission on the bucket, Amazon
+--         S3 returns an HTTP status code @404 Not Found@ (\"no such key\")
+--         error.
 --
--- -   If you have the @s3:ListBucket@ permission on the bucket, Amazon S3
---     returns an HTTP status code @404 Not Found@ (\"no such key\") error.
---
--- -   If you don\'t have the @s3:ListBucket@ permission, Amazon S3 returns
---     an HTTP status code @403 Forbidden@ (\"access denied\") error.
+--     -   If you don\'t have the @s3:ListBucket@ permission, Amazon S3
+--         returns an HTTP status code @403 Forbidden@ (\"access denied\")
+--         error.
 --
 -- The following actions are related to @GetObjectAttributes@:
 --
@@ -196,14 +194,14 @@ data GetObjectAttributes = GetObjectAttributes'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
     -- in the /Amazon S3 User Guide/.
     --
-    -- When using this action with Amazon S3 on Outposts, you must direct
+    -- When you use this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
-    -- When using this action with S3 on Outposts through the Amazon Web
-    -- Services SDKs, you provide the Outposts bucket ARN in place of the
+    -- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+    -- When you use this action with S3 on Outposts through the Amazon Web
+    -- Services SDKs, you provide the Outposts access point ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | The object key.
@@ -260,14 +258,14 @@ data GetObjectAttributes = GetObjectAttributes'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 --
 -- 'key', 'getObjectAttributes_key' - The object key.
@@ -350,14 +348,14 @@ getObjectAttributes_versionId = Lens.lens (\GetObjectAttributes' {versionId} -> 
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 getObjectAttributes_bucket :: Lens.Lens' GetObjectAttributes BucketName
 getObjectAttributes_bucket = Lens.lens (\GetObjectAttributes' {bucket} -> bucket) (\s@GetObjectAttributes' {} a -> s {bucket = a} :: GetObjectAttributes)
@@ -397,7 +395,8 @@ instance Core.AWSRequest GetObjectAttributes where
 
 instance Prelude.Hashable GetObjectAttributes where
   hashWithSalt _salt GetObjectAttributes' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` maxParts
       `Prelude.hashWithSalt` partNumberMarker
       `Prelude.hashWithSalt` requestPayer

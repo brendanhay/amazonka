@@ -92,7 +92,8 @@ instance Data.FromXML ObjectLockConfiguration where
 
 instance Prelude.Hashable ObjectLockConfiguration where
   hashWithSalt _salt ObjectLockConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` objectLockEnabled
+    _salt
+      `Prelude.hashWithSalt` objectLockEnabled
       `Prelude.hashWithSalt` rule
 
 instance Prelude.NFData ObjectLockConfiguration where

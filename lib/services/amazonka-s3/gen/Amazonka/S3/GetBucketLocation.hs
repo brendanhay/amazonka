@@ -25,11 +25,20 @@
 -- request. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html CreateBucket>.
 --
--- To use this implementation of the operation, you must be the bucket
--- owner.
+-- To use this API operation against an access point, provide the alias of
+-- the access point in place of the bucket name.
 --
--- To use this API against an access point, provide the alias of the access
--- point in place of the bucket name.
+-- To use this API operation against an Object Lambda access point, provide
+-- the alias of the Object Lambda access point in place of the bucket name.
+-- If the Object Lambda access point alias in a request is not valid, the
+-- error code @InvalidAccessPointAliasError@ is returned. For more
+-- information about @InvalidAccessPointAliasError@, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
+--
+-- We recommend that you use
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadBucket.html HeadBucket>
+-- to return the Region that a bucket resides in. For backward
+-- compatibility, Amazon S3 continues to support GetBucketLocation.
 --
 -- The following operations are related to @GetBucketLocation@:
 --
@@ -70,6 +79,16 @@ data GetBucketLocation = GetBucketLocation'
     -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket for which to get the location.
+    --
+    -- To use this API operation against an access point, provide the alias of
+    -- the access point in place of the bucket name.
+    --
+    -- To use this API operation against an Object Lambda access point, provide
+    -- the alias of the Object Lambda access point in place of the bucket name.
+    -- If the Object Lambda access point alias in a request is not valid, the
+    -- error code @InvalidAccessPointAliasError@ is returned. For more
+    -- information about @InvalidAccessPointAliasError@, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
     bucket :: BucketName
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,6 +106,16 @@ data GetBucketLocation = GetBucketLocation'
 -- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'getBucketLocation_bucket' - The name of the bucket for which to get the location.
+--
+-- To use this API operation against an access point, provide the alias of
+-- the access point in place of the bucket name.
+--
+-- To use this API operation against an Object Lambda access point, provide
+-- the alias of the Object Lambda access point in place of the bucket name.
+-- If the Object Lambda access point alias in a request is not valid, the
+-- error code @InvalidAccessPointAliasError@ is returned. For more
+-- information about @InvalidAccessPointAliasError@, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
 newGetBucketLocation ::
   -- | 'bucket'
   BucketName ->
@@ -105,6 +134,16 @@ getBucketLocation_expectedBucketOwner :: Lens.Lens' GetBucketLocation (Prelude.M
 getBucketLocation_expectedBucketOwner = Lens.lens (\GetBucketLocation' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketLocation' {} a -> s {expectedBucketOwner = a} :: GetBucketLocation)
 
 -- | The name of the bucket for which to get the location.
+--
+-- To use this API operation against an access point, provide the alias of
+-- the access point in place of the bucket name.
+--
+-- To use this API operation against an Object Lambda access point, provide
+-- the alias of the Object Lambda access point in place of the bucket name.
+-- If the Object Lambda access point alias in a request is not valid, the
+-- error code @InvalidAccessPointAliasError@ is returned. For more
+-- information about @InvalidAccessPointAliasError@, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
 getBucketLocation_bucket :: Lens.Lens' GetBucketLocation BucketName
 getBucketLocation_bucket = Lens.lens (\GetBucketLocation' {bucket} -> bucket) (\s@GetBucketLocation' {} a -> s {bucket = a} :: GetBucketLocation)
 
@@ -124,7 +163,8 @@ instance Core.AWSRequest GetBucketLocation where
 
 instance Prelude.Hashable GetBucketLocation where
   hashWithSalt _salt GetBucketLocation' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData GetBucketLocation where

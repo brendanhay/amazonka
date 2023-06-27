@@ -131,7 +131,8 @@ instance Data.FromXML GetObjectAttributesParts where
 
 instance Prelude.Hashable GetObjectAttributesParts where
   hashWithSalt _salt GetObjectAttributesParts' {..} =
-    _salt `Prelude.hashWithSalt` isTruncated
+    _salt
+      `Prelude.hashWithSalt` isTruncated
       `Prelude.hashWithSalt` maxParts
       `Prelude.hashWithSalt` nextPartNumberMarker
       `Prelude.hashWithSalt` partNumberMarker

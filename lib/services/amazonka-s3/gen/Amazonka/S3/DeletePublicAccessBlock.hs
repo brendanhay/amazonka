@@ -120,7 +120,8 @@ instance Core.AWSRequest DeletePublicAccessBlock where
 
 instance Prelude.Hashable DeletePublicAccessBlock where
   hashWithSalt _salt DeletePublicAccessBlock' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData DeletePublicAccessBlock where

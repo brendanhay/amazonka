@@ -173,7 +173,8 @@ instance Data.FromXML Grantee where
 
 instance Prelude.Hashable Grantee where
   hashWithSalt _salt Grantee' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` uri

@@ -82,13 +82,16 @@ instance Data.FromXML MetricsAndOperator where
     MetricsAndOperator'
       Prelude.<$> (x Data..@? "AccessPointArn")
       Prelude.<*> (x Data..@? "Prefix")
-      Prelude.<*> ( x Data..@? "Tag" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tag"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 
 instance Prelude.Hashable MetricsAndOperator where
   hashWithSalt _salt MetricsAndOperator' {..} =
-    _salt `Prelude.hashWithSalt` accessPointArn
+    _salt
+      `Prelude.hashWithSalt` accessPointArn
       `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` tags
 

@@ -58,6 +58,7 @@ module Amazonka.S3.ListObjectVersions
     listObjectVersions_keyMarker,
     listObjectVersions_maxKeys,
     listObjectVersions_prefix,
+    listObjectVersions_requestPayer,
     listObjectVersions_versionIdMarker,
     listObjectVersions_bucket,
 
@@ -77,6 +78,7 @@ module Amazonka.S3.ListObjectVersions
     listObjectVersionsResponse_nextKeyMarker,
     listObjectVersionsResponse_nextVersionIdMarker,
     listObjectVersionsResponse_prefix,
+    listObjectVersionsResponse_requestCharged,
     listObjectVersionsResponse_versionIdMarker,
     listObjectVersionsResponse_versions,
     listObjectVersionsResponse_httpStatus,
@@ -121,6 +123,7 @@ data ListObjectVersions = ListObjectVersions'
     -- use prefix with delimiter to roll up numerous objects into a single
     -- result under CommonPrefixes.
     prefix :: Prelude.Maybe Prelude.Text,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | Specifies the object version you want to start listing from.
     versionIdMarker :: Prelude.Maybe Prelude.Text,
     -- | The bucket name that contains the objects.
@@ -165,6 +168,8 @@ data ListObjectVersions = ListObjectVersions'
 -- use prefix with delimiter to roll up numerous objects into a single
 -- result under CommonPrefixes.
 --
+-- 'requestPayer', 'listObjectVersions_requestPayer' - Undocumented member.
+--
 -- 'versionIdMarker', 'listObjectVersions_versionIdMarker' - Specifies the object version you want to start listing from.
 --
 -- 'bucket', 'listObjectVersions_bucket' - The bucket name that contains the objects.
@@ -180,6 +185,7 @@ newListObjectVersions pBucket_ =
       keyMarker = Prelude.Nothing,
       maxKeys = Prelude.Nothing,
       prefix = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
       versionIdMarker = Prelude.Nothing,
       bucket = pBucket_
     }
@@ -225,6 +231,10 @@ listObjectVersions_maxKeys = Lens.lens (\ListObjectVersions' {maxKeys} -> maxKey
 listObjectVersions_prefix :: Lens.Lens' ListObjectVersions (Prelude.Maybe Prelude.Text)
 listObjectVersions_prefix = Lens.lens (\ListObjectVersions' {prefix} -> prefix) (\s@ListObjectVersions' {} a -> s {prefix = a} :: ListObjectVersions)
 
+-- | Undocumented member.
+listObjectVersions_requestPayer :: Lens.Lens' ListObjectVersions (Prelude.Maybe RequestPayer)
+listObjectVersions_requestPayer = Lens.lens (\ListObjectVersions' {requestPayer} -> requestPayer) (\s@ListObjectVersions' {} a -> s {requestPayer = a} :: ListObjectVersions)
+
 -- | Specifies the object version you want to start listing from.
 listObjectVersions_versionIdMarker :: Lens.Lens' ListObjectVersions (Prelude.Maybe Prelude.Text)
 listObjectVersions_versionIdMarker = Lens.lens (\ListObjectVersions' {versionIdMarker} -> versionIdMarker) (\s@ListObjectVersions' {} a -> s {versionIdMarker = a} :: ListObjectVersions)
@@ -238,31 +248,31 @@ instance Core.AWSPager ListObjectVersions where
     | Core.stop
         ( rs
             Lens.^? listObjectVersionsResponse_isTruncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? listObjectVersionsResponse_nextKeyMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         )
         Prelude.&& Prelude.isNothing
           ( rs
               Lens.^? listObjectVersionsResponse_nextVersionIdMarker
-                Prelude.. Lens._Just
+              Prelude.. Lens._Just
           ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listObjectVersions_keyMarker
           Lens..~ rs
           Lens.^? listObjectVersionsResponse_nextKeyMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
           Prelude.& listObjectVersions_versionIdMarker
           Lens..~ rs
           Lens.^? listObjectVersionsResponse_nextVersionIdMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListObjectVersions where
   type
@@ -286,6 +296,7 @@ instance Core.AWSRequest ListObjectVersions where
             Prelude.<*> (x Data..@? "NextKeyMarker")
             Prelude.<*> (x Data..@? "NextVersionIdMarker")
             Prelude.<*> (x Data..@? "Prefix")
+            Prelude.<*> (h Data..#? "x-amz-request-charged")
             Prelude.<*> (x Data..@? "VersionIdMarker")
             Prelude.<*> (Core.may (Data.parseXMLList "Version") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -293,12 +304,14 @@ instance Core.AWSRequest ListObjectVersions where
 
 instance Prelude.Hashable ListObjectVersions where
   hashWithSalt _salt ListObjectVersions' {..} =
-    _salt `Prelude.hashWithSalt` delimiter
+    _salt
+      `Prelude.hashWithSalt` delimiter
       `Prelude.hashWithSalt` encodingType
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` keyMarker
       `Prelude.hashWithSalt` maxKeys
       `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` versionIdMarker
       `Prelude.hashWithSalt` bucket
 
@@ -310,6 +323,7 @@ instance Prelude.NFData ListObjectVersions where
       `Prelude.seq` Prelude.rnf keyMarker
       `Prelude.seq` Prelude.rnf maxKeys
       `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf versionIdMarker
       `Prelude.seq` Prelude.rnf bucket
 
@@ -317,7 +331,8 @@ instance Data.ToHeaders ListObjectVersions where
   toHeaders ListObjectVersions' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Data.=# expectedBucketOwner
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer
       ]
 
 instance Data.ToPath ListObjectVersions where
@@ -383,6 +398,7 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse'
     nextVersionIdMarker :: Prelude.Maybe Prelude.Text,
     -- | Selects objects that start with the value supplied by this parameter.
     prefix :: Prelude.Maybe Prelude.Text,
+    requestCharged :: Prelude.Maybe RequestCharged,
     -- | Marks the last version of the key returned in a truncated response.
     versionIdMarker :: Prelude.Maybe Prelude.Text,
     -- | Container for version information.
@@ -445,6 +461,8 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse'
 --
 -- 'prefix', 'listObjectVersionsResponse_prefix' - Selects objects that start with the value supplied by this parameter.
 --
+-- 'requestCharged', 'listObjectVersionsResponse_requestCharged' - Undocumented member.
+--
 -- 'versionIdMarker', 'listObjectVersionsResponse_versionIdMarker' - Marks the last version of the key returned in a truncated response.
 --
 -- 'versions', 'listObjectVersionsResponse_versions' - Container for version information.
@@ -468,6 +486,7 @@ newListObjectVersionsResponse pHttpStatus_ =
       nextKeyMarker = Prelude.Nothing,
       nextVersionIdMarker = Prelude.Nothing,
       prefix = Prelude.Nothing,
+      requestCharged = Prelude.Nothing,
       versionIdMarker = Prelude.Nothing,
       versions = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -540,6 +559,10 @@ listObjectVersionsResponse_nextVersionIdMarker = Lens.lens (\ListObjectVersionsR
 listObjectVersionsResponse_prefix :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Text)
 listObjectVersionsResponse_prefix = Lens.lens (\ListObjectVersionsResponse' {prefix} -> prefix) (\s@ListObjectVersionsResponse' {} a -> s {prefix = a} :: ListObjectVersionsResponse)
 
+-- | Undocumented member.
+listObjectVersionsResponse_requestCharged :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe RequestCharged)
+listObjectVersionsResponse_requestCharged = Lens.lens (\ListObjectVersionsResponse' {requestCharged} -> requestCharged) (\s@ListObjectVersionsResponse' {} a -> s {requestCharged = a} :: ListObjectVersionsResponse)
+
 -- | Marks the last version of the key returned in a truncated response.
 listObjectVersionsResponse_versionIdMarker :: Lens.Lens' ListObjectVersionsResponse (Prelude.Maybe Prelude.Text)
 listObjectVersionsResponse_versionIdMarker = Lens.lens (\ListObjectVersionsResponse' {versionIdMarker} -> versionIdMarker) (\s@ListObjectVersionsResponse' {} a -> s {versionIdMarker = a} :: ListObjectVersionsResponse)
@@ -565,6 +588,7 @@ instance Prelude.NFData ListObjectVersionsResponse where
       `Prelude.seq` Prelude.rnf nextKeyMarker
       `Prelude.seq` Prelude.rnf nextVersionIdMarker
       `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf requestCharged
       `Prelude.seq` Prelude.rnf versionIdMarker
       `Prelude.seq` Prelude.rnf versions
       `Prelude.seq` Prelude.rnf httpStatus

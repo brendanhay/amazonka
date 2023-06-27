@@ -28,7 +28,7 @@ import Amazonka.S3.Internal
 -- | Specifies the days since the initiation of an incomplete multipart
 -- upload that Amazon S3 will wait before permanently removing all parts of
 -- the upload. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration>
 -- in the /Amazon S3 User Guide/.
 --
 -- /See:/ 'newAbortIncompleteMultipartUpload' smart constructor.

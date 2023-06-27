@@ -44,21 +44,22 @@ data ServerSideEncryptionByDefault = ServerSideEncryptionByDefault'
     -- allowed if and only if @SSEAlgorithm@ is set to @aws:kms@.
     --
     -- You can specify the key ID or the Amazon Resource Name (ARN) of the KMS
-    -- key. However, if you are using encryption with cross-account or Amazon
-    -- Web Services service operations you must use a fully qualified KMS key
-    -- ARN. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy Using encryption for cross-account operations>.
+    -- key. If you use a key ID, you can run into a LogDestination
+    -- undeliverable error when creating a VPC flow log.
     --
-    -- __For example:__
+    -- If you are using encryption with cross-account or Amazon Web Services
+    -- service operations you must use a fully qualified KMS key ARN. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy Using encryption for cross-account operations>.
     --
     -- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- -   Key ARN:
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
-    -- Amazon S3 only supports symmetric KMS keys and not asymmetric KMS keys.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
+    -- Amazon S3 only supports symmetric encryption KMS keys. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Asymmetric keys in Amazon Web Services KMS>
     -- in the /Amazon Web Services Key Management Service Developer Guide/.
     kmsMasterKeyID :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Server-side encryption algorithm to use for the default encryption.
@@ -79,21 +80,22 @@ data ServerSideEncryptionByDefault = ServerSideEncryptionByDefault'
 -- allowed if and only if @SSEAlgorithm@ is set to @aws:kms@.
 --
 -- You can specify the key ID or the Amazon Resource Name (ARN) of the KMS
--- key. However, if you are using encryption with cross-account or Amazon
--- Web Services service operations you must use a fully qualified KMS key
--- ARN. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy Using encryption for cross-account operations>.
+-- key. If you use a key ID, you can run into a LogDestination
+-- undeliverable error when creating a VPC flow log.
 --
--- __For example:__
+-- If you are using encryption with cross-account or Amazon Web Services
+-- service operations you must use a fully qualified KMS key ARN. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy Using encryption for cross-account operations>.
 --
 -- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- Amazon S3 only supports symmetric KMS keys and not asymmetric KMS keys.
--- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
+-- Amazon S3 only supports symmetric encryption KMS keys. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Asymmetric keys in Amazon Web Services KMS>
 -- in the /Amazon Web Services Key Management Service Developer Guide/.
 --
 -- 'sSEAlgorithm', 'serverSideEncryptionByDefault_sSEAlgorithm' - Server-side encryption algorithm to use for the default encryption.
@@ -113,21 +115,22 @@ newServerSideEncryptionByDefault pSSEAlgorithm_ =
 -- allowed if and only if @SSEAlgorithm@ is set to @aws:kms@.
 --
 -- You can specify the key ID or the Amazon Resource Name (ARN) of the KMS
--- key. However, if you are using encryption with cross-account or Amazon
--- Web Services service operations you must use a fully qualified KMS key
--- ARN. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy Using encryption for cross-account operations>.
+-- key. If you use a key ID, you can run into a LogDestination
+-- undeliverable error when creating a VPC flow log.
 --
--- __For example:__
+-- If you are using encryption with cross-account or Amazon Web Services
+-- service operations you must use a fully qualified KMS key ARN. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy Using encryption for cross-account operations>.
 --
 -- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- Amazon S3 only supports symmetric KMS keys and not asymmetric KMS keys.
--- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
+-- Amazon S3 only supports symmetric encryption KMS keys. For more
+-- information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Asymmetric keys in Amazon Web Services KMS>
 -- in the /Amazon Web Services Key Management Service Developer Guide/.
 serverSideEncryptionByDefault_kmsMasterKeyID :: Lens.Lens' ServerSideEncryptionByDefault (Prelude.Maybe Prelude.Text)
 serverSideEncryptionByDefault_kmsMasterKeyID = Lens.lens (\ServerSideEncryptionByDefault' {kmsMasterKeyID} -> kmsMasterKeyID) (\s@ServerSideEncryptionByDefault' {} a -> s {kmsMasterKeyID = a} :: ServerSideEncryptionByDefault) Prelude.. Lens.mapping Data._Sensitive
@@ -147,7 +150,8 @@ instance
     ServerSideEncryptionByDefault
   where
   hashWithSalt _salt ServerSideEncryptionByDefault' {..} =
-    _salt `Prelude.hashWithSalt` kmsMasterKeyID
+    _salt
+      `Prelude.hashWithSalt` kmsMasterKeyID
       `Prelude.hashWithSalt` sSEAlgorithm
 
 instance Prelude.NFData ServerSideEncryptionByDefault where

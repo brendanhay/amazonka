@@ -75,6 +75,7 @@ module Amazonka.S3.ListObjects
     listObjectsResponse_name,
     listObjectsResponse_nextMarker,
     listObjectsResponse_prefix,
+    listObjectsResponse_requestCharged,
     listObjectsResponse_httpStatus,
   )
 where
@@ -121,14 +122,14 @@ data ListObjects = ListObjects'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
     -- in the /Amazon S3 User Guide/.
     --
-    -- When using this action with Amazon S3 on Outposts, you must direct
+    -- When you use this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
-    -- When using this action with S3 on Outposts through the Amazon Web
-    -- Services SDKs, you provide the Outposts bucket ARN in place of the
+    -- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+    -- When you use this action with S3 on Outposts through the Amazon Web
+    -- Services SDKs, you provide the Outposts access point ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName
   }
@@ -175,14 +176,14 @@ data ListObjects = ListObjects'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 newListObjects ::
   -- | 'bucket'
@@ -247,14 +248,14 @@ listObjects_requestPayer = Lens.lens (\ListObjects' {requestPayer} -> requestPay
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 listObjects_bucket :: Lens.Lens' ListObjects BucketName
 listObjects_bucket = Lens.lens (\ListObjects' {bucket} -> bucket) (\s@ListObjects' {} a -> s {bucket = a} :: ListObjects)
@@ -263,9 +264,10 @@ instance Core.AWSPager ListObjects where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listObjectsResponse_isTruncated Prelude.. Lens._Just
+            Lens.^? listObjectsResponse_isTruncated
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^. Core.choice
@@ -275,16 +277,17 @@ instance Core.AWSPager ListObjects where
                   )
               )
               ( Lens.^?
-                  ( listObjectsResponse_contents Prelude.. Lens._Just
+                  ( listObjectsResponse_contents
+                      Prelude.. Lens._Just
                       Prelude.. Lens._last
                       Prelude.. object_key
                   )
               )
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listObjects_marker
           Lens..~ rs
           Lens.^. Core.choice
@@ -294,7 +297,8 @@ instance Core.AWSPager ListObjects where
                 )
             )
             ( Lens.^?
-                ( listObjectsResponse_contents Prelude.. Lens._Just
+                ( listObjectsResponse_contents
+                    Prelude.. Lens._Just
                     Prelude.. Lens._last
                     Prelude.. object_key
                 )
@@ -319,12 +323,14 @@ instance Core.AWSRequest ListObjects where
             Prelude.<*> (x Data..@? "Name")
             Prelude.<*> (x Data..@? "NextMarker")
             Prelude.<*> (x Data..@? "Prefix")
+            Prelude.<*> (h Data..#? "x-amz-request-charged")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ListObjects where
   hashWithSalt _salt ListObjects' {..} =
-    _salt `Prelude.hashWithSalt` delimiter
+    _salt
+      `Prelude.hashWithSalt` delimiter
       `Prelude.hashWithSalt` encodingType
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` marker
@@ -415,6 +421,7 @@ data ListObjectsResponse = ListObjectsResponse'
     nextMarker :: Prelude.Maybe Prelude.Text,
     -- | Keys that begin with the indicated prefix.
     prefix :: Prelude.Maybe Prelude.Text,
+    requestCharged :: Prelude.Maybe RequestCharged,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -475,6 +482,8 @@ data ListObjectsResponse = ListObjectsResponse'
 --
 -- 'prefix', 'listObjectsResponse_prefix' - Keys that begin with the indicated prefix.
 --
+-- 'requestCharged', 'listObjectsResponse_requestCharged' - Undocumented member.
+--
 -- 'httpStatus', 'listObjectsResponse_httpStatus' - The response's http status code.
 newListObjectsResponse ::
   -- | 'httpStatus'
@@ -493,6 +502,7 @@ newListObjectsResponse pHttpStatus_ =
       name = Prelude.Nothing,
       nextMarker = Prelude.Nothing,
       prefix = Prelude.Nothing,
+      requestCharged = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -563,6 +573,10 @@ listObjectsResponse_nextMarker = Lens.lens (\ListObjectsResponse' {nextMarker} -
 listObjectsResponse_prefix :: Lens.Lens' ListObjectsResponse (Prelude.Maybe Prelude.Text)
 listObjectsResponse_prefix = Lens.lens (\ListObjectsResponse' {prefix} -> prefix) (\s@ListObjectsResponse' {} a -> s {prefix = a} :: ListObjectsResponse)
 
+-- | Undocumented member.
+listObjectsResponse_requestCharged :: Lens.Lens' ListObjectsResponse (Prelude.Maybe RequestCharged)
+listObjectsResponse_requestCharged = Lens.lens (\ListObjectsResponse' {requestCharged} -> requestCharged) (\s@ListObjectsResponse' {} a -> s {requestCharged = a} :: ListObjectsResponse)
+
 -- | The response's http status code.
 listObjectsResponse_httpStatus :: Lens.Lens' ListObjectsResponse Prelude.Int
 listObjectsResponse_httpStatus = Lens.lens (\ListObjectsResponse' {httpStatus} -> httpStatus) (\s@ListObjectsResponse' {} a -> s {httpStatus = a} :: ListObjectsResponse)
@@ -579,4 +593,5 @@ instance Prelude.NFData ListObjectsResponse where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf nextMarker
       `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf requestCharged
       `Prelude.seq` Prelude.rnf httpStatus

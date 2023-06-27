@@ -72,6 +72,7 @@ module Amazonka.S3.ListMultipartUploads
     listMultipartUploads_keyMarker,
     listMultipartUploads_maxUploads,
     listMultipartUploads_prefix,
+    listMultipartUploads_requestPayer,
     listMultipartUploads_uploadIdMarker,
     listMultipartUploads_bucket,
 
@@ -90,6 +91,7 @@ module Amazonka.S3.ListMultipartUploads
     listMultipartUploadsResponse_nextKeyMarker,
     listMultipartUploadsResponse_nextUploadIdMarker,
     listMultipartUploadsResponse_prefix,
+    listMultipartUploadsResponse_requestCharged,
     listMultipartUploadsResponse_uploadIdMarker,
     listMultipartUploadsResponse_uploads,
     listMultipartUploadsResponse_httpStatus,
@@ -140,6 +142,7 @@ data ListMultipartUploads = ListMultipartUploads'
     -- different grouping of keys. (You can think of using prefix to make
     -- groups in the same way you\'d use a folder in a file system.)
     prefix :: Prelude.Maybe Prelude.Text,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | Together with key-marker, specifies the multipart upload after which
     -- listing should begin. If key-marker is not specified, the
     -- upload-id-marker parameter is ignored. Otherwise, any multipart uploads
@@ -158,14 +161,14 @@ data ListMultipartUploads = ListMultipartUploads'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
     -- in the /Amazon S3 User Guide/.
     --
-    -- When using this action with Amazon S3 on Outposts, you must direct
+    -- When you use this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
-    -- When using this action with S3 on Outposts through the Amazon Web
-    -- Services SDKs, you provide the Outposts bucket ARN in place of the
+    -- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+    -- When you use this action with S3 on Outposts through the Amazon Web
+    -- Services SDKs, you provide the Outposts access point ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName
   }
@@ -214,6 +217,8 @@ data ListMultipartUploads = ListMultipartUploads'
 -- different grouping of keys. (You can think of using prefix to make
 -- groups in the same way you\'d use a folder in a file system.)
 --
+-- 'requestPayer', 'listMultipartUploads_requestPayer' - Undocumented member.
+--
 -- 'uploadIdMarker', 'listMultipartUploads_uploadIdMarker' - Together with key-marker, specifies the multipart upload after which
 -- listing should begin. If key-marker is not specified, the
 -- upload-id-marker parameter is ignored. Otherwise, any multipart uploads
@@ -232,14 +237,14 @@ data ListMultipartUploads = ListMultipartUploads'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 newListMultipartUploads ::
   -- | 'bucket'
@@ -253,6 +258,7 @@ newListMultipartUploads pBucket_ =
       keyMarker = Prelude.Nothing,
       maxUploads = Prelude.Nothing,
       prefix = Prelude.Nothing,
+      requestPayer = Prelude.Nothing,
       uploadIdMarker = Prelude.Nothing,
       bucket = pBucket_
     }
@@ -304,6 +310,10 @@ listMultipartUploads_maxUploads = Lens.lens (\ListMultipartUploads' {maxUploads}
 listMultipartUploads_prefix :: Lens.Lens' ListMultipartUploads (Prelude.Maybe Prelude.Text)
 listMultipartUploads_prefix = Lens.lens (\ListMultipartUploads' {prefix} -> prefix) (\s@ListMultipartUploads' {} a -> s {prefix = a} :: ListMultipartUploads)
 
+-- | Undocumented member.
+listMultipartUploads_requestPayer :: Lens.Lens' ListMultipartUploads (Prelude.Maybe RequestPayer)
+listMultipartUploads_requestPayer = Lens.lens (\ListMultipartUploads' {requestPayer} -> requestPayer) (\s@ListMultipartUploads' {} a -> s {requestPayer = a} :: ListMultipartUploads)
+
 -- | Together with key-marker, specifies the multipart upload after which
 -- listing should begin. If key-marker is not specified, the
 -- upload-id-marker parameter is ignored. Otherwise, any multipart uploads
@@ -324,14 +334,14 @@ listMultipartUploads_uploadIdMarker = Lens.lens (\ListMultipartUploads' {uploadI
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 listMultipartUploads_bucket :: Lens.Lens' ListMultipartUploads BucketName
 listMultipartUploads_bucket = Lens.lens (\ListMultipartUploads' {bucket} -> bucket) (\s@ListMultipartUploads' {} a -> s {bucket = a} :: ListMultipartUploads)
@@ -341,31 +351,31 @@ instance Core.AWSPager ListMultipartUploads where
     | Core.stop
         ( rs
             Lens.^? listMultipartUploadsResponse_isTruncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? listMultipartUploadsResponse_nextKeyMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         )
         Prelude.&& Prelude.isNothing
           ( rs
               Lens.^? listMultipartUploadsResponse_nextUploadIdMarker
-                Prelude.. Lens._Just
+              Prelude.. Lens._Just
           ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listMultipartUploads_keyMarker
           Lens..~ rs
           Lens.^? listMultipartUploadsResponse_nextKeyMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
           Prelude.& listMultipartUploads_uploadIdMarker
           Lens..~ rs
           Lens.^? listMultipartUploadsResponse_nextUploadIdMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMultipartUploads where
   type
@@ -388,6 +398,7 @@ instance Core.AWSRequest ListMultipartUploads where
             Prelude.<*> (x Data..@? "NextKeyMarker")
             Prelude.<*> (x Data..@? "NextUploadIdMarker")
             Prelude.<*> (x Data..@? "Prefix")
+            Prelude.<*> (h Data..#? "x-amz-request-charged")
             Prelude.<*> (x Data..@? "UploadIdMarker")
             Prelude.<*> (Core.may (Data.parseXMLList "Upload") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -395,12 +406,14 @@ instance Core.AWSRequest ListMultipartUploads where
 
 instance Prelude.Hashable ListMultipartUploads where
   hashWithSalt _salt ListMultipartUploads' {..} =
-    _salt `Prelude.hashWithSalt` delimiter
+    _salt
+      `Prelude.hashWithSalt` delimiter
       `Prelude.hashWithSalt` encodingType
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` keyMarker
       `Prelude.hashWithSalt` maxUploads
       `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` uploadIdMarker
       `Prelude.hashWithSalt` bucket
 
@@ -412,6 +425,7 @@ instance Prelude.NFData ListMultipartUploads where
       `Prelude.seq` Prelude.rnf keyMarker
       `Prelude.seq` Prelude.rnf maxUploads
       `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf uploadIdMarker
       `Prelude.seq` Prelude.rnf bucket
 
@@ -419,7 +433,8 @@ instance Data.ToHeaders ListMultipartUploads where
   toHeaders ListMultipartUploads' {..} =
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
-          Data.=# expectedBucketOwner
+          Data.=# expectedBucketOwner,
+        "x-amz-request-payer" Data.=# requestPayer
       ]
 
 instance Data.ToPath ListMultipartUploads where
@@ -481,6 +496,7 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
     -- specified prefix. The result contains only keys starting with the
     -- specified prefix.
     prefix :: Prelude.Maybe Prelude.Text,
+    requestCharged :: Prelude.Maybe RequestCharged,
     -- | Upload ID after which listing began.
     uploadIdMarker :: Prelude.Maybe Prelude.Text,
     -- | Container for elements related to a particular multipart upload. A
@@ -540,6 +556,8 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
 -- specified prefix. The result contains only keys starting with the
 -- specified prefix.
 --
+-- 'requestCharged', 'listMultipartUploadsResponse_requestCharged' - Undocumented member.
+--
 -- 'uploadIdMarker', 'listMultipartUploadsResponse_uploadIdMarker' - Upload ID after which listing began.
 --
 -- 'uploads', 'listMultipartUploadsResponse_uploads' - Container for elements related to a particular multipart upload. A
@@ -563,6 +581,7 @@ newListMultipartUploadsResponse pHttpStatus_ =
       nextKeyMarker = Prelude.Nothing,
       nextUploadIdMarker = Prelude.Nothing,
       prefix = Prelude.Nothing,
+      requestCharged = Prelude.Nothing,
       uploadIdMarker = Prelude.Nothing,
       uploads = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -629,6 +648,10 @@ listMultipartUploadsResponse_nextUploadIdMarker = Lens.lens (\ListMultipartUploa
 listMultipartUploadsResponse_prefix :: Lens.Lens' ListMultipartUploadsResponse (Prelude.Maybe Prelude.Text)
 listMultipartUploadsResponse_prefix = Lens.lens (\ListMultipartUploadsResponse' {prefix} -> prefix) (\s@ListMultipartUploadsResponse' {} a -> s {prefix = a} :: ListMultipartUploadsResponse)
 
+-- | Undocumented member.
+listMultipartUploadsResponse_requestCharged :: Lens.Lens' ListMultipartUploadsResponse (Prelude.Maybe RequestCharged)
+listMultipartUploadsResponse_requestCharged = Lens.lens (\ListMultipartUploadsResponse' {requestCharged} -> requestCharged) (\s@ListMultipartUploadsResponse' {} a -> s {requestCharged = a} :: ListMultipartUploadsResponse)
+
 -- | Upload ID after which listing began.
 listMultipartUploadsResponse_uploadIdMarker :: Lens.Lens' ListMultipartUploadsResponse (Prelude.Maybe Prelude.Text)
 listMultipartUploadsResponse_uploadIdMarker = Lens.lens (\ListMultipartUploadsResponse' {uploadIdMarker} -> uploadIdMarker) (\s@ListMultipartUploadsResponse' {} a -> s {uploadIdMarker = a} :: ListMultipartUploadsResponse)
@@ -654,6 +677,7 @@ instance Prelude.NFData ListMultipartUploadsResponse where
       `Prelude.seq` Prelude.rnf nextKeyMarker
       `Prelude.seq` Prelude.rnf nextUploadIdMarker
       `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf requestCharged
       `Prelude.seq` Prelude.rnf uploadIdMarker
       `Prelude.seq` Prelude.rnf uploads
       `Prelude.seq` Prelude.rnf httpStatus

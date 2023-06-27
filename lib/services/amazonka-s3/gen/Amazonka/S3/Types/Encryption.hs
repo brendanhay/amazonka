@@ -34,14 +34,14 @@ data Encryption = Encryption'
     -- specify the encryption context for the restore results.
     kmsContext :: Prelude.Maybe Prelude.Text,
     -- | If the encryption type is @aws:kms@, this optional value specifies the
-    -- ID of the symmetric customer managed key to use for encryption of job
-    -- results. Amazon S3 only supports symmetric keys. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
+    -- ID of the symmetric encryption customer managed key to use for
+    -- encryption of job results. Amazon S3 only supports symmetric encryption
+    -- KMS keys. For more information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Asymmetric keys in KMS>
     -- in the /Amazon Web Services Key Management Service Developer Guide/.
     kmsKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The server-side encryption algorithm used when storing job results in
-    -- Amazon S3 (for example, AES256, aws:kms).
+    -- Amazon S3 (for example, AES256, @aws:kms@).
     encryptionType :: ServerSideEncryption
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -58,14 +58,14 @@ data Encryption = Encryption'
 -- specify the encryption context for the restore results.
 --
 -- 'kmsKeyId', 'encryption_kmsKeyId' - If the encryption type is @aws:kms@, this optional value specifies the
--- ID of the symmetric customer managed key to use for encryption of job
--- results. Amazon S3 only supports symmetric keys. For more information,
--- see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
+-- ID of the symmetric encryption customer managed key to use for
+-- encryption of job results. Amazon S3 only supports symmetric encryption
+-- KMS keys. For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Asymmetric keys in KMS>
 -- in the /Amazon Web Services Key Management Service Developer Guide/.
 --
 -- 'encryptionType', 'encryption_encryptionType' - The server-side encryption algorithm used when storing job results in
--- Amazon S3 (for example, AES256, aws:kms).
+-- Amazon S3 (for example, AES256, @aws:kms@).
 newEncryption ::
   -- | 'encryptionType'
   ServerSideEncryption ->
@@ -83,22 +83,23 @@ encryption_kmsContext :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
 encryption_kmsContext = Lens.lens (\Encryption' {kmsContext} -> kmsContext) (\s@Encryption' {} a -> s {kmsContext = a} :: Encryption)
 
 -- | If the encryption type is @aws:kms@, this optional value specifies the
--- ID of the symmetric customer managed key to use for encryption of job
--- results. Amazon S3 only supports symmetric keys. For more information,
--- see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
+-- ID of the symmetric encryption customer managed key to use for
+-- encryption of job results. Amazon S3 only supports symmetric encryption
+-- KMS keys. For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Asymmetric keys in KMS>
 -- in the /Amazon Web Services Key Management Service Developer Guide/.
 encryption_kmsKeyId :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
 encryption_kmsKeyId = Lens.lens (\Encryption' {kmsKeyId} -> kmsKeyId) (\s@Encryption' {} a -> s {kmsKeyId = a} :: Encryption) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The server-side encryption algorithm used when storing job results in
--- Amazon S3 (for example, AES256, aws:kms).
+-- Amazon S3 (for example, AES256, @aws:kms@).
 encryption_encryptionType :: Lens.Lens' Encryption ServerSideEncryption
 encryption_encryptionType = Lens.lens (\Encryption' {encryptionType} -> encryptionType) (\s@Encryption' {} a -> s {encryptionType = a} :: Encryption)
 
 instance Prelude.Hashable Encryption where
   hashWithSalt _salt Encryption' {..} =
-    _salt `Prelude.hashWithSalt` kmsContext
+    _salt
+      `Prelude.hashWithSalt` kmsContext
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` encryptionType
 

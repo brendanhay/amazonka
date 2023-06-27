@@ -33,7 +33,8 @@ import Amazonka.S3.Types.ExistingObjectReplicationStatus
 --
 -- /See:/ 'newExistingObjectReplication' smart constructor.
 data ExistingObjectReplication = ExistingObjectReplication'
-  { status :: ExistingObjectReplicationStatus
+  { -- | Specifies whether Amazon S3 replicates existing source bucket objects.
+    status :: ExistingObjectReplicationStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,7 +46,7 @@ data ExistingObjectReplication = ExistingObjectReplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'existingObjectReplication_status' -
+-- 'status', 'existingObjectReplication_status' - Specifies whether Amazon S3 replicates existing source bucket objects.
 newExistingObjectReplication ::
   -- | 'status'
   ExistingObjectReplicationStatus ->
@@ -53,7 +54,7 @@ newExistingObjectReplication ::
 newExistingObjectReplication pStatus_ =
   ExistingObjectReplication' {status = pStatus_}
 
--- |
+-- | Specifies whether Amazon S3 replicates existing source bucket objects.
 existingObjectReplication_status :: Lens.Lens' ExistingObjectReplication ExistingObjectReplicationStatus
 existingObjectReplication_status = Lens.lens (\ExistingObjectReplication' {status} -> status) (\s@ExistingObjectReplication' {} a -> s {status = a} :: ExistingObjectReplication)
 

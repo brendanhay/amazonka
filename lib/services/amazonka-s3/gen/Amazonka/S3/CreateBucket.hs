@@ -41,107 +41,66 @@
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro Accessing a bucket>.
 --
 -- If you send your create bucket request to the @s3.amazonaws.com@
--- endpoint, the request goes to the us-east-1 Region. Accordingly, the
--- signature calculations in Signature Version 4 must use us-east-1 as the
--- Region, even if the location constraint in the request specifies another
--- Region where the bucket is to be created. If you create a bucket in a
--- Region other than US East (N. Virginia), your application must be able
--- to handle 307 redirect. For more information, see
+-- endpoint, the request goes to the @us-east-1@ Region. Accordingly, the
+-- signature calculations in Signature Version 4 must use @us-east-1@ as
+-- the Region, even if the location constraint in the request specifies
+-- another Region where the bucket is to be created. If you create a bucket
+-- in a Region other than US East (N. Virginia), your application must be
+-- able to handle 307 redirect. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html Virtual hosting of buckets>.
 --
--- __Access control lists (ACLs)__
+-- [Permissions]
+--     In addition to @s3:CreateBucket@, the following permissions are
+--     required when your @CreateBucket@ request includes specific headers:
 --
--- When creating a bucket using this operation, you can optionally
--- configure the bucket ACL to specify the accounts or groups that should
--- be granted specific permissions on the bucket.
+--     -   __Access control lists (ACLs)__ - If your @CreateBucket@ request
+--         specifies access control list (ACL) permissions and the ACL is
+--         public-read, public-read-write, authenticated-read, or if you
+--         specify access permissions explicitly through any other ACL,
+--         both @s3:CreateBucket@ and @s3:PutBucketAcl@ permissions are
+--         needed. If the ACL for the @CreateBucket@ request is private or
+--         if the request doesn\'t specify any ACLs, only @s3:CreateBucket@
+--         permission is needed.
 --
--- If your CreateBucket request sets bucket owner enforced for S3 Object
--- Ownership and specifies a bucket ACL that provides access to an external
--- Amazon Web Services account, your request fails with a @400@ error and
--- returns the @InvalidBucketAclWithObjectOwnership@ error code. For more
--- information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html Controlling object ownership>
+--     -   __Object Lock__ - If @ObjectLockEnabledForBucket@ is set to true
+--         in your @CreateBucket@ request,
+--         @s3:PutBucketObjectLockConfiguration@ and
+--         @s3:PutBucketVersioning@ permissions are required.
+--
+--     -   __S3 Object Ownership__ - If your @CreateBucket@ request
+--         includes the @x-amz-object-ownership@ header, then the
+--         @s3:PutBucketOwnershipControls@ permission is required. By
+--         default, @ObjectOwnership@ is set to @BucketOWnerEnforced@ and
+--         ACLs are disabled. We recommend keeping ACLs disabled, except in
+--         uncommon use cases where you must control access for each object
+--         individually. If you want to change the @ObjectOwnership@
+--         setting, you can use the @x-amz-object-ownership@ header in your
+--         @CreateBucket@ request to set the @ObjectOwnership@ setting of
+--         your choice. For more information about S3 Object Ownership, see
+--         <https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html Controlling object ownership>
+--         in the /Amazon S3 User Guide/.
+--
+--     -   __S3 Block Public Access__ - If your specific use case requires
+--         granting public access to your S3 resources, you can disable
+--         Block Public Access. You can create a new bucket with Block
+--         Public Access enabled, then separately call the
+--         <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeletePublicAccessBlock.html DeletePublicAccessBlock>
+--         API. To use this operation, you must have the
+--         @s3:PutBucketPublicAccessBlock@ permission. By default, all
+--         Block Public Access settings are enabled for new buckets. To
+--         avoid inadvertent exposure of your resources, we recommend
+--         keeping the S3 Block Public Access settings enabled. For more
+--         information about S3 Block Public Access, see
+--         <https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html Blocking public access to your Amazon S3 storage>
+--         in the /Amazon S3 User Guide/.
+--
+-- If your @CreateBucket@ request sets @BucketOwnerEnforced@ for Amazon S3
+-- Object Ownership and specifies a bucket ACL that provides access to an
+-- external Amazon Web Services account, your request fails with a @400@
+-- error and returns the @InvalidBucketAcLWithObjectOwnership@ error code.
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-ownership-existing-bucket.html Setting Object Ownership on an existing bucket>
 -- in the /Amazon S3 User Guide/.
---
--- There are two ways to grant the appropriate permissions using the
--- request headers.
---
--- -   Specify a canned ACL using the @x-amz-acl@ request header. Amazon S3
---     supports a set of predefined ACLs, known as /canned ACLs/. Each
---     canned ACL has a predefined set of grantees and permissions. For
---     more information, see
---     <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL>.
---
--- -   Specify access permissions explicitly using the @x-amz-grant-read@,
---     @x-amz-grant-write@, @x-amz-grant-read-acp@,
---     @x-amz-grant-write-acp@, and @x-amz-grant-full-control@ headers.
---     These headers map to the set of permissions Amazon S3 supports in an
---     ACL. For more information, see
---     <https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html Access control list (ACL) overview>.
---
---     You specify each grantee as a type=value pair, where the type is one
---     of the following:
---
---     -   @id@ – if the value specified is the canonical user ID of an
---         Amazon Web Services account
---
---     -   @uri@ – if you are granting permissions to a predefined group
---
---     -   @emailAddress@ – if the value specified is the email address of
---         an Amazon Web Services account
---
---         Using email addresses to specify a grantee is only supported in
---         the following Amazon Web Services Regions:
---
---         -   US East (N. Virginia)
---
---         -   US West (N. California)
---
---         -   US West (Oregon)
---
---         -   Asia Pacific (Singapore)
---
---         -   Asia Pacific (Sydney)
---
---         -   Asia Pacific (Tokyo)
---
---         -   Europe (Ireland)
---
---         -   South America (São Paulo)
---
---         For a list of all the Amazon S3 supported Regions and endpoints,
---         see
---         <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region Regions and Endpoints>
---         in the Amazon Web Services General Reference.
---
---     For example, the following @x-amz-grant-read@ header grants the
---     Amazon Web Services accounts identified by account IDs permissions
---     to read object data and its metadata:
---
---     @x-amz-grant-read: id=\"11112222333\", id=\"444455556666\" @
---
--- You can use either a canned ACL or specify access permissions
--- explicitly. You cannot do both.
---
--- __Permissions__
---
--- In addition to @s3:CreateBucket@, the following permissions are required
--- when your CreateBucket includes specific headers:
---
--- -   __ACLs__ - If your @CreateBucket@ request specifies ACL permissions
---     and the ACL is public-read, public-read-write, authenticated-read,
---     or if you specify access permissions explicitly through any other
---     ACL, both @s3:CreateBucket@ and @s3:PutBucketAcl@ permissions are
---     needed. If the ACL the @CreateBucket@ request is private or doesn\'t
---     specify any ACLs, only @s3:CreateBucket@ permission is needed.
---
--- -   __Object Lock__ - If @ObjectLockEnabledForBucket@ is set to true in
---     your @CreateBucket@ request, @s3:PutBucketObjectLockConfiguration@
---     and @s3:PutBucketVersioning@ permissions are required.
---
--- -   __S3 Object Ownership__ - If your CreateBucket request includes the
---     the @x-amz-object-ownership@ header, @s3:PutBucketOwnershipControls@
---     permission is required.
 --
 -- The following operations are related to @CreateBucket@:
 --
@@ -322,7 +281,8 @@ instance Core.AWSRequest CreateBucket where
 
 instance Prelude.Hashable CreateBucket where
   hashWithSalt _salt CreateBucket' {..} =
-    _salt `Prelude.hashWithSalt` acl
+    _salt
+      `Prelude.hashWithSalt` acl
       `Prelude.hashWithSalt` createBucketConfiguration
       `Prelude.hashWithSalt` grantFullControl
       `Prelude.hashWithSalt` grantRead

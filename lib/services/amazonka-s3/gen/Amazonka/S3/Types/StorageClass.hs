@@ -27,6 +27,7 @@ module Amazonka.S3.Types.StorageClass
         StorageClass_ONEZONE_IA,
         StorageClass_OUTPOSTS,
         StorageClass_REDUCED_REDUNDANCY,
+        StorageClass_SNOW,
         StorageClass_STANDARD,
         StorageClass_STANDARD_IA
       ),
@@ -87,6 +88,9 @@ pattern StorageClass_OUTPOSTS = StorageClass' "OUTPOSTS"
 pattern StorageClass_REDUCED_REDUNDANCY :: StorageClass
 pattern StorageClass_REDUCED_REDUNDANCY = StorageClass' "REDUCED_REDUNDANCY"
 
+pattern StorageClass_SNOW :: StorageClass
+pattern StorageClass_SNOW = StorageClass' "SNOW"
+
 pattern StorageClass_STANDARD :: StorageClass
 pattern StorageClass_STANDARD = StorageClass' "STANDARD"
 
@@ -101,6 +105,7 @@ pattern StorageClass_STANDARD_IA = StorageClass' "STANDARD_IA"
   StorageClass_ONEZONE_IA,
   StorageClass_OUTPOSTS,
   StorageClass_REDUCED_REDUNDANCY,
+  StorageClass_SNOW,
   StorageClass_STANDARD,
   StorageClass_STANDARD_IA,
   StorageClass'

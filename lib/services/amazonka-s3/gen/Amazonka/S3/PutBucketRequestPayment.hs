@@ -199,7 +199,8 @@ instance Core.AWSRequest PutBucketRequestPayment where
 
 instance Prelude.Hashable PutBucketRequestPayment where
   hashWithSalt _salt PutBucketRequestPayment' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
+    _salt
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket

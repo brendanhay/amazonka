@@ -37,30 +37,30 @@
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general Permissions for server access log delivery>
 -- in the /Amazon S3 User Guide/.
 --
--- __Grantee Values__
+-- [Grantee Values]
+--     You can specify the person (grantee) to whom you\'re assigning
+--     access rights (by using request elements) in the following ways:
 --
--- You can specify the person (grantee) to whom you\'re assigning access
--- rights (using request elements) in the following ways:
+--     -   By the person\'s ID:
 --
--- -   By the person\'s ID:
+--         @\<Grantee xmlns:xsi=\"http:\/\/www.w3.org\/2001\/XMLSchema-instance\" xsi:type=\"CanonicalUser\">\<ID>\<>ID\<>\<\/ID>\<DisplayName>\<>GranteesEmail\<>\<\/DisplayName> \<\/Grantee>@
 --
---     @\<Grantee xmlns:xsi=\"http:\/\/www.w3.org\/2001\/XMLSchema-instance\" xsi:type=\"CanonicalUser\">\<ID>\<>ID\<>\<\/ID>\<DisplayName>\<>GranteesEmail\<>\<\/DisplayName> \<\/Grantee>@
+--         @DisplayName@ is optional and ignored in the request.
 --
---     DisplayName is optional and ignored in the request.
+--     -   By Email address:
 --
--- -   By Email address:
+--         @ \<Grantee xmlns:xsi=\"http:\/\/www.w3.org\/2001\/XMLSchema-instance\" xsi:type=\"AmazonCustomerByEmail\">\<EmailAddress>\<>Grantees\@email.com\<>\<\/EmailAddress>\<\/Grantee>@
 --
---     @ \<Grantee xmlns:xsi=\"http:\/\/www.w3.org\/2001\/XMLSchema-instance\" xsi:type=\"AmazonCustomerByEmail\">\<EmailAddress>\<>Grantees\@email.com\<>\<\/EmailAddress>\<\/Grantee>@
+--         The grantee is resolved to the @CanonicalUser@ and, in a
+--         response to a @GETObjectAcl@ request, appears as the
+--         CanonicalUser.
 --
---     The grantee is resolved to the CanonicalUser and, in a response to a
---     GET Object acl request, appears as the CanonicalUser.
+--     -   By URI:
 --
--- -   By URI:
+--         @\<Grantee xmlns:xsi=\"http:\/\/www.w3.org\/2001\/XMLSchema-instance\" xsi:type=\"Group\">\<URI>\<>http:\/\/acs.amazonaws.com\/groups\/global\/AuthenticatedUsers\<>\<\/URI>\<\/Grantee>@
 --
---     @\<Grantee xmlns:xsi=\"http:\/\/www.w3.org\/2001\/XMLSchema-instance\" xsi:type=\"Group\">\<URI>\<>http:\/\/acs.amazonaws.com\/groups\/global\/AuthenticatedUsers\<>\<\/URI>\<\/Grantee>@
---
--- To enable logging, you use LoggingEnabled and its children request
--- elements. To disable logging, you use an empty BucketLoggingStatus
+-- To enable logging, you use @LoggingEnabled@ and its children request
+-- elements. To disable logging, you use an empty @BucketLoggingStatus@
 -- request element:
 --
 -- @\<BucketLoggingStatus xmlns=\"http:\/\/doc.s3.amazonaws.com\/2006-03-01\" \/>@
@@ -237,7 +237,8 @@ instance Core.AWSRequest PutBucketLogging where
 
 instance Prelude.Hashable PutBucketLogging where
   hashWithSalt _salt PutBucketLogging' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
+    _salt
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket

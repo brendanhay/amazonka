@@ -203,7 +203,8 @@ instance
   hashWithSalt
     _salt
     PutBucketAccelerateConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` checksumAlgorithm
+      _salt
+        `Prelude.hashWithSalt` checksumAlgorithm
         `Prelude.hashWithSalt` expectedBucketOwner
         `Prelude.hashWithSalt` bucket
         `Prelude.hashWithSalt` accelerateConfiguration

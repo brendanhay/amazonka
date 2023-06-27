@@ -168,7 +168,8 @@ completedPart_eTag = Lens.lens (\CompletedPart' {eTag} -> eTag) (\s@CompletedPar
 
 instance Prelude.Hashable CompletedPart where
   hashWithSalt _salt CompletedPart' {..} =
-    _salt `Prelude.hashWithSalt` checksumCRC32
+    _salt
+      `Prelude.hashWithSalt` checksumCRC32
       `Prelude.hashWithSalt` checksumCRC32C
       `Prelude.hashWithSalt` checksumSHA1
       `Prelude.hashWithSalt` checksumSHA256

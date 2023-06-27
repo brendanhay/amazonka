@@ -37,7 +37,9 @@ data CSVInput = CSVInput'
     allowQuotedRecordDelimiter :: Prelude.Maybe Prelude.Bool,
     -- | A single character used to indicate that a row should be ignored when
     -- the character is present at the start of that row. You can specify any
-    -- character to indicate a comment line.
+    -- character to indicate a comment line. The default character is @#@.
+    --
+    -- Default: @#@
     comments :: Prelude.Maybe Prelude.Text,
     -- | A single character used to separate individual fields in a record. You
     -- can specify an arbitrary delimiter.
@@ -88,7 +90,9 @@ data CSVInput = CSVInput'
 --
 -- 'comments', 'cSVInput_comments' - A single character used to indicate that a row should be ignored when
 -- the character is present at the start of that row. You can specify any
--- character to indicate a comment line.
+-- character to indicate a comment line. The default character is @#@.
+--
+-- Default: @#@
 --
 -- 'fieldDelimiter', 'cSVInput_fieldDelimiter' - A single character used to separate individual fields in a record. You
 -- can specify an arbitrary delimiter.
@@ -143,7 +147,9 @@ cSVInput_allowQuotedRecordDelimiter = Lens.lens (\CSVInput' {allowQuotedRecordDe
 
 -- | A single character used to indicate that a row should be ignored when
 -- the character is present at the start of that row. You can specify any
--- character to indicate a comment line.
+-- character to indicate a comment line. The default character is @#@.
+--
+-- Default: @#@
 cSVInput_comments :: Lens.Lens' CSVInput (Prelude.Maybe Prelude.Text)
 cSVInput_comments = Lens.lens (\CSVInput' {comments} -> comments) (\s@CSVInput' {} a -> s {comments = a} :: CSVInput)
 

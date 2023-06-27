@@ -26,6 +26,16 @@
 -- @READ_ACP@ permission is granted to the anonymous user, you can return
 -- the ACL of the bucket without using an authorization header.
 --
+-- To use this API operation against an access point, provide the alias of
+-- the access point in place of the bucket name.
+--
+-- To use this API operation against an Object Lambda access point, provide
+-- the alias of the Object Lambda access point in place of the bucket name.
+-- If the Object Lambda access point alias in a request is not valid, the
+-- error code @InvalidAccessPointAliasError@ is returned. For more
+-- information about @InvalidAccessPointAliasError@, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
+--
 -- If your bucket uses the bucket owner enforced setting for S3 Object
 -- Ownership, requests to read ACLs are still supported and return the
 -- @bucket-owner-full-control@ ACL with the owner being the account that
@@ -33,7 +43,7 @@
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html Controlling object ownership and disabling ACLs>
 -- in the /Amazon S3 User Guide/.
 --
--- __Related Resources__
+-- The following operations are related to @GetBucketAcl@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html ListObjects>
 module Amazonka.S3.GetBucketAcl
@@ -71,6 +81,16 @@ data GetBucketAcl = GetBucketAcl'
     -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Specifies the S3 bucket whose ACL is being requested.
+    --
+    -- To use this API operation against an access point, provide the alias of
+    -- the access point in place of the bucket name.
+    --
+    -- To use this API operation against an Object Lambda access point, provide
+    -- the alias of the Object Lambda access point in place of the bucket name.
+    -- If the Object Lambda access point alias in a request is not valid, the
+    -- error code @InvalidAccessPointAliasError@ is returned. For more
+    -- information about @InvalidAccessPointAliasError@, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
     bucket :: BucketName
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,6 +108,16 @@ data GetBucketAcl = GetBucketAcl'
 -- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'getBucketAcl_bucket' - Specifies the S3 bucket whose ACL is being requested.
+--
+-- To use this API operation against an access point, provide the alias of
+-- the access point in place of the bucket name.
+--
+-- To use this API operation against an Object Lambda access point, provide
+-- the alias of the Object Lambda access point in place of the bucket name.
+-- If the Object Lambda access point alias in a request is not valid, the
+-- error code @InvalidAccessPointAliasError@ is returned. For more
+-- information about @InvalidAccessPointAliasError@, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
 newGetBucketAcl ::
   -- | 'bucket'
   BucketName ->
@@ -106,6 +136,16 @@ getBucketAcl_expectedBucketOwner :: Lens.Lens' GetBucketAcl (Prelude.Maybe Prelu
 getBucketAcl_expectedBucketOwner = Lens.lens (\GetBucketAcl' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketAcl' {} a -> s {expectedBucketOwner = a} :: GetBucketAcl)
 
 -- | Specifies the S3 bucket whose ACL is being requested.
+--
+-- To use this API operation against an access point, provide the alias of
+-- the access point in place of the bucket name.
+--
+-- To use this API operation against an Object Lambda access point, provide
+-- the alias of the Object Lambda access point in place of the bucket name.
+-- If the Object Lambda access point alias in a request is not valid, the
+-- error code @InvalidAccessPointAliasError@ is returned. For more
+-- information about @InvalidAccessPointAliasError@, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
 getBucketAcl_bucket :: Lens.Lens' GetBucketAcl BucketName
 getBucketAcl_bucket = Lens.lens (\GetBucketAcl' {bucket} -> bucket) (\s@GetBucketAcl' {} a -> s {bucket = a} :: GetBucketAcl)
 
@@ -118,7 +158,8 @@ instance Core.AWSRequest GetBucketAcl where
     Response.receiveXML
       ( \s h x ->
           GetBucketAclResponse'
-            Prelude.<$> ( x Data..@? "AccessControlList"
+            Prelude.<$> ( x
+                            Data..@? "AccessControlList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Grant")
                         )
@@ -128,7 +169,8 @@ instance Core.AWSRequest GetBucketAcl where
 
 instance Prelude.Hashable GetBucketAcl where
   hashWithSalt _salt GetBucketAcl' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData GetBucketAcl where

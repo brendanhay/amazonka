@@ -41,8 +41,14 @@
 -- before the copy action starts, you receive a standard Amazon S3 error.
 -- If the error occurs during the copy operation, the error response is
 -- embedded in the @200 OK@ response. This means that a @200 OK@ response
--- can contain either a success or an error. Design your application to
--- parse the contents of the response and handle it appropriately.
+-- can contain either a success or an error. If you call the S3 API
+-- directly, make sure to design your application to parse the contents of
+-- the response and handle it appropriately. If you use Amazon Web Services
+-- SDKs, SDKs handle this condition. The SDKs detect the embedded error and
+-- apply error handling per your configuration settings (including
+-- automatically retrying the request as appropriate). If the condition
+-- persists, the SDKs throws an exception (or, for the SDKs that don\'t use
+-- exceptions, they return the error).
 --
 -- If the copy is successful, you receive a response with information about
 -- the copied object.
@@ -60,148 +66,167 @@
 -- you get a 400 @Bad Request@ error. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html Transfer Acceleration>.
 --
--- __Metadata__
+-- [Metadata]
+--     When copying an object, you can preserve all metadata (the default)
+--     or specify new metadata. However, the access control list (ACL) is
+--     not preserved and is set to private for the user making the request.
+--     To override the default ACL setting, specify a new ACL when
+--     generating a copy request. For more information, see
+--     <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html Using ACLs>.
 --
--- When copying an object, you can preserve all metadata (default) or
--- specify new metadata. However, the ACL is not preserved and is set to
--- private for the user making the request. To override the default ACL
--- setting, specify a new ACL when generating a copy request. For more
--- information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html Using ACLs>.
+--     To specify whether you want the object metadata copied from the
+--     source object or replaced with metadata provided in the request, you
+--     can optionally add the @x-amz-metadata-directive@ header. When you
+--     grant permissions, you can use the @s3:x-amz-metadata-directive@
+--     condition key to enforce certain metadata behavior when objects are
+--     uploaded. For more information, see
+--     <https://docs.aws.amazon.com/AmazonS3/latest/dev/amazon-s3-policy-keys.html Specifying Conditions in a Policy>
+--     in the /Amazon S3 User Guide/. For a complete list of Amazon
+--     S3-specific condition keys, see
+--     <https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3>.
 --
--- To specify whether you want the object metadata copied from the source
--- object or replaced with metadata provided in the request, you can
--- optionally add the @x-amz-metadata-directive@ header. When you grant
--- permissions, you can use the @s3:x-amz-metadata-directive@ condition key
--- to enforce certain metadata behavior when objects are uploaded. For more
--- information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/amazon-s3-policy-keys.html Specifying Conditions in a Policy>
--- in the /Amazon S3 User Guide/. For a complete list of Amazon S3-specific
--- condition keys, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html Actions, Resources, and Condition Keys for Amazon S3>.
+--     @x-amz-website-redirect-location@ is unique to each object and must
+--     be specified in the request headers to copy the value.
 --
--- __x-amz-copy-source-if Headers__
+-- [x-amz-copy-source-if Headers]
+--     To only copy an object under certain conditions, such as whether the
+--     @Etag@ matches or whether the object was modified before or after a
+--     specified date, use the following request parameters:
 --
--- To only copy an object under certain conditions, such as whether the
--- @Etag@ matches or whether the object was modified before or after a
--- specified date, use the following request parameters:
+--     -   @x-amz-copy-source-if-match@
 --
--- -   @x-amz-copy-source-if-match@
+--     -   @x-amz-copy-source-if-none-match@
 --
--- -   @x-amz-copy-source-if-none-match@
+--     -   @x-amz-copy-source-if-unmodified-since@
 --
--- -   @x-amz-copy-source-if-unmodified-since@
+--     -   @x-amz-copy-source-if-modified-since@
 --
--- -   @x-amz-copy-source-if-modified-since@
+--     If both the @x-amz-copy-source-if-match@ and
+--     @x-amz-copy-source-if-unmodified-since@ headers are present in the
+--     request and evaluate as follows, Amazon S3 returns @200 OK@ and
+--     copies the data:
 --
--- If both the @x-amz-copy-source-if-match@ and
--- @x-amz-copy-source-if-unmodified-since@ headers are present in the
--- request and evaluate as follows, Amazon S3 returns @200 OK@ and copies
--- the data:
+--     -   @x-amz-copy-source-if-match@ condition evaluates to true
 --
--- -   @x-amz-copy-source-if-match@ condition evaluates to true
+--     -   @x-amz-copy-source-if-unmodified-since@ condition evaluates to
+--         false
 --
--- -   @x-amz-copy-source-if-unmodified-since@ condition evaluates to false
+--     If both the @x-amz-copy-source-if-none-match@ and
+--     @x-amz-copy-source-if-modified-since@ headers are present in the
+--     request and evaluate as follows, Amazon S3 returns the
+--     @412 Precondition Failed@ response code:
 --
--- If both the @x-amz-copy-source-if-none-match@ and
--- @x-amz-copy-source-if-modified-since@ headers are present in the request
--- and evaluate as follows, Amazon S3 returns the @412 Precondition Failed@
--- response code:
+--     -   @x-amz-copy-source-if-none-match@ condition evaluates to false
 --
--- -   @x-amz-copy-source-if-none-match@ condition evaluates to false
+--     -   @x-amz-copy-source-if-modified-since@ condition evaluates to
+--         true
 --
--- -   @x-amz-copy-source-if-modified-since@ condition evaluates to true
+--     All headers with the @x-amz-@ prefix, including @x-amz-copy-source@,
+--     must be signed.
 --
--- All headers with the @x-amz-@ prefix, including @x-amz-copy-source@,
--- must be signed.
+-- [Server-side encryption]
+--     Amazon S3 automatically encrypts all new objects that are copied to
+--     an S3 bucket. When copying an object, if you don\'t specify
+--     encryption information in your copy request, the encryption setting
+--     of the target object is set to the default encryption configuration
+--     of the destination bucket. By default, all buckets have a base level
+--     of encryption configuration that uses server-side encryption with
+--     Amazon S3 managed keys (SSE-S3). If the destination bucket has a
+--     default encryption configuration that uses server-side encryption
+--     with Key Management Service (KMS) keys (SSE-KMS), dual-layer
+--     server-side encryption with Amazon Web Services KMS keys (DSSE-KMS),
+--     or server-side encryption with customer-provided encryption keys
+--     (SSE-C), Amazon S3 uses the corresponding KMS key, or a
+--     customer-provided key to encrypt the target object copy.
 --
--- __Server-side encryption__
+--     When you perform a @CopyObject@ operation, if you want to use a
+--     different type of encryption setting for the target object, you can
+--     use other appropriate encryption-related headers to encrypt the
+--     target object with a KMS key, an Amazon S3 managed key, or a
+--     customer-provided key. With server-side encryption, Amazon S3
+--     encrypts your data as it writes your data to disks in its data
+--     centers and decrypts the data when you access it. If the encryption
+--     setting in your request is different from the default encryption
+--     configuration of the destination bucket, the encryption setting in
+--     your request takes precedence. If the source object for the copy is
+--     stored in Amazon S3 using SSE-C, you must provide the necessary
+--     encryption information in your request so that Amazon S3 can decrypt
+--     the object for copying. For more information about server-side
+--     encryption, see
+--     <https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html Using Server-Side Encryption>.
 --
--- When you perform a CopyObject operation, you can optionally use the
--- appropriate encryption-related headers to encrypt the object using
--- server-side encryption with Amazon Web Services managed encryption keys
--- (SSE-S3 or SSE-KMS) or a customer-provided encryption key. With
--- server-side encryption, Amazon S3 encrypts your data as it writes it to
--- disks in its data centers and decrypts the data when you access it. For
--- more information about server-side encryption, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html Using Server-Side Encryption>.
+--     If a target object uses SSE-KMS, you can enable an S3 Bucket Key for
+--     the object. For more information, see
+--     <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html Amazon S3 Bucket Keys>
+--     in the /Amazon S3 User Guide/.
 --
--- If a target object uses SSE-KMS, you can enable an S3 Bucket Key for the
--- object. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html Amazon S3 Bucket Keys>
--- in the /Amazon S3 User Guide/.
+-- [Access Control List (ACL)-Specific Request Headers]
+--     When copying an object, you can optionally use headers to grant
+--     ACL-based permissions. By default, all objects are private. Only the
+--     owner has full access control. When adding a new object, you can
+--     grant permissions to individual Amazon Web Services accounts or to
+--     predefined groups that are defined by Amazon S3. These permissions
+--     are then added to the ACL on the object. For more information, see
+--     <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html Access Control List (ACL) Overview>
+--     and
+--     <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html Managing ACLs Using the REST API>.
 --
--- __Access Control List (ACL)-Specific Request Headers__
+--     If the bucket that you\'re copying objects to uses the bucket owner
+--     enforced setting for S3 Object Ownership, ACLs are disabled and no
+--     longer affect permissions. Buckets that use this setting only accept
+--     @PUT@ requests that don\'t specify an ACL or @PUT@ requests that
+--     specify bucket owner full control ACLs, such as the
+--     @bucket-owner-full-control@ canned ACL or an equivalent form of this
+--     ACL expressed in the XML format.
 --
--- When copying an object, you can optionally use headers to grant
--- ACL-based permissions. By default, all objects are private. Only the
--- owner has full access control. When adding a new object, you can grant
--- permissions to individual Amazon Web Services accounts or to predefined
--- groups defined by Amazon S3. These permissions are then added to the ACL
--- on the object. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html Access Control List (ACL) Overview>
--- and
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html Managing ACLs Using the REST API>.
+--     For more information, see
+--     <https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html Controlling ownership of objects and disabling ACLs>
+--     in the /Amazon S3 User Guide/.
 --
--- If the bucket that you\'re copying objects to uses the bucket owner
--- enforced setting for S3 Object Ownership, ACLs are disabled and no
--- longer affect permissions. Buckets that use this setting only accept PUT
--- requests that don\'t specify an ACL or PUT requests that specify bucket
--- owner full control ACLs, such as the @bucket-owner-full-control@ canned
--- ACL or an equivalent form of this ACL expressed in the XML format.
+--     If your bucket uses the bucket owner enforced setting for Object
+--     Ownership, all objects written to the bucket by any account will be
+--     owned by the bucket owner.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html Controlling ownership of objects and disabling ACLs>
--- in the /Amazon S3 User Guide/.
+-- [Checksums]
+--     When copying an object, if it has a checksum, that checksum will be
+--     copied to the new object by default. When you copy the object over,
+--     you can optionally specify a different checksum algorithm to use
+--     with the @x-amz-checksum-algorithm@ header.
 --
--- If your bucket uses the bucket owner enforced setting for Object
--- Ownership, all objects written to the bucket by any account will be
--- owned by the bucket owner.
+-- [Storage Class Options]
+--     You can use the @CopyObject@ action to change the storage class of
+--     an object that is already stored in Amazon S3 by using the
+--     @StorageClass@ parameter. For more information, see
+--     <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>
+--     in the /Amazon S3 User Guide/.
 --
--- __Checksums__
+--     If the source object\'s storage class is GLACIER, you must restore a
+--     copy of this object before you can use it as a source object for the
+--     copy operation. For more information, see
+--     <https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html RestoreObject>.
+--     For more information, see
+--     <https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html Copying Objects>.
 --
--- When copying an object, if it has a checksum, that checksum will be
--- copied to the new object by default. When you copy the object over, you
--- may optionally specify a different checksum algorithm to use with the
--- @x-amz-checksum-algorithm@ header.
+-- [Versioning]
+--     By default, @x-amz-copy-source@ header identifies the current
+--     version of an object to copy. If the current version is a delete
+--     marker, Amazon S3 behaves as if the object was deleted. To copy a
+--     different version, use the @versionId@ subresource.
 --
--- __Storage Class Options__
+--     If you enable versioning on the target bucket, Amazon S3 generates a
+--     unique version ID for the object being copied. This version ID is
+--     different from the version ID of the source object. Amazon S3
+--     returns the version ID of the copied object in the
+--     @x-amz-version-id@ response header in the response.
 --
--- You can use the @CopyObject@ action to change the storage class of an
--- object that is already stored in Amazon S3 using the @StorageClass@
--- parameter. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>
--- in the /Amazon S3 User Guide/.
---
--- __Versioning__
---
--- By default, @x-amz-copy-source@ identifies the current version of an
--- object to copy. If the current version is a delete marker, Amazon S3
--- behaves as if the object was deleted. To copy a different version, use
--- the @versionId@ subresource.
---
--- If you enable versioning on the target bucket, Amazon S3 generates a
--- unique version ID for the object being copied. This version ID is
--- different from the version ID of the source object. Amazon S3 returns
--- the version ID of the copied object in the @x-amz-version-id@ response
--- header in the response.
---
--- If you do not enable versioning or suspend it on the target bucket, the
--- version ID that Amazon S3 generates is always null.
---
--- If the source object\'s storage class is GLACIER, you must restore a
--- copy of this object before you can use it as a source object for the
--- copy operation. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html RestoreObject>.
+--     If you do not enable versioning or suspend it on the target bucket,
+--     the version ID that Amazon S3 generates is always null.
 --
 -- The following operations are related to @CopyObject@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html PutObject>
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject>
---
--- For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html Copying Objects>.
 module Amazonka.S3.CopyObject
   ( -- * Creating a Request
     CopyObject (..),
@@ -285,9 +310,9 @@ data CopyObject = CopyObject'
     -- This action is not supported by Amazon S3 on Outposts.
     acl :: Prelude.Maybe ObjectCannedACL,
     -- | Specifies whether Amazon S3 should use an S3 Bucket Key for object
-    -- encryption with server-side encryption using AWS KMS (SSE-KMS). Setting
-    -- this header to @true@ causes Amazon S3 to use an S3 Bucket Key for
-    -- object encryption with SSE-KMS.
+    -- encryption with server-side encryption using Key Management Service
+    -- (KMS) keys (SSE-KMS). Setting this header to @true@ causes Amazon S3 to
+    -- use an S3 Bucket Key for object encryption with SSE-KMS.
     --
     -- Specifying this header with a COPY action doesn’t affect bucket-level
     -- settings for S3 Bucket Key.
@@ -386,16 +411,16 @@ data CopyObject = CopyObject'
     -- object encryption. The value of this header is a base64-encoded UTF-8
     -- string holding JSON with the encryption context key-value pairs.
     sSEKMSEncryptionContext :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | Specifies the Amazon Web Services KMS key ID to use for object
-    -- encryption. All GET and PUT requests for an object protected by Amazon
-    -- Web Services KMS will fail if not made via SSL or using SigV4. For
-    -- information about configuring using any of the officially supported
-    -- Amazon Web Services SDKs and Amazon Web Services CLI, see
+    -- | Specifies the KMS key ID to use for object encryption. All GET and PUT
+    -- requests for an object protected by KMS will fail if they\'re not made
+    -- via SSL or using SigV4. For information about configuring any of the
+    -- officially supported Amazon Web Services SDKs and Amazon Web Services
+    -- CLI, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version Specifying the Signature Version in Request Authentication>
     -- in the /Amazon S3 User Guide/.
     sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The server-side encryption algorithm used when storing this object in
-    -- Amazon S3 (for example, AES256, aws:kms).
+    -- Amazon S3 (for example, @AES256@, @aws:kms@, @aws:kms:dsse@).
     serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
     -- | By default, Amazon S3 uses the STANDARD Storage Class to store newly
     -- created objects. The STANDARD storage class provides high durability and
@@ -414,7 +439,10 @@ data CopyObject = CopyObject'
     taggingDirective :: Prelude.Maybe TaggingDirective,
     -- | If the bucket is configured as a website, redirects requests for this
     -- object to another object in the same bucket or to an external URL.
-    -- Amazon S3 stores the value of this header in the object metadata.
+    -- Amazon S3 stores the value of this header in the object metadata. This
+    -- value is unique to each object and is not copied when using the
+    -- @x-amz-metadata-directive@ header. Instead, you may opt to provide this
+    -- header in combination with the directive.
     websiteRedirectLocation :: Prelude.Maybe Prelude.Text,
     -- | The name of the destination bucket.
     --
@@ -427,14 +455,14 @@ data CopyObject = CopyObject'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
     -- in the /Amazon S3 User Guide/.
     --
-    -- When using this action with Amazon S3 on Outposts, you must direct
+    -- When you use this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
-    -- When using this action with S3 on Outposts through the Amazon Web
-    -- Services SDKs, you provide the Outposts bucket ARN in place of the
+    -- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+    -- When you use this action with S3 on Outposts through the Amazon Web
+    -- Services SDKs, you provide the Outposts access point ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | Specifies the source object for the copy operation. You specify the
@@ -496,9 +524,9 @@ data CopyObject = CopyObject'
 -- This action is not supported by Amazon S3 on Outposts.
 --
 -- 'bucketKeyEnabled', 'copyObject_bucketKeyEnabled' - Specifies whether Amazon S3 should use an S3 Bucket Key for object
--- encryption with server-side encryption using AWS KMS (SSE-KMS). Setting
--- this header to @true@ causes Amazon S3 to use an S3 Bucket Key for
--- object encryption with SSE-KMS.
+-- encryption with server-side encryption using Key Management Service
+-- (KMS) keys (SSE-KMS). Setting this header to @true@ causes Amazon S3 to
+-- use an S3 Bucket Key for object encryption with SSE-KMS.
 --
 -- Specifying this header with a COPY action doesn’t affect bucket-level
 -- settings for S3 Bucket Key.
@@ -598,16 +626,16 @@ data CopyObject = CopyObject'
 -- object encryption. The value of this header is a base64-encoded UTF-8
 -- string holding JSON with the encryption context key-value pairs.
 --
--- 'sSEKMSKeyId', 'copyObject_sSEKMSKeyId' - Specifies the Amazon Web Services KMS key ID to use for object
--- encryption. All GET and PUT requests for an object protected by Amazon
--- Web Services KMS will fail if not made via SSL or using SigV4. For
--- information about configuring using any of the officially supported
--- Amazon Web Services SDKs and Amazon Web Services CLI, see
+-- 'sSEKMSKeyId', 'copyObject_sSEKMSKeyId' - Specifies the KMS key ID to use for object encryption. All GET and PUT
+-- requests for an object protected by KMS will fail if they\'re not made
+-- via SSL or using SigV4. For information about configuring any of the
+-- officially supported Amazon Web Services SDKs and Amazon Web Services
+-- CLI, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version Specifying the Signature Version in Request Authentication>
 -- in the /Amazon S3 User Guide/.
 --
 -- 'serverSideEncryption', 'copyObject_serverSideEncryption' - The server-side encryption algorithm used when storing this object in
--- Amazon S3 (for example, AES256, aws:kms).
+-- Amazon S3 (for example, @AES256@, @aws:kms@, @aws:kms:dsse@).
 --
 -- 'storageClass', 'copyObject_storageClass' - By default, Amazon S3 uses the STANDARD Storage Class to store newly
 -- created objects. The STANDARD storage class provides high durability and
@@ -626,7 +654,10 @@ data CopyObject = CopyObject'
 --
 -- 'websiteRedirectLocation', 'copyObject_websiteRedirectLocation' - If the bucket is configured as a website, redirects requests for this
 -- object to another object in the same bucket or to an external URL.
--- Amazon S3 stores the value of this header in the object metadata.
+-- Amazon S3 stores the value of this header in the object metadata. This
+-- value is unique to each object and is not copied when using the
+-- @x-amz-metadata-directive@ header. Instead, you may opt to provide this
+-- header in combination with the directive.
 --
 -- 'bucket', 'copyObject_bucket' - The name of the destination bucket.
 --
@@ -639,14 +670,14 @@ data CopyObject = CopyObject'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 --
 -- 'copySource', 'copyObject_copySource' - Specifies the source object for the copy operation. You specify the
@@ -751,9 +782,9 @@ copyObject_acl :: Lens.Lens' CopyObject (Prelude.Maybe ObjectCannedACL)
 copyObject_acl = Lens.lens (\CopyObject' {acl} -> acl) (\s@CopyObject' {} a -> s {acl = a} :: CopyObject)
 
 -- | Specifies whether Amazon S3 should use an S3 Bucket Key for object
--- encryption with server-side encryption using AWS KMS (SSE-KMS). Setting
--- this header to @true@ causes Amazon S3 to use an S3 Bucket Key for
--- object encryption with SSE-KMS.
+-- encryption with server-side encryption using Key Management Service
+-- (KMS) keys (SSE-KMS). Setting this header to @true@ causes Amazon S3 to
+-- use an S3 Bucket Key for object encryption with SSE-KMS.
 --
 -- Specifying this header with a COPY action doesn’t affect bucket-level
 -- settings for S3 Bucket Key.
@@ -915,18 +946,18 @@ copyObject_sSECustomerKeyMD5 = Lens.lens (\CopyObject' {sSECustomerKeyMD5} -> sS
 copyObject_sSEKMSEncryptionContext :: Lens.Lens' CopyObject (Prelude.Maybe Prelude.Text)
 copyObject_sSEKMSEncryptionContext = Lens.lens (\CopyObject' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@CopyObject' {} a -> s {sSEKMSEncryptionContext = a} :: CopyObject) Prelude.. Lens.mapping Data._Sensitive
 
--- | Specifies the Amazon Web Services KMS key ID to use for object
--- encryption. All GET and PUT requests for an object protected by Amazon
--- Web Services KMS will fail if not made via SSL or using SigV4. For
--- information about configuring using any of the officially supported
--- Amazon Web Services SDKs and Amazon Web Services CLI, see
+-- | Specifies the KMS key ID to use for object encryption. All GET and PUT
+-- requests for an object protected by KMS will fail if they\'re not made
+-- via SSL or using SigV4. For information about configuring any of the
+-- officially supported Amazon Web Services SDKs and Amazon Web Services
+-- CLI, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version Specifying the Signature Version in Request Authentication>
 -- in the /Amazon S3 User Guide/.
 copyObject_sSEKMSKeyId :: Lens.Lens' CopyObject (Prelude.Maybe Prelude.Text)
 copyObject_sSEKMSKeyId = Lens.lens (\CopyObject' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@CopyObject' {} a -> s {sSEKMSKeyId = a} :: CopyObject) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The server-side encryption algorithm used when storing this object in
--- Amazon S3 (for example, AES256, aws:kms).
+-- Amazon S3 (for example, @AES256@, @aws:kms@, @aws:kms:dsse@).
 copyObject_serverSideEncryption :: Lens.Lens' CopyObject (Prelude.Maybe ServerSideEncryption)
 copyObject_serverSideEncryption = Lens.lens (\CopyObject' {serverSideEncryption} -> serverSideEncryption) (\s@CopyObject' {} a -> s {serverSideEncryption = a} :: CopyObject)
 
@@ -953,7 +984,10 @@ copyObject_taggingDirective = Lens.lens (\CopyObject' {taggingDirective} -> tagg
 
 -- | If the bucket is configured as a website, redirects requests for this
 -- object to another object in the same bucket or to an external URL.
--- Amazon S3 stores the value of this header in the object metadata.
+-- Amazon S3 stores the value of this header in the object metadata. This
+-- value is unique to each object and is not copied when using the
+-- @x-amz-metadata-directive@ header. Instead, you may opt to provide this
+-- header in combination with the directive.
 copyObject_websiteRedirectLocation :: Lens.Lens' CopyObject (Prelude.Maybe Prelude.Text)
 copyObject_websiteRedirectLocation = Lens.lens (\CopyObject' {websiteRedirectLocation} -> websiteRedirectLocation) (\s@CopyObject' {} a -> s {websiteRedirectLocation = a} :: CopyObject)
 
@@ -968,14 +1002,14 @@ copyObject_websiteRedirectLocation = Lens.lens (\CopyObject' {websiteRedirectLoc
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 copyObject_bucket :: Lens.Lens' CopyObject BucketName
 copyObject_bucket = Lens.lens (\CopyObject' {bucket} -> bucket) (\s@CopyObject' {} a -> s {bucket = a} :: CopyObject)
@@ -1060,7 +1094,8 @@ instance Core.AWSRequest CopyObject where
 
 instance Prelude.Hashable CopyObject where
   hashWithSalt _salt CopyObject' {..} =
-    _salt `Prelude.hashWithSalt` acl
+    _salt
+      `Prelude.hashWithSalt` acl
       `Prelude.hashWithSalt` bucketKeyEnabled
       `Prelude.hashWithSalt` cacheControl
       `Prelude.hashWithSalt` checksumAlgorithm
@@ -1239,7 +1274,7 @@ instance Data.ToQuery CopyObject where
 -- | /See:/ 'newCopyObjectResponse' smart constructor.
 data CopyObjectResponse = CopyObjectResponse'
   { -- | Indicates whether the copied object uses an S3 Bucket Key for
-    -- server-side encryption with Amazon Web Services KMS (SSE-KMS).
+    -- server-side encryption with Key Management Service (KMS) keys (SSE-KMS).
     bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Container for all response elements.
     copyObjectResult :: Prelude.Maybe CopyObjectResult,
@@ -1261,12 +1296,11 @@ data CopyObjectResponse = CopyObjectResponse'
     -- use for object encryption. The value of this header is a base64-encoded
     -- UTF-8 string holding JSON with the encryption context key-value pairs.
     sSEKMSEncryptionContext :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | If present, specifies the ID of the Amazon Web Services Key Management
-    -- Service (Amazon Web Services KMS) symmetric customer managed key that
-    -- was used for the object.
+    -- | If present, specifies the ID of the Key Management Service (KMS)
+    -- symmetric encryption customer managed key that was used for the object.
     sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The server-side encryption algorithm used when storing this object in
-    -- Amazon S3 (for example, AES256, aws:kms).
+    -- Amazon S3 (for example, @AES256@, @aws:kms@, @aws:kms:dsse@).
     serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
     -- | Version ID of the newly created copy.
     versionId :: Prelude.Maybe ObjectVersionId,
@@ -1284,7 +1318,7 @@ data CopyObjectResponse = CopyObjectResponse'
 -- for backwards compatibility:
 --
 -- 'bucketKeyEnabled', 'copyObjectResponse_bucketKeyEnabled' - Indicates whether the copied object uses an S3 Bucket Key for
--- server-side encryption with Amazon Web Services KMS (SSE-KMS).
+-- server-side encryption with Key Management Service (KMS) keys (SSE-KMS).
 --
 -- 'copyObjectResult', 'copyObjectResponse_copyObjectResult' - Container for all response elements.
 --
@@ -1307,12 +1341,11 @@ data CopyObjectResponse = CopyObjectResponse'
 -- use for object encryption. The value of this header is a base64-encoded
 -- UTF-8 string holding JSON with the encryption context key-value pairs.
 --
--- 'sSEKMSKeyId', 'copyObjectResponse_sSEKMSKeyId' - If present, specifies the ID of the Amazon Web Services Key Management
--- Service (Amazon Web Services KMS) symmetric customer managed key that
--- was used for the object.
+-- 'sSEKMSKeyId', 'copyObjectResponse_sSEKMSKeyId' - If present, specifies the ID of the Key Management Service (KMS)
+-- symmetric encryption customer managed key that was used for the object.
 --
 -- 'serverSideEncryption', 'copyObjectResponse_serverSideEncryption' - The server-side encryption algorithm used when storing this object in
--- Amazon S3 (for example, AES256, aws:kms).
+-- Amazon S3 (for example, @AES256@, @aws:kms@, @aws:kms:dsse@).
 --
 -- 'versionId', 'copyObjectResponse_versionId' - Version ID of the newly created copy.
 --
@@ -1339,7 +1372,7 @@ newCopyObjectResponse pHttpStatus_ =
     }
 
 -- | Indicates whether the copied object uses an S3 Bucket Key for
--- server-side encryption with Amazon Web Services KMS (SSE-KMS).
+-- server-side encryption with Key Management Service (KMS) keys (SSE-KMS).
 copyObjectResponse_bucketKeyEnabled :: Lens.Lens' CopyObjectResponse (Prelude.Maybe Prelude.Bool)
 copyObjectResponse_bucketKeyEnabled = Lens.lens (\CopyObjectResponse' {bucketKeyEnabled} -> bucketKeyEnabled) (\s@CopyObjectResponse' {} a -> s {bucketKeyEnabled = a} :: CopyObjectResponse)
 
@@ -1378,14 +1411,13 @@ copyObjectResponse_sSECustomerKeyMD5 = Lens.lens (\CopyObjectResponse' {sSECusto
 copyObjectResponse_sSEKMSEncryptionContext :: Lens.Lens' CopyObjectResponse (Prelude.Maybe Prelude.Text)
 copyObjectResponse_sSEKMSEncryptionContext = Lens.lens (\CopyObjectResponse' {sSEKMSEncryptionContext} -> sSEKMSEncryptionContext) (\s@CopyObjectResponse' {} a -> s {sSEKMSEncryptionContext = a} :: CopyObjectResponse) Prelude.. Lens.mapping Data._Sensitive
 
--- | If present, specifies the ID of the Amazon Web Services Key Management
--- Service (Amazon Web Services KMS) symmetric customer managed key that
--- was used for the object.
+-- | If present, specifies the ID of the Key Management Service (KMS)
+-- symmetric encryption customer managed key that was used for the object.
 copyObjectResponse_sSEKMSKeyId :: Lens.Lens' CopyObjectResponse (Prelude.Maybe Prelude.Text)
 copyObjectResponse_sSEKMSKeyId = Lens.lens (\CopyObjectResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@CopyObjectResponse' {} a -> s {sSEKMSKeyId = a} :: CopyObjectResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The server-side encryption algorithm used when storing this object in
--- Amazon S3 (for example, AES256, aws:kms).
+-- Amazon S3 (for example, @AES256@, @aws:kms@, @aws:kms:dsse@).
 copyObjectResponse_serverSideEncryption :: Lens.Lens' CopyObjectResponse (Prelude.Maybe ServerSideEncryption)
 copyObjectResponse_serverSideEncryption = Lens.lens (\CopyObjectResponse' {serverSideEncryption} -> serverSideEncryption) (\s@CopyObjectResponse' {} a -> s {serverSideEncryption = a} :: CopyObjectResponse)
 

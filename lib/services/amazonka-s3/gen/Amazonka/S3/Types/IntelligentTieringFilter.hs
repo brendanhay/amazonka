@@ -110,7 +110,8 @@ instance Data.FromXML IntelligentTieringFilter where
 
 instance Prelude.Hashable IntelligentTieringFilter where
   hashWithSalt _salt IntelligentTieringFilter' {..} =
-    _salt `Prelude.hashWithSalt` and
+    _salt
+      `Prelude.hashWithSalt` and
       `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` tag
 

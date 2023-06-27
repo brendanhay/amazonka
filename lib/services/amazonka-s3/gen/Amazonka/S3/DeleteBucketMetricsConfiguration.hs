@@ -77,7 +77,9 @@ data DeleteBucketMetricsConfiguration = DeleteBucketMetricsConfiguration'
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket containing the metrics configuration to delete.
     bucket :: BucketName,
-    -- | The ID used to identify the metrics configuration.
+    -- | The ID used to identify the metrics configuration. The ID has a 64
+    -- character limit and can only contain letters, numbers, periods, dashes,
+    -- and underscores.
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -96,7 +98,9 @@ data DeleteBucketMetricsConfiguration = DeleteBucketMetricsConfiguration'
 --
 -- 'bucket', 'deleteBucketMetricsConfiguration_bucket' - The name of the bucket containing the metrics configuration to delete.
 --
--- 'id', 'deleteBucketMetricsConfiguration_id' - The ID used to identify the metrics configuration.
+-- 'id', 'deleteBucketMetricsConfiguration_id' - The ID used to identify the metrics configuration. The ID has a 64
+-- character limit and can only contain letters, numbers, periods, dashes,
+-- and underscores.
 newDeleteBucketMetricsConfiguration ::
   -- | 'bucket'
   BucketName ->
@@ -121,7 +125,9 @@ deleteBucketMetricsConfiguration_expectedBucketOwner = Lens.lens (\DeleteBucketM
 deleteBucketMetricsConfiguration_bucket :: Lens.Lens' DeleteBucketMetricsConfiguration BucketName
 deleteBucketMetricsConfiguration_bucket = Lens.lens (\DeleteBucketMetricsConfiguration' {bucket} -> bucket) (\s@DeleteBucketMetricsConfiguration' {} a -> s {bucket = a} :: DeleteBucketMetricsConfiguration)
 
--- | The ID used to identify the metrics configuration.
+-- | The ID used to identify the metrics configuration. The ID has a 64
+-- character limit and can only contain letters, numbers, periods, dashes,
+-- and underscores.
 deleteBucketMetricsConfiguration_id :: Lens.Lens' DeleteBucketMetricsConfiguration Prelude.Text
 deleteBucketMetricsConfiguration_id = Lens.lens (\DeleteBucketMetricsConfiguration' {id} -> id) (\s@DeleteBucketMetricsConfiguration' {} a -> s {id = a} :: DeleteBucketMetricsConfiguration)
 
@@ -146,7 +152,8 @@ instance
   hashWithSalt
     _salt
     DeleteBucketMetricsConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` expectedBucketOwner
+      _salt
+        `Prelude.hashWithSalt` expectedBucketOwner
         `Prelude.hashWithSalt` bucket
         `Prelude.hashWithSalt` id
 

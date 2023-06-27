@@ -30,7 +30,7 @@
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html Enabling Cross-Origin Resource Sharing>
 -- in the /Amazon S3 User Guide/.
 --
--- __Related Resources:__
+-- __Related Resources__
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html PutBucketCors>
 --
@@ -115,7 +115,8 @@ instance Core.AWSRequest DeleteBucketCors where
 
 instance Prelude.Hashable DeleteBucketCors where
   hashWithSalt _salt DeleteBucketCors' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData DeleteBucketCors where

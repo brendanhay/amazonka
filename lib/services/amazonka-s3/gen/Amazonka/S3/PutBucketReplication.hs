@@ -51,36 +51,34 @@
 -- For information about enabling versioning on a bucket, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html Using Versioning>.
 --
--- __Handling Replication of Encrypted Objects__
+-- [Handling Replication of Encrypted Objects]
+--     By default, Amazon S3 doesn\'t replicate objects that are stored at
+--     rest using server-side encryption with KMS keys. To replicate Amazon
+--     Web Services KMS-encrypted objects, add the following:
+--     @SourceSelectionCriteria@, @SseKmsEncryptedObjects@, @Status@,
+--     @EncryptionConfiguration@, and @ReplicaKmsKeyID@. For information
+--     about replication configuration, see
+--     <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html Replicating Objects Created with SSE Using KMS keys>.
 --
--- By default, Amazon S3 doesn\'t replicate objects that are stored at rest
--- using server-side encryption with KMS keys. To replicate Amazon Web
--- Services KMS-encrypted objects, add the following:
--- @SourceSelectionCriteria@, @SseKmsEncryptedObjects@, @Status@,
--- @EncryptionConfiguration@, and @ReplicaKmsKeyID@. For information about
--- replication configuration, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html Replicating Objects Created with SSE Using KMS keys>.
+--     For information on @PutBucketReplication@ errors, see
+--     <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList List of replication-related error codes>
 --
--- For information on @PutBucketReplication@ errors, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList List of replication-related error codes>
+-- [Permissions]
+--     To create a @PutBucketReplication@ request, you must have
+--     @s3:PutReplicationConfiguration@ permissions for the bucket.
 --
--- __Permissions__
+--     By default, a resource owner, in this case the Amazon Web Services
+--     account that created the bucket, can perform this operation. The
+--     resource owner can also grant others permissions to perform the
+--     operation. For more information about permissions, see
+--     <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html Specifying Permissions in a Policy>
+--     and
+--     <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
 --
--- To create a @PutBucketReplication@ request, you must have
--- @s3:PutReplicationConfiguration@ permissions for the bucket.
---
--- By default, a resource owner, in this case the Amazon Web Services
--- account that created the bucket, can perform this operation. The
--- resource owner can also grant others permissions to perform the
--- operation. For more information about permissions, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html Specifying Permissions in a Policy>
--- and
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
---
--- To perform this operation, the user or role performing the action must
--- have the
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html iam:PassRole>
--- permission.
+--     To perform this operation, the user or role performing the action
+--     must have the
+--     <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html iam:PassRole>
+--     permission.
 --
 -- The following operations are related to @PutBucketReplication@:
 --
@@ -262,7 +260,8 @@ instance Core.AWSRequest PutBucketReplication where
 
 instance Prelude.Hashable PutBucketReplication where
   hashWithSalt _salt PutBucketReplication' {..} =
-    _salt `Prelude.hashWithSalt` checksumAlgorithm
+    _salt
+      `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` token

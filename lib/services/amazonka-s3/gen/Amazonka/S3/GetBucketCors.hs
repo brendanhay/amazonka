@@ -27,6 +27,16 @@
 -- @s3:GetBucketCORS@ action. By default, the bucket owner has this
 -- permission and can grant it to others.
 --
+-- To use this API operation against an access point, provide the alias of
+-- the access point in place of the bucket name.
+--
+-- To use this API operation against an Object Lambda access point, provide
+-- the alias of the Object Lambda access point in place of the bucket name.
+-- If the Object Lambda access point alias in a request is not valid, the
+-- error code @InvalidAccessPointAliasError@ is returned. For more
+-- information about @InvalidAccessPointAliasError@, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
+--
 -- For more information about CORS, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html Enabling Cross-Origin Resource Sharing>.
 --
@@ -69,6 +79,16 @@ data GetBucketCors = GetBucketCors'
     -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket name for which to get the cors configuration.
+    --
+    -- To use this API operation against an access point, provide the alias of
+    -- the access point in place of the bucket name.
+    --
+    -- To use this API operation against an Object Lambda access point, provide
+    -- the alias of the Object Lambda access point in place of the bucket name.
+    -- If the Object Lambda access point alias in a request is not valid, the
+    -- error code @InvalidAccessPointAliasError@ is returned. For more
+    -- information about @InvalidAccessPointAliasError@, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
     bucket :: BucketName
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,6 +106,16 @@ data GetBucketCors = GetBucketCors'
 -- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'getBucketCors_bucket' - The bucket name for which to get the cors configuration.
+--
+-- To use this API operation against an access point, provide the alias of
+-- the access point in place of the bucket name.
+--
+-- To use this API operation against an Object Lambda access point, provide
+-- the alias of the Object Lambda access point in place of the bucket name.
+-- If the Object Lambda access point alias in a request is not valid, the
+-- error code @InvalidAccessPointAliasError@ is returned. For more
+-- information about @InvalidAccessPointAliasError@, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
 newGetBucketCors ::
   -- | 'bucket'
   BucketName ->
@@ -104,6 +134,16 @@ getBucketCors_expectedBucketOwner :: Lens.Lens' GetBucketCors (Prelude.Maybe Pre
 getBucketCors_expectedBucketOwner = Lens.lens (\GetBucketCors' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketCors' {} a -> s {expectedBucketOwner = a} :: GetBucketCors)
 
 -- | The bucket name for which to get the cors configuration.
+--
+-- To use this API operation against an access point, provide the alias of
+-- the access point in place of the bucket name.
+--
+-- To use this API operation against an Object Lambda access point, provide
+-- the alias of the Object Lambda access point in place of the bucket name.
+-- If the Object Lambda access point alias in a request is not valid, the
+-- error code @InvalidAccessPointAliasError@ is returned. For more
+-- information about @InvalidAccessPointAliasError@, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList List of Error Codes>.
 getBucketCors_bucket :: Lens.Lens' GetBucketCors BucketName
 getBucketCors_bucket = Lens.lens (\GetBucketCors' {bucket} -> bucket) (\s@GetBucketCors' {} a -> s {bucket = a} :: GetBucketCors)
 
@@ -124,7 +164,8 @@ instance Core.AWSRequest GetBucketCors where
 
 instance Prelude.Hashable GetBucketCors where
   hashWithSalt _salt GetBucketCors' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData GetBucketCors where

@@ -144,7 +144,8 @@ instance Core.AWSRequest GetObjectLockConfiguration where
 
 instance Prelude.Hashable GetObjectLockConfiguration where
   hashWithSalt _salt GetObjectLockConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData GetObjectLockConfiguration where

@@ -23,6 +23,9 @@
 -- Returns a list of all buckets owned by the authenticated sender of the
 -- request. To use this operation, you must have the @s3:ListAllMyBuckets@
 -- permission.
+--
+-- For information about Amazon S3 buckets, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html Creating, configuring, and working with Amazon S3 buckets>.
 module Amazonka.S3.ListBuckets
   ( -- * Creating a Request
     ListBuckets (..),
@@ -70,7 +73,9 @@ instance Core.AWSRequest ListBuckets where
     Response.receiveXML
       ( \s h x ->
           ListBucketsResponse'
-            Prelude.<$> ( x Data..@? "Buckets" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Buckets"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "Bucket")
                         )
             Prelude.<*> (x Data..@? "Owner")

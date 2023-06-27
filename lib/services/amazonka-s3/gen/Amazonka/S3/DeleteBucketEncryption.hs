@@ -20,10 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This implementation of the DELETE action removes default encryption from
--- the bucket. For information about the Amazon S3 default encryption
--- feature, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 Default Bucket Encryption>
+-- This implementation of the DELETE action resets the default encryption
+-- for the bucket as server-side encryption with Amazon S3 managed keys
+-- (SSE-S3). For information about the bucket default encryption feature,
+-- see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 Bucket Default Encryption>
 -- in the /Amazon S3 User Guide/.
 --
 -- To use this operation, you must have permissions to perform the
@@ -35,7 +36,7 @@
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to your Amazon S3 Resources>
 -- in the /Amazon S3 User Guide/.
 --
--- __Related Resources__
+-- The following operations are related to @DeleteBucketEncryption@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html PutBucketEncryption>
 --
@@ -124,7 +125,8 @@ instance Core.AWSRequest DeleteBucketEncryption where
 
 instance Prelude.Hashable DeleteBucketEncryption where
   hashWithSalt _salt DeleteBucketEncryption' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData DeleteBucketEncryption where

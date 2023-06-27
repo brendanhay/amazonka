@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the logging status of a bucket and the permissions users have to
--- view and modify that status. To use GET, you must be the bucket owner.
+-- view and modify that status.
 --
 -- The following operations are related to @GetBucketLogging@:
 --
@@ -117,7 +117,8 @@ instance Core.AWSRequest GetBucketLogging where
 
 instance Prelude.Hashable GetBucketLogging where
   hashWithSalt _salt GetBucketLogging' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData GetBucketLogging where

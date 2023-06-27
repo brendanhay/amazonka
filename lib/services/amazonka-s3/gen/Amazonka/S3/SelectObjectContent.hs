@@ -36,86 +36,83 @@
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-glacier-select-sql-reference-select.html SELECT Command>
 -- in the /Amazon S3 User Guide/.
 --
--- For more information about using SQL with Amazon S3 Select, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference.html SQL Reference for Amazon S3 Select and S3 Glacier Select>
--- in the /Amazon S3 User Guide/.
+-- [Permissions]
+--     You must have @s3:GetObject@ permission for this operation. Amazon
+--     S3 Select does not support anonymous access. For more information
+--     about permissions, see
+--     <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html Specifying Permissions in a Policy>
+--     in the /Amazon S3 User Guide/.
 --
--- __Permissions__
+-- [Object Data Formats]
+--     You can use Amazon S3 Select to query objects that have the
+--     following format properties:
 --
--- You must have @s3:GetObject@ permission for this operation. Amazon S3
--- Select does not support anonymous access. For more information about
--- permissions, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html Specifying Permissions in a Policy>
--- in the /Amazon S3 User Guide/.
+--     -   /CSV, JSON, and Parquet/ - Objects must be in CSV, JSON, or
+--         Parquet format.
 --
--- /Object Data Formats/
+--     -   /UTF-8/ - UTF-8 is the only encoding type Amazon S3 Select
+--         supports.
 --
--- You can use Amazon S3 Select to query objects that have the following
--- format properties:
+--     -   /GZIP or BZIP2/ - CSV and JSON files can be compressed using
+--         GZIP or BZIP2. GZIP and BZIP2 are the only compression formats
+--         that Amazon S3 Select supports for CSV and JSON files. Amazon S3
+--         Select supports columnar compression for Parquet using GZIP or
+--         Snappy. Amazon S3 Select does not support whole-object
+--         compression for Parquet objects.
 --
--- -   /CSV, JSON, and Parquet/ - Objects must be in CSV, JSON, or Parquet
---     format.
+--     -   /Server-side encryption/ - Amazon S3 Select supports querying
+--         objects that are protected with server-side encryption.
 --
--- -   /UTF-8/ - UTF-8 is the only encoding type Amazon S3 Select supports.
+--         For objects that are encrypted with customer-provided encryption
+--         keys (SSE-C), you must use HTTPS, and you must use the headers
+--         that are documented in the
+--         <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject>.
+--         For more information about SSE-C, see
+--         <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys)>
+--         in the /Amazon S3 User Guide/.
 --
--- -   /GZIP or BZIP2/ - CSV and JSON files can be compressed using GZIP or
---     BZIP2. GZIP and BZIP2 are the only compression formats that Amazon
---     S3 Select supports for CSV and JSON files. Amazon S3 Select supports
---     columnar compression for Parquet using GZIP or Snappy. Amazon S3
---     Select does not support whole-object compression for Parquet
---     objects.
+--         For objects that are encrypted with Amazon S3 managed keys
+--         (SSE-S3) and Amazon Web Services KMS keys (SSE-KMS), server-side
+--         encryption is handled transparently, so you don\'t need to
+--         specify anything. For more information about server-side
+--         encryption, including SSE-S3 and SSE-KMS, see
+--         <https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html Protecting Data Using Server-Side Encryption>
+--         in the /Amazon S3 User Guide/.
 --
--- -   /Server-side encryption/ - Amazon S3 Select supports querying
---     objects that are protected with server-side encryption.
+-- [Working with the Response Body]
+--     Given the response size is unknown, Amazon S3 Select streams the
+--     response as a series of messages and includes a @Transfer-Encoding@
+--     header with @chunked@ as its value in the response. For more
+--     information, see
+--     <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTSelectObjectAppendix.html Appendix: SelectObjectContent Response>.
 --
---     For objects that are encrypted with customer-provided encryption
---     keys (SSE-C), you must use HTTPS, and you must use the headers that
---     are documented in the
+-- [GetObject Support]
+--     The @SelectObjectContent@ action does not support the following
+--     @GetObject@ functionality. For more information, see
 --     <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject>.
---     For more information about SSE-C, see
---     <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys)>
---     in the /Amazon S3 User Guide/.
 --
---     For objects that are encrypted with Amazon S3 managed encryption
---     keys (SSE-S3) and Amazon Web Services KMS keys (SSE-KMS),
---     server-side encryption is handled transparently, so you don\'t need
---     to specify anything. For more information about server-side
---     encryption, including SSE-S3 and SSE-KMS, see
---     <https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html Protecting Data Using Server-Side Encryption>
---     in the /Amazon S3 User Guide/.
+--     -   @Range@: Although you can specify a scan range for an Amazon S3
+--         Select request (see
+--         <https://docs.aws.amazon.com/AmazonS3/latest/API/API_SelectObjectContent.html#AmazonS3-SelectObjectContent-request-ScanRange SelectObjectContentRequest - ScanRange>
+--         in the request parameters), you cannot specify the range of
+--         bytes of an object to return.
 --
--- __Working with the Response Body__
+--     -   The @GLACIER@, @DEEP_ARCHIVE@, and @REDUCED_REDUNDANCY@ storage
+--         classes, or the @ARCHIVE_ACCESS@ and @DEEP_ARCHIVE_ACCESS@
+--         access tiers of the @INTELLIGENT_TIERING@ storage class: You
+--         cannot query objects in the @GLACIER@, @DEEP_ARCHIVE@, or
+--         @REDUCED_REDUNDANCY@ storage classes, nor objects in the
+--         @ARCHIVE_ACCESS@ or @DEEP_ARCHIVE_ACCESS@ access tiers of the
+--         @INTELLIGENT_TIERING@ storage class. For more information about
+--         storage classes, see
+--         <https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html Using Amazon S3 storage classes>
+--         in the /Amazon S3 User Guide/.
 --
--- Given the response size is unknown, Amazon S3 Select streams the
--- response as a series of messages and includes a @Transfer-Encoding@
--- header with @chunked@ as its value in the response. For more
--- information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTSelectObjectAppendix.html Appendix: SelectObjectContent Response>.
+-- [Special Errors]
+--     For a list of special errors for this operation, see
+--     <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#SelectObjectContentErrorCodeList List of SELECT Object Content Error Codes>
 --
--- __GetObject Support__
---
--- The @SelectObjectContent@ action does not support the following
--- @GetObject@ functionality. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject>.
---
--- -   @Range@: Although you can specify a scan range for an Amazon S3
---     Select request (see
---     <https://docs.aws.amazon.com/AmazonS3/latest/API/API_SelectObjectContent.html#AmazonS3-SelectObjectContent-request-ScanRange SelectObjectContentRequest - ScanRange>
---     in the request parameters), you cannot specify the range of bytes of
---     an object to return.
---
--- -   GLACIER, DEEP_ARCHIVE and REDUCED_REDUNDANCY storage classes: You
---     cannot specify the GLACIER, DEEP_ARCHIVE, or @REDUCED_REDUNDANCY@
---     storage classes. For more information, about storage classes see
---     <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#storage-class-intro Storage Classes>
---     in the /Amazon S3 User Guide/.
---
--- __Special Errors__
---
--- For a list of special errors for this operation, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#SelectObjectContentErrorCodeList List of SELECT Object Content Error Codes>
---
--- __Related Resources__
+-- The following operations are related to @SelectObjectContent@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject>
 --
@@ -423,7 +420,8 @@ instance Core.AWSRequest SelectObjectContent where
 
 instance Prelude.Hashable SelectObjectContent where
   hashWithSalt _salt SelectObjectContent' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestProgress
       `Prelude.hashWithSalt` sSECustomerAlgorithm
       `Prelude.hashWithSalt` sSECustomerKey

@@ -119,7 +119,9 @@ loggingEnabled_targetPrefix = Lens.lens (\LoggingEnabled' {targetPrefix} -> targ
 instance Data.FromXML LoggingEnabled where
   parseXML x =
     LoggingEnabled'
-      Prelude.<$> ( x Data..@? "TargetGrants" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "TargetGrants"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Grant")
                   )
       Prelude.<*> (x Data..@ "TargetBucket")
@@ -127,7 +129,8 @@ instance Data.FromXML LoggingEnabled where
 
 instance Prelude.Hashable LoggingEnabled where
   hashWithSalt _salt LoggingEnabled' {..} =
-    _salt `Prelude.hashWithSalt` targetGrants
+    _salt
+      `Prelude.hashWithSalt` targetGrants
       `Prelude.hashWithSalt` targetBucket
       `Prelude.hashWithSalt` targetPrefix
 

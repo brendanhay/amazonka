@@ -24,7 +24,7 @@
 -- delete markers) in the bucket must be deleted before the bucket itself
 -- can be deleted.
 --
--- __Related Resources__
+-- The following operations are related to @DeleteBucket@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html CreateBucket>
 --
@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteBucket where
 
 instance Prelude.Hashable DeleteBucket where
   hashWithSalt _salt DeleteBucket' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData DeleteBucket where

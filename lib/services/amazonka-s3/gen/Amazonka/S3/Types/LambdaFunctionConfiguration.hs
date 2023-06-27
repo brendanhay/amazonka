@@ -106,7 +106,8 @@ instance Data.FromXML LambdaFunctionConfiguration where
 
 instance Prelude.Hashable LambdaFunctionConfiguration where
   hashWithSalt _salt LambdaFunctionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lambdaFunctionArn
       `Prelude.hashWithSalt` events

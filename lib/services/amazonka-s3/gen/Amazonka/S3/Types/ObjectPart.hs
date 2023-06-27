@@ -174,7 +174,8 @@ instance Data.FromXML ObjectPart where
 
 instance Prelude.Hashable ObjectPart where
   hashWithSalt _salt ObjectPart' {..} =
-    _salt `Prelude.hashWithSalt` checksumCRC32
+    _salt
+      `Prelude.hashWithSalt` checksumCRC32
       `Prelude.hashWithSalt` checksumCRC32C
       `Prelude.hashWithSalt` checksumSHA1
       `Prelude.hashWithSalt` checksumSHA256

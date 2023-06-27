@@ -182,7 +182,8 @@ instance
   hashWithSalt
     _salt
     ListBucketMetricsConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` continuationToken
+      _salt
+        `Prelude.hashWithSalt` continuationToken
         `Prelude.hashWithSalt` expectedBucketOwner
         `Prelude.hashWithSalt` bucket
 

@@ -80,7 +80,8 @@ versioningConfiguration_status = Lens.lens (\VersioningConfiguration' {status} -
 
 instance Prelude.Hashable VersioningConfiguration where
   hashWithSalt _salt VersioningConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` mfaDelete
+    _salt
+      `Prelude.hashWithSalt` mfaDelete
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData VersioningConfiguration where

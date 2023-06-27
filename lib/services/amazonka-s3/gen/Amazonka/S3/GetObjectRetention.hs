@@ -184,7 +184,8 @@ instance Core.AWSRequest GetObjectRetention where
 
 instance Prelude.Hashable GetObjectRetention where
   hashWithSalt _salt GetObjectRetention' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` bucket

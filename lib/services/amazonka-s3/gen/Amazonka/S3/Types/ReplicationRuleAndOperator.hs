@@ -82,13 +82,16 @@ instance Data.FromXML ReplicationRuleAndOperator where
   parseXML x =
     ReplicationRuleAndOperator'
       Prelude.<$> (x Data..@? "Prefix")
-      Prelude.<*> ( x Data..@? "Tag" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tag"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 
 instance Prelude.Hashable ReplicationRuleAndOperator where
   hashWithSalt _salt ReplicationRuleAndOperator' {..} =
-    _salt `Prelude.hashWithSalt` prefix
+    _salt
+      `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ReplicationRuleAndOperator where

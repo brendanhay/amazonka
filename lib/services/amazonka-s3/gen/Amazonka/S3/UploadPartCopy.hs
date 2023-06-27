@@ -91,42 +91,40 @@
 --
 --     Amazon S3 returns @412 Precondition Failed@ response code.
 --
--- __Versioning__
+-- [Versioning]
+--     If your bucket has versioning enabled, you could have multiple
+--     versions of the same object. By default, @x-amz-copy-source@
+--     identifies the current version of the object to copy. If the current
+--     version is a delete marker and you don\'t specify a versionId in the
+--     @x-amz-copy-source@, Amazon S3 returns a 404 error, because the
+--     object does not exist. If you specify versionId in the
+--     @x-amz-copy-source@ and the versionId is a delete marker, Amazon S3
+--     returns an HTTP 400 error, because you are not allowed to specify a
+--     delete marker as a version for the @x-amz-copy-source@.
 --
--- If your bucket has versioning enabled, you could have multiple versions
--- of the same object. By default, @x-amz-copy-source@ identifies the
--- current version of the object to copy. If the current version is a
--- delete marker and you don\'t specify a versionId in the
--- @x-amz-copy-source@, Amazon S3 returns a 404 error, because the object
--- does not exist. If you specify versionId in the @x-amz-copy-source@ and
--- the versionId is a delete marker, Amazon S3 returns an HTTP 400 error,
--- because you are not allowed to specify a delete marker as a version for
--- the @x-amz-copy-source@.
+--     You can optionally specify a specific version of the source object
+--     to copy by adding the @versionId@ subresource as shown in the
+--     following example:
 --
--- You can optionally specify a specific version of the source object to
--- copy by adding the @versionId@ subresource as shown in the following
--- example:
+--     @x-amz-copy-source: \/bucket\/object?versionId=version id@
 --
--- @x-amz-copy-source: \/bucket\/object?versionId=version id@
+-- [Special errors]
+--     -   -   /Code: NoSuchUpload/
 --
--- __Special Errors__
+--         -   /Cause: The specified multipart upload does not exist. The
+--             upload ID might be invalid, or the multipart upload might
+--             have been aborted or completed./
 --
--- -   -   /Code: NoSuchUpload/
+--         -   /HTTP Status Code: 404 Not Found/
 --
---     -   /Cause: The specified multipart upload does not exist. The
---         upload ID might be invalid, or the multipart upload might have
---         been aborted or completed./
+--     -   -   /Code: InvalidRequest/
 --
---     -   /HTTP Status Code: 404 Not Found/
+--         -   /Cause: The specified copy source is not supported as a
+--             byte-range copy source./
 --
--- -   -   /Code: InvalidRequest/
+--         -   /HTTP Status Code: 400 Bad Request/
 --
---     -   /Cause: The specified copy source is not supported as a
---         byte-range copy source./
---
---     -   /HTTP Status Code: 400 Bad Request/
---
--- __Related Resources__
+-- The following operations are related to @UploadPartCopy@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html CreateMultipartUpload>
 --
@@ -253,14 +251,14 @@ data UploadPartCopy = UploadPartCopy'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
     -- in the /Amazon S3 User Guide/.
     --
-    -- When using this action with Amazon S3 on Outposts, you must direct
+    -- When you use this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
-    -- When using this action with S3 on Outposts through the Amazon Web
-    -- Services SDKs, you provide the Outposts bucket ARN in place of the
+    -- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+    -- When you use this action with S3 on Outposts through the Amazon Web
+    -- Services SDKs, you provide the Outposts access point ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | Specifies the source object for the copy operation. You specify the
@@ -384,14 +382,14 @@ data UploadPartCopy = UploadPartCopy'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 --
 -- 'copySource', 'uploadPartCopy_copySource' - Specifies the source object for the copy operation. You specify the
@@ -572,14 +570,14 @@ uploadPartCopy_sSECustomerKeyMD5 = Lens.lens (\UploadPartCopy' {sSECustomerKeyMD
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- When using this action with Amazon S3 on Outposts, you must direct
+-- When you use this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
--- When using this action with S3 on Outposts through the Amazon Web
--- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- @ @/@AccessPointName@/@-@/@AccountId@/@.@/@outpostID@/@.s3-outposts.@/@Region@/@.amazonaws.com@.
+-- When you use this action with S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts access point ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html What is S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 uploadPartCopy_bucket :: Lens.Lens' UploadPartCopy BucketName
 uploadPartCopy_bucket = Lens.lens (\UploadPartCopy' {bucket} -> bucket) (\s@UploadPartCopy' {} a -> s {bucket = a} :: UploadPartCopy)
@@ -672,7 +670,8 @@ instance Core.AWSRequest UploadPartCopy where
 
 instance Prelude.Hashable UploadPartCopy where
   hashWithSalt _salt UploadPartCopy' {..} =
-    _salt `Prelude.hashWithSalt` copySourceIfMatch
+    _salt
+      `Prelude.hashWithSalt` copySourceIfMatch
       `Prelude.hashWithSalt` copySourceIfModifiedSince
       `Prelude.hashWithSalt` copySourceIfNoneMatch
       `Prelude.hashWithSalt` copySourceIfUnmodifiedSince
@@ -761,7 +760,7 @@ instance Data.ToQuery UploadPartCopy where
 -- | /See:/ 'newUploadPartCopyResponse' smart constructor.
 data UploadPartCopyResponse = UploadPartCopyResponse'
   { -- | Indicates whether the multipart upload uses an S3 Bucket Key for
-    -- server-side encryption with Amazon Web Services KMS (SSE-KMS).
+    -- server-side encryption with Key Management Service (KMS) keys (SSE-KMS).
     bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Container for all response elements.
     copyPartResult :: Prelude.Maybe CopyPartResult,
@@ -777,12 +776,11 @@ data UploadPartCopyResponse = UploadPartCopyResponse'
     -- requested, the response will include this header to provide round-trip
     -- message integrity verification of the customer-provided encryption key.
     sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
-    -- | If present, specifies the ID of the Amazon Web Services Key Management
-    -- Service (Amazon Web Services KMS) symmetric customer managed key that
-    -- was used for the object.
+    -- | If present, specifies the ID of the Key Management Service (KMS)
+    -- symmetric encryption customer managed key that was used for the object.
     sSEKMSKeyId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The server-side encryption algorithm used when storing this object in
-    -- Amazon S3 (for example, AES256, aws:kms).
+    -- Amazon S3 (for example, @AES256@, @aws:kms@).
     serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -798,7 +796,7 @@ data UploadPartCopyResponse = UploadPartCopyResponse'
 -- for backwards compatibility:
 --
 -- 'bucketKeyEnabled', 'uploadPartCopyResponse_bucketKeyEnabled' - Indicates whether the multipart upload uses an S3 Bucket Key for
--- server-side encryption with Amazon Web Services KMS (SSE-KMS).
+-- server-side encryption with Key Management Service (KMS) keys (SSE-KMS).
 --
 -- 'copyPartResult', 'uploadPartCopyResponse_copyPartResult' - Container for all response elements.
 --
@@ -815,12 +813,11 @@ data UploadPartCopyResponse = UploadPartCopyResponse'
 -- requested, the response will include this header to provide round-trip
 -- message integrity verification of the customer-provided encryption key.
 --
--- 'sSEKMSKeyId', 'uploadPartCopyResponse_sSEKMSKeyId' - If present, specifies the ID of the Amazon Web Services Key Management
--- Service (Amazon Web Services KMS) symmetric customer managed key that
--- was used for the object.
+-- 'sSEKMSKeyId', 'uploadPartCopyResponse_sSEKMSKeyId' - If present, specifies the ID of the Key Management Service (KMS)
+-- symmetric encryption customer managed key that was used for the object.
 --
 -- 'serverSideEncryption', 'uploadPartCopyResponse_serverSideEncryption' - The server-side encryption algorithm used when storing this object in
--- Amazon S3 (for example, AES256, aws:kms).
+-- Amazon S3 (for example, @AES256@, @aws:kms@).
 --
 -- 'httpStatus', 'uploadPartCopyResponse_httpStatus' - The response's http status code.
 newUploadPartCopyResponse ::
@@ -842,7 +839,7 @@ newUploadPartCopyResponse pHttpStatus_ =
     }
 
 -- | Indicates whether the multipart upload uses an S3 Bucket Key for
--- server-side encryption with Amazon Web Services KMS (SSE-KMS).
+-- server-side encryption with Key Management Service (KMS) keys (SSE-KMS).
 uploadPartCopyResponse_bucketKeyEnabled :: Lens.Lens' UploadPartCopyResponse (Prelude.Maybe Prelude.Bool)
 uploadPartCopyResponse_bucketKeyEnabled = Lens.lens (\UploadPartCopyResponse' {bucketKeyEnabled} -> bucketKeyEnabled) (\s@UploadPartCopyResponse' {} a -> s {bucketKeyEnabled = a} :: UploadPartCopyResponse)
 
@@ -871,14 +868,13 @@ uploadPartCopyResponse_sSECustomerAlgorithm = Lens.lens (\UploadPartCopyResponse
 uploadPartCopyResponse_sSECustomerKeyMD5 :: Lens.Lens' UploadPartCopyResponse (Prelude.Maybe Prelude.Text)
 uploadPartCopyResponse_sSECustomerKeyMD5 = Lens.lens (\UploadPartCopyResponse' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@UploadPartCopyResponse' {} a -> s {sSECustomerKeyMD5 = a} :: UploadPartCopyResponse)
 
--- | If present, specifies the ID of the Amazon Web Services Key Management
--- Service (Amazon Web Services KMS) symmetric customer managed key that
--- was used for the object.
+-- | If present, specifies the ID of the Key Management Service (KMS)
+-- symmetric encryption customer managed key that was used for the object.
 uploadPartCopyResponse_sSEKMSKeyId :: Lens.Lens' UploadPartCopyResponse (Prelude.Maybe Prelude.Text)
 uploadPartCopyResponse_sSEKMSKeyId = Lens.lens (\UploadPartCopyResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@UploadPartCopyResponse' {} a -> s {sSEKMSKeyId = a} :: UploadPartCopyResponse) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The server-side encryption algorithm used when storing this object in
--- Amazon S3 (for example, AES256, aws:kms).
+-- Amazon S3 (for example, @AES256@, @aws:kms@).
 uploadPartCopyResponse_serverSideEncryption :: Lens.Lens' UploadPartCopyResponse (Prelude.Maybe ServerSideEncryption)
 uploadPartCopyResponse_serverSideEncryption = Lens.lens (\UploadPartCopyResponse' {serverSideEncryption} -> serverSideEncryption) (\s@UploadPartCopyResponse' {} a -> s {serverSideEncryption = a} :: UploadPartCopyResponse)
 

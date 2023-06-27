@@ -37,6 +37,10 @@ import Amazonka.S3.Types.SourceSelectionCriteria
 -- /See:/ 'newReplicationRule' smart constructor.
 data ReplicationRule = ReplicationRule'
   { deleteMarkerReplication :: Prelude.Maybe DeleteMarkerReplication,
+    -- | Optional configuration to replicate existing source bucket objects. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-what-is-isnot-replicated.html#existing-object-replication Replicating Existing Objects>
+    -- in the /Amazon S3 User Guide/.
     existingObjectReplication :: Prelude.Maybe ExistingObjectReplication,
     filter' :: Prelude.Maybe ReplicationRuleFilter,
     -- | A unique identifier for the rule. The maximum value is 255 characters.
@@ -87,7 +91,10 @@ data ReplicationRule = ReplicationRule'
 --
 -- 'deleteMarkerReplication', 'replicationRule_deleteMarkerReplication' - Undocumented member.
 --
--- 'existingObjectReplication', 'replicationRule_existingObjectReplication' -
+-- 'existingObjectReplication', 'replicationRule_existingObjectReplication' - Optional configuration to replicate existing source bucket objects. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-what-is-isnot-replicated.html#existing-object-replication Replicating Existing Objects>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'filter'', 'replicationRule_filter' - Undocumented member.
 --
@@ -149,7 +156,10 @@ newReplicationRule pStatus_ pDestination_ =
 replicationRule_deleteMarkerReplication :: Lens.Lens' ReplicationRule (Prelude.Maybe DeleteMarkerReplication)
 replicationRule_deleteMarkerReplication = Lens.lens (\ReplicationRule' {deleteMarkerReplication} -> deleteMarkerReplication) (\s@ReplicationRule' {} a -> s {deleteMarkerReplication = a} :: ReplicationRule)
 
--- |
+-- | Optional configuration to replicate existing source bucket objects. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-what-is-isnot-replicated.html#existing-object-replication Replicating Existing Objects>
+-- in the /Amazon S3 User Guide/.
 replicationRule_existingObjectReplication :: Lens.Lens' ReplicationRule (Prelude.Maybe ExistingObjectReplication)
 replicationRule_existingObjectReplication = Lens.lens (\ReplicationRule' {existingObjectReplication} -> existingObjectReplication) (\s@ReplicationRule' {} a -> s {existingObjectReplication = a} :: ReplicationRule)
 

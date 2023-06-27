@@ -51,16 +51,16 @@ data Cookies = Cookies'
     -- | The parts of the cookies to inspect with the rule inspection criteria.
     -- If you specify @All@, WAF inspects both keys and values.
     matchScope :: MapMatchScope,
-    -- | What WAF should do if the cookies of the request are larger than WAF can
-    -- inspect. WAF does not support inspecting the entire contents of request
-    -- cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The
-    -- underlying host service forwards a maximum of 200 cookies and at most 8
-    -- KB of cookie contents to WAF.
+    -- | What WAF should do if the cookies of the request are more numerous or
+    -- larger than WAF can inspect. WAF does not support inspecting the entire
+    -- contents of request cookies when they exceed 8 KB (8192 bytes) or 200
+    -- total cookies. The underlying host service forwards a maximum of 200
+    -- cookies and at most 8 KB of cookie contents to WAF.
     --
     -- The options for oversize handling are the following:
     --
-    -- -   @CONTINUE@ - Inspect the cookies normally, according to the rule
-    --     inspection criteria.
+    -- -   @CONTINUE@ - Inspect the available cookies normally, according to
+    --     the rule inspection criteria.
     --
     -- -   @MATCH@ - Treat the web request as matching the rule statement. WAF
     --     applies the rule action to the request.
@@ -91,16 +91,16 @@ data Cookies = Cookies'
 -- 'matchScope', 'cookies_matchScope' - The parts of the cookies to inspect with the rule inspection criteria.
 -- If you specify @All@, WAF inspects both keys and values.
 --
--- 'oversizeHandling', 'cookies_oversizeHandling' - What WAF should do if the cookies of the request are larger than WAF can
--- inspect. WAF does not support inspecting the entire contents of request
--- cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The
--- underlying host service forwards a maximum of 200 cookies and at most 8
--- KB of cookie contents to WAF.
+-- 'oversizeHandling', 'cookies_oversizeHandling' - What WAF should do if the cookies of the request are more numerous or
+-- larger than WAF can inspect. WAF does not support inspecting the entire
+-- contents of request cookies when they exceed 8 KB (8192 bytes) or 200
+-- total cookies. The underlying host service forwards a maximum of 200
+-- cookies and at most 8 KB of cookie contents to WAF.
 --
 -- The options for oversize handling are the following:
 --
--- -   @CONTINUE@ - Inspect the cookies normally, according to the rule
---     inspection criteria.
+-- -   @CONTINUE@ - Inspect the available cookies normally, according to
+--     the rule inspection criteria.
 --
 -- -   @MATCH@ - Treat the web request as matching the rule statement. WAF
 --     applies the rule action to the request.
@@ -141,16 +141,16 @@ cookies_matchPattern = Lens.lens (\Cookies' {matchPattern} -> matchPattern) (\s@
 cookies_matchScope :: Lens.Lens' Cookies MapMatchScope
 cookies_matchScope = Lens.lens (\Cookies' {matchScope} -> matchScope) (\s@Cookies' {} a -> s {matchScope = a} :: Cookies)
 
--- | What WAF should do if the cookies of the request are larger than WAF can
--- inspect. WAF does not support inspecting the entire contents of request
--- cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The
--- underlying host service forwards a maximum of 200 cookies and at most 8
--- KB of cookie contents to WAF.
+-- | What WAF should do if the cookies of the request are more numerous or
+-- larger than WAF can inspect. WAF does not support inspecting the entire
+-- contents of request cookies when they exceed 8 KB (8192 bytes) or 200
+-- total cookies. The underlying host service forwards a maximum of 200
+-- cookies and at most 8 KB of cookie contents to WAF.
 --
 -- The options for oversize handling are the following:
 --
--- -   @CONTINUE@ - Inspect the cookies normally, according to the rule
---     inspection criteria.
+-- -   @CONTINUE@ - Inspect the available cookies normally, according to
+--     the rule inspection criteria.
 --
 -- -   @MATCH@ - Treat the web request as matching the rule statement. WAF
 --     applies the rule action to the request.
@@ -173,7 +173,8 @@ instance Data.FromJSON Cookies where
 
 instance Prelude.Hashable Cookies where
   hashWithSalt _salt Cookies' {..} =
-    _salt `Prelude.hashWithSalt` matchPattern
+    _salt
+      `Prelude.hashWithSalt` matchPattern
       `Prelude.hashWithSalt` matchScope
       `Prelude.hashWithSalt` oversizeHandling
 

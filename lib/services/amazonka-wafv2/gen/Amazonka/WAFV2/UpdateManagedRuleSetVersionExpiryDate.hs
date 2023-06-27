@@ -77,7 +77,8 @@ data UpdateManagedRuleSetVersionExpiryDate = UpdateManagedRuleSetVersionExpiryDa
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -128,7 +129,8 @@ data UpdateManagedRuleSetVersionExpiryDate = UpdateManagedRuleSetVersionExpiryDa
 -- 'scope', 'updateManagedRuleSetVersionExpiryDate_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -202,7 +204,8 @@ updateManagedRuleSetVersionExpiryDate_name = Lens.lens (\UpdateManagedRuleSetVer
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -258,9 +261,9 @@ instance
       ( \s h x ->
           UpdateManagedRuleSetVersionExpiryDateResponse'
             Prelude.<$> (x Data..?> "ExpiringVersion")
-              Prelude.<*> (x Data..?> "ExpiryTimestamp")
-              Prelude.<*> (x Data..?> "NextLockToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "ExpiryTimestamp")
+            Prelude.<*> (x Data..?> "NextLockToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -270,7 +273,8 @@ instance
   hashWithSalt
     _salt
     UpdateManagedRuleSetVersionExpiryDate' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` scope
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` lockToken

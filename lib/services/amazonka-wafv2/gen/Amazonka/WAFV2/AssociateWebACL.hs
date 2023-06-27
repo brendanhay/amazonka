@@ -22,14 +22,16 @@
 --
 -- Associates a web ACL with a regional application resource, to protect
 -- the resource. A regional application can be an Application Load Balancer
--- (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, or an
--- Amazon Cognito user pool.
+-- (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon
+-- Cognito user pool, an App Runner service, or an Amazon Web Services
+-- Verified Access instance.
 --
 -- For Amazon CloudFront, don\'t use this call. Instead, use your
 -- CloudFront distribution configuration. To associate a web ACL, in the
 -- CloudFront call @UpdateDistribution@, set the web ACL ID to the Amazon
 -- Resource Name (ARN) of the web ACL. For information, see
--- <https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html UpdateDistribution>.
+-- <https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html UpdateDistribution>
+-- in the /Amazon CloudFront Developer Guide/.
 --
 -- When you make changes to web ACLs or web ACL components, like rules and
 -- rule groups, WAF propagates the changes everywhere that the web ACL and
@@ -81,16 +83,22 @@ data AssociateWebACL = AssociateWebACL'
     -- The ARN must be in one of the following formats:
     --
     -- -   For an Application Load Balancer:
-    --     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @
+    --     @arn:@/@partition@/@:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/app\/@/@load-balancer-name@/@\/@/@load-balancer-id@/@ @
     --
     -- -   For an Amazon API Gateway REST API:
-    --     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
+    --     @arn:@/@partition@/@:apigateway:@/@region@/@::\/restapis\/@/@api-id@/@\/stages\/@/@stage-name@/@ @
     --
     -- -   For an AppSync GraphQL API:
-    --     @arn:aws:appsync:region:account-id:apis\/GraphQLApiId @
+    --     @arn:@/@partition@/@:appsync:@/@region@/@:@/@account-id@/@:apis\/@/@GraphQLApiId@/@ @
     --
     -- -   For an Amazon Cognito user pool:
-    --     @arn:aws:cognito-idp:region:account-id:userpool\/user-pool-id @
+    --     @arn:@/@partition@/@:cognito-idp:@/@region@/@:@/@account-id@/@:userpool\/@/@user-pool-id@/@ @
+    --
+    -- -   For an App Runner service:
+    --     @arn:@/@partition@/@:apprunner:@/@region@/@:@/@account-id@/@:service\/@/@apprunner-service-name@/@\/@/@apprunner-service-id@/@ @
+    --
+    -- -   For an Amazon Web Services Verified Access instance:
+    --     @arn:@/@partition@/@:ec2:@/@region@/@:@/@account-id@/@:verified-access-instance\/@/@instance-id@/@ @
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -112,16 +120,22 @@ data AssociateWebACL = AssociateWebACL'
 -- The ARN must be in one of the following formats:
 --
 -- -   For an Application Load Balancer:
---     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @
+--     @arn:@/@partition@/@:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/app\/@/@load-balancer-name@/@\/@/@load-balancer-id@/@ @
 --
 -- -   For an Amazon API Gateway REST API:
---     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
+--     @arn:@/@partition@/@:apigateway:@/@region@/@::\/restapis\/@/@api-id@/@\/stages\/@/@stage-name@/@ @
 --
 -- -   For an AppSync GraphQL API:
---     @arn:aws:appsync:region:account-id:apis\/GraphQLApiId @
+--     @arn:@/@partition@/@:appsync:@/@region@/@:@/@account-id@/@:apis\/@/@GraphQLApiId@/@ @
 --
 -- -   For an Amazon Cognito user pool:
---     @arn:aws:cognito-idp:region:account-id:userpool\/user-pool-id @
+--     @arn:@/@partition@/@:cognito-idp:@/@region@/@:@/@account-id@/@:userpool\/@/@user-pool-id@/@ @
+--
+-- -   For an App Runner service:
+--     @arn:@/@partition@/@:apprunner:@/@region@/@:@/@account-id@/@:service\/@/@apprunner-service-name@/@\/@/@apprunner-service-id@/@ @
+--
+-- -   For an Amazon Web Services Verified Access instance:
+--     @arn:@/@partition@/@:ec2:@/@region@/@:@/@account-id@/@:verified-access-instance\/@/@instance-id@/@ @
 newAssociateWebACL ::
   -- | 'webACLArn'
   Prelude.Text ->
@@ -145,16 +159,22 @@ associateWebACL_webACLArn = Lens.lens (\AssociateWebACL' {webACLArn} -> webACLAr
 -- The ARN must be in one of the following formats:
 --
 -- -   For an Application Load Balancer:
---     @arn:aws:elasticloadbalancing:region:account-id:loadbalancer\/app\/load-balancer-name\/load-balancer-id @
+--     @arn:@/@partition@/@:elasticloadbalancing:@/@region@/@:@/@account-id@/@:loadbalancer\/app\/@/@load-balancer-name@/@\/@/@load-balancer-id@/@ @
 --
 -- -   For an Amazon API Gateway REST API:
---     @arn:aws:apigateway:region::\/restapis\/api-id\/stages\/stage-name @
+--     @arn:@/@partition@/@:apigateway:@/@region@/@::\/restapis\/@/@api-id@/@\/stages\/@/@stage-name@/@ @
 --
 -- -   For an AppSync GraphQL API:
---     @arn:aws:appsync:region:account-id:apis\/GraphQLApiId @
+--     @arn:@/@partition@/@:appsync:@/@region@/@:@/@account-id@/@:apis\/@/@GraphQLApiId@/@ @
 --
 -- -   For an Amazon Cognito user pool:
---     @arn:aws:cognito-idp:region:account-id:userpool\/user-pool-id @
+--     @arn:@/@partition@/@:cognito-idp:@/@region@/@:@/@account-id@/@:userpool\/@/@user-pool-id@/@ @
+--
+-- -   For an App Runner service:
+--     @arn:@/@partition@/@:apprunner:@/@region@/@:@/@account-id@/@:service\/@/@apprunner-service-name@/@\/@/@apprunner-service-id@/@ @
+--
+-- -   For an Amazon Web Services Verified Access instance:
+--     @arn:@/@partition@/@:ec2:@/@region@/@:@/@account-id@/@:verified-access-instance\/@/@instance-id@/@ @
 associateWebACL_resourceArn :: Lens.Lens' AssociateWebACL Prelude.Text
 associateWebACL_resourceArn = Lens.lens (\AssociateWebACL' {resourceArn} -> resourceArn) (\s@AssociateWebACL' {} a -> s {resourceArn = a} :: AssociateWebACL)
 
@@ -173,7 +193,8 @@ instance Core.AWSRequest AssociateWebACL where
 
 instance Prelude.Hashable AssociateWebACL where
   hashWithSalt _salt AssociateWebACL' {..} =
-    _salt `Prelude.hashWithSalt` webACLArn
+    _salt
+      `Prelude.hashWithSalt` webACLArn
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData AssociateWebACL where

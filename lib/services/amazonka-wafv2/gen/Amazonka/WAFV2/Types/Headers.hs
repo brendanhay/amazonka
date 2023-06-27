@@ -54,16 +54,16 @@ data Headers = Headers'
     -- | The parts of the headers to match with the rule inspection criteria. If
     -- you specify @All@, WAF inspects both keys and values.
     matchScope :: MapMatchScope,
-    -- | What WAF should do if the headers of the request are larger than WAF can
-    -- inspect. WAF does not support inspecting the entire contents of request
-    -- headers when they exceed 8 KB (8192 bytes) or 200 total headers. The
-    -- underlying host service forwards a maximum of 200 headers and at most 8
-    -- KB of header contents to WAF.
+    -- | What WAF should do if the headers of the request are more numerous or
+    -- larger than WAF can inspect. WAF does not support inspecting the entire
+    -- contents of request headers when they exceed 8 KB (8192 bytes) or 200
+    -- total headers. The underlying host service forwards a maximum of 200
+    -- headers and at most 8 KB of header contents to WAF.
     --
     -- The options for oversize handling are the following:
     --
-    -- -   @CONTINUE@ - Inspect the headers normally, according to the rule
-    --     inspection criteria.
+    -- -   @CONTINUE@ - Inspect the available headers normally, according to
+    --     the rule inspection criteria.
     --
     -- -   @MATCH@ - Treat the web request as matching the rule statement. WAF
     --     applies the rule action to the request.
@@ -94,16 +94,16 @@ data Headers = Headers'
 -- 'matchScope', 'headers_matchScope' - The parts of the headers to match with the rule inspection criteria. If
 -- you specify @All@, WAF inspects both keys and values.
 --
--- 'oversizeHandling', 'headers_oversizeHandling' - What WAF should do if the headers of the request are larger than WAF can
--- inspect. WAF does not support inspecting the entire contents of request
--- headers when they exceed 8 KB (8192 bytes) or 200 total headers. The
--- underlying host service forwards a maximum of 200 headers and at most 8
--- KB of header contents to WAF.
+-- 'oversizeHandling', 'headers_oversizeHandling' - What WAF should do if the headers of the request are more numerous or
+-- larger than WAF can inspect. WAF does not support inspecting the entire
+-- contents of request headers when they exceed 8 KB (8192 bytes) or 200
+-- total headers. The underlying host service forwards a maximum of 200
+-- headers and at most 8 KB of header contents to WAF.
 --
 -- The options for oversize handling are the following:
 --
--- -   @CONTINUE@ - Inspect the headers normally, according to the rule
---     inspection criteria.
+-- -   @CONTINUE@ - Inspect the available headers normally, according to
+--     the rule inspection criteria.
 --
 -- -   @MATCH@ - Treat the web request as matching the rule statement. WAF
 --     applies the rule action to the request.
@@ -144,16 +144,16 @@ headers_matchPattern = Lens.lens (\Headers' {matchPattern} -> matchPattern) (\s@
 headers_matchScope :: Lens.Lens' Headers MapMatchScope
 headers_matchScope = Lens.lens (\Headers' {matchScope} -> matchScope) (\s@Headers' {} a -> s {matchScope = a} :: Headers)
 
--- | What WAF should do if the headers of the request are larger than WAF can
--- inspect. WAF does not support inspecting the entire contents of request
--- headers when they exceed 8 KB (8192 bytes) or 200 total headers. The
--- underlying host service forwards a maximum of 200 headers and at most 8
--- KB of header contents to WAF.
+-- | What WAF should do if the headers of the request are more numerous or
+-- larger than WAF can inspect. WAF does not support inspecting the entire
+-- contents of request headers when they exceed 8 KB (8192 bytes) or 200
+-- total headers. The underlying host service forwards a maximum of 200
+-- headers and at most 8 KB of header contents to WAF.
 --
 -- The options for oversize handling are the following:
 --
--- -   @CONTINUE@ - Inspect the headers normally, according to the rule
---     inspection criteria.
+-- -   @CONTINUE@ - Inspect the available headers normally, according to
+--     the rule inspection criteria.
 --
 -- -   @MATCH@ - Treat the web request as matching the rule statement. WAF
 --     applies the rule action to the request.
@@ -176,7 +176,8 @@ instance Data.FromJSON Headers where
 
 instance Prelude.Hashable Headers where
   hashWithSalt _salt Headers' {..} =
-    _salt `Prelude.hashWithSalt` matchPattern
+    _salt
+      `Prelude.hashWithSalt` matchPattern
       `Prelude.hashWithSalt` matchScope
       `Prelude.hashWithSalt` oversizeHandling
 

@@ -111,7 +111,8 @@ instance Core.AWSRequest GetMobileSdkRelease where
 
 instance Prelude.Hashable GetMobileSdkRelease where
   hashWithSalt _salt GetMobileSdkRelease' {..} =
-    _salt `Prelude.hashWithSalt` platform
+    _salt
+      `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` releaseVersion
 
 instance Prelude.NFData GetMobileSdkRelease where

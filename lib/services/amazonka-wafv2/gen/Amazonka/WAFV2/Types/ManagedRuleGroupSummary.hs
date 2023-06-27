@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 -- ListAvailableManagedRuleGroups. This provides information like the name
 -- and vendor name, that you provide when you add a
 -- ManagedRuleGroupStatement to a web ACL. Managed rule groups include
--- Amazon Web Services Managed Rules rule groups, which are free of charge
--- to WAF customers, and Amazon Web Services Marketplace managed rule
--- groups, which you can subscribe to through Amazon Web Services
--- Marketplace.
+-- Amazon Web Services Managed Rules rule groups and Amazon Web Services
+-- Marketplace managed rule groups. To use any Amazon Web Services
+-- Marketplace managed rule group, first subscribe to the rule group
+-- through Amazon Web Services Marketplace.
 --
 -- /See:/ 'newManagedRuleGroupSummary' smart constructor.
 data ManagedRuleGroupSummary = ManagedRuleGroupSummary'
@@ -43,7 +43,7 @@ data ManagedRuleGroupSummary = ManagedRuleGroupSummary'
     -- name, to identify the rule group.
     name :: Prelude.Maybe Prelude.Text,
     -- | The name of the managed rule group vendor. You use this, along with the
-    -- rule group name, to identify the rule group.
+    -- rule group name, to identify a rule group.
     vendorName :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the managed rule group is versioned. If it is, you can
     -- retrieve the versions list by calling
@@ -68,7 +68,7 @@ data ManagedRuleGroupSummary = ManagedRuleGroupSummary'
 -- name, to identify the rule group.
 --
 -- 'vendorName', 'managedRuleGroupSummary_vendorName' - The name of the managed rule group vendor. You use this, along with the
--- rule group name, to identify the rule group.
+-- rule group name, to identify a rule group.
 --
 -- 'versioningSupported', 'managedRuleGroupSummary_versioningSupported' - Indicates whether the managed rule group is versioned. If it is, you can
 -- retrieve the versions list by calling
@@ -96,7 +96,7 @@ managedRuleGroupSummary_name :: Lens.Lens' ManagedRuleGroupSummary (Prelude.Mayb
 managedRuleGroupSummary_name = Lens.lens (\ManagedRuleGroupSummary' {name} -> name) (\s@ManagedRuleGroupSummary' {} a -> s {name = a} :: ManagedRuleGroupSummary)
 
 -- | The name of the managed rule group vendor. You use this, along with the
--- rule group name, to identify the rule group.
+-- rule group name, to identify a rule group.
 managedRuleGroupSummary_vendorName :: Lens.Lens' ManagedRuleGroupSummary (Prelude.Maybe Prelude.Text)
 managedRuleGroupSummary_vendorName = Lens.lens (\ManagedRuleGroupSummary' {vendorName} -> vendorName) (\s@ManagedRuleGroupSummary' {} a -> s {vendorName = a} :: ManagedRuleGroupSummary)
 
@@ -120,7 +120,8 @@ instance Data.FromJSON ManagedRuleGroupSummary where
 
 instance Prelude.Hashable ManagedRuleGroupSummary where
   hashWithSalt _salt ManagedRuleGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` vendorName
       `Prelude.hashWithSalt` versioningSupported

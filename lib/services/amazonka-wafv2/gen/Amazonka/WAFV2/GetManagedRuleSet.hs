@@ -70,7 +70,8 @@ data GetManagedRuleSet = GetManagedRuleSet'
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -104,7 +105,8 @@ data GetManagedRuleSet = GetManagedRuleSet'
 -- 'scope', 'getManagedRuleSet_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -143,7 +145,8 @@ getManagedRuleSet_name = Lens.lens (\GetManagedRuleSet' {name} -> name) (\s@GetM
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -178,7 +181,8 @@ instance Core.AWSRequest GetManagedRuleSet where
 
 instance Prelude.Hashable GetManagedRuleSet where
   hashWithSalt _salt GetManagedRuleSet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` id
 

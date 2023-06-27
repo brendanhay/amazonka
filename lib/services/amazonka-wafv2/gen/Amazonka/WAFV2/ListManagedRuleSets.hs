@@ -74,7 +74,8 @@ data ListManagedRuleSets = ListManagedRuleSets'
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -108,7 +109,8 @@ data ListManagedRuleSets = ListManagedRuleSets'
 -- 'scope', 'listManagedRuleSets_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -145,7 +147,8 @@ listManagedRuleSets_nextMarker = Lens.lens (\ListManagedRuleSets' {nextMarker} -
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -167,7 +170,8 @@ instance Core.AWSRequest ListManagedRuleSets where
     Response.receiveJSON
       ( \s h x ->
           ListManagedRuleSetsResponse'
-            Prelude.<$> ( x Data..?> "ManagedRuleSets"
+            Prelude.<$> ( x
+                            Data..?> "ManagedRuleSets"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextMarker")
@@ -176,7 +180,8 @@ instance Core.AWSRequest ListManagedRuleSets where
 
 instance Prelude.Hashable ListManagedRuleSets where
   hashWithSalt _salt ListManagedRuleSets' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` scope
 
@@ -219,7 +224,8 @@ instance Data.ToQuery ListManagedRuleSets where
 
 -- | /See:/ 'newListManagedRuleSetsResponse' smart constructor.
 data ListManagedRuleSetsResponse = ListManagedRuleSetsResponse'
-  { -- | Your managed rule sets.
+  { -- | Your managed rule sets. If you specified a @Limit@ in your request, this
+    -- might not be the full list.
     managedRuleSets :: Prelude.Maybe [ManagedRuleSetSummary],
     -- | When you request a list of objects with a @Limit@ setting, if the number
     -- of objects that are still available for retrieval exceeds the limit, WAF
@@ -239,7 +245,8 @@ data ListManagedRuleSetsResponse = ListManagedRuleSetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'managedRuleSets', 'listManagedRuleSetsResponse_managedRuleSets' - Your managed rule sets.
+-- 'managedRuleSets', 'listManagedRuleSetsResponse_managedRuleSets' - Your managed rule sets. If you specified a @Limit@ in your request, this
+-- might not be the full list.
 --
 -- 'nextMarker', 'listManagedRuleSetsResponse_nextMarker' - When you request a list of objects with a @Limit@ setting, if the number
 -- of objects that are still available for retrieval exceeds the limit, WAF
@@ -259,7 +266,8 @@ newListManagedRuleSetsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Your managed rule sets.
+-- | Your managed rule sets. If you specified a @Limit@ in your request, this
+-- might not be the full list.
 listManagedRuleSetsResponse_managedRuleSets :: Lens.Lens' ListManagedRuleSetsResponse (Prelude.Maybe [ManagedRuleSetSummary])
 listManagedRuleSetsResponse_managedRuleSets = Lens.lens (\ListManagedRuleSetsResponse' {managedRuleSets} -> managedRuleSets) (\s@ListManagedRuleSetsResponse' {} a -> s {managedRuleSets = a} :: ListManagedRuleSetsResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -46,11 +46,14 @@ data RegexPatternSetReferenceStatement = RegexPatternSetReferenceStatement'
     -- | The part of the web request that you want WAF to inspect.
     fieldToMatch :: FieldToMatch,
     -- | Text transformations eliminate some of the unusual formatting that
-    -- attackers use in web requests in an effort to bypass detection. If you
-    -- specify one or more transformations in a rule statement, WAF performs
-    -- all transformations on the content of the request component identified
-    -- by @FieldToMatch@, starting from the lowest priority setting, before
-    -- inspecting the content for a match.
+    -- attackers use in web requests in an effort to bypass detection. Text
+    -- transformations are used in rule match statements, to transform the
+    -- @FieldToMatch@ request component before inspecting it, and they\'re used
+    -- in rate-based rule statements, to transform request components before
+    -- using them as custom aggregation keys. If you specify one or more
+    -- transformations to apply, WAF performs all transformations on the
+    -- specified content, starting from the lowest priority setting, and then
+    -- uses the component contents.
     textTransformations :: Prelude.NonEmpty TextTransformation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,11 +72,14 @@ data RegexPatternSetReferenceStatement = RegexPatternSetReferenceStatement'
 -- 'fieldToMatch', 'regexPatternSetReferenceStatement_fieldToMatch' - The part of the web request that you want WAF to inspect.
 --
 -- 'textTransformations', 'regexPatternSetReferenceStatement_textTransformations' - Text transformations eliminate some of the unusual formatting that
--- attackers use in web requests in an effort to bypass detection. If you
--- specify one or more transformations in a rule statement, WAF performs
--- all transformations on the content of the request component identified
--- by @FieldToMatch@, starting from the lowest priority setting, before
--- inspecting the content for a match.
+-- attackers use in web requests in an effort to bypass detection. Text
+-- transformations are used in rule match statements, to transform the
+-- @FieldToMatch@ request component before inspecting it, and they\'re used
+-- in rate-based rule statements, to transform request components before
+-- using them as custom aggregation keys. If you specify one or more
+-- transformations to apply, WAF performs all transformations on the
+-- specified content, starting from the lowest priority setting, and then
+-- uses the component contents.
 newRegexPatternSetReferenceStatement ::
   -- | 'arn'
   Prelude.Text ->
@@ -104,11 +110,14 @@ regexPatternSetReferenceStatement_fieldToMatch :: Lens.Lens' RegexPatternSetRefe
 regexPatternSetReferenceStatement_fieldToMatch = Lens.lens (\RegexPatternSetReferenceStatement' {fieldToMatch} -> fieldToMatch) (\s@RegexPatternSetReferenceStatement' {} a -> s {fieldToMatch = a} :: RegexPatternSetReferenceStatement)
 
 -- | Text transformations eliminate some of the unusual formatting that
--- attackers use in web requests in an effort to bypass detection. If you
--- specify one or more transformations in a rule statement, WAF performs
--- all transformations on the content of the request component identified
--- by @FieldToMatch@, starting from the lowest priority setting, before
--- inspecting the content for a match.
+-- attackers use in web requests in an effort to bypass detection. Text
+-- transformations are used in rule match statements, to transform the
+-- @FieldToMatch@ request component before inspecting it, and they\'re used
+-- in rate-based rule statements, to transform request components before
+-- using them as custom aggregation keys. If you specify one or more
+-- transformations to apply, WAF performs all transformations on the
+-- specified content, starting from the lowest priority setting, and then
+-- uses the component contents.
 regexPatternSetReferenceStatement_textTransformations :: Lens.Lens' RegexPatternSetReferenceStatement (Prelude.NonEmpty TextTransformation)
 regexPatternSetReferenceStatement_textTransformations = Lens.lens (\RegexPatternSetReferenceStatement' {textTransformations} -> textTransformations) (\s@RegexPatternSetReferenceStatement' {} a -> s {textTransformations = a} :: RegexPatternSetReferenceStatement) Prelude.. Lens.coerced
 
@@ -133,7 +142,8 @@ instance
   hashWithSalt
     _salt
     RegexPatternSetReferenceStatement' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` fieldToMatch
         `Prelude.hashWithSalt` textTransformations
 

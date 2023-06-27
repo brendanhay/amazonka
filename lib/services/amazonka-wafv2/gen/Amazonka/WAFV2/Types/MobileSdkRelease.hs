@@ -102,7 +102,8 @@ instance Data.FromJSON MobileSdkRelease where
 
 instance Prelude.Hashable MobileSdkRelease where
   hashWithSalt _salt MobileSdkRelease' {..} =
-    _salt `Prelude.hashWithSalt` releaseNotes
+    _salt
+      `Prelude.hashWithSalt` releaseNotes
       `Prelude.hashWithSalt` releaseVersion
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` timestamp

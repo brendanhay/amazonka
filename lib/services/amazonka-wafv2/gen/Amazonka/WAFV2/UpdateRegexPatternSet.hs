@@ -24,9 +24,15 @@
 --
 -- This operation completely replaces the mutable specifications that you
 -- already have for the regex pattern set with the ones that you provide to
--- this call. To modify the regex pattern set, retrieve it by calling
--- GetRegexPatternSet, update the settings as needed, and then provide the
--- complete regex pattern set specification to this call.
+-- this call.
+--
+-- To modify a regex pattern set, do the following:
+--
+-- 1.  Retrieve it by calling GetRegexPatternSet
+--
+-- 2.  Update its settings as needed
+--
+-- 3.  Provide the complete regex pattern set specification to this call
 --
 -- When you make changes to web ACLs or web ACL components, like rules and
 -- rule groups, WAF propagates the changes everywhere that the web ACL and
@@ -82,7 +88,8 @@ data UpdateRegexPatternSet = UpdateRegexPatternSet'
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -125,7 +132,8 @@ data UpdateRegexPatternSet = UpdateRegexPatternSet'
 -- 'scope', 'updateRegexPatternSet_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -186,7 +194,8 @@ updateRegexPatternSet_name = Lens.lens (\UpdateRegexPatternSet' {name} -> name) 
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -204,7 +213,6 @@ updateRegexPatternSet_scope = Lens.lens (\UpdateRegexPatternSet' {scope} -> scop
 updateRegexPatternSet_id :: Lens.Lens' UpdateRegexPatternSet Prelude.Text
 updateRegexPatternSet_id = Lens.lens (\UpdateRegexPatternSet' {id} -> id) (\s@UpdateRegexPatternSet' {} a -> s {id = a} :: UpdateRegexPatternSet)
 
--- |
 updateRegexPatternSet_regularExpressionList :: Lens.Lens' UpdateRegexPatternSet [Regex]
 updateRegexPatternSet_regularExpressionList = Lens.lens (\UpdateRegexPatternSet' {regularExpressionList} -> regularExpressionList) (\s@UpdateRegexPatternSet' {} a -> s {regularExpressionList = a} :: UpdateRegexPatternSet) Prelude.. Lens.coerced
 
@@ -235,7 +243,8 @@ instance Core.AWSRequest UpdateRegexPatternSet where
 
 instance Prelude.Hashable UpdateRegexPatternSet where
   hashWithSalt _salt UpdateRegexPatternSet' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` id

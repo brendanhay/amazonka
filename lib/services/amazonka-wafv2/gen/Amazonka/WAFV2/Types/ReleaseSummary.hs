@@ -74,7 +74,8 @@ instance Data.FromJSON ReleaseSummary where
 
 instance Prelude.Hashable ReleaseSummary where
   hashWithSalt _salt ReleaseSummary' {..} =
-    _salt `Prelude.hashWithSalt` releaseVersion
+    _salt
+      `Prelude.hashWithSalt` releaseVersion
       `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData ReleaseSummary where

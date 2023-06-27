@@ -23,6 +23,19 @@
 -- Enables the specified LoggingConfiguration, to start logging from a web
 -- ACL, according to the configuration provided.
 --
+-- This operation completely replaces any mutable specifications that you
+-- already have for a logging configuration with the ones that you provide
+-- to this call.
+--
+-- To modify an existing logging configuration, do the following:
+--
+-- 1.  Retrieve it by calling GetLoggingConfiguration
+--
+-- 2.  Update its settings as needed
+--
+-- 3.  Provide the complete logging configuration specification to this
+--     call
+--
 -- You can define one logging destination per web ACL.
 --
 -- You can access information about the traffic that WAF inspects using the
@@ -54,13 +67,6 @@
 -- For additional information about web ACL logging, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/logging.html Logging web ACL traffic information>
 -- in the /WAF Developer Guide/.
---
--- This operation completely replaces the mutable specifications that you
--- already have for the logging configuration with the ones that you
--- provide to this call. To modify the logging configuration, retrieve it
--- by calling GetLoggingConfiguration, update the settings as needed, and
--- then provide the complete logging configuration specification to this
--- call.
 module Amazonka.WAFV2.PutLoggingConfiguration
   ( -- * Creating a Request
     PutLoggingConfiguration (..),
@@ -112,7 +118,6 @@ newPutLoggingConfiguration pLoggingConfiguration_ =
         pLoggingConfiguration_
     }
 
--- |
 putLoggingConfiguration_loggingConfiguration :: Lens.Lens' PutLoggingConfiguration LoggingConfiguration
 putLoggingConfiguration_loggingConfiguration = Lens.lens (\PutLoggingConfiguration' {loggingConfiguration} -> loggingConfiguration) (\s@PutLoggingConfiguration' {} a -> s {loggingConfiguration = a} :: PutLoggingConfiguration)
 
@@ -200,7 +205,6 @@ newPutLoggingConfigurationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
 putLoggingConfigurationResponse_loggingConfiguration :: Lens.Lens' PutLoggingConfigurationResponse (Prelude.Maybe LoggingConfiguration)
 putLoggingConfigurationResponse_loggingConfiguration = Lens.lens (\PutLoggingConfigurationResponse' {loggingConfiguration} -> loggingConfiguration) (\s@PutLoggingConfigurationResponse' {} a -> s {loggingConfiguration = a} :: PutLoggingConfigurationResponse)
 

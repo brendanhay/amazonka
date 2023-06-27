@@ -48,7 +48,9 @@ data ManagedRuleSetVersion = ManagedRuleSetVersion'
     -- each rule. Simple rules that cost little to run use fewer WCUs than more
     -- complex rules that use more processing power. Rule group capacity is
     -- fixed at creation, which helps users plan their web ACL WCU usage when
-    -- they use a rule group. The WCU limit for web ACLs is 1,500.
+    -- they use a rule group. For more information, see
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html WAF web ACL capacity units (WCU)>
+    -- in the /WAF Developer Guide/.
     capacity :: Prelude.Maybe Prelude.Natural,
     -- | The time that this version is set to expire.
     --
@@ -90,7 +92,9 @@ data ManagedRuleSetVersion = ManagedRuleSetVersion'
 -- each rule. Simple rules that cost little to run use fewer WCUs than more
 -- complex rules that use more processing power. Rule group capacity is
 -- fixed at creation, which helps users plan their web ACL WCU usage when
--- they use a rule group. The WCU limit for web ACLs is 1,500.
+-- they use a rule group. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html WAF web ACL capacity units (WCU)>
+-- in the /WAF Developer Guide/.
 --
 -- 'expiryTimestamp', 'managedRuleSetVersion_expiryTimestamp' - The time that this version is set to expire.
 --
@@ -135,7 +139,9 @@ managedRuleSetVersion_associatedRuleGroupArn = Lens.lens (\ManagedRuleSetVersion
 -- each rule. Simple rules that cost little to run use fewer WCUs than more
 -- complex rules that use more processing power. Rule group capacity is
 -- fixed at creation, which helps users plan their web ACL WCU usage when
--- they use a rule group. The WCU limit for web ACLs is 1,500.
+-- they use a rule group. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html WAF web ACL capacity units (WCU)>
+-- in the /WAF Developer Guide/.
 managedRuleSetVersion_capacity :: Lens.Lens' ManagedRuleSetVersion (Prelude.Maybe Prelude.Natural)
 managedRuleSetVersion_capacity = Lens.lens (\ManagedRuleSetVersion' {capacity} -> capacity) (\s@ManagedRuleSetVersion' {} a -> s {capacity = a} :: ManagedRuleSetVersion)
 
@@ -181,7 +187,8 @@ instance Data.FromJSON ManagedRuleSetVersion where
 
 instance Prelude.Hashable ManagedRuleSetVersion where
   hashWithSalt _salt ManagedRuleSetVersion' {..} =
-    _salt `Prelude.hashWithSalt` associatedRuleGroupArn
+    _salt
+      `Prelude.hashWithSalt` associatedRuleGroupArn
       `Prelude.hashWithSalt` capacity
       `Prelude.hashWithSalt` expiryTimestamp
       `Prelude.hashWithSalt` forecastedLifetime

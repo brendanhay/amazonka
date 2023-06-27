@@ -55,8 +55,9 @@ import Amazonka.WAFV2.Types
 data ListResourcesForWebACL = ListResourcesForWebACL'
   { -- | Used for web ACLs that are scoped for regional applications. A regional
     -- application can be an Application Load Balancer (ALB), an Amazon API
-    -- Gateway REST API, an AppSync GraphQL API, or an Amazon Cognito user
-    -- pool.
+    -- Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
+    -- an App Runner service, or an Amazon Web Services Verified Access
+    -- instance.
     --
     -- If you don\'t provide a resource type, the call uses the resource type
     -- @APPLICATION_LOAD_BALANCER@.
@@ -78,8 +79,9 @@ data ListResourcesForWebACL = ListResourcesForWebACL'
 --
 -- 'resourceType', 'listResourcesForWebACL_resourceType' - Used for web ACLs that are scoped for regional applications. A regional
 -- application can be an Application Load Balancer (ALB), an Amazon API
--- Gateway REST API, an AppSync GraphQL API, or an Amazon Cognito user
--- pool.
+-- Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
+-- an App Runner service, or an Amazon Web Services Verified Access
+-- instance.
 --
 -- If you don\'t provide a resource type, the call uses the resource type
 -- @APPLICATION_LOAD_BALANCER@.
@@ -100,8 +102,9 @@ newListResourcesForWebACL pWebACLArn_ =
 
 -- | Used for web ACLs that are scoped for regional applications. A regional
 -- application can be an Application Load Balancer (ALB), an Amazon API
--- Gateway REST API, an AppSync GraphQL API, or an Amazon Cognito user
--- pool.
+-- Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
+-- an App Runner service, or an Amazon Web Services Verified Access
+-- instance.
 --
 -- If you don\'t provide a resource type, the call uses the resource type
 -- @APPLICATION_LOAD_BALANCER@.
@@ -130,7 +133,8 @@ instance Core.AWSRequest ListResourcesForWebACL where
 
 instance Prelude.Hashable ListResourcesForWebACL where
   hashWithSalt _salt ListResourcesForWebACL' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` webACLArn
 
 instance Prelude.NFData ListResourcesForWebACL where

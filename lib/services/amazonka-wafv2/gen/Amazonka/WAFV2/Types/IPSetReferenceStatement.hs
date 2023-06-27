@@ -107,7 +107,8 @@ instance Data.FromJSON IPSetReferenceStatement where
 
 instance Prelude.Hashable IPSetReferenceStatement where
   hashWithSalt _salt IPSetReferenceStatement' {..} =
-    _salt `Prelude.hashWithSalt` iPSetForwardedIPConfig
+    _salt
+      `Prelude.hashWithSalt` iPSetForwardedIPConfig
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData IPSetReferenceStatement where

@@ -46,6 +46,7 @@ library
     Amazonka.WAFV2
     Amazonka.WAFV2.AssociateWebACL
     Amazonka.WAFV2.CheckCapacity
+    Amazonka.WAFV2.CreateAPIKey
     Amazonka.WAFV2.CreateIPSet
     Amazonka.WAFV2.CreateRegexPatternSet
     Amazonka.WAFV2.CreateRuleGroup
@@ -57,9 +58,12 @@ library
     Amazonka.WAFV2.DeleteRegexPatternSet
     Amazonka.WAFV2.DeleteRuleGroup
     Amazonka.WAFV2.DeleteWebACL
+    Amazonka.WAFV2.DescribeAllManagedProducts
+    Amazonka.WAFV2.DescribeManagedProductsByVendor
     Amazonka.WAFV2.DescribeManagedRuleGroup
     Amazonka.WAFV2.DisassociateWebACL
     Amazonka.WAFV2.GenerateMobileSdkReleaseUrl
+    Amazonka.WAFV2.GetDecryptedAPIKey
     Amazonka.WAFV2.GetIPSet
     Amazonka.WAFV2.GetLoggingConfiguration
     Amazonka.WAFV2.GetManagedRuleSet
@@ -72,6 +76,7 @@ library
     Amazonka.WAFV2.GetWebACL
     Amazonka.WAFV2.GetWebACLForResource
     Amazonka.WAFV2.Lens
+    Amazonka.WAFV2.ListAPIKeys
     Amazonka.WAFV2.ListAvailableManagedRuleGroups
     Amazonka.WAFV2.ListAvailableManagedRuleGroupVersions
     Amazonka.WAFV2.ListIPSets
@@ -90,10 +95,16 @@ library
     Amazonka.WAFV2.Types
     Amazonka.WAFV2.Types.ActionCondition
     Amazonka.WAFV2.Types.ActionValue
+    Amazonka.WAFV2.Types.AddressField
     Amazonka.WAFV2.Types.All
     Amazonka.WAFV2.Types.AllowAction
     Amazonka.WAFV2.Types.AllQueryArguments
     Amazonka.WAFV2.Types.AndStatement
+    Amazonka.WAFV2.Types.APIKeySummary
+    Amazonka.WAFV2.Types.AssociatedResourceType
+    Amazonka.WAFV2.Types.AssociationConfig
+    Amazonka.WAFV2.Types.AWSManagedRulesACFPRuleSet
+    Amazonka.WAFV2.Types.AWSManagedRulesATPRuleSet
     Amazonka.WAFV2.Types.AWSManagedRulesBotControlRuleSet
     Amazonka.WAFV2.Types.BlockAction
     Amazonka.WAFV2.Types.Body
@@ -116,6 +127,7 @@ library
     Amazonka.WAFV2.Types.CustomResponse
     Amazonka.WAFV2.Types.CustomResponseBody
     Amazonka.WAFV2.Types.DefaultAction
+    Amazonka.WAFV2.Types.EmailField
     Amazonka.WAFV2.Types.ExcludedRule
     Amazonka.WAFV2.Types.FailureReason
     Amazonka.WAFV2.Types.FallbackBehavior
@@ -129,6 +141,7 @@ library
     Amazonka.WAFV2.Types.ForwardedIPPosition
     Amazonka.WAFV2.Types.GeoMatchStatement
     Amazonka.WAFV2.Types.HeaderMatchPattern
+    Amazonka.WAFV2.Types.HeaderOrder
     Amazonka.WAFV2.Types.Headers
     Amazonka.WAFV2.Types.HTTPHeader
     Amazonka.WAFV2.Types.HTTPRequest
@@ -149,6 +162,7 @@ library
     Amazonka.WAFV2.Types.LabelSummary
     Amazonka.WAFV2.Types.LoggingConfiguration
     Amazonka.WAFV2.Types.LoggingFilter
+    Amazonka.WAFV2.Types.ManagedProductDescriptor
     Amazonka.WAFV2.Types.ManagedRuleGroupConfig
     Amazonka.WAFV2.Types.ManagedRuleGroupStatement
     Amazonka.WAFV2.Types.ManagedRuleGroupSummary
@@ -166,20 +180,38 @@ library
     Amazonka.WAFV2.Types.OversizeHandling
     Amazonka.WAFV2.Types.PasswordField
     Amazonka.WAFV2.Types.PayloadType
+    Amazonka.WAFV2.Types.PhoneNumberField
     Amazonka.WAFV2.Types.Platform
     Amazonka.WAFV2.Types.PositionalConstraint
     Amazonka.WAFV2.Types.QueryString
     Amazonka.WAFV2.Types.RateBasedStatement
     Amazonka.WAFV2.Types.RateBasedStatementAggregateKeyType
+    Amazonka.WAFV2.Types.RateBasedStatementCustomKey
     Amazonka.WAFV2.Types.RateBasedStatementManagedKeysIPSet
+    Amazonka.WAFV2.Types.RateLimitCookie
+    Amazonka.WAFV2.Types.RateLimitForwardedIP
+    Amazonka.WAFV2.Types.RateLimitHeader
+    Amazonka.WAFV2.Types.RateLimitHTTPMethod
+    Amazonka.WAFV2.Types.RateLimitIP
+    Amazonka.WAFV2.Types.RateLimitLabelNamespace
+    Amazonka.WAFV2.Types.RateLimitQueryArgument
+    Amazonka.WAFV2.Types.RateLimitQueryString
     Amazonka.WAFV2.Types.Regex
     Amazonka.WAFV2.Types.RegexMatchStatement
     Amazonka.WAFV2.Types.RegexPatternSet
     Amazonka.WAFV2.Types.RegexPatternSetReferenceStatement
     Amazonka.WAFV2.Types.RegexPatternSetSummary
     Amazonka.WAFV2.Types.ReleaseSummary
+    Amazonka.WAFV2.Types.RequestBodyAssociatedResourceTypeConfig
+    Amazonka.WAFV2.Types.RequestInspection
+    Amazonka.WAFV2.Types.RequestInspectionACFP
     Amazonka.WAFV2.Types.ResourceType
     Amazonka.WAFV2.Types.ResponseContentType
+    Amazonka.WAFV2.Types.ResponseInspection
+    Amazonka.WAFV2.Types.ResponseInspectionBodyContains
+    Amazonka.WAFV2.Types.ResponseInspectionHeader
+    Amazonka.WAFV2.Types.ResponseInspectionJson
+    Amazonka.WAFV2.Types.ResponseInspectionStatusCode
     Amazonka.WAFV2.Types.Rule
     Amazonka.WAFV2.Types.RuleAction
     Amazonka.WAFV2.Types.RuleActionOverride
@@ -193,6 +225,7 @@ library
     Amazonka.WAFV2.Types.SingleHeader
     Amazonka.WAFV2.Types.SingleQueryArgument
     Amazonka.WAFV2.Types.SizeConstraintStatement
+    Amazonka.WAFV2.Types.SizeInspectionLimit
     Amazonka.WAFV2.Types.SqliMatchStatement
     Amazonka.WAFV2.Types.Statement
     Amazonka.WAFV2.Types.Tag

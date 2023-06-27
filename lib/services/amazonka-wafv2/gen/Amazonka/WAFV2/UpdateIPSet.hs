@@ -24,9 +24,14 @@
 --
 -- This operation completely replaces the mutable specifications that you
 -- already have for the IP set with the ones that you provide to this call.
--- To modify the IP set, retrieve it by calling GetIPSet, update the
--- settings as needed, and then provide the complete IP set specification
--- to this call.
+--
+-- To modify an IP set, do the following:
+--
+-- 1.  Retrieve it by calling GetIPSet
+--
+-- 2.  Update its settings as needed
+--
+-- 3.  Provide the complete IP set specification to this call
 --
 -- When you make changes to web ACLs or web ACL components, like rules and
 -- rule groups, WAF propagates the changes everywhere that the web ACL and
@@ -82,7 +87,8 @@ data UpdateIPSet = UpdateIPSet'
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -161,7 +167,8 @@ data UpdateIPSet = UpdateIPSet'
 -- 'scope', 'updateIPSet_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -252,7 +259,8 @@ updateIPSet_name = Lens.lens (\UpdateIPSet' {name} -> name) (\s@UpdateIPSet' {} 
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -334,7 +342,8 @@ instance Core.AWSRequest UpdateIPSet where
 
 instance Prelude.Hashable UpdateIPSet where
   hashWithSalt _salt UpdateIPSet' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` id

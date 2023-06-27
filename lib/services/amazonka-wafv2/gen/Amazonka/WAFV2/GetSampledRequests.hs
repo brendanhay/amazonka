@@ -69,13 +69,14 @@ data GetSampledRequests = GetSampledRequests'
   { -- | The Amazon resource name (ARN) of the @WebACL@ for which you want a
     -- sample of requests.
     webAclArn :: Prelude.Text,
-    -- | The metric name assigned to the @Rule@ or @RuleGroup@ for which you want
-    -- a sample of requests.
+    -- | The metric name assigned to the @Rule@ or @RuleGroup@ dimension for
+    -- which you want a sample of requests.
     ruleMetricName :: Prelude.Text,
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -113,13 +114,14 @@ data GetSampledRequests = GetSampledRequests'
 -- 'webAclArn', 'getSampledRequests_webAclArn' - The Amazon resource name (ARN) of the @WebACL@ for which you want a
 -- sample of requests.
 --
--- 'ruleMetricName', 'getSampledRequests_ruleMetricName' - The metric name assigned to the @Rule@ or @RuleGroup@ for which you want
--- a sample of requests.
+-- 'ruleMetricName', 'getSampledRequests_ruleMetricName' - The metric name assigned to the @Rule@ or @RuleGroup@ dimension for
+-- which you want a sample of requests.
 --
 -- 'scope', 'getSampledRequests_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -173,15 +175,16 @@ newGetSampledRequests
 getSampledRequests_webAclArn :: Lens.Lens' GetSampledRequests Prelude.Text
 getSampledRequests_webAclArn = Lens.lens (\GetSampledRequests' {webAclArn} -> webAclArn) (\s@GetSampledRequests' {} a -> s {webAclArn = a} :: GetSampledRequests)
 
--- | The metric name assigned to the @Rule@ or @RuleGroup@ for which you want
--- a sample of requests.
+-- | The metric name assigned to the @Rule@ or @RuleGroup@ dimension for
+-- which you want a sample of requests.
 getSampledRequests_ruleMetricName :: Lens.Lens' GetSampledRequests Prelude.Text
 getSampledRequests_ruleMetricName = Lens.lens (\GetSampledRequests' {ruleMetricName} -> ruleMetricName) (\s@GetSampledRequests' {} a -> s {ruleMetricName = a} :: GetSampledRequests)
 
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -222,7 +225,8 @@ instance Core.AWSRequest GetSampledRequests where
       ( \s h x ->
           GetSampledRequestsResponse'
             Prelude.<$> (x Data..?> "PopulationSize")
-            Prelude.<*> ( x Data..?> "SampledRequests"
+            Prelude.<*> ( x
+                            Data..?> "SampledRequests"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "TimeWindow")
@@ -231,7 +235,8 @@ instance Core.AWSRequest GetSampledRequests where
 
 instance Prelude.Hashable GetSampledRequests where
   hashWithSalt _salt GetSampledRequests' {..} =
-    _salt `Prelude.hashWithSalt` webAclArn
+    _salt
+      `Prelude.hashWithSalt` webAclArn
       `Prelude.hashWithSalt` ruleMetricName
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` timeWindow

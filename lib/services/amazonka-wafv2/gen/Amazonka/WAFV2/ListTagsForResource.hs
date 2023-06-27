@@ -141,7 +141,8 @@ instance Core.AWSRequest ListTagsForResource where
 
 instance Prelude.Hashable ListTagsForResource where
   hashWithSalt _salt ListTagsForResource' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` resourceARN
 
@@ -189,7 +190,8 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
     -- returns a @NextMarker@ value in the response. To retrieve the next batch
     -- of objects, provide the marker from the prior call in your next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | The collection of tagging definitions for the resource.
+    -- | The collection of tagging definitions for the resource. If you specified
+    -- a @Limit@ in your request, this might not be the full list.
     tagInfoForResource :: Prelude.Maybe TagInfoForResource,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -209,7 +211,8 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- returns a @NextMarker@ value in the response. To retrieve the next batch
 -- of objects, provide the marker from the prior call in your next request.
 --
--- 'tagInfoForResource', 'listTagsForResourceResponse_tagInfoForResource' - The collection of tagging definitions for the resource.
+-- 'tagInfoForResource', 'listTagsForResourceResponse_tagInfoForResource' - The collection of tagging definitions for the resource. If you specified
+-- a @Limit@ in your request, this might not be the full list.
 --
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
@@ -231,7 +234,8 @@ newListTagsForResourceResponse pHttpStatus_ =
 listTagsForResourceResponse_nextMarker :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
 listTagsForResourceResponse_nextMarker = Lens.lens (\ListTagsForResourceResponse' {nextMarker} -> nextMarker) (\s@ListTagsForResourceResponse' {} a -> s {nextMarker = a} :: ListTagsForResourceResponse)
 
--- | The collection of tagging definitions for the resource.
+-- | The collection of tagging definitions for the resource. If you specified
+-- a @Limit@ in your request, this might not be the full list.
 listTagsForResourceResponse_tagInfoForResource :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe TagInfoForResource)
 listTagsForResourceResponse_tagInfoForResource = Lens.lens (\ListTagsForResourceResponse' {tagInfoForResource} -> tagInfoForResource) (\s@ListTagsForResourceResponse' {} a -> s {tagInfoForResource = a} :: ListTagsForResourceResponse)
 

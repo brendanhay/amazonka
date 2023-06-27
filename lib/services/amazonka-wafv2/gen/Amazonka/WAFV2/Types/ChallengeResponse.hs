@@ -95,7 +95,8 @@ instance Data.FromJSON ChallengeResponse where
 
 instance Prelude.Hashable ChallengeResponse where
   hashWithSalt _salt ChallengeResponse' {..} =
-    _salt `Prelude.hashWithSalt` failureReason
+    _salt
+      `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` responseCode
       `Prelude.hashWithSalt` solveTimestamp
 

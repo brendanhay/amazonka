@@ -133,7 +133,8 @@ instance Core.AWSRequest ListMobileSdkReleases where
       ( \s h x ->
           ListMobileSdkReleasesResponse'
             Prelude.<$> (x Data..?> "NextMarker")
-            Prelude.<*> ( x Data..?> "ReleaseSummaries"
+            Prelude.<*> ( x
+                            Data..?> "ReleaseSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -141,7 +142,8 @@ instance Core.AWSRequest ListMobileSdkReleases where
 
 instance Prelude.Hashable ListMobileSdkReleases where
   hashWithSalt _salt ListMobileSdkReleases' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` platform
 
@@ -189,7 +191,8 @@ data ListMobileSdkReleasesResponse = ListMobileSdkReleasesResponse'
     -- returns a @NextMarker@ value in the response. To retrieve the next batch
     -- of objects, provide the marker from the prior call in your next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | High level information for the available SDK releases.
+    -- | The high level information for the available SDK releases. If you
+    -- specified a @Limit@ in your request, this might not be the full list.
     releaseSummaries :: Prelude.Maybe [ReleaseSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -209,7 +212,8 @@ data ListMobileSdkReleasesResponse = ListMobileSdkReleasesResponse'
 -- returns a @NextMarker@ value in the response. To retrieve the next batch
 -- of objects, provide the marker from the prior call in your next request.
 --
--- 'releaseSummaries', 'listMobileSdkReleasesResponse_releaseSummaries' - High level information for the available SDK releases.
+-- 'releaseSummaries', 'listMobileSdkReleasesResponse_releaseSummaries' - The high level information for the available SDK releases. If you
+-- specified a @Limit@ in your request, this might not be the full list.
 --
 -- 'httpStatus', 'listMobileSdkReleasesResponse_httpStatus' - The response's http status code.
 newListMobileSdkReleasesResponse ::
@@ -231,7 +235,8 @@ newListMobileSdkReleasesResponse pHttpStatus_ =
 listMobileSdkReleasesResponse_nextMarker :: Lens.Lens' ListMobileSdkReleasesResponse (Prelude.Maybe Prelude.Text)
 listMobileSdkReleasesResponse_nextMarker = Lens.lens (\ListMobileSdkReleasesResponse' {nextMarker} -> nextMarker) (\s@ListMobileSdkReleasesResponse' {} a -> s {nextMarker = a} :: ListMobileSdkReleasesResponse)
 
--- | High level information for the available SDK releases.
+-- | The high level information for the available SDK releases. If you
+-- specified a @Limit@ in your request, this might not be the full list.
 listMobileSdkReleasesResponse_releaseSummaries :: Lens.Lens' ListMobileSdkReleasesResponse (Prelude.Maybe [ReleaseSummary])
 listMobileSdkReleasesResponse_releaseSummaries = Lens.lens (\ListMobileSdkReleasesResponse' {releaseSummaries} -> releaseSummaries) (\s@ListMobileSdkReleasesResponse' {} a -> s {releaseSummaries = a} :: ListMobileSdkReleasesResponse) Prelude.. Lens.mapping Lens.coerced
 

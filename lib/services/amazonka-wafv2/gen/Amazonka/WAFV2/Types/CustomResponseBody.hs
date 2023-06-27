@@ -41,8 +41,7 @@ data CustomResponseBody = CustomResponseBody'
     -- For information about the limits on count and size for custom request
     -- and response settings, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    -- in the /WAF Developer Guide/.
     content :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,8 +65,7 @@ data CustomResponseBody = CustomResponseBody'
 -- For information about the limits on count and size for custom request
 -- and response settings, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 newCustomResponseBody ::
   -- | 'contentType'
   ResponseContentType ->
@@ -93,8 +91,7 @@ customResponseBody_contentType = Lens.lens (\CustomResponseBody' {contentType} -
 -- For information about the limits on count and size for custom request
 -- and response settings, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 customResponseBody_content :: Lens.Lens' CustomResponseBody Prelude.Text
 customResponseBody_content = Lens.lens (\CustomResponseBody' {content} -> content) (\s@CustomResponseBody' {} a -> s {content = a} :: CustomResponseBody)
 
@@ -110,7 +107,8 @@ instance Data.FromJSON CustomResponseBody where
 
 instance Prelude.Hashable CustomResponseBody where
   hashWithSalt _salt CustomResponseBody' {..} =
-    _salt `Prelude.hashWithSalt` contentType
+    _salt
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` content
 
 instance Prelude.NFData CustomResponseBody where

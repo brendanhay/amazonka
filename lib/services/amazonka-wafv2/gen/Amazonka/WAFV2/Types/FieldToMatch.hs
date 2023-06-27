@@ -26,6 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.AllQueryArguments
 import Amazonka.WAFV2.Types.Body
 import Amazonka.WAFV2.Types.Cookies
+import Amazonka.WAFV2.Types.HeaderOrder
 import Amazonka.WAFV2.Types.Headers
 import Amazonka.WAFV2.Types.JsonBody
 import Amazonka.WAFV2.Types.Method
@@ -58,10 +59,15 @@ data FieldToMatch = FieldToMatch'
     -- any additional data that you want to send to your web server as the HTTP
     -- request body, such as data from a form.
     --
-    -- Only the first 8 KB (8192 bytes) of the request body are forwarded to
-    -- WAF for inspection by the underlying host service. For information about
-    -- how to handle oversized request bodies, see the @Body@ object
-    -- configuration.
+    -- A limited amount of the request body is forwarded to WAF for inspection
+    -- by the underlying host service. For regional resources, the limit is 8
+    -- KB (8,192 kilobytes) and for CloudFront distributions, the limit is 16
+    -- KB (16,384 kilobytes). For CloudFront distributions, you can increase
+    -- the limit in the web ACL\'s @AssociationConfig@, for additional
+    -- processing fees.
+    --
+    -- For information about how to handle oversized request bodies, see the
+    -- @Body@ object configuration.
     body :: Prelude.Maybe Body,
     -- | Inspect the request cookies. You must configure scope and pattern
     -- matching filters in the @Cookies@ object, to define the set of cookies
@@ -74,6 +80,13 @@ data FieldToMatch = FieldToMatch'
     -- filters to the cookies that it receives from the underlying host
     -- service.
     cookies :: Prelude.Maybe Cookies,
+    -- | Inspect a string containing the list of the request\'s header names,
+    -- ordered as they appear in the web request that WAF receives for
+    -- inspection. WAF generates the string and then uses that as the field to
+    -- match component in its inspection. WAF separates the header names in the
+    -- string using colons and no added spaces, for example
+    -- @host:user-agent:accept:authorization:referer@.
+    headerOrder :: Prelude.Maybe HeaderOrder,
     -- | Inspect the request headers. You must configure scope and pattern
     -- matching filters in the @Headers@ object, to define the set of headers
     -- to and the parts of the headers that WAF inspects.
@@ -90,10 +103,15 @@ data FieldToMatch = FieldToMatch'
     -- additional data that you want to send to your web server as the HTTP
     -- request body, such as data from a form.
     --
-    -- Only the first 8 KB (8192 bytes) of the request body are forwarded to
-    -- WAF for inspection by the underlying host service. For information about
-    -- how to handle oversized request bodies, see the @JsonBody@ object
-    -- configuration.
+    -- A limited amount of the request body is forwarded to WAF for inspection
+    -- by the underlying host service. For regional resources, the limit is 8
+    -- KB (8,192 kilobytes) and for CloudFront distributions, the limit is 16
+    -- KB (16,384 kilobytes). For CloudFront distributions, you can increase
+    -- the limit in the web ACL\'s @AssociationConfig@, for additional
+    -- processing fees.
+    --
+    -- For information about how to handle oversized request bodies, see the
+    -- @JsonBody@ object configuration.
     jsonBody :: Prelude.Maybe JsonBody,
     -- | Inspect the HTTP method. The method indicates the type of operation that
     -- the request is asking the origin to perform.
@@ -136,10 +154,15 @@ data FieldToMatch = FieldToMatch'
 -- any additional data that you want to send to your web server as the HTTP
 -- request body, such as data from a form.
 --
--- Only the first 8 KB (8192 bytes) of the request body are forwarded to
--- WAF for inspection by the underlying host service. For information about
--- how to handle oversized request bodies, see the @Body@ object
--- configuration.
+-- A limited amount of the request body is forwarded to WAF for inspection
+-- by the underlying host service. For regional resources, the limit is 8
+-- KB (8,192 kilobytes) and for CloudFront distributions, the limit is 16
+-- KB (16,384 kilobytes). For CloudFront distributions, you can increase
+-- the limit in the web ACL\'s @AssociationConfig@, for additional
+-- processing fees.
+--
+-- For information about how to handle oversized request bodies, see the
+-- @Body@ object configuration.
 --
 -- 'cookies', 'fieldToMatch_cookies' - Inspect the request cookies. You must configure scope and pattern
 -- matching filters in the @Cookies@ object, to define the set of cookies
@@ -151,6 +174,13 @@ data FieldToMatch = FieldToMatch'
 -- content in the @Cookies@ object. WAF applies the pattern matching
 -- filters to the cookies that it receives from the underlying host
 -- service.
+--
+-- 'headerOrder', 'fieldToMatch_headerOrder' - Inspect a string containing the list of the request\'s header names,
+-- ordered as they appear in the web request that WAF receives for
+-- inspection. WAF generates the string and then uses that as the field to
+-- match component in its inspection. WAF separates the header names in the
+-- string using colons and no added spaces, for example
+-- @host:user-agent:accept:authorization:referer@.
 --
 -- 'headers', 'fieldToMatch_headers' - Inspect the request headers. You must configure scope and pattern
 -- matching filters in the @Headers@ object, to define the set of headers
@@ -168,10 +198,15 @@ data FieldToMatch = FieldToMatch'
 -- additional data that you want to send to your web server as the HTTP
 -- request body, such as data from a form.
 --
--- Only the first 8 KB (8192 bytes) of the request body are forwarded to
--- WAF for inspection by the underlying host service. For information about
--- how to handle oversized request bodies, see the @JsonBody@ object
--- configuration.
+-- A limited amount of the request body is forwarded to WAF for inspection
+-- by the underlying host service. For regional resources, the limit is 8
+-- KB (8,192 kilobytes) and for CloudFront distributions, the limit is 16
+-- KB (16,384 kilobytes). For CloudFront distributions, you can increase
+-- the limit in the web ACL\'s @AssociationConfig@, for additional
+-- processing fees.
+--
+-- For information about how to handle oversized request bodies, see the
+-- @JsonBody@ object configuration.
 --
 -- 'method', 'fieldToMatch_method' - Inspect the HTTP method. The method indicates the type of operation that
 -- the request is asking the origin to perform.
@@ -202,6 +237,7 @@ newFieldToMatch =
     { allQueryArguments = Prelude.Nothing,
       body = Prelude.Nothing,
       cookies = Prelude.Nothing,
+      headerOrder = Prelude.Nothing,
       headers = Prelude.Nothing,
       jsonBody = Prelude.Nothing,
       method = Prelude.Nothing,
@@ -220,10 +256,15 @@ fieldToMatch_allQueryArguments = Lens.lens (\FieldToMatch' {allQueryArguments} -
 -- any additional data that you want to send to your web server as the HTTP
 -- request body, such as data from a form.
 --
--- Only the first 8 KB (8192 bytes) of the request body are forwarded to
--- WAF for inspection by the underlying host service. For information about
--- how to handle oversized request bodies, see the @Body@ object
--- configuration.
+-- A limited amount of the request body is forwarded to WAF for inspection
+-- by the underlying host service. For regional resources, the limit is 8
+-- KB (8,192 kilobytes) and for CloudFront distributions, the limit is 16
+-- KB (16,384 kilobytes). For CloudFront distributions, you can increase
+-- the limit in the web ACL\'s @AssociationConfig@, for additional
+-- processing fees.
+--
+-- For information about how to handle oversized request bodies, see the
+-- @Body@ object configuration.
 fieldToMatch_body :: Lens.Lens' FieldToMatch (Prelude.Maybe Body)
 fieldToMatch_body = Lens.lens (\FieldToMatch' {body} -> body) (\s@FieldToMatch' {} a -> s {body = a} :: FieldToMatch)
 
@@ -239,6 +280,15 @@ fieldToMatch_body = Lens.lens (\FieldToMatch' {body} -> body) (\s@FieldToMatch' 
 -- service.
 fieldToMatch_cookies :: Lens.Lens' FieldToMatch (Prelude.Maybe Cookies)
 fieldToMatch_cookies = Lens.lens (\FieldToMatch' {cookies} -> cookies) (\s@FieldToMatch' {} a -> s {cookies = a} :: FieldToMatch)
+
+-- | Inspect a string containing the list of the request\'s header names,
+-- ordered as they appear in the web request that WAF receives for
+-- inspection. WAF generates the string and then uses that as the field to
+-- match component in its inspection. WAF separates the header names in the
+-- string using colons and no added spaces, for example
+-- @host:user-agent:accept:authorization:referer@.
+fieldToMatch_headerOrder :: Lens.Lens' FieldToMatch (Prelude.Maybe HeaderOrder)
+fieldToMatch_headerOrder = Lens.lens (\FieldToMatch' {headerOrder} -> headerOrder) (\s@FieldToMatch' {} a -> s {headerOrder = a} :: FieldToMatch)
 
 -- | Inspect the request headers. You must configure scope and pattern
 -- matching filters in the @Headers@ object, to define the set of headers
@@ -258,10 +308,15 @@ fieldToMatch_headers = Lens.lens (\FieldToMatch' {headers} -> headers) (\s@Field
 -- additional data that you want to send to your web server as the HTTP
 -- request body, such as data from a form.
 --
--- Only the first 8 KB (8192 bytes) of the request body are forwarded to
--- WAF for inspection by the underlying host service. For information about
--- how to handle oversized request bodies, see the @JsonBody@ object
--- configuration.
+-- A limited amount of the request body is forwarded to WAF for inspection
+-- by the underlying host service. For regional resources, the limit is 8
+-- KB (8,192 kilobytes) and for CloudFront distributions, the limit is 16
+-- KB (16,384 kilobytes). For CloudFront distributions, you can increase
+-- the limit in the web ACL\'s @AssociationConfig@, for additional
+-- processing fees.
+--
+-- For information about how to handle oversized request bodies, see the
+-- @JsonBody@ object configuration.
 fieldToMatch_jsonBody :: Lens.Lens' FieldToMatch (Prelude.Maybe JsonBody)
 fieldToMatch_jsonBody = Lens.lens (\FieldToMatch' {jsonBody} -> jsonBody) (\s@FieldToMatch' {} a -> s {jsonBody = a} :: FieldToMatch)
 
@@ -307,6 +362,7 @@ instance Data.FromJSON FieldToMatch where
             Prelude.<$> (x Data..:? "AllQueryArguments")
             Prelude.<*> (x Data..:? "Body")
             Prelude.<*> (x Data..:? "Cookies")
+            Prelude.<*> (x Data..:? "HeaderOrder")
             Prelude.<*> (x Data..:? "Headers")
             Prelude.<*> (x Data..:? "JsonBody")
             Prelude.<*> (x Data..:? "Method")
@@ -318,9 +374,11 @@ instance Data.FromJSON FieldToMatch where
 
 instance Prelude.Hashable FieldToMatch where
   hashWithSalt _salt FieldToMatch' {..} =
-    _salt `Prelude.hashWithSalt` allQueryArguments
+    _salt
+      `Prelude.hashWithSalt` allQueryArguments
       `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` cookies
+      `Prelude.hashWithSalt` headerOrder
       `Prelude.hashWithSalt` headers
       `Prelude.hashWithSalt` jsonBody
       `Prelude.hashWithSalt` method
@@ -334,6 +392,7 @@ instance Prelude.NFData FieldToMatch where
     Prelude.rnf allQueryArguments
       `Prelude.seq` Prelude.rnf body
       `Prelude.seq` Prelude.rnf cookies
+      `Prelude.seq` Prelude.rnf headerOrder
       `Prelude.seq` Prelude.rnf headers
       `Prelude.seq` Prelude.rnf jsonBody
       `Prelude.seq` Prelude.rnf method
@@ -350,6 +409,7 @@ instance Data.ToJSON FieldToMatch where
               Prelude.<$> allQueryArguments,
             ("Body" Data..=) Prelude.<$> body,
             ("Cookies" Data..=) Prelude.<$> cookies,
+            ("HeaderOrder" Data..=) Prelude.<$> headerOrder,
             ("Headers" Data..=) Prelude.<$> headers,
             ("JsonBody" Data..=) Prelude.<$> jsonBody,
             ("Method" Data..=) Prelude.<$> method,

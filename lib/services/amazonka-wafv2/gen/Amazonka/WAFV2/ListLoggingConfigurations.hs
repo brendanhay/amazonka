@@ -65,7 +65,8 @@ data ListLoggingConfigurations = ListLoggingConfigurations'
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -99,7 +100,8 @@ data ListLoggingConfigurations = ListLoggingConfigurations'
 -- 'scope', 'listLoggingConfigurations_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -136,7 +138,8 @@ listLoggingConfigurations_nextMarker = Lens.lens (\ListLoggingConfigurations' {n
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -158,7 +161,8 @@ instance Core.AWSRequest ListLoggingConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListLoggingConfigurationsResponse'
-            Prelude.<$> ( x Data..?> "LoggingConfigurations"
+            Prelude.<$> ( x
+                            Data..?> "LoggingConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextMarker")
@@ -167,7 +171,8 @@ instance Core.AWSRequest ListLoggingConfigurations where
 
 instance Prelude.Hashable ListLoggingConfigurations where
   hashWithSalt _salt ListLoggingConfigurations' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` scope
 
@@ -210,7 +215,9 @@ instance Data.ToQuery ListLoggingConfigurations where
 
 -- | /See:/ 'newListLoggingConfigurationsResponse' smart constructor.
 data ListLoggingConfigurationsResponse = ListLoggingConfigurationsResponse'
-  { loggingConfigurations :: Prelude.Maybe [LoggingConfiguration],
+  { -- | Array of logging configurations. If you specified a @Limit@ in your
+    -- request, this might not be the full list.
+    loggingConfigurations :: Prelude.Maybe [LoggingConfiguration],
     -- | When you request a list of objects with a @Limit@ setting, if the number
     -- of objects that are still available for retrieval exceeds the limit, WAF
     -- returns a @NextMarker@ value in the response. To retrieve the next batch
@@ -229,7 +236,8 @@ data ListLoggingConfigurationsResponse = ListLoggingConfigurationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loggingConfigurations', 'listLoggingConfigurationsResponse_loggingConfigurations' -
+-- 'loggingConfigurations', 'listLoggingConfigurationsResponse_loggingConfigurations' - Array of logging configurations. If you specified a @Limit@ in your
+-- request, this might not be the full list.
 --
 -- 'nextMarker', 'listLoggingConfigurationsResponse_nextMarker' - When you request a list of objects with a @Limit@ setting, if the number
 -- of objects that are still available for retrieval exceeds the limit, WAF
@@ -249,7 +257,8 @@ newListLoggingConfigurationsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- |
+-- | Array of logging configurations. If you specified a @Limit@ in your
+-- request, this might not be the full list.
 listLoggingConfigurationsResponse_loggingConfigurations :: Lens.Lens' ListLoggingConfigurationsResponse (Prelude.Maybe [LoggingConfiguration])
 listLoggingConfigurationsResponse_loggingConfigurations = Lens.lens (\ListLoggingConfigurationsResponse' {loggingConfigurations} -> loggingConfigurations) (\s@ListLoggingConfigurationsResponse' {} a -> s {loggingConfigurations = a} :: ListLoggingConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 

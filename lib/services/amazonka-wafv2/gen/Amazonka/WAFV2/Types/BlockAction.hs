@@ -37,8 +37,7 @@ data BlockAction = BlockAction'
     --
     -- For information about customizing web requests and responses, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    -- in the /WAF Developer Guide/.
     customResponse :: Prelude.Maybe CustomResponse
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,8 +54,7 @@ data BlockAction = BlockAction'
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 newBlockAction ::
   BlockAction
 newBlockAction =
@@ -66,8 +64,7 @@ newBlockAction =
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 blockAction_customResponse :: Lens.Lens' BlockAction (Prelude.Maybe CustomResponse)
 blockAction_customResponse = Lens.lens (\BlockAction' {customResponse} -> customResponse) (\s@BlockAction' {} a -> s {customResponse = a} :: BlockAction)
 

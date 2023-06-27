@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 -- web request component that you\'ve identified in your FieldToMatch
 -- specifications.
 --
--- This is used only in the FieldToMatch specification for some web request
+-- This is used in the FieldToMatch specification for some web request
 -- component types.
 --
 -- JSON specification: @\"All\": {}@

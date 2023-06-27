@@ -20,10 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the keys that are currently blocked by a rate-based rule
--- instance. The maximum number of managed keys that can be blocked for a
--- single rate-based rule instance is 10,000. If more than 10,000 addresses
--- exceed the rate limit, those with the highest rates are blocked.
+-- Retrieves the IP addresses that are currently blocked by a rate-based
+-- rule instance. This is only available for rate-based rules that
+-- aggregate solely on the IP address or on the forwarded IP address.
+--
+-- The maximum number of addresses that can be blocked for a single
+-- rate-based rule instance is 10,000. If more than 10,000 addresses exceed
+-- the rate limit, those with the highest rates are blocked.
 --
 -- For a rate-based rule that you\'ve defined inside a rule group, provide
 -- the name of the rule group reference statement in your request, in
@@ -77,7 +80,8 @@ data GetRateBasedStatementManagedKeys = GetRateBasedStatementManagedKeys'
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -117,7 +121,8 @@ data GetRateBasedStatementManagedKeys = GetRateBasedStatementManagedKeys'
 -- 'scope', 'getRateBasedStatementManagedKeys_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -171,7 +176,8 @@ getRateBasedStatementManagedKeys_ruleGroupRuleName = Lens.lens (\GetRateBasedSta
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -226,7 +232,8 @@ instance
   hashWithSalt
     _salt
     GetRateBasedStatementManagedKeys' {..} =
-      _salt `Prelude.hashWithSalt` ruleGroupRuleName
+      _salt
+        `Prelude.hashWithSalt` ruleGroupRuleName
         `Prelude.hashWithSalt` scope
         `Prelude.hashWithSalt` webACLName
         `Prelude.hashWithSalt` webACLId

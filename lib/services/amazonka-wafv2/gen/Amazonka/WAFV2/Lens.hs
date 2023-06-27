@@ -25,6 +25,12 @@ module Amazonka.WAFV2.Lens
     checkCapacityResponse_capacity,
     checkCapacityResponse_httpStatus,
 
+    -- ** CreateAPIKey
+    createAPIKey_scope,
+    createAPIKey_tokenDomains,
+    createAPIKeyResponse_aPIKey,
+    createAPIKeyResponse_httpStatus,
+
     -- ** CreateIPSet
     createIPSet_description,
     createIPSet_tags,
@@ -57,6 +63,7 @@ module Amazonka.WAFV2.Lens
     createRuleGroupResponse_httpStatus,
 
     -- ** CreateWebACL
+    createWebACL_associationConfig,
     createWebACL_captchaConfig,
     createWebACL_challengeConfig,
     createWebACL_customResponseBodies,
@@ -113,6 +120,17 @@ module Amazonka.WAFV2.Lens
     deleteWebACL_lockToken,
     deleteWebACLResponse_httpStatus,
 
+    -- ** DescribeAllManagedProducts
+    describeAllManagedProducts_scope,
+    describeAllManagedProductsResponse_managedProducts,
+    describeAllManagedProductsResponse_httpStatus,
+
+    -- ** DescribeManagedProductsByVendor
+    describeManagedProductsByVendor_vendorName,
+    describeManagedProductsByVendor_scope,
+    describeManagedProductsByVendorResponse_managedProducts,
+    describeManagedProductsByVendorResponse_httpStatus,
+
     -- ** DescribeManagedRuleGroup
     describeManagedRuleGroup_versionName,
     describeManagedRuleGroup_vendorName,
@@ -136,6 +154,13 @@ module Amazonka.WAFV2.Lens
     generateMobileSdkReleaseUrl_releaseVersion,
     generateMobileSdkReleaseUrlResponse_url,
     generateMobileSdkReleaseUrlResponse_httpStatus,
+
+    -- ** GetDecryptedAPIKey
+    getDecryptedAPIKey_scope,
+    getDecryptedAPIKey_aPIKey,
+    getDecryptedAPIKeyResponse_creationTimestamp,
+    getDecryptedAPIKeyResponse_tokenDomains,
+    getDecryptedAPIKeyResponse_httpStatus,
 
     -- ** GetIPSet
     getIPSet_name,
@@ -220,6 +245,15 @@ module Amazonka.WAFV2.Lens
     getWebACLForResource_resourceArn,
     getWebACLForResourceResponse_webACL,
     getWebACLForResourceResponse_httpStatus,
+
+    -- ** ListAPIKeys
+    listAPIKeys_limit,
+    listAPIKeys_nextMarker,
+    listAPIKeys_scope,
+    listAPIKeysResponse_aPIKeySummaries,
+    listAPIKeysResponse_applicationIntegrationURL,
+    listAPIKeysResponse_nextMarker,
+    listAPIKeysResponse_httpStatus,
 
     -- ** ListAvailableManagedRuleGroupVersions
     listAvailableManagedRuleGroupVersions_limit,
@@ -385,6 +419,7 @@ module Amazonka.WAFV2.Lens
     updateRuleGroupResponse_httpStatus,
 
     -- ** UpdateWebACL
+    updateWebACL_associationConfig,
     updateWebACL_captchaConfig,
     updateWebACL_challengeConfig,
     updateWebACL_customResponseBodies,
@@ -402,11 +437,33 @@ module Amazonka.WAFV2.Lens
 
     -- * Types
 
+    -- ** APIKeySummary
+    aPIKeySummary_aPIKey,
+    aPIKeySummary_creationTimestamp,
+    aPIKeySummary_tokenDomains,
+    aPIKeySummary_version,
+
+    -- ** AWSManagedRulesACFPRuleSet
+    aWSManagedRulesACFPRuleSet_enableRegexInPath,
+    aWSManagedRulesACFPRuleSet_responseInspection,
+    aWSManagedRulesACFPRuleSet_creationPath,
+    aWSManagedRulesACFPRuleSet_registrationPagePath,
+    aWSManagedRulesACFPRuleSet_requestInspection,
+
+    -- ** AWSManagedRulesATPRuleSet
+    aWSManagedRulesATPRuleSet_enableRegexInPath,
+    aWSManagedRulesATPRuleSet_requestInspection,
+    aWSManagedRulesATPRuleSet_responseInspection,
+    aWSManagedRulesATPRuleSet_loginPath,
+
     -- ** AWSManagedRulesBotControlRuleSet
     aWSManagedRulesBotControlRuleSet_inspectionLevel,
 
     -- ** ActionCondition
     actionCondition_action,
+
+    -- ** AddressField
+    addressField_identifier,
 
     -- ** All
 
@@ -417,6 +474,9 @@ module Amazonka.WAFV2.Lens
 
     -- ** AndStatement
     andStatement_statements,
+
+    -- ** AssociationConfig
+    associationConfig_requestBody,
 
     -- ** BlockAction
     blockAction_customResponse,
@@ -489,6 +549,9 @@ module Amazonka.WAFV2.Lens
     defaultAction_allow,
     defaultAction_block,
 
+    -- ** EmailField
+    emailField_identifier,
+
     -- ** ExcludedRule
     excludedRule_name,
 
@@ -496,6 +559,7 @@ module Amazonka.WAFV2.Lens
     fieldToMatch_allQueryArguments,
     fieldToMatch_body,
     fieldToMatch_cookies,
+    fieldToMatch_headerOrder,
     fieldToMatch_headers,
     fieldToMatch_jsonBody,
     fieldToMatch_method,
@@ -544,6 +608,9 @@ module Amazonka.WAFV2.Lens
     headerMatchPattern_all,
     headerMatchPattern_excludedHeaders,
     headerMatchPattern_includedHeaders,
+
+    -- ** HeaderOrder
+    headerOrder_oversizeHandling,
 
     -- ** Headers
     headers_matchPattern,
@@ -611,7 +678,20 @@ module Amazonka.WAFV2.Lens
     loggingFilter_filters,
     loggingFilter_defaultBehavior,
 
+    -- ** ManagedProductDescriptor
+    managedProductDescriptor_isAdvancedManagedRuleSet,
+    managedProductDescriptor_isVersioningSupported,
+    managedProductDescriptor_managedRuleSetName,
+    managedProductDescriptor_productDescription,
+    managedProductDescriptor_productId,
+    managedProductDescriptor_productLink,
+    managedProductDescriptor_productTitle,
+    managedProductDescriptor_snsTopicArn,
+    managedProductDescriptor_vendorName,
+
     -- ** ManagedRuleGroupConfig
+    managedRuleGroupConfig_aWSManagedRulesACFPRuleSet,
+    managedRuleGroupConfig_aWSManagedRulesATPRuleSet,
     managedRuleGroupConfig_aWSManagedRulesBotControlRuleSet,
     managedRuleGroupConfig_loginPath,
     managedRuleGroupConfig_passwordField,
@@ -685,17 +765,55 @@ module Amazonka.WAFV2.Lens
     -- ** PasswordField
     passwordField_identifier,
 
+    -- ** PhoneNumberField
+    phoneNumberField_identifier,
+
     -- ** QueryString
 
     -- ** RateBasedStatement
+    rateBasedStatement_customKeys,
     rateBasedStatement_forwardedIPConfig,
     rateBasedStatement_scopeDownStatement,
     rateBasedStatement_limit,
     rateBasedStatement_aggregateKeyType,
 
+    -- ** RateBasedStatementCustomKey
+    rateBasedStatementCustomKey_cookie,
+    rateBasedStatementCustomKey_forwardedIP,
+    rateBasedStatementCustomKey_hTTPMethod,
+    rateBasedStatementCustomKey_header,
+    rateBasedStatementCustomKey_ip,
+    rateBasedStatementCustomKey_labelNamespace,
+    rateBasedStatementCustomKey_queryArgument,
+    rateBasedStatementCustomKey_queryString,
+
     -- ** RateBasedStatementManagedKeysIPSet
     rateBasedStatementManagedKeysIPSet_addresses,
     rateBasedStatementManagedKeysIPSet_iPAddressVersion,
+
+    -- ** RateLimitCookie
+    rateLimitCookie_name,
+    rateLimitCookie_textTransformations,
+
+    -- ** RateLimitForwardedIP
+
+    -- ** RateLimitHTTPMethod
+
+    -- ** RateLimitHeader
+    rateLimitHeader_name,
+    rateLimitHeader_textTransformations,
+
+    -- ** RateLimitIP
+
+    -- ** RateLimitLabelNamespace
+    rateLimitLabelNamespace_namespace,
+
+    -- ** RateLimitQueryArgument
+    rateLimitQueryArgument_name,
+    rateLimitQueryArgument_textTransformations,
+
+    -- ** RateLimitQueryString
+    rateLimitQueryString_textTransformations,
 
     -- ** Regex
     regex_regexString,
@@ -727,6 +845,46 @@ module Amazonka.WAFV2.Lens
     -- ** ReleaseSummary
     releaseSummary_releaseVersion,
     releaseSummary_timestamp,
+
+    -- ** RequestBodyAssociatedResourceTypeConfig
+    requestBodyAssociatedResourceTypeConfig_defaultSizeInspectionLimit,
+
+    -- ** RequestInspection
+    requestInspection_payloadType,
+    requestInspection_usernameField,
+    requestInspection_passwordField,
+
+    -- ** RequestInspectionACFP
+    requestInspectionACFP_addressFields,
+    requestInspectionACFP_emailField,
+    requestInspectionACFP_passwordField,
+    requestInspectionACFP_phoneNumberFields,
+    requestInspectionACFP_usernameField,
+    requestInspectionACFP_payloadType,
+
+    -- ** ResponseInspection
+    responseInspection_bodyContains,
+    responseInspection_header,
+    responseInspection_json,
+    responseInspection_statusCode,
+
+    -- ** ResponseInspectionBodyContains
+    responseInspectionBodyContains_successStrings,
+    responseInspectionBodyContains_failureStrings,
+
+    -- ** ResponseInspectionHeader
+    responseInspectionHeader_name,
+    responseInspectionHeader_successValues,
+    responseInspectionHeader_failureValues,
+
+    -- ** ResponseInspectionJson
+    responseInspectionJson_identifier,
+    responseInspectionJson_successValues,
+    responseInspectionJson_failureValues,
+
+    -- ** ResponseInspectionStatusCode
+    responseInspectionStatusCode_successCodes,
+    responseInspectionStatusCode_failureCodes,
 
     -- ** Rule
     rule_action,
@@ -810,21 +968,21 @@ module Amazonka.WAFV2.Lens
     sqliMatchStatement_textTransformations,
 
     -- ** Statement
-    statement_andStatement,
-    statement_byteMatchStatement,
-    statement_geoMatchStatement,
-    statement_iPSetReferenceStatement,
-    statement_labelMatchStatement,
-    statement_managedRuleGroupStatement,
-    statement_notStatement,
-    statement_orStatement,
-    statement_rateBasedStatement,
-    statement_regexMatchStatement,
-    statement_regexPatternSetReferenceStatement,
-    statement_ruleGroupReferenceStatement,
-    statement_sizeConstraintStatement,
-    statement_sqliMatchStatement,
-    statement_xssMatchStatement,
+    andStatement,
+    byteMatchStatement,
+    geoMatchStatement,
+    iPSetReferenceStatement,
+    labelMatchStatement,
+    managedRuleGroupStatement,
+    notStatement,
+    orStatement,
+    rateBasedStatement,
+    regexMatchStatement,
+    regexPatternSetReferenceStatement,
+    ruleGroupReferenceStatement,
+    sizeConstraintStatement,
+    sqliMatchStatement,
+    xssMatchStatement,
 
     -- ** Tag
     tag_key,
@@ -857,6 +1015,7 @@ module Amazonka.WAFV2.Lens
     visibilityConfig_metricName,
 
     -- ** WebACL
+    webACL_associationConfig,
     webACL_capacity,
     webACL_captchaConfig,
     webACL_challengeConfig,
@@ -889,6 +1048,7 @@ where
 
 import Amazonka.WAFV2.AssociateWebACL
 import Amazonka.WAFV2.CheckCapacity
+import Amazonka.WAFV2.CreateAPIKey
 import Amazonka.WAFV2.CreateIPSet
 import Amazonka.WAFV2.CreateRegexPatternSet
 import Amazonka.WAFV2.CreateRuleGroup
@@ -900,9 +1060,12 @@ import Amazonka.WAFV2.DeletePermissionPolicy
 import Amazonka.WAFV2.DeleteRegexPatternSet
 import Amazonka.WAFV2.DeleteRuleGroup
 import Amazonka.WAFV2.DeleteWebACL
+import Amazonka.WAFV2.DescribeAllManagedProducts
+import Amazonka.WAFV2.DescribeManagedProductsByVendor
 import Amazonka.WAFV2.DescribeManagedRuleGroup
 import Amazonka.WAFV2.DisassociateWebACL
 import Amazonka.WAFV2.GenerateMobileSdkReleaseUrl
+import Amazonka.WAFV2.GetDecryptedAPIKey
 import Amazonka.WAFV2.GetIPSet
 import Amazonka.WAFV2.GetLoggingConfiguration
 import Amazonka.WAFV2.GetManagedRuleSet
@@ -914,6 +1077,7 @@ import Amazonka.WAFV2.GetRuleGroup
 import Amazonka.WAFV2.GetSampledRequests
 import Amazonka.WAFV2.GetWebACL
 import Amazonka.WAFV2.GetWebACLForResource
+import Amazonka.WAFV2.ListAPIKeys
 import Amazonka.WAFV2.ListAvailableManagedRuleGroupVersions
 import Amazonka.WAFV2.ListAvailableManagedRuleGroups
 import Amazonka.WAFV2.ListIPSets
@@ -929,12 +1093,17 @@ import Amazonka.WAFV2.PutLoggingConfiguration
 import Amazonka.WAFV2.PutManagedRuleSetVersions
 import Amazonka.WAFV2.PutPermissionPolicy
 import Amazonka.WAFV2.TagResource
+import Amazonka.WAFV2.Types.APIKeySummary
+import Amazonka.WAFV2.Types.AWSManagedRulesACFPRuleSet
+import Amazonka.WAFV2.Types.AWSManagedRulesATPRuleSet
 import Amazonka.WAFV2.Types.AWSManagedRulesBotControlRuleSet
 import Amazonka.WAFV2.Types.ActionCondition
+import Amazonka.WAFV2.Types.AddressField
 import Amazonka.WAFV2.Types.All
 import Amazonka.WAFV2.Types.AllQueryArguments
 import Amazonka.WAFV2.Types.AllowAction
 import Amazonka.WAFV2.Types.AndStatement
+import Amazonka.WAFV2.Types.AssociationConfig
 import Amazonka.WAFV2.Types.BlockAction
 import Amazonka.WAFV2.Types.Body
 import Amazonka.WAFV2.Types.ByteMatchStatement
@@ -953,6 +1122,7 @@ import Amazonka.WAFV2.Types.CustomRequestHandling
 import Amazonka.WAFV2.Types.CustomResponse
 import Amazonka.WAFV2.Types.CustomResponseBody
 import Amazonka.WAFV2.Types.DefaultAction
+import Amazonka.WAFV2.Types.EmailField
 import Amazonka.WAFV2.Types.ExcludedRule
 import Amazonka.WAFV2.Types.FieldToMatch
 import Amazonka.WAFV2.Types.Filter
@@ -963,6 +1133,7 @@ import Amazonka.WAFV2.Types.GeoMatchStatement
 import Amazonka.WAFV2.Types.HTTPHeader
 import Amazonka.WAFV2.Types.HTTPRequest
 import Amazonka.WAFV2.Types.HeaderMatchPattern
+import Amazonka.WAFV2.Types.HeaderOrder
 import Amazonka.WAFV2.Types.Headers
 import Amazonka.WAFV2.Types.IPSet
 import Amazonka.WAFV2.Types.IPSetForwardedIPConfig
@@ -977,6 +1148,7 @@ import Amazonka.WAFV2.Types.LabelNameCondition
 import Amazonka.WAFV2.Types.LabelSummary
 import Amazonka.WAFV2.Types.LoggingConfiguration
 import Amazonka.WAFV2.Types.LoggingFilter
+import Amazonka.WAFV2.Types.ManagedProductDescriptor
 import Amazonka.WAFV2.Types.ManagedRuleGroupConfig
 import Amazonka.WAFV2.Types.ManagedRuleGroupStatement
 import Amazonka.WAFV2.Types.ManagedRuleGroupSummary
@@ -991,15 +1163,33 @@ import Amazonka.WAFV2.Types.NotStatement
 import Amazonka.WAFV2.Types.OrStatement
 import Amazonka.WAFV2.Types.OverrideAction
 import Amazonka.WAFV2.Types.PasswordField
+import Amazonka.WAFV2.Types.PhoneNumberField
 import Amazonka.WAFV2.Types.QueryString
 import Amazonka.WAFV2.Types.RateBasedStatement
+import Amazonka.WAFV2.Types.RateBasedStatementCustomKey
 import Amazonka.WAFV2.Types.RateBasedStatementManagedKeysIPSet
+import Amazonka.WAFV2.Types.RateLimitCookie
+import Amazonka.WAFV2.Types.RateLimitForwardedIP
+import Amazonka.WAFV2.Types.RateLimitHTTPMethod
+import Amazonka.WAFV2.Types.RateLimitHeader
+import Amazonka.WAFV2.Types.RateLimitIP
+import Amazonka.WAFV2.Types.RateLimitLabelNamespace
+import Amazonka.WAFV2.Types.RateLimitQueryArgument
+import Amazonka.WAFV2.Types.RateLimitQueryString
 import Amazonka.WAFV2.Types.Regex
 import Amazonka.WAFV2.Types.RegexMatchStatement
 import Amazonka.WAFV2.Types.RegexPatternSet
 import Amazonka.WAFV2.Types.RegexPatternSetReferenceStatement
 import Amazonka.WAFV2.Types.RegexPatternSetSummary
 import Amazonka.WAFV2.Types.ReleaseSummary
+import Amazonka.WAFV2.Types.RequestBodyAssociatedResourceTypeConfig
+import Amazonka.WAFV2.Types.RequestInspection
+import Amazonka.WAFV2.Types.RequestInspectionACFP
+import Amazonka.WAFV2.Types.ResponseInspection
+import Amazonka.WAFV2.Types.ResponseInspectionBodyContains
+import Amazonka.WAFV2.Types.ResponseInspectionHeader
+import Amazonka.WAFV2.Types.ResponseInspectionJson
+import Amazonka.WAFV2.Types.ResponseInspectionStatusCode
 import Amazonka.WAFV2.Types.Rule
 import Amazonka.WAFV2.Types.RuleAction
 import Amazonka.WAFV2.Types.RuleActionOverride

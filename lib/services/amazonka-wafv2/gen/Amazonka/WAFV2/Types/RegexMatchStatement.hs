@@ -36,11 +36,14 @@ data RegexMatchStatement = RegexMatchStatement'
     -- | The part of the web request that you want WAF to inspect.
     fieldToMatch :: FieldToMatch,
     -- | Text transformations eliminate some of the unusual formatting that
-    -- attackers use in web requests in an effort to bypass detection. If you
-    -- specify one or more transformations in a rule statement, WAF performs
-    -- all transformations on the content of the request component identified
-    -- by @FieldToMatch@, starting from the lowest priority setting, before
-    -- inspecting the content for a match.
+    -- attackers use in web requests in an effort to bypass detection. Text
+    -- transformations are used in rule match statements, to transform the
+    -- @FieldToMatch@ request component before inspecting it, and they\'re used
+    -- in rate-based rule statements, to transform request components before
+    -- using them as custom aggregation keys. If you specify one or more
+    -- transformations to apply, WAF performs all transformations on the
+    -- specified content, starting from the lowest priority setting, and then
+    -- uses the component contents.
     textTransformations :: Prelude.NonEmpty TextTransformation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,11 +61,14 @@ data RegexMatchStatement = RegexMatchStatement'
 -- 'fieldToMatch', 'regexMatchStatement_fieldToMatch' - The part of the web request that you want WAF to inspect.
 --
 -- 'textTransformations', 'regexMatchStatement_textTransformations' - Text transformations eliminate some of the unusual formatting that
--- attackers use in web requests in an effort to bypass detection. If you
--- specify one or more transformations in a rule statement, WAF performs
--- all transformations on the content of the request component identified
--- by @FieldToMatch@, starting from the lowest priority setting, before
--- inspecting the content for a match.
+-- attackers use in web requests in an effort to bypass detection. Text
+-- transformations are used in rule match statements, to transform the
+-- @FieldToMatch@ request component before inspecting it, and they\'re used
+-- in rate-based rule statements, to transform request components before
+-- using them as custom aggregation keys. If you specify one or more
+-- transformations to apply, WAF performs all transformations on the
+-- specified content, starting from the lowest priority setting, and then
+-- uses the component contents.
 newRegexMatchStatement ::
   -- | 'regexString'
   Prelude.Text ->
@@ -91,11 +97,14 @@ regexMatchStatement_fieldToMatch :: Lens.Lens' RegexMatchStatement FieldToMatch
 regexMatchStatement_fieldToMatch = Lens.lens (\RegexMatchStatement' {fieldToMatch} -> fieldToMatch) (\s@RegexMatchStatement' {} a -> s {fieldToMatch = a} :: RegexMatchStatement)
 
 -- | Text transformations eliminate some of the unusual formatting that
--- attackers use in web requests in an effort to bypass detection. If you
--- specify one or more transformations in a rule statement, WAF performs
--- all transformations on the content of the request component identified
--- by @FieldToMatch@, starting from the lowest priority setting, before
--- inspecting the content for a match.
+-- attackers use in web requests in an effort to bypass detection. Text
+-- transformations are used in rule match statements, to transform the
+-- @FieldToMatch@ request component before inspecting it, and they\'re used
+-- in rate-based rule statements, to transform request components before
+-- using them as custom aggregation keys. If you specify one or more
+-- transformations to apply, WAF performs all transformations on the
+-- specified content, starting from the lowest priority setting, and then
+-- uses the component contents.
 regexMatchStatement_textTransformations :: Lens.Lens' RegexMatchStatement (Prelude.NonEmpty TextTransformation)
 regexMatchStatement_textTransformations = Lens.lens (\RegexMatchStatement' {textTransformations} -> textTransformations) (\s@RegexMatchStatement' {} a -> s {textTransformations = a} :: RegexMatchStatement) Prelude.. Lens.coerced
 
@@ -112,7 +121,8 @@ instance Data.FromJSON RegexMatchStatement where
 
 instance Prelude.Hashable RegexMatchStatement where
   hashWithSalt _salt RegexMatchStatement' {..} =
-    _salt `Prelude.hashWithSalt` regexString
+    _salt
+      `Prelude.hashWithSalt` regexString
       `Prelude.hashWithSalt` fieldToMatch
       `Prelude.hashWithSalt` textTransformations
 

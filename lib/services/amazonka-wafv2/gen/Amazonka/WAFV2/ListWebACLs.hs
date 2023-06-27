@@ -66,7 +66,8 @@ data ListWebACLs = ListWebACLs'
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -100,7 +101,8 @@ data ListWebACLs = ListWebACLs'
 -- 'scope', 'listWebACLs_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -137,7 +139,8 @@ listWebACLs_nextMarker = Lens.lens (\ListWebACLs' {nextMarker} -> nextMarker) (\
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -164,7 +167,8 @@ instance Core.AWSRequest ListWebACLs where
 
 instance Prelude.Hashable ListWebACLs where
   hashWithSalt _salt ListWebACLs' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` scope
 
@@ -212,6 +216,8 @@ data ListWebACLsResponse = ListWebACLsResponse'
     -- returns a @NextMarker@ value in the response. To retrieve the next batch
     -- of objects, provide the marker from the prior call in your next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | Array of web ACLs. If you specified a @Limit@ in your request, this
+    -- might not be the full list.
     webACLs :: Prelude.Maybe [WebACLSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -231,7 +237,8 @@ data ListWebACLsResponse = ListWebACLsResponse'
 -- returns a @NextMarker@ value in the response. To retrieve the next batch
 -- of objects, provide the marker from the prior call in your next request.
 --
--- 'webACLs', 'listWebACLsResponse_webACLs' -
+-- 'webACLs', 'listWebACLsResponse_webACLs' - Array of web ACLs. If you specified a @Limit@ in your request, this
+-- might not be the full list.
 --
 -- 'httpStatus', 'listWebACLsResponse_httpStatus' - The response's http status code.
 newListWebACLsResponse ::
@@ -252,7 +259,8 @@ newListWebACLsResponse pHttpStatus_ =
 listWebACLsResponse_nextMarker :: Lens.Lens' ListWebACLsResponse (Prelude.Maybe Prelude.Text)
 listWebACLsResponse_nextMarker = Lens.lens (\ListWebACLsResponse' {nextMarker} -> nextMarker) (\s@ListWebACLsResponse' {} a -> s {nextMarker = a} :: ListWebACLsResponse)
 
--- |
+-- | Array of web ACLs. If you specified a @Limit@ in your request, this
+-- might not be the full list.
 listWebACLsResponse_webACLs :: Lens.Lens' ListWebACLsResponse (Prelude.Maybe [WebACLSummary])
 listWebACLsResponse_webACLs = Lens.lens (\ListWebACLsResponse' {webACLs} -> webACLs) (\s@ListWebACLsResponse' {} a -> s {webACLs = a} :: ListWebACLsResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -177,7 +177,8 @@ instance Data.FromJSON FirewallManagerRuleGroup where
 
 instance Prelude.Hashable FirewallManagerRuleGroup where
   hashWithSalt _salt FirewallManagerRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` firewallManagerStatement
       `Prelude.hashWithSalt` overrideAction

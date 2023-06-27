@@ -196,7 +196,8 @@ instance Data.FromJSON ManagedRuleSet where
           ManagedRuleSet'
             Prelude.<$> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "LabelNamespace")
-            Prelude.<*> ( x Data..:? "PublishedVersions"
+            Prelude.<*> ( x
+                            Data..:? "PublishedVersions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RecommendedVersion")
@@ -207,7 +208,8 @@ instance Data.FromJSON ManagedRuleSet where
 
 instance Prelude.Hashable ManagedRuleSet where
   hashWithSalt _salt ManagedRuleSet' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` labelNamespace
       `Prelude.hashWithSalt` publishedVersions
       `Prelude.hashWithSalt` recommendedVersion

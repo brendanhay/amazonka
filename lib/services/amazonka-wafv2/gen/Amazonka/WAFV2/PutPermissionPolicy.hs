@@ -69,8 +69,7 @@ data PutPermissionPolicy = PutPermissionPolicy'
     --
     -- The policy specifications must conform to the following:
     --
-    -- -   The policy must be composed using IAM Policy version 2012-10-17 or
-    --     version 2015-01-01.
+    -- -   The policy must be composed using IAM Policy version 2012-10-17.
     --
     -- -   The policy must include specifications for @Effect@, @Action@, and
     --     @Principal@.
@@ -105,8 +104,7 @@ data PutPermissionPolicy = PutPermissionPolicy'
 --
 -- The policy specifications must conform to the following:
 --
--- -   The policy must be composed using IAM Policy version 2012-10-17 or
---     version 2015-01-01.
+-- -   The policy must be composed using IAM Policy version 2012-10-17.
 --
 -- -   The policy must include specifications for @Effect@, @Action@, and
 --     @Principal@.
@@ -143,8 +141,7 @@ putPermissionPolicy_resourceArn = Lens.lens (\PutPermissionPolicy' {resourceArn}
 --
 -- The policy specifications must conform to the following:
 --
--- -   The policy must be composed using IAM Policy version 2012-10-17 or
---     version 2015-01-01.
+-- -   The policy must be composed using IAM Policy version 2012-10-17.
 --
 -- -   The policy must include specifications for @Effect@, @Action@, and
 --     @Principal@.
@@ -178,7 +175,8 @@ instance Core.AWSRequest PutPermissionPolicy where
 
 instance Prelude.Hashable PutPermissionPolicy where
   hashWithSalt _salt PutPermissionPolicy' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` policy
 
 instance Prelude.NFData PutPermissionPolicy where

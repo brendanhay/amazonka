@@ -25,7 +25,8 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.InspectionLevel
 
--- | Details for your use of the Bot Control managed rule group, used in
+-- | Details for your use of the Bot Control managed rule group,
+-- @AWSManagedRulesBotControlRuleSet@. This configuration is used in
 -- @ManagedRuleGroupConfig@.
 --
 -- /See:/ 'newAWSManagedRulesBotControlRuleSet' smart constructor.
@@ -34,7 +35,8 @@ data AWSManagedRulesBotControlRuleSet = AWSManagedRulesBotControlRuleSet'
     -- level is the least expensive. The targeted level includes all common
     -- level rules and adds rules with more advanced inspection criteria. For
     -- details, see
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html WAF Bot Control rule group>.
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html WAF Bot Control rule group>
+    -- in the /WAF Developer Guide/.
     inspectionLevel :: InspectionLevel
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,7 +53,8 @@ data AWSManagedRulesBotControlRuleSet = AWSManagedRulesBotControlRuleSet'
 -- level is the least expensive. The targeted level includes all common
 -- level rules and adds rules with more advanced inspection criteria. For
 -- details, see
--- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html WAF Bot Control rule group>.
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html WAF Bot Control rule group>
+-- in the /WAF Developer Guide/.
 newAWSManagedRulesBotControlRuleSet ::
   -- | 'inspectionLevel'
   InspectionLevel ->
@@ -66,7 +69,8 @@ newAWSManagedRulesBotControlRuleSet pInspectionLevel_ =
 -- level is the least expensive. The targeted level includes all common
 -- level rules and adds rules with more advanced inspection criteria. For
 -- details, see
--- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html WAF Bot Control rule group>.
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html WAF Bot Control rule group>
+-- in the /WAF Developer Guide/.
 aWSManagedRulesBotControlRuleSet_inspectionLevel :: Lens.Lens' AWSManagedRulesBotControlRuleSet InspectionLevel
 aWSManagedRulesBotControlRuleSet_inspectionLevel = Lens.lens (\AWSManagedRulesBotControlRuleSet' {inspectionLevel} -> inspectionLevel) (\s@AWSManagedRulesBotControlRuleSet' {} a -> s {inspectionLevel = a} :: AWSManagedRulesBotControlRuleSet)
 

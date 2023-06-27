@@ -122,7 +122,8 @@ instance Data.FromJSON JsonMatchPattern where
 
 instance Prelude.Hashable JsonMatchPattern where
   hashWithSalt _salt JsonMatchPattern' {..} =
-    _salt `Prelude.hashWithSalt` all
+    _salt
+      `Prelude.hashWithSalt` all
       `Prelude.hashWithSalt` includedPaths
 
 instance Prelude.NFData JsonMatchPattern where

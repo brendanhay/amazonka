@@ -66,7 +66,8 @@ data ListRuleGroups = ListRuleGroups'
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -100,7 +101,8 @@ data ListRuleGroups = ListRuleGroups'
 -- 'scope', 'listRuleGroups_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -137,7 +139,8 @@ listRuleGroups_nextMarker = Lens.lens (\ListRuleGroups' {nextMarker} -> nextMark
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -166,7 +169,8 @@ instance Core.AWSRequest ListRuleGroups where
 
 instance Prelude.Hashable ListRuleGroups where
   hashWithSalt _salt ListRuleGroups' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` scope
 
@@ -214,6 +218,8 @@ data ListRuleGroupsResponse = ListRuleGroupsResponse'
     -- returns a @NextMarker@ value in the response. To retrieve the next batch
     -- of objects, provide the marker from the prior call in your next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | Array of rule groups. If you specified a @Limit@ in your request, this
+    -- might not be the full list.
     ruleGroups :: Prelude.Maybe [RuleGroupSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -233,7 +239,8 @@ data ListRuleGroupsResponse = ListRuleGroupsResponse'
 -- returns a @NextMarker@ value in the response. To retrieve the next batch
 -- of objects, provide the marker from the prior call in your next request.
 --
--- 'ruleGroups', 'listRuleGroupsResponse_ruleGroups' -
+-- 'ruleGroups', 'listRuleGroupsResponse_ruleGroups' - Array of rule groups. If you specified a @Limit@ in your request, this
+-- might not be the full list.
 --
 -- 'httpStatus', 'listRuleGroupsResponse_httpStatus' - The response's http status code.
 newListRuleGroupsResponse ::
@@ -255,7 +262,8 @@ newListRuleGroupsResponse pHttpStatus_ =
 listRuleGroupsResponse_nextMarker :: Lens.Lens' ListRuleGroupsResponse (Prelude.Maybe Prelude.Text)
 listRuleGroupsResponse_nextMarker = Lens.lens (\ListRuleGroupsResponse' {nextMarker} -> nextMarker) (\s@ListRuleGroupsResponse' {} a -> s {nextMarker = a} :: ListRuleGroupsResponse)
 
--- |
+-- | Array of rule groups. If you specified a @Limit@ in your request, this
+-- might not be the full list.
 listRuleGroupsResponse_ruleGroups :: Lens.Lens' ListRuleGroupsResponse (Prelude.Maybe [RuleGroupSummary])
 listRuleGroupsResponse_ruleGroups = Lens.lens (\ListRuleGroupsResponse' {ruleGroups} -> ruleGroups) (\s@ListRuleGroupsResponse' {} a -> s {ruleGroups = a} :: ListRuleGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 

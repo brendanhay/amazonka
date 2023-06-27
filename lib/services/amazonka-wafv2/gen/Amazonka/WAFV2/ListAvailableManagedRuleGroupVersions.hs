@@ -67,7 +67,7 @@ data ListAvailableManagedRuleGroupVersions = ListAvailableManagedRuleGroupVersio
     -- of objects, provide the marker from the prior call in your next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The name of the managed rule group vendor. You use this, along with the
-    -- rule group name, to identify the rule group.
+    -- rule group name, to identify a rule group.
     vendorName :: Prelude.Text,
     -- | The name of the managed rule group. You use this, along with the vendor
     -- name, to identify the rule group.
@@ -75,7 +75,8 @@ data ListAvailableManagedRuleGroupVersions = ListAvailableManagedRuleGroupVersio
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -107,7 +108,7 @@ data ListAvailableManagedRuleGroupVersions = ListAvailableManagedRuleGroupVersio
 -- of objects, provide the marker from the prior call in your next request.
 --
 -- 'vendorName', 'listAvailableManagedRuleGroupVersions_vendorName' - The name of the managed rule group vendor. You use this, along with the
--- rule group name, to identify the rule group.
+-- rule group name, to identify a rule group.
 --
 -- 'name', 'listAvailableManagedRuleGroupVersions_name' - The name of the managed rule group. You use this, along with the vendor
 -- name, to identify the rule group.
@@ -115,7 +116,8 @@ data ListAvailableManagedRuleGroupVersions = ListAvailableManagedRuleGroupVersio
 -- 'scope', 'listAvailableManagedRuleGroupVersions_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -160,7 +162,7 @@ listAvailableManagedRuleGroupVersions_nextMarker :: Lens.Lens' ListAvailableMana
 listAvailableManagedRuleGroupVersions_nextMarker = Lens.lens (\ListAvailableManagedRuleGroupVersions' {nextMarker} -> nextMarker) (\s@ListAvailableManagedRuleGroupVersions' {} a -> s {nextMarker = a} :: ListAvailableManagedRuleGroupVersions)
 
 -- | The name of the managed rule group vendor. You use this, along with the
--- rule group name, to identify the rule group.
+-- rule group name, to identify a rule group.
 listAvailableManagedRuleGroupVersions_vendorName :: Lens.Lens' ListAvailableManagedRuleGroupVersions Prelude.Text
 listAvailableManagedRuleGroupVersions_vendorName = Lens.lens (\ListAvailableManagedRuleGroupVersions' {vendorName} -> vendorName) (\s@ListAvailableManagedRuleGroupVersions' {} a -> s {vendorName = a} :: ListAvailableManagedRuleGroupVersions)
 
@@ -172,7 +174,8 @@ listAvailableManagedRuleGroupVersions_name = Lens.lens (\ListAvailableManagedRul
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -199,9 +202,9 @@ instance
       ( \s h x ->
           ListAvailableManagedRuleGroupVersionsResponse'
             Prelude.<$> (x Data..?> "CurrentDefaultVersion")
-              Prelude.<*> (x Data..?> "NextMarker")
-              Prelude.<*> (x Data..?> "Versions" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextMarker")
+            Prelude.<*> (x Data..?> "Versions" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -211,7 +214,8 @@ instance
   hashWithSalt
     _salt
     ListAvailableManagedRuleGroupVersions' {..} =
-      _salt `Prelude.hashWithSalt` limit
+      _salt
+        `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` nextMarker
         `Prelude.hashWithSalt` vendorName
         `Prelude.hashWithSalt` name
@@ -283,7 +287,8 @@ data ListAvailableManagedRuleGroupVersionsResponse = ListAvailableManagedRuleGro
     -- of objects, provide the marker from the prior call in your next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The versions that are currently available for the specified managed rule
-    -- group.
+    -- group. If you specified a @Limit@ in your request, this might not be the
+    -- full list.
     versions :: Prelude.Maybe [ManagedRuleGroupVersion],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -306,7 +311,8 @@ data ListAvailableManagedRuleGroupVersionsResponse = ListAvailableManagedRuleGro
 -- of objects, provide the marker from the prior call in your next request.
 --
 -- 'versions', 'listAvailableManagedRuleGroupVersionsResponse_versions' - The versions that are currently available for the specified managed rule
--- group.
+-- group. If you specified a @Limit@ in your request, this might not be the
+-- full list.
 --
 -- 'httpStatus', 'listAvailableManagedRuleGroupVersionsResponse_httpStatus' - The response's http status code.
 newListAvailableManagedRuleGroupVersionsResponse ::
@@ -335,7 +341,8 @@ listAvailableManagedRuleGroupVersionsResponse_nextMarker :: Lens.Lens' ListAvail
 listAvailableManagedRuleGroupVersionsResponse_nextMarker = Lens.lens (\ListAvailableManagedRuleGroupVersionsResponse' {nextMarker} -> nextMarker) (\s@ListAvailableManagedRuleGroupVersionsResponse' {} a -> s {nextMarker = a} :: ListAvailableManagedRuleGroupVersionsResponse)
 
 -- | The versions that are currently available for the specified managed rule
--- group.
+-- group. If you specified a @Limit@ in your request, this might not be the
+-- full list.
 listAvailableManagedRuleGroupVersionsResponse_versions :: Lens.Lens' ListAvailableManagedRuleGroupVersionsResponse (Prelude.Maybe [ManagedRuleGroupVersion])
 listAvailableManagedRuleGroupVersionsResponse_versions = Lens.lens (\ListAvailableManagedRuleGroupVersionsResponse' {versions} -> versions) (\s@ListAvailableManagedRuleGroupVersionsResponse' {} a -> s {versions = a} :: ListAvailableManagedRuleGroupVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -29,18 +29,27 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVisibilityConfig' smart constructor.
 data VisibilityConfig = VisibilityConfig'
-  { -- | A boolean indicating whether WAF should store a sampling of the web
-    -- requests that match the rules. You can view the sampled requests through
-    -- the WAF console.
+  { -- | Indicates whether WAF should store a sampling of the web requests that
+    -- match the rules. You can view the sampled requests through the WAF
+    -- console.
     sampledRequestsEnabled :: Prelude.Bool,
-    -- | A boolean indicating whether the associated resource sends metrics to
-    -- Amazon CloudWatch. For the list of available metrics, see
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics WAF Metrics>.
+    -- | Indicates whether the associated resource sends metrics to Amazon
+    -- CloudWatch. For the list of available metrics, see
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics WAF Metrics>
+    -- in the /WAF Developer Guide/.
+    --
+    -- For web ACLs, the metrics are for web requests that have the web ACL
+    -- default action applied. WAF applies the default action to web requests
+    -- that pass the inspection of all rules in the web ACL without being
+    -- either allowed or blocked. For more information, see
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-default-action.html The web ACL default action>
+    -- in the /WAF Developer Guide/.
     cloudWatchMetricsEnabled :: Prelude.Bool,
-    -- | A name of the Amazon CloudWatch metric. The name can contain only the
-    -- characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can
-    -- be from one to 128 characters long. It can\'t contain whitespace or
-    -- metric names reserved for WAF, for example @All@ and @Default_Action@.
+    -- | A name of the Amazon CloudWatch metric dimension. The name can contain
+    -- only the characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The
+    -- name can be from one to 128 characters long. It can\'t contain
+    -- whitespace or metric names that are reserved for WAF, for example @All@
+    -- and @Default_Action@.
     metricName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -53,18 +62,27 @@ data VisibilityConfig = VisibilityConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sampledRequestsEnabled', 'visibilityConfig_sampledRequestsEnabled' - A boolean indicating whether WAF should store a sampling of the web
--- requests that match the rules. You can view the sampled requests through
--- the WAF console.
+-- 'sampledRequestsEnabled', 'visibilityConfig_sampledRequestsEnabled' - Indicates whether WAF should store a sampling of the web requests that
+-- match the rules. You can view the sampled requests through the WAF
+-- console.
 --
--- 'cloudWatchMetricsEnabled', 'visibilityConfig_cloudWatchMetricsEnabled' - A boolean indicating whether the associated resource sends metrics to
--- Amazon CloudWatch. For the list of available metrics, see
--- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics WAF Metrics>.
+-- 'cloudWatchMetricsEnabled', 'visibilityConfig_cloudWatchMetricsEnabled' - Indicates whether the associated resource sends metrics to Amazon
+-- CloudWatch. For the list of available metrics, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics WAF Metrics>
+-- in the /WAF Developer Guide/.
 --
--- 'metricName', 'visibilityConfig_metricName' - A name of the Amazon CloudWatch metric. The name can contain only the
--- characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can
--- be from one to 128 characters long. It can\'t contain whitespace or
--- metric names reserved for WAF, for example @All@ and @Default_Action@.
+-- For web ACLs, the metrics are for web requests that have the web ACL
+-- default action applied. WAF applies the default action to web requests
+-- that pass the inspection of all rules in the web ACL without being
+-- either allowed or blocked. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-default-action.html The web ACL default action>
+-- in the /WAF Developer Guide/.
+--
+-- 'metricName', 'visibilityConfig_metricName' - A name of the Amazon CloudWatch metric dimension. The name can contain
+-- only the characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The
+-- name can be from one to 128 characters long. It can\'t contain
+-- whitespace or metric names that are reserved for WAF, for example @All@
+-- and @Default_Action@.
 newVisibilityConfig ::
   -- | 'sampledRequestsEnabled'
   Prelude.Bool ->
@@ -85,22 +103,31 @@ newVisibilityConfig
         metricName = pMetricName_
       }
 
--- | A boolean indicating whether WAF should store a sampling of the web
--- requests that match the rules. You can view the sampled requests through
--- the WAF console.
+-- | Indicates whether WAF should store a sampling of the web requests that
+-- match the rules. You can view the sampled requests through the WAF
+-- console.
 visibilityConfig_sampledRequestsEnabled :: Lens.Lens' VisibilityConfig Prelude.Bool
 visibilityConfig_sampledRequestsEnabled = Lens.lens (\VisibilityConfig' {sampledRequestsEnabled} -> sampledRequestsEnabled) (\s@VisibilityConfig' {} a -> s {sampledRequestsEnabled = a} :: VisibilityConfig)
 
--- | A boolean indicating whether the associated resource sends metrics to
--- Amazon CloudWatch. For the list of available metrics, see
--- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics WAF Metrics>.
+-- | Indicates whether the associated resource sends metrics to Amazon
+-- CloudWatch. For the list of available metrics, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics WAF Metrics>
+-- in the /WAF Developer Guide/.
+--
+-- For web ACLs, the metrics are for web requests that have the web ACL
+-- default action applied. WAF applies the default action to web requests
+-- that pass the inspection of all rules in the web ACL without being
+-- either allowed or blocked. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/web-acl-default-action.html The web ACL default action>
+-- in the /WAF Developer Guide/.
 visibilityConfig_cloudWatchMetricsEnabled :: Lens.Lens' VisibilityConfig Prelude.Bool
 visibilityConfig_cloudWatchMetricsEnabled = Lens.lens (\VisibilityConfig' {cloudWatchMetricsEnabled} -> cloudWatchMetricsEnabled) (\s@VisibilityConfig' {} a -> s {cloudWatchMetricsEnabled = a} :: VisibilityConfig)
 
--- | A name of the Amazon CloudWatch metric. The name can contain only the
--- characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can
--- be from one to 128 characters long. It can\'t contain whitespace or
--- metric names reserved for WAF, for example @All@ and @Default_Action@.
+-- | A name of the Amazon CloudWatch metric dimension. The name can contain
+-- only the characters: A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The
+-- name can be from one to 128 characters long. It can\'t contain
+-- whitespace or metric names that are reserved for WAF, for example @All@
+-- and @Default_Action@.
 visibilityConfig_metricName :: Lens.Lens' VisibilityConfig Prelude.Text
 visibilityConfig_metricName = Lens.lens (\VisibilityConfig' {metricName} -> metricName) (\s@VisibilityConfig' {} a -> s {metricName = a} :: VisibilityConfig)
 
@@ -117,7 +144,8 @@ instance Data.FromJSON VisibilityConfig where
 
 instance Prelude.Hashable VisibilityConfig where
   hashWithSalt _salt VisibilityConfig' {..} =
-    _salt `Prelude.hashWithSalt` sampledRequestsEnabled
+    _salt
+      `Prelude.hashWithSalt` sampledRequestsEnabled
       `Prelude.hashWithSalt` cloudWatchMetricsEnabled
       `Prelude.hashWithSalt` metricName
 

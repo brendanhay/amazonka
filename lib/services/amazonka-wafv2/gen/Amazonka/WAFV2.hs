@@ -31,20 +31,19 @@
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
 --
 -- WAF is a web application firewall that lets you monitor the HTTP and
--- HTTPS requests that are forwarded to Amazon CloudFront, an Amazon API
--- Gateway REST API, an Application Load Balancer, an AppSync GraphQL API,
--- or an Amazon Cognito user pool. WAF also lets you control access to your
--- content. Based on conditions that you specify, such as the IP addresses
--- that requests originate from or the values of query strings, the Amazon
--- API Gateway REST API, CloudFront distribution, the Application Load
--- Balancer, the AppSync GraphQL API, or the Amazon Cognito user pool
--- responds to requests either with the requested content or with an HTTP
--- 403 status code (Forbidden). You also can configure CloudFront to return
--- a custom error page when a request is blocked.
+-- HTTPS requests that are forwarded to an Amazon CloudFront distribution,
+-- Amazon API Gateway REST API, Application Load Balancer, AppSync GraphQL
+-- API, Amazon Cognito user pool, App Runner service, or Amazon Web
+-- Services Verified Access instance. WAF also lets you control access to
+-- your content, to protect the Amazon Web Services resource that WAF is
+-- monitoring. Based on conditions that you specify, such as the IP
+-- addresses that requests originate from or the values of query strings,
+-- the protected resource responds to requests with either the requested
+-- content, an HTTP 403 status code (Forbidden), or with a custom response.
 --
 -- This API guide is for developers who need detailed information about WAF
 -- API actions, data types, and errors. For detailed information about WAF
--- features and an overview of how to use WAF, see the
+-- features and guidance for configuring and using WAF, see the
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html WAF Developer Guide>.
 --
 -- You can make calls using the endpoints listed in
@@ -52,8 +51,9 @@
 --
 -- -   For regional applications, you can use any of the endpoints in the
 --     list. A regional application can be an Application Load Balancer
---     (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, or an
---     Amazon Cognito user pool.
+--     (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an
+--     Amazon Cognito user pool, an App Runner service, or an Amazon Web
+--     Services Verified Access instance.
 --
 -- -   For Amazon CloudFront applications, you must use the API endpoint
 --     listed for US East (N. Virginia): us-east-1.
@@ -141,6 +141,9 @@ module Amazonka.WAFV2
     -- ** WAFUnavailableEntityException
     _WAFUnavailableEntityException,
 
+    -- ** WAFUnsupportedAggregateKeyTypeException
+    _WAFUnsupportedAggregateKeyTypeException,
+
     -- * Waiters
     -- $waiters
 
@@ -158,6 +161,12 @@ module Amazonka.WAFV2
     newCheckCapacity,
     CheckCapacityResponse (CheckCapacityResponse'),
     newCheckCapacityResponse,
+
+    -- ** CreateAPIKey
+    CreateAPIKey (CreateAPIKey'),
+    newCreateAPIKey,
+    CreateAPIKeyResponse (CreateAPIKeyResponse'),
+    newCreateAPIKeyResponse,
 
     -- ** CreateIPSet
     CreateIPSet (CreateIPSet'),
@@ -225,6 +234,18 @@ module Amazonka.WAFV2
     DeleteWebACLResponse (DeleteWebACLResponse'),
     newDeleteWebACLResponse,
 
+    -- ** DescribeAllManagedProducts
+    DescribeAllManagedProducts (DescribeAllManagedProducts'),
+    newDescribeAllManagedProducts,
+    DescribeAllManagedProductsResponse (DescribeAllManagedProductsResponse'),
+    newDescribeAllManagedProductsResponse,
+
+    -- ** DescribeManagedProductsByVendor
+    DescribeManagedProductsByVendor (DescribeManagedProductsByVendor'),
+    newDescribeManagedProductsByVendor,
+    DescribeManagedProductsByVendorResponse (DescribeManagedProductsByVendorResponse'),
+    newDescribeManagedProductsByVendorResponse,
+
     -- ** DescribeManagedRuleGroup
     DescribeManagedRuleGroup (DescribeManagedRuleGroup'),
     newDescribeManagedRuleGroup,
@@ -242,6 +263,12 @@ module Amazonka.WAFV2
     newGenerateMobileSdkReleaseUrl,
     GenerateMobileSdkReleaseUrlResponse (GenerateMobileSdkReleaseUrlResponse'),
     newGenerateMobileSdkReleaseUrlResponse,
+
+    -- ** GetDecryptedAPIKey
+    GetDecryptedAPIKey (GetDecryptedAPIKey'),
+    newGetDecryptedAPIKey,
+    GetDecryptedAPIKeyResponse (GetDecryptedAPIKeyResponse'),
+    newGetDecryptedAPIKeyResponse,
 
     -- ** GetIPSet
     GetIPSet (GetIPSet'),
@@ -308,6 +335,12 @@ module Amazonka.WAFV2
     newGetWebACLForResource,
     GetWebACLForResourceResponse (GetWebACLForResourceResponse'),
     newGetWebACLForResourceResponse,
+
+    -- ** ListAPIKeys
+    ListAPIKeys (ListAPIKeys'),
+    newListAPIKeys,
+    ListAPIKeysResponse (ListAPIKeysResponse'),
+    newListAPIKeysResponse,
 
     -- ** ListAvailableManagedRuleGroupVersions
     ListAvailableManagedRuleGroupVersions (ListAvailableManagedRuleGroupVersions'),
@@ -440,6 +473,9 @@ module Amazonka.WAFV2
     -- ** ActionValue
     ActionValue (..),
 
+    -- ** AssociatedResourceType
+    AssociatedResourceType (..),
+
     -- ** BodyParsingFallbackBehavior
     BodyParsingFallbackBehavior (..),
 
@@ -506,8 +542,23 @@ module Amazonka.WAFV2
     -- ** SensitivityLevel
     SensitivityLevel (..),
 
+    -- ** SizeInspectionLimit
+    SizeInspectionLimit (..),
+
     -- ** TextTransformationType
     TextTransformationType (..),
+
+    -- ** APIKeySummary
+    APIKeySummary (APIKeySummary'),
+    newAPIKeySummary,
+
+    -- ** AWSManagedRulesACFPRuleSet
+    AWSManagedRulesACFPRuleSet (AWSManagedRulesACFPRuleSet'),
+    newAWSManagedRulesACFPRuleSet,
+
+    -- ** AWSManagedRulesATPRuleSet
+    AWSManagedRulesATPRuleSet (AWSManagedRulesATPRuleSet'),
+    newAWSManagedRulesATPRuleSet,
 
     -- ** AWSManagedRulesBotControlRuleSet
     AWSManagedRulesBotControlRuleSet (AWSManagedRulesBotControlRuleSet'),
@@ -516,6 +567,10 @@ module Amazonka.WAFV2
     -- ** ActionCondition
     ActionCondition (ActionCondition'),
     newActionCondition,
+
+    -- ** AddressField
+    AddressField (AddressField'),
+    newAddressField,
 
     -- ** All
     All (All'),
@@ -532,6 +587,10 @@ module Amazonka.WAFV2
     -- ** AndStatement
     AndStatement (AndStatement'),
     newAndStatement,
+
+    -- ** AssociationConfig
+    AssociationConfig (AssociationConfig'),
+    newAssociationConfig,
 
     -- ** BlockAction
     BlockAction (BlockAction'),
@@ -605,6 +664,10 @@ module Amazonka.WAFV2
     DefaultAction (DefaultAction'),
     newDefaultAction,
 
+    -- ** EmailField
+    EmailField (EmailField'),
+    newEmailField,
+
     -- ** ExcludedRule
     ExcludedRule (ExcludedRule'),
     newExcludedRule,
@@ -644,6 +707,10 @@ module Amazonka.WAFV2
     -- ** HeaderMatchPattern
     HeaderMatchPattern (HeaderMatchPattern'),
     newHeaderMatchPattern,
+
+    -- ** HeaderOrder
+    HeaderOrder (HeaderOrder'),
+    newHeaderOrder,
 
     -- ** Headers
     Headers (Headers'),
@@ -701,6 +768,10 @@ module Amazonka.WAFV2
     LoggingFilter (LoggingFilter'),
     newLoggingFilter,
 
+    -- ** ManagedProductDescriptor
+    ManagedProductDescriptor (ManagedProductDescriptor'),
+    newManagedProductDescriptor,
+
     -- ** ManagedRuleGroupConfig
     ManagedRuleGroupConfig (ManagedRuleGroupConfig'),
     newManagedRuleGroupConfig,
@@ -757,6 +828,10 @@ module Amazonka.WAFV2
     PasswordField (PasswordField'),
     newPasswordField,
 
+    -- ** PhoneNumberField
+    PhoneNumberField (PhoneNumberField'),
+    newPhoneNumberField,
+
     -- ** QueryString
     QueryString (QueryString'),
     newQueryString,
@@ -765,9 +840,45 @@ module Amazonka.WAFV2
     RateBasedStatement (RateBasedStatement'),
     newRateBasedStatement,
 
+    -- ** RateBasedStatementCustomKey
+    RateBasedStatementCustomKey (RateBasedStatementCustomKey'),
+    newRateBasedStatementCustomKey,
+
     -- ** RateBasedStatementManagedKeysIPSet
     RateBasedStatementManagedKeysIPSet (RateBasedStatementManagedKeysIPSet'),
     newRateBasedStatementManagedKeysIPSet,
+
+    -- ** RateLimitCookie
+    RateLimitCookie (RateLimitCookie'),
+    newRateLimitCookie,
+
+    -- ** RateLimitForwardedIP
+    RateLimitForwardedIP (RateLimitForwardedIP'),
+    newRateLimitForwardedIP,
+
+    -- ** RateLimitHTTPMethod
+    RateLimitHTTPMethod (RateLimitHTTPMethod'),
+    newRateLimitHTTPMethod,
+
+    -- ** RateLimitHeader
+    RateLimitHeader (RateLimitHeader'),
+    newRateLimitHeader,
+
+    -- ** RateLimitIP
+    RateLimitIP (RateLimitIP'),
+    newRateLimitIP,
+
+    -- ** RateLimitLabelNamespace
+    RateLimitLabelNamespace (RateLimitLabelNamespace'),
+    newRateLimitLabelNamespace,
+
+    -- ** RateLimitQueryArgument
+    RateLimitQueryArgument (RateLimitQueryArgument'),
+    newRateLimitQueryArgument,
+
+    -- ** RateLimitQueryString
+    RateLimitQueryString (RateLimitQueryString'),
+    newRateLimitQueryString,
 
     -- ** Regex
     Regex (Regex'),
@@ -792,6 +903,38 @@ module Amazonka.WAFV2
     -- ** ReleaseSummary
     ReleaseSummary (ReleaseSummary'),
     newReleaseSummary,
+
+    -- ** RequestBodyAssociatedResourceTypeConfig
+    RequestBodyAssociatedResourceTypeConfig (RequestBodyAssociatedResourceTypeConfig'),
+    newRequestBodyAssociatedResourceTypeConfig,
+
+    -- ** RequestInspection
+    RequestInspection (RequestInspection'),
+    newRequestInspection,
+
+    -- ** RequestInspectionACFP
+    RequestInspectionACFP (RequestInspectionACFP'),
+    newRequestInspectionACFP,
+
+    -- ** ResponseInspection
+    ResponseInspection (ResponseInspection'),
+    newResponseInspection,
+
+    -- ** ResponseInspectionBodyContains
+    ResponseInspectionBodyContains (ResponseInspectionBodyContains'),
+    newResponseInspectionBodyContains,
+
+    -- ** ResponseInspectionHeader
+    ResponseInspectionHeader (ResponseInspectionHeader'),
+    newResponseInspectionHeader,
+
+    -- ** ResponseInspectionJson
+    ResponseInspectionJson (ResponseInspectionJson'),
+    newResponseInspectionJson,
+
+    -- ** ResponseInspectionStatusCode
+    ResponseInspectionStatusCode (ResponseInspectionStatusCode'),
+    newResponseInspectionStatusCode,
 
     -- ** Rule
     Rule (Rule'),
@@ -893,6 +1036,7 @@ where
 
 import Amazonka.WAFV2.AssociateWebACL
 import Amazonka.WAFV2.CheckCapacity
+import Amazonka.WAFV2.CreateAPIKey
 import Amazonka.WAFV2.CreateIPSet
 import Amazonka.WAFV2.CreateRegexPatternSet
 import Amazonka.WAFV2.CreateRuleGroup
@@ -904,9 +1048,12 @@ import Amazonka.WAFV2.DeletePermissionPolicy
 import Amazonka.WAFV2.DeleteRegexPatternSet
 import Amazonka.WAFV2.DeleteRuleGroup
 import Amazonka.WAFV2.DeleteWebACL
+import Amazonka.WAFV2.DescribeAllManagedProducts
+import Amazonka.WAFV2.DescribeManagedProductsByVendor
 import Amazonka.WAFV2.DescribeManagedRuleGroup
 import Amazonka.WAFV2.DisassociateWebACL
 import Amazonka.WAFV2.GenerateMobileSdkReleaseUrl
+import Amazonka.WAFV2.GetDecryptedAPIKey
 import Amazonka.WAFV2.GetIPSet
 import Amazonka.WAFV2.GetLoggingConfiguration
 import Amazonka.WAFV2.GetManagedRuleSet
@@ -919,6 +1066,7 @@ import Amazonka.WAFV2.GetSampledRequests
 import Amazonka.WAFV2.GetWebACL
 import Amazonka.WAFV2.GetWebACLForResource
 import Amazonka.WAFV2.Lens
+import Amazonka.WAFV2.ListAPIKeys
 import Amazonka.WAFV2.ListAvailableManagedRuleGroupVersions
 import Amazonka.WAFV2.ListAvailableManagedRuleGroups
 import Amazonka.WAFV2.ListIPSets

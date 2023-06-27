@@ -74,14 +74,20 @@ data JsonBody = JsonBody'
     -- -   Extra colons: @{\"key1\"::\"value1\",\"key2\"\"value2\"}@
     invalidFallbackBehavior :: Prelude.Maybe BodyParsingFallbackBehavior,
     -- | What WAF should do if the body is larger than WAF can inspect. WAF does
-    -- not support inspecting the entire contents of the body of a web request
-    -- when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the
-    -- request body are forwarded to WAF by the underlying host service.
+    -- not support inspecting the entire contents of the web request body if
+    -- the body exceeds the limit for the resource type. If the body is larger
+    -- than the limit, the underlying host service only forwards the contents
+    -- that are below the limit to WAF for inspection.
+    --
+    -- The default limit is 8 KB (8,192 kilobytes) for regional resources and
+    -- 16 KB (16,384 kilobytes) for CloudFront distributions. For CloudFront
+    -- distributions, you can increase the limit in the web ACL
+    -- @AssociationConfig@, for additional processing fees.
     --
     -- The options for oversize handling are the following:
     --
-    -- -   @CONTINUE@ - Inspect the body normally, according to the rule
-    --     inspection criteria.
+    -- -   @CONTINUE@ - Inspect the available body contents normally, according
+    --     to the rule inspection criteria.
     --
     -- -   @MATCH@ - Treat the web request as matching the rule statement. WAF
     --     applies the rule action to the request.
@@ -91,7 +97,7 @@ data JsonBody = JsonBody'
     --
     -- You can combine the @MATCH@ or @NO_MATCH@ settings for oversize handling
     -- with your rule and web ACL action settings, so that you block any
-    -- request whose body is over 8 KB.
+    -- request whose body is over the limit.
     --
     -- Default: @CONTINUE@
     oversizeHandling :: Prelude.Maybe OversizeHandling,
@@ -142,14 +148,20 @@ data JsonBody = JsonBody'
 -- -   Extra colons: @{\"key1\"::\"value1\",\"key2\"\"value2\"}@
 --
 -- 'oversizeHandling', 'jsonBody_oversizeHandling' - What WAF should do if the body is larger than WAF can inspect. WAF does
--- not support inspecting the entire contents of the body of a web request
--- when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the
--- request body are forwarded to WAF by the underlying host service.
+-- not support inspecting the entire contents of the web request body if
+-- the body exceeds the limit for the resource type. If the body is larger
+-- than the limit, the underlying host service only forwards the contents
+-- that are below the limit to WAF for inspection.
+--
+-- The default limit is 8 KB (8,192 kilobytes) for regional resources and
+-- 16 KB (16,384 kilobytes) for CloudFront distributions. For CloudFront
+-- distributions, you can increase the limit in the web ACL
+-- @AssociationConfig@, for additional processing fees.
 --
 -- The options for oversize handling are the following:
 --
--- -   @CONTINUE@ - Inspect the body normally, according to the rule
---     inspection criteria.
+-- -   @CONTINUE@ - Inspect the available body contents normally, according
+--     to the rule inspection criteria.
 --
 -- -   @MATCH@ - Treat the web request as matching the rule statement. WAF
 --     applies the rule action to the request.
@@ -159,7 +171,7 @@ data JsonBody = JsonBody'
 --
 -- You can combine the @MATCH@ or @NO_MATCH@ settings for oversize handling
 -- with your rule and web ACL action settings, so that you block any
--- request whose body is over 8 KB.
+-- request whose body is over the limit.
 --
 -- Default: @CONTINUE@
 --
@@ -215,14 +227,20 @@ jsonBody_invalidFallbackBehavior :: Lens.Lens' JsonBody (Prelude.Maybe BodyParsi
 jsonBody_invalidFallbackBehavior = Lens.lens (\JsonBody' {invalidFallbackBehavior} -> invalidFallbackBehavior) (\s@JsonBody' {} a -> s {invalidFallbackBehavior = a} :: JsonBody)
 
 -- | What WAF should do if the body is larger than WAF can inspect. WAF does
--- not support inspecting the entire contents of the body of a web request
--- when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the
--- request body are forwarded to WAF by the underlying host service.
+-- not support inspecting the entire contents of the web request body if
+-- the body exceeds the limit for the resource type. If the body is larger
+-- than the limit, the underlying host service only forwards the contents
+-- that are below the limit to WAF for inspection.
+--
+-- The default limit is 8 KB (8,192 kilobytes) for regional resources and
+-- 16 KB (16,384 kilobytes) for CloudFront distributions. For CloudFront
+-- distributions, you can increase the limit in the web ACL
+-- @AssociationConfig@, for additional processing fees.
 --
 -- The options for oversize handling are the following:
 --
--- -   @CONTINUE@ - Inspect the body normally, according to the rule
---     inspection criteria.
+-- -   @CONTINUE@ - Inspect the available body contents normally, according
+--     to the rule inspection criteria.
 --
 -- -   @MATCH@ - Treat the web request as matching the rule statement. WAF
 --     applies the rule action to the request.
@@ -232,7 +250,7 @@ jsonBody_invalidFallbackBehavior = Lens.lens (\JsonBody' {invalidFallbackBehavio
 --
 -- You can combine the @MATCH@ or @NO_MATCH@ settings for oversize handling
 -- with your rule and web ACL action settings, so that you block any
--- request whose body is over 8 KB.
+-- request whose body is over the limit.
 --
 -- Default: @CONTINUE@
 jsonBody_oversizeHandling :: Lens.Lens' JsonBody (Prelude.Maybe OversizeHandling)

@@ -69,14 +69,12 @@ data CreateRuleGroup = CreateRuleGroup'
     --
     -- For information about customizing web requests and responses, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    -- in the /WAF Developer Guide/.
     --
     -- For information about the limits on count and size for custom request
     -- and response settings, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    -- in the /WAF Developer Guide/.
     customResponseBodies :: Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody),
     -- | A description of the rule group that helps with identification.
     description :: Prelude.Maybe Prelude.Text,
@@ -93,7 +91,8 @@ data CreateRuleGroup = CreateRuleGroup'
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -116,7 +115,9 @@ data CreateRuleGroup = CreateRuleGroup'
     -- each rule. Simple rules that cost little to run use fewer WCUs than more
     -- complex rules that use more processing power. Rule group capacity is
     -- fixed at creation, which helps users plan their web ACL WCU usage when
-    -- they use a rule group. The WCU limit for web ACLs is 1,500.
+    -- they use a rule group. For more information, see
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html WAF web ACL capacity units (WCU)>
+    -- in the /WAF Developer Guide/.
     capacity :: Prelude.Natural,
     -- | Defines and enables Amazon CloudWatch metrics and web request sample
     -- collection.
@@ -139,14 +140,12 @@ data CreateRuleGroup = CreateRuleGroup'
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 --
 -- For information about the limits on count and size for custom request
 -- and response settings, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 --
 -- 'description', 'createRuleGroup_description' - A description of the rule group that helps with identification.
 --
@@ -163,7 +162,8 @@ data CreateRuleGroup = CreateRuleGroup'
 -- 'scope', 'createRuleGroup_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -186,7 +186,9 @@ data CreateRuleGroup = CreateRuleGroup'
 -- each rule. Simple rules that cost little to run use fewer WCUs than more
 -- complex rules that use more processing power. Rule group capacity is
 -- fixed at creation, which helps users plan their web ACL WCU usage when
--- they use a rule group. The WCU limit for web ACLs is 1,500.
+-- they use a rule group. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html WAF web ACL capacity units (WCU)>
+-- in the /WAF Developer Guide/.
 --
 -- 'visibilityConfig', 'createRuleGroup_visibilityConfig' - Defines and enables Amazon CloudWatch metrics and web request sample
 -- collection.
@@ -224,14 +226,12 @@ newCreateRuleGroup
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 --
 -- For information about the limits on count and size for custom request
 -- and response settings, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 createRuleGroup_customResponseBodies :: Lens.Lens' CreateRuleGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody))
 createRuleGroup_customResponseBodies = Lens.lens (\CreateRuleGroup' {customResponseBodies} -> customResponseBodies) (\s@CreateRuleGroup' {} a -> s {customResponseBodies = a} :: CreateRuleGroup) Prelude.. Lens.mapping Lens.coerced
 
@@ -258,7 +258,8 @@ createRuleGroup_name = Lens.lens (\CreateRuleGroup' {name} -> name) (\s@CreateRu
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -283,7 +284,9 @@ createRuleGroup_scope = Lens.lens (\CreateRuleGroup' {scope} -> scope) (\s@Creat
 -- each rule. Simple rules that cost little to run use fewer WCUs than more
 -- complex rules that use more processing power. Rule group capacity is
 -- fixed at creation, which helps users plan their web ACL WCU usage when
--- they use a rule group. The WCU limit for web ACLs is 1,500.
+-- they use a rule group. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html WAF web ACL capacity units (WCU)>
+-- in the /WAF Developer Guide/.
 createRuleGroup_capacity :: Lens.Lens' CreateRuleGroup Prelude.Natural
 createRuleGroup_capacity = Lens.lens (\CreateRuleGroup' {capacity} -> capacity) (\s@CreateRuleGroup' {} a -> s {capacity = a} :: CreateRuleGroup)
 
@@ -308,7 +311,8 @@ instance Core.AWSRequest CreateRuleGroup where
 
 instance Prelude.Hashable CreateRuleGroup where
   hashWithSalt _salt CreateRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` customResponseBodies
+    _salt
+      `Prelude.hashWithSalt` customResponseBodies
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` rules
       `Prelude.hashWithSalt` tags

@@ -66,7 +66,8 @@ data ListRegexPatternSets = ListRegexPatternSets'
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -100,7 +101,8 @@ data ListRegexPatternSets = ListRegexPatternSets'
 -- 'scope', 'listRegexPatternSets_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -137,7 +139,8 @@ listRegexPatternSets_nextMarker = Lens.lens (\ListRegexPatternSets' {nextMarker}
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -160,7 +163,8 @@ instance Core.AWSRequest ListRegexPatternSets where
       ( \s h x ->
           ListRegexPatternSetsResponse'
             Prelude.<$> (x Data..?> "NextMarker")
-            Prelude.<*> ( x Data..?> "RegexPatternSets"
+            Prelude.<*> ( x
+                            Data..?> "RegexPatternSets"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -168,7 +172,8 @@ instance Core.AWSRequest ListRegexPatternSets where
 
 instance Prelude.Hashable ListRegexPatternSets where
   hashWithSalt _salt ListRegexPatternSets' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` scope
 
@@ -216,6 +221,8 @@ data ListRegexPatternSetsResponse = ListRegexPatternSetsResponse'
     -- returns a @NextMarker@ value in the response. To retrieve the next batch
     -- of objects, provide the marker from the prior call in your next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | Array of regex pattern sets. If you specified a @Limit@ in your request,
+    -- this might not be the full list.
     regexPatternSets :: Prelude.Maybe [RegexPatternSetSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -235,7 +242,8 @@ data ListRegexPatternSetsResponse = ListRegexPatternSetsResponse'
 -- returns a @NextMarker@ value in the response. To retrieve the next batch
 -- of objects, provide the marker from the prior call in your next request.
 --
--- 'regexPatternSets', 'listRegexPatternSetsResponse_regexPatternSets' -
+-- 'regexPatternSets', 'listRegexPatternSetsResponse_regexPatternSets' - Array of regex pattern sets. If you specified a @Limit@ in your request,
+-- this might not be the full list.
 --
 -- 'httpStatus', 'listRegexPatternSetsResponse_httpStatus' - The response's http status code.
 newListRegexPatternSetsResponse ::
@@ -257,7 +265,8 @@ newListRegexPatternSetsResponse pHttpStatus_ =
 listRegexPatternSetsResponse_nextMarker :: Lens.Lens' ListRegexPatternSetsResponse (Prelude.Maybe Prelude.Text)
 listRegexPatternSetsResponse_nextMarker = Lens.lens (\ListRegexPatternSetsResponse' {nextMarker} -> nextMarker) (\s@ListRegexPatternSetsResponse' {} a -> s {nextMarker = a} :: ListRegexPatternSetsResponse)
 
--- |
+-- | Array of regex pattern sets. If you specified a @Limit@ in your request,
+-- this might not be the full list.
 listRegexPatternSetsResponse_regexPatternSets :: Lens.Lens' ListRegexPatternSetsResponse (Prelude.Maybe [RegexPatternSetSummary])
 listRegexPatternSetsResponse_regexPatternSets = Lens.lens (\ListRegexPatternSetsResponse' {regexPatternSets} -> regexPatternSets) (\s@ListRegexPatternSetsResponse' {} a -> s {regexPatternSets = a} :: ListRegexPatternSetsResponse) Prelude.. Lens.mapping Lens.coerced
 

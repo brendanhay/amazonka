@@ -156,7 +156,8 @@ instance Data.FromJSON HTTPRequest where
 
 instance Prelude.Hashable HTTPRequest where
   hashWithSalt _salt HTTPRequest' {..} =
-    _salt `Prelude.hashWithSalt` clientIP
+    _salt
+      `Prelude.hashWithSalt` clientIP
       `Prelude.hashWithSalt` country
       `Prelude.hashWithSalt` hTTPVersion
       `Prelude.hashWithSalt` headers

@@ -38,7 +38,7 @@ import Amazonka.WAFV2.Types.TextTransformation
 data ByteMatchStatement = ByteMatchStatement'
   { -- | A string value that you want WAF to search for. WAF searches only in the
     -- part of web requests that you designate for inspection in FieldToMatch.
-    -- The maximum length of the value is 50 bytes.
+    -- The maximum length of the value is 200 bytes.
     --
     -- Valid values depend on the component that you specify for inspection in
     -- @FieldToMatch@:
@@ -49,13 +49,18 @@ data ByteMatchStatement = ByteMatchStatement'
     -- -   @UriPath@: The value that you want WAF to search for in the URI
     --     path, for example, @\/images\/daily-ad.jpg@.
     --
+    -- -   @HeaderOrder@: The comma-separated list of header names to match
+    --     for. WAF creates a string that contains the ordered list of header
+    --     names, from the headers in the web request, and then matches against
+    --     that string.
+    --
     -- If @SearchString@ includes alphabetic characters A-Z and a-z, note that
     -- the value is case sensitive.
     --
     -- __If you\'re using the WAF API__
     --
     -- Specify a base64-encoded version of the value. The maximum length of the
-    -- value before you base64-encode it is 50 bytes.
+    -- value before you base64-encode it is 200 bytes.
     --
     -- For example, suppose the value of @Type@ is @HEADER@ and the value of
     -- @Data@ is @User-Agent@. If you want to search the @User-Agent@ header
@@ -71,11 +76,14 @@ data ByteMatchStatement = ByteMatchStatement'
     -- | The part of the web request that you want WAF to inspect.
     fieldToMatch :: FieldToMatch,
     -- | Text transformations eliminate some of the unusual formatting that
-    -- attackers use in web requests in an effort to bypass detection. If you
-    -- specify one or more transformations in a rule statement, WAF performs
-    -- all transformations on the content of the request component identified
-    -- by @FieldToMatch@, starting from the lowest priority setting, before
-    -- inspecting the content for a match.
+    -- attackers use in web requests in an effort to bypass detection. Text
+    -- transformations are used in rule match statements, to transform the
+    -- @FieldToMatch@ request component before inspecting it, and they\'re used
+    -- in rate-based rule statements, to transform request components before
+    -- using them as custom aggregation keys. If you specify one or more
+    -- transformations to apply, WAF performs all transformations on the
+    -- specified content, starting from the lowest priority setting, and then
+    -- uses the component contents.
     textTransformations :: Prelude.NonEmpty TextTransformation,
     -- | The area within the portion of the web request that you want WAF to
     -- search for @SearchString@. Valid values include the following:
@@ -130,7 +138,7 @@ data ByteMatchStatement = ByteMatchStatement'
 --
 -- 'searchString', 'byteMatchStatement_searchString' - A string value that you want WAF to search for. WAF searches only in the
 -- part of web requests that you designate for inspection in FieldToMatch.
--- The maximum length of the value is 50 bytes.
+-- The maximum length of the value is 200 bytes.
 --
 -- Valid values depend on the component that you specify for inspection in
 -- @FieldToMatch@:
@@ -141,13 +149,18 @@ data ByteMatchStatement = ByteMatchStatement'
 -- -   @UriPath@: The value that you want WAF to search for in the URI
 --     path, for example, @\/images\/daily-ad.jpg@.
 --
+-- -   @HeaderOrder@: The comma-separated list of header names to match
+--     for. WAF creates a string that contains the ordered list of header
+--     names, from the headers in the web request, and then matches against
+--     that string.
+--
 -- If @SearchString@ includes alphabetic characters A-Z and a-z, note that
 -- the value is case sensitive.
 --
 -- __If you\'re using the WAF API__
 --
 -- Specify a base64-encoded version of the value. The maximum length of the
--- value before you base64-encode it is 50 bytes.
+-- value before you base64-encode it is 200 bytes.
 --
 -- For example, suppose the value of @Type@ is @HEADER@ and the value of
 -- @Data@ is @User-Agent@. If you want to search the @User-Agent@ header
@@ -167,11 +180,14 @@ data ByteMatchStatement = ByteMatchStatement'
 -- 'fieldToMatch', 'byteMatchStatement_fieldToMatch' - The part of the web request that you want WAF to inspect.
 --
 -- 'textTransformations', 'byteMatchStatement_textTransformations' - Text transformations eliminate some of the unusual formatting that
--- attackers use in web requests in an effort to bypass detection. If you
--- specify one or more transformations in a rule statement, WAF performs
--- all transformations on the content of the request component identified
--- by @FieldToMatch@, starting from the lowest priority setting, before
--- inspecting the content for a match.
+-- attackers use in web requests in an effort to bypass detection. Text
+-- transformations are used in rule match statements, to transform the
+-- @FieldToMatch@ request component before inspecting it, and they\'re used
+-- in rate-based rule statements, to transform request components before
+-- using them as custom aggregation keys. If you specify one or more
+-- transformations to apply, WAF performs all transformations on the
+-- specified content, starting from the lowest priority setting, and then
+-- uses the component contents.
 --
 -- 'positionalConstraint', 'byteMatchStatement_positionalConstraint' - The area within the portion of the web request that you want WAF to
 -- search for @SearchString@. Valid values include the following:
@@ -238,7 +254,7 @@ newByteMatchStatement
 
 -- | A string value that you want WAF to search for. WAF searches only in the
 -- part of web requests that you designate for inspection in FieldToMatch.
--- The maximum length of the value is 50 bytes.
+-- The maximum length of the value is 200 bytes.
 --
 -- Valid values depend on the component that you specify for inspection in
 -- @FieldToMatch@:
@@ -249,13 +265,18 @@ newByteMatchStatement
 -- -   @UriPath@: The value that you want WAF to search for in the URI
 --     path, for example, @\/images\/daily-ad.jpg@.
 --
+-- -   @HeaderOrder@: The comma-separated list of header names to match
+--     for. WAF creates a string that contains the ordered list of header
+--     names, from the headers in the web request, and then matches against
+--     that string.
+--
 -- If @SearchString@ includes alphabetic characters A-Z and a-z, note that
 -- the value is case sensitive.
 --
 -- __If you\'re using the WAF API__
 --
 -- Specify a base64-encoded version of the value. The maximum length of the
--- value before you base64-encode it is 50 bytes.
+-- value before you base64-encode it is 200 bytes.
 --
 -- For example, suppose the value of @Type@ is @HEADER@ and the value of
 -- @Data@ is @User-Agent@. If you want to search the @User-Agent@ header
@@ -279,11 +300,14 @@ byteMatchStatement_fieldToMatch :: Lens.Lens' ByteMatchStatement FieldToMatch
 byteMatchStatement_fieldToMatch = Lens.lens (\ByteMatchStatement' {fieldToMatch} -> fieldToMatch) (\s@ByteMatchStatement' {} a -> s {fieldToMatch = a} :: ByteMatchStatement)
 
 -- | Text transformations eliminate some of the unusual formatting that
--- attackers use in web requests in an effort to bypass detection. If you
--- specify one or more transformations in a rule statement, WAF performs
--- all transformations on the content of the request component identified
--- by @FieldToMatch@, starting from the lowest priority setting, before
--- inspecting the content for a match.
+-- attackers use in web requests in an effort to bypass detection. Text
+-- transformations are used in rule match statements, to transform the
+-- @FieldToMatch@ request component before inspecting it, and they\'re used
+-- in rate-based rule statements, to transform request components before
+-- using them as custom aggregation keys. If you specify one or more
+-- transformations to apply, WAF performs all transformations on the
+-- specified content, starting from the lowest priority setting, and then
+-- uses the component contents.
 byteMatchStatement_textTransformations :: Lens.Lens' ByteMatchStatement (Prelude.NonEmpty TextTransformation)
 byteMatchStatement_textTransformations = Lens.lens (\ByteMatchStatement' {textTransformations} -> textTransformations) (\s@ByteMatchStatement' {} a -> s {textTransformations = a} :: ByteMatchStatement) Prelude.. Lens.coerced
 
@@ -343,7 +367,8 @@ instance Data.FromJSON ByteMatchStatement where
 
 instance Prelude.Hashable ByteMatchStatement where
   hashWithSalt _salt ByteMatchStatement' {..} =
-    _salt `Prelude.hashWithSalt` searchString
+    _salt
+      `Prelude.hashWithSalt` searchString
       `Prelude.hashWithSalt` fieldToMatch
       `Prelude.hashWithSalt` textTransformations
       `Prelude.hashWithSalt` positionalConstraint

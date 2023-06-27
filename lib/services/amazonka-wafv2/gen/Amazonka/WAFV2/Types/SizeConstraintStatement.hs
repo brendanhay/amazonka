@@ -33,9 +33,14 @@ import Amazonka.WAFV2.Types.TextTransformation
 -- to look for query strings that are longer than 100 bytes.
 --
 -- If you configure WAF to inspect the request body, WAF inspects only the
--- first 8192 bytes (8 KB). If the request body for your web requests never
--- exceeds 8192 bytes, you could use a size constraint statement to block
--- requests that have a request body greater than 8192 bytes.
+-- number of bytes of the body up to the limit for the web ACL. By default,
+-- for regional web ACLs, this limit is 8 KB (8,192 kilobytes) and for
+-- CloudFront web ACLs, this limit is 16 KB (16,384 kilobytes). For
+-- CloudFront web ACLs, you can increase the limit in the web ACL
+-- @AssociationConfig@, for additional fees. If you know that the request
+-- body for your web requests should never exceed the inspection limit, you
+-- could use a size constraint statement to block requests that have a
+-- larger request body size.
 --
 -- If you choose URI for the value of Part of the request to filter on, the
 -- slash (\/) in the URI counts as one character. For example, the URI
@@ -51,11 +56,14 @@ data SizeConstraintStatement = SizeConstraintStatement'
     -- transformations.
     size :: Prelude.Natural,
     -- | Text transformations eliminate some of the unusual formatting that
-    -- attackers use in web requests in an effort to bypass detection. If you
-    -- specify one or more transformations in a rule statement, WAF performs
-    -- all transformations on the content of the request component identified
-    -- by @FieldToMatch@, starting from the lowest priority setting, before
-    -- inspecting the content for a match.
+    -- attackers use in web requests in an effort to bypass detection. Text
+    -- transformations are used in rule match statements, to transform the
+    -- @FieldToMatch@ request component before inspecting it, and they\'re used
+    -- in rate-based rule statements, to transform request components before
+    -- using them as custom aggregation keys. If you specify one or more
+    -- transformations to apply, WAF performs all transformations on the
+    -- specified content, starting from the lowest priority setting, and then
+    -- uses the component contents.
     textTransformations :: Prelude.NonEmpty TextTransformation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,11 +84,14 @@ data SizeConstraintStatement = SizeConstraintStatement'
 -- transformations.
 --
 -- 'textTransformations', 'sizeConstraintStatement_textTransformations' - Text transformations eliminate some of the unusual formatting that
--- attackers use in web requests in an effort to bypass detection. If you
--- specify one or more transformations in a rule statement, WAF performs
--- all transformations on the content of the request component identified
--- by @FieldToMatch@, starting from the lowest priority setting, before
--- inspecting the content for a match.
+-- attackers use in web requests in an effort to bypass detection. Text
+-- transformations are used in rule match statements, to transform the
+-- @FieldToMatch@ request component before inspecting it, and they\'re used
+-- in rate-based rule statements, to transform request components before
+-- using them as custom aggregation keys. If you specify one or more
+-- transformations to apply, WAF performs all transformations on the
+-- specified content, starting from the lowest priority setting, and then
+-- uses the component contents.
 newSizeConstraintStatement ::
   -- | 'fieldToMatch'
   FieldToMatch ->
@@ -119,11 +130,14 @@ sizeConstraintStatement_size :: Lens.Lens' SizeConstraintStatement Prelude.Natur
 sizeConstraintStatement_size = Lens.lens (\SizeConstraintStatement' {size} -> size) (\s@SizeConstraintStatement' {} a -> s {size = a} :: SizeConstraintStatement)
 
 -- | Text transformations eliminate some of the unusual formatting that
--- attackers use in web requests in an effort to bypass detection. If you
--- specify one or more transformations in a rule statement, WAF performs
--- all transformations on the content of the request component identified
--- by @FieldToMatch@, starting from the lowest priority setting, before
--- inspecting the content for a match.
+-- attackers use in web requests in an effort to bypass detection. Text
+-- transformations are used in rule match statements, to transform the
+-- @FieldToMatch@ request component before inspecting it, and they\'re used
+-- in rate-based rule statements, to transform request components before
+-- using them as custom aggregation keys. If you specify one or more
+-- transformations to apply, WAF performs all transformations on the
+-- specified content, starting from the lowest priority setting, and then
+-- uses the component contents.
 sizeConstraintStatement_textTransformations :: Lens.Lens' SizeConstraintStatement (Prelude.NonEmpty TextTransformation)
 sizeConstraintStatement_textTransformations = Lens.lens (\SizeConstraintStatement' {textTransformations} -> textTransformations) (\s@SizeConstraintStatement' {} a -> s {textTransformations = a} :: SizeConstraintStatement) Prelude.. Lens.coerced
 
@@ -141,7 +155,8 @@ instance Data.FromJSON SizeConstraintStatement where
 
 instance Prelude.Hashable SizeConstraintStatement where
   hashWithSalt _salt SizeConstraintStatement' {..} =
-    _salt `Prelude.hashWithSalt` fieldToMatch
+    _salt
+      `Prelude.hashWithSalt` fieldToMatch
       `Prelude.hashWithSalt` comparisonOperator
       `Prelude.hashWithSalt` size
       `Prelude.hashWithSalt` textTransformations

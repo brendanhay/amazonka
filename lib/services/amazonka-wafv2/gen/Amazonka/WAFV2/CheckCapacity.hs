@@ -30,7 +30,9 @@
 -- each rule. Simple rules that cost little to run use fewer WCUs than more
 -- complex rules that use more processing power. Rule group capacity is
 -- fixed at creation, which helps users plan their web ACL WCU usage when
--- they use a rule group. The WCU limit for web ACLs is 1,500.
+-- they use a rule group. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html WAF web ACL capacity units (WCU)>
+-- in the /WAF Developer Guide/.
 module Amazonka.WAFV2.CheckCapacity
   ( -- * Creating a Request
     CheckCapacity (..),
@@ -63,7 +65,8 @@ data CheckCapacity = CheckCapacity'
   { -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -90,7 +93,8 @@ data CheckCapacity = CheckCapacity'
 -- 'scope', 'checkCapacity_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -115,7 +119,8 @@ newCheckCapacity pScope_ =
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -148,7 +153,8 @@ instance Core.AWSRequest CheckCapacity where
 
 instance Prelude.Hashable CheckCapacity where
   hashWithSalt _salt CheckCapacity' {..} =
-    _salt `Prelude.hashWithSalt` scope
+    _salt
+      `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` rules
 
 instance Prelude.NFData CheckCapacity where

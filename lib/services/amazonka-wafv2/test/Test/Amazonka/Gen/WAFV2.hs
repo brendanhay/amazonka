@@ -33,6 +33,9 @@ import Test.Tasty
 --         , requestCheckCapacity $
 --             newCheckCapacity
 --
+--         , requestCreateAPIKey $
+--             newCreateAPIKey
+--
 --         , requestCreateIPSet $
 --             newCreateIPSet
 --
@@ -66,6 +69,12 @@ import Test.Tasty
 --         , requestDeleteWebACL $
 --             newDeleteWebACL
 --
+--         , requestDescribeAllManagedProducts $
+--             newDescribeAllManagedProducts
+--
+--         , requestDescribeManagedProductsByVendor $
+--             newDescribeManagedProductsByVendor
+--
 --         , requestDescribeManagedRuleGroup $
 --             newDescribeManagedRuleGroup
 --
@@ -74,6 +83,9 @@ import Test.Tasty
 --
 --         , requestGenerateMobileSdkReleaseUrl $
 --             newGenerateMobileSdkReleaseUrl
+--
+--         , requestGetDecryptedAPIKey $
+--             newGetDecryptedAPIKey
 --
 --         , requestGetIPSet $
 --             newGetIPSet
@@ -107,6 +119,9 @@ import Test.Tasty
 --
 --         , requestGetWebACLForResource $
 --             newGetWebACLForResource
+--
+--         , requestListAPIKeys $
+--             newListAPIKeys
 --
 --         , requestListAvailableManagedRuleGroupVersions $
 --             newListAvailableManagedRuleGroupVersions
@@ -180,6 +195,9 @@ import Test.Tasty
 --         , responseCheckCapacity $
 --             newCheckCapacityResponse
 --
+--         , responseCreateAPIKey $
+--             newCreateAPIKeyResponse
+--
 --         , responseCreateIPSet $
 --             newCreateIPSetResponse
 --
@@ -213,6 +231,12 @@ import Test.Tasty
 --         , responseDeleteWebACL $
 --             newDeleteWebACLResponse
 --
+--         , responseDescribeAllManagedProducts $
+--             newDescribeAllManagedProductsResponse
+--
+--         , responseDescribeManagedProductsByVendor $
+--             newDescribeManagedProductsByVendorResponse
+--
 --         , responseDescribeManagedRuleGroup $
 --             newDescribeManagedRuleGroupResponse
 --
@@ -221,6 +245,9 @@ import Test.Tasty
 --
 --         , responseGenerateMobileSdkReleaseUrl $
 --             newGenerateMobileSdkReleaseUrlResponse
+--
+--         , responseGetDecryptedAPIKey $
+--             newGetDecryptedAPIKeyResponse
 --
 --         , responseGetIPSet $
 --             newGetIPSetResponse
@@ -254,6 +281,9 @@ import Test.Tasty
 --
 --         , responseGetWebACLForResource $
 --             newGetWebACLForResourceResponse
+--
+--         , responseListAPIKeys $
+--             newListAPIKeysResponse
 --
 --         , responseListAvailableManagedRuleGroupVersions $
 --             newListAvailableManagedRuleGroupVersionsResponse
@@ -335,6 +365,12 @@ requestCheckCapacity =
     "CheckCapacity"
     "fixture/CheckCapacity.yaml"
 
+requestCreateAPIKey :: CreateAPIKey -> TestTree
+requestCreateAPIKey =
+  req
+    "CreateAPIKey"
+    "fixture/CreateAPIKey.yaml"
+
 requestCreateIPSet :: CreateIPSet -> TestTree
 requestCreateIPSet =
   req
@@ -401,6 +437,18 @@ requestDeleteWebACL =
     "DeleteWebACL"
     "fixture/DeleteWebACL.yaml"
 
+requestDescribeAllManagedProducts :: DescribeAllManagedProducts -> TestTree
+requestDescribeAllManagedProducts =
+  req
+    "DescribeAllManagedProducts"
+    "fixture/DescribeAllManagedProducts.yaml"
+
+requestDescribeManagedProductsByVendor :: DescribeManagedProductsByVendor -> TestTree
+requestDescribeManagedProductsByVendor =
+  req
+    "DescribeManagedProductsByVendor"
+    "fixture/DescribeManagedProductsByVendor.yaml"
+
 requestDescribeManagedRuleGroup :: DescribeManagedRuleGroup -> TestTree
 requestDescribeManagedRuleGroup =
   req
@@ -418,6 +466,12 @@ requestGenerateMobileSdkReleaseUrl =
   req
     "GenerateMobileSdkReleaseUrl"
     "fixture/GenerateMobileSdkReleaseUrl.yaml"
+
+requestGetDecryptedAPIKey :: GetDecryptedAPIKey -> TestTree
+requestGetDecryptedAPIKey =
+  req
+    "GetDecryptedAPIKey"
+    "fixture/GetDecryptedAPIKey.yaml"
 
 requestGetIPSet :: GetIPSet -> TestTree
 requestGetIPSet =
@@ -484,6 +538,12 @@ requestGetWebACLForResource =
   req
     "GetWebACLForResource"
     "fixture/GetWebACLForResource.yaml"
+
+requestListAPIKeys :: ListAPIKeys -> TestTree
+requestListAPIKeys =
+  req
+    "ListAPIKeys"
+    "fixture/ListAPIKeys.yaml"
 
 requestListAvailableManagedRuleGroupVersions :: ListAvailableManagedRuleGroupVersions -> TestTree
 requestListAvailableManagedRuleGroupVersions =
@@ -629,6 +689,14 @@ responseCheckCapacity =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CheckCapacity)
 
+responseCreateAPIKey :: CreateAPIKeyResponse -> TestTree
+responseCreateAPIKey =
+  res
+    "CreateAPIKeyResponse"
+    "fixture/CreateAPIKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateAPIKey)
+
 responseCreateIPSet :: CreateIPSetResponse -> TestTree
 responseCreateIPSet =
   res
@@ -717,6 +785,22 @@ responseDeleteWebACL =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteWebACL)
 
+responseDescribeAllManagedProducts :: DescribeAllManagedProductsResponse -> TestTree
+responseDescribeAllManagedProducts =
+  res
+    "DescribeAllManagedProductsResponse"
+    "fixture/DescribeAllManagedProductsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAllManagedProducts)
+
+responseDescribeManagedProductsByVendor :: DescribeManagedProductsByVendorResponse -> TestTree
+responseDescribeManagedProductsByVendor =
+  res
+    "DescribeManagedProductsByVendorResponse"
+    "fixture/DescribeManagedProductsByVendorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeManagedProductsByVendor)
+
 responseDescribeManagedRuleGroup :: DescribeManagedRuleGroupResponse -> TestTree
 responseDescribeManagedRuleGroup =
   res
@@ -740,6 +824,14 @@ responseGenerateMobileSdkReleaseUrl =
     "fixture/GenerateMobileSdkReleaseUrlResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GenerateMobileSdkReleaseUrl)
+
+responseGetDecryptedAPIKey :: GetDecryptedAPIKeyResponse -> TestTree
+responseGetDecryptedAPIKey =
+  res
+    "GetDecryptedAPIKeyResponse"
+    "fixture/GetDecryptedAPIKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDecryptedAPIKey)
 
 responseGetIPSet :: GetIPSetResponse -> TestTree
 responseGetIPSet =
@@ -828,6 +920,14 @@ responseGetWebACLForResource =
     "fixture/GetWebACLForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetWebACLForResource)
+
+responseListAPIKeys :: ListAPIKeysResponse -> TestTree
+responseListAPIKeys =
+  res
+    "ListAPIKeysResponse"
+    "fixture/ListAPIKeysResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAPIKeys)
 
 responseListAvailableManagedRuleGroupVersions :: ListAvailableManagedRuleGroupVersionsResponse -> TestTree
 responseListAvailableManagedRuleGroupVersions =

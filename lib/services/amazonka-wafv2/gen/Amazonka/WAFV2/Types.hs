@@ -36,9 +36,13 @@ module Amazonka.WAFV2.Types
     _WAFTagOperationException,
     _WAFTagOperationInternalErrorException,
     _WAFUnavailableEntityException,
+    _WAFUnsupportedAggregateKeyTypeException,
 
     -- * ActionValue
     ActionValue (..),
+
+    -- * AssociatedResourceType
+    AssociatedResourceType (..),
 
     -- * BodyParsingFallbackBehavior
     BodyParsingFallbackBehavior (..),
@@ -106,8 +110,36 @@ module Amazonka.WAFV2.Types
     -- * SensitivityLevel
     SensitivityLevel (..),
 
+    -- * SizeInspectionLimit
+    SizeInspectionLimit (..),
+
     -- * TextTransformationType
     TextTransformationType (..),
+
+    -- * APIKeySummary
+    APIKeySummary (..),
+    newAPIKeySummary,
+    aPIKeySummary_aPIKey,
+    aPIKeySummary_creationTimestamp,
+    aPIKeySummary_tokenDomains,
+    aPIKeySummary_version,
+
+    -- * AWSManagedRulesACFPRuleSet
+    AWSManagedRulesACFPRuleSet (..),
+    newAWSManagedRulesACFPRuleSet,
+    aWSManagedRulesACFPRuleSet_enableRegexInPath,
+    aWSManagedRulesACFPRuleSet_responseInspection,
+    aWSManagedRulesACFPRuleSet_creationPath,
+    aWSManagedRulesACFPRuleSet_registrationPagePath,
+    aWSManagedRulesACFPRuleSet_requestInspection,
+
+    -- * AWSManagedRulesATPRuleSet
+    AWSManagedRulesATPRuleSet (..),
+    newAWSManagedRulesATPRuleSet,
+    aWSManagedRulesATPRuleSet_enableRegexInPath,
+    aWSManagedRulesATPRuleSet_requestInspection,
+    aWSManagedRulesATPRuleSet_responseInspection,
+    aWSManagedRulesATPRuleSet_loginPath,
 
     -- * AWSManagedRulesBotControlRuleSet
     AWSManagedRulesBotControlRuleSet (..),
@@ -118,6 +150,11 @@ module Amazonka.WAFV2.Types
     ActionCondition (..),
     newActionCondition,
     actionCondition_action,
+
+    -- * AddressField
+    AddressField (..),
+    newAddressField,
+    addressField_identifier,
 
     -- * All
     All (..),
@@ -136,6 +173,11 @@ module Amazonka.WAFV2.Types
     AndStatement (..),
     newAndStatement,
     andStatement_statements,
+
+    -- * AssociationConfig
+    AssociationConfig (..),
+    newAssociationConfig,
+    associationConfig_requestBody,
 
     -- * BlockAction
     BlockAction (..),
@@ -244,6 +286,11 @@ module Amazonka.WAFV2.Types
     defaultAction_allow,
     defaultAction_block,
 
+    -- * EmailField
+    EmailField (..),
+    newEmailField,
+    emailField_identifier,
+
     -- * ExcludedRule
     ExcludedRule (..),
     newExcludedRule,
@@ -255,6 +302,7 @@ module Amazonka.WAFV2.Types
     fieldToMatch_allQueryArguments,
     fieldToMatch_body,
     fieldToMatch_cookies,
+    fieldToMatch_headerOrder,
     fieldToMatch_headers,
     fieldToMatch_jsonBody,
     fieldToMatch_method,
@@ -319,6 +367,11 @@ module Amazonka.WAFV2.Types
     headerMatchPattern_all,
     headerMatchPattern_excludedHeaders,
     headerMatchPattern_includedHeaders,
+
+    -- * HeaderOrder
+    HeaderOrder (..),
+    newHeaderOrder,
+    headerOrder_oversizeHandling,
 
     -- * Headers
     Headers (..),
@@ -414,9 +467,24 @@ module Amazonka.WAFV2.Types
     loggingFilter_filters,
     loggingFilter_defaultBehavior,
 
+    -- * ManagedProductDescriptor
+    ManagedProductDescriptor (..),
+    newManagedProductDescriptor,
+    managedProductDescriptor_isAdvancedManagedRuleSet,
+    managedProductDescriptor_isVersioningSupported,
+    managedProductDescriptor_managedRuleSetName,
+    managedProductDescriptor_productDescription,
+    managedProductDescriptor_productId,
+    managedProductDescriptor_productLink,
+    managedProductDescriptor_productTitle,
+    managedProductDescriptor_snsTopicArn,
+    managedProductDescriptor_vendorName,
+
     -- * ManagedRuleGroupConfig
     ManagedRuleGroupConfig (..),
     newManagedRuleGroupConfig,
+    managedRuleGroupConfig_aWSManagedRulesACFPRuleSet,
+    managedRuleGroupConfig_aWSManagedRulesATPRuleSet,
     managedRuleGroupConfig_aWSManagedRulesBotControlRuleSet,
     managedRuleGroupConfig_loginPath,
     managedRuleGroupConfig_passwordField,
@@ -516,6 +584,11 @@ module Amazonka.WAFV2.Types
     newPasswordField,
     passwordField_identifier,
 
+    -- * PhoneNumberField
+    PhoneNumberField (..),
+    newPhoneNumberField,
+    phoneNumberField_identifier,
+
     -- * QueryString
     QueryString (..),
     newQueryString,
@@ -523,16 +596,69 @@ module Amazonka.WAFV2.Types
     -- * RateBasedStatement
     RateBasedStatement (..),
     newRateBasedStatement,
+    rateBasedStatement_customKeys,
     rateBasedStatement_forwardedIPConfig,
     rateBasedStatement_scopeDownStatement,
     rateBasedStatement_limit,
     rateBasedStatement_aggregateKeyType,
+
+    -- * RateBasedStatementCustomKey
+    RateBasedStatementCustomKey (..),
+    newRateBasedStatementCustomKey,
+    rateBasedStatementCustomKey_cookie,
+    rateBasedStatementCustomKey_forwardedIP,
+    rateBasedStatementCustomKey_hTTPMethod,
+    rateBasedStatementCustomKey_header,
+    rateBasedStatementCustomKey_ip,
+    rateBasedStatementCustomKey_labelNamespace,
+    rateBasedStatementCustomKey_queryArgument,
+    rateBasedStatementCustomKey_queryString,
 
     -- * RateBasedStatementManagedKeysIPSet
     RateBasedStatementManagedKeysIPSet (..),
     newRateBasedStatementManagedKeysIPSet,
     rateBasedStatementManagedKeysIPSet_addresses,
     rateBasedStatementManagedKeysIPSet_iPAddressVersion,
+
+    -- * RateLimitCookie
+    RateLimitCookie (..),
+    newRateLimitCookie,
+    rateLimitCookie_name,
+    rateLimitCookie_textTransformations,
+
+    -- * RateLimitForwardedIP
+    RateLimitForwardedIP (..),
+    newRateLimitForwardedIP,
+
+    -- * RateLimitHTTPMethod
+    RateLimitHTTPMethod (..),
+    newRateLimitHTTPMethod,
+
+    -- * RateLimitHeader
+    RateLimitHeader (..),
+    newRateLimitHeader,
+    rateLimitHeader_name,
+    rateLimitHeader_textTransformations,
+
+    -- * RateLimitIP
+    RateLimitIP (..),
+    newRateLimitIP,
+
+    -- * RateLimitLabelNamespace
+    RateLimitLabelNamespace (..),
+    newRateLimitLabelNamespace,
+    rateLimitLabelNamespace_namespace,
+
+    -- * RateLimitQueryArgument
+    RateLimitQueryArgument (..),
+    newRateLimitQueryArgument,
+    rateLimitQueryArgument_name,
+    rateLimitQueryArgument_textTransformations,
+
+    -- * RateLimitQueryString
+    RateLimitQueryString (..),
+    newRateLimitQueryString,
+    rateLimitQueryString_textTransformations,
 
     -- * Regex
     Regex (..),
@@ -576,6 +702,62 @@ module Amazonka.WAFV2.Types
     newReleaseSummary,
     releaseSummary_releaseVersion,
     releaseSummary_timestamp,
+
+    -- * RequestBodyAssociatedResourceTypeConfig
+    RequestBodyAssociatedResourceTypeConfig (..),
+    newRequestBodyAssociatedResourceTypeConfig,
+    requestBodyAssociatedResourceTypeConfig_defaultSizeInspectionLimit,
+
+    -- * RequestInspection
+    RequestInspection (..),
+    newRequestInspection,
+    requestInspection_payloadType,
+    requestInspection_usernameField,
+    requestInspection_passwordField,
+
+    -- * RequestInspectionACFP
+    RequestInspectionACFP (..),
+    newRequestInspectionACFP,
+    requestInspectionACFP_addressFields,
+    requestInspectionACFP_emailField,
+    requestInspectionACFP_passwordField,
+    requestInspectionACFP_phoneNumberFields,
+    requestInspectionACFP_usernameField,
+    requestInspectionACFP_payloadType,
+
+    -- * ResponseInspection
+    ResponseInspection (..),
+    newResponseInspection,
+    responseInspection_bodyContains,
+    responseInspection_header,
+    responseInspection_json,
+    responseInspection_statusCode,
+
+    -- * ResponseInspectionBodyContains
+    ResponseInspectionBodyContains (..),
+    newResponseInspectionBodyContains,
+    responseInspectionBodyContains_successStrings,
+    responseInspectionBodyContains_failureStrings,
+
+    -- * ResponseInspectionHeader
+    ResponseInspectionHeader (..),
+    newResponseInspectionHeader,
+    responseInspectionHeader_name,
+    responseInspectionHeader_successValues,
+    responseInspectionHeader_failureValues,
+
+    -- * ResponseInspectionJson
+    ResponseInspectionJson (..),
+    newResponseInspectionJson,
+    responseInspectionJson_identifier,
+    responseInspectionJson_successValues,
+    responseInspectionJson_failureValues,
+
+    -- * ResponseInspectionStatusCode
+    ResponseInspectionStatusCode (..),
+    newResponseInspectionStatusCode,
+    responseInspectionStatusCode_successCodes,
+    responseInspectionStatusCode_failureCodes,
 
     -- * Rule
     Rule (..),
@@ -685,21 +867,21 @@ module Amazonka.WAFV2.Types
     -- * Statement
     Statement (..),
     newStatement,
-    statement_andStatement,
-    statement_byteMatchStatement,
-    statement_geoMatchStatement,
-    statement_iPSetReferenceStatement,
-    statement_labelMatchStatement,
-    statement_managedRuleGroupStatement,
-    statement_notStatement,
-    statement_orStatement,
-    statement_rateBasedStatement,
-    statement_regexMatchStatement,
-    statement_regexPatternSetReferenceStatement,
-    statement_ruleGroupReferenceStatement,
-    statement_sizeConstraintStatement,
-    statement_sqliMatchStatement,
-    statement_xssMatchStatement,
+    andStatement,
+    byteMatchStatement,
+    geoMatchStatement,
+    iPSetReferenceStatement,
+    labelMatchStatement,
+    managedRuleGroupStatement,
+    notStatement,
+    orStatement,
+    rateBasedStatement,
+    regexMatchStatement,
+    regexPatternSetReferenceStatement,
+    ruleGroupReferenceStatement,
+    sizeConstraintStatement,
+    sqliMatchStatement,
+    xssMatchStatement,
 
     -- * Tag
     Tag (..),
@@ -750,6 +932,7 @@ module Amazonka.WAFV2.Types
     -- * WebACL
     WebACL (..),
     newWebACL,
+    webACL_associationConfig,
     webACL_capacity,
     webACL_captchaConfig,
     webACL_challengeConfig,
@@ -788,13 +971,19 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.WAFV2.Types.APIKeySummary
+import Amazonka.WAFV2.Types.AWSManagedRulesACFPRuleSet
+import Amazonka.WAFV2.Types.AWSManagedRulesATPRuleSet
 import Amazonka.WAFV2.Types.AWSManagedRulesBotControlRuleSet
 import Amazonka.WAFV2.Types.ActionCondition
 import Amazonka.WAFV2.Types.ActionValue
+import Amazonka.WAFV2.Types.AddressField
 import Amazonka.WAFV2.Types.All
 import Amazonka.WAFV2.Types.AllQueryArguments
 import Amazonka.WAFV2.Types.AllowAction
 import Amazonka.WAFV2.Types.AndStatement
+import Amazonka.WAFV2.Types.AssociatedResourceType
+import Amazonka.WAFV2.Types.AssociationConfig
 import Amazonka.WAFV2.Types.BlockAction
 import Amazonka.WAFV2.Types.Body
 import Amazonka.WAFV2.Types.BodyParsingFallbackBehavior
@@ -816,6 +1005,7 @@ import Amazonka.WAFV2.Types.CustomRequestHandling
 import Amazonka.WAFV2.Types.CustomResponse
 import Amazonka.WAFV2.Types.CustomResponseBody
 import Amazonka.WAFV2.Types.DefaultAction
+import Amazonka.WAFV2.Types.EmailField
 import Amazonka.WAFV2.Types.ExcludedRule
 import Amazonka.WAFV2.Types.FailureReason
 import Amazonka.WAFV2.Types.FallbackBehavior
@@ -831,6 +1021,7 @@ import Amazonka.WAFV2.Types.GeoMatchStatement
 import Amazonka.WAFV2.Types.HTTPHeader
 import Amazonka.WAFV2.Types.HTTPRequest
 import Amazonka.WAFV2.Types.HeaderMatchPattern
+import Amazonka.WAFV2.Types.HeaderOrder
 import Amazonka.WAFV2.Types.Headers
 import Amazonka.WAFV2.Types.IPAddressVersion
 import Amazonka.WAFV2.Types.IPSet
@@ -849,6 +1040,7 @@ import Amazonka.WAFV2.Types.LabelNameCondition
 import Amazonka.WAFV2.Types.LabelSummary
 import Amazonka.WAFV2.Types.LoggingConfiguration
 import Amazonka.WAFV2.Types.LoggingFilter
+import Amazonka.WAFV2.Types.ManagedProductDescriptor
 import Amazonka.WAFV2.Types.ManagedRuleGroupConfig
 import Amazonka.WAFV2.Types.ManagedRuleGroupStatement
 import Amazonka.WAFV2.Types.ManagedRuleGroupSummary
@@ -866,20 +1058,38 @@ import Amazonka.WAFV2.Types.OverrideAction
 import Amazonka.WAFV2.Types.OversizeHandling
 import Amazonka.WAFV2.Types.PasswordField
 import Amazonka.WAFV2.Types.PayloadType
+import Amazonka.WAFV2.Types.PhoneNumberField
 import Amazonka.WAFV2.Types.Platform
 import Amazonka.WAFV2.Types.PositionalConstraint
 import Amazonka.WAFV2.Types.QueryString
 import Amazonka.WAFV2.Types.RateBasedStatement
 import Amazonka.WAFV2.Types.RateBasedStatementAggregateKeyType
+import Amazonka.WAFV2.Types.RateBasedStatementCustomKey
 import Amazonka.WAFV2.Types.RateBasedStatementManagedKeysIPSet
+import Amazonka.WAFV2.Types.RateLimitCookie
+import Amazonka.WAFV2.Types.RateLimitForwardedIP
+import Amazonka.WAFV2.Types.RateLimitHTTPMethod
+import Amazonka.WAFV2.Types.RateLimitHeader
+import Amazonka.WAFV2.Types.RateLimitIP
+import Amazonka.WAFV2.Types.RateLimitLabelNamespace
+import Amazonka.WAFV2.Types.RateLimitQueryArgument
+import Amazonka.WAFV2.Types.RateLimitQueryString
 import Amazonka.WAFV2.Types.Regex
 import Amazonka.WAFV2.Types.RegexMatchStatement
 import Amazonka.WAFV2.Types.RegexPatternSet
 import Amazonka.WAFV2.Types.RegexPatternSetReferenceStatement
 import Amazonka.WAFV2.Types.RegexPatternSetSummary
 import Amazonka.WAFV2.Types.ReleaseSummary
+import Amazonka.WAFV2.Types.RequestBodyAssociatedResourceTypeConfig
+import Amazonka.WAFV2.Types.RequestInspection
+import Amazonka.WAFV2.Types.RequestInspectionACFP
 import Amazonka.WAFV2.Types.ResourceType
 import Amazonka.WAFV2.Types.ResponseContentType
+import Amazonka.WAFV2.Types.ResponseInspection
+import Amazonka.WAFV2.Types.ResponseInspectionBodyContains
+import Amazonka.WAFV2.Types.ResponseInspectionHeader
+import Amazonka.WAFV2.Types.ResponseInspectionJson
+import Amazonka.WAFV2.Types.ResponseInspectionStatusCode
 import Amazonka.WAFV2.Types.Rule
 import Amazonka.WAFV2.Types.RuleAction
 import Amazonka.WAFV2.Types.RuleActionOverride
@@ -893,6 +1103,7 @@ import Amazonka.WAFV2.Types.SensitivityLevel
 import Amazonka.WAFV2.Types.SingleHeader
 import Amazonka.WAFV2.Types.SingleQueryArgument
 import Amazonka.WAFV2.Types.SizeConstraintStatement
+import Amazonka.WAFV2.Types.SizeInspectionLimit
 import Amazonka.WAFV2.Types.SqliMatchStatement
 import Amazonka.WAFV2.Types.Statement
 import Amazonka.WAFV2.Types.Tag
@@ -934,53 +1145,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | WAF couldn’t perform the operation because your resource is being used
 -- by another resource or it’s associated with another resource.
-_WAFAssociatedItemException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WAFAssociatedItemException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WAFAssociatedItemException =
   Core._MatchServiceError
     defaultService
@@ -999,7 +1210,7 @@ _WAFAssociatedItemException =
 -- Alternately, you can suppress this warning by adding the following tag
 -- to the resource that you provide to this operation: @Tag@
 -- (key:@WAF:OversizeFieldsHandlingConstraintOptOut@, value:@true@).
-_WAFConfigurationWarningException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WAFConfigurationWarningException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WAFConfigurationWarningException =
   Core._MatchServiceError
     defaultService
@@ -1007,7 +1218,7 @@ _WAFConfigurationWarningException =
 
 -- | WAF couldn’t perform the operation because the resource that you tried
 -- to save is a duplicate of an existing one.
-_WAFDuplicateItemException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WAFDuplicateItemException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WAFDuplicateItemException =
   Core._MatchServiceError
     defaultService
@@ -1016,7 +1227,7 @@ _WAFDuplicateItemException =
 -- | The operation failed because the specified version for the managed rule
 -- group has expired. You can retrieve the available versions for the
 -- managed rule group by calling ListAvailableManagedRuleGroupVersions.
-_WAFExpiredManagedRuleGroupVersionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WAFExpiredManagedRuleGroupVersionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WAFExpiredManagedRuleGroupVersionException =
   Core._MatchServiceError
     defaultService
@@ -1024,14 +1235,14 @@ _WAFExpiredManagedRuleGroupVersionException =
 
 -- | Your request is valid, but WAF couldn’t perform the operation because of
 -- a system problem. Retry your request.
-_WAFInternalErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WAFInternalErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WAFInternalErrorException =
   Core._MatchServiceError
     defaultService
     "WAFInternalErrorException"
 
 -- | The operation isn\'t valid.
-_WAFInvalidOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WAFInvalidOperationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WAFInvalidOperationException =
   Core._MatchServiceError
     defaultService
@@ -1050,7 +1261,7 @@ _WAFInvalidOperationException =
 --
 -- -   Your request references an ARN that is malformed, or corresponds to
 --     a resource with which a web ACL can\'t be associated.
-_WAFInvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WAFInvalidParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WAFInvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -1061,8 +1272,7 @@ _WAFInvalidParameterException =
 --
 -- The policy specifications must conform to the following:
 --
--- -   The policy must be composed using IAM Policy version 2012-10-17 or
---     version 2015-01-01.
+-- -   The policy must be composed using IAM Policy version 2012-10-17.
 --
 -- -   The policy must include specifications for @Effect@, @Action@, and
 --     @Principal@.
@@ -1078,7 +1288,7 @@ _WAFInvalidParameterException =
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html IAM Policies>.
-_WAFInvalidPermissionPolicyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WAFInvalidPermissionPolicyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WAFInvalidPermissionPolicyException =
   Core._MatchServiceError
     defaultService
@@ -1086,7 +1296,7 @@ _WAFInvalidPermissionPolicyException =
 
 -- | WAF couldn’t perform the operation because the resource that you
 -- requested isn’t valid. Check the resource, and try again.
-_WAFInvalidResourceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WAFInvalidResourceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WAFInvalidResourceException =
   Core._MatchServiceError
     defaultService
@@ -1097,7 +1307,7 @@ _WAFInvalidResourceException =
 -- create for an Amazon Web Services account. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
 -- in the /WAF Developer Guide/.
-_WAFLimitsExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WAFLimitsExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WAFLimitsExceededException =
   Core._MatchServiceError
     defaultService
@@ -1107,7 +1317,7 @@ _WAFLimitsExceededException =
 -- logging configuration requires. For information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/logging.html Logging web ACL traffic information>
 -- in the /WAF Developer Guide/.
-_WAFLogDestinationPermissionIssueException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WAFLogDestinationPermissionIssueException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WAFLogDestinationPermissionIssueException =
   Core._MatchServiceError
     defaultService
@@ -1117,7 +1327,7 @@ _WAFLogDestinationPermissionIssueException =
 -- If you\'ve just created a resource that you\'re using in this operation,
 -- you might just need to wait a few minutes. It can take from a few
 -- seconds to a number of minutes for changes to propagate.
-_WAFNonexistentItemException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WAFNonexistentItemException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WAFNonexistentItemException =
   Core._MatchServiceError
     defaultService
@@ -1127,7 +1337,7 @@ _WAFNonexistentItemException =
 -- resource that has changed since you last retrieved it. Get the resource
 -- again, make any changes you need to make to the new copy, and retry your
 -- operation.
-_WAFOptimisticLockException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WAFOptimisticLockException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WAFOptimisticLockException =
   Core._MatchServiceError
     defaultService
@@ -1142,7 +1352,7 @@ _WAFOptimisticLockException =
 -- @DeleteServiceLinkedRole@, wait at least 15 minutes and try the request
 -- again. If you receive this same exception again, you will have to wait
 -- additional time until the role is unlocked.
-_WAFServiceLinkedRoleErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WAFServiceLinkedRoleErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WAFServiceLinkedRoleErrorException =
   Core._MatchServiceError
     defaultService
@@ -1150,14 +1360,14 @@ _WAFServiceLinkedRoleErrorException =
 
 -- | You tried to use a managed rule group that\'s available by subscription,
 -- but you aren\'t subscribed to it yet.
-_WAFSubscriptionNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WAFSubscriptionNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WAFSubscriptionNotFoundException =
   Core._MatchServiceError
     defaultService
     "WAFSubscriptionNotFoundException"
 
 -- | An error occurred during the tagging operation. Retry your request.
-_WAFTagOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WAFTagOperationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WAFTagOperationException =
   Core._MatchServiceError
     defaultService
@@ -1165,7 +1375,7 @@ _WAFTagOperationException =
 
 -- | WAF couldn’t perform your tagging operation because of an internal
 -- error. Retry your request.
-_WAFTagOperationInternalErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WAFTagOperationInternalErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WAFTagOperationInternalErrorException =
   Core._MatchServiceError
     defaultService
@@ -1177,8 +1387,18 @@ _WAFTagOperationInternalErrorException =
 -- seconds to a number of minutes for changes to propagate. Verify the
 -- resources that you are specifying in your request parameters and then
 -- retry the operation.
-_WAFUnavailableEntityException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WAFUnavailableEntityException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WAFUnavailableEntityException =
   Core._MatchServiceError
     defaultService
     "WAFUnavailableEntityException"
+
+-- | The rule that you\'ve named doesn\'t aggregate solely on the IP address
+-- or solely on the forwarded IP address. This call is only available for
+-- rate-based rules with an @AggregateKeyType@ setting of @IP@ or
+-- @FORWARDED_IP@.
+_WAFUnsupportedAggregateKeyTypeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_WAFUnsupportedAggregateKeyTypeException =
+  Core._MatchServiceError
+    defaultService
+    "WAFUnsupportedAggregateKeyTypeException"

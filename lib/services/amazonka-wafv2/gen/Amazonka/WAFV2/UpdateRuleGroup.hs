@@ -24,9 +24,15 @@
 --
 -- This operation completely replaces the mutable specifications that you
 -- already have for the rule group with the ones that you provide to this
--- call. To modify the rule group, retrieve it by calling GetRuleGroup,
--- update the settings as needed, and then provide the complete rule group
--- specification to this call.
+-- call.
+--
+-- To modify a rule group, do the following:
+--
+-- 1.  Retrieve it by calling GetRuleGroup
+--
+-- 2.  Update its settings as needed
+--
+-- 3.  Provide the complete rule group specification to this call
 --
 -- When you make changes to web ACLs or web ACL components, like rules and
 -- rule groups, WAF propagates the changes everywhere that the web ACL and
@@ -89,14 +95,12 @@ data UpdateRuleGroup = UpdateRuleGroup'
     --
     -- For information about customizing web requests and responses, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    -- in the /WAF Developer Guide/.
     --
     -- For information about the limits on count and size for custom request
     -- and response settings, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    -- in the /WAF Developer Guide/.
     customResponseBodies :: Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody),
     -- | A description of the rule group that helps with identification.
     description :: Prelude.Maybe Prelude.Text,
@@ -111,7 +115,8 @@ data UpdateRuleGroup = UpdateRuleGroup'
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -155,14 +160,12 @@ data UpdateRuleGroup = UpdateRuleGroup'
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 --
 -- For information about the limits on count and size for custom request
 -- and response settings, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 --
 -- 'description', 'updateRuleGroup_description' - A description of the rule group that helps with identification.
 --
@@ -177,7 +180,8 @@ data UpdateRuleGroup = UpdateRuleGroup'
 -- 'scope', 'updateRuleGroup_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -239,14 +243,12 @@ newUpdateRuleGroup
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 --
 -- For information about the limits on count and size for custom request
 -- and response settings, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 updateRuleGroup_customResponseBodies :: Lens.Lens' UpdateRuleGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody))
 updateRuleGroup_customResponseBodies = Lens.lens (\UpdateRuleGroup' {customResponseBodies} -> customResponseBodies) (\s@UpdateRuleGroup' {} a -> s {customResponseBodies = a} :: UpdateRuleGroup) Prelude.. Lens.mapping Lens.coerced
 
@@ -269,7 +271,8 @@ updateRuleGroup_name = Lens.lens (\UpdateRuleGroup' {name} -> name) (\s@UpdateRu
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -319,7 +322,8 @@ instance Core.AWSRequest UpdateRuleGroup where
 
 instance Prelude.Hashable UpdateRuleGroup where
   hashWithSalt _salt UpdateRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` customResponseBodies
+    _salt
+      `Prelude.hashWithSalt` customResponseBodies
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` rules
       `Prelude.hashWithSalt` name

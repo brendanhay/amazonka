@@ -24,12 +24,31 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Details about your login page username field, used in a
--- @ManagedRuleGroupConfig@.
+-- | The name of the field in the request payload that contains your
+-- customer\'s username.
+--
+-- This data type is used in the @RequestInspection@ and
+-- @RequestInspectionACFP@ data types.
 --
 -- /See:/ 'newUsernameField' smart constructor.
 data UsernameField = UsernameField'
-  { -- | The name of the username field. For example @\/form\/username@.
+  { -- | The name of the username field.
+    --
+    -- How you specify this depends on the request inspection payload type.
+    --
+    -- -   For JSON payloads, specify the field name in JSON pointer syntax.
+    --     For information about the JSON Pointer syntax, see the Internet
+    --     Engineering Task Force (IETF) documentation
+    --     <https://tools.ietf.org/html/rfc6901 JavaScript Object Notation (JSON) Pointer>.
+    --
+    --     For example, for the JSON payload
+    --     @{ \"form\": { \"username\": \"THE_USERNAME\" } }@, the username
+    --     field specification is @\/form\/username@.
+    --
+    -- -   For form encoded payload types, use the HTML form names.
+    --
+    --     For example, for an HTML form with the input element named
+    --     @username1@, the username field specification is @username1@
     identifier :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,7 +61,23 @@ data UsernameField = UsernameField'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identifier', 'usernameField_identifier' - The name of the username field. For example @\/form\/username@.
+-- 'identifier', 'usernameField_identifier' - The name of the username field.
+--
+-- How you specify this depends on the request inspection payload type.
+--
+-- -   For JSON payloads, specify the field name in JSON pointer syntax.
+--     For information about the JSON Pointer syntax, see the Internet
+--     Engineering Task Force (IETF) documentation
+--     <https://tools.ietf.org/html/rfc6901 JavaScript Object Notation (JSON) Pointer>.
+--
+--     For example, for the JSON payload
+--     @{ \"form\": { \"username\": \"THE_USERNAME\" } }@, the username
+--     field specification is @\/form\/username@.
+--
+-- -   For form encoded payload types, use the HTML form names.
+--
+--     For example, for an HTML form with the input element named
+--     @username1@, the username field specification is @username1@
 newUsernameField ::
   -- | 'identifier'
   Prelude.Text ->
@@ -50,7 +85,23 @@ newUsernameField ::
 newUsernameField pIdentifier_ =
   UsernameField' {identifier = pIdentifier_}
 
--- | The name of the username field. For example @\/form\/username@.
+-- | The name of the username field.
+--
+-- How you specify this depends on the request inspection payload type.
+--
+-- -   For JSON payloads, specify the field name in JSON pointer syntax.
+--     For information about the JSON Pointer syntax, see the Internet
+--     Engineering Task Force (IETF) documentation
+--     <https://tools.ietf.org/html/rfc6901 JavaScript Object Notation (JSON) Pointer>.
+--
+--     For example, for the JSON payload
+--     @{ \"form\": { \"username\": \"THE_USERNAME\" } }@, the username
+--     field specification is @\/form\/username@.
+--
+-- -   For form encoded payload types, use the HTML form names.
+--
+--     For example, for an HTML form with the input element named
+--     @username1@, the username field specification is @username1@
 usernameField_identifier :: Lens.Lens' UsernameField Prelude.Text
 usernameField_identifier = Lens.lens (\UsernameField' {identifier} -> identifier) (\s@UsernameField' {} a -> s {identifier = a} :: UsernameField)
 

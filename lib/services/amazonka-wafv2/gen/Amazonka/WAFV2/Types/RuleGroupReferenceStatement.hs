@@ -128,7 +128,8 @@ instance Data.FromJSON RuleGroupReferenceStatement where
 
 instance Prelude.Hashable RuleGroupReferenceStatement where
   hashWithSalt _salt RuleGroupReferenceStatement' {..} =
-    _salt `Prelude.hashWithSalt` excludedRules
+    _salt
+      `Prelude.hashWithSalt` excludedRules
       `Prelude.hashWithSalt` ruleActionOverrides
       `Prelude.hashWithSalt` arn
 

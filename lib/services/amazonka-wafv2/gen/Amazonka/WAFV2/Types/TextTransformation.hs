@@ -30,11 +30,10 @@ import Amazonka.WAFV2.Types.TextTransformationType
 --
 -- /See:/ 'newTextTransformation' smart constructor.
 data TextTransformation = TextTransformation'
-  { -- | Sets the relative processing order for multiple transformations that are
-    -- defined for a rule statement. WAF processes all transformations, from
-    -- lowest priority to highest, before inspecting the transformed content.
-    -- The priorities don\'t need to be consecutive, but they must all be
-    -- different.
+  { -- | Sets the relative processing order for multiple transformations. WAF
+    -- processes all transformations, from lowest priority to highest, before
+    -- inspecting the transformed content. The priorities don\'t need to be
+    -- consecutive, but they must all be different.
     priority :: Prelude.Natural,
     -- | You can specify the following transformation types:
     --
@@ -165,11 +164,10 @@ data TextTransformation = TextTransformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'priority', 'textTransformation_priority' - Sets the relative processing order for multiple transformations that are
--- defined for a rule statement. WAF processes all transformations, from
--- lowest priority to highest, before inspecting the transformed content.
--- The priorities don\'t need to be consecutive, but they must all be
--- different.
+-- 'priority', 'textTransformation_priority' - Sets the relative processing order for multiple transformations. WAF
+-- processes all transformations, from lowest priority to highest, before
+-- inspecting the transformed content. The priorities don\'t need to be
+-- consecutive, but they must all be different.
 --
 -- 'type'', 'textTransformation_type' - You can specify the following transformation types:
 --
@@ -300,11 +298,10 @@ newTextTransformation pPriority_ pType_ =
       type' = pType_
     }
 
--- | Sets the relative processing order for multiple transformations that are
--- defined for a rule statement. WAF processes all transformations, from
--- lowest priority to highest, before inspecting the transformed content.
--- The priorities don\'t need to be consecutive, but they must all be
--- different.
+-- | Sets the relative processing order for multiple transformations. WAF
+-- processes all transformations, from lowest priority to highest, before
+-- inspecting the transformed content. The priorities don\'t need to be
+-- consecutive, but they must all be different.
 textTransformation_priority :: Lens.Lens' TextTransformation Prelude.Natural
 textTransformation_priority = Lens.lens (\TextTransformation' {priority} -> priority) (\s@TextTransformation' {} a -> s {priority = a} :: TextTransformation)
 
@@ -440,7 +437,8 @@ instance Data.FromJSON TextTransformation where
 
 instance Prelude.Hashable TextTransformation where
   hashWithSalt _salt TextTransformation' {..} =
-    _salt `Prelude.hashWithSalt` priority
+    _salt
+      `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData TextTransformation where

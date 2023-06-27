@@ -31,8 +31,7 @@ import Amazonka.WAFV2.Types.CustomHTTPHeader
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 --
 -- /See:/ 'newCustomResponse' smart constructor.
 data CustomResponse = CustomResponse'
@@ -50,16 +49,14 @@ data CustomResponse = CustomResponse'
     -- For information about the limits on count and size for custom request
     -- and response settings, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    -- in the /WAF Developer Guide/.
     responseHeaders :: Prelude.Maybe (Prelude.NonEmpty CustomHTTPHeader),
     -- | The HTTP status code to return to the client.
     --
     -- For a list of status codes that you can use in your custom responses,
     -- see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html Supported status codes for custom response>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    -- in the /WAF Developer Guide/.
     responseCode :: Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,16 +83,14 @@ data CustomResponse = CustomResponse'
 -- For information about the limits on count and size for custom request
 -- and response settings, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 --
 -- 'responseCode', 'customResponse_responseCode' - The HTTP status code to return to the client.
 --
 -- For a list of status codes that you can use in your custom responses,
 -- see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html Supported status codes for custom response>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 newCustomResponse ::
   -- | 'responseCode'
   Prelude.Natural ->
@@ -124,8 +119,7 @@ customResponse_customResponseBodyKey = Lens.lens (\CustomResponse' {customRespon
 -- For information about the limits on count and size for custom request
 -- and response settings, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 customResponse_responseHeaders :: Lens.Lens' CustomResponse (Prelude.Maybe (Prelude.NonEmpty CustomHTTPHeader))
 customResponse_responseHeaders = Lens.lens (\CustomResponse' {responseHeaders} -> responseHeaders) (\s@CustomResponse' {} a -> s {responseHeaders = a} :: CustomResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -134,8 +128,7 @@ customResponse_responseHeaders = Lens.lens (\CustomResponse' {responseHeaders} -
 -- For a list of status codes that you can use in your custom responses,
 -- see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html Supported status codes for custom response>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 customResponse_responseCode :: Lens.Lens' CustomResponse Prelude.Natural
 customResponse_responseCode = Lens.lens (\CustomResponse' {responseCode} -> responseCode) (\s@CustomResponse' {} a -> s {responseCode = a} :: CustomResponse)
 
@@ -152,7 +145,8 @@ instance Data.FromJSON CustomResponse where
 
 instance Prelude.Hashable CustomResponse where
   hashWithSalt _salt CustomResponse' {..} =
-    _salt `Prelude.hashWithSalt` customResponseBodyKey
+    _salt
+      `Prelude.hashWithSalt` customResponseBodyKey
       `Prelude.hashWithSalt` responseHeaders
       `Prelude.hashWithSalt` responseCode
 

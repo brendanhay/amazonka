@@ -37,8 +37,7 @@ data CountAction = CountAction'
     --
     -- For information about customizing web requests and responses, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    -- in the /WAF Developer Guide/.
     customRequestHandling :: Prelude.Maybe CustomRequestHandling
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,8 +54,7 @@ data CountAction = CountAction'
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 newCountAction ::
   CountAction
 newCountAction =
@@ -69,8 +67,7 @@ newCountAction =
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 countAction_customRequestHandling :: Lens.Lens' CountAction (Prelude.Maybe CustomRequestHandling)
 countAction_customRequestHandling = Lens.lens (\CountAction' {customRequestHandling} -> customRequestHandling) (\s@CountAction' {} a -> s {customRequestHandling = a} :: CountAction)
 

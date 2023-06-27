@@ -59,7 +59,8 @@ data GetWebACL = GetWebACL'
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -90,7 +91,8 @@ data GetWebACL = GetWebACL'
 -- 'scope', 'getWebACL_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -126,7 +128,8 @@ getWebACL_name = Lens.lens (\GetWebACL' {name} -> name) (\s@GetWebACL' {} a -> s
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -160,7 +163,8 @@ instance Core.AWSRequest GetWebACL where
 
 instance Prelude.Hashable GetWebACL where
   hashWithSalt _salt GetWebACL' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` id
 
@@ -203,9 +207,11 @@ instance Data.ToQuery GetWebACL where
 data GetWebACLResponse = GetWebACLResponse'
   { -- | The URL to use in SDK integrations with Amazon Web Services managed rule
     -- groups. For example, you can use the integration SDKs with the account
-    -- takeover prevention managed rule group @AWSManagedRulesATPRuleSet@. This
-    -- is only populated if you are using a rule group in your web ACL that
-    -- integrates with your applications in this way. For more information, see
+    -- takeover prevention managed rule group @AWSManagedRulesATPRuleSet@ and
+    -- the account creation fraud prevention managed rule group
+    -- @AWSManagedRulesACFPRuleSet@. This is only populated if you are using a
+    -- rule group in your web ACL that integrates with your applications in
+    -- this way. For more information, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html WAF client application integration>
     -- in the /WAF Developer Guide/.
     applicationIntegrationURL :: Prelude.Maybe Prelude.Text,
@@ -236,9 +242,11 @@ data GetWebACLResponse = GetWebACLResponse'
 --
 -- 'applicationIntegrationURL', 'getWebACLResponse_applicationIntegrationURL' - The URL to use in SDK integrations with Amazon Web Services managed rule
 -- groups. For example, you can use the integration SDKs with the account
--- takeover prevention managed rule group @AWSManagedRulesATPRuleSet@. This
--- is only populated if you are using a rule group in your web ACL that
--- integrates with your applications in this way. For more information, see
+-- takeover prevention managed rule group @AWSManagedRulesATPRuleSet@ and
+-- the account creation fraud prevention managed rule group
+-- @AWSManagedRulesACFPRuleSet@. This is only populated if you are using a
+-- rule group in your web ACL that integrates with your applications in
+-- this way. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html WAF client application integration>
 -- in the /WAF Developer Guide/.
 --
@@ -270,9 +278,11 @@ newGetWebACLResponse pHttpStatus_ =
 
 -- | The URL to use in SDK integrations with Amazon Web Services managed rule
 -- groups. For example, you can use the integration SDKs with the account
--- takeover prevention managed rule group @AWSManagedRulesATPRuleSet@. This
--- is only populated if you are using a rule group in your web ACL that
--- integrates with your applications in this way. For more information, see
+-- takeover prevention managed rule group @AWSManagedRulesATPRuleSet@ and
+-- the account creation fraud prevention managed rule group
+-- @AWSManagedRulesACFPRuleSet@. This is only populated if you are using a
+-- rule group in your web ACL that integrates with your applications in
+-- this way. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html WAF client application integration>
 -- in the /WAF Developer Guide/.
 getWebACLResponse_applicationIntegrationURL :: Lens.Lens' GetWebACLResponse (Prelude.Maybe Prelude.Text)

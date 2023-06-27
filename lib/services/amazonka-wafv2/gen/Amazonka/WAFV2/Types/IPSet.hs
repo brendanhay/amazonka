@@ -245,7 +245,8 @@ instance Data.FromJSON IPSet where
 
 instance Prelude.Hashable IPSet where
   hashWithSalt _salt IPSet' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn

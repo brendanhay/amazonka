@@ -64,7 +64,7 @@ data DescribeManagedRuleGroup = DescribeManagedRuleGroup'
     -- vendor\'s default version.
     versionName :: Prelude.Maybe Prelude.Text,
     -- | The name of the managed rule group vendor. You use this, along with the
-    -- rule group name, to identify the rule group.
+    -- rule group name, to identify a rule group.
     vendorName :: Prelude.Text,
     -- | The name of the managed rule group. You use this, along with the vendor
     -- name, to identify the rule group.
@@ -72,7 +72,8 @@ data DescribeManagedRuleGroup = DescribeManagedRuleGroup'
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -98,7 +99,7 @@ data DescribeManagedRuleGroup = DescribeManagedRuleGroup'
 -- vendor\'s default version.
 --
 -- 'vendorName', 'describeManagedRuleGroup_vendorName' - The name of the managed rule group vendor. You use this, along with the
--- rule group name, to identify the rule group.
+-- rule group name, to identify a rule group.
 --
 -- 'name', 'describeManagedRuleGroup_name' - The name of the managed rule group. You use this, along with the vendor
 -- name, to identify the rule group.
@@ -106,7 +107,8 @@ data DescribeManagedRuleGroup = DescribeManagedRuleGroup'
 -- 'scope', 'describeManagedRuleGroup_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -142,7 +144,7 @@ describeManagedRuleGroup_versionName :: Lens.Lens' DescribeManagedRuleGroup (Pre
 describeManagedRuleGroup_versionName = Lens.lens (\DescribeManagedRuleGroup' {versionName} -> versionName) (\s@DescribeManagedRuleGroup' {} a -> s {versionName = a} :: DescribeManagedRuleGroup)
 
 -- | The name of the managed rule group vendor. You use this, along with the
--- rule group name, to identify the rule group.
+-- rule group name, to identify a rule group.
 describeManagedRuleGroup_vendorName :: Lens.Lens' DescribeManagedRuleGroup Prelude.Text
 describeManagedRuleGroup_vendorName = Lens.lens (\DescribeManagedRuleGroup' {vendorName} -> vendorName) (\s@DescribeManagedRuleGroup' {} a -> s {vendorName = a} :: DescribeManagedRuleGroup)
 
@@ -154,7 +156,8 @@ describeManagedRuleGroup_name = Lens.lens (\DescribeManagedRuleGroup' {name} -> 
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -176,7 +179,8 @@ instance Core.AWSRequest DescribeManagedRuleGroup where
     Response.receiveJSON
       ( \s h x ->
           DescribeManagedRuleGroupResponse'
-            Prelude.<$> ( x Data..?> "AvailableLabels"
+            Prelude.<$> ( x
+                            Data..?> "AvailableLabels"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Capacity")
@@ -190,7 +194,8 @@ instance Core.AWSRequest DescribeManagedRuleGroup where
 
 instance Prelude.Hashable DescribeManagedRuleGroup where
   hashWithSalt _salt DescribeManagedRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` versionName
+    _salt
+      `Prelude.hashWithSalt` versionName
       `Prelude.hashWithSalt` vendorName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
@@ -239,13 +244,17 @@ data DescribeManagedRuleGroupResponse = DescribeManagedRuleGroupResponse'
   { -- | The labels that one or more rules in this rule group add to matching web
     -- requests. These labels are defined in the @RuleLabels@ for a Rule.
     availableLabels :: Prelude.Maybe [LabelSummary],
-    -- | The web ACL capacity units (WCUs) required for this rule group. WAF uses
-    -- web ACL capacity units (WCU) to calculate and control the operating
-    -- resources that are used to run your rules, rule groups, and web ACLs.
-    -- WAF calculates capacity differently for each rule type, to reflect each
-    -- rule\'s relative cost. Rule group capacity is fixed at creation, so
-    -- users can plan their web ACL WCU usage when they use a rule group. The
-    -- WCU limit for web ACLs is 1,500.
+    -- | The web ACL capacity units (WCUs) required for this rule group.
+    --
+    -- WAF uses WCUs to calculate and control the operating resources that are
+    -- used to run your rules, rule groups, and web ACLs. WAF calculates
+    -- capacity differently for each rule type, to reflect the relative cost of
+    -- each rule. Simple rules that cost little to run use fewer WCUs than more
+    -- complex rules that use more processing power. Rule group capacity is
+    -- fixed at creation, which helps users plan their web ACL WCU usage when
+    -- they use a rule group. For more information, see
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html WAF web ACL capacity units (WCU)>
+    -- in the /WAF Developer Guide/.
     capacity :: Prelude.Maybe Prelude.Natural,
     -- | The labels that one or more rules in this rule group match against in
     -- label match statements. These labels are defined in a
@@ -269,10 +278,10 @@ data DescribeManagedRuleGroupResponse = DescribeManagedRuleGroupResponse'
     labelNamespace :: Prelude.Maybe Prelude.Text,
     rules :: Prelude.Maybe [RuleSummary],
     -- | The Amazon resource name (ARN) of the Amazon Simple Notification Service
-    -- SNS topic that\'s used to record changes to the managed rule group. You
-    -- can subscribe to the SNS topic to receive notifications when the managed
-    -- rule group is modified, such as for new versions and for version
-    -- expiration. For more information, see the
+    -- SNS topic that\'s used to provide notification of changes to the managed
+    -- rule group. You can subscribe to the SNS topic to receive notifications
+    -- when the managed rule group is modified, such as for new versions and
+    -- for version expiration. For more information, see the
     -- <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon Simple Notification Service Developer Guide>.
     snsTopicArn :: Prelude.Maybe Prelude.Text,
     -- | The managed rule group\'s version.
@@ -293,13 +302,17 @@ data DescribeManagedRuleGroupResponse = DescribeManagedRuleGroupResponse'
 -- 'availableLabels', 'describeManagedRuleGroupResponse_availableLabels' - The labels that one or more rules in this rule group add to matching web
 -- requests. These labels are defined in the @RuleLabels@ for a Rule.
 --
--- 'capacity', 'describeManagedRuleGroupResponse_capacity' - The web ACL capacity units (WCUs) required for this rule group. WAF uses
--- web ACL capacity units (WCU) to calculate and control the operating
--- resources that are used to run your rules, rule groups, and web ACLs.
--- WAF calculates capacity differently for each rule type, to reflect each
--- rule\'s relative cost. Rule group capacity is fixed at creation, so
--- users can plan their web ACL WCU usage when they use a rule group. The
--- WCU limit for web ACLs is 1,500.
+-- 'capacity', 'describeManagedRuleGroupResponse_capacity' - The web ACL capacity units (WCUs) required for this rule group.
+--
+-- WAF uses WCUs to calculate and control the operating resources that are
+-- used to run your rules, rule groups, and web ACLs. WAF calculates
+-- capacity differently for each rule type, to reflect the relative cost of
+-- each rule. Simple rules that cost little to run use fewer WCUs than more
+-- complex rules that use more processing power. Rule group capacity is
+-- fixed at creation, which helps users plan their web ACL WCU usage when
+-- they use a rule group. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html WAF web ACL capacity units (WCU)>
+-- in the /WAF Developer Guide/.
 --
 -- 'consumedLabels', 'describeManagedRuleGroupResponse_consumedLabels' - The labels that one or more rules in this rule group match against in
 -- label match statements. These labels are defined in a
@@ -324,10 +337,10 @@ data DescribeManagedRuleGroupResponse = DescribeManagedRuleGroupResponse'
 -- 'rules', 'describeManagedRuleGroupResponse_rules' -
 --
 -- 'snsTopicArn', 'describeManagedRuleGroupResponse_snsTopicArn' - The Amazon resource name (ARN) of the Amazon Simple Notification Service
--- SNS topic that\'s used to record changes to the managed rule group. You
--- can subscribe to the SNS topic to receive notifications when the managed
--- rule group is modified, such as for new versions and for version
--- expiration. For more information, see the
+-- SNS topic that\'s used to provide notification of changes to the managed
+-- rule group. You can subscribe to the SNS topic to receive notifications
+-- when the managed rule group is modified, such as for new versions and
+-- for version expiration. For more information, see the
 -- <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon Simple Notification Service Developer Guide>.
 --
 -- 'versionName', 'describeManagedRuleGroupResponse_versionName' - The managed rule group\'s version.
@@ -355,13 +368,17 @@ newDescribeManagedRuleGroupResponse pHttpStatus_ =
 describeManagedRuleGroupResponse_availableLabels :: Lens.Lens' DescribeManagedRuleGroupResponse (Prelude.Maybe [LabelSummary])
 describeManagedRuleGroupResponse_availableLabels = Lens.lens (\DescribeManagedRuleGroupResponse' {availableLabels} -> availableLabels) (\s@DescribeManagedRuleGroupResponse' {} a -> s {availableLabels = a} :: DescribeManagedRuleGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The web ACL capacity units (WCUs) required for this rule group. WAF uses
--- web ACL capacity units (WCU) to calculate and control the operating
--- resources that are used to run your rules, rule groups, and web ACLs.
--- WAF calculates capacity differently for each rule type, to reflect each
--- rule\'s relative cost. Rule group capacity is fixed at creation, so
--- users can plan their web ACL WCU usage when they use a rule group. The
--- WCU limit for web ACLs is 1,500.
+-- | The web ACL capacity units (WCUs) required for this rule group.
+--
+-- WAF uses WCUs to calculate and control the operating resources that are
+-- used to run your rules, rule groups, and web ACLs. WAF calculates
+-- capacity differently for each rule type, to reflect the relative cost of
+-- each rule. Simple rules that cost little to run use fewer WCUs than more
+-- complex rules that use more processing power. Rule group capacity is
+-- fixed at creation, which helps users plan their web ACL WCU usage when
+-- they use a rule group. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html WAF web ACL capacity units (WCU)>
+-- in the /WAF Developer Guide/.
 describeManagedRuleGroupResponse_capacity :: Lens.Lens' DescribeManagedRuleGroupResponse (Prelude.Maybe Prelude.Natural)
 describeManagedRuleGroupResponse_capacity = Lens.lens (\DescribeManagedRuleGroupResponse' {capacity} -> capacity) (\s@DescribeManagedRuleGroupResponse' {} a -> s {capacity = a} :: DescribeManagedRuleGroupResponse)
 
@@ -389,15 +406,14 @@ describeManagedRuleGroupResponse_consumedLabels = Lens.lens (\DescribeManagedRul
 describeManagedRuleGroupResponse_labelNamespace :: Lens.Lens' DescribeManagedRuleGroupResponse (Prelude.Maybe Prelude.Text)
 describeManagedRuleGroupResponse_labelNamespace = Lens.lens (\DescribeManagedRuleGroupResponse' {labelNamespace} -> labelNamespace) (\s@DescribeManagedRuleGroupResponse' {} a -> s {labelNamespace = a} :: DescribeManagedRuleGroupResponse)
 
--- |
 describeManagedRuleGroupResponse_rules :: Lens.Lens' DescribeManagedRuleGroupResponse (Prelude.Maybe [RuleSummary])
 describeManagedRuleGroupResponse_rules = Lens.lens (\DescribeManagedRuleGroupResponse' {rules} -> rules) (\s@DescribeManagedRuleGroupResponse' {} a -> s {rules = a} :: DescribeManagedRuleGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon resource name (ARN) of the Amazon Simple Notification Service
--- SNS topic that\'s used to record changes to the managed rule group. You
--- can subscribe to the SNS topic to receive notifications when the managed
--- rule group is modified, such as for new versions and for version
--- expiration. For more information, see the
+-- SNS topic that\'s used to provide notification of changes to the managed
+-- rule group. You can subscribe to the SNS topic to receive notifications
+-- when the managed rule group is modified, such as for new versions and
+-- for version expiration. For more information, see the
 -- <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon Simple Notification Service Developer Guide>.
 describeManagedRuleGroupResponse_snsTopicArn :: Lens.Lens' DescribeManagedRuleGroupResponse (Prelude.Maybe Prelude.Text)
 describeManagedRuleGroupResponse_snsTopicArn = Lens.lens (\DescribeManagedRuleGroupResponse' {snsTopicArn} -> snsTopicArn) (\s@DescribeManagedRuleGroupResponse' {} a -> s {snsTopicArn = a} :: DescribeManagedRuleGroupResponse)

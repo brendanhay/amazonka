@@ -24,12 +24,31 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Details about your login page password field, used in a
--- @ManagedRuleGroupConfig@.
+-- | The name of the field in the request payload that contains your
+-- customer\'s password.
+--
+-- This data type is used in the @RequestInspection@ and
+-- @RequestInspectionACFP@ data types.
 --
 -- /See:/ 'newPasswordField' smart constructor.
 data PasswordField = PasswordField'
-  { -- | The name of the password field. For example @\/form\/password@.
+  { -- | The name of the password field.
+    --
+    -- How you specify this depends on the request inspection payload type.
+    --
+    -- -   For JSON payloads, specify the field name in JSON pointer syntax.
+    --     For information about the JSON Pointer syntax, see the Internet
+    --     Engineering Task Force (IETF) documentation
+    --     <https://tools.ietf.org/html/rfc6901 JavaScript Object Notation (JSON) Pointer>.
+    --
+    --     For example, for the JSON payload
+    --     @{ \"form\": { \"password\": \"THE_PASSWORD\" } }@, the password
+    --     field specification is @\/form\/password@.
+    --
+    -- -   For form encoded payload types, use the HTML form names.
+    --
+    --     For example, for an HTML form with the input element named
+    --     @password1@, the password field specification is @password1@.
     identifier :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,7 +61,23 @@ data PasswordField = PasswordField'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identifier', 'passwordField_identifier' - The name of the password field. For example @\/form\/password@.
+-- 'identifier', 'passwordField_identifier' - The name of the password field.
+--
+-- How you specify this depends on the request inspection payload type.
+--
+-- -   For JSON payloads, specify the field name in JSON pointer syntax.
+--     For information about the JSON Pointer syntax, see the Internet
+--     Engineering Task Force (IETF) documentation
+--     <https://tools.ietf.org/html/rfc6901 JavaScript Object Notation (JSON) Pointer>.
+--
+--     For example, for the JSON payload
+--     @{ \"form\": { \"password\": \"THE_PASSWORD\" } }@, the password
+--     field specification is @\/form\/password@.
+--
+-- -   For form encoded payload types, use the HTML form names.
+--
+--     For example, for an HTML form with the input element named
+--     @password1@, the password field specification is @password1@.
 newPasswordField ::
   -- | 'identifier'
   Prelude.Text ->
@@ -50,7 +85,23 @@ newPasswordField ::
 newPasswordField pIdentifier_ =
   PasswordField' {identifier = pIdentifier_}
 
--- | The name of the password field. For example @\/form\/password@.
+-- | The name of the password field.
+--
+-- How you specify this depends on the request inspection payload type.
+--
+-- -   For JSON payloads, specify the field name in JSON pointer syntax.
+--     For information about the JSON Pointer syntax, see the Internet
+--     Engineering Task Force (IETF) documentation
+--     <https://tools.ietf.org/html/rfc6901 JavaScript Object Notation (JSON) Pointer>.
+--
+--     For example, for the JSON payload
+--     @{ \"form\": { \"password\": \"THE_PASSWORD\" } }@, the password
+--     field specification is @\/form\/password@.
+--
+-- -   For form encoded payload types, use the HTML form names.
+--
+--     For example, for an HTML form with the input element named
+--     @password1@, the password field specification is @password1@.
 passwordField_identifier :: Lens.Lens' PasswordField Prelude.Text
 passwordField_identifier = Lens.lens (\PasswordField' {identifier} -> identifier) (\s@PasswordField' {} a -> s {identifier = a} :: PasswordField)
 

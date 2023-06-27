@@ -121,9 +121,11 @@ data Statement = Statement'
     -- top-level statement within a rule.
     --
     -- You are charged additional fees when you use the WAF Bot Control managed
-    -- rule group @AWSManagedRulesBotControlRuleSet@ or the WAF Fraud Control
+    -- rule group @AWSManagedRulesBotControlRuleSet@, the WAF Fraud Control
     -- account takeover prevention (ATP) managed rule group
-    -- @AWSManagedRulesATPRuleSet@. For more information, see
+    -- @AWSManagedRulesATPRuleSet@, or the WAF Fraud Control account creation
+    -- fraud prevention (ACFP) managed rule group @AWSManagedRulesACFPRuleSet@.
+    -- For more information, see
     -- <http://aws.amazon.com/waf/pricing/ WAF Pricing>.
     managedRuleGroupStatement :: Prelude.Maybe ManagedRuleGroupStatement,
     -- | A logical rule statement used to negate the results of another rule
@@ -132,11 +134,87 @@ data Statement = Statement'
     -- | A logical rule statement used to combine other rule statements with OR
     -- logic. You provide more than one Statement within the @OrStatement@.
     orStatement :: Prelude.Maybe OrStatement,
-    -- | A rate-based rule tracks the rate of requests for each originating IP
-    -- address, and triggers the rule action when the rate exceeds a limit that
-    -- you specify on the number of requests in any 5-minute time span. You can
-    -- use this to put a temporary block on requests from an IP address that is
-    -- sending excessive requests.
+    -- | A rate-based rule counts incoming requests and rate limits requests when
+    -- they are coming at too fast a rate. The rule categorizes requests
+    -- according to your aggregation criteria, collects them into aggregation
+    -- instances, and counts and rate limits the requests for each instance.
+    --
+    -- You can specify individual aggregation keys, like IP address or HTTP
+    -- method. You can also specify aggregation key combinations, like IP
+    -- address and HTTP method, or HTTP method, query argument, and cookie.
+    --
+    -- Each unique set of values for the aggregation keys that you specify is a
+    -- separate aggregation instance, with the value from each key contributing
+    -- to the aggregation instance definition.
+    --
+    -- For example, assume the rule evaluates web requests with the following
+    -- IP address and HTTP method values:
+    --
+    -- -   IP address 10.1.1.1, HTTP method POST
+    --
+    -- -   IP address 10.1.1.1, HTTP method GET
+    --
+    -- -   IP address 127.0.0.0, HTTP method POST
+    --
+    -- -   IP address 10.1.1.1, HTTP method GET
+    --
+    -- The rule would create different aggregation instances according to your
+    -- aggregation criteria, for example:
+    --
+    -- -   If the aggregation criteria is just the IP address, then each
+    --     individual address is an aggregation instance, and WAF counts
+    --     requests separately for each. The aggregation instances and request
+    --     counts for our example would be the following:
+    --
+    --     -   IP address 10.1.1.1: count 3
+    --
+    --     -   IP address 127.0.0.0: count 1
+    --
+    -- -   If the aggregation criteria is HTTP method, then each individual
+    --     HTTP method is an aggregation instance. The aggregation instances
+    --     and request counts for our example would be the following:
+    --
+    --     -   HTTP method POST: count 2
+    --
+    --     -   HTTP method GET: count 2
+    --
+    -- -   If the aggregation criteria is IP address and HTTP method, then each
+    --     IP address and each HTTP method would contribute to the combined
+    --     aggregation instance. The aggregation instances and request counts
+    --     for our example would be the following:
+    --
+    --     -   IP address 10.1.1.1, HTTP method POST: count 1
+    --
+    --     -   IP address 10.1.1.1, HTTP method GET: count 2
+    --
+    --     -   IP address 127.0.0.0, HTTP method POST: count 1
+    --
+    -- For any n-tuple of aggregation keys, each unique combination of values
+    -- for the keys defines a separate aggregation instance, which WAF counts
+    -- and rate-limits individually.
+    --
+    -- You can optionally nest another statement inside the rate-based
+    -- statement, to narrow the scope of the rule so that it only counts and
+    -- rate limits requests that match the nested statement. You can use this
+    -- nested scope-down statement in conjunction with your aggregation key
+    -- specifications or you can just count and rate limit all requests that
+    -- match the scope-down statement, without additional aggregation. When you
+    -- choose to just manage all requests that match a scope-down statement,
+    -- the aggregation instance is singular for the rule.
+    --
+    -- You cannot nest a @RateBasedStatement@ inside another statement, for
+    -- example inside a @NotStatement@ or @OrStatement@. You can define a
+    -- @RateBasedStatement@ inside a web ACL and inside a rule group.
+    --
+    -- For additional information about the options, see
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-rate-based-rules.html Rate limiting web requests using rate-based rules>
+    -- in the /WAF Developer Guide/.
+    --
+    -- If you only aggregate on the individual IP address or forwarded IP
+    -- address, you can retrieve the list of IP addresses that WAF is currently
+    -- rate limiting for a rule through the API call
+    -- @GetRateBasedStatementManagedKeys@. This option is not available for
+    -- other aggregation configurations.
     --
     -- WAF tracks and manages web requests separately for each instance of a
     -- rate-based rule that you use. For example, if you provide the same
@@ -146,33 +224,6 @@ data Statement = Statement'
     -- rule inside a rule group, and then use that rule group in multiple
     -- places, each use creates a separate instance of the rate-based rule that
     -- gets its own tracking and management by WAF.
-    --
-    -- When the rule action triggers, WAF blocks additional requests from the
-    -- IP address until the request rate falls below the limit.
-    --
-    -- You can optionally nest another statement inside the rate-based
-    -- statement, to narrow the scope of the rule so that it only counts
-    -- requests that match the nested statement. For example, based on recent
-    -- requests that you have seen from an attacker, you might create a
-    -- rate-based rule with a nested AND rule statement that contains the
-    -- following nested statements:
-    --
-    -- -   An IP match statement with an IP set that specified the address
-    --     192.0.2.44.
-    --
-    -- -   A string match statement that searches in the User-Agent header for
-    --     the string BadBot.
-    --
-    -- In this rate-based rule, you also define a rate limit. For this example,
-    -- the rate limit is 1,000. Requests that meet the criteria of both of the
-    -- nested statements are counted. If the count exceeds 1,000 requests per
-    -- five minutes, the rule action triggers. Requests that do not meet the
-    -- criteria of both of the nested statements are not counted towards the
-    -- rate limit and are not affected by this rule.
-    --
-    -- You cannot nest a @RateBasedStatement@ inside another statement, for
-    -- example inside a @NotStatement@ or @OrStatement@. You can define a
-    -- @RateBasedStatement@ inside a web ACL and inside a rule group.
     rateBasedStatement :: Prelude.Maybe RateBasedStatement,
     -- | A rule statement used to search web request components for a match
     -- against a single regular expression.
@@ -203,9 +254,14 @@ data Statement = Statement'
     -- to look for query strings that are longer than 100 bytes.
     --
     -- If you configure WAF to inspect the request body, WAF inspects only the
-    -- first 8192 bytes (8 KB). If the request body for your web requests never
-    -- exceeds 8192 bytes, you could use a size constraint statement to block
-    -- requests that have a request body greater than 8192 bytes.
+    -- number of bytes of the body up to the limit for the web ACL. By default,
+    -- for regional web ACLs, this limit is 8 KB (8,192 kilobytes) and for
+    -- CloudFront web ACLs, this limit is 16 KB (16,384 kilobytes). For
+    -- CloudFront web ACLs, you can increase the limit in the web ACL
+    -- @AssociationConfig@, for additional fees. If you know that the request
+    -- body for your web requests should never exceed the inspection limit, you
+    -- could use a size constraint statement to block requests that have a
+    -- larger request body size.
     --
     -- If you choose URI for the value of Part of the request to filter on, the
     -- slash (\/) in the URI counts as one character. For example, the URI
@@ -231,17 +287,17 @@ data Statement = Statement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'andStatement', 'statement_andStatement' - A logical rule statement used to combine other rule statements with AND
+-- 'andStatement', 'andStatement' - A logical rule statement used to combine other rule statements with AND
 -- logic. You provide more than one Statement within the @AndStatement@.
 --
--- 'byteMatchStatement', 'statement_byteMatchStatement' - A rule statement that defines a string match search for WAF to apply to
+-- 'byteMatchStatement', 'byteMatchStatement' - A rule statement that defines a string match search for WAF to apply to
 -- web requests. The byte match statement provides the bytes to search for,
 -- the location in requests that you want WAF to search, and other
 -- settings. The bytes to search for are typically a string that
 -- corresponds with ASCII characters. In the WAF console and the developer
 -- guide, this is called a string match statement.
 --
--- 'geoMatchStatement', 'statement_geoMatchStatement' - A rule statement that labels web requests by country and region and that
+-- 'geoMatchStatement', 'geoMatchStatement' - A rule statement that labels web requests by country and region and that
 -- matches against web requests based on country code. A geo match rule
 -- labels every request that it inspects regardless of whether it finds a
 -- match.
@@ -274,7 +330,7 @@ data Statement = Statement'
 -- in the
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
 --
--- 'iPSetReferenceStatement', 'statement_iPSetReferenceStatement' - A rule statement used to detect web requests coming from particular IP
+-- 'iPSetReferenceStatement', 'iPSetReferenceStatement' - A rule statement used to detect web requests coming from particular IP
 -- addresses or address ranges. To use this, create an IPSet that specifies
 -- the addresses you want to detect, then use the ARN of that set in this
 -- statement. To create an IP set, see CreateIPSet.
@@ -284,7 +340,7 @@ data Statement = Statement'
 -- in multiple rules. When you update the referenced set, WAF automatically
 -- updates all rules that reference it.
 --
--- 'labelMatchStatement', 'statement_labelMatchStatement' - A rule statement to match against labels that have been added to the web
+-- 'labelMatchStatement', 'labelMatchStatement' - A rule statement to match against labels that have been added to the web
 -- request by rules that have already run in the web ACL.
 --
 -- The label match statement provides the label or namespace string to
@@ -296,7 +352,7 @@ data Statement = Statement'
 -- label match string, WAF performs the search for labels that were added
 -- in the same context as the label match statement.
 --
--- 'managedRuleGroupStatement', 'statement_managedRuleGroupStatement' - A rule statement used to run the rules that are defined in a managed
+-- 'managedRuleGroupStatement', 'managedRuleGroupStatement' - A rule statement used to run the rules that are defined in a managed
 -- rule group. To use this, provide the vendor name and the name of the
 -- rule group in this statement. You can retrieve the required names by
 -- calling ListAvailableManagedRuleGroups.
@@ -306,22 +362,100 @@ data Statement = Statement'
 -- top-level statement within a rule.
 --
 -- You are charged additional fees when you use the WAF Bot Control managed
--- rule group @AWSManagedRulesBotControlRuleSet@ or the WAF Fraud Control
+-- rule group @AWSManagedRulesBotControlRuleSet@, the WAF Fraud Control
 -- account takeover prevention (ATP) managed rule group
--- @AWSManagedRulesATPRuleSet@. For more information, see
+-- @AWSManagedRulesATPRuleSet@, or the WAF Fraud Control account creation
+-- fraud prevention (ACFP) managed rule group @AWSManagedRulesACFPRuleSet@.
+-- For more information, see
 -- <http://aws.amazon.com/waf/pricing/ WAF Pricing>.
 --
--- 'notStatement', 'statement_notStatement' - A logical rule statement used to negate the results of another rule
+-- 'notStatement', 'notStatement' - A logical rule statement used to negate the results of another rule
 -- statement. You provide one Statement within the @NotStatement@.
 --
--- 'orStatement', 'statement_orStatement' - A logical rule statement used to combine other rule statements with OR
+-- 'orStatement', 'orStatement' - A logical rule statement used to combine other rule statements with OR
 -- logic. You provide more than one Statement within the @OrStatement@.
 --
--- 'rateBasedStatement', 'statement_rateBasedStatement' - A rate-based rule tracks the rate of requests for each originating IP
--- address, and triggers the rule action when the rate exceeds a limit that
--- you specify on the number of requests in any 5-minute time span. You can
--- use this to put a temporary block on requests from an IP address that is
--- sending excessive requests.
+-- 'rateBasedStatement', 'rateBasedStatement' - A rate-based rule counts incoming requests and rate limits requests when
+-- they are coming at too fast a rate. The rule categorizes requests
+-- according to your aggregation criteria, collects them into aggregation
+-- instances, and counts and rate limits the requests for each instance.
+--
+-- You can specify individual aggregation keys, like IP address or HTTP
+-- method. You can also specify aggregation key combinations, like IP
+-- address and HTTP method, or HTTP method, query argument, and cookie.
+--
+-- Each unique set of values for the aggregation keys that you specify is a
+-- separate aggregation instance, with the value from each key contributing
+-- to the aggregation instance definition.
+--
+-- For example, assume the rule evaluates web requests with the following
+-- IP address and HTTP method values:
+--
+-- -   IP address 10.1.1.1, HTTP method POST
+--
+-- -   IP address 10.1.1.1, HTTP method GET
+--
+-- -   IP address 127.0.0.0, HTTP method POST
+--
+-- -   IP address 10.1.1.1, HTTP method GET
+--
+-- The rule would create different aggregation instances according to your
+-- aggregation criteria, for example:
+--
+-- -   If the aggregation criteria is just the IP address, then each
+--     individual address is an aggregation instance, and WAF counts
+--     requests separately for each. The aggregation instances and request
+--     counts for our example would be the following:
+--
+--     -   IP address 10.1.1.1: count 3
+--
+--     -   IP address 127.0.0.0: count 1
+--
+-- -   If the aggregation criteria is HTTP method, then each individual
+--     HTTP method is an aggregation instance. The aggregation instances
+--     and request counts for our example would be the following:
+--
+--     -   HTTP method POST: count 2
+--
+--     -   HTTP method GET: count 2
+--
+-- -   If the aggregation criteria is IP address and HTTP method, then each
+--     IP address and each HTTP method would contribute to the combined
+--     aggregation instance. The aggregation instances and request counts
+--     for our example would be the following:
+--
+--     -   IP address 10.1.1.1, HTTP method POST: count 1
+--
+--     -   IP address 10.1.1.1, HTTP method GET: count 2
+--
+--     -   IP address 127.0.0.0, HTTP method POST: count 1
+--
+-- For any n-tuple of aggregation keys, each unique combination of values
+-- for the keys defines a separate aggregation instance, which WAF counts
+-- and rate-limits individually.
+--
+-- You can optionally nest another statement inside the rate-based
+-- statement, to narrow the scope of the rule so that it only counts and
+-- rate limits requests that match the nested statement. You can use this
+-- nested scope-down statement in conjunction with your aggregation key
+-- specifications or you can just count and rate limit all requests that
+-- match the scope-down statement, without additional aggregation. When you
+-- choose to just manage all requests that match a scope-down statement,
+-- the aggregation instance is singular for the rule.
+--
+-- You cannot nest a @RateBasedStatement@ inside another statement, for
+-- example inside a @NotStatement@ or @OrStatement@. You can define a
+-- @RateBasedStatement@ inside a web ACL and inside a rule group.
+--
+-- For additional information about the options, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-rate-based-rules.html Rate limiting web requests using rate-based rules>
+-- in the /WAF Developer Guide/.
+--
+-- If you only aggregate on the individual IP address or forwarded IP
+-- address, you can retrieve the list of IP addresses that WAF is currently
+-- rate limiting for a rule through the API call
+-- @GetRateBasedStatementManagedKeys@. This option is not available for
+-- other aggregation configurations.
 --
 -- WAF tracks and manages web requests separately for each instance of a
 -- rate-based rule that you use. For example, if you provide the same
@@ -332,37 +466,10 @@ data Statement = Statement'
 -- places, each use creates a separate instance of the rate-based rule that
 -- gets its own tracking and management by WAF.
 --
--- When the rule action triggers, WAF blocks additional requests from the
--- IP address until the request rate falls below the limit.
---
--- You can optionally nest another statement inside the rate-based
--- statement, to narrow the scope of the rule so that it only counts
--- requests that match the nested statement. For example, based on recent
--- requests that you have seen from an attacker, you might create a
--- rate-based rule with a nested AND rule statement that contains the
--- following nested statements:
---
--- -   An IP match statement with an IP set that specified the address
---     192.0.2.44.
---
--- -   A string match statement that searches in the User-Agent header for
---     the string BadBot.
---
--- In this rate-based rule, you also define a rate limit. For this example,
--- the rate limit is 1,000. Requests that meet the criteria of both of the
--- nested statements are counted. If the count exceeds 1,000 requests per
--- five minutes, the rule action triggers. Requests that do not meet the
--- criteria of both of the nested statements are not counted towards the
--- rate limit and are not affected by this rule.
---
--- You cannot nest a @RateBasedStatement@ inside another statement, for
--- example inside a @NotStatement@ or @OrStatement@. You can define a
--- @RateBasedStatement@ inside a web ACL and inside a rule group.
---
--- 'regexMatchStatement', 'statement_regexMatchStatement' - A rule statement used to search web request components for a match
+-- 'regexMatchStatement', 'regexMatchStatement' - A rule statement used to search web request components for a match
 -- against a single regular expression.
 --
--- 'regexPatternSetReferenceStatement', 'statement_regexPatternSetReferenceStatement' - A rule statement used to search web request components for matches with
+-- 'regexPatternSetReferenceStatement', 'regexPatternSetReferenceStatement' - A rule statement used to search web request components for matches with
 -- regular expressions. To use this, create a RegexPatternSet that
 -- specifies the expressions that you want to detect, then use the ARN of
 -- that set in this statement. A web request matches the pattern set rule
@@ -374,7 +481,7 @@ data Statement = Statement'
 -- you to use the single set in multiple rules. When you update the
 -- referenced set, WAF automatically updates all rules that reference it.
 --
--- 'ruleGroupReferenceStatement', 'statement_ruleGroupReferenceStatement' - A rule statement used to run the rules that are defined in a RuleGroup.
+-- 'ruleGroupReferenceStatement', 'ruleGroupReferenceStatement' - A rule statement used to run the rules that are defined in a RuleGroup.
 -- To use this, create a rule group with your rules, then provide the ARN
 -- of the rule group in this statement.
 --
@@ -382,25 +489,30 @@ data Statement = Statement'
 -- inside a @NotStatement@ or @OrStatement@. You can only use a rule group
 -- reference statement at the top level inside a web ACL.
 --
--- 'sizeConstraintStatement', 'statement_sizeConstraintStatement' - A rule statement that compares a number of bytes against the size of a
+-- 'sizeConstraintStatement', 'sizeConstraintStatement' - A rule statement that compares a number of bytes against the size of a
 -- request component, using a comparison operator, such as greater than (>)
 -- or less than (\<). For example, you can use a size constraint statement
 -- to look for query strings that are longer than 100 bytes.
 --
 -- If you configure WAF to inspect the request body, WAF inspects only the
--- first 8192 bytes (8 KB). If the request body for your web requests never
--- exceeds 8192 bytes, you could use a size constraint statement to block
--- requests that have a request body greater than 8192 bytes.
+-- number of bytes of the body up to the limit for the web ACL. By default,
+-- for regional web ACLs, this limit is 8 KB (8,192 kilobytes) and for
+-- CloudFront web ACLs, this limit is 16 KB (16,384 kilobytes). For
+-- CloudFront web ACLs, you can increase the limit in the web ACL
+-- @AssociationConfig@, for additional fees. If you know that the request
+-- body for your web requests should never exceed the inspection limit, you
+-- could use a size constraint statement to block requests that have a
+-- larger request body size.
 --
 -- If you choose URI for the value of Part of the request to filter on, the
 -- slash (\/) in the URI counts as one character. For example, the URI
 -- @\/logo.jpg@ is nine characters long.
 --
--- 'sqliMatchStatement', 'statement_sqliMatchStatement' - A rule statement that inspects for malicious SQL code. Attackers insert
+-- 'sqliMatchStatement', 'sqliMatchStatement' - A rule statement that inspects for malicious SQL code. Attackers insert
 -- malicious SQL code into web requests to do things like modify your
 -- database or extract data from it.
 --
--- 'xssMatchStatement', 'statement_xssMatchStatement' - A rule statement that inspects for cross-site scripting (XSS) attacks.
+-- 'xssMatchStatement', 'xssMatchStatement' - A rule statement that inspects for cross-site scripting (XSS) attacks.
 -- In XSS attacks, the attacker uses vulnerabilities in a benign website as
 -- a vehicle to inject malicious client-site scripts into other legitimate
 -- web browsers.
@@ -427,8 +539,8 @@ newStatement =
 
 -- | A logical rule statement used to combine other rule statements with AND
 -- logic. You provide more than one Statement within the @AndStatement@.
-statement_andStatement :: Lens.Lens' Statement (Prelude.Maybe AndStatement)
-statement_andStatement = Lens.lens (\Statement' {andStatement} -> andStatement) (\s@Statement' {} a -> s {andStatement = a} :: Statement)
+andStatement :: Lens.Lens' Statement (Prelude.Maybe AndStatement)
+andStatement = Lens.lens (\Statement' {andStatement} -> andStatement) (\s@Statement' {} a -> s {andStatement = a} :: Statement)
 
 -- | A rule statement that defines a string match search for WAF to apply to
 -- web requests. The byte match statement provides the bytes to search for,
@@ -436,8 +548,8 @@ statement_andStatement = Lens.lens (\Statement' {andStatement} -> andStatement) 
 -- settings. The bytes to search for are typically a string that
 -- corresponds with ASCII characters. In the WAF console and the developer
 -- guide, this is called a string match statement.
-statement_byteMatchStatement :: Lens.Lens' Statement (Prelude.Maybe ByteMatchStatement)
-statement_byteMatchStatement = Lens.lens (\Statement' {byteMatchStatement} -> byteMatchStatement) (\s@Statement' {} a -> s {byteMatchStatement = a} :: Statement)
+byteMatchStatement :: Lens.Lens' Statement (Prelude.Maybe ByteMatchStatement)
+byteMatchStatement = Lens.lens (\Statement' {byteMatchStatement} -> byteMatchStatement) (\s@Statement' {} a -> s {byteMatchStatement = a} :: Statement)
 
 -- | A rule statement that labels web requests by country and region and that
 -- matches against web requests based on country code. A geo match rule
@@ -471,8 +583,8 @@ statement_byteMatchStatement = Lens.lens (\Statement' {byteMatchStatement} -> by
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-type-geo-match.html Geographic match rule statement>
 -- in the
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
-statement_geoMatchStatement :: Lens.Lens' Statement (Prelude.Maybe GeoMatchStatement)
-statement_geoMatchStatement = Lens.lens (\Statement' {geoMatchStatement} -> geoMatchStatement) (\s@Statement' {} a -> s {geoMatchStatement = a} :: Statement)
+geoMatchStatement :: Lens.Lens' Statement (Prelude.Maybe GeoMatchStatement)
+geoMatchStatement = Lens.lens (\Statement' {geoMatchStatement} -> geoMatchStatement) (\s@Statement' {} a -> s {geoMatchStatement = a} :: Statement)
 
 -- | A rule statement used to detect web requests coming from particular IP
 -- addresses or address ranges. To use this, create an IPSet that specifies
@@ -483,8 +595,8 @@ statement_geoMatchStatement = Lens.lens (\Statement' {geoMatchStatement} -> geoM
 -- the set independent of your rules. This allows you to use the single set
 -- in multiple rules. When you update the referenced set, WAF automatically
 -- updates all rules that reference it.
-statement_iPSetReferenceStatement :: Lens.Lens' Statement (Prelude.Maybe IPSetReferenceStatement)
-statement_iPSetReferenceStatement = Lens.lens (\Statement' {iPSetReferenceStatement} -> iPSetReferenceStatement) (\s@Statement' {} a -> s {iPSetReferenceStatement = a} :: Statement)
+iPSetReferenceStatement :: Lens.Lens' Statement (Prelude.Maybe IPSetReferenceStatement)
+iPSetReferenceStatement = Lens.lens (\Statement' {iPSetReferenceStatement} -> iPSetReferenceStatement) (\s@Statement' {} a -> s {iPSetReferenceStatement = a} :: Statement)
 
 -- | A rule statement to match against labels that have been added to the web
 -- request by rules that have already run in the web ACL.
@@ -497,8 +609,8 @@ statement_iPSetReferenceStatement = Lens.lens (\Statement' {iPSetReferenceStatem
 -- added the label. If you do not provide the fully qualified name in your
 -- label match string, WAF performs the search for labels that were added
 -- in the same context as the label match statement.
-statement_labelMatchStatement :: Lens.Lens' Statement (Prelude.Maybe LabelMatchStatement)
-statement_labelMatchStatement = Lens.lens (\Statement' {labelMatchStatement} -> labelMatchStatement) (\s@Statement' {} a -> s {labelMatchStatement = a} :: Statement)
+labelMatchStatement :: Lens.Lens' Statement (Prelude.Maybe LabelMatchStatement)
+labelMatchStatement = Lens.lens (\Statement' {labelMatchStatement} -> labelMatchStatement) (\s@Statement' {} a -> s {labelMatchStatement = a} :: Statement)
 
 -- | A rule statement used to run the rules that are defined in a managed
 -- rule group. To use this, provide the vendor name and the name of the
@@ -510,28 +622,106 @@ statement_labelMatchStatement = Lens.lens (\Statement' {labelMatchStatement} -> 
 -- top-level statement within a rule.
 --
 -- You are charged additional fees when you use the WAF Bot Control managed
--- rule group @AWSManagedRulesBotControlRuleSet@ or the WAF Fraud Control
+-- rule group @AWSManagedRulesBotControlRuleSet@, the WAF Fraud Control
 -- account takeover prevention (ATP) managed rule group
--- @AWSManagedRulesATPRuleSet@. For more information, see
+-- @AWSManagedRulesATPRuleSet@, or the WAF Fraud Control account creation
+-- fraud prevention (ACFP) managed rule group @AWSManagedRulesACFPRuleSet@.
+-- For more information, see
 -- <http://aws.amazon.com/waf/pricing/ WAF Pricing>.
-statement_managedRuleGroupStatement :: Lens.Lens' Statement (Prelude.Maybe ManagedRuleGroupStatement)
-statement_managedRuleGroupStatement = Lens.lens (\Statement' {managedRuleGroupStatement} -> managedRuleGroupStatement) (\s@Statement' {} a -> s {managedRuleGroupStatement = a} :: Statement)
+managedRuleGroupStatement :: Lens.Lens' Statement (Prelude.Maybe ManagedRuleGroupStatement)
+managedRuleGroupStatement = Lens.lens (\Statement' {managedRuleGroupStatement} -> managedRuleGroupStatement) (\s@Statement' {} a -> s {managedRuleGroupStatement = a} :: Statement)
 
 -- | A logical rule statement used to negate the results of another rule
 -- statement. You provide one Statement within the @NotStatement@.
-statement_notStatement :: Lens.Lens' Statement (Prelude.Maybe NotStatement)
-statement_notStatement = Lens.lens (\Statement' {notStatement} -> notStatement) (\s@Statement' {} a -> s {notStatement = a} :: Statement)
+notStatement :: Lens.Lens' Statement (Prelude.Maybe NotStatement)
+notStatement = Lens.lens (\Statement' {notStatement} -> notStatement) (\s@Statement' {} a -> s {notStatement = a} :: Statement)
 
 -- | A logical rule statement used to combine other rule statements with OR
 -- logic. You provide more than one Statement within the @OrStatement@.
-statement_orStatement :: Lens.Lens' Statement (Prelude.Maybe OrStatement)
-statement_orStatement = Lens.lens (\Statement' {orStatement} -> orStatement) (\s@Statement' {} a -> s {orStatement = a} :: Statement)
+orStatement :: Lens.Lens' Statement (Prelude.Maybe OrStatement)
+orStatement = Lens.lens (\Statement' {orStatement} -> orStatement) (\s@Statement' {} a -> s {orStatement = a} :: Statement)
 
--- | A rate-based rule tracks the rate of requests for each originating IP
--- address, and triggers the rule action when the rate exceeds a limit that
--- you specify on the number of requests in any 5-minute time span. You can
--- use this to put a temporary block on requests from an IP address that is
--- sending excessive requests.
+-- | A rate-based rule counts incoming requests and rate limits requests when
+-- they are coming at too fast a rate. The rule categorizes requests
+-- according to your aggregation criteria, collects them into aggregation
+-- instances, and counts and rate limits the requests for each instance.
+--
+-- You can specify individual aggregation keys, like IP address or HTTP
+-- method. You can also specify aggregation key combinations, like IP
+-- address and HTTP method, or HTTP method, query argument, and cookie.
+--
+-- Each unique set of values for the aggregation keys that you specify is a
+-- separate aggregation instance, with the value from each key contributing
+-- to the aggregation instance definition.
+--
+-- For example, assume the rule evaluates web requests with the following
+-- IP address and HTTP method values:
+--
+-- -   IP address 10.1.1.1, HTTP method POST
+--
+-- -   IP address 10.1.1.1, HTTP method GET
+--
+-- -   IP address 127.0.0.0, HTTP method POST
+--
+-- -   IP address 10.1.1.1, HTTP method GET
+--
+-- The rule would create different aggregation instances according to your
+-- aggregation criteria, for example:
+--
+-- -   If the aggregation criteria is just the IP address, then each
+--     individual address is an aggregation instance, and WAF counts
+--     requests separately for each. The aggregation instances and request
+--     counts for our example would be the following:
+--
+--     -   IP address 10.1.1.1: count 3
+--
+--     -   IP address 127.0.0.0: count 1
+--
+-- -   If the aggregation criteria is HTTP method, then each individual
+--     HTTP method is an aggregation instance. The aggregation instances
+--     and request counts for our example would be the following:
+--
+--     -   HTTP method POST: count 2
+--
+--     -   HTTP method GET: count 2
+--
+-- -   If the aggregation criteria is IP address and HTTP method, then each
+--     IP address and each HTTP method would contribute to the combined
+--     aggregation instance. The aggregation instances and request counts
+--     for our example would be the following:
+--
+--     -   IP address 10.1.1.1, HTTP method POST: count 1
+--
+--     -   IP address 10.1.1.1, HTTP method GET: count 2
+--
+--     -   IP address 127.0.0.0, HTTP method POST: count 1
+--
+-- For any n-tuple of aggregation keys, each unique combination of values
+-- for the keys defines a separate aggregation instance, which WAF counts
+-- and rate-limits individually.
+--
+-- You can optionally nest another statement inside the rate-based
+-- statement, to narrow the scope of the rule so that it only counts and
+-- rate limits requests that match the nested statement. You can use this
+-- nested scope-down statement in conjunction with your aggregation key
+-- specifications or you can just count and rate limit all requests that
+-- match the scope-down statement, without additional aggregation. When you
+-- choose to just manage all requests that match a scope-down statement,
+-- the aggregation instance is singular for the rule.
+--
+-- You cannot nest a @RateBasedStatement@ inside another statement, for
+-- example inside a @NotStatement@ or @OrStatement@. You can define a
+-- @RateBasedStatement@ inside a web ACL and inside a rule group.
+--
+-- For additional information about the options, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-rate-based-rules.html Rate limiting web requests using rate-based rules>
+-- in the /WAF Developer Guide/.
+--
+-- If you only aggregate on the individual IP address or forwarded IP
+-- address, you can retrieve the list of IP addresses that WAF is currently
+-- rate limiting for a rule through the API call
+-- @GetRateBasedStatementManagedKeys@. This option is not available for
+-- other aggregation configurations.
 --
 -- WAF tracks and manages web requests separately for each instance of a
 -- rate-based rule that you use. For example, if you provide the same
@@ -541,40 +731,13 @@ statement_orStatement = Lens.lens (\Statement' {orStatement} -> orStatement) (\s
 -- rule inside a rule group, and then use that rule group in multiple
 -- places, each use creates a separate instance of the rate-based rule that
 -- gets its own tracking and management by WAF.
---
--- When the rule action triggers, WAF blocks additional requests from the
--- IP address until the request rate falls below the limit.
---
--- You can optionally nest another statement inside the rate-based
--- statement, to narrow the scope of the rule so that it only counts
--- requests that match the nested statement. For example, based on recent
--- requests that you have seen from an attacker, you might create a
--- rate-based rule with a nested AND rule statement that contains the
--- following nested statements:
---
--- -   An IP match statement with an IP set that specified the address
---     192.0.2.44.
---
--- -   A string match statement that searches in the User-Agent header for
---     the string BadBot.
---
--- In this rate-based rule, you also define a rate limit. For this example,
--- the rate limit is 1,000. Requests that meet the criteria of both of the
--- nested statements are counted. If the count exceeds 1,000 requests per
--- five minutes, the rule action triggers. Requests that do not meet the
--- criteria of both of the nested statements are not counted towards the
--- rate limit and are not affected by this rule.
---
--- You cannot nest a @RateBasedStatement@ inside another statement, for
--- example inside a @NotStatement@ or @OrStatement@. You can define a
--- @RateBasedStatement@ inside a web ACL and inside a rule group.
-statement_rateBasedStatement :: Lens.Lens' Statement (Prelude.Maybe RateBasedStatement)
-statement_rateBasedStatement = Lens.lens (\Statement' {rateBasedStatement} -> rateBasedStatement) (\s@Statement' {} a -> s {rateBasedStatement = a} :: Statement)
+rateBasedStatement :: Lens.Lens' Statement (Prelude.Maybe RateBasedStatement)
+rateBasedStatement = Lens.lens (\Statement' {rateBasedStatement} -> rateBasedStatement) (\s@Statement' {} a -> s {rateBasedStatement = a} :: Statement)
 
 -- | A rule statement used to search web request components for a match
 -- against a single regular expression.
-statement_regexMatchStatement :: Lens.Lens' Statement (Prelude.Maybe RegexMatchStatement)
-statement_regexMatchStatement = Lens.lens (\Statement' {regexMatchStatement} -> regexMatchStatement) (\s@Statement' {} a -> s {regexMatchStatement = a} :: Statement)
+regexMatchStatement :: Lens.Lens' Statement (Prelude.Maybe RegexMatchStatement)
+regexMatchStatement = Lens.lens (\Statement' {regexMatchStatement} -> regexMatchStatement) (\s@Statement' {} a -> s {regexMatchStatement = a} :: Statement)
 
 -- | A rule statement used to search web request components for matches with
 -- regular expressions. To use this, create a RegexPatternSet that
@@ -587,8 +750,8 @@ statement_regexMatchStatement = Lens.lens (\Statement' {regexMatchStatement} -> 
 -- You create and maintain the set independent of your rules. This allows
 -- you to use the single set in multiple rules. When you update the
 -- referenced set, WAF automatically updates all rules that reference it.
-statement_regexPatternSetReferenceStatement :: Lens.Lens' Statement (Prelude.Maybe RegexPatternSetReferenceStatement)
-statement_regexPatternSetReferenceStatement = Lens.lens (\Statement' {regexPatternSetReferenceStatement} -> regexPatternSetReferenceStatement) (\s@Statement' {} a -> s {regexPatternSetReferenceStatement = a} :: Statement)
+regexPatternSetReferenceStatement :: Lens.Lens' Statement (Prelude.Maybe RegexPatternSetReferenceStatement)
+regexPatternSetReferenceStatement = Lens.lens (\Statement' {regexPatternSetReferenceStatement} -> regexPatternSetReferenceStatement) (\s@Statement' {} a -> s {regexPatternSetReferenceStatement = a} :: Statement)
 
 -- | A rule statement used to run the rules that are defined in a RuleGroup.
 -- To use this, create a rule group with your rules, then provide the ARN
@@ -597,8 +760,8 @@ statement_regexPatternSetReferenceStatement = Lens.lens (\Statement' {regexPatte
 -- You cannot nest a @RuleGroupReferenceStatement@, for example for use
 -- inside a @NotStatement@ or @OrStatement@. You can only use a rule group
 -- reference statement at the top level inside a web ACL.
-statement_ruleGroupReferenceStatement :: Lens.Lens' Statement (Prelude.Maybe RuleGroupReferenceStatement)
-statement_ruleGroupReferenceStatement = Lens.lens (\Statement' {ruleGroupReferenceStatement} -> ruleGroupReferenceStatement) (\s@Statement' {} a -> s {ruleGroupReferenceStatement = a} :: Statement)
+ruleGroupReferenceStatement :: Lens.Lens' Statement (Prelude.Maybe RuleGroupReferenceStatement)
+ruleGroupReferenceStatement = Lens.lens (\Statement' {ruleGroupReferenceStatement} -> ruleGroupReferenceStatement) (\s@Statement' {} a -> s {ruleGroupReferenceStatement = a} :: Statement)
 
 -- | A rule statement that compares a number of bytes against the size of a
 -- request component, using a comparison operator, such as greater than (>)
@@ -606,28 +769,33 @@ statement_ruleGroupReferenceStatement = Lens.lens (\Statement' {ruleGroupReferen
 -- to look for query strings that are longer than 100 bytes.
 --
 -- If you configure WAF to inspect the request body, WAF inspects only the
--- first 8192 bytes (8 KB). If the request body for your web requests never
--- exceeds 8192 bytes, you could use a size constraint statement to block
--- requests that have a request body greater than 8192 bytes.
+-- number of bytes of the body up to the limit for the web ACL. By default,
+-- for regional web ACLs, this limit is 8 KB (8,192 kilobytes) and for
+-- CloudFront web ACLs, this limit is 16 KB (16,384 kilobytes). For
+-- CloudFront web ACLs, you can increase the limit in the web ACL
+-- @AssociationConfig@, for additional fees. If you know that the request
+-- body for your web requests should never exceed the inspection limit, you
+-- could use a size constraint statement to block requests that have a
+-- larger request body size.
 --
 -- If you choose URI for the value of Part of the request to filter on, the
 -- slash (\/) in the URI counts as one character. For example, the URI
 -- @\/logo.jpg@ is nine characters long.
-statement_sizeConstraintStatement :: Lens.Lens' Statement (Prelude.Maybe SizeConstraintStatement)
-statement_sizeConstraintStatement = Lens.lens (\Statement' {sizeConstraintStatement} -> sizeConstraintStatement) (\s@Statement' {} a -> s {sizeConstraintStatement = a} :: Statement)
+sizeConstraintStatement :: Lens.Lens' Statement (Prelude.Maybe SizeConstraintStatement)
+sizeConstraintStatement = Lens.lens (\Statement' {sizeConstraintStatement} -> sizeConstraintStatement) (\s@Statement' {} a -> s {sizeConstraintStatement = a} :: Statement)
 
 -- | A rule statement that inspects for malicious SQL code. Attackers insert
 -- malicious SQL code into web requests to do things like modify your
 -- database or extract data from it.
-statement_sqliMatchStatement :: Lens.Lens' Statement (Prelude.Maybe SqliMatchStatement)
-statement_sqliMatchStatement = Lens.lens (\Statement' {sqliMatchStatement} -> sqliMatchStatement) (\s@Statement' {} a -> s {sqliMatchStatement = a} :: Statement)
+sqliMatchStatement :: Lens.Lens' Statement (Prelude.Maybe SqliMatchStatement)
+sqliMatchStatement = Lens.lens (\Statement' {sqliMatchStatement} -> sqliMatchStatement) (\s@Statement' {} a -> s {sqliMatchStatement = a} :: Statement)
 
 -- | A rule statement that inspects for cross-site scripting (XSS) attacks.
 -- In XSS attacks, the attacker uses vulnerabilities in a benign website as
 -- a vehicle to inject malicious client-site scripts into other legitimate
 -- web browsers.
-statement_xssMatchStatement :: Lens.Lens' Statement (Prelude.Maybe XssMatchStatement)
-statement_xssMatchStatement = Lens.lens (\Statement' {xssMatchStatement} -> xssMatchStatement) (\s@Statement' {} a -> s {xssMatchStatement = a} :: Statement)
+xssMatchStatement :: Lens.Lens' Statement (Prelude.Maybe XssMatchStatement)
+xssMatchStatement = Lens.lens (\Statement' {xssMatchStatement} -> xssMatchStatement) (\s@Statement' {} a -> s {xssMatchStatement = a} :: Statement)
 
 instance Data.FromJSON Statement where
   parseJSON =
@@ -654,7 +822,8 @@ instance Data.FromJSON Statement where
 
 instance Prelude.Hashable Statement where
   hashWithSalt _salt Statement' {..} =
-    _salt `Prelude.hashWithSalt` andStatement
+    _salt
+      `Prelude.hashWithSalt` andStatement
       `Prelude.hashWithSalt` byteMatchStatement
       `Prelude.hashWithSalt` geoMatchStatement
       `Prelude.hashWithSalt` iPSetReferenceStatement

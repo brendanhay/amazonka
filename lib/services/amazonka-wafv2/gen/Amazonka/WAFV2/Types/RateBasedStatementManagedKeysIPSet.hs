@@ -26,7 +26,21 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.WAFV2.Types.IPAddressVersion
 
 -- | The set of IP addresses that are currently blocked for a
--- RateBasedStatement.
+-- RateBasedStatement. This is only available for rate-based rules that
+-- aggregate on just the IP address, with the @AggregateKeyType@ set to
+-- @IP@ or @FORWARDED_IP@.
+--
+-- A rate-based rule applies its rule action to requests from IP addresses
+-- that are in the rule\'s managed keys list and that match the rule\'s
+-- scope-down statement. When a rule has no scope-down statement, it
+-- applies the action to all requests from the IP addresses that are in the
+-- list. The rule applies its rule action to rate limit the matching
+-- requests. The action is usually Block but it can be any valid rule
+-- action except for Allow.
+--
+-- The maximum number of IP addresses that can be rate limited by a single
+-- rate-based rule instance is 10,000. If more than 10,000 addresses exceed
+-- the rate limit, WAF limits those with the highest rates.
 --
 -- /See:/ 'newRateBasedStatementManagedKeysIPSet' smart constructor.
 data RateBasedStatementManagedKeysIPSet = RateBasedStatementManagedKeysIPSet'
@@ -85,7 +99,8 @@ instance
   hashWithSalt
     _salt
     RateBasedStatementManagedKeysIPSet' {..} =
-      _salt `Prelude.hashWithSalt` addresses
+      _salt
+        `Prelude.hashWithSalt` addresses
         `Prelude.hashWithSalt` iPAddressVersion
 
 instance

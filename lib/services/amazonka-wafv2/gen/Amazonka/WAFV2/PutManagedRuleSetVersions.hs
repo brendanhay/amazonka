@@ -91,7 +91,8 @@ data PutManagedRuleSetVersions = PutManagedRuleSetVersions'
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -140,7 +141,8 @@ data PutManagedRuleSetVersions = PutManagedRuleSetVersions'
 -- 'scope', 'putManagedRuleSetVersions_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -208,7 +210,8 @@ putManagedRuleSetVersions_name = Lens.lens (\PutManagedRuleSetVersions' {name} -
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -253,7 +256,8 @@ instance Core.AWSRequest PutManagedRuleSetVersions where
 
 instance Prelude.Hashable PutManagedRuleSetVersions where
   hashWithSalt _salt PutManagedRuleSetVersions' {..} =
-    _salt `Prelude.hashWithSalt` recommendedVersion
+    _salt
+      `Prelude.hashWithSalt` recommendedVersion
       `Prelude.hashWithSalt` versionsToPublish
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope

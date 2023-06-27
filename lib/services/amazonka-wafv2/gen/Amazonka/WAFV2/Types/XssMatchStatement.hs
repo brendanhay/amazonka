@@ -36,11 +36,14 @@ data XssMatchStatement = XssMatchStatement'
   { -- | The part of the web request that you want WAF to inspect.
     fieldToMatch :: FieldToMatch,
     -- | Text transformations eliminate some of the unusual formatting that
-    -- attackers use in web requests in an effort to bypass detection. If you
-    -- specify one or more transformations in a rule statement, WAF performs
-    -- all transformations on the content of the request component identified
-    -- by @FieldToMatch@, starting from the lowest priority setting, before
-    -- inspecting the content for a match.
+    -- attackers use in web requests in an effort to bypass detection. Text
+    -- transformations are used in rule match statements, to transform the
+    -- @FieldToMatch@ request component before inspecting it, and they\'re used
+    -- in rate-based rule statements, to transform request components before
+    -- using them as custom aggregation keys. If you specify one or more
+    -- transformations to apply, WAF performs all transformations on the
+    -- specified content, starting from the lowest priority setting, and then
+    -- uses the component contents.
     textTransformations :: Prelude.NonEmpty TextTransformation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -56,11 +59,14 @@ data XssMatchStatement = XssMatchStatement'
 -- 'fieldToMatch', 'xssMatchStatement_fieldToMatch' - The part of the web request that you want WAF to inspect.
 --
 -- 'textTransformations', 'xssMatchStatement_textTransformations' - Text transformations eliminate some of the unusual formatting that
--- attackers use in web requests in an effort to bypass detection. If you
--- specify one or more transformations in a rule statement, WAF performs
--- all transformations on the content of the request component identified
--- by @FieldToMatch@, starting from the lowest priority setting, before
--- inspecting the content for a match.
+-- attackers use in web requests in an effort to bypass detection. Text
+-- transformations are used in rule match statements, to transform the
+-- @FieldToMatch@ request component before inspecting it, and they\'re used
+-- in rate-based rule statements, to transform request components before
+-- using them as custom aggregation keys. If you specify one or more
+-- transformations to apply, WAF performs all transformations on the
+-- specified content, starting from the lowest priority setting, and then
+-- uses the component contents.
 newXssMatchStatement ::
   -- | 'fieldToMatch'
   FieldToMatch ->
@@ -81,11 +87,14 @@ xssMatchStatement_fieldToMatch :: Lens.Lens' XssMatchStatement FieldToMatch
 xssMatchStatement_fieldToMatch = Lens.lens (\XssMatchStatement' {fieldToMatch} -> fieldToMatch) (\s@XssMatchStatement' {} a -> s {fieldToMatch = a} :: XssMatchStatement)
 
 -- | Text transformations eliminate some of the unusual formatting that
--- attackers use in web requests in an effort to bypass detection. If you
--- specify one or more transformations in a rule statement, WAF performs
--- all transformations on the content of the request component identified
--- by @FieldToMatch@, starting from the lowest priority setting, before
--- inspecting the content for a match.
+-- attackers use in web requests in an effort to bypass detection. Text
+-- transformations are used in rule match statements, to transform the
+-- @FieldToMatch@ request component before inspecting it, and they\'re used
+-- in rate-based rule statements, to transform request components before
+-- using them as custom aggregation keys. If you specify one or more
+-- transformations to apply, WAF performs all transformations on the
+-- specified content, starting from the lowest priority setting, and then
+-- uses the component contents.
 xssMatchStatement_textTransformations :: Lens.Lens' XssMatchStatement (Prelude.NonEmpty TextTransformation)
 xssMatchStatement_textTransformations = Lens.lens (\XssMatchStatement' {textTransformations} -> textTransformations) (\s@XssMatchStatement' {} a -> s {textTransformations = a} :: XssMatchStatement) Prelude.. Lens.coerced
 
@@ -101,7 +110,8 @@ instance Data.FromJSON XssMatchStatement where
 
 instance Prelude.Hashable XssMatchStatement where
   hashWithSalt _salt XssMatchStatement' {..} =
-    _salt `Prelude.hashWithSalt` fieldToMatch
+    _salt
+      `Prelude.hashWithSalt` fieldToMatch
       `Prelude.hashWithSalt` textTransformations
 
 instance Prelude.NFData XssMatchStatement where

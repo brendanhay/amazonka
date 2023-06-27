@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | Inspect the HTTP method of the web request. The method indicates the
 -- type of operation that the request is asking the origin to perform.
 --
--- This is used only in the FieldToMatch specification for some web request
+-- This is used in the FieldToMatch specification for some web request
 -- component types.
 --
 -- JSON specification: @\"Method\": {}@

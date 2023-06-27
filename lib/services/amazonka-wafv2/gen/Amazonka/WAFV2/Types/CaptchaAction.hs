@@ -61,8 +61,7 @@ data CaptchaAction = CaptchaAction'
     --
     -- For information about customizing web requests and responses, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    -- in the /WAF Developer Guide/.
     customRequestHandling :: Prelude.Maybe CustomRequestHandling
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,8 +79,7 @@ data CaptchaAction = CaptchaAction'
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 newCaptchaAction ::
   CaptchaAction
 newCaptchaAction =
@@ -95,8 +93,7 @@ newCaptchaAction =
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 captchaAction_customRequestHandling :: Lens.Lens' CaptchaAction (Prelude.Maybe CustomRequestHandling)
 captchaAction_customRequestHandling = Lens.lens (\CaptchaAction' {customRequestHandling} -> customRequestHandling) (\s@CaptchaAction' {} a -> s {customRequestHandling = a} :: CaptchaAction)
 

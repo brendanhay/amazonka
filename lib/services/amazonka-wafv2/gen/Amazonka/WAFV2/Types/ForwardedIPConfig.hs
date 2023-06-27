@@ -139,7 +139,8 @@ instance Data.FromJSON ForwardedIPConfig where
 
 instance Prelude.Hashable ForwardedIPConfig where
   hashWithSalt _salt ForwardedIPConfig' {..} =
-    _salt `Prelude.hashWithSalt` headerName
+    _salt
+      `Prelude.hashWithSalt` headerName
       `Prelude.hashWithSalt` fallbackBehavior
 
 instance Prelude.NFData ForwardedIPConfig where

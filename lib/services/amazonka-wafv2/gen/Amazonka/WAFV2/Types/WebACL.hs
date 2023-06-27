@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.WAFV2.Types.AssociationConfig
 import Amazonka.WAFV2.Types.CaptchaConfig
 import Amazonka.WAFV2.Types.ChallengeConfig
 import Amazonka.WAFV2.Types.CustomResponseBody
@@ -40,11 +41,23 @@ import Amazonka.WAFV2.Types.VisibilityConfig
 -- a web ACL with one or more Amazon Web Services resources to protect. The
 -- resources can be an Amazon CloudFront distribution, an Amazon API
 -- Gateway REST API, an Application Load Balancer, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- /See:/ 'newWebACL' smart constructor.
 data WebACL = WebACL'
-  { -- | The web ACL capacity units (WCUs) currently being used by this web ACL.
+  { -- | Specifies custom configurations for the associations between the web ACL
+    -- and protected resources.
+    --
+    -- Use this to customize the maximum size of the request body that your
+    -- protected CloudFront distributions forward to WAF for inspection. The
+    -- default is 16 KB (16,384 kilobytes).
+    --
+    -- You are charged additional fees when your protected resources forward
+    -- body sizes that are larger than the default. For more information, see
+    -- <http://aws.amazon.com/waf/pricing/ WAF Pricing>.
+    associationConfig :: Prelude.Maybe AssociationConfig,
+    -- | The web ACL capacity units (WCUs) currently being used by this web ACL.
     --
     -- WAF uses WCUs to calculate and control the operating resources that are
     -- used to run your rules, rule groups, and web ACLs. WAF calculates
@@ -52,7 +65,9 @@ data WebACL = WebACL'
     -- each rule. Simple rules that cost little to run use fewer WCUs than more
     -- complex rules that use more processing power. Rule group capacity is
     -- fixed at creation, which helps users plan their web ACL WCU usage when
-    -- they use a rule group. The WCU limit for web ACLs is 1,500.
+    -- they use a rule group. For more information, see
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html WAF web ACL capacity units (WCU)>
+    -- in the /WAF Developer Guide/.
     capacity :: Prelude.Maybe Prelude.Natural,
     -- | Specifies how WAF should handle @CAPTCHA@ evaluations for rules that
     -- don\'t have their own @CaptchaConfig@ settings. If you don\'t specify
@@ -69,14 +84,12 @@ data WebACL = WebACL'
     --
     -- For information about customizing web requests and responses, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    -- in the /WAF Developer Guide/.
     --
     -- For information about the limits on count and size for custom request
     -- and response settings, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    -- in the /WAF Developer Guide/.
     customResponseBodies :: Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody),
     -- | A description of the web ACL that helps with identification.
     description :: Prelude.Maybe Prelude.Text,
@@ -132,7 +145,7 @@ data WebACL = WebACL'
     -- resource. With a token domain list, WAF accepts the resource\'s host
     -- domain plus all domains in the token domain list, including their
     -- prefixed subdomains.
-    tokenDomains :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    tokenDomains :: Prelude.Maybe [Prelude.Text],
     -- | The name of the web ACL. You cannot change the name of a web ACL after
     -- you create it.
     name :: Prelude.Text,
@@ -160,6 +173,17 @@ data WebACL = WebACL'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'associationConfig', 'webACL_associationConfig' - Specifies custom configurations for the associations between the web ACL
+-- and protected resources.
+--
+-- Use this to customize the maximum size of the request body that your
+-- protected CloudFront distributions forward to WAF for inspection. The
+-- default is 16 KB (16,384 kilobytes).
+--
+-- You are charged additional fees when your protected resources forward
+-- body sizes that are larger than the default. For more information, see
+-- <http://aws.amazon.com/waf/pricing/ WAF Pricing>.
+--
 -- 'capacity', 'webACL_capacity' - The web ACL capacity units (WCUs) currently being used by this web ACL.
 --
 -- WAF uses WCUs to calculate and control the operating resources that are
@@ -168,7 +192,9 @@ data WebACL = WebACL'
 -- each rule. Simple rules that cost little to run use fewer WCUs than more
 -- complex rules that use more processing power. Rule group capacity is
 -- fixed at creation, which helps users plan their web ACL WCU usage when
--- they use a rule group. The WCU limit for web ACLs is 1,500.
+-- they use a rule group. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html WAF web ACL capacity units (WCU)>
+-- in the /WAF Developer Guide/.
 --
 -- 'captchaConfig', 'webACL_captchaConfig' - Specifies how WAF should handle @CAPTCHA@ evaluations for rules that
 -- don\'t have their own @CaptchaConfig@ settings. If you don\'t specify
@@ -185,14 +211,12 @@ data WebACL = WebACL'
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 --
 -- For information about the limits on count and size for custom request
 -- and response settings, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 --
 -- 'description', 'webACL_description' - A description of the web ACL that helps with identification.
 --
@@ -283,7 +307,8 @@ newWebACL
   pDefaultAction_
   pVisibilityConfig_ =
     WebACL'
-      { capacity = Prelude.Nothing,
+      { associationConfig = Prelude.Nothing,
+        capacity = Prelude.Nothing,
         captchaConfig = Prelude.Nothing,
         challengeConfig = Prelude.Nothing,
         customResponseBodies = Prelude.Nothing,
@@ -303,6 +328,19 @@ newWebACL
         visibilityConfig = pVisibilityConfig_
       }
 
+-- | Specifies custom configurations for the associations between the web ACL
+-- and protected resources.
+--
+-- Use this to customize the maximum size of the request body that your
+-- protected CloudFront distributions forward to WAF for inspection. The
+-- default is 16 KB (16,384 kilobytes).
+--
+-- You are charged additional fees when your protected resources forward
+-- body sizes that are larger than the default. For more information, see
+-- <http://aws.amazon.com/waf/pricing/ WAF Pricing>.
+webACL_associationConfig :: Lens.Lens' WebACL (Prelude.Maybe AssociationConfig)
+webACL_associationConfig = Lens.lens (\WebACL' {associationConfig} -> associationConfig) (\s@WebACL' {} a -> s {associationConfig = a} :: WebACL)
+
 -- | The web ACL capacity units (WCUs) currently being used by this web ACL.
 --
 -- WAF uses WCUs to calculate and control the operating resources that are
@@ -311,7 +349,9 @@ newWebACL
 -- each rule. Simple rules that cost little to run use fewer WCUs than more
 -- complex rules that use more processing power. Rule group capacity is
 -- fixed at creation, which helps users plan their web ACL WCU usage when
--- they use a rule group. The WCU limit for web ACLs is 1,500.
+-- they use a rule group. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html WAF web ACL capacity units (WCU)>
+-- in the /WAF Developer Guide/.
 webACL_capacity :: Lens.Lens' WebACL (Prelude.Maybe Prelude.Natural)
 webACL_capacity = Lens.lens (\WebACL' {capacity} -> capacity) (\s@WebACL' {} a -> s {capacity = a} :: WebACL)
 
@@ -334,14 +374,12 @@ webACL_challengeConfig = Lens.lens (\WebACL' {challengeConfig} -> challengeConfi
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 --
 -- For information about the limits on count and size for custom request
 -- and response settings, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 webACL_customResponseBodies :: Lens.Lens' WebACL (Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody))
 webACL_customResponseBodies = Lens.lens (\WebACL' {customResponseBodies} -> customResponseBodies) (\s@WebACL' {} a -> s {customResponseBodies = a} :: WebACL) Prelude.. Lens.mapping Lens.coerced
 
@@ -411,7 +449,7 @@ webACL_rules = Lens.lens (\WebACL' {rules} -> rules) (\s@WebACL' {} a -> s {rule
 -- resource. With a token domain list, WAF accepts the resource\'s host
 -- domain plus all domains in the token domain list, including their
 -- prefixed subdomains.
-webACL_tokenDomains :: Lens.Lens' WebACL (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+webACL_tokenDomains :: Lens.Lens' WebACL (Prelude.Maybe [Prelude.Text])
 webACL_tokenDomains = Lens.lens (\WebACL' {tokenDomains} -> tokenDomains) (\s@WebACL' {} a -> s {tokenDomains = a} :: WebACL) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the web ACL. You cannot change the name of a web ACL after
@@ -446,23 +484,27 @@ instance Data.FromJSON WebACL where
       "WebACL"
       ( \x ->
           WebACL'
-            Prelude.<$> (x Data..:? "Capacity")
+            Prelude.<$> (x Data..:? "AssociationConfig")
+            Prelude.<*> (x Data..:? "Capacity")
             Prelude.<*> (x Data..:? "CaptchaConfig")
             Prelude.<*> (x Data..:? "ChallengeConfig")
-            Prelude.<*> ( x Data..:? "CustomResponseBodies"
+            Prelude.<*> ( x
+                            Data..:? "CustomResponseBodies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "LabelNamespace")
             Prelude.<*> (x Data..:? "ManagedByFirewallManager")
-            Prelude.<*> ( x Data..:? "PostProcessFirewallManagerRuleGroups"
+            Prelude.<*> ( x
+                            Data..:? "PostProcessFirewallManagerRuleGroups"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "PreProcessFirewallManagerRuleGroups"
+            Prelude.<*> ( x
+                            Data..:? "PreProcessFirewallManagerRuleGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Rules" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "TokenDomains")
+            Prelude.<*> (x Data..:? "TokenDomains" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "Id")
             Prelude.<*> (x Data..: "ARN")
@@ -472,7 +514,9 @@ instance Data.FromJSON WebACL where
 
 instance Prelude.Hashable WebACL where
   hashWithSalt _salt WebACL' {..} =
-    _salt `Prelude.hashWithSalt` capacity
+    _salt
+      `Prelude.hashWithSalt` associationConfig
+      `Prelude.hashWithSalt` capacity
       `Prelude.hashWithSalt` captchaConfig
       `Prelude.hashWithSalt` challengeConfig
       `Prelude.hashWithSalt` customResponseBodies
@@ -491,7 +535,8 @@ instance Prelude.Hashable WebACL where
 
 instance Prelude.NFData WebACL where
   rnf WebACL' {..} =
-    Prelude.rnf capacity
+    Prelude.rnf associationConfig
+      `Prelude.seq` Prelude.rnf capacity
       `Prelude.seq` Prelude.rnf captchaConfig
       `Prelude.seq` Prelude.rnf challengeConfig
       `Prelude.seq` Prelude.rnf customResponseBodies

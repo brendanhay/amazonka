@@ -51,14 +51,12 @@ data RuleGroup = RuleGroup'
     --
     -- For information about customizing web requests and responses, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    -- in the /WAF Developer Guide/.
     --
     -- For information about the limits on count and size for custom request
     -- and response settings, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    -- in the /WAF Developer Guide/.
     customResponseBodies :: Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody),
     -- | A description of the rule group that helps with identification.
     description :: Prelude.Maybe Prelude.Text,
@@ -102,7 +100,9 @@ data RuleGroup = RuleGroup'
     -- each rule. Simple rules that cost little to run use fewer WCUs than more
     -- complex rules that use more processing power. Rule group capacity is
     -- fixed at creation, which helps users plan their web ACL WCU usage when
-    -- they use a rule group. The WCU limit for web ACLs is 1,500.
+    -- they use a rule group. For more information, see
+    -- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html WAF web ACL capacity units (WCU)>
+    -- in the /WAF Developer Guide/.
     capacity :: Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the entity.
     arn :: Prelude.Text,
@@ -135,14 +135,12 @@ data RuleGroup = RuleGroup'
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 --
 -- For information about the limits on count and size for custom request
 -- and response settings, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 --
 -- 'description', 'ruleGroup_description' - A description of the rule group that helps with identification.
 --
@@ -186,7 +184,9 @@ data RuleGroup = RuleGroup'
 -- each rule. Simple rules that cost little to run use fewer WCUs than more
 -- complex rules that use more processing power. Rule group capacity is
 -- fixed at creation, which helps users plan their web ACL WCU usage when
--- they use a rule group. The WCU limit for web ACLs is 1,500.
+-- they use a rule group. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html WAF web ACL capacity units (WCU)>
+-- in the /WAF Developer Guide/.
 --
 -- 'arn', 'ruleGroup_arn' - The Amazon Resource Name (ARN) of the entity.
 --
@@ -243,14 +243,12 @@ ruleGroup_consumedLabels = Lens.lens (\RuleGroup' {consumedLabels} -> consumedLa
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 --
 -- For information about the limits on count and size for custom request
 -- and response settings, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 ruleGroup_customResponseBodies :: Lens.Lens' RuleGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody))
 ruleGroup_customResponseBodies = Lens.lens (\RuleGroup' {customResponseBodies} -> customResponseBodies) (\s@RuleGroup' {} a -> s {customResponseBodies = a} :: RuleGroup) Prelude.. Lens.mapping Lens.coerced
 
@@ -306,7 +304,9 @@ ruleGroup_id = Lens.lens (\RuleGroup' {id} -> id) (\s@RuleGroup' {} a -> s {id =
 -- each rule. Simple rules that cost little to run use fewer WCUs than more
 -- complex rules that use more processing power. Rule group capacity is
 -- fixed at creation, which helps users plan their web ACL WCU usage when
--- they use a rule group. The WCU limit for web ACLs is 1,500.
+-- they use a rule group. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html WAF web ACL capacity units (WCU)>
+-- in the /WAF Developer Guide/.
 ruleGroup_capacity :: Lens.Lens' RuleGroup Prelude.Natural
 ruleGroup_capacity = Lens.lens (\RuleGroup' {capacity} -> capacity) (\s@RuleGroup' {} a -> s {capacity = a} :: RuleGroup)
 
@@ -325,11 +325,13 @@ instance Data.FromJSON RuleGroup where
       "RuleGroup"
       ( \x ->
           RuleGroup'
-            Prelude.<$> ( x Data..:? "AvailableLabels"
+            Prelude.<$> ( x
+                            Data..:? "AvailableLabels"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ConsumedLabels" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "CustomResponseBodies"
+            Prelude.<*> ( x
+                            Data..:? "CustomResponseBodies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Description")
@@ -344,7 +346,8 @@ instance Data.FromJSON RuleGroup where
 
 instance Prelude.Hashable RuleGroup where
   hashWithSalt _salt RuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` availableLabels
+    _salt
+      `Prelude.hashWithSalt` availableLabels
       `Prelude.hashWithSalt` consumedLabels
       `Prelude.hashWithSalt` customResponseBodies
       `Prelude.hashWithSalt` description

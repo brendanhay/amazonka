@@ -66,7 +66,8 @@ data ListIPSets = ListIPSets'
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -100,7 +101,8 @@ data ListIPSets = ListIPSets'
 -- 'scope', 'listIPSets_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -137,7 +139,8 @@ listIPSets_nextMarker = Lens.lens (\ListIPSets' {nextMarker} -> nextMarker) (\s@
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -164,7 +167,8 @@ instance Core.AWSRequest ListIPSets where
 
 instance Prelude.Hashable ListIPSets where
   hashWithSalt _salt ListIPSets' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` scope
 
@@ -205,8 +209,8 @@ instance Data.ToQuery ListIPSets where
 
 -- | /See:/ 'newListIPSetsResponse' smart constructor.
 data ListIPSetsResponse = ListIPSetsResponse'
-  { -- | Array of IPSets. This may not be the full list of IPSets that you have
-    -- defined. See the @Limit@ specification for this request.
+  { -- | Array of IPSets. If you specified a @Limit@ in your request, this might
+    -- not be the full list.
     iPSets :: Prelude.Maybe [IPSetSummary],
     -- | When you request a list of objects with a @Limit@ setting, if the number
     -- of objects that are still available for retrieval exceeds the limit, WAF
@@ -226,8 +230,8 @@ data ListIPSetsResponse = ListIPSetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'iPSets', 'listIPSetsResponse_iPSets' - Array of IPSets. This may not be the full list of IPSets that you have
--- defined. See the @Limit@ specification for this request.
+-- 'iPSets', 'listIPSetsResponse_iPSets' - Array of IPSets. If you specified a @Limit@ in your request, this might
+-- not be the full list.
 --
 -- 'nextMarker', 'listIPSetsResponse_nextMarker' - When you request a list of objects with a @Limit@ setting, if the number
 -- of objects that are still available for retrieval exceeds the limit, WAF
@@ -246,8 +250,8 @@ newListIPSetsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Array of IPSets. This may not be the full list of IPSets that you have
--- defined. See the @Limit@ specification for this request.
+-- | Array of IPSets. If you specified a @Limit@ in your request, this might
+-- not be the full list.
 listIPSetsResponse_iPSets :: Lens.Lens' ListIPSetsResponse (Prelude.Maybe [IPSetSummary])
 listIPSetsResponse_iPSets = Lens.lens (\ListIPSetsResponse' {iPSets} -> iPSets) (\s@ListIPSetsResponse' {} a -> s {iPSets = a} :: ListIPSetsResponse) Prelude.. Lens.mapping Lens.coerced
 

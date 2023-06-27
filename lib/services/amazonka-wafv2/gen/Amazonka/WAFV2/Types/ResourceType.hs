@@ -23,7 +23,9 @@ module Amazonka.WAFV2.Types.ResourceType
         ResourceType_API_GATEWAY,
         ResourceType_APPLICATION_LOAD_BALANCER,
         ResourceType_APPSYNC,
-        ResourceType_COGNITO_USER_POOL
+        ResourceType_APP_RUNNER_SERVICE,
+        ResourceType_COGNITO_USER_POOL,
+        ResourceType_VERIFIED_ACCESS_INSTANCE
       ),
   )
 where
@@ -69,13 +71,21 @@ pattern ResourceType_APPLICATION_LOAD_BALANCER = ResourceType' "APPLICATION_LOAD
 pattern ResourceType_APPSYNC :: ResourceType
 pattern ResourceType_APPSYNC = ResourceType' "APPSYNC"
 
+pattern ResourceType_APP_RUNNER_SERVICE :: ResourceType
+pattern ResourceType_APP_RUNNER_SERVICE = ResourceType' "APP_RUNNER_SERVICE"
+
 pattern ResourceType_COGNITO_USER_POOL :: ResourceType
 pattern ResourceType_COGNITO_USER_POOL = ResourceType' "COGNITO_USER_POOL"
+
+pattern ResourceType_VERIFIED_ACCESS_INSTANCE :: ResourceType
+pattern ResourceType_VERIFIED_ACCESS_INSTANCE = ResourceType' "VERIFIED_ACCESS_INSTANCE"
 
 {-# COMPLETE
   ResourceType_API_GATEWAY,
   ResourceType_APPLICATION_LOAD_BALANCER,
   ResourceType_APPSYNC,
+  ResourceType_APP_RUNNER_SERVICE,
   ResourceType_COGNITO_USER_POOL,
+  ResourceType_VERIFIED_ACCESS_INSTANCE,
   ResourceType'
   #-}

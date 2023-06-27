@@ -37,8 +37,7 @@ data AllowAction = AllowAction'
     --
     -- For information about customizing web requests and responses, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    -- in the /WAF Developer Guide/.
     customRequestHandling :: Prelude.Maybe CustomRequestHandling
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,8 +54,7 @@ data AllowAction = AllowAction'
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 newAllowAction ::
   AllowAction
 newAllowAction =
@@ -69,8 +67,7 @@ newAllowAction =
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 allowAction_customRequestHandling :: Lens.Lens' AllowAction (Prelude.Maybe CustomRequestHandling)
 allowAction_customRequestHandling = Lens.lens (\AllowAction' {customRequestHandling} -> customRequestHandling) (\s@AllowAction' {} a -> s {customRequestHandling = a} :: AllowAction)
 

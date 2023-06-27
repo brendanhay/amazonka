@@ -31,13 +31,15 @@
 -- a web ACL with one or more Amazon Web Services resources to protect. The
 -- resources can be an Amazon CloudFront distribution, an Amazon API
 -- Gateway REST API, an Application Load Balancer, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 module Amazonka.WAFV2.CreateWebACL
   ( -- * Creating a Request
     CreateWebACL (..),
     newCreateWebACL,
 
     -- * Request Lenses
+    createWebACL_associationConfig,
     createWebACL_captchaConfig,
     createWebACL_challengeConfig,
     createWebACL_customResponseBodies,
@@ -70,7 +72,18 @@ import Amazonka.WAFV2.Types
 
 -- | /See:/ 'newCreateWebACL' smart constructor.
 data CreateWebACL = CreateWebACL'
-  { -- | Specifies how WAF should handle @CAPTCHA@ evaluations for rules that
+  { -- | Specifies custom configurations for the associations between the web ACL
+    -- and protected resources.
+    --
+    -- Use this to customize the maximum size of the request body that your
+    -- protected CloudFront distributions forward to WAF for inspection. The
+    -- default is 16 KB (16,384 kilobytes).
+    --
+    -- You are charged additional fees when your protected resources forward
+    -- body sizes that are larger than the default. For more information, see
+    -- <http://aws.amazon.com/waf/pricing/ WAF Pricing>.
+    associationConfig :: Prelude.Maybe AssociationConfig,
+    -- | Specifies how WAF should handle @CAPTCHA@ evaluations for rules that
     -- don\'t have their own @CaptchaConfig@ settings. If you don\'t specify
     -- this, WAF uses its default settings for @CaptchaConfig@.
     captchaConfig :: Prelude.Maybe CaptchaConfig,
@@ -85,14 +98,12 @@ data CreateWebACL = CreateWebACL'
     --
     -- For information about customizing web requests and responses, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    -- in the /WAF Developer Guide/.
     --
     -- For information about the limits on count and size for custom request
     -- and response settings, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    -- in the /WAF Developer Guide/.
     customResponseBodies :: Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody),
     -- | A description of the web ACL that helps with identification.
     description :: Prelude.Maybe Prelude.Text,
@@ -117,14 +128,15 @@ data CreateWebACL = CreateWebACL'
     --
     -- Public suffixes aren\'t allowed. For example, you can\'t use @usa.gov@
     -- or @co.uk@ as token domains.
-    tokenDomains :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    tokenDomains :: Prelude.Maybe [Prelude.Text],
     -- | The name of the web ACL. You cannot change the name of a web ACL after
     -- you create it.
     name :: Prelude.Text,
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -151,6 +163,17 @@ data CreateWebACL = CreateWebACL'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'associationConfig', 'createWebACL_associationConfig' - Specifies custom configurations for the associations between the web ACL
+-- and protected resources.
+--
+-- Use this to customize the maximum size of the request body that your
+-- protected CloudFront distributions forward to WAF for inspection. The
+-- default is 16 KB (16,384 kilobytes).
+--
+-- You are charged additional fees when your protected resources forward
+-- body sizes that are larger than the default. For more information, see
+-- <http://aws.amazon.com/waf/pricing/ WAF Pricing>.
+--
 -- 'captchaConfig', 'createWebACL_captchaConfig' - Specifies how WAF should handle @CAPTCHA@ evaluations for rules that
 -- don\'t have their own @CaptchaConfig@ settings. If you don\'t specify
 -- this, WAF uses its default settings for @CaptchaConfig@.
@@ -166,14 +189,12 @@ data CreateWebACL = CreateWebACL'
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 --
 -- For information about the limits on count and size for custom request
 -- and response settings, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 --
 -- 'description', 'createWebACL_description' - A description of the web ACL that helps with identification.
 --
@@ -205,7 +226,8 @@ data CreateWebACL = CreateWebACL'
 -- 'scope', 'createWebACL_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -236,7 +258,8 @@ newCreateWebACL
   pDefaultAction_
   pVisibilityConfig_ =
     CreateWebACL'
-      { captchaConfig = Prelude.Nothing,
+      { associationConfig = Prelude.Nothing,
+        captchaConfig = Prelude.Nothing,
         challengeConfig = Prelude.Nothing,
         customResponseBodies = Prelude.Nothing,
         description = Prelude.Nothing,
@@ -248,6 +271,19 @@ newCreateWebACL
         defaultAction = pDefaultAction_,
         visibilityConfig = pVisibilityConfig_
       }
+
+-- | Specifies custom configurations for the associations between the web ACL
+-- and protected resources.
+--
+-- Use this to customize the maximum size of the request body that your
+-- protected CloudFront distributions forward to WAF for inspection. The
+-- default is 16 KB (16,384 kilobytes).
+--
+-- You are charged additional fees when your protected resources forward
+-- body sizes that are larger than the default. For more information, see
+-- <http://aws.amazon.com/waf/pricing/ WAF Pricing>.
+createWebACL_associationConfig :: Lens.Lens' CreateWebACL (Prelude.Maybe AssociationConfig)
+createWebACL_associationConfig = Lens.lens (\CreateWebACL' {associationConfig} -> associationConfig) (\s@CreateWebACL' {} a -> s {associationConfig = a} :: CreateWebACL)
 
 -- | Specifies how WAF should handle @CAPTCHA@ evaluations for rules that
 -- don\'t have their own @CaptchaConfig@ settings. If you don\'t specify
@@ -268,14 +304,12 @@ createWebACL_challengeConfig = Lens.lens (\CreateWebACL' {challengeConfig} -> ch
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 --
 -- For information about the limits on count and size for custom request
 -- and response settings, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 createWebACL_customResponseBodies :: Lens.Lens' CreateWebACL (Prelude.Maybe (Prelude.HashMap Prelude.Text CustomResponseBody))
 createWebACL_customResponseBodies = Lens.lens (\CreateWebACL' {customResponseBodies} -> customResponseBodies) (\s@CreateWebACL' {} a -> s {customResponseBodies = a} :: CreateWebACL) Prelude.. Lens.mapping Lens.coerced
 
@@ -308,7 +342,7 @@ createWebACL_tags = Lens.lens (\CreateWebACL' {tags} -> tags) (\s@CreateWebACL' 
 --
 -- Public suffixes aren\'t allowed. For example, you can\'t use @usa.gov@
 -- or @co.uk@ as token domains.
-createWebACL_tokenDomains :: Lens.Lens' CreateWebACL (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+createWebACL_tokenDomains :: Lens.Lens' CreateWebACL (Prelude.Maybe [Prelude.Text])
 createWebACL_tokenDomains = Lens.lens (\CreateWebACL' {tokenDomains} -> tokenDomains) (\s@CreateWebACL' {} a -> s {tokenDomains = a} :: CreateWebACL) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the web ACL. You cannot change the name of a web ACL after
@@ -319,7 +353,8 @@ createWebACL_name = Lens.lens (\CreateWebACL' {name} -> name) (\s@CreateWebACL' 
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -355,7 +390,9 @@ instance Core.AWSRequest CreateWebACL where
 
 instance Prelude.Hashable CreateWebACL where
   hashWithSalt _salt CreateWebACL' {..} =
-    _salt `Prelude.hashWithSalt` captchaConfig
+    _salt
+      `Prelude.hashWithSalt` associationConfig
+      `Prelude.hashWithSalt` captchaConfig
       `Prelude.hashWithSalt` challengeConfig
       `Prelude.hashWithSalt` customResponseBodies
       `Prelude.hashWithSalt` description
@@ -369,7 +406,8 @@ instance Prelude.Hashable CreateWebACL where
 
 instance Prelude.NFData CreateWebACL where
   rnf CreateWebACL' {..} =
-    Prelude.rnf captchaConfig
+    Prelude.rnf associationConfig
+      `Prelude.seq` Prelude.rnf captchaConfig
       `Prelude.seq` Prelude.rnf challengeConfig
       `Prelude.seq` Prelude.rnf customResponseBodies
       `Prelude.seq` Prelude.rnf description
@@ -400,7 +438,9 @@ instance Data.ToJSON CreateWebACL where
   toJSON CreateWebACL' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("CaptchaConfig" Data..=) Prelude.<$> captchaConfig,
+          [ ("AssociationConfig" Data..=)
+              Prelude.<$> associationConfig,
+            ("CaptchaConfig" Data..=) Prelude.<$> captchaConfig,
             ("ChallengeConfig" Data..=)
               Prelude.<$> challengeConfig,
             ("CustomResponseBodies" Data..=)

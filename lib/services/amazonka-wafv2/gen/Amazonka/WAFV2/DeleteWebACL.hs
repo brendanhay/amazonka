@@ -34,7 +34,8 @@
 --
 --     -   For Amazon CloudFront distributions, use the CloudFront call
 --         @ListDistributionsByWebACLId@. For information, see
---         <https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html ListDistributionsByWebACLId>.
+--         <https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html ListDistributionsByWebACLId>
+--         in the /Amazon CloudFront API Reference/.
 --
 -- -   To disassociate a resource from a web ACL, use the following calls:
 --
@@ -43,7 +44,8 @@
 --     -   For Amazon CloudFront distributions, provide an empty web ACL ID
 --         in the CloudFront call @UpdateDistribution@. For information,
 --         see
---         <https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html UpdateDistribution>.
+--         <https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html UpdateDistribution>
+--         in the /Amazon CloudFront API Reference/.
 module Amazonka.WAFV2.DeleteWebACL
   ( -- * Creating a Request
     DeleteWebACL (..),
@@ -80,7 +82,8 @@ data DeleteWebACL = DeleteWebACL'
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -120,7 +123,8 @@ data DeleteWebACL = DeleteWebACL'
 -- 'scope', 'deleteWebACL_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -168,7 +172,8 @@ deleteWebACL_name = Lens.lens (\DeleteWebACL' {name} -> name) (\s@DeleteWebACL' 
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -210,7 +215,8 @@ instance Core.AWSRequest DeleteWebACL where
 
 instance Prelude.Hashable DeleteWebACL where
   hashWithSalt _salt DeleteWebACL' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lockToken

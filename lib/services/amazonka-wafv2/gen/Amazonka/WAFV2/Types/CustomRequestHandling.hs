@@ -32,8 +32,7 @@ import Amazonka.WAFV2.Types.CustomHTTPHeader
 --
 -- For information about customizing web requests and responses, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html Customizing web requests and responses in WAF>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 --
 -- /See:/ 'newCustomRequestHandling' smart constructor.
 data CustomRequestHandling = CustomRequestHandling'
@@ -43,8 +42,7 @@ data CustomRequestHandling = CustomRequestHandling'
     -- For information about the limits on count and size for custom request
     -- and response settings, see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
-    -- in the
-    -- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+    -- in the /WAF Developer Guide/.
     insertHeaders :: Prelude.NonEmpty CustomHTTPHeader
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,8 +61,7 @@ data CustomRequestHandling = CustomRequestHandling'
 -- For information about the limits on count and size for custom request
 -- and response settings, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 newCustomRequestHandling ::
   -- | 'insertHeaders'
   Prelude.NonEmpty CustomHTTPHeader ->
@@ -81,8 +78,7 @@ newCustomRequestHandling pInsertHeaders_ =
 -- For information about the limits on count and size for custom request
 -- and response settings, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html WAF quotas>
--- in the
--- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html WAF Developer Guide>.
+-- in the /WAF Developer Guide/.
 customRequestHandling_insertHeaders :: Lens.Lens' CustomRequestHandling (Prelude.NonEmpty CustomHTTPHeader)
 customRequestHandling_insertHeaders = Lens.lens (\CustomRequestHandling' {insertHeaders} -> insertHeaders) (\s@CustomRequestHandling' {} a -> s {insertHeaders = a} :: CustomRequestHandling) Prelude.. Lens.coerced
 

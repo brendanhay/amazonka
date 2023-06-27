@@ -68,7 +68,8 @@ data ListAvailableManagedRuleGroups = ListAvailableManagedRuleGroups'
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -102,7 +103,8 @@ data ListAvailableManagedRuleGroups = ListAvailableManagedRuleGroups'
 -- 'scope', 'listAvailableManagedRuleGroups_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -140,7 +142,8 @@ listAvailableManagedRuleGroups_nextMarker = Lens.lens (\ListAvailableManagedRule
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -165,7 +168,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAvailableManagedRuleGroupsResponse'
-            Prelude.<$> ( x Data..?> "ManagedRuleGroups"
+            Prelude.<$> ( x
+                            Data..?> "ManagedRuleGroups"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextMarker")
@@ -179,7 +183,8 @@ instance
   hashWithSalt
     _salt
     ListAvailableManagedRuleGroups' {..} =
-      _salt `Prelude.hashWithSalt` limit
+      _salt
+        `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` nextMarker
         `Prelude.hashWithSalt` scope
 
@@ -228,7 +233,9 @@ instance Data.ToQuery ListAvailableManagedRuleGroups where
 
 -- | /See:/ 'newListAvailableManagedRuleGroupsResponse' smart constructor.
 data ListAvailableManagedRuleGroupsResponse = ListAvailableManagedRuleGroupsResponse'
-  { managedRuleGroups :: Prelude.Maybe [ManagedRuleGroupSummary],
+  { -- | Array of managed rule groups that you can use. If you specified a
+    -- @Limit@ in your request, this might not be the full list.
+    managedRuleGroups :: Prelude.Maybe [ManagedRuleGroupSummary],
     -- | When you request a list of objects with a @Limit@ setting, if the number
     -- of objects that are still available for retrieval exceeds the limit, WAF
     -- returns a @NextMarker@ value in the response. To retrieve the next batch
@@ -247,7 +254,8 @@ data ListAvailableManagedRuleGroupsResponse = ListAvailableManagedRuleGroupsResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'managedRuleGroups', 'listAvailableManagedRuleGroupsResponse_managedRuleGroups' -
+-- 'managedRuleGroups', 'listAvailableManagedRuleGroupsResponse_managedRuleGroups' - Array of managed rule groups that you can use. If you specified a
+-- @Limit@ in your request, this might not be the full list.
 --
 -- 'nextMarker', 'listAvailableManagedRuleGroupsResponse_nextMarker' - When you request a list of objects with a @Limit@ setting, if the number
 -- of objects that are still available for retrieval exceeds the limit, WAF
@@ -268,7 +276,8 @@ newListAvailableManagedRuleGroupsResponse
         httpStatus = pHttpStatus_
       }
 
--- |
+-- | Array of managed rule groups that you can use. If you specified a
+-- @Limit@ in your request, this might not be the full list.
 listAvailableManagedRuleGroupsResponse_managedRuleGroups :: Lens.Lens' ListAvailableManagedRuleGroupsResponse (Prelude.Maybe [ManagedRuleGroupSummary])
 listAvailableManagedRuleGroupsResponse_managedRuleGroups = Lens.lens (\ListAvailableManagedRuleGroupsResponse' {managedRuleGroups} -> managedRuleGroups) (\s@ListAvailableManagedRuleGroupsResponse' {} a -> s {managedRuleGroups = a} :: ListAvailableManagedRuleGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 

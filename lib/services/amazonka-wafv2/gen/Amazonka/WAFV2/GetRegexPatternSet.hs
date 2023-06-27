@@ -58,7 +58,8 @@ data GetRegexPatternSet = GetRegexPatternSet'
     -- | Specifies whether this is for an Amazon CloudFront distribution or for a
     -- regional application. A regional application can be an Application Load
     -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
-    -- or an Amazon Cognito user pool.
+    -- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+    -- Services Verified Access instance.
     --
     -- To work with CloudFront, you must also specify the Region US East (N.
     -- Virginia) as follows:
@@ -89,7 +90,8 @@ data GetRegexPatternSet = GetRegexPatternSet'
 -- 'scope', 'getRegexPatternSet_scope' - Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -125,7 +127,8 @@ getRegexPatternSet_name = Lens.lens (\GetRegexPatternSet' {name} -> name) (\s@Ge
 -- | Specifies whether this is for an Amazon CloudFront distribution or for a
 -- regional application. A regional application can be an Application Load
 -- Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API,
--- or an Amazon Cognito user pool.
+-- an Amazon Cognito user pool, an App Runner service, or an Amazon Web
+-- Services Verified Access instance.
 --
 -- To work with CloudFront, you must also specify the Region US East (N.
 -- Virginia) as follows:
@@ -160,7 +163,8 @@ instance Core.AWSRequest GetRegexPatternSet where
 
 instance Prelude.Hashable GetRegexPatternSet where
   hashWithSalt _salt GetRegexPatternSet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` scope
       `Prelude.hashWithSalt` id
 
@@ -261,7 +265,6 @@ newGetRegexPatternSetResponse pHttpStatus_ =
 getRegexPatternSetResponse_lockToken :: Lens.Lens' GetRegexPatternSetResponse (Prelude.Maybe Prelude.Text)
 getRegexPatternSetResponse_lockToken = Lens.lens (\GetRegexPatternSetResponse' {lockToken} -> lockToken) (\s@GetRegexPatternSetResponse' {} a -> s {lockToken = a} :: GetRegexPatternSetResponse)
 
--- |
 getRegexPatternSetResponse_regexPatternSet :: Lens.Lens' GetRegexPatternSetResponse (Prelude.Maybe RegexPatternSet)
 getRegexPatternSetResponse_regexPatternSet = Lens.lens (\GetRegexPatternSetResponse' {regexPatternSet} -> regexPatternSet) (\s@GetRegexPatternSetResponse' {} a -> s {regexPatternSet = a} :: GetRegexPatternSetResponse)
 

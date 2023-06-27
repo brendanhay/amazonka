@@ -20,6 +20,8 @@
 module Amazonka.WAFV2.Types.RateBasedStatementAggregateKeyType
   ( RateBasedStatementAggregateKeyType
       ( ..,
+        RateBasedStatementAggregateKeyType_CONSTANT,
+        RateBasedStatementAggregateKeyType_CUSTOM_KEYS,
         RateBasedStatementAggregateKeyType_FORWARDED_IP,
         RateBasedStatementAggregateKeyType_IP
       ),
@@ -58,6 +60,12 @@ newtype RateBasedStatementAggregateKeyType = RateBasedStatementAggregateKeyType'
       Data.ToXML
     )
 
+pattern RateBasedStatementAggregateKeyType_CONSTANT :: RateBasedStatementAggregateKeyType
+pattern RateBasedStatementAggregateKeyType_CONSTANT = RateBasedStatementAggregateKeyType' "CONSTANT"
+
+pattern RateBasedStatementAggregateKeyType_CUSTOM_KEYS :: RateBasedStatementAggregateKeyType
+pattern RateBasedStatementAggregateKeyType_CUSTOM_KEYS = RateBasedStatementAggregateKeyType' "CUSTOM_KEYS"
+
 pattern RateBasedStatementAggregateKeyType_FORWARDED_IP :: RateBasedStatementAggregateKeyType
 pattern RateBasedStatementAggregateKeyType_FORWARDED_IP = RateBasedStatementAggregateKeyType' "FORWARDED_IP"
 
@@ -65,6 +73,8 @@ pattern RateBasedStatementAggregateKeyType_IP :: RateBasedStatementAggregateKeyT
 pattern RateBasedStatementAggregateKeyType_IP = RateBasedStatementAggregateKeyType' "IP"
 
 {-# COMPLETE
+  RateBasedStatementAggregateKeyType_CONSTANT,
+  RateBasedStatementAggregateKeyType_CUSTOM_KEYS,
   RateBasedStatementAggregateKeyType_FORWARDED_IP,
   RateBasedStatementAggregateKeyType_IP,
   RateBasedStatementAggregateKeyType'

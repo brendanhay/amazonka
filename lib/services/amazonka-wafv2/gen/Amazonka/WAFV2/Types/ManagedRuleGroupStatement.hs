@@ -38,9 +38,11 @@ import {-# SOURCE #-} Amazonka.WAFV2.Types.Statement
 -- top-level statement within a rule.
 --
 -- You are charged additional fees when you use the WAF Bot Control managed
--- rule group @AWSManagedRulesBotControlRuleSet@ or the WAF Fraud Control
+-- rule group @AWSManagedRulesBotControlRuleSet@, the WAF Fraud Control
 -- account takeover prevention (ATP) managed rule group
--- @AWSManagedRulesATPRuleSet@. For more information, see
+-- @AWSManagedRulesATPRuleSet@, or the WAF Fraud Control account creation
+-- fraud prevention (ACFP) managed rule group @AWSManagedRulesACFPRuleSet@.
+-- For more information, see
 -- <http://aws.amazon.com/waf/pricing/ WAF Pricing>.
 --
 -- /See:/ 'newManagedRuleGroupStatement' smart constructor.
@@ -53,10 +55,25 @@ data ManagedRuleGroupStatement = ManagedRuleGroupStatement'
     -- | Additional information that\'s used by a managed rule group. Many
     -- managed rule groups don\'t require this.
     --
-    -- Use the @AWSManagedRulesBotControlRuleSet@ configuration object to
-    -- configure the protection level that you want the Bot Control rule group
-    -- to use.
-    managedRuleGroupConfigs :: Prelude.Maybe (Prelude.NonEmpty ManagedRuleGroupConfig),
+    -- The rule groups used for intelligent threat mitigation require
+    -- additional configuration:
+    --
+    -- -   Use the @AWSManagedRulesACFPRuleSet@ configuration object to
+    --     configure the account creation fraud prevention managed rule group.
+    --     The configuration includes the registration and sign-up pages of
+    --     your application and the locations in the account creation request
+    --     payload of data, such as the user email and phone number fields.
+    --
+    -- -   Use the @AWSManagedRulesATPRuleSet@ configuration object to
+    --     configure the account takeover prevention managed rule group. The
+    --     configuration includes the sign-in page of your application and the
+    --     locations in the login request payload of data such as the username
+    --     and password.
+    --
+    -- -   Use the @AWSManagedRulesBotControlRuleSet@ configuration object to
+    --     configure the protection level that you want the Bot Control rule
+    --     group to use.
+    managedRuleGroupConfigs :: Prelude.Maybe [ManagedRuleGroupConfig],
     -- | Action settings to use in the place of the rule actions that are
     -- configured inside the rule group. You specify one override for each rule
     -- whose action you want to change.
@@ -80,7 +97,7 @@ data ManagedRuleGroupStatement = ManagedRuleGroupStatement'
     -- settings.
     version :: Prelude.Maybe Prelude.Text,
     -- | The name of the managed rule group vendor. You use this, along with the
-    -- rule group name, to identify the rule group.
+    -- rule group name, to identify a rule group.
     vendorName :: Prelude.Text,
     -- | The name of the managed rule group. You use this, along with the vendor
     -- name, to identify the rule group.
@@ -104,9 +121,24 @@ data ManagedRuleGroupStatement = ManagedRuleGroupStatement'
 -- 'managedRuleGroupConfigs', 'managedRuleGroupStatement_managedRuleGroupConfigs' - Additional information that\'s used by a managed rule group. Many
 -- managed rule groups don\'t require this.
 --
--- Use the @AWSManagedRulesBotControlRuleSet@ configuration object to
--- configure the protection level that you want the Bot Control rule group
--- to use.
+-- The rule groups used for intelligent threat mitigation require
+-- additional configuration:
+--
+-- -   Use the @AWSManagedRulesACFPRuleSet@ configuration object to
+--     configure the account creation fraud prevention managed rule group.
+--     The configuration includes the registration and sign-up pages of
+--     your application and the locations in the account creation request
+--     payload of data, such as the user email and phone number fields.
+--
+-- -   Use the @AWSManagedRulesATPRuleSet@ configuration object to
+--     configure the account takeover prevention managed rule group. The
+--     configuration includes the sign-in page of your application and the
+--     locations in the login request payload of data such as the username
+--     and password.
+--
+-- -   Use the @AWSManagedRulesBotControlRuleSet@ configuration object to
+--     configure the protection level that you want the Bot Control rule
+--     group to use.
 --
 -- 'ruleActionOverrides', 'managedRuleGroupStatement_ruleActionOverrides' - Action settings to use in the place of the rule actions that are
 -- configured inside the rule group. You specify one override for each rule
@@ -131,7 +163,7 @@ data ManagedRuleGroupStatement = ManagedRuleGroupStatement'
 -- settings.
 --
 -- 'vendorName', 'managedRuleGroupStatement_vendorName' - The name of the managed rule group vendor. You use this, along with the
--- rule group name, to identify the rule group.
+-- rule group name, to identify a rule group.
 --
 -- 'name', 'managedRuleGroupStatement_name' - The name of the managed rule group. You use this, along with the vendor
 -- name, to identify the rule group.
@@ -163,10 +195,25 @@ managedRuleGroupStatement_excludedRules = Lens.lens (\ManagedRuleGroupStatement'
 -- | Additional information that\'s used by a managed rule group. Many
 -- managed rule groups don\'t require this.
 --
--- Use the @AWSManagedRulesBotControlRuleSet@ configuration object to
--- configure the protection level that you want the Bot Control rule group
--- to use.
-managedRuleGroupStatement_managedRuleGroupConfigs :: Lens.Lens' ManagedRuleGroupStatement (Prelude.Maybe (Prelude.NonEmpty ManagedRuleGroupConfig))
+-- The rule groups used for intelligent threat mitigation require
+-- additional configuration:
+--
+-- -   Use the @AWSManagedRulesACFPRuleSet@ configuration object to
+--     configure the account creation fraud prevention managed rule group.
+--     The configuration includes the registration and sign-up pages of
+--     your application and the locations in the account creation request
+--     payload of data, such as the user email and phone number fields.
+--
+-- -   Use the @AWSManagedRulesATPRuleSet@ configuration object to
+--     configure the account takeover prevention managed rule group. The
+--     configuration includes the sign-in page of your application and the
+--     locations in the login request payload of data such as the username
+--     and password.
+--
+-- -   Use the @AWSManagedRulesBotControlRuleSet@ configuration object to
+--     configure the protection level that you want the Bot Control rule
+--     group to use.
+managedRuleGroupStatement_managedRuleGroupConfigs :: Lens.Lens' ManagedRuleGroupStatement (Prelude.Maybe [ManagedRuleGroupConfig])
 managedRuleGroupStatement_managedRuleGroupConfigs = Lens.lens (\ManagedRuleGroupStatement' {managedRuleGroupConfigs} -> managedRuleGroupConfigs) (\s@ManagedRuleGroupStatement' {} a -> s {managedRuleGroupConfigs = a} :: ManagedRuleGroupStatement) Prelude.. Lens.mapping Lens.coerced
 
 -- | Action settings to use in the place of the rule actions that are
@@ -198,7 +245,7 @@ managedRuleGroupStatement_version :: Lens.Lens' ManagedRuleGroupStatement (Prelu
 managedRuleGroupStatement_version = Lens.lens (\ManagedRuleGroupStatement' {version} -> version) (\s@ManagedRuleGroupStatement' {} a -> s {version = a} :: ManagedRuleGroupStatement)
 
 -- | The name of the managed rule group vendor. You use this, along with the
--- rule group name, to identify the rule group.
+-- rule group name, to identify a rule group.
 managedRuleGroupStatement_vendorName :: Lens.Lens' ManagedRuleGroupStatement Prelude.Text
 managedRuleGroupStatement_vendorName = Lens.lens (\ManagedRuleGroupStatement' {vendorName} -> vendorName) (\s@ManagedRuleGroupStatement' {} a -> s {vendorName = a} :: ManagedRuleGroupStatement)
 
@@ -214,7 +261,10 @@ instance Data.FromJSON ManagedRuleGroupStatement where
       ( \x ->
           ManagedRuleGroupStatement'
             Prelude.<$> (x Data..:? "ExcludedRules" Data..!= Prelude.mempty)
-            Prelude.<*> (x Data..:? "ManagedRuleGroupConfigs")
+            Prelude.<*> ( x
+                            Data..:? "ManagedRuleGroupConfigs"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "RuleActionOverrides")
             Prelude.<*> (x Data..:? "ScopeDownStatement")
             Prelude.<*> (x Data..:? "Version")
@@ -224,7 +274,8 @@ instance Data.FromJSON ManagedRuleGroupStatement where
 
 instance Prelude.Hashable ManagedRuleGroupStatement where
   hashWithSalt _salt ManagedRuleGroupStatement' {..} =
-    _salt `Prelude.hashWithSalt` excludedRules
+    _salt
+      `Prelude.hashWithSalt` excludedRules
       `Prelude.hashWithSalt` managedRuleGroupConfigs
       `Prelude.hashWithSalt` ruleActionOverrides
       `Prelude.hashWithSalt` scopeDownStatement

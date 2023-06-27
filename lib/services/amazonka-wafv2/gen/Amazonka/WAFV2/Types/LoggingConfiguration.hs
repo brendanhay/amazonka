@@ -75,12 +75,18 @@ data LoggingConfiguration = LoggingConfiguration'
     -- Manager, as part of an WAF policy configuration. If true, only Firewall
     -- Manager can modify or delete the configuration.
     managedByFirewallManager :: Prelude.Maybe Prelude.Bool,
-    -- | The parts of the request that you want to keep out of the logs. For
-    -- example, if you redact the @SingleHeader@ field, the @HEADER@ field in
-    -- the logs will be @xxx@.
+    -- | The parts of the request that you want to keep out of the logs.
+    --
+    -- For example, if you redact the @SingleHeader@ field, the @HEADER@ field
+    -- in the logs will be @REDACTED@ for all rules that use the @SingleHeader@
+    -- @FieldToMatch@ setting.
+    --
+    -- Redaction applies only to the component that\'s specified in the rule\'s
+    -- @FieldToMatch@ setting, so the @SingleHeader@ redaction doesn\'t apply
+    -- to rules that use the @Headers@ @FieldToMatch@.
     --
     -- You can specify only the following fields for redaction: @UriPath@,
-    -- @QueryString@, @SingleHeader@, @Method@, and @JsonBody@.
+    -- @QueryString@, @SingleHeader@, and @Method@.
     redactedFields :: Prelude.Maybe [FieldToMatch],
     -- | The Amazon Resource Name (ARN) of the web ACL that you want to associate
     -- with @LogDestinationConfigs@.
@@ -110,12 +116,18 @@ data LoggingConfiguration = LoggingConfiguration'
 -- Manager, as part of an WAF policy configuration. If true, only Firewall
 -- Manager can modify or delete the configuration.
 --
--- 'redactedFields', 'loggingConfiguration_redactedFields' - The parts of the request that you want to keep out of the logs. For
--- example, if you redact the @SingleHeader@ field, the @HEADER@ field in
--- the logs will be @xxx@.
+-- 'redactedFields', 'loggingConfiguration_redactedFields' - The parts of the request that you want to keep out of the logs.
+--
+-- For example, if you redact the @SingleHeader@ field, the @HEADER@ field
+-- in the logs will be @REDACTED@ for all rules that use the @SingleHeader@
+-- @FieldToMatch@ setting.
+--
+-- Redaction applies only to the component that\'s specified in the rule\'s
+-- @FieldToMatch@ setting, so the @SingleHeader@ redaction doesn\'t apply
+-- to rules that use the @Headers@ @FieldToMatch@.
 --
 -- You can specify only the following fields for redaction: @UriPath@,
--- @QueryString@, @SingleHeader@, @Method@, and @JsonBody@.
+-- @QueryString@, @SingleHeader@, and @Method@.
 --
 -- 'resourceArn', 'loggingConfiguration_resourceArn' - The Amazon Resource Name (ARN) of the web ACL that you want to associate
 -- with @LogDestinationConfigs@.
@@ -156,12 +168,18 @@ loggingConfiguration_loggingFilter = Lens.lens (\LoggingConfiguration' {loggingF
 loggingConfiguration_managedByFirewallManager :: Lens.Lens' LoggingConfiguration (Prelude.Maybe Prelude.Bool)
 loggingConfiguration_managedByFirewallManager = Lens.lens (\LoggingConfiguration' {managedByFirewallManager} -> managedByFirewallManager) (\s@LoggingConfiguration' {} a -> s {managedByFirewallManager = a} :: LoggingConfiguration)
 
--- | The parts of the request that you want to keep out of the logs. For
--- example, if you redact the @SingleHeader@ field, the @HEADER@ field in
--- the logs will be @xxx@.
+-- | The parts of the request that you want to keep out of the logs.
+--
+-- For example, if you redact the @SingleHeader@ field, the @HEADER@ field
+-- in the logs will be @REDACTED@ for all rules that use the @SingleHeader@
+-- @FieldToMatch@ setting.
+--
+-- Redaction applies only to the component that\'s specified in the rule\'s
+-- @FieldToMatch@ setting, so the @SingleHeader@ redaction doesn\'t apply
+-- to rules that use the @Headers@ @FieldToMatch@.
 --
 -- You can specify only the following fields for redaction: @UriPath@,
--- @QueryString@, @SingleHeader@, @Method@, and @JsonBody@.
+-- @QueryString@, @SingleHeader@, and @Method@.
 loggingConfiguration_redactedFields :: Lens.Lens' LoggingConfiguration (Prelude.Maybe [FieldToMatch])
 loggingConfiguration_redactedFields = Lens.lens (\LoggingConfiguration' {redactedFields} -> redactedFields) (\s@LoggingConfiguration' {} a -> s {redactedFields = a} :: LoggingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
@@ -192,7 +210,8 @@ instance Data.FromJSON LoggingConfiguration where
 
 instance Prelude.Hashable LoggingConfiguration where
   hashWithSalt _salt LoggingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` loggingFilter
+    _salt
+      `Prelude.hashWithSalt` loggingFilter
       `Prelude.hashWithSalt` managedByFirewallManager
       `Prelude.hashWithSalt` redactedFields
       `Prelude.hashWithSalt` resourceArn

@@ -108,7 +108,8 @@ instance Data.FromJSON DelimitedTextImportOptions where
 
 instance Prelude.Hashable DelimitedTextImportOptions where
   hashWithSalt _salt DelimitedTextImportOptions' {..} =
-    _salt `Prelude.hashWithSalt` dataCharacterEncoding
+    _salt
+      `Prelude.hashWithSalt` dataCharacterEncoding
       `Prelude.hashWithSalt` hasHeaderRow
       `Prelude.hashWithSalt` ignoreEmptyRows
       `Prelude.hashWithSalt` delimiter

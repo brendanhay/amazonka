@@ -74,7 +74,8 @@ instance Data.FromJSON Table where
 
 instance Prelude.Hashable Table where
   hashWithSalt _salt Table' {..} =
-    _salt `Prelude.hashWithSalt` tableId
+    _salt
+      `Prelude.hashWithSalt` tableId
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData Table where

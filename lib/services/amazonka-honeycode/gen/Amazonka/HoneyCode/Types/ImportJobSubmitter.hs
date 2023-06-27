@@ -75,7 +75,8 @@ instance Data.FromJSON ImportJobSubmitter where
 
 instance Prelude.Hashable ImportJobSubmitter where
   hashWithSalt _salt ImportJobSubmitter' {..} =
-    _salt `Prelude.hashWithSalt` email
+    _salt
+      `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` userArn
 
 instance Prelude.NFData ImportJobSubmitter where

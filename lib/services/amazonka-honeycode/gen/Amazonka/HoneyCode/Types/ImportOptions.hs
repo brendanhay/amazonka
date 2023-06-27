@@ -81,7 +81,8 @@ instance Data.FromJSON ImportOptions where
 
 instance Prelude.Hashable ImportOptions where
   hashWithSalt _salt ImportOptions' {..} =
-    _salt `Prelude.hashWithSalt` delimitedTextOptions
+    _salt
+      `Prelude.hashWithSalt` delimitedTextOptions
       `Prelude.hashWithSalt` destinationOptions
 
 instance Prelude.NFData ImportOptions where

@@ -85,7 +85,8 @@ instance Data.FromJSON FailedBatchItem where
 
 instance Prelude.Hashable FailedBatchItem where
   hashWithSalt _salt FailedBatchItem' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` errorMessage
 
 instance Prelude.NFData FailedBatchItem where

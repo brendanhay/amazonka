@@ -214,7 +214,8 @@ instance Core.AWSRequest StartTableDataImportJob where
 
 instance Prelude.Hashable StartTableDataImportJob where
   hashWithSalt _salt StartTableDataImportJob' {..} =
-    _salt `Prelude.hashWithSalt` workbookId
+    _salt
+      `Prelude.hashWithSalt` workbookId
       `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` dataFormat
       `Prelude.hashWithSalt` destinationTableId

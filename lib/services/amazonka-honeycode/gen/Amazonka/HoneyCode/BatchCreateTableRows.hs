@@ -198,7 +198,8 @@ instance Core.AWSRequest BatchCreateTableRows where
     Response.receiveJSON
       ( \s h x ->
           BatchCreateTableRowsResponse'
-            Prelude.<$> ( x Data..?> "failedBatchItems"
+            Prelude.<$> ( x
+                            Data..?> "failedBatchItems"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -208,7 +209,8 @@ instance Core.AWSRequest BatchCreateTableRows where
 
 instance Prelude.Hashable BatchCreateTableRows where
   hashWithSalt _salt BatchCreateTableRows' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` workbookId
       `Prelude.hashWithSalt` tableId
       `Prelude.hashWithSalt` rowsToCreate

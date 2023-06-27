@@ -202,7 +202,8 @@ instance Core.AWSRequest BatchUpsertTableRows where
     Response.receiveJSON
       ( \s h x ->
           BatchUpsertTableRowsResponse'
-            Prelude.<$> ( x Data..?> "failedBatchItems"
+            Prelude.<$> ( x
+                            Data..?> "failedBatchItems"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -212,7 +213,8 @@ instance Core.AWSRequest BatchUpsertTableRows where
 
 instance Prelude.Hashable BatchUpsertTableRows where
   hashWithSalt _salt BatchUpsertTableRows' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` workbookId
       `Prelude.hashWithSalt` tableId
       `Prelude.hashWithSalt` rowsToUpsert

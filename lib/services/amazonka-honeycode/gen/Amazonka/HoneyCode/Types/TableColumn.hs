@@ -88,7 +88,8 @@ instance Data.FromJSON TableColumn where
 
 instance Prelude.Hashable TableColumn where
   hashWithSalt _salt TableColumn' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` tableColumnId
       `Prelude.hashWithSalt` tableColumnName
 

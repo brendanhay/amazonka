@@ -86,7 +86,8 @@ createRowData_cellsToCreate = Lens.lens (\CreateRowData' {cellsToCreate} -> cell
 
 instance Prelude.Hashable CreateRowData where
   hashWithSalt _salt CreateRowData' {..} =
-    _salt `Prelude.hashWithSalt` batchItemId
+    _salt
+      `Prelude.hashWithSalt` batchItemId
       `Prelude.hashWithSalt` cellsToCreate
 
 instance Prelude.NFData CreateRowData where

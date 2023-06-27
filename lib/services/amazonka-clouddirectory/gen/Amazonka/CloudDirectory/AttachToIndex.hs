@@ -122,7 +122,8 @@ instance Core.AWSRequest AttachToIndex where
 
 instance Prelude.Hashable AttachToIndex where
   hashWithSalt _salt AttachToIndex' {..} =
-    _salt `Prelude.hashWithSalt` directoryArn
+    _salt
+      `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` indexReference
       `Prelude.hashWithSalt` targetReference
 

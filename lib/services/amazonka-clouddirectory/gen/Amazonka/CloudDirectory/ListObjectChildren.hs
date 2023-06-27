@@ -155,7 +155,8 @@ instance Core.AWSRequest ListObjectChildren where
 
 instance Prelude.Hashable ListObjectChildren where
   hashWithSalt _salt ListObjectChildren' {..} =
-    _salt `Prelude.hashWithSalt` consistencyLevel
+    _salt
+      `Prelude.hashWithSalt` consistencyLevel
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` directoryArn

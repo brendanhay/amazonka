@@ -244,7 +244,8 @@ batchReadOperation_lookupPolicy = Lens.lens (\BatchReadOperation' {lookupPolicy}
 
 instance Prelude.Hashable BatchReadOperation where
   hashWithSalt _salt BatchReadOperation' {..} =
-    _salt `Prelude.hashWithSalt` getLinkAttributes
+    _salt
+      `Prelude.hashWithSalt` getLinkAttributes
       `Prelude.hashWithSalt` getObjectAttributes
       `Prelude.hashWithSalt` getObjectInformation
       `Prelude.hashWithSalt` listAttachedIndices

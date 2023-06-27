@@ -119,7 +119,8 @@ instance Core.AWSRequest BatchRead where
 
 instance Prelude.Hashable BatchRead where
   hashWithSalt _salt BatchRead' {..} =
-    _salt `Prelude.hashWithSalt` consistencyLevel
+    _salt
+      `Prelude.hashWithSalt` consistencyLevel
       `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` operations
 

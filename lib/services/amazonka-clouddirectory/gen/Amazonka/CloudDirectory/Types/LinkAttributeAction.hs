@@ -68,7 +68,8 @@ linkAttributeAction_attributeUpdateValue = Lens.lens (\LinkAttributeAction' {att
 
 instance Prelude.Hashable LinkAttributeAction where
   hashWithSalt _salt LinkAttributeAction' {..} =
-    _salt `Prelude.hashWithSalt` attributeActionType
+    _salt
+      `Prelude.hashWithSalt` attributeActionType
       `Prelude.hashWithSalt` attributeUpdateValue
 
 instance Prelude.NFData LinkAttributeAction where

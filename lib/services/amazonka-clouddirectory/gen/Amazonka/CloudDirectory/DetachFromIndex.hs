@@ -122,7 +122,8 @@ instance Core.AWSRequest DetachFromIndex where
 
 instance Prelude.Hashable DetachFromIndex where
   hashWithSalt _salt DetachFromIndex' {..} =
-    _salt `Prelude.hashWithSalt` directoryArn
+    _salt
+      `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` indexReference
       `Prelude.hashWithSalt` targetReference
 

@@ -119,7 +119,8 @@ instance Core.AWSRequest CreateDirectory where
 
 instance Prelude.Hashable CreateDirectory where
   hashWithSalt _salt CreateDirectory' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` schemaArn
 
 instance Prelude.NFData CreateDirectory where

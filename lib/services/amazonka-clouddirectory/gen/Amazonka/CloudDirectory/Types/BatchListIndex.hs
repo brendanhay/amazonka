@@ -88,7 +88,8 @@ batchListIndex_indexReference = Lens.lens (\BatchListIndex' {indexReference} -> 
 
 instance Prelude.Hashable BatchListIndex where
   hashWithSalt _salt BatchListIndex' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` rangesOnIndexedValues
       `Prelude.hashWithSalt` indexReference

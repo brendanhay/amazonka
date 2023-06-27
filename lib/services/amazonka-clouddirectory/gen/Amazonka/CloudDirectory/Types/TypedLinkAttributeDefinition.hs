@@ -131,7 +131,8 @@ instance
     TypedLinkAttributeDefinition
   where
   hashWithSalt _salt TypedLinkAttributeDefinition' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` isImmutable
       `Prelude.hashWithSalt` rules
       `Prelude.hashWithSalt` name

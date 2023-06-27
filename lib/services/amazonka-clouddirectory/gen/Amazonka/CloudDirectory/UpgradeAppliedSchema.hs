@@ -133,7 +133,8 @@ instance Core.AWSRequest UpgradeAppliedSchema where
 
 instance Prelude.Hashable UpgradeAppliedSchema where
   hashWithSalt _salt UpgradeAppliedSchema' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` publishedSchemaArn
       `Prelude.hashWithSalt` directoryArn
 

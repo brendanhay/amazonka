@@ -81,7 +81,8 @@ instance
   hashWithSalt
     _salt
     BatchListObjectParentsResponse' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` parentLinks
 
 instance

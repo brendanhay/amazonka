@@ -106,7 +106,8 @@ instance Core.AWSRequest CreateTypedLinkFacet where
 
 instance Prelude.Hashable CreateTypedLinkFacet where
   hashWithSalt _salt CreateTypedLinkFacet' {..} =
-    _salt `Prelude.hashWithSalt` schemaArn
+    _salt
+      `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` facet
 
 instance Prelude.NFData CreateTypedLinkFacet where

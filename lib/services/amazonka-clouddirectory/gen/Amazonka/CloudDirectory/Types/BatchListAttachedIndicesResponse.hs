@@ -73,7 +73,8 @@ instance
       "BatchListAttachedIndicesResponse"
       ( \x ->
           BatchListAttachedIndicesResponse'
-            Prelude.<$> ( x Data..:? "IndexAttachments"
+            Prelude.<$> ( x
+                            Data..:? "IndexAttachments"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "NextToken")
@@ -86,7 +87,8 @@ instance
   hashWithSalt
     _salt
     BatchListAttachedIndicesResponse' {..} =
-      _salt `Prelude.hashWithSalt` indexAttachments
+      _salt
+        `Prelude.hashWithSalt` indexAttachments
         `Prelude.hashWithSalt` nextToken
 
 instance

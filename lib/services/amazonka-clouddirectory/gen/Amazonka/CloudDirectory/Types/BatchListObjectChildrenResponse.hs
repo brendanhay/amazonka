@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     BatchListObjectChildrenResponse' {..} =
-      _salt `Prelude.hashWithSalt` children
+      _salt
+        `Prelude.hashWithSalt` children
         `Prelude.hashWithSalt` nextToken
 
 instance

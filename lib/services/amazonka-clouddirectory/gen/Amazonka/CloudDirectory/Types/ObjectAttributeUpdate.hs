@@ -67,7 +67,8 @@ objectAttributeUpdate_objectAttributeKey = Lens.lens (\ObjectAttributeUpdate' {o
 
 instance Prelude.Hashable ObjectAttributeUpdate where
   hashWithSalt _salt ObjectAttributeUpdate' {..} =
-    _salt `Prelude.hashWithSalt` objectAttributeAction
+    _salt
+      `Prelude.hashWithSalt` objectAttributeAction
       `Prelude.hashWithSalt` objectAttributeKey
 
 instance Prelude.NFData ObjectAttributeUpdate where

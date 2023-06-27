@@ -120,7 +120,8 @@ instance Core.AWSRequest UpdateObjectAttributes where
 
 instance Prelude.Hashable UpdateObjectAttributes where
   hashWithSalt _salt UpdateObjectAttributes' {..} =
-    _salt `Prelude.hashWithSalt` directoryArn
+    _salt
+      `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` objectReference
       `Prelude.hashWithSalt` attributeUpdates
 

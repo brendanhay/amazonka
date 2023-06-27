@@ -102,7 +102,8 @@ instance Data.FromJSON FacetAttributeDefinition where
 
 instance Prelude.Hashable FacetAttributeDefinition where
   hashWithSalt _salt FacetAttributeDefinition' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` isImmutable
       `Prelude.hashWithSalt` rules
       `Prelude.hashWithSalt` type'

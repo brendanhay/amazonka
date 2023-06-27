@@ -115,7 +115,8 @@ instance Data.FromJSON FacetAttribute where
 
 instance Prelude.Hashable FacetAttribute where
   hashWithSalt _salt FacetAttribute' {..} =
-    _salt `Prelude.hashWithSalt` attributeDefinition
+    _salt
+      `Prelude.hashWithSalt` attributeDefinition
       `Prelude.hashWithSalt` attributeReference
       `Prelude.hashWithSalt` requiredBehavior
       `Prelude.hashWithSalt` name

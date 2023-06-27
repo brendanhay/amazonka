@@ -98,7 +98,8 @@ typedLinkFacet_identityAttributeOrder = Lens.lens (\TypedLinkFacet' {identityAtt
 
 instance Prelude.Hashable TypedLinkFacet where
   hashWithSalt _salt TypedLinkFacet' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` identityAttributeOrder
 

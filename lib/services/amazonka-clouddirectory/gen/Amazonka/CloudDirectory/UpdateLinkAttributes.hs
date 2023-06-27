@@ -123,7 +123,8 @@ instance Core.AWSRequest UpdateLinkAttributes where
 
 instance Prelude.Hashable UpdateLinkAttributes where
   hashWithSalt _salt UpdateLinkAttributes' {..} =
-    _salt `Prelude.hashWithSalt` directoryArn
+    _salt
+      `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` typedLinkSpecifier
       `Prelude.hashWithSalt` attributeUpdates
 

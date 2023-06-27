@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteTypedLinkFacet where
 
 instance Prelude.Hashable DeleteTypedLinkFacet where
   hashWithSalt _salt DeleteTypedLinkFacet' {..} =
-    _salt `Prelude.hashWithSalt` schemaArn
+    _salt
+      `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeleteTypedLinkFacet where

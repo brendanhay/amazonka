@@ -87,7 +87,8 @@ batchGetObjectAttributes_attributeNames = Lens.lens (\BatchGetObjectAttributes' 
 
 instance Prelude.Hashable BatchGetObjectAttributes where
   hashWithSalt _salt BatchGetObjectAttributes' {..} =
-    _salt `Prelude.hashWithSalt` objectReference
+    _salt
+      `Prelude.hashWithSalt` objectReference
       `Prelude.hashWithSalt` schemaFacet
       `Prelude.hashWithSalt` attributeNames
 

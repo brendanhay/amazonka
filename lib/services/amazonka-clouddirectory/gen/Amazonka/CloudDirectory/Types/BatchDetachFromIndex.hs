@@ -74,7 +74,8 @@ batchDetachFromIndex_targetReference = Lens.lens (\BatchDetachFromIndex' {target
 
 instance Prelude.Hashable BatchDetachFromIndex where
   hashWithSalt _salt BatchDetachFromIndex' {..} =
-    _salt `Prelude.hashWithSalt` indexReference
+    _salt
+      `Prelude.hashWithSalt` indexReference
       `Prelude.hashWithSalt` targetReference
 
 instance Prelude.NFData BatchDetachFromIndex where

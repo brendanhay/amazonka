@@ -104,7 +104,8 @@ instance Core.AWSRequest GetFacet where
 
 instance Prelude.Hashable GetFacet where
   hashWithSalt _salt GetFacet' {..} =
-    _salt `Prelude.hashWithSalt` schemaArn
+    _salt
+      `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetFacet where

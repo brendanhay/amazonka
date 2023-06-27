@@ -77,7 +77,8 @@ batchAttachPolicy_objectReference = Lens.lens (\BatchAttachPolicy' {objectRefere
 
 instance Prelude.Hashable BatchAttachPolicy where
   hashWithSalt _salt BatchAttachPolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyReference
+    _salt
+      `Prelude.hashWithSalt` policyReference
       `Prelude.hashWithSalt` objectReference
 
 instance Prelude.NFData BatchAttachPolicy where

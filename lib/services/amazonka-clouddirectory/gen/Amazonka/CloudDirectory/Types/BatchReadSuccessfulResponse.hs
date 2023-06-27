@@ -263,7 +263,8 @@ instance Data.FromJSON BatchReadSuccessfulResponse where
 
 instance Prelude.Hashable BatchReadSuccessfulResponse where
   hashWithSalt _salt BatchReadSuccessfulResponse' {..} =
-    _salt `Prelude.hashWithSalt` getLinkAttributes
+    _salt
+      `Prelude.hashWithSalt` getLinkAttributes
       `Prelude.hashWithSalt` getObjectAttributes
       `Prelude.hashWithSalt` getObjectInformation
       `Prelude.hashWithSalt` listAttachedIndices

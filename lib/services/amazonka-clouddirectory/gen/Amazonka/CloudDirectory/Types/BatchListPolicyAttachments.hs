@@ -79,7 +79,8 @@ batchListPolicyAttachments_policyReference = Lens.lens (\BatchListPolicyAttachme
 
 instance Prelude.Hashable BatchListPolicyAttachments where
   hashWithSalt _salt BatchListPolicyAttachments' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` policyReference
 

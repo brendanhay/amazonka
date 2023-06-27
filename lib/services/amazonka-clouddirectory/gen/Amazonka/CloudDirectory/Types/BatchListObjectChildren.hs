@@ -80,7 +80,8 @@ batchListObjectChildren_objectReference = Lens.lens (\BatchListObjectChildren' {
 
 instance Prelude.Hashable BatchListObjectChildren where
   hashWithSalt _salt BatchListObjectChildren' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` objectReference
 

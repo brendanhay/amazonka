@@ -97,7 +97,8 @@ batchAttachTypedLink_attributes = Lens.lens (\BatchAttachTypedLink' {attributes}
 
 instance Prelude.Hashable BatchAttachTypedLink where
   hashWithSalt _salt BatchAttachTypedLink' {..} =
-    _salt `Prelude.hashWithSalt` sourceObjectReference
+    _salt
+      `Prelude.hashWithSalt` sourceObjectReference
       `Prelude.hashWithSalt` targetObjectReference
       `Prelude.hashWithSalt` typedLinkFacet
       `Prelude.hashWithSalt` attributes

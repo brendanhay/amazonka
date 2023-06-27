@@ -140,7 +140,8 @@ instance Core.AWSRequest PublishSchema where
 
 instance Prelude.Hashable PublishSchema where
   hashWithSalt _salt PublishSchema' {..} =
-    _salt `Prelude.hashWithSalt` minorVersion
+    _salt
+      `Prelude.hashWithSalt` minorVersion
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` developmentSchemaArn
       `Prelude.hashWithSalt` version

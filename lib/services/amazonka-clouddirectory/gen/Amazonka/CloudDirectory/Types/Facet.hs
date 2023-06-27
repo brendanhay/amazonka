@@ -26,7 +26,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | A structure that contains @Name@, @ARN@, @Attributes@, @ Rules@, and
+-- | A structure that contains @Name@, @ARN@, @Attributes@, @ @@Rule@@s@, and
 -- @ObjectTypes@. See
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_whatarefacets.html Facets>
 -- for more information.
@@ -101,7 +101,8 @@ instance Data.FromJSON Facet where
 
 instance Prelude.Hashable Facet where
   hashWithSalt _salt Facet' {..} =
-    _salt `Prelude.hashWithSalt` facetStyle
+    _salt
+      `Prelude.hashWithSalt` facetStyle
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` objectType
 

@@ -114,7 +114,8 @@ batchListIncomingTypedLinks_objectReference = Lens.lens (\BatchListIncomingTyped
 
 instance Prelude.Hashable BatchListIncomingTypedLinks where
   hashWithSalt _salt BatchListIncomingTypedLinks' {..} =
-    _salt `Prelude.hashWithSalt` filterAttributeRanges
+    _salt
+      `Prelude.hashWithSalt` filterAttributeRanges
       `Prelude.hashWithSalt` filterTypedLink
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

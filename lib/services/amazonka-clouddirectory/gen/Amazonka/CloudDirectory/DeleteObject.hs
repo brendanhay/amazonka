@@ -107,7 +107,8 @@ instance Core.AWSRequest DeleteObject where
 
 instance Prelude.Hashable DeleteObject where
   hashWithSalt _salt DeleteObject' {..} =
-    _salt `Prelude.hashWithSalt` directoryArn
+    _salt
+      `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` objectReference
 
 instance Prelude.NFData DeleteObject where

@@ -153,7 +153,8 @@ instance Core.AWSRequest UpdateTypedLinkFacet where
 
 instance Prelude.Hashable UpdateTypedLinkFacet where
   hashWithSalt _salt UpdateTypedLinkFacet' {..} =
-    _salt `Prelude.hashWithSalt` schemaArn
+    _salt
+      `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` attributeUpdates
       `Prelude.hashWithSalt` identityAttributeOrder

@@ -78,7 +78,8 @@ instance
       ( \x ->
           BatchListObjectParentPathsResponse'
             Prelude.<$> (x Data..:? "NextToken")
-            Prelude.<*> ( x Data..:? "PathToObjectIdentifiersList"
+            Prelude.<*> ( x
+                            Data..:? "PathToObjectIdentifiersList"
                             Data..!= Prelude.mempty
                         )
       )
@@ -90,7 +91,8 @@ instance
   hashWithSalt
     _salt
     BatchListObjectParentPathsResponse' {..} =
-      _salt `Prelude.hashWithSalt` nextToken
+      _salt
+        `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` pathToObjectIdentifiersList
 
 instance

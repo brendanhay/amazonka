@@ -138,7 +138,8 @@ instance Core.AWSRequest AttachObject where
 
 instance Prelude.Hashable AttachObject where
   hashWithSalt _salt AttachObject' {..} =
-    _salt `Prelude.hashWithSalt` directoryArn
+    _salt
+      `Prelude.hashWithSalt` directoryArn
       `Prelude.hashWithSalt` parentReference
       `Prelude.hashWithSalt` childReference
       `Prelude.hashWithSalt` linkName

@@ -141,7 +141,8 @@ instance
   hashWithSalt
     _salt
     DeleteServiceSpecificCredential' {..} =
-      _salt `Prelude.hashWithSalt` userName
+      _salt
+        `Prelude.hashWithSalt` userName
         `Prelude.hashWithSalt` serviceSpecificCredentialId
 
 instance

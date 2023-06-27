@@ -164,21 +164,22 @@ instance Core.AWSPager ListGroupPolicies where
     | Core.stop
         ( rs
             Lens.^? listGroupPoliciesResponse_isTruncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? listGroupPoliciesResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGroupPolicies_marker
           Lens..~ rs
-          Lens.^? listGroupPoliciesResponse_marker Prelude.. Lens._Just
+          Lens.^? listGroupPoliciesResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGroupPolicies where
   type
@@ -194,14 +195,17 @@ instance Core.AWSRequest ListGroupPolicies where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "PolicyNames" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "PolicyNames"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable ListGroupPolicies where
   hashWithSalt _salt ListGroupPolicies' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` groupName
 

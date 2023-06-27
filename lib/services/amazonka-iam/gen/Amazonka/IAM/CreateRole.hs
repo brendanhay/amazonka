@@ -95,8 +95,20 @@ data CreateRole = CreateRole'
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
     path :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the policy that is used to set the permissions boundary for
-    -- the role.
+    -- | The ARN of the managed policy that is used to set the permissions
+    -- boundary for the role.
+    --
+    -- A permissions boundary policy defines the maximum permissions that
+    -- identity-based policies can grant to an entity, but does not grant
+    -- permissions. Permissions boundaries do not define the maximum
+    -- permissions that a resource-based policy can grant to an entity. To
+    -- learn more, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
+    -- in the /IAM User Guide/.
+    --
+    -- For more information about policy types, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types Policy types>
+    -- in the /IAM User Guide/.
     permissionsBoundary :: Prelude.Maybe Prelude.Text,
     -- | A list of tags that you want to attach to the new role. Each tag
     -- consists of a key name and an associated value. For more information
@@ -113,6 +125,11 @@ data CreateRole = CreateRole'
     -- IAM user, group, role, and policy names must be unique within the
     -- account. Names are not distinguished by case. For example, you cannot
     -- create resources named both \"MyResource\" and \"myresource\".
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
     roleName :: Prelude.Text,
     -- | The trust relationship policy document that grants an entity permission
     -- to assume the role.
@@ -182,8 +199,20 @@ data CreateRole = CreateRole'
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
 --
--- 'permissionsBoundary', 'createRole_permissionsBoundary' - The ARN of the policy that is used to set the permissions boundary for
--- the role.
+-- 'permissionsBoundary', 'createRole_permissionsBoundary' - The ARN of the managed policy that is used to set the permissions
+-- boundary for the role.
+--
+-- A permissions boundary policy defines the maximum permissions that
+-- identity-based policies can grant to an entity, but does not grant
+-- permissions. Permissions boundaries do not define the maximum
+-- permissions that a resource-based policy can grant to an entity. To
+-- learn more, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
+-- in the /IAM User Guide/.
+--
+-- For more information about policy types, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types Policy types>
+-- in the /IAM User Guide/.
 --
 -- 'tags', 'createRole_tags' - A list of tags that you want to attach to the new role. Each tag
 -- consists of a key name and an associated value. For more information
@@ -200,6 +229,11 @@ data CreateRole = CreateRole'
 -- IAM user, group, role, and policy names must be unique within the
 -- account. Names are not distinguished by case. For example, you cannot
 -- create resources named both \"MyResource\" and \"myresource\".
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 --
 -- 'assumeRolePolicyDocument', 'createRole_assumeRolePolicyDocument' - The trust relationship policy document that grants an entity permission
 -- to assume the role.
@@ -281,8 +315,20 @@ createRole_maxSessionDuration = Lens.lens (\CreateRole' {maxSessionDuration} -> 
 createRole_path :: Lens.Lens' CreateRole (Prelude.Maybe Prelude.Text)
 createRole_path = Lens.lens (\CreateRole' {path} -> path) (\s@CreateRole' {} a -> s {path = a} :: CreateRole)
 
--- | The ARN of the policy that is used to set the permissions boundary for
--- the role.
+-- | The ARN of the managed policy that is used to set the permissions
+-- boundary for the role.
+--
+-- A permissions boundary policy defines the maximum permissions that
+-- identity-based policies can grant to an entity, but does not grant
+-- permissions. Permissions boundaries do not define the maximum
+-- permissions that a resource-based policy can grant to an entity. To
+-- learn more, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
+-- in the /IAM User Guide/.
+--
+-- For more information about policy types, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types Policy types>
+-- in the /IAM User Guide/.
 createRole_permissionsBoundary :: Lens.Lens' CreateRole (Prelude.Maybe Prelude.Text)
 createRole_permissionsBoundary = Lens.lens (\CreateRole' {permissionsBoundary} -> permissionsBoundary) (\s@CreateRole' {} a -> s {permissionsBoundary = a} :: CreateRole)
 
@@ -303,6 +349,11 @@ createRole_tags = Lens.lens (\CreateRole' {tags} -> tags) (\s@CreateRole' {} a -
 -- IAM user, group, role, and policy names must be unique within the
 -- account. Names are not distinguished by case. For example, you cannot
 -- create resources named both \"MyResource\" and \"myresource\".
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 createRole_roleName :: Lens.Lens' CreateRole Prelude.Text
 createRole_roleName = Lens.lens (\CreateRole' {roleName} -> roleName) (\s@CreateRole' {} a -> s {roleName = a} :: CreateRole)
 
@@ -346,7 +397,8 @@ instance Core.AWSRequest CreateRole where
 
 instance Prelude.Hashable CreateRole where
   hashWithSalt _salt CreateRole' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` maxSessionDuration
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` permissionsBoundary

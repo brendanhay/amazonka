@@ -39,9 +39,9 @@ data AccessDetail = AccessDetail'
     -- the service. Amazon Web Services does not report unauthenticated
     -- requests.
     --
-    -- This field is null if no principals (IAM users, IAM roles, or root
-    -- users) in the reported Organizations entity attempted to access the
-    -- service within the
+    -- This field is null if no principals (IAM users, IAM roles, or root user)
+    -- in the reported Organizations entity attempted to access the service
+    -- within the
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
     entityPath :: Prelude.Maybe Prelude.Text,
     -- | The date and time,
@@ -59,7 +59,7 @@ data AccessDetail = AccessDetail'
     -- attempted to access the service within the
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
     region :: Prelude.Maybe Prelude.Text,
-    -- | The number of accounts with authenticated principals (root users, IAM
+    -- | The number of accounts with authenticated principals (root user, IAM
     -- users, and IAM roles) that attempted to access the service in the
     -- tracking period.
     totalAuthenticatedEntities :: Prelude.Maybe Prelude.Int,
@@ -92,9 +92,9 @@ data AccessDetail = AccessDetail'
 -- the service. Amazon Web Services does not report unauthenticated
 -- requests.
 --
--- This field is null if no principals (IAM users, IAM roles, or root
--- users) in the reported Organizations entity attempted to access the
--- service within the
+-- This field is null if no principals (IAM users, IAM roles, or root user)
+-- in the reported Organizations entity attempted to access the service
+-- within the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
 --
 -- 'lastAuthenticatedTime', 'accessDetail_lastAuthenticatedTime' - The date and time,
@@ -112,7 +112,7 @@ data AccessDetail = AccessDetail'
 -- attempted to access the service within the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
 --
--- 'totalAuthenticatedEntities', 'accessDetail_totalAuthenticatedEntities' - The number of accounts with authenticated principals (root users, IAM
+-- 'totalAuthenticatedEntities', 'accessDetail_totalAuthenticatedEntities' - The number of accounts with authenticated principals (root user, IAM
 -- users, and IAM roles) that attempted to access the service in the
 -- tracking period.
 --
@@ -149,9 +149,9 @@ newAccessDetail pServiceName_ pServiceNamespace_ =
 -- the service. Amazon Web Services does not report unauthenticated
 -- requests.
 --
--- This field is null if no principals (IAM users, IAM roles, or root
--- users) in the reported Organizations entity attempted to access the
--- service within the
+-- This field is null if no principals (IAM users, IAM roles, or root user)
+-- in the reported Organizations entity attempted to access the service
+-- within the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period tracking period>.
 accessDetail_entityPath :: Lens.Lens' AccessDetail (Prelude.Maybe Prelude.Text)
 accessDetail_entityPath = Lens.lens (\AccessDetail' {entityPath} -> entityPath) (\s@AccessDetail' {} a -> s {entityPath = a} :: AccessDetail)
@@ -175,7 +175,7 @@ accessDetail_lastAuthenticatedTime = Lens.lens (\AccessDetail' {lastAuthenticate
 accessDetail_region :: Lens.Lens' AccessDetail (Prelude.Maybe Prelude.Text)
 accessDetail_region = Lens.lens (\AccessDetail' {region} -> region) (\s@AccessDetail' {} a -> s {region = a} :: AccessDetail)
 
--- | The number of accounts with authenticated principals (root users, IAM
+-- | The number of accounts with authenticated principals (root user, IAM
 -- users, and IAM roles) that attempted to access the service in the
 -- tracking period.
 accessDetail_totalAuthenticatedEntities :: Lens.Lens' AccessDetail (Prelude.Maybe Prelude.Int)
@@ -210,7 +210,8 @@ instance Data.FromXML AccessDetail where
 
 instance Prelude.Hashable AccessDetail where
   hashWithSalt _salt AccessDetail' {..} =
-    _salt `Prelude.hashWithSalt` entityPath
+    _salt
+      `Prelude.hashWithSalt` entityPath
       `Prelude.hashWithSalt` lastAuthenticatedTime
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` totalAuthenticatedEntities

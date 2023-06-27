@@ -146,7 +146,8 @@ instance Core.AWSRequest TagRole where
 
 instance Prelude.Hashable TagRole where
   hashWithSalt _salt TagRole' {..} =
-    _salt `Prelude.hashWithSalt` roleName
+    _salt
+      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagRole where

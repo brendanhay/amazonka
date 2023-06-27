@@ -155,7 +155,8 @@ instance
   hashWithSalt
     _salt
     UpdateServiceSpecificCredential' {..} =
-      _salt `Prelude.hashWithSalt` userName
+      _salt
+        `Prelude.hashWithSalt` userName
         `Prelude.hashWithSalt` serviceSpecificCredentialId
         `Prelude.hashWithSalt` status
 

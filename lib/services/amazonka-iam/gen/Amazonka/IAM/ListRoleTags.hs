@@ -25,6 +25,8 @@
 -- see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
+--
+-- This operation returns paginated results.
 module Amazonka.IAM.ListRoleTags
   ( -- * Creating a Request
     ListRoleTags (..),
@@ -150,6 +152,28 @@ listRoleTags_maxItems = Lens.lens (\ListRoleTags' {maxItems} -> maxItems) (\s@Li
 listRoleTags_roleName :: Lens.Lens' ListRoleTags Prelude.Text
 listRoleTags_roleName = Lens.lens (\ListRoleTags' {roleName} -> roleName) (\s@ListRoleTags' {} a -> s {roleName = a} :: ListRoleTags)
 
+instance Core.AWSPager ListRoleTags where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listRoleTagsResponse_isTruncated
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.isNothing
+        ( rs
+            Lens.^? listRoleTagsResponse_marker
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.otherwise =
+        Prelude.Just
+          Prelude.$ rq
+          Prelude.& listRoleTags_marker
+          Lens..~ rs
+          Lens.^? listRoleTagsResponse_marker
+          Prelude.. Lens._Just
+
 instance Core.AWSRequest ListRoleTags where
   type AWSResponse ListRoleTags = ListRoleTagsResponse
   request overrides =
@@ -162,14 +186,17 @@ instance Core.AWSRequest ListRoleTags where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Tags"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable ListRoleTags where
   hashWithSalt _salt ListRoleTags' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` roleName
 

@@ -198,7 +198,8 @@ instance
   hashWithSalt
     _salt
     GetContextKeysForPrincipalPolicy' {..} =
-      _salt `Prelude.hashWithSalt` policyInputList
+      _salt
+        `Prelude.hashWithSalt` policyInputList
         `Prelude.hashWithSalt` policySourceArn
 
 instance

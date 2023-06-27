@@ -147,7 +147,8 @@ instance Core.AWSRequest AddRoleToInstanceProfile where
 
 instance Prelude.Hashable AddRoleToInstanceProfile where
   hashWithSalt _salt AddRoleToInstanceProfile' {..} =
-    _salt `Prelude.hashWithSalt` instanceProfileName
+    _salt
+      `Prelude.hashWithSalt` instanceProfileName
       `Prelude.hashWithSalt` roleName
 
 instance Prelude.NFData AddRoleToInstanceProfile where

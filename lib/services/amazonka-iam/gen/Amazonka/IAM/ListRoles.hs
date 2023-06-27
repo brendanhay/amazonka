@@ -26,9 +26,17 @@
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with roles>.
 --
 -- IAM resource-listing operations return a subset of the available
--- attributes for the resource. For example, this operation does not return
--- tags, even though they are an attribute of the returned object. To view
--- all of the information for a role, see GetRole.
+-- attributes for the resource. This operation does not return the
+-- following attributes, even though they are an attribute of the returned
+-- object:
+--
+-- -   PermissionsBoundary
+--
+-- -   RoleLastUsed
+--
+-- -   Tags
+--
+-- To view all of the information for a role, see GetRole.
 --
 -- You can paginate the results using the @MaxItems@ and @Marker@
 -- parameters.
@@ -179,20 +187,23 @@ instance Core.AWSPager ListRoles where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listRolesResponse_isTruncated Prelude.. Lens._Just
+            Lens.^? listRolesResponse_isTruncated
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
-            Lens.^? listRolesResponse_marker Prelude.. Lens._Just
+            Lens.^? listRolesResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRoles_marker
           Lens..~ rs
-          Lens.^? listRolesResponse_marker Prelude.. Lens._Just
+          Lens.^? listRolesResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRoles where
   type AWSResponse ListRoles = ListRolesResponse
@@ -206,14 +217,17 @@ instance Core.AWSRequest ListRoles where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "Roles" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Roles"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable ListRoles where
   hashWithSalt _salt ListRoles' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` pathPrefix
 

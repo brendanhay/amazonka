@@ -248,7 +248,8 @@ instance Data.FromXML ServiceLastAccessed where
       Prelude.<*> (x Data..@? "LastAuthenticatedEntity")
       Prelude.<*> (x Data..@? "LastAuthenticatedRegion")
       Prelude.<*> (x Data..@? "TotalAuthenticatedEntities")
-      Prelude.<*> ( x Data..@? "TrackedActionsLastAccessed"
+      Prelude.<*> ( x
+                      Data..@? "TrackedActionsLastAccessed"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -257,7 +258,8 @@ instance Data.FromXML ServiceLastAccessed where
 
 instance Prelude.Hashable ServiceLastAccessed where
   hashWithSalt _salt ServiceLastAccessed' {..} =
-    _salt `Prelude.hashWithSalt` lastAuthenticated
+    _salt
+      `Prelude.hashWithSalt` lastAuthenticated
       `Prelude.hashWithSalt` lastAuthenticatedEntity
       `Prelude.hashWithSalt` lastAuthenticatedRegion
       `Prelude.hashWithSalt` totalAuthenticatedEntities

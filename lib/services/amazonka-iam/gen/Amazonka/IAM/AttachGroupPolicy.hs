@@ -23,7 +23,9 @@
 -- Attaches the specified managed policy to the specified IAM group.
 --
 -- You use this operation to attach a managed policy to a group. To embed
--- an inline policy in a group, use PutGroupPolicy.
+-- an inline policy in a group, use
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutGroupPolicy.html PutGroupPolicy>
+-- .
 --
 -- As a best practice, you can validate your IAM policies. To learn more,
 -- see
@@ -134,7 +136,8 @@ instance Core.AWSRequest AttachGroupPolicy where
 
 instance Prelude.Hashable AttachGroupPolicy where
   hashWithSalt _salt AttachGroupPolicy' {..} =
-    _salt `Prelude.hashWithSalt` groupName
+    _salt
+      `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` policyArn
 
 instance Prelude.NFData AttachGroupPolicy where

@@ -77,7 +77,8 @@ instance Core.AWSRequest ListOpenIDConnectProviders where
       "ListOpenIDConnectProvidersResult"
       ( \s h x ->
           ListOpenIDConnectProvidersResponse'
-            Prelude.<$> ( x Data..@? "OpenIDConnectProviderList"
+            Prelude.<$> ( x
+                            Data..@? "OpenIDConnectProviderList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )

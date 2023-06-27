@@ -20,9 +20,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified role. The role must not have any policies
--- attached. For more information about roles, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with roles>.
+-- Deletes the specified role. Unlike the Amazon Web Services Management
+-- Console, when you delete a role programmatically, you must delete the
+-- items attached to the role manually, or the deletion fails. For more
+-- information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_delete.html#roles-managingrole-deleting-cli Deleting an IAM role>.
+-- Before attempting to delete a role, remove the following attached items:
+--
+-- -   Inline policies (DeleteRolePolicy)
+--
+-- -   Attached managed policies (DetachRolePolicy)
+--
+-- -   Instance profile (RemoveRoleFromInstanceProfile)
+--
+-- -   Optional – Delete instance profile after detaching from role for
+--     resource clean up (DeleteInstanceProfile)
 --
 -- Make sure that you do not have any Amazon EC2 instances running with the
 -- role you are about to delete. Deleting a role or instance profile that

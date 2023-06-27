@@ -42,7 +42,13 @@
 -- If the output is long, you can use @MaxItems@ and @Marker@ parameters to
 -- paginate the results.
 --
--- For more information about using the policy simulator, see
+-- The IAM policy simulator evaluates statements in the identity-based
+-- policy and the inputs that you provide during simulation. The policy
+-- simulator results can differ from your live Amazon Web Services
+-- environment. We recommend that you check your policies against your live
+-- Amazon Web Services environment after testing using the policy simulator
+-- to confirm that you have the desired results. For more information about
+-- using the policy simulator, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html Testing IAM policies with the IAM policy simulator>
 -- in the /IAM User Guide/.
 --
@@ -158,6 +164,8 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /Amazon Web Services General Reference/.
+    --
+    -- Simulation of resource-based policies isn\'t supported for IAM roles.
     resourceArns :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the type of simulation to run. Different API operations that
     -- support resource-based policies require different combinations of
@@ -206,7 +214,7 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
     -- @CallerArn@.
     --
     -- The ARN for an account uses the following syntax:
-    -- @arn:aws:iam::AWS-account-ID:root@. For example, to represent the
+    -- @arn:aws:iam::@/@AWS-account-ID@/@:root@. For example, to represent the
     -- account with the 112233445566 ID, use the following ARN:
     -- @arn:aws:iam::112233445566-ID:root@.
     resourceOwner :: Prelude.Maybe Prelude.Text,
@@ -231,6 +239,8 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
+    --
+    -- Simulation of resource-based policies isn\'t supported for IAM roles.
     resourcePolicy :: Prelude.Maybe Prelude.Text,
     -- | A list of policy documents to include in the simulation. Each document
     -- is specified as a string containing the complete, valid JSON text of an
@@ -350,6 +360,8 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /Amazon Web Services General Reference/.
 --
+-- Simulation of resource-based policies isn\'t supported for IAM roles.
+--
 -- 'resourceHandlingOption', 'simulateCustomPolicy_resourceHandlingOption' - Specifies the type of simulation to run. Different API operations that
 -- support resource-based policies require different combinations of
 -- resources. By specifying the type of simulation to run, you enable the
@@ -397,7 +409,7 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
 -- @CallerArn@.
 --
 -- The ARN for an account uses the following syntax:
--- @arn:aws:iam::AWS-account-ID:root@. For example, to represent the
+-- @arn:aws:iam::@/@AWS-account-ID@/@:root@. For example, to represent the
 -- account with the 112233445566 ID, use the following ARN:
 -- @arn:aws:iam::112233445566-ID:root@.
 --
@@ -422,6 +434,8 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
+--
+-- Simulation of resource-based policies isn\'t supported for IAM roles.
 --
 -- 'policyInputList', 'simulateCustomPolicy_policyInputList' - A list of policy documents to include in the simulation. Each document
 -- is specified as a string containing the complete, valid JSON text of an
@@ -555,6 +569,8 @@ simulateCustomPolicy_permissionsBoundaryPolicyInputList = Lens.lens (\SimulateCu
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /Amazon Web Services General Reference/.
+--
+-- Simulation of resource-based policies isn\'t supported for IAM roles.
 simulateCustomPolicy_resourceArns :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe [Prelude.Text])
 simulateCustomPolicy_resourceArns = Lens.lens (\SimulateCustomPolicy' {resourceArns} -> resourceArns) (\s@SimulateCustomPolicy' {} a -> s {resourceArns = a} :: SimulateCustomPolicy) Prelude.. Lens.mapping Lens.coerced
 
@@ -607,7 +623,7 @@ simulateCustomPolicy_resourceHandlingOption = Lens.lens (\SimulateCustomPolicy' 
 -- @CallerArn@.
 --
 -- The ARN for an account uses the following syntax:
--- @arn:aws:iam::AWS-account-ID:root@. For example, to represent the
+-- @arn:aws:iam::@/@AWS-account-ID@/@:root@. For example, to represent the
 -- account with the 112233445566 ID, use the following ARN:
 -- @arn:aws:iam::112233445566-ID:root@.
 simulateCustomPolicy_resourceOwner :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
@@ -634,6 +650,8 @@ simulateCustomPolicy_resourceOwner = Lens.lens (\SimulateCustomPolicy' {resource
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
+--
+-- Simulation of resource-based policies isn\'t supported for IAM roles.
 simulateCustomPolicy_resourcePolicy :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
 simulateCustomPolicy_resourcePolicy = Lens.lens (\SimulateCustomPolicy' {resourcePolicy} -> resourcePolicy) (\s@SimulateCustomPolicy' {} a -> s {resourcePolicy = a} :: SimulateCustomPolicy)
 
@@ -680,20 +698,22 @@ instance Core.AWSPager SimulateCustomPolicy where
     | Core.stop
         ( rs
             Lens.^? simulatePolicyResponse_isTruncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
-            Lens.^? simulatePolicyResponse_marker Prelude.. Lens._Just
+            Lens.^? simulatePolicyResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& simulateCustomPolicy_marker
           Lens..~ rs
-          Lens.^? simulatePolicyResponse_marker Prelude.. Lens._Just
+          Lens.^? simulatePolicyResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SimulateCustomPolicy where
   type
@@ -708,7 +728,8 @@ instance Core.AWSRequest SimulateCustomPolicy where
 
 instance Prelude.Hashable SimulateCustomPolicy where
   hashWithSalt _salt SimulateCustomPolicy' {..} =
-    _salt `Prelude.hashWithSalt` callerArn
+    _salt
+      `Prelude.hashWithSalt` callerArn
       `Prelude.hashWithSalt` contextEntries
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems

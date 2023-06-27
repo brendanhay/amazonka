@@ -158,20 +158,22 @@ instance Core.AWSPager ListMFADevices where
     | Core.stop
         ( rs
             Lens.^? listMFADevicesResponse_isTruncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
-            Lens.^? listMFADevicesResponse_marker Prelude.. Lens._Just
+            Lens.^? listMFADevicesResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listMFADevices_marker
           Lens..~ rs
-          Lens.^? listMFADevicesResponse_marker Prelude.. Lens._Just
+          Lens.^? listMFADevicesResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMFADevices where
   type
@@ -187,14 +189,17 @@ instance Core.AWSRequest ListMFADevices where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "MFADevices" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "MFADevices"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable ListMFADevices where
   hashWithSalt _salt ListMFADevices' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` userName
 

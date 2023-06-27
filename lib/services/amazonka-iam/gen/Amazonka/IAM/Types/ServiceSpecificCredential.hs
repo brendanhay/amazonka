@@ -166,7 +166,8 @@ instance Data.FromXML ServiceSpecificCredential where
 
 instance Prelude.Hashable ServiceSpecificCredential where
   hashWithSalt _salt ServiceSpecificCredential' {..} =
-    _salt `Prelude.hashWithSalt` createDate
+    _salt
+      `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` serviceUserName
       `Prelude.hashWithSalt` servicePassword

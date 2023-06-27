@@ -22,8 +22,8 @@
 --
 -- Creates an alias for your Amazon Web Services account. For information
 -- about using an Amazon Web Services account alias, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an alias for your Amazon Web Services account ID>
--- in the /IAM User Guide/.
+-- <https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html Creating, deleting, and listing an Amazon Web Services account alias>
+-- in the /Amazon Web Services Sign-In User Guide/.
 module Amazonka.IAM.CreateAccountAlias
   ( -- * Creating a Request
     CreateAccountAlias (..),

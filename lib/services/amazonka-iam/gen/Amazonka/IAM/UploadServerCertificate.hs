@@ -383,7 +383,9 @@ instance Core.AWSRequest UploadServerCertificate where
       ( \s h x ->
           UploadServerCertificateResponse'
             Prelude.<$> (x Data..@? "ServerCertificateMetadata")
-            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Tags"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -391,7 +393,8 @@ instance Core.AWSRequest UploadServerCertificate where
 
 instance Prelude.Hashable UploadServerCertificate where
   hashWithSalt _salt UploadServerCertificate' {..} =
-    _salt `Prelude.hashWithSalt` certificateChain
+    _salt
+      `Prelude.hashWithSalt` certificateChain
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serverCertificateName

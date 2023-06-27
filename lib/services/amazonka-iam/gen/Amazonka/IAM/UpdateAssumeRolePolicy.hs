@@ -165,7 +165,8 @@ instance Core.AWSRequest UpdateAssumeRolePolicy where
 
 instance Prelude.Hashable UpdateAssumeRolePolicy where
   hashWithSalt _salt UpdateAssumeRolePolicy' {..} =
-    _salt `Prelude.hashWithSalt` roleName
+    _salt
+      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` policyDocument
 
 instance Prelude.NFData UpdateAssumeRolePolicy where

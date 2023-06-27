@@ -119,7 +119,8 @@ instance Data.FromXML EntityInfo where
 
 instance Prelude.Hashable EntityInfo where
   hashWithSalt _salt EntityInfo' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'

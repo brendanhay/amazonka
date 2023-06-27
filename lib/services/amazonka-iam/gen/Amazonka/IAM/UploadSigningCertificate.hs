@@ -181,7 +181,8 @@ instance Core.AWSRequest UploadSigningCertificate where
 
 instance Prelude.Hashable UploadSigningCertificate where
   hashWithSalt _salt UploadSigningCertificate' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` certificateBody
 
 instance Prelude.NFData UploadSigningCertificate where

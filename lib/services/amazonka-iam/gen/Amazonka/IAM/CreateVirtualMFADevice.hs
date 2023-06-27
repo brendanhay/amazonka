@@ -94,8 +94,8 @@ data CreateVirtualMFADevice = CreateVirtualMFADevice'
     -- number of tags, then the entire request fails and the resource is not
     -- created.
     tags :: Prelude.Maybe [Tag],
-    -- | The name of the virtual MFA device. Use with path to uniquely identify a
-    -- virtual MFA device.
+    -- | The name of the virtual MFA device, which must be unique. Use with path
+    -- to uniquely identify a virtual MFA device.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
@@ -139,8 +139,8 @@ data CreateVirtualMFADevice = CreateVirtualMFADevice'
 -- number of tags, then the entire request fails and the resource is not
 -- created.
 --
--- 'virtualMFADeviceName', 'createVirtualMFADevice_virtualMFADeviceName' - The name of the virtual MFA device. Use with path to uniquely identify a
--- virtual MFA device.
+-- 'virtualMFADeviceName', 'createVirtualMFADevice_virtualMFADeviceName' - The name of the virtual MFA device, which must be unique. Use with path
+-- to uniquely identify a virtual MFA device.
 --
 -- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
@@ -187,8 +187,8 @@ createVirtualMFADevice_path = Lens.lens (\CreateVirtualMFADevice' {path} -> path
 createVirtualMFADevice_tags :: Lens.Lens' CreateVirtualMFADevice (Prelude.Maybe [Tag])
 createVirtualMFADevice_tags = Lens.lens (\CreateVirtualMFADevice' {tags} -> tags) (\s@CreateVirtualMFADevice' {} a -> s {tags = a} :: CreateVirtualMFADevice) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the virtual MFA device. Use with path to uniquely identify a
--- virtual MFA device.
+-- | The name of the virtual MFA device, which must be unique. Use with path
+-- to uniquely identify a virtual MFA device.
 --
 -- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
@@ -214,7 +214,8 @@ instance Core.AWSRequest CreateVirtualMFADevice where
 
 instance Prelude.Hashable CreateVirtualMFADevice where
   hashWithSalt _salt CreateVirtualMFADevice' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` virtualMFADeviceName
 

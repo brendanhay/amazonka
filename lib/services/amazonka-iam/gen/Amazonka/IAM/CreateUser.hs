@@ -72,8 +72,20 @@ data CreateUser = CreateUser'
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
     path :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the policy that is used to set the permissions boundary for
-    -- the user.
+    -- | The ARN of the managed policy that is used to set the permissions
+    -- boundary for the user.
+    --
+    -- A permissions boundary policy defines the maximum permissions that
+    -- identity-based policies can grant to an entity, but does not grant
+    -- permissions. Permissions boundaries do not define the maximum
+    -- permissions that a resource-based policy can grant to an entity. To
+    -- learn more, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
+    -- in the /IAM User Guide/.
+    --
+    -- For more information about policy types, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types Policy types>
+    -- in the /IAM User Guide/.
     permissionsBoundary :: Prelude.Maybe Prelude.Text,
     -- | A list of tags that you want to attach to the new user. Each tag
     -- consists of a key name and an associated value. For more information
@@ -117,8 +129,20 @@ data CreateUser = CreateUser'
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
 --
--- 'permissionsBoundary', 'createUser_permissionsBoundary' - The ARN of the policy that is used to set the permissions boundary for
--- the user.
+-- 'permissionsBoundary', 'createUser_permissionsBoundary' - The ARN of the managed policy that is used to set the permissions
+-- boundary for the user.
+--
+-- A permissions boundary policy defines the maximum permissions that
+-- identity-based policies can grant to an entity, but does not grant
+-- permissions. Permissions boundaries do not define the maximum
+-- permissions that a resource-based policy can grant to an entity. To
+-- learn more, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
+-- in the /IAM User Guide/.
+--
+-- For more information about policy types, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types Policy types>
+-- in the /IAM User Guide/.
 --
 -- 'tags', 'createUser_tags' - A list of tags that you want to attach to the new user. Each tag
 -- consists of a key name and an associated value. For more information
@@ -164,8 +188,20 @@ newCreateUser pUserName_ =
 createUser_path :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_path = Lens.lens (\CreateUser' {path} -> path) (\s@CreateUser' {} a -> s {path = a} :: CreateUser)
 
--- | The ARN of the policy that is used to set the permissions boundary for
--- the user.
+-- | The ARN of the managed policy that is used to set the permissions
+-- boundary for the user.
+--
+-- A permissions boundary policy defines the maximum permissions that
+-- identity-based policies can grant to an entity, but does not grant
+-- permissions. Permissions boundaries do not define the maximum
+-- permissions that a resource-based policy can grant to an entity. To
+-- learn more, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
+-- in the /IAM User Guide/.
+--
+-- For more information about policy types, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types Policy types>
+-- in the /IAM User Guide/.
 createUser_permissionsBoundary :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_permissionsBoundary = Lens.lens (\CreateUser' {permissionsBoundary} -> permissionsBoundary) (\s@CreateUser' {} a -> s {permissionsBoundary = a} :: CreateUser)
 
@@ -204,7 +240,8 @@ instance Core.AWSRequest CreateUser where
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` permissionsBoundary
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` userName

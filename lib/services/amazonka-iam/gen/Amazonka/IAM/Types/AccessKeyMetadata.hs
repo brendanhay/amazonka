@@ -98,7 +98,8 @@ instance Data.FromXML AccessKeyMetadata where
 
 instance Prelude.Hashable AccessKeyMetadata where
   hashWithSalt _salt AccessKeyMetadata' {..} =
-    _salt `Prelude.hashWithSalt` accessKeyId
+    _salt
+      `Prelude.hashWithSalt` accessKeyId
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` userName

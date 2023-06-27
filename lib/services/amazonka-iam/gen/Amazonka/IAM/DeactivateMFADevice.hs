@@ -134,7 +134,8 @@ instance Core.AWSRequest DeactivateMFADevice where
 
 instance Prelude.Hashable DeactivateMFADevice where
   hashWithSalt _salt DeactivateMFADevice' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` serialNumber
 
 instance Prelude.NFData DeactivateMFADevice where

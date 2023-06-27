@@ -168,15 +168,18 @@ resourceSpecificResult_evalResourceDecision = Lens.lens (\ResourceSpecificResult
 instance Data.FromXML ResourceSpecificResult where
   parseXML x =
     ResourceSpecificResult'
-      Prelude.<$> ( x Data..@? "EvalDecisionDetails"
+      Prelude.<$> ( x
+                      Data..@? "EvalDecisionDetails"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                   )
-      Prelude.<*> ( x Data..@? "MatchedStatements"
+      Prelude.<*> ( x
+                      Data..@? "MatchedStatements"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "MissingContextValues"
+      Prelude.<*> ( x
+                      Data..@? "MissingContextValues"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -186,7 +189,8 @@ instance Data.FromXML ResourceSpecificResult where
 
 instance Prelude.Hashable ResourceSpecificResult where
   hashWithSalt _salt ResourceSpecificResult' {..} =
-    _salt `Prelude.hashWithSalt` evalDecisionDetails
+    _salt
+      `Prelude.hashWithSalt` evalDecisionDetails
       `Prelude.hashWithSalt` matchedStatements
       `Prelude.hashWithSalt` missingContextValues
       `Prelude.hashWithSalt` permissionsBoundaryDecisionDetail

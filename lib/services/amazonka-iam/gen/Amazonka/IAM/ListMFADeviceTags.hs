@@ -25,6 +25,8 @@
 -- sorted by tag key. For more information about tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
+--
+-- This operation returns paginated results.
 module Amazonka.IAM.ListMFADeviceTags
   ( -- * Creating a Request
     ListMFADeviceTags (..),
@@ -156,6 +158,28 @@ listMFADeviceTags_maxItems = Lens.lens (\ListMFADeviceTags' {maxItems} -> maxIte
 listMFADeviceTags_serialNumber :: Lens.Lens' ListMFADeviceTags Prelude.Text
 listMFADeviceTags_serialNumber = Lens.lens (\ListMFADeviceTags' {serialNumber} -> serialNumber) (\s@ListMFADeviceTags' {} a -> s {serialNumber = a} :: ListMFADeviceTags)
 
+instance Core.AWSPager ListMFADeviceTags where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listMFADeviceTagsResponse_isTruncated
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.isNothing
+        ( rs
+            Lens.^? listMFADeviceTagsResponse_marker
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.otherwise =
+        Prelude.Just
+          Prelude.$ rq
+          Prelude.& listMFADeviceTags_marker
+          Lens..~ rs
+          Lens.^? listMFADeviceTagsResponse_marker
+          Prelude.. Lens._Just
+
 instance Core.AWSRequest ListMFADeviceTags where
   type
     AWSResponse ListMFADeviceTags =
@@ -170,14 +194,17 @@ instance Core.AWSRequest ListMFADeviceTags where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Tags"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable ListMFADeviceTags where
   hashWithSalt _salt ListMFADeviceTags' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` serialNumber
 

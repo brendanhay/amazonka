@@ -32,6 +32,8 @@
 -- information about IAM server certificates,
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with server certificates>
 -- in the /IAM User Guide/.
+--
+-- This operation returns paginated results.
 module Amazonka.IAM.ListServerCertificateTags
   ( -- * Creating a Request
     ListServerCertificateTags (..),
@@ -158,6 +160,28 @@ listServerCertificateTags_maxItems = Lens.lens (\ListServerCertificateTags' {max
 listServerCertificateTags_serverCertificateName :: Lens.Lens' ListServerCertificateTags Prelude.Text
 listServerCertificateTags_serverCertificateName = Lens.lens (\ListServerCertificateTags' {serverCertificateName} -> serverCertificateName) (\s@ListServerCertificateTags' {} a -> s {serverCertificateName = a} :: ListServerCertificateTags)
 
+instance Core.AWSPager ListServerCertificateTags where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listServerCertificateTagsResponse_isTruncated
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.isNothing
+        ( rs
+            Lens.^? listServerCertificateTagsResponse_marker
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.otherwise =
+        Prelude.Just
+          Prelude.$ rq
+          Prelude.& listServerCertificateTags_marker
+          Lens..~ rs
+          Lens.^? listServerCertificateTagsResponse_marker
+          Prelude.. Lens._Just
+
 instance Core.AWSRequest ListServerCertificateTags where
   type
     AWSResponse ListServerCertificateTags =
@@ -172,14 +196,17 @@ instance Core.AWSRequest ListServerCertificateTags where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Tags"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable ListServerCertificateTags where
   hashWithSalt _salt ListServerCertificateTags' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` serverCertificateName
 

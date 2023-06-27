@@ -154,20 +154,23 @@ instance Core.AWSPager GetGroup where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getGroupResponse_isTruncated Prelude.. Lens._Just
+            Lens.^? getGroupResponse_isTruncated
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
-            Lens.^? getGroupResponse_marker Prelude.. Lens._Just
+            Lens.^? getGroupResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getGroup_marker
           Lens..~ rs
-          Lens.^? getGroupResponse_marker Prelude.. Lens._Just
+          Lens.^? getGroupResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetGroup where
   type AWSResponse GetGroup = GetGroupResponse
@@ -182,14 +185,17 @@ instance Core.AWSRequest GetGroup where
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..@ "Group")
-            Prelude.<*> ( x Data..@? "Users" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Users"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable GetGroup where
   hashWithSalt _salt GetGroup' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` groupName
 

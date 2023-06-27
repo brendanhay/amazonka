@@ -62,8 +62,20 @@ data PutRolePermissionsBoundary = PutRolePermissionsBoundary'
   { -- | The name (friendly name, not ARN) of the IAM role for which you want to
     -- set the permissions boundary.
     roleName :: Prelude.Text,
-    -- | The ARN of the policy that is used to set the permissions boundary for
-    -- the role.
+    -- | The ARN of the managed policy that is used to set the permissions
+    -- boundary for the role.
+    --
+    -- A permissions boundary policy defines the maximum permissions that
+    -- identity-based policies can grant to an entity, but does not grant
+    -- permissions. Permissions boundaries do not define the maximum
+    -- permissions that a resource-based policy can grant to an entity. To
+    -- learn more, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
+    -- in the /IAM User Guide/.
+    --
+    -- For more information about policy types, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types Policy types>
+    -- in the /IAM User Guide/.
     permissionsBoundary :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,8 +91,20 @@ data PutRolePermissionsBoundary = PutRolePermissionsBoundary'
 -- 'roleName', 'putRolePermissionsBoundary_roleName' - The name (friendly name, not ARN) of the IAM role for which you want to
 -- set the permissions boundary.
 --
--- 'permissionsBoundary', 'putRolePermissionsBoundary_permissionsBoundary' - The ARN of the policy that is used to set the permissions boundary for
--- the role.
+-- 'permissionsBoundary', 'putRolePermissionsBoundary_permissionsBoundary' - The ARN of the managed policy that is used to set the permissions
+-- boundary for the role.
+--
+-- A permissions boundary policy defines the maximum permissions that
+-- identity-based policies can grant to an entity, but does not grant
+-- permissions. Permissions boundaries do not define the maximum
+-- permissions that a resource-based policy can grant to an entity. To
+-- learn more, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
+-- in the /IAM User Guide/.
+--
+-- For more information about policy types, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types Policy types>
+-- in the /IAM User Guide/.
 newPutRolePermissionsBoundary ::
   -- | 'roleName'
   Prelude.Text ->
@@ -100,8 +124,20 @@ newPutRolePermissionsBoundary
 putRolePermissionsBoundary_roleName :: Lens.Lens' PutRolePermissionsBoundary Prelude.Text
 putRolePermissionsBoundary_roleName = Lens.lens (\PutRolePermissionsBoundary' {roleName} -> roleName) (\s@PutRolePermissionsBoundary' {} a -> s {roleName = a} :: PutRolePermissionsBoundary)
 
--- | The ARN of the policy that is used to set the permissions boundary for
--- the role.
+-- | The ARN of the managed policy that is used to set the permissions
+-- boundary for the role.
+--
+-- A permissions boundary policy defines the maximum permissions that
+-- identity-based policies can grant to an entity, but does not grant
+-- permissions. Permissions boundaries do not define the maximum
+-- permissions that a resource-based policy can grant to an entity. To
+-- learn more, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM entities>
+-- in the /IAM User Guide/.
+--
+-- For more information about policy types, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types Policy types>
+-- in the /IAM User Guide/.
 putRolePermissionsBoundary_permissionsBoundary :: Lens.Lens' PutRolePermissionsBoundary Prelude.Text
 putRolePermissionsBoundary_permissionsBoundary = Lens.lens (\PutRolePermissionsBoundary' {permissionsBoundary} -> permissionsBoundary) (\s@PutRolePermissionsBoundary' {} a -> s {permissionsBoundary = a} :: PutRolePermissionsBoundary)
 
@@ -117,7 +153,8 @@ instance Core.AWSRequest PutRolePermissionsBoundary where
 
 instance Prelude.Hashable PutRolePermissionsBoundary where
   hashWithSalt _salt PutRolePermissionsBoundary' {..} =
-    _salt `Prelude.hashWithSalt` roleName
+    _salt
+      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` permissionsBoundary
 
 instance Prelude.NFData PutRolePermissionsBoundary where

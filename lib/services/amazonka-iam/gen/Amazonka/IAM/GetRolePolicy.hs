@@ -159,7 +159,8 @@ instance Core.AWSRequest GetRolePolicy where
 
 instance Prelude.Hashable GetRolePolicy where
   hashWithSalt _salt GetRolePolicy' {..} =
-    _salt `Prelude.hashWithSalt` roleName
+    _salt
+      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData GetRolePolicy where

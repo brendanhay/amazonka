@@ -54,7 +54,7 @@ data Role = Role'
     -- last year. The role might have been used more than 400 days ago. For
     -- more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions where data is tracked>
-    -- in the /IAM User Guide/.
+    -- in the /IAM user Guide/.
     roleLastUsed :: Prelude.Maybe RoleLastUsed,
     -- | A list of tags that are attached to the role. For more information about
     -- tagging, see
@@ -114,7 +114,7 @@ data Role = Role'
 -- last year. The role might have been used more than 400 days ago. For
 -- more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions where data is tracked>
--- in the /IAM User Guide/.
+-- in the /IAM user Guide/.
 --
 -- 'tags', 'role_tags' - A list of tags that are attached to the role. For more information about
 -- tagging, see
@@ -197,7 +197,7 @@ role_permissionsBoundary = Lens.lens (\Role' {permissionsBoundary} -> permission
 -- last year. The role might have been used more than 400 days ago. For
 -- more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions where data is tracked>
--- in the /IAM User Guide/.
+-- in the /IAM user Guide/.
 role_roleLastUsed :: Lens.Lens' Role (Prelude.Maybe RoleLastUsed)
 role_roleLastUsed = Lens.lens (\Role' {roleLastUsed} -> roleLastUsed) (\s@Role' {} a -> s {roleLastUsed = a} :: Role)
 
@@ -246,7 +246,9 @@ instance Data.FromXML Role where
       Prelude.<*> (x Data..@? "MaxSessionDuration")
       Prelude.<*> (x Data..@? "PermissionsBoundary")
       Prelude.<*> (x Data..@? "RoleLastUsed")
-      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@ "Path")

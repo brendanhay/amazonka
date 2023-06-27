@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 data VirtualMFADevice = VirtualMFADevice'
   { -- | The base32 seed defined as specified in
     -- <https://tools.ietf.org/html/rfc3548.txt RFC3548>. The
-    -- @Base32StringSeed@ is base64-encoded.
+    -- @Base32StringSeed@ is base32-encoded.
     base32StringSeed :: Prelude.Maybe (Data.Sensitive Data.Base64),
     -- | The date and time on which the virtual MFA device was enabled.
     enableDate :: Prelude.Maybe Data.ISO8601,
@@ -65,7 +65,7 @@ data VirtualMFADevice = VirtualMFADevice'
 --
 -- 'base32StringSeed', 'virtualMFADevice_base32StringSeed' - The base32 seed defined as specified in
 -- <https://tools.ietf.org/html/rfc3548.txt RFC3548>. The
--- @Base32StringSeed@ is base64-encoded.--
+-- @Base32StringSeed@ is base32-encoded.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -109,7 +109,7 @@ newVirtualMFADevice pSerialNumber_ =
 
 -- | The base32 seed defined as specified in
 -- <https://tools.ietf.org/html/rfc3548.txt RFC3548>. The
--- @Base32StringSeed@ is base64-encoded.--
+-- @Base32StringSeed@ is base32-encoded.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -155,7 +155,9 @@ instance Data.FromXML VirtualMFADevice where
       Prelude.<$> (x Data..@? "Base32StringSeed")
       Prelude.<*> (x Data..@? "EnableDate")
       Prelude.<*> (x Data..@? "QRCodePNG")
-      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "User")
@@ -163,7 +165,8 @@ instance Data.FromXML VirtualMFADevice where
 
 instance Prelude.Hashable VirtualMFADevice where
   hashWithSalt _salt VirtualMFADevice' {..} =
-    _salt `Prelude.hashWithSalt` base32StringSeed
+    _salt
+      `Prelude.hashWithSalt` base32StringSeed
       `Prelude.hashWithSalt` enableDate
       `Prelude.hashWithSalt` qRCodePNG
       `Prelude.hashWithSalt` tags

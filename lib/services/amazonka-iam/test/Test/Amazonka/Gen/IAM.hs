@@ -216,6 +216,9 @@ import Test.Tasty
 --         , requestGetLoginProfile $
 --             newGetLoginProfile
 --
+--         , requestGetMFADevice $
+--             newGetMFADevice
+--
 --         , requestGetOpenIDConnectProvider $
 --             newGetOpenIDConnectProvider
 --
@@ -692,6 +695,9 @@ import Test.Tasty
 --
 --         , responseGetLoginProfile $
 --             newGetLoginProfileResponse
+--
+--         , responseGetMFADevice $
+--             newGetMFADeviceResponse
 --
 --         , responseGetOpenIDConnectProvider $
 --             newGetOpenIDConnectProviderResponse
@@ -1360,6 +1366,12 @@ requestGetLoginProfile =
   req
     "GetLoginProfile"
     "fixture/GetLoginProfile.yaml"
+
+requestGetMFADevice :: GetMFADevice -> TestTree
+requestGetMFADevice =
+  req
+    "GetMFADevice"
+    "fixture/GetMFADevice.yaml"
 
 requestGetOpenIDConnectProvider :: GetOpenIDConnectProvider -> TestTree
 requestGetOpenIDConnectProvider =
@@ -2436,6 +2448,14 @@ responseGetLoginProfile =
     "fixture/GetLoginProfileResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetLoginProfile)
+
+responseGetMFADevice :: GetMFADeviceResponse -> TestTree
+responseGetMFADevice =
+  res
+    "GetMFADeviceResponse"
+    "fixture/GetMFADeviceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetMFADevice)
 
 responseGetOpenIDConnectProvider :: GetOpenIDConnectProviderResponse -> TestTree
 responseGetOpenIDConnectProvider =

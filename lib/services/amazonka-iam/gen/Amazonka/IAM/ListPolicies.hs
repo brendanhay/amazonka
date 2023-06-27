@@ -270,20 +270,22 @@ instance Core.AWSPager ListPolicies where
     | Core.stop
         ( rs
             Lens.^? listPoliciesResponse_isTruncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
-            Lens.^? listPoliciesResponse_marker Prelude.. Lens._Just
+            Lens.^? listPoliciesResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPolicies_marker
           Lens..~ rs
-          Lens.^? listPoliciesResponse_marker Prelude.. Lens._Just
+          Lens.^? listPoliciesResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPolicies where
   type AWSResponse ListPolicies = ListPoliciesResponse
@@ -296,7 +298,9 @@ instance Core.AWSRequest ListPolicies where
           ListPoliciesResponse'
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "Policies" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Policies"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -304,7 +308,8 @@ instance Core.AWSRequest ListPolicies where
 
 instance Prelude.Hashable ListPolicies where
   hashWithSalt _salt ListPolicies' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` onlyAttached
       `Prelude.hashWithSalt` pathPrefix

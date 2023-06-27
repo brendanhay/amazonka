@@ -33,7 +33,8 @@
 -- instead.
 --
 -- You can also optionally include one resource-based policy to be
--- evaluated with each of the resources included in the simulation.
+-- evaluated with each of the resources included in the simulation for IAM
+-- users only.
 --
 -- The simulation does not perform the API operations; it only checks the
 -- authorization to determine if the simulated policies allow or deny the
@@ -53,7 +54,13 @@
 -- If the output is long, you can use the @MaxItems@ and @Marker@
 -- parameters to paginate the results.
 --
--- For more information about using the policy simulator, see
+-- The IAM policy simulator evaluates statements in the identity-based
+-- policy and the inputs that you provide during simulation. The policy
+-- simulator results can differ from your live Amazon Web Services
+-- environment. We recommend that you check your policies against your live
+-- Amazon Web Services environment after testing using the policy simulator
+-- to confirm that you have the desired results. For more information about
+-- using the policy simulator, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html Testing IAM policies with the IAM policy simulator>
 -- in the /IAM User Guide/.
 --
@@ -199,6 +206,8 @@ data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /Amazon Web Services General Reference/.
+    --
+    -- Simulation of resource-based policies isn\'t supported for IAM roles.
     resourceArns :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the type of simulation to run. Different API operations that
     -- support resource-based policies require different combinations of
@@ -266,6 +275,8 @@ data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
+    --
+    -- Simulation of resource-based policies isn\'t supported for IAM roles.
     resourcePolicy :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of a user, group, or role whose policies
     -- you want to include in the simulation. If you specify a user, group, or
@@ -399,6 +410,8 @@ data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /Amazon Web Services General Reference/.
 --
+-- Simulation of resource-based policies isn\'t supported for IAM roles.
+--
 -- 'resourceHandlingOption', 'simulatePrincipalPolicy_resourceHandlingOption' - Specifies the type of simulation to run. Different API operations that
 -- support resource-based policies require different combinations of
 -- resources. By specifying the type of simulation to run, you enable the
@@ -465,6 +478,8 @@ data SimulatePrincipalPolicy = SimulatePrincipalPolicy'
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
+--
+-- Simulation of resource-based policies isn\'t supported for IAM roles.
 --
 -- 'policySourceArn', 'simulatePrincipalPolicy_policySourceArn' - The Amazon Resource Name (ARN) of a user, group, or role whose policies
 -- you want to include in the simulation. If you specify a user, group, or
@@ -619,6 +634,8 @@ simulatePrincipalPolicy_policyInputList = Lens.lens (\SimulatePrincipalPolicy' {
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /Amazon Web Services General Reference/.
+--
+-- Simulation of resource-based policies isn\'t supported for IAM roles.
 simulatePrincipalPolicy_resourceArns :: Lens.Lens' SimulatePrincipalPolicy (Prelude.Maybe [Prelude.Text])
 simulatePrincipalPolicy_resourceArns = Lens.lens (\SimulatePrincipalPolicy' {resourceArns} -> resourceArns) (\s@SimulatePrincipalPolicy' {} a -> s {resourceArns = a} :: SimulatePrincipalPolicy) Prelude.. Lens.mapping Lens.coerced
 
@@ -692,6 +709,8 @@ simulatePrincipalPolicy_resourceOwner = Lens.lens (\SimulatePrincipalPolicy' {re
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
+--
+-- Simulation of resource-based policies isn\'t supported for IAM roles.
 simulatePrincipalPolicy_resourcePolicy :: Lens.Lens' SimulatePrincipalPolicy (Prelude.Maybe Prelude.Text)
 simulatePrincipalPolicy_resourcePolicy = Lens.lens (\SimulatePrincipalPolicy' {resourcePolicy} -> resourcePolicy) (\s@SimulatePrincipalPolicy' {} a -> s {resourcePolicy = a} :: SimulatePrincipalPolicy)
 
@@ -723,20 +742,22 @@ instance Core.AWSPager SimulatePrincipalPolicy where
     | Core.stop
         ( rs
             Lens.^? simulatePolicyResponse_isTruncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
-            Lens.^? simulatePolicyResponse_marker Prelude.. Lens._Just
+            Lens.^? simulatePolicyResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& simulatePrincipalPolicy_marker
           Lens..~ rs
-          Lens.^? simulatePolicyResponse_marker Prelude.. Lens._Just
+          Lens.^? simulatePolicyResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SimulatePrincipalPolicy where
   type
@@ -751,7 +772,8 @@ instance Core.AWSRequest SimulatePrincipalPolicy where
 
 instance Prelude.Hashable SimulatePrincipalPolicy where
   hashWithSalt _salt SimulatePrincipalPolicy' {..} =
-    _salt `Prelude.hashWithSalt` callerArn
+    _salt
+      `Prelude.hashWithSalt` callerArn
       `Prelude.hashWithSalt` contextEntries
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems

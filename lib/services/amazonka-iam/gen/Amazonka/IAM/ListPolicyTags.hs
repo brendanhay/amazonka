@@ -25,6 +25,8 @@
 -- information about tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
+--
+-- This operation returns paginated results.
 module Amazonka.IAM.ListPolicyTags
   ( -- * Creating a Request
     ListPolicyTags (..),
@@ -150,6 +152,28 @@ listPolicyTags_maxItems = Lens.lens (\ListPolicyTags' {maxItems} -> maxItems) (\
 listPolicyTags_policyArn :: Lens.Lens' ListPolicyTags Prelude.Text
 listPolicyTags_policyArn = Lens.lens (\ListPolicyTags' {policyArn} -> policyArn) (\s@ListPolicyTags' {} a -> s {policyArn = a} :: ListPolicyTags)
 
+instance Core.AWSPager ListPolicyTags where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listPolicyTagsResponse_isTruncated
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.isNothing
+        ( rs
+            Lens.^? listPolicyTagsResponse_marker
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.otherwise =
+        Prelude.Just
+          Prelude.$ rq
+          Prelude.& listPolicyTags_marker
+          Lens..~ rs
+          Lens.^? listPolicyTagsResponse_marker
+          Prelude.. Lens._Just
+
 instance Core.AWSRequest ListPolicyTags where
   type
     AWSResponse ListPolicyTags =
@@ -164,14 +188,17 @@ instance Core.AWSRequest ListPolicyTags where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Tags"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable ListPolicyTags where
   hashWithSalt _salt ListPolicyTags' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` policyArn
 

@@ -107,6 +107,7 @@ library
     Amazonka.IAM.GetGroupPolicy
     Amazonka.IAM.GetInstanceProfile
     Amazonka.IAM.GetLoginProfile
+    Amazonka.IAM.GetMFADevice
     Amazonka.IAM.GetOpenIDConnectProvider
     Amazonka.IAM.GetOrganizationsAccessReport
     Amazonka.IAM.GetPolicy

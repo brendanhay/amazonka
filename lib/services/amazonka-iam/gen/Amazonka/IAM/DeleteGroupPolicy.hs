@@ -135,7 +135,8 @@ instance Core.AWSRequest DeleteGroupPolicy where
 
 instance Prelude.Hashable DeleteGroupPolicy where
   hashWithSalt _salt DeleteGroupPolicy' {..} =
-    _salt `Prelude.hashWithSalt` groupName
+    _salt
+      `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData DeleteGroupPolicy where

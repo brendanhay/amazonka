@@ -133,7 +133,8 @@ instance
       "ListServiceSpecificCredentialsResult"
       ( \s h x ->
           ListServiceSpecificCredentialsResponse'
-            Prelude.<$> ( x Data..@? "ServiceSpecificCredentials"
+            Prelude.<$> ( x
+                            Data..@? "ServiceSpecificCredentials"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -147,7 +148,8 @@ instance
   hashWithSalt
     _salt
     ListServiceSpecificCredentials' {..} =
-      _salt `Prelude.hashWithSalt` serviceName
+      _salt
+        `Prelude.hashWithSalt` serviceName
         `Prelude.hashWithSalt` userName
 
 instance

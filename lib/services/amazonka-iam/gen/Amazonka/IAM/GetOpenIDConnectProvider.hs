@@ -112,14 +112,20 @@ instance Core.AWSRequest GetOpenIDConnectProvider where
       "GetOpenIDConnectProviderResult"
       ( \s h x ->
           GetOpenIDConnectProviderResponse'
-            Prelude.<$> ( x Data..@? "ClientIDList" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "ClientIDList"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "CreateDate")
-            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Tags"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Data..@? "ThumbprintList" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "ThumbprintList"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Url")

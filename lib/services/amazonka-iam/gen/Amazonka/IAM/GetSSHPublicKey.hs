@@ -161,7 +161,8 @@ instance Core.AWSRequest GetSSHPublicKey where
 
 instance Prelude.Hashable GetSSHPublicKey where
   hashWithSalt _salt GetSSHPublicKey' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` sSHPublicKeyId
       `Prelude.hashWithSalt` encoding
 

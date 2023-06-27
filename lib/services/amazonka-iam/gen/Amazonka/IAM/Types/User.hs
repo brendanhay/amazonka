@@ -255,7 +255,9 @@ instance Data.FromXML User where
       Prelude.<$> (x Data..@? "PasswordLastUsed")
       Prelude.<*> (x Data..@? "Path")
       Prelude.<*> (x Data..@? "PermissionsBoundary")
-      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@ "UserName")
@@ -265,7 +267,8 @@ instance Data.FromXML User where
 
 instance Prelude.Hashable User where
   hashWithSalt _salt User' {..} =
-    _salt `Prelude.hashWithSalt` passwordLastUsed
+    _salt
+      `Prelude.hashWithSalt` passwordLastUsed
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` permissionsBoundary
       `Prelude.hashWithSalt` tags

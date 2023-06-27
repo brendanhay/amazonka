@@ -199,12 +199,13 @@ instance
       ( \s h x ->
           ListPoliciesGrantingServiceAccessResponse'
             Prelude.<$> (x Data..@? "IsTruncated")
-              Prelude.<*> (x Data..@? "Marker")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Data..@? "PoliciesGrantingServiceAccess"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Data.parseXMLList "member"
-                          )
+            Prelude.<*> (x Data..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..@? "PoliciesGrantingServiceAccess"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "member"
+                        )
       )
 
 instance
@@ -214,7 +215,8 @@ instance
   hashWithSalt
     _salt
     ListPoliciesGrantingServiceAccess' {..} =
-      _salt `Prelude.hashWithSalt` marker
+      _salt
+        `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` serviceNamespaces
 

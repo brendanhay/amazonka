@@ -58,7 +58,9 @@ getContextKeysForPolicyResponse_contextKeyNames = Lens.lens (\GetContextKeysForP
 instance Data.FromXML GetContextKeysForPolicyResponse where
   parseXML x =
     GetContextKeysForPolicyResponse'
-      Prelude.<$> ( x Data..@? "ContextKeyNames" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "ContextKeyNames"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 

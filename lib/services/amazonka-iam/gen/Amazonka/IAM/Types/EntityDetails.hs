@@ -102,7 +102,8 @@ instance Data.FromXML EntityDetails where
 
 instance Prelude.Hashable EntityDetails where
   hashWithSalt _salt EntityDetails' {..} =
-    _salt `Prelude.hashWithSalt` lastAuthenticated
+    _salt
+      `Prelude.hashWithSalt` lastAuthenticated
       `Prelude.hashWithSalt` entityInfo
 
 instance Prelude.NFData EntityDetails where

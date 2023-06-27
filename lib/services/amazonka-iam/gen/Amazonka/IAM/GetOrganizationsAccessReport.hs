@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the service last accessed data report for Organizations that
--- was previously generated using the @ GenerateOrganizationsAccessReport @
--- operation. This operation retrieves the status of your report job and
--- the report contents.
+-- was previously generated using the
+-- @ @@GenerateOrganizationsAccessReport@@ @ operation. This operation
+-- retrieves the status of your report job and the report contents.
 --
 -- Depending on the parameters that you passed when you generated the
 -- report, the data returned could include different information. For
@@ -36,12 +36,11 @@
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html Refining permissions using service last accessed data>
 -- in the /IAM User Guide/.
 --
--- For each service that principals in an account (root users, IAM users,
--- or IAM roles) could access using SCPs, the operation returns details
--- about the most recent access attempt. If there was no attempt, the
--- service is listed without details about the most recent attempt to
--- access the service. If the operation fails, it returns the reason that
--- it failed.
+-- For each service that principals in an account (root user, IAM users, or
+-- IAM roles) could access using SCPs, the operation returns details about
+-- the most recent access attempt. If there was no attempt, the service is
+-- listed without details about the most recent attempt to access the
+-- service. If the operation fails, it returns the reason that it failed.
 --
 -- By default, the list is sorted by service namespace.
 module Amazonka.IAM.GetOrganizationsAccessReport
@@ -191,7 +190,9 @@ instance Core.AWSRequest GetOrganizationsAccessReport where
       "GetOrganizationsAccessReportResult"
       ( \s h x ->
           GetOrganizationsAccessReportResponse'
-            Prelude.<$> ( x Data..@? "AccessDetails" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "AccessDetails"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "ErrorDetails")
@@ -210,7 +211,8 @@ instance
     GetOrganizationsAccessReport
   where
   hashWithSalt _salt GetOrganizationsAccessReport' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` sortKey
       `Prelude.hashWithSalt` jobId

@@ -32,7 +32,7 @@
 --     /MyImportantProject/. Or search for all resources with the key name
 --     /Cost Center/ and the value /41200/.
 --
--- -   __Access control__ - Include tags in IAM user-based and
+-- -   __Access control__ - Include tags in IAM identity-based and
 --     resource-based policies. You can use tags to restrict access to only
 --     an IAM requesting user that has a specified tag attached. You can
 --     also restrict access to only those resources that have a certain tag
@@ -145,7 +145,8 @@ instance Core.AWSRequest TagUser where
 
 instance Prelude.Hashable TagUser where
   hashWithSalt _salt TagUser' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagUser where

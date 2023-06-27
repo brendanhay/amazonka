@@ -105,8 +105,8 @@ instance
       ( \s h x ->
           GetServiceLinkedRoleDeletionStatusResponse'
             Prelude.<$> (x Data..@? "Reason")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..@ "Status")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@ "Status")
       )
 
 instance

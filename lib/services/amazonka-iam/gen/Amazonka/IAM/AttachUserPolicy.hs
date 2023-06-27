@@ -23,7 +23,9 @@
 -- Attaches the specified managed policy to the specified user.
 --
 -- You use this operation to attach a /managed/ policy to a user. To embed
--- an inline policy in a user, use PutUserPolicy.
+-- an inline policy in a user, use
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPolicy.html PutUserPolicy>
+-- .
 --
 -- As a best practice, you can validate your IAM policies. To learn more,
 -- see
@@ -137,7 +139,8 @@ instance Core.AWSRequest AttachUserPolicy where
 
 instance Prelude.Hashable AttachUserPolicy where
   hashWithSalt _salt AttachUserPolicy' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` policyArn
 
 instance Prelude.NFData AttachUserPolicy where

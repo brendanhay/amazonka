@@ -176,7 +176,8 @@ instance Core.AWSRequest CreateServiceLinkedRole where
 
 instance Prelude.Hashable CreateServiceLinkedRole where
   hashWithSalt _salt CreateServiceLinkedRole' {..} =
-    _salt `Prelude.hashWithSalt` customSuffix
+    _salt
+      `Prelude.hashWithSalt` customSuffix
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` aWSServiceName
 

@@ -24,8 +24,11 @@
 -- specified IAM group.
 --
 -- A user can also have managed policies attached to it. To attach a
--- managed policy to a group, use AttachGroupPolicy. To create a new
--- managed policy, use CreatePolicy. For information about policies, see
+-- managed policy to a group, use
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachGroupPolicy.html AttachGroupPolicy>
+-- . To create a new managed policy, use
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html CreatePolicy>
+-- . For information about policies, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed policies and inline policies>
 -- in the /IAM User Guide/.
 --
@@ -209,7 +212,8 @@ instance Core.AWSRequest PutGroupPolicy where
 
 instance Prelude.Hashable PutGroupPolicy where
   hashWithSalt _salt PutGroupPolicy' {..} =
-    _salt `Prelude.hashWithSalt` groupName
+    _salt
+      `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` policyDocument
 

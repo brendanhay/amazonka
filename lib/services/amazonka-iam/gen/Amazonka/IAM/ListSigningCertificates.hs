@@ -163,22 +163,22 @@ instance Core.AWSPager ListSigningCertificates where
     | Core.stop
         ( rs
             Lens.^? listSigningCertificatesResponse_isTruncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? listSigningCertificatesResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSigningCertificates_marker
           Lens..~ rs
           Lens.^? listSigningCertificatesResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSigningCertificates where
   type
@@ -194,14 +194,17 @@ instance Core.AWSRequest ListSigningCertificates where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "Certificates" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Certificates"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable ListSigningCertificates where
   hashWithSalt _salt ListSigningCertificates' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` userName
 

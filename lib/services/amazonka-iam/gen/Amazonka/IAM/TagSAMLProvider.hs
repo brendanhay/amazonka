@@ -147,7 +147,8 @@ instance Core.AWSRequest TagSAMLProvider where
 
 instance Prelude.Hashable TagSAMLProvider where
   hashWithSalt _salt TagSAMLProvider' {..} =
-    _salt `Prelude.hashWithSalt` sAMLProviderArn
+    _salt
+      `Prelude.hashWithSalt` sAMLProviderArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagSAMLProvider where

@@ -328,6 +328,15 @@ module Amazonka.IAM.Lens
     getLoginProfileResponse_httpStatus,
     getLoginProfileResponse_loginProfile,
 
+    -- ** GetMFADevice
+    getMFADevice_userName,
+    getMFADevice_serialNumber,
+    getMFADeviceResponse_certifications,
+    getMFADeviceResponse_enableDate,
+    getMFADeviceResponse_userName,
+    getMFADeviceResponse_httpStatus,
+    getMFADeviceResponse_serialNumber,
+
     -- ** GetOpenIDConnectProvider
     getOpenIDConnectProvider_openIDConnectProviderArn,
     getOpenIDConnectProviderResponse_clientIDList,
@@ -1418,6 +1427,7 @@ import Amazonka.IAM.GetGroup
 import Amazonka.IAM.GetGroupPolicy
 import Amazonka.IAM.GetInstanceProfile
 import Amazonka.IAM.GetLoginProfile
+import Amazonka.IAM.GetMFADevice
 import Amazonka.IAM.GetOpenIDConnectProvider
 import Amazonka.IAM.GetOrganizationsAccessReport
 import Amazonka.IAM.GetPolicy

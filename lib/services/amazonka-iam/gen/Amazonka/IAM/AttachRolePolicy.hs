@@ -25,12 +25,16 @@
 -- of the role\'s permission (access) policy.
 --
 -- You cannot use a managed policy as the role\'s trust policy. The role\'s
--- trust policy is created at the same time as the role, using CreateRole.
--- You can update a role\'s trust policy using UpdateAssumeRolePolicy.
+-- trust policy is created at the same time as the role, using
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
+-- . You can update a role\'s trust policy using
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html UpdateAssumerolePolicy>
+-- .
 --
 -- Use this operation to attach a /managed/ policy to a role. To embed an
--- inline policy in a role, use PutRolePolicy. For more information about
--- policies, see
+-- inline policy in a role, use
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutRolePolicy.html PutRolePolicy>
+-- . For more information about policies, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed policies and inline policies>
 -- in the /IAM User Guide/.
 --
@@ -139,7 +143,8 @@ instance Core.AWSRequest AttachRolePolicy where
 
 instance Prelude.Hashable AttachRolePolicy where
   hashWithSalt _salt AttachRolePolicy' {..} =
-    _salt `Prelude.hashWithSalt` roleName
+    _salt
+      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` policyArn
 
 instance Prelude.NFData AttachRolePolicy where

@@ -35,7 +35,7 @@
 --     /MyImportantProject/. Or search for all resources with the key name
 --     /Cost Center/ and the value /41200/.
 --
--- -   __Access control__ - Include tags in IAM user-based and
+-- -   __Access control__ - Include tags in IAM identity-based and
 --     resource-based policies. You can use tags to restrict access to only
 --     an OIDC provider that has a specified tag attached. For examples of
 --     policies that show how to use tags to control access, see

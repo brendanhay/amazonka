@@ -129,7 +129,8 @@ instance Core.AWSRequest DeleteSigningCertificate where
 
 instance Prelude.Hashable DeleteSigningCertificate where
   hashWithSalt _salt DeleteSigningCertificate' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` certificateId
 
 instance Prelude.NFData DeleteSigningCertificate where

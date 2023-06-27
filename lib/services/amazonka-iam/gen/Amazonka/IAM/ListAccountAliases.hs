@@ -23,8 +23,8 @@
 -- Lists the account alias associated with the Amazon Web Services account
 -- (Note: you can have only one). For information about using an Amazon Web
 -- Services account alias, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an alias for your Amazon Web Services account ID>
--- in the /IAM User Guide/.
+-- <https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html Creating, deleting, and listing an Amazon Web Services account alias>
+-- in the /Amazon Web Services Sign-In User Guide/.
 --
 -- This operation returns paginated results.
 module Amazonka.IAM.ListAccountAliases
@@ -130,22 +130,22 @@ instance Core.AWSPager ListAccountAliases where
     | Core.stop
         ( rs
             Lens.^? listAccountAliasesResponse_isTruncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? listAccountAliasesResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAccountAliases_marker
           Lens..~ rs
           Lens.^? listAccountAliasesResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAccountAliases where
   type
@@ -161,14 +161,17 @@ instance Core.AWSRequest ListAccountAliases where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "AccountAliases" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "AccountAliases"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable ListAccountAliases where
   hashWithSalt _salt ListAccountAliases' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
 
 instance Prelude.NFData ListAccountAliases where

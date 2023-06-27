@@ -28,6 +28,8 @@
 -- For more information about tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
+--
+-- This operation returns paginated results.
 module Amazonka.IAM.ListOpenIDConnectProviderTags
   ( -- * Creating a Request
     ListOpenIDConnectProviderTags (..),
@@ -159,6 +161,28 @@ listOpenIDConnectProviderTags_maxItems = Lens.lens (\ListOpenIDConnectProviderTa
 listOpenIDConnectProviderTags_openIDConnectProviderArn :: Lens.Lens' ListOpenIDConnectProviderTags Prelude.Text
 listOpenIDConnectProviderTags_openIDConnectProviderArn = Lens.lens (\ListOpenIDConnectProviderTags' {openIDConnectProviderArn} -> openIDConnectProviderArn) (\s@ListOpenIDConnectProviderTags' {} a -> s {openIDConnectProviderArn = a} :: ListOpenIDConnectProviderTags)
 
+instance Core.AWSPager ListOpenIDConnectProviderTags where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listOpenIDConnectProviderTagsResponse_isTruncated
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.isNothing
+        ( rs
+            Lens.^? listOpenIDConnectProviderTagsResponse_marker
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.otherwise =
+        Prelude.Just
+          Prelude.$ rq
+          Prelude.& listOpenIDConnectProviderTags_marker
+          Lens..~ rs
+          Lens.^? listOpenIDConnectProviderTagsResponse_marker
+          Prelude.. Lens._Just
+
 instance
   Core.AWSRequest
     ListOpenIDConnectProviderTags
@@ -176,7 +200,9 @@ instance
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Tags"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
@@ -186,7 +212,8 @@ instance
     ListOpenIDConnectProviderTags
   where
   hashWithSalt _salt ListOpenIDConnectProviderTags' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` openIDConnectProviderArn
 

@@ -334,7 +334,8 @@ instance Core.AWSRequest CreatePolicy where
 
 instance Prelude.Hashable CreatePolicy where
   hashWithSalt _salt CreatePolicy' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` policyName

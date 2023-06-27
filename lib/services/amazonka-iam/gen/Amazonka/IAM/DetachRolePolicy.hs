@@ -130,7 +130,8 @@ instance Core.AWSRequest DetachRolePolicy where
 
 instance Prelude.Hashable DetachRolePolicy where
   hashWithSalt _salt DetachRolePolicy' {..} =
-    _salt `Prelude.hashWithSalt` roleName
+    _salt
+      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` policyArn
 
 instance Prelude.NFData DetachRolePolicy where

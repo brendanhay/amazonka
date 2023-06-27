@@ -156,7 +156,8 @@ instance Core.AWSRequest CreateGroup where
 
 instance Prelude.Hashable CreateGroup where
   hashWithSalt _salt CreateGroup' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` groupName
 
 instance Prelude.NFData CreateGroup where

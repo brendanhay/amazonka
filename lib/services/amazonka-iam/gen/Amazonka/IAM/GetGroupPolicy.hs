@@ -156,7 +156,8 @@ instance Core.AWSRequest GetGroupPolicy where
 
 instance Prelude.Hashable GetGroupPolicy where
   hashWithSalt _salt GetGroupPolicy' {..} =
-    _salt `Prelude.hashWithSalt` groupName
+    _salt
+      `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` policyName
 
 instance Prelude.NFData GetGroupPolicy where

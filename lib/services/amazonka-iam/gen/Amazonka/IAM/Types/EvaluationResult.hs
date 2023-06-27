@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | Contains the results of a simulation.
 --
 -- This data type is used by the return parameter of
--- @ SimulateCustomPolicy @ and @ SimulatePrincipalPolicy @.
+-- @ @@SimulateCustomPolicy@@ @ and @ @@SimulatePrincipalPolicy@@ @.
 --
 -- /See:/ 'newEvaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
@@ -240,22 +240,26 @@ evaluationResult_evalDecision = Lens.lens (\EvaluationResult' {evalDecision} -> 
 instance Data.FromXML EvaluationResult where
   parseXML x =
     EvaluationResult'
-      Prelude.<$> ( x Data..@? "EvalDecisionDetails"
+      Prelude.<$> ( x
+                      Data..@? "EvalDecisionDetails"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                   )
       Prelude.<*> (x Data..@? "EvalResourceName")
-      Prelude.<*> ( x Data..@? "MatchedStatements"
+      Prelude.<*> ( x
+                      Data..@? "MatchedStatements"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "MissingContextValues"
+      Prelude.<*> ( x
+                      Data..@? "MissingContextValues"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "OrganizationsDecisionDetail")
       Prelude.<*> (x Data..@? "PermissionsBoundaryDecisionDetail")
-      Prelude.<*> ( x Data..@? "ResourceSpecificResults"
+      Prelude.<*> ( x
+                      Data..@? "ResourceSpecificResults"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -264,7 +268,8 @@ instance Data.FromXML EvaluationResult where
 
 instance Prelude.Hashable EvaluationResult where
   hashWithSalt _salt EvaluationResult' {..} =
-    _salt `Prelude.hashWithSalt` evalDecisionDetails
+    _salt
+      `Prelude.hashWithSalt` evalDecisionDetails
       `Prelude.hashWithSalt` evalResourceName
       `Prelude.hashWithSalt` matchedStatements
       `Prelude.hashWithSalt` missingContextValues

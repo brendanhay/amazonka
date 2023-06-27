@@ -505,6 +505,12 @@ module Amazonka.IAM
     GetLoginProfileResponse (GetLoginProfileResponse'),
     newGetLoginProfileResponse,
 
+    -- ** GetMFADevice
+    GetMFADevice (GetMFADevice'),
+    newGetMFADevice,
+    GetMFADeviceResponse (GetMFADeviceResponse'),
+    newGetMFADeviceResponse,
+
     -- ** GetOpenIDConnectProvider
     GetOpenIDConnectProvider (GetOpenIDConnectProvider'),
     newGetOpenIDConnectProvider,
@@ -643,7 +649,7 @@ module Amazonka.IAM
     ListGroupsForUserResponse (ListGroupsForUserResponse'),
     newListGroupsForUserResponse,
 
-    -- ** ListInstanceProfileTags
+    -- ** ListInstanceProfileTags (Paginated)
     ListInstanceProfileTags (ListInstanceProfileTags'),
     newListInstanceProfileTags,
     ListInstanceProfileTagsResponse (ListInstanceProfileTagsResponse'),
@@ -661,7 +667,7 @@ module Amazonka.IAM
     ListInstanceProfilesForRoleResponse (ListInstanceProfilesForRoleResponse'),
     newListInstanceProfilesForRoleResponse,
 
-    -- ** ListMFADeviceTags
+    -- ** ListMFADeviceTags (Paginated)
     ListMFADeviceTags (ListMFADeviceTags'),
     newListMFADeviceTags,
     ListMFADeviceTagsResponse (ListMFADeviceTagsResponse'),
@@ -673,7 +679,7 @@ module Amazonka.IAM
     ListMFADevicesResponse (ListMFADevicesResponse'),
     newListMFADevicesResponse,
 
-    -- ** ListOpenIDConnectProviderTags
+    -- ** ListOpenIDConnectProviderTags (Paginated)
     ListOpenIDConnectProviderTags (ListOpenIDConnectProviderTags'),
     newListOpenIDConnectProviderTags,
     ListOpenIDConnectProviderTagsResponse (ListOpenIDConnectProviderTagsResponse'),
@@ -697,7 +703,7 @@ module Amazonka.IAM
     ListPoliciesGrantingServiceAccessResponse (ListPoliciesGrantingServiceAccessResponse'),
     newListPoliciesGrantingServiceAccessResponse,
 
-    -- ** ListPolicyTags
+    -- ** ListPolicyTags (Paginated)
     ListPolicyTags (ListPolicyTags'),
     newListPolicyTags,
     ListPolicyTagsResponse (ListPolicyTagsResponse'),
@@ -715,7 +721,7 @@ module Amazonka.IAM
     ListRolePoliciesResponse (ListRolePoliciesResponse'),
     newListRolePoliciesResponse,
 
-    -- ** ListRoleTags
+    -- ** ListRoleTags (Paginated)
     ListRoleTags (ListRoleTags'),
     newListRoleTags,
     ListRoleTagsResponse (ListRoleTagsResponse'),
@@ -727,7 +733,7 @@ module Amazonka.IAM
     ListRolesResponse (ListRolesResponse'),
     newListRolesResponse,
 
-    -- ** ListSAMLProviderTags
+    -- ** ListSAMLProviderTags (Paginated)
     ListSAMLProviderTags (ListSAMLProviderTags'),
     newListSAMLProviderTags,
     ListSAMLProviderTagsResponse (ListSAMLProviderTagsResponse'),
@@ -745,7 +751,7 @@ module Amazonka.IAM
     ListSSHPublicKeysResponse (ListSSHPublicKeysResponse'),
     newListSSHPublicKeysResponse,
 
-    -- ** ListServerCertificateTags
+    -- ** ListServerCertificateTags (Paginated)
     ListServerCertificateTags (ListServerCertificateTags'),
     newListServerCertificateTags,
     ListServerCertificateTagsResponse (ListServerCertificateTagsResponse'),
@@ -1414,6 +1420,7 @@ import Amazonka.IAM.GetGroup
 import Amazonka.IAM.GetGroupPolicy
 import Amazonka.IAM.GetInstanceProfile
 import Amazonka.IAM.GetLoginProfile
+import Amazonka.IAM.GetMFADevice
 import Amazonka.IAM.GetOpenIDConnectProvider
 import Amazonka.IAM.GetOrganizationsAccessReport
 import Amazonka.IAM.GetPolicy

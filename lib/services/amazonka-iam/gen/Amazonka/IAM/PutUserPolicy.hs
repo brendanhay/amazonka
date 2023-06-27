@@ -24,8 +24,11 @@
 -- specified IAM user.
 --
 -- An IAM user can also have a managed policy attached to it. To attach a
--- managed policy to a user, use AttachUserPolicy. To create a new managed
--- policy, use CreatePolicy. For information about policies, see
+-- managed policy to a user, use
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachUserPolicy.html AttachUserPolicy>
+-- . To create a new managed policy, use
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html CreatePolicy>
+-- . For information about policies, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed policies and inline policies>
 -- in the /IAM User Guide/.
 --
@@ -209,7 +212,8 @@ instance Core.AWSRequest PutUserPolicy where
 
 instance Prelude.Hashable PutUserPolicy where
   hashWithSalt _salt PutUserPolicy' {..} =
-    _salt `Prelude.hashWithSalt` userName
+    _salt
+      `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` policyDocument
 

@@ -25,6 +25,8 @@
 -- about tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
+--
+-- This operation returns paginated results.
 module Amazonka.IAM.ListInstanceProfileTags
   ( -- * Creating a Request
     ListInstanceProfileTags (..),
@@ -150,6 +152,28 @@ listInstanceProfileTags_maxItems = Lens.lens (\ListInstanceProfileTags' {maxItem
 listInstanceProfileTags_instanceProfileName :: Lens.Lens' ListInstanceProfileTags Prelude.Text
 listInstanceProfileTags_instanceProfileName = Lens.lens (\ListInstanceProfileTags' {instanceProfileName} -> instanceProfileName) (\s@ListInstanceProfileTags' {} a -> s {instanceProfileName = a} :: ListInstanceProfileTags)
 
+instance Core.AWSPager ListInstanceProfileTags where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listInstanceProfileTagsResponse_isTruncated
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.isNothing
+        ( rs
+            Lens.^? listInstanceProfileTagsResponse_marker
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.otherwise =
+        Prelude.Just
+          Prelude.$ rq
+          Prelude.& listInstanceProfileTags_marker
+          Lens..~ rs
+          Lens.^? listInstanceProfileTagsResponse_marker
+          Prelude.. Lens._Just
+
 instance Core.AWSRequest ListInstanceProfileTags where
   type
     AWSResponse ListInstanceProfileTags =
@@ -164,14 +188,17 @@ instance Core.AWSRequest ListInstanceProfileTags where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Tags"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable ListInstanceProfileTags where
   hashWithSalt _salt ListInstanceProfileTags' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` instanceProfileName
 

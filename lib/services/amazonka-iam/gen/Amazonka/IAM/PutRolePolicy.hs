@@ -25,14 +25,19 @@
 --
 -- When you embed an inline policy in a role, the inline policy is used as
 -- part of the role\'s access (permissions) policy. The role\'s trust
--- policy is created at the same time as the role, using CreateRole. You
--- can update a role\'s trust policy using UpdateAssumeRolePolicy. For more
--- information about IAM roles, see
+-- policy is created at the same time as the role, using
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
+-- . You can update a role\'s trust policy using
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html UpdateAssumerolePolicy>
+-- . For more information about IAM roles, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using roles to delegate permissions and federate identities>.
 --
 -- A role can also have a managed policy attached to it. To attach a
--- managed policy to a role, use AttachRolePolicy. To create a new managed
--- policy, use CreatePolicy. For information about policies, see
+-- managed policy to a role, use
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachRolePolicy.html AttachRolePolicy>
+-- . To create a new managed policy, use
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html CreatePolicy>
+-- . For information about policies, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed policies and inline policies>
 -- in the /IAM User Guide/.
 --
@@ -216,7 +221,8 @@ instance Core.AWSRequest PutRolePolicy where
 
 instance Prelude.Hashable PutRolePolicy where
   hashWithSalt _salt PutRolePolicy' {..} =
-    _salt `Prelude.hashWithSalt` roleName
+    _salt
+      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` policyDocument
 

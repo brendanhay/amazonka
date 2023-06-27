@@ -120,7 +120,8 @@ instance Core.AWSRequest UntagMFADevice where
 
 instance Prelude.Hashable UntagMFADevice where
   hashWithSalt _salt UntagMFADevice' {..} =
-    _salt `Prelude.hashWithSalt` serialNumber
+    _salt
+      `Prelude.hashWithSalt` serialNumber
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagMFADevice where

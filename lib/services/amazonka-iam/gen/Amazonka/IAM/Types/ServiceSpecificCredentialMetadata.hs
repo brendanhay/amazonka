@@ -152,7 +152,8 @@ instance
   hashWithSalt
     _salt
     ServiceSpecificCredentialMetadata' {..} =
-      _salt `Prelude.hashWithSalt` userName
+      _salt
+        `Prelude.hashWithSalt` userName
         `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` serviceUserName
         `Prelude.hashWithSalt` createDate

@@ -149,7 +149,8 @@ instance Core.AWSRequest DeletePolicyVersion where
 
 instance Prelude.Hashable DeletePolicyVersion where
   hashWithSalt _salt DeletePolicyVersion' {..} =
-    _salt `Prelude.hashWithSalt` policyArn
+    _salt
+      `Prelude.hashWithSalt` policyArn
       `Prelude.hashWithSalt` versionId
 
 instance Prelude.NFData DeletePolicyVersion where

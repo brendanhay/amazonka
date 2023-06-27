@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- last year. The role might have been used more than 400 days ago. For
 -- more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period Regions where data is tracked>
--- in the /IAM User Guide/.
+-- in the /IAM user Guide/.
 --
 -- This data type is returned as a response element in the GetRole and
 -- GetAccountAuthorizationDetails operations.
@@ -104,7 +104,8 @@ instance Data.FromXML RoleLastUsed where
 
 instance Prelude.Hashable RoleLastUsed where
   hashWithSalt _salt RoleLastUsed' {..} =
-    _salt `Prelude.hashWithSalt` lastUsedDate
+    _salt
+      `Prelude.hashWithSalt` lastUsedDate
       `Prelude.hashWithSalt` region
 
 instance Prelude.NFData RoleLastUsed where

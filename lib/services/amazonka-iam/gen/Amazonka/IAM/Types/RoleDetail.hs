@@ -235,12 +235,14 @@ instance Data.FromXML RoleDetail where
     RoleDetail'
       Prelude.<$> (x Data..@? "Arn")
       Prelude.<*> (x Data..@? "AssumeRolePolicyDocument")
-      Prelude.<*> ( x Data..@? "AttachedManagedPolicies"
+      Prelude.<*> ( x
+                      Data..@? "AttachedManagedPolicies"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "CreateDate")
-      Prelude.<*> ( x Data..@? "InstanceProfileList"
+      Prelude.<*> ( x
+                      Data..@? "InstanceProfileList"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -249,16 +251,21 @@ instance Data.FromXML RoleDetail where
       Prelude.<*> (x Data..@? "RoleId")
       Prelude.<*> (x Data..@? "RoleLastUsed")
       Prelude.<*> (x Data..@? "RoleName")
-      Prelude.<*> ( x Data..@? "RolePolicyList" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "RolePolicyList"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable RoleDetail where
   hashWithSalt _salt RoleDetail' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` assumeRolePolicyDocument
       `Prelude.hashWithSalt` attachedManagedPolicies
       `Prelude.hashWithSalt` createDate

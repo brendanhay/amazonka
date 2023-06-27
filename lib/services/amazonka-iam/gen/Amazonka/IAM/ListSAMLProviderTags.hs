@@ -28,6 +28,8 @@
 -- For more information about tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
+--
+-- This operation returns paginated results.
 module Amazonka.IAM.ListSAMLProviderTags
   ( -- * Creating a Request
     ListSAMLProviderTags (..),
@@ -156,6 +158,28 @@ listSAMLProviderTags_maxItems = Lens.lens (\ListSAMLProviderTags' {maxItems} -> 
 listSAMLProviderTags_sAMLProviderArn :: Lens.Lens' ListSAMLProviderTags Prelude.Text
 listSAMLProviderTags_sAMLProviderArn = Lens.lens (\ListSAMLProviderTags' {sAMLProviderArn} -> sAMLProviderArn) (\s@ListSAMLProviderTags' {} a -> s {sAMLProviderArn = a} :: ListSAMLProviderTags)
 
+instance Core.AWSPager ListSAMLProviderTags where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listSAMLProviderTagsResponse_isTruncated
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.isNothing
+        ( rs
+            Lens.^? listSAMLProviderTagsResponse_marker
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.otherwise =
+        Prelude.Just
+          Prelude.$ rq
+          Prelude.& listSAMLProviderTags_marker
+          Lens..~ rs
+          Lens.^? listSAMLProviderTagsResponse_marker
+          Prelude.. Lens._Just
+
 instance Core.AWSRequest ListSAMLProviderTags where
   type
     AWSResponse ListSAMLProviderTags =
@@ -170,14 +194,17 @@ instance Core.AWSRequest ListSAMLProviderTags where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Tags"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable ListSAMLProviderTags where
   hashWithSalt _salt ListSAMLProviderTags' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` sAMLProviderArn
 

@@ -44,6 +44,8 @@
 --     application or applications allowed to authenticate using the OIDC
 --     provider
 --
+-- -   A list of tags that are attached to the specified IAM OIDC provider
+--
 -- -   A list of thumbprints of one or more server certificates that the
 --     IdP uses
 --
@@ -53,10 +55,10 @@
 -- Amazon Web Services secures communication with some OIDC identity
 -- providers (IdPs) through our library of trusted certificate authorities
 -- (CAs) instead of using a certificate thumbprint to verify your IdP
--- server certificate. These OIDC IdPs include Google, and those that use
--- an Amazon S3 bucket to host a JSON Web Key Set (JWKS) endpoint. In these
--- cases, your legacy thumbprint remains in your configuration, but is no
--- longer used for validation.
+-- server certificate. These OIDC IdPs include Google, Auth0, and those
+-- that use an Amazon S3 bucket to host a JSON Web Key Set (JWKS) endpoint.
+-- In these cases, your legacy thumbprint remains in your configuration,
+-- but is no longer used for validation.
 --
 -- The trust for the OIDC provider is derived from the IAM provider that
 -- this operation creates. Therefore, it is best to limit access to the
@@ -148,7 +150,7 @@ data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'
     --
     -- For more information about obtaining the OIDC provider thumbprint, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html Obtaining the thumbprint for an OpenID Connect provider>
-    -- in the /IAM User Guide/.
+    -- in the /IAM user Guide/.
     thumbprintList :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -216,7 +218,7 @@ data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'
 --
 -- For more information about obtaining the OIDC provider thumbprint, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html Obtaining the thumbprint for an OpenID Connect provider>
--- in the /IAM User Guide/.
+-- in the /IAM user Guide/.
 newCreateOpenIDConnectProvider ::
   -- | 'url'
   Prelude.Text ->
@@ -291,7 +293,7 @@ createOpenIDConnectProvider_url = Lens.lens (\CreateOpenIDConnectProvider' {url}
 --
 -- For more information about obtaining the OIDC provider thumbprint, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html Obtaining the thumbprint for an OpenID Connect provider>
--- in the /IAM User Guide/.
+-- in the /IAM user Guide/.
 createOpenIDConnectProvider_thumbprintList :: Lens.Lens' CreateOpenIDConnectProvider [Prelude.Text]
 createOpenIDConnectProvider_thumbprintList = Lens.lens (\CreateOpenIDConnectProvider' {thumbprintList} -> thumbprintList) (\s@CreateOpenIDConnectProvider' {} a -> s {thumbprintList = a} :: CreateOpenIDConnectProvider) Prelude.. Lens.coerced
 
@@ -307,7 +309,9 @@ instance Core.AWSRequest CreateOpenIDConnectProvider where
       ( \s h x ->
           CreateOpenIDConnectProviderResponse'
             Prelude.<$> (x Data..@? "OpenIDConnectProviderArn")
-            Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Tags"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -315,7 +319,8 @@ instance Core.AWSRequest CreateOpenIDConnectProvider where
 
 instance Prelude.Hashable CreateOpenIDConnectProvider where
   hashWithSalt _salt CreateOpenIDConnectProvider' {..} =
-    _salt `Prelude.hashWithSalt` clientIDList
+    _salt
+      `Prelude.hashWithSalt` clientIDList
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` thumbprintList

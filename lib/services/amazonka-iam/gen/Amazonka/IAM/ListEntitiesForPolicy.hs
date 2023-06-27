@@ -267,22 +267,22 @@ instance Core.AWSPager ListEntitiesForPolicy where
     | Core.stop
         ( rs
             Lens.^? listEntitiesForPolicyResponse_isTruncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? listEntitiesForPolicyResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listEntitiesForPolicy_marker
           Lens..~ rs
           Lens.^? listEntitiesForPolicyResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEntitiesForPolicy where
   type
@@ -297,13 +297,19 @@ instance Core.AWSRequest ListEntitiesForPolicy where
           ListEntitiesForPolicyResponse'
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "PolicyGroups" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "PolicyGroups"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Data..@? "PolicyRoles" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "PolicyRoles"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Data..@? "PolicyUsers" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "PolicyUsers"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -311,7 +317,8 @@ instance Core.AWSRequest ListEntitiesForPolicy where
 
 instance Prelude.Hashable ListEntitiesForPolicy where
   hashWithSalt _salt ListEntitiesForPolicy' {..} =
-    _salt `Prelude.hashWithSalt` entityFilter
+    _salt
+      `Prelude.hashWithSalt` entityFilter
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` pathPrefix

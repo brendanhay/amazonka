@@ -164,20 +164,22 @@ instance Core.AWSPager ListRolePolicies where
     | Core.stop
         ( rs
             Lens.^? listRolePoliciesResponse_isTruncated
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
-            Lens.^? listRolePoliciesResponse_marker Prelude.. Lens._Just
+            Lens.^? listRolePoliciesResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRolePolicies_marker
           Lens..~ rs
-          Lens.^? listRolePoliciesResponse_marker Prelude.. Lens._Just
+          Lens.^? listRolePoliciesResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRolePolicies where
   type
@@ -193,14 +195,17 @@ instance Core.AWSRequest ListRolePolicies where
             Prelude.<$> (x Data..@? "IsTruncated")
             Prelude.<*> (x Data..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "PolicyNames" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "PolicyNames"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable ListRolePolicies where
   hashWithSalt _salt ListRolePolicies' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` roleName
 

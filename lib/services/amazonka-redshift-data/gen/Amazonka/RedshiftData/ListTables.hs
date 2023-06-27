@@ -26,18 +26,35 @@
 -- on the authorization method, use one of the following combinations of
 -- request parameters:
 --
--- -   Secrets Manager - when connecting to a cluster, specify the Amazon
---     Resource Name (ARN) of the secret, the database name, and the
---     cluster identifier that matches the cluster in the secret. When
---     connecting to a serverless workgroup, specify the Amazon Resource
---     Name (ARN) of the secret and the database name.
+-- -   Secrets Manager - when connecting to a cluster, provide the
+--     @secret-arn@ of a secret stored in Secrets Manager which has
+--     @username@ and @password@. The specified secret contains credentials
+--     to connect to the @database@ you specify. When you are connecting to
+--     a cluster, you also supply the database name, If you provide a
+--     cluster identifier (@dbClusterIdentifier@), it must match the
+--     cluster identifier stored in the secret. When you are connecting to
+--     a serverless workgroup, you also supply the database name.
 --
--- -   Temporary credentials - when connecting to a cluster, specify the
---     cluster identifier, the database name, and the database user name.
---     Also, permission to call the @redshift:GetClusterCredentials@
---     operation is required. When connecting to a serverless workgroup,
---     specify the workgroup name and database name. Also, permission to
---     call the @redshift-serverless:GetCredentials@ operation is required.
+-- -   Temporary credentials - when connecting to your data warehouse,
+--     choose one of the following options:
+--
+--     -   When connecting to a serverless workgroup, specify the workgroup
+--         name and database name. The database user name is derived from
+--         the IAM identity. For example, @arn:iam::123456789012:user:foo@
+--         has the database user name @IAM:foo@. Also, permission to call
+--         the @redshift-serverless:GetCredentials@ operation is required.
+--
+--     -   When connecting to a cluster as an IAM identity, specify the
+--         cluster identifier and the database name. The database user name
+--         is derived from the IAM identity. For example,
+--         @arn:iam::123456789012:user:foo@ has the database user name
+--         @IAM:foo@. Also, permission to call the
+--         @redshift:GetClusterCredentialsWithIAM@ operation is required.
+--
+--     -   When connecting to a cluster as a database user, specify the
+--         cluster identifier, the database name, and the database user
+--         name. Also, permission to call the
+--         @redshift:GetClusterCredentials@ operation is required.
 --
 -- For more information about the Amazon Redshift Data API and CLI usage
 -- examples, see
@@ -91,7 +108,8 @@ data ListTables = ListTables'
     -- with your authentication credentials.
     connectedDatabase :: Prelude.Maybe Prelude.Text,
     -- | The database user name. This parameter is required when connecting to a
-    -- cluster and authenticating using temporary credentials.
+    -- cluster as a database user and authenticating using temporary
+    -- credentials.
     dbUser :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of tables to return in the response. If more tables
     -- exist than fit in one response, then @NextToken@ is returned to page
@@ -122,9 +140,9 @@ data ListTables = ListTables'
     -- match @SchemaPattern@are returned. If neither @SchemaPattern@ or
     -- @TablePattern@ are specified, then all tables are returned.
     tablePattern :: Prelude.Maybe Prelude.Text,
-    -- | The serverless workgroup name. This parameter is required when
-    -- connecting to a serverless workgroup and authenticating using either
-    -- Secrets Manager or temporary credentials.
+    -- | The serverless workgroup name or Amazon Resource Name (ARN). This
+    -- parameter is required when connecting to a serverless workgroup and
+    -- authenticating using either Secrets Manager or temporary credentials.
     workgroupName :: Prelude.Maybe Prelude.Text,
     -- | The name of the database that contains the tables to list. If
     -- @ConnectedDatabase@ is not specified, this is also the database to
@@ -149,7 +167,8 @@ data ListTables = ListTables'
 -- with your authentication credentials.
 --
 -- 'dbUser', 'listTables_dbUser' - The database user name. This parameter is required when connecting to a
--- cluster and authenticating using temporary credentials.
+-- cluster as a database user and authenticating using temporary
+-- credentials.
 --
 -- 'maxResults', 'listTables_maxResults' - The maximum number of tables to return in the response. If more tables
 -- exist than fit in one response, then @NextToken@ is returned to page
@@ -180,9 +199,9 @@ data ListTables = ListTables'
 -- match @SchemaPattern@are returned. If neither @SchemaPattern@ or
 -- @TablePattern@ are specified, then all tables are returned.
 --
--- 'workgroupName', 'listTables_workgroupName' - The serverless workgroup name. This parameter is required when
--- connecting to a serverless workgroup and authenticating using either
--- Secrets Manager or temporary credentials.
+-- 'workgroupName', 'listTables_workgroupName' - The serverless workgroup name or Amazon Resource Name (ARN). This
+-- parameter is required when connecting to a serverless workgroup and
+-- authenticating using either Secrets Manager or temporary credentials.
 --
 -- 'database', 'listTables_database' - The name of the database that contains the tables to list. If
 -- @ConnectedDatabase@ is not specified, this is also the database to
@@ -217,7 +236,8 @@ listTables_connectedDatabase :: Lens.Lens' ListTables (Prelude.Maybe Prelude.Tex
 listTables_connectedDatabase = Lens.lens (\ListTables' {connectedDatabase} -> connectedDatabase) (\s@ListTables' {} a -> s {connectedDatabase = a} :: ListTables)
 
 -- | The database user name. This parameter is required when connecting to a
--- cluster and authenticating using temporary credentials.
+-- cluster as a database user and authenticating using temporary
+-- credentials.
 listTables_dbUser :: Lens.Lens' ListTables (Prelude.Maybe Prelude.Text)
 listTables_dbUser = Lens.lens (\ListTables' {dbUser} -> dbUser) (\s@ListTables' {} a -> s {dbUser = a} :: ListTables)
 
@@ -260,9 +280,9 @@ listTables_secretArn = Lens.lens (\ListTables' {secretArn} -> secretArn) (\s@Lis
 listTables_tablePattern :: Lens.Lens' ListTables (Prelude.Maybe Prelude.Text)
 listTables_tablePattern = Lens.lens (\ListTables' {tablePattern} -> tablePattern) (\s@ListTables' {} a -> s {tablePattern = a} :: ListTables)
 
--- | The serverless workgroup name. This parameter is required when
--- connecting to a serverless workgroup and authenticating using either
--- Secrets Manager or temporary credentials.
+-- | The serverless workgroup name or Amazon Resource Name (ARN). This
+-- parameter is required when connecting to a serverless workgroup and
+-- authenticating using either Secrets Manager or temporary credentials.
 listTables_workgroupName :: Lens.Lens' ListTables (Prelude.Maybe Prelude.Text)
 listTables_workgroupName = Lens.lens (\ListTables' {workgroupName} -> workgroupName) (\s@ListTables' {} a -> s {workgroupName = a} :: ListTables)
 
@@ -276,20 +296,23 @@ instance Core.AWSPager ListTables where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listTablesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listTablesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listTablesResponse_tables Prelude.. Lens._Just
+            Lens.^? listTablesResponse_tables
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTables_nextToken
           Lens..~ rs
-          Lens.^? listTablesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listTablesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTables where
   type AWSResponse ListTables = ListTablesResponse
@@ -306,7 +329,8 @@ instance Core.AWSRequest ListTables where
 
 instance Prelude.Hashable ListTables where
   hashWithSalt _salt ListTables' {..} =
-    _salt `Prelude.hashWithSalt` clusterIdentifier
+    _salt
+      `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` connectedDatabase
       `Prelude.hashWithSalt` dbUser
       `Prelude.hashWithSalt` maxResults

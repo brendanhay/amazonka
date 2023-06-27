@@ -25,18 +25,35 @@
 -- statement. Depending on the authorization method, use one of the
 -- following combinations of request parameters:
 --
--- -   Secrets Manager - when connecting to a cluster, specify the Amazon
---     Resource Name (ARN) of the secret, the database name, and the
---     cluster identifier that matches the cluster in the secret. When
---     connecting to a serverless workgroup, specify the Amazon Resource
---     Name (ARN) of the secret and the database name.
+-- -   Secrets Manager - when connecting to a cluster, provide the
+--     @secret-arn@ of a secret stored in Secrets Manager which has
+--     @username@ and @password@. The specified secret contains credentials
+--     to connect to the @database@ you specify. When you are connecting to
+--     a cluster, you also supply the database name, If you provide a
+--     cluster identifier (@dbClusterIdentifier@), it must match the
+--     cluster identifier stored in the secret. When you are connecting to
+--     a serverless workgroup, you also supply the database name.
 --
--- -   Temporary credentials - when connecting to a cluster, specify the
---     cluster identifier, the database name, and the database user name.
---     Also, permission to call the @redshift:GetClusterCredentials@
---     operation is required. When connecting to a serverless workgroup,
---     specify the workgroup name and database name. Also, permission to
---     call the @redshift-serverless:GetCredentials@ operation is required.
+-- -   Temporary credentials - when connecting to your data warehouse,
+--     choose one of the following options:
+--
+--     -   When connecting to a serverless workgroup, specify the workgroup
+--         name and database name. The database user name is derived from
+--         the IAM identity. For example, @arn:iam::123456789012:user:foo@
+--         has the database user name @IAM:foo@. Also, permission to call
+--         the @redshift-serverless:GetCredentials@ operation is required.
+--
+--     -   When connecting to a cluster as an IAM identity, specify the
+--         cluster identifier and the database name. The database user name
+--         is derived from the IAM identity. For example,
+--         @arn:iam::123456789012:user:foo@ has the database user name
+--         @IAM:foo@. Also, permission to call the
+--         @redshift:GetClusterCredentialsWithIAM@ operation is required.
+--
+--     -   When connecting to a cluster as a database user, specify the
+--         cluster identifier, the database name, and the database user
+--         name. Also, permission to call the
+--         @redshift:GetClusterCredentials@ operation is required.
 --
 -- For more information about the Amazon Redshift Data API and CLI usage
 -- examples, see
@@ -93,7 +110,8 @@ data ExecuteStatement = ExecuteStatement'
     -- credentials.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The database user name. This parameter is required when connecting to a
-    -- cluster and authenticating using temporary credentials.
+    -- cluster as a database user and authenticating using temporary
+    -- credentials.
     dbUser :: Prelude.Maybe Prelude.Text,
     -- | The parameters for the SQL statement.
     parameters :: Prelude.Maybe (Prelude.NonEmpty SqlParameter),
@@ -106,9 +124,9 @@ data ExecuteStatement = ExecuteStatement'
     -- | A value that indicates whether to send an event to the Amazon
     -- EventBridge event bus after the SQL statement runs.
     withEvent :: Prelude.Maybe Prelude.Bool,
-    -- | The serverless workgroup name. This parameter is required when
-    -- connecting to a serverless workgroup and authenticating using either
-    -- Secrets Manager or temporary credentials.
+    -- | The serverless workgroup name or Amazon Resource Name (ARN). This
+    -- parameter is required when connecting to a serverless workgroup and
+    -- authenticating using either Secrets Manager or temporary credentials.
     workgroupName :: Prelude.Maybe Prelude.Text,
     -- | The name of the database. This parameter is required when authenticating
     -- using either Secrets Manager or temporary credentials.
@@ -134,7 +152,8 @@ data ExecuteStatement = ExecuteStatement'
 -- credentials.
 --
 -- 'dbUser', 'executeStatement_dbUser' - The database user name. This parameter is required when connecting to a
--- cluster and authenticating using temporary credentials.
+-- cluster as a database user and authenticating using temporary
+-- credentials.
 --
 -- 'parameters', 'executeStatement_parameters' - The parameters for the SQL statement.
 --
@@ -147,9 +166,9 @@ data ExecuteStatement = ExecuteStatement'
 -- 'withEvent', 'executeStatement_withEvent' - A value that indicates whether to send an event to the Amazon
 -- EventBridge event bus after the SQL statement runs.
 --
--- 'workgroupName', 'executeStatement_workgroupName' - The serverless workgroup name. This parameter is required when
--- connecting to a serverless workgroup and authenticating using either
--- Secrets Manager or temporary credentials.
+-- 'workgroupName', 'executeStatement_workgroupName' - The serverless workgroup name or Amazon Resource Name (ARN). This
+-- parameter is required when connecting to a serverless workgroup and
+-- authenticating using either Secrets Manager or temporary credentials.
 --
 -- 'database', 'executeStatement_database' - The name of the database. This parameter is required when authenticating
 -- using either Secrets Manager or temporary credentials.
@@ -187,7 +206,8 @@ executeStatement_clusterIdentifier :: Lens.Lens' ExecuteStatement (Prelude.Maybe
 executeStatement_clusterIdentifier = Lens.lens (\ExecuteStatement' {clusterIdentifier} -> clusterIdentifier) (\s@ExecuteStatement' {} a -> s {clusterIdentifier = a} :: ExecuteStatement)
 
 -- | The database user name. This parameter is required when connecting to a
--- cluster and authenticating using temporary credentials.
+-- cluster as a database user and authenticating using temporary
+-- credentials.
 executeStatement_dbUser :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Text)
 executeStatement_dbUser = Lens.lens (\ExecuteStatement' {dbUser} -> dbUser) (\s@ExecuteStatement' {} a -> s {dbUser = a} :: ExecuteStatement)
 
@@ -210,9 +230,9 @@ executeStatement_statementName = Lens.lens (\ExecuteStatement' {statementName} -
 executeStatement_withEvent :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Bool)
 executeStatement_withEvent = Lens.lens (\ExecuteStatement' {withEvent} -> withEvent) (\s@ExecuteStatement' {} a -> s {withEvent = a} :: ExecuteStatement)
 
--- | The serverless workgroup name. This parameter is required when
--- connecting to a serverless workgroup and authenticating using either
--- Secrets Manager or temporary credentials.
+-- | The serverless workgroup name or Amazon Resource Name (ARN). This
+-- parameter is required when connecting to a serverless workgroup and
+-- authenticating using either Secrets Manager or temporary credentials.
 executeStatement_workgroupName :: Lens.Lens' ExecuteStatement (Prelude.Maybe Prelude.Text)
 executeStatement_workgroupName = Lens.lens (\ExecuteStatement' {workgroupName} -> workgroupName) (\s@ExecuteStatement' {} a -> s {workgroupName = a} :: ExecuteStatement)
 
@@ -247,7 +267,8 @@ instance Core.AWSRequest ExecuteStatement where
 
 instance Prelude.Hashable ExecuteStatement where
   hashWithSalt _salt ExecuteStatement' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` dbUser
       `Prelude.hashWithSalt` parameters
@@ -327,8 +348,8 @@ data ExecuteStatementResponse = ExecuteStatementResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | The name or ARN of the secret that enables access to the database.
     secretArn :: Prelude.Maybe Prelude.Text,
-    -- | The serverless workgroup name. This element is not returned when
-    -- connecting to a provisioned cluster.
+    -- | The serverless workgroup name or Amazon Resource Name (ARN). This
+    -- element is not returned when connecting to a provisioned cluster.
     workgroupName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -358,8 +379,8 @@ data ExecuteStatementResponse = ExecuteStatementResponse'
 --
 -- 'secretArn', 'executeStatementResponse_secretArn' - The name or ARN of the secret that enables access to the database.
 --
--- 'workgroupName', 'executeStatementResponse_workgroupName' - The serverless workgroup name. This element is not returned when
--- connecting to a provisioned cluster.
+-- 'workgroupName', 'executeStatementResponse_workgroupName' - The serverless workgroup name or Amazon Resource Name (ARN). This
+-- element is not returned when connecting to a provisioned cluster.
 --
 -- 'httpStatus', 'executeStatementResponse_httpStatus' - The response's http status code.
 newExecuteStatementResponse ::
@@ -406,8 +427,8 @@ executeStatementResponse_id = Lens.lens (\ExecuteStatementResponse' {id} -> id) 
 executeStatementResponse_secretArn :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.Text)
 executeStatementResponse_secretArn = Lens.lens (\ExecuteStatementResponse' {secretArn} -> secretArn) (\s@ExecuteStatementResponse' {} a -> s {secretArn = a} :: ExecuteStatementResponse)
 
--- | The serverless workgroup name. This element is not returned when
--- connecting to a provisioned cluster.
+-- | The serverless workgroup name or Amazon Resource Name (ARN). This
+-- element is not returned when connecting to a provisioned cluster.
 executeStatementResponse_workgroupName :: Lens.Lens' ExecuteStatementResponse (Prelude.Maybe Prelude.Text)
 executeStatementResponse_workgroupName = Lens.lens (\ExecuteStatementResponse' {workgroupName} -> workgroupName) (\s@ExecuteStatementResponse' {} a -> s {workgroupName = a} :: ExecuteStatementResponse)
 

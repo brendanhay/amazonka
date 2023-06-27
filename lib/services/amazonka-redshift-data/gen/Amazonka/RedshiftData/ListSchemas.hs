@@ -24,18 +24,35 @@
 -- schema list. Depending on the authorization method, use one of the
 -- following combinations of request parameters:
 --
--- -   Secrets Manager - when connecting to a cluster, specify the Amazon
---     Resource Name (ARN) of the secret, the database name, and the
---     cluster identifier that matches the cluster in the secret. When
---     connecting to a serverless workgroup, specify the Amazon Resource
---     Name (ARN) of the secret and the database name.
+-- -   Secrets Manager - when connecting to a cluster, provide the
+--     @secret-arn@ of a secret stored in Secrets Manager which has
+--     @username@ and @password@. The specified secret contains credentials
+--     to connect to the @database@ you specify. When you are connecting to
+--     a cluster, you also supply the database name, If you provide a
+--     cluster identifier (@dbClusterIdentifier@), it must match the
+--     cluster identifier stored in the secret. When you are connecting to
+--     a serverless workgroup, you also supply the database name.
 --
--- -   Temporary credentials - when connecting to a cluster, specify the
---     cluster identifier, the database name, and the database user name.
---     Also, permission to call the @redshift:GetClusterCredentials@
---     operation is required. When connecting to a serverless workgroup,
---     specify the workgroup name and database name. Also, permission to
---     call the @redshift-serverless:GetCredentials@ operation is required.
+-- -   Temporary credentials - when connecting to your data warehouse,
+--     choose one of the following options:
+--
+--     -   When connecting to a serverless workgroup, specify the workgroup
+--         name and database name. The database user name is derived from
+--         the IAM identity. For example, @arn:iam::123456789012:user:foo@
+--         has the database user name @IAM:foo@. Also, permission to call
+--         the @redshift-serverless:GetCredentials@ operation is required.
+--
+--     -   When connecting to a cluster as an IAM identity, specify the
+--         cluster identifier and the database name. The database user name
+--         is derived from the IAM identity. For example,
+--         @arn:iam::123456789012:user:foo@ has the database user name
+--         @IAM:foo@. Also, permission to call the
+--         @redshift:GetClusterCredentialsWithIAM@ operation is required.
+--
+--     -   When connecting to a cluster as a database user, specify the
+--         cluster identifier, the database name, and the database user
+--         name. Also, permission to call the
+--         @redshift:GetClusterCredentials@ operation is required.
 --
 -- For more information about the Amazon Redshift Data API and CLI usage
 -- examples, see
@@ -88,7 +105,8 @@ data ListSchemas = ListSchemas'
     -- with your authentication credentials.
     connectedDatabase :: Prelude.Maybe Prelude.Text,
     -- | The database user name. This parameter is required when connecting to a
-    -- cluster and authenticating using temporary credentials.
+    -- cluster as a database user and authenticating using temporary
+    -- credentials.
     dbUser :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of schemas to return in the response. If more schemas
     -- exist than fit in one response, then @NextToken@ is returned to page
@@ -109,9 +127,9 @@ data ListSchemas = ListSchemas'
     -- | The name or ARN of the secret that enables access to the database. This
     -- parameter is required when authenticating using Secrets Manager.
     secretArn :: Prelude.Maybe Prelude.Text,
-    -- | The serverless workgroup name. This parameter is required when
-    -- connecting to a serverless workgroup and authenticating using either
-    -- Secrets Manager or temporary credentials.
+    -- | The serverless workgroup name or Amazon Resource Name (ARN). This
+    -- parameter is required when connecting to a serverless workgroup and
+    -- authenticating using either Secrets Manager or temporary credentials.
     workgroupName :: Prelude.Maybe Prelude.Text,
     -- | The name of the database that contains the schemas to list. If
     -- @ConnectedDatabase@ is not specified, this is also the database to
@@ -136,7 +154,8 @@ data ListSchemas = ListSchemas'
 -- with your authentication credentials.
 --
 -- 'dbUser', 'listSchemas_dbUser' - The database user name. This parameter is required when connecting to a
--- cluster and authenticating using temporary credentials.
+-- cluster as a database user and authenticating using temporary
+-- credentials.
 --
 -- 'maxResults', 'listSchemas_maxResults' - The maximum number of schemas to return in the response. If more schemas
 -- exist than fit in one response, then @NextToken@ is returned to page
@@ -157,9 +176,9 @@ data ListSchemas = ListSchemas'
 -- 'secretArn', 'listSchemas_secretArn' - The name or ARN of the secret that enables access to the database. This
 -- parameter is required when authenticating using Secrets Manager.
 --
--- 'workgroupName', 'listSchemas_workgroupName' - The serverless workgroup name. This parameter is required when
--- connecting to a serverless workgroup and authenticating using either
--- Secrets Manager or temporary credentials.
+-- 'workgroupName', 'listSchemas_workgroupName' - The serverless workgroup name or Amazon Resource Name (ARN). This
+-- parameter is required when connecting to a serverless workgroup and
+-- authenticating using either Secrets Manager or temporary credentials.
 --
 -- 'database', 'listSchemas_database' - The name of the database that contains the schemas to list. If
 -- @ConnectedDatabase@ is not specified, this is also the database to
@@ -193,7 +212,8 @@ listSchemas_connectedDatabase :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.T
 listSchemas_connectedDatabase = Lens.lens (\ListSchemas' {connectedDatabase} -> connectedDatabase) (\s@ListSchemas' {} a -> s {connectedDatabase = a} :: ListSchemas)
 
 -- | The database user name. This parameter is required when connecting to a
--- cluster and authenticating using temporary credentials.
+-- cluster as a database user and authenticating using temporary
+-- credentials.
 listSchemas_dbUser :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
 listSchemas_dbUser = Lens.lens (\ListSchemas' {dbUser} -> dbUser) (\s@ListSchemas' {} a -> s {dbUser = a} :: ListSchemas)
 
@@ -224,9 +244,9 @@ listSchemas_schemaPattern = Lens.lens (\ListSchemas' {schemaPattern} -> schemaPa
 listSchemas_secretArn :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
 listSchemas_secretArn = Lens.lens (\ListSchemas' {secretArn} -> secretArn) (\s@ListSchemas' {} a -> s {secretArn = a} :: ListSchemas)
 
--- | The serverless workgroup name. This parameter is required when
--- connecting to a serverless workgroup and authenticating using either
--- Secrets Manager or temporary credentials.
+-- | The serverless workgroup name or Amazon Resource Name (ARN). This
+-- parameter is required when connecting to a serverless workgroup and
+-- authenticating using either Secrets Manager or temporary credentials.
 listSchemas_workgroupName :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
 listSchemas_workgroupName = Lens.lens (\ListSchemas' {workgroupName} -> workgroupName) (\s@ListSchemas' {} a -> s {workgroupName = a} :: ListSchemas)
 
@@ -240,20 +260,23 @@ instance Core.AWSPager ListSchemas where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listSchemasResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listSchemasResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listSchemasResponse_schemas Prelude.. Lens._Just
+            Lens.^? listSchemasResponse_schemas
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSchemas_nextToken
           Lens..~ rs
-          Lens.^? listSchemasResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listSchemasResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSchemas where
   type AWSResponse ListSchemas = ListSchemasResponse
@@ -270,7 +293,8 @@ instance Core.AWSRequest ListSchemas where
 
 instance Prelude.Hashable ListSchemas where
   hashWithSalt _salt ListSchemas' {..} =
-    _salt `Prelude.hashWithSalt` clusterIdentifier
+    _salt
+      `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` connectedDatabase
       `Prelude.hashWithSalt` dbUser
       `Prelude.hashWithSalt` maxResults

@@ -170,7 +170,8 @@ instance Data.FromJSON StatementData where
 
 instance Prelude.Hashable StatementData where
   hashWithSalt _salt StatementData' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` isBatchStatement
       `Prelude.hashWithSalt` queryParameters
       `Prelude.hashWithSalt` queryString

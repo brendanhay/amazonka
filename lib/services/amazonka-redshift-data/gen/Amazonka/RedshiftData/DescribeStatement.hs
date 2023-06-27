@@ -246,7 +246,7 @@ data DescribeStatementResponse = DescribeStatementResponse'
     -- | The date and time (UTC) that the metadata for the SQL statement was last
     -- updated. An example is the time the status last changed.
     updatedAt :: Prelude.Maybe Data.POSIX,
-    -- | The serverless workgroup name.
+    -- | The serverless workgroup name or Amazon Resource Name (ARN).
     workgroupName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -326,7 +326,7 @@ data DescribeStatementResponse = DescribeStatementResponse'
 -- 'updatedAt', 'describeStatementResponse_updatedAt' - The date and time (UTC) that the metadata for the SQL statement was last
 -- updated. An example is the time the status last changed.
 --
--- 'workgroupName', 'describeStatementResponse_workgroupName' - The serverless workgroup name.
+-- 'workgroupName', 'describeStatementResponse_workgroupName' - The serverless workgroup name or Amazon Resource Name (ARN).
 --
 -- 'httpStatus', 'describeStatementResponse_httpStatus' - The response's http status code.
 --
@@ -459,7 +459,7 @@ describeStatementResponse_subStatements = Lens.lens (\DescribeStatementResponse'
 describeStatementResponse_updatedAt :: Lens.Lens' DescribeStatementResponse (Prelude.Maybe Prelude.UTCTime)
 describeStatementResponse_updatedAt = Lens.lens (\DescribeStatementResponse' {updatedAt} -> updatedAt) (\s@DescribeStatementResponse' {} a -> s {updatedAt = a} :: DescribeStatementResponse) Prelude.. Lens.mapping Data._Time
 
--- | The serverless workgroup name.
+-- | The serverless workgroup name or Amazon Resource Name (ARN).
 describeStatementResponse_workgroupName :: Lens.Lens' DescribeStatementResponse (Prelude.Maybe Prelude.Text)
 describeStatementResponse_workgroupName = Lens.lens (\DescribeStatementResponse' {workgroupName} -> workgroupName) (\s@DescribeStatementResponse' {} a -> s {workgroupName = a} :: DescribeStatementResponse)
 

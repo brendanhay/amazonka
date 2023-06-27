@@ -203,7 +203,8 @@ instance Data.FromJSON SubStatementData where
 
 instance Prelude.Hashable SubStatementData where
   hashWithSalt _salt SubStatementData' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` hasResultSet

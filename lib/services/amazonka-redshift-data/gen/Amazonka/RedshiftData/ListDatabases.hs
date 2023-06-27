@@ -24,18 +24,35 @@
 -- database list. Depending on the authorization method, use one of the
 -- following combinations of request parameters:
 --
--- -   Secrets Manager - when connecting to a cluster, specify the Amazon
---     Resource Name (ARN) of the secret, the database name, and the
---     cluster identifier that matches the cluster in the secret. When
---     connecting to a serverless workgroup, specify the Amazon Resource
---     Name (ARN) of the secret and the database name.
+-- -   Secrets Manager - when connecting to a cluster, provide the
+--     @secret-arn@ of a secret stored in Secrets Manager which has
+--     @username@ and @password@. The specified secret contains credentials
+--     to connect to the @database@ you specify. When you are connecting to
+--     a cluster, you also supply the database name, If you provide a
+--     cluster identifier (@dbClusterIdentifier@), it must match the
+--     cluster identifier stored in the secret. When you are connecting to
+--     a serverless workgroup, you also supply the database name.
 --
--- -   Temporary credentials - when connecting to a cluster, specify the
---     cluster identifier, the database name, and the database user name.
---     Also, permission to call the @redshift:GetClusterCredentials@
---     operation is required. When connecting to a serverless workgroup,
---     specify the workgroup name and database name. Also, permission to
---     call the @redshift-serverless:GetCredentials@ operation is required.
+-- -   Temporary credentials - when connecting to your data warehouse,
+--     choose one of the following options:
+--
+--     -   When connecting to a serverless workgroup, specify the workgroup
+--         name and database name. The database user name is derived from
+--         the IAM identity. For example, @arn:iam::123456789012:user:foo@
+--         has the database user name @IAM:foo@. Also, permission to call
+--         the @redshift-serverless:GetCredentials@ operation is required.
+--
+--     -   When connecting to a cluster as an IAM identity, specify the
+--         cluster identifier and the database name. The database user name
+--         is derived from the IAM identity. For example,
+--         @arn:iam::123456789012:user:foo@ has the database user name
+--         @IAM:foo@. Also, permission to call the
+--         @redshift:GetClusterCredentialsWithIAM@ operation is required.
+--
+--     -   When connecting to a cluster as a database user, specify the
+--         cluster identifier, the database name, and the database user
+--         name. Also, permission to call the
+--         @redshift:GetClusterCredentials@ operation is required.
 --
 -- For more information about the Amazon Redshift Data API and CLI usage
 -- examples, see
@@ -83,7 +100,8 @@ data ListDatabases = ListDatabases'
     -- credentials.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The database user name. This parameter is required when connecting to a
-    -- cluster and authenticating using temporary credentials.
+    -- cluster as a database user and authenticating using temporary
+    -- credentials.
     dbUser :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of databases to return in the response. If more
     -- databases exist than fit in one response, then @NextToken@ is returned
@@ -99,9 +117,9 @@ data ListDatabases = ListDatabases'
     -- | The name or ARN of the secret that enables access to the database. This
     -- parameter is required when authenticating using Secrets Manager.
     secretArn :: Prelude.Maybe Prelude.Text,
-    -- | The serverless workgroup name. This parameter is required when
-    -- connecting to a serverless workgroup and authenticating using either
-    -- Secrets Manager or temporary credentials.
+    -- | The serverless workgroup name or Amazon Resource Name (ARN). This
+    -- parameter is required when connecting to a serverless workgroup and
+    -- authenticating using either Secrets Manager or temporary credentials.
     workgroupName :: Prelude.Maybe Prelude.Text,
     -- | The name of the database. This parameter is required when authenticating
     -- using either Secrets Manager or temporary credentials.
@@ -122,7 +140,8 @@ data ListDatabases = ListDatabases'
 -- credentials.
 --
 -- 'dbUser', 'listDatabases_dbUser' - The database user name. This parameter is required when connecting to a
--- cluster and authenticating using temporary credentials.
+-- cluster as a database user and authenticating using temporary
+-- credentials.
 --
 -- 'maxResults', 'listDatabases_maxResults' - The maximum number of databases to return in the response. If more
 -- databases exist than fit in one response, then @NextToken@ is returned
@@ -138,9 +157,9 @@ data ListDatabases = ListDatabases'
 -- 'secretArn', 'listDatabases_secretArn' - The name or ARN of the secret that enables access to the database. This
 -- parameter is required when authenticating using Secrets Manager.
 --
--- 'workgroupName', 'listDatabases_workgroupName' - The serverless workgroup name. This parameter is required when
--- connecting to a serverless workgroup and authenticating using either
--- Secrets Manager or temporary credentials.
+-- 'workgroupName', 'listDatabases_workgroupName' - The serverless workgroup name or Amazon Resource Name (ARN). This
+-- parameter is required when connecting to a serverless workgroup and
+-- authenticating using either Secrets Manager or temporary credentials.
 --
 -- 'database', 'listDatabases_database' - The name of the database. This parameter is required when authenticating
 -- using either Secrets Manager or temporary credentials.
@@ -166,7 +185,8 @@ listDatabases_clusterIdentifier :: Lens.Lens' ListDatabases (Prelude.Maybe Prelu
 listDatabases_clusterIdentifier = Lens.lens (\ListDatabases' {clusterIdentifier} -> clusterIdentifier) (\s@ListDatabases' {} a -> s {clusterIdentifier = a} :: ListDatabases)
 
 -- | The database user name. This parameter is required when connecting to a
--- cluster and authenticating using temporary credentials.
+-- cluster as a database user and authenticating using temporary
+-- credentials.
 listDatabases_dbUser :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
 listDatabases_dbUser = Lens.lens (\ListDatabases' {dbUser} -> dbUser) (\s@ListDatabases' {} a -> s {dbUser = a} :: ListDatabases)
 
@@ -190,9 +210,9 @@ listDatabases_nextToken = Lens.lens (\ListDatabases' {nextToken} -> nextToken) (
 listDatabases_secretArn :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
 listDatabases_secretArn = Lens.lens (\ListDatabases' {secretArn} -> secretArn) (\s@ListDatabases' {} a -> s {secretArn = a} :: ListDatabases)
 
--- | The serverless workgroup name. This parameter is required when
--- connecting to a serverless workgroup and authenticating using either
--- Secrets Manager or temporary credentials.
+-- | The serverless workgroup name or Amazon Resource Name (ARN). This
+-- parameter is required when connecting to a serverless workgroup and
+-- authenticating using either Secrets Manager or temporary credentials.
 listDatabases_workgroupName :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
 listDatabases_workgroupName = Lens.lens (\ListDatabases' {workgroupName} -> workgroupName) (\s@ListDatabases' {} a -> s {workgroupName = a} :: ListDatabases)
 
@@ -205,20 +225,23 @@ instance Core.AWSPager ListDatabases where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listDatabasesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listDatabasesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listDatabasesResponse_databases Prelude.. Lens._Just
+            Lens.^? listDatabasesResponse_databases
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDatabases_nextToken
           Lens..~ rs
-          Lens.^? listDatabasesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listDatabasesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDatabases where
   type
@@ -237,7 +260,8 @@ instance Core.AWSRequest ListDatabases where
 
 instance Prelude.Hashable ListDatabases where
   hashWithSalt _salt ListDatabases' {..} =
-    _salt `Prelude.hashWithSalt` clusterIdentifier
+    _salt
+      `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` dbUser
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

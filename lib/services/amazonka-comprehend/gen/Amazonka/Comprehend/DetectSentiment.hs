@@ -53,10 +53,6 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDetectSentiment' smart constructor.
 data DetectSentiment = DetectSentiment'
   { -- | A UTF-8 text string. The maximum string size is 5 KB.
-    --
-    -- Amazon Comprehend performs real-time sentiment analysis on the first 500
-    -- characters of the input text and ignores any additional text in the
-    -- input.
     text :: Data.Sensitive Prelude.Text,
     -- | The language of the input documents. You can specify any of the primary
     -- languages supported by Amazon Comprehend. All documents must be in the
@@ -75,10 +71,6 @@ data DetectSentiment = DetectSentiment'
 --
 -- 'text', 'detectSentiment_text' - A UTF-8 text string. The maximum string size is 5 KB.
 --
--- Amazon Comprehend performs real-time sentiment analysis on the first 500
--- characters of the input text and ignores any additional text in the
--- input.
---
 -- 'languageCode', 'detectSentiment_languageCode' - The language of the input documents. You can specify any of the primary
 -- languages supported by Amazon Comprehend. All documents must be in the
 -- same language.
@@ -96,10 +88,6 @@ newDetectSentiment pText_ pLanguageCode_ =
     }
 
 -- | A UTF-8 text string. The maximum string size is 5 KB.
---
--- Amazon Comprehend performs real-time sentiment analysis on the first 500
--- characters of the input text and ignores any additional text in the
--- input.
 detectSentiment_text :: Lens.Lens' DetectSentiment Prelude.Text
 detectSentiment_text = Lens.lens (\DetectSentiment' {text} -> text) (\s@DetectSentiment' {} a -> s {text = a} :: DetectSentiment) Prelude.. Data._Sensitive
 
@@ -126,7 +114,8 @@ instance Core.AWSRequest DetectSentiment where
 
 instance Prelude.Hashable DetectSentiment where
   hashWithSalt _salt DetectSentiment' {..} =
-    _salt `Prelude.hashWithSalt` text
+    _salt
+      `Prelude.hashWithSalt` text
       `Prelude.hashWithSalt` languageCode
 
 instance Prelude.NFData DetectSentiment where

@@ -91,7 +91,8 @@ instance Data.FromJSON DocumentLabel where
 
 instance Prelude.Hashable DocumentLabel where
   hashWithSalt _salt DocumentLabel' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` page
       `Prelude.hashWithSalt` score
 

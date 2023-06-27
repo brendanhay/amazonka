@@ -104,7 +104,8 @@ instance Data.FromJSON PiiEntity where
 
 instance Prelude.Hashable PiiEntity where
   hashWithSalt _salt PiiEntity' {..} =
-    _salt `Prelude.hashWithSalt` beginOffset
+    _salt
+      `Prelude.hashWithSalt` beginOffset
       `Prelude.hashWithSalt` endOffset
       `Prelude.hashWithSalt` score
       `Prelude.hashWithSalt` type'

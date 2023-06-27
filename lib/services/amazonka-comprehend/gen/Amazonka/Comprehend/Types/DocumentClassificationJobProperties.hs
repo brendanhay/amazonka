@@ -32,19 +32,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDocumentClassificationJobProperties' smart constructor.
 data DocumentClassificationJobProperties = DocumentClassificationJobProperties'
-  { -- | The Amazon Resource Name (ARN) of the AWS identity and Access Management
-    -- (IAM) role that grants Amazon Comprehend read access to your input data.
+  { -- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+    -- Comprehend read access to your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that identifies the document classifier.
     documentClassifierArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the document classification job completed.
     endTime :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Number (ARN) of the flywheel
+    flywheelArn :: Prelude.Maybe Prelude.Text,
     -- | The input data configuration that you supplied when you created the
     -- document classification job.
     inputDataConfig :: Prelude.Maybe InputDataConfig,
     -- | The Amazon Resource Name (ARN) of the document classification job. It is
-    -- a unique, fully qualified identifier for the job. It includes the AWS
-    -- account, Region, and the job ID. The format of the ARN is as follows:
+    -- a unique, fully qualified identifier for the job. It includes the Amazon
+    -- Web Services account, Amazon Web Services Region, and the job ID. The
+    -- format of the ARN is as follows:
     --
     -- @arn:\<partition>:comprehend:\<region>:\<account-id>:document-classification-job\/\<job-id>@
     --
@@ -67,10 +70,10 @@ data DocumentClassificationJobProperties = DocumentClassificationJobProperties'
     -- | The time that the document classification job was submitted for
     -- processing.
     submitTime :: Prelude.Maybe Data.POSIX,
-    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt data on the storage volume attached to the ML compute
-    -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
-    -- either of the following formats:
+    -- | ID for the Amazon Web Services Key Management Service (KMS) key that
+    -- Amazon Comprehend uses to encrypt data on the storage volume attached to
+    -- the ML compute instance(s) that process the analysis job. The
+    -- VolumeKmsKeyId can be either of the following formats:
     --
     -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
@@ -93,19 +96,22 @@ data DocumentClassificationJobProperties = DocumentClassificationJobProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataAccessRoleArn', 'documentClassificationJobProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to your input data.
+-- 'dataAccessRoleArn', 'documentClassificationJobProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 --
 -- 'documentClassifierArn', 'documentClassificationJobProperties_documentClassifierArn' - The Amazon Resource Name (ARN) that identifies the document classifier.
 --
 -- 'endTime', 'documentClassificationJobProperties_endTime' - The time that the document classification job completed.
 --
+-- 'flywheelArn', 'documentClassificationJobProperties_flywheelArn' - The Amazon Resource Number (ARN) of the flywheel
+--
 -- 'inputDataConfig', 'documentClassificationJobProperties_inputDataConfig' - The input data configuration that you supplied when you created the
 -- document classification job.
 --
 -- 'jobArn', 'documentClassificationJobProperties_jobArn' - The Amazon Resource Name (ARN) of the document classification job. It is
--- a unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- a unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:document-classification-job\/\<job-id>@
 --
@@ -128,10 +134,10 @@ data DocumentClassificationJobProperties = DocumentClassificationJobProperties'
 -- 'submitTime', 'documentClassificationJobProperties_submitTime' - The time that the document classification job was submitted for
 -- processing.
 --
--- 'volumeKmsKeyId', 'documentClassificationJobProperties_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- 'volumeKmsKeyId', 'documentClassificationJobProperties_volumeKmsKeyId' - ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -151,6 +157,7 @@ newDocumentClassificationJobProperties =
       documentClassifierArn =
         Prelude.Nothing,
       endTime = Prelude.Nothing,
+      flywheelArn = Prelude.Nothing,
       inputDataConfig = Prelude.Nothing,
       jobArn = Prelude.Nothing,
       jobId = Prelude.Nothing,
@@ -163,8 +170,8 @@ newDocumentClassificationJobProperties =
       vpcConfig = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the AWS identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to your input data.
+-- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 documentClassificationJobProperties_dataAccessRoleArn :: Lens.Lens' DocumentClassificationJobProperties (Prelude.Maybe Prelude.Text)
 documentClassificationJobProperties_dataAccessRoleArn = Lens.lens (\DocumentClassificationJobProperties' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@DocumentClassificationJobProperties' {} a -> s {dataAccessRoleArn = a} :: DocumentClassificationJobProperties)
 
@@ -176,14 +183,19 @@ documentClassificationJobProperties_documentClassifierArn = Lens.lens (\Document
 documentClassificationJobProperties_endTime :: Lens.Lens' DocumentClassificationJobProperties (Prelude.Maybe Prelude.UTCTime)
 documentClassificationJobProperties_endTime = Lens.lens (\DocumentClassificationJobProperties' {endTime} -> endTime) (\s@DocumentClassificationJobProperties' {} a -> s {endTime = a} :: DocumentClassificationJobProperties) Prelude.. Lens.mapping Data._Time
 
+-- | The Amazon Resource Number (ARN) of the flywheel
+documentClassificationJobProperties_flywheelArn :: Lens.Lens' DocumentClassificationJobProperties (Prelude.Maybe Prelude.Text)
+documentClassificationJobProperties_flywheelArn = Lens.lens (\DocumentClassificationJobProperties' {flywheelArn} -> flywheelArn) (\s@DocumentClassificationJobProperties' {} a -> s {flywheelArn = a} :: DocumentClassificationJobProperties)
+
 -- | The input data configuration that you supplied when you created the
 -- document classification job.
 documentClassificationJobProperties_inputDataConfig :: Lens.Lens' DocumentClassificationJobProperties (Prelude.Maybe InputDataConfig)
 documentClassificationJobProperties_inputDataConfig = Lens.lens (\DocumentClassificationJobProperties' {inputDataConfig} -> inputDataConfig) (\s@DocumentClassificationJobProperties' {} a -> s {inputDataConfig = a} :: DocumentClassificationJobProperties)
 
 -- | The Amazon Resource Name (ARN) of the document classification job. It is
--- a unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- a unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:document-classification-job\/\<job-id>@
 --
@@ -220,10 +232,10 @@ documentClassificationJobProperties_outputDataConfig = Lens.lens (\DocumentClass
 documentClassificationJobProperties_submitTime :: Lens.Lens' DocumentClassificationJobProperties (Prelude.Maybe Prelude.UTCTime)
 documentClassificationJobProperties_submitTime = Lens.lens (\DocumentClassificationJobProperties' {submitTime} -> submitTime) (\s@DocumentClassificationJobProperties' {} a -> s {submitTime = a} :: DocumentClassificationJobProperties) Prelude.. Lens.mapping Data._Time
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- | ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -251,6 +263,7 @@ instance
             Prelude.<$> (x Data..:? "DataAccessRoleArn")
             Prelude.<*> (x Data..:? "DocumentClassifierArn")
             Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "FlywheelArn")
             Prelude.<*> (x Data..:? "InputDataConfig")
             Prelude.<*> (x Data..:? "JobArn")
             Prelude.<*> (x Data..:? "JobId")
@@ -270,9 +283,11 @@ instance
   hashWithSalt
     _salt
     DocumentClassificationJobProperties' {..} =
-      _salt `Prelude.hashWithSalt` dataAccessRoleArn
+      _salt
+        `Prelude.hashWithSalt` dataAccessRoleArn
         `Prelude.hashWithSalt` documentClassifierArn
         `Prelude.hashWithSalt` endTime
+        `Prelude.hashWithSalt` flywheelArn
         `Prelude.hashWithSalt` inputDataConfig
         `Prelude.hashWithSalt` jobArn
         `Prelude.hashWithSalt` jobId
@@ -292,6 +307,7 @@ instance
     Prelude.rnf dataAccessRoleArn
       `Prelude.seq` Prelude.rnf documentClassifierArn
       `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf flywheelArn
       `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf jobArn
       `Prelude.seq` Prelude.rnf jobId

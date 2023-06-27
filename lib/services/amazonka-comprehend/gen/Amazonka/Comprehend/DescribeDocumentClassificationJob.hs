@@ -51,7 +51,8 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDescribeDocumentClassificationJob' smart constructor.
 data DescribeDocumentClassificationJob = DescribeDocumentClassificationJob'
   { -- | The identifier that Amazon Comprehend generated for the job. The
-    -- operation returns this identifier in its response.
+    -- @StartDocumentClassificationJob@ operation returns this identifier in
+    -- its response.
     jobId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,7 +66,8 @@ data DescribeDocumentClassificationJob = DescribeDocumentClassificationJob'
 -- for backwards compatibility:
 --
 -- 'jobId', 'describeDocumentClassificationJob_jobId' - The identifier that Amazon Comprehend generated for the job. The
--- operation returns this identifier in its response.
+-- @StartDocumentClassificationJob@ operation returns this identifier in
+-- its response.
 newDescribeDocumentClassificationJob ::
   -- | 'jobId'
   Prelude.Text ->
@@ -74,7 +76,8 @@ newDescribeDocumentClassificationJob pJobId_ =
   DescribeDocumentClassificationJob' {jobId = pJobId_}
 
 -- | The identifier that Amazon Comprehend generated for the job. The
--- operation returns this identifier in its response.
+-- @StartDocumentClassificationJob@ operation returns this identifier in
+-- its response.
 describeDocumentClassificationJob_jobId :: Lens.Lens' DescribeDocumentClassificationJob Prelude.Text
 describeDocumentClassificationJob_jobId = Lens.lens (\DescribeDocumentClassificationJob' {jobId} -> jobId) (\s@DescribeDocumentClassificationJob' {} a -> s {jobId = a} :: DescribeDocumentClassificationJob)
 
@@ -92,7 +95,7 @@ instance
       ( \s h x ->
           DescribeDocumentClassificationJobResponse'
             Prelude.<$> (x Data..?> "DocumentClassificationJobProperties")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

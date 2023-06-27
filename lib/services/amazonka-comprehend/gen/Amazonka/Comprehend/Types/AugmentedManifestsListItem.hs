@@ -209,14 +209,16 @@ instance Data.FromJSON AugmentedManifestsListItem where
             Prelude.<*> (x Data..:? "SourceDocumentsS3Uri")
             Prelude.<*> (x Data..:? "Split")
             Prelude.<*> (x Data..: "S3Uri")
-            Prelude.<*> ( x Data..:? "AttributeNames"
+            Prelude.<*> ( x
+                            Data..:? "AttributeNames"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AugmentedManifestsListItem where
   hashWithSalt _salt AugmentedManifestsListItem' {..} =
-    _salt `Prelude.hashWithSalt` annotationDataS3Uri
+    _salt
+      `Prelude.hashWithSalt` annotationDataS3Uri
       `Prelude.hashWithSalt` documentType
       `Prelude.hashWithSalt` sourceDocumentsS3Uri
       `Prelude.hashWithSalt` split

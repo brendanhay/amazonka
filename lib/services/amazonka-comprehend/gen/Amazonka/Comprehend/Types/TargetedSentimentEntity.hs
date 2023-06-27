@@ -86,7 +86,8 @@ instance Data.FromJSON TargetedSentimentEntity where
       "TargetedSentimentEntity"
       ( \x ->
           TargetedSentimentEntity'
-            Prelude.<$> ( x Data..:? "DescriptiveMentionIndex"
+            Prelude.<$> ( x
+                            Data..:? "DescriptiveMentionIndex"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Mentions" Data..!= Prelude.mempty)

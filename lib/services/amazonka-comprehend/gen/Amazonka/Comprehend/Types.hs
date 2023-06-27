@@ -41,8 +41,20 @@ module Amazonka.Comprehend.Types
     -- * BlockType
     BlockType (..),
 
+    -- * DatasetDataFormat
+    DatasetDataFormat (..),
+
+    -- * DatasetStatus
+    DatasetStatus (..),
+
+    -- * DatasetType
+    DatasetType (..),
+
     -- * DocumentClassifierDataFormat
     DocumentClassifierDataFormat (..),
+
+    -- * DocumentClassifierDocumentTypeFormat
+    DocumentClassifierDocumentTypeFormat (..),
 
     -- * DocumentClassifierMode
     DocumentClassifierMode (..),
@@ -68,6 +80,12 @@ module Amazonka.Comprehend.Types
     -- * EntityType
     EntityType (..),
 
+    -- * FlywheelIterationStatus
+    FlywheelIterationStatus (..),
+
+    -- * FlywheelStatus
+    FlywheelStatus (..),
+
     -- * InputFormat
     InputFormat (..),
 
@@ -80,8 +98,14 @@ module Amazonka.Comprehend.Types
     -- * ModelStatus
     ModelStatus (..),
 
+    -- * ModelType
+    ModelType (..),
+
     -- * PageBasedErrorCode
     PageBasedErrorCode (..),
+
+    -- * PageBasedWarningCode
+    PageBasedWarningCode (..),
 
     -- * PartOfSpeechTagType
     PartOfSpeechTagType (..),
@@ -217,12 +241,94 @@ module Amazonka.Comprehend.Types
     classifierMetadata_numberOfTestDocuments,
     classifierMetadata_numberOfTrainedDocuments,
 
+    -- * DataSecurityConfig
+    DataSecurityConfig (..),
+    newDataSecurityConfig,
+    dataSecurityConfig_dataLakeKmsKeyId,
+    dataSecurityConfig_modelKmsKeyId,
+    dataSecurityConfig_volumeKmsKeyId,
+    dataSecurityConfig_vpcConfig,
+
+    -- * DatasetAugmentedManifestsListItem
+    DatasetAugmentedManifestsListItem (..),
+    newDatasetAugmentedManifestsListItem,
+    datasetAugmentedManifestsListItem_annotationDataS3Uri,
+    datasetAugmentedManifestsListItem_documentType,
+    datasetAugmentedManifestsListItem_sourceDocumentsS3Uri,
+    datasetAugmentedManifestsListItem_attributeNames,
+    datasetAugmentedManifestsListItem_s3Uri,
+
+    -- * DatasetDocumentClassifierInputDataConfig
+    DatasetDocumentClassifierInputDataConfig (..),
+    newDatasetDocumentClassifierInputDataConfig,
+    datasetDocumentClassifierInputDataConfig_labelDelimiter,
+    datasetDocumentClassifierInputDataConfig_s3Uri,
+
+    -- * DatasetEntityRecognizerAnnotations
+    DatasetEntityRecognizerAnnotations (..),
+    newDatasetEntityRecognizerAnnotations,
+    datasetEntityRecognizerAnnotations_s3Uri,
+
+    -- * DatasetEntityRecognizerDocuments
+    DatasetEntityRecognizerDocuments (..),
+    newDatasetEntityRecognizerDocuments,
+    datasetEntityRecognizerDocuments_inputFormat,
+    datasetEntityRecognizerDocuments_s3Uri,
+
+    -- * DatasetEntityRecognizerEntityList
+    DatasetEntityRecognizerEntityList (..),
+    newDatasetEntityRecognizerEntityList,
+    datasetEntityRecognizerEntityList_s3Uri,
+
+    -- * DatasetEntityRecognizerInputDataConfig
+    DatasetEntityRecognizerInputDataConfig (..),
+    newDatasetEntityRecognizerInputDataConfig,
+    datasetEntityRecognizerInputDataConfig_annotations,
+    datasetEntityRecognizerInputDataConfig_entityList,
+    datasetEntityRecognizerInputDataConfig_documents,
+
+    -- * DatasetFilter
+    DatasetFilter (..),
+    newDatasetFilter,
+    datasetFilter_creationTimeAfter,
+    datasetFilter_creationTimeBefore,
+    datasetFilter_datasetType,
+    datasetFilter_status,
+
+    -- * DatasetInputDataConfig
+    DatasetInputDataConfig (..),
+    newDatasetInputDataConfig,
+    datasetInputDataConfig_augmentedManifests,
+    datasetInputDataConfig_dataFormat,
+    datasetInputDataConfig_documentClassifierInputDataConfig,
+    datasetInputDataConfig_entityRecognizerInputDataConfig,
+
+    -- * DatasetProperties
+    DatasetProperties (..),
+    newDatasetProperties,
+    datasetProperties_creationTime,
+    datasetProperties_datasetArn,
+    datasetProperties_datasetName,
+    datasetProperties_datasetS3Uri,
+    datasetProperties_datasetType,
+    datasetProperties_description,
+    datasetProperties_endTime,
+    datasetProperties_message,
+    datasetProperties_numberOfDocuments,
+    datasetProperties_status,
+
     -- * DocumentClass
     DocumentClass (..),
     newDocumentClass,
     documentClass_name,
     documentClass_page,
     documentClass_score,
+
+    -- * DocumentClassificationConfig
+    DocumentClassificationConfig (..),
+    newDocumentClassificationConfig,
+    documentClassificationConfig_labels,
+    documentClassificationConfig_mode,
 
     -- * DocumentClassificationJobFilter
     DocumentClassificationJobFilter (..),
@@ -238,6 +344,7 @@ module Amazonka.Comprehend.Types
     documentClassificationJobProperties_dataAccessRoleArn,
     documentClassificationJobProperties_documentClassifierArn,
     documentClassificationJobProperties_endTime,
+    documentClassificationJobProperties_flywheelArn,
     documentClassificationJobProperties_inputDataConfig,
     documentClassificationJobProperties_jobArn,
     documentClassificationJobProperties_jobId,
@@ -248,6 +355,12 @@ module Amazonka.Comprehend.Types
     documentClassificationJobProperties_submitTime,
     documentClassificationJobProperties_volumeKmsKeyId,
     documentClassificationJobProperties_vpcConfig,
+
+    -- * DocumentClassifierDocuments
+    DocumentClassifierDocuments (..),
+    newDocumentClassifierDocuments,
+    documentClassifierDocuments_testS3Uri,
+    documentClassifierDocuments_s3Uri,
 
     -- * DocumentClassifierFilter
     DocumentClassifierFilter (..),
@@ -262,6 +375,9 @@ module Amazonka.Comprehend.Types
     newDocumentClassifierInputDataConfig,
     documentClassifierInputDataConfig_augmentedManifests,
     documentClassifierInputDataConfig_dataFormat,
+    documentClassifierInputDataConfig_documentReaderConfig,
+    documentClassifierInputDataConfig_documentType,
+    documentClassifierInputDataConfig_documents,
     documentClassifierInputDataConfig_labelDelimiter,
     documentClassifierInputDataConfig_s3Uri,
     documentClassifierInputDataConfig_testS3Uri,
@@ -269,6 +385,7 @@ module Amazonka.Comprehend.Types
     -- * DocumentClassifierOutputDataConfig
     DocumentClassifierOutputDataConfig (..),
     newDocumentClassifierOutputDataConfig,
+    documentClassifierOutputDataConfig_flywheelStatsS3Prefix,
     documentClassifierOutputDataConfig_kmsKeyId,
     documentClassifierOutputDataConfig_s3Uri,
 
@@ -279,6 +396,7 @@ module Amazonka.Comprehend.Types
     documentClassifierProperties_dataAccessRoleArn,
     documentClassifierProperties_documentClassifierArn,
     documentClassifierProperties_endTime,
+    documentClassifierProperties_flywheelArn,
     documentClassifierProperties_inputDataConfig,
     documentClassifierProperties_languageCode,
     documentClassifierProperties_message,
@@ -377,6 +495,7 @@ module Amazonka.Comprehend.Types
     endpointProperties_desiredInferenceUnits,
     endpointProperties_desiredModelArn,
     endpointProperties_endpointArn,
+    endpointProperties_flywheelArn,
     endpointProperties_lastModifiedTime,
     endpointProperties_message,
     endpointProperties_modelArn,
@@ -396,6 +515,7 @@ module Amazonka.Comprehend.Types
     entitiesDetectionJobProperties_dataAccessRoleArn,
     entitiesDetectionJobProperties_endTime,
     entitiesDetectionJobProperties_entityRecognizerArn,
+    entitiesDetectionJobProperties_flywheelArn,
     entitiesDetectionJobProperties_inputDataConfig,
     entitiesDetectionJobProperties_jobArn,
     entitiesDetectionJobProperties_jobId,
@@ -423,6 +543,11 @@ module Amazonka.Comprehend.Types
     newEntityLabel,
     entityLabel_name,
     entityLabel_score,
+
+    -- * EntityRecognitionConfig
+    EntityRecognitionConfig (..),
+    newEntityRecognitionConfig,
+    entityRecognitionConfig_entityTypes,
 
     -- * EntityRecognizerAnnotations
     EntityRecognizerAnnotations (..),
@@ -482,16 +607,23 @@ module Amazonka.Comprehend.Types
     entityRecognizerMetadataEntityTypesListItem_numberOfTrainMentions,
     entityRecognizerMetadataEntityTypesListItem_type,
 
+    -- * EntityRecognizerOutputDataConfig
+    EntityRecognizerOutputDataConfig (..),
+    newEntityRecognizerOutputDataConfig,
+    entityRecognizerOutputDataConfig_flywheelStatsS3Prefix,
+
     -- * EntityRecognizerProperties
     EntityRecognizerProperties (..),
     newEntityRecognizerProperties,
     entityRecognizerProperties_dataAccessRoleArn,
     entityRecognizerProperties_endTime,
     entityRecognizerProperties_entityRecognizerArn,
+    entityRecognizerProperties_flywheelArn,
     entityRecognizerProperties_inputDataConfig,
     entityRecognizerProperties_languageCode,
     entityRecognizerProperties_message,
     entityRecognizerProperties_modelKmsKeyId,
+    entityRecognizerProperties_outputDataConfig,
     entityRecognizerProperties_recognizerMetadata,
     entityRecognizerProperties_sourceModelArn,
     entityRecognizerProperties_status,
@@ -559,6 +691,71 @@ module Amazonka.Comprehend.Types
     newExtractedCharactersListItem,
     extractedCharactersListItem_count,
     extractedCharactersListItem_page,
+
+    -- * FlywheelFilter
+    FlywheelFilter (..),
+    newFlywheelFilter,
+    flywheelFilter_creationTimeAfter,
+    flywheelFilter_creationTimeBefore,
+    flywheelFilter_status,
+
+    -- * FlywheelIterationFilter
+    FlywheelIterationFilter (..),
+    newFlywheelIterationFilter,
+    flywheelIterationFilter_creationTimeAfter,
+    flywheelIterationFilter_creationTimeBefore,
+
+    -- * FlywheelIterationProperties
+    FlywheelIterationProperties (..),
+    newFlywheelIterationProperties,
+    flywheelIterationProperties_creationTime,
+    flywheelIterationProperties_endTime,
+    flywheelIterationProperties_evaluatedModelArn,
+    flywheelIterationProperties_evaluatedModelMetrics,
+    flywheelIterationProperties_evaluationManifestS3Prefix,
+    flywheelIterationProperties_flywheelArn,
+    flywheelIterationProperties_flywheelIterationId,
+    flywheelIterationProperties_message,
+    flywheelIterationProperties_status,
+    flywheelIterationProperties_trainedModelArn,
+    flywheelIterationProperties_trainedModelMetrics,
+
+    -- * FlywheelModelEvaluationMetrics
+    FlywheelModelEvaluationMetrics (..),
+    newFlywheelModelEvaluationMetrics,
+    flywheelModelEvaluationMetrics_averageAccuracy,
+    flywheelModelEvaluationMetrics_averageF1Score,
+    flywheelModelEvaluationMetrics_averagePrecision,
+    flywheelModelEvaluationMetrics_averageRecall,
+
+    -- * FlywheelProperties
+    FlywheelProperties (..),
+    newFlywheelProperties,
+    flywheelProperties_activeModelArn,
+    flywheelProperties_creationTime,
+    flywheelProperties_dataAccessRoleArn,
+    flywheelProperties_dataLakeS3Uri,
+    flywheelProperties_dataSecurityConfig,
+    flywheelProperties_flywheelArn,
+    flywheelProperties_lastModifiedTime,
+    flywheelProperties_latestFlywheelIteration,
+    flywheelProperties_message,
+    flywheelProperties_modelType,
+    flywheelProperties_status,
+    flywheelProperties_taskConfig,
+
+    -- * FlywheelSummary
+    FlywheelSummary (..),
+    newFlywheelSummary,
+    flywheelSummary_activeModelArn,
+    flywheelSummary_creationTime,
+    flywheelSummary_dataLakeS3Uri,
+    flywheelSummary_flywheelArn,
+    flywheelSummary_lastModifiedTime,
+    flywheelSummary_latestFlywheelIteration,
+    flywheelSummary_message,
+    flywheelSummary_modelType,
+    flywheelSummary_status,
 
     -- * Geometry
     Geometry (..),
@@ -772,6 +969,13 @@ module Amazonka.Comprehend.Types
     targetedSentimentMention_text,
     targetedSentimentMention_type,
 
+    -- * TaskConfig
+    TaskConfig (..),
+    newTaskConfig,
+    taskConfig_documentClassificationConfig,
+    taskConfig_entityRecognitionConfig,
+    taskConfig_languageCode,
+
     -- * TopicsDetectionJobFilter
     TopicsDetectionJobFilter (..),
     newTopicsDetectionJobFilter,
@@ -797,11 +1001,25 @@ module Amazonka.Comprehend.Types
     topicsDetectionJobProperties_volumeKmsKeyId,
     topicsDetectionJobProperties_vpcConfig,
 
+    -- * UpdateDataSecurityConfig
+    UpdateDataSecurityConfig (..),
+    newUpdateDataSecurityConfig,
+    updateDataSecurityConfig_modelKmsKeyId,
+    updateDataSecurityConfig_volumeKmsKeyId,
+    updateDataSecurityConfig_vpcConfig,
+
     -- * VpcConfig
     VpcConfig (..),
     newVpcConfig,
     vpcConfig_securityGroupIds,
     vpcConfig_subnets,
+
+    -- * WarningsListItem
+    WarningsListItem (..),
+    newWarningsListItem,
+    warningsListItem_page,
+    warningsListItem_warnCode,
+    warningsListItem_warnMessage,
   )
 where
 
@@ -821,10 +1039,26 @@ import Amazonka.Comprehend.Types.BoundingBox
 import Amazonka.Comprehend.Types.ChildBlock
 import Amazonka.Comprehend.Types.ClassifierEvaluationMetrics
 import Amazonka.Comprehend.Types.ClassifierMetadata
+import Amazonka.Comprehend.Types.DataSecurityConfig
+import Amazonka.Comprehend.Types.DatasetAugmentedManifestsListItem
+import Amazonka.Comprehend.Types.DatasetDataFormat
+import Amazonka.Comprehend.Types.DatasetDocumentClassifierInputDataConfig
+import Amazonka.Comprehend.Types.DatasetEntityRecognizerAnnotations
+import Amazonka.Comprehend.Types.DatasetEntityRecognizerDocuments
+import Amazonka.Comprehend.Types.DatasetEntityRecognizerEntityList
+import Amazonka.Comprehend.Types.DatasetEntityRecognizerInputDataConfig
+import Amazonka.Comprehend.Types.DatasetFilter
+import Amazonka.Comprehend.Types.DatasetInputDataConfig
+import Amazonka.Comprehend.Types.DatasetProperties
+import Amazonka.Comprehend.Types.DatasetStatus
+import Amazonka.Comprehend.Types.DatasetType
 import Amazonka.Comprehend.Types.DocumentClass
+import Amazonka.Comprehend.Types.DocumentClassificationConfig
 import Amazonka.Comprehend.Types.DocumentClassificationJobFilter
 import Amazonka.Comprehend.Types.DocumentClassificationJobProperties
 import Amazonka.Comprehend.Types.DocumentClassifierDataFormat
+import Amazonka.Comprehend.Types.DocumentClassifierDocumentTypeFormat
+import Amazonka.Comprehend.Types.DocumentClassifierDocuments
 import Amazonka.Comprehend.Types.DocumentClassifierFilter
 import Amazonka.Comprehend.Types.DocumentClassifierInputDataConfig
 import Amazonka.Comprehend.Types.DocumentClassifierMode
@@ -849,6 +1083,7 @@ import Amazonka.Comprehend.Types.EntitiesDetectionJobFilter
 import Amazonka.Comprehend.Types.EntitiesDetectionJobProperties
 import Amazonka.Comprehend.Types.Entity
 import Amazonka.Comprehend.Types.EntityLabel
+import Amazonka.Comprehend.Types.EntityRecognitionConfig
 import Amazonka.Comprehend.Types.EntityRecognizerAnnotations
 import Amazonka.Comprehend.Types.EntityRecognizerDataFormat
 import Amazonka.Comprehend.Types.EntityRecognizerDocuments
@@ -858,6 +1093,7 @@ import Amazonka.Comprehend.Types.EntityRecognizerFilter
 import Amazonka.Comprehend.Types.EntityRecognizerInputDataConfig
 import Amazonka.Comprehend.Types.EntityRecognizerMetadata
 import Amazonka.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem
+import Amazonka.Comprehend.Types.EntityRecognizerOutputDataConfig
 import Amazonka.Comprehend.Types.EntityRecognizerProperties
 import Amazonka.Comprehend.Types.EntityRecognizerSummary
 import Amazonka.Comprehend.Types.EntityType
@@ -867,6 +1103,14 @@ import Amazonka.Comprehend.Types.ErrorsListItem
 import Amazonka.Comprehend.Types.EventsDetectionJobFilter
 import Amazonka.Comprehend.Types.EventsDetectionJobProperties
 import Amazonka.Comprehend.Types.ExtractedCharactersListItem
+import Amazonka.Comprehend.Types.FlywheelFilter
+import Amazonka.Comprehend.Types.FlywheelIterationFilter
+import Amazonka.Comprehend.Types.FlywheelIterationProperties
+import Amazonka.Comprehend.Types.FlywheelIterationStatus
+import Amazonka.Comprehend.Types.FlywheelModelEvaluationMetrics
+import Amazonka.Comprehend.Types.FlywheelProperties
+import Amazonka.Comprehend.Types.FlywheelStatus
+import Amazonka.Comprehend.Types.FlywheelSummary
 import Amazonka.Comprehend.Types.Geometry
 import Amazonka.Comprehend.Types.InputDataConfig
 import Amazonka.Comprehend.Types.InputFormat
@@ -877,8 +1121,10 @@ import Amazonka.Comprehend.Types.KeyPhrasesDetectionJobProperties
 import Amazonka.Comprehend.Types.LanguageCode
 import Amazonka.Comprehend.Types.MentionSentiment
 import Amazonka.Comprehend.Types.ModelStatus
+import Amazonka.Comprehend.Types.ModelType
 import Amazonka.Comprehend.Types.OutputDataConfig
 import Amazonka.Comprehend.Types.PageBasedErrorCode
+import Amazonka.Comprehend.Types.PageBasedWarningCode
 import Amazonka.Comprehend.Types.PartOfSpeechTag
 import Amazonka.Comprehend.Types.PartOfSpeechTagType
 import Amazonka.Comprehend.Types.PiiEntitiesDetectionJobFilter
@@ -905,9 +1151,12 @@ import Amazonka.Comprehend.Types.TargetedSentimentDetectionJobProperties
 import Amazonka.Comprehend.Types.TargetedSentimentEntity
 import Amazonka.Comprehend.Types.TargetedSentimentEntityType
 import Amazonka.Comprehend.Types.TargetedSentimentMention
+import Amazonka.Comprehend.Types.TaskConfig
 import Amazonka.Comprehend.Types.TopicsDetectionJobFilter
 import Amazonka.Comprehend.Types.TopicsDetectionJobProperties
+import Amazonka.Comprehend.Types.UpdateDataSecurityConfig
 import Amazonka.Comprehend.Types.VpcConfig
+import Amazonka.Comprehend.Types.WarningsListItem
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -939,53 +1188,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The number of documents in the request exceeds the limit of 25. Try your
 -- request again with fewer documents.
-_BatchSizeLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BatchSizeLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BatchSizeLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -993,14 +1242,14 @@ _BatchSizeLimitExceededException =
 
 -- | Concurrent modification of the tags associated with an Amazon Comprehend
 -- resource is not supported.
-_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConcurrentModificationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
     "ConcurrentModificationException"
 
 -- | An internal server error occurred. Retry your request.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -1008,21 +1257,21 @@ _InternalServerException =
 
 -- | The filter specified for the operation is invalid. Specify a different
 -- filter.
-_InvalidFilterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidFilterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidFilterException =
   Core._MatchServiceError
     defaultService
     "InvalidFilterException"
 
 -- | The request is invalid.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
     "InvalidRequestException"
 
 -- | The specified job was not found. Check the job ID and try again.
-_JobNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_JobNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _JobNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1030,7 +1279,7 @@ _JobNotFoundException =
 
 -- | The KMS customer managed key (CMK) entered cannot be validated. Verify
 -- the key and re-enter it.
-_KmsKeyValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_KmsKeyValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _KmsKeyValidationException =
   Core._MatchServiceError
     defaultService
@@ -1038,7 +1287,7 @@ _KmsKeyValidationException =
 
 -- | The specified resource name is already in use. Use a different name and
 -- try your request again.
-_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -1046,7 +1295,7 @@ _ResourceInUseException =
 
 -- | The maximum number of resources per account has been exceeded. Review
 -- the resources, and then try your request again.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -1054,7 +1303,7 @@ _ResourceLimitExceededException =
 
 -- | The specified resource ARN was not found. Check the ARN and try your
 -- request again.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1062,21 +1311,21 @@ _ResourceNotFoundException =
 
 -- | The specified resource is not available. Check the resource and try your
 -- request again.
-_ResourceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceUnavailableException =
   Core._MatchServiceError
     defaultService
     "ResourceUnavailableException"
 
 -- | The size of the input text exceeds the limit. Use a smaller document.
-_TextSizeLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TextSizeLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TextSizeLimitExceededException =
   Core._MatchServiceError
     defaultService
     "TextSizeLimitExceededException"
 
 -- | The number of requests exceeds the limit. Resubmit your request later.
-_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyRequestsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
@@ -1084,7 +1333,7 @@ _TooManyRequestsException =
 
 -- | The request contains more tag keys than can be associated with a
 -- resource (50 tag keys per resource).
-_TooManyTagKeysException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyTagKeysException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyTagKeysException =
   Core._MatchServiceError
     defaultService
@@ -1093,7 +1342,7 @@ _TooManyTagKeysException =
 -- | The request contains more tags than can be associated with a resource
 -- (50 tags per resource). The maximum number of tags includes both
 -- existing tags and those included in your current request.
-_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyTagsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService
@@ -1104,7 +1353,7 @@ _TooManyTagsException =
 -- German, or Portuguese are accepted. For a list of supported languages,
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html Supported languages>
 -- in the Comprehend Developer Guide.
-_UnsupportedLanguageException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedLanguageException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedLanguageException =
   Core._MatchServiceError
     defaultService

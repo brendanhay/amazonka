@@ -111,22 +111,22 @@ instance Core.AWSPager ListDocumentClassifiers where
     | Core.stop
         ( rs
             Lens.^? listDocumentClassifiersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDocumentClassifiersResponse_documentClassifierPropertiesList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDocumentClassifiers_nextToken
           Lens..~ rs
           Lens.^? listDocumentClassifiersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDocumentClassifiers where
   type
@@ -138,7 +138,8 @@ instance Core.AWSRequest ListDocumentClassifiers where
     Response.receiveJSON
       ( \s h x ->
           ListDocumentClassifiersResponse'
-            Prelude.<$> ( x Data..?> "DocumentClassifierPropertiesList"
+            Prelude.<$> ( x
+                            Data..?> "DocumentClassifierPropertiesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -147,7 +148,8 @@ instance Core.AWSRequest ListDocumentClassifiers where
 
 instance Prelude.Hashable ListDocumentClassifiers where
   hashWithSalt _salt ListDocumentClassifiers' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

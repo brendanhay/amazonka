@@ -65,15 +65,15 @@ data StartSentimentDetectionJob = StartSentimentDetectionJob'
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the job.
     jobName :: Prelude.Maybe Prelude.Text,
-    -- | Tags to be associated with the sentiment detection job. A tag is a
-    -- key-value pair that adds metadata to a resource used by Amazon
-    -- Comprehend. For example, a tag with \"Sales\" as the key might be added
-    -- to a resource to indicate its use by the sales department.
+    -- | Tags to associate with the sentiment detection job. A tag is a key-value
+    -- pair that adds metadata to a resource used by Amazon Comprehend. For
+    -- example, a tag with \"Sales\" as the key might be added to a resource to
+    -- indicate its use by the sales department.
     tags :: Prelude.Maybe [Tag],
-    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt data on the storage volume attached to the ML compute
-    -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
-    -- either of the following formats:
+    -- | ID for the Amazon Web Services Key Management Service (KMS) key that
+    -- Amazon Comprehend uses to encrypt data on the storage volume attached to
+    -- the ML compute instance(s) that process the analysis job. The
+    -- VolumeKmsKeyId can be either of the following formats:
     --
     -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
@@ -89,10 +89,9 @@ data StartSentimentDetectionJob = StartSentimentDetectionJob'
     inputDataConfig :: InputDataConfig,
     -- | Specifies where to send the output files.
     outputDataConfig :: OutputDataConfig,
-    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-    -- (IAM) role that grants Amazon Comprehend read access to your input data.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions>.
+    -- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+    -- Comprehend read access to your input data. For more information, see
+    -- <https://docs.aws.amazon.com/comprehend/latest/dg/security_iam_id-based-policy-examples.html#auth-role-permissions Role-based permissions>.
     dataAccessRoleArn :: Prelude.Text,
     -- | The language of the input documents. You can specify any of the primary
     -- languages supported by Amazon Comprehend. All documents must be in the
@@ -114,15 +113,15 @@ data StartSentimentDetectionJob = StartSentimentDetectionJob'
 --
 -- 'jobName', 'startSentimentDetectionJob_jobName' - The identifier of the job.
 --
--- 'tags', 'startSentimentDetectionJob_tags' - Tags to be associated with the sentiment detection job. A tag is a
--- key-value pair that adds metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
+-- 'tags', 'startSentimentDetectionJob_tags' - Tags to associate with the sentiment detection job. A tag is a key-value
+-- pair that adds metadata to a resource used by Amazon Comprehend. For
+-- example, a tag with \"Sales\" as the key might be added to a resource to
+-- indicate its use by the sales department.
 --
--- 'volumeKmsKeyId', 'startSentimentDetectionJob_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- 'volumeKmsKeyId', 'startSentimentDetectionJob_volumeKmsKeyId' - ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -138,10 +137,9 @@ data StartSentimentDetectionJob = StartSentimentDetectionJob'
 --
 -- 'outputDataConfig', 'startSentimentDetectionJob_outputDataConfig' - Specifies where to send the output files.
 --
--- 'dataAccessRoleArn', 'startSentimentDetectionJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to your input data.
--- For more information, see
--- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions>.
+-- 'dataAccessRoleArn', 'startSentimentDetectionJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data. For more information, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/security_iam_id-based-policy-examples.html#auth-role-permissions Role-based permissions>.
 --
 -- 'languageCode', 'startSentimentDetectionJob_languageCode' - The language of the input documents. You can specify any of the primary
 -- languages supported by Amazon Comprehend. All documents must be in the
@@ -183,17 +181,17 @@ startSentimentDetectionJob_clientRequestToken = Lens.lens (\StartSentimentDetect
 startSentimentDetectionJob_jobName :: Lens.Lens' StartSentimentDetectionJob (Prelude.Maybe Prelude.Text)
 startSentimentDetectionJob_jobName = Lens.lens (\StartSentimentDetectionJob' {jobName} -> jobName) (\s@StartSentimentDetectionJob' {} a -> s {jobName = a} :: StartSentimentDetectionJob)
 
--- | Tags to be associated with the sentiment detection job. A tag is a
--- key-value pair that adds metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
+-- | Tags to associate with the sentiment detection job. A tag is a key-value
+-- pair that adds metadata to a resource used by Amazon Comprehend. For
+-- example, a tag with \"Sales\" as the key might be added to a resource to
+-- indicate its use by the sales department.
 startSentimentDetectionJob_tags :: Lens.Lens' StartSentimentDetectionJob (Prelude.Maybe [Tag])
 startSentimentDetectionJob_tags = Lens.lens (\StartSentimentDetectionJob' {tags} -> tags) (\s@StartSentimentDetectionJob' {} a -> s {tags = a} :: StartSentimentDetectionJob) Prelude.. Lens.mapping Lens.coerced
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- | ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -217,10 +215,9 @@ startSentimentDetectionJob_inputDataConfig = Lens.lens (\StartSentimentDetection
 startSentimentDetectionJob_outputDataConfig :: Lens.Lens' StartSentimentDetectionJob OutputDataConfig
 startSentimentDetectionJob_outputDataConfig = Lens.lens (\StartSentimentDetectionJob' {outputDataConfig} -> outputDataConfig) (\s@StartSentimentDetectionJob' {} a -> s {outputDataConfig = a} :: StartSentimentDetectionJob)
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to your input data.
--- For more information, see
--- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions>.
+-- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data. For more information, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/security_iam_id-based-policy-examples.html#auth-role-permissions Role-based permissions>.
 startSentimentDetectionJob_dataAccessRoleArn :: Lens.Lens' StartSentimentDetectionJob Prelude.Text
 startSentimentDetectionJob_dataAccessRoleArn = Lens.lens (\StartSentimentDetectionJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartSentimentDetectionJob' {} a -> s {dataAccessRoleArn = a} :: StartSentimentDetectionJob)
 
@@ -248,7 +245,8 @@ instance Core.AWSRequest StartSentimentDetectionJob where
 
 instance Prelude.Hashable StartSentimentDetectionJob where
   hashWithSalt _salt StartSentimentDetectionJob' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` volumeKmsKeyId
@@ -315,8 +313,9 @@ instance Data.ToQuery StartSentimentDetectionJob where
 -- | /See:/ 'newStartSentimentDetectionJobResponse' smart constructor.
 data StartSentimentDetectionJobResponse = StartSentimentDetectionJobResponse'
   { -- | The Amazon Resource Name (ARN) of the sentiment detection job. It is a
-    -- unique, fully qualified identifier for the job. It includes the AWS
-    -- account, Region, and the job ID. The format of the ARN is as follows:
+    -- unique, fully qualified identifier for the job. It includes the Amazon
+    -- Web Services account, Amazon Web Services Region, and the job ID. The
+    -- format of the ARN is as follows:
     --
     -- @arn:\<partition>:comprehend:\<region>:\<account-id>:sentiment-detection-job\/\<job-id>@
     --
@@ -353,8 +352,9 @@ data StartSentimentDetectionJobResponse = StartSentimentDetectionJobResponse'
 -- for backwards compatibility:
 --
 -- 'jobArn', 'startSentimentDetectionJobResponse_jobArn' - The Amazon Resource Name (ARN) of the sentiment detection job. It is a
--- unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:sentiment-detection-job\/\<job-id>@
 --
@@ -392,8 +392,9 @@ newStartSentimentDetectionJobResponse pHttpStatus_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the sentiment detection job. It is a
--- unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:sentiment-detection-job\/\<job-id>@
 --

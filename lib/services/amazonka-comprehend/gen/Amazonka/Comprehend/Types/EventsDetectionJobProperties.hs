@@ -32,8 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventsDetectionJobProperties' smart constructor.
 data EventsDetectionJobProperties = EventsDetectionJobProperties'
-  { -- | The Amazon Resource Name (ARN) of the AWS Identify and Access Management
-    -- (IAM) role that grants Amazon Comprehend read access to your input data.
+  { -- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+    -- Comprehend read access to your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the events detection job completed.
     endTime :: Prelude.Maybe Data.POSIX,
@@ -41,8 +41,9 @@ data EventsDetectionJobProperties = EventsDetectionJobProperties'
     -- events detection job.
     inputDataConfig :: Prelude.Maybe InputDataConfig,
     -- | The Amazon Resource Name (ARN) of the events detection job. It is a
-    -- unique, fully qualified identifier for the job. It includes the AWS
-    -- account, Region, and the job ID. The format of the ARN is as follows:
+    -- unique, fully qualified identifier for the job. It includes the Amazon
+    -- Web Services account, Amazon Web Services Region, and the job ID. The
+    -- format of the ARN is as follows:
     --
     -- @arn:\<partition>:comprehend:\<region>:\<account-id>:events-detection-job\/\<job-id>@
     --
@@ -78,8 +79,8 @@ data EventsDetectionJobProperties = EventsDetectionJobProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataAccessRoleArn', 'eventsDetectionJobProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identify and Access Management
--- (IAM) role that grants Amazon Comprehend read access to your input data.
+-- 'dataAccessRoleArn', 'eventsDetectionJobProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 --
 -- 'endTime', 'eventsDetectionJobProperties_endTime' - The time that the events detection job completed.
 --
@@ -87,8 +88,9 @@ data EventsDetectionJobProperties = EventsDetectionJobProperties'
 -- events detection job.
 --
 -- 'jobArn', 'eventsDetectionJobProperties_jobArn' - The Amazon Resource Name (ARN) of the events detection job. It is a
--- unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:events-detection-job\/\<job-id>@
 --
@@ -131,8 +133,8 @@ newEventsDetectionJobProperties =
       targetEventTypes = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the AWS Identify and Access Management
--- (IAM) role that grants Amazon Comprehend read access to your input data.
+-- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 eventsDetectionJobProperties_dataAccessRoleArn :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe Prelude.Text)
 eventsDetectionJobProperties_dataAccessRoleArn = Lens.lens (\EventsDetectionJobProperties' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@EventsDetectionJobProperties' {} a -> s {dataAccessRoleArn = a} :: EventsDetectionJobProperties)
 
@@ -146,8 +148,9 @@ eventsDetectionJobProperties_inputDataConfig :: Lens.Lens' EventsDetectionJobPro
 eventsDetectionJobProperties_inputDataConfig = Lens.lens (\EventsDetectionJobProperties' {inputDataConfig} -> inputDataConfig) (\s@EventsDetectionJobProperties' {} a -> s {inputDataConfig = a} :: EventsDetectionJobProperties)
 
 -- | The Amazon Resource Name (ARN) of the events detection job. It is a
--- unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:events-detection-job\/\<job-id>@
 --
@@ -215,7 +218,8 @@ instance
     EventsDetectionJobProperties
   where
   hashWithSalt _salt EventsDetectionJobProperties' {..} =
-    _salt `Prelude.hashWithSalt` dataAccessRoleArn
+    _salt
+      `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` inputDataConfig
       `Prelude.hashWithSalt` jobArn

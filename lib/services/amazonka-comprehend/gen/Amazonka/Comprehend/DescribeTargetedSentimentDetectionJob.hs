@@ -51,7 +51,8 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDescribeTargetedSentimentDetectionJob' smart constructor.
 data DescribeTargetedSentimentDetectionJob = DescribeTargetedSentimentDetectionJob'
   { -- | The identifier that Amazon Comprehend generated for the job. The
-    -- operation returns this identifier in its response.
+    -- @StartTargetedSentimentDetectionJob@ operation returns this identifier
+    -- in its response.
     jobId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,7 +66,8 @@ data DescribeTargetedSentimentDetectionJob = DescribeTargetedSentimentDetectionJ
 -- for backwards compatibility:
 --
 -- 'jobId', 'describeTargetedSentimentDetectionJob_jobId' - The identifier that Amazon Comprehend generated for the job. The
--- operation returns this identifier in its response.
+-- @StartTargetedSentimentDetectionJob@ operation returns this identifier
+-- in its response.
 newDescribeTargetedSentimentDetectionJob ::
   -- | 'jobId'
   Prelude.Text ->
@@ -77,7 +79,8 @@ newDescribeTargetedSentimentDetectionJob pJobId_ =
     }
 
 -- | The identifier that Amazon Comprehend generated for the job. The
--- operation returns this identifier in its response.
+-- @StartTargetedSentimentDetectionJob@ operation returns this identifier
+-- in its response.
 describeTargetedSentimentDetectionJob_jobId :: Lens.Lens' DescribeTargetedSentimentDetectionJob Prelude.Text
 describeTargetedSentimentDetectionJob_jobId = Lens.lens (\DescribeTargetedSentimentDetectionJob' {jobId} -> jobId) (\s@DescribeTargetedSentimentDetectionJob' {} a -> s {jobId = a} :: DescribeTargetedSentimentDetectionJob)
 
@@ -98,7 +101,7 @@ instance
             Prelude.<$> ( x
                             Data..?> "TargetedSentimentDetectionJobProperties"
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

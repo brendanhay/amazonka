@@ -41,7 +41,7 @@ data VpcConfig = VpcConfig'
     securityGroupIds :: Prelude.NonEmpty Prelude.Text,
     -- | The ID for each subnet being used in your private VPC. This subnet is a
     -- subset of the a range of IPv4 addresses used by the VPC and is specific
-    -- to a given availability zone in the VPC’s region. This ID number is
+    -- to a given availability zone in the VPC’s Region. This ID number is
     -- preceded by \"subnet-\", for instance: \"subnet-04ccf456919e69055\". For
     -- more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>.
@@ -67,7 +67,7 @@ data VpcConfig = VpcConfig'
 --
 -- 'subnets', 'vpcConfig_subnets' - The ID for each subnet being used in your private VPC. This subnet is a
 -- subset of the a range of IPv4 addresses used by the VPC and is specific
--- to a given availability zone in the VPC’s region. This ID number is
+-- to a given availability zone in the VPC’s Region. This ID number is
 -- preceded by \"subnet-\", for instance: \"subnet-04ccf456919e69055\". For
 -- more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>.
@@ -96,7 +96,7 @@ vpcConfig_securityGroupIds = Lens.lens (\VpcConfig' {securityGroupIds} -> securi
 
 -- | The ID for each subnet being used in your private VPC. This subnet is a
 -- subset of the a range of IPv4 addresses used by the VPC and is specific
--- to a given availability zone in the VPC’s region. This ID number is
+-- to a given availability zone in the VPC’s Region. This ID number is
 -- preceded by \"subnet-\", for instance: \"subnet-04ccf456919e69055\". For
 -- more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>.
@@ -115,7 +115,8 @@ instance Data.FromJSON VpcConfig where
 
 instance Prelude.Hashable VpcConfig where
   hashWithSalt _salt VpcConfig' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnets
 
 instance Prelude.NFData VpcConfig where

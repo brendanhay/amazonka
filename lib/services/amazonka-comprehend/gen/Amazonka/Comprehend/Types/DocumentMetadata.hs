@@ -73,7 +73,8 @@ instance Data.FromJSON DocumentMetadata where
       "DocumentMetadata"
       ( \x ->
           DocumentMetadata'
-            Prelude.<$> ( x Data..:? "ExtractedCharacters"
+            Prelude.<$> ( x
+                            Data..:? "ExtractedCharacters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Pages")
@@ -81,7 +82,8 @@ instance Data.FromJSON DocumentMetadata where
 
 instance Prelude.Hashable DocumentMetadata where
   hashWithSalt _salt DocumentMetadata' {..} =
-    _salt `Prelude.hashWithSalt` extractedCharacters
+    _salt
+      `Prelude.hashWithSalt` extractedCharacters
       `Prelude.hashWithSalt` pages
 
 instance Prelude.NFData DocumentMetadata where

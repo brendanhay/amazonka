@@ -114,7 +114,8 @@ instance Core.AWSRequest DetectKeyPhrases where
 
 instance Prelude.Hashable DetectKeyPhrases where
   hashWithSalt _salt DetectKeyPhrases' {..} =
-    _salt `Prelude.hashWithSalt` text
+    _salt
+      `Prelude.hashWithSalt` text
       `Prelude.hashWithSalt` languageCode
 
 instance Prelude.NFData DetectKeyPhrases where

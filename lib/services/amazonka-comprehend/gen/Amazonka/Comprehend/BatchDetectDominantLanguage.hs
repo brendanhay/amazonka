@@ -78,7 +78,8 @@ newBatchDetectDominantLanguage ::
 newBatchDetectDominantLanguage pTextList_ =
   BatchDetectDominantLanguage'
     { textList =
-        Data._Sensitive Prelude.. Lens.coerced
+        Data._Sensitive
+          Prelude.. Lens.coerced
           Lens.# pTextList_
     }
 

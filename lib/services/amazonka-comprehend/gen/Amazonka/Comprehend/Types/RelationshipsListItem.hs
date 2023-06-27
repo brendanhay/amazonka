@@ -75,7 +75,8 @@ instance Data.FromJSON RelationshipsListItem where
 
 instance Prelude.Hashable RelationshipsListItem where
   hashWithSalt _salt RelationshipsListItem' {..} =
-    _salt `Prelude.hashWithSalt` ids
+    _salt
+      `Prelude.hashWithSalt` ids
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData RelationshipsListItem where

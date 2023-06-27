@@ -35,6 +35,7 @@ module Amazonka.Comprehend.StartEntitiesDetectionJob
     -- * Request Lenses
     startEntitiesDetectionJob_clientRequestToken,
     startEntitiesDetectionJob_entityRecognizerArn,
+    startEntitiesDetectionJob_flywheelArn,
     startEntitiesDetectionJob_jobName,
     startEntitiesDetectionJob_tags,
     startEntitiesDetectionJob_volumeKmsKeyId,
@@ -49,6 +50,7 @@ module Amazonka.Comprehend.StartEntitiesDetectionJob
     newStartEntitiesDetectionJobResponse,
 
     -- * Response Lenses
+    startEntitiesDetectionJobResponse_entityRecognizerArn,
     startEntitiesDetectionJobResponse_jobArn,
     startEntitiesDetectionJobResponse_jobId,
     startEntitiesDetectionJobResponse_jobStatus,
@@ -73,17 +75,20 @@ data StartEntitiesDetectionJob = StartEntitiesDetectionJob'
     -- recognizer to be used by the @StartEntitiesDetectionJob@. This ARN is
     -- optional and is only used for a custom entity recognition job.
     entityRecognizerArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Number (ARN) of the flywheel associated with the
+    -- model to use.
+    flywheelArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the job.
     jobName :: Prelude.Maybe Prelude.Text,
-    -- | Tags to be associated with the entities detection job. A tag is a
-    -- key-value pair that adds metadata to a resource used by Amazon
-    -- Comprehend. For example, a tag with \"Sales\" as the key might be added
-    -- to a resource to indicate its use by the sales department.
+    -- | Tags to associate with the entities detection job. A tag is a key-value
+    -- pair that adds metadata to a resource used by Amazon Comprehend. For
+    -- example, a tag with \"Sales\" as the key might be added to a resource to
+    -- indicate its use by the sales department.
     tags :: Prelude.Maybe [Tag],
-    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt data on the storage volume attached to the ML compute
-    -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
-    -- either of the following formats:
+    -- | ID for the Amazon Web Services Key Management Service (KMS) key that
+    -- Amazon Comprehend uses to encrypt data on the storage volume attached to
+    -- the ML compute instance(s) that process the analysis job. The
+    -- VolumeKmsKeyId can be either of the following formats:
     --
     -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
@@ -99,10 +104,9 @@ data StartEntitiesDetectionJob = StartEntitiesDetectionJob'
     inputDataConfig :: InputDataConfig,
     -- | Specifies where to send the output files.
     outputDataConfig :: OutputDataConfig,
-    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-    -- (IAM) role that grants Amazon Comprehend read access to your input data.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions>.
+    -- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+    -- Comprehend read access to your input data. For more information, see
+    -- <https://docs.aws.amazon.com/comprehend/latest/dg/security_iam_id-based-policy-examples.html#auth-role-permissions Role-based permissions>.
     dataAccessRoleArn :: Prelude.Text,
     -- | The language of the input documents. All documents must be in the same
     -- language. You can specify any of the languages supported by Amazon
@@ -127,17 +131,20 @@ data StartEntitiesDetectionJob = StartEntitiesDetectionJob'
 -- recognizer to be used by the @StartEntitiesDetectionJob@. This ARN is
 -- optional and is only used for a custom entity recognition job.
 --
+-- 'flywheelArn', 'startEntitiesDetectionJob_flywheelArn' - The Amazon Resource Number (ARN) of the flywheel associated with the
+-- model to use.
+--
 -- 'jobName', 'startEntitiesDetectionJob_jobName' - The identifier of the job.
 --
--- 'tags', 'startEntitiesDetectionJob_tags' - Tags to be associated with the entities detection job. A tag is a
--- key-value pair that adds metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
+-- 'tags', 'startEntitiesDetectionJob_tags' - Tags to associate with the entities detection job. A tag is a key-value
+-- pair that adds metadata to a resource used by Amazon Comprehend. For
+-- example, a tag with \"Sales\" as the key might be added to a resource to
+-- indicate its use by the sales department.
 --
--- 'volumeKmsKeyId', 'startEntitiesDetectionJob_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- 'volumeKmsKeyId', 'startEntitiesDetectionJob_volumeKmsKeyId' - ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -153,10 +160,9 @@ data StartEntitiesDetectionJob = StartEntitiesDetectionJob'
 --
 -- 'outputDataConfig', 'startEntitiesDetectionJob_outputDataConfig' - Specifies where to send the output files.
 --
--- 'dataAccessRoleArn', 'startEntitiesDetectionJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to your input data.
--- For more information, see
--- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions>.
+-- 'dataAccessRoleArn', 'startEntitiesDetectionJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data. For more information, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/security_iam_id-based-policy-examples.html#auth-role-permissions Role-based permissions>.
 --
 -- 'languageCode', 'startEntitiesDetectionJob_languageCode' - The language of the input documents. All documents must be in the same
 -- language. You can specify any of the languages supported by Amazon
@@ -181,6 +187,7 @@ newStartEntitiesDetectionJob
       { clientRequestToken =
           Prelude.Nothing,
         entityRecognizerArn = Prelude.Nothing,
+        flywheelArn = Prelude.Nothing,
         jobName = Prelude.Nothing,
         tags = Prelude.Nothing,
         volumeKmsKeyId = Prelude.Nothing,
@@ -202,21 +209,26 @@ startEntitiesDetectionJob_clientRequestToken = Lens.lens (\StartEntitiesDetectio
 startEntitiesDetectionJob_entityRecognizerArn :: Lens.Lens' StartEntitiesDetectionJob (Prelude.Maybe Prelude.Text)
 startEntitiesDetectionJob_entityRecognizerArn = Lens.lens (\StartEntitiesDetectionJob' {entityRecognizerArn} -> entityRecognizerArn) (\s@StartEntitiesDetectionJob' {} a -> s {entityRecognizerArn = a} :: StartEntitiesDetectionJob)
 
+-- | The Amazon Resource Number (ARN) of the flywheel associated with the
+-- model to use.
+startEntitiesDetectionJob_flywheelArn :: Lens.Lens' StartEntitiesDetectionJob (Prelude.Maybe Prelude.Text)
+startEntitiesDetectionJob_flywheelArn = Lens.lens (\StartEntitiesDetectionJob' {flywheelArn} -> flywheelArn) (\s@StartEntitiesDetectionJob' {} a -> s {flywheelArn = a} :: StartEntitiesDetectionJob)
+
 -- | The identifier of the job.
 startEntitiesDetectionJob_jobName :: Lens.Lens' StartEntitiesDetectionJob (Prelude.Maybe Prelude.Text)
 startEntitiesDetectionJob_jobName = Lens.lens (\StartEntitiesDetectionJob' {jobName} -> jobName) (\s@StartEntitiesDetectionJob' {} a -> s {jobName = a} :: StartEntitiesDetectionJob)
 
--- | Tags to be associated with the entities detection job. A tag is a
--- key-value pair that adds metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
+-- | Tags to associate with the entities detection job. A tag is a key-value
+-- pair that adds metadata to a resource used by Amazon Comprehend. For
+-- example, a tag with \"Sales\" as the key might be added to a resource to
+-- indicate its use by the sales department.
 startEntitiesDetectionJob_tags :: Lens.Lens' StartEntitiesDetectionJob (Prelude.Maybe [Tag])
 startEntitiesDetectionJob_tags = Lens.lens (\StartEntitiesDetectionJob' {tags} -> tags) (\s@StartEntitiesDetectionJob' {} a -> s {tags = a} :: StartEntitiesDetectionJob) Prelude.. Lens.mapping Lens.coerced
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- | ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -240,10 +252,9 @@ startEntitiesDetectionJob_inputDataConfig = Lens.lens (\StartEntitiesDetectionJo
 startEntitiesDetectionJob_outputDataConfig :: Lens.Lens' StartEntitiesDetectionJob OutputDataConfig
 startEntitiesDetectionJob_outputDataConfig = Lens.lens (\StartEntitiesDetectionJob' {outputDataConfig} -> outputDataConfig) (\s@StartEntitiesDetectionJob' {} a -> s {outputDataConfig = a} :: StartEntitiesDetectionJob)
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to your input data.
--- For more information, see
--- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions>.
+-- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data. For more information, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/security_iam_id-based-policy-examples.html#auth-role-permissions Role-based permissions>.
 startEntitiesDetectionJob_dataAccessRoleArn :: Lens.Lens' StartEntitiesDetectionJob Prelude.Text
 startEntitiesDetectionJob_dataAccessRoleArn = Lens.lens (\StartEntitiesDetectionJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartEntitiesDetectionJob' {} a -> s {dataAccessRoleArn = a} :: StartEntitiesDetectionJob)
 
@@ -264,7 +275,8 @@ instance Core.AWSRequest StartEntitiesDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           StartEntitiesDetectionJobResponse'
-            Prelude.<$> (x Data..?> "JobArn")
+            Prelude.<$> (x Data..?> "EntityRecognizerArn")
+            Prelude.<*> (x Data..?> "JobArn")
             Prelude.<*> (x Data..?> "JobId")
             Prelude.<*> (x Data..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -272,8 +284,10 @@ instance Core.AWSRequest StartEntitiesDetectionJob where
 
 instance Prelude.Hashable StartEntitiesDetectionJob where
   hashWithSalt _salt StartEntitiesDetectionJob' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` entityRecognizerArn
+      `Prelude.hashWithSalt` flywheelArn
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` volumeKmsKeyId
@@ -287,6 +301,7 @@ instance Prelude.NFData StartEntitiesDetectionJob where
   rnf StartEntitiesDetectionJob' {..} =
     Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf entityRecognizerArn
+      `Prelude.seq` Prelude.rnf flywheelArn
       `Prelude.seq` Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf volumeKmsKeyId
@@ -319,6 +334,7 @@ instance Data.ToJSON StartEntitiesDetectionJob where
               Prelude.<$> clientRequestToken,
             ("EntityRecognizerArn" Data..=)
               Prelude.<$> entityRecognizerArn,
+            ("FlywheelArn" Data..=) Prelude.<$> flywheelArn,
             ("JobName" Data..=) Prelude.<$> jobName,
             ("Tags" Data..=) Prelude.<$> tags,
             ("VolumeKmsKeyId" Data..=)
@@ -342,9 +358,12 @@ instance Data.ToQuery StartEntitiesDetectionJob where
 
 -- | /See:/ 'newStartEntitiesDetectionJobResponse' smart constructor.
 data StartEntitiesDetectionJobResponse = StartEntitiesDetectionJobResponse'
-  { -- | The Amazon Resource Name (ARN) of the entities detection job. It is a
-    -- unique, fully qualified identifier for the job. It includes the AWS
-    -- account, Region, and the job ID. The format of the ARN is as follows:
+  { -- | The ARN of the custom entity recognition model.
+    entityRecognizerArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the entities detection job. It is a
+    -- unique, fully qualified identifier for the job. It includes the Amazon
+    -- Web Services account, Amazon Web Services Region, and the job ID. The
+    -- format of the ARN is as follows:
     --
     -- @arn:\<partition>:comprehend:\<region>:\<account-id>:entities-detection-job\/\<job-id>@
     --
@@ -385,9 +404,12 @@ data StartEntitiesDetectionJobResponse = StartEntitiesDetectionJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'entityRecognizerArn', 'startEntitiesDetectionJobResponse_entityRecognizerArn' - The ARN of the custom entity recognition model.
+--
 -- 'jobArn', 'startEntitiesDetectionJobResponse_jobArn' - The Amazon Resource Name (ARN) of the entities detection job. It is a
--- unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:entities-detection-job\/\<job-id>@
 --
@@ -422,16 +444,22 @@ newStartEntitiesDetectionJobResponse ::
   StartEntitiesDetectionJobResponse
 newStartEntitiesDetectionJobResponse pHttpStatus_ =
   StartEntitiesDetectionJobResponse'
-    { jobArn =
+    { entityRecognizerArn =
         Prelude.Nothing,
+      jobArn = Prelude.Nothing,
       jobId = Prelude.Nothing,
       jobStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
+-- | The ARN of the custom entity recognition model.
+startEntitiesDetectionJobResponse_entityRecognizerArn :: Lens.Lens' StartEntitiesDetectionJobResponse (Prelude.Maybe Prelude.Text)
+startEntitiesDetectionJobResponse_entityRecognizerArn = Lens.lens (\StartEntitiesDetectionJobResponse' {entityRecognizerArn} -> entityRecognizerArn) (\s@StartEntitiesDetectionJobResponse' {} a -> s {entityRecognizerArn = a} :: StartEntitiesDetectionJobResponse)
+
 -- | The Amazon Resource Name (ARN) of the entities detection job. It is a
--- unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:entities-detection-job\/\<job-id>@
 --
@@ -474,7 +502,8 @@ instance
     StartEntitiesDetectionJobResponse
   where
   rnf StartEntitiesDetectionJobResponse' {..} =
-    Prelude.rnf jobArn
+    Prelude.rnf entityRecognizerArn
+      `Prelude.seq` Prelude.rnf jobArn
       `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf httpStatus

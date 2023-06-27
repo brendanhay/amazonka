@@ -112,22 +112,22 @@ instance Core.AWSPager ListSentimentDetectionJobs where
     | Core.stop
         ( rs
             Lens.^? listSentimentDetectionJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSentimentDetectionJobsResponse_sentimentDetectionJobPropertiesList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSentimentDetectionJobs_nextToken
           Lens..~ rs
           Lens.^? listSentimentDetectionJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSentimentDetectionJobs where
   type
@@ -140,7 +140,8 @@ instance Core.AWSRequest ListSentimentDetectionJobs where
       ( \s h x ->
           ListSentimentDetectionJobsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "SentimentDetectionJobPropertiesList"
+            Prelude.<*> ( x
+                            Data..?> "SentimentDetectionJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -148,7 +149,8 @@ instance Core.AWSRequest ListSentimentDetectionJobs where
 
 instance Prelude.Hashable ListSentimentDetectionJobs where
   hashWithSalt _salt ListSentimentDetectionJobs' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

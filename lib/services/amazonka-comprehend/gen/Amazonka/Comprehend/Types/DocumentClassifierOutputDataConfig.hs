@@ -24,14 +24,17 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Provides output results configuration parameters for custom classifier
--- jobs.
+-- | Provide the location for output data from a custom classifier job. This
+-- field is mandatory if you are training a native classifier model.
 --
 -- /See:/ 'newDocumentClassifierOutputDataConfig' smart constructor.
 data DocumentClassifierOutputDataConfig = DocumentClassifierOutputDataConfig'
-  { -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt the output results from an analysis job. The KmsKeyId
-    -- can be one of the following formats:
+  { -- | The Amazon S3 prefix for the data lake location of the flywheel
+    -- statistics.
+    flywheelStatsS3Prefix :: Prelude.Maybe Prelude.Text,
+    -- | ID for the Amazon Web Services Key Management Service (KMS) key that
+    -- Amazon Comprehend uses to encrypt the output results from an analysis
+    -- job. The KmsKeyId can be one of the following formats:
     --
     -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
@@ -45,9 +48,9 @@ data DocumentClassifierOutputDataConfig = DocumentClassifierOutputDataConfig'
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | When you use the @OutputDataConfig@ object while creating a custom
     -- classifier, you specify the Amazon S3 location where you want to write
-    -- the confusion matrix. The URI must be in the same region as the API
-    -- endpoint that you are calling. The location is used as the prefix for
-    -- the actual location of this output file.
+    -- the confusion matrix and other output files. The URI must be in the same
+    -- Region as the API endpoint that you are calling. The location is used as
+    -- the prefix for the actual location of this output file.
     --
     -- When the custom classifier job is finished, the service creates the
     -- output file in a directory specific to the job. The @S3Uri@ field
@@ -65,9 +68,12 @@ data DocumentClassifierOutputDataConfig = DocumentClassifierOutputDataConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'documentClassifierOutputDataConfig_kmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt the output results from an analysis job. The KmsKeyId
--- can be one of the following formats:
+-- 'flywheelStatsS3Prefix', 'documentClassifierOutputDataConfig_flywheelStatsS3Prefix' - The Amazon S3 prefix for the data lake location of the flywheel
+-- statistics.
+--
+-- 'kmsKeyId', 'documentClassifierOutputDataConfig_kmsKeyId' - ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt the output results from an analysis
+-- job. The KmsKeyId can be one of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -81,9 +87,9 @@ data DocumentClassifierOutputDataConfig = DocumentClassifierOutputDataConfig'
 --
 -- 's3Uri', 'documentClassifierOutputDataConfig_s3Uri' - When you use the @OutputDataConfig@ object while creating a custom
 -- classifier, you specify the Amazon S3 location where you want to write
--- the confusion matrix. The URI must be in the same region as the API
--- endpoint that you are calling. The location is used as the prefix for
--- the actual location of this output file.
+-- the confusion matrix and other output files. The URI must be in the same
+-- Region as the API endpoint that you are calling. The location is used as
+-- the prefix for the actual location of this output file.
 --
 -- When the custom classifier job is finished, the service creates the
 -- output file in a directory specific to the job. The @S3Uri@ field
@@ -93,14 +99,20 @@ newDocumentClassifierOutputDataConfig ::
   DocumentClassifierOutputDataConfig
 newDocumentClassifierOutputDataConfig =
   DocumentClassifierOutputDataConfig'
-    { kmsKeyId =
+    { flywheelStatsS3Prefix =
         Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       s3Uri = Prelude.Nothing
     }
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt the output results from an analysis job. The KmsKeyId
--- can be one of the following formats:
+-- | The Amazon S3 prefix for the data lake location of the flywheel
+-- statistics.
+documentClassifierOutputDataConfig_flywheelStatsS3Prefix :: Lens.Lens' DocumentClassifierOutputDataConfig (Prelude.Maybe Prelude.Text)
+documentClassifierOutputDataConfig_flywheelStatsS3Prefix = Lens.lens (\DocumentClassifierOutputDataConfig' {flywheelStatsS3Prefix} -> flywheelStatsS3Prefix) (\s@DocumentClassifierOutputDataConfig' {} a -> s {flywheelStatsS3Prefix = a} :: DocumentClassifierOutputDataConfig)
+
+-- | ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt the output results from an analysis
+-- job. The KmsKeyId can be one of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -116,9 +128,9 @@ documentClassifierOutputDataConfig_kmsKeyId = Lens.lens (\DocumentClassifierOutp
 
 -- | When you use the @OutputDataConfig@ object while creating a custom
 -- classifier, you specify the Amazon S3 location where you want to write
--- the confusion matrix. The URI must be in the same region as the API
--- endpoint that you are calling. The location is used as the prefix for
--- the actual location of this output file.
+-- the confusion matrix and other output files. The URI must be in the same
+-- Region as the API endpoint that you are calling. The location is used as
+-- the prefix for the actual location of this output file.
 --
 -- When the custom classifier job is finished, the service creates the
 -- output file in a directory specific to the job. The @S3Uri@ field
@@ -136,7 +148,8 @@ instance
       "DocumentClassifierOutputDataConfig"
       ( \x ->
           DocumentClassifierOutputDataConfig'
-            Prelude.<$> (x Data..:? "KmsKeyId")
+            Prelude.<$> (x Data..:? "FlywheelStatsS3Prefix")
+            Prelude.<*> (x Data..:? "KmsKeyId")
             Prelude.<*> (x Data..:? "S3Uri")
       )
 
@@ -147,7 +160,9 @@ instance
   hashWithSalt
     _salt
     DocumentClassifierOutputDataConfig' {..} =
-      _salt `Prelude.hashWithSalt` kmsKeyId
+      _salt
+        `Prelude.hashWithSalt` flywheelStatsS3Prefix
+        `Prelude.hashWithSalt` kmsKeyId
         `Prelude.hashWithSalt` s3Uri
 
 instance
@@ -155,7 +170,8 @@ instance
     DocumentClassifierOutputDataConfig
   where
   rnf DocumentClassifierOutputDataConfig' {..} =
-    Prelude.rnf kmsKeyId
+    Prelude.rnf flywheelStatsS3Prefix
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf s3Uri
 
 instance
@@ -165,7 +181,9 @@ instance
   toJSON DocumentClassifierOutputDataConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+          [ ("FlywheelStatsS3Prefix" Data..=)
+              Prelude.<$> flywheelStatsS3Prefix,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("S3Uri" Data..=) Prelude.<$> s3Uri
           ]
       )

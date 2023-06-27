@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOutputDataConfig' smart constructor.
 data OutputDataConfig = OutputDataConfig'
-  { -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt the output results from an analysis job. The KmsKeyId
-    -- can be one of the following formats:
+  { -- | ID for the Amazon Web Services Key Management Service (KMS) key that
+    -- Amazon Comprehend uses to encrypt the output results from an analysis
+    -- job. The KmsKeyId can be one of the following formats:
     --
     -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
@@ -44,7 +44,7 @@ data OutputDataConfig = OutputDataConfig'
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | When you use the @OutputDataConfig@ object with asynchronous operations,
     -- you specify the Amazon S3 location where you want to write the output
-    -- data. The URI must be in the same region as the API endpoint that you
+    -- data. The URI must be in the same Region as the API endpoint that you
     -- are calling. The location is used as the prefix for the actual location
     -- of the output file.
     --
@@ -68,9 +68,9 @@ data OutputDataConfig = OutputDataConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'outputDataConfig_kmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt the output results from an analysis job. The KmsKeyId
--- can be one of the following formats:
+-- 'kmsKeyId', 'outputDataConfig_kmsKeyId' - ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt the output results from an analysis
+-- job. The KmsKeyId can be one of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -84,7 +84,7 @@ data OutputDataConfig = OutputDataConfig'
 --
 -- 's3Uri', 'outputDataConfig_s3Uri' - When you use the @OutputDataConfig@ object with asynchronous operations,
 -- you specify the Amazon S3 location where you want to write the output
--- data. The URI must be in the same region as the API endpoint that you
+-- data. The URI must be in the same Region as the API endpoint that you
 -- are calling. The location is used as the prefix for the actual location
 -- of the output file.
 --
@@ -106,9 +106,9 @@ newOutputDataConfig pS3Uri_ =
       s3Uri = pS3Uri_
     }
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt the output results from an analysis job. The KmsKeyId
--- can be one of the following formats:
+-- | ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt the output results from an analysis
+-- job. The KmsKeyId can be one of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -124,7 +124,7 @@ outputDataConfig_kmsKeyId = Lens.lens (\OutputDataConfig' {kmsKeyId} -> kmsKeyId
 
 -- | When you use the @OutputDataConfig@ object with asynchronous operations,
 -- you specify the Amazon S3 location where you want to write the output
--- data. The URI must be in the same region as the API endpoint that you
+-- data. The URI must be in the same Region as the API endpoint that you
 -- are calling. The location is used as the prefix for the actual location
 -- of the output file.
 --
@@ -151,7 +151,8 @@ instance Data.FromJSON OutputDataConfig where
 
 instance Prelude.Hashable OutputDataConfig where
   hashWithSalt _salt OutputDataConfig' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` s3Uri
 
 instance Prelude.NFData OutputDataConfig where

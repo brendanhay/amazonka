@@ -51,6 +51,9 @@ import Test.Tasty
 --         , requestContainsPiiEntities $
 --             newContainsPiiEntities
 --
+--         , requestCreateDataset $
+--             newCreateDataset
+--
 --         , requestCreateDocumentClassifier $
 --             newCreateDocumentClassifier
 --
@@ -59,6 +62,9 @@ import Test.Tasty
 --
 --         , requestCreateEntityRecognizer $
 --             newCreateEntityRecognizer
+--
+--         , requestCreateFlywheel $
+--             newCreateFlywheel
 --
 --         , requestDeleteDocumentClassifier $
 --             newDeleteDocumentClassifier
@@ -69,8 +75,14 @@ import Test.Tasty
 --         , requestDeleteEntityRecognizer $
 --             newDeleteEntityRecognizer
 --
+--         , requestDeleteFlywheel $
+--             newDeleteFlywheel
+--
 --         , requestDeleteResourcePolicy $
 --             newDeleteResourcePolicy
+--
+--         , requestDescribeDataset $
+--             newDescribeDataset
 --
 --         , requestDescribeDocumentClassificationJob $
 --             newDescribeDocumentClassificationJob
@@ -92,6 +104,12 @@ import Test.Tasty
 --
 --         , requestDescribeEventsDetectionJob $
 --             newDescribeEventsDetectionJob
+--
+--         , requestDescribeFlywheel $
+--             newDescribeFlywheel
+--
+--         , requestDescribeFlywheelIteration $
+--             newDescribeFlywheelIteration
 --
 --         , requestDescribeKeyPhrasesDetectionJob $
 --             newDescribeKeyPhrasesDetectionJob
@@ -135,6 +153,9 @@ import Test.Tasty
 --         , requestImportModel $
 --             newImportModel
 --
+--         , requestListDatasets $
+--             newListDatasets
+--
 --         , requestListDocumentClassificationJobs $
 --             newListDocumentClassificationJobs
 --
@@ -161,6 +182,12 @@ import Test.Tasty
 --
 --         , requestListEventsDetectionJobs $
 --             newListEventsDetectionJobs
+--
+--         , requestListFlywheelIterationHistory $
+--             newListFlywheelIterationHistory
+--
+--         , requestListFlywheels $
+--             newListFlywheels
 --
 --         , requestListKeyPhrasesDetectionJobs $
 --             newListKeyPhrasesDetectionJobs
@@ -194,6 +221,9 @@ import Test.Tasty
 --
 --         , requestStartEventsDetectionJob $
 --             newStartEventsDetectionJob
+--
+--         , requestStartFlywheelIteration $
+--             newStartFlywheelIteration
 --
 --         , requestStartKeyPhrasesDetectionJob $
 --             newStartKeyPhrasesDetectionJob
@@ -246,6 +276,9 @@ import Test.Tasty
 --         , requestUpdateEndpoint $
 --             newUpdateEndpoint
 --
+--         , requestUpdateFlywheel $
+--             newUpdateFlywheel
+--
 --           ]
 
 --     , testGroup "response"
@@ -273,6 +306,9 @@ import Test.Tasty
 --         , responseContainsPiiEntities $
 --             newContainsPiiEntitiesResponse
 --
+--         , responseCreateDataset $
+--             newCreateDatasetResponse
+--
 --         , responseCreateDocumentClassifier $
 --             newCreateDocumentClassifierResponse
 --
@@ -281,6 +317,9 @@ import Test.Tasty
 --
 --         , responseCreateEntityRecognizer $
 --             newCreateEntityRecognizerResponse
+--
+--         , responseCreateFlywheel $
+--             newCreateFlywheelResponse
 --
 --         , responseDeleteDocumentClassifier $
 --             newDeleteDocumentClassifierResponse
@@ -291,8 +330,14 @@ import Test.Tasty
 --         , responseDeleteEntityRecognizer $
 --             newDeleteEntityRecognizerResponse
 --
+--         , responseDeleteFlywheel $
+--             newDeleteFlywheelResponse
+--
 --         , responseDeleteResourcePolicy $
 --             newDeleteResourcePolicyResponse
+--
+--         , responseDescribeDataset $
+--             newDescribeDatasetResponse
 --
 --         , responseDescribeDocumentClassificationJob $
 --             newDescribeDocumentClassificationJobResponse
@@ -314,6 +359,12 @@ import Test.Tasty
 --
 --         , responseDescribeEventsDetectionJob $
 --             newDescribeEventsDetectionJobResponse
+--
+--         , responseDescribeFlywheel $
+--             newDescribeFlywheelResponse
+--
+--         , responseDescribeFlywheelIteration $
+--             newDescribeFlywheelIterationResponse
 --
 --         , responseDescribeKeyPhrasesDetectionJob $
 --             newDescribeKeyPhrasesDetectionJobResponse
@@ -357,6 +408,9 @@ import Test.Tasty
 --         , responseImportModel $
 --             newImportModelResponse
 --
+--         , responseListDatasets $
+--             newListDatasetsResponse
+--
 --         , responseListDocumentClassificationJobs $
 --             newListDocumentClassificationJobsResponse
 --
@@ -383,6 +437,12 @@ import Test.Tasty
 --
 --         , responseListEventsDetectionJobs $
 --             newListEventsDetectionJobsResponse
+--
+--         , responseListFlywheelIterationHistory $
+--             newListFlywheelIterationHistoryResponse
+--
+--         , responseListFlywheels $
+--             newListFlywheelsResponse
 --
 --         , responseListKeyPhrasesDetectionJobs $
 --             newListKeyPhrasesDetectionJobsResponse
@@ -416,6 +476,9 @@ import Test.Tasty
 --
 --         , responseStartEventsDetectionJob $
 --             newStartEventsDetectionJobResponse
+--
+--         , responseStartFlywheelIteration $
+--             newStartFlywheelIterationResponse
 --
 --         , responseStartKeyPhrasesDetectionJob $
 --             newStartKeyPhrasesDetectionJobResponse
@@ -467,6 +530,9 @@ import Test.Tasty
 --
 --         , responseUpdateEndpoint $
 --             newUpdateEndpointResponse
+--
+--         , responseUpdateFlywheel $
+--             newUpdateFlywheelResponse
 --
 --           ]
 --     ]
@@ -521,6 +587,12 @@ requestContainsPiiEntities =
     "ContainsPiiEntities"
     "fixture/ContainsPiiEntities.yaml"
 
+requestCreateDataset :: CreateDataset -> TestTree
+requestCreateDataset =
+  req
+    "CreateDataset"
+    "fixture/CreateDataset.yaml"
+
 requestCreateDocumentClassifier :: CreateDocumentClassifier -> TestTree
 requestCreateDocumentClassifier =
   req
@@ -538,6 +610,12 @@ requestCreateEntityRecognizer =
   req
     "CreateEntityRecognizer"
     "fixture/CreateEntityRecognizer.yaml"
+
+requestCreateFlywheel :: CreateFlywheel -> TestTree
+requestCreateFlywheel =
+  req
+    "CreateFlywheel"
+    "fixture/CreateFlywheel.yaml"
 
 requestDeleteDocumentClassifier :: DeleteDocumentClassifier -> TestTree
 requestDeleteDocumentClassifier =
@@ -557,11 +635,23 @@ requestDeleteEntityRecognizer =
     "DeleteEntityRecognizer"
     "fixture/DeleteEntityRecognizer.yaml"
 
+requestDeleteFlywheel :: DeleteFlywheel -> TestTree
+requestDeleteFlywheel =
+  req
+    "DeleteFlywheel"
+    "fixture/DeleteFlywheel.yaml"
+
 requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
 requestDeleteResourcePolicy =
   req
     "DeleteResourcePolicy"
     "fixture/DeleteResourcePolicy.yaml"
+
+requestDescribeDataset :: DescribeDataset -> TestTree
+requestDescribeDataset =
+  req
+    "DescribeDataset"
+    "fixture/DescribeDataset.yaml"
 
 requestDescribeDocumentClassificationJob :: DescribeDocumentClassificationJob -> TestTree
 requestDescribeDocumentClassificationJob =
@@ -604,6 +694,18 @@ requestDescribeEventsDetectionJob =
   req
     "DescribeEventsDetectionJob"
     "fixture/DescribeEventsDetectionJob.yaml"
+
+requestDescribeFlywheel :: DescribeFlywheel -> TestTree
+requestDescribeFlywheel =
+  req
+    "DescribeFlywheel"
+    "fixture/DescribeFlywheel.yaml"
+
+requestDescribeFlywheelIteration :: DescribeFlywheelIteration -> TestTree
+requestDescribeFlywheelIteration =
+  req
+    "DescribeFlywheelIteration"
+    "fixture/DescribeFlywheelIteration.yaml"
 
 requestDescribeKeyPhrasesDetectionJob :: DescribeKeyPhrasesDetectionJob -> TestTree
 requestDescribeKeyPhrasesDetectionJob =
@@ -689,6 +791,12 @@ requestImportModel =
     "ImportModel"
     "fixture/ImportModel.yaml"
 
+requestListDatasets :: ListDatasets -> TestTree
+requestListDatasets =
+  req
+    "ListDatasets"
+    "fixture/ListDatasets.yaml"
+
 requestListDocumentClassificationJobs :: ListDocumentClassificationJobs -> TestTree
 requestListDocumentClassificationJobs =
   req
@@ -742,6 +850,18 @@ requestListEventsDetectionJobs =
   req
     "ListEventsDetectionJobs"
     "fixture/ListEventsDetectionJobs.yaml"
+
+requestListFlywheelIterationHistory :: ListFlywheelIterationHistory -> TestTree
+requestListFlywheelIterationHistory =
+  req
+    "ListFlywheelIterationHistory"
+    "fixture/ListFlywheelIterationHistory.yaml"
+
+requestListFlywheels :: ListFlywheels -> TestTree
+requestListFlywheels =
+  req
+    "ListFlywheels"
+    "fixture/ListFlywheels.yaml"
 
 requestListKeyPhrasesDetectionJobs :: ListKeyPhrasesDetectionJobs -> TestTree
 requestListKeyPhrasesDetectionJobs =
@@ -808,6 +928,12 @@ requestStartEventsDetectionJob =
   req
     "StartEventsDetectionJob"
     "fixture/StartEventsDetectionJob.yaml"
+
+requestStartFlywheelIteration :: StartFlywheelIteration -> TestTree
+requestStartFlywheelIteration =
+  req
+    "StartFlywheelIteration"
+    "fixture/StartFlywheelIteration.yaml"
 
 requestStartKeyPhrasesDetectionJob :: StartKeyPhrasesDetectionJob -> TestTree
 requestStartKeyPhrasesDetectionJob =
@@ -911,6 +1037,12 @@ requestUpdateEndpoint =
     "UpdateEndpoint"
     "fixture/UpdateEndpoint.yaml"
 
+requestUpdateFlywheel :: UpdateFlywheel -> TestTree
+requestUpdateFlywheel =
+  req
+    "UpdateFlywheel"
+    "fixture/UpdateFlywheel.yaml"
+
 -- Responses
 
 responseBatchDetectDominantLanguage :: BatchDetectDominantLanguageResponse -> TestTree
@@ -977,6 +1109,14 @@ responseContainsPiiEntities =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ContainsPiiEntities)
 
+responseCreateDataset :: CreateDatasetResponse -> TestTree
+responseCreateDataset =
+  res
+    "CreateDatasetResponse"
+    "fixture/CreateDatasetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateDataset)
+
 responseCreateDocumentClassifier :: CreateDocumentClassifierResponse -> TestTree
 responseCreateDocumentClassifier =
   res
@@ -1000,6 +1140,14 @@ responseCreateEntityRecognizer =
     "fixture/CreateEntityRecognizerResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateEntityRecognizer)
+
+responseCreateFlywheel :: CreateFlywheelResponse -> TestTree
+responseCreateFlywheel =
+  res
+    "CreateFlywheelResponse"
+    "fixture/CreateFlywheelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateFlywheel)
 
 responseDeleteDocumentClassifier :: DeleteDocumentClassifierResponse -> TestTree
 responseDeleteDocumentClassifier =
@@ -1025,6 +1173,14 @@ responseDeleteEntityRecognizer =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteEntityRecognizer)
 
+responseDeleteFlywheel :: DeleteFlywheelResponse -> TestTree
+responseDeleteFlywheel =
+  res
+    "DeleteFlywheelResponse"
+    "fixture/DeleteFlywheelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteFlywheel)
+
 responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
 responseDeleteResourcePolicy =
   res
@@ -1032,6 +1188,14 @@ responseDeleteResourcePolicy =
     "fixture/DeleteResourcePolicyResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteResourcePolicy)
+
+responseDescribeDataset :: DescribeDatasetResponse -> TestTree
+responseDescribeDataset =
+  res
+    "DescribeDatasetResponse"
+    "fixture/DescribeDatasetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataset)
 
 responseDescribeDocumentClassificationJob :: DescribeDocumentClassificationJobResponse -> TestTree
 responseDescribeDocumentClassificationJob =
@@ -1088,6 +1252,22 @@ responseDescribeEventsDetectionJob =
     "fixture/DescribeEventsDetectionJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeEventsDetectionJob)
+
+responseDescribeFlywheel :: DescribeFlywheelResponse -> TestTree
+responseDescribeFlywheel =
+  res
+    "DescribeFlywheelResponse"
+    "fixture/DescribeFlywheelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFlywheel)
+
+responseDescribeFlywheelIteration :: DescribeFlywheelIterationResponse -> TestTree
+responseDescribeFlywheelIteration =
+  res
+    "DescribeFlywheelIterationResponse"
+    "fixture/DescribeFlywheelIterationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFlywheelIteration)
 
 responseDescribeKeyPhrasesDetectionJob :: DescribeKeyPhrasesDetectionJobResponse -> TestTree
 responseDescribeKeyPhrasesDetectionJob =
@@ -1201,6 +1381,14 @@ responseImportModel =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ImportModel)
 
+responseListDatasets :: ListDatasetsResponse -> TestTree
+responseListDatasets =
+  res
+    "ListDatasetsResponse"
+    "fixture/ListDatasetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDatasets)
+
 responseListDocumentClassificationJobs :: ListDocumentClassificationJobsResponse -> TestTree
 responseListDocumentClassificationJobs =
   res
@@ -1272,6 +1460,22 @@ responseListEventsDetectionJobs =
     "fixture/ListEventsDetectionJobsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListEventsDetectionJobs)
+
+responseListFlywheelIterationHistory :: ListFlywheelIterationHistoryResponse -> TestTree
+responseListFlywheelIterationHistory =
+  res
+    "ListFlywheelIterationHistoryResponse"
+    "fixture/ListFlywheelIterationHistoryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFlywheelIterationHistory)
+
+responseListFlywheels :: ListFlywheelsResponse -> TestTree
+responseListFlywheels =
+  res
+    "ListFlywheelsResponse"
+    "fixture/ListFlywheelsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFlywheels)
 
 responseListKeyPhrasesDetectionJobs :: ListKeyPhrasesDetectionJobsResponse -> TestTree
 responseListKeyPhrasesDetectionJobs =
@@ -1360,6 +1564,14 @@ responseStartEventsDetectionJob =
     "fixture/StartEventsDetectionJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartEventsDetectionJob)
+
+responseStartFlywheelIteration :: StartFlywheelIterationResponse -> TestTree
+responseStartFlywheelIteration =
+  res
+    "StartFlywheelIterationResponse"
+    "fixture/StartFlywheelIterationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartFlywheelIteration)
 
 responseStartKeyPhrasesDetectionJob :: StartKeyPhrasesDetectionJobResponse -> TestTree
 responseStartKeyPhrasesDetectionJob =
@@ -1496,3 +1708,11 @@ responseUpdateEndpoint =
     "fixture/UpdateEndpointResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateEndpoint)
+
+responseUpdateFlywheel :: UpdateFlywheelResponse -> TestTree
+responseUpdateFlywheel =
+  res
+    "UpdateFlywheelResponse"
+    "fixture/UpdateFlywheelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFlywheel)

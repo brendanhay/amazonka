@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts an asynchronous targeted sentiment detection job for a collection
--- of documents. Use the operation to track the status of a job.
+-- of documents. Use the @DescribeTargetedSentimentDetectionJob@ operation
+-- to track the status of a job.
 module Amazonka.Comprehend.StartTargetedSentimentDetectionJob
   ( -- * Creating a Request
     StartTargetedSentimentDetectionJob (..),
@@ -65,8 +66,8 @@ data StartTargetedSentimentDetectionJob = StartTargetedSentimentDetectionJob'
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the job.
     jobName :: Prelude.Maybe Prelude.Text,
-    -- | Tags to be associated with the targeted sentiment detection job. A tag
-    -- is a key-value pair that adds metadata to a resource used by Amazon
+    -- | Tags to associate with the targeted sentiment detection job. A tag is a
+    -- key-value pair that adds metadata to a resource used by Amazon
     -- Comprehend. For example, a tag with \"Sales\" as the key might be added
     -- to a resource to indicate its use by the sales department.
     tags :: Prelude.Maybe [Tag],
@@ -83,9 +84,8 @@ data StartTargetedSentimentDetectionJob = StartTargetedSentimentDetectionJob'
     inputDataConfig :: InputDataConfig,
     -- | Specifies where to send the output files.
     outputDataConfig :: OutputDataConfig,
-    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-    -- (IAM) role that grants Amazon Comprehend read access to your input data.
-    -- For more information, see
+    -- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+    -- Comprehend read access to your input data. For more information, see
     -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions Role-based permissions>.
     dataAccessRoleArn :: Prelude.Text,
     -- | The language of the input documents. Currently, English is the only
@@ -107,8 +107,8 @@ data StartTargetedSentimentDetectionJob = StartTargetedSentimentDetectionJob'
 --
 -- 'jobName', 'startTargetedSentimentDetectionJob_jobName' - The identifier of the job.
 --
--- 'tags', 'startTargetedSentimentDetectionJob_tags' - Tags to be associated with the targeted sentiment detection job. A tag
--- is a key-value pair that adds metadata to a resource used by Amazon
+-- 'tags', 'startTargetedSentimentDetectionJob_tags' - Tags to associate with the targeted sentiment detection job. A tag is a
+-- key-value pair that adds metadata to a resource used by Amazon
 -- Comprehend. For example, a tag with \"Sales\" as the key might be added
 -- to a resource to indicate its use by the sales department.
 --
@@ -127,9 +127,8 @@ data StartTargetedSentimentDetectionJob = StartTargetedSentimentDetectionJob'
 --
 -- 'outputDataConfig', 'startTargetedSentimentDetectionJob_outputDataConfig' - Specifies where to send the output files.
 --
--- 'dataAccessRoleArn', 'startTargetedSentimentDetectionJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to your input data.
--- For more information, see
+-- 'dataAccessRoleArn', 'startTargetedSentimentDetectionJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data. For more information, see
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions Role-based permissions>.
 --
 -- 'languageCode', 'startTargetedSentimentDetectionJob_languageCode' - The language of the input documents. Currently, English is the only
@@ -171,8 +170,8 @@ startTargetedSentimentDetectionJob_clientRequestToken = Lens.lens (\StartTargete
 startTargetedSentimentDetectionJob_jobName :: Lens.Lens' StartTargetedSentimentDetectionJob (Prelude.Maybe Prelude.Text)
 startTargetedSentimentDetectionJob_jobName = Lens.lens (\StartTargetedSentimentDetectionJob' {jobName} -> jobName) (\s@StartTargetedSentimentDetectionJob' {} a -> s {jobName = a} :: StartTargetedSentimentDetectionJob)
 
--- | Tags to be associated with the targeted sentiment detection job. A tag
--- is a key-value pair that adds metadata to a resource used by Amazon
+-- | Tags to associate with the targeted sentiment detection job. A tag is a
+-- key-value pair that adds metadata to a resource used by Amazon
 -- Comprehend. For example, a tag with \"Sales\" as the key might be added
 -- to a resource to indicate its use by the sales department.
 startTargetedSentimentDetectionJob_tags :: Lens.Lens' StartTargetedSentimentDetectionJob (Prelude.Maybe [Tag])
@@ -201,9 +200,8 @@ startTargetedSentimentDetectionJob_inputDataConfig = Lens.lens (\StartTargetedSe
 startTargetedSentimentDetectionJob_outputDataConfig :: Lens.Lens' StartTargetedSentimentDetectionJob OutputDataConfig
 startTargetedSentimentDetectionJob_outputDataConfig = Lens.lens (\StartTargetedSentimentDetectionJob' {outputDataConfig} -> outputDataConfig) (\s@StartTargetedSentimentDetectionJob' {} a -> s {outputDataConfig = a} :: StartTargetedSentimentDetectionJob)
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to your input data.
--- For more information, see
+-- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data. For more information, see
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions Role-based permissions>.
 startTargetedSentimentDetectionJob_dataAccessRoleArn :: Lens.Lens' StartTargetedSentimentDetectionJob Prelude.Text
 startTargetedSentimentDetectionJob_dataAccessRoleArn = Lens.lens (\StartTargetedSentimentDetectionJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartTargetedSentimentDetectionJob' {} a -> s {dataAccessRoleArn = a} :: StartTargetedSentimentDetectionJob)
@@ -227,9 +225,9 @@ instance
       ( \s h x ->
           StartTargetedSentimentDetectionJobResponse'
             Prelude.<$> (x Data..?> "JobArn")
-              Prelude.<*> (x Data..?> "JobId")
-              Prelude.<*> (x Data..?> "JobStatus")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "JobId")
+            Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -239,7 +237,8 @@ instance
   hashWithSalt
     _salt
     StartTargetedSentimentDetectionJob' {..} =
-      _salt `Prelude.hashWithSalt` clientRequestToken
+      _salt
+        `Prelude.hashWithSalt` clientRequestToken
         `Prelude.hashWithSalt` jobName
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` volumeKmsKeyId
@@ -322,8 +321,8 @@ instance
 data StartTargetedSentimentDetectionJobResponse = StartTargetedSentimentDetectionJobResponse'
   { -- | The Amazon Resource Name (ARN) of the targeted sentiment detection job.
     -- It is a unique, fully qualified identifier for the job. It includes the
-    -- AWS account, Region, and the job ID. The format of the ARN is as
-    -- follows:
+    -- Amazon Web Services account, Amazon Web Services Region, and the job ID.
+    -- The format of the ARN is as follows:
     --
     -- @arn:\<partition>:comprehend:\<region>:\<account-id>:targeted-sentiment-detection-job\/\<job-id>@
     --
@@ -332,7 +331,8 @@ data StartTargetedSentimentDetectionJobResponse = StartTargetedSentimentDetectio
     -- @arn:aws:comprehend:us-west-2:111122223333:targeted-sentiment-detection-job\/1234abcd12ab34cd56ef1234567890ab@
     jobArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier generated for the job. To get the status of a job, use
-    -- this identifier with the operation.
+    -- this identifier with the @DescribeTargetedSentimentDetectionJob@
+    -- operation.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The status of the job.
     --
@@ -344,7 +344,7 @@ data StartTargetedSentimentDetectionJobResponse = StartTargetedSentimentDetectio
     --     available.
     --
     -- -   FAILED - The job did not complete. To get details, use the
-    --     operation.
+    --     @DescribeTargetedSentimentDetectionJob@ operation.
     jobStatus :: Prelude.Maybe JobStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -361,8 +361,8 @@ data StartTargetedSentimentDetectionJobResponse = StartTargetedSentimentDetectio
 --
 -- 'jobArn', 'startTargetedSentimentDetectionJobResponse_jobArn' - The Amazon Resource Name (ARN) of the targeted sentiment detection job.
 -- It is a unique, fully qualified identifier for the job. It includes the
--- AWS account, Region, and the job ID. The format of the ARN is as
--- follows:
+-- Amazon Web Services account, Amazon Web Services Region, and the job ID.
+-- The format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:targeted-sentiment-detection-job\/\<job-id>@
 --
@@ -371,7 +371,8 @@ data StartTargetedSentimentDetectionJobResponse = StartTargetedSentimentDetectio
 -- @arn:aws:comprehend:us-west-2:111122223333:targeted-sentiment-detection-job\/1234abcd12ab34cd56ef1234567890ab@
 --
 -- 'jobId', 'startTargetedSentimentDetectionJobResponse_jobId' - The identifier generated for the job. To get the status of a job, use
--- this identifier with the operation.
+-- this identifier with the @DescribeTargetedSentimentDetectionJob@
+-- operation.
 --
 -- 'jobStatus', 'startTargetedSentimentDetectionJobResponse_jobStatus' - The status of the job.
 --
@@ -383,7 +384,7 @@ data StartTargetedSentimentDetectionJobResponse = StartTargetedSentimentDetectio
 --     available.
 --
 -- -   FAILED - The job did not complete. To get details, use the
---     operation.
+--     @DescribeTargetedSentimentDetectionJob@ operation.
 --
 -- 'httpStatus', 'startTargetedSentimentDetectionJobResponse_httpStatus' - The response's http status code.
 newStartTargetedSentimentDetectionJobResponse ::
@@ -402,8 +403,8 @@ newStartTargetedSentimentDetectionJobResponse
 
 -- | The Amazon Resource Name (ARN) of the targeted sentiment detection job.
 -- It is a unique, fully qualified identifier for the job. It includes the
--- AWS account, Region, and the job ID. The format of the ARN is as
--- follows:
+-- Amazon Web Services account, Amazon Web Services Region, and the job ID.
+-- The format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:targeted-sentiment-detection-job\/\<job-id>@
 --
@@ -414,7 +415,8 @@ startTargetedSentimentDetectionJobResponse_jobArn :: Lens.Lens' StartTargetedSen
 startTargetedSentimentDetectionJobResponse_jobArn = Lens.lens (\StartTargetedSentimentDetectionJobResponse' {jobArn} -> jobArn) (\s@StartTargetedSentimentDetectionJobResponse' {} a -> s {jobArn = a} :: StartTargetedSentimentDetectionJobResponse)
 
 -- | The identifier generated for the job. To get the status of a job, use
--- this identifier with the operation.
+-- this identifier with the @DescribeTargetedSentimentDetectionJob@
+-- operation.
 startTargetedSentimentDetectionJobResponse_jobId :: Lens.Lens' StartTargetedSentimentDetectionJobResponse (Prelude.Maybe Prelude.Text)
 startTargetedSentimentDetectionJobResponse_jobId = Lens.lens (\StartTargetedSentimentDetectionJobResponse' {jobId} -> jobId) (\s@StartTargetedSentimentDetectionJobResponse' {} a -> s {jobId = a} :: StartTargetedSentimentDetectionJobResponse)
 
@@ -428,7 +430,7 @@ startTargetedSentimentDetectionJobResponse_jobId = Lens.lens (\StartTargetedSent
 --     available.
 --
 -- -   FAILED - The job did not complete. To get details, use the
---     operation.
+--     @DescribeTargetedSentimentDetectionJob@ operation.
 startTargetedSentimentDetectionJobResponse_jobStatus :: Lens.Lens' StartTargetedSentimentDetectionJobResponse (Prelude.Maybe JobStatus)
 startTargetedSentimentDetectionJobResponse_jobStatus = Lens.lens (\StartTargetedSentimentDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StartTargetedSentimentDetectionJobResponse' {} a -> s {jobStatus = a} :: StartTargetedSentimentDetectionJobResponse)
 

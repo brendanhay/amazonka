@@ -87,14 +87,16 @@ instance Data.FromJSON RedactionConfig where
           RedactionConfig'
             Prelude.<$> (x Data..:? "MaskCharacter")
             Prelude.<*> (x Data..:? "MaskMode")
-            Prelude.<*> ( x Data..:? "PiiEntityTypes"
+            Prelude.<*> ( x
+                            Data..:? "PiiEntityTypes"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable RedactionConfig where
   hashWithSalt _salt RedactionConfig' {..} =
-    _salt `Prelude.hashWithSalt` maskCharacter
+    _salt
+      `Prelude.hashWithSalt` maskCharacter
       `Prelude.hashWithSalt` maskMode
       `Prelude.hashWithSalt` piiEntityTypes
 

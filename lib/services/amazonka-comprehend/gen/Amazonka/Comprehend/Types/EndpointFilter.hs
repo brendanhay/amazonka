@@ -98,7 +98,8 @@ endpointFilter_status = Lens.lens (\EndpointFilter' {status} -> status) (\s@Endp
 
 instance Prelude.Hashable EndpointFilter where
   hashWithSalt _salt EndpointFilter' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` modelArn
       `Prelude.hashWithSalt` status

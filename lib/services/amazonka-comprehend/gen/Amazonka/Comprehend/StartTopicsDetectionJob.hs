@@ -67,15 +67,15 @@ data StartTopicsDetectionJob = StartTopicsDetectionJob'
     jobName :: Prelude.Maybe Prelude.Text,
     -- | The number of topics to detect.
     numberOfTopics :: Prelude.Maybe Prelude.Natural,
-    -- | Tags to be associated with the topics detection job. A tag is a
-    -- key-value pair that adds metadata to a resource used by Amazon
-    -- Comprehend. For example, a tag with \"Sales\" as the key might be added
-    -- to a resource to indicate its use by the sales department.
+    -- | Tags to associate with the topics detection job. A tag is a key-value
+    -- pair that adds metadata to a resource used by Amazon Comprehend. For
+    -- example, a tag with \"Sales\" as the key might be added to a resource to
+    -- indicate its use by the sales department.
     tags :: Prelude.Maybe [Tag],
-    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt data on the storage volume attached to the ML compute
-    -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
-    -- either of the following formats:
+    -- | ID for the Amazon Web Services Key Management Service (KMS) key that
+    -- Amazon Comprehend uses to encrypt data on the storage volume attached to
+    -- the ML compute instance(s) that process the analysis job. The
+    -- VolumeKmsKeyId can be either of the following formats:
     --
     -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
@@ -94,10 +94,9 @@ data StartTopicsDetectionJob = StartTopicsDetectionJob'
     -- associated with each topic, and @doc-topics.csv@ that lists the
     -- documents associated with each topic
     outputDataConfig :: OutputDataConfig,
-    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-    -- (IAM) role that grants Amazon Comprehend read access to your input data.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions>.
+    -- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+    -- Comprehend read access to your input data. For more information, see
+    -- <https://docs.aws.amazon.com/comprehend/latest/dg/security_iam_id-based-policy-examples.html#auth-role-permissions Role-based permissions>.
     dataAccessRoleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -117,15 +116,15 @@ data StartTopicsDetectionJob = StartTopicsDetectionJob'
 --
 -- 'numberOfTopics', 'startTopicsDetectionJob_numberOfTopics' - The number of topics to detect.
 --
--- 'tags', 'startTopicsDetectionJob_tags' - Tags to be associated with the topics detection job. A tag is a
--- key-value pair that adds metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
+-- 'tags', 'startTopicsDetectionJob_tags' - Tags to associate with the topics detection job. A tag is a key-value
+-- pair that adds metadata to a resource used by Amazon Comprehend. For
+-- example, a tag with \"Sales\" as the key might be added to a resource to
+-- indicate its use by the sales department.
 --
--- 'volumeKmsKeyId', 'startTopicsDetectionJob_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- 'volumeKmsKeyId', 'startTopicsDetectionJob_volumeKmsKeyId' - ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -144,10 +143,9 @@ data StartTopicsDetectionJob = StartTopicsDetectionJob'
 -- associated with each topic, and @doc-topics.csv@ that lists the
 -- documents associated with each topic
 --
--- 'dataAccessRoleArn', 'startTopicsDetectionJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to your input data.
--- For more information, see
--- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions>.
+-- 'dataAccessRoleArn', 'startTopicsDetectionJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data. For more information, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/security_iam_id-based-policy-examples.html#auth-role-permissions Role-based permissions>.
 newStartTopicsDetectionJob ::
   -- | 'inputDataConfig'
   InputDataConfig ->
@@ -186,17 +184,17 @@ startTopicsDetectionJob_jobName = Lens.lens (\StartTopicsDetectionJob' {jobName}
 startTopicsDetectionJob_numberOfTopics :: Lens.Lens' StartTopicsDetectionJob (Prelude.Maybe Prelude.Natural)
 startTopicsDetectionJob_numberOfTopics = Lens.lens (\StartTopicsDetectionJob' {numberOfTopics} -> numberOfTopics) (\s@StartTopicsDetectionJob' {} a -> s {numberOfTopics = a} :: StartTopicsDetectionJob)
 
--- | Tags to be associated with the topics detection job. A tag is a
--- key-value pair that adds metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
+-- | Tags to associate with the topics detection job. A tag is a key-value
+-- pair that adds metadata to a resource used by Amazon Comprehend. For
+-- example, a tag with \"Sales\" as the key might be added to a resource to
+-- indicate its use by the sales department.
 startTopicsDetectionJob_tags :: Lens.Lens' StartTopicsDetectionJob (Prelude.Maybe [Tag])
 startTopicsDetectionJob_tags = Lens.lens (\StartTopicsDetectionJob' {tags} -> tags) (\s@StartTopicsDetectionJob' {} a -> s {tags = a} :: StartTopicsDetectionJob) Prelude.. Lens.mapping Lens.coerced
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- | ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -223,10 +221,9 @@ startTopicsDetectionJob_inputDataConfig = Lens.lens (\StartTopicsDetectionJob' {
 startTopicsDetectionJob_outputDataConfig :: Lens.Lens' StartTopicsDetectionJob OutputDataConfig
 startTopicsDetectionJob_outputDataConfig = Lens.lens (\StartTopicsDetectionJob' {outputDataConfig} -> outputDataConfig) (\s@StartTopicsDetectionJob' {} a -> s {outputDataConfig = a} :: StartTopicsDetectionJob)
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to your input data.
--- For more information, see
--- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions>.
+-- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data. For more information, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/security_iam_id-based-policy-examples.html#auth-role-permissions Role-based permissions>.
 startTopicsDetectionJob_dataAccessRoleArn :: Lens.Lens' StartTopicsDetectionJob Prelude.Text
 startTopicsDetectionJob_dataAccessRoleArn = Lens.lens (\StartTopicsDetectionJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartTopicsDetectionJob' {} a -> s {dataAccessRoleArn = a} :: StartTopicsDetectionJob)
 
@@ -248,7 +245,8 @@ instance Core.AWSRequest StartTopicsDetectionJob where
 
 instance Prelude.Hashable StartTopicsDetectionJob where
   hashWithSalt _salt StartTopicsDetectionJob' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` numberOfTopics
       `Prelude.hashWithSalt` tags
@@ -316,8 +314,9 @@ instance Data.ToQuery StartTopicsDetectionJob where
 -- | /See:/ 'newStartTopicsDetectionJobResponse' smart constructor.
 data StartTopicsDetectionJobResponse = StartTopicsDetectionJobResponse'
   { -- | The Amazon Resource Name (ARN) of the topics detection job. It is a
-    -- unique, fully qualified identifier for the job. It includes the AWS
-    -- account, Region, and the job ID. The format of the ARN is as follows:
+    -- unique, fully qualified identifier for the job. It includes the Amazon
+    -- Web Services account, Amazon Web Services Region, and the job ID. The
+    -- format of the ARN is as follows:
     --
     -- @arn:\<partition>:comprehend:\<region>:\<account-id>:topics-detection-job\/\<job-id>@
     --
@@ -354,8 +353,9 @@ data StartTopicsDetectionJobResponse = StartTopicsDetectionJobResponse'
 -- for backwards compatibility:
 --
 -- 'jobArn', 'startTopicsDetectionJobResponse_jobArn' - The Amazon Resource Name (ARN) of the topics detection job. It is a
--- unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:topics-detection-job\/\<job-id>@
 --
@@ -393,8 +393,9 @@ newStartTopicsDetectionJobResponse pHttpStatus_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the topics detection job. It is a
--- unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:topics-detection-job\/\<job-id>@
 --

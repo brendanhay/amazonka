@@ -22,7 +22,7 @@
 --
 -- Creates an entity recognizer using submitted files. After your
 -- @CreateEntityRecognizer@ request is submitted, you can check job status
--- using the API.
+-- using the @DescribeEntityRecognizer@ API.
 module Amazonka.Comprehend.CreateEntityRecognizer
   ( -- * Creating a Request
     CreateEntityRecognizer (..),
@@ -64,9 +64,8 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
   { -- | A unique identifier for the request. If you don\'t set the client
     -- request token, Amazon Comprehend generates one.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
-    -- of the following formats
+    -- | ID for the KMS key that Amazon Comprehend uses to encrypt trained custom
+    -- models. The ModelKmsKeyId can be either of the following formats:
     --
     -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
@@ -74,8 +73,8 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
     modelKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The JSON resource-based policy to attach to your custom entity
-    -- recognizer model. You can use this policy to allow another AWS account
-    -- to import your custom model.
+    -- recognizer model. You can use this policy to allow another Amazon Web
+    -- Services account to import your custom model.
     --
     -- Provide your JSON as a UTF-8 encoded string without line breaks. To
     -- provide valid JSON for your policy, enclose the attribute names and
@@ -90,20 +89,20 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
     --
     -- @\'{\"attribute\": \"value\", \"attribute\": [\"value\"]}\'@
     modelPolicy :: Prelude.Maybe Prelude.Text,
-    -- | Tags to be associated with the entity recognizer being created. A tag is
-    -- a key-value pair that adds as a metadata to a resource used by Amazon
-    -- Comprehend. For example, a tag with \"Sales\" as the key might be added
-    -- to a resource to indicate its use by the sales department.
+    -- | Tags to associate with the entity recognizer. A tag is a key-value pair
+    -- that adds as a metadata to a resource used by Amazon Comprehend. For
+    -- example, a tag with \"Sales\" as the key might be added to a resource to
+    -- indicate its use by the sales department.
     tags :: Prelude.Maybe [Tag],
     -- | The version name given to the newly created recognizer. Version names
     -- can be a maximum of 256 characters. Alphanumeric characters, hyphens (-)
     -- and underscores (_) are allowed. The version name must be unique among
-    -- all models with the same recognizer name in the account\/ AWS Region.
+    -- all models with the same recognizer name in the account\/Region.
     versionName :: Prelude.Maybe Prelude.Text,
-    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt data on the storage volume attached to the ML compute
-    -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
-    -- either of the following formats:
+    -- | ID for the Amazon Web Services Key Management Service (KMS) key that
+    -- Amazon Comprehend uses to encrypt data on the storage volume attached to
+    -- the ML compute instance(s) that process the analysis job. The
+    -- VolumeKmsKeyId can be either of the following formats:
     --
     -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
@@ -118,13 +117,13 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
     -- | The name given to the newly created recognizer. Recognizer names can be
     -- a maximum of 256 characters. Alphanumeric characters, hyphens (-) and
     -- underscores (_) are allowed. The name must be unique in the
-    -- account\/region.
+    -- account\/Region.
     recognizerName :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
-    -- role that grants Amazon Comprehend read access to your input data.
+    -- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+    -- Comprehend read access to your input data.
     dataAccessRoleArn :: Prelude.Text,
     -- | Specifies the format and location of the input data. The S3 bucket
-    -- containing the input data must be located in the same region as the
+    -- containing the input data must be located in the same Region as the
     -- entity recognizer being created.
     inputDataConfig :: EntityRecognizerInputDataConfig,
     -- | You can specify any of the following languages: English (\"en\"),
@@ -147,9 +146,8 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
 -- 'clientRequestToken', 'createEntityRecognizer_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
 -- request token, Amazon Comprehend generates one.
 --
--- 'modelKmsKeyId', 'createEntityRecognizer_modelKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt trained custom models. The ModelKmsKeyId can be either
--- of the following formats
+-- 'modelKmsKeyId', 'createEntityRecognizer_modelKmsKeyId' - ID for the KMS key that Amazon Comprehend uses to encrypt trained custom
+-- models. The ModelKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -157,8 +155,8 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
 -- 'modelPolicy', 'createEntityRecognizer_modelPolicy' - The JSON resource-based policy to attach to your custom entity
--- recognizer model. You can use this policy to allow another AWS account
--- to import your custom model.
+-- recognizer model. You can use this policy to allow another Amazon Web
+-- Services account to import your custom model.
 --
 -- Provide your JSON as a UTF-8 encoded string without line breaks. To
 -- provide valid JSON for your policy, enclose the attribute names and
@@ -173,20 +171,20 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
 --
 -- @\'{\"attribute\": \"value\", \"attribute\": [\"value\"]}\'@
 --
--- 'tags', 'createEntityRecognizer_tags' - Tags to be associated with the entity recognizer being created. A tag is
--- a key-value pair that adds as a metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
+-- 'tags', 'createEntityRecognizer_tags' - Tags to associate with the entity recognizer. A tag is a key-value pair
+-- that adds as a metadata to a resource used by Amazon Comprehend. For
+-- example, a tag with \"Sales\" as the key might be added to a resource to
+-- indicate its use by the sales department.
 --
 -- 'versionName', 'createEntityRecognizer_versionName' - The version name given to the newly created recognizer. Version names
 -- can be a maximum of 256 characters. Alphanumeric characters, hyphens (-)
 -- and underscores (_) are allowed. The version name must be unique among
--- all models with the same recognizer name in the account\/ AWS Region.
+-- all models with the same recognizer name in the account\/Region.
 --
--- 'volumeKmsKeyId', 'createEntityRecognizer_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- 'volumeKmsKeyId', 'createEntityRecognizer_volumeKmsKeyId' - ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -201,13 +199,13 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
 -- 'recognizerName', 'createEntityRecognizer_recognizerName' - The name given to the newly created recognizer. Recognizer names can be
 -- a maximum of 256 characters. Alphanumeric characters, hyphens (-) and
 -- underscores (_) are allowed. The name must be unique in the
--- account\/region.
+-- account\/Region.
 --
--- 'dataAccessRoleArn', 'createEntityRecognizer_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
--- role that grants Amazon Comprehend read access to your input data.
+-- 'dataAccessRoleArn', 'createEntityRecognizer_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 --
 -- 'inputDataConfig', 'createEntityRecognizer_inputDataConfig' - Specifies the format and location of the input data. The S3 bucket
--- containing the input data must be located in the same region as the
+-- containing the input data must be located in the same Region as the
 -- entity recognizer being created.
 --
 -- 'languageCode', 'createEntityRecognizer_languageCode' - You can specify any of the following languages: English (\"en\"),
@@ -250,9 +248,8 @@ newCreateEntityRecognizer
 createEntityRecognizer_clientRequestToken :: Lens.Lens' CreateEntityRecognizer (Prelude.Maybe Prelude.Text)
 createEntityRecognizer_clientRequestToken = Lens.lens (\CreateEntityRecognizer' {clientRequestToken} -> clientRequestToken) (\s@CreateEntityRecognizer' {} a -> s {clientRequestToken = a} :: CreateEntityRecognizer)
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt trained custom models. The ModelKmsKeyId can be either
--- of the following formats
+-- | ID for the KMS key that Amazon Comprehend uses to encrypt trained custom
+-- models. The ModelKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -262,8 +259,8 @@ createEntityRecognizer_modelKmsKeyId :: Lens.Lens' CreateEntityRecognizer (Prelu
 createEntityRecognizer_modelKmsKeyId = Lens.lens (\CreateEntityRecognizer' {modelKmsKeyId} -> modelKmsKeyId) (\s@CreateEntityRecognizer' {} a -> s {modelKmsKeyId = a} :: CreateEntityRecognizer)
 
 -- | The JSON resource-based policy to attach to your custom entity
--- recognizer model. You can use this policy to allow another AWS account
--- to import your custom model.
+-- recognizer model. You can use this policy to allow another Amazon Web
+-- Services account to import your custom model.
 --
 -- Provide your JSON as a UTF-8 encoded string without line breaks. To
 -- provide valid JSON for your policy, enclose the attribute names and
@@ -280,24 +277,24 @@ createEntityRecognizer_modelKmsKeyId = Lens.lens (\CreateEntityRecognizer' {mode
 createEntityRecognizer_modelPolicy :: Lens.Lens' CreateEntityRecognizer (Prelude.Maybe Prelude.Text)
 createEntityRecognizer_modelPolicy = Lens.lens (\CreateEntityRecognizer' {modelPolicy} -> modelPolicy) (\s@CreateEntityRecognizer' {} a -> s {modelPolicy = a} :: CreateEntityRecognizer)
 
--- | Tags to be associated with the entity recognizer being created. A tag is
--- a key-value pair that adds as a metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
+-- | Tags to associate with the entity recognizer. A tag is a key-value pair
+-- that adds as a metadata to a resource used by Amazon Comprehend. For
+-- example, a tag with \"Sales\" as the key might be added to a resource to
+-- indicate its use by the sales department.
 createEntityRecognizer_tags :: Lens.Lens' CreateEntityRecognizer (Prelude.Maybe [Tag])
 createEntityRecognizer_tags = Lens.lens (\CreateEntityRecognizer' {tags} -> tags) (\s@CreateEntityRecognizer' {} a -> s {tags = a} :: CreateEntityRecognizer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The version name given to the newly created recognizer. Version names
 -- can be a maximum of 256 characters. Alphanumeric characters, hyphens (-)
 -- and underscores (_) are allowed. The version name must be unique among
--- all models with the same recognizer name in the account\/ AWS Region.
+-- all models with the same recognizer name in the account\/Region.
 createEntityRecognizer_versionName :: Lens.Lens' CreateEntityRecognizer (Prelude.Maybe Prelude.Text)
 createEntityRecognizer_versionName = Lens.lens (\CreateEntityRecognizer' {versionName} -> versionName) (\s@CreateEntityRecognizer' {} a -> s {versionName = a} :: CreateEntityRecognizer)
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- | ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -316,17 +313,17 @@ createEntityRecognizer_vpcConfig = Lens.lens (\CreateEntityRecognizer' {vpcConfi
 -- | The name given to the newly created recognizer. Recognizer names can be
 -- a maximum of 256 characters. Alphanumeric characters, hyphens (-) and
 -- underscores (_) are allowed. The name must be unique in the
--- account\/region.
+-- account\/Region.
 createEntityRecognizer_recognizerName :: Lens.Lens' CreateEntityRecognizer Prelude.Text
 createEntityRecognizer_recognizerName = Lens.lens (\CreateEntityRecognizer' {recognizerName} -> recognizerName) (\s@CreateEntityRecognizer' {} a -> s {recognizerName = a} :: CreateEntityRecognizer)
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
--- role that grants Amazon Comprehend read access to your input data.
+-- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 createEntityRecognizer_dataAccessRoleArn :: Lens.Lens' CreateEntityRecognizer Prelude.Text
 createEntityRecognizer_dataAccessRoleArn = Lens.lens (\CreateEntityRecognizer' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@CreateEntityRecognizer' {} a -> s {dataAccessRoleArn = a} :: CreateEntityRecognizer)
 
 -- | Specifies the format and location of the input data. The S3 bucket
--- containing the input data must be located in the same region as the
+-- containing the input data must be located in the same Region as the
 -- entity recognizer being created.
 createEntityRecognizer_inputDataConfig :: Lens.Lens' CreateEntityRecognizer EntityRecognizerInputDataConfig
 createEntityRecognizer_inputDataConfig = Lens.lens (\CreateEntityRecognizer' {inputDataConfig} -> inputDataConfig) (\s@CreateEntityRecognizer' {} a -> s {inputDataConfig = a} :: CreateEntityRecognizer)
@@ -355,7 +352,8 @@ instance Core.AWSRequest CreateEntityRecognizer where
 
 instance Prelude.Hashable CreateEntityRecognizer where
   hashWithSalt _salt CreateEntityRecognizer' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` modelKmsKeyId
       `Prelude.hashWithSalt` modelPolicy
       `Prelude.hashWithSalt` tags

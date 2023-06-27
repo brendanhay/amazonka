@@ -11,10 +11,10 @@
 --
 -- Derived from API version @2017-11-27@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Amazon Comprehend is an AWS service for gaining insight into the content
--- of documents. Use these actions to determine the topics contained in
--- your documents, the topics they discuss, the predominant sentiment
--- expressed in them, the predominant language used, and more.
+-- Amazon Comprehend is an Amazon Web Services service for gaining insight
+-- into the content of documents. Use these actions to determine the topics
+-- contained in your documents, the topics they discuss, the predominant
+-- sentiment expressed in them, the predominant language used, and more.
 module Amazonka.Comprehend
   ( -- * Service Configuration
     defaultService,
@@ -124,6 +124,12 @@ module Amazonka.Comprehend
     ContainsPiiEntitiesResponse (ContainsPiiEntitiesResponse'),
     newContainsPiiEntitiesResponse,
 
+    -- ** CreateDataset
+    CreateDataset (CreateDataset'),
+    newCreateDataset,
+    CreateDatasetResponse (CreateDatasetResponse'),
+    newCreateDatasetResponse,
+
     -- ** CreateDocumentClassifier
     CreateDocumentClassifier (CreateDocumentClassifier'),
     newCreateDocumentClassifier,
@@ -141,6 +147,12 @@ module Amazonka.Comprehend
     newCreateEntityRecognizer,
     CreateEntityRecognizerResponse (CreateEntityRecognizerResponse'),
     newCreateEntityRecognizerResponse,
+
+    -- ** CreateFlywheel
+    CreateFlywheel (CreateFlywheel'),
+    newCreateFlywheel,
+    CreateFlywheelResponse (CreateFlywheelResponse'),
+    newCreateFlywheelResponse,
 
     -- ** DeleteDocumentClassifier
     DeleteDocumentClassifier (DeleteDocumentClassifier'),
@@ -160,11 +172,23 @@ module Amazonka.Comprehend
     DeleteEntityRecognizerResponse (DeleteEntityRecognizerResponse'),
     newDeleteEntityRecognizerResponse,
 
+    -- ** DeleteFlywheel
+    DeleteFlywheel (DeleteFlywheel'),
+    newDeleteFlywheel,
+    DeleteFlywheelResponse (DeleteFlywheelResponse'),
+    newDeleteFlywheelResponse,
+
     -- ** DeleteResourcePolicy
     DeleteResourcePolicy (DeleteResourcePolicy'),
     newDeleteResourcePolicy,
     DeleteResourcePolicyResponse (DeleteResourcePolicyResponse'),
     newDeleteResourcePolicyResponse,
+
+    -- ** DescribeDataset
+    DescribeDataset (DescribeDataset'),
+    newDescribeDataset,
+    DescribeDatasetResponse (DescribeDatasetResponse'),
+    newDescribeDatasetResponse,
 
     -- ** DescribeDocumentClassificationJob
     DescribeDocumentClassificationJob (DescribeDocumentClassificationJob'),
@@ -207,6 +231,18 @@ module Amazonka.Comprehend
     newDescribeEventsDetectionJob,
     DescribeEventsDetectionJobResponse (DescribeEventsDetectionJobResponse'),
     newDescribeEventsDetectionJobResponse,
+
+    -- ** DescribeFlywheel
+    DescribeFlywheel (DescribeFlywheel'),
+    newDescribeFlywheel,
+    DescribeFlywheelResponse (DescribeFlywheelResponse'),
+    newDescribeFlywheelResponse,
+
+    -- ** DescribeFlywheelIteration
+    DescribeFlywheelIteration (DescribeFlywheelIteration'),
+    newDescribeFlywheelIteration,
+    DescribeFlywheelIterationResponse (DescribeFlywheelIterationResponse'),
+    newDescribeFlywheelIterationResponse,
 
     -- ** DescribeKeyPhrasesDetectionJob
     DescribeKeyPhrasesDetectionJob (DescribeKeyPhrasesDetectionJob'),
@@ -292,6 +328,12 @@ module Amazonka.Comprehend
     ImportModelResponse (ImportModelResponse'),
     newImportModelResponse,
 
+    -- ** ListDatasets
+    ListDatasets (ListDatasets'),
+    newListDatasets,
+    ListDatasetsResponse (ListDatasetsResponse'),
+    newListDatasetsResponse,
+
     -- ** ListDocumentClassificationJobs (Paginated)
     ListDocumentClassificationJobs (ListDocumentClassificationJobs'),
     newListDocumentClassificationJobs,
@@ -345,6 +387,18 @@ module Amazonka.Comprehend
     newListEventsDetectionJobs,
     ListEventsDetectionJobsResponse (ListEventsDetectionJobsResponse'),
     newListEventsDetectionJobsResponse,
+
+    -- ** ListFlywheelIterationHistory
+    ListFlywheelIterationHistory (ListFlywheelIterationHistory'),
+    newListFlywheelIterationHistory,
+    ListFlywheelIterationHistoryResponse (ListFlywheelIterationHistoryResponse'),
+    newListFlywheelIterationHistoryResponse,
+
+    -- ** ListFlywheels
+    ListFlywheels (ListFlywheels'),
+    newListFlywheels,
+    ListFlywheelsResponse (ListFlywheelsResponse'),
+    newListFlywheelsResponse,
 
     -- ** ListKeyPhrasesDetectionJobs (Paginated)
     ListKeyPhrasesDetectionJobs (ListKeyPhrasesDetectionJobs'),
@@ -411,6 +465,12 @@ module Amazonka.Comprehend
     newStartEventsDetectionJob,
     StartEventsDetectionJobResponse (StartEventsDetectionJobResponse'),
     newStartEventsDetectionJobResponse,
+
+    -- ** StartFlywheelIteration
+    StartFlywheelIteration (StartFlywheelIteration'),
+    newStartFlywheelIteration,
+    StartFlywheelIterationResponse (StartFlywheelIterationResponse'),
+    newStartFlywheelIterationResponse,
 
     -- ** StartKeyPhrasesDetectionJob
     StartKeyPhrasesDetectionJob (StartKeyPhrasesDetectionJob'),
@@ -514,6 +574,12 @@ module Amazonka.Comprehend
     UpdateEndpointResponse (UpdateEndpointResponse'),
     newUpdateEndpointResponse,
 
+    -- ** UpdateFlywheel
+    UpdateFlywheel (UpdateFlywheel'),
+    newUpdateFlywheel,
+    UpdateFlywheelResponse (UpdateFlywheelResponse'),
+    newUpdateFlywheelResponse,
+
     -- * Types
 
     -- ** AugmentedManifestsDocumentTypeFormat
@@ -522,8 +588,20 @@ module Amazonka.Comprehend
     -- ** BlockType
     BlockType (..),
 
+    -- ** DatasetDataFormat
+    DatasetDataFormat (..),
+
+    -- ** DatasetStatus
+    DatasetStatus (..),
+
+    -- ** DatasetType
+    DatasetType (..),
+
     -- ** DocumentClassifierDataFormat
     DocumentClassifierDataFormat (..),
+
+    -- ** DocumentClassifierDocumentTypeFormat
+    DocumentClassifierDocumentTypeFormat (..),
 
     -- ** DocumentClassifierMode
     DocumentClassifierMode (..),
@@ -549,6 +627,12 @@ module Amazonka.Comprehend
     -- ** EntityType
     EntityType (..),
 
+    -- ** FlywheelIterationStatus
+    FlywheelIterationStatus (..),
+
+    -- ** FlywheelStatus
+    FlywheelStatus (..),
+
     -- ** InputFormat
     InputFormat (..),
 
@@ -561,8 +645,14 @@ module Amazonka.Comprehend
     -- ** ModelStatus
     ModelStatus (..),
 
+    -- ** ModelType
+    ModelType (..),
+
     -- ** PageBasedErrorCode
     PageBasedErrorCode (..),
+
+    -- ** PageBasedWarningCode
+    PageBasedWarningCode (..),
 
     -- ** PartOfSpeechTagType
     PartOfSpeechTagType (..),
@@ -647,9 +737,53 @@ module Amazonka.Comprehend
     ClassifierMetadata (ClassifierMetadata'),
     newClassifierMetadata,
 
+    -- ** DataSecurityConfig
+    DataSecurityConfig (DataSecurityConfig'),
+    newDataSecurityConfig,
+
+    -- ** DatasetAugmentedManifestsListItem
+    DatasetAugmentedManifestsListItem (DatasetAugmentedManifestsListItem'),
+    newDatasetAugmentedManifestsListItem,
+
+    -- ** DatasetDocumentClassifierInputDataConfig
+    DatasetDocumentClassifierInputDataConfig (DatasetDocumentClassifierInputDataConfig'),
+    newDatasetDocumentClassifierInputDataConfig,
+
+    -- ** DatasetEntityRecognizerAnnotations
+    DatasetEntityRecognizerAnnotations (DatasetEntityRecognizerAnnotations'),
+    newDatasetEntityRecognizerAnnotations,
+
+    -- ** DatasetEntityRecognizerDocuments
+    DatasetEntityRecognizerDocuments (DatasetEntityRecognizerDocuments'),
+    newDatasetEntityRecognizerDocuments,
+
+    -- ** DatasetEntityRecognizerEntityList
+    DatasetEntityRecognizerEntityList (DatasetEntityRecognizerEntityList'),
+    newDatasetEntityRecognizerEntityList,
+
+    -- ** DatasetEntityRecognizerInputDataConfig
+    DatasetEntityRecognizerInputDataConfig (DatasetEntityRecognizerInputDataConfig'),
+    newDatasetEntityRecognizerInputDataConfig,
+
+    -- ** DatasetFilter
+    DatasetFilter (DatasetFilter'),
+    newDatasetFilter,
+
+    -- ** DatasetInputDataConfig
+    DatasetInputDataConfig (DatasetInputDataConfig'),
+    newDatasetInputDataConfig,
+
+    -- ** DatasetProperties
+    DatasetProperties (DatasetProperties'),
+    newDatasetProperties,
+
     -- ** DocumentClass
     DocumentClass (DocumentClass'),
     newDocumentClass,
+
+    -- ** DocumentClassificationConfig
+    DocumentClassificationConfig (DocumentClassificationConfig'),
+    newDocumentClassificationConfig,
 
     -- ** DocumentClassificationJobFilter
     DocumentClassificationJobFilter (DocumentClassificationJobFilter'),
@@ -658,6 +792,10 @@ module Amazonka.Comprehend
     -- ** DocumentClassificationJobProperties
     DocumentClassificationJobProperties (DocumentClassificationJobProperties'),
     newDocumentClassificationJobProperties,
+
+    -- ** DocumentClassifierDocuments
+    DocumentClassifierDocuments (DocumentClassifierDocuments'),
+    newDocumentClassifierDocuments,
 
     -- ** DocumentClassifierFilter
     DocumentClassifierFilter (DocumentClassifierFilter'),
@@ -731,6 +869,10 @@ module Amazonka.Comprehend
     EntityLabel (EntityLabel'),
     newEntityLabel,
 
+    -- ** EntityRecognitionConfig
+    EntityRecognitionConfig (EntityRecognitionConfig'),
+    newEntityRecognitionConfig,
+
     -- ** EntityRecognizerAnnotations
     EntityRecognizerAnnotations (EntityRecognizerAnnotations'),
     newEntityRecognizerAnnotations,
@@ -763,6 +905,10 @@ module Amazonka.Comprehend
     EntityRecognizerMetadataEntityTypesListItem (EntityRecognizerMetadataEntityTypesListItem'),
     newEntityRecognizerMetadataEntityTypesListItem,
 
+    -- ** EntityRecognizerOutputDataConfig
+    EntityRecognizerOutputDataConfig (EntityRecognizerOutputDataConfig'),
+    newEntityRecognizerOutputDataConfig,
+
     -- ** EntityRecognizerProperties
     EntityRecognizerProperties (EntityRecognizerProperties'),
     newEntityRecognizerProperties,
@@ -794,6 +940,30 @@ module Amazonka.Comprehend
     -- ** ExtractedCharactersListItem
     ExtractedCharactersListItem (ExtractedCharactersListItem'),
     newExtractedCharactersListItem,
+
+    -- ** FlywheelFilter
+    FlywheelFilter (FlywheelFilter'),
+    newFlywheelFilter,
+
+    -- ** FlywheelIterationFilter
+    FlywheelIterationFilter (FlywheelIterationFilter'),
+    newFlywheelIterationFilter,
+
+    -- ** FlywheelIterationProperties
+    FlywheelIterationProperties (FlywheelIterationProperties'),
+    newFlywheelIterationProperties,
+
+    -- ** FlywheelModelEvaluationMetrics
+    FlywheelModelEvaluationMetrics (FlywheelModelEvaluationMetrics'),
+    newFlywheelModelEvaluationMetrics,
+
+    -- ** FlywheelProperties
+    FlywheelProperties (FlywheelProperties'),
+    newFlywheelProperties,
+
+    -- ** FlywheelSummary
+    FlywheelSummary (FlywheelSummary'),
+    newFlywheelSummary,
 
     -- ** Geometry
     Geometry (Geometry'),
@@ -891,6 +1061,10 @@ module Amazonka.Comprehend
     TargetedSentimentMention (TargetedSentimentMention'),
     newTargetedSentimentMention,
 
+    -- ** TaskConfig
+    TaskConfig (TaskConfig'),
+    newTaskConfig,
+
     -- ** TopicsDetectionJobFilter
     TopicsDetectionJobFilter (TopicsDetectionJobFilter'),
     newTopicsDetectionJobFilter,
@@ -899,9 +1073,17 @@ module Amazonka.Comprehend
     TopicsDetectionJobProperties (TopicsDetectionJobProperties'),
     newTopicsDetectionJobProperties,
 
+    -- ** UpdateDataSecurityConfig
+    UpdateDataSecurityConfig (UpdateDataSecurityConfig'),
+    newUpdateDataSecurityConfig,
+
     -- ** VpcConfig
     VpcConfig (VpcConfig'),
     newVpcConfig,
+
+    -- ** WarningsListItem
+    WarningsListItem (WarningsListItem'),
+    newWarningsListItem,
   )
 where
 
@@ -913,13 +1095,17 @@ import Amazonka.Comprehend.BatchDetectSyntax
 import Amazonka.Comprehend.BatchDetectTargetedSentiment
 import Amazonka.Comprehend.ClassifyDocument
 import Amazonka.Comprehend.ContainsPiiEntities
+import Amazonka.Comprehend.CreateDataset
 import Amazonka.Comprehend.CreateDocumentClassifier
 import Amazonka.Comprehend.CreateEndpoint
 import Amazonka.Comprehend.CreateEntityRecognizer
+import Amazonka.Comprehend.CreateFlywheel
 import Amazonka.Comprehend.DeleteDocumentClassifier
 import Amazonka.Comprehend.DeleteEndpoint
 import Amazonka.Comprehend.DeleteEntityRecognizer
+import Amazonka.Comprehend.DeleteFlywheel
 import Amazonka.Comprehend.DeleteResourcePolicy
+import Amazonka.Comprehend.DescribeDataset
 import Amazonka.Comprehend.DescribeDocumentClassificationJob
 import Amazonka.Comprehend.DescribeDocumentClassifier
 import Amazonka.Comprehend.DescribeDominantLanguageDetectionJob
@@ -927,6 +1113,8 @@ import Amazonka.Comprehend.DescribeEndpoint
 import Amazonka.Comprehend.DescribeEntitiesDetectionJob
 import Amazonka.Comprehend.DescribeEntityRecognizer
 import Amazonka.Comprehend.DescribeEventsDetectionJob
+import Amazonka.Comprehend.DescribeFlywheel
+import Amazonka.Comprehend.DescribeFlywheelIteration
 import Amazonka.Comprehend.DescribeKeyPhrasesDetectionJob
 import Amazonka.Comprehend.DescribePiiEntitiesDetectionJob
 import Amazonka.Comprehend.DescribeResourcePolicy
@@ -942,6 +1130,7 @@ import Amazonka.Comprehend.DetectSyntax
 import Amazonka.Comprehend.DetectTargetedSentiment
 import Amazonka.Comprehend.ImportModel
 import Amazonka.Comprehend.Lens
+import Amazonka.Comprehend.ListDatasets
 import Amazonka.Comprehend.ListDocumentClassificationJobs
 import Amazonka.Comprehend.ListDocumentClassifierSummaries
 import Amazonka.Comprehend.ListDocumentClassifiers
@@ -951,6 +1140,8 @@ import Amazonka.Comprehend.ListEntitiesDetectionJobs
 import Amazonka.Comprehend.ListEntityRecognizerSummaries
 import Amazonka.Comprehend.ListEntityRecognizers
 import Amazonka.Comprehend.ListEventsDetectionJobs
+import Amazonka.Comprehend.ListFlywheelIterationHistory
+import Amazonka.Comprehend.ListFlywheels
 import Amazonka.Comprehend.ListKeyPhrasesDetectionJobs
 import Amazonka.Comprehend.ListPiiEntitiesDetectionJobs
 import Amazonka.Comprehend.ListSentimentDetectionJobs
@@ -962,6 +1153,7 @@ import Amazonka.Comprehend.StartDocumentClassificationJob
 import Amazonka.Comprehend.StartDominantLanguageDetectionJob
 import Amazonka.Comprehend.StartEntitiesDetectionJob
 import Amazonka.Comprehend.StartEventsDetectionJob
+import Amazonka.Comprehend.StartFlywheelIteration
 import Amazonka.Comprehend.StartKeyPhrasesDetectionJob
 import Amazonka.Comprehend.StartPiiEntitiesDetectionJob
 import Amazonka.Comprehend.StartSentimentDetectionJob
@@ -980,6 +1172,7 @@ import Amazonka.Comprehend.TagResource
 import Amazonka.Comprehend.Types
 import Amazonka.Comprehend.UntagResource
 import Amazonka.Comprehend.UpdateEndpoint
+import Amazonka.Comprehend.UpdateFlywheel
 import Amazonka.Comprehend.Waiters
 
 -- $errors

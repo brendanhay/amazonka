@@ -34,16 +34,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPiiEntitiesDetectionJobProperties' smart constructor.
 data PiiEntitiesDetectionJobProperties = PiiEntitiesDetectionJobProperties'
-  { -- | The Amazon Resource Name (ARN) that gives Amazon Comprehend read access
-    -- to your input data.
+  { -- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+    -- Comprehend read access to your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the PII entities detection job completed.
     endTime :: Prelude.Maybe Data.POSIX,
     -- | The input properties for a PII entities detection job.
     inputDataConfig :: Prelude.Maybe InputDataConfig,
     -- | The Amazon Resource Name (ARN) of the PII entities detection job. It is
-    -- a unique, fully qualified identifier for the job. It includes the AWS
-    -- account, Region, and the job ID. The format of the ARN is as follows:
+    -- a unique, fully qualified identifier for the job. It includes the Amazon
+    -- Web Services account, Amazon Web Services Region, and the job ID. The
+    -- format of the ARN is as follows:
     --
     -- @arn:\<partition>:comprehend:\<region>:\<account-id>:pii-entities-detection-job\/\<job-id>@
     --
@@ -88,16 +89,17 @@ data PiiEntitiesDetectionJobProperties = PiiEntitiesDetectionJobProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataAccessRoleArn', 'piiEntitiesDetectionJobProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) that gives Amazon Comprehend read access
--- to your input data.
+-- 'dataAccessRoleArn', 'piiEntitiesDetectionJobProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 --
 -- 'endTime', 'piiEntitiesDetectionJobProperties_endTime' - The time that the PII entities detection job completed.
 --
 -- 'inputDataConfig', 'piiEntitiesDetectionJobProperties_inputDataConfig' - The input properties for a PII entities detection job.
 --
 -- 'jobArn', 'piiEntitiesDetectionJobProperties_jobArn' - The Amazon Resource Name (ARN) of the PII entities detection job. It is
--- a unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- a unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:pii-entities-detection-job\/\<job-id>@
 --
@@ -150,8 +152,8 @@ newPiiEntitiesDetectionJobProperties =
       submitTime = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) that gives Amazon Comprehend read access
--- to your input data.
+-- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 piiEntitiesDetectionJobProperties_dataAccessRoleArn :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
 piiEntitiesDetectionJobProperties_dataAccessRoleArn = Lens.lens (\PiiEntitiesDetectionJobProperties' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {dataAccessRoleArn = a} :: PiiEntitiesDetectionJobProperties)
 
@@ -164,8 +166,9 @@ piiEntitiesDetectionJobProperties_inputDataConfig :: Lens.Lens' PiiEntitiesDetec
 piiEntitiesDetectionJobProperties_inputDataConfig = Lens.lens (\PiiEntitiesDetectionJobProperties' {inputDataConfig} -> inputDataConfig) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {inputDataConfig = a} :: PiiEntitiesDetectionJobProperties)
 
 -- | The Amazon Resource Name (ARN) of the PII entities detection job. It is
--- a unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- a unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:pii-entities-detection-job\/\<job-id>@
 --
@@ -250,7 +253,8 @@ instance
   hashWithSalt
     _salt
     PiiEntitiesDetectionJobProperties' {..} =
-      _salt `Prelude.hashWithSalt` dataAccessRoleArn
+      _salt
+        `Prelude.hashWithSalt` dataAccessRoleArn
         `Prelude.hashWithSalt` endTime
         `Prelude.hashWithSalt` inputDataConfig
         `Prelude.hashWithSalt` jobArn

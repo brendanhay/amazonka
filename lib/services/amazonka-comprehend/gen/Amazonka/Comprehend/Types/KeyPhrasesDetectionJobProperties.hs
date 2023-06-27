@@ -33,8 +33,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newKeyPhrasesDetectionJobProperties' smart constructor.
 data KeyPhrasesDetectionJobProperties = KeyPhrasesDetectionJobProperties'
-  { -- | The Amazon Resource Name (ARN) that gives Amazon Comprehend read access
-    -- to your input data.
+  { -- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+    -- Comprehend read access to your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the key phrases detection job completed.
     endTime :: Prelude.Maybe Data.POSIX,
@@ -42,8 +42,9 @@ data KeyPhrasesDetectionJobProperties = KeyPhrasesDetectionJobProperties'
     -- phrases detection job.
     inputDataConfig :: Prelude.Maybe InputDataConfig,
     -- | The Amazon Resource Name (ARN) of the key phrases detection job. It is a
-    -- unique, fully qualified identifier for the job. It includes the AWS
-    -- account, Region, and the job ID. The format of the ARN is as follows:
+    -- unique, fully qualified identifier for the job. It includes the Amazon
+    -- Web Services account, Amazon Web Services Region, and the job ID. The
+    -- format of the ARN is as follows:
     --
     -- @arn:\<partition>:comprehend:\<region>:\<account-id>:key-phrases-detection-job\/\<job-id>@
     --
@@ -68,10 +69,9 @@ data KeyPhrasesDetectionJobProperties = KeyPhrasesDetectionJobProperties'
     -- | The time that the key phrases detection job was submitted for
     -- processing.
     submitTime :: Prelude.Maybe Data.POSIX,
-    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt data on the storage volume attached to the ML compute
-    -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
-    -- either of the following formats:
+    -- | ID for the KMS key that Amazon Comprehend uses to encrypt data on the
+    -- storage volume attached to the ML compute instance(s) that process the
+    -- analysis job. The VolumeKmsKeyId can be either of the following formats:
     --
     -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
@@ -94,8 +94,8 @@ data KeyPhrasesDetectionJobProperties = KeyPhrasesDetectionJobProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataAccessRoleArn', 'keyPhrasesDetectionJobProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) that gives Amazon Comprehend read access
--- to your input data.
+-- 'dataAccessRoleArn', 'keyPhrasesDetectionJobProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 --
 -- 'endTime', 'keyPhrasesDetectionJobProperties_endTime' - The time that the key phrases detection job completed.
 --
@@ -103,8 +103,9 @@ data KeyPhrasesDetectionJobProperties = KeyPhrasesDetectionJobProperties'
 -- phrases detection job.
 --
 -- 'jobArn', 'keyPhrasesDetectionJobProperties_jobArn' - The Amazon Resource Name (ARN) of the key phrases detection job. It is a
--- unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:key-phrases-detection-job\/\<job-id>@
 --
@@ -129,10 +130,9 @@ data KeyPhrasesDetectionJobProperties = KeyPhrasesDetectionJobProperties'
 -- 'submitTime', 'keyPhrasesDetectionJobProperties_submitTime' - The time that the key phrases detection job was submitted for
 -- processing.
 --
--- 'volumeKmsKeyId', 'keyPhrasesDetectionJobProperties_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- 'volumeKmsKeyId', 'keyPhrasesDetectionJobProperties_volumeKmsKeyId' - ID for the KMS key that Amazon Comprehend uses to encrypt data on the
+-- storage volume attached to the ML compute instance(s) that process the
+-- analysis job. The VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -163,8 +163,8 @@ newKeyPhrasesDetectionJobProperties =
       vpcConfig = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) that gives Amazon Comprehend read access
--- to your input data.
+-- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 keyPhrasesDetectionJobProperties_dataAccessRoleArn :: Lens.Lens' KeyPhrasesDetectionJobProperties (Prelude.Maybe Prelude.Text)
 keyPhrasesDetectionJobProperties_dataAccessRoleArn = Lens.lens (\KeyPhrasesDetectionJobProperties' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@KeyPhrasesDetectionJobProperties' {} a -> s {dataAccessRoleArn = a} :: KeyPhrasesDetectionJobProperties)
 
@@ -178,8 +178,9 @@ keyPhrasesDetectionJobProperties_inputDataConfig :: Lens.Lens' KeyPhrasesDetecti
 keyPhrasesDetectionJobProperties_inputDataConfig = Lens.lens (\KeyPhrasesDetectionJobProperties' {inputDataConfig} -> inputDataConfig) (\s@KeyPhrasesDetectionJobProperties' {} a -> s {inputDataConfig = a} :: KeyPhrasesDetectionJobProperties)
 
 -- | The Amazon Resource Name (ARN) of the key phrases detection job. It is a
--- unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:key-phrases-detection-job\/\<job-id>@
 --
@@ -220,10 +221,9 @@ keyPhrasesDetectionJobProperties_outputDataConfig = Lens.lens (\KeyPhrasesDetect
 keyPhrasesDetectionJobProperties_submitTime :: Lens.Lens' KeyPhrasesDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
 keyPhrasesDetectionJobProperties_submitTime = Lens.lens (\KeyPhrasesDetectionJobProperties' {submitTime} -> submitTime) (\s@KeyPhrasesDetectionJobProperties' {} a -> s {submitTime = a} :: KeyPhrasesDetectionJobProperties) Prelude.. Lens.mapping Data._Time
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- | ID for the KMS key that Amazon Comprehend uses to encrypt data on the
+-- storage volume attached to the ML compute instance(s) that process the
+-- analysis job. The VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -270,7 +270,8 @@ instance
   hashWithSalt
     _salt
     KeyPhrasesDetectionJobProperties' {..} =
-      _salt `Prelude.hashWithSalt` dataAccessRoleArn
+      _salt
+        `Prelude.hashWithSalt` dataAccessRoleArn
         `Prelude.hashWithSalt` endTime
         `Prelude.hashWithSalt` inputDataConfig
         `Prelude.hashWithSalt` jobArn

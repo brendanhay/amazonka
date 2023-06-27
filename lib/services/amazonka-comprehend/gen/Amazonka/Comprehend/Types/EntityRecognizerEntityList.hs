@@ -24,12 +24,12 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes the entity recognizer submitted with an entity recognizer.
+-- | Describes the entity list submitted with an entity recognizer.
 --
 -- /See:/ 'newEntityRecognizerEntityList' smart constructor.
 data EntityRecognizerEntityList = EntityRecognizerEntityList'
   { -- | Specifies the Amazon S3 location where the entity list is located. The
-    -- URI must be in the same region as the API endpoint that you are calling.
+    -- URI must be in the same Region as the API endpoint that you are calling.
     s3Uri :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,7 +43,7 @@ data EntityRecognizerEntityList = EntityRecognizerEntityList'
 -- for backwards compatibility:
 --
 -- 's3Uri', 'entityRecognizerEntityList_s3Uri' - Specifies the Amazon S3 location where the entity list is located. The
--- URI must be in the same region as the API endpoint that you are calling.
+-- URI must be in the same Region as the API endpoint that you are calling.
 newEntityRecognizerEntityList ::
   -- | 's3Uri'
   Prelude.Text ->
@@ -52,7 +52,7 @@ newEntityRecognizerEntityList pS3Uri_ =
   EntityRecognizerEntityList' {s3Uri = pS3Uri_}
 
 -- | Specifies the Amazon S3 location where the entity list is located. The
--- URI must be in the same region as the API endpoint that you are calling.
+-- URI must be in the same Region as the API endpoint that you are calling.
 entityRecognizerEntityList_s3Uri :: Lens.Lens' EntityRecognizerEntityList Prelude.Text
 entityRecognizerEntityList_s3Uri = Lens.lens (\EntityRecognizerEntityList' {s3Uri} -> s3Uri) (\s@EntityRecognizerEntityList' {} a -> s {s3Uri = a} :: EntityRecognizerEntityList)
 

@@ -133,10 +133,13 @@ instance Data.ToQuery DetectDominantLanguage where
 
 -- | /See:/ 'newDetectDominantLanguageResponse' smart constructor.
 data DetectDominantLanguageResponse = DetectDominantLanguageResponse'
-  { -- | The languages that Amazon Comprehend detected in the input text. For
-    -- each language, the response returns the RFC 5646 language code and the
-    -- level of confidence that Amazon Comprehend has in the accuracy of its
-    -- inference. For more information about RFC 5646, see
+  { -- | Array of languages that Amazon Comprehend detected in the input text.
+    -- The array is sorted in descending order of the score (the dominant
+    -- language is always the first element in the array).
+    --
+    -- For each language, the response returns the RFC 5646 language code and
+    -- the level of confidence that Amazon Comprehend has in the accuracy of
+    -- its inference. For more information about RFC 5646, see
     -- <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on
     -- the /IETF Tools/ web site.
     languages :: Prelude.Maybe [DominantLanguage],
@@ -153,10 +156,13 @@ data DetectDominantLanguageResponse = DetectDominantLanguageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'languages', 'detectDominantLanguageResponse_languages' - The languages that Amazon Comprehend detected in the input text. For
--- each language, the response returns the RFC 5646 language code and the
--- level of confidence that Amazon Comprehend has in the accuracy of its
--- inference. For more information about RFC 5646, see
+-- 'languages', 'detectDominantLanguageResponse_languages' - Array of languages that Amazon Comprehend detected in the input text.
+-- The array is sorted in descending order of the score (the dominant
+-- language is always the first element in the array).
+--
+-- For each language, the response returns the RFC 5646 language code and
+-- the level of confidence that Amazon Comprehend has in the accuracy of
+-- its inference. For more information about RFC 5646, see
 -- <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on
 -- the /IETF Tools/ web site.
 --
@@ -172,10 +178,13 @@ newDetectDominantLanguageResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The languages that Amazon Comprehend detected in the input text. For
--- each language, the response returns the RFC 5646 language code and the
--- level of confidence that Amazon Comprehend has in the accuracy of its
--- inference. For more information about RFC 5646, see
+-- | Array of languages that Amazon Comprehend detected in the input text.
+-- The array is sorted in descending order of the score (the dominant
+-- language is always the first element in the array).
+--
+-- For each language, the response returns the RFC 5646 language code and
+-- the level of confidence that Amazon Comprehend has in the accuracy of
+-- its inference. For more information about RFC 5646, see
 -- <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on
 -- the /IETF Tools/ web site.
 detectDominantLanguageResponse_languages :: Lens.Lens' DetectDominantLanguageResponse (Prelude.Maybe [DominantLanguage])

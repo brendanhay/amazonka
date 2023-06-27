@@ -113,7 +113,8 @@ instance Data.FromJSON BoundingBox where
 
 instance Prelude.Hashable BoundingBox where
   hashWithSalt _salt BoundingBox' {..} =
-    _salt `Prelude.hashWithSalt` height
+    _salt
+      `Prelude.hashWithSalt` height
       `Prelude.hashWithSalt` left
       `Prelude.hashWithSalt` top
       `Prelude.hashWithSalt` width

@@ -65,6 +65,7 @@ module Amazonka.Comprehend.Lens
     classifyDocumentResponse_documentType,
     classifyDocumentResponse_errors,
     classifyDocumentResponse_labels,
+    classifyDocumentResponse_warnings,
     classifyDocumentResponse_httpStatus,
 
     -- ** ContainsPiiEntities
@@ -72,6 +73,17 @@ module Amazonka.Comprehend.Lens
     containsPiiEntities_languageCode,
     containsPiiEntitiesResponse_labels,
     containsPiiEntitiesResponse_httpStatus,
+
+    -- ** CreateDataset
+    createDataset_clientRequestToken,
+    createDataset_datasetType,
+    createDataset_description,
+    createDataset_tags,
+    createDataset_flywheelArn,
+    createDataset_datasetName,
+    createDataset_inputDataConfig,
+    createDatasetResponse_datasetArn,
+    createDatasetResponse_httpStatus,
 
     -- ** CreateDocumentClassifier
     createDocumentClassifier_clientRequestToken,
@@ -93,11 +105,13 @@ module Amazonka.Comprehend.Lens
     -- ** CreateEndpoint
     createEndpoint_clientRequestToken,
     createEndpoint_dataAccessRoleArn,
+    createEndpoint_flywheelArn,
+    createEndpoint_modelArn,
     createEndpoint_tags,
     createEndpoint_endpointName,
-    createEndpoint_modelArn,
     createEndpoint_desiredInferenceUnits,
     createEndpointResponse_endpointArn,
+    createEndpointResponse_modelArn,
     createEndpointResponse_httpStatus,
 
     -- ** CreateEntityRecognizer
@@ -115,6 +129,20 @@ module Amazonka.Comprehend.Lens
     createEntityRecognizerResponse_entityRecognizerArn,
     createEntityRecognizerResponse_httpStatus,
 
+    -- ** CreateFlywheel
+    createFlywheel_activeModelArn,
+    createFlywheel_clientRequestToken,
+    createFlywheel_dataSecurityConfig,
+    createFlywheel_modelType,
+    createFlywheel_tags,
+    createFlywheel_taskConfig,
+    createFlywheel_flywheelName,
+    createFlywheel_dataAccessRoleArn,
+    createFlywheel_dataLakeS3Uri,
+    createFlywheelResponse_activeModelArn,
+    createFlywheelResponse_flywheelArn,
+    createFlywheelResponse_httpStatus,
+
     -- ** DeleteDocumentClassifier
     deleteDocumentClassifier_documentClassifierArn,
     deleteDocumentClassifierResponse_httpStatus,
@@ -127,10 +155,19 @@ module Amazonka.Comprehend.Lens
     deleteEntityRecognizer_entityRecognizerArn,
     deleteEntityRecognizerResponse_httpStatus,
 
+    -- ** DeleteFlywheel
+    deleteFlywheel_flywheelArn,
+    deleteFlywheelResponse_httpStatus,
+
     -- ** DeleteResourcePolicy
     deleteResourcePolicy_policyRevisionId,
     deleteResourcePolicy_resourceArn,
     deleteResourcePolicyResponse_httpStatus,
+
+    -- ** DescribeDataset
+    describeDataset_datasetArn,
+    describeDatasetResponse_datasetProperties,
+    describeDatasetResponse_httpStatus,
 
     -- ** DescribeDocumentClassificationJob
     describeDocumentClassificationJob_jobId,
@@ -166,6 +203,17 @@ module Amazonka.Comprehend.Lens
     describeEventsDetectionJob_jobId,
     describeEventsDetectionJobResponse_eventsDetectionJobProperties,
     describeEventsDetectionJobResponse_httpStatus,
+
+    -- ** DescribeFlywheel
+    describeFlywheel_flywheelArn,
+    describeFlywheelResponse_flywheelProperties,
+    describeFlywheelResponse_httpStatus,
+
+    -- ** DescribeFlywheelIteration
+    describeFlywheelIteration_flywheelArn,
+    describeFlywheelIteration_flywheelIterationId,
+    describeFlywheelIterationResponse_flywheelIterationProperties,
+    describeFlywheelIterationResponse_httpStatus,
 
     -- ** DescribeKeyPhrasesDetectionJob
     describeKeyPhrasesDetectionJob_jobId,
@@ -259,6 +307,15 @@ module Amazonka.Comprehend.Lens
     importModelResponse_modelArn,
     importModelResponse_httpStatus,
 
+    -- ** ListDatasets
+    listDatasets_filter,
+    listDatasets_flywheelArn,
+    listDatasets_maxResults,
+    listDatasets_nextToken,
+    listDatasetsResponse_datasetPropertiesList,
+    listDatasetsResponse_nextToken,
+    listDatasetsResponse_httpStatus,
+
     -- ** ListDocumentClassificationJobs
     listDocumentClassificationJobs_filter,
     listDocumentClassificationJobs_maxResults,
@@ -329,6 +386,23 @@ module Amazonka.Comprehend.Lens
     listEventsDetectionJobsResponse_nextToken,
     listEventsDetectionJobsResponse_httpStatus,
 
+    -- ** ListFlywheelIterationHistory
+    listFlywheelIterationHistory_filter,
+    listFlywheelIterationHistory_maxResults,
+    listFlywheelIterationHistory_nextToken,
+    listFlywheelIterationHistory_flywheelArn,
+    listFlywheelIterationHistoryResponse_flywheelIterationPropertiesList,
+    listFlywheelIterationHistoryResponse_nextToken,
+    listFlywheelIterationHistoryResponse_httpStatus,
+
+    -- ** ListFlywheels
+    listFlywheels_filter,
+    listFlywheels_maxResults,
+    listFlywheels_nextToken,
+    listFlywheelsResponse_flywheelSummaryList,
+    listFlywheelsResponse_nextToken,
+    listFlywheelsResponse_httpStatus,
+
     -- ** ListKeyPhrasesDetectionJobs
     listKeyPhrasesDetectionJobs_filter,
     listKeyPhrasesDetectionJobs_maxResults,
@@ -384,14 +458,16 @@ module Amazonka.Comprehend.Lens
 
     -- ** StartDocumentClassificationJob
     startDocumentClassificationJob_clientRequestToken,
+    startDocumentClassificationJob_documentClassifierArn,
+    startDocumentClassificationJob_flywheelArn,
     startDocumentClassificationJob_jobName,
     startDocumentClassificationJob_tags,
     startDocumentClassificationJob_volumeKmsKeyId,
     startDocumentClassificationJob_vpcConfig,
-    startDocumentClassificationJob_documentClassifierArn,
     startDocumentClassificationJob_inputDataConfig,
     startDocumentClassificationJob_outputDataConfig,
     startDocumentClassificationJob_dataAccessRoleArn,
+    startDocumentClassificationJobResponse_documentClassifierArn,
     startDocumentClassificationJobResponse_jobArn,
     startDocumentClassificationJobResponse_jobId,
     startDocumentClassificationJobResponse_jobStatus,
@@ -414,6 +490,7 @@ module Amazonka.Comprehend.Lens
     -- ** StartEntitiesDetectionJob
     startEntitiesDetectionJob_clientRequestToken,
     startEntitiesDetectionJob_entityRecognizerArn,
+    startEntitiesDetectionJob_flywheelArn,
     startEntitiesDetectionJob_jobName,
     startEntitiesDetectionJob_tags,
     startEntitiesDetectionJob_volumeKmsKeyId,
@@ -422,6 +499,7 @@ module Amazonka.Comprehend.Lens
     startEntitiesDetectionJob_outputDataConfig,
     startEntitiesDetectionJob_dataAccessRoleArn,
     startEntitiesDetectionJob_languageCode,
+    startEntitiesDetectionJobResponse_entityRecognizerArn,
     startEntitiesDetectionJobResponse_jobArn,
     startEntitiesDetectionJobResponse_jobId,
     startEntitiesDetectionJobResponse_jobStatus,
@@ -440,6 +518,13 @@ module Amazonka.Comprehend.Lens
     startEventsDetectionJobResponse_jobId,
     startEventsDetectionJobResponse_jobStatus,
     startEventsDetectionJobResponse_httpStatus,
+
+    -- ** StartFlywheelIteration
+    startFlywheelIteration_clientRequestToken,
+    startFlywheelIteration_flywheelArn,
+    startFlywheelIterationResponse_flywheelArn,
+    startFlywheelIterationResponse_flywheelIterationId,
+    startFlywheelIterationResponse_httpStatus,
 
     -- ** StartKeyPhrasesDetectionJob
     startKeyPhrasesDetectionJob_clientRequestToken,
@@ -580,8 +665,18 @@ module Amazonka.Comprehend.Lens
     updateEndpoint_desiredDataAccessRoleArn,
     updateEndpoint_desiredInferenceUnits,
     updateEndpoint_desiredModelArn,
+    updateEndpoint_flywheelArn,
     updateEndpoint_endpointArn,
+    updateEndpointResponse_desiredModelArn,
     updateEndpointResponse_httpStatus,
+
+    -- ** UpdateFlywheel
+    updateFlywheel_activeModelArn,
+    updateFlywheel_dataAccessRoleArn,
+    updateFlywheel_dataSecurityConfig,
+    updateFlywheel_flywheelArn,
+    updateFlywheelResponse_flywheelProperties,
+    updateFlywheelResponse_httpStatus,
 
     -- * Types
 
@@ -664,10 +759,70 @@ module Amazonka.Comprehend.Lens
     classifierMetadata_numberOfTestDocuments,
     classifierMetadata_numberOfTrainedDocuments,
 
+    -- ** DataSecurityConfig
+    dataSecurityConfig_dataLakeKmsKeyId,
+    dataSecurityConfig_modelKmsKeyId,
+    dataSecurityConfig_volumeKmsKeyId,
+    dataSecurityConfig_vpcConfig,
+
+    -- ** DatasetAugmentedManifestsListItem
+    datasetAugmentedManifestsListItem_annotationDataS3Uri,
+    datasetAugmentedManifestsListItem_documentType,
+    datasetAugmentedManifestsListItem_sourceDocumentsS3Uri,
+    datasetAugmentedManifestsListItem_attributeNames,
+    datasetAugmentedManifestsListItem_s3Uri,
+
+    -- ** DatasetDocumentClassifierInputDataConfig
+    datasetDocumentClassifierInputDataConfig_labelDelimiter,
+    datasetDocumentClassifierInputDataConfig_s3Uri,
+
+    -- ** DatasetEntityRecognizerAnnotations
+    datasetEntityRecognizerAnnotations_s3Uri,
+
+    -- ** DatasetEntityRecognizerDocuments
+    datasetEntityRecognizerDocuments_inputFormat,
+    datasetEntityRecognizerDocuments_s3Uri,
+
+    -- ** DatasetEntityRecognizerEntityList
+    datasetEntityRecognizerEntityList_s3Uri,
+
+    -- ** DatasetEntityRecognizerInputDataConfig
+    datasetEntityRecognizerInputDataConfig_annotations,
+    datasetEntityRecognizerInputDataConfig_entityList,
+    datasetEntityRecognizerInputDataConfig_documents,
+
+    -- ** DatasetFilter
+    datasetFilter_creationTimeAfter,
+    datasetFilter_creationTimeBefore,
+    datasetFilter_datasetType,
+    datasetFilter_status,
+
+    -- ** DatasetInputDataConfig
+    datasetInputDataConfig_augmentedManifests,
+    datasetInputDataConfig_dataFormat,
+    datasetInputDataConfig_documentClassifierInputDataConfig,
+    datasetInputDataConfig_entityRecognizerInputDataConfig,
+
+    -- ** DatasetProperties
+    datasetProperties_creationTime,
+    datasetProperties_datasetArn,
+    datasetProperties_datasetName,
+    datasetProperties_datasetS3Uri,
+    datasetProperties_datasetType,
+    datasetProperties_description,
+    datasetProperties_endTime,
+    datasetProperties_message,
+    datasetProperties_numberOfDocuments,
+    datasetProperties_status,
+
     -- ** DocumentClass
     documentClass_name,
     documentClass_page,
     documentClass_score,
+
+    -- ** DocumentClassificationConfig
+    documentClassificationConfig_labels,
+    documentClassificationConfig_mode,
 
     -- ** DocumentClassificationJobFilter
     documentClassificationJobFilter_jobName,
@@ -679,6 +834,7 @@ module Amazonka.Comprehend.Lens
     documentClassificationJobProperties_dataAccessRoleArn,
     documentClassificationJobProperties_documentClassifierArn,
     documentClassificationJobProperties_endTime,
+    documentClassificationJobProperties_flywheelArn,
     documentClassificationJobProperties_inputDataConfig,
     documentClassificationJobProperties_jobArn,
     documentClassificationJobProperties_jobId,
@@ -690,6 +846,10 @@ module Amazonka.Comprehend.Lens
     documentClassificationJobProperties_volumeKmsKeyId,
     documentClassificationJobProperties_vpcConfig,
 
+    -- ** DocumentClassifierDocuments
+    documentClassifierDocuments_testS3Uri,
+    documentClassifierDocuments_s3Uri,
+
     -- ** DocumentClassifierFilter
     documentClassifierFilter_documentClassifierName,
     documentClassifierFilter_status,
@@ -699,11 +859,15 @@ module Amazonka.Comprehend.Lens
     -- ** DocumentClassifierInputDataConfig
     documentClassifierInputDataConfig_augmentedManifests,
     documentClassifierInputDataConfig_dataFormat,
+    documentClassifierInputDataConfig_documentReaderConfig,
+    documentClassifierInputDataConfig_documentType,
+    documentClassifierInputDataConfig_documents,
     documentClassifierInputDataConfig_labelDelimiter,
     documentClassifierInputDataConfig_s3Uri,
     documentClassifierInputDataConfig_testS3Uri,
 
     -- ** DocumentClassifierOutputDataConfig
+    documentClassifierOutputDataConfig_flywheelStatsS3Prefix,
     documentClassifierOutputDataConfig_kmsKeyId,
     documentClassifierOutputDataConfig_s3Uri,
 
@@ -712,6 +876,7 @@ module Amazonka.Comprehend.Lens
     documentClassifierProperties_dataAccessRoleArn,
     documentClassifierProperties_documentClassifierArn,
     documentClassifierProperties_endTime,
+    documentClassifierProperties_flywheelArn,
     documentClassifierProperties_inputDataConfig,
     documentClassifierProperties_languageCode,
     documentClassifierProperties_message,
@@ -790,6 +955,7 @@ module Amazonka.Comprehend.Lens
     endpointProperties_desiredInferenceUnits,
     endpointProperties_desiredModelArn,
     endpointProperties_endpointArn,
+    endpointProperties_flywheelArn,
     endpointProperties_lastModifiedTime,
     endpointProperties_message,
     endpointProperties_modelArn,
@@ -805,6 +971,7 @@ module Amazonka.Comprehend.Lens
     entitiesDetectionJobProperties_dataAccessRoleArn,
     entitiesDetectionJobProperties_endTime,
     entitiesDetectionJobProperties_entityRecognizerArn,
+    entitiesDetectionJobProperties_flywheelArn,
     entitiesDetectionJobProperties_inputDataConfig,
     entitiesDetectionJobProperties_jobArn,
     entitiesDetectionJobProperties_jobId,
@@ -828,6 +995,9 @@ module Amazonka.Comprehend.Lens
     -- ** EntityLabel
     entityLabel_name,
     entityLabel_score,
+
+    -- ** EntityRecognitionConfig
+    entityRecognitionConfig_entityTypes,
 
     -- ** EntityRecognizerAnnotations
     entityRecognizerAnnotations_testS3Uri,
@@ -871,14 +1041,19 @@ module Amazonka.Comprehend.Lens
     entityRecognizerMetadataEntityTypesListItem_numberOfTrainMentions,
     entityRecognizerMetadataEntityTypesListItem_type,
 
+    -- ** EntityRecognizerOutputDataConfig
+    entityRecognizerOutputDataConfig_flywheelStatsS3Prefix,
+
     -- ** EntityRecognizerProperties
     entityRecognizerProperties_dataAccessRoleArn,
     entityRecognizerProperties_endTime,
     entityRecognizerProperties_entityRecognizerArn,
+    entityRecognizerProperties_flywheelArn,
     entityRecognizerProperties_inputDataConfig,
     entityRecognizerProperties_languageCode,
     entityRecognizerProperties_message,
     entityRecognizerProperties_modelKmsKeyId,
+    entityRecognizerProperties_outputDataConfig,
     entityRecognizerProperties_recognizerMetadata,
     entityRecognizerProperties_sourceModelArn,
     entityRecognizerProperties_status,
@@ -932,6 +1107,59 @@ module Amazonka.Comprehend.Lens
     -- ** ExtractedCharactersListItem
     extractedCharactersListItem_count,
     extractedCharactersListItem_page,
+
+    -- ** FlywheelFilter
+    flywheelFilter_creationTimeAfter,
+    flywheelFilter_creationTimeBefore,
+    flywheelFilter_status,
+
+    -- ** FlywheelIterationFilter
+    flywheelIterationFilter_creationTimeAfter,
+    flywheelIterationFilter_creationTimeBefore,
+
+    -- ** FlywheelIterationProperties
+    flywheelIterationProperties_creationTime,
+    flywheelIterationProperties_endTime,
+    flywheelIterationProperties_evaluatedModelArn,
+    flywheelIterationProperties_evaluatedModelMetrics,
+    flywheelIterationProperties_evaluationManifestS3Prefix,
+    flywheelIterationProperties_flywheelArn,
+    flywheelIterationProperties_flywheelIterationId,
+    flywheelIterationProperties_message,
+    flywheelIterationProperties_status,
+    flywheelIterationProperties_trainedModelArn,
+    flywheelIterationProperties_trainedModelMetrics,
+
+    -- ** FlywheelModelEvaluationMetrics
+    flywheelModelEvaluationMetrics_averageAccuracy,
+    flywheelModelEvaluationMetrics_averageF1Score,
+    flywheelModelEvaluationMetrics_averagePrecision,
+    flywheelModelEvaluationMetrics_averageRecall,
+
+    -- ** FlywheelProperties
+    flywheelProperties_activeModelArn,
+    flywheelProperties_creationTime,
+    flywheelProperties_dataAccessRoleArn,
+    flywheelProperties_dataLakeS3Uri,
+    flywheelProperties_dataSecurityConfig,
+    flywheelProperties_flywheelArn,
+    flywheelProperties_lastModifiedTime,
+    flywheelProperties_latestFlywheelIteration,
+    flywheelProperties_message,
+    flywheelProperties_modelType,
+    flywheelProperties_status,
+    flywheelProperties_taskConfig,
+
+    -- ** FlywheelSummary
+    flywheelSummary_activeModelArn,
+    flywheelSummary_creationTime,
+    flywheelSummary_dataLakeS3Uri,
+    flywheelSummary_flywheelArn,
+    flywheelSummary_lastModifiedTime,
+    flywheelSummary_latestFlywheelIteration,
+    flywheelSummary_message,
+    flywheelSummary_modelType,
+    flywheelSummary_status,
 
     -- ** Geometry
     geometry_boundingBox,
@@ -1097,6 +1325,11 @@ module Amazonka.Comprehend.Lens
     targetedSentimentMention_text,
     targetedSentimentMention_type,
 
+    -- ** TaskConfig
+    taskConfig_documentClassificationConfig,
+    taskConfig_entityRecognitionConfig,
+    taskConfig_languageCode,
+
     -- ** TopicsDetectionJobFilter
     topicsDetectionJobFilter_jobName,
     topicsDetectionJobFilter_jobStatus,
@@ -1118,9 +1351,19 @@ module Amazonka.Comprehend.Lens
     topicsDetectionJobProperties_volumeKmsKeyId,
     topicsDetectionJobProperties_vpcConfig,
 
+    -- ** UpdateDataSecurityConfig
+    updateDataSecurityConfig_modelKmsKeyId,
+    updateDataSecurityConfig_volumeKmsKeyId,
+    updateDataSecurityConfig_vpcConfig,
+
     -- ** VpcConfig
     vpcConfig_securityGroupIds,
     vpcConfig_subnets,
+
+    -- ** WarningsListItem
+    warningsListItem_page,
+    warningsListItem_warnCode,
+    warningsListItem_warnMessage,
   )
 where
 
@@ -1132,13 +1375,17 @@ import Amazonka.Comprehend.BatchDetectSyntax
 import Amazonka.Comprehend.BatchDetectTargetedSentiment
 import Amazonka.Comprehend.ClassifyDocument
 import Amazonka.Comprehend.ContainsPiiEntities
+import Amazonka.Comprehend.CreateDataset
 import Amazonka.Comprehend.CreateDocumentClassifier
 import Amazonka.Comprehend.CreateEndpoint
 import Amazonka.Comprehend.CreateEntityRecognizer
+import Amazonka.Comprehend.CreateFlywheel
 import Amazonka.Comprehend.DeleteDocumentClassifier
 import Amazonka.Comprehend.DeleteEndpoint
 import Amazonka.Comprehend.DeleteEntityRecognizer
+import Amazonka.Comprehend.DeleteFlywheel
 import Amazonka.Comprehend.DeleteResourcePolicy
+import Amazonka.Comprehend.DescribeDataset
 import Amazonka.Comprehend.DescribeDocumentClassificationJob
 import Amazonka.Comprehend.DescribeDocumentClassifier
 import Amazonka.Comprehend.DescribeDominantLanguageDetectionJob
@@ -1146,6 +1393,8 @@ import Amazonka.Comprehend.DescribeEndpoint
 import Amazonka.Comprehend.DescribeEntitiesDetectionJob
 import Amazonka.Comprehend.DescribeEntityRecognizer
 import Amazonka.Comprehend.DescribeEventsDetectionJob
+import Amazonka.Comprehend.DescribeFlywheel
+import Amazonka.Comprehend.DescribeFlywheelIteration
 import Amazonka.Comprehend.DescribeKeyPhrasesDetectionJob
 import Amazonka.Comprehend.DescribePiiEntitiesDetectionJob
 import Amazonka.Comprehend.DescribeResourcePolicy
@@ -1160,6 +1409,7 @@ import Amazonka.Comprehend.DetectSentiment
 import Amazonka.Comprehend.DetectSyntax
 import Amazonka.Comprehend.DetectTargetedSentiment
 import Amazonka.Comprehend.ImportModel
+import Amazonka.Comprehend.ListDatasets
 import Amazonka.Comprehend.ListDocumentClassificationJobs
 import Amazonka.Comprehend.ListDocumentClassifierSummaries
 import Amazonka.Comprehend.ListDocumentClassifiers
@@ -1169,6 +1419,8 @@ import Amazonka.Comprehend.ListEntitiesDetectionJobs
 import Amazonka.Comprehend.ListEntityRecognizerSummaries
 import Amazonka.Comprehend.ListEntityRecognizers
 import Amazonka.Comprehend.ListEventsDetectionJobs
+import Amazonka.Comprehend.ListFlywheelIterationHistory
+import Amazonka.Comprehend.ListFlywheels
 import Amazonka.Comprehend.ListKeyPhrasesDetectionJobs
 import Amazonka.Comprehend.ListPiiEntitiesDetectionJobs
 import Amazonka.Comprehend.ListSentimentDetectionJobs
@@ -1180,6 +1432,7 @@ import Amazonka.Comprehend.StartDocumentClassificationJob
 import Amazonka.Comprehend.StartDominantLanguageDetectionJob
 import Amazonka.Comprehend.StartEntitiesDetectionJob
 import Amazonka.Comprehend.StartEventsDetectionJob
+import Amazonka.Comprehend.StartFlywheelIteration
 import Amazonka.Comprehend.StartKeyPhrasesDetectionJob
 import Amazonka.Comprehend.StartPiiEntitiesDetectionJob
 import Amazonka.Comprehend.StartSentimentDetectionJob
@@ -1209,9 +1462,21 @@ import Amazonka.Comprehend.Types.BoundingBox
 import Amazonka.Comprehend.Types.ChildBlock
 import Amazonka.Comprehend.Types.ClassifierEvaluationMetrics
 import Amazonka.Comprehend.Types.ClassifierMetadata
+import Amazonka.Comprehend.Types.DataSecurityConfig
+import Amazonka.Comprehend.Types.DatasetAugmentedManifestsListItem
+import Amazonka.Comprehend.Types.DatasetDocumentClassifierInputDataConfig
+import Amazonka.Comprehend.Types.DatasetEntityRecognizerAnnotations
+import Amazonka.Comprehend.Types.DatasetEntityRecognizerDocuments
+import Amazonka.Comprehend.Types.DatasetEntityRecognizerEntityList
+import Amazonka.Comprehend.Types.DatasetEntityRecognizerInputDataConfig
+import Amazonka.Comprehend.Types.DatasetFilter
+import Amazonka.Comprehend.Types.DatasetInputDataConfig
+import Amazonka.Comprehend.Types.DatasetProperties
 import Amazonka.Comprehend.Types.DocumentClass
+import Amazonka.Comprehend.Types.DocumentClassificationConfig
 import Amazonka.Comprehend.Types.DocumentClassificationJobFilter
 import Amazonka.Comprehend.Types.DocumentClassificationJobProperties
+import Amazonka.Comprehend.Types.DocumentClassifierDocuments
 import Amazonka.Comprehend.Types.DocumentClassifierFilter
 import Amazonka.Comprehend.Types.DocumentClassifierInputDataConfig
 import Amazonka.Comprehend.Types.DocumentClassifierOutputDataConfig
@@ -1230,6 +1495,7 @@ import Amazonka.Comprehend.Types.EntitiesDetectionJobFilter
 import Amazonka.Comprehend.Types.EntitiesDetectionJobProperties
 import Amazonka.Comprehend.Types.Entity
 import Amazonka.Comprehend.Types.EntityLabel
+import Amazonka.Comprehend.Types.EntityRecognitionConfig
 import Amazonka.Comprehend.Types.EntityRecognizerAnnotations
 import Amazonka.Comprehend.Types.EntityRecognizerDocuments
 import Amazonka.Comprehend.Types.EntityRecognizerEntityList
@@ -1238,6 +1504,7 @@ import Amazonka.Comprehend.Types.EntityRecognizerFilter
 import Amazonka.Comprehend.Types.EntityRecognizerInputDataConfig
 import Amazonka.Comprehend.Types.EntityRecognizerMetadata
 import Amazonka.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem
+import Amazonka.Comprehend.Types.EntityRecognizerOutputDataConfig
 import Amazonka.Comprehend.Types.EntityRecognizerProperties
 import Amazonka.Comprehend.Types.EntityRecognizerSummary
 import Amazonka.Comprehend.Types.EntityTypesEvaluationMetrics
@@ -1246,6 +1513,12 @@ import Amazonka.Comprehend.Types.ErrorsListItem
 import Amazonka.Comprehend.Types.EventsDetectionJobFilter
 import Amazonka.Comprehend.Types.EventsDetectionJobProperties
 import Amazonka.Comprehend.Types.ExtractedCharactersListItem
+import Amazonka.Comprehend.Types.FlywheelFilter
+import Amazonka.Comprehend.Types.FlywheelIterationFilter
+import Amazonka.Comprehend.Types.FlywheelIterationProperties
+import Amazonka.Comprehend.Types.FlywheelModelEvaluationMetrics
+import Amazonka.Comprehend.Types.FlywheelProperties
+import Amazonka.Comprehend.Types.FlywheelSummary
 import Amazonka.Comprehend.Types.Geometry
 import Amazonka.Comprehend.Types.InputDataConfig
 import Amazonka.Comprehend.Types.KeyPhrase
@@ -1270,8 +1543,12 @@ import Amazonka.Comprehend.Types.TargetedSentimentDetectionJobFilter
 import Amazonka.Comprehend.Types.TargetedSentimentDetectionJobProperties
 import Amazonka.Comprehend.Types.TargetedSentimentEntity
 import Amazonka.Comprehend.Types.TargetedSentimentMention
+import Amazonka.Comprehend.Types.TaskConfig
 import Amazonka.Comprehend.Types.TopicsDetectionJobFilter
 import Amazonka.Comprehend.Types.TopicsDetectionJobProperties
+import Amazonka.Comprehend.Types.UpdateDataSecurityConfig
 import Amazonka.Comprehend.Types.VpcConfig
+import Amazonka.Comprehend.Types.WarningsListItem
 import Amazonka.Comprehend.UntagResource
 import Amazonka.Comprehend.UpdateEndpoint
+import Amazonka.Comprehend.UpdateFlywheel

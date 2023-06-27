@@ -109,7 +109,8 @@ instance Core.AWSRequest ContainsPiiEntities where
 
 instance Prelude.Hashable ContainsPiiEntities where
   hashWithSalt _salt ContainsPiiEntities' {..} =
-    _salt `Prelude.hashWithSalt` text
+    _salt
+      `Prelude.hashWithSalt` text
       `Prelude.hashWithSalt` languageCode
 
 instance Prelude.NFData ContainsPiiEntities where

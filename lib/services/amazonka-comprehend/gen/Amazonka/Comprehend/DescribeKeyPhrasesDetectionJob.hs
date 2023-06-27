@@ -51,7 +51,8 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDescribeKeyPhrasesDetectionJob' smart constructor.
 data DescribeKeyPhrasesDetectionJob = DescribeKeyPhrasesDetectionJob'
   { -- | The identifier that Amazon Comprehend generated for the job. The
-    -- operation returns this identifier in its response.
+    -- @StartKeyPhrasesDetectionJob@ operation returns this identifier in its
+    -- response.
     jobId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,7 +66,8 @@ data DescribeKeyPhrasesDetectionJob = DescribeKeyPhrasesDetectionJob'
 -- for backwards compatibility:
 --
 -- 'jobId', 'describeKeyPhrasesDetectionJob_jobId' - The identifier that Amazon Comprehend generated for the job. The
--- operation returns this identifier in its response.
+-- @StartKeyPhrasesDetectionJob@ operation returns this identifier in its
+-- response.
 newDescribeKeyPhrasesDetectionJob ::
   -- | 'jobId'
   Prelude.Text ->
@@ -74,7 +76,8 @@ newDescribeKeyPhrasesDetectionJob pJobId_ =
   DescribeKeyPhrasesDetectionJob' {jobId = pJobId_}
 
 -- | The identifier that Amazon Comprehend generated for the job. The
--- operation returns this identifier in its response.
+-- @StartKeyPhrasesDetectionJob@ operation returns this identifier in its
+-- response.
 describeKeyPhrasesDetectionJob_jobId :: Lens.Lens' DescribeKeyPhrasesDetectionJob Prelude.Text
 describeKeyPhrasesDetectionJob_jobId = Lens.lens (\DescribeKeyPhrasesDetectionJob' {jobId} -> jobId) (\s@DescribeKeyPhrasesDetectionJob' {} a -> s {jobId = a} :: DescribeKeyPhrasesDetectionJob)
 

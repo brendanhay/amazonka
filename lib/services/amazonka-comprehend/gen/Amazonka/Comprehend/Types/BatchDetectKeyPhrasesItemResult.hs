@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     BatchDetectKeyPhrasesItemResult' {..} =
-      _salt `Prelude.hashWithSalt` index
+      _salt
+        `Prelude.hashWithSalt` index
         `Prelude.hashWithSalt` keyPhrases
 
 instance

@@ -32,6 +32,7 @@ module Amazonka.Comprehend.UpdateEndpoint
     updateEndpoint_desiredDataAccessRoleArn,
     updateEndpoint_desiredInferenceUnits,
     updateEndpoint_desiredModelArn,
+    updateEndpoint_flywheelArn,
     updateEndpoint_endpointArn,
 
     -- * Destructuring the Response
@@ -39,6 +40,7 @@ module Amazonka.Comprehend.UpdateEndpoint
     newUpdateEndpointResponse,
 
     -- * Response Lenses
+    updateEndpointResponse_desiredModelArn,
     updateEndpointResponse_httpStatus,
   )
 where
@@ -62,6 +64,8 @@ data UpdateEndpoint = UpdateEndpoint'
     desiredInferenceUnits :: Prelude.Maybe Prelude.Natural,
     -- | The ARN of the new model to use when updating an existing endpoint.
     desiredModelArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Number (ARN) of the flywheel
+    flywheelArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Number (ARN) of the endpoint being updated.
     endpointArn :: Prelude.Text
   }
@@ -84,6 +88,8 @@ data UpdateEndpoint = UpdateEndpoint'
 --
 -- 'desiredModelArn', 'updateEndpoint_desiredModelArn' - The ARN of the new model to use when updating an existing endpoint.
 --
+-- 'flywheelArn', 'updateEndpoint_flywheelArn' - The Amazon Resource Number (ARN) of the flywheel
+--
 -- 'endpointArn', 'updateEndpoint_endpointArn' - The Amazon Resource Number (ARN) of the endpoint being updated.
 newUpdateEndpoint ::
   -- | 'endpointArn'
@@ -95,6 +101,7 @@ newUpdateEndpoint pEndpointArn_ =
         Prelude.Nothing,
       desiredInferenceUnits = Prelude.Nothing,
       desiredModelArn = Prelude.Nothing,
+      flywheelArn = Prelude.Nothing,
       endpointArn = pEndpointArn_
     }
 
@@ -113,6 +120,10 @@ updateEndpoint_desiredInferenceUnits = Lens.lens (\UpdateEndpoint' {desiredInfer
 updateEndpoint_desiredModelArn :: Lens.Lens' UpdateEndpoint (Prelude.Maybe Prelude.Text)
 updateEndpoint_desiredModelArn = Lens.lens (\UpdateEndpoint' {desiredModelArn} -> desiredModelArn) (\s@UpdateEndpoint' {} a -> s {desiredModelArn = a} :: UpdateEndpoint)
 
+-- | The Amazon Resource Number (ARN) of the flywheel
+updateEndpoint_flywheelArn :: Lens.Lens' UpdateEndpoint (Prelude.Maybe Prelude.Text)
+updateEndpoint_flywheelArn = Lens.lens (\UpdateEndpoint' {flywheelArn} -> flywheelArn) (\s@UpdateEndpoint' {} a -> s {flywheelArn = a} :: UpdateEndpoint)
+
 -- | The Amazon Resource Number (ARN) of the endpoint being updated.
 updateEndpoint_endpointArn :: Lens.Lens' UpdateEndpoint Prelude.Text
 updateEndpoint_endpointArn = Lens.lens (\UpdateEndpoint' {endpointArn} -> endpointArn) (\s@UpdateEndpoint' {} a -> s {endpointArn = a} :: UpdateEndpoint)
@@ -124,10 +135,11 @@ instance Core.AWSRequest UpdateEndpoint where
   request overrides =
     Request.postJSON (overrides defaultService)
   response =
-    Response.receiveEmpty
+    Response.receiveJSON
       ( \s h x ->
           UpdateEndpointResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (x Data..?> "DesiredModelArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateEndpoint where
@@ -136,6 +148,7 @@ instance Prelude.Hashable UpdateEndpoint where
       `Prelude.hashWithSalt` desiredDataAccessRoleArn
       `Prelude.hashWithSalt` desiredInferenceUnits
       `Prelude.hashWithSalt` desiredModelArn
+      `Prelude.hashWithSalt` flywheelArn
       `Prelude.hashWithSalt` endpointArn
 
 instance Prelude.NFData UpdateEndpoint where
@@ -143,6 +156,7 @@ instance Prelude.NFData UpdateEndpoint where
     Prelude.rnf desiredDataAccessRoleArn
       `Prelude.seq` Prelude.rnf desiredInferenceUnits
       `Prelude.seq` Prelude.rnf desiredModelArn
+      `Prelude.seq` Prelude.rnf flywheelArn
       `Prelude.seq` Prelude.rnf endpointArn
 
 instance Data.ToHeaders UpdateEndpoint where
@@ -170,6 +184,7 @@ instance Data.ToJSON UpdateEndpoint where
               Prelude.<$> desiredInferenceUnits,
             ("DesiredModelArn" Data..=)
               Prelude.<$> desiredModelArn,
+            ("FlywheelArn" Data..=) Prelude.<$> flywheelArn,
             Prelude.Just ("EndpointArn" Data..= endpointArn)
           ]
       )
@@ -182,7 +197,9 @@ instance Data.ToQuery UpdateEndpoint where
 
 -- | /See:/ 'newUpdateEndpointResponse' smart constructor.
 data UpdateEndpointResponse = UpdateEndpointResponse'
-  { -- | The response's http status code.
+  { -- | The Amazon Resource Number (ARN) of the new model.
+    desiredModelArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -195,13 +212,23 @@ data UpdateEndpointResponse = UpdateEndpointResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'desiredModelArn', 'updateEndpointResponse_desiredModelArn' - The Amazon Resource Number (ARN) of the new model.
+--
 -- 'httpStatus', 'updateEndpointResponse_httpStatus' - The response's http status code.
 newUpdateEndpointResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
   UpdateEndpointResponse
 newUpdateEndpointResponse pHttpStatus_ =
-  UpdateEndpointResponse' {httpStatus = pHttpStatus_}
+  UpdateEndpointResponse'
+    { desiredModelArn =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The Amazon Resource Number (ARN) of the new model.
+updateEndpointResponse_desiredModelArn :: Lens.Lens' UpdateEndpointResponse (Prelude.Maybe Prelude.Text)
+updateEndpointResponse_desiredModelArn = Lens.lens (\UpdateEndpointResponse' {desiredModelArn} -> desiredModelArn) (\s@UpdateEndpointResponse' {} a -> s {desiredModelArn = a} :: UpdateEndpointResponse)
 
 -- | The response's http status code.
 updateEndpointResponse_httpStatus :: Lens.Lens' UpdateEndpointResponse Prelude.Int
@@ -209,4 +236,5 @@ updateEndpointResponse_httpStatus = Lens.lens (\UpdateEndpointResponse' {httpSta
 
 instance Prelude.NFData UpdateEndpointResponse where
   rnf UpdateEndpointResponse' {..} =
-    Prelude.rnf httpStatus
+    Prelude.rnf desiredModelArn
+      `Prelude.seq` Prelude.rnf httpStatus

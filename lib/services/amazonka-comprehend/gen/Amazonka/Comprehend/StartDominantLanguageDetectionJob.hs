@@ -64,15 +64,15 @@ data StartDominantLanguageDetectionJob = StartDominantLanguageDetectionJob'
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | An identifier for the job.
     jobName :: Prelude.Maybe Prelude.Text,
-    -- | Tags to be associated with the dominant language detection job. A tag is
-    -- a key-value pair that adds metadata to a resource used by Amazon
+    -- | Tags to associate with the dominant language detection job. A tag is a
+    -- key-value pair that adds metadata to a resource used by Amazon
     -- Comprehend. For example, a tag with \"Sales\" as the key might be added
     -- to a resource to indicate its use by the sales department.
     tags :: Prelude.Maybe [Tag],
-    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt data on the storage volume attached to the ML compute
-    -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
-    -- either of the following formats:
+    -- | ID for the Amazon Web Services Key Management Service (KMS) key that
+    -- Amazon Comprehend uses to encrypt data on the storage volume attached to
+    -- the ML compute instance(s) that process the analysis job. The
+    -- VolumeKmsKeyId can be either of the following formats:
     --
     -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
@@ -88,10 +88,9 @@ data StartDominantLanguageDetectionJob = StartDominantLanguageDetectionJob'
     inputDataConfig :: InputDataConfig,
     -- | Specifies where to send the output files.
     outputDataConfig :: OutputDataConfig,
-    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-    -- (IAM) role that grants Amazon Comprehend read access to your input data.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions>.
+    -- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+    -- Comprehend read access to your input data. For more information, see
+    -- <https://docs.aws.amazon.com/comprehend/latest/dg/security_iam_id-based-policy-examples.html#auth-role-permissions Role-based permissions>.
     dataAccessRoleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -109,15 +108,15 @@ data StartDominantLanguageDetectionJob = StartDominantLanguageDetectionJob'
 --
 -- 'jobName', 'startDominantLanguageDetectionJob_jobName' - An identifier for the job.
 --
--- 'tags', 'startDominantLanguageDetectionJob_tags' - Tags to be associated with the dominant language detection job. A tag is
--- a key-value pair that adds metadata to a resource used by Amazon
+-- 'tags', 'startDominantLanguageDetectionJob_tags' - Tags to associate with the dominant language detection job. A tag is a
+-- key-value pair that adds metadata to a resource used by Amazon
 -- Comprehend. For example, a tag with \"Sales\" as the key might be added
 -- to a resource to indicate its use by the sales department.
 --
--- 'volumeKmsKeyId', 'startDominantLanguageDetectionJob_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- 'volumeKmsKeyId', 'startDominantLanguageDetectionJob_volumeKmsKeyId' - ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -133,10 +132,9 @@ data StartDominantLanguageDetectionJob = StartDominantLanguageDetectionJob'
 --
 -- 'outputDataConfig', 'startDominantLanguageDetectionJob_outputDataConfig' - Specifies where to send the output files.
 --
--- 'dataAccessRoleArn', 'startDominantLanguageDetectionJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to your input data.
--- For more information, see
--- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions>.
+-- 'dataAccessRoleArn', 'startDominantLanguageDetectionJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data. For more information, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/security_iam_id-based-policy-examples.html#auth-role-permissions Role-based permissions>.
 newStartDominantLanguageDetectionJob ::
   -- | 'inputDataConfig'
   InputDataConfig ->
@@ -170,17 +168,17 @@ startDominantLanguageDetectionJob_clientRequestToken = Lens.lens (\StartDominant
 startDominantLanguageDetectionJob_jobName :: Lens.Lens' StartDominantLanguageDetectionJob (Prelude.Maybe Prelude.Text)
 startDominantLanguageDetectionJob_jobName = Lens.lens (\StartDominantLanguageDetectionJob' {jobName} -> jobName) (\s@StartDominantLanguageDetectionJob' {} a -> s {jobName = a} :: StartDominantLanguageDetectionJob)
 
--- | Tags to be associated with the dominant language detection job. A tag is
--- a key-value pair that adds metadata to a resource used by Amazon
+-- | Tags to associate with the dominant language detection job. A tag is a
+-- key-value pair that adds metadata to a resource used by Amazon
 -- Comprehend. For example, a tag with \"Sales\" as the key might be added
 -- to a resource to indicate its use by the sales department.
 startDominantLanguageDetectionJob_tags :: Lens.Lens' StartDominantLanguageDetectionJob (Prelude.Maybe [Tag])
 startDominantLanguageDetectionJob_tags = Lens.lens (\StartDominantLanguageDetectionJob' {tags} -> tags) (\s@StartDominantLanguageDetectionJob' {} a -> s {tags = a} :: StartDominantLanguageDetectionJob) Prelude.. Lens.mapping Lens.coerced
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- | ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -204,10 +202,9 @@ startDominantLanguageDetectionJob_inputDataConfig = Lens.lens (\StartDominantLan
 startDominantLanguageDetectionJob_outputDataConfig :: Lens.Lens' StartDominantLanguageDetectionJob OutputDataConfig
 startDominantLanguageDetectionJob_outputDataConfig = Lens.lens (\StartDominantLanguageDetectionJob' {outputDataConfig} -> outputDataConfig) (\s@StartDominantLanguageDetectionJob' {} a -> s {outputDataConfig = a} :: StartDominantLanguageDetectionJob)
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to your input data.
--- For more information, see
--- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions>.
+-- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data. For more information, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/security_iam_id-based-policy-examples.html#auth-role-permissions Role-based permissions>.
 startDominantLanguageDetectionJob_dataAccessRoleArn :: Lens.Lens' StartDominantLanguageDetectionJob Prelude.Text
 startDominantLanguageDetectionJob_dataAccessRoleArn = Lens.lens (\StartDominantLanguageDetectionJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartDominantLanguageDetectionJob' {} a -> s {dataAccessRoleArn = a} :: StartDominantLanguageDetectionJob)
 
@@ -225,9 +222,9 @@ instance
       ( \s h x ->
           StartDominantLanguageDetectionJobResponse'
             Prelude.<$> (x Data..?> "JobArn")
-              Prelude.<*> (x Data..?> "JobId")
-              Prelude.<*> (x Data..?> "JobStatus")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "JobId")
+            Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -237,7 +234,8 @@ instance
   hashWithSalt
     _salt
     StartDominantLanguageDetectionJob' {..} =
-      _salt `Prelude.hashWithSalt` clientRequestToken
+      _salt
+        `Prelude.hashWithSalt` clientRequestToken
         `Prelude.hashWithSalt` jobName
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` volumeKmsKeyId
@@ -317,8 +315,8 @@ instance
 data StartDominantLanguageDetectionJobResponse = StartDominantLanguageDetectionJobResponse'
   { -- | The Amazon Resource Name (ARN) of the dominant language detection job.
     -- It is a unique, fully qualified identifier for the job. It includes the
-    -- AWS account, Region, and the job ID. The format of the ARN is as
-    -- follows:
+    -- Amazon Web Services account, Amazon Web Services Region, and the job ID.
+    -- The format of the ARN is as follows:
     --
     -- @arn:\<partition>:comprehend:\<region>:\<account-id>:dominant-language-detection-job\/\<job-id>@
     --
@@ -356,8 +354,8 @@ data StartDominantLanguageDetectionJobResponse = StartDominantLanguageDetectionJ
 --
 -- 'jobArn', 'startDominantLanguageDetectionJobResponse_jobArn' - The Amazon Resource Name (ARN) of the dominant language detection job.
 -- It is a unique, fully qualified identifier for the job. It includes the
--- AWS account, Region, and the job ID. The format of the ARN is as
--- follows:
+-- Amazon Web Services account, Amazon Web Services Region, and the job ID.
+-- The format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:dominant-language-detection-job\/\<job-id>@
 --
@@ -397,8 +395,8 @@ newStartDominantLanguageDetectionJobResponse
 
 -- | The Amazon Resource Name (ARN) of the dominant language detection job.
 -- It is a unique, fully qualified identifier for the job. It includes the
--- AWS account, Region, and the job ID. The format of the ARN is as
--- follows:
+-- Amazon Web Services account, Amazon Web Services Region, and the job ID.
+-- The format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:dominant-language-detection-job\/\<job-id>@
 --

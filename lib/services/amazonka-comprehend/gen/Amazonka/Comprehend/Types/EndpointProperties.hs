@@ -36,9 +36,9 @@ data EndpointProperties = EndpointProperties'
     -- | The number of inference units currently used by the model using this
     -- endpoint.
     currentInferenceUnits :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the AWS identity and Access Management
-    -- (IAM) role that grants Amazon Comprehend read access to trained custom
-    -- models encrypted with a customer managed key (ModelKmsKeyId).
+    -- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+    -- Comprehend read access to trained custom models encrypted with a
+    -- customer managed key (ModelKmsKeyId).
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Data access role ARN to use in case the new model is encrypted with a
     -- customer KMS key.
@@ -53,6 +53,8 @@ data EndpointProperties = EndpointProperties'
     desiredModelArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Number (ARN) of the endpoint.
     endpointArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Number (ARN) of the flywheel
+    flywheelArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the endpoint was last modified.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | Specifies a reason for failure in cases of @Failed@ status.
@@ -80,9 +82,9 @@ data EndpointProperties = EndpointProperties'
 -- 'currentInferenceUnits', 'endpointProperties_currentInferenceUnits' - The number of inference units currently used by the model using this
 -- endpoint.
 --
--- 'dataAccessRoleArn', 'endpointProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to trained custom
--- models encrypted with a customer managed key (ModelKmsKeyId).
+-- 'dataAccessRoleArn', 'endpointProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to trained custom models encrypted with a
+-- customer managed key (ModelKmsKeyId).
 --
 -- 'desiredDataAccessRoleArn', 'endpointProperties_desiredDataAccessRoleArn' - Data access role ARN to use in case the new model is encrypted with a
 -- customer KMS key.
@@ -96,6 +98,8 @@ data EndpointProperties = EndpointProperties'
 -- progress
 --
 -- 'endpointArn', 'endpointProperties_endpointArn' - The Amazon Resource Number (ARN) of the endpoint.
+--
+-- 'flywheelArn', 'endpointProperties_flywheelArn' - The Amazon Resource Number (ARN) of the flywheel
 --
 -- 'lastModifiedTime', 'endpointProperties_lastModifiedTime' - The date and time that the endpoint was last modified.
 --
@@ -118,6 +122,7 @@ newEndpointProperties =
       desiredInferenceUnits = Prelude.Nothing,
       desiredModelArn = Prelude.Nothing,
       endpointArn = Prelude.Nothing,
+      flywheelArn = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       message = Prelude.Nothing,
       modelArn = Prelude.Nothing,
@@ -133,9 +138,9 @@ endpointProperties_creationTime = Lens.lens (\EndpointProperties' {creationTime}
 endpointProperties_currentInferenceUnits :: Lens.Lens' EndpointProperties (Prelude.Maybe Prelude.Natural)
 endpointProperties_currentInferenceUnits = Lens.lens (\EndpointProperties' {currentInferenceUnits} -> currentInferenceUnits) (\s@EndpointProperties' {} a -> s {currentInferenceUnits = a} :: EndpointProperties)
 
--- | The Amazon Resource Name (ARN) of the AWS identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to trained custom
--- models encrypted with a customer managed key (ModelKmsKeyId).
+-- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to trained custom models encrypted with a
+-- customer managed key (ModelKmsKeyId).
 endpointProperties_dataAccessRoleArn :: Lens.Lens' EndpointProperties (Prelude.Maybe Prelude.Text)
 endpointProperties_dataAccessRoleArn = Lens.lens (\EndpointProperties' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@EndpointProperties' {} a -> s {dataAccessRoleArn = a} :: EndpointProperties)
 
@@ -159,6 +164,10 @@ endpointProperties_desiredModelArn = Lens.lens (\EndpointProperties' {desiredMod
 -- | The Amazon Resource Number (ARN) of the endpoint.
 endpointProperties_endpointArn :: Lens.Lens' EndpointProperties (Prelude.Maybe Prelude.Text)
 endpointProperties_endpointArn = Lens.lens (\EndpointProperties' {endpointArn} -> endpointArn) (\s@EndpointProperties' {} a -> s {endpointArn = a} :: EndpointProperties)
+
+-- | The Amazon Resource Number (ARN) of the flywheel
+endpointProperties_flywheelArn :: Lens.Lens' EndpointProperties (Prelude.Maybe Prelude.Text)
+endpointProperties_flywheelArn = Lens.lens (\EndpointProperties' {flywheelArn} -> flywheelArn) (\s@EndpointProperties' {} a -> s {flywheelArn = a} :: EndpointProperties)
 
 -- | The date and time that the endpoint was last modified.
 endpointProperties_lastModifiedTime :: Lens.Lens' EndpointProperties (Prelude.Maybe Prelude.UTCTime)
@@ -192,6 +201,7 @@ instance Data.FromJSON EndpointProperties where
             Prelude.<*> (x Data..:? "DesiredInferenceUnits")
             Prelude.<*> (x Data..:? "DesiredModelArn")
             Prelude.<*> (x Data..:? "EndpointArn")
+            Prelude.<*> (x Data..:? "FlywheelArn")
             Prelude.<*> (x Data..:? "LastModifiedTime")
             Prelude.<*> (x Data..:? "Message")
             Prelude.<*> (x Data..:? "ModelArn")
@@ -200,13 +210,15 @@ instance Data.FromJSON EndpointProperties where
 
 instance Prelude.Hashable EndpointProperties where
   hashWithSalt _salt EndpointProperties' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` currentInferenceUnits
       `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` desiredDataAccessRoleArn
       `Prelude.hashWithSalt` desiredInferenceUnits
       `Prelude.hashWithSalt` desiredModelArn
       `Prelude.hashWithSalt` endpointArn
+      `Prelude.hashWithSalt` flywheelArn
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` modelArn
@@ -221,6 +233,7 @@ instance Prelude.NFData EndpointProperties where
       `Prelude.seq` Prelude.rnf desiredInferenceUnits
       `Prelude.seq` Prelude.rnf desiredModelArn
       `Prelude.seq` Prelude.rnf endpointArn
+      `Prelude.seq` Prelude.rnf flywheelArn
       `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf modelArn

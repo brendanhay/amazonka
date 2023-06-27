@@ -38,11 +38,11 @@ data EntityRecognizerDocuments = EntityRecognizerDocuments'
     -- such as text messages.
     inputFormat :: Prelude.Maybe InputFormat,
     -- | Specifies the Amazon S3 location where the test documents for an entity
-    -- recognizer are located. The URI must be in the same AWS Region as the
-    -- API endpoint that you are calling.
+    -- recognizer are located. The URI must be in the same Amazon Web Services
+    -- Region as the API endpoint that you are calling.
     testS3Uri :: Prelude.Maybe Prelude.Text,
     -- | Specifies the Amazon S3 location where the training documents for an
-    -- entity recognizer are located. The URI must be in the same region as the
+    -- entity recognizer are located. The URI must be in the same Region as the
     -- API endpoint that you are calling.
     s3Uri :: Prelude.Text
   }
@@ -65,11 +65,11 @@ data EntityRecognizerDocuments = EntityRecognizerDocuments'
 -- such as text messages.
 --
 -- 'testS3Uri', 'entityRecognizerDocuments_testS3Uri' - Specifies the Amazon S3 location where the test documents for an entity
--- recognizer are located. The URI must be in the same AWS Region as the
--- API endpoint that you are calling.
+-- recognizer are located. The URI must be in the same Amazon Web Services
+-- Region as the API endpoint that you are calling.
 --
 -- 's3Uri', 'entityRecognizerDocuments_s3Uri' - Specifies the Amazon S3 location where the training documents for an
--- entity recognizer are located. The URI must be in the same region as the
+-- entity recognizer are located. The URI must be in the same Region as the
 -- API endpoint that you are calling.
 newEntityRecognizerDocuments ::
   -- | 's3Uri'
@@ -94,13 +94,13 @@ entityRecognizerDocuments_inputFormat :: Lens.Lens' EntityRecognizerDocuments (P
 entityRecognizerDocuments_inputFormat = Lens.lens (\EntityRecognizerDocuments' {inputFormat} -> inputFormat) (\s@EntityRecognizerDocuments' {} a -> s {inputFormat = a} :: EntityRecognizerDocuments)
 
 -- | Specifies the Amazon S3 location where the test documents for an entity
--- recognizer are located. The URI must be in the same AWS Region as the
--- API endpoint that you are calling.
+-- recognizer are located. The URI must be in the same Amazon Web Services
+-- Region as the API endpoint that you are calling.
 entityRecognizerDocuments_testS3Uri :: Lens.Lens' EntityRecognizerDocuments (Prelude.Maybe Prelude.Text)
 entityRecognizerDocuments_testS3Uri = Lens.lens (\EntityRecognizerDocuments' {testS3Uri} -> testS3Uri) (\s@EntityRecognizerDocuments' {} a -> s {testS3Uri = a} :: EntityRecognizerDocuments)
 
 -- | Specifies the Amazon S3 location where the training documents for an
--- entity recognizer are located. The URI must be in the same region as the
+-- entity recognizer are located. The URI must be in the same Region as the
 -- API endpoint that you are calling.
 entityRecognizerDocuments_s3Uri :: Lens.Lens' EntityRecognizerDocuments Prelude.Text
 entityRecognizerDocuments_s3Uri = Lens.lens (\EntityRecognizerDocuments' {s3Uri} -> s3Uri) (\s@EntityRecognizerDocuments' {} a -> s {s3Uri = a} :: EntityRecognizerDocuments)
@@ -118,7 +118,8 @@ instance Data.FromJSON EntityRecognizerDocuments where
 
 instance Prelude.Hashable EntityRecognizerDocuments where
   hashWithSalt _salt EntityRecognizerDocuments' {..} =
-    _salt `Prelude.hashWithSalt` inputFormat
+    _salt
+      `Prelude.hashWithSalt` inputFormat
       `Prelude.hashWithSalt` testS3Uri
       `Prelude.hashWithSalt` s3Uri
 

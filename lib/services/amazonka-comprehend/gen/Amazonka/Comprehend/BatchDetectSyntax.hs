@@ -92,7 +92,8 @@ newBatchDetectSyntax ::
 newBatchDetectSyntax pTextList_ pLanguageCode_ =
   BatchDetectSyntax'
     { textList =
-        Data._Sensitive Prelude.. Lens.coerced
+        Data._Sensitive
+          Prelude.. Lens.coerced
           Lens.# pTextList_,
       languageCode = pLanguageCode_
     }
@@ -127,7 +128,8 @@ instance Core.AWSRequest BatchDetectSyntax where
 
 instance Prelude.Hashable BatchDetectSyntax where
   hashWithSalt _salt BatchDetectSyntax' {..} =
-    _salt `Prelude.hashWithSalt` textList
+    _salt
+      `Prelude.hashWithSalt` textList
       `Prelude.hashWithSalt` languageCode
 
 instance Prelude.NFData BatchDetectSyntax where

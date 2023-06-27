@@ -52,13 +52,17 @@ library
     Amazonka.Comprehend.BatchDetectTargetedSentiment
     Amazonka.Comprehend.ClassifyDocument
     Amazonka.Comprehend.ContainsPiiEntities
+    Amazonka.Comprehend.CreateDataset
     Amazonka.Comprehend.CreateDocumentClassifier
     Amazonka.Comprehend.CreateEndpoint
     Amazonka.Comprehend.CreateEntityRecognizer
+    Amazonka.Comprehend.CreateFlywheel
     Amazonka.Comprehend.DeleteDocumentClassifier
     Amazonka.Comprehend.DeleteEndpoint
     Amazonka.Comprehend.DeleteEntityRecognizer
+    Amazonka.Comprehend.DeleteFlywheel
     Amazonka.Comprehend.DeleteResourcePolicy
+    Amazonka.Comprehend.DescribeDataset
     Amazonka.Comprehend.DescribeDocumentClassificationJob
     Amazonka.Comprehend.DescribeDocumentClassifier
     Amazonka.Comprehend.DescribeDominantLanguageDetectionJob
@@ -66,6 +70,8 @@ library
     Amazonka.Comprehend.DescribeEntitiesDetectionJob
     Amazonka.Comprehend.DescribeEntityRecognizer
     Amazonka.Comprehend.DescribeEventsDetectionJob
+    Amazonka.Comprehend.DescribeFlywheel
+    Amazonka.Comprehend.DescribeFlywheelIteration
     Amazonka.Comprehend.DescribeKeyPhrasesDetectionJob
     Amazonka.Comprehend.DescribePiiEntitiesDetectionJob
     Amazonka.Comprehend.DescribeResourcePolicy
@@ -81,6 +87,7 @@ library
     Amazonka.Comprehend.DetectTargetedSentiment
     Amazonka.Comprehend.ImportModel
     Amazonka.Comprehend.Lens
+    Amazonka.Comprehend.ListDatasets
     Amazonka.Comprehend.ListDocumentClassificationJobs
     Amazonka.Comprehend.ListDocumentClassifiers
     Amazonka.Comprehend.ListDocumentClassifierSummaries
@@ -90,6 +97,8 @@ library
     Amazonka.Comprehend.ListEntityRecognizers
     Amazonka.Comprehend.ListEntityRecognizerSummaries
     Amazonka.Comprehend.ListEventsDetectionJobs
+    Amazonka.Comprehend.ListFlywheelIterationHistory
+    Amazonka.Comprehend.ListFlywheels
     Amazonka.Comprehend.ListKeyPhrasesDetectionJobs
     Amazonka.Comprehend.ListPiiEntitiesDetectionJobs
     Amazonka.Comprehend.ListSentimentDetectionJobs
@@ -101,6 +110,7 @@ library
     Amazonka.Comprehend.StartDominantLanguageDetectionJob
     Amazonka.Comprehend.StartEntitiesDetectionJob
     Amazonka.Comprehend.StartEventsDetectionJob
+    Amazonka.Comprehend.StartFlywheelIteration
     Amazonka.Comprehend.StartKeyPhrasesDetectionJob
     Amazonka.Comprehend.StartPiiEntitiesDetectionJob
     Amazonka.Comprehend.StartSentimentDetectionJob
@@ -133,10 +143,26 @@ library
     Amazonka.Comprehend.Types.ChildBlock
     Amazonka.Comprehend.Types.ClassifierEvaluationMetrics
     Amazonka.Comprehend.Types.ClassifierMetadata
+    Amazonka.Comprehend.Types.DataSecurityConfig
+    Amazonka.Comprehend.Types.DatasetAugmentedManifestsListItem
+    Amazonka.Comprehend.Types.DatasetDataFormat
+    Amazonka.Comprehend.Types.DatasetDocumentClassifierInputDataConfig
+    Amazonka.Comprehend.Types.DatasetEntityRecognizerAnnotations
+    Amazonka.Comprehend.Types.DatasetEntityRecognizerDocuments
+    Amazonka.Comprehend.Types.DatasetEntityRecognizerEntityList
+    Amazonka.Comprehend.Types.DatasetEntityRecognizerInputDataConfig
+    Amazonka.Comprehend.Types.DatasetFilter
+    Amazonka.Comprehend.Types.DatasetInputDataConfig
+    Amazonka.Comprehend.Types.DatasetProperties
+    Amazonka.Comprehend.Types.DatasetStatus
+    Amazonka.Comprehend.Types.DatasetType
     Amazonka.Comprehend.Types.DocumentClass
+    Amazonka.Comprehend.Types.DocumentClassificationConfig
     Amazonka.Comprehend.Types.DocumentClassificationJobFilter
     Amazonka.Comprehend.Types.DocumentClassificationJobProperties
     Amazonka.Comprehend.Types.DocumentClassifierDataFormat
+    Amazonka.Comprehend.Types.DocumentClassifierDocuments
+    Amazonka.Comprehend.Types.DocumentClassifierDocumentTypeFormat
     Amazonka.Comprehend.Types.DocumentClassifierFilter
     Amazonka.Comprehend.Types.DocumentClassifierInputDataConfig
     Amazonka.Comprehend.Types.DocumentClassifierMode
@@ -161,6 +187,7 @@ library
     Amazonka.Comprehend.Types.EntitiesDetectionJobProperties
     Amazonka.Comprehend.Types.Entity
     Amazonka.Comprehend.Types.EntityLabel
+    Amazonka.Comprehend.Types.EntityRecognitionConfig
     Amazonka.Comprehend.Types.EntityRecognizerAnnotations
     Amazonka.Comprehend.Types.EntityRecognizerDataFormat
     Amazonka.Comprehend.Types.EntityRecognizerDocuments
@@ -170,6 +197,7 @@ library
     Amazonka.Comprehend.Types.EntityRecognizerInputDataConfig
     Amazonka.Comprehend.Types.EntityRecognizerMetadata
     Amazonka.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem
+    Amazonka.Comprehend.Types.EntityRecognizerOutputDataConfig
     Amazonka.Comprehend.Types.EntityRecognizerProperties
     Amazonka.Comprehend.Types.EntityRecognizerSummary
     Amazonka.Comprehend.Types.EntityType
@@ -179,6 +207,14 @@ library
     Amazonka.Comprehend.Types.EventsDetectionJobFilter
     Amazonka.Comprehend.Types.EventsDetectionJobProperties
     Amazonka.Comprehend.Types.ExtractedCharactersListItem
+    Amazonka.Comprehend.Types.FlywheelFilter
+    Amazonka.Comprehend.Types.FlywheelIterationFilter
+    Amazonka.Comprehend.Types.FlywheelIterationProperties
+    Amazonka.Comprehend.Types.FlywheelIterationStatus
+    Amazonka.Comprehend.Types.FlywheelModelEvaluationMetrics
+    Amazonka.Comprehend.Types.FlywheelProperties
+    Amazonka.Comprehend.Types.FlywheelStatus
+    Amazonka.Comprehend.Types.FlywheelSummary
     Amazonka.Comprehend.Types.Geometry
     Amazonka.Comprehend.Types.InputDataConfig
     Amazonka.Comprehend.Types.InputFormat
@@ -189,8 +225,10 @@ library
     Amazonka.Comprehend.Types.LanguageCode
     Amazonka.Comprehend.Types.MentionSentiment
     Amazonka.Comprehend.Types.ModelStatus
+    Amazonka.Comprehend.Types.ModelType
     Amazonka.Comprehend.Types.OutputDataConfig
     Amazonka.Comprehend.Types.PageBasedErrorCode
+    Amazonka.Comprehend.Types.PageBasedWarningCode
     Amazonka.Comprehend.Types.PartOfSpeechTag
     Amazonka.Comprehend.Types.PartOfSpeechTagType
     Amazonka.Comprehend.Types.PiiEntitiesDetectionJobFilter
@@ -217,11 +255,15 @@ library
     Amazonka.Comprehend.Types.TargetedSentimentEntity
     Amazonka.Comprehend.Types.TargetedSentimentEntityType
     Amazonka.Comprehend.Types.TargetedSentimentMention
+    Amazonka.Comprehend.Types.TaskConfig
     Amazonka.Comprehend.Types.TopicsDetectionJobFilter
     Amazonka.Comprehend.Types.TopicsDetectionJobProperties
+    Amazonka.Comprehend.Types.UpdateDataSecurityConfig
     Amazonka.Comprehend.Types.VpcConfig
+    Amazonka.Comprehend.Types.WarningsListItem
     Amazonka.Comprehend.UntagResource
     Amazonka.Comprehend.UpdateEndpoint
+    Amazonka.Comprehend.UpdateFlywheel
     Amazonka.Comprehend.Waiters
 
   build-depends:

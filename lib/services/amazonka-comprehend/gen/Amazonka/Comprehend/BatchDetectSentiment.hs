@@ -55,10 +55,6 @@ data BatchDetectSentiment = BatchDetectSentiment'
   { -- | A list containing the UTF-8 encoded text of the input documents. The
     -- list can contain a maximum of 25 documents. The maximum size of each
     -- document is 5 KB.
-    --
-    -- Amazon Comprehend performs real-time sentiment analysis on the first 500
-    -- characters of the input text and ignores any additional text in the
-    -- input.
     textList :: Data.Sensitive (Prelude.NonEmpty (Data.Sensitive Prelude.Text)),
     -- | The language of the input documents. You can specify any of the primary
     -- languages supported by Amazon Comprehend. All documents must be in the
@@ -79,10 +75,6 @@ data BatchDetectSentiment = BatchDetectSentiment'
 -- list can contain a maximum of 25 documents. The maximum size of each
 -- document is 5 KB.
 --
--- Amazon Comprehend performs real-time sentiment analysis on the first 500
--- characters of the input text and ignores any additional text in the
--- input.
---
 -- 'languageCode', 'batchDetectSentiment_languageCode' - The language of the input documents. You can specify any of the primary
 -- languages supported by Amazon Comprehend. All documents must be in the
 -- same language.
@@ -95,7 +87,8 @@ newBatchDetectSentiment ::
 newBatchDetectSentiment pTextList_ pLanguageCode_ =
   BatchDetectSentiment'
     { textList =
-        Data._Sensitive Prelude.. Lens.coerced
+        Data._Sensitive
+          Prelude.. Lens.coerced
           Lens.# pTextList_,
       languageCode = pLanguageCode_
     }
@@ -103,10 +96,6 @@ newBatchDetectSentiment pTextList_ pLanguageCode_ =
 -- | A list containing the UTF-8 encoded text of the input documents. The
 -- list can contain a maximum of 25 documents. The maximum size of each
 -- document is 5 KB.
---
--- Amazon Comprehend performs real-time sentiment analysis on the first 500
--- characters of the input text and ignores any additional text in the
--- input.
 batchDetectSentiment_textList :: Lens.Lens' BatchDetectSentiment (Prelude.NonEmpty Prelude.Text)
 batchDetectSentiment_textList = Lens.lens (\BatchDetectSentiment' {textList} -> textList) (\s@BatchDetectSentiment' {} a -> s {textList = a} :: BatchDetectSentiment) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
@@ -133,7 +122,8 @@ instance Core.AWSRequest BatchDetectSentiment where
 
 instance Prelude.Hashable BatchDetectSentiment where
   hashWithSalt _salt BatchDetectSentiment' {..} =
-    _salt `Prelude.hashWithSalt` textList
+    _salt
+      `Prelude.hashWithSalt` textList
       `Prelude.hashWithSalt` languageCode
 
 instance Prelude.NFData BatchDetectSentiment where

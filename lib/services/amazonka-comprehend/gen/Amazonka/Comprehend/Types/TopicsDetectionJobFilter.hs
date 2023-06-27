@@ -76,7 +76,6 @@ newTopicsDetectionJobFilter =
       submitTimeBefore = Prelude.Nothing
     }
 
--- |
 topicsDetectionJobFilter_jobName :: Lens.Lens' TopicsDetectionJobFilter (Prelude.Maybe Prelude.Text)
 topicsDetectionJobFilter_jobName = Lens.lens (\TopicsDetectionJobFilter' {jobName} -> jobName) (\s@TopicsDetectionJobFilter' {} a -> s {jobName = a} :: TopicsDetectionJobFilter)
 
@@ -99,7 +98,8 @@ topicsDetectionJobFilter_submitTimeBefore = Lens.lens (\TopicsDetectionJobFilter
 
 instance Prelude.Hashable TopicsDetectionJobFilter where
   hashWithSalt _salt TopicsDetectionJobFilter' {..} =
-    _salt `Prelude.hashWithSalt` jobName
+    _salt
+      `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` submitTimeAfter
       `Prelude.hashWithSalt` submitTimeBefore

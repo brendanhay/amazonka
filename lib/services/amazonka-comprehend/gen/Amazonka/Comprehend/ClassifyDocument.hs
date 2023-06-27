@@ -57,6 +57,7 @@ module Amazonka.Comprehend.ClassifyDocument
     classifyDocumentResponse_documentType,
     classifyDocumentResponse_errors,
     classifyDocumentResponse_labels,
+    classifyDocumentResponse_warnings,
     classifyDocumentResponse_httpStatus,
   )
 where
@@ -199,12 +200,14 @@ instance Core.AWSRequest ClassifyDocument where
             Prelude.<*> (x Data..?> "DocumentType" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "Labels" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Warnings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable ClassifyDocument where
   hashWithSalt _salt ClassifyDocument' {..} =
-    _salt `Prelude.hashWithSalt` bytes
+    _salt
+      `Prelude.hashWithSalt` bytes
       `Prelude.hashWithSalt` documentReaderConfig
       `Prelude.hashWithSalt` text
       `Prelude.hashWithSalt` endpointArn
@@ -274,6 +277,14 @@ data ClassifyDocumentResponse = ClassifyDocumentResponse'
     -- be an action movie, a science fiction movie, and a comedy, all at the
     -- same time.
     labels :: Prelude.Maybe [DocumentLabel],
+    -- | Warnings detected while processing the input document. The response
+    -- includes a warning if there is a mismatch between the input document
+    -- type and the model type associated with the endpoint that you specified.
+    -- The response can also include warnings for individual pages that have a
+    -- mismatch.
+    --
+    -- The field is empty if the system generated no warnings.
+    warnings :: Prelude.Maybe [WarningsListItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -310,6 +321,14 @@ data ClassifyDocumentResponse = ClassifyDocumentResponse'
 -- be an action movie, a science fiction movie, and a comedy, all at the
 -- same time.
 --
+-- 'warnings', 'classifyDocumentResponse_warnings' - Warnings detected while processing the input document. The response
+-- includes a warning if there is a mismatch between the input document
+-- type and the model type associated with the endpoint that you specified.
+-- The response can also include warnings for individual pages that have a
+-- mismatch.
+--
+-- The field is empty if the system generated no warnings.
+--
 -- 'httpStatus', 'classifyDocumentResponse_httpStatus' - The response's http status code.
 newClassifyDocumentResponse ::
   -- | 'httpStatus'
@@ -323,6 +342,7 @@ newClassifyDocumentResponse pHttpStatus_ =
       documentType = Prelude.Nothing,
       errors = Prelude.Nothing,
       labels = Prelude.Nothing,
+      warnings = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -359,6 +379,16 @@ classifyDocumentResponse_errors = Lens.lens (\ClassifyDocumentResponse' {errors}
 classifyDocumentResponse_labels :: Lens.Lens' ClassifyDocumentResponse (Prelude.Maybe [DocumentLabel])
 classifyDocumentResponse_labels = Lens.lens (\ClassifyDocumentResponse' {labels} -> labels) (\s@ClassifyDocumentResponse' {} a -> s {labels = a} :: ClassifyDocumentResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | Warnings detected while processing the input document. The response
+-- includes a warning if there is a mismatch between the input document
+-- type and the model type associated with the endpoint that you specified.
+-- The response can also include warnings for individual pages that have a
+-- mismatch.
+--
+-- The field is empty if the system generated no warnings.
+classifyDocumentResponse_warnings :: Lens.Lens' ClassifyDocumentResponse (Prelude.Maybe [WarningsListItem])
+classifyDocumentResponse_warnings = Lens.lens (\ClassifyDocumentResponse' {warnings} -> warnings) (\s@ClassifyDocumentResponse' {} a -> s {warnings = a} :: ClassifyDocumentResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 classifyDocumentResponse_httpStatus :: Lens.Lens' ClassifyDocumentResponse Prelude.Int
 classifyDocumentResponse_httpStatus = Lens.lens (\ClassifyDocumentResponse' {httpStatus} -> httpStatus) (\s@ClassifyDocumentResponse' {} a -> s {httpStatus = a} :: ClassifyDocumentResponse)
@@ -370,4 +400,5 @@ instance Prelude.NFData ClassifyDocumentResponse where
       `Prelude.seq` Prelude.rnf documentType
       `Prelude.seq` Prelude.rnf errors
       `Prelude.seq` Prelude.rnf labels
+      `Prelude.seq` Prelude.rnf warnings
       `Prelude.seq` Prelude.rnf httpStatus

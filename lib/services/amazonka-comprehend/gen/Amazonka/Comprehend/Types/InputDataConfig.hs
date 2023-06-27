@@ -44,7 +44,7 @@ data InputDataConfig = InputDataConfig'
     --     document. Use this option when you are processing many short
     --     documents, such as text messages.
     inputFormat :: Prelude.Maybe InputFormat,
-    -- | The Amazon S3 URI for the input data. The URI must be in same region as
+    -- | The Amazon S3 URI for the input data. The URI must be in same Region as
     -- the API endpoint that you are calling. The URI can point to a single
     -- input file or it can provide the prefix for a collection of data files.
     --
@@ -77,7 +77,7 @@ data InputDataConfig = InputDataConfig'
 --     document. Use this option when you are processing many short
 --     documents, such as text messages.
 --
--- 's3Uri', 'inputDataConfig_s3Uri' - The Amazon S3 URI for the input data. The URI must be in same region as
+-- 's3Uri', 'inputDataConfig_s3Uri' - The Amazon S3 URI for the input data. The URI must be in same Region as
 -- the API endpoint that you are calling. The URI can point to a single
 -- input file or it can provide the prefix for a collection of data files.
 --
@@ -114,7 +114,7 @@ inputDataConfig_documentReaderConfig = Lens.lens (\InputDataConfig' {documentRea
 inputDataConfig_inputFormat :: Lens.Lens' InputDataConfig (Prelude.Maybe InputFormat)
 inputDataConfig_inputFormat = Lens.lens (\InputDataConfig' {inputFormat} -> inputFormat) (\s@InputDataConfig' {} a -> s {inputFormat = a} :: InputDataConfig)
 
--- | The Amazon S3 URI for the input data. The URI must be in same region as
+-- | The Amazon S3 URI for the input data. The URI must be in same Region as
 -- the API endpoint that you are calling. The URI can point to a single
 -- input file or it can provide the prefix for a collection of data files.
 --
@@ -138,7 +138,8 @@ instance Data.FromJSON InputDataConfig where
 
 instance Prelude.Hashable InputDataConfig where
   hashWithSalt _salt InputDataConfig' {..} =
-    _salt `Prelude.hashWithSalt` documentReaderConfig
+    _salt
+      `Prelude.hashWithSalt` documentReaderConfig
       `Prelude.hashWithSalt` inputFormat
       `Prelude.hashWithSalt` s3Uri
 

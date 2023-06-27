@@ -71,7 +71,7 @@ data StartPiiEntitiesDetectionJob = StartPiiEntitiesDetectionJob'
     -- @ONLY_REDACTION@. In that case, you must provide a @RedactionConfig@
     -- definition that includes the @PiiEntityTypes@ parameter.
     redactionConfig :: Prelude.Maybe RedactionConfig,
-    -- | Tags to be associated with the PII entities detection job. A tag is a
+    -- | Tags to associate with the PII entities detection job. A tag is a
     -- key-value pair that adds metadata to a resource used by Amazon
     -- Comprehend. For example, a tag with \"Sales\" as the key might be added
     -- to a resource to indicate its use by the sales department.
@@ -84,8 +84,8 @@ data StartPiiEntitiesDetectionJob = StartPiiEntitiesDetectionJob'
     -- | Specifies whether the output provides the locations (offsets) of PII
     -- entities or a file in which PII entities are redacted.
     mode :: PiiEntitiesDetectionMode,
-    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-    -- (IAM) role that grants Amazon Comprehend read access to your input data.
+    -- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+    -- Comprehend read access to your input data.
     dataAccessRoleArn :: Prelude.Text,
     -- | The language of the input documents. Currently, English is the only
     -- valid language.
@@ -112,7 +112,7 @@ data StartPiiEntitiesDetectionJob = StartPiiEntitiesDetectionJob'
 -- @ONLY_REDACTION@. In that case, you must provide a @RedactionConfig@
 -- definition that includes the @PiiEntityTypes@ parameter.
 --
--- 'tags', 'startPiiEntitiesDetectionJob_tags' - Tags to be associated with the PII entities detection job. A tag is a
+-- 'tags', 'startPiiEntitiesDetectionJob_tags' - Tags to associate with the PII entities detection job. A tag is a
 -- key-value pair that adds metadata to a resource used by Amazon
 -- Comprehend. For example, a tag with \"Sales\" as the key might be added
 -- to a resource to indicate its use by the sales department.
@@ -125,8 +125,8 @@ data StartPiiEntitiesDetectionJob = StartPiiEntitiesDetectionJob'
 -- 'mode', 'startPiiEntitiesDetectionJob_mode' - Specifies whether the output provides the locations (offsets) of PII
 -- entities or a file in which PII entities are redacted.
 --
--- 'dataAccessRoleArn', 'startPiiEntitiesDetectionJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to your input data.
+-- 'dataAccessRoleArn', 'startPiiEntitiesDetectionJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 --
 -- 'languageCode', 'startPiiEntitiesDetectionJob_languageCode' - The language of the input documents. Currently, English is the only
 -- valid language.
@@ -178,7 +178,7 @@ startPiiEntitiesDetectionJob_jobName = Lens.lens (\StartPiiEntitiesDetectionJob'
 startPiiEntitiesDetectionJob_redactionConfig :: Lens.Lens' StartPiiEntitiesDetectionJob (Prelude.Maybe RedactionConfig)
 startPiiEntitiesDetectionJob_redactionConfig = Lens.lens (\StartPiiEntitiesDetectionJob' {redactionConfig} -> redactionConfig) (\s@StartPiiEntitiesDetectionJob' {} a -> s {redactionConfig = a} :: StartPiiEntitiesDetectionJob)
 
--- | Tags to be associated with the PII entities detection job. A tag is a
+-- | Tags to associate with the PII entities detection job. A tag is a
 -- key-value pair that adds metadata to a resource used by Amazon
 -- Comprehend. For example, a tag with \"Sales\" as the key might be added
 -- to a resource to indicate its use by the sales department.
@@ -199,8 +199,8 @@ startPiiEntitiesDetectionJob_outputDataConfig = Lens.lens (\StartPiiEntitiesDete
 startPiiEntitiesDetectionJob_mode :: Lens.Lens' StartPiiEntitiesDetectionJob PiiEntitiesDetectionMode
 startPiiEntitiesDetectionJob_mode = Lens.lens (\StartPiiEntitiesDetectionJob' {mode} -> mode) (\s@StartPiiEntitiesDetectionJob' {} a -> s {mode = a} :: StartPiiEntitiesDetectionJob)
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to your input data.
+-- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 startPiiEntitiesDetectionJob_dataAccessRoleArn :: Lens.Lens' StartPiiEntitiesDetectionJob Prelude.Text
 startPiiEntitiesDetectionJob_dataAccessRoleArn = Lens.lens (\StartPiiEntitiesDetectionJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartPiiEntitiesDetectionJob' {} a -> s {dataAccessRoleArn = a} :: StartPiiEntitiesDetectionJob)
 
@@ -230,7 +230,8 @@ instance
     StartPiiEntitiesDetectionJob
   where
   hashWithSalt _salt StartPiiEntitiesDetectionJob' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` redactionConfig
       `Prelude.hashWithSalt` tags
@@ -297,8 +298,9 @@ instance Data.ToQuery StartPiiEntitiesDetectionJob where
 -- | /See:/ 'newStartPiiEntitiesDetectionJobResponse' smart constructor.
 data StartPiiEntitiesDetectionJobResponse = StartPiiEntitiesDetectionJobResponse'
   { -- | The Amazon Resource Name (ARN) of the PII entity detection job. It is a
-    -- unique, fully qualified identifier for the job. It includes the AWS
-    -- account, Region, and the job ID. The format of the ARN is as follows:
+    -- unique, fully qualified identifier for the job. It includes the Amazon
+    -- Web Services account, Amazon Web Services Region, and the job ID. The
+    -- format of the ARN is as follows:
     --
     -- @arn:\<partition>:comprehend:\<region>:\<account-id>:pii-entities-detection-job\/\<job-id>@
     --
@@ -324,8 +326,9 @@ data StartPiiEntitiesDetectionJobResponse = StartPiiEntitiesDetectionJobResponse
 -- for backwards compatibility:
 --
 -- 'jobArn', 'startPiiEntitiesDetectionJobResponse_jobArn' - The Amazon Resource Name (ARN) of the PII entity detection job. It is a
--- unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:pii-entities-detection-job\/\<job-id>@
 --
@@ -352,8 +355,9 @@ newStartPiiEntitiesDetectionJobResponse pHttpStatus_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the PII entity detection job. It is a
--- unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:pii-entities-detection-job\/\<job-id>@
 --

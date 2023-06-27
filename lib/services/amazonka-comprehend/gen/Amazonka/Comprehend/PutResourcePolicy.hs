@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Attaches a resource-based policy to a custom model. You can use this
--- policy to authorize an entity in another AWS account to import the
--- custom model, which replicates it in Amazon Comprehend in their account.
+-- policy to authorize an entity in another Amazon Web Services account to
+-- import the custom model, which replicates it in Amazon Comprehend in
+-- their account.
 module Amazonka.Comprehend.PutResourcePolicy
   ( -- * Creating a Request
     PutResourcePolicy (..),
@@ -162,7 +163,8 @@ instance Core.AWSRequest PutResourcePolicy where
 
 instance Prelude.Hashable PutResourcePolicy where
   hashWithSalt _salt PutResourcePolicy' {..} =
-    _salt `Prelude.hashWithSalt` policyRevisionId
+    _salt
+      `Prelude.hashWithSalt` policyRevisionId
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` resourcePolicy
 

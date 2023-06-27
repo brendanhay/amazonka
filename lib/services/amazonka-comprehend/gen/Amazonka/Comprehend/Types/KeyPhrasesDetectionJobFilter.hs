@@ -103,7 +103,8 @@ instance
     KeyPhrasesDetectionJobFilter
   where
   hashWithSalt _salt KeyPhrasesDetectionJobFilter' {..} =
-    _salt `Prelude.hashWithSalt` jobName
+    _salt
+      `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` submitTimeAfter
       `Prelude.hashWithSalt` submitTimeBefore

@@ -44,7 +44,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- For image files and PDF documents, you can override these default
 -- actions using the fields listed below. For more information, see
--- <https://docs.aws.amazon.com/comprehend/latest/dg/detecting-cer.html#detecting-cer-pdf Setting text extraction options>.
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/idp-set-textract-options.html Setting text extraction options>
+-- in the Comprehend Developer Guide.
 --
 -- /See:/ 'newDocumentReaderConfig' smart constructor.
 data DocumentReaderConfig = DocumentReaderConfig'
@@ -179,7 +180,8 @@ instance Data.FromJSON DocumentReaderConfig where
 
 instance Prelude.Hashable DocumentReaderConfig where
   hashWithSalt _salt DocumentReaderConfig' {..} =
-    _salt `Prelude.hashWithSalt` documentReadMode
+    _salt
+      `Prelude.hashWithSalt` documentReadMode
       `Prelude.hashWithSalt` featureTypes
       `Prelude.hashWithSalt` documentReadAction
 

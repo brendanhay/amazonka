@@ -120,7 +120,8 @@ instance
   hashWithSalt
     _salt
     EntityRecognizerEvaluationMetrics' {..} =
-      _salt `Prelude.hashWithSalt` f1Score
+      _salt
+        `Prelude.hashWithSalt` f1Score
         `Prelude.hashWithSalt` precision
         `Prelude.hashWithSalt` recall
 

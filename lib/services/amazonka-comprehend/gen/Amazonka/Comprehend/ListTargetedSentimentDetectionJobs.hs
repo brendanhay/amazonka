@@ -120,11 +120,11 @@ instance
       ( \s h x ->
           ListTargetedSentimentDetectionJobsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x
-                              Data..?> "TargetedSentimentDetectionJobPropertiesList"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "TargetedSentimentDetectionJobPropertiesList"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -134,7 +134,8 @@ instance
   hashWithSalt
     _salt
     ListTargetedSentimentDetectionJobs' {..} =
-      _salt `Prelude.hashWithSalt` filter'
+      _salt
+        `Prelude.hashWithSalt` filter'
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
 

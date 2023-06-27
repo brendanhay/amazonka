@@ -100,7 +100,8 @@ entitiesDetectionJobFilter_submitTimeBefore = Lens.lens (\EntitiesDetectionJobFi
 
 instance Prelude.Hashable EntitiesDetectionJobFilter where
   hashWithSalt _salt EntitiesDetectionJobFilter' {..} =
-    _salt `Prelude.hashWithSalt` jobName
+    _salt
+      `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` submitTimeAfter
       `Prelude.hashWithSalt` submitTimeBefore

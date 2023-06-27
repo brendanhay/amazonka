@@ -31,9 +31,10 @@ module Amazonka.Comprehend.CreateEndpoint
     -- * Request Lenses
     createEndpoint_clientRequestToken,
     createEndpoint_dataAccessRoleArn,
+    createEndpoint_flywheelArn,
+    createEndpoint_modelArn,
     createEndpoint_tags,
     createEndpoint_endpointName,
-    createEndpoint_modelArn,
     createEndpoint_desiredInferenceUnits,
 
     -- * Destructuring the Response
@@ -42,6 +43,7 @@ module Amazonka.Comprehend.CreateEndpoint
 
     -- * Response Lenses
     createEndpointResponse_endpointArn,
+    createEndpointResponse_modelArn,
     createEndpointResponse_httpStatus,
   )
 where
@@ -60,21 +62,24 @@ data CreateEndpoint = CreateEndpoint'
     -- previous endpoint creation request, Amazon Comprehend will not return a
     -- @ResourceInUseException@.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the AWS identity and Access Management
-    -- (IAM) role that grants Amazon Comprehend read access to trained custom
-    -- models encrypted with a customer managed key (ModelKmsKeyId).
+    -- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+    -- Comprehend read access to trained custom models encrypted with a
+    -- customer managed key (ModelKmsKeyId).
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | Tags associated with the endpoint being created. A tag is a key-value
-    -- pair that adds metadata to the endpoint. For example, a tag with
-    -- \"Sales\" as the key might be added to an endpoint to indicate its use
-    -- by the sales department.
+    -- | The Amazon Resource Number (ARN) of the flywheel to which the endpoint
+    -- will be attached.
+    flywheelArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Number (ARN) of the model to which the endpoint will
+    -- be attached.
+    modelArn :: Prelude.Maybe Prelude.Text,
+    -- | Tags to associate with the endpoint. A tag is a key-value pair that adds
+    -- metadata to the endpoint. For example, a tag with \"Sales\" as the key
+    -- might be added to an endpoint to indicate its use by the sales
+    -- department.
     tags :: Prelude.Maybe [Tag],
     -- | This is the descriptive suffix that becomes part of the @EndpointArn@
     -- used for all subsequent requests to this resource.
     endpointName :: Prelude.Text,
-    -- | The Amazon Resource Number (ARN) of the model to which the endpoint will
-    -- be attached.
-    modelArn :: Prelude.Text,
     -- | The desired number of inference units to be used by the model using this
     -- endpoint. Each inference unit represents of a throughput of 100
     -- characters per second.
@@ -94,20 +99,23 @@ data CreateEndpoint = CreateEndpoint'
 -- previous endpoint creation request, Amazon Comprehend will not return a
 -- @ResourceInUseException@.
 --
--- 'dataAccessRoleArn', 'createEndpoint_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to trained custom
--- models encrypted with a customer managed key (ModelKmsKeyId).
+-- 'dataAccessRoleArn', 'createEndpoint_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to trained custom models encrypted with a
+-- customer managed key (ModelKmsKeyId).
 --
--- 'tags', 'createEndpoint_tags' - Tags associated with the endpoint being created. A tag is a key-value
--- pair that adds metadata to the endpoint. For example, a tag with
--- \"Sales\" as the key might be added to an endpoint to indicate its use
--- by the sales department.
---
--- 'endpointName', 'createEndpoint_endpointName' - This is the descriptive suffix that becomes part of the @EndpointArn@
--- used for all subsequent requests to this resource.
+-- 'flywheelArn', 'createEndpoint_flywheelArn' - The Amazon Resource Number (ARN) of the flywheel to which the endpoint
+-- will be attached.
 --
 -- 'modelArn', 'createEndpoint_modelArn' - The Amazon Resource Number (ARN) of the model to which the endpoint will
 -- be attached.
+--
+-- 'tags', 'createEndpoint_tags' - Tags to associate with the endpoint. A tag is a key-value pair that adds
+-- metadata to the endpoint. For example, a tag with \"Sales\" as the key
+-- might be added to an endpoint to indicate its use by the sales
+-- department.
+--
+-- 'endpointName', 'createEndpoint_endpointName' - This is the descriptive suffix that becomes part of the @EndpointArn@
+-- used for all subsequent requests to this resource.
 --
 -- 'desiredInferenceUnits', 'createEndpoint_desiredInferenceUnits' - The desired number of inference units to be used by the model using this
 -- endpoint. Each inference unit represents of a throughput of 100
@@ -115,22 +123,20 @@ data CreateEndpoint = CreateEndpoint'
 newCreateEndpoint ::
   -- | 'endpointName'
   Prelude.Text ->
-  -- | 'modelArn'
-  Prelude.Text ->
   -- | 'desiredInferenceUnits'
   Prelude.Natural ->
   CreateEndpoint
 newCreateEndpoint
   pEndpointName_
-  pModelArn_
   pDesiredInferenceUnits_ =
     CreateEndpoint'
       { clientRequestToken =
           Prelude.Nothing,
         dataAccessRoleArn = Prelude.Nothing,
+        flywheelArn = Prelude.Nothing,
+        modelArn = Prelude.Nothing,
         tags = Prelude.Nothing,
         endpointName = pEndpointName_,
-        modelArn = pModelArn_,
         desiredInferenceUnits = pDesiredInferenceUnits_
       }
 
@@ -140,16 +146,26 @@ newCreateEndpoint
 createEndpoint_clientRequestToken :: Lens.Lens' CreateEndpoint (Prelude.Maybe Prelude.Text)
 createEndpoint_clientRequestToken = Lens.lens (\CreateEndpoint' {clientRequestToken} -> clientRequestToken) (\s@CreateEndpoint' {} a -> s {clientRequestToken = a} :: CreateEndpoint)
 
--- | The Amazon Resource Name (ARN) of the AWS identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to trained custom
--- models encrypted with a customer managed key (ModelKmsKeyId).
+-- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to trained custom models encrypted with a
+-- customer managed key (ModelKmsKeyId).
 createEndpoint_dataAccessRoleArn :: Lens.Lens' CreateEndpoint (Prelude.Maybe Prelude.Text)
 createEndpoint_dataAccessRoleArn = Lens.lens (\CreateEndpoint' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@CreateEndpoint' {} a -> s {dataAccessRoleArn = a} :: CreateEndpoint)
 
--- | Tags associated with the endpoint being created. A tag is a key-value
--- pair that adds metadata to the endpoint. For example, a tag with
--- \"Sales\" as the key might be added to an endpoint to indicate its use
--- by the sales department.
+-- | The Amazon Resource Number (ARN) of the flywheel to which the endpoint
+-- will be attached.
+createEndpoint_flywheelArn :: Lens.Lens' CreateEndpoint (Prelude.Maybe Prelude.Text)
+createEndpoint_flywheelArn = Lens.lens (\CreateEndpoint' {flywheelArn} -> flywheelArn) (\s@CreateEndpoint' {} a -> s {flywheelArn = a} :: CreateEndpoint)
+
+-- | The Amazon Resource Number (ARN) of the model to which the endpoint will
+-- be attached.
+createEndpoint_modelArn :: Lens.Lens' CreateEndpoint (Prelude.Maybe Prelude.Text)
+createEndpoint_modelArn = Lens.lens (\CreateEndpoint' {modelArn} -> modelArn) (\s@CreateEndpoint' {} a -> s {modelArn = a} :: CreateEndpoint)
+
+-- | Tags to associate with the endpoint. A tag is a key-value pair that adds
+-- metadata to the endpoint. For example, a tag with \"Sales\" as the key
+-- might be added to an endpoint to indicate its use by the sales
+-- department.
 createEndpoint_tags :: Lens.Lens' CreateEndpoint (Prelude.Maybe [Tag])
 createEndpoint_tags = Lens.lens (\CreateEndpoint' {tags} -> tags) (\s@CreateEndpoint' {} a -> s {tags = a} :: CreateEndpoint) Prelude.. Lens.mapping Lens.coerced
 
@@ -157,11 +173,6 @@ createEndpoint_tags = Lens.lens (\CreateEndpoint' {tags} -> tags) (\s@CreateEndp
 -- used for all subsequent requests to this resource.
 createEndpoint_endpointName :: Lens.Lens' CreateEndpoint Prelude.Text
 createEndpoint_endpointName = Lens.lens (\CreateEndpoint' {endpointName} -> endpointName) (\s@CreateEndpoint' {} a -> s {endpointName = a} :: CreateEndpoint)
-
--- | The Amazon Resource Number (ARN) of the model to which the endpoint will
--- be attached.
-createEndpoint_modelArn :: Lens.Lens' CreateEndpoint Prelude.Text
-createEndpoint_modelArn = Lens.lens (\CreateEndpoint' {modelArn} -> modelArn) (\s@CreateEndpoint' {} a -> s {modelArn = a} :: CreateEndpoint)
 
 -- | The desired number of inference units to be used by the model using this
 -- endpoint. Each inference unit represents of a throughput of 100
@@ -180,25 +191,29 @@ instance Core.AWSRequest CreateEndpoint where
       ( \s h x ->
           CreateEndpointResponse'
             Prelude.<$> (x Data..?> "EndpointArn")
+            Prelude.<*> (x Data..?> "ModelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateEndpoint where
   hashWithSalt _salt CreateEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` flywheelArn
+      `Prelude.hashWithSalt` modelArn
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` endpointName
-      `Prelude.hashWithSalt` modelArn
       `Prelude.hashWithSalt` desiredInferenceUnits
 
 instance Prelude.NFData CreateEndpoint where
   rnf CreateEndpoint' {..} =
     Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf flywheelArn
+      `Prelude.seq` Prelude.rnf modelArn
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf endpointName
-      `Prelude.seq` Prelude.rnf modelArn
       `Prelude.seq` Prelude.rnf desiredInferenceUnits
 
 instance Data.ToHeaders CreateEndpoint where
@@ -224,9 +239,10 @@ instance Data.ToJSON CreateEndpoint where
               Prelude.<$> clientRequestToken,
             ("DataAccessRoleArn" Data..=)
               Prelude.<$> dataAccessRoleArn,
+            ("FlywheelArn" Data..=) Prelude.<$> flywheelArn,
+            ("ModelArn" Data..=) Prelude.<$> modelArn,
             ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("EndpointName" Data..= endpointName),
-            Prelude.Just ("ModelArn" Data..= modelArn),
             Prelude.Just
               ( "DesiredInferenceUnits"
                   Data..= desiredInferenceUnits
@@ -244,6 +260,9 @@ instance Data.ToQuery CreateEndpoint where
 data CreateEndpointResponse = CreateEndpointResponse'
   { -- | The Amazon Resource Number (ARN) of the endpoint being created.
     endpointArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Number (ARN) of the model to which the endpoint is
+    -- attached.
+    modelArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -259,6 +278,9 @@ data CreateEndpointResponse = CreateEndpointResponse'
 --
 -- 'endpointArn', 'createEndpointResponse_endpointArn' - The Amazon Resource Number (ARN) of the endpoint being created.
 --
+-- 'modelArn', 'createEndpointResponse_modelArn' - The Amazon Resource Number (ARN) of the model to which the endpoint is
+-- attached.
+--
 -- 'httpStatus', 'createEndpointResponse_httpStatus' - The response's http status code.
 newCreateEndpointResponse ::
   -- | 'httpStatus'
@@ -268,12 +290,18 @@ newCreateEndpointResponse pHttpStatus_ =
   CreateEndpointResponse'
     { endpointArn =
         Prelude.Nothing,
+      modelArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Number (ARN) of the endpoint being created.
 createEndpointResponse_endpointArn :: Lens.Lens' CreateEndpointResponse (Prelude.Maybe Prelude.Text)
 createEndpointResponse_endpointArn = Lens.lens (\CreateEndpointResponse' {endpointArn} -> endpointArn) (\s@CreateEndpointResponse' {} a -> s {endpointArn = a} :: CreateEndpointResponse)
+
+-- | The Amazon Resource Number (ARN) of the model to which the endpoint is
+-- attached.
+createEndpointResponse_modelArn :: Lens.Lens' CreateEndpointResponse (Prelude.Maybe Prelude.Text)
+createEndpointResponse_modelArn = Lens.lens (\CreateEndpointResponse' {modelArn} -> modelArn) (\s@CreateEndpointResponse' {} a -> s {modelArn = a} :: CreateEndpointResponse)
 
 -- | The response's http status code.
 createEndpointResponse_httpStatus :: Lens.Lens' CreateEndpointResponse Prelude.Int
@@ -282,4 +310,5 @@ createEndpointResponse_httpStatus = Lens.lens (\CreateEndpointResponse' {httpSta
 instance Prelude.NFData CreateEndpointResponse where
   rnf CreateEndpointResponse' {..} =
     Prelude.rnf endpointArn
+      `Prelude.seq` Prelude.rnf modelArn
       `Prelude.seq` Prelude.rnf httpStatus

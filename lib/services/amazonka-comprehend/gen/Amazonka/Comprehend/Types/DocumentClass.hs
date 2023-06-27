@@ -90,7 +90,8 @@ instance Data.FromJSON DocumentClass where
 
 instance Prelude.Hashable DocumentClass where
   hashWithSalt _salt DocumentClass' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` page
       `Prelude.hashWithSalt` score
 

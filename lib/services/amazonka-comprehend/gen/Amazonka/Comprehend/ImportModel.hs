@@ -21,13 +21,15 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new custom model that replicates a source custom model that
--- you import. The source model can be in your AWS account or another one.
+-- you import. The source model can be in your Amazon Web Services account
+-- or another one.
 --
--- If the source model is in another AWS account, then it must have a
--- resource-based policy that authorizes you to import it.
+-- If the source model is in another Amazon Web Services account, then it
+-- must have a resource-based policy that authorizes you to import it.
 --
--- The source model must be in the same AWS region that you\'re using when
--- you import. You can\'t import a model that\'s in a different region.
+-- The source model must be in the same Amazon Web Services Region that
+-- you\'re using when you import. You can\'t import a model that\'s in a
+-- different Region.
 module Amazonka.Comprehend.ImportModel
   ( -- * Creating a Request
     ImportModel (..),
@@ -61,13 +63,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newImportModel' smart constructor.
 data ImportModel = ImportModel'
-  { -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
-    -- role that allows Amazon Comprehend to use Amazon Key Management Service
-    -- (KMS) to encrypt or decrypt the custom model.
+  { -- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+    -- Comprehend permission to use Amazon Key Management Service (KMS) to
+    -- encrypt or decrypt the custom model.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
-    -- of the following formats:
+    -- | ID for the KMS key that Amazon Comprehend uses to encrypt trained custom
+    -- models. The ModelKmsKeyId can be either of the following formats:
     --
     -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
@@ -77,17 +78,16 @@ data ImportModel = ImportModel'
     -- | The name to assign to the custom model that is created in Amazon
     -- Comprehend by this import.
     modelName :: Prelude.Maybe Prelude.Text,
-    -- | Tags to be associated with the custom model that is created by this
-    -- import. A tag is a key-value pair that adds as a metadata to a resource
-    -- used by Amazon Comprehend. For example, a tag with \"Sales\" as the key
-    -- might be added to a resource to indicate its use by the sales
-    -- department.
+    -- | Tags to associate with the custom model that is created by this import.
+    -- A tag is a key-value pair that adds as a metadata to a resource used by
+    -- Amazon Comprehend. For example, a tag with \"Sales\" as the key might be
+    -- added to a resource to indicate its use by the sales department.
     tags :: Prelude.Maybe [Tag],
     -- | The version name given to the custom model that is created by this
     -- import. Version names can have a maximum of 256 characters. Alphanumeric
     -- characters, hyphens (-) and underscores (_) are allowed. The version
     -- name must be unique among all models with the same classifier name in
-    -- the account\/AWS Region.
+    -- the account\/Region.
     versionName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the custom model to import.
     sourceModelArn :: Prelude.Text
@@ -102,13 +102,12 @@ data ImportModel = ImportModel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataAccessRoleArn', 'importModel_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
--- role that allows Amazon Comprehend to use Amazon Key Management Service
--- (KMS) to encrypt or decrypt the custom model.
+-- 'dataAccessRoleArn', 'importModel_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend permission to use Amazon Key Management Service (KMS) to
+-- encrypt or decrypt the custom model.
 --
--- 'modelKmsKeyId', 'importModel_modelKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt trained custom models. The ModelKmsKeyId can be either
--- of the following formats:
+-- 'modelKmsKeyId', 'importModel_modelKmsKeyId' - ID for the KMS key that Amazon Comprehend uses to encrypt trained custom
+-- models. The ModelKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -118,17 +117,16 @@ data ImportModel = ImportModel'
 -- 'modelName', 'importModel_modelName' - The name to assign to the custom model that is created in Amazon
 -- Comprehend by this import.
 --
--- 'tags', 'importModel_tags' - Tags to be associated with the custom model that is created by this
--- import. A tag is a key-value pair that adds as a metadata to a resource
--- used by Amazon Comprehend. For example, a tag with \"Sales\" as the key
--- might be added to a resource to indicate its use by the sales
--- department.
+-- 'tags', 'importModel_tags' - Tags to associate with the custom model that is created by this import.
+-- A tag is a key-value pair that adds as a metadata to a resource used by
+-- Amazon Comprehend. For example, a tag with \"Sales\" as the key might be
+-- added to a resource to indicate its use by the sales department.
 --
 -- 'versionName', 'importModel_versionName' - The version name given to the custom model that is created by this
 -- import. Version names can have a maximum of 256 characters. Alphanumeric
 -- characters, hyphens (-) and underscores (_) are allowed. The version
 -- name must be unique among all models with the same classifier name in
--- the account\/AWS Region.
+-- the account\/Region.
 --
 -- 'sourceModelArn', 'importModel_sourceModelArn' - The Amazon Resource Name (ARN) of the custom model to import.
 newImportModel ::
@@ -145,15 +143,14 @@ newImportModel pSourceModelArn_ =
       sourceModelArn = pSourceModelArn_
     }
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
--- role that allows Amazon Comprehend to use Amazon Key Management Service
--- (KMS) to encrypt or decrypt the custom model.
+-- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend permission to use Amazon Key Management Service (KMS) to
+-- encrypt or decrypt the custom model.
 importModel_dataAccessRoleArn :: Lens.Lens' ImportModel (Prelude.Maybe Prelude.Text)
 importModel_dataAccessRoleArn = Lens.lens (\ImportModel' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@ImportModel' {} a -> s {dataAccessRoleArn = a} :: ImportModel)
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt trained custom models. The ModelKmsKeyId can be either
--- of the following formats:
+-- | ID for the KMS key that Amazon Comprehend uses to encrypt trained custom
+-- models. The ModelKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -167,11 +164,10 @@ importModel_modelKmsKeyId = Lens.lens (\ImportModel' {modelKmsKeyId} -> modelKms
 importModel_modelName :: Lens.Lens' ImportModel (Prelude.Maybe Prelude.Text)
 importModel_modelName = Lens.lens (\ImportModel' {modelName} -> modelName) (\s@ImportModel' {} a -> s {modelName = a} :: ImportModel)
 
--- | Tags to be associated with the custom model that is created by this
--- import. A tag is a key-value pair that adds as a metadata to a resource
--- used by Amazon Comprehend. For example, a tag with \"Sales\" as the key
--- might be added to a resource to indicate its use by the sales
--- department.
+-- | Tags to associate with the custom model that is created by this import.
+-- A tag is a key-value pair that adds as a metadata to a resource used by
+-- Amazon Comprehend. For example, a tag with \"Sales\" as the key might be
+-- added to a resource to indicate its use by the sales department.
 importModel_tags :: Lens.Lens' ImportModel (Prelude.Maybe [Tag])
 importModel_tags = Lens.lens (\ImportModel' {tags} -> tags) (\s@ImportModel' {} a -> s {tags = a} :: ImportModel) Prelude.. Lens.mapping Lens.coerced
 
@@ -179,7 +175,7 @@ importModel_tags = Lens.lens (\ImportModel' {tags} -> tags) (\s@ImportModel' {} 
 -- import. Version names can have a maximum of 256 characters. Alphanumeric
 -- characters, hyphens (-) and underscores (_) are allowed. The version
 -- name must be unique among all models with the same classifier name in
--- the account\/AWS Region.
+-- the account\/Region.
 importModel_versionName :: Lens.Lens' ImportModel (Prelude.Maybe Prelude.Text)
 importModel_versionName = Lens.lens (\ImportModel' {versionName} -> versionName) (\s@ImportModel' {} a -> s {versionName = a} :: ImportModel)
 
@@ -201,7 +197,8 @@ instance Core.AWSRequest ImportModel where
 
 instance Prelude.Hashable ImportModel where
   hashWithSalt _salt ImportModel' {..} =
-    _salt `Prelude.hashWithSalt` dataAccessRoleArn
+    _salt
+      `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` modelKmsKeyId
       `Prelude.hashWithSalt` modelName
       `Prelude.hashWithSalt` tags

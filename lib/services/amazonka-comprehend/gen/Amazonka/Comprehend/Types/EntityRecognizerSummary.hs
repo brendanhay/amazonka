@@ -109,7 +109,8 @@ instance Data.FromJSON EntityRecognizerSummary where
 
 instance Prelude.Hashable EntityRecognizerSummary where
   hashWithSalt _salt EntityRecognizerSummary' {..} =
-    _salt `Prelude.hashWithSalt` latestVersionCreatedAt
+    _salt
+      `Prelude.hashWithSalt` latestVersionCreatedAt
       `Prelude.hashWithSalt` latestVersionName
       `Prelude.hashWithSalt` latestVersionStatus
       `Prelude.hashWithSalt` numberOfVersions

@@ -29,8 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPiiOutputDataConfig' smart constructor.
 data PiiOutputDataConfig = PiiOutputDataConfig'
-  { -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt the output results from an analysis job.
+  { -- | ID for the Amazon Web Services Key Management Service (KMS) key that
+    -- Amazon Comprehend uses to encrypt the output results from an analysis
+    -- job.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | When you use the @PiiOutputDataConfig@ object with asynchronous
     -- operations, you specify the Amazon S3 location where you want to write
@@ -51,8 +52,9 @@ data PiiOutputDataConfig = PiiOutputDataConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'piiOutputDataConfig_kmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt the output results from an analysis job.
+-- 'kmsKeyId', 'piiOutputDataConfig_kmsKeyId' - ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt the output results from an analysis
+-- job.
 --
 -- 's3Uri', 'piiOutputDataConfig_s3Uri' - When you use the @PiiOutputDataConfig@ object with asynchronous
 -- operations, you specify the Amazon S3 location where you want to write
@@ -71,8 +73,9 @@ newPiiOutputDataConfig pS3Uri_ =
       s3Uri = pS3Uri_
     }
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt the output results from an analysis job.
+-- | ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt the output results from an analysis
+-- job.
 piiOutputDataConfig_kmsKeyId :: Lens.Lens' PiiOutputDataConfig (Prelude.Maybe Prelude.Text)
 piiOutputDataConfig_kmsKeyId = Lens.lens (\PiiOutputDataConfig' {kmsKeyId} -> kmsKeyId) (\s@PiiOutputDataConfig' {} a -> s {kmsKeyId = a} :: PiiOutputDataConfig)
 
@@ -98,7 +101,8 @@ instance Data.FromJSON PiiOutputDataConfig where
 
 instance Prelude.Hashable PiiOutputDataConfig where
   hashWithSalt _salt PiiOutputDataConfig' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` s3Uri
 
 instance Prelude.NFData PiiOutputDataConfig where

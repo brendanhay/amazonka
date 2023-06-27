@@ -103,7 +103,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListEntityRecognizerSummariesResponse'
-            Prelude.<$> ( x Data..?> "EntityRecognizerSummariesList"
+            Prelude.<$> ( x
+                            Data..?> "EntityRecognizerSummariesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -115,7 +116,8 @@ instance
     ListEntityRecognizerSummaries
   where
   hashWithSalt _salt ListEntityRecognizerSummaries' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListEntityRecognizerSummaries where
@@ -157,7 +159,7 @@ instance Data.ToQuery ListEntityRecognizerSummaries where
 data ListEntityRecognizerSummariesResponse = ListEntityRecognizerSummariesResponse'
   { -- | The list entity recognizer summaries.
     entityRecognizerSummariesList :: Prelude.Maybe [EntityRecognizerSummary],
-    -- | The list entity recognizer summaries.
+    -- | Identifies the next page of results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -174,7 +176,7 @@ data ListEntityRecognizerSummariesResponse = ListEntityRecognizerSummariesRespon
 --
 -- 'entityRecognizerSummariesList', 'listEntityRecognizerSummariesResponse_entityRecognizerSummariesList' - The list entity recognizer summaries.
 --
--- 'nextToken', 'listEntityRecognizerSummariesResponse_nextToken' - The list entity recognizer summaries.
+-- 'nextToken', 'listEntityRecognizerSummariesResponse_nextToken' - Identifies the next page of results to return.
 --
 -- 'httpStatus', 'listEntityRecognizerSummariesResponse_httpStatus' - The response's http status code.
 newListEntityRecognizerSummariesResponse ::
@@ -193,7 +195,7 @@ newListEntityRecognizerSummariesResponse pHttpStatus_ =
 listEntityRecognizerSummariesResponse_entityRecognizerSummariesList :: Lens.Lens' ListEntityRecognizerSummariesResponse (Prelude.Maybe [EntityRecognizerSummary])
 listEntityRecognizerSummariesResponse_entityRecognizerSummariesList = Lens.lens (\ListEntityRecognizerSummariesResponse' {entityRecognizerSummariesList} -> entityRecognizerSummariesList) (\s@ListEntityRecognizerSummariesResponse' {} a -> s {entityRecognizerSummariesList = a} :: ListEntityRecognizerSummariesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The list entity recognizer summaries.
+-- | Identifies the next page of results to return.
 listEntityRecognizerSummariesResponse_nextToken :: Lens.Lens' ListEntityRecognizerSummariesResponse (Prelude.Maybe Prelude.Text)
 listEntityRecognizerSummariesResponse_nextToken = Lens.lens (\ListEntityRecognizerSummariesResponse' {nextToken} -> nextToken) (\s@ListEntityRecognizerSummariesResponse' {} a -> s {nextToken = a} :: ListEntityRecognizerSummariesResponse)
 

@@ -33,19 +33,22 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEntitiesDetectionJobProperties' smart constructor.
 data EntitiesDetectionJobProperties = EntitiesDetectionJobProperties'
-  { -- | The Amazon Resource Name (ARN) that gives Amazon Comprehend read access
-    -- to your input data.
+  { -- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+    -- Comprehend read access to your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the entities detection job completed
     endTime :: Prelude.Maybe Data.POSIX,
     -- | The Amazon Resource Name (ARN) that identifies the entity recognizer.
     entityRecognizerArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the flywheel associated with this job.
+    flywheelArn :: Prelude.Maybe Prelude.Text,
     -- | The input data configuration that you supplied when you created the
     -- entities detection job.
     inputDataConfig :: Prelude.Maybe InputDataConfig,
     -- | The Amazon Resource Name (ARN) of the entities detection job. It is a
-    -- unique, fully qualified identifier for the job. It includes the AWS
-    -- account, Region, and the job ID. The format of the ARN is as follows:
+    -- unique, fully qualified identifier for the job. It includes the Amazon
+    -- Web Services account, Amazon Web Services Region, and the job ID. The
+    -- format of the ARN is as follows:
     --
     -- @arn:\<partition>:comprehend:\<region>:\<account-id>:entities-detection-job\/\<job-id>@
     --
@@ -69,10 +72,10 @@ data EntitiesDetectionJobProperties = EntitiesDetectionJobProperties'
     outputDataConfig :: Prelude.Maybe OutputDataConfig,
     -- | The time that the entities detection job was submitted for processing.
     submitTime :: Prelude.Maybe Data.POSIX,
-    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt data on the storage volume attached to the ML compute
-    -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
-    -- either of the following formats:
+    -- | ID for the Amazon Web Services Key Management Service (KMS) key that
+    -- Amazon Comprehend uses to encrypt data on the storage volume attached to
+    -- the ML compute instance(s) that process the analysis job. The
+    -- VolumeKmsKeyId can be either of the following formats:
     --
     -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
@@ -95,19 +98,22 @@ data EntitiesDetectionJobProperties = EntitiesDetectionJobProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataAccessRoleArn', 'entitiesDetectionJobProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) that gives Amazon Comprehend read access
--- to your input data.
+-- 'dataAccessRoleArn', 'entitiesDetectionJobProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 --
 -- 'endTime', 'entitiesDetectionJobProperties_endTime' - The time that the entities detection job completed
 --
 -- 'entityRecognizerArn', 'entitiesDetectionJobProperties_entityRecognizerArn' - The Amazon Resource Name (ARN) that identifies the entity recognizer.
 --
+-- 'flywheelArn', 'entitiesDetectionJobProperties_flywheelArn' - The Amazon Resource Name (ARN) of the flywheel associated with this job.
+--
 -- 'inputDataConfig', 'entitiesDetectionJobProperties_inputDataConfig' - The input data configuration that you supplied when you created the
 -- entities detection job.
 --
 -- 'jobArn', 'entitiesDetectionJobProperties_jobArn' - The Amazon Resource Name (ARN) of the entities detection job. It is a
--- unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:entities-detection-job\/\<job-id>@
 --
@@ -131,10 +137,10 @@ data EntitiesDetectionJobProperties = EntitiesDetectionJobProperties'
 --
 -- 'submitTime', 'entitiesDetectionJobProperties_submitTime' - The time that the entities detection job was submitted for processing.
 --
--- 'volumeKmsKeyId', 'entitiesDetectionJobProperties_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- 'volumeKmsKeyId', 'entitiesDetectionJobProperties_volumeKmsKeyId' - ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -153,6 +159,7 @@ newEntitiesDetectionJobProperties =
         Prelude.Nothing,
       endTime = Prelude.Nothing,
       entityRecognizerArn = Prelude.Nothing,
+      flywheelArn = Prelude.Nothing,
       inputDataConfig = Prelude.Nothing,
       jobArn = Prelude.Nothing,
       jobId = Prelude.Nothing,
@@ -166,8 +173,8 @@ newEntitiesDetectionJobProperties =
       vpcConfig = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) that gives Amazon Comprehend read access
--- to your input data.
+-- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 entitiesDetectionJobProperties_dataAccessRoleArn :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
 entitiesDetectionJobProperties_dataAccessRoleArn = Lens.lens (\EntitiesDetectionJobProperties' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@EntitiesDetectionJobProperties' {} a -> s {dataAccessRoleArn = a} :: EntitiesDetectionJobProperties)
 
@@ -179,14 +186,19 @@ entitiesDetectionJobProperties_endTime = Lens.lens (\EntitiesDetectionJobPropert
 entitiesDetectionJobProperties_entityRecognizerArn :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
 entitiesDetectionJobProperties_entityRecognizerArn = Lens.lens (\EntitiesDetectionJobProperties' {entityRecognizerArn} -> entityRecognizerArn) (\s@EntitiesDetectionJobProperties' {} a -> s {entityRecognizerArn = a} :: EntitiesDetectionJobProperties)
 
+-- | The Amazon Resource Name (ARN) of the flywheel associated with this job.
+entitiesDetectionJobProperties_flywheelArn :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
+entitiesDetectionJobProperties_flywheelArn = Lens.lens (\EntitiesDetectionJobProperties' {flywheelArn} -> flywheelArn) (\s@EntitiesDetectionJobProperties' {} a -> s {flywheelArn = a} :: EntitiesDetectionJobProperties)
+
 -- | The input data configuration that you supplied when you created the
 -- entities detection job.
 entitiesDetectionJobProperties_inputDataConfig :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe InputDataConfig)
 entitiesDetectionJobProperties_inputDataConfig = Lens.lens (\EntitiesDetectionJobProperties' {inputDataConfig} -> inputDataConfig) (\s@EntitiesDetectionJobProperties' {} a -> s {inputDataConfig = a} :: EntitiesDetectionJobProperties)
 
 -- | The Amazon Resource Name (ARN) of the entities detection job. It is a
--- unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:entities-detection-job\/\<job-id>@
 --
@@ -226,10 +238,10 @@ entitiesDetectionJobProperties_outputDataConfig = Lens.lens (\EntitiesDetectionJ
 entitiesDetectionJobProperties_submitTime :: Lens.Lens' EntitiesDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
 entitiesDetectionJobProperties_submitTime = Lens.lens (\EntitiesDetectionJobProperties' {submitTime} -> submitTime) (\s@EntitiesDetectionJobProperties' {} a -> s {submitTime = a} :: EntitiesDetectionJobProperties) Prelude.. Lens.mapping Data._Time
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- | ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -254,6 +266,7 @@ instance Data.FromJSON EntitiesDetectionJobProperties where
             Prelude.<$> (x Data..:? "DataAccessRoleArn")
             Prelude.<*> (x Data..:? "EndTime")
             Prelude.<*> (x Data..:? "EntityRecognizerArn")
+            Prelude.<*> (x Data..:? "FlywheelArn")
             Prelude.<*> (x Data..:? "InputDataConfig")
             Prelude.<*> (x Data..:? "JobArn")
             Prelude.<*> (x Data..:? "JobId")
@@ -274,9 +287,11 @@ instance
   hashWithSalt
     _salt
     EntitiesDetectionJobProperties' {..} =
-      _salt `Prelude.hashWithSalt` dataAccessRoleArn
+      _salt
+        `Prelude.hashWithSalt` dataAccessRoleArn
         `Prelude.hashWithSalt` endTime
         `Prelude.hashWithSalt` entityRecognizerArn
+        `Prelude.hashWithSalt` flywheelArn
         `Prelude.hashWithSalt` inputDataConfig
         `Prelude.hashWithSalt` jobArn
         `Prelude.hashWithSalt` jobId
@@ -297,6 +312,7 @@ instance
     Prelude.rnf dataAccessRoleArn
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf entityRecognizerArn
+      `Prelude.seq` Prelude.rnf flywheelArn
       `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf jobArn
       `Prelude.seq` Prelude.rnf jobId

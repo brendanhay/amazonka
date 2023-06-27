@@ -51,7 +51,8 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDescribeDominantLanguageDetectionJob' smart constructor.
 data DescribeDominantLanguageDetectionJob = DescribeDominantLanguageDetectionJob'
   { -- | The identifier that Amazon Comprehend generated for the job. The
-    -- operation returns this identifier in its response.
+    -- @StartDominantLanguageDetectionJob@ operation returns this identifier in
+    -- its response.
     jobId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,7 +66,8 @@ data DescribeDominantLanguageDetectionJob = DescribeDominantLanguageDetectionJob
 -- for backwards compatibility:
 --
 -- 'jobId', 'describeDominantLanguageDetectionJob_jobId' - The identifier that Amazon Comprehend generated for the job. The
--- operation returns this identifier in its response.
+-- @StartDominantLanguageDetectionJob@ operation returns this identifier in
+-- its response.
 newDescribeDominantLanguageDetectionJob ::
   -- | 'jobId'
   Prelude.Text ->
@@ -77,7 +79,8 @@ newDescribeDominantLanguageDetectionJob pJobId_ =
     }
 
 -- | The identifier that Amazon Comprehend generated for the job. The
--- operation returns this identifier in its response.
+-- @StartDominantLanguageDetectionJob@ operation returns this identifier in
+-- its response.
 describeDominantLanguageDetectionJob_jobId :: Lens.Lens' DescribeDominantLanguageDetectionJob Prelude.Text
 describeDominantLanguageDetectionJob_jobId = Lens.lens (\DescribeDominantLanguageDetectionJob' {jobId} -> jobId) (\s@DescribeDominantLanguageDetectionJob' {} a -> s {jobId = a} :: DescribeDominantLanguageDetectionJob)
 
@@ -95,7 +98,7 @@ instance
       ( \s h x ->
           DescribeDominantLanguageDetectionJobResponse'
             Prelude.<$> (x Data..?> "DominantLanguageDetectionJobProperties")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

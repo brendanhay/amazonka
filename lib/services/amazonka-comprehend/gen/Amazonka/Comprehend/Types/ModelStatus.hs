@@ -26,6 +26,7 @@ module Amazonka.Comprehend.Types.ModelStatus
         ModelStatus_STOP_REQUESTED,
         ModelStatus_SUBMITTED,
         ModelStatus_TRAINED,
+        ModelStatus_TRAINED_WITH_WARNING,
         ModelStatus_TRAINING
       ),
   )
@@ -81,6 +82,9 @@ pattern ModelStatus_SUBMITTED = ModelStatus' "SUBMITTED"
 pattern ModelStatus_TRAINED :: ModelStatus
 pattern ModelStatus_TRAINED = ModelStatus' "TRAINED"
 
+pattern ModelStatus_TRAINED_WITH_WARNING :: ModelStatus
+pattern ModelStatus_TRAINED_WITH_WARNING = ModelStatus' "TRAINED_WITH_WARNING"
+
 pattern ModelStatus_TRAINING :: ModelStatus
 pattern ModelStatus_TRAINING = ModelStatus' "TRAINING"
 
@@ -91,6 +95,7 @@ pattern ModelStatus_TRAINING = ModelStatus' "TRAINING"
   ModelStatus_STOP_REQUESTED,
   ModelStatus_SUBMITTED,
   ModelStatus_TRAINED,
+  ModelStatus_TRAINED_WITH_WARNING,
   ModelStatus_TRAINING,
   ModelStatus'
   #-}

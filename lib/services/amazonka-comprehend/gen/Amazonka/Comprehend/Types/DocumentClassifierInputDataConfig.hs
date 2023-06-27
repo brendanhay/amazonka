@@ -21,6 +21,9 @@ module Amazonka.Comprehend.Types.DocumentClassifierInputDataConfig where
 
 import Amazonka.Comprehend.Types.AugmentedManifestsListItem
 import Amazonka.Comprehend.Types.DocumentClassifierDataFormat
+import Amazonka.Comprehend.Types.DocumentClassifierDocumentTypeFormat
+import Amazonka.Comprehend.Types.DocumentClassifierDocuments
+import Amazonka.Comprehend.Types.DocumentReaderConfig
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
@@ -59,6 +62,14 @@ data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
     -- If you don\'t specify a value, Amazon Comprehend uses @COMPREHEND_CSV@
     -- as the default.
     dataFormat :: Prelude.Maybe DocumentClassifierDataFormat,
+    documentReaderConfig :: Prelude.Maybe DocumentReaderConfig,
+    -- | The type of input documents for training the model. Provide plain-text
+    -- documents to create a plain-text model, and provide semi-structured
+    -- documents to create a native model.
+    documentType :: Prelude.Maybe DocumentClassifierDocumentTypeFormat,
+    -- | The S3 location of the training documents. This parameter is required in
+    -- a request to create a native classifier model.
+    documents :: Prelude.Maybe DocumentClassifierDocuments,
     -- | Indicates the delimiter used to separate each label for training a
     -- multi-label classifier. The default delimiter between labels is a pipe
     -- (|). You can use a different character as a delimiter (if it\'s an
@@ -68,7 +79,7 @@ data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
     -- a single unique label, such as LABELLABELLABEL.
     labelDelimiter :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 URI for the input data. The S3 bucket must be in the same
-    -- region as the API endpoint that you are calling. The URI can point to a
+    -- Region as the API endpoint that you are calling. The URI can point to a
     -- single input file or it can provide the prefix for a collection of input
     -- files.
     --
@@ -80,8 +91,8 @@ data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
     -- This parameter is required if you set @DataFormat@ to @COMPREHEND_CSV@.
     s3Uri :: Prelude.Maybe Prelude.Text,
     -- | This specifies the Amazon S3 location where the test annotations for an
-    -- entity recognizer are located. The URI must be in the same AWS Region as
-    -- the API endpoint that you are calling.
+    -- entity recognizer are located. The URI must be in the same Amazon Web
+    -- Services Region as the API endpoint that you are calling.
     testS3Uri :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -119,6 +130,15 @@ data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
 -- If you don\'t specify a value, Amazon Comprehend uses @COMPREHEND_CSV@
 -- as the default.
 --
+-- 'documentReaderConfig', 'documentClassifierInputDataConfig_documentReaderConfig' - Undocumented member.
+--
+-- 'documentType', 'documentClassifierInputDataConfig_documentType' - The type of input documents for training the model. Provide plain-text
+-- documents to create a plain-text model, and provide semi-structured
+-- documents to create a native model.
+--
+-- 'documents', 'documentClassifierInputDataConfig_documents' - The S3 location of the training documents. This parameter is required in
+-- a request to create a native classifier model.
+--
 -- 'labelDelimiter', 'documentClassifierInputDataConfig_labelDelimiter' - Indicates the delimiter used to separate each label for training a
 -- multi-label classifier. The default delimiter between labels is a pipe
 -- (|). You can use a different character as a delimiter (if it\'s an
@@ -128,7 +148,7 @@ data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
 -- a single unique label, such as LABELLABELLABEL.
 --
 -- 's3Uri', 'documentClassifierInputDataConfig_s3Uri' - The Amazon S3 URI for the input data. The S3 bucket must be in the same
--- region as the API endpoint that you are calling. The URI can point to a
+-- Region as the API endpoint that you are calling. The URI can point to a
 -- single input file or it can provide the prefix for a collection of input
 -- files.
 --
@@ -140,8 +160,8 @@ data DocumentClassifierInputDataConfig = DocumentClassifierInputDataConfig'
 -- This parameter is required if you set @DataFormat@ to @COMPREHEND_CSV@.
 --
 -- 'testS3Uri', 'documentClassifierInputDataConfig_testS3Uri' - This specifies the Amazon S3 location where the test annotations for an
--- entity recognizer are located. The URI must be in the same AWS Region as
--- the API endpoint that you are calling.
+-- entity recognizer are located. The URI must be in the same Amazon Web
+-- Services Region as the API endpoint that you are calling.
 newDocumentClassifierInputDataConfig ::
   DocumentClassifierInputDataConfig
 newDocumentClassifierInputDataConfig =
@@ -149,6 +169,9 @@ newDocumentClassifierInputDataConfig =
     { augmentedManifests =
         Prelude.Nothing,
       dataFormat = Prelude.Nothing,
+      documentReaderConfig = Prelude.Nothing,
+      documentType = Prelude.Nothing,
+      documents = Prelude.Nothing,
       labelDelimiter = Prelude.Nothing,
       s3Uri = Prelude.Nothing,
       testS3Uri = Prelude.Nothing
@@ -183,6 +206,21 @@ documentClassifierInputDataConfig_augmentedManifests = Lens.lens (\DocumentClass
 documentClassifierInputDataConfig_dataFormat :: Lens.Lens' DocumentClassifierInputDataConfig (Prelude.Maybe DocumentClassifierDataFormat)
 documentClassifierInputDataConfig_dataFormat = Lens.lens (\DocumentClassifierInputDataConfig' {dataFormat} -> dataFormat) (\s@DocumentClassifierInputDataConfig' {} a -> s {dataFormat = a} :: DocumentClassifierInputDataConfig)
 
+-- | Undocumented member.
+documentClassifierInputDataConfig_documentReaderConfig :: Lens.Lens' DocumentClassifierInputDataConfig (Prelude.Maybe DocumentReaderConfig)
+documentClassifierInputDataConfig_documentReaderConfig = Lens.lens (\DocumentClassifierInputDataConfig' {documentReaderConfig} -> documentReaderConfig) (\s@DocumentClassifierInputDataConfig' {} a -> s {documentReaderConfig = a} :: DocumentClassifierInputDataConfig)
+
+-- | The type of input documents for training the model. Provide plain-text
+-- documents to create a plain-text model, and provide semi-structured
+-- documents to create a native model.
+documentClassifierInputDataConfig_documentType :: Lens.Lens' DocumentClassifierInputDataConfig (Prelude.Maybe DocumentClassifierDocumentTypeFormat)
+documentClassifierInputDataConfig_documentType = Lens.lens (\DocumentClassifierInputDataConfig' {documentType} -> documentType) (\s@DocumentClassifierInputDataConfig' {} a -> s {documentType = a} :: DocumentClassifierInputDataConfig)
+
+-- | The S3 location of the training documents. This parameter is required in
+-- a request to create a native classifier model.
+documentClassifierInputDataConfig_documents :: Lens.Lens' DocumentClassifierInputDataConfig (Prelude.Maybe DocumentClassifierDocuments)
+documentClassifierInputDataConfig_documents = Lens.lens (\DocumentClassifierInputDataConfig' {documents} -> documents) (\s@DocumentClassifierInputDataConfig' {} a -> s {documents = a} :: DocumentClassifierInputDataConfig)
+
 -- | Indicates the delimiter used to separate each label for training a
 -- multi-label classifier. The default delimiter between labels is a pipe
 -- (|). You can use a different character as a delimiter (if it\'s an
@@ -194,7 +232,7 @@ documentClassifierInputDataConfig_labelDelimiter :: Lens.Lens' DocumentClassifie
 documentClassifierInputDataConfig_labelDelimiter = Lens.lens (\DocumentClassifierInputDataConfig' {labelDelimiter} -> labelDelimiter) (\s@DocumentClassifierInputDataConfig' {} a -> s {labelDelimiter = a} :: DocumentClassifierInputDataConfig)
 
 -- | The Amazon S3 URI for the input data. The S3 bucket must be in the same
--- region as the API endpoint that you are calling. The URI can point to a
+-- Region as the API endpoint that you are calling. The URI can point to a
 -- single input file or it can provide the prefix for a collection of input
 -- files.
 --
@@ -208,8 +246,8 @@ documentClassifierInputDataConfig_s3Uri :: Lens.Lens' DocumentClassifierInputDat
 documentClassifierInputDataConfig_s3Uri = Lens.lens (\DocumentClassifierInputDataConfig' {s3Uri} -> s3Uri) (\s@DocumentClassifierInputDataConfig' {} a -> s {s3Uri = a} :: DocumentClassifierInputDataConfig)
 
 -- | This specifies the Amazon S3 location where the test annotations for an
--- entity recognizer are located. The URI must be in the same AWS Region as
--- the API endpoint that you are calling.
+-- entity recognizer are located. The URI must be in the same Amazon Web
+-- Services Region as the API endpoint that you are calling.
 documentClassifierInputDataConfig_testS3Uri :: Lens.Lens' DocumentClassifierInputDataConfig (Prelude.Maybe Prelude.Text)
 documentClassifierInputDataConfig_testS3Uri = Lens.lens (\DocumentClassifierInputDataConfig' {testS3Uri} -> testS3Uri) (\s@DocumentClassifierInputDataConfig' {} a -> s {testS3Uri = a} :: DocumentClassifierInputDataConfig)
 
@@ -222,10 +260,14 @@ instance
       "DocumentClassifierInputDataConfig"
       ( \x ->
           DocumentClassifierInputDataConfig'
-            Prelude.<$> ( x Data..:? "AugmentedManifests"
+            Prelude.<$> ( x
+                            Data..:? "AugmentedManifests"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DataFormat")
+            Prelude.<*> (x Data..:? "DocumentReaderConfig")
+            Prelude.<*> (x Data..:? "DocumentType")
+            Prelude.<*> (x Data..:? "Documents")
             Prelude.<*> (x Data..:? "LabelDelimiter")
             Prelude.<*> (x Data..:? "S3Uri")
             Prelude.<*> (x Data..:? "TestS3Uri")
@@ -238,8 +280,12 @@ instance
   hashWithSalt
     _salt
     DocumentClassifierInputDataConfig' {..} =
-      _salt `Prelude.hashWithSalt` augmentedManifests
+      _salt
+        `Prelude.hashWithSalt` augmentedManifests
         `Prelude.hashWithSalt` dataFormat
+        `Prelude.hashWithSalt` documentReaderConfig
+        `Prelude.hashWithSalt` documentType
+        `Prelude.hashWithSalt` documents
         `Prelude.hashWithSalt` labelDelimiter
         `Prelude.hashWithSalt` s3Uri
         `Prelude.hashWithSalt` testS3Uri
@@ -251,6 +297,9 @@ instance
   rnf DocumentClassifierInputDataConfig' {..} =
     Prelude.rnf augmentedManifests
       `Prelude.seq` Prelude.rnf dataFormat
+      `Prelude.seq` Prelude.rnf documentReaderConfig
+      `Prelude.seq` Prelude.rnf documentType
+      `Prelude.seq` Prelude.rnf documents
       `Prelude.seq` Prelude.rnf labelDelimiter
       `Prelude.seq` Prelude.rnf s3Uri
       `Prelude.seq` Prelude.rnf testS3Uri
@@ -265,6 +314,10 @@ instance
           [ ("AugmentedManifests" Data..=)
               Prelude.<$> augmentedManifests,
             ("DataFormat" Data..=) Prelude.<$> dataFormat,
+            ("DocumentReaderConfig" Data..=)
+              Prelude.<$> documentReaderConfig,
+            ("DocumentType" Data..=) Prelude.<$> documentType,
+            ("Documents" Data..=) Prelude.<$> documents,
             ("LabelDelimiter" Data..=)
               Prelude.<$> labelDelimiter,
             ("S3Uri" Data..=) Prelude.<$> s3Uri,

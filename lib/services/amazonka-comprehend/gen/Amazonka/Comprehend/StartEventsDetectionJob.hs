@@ -64,17 +64,17 @@ data StartEventsDetectionJob = StartEventsDetectionJob'
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the events detection job.
     jobName :: Prelude.Maybe Prelude.Text,
-    -- | Tags to be associated with the events detection job. A tag is a
-    -- key-value pair that adds metadata to a resource used by Amazon
-    -- Comprehend. For example, a tag with \"Sales\" as the key might be added
-    -- to a resource to indicate its use by the sales department.
+    -- | Tags to associate with the events detection job. A tag is a key-value
+    -- pair that adds metadata to a resource used by Amazon Comprehend. For
+    -- example, a tag with \"Sales\" as the key might be added to a resource to
+    -- indicate its use by the sales department.
     tags :: Prelude.Maybe [Tag],
     -- | Specifies the format and location of the input data for the job.
     inputDataConfig :: InputDataConfig,
     -- | Specifies where to send the output files.
     outputDataConfig :: OutputDataConfig,
-    -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-    -- (IAM) role that grants Amazon Comprehend read access to your input data.
+    -- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+    -- Comprehend read access to your input data.
     dataAccessRoleArn :: Prelude.Text,
     -- | The language code of the input documents.
     languageCode :: LanguageCode,
@@ -96,17 +96,17 @@ data StartEventsDetectionJob = StartEventsDetectionJob'
 --
 -- 'jobName', 'startEventsDetectionJob_jobName' - The identifier of the events detection job.
 --
--- 'tags', 'startEventsDetectionJob_tags' - Tags to be associated with the events detection job. A tag is a
--- key-value pair that adds metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
+-- 'tags', 'startEventsDetectionJob_tags' - Tags to associate with the events detection job. A tag is a key-value
+-- pair that adds metadata to a resource used by Amazon Comprehend. For
+-- example, a tag with \"Sales\" as the key might be added to a resource to
+-- indicate its use by the sales department.
 --
 -- 'inputDataConfig', 'startEventsDetectionJob_inputDataConfig' - Specifies the format and location of the input data for the job.
 --
 -- 'outputDataConfig', 'startEventsDetectionJob_outputDataConfig' - Specifies where to send the output files.
 --
--- 'dataAccessRoleArn', 'startEventsDetectionJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to your input data.
+-- 'dataAccessRoleArn', 'startEventsDetectionJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 --
 -- 'languageCode', 'startEventsDetectionJob_languageCode' - The language code of the input documents.
 --
@@ -151,10 +151,10 @@ startEventsDetectionJob_clientRequestToken = Lens.lens (\StartEventsDetectionJob
 startEventsDetectionJob_jobName :: Lens.Lens' StartEventsDetectionJob (Prelude.Maybe Prelude.Text)
 startEventsDetectionJob_jobName = Lens.lens (\StartEventsDetectionJob' {jobName} -> jobName) (\s@StartEventsDetectionJob' {} a -> s {jobName = a} :: StartEventsDetectionJob)
 
--- | Tags to be associated with the events detection job. A tag is a
--- key-value pair that adds metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
+-- | Tags to associate with the events detection job. A tag is a key-value
+-- pair that adds metadata to a resource used by Amazon Comprehend. For
+-- example, a tag with \"Sales\" as the key might be added to a resource to
+-- indicate its use by the sales department.
 startEventsDetectionJob_tags :: Lens.Lens' StartEventsDetectionJob (Prelude.Maybe [Tag])
 startEventsDetectionJob_tags = Lens.lens (\StartEventsDetectionJob' {tags} -> tags) (\s@StartEventsDetectionJob' {} a -> s {tags = a} :: StartEventsDetectionJob) Prelude.. Lens.mapping Lens.coerced
 
@@ -166,8 +166,8 @@ startEventsDetectionJob_inputDataConfig = Lens.lens (\StartEventsDetectionJob' {
 startEventsDetectionJob_outputDataConfig :: Lens.Lens' StartEventsDetectionJob OutputDataConfig
 startEventsDetectionJob_outputDataConfig = Lens.lens (\StartEventsDetectionJob' {outputDataConfig} -> outputDataConfig) (\s@StartEventsDetectionJob' {} a -> s {outputDataConfig = a} :: StartEventsDetectionJob)
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend read access to your input data.
+-- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 startEventsDetectionJob_dataAccessRoleArn :: Lens.Lens' StartEventsDetectionJob Prelude.Text
 startEventsDetectionJob_dataAccessRoleArn = Lens.lens (\StartEventsDetectionJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartEventsDetectionJob' {} a -> s {dataAccessRoleArn = a} :: StartEventsDetectionJob)
 
@@ -197,7 +197,8 @@ instance Core.AWSRequest StartEventsDetectionJob where
 
 instance Prelude.Hashable StartEventsDetectionJob where
   hashWithSalt _salt StartEventsDetectionJob' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` inputDataConfig
@@ -261,8 +262,9 @@ instance Data.ToQuery StartEventsDetectionJob where
 -- | /See:/ 'newStartEventsDetectionJobResponse' smart constructor.
 data StartEventsDetectionJobResponse = StartEventsDetectionJobResponse'
   { -- | The Amazon Resource Name (ARN) of the events detection job. It is a
-    -- unique, fully qualified identifier for the job. It includes the AWS
-    -- account, Region, and the job ID. The format of the ARN is as follows:
+    -- unique, fully qualified identifier for the job. It includes the Amazon
+    -- Web Services account, Amazon Web Services Region, and the job ID. The
+    -- format of the ARN is as follows:
     --
     -- @arn:\<partition>:comprehend:\<region>:\<account-id>:events-detection-job\/\<job-id>@
     --
@@ -289,8 +291,9 @@ data StartEventsDetectionJobResponse = StartEventsDetectionJobResponse'
 -- for backwards compatibility:
 --
 -- 'jobArn', 'startEventsDetectionJobResponse_jobArn' - The Amazon Resource Name (ARN) of the events detection job. It is a
--- unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:events-detection-job\/\<job-id>@
 --
@@ -318,8 +321,9 @@ newStartEventsDetectionJobResponse pHttpStatus_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the events detection job. It is a
--- unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
+-- unique, fully qualified identifier for the job. It includes the Amazon
+-- Web Services account, Amazon Web Services Region, and the job ID. The
+-- format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:events-detection-job\/\<job-id>@
 --

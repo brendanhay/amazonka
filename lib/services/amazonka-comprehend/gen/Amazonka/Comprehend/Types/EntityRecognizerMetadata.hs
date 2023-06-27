@@ -109,7 +109,8 @@ instance Data.FromJSON EntityRecognizerMetadata where
 
 instance Prelude.Hashable EntityRecognizerMetadata where
   hashWithSalt _salt EntityRecognizerMetadata' {..} =
-    _salt `Prelude.hashWithSalt` entityTypes
+    _salt
+      `Prelude.hashWithSalt` entityTypes
       `Prelude.hashWithSalt` evaluationMetrics
       `Prelude.hashWithSalt` numberOfTestDocuments
       `Prelude.hashWithSalt` numberOfTrainedDocuments

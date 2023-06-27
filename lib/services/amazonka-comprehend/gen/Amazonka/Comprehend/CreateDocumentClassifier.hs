@@ -22,10 +22,9 @@
 --
 -- Creates a new document classifier that you can use to categorize
 -- documents. To create a classifier, you provide a set of training
--- documents that labeled with the categories that you want to use. After
--- the classifier is trained you can use it to categorize a set of labeled
--- documents into the categories. For more information, see
--- <https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html Document Classification>
+-- documents that are labeled with the categories that you want to use. For
+-- more information, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/training-classifier-model.html Training classifier models>
 -- in the Comprehend Developer Guide.
 module Amazonka.Comprehend.CreateDocumentClassifier
   ( -- * Creating a Request
@@ -77,9 +76,8 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
     -- labels for an individual document are separated by a delimiter. The
     -- default delimiter between labels is a pipe (|).
     mode :: Prelude.Maybe DocumentClassifierMode,
-    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
-    -- of the following formats:
+    -- | ID for the KMS key that Amazon Comprehend uses to encrypt trained custom
+    -- models. The ModelKmsKeyId can be either of the following formats:
     --
     -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
@@ -87,8 +85,8 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
     modelKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The resource-based policy to attach to your custom document classifier
-    -- model. You can use this policy to allow another AWS account to import
-    -- your custom model.
+    -- model. You can use this policy to allow another Amazon Web Services
+    -- account to import your custom model.
     --
     -- Provide your policy as a JSON body that you enter as a UTF-8 encoded
     -- string without line breaks. To provide valid JSON, enclose the attribute
@@ -103,24 +101,25 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
     --
     -- @\'{\"attribute\": \"value\", \"attribute\": [\"value\"]}\'@
     modelPolicy :: Prelude.Maybe Prelude.Text,
-    -- | Enables the addition of output results configuration parameters for
-    -- custom classifier jobs.
+    -- | Specifies the location for the output files from a custom classifier
+    -- job. This parameter is required for a request that creates a native
+    -- classifier model.
     outputDataConfig :: Prelude.Maybe DocumentClassifierOutputDataConfig,
-    -- | Tags to be associated with the document classifier being created. A tag
-    -- is a key-value pair that adds as a metadata to a resource used by Amazon
-    -- Comprehend. For example, a tag with \"Sales\" as the key might be added
-    -- to a resource to indicate its use by the sales department.
+    -- | Tags to associate with the document classifier. A tag is a key-value
+    -- pair that adds as a metadata to a resource used by Amazon Comprehend.
+    -- For example, a tag with \"Sales\" as the key might be added to a
+    -- resource to indicate its use by the sales department.
     tags :: Prelude.Maybe [Tag],
     -- | The version name given to the newly created classifier. Version names
     -- can have a maximum of 256 characters. Alphanumeric characters, hyphens
     -- (-) and underscores (_) are allowed. The version name must be unique
-    -- among all models with the same classifier name in the account\/AWS
-    -- Region.
+    -- among all models with the same classifier name in the Amazon Web
+    -- Services account\/Amazon Web Services Region.
     versionName :: Prelude.Maybe Prelude.Text,
-    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt data on the storage volume attached to the ML compute
-    -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
-    -- either of the following formats:
+    -- | ID for the Amazon Web Services Key Management Service (KMS) key that
+    -- Amazon Comprehend uses to encrypt data on the storage volume attached to
+    -- the ML compute instance(s) that process the analysis job. The
+    -- VolumeKmsKeyId can be either of the following formats:
     --
     -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
@@ -134,15 +133,14 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
     vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The name of the document classifier.
     documentClassifierName :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
-    -- role that grants Amazon Comprehend read access to your input data.
+    -- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+    -- Comprehend read access to your input data.
     dataAccessRoleArn :: Prelude.Text,
     -- | Specifies the format and location of the input data for the job.
     inputDataConfig :: DocumentClassifierInputDataConfig,
     -- | The language of the input documents. You can specify any of the
-    -- following languages supported by Amazon Comprehend: German (\"de\"),
-    -- English (\"en\"), Spanish (\"es\"), French (\"fr\"), Italian (\"it\"),
-    -- or Portuguese (\"pt\"). All documents must be in the same language.
+    -- languages supported by Amazon Comprehend. All documents must be in the
+    -- same language.
     languageCode :: LanguageCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -165,9 +163,8 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
 -- labels for an individual document are separated by a delimiter. The
 -- default delimiter between labels is a pipe (|).
 --
--- 'modelKmsKeyId', 'createDocumentClassifier_modelKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt trained custom models. The ModelKmsKeyId can be either
--- of the following formats:
+-- 'modelKmsKeyId', 'createDocumentClassifier_modelKmsKeyId' - ID for the KMS key that Amazon Comprehend uses to encrypt trained custom
+-- models. The ModelKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -175,8 +172,8 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
 -- 'modelPolicy', 'createDocumentClassifier_modelPolicy' - The resource-based policy to attach to your custom document classifier
--- model. You can use this policy to allow another AWS account to import
--- your custom model.
+-- model. You can use this policy to allow another Amazon Web Services
+-- account to import your custom model.
 --
 -- Provide your policy as a JSON body that you enter as a UTF-8 encoded
 -- string without line breaks. To provide valid JSON, enclose the attribute
@@ -191,24 +188,25 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
 --
 -- @\'{\"attribute\": \"value\", \"attribute\": [\"value\"]}\'@
 --
--- 'outputDataConfig', 'createDocumentClassifier_outputDataConfig' - Enables the addition of output results configuration parameters for
--- custom classifier jobs.
+-- 'outputDataConfig', 'createDocumentClassifier_outputDataConfig' - Specifies the location for the output files from a custom classifier
+-- job. This parameter is required for a request that creates a native
+-- classifier model.
 --
--- 'tags', 'createDocumentClassifier_tags' - Tags to be associated with the document classifier being created. A tag
--- is a key-value pair that adds as a metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
+-- 'tags', 'createDocumentClassifier_tags' - Tags to associate with the document classifier. A tag is a key-value
+-- pair that adds as a metadata to a resource used by Amazon Comprehend.
+-- For example, a tag with \"Sales\" as the key might be added to a
+-- resource to indicate its use by the sales department.
 --
 -- 'versionName', 'createDocumentClassifier_versionName' - The version name given to the newly created classifier. Version names
 -- can have a maximum of 256 characters. Alphanumeric characters, hyphens
 -- (-) and underscores (_) are allowed. The version name must be unique
--- among all models with the same classifier name in the account\/AWS
--- Region.
+-- among all models with the same classifier name in the Amazon Web
+-- Services account\/Amazon Web Services Region.
 --
--- 'volumeKmsKeyId', 'createDocumentClassifier_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- 'volumeKmsKeyId', 'createDocumentClassifier_volumeKmsKeyId' - ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -222,15 +220,14 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
 --
 -- 'documentClassifierName', 'createDocumentClassifier_documentClassifierName' - The name of the document classifier.
 --
--- 'dataAccessRoleArn', 'createDocumentClassifier_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
--- role that grants Amazon Comprehend read access to your input data.
+-- 'dataAccessRoleArn', 'createDocumentClassifier_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 --
 -- 'inputDataConfig', 'createDocumentClassifier_inputDataConfig' - Specifies the format and location of the input data for the job.
 --
 -- 'languageCode', 'createDocumentClassifier_languageCode' - The language of the input documents. You can specify any of the
--- following languages supported by Amazon Comprehend: German (\"de\"),
--- English (\"en\"), Spanish (\"es\"), French (\"fr\"), Italian (\"it\"),
--- or Portuguese (\"pt\"). All documents must be in the same language.
+-- languages supported by Amazon Comprehend. All documents must be in the
+-- same language.
 newCreateDocumentClassifier ::
   -- | 'documentClassifierName'
   Prelude.Text ->
@@ -277,9 +274,8 @@ createDocumentClassifier_clientRequestToken = Lens.lens (\CreateDocumentClassifi
 createDocumentClassifier_mode :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe DocumentClassifierMode)
 createDocumentClassifier_mode = Lens.lens (\CreateDocumentClassifier' {mode} -> mode) (\s@CreateDocumentClassifier' {} a -> s {mode = a} :: CreateDocumentClassifier)
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt trained custom models. The ModelKmsKeyId can be either
--- of the following formats:
+-- | ID for the KMS key that Amazon Comprehend uses to encrypt trained custom
+-- models. The ModelKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -289,8 +285,8 @@ createDocumentClassifier_modelKmsKeyId :: Lens.Lens' CreateDocumentClassifier (P
 createDocumentClassifier_modelKmsKeyId = Lens.lens (\CreateDocumentClassifier' {modelKmsKeyId} -> modelKmsKeyId) (\s@CreateDocumentClassifier' {} a -> s {modelKmsKeyId = a} :: CreateDocumentClassifier)
 
 -- | The resource-based policy to attach to your custom document classifier
--- model. You can use this policy to allow another AWS account to import
--- your custom model.
+-- model. You can use this policy to allow another Amazon Web Services
+-- account to import your custom model.
 --
 -- Provide your policy as a JSON body that you enter as a UTF-8 encoded
 -- string without line breaks. To provide valid JSON, enclose the attribute
@@ -307,30 +303,31 @@ createDocumentClassifier_modelKmsKeyId = Lens.lens (\CreateDocumentClassifier' {
 createDocumentClassifier_modelPolicy :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
 createDocumentClassifier_modelPolicy = Lens.lens (\CreateDocumentClassifier' {modelPolicy} -> modelPolicy) (\s@CreateDocumentClassifier' {} a -> s {modelPolicy = a} :: CreateDocumentClassifier)
 
--- | Enables the addition of output results configuration parameters for
--- custom classifier jobs.
+-- | Specifies the location for the output files from a custom classifier
+-- job. This parameter is required for a request that creates a native
+-- classifier model.
 createDocumentClassifier_outputDataConfig :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe DocumentClassifierOutputDataConfig)
 createDocumentClassifier_outputDataConfig = Lens.lens (\CreateDocumentClassifier' {outputDataConfig} -> outputDataConfig) (\s@CreateDocumentClassifier' {} a -> s {outputDataConfig = a} :: CreateDocumentClassifier)
 
--- | Tags to be associated with the document classifier being created. A tag
--- is a key-value pair that adds as a metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
+-- | Tags to associate with the document classifier. A tag is a key-value
+-- pair that adds as a metadata to a resource used by Amazon Comprehend.
+-- For example, a tag with \"Sales\" as the key might be added to a
+-- resource to indicate its use by the sales department.
 createDocumentClassifier_tags :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe [Tag])
 createDocumentClassifier_tags = Lens.lens (\CreateDocumentClassifier' {tags} -> tags) (\s@CreateDocumentClassifier' {} a -> s {tags = a} :: CreateDocumentClassifier) Prelude.. Lens.mapping Lens.coerced
 
 -- | The version name given to the newly created classifier. Version names
 -- can have a maximum of 256 characters. Alphanumeric characters, hyphens
 -- (-) and underscores (_) are allowed. The version name must be unique
--- among all models with the same classifier name in the account\/AWS
--- Region.
+-- among all models with the same classifier name in the Amazon Web
+-- Services account\/Amazon Web Services Region.
 createDocumentClassifier_versionName :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
 createDocumentClassifier_versionName = Lens.lens (\CreateDocumentClassifier' {versionName} -> versionName) (\s@CreateDocumentClassifier' {} a -> s {versionName = a} :: CreateDocumentClassifier)
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- | ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -350,8 +347,8 @@ createDocumentClassifier_vpcConfig = Lens.lens (\CreateDocumentClassifier' {vpcC
 createDocumentClassifier_documentClassifierName :: Lens.Lens' CreateDocumentClassifier Prelude.Text
 createDocumentClassifier_documentClassifierName = Lens.lens (\CreateDocumentClassifier' {documentClassifierName} -> documentClassifierName) (\s@CreateDocumentClassifier' {} a -> s {documentClassifierName = a} :: CreateDocumentClassifier)
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
--- role that grants Amazon Comprehend read access to your input data.
+-- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 createDocumentClassifier_dataAccessRoleArn :: Lens.Lens' CreateDocumentClassifier Prelude.Text
 createDocumentClassifier_dataAccessRoleArn = Lens.lens (\CreateDocumentClassifier' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@CreateDocumentClassifier' {} a -> s {dataAccessRoleArn = a} :: CreateDocumentClassifier)
 
@@ -360,9 +357,8 @@ createDocumentClassifier_inputDataConfig :: Lens.Lens' CreateDocumentClassifier 
 createDocumentClassifier_inputDataConfig = Lens.lens (\CreateDocumentClassifier' {inputDataConfig} -> inputDataConfig) (\s@CreateDocumentClassifier' {} a -> s {inputDataConfig = a} :: CreateDocumentClassifier)
 
 -- | The language of the input documents. You can specify any of the
--- following languages supported by Amazon Comprehend: German (\"de\"),
--- English (\"en\"), Spanish (\"es\"), French (\"fr\"), Italian (\"it\"),
--- or Portuguese (\"pt\"). All documents must be in the same language.
+-- languages supported by Amazon Comprehend. All documents must be in the
+-- same language.
 createDocumentClassifier_languageCode :: Lens.Lens' CreateDocumentClassifier LanguageCode
 createDocumentClassifier_languageCode = Lens.lens (\CreateDocumentClassifier' {languageCode} -> languageCode) (\s@CreateDocumentClassifier' {} a -> s {languageCode = a} :: CreateDocumentClassifier)
 
@@ -382,7 +378,8 @@ instance Core.AWSRequest CreateDocumentClassifier where
 
 instance Prelude.Hashable CreateDocumentClassifier where
   hashWithSalt _salt CreateDocumentClassifier' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` modelKmsKeyId
       `Prelude.hashWithSalt` modelPolicy

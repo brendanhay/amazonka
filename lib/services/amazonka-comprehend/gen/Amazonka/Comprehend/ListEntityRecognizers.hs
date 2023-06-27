@@ -118,22 +118,22 @@ instance Core.AWSPager ListEntityRecognizers where
     | Core.stop
         ( rs
             Lens.^? listEntityRecognizersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listEntityRecognizersResponse_entityRecognizerPropertiesList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listEntityRecognizers_nextToken
           Lens..~ rs
           Lens.^? listEntityRecognizersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEntityRecognizers where
   type
@@ -145,7 +145,8 @@ instance Core.AWSRequest ListEntityRecognizers where
     Response.receiveJSON
       ( \s h x ->
           ListEntityRecognizersResponse'
-            Prelude.<$> ( x Data..?> "EntityRecognizerPropertiesList"
+            Prelude.<$> ( x
+                            Data..?> "EntityRecognizerPropertiesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -154,7 +155,8 @@ instance Core.AWSRequest ListEntityRecognizers where
 
 instance Prelude.Hashable ListEntityRecognizers where
   hashWithSalt _salt ListEntityRecognizers' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

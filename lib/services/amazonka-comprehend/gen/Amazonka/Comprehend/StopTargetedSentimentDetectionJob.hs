@@ -101,8 +101,8 @@ instance
       ( \s h x ->
           StopTargetedSentimentDetectionJobResponse'
             Prelude.<$> (x Data..?> "JobId")
-              Prelude.<*> (x Data..?> "JobStatus")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "JobStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

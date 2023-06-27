@@ -26,7 +26,8 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information for filtering a list of dominant language detection
--- jobs. For more information, see the operation.
+-- jobs. For more information, see the @ListTargetedSentimentDetectionJobs@
+-- operation.
 --
 -- /See:/ 'newTargetedSentimentDetectionJobFilter' smart constructor.
 data TargetedSentimentDetectionJobFilter = TargetedSentimentDetectionJobFilter'
@@ -105,7 +106,8 @@ instance
   hashWithSalt
     _salt
     TargetedSentimentDetectionJobFilter' {..} =
-      _salt `Prelude.hashWithSalt` jobName
+      _salt
+        `Prelude.hashWithSalt` jobName
         `Prelude.hashWithSalt` jobStatus
         `Prelude.hashWithSalt` submitTimeAfter
         `Prelude.hashWithSalt` submitTimeBefore

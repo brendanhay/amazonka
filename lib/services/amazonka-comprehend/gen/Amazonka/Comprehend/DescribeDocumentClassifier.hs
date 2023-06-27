@@ -50,7 +50,8 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDescribeDocumentClassifier' smart constructor.
 data DescribeDocumentClassifier = DescribeDocumentClassifier'
   { -- | The Amazon Resource Name (ARN) that identifies the document classifier.
-    -- The operation returns this identifier in its response.
+    -- The @CreateDocumentClassifier@ operation returns this identifier in its
+    -- response.
     documentClassifierArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,7 +65,8 @@ data DescribeDocumentClassifier = DescribeDocumentClassifier'
 -- for backwards compatibility:
 --
 -- 'documentClassifierArn', 'describeDocumentClassifier_documentClassifierArn' - The Amazon Resource Name (ARN) that identifies the document classifier.
--- The operation returns this identifier in its response.
+-- The @CreateDocumentClassifier@ operation returns this identifier in its
+-- response.
 newDescribeDocumentClassifier ::
   -- | 'documentClassifierArn'
   Prelude.Text ->
@@ -76,7 +78,8 @@ newDescribeDocumentClassifier pDocumentClassifierArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) that identifies the document classifier.
--- The operation returns this identifier in its response.
+-- The @CreateDocumentClassifier@ operation returns this identifier in its
+-- response.
 describeDocumentClassifier_documentClassifierArn :: Lens.Lens' DescribeDocumentClassifier Prelude.Text
 describeDocumentClassifier_documentClassifierArn = Lens.lens (\DescribeDocumentClassifier' {documentClassifierArn} -> documentClassifierArn) (\s@DescribeDocumentClassifier' {} a -> s {documentClassifierArn = a} :: DescribeDocumentClassifier)
 

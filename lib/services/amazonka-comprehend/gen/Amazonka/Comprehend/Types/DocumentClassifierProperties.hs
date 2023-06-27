@@ -39,13 +39,15 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
     -- documents used for training the classifier, the number of documents used
     -- for test the classifier, and an accuracy rating.
     classifierMetadata :: Prelude.Maybe (Data.Sensitive ClassifierMetadata),
-    -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
-    -- role that grants Amazon Comprehend read access to your input data.
+    -- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+    -- Comprehend read access to your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that identifies the document classifier.
     documentClassifierArn :: Prelude.Maybe Prelude.Text,
     -- | The time that training the document classifier completed.
     endTime :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Number (ARN) of the flywheel
+    flywheelArn :: Prelude.Maybe Prelude.Text,
     -- | The input data configuration that you supplied when you created the
     -- document classifier for training.
     inputDataConfig :: Prelude.Maybe DocumentClassifierInputDataConfig,
@@ -59,9 +61,8 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
     -- confusion matrix. Each classifier can only be trained in one mode and
     -- this cannot be changed once the classifier is trained.
     mode :: Prelude.Maybe DocumentClassifierMode,
-    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
-    -- of the following formats:
+    -- | ID for the KMS key that Amazon Comprehend uses to encrypt trained custom
+    -- models. The ModelKmsKeyId can be either of the following formats:
     --
     -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
@@ -72,13 +73,16 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
     -- jobs.
     outputDataConfig :: Prelude.Maybe DocumentClassifierOutputDataConfig,
     -- | The Amazon Resource Name (ARN) of the source model. This model was
-    -- imported from a different AWS account to create the document classifier
-    -- model in your AWS account.
+    -- imported from a different Amazon Web Services account to create the
+    -- document classifier model in your Amazon Web Services account.
     sourceModelArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the document classifier. If the status is @TRAINED@ the
-    -- classifier is ready to use. If the status is @FAILED@ you can see
-    -- additional information about why the classifier wasn\'t trained in the
-    -- @Message@ field.
+    -- classifier is ready to use. If the status is @TRAINED_WITH_WARNINGS@ the
+    -- classifier training succeeded, but you should review the warnings
+    -- returned in the @CreateDocumentClassifier@ response.
+    --
+    -- If the status is @FAILED@ you can see additional information about why
+    -- the classifier wasn\'t trained in the @Message@ field.
     status :: Prelude.Maybe ModelStatus,
     -- | The time that the document classifier was submitted for training.
     submitTime :: Prelude.Maybe Data.POSIX,
@@ -93,10 +97,10 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
     trainingStartTime :: Prelude.Maybe Data.POSIX,
     -- | The version name that you assigned to the document classifier.
     versionName :: Prelude.Maybe Prelude.Text,
-    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt data on the storage volume attached to the ML compute
-    -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
-    -- either of the following formats:
+    -- | ID for the Amazon Web Services Key Management Service (KMS) key that
+    -- Amazon Comprehend uses to encrypt data on the storage volume attached to
+    -- the ML compute instance(s) that process the analysis job. The
+    -- VolumeKmsKeyId can be either of the following formats:
     --
     -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
@@ -123,12 +127,14 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
 -- documents used for training the classifier, the number of documents used
 -- for test the classifier, and an accuracy rating.
 --
--- 'dataAccessRoleArn', 'documentClassifierProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
--- role that grants Amazon Comprehend read access to your input data.
+-- 'dataAccessRoleArn', 'documentClassifierProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 --
 -- 'documentClassifierArn', 'documentClassifierProperties_documentClassifierArn' - The Amazon Resource Name (ARN) that identifies the document classifier.
 --
 -- 'endTime', 'documentClassifierProperties_endTime' - The time that training the document classifier completed.
+--
+-- 'flywheelArn', 'documentClassifierProperties_flywheelArn' - The Amazon Resource Number (ARN) of the flywheel
 --
 -- 'inputDataConfig', 'documentClassifierProperties_inputDataConfig' - The input data configuration that you supplied when you created the
 -- document classifier for training.
@@ -143,9 +149,8 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
 -- confusion matrix. Each classifier can only be trained in one mode and
 -- this cannot be changed once the classifier is trained.
 --
--- 'modelKmsKeyId', 'documentClassifierProperties_modelKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt trained custom models. The ModelKmsKeyId can be either
--- of the following formats:
+-- 'modelKmsKeyId', 'documentClassifierProperties_modelKmsKeyId' - ID for the KMS key that Amazon Comprehend uses to encrypt trained custom
+-- models. The ModelKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -156,13 +161,16 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
 -- jobs.
 --
 -- 'sourceModelArn', 'documentClassifierProperties_sourceModelArn' - The Amazon Resource Name (ARN) of the source model. This model was
--- imported from a different AWS account to create the document classifier
--- model in your AWS account.
+-- imported from a different Amazon Web Services account to create the
+-- document classifier model in your Amazon Web Services account.
 --
 -- 'status', 'documentClassifierProperties_status' - The status of the document classifier. If the status is @TRAINED@ the
--- classifier is ready to use. If the status is @FAILED@ you can see
--- additional information about why the classifier wasn\'t trained in the
--- @Message@ field.
+-- classifier is ready to use. If the status is @TRAINED_WITH_WARNINGS@ the
+-- classifier training succeeded, but you should review the warnings
+-- returned in the @CreateDocumentClassifier@ response.
+--
+-- If the status is @FAILED@ you can see additional information about why
+-- the classifier wasn\'t trained in the @Message@ field.
 --
 -- 'submitTime', 'documentClassifierProperties_submitTime' - The time that the document classifier was submitted for training.
 --
@@ -177,10 +185,10 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
 --
 -- 'versionName', 'documentClassifierProperties_versionName' - The version name that you assigned to the document classifier.
 --
--- 'volumeKmsKeyId', 'documentClassifierProperties_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- 'volumeKmsKeyId', 'documentClassifierProperties_volumeKmsKeyId' - ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -200,6 +208,7 @@ newDocumentClassifierProperties =
       dataAccessRoleArn = Prelude.Nothing,
       documentClassifierArn = Prelude.Nothing,
       endTime = Prelude.Nothing,
+      flywheelArn = Prelude.Nothing,
       inputDataConfig = Prelude.Nothing,
       languageCode = Prelude.Nothing,
       message = Prelude.Nothing,
@@ -222,8 +231,8 @@ newDocumentClassifierProperties =
 documentClassifierProperties_classifierMetadata :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe ClassifierMetadata)
 documentClassifierProperties_classifierMetadata = Lens.lens (\DocumentClassifierProperties' {classifierMetadata} -> classifierMetadata) (\s@DocumentClassifierProperties' {} a -> s {classifierMetadata = a} :: DocumentClassifierProperties) Prelude.. Lens.mapping Data._Sensitive
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
--- role that grants Amazon Comprehend read access to your input data.
+-- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 documentClassifierProperties_dataAccessRoleArn :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe Prelude.Text)
 documentClassifierProperties_dataAccessRoleArn = Lens.lens (\DocumentClassifierProperties' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@DocumentClassifierProperties' {} a -> s {dataAccessRoleArn = a} :: DocumentClassifierProperties)
 
@@ -234,6 +243,10 @@ documentClassifierProperties_documentClassifierArn = Lens.lens (\DocumentClassif
 -- | The time that training the document classifier completed.
 documentClassifierProperties_endTime :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe Prelude.UTCTime)
 documentClassifierProperties_endTime = Lens.lens (\DocumentClassifierProperties' {endTime} -> endTime) (\s@DocumentClassifierProperties' {} a -> s {endTime = a} :: DocumentClassifierProperties) Prelude.. Lens.mapping Data._Time
+
+-- | The Amazon Resource Number (ARN) of the flywheel
+documentClassifierProperties_flywheelArn :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe Prelude.Text)
+documentClassifierProperties_flywheelArn = Lens.lens (\DocumentClassifierProperties' {flywheelArn} -> flywheelArn) (\s@DocumentClassifierProperties' {} a -> s {flywheelArn = a} :: DocumentClassifierProperties)
 
 -- | The input data configuration that you supplied when you created the
 -- document classifier for training.
@@ -256,9 +269,8 @@ documentClassifierProperties_message = Lens.lens (\DocumentClassifierProperties'
 documentClassifierProperties_mode :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe DocumentClassifierMode)
 documentClassifierProperties_mode = Lens.lens (\DocumentClassifierProperties' {mode} -> mode) (\s@DocumentClassifierProperties' {} a -> s {mode = a} :: DocumentClassifierProperties)
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt trained custom models. The ModelKmsKeyId can be either
--- of the following formats:
+-- | ID for the KMS key that Amazon Comprehend uses to encrypt trained custom
+-- models. The ModelKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -273,15 +285,18 @@ documentClassifierProperties_outputDataConfig :: Lens.Lens' DocumentClassifierPr
 documentClassifierProperties_outputDataConfig = Lens.lens (\DocumentClassifierProperties' {outputDataConfig} -> outputDataConfig) (\s@DocumentClassifierProperties' {} a -> s {outputDataConfig = a} :: DocumentClassifierProperties)
 
 -- | The Amazon Resource Name (ARN) of the source model. This model was
--- imported from a different AWS account to create the document classifier
--- model in your AWS account.
+-- imported from a different Amazon Web Services account to create the
+-- document classifier model in your Amazon Web Services account.
 documentClassifierProperties_sourceModelArn :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe Prelude.Text)
 documentClassifierProperties_sourceModelArn = Lens.lens (\DocumentClassifierProperties' {sourceModelArn} -> sourceModelArn) (\s@DocumentClassifierProperties' {} a -> s {sourceModelArn = a} :: DocumentClassifierProperties)
 
 -- | The status of the document classifier. If the status is @TRAINED@ the
--- classifier is ready to use. If the status is @FAILED@ you can see
--- additional information about why the classifier wasn\'t trained in the
--- @Message@ field.
+-- classifier is ready to use. If the status is @TRAINED_WITH_WARNINGS@ the
+-- classifier training succeeded, but you should review the warnings
+-- returned in the @CreateDocumentClassifier@ response.
+--
+-- If the status is @FAILED@ you can see additional information about why
+-- the classifier wasn\'t trained in the @Message@ field.
 documentClassifierProperties_status :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe ModelStatus)
 documentClassifierProperties_status = Lens.lens (\DocumentClassifierProperties' {status} -> status) (\s@DocumentClassifierProperties' {} a -> s {status = a} :: DocumentClassifierProperties)
 
@@ -306,10 +321,10 @@ documentClassifierProperties_trainingStartTime = Lens.lens (\DocumentClassifierP
 documentClassifierProperties_versionName :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe Prelude.Text)
 documentClassifierProperties_versionName = Lens.lens (\DocumentClassifierProperties' {versionName} -> versionName) (\s@DocumentClassifierProperties' {} a -> s {versionName = a} :: DocumentClassifierProperties)
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- | ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -335,6 +350,7 @@ instance Data.FromJSON DocumentClassifierProperties where
             Prelude.<*> (x Data..:? "DataAccessRoleArn")
             Prelude.<*> (x Data..:? "DocumentClassifierArn")
             Prelude.<*> (x Data..:? "EndTime")
+            Prelude.<*> (x Data..:? "FlywheelArn")
             Prelude.<*> (x Data..:? "InputDataConfig")
             Prelude.<*> (x Data..:? "LanguageCode")
             Prelude.<*> (x Data..:? "Message")
@@ -356,10 +372,12 @@ instance
     DocumentClassifierProperties
   where
   hashWithSalt _salt DocumentClassifierProperties' {..} =
-    _salt `Prelude.hashWithSalt` classifierMetadata
+    _salt
+      `Prelude.hashWithSalt` classifierMetadata
       `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` documentClassifierArn
       `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` flywheelArn
       `Prelude.hashWithSalt` inputDataConfig
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` message
@@ -381,6 +399,7 @@ instance Prelude.NFData DocumentClassifierProperties where
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
       `Prelude.seq` Prelude.rnf documentClassifierArn
       `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf flywheelArn
       `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf message

@@ -32,8 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDominantLanguageDetectionJobProperties' smart constructor.
 data DominantLanguageDetectionJobProperties = DominantLanguageDetectionJobProperties'
-  { -- | The Amazon Resource Name (ARN) that gives Amazon Comprehend read access
-    -- to your input data.
+  { -- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+    -- Comprehend read access to your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the dominant language detection job completed.
     endTime :: Prelude.Maybe Data.POSIX,
@@ -42,8 +42,8 @@ data DominantLanguageDetectionJobProperties = DominantLanguageDetectionJobProper
     inputDataConfig :: Prelude.Maybe InputDataConfig,
     -- | The Amazon Resource Name (ARN) of the dominant language detection job.
     -- It is a unique, fully qualified identifier for the job. It includes the
-    -- AWS account, Region, and the job ID. The format of the ARN is as
-    -- follows:
+    -- Amazon Web Services account, Amazon Web Services Region, and the job ID.
+    -- The format of the ARN is as follows:
     --
     -- @arn:\<partition>:comprehend:\<region>:\<account-id>:dominant-language-detection-job\/\<job-id>@
     --
@@ -66,10 +66,10 @@ data DominantLanguageDetectionJobProperties = DominantLanguageDetectionJobProper
     -- | The time that the dominant language detection job was submitted for
     -- processing.
     submitTime :: Prelude.Maybe Data.POSIX,
-    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt data on the storage volume attached to the ML compute
-    -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
-    -- either of the following formats:
+    -- | ID for the Amazon Web Services Key Management Service (KMS) key that
+    -- Amazon Comprehend uses to encrypt data on the storage volume attached to
+    -- the ML compute instance(s) that process the analysis job. The
+    -- VolumeKmsKeyId can be either of the following formats:
     --
     -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
@@ -92,8 +92,8 @@ data DominantLanguageDetectionJobProperties = DominantLanguageDetectionJobProper
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataAccessRoleArn', 'dominantLanguageDetectionJobProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) that gives Amazon Comprehend read access
--- to your input data.
+-- 'dataAccessRoleArn', 'dominantLanguageDetectionJobProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 --
 -- 'endTime', 'dominantLanguageDetectionJobProperties_endTime' - The time that the dominant language detection job completed.
 --
@@ -102,8 +102,8 @@ data DominantLanguageDetectionJobProperties = DominantLanguageDetectionJobProper
 --
 -- 'jobArn', 'dominantLanguageDetectionJobProperties_jobArn' - The Amazon Resource Name (ARN) of the dominant language detection job.
 -- It is a unique, fully qualified identifier for the job. It includes the
--- AWS account, Region, and the job ID. The format of the ARN is as
--- follows:
+-- Amazon Web Services account, Amazon Web Services Region, and the job ID.
+-- The format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:dominant-language-detection-job\/\<job-id>@
 --
@@ -126,10 +126,10 @@ data DominantLanguageDetectionJobProperties = DominantLanguageDetectionJobProper
 -- 'submitTime', 'dominantLanguageDetectionJobProperties_submitTime' - The time that the dominant language detection job was submitted for
 -- processing.
 --
--- 'volumeKmsKeyId', 'dominantLanguageDetectionJobProperties_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- 'volumeKmsKeyId', 'dominantLanguageDetectionJobProperties_volumeKmsKeyId' - ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -159,8 +159,8 @@ newDominantLanguageDetectionJobProperties =
       vpcConfig = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) that gives Amazon Comprehend read access
--- to your input data.
+-- | The Amazon Resource Name (ARN) of the IAM role that grants Amazon
+-- Comprehend read access to your input data.
 dominantLanguageDetectionJobProperties_dataAccessRoleArn :: Lens.Lens' DominantLanguageDetectionJobProperties (Prelude.Maybe Prelude.Text)
 dominantLanguageDetectionJobProperties_dataAccessRoleArn = Lens.lens (\DominantLanguageDetectionJobProperties' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@DominantLanguageDetectionJobProperties' {} a -> s {dataAccessRoleArn = a} :: DominantLanguageDetectionJobProperties)
 
@@ -175,8 +175,8 @@ dominantLanguageDetectionJobProperties_inputDataConfig = Lens.lens (\DominantLan
 
 -- | The Amazon Resource Name (ARN) of the dominant language detection job.
 -- It is a unique, fully qualified identifier for the job. It includes the
--- AWS account, Region, and the job ID. The format of the ARN is as
--- follows:
+-- Amazon Web Services account, Amazon Web Services Region, and the job ID.
+-- The format of the ARN is as follows:
 --
 -- @arn:\<partition>:comprehend:\<region>:\<account-id>:dominant-language-detection-job\/\<job-id>@
 --
@@ -213,10 +213,10 @@ dominantLanguageDetectionJobProperties_outputDataConfig = Lens.lens (\DominantLa
 dominantLanguageDetectionJobProperties_submitTime :: Lens.Lens' DominantLanguageDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
 dominantLanguageDetectionJobProperties_submitTime = Lens.lens (\DominantLanguageDetectionJobProperties' {submitTime} -> submitTime) (\s@DominantLanguageDetectionJobProperties' {} a -> s {submitTime = a} :: DominantLanguageDetectionJobProperties) Prelude.. Lens.mapping Data._Time
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
+-- | ID for the Amazon Web Services Key Management Service (KMS) key that
+-- Amazon Comprehend uses to encrypt data on the storage volume attached to
+-- the ML compute instance(s) that process the analysis job. The
+-- VolumeKmsKeyId can be either of the following formats:
 --
 -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
@@ -262,7 +262,8 @@ instance
   hashWithSalt
     _salt
     DominantLanguageDetectionJobProperties' {..} =
-      _salt `Prelude.hashWithSalt` dataAccessRoleArn
+      _salt
+        `Prelude.hashWithSalt` dataAccessRoleArn
         `Prelude.hashWithSalt` endTime
         `Prelude.hashWithSalt` inputDataConfig
         `Prelude.hashWithSalt` jobArn

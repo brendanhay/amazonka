@@ -140,7 +140,8 @@ instance Core.AWSRequest UpdateBackendStorage where
 
 instance Prelude.Hashable UpdateBackendStorage where
   hashWithSalt _salt UpdateBackendStorage' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` backendEnvironmentName
       `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` resourceConfig

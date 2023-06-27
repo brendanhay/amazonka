@@ -140,7 +140,8 @@ instance Core.AWSRequest CreateBackendStorage where
 
 instance Prelude.Hashable CreateBackendStorage where
   hashWithSalt _salt CreateBackendStorage' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` backendEnvironmentName
       `Prelude.hashWithSalt` resourceConfig

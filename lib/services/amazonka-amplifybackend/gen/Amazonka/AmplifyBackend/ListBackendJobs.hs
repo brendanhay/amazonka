@@ -154,21 +154,22 @@ instance Core.AWSPager ListBackendJobs where
     | Core.stop
         ( rs
             Lens.^? listBackendJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listBackendJobsResponse_jobs Prelude.. Lens._Just
+            Lens.^? listBackendJobsResponse_jobs
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBackendJobs_nextToken
           Lens..~ rs
           Lens.^? listBackendJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBackendJobs where
   type
@@ -187,7 +188,8 @@ instance Core.AWSRequest ListBackendJobs where
 
 instance Prelude.Hashable ListBackendJobs where
   hashWithSalt _salt ListBackendJobs' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` operation

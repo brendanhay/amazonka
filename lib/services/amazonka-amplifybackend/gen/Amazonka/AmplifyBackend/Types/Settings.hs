@@ -76,7 +76,8 @@ instance Data.FromJSON Settings where
 
 instance Prelude.Hashable Settings where
   hashWithSalt _salt Settings' {..} =
-    _salt `Prelude.hashWithSalt` mfaTypes
+    _salt
+      `Prelude.hashWithSalt` mfaTypes
       `Prelude.hashWithSalt` smsMessage
 
 instance Prelude.NFData Settings where

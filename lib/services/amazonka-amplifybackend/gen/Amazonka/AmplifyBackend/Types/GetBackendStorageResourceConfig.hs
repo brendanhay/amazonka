@@ -111,7 +111,8 @@ instance
   hashWithSalt
     _salt
     GetBackendStorageResourceConfig' {..} =
-      _salt `Prelude.hashWithSalt` bucketName
+      _salt
+        `Prelude.hashWithSalt` bucketName
         `Prelude.hashWithSalt` permissions
         `Prelude.hashWithSalt` serviceName
         `Prelude.hashWithSalt` imported

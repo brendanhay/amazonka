@@ -129,7 +129,8 @@ instance Core.AWSRequest GetBackendAuth where
 
 instance Prelude.Hashable GetBackendAuth where
   hashWithSalt _salt GetBackendAuth' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` backendEnvironmentName
       `Prelude.hashWithSalt` resourceName
 

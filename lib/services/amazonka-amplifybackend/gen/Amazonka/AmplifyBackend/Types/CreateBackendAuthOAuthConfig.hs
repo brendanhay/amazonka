@@ -118,10 +118,12 @@ instance Data.FromJSON CreateBackendAuthOAuthConfig where
           CreateBackendAuthOAuthConfig'
             Prelude.<$> (x Data..:? "domainPrefix")
             Prelude.<*> (x Data..:? "socialProviderSettings")
-            Prelude.<*> ( x Data..:? "redirectSignOutURIs"
+            Prelude.<*> ( x
+                            Data..:? "redirectSignOutURIs"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "redirectSignInURIs"
+            Prelude.<*> ( x
+                            Data..:? "redirectSignInURIs"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "oAuthGrantType")
@@ -133,7 +135,8 @@ instance
     CreateBackendAuthOAuthConfig
   where
   hashWithSalt _salt CreateBackendAuthOAuthConfig' {..} =
-    _salt `Prelude.hashWithSalt` domainPrefix
+    _salt
+      `Prelude.hashWithSalt` domainPrefix
       `Prelude.hashWithSalt` socialProviderSettings
       `Prelude.hashWithSalt` redirectSignOutURIs
       `Prelude.hashWithSalt` redirectSignInURIs

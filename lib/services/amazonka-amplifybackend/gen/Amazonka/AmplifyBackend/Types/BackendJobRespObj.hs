@@ -138,7 +138,8 @@ instance Data.FromJSON BackendJobRespObj where
 
 instance Prelude.Hashable BackendJobRespObj where
   hashWithSalt _salt BackendJobRespObj' {..} =
-    _salt `Prelude.hashWithSalt` createTime
+    _salt
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` operation

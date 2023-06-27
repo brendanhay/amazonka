@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteToken where
 
 instance Prelude.Hashable DeleteToken where
   hashWithSalt _salt DeleteToken' {..} =
-    _salt `Prelude.hashWithSalt` sessionId
+    _salt
+      `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` appId
 
 instance Prelude.NFData DeleteToken where

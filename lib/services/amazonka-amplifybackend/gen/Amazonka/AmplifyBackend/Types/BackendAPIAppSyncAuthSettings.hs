@@ -157,7 +157,8 @@ instance
     BackendAPIAppSyncAuthSettings
   where
   hashWithSalt _salt BackendAPIAppSyncAuthSettings' {..} =
-    _salt `Prelude.hashWithSalt` cognitoUserPoolId
+    _salt
+      `Prelude.hashWithSalt` cognitoUserPoolId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` expirationTime
       `Prelude.hashWithSalt` openIDAuthTTL

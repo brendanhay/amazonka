@@ -93,7 +93,8 @@ instance Data.FromJSON SocialProviderSettings where
 
 instance Prelude.Hashable SocialProviderSettings where
   hashWithSalt _salt SocialProviderSettings' {..} =
-    _salt `Prelude.hashWithSalt` facebook
+    _salt
+      `Prelude.hashWithSalt` facebook
       `Prelude.hashWithSalt` google
       `Prelude.hashWithSalt` loginWithAmazon
       `Prelude.hashWithSalt` signInWithApple

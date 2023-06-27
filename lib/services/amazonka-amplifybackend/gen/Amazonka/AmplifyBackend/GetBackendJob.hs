@@ -133,7 +133,8 @@ instance Core.AWSRequest GetBackendJob where
 
 instance Prelude.Hashable GetBackendJob where
   hashWithSalt _salt GetBackendJob' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` backendEnvironmentName
       `Prelude.hashWithSalt` jobId
 

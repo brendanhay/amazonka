@@ -161,7 +161,8 @@ instance Core.AWSRequest UpdateBackendJob where
 
 instance Prelude.Hashable UpdateBackendJob where
   hashWithSalt _salt UpdateBackendJob' {..} =
-    _salt `Prelude.hashWithSalt` operation
+    _salt
+      `Prelude.hashWithSalt` operation
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` backendEnvironmentName

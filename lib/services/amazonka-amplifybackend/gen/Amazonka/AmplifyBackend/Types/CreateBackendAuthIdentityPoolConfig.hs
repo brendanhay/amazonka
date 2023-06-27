@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     CreateBackendAuthIdentityPoolConfig' {..} =
-      _salt `Prelude.hashWithSalt` unauthenticatedLogin
+      _salt
+        `Prelude.hashWithSalt` unauthenticatedLogin
         `Prelude.hashWithSalt` identityPoolName
 
 instance

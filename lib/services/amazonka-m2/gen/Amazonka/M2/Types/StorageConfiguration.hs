@@ -70,12 +70,14 @@ instance Data.FromJSON StorageConfiguration where
       "StorageConfiguration"
       ( \x ->
           StorageConfiguration'
-            Prelude.<$> (x Data..:? "efs") Prelude.<*> (x Data..:? "fsx")
+            Prelude.<$> (x Data..:? "efs")
+            Prelude.<*> (x Data..:? "fsx")
       )
 
 instance Prelude.Hashable StorageConfiguration where
   hashWithSalt _salt StorageConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` efs
+    _salt
+      `Prelude.hashWithSalt` efs
       `Prelude.hashWithSalt` fsx
 
 instance Prelude.NFData StorageConfiguration where

@@ -114,7 +114,11 @@ library
     Amazonka.M2.Types.LogGroupSummary
     Amazonka.M2.Types.MaintenanceSchedule
     Amazonka.M2.Types.PendingMaintenance
+    Amazonka.M2.Types.PoAttributes
+    Amazonka.M2.Types.PoDetailAttributes
     Amazonka.M2.Types.PrimaryKey
+    Amazonka.M2.Types.PsAttributes
+    Amazonka.M2.Types.PsDetailAttributes
     Amazonka.M2.Types.RecordLength
     Amazonka.M2.Types.ScriptBatchJobDefinition
     Amazonka.M2.Types.ScriptBatchJobIdentifier

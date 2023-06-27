@@ -70,7 +70,8 @@ dataSetImportItem_externalLocation = Lens.lens (\DataSetImportItem' {externalLoc
 
 instance Prelude.Hashable DataSetImportItem where
   hashWithSalt _salt DataSetImportItem' {..} =
-    _salt `Prelude.hashWithSalt` dataSet
+    _salt
+      `Prelude.hashWithSalt` dataSet
       `Prelude.hashWithSalt` externalLocation
 
 instance Prelude.NFData DataSetImportItem where

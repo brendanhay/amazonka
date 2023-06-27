@@ -23,6 +23,7 @@ module Amazonka.M2.Lens
     createApplication_clientToken,
     createApplication_description,
     createApplication_kmsKeyId,
+    createApplication_roleArn,
     createApplication_tags,
     createApplication_definition,
     createApplication_engineType,
@@ -89,6 +90,7 @@ module Amazonka.M2.Lens
     getApplicationResponse_listenerPorts,
     getApplicationResponse_loadBalancerDnsName,
     getApplicationResponse_logGroups,
+    getApplicationResponse_roleArn,
     getApplicationResponse_statusReason,
     getApplicationResponse_tags,
     getApplicationResponse_targetGroupArns,
@@ -116,11 +118,13 @@ module Amazonka.M2.Lens
     -- ** GetBatchJobExecution
     getBatchJobExecution_applicationId,
     getBatchJobExecution_executionId,
+    getBatchJobExecutionResponse_batchJobIdentifier,
     getBatchJobExecutionResponse_endTime,
     getBatchJobExecutionResponse_jobId,
     getBatchJobExecutionResponse_jobName,
     getBatchJobExecutionResponse_jobType,
     getBatchJobExecutionResponse_jobUser,
+    getBatchJobExecutionResponse_returnCode,
     getBatchJobExecutionResponse_statusReason,
     getBatchJobExecutionResponse_httpStatus,
     getBatchJobExecutionResponse_applicationId,
@@ -330,6 +334,7 @@ module Amazonka.M2.Lens
     applicationSummary_description,
     applicationSummary_environmentId,
     applicationSummary_lastStartTime,
+    applicationSummary_roleArn,
     applicationSummary_versionStatus,
     applicationSummary_applicationArn,
     applicationSummary_applicationId,
@@ -350,10 +355,12 @@ module Amazonka.M2.Lens
     batchJobDefinition_scriptBatchJobDefinition,
 
     -- ** BatchJobExecutionSummary
+    batchJobExecutionSummary_batchJobIdentifier,
     batchJobExecutionSummary_endTime,
     batchJobExecutionSummary_jobId,
     batchJobExecutionSummary_jobName,
     batchJobExecutionSummary_jobType,
+    batchJobExecutionSummary_returnCode,
     batchJobExecutionSummary_applicationId,
     batchJobExecutionSummary_executionId,
     batchJobExecutionSummary_startTime,
@@ -400,10 +407,14 @@ module Amazonka.M2.Lens
 
     -- ** DatasetDetailOrgAttributes
     datasetDetailOrgAttributes_gdg,
+    datasetDetailOrgAttributes_po,
+    datasetDetailOrgAttributes_ps,
     datasetDetailOrgAttributes_vsam,
 
     -- ** DatasetOrgAttributes
     datasetOrgAttributes_gdg,
+    datasetOrgAttributes_po,
+    datasetOrgAttributes_ps,
     datasetOrgAttributes_vsam,
 
     -- ** Definition
@@ -480,10 +491,27 @@ module Amazonka.M2.Lens
     pendingMaintenance_engineVersion,
     pendingMaintenance_schedule,
 
+    -- ** PoAttributes
+    poAttributes_encoding,
+    poAttributes_format,
+    poAttributes_memberFileExtensions,
+
+    -- ** PoDetailAttributes
+    poDetailAttributes_encoding,
+    poDetailAttributes_format,
+
     -- ** PrimaryKey
     primaryKey_name,
     primaryKey_length,
     primaryKey_offset,
+
+    -- ** PsAttributes
+    psAttributes_encoding,
+    psAttributes_format,
+
+    -- ** PsDetailAttributes
+    psDetailAttributes_encoding,
+    psDetailAttributes_format,
 
     -- ** RecordLength
     recordLength_max,
@@ -575,7 +603,11 @@ import Amazonka.M2.Types.HighAvailabilityConfig
 import Amazonka.M2.Types.LogGroupSummary
 import Amazonka.M2.Types.MaintenanceSchedule
 import Amazonka.M2.Types.PendingMaintenance
+import Amazonka.M2.Types.PoAttributes
+import Amazonka.M2.Types.PoDetailAttributes
 import Amazonka.M2.Types.PrimaryKey
+import Amazonka.M2.Types.PsAttributes
+import Amazonka.M2.Types.PsDetailAttributes
 import Amazonka.M2.Types.RecordLength
 import Amazonka.M2.Types.ScriptBatchJobDefinition
 import Amazonka.M2.Types.ScriptBatchJobIdentifier

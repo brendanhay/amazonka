@@ -114,7 +114,8 @@ instance Core.AWSRequest GetEnvironment where
             Prelude.<*> (x Data..?> "preferredMaintenanceWindow")
             Prelude.<*> (x Data..?> "publiclyAccessible")
             Prelude.<*> (x Data..?> "statusReason")
-            Prelude.<*> ( x Data..?> "storageConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "storageConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
@@ -126,7 +127,8 @@ instance Core.AWSRequest GetEnvironment where
             Prelude.<*> (x Data..:> "environmentId")
             Prelude.<*> (x Data..:> "instanceType")
             Prelude.<*> (x Data..:> "name")
-            Prelude.<*> ( x Data..?> "securityGroupIds"
+            Prelude.<*> ( x
+                            Data..?> "securityGroupIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..:> "status")

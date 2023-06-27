@@ -57,6 +57,15 @@ newScriptBatchJobIdentifier pScriptName_ =
 scriptBatchJobIdentifier_scriptName :: Lens.Lens' ScriptBatchJobIdentifier Prelude.Text
 scriptBatchJobIdentifier_scriptName = Lens.lens (\ScriptBatchJobIdentifier' {scriptName} -> scriptName) (\s@ScriptBatchJobIdentifier' {} a -> s {scriptName = a} :: ScriptBatchJobIdentifier)
 
+instance Data.FromJSON ScriptBatchJobIdentifier where
+  parseJSON =
+    Data.withObject
+      "ScriptBatchJobIdentifier"
+      ( \x ->
+          ScriptBatchJobIdentifier'
+            Prelude.<$> (x Data..: "scriptName")
+      )
+
 instance Prelude.Hashable ScriptBatchJobIdentifier where
   hashWithSalt _salt ScriptBatchJobIdentifier' {..} =
     _salt `Prelude.hashWithSalt` scriptName

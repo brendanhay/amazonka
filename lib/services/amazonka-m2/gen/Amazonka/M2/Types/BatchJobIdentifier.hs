@@ -68,9 +68,20 @@ batchJobIdentifier_fileBatchJobIdentifier = Lens.lens (\BatchJobIdentifier' {fil
 batchJobIdentifier_scriptBatchJobIdentifier :: Lens.Lens' BatchJobIdentifier (Prelude.Maybe ScriptBatchJobIdentifier)
 batchJobIdentifier_scriptBatchJobIdentifier = Lens.lens (\BatchJobIdentifier' {scriptBatchJobIdentifier} -> scriptBatchJobIdentifier) (\s@BatchJobIdentifier' {} a -> s {scriptBatchJobIdentifier = a} :: BatchJobIdentifier)
 
+instance Data.FromJSON BatchJobIdentifier where
+  parseJSON =
+    Data.withObject
+      "BatchJobIdentifier"
+      ( \x ->
+          BatchJobIdentifier'
+            Prelude.<$> (x Data..:? "fileBatchJobIdentifier")
+            Prelude.<*> (x Data..:? "scriptBatchJobIdentifier")
+      )
+
 instance Prelude.Hashable BatchJobIdentifier where
   hashWithSalt _salt BatchJobIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` fileBatchJobIdentifier
+    _salt
+      `Prelude.hashWithSalt` fileBatchJobIdentifier
       `Prelude.hashWithSalt` scriptBatchJobIdentifier
 
 instance Prelude.NFData BatchJobIdentifier where

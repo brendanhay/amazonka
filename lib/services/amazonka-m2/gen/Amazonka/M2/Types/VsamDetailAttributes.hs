@@ -135,7 +135,8 @@ instance Data.FromJSON VsamDetailAttributes where
 
 instance Prelude.Hashable VsamDetailAttributes where
   hashWithSalt _salt VsamDetailAttributes' {..} =
-    _salt `Prelude.hashWithSalt` alternateKeys
+    _salt
+      `Prelude.hashWithSalt` alternateKeys
       `Prelude.hashWithSalt` cacheAtStartup
       `Prelude.hashWithSalt` compressed
       `Prelude.hashWithSalt` encoding

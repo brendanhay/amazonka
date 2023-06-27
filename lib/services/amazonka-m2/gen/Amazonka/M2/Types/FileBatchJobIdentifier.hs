@@ -66,9 +66,20 @@ fileBatchJobIdentifier_folderPath = Lens.lens (\FileBatchJobIdentifier' {folderP
 fileBatchJobIdentifier_fileName :: Lens.Lens' FileBatchJobIdentifier Prelude.Text
 fileBatchJobIdentifier_fileName = Lens.lens (\FileBatchJobIdentifier' {fileName} -> fileName) (\s@FileBatchJobIdentifier' {} a -> s {fileName = a} :: FileBatchJobIdentifier)
 
+instance Data.FromJSON FileBatchJobIdentifier where
+  parseJSON =
+    Data.withObject
+      "FileBatchJobIdentifier"
+      ( \x ->
+          FileBatchJobIdentifier'
+            Prelude.<$> (x Data..:? "folderPath")
+            Prelude.<*> (x Data..: "fileName")
+      )
+
 instance Prelude.Hashable FileBatchJobIdentifier where
   hashWithSalt _salt FileBatchJobIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` folderPath
+    _salt
+      `Prelude.hashWithSalt` folderPath
       `Prelude.hashWithSalt` fileName
 
 instance Prelude.NFData FileBatchJobIdentifier where

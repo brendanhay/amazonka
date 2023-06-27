@@ -31,6 +31,7 @@ module Amazonka.M2.CreateApplication
     createApplication_clientToken,
     createApplication_description,
     createApplication_kmsKeyId,
+    createApplication_roleArn,
     createApplication_tags,
     createApplication_definition,
     createApplication_engineType,
@@ -69,6 +70,9 @@ data CreateApplication = CreateApplication'
     description :: Prelude.Maybe Prelude.Text,
     -- | The identifier of a customer managed key.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the role associated with the
+    -- application.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | A list of tags to apply to the application.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The application definition for this application. You can specify either
@@ -100,6 +104,9 @@ data CreateApplication = CreateApplication'
 --
 -- 'kmsKeyId', 'createApplication_kmsKeyId' - The identifier of a customer managed key.
 --
+-- 'roleArn', 'createApplication_roleArn' - The Amazon Resource Name (ARN) of the role associated with the
+-- application.
+--
 -- 'tags', 'createApplication_tags' - A list of tags to apply to the application.
 --
 -- 'definition', 'createApplication_definition' - The application definition for this application. You can specify either
@@ -121,6 +128,7 @@ newCreateApplication pDefinition_ pEngineType_ pName_ =
     { clientToken = Prelude.Nothing,
       description = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       tags = Prelude.Nothing,
       definition = pDefinition_,
       engineType = pEngineType_,
@@ -143,6 +151,11 @@ createApplication_description = Lens.lens (\CreateApplication' {description} -> 
 -- | The identifier of a customer managed key.
 createApplication_kmsKeyId :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
 createApplication_kmsKeyId = Lens.lens (\CreateApplication' {kmsKeyId} -> kmsKeyId) (\s@CreateApplication' {} a -> s {kmsKeyId = a} :: CreateApplication)
+
+-- | The Amazon Resource Name (ARN) of the role associated with the
+-- application.
+createApplication_roleArn :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_roleArn = Lens.lens (\CreateApplication' {roleArn} -> roleArn) (\s@CreateApplication' {} a -> s {roleArn = a} :: CreateApplication)
 
 -- | A list of tags to apply to the application.
 createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -179,9 +192,11 @@ instance Core.AWSRequest CreateApplication where
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` engineType
@@ -192,6 +207,7 @@ instance Prelude.NFData CreateApplication where
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf definition
       `Prelude.seq` Prelude.rnf engineType
@@ -215,6 +231,7 @@ instance Data.ToJSON CreateApplication where
           [ ("clientToken" Data..=) Prelude.<$> clientToken,
             ("description" Data..=) Prelude.<$> description,
             ("kmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+            ("roleArn" Data..=) Prelude.<$> roleArn,
             ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("definition" Data..= definition),
             Prelude.Just ("engineType" Data..= engineType),

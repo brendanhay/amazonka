@@ -23,6 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.M2.Types.GdgAttributes
+import Amazonka.M2.Types.PoAttributes
+import Amazonka.M2.Types.PsAttributes
 import Amazonka.M2.Types.VsamAttributes
 import qualified Amazonka.Prelude as Prelude
 
@@ -34,6 +36,10 @@ import qualified Amazonka.Prelude as Prelude
 data DatasetOrgAttributes = DatasetOrgAttributes'
   { -- | The generation data group of the data set.
     gdg :: Prelude.Maybe GdgAttributes,
+    -- | The details of a PO type data set.
+    po :: Prelude.Maybe PoAttributes,
+    -- | The details of a PS type data set.
+    ps :: Prelude.Maybe PsAttributes,
     -- | The details of a VSAM data set.
     vsam :: Prelude.Maybe VsamAttributes
   }
@@ -49,12 +55,18 @@ data DatasetOrgAttributes = DatasetOrgAttributes'
 --
 -- 'gdg', 'datasetOrgAttributes_gdg' - The generation data group of the data set.
 --
+-- 'po', 'datasetOrgAttributes_po' - The details of a PO type data set.
+--
+-- 'ps', 'datasetOrgAttributes_ps' - The details of a PS type data set.
+--
 -- 'vsam', 'datasetOrgAttributes_vsam' - The details of a VSAM data set.
 newDatasetOrgAttributes ::
   DatasetOrgAttributes
 newDatasetOrgAttributes =
   DatasetOrgAttributes'
     { gdg = Prelude.Nothing,
+      po = Prelude.Nothing,
+      ps = Prelude.Nothing,
       vsam = Prelude.Nothing
     }
 
@@ -62,24 +74,40 @@ newDatasetOrgAttributes =
 datasetOrgAttributes_gdg :: Lens.Lens' DatasetOrgAttributes (Prelude.Maybe GdgAttributes)
 datasetOrgAttributes_gdg = Lens.lens (\DatasetOrgAttributes' {gdg} -> gdg) (\s@DatasetOrgAttributes' {} a -> s {gdg = a} :: DatasetOrgAttributes)
 
+-- | The details of a PO type data set.
+datasetOrgAttributes_po :: Lens.Lens' DatasetOrgAttributes (Prelude.Maybe PoAttributes)
+datasetOrgAttributes_po = Lens.lens (\DatasetOrgAttributes' {po} -> po) (\s@DatasetOrgAttributes' {} a -> s {po = a} :: DatasetOrgAttributes)
+
+-- | The details of a PS type data set.
+datasetOrgAttributes_ps :: Lens.Lens' DatasetOrgAttributes (Prelude.Maybe PsAttributes)
+datasetOrgAttributes_ps = Lens.lens (\DatasetOrgAttributes' {ps} -> ps) (\s@DatasetOrgAttributes' {} a -> s {ps = a} :: DatasetOrgAttributes)
+
 -- | The details of a VSAM data set.
 datasetOrgAttributes_vsam :: Lens.Lens' DatasetOrgAttributes (Prelude.Maybe VsamAttributes)
 datasetOrgAttributes_vsam = Lens.lens (\DatasetOrgAttributes' {vsam} -> vsam) (\s@DatasetOrgAttributes' {} a -> s {vsam = a} :: DatasetOrgAttributes)
 
 instance Prelude.Hashable DatasetOrgAttributes where
   hashWithSalt _salt DatasetOrgAttributes' {..} =
-    _salt `Prelude.hashWithSalt` gdg
+    _salt
+      `Prelude.hashWithSalt` gdg
+      `Prelude.hashWithSalt` po
+      `Prelude.hashWithSalt` ps
       `Prelude.hashWithSalt` vsam
 
 instance Prelude.NFData DatasetOrgAttributes where
   rnf DatasetOrgAttributes' {..} =
-    Prelude.rnf gdg `Prelude.seq` Prelude.rnf vsam
+    Prelude.rnf gdg
+      `Prelude.seq` Prelude.rnf po
+      `Prelude.seq` Prelude.rnf ps
+      `Prelude.seq` Prelude.rnf vsam
 
 instance Data.ToJSON DatasetOrgAttributes where
   toJSON DatasetOrgAttributes' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("gdg" Data..=) Prelude.<$> gdg,
+            ("po" Data..=) Prelude.<$> po,
+            ("ps" Data..=) Prelude.<$> ps,
             ("vsam" Data..=) Prelude.<$> vsam
           ]
       )

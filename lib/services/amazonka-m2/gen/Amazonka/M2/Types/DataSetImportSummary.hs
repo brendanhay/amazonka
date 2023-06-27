@@ -119,7 +119,8 @@ instance Data.FromJSON DataSetImportSummary where
 
 instance Prelude.Hashable DataSetImportSummary where
   hashWithSalt _salt DataSetImportSummary' {..} =
-    _salt `Prelude.hashWithSalt` failed
+    _salt
+      `Prelude.hashWithSalt` failed
       `Prelude.hashWithSalt` inProgress
       `Prelude.hashWithSalt` pending
       `Prelude.hashWithSalt` succeeded

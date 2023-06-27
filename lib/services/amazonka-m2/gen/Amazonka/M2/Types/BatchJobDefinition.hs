@@ -77,7 +77,8 @@ instance Data.FromJSON BatchJobDefinition where
 
 instance Prelude.Hashable BatchJobDefinition where
   hashWithSalt _salt BatchJobDefinition' {..} =
-    _salt `Prelude.hashWithSalt` fileBatchJobDefinition
+    _salt
+      `Prelude.hashWithSalt` fileBatchJobDefinition
       `Prelude.hashWithSalt` scriptBatchJobDefinition
 
 instance Prelude.NFData BatchJobDefinition where

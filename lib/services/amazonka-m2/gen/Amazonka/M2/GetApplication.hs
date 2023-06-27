@@ -43,6 +43,7 @@ module Amazonka.M2.GetApplication
     getApplicationResponse_listenerPorts,
     getApplicationResponse_loadBalancerDnsName,
     getApplicationResponse_logGroups,
+    getApplicationResponse_roleArn,
     getApplicationResponse_statusReason,
     getApplicationResponse_tags,
     getApplicationResponse_targetGroupArns,
@@ -111,6 +112,7 @@ instance Core.AWSRequest GetApplication where
             Prelude.<*> (x Data..?> "listenerPorts")
             Prelude.<*> (x Data..?> "loadBalancerDnsName")
             Prelude.<*> (x Data..?> "logGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "roleArn")
             Prelude.<*> (x Data..?> "statusReason")
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "targetGroupArns")
@@ -180,6 +182,9 @@ data GetApplicationResponse = GetApplicationResponse'
     -- Services Mainframe Modernization pushes the application log to
     -- CloudWatch under the customer\'s account.
     logGroups :: Prelude.Maybe [LogGroupSummary],
+    -- | The Amazon Resource Name (ARN) of the role associated with the
+    -- application.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The reason for the reported status.
     statusReason :: Prelude.Maybe Prelude.Text,
     -- | A list of tags associated with the application.
@@ -242,6 +247,9 @@ data GetApplicationResponse = GetApplicationResponse'
 -- Services Mainframe Modernization pushes the application log to
 -- CloudWatch under the customer\'s account.
 --
+-- 'roleArn', 'getApplicationResponse_roleArn' - The Amazon Resource Name (ARN) of the role associated with the
+-- application.
+--
 -- 'statusReason', 'getApplicationResponse_statusReason' - The reason for the reported status.
 --
 -- 'tags', 'getApplicationResponse_tags' - A list of tags associated with the application.
@@ -302,6 +310,7 @@ newGetApplicationResponse
         listenerPorts = Prelude.Nothing,
         loadBalancerDnsName = Prelude.Nothing,
         logGroups = Prelude.Nothing,
+        roleArn = Prelude.Nothing,
         statusReason = Prelude.Nothing,
         tags = Prelude.Nothing,
         targetGroupArns = Prelude.Nothing,
@@ -361,6 +370,11 @@ getApplicationResponse_loadBalancerDnsName = Lens.lens (\GetApplicationResponse'
 getApplicationResponse_logGroups :: Lens.Lens' GetApplicationResponse (Prelude.Maybe [LogGroupSummary])
 getApplicationResponse_logGroups = Lens.lens (\GetApplicationResponse' {logGroups} -> logGroups) (\s@GetApplicationResponse' {} a -> s {logGroups = a} :: GetApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Amazon Resource Name (ARN) of the role associated with the
+-- application.
+getApplicationResponse_roleArn :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
+getApplicationResponse_roleArn = Lens.lens (\GetApplicationResponse' {roleArn} -> roleArn) (\s@GetApplicationResponse' {} a -> s {roleArn = a} :: GetApplicationResponse)
+
 -- | The reason for the reported status.
 getApplicationResponse_statusReason :: Lens.Lens' GetApplicationResponse (Prelude.Maybe Prelude.Text)
 getApplicationResponse_statusReason = Lens.lens (\GetApplicationResponse' {statusReason} -> statusReason) (\s@GetApplicationResponse' {} a -> s {statusReason = a} :: GetApplicationResponse)
@@ -417,6 +431,7 @@ instance Prelude.NFData GetApplicationResponse where
       `Prelude.seq` Prelude.rnf listenerPorts
       `Prelude.seq` Prelude.rnf loadBalancerDnsName
       `Prelude.seq` Prelude.rnf logGroups
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf statusReason
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf targetGroupArns

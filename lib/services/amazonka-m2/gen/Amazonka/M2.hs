@@ -393,9 +393,25 @@ module Amazonka.M2
     PendingMaintenance (PendingMaintenance'),
     newPendingMaintenance,
 
+    -- ** PoAttributes
+    PoAttributes (PoAttributes'),
+    newPoAttributes,
+
+    -- ** PoDetailAttributes
+    PoDetailAttributes (PoDetailAttributes'),
+    newPoDetailAttributes,
+
     -- ** PrimaryKey
     PrimaryKey (PrimaryKey'),
     newPrimaryKey,
+
+    -- ** PsAttributes
+    PsAttributes (PsAttributes'),
+    newPsAttributes,
+
+    -- ** PsDetailAttributes
+    PsDetailAttributes (PsDetailAttributes'),
+    newPsDetailAttributes,
 
     -- ** RecordLength
     RecordLength (RecordLength'),

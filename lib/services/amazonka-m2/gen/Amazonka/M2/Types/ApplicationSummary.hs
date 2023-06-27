@@ -44,6 +44,9 @@ data ApplicationSummary = ApplicationSummary'
     -- | The timestamp when you last started the application. Null until the
     -- application runs for the first time.
     lastStartTime :: Prelude.Maybe Data.POSIX,
+    -- | The Amazon Resource Name (ARN) of the role associated with the
+    -- application.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | Indicates the status of the latest version of the application.
     versionStatus :: Prelude.Maybe ApplicationVersionLifecycle,
     -- | The Amazon Resource Name (ARN) of the application.
@@ -81,6 +84,9 @@ data ApplicationSummary = ApplicationSummary'
 --
 -- 'lastStartTime', 'applicationSummary_lastStartTime' - The timestamp when you last started the application. Null until the
 -- application runs for the first time.
+--
+-- 'roleArn', 'applicationSummary_roleArn' - The Amazon Resource Name (ARN) of the role associated with the
+-- application.
 --
 -- 'versionStatus', 'applicationSummary_versionStatus' - Indicates the status of the latest version of the application.
 --
@@ -127,6 +133,7 @@ newApplicationSummary
         description = Prelude.Nothing,
         environmentId = Prelude.Nothing,
         lastStartTime = Prelude.Nothing,
+        roleArn = Prelude.Nothing,
         versionStatus = Prelude.Nothing,
         applicationArn = pApplicationArn_,
         applicationId = pApplicationId_,
@@ -155,6 +162,11 @@ applicationSummary_environmentId = Lens.lens (\ApplicationSummary' {environmentI
 -- application runs for the first time.
 applicationSummary_lastStartTime :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.UTCTime)
 applicationSummary_lastStartTime = Lens.lens (\ApplicationSummary' {lastStartTime} -> lastStartTime) (\s@ApplicationSummary' {} a -> s {lastStartTime = a} :: ApplicationSummary) Prelude.. Lens.mapping Data._Time
+
+-- | The Amazon Resource Name (ARN) of the role associated with the
+-- application.
+applicationSummary_roleArn :: Lens.Lens' ApplicationSummary (Prelude.Maybe Prelude.Text)
+applicationSummary_roleArn = Lens.lens (\ApplicationSummary' {roleArn} -> roleArn) (\s@ApplicationSummary' {} a -> s {roleArn = a} :: ApplicationSummary)
 
 -- | Indicates the status of the latest version of the application.
 applicationSummary_versionStatus :: Lens.Lens' ApplicationSummary (Prelude.Maybe ApplicationVersionLifecycle)
@@ -198,6 +210,7 @@ instance Data.FromJSON ApplicationSummary where
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "environmentId")
             Prelude.<*> (x Data..:? "lastStartTime")
+            Prelude.<*> (x Data..:? "roleArn")
             Prelude.<*> (x Data..:? "versionStatus")
             Prelude.<*> (x Data..: "applicationArn")
             Prelude.<*> (x Data..: "applicationId")
@@ -210,10 +223,12 @@ instance Data.FromJSON ApplicationSummary where
 
 instance Prelude.Hashable ApplicationSummary where
   hashWithSalt _salt ApplicationSummary' {..} =
-    _salt `Prelude.hashWithSalt` deploymentStatus
+    _salt
+      `Prelude.hashWithSalt` deploymentStatus
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` environmentId
       `Prelude.hashWithSalt` lastStartTime
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` versionStatus
       `Prelude.hashWithSalt` applicationArn
       `Prelude.hashWithSalt` applicationId
@@ -229,6 +244,7 @@ instance Prelude.NFData ApplicationSummary where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf environmentId
       `Prelude.seq` Prelude.rnf lastStartTime
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf versionStatus
       `Prelude.seq` Prelude.rnf applicationArn
       `Prelude.seq` Prelude.rnf applicationId

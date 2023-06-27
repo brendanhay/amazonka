@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.M2.Types.BatchJobExecutionStatus
+import Amazonka.M2.Types.BatchJobIdentifier
 import Amazonka.M2.Types.BatchJobType
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,7 +32,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchJobExecutionSummary' smart constructor.
 data BatchJobExecutionSummary = BatchJobExecutionSummary'
-  { -- | The timestamp when this batch job execution ended.
+  { -- | The unique identifier of this batch job.
+    batchJobIdentifier :: Prelude.Maybe BatchJobIdentifier,
+    -- | The timestamp when this batch job execution ended.
     endTime :: Prelude.Maybe Data.POSIX,
     -- | The unique identifier of a particular batch job.
     jobId :: Prelude.Maybe Prelude.Text,
@@ -39,6 +42,11 @@ data BatchJobExecutionSummary = BatchJobExecutionSummary'
     jobName :: Prelude.Maybe Prelude.Text,
     -- | The type of a particular batch job execution.
     jobType :: Prelude.Maybe BatchJobType,
+    -- | The batch job return code from either the Blu Age or Micro Focus runtime
+    -- engines. For more information, see
+    -- <https://www.ibm.com/docs/en/was/8.5.5?topic=model-batch-return-codes Batch return codes>
+    -- in the /IBM WebSphere Application Server/ documentation.
+    returnCode :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the application that hosts this batch job.
     applicationId :: Prelude.Text,
     -- | The unique identifier of this execution of the batch job.
@@ -58,6 +66,8 @@ data BatchJobExecutionSummary = BatchJobExecutionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'batchJobIdentifier', 'batchJobExecutionSummary_batchJobIdentifier' - The unique identifier of this batch job.
+--
 -- 'endTime', 'batchJobExecutionSummary_endTime' - The timestamp when this batch job execution ended.
 --
 -- 'jobId', 'batchJobExecutionSummary_jobId' - The unique identifier of a particular batch job.
@@ -65,6 +75,11 @@ data BatchJobExecutionSummary = BatchJobExecutionSummary'
 -- 'jobName', 'batchJobExecutionSummary_jobName' - The name of a particular batch job.
 --
 -- 'jobType', 'batchJobExecutionSummary_jobType' - The type of a particular batch job execution.
+--
+-- 'returnCode', 'batchJobExecutionSummary_returnCode' - The batch job return code from either the Blu Age or Micro Focus runtime
+-- engines. For more information, see
+-- <https://www.ibm.com/docs/en/was/8.5.5?topic=model-batch-return-codes Batch return codes>
+-- in the /IBM WebSphere Application Server/ documentation.
 --
 -- 'applicationId', 'batchJobExecutionSummary_applicationId' - The unique identifier of the application that hosts this batch job.
 --
@@ -89,16 +104,22 @@ newBatchJobExecutionSummary
   pStartTime_
   pStatus_ =
     BatchJobExecutionSummary'
-      { endTime =
+      { batchJobIdentifier =
           Prelude.Nothing,
+        endTime = Prelude.Nothing,
         jobId = Prelude.Nothing,
         jobName = Prelude.Nothing,
         jobType = Prelude.Nothing,
+        returnCode = Prelude.Nothing,
         applicationId = pApplicationId_,
         executionId = pExecutionId_,
         startTime = Data._Time Lens.# pStartTime_,
         status = pStatus_
       }
+
+-- | The unique identifier of this batch job.
+batchJobExecutionSummary_batchJobIdentifier :: Lens.Lens' BatchJobExecutionSummary (Prelude.Maybe BatchJobIdentifier)
+batchJobExecutionSummary_batchJobIdentifier = Lens.lens (\BatchJobExecutionSummary' {batchJobIdentifier} -> batchJobIdentifier) (\s@BatchJobExecutionSummary' {} a -> s {batchJobIdentifier = a} :: BatchJobExecutionSummary)
 
 -- | The timestamp when this batch job execution ended.
 batchJobExecutionSummary_endTime :: Lens.Lens' BatchJobExecutionSummary (Prelude.Maybe Prelude.UTCTime)
@@ -115,6 +136,13 @@ batchJobExecutionSummary_jobName = Lens.lens (\BatchJobExecutionSummary' {jobNam
 -- | The type of a particular batch job execution.
 batchJobExecutionSummary_jobType :: Lens.Lens' BatchJobExecutionSummary (Prelude.Maybe BatchJobType)
 batchJobExecutionSummary_jobType = Lens.lens (\BatchJobExecutionSummary' {jobType} -> jobType) (\s@BatchJobExecutionSummary' {} a -> s {jobType = a} :: BatchJobExecutionSummary)
+
+-- | The batch job return code from either the Blu Age or Micro Focus runtime
+-- engines. For more information, see
+-- <https://www.ibm.com/docs/en/was/8.5.5?topic=model-batch-return-codes Batch return codes>
+-- in the /IBM WebSphere Application Server/ documentation.
+batchJobExecutionSummary_returnCode :: Lens.Lens' BatchJobExecutionSummary (Prelude.Maybe Prelude.Text)
+batchJobExecutionSummary_returnCode = Lens.lens (\BatchJobExecutionSummary' {returnCode} -> returnCode) (\s@BatchJobExecutionSummary' {} a -> s {returnCode = a} :: BatchJobExecutionSummary)
 
 -- | The unique identifier of the application that hosts this batch job.
 batchJobExecutionSummary_applicationId :: Lens.Lens' BatchJobExecutionSummary Prelude.Text
@@ -138,10 +166,12 @@ instance Data.FromJSON BatchJobExecutionSummary where
       "BatchJobExecutionSummary"
       ( \x ->
           BatchJobExecutionSummary'
-            Prelude.<$> (x Data..:? "endTime")
+            Prelude.<$> (x Data..:? "batchJobIdentifier")
+            Prelude.<*> (x Data..:? "endTime")
             Prelude.<*> (x Data..:? "jobId")
             Prelude.<*> (x Data..:? "jobName")
             Prelude.<*> (x Data..:? "jobType")
+            Prelude.<*> (x Data..:? "returnCode")
             Prelude.<*> (x Data..: "applicationId")
             Prelude.<*> (x Data..: "executionId")
             Prelude.<*> (x Data..: "startTime")
@@ -150,10 +180,13 @@ instance Data.FromJSON BatchJobExecutionSummary where
 
 instance Prelude.Hashable BatchJobExecutionSummary where
   hashWithSalt _salt BatchJobExecutionSummary' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` batchJobIdentifier
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobType
+      `Prelude.hashWithSalt` returnCode
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` executionId
       `Prelude.hashWithSalt` startTime
@@ -161,10 +194,12 @@ instance Prelude.Hashable BatchJobExecutionSummary where
 
 instance Prelude.NFData BatchJobExecutionSummary where
   rnf BatchJobExecutionSummary' {..} =
-    Prelude.rnf endTime
+    Prelude.rnf batchJobIdentifier
+      `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf jobType
+      `Prelude.seq` Prelude.rnf returnCode
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf executionId
       `Prelude.seq` Prelude.rnf startTime

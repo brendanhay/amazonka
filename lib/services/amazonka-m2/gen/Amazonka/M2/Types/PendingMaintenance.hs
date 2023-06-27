@@ -76,7 +76,8 @@ instance Data.FromJSON PendingMaintenance where
 
 instance Prelude.Hashable PendingMaintenance where
   hashWithSalt _salt PendingMaintenance' {..} =
-    _salt `Prelude.hashWithSalt` engineVersion
+    _salt
+      `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` schedule
 
 instance Prelude.NFData PendingMaintenance where

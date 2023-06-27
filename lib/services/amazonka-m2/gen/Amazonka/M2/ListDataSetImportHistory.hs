@@ -111,21 +111,21 @@ instance Core.AWSPager ListDataSetImportHistory where
     | Core.stop
         ( rs
             Lens.^? listDataSetImportHistoryResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listDataSetImportHistoryResponse_dataSetImportTasks
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDataSetImportHistory_nextToken
           Lens..~ rs
           Lens.^? listDataSetImportHistoryResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDataSetImportHistory where
   type
@@ -139,14 +139,16 @@ instance Core.AWSRequest ListDataSetImportHistory where
           ListDataSetImportHistoryResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "dataSetImportTasks"
+            Prelude.<*> ( x
+                            Data..?> "dataSetImportTasks"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListDataSetImportHistory where
   hashWithSalt _salt ListDataSetImportHistory' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` applicationId
 

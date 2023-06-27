@@ -122,7 +122,8 @@ instance Core.AWSRequest StartBatchJob where
 
 instance Prelude.Hashable StartBatchJob where
   hashWithSalt _salt StartBatchJob' {..} =
-    _salt `Prelude.hashWithSalt` jobParams
+    _salt
+      `Prelude.hashWithSalt` jobParams
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` batchJobIdentifier
 

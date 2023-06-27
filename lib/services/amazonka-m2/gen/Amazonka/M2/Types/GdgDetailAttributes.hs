@@ -79,7 +79,8 @@ instance Data.FromJSON GdgDetailAttributes where
 
 instance Prelude.Hashable GdgDetailAttributes where
   hashWithSalt _salt GdgDetailAttributes' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` rollDisposition
 
 instance Prelude.NFData GdgDetailAttributes where

@@ -69,7 +69,8 @@ gdgAttributes_rollDisposition = Lens.lens (\GdgAttributes' {rollDisposition} -> 
 
 instance Prelude.Hashable GdgAttributes where
   hashWithSalt _salt GdgAttributes' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` rollDisposition
 
 instance Prelude.NFData GdgAttributes where

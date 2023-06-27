@@ -159,21 +159,21 @@ instance Core.AWSPager ListBatchJobExecutions where
     | Core.stop
         ( rs
             Lens.^? listBatchJobExecutionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listBatchJobExecutionsResponse_batchJobExecutions
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBatchJobExecutions_nextToken
           Lens..~ rs
           Lens.^? listBatchJobExecutionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBatchJobExecutions where
   type
@@ -187,14 +187,16 @@ instance Core.AWSRequest ListBatchJobExecutions where
           ListBatchJobExecutionsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "batchJobExecutions"
+            Prelude.<*> ( x
+                            Data..?> "batchJobExecutions"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListBatchJobExecutions where
   hashWithSalt _salt ListBatchJobExecutions' {..} =
-    _salt `Prelude.hashWithSalt` executionIds
+    _salt
+      `Prelude.hashWithSalt` executionIds
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

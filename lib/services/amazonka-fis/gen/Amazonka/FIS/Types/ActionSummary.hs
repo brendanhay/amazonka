@@ -95,7 +95,8 @@ instance Data.FromJSON ActionSummary where
 
 instance Prelude.Hashable ActionSummary where
   hashWithSalt _salt ActionSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` targets

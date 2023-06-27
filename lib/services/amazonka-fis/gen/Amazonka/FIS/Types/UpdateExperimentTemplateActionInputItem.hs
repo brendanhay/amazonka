@@ -103,7 +103,8 @@ instance
   hashWithSalt
     _salt
     UpdateExperimentTemplateActionInputItem' {..} =
-      _salt `Prelude.hashWithSalt` actionId
+      _salt
+        `Prelude.hashWithSalt` actionId
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` parameters
         `Prelude.hashWithSalt` startAfter

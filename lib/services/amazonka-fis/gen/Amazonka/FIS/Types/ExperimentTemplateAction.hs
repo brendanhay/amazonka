@@ -108,7 +108,8 @@ instance Data.FromJSON ExperimentTemplateAction where
 
 instance Prelude.Hashable ExperimentTemplateAction where
   hashWithSalt _salt ExperimentTemplateAction' {..} =
-    _salt `Prelude.hashWithSalt` actionId
+    _salt
+      `Prelude.hashWithSalt` actionId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` startAfter

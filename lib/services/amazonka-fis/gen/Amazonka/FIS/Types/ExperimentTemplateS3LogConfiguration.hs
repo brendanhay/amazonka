@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     ExperimentTemplateS3LogConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` bucketName
+      _salt
+        `Prelude.hashWithSalt` bucketName
         `Prelude.hashWithSalt` prefix
 
 instance

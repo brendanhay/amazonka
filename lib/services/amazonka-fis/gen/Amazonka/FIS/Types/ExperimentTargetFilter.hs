@@ -74,7 +74,8 @@ instance Data.FromJSON ExperimentTargetFilter where
 
 instance Prelude.Hashable ExperimentTargetFilter where
   hashWithSalt _salt ExperimentTargetFilter' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData ExperimentTargetFilter where

@@ -108,7 +108,8 @@ instance Core.AWSRequest ListExperiments where
 
 instance Prelude.Hashable ListExperiments where
   hashWithSalt _salt ListExperiments' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListExperiments where

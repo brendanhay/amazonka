@@ -75,7 +75,8 @@ instance Data.FromJSON TargetResourceTypeSummary where
 
 instance Prelude.Hashable TargetResourceTypeSummary where
   hashWithSalt _salt TargetResourceTypeSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData TargetResourceTypeSummary where

@@ -76,7 +76,8 @@ instance Core.AWSRequest StartContinuousExport where
             Prelude.<$> (x Data..?> "dataSource")
             Prelude.<*> (x Data..?> "exportId")
             Prelude.<*> (x Data..?> "s3Bucket")
-            Prelude.<*> ( x Data..?> "schemaStorageConfig"
+            Prelude.<*> ( x
+                            Data..?> "schemaStorageConfig"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "startTime")

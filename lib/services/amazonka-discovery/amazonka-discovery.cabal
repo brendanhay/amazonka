@@ -83,9 +83,11 @@ library
     Amazonka.Discovery.Types.CustomerConnectorInfo
     Amazonka.Discovery.Types.CustomerMeCollectorInfo
     Amazonka.Discovery.Types.DataSource
+    Amazonka.Discovery.Types.Ec2RecommendationsExportPreferences
     Amazonka.Discovery.Types.ExportDataFormat
     Amazonka.Discovery.Types.ExportFilter
     Amazonka.Discovery.Types.ExportInfo
+    Amazonka.Discovery.Types.ExportPreferences
     Amazonka.Discovery.Types.ExportStatus
     Amazonka.Discovery.Types.Filter
     Amazonka.Discovery.Types.ImportStatus
@@ -93,10 +95,16 @@ library
     Amazonka.Discovery.Types.ImportTaskFilter
     Amazonka.Discovery.Types.ImportTaskFilterName
     Amazonka.Discovery.Types.NeighborConnectionDetail
+    Amazonka.Discovery.Types.OfferingClass
     Amazonka.Discovery.Types.OrderByElement
     Amazonka.Discovery.Types.OrderString
+    Amazonka.Discovery.Types.PurchasingOption
+    Amazonka.Discovery.Types.ReservedInstanceOptions
     Amazonka.Discovery.Types.Tag
     Amazonka.Discovery.Types.TagFilter
+    Amazonka.Discovery.Types.Tenancy
+    Amazonka.Discovery.Types.TermLength
+    Amazonka.Discovery.Types.UsageMetricBasis
     Amazonka.Discovery.UpdateApplication
     Amazonka.Discovery.Waiters
 

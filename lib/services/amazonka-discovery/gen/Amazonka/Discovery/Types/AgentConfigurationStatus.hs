@@ -24,21 +24,20 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Information about agents or connectors that were instructed to start
--- collecting data. Information includes the agent\/connector ID, a
--- description of the operation, and whether the agent\/connector
--- configuration was updated.
+-- | Information about agents that were instructed to start collecting data.
+-- Information includes the agent ID, a description of the operation, and
+-- whether the agent configuration was updated.
 --
 -- /See:/ 'newAgentConfigurationStatus' smart constructor.
 data AgentConfigurationStatus = AgentConfigurationStatus'
-  { -- | The agent\/connector ID.
+  { -- | The agent ID.
     agentId :: Prelude.Maybe Prelude.Text,
     -- | A description of the operation performed.
     description :: Prelude.Maybe Prelude.Text,
     -- | Information about the status of the @StartDataCollection@ and
     -- @StopDataCollection@ operations. The system has recorded the data
-    -- collection operation. The agent\/connector receives this command the
-    -- next time it polls for a new command.
+    -- collection operation. The agent receives this command the next time it
+    -- polls for a new command.
     operationSucceeded :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,14 +50,14 @@ data AgentConfigurationStatus = AgentConfigurationStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'agentId', 'agentConfigurationStatus_agentId' - The agent\/connector ID.
+-- 'agentId', 'agentConfigurationStatus_agentId' - The agent ID.
 --
 -- 'description', 'agentConfigurationStatus_description' - A description of the operation performed.
 --
 -- 'operationSucceeded', 'agentConfigurationStatus_operationSucceeded' - Information about the status of the @StartDataCollection@ and
 -- @StopDataCollection@ operations. The system has recorded the data
--- collection operation. The agent\/connector receives this command the
--- next time it polls for a new command.
+-- collection operation. The agent receives this command the next time it
+-- polls for a new command.
 newAgentConfigurationStatus ::
   AgentConfigurationStatus
 newAgentConfigurationStatus =
@@ -69,7 +68,7 @@ newAgentConfigurationStatus =
       operationSucceeded = Prelude.Nothing
     }
 
--- | The agent\/connector ID.
+-- | The agent ID.
 agentConfigurationStatus_agentId :: Lens.Lens' AgentConfigurationStatus (Prelude.Maybe Prelude.Text)
 agentConfigurationStatus_agentId = Lens.lens (\AgentConfigurationStatus' {agentId} -> agentId) (\s@AgentConfigurationStatus' {} a -> s {agentId = a} :: AgentConfigurationStatus)
 
@@ -79,8 +78,8 @@ agentConfigurationStatus_description = Lens.lens (\AgentConfigurationStatus' {de
 
 -- | Information about the status of the @StartDataCollection@ and
 -- @StopDataCollection@ operations. The system has recorded the data
--- collection operation. The agent\/connector receives this command the
--- next time it polls for a new command.
+-- collection operation. The agent receives this command the next time it
+-- polls for a new command.
 agentConfigurationStatus_operationSucceeded :: Lens.Lens' AgentConfigurationStatus (Prelude.Maybe Prelude.Bool)
 agentConfigurationStatus_operationSucceeded = Lens.lens (\AgentConfigurationStatus' {operationSucceeded} -> operationSucceeded) (\s@AgentConfigurationStatus' {} a -> s {operationSucceeded = a} :: AgentConfigurationStatus)
 
@@ -97,7 +96,8 @@ instance Data.FromJSON AgentConfigurationStatus where
 
 instance Prelude.Hashable AgentConfigurationStatus where
   hashWithSalt _salt AgentConfigurationStatus' {..} =
-    _salt `Prelude.hashWithSalt` agentId
+    _salt
+      `Prelude.hashWithSalt` agentId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` operationSucceeded
 

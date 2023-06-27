@@ -105,7 +105,8 @@ filter_condition = Lens.lens (\Filter' {condition} -> condition) (\s@Filter' {} 
 
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` condition
 

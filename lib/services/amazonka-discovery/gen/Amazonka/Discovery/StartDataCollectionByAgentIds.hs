@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Instructs the specified agents or connectors to start collecting data.
+-- Instructs the specified agents to start collecting data.
 module Amazonka.Discovery.StartDataCollectionByAgentIds
   ( -- * Creating a Request
     StartDataCollectionByAgentIds (..),
@@ -49,14 +49,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartDataCollectionByAgentIds' smart constructor.
 data StartDataCollectionByAgentIds = StartDataCollectionByAgentIds'
-  { -- | The IDs of the agents or connectors from which to start collecting data.
-    -- If you send a request to an agent\/connector ID that you do not have
-    -- permission to contact, according to your Amazon Web Services account,
-    -- the service does not throw an exception. Instead, it returns the error
-    -- in the /Description/ field. If you send a request to multiple
-    -- agents\/connectors and you do not have permission to contact some of
-    -- those agents\/connectors, the system does not throw an exception.
-    -- Instead, the system shows @Failed@ in the /Description/ field.
+  { -- | The IDs of the agents from which to start collecting data. If you send a
+    -- request to an agent ID that you do not have permission to contact,
+    -- according to your Amazon Web Services account, the service does not
+    -- throw an exception. Instead, it returns the error in the /Description/
+    -- field. If you send a request to multiple agents and you do not have
+    -- permission to contact some of those agents, the system does not throw an
+    -- exception. Instead, the system shows @Failed@ in the /Description/
+    -- field.
     agentIds :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,14 +69,14 @@ data StartDataCollectionByAgentIds = StartDataCollectionByAgentIds'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'agentIds', 'startDataCollectionByAgentIds_agentIds' - The IDs of the agents or connectors from which to start collecting data.
--- If you send a request to an agent\/connector ID that you do not have
--- permission to contact, according to your Amazon Web Services account,
--- the service does not throw an exception. Instead, it returns the error
--- in the /Description/ field. If you send a request to multiple
--- agents\/connectors and you do not have permission to contact some of
--- those agents\/connectors, the system does not throw an exception.
--- Instead, the system shows @Failed@ in the /Description/ field.
+-- 'agentIds', 'startDataCollectionByAgentIds_agentIds' - The IDs of the agents from which to start collecting data. If you send a
+-- request to an agent ID that you do not have permission to contact,
+-- according to your Amazon Web Services account, the service does not
+-- throw an exception. Instead, it returns the error in the /Description/
+-- field. If you send a request to multiple agents and you do not have
+-- permission to contact some of those agents, the system does not throw an
+-- exception. Instead, the system shows @Failed@ in the /Description/
+-- field.
 newStartDataCollectionByAgentIds ::
   StartDataCollectionByAgentIds
 newStartDataCollectionByAgentIds =
@@ -85,14 +85,14 @@ newStartDataCollectionByAgentIds =
         Prelude.mempty
     }
 
--- | The IDs of the agents or connectors from which to start collecting data.
--- If you send a request to an agent\/connector ID that you do not have
--- permission to contact, according to your Amazon Web Services account,
--- the service does not throw an exception. Instead, it returns the error
--- in the /Description/ field. If you send a request to multiple
--- agents\/connectors and you do not have permission to contact some of
--- those agents\/connectors, the system does not throw an exception.
--- Instead, the system shows @Failed@ in the /Description/ field.
+-- | The IDs of the agents from which to start collecting data. If you send a
+-- request to an agent ID that you do not have permission to contact,
+-- according to your Amazon Web Services account, the service does not
+-- throw an exception. Instead, it returns the error in the /Description/
+-- field. If you send a request to multiple agents and you do not have
+-- permission to contact some of those agents, the system does not throw an
+-- exception. Instead, the system shows @Failed@ in the /Description/
+-- field.
 startDataCollectionByAgentIds_agentIds :: Lens.Lens' StartDataCollectionByAgentIds [Prelude.Text]
 startDataCollectionByAgentIds_agentIds = Lens.lens (\StartDataCollectionByAgentIds' {agentIds} -> agentIds) (\s@StartDataCollectionByAgentIds' {} a -> s {agentIds = a} :: StartDataCollectionByAgentIds) Prelude.. Lens.coerced
 
@@ -109,7 +109,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           StartDataCollectionByAgentIdsResponse'
-            Prelude.<$> ( x Data..?> "agentsConfigurationStatus"
+            Prelude.<$> ( x
+                            Data..?> "agentsConfigurationStatus"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -156,10 +157,9 @@ instance Data.ToQuery StartDataCollectionByAgentIds where
 
 -- | /See:/ 'newStartDataCollectionByAgentIdsResponse' smart constructor.
 data StartDataCollectionByAgentIdsResponse = StartDataCollectionByAgentIdsResponse'
-  { -- | Information about agents or the connector that were instructed to start
-    -- collecting data. Information includes the agent\/connector ID, a
-    -- description of the operation performed, and whether the agent\/connector
-    -- configuration was updated.
+  { -- | Information about agents that were instructed to start collecting data.
+    -- Information includes the agent ID, a description of the operation
+    -- performed, and whether the agent configuration was updated.
     agentsConfigurationStatus :: Prelude.Maybe [AgentConfigurationStatus],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -174,10 +174,9 @@ data StartDataCollectionByAgentIdsResponse = StartDataCollectionByAgentIdsRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'agentsConfigurationStatus', 'startDataCollectionByAgentIdsResponse_agentsConfigurationStatus' - Information about agents or the connector that were instructed to start
--- collecting data. Information includes the agent\/connector ID, a
--- description of the operation performed, and whether the agent\/connector
--- configuration was updated.
+-- 'agentsConfigurationStatus', 'startDataCollectionByAgentIdsResponse_agentsConfigurationStatus' - Information about agents that were instructed to start collecting data.
+-- Information includes the agent ID, a description of the operation
+-- performed, and whether the agent configuration was updated.
 --
 -- 'httpStatus', 'startDataCollectionByAgentIdsResponse_httpStatus' - The response's http status code.
 newStartDataCollectionByAgentIdsResponse ::
@@ -191,10 +190,9 @@ newStartDataCollectionByAgentIdsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Information about agents or the connector that were instructed to start
--- collecting data. Information includes the agent\/connector ID, a
--- description of the operation performed, and whether the agent\/connector
--- configuration was updated.
+-- | Information about agents that were instructed to start collecting data.
+-- Information includes the agent ID, a description of the operation
+-- performed, and whether the agent configuration was updated.
 startDataCollectionByAgentIdsResponse_agentsConfigurationStatus :: Lens.Lens' StartDataCollectionByAgentIdsResponse (Prelude.Maybe [AgentConfigurationStatus])
 startDataCollectionByAgentIdsResponse_agentsConfigurationStatus = Lens.lens (\StartDataCollectionByAgentIdsResponse' {agentsConfigurationStatus} -> agentsConfigurationStatus) (\s@StartDataCollectionByAgentIdsResponse' {} a -> s {agentsConfigurationStatus = a} :: StartDataCollectionByAgentIdsResponse) Prelude.. Lens.mapping Lens.coerced
 

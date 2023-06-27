@@ -24,13 +24,13 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Network details about the host where the agent\/connector resides.
+-- | Network details about the host where the agent\/collector resides.
 --
 -- /See:/ 'newAgentNetworkInfo' smart constructor.
 data AgentNetworkInfo = AgentNetworkInfo'
-  { -- | The IP address for the host where the agent\/connector resides.
+  { -- | The IP address for the host where the agent\/collector resides.
     ipAddress :: Prelude.Maybe Prelude.Text,
-    -- | The MAC address for the host where the agent\/connector resides.
+    -- | The MAC address for the host where the agent\/collector resides.
     macAddress :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,9 +43,9 @@ data AgentNetworkInfo = AgentNetworkInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ipAddress', 'agentNetworkInfo_ipAddress' - The IP address for the host where the agent\/connector resides.
+-- 'ipAddress', 'agentNetworkInfo_ipAddress' - The IP address for the host where the agent\/collector resides.
 --
--- 'macAddress', 'agentNetworkInfo_macAddress' - The MAC address for the host where the agent\/connector resides.
+-- 'macAddress', 'agentNetworkInfo_macAddress' - The MAC address for the host where the agent\/collector resides.
 newAgentNetworkInfo ::
   AgentNetworkInfo
 newAgentNetworkInfo =
@@ -54,11 +54,11 @@ newAgentNetworkInfo =
       macAddress = Prelude.Nothing
     }
 
--- | The IP address for the host where the agent\/connector resides.
+-- | The IP address for the host where the agent\/collector resides.
 agentNetworkInfo_ipAddress :: Lens.Lens' AgentNetworkInfo (Prelude.Maybe Prelude.Text)
 agentNetworkInfo_ipAddress = Lens.lens (\AgentNetworkInfo' {ipAddress} -> ipAddress) (\s@AgentNetworkInfo' {} a -> s {ipAddress = a} :: AgentNetworkInfo)
 
--- | The MAC address for the host where the agent\/connector resides.
+-- | The MAC address for the host where the agent\/collector resides.
 agentNetworkInfo_macAddress :: Lens.Lens' AgentNetworkInfo (Prelude.Maybe Prelude.Text)
 agentNetworkInfo_macAddress = Lens.lens (\AgentNetworkInfo' {macAddress} -> macAddress) (\s@AgentNetworkInfo' {} a -> s {macAddress = a} :: AgentNetworkInfo)
 
@@ -74,7 +74,8 @@ instance Data.FromJSON AgentNetworkInfo where
 
 instance Prelude.Hashable AgentNetworkInfo where
   hashWithSalt _salt AgentNetworkInfo' {..} =
-    _salt `Prelude.hashWithSalt` ipAddress
+    _salt
+      `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` macAddress
 
 instance Prelude.NFData AgentNetworkInfo where

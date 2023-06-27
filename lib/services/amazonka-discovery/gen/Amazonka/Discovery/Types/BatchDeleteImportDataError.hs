@@ -87,7 +87,8 @@ instance Data.FromJSON BatchDeleteImportDataError where
 
 instance Prelude.Hashable BatchDeleteImportDataError where
   hashWithSalt _salt BatchDeleteImportDataError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorDescription
       `Prelude.hashWithSalt` importTaskId
 

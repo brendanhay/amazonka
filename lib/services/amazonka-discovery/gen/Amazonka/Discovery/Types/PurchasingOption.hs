@@ -11,16 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Discovery.Types.ExportDataFormat
+-- Module      : Amazonka.Discovery.Types.PurchasingOption
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Discovery.Types.ExportDataFormat
-  ( ExportDataFormat
+module Amazonka.Discovery.Types.PurchasingOption
+  ( PurchasingOption
       ( ..,
-        ExportDataFormat_CSV
+        PurchasingOption_ALL_UPFRONT,
+        PurchasingOption_NO_UPFRONT,
+        PurchasingOption_PARTIAL_UPFRONT
       ),
   )
 where
@@ -29,8 +31,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype ExportDataFormat = ExportDataFormat'
-  { fromExportDataFormat ::
+newtype PurchasingOption = PurchasingOption'
+  { fromPurchasingOption ::
       Data.Text
   }
   deriving stock
@@ -57,10 +59,18 @@ newtype ExportDataFormat = ExportDataFormat'
       Data.ToXML
     )
 
-pattern ExportDataFormat_CSV :: ExportDataFormat
-pattern ExportDataFormat_CSV = ExportDataFormat' "CSV"
+pattern PurchasingOption_ALL_UPFRONT :: PurchasingOption
+pattern PurchasingOption_ALL_UPFRONT = PurchasingOption' "ALL_UPFRONT"
+
+pattern PurchasingOption_NO_UPFRONT :: PurchasingOption
+pattern PurchasingOption_NO_UPFRONT = PurchasingOption' "NO_UPFRONT"
+
+pattern PurchasingOption_PARTIAL_UPFRONT :: PurchasingOption
+pattern PurchasingOption_PARTIAL_UPFRONT = PurchasingOption' "PARTIAL_UPFRONT"
 
 {-# COMPLETE
-  ExportDataFormat_CSV,
-  ExportDataFormat'
+  PurchasingOption_ALL_UPFRONT,
+  PurchasingOption_NO_UPFRONT,
+  PurchasingOption_PARTIAL_UPFRONT,
+  PurchasingOption'
   #-}

@@ -145,7 +145,8 @@ instance Data.FromJSON CustomerAgentInfo where
 
 instance Prelude.Hashable CustomerAgentInfo where
   hashWithSalt _salt CustomerAgentInfo' {..} =
-    _salt `Prelude.hashWithSalt` activeAgents
+    _salt
+      `Prelude.hashWithSalt` activeAgents
       `Prelude.hashWithSalt` healthyAgents
       `Prelude.hashWithSalt` blackListedAgents
       `Prelude.hashWithSalt` shutdownAgents

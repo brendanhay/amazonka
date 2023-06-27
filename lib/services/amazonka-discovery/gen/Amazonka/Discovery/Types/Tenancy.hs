@@ -11,16 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Discovery.Types.ExportDataFormat
+-- Module      : Amazonka.Discovery.Types.Tenancy
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Discovery.Types.ExportDataFormat
-  ( ExportDataFormat
+module Amazonka.Discovery.Types.Tenancy
+  ( Tenancy
       ( ..,
-        ExportDataFormat_CSV
+        Tenancy_DEDICATED,
+        Tenancy_SHARED
       ),
   )
 where
@@ -29,10 +30,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype ExportDataFormat = ExportDataFormat'
-  { fromExportDataFormat ::
-      Data.Text
-  }
+newtype Tenancy = Tenancy' {fromTenancy :: Data.Text}
   deriving stock
     ( Prelude.Show,
       Prelude.Read,
@@ -57,10 +55,14 @@ newtype ExportDataFormat = ExportDataFormat'
       Data.ToXML
     )
 
-pattern ExportDataFormat_CSV :: ExportDataFormat
-pattern ExportDataFormat_CSV = ExportDataFormat' "CSV"
+pattern Tenancy_DEDICATED :: Tenancy
+pattern Tenancy_DEDICATED = Tenancy' "DEDICATED"
+
+pattern Tenancy_SHARED :: Tenancy
+pattern Tenancy_SHARED = Tenancy' "SHARED"
 
 {-# COMPLETE
-  ExportDataFormat_CSV,
-  ExportDataFormat'
+  Tenancy_DEDICATED,
+  Tenancy_SHARED,
+  Tenancy'
   #-}

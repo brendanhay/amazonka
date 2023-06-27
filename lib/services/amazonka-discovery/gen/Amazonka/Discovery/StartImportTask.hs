@@ -22,11 +22,13 @@
 --
 -- Starts an import task, which allows you to import details of your
 -- on-premises environment directly into Amazon Web Services Migration Hub
--- without having to use the Application Discovery Service (ADS) tools such
--- as the Discovery Connector or Discovery Agent. This gives you the option
--- to perform migration assessment and planning directly from your imported
--- data, including the ability to group your devices as applications and
--- track their migration status.
+-- without having to use the Amazon Web Services Application Discovery
+-- Service (Application Discovery Service) tools such as the Amazon Web
+-- Services Application Discovery Service Agentless Collector or
+-- Application Discovery Agent. This gives you the option to perform
+-- migration assessment and planning directly from your imported data,
+-- including the ability to group your devices as applications and track
+-- their migration status.
 --
 -- To start an import request, do this:
 --
@@ -181,7 +183,8 @@ instance Core.AWSRequest StartImportTask where
 
 instance Prelude.Hashable StartImportTask where
   hashWithSalt _salt StartImportTask' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` importUrl
 

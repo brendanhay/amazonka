@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists agents or connectors as specified by ID or other filters. All
--- agents\/connectors associated with your user account can be listed if
--- you call @DescribeAgents@ as is without passing any parameters.
+-- Lists agents or collectors as specified by ID or other filters. All
+-- agents\/collectors associated with your user can be listed if you call
+-- @DescribeAgents@ as is without passing any parameters.
 --
 -- This operation returns paginated results.
 module Amazonka.Discovery.DescribeAgents
@@ -57,17 +57,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAgents' smart constructor.
 data DescribeAgents = DescribeAgents'
-  { -- | The agent or the Connector IDs for which you want information. If you
+  { -- | The agent or the collector IDs for which you want information. If you
     -- specify no IDs, the system returns information about all
-    -- agents\/Connectors associated with your Amazon Web Services user
-    -- account.
+    -- agents\/collectors associated with your user.
     agentIds :: Prelude.Maybe [Prelude.Text],
     -- | You can filter the request using various logical operators and a
     -- /key/-/value/ format. For example:
     --
     -- @{\"key\": \"collectionStatus\", \"value\": \"STARTED\"}@
     filters :: Prelude.Maybe [Filter],
-    -- | The total number of agents\/Connectors to return in a single page of
+    -- | The total number of agents\/collectors to return in a single page of
     -- output. The maximum value is 100.
     maxResults :: Prelude.Maybe Prelude.Int,
     -- | Token to retrieve the next set of results. For example, if you
@@ -87,17 +86,16 @@ data DescribeAgents = DescribeAgents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'agentIds', 'describeAgents_agentIds' - The agent or the Connector IDs for which you want information. If you
+-- 'agentIds', 'describeAgents_agentIds' - The agent or the collector IDs for which you want information. If you
 -- specify no IDs, the system returns information about all
--- agents\/Connectors associated with your Amazon Web Services user
--- account.
+-- agents\/collectors associated with your user.
 --
 -- 'filters', 'describeAgents_filters' - You can filter the request using various logical operators and a
 -- /key/-/value/ format. For example:
 --
 -- @{\"key\": \"collectionStatus\", \"value\": \"STARTED\"}@
 --
--- 'maxResults', 'describeAgents_maxResults' - The total number of agents\/Connectors to return in a single page of
+-- 'maxResults', 'describeAgents_maxResults' - The total number of agents\/collectors to return in a single page of
 -- output. The maximum value is 100.
 --
 -- 'nextToken', 'describeAgents_nextToken' - Token to retrieve the next set of results. For example, if you
@@ -115,10 +113,9 @@ newDescribeAgents =
       nextToken = Prelude.Nothing
     }
 
--- | The agent or the Connector IDs for which you want information. If you
+-- | The agent or the collector IDs for which you want information. If you
 -- specify no IDs, the system returns information about all
--- agents\/Connectors associated with your Amazon Web Services user
--- account.
+-- agents\/collectors associated with your user.
 describeAgents_agentIds :: Lens.Lens' DescribeAgents (Prelude.Maybe [Prelude.Text])
 describeAgents_agentIds = Lens.lens (\DescribeAgents' {agentIds} -> agentIds) (\s@DescribeAgents' {} a -> s {agentIds = a} :: DescribeAgents) Prelude.. Lens.mapping Lens.coerced
 
@@ -129,7 +126,7 @@ describeAgents_agentIds = Lens.lens (\DescribeAgents' {agentIds} -> agentIds) (\
 describeAgents_filters :: Lens.Lens' DescribeAgents (Prelude.Maybe [Filter])
 describeAgents_filters = Lens.lens (\DescribeAgents' {filters} -> filters) (\s@DescribeAgents' {} a -> s {filters = a} :: DescribeAgents) Prelude.. Lens.mapping Lens.coerced
 
--- | The total number of agents\/Connectors to return in a single page of
+-- | The total number of agents\/collectors to return in a single page of
 -- output. The maximum value is 100.
 describeAgents_maxResults :: Lens.Lens' DescribeAgents (Prelude.Maybe Prelude.Int)
 describeAgents_maxResults = Lens.lens (\DescribeAgents' {maxResults} -> maxResults) (\s@DescribeAgents' {} a -> s {maxResults = a} :: DescribeAgents)
@@ -147,21 +144,22 @@ instance Core.AWSPager DescribeAgents where
     | Core.stop
         ( rs
             Lens.^? describeAgentsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAgentsResponse_agentsInfo
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeAgents_nextToken
           Lens..~ rs
-          Lens.^? describeAgentsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeAgentsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAgents where
   type
@@ -180,7 +178,8 @@ instance Core.AWSRequest DescribeAgents where
 
 instance Prelude.Hashable DescribeAgents where
   hashWithSalt _salt DescribeAgents' {..} =
-    _salt `Prelude.hashWithSalt` agentIds
+    _salt
+      `Prelude.hashWithSalt` agentIds
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -226,12 +225,12 @@ instance Data.ToQuery DescribeAgents where
 
 -- | /See:/ 'newDescribeAgentsResponse' smart constructor.
 data DescribeAgentsResponse = DescribeAgentsResponse'
-  { -- | Lists agents or the Connector by ID or lists all agents\/Connectors
-    -- associated with your user account if you did not specify an
-    -- agent\/Connector ID. The output includes agent\/Connector IDs, IP
-    -- addresses, media access control (MAC) addresses, agent\/Connector
-    -- health, host name where the agent\/Connector resides, and the version
-    -- number of each agent\/Connector.
+  { -- | Lists agents or the collector by ID or lists all agents\/collectors
+    -- associated with your user, if you did not specify an agent\/collector
+    -- ID. The output includes agent\/collector IDs, IP addresses, media access
+    -- control (MAC) addresses, agent\/collector health, host name where the
+    -- agent\/collector resides, and the version number of each
+    -- agent\/collector.
     agentsInfo :: Prelude.Maybe [AgentInfo],
     -- | Token to retrieve the next set of results. For example, if you specified
     -- 100 IDs for @DescribeAgentsRequest$agentIds@ but set
@@ -252,12 +251,12 @@ data DescribeAgentsResponse = DescribeAgentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'agentsInfo', 'describeAgentsResponse_agentsInfo' - Lists agents or the Connector by ID or lists all agents\/Connectors
--- associated with your user account if you did not specify an
--- agent\/Connector ID. The output includes agent\/Connector IDs, IP
--- addresses, media access control (MAC) addresses, agent\/Connector
--- health, host name where the agent\/Connector resides, and the version
--- number of each agent\/Connector.
+-- 'agentsInfo', 'describeAgentsResponse_agentsInfo' - Lists agents or the collector by ID or lists all agents\/collectors
+-- associated with your user, if you did not specify an agent\/collector
+-- ID. The output includes agent\/collector IDs, IP addresses, media access
+-- control (MAC) addresses, agent\/collector health, host name where the
+-- agent\/collector resides, and the version number of each
+-- agent\/collector.
 --
 -- 'nextToken', 'describeAgentsResponse_nextToken' - Token to retrieve the next set of results. For example, if you specified
 -- 100 IDs for @DescribeAgentsRequest$agentIds@ but set
@@ -278,12 +277,12 @@ newDescribeAgentsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Lists agents or the Connector by ID or lists all agents\/Connectors
--- associated with your user account if you did not specify an
--- agent\/Connector ID. The output includes agent\/Connector IDs, IP
--- addresses, media access control (MAC) addresses, agent\/Connector
--- health, host name where the agent\/Connector resides, and the version
--- number of each agent\/Connector.
+-- | Lists agents or the collector by ID or lists all agents\/collectors
+-- associated with your user, if you did not specify an agent\/collector
+-- ID. The output includes agent\/collector IDs, IP addresses, media access
+-- control (MAC) addresses, agent\/collector health, host name where the
+-- agent\/collector resides, and the version number of each
+-- agent\/collector.
 describeAgentsResponse_agentsInfo :: Lens.Lens' DescribeAgentsResponse (Prelude.Maybe [AgentInfo])
 describeAgentsResponse_agentsInfo = Lens.lens (\DescribeAgentsResponse' {agentsInfo} -> agentsInfo) (\s@DescribeAgentsResponse' {} a -> s {agentsInfo = a} :: DescribeAgentsResponse) Prelude.. Lens.mapping Lens.coerced
 

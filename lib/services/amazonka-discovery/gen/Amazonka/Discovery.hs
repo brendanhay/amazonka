@@ -13,30 +13,31 @@
 --
 -- Amazon Web Services Application Discovery Service
 --
--- Amazon Web Services Application Discovery Service helps you plan
--- application migration projects. It automatically identifies servers,
--- virtual machines (VMs), and network dependencies in your on-premises
--- data centers. For more information, see the
+-- Amazon Web Services Application Discovery Service (Application Discovery
+-- Service) helps you plan application migration projects. It automatically
+-- identifies servers, virtual machines (VMs), and network dependencies in
+-- your on-premises data centers. For more information, see the
 -- <http://aws.amazon.com/application-discovery/faqs/ Amazon Web Services Application Discovery Service FAQ>.
+--
 -- Application Discovery Service offers three ways of performing discovery
 -- and collecting data about your on-premises servers:
 --
--- -   __Agentless discovery__ is recommended for environments that use
---     VMware vCenter Server. This mode doesn\'t require you to install an
---     agent on each host. It does not work in non-VMware environments.
+-- -   __Agentless discovery__ using Amazon Web Services Application
+--     Discovery Service Agentless Collector (Agentless Collector), which
+--     doesn\'t require you to install an agent on each host.
 --
---     -   Agentless discovery gathers server information regardless of the
+--     -   Agentless Collector gathers server information regardless of the
 --         operating systems, which minimizes the time required for initial
 --         on-premises infrastructure assessment.
 --
---     -   Agentless discovery doesn\'t collect information about network
+--     -   Agentless Collector doesn\'t collect information about network
 --         dependencies, only agent-based discovery collects that
 --         information.
 --
--- -   __Agent-based discovery__ collects a richer set of data than
---     agentless discovery by using the Amazon Web Services Application
---     Discovery Agent, which you install on one or more hosts in your data
---     center.
+-- -   __Agent-based discovery__ using the Amazon Web Services Application
+--     Discovery Agent (Application Discovery Agent) collects a richer set
+--     of data than agentless discovery, which you install on one or more
+--     hosts in your data center.
 --
 --     -   The agent captures infrastructure and application information,
 --         including an inventory of running processes, system performance
@@ -44,12 +45,14 @@
 --
 --     -   The information collected by agents is secured at rest and in
 --         transit to the Application Discovery Service database in the
---         cloud.
+--         Amazon Web Services cloud. For more information, see
+--         <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-agent.html Amazon Web Services Application Discovery Agent>.
 --
 -- -   __Amazon Web Services Partner Network (APN) solutions__ integrate
 --     with Application Discovery Service, enabling you to import details
---     of your on-premises environment directly into Migration Hub without
---     using the discovery connector or discovery agent.
+--     of your on-premises environment directly into Amazon Web Services
+--     Migration Hub (Migration Hub) without using Agentless Collector or
+--     Application Discovery Agent.
 --
 --     -   Third-party application discovery tools can query Amazon Web
 --         Services Application Discovery Service, and they can write to
@@ -58,15 +61,6 @@
 --     -   In this way, you can import data into Migration Hub and view it,
 --         so that you can associate applications with servers and track
 --         migrations.
---
--- __Recommendations__
---
--- We recommend that you use agent-based discovery for non-VMware
--- environments, and whenever you want to collect information about network
--- dependencies. You can run agent-based and agentless discovery
--- simultaneously. Use agentless discovery to complete the initial
--- infrastructure assessment quickly, and then install agents on select
--- hosts to collect additional information.
 --
 -- __Working With This Guide__
 --
@@ -78,30 +72,30 @@
 -- platform that you\'re using. For more information, see
 -- <http://aws.amazon.com/tools/#SDKs Amazon Web Services SDKs>.
 --
--- -   Remember that you must set your Migration Hub home region before you
+-- -   Remember that you must set your Migration Hub home Region before you
 --     call any of these APIs.
 --
 -- -   You must make API calls for write actions (create, notify,
---     associate, disassociate, import, or put) while in your home region,
+--     associate, disassociate, import, or put) while in your home Region,
 --     or a @HomeRegionNotSetException@ error is returned.
 --
 -- -   API calls for read actions (list, describe, stop, and delete) are
---     permitted outside of your home region.
+--     permitted outside of your home Region.
 --
--- -   Although it is unlikely, the Migration Hub home region could change.
---     If you call APIs outside the home region, an @InvalidInputException@
+-- -   Although it is unlikely, the Migration Hub home Region could change.
+--     If you call APIs outside the home Region, an @InvalidInputException@
 --     is returned.
 --
 -- -   You must call @GetHomeRegion@ to obtain the latest Migration Hub
---     home region.
+--     home Region.
 --
 -- This guide is intended for use with the
--- <http://docs.aws.amazon.com/application-discovery/latest/userguide/ Amazon Web Services Application Discovery Service User Guide>.
+-- <https://docs.aws.amazon.com/application-discovery/latest/userguide/ Amazon Web Services Application Discovery Service User Guide>.
 --
 -- All data is handled according to the
--- <http://aws.amazon.com/privacy/ Amazon Web Services Privacy Policy>. You
--- can operate Application Discovery Service offline to inspect collected
--- data before it is shared with the service.
+-- <https://aws.amazon.com/privacy/ Amazon Web Services Privacy Policy>.
+-- You can operate Application Discovery Service offline to inspect
+-- collected data before it is shared with the service.
 module Amazonka.Discovery
   ( -- * Service Configuration
     defaultService,
@@ -309,8 +303,20 @@ module Amazonka.Discovery
     -- ** ImportTaskFilterName
     ImportTaskFilterName (..),
 
+    -- ** OfferingClass
+    OfferingClass (..),
+
     -- ** OrderString
     OrderString (..),
+
+    -- ** PurchasingOption
+    PurchasingOption (..),
+
+    -- ** Tenancy
+    Tenancy (..),
+
+    -- ** TermLength
+    TermLength (..),
 
     -- ** AgentConfigurationStatus
     AgentConfigurationStatus (AgentConfigurationStatus'),
@@ -352,6 +358,10 @@ module Amazonka.Discovery
     CustomerMeCollectorInfo (CustomerMeCollectorInfo'),
     newCustomerMeCollectorInfo,
 
+    -- ** Ec2RecommendationsExportPreferences
+    Ec2RecommendationsExportPreferences (Ec2RecommendationsExportPreferences'),
+    newEc2RecommendationsExportPreferences,
+
     -- ** ExportFilter
     ExportFilter (ExportFilter'),
     newExportFilter,
@@ -359,6 +369,10 @@ module Amazonka.Discovery
     -- ** ExportInfo
     ExportInfo (ExportInfo'),
     newExportInfo,
+
+    -- ** ExportPreferences
+    ExportPreferences (ExportPreferences'),
+    newExportPreferences,
 
     -- ** Filter
     Filter (Filter'),
@@ -380,6 +394,10 @@ module Amazonka.Discovery
     OrderByElement (OrderByElement'),
     newOrderByElement,
 
+    -- ** ReservedInstanceOptions
+    ReservedInstanceOptions (ReservedInstanceOptions'),
+    newReservedInstanceOptions,
+
     -- ** Tag
     Tag (Tag'),
     newTag,
@@ -387,6 +405,10 @@ module Amazonka.Discovery
     -- ** TagFilter
     TagFilter (TagFilter'),
     newTagFilter,
+
+    -- ** UsageMetricBasis
+    UsageMetricBasis (UsageMetricBasis'),
+    newUsageMetricBasis,
   )
 where
 

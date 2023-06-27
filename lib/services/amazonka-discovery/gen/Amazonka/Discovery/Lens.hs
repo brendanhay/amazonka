@@ -145,6 +145,7 @@ module Amazonka.Discovery.Lens
     startExportTask_endTime,
     startExportTask_exportDataFormat,
     startExportTask_filters,
+    startExportTask_preferences,
     startExportTask_startTime,
     startExportTaskResponse_exportId,
     startExportTaskResponse_httpStatus,
@@ -254,6 +255,15 @@ module Amazonka.Discovery.Lens
     customerMeCollectorInfo_totalMeCollectors,
     customerMeCollectorInfo_unknownMeCollectors,
 
+    -- ** Ec2RecommendationsExportPreferences
+    ec2RecommendationsExportPreferences_cpuPerformanceMetricBasis,
+    ec2RecommendationsExportPreferences_enabled,
+    ec2RecommendationsExportPreferences_excludedInstanceTypes,
+    ec2RecommendationsExportPreferences_preferredRegion,
+    ec2RecommendationsExportPreferences_ramPerformanceMetricBasis,
+    ec2RecommendationsExportPreferences_reservedInstanceOptions,
+    ec2RecommendationsExportPreferences_tenancy,
+
     -- ** ExportFilter
     exportFilter_name,
     exportFilter_values,
@@ -268,6 +278,9 @@ module Amazonka.Discovery.Lens
     exportInfo_exportStatus,
     exportInfo_statusMessage,
     exportInfo_exportRequestTime,
+
+    -- ** ExportPreferences
+    exportPreferences_ec2RecommendationsPreferences,
 
     -- ** Filter
     filter_name,
@@ -304,6 +317,11 @@ module Amazonka.Discovery.Lens
     orderByElement_sortOrder,
     orderByElement_fieldName,
 
+    -- ** ReservedInstanceOptions
+    reservedInstanceOptions_purchasingOption,
+    reservedInstanceOptions_offeringClass,
+    reservedInstanceOptions_termLength,
+
     -- ** Tag
     tag_key,
     tag_value,
@@ -311,6 +329,10 @@ module Amazonka.Discovery.Lens
     -- ** TagFilter
     tagFilter_name,
     tagFilter_values,
+
+    -- ** UsageMetricBasis
+    usageMetricBasis_name,
+    usageMetricBasis_percentageAdjust,
   )
 where
 
@@ -346,13 +368,17 @@ import Amazonka.Discovery.Types.CustomerAgentInfo
 import Amazonka.Discovery.Types.CustomerAgentlessCollectorInfo
 import Amazonka.Discovery.Types.CustomerConnectorInfo
 import Amazonka.Discovery.Types.CustomerMeCollectorInfo
+import Amazonka.Discovery.Types.Ec2RecommendationsExportPreferences
 import Amazonka.Discovery.Types.ExportFilter
 import Amazonka.Discovery.Types.ExportInfo
+import Amazonka.Discovery.Types.ExportPreferences
 import Amazonka.Discovery.Types.Filter
 import Amazonka.Discovery.Types.ImportTask
 import Amazonka.Discovery.Types.ImportTaskFilter
 import Amazonka.Discovery.Types.NeighborConnectionDetail
 import Amazonka.Discovery.Types.OrderByElement
+import Amazonka.Discovery.Types.ReservedInstanceOptions
 import Amazonka.Discovery.Types.Tag
 import Amazonka.Discovery.Types.TagFilter
+import Amazonka.Discovery.Types.UsageMetricBasis
 import Amazonka.Discovery.UpdateApplication

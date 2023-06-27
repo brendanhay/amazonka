@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Instructs the specified agents or connectors to stop collecting data.
+-- Instructs the specified agents to stop collecting data.
 module Amazonka.Discovery.StopDataCollectionByAgentIds
   ( -- * Creating a Request
     StopDataCollectionByAgentIds (..),
@@ -49,7 +49,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStopDataCollectionByAgentIds' smart constructor.
 data StopDataCollectionByAgentIds = StopDataCollectionByAgentIds'
-  { -- | The IDs of the agents or connectors from which to stop collecting data.
+  { -- | The IDs of the agents from which to stop collecting data.
     agentIds :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,7 +62,7 @@ data StopDataCollectionByAgentIds = StopDataCollectionByAgentIds'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'agentIds', 'stopDataCollectionByAgentIds_agentIds' - The IDs of the agents or connectors from which to stop collecting data.
+-- 'agentIds', 'stopDataCollectionByAgentIds_agentIds' - The IDs of the agents from which to stop collecting data.
 newStopDataCollectionByAgentIds ::
   StopDataCollectionByAgentIds
 newStopDataCollectionByAgentIds =
@@ -71,7 +71,7 @@ newStopDataCollectionByAgentIds =
         Prelude.mempty
     }
 
--- | The IDs of the agents or connectors from which to stop collecting data.
+-- | The IDs of the agents from which to stop collecting data.
 stopDataCollectionByAgentIds_agentIds :: Lens.Lens' StopDataCollectionByAgentIds [Prelude.Text]
 stopDataCollectionByAgentIds_agentIds = Lens.lens (\StopDataCollectionByAgentIds' {agentIds} -> agentIds) (\s@StopDataCollectionByAgentIds' {} a -> s {agentIds = a} :: StopDataCollectionByAgentIds) Prelude.. Lens.coerced
 
@@ -85,7 +85,8 @@ instance Core.AWSRequest StopDataCollectionByAgentIds where
     Response.receiveJSON
       ( \s h x ->
           StopDataCollectionByAgentIdsResponse'
-            Prelude.<$> ( x Data..?> "agentsConfigurationStatus"
+            Prelude.<$> ( x
+                            Data..?> "agentsConfigurationStatus"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -132,10 +133,9 @@ instance Data.ToQuery StopDataCollectionByAgentIds where
 
 -- | /See:/ 'newStopDataCollectionByAgentIdsResponse' smart constructor.
 data StopDataCollectionByAgentIdsResponse = StopDataCollectionByAgentIdsResponse'
-  { -- | Information about the agents or connector that were instructed to stop
-    -- collecting data. Information includes the agent\/connector ID, a
-    -- description of the operation performed, and whether the agent\/connector
-    -- configuration was updated.
+  { -- | Information about the agents that were instructed to stop collecting
+    -- data. Information includes the agent ID, a description of the operation
+    -- performed, and whether the agent configuration was updated.
     agentsConfigurationStatus :: Prelude.Maybe [AgentConfigurationStatus],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -150,10 +150,9 @@ data StopDataCollectionByAgentIdsResponse = StopDataCollectionByAgentIdsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'agentsConfigurationStatus', 'stopDataCollectionByAgentIdsResponse_agentsConfigurationStatus' - Information about the agents or connector that were instructed to stop
--- collecting data. Information includes the agent\/connector ID, a
--- description of the operation performed, and whether the agent\/connector
--- configuration was updated.
+-- 'agentsConfigurationStatus', 'stopDataCollectionByAgentIdsResponse_agentsConfigurationStatus' - Information about the agents that were instructed to stop collecting
+-- data. Information includes the agent ID, a description of the operation
+-- performed, and whether the agent configuration was updated.
 --
 -- 'httpStatus', 'stopDataCollectionByAgentIdsResponse_httpStatus' - The response's http status code.
 newStopDataCollectionByAgentIdsResponse ::
@@ -167,10 +166,9 @@ newStopDataCollectionByAgentIdsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Information about the agents or connector that were instructed to stop
--- collecting data. Information includes the agent\/connector ID, a
--- description of the operation performed, and whether the agent\/connector
--- configuration was updated.
+-- | Information about the agents that were instructed to stop collecting
+-- data. Information includes the agent ID, a description of the operation
+-- performed, and whether the agent configuration was updated.
 stopDataCollectionByAgentIdsResponse_agentsConfigurationStatus :: Lens.Lens' StopDataCollectionByAgentIdsResponse (Prelude.Maybe [AgentConfigurationStatus])
 stopDataCollectionByAgentIdsResponse_agentsConfigurationStatus = Lens.lens (\StopDataCollectionByAgentIdsResponse' {agentsConfigurationStatus} -> agentsConfigurationStatus) (\s@StopDataCollectionByAgentIdsResponse' {} a -> s {agentsConfigurationStatus = a} :: StopDataCollectionByAgentIdsResponse) Prelude.. Lens.mapping Lens.coerced
 

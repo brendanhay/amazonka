@@ -32,9 +32,9 @@
 --
 -- -   configurationId
 --
--- Also, all configuration items associated with your user account that
--- have tags can be listed if you call @DescribeTags@ as is without passing
--- any parameters.
+-- Also, all configuration items associated with your user that have tags
+-- can be listed if you call @DescribeTags@ as is without passing any
+-- parameters.
 --
 -- This operation returns paginated results.
 module Amazonka.Discovery.DescribeTags
@@ -127,20 +127,23 @@ instance Core.AWSPager DescribeTags where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeTagsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? describeTagsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeTagsResponse_tags Prelude.. Lens._Just
+            Lens.^? describeTagsResponse_tags
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeTags_nextToken
           Lens..~ rs
-          Lens.^? describeTagsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeTagsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTags where
   type AWSResponse DescribeTags = DescribeTagsResponse
@@ -157,7 +160,8 @@ instance Core.AWSRequest DescribeTags where
 
 instance Prelude.Hashable DescribeTags where
   hashWithSalt _salt DescribeTags' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

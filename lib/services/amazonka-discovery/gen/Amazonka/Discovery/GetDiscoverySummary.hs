@@ -124,6 +124,7 @@ instance Data.ToQuery GetDiscoverySummary where
 data GetDiscoverySummaryResponse = GetDiscoverySummaryResponse'
   { -- | Details about discovered agents, including agent status and health.
     agentSummary :: Prelude.Maybe CustomerAgentInfo,
+    -- | Details about Agentless Collector collectors, including status.
     agentlessCollectorSummary :: Prelude.Maybe CustomerAgentlessCollectorInfo,
     -- | The number of applications discovered.
     applications :: Prelude.Maybe Prelude.Integer,
@@ -154,7 +155,7 @@ data GetDiscoverySummaryResponse = GetDiscoverySummaryResponse'
 --
 -- 'agentSummary', 'getDiscoverySummaryResponse_agentSummary' - Details about discovered agents, including agent status and health.
 --
--- 'agentlessCollectorSummary', 'getDiscoverySummaryResponse_agentlessCollectorSummary' - Undocumented member.
+-- 'agentlessCollectorSummary', 'getDiscoverySummaryResponse_agentlessCollectorSummary' - Details about Agentless Collector collectors, including status.
 --
 -- 'applications', 'getDiscoverySummaryResponse_applications' - The number of applications discovered.
 --
@@ -193,7 +194,7 @@ newGetDiscoverySummaryResponse pHttpStatus_ =
 getDiscoverySummaryResponse_agentSummary :: Lens.Lens' GetDiscoverySummaryResponse (Prelude.Maybe CustomerAgentInfo)
 getDiscoverySummaryResponse_agentSummary = Lens.lens (\GetDiscoverySummaryResponse' {agentSummary} -> agentSummary) (\s@GetDiscoverySummaryResponse' {} a -> s {agentSummary = a} :: GetDiscoverySummaryResponse)
 
--- | Undocumented member.
+-- | Details about Agentless Collector collectors, including status.
 getDiscoverySummaryResponse_agentlessCollectorSummary :: Lens.Lens' GetDiscoverySummaryResponse (Prelude.Maybe CustomerAgentlessCollectorInfo)
 getDiscoverySummaryResponse_agentlessCollectorSummary = Lens.lens (\GetDiscoverySummaryResponse' {agentlessCollectorSummary} -> agentlessCollectorSummary) (\s@GetDiscoverySummaryResponse' {} a -> s {agentlessCollectorSummary = a} :: GetDiscoverySummaryResponse)
 

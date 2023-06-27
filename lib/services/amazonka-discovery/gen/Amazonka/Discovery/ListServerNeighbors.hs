@@ -155,7 +155,8 @@ instance Core.AWSRequest ListServerNeighbors where
 
 instance Prelude.Hashable ListServerNeighbors where
   hashWithSalt _salt ListServerNeighbors' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` neighborConfigurationIds
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` portInformationNeeded

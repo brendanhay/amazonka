@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists exports as specified by ID. All continuous exports associated with
--- your user account can be listed if you call @DescribeContinuousExports@
--- as is without passing any parameters.
+-- your user can be listed if you call @DescribeContinuousExports@ as is
+-- without passing any parameters.
 --
 -- This operation returns paginated results.
 module Amazonka.Discovery.DescribeContinuousExports
@@ -108,22 +108,22 @@ instance Core.AWSPager DescribeContinuousExports where
     | Core.stop
         ( rs
             Lens.^? describeContinuousExportsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeContinuousExportsResponse_descriptions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeContinuousExports_nextToken
           Lens..~ rs
           Lens.^? describeContinuousExportsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeContinuousExports where
   type
@@ -142,7 +142,8 @@ instance Core.AWSRequest DescribeContinuousExports where
 
 instance Prelude.Hashable DescribeContinuousExports where
   hashWithSalt _salt DescribeContinuousExports' {..} =
-    _salt `Prelude.hashWithSalt` exportIds
+    _salt
+      `Prelude.hashWithSalt` exportIds
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

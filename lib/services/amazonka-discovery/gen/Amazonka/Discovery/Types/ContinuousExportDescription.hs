@@ -81,15 +81,15 @@ data ContinuousExportDescription = ContinuousExportDescription'
     --     in the Amazon Kinesis Data Streams Developer Guide.
     --
     -- -   FIREHOSE_ROLE_MISSING - The Data Exploration feature is in an error
-    --     state because your IAM User is missing the
-    --     AWSApplicationDiscoveryServiceFirehose role. Turn on Data
+    --     state because your user is missing the Amazon Web
+    --     ServicesApplicationDiscoveryServiceFirehose role. Turn on Data
     --     Exploration in Amazon Athena and try again. For more information,
     --     see
-    --     <http://docs.aws.amazon.com/application-discovery/latest/userguide/setting-up.html#setting-up-user-policy Step 3: Provide Application Discovery Service Access to Non-Administrator Users by Attaching Policies>
+    --     <https://docs.aws.amazon.com/application-discovery/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-create-firehose-role Creating the Amazon Web ServicesApplicationDiscoveryServiceFirehose Role>
     --     in the Application Discovery Service User Guide.
     --
     -- -   FIREHOSE_STREAM_DOES_NOT_EXIST - The Data Exploration feature is in
-    --     an error state because your IAM User is missing one or more of the
+    --     an error state because your user is missing one or more of the
     --     Kinesis data delivery streams.
     --
     -- -   INTERNAL_FAILURE - The Data Exploration feature is in an error state
@@ -202,15 +202,15 @@ data ContinuousExportDescription = ContinuousExportDescription'
 --     in the Amazon Kinesis Data Streams Developer Guide.
 --
 -- -   FIREHOSE_ROLE_MISSING - The Data Exploration feature is in an error
---     state because your IAM User is missing the
---     AWSApplicationDiscoveryServiceFirehose role. Turn on Data
+--     state because your user is missing the Amazon Web
+--     ServicesApplicationDiscoveryServiceFirehose role. Turn on Data
 --     Exploration in Amazon Athena and try again. For more information,
 --     see
---     <http://docs.aws.amazon.com/application-discovery/latest/userguide/setting-up.html#setting-up-user-policy Step 3: Provide Application Discovery Service Access to Non-Administrator Users by Attaching Policies>
+--     <https://docs.aws.amazon.com/application-discovery/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-create-firehose-role Creating the Amazon Web ServicesApplicationDiscoveryServiceFirehose Role>
 --     in the Application Discovery Service User Guide.
 --
 -- -   FIREHOSE_STREAM_DOES_NOT_EXIST - The Data Exploration feature is in
---     an error state because your IAM User is missing one or more of the
+--     an error state because your user is missing one or more of the
 --     Kinesis data delivery streams.
 --
 -- -   INTERNAL_FAILURE - The Data Exploration feature is in an error state
@@ -338,15 +338,15 @@ continuousExportDescription_status = Lens.lens (\ContinuousExportDescription' {s
 --     in the Amazon Kinesis Data Streams Developer Guide.
 --
 -- -   FIREHOSE_ROLE_MISSING - The Data Exploration feature is in an error
---     state because your IAM User is missing the
---     AWSApplicationDiscoveryServiceFirehose role. Turn on Data
+--     state because your user is missing the Amazon Web
+--     ServicesApplicationDiscoveryServiceFirehose role. Turn on Data
 --     Exploration in Amazon Athena and try again. For more information,
 --     see
---     <http://docs.aws.amazon.com/application-discovery/latest/userguide/setting-up.html#setting-up-user-policy Step 3: Provide Application Discovery Service Access to Non-Administrator Users by Attaching Policies>
+--     <https://docs.aws.amazon.com/application-discovery/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-create-firehose-role Creating the Amazon Web ServicesApplicationDiscoveryServiceFirehose Role>
 --     in the Application Discovery Service User Guide.
 --
 -- -   FIREHOSE_STREAM_DOES_NOT_EXIST - The Data Exploration feature is in
---     an error state because your IAM User is missing one or more of the
+--     an error state because your user is missing one or more of the
 --     Kinesis data delivery streams.
 --
 -- -   INTERNAL_FAILURE - The Data Exploration feature is in an error state
@@ -410,7 +410,8 @@ instance Data.FromJSON ContinuousExportDescription where
             Prelude.<$> (x Data..:? "dataSource")
             Prelude.<*> (x Data..:? "exportId")
             Prelude.<*> (x Data..:? "s3Bucket")
-            Prelude.<*> ( x Data..:? "schemaStorageConfig"
+            Prelude.<*> ( x
+                            Data..:? "schemaStorageConfig"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "startTime")
@@ -421,7 +422,8 @@ instance Data.FromJSON ContinuousExportDescription where
 
 instance Prelude.Hashable ContinuousExportDescription where
   hashWithSalt _salt ContinuousExportDescription' {..} =
-    _salt `Prelude.hashWithSalt` dataSource
+    _salt
+      `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` exportId
       `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` schemaStorageConfig

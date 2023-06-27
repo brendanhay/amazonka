@@ -20,19 +20,34 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Begins the export of discovered data to an S3 bucket.
+-- Begins the export of a discovered data report to an Amazon S3 bucket
+-- managed by Amazon Web Services.
+--
+-- Exports might provide an estimate of fees and savings based on certain
+-- information that you provide. Fee estimates do not include any taxes
+-- that might apply. Your actual fees and savings depend on a variety of
+-- factors, including your actual usage of Amazon Web Services services,
+-- which might vary from the estimates provided in this report.
+--
+-- If you do not specify @preferences@ or @agentIds@ in the filter, a
+-- summary of all servers, applications, tags, and performance is
+-- generated. This data is an aggregation of all server data collected
+-- through on-premises tooling, file import, application grouping and
+-- applying tags.
 --
 -- If you specify @agentIds@ in a filter, the task exports up to 72 hours
 -- of detailed data collected by the identified Application Discovery
 -- Agent, including network, process, and performance details. A time range
 -- for exported agent data may be set by using @startTime@ and @endTime@.
 -- Export of detailed agent data is limited to five concurrently running
--- exports.
+-- exports. Export of detailed agent data is limited to two exports per
+-- day.
 --
--- If you do not include an @agentIds@ filter, summary data is exported
--- that includes both Amazon Web Services Agentless Discovery Connector
--- data and summary data from Amazon Web Services Discovery Agents. Export
--- of summary data is limited to two exports per day.
+-- If you enable @ec2RecommendationsPreferences@ in @preferences@ , an
+-- Amazon EC2 instance matching the characteristics of each server in
+-- Application Discovery Service is generated. Changing the attributes of
+-- the @ec2RecommendationsPreferences@ changes the criteria of the
+-- recommendation.
 module Amazonka.Discovery.StartExportTask
   ( -- * Creating a Request
     StartExportTask (..),
@@ -42,6 +57,7 @@ module Amazonka.Discovery.StartExportTask
     startExportTask_endTime,
     startExportTask_exportDataFormat,
     startExportTask_filters,
+    startExportTask_preferences,
     startExportTask_startTime,
 
     -- * Destructuring the Response
@@ -75,9 +91,14 @@ data StartExportTask = StartExportTask'
     -- Application Discovery Agent for which data is exported. The @agentId@
     -- can be found in the results of the @DescribeAgents@ API or CLI. If no
     -- filter is present, @startTime@ and @endTime@ are ignored and exported
-    -- data includes both Agentless Discovery Connector data and summary data
-    -- from Application Discovery agents.
+    -- data includes both Amazon Web Services Application Discovery Service
+    -- Agentless Collector collectors data and summary data from Application
+    -- Discovery Agent agents.
     filters :: Prelude.Maybe [ExportFilter],
+    -- | Indicates the type of data that needs to be exported. Only one
+    -- <https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_ExportPreferences.html ExportPreferences>
+    -- can be enabled at any time.
+    preferences :: Prelude.Maybe ExportPreferences,
     -- | The start timestamp for exported data from the single Application
     -- Discovery Agent selected in the filters. If no value is specified, data
     -- is exported starting from the first data collected by the agent.
@@ -104,8 +125,13 @@ data StartExportTask = StartExportTask'
 -- Application Discovery Agent for which data is exported. The @agentId@
 -- can be found in the results of the @DescribeAgents@ API or CLI. If no
 -- filter is present, @startTime@ and @endTime@ are ignored and exported
--- data includes both Agentless Discovery Connector data and summary data
--- from Application Discovery agents.
+-- data includes both Amazon Web Services Application Discovery Service
+-- Agentless Collector collectors data and summary data from Application
+-- Discovery Agent agents.
+--
+-- 'preferences', 'startExportTask_preferences' - Indicates the type of data that needs to be exported. Only one
+-- <https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_ExportPreferences.html ExportPreferences>
+-- can be enabled at any time.
 --
 -- 'startTime', 'startExportTask_startTime' - The start timestamp for exported data from the single Application
 -- Discovery Agent selected in the filters. If no value is specified, data
@@ -117,6 +143,7 @@ newStartExportTask =
     { endTime = Prelude.Nothing,
       exportDataFormat = Prelude.Nothing,
       filters = Prelude.Nothing,
+      preferences = Prelude.Nothing,
       startTime = Prelude.Nothing
     }
 
@@ -135,10 +162,17 @@ startExportTask_exportDataFormat = Lens.lens (\StartExportTask' {exportDataForma
 -- Application Discovery Agent for which data is exported. The @agentId@
 -- can be found in the results of the @DescribeAgents@ API or CLI. If no
 -- filter is present, @startTime@ and @endTime@ are ignored and exported
--- data includes both Agentless Discovery Connector data and summary data
--- from Application Discovery agents.
+-- data includes both Amazon Web Services Application Discovery Service
+-- Agentless Collector collectors data and summary data from Application
+-- Discovery Agent agents.
 startExportTask_filters :: Lens.Lens' StartExportTask (Prelude.Maybe [ExportFilter])
 startExportTask_filters = Lens.lens (\StartExportTask' {filters} -> filters) (\s@StartExportTask' {} a -> s {filters = a} :: StartExportTask) Prelude.. Lens.mapping Lens.coerced
+
+-- | Indicates the type of data that needs to be exported. Only one
+-- <https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_ExportPreferences.html ExportPreferences>
+-- can be enabled at any time.
+startExportTask_preferences :: Lens.Lens' StartExportTask (Prelude.Maybe ExportPreferences)
+startExportTask_preferences = Lens.lens (\StartExportTask' {preferences} -> preferences) (\s@StartExportTask' {} a -> s {preferences = a} :: StartExportTask)
 
 -- | The start timestamp for exported data from the single Application
 -- Discovery Agent selected in the filters. If no value is specified, data
@@ -162,9 +196,11 @@ instance Core.AWSRequest StartExportTask where
 
 instance Prelude.Hashable StartExportTask where
   hashWithSalt _salt StartExportTask' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` exportDataFormat
       `Prelude.hashWithSalt` filters
+      `Prelude.hashWithSalt` preferences
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData StartExportTask where
@@ -172,6 +208,7 @@ instance Prelude.NFData StartExportTask where
     Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf exportDataFormat
       `Prelude.seq` Prelude.rnf filters
+      `Prelude.seq` Prelude.rnf preferences
       `Prelude.seq` Prelude.rnf startTime
 
 instance Data.ToHeaders StartExportTask where
@@ -197,6 +234,7 @@ instance Data.ToJSON StartExportTask where
             ("exportDataFormat" Data..=)
               Prelude.<$> exportDataFormat,
             ("filters" Data..=) Prelude.<$> filters,
+            ("preferences" Data..=) Prelude.<$> preferences,
             ("startTime" Data..=) Prelude.<$> startTime
           ]
       )

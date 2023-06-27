@@ -24,14 +24,23 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newCustomerAgentlessCollectorInfo' smart constructor.
+-- | The inventory data for installed Agentless Collector collectors.
+--
+-- /See:/ 'newCustomerAgentlessCollectorInfo' smart constructor.
 data CustomerAgentlessCollectorInfo = CustomerAgentlessCollectorInfo'
-  { activeAgentlessCollectors :: Prelude.Int,
+  { -- | The number of active Agentless Collector collectors.
+    activeAgentlessCollectors :: Prelude.Int,
+    -- | The number of healthy Agentless Collector collectors.
     healthyAgentlessCollectors :: Prelude.Int,
+    -- | The number of deny-listed Agentless Collector collectors.
     denyListedAgentlessCollectors :: Prelude.Int,
+    -- | The number of Agentless Collector collectors with @SHUTDOWN@ status.
     shutdownAgentlessCollectors :: Prelude.Int,
+    -- | The number of unhealthy Agentless Collector collectors.
     unhealthyAgentlessCollectors :: Prelude.Int,
+    -- | The total number of Agentless Collector collectors.
     totalAgentlessCollectors :: Prelude.Int,
+    -- | The number of unknown Agentless Collector collectors.
     unknownAgentlessCollectors :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,19 +53,19 @@ data CustomerAgentlessCollectorInfo = CustomerAgentlessCollectorInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'activeAgentlessCollectors', 'customerAgentlessCollectorInfo_activeAgentlessCollectors' - Undocumented member.
+-- 'activeAgentlessCollectors', 'customerAgentlessCollectorInfo_activeAgentlessCollectors' - The number of active Agentless Collector collectors.
 --
--- 'healthyAgentlessCollectors', 'customerAgentlessCollectorInfo_healthyAgentlessCollectors' - Undocumented member.
+-- 'healthyAgentlessCollectors', 'customerAgentlessCollectorInfo_healthyAgentlessCollectors' - The number of healthy Agentless Collector collectors.
 --
--- 'denyListedAgentlessCollectors', 'customerAgentlessCollectorInfo_denyListedAgentlessCollectors' - Undocumented member.
+-- 'denyListedAgentlessCollectors', 'customerAgentlessCollectorInfo_denyListedAgentlessCollectors' - The number of deny-listed Agentless Collector collectors.
 --
--- 'shutdownAgentlessCollectors', 'customerAgentlessCollectorInfo_shutdownAgentlessCollectors' - Undocumented member.
+-- 'shutdownAgentlessCollectors', 'customerAgentlessCollectorInfo_shutdownAgentlessCollectors' - The number of Agentless Collector collectors with @SHUTDOWN@ status.
 --
--- 'unhealthyAgentlessCollectors', 'customerAgentlessCollectorInfo_unhealthyAgentlessCollectors' - Undocumented member.
+-- 'unhealthyAgentlessCollectors', 'customerAgentlessCollectorInfo_unhealthyAgentlessCollectors' - The number of unhealthy Agentless Collector collectors.
 --
--- 'totalAgentlessCollectors', 'customerAgentlessCollectorInfo_totalAgentlessCollectors' - Undocumented member.
+-- 'totalAgentlessCollectors', 'customerAgentlessCollectorInfo_totalAgentlessCollectors' - The total number of Agentless Collector collectors.
 --
--- 'unknownAgentlessCollectors', 'customerAgentlessCollectorInfo_unknownAgentlessCollectors' - Undocumented member.
+-- 'unknownAgentlessCollectors', 'customerAgentlessCollectorInfo_unknownAgentlessCollectors' - The number of unknown Agentless Collector collectors.
 newCustomerAgentlessCollectorInfo ::
   -- | 'activeAgentlessCollectors'
   Prelude.Int ->
@@ -98,31 +107,31 @@ newCustomerAgentlessCollectorInfo
           pUnknownAgentlessCollectors_
       }
 
--- | Undocumented member.
+-- | The number of active Agentless Collector collectors.
 customerAgentlessCollectorInfo_activeAgentlessCollectors :: Lens.Lens' CustomerAgentlessCollectorInfo Prelude.Int
 customerAgentlessCollectorInfo_activeAgentlessCollectors = Lens.lens (\CustomerAgentlessCollectorInfo' {activeAgentlessCollectors} -> activeAgentlessCollectors) (\s@CustomerAgentlessCollectorInfo' {} a -> s {activeAgentlessCollectors = a} :: CustomerAgentlessCollectorInfo)
 
--- | Undocumented member.
+-- | The number of healthy Agentless Collector collectors.
 customerAgentlessCollectorInfo_healthyAgentlessCollectors :: Lens.Lens' CustomerAgentlessCollectorInfo Prelude.Int
 customerAgentlessCollectorInfo_healthyAgentlessCollectors = Lens.lens (\CustomerAgentlessCollectorInfo' {healthyAgentlessCollectors} -> healthyAgentlessCollectors) (\s@CustomerAgentlessCollectorInfo' {} a -> s {healthyAgentlessCollectors = a} :: CustomerAgentlessCollectorInfo)
 
--- | Undocumented member.
+-- | The number of deny-listed Agentless Collector collectors.
 customerAgentlessCollectorInfo_denyListedAgentlessCollectors :: Lens.Lens' CustomerAgentlessCollectorInfo Prelude.Int
 customerAgentlessCollectorInfo_denyListedAgentlessCollectors = Lens.lens (\CustomerAgentlessCollectorInfo' {denyListedAgentlessCollectors} -> denyListedAgentlessCollectors) (\s@CustomerAgentlessCollectorInfo' {} a -> s {denyListedAgentlessCollectors = a} :: CustomerAgentlessCollectorInfo)
 
--- | Undocumented member.
+-- | The number of Agentless Collector collectors with @SHUTDOWN@ status.
 customerAgentlessCollectorInfo_shutdownAgentlessCollectors :: Lens.Lens' CustomerAgentlessCollectorInfo Prelude.Int
 customerAgentlessCollectorInfo_shutdownAgentlessCollectors = Lens.lens (\CustomerAgentlessCollectorInfo' {shutdownAgentlessCollectors} -> shutdownAgentlessCollectors) (\s@CustomerAgentlessCollectorInfo' {} a -> s {shutdownAgentlessCollectors = a} :: CustomerAgentlessCollectorInfo)
 
--- | Undocumented member.
+-- | The number of unhealthy Agentless Collector collectors.
 customerAgentlessCollectorInfo_unhealthyAgentlessCollectors :: Lens.Lens' CustomerAgentlessCollectorInfo Prelude.Int
 customerAgentlessCollectorInfo_unhealthyAgentlessCollectors = Lens.lens (\CustomerAgentlessCollectorInfo' {unhealthyAgentlessCollectors} -> unhealthyAgentlessCollectors) (\s@CustomerAgentlessCollectorInfo' {} a -> s {unhealthyAgentlessCollectors = a} :: CustomerAgentlessCollectorInfo)
 
--- | Undocumented member.
+-- | The total number of Agentless Collector collectors.
 customerAgentlessCollectorInfo_totalAgentlessCollectors :: Lens.Lens' CustomerAgentlessCollectorInfo Prelude.Int
 customerAgentlessCollectorInfo_totalAgentlessCollectors = Lens.lens (\CustomerAgentlessCollectorInfo' {totalAgentlessCollectors} -> totalAgentlessCollectors) (\s@CustomerAgentlessCollectorInfo' {} a -> s {totalAgentlessCollectors = a} :: CustomerAgentlessCollectorInfo)
 
--- | Undocumented member.
+-- | The number of unknown Agentless Collector collectors.
 customerAgentlessCollectorInfo_unknownAgentlessCollectors :: Lens.Lens' CustomerAgentlessCollectorInfo Prelude.Int
 customerAgentlessCollectorInfo_unknownAgentlessCollectors = Lens.lens (\CustomerAgentlessCollectorInfo' {unknownAgentlessCollectors} -> unknownAgentlessCollectors) (\s@CustomerAgentlessCollectorInfo' {} a -> s {unknownAgentlessCollectors = a} :: CustomerAgentlessCollectorInfo)
 

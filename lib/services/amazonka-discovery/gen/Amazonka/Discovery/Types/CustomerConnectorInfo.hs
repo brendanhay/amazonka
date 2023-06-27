@@ -146,7 +146,8 @@ instance Data.FromJSON CustomerConnectorInfo where
 
 instance Prelude.Hashable CustomerConnectorInfo where
   hashWithSalt _salt CustomerConnectorInfo' {..} =
-    _salt `Prelude.hashWithSalt` activeConnectors
+    _salt
+      `Prelude.hashWithSalt` activeConnectors
       `Prelude.hashWithSalt` healthyConnectors
       `Prelude.hashWithSalt` blackListedConnectors
       `Prelude.hashWithSalt` shutdownConnectors

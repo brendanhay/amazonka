@@ -136,7 +136,8 @@ instance Data.FromJSON VodSource where
             Prelude.<*> (x Data..:? "LastModifiedTime")
             Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "Arn")
-            Prelude.<*> ( x Data..:? "HttpPackageConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "HttpPackageConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "SourceLocationName")
@@ -145,7 +146,8 @@ instance Data.FromJSON VodSource where
 
 instance Prelude.Hashable VodSource where
   hashWithSalt _salt VodSource' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn

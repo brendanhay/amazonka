@@ -26,6 +26,12 @@ module Amazonka.MediaTailor.Types
     -- * ChannelState
     ChannelState (..),
 
+    -- * FillPolicy
+    FillPolicy (..),
+
+    -- * LogType
+    LogType (..),
+
     -- * MessageType
     MessageType (..),
 
@@ -91,6 +97,7 @@ module Amazonka.MediaTailor.Types
     -- * AvailSuppression
     AvailSuppression (..),
     newAvailSuppression,
+    availSuppression_fillPolicy,
     availSuppression_mode,
     availSuppression_value,
 
@@ -116,9 +123,15 @@ module Amazonka.MediaTailor.Types
     channel_arn,
     channel_channelName,
     channel_channelState,
+    channel_logConfiguration,
     channel_outputs,
     channel_playbackMode,
     channel_tier,
+
+    -- * ClipRange
+    ClipRange (..),
+    newClipRange,
+    clipRange_endOffsetMillis,
 
     -- * DashConfiguration
     DashConfiguration (..),
@@ -189,6 +202,11 @@ module Amazonka.MediaTailor.Types
     LogConfiguration (..),
     newLogConfiguration,
     logConfiguration_percentEnabled,
+
+    -- * LogConfigurationForChannel
+    LogConfigurationForChannel (..),
+    newLogConfigurationForChannel,
+    logConfigurationForChannel_logTypes,
 
     -- * ManifestProcessingRules
     ManifestProcessingRules (..),
@@ -270,6 +288,7 @@ module Amazonka.MediaTailor.Types
     -- * ScheduleConfiguration
     ScheduleConfiguration (..),
     newScheduleConfiguration,
+    scheduleConfiguration_clipRange,
     scheduleConfiguration_transition,
 
     -- * ScheduleEntry
@@ -352,6 +371,18 @@ module Amazonka.MediaTailor.Types
     transition_relativePosition,
     transition_type,
 
+    -- * UpdateProgramScheduleConfiguration
+    UpdateProgramScheduleConfiguration (..),
+    newUpdateProgramScheduleConfiguration,
+    updateProgramScheduleConfiguration_clipRange,
+    updateProgramScheduleConfiguration_transition,
+
+    -- * UpdateProgramTransition
+    UpdateProgramTransition (..),
+    newUpdateProgramTransition,
+    updateProgramTransition_durationMillis,
+    updateProgramTransition_scheduledStartTimeMillis,
+
     -- * VodSource
     VodSource (..),
     newVodSource,
@@ -378,10 +409,12 @@ import Amazonka.MediaTailor.Types.Bumper
 import Amazonka.MediaTailor.Types.CdnConfiguration
 import Amazonka.MediaTailor.Types.Channel
 import Amazonka.MediaTailor.Types.ChannelState
+import Amazonka.MediaTailor.Types.ClipRange
 import Amazonka.MediaTailor.Types.DashConfiguration
 import Amazonka.MediaTailor.Types.DashConfigurationForPut
 import Amazonka.MediaTailor.Types.DashPlaylistSettings
 import Amazonka.MediaTailor.Types.DefaultSegmentDeliveryConfiguration
+import Amazonka.MediaTailor.Types.FillPolicy
 import Amazonka.MediaTailor.Types.HlsConfiguration
 import Amazonka.MediaTailor.Types.HlsPlaylistSettings
 import Amazonka.MediaTailor.Types.HttpConfiguration
@@ -389,6 +422,8 @@ import Amazonka.MediaTailor.Types.HttpPackageConfiguration
 import Amazonka.MediaTailor.Types.LivePreRollConfiguration
 import Amazonka.MediaTailor.Types.LiveSource
 import Amazonka.MediaTailor.Types.LogConfiguration
+import Amazonka.MediaTailor.Types.LogConfigurationForChannel
+import Amazonka.MediaTailor.Types.LogType
 import Amazonka.MediaTailor.Types.ManifestProcessingRules
 import Amazonka.MediaTailor.Types.MessageType
 import Amazonka.MediaTailor.Types.Mode
@@ -416,6 +451,8 @@ import Amazonka.MediaTailor.Types.Tier
 import Amazonka.MediaTailor.Types.TimeSignalMessage
 import Amazonka.MediaTailor.Types.Transition
 import Amazonka.MediaTailor.Types.Type
+import Amazonka.MediaTailor.Types.UpdateProgramScheduleConfiguration
+import Amazonka.MediaTailor.Types.UpdateProgramTransition
 import Amazonka.MediaTailor.Types.VodSource
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
@@ -446,52 +483,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | A request contains unexpected data.
-_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BadRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService

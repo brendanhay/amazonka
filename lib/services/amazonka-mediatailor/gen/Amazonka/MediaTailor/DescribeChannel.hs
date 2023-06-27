@@ -47,6 +47,7 @@ module Amazonka.MediaTailor.DescribeChannel
     describeChannelResponse_tags,
     describeChannelResponse_tier,
     describeChannelResponse_httpStatus,
+    describeChannelResponse_logConfiguration,
   )
 where
 
@@ -106,6 +107,7 @@ instance Core.AWSRequest DescribeChannel where
             Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "Tier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..:> "LogConfiguration")
       )
 
 instance Prelude.Hashable DescribeChannel where
@@ -161,7 +163,9 @@ data DescribeChannelResponse = DescribeChannelResponse'
     -- | The channel\'s tier.
     tier :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Prelude.Int,
+    -- | The log configuration for the channel.
+    logConfiguration :: LogConfigurationForChannel
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -198,24 +202,31 @@ data DescribeChannelResponse = DescribeChannelResponse'
 -- 'tier', 'describeChannelResponse_tier' - The channel\'s tier.
 --
 -- 'httpStatus', 'describeChannelResponse_httpStatus' - The response's http status code.
+--
+-- 'logConfiguration', 'describeChannelResponse_logConfiguration' - The log configuration for the channel.
 newDescribeChannelResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
+  -- | 'logConfiguration'
+  LogConfigurationForChannel ->
   DescribeChannelResponse
-newDescribeChannelResponse pHttpStatus_ =
-  DescribeChannelResponse'
-    { arn = Prelude.Nothing,
-      channelName = Prelude.Nothing,
-      channelState = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      fillerSlate = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      outputs = Prelude.Nothing,
-      playbackMode = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      tier = Prelude.Nothing,
-      httpStatus = pHttpStatus_
-    }
+newDescribeChannelResponse
+  pHttpStatus_
+  pLogConfiguration_ =
+    DescribeChannelResponse'
+      { arn = Prelude.Nothing,
+        channelName = Prelude.Nothing,
+        channelState = Prelude.Nothing,
+        creationTime = Prelude.Nothing,
+        fillerSlate = Prelude.Nothing,
+        lastModifiedTime = Prelude.Nothing,
+        outputs = Prelude.Nothing,
+        playbackMode = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        tier = Prelude.Nothing,
+        httpStatus = pHttpStatus_,
+        logConfiguration = pLogConfiguration_
+      }
 
 -- | The ARN of the channel.
 describeChannelResponse_arn :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe Prelude.Text)
@@ -265,6 +276,10 @@ describeChannelResponse_tier = Lens.lens (\DescribeChannelResponse' {tier} -> ti
 describeChannelResponse_httpStatus :: Lens.Lens' DescribeChannelResponse Prelude.Int
 describeChannelResponse_httpStatus = Lens.lens (\DescribeChannelResponse' {httpStatus} -> httpStatus) (\s@DescribeChannelResponse' {} a -> s {httpStatus = a} :: DescribeChannelResponse)
 
+-- | The log configuration for the channel.
+describeChannelResponse_logConfiguration :: Lens.Lens' DescribeChannelResponse LogConfigurationForChannel
+describeChannelResponse_logConfiguration = Lens.lens (\DescribeChannelResponse' {logConfiguration} -> logConfiguration) (\s@DescribeChannelResponse' {} a -> s {logConfiguration = a} :: DescribeChannelResponse)
+
 instance Prelude.NFData DescribeChannelResponse where
   rnf DescribeChannelResponse' {..} =
     Prelude.rnf arn
@@ -278,3 +293,4 @@ instance Prelude.NFData DescribeChannelResponse where
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf tier
       `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf logConfiguration

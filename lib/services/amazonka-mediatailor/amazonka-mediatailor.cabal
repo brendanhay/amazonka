@@ -44,6 +44,7 @@ library
 
   exposed-modules:
     Amazonka.MediaTailor
+    Amazonka.MediaTailor.ConfigureLogsForChannel
     Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration
     Amazonka.MediaTailor.CreateChannel
     Amazonka.MediaTailor.CreateLiveSource
@@ -94,10 +95,12 @@ library
     Amazonka.MediaTailor.Types.CdnConfiguration
     Amazonka.MediaTailor.Types.Channel
     Amazonka.MediaTailor.Types.ChannelState
+    Amazonka.MediaTailor.Types.ClipRange
     Amazonka.MediaTailor.Types.DashConfiguration
     Amazonka.MediaTailor.Types.DashConfigurationForPut
     Amazonka.MediaTailor.Types.DashPlaylistSettings
     Amazonka.MediaTailor.Types.DefaultSegmentDeliveryConfiguration
+    Amazonka.MediaTailor.Types.FillPolicy
     Amazonka.MediaTailor.Types.HlsConfiguration
     Amazonka.MediaTailor.Types.HlsPlaylistSettings
     Amazonka.MediaTailor.Types.HttpConfiguration
@@ -105,6 +108,8 @@ library
     Amazonka.MediaTailor.Types.LivePreRollConfiguration
     Amazonka.MediaTailor.Types.LiveSource
     Amazonka.MediaTailor.Types.LogConfiguration
+    Amazonka.MediaTailor.Types.LogConfigurationForChannel
+    Amazonka.MediaTailor.Types.LogType
     Amazonka.MediaTailor.Types.ManifestProcessingRules
     Amazonka.MediaTailor.Types.MessageType
     Amazonka.MediaTailor.Types.Mode
@@ -132,10 +137,13 @@ library
     Amazonka.MediaTailor.Types.TimeSignalMessage
     Amazonka.MediaTailor.Types.Transition
     Amazonka.MediaTailor.Types.Type
+    Amazonka.MediaTailor.Types.UpdateProgramScheduleConfiguration
+    Amazonka.MediaTailor.Types.UpdateProgramTransition
     Amazonka.MediaTailor.Types.VodSource
     Amazonka.MediaTailor.UntagResource
     Amazonka.MediaTailor.UpdateChannel
     Amazonka.MediaTailor.UpdateLiveSource
+    Amazonka.MediaTailor.UpdateProgram
     Amazonka.MediaTailor.UpdateSourceLocation
     Amazonka.MediaTailor.UpdateVodSource
     Amazonka.MediaTailor.Waiters

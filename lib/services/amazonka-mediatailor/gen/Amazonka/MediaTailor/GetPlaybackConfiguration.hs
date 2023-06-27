@@ -108,7 +108,8 @@ instance Core.AWSRequest GetPlaybackConfiguration where
             Prelude.<*> (x Data..?> "AvailSuppression")
             Prelude.<*> (x Data..?> "Bumper")
             Prelude.<*> (x Data..?> "CdnConfiguration")
-            Prelude.<*> ( x Data..?> "ConfigurationAliases"
+            Prelude.<*> ( x
+                            Data..?> "ConfigurationAliases"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "DashConfiguration")

@@ -220,7 +220,8 @@ instance Data.FromJSON SegmentationDescriptor where
 
 instance Prelude.Hashable SegmentationDescriptor where
   hashWithSalt _salt SegmentationDescriptor' {..} =
-    _salt `Prelude.hashWithSalt` segmentNum
+    _salt
+      `Prelude.hashWithSalt` segmentNum
       `Prelude.hashWithSalt` segmentationEventId
       `Prelude.hashWithSalt` segmentationTypeId
       `Prelude.hashWithSalt` segmentationUpid

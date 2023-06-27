@@ -22,6 +22,7 @@ module Amazonka.MediaTailor.Types.Channel where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.MediaTailor.Types.LogConfigurationForChannel
 import Amazonka.MediaTailor.Types.ResponseOutputItem
 import Amazonka.MediaTailor.Types.SlateSource
 import qualified Amazonka.Prelude as Prelude
@@ -53,6 +54,8 @@ data Channel = Channel'
     channelName :: Prelude.Text,
     -- | Returns the state whether the channel is running or not.
     channelState :: Prelude.Text,
+    -- | The log configuration.
+    logConfiguration :: LogConfigurationForChannel,
     -- | The channel\'s output properties.
     outputs :: [ResponseOutputItem],
     -- | The type of playback mode for this channel.
@@ -97,6 +100,8 @@ data Channel = Channel'
 --
 -- 'channelState', 'channel_channelState' - Returns the state whether the channel is running or not.
 --
+-- 'logConfiguration', 'channel_logConfiguration' - The log configuration.
+--
 -- 'outputs', 'channel_outputs' - The channel\'s output properties.
 --
 -- 'playbackMode', 'channel_playbackMode' - The type of playback mode for this channel.
@@ -116,6 +121,8 @@ newChannel ::
   Prelude.Text ->
   -- | 'channelState'
   Prelude.Text ->
+  -- | 'logConfiguration'
+  LogConfigurationForChannel ->
   -- | 'playbackMode'
   Prelude.Text ->
   -- | 'tier'
@@ -125,6 +132,7 @@ newChannel
   pArn_
   pChannelName_
   pChannelState_
+  pLogConfiguration_
   pPlaybackMode_
   pTier_ =
     Channel'
@@ -135,6 +143,7 @@ newChannel
         arn = pArn_,
         channelName = pChannelName_,
         channelState = pChannelState_,
+        logConfiguration = pLogConfiguration_,
         outputs = Prelude.mempty,
         playbackMode = pPlaybackMode_,
         tier = pTier_
@@ -174,6 +183,10 @@ channel_channelName = Lens.lens (\Channel' {channelName} -> channelName) (\s@Cha
 channel_channelState :: Lens.Lens' Channel Prelude.Text
 channel_channelState = Lens.lens (\Channel' {channelState} -> channelState) (\s@Channel' {} a -> s {channelState = a} :: Channel)
 
+-- | The log configuration.
+channel_logConfiguration :: Lens.Lens' Channel LogConfigurationForChannel
+channel_logConfiguration = Lens.lens (\Channel' {logConfiguration} -> logConfiguration) (\s@Channel' {} a -> s {logConfiguration = a} :: Channel)
+
 -- | The channel\'s output properties.
 channel_outputs :: Lens.Lens' Channel [ResponseOutputItem]
 channel_outputs = Lens.lens (\Channel' {outputs} -> outputs) (\s@Channel' {} a -> s {outputs = a} :: Channel) Prelude.. Lens.coerced
@@ -206,6 +219,7 @@ instance Data.FromJSON Channel where
             Prelude.<*> (x Data..: "Arn")
             Prelude.<*> (x Data..: "ChannelName")
             Prelude.<*> (x Data..: "ChannelState")
+            Prelude.<*> (x Data..: "LogConfiguration")
             Prelude.<*> (x Data..:? "Outputs" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "PlaybackMode")
             Prelude.<*> (x Data..: "Tier")
@@ -213,13 +227,15 @@ instance Data.FromJSON Channel where
 
 instance Prelude.Hashable Channel where
   hashWithSalt _salt Channel' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` fillerSlate
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` channelState
+      `Prelude.hashWithSalt` logConfiguration
       `Prelude.hashWithSalt` outputs
       `Prelude.hashWithSalt` playbackMode
       `Prelude.hashWithSalt` tier
@@ -233,6 +249,7 @@ instance Prelude.NFData Channel where
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf channelName
       `Prelude.seq` Prelude.rnf channelState
+      `Prelude.seq` Prelude.rnf logConfiguration
       `Prelude.seq` Prelude.rnf outputs
       `Prelude.seq` Prelude.rnf playbackMode
       `Prelude.seq` Prelude.rnf tier

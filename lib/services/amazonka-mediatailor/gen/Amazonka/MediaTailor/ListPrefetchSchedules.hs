@@ -164,22 +164,22 @@ instance Core.AWSPager ListPrefetchSchedules where
     | Core.stop
         ( rs
             Lens.^? listPrefetchSchedulesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPrefetchSchedulesResponse_items
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPrefetchSchedules_nextToken
           Lens..~ rs
           Lens.^? listPrefetchSchedulesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPrefetchSchedules where
   type
@@ -198,7 +198,8 @@ instance Core.AWSRequest ListPrefetchSchedules where
 
 instance Prelude.Hashable ListPrefetchSchedules where
   hashWithSalt _salt ListPrefetchSchedules' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` streamId
       `Prelude.hashWithSalt` playbackConfigurationName

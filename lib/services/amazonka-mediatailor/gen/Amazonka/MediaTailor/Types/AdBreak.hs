@@ -144,7 +144,8 @@ instance Data.FromJSON AdBreak where
 
 instance Prelude.Hashable AdBreak where
   hashWithSalt _salt AdBreak' {..} =
-    _salt `Prelude.hashWithSalt` messageType
+    _salt
+      `Prelude.hashWithSalt` messageType
       `Prelude.hashWithSalt` offsetMillis
       `Prelude.hashWithSalt` slate
       `Prelude.hashWithSalt` spliceInsertMessage

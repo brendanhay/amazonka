@@ -115,7 +115,8 @@ instance Data.FromJSON SpliceInsertMessage where
 
 instance Prelude.Hashable SpliceInsertMessage where
   hashWithSalt _salt SpliceInsertMessage' {..} =
-    _salt `Prelude.hashWithSalt` availNum
+    _salt
+      `Prelude.hashWithSalt` availNum
       `Prelude.hashWithSalt` availsExpected
       `Prelude.hashWithSalt` spliceEventId
       `Prelude.hashWithSalt` uniqueProgramId

@@ -110,7 +110,8 @@ instance Core.AWSRequest DescribeVodSource where
           DescribeVodSourceResponse'
             Prelude.<$> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "CreationTime")
-            Prelude.<*> ( x Data..?> "HttpPackageConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "HttpPackageConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "LastModifiedTime")
@@ -122,7 +123,8 @@ instance Core.AWSRequest DescribeVodSource where
 
 instance Prelude.Hashable DescribeVodSource where
   hashWithSalt _salt DescribeVodSource' {..} =
-    _salt `Prelude.hashWithSalt` sourceLocationName
+    _salt
+      `Prelude.hashWithSalt` sourceLocationName
       `Prelude.hashWithSalt` vodSourceName
 
 instance Prelude.NFData DescribeVodSource where

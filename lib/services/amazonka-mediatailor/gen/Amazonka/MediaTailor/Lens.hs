@@ -14,6 +14,13 @@
 module Amazonka.MediaTailor.Lens
   ( -- * Operations
 
+    -- ** ConfigureLogsForChannel
+    configureLogsForChannel_channelName,
+    configureLogsForChannel_logTypes,
+    configureLogsForChannelResponse_channelName,
+    configureLogsForChannelResponse_logTypes,
+    configureLogsForChannelResponse_httpStatus,
+
     -- ** ConfigureLogsForPlaybackConfiguration
     configureLogsForPlaybackConfiguration_percentEnabled,
     configureLogsForPlaybackConfiguration_playbackConfigurationName,
@@ -79,7 +86,9 @@ module Amazonka.MediaTailor.Lens
     createProgramResponse_adBreaks,
     createProgramResponse_arn,
     createProgramResponse_channelName,
+    createProgramResponse_clipRange,
     createProgramResponse_creationTime,
+    createProgramResponse_durationMillis,
     createProgramResponse_liveSourceName,
     createProgramResponse_programName,
     createProgramResponse_scheduledStartTime,
@@ -168,6 +177,7 @@ module Amazonka.MediaTailor.Lens
     describeChannelResponse_tags,
     describeChannelResponse_tier,
     describeChannelResponse_httpStatus,
+    describeChannelResponse_logConfiguration,
 
     -- ** DescribeLiveSource
     describeLiveSource_liveSourceName,
@@ -187,7 +197,9 @@ module Amazonka.MediaTailor.Lens
     describeProgramResponse_adBreaks,
     describeProgramResponse_arn,
     describeProgramResponse_channelName,
+    describeProgramResponse_clipRange,
     describeProgramResponse_creationTime,
+    describeProgramResponse_durationMillis,
     describeProgramResponse_liveSourceName,
     describeProgramResponse_programName,
     describeProgramResponse_scheduledStartTime,
@@ -413,6 +425,24 @@ module Amazonka.MediaTailor.Lens
     updateLiveSourceResponse_tags,
     updateLiveSourceResponse_httpStatus,
 
+    -- ** UpdateProgram
+    updateProgram_adBreaks,
+    updateProgram_channelName,
+    updateProgram_programName,
+    updateProgram_scheduleConfiguration,
+    updateProgramResponse_adBreaks,
+    updateProgramResponse_arn,
+    updateProgramResponse_channelName,
+    updateProgramResponse_clipRange,
+    updateProgramResponse_creationTime,
+    updateProgramResponse_durationMillis,
+    updateProgramResponse_liveSourceName,
+    updateProgramResponse_programName,
+    updateProgramResponse_scheduledStartTime,
+    updateProgramResponse_sourceLocationName,
+    updateProgramResponse_vodSourceName,
+    updateProgramResponse_httpStatus,
+
     -- ** UpdateSourceLocation
     updateSourceLocation_accessConfiguration,
     updateSourceLocation_defaultSegmentDeliveryConfiguration,
@@ -471,6 +501,7 @@ module Amazonka.MediaTailor.Lens
     availMatchingCriteria_operator,
 
     -- ** AvailSuppression
+    availSuppression_fillPolicy,
     availSuppression_mode,
     availSuppression_value,
 
@@ -490,9 +521,13 @@ module Amazonka.MediaTailor.Lens
     channel_arn,
     channel_channelName,
     channel_channelState,
+    channel_logConfiguration,
     channel_outputs,
     channel_playbackMode,
     channel_tier,
+
+    -- ** ClipRange
+    clipRange_endOffsetMillis,
 
     -- ** DashConfiguration
     dashConfiguration_manifestEndpointPrefix,
@@ -541,6 +576,9 @@ module Amazonka.MediaTailor.Lens
 
     -- ** LogConfiguration
     logConfiguration_percentEnabled,
+
+    -- ** LogConfigurationForChannel
+    logConfigurationForChannel_logTypes,
 
     -- ** ManifestProcessingRules
     manifestProcessingRules_adMarkerPassthrough,
@@ -604,6 +642,7 @@ module Amazonka.MediaTailor.Lens
     scheduleAdBreak_vodSourceName,
 
     -- ** ScheduleConfiguration
+    scheduleConfiguration_clipRange,
     scheduleConfiguration_transition,
 
     -- ** ScheduleEntry
@@ -668,6 +707,14 @@ module Amazonka.MediaTailor.Lens
     transition_relativePosition,
     transition_type,
 
+    -- ** UpdateProgramScheduleConfiguration
+    updateProgramScheduleConfiguration_clipRange,
+    updateProgramScheduleConfiguration_transition,
+
+    -- ** UpdateProgramTransition
+    updateProgramTransition_durationMillis,
+    updateProgramTransition_scheduledStartTimeMillis,
+
     -- ** VodSource
     vodSource_creationTime,
     vodSource_lastModifiedTime,
@@ -679,6 +726,7 @@ module Amazonka.MediaTailor.Lens
   )
 where
 
+import Amazonka.MediaTailor.ConfigureLogsForChannel
 import Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration
 import Amazonka.MediaTailor.CreateChannel
 import Amazonka.MediaTailor.CreateLiveSource
@@ -725,6 +773,7 @@ import Amazonka.MediaTailor.Types.AvailSuppression
 import Amazonka.MediaTailor.Types.Bumper
 import Amazonka.MediaTailor.Types.CdnConfiguration
 import Amazonka.MediaTailor.Types.Channel
+import Amazonka.MediaTailor.Types.ClipRange
 import Amazonka.MediaTailor.Types.DashConfiguration
 import Amazonka.MediaTailor.Types.DashConfigurationForPut
 import Amazonka.MediaTailor.Types.DashPlaylistSettings
@@ -736,6 +785,7 @@ import Amazonka.MediaTailor.Types.HttpPackageConfiguration
 import Amazonka.MediaTailor.Types.LivePreRollConfiguration
 import Amazonka.MediaTailor.Types.LiveSource
 import Amazonka.MediaTailor.Types.LogConfiguration
+import Amazonka.MediaTailor.Types.LogConfigurationForChannel
 import Amazonka.MediaTailor.Types.ManifestProcessingRules
 import Amazonka.MediaTailor.Types.PlaybackConfiguration
 import Amazonka.MediaTailor.Types.PrefetchConsumption
@@ -754,9 +804,12 @@ import Amazonka.MediaTailor.Types.SourceLocation
 import Amazonka.MediaTailor.Types.SpliceInsertMessage
 import Amazonka.MediaTailor.Types.TimeSignalMessage
 import Amazonka.MediaTailor.Types.Transition
+import Amazonka.MediaTailor.Types.UpdateProgramScheduleConfiguration
+import Amazonka.MediaTailor.Types.UpdateProgramTransition
 import Amazonka.MediaTailor.Types.VodSource
 import Amazonka.MediaTailor.UntagResource
 import Amazonka.MediaTailor.UpdateChannel
 import Amazonka.MediaTailor.UpdateLiveSource
+import Amazonka.MediaTailor.UpdateProgram
 import Amazonka.MediaTailor.UpdateSourceLocation
 import Amazonka.MediaTailor.UpdateVodSource

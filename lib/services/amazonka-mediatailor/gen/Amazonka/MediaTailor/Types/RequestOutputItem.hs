@@ -95,7 +95,8 @@ requestOutputItem_sourceGroup = Lens.lens (\RequestOutputItem' {sourceGroup} -> 
 
 instance Prelude.Hashable RequestOutputItem where
   hashWithSalt _salt RequestOutputItem' {..} =
-    _salt `Prelude.hashWithSalt` dashPlaylistSettings
+    _salt
+      `Prelude.hashWithSalt` dashPlaylistSettings
       `Prelude.hashWithSalt` hlsPlaylistSettings
       `Prelude.hashWithSalt` manifestName
       `Prelude.hashWithSalt` sourceGroup

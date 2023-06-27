@@ -11,18 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.MediaTailor.Types.Mode
+-- Module      : Amazonka.MediaTailor.Types.FillPolicy
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.MediaTailor.Types.Mode
-  ( Mode
+module Amazonka.MediaTailor.Types.FillPolicy
+  ( FillPolicy
       ( ..,
-        Mode_AFTER_LIVE_EDGE,
-        Mode_BEHIND_LIVE_EDGE,
-        Mode_OFF
+        FillPolicy_FULL_AVAIL_ONLY,
+        FillPolicy_PARTIAL_AVAIL
       ),
   )
 where
@@ -31,7 +30,10 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype Mode = Mode' {fromMode :: Data.Text}
+newtype FillPolicy = FillPolicy'
+  { fromFillPolicy ::
+      Data.Text
+  }
   deriving stock
     ( Prelude.Show,
       Prelude.Read,
@@ -56,18 +58,14 @@ newtype Mode = Mode' {fromMode :: Data.Text}
       Data.ToXML
     )
 
-pattern Mode_AFTER_LIVE_EDGE :: Mode
-pattern Mode_AFTER_LIVE_EDGE = Mode' "AFTER_LIVE_EDGE"
+pattern FillPolicy_FULL_AVAIL_ONLY :: FillPolicy
+pattern FillPolicy_FULL_AVAIL_ONLY = FillPolicy' "FULL_AVAIL_ONLY"
 
-pattern Mode_BEHIND_LIVE_EDGE :: Mode
-pattern Mode_BEHIND_LIVE_EDGE = Mode' "BEHIND_LIVE_EDGE"
-
-pattern Mode_OFF :: Mode
-pattern Mode_OFF = Mode' "OFF"
+pattern FillPolicy_PARTIAL_AVAIL :: FillPolicy
+pattern FillPolicy_PARTIAL_AVAIL = FillPolicy' "PARTIAL_AVAIL"
 
 {-# COMPLETE
-  Mode_AFTER_LIVE_EDGE,
-  Mode_BEHIND_LIVE_EDGE,
-  Mode_OFF,
-  Mode'
+  FillPolicy_FULL_AVAIL_ONLY,
+  FillPolicy_PARTIAL_AVAIL,
+  FillPolicy'
   #-}

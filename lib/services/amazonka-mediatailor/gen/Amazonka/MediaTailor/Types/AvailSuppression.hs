@@ -22,6 +22,7 @@ module Amazonka.MediaTailor.Types.AvailSuppression where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.MediaTailor.Types.FillPolicy
 import Amazonka.MediaTailor.Types.Mode
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,11 +32,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAvailSuppression' smart constructor.
 data AvailSuppression = AvailSuppression'
-  { -- | Sets the ad suppression mode. By default, ad suppression is off and all
+  { -- | Defines the policy to apply to the avail suppression mode.
+    -- @BEHIND_LIVE_EDGE@ will always use the full avail suppression policy.
+    -- @AFTER_LIVE_EDGE@ mode can be used to invoke partial ad break fills when
+    -- a session starts mid-break.
+    fillPolicy :: Prelude.Maybe FillPolicy,
+    -- | Sets the ad suppression mode. By default, ad suppression is off and all
     -- ad breaks are filled with ads or slate. When Mode is set to
     -- @BEHIND_LIVE_EDGE@, ad suppression is active and MediaTailor won\'t fill
     -- ad breaks on or behind the ad suppression Value time in the manifest
-    -- lookback window.
+    -- lookback window. When Mode is set to @AFTER_LIVE_EDGE@, ad suppression
+    -- is active and MediaTailor won\'t fill ad breaks that are within the live
+    -- edge plus the avail suppression value.
     mode :: Prelude.Maybe Mode,
     -- | A live edge offset time in HH:MM:SS. MediaTailor won\'t fill ad breaks
     -- on or behind this time in the manifest lookback window. If Value is set
@@ -58,11 +66,18 @@ data AvailSuppression = AvailSuppression'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fillPolicy', 'availSuppression_fillPolicy' - Defines the policy to apply to the avail suppression mode.
+-- @BEHIND_LIVE_EDGE@ will always use the full avail suppression policy.
+-- @AFTER_LIVE_EDGE@ mode can be used to invoke partial ad break fills when
+-- a session starts mid-break.
+--
 -- 'mode', 'availSuppression_mode' - Sets the ad suppression mode. By default, ad suppression is off and all
 -- ad breaks are filled with ads or slate. When Mode is set to
 -- @BEHIND_LIVE_EDGE@, ad suppression is active and MediaTailor won\'t fill
 -- ad breaks on or behind the ad suppression Value time in the manifest
--- lookback window.
+-- lookback window. When Mode is set to @AFTER_LIVE_EDGE@, ad suppression
+-- is active and MediaTailor won\'t fill ad breaks that are within the live
+-- edge plus the avail suppression value.
 --
 -- 'value', 'availSuppression_value' - A live edge offset time in HH:MM:SS. MediaTailor won\'t fill ad breaks
 -- on or behind this time in the manifest lookback window. If Value is set
@@ -77,15 +92,25 @@ newAvailSuppression ::
   AvailSuppression
 newAvailSuppression =
   AvailSuppression'
-    { mode = Prelude.Nothing,
+    { fillPolicy = Prelude.Nothing,
+      mode = Prelude.Nothing,
       value = Prelude.Nothing
     }
+
+-- | Defines the policy to apply to the avail suppression mode.
+-- @BEHIND_LIVE_EDGE@ will always use the full avail suppression policy.
+-- @AFTER_LIVE_EDGE@ mode can be used to invoke partial ad break fills when
+-- a session starts mid-break.
+availSuppression_fillPolicy :: Lens.Lens' AvailSuppression (Prelude.Maybe FillPolicy)
+availSuppression_fillPolicy = Lens.lens (\AvailSuppression' {fillPolicy} -> fillPolicy) (\s@AvailSuppression' {} a -> s {fillPolicy = a} :: AvailSuppression)
 
 -- | Sets the ad suppression mode. By default, ad suppression is off and all
 -- ad breaks are filled with ads or slate. When Mode is set to
 -- @BEHIND_LIVE_EDGE@, ad suppression is active and MediaTailor won\'t fill
 -- ad breaks on or behind the ad suppression Value time in the manifest
--- lookback window.
+-- lookback window. When Mode is set to @AFTER_LIVE_EDGE@, ad suppression
+-- is active and MediaTailor won\'t fill ad breaks that are within the live
+-- edge plus the avail suppression value.
 availSuppression_mode :: Lens.Lens' AvailSuppression (Prelude.Maybe Mode)
 availSuppression_mode = Lens.lens (\AvailSuppression' {mode} -> mode) (\s@AvailSuppression' {} a -> s {mode = a} :: AvailSuppression)
 
@@ -107,23 +132,30 @@ instance Data.FromJSON AvailSuppression where
       "AvailSuppression"
       ( \x ->
           AvailSuppression'
-            Prelude.<$> (x Data..:? "Mode") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "FillPolicy")
+            Prelude.<*> (x Data..:? "Mode")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable AvailSuppression where
   hashWithSalt _salt AvailSuppression' {..} =
-    _salt `Prelude.hashWithSalt` mode
+    _salt
+      `Prelude.hashWithSalt` fillPolicy
+      `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData AvailSuppression where
   rnf AvailSuppression' {..} =
-    Prelude.rnf mode `Prelude.seq` Prelude.rnf value
+    Prelude.rnf fillPolicy
+      `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf value
 
 instance Data.ToJSON AvailSuppression where
   toJSON AvailSuppression' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Mode" Data..=) Prelude.<$> mode,
+          [ ("FillPolicy" Data..=) Prelude.<$> fillPolicy,
+            ("Mode" Data..=) Prelude.<$> mode,
             ("Value" Data..=) Prelude.<$> value
           ]
       )

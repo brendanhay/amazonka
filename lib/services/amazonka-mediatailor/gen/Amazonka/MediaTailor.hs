@@ -39,6 +39,12 @@ module Amazonka.MediaTailor
     -- * Operations
     -- $operations
 
+    -- ** ConfigureLogsForChannel
+    ConfigureLogsForChannel (ConfigureLogsForChannel'),
+    newConfigureLogsForChannel,
+    ConfigureLogsForChannelResponse (ConfigureLogsForChannelResponse'),
+    newConfigureLogsForChannelResponse,
+
     -- ** ConfigureLogsForPlaybackConfiguration
     ConfigureLogsForPlaybackConfiguration (ConfigureLogsForPlaybackConfiguration'),
     newConfigureLogsForPlaybackConfiguration,
@@ -279,6 +285,12 @@ module Amazonka.MediaTailor
     UpdateLiveSourceResponse (UpdateLiveSourceResponse'),
     newUpdateLiveSourceResponse,
 
+    -- ** UpdateProgram
+    UpdateProgram (UpdateProgram'),
+    newUpdateProgram,
+    UpdateProgramResponse (UpdateProgramResponse'),
+    newUpdateProgramResponse,
+
     -- ** UpdateSourceLocation
     UpdateSourceLocation (UpdateSourceLocation'),
     newUpdateSourceLocation,
@@ -298,6 +310,12 @@ module Amazonka.MediaTailor
 
     -- ** ChannelState
     ChannelState (..),
+
+    -- ** FillPolicy
+    FillPolicy (..),
+
+    -- ** LogType
+    LogType (..),
 
     -- ** MessageType
     MessageType (..),
@@ -362,6 +380,10 @@ module Amazonka.MediaTailor
     Channel (Channel'),
     newChannel,
 
+    -- ** ClipRange
+    ClipRange (ClipRange'),
+    newClipRange,
+
     -- ** DashConfiguration
     DashConfiguration (DashConfiguration'),
     newDashConfiguration,
@@ -405,6 +427,10 @@ module Amazonka.MediaTailor
     -- ** LogConfiguration
     LogConfiguration (LogConfiguration'),
     newLogConfiguration,
+
+    -- ** LogConfigurationForChannel
+    LogConfigurationForChannel (LogConfigurationForChannel'),
+    newLogConfigurationForChannel,
 
     -- ** ManifestProcessingRules
     ManifestProcessingRules (ManifestProcessingRules'),
@@ -478,12 +504,21 @@ module Amazonka.MediaTailor
     Transition (Transition'),
     newTransition,
 
+    -- ** UpdateProgramScheduleConfiguration
+    UpdateProgramScheduleConfiguration (UpdateProgramScheduleConfiguration'),
+    newUpdateProgramScheduleConfiguration,
+
+    -- ** UpdateProgramTransition
+    UpdateProgramTransition (UpdateProgramTransition'),
+    newUpdateProgramTransition,
+
     -- ** VodSource
     VodSource (VodSource'),
     newVodSource,
   )
 where
 
+import Amazonka.MediaTailor.ConfigureLogsForChannel
 import Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration
 import Amazonka.MediaTailor.CreateChannel
 import Amazonka.MediaTailor.CreateLiveSource
@@ -526,6 +561,7 @@ import Amazonka.MediaTailor.Types
 import Amazonka.MediaTailor.UntagResource
 import Amazonka.MediaTailor.UpdateChannel
 import Amazonka.MediaTailor.UpdateLiveSource
+import Amazonka.MediaTailor.UpdateProgram
 import Amazonka.MediaTailor.UpdateSourceLocation
 import Amazonka.MediaTailor.UpdateVodSource
 import Amazonka.MediaTailor.Waiters

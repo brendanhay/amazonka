@@ -41,7 +41,9 @@ module Amazonka.MediaTailor.DescribeProgram
     describeProgramResponse_adBreaks,
     describeProgramResponse_arn,
     describeProgramResponse_channelName,
+    describeProgramResponse_clipRange,
     describeProgramResponse_creationTime,
+    describeProgramResponse_durationMillis,
     describeProgramResponse_liveSourceName,
     describeProgramResponse_programName,
     describeProgramResponse_scheduledStartTime,
@@ -112,7 +114,9 @@ instance Core.AWSRequest DescribeProgram where
             Prelude.<$> (x Data..?> "AdBreaks" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "Arn")
             Prelude.<*> (x Data..?> "ChannelName")
+            Prelude.<*> (x Data..?> "ClipRange")
             Prelude.<*> (x Data..?> "CreationTime")
+            Prelude.<*> (x Data..?> "DurationMillis")
             Prelude.<*> (x Data..?> "LiveSourceName")
             Prelude.<*> (x Data..?> "ProgramName")
             Prelude.<*> (x Data..?> "ScheduledStartTime")
@@ -123,7 +127,8 @@ instance Core.AWSRequest DescribeProgram where
 
 instance Prelude.Hashable DescribeProgram where
   hashWithSalt _salt DescribeProgram' {..} =
-    _salt `Prelude.hashWithSalt` channelName
+    _salt
+      `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` programName
 
 instance Prelude.NFData DescribeProgram where
@@ -162,8 +167,12 @@ data DescribeProgramResponse = DescribeProgramResponse'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the channel that the program belongs to.
     channelName :: Prelude.Maybe Prelude.Text,
+    -- | The clip range configuration settings.
+    clipRange :: Prelude.Maybe ClipRange,
     -- | The timestamp of when the program was created.
     creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The duration of the live program in milliseconds.
+    durationMillis :: Prelude.Maybe Prelude.Integer,
     -- | The name of the LiveSource for this Program.
     liveSourceName :: Prelude.Maybe Prelude.Text,
     -- | The name of the program.
@@ -195,7 +204,11 @@ data DescribeProgramResponse = DescribeProgramResponse'
 --
 -- 'channelName', 'describeProgramResponse_channelName' - The name of the channel that the program belongs to.
 --
+-- 'clipRange', 'describeProgramResponse_clipRange' - The clip range configuration settings.
+--
 -- 'creationTime', 'describeProgramResponse_creationTime' - The timestamp of when the program was created.
+--
+-- 'durationMillis', 'describeProgramResponse_durationMillis' - The duration of the live program in milliseconds.
 --
 -- 'liveSourceName', 'describeProgramResponse_liveSourceName' - The name of the LiveSource for this Program.
 --
@@ -220,7 +233,9 @@ newDescribeProgramResponse pHttpStatus_ =
         Prelude.Nothing,
       arn = Prelude.Nothing,
       channelName = Prelude.Nothing,
+      clipRange = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      durationMillis = Prelude.Nothing,
       liveSourceName = Prelude.Nothing,
       programName = Prelude.Nothing,
       scheduledStartTime = Prelude.Nothing,
@@ -241,9 +256,17 @@ describeProgramResponse_arn = Lens.lens (\DescribeProgramResponse' {arn} -> arn)
 describeProgramResponse_channelName :: Lens.Lens' DescribeProgramResponse (Prelude.Maybe Prelude.Text)
 describeProgramResponse_channelName = Lens.lens (\DescribeProgramResponse' {channelName} -> channelName) (\s@DescribeProgramResponse' {} a -> s {channelName = a} :: DescribeProgramResponse)
 
+-- | The clip range configuration settings.
+describeProgramResponse_clipRange :: Lens.Lens' DescribeProgramResponse (Prelude.Maybe ClipRange)
+describeProgramResponse_clipRange = Lens.lens (\DescribeProgramResponse' {clipRange} -> clipRange) (\s@DescribeProgramResponse' {} a -> s {clipRange = a} :: DescribeProgramResponse)
+
 -- | The timestamp of when the program was created.
 describeProgramResponse_creationTime :: Lens.Lens' DescribeProgramResponse (Prelude.Maybe Prelude.UTCTime)
 describeProgramResponse_creationTime = Lens.lens (\DescribeProgramResponse' {creationTime} -> creationTime) (\s@DescribeProgramResponse' {} a -> s {creationTime = a} :: DescribeProgramResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The duration of the live program in milliseconds.
+describeProgramResponse_durationMillis :: Lens.Lens' DescribeProgramResponse (Prelude.Maybe Prelude.Integer)
+describeProgramResponse_durationMillis = Lens.lens (\DescribeProgramResponse' {durationMillis} -> durationMillis) (\s@DescribeProgramResponse' {} a -> s {durationMillis = a} :: DescribeProgramResponse)
 
 -- | The name of the LiveSource for this Program.
 describeProgramResponse_liveSourceName :: Lens.Lens' DescribeProgramResponse (Prelude.Maybe Prelude.Text)
@@ -276,7 +299,9 @@ instance Prelude.NFData DescribeProgramResponse where
     Prelude.rnf adBreaks
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf clipRange
       `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf durationMillis
       `Prelude.seq` Prelude.rnf liveSourceName
       `Prelude.seq` Prelude.rnf programName
       `Prelude.seq` Prelude.rnf scheduledStartTime

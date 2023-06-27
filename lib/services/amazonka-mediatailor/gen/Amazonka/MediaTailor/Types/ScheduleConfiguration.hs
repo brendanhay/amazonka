@@ -22,6 +22,7 @@ module Amazonka.MediaTailor.Types.ScheduleConfiguration where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.MediaTailor.Types.ClipRange
 import Amazonka.MediaTailor.Types.Transition
 import qualified Amazonka.Prelude as Prelude
 
@@ -30,7 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newScheduleConfiguration' smart constructor.
 data ScheduleConfiguration = ScheduleConfiguration'
-  { -- | Program transition configurations.
+  { -- | Program clip range configuration.
+    clipRange :: Prelude.Maybe ClipRange,
+    -- | Program transition configurations.
     transition :: Transition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,13 +46,22 @@ data ScheduleConfiguration = ScheduleConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clipRange', 'scheduleConfiguration_clipRange' - Program clip range configuration.
+--
 -- 'transition', 'scheduleConfiguration_transition' - Program transition configurations.
 newScheduleConfiguration ::
   -- | 'transition'
   Transition ->
   ScheduleConfiguration
 newScheduleConfiguration pTransition_ =
-  ScheduleConfiguration' {transition = pTransition_}
+  ScheduleConfiguration'
+    { clipRange = Prelude.Nothing,
+      transition = pTransition_
+    }
+
+-- | Program clip range configuration.
+scheduleConfiguration_clipRange :: Lens.Lens' ScheduleConfiguration (Prelude.Maybe ClipRange)
+scheduleConfiguration_clipRange = Lens.lens (\ScheduleConfiguration' {clipRange} -> clipRange) (\s@ScheduleConfiguration' {} a -> s {clipRange = a} :: ScheduleConfiguration)
 
 -- | Program transition configurations.
 scheduleConfiguration_transition :: Lens.Lens' ScheduleConfiguration Transition
@@ -57,15 +69,20 @@ scheduleConfiguration_transition = Lens.lens (\ScheduleConfiguration' {transitio
 
 instance Prelude.Hashable ScheduleConfiguration where
   hashWithSalt _salt ScheduleConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` transition
+    _salt
+      `Prelude.hashWithSalt` clipRange
+      `Prelude.hashWithSalt` transition
 
 instance Prelude.NFData ScheduleConfiguration where
   rnf ScheduleConfiguration' {..} =
-    Prelude.rnf transition
+    Prelude.rnf clipRange
+      `Prelude.seq` Prelude.rnf transition
 
 instance Data.ToJSON ScheduleConfiguration where
   toJSON ScheduleConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Transition" Data..= transition)]
+          [ ("ClipRange" Data..=) Prelude.<$> clipRange,
+            Prelude.Just ("Transition" Data..= transition)
+          ]
       )

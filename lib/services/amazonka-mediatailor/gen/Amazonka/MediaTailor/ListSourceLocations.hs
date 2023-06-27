@@ -105,22 +105,22 @@ instance Core.AWSPager ListSourceLocations where
     | Core.stop
         ( rs
             Lens.^? listSourceLocationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSourceLocationsResponse_items
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSourceLocations_nextToken
           Lens..~ rs
           Lens.^? listSourceLocationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSourceLocations where
   type
@@ -139,7 +139,8 @@ instance Core.AWSRequest ListSourceLocations where
 
 instance Prelude.Hashable ListSourceLocations where
   hashWithSalt _salt ListSourceLocations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSourceLocations where

@@ -191,7 +191,8 @@ instance Core.AWSRequest CreatePrefetchSchedule where
 
 instance Prelude.Hashable CreatePrefetchSchedule where
   hashWithSalt _salt CreatePrefetchSchedule' {..} =
-    _salt `Prelude.hashWithSalt` streamId
+    _salt
+      `Prelude.hashWithSalt` streamId
       `Prelude.hashWithSalt` consumption
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` playbackConfigurationName

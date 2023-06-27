@@ -77,7 +77,8 @@ instance Data.FromJSON Bumper where
 
 instance Prelude.Hashable Bumper where
   hashWithSalt _salt Bumper' {..} =
-    _salt `Prelude.hashWithSalt` endUrl
+    _salt
+      `Prelude.hashWithSalt` endUrl
       `Prelude.hashWithSalt` startUrl
 
 instance Prelude.NFData Bumper where

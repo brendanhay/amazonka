@@ -115,7 +115,8 @@ instance Data.FromJSON PrefetchRetrieval where
       "PrefetchRetrieval"
       ( \x ->
           PrefetchRetrieval'
-            Prelude.<$> ( x Data..:? "DynamicVariables"
+            Prelude.<$> ( x
+                            Data..:? "DynamicVariables"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StartTime")
@@ -124,7 +125,8 @@ instance Data.FromJSON PrefetchRetrieval where
 
 instance Prelude.Hashable PrefetchRetrieval where
   hashWithSalt _salt PrefetchRetrieval' {..} =
-    _salt `Prelude.hashWithSalt` dynamicVariables
+    _salt
+      `Prelude.hashWithSalt` dynamicVariables
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endTime
 

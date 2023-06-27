@@ -27,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestConfigureLogsForPlaybackConfiguration $
+--         [ requestConfigureLogsForChannel $
+--             newConfigureLogsForChannel
+--
+--         , requestConfigureLogsForPlaybackConfiguration $
 --             newConfigureLogsForPlaybackConfiguration
 --
 --         , requestCreateChannel $
@@ -147,6 +150,9 @@ import Test.Tasty
 --         , requestUpdateLiveSource $
 --             newUpdateLiveSource
 --
+--         , requestUpdateProgram $
+--             newUpdateProgram
+--
 --         , requestUpdateSourceLocation $
 --             newUpdateSourceLocation
 --
@@ -156,7 +162,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseConfigureLogsForPlaybackConfiguration $
+--         [ responseConfigureLogsForChannel $
+--             newConfigureLogsForChannelResponse
+--
+--         , responseConfigureLogsForPlaybackConfiguration $
 --             newConfigureLogsForPlaybackConfigurationResponse
 --
 --         , responseCreateChannel $
@@ -276,6 +285,9 @@ import Test.Tasty
 --         , responseUpdateLiveSource $
 --             newUpdateLiveSourceResponse
 --
+--         , responseUpdateProgram $
+--             newUpdateProgramResponse
+--
 --         , responseUpdateSourceLocation $
 --             newUpdateSourceLocationResponse
 --
@@ -286,6 +298,12 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestConfigureLogsForChannel :: ConfigureLogsForChannel -> TestTree
+requestConfigureLogsForChannel =
+  req
+    "ConfigureLogsForChannel"
+    "fixture/ConfigureLogsForChannel.yaml"
 
 requestConfigureLogsForPlaybackConfiguration :: ConfigureLogsForPlaybackConfiguration -> TestTree
 requestConfigureLogsForPlaybackConfiguration =
@@ -527,6 +545,12 @@ requestUpdateLiveSource =
     "UpdateLiveSource"
     "fixture/UpdateLiveSource.yaml"
 
+requestUpdateProgram :: UpdateProgram -> TestTree
+requestUpdateProgram =
+  req
+    "UpdateProgram"
+    "fixture/UpdateProgram.yaml"
+
 requestUpdateSourceLocation :: UpdateSourceLocation -> TestTree
 requestUpdateSourceLocation =
   req
@@ -540,6 +564,14 @@ requestUpdateVodSource =
     "fixture/UpdateVodSource.yaml"
 
 -- Responses
+
+responseConfigureLogsForChannel :: ConfigureLogsForChannelResponse -> TestTree
+responseConfigureLogsForChannel =
+  res
+    "ConfigureLogsForChannelResponse"
+    "fixture/ConfigureLogsForChannelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ConfigureLogsForChannel)
 
 responseConfigureLogsForPlaybackConfiguration :: ConfigureLogsForPlaybackConfigurationResponse -> TestTree
 responseConfigureLogsForPlaybackConfiguration =
@@ -860,6 +892,14 @@ responseUpdateLiveSource =
     "fixture/UpdateLiveSourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateLiveSource)
+
+responseUpdateProgram :: UpdateProgramResponse -> TestTree
+responseUpdateProgram =
+  res
+    "UpdateProgramResponse"
+    "fixture/UpdateProgramResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateProgram)
 
 responseUpdateSourceLocation :: UpdateSourceLocationResponse -> TestTree
 responseUpdateSourceLocation =

@@ -113,7 +113,8 @@ instance Core.AWSRequest DeletePrefetchSchedule where
 
 instance Prelude.Hashable DeletePrefetchSchedule where
   hashWithSalt _salt DeletePrefetchSchedule' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` playbackConfigurationName
 
 instance Prelude.NFData DeletePrefetchSchedule where

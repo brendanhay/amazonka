@@ -134,7 +134,8 @@ instance Core.AWSRequest GetPrefetchSchedule where
 
 instance Prelude.Hashable GetPrefetchSchedule where
   hashWithSalt _salt GetPrefetchSchedule' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` playbackConfigurationName
 
 instance Prelude.NFData GetPrefetchSchedule where

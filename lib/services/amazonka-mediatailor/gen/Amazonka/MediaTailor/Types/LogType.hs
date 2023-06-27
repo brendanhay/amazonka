@@ -11,18 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.MediaTailor.Types.Mode
+-- Module      : Amazonka.MediaTailor.Types.LogType
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.MediaTailor.Types.Mode
-  ( Mode
+module Amazonka.MediaTailor.Types.LogType
+  ( LogType
       ( ..,
-        Mode_AFTER_LIVE_EDGE,
-        Mode_BEHIND_LIVE_EDGE,
-        Mode_OFF
+        LogType_AS_RUN
       ),
   )
 where
@@ -31,7 +29,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype Mode = Mode' {fromMode :: Data.Text}
+newtype LogType = LogType' {fromLogType :: Data.Text}
   deriving stock
     ( Prelude.Show,
       Prelude.Read,
@@ -56,18 +54,10 @@ newtype Mode = Mode' {fromMode :: Data.Text}
       Data.ToXML
     )
 
-pattern Mode_AFTER_LIVE_EDGE :: Mode
-pattern Mode_AFTER_LIVE_EDGE = Mode' "AFTER_LIVE_EDGE"
-
-pattern Mode_BEHIND_LIVE_EDGE :: Mode
-pattern Mode_BEHIND_LIVE_EDGE = Mode' "BEHIND_LIVE_EDGE"
-
-pattern Mode_OFF :: Mode
-pattern Mode_OFF = Mode' "OFF"
+pattern LogType_AS_RUN :: LogType
+pattern LogType_AS_RUN = LogType' "AS_RUN"
 
 {-# COMPLETE
-  Mode_AFTER_LIVE_EDGE,
-  Mode_BEHIND_LIVE_EDGE,
-  Mode_OFF,
-  Mode'
+  LogType_AS_RUN,
+  LogType'
   #-}

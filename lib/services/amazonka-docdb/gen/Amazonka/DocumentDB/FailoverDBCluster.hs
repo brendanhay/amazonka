@@ -137,7 +137,8 @@ instance Core.AWSRequest FailoverDBCluster where
 
 instance Prelude.Hashable FailoverDBCluster where
   hashWithSalt _salt FailoverDBCluster' {..} =
-    _salt `Prelude.hashWithSalt` dbClusterIdentifier
+    _salt
+      `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` targetDBInstanceIdentifier
 
 instance Prelude.NFData FailoverDBCluster where

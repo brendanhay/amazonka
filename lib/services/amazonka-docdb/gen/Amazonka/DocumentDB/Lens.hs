@@ -432,6 +432,7 @@ module Amazonka.DocumentDB.Lens
 
     -- ** RestoreDBClusterFromSnapshot
     restoreDBClusterFromSnapshot_availabilityZones,
+    restoreDBClusterFromSnapshot_dbClusterParameterGroupName,
     restoreDBClusterFromSnapshot_dbSubnetGroupName,
     restoreDBClusterFromSnapshot_deletionProtection,
     restoreDBClusterFromSnapshot_enableCloudwatchLogsExports,

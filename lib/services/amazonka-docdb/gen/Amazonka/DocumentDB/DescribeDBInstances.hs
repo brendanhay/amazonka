@@ -194,22 +194,22 @@ instance Core.AWSPager DescribeDBInstances where
     | Core.stop
         ( rs
             Lens.^? describeDBInstancesResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBInstancesResponse_dbInstances
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDBInstances_marker
           Lens..~ rs
           Lens.^? describeDBInstancesResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBInstances where
   type
@@ -222,7 +222,9 @@ instance Core.AWSRequest DescribeDBInstances where
       "DescribeDBInstancesResult"
       ( \s h x ->
           DescribeDBInstancesResponse'
-            Prelude.<$> ( x Data..@? "DBInstances" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "DBInstances"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "DBInstance")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -231,7 +233,8 @@ instance Core.AWSRequest DescribeDBInstances where
 
 instance Prelude.Hashable DescribeDBInstances where
   hashWithSalt _salt DescribeDBInstances' {..} =
-    _salt `Prelude.hashWithSalt` dbInstanceIdentifier
+    _salt
+      `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords

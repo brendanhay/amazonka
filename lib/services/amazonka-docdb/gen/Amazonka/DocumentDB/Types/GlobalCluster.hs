@@ -46,9 +46,9 @@ data GlobalCluster = GlobalCluster'
     -- cluster. Currently limited to one item.
     globalClusterMembers :: Prelude.Maybe [GlobalClusterMember],
     -- | The Amazon Web Services Region-unique, immutable identifier for the
-    -- global database cluster. This identifier is found in AWS CloudTrail log
-    -- entries whenever the AWS KMS customer master key (CMK) for the cluster
-    -- is accessed.
+    -- global database cluster. This identifier is found in CloudTrail log
+    -- entries whenever the KMS customer master key (CMK) for the cluster is
+    -- accessed.
     globalClusterResourceId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the current state of this global cluster.
     status :: Prelude.Maybe Prelude.Text,
@@ -82,9 +82,9 @@ data GlobalCluster = GlobalCluster'
 -- cluster. Currently limited to one item.
 --
 -- 'globalClusterResourceId', 'globalCluster_globalClusterResourceId' - The Amazon Web Services Region-unique, immutable identifier for the
--- global database cluster. This identifier is found in AWS CloudTrail log
--- entries whenever the AWS KMS customer master key (CMK) for the cluster
--- is accessed.
+-- global database cluster. This identifier is found in CloudTrail log
+-- entries whenever the KMS customer master key (CMK) for the cluster is
+-- accessed.
 --
 -- 'status', 'globalCluster_status' - Specifies the current state of this global cluster.
 --
@@ -136,9 +136,9 @@ globalCluster_globalClusterMembers :: Lens.Lens' GlobalCluster (Prelude.Maybe [G
 globalCluster_globalClusterMembers = Lens.lens (\GlobalCluster' {globalClusterMembers} -> globalClusterMembers) (\s@GlobalCluster' {} a -> s {globalClusterMembers = a} :: GlobalCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Web Services Region-unique, immutable identifier for the
--- global database cluster. This identifier is found in AWS CloudTrail log
--- entries whenever the AWS KMS customer master key (CMK) for the cluster
--- is accessed.
+-- global database cluster. This identifier is found in CloudTrail log
+-- entries whenever the KMS customer master key (CMK) for the cluster is
+-- accessed.
 globalCluster_globalClusterResourceId :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
 globalCluster_globalClusterResourceId = Lens.lens (\GlobalCluster' {globalClusterResourceId} -> globalClusterResourceId) (\s@GlobalCluster' {} a -> s {globalClusterResourceId = a} :: GlobalCluster)
 
@@ -159,7 +159,8 @@ instance Data.FromXML GlobalCluster where
       Prelude.<*> (x Data..@? "EngineVersion")
       Prelude.<*> (x Data..@? "GlobalClusterArn")
       Prelude.<*> (x Data..@? "GlobalClusterIdentifier")
-      Prelude.<*> ( x Data..@? "GlobalClusterMembers"
+      Prelude.<*> ( x
+                      Data..@? "GlobalClusterMembers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "GlobalClusterMember")
                   )
@@ -169,7 +170,8 @@ instance Data.FromXML GlobalCluster where
 
 instance Prelude.Hashable GlobalCluster where
   hashWithSalt _salt GlobalCluster' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion

@@ -229,7 +229,8 @@ instance Data.FromXML PendingModifiedValues where
 
 instance Prelude.Hashable PendingModifiedValues where
   hashWithSalt _salt PendingModifiedValues' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` cACertificateIdentifier
       `Prelude.hashWithSalt` dbInstanceClass

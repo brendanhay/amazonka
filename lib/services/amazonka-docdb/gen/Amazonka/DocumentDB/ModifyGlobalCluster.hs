@@ -166,7 +166,8 @@ instance Core.AWSRequest ModifyGlobalCluster where
 
 instance Prelude.Hashable ModifyGlobalCluster where
   hashWithSalt _salt ModifyGlobalCluster' {..} =
-    _salt `Prelude.hashWithSalt` deletionProtection
+    _salt
+      `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` newGlobalClusterIdentifier'
       `Prelude.hashWithSalt` globalClusterIdentifier
 

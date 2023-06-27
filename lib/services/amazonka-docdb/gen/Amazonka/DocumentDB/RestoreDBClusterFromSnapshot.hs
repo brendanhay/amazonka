@@ -37,6 +37,7 @@ module Amazonka.DocumentDB.RestoreDBClusterFromSnapshot
 
     -- * Request Lenses
     restoreDBClusterFromSnapshot_availabilityZones,
+    restoreDBClusterFromSnapshot_dbClusterParameterGroupName,
     restoreDBClusterFromSnapshot_dbSubnetGroupName,
     restoreDBClusterFromSnapshot_deletionProtection,
     restoreDBClusterFromSnapshot_enableCloudwatchLogsExports,
@@ -74,6 +75,17 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
   { -- | Provides the list of Amazon EC2 Availability Zones that instances in the
     -- restored DB cluster can be created in.
     availabilityZones :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the DB cluster parameter group to associate with this DB
+    -- cluster.
+    --
+    -- /Type:/ String.       /Required:/ No.
+    --
+    -- If this argument is omitted, the default DB cluster parameter group is
+    -- used. If supplied, must match the name of an existing default DB cluster
+    -- parameter group. The string must consist of from 1 to 255 letters,
+    -- numbers or hyphens. Its first character must be a letter, and it cannot
+    -- end with a hyphen or contain two consecutive hyphens.
+    dbClusterParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | The name of the subnet group to use for the new cluster.
     --
     -- Constraints: If provided, must match the name of an existing
@@ -163,6 +175,17 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
 --
 -- 'availabilityZones', 'restoreDBClusterFromSnapshot_availabilityZones' - Provides the list of Amazon EC2 Availability Zones that instances in the
 -- restored DB cluster can be created in.
+--
+-- 'dbClusterParameterGroupName', 'restoreDBClusterFromSnapshot_dbClusterParameterGroupName' - The name of the DB cluster parameter group to associate with this DB
+-- cluster.
+--
+-- /Type:/ String.       /Required:/ No.
+--
+-- If this argument is omitted, the default DB cluster parameter group is
+-- used. If supplied, must match the name of an existing default DB cluster
+-- parameter group. The string must consist of from 1 to 255 letters,
+-- numbers or hyphens. Its first character must be a letter, and it cannot
+-- end with a hyphen or contain two consecutive hyphens.
 --
 -- 'dbSubnetGroupName', 'restoreDBClusterFromSnapshot_dbSubnetGroupName' - The name of the subnet group to use for the new cluster.
 --
@@ -254,6 +277,7 @@ newRestoreDBClusterFromSnapshot
     RestoreDBClusterFromSnapshot'
       { availabilityZones =
           Prelude.Nothing,
+        dbClusterParameterGroupName = Prelude.Nothing,
         dbSubnetGroupName = Prelude.Nothing,
         deletionProtection = Prelude.Nothing,
         enableCloudwatchLogsExports = Prelude.Nothing,
@@ -271,6 +295,19 @@ newRestoreDBClusterFromSnapshot
 -- restored DB cluster can be created in.
 restoreDBClusterFromSnapshot_availabilityZones :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe [Prelude.Text])
 restoreDBClusterFromSnapshot_availabilityZones = Lens.lens (\RestoreDBClusterFromSnapshot' {availabilityZones} -> availabilityZones) (\s@RestoreDBClusterFromSnapshot' {} a -> s {availabilityZones = a} :: RestoreDBClusterFromSnapshot) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the DB cluster parameter group to associate with this DB
+-- cluster.
+--
+-- /Type:/ String.       /Required:/ No.
+--
+-- If this argument is omitted, the default DB cluster parameter group is
+-- used. If supplied, must match the name of an existing default DB cluster
+-- parameter group. The string must consist of from 1 to 255 letters,
+-- numbers or hyphens. Its first character must be a letter, and it cannot
+-- end with a hyphen or contain two consecutive hyphens.
+restoreDBClusterFromSnapshot_dbClusterParameterGroupName :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe Prelude.Text)
+restoreDBClusterFromSnapshot_dbClusterParameterGroupName = Lens.lens (\RestoreDBClusterFromSnapshot' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@RestoreDBClusterFromSnapshot' {} a -> s {dbClusterParameterGroupName = a} :: RestoreDBClusterFromSnapshot)
 
 -- | The name of the subnet group to use for the new cluster.
 --
@@ -390,7 +427,9 @@ instance
     RestoreDBClusterFromSnapshot
   where
   hashWithSalt _salt RestoreDBClusterFromSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
+      `Prelude.hashWithSalt` dbClusterParameterGroupName
       `Prelude.hashWithSalt` dbSubnetGroupName
       `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` enableCloudwatchLogsExports
@@ -406,6 +445,7 @@ instance
 instance Prelude.NFData RestoreDBClusterFromSnapshot where
   rnf RestoreDBClusterFromSnapshot' {..} =
     Prelude.rnf availabilityZones
+      `Prelude.seq` Prelude.rnf dbClusterParameterGroupName
       `Prelude.seq` Prelude.rnf dbSubnetGroupName
       `Prelude.seq` Prelude.rnf deletionProtection
       `Prelude.seq` Prelude.rnf enableCloudwatchLogsExports
@@ -438,6 +478,8 @@ instance Data.ToQuery RestoreDBClusterFromSnapshot where
             ( Data.toQueryList "AvailabilityZone"
                 Prelude.<$> availabilityZones
             ),
+        "DBClusterParameterGroupName"
+          Data.=: dbClusterParameterGroupName,
         "DBSubnetGroupName" Data.=: dbSubnetGroupName,
         "DeletionProtection" Data.=: deletionProtection,
         "EnableCloudwatchLogsExports"

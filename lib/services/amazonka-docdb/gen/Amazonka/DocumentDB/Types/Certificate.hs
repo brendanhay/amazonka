@@ -141,7 +141,8 @@ instance Data.FromXML Certificate where
 
 instance Prelude.Hashable Certificate where
   hashWithSalt _salt Certificate' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` certificateIdentifier
       `Prelude.hashWithSalt` certificateType
       `Prelude.hashWithSalt` thumbprint

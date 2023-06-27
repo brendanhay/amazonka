@@ -133,7 +133,8 @@ instance Core.AWSRequest RebootDBInstance where
 
 instance Prelude.Hashable RebootDBInstance where
   hashWithSalt _salt RebootDBInstance' {..} =
-    _salt `Prelude.hashWithSalt` forceFailover
+    _salt
+      `Prelude.hashWithSalt` forceFailover
       `Prelude.hashWithSalt` dbInstanceIdentifier
 
 instance Prelude.NFData RebootDBInstance where

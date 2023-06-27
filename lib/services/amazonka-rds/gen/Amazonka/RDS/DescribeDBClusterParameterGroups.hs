@@ -30,7 +30,7 @@
 -- in the /Amazon Aurora User Guide/.
 --
 -- For more information on Multi-AZ DB clusters, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ DB cluster deployments>
 -- in the /Amazon RDS User Guide/.
 --
 -- This operation returns paginated results.
@@ -174,22 +174,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeDBClusterParameterGroupsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBClusterParameterGroupsResponse_dbClusterParameterGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDBClusterParameterGroups_marker
           Lens..~ rs
           Lens.^? describeDBClusterParameterGroupsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -205,7 +205,8 @@ instance
       "DescribeDBClusterParameterGroupsResult"
       ( \s h x ->
           DescribeDBClusterParameterGroupsResponse'
-            Prelude.<$> ( x Data..@? "DBClusterParameterGroups"
+            Prelude.<$> ( x
+                            Data..@? "DBClusterParameterGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may
                               (Data.parseXMLList "DBClusterParameterGroup")

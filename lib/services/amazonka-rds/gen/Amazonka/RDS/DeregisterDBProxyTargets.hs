@@ -126,7 +126,8 @@ instance Core.AWSRequest DeregisterDBProxyTargets where
 
 instance Prelude.Hashable DeregisterDBProxyTargets where
   hashWithSalt _salt DeregisterDBProxyTargets' {..} =
-    _salt `Prelude.hashWithSalt` dbClusterIdentifiers
+    _salt
+      `Prelude.hashWithSalt` dbClusterIdentifiers
       `Prelude.hashWithSalt` dbInstanceIdentifiers
       `Prelude.hashWithSalt` targetGroupName
       `Prelude.hashWithSalt` dbProxyName

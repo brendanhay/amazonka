@@ -177,7 +177,8 @@ instance Core.AWSRequest CreateDBClusterEndpoint where
 
 instance Prelude.Hashable CreateDBClusterEndpoint where
   hashWithSalt _salt CreateDBClusterEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` excludedMembers
+    _salt
+      `Prelude.hashWithSalt` excludedMembers
       `Prelude.hashWithSalt` staticMembers
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` dbClusterIdentifier

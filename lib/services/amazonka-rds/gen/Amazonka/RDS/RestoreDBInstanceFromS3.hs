@@ -104,11 +104,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRestoreDBInstanceFromS3' smart constructor.
 data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
-  { -- | The amount of storage (in gigabytes) to allocate initially for the DB
+  { -- | The amount of storage (in gibibytes) to allocate initially for the DB
     -- instance. Follow the allocation rules specified in @CreateDBInstance@.
     --
-    -- Be sure to allocate enough memory for your new DB instance so that the
-    -- restore operation can succeed. You can also allocate additional memory
+    -- Be sure to allocate enough storage for your new DB instance so that the
+    -- restore operation can succeed. You can also allocate additional storage
     -- for future growth.
     allocatedStorage :: Prelude.Maybe Prelude.Int,
     -- | A value that indicates whether minor engine upgrades are applied
@@ -501,11 +501,11 @@ data RestoreDBInstanceFromS3 = RestoreDBInstanceFromS3'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'allocatedStorage', 'restoreDBInstanceFromS3_allocatedStorage' - The amount of storage (in gigabytes) to allocate initially for the DB
+-- 'allocatedStorage', 'restoreDBInstanceFromS3_allocatedStorage' - The amount of storage (in gibibytes) to allocate initially for the DB
 -- instance. Follow the allocation rules specified in @CreateDBInstance@.
 --
--- Be sure to allocate enough memory for your new DB instance so that the
--- restore operation can succeed. You can also allocate additional memory
+-- Be sure to allocate enough storage for your new DB instance so that the
+-- restore operation can succeed. You can also allocate additional storage
 -- for future growth.
 --
 -- 'autoMinorVersionUpgrade', 'restoreDBInstanceFromS3_autoMinorVersionUpgrade' - A value that indicates whether minor engine upgrades are applied
@@ -963,11 +963,11 @@ newRestoreDBInstanceFromS3
         s3IngestionRoleArn = pS3IngestionRoleArn_
       }
 
--- | The amount of storage (in gigabytes) to allocate initially for the DB
+-- | The amount of storage (in gibibytes) to allocate initially for the DB
 -- instance. Follow the allocation rules specified in @CreateDBInstance@.
 --
--- Be sure to allocate enough memory for your new DB instance so that the
--- restore operation can succeed. You can also allocate additional memory
+-- Be sure to allocate enough storage for your new DB instance so that the
+-- restore operation can succeed. You can also allocate additional storage
 -- for future growth.
 restoreDBInstanceFromS3_allocatedStorage :: Lens.Lens' RestoreDBInstanceFromS3 (Prelude.Maybe Prelude.Int)
 restoreDBInstanceFromS3_allocatedStorage = Lens.lens (\RestoreDBInstanceFromS3' {allocatedStorage} -> allocatedStorage) (\s@RestoreDBInstanceFromS3' {} a -> s {allocatedStorage = a} :: RestoreDBInstanceFromS3)
@@ -1462,7 +1462,8 @@ instance Core.AWSRequest RestoreDBInstanceFromS3 where
 
 instance Prelude.Hashable RestoreDBInstanceFromS3 where
   hashWithSalt _salt RestoreDBInstanceFromS3' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` backupRetentionPeriod

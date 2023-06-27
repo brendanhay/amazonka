@@ -255,7 +255,8 @@ instance Core.AWSRequest CreateOptionGroup where
 
 instance Prelude.Hashable CreateOptionGroup where
   hashWithSalt _salt CreateOptionGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` optionGroupName
       `Prelude.hashWithSalt` engineName
       `Prelude.hashWithSalt` majorEngineVersion

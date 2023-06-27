@@ -48,6 +48,7 @@ module Amazonka.RDS.RestoreDBInstanceFromDBSnapshot
     newRestoreDBInstanceFromDBSnapshot,
 
     -- * Request Lenses
+    restoreDBInstanceFromDBSnapshot_allocatedStorage,
     restoreDBInstanceFromDBSnapshot_autoMinorVersionUpgrade,
     restoreDBInstanceFromDBSnapshot_availabilityZone,
     restoreDBInstanceFromDBSnapshot_backupTarget,
@@ -105,7 +106,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newRestoreDBInstanceFromDBSnapshot' smart constructor.
 data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
-  { -- | A value that indicates whether minor version upgrades are applied
+  { -- | The amount of storage (in gibibytes) to allocate initially for the DB
+    -- instance. Follow the allocation rules specified in CreateDBInstance.
+    --
+    -- Be sure to allocate enough storage for your new DB instance so that the
+    -- restore operation can succeed. You can also allocate additional storage
+    -- for future growth.
+    allocatedStorage :: Prelude.Maybe Prelude.Int,
+    -- | A value that indicates whether minor version upgrades are applied
     -- automatically to the DB instance during the maintenance window.
     --
     -- If you restore an RDS Custom DB instance, you must disable this
@@ -166,7 +174,7 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     -- restore from.
     --
     -- For more information on Multi-AZ DB clusters, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ DB cluster deployments>
     -- in the /Amazon RDS User Guide/.
     --
     -- Constraints:
@@ -470,6 +478,13 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'allocatedStorage', 'restoreDBInstanceFromDBSnapshot_allocatedStorage' - The amount of storage (in gibibytes) to allocate initially for the DB
+-- instance. Follow the allocation rules specified in CreateDBInstance.
+--
+-- Be sure to allocate enough storage for your new DB instance so that the
+-- restore operation can succeed. You can also allocate additional storage
+-- for future growth.
+--
 -- 'autoMinorVersionUpgrade', 'restoreDBInstanceFromDBSnapshot_autoMinorVersionUpgrade' - A value that indicates whether minor version upgrades are applied
 -- automatically to the DB instance during the maintenance window.
 --
@@ -531,7 +546,7 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 -- restore from.
 --
 -- For more information on Multi-AZ DB clusters, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ DB cluster deployments>
 -- in the /Amazon RDS User Guide/.
 --
 -- Constraints:
@@ -831,8 +846,9 @@ newRestoreDBInstanceFromDBSnapshot ::
 newRestoreDBInstanceFromDBSnapshot
   pDBInstanceIdentifier_ =
     RestoreDBInstanceFromDBSnapshot'
-      { autoMinorVersionUpgrade =
+      { allocatedStorage =
           Prelude.Nothing,
+        autoMinorVersionUpgrade = Prelude.Nothing,
         availabilityZone = Prelude.Nothing,
         backupTarget = Prelude.Nothing,
         copyTagsToSnapshot = Prelude.Nothing,
@@ -872,6 +888,15 @@ newRestoreDBInstanceFromDBSnapshot
         dbInstanceIdentifier =
           pDBInstanceIdentifier_
       }
+
+-- | The amount of storage (in gibibytes) to allocate initially for the DB
+-- instance. Follow the allocation rules specified in CreateDBInstance.
+--
+-- Be sure to allocate enough storage for your new DB instance so that the
+-- restore operation can succeed. You can also allocate additional storage
+-- for future growth.
+restoreDBInstanceFromDBSnapshot_allocatedStorage :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Int)
+restoreDBInstanceFromDBSnapshot_allocatedStorage = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {allocatedStorage} -> allocatedStorage) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {allocatedStorage = a} :: RestoreDBInstanceFromDBSnapshot)
 
 -- | A value that indicates whether minor version upgrades are applied
 -- automatically to the DB instance during the maintenance window.
@@ -944,7 +969,7 @@ restoreDBInstanceFromDBSnapshot_customIamInstanceProfile = Lens.lens (\RestoreDB
 -- restore from.
 --
 -- For more information on Multi-AZ DB clusters, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ DB cluster deployments>
 -- in the /Amazon RDS User Guide/.
 --
 -- Constraints:
@@ -1322,6 +1347,7 @@ instance
     _salt
     RestoreDBInstanceFromDBSnapshot' {..} =
       _salt
+        `Prelude.hashWithSalt` allocatedStorage
         `Prelude.hashWithSalt` autoMinorVersionUpgrade
         `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` backupTarget
@@ -1362,7 +1388,8 @@ instance
     RestoreDBInstanceFromDBSnapshot
   where
   rnf RestoreDBInstanceFromDBSnapshot' {..} =
-    Prelude.rnf autoMinorVersionUpgrade
+    Prelude.rnf allocatedStorage
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf backupTarget
       `Prelude.seq` Prelude.rnf copyTagsToSnapshot
@@ -1376,7 +1403,8 @@ instance
       `Prelude.seq` Prelude.rnf deletionProtection
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf domainIAMRoleName
-      `Prelude.seq` Prelude.rnf enableCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf
+        enableCloudwatchLogsExports
       `Prelude.seq` Prelude.rnf enableCustomerOwnedIp
       `Prelude.seq` Prelude.rnf
         enableIAMDatabaseAuthentication
@@ -1427,6 +1455,7 @@ instance Data.ToQuery RestoreDBInstanceFromDBSnapshot where
                   ),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "AllocatedStorage" Data.=: allocatedStorage,
         "AutoMinorVersionUpgrade"
           Data.=: autoMinorVersionUpgrade,
         "AvailabilityZone" Data.=: availabilityZone,

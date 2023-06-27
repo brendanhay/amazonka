@@ -90,6 +90,9 @@ module Amazonka.RDS
     -- ** CertificateNotFoundFault
     _CertificateNotFoundFault,
 
+    -- ** CreateCustomDBEngineVersionFault
+    _CreateCustomDBEngineVersionFault,
+
     -- ** CustomAvailabilityZoneNotFoundFault
     _CustomAvailabilityZoneNotFoundFault,
 
@@ -425,6 +428,9 @@ module Amazonka.RDS
 
     -- ** StorageQuotaExceededFault
     _StorageQuotaExceededFault,
+
+    -- ** StorageTypeNotAvailableFault
+    _StorageTypeNotAvailableFault,
 
     -- ** StorageTypeNotSupportedFault
     _StorageTypeNotSupportedFault,

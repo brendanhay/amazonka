@@ -329,6 +329,7 @@ module Amazonka.RDS.Lens
     createDBInstanceResponse_httpStatus,
 
     -- ** CreateDBInstanceReadReplica
+    createDBInstanceReadReplica_allocatedStorage,
     createDBInstanceReadReplica_autoMinorVersionUpgrade,
     createDBInstanceReadReplica_availabilityZone,
     createDBInstanceReadReplica_copyTagsToSnapshot,
@@ -359,13 +360,14 @@ module Amazonka.RDS.Lens
     createDBInstanceReadReplica_processorFeatures,
     createDBInstanceReadReplica_publiclyAccessible,
     createDBInstanceReadReplica_replicaMode,
+    createDBInstanceReadReplica_sourceDBClusterIdentifier,
+    createDBInstanceReadReplica_sourceDBInstanceIdentifier,
     createDBInstanceReadReplica_storageThroughput,
     createDBInstanceReadReplica_storageType,
     createDBInstanceReadReplica_tags,
     createDBInstanceReadReplica_useDefaultProcessorFeatures,
     createDBInstanceReadReplica_vpcSecurityGroupIds,
     createDBInstanceReadReplica_dbInstanceIdentifier,
-    createDBInstanceReadReplica_sourceDBInstanceIdentifier,
     createDBInstanceReadReplicaResponse_dbInstance,
     createDBInstanceReadReplicaResponse_httpStatus,
 
@@ -1061,6 +1063,7 @@ module Amazonka.RDS.Lens
 
     -- ** ModifyDBCluster
     modifyDBCluster_allocatedStorage,
+    modifyDBCluster_allowEngineModeChange,
     modifyDBCluster_allowMajorVersionUpgrade,
     modifyDBCluster_applyImmediately,
     modifyDBCluster_autoMinorVersionUpgrade,
@@ -1078,6 +1081,7 @@ module Amazonka.RDS.Lens
     modifyDBCluster_enableHttpEndpoint,
     modifyDBCluster_enableIAMDatabaseAuthentication,
     modifyDBCluster_enablePerformanceInsights,
+    modifyDBCluster_engineMode,
     modifyDBCluster_engineVersion,
     modifyDBCluster_iops,
     modifyDBCluster_manageMasterUserPassword,
@@ -1154,6 +1158,7 @@ module Amazonka.RDS.Lens
     modifyDBInstance_enableCustomerOwnedIp,
     modifyDBInstance_enableIAMDatabaseAuthentication,
     modifyDBInstance_enablePerformanceInsights,
+    modifyDBInstance_engine,
     modifyDBInstance_engineVersion,
     modifyDBInstance_iops,
     modifyDBInstance_licenseModel,
@@ -1371,6 +1376,7 @@ module Amazonka.RDS.Lens
     restoreDBClusterFromS3_s3Prefix,
     restoreDBClusterFromS3_serverlessV2ScalingConfiguration,
     restoreDBClusterFromS3_storageEncrypted,
+    restoreDBClusterFromS3_storageType,
     restoreDBClusterFromS3_tags,
     restoreDBClusterFromS3_vpcSecurityGroupIds,
     restoreDBClusterFromS3_dbClusterIdentifier,
@@ -1447,6 +1453,7 @@ module Amazonka.RDS.Lens
     restoreDBClusterToPointInTimeResponse_httpStatus,
 
     -- ** RestoreDBInstanceFromDBSnapshot
+    restoreDBInstanceFromDBSnapshot_allocatedStorage,
     restoreDBInstanceFromDBSnapshot_autoMinorVersionUpgrade,
     restoreDBInstanceFromDBSnapshot_availabilityZone,
     restoreDBInstanceFromDBSnapshot_backupTarget,
@@ -1537,6 +1544,7 @@ module Amazonka.RDS.Lens
     restoreDBInstanceFromS3Response_httpStatus,
 
     -- ** RestoreDBInstanceToPointInTime
+    restoreDBInstanceToPointInTime_allocatedStorage,
     restoreDBInstanceToPointInTime_autoMinorVersionUpgrade,
     restoreDBInstanceToPointInTime_availabilityZone,
     restoreDBInstanceToPointInTime_backupTarget,
@@ -1743,6 +1751,7 @@ module Amazonka.RDS.Lens
     clusterPendingModifiedValues_iops,
     clusterPendingModifiedValues_masterUserPassword,
     clusterPendingModifiedValues_pendingCloudwatchLogsExports,
+    clusterPendingModifiedValues_storageType,
 
     -- ** ConnectionPoolConfiguration
     connectionPoolConfiguration_connectionBorrowTimeout,
@@ -1806,6 +1815,7 @@ module Amazonka.RDS.Lens
     dbCluster_hostedZoneId,
     dbCluster_httpEndpointEnabled,
     dbCluster_iAMDatabaseAuthenticationEnabled,
+    dbCluster_iOOptimizedNextAllowedModificationTime,
     dbCluster_iops,
     dbCluster_kmsKeyId,
     dbCluster_latestRestorableTime,
@@ -1901,6 +1911,7 @@ module Amazonka.RDS.Lens
     dbClusterSnapshot_sourceDBClusterSnapshotArn,
     dbClusterSnapshot_status,
     dbClusterSnapshot_storageEncrypted,
+    dbClusterSnapshot_storageType,
     dbClusterSnapshot_tagList,
     dbClusterSnapshot_vpcId,
 
@@ -2014,6 +2025,7 @@ module Amazonka.RDS.Lens
     dbInstance_publiclyAccessible,
     dbInstance_readReplicaDBClusterIdentifiers,
     dbInstance_readReplicaDBInstanceIdentifiers,
+    dbInstance_readReplicaSourceDBClusterIdentifier,
     dbInstance_readReplicaSourceDBInstanceIdentifier,
     dbInstance_replicaMode,
     dbInstance_resumeFullAutomationModeTime,
@@ -2466,6 +2478,7 @@ module Amazonka.RDS.Lens
     pendingModifiedValues_dbInstanceClass,
     pendingModifiedValues_dbInstanceIdentifier,
     pendingModifiedValues_dbSubnetGroupName,
+    pendingModifiedValues_engine,
     pendingModifiedValues_engineVersion,
     pendingModifiedValues_iAMDatabaseAuthenticationEnabled,
     pendingModifiedValues_iops,

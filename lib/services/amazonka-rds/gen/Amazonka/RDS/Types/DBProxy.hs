@@ -268,7 +268,9 @@ dbProxy_vpcSubnetIds = Lens.lens (\DBProxy' {vpcSubnetIds} -> vpcSubnetIds) (\s@
 instance Data.FromXML DBProxy where
   parseXML x =
     DBProxy'
-      Prelude.<$> ( x Data..@? "Auth" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Auth"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "CreatedDate")
@@ -283,17 +285,21 @@ instance Data.FromXML DBProxy where
       Prelude.<*> (x Data..@? "Status")
       Prelude.<*> (x Data..@? "UpdatedDate")
       Prelude.<*> (x Data..@? "VpcId")
-      Prelude.<*> ( x Data..@? "VpcSecurityGroupIds"
+      Prelude.<*> ( x
+                      Data..@? "VpcSecurityGroupIds"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "VpcSubnetIds" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "VpcSubnetIds"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 
 instance Prelude.Hashable DBProxy where
   hashWithSalt _salt DBProxy' {..} =
-    _salt `Prelude.hashWithSalt` auth
+    _salt
+      `Prelude.hashWithSalt` auth
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` dbProxyArn
       `Prelude.hashWithSalt` dbProxyName

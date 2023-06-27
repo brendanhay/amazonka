@@ -21,10 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new DB instance that acts as a read replica for an existing
--- source DB instance. You can create a read replica for a DB instance
--- running MySQL, MariaDB, Oracle, PostgreSQL, or SQL Server. For more
--- information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html Working with Read Replicas>
+-- source DB instance or Multi-AZ DB cluster. You can create a read replica
+-- for a DB instance running MySQL, MariaDB, Oracle, PostgreSQL, or SQL
+-- Server. You can create a read replica for a Multi-AZ DB cluster running
+-- MySQL or PostgreSQL. For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html Working with read replicas>
+-- and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html#multi-az-db-clusters-migrating-to-instance-with-read-replica Migrating from a Multi-AZ DB cluster to a DB instance using a read replica>
 -- in the /Amazon RDS User Guide/.
 --
 -- Amazon Aurora doesn\'t support this operation. Call the
@@ -32,17 +35,18 @@
 -- cluster.
 --
 -- All read replica DB instances are created with backups disabled. All
--- other DB instance attributes (including DB security groups and DB
--- parameter groups) are inherited from the source DB instance, except as
+-- other attributes (including DB security groups and DB parameter groups)
+-- are inherited from the source DB instance or cluster, except as
 -- specified.
 --
--- Your source DB instance must have backup retention enabled.
+-- Your source DB instance or cluster must have backup retention enabled.
 module Amazonka.RDS.CreateDBInstanceReadReplica
   ( -- * Creating a Request
     CreateDBInstanceReadReplica (..),
     newCreateDBInstanceReadReplica,
 
     -- * Request Lenses
+    createDBInstanceReadReplica_allocatedStorage,
     createDBInstanceReadReplica_autoMinorVersionUpgrade,
     createDBInstanceReadReplica_availabilityZone,
     createDBInstanceReadReplica_copyTagsToSnapshot,
@@ -73,13 +77,14 @@ module Amazonka.RDS.CreateDBInstanceReadReplica
     createDBInstanceReadReplica_processorFeatures,
     createDBInstanceReadReplica_publiclyAccessible,
     createDBInstanceReadReplica_replicaMode,
+    createDBInstanceReadReplica_sourceDBClusterIdentifier,
+    createDBInstanceReadReplica_sourceDBInstanceIdentifier,
     createDBInstanceReadReplica_storageThroughput,
     createDBInstanceReadReplica_storageType,
     createDBInstanceReadReplica_tags,
     createDBInstanceReadReplica_useDefaultProcessorFeatures,
     createDBInstanceReadReplica_vpcSecurityGroupIds,
     createDBInstanceReadReplica_dbInstanceIdentifier,
-    createDBInstanceReadReplica_sourceDBInstanceIdentifier,
 
     -- * Destructuring the Response
     CreateDBInstanceReadReplicaResponse (..),
@@ -101,7 +106,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDBInstanceReadReplica' smart constructor.
 data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
-  { -- | A value that indicates whether minor engine upgrades are applied
+  { -- | The amount of storage (in gibibytes) to allocate initially for the read
+    -- replica. Follow the allocation rules specified in @CreateDBInstance@.
+    --
+    -- Be sure to allocate enough storage for your read replica so that the
+    -- create operation can succeed. You can also allocate additional storage
+    -- for future growth.
+    allocatedStorage :: Prelude.Maybe Prelude.Int,
+    -- | A value that indicates whether minor engine upgrades are applied
     -- automatically to the read replica during the maintenance window.
     --
     -- This setting doesn\'t apply to RDS Custom.
@@ -169,9 +181,6 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     --
     -- Constraints:
     --
-    -- -   Can only be specified if the source DB instance identifier specifies
-    --     a DB instance in another Amazon Web Services Region.
-    --
     -- -   If supplied, must match the name of an existing DBSubnetGroup.
     --
     -- -   The specified DB subnet group must be in the same Amazon Web
@@ -210,7 +219,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     --
     -- This setting doesn\'t apply to RDS Custom.
     domain :: Prelude.Maybe Prelude.Text,
-    -- | Specify the name of the IAM role to be used when making API calls to the
+    -- | The name of the IAM role to be used when making API calls to the
     -- Directory Service.
     --
     -- This setting doesn\'t apply to RDS Custom.
@@ -268,9 +277,10 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- ARN, or alias name for the KMS key.
     --
     -- If you create an encrypted read replica in the same Amazon Web Services
-    -- Region as the source DB instance, then do not specify a value for this
-    -- parameter. A read replica in the same Amazon Web Services Region is
-    -- always encrypted with the same KMS key as the source DB instance.
+    -- Region as the source DB instance or Multi-AZ DB cluster, don\'t specify
+    -- a value for this parameter. A read replica in the same Amazon Web
+    -- Services Region is always encrypted with the same KMS key as the source
+    -- DB instance or cluster.
     --
     -- If you create an encrypted read replica in a different Amazon Web
     -- Services Region, then you must specify a KMS key identifier for the
@@ -280,7 +290,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- Services Region.
     --
     -- You can\'t create an encrypted read replica from an unencrypted DB
-    -- instance.
+    -- instance or Multi-AZ DB cluster.
     --
     -- This setting doesn\'t apply to RDS Custom, which uses the same KMS key
     -- as the primary replica.
@@ -322,8 +332,8 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- You can create a read replica as a Multi-AZ DB instance. RDS creates a
     -- standby of your replica in another Availability Zone for failover
     -- support for the replica. Creating your read replica as a Multi-AZ DB
-    -- instance is independent of whether the source database is a Multi-AZ DB
-    -- instance.
+    -- instance is independent of whether the source is a Multi-AZ DB instance
+    -- or a Multi-AZ DB cluster.
     --
     -- This setting doesn\'t apply to RDS Custom.
     multiAZ :: Prelude.Maybe Prelude.Bool,
@@ -344,10 +354,10 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- in the /Amazon RDS User Guide./
     networkType :: Prelude.Maybe Prelude.Text,
     -- | The option group the DB instance is associated with. If omitted, the
-    -- option group associated with the source instance is used.
+    -- option group associated with the source instance or cluster is used.
     --
-    -- For SQL Server, you must use the option group associated with the source
-    -- instance.
+    -- For SQL Server, you must use the option group associated with the
+    -- source.
     --
     -- This setting doesn\'t apply to RDS Custom.
     optionGroupName :: Prelude.Maybe Prelude.Text,
@@ -403,6 +413,10 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- This setting applies only to Amazon Web Services GovCloud (US) Regions
     -- and China Amazon Web Services Regions. It\'s ignored in other Amazon Web
     -- Services Regions.
+    --
+    -- This setting applies only when replicating from a source DB /instance/.
+    -- Source DB clusters aren\'t supported in Amazon Web Services GovCloud
+    -- (US) Regions and China Amazon Web Services Regions.
     --
     -- You must specify this parameter when you create an encrypted read
     -- replica from another Amazon Web Services Region by using the Amazon RDS
@@ -500,6 +514,55 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- The value won\'t be set by default. After replica creation, you can
     -- manage the open mode manually.
     replicaMode :: Prelude.Maybe ReplicaMode,
+    -- | The identifier of the Multi-AZ DB cluster that will act as the source
+    -- for the read replica. Each DB cluster can have up to 15 read replicas.
+    --
+    -- Constraints:
+    --
+    -- -   Must be the identifier of an existing Multi-AZ DB cluster.
+    --
+    -- -   Can\'t be specified if the @SourceDBInstanceIdentifier@ parameter is
+    --     also specified.
+    --
+    -- -   The specified DB cluster must have automatic backups enabled, that
+    --     is, its backup retention period must be greater than 0.
+    --
+    -- -   The source DB cluster must be in the same Amazon Web Services Region
+    --     as the read replica. Cross-Region replication isn\'t supported.
+    sourceDBClusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the DB instance that will act as the source for the
+    -- read replica. Each DB instance can have up to 15 read replicas, with the
+    -- exception of Oracle and SQL Server, which can have up to five.
+    --
+    -- Constraints:
+    --
+    -- -   Must be the identifier of an existing MySQL, MariaDB, Oracle,
+    --     PostgreSQL, or SQL Server DB instance.
+    --
+    -- -   Can\'t be specified if the @SourceDBClusterIdentifier@ parameter is
+    --     also specified.
+    --
+    -- -   For the limitations of Oracle read replicas, see
+    --     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.limitations.html#oracle-read-replicas.limitations.versions-and-licenses Version and licensing considerations for RDS for Oracle replicas>
+    --     in the /Amazon RDS User Guide/.
+    --
+    -- -   For the limitations of SQL Server read replicas, see
+    --     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.ReadReplicas.html#SQLServer.ReadReplicas.Limitations Read replica limitations with SQL Server>
+    --     in the /Amazon RDS User Guide/.
+    --
+    -- -   The specified DB instance must have automatic backups enabled, that
+    --     is, its backup retention period must be greater than 0.
+    --
+    -- -   If the source DB instance is in the same Amazon Web Services Region
+    --     as the read replica, specify a valid DB instance identifier.
+    --
+    -- -   If the source DB instance is in a different Amazon Web Services
+    --     Region from the read replica, specify a valid DB instance ARN. For
+    --     more information, see
+    --     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS>
+    --     in the /Amazon RDS User Guide/. This doesn\'t apply to SQL Server or
+    --     RDS Custom, which don\'t support cross-Region replicas.
+    sourceDBInstanceIdentifier :: Prelude.Maybe Prelude.Text,
     -- | Specifies the storage throughput value for the read replica.
     --
     -- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
@@ -530,43 +593,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- | The DB instance identifier of the read replica. This identifier is the
     -- unique key that identifies a DB instance. This parameter is stored as a
     -- lowercase string.
-    dbInstanceIdentifier :: Prelude.Text,
-    -- | The identifier of the DB instance that will act as the source for the
-    -- read replica. Each DB instance can have up to five read replicas.
-    --
-    -- Constraints:
-    --
-    -- -   Must be the identifier of an existing MySQL, MariaDB, Oracle,
-    --     PostgreSQL, or SQL Server DB instance.
-    --
-    -- -   Can specify a DB instance that is a MySQL read replica only if the
-    --     source is running MySQL 5.6 or later.
-    --
-    -- -   For the limitations of Oracle read replicas, see
-    --     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html Read Replica Limitations with Oracle>
-    --     in the /Amazon RDS User Guide/.
-    --
-    -- -   For the limitations of SQL Server read replicas, see
-    --     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.ReadReplicas.Limitations.html Read Replica Limitations with Microsoft SQL Server>
-    --     in the /Amazon RDS User Guide/.
-    --
-    -- -   Can specify a PostgreSQL DB instance only if the source is running
-    --     PostgreSQL 9.3.5 or later (9.4.7 and higher for cross-Region
-    --     replication).
-    --
-    -- -   The specified DB instance must have automatic backups enabled, that
-    --     is, its backup retention period must be greater than 0.
-    --
-    -- -   If the source DB instance is in the same Amazon Web Services Region
-    --     as the read replica, specify a valid DB instance identifier.
-    --
-    -- -   If the source DB instance is in a different Amazon Web Services
-    --     Region from the read replica, specify a valid DB instance ARN. For
-    --     more information, see
-    --     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS>
-    --     in the /Amazon RDS User Guide/. This doesn\'t apply to SQL Server or
-    --     RDS Custom, which don\'t support cross-Region replicas.
-    sourceDBInstanceIdentifier :: Prelude.Text
+    dbInstanceIdentifier :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -577,6 +604,13 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'allocatedStorage', 'createDBInstanceReadReplica_allocatedStorage' - The amount of storage (in gibibytes) to allocate initially for the read
+-- replica. Follow the allocation rules specified in @CreateDBInstance@.
+--
+-- Be sure to allocate enough storage for your read replica so that the
+-- create operation can succeed. You can also allocate additional storage
+-- for future growth.
 --
 -- 'autoMinorVersionUpgrade', 'createDBInstanceReadReplica_autoMinorVersionUpgrade' - A value that indicates whether minor engine upgrades are applied
 -- automatically to the read replica during the maintenance window.
@@ -646,9 +680,6 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 --
 -- Constraints:
 --
--- -   Can only be specified if the source DB instance identifier specifies
---     a DB instance in another Amazon Web Services Region.
---
 -- -   If supplied, must match the name of an existing DBSubnetGroup.
 --
 -- -   The specified DB subnet group must be in the same Amazon Web
@@ -687,7 +718,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 --
 -- This setting doesn\'t apply to RDS Custom.
 --
--- 'domainIAMRoleName', 'createDBInstanceReadReplica_domainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the
+-- 'domainIAMRoleName', 'createDBInstanceReadReplica_domainIAMRoleName' - The name of the IAM role to be used when making API calls to the
 -- Directory Service.
 --
 -- This setting doesn\'t apply to RDS Custom.
@@ -745,9 +776,10 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 -- ARN, or alias name for the KMS key.
 --
 -- If you create an encrypted read replica in the same Amazon Web Services
--- Region as the source DB instance, then do not specify a value for this
--- parameter. A read replica in the same Amazon Web Services Region is
--- always encrypted with the same KMS key as the source DB instance.
+-- Region as the source DB instance or Multi-AZ DB cluster, don\'t specify
+-- a value for this parameter. A read replica in the same Amazon Web
+-- Services Region is always encrypted with the same KMS key as the source
+-- DB instance or cluster.
 --
 -- If you create an encrypted read replica in a different Amazon Web
 -- Services Region, then you must specify a KMS key identifier for the
@@ -757,7 +789,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 -- Services Region.
 --
 -- You can\'t create an encrypted read replica from an unencrypted DB
--- instance.
+-- instance or Multi-AZ DB cluster.
 --
 -- This setting doesn\'t apply to RDS Custom, which uses the same KMS key
 -- as the primary replica.
@@ -799,8 +831,8 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 -- You can create a read replica as a Multi-AZ DB instance. RDS creates a
 -- standby of your replica in another Availability Zone for failover
 -- support for the replica. Creating your read replica as a Multi-AZ DB
--- instance is independent of whether the source database is a Multi-AZ DB
--- instance.
+-- instance is independent of whether the source is a Multi-AZ DB instance
+-- or a Multi-AZ DB cluster.
 --
 -- This setting doesn\'t apply to RDS Custom.
 --
@@ -821,10 +853,10 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 -- in the /Amazon RDS User Guide./
 --
 -- 'optionGroupName', 'createDBInstanceReadReplica_optionGroupName' - The option group the DB instance is associated with. If omitted, the
--- option group associated with the source instance is used.
+-- option group associated with the source instance or cluster is used.
 --
--- For SQL Server, you must use the option group associated with the source
--- instance.
+-- For SQL Server, you must use the option group associated with the
+-- source.
 --
 -- This setting doesn\'t apply to RDS Custom.
 --
@@ -880,6 +912,10 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 -- This setting applies only to Amazon Web Services GovCloud (US) Regions
 -- and China Amazon Web Services Regions. It\'s ignored in other Amazon Web
 -- Services Regions.
+--
+-- This setting applies only when replicating from a source DB /instance/.
+-- Source DB clusters aren\'t supported in Amazon Web Services GovCloud
+-- (US) Regions and China Amazon Web Services Regions.
 --
 -- You must specify this parameter when you create an encrypted read
 -- replica from another Amazon Web Services Region by using the Amazon RDS
@@ -977,6 +1013,55 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 -- The value won\'t be set by default. After replica creation, you can
 -- manage the open mode manually.
 --
+-- 'sourceDBClusterIdentifier', 'createDBInstanceReadReplica_sourceDBClusterIdentifier' - The identifier of the Multi-AZ DB cluster that will act as the source
+-- for the read replica. Each DB cluster can have up to 15 read replicas.
+--
+-- Constraints:
+--
+-- -   Must be the identifier of an existing Multi-AZ DB cluster.
+--
+-- -   Can\'t be specified if the @SourceDBInstanceIdentifier@ parameter is
+--     also specified.
+--
+-- -   The specified DB cluster must have automatic backups enabled, that
+--     is, its backup retention period must be greater than 0.
+--
+-- -   The source DB cluster must be in the same Amazon Web Services Region
+--     as the read replica. Cross-Region replication isn\'t supported.
+--
+-- 'sourceDBInstanceIdentifier', 'createDBInstanceReadReplica_sourceDBInstanceIdentifier' - The identifier of the DB instance that will act as the source for the
+-- read replica. Each DB instance can have up to 15 read replicas, with the
+-- exception of Oracle and SQL Server, which can have up to five.
+--
+-- Constraints:
+--
+-- -   Must be the identifier of an existing MySQL, MariaDB, Oracle,
+--     PostgreSQL, or SQL Server DB instance.
+--
+-- -   Can\'t be specified if the @SourceDBClusterIdentifier@ parameter is
+--     also specified.
+--
+-- -   For the limitations of Oracle read replicas, see
+--     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.limitations.html#oracle-read-replicas.limitations.versions-and-licenses Version and licensing considerations for RDS for Oracle replicas>
+--     in the /Amazon RDS User Guide/.
+--
+-- -   For the limitations of SQL Server read replicas, see
+--     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.ReadReplicas.html#SQLServer.ReadReplicas.Limitations Read replica limitations with SQL Server>
+--     in the /Amazon RDS User Guide/.
+--
+-- -   The specified DB instance must have automatic backups enabled, that
+--     is, its backup retention period must be greater than 0.
+--
+-- -   If the source DB instance is in the same Amazon Web Services Region
+--     as the read replica, specify a valid DB instance identifier.
+--
+-- -   If the source DB instance is in a different Amazon Web Services
+--     Region from the read replica, specify a valid DB instance ARN. For
+--     more information, see
+--     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS>
+--     in the /Amazon RDS User Guide/. This doesn\'t apply to SQL Server or
+--     RDS Custom, which don\'t support cross-Region replicas.
+--
 -- 'storageThroughput', 'createDBInstanceReadReplica_storageThroughput' - Specifies the storage throughput value for the read replica.
 --
 -- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
@@ -1008,94 +1093,64 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 -- 'dbInstanceIdentifier', 'createDBInstanceReadReplica_dbInstanceIdentifier' - The DB instance identifier of the read replica. This identifier is the
 -- unique key that identifies a DB instance. This parameter is stored as a
 -- lowercase string.
---
--- 'sourceDBInstanceIdentifier', 'createDBInstanceReadReplica_sourceDBInstanceIdentifier' - The identifier of the DB instance that will act as the source for the
--- read replica. Each DB instance can have up to five read replicas.
---
--- Constraints:
---
--- -   Must be the identifier of an existing MySQL, MariaDB, Oracle,
---     PostgreSQL, or SQL Server DB instance.
---
--- -   Can specify a DB instance that is a MySQL read replica only if the
---     source is running MySQL 5.6 or later.
---
--- -   For the limitations of Oracle read replicas, see
---     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html Read Replica Limitations with Oracle>
---     in the /Amazon RDS User Guide/.
---
--- -   For the limitations of SQL Server read replicas, see
---     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.ReadReplicas.Limitations.html Read Replica Limitations with Microsoft SQL Server>
---     in the /Amazon RDS User Guide/.
---
--- -   Can specify a PostgreSQL DB instance only if the source is running
---     PostgreSQL 9.3.5 or later (9.4.7 and higher for cross-Region
---     replication).
---
--- -   The specified DB instance must have automatic backups enabled, that
---     is, its backup retention period must be greater than 0.
---
--- -   If the source DB instance is in the same Amazon Web Services Region
---     as the read replica, specify a valid DB instance identifier.
---
--- -   If the source DB instance is in a different Amazon Web Services
---     Region from the read replica, specify a valid DB instance ARN. For
---     more information, see
---     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS>
---     in the /Amazon RDS User Guide/. This doesn\'t apply to SQL Server or
---     RDS Custom, which don\'t support cross-Region replicas.
 newCreateDBInstanceReadReplica ::
   -- | 'dbInstanceIdentifier'
   Prelude.Text ->
-  -- | 'sourceDBInstanceIdentifier'
-  Prelude.Text ->
   CreateDBInstanceReadReplica
-newCreateDBInstanceReadReplica
-  pDBInstanceIdentifier_
-  pSourceDBInstanceIdentifier_ =
-    CreateDBInstanceReadReplica'
-      { autoMinorVersionUpgrade =
-          Prelude.Nothing,
-        availabilityZone = Prelude.Nothing,
-        copyTagsToSnapshot = Prelude.Nothing,
-        customIamInstanceProfile = Prelude.Nothing,
-        dbInstanceClass = Prelude.Nothing,
-        dbParameterGroupName = Prelude.Nothing,
-        dbSubnetGroupName = Prelude.Nothing,
-        deletionProtection = Prelude.Nothing,
-        destinationRegion = Prelude.Nothing,
-        domain = Prelude.Nothing,
-        domainIAMRoleName = Prelude.Nothing,
-        enableCloudwatchLogsExports = Prelude.Nothing,
-        enableCustomerOwnedIp = Prelude.Nothing,
-        enableIAMDatabaseAuthentication =
-          Prelude.Nothing,
-        enablePerformanceInsights = Prelude.Nothing,
-        iops = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
-        maxAllocatedStorage = Prelude.Nothing,
-        monitoringInterval = Prelude.Nothing,
-        monitoringRoleArn = Prelude.Nothing,
-        multiAZ = Prelude.Nothing,
-        networkType = Prelude.Nothing,
-        optionGroupName = Prelude.Nothing,
-        performanceInsightsKMSKeyId = Prelude.Nothing,
-        performanceInsightsRetentionPeriod =
-          Prelude.Nothing,
-        port = Prelude.Nothing,
-        preSignedUrl = Prelude.Nothing,
-        processorFeatures = Prelude.Nothing,
-        publiclyAccessible = Prelude.Nothing,
-        replicaMode = Prelude.Nothing,
-        storageThroughput = Prelude.Nothing,
-        storageType = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        useDefaultProcessorFeatures = Prelude.Nothing,
-        vpcSecurityGroupIds = Prelude.Nothing,
-        dbInstanceIdentifier = pDBInstanceIdentifier_,
-        sourceDBInstanceIdentifier =
-          pSourceDBInstanceIdentifier_
-      }
+newCreateDBInstanceReadReplica pDBInstanceIdentifier_ =
+  CreateDBInstanceReadReplica'
+    { allocatedStorage =
+        Prelude.Nothing,
+      autoMinorVersionUpgrade = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      copyTagsToSnapshot = Prelude.Nothing,
+      customIamInstanceProfile = Prelude.Nothing,
+      dbInstanceClass = Prelude.Nothing,
+      dbParameterGroupName = Prelude.Nothing,
+      dbSubnetGroupName = Prelude.Nothing,
+      deletionProtection = Prelude.Nothing,
+      destinationRegion = Prelude.Nothing,
+      domain = Prelude.Nothing,
+      domainIAMRoleName = Prelude.Nothing,
+      enableCloudwatchLogsExports = Prelude.Nothing,
+      enableCustomerOwnedIp = Prelude.Nothing,
+      enableIAMDatabaseAuthentication =
+        Prelude.Nothing,
+      enablePerformanceInsights = Prelude.Nothing,
+      iops = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      maxAllocatedStorage = Prelude.Nothing,
+      monitoringInterval = Prelude.Nothing,
+      monitoringRoleArn = Prelude.Nothing,
+      multiAZ = Prelude.Nothing,
+      networkType = Prelude.Nothing,
+      optionGroupName = Prelude.Nothing,
+      performanceInsightsKMSKeyId = Prelude.Nothing,
+      performanceInsightsRetentionPeriod =
+        Prelude.Nothing,
+      port = Prelude.Nothing,
+      preSignedUrl = Prelude.Nothing,
+      processorFeatures = Prelude.Nothing,
+      publiclyAccessible = Prelude.Nothing,
+      replicaMode = Prelude.Nothing,
+      sourceDBClusterIdentifier = Prelude.Nothing,
+      sourceDBInstanceIdentifier = Prelude.Nothing,
+      storageThroughput = Prelude.Nothing,
+      storageType = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      useDefaultProcessorFeatures = Prelude.Nothing,
+      vpcSecurityGroupIds = Prelude.Nothing,
+      dbInstanceIdentifier = pDBInstanceIdentifier_
+    }
+
+-- | The amount of storage (in gibibytes) to allocate initially for the read
+-- replica. Follow the allocation rules specified in @CreateDBInstance@.
+--
+-- Be sure to allocate enough storage for your read replica so that the
+-- create operation can succeed. You can also allocate additional storage
+-- for future growth.
+createDBInstanceReadReplica_allocatedStorage :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Int)
+createDBInstanceReadReplica_allocatedStorage = Lens.lens (\CreateDBInstanceReadReplica' {allocatedStorage} -> allocatedStorage) (\s@CreateDBInstanceReadReplica' {} a -> s {allocatedStorage = a} :: CreateDBInstanceReadReplica)
 
 -- | A value that indicates whether minor engine upgrades are applied
 -- automatically to the read replica during the maintenance window.
@@ -1177,9 +1232,6 @@ createDBInstanceReadReplica_dbParameterGroupName = Lens.lens (\CreateDBInstanceR
 --
 -- Constraints:
 --
--- -   Can only be specified if the source DB instance identifier specifies
---     a DB instance in another Amazon Web Services Region.
---
 -- -   If supplied, must match the name of an existing DBSubnetGroup.
 --
 -- -   The specified DB subnet group must be in the same Amazon Web
@@ -1226,7 +1278,7 @@ createDBInstanceReadReplica_destinationRegion = Lens.lens (\CreateDBInstanceRead
 createDBInstanceReadReplica_domain :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
 createDBInstanceReadReplica_domain = Lens.lens (\CreateDBInstanceReadReplica' {domain} -> domain) (\s@CreateDBInstanceReadReplica' {} a -> s {domain = a} :: CreateDBInstanceReadReplica)
 
--- | Specify the name of the IAM role to be used when making API calls to the
+-- | The name of the IAM role to be used when making API calls to the
 -- Directory Service.
 --
 -- This setting doesn\'t apply to RDS Custom.
@@ -1296,9 +1348,10 @@ createDBInstanceReadReplica_iops = Lens.lens (\CreateDBInstanceReadReplica' {iop
 -- ARN, or alias name for the KMS key.
 --
 -- If you create an encrypted read replica in the same Amazon Web Services
--- Region as the source DB instance, then do not specify a value for this
--- parameter. A read replica in the same Amazon Web Services Region is
--- always encrypted with the same KMS key as the source DB instance.
+-- Region as the source DB instance or Multi-AZ DB cluster, don\'t specify
+-- a value for this parameter. A read replica in the same Amazon Web
+-- Services Region is always encrypted with the same KMS key as the source
+-- DB instance or cluster.
 --
 -- If you create an encrypted read replica in a different Amazon Web
 -- Services Region, then you must specify a KMS key identifier for the
@@ -1308,7 +1361,7 @@ createDBInstanceReadReplica_iops = Lens.lens (\CreateDBInstanceReadReplica' {iop
 -- Services Region.
 --
 -- You can\'t create an encrypted read replica from an unencrypted DB
--- instance.
+-- instance or Multi-AZ DB cluster.
 --
 -- This setting doesn\'t apply to RDS Custom, which uses the same KMS key
 -- as the primary replica.
@@ -1358,8 +1411,8 @@ createDBInstanceReadReplica_monitoringRoleArn = Lens.lens (\CreateDBInstanceRead
 -- You can create a read replica as a Multi-AZ DB instance. RDS creates a
 -- standby of your replica in another Availability Zone for failover
 -- support for the replica. Creating your read replica as a Multi-AZ DB
--- instance is independent of whether the source database is a Multi-AZ DB
--- instance.
+-- instance is independent of whether the source is a Multi-AZ DB instance
+-- or a Multi-AZ DB cluster.
 --
 -- This setting doesn\'t apply to RDS Custom.
 createDBInstanceReadReplica_multiAZ :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
@@ -1384,10 +1437,10 @@ createDBInstanceReadReplica_networkType :: Lens.Lens' CreateDBInstanceReadReplic
 createDBInstanceReadReplica_networkType = Lens.lens (\CreateDBInstanceReadReplica' {networkType} -> networkType) (\s@CreateDBInstanceReadReplica' {} a -> s {networkType = a} :: CreateDBInstanceReadReplica)
 
 -- | The option group the DB instance is associated with. If omitted, the
--- option group associated with the source instance is used.
+-- option group associated with the source instance or cluster is used.
 --
--- For SQL Server, you must use the option group associated with the source
--- instance.
+-- For SQL Server, you must use the option group associated with the
+-- source.
 --
 -- This setting doesn\'t apply to RDS Custom.
 createDBInstanceReadReplica_optionGroupName :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
@@ -1451,6 +1504,10 @@ createDBInstanceReadReplica_port = Lens.lens (\CreateDBInstanceReadReplica' {por
 -- This setting applies only to Amazon Web Services GovCloud (US) Regions
 -- and China Amazon Web Services Regions. It\'s ignored in other Amazon Web
 -- Services Regions.
+--
+-- This setting applies only when replicating from a source DB /instance/.
+-- Source DB clusters aren\'t supported in Amazon Web Services GovCloud
+-- (US) Regions and China Amazon Web Services Regions.
 --
 -- You must specify this parameter when you create an encrypted read
 -- replica from another Amazon Web Services Region by using the Amazon RDS
@@ -1556,6 +1613,59 @@ createDBInstanceReadReplica_publiclyAccessible = Lens.lens (\CreateDBInstanceRea
 createDBInstanceReadReplica_replicaMode :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe ReplicaMode)
 createDBInstanceReadReplica_replicaMode = Lens.lens (\CreateDBInstanceReadReplica' {replicaMode} -> replicaMode) (\s@CreateDBInstanceReadReplica' {} a -> s {replicaMode = a} :: CreateDBInstanceReadReplica)
 
+-- | The identifier of the Multi-AZ DB cluster that will act as the source
+-- for the read replica. Each DB cluster can have up to 15 read replicas.
+--
+-- Constraints:
+--
+-- -   Must be the identifier of an existing Multi-AZ DB cluster.
+--
+-- -   Can\'t be specified if the @SourceDBInstanceIdentifier@ parameter is
+--     also specified.
+--
+-- -   The specified DB cluster must have automatic backups enabled, that
+--     is, its backup retention period must be greater than 0.
+--
+-- -   The source DB cluster must be in the same Amazon Web Services Region
+--     as the read replica. Cross-Region replication isn\'t supported.
+createDBInstanceReadReplica_sourceDBClusterIdentifier :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_sourceDBClusterIdentifier = Lens.lens (\CreateDBInstanceReadReplica' {sourceDBClusterIdentifier} -> sourceDBClusterIdentifier) (\s@CreateDBInstanceReadReplica' {} a -> s {sourceDBClusterIdentifier = a} :: CreateDBInstanceReadReplica)
+
+-- | The identifier of the DB instance that will act as the source for the
+-- read replica. Each DB instance can have up to 15 read replicas, with the
+-- exception of Oracle and SQL Server, which can have up to five.
+--
+-- Constraints:
+--
+-- -   Must be the identifier of an existing MySQL, MariaDB, Oracle,
+--     PostgreSQL, or SQL Server DB instance.
+--
+-- -   Can\'t be specified if the @SourceDBClusterIdentifier@ parameter is
+--     also specified.
+--
+-- -   For the limitations of Oracle read replicas, see
+--     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.limitations.html#oracle-read-replicas.limitations.versions-and-licenses Version and licensing considerations for RDS for Oracle replicas>
+--     in the /Amazon RDS User Guide/.
+--
+-- -   For the limitations of SQL Server read replicas, see
+--     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.ReadReplicas.html#SQLServer.ReadReplicas.Limitations Read replica limitations with SQL Server>
+--     in the /Amazon RDS User Guide/.
+--
+-- -   The specified DB instance must have automatic backups enabled, that
+--     is, its backup retention period must be greater than 0.
+--
+-- -   If the source DB instance is in the same Amazon Web Services Region
+--     as the read replica, specify a valid DB instance identifier.
+--
+-- -   If the source DB instance is in a different Amazon Web Services
+--     Region from the read replica, specify a valid DB instance ARN. For
+--     more information, see
+--     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS>
+--     in the /Amazon RDS User Guide/. This doesn\'t apply to SQL Server or
+--     RDS Custom, which don\'t support cross-Region replicas.
+createDBInstanceReadReplica_sourceDBInstanceIdentifier :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_sourceDBInstanceIdentifier = Lens.lens (\CreateDBInstanceReadReplica' {sourceDBInstanceIdentifier} -> sourceDBInstanceIdentifier) (\s@CreateDBInstanceReadReplica' {} a -> s {sourceDBInstanceIdentifier = a} :: CreateDBInstanceReadReplica)
+
 -- | Specifies the storage throughput value for the read replica.
 --
 -- This setting doesn\'t apply to RDS Custom or Amazon Aurora.
@@ -1600,44 +1710,6 @@ createDBInstanceReadReplica_vpcSecurityGroupIds = Lens.lens (\CreateDBInstanceRe
 createDBInstanceReadReplica_dbInstanceIdentifier :: Lens.Lens' CreateDBInstanceReadReplica Prelude.Text
 createDBInstanceReadReplica_dbInstanceIdentifier = Lens.lens (\CreateDBInstanceReadReplica' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@CreateDBInstanceReadReplica' {} a -> s {dbInstanceIdentifier = a} :: CreateDBInstanceReadReplica)
 
--- | The identifier of the DB instance that will act as the source for the
--- read replica. Each DB instance can have up to five read replicas.
---
--- Constraints:
---
--- -   Must be the identifier of an existing MySQL, MariaDB, Oracle,
---     PostgreSQL, or SQL Server DB instance.
---
--- -   Can specify a DB instance that is a MySQL read replica only if the
---     source is running MySQL 5.6 or later.
---
--- -   For the limitations of Oracle read replicas, see
---     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html Read Replica Limitations with Oracle>
---     in the /Amazon RDS User Guide/.
---
--- -   For the limitations of SQL Server read replicas, see
---     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.ReadReplicas.Limitations.html Read Replica Limitations with Microsoft SQL Server>
---     in the /Amazon RDS User Guide/.
---
--- -   Can specify a PostgreSQL DB instance only if the source is running
---     PostgreSQL 9.3.5 or later (9.4.7 and higher for cross-Region
---     replication).
---
--- -   The specified DB instance must have automatic backups enabled, that
---     is, its backup retention period must be greater than 0.
---
--- -   If the source DB instance is in the same Amazon Web Services Region
---     as the read replica, specify a valid DB instance identifier.
---
--- -   If the source DB instance is in a different Amazon Web Services
---     Region from the read replica, specify a valid DB instance ARN. For
---     more information, see
---     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS>
---     in the /Amazon RDS User Guide/. This doesn\'t apply to SQL Server or
---     RDS Custom, which don\'t support cross-Region replicas.
-createDBInstanceReadReplica_sourceDBInstanceIdentifier :: Lens.Lens' CreateDBInstanceReadReplica Prelude.Text
-createDBInstanceReadReplica_sourceDBInstanceIdentifier = Lens.lens (\CreateDBInstanceReadReplica' {sourceDBInstanceIdentifier} -> sourceDBInstanceIdentifier) (\s@CreateDBInstanceReadReplica' {} a -> s {sourceDBInstanceIdentifier = a} :: CreateDBInstanceReadReplica)
-
 instance Core.AWSRequest CreateDBInstanceReadReplica where
   type
     AWSResponse CreateDBInstanceReadReplica =
@@ -1656,6 +1728,7 @@ instance Core.AWSRequest CreateDBInstanceReadReplica where
 instance Prelude.Hashable CreateDBInstanceReadReplica where
   hashWithSalt _salt CreateDBInstanceReadReplica' {..} =
     _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` copyTagsToSnapshot
@@ -1686,17 +1759,19 @@ instance Prelude.Hashable CreateDBInstanceReadReplica where
       `Prelude.hashWithSalt` processorFeatures
       `Prelude.hashWithSalt` publiclyAccessible
       `Prelude.hashWithSalt` replicaMode
+      `Prelude.hashWithSalt` sourceDBClusterIdentifier
+      `Prelude.hashWithSalt` sourceDBInstanceIdentifier
       `Prelude.hashWithSalt` storageThroughput
       `Prelude.hashWithSalt` storageType
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` useDefaultProcessorFeatures
       `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` dbInstanceIdentifier
-      `Prelude.hashWithSalt` sourceDBInstanceIdentifier
 
 instance Prelude.NFData CreateDBInstanceReadReplica where
   rnf CreateDBInstanceReadReplica' {..} =
-    Prelude.rnf autoMinorVersionUpgrade
+    Prelude.rnf allocatedStorage
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf copyTagsToSnapshot
       `Prelude.seq` Prelude.rnf customIamInstanceProfile
@@ -1716,7 +1791,8 @@ instance Prelude.NFData CreateDBInstanceReadReplica where
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf maxAllocatedStorage
       `Prelude.seq` Prelude.rnf monitoringInterval
-      `Prelude.seq` Prelude.rnf monitoringRoleArn
+      `Prelude.seq` Prelude.rnf
+        monitoringRoleArn
       `Prelude.seq` Prelude.rnf multiAZ
       `Prelude.seq` Prelude.rnf networkType
       `Prelude.seq` Prelude.rnf
@@ -1735,6 +1811,10 @@ instance Prelude.NFData CreateDBInstanceReadReplica where
       `Prelude.seq` Prelude.rnf
         replicaMode
       `Prelude.seq` Prelude.rnf
+        sourceDBClusterIdentifier
+      `Prelude.seq` Prelude.rnf
+        sourceDBInstanceIdentifier
+      `Prelude.seq` Prelude.rnf
         storageThroughput
       `Prelude.seq` Prelude.rnf
         storageType
@@ -1746,8 +1826,6 @@ instance Prelude.NFData CreateDBInstanceReadReplica where
         vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf
         dbInstanceIdentifier
-      `Prelude.seq` Prelude.rnf
-        sourceDBInstanceIdentifier
 
 instance Data.ToHeaders CreateDBInstanceReadReplica where
   toHeaders = Prelude.const Prelude.mempty
@@ -1764,6 +1842,7 @@ instance Data.ToQuery CreateDBInstanceReadReplica where
                   ),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "AllocatedStorage" Data.=: allocatedStorage,
         "AutoMinorVersionUpgrade"
           Data.=: autoMinorVersionUpgrade,
         "AvailabilityZone" Data.=: availabilityZone,
@@ -1809,6 +1888,10 @@ instance Data.ToQuery CreateDBInstanceReadReplica where
             ),
         "PubliclyAccessible" Data.=: publiclyAccessible,
         "ReplicaMode" Data.=: replicaMode,
+        "SourceDBClusterIdentifier"
+          Data.=: sourceDBClusterIdentifier,
+        "SourceDBInstanceIdentifier"
+          Data.=: sourceDBInstanceIdentifier,
         "StorageThroughput" Data.=: storageThroughput,
         "StorageType" Data.=: storageType,
         "Tags"
@@ -1821,9 +1904,7 @@ instance Data.ToQuery CreateDBInstanceReadReplica where
             ( Data.toQueryList "VpcSecurityGroupId"
                 Prelude.<$> vpcSecurityGroupIds
             ),
-        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier,
-        "SourceDBInstanceIdentifier"
-          Data.=: sourceDBInstanceIdentifier
+        "DBInstanceIdentifier" Data.=: dbInstanceIdentifier
       ]
 
 -- | /See:/ 'newCreateDBInstanceReadReplicaResponse' smart constructor.

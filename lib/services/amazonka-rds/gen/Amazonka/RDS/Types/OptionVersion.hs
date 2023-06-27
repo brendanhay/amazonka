@@ -74,7 +74,8 @@ instance Data.FromXML OptionVersion where
 
 instance Prelude.Hashable OptionVersion where
   hashWithSalt _salt OptionVersion' {..} =
-    _salt `Prelude.hashWithSalt` isDefault
+    _salt
+      `Prelude.hashWithSalt` isDefault
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData OptionVersion where

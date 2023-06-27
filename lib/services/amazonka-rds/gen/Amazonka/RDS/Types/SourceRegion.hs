@@ -97,7 +97,8 @@ instance Data.FromXML SourceRegion where
 
 instance Prelude.Hashable SourceRegion where
   hashWithSalt _salt SourceRegion' {..} =
-    _salt `Prelude.hashWithSalt` endpoint
+    _salt
+      `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` regionName
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` supportsDBInstanceAutomatedBackupsReplication

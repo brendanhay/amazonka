@@ -40,17 +40,20 @@ data SwitchoverDetail = SwitchoverDetail'
     --
     -- Values:
     --
-    -- -   @preparing-for-switchover@ - The resource is being prepared to
-    --     switch over.
+    -- -   @PROVISIONING@ - The resource is being prepared to switch over.
     --
-    -- -   @ready-for-switchover@ - The resource is ready to switch over.
+    -- -   @AVAILABLE@ - The resource is ready to switch over.
     --
-    -- -   @switchover-in-progress@ - The resource is being switched over.
+    -- -   @SWITCHOVER_IN_PROGRESS@ - The resource is being switched over.
     --
-    -- -   @switchover-completed@ - The resource has been switched over.
+    -- -   @SWITCHOVER_COMPLETED@ - The resource has been switched over.
     --
-    -- -   @switchover-failed@ - The resource attempted to switch over but
+    -- -   @SWITCHOVER_FAILED@ - The resource attempted to switch over but
     --     failed.
+    --
+    -- -   @MISSING_SOURCE@ - The source resource has been deleted.
+    --
+    -- -   @MISSING_TARGET@ - The target resource has been deleted.
     status :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of a resource in the green environment.
     targetMember :: Prelude.Maybe Prelude.Text
@@ -71,17 +74,20 @@ data SwitchoverDetail = SwitchoverDetail'
 --
 -- Values:
 --
--- -   @preparing-for-switchover@ - The resource is being prepared to
---     switch over.
+-- -   @PROVISIONING@ - The resource is being prepared to switch over.
 --
--- -   @ready-for-switchover@ - The resource is ready to switch over.
+-- -   @AVAILABLE@ - The resource is ready to switch over.
 --
--- -   @switchover-in-progress@ - The resource is being switched over.
+-- -   @SWITCHOVER_IN_PROGRESS@ - The resource is being switched over.
 --
--- -   @switchover-completed@ - The resource has been switched over.
+-- -   @SWITCHOVER_COMPLETED@ - The resource has been switched over.
 --
--- -   @switchover-failed@ - The resource attempted to switch over but
+-- -   @SWITCHOVER_FAILED@ - The resource attempted to switch over but
 --     failed.
+--
+-- -   @MISSING_SOURCE@ - The source resource has been deleted.
+--
+-- -   @MISSING_TARGET@ - The target resource has been deleted.
 --
 -- 'targetMember', 'switchoverDetail_targetMember' - The Amazon Resource Name (ARN) of a resource in the green environment.
 newSwitchoverDetail ::
@@ -101,17 +107,20 @@ switchoverDetail_sourceMember = Lens.lens (\SwitchoverDetail' {sourceMember} -> 
 --
 -- Values:
 --
--- -   @preparing-for-switchover@ - The resource is being prepared to
---     switch over.
+-- -   @PROVISIONING@ - The resource is being prepared to switch over.
 --
--- -   @ready-for-switchover@ - The resource is ready to switch over.
+-- -   @AVAILABLE@ - The resource is ready to switch over.
 --
--- -   @switchover-in-progress@ - The resource is being switched over.
+-- -   @SWITCHOVER_IN_PROGRESS@ - The resource is being switched over.
 --
--- -   @switchover-completed@ - The resource has been switched over.
+-- -   @SWITCHOVER_COMPLETED@ - The resource has been switched over.
 --
--- -   @switchover-failed@ - The resource attempted to switch over but
+-- -   @SWITCHOVER_FAILED@ - The resource attempted to switch over but
 --     failed.
+--
+-- -   @MISSING_SOURCE@ - The source resource has been deleted.
+--
+-- -   @MISSING_TARGET@ - The target resource has been deleted.
 switchoverDetail_status :: Lens.Lens' SwitchoverDetail (Prelude.Maybe Prelude.Text)
 switchoverDetail_status = Lens.lens (\SwitchoverDetail' {status} -> status) (\s@SwitchoverDetail' {} a -> s {status = a} :: SwitchoverDetail)
 
@@ -128,7 +137,8 @@ instance Data.FromXML SwitchoverDetail where
 
 instance Prelude.Hashable SwitchoverDetail where
   hashWithSalt _salt SwitchoverDetail' {..} =
-    _salt `Prelude.hashWithSalt` sourceMember
+    _salt
+      `Prelude.hashWithSalt` sourceMember
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` targetMember
 

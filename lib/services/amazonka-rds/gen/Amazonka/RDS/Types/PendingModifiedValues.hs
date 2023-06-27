@@ -57,6 +57,8 @@ data PendingModifiedValues = PendingModifiedValues'
     dbInstanceIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The DB subnet group for the DB instance.
     dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The database engine of the DB instance.
+    engine :: Prelude.Maybe Prelude.Text,
     -- | The database engine version.
     engineVersion :: Prelude.Maybe Prelude.Text,
     -- | Whether mapping of Amazon Web Services Identity and Access Management
@@ -123,6 +125,8 @@ data PendingModifiedValues = PendingModifiedValues'
 --
 -- 'dbSubnetGroupName', 'pendingModifiedValues_dbSubnetGroupName' - The DB subnet group for the DB instance.
 --
+-- 'engine', 'pendingModifiedValues_engine' - The database engine of the DB instance.
+--
 -- 'engineVersion', 'pendingModifiedValues_engineVersion' - The database engine version.
 --
 -- 'iAMDatabaseAuthenticationEnabled', 'pendingModifiedValues_iAMDatabaseAuthenticationEnabled' - Whether mapping of Amazon Web Services Identity and Access Management
@@ -166,6 +170,7 @@ newPendingModifiedValues =
       dbInstanceClass = Prelude.Nothing,
       dbInstanceIdentifier = Prelude.Nothing,
       dbSubnetGroupName = Prelude.Nothing,
+      engine = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
       iAMDatabaseAuthenticationEnabled = Prelude.Nothing,
       iops = Prelude.Nothing,
@@ -217,6 +222,10 @@ pendingModifiedValues_dbInstanceIdentifier = Lens.lens (\PendingModifiedValues' 
 -- | The DB subnet group for the DB instance.
 pendingModifiedValues_dbSubnetGroupName :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
 pendingModifiedValues_dbSubnetGroupName = Lens.lens (\PendingModifiedValues' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@PendingModifiedValues' {} a -> s {dbSubnetGroupName = a} :: PendingModifiedValues)
+
+-- | The database engine of the DB instance.
+pendingModifiedValues_engine :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
+pendingModifiedValues_engine = Lens.lens (\PendingModifiedValues' {engine} -> engine) (\s@PendingModifiedValues' {} a -> s {engine = a} :: PendingModifiedValues)
 
 -- | The database engine version.
 pendingModifiedValues_engineVersion :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
@@ -284,6 +293,7 @@ instance Data.FromXML PendingModifiedValues where
       Prelude.<*> (x Data..@? "DBInstanceClass")
       Prelude.<*> (x Data..@? "DBInstanceIdentifier")
       Prelude.<*> (x Data..@? "DBSubnetGroupName")
+      Prelude.<*> (x Data..@? "Engine")
       Prelude.<*> (x Data..@? "EngineVersion")
       Prelude.<*> (x Data..@? "IAMDatabaseAuthenticationEnabled")
       Prelude.<*> (x Data..@? "Iops")
@@ -292,7 +302,8 @@ instance Data.FromXML PendingModifiedValues where
       Prelude.<*> (x Data..@? "MultiAZ")
       Prelude.<*> (x Data..@? "PendingCloudwatchLogsExports")
       Prelude.<*> (x Data..@? "Port")
-      Prelude.<*> ( x Data..@? "ProcessorFeatures"
+      Prelude.<*> ( x
+                      Data..@? "ProcessorFeatures"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ProcessorFeature")
                   )
@@ -302,13 +313,15 @@ instance Data.FromXML PendingModifiedValues where
 
 instance Prelude.Hashable PendingModifiedValues where
   hashWithSalt _salt PendingModifiedValues' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` automationMode
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` cACertificateIdentifier
       `Prelude.hashWithSalt` dbInstanceClass
       `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` iAMDatabaseAuthenticationEnabled
       `Prelude.hashWithSalt` iops
@@ -331,6 +344,7 @@ instance Prelude.NFData PendingModifiedValues where
       `Prelude.seq` Prelude.rnf dbInstanceClass
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
       `Prelude.seq` Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf engine
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf iAMDatabaseAuthenticationEnabled
       `Prelude.seq` Prelude.rnf iops

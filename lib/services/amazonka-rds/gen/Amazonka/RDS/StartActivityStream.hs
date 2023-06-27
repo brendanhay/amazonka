@@ -22,8 +22,10 @@
 --
 -- Starts a database activity stream to monitor activity on the database.
 -- For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html Database Activity Streams>
--- in the /Amazon Aurora User Guide/.
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html Monitoring Amazon Aurora with Database Activity Streams>
+-- in the /Amazon Aurora User Guide/ or
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.html Monitoring Amazon RDS with Database Activity Streams>
+-- in the /Amazon RDS User Guide/.
 module Amazonka.RDS.StartActivityStream
   ( -- * Creating a Request
     StartActivityStream (..),
@@ -65,8 +67,8 @@ data StartActivityStream = StartActivityStream'
     -- soon as possible, regardless of the maintenance window for the database.
     applyImmediately :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether the database activity stream includes engine-native
-    -- audit fields. This option only applies to an Oracle DB instance. By
-    -- default, no engine-native audit fields are included.
+    -- audit fields. This option applies to an Oracle or Microsoft SQL Server
+    -- DB instance. By default, no engine-native audit fields are included.
     engineNativeAuditFieldsIncluded :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the DB cluster, for example,
     -- @arn:aws:rds:us-east-1:12345667890:cluster:das-cluster@.
@@ -94,8 +96,8 @@ data StartActivityStream = StartActivityStream'
 -- soon as possible, regardless of the maintenance window for the database.
 --
 -- 'engineNativeAuditFieldsIncluded', 'startActivityStream_engineNativeAuditFieldsIncluded' - Specifies whether the database activity stream includes engine-native
--- audit fields. This option only applies to an Oracle DB instance. By
--- default, no engine-native audit fields are included.
+-- audit fields. This option applies to an Oracle or Microsoft SQL Server
+-- DB instance. By default, no engine-native audit fields are included.
 --
 -- 'resourceArn', 'startActivityStream_resourceArn' - The Amazon Resource Name (ARN) of the DB cluster, for example,
 -- @arn:aws:rds:us-east-1:12345667890:cluster:das-cluster@.
@@ -134,8 +136,8 @@ startActivityStream_applyImmediately :: Lens.Lens' StartActivityStream (Prelude.
 startActivityStream_applyImmediately = Lens.lens (\StartActivityStream' {applyImmediately} -> applyImmediately) (\s@StartActivityStream' {} a -> s {applyImmediately = a} :: StartActivityStream)
 
 -- | Specifies whether the database activity stream includes engine-native
--- audit fields. This option only applies to an Oracle DB instance. By
--- default, no engine-native audit fields are included.
+-- audit fields. This option applies to an Oracle or Microsoft SQL Server
+-- DB instance. By default, no engine-native audit fields are included.
 startActivityStream_engineNativeAuditFieldsIncluded :: Lens.Lens' StartActivityStream (Prelude.Maybe Prelude.Bool)
 startActivityStream_engineNativeAuditFieldsIncluded = Lens.lens (\StartActivityStream' {engineNativeAuditFieldsIncluded} -> engineNativeAuditFieldsIncluded) (\s@StartActivityStream' {} a -> s {engineNativeAuditFieldsIncluded = a} :: StartActivityStream)
 
@@ -178,7 +180,8 @@ instance Core.AWSRequest StartActivityStream where
 
 instance Prelude.Hashable StartActivityStream where
   hashWithSalt _salt StartActivityStream' {..} =
-    _salt `Prelude.hashWithSalt` applyImmediately
+    _salt
+      `Prelude.hashWithSalt` applyImmediately
       `Prelude.hashWithSalt` engineNativeAuditFieldsIncluded
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` mode

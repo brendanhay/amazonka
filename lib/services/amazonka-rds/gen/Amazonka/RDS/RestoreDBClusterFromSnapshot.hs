@@ -38,7 +38,7 @@
 -- in the /Amazon Aurora User Guide/.
 --
 -- For more information on Multi-AZ DB clusters, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ DB cluster deployments>
 -- in the /Amazon RDS User Guide./
 module Amazonka.RDS.RestoreDBClusterFromSnapshot
   ( -- * Creating a Request
@@ -227,23 +227,20 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
     --
     -- Valid for: Aurora DB clusters only
     enableIAMDatabaseAuthentication :: Prelude.Maybe Prelude.Bool,
-    -- | The DB engine mode of the DB cluster, either @provisioned@,
-    -- @serverless@, @parallelquery@, @global@, or @multimaster@.
+    -- | The DB engine mode of the DB cluster, either @provisioned@ or
+    -- @serverless@.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html CreateDBCluster>.
     --
     -- Valid for: Aurora DB clusters only
     engineMode :: Prelude.Maybe Prelude.Text,
-    -- | The version of the database engine to use for the new DB cluster.
+    -- | The version of the database engine to use for the new DB cluster. If you
+    -- don\'t specify an engine version, the default version for the database
+    -- engine in the Amazon Web Services Region is used.
     --
-    -- To list all of the available engine versions for MySQL 5.6-compatible
-    -- Aurora, use the following command:
-    --
-    -- @aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"@
-    --
-    -- To list all of the available engine versions for MySQL 5.7-compatible
-    -- and MySQL 8.0-compatible Aurora, use the following command:
+    -- To list all of the available engine versions for Aurora MySQL, use the
+    -- following command:
     --
     -- @aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"@
     --
@@ -265,7 +262,7 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
     -- __Aurora MySQL__
     --
     -- See
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html MySQL on Amazon RDS Versions>
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html Database engine updates for Amazon Aurora MySQL>
     -- in the /Amazon Aurora User Guide/.
     --
     -- __Aurora PostgreSQL__
@@ -277,7 +274,7 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
     -- __MySQL__
     --
     -- See
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt MySQL on Amazon RDS Versions>
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt Amazon RDS for MySQL>
     -- in the /Amazon RDS User Guide./
     --
     -- __PostgreSQL__
@@ -392,14 +389,15 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
     -- Valid for: Aurora DB clusters only
     scalingConfiguration :: Prelude.Maybe ScalingConfiguration,
     serverlessV2ScalingConfiguration :: Prelude.Maybe ServerlessV2ScalingConfiguration,
-    -- | Specifies the storage type to be associated with the each DB instance in
-    -- the Multi-AZ DB cluster.
+    -- | Specifies the storage type to be associated with the DB cluster.
     --
-    -- Valid values: @io1@
+    -- When specified for a Multi-AZ DB cluster, a value for the @Iops@
+    -- parameter is required.
     --
-    -- When specified, a value for the @Iops@ parameter is required.
+    -- Valid values: @aurora@, @aurora-iopt1@ (Aurora DB clusters); @io1@
+    -- (Multi-AZ DB clusters)
     --
-    -- Default: @io1@
+    -- Default: @aurora@ (Aurora DB clusters); @io1@ (Multi-AZ DB clusters)
     --
     -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     storageType :: Prelude.Maybe Prelude.Text,
@@ -588,23 +586,20 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
 --
 -- Valid for: Aurora DB clusters only
 --
--- 'engineMode', 'restoreDBClusterFromSnapshot_engineMode' - The DB engine mode of the DB cluster, either @provisioned@,
--- @serverless@, @parallelquery@, @global@, or @multimaster@.
+-- 'engineMode', 'restoreDBClusterFromSnapshot_engineMode' - The DB engine mode of the DB cluster, either @provisioned@ or
+-- @serverless@.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html CreateDBCluster>.
 --
 -- Valid for: Aurora DB clusters only
 --
--- 'engineVersion', 'restoreDBClusterFromSnapshot_engineVersion' - The version of the database engine to use for the new DB cluster.
+-- 'engineVersion', 'restoreDBClusterFromSnapshot_engineVersion' - The version of the database engine to use for the new DB cluster. If you
+-- don\'t specify an engine version, the default version for the database
+-- engine in the Amazon Web Services Region is used.
 --
--- To list all of the available engine versions for MySQL 5.6-compatible
--- Aurora, use the following command:
---
--- @aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"@
---
--- To list all of the available engine versions for MySQL 5.7-compatible
--- and MySQL 8.0-compatible Aurora, use the following command:
+-- To list all of the available engine versions for Aurora MySQL, use the
+-- following command:
 --
 -- @aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"@
 --
@@ -626,7 +621,7 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
 -- __Aurora MySQL__
 --
 -- See
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html MySQL on Amazon RDS Versions>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html Database engine updates for Amazon Aurora MySQL>
 -- in the /Amazon Aurora User Guide/.
 --
 -- __Aurora PostgreSQL__
@@ -638,7 +633,7 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
 -- __MySQL__
 --
 -- See
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt MySQL on Amazon RDS Versions>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt Amazon RDS for MySQL>
 -- in the /Amazon RDS User Guide./
 --
 -- __PostgreSQL__
@@ -754,14 +749,15 @@ data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
 --
 -- 'serverlessV2ScalingConfiguration', 'restoreDBClusterFromSnapshot_serverlessV2ScalingConfiguration' - Undocumented member.
 --
--- 'storageType', 'restoreDBClusterFromSnapshot_storageType' - Specifies the storage type to be associated with the each DB instance in
--- the Multi-AZ DB cluster.
+-- 'storageType', 'restoreDBClusterFromSnapshot_storageType' - Specifies the storage type to be associated with the DB cluster.
 --
--- Valid values: @io1@
+-- When specified for a Multi-AZ DB cluster, a value for the @Iops@
+-- parameter is required.
 --
--- When specified, a value for the @Iops@ parameter is required.
+-- Valid values: @aurora@, @aurora-iopt1@ (Aurora DB clusters); @io1@
+-- (Multi-AZ DB clusters)
 --
--- Default: @io1@
+-- Default: @aurora@ (Aurora DB clusters); @io1@ (Multi-AZ DB clusters)
 --
 -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 --
@@ -1008,8 +1004,8 @@ restoreDBClusterFromSnapshot_enableCloudwatchLogsExports = Lens.lens (\RestoreDB
 restoreDBClusterFromSnapshot_enableIAMDatabaseAuthentication :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe Prelude.Bool)
 restoreDBClusterFromSnapshot_enableIAMDatabaseAuthentication = Lens.lens (\RestoreDBClusterFromSnapshot' {enableIAMDatabaseAuthentication} -> enableIAMDatabaseAuthentication) (\s@RestoreDBClusterFromSnapshot' {} a -> s {enableIAMDatabaseAuthentication = a} :: RestoreDBClusterFromSnapshot)
 
--- | The DB engine mode of the DB cluster, either @provisioned@,
--- @serverless@, @parallelquery@, @global@, or @multimaster@.
+-- | The DB engine mode of the DB cluster, either @provisioned@ or
+-- @serverless@.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html CreateDBCluster>.
@@ -1018,15 +1014,12 @@ restoreDBClusterFromSnapshot_enableIAMDatabaseAuthentication = Lens.lens (\Resto
 restoreDBClusterFromSnapshot_engineMode :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromSnapshot_engineMode = Lens.lens (\RestoreDBClusterFromSnapshot' {engineMode} -> engineMode) (\s@RestoreDBClusterFromSnapshot' {} a -> s {engineMode = a} :: RestoreDBClusterFromSnapshot)
 
--- | The version of the database engine to use for the new DB cluster.
+-- | The version of the database engine to use for the new DB cluster. If you
+-- don\'t specify an engine version, the default version for the database
+-- engine in the Amazon Web Services Region is used.
 --
--- To list all of the available engine versions for MySQL 5.6-compatible
--- Aurora, use the following command:
---
--- @aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"@
---
--- To list all of the available engine versions for MySQL 5.7-compatible
--- and MySQL 8.0-compatible Aurora, use the following command:
+-- To list all of the available engine versions for Aurora MySQL, use the
+-- following command:
 --
 -- @aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"@
 --
@@ -1048,7 +1041,7 @@ restoreDBClusterFromSnapshot_engineMode = Lens.lens (\RestoreDBClusterFromSnapsh
 -- __Aurora MySQL__
 --
 -- See
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html MySQL on Amazon RDS Versions>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html Database engine updates for Amazon Aurora MySQL>
 -- in the /Amazon Aurora User Guide/.
 --
 -- __Aurora PostgreSQL__
@@ -1060,7 +1053,7 @@ restoreDBClusterFromSnapshot_engineMode = Lens.lens (\RestoreDBClusterFromSnapsh
 -- __MySQL__
 --
 -- See
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt MySQL on Amazon RDS Versions>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt Amazon RDS for MySQL>
 -- in the /Amazon RDS User Guide./
 --
 -- __PostgreSQL__
@@ -1194,14 +1187,15 @@ restoreDBClusterFromSnapshot_scalingConfiguration = Lens.lens (\RestoreDBCluster
 restoreDBClusterFromSnapshot_serverlessV2ScalingConfiguration :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe ServerlessV2ScalingConfiguration)
 restoreDBClusterFromSnapshot_serverlessV2ScalingConfiguration = Lens.lens (\RestoreDBClusterFromSnapshot' {serverlessV2ScalingConfiguration} -> serverlessV2ScalingConfiguration) (\s@RestoreDBClusterFromSnapshot' {} a -> s {serverlessV2ScalingConfiguration = a} :: RestoreDBClusterFromSnapshot)
 
--- | Specifies the storage type to be associated with the each DB instance in
--- the Multi-AZ DB cluster.
+-- | Specifies the storage type to be associated with the DB cluster.
 --
--- Valid values: @io1@
+-- When specified for a Multi-AZ DB cluster, a value for the @Iops@
+-- parameter is required.
 --
--- When specified, a value for the @Iops@ parameter is required.
+-- Valid values: @aurora@, @aurora-iopt1@ (Aurora DB clusters); @io1@
+-- (Multi-AZ DB clusters)
 --
--- Default: @io1@
+-- Default: @aurora@ (Aurora DB clusters); @io1@ (Multi-AZ DB clusters)
 --
 -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 restoreDBClusterFromSnapshot_storageType :: Lens.Lens' RestoreDBClusterFromSnapshot (Prelude.Maybe Prelude.Text)
@@ -1281,7 +1275,8 @@ instance
     RestoreDBClusterFromSnapshot
   where
   hashWithSalt _salt RestoreDBClusterFromSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` backtrackWindow
       `Prelude.hashWithSalt` copyTagsToSnapshot
       `Prelude.hashWithSalt` dbClusterInstanceClass

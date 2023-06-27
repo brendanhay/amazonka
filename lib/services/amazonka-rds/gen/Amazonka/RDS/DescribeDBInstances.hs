@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about provisioned RDS instances. This API supports
--- pagination.
+-- Describes provisioned RDS instances. This API supports pagination.
 --
 -- This operation can also return information for Amazon Neptune DB
 -- instances and Amazon DocumentDB instances.
@@ -68,11 +67,11 @@ data DescribeDBInstances = DescribeDBInstances'
     --
     -- Constraints:
     --
-    -- -   If supplied, must match the identifier of an existing DBInstance.
+    -- -   If supplied, must match the identifier of an existing DB instance.
     dbInstanceIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A filter that specifies one or more DB instances to describe.
     --
-    -- Supported filters:
+    -- Supported Filters:
     --
     -- -   @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster
     --     Amazon Resource Names (ARNs). The results list only includes
@@ -84,7 +83,7 @@ data DescribeDBInstances = DescribeDBInstances'
     --     information about the DB instances identified by these ARNs.
     --
     -- -   @dbi-resource-id@ - Accepts DB instance resource identifiers. The
-    --     results list will only include information about the DB instances
+    --     results list only includes information about the DB instances
     --     identified by these DB instance resource identifiers.
     --
     -- -   @domain@ - Accepts Active Directory directory IDs. The results list
@@ -126,11 +125,11 @@ data DescribeDBInstances = DescribeDBInstances'
 --
 -- Constraints:
 --
--- -   If supplied, must match the identifier of an existing DBInstance.
+-- -   If supplied, must match the identifier of an existing DB instance.
 --
 -- 'filters', 'describeDBInstances_filters' - A filter that specifies one or more DB instances to describe.
 --
--- Supported filters:
+-- Supported Filters:
 --
 -- -   @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster
 --     Amazon Resource Names (ARNs). The results list only includes
@@ -142,7 +141,7 @@ data DescribeDBInstances = DescribeDBInstances'
 --     information about the DB instances identified by these ARNs.
 --
 -- -   @dbi-resource-id@ - Accepts DB instance resource identifiers. The
---     results list will only include information about the DB instances
+--     results list only includes information about the DB instances
 --     identified by these DB instance resource identifiers.
 --
 -- -   @domain@ - Accepts Active Directory directory IDs. The results list
@@ -183,13 +182,13 @@ newDescribeDBInstances =
 --
 -- Constraints:
 --
--- -   If supplied, must match the identifier of an existing DBInstance.
+-- -   If supplied, must match the identifier of an existing DB instance.
 describeDBInstances_dbInstanceIdentifier :: Lens.Lens' DescribeDBInstances (Prelude.Maybe Prelude.Text)
 describeDBInstances_dbInstanceIdentifier = Lens.lens (\DescribeDBInstances' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@DescribeDBInstances' {} a -> s {dbInstanceIdentifier = a} :: DescribeDBInstances)
 
 -- | A filter that specifies one or more DB instances to describe.
 --
--- Supported filters:
+-- Supported Filters:
 --
 -- -   @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster
 --     Amazon Resource Names (ARNs). The results list only includes
@@ -201,7 +200,7 @@ describeDBInstances_dbInstanceIdentifier = Lens.lens (\DescribeDBInstances' {dbI
 --     information about the DB instances identified by these ARNs.
 --
 -- -   @dbi-resource-id@ - Accepts DB instance resource identifiers. The
---     results list will only include information about the DB instances
+--     results list only includes information about the DB instances
 --     identified by these DB instance resource identifiers.
 --
 -- -   @domain@ - Accepts Active Directory directory IDs. The results list
@@ -236,22 +235,22 @@ instance Core.AWSPager DescribeDBInstances where
     | Core.stop
         ( rs
             Lens.^? describeDBInstancesResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBInstancesResponse_dbInstances
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDBInstances_marker
           Lens..~ rs
           Lens.^? describeDBInstancesResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBInstances where
   type
@@ -264,7 +263,9 @@ instance Core.AWSRequest DescribeDBInstances where
       "DescribeDBInstancesResult"
       ( \s h x ->
           DescribeDBInstancesResponse'
-            Prelude.<$> ( x Data..@? "DBInstances" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "DBInstances"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "DBInstance")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -273,7 +274,8 @@ instance Core.AWSRequest DescribeDBInstances where
 
 instance Prelude.Hashable DescribeDBInstances where
   hashWithSalt _salt DescribeDBInstances' {..} =
-    _salt `Prelude.hashWithSalt` dbInstanceIdentifier
+    _salt
+      `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords

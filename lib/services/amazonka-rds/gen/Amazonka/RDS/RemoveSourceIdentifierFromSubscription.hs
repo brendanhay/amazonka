@@ -120,7 +120,7 @@ instance
       ( \s h x ->
           RemoveSourceIdentifierFromSubscriptionResponse'
             Prelude.<$> (x Data..@? "EventSubscription")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -130,7 +130,8 @@ instance
   hashWithSalt
     _salt
     RemoveSourceIdentifierFromSubscription' {..} =
-      _salt `Prelude.hashWithSalt` subscriptionName
+      _salt
+        `Prelude.hashWithSalt` subscriptionName
         `Prelude.hashWithSalt` sourceIdentifier
 
 instance

@@ -71,7 +71,8 @@ instance Data.FromXML CustomDBEngineVersionAMI where
 
 instance Prelude.Hashable CustomDBEngineVersionAMI where
   hashWithSalt _salt CustomDBEngineVersionAMI' {..} =
-    _salt `Prelude.hashWithSalt` imageId
+    _salt
+      `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData CustomDBEngineVersionAMI where

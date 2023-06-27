@@ -79,7 +79,8 @@ instance Data.FromXML CertificateDetails where
 
 instance Prelude.Hashable CertificateDetails where
   hashWithSalt _salt CertificateDetails' {..} =
-    _salt `Prelude.hashWithSalt` cAIdentifier
+    _salt
+      `Prelude.hashWithSalt` cAIdentifier
       `Prelude.hashWithSalt` validTill
 
 instance Prelude.NFData CertificateDetails where

@@ -421,22 +421,22 @@ instance Core.AWSPager DescribeDBSnapshots where
     | Core.stop
         ( rs
             Lens.^? describeDBSnapshotsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBSnapshotsResponse_dbSnapshots
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDBSnapshots_marker
           Lens..~ rs
           Lens.^? describeDBSnapshotsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBSnapshots where
   type
@@ -449,7 +449,9 @@ instance Core.AWSRequest DescribeDBSnapshots where
       "DescribeDBSnapshotsResult"
       ( \s h x ->
           DescribeDBSnapshotsResponse'
-            Prelude.<$> ( x Data..@? "DBSnapshots" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "DBSnapshots"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "DBSnapshot")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -458,7 +460,8 @@ instance Core.AWSRequest DescribeDBSnapshots where
 
 instance Prelude.Hashable DescribeDBSnapshots where
   hashWithSalt _salt DescribeDBSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` dbInstanceIdentifier
+    _salt
+      `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` dbSnapshotIdentifier
       `Prelude.hashWithSalt` dbiResourceId
       `Prelude.hashWithSalt` filters

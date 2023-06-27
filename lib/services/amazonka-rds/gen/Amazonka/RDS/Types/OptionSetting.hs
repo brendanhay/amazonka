@@ -147,7 +147,8 @@ instance Data.FromXML OptionSetting where
 
 instance Prelude.Hashable OptionSetting where
   hashWithSalt _salt OptionSetting' {..} =
-    _salt `Prelude.hashWithSalt` allowedValues
+    _salt
+      `Prelude.hashWithSalt` allowedValues
       `Prelude.hashWithSalt` applyType
       `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` defaultValue

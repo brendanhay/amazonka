@@ -71,7 +71,7 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
     --
     -- -   Must contain a valid universally unique identifier (UUID). For more
     --     information about UUIDs, see
-    --     <http://www.ietf.org/rfc/rfc4122.txt A Universally Unique Identifier (UUID) URN Namespace>.
+    --     <https://en.wikipedia.org/wiki/Universally_unique_identifier Universally unique identifier>.
     --
     -- Example: @123e4567-e89b-12d3-a456-426655440000@
     backtrackIdentifier :: Prelude.Maybe Prelude.Text,
@@ -141,7 +141,7 @@ data DescribeDBClusterBacktracks = DescribeDBClusterBacktracks'
 --
 -- -   Must contain a valid universally unique identifier (UUID). For more
 --     information about UUIDs, see
---     <http://www.ietf.org/rfc/rfc4122.txt A Universally Unique Identifier (UUID) URN Namespace>.
+--     <https://en.wikipedia.org/wiki/Universally_unique_identifier Universally unique identifier>.
 --
 -- Example: @123e4567-e89b-12d3-a456-426655440000@
 --
@@ -213,7 +213,7 @@ newDescribeDBClusterBacktracks pDBClusterIdentifier_ =
 --
 -- -   Must contain a valid universally unique identifier (UUID). For more
 --     information about UUIDs, see
---     <http://www.ietf.org/rfc/rfc4122.txt A Universally Unique Identifier (UUID) URN Namespace>.
+--     <https://en.wikipedia.org/wiki/Universally_unique_identifier Universally unique identifier>.
 --
 -- Example: @123e4567-e89b-12d3-a456-426655440000@
 describeDBClusterBacktracks_backtrackIdentifier :: Lens.Lens' DescribeDBClusterBacktracks (Prelude.Maybe Prelude.Text)
@@ -280,22 +280,22 @@ instance Core.AWSPager DescribeDBClusterBacktracks where
     | Core.stop
         ( rs
             Lens.^? describeDBClusterBacktracksResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBClusterBacktracksResponse_dbClusterBacktracks
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDBClusterBacktracks_marker
           Lens..~ rs
           Lens.^? describeDBClusterBacktracksResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBClusterBacktracks where
   type
@@ -308,7 +308,8 @@ instance Core.AWSRequest DescribeDBClusterBacktracks where
       "DescribeDBClusterBacktracksResult"
       ( \s h x ->
           DescribeDBClusterBacktracksResponse'
-            Prelude.<$> ( x Data..@? "DBClusterBacktracks"
+            Prelude.<$> ( x
+                            Data..@? "DBClusterBacktracks"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "DBClusterBacktrack")
                         )
@@ -318,7 +319,8 @@ instance Core.AWSRequest DescribeDBClusterBacktracks where
 
 instance Prelude.Hashable DescribeDBClusterBacktracks where
   hashWithSalt _salt DescribeDBClusterBacktracks' {..} =
-    _salt `Prelude.hashWithSalt` backtrackIdentifier
+    _salt
+      `Prelude.hashWithSalt` backtrackIdentifier
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords

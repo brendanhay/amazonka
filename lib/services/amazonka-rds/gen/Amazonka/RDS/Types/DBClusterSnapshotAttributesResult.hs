@@ -80,7 +80,8 @@ instance
   where
   parseXML x =
     DBClusterSnapshotAttributesResult'
-      Prelude.<$> ( x Data..@? "DBClusterSnapshotAttributes"
+      Prelude.<$> ( x
+                      Data..@? "DBClusterSnapshotAttributes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "DBClusterSnapshotAttribute")

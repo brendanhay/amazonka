@@ -101,7 +101,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteCustomDBEngineVersion' smart constructor.
 data DeleteCustomDBEngineVersion = DeleteCustomDBEngineVersion'
-  { -- | The database engine. The only supported engine is @custom-oracle-ee@.
+  { -- | The database engine. The only supported engines are @custom-oracle-ee@
+    -- and @custom-oracle-ee-cdb@.
     engine :: Prelude.Text,
     -- | The custom engine version (CEV) for your DB instance. This option is
     -- required for RDS Custom, but optional for Amazon RDS. The combination of
@@ -119,7 +120,8 @@ data DeleteCustomDBEngineVersion = DeleteCustomDBEngineVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'engine', 'deleteCustomDBEngineVersion_engine' - The database engine. The only supported engine is @custom-oracle-ee@.
+-- 'engine', 'deleteCustomDBEngineVersion_engine' - The database engine. The only supported engines are @custom-oracle-ee@
+-- and @custom-oracle-ee-cdb@.
 --
 -- 'engineVersion', 'deleteCustomDBEngineVersion_engineVersion' - The custom engine version (CEV) for your DB instance. This option is
 -- required for RDS Custom, but optional for Amazon RDS. The combination of
@@ -139,7 +141,8 @@ newDeleteCustomDBEngineVersion
         engineVersion = pEngineVersion_
       }
 
--- | The database engine. The only supported engine is @custom-oracle-ee@.
+-- | The database engine. The only supported engines are @custom-oracle-ee@
+-- and @custom-oracle-ee-cdb@.
 deleteCustomDBEngineVersion_engine :: Lens.Lens' DeleteCustomDBEngineVersion Prelude.Text
 deleteCustomDBEngineVersion_engine = Lens.lens (\DeleteCustomDBEngineVersion' {engine} -> engine) (\s@DeleteCustomDBEngineVersion' {} a -> s {engine = a} :: DeleteCustomDBEngineVersion)
 
@@ -163,7 +166,8 @@ instance Core.AWSRequest DeleteCustomDBEngineVersion where
 
 instance Prelude.Hashable DeleteCustomDBEngineVersion where
   hashWithSalt _salt DeleteCustomDBEngineVersion' {..} =
-    _salt `Prelude.hashWithSalt` engine
+    _salt
+      `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion
 
 instance Prelude.NFData DeleteCustomDBEngineVersion where

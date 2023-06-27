@@ -25,12 +25,16 @@
 -- are deleted and can\'t be recovered. Manual DB cluster snapshots of the
 -- specified DB cluster are not deleted.
 --
+-- If you\'re deleting a Multi-AZ DB cluster with read replicas, all
+-- cluster members are terminated and read replicas are promoted to
+-- standalone instances.
+--
 -- For more information on Amazon Aurora, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What is Amazon Aurora?>
 -- in the /Amazon Aurora User Guide/.
 --
 -- For more information on Multi-AZ DB clusters, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ DB cluster deployments>
 -- in the /Amazon RDS User Guide/.
 module Amazonka.RDS.DeleteDBCluster
   ( -- * Creating a Request

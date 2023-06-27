@@ -74,7 +74,8 @@ instance Data.FromXML IPRange where
 
 instance Prelude.Hashable IPRange where
   hashWithSalt _salt IPRange' {..} =
-    _salt `Prelude.hashWithSalt` cidrip
+    _salt
+      `Prelude.hashWithSalt` cidrip
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData IPRange where

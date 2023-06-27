@@ -72,6 +72,7 @@ module Amazonka.RDS.RestoreDBClusterFromS3
     restoreDBClusterFromS3_s3Prefix,
     restoreDBClusterFromS3_serverlessV2ScalingConfiguration,
     restoreDBClusterFromS3_storageEncrypted,
+    restoreDBClusterFromS3_storageType,
     restoreDBClusterFromS3_tags,
     restoreDBClusterFromS3_vpcSecurityGroupIds,
     restoreDBClusterFromS3_dbClusterIdentifier,
@@ -134,8 +135,8 @@ data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
     -- copy them.
     copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | The name of the DB cluster parameter group to associate with the
-    -- restored DB cluster. If this argument is omitted, @default.aurora5.6@ is
-    -- used.
+    -- restored DB cluster. If this argument is omitted, the default parameter
+    -- group for the engine version is used.
     --
     -- Constraints:
     --
@@ -174,10 +175,6 @@ data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
     --
     -- Possible values are @audit@, @error@, @general@, and @slowquery@.
     --
-    -- __Aurora PostgreSQL__
-    --
-    -- Possible value is @postgresql@.
-    --
     -- For more information about exporting CloudWatch Logs for Amazon Aurora,
     -- see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
@@ -193,21 +190,14 @@ data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
     enableIAMDatabaseAuthentication :: Prelude.Maybe Prelude.Bool,
     -- | The version number of the database engine to use.
     --
-    -- To list all of the available engine versions for @aurora@ (for MySQL
-    -- 5.6-compatible Aurora), use the following command:
-    --
-    -- @aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"@
-    --
-    -- To list all of the available engine versions for @aurora-mysql@ (for
-    -- MySQL 5.7-compatible and MySQL 8.0-compatible Aurora), use the following
-    -- command:
+    -- To list all of the available engine versions for @aurora-mysql@ (Aurora
+    -- MySQL), use the following command:
     --
     -- @aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"@
     --
     -- __Aurora MySQL__
     --
-    -- Example: @5.6.10a@, @5.6.mysql_aurora.1.19.2@,
-    -- @5.7.mysql_aurora.2.07.1@, @8.0.mysql_aurora.3.02.0@
+    -- Examples: @5.7.mysql_aurora.2.07.1@, @8.0.mysql_aurora.3.02.0@
     engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services KMS key identifier for an encrypted DB cluster.
     --
@@ -336,6 +326,14 @@ data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
     serverlessV2ScalingConfiguration :: Prelude.Maybe ServerlessV2ScalingConfiguration,
     -- | A value that indicates whether the restored DB cluster is encrypted.
     storageEncrypted :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the storage type to be associated with the DB cluster.
+    --
+    -- Valid values: @aurora@, @aurora-iopt1@
+    --
+    -- Default: @aurora@
+    --
+    -- Valid for: Aurora DB clusters only
+    storageType :: Prelude.Maybe Prelude.Text,
     tags :: Prelude.Maybe [Tag],
     -- | A list of EC2 VPC security groups to associate with the restored DB
     -- cluster.
@@ -355,9 +353,7 @@ data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
     dbClusterIdentifier :: Prelude.Text,
     -- | The name of the database engine to be used for this DB cluster.
     --
-    -- Valid Values: @aurora@ (for MySQL 5.6-compatible Aurora) and
-    -- @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
-    -- Aurora)
+    -- Valid Values: @aurora-mysql@ (for Aurora MySQL)
     engine :: Prelude.Text,
     -- | The name of the master user for the restored DB cluster.
     --
@@ -430,8 +426,8 @@ data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
 -- copy them.
 --
 -- 'dbClusterParameterGroupName', 'restoreDBClusterFromS3_dbClusterParameterGroupName' - The name of the DB cluster parameter group to associate with the
--- restored DB cluster. If this argument is omitted, @default.aurora5.6@ is
--- used.
+-- restored DB cluster. If this argument is omitted, the default parameter
+-- group for the engine version is used.
 --
 -- Constraints:
 --
@@ -470,10 +466,6 @@ data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
 --
 -- Possible values are @audit@, @error@, @general@, and @slowquery@.
 --
--- __Aurora PostgreSQL__
---
--- Possible value is @postgresql@.
---
 -- For more information about exporting CloudWatch Logs for Amazon Aurora,
 -- see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
@@ -489,21 +481,14 @@ data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
 --
 -- 'engineVersion', 'restoreDBClusterFromS3_engineVersion' - The version number of the database engine to use.
 --
--- To list all of the available engine versions for @aurora@ (for MySQL
--- 5.6-compatible Aurora), use the following command:
---
--- @aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"@
---
--- To list all of the available engine versions for @aurora-mysql@ (for
--- MySQL 5.7-compatible and MySQL 8.0-compatible Aurora), use the following
--- command:
+-- To list all of the available engine versions for @aurora-mysql@ (Aurora
+-- MySQL), use the following command:
 --
 -- @aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"@
 --
 -- __Aurora MySQL__
 --
--- Example: @5.6.10a@, @5.6.mysql_aurora.1.19.2@,
--- @5.7.mysql_aurora.2.07.1@, @8.0.mysql_aurora.3.02.0@
+-- Examples: @5.7.mysql_aurora.2.07.1@, @8.0.mysql_aurora.3.02.0@
 --
 -- 'kmsKeyId', 'restoreDBClusterFromS3_kmsKeyId' - The Amazon Web Services KMS key identifier for an encrypted DB cluster.
 --
@@ -633,6 +618,14 @@ data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
 --
 -- 'storageEncrypted', 'restoreDBClusterFromS3_storageEncrypted' - A value that indicates whether the restored DB cluster is encrypted.
 --
+-- 'storageType', 'restoreDBClusterFromS3_storageType' - Specifies the storage type to be associated with the DB cluster.
+--
+-- Valid values: @aurora@, @aurora-iopt1@
+--
+-- Default: @aurora@
+--
+-- Valid for: Aurora DB clusters only
+--
 -- 'tags', 'restoreDBClusterFromS3_tags' - Undocumented member.
 --
 -- 'vpcSecurityGroupIds', 'restoreDBClusterFromS3_vpcSecurityGroupIds' - A list of EC2 VPC security groups to associate with the restored DB
@@ -653,9 +646,7 @@ data RestoreDBClusterFromS3 = RestoreDBClusterFromS3'
 --
 -- 'engine', 'restoreDBClusterFromS3_engine' - The name of the database engine to be used for this DB cluster.
 --
--- Valid Values: @aurora@ (for MySQL 5.6-compatible Aurora) and
--- @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
--- Aurora)
+-- Valid Values: @aurora-mysql@ (for Aurora MySQL)
 --
 -- 'masterUsername', 'restoreDBClusterFromS3_masterUsername' - The name of the master user for the restored DB cluster.
 --
@@ -736,6 +727,7 @@ newRestoreDBClusterFromS3
         s3Prefix = Prelude.Nothing,
         serverlessV2ScalingConfiguration = Prelude.Nothing,
         storageEncrypted = Prelude.Nothing,
+        storageType = Prelude.Nothing,
         tags = Prelude.Nothing,
         vpcSecurityGroupIds = Prelude.Nothing,
         dbClusterIdentifier = pDBClusterIdentifier_,
@@ -789,8 +781,8 @@ restoreDBClusterFromS3_copyTagsToSnapshot :: Lens.Lens' RestoreDBClusterFromS3 (
 restoreDBClusterFromS3_copyTagsToSnapshot = Lens.lens (\RestoreDBClusterFromS3' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@RestoreDBClusterFromS3' {} a -> s {copyTagsToSnapshot = a} :: RestoreDBClusterFromS3)
 
 -- | The name of the DB cluster parameter group to associate with the
--- restored DB cluster. If this argument is omitted, @default.aurora5.6@ is
--- used.
+-- restored DB cluster. If this argument is omitted, the default parameter
+-- group for the engine version is used.
 --
 -- Constraints:
 --
@@ -841,10 +833,6 @@ restoreDBClusterFromS3_domainIAMRoleName = Lens.lens (\RestoreDBClusterFromS3' {
 --
 -- Possible values are @audit@, @error@, @general@, and @slowquery@.
 --
--- __Aurora PostgreSQL__
---
--- Possible value is @postgresql@.
---
 -- For more information about exporting CloudWatch Logs for Amazon Aurora,
 -- see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
@@ -864,21 +852,14 @@ restoreDBClusterFromS3_enableIAMDatabaseAuthentication = Lens.lens (\RestoreDBCl
 
 -- | The version number of the database engine to use.
 --
--- To list all of the available engine versions for @aurora@ (for MySQL
--- 5.6-compatible Aurora), use the following command:
---
--- @aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"@
---
--- To list all of the available engine versions for @aurora-mysql@ (for
--- MySQL 5.7-compatible and MySQL 8.0-compatible Aurora), use the following
--- command:
+-- To list all of the available engine versions for @aurora-mysql@ (Aurora
+-- MySQL), use the following command:
 --
 -- @aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"@
 --
 -- __Aurora MySQL__
 --
--- Example: @5.6.10a@, @5.6.mysql_aurora.1.19.2@,
--- @5.7.mysql_aurora.2.07.1@, @8.0.mysql_aurora.3.02.0@
+-- Examples: @5.7.mysql_aurora.2.07.1@, @8.0.mysql_aurora.3.02.0@
 restoreDBClusterFromS3_engineVersion :: Lens.Lens' RestoreDBClusterFromS3 (Prelude.Maybe Prelude.Text)
 restoreDBClusterFromS3_engineVersion = Lens.lens (\RestoreDBClusterFromS3' {engineVersion} -> engineVersion) (\s@RestoreDBClusterFromS3' {} a -> s {engineVersion = a} :: RestoreDBClusterFromS3)
 
@@ -1034,6 +1015,16 @@ restoreDBClusterFromS3_serverlessV2ScalingConfiguration = Lens.lens (\RestoreDBC
 restoreDBClusterFromS3_storageEncrypted :: Lens.Lens' RestoreDBClusterFromS3 (Prelude.Maybe Prelude.Bool)
 restoreDBClusterFromS3_storageEncrypted = Lens.lens (\RestoreDBClusterFromS3' {storageEncrypted} -> storageEncrypted) (\s@RestoreDBClusterFromS3' {} a -> s {storageEncrypted = a} :: RestoreDBClusterFromS3)
 
+-- | Specifies the storage type to be associated with the DB cluster.
+--
+-- Valid values: @aurora@, @aurora-iopt1@
+--
+-- Default: @aurora@
+--
+-- Valid for: Aurora DB clusters only
+restoreDBClusterFromS3_storageType :: Lens.Lens' RestoreDBClusterFromS3 (Prelude.Maybe Prelude.Text)
+restoreDBClusterFromS3_storageType = Lens.lens (\RestoreDBClusterFromS3' {storageType} -> storageType) (\s@RestoreDBClusterFromS3' {} a -> s {storageType = a} :: RestoreDBClusterFromS3)
+
 -- | Undocumented member.
 restoreDBClusterFromS3_tags :: Lens.Lens' RestoreDBClusterFromS3 (Prelude.Maybe [Tag])
 restoreDBClusterFromS3_tags = Lens.lens (\RestoreDBClusterFromS3' {tags} -> tags) (\s@RestoreDBClusterFromS3' {} a -> s {tags = a} :: RestoreDBClusterFromS3) Prelude.. Lens.mapping Lens.coerced
@@ -1060,9 +1051,7 @@ restoreDBClusterFromS3_dbClusterIdentifier = Lens.lens (\RestoreDBClusterFromS3'
 
 -- | The name of the database engine to be used for this DB cluster.
 --
--- Valid Values: @aurora@ (for MySQL 5.6-compatible Aurora) and
--- @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
--- Aurora)
+-- Valid Values: @aurora-mysql@ (for Aurora MySQL)
 restoreDBClusterFromS3_engine :: Lens.Lens' RestoreDBClusterFromS3 Prelude.Text
 restoreDBClusterFromS3_engine = Lens.lens (\RestoreDBClusterFromS3' {engine} -> engine) (\s@RestoreDBClusterFromS3' {} a -> s {engine = a} :: RestoreDBClusterFromS3)
 
@@ -1121,7 +1110,8 @@ instance Core.AWSRequest RestoreDBClusterFromS3 where
 
 instance Prelude.Hashable RestoreDBClusterFromS3 where
   hashWithSalt _salt RestoreDBClusterFromS3' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` backtrackWindow
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` characterSetName
@@ -1147,6 +1137,7 @@ instance Prelude.Hashable RestoreDBClusterFromS3 where
       `Prelude.hashWithSalt` s3Prefix
       `Prelude.hashWithSalt` serverlessV2ScalingConfiguration
       `Prelude.hashWithSalt` storageEncrypted
+      `Prelude.hashWithSalt` storageType
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` dbClusterIdentifier
@@ -1190,7 +1181,10 @@ instance Prelude.NFData RestoreDBClusterFromS3 where
         serverlessV2ScalingConfiguration
       `Prelude.seq` Prelude.rnf
         storageEncrypted
-      `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf
+        storageType
+      `Prelude.seq` Prelude.rnf
+        tags
       `Prelude.seq` Prelude.rnf
         vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf
@@ -1263,6 +1257,7 @@ instance Data.ToQuery RestoreDBClusterFromS3 where
         "ServerlessV2ScalingConfiguration"
           Data.=: serverlessV2ScalingConfiguration,
         "StorageEncrypted" Data.=: storageEncrypted,
+        "StorageType" Data.=: storageType,
         "Tags"
           Data.=: Data.toQuery
             (Data.toQueryList "Tag" Prelude.<$> tags),

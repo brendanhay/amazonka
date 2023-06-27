@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a snapshot export to Amazon S3. This API
--- operation supports pagination.
+-- Returns information about a snapshot or cluster export to Amazon S3.
+-- This API operation supports pagination.
 --
 -- This operation returns paginated results.
 module Amazonka.RDS.DescribeExportTasks
@@ -58,21 +58,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-  { -- | The identifier of the snapshot export task to be described.
+  { -- | The identifier of the snapshot or cluster export task to be described.
     exportTaskIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | Filters specify one or more snapshot exports to describe. The filters
-    -- are specified as name-value pairs that define what to include in the
-    -- output. Filter names and values are case-sensitive.
+    -- | Filters specify one or more snapshot or cluster exports to describe. The
+    -- filters are specified as name-value pairs that define what to include in
+    -- the output. Filter names and values are case-sensitive.
     --
     -- Supported filters include the following:
     --
-    -- -   @export-task-identifier@ - An identifier for the snapshot export
-    --     task.
+    -- -   @export-task-identifier@ - An identifier for the snapshot or cluster
+    --     export task.
     --
-    -- -   @s3-bucket@ - The Amazon S3 bucket the snapshot is exported to.
+    -- -   @s3-bucket@ - The Amazon S3 bucket the data is exported to.
     --
-    -- -   @source-arn@ - The Amazon Resource Name (ARN) of the snapshot
-    --     exported to Amazon S3
+    -- -   @source-arn@ - The Amazon Resource Name (ARN) of the snapshot or
+    --     cluster exported to Amazon S3.
     --
     -- -   @status@ - The status of the export task. Must be lowercase. Valid
     --     statuses are the following:
@@ -103,7 +103,8 @@ data DescribeExportTasks = DescribeExportTasks'
     --
     -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
+    -- | The Amazon Resource Name (ARN) of the snapshot or cluster exported to
+    -- Amazon S3.
     sourceArn :: Prelude.Maybe Prelude.Text,
     -- | The type of source for the export.
     sourceType :: Prelude.Maybe ExportSourceType
@@ -118,21 +119,21 @@ data DescribeExportTasks = DescribeExportTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'exportTaskIdentifier', 'describeExportTasks_exportTaskIdentifier' - The identifier of the snapshot export task to be described.
+-- 'exportTaskIdentifier', 'describeExportTasks_exportTaskIdentifier' - The identifier of the snapshot or cluster export task to be described.
 --
--- 'filters', 'describeExportTasks_filters' - Filters specify one or more snapshot exports to describe. The filters
--- are specified as name-value pairs that define what to include in the
--- output. Filter names and values are case-sensitive.
+-- 'filters', 'describeExportTasks_filters' - Filters specify one or more snapshot or cluster exports to describe. The
+-- filters are specified as name-value pairs that define what to include in
+-- the output. Filter names and values are case-sensitive.
 --
 -- Supported filters include the following:
 --
--- -   @export-task-identifier@ - An identifier for the snapshot export
---     task.
+-- -   @export-task-identifier@ - An identifier for the snapshot or cluster
+--     export task.
 --
--- -   @s3-bucket@ - The Amazon S3 bucket the snapshot is exported to.
+-- -   @s3-bucket@ - The Amazon S3 bucket the data is exported to.
 --
--- -   @source-arn@ - The Amazon Resource Name (ARN) of the snapshot
---     exported to Amazon S3
+-- -   @source-arn@ - The Amazon Resource Name (ARN) of the snapshot or
+--     cluster exported to Amazon S3.
 --
 -- -   @status@ - The status of the export task. Must be lowercase. Valid
 --     statuses are the following:
@@ -163,7 +164,8 @@ data DescribeExportTasks = DescribeExportTasks'
 --
 -- Constraints: Minimum 20, maximum 100.
 --
--- 'sourceArn', 'describeExportTasks_sourceArn' - The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
+-- 'sourceArn', 'describeExportTasks_sourceArn' - The Amazon Resource Name (ARN) of the snapshot or cluster exported to
+-- Amazon S3.
 --
 -- 'sourceType', 'describeExportTasks_sourceType' - The type of source for the export.
 newDescribeExportTasks ::
@@ -179,23 +181,23 @@ newDescribeExportTasks =
       sourceType = Prelude.Nothing
     }
 
--- | The identifier of the snapshot export task to be described.
+-- | The identifier of the snapshot or cluster export task to be described.
 describeExportTasks_exportTaskIdentifier :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
 describeExportTasks_exportTaskIdentifier = Lens.lens (\DescribeExportTasks' {exportTaskIdentifier} -> exportTaskIdentifier) (\s@DescribeExportTasks' {} a -> s {exportTaskIdentifier = a} :: DescribeExportTasks)
 
--- | Filters specify one or more snapshot exports to describe. The filters
--- are specified as name-value pairs that define what to include in the
--- output. Filter names and values are case-sensitive.
+-- | Filters specify one or more snapshot or cluster exports to describe. The
+-- filters are specified as name-value pairs that define what to include in
+-- the output. Filter names and values are case-sensitive.
 --
 -- Supported filters include the following:
 --
--- -   @export-task-identifier@ - An identifier for the snapshot export
---     task.
+-- -   @export-task-identifier@ - An identifier for the snapshot or cluster
+--     export task.
 --
--- -   @s3-bucket@ - The Amazon S3 bucket the snapshot is exported to.
+-- -   @s3-bucket@ - The Amazon S3 bucket the data is exported to.
 --
--- -   @source-arn@ - The Amazon Resource Name (ARN) of the snapshot
---     exported to Amazon S3
+-- -   @source-arn@ - The Amazon Resource Name (ARN) of the snapshot or
+--     cluster exported to Amazon S3.
 --
 -- -   @status@ - The status of the export task. Must be lowercase. Valid
 --     statuses are the following:
@@ -232,7 +234,8 @@ describeExportTasks_marker = Lens.lens (\DescribeExportTasks' {marker} -> marker
 describeExportTasks_maxRecords :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Natural)
 describeExportTasks_maxRecords = Lens.lens (\DescribeExportTasks' {maxRecords} -> maxRecords) (\s@DescribeExportTasks' {} a -> s {maxRecords = a} :: DescribeExportTasks)
 
--- | The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
+-- | The Amazon Resource Name (ARN) of the snapshot or cluster exported to
+-- Amazon S3.
 describeExportTasks_sourceArn :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
 describeExportTasks_sourceArn = Lens.lens (\DescribeExportTasks' {sourceArn} -> sourceArn) (\s@DescribeExportTasks' {} a -> s {sourceArn = a} :: DescribeExportTasks)
 
@@ -245,22 +248,22 @@ instance Core.AWSPager DescribeExportTasks where
     | Core.stop
         ( rs
             Lens.^? describeExportTasksResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeExportTasksResponse_exportTasks
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeExportTasks_marker
           Lens..~ rs
           Lens.^? describeExportTasksResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeExportTasks where
   type
@@ -273,7 +276,9 @@ instance Core.AWSRequest DescribeExportTasks where
       "DescribeExportTasksResult"
       ( \s h x ->
           DescribeExportTasksResponse'
-            Prelude.<$> ( x Data..@? "ExportTasks" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "ExportTasks"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "ExportTask")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -282,7 +287,8 @@ instance Core.AWSRequest DescribeExportTasks where
 
 instance Prelude.Hashable DescribeExportTasks where
   hashWithSalt _salt DescribeExportTasks' {..} =
-    _salt `Prelude.hashWithSalt` exportTaskIdentifier
+    _salt
+      `Prelude.hashWithSalt` exportTaskIdentifier
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
@@ -323,7 +329,7 @@ instance Data.ToQuery DescribeExportTasks where
 
 -- | /See:/ 'newDescribeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
-  { -- | Information about an export of a snapshot to Amazon S3.
+  { -- | Information about an export of a snapshot or cluster to Amazon S3.
     exportTasks :: Prelude.Maybe [ExportTask],
     -- | A pagination token that can be used in a later @DescribeExportTasks@
     -- request. A marker is used for pagination to identify the location to
@@ -342,7 +348,7 @@ data DescribeExportTasksResponse = DescribeExportTasksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'exportTasks', 'describeExportTasksResponse_exportTasks' - Information about an export of a snapshot to Amazon S3.
+-- 'exportTasks', 'describeExportTasksResponse_exportTasks' - Information about an export of a snapshot or cluster to Amazon S3.
 --
 -- 'marker', 'describeExportTasksResponse_marker' - A pagination token that can be used in a later @DescribeExportTasks@
 -- request. A marker is used for pagination to identify the location to
@@ -361,7 +367,7 @@ newDescribeExportTasksResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Information about an export of a snapshot to Amazon S3.
+-- | Information about an export of a snapshot or cluster to Amazon S3.
 describeExportTasksResponse_exportTasks :: Lens.Lens' DescribeExportTasksResponse (Prelude.Maybe [ExportTask])
 describeExportTasksResponse_exportTasks = Lens.lens (\DescribeExportTasksResponse' {exportTasks} -> exportTasks) (\s@DescribeExportTasksResponse' {} a -> s {exportTasks = a} :: DescribeExportTasksResponse) Prelude.. Lens.mapping Lens.coerced
 

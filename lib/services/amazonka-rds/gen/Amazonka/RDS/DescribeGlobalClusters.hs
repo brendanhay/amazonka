@@ -167,22 +167,22 @@ instance Core.AWSPager DescribeGlobalClusters where
     | Core.stop
         ( rs
             Lens.^? describeGlobalClustersResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeGlobalClustersResponse_globalClusters
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeGlobalClusters_marker
           Lens..~ rs
           Lens.^? describeGlobalClustersResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeGlobalClusters where
   type
@@ -195,7 +195,9 @@ instance Core.AWSRequest DescribeGlobalClusters where
       "DescribeGlobalClustersResult"
       ( \s h x ->
           DescribeGlobalClustersResponse'
-            Prelude.<$> ( x Data..@? "GlobalClusters" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "GlobalClusters"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "GlobalClusterMember")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -204,7 +206,8 @@ instance Core.AWSRequest DescribeGlobalClusters where
 
 instance Prelude.Hashable DescribeGlobalClusters where
   hashWithSalt _salt DescribeGlobalClusters' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` globalClusterIdentifier
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords

@@ -39,7 +39,7 @@
 -- in the /Amazon Aurora User Guide/.
 --
 -- For more information on Multi-AZ DB clusters, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ DB cluster deployments>
 -- in the /Amazon RDS User Guide./
 module Amazonka.RDS.RestoreDBClusterToPointInTime
   ( -- * Creating a Request
@@ -361,9 +361,6 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
     -- -   @copy-on-write@ - The new DB cluster is restored as a clone of the
     --     source DB cluster.
     --
-    -- Constraints: You can\'t specify @copy-on-write@ if the engine version of
-    -- the source DB cluster is earlier than 1.11.
-    --
     -- If you don\'t specify a @RestoreType@ value, then the new DB cluster is
     -- restored as a full copy of the source DB cluster.
     --
@@ -375,16 +372,17 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
     -- Valid for: Aurora DB clusters only
     scalingConfiguration :: Prelude.Maybe ScalingConfiguration,
     serverlessV2ScalingConfiguration :: Prelude.Maybe ServerlessV2ScalingConfiguration,
-    -- | Specifies the storage type to be associated with the each DB instance in
-    -- the Multi-AZ DB cluster.
+    -- | Specifies the storage type to be associated with the DB cluster.
     --
-    -- Valid values: @io1@
+    -- When specified for a Multi-AZ DB cluster, a value for the @Iops@
+    -- parameter is required.
     --
-    -- When specified, a value for the @Iops@ parameter is required.
+    -- Valid values: @aurora@, @aurora-iopt1@ (Aurora DB clusters); @io1@
+    -- (Multi-AZ DB clusters)
     --
-    -- Default: @io1@
+    -- Default: @aurora@ (Aurora DB clusters); @io1@ (Multi-AZ DB clusters)
     --
-    -- Valid for: Multi-AZ DB clusters only
+    -- Valid for: Aurora DB clusters and Multi-AZ DB clusters
     storageType :: Prelude.Maybe Prelude.Text,
     tags :: Prelude.Maybe [Tag],
     -- | A value that indicates whether to restore the DB cluster to the latest
@@ -695,9 +693,6 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 -- -   @copy-on-write@ - The new DB cluster is restored as a clone of the
 --     source DB cluster.
 --
--- Constraints: You can\'t specify @copy-on-write@ if the engine version of
--- the source DB cluster is earlier than 1.11.
---
 -- If you don\'t specify a @RestoreType@ value, then the new DB cluster is
 -- restored as a full copy of the source DB cluster.
 --
@@ -710,16 +705,17 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 --
 -- 'serverlessV2ScalingConfiguration', 'restoreDBClusterToPointInTime_serverlessV2ScalingConfiguration' - Undocumented member.
 --
--- 'storageType', 'restoreDBClusterToPointInTime_storageType' - Specifies the storage type to be associated with the each DB instance in
--- the Multi-AZ DB cluster.
+-- 'storageType', 'restoreDBClusterToPointInTime_storageType' - Specifies the storage type to be associated with the DB cluster.
 --
--- Valid values: @io1@
+-- When specified for a Multi-AZ DB cluster, a value for the @Iops@
+-- parameter is required.
 --
--- When specified, a value for the @Iops@ parameter is required.
+-- Valid values: @aurora@, @aurora-iopt1@ (Aurora DB clusters); @io1@
+-- (Multi-AZ DB clusters)
 --
--- Default: @io1@
+-- Default: @aurora@ (Aurora DB clusters); @io1@ (Multi-AZ DB clusters)
 --
--- Valid for: Multi-AZ DB clusters only
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 --
 -- 'tags', 'restoreDBClusterToPointInTime_tags' - Undocumented member.
 --
@@ -1100,9 +1096,6 @@ restoreDBClusterToPointInTime_restoreToTime = Lens.lens (\RestoreDBClusterToPoin
 -- -   @copy-on-write@ - The new DB cluster is restored as a clone of the
 --     source DB cluster.
 --
--- Constraints: You can\'t specify @copy-on-write@ if the engine version of
--- the source DB cluster is earlier than 1.11.
---
 -- If you don\'t specify a @RestoreType@ value, then the new DB cluster is
 -- restored as a full copy of the source DB cluster.
 --
@@ -1121,16 +1114,17 @@ restoreDBClusterToPointInTime_scalingConfiguration = Lens.lens (\RestoreDBCluste
 restoreDBClusterToPointInTime_serverlessV2ScalingConfiguration :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe ServerlessV2ScalingConfiguration)
 restoreDBClusterToPointInTime_serverlessV2ScalingConfiguration = Lens.lens (\RestoreDBClusterToPointInTime' {serverlessV2ScalingConfiguration} -> serverlessV2ScalingConfiguration) (\s@RestoreDBClusterToPointInTime' {} a -> s {serverlessV2ScalingConfiguration = a} :: RestoreDBClusterToPointInTime)
 
--- | Specifies the storage type to be associated with the each DB instance in
--- the Multi-AZ DB cluster.
+-- | Specifies the storage type to be associated with the DB cluster.
 --
--- Valid values: @io1@
+-- When specified for a Multi-AZ DB cluster, a value for the @Iops@
+-- parameter is required.
 --
--- When specified, a value for the @Iops@ parameter is required.
+-- Valid values: @aurora@, @aurora-iopt1@ (Aurora DB clusters); @io1@
+-- (Multi-AZ DB clusters)
 --
--- Default: @io1@
+-- Default: @aurora@ (Aurora DB clusters); @io1@ (Multi-AZ DB clusters)
 --
--- Valid for: Multi-AZ DB clusters only
+-- Valid for: Aurora DB clusters and Multi-AZ DB clusters
 restoreDBClusterToPointInTime_storageType :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Text)
 restoreDBClusterToPointInTime_storageType = Lens.lens (\RestoreDBClusterToPointInTime' {storageType} -> storageType) (\s@RestoreDBClusterToPointInTime' {} a -> s {storageType = a} :: RestoreDBClusterToPointInTime)
 
@@ -1202,7 +1196,8 @@ instance
     RestoreDBClusterToPointInTime
   where
   hashWithSalt _salt RestoreDBClusterToPointInTime' {..} =
-    _salt `Prelude.hashWithSalt` backtrackWindow
+    _salt
+      `Prelude.hashWithSalt` backtrackWindow
       `Prelude.hashWithSalt` copyTagsToSnapshot
       `Prelude.hashWithSalt` dbClusterInstanceClass
       `Prelude.hashWithSalt` dbClusterParameterGroupName

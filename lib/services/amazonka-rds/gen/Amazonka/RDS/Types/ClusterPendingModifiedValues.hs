@@ -50,7 +50,9 @@ data ClusterPendingModifiedValues = ClusterPendingModifiedValues'
     iops :: Prelude.Maybe Prelude.Int,
     -- | The master credentials for the DB cluster.
     masterUserPassword :: Prelude.Maybe Prelude.Text,
-    pendingCloudwatchLogsExports :: Prelude.Maybe PendingCloudwatchLogsExports
+    pendingCloudwatchLogsExports :: Prelude.Maybe PendingCloudwatchLogsExports,
+    -- | The storage type for the DB cluster.
+    storageType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,6 +84,8 @@ data ClusterPendingModifiedValues = ClusterPendingModifiedValues'
 -- 'masterUserPassword', 'clusterPendingModifiedValues_masterUserPassword' - The master credentials for the DB cluster.
 --
 -- 'pendingCloudwatchLogsExports', 'clusterPendingModifiedValues_pendingCloudwatchLogsExports' - Undocumented member.
+--
+-- 'storageType', 'clusterPendingModifiedValues_storageType' - The storage type for the DB cluster.
 newClusterPendingModifiedValues ::
   ClusterPendingModifiedValues
 newClusterPendingModifiedValues =
@@ -96,7 +100,8 @@ newClusterPendingModifiedValues =
       iops = Prelude.Nothing,
       masterUserPassword = Prelude.Nothing,
       pendingCloudwatchLogsExports =
-        Prelude.Nothing
+        Prelude.Nothing,
+      storageType = Prelude.Nothing
     }
 
 -- | The allocated storage size in gibibytes (GiB) for all database engines
@@ -136,6 +141,10 @@ clusterPendingModifiedValues_masterUserPassword = Lens.lens (\ClusterPendingModi
 clusterPendingModifiedValues_pendingCloudwatchLogsExports :: Lens.Lens' ClusterPendingModifiedValues (Prelude.Maybe PendingCloudwatchLogsExports)
 clusterPendingModifiedValues_pendingCloudwatchLogsExports = Lens.lens (\ClusterPendingModifiedValues' {pendingCloudwatchLogsExports} -> pendingCloudwatchLogsExports) (\s@ClusterPendingModifiedValues' {} a -> s {pendingCloudwatchLogsExports = a} :: ClusterPendingModifiedValues)
 
+-- | The storage type for the DB cluster.
+clusterPendingModifiedValues_storageType :: Lens.Lens' ClusterPendingModifiedValues (Prelude.Maybe Prelude.Text)
+clusterPendingModifiedValues_storageType = Lens.lens (\ClusterPendingModifiedValues' {storageType} -> storageType) (\s@ClusterPendingModifiedValues' {} a -> s {storageType = a} :: ClusterPendingModifiedValues)
+
 instance Data.FromXML ClusterPendingModifiedValues where
   parseXML x =
     ClusterPendingModifiedValues'
@@ -147,13 +156,15 @@ instance Data.FromXML ClusterPendingModifiedValues where
       Prelude.<*> (x Data..@? "Iops")
       Prelude.<*> (x Data..@? "MasterUserPassword")
       Prelude.<*> (x Data..@? "PendingCloudwatchLogsExports")
+      Prelude.<*> (x Data..@? "StorageType")
 
 instance
   Prelude.Hashable
     ClusterPendingModifiedValues
   where
   hashWithSalt _salt ClusterPendingModifiedValues' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` engineVersion
@@ -161,6 +172,7 @@ instance
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` masterUserPassword
       `Prelude.hashWithSalt` pendingCloudwatchLogsExports
+      `Prelude.hashWithSalt` storageType
 
 instance Prelude.NFData ClusterPendingModifiedValues where
   rnf ClusterPendingModifiedValues' {..} =
@@ -172,3 +184,4 @@ instance Prelude.NFData ClusterPendingModifiedValues where
       `Prelude.seq` Prelude.rnf iops
       `Prelude.seq` Prelude.rnf masterUserPassword
       `Prelude.seq` Prelude.rnf pendingCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf storageType

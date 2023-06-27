@@ -29,7 +29,7 @@
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.Modifying.html Modifying a database activity stream>
 -- in the /Amazon RDS User Guide/.
 --
--- This operation is supported for RDS for Oracle only.
+-- This operation is supported for RDS for Oracle and Microsoft SQL Server.
 module Amazonka.RDS.ModifyActivityStream
   ( -- * Creating a Request
     ModifyActivityStream (..),
@@ -68,8 +68,9 @@ data ModifyActivityStream = ModifyActivityStream'
     -- When it is locked, it is read-only. You can edit your audit policy only
     -- when the activity stream is unlocked or stopped.
     auditPolicyState :: Prelude.Maybe AuditPolicyState,
-    -- | The Amazon Resource Name (ARN) of the RDS for Oracle DB instance, for
-    -- example, @arn:aws:rds:us-east-1:12345667890:instance:my-orcl-db@.
+    -- | The Amazon Resource Name (ARN) of the RDS for Oracle or Microsoft SQL
+    -- Server DB instance. For example,
+    -- @arn:aws:rds:us-east-1:12345667890:instance:my-orcl-db@.
     resourceArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,8 +87,9 @@ data ModifyActivityStream = ModifyActivityStream'
 -- When it is locked, it is read-only. You can edit your audit policy only
 -- when the activity stream is unlocked or stopped.
 --
--- 'resourceArn', 'modifyActivityStream_resourceArn' - The Amazon Resource Name (ARN) of the RDS for Oracle DB instance, for
--- example, @arn:aws:rds:us-east-1:12345667890:instance:my-orcl-db@.
+-- 'resourceArn', 'modifyActivityStream_resourceArn' - The Amazon Resource Name (ARN) of the RDS for Oracle or Microsoft SQL
+-- Server DB instance. For example,
+-- @arn:aws:rds:us-east-1:12345667890:instance:my-orcl-db@.
 newModifyActivityStream ::
   ModifyActivityStream
 newModifyActivityStream =
@@ -103,8 +105,9 @@ newModifyActivityStream =
 modifyActivityStream_auditPolicyState :: Lens.Lens' ModifyActivityStream (Prelude.Maybe AuditPolicyState)
 modifyActivityStream_auditPolicyState = Lens.lens (\ModifyActivityStream' {auditPolicyState} -> auditPolicyState) (\s@ModifyActivityStream' {} a -> s {auditPolicyState = a} :: ModifyActivityStream)
 
--- | The Amazon Resource Name (ARN) of the RDS for Oracle DB instance, for
--- example, @arn:aws:rds:us-east-1:12345667890:instance:my-orcl-db@.
+-- | The Amazon Resource Name (ARN) of the RDS for Oracle or Microsoft SQL
+-- Server DB instance. For example,
+-- @arn:aws:rds:us-east-1:12345667890:instance:my-orcl-db@.
 modifyActivityStream_resourceArn :: Lens.Lens' ModifyActivityStream (Prelude.Maybe Prelude.Text)
 modifyActivityStream_resourceArn = Lens.lens (\ModifyActivityStream' {resourceArn} -> resourceArn) (\s@ModifyActivityStream' {} a -> s {resourceArn = a} :: ModifyActivityStream)
 
@@ -130,7 +133,8 @@ instance Core.AWSRequest ModifyActivityStream where
 
 instance Prelude.Hashable ModifyActivityStream where
   hashWithSalt _salt ModifyActivityStream' {..} =
-    _salt `Prelude.hashWithSalt` auditPolicyState
+    _salt
+      `Prelude.hashWithSalt` auditPolicyState
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData ModifyActivityStream where

@@ -57,7 +57,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newStopDBInstanceAutomatedBackupsReplication' smart constructor.
 data StopDBInstanceAutomatedBackupsReplication = StopDBInstanceAutomatedBackupsReplication'
   { -- | The Amazon Resource Name (ARN) of the source DB instance for which to
-    -- stop replicating automated backups, for example,
+    -- stop replicating automate backups, for example,
     -- @arn:aws:rds:us-west-2:123456789012:db:mydatabase@.
     sourceDBInstanceArn :: Prelude.Text
   }
@@ -72,7 +72,7 @@ data StopDBInstanceAutomatedBackupsReplication = StopDBInstanceAutomatedBackupsR
 -- for backwards compatibility:
 --
 -- 'sourceDBInstanceArn', 'stopDBInstanceAutomatedBackupsReplication_sourceDBInstanceArn' - The Amazon Resource Name (ARN) of the source DB instance for which to
--- stop replicating automated backups, for example,
+-- stop replicating automate backups, for example,
 -- @arn:aws:rds:us-west-2:123456789012:db:mydatabase@.
 newStopDBInstanceAutomatedBackupsReplication ::
   -- | 'sourceDBInstanceArn'
@@ -86,7 +86,7 @@ newStopDBInstanceAutomatedBackupsReplication
       }
 
 -- | The Amazon Resource Name (ARN) of the source DB instance for which to
--- stop replicating automated backups, for example,
+-- stop replicating automate backups, for example,
 -- @arn:aws:rds:us-west-2:123456789012:db:mydatabase@.
 stopDBInstanceAutomatedBackupsReplication_sourceDBInstanceArn :: Lens.Lens' StopDBInstanceAutomatedBackupsReplication Prelude.Text
 stopDBInstanceAutomatedBackupsReplication_sourceDBInstanceArn = Lens.lens (\StopDBInstanceAutomatedBackupsReplication' {sourceDBInstanceArn} -> sourceDBInstanceArn) (\s@StopDBInstanceAutomatedBackupsReplication' {} a -> s {sourceDBInstanceArn = a} :: StopDBInstanceAutomatedBackupsReplication)
@@ -107,7 +107,7 @@ instance
       ( \s h x ->
           StopDBInstanceAutomatedBackupsReplicationResponse'
             Prelude.<$> (x Data..@? "DBInstanceAutomatedBackup")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

@@ -188,22 +188,22 @@ instance Core.AWSPager DescribeDBLogFiles where
     | Core.stop
         ( rs
             Lens.^? describeDBLogFilesResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBLogFilesResponse_describeDBLogFiles
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDBLogFiles_marker
           Lens..~ rs
           Lens.^? describeDBLogFilesResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBLogFiles where
   type
@@ -216,7 +216,8 @@ instance Core.AWSRequest DescribeDBLogFiles where
       "DescribeDBLogFilesResult"
       ( \s h x ->
           DescribeDBLogFilesResponse'
-            Prelude.<$> ( x Data..@? "DescribeDBLogFiles"
+            Prelude.<$> ( x
+                            Data..@? "DescribeDBLogFiles"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may
                               (Data.parseXMLList "DescribeDBLogFilesDetails")
@@ -227,7 +228,8 @@ instance Core.AWSRequest DescribeDBLogFiles where
 
 instance Prelude.Hashable DescribeDBLogFiles where
   hashWithSalt _salt DescribeDBLogFiles' {..} =
-    _salt `Prelude.hashWithSalt` fileLastWritten
+    _salt
+      `Prelude.hashWithSalt` fileLastWritten
       `Prelude.hashWithSalt` fileSize
       `Prelude.hashWithSalt` filenameContains
       `Prelude.hashWithSalt` filters

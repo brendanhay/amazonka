@@ -182,7 +182,8 @@ instance Core.AWSRequest CopyOptionGroup where
 
 instance Prelude.Hashable CopyOptionGroup where
   hashWithSalt _salt CopyOptionGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` sourceOptionGroupIdentifier
       `Prelude.hashWithSalt` targetOptionGroupIdentifier
       `Prelude.hashWithSalt` targetOptionGroupDescription

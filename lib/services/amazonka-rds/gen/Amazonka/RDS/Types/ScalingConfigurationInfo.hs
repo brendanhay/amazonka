@@ -24,8 +24,8 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Shows the scaling configuration for an Aurora DB cluster in @serverless@
--- DB engine mode.
+-- | The scaling configuration for an Aurora DB cluster in @serverless@ DB
+-- engine mode.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless v1>
@@ -170,7 +170,8 @@ instance Data.FromXML ScalingConfigurationInfo where
 
 instance Prelude.Hashable ScalingConfigurationInfo where
   hashWithSalt _salt ScalingConfigurationInfo' {..} =
-    _salt `Prelude.hashWithSalt` autoPause
+    _salt
+      `Prelude.hashWithSalt` autoPause
       `Prelude.hashWithSalt` maxCapacity
       `Prelude.hashWithSalt` minCapacity
       `Prelude.hashWithSalt` secondsBeforeTimeout

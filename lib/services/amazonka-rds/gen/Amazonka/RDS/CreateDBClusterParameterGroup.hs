@@ -59,7 +59,7 @@
 -- in the /Amazon Aurora User Guide/.
 --
 -- For more information on Multi-AZ DB clusters, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ DB cluster deployments>
 -- in the /Amazon RDS User Guide/.
 module Amazonka.RDS.CreateDBClusterParameterGroup
   ( -- * Creating a Request
@@ -112,11 +112,11 @@ data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
     --
     -- __Aurora MySQL__
     --
-    -- Example: @aurora5.6@, @aurora-mysql5.7@, @aurora-mysql8.0@
+    -- Example: @aurora-mysql5.7@, @aurora-mysql8.0@
     --
     -- __Aurora PostgreSQL__
     --
-    -- Example: @aurora-postgresql9.6@
+    -- Example: @aurora-postgresql14@
     --
     -- __RDS for MySQL__
     --
@@ -140,10 +140,7 @@ data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
     --
     -- The following are the valid DB engine values:
     --
-    -- -   @aurora@ (for MySQL 5.6-compatible Aurora)
-    --
-    -- -   @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
-    --     Aurora)
+    -- -   @aurora-mysql@
     --
     -- -   @aurora-postgresql@
     --
@@ -182,11 +179,11 @@ data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
 --
 -- __Aurora MySQL__
 --
--- Example: @aurora5.6@, @aurora-mysql5.7@, @aurora-mysql8.0@
+-- Example: @aurora-mysql5.7@, @aurora-mysql8.0@
 --
 -- __Aurora PostgreSQL__
 --
--- Example: @aurora-postgresql9.6@
+-- Example: @aurora-postgresql14@
 --
 -- __RDS for MySQL__
 --
@@ -210,10 +207,7 @@ data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
 --
 -- The following are the valid DB engine values:
 --
--- -   @aurora@ (for MySQL 5.6-compatible Aurora)
---
--- -   @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
---     Aurora)
+-- -   @aurora-mysql@
 --
 -- -   @aurora-postgresql@
 --
@@ -266,11 +260,11 @@ createDBClusterParameterGroup_dbClusterParameterGroupName = Lens.lens (\CreateDB
 --
 -- __Aurora MySQL__
 --
--- Example: @aurora5.6@, @aurora-mysql5.7@, @aurora-mysql8.0@
+-- Example: @aurora-mysql5.7@, @aurora-mysql8.0@
 --
 -- __Aurora PostgreSQL__
 --
--- Example: @aurora-postgresql9.6@
+-- Example: @aurora-postgresql14@
 --
 -- __RDS for MySQL__
 --
@@ -294,10 +288,7 @@ createDBClusterParameterGroup_dbClusterParameterGroupName = Lens.lens (\CreateDB
 --
 -- The following are the valid DB engine values:
 --
--- -   @aurora@ (for MySQL 5.6-compatible Aurora)
---
--- -   @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
---     Aurora)
+-- -   @aurora-mysql@
 --
 -- -   @aurora-postgresql@
 --
@@ -334,7 +325,8 @@ instance
     CreateDBClusterParameterGroup
   where
   hashWithSalt _salt CreateDBClusterParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` dbClusterParameterGroupName
       `Prelude.hashWithSalt` dbParameterGroupFamily
       `Prelude.hashWithSalt` description

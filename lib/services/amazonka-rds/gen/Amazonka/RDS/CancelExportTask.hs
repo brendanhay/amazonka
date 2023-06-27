@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels an export task in progress that is exporting a snapshot to
--- Amazon S3. Any data that has already been written to the S3 bucket
--- isn\'t removed.
+-- Cancels an export task in progress that is exporting a snapshot or
+-- cluster to Amazon S3. Any data that has already been written to the S3
+-- bucket isn\'t removed.
 module Amazonka.RDS.CancelExportTask
   ( -- * Creating a Request
     CancelExportTask (..),
@@ -65,7 +65,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCancelExportTask' smart constructor.
 data CancelExportTask = CancelExportTask'
-  { -- | The identifier of the snapshot export task to cancel.
+  { -- | The identifier of the snapshot or cluster export task to cancel.
     exportTaskIdentifier :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,7 +78,7 @@ data CancelExportTask = CancelExportTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'exportTaskIdentifier', 'cancelExportTask_exportTaskIdentifier' - The identifier of the snapshot export task to cancel.
+-- 'exportTaskIdentifier', 'cancelExportTask_exportTaskIdentifier' - The identifier of the snapshot or cluster export task to cancel.
 newCancelExportTask ::
   -- | 'exportTaskIdentifier'
   Prelude.Text ->
@@ -89,7 +89,7 @@ newCancelExportTask pExportTaskIdentifier_ =
         pExportTaskIdentifier_
     }
 
--- | The identifier of the snapshot export task to cancel.
+-- | The identifier of the snapshot or cluster export task to cancel.
 cancelExportTask_exportTaskIdentifier :: Lens.Lens' CancelExportTask Prelude.Text
 cancelExportTask_exportTaskIdentifier = Lens.lens (\CancelExportTask' {exportTaskIdentifier} -> exportTaskIdentifier) (\s@CancelExportTask' {} a -> s {exportTaskIdentifier = a} :: CancelExportTask)
 

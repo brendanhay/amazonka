@@ -173,7 +173,8 @@ instance Core.AWSRequest CreateDBSecurityGroup where
 
 instance Prelude.Hashable CreateDBSecurityGroup where
   hashWithSalt _salt CreateDBSecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` dbSecurityGroupName
       `Prelude.hashWithSalt` dbSecurityGroupDescription
 

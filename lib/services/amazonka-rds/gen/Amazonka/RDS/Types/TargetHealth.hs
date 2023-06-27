@@ -100,7 +100,8 @@ instance Data.FromXML TargetHealth where
 
 instance Prelude.Hashable TargetHealth where
   hashWithSalt _salt TargetHealth' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` state
 

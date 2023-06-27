@@ -117,7 +117,8 @@ instance Core.AWSRequest StopDBInstance where
 
 instance Prelude.Hashable StopDBInstance where
   hashWithSalt _salt StopDBInstance' {..} =
-    _salt `Prelude.hashWithSalt` dbSnapshotIdentifier
+    _salt
+      `Prelude.hashWithSalt` dbSnapshotIdentifier
       `Prelude.hashWithSalt` dbInstanceIdentifier
 
 instance Prelude.NFData StopDBInstance where

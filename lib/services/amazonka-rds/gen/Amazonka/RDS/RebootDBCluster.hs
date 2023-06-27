@@ -32,7 +32,7 @@
 -- Use this operation only for a non-Aurora Multi-AZ DB cluster.
 --
 -- For more information on Multi-AZ DB clusters, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ DB cluster deployments>
 -- in the /Amazon RDS User Guide./
 module Amazonka.RDS.RebootDBCluster
   ( -- * Creating a Request

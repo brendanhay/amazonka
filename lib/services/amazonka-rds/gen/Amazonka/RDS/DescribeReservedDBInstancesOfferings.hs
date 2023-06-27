@@ -238,22 +238,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeReservedDBInstancesOfferingsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeReservedDBInstancesOfferingsResponse_reservedDBInstancesOfferings
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeReservedDBInstancesOfferings_marker
           Lens..~ rs
           Lens.^? describeReservedDBInstancesOfferingsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -270,12 +270,13 @@ instance
       ( \s h x ->
           DescribeReservedDBInstancesOfferingsResponse'
             Prelude.<$> (x Data..@? "Marker")
-              Prelude.<*> ( x Data..@? "ReservedDBInstancesOfferings"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may
-                                (Data.parseXMLList "ReservedDBInstancesOffering")
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..@? "ReservedDBInstancesOfferings"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may
+                              (Data.parseXMLList "ReservedDBInstancesOffering")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -285,7 +286,8 @@ instance
   hashWithSalt
     _salt
     DescribeReservedDBInstancesOfferings' {..} =
-      _salt `Prelude.hashWithSalt` dbInstanceClass
+      _salt
+        `Prelude.hashWithSalt` dbInstanceClass
         `Prelude.hashWithSalt` duration
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` marker

@@ -115,7 +115,8 @@ data ModifyCustomDBEngineVersion = ModifyCustomDBEngineVersion'
     -- must not currently be in use by an RDS Custom instance, snapshot, or
     -- automated backup.
     status :: Prelude.Maybe CustomEngineVersionStatus,
-    -- | The DB engine. The only supported value is @custom-oracle-ee@.
+    -- | The DB engine. The only supported values are @custom-oracle-ee@ and
+    -- @custom-oracle-ee-cdb@.
     engine :: Prelude.Text,
     -- | The custom engine version (CEV) that you want to modify. This option is
     -- required for RDS Custom for Oracle, but optional for Amazon RDS. The
@@ -154,7 +155,8 @@ data ModifyCustomDBEngineVersion = ModifyCustomDBEngineVersion'
 -- must not currently be in use by an RDS Custom instance, snapshot, or
 -- automated backup.
 --
--- 'engine', 'modifyCustomDBEngineVersion_engine' - The DB engine. The only supported value is @custom-oracle-ee@.
+-- 'engine', 'modifyCustomDBEngineVersion_engine' - The DB engine. The only supported values are @custom-oracle-ee@ and
+-- @custom-oracle-ee-cdb@.
 --
 -- 'engineVersion', 'modifyCustomDBEngineVersion_engineVersion' - The custom engine version (CEV) that you want to modify. This option is
 -- required for RDS Custom for Oracle, but optional for Amazon RDS. The
@@ -202,7 +204,8 @@ modifyCustomDBEngineVersion_description = Lens.lens (\ModifyCustomDBEngineVersio
 modifyCustomDBEngineVersion_status :: Lens.Lens' ModifyCustomDBEngineVersion (Prelude.Maybe CustomEngineVersionStatus)
 modifyCustomDBEngineVersion_status = Lens.lens (\ModifyCustomDBEngineVersion' {status} -> status) (\s@ModifyCustomDBEngineVersion' {} a -> s {status = a} :: ModifyCustomDBEngineVersion)
 
--- | The DB engine. The only supported value is @custom-oracle-ee@.
+-- | The DB engine. The only supported values are @custom-oracle-ee@ and
+-- @custom-oracle-ee-cdb@.
 modifyCustomDBEngineVersion_engine :: Lens.Lens' ModifyCustomDBEngineVersion Prelude.Text
 modifyCustomDBEngineVersion_engine = Lens.lens (\ModifyCustomDBEngineVersion' {engine} -> engine) (\s@ModifyCustomDBEngineVersion' {} a -> s {engine = a} :: ModifyCustomDBEngineVersion)
 
@@ -226,7 +229,8 @@ instance Core.AWSRequest ModifyCustomDBEngineVersion where
 
 instance Prelude.Hashable ModifyCustomDBEngineVersion where
   hashWithSalt _salt ModifyCustomDBEngineVersion' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion

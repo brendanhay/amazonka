@@ -154,22 +154,22 @@ instance Core.AWSPager DescribeEventSubscriptions where
     | Core.stop
         ( rs
             Lens.^? describeEventSubscriptionsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeEventSubscriptionsResponse_eventSubscriptionsList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeEventSubscriptions_marker
           Lens..~ rs
           Lens.^? describeEventSubscriptionsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEventSubscriptions where
   type
@@ -182,7 +182,8 @@ instance Core.AWSRequest DescribeEventSubscriptions where
       "DescribeEventSubscriptionsResult"
       ( \s h x ->
           DescribeEventSubscriptionsResponse'
-            Prelude.<$> ( x Data..@? "EventSubscriptionsList"
+            Prelude.<$> ( x
+                            Data..@? "EventSubscriptionsList"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "EventSubscription")
                         )
@@ -192,7 +193,8 @@ instance Core.AWSRequest DescribeEventSubscriptions where
 
 instance Prelude.Hashable DescribeEventSubscriptions where
   hashWithSalt _salt DescribeEventSubscriptions' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` subscriptionName

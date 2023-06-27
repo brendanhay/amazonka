@@ -144,7 +144,8 @@ instance Core.AWSRequest ModifyDBClusterEndpoint where
 
 instance Prelude.Hashable ModifyDBClusterEndpoint where
   hashWithSalt _salt ModifyDBClusterEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` endpointType
+    _salt
+      `Prelude.hashWithSalt` endpointType
       `Prelude.hashWithSalt` excludedMembers
       `Prelude.hashWithSalt` staticMembers
       `Prelude.hashWithSalt` dbClusterEndpointIdentifier

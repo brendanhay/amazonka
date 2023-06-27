@@ -28,7 +28,7 @@
 -- in the /Amazon Aurora User Guide/.
 --
 -- For more information on Multi-AZ DB clusters, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ DB cluster deployments>
 -- in the /Amazon RDS User Guide/.
 --
 -- This operation returns paginated results.
@@ -392,22 +392,22 @@ instance Core.AWSPager DescribeDBClusterSnapshots where
     | Core.stop
         ( rs
             Lens.^? describeDBClusterSnapshotsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBClusterSnapshotsResponse_dbClusterSnapshots
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDBClusterSnapshots_marker
           Lens..~ rs
           Lens.^? describeDBClusterSnapshotsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBClusterSnapshots where
   type
@@ -420,7 +420,8 @@ instance Core.AWSRequest DescribeDBClusterSnapshots where
       "DescribeDBClusterSnapshotsResult"
       ( \s h x ->
           DescribeDBClusterSnapshotsResponse'
-            Prelude.<$> ( x Data..@? "DBClusterSnapshots"
+            Prelude.<$> ( x
+                            Data..@? "DBClusterSnapshots"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "DBClusterSnapshot")
                         )
@@ -430,7 +431,8 @@ instance Core.AWSRequest DescribeDBClusterSnapshots where
 
 instance Prelude.Hashable DescribeDBClusterSnapshots where
   hashWithSalt _salt DescribeDBClusterSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` dbClusterIdentifier
+    _salt
+      `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` dbClusterSnapshotIdentifier
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` includePublic

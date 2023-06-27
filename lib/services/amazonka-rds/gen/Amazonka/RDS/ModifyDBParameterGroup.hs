@@ -198,7 +198,8 @@ instance Core.AWSRequest ModifyDBParameterGroup where
 
 instance Prelude.Hashable ModifyDBParameterGroup where
   hashWithSalt _salt ModifyDBParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` dbParameterGroupName
+    _salt
+      `Prelude.hashWithSalt` dbParameterGroupName
       `Prelude.hashWithSalt` parameters
 
 instance Prelude.NFData ModifyDBParameterGroup where

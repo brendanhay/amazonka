@@ -97,7 +97,8 @@ instance Data.FromXML DomainMembership where
 
 instance Prelude.Hashable DomainMembership where
   hashWithSalt _salt DomainMembership' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` fqdn
       `Prelude.hashWithSalt` iAMRoleName
       `Prelude.hashWithSalt` status

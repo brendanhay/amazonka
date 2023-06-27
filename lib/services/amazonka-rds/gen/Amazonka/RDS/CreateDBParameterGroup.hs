@@ -111,10 +111,7 @@ data CreateDBParameterGroup = CreateDBParameterGroup'
     --
     -- The following are the valid DB engine values:
     --
-    -- -   @aurora@ (for MySQL 5.6-compatible Aurora)
-    --
-    -- -   @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
-    --     Aurora)
+    -- -   @aurora-mysql@
     --
     -- -   @aurora-postgresql@
     --
@@ -186,10 +183,7 @@ data CreateDBParameterGroup = CreateDBParameterGroup'
 --
 -- The following are the valid DB engine values:
 --
--- -   @aurora@ (for MySQL 5.6-compatible Aurora)
---
--- -   @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
---     Aurora)
+-- -   @aurora-mysql@
 --
 -- -   @aurora-postgresql@
 --
@@ -272,10 +266,7 @@ createDBParameterGroup_dbParameterGroupName = Lens.lens (\CreateDBParameterGroup
 --
 -- The following are the valid DB engine values:
 --
--- -   @aurora@ (for MySQL 5.6-compatible Aurora)
---
--- -   @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
---     Aurora)
+-- -   @aurora-mysql@
 --
 -- -   @aurora-postgresql@
 --
@@ -324,7 +315,8 @@ instance Core.AWSRequest CreateDBParameterGroup where
 
 instance Prelude.Hashable CreateDBParameterGroup where
   hashWithSalt _salt CreateDBParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` dbParameterGroupName
       `Prelude.hashWithSalt` dbParameterGroupFamily
       `Prelude.hashWithSalt` description

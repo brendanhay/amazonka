@@ -221,7 +221,8 @@ instance Core.AWSRequest ModifyDBSnapshotAttribute where
 
 instance Prelude.Hashable ModifyDBSnapshotAttribute where
   hashWithSalt _salt ModifyDBSnapshotAttribute' {..} =
-    _salt `Prelude.hashWithSalt` valuesToAdd
+    _salt
+      `Prelude.hashWithSalt` valuesToAdd
       `Prelude.hashWithSalt` valuesToRemove
       `Prelude.hashWithSalt` dbSnapshotIdentifier
       `Prelude.hashWithSalt` attributeName

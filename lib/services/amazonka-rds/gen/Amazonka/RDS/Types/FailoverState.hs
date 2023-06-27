@@ -138,7 +138,8 @@ instance Data.FromXML FailoverState where
 
 instance Prelude.Hashable FailoverState where
   hashWithSalt _salt FailoverState' {..} =
-    _salt `Prelude.hashWithSalt` fromDbClusterArn
+    _salt
+      `Prelude.hashWithSalt` fromDbClusterArn
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` toDbClusterArn
 

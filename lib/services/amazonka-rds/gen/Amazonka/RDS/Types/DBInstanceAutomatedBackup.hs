@@ -387,7 +387,8 @@ instance Data.FromXML DBInstanceAutomatedBackup where
       Prelude.<*> (x Data..@? "BackupTarget")
       Prelude.<*> (x Data..@? "DBInstanceArn")
       Prelude.<*> (x Data..@? "DBInstanceAutomatedBackupsArn")
-      Prelude.<*> ( x Data..@? "DBInstanceAutomatedBackupsReplications"
+      Prelude.<*> ( x
+                      Data..@? "DBInstanceAutomatedBackupsReplications"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         ( Data.parseXMLList
@@ -418,7 +419,8 @@ instance Data.FromXML DBInstanceAutomatedBackup where
 
 instance Prelude.Hashable DBInstanceAutomatedBackup where
   hashWithSalt _salt DBInstanceAutomatedBackup' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` backupTarget

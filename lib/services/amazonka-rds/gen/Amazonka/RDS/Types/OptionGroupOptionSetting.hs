@@ -138,7 +138,8 @@ instance Data.FromXML OptionGroupOptionSetting where
       Prelude.<*> (x Data..@? "DefaultValue")
       Prelude.<*> (x Data..@? "IsModifiable")
       Prelude.<*> (x Data..@? "IsRequired")
-      Prelude.<*> ( x Data..@? "MinimumEngineVersionPerAllowedValue"
+      Prelude.<*> ( x
+                      Data..@? "MinimumEngineVersionPerAllowedValue"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         ( Data.parseXMLList
@@ -150,7 +151,8 @@ instance Data.FromXML OptionGroupOptionSetting where
 
 instance Prelude.Hashable OptionGroupOptionSetting where
   hashWithSalt _salt OptionGroupOptionSetting' {..} =
-    _salt `Prelude.hashWithSalt` allowedValues
+    _salt
+      `Prelude.hashWithSalt` allowedValues
       `Prelude.hashWithSalt` applyType
       `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` isModifiable

@@ -25,8 +25,10 @@
 -- @StartActivityStream@ action.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html Database Activity Streams>
--- in the /Amazon Aurora User Guide/.
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html Monitoring Amazon Aurora with Database Activity Streams>
+-- in the /Amazon Aurora User Guide/ or
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.html Monitoring Amazon RDS with Database Activity Streams>
+-- in the /Amazon RDS User Guide/.
 module Amazonka.RDS.StopActivityStream
   ( -- * Creating a Request
     StopActivityStream (..),
@@ -123,7 +125,8 @@ instance Core.AWSRequest StopActivityStream where
 
 instance Prelude.Hashable StopActivityStream where
   hashWithSalt _salt StopActivityStream' {..} =
-    _salt `Prelude.hashWithSalt` applyImmediately
+    _salt
+      `Prelude.hashWithSalt` applyImmediately
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData StopActivityStream where

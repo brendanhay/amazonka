@@ -20,10 +20,22 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts an export of a snapshot to Amazon S3. The provided IAM role must
--- have access to the S3 bucket.
+-- Starts an export of DB snapshot or DB cluster data to Amazon S3. The
+-- provided IAM role must have access to the S3 bucket.
 --
--- This command doesn\'t apply to RDS Custom.
+-- You can\'t export snapshot data from RDS Custom DB instances.
+--
+-- You can\'t export cluster data from Multi-AZ DB clusters.
+--
+-- For more information on exporting DB snapshot data, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ExportSnapshot.html Exporting DB snapshot data to Amazon S3>
+-- in the /Amazon RDS User Guide/ or
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-export-snapshot.html Exporting DB cluster snapshot data to Amazon S3>
+-- in the /Amazon Aurora User Guide/.
+--
+-- For more information on exporting DB cluster data, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/export-cluster-data.html Exporting DB cluster data to Amazon S3>
+-- in the /Amazon Aurora User Guide/.
 module Amazonka.RDS.StartExportTask
   ( -- * Creating a Request
     StartExportTask (..),
@@ -72,39 +84,62 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartExportTask' smart constructor.
 data StartExportTask = StartExportTask'
-  { -- | The data to be exported from the snapshot. If this parameter is not
-    -- provided, all the snapshot data is exported. Valid values are the
+  { -- | The data to be exported from the snapshot or cluster. If this parameter
+    -- is not provided, all of the data is exported. Valid values are the
     -- following:
     --
     -- -   @database@ - Export all the data from a specified database.
     --
-    -- -   @database.table@ /table-name/ - Export a table of the snapshot. This
-    --     format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora
-    --     MySQL.
+    -- -   @database.table@ /table-name/ - Export a table of the snapshot or
+    --     cluster. This format is valid only for RDS for MySQL, RDS for
+    --     MariaDB, and Aurora MySQL.
     --
     -- -   @database.schema@ /schema-name/ - Export a database schema of the
-    --     snapshot. This format is valid only for RDS for PostgreSQL and
-    --     Aurora PostgreSQL.
+    --     snapshot or cluster. This format is valid only for RDS for
+    --     PostgreSQL and Aurora PostgreSQL.
     --
     -- -   @database.schema.table@ /table-name/ - Export a table of the
     --     database schema. This format is valid only for RDS for PostgreSQL
     --     and Aurora PostgreSQL.
     exportOnly :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon S3 bucket prefix to use as the file name and path of the
-    -- exported snapshot.
+    -- exported data.
     s3Prefix :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the snapshot export task. This ID isn\'t an
-    -- identifier for the Amazon S3 bucket where the snapshot is to be exported
-    -- to.
+    -- | A unique identifier for the export task. This ID isn\'t an identifier
+    -- for the Amazon S3 bucket where the data is to be exported.
     exportTaskIdentifier :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the snapshot to export to Amazon S3.
+    -- | The Amazon Resource Name (ARN) of the snapshot or cluster to export to
+    -- Amazon S3.
     sourceArn :: Prelude.Text,
-    -- | The name of the Amazon S3 bucket to export the snapshot to.
+    -- | The name of the Amazon S3 bucket to export the snapshot or cluster data
+    -- to.
     s3BucketName :: Prelude.Text,
     -- | The name of the IAM role to use for writing to the Amazon S3 bucket when
-    -- exporting a snapshot.
+    -- exporting a snapshot or cluster.
+    --
+    -- In the IAM policy attached to your IAM role, include the following
+    -- required actions to allow the transfer of files from Amazon RDS or
+    -- Amazon Aurora to an S3 bucket:
+    --
+    -- -   s3:PutObject*
+    --
+    -- -   s3:GetObject*
+    --
+    -- -   s3:ListBucket
+    --
+    -- -   s3:DeleteObject*
+    --
+    -- -   s3:GetBucketLocation
+    --
+    -- In the policy, include the resources to identify the S3 bucket and
+    -- objects in the bucket. The following list of resources shows the Amazon
+    -- Resource Name (ARN) format for accessing S3:
+    --
+    -- -   @arn:aws:s3:::@/@your-s3-bucket@/@ @
+    --
+    -- -   @arn:aws:s3:::@/@your-s3-bucket@/@\/*@
     iamRoleArn :: Prelude.Text,
-    -- | The ID of the Amazon Web Services KMS key to use to encrypt the snapshot
+    -- | The ID of the Amazon Web Services KMS key to use to encrypt the data
     -- exported to Amazon S3. The Amazon Web Services KMS key identifier is the
     -- key ARN, key ID, alias ARN, or alias name for the KMS key. The caller of
     -- this operation must be authorized to run the following operations. These
@@ -139,39 +174,62 @@ data StartExportTask = StartExportTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'exportOnly', 'startExportTask_exportOnly' - The data to be exported from the snapshot. If this parameter is not
--- provided, all the snapshot data is exported. Valid values are the
+-- 'exportOnly', 'startExportTask_exportOnly' - The data to be exported from the snapshot or cluster. If this parameter
+-- is not provided, all of the data is exported. Valid values are the
 -- following:
 --
 -- -   @database@ - Export all the data from a specified database.
 --
--- -   @database.table@ /table-name/ - Export a table of the snapshot. This
---     format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora
---     MySQL.
+-- -   @database.table@ /table-name/ - Export a table of the snapshot or
+--     cluster. This format is valid only for RDS for MySQL, RDS for
+--     MariaDB, and Aurora MySQL.
 --
 -- -   @database.schema@ /schema-name/ - Export a database schema of the
---     snapshot. This format is valid only for RDS for PostgreSQL and
---     Aurora PostgreSQL.
+--     snapshot or cluster. This format is valid only for RDS for
+--     PostgreSQL and Aurora PostgreSQL.
 --
 -- -   @database.schema.table@ /table-name/ - Export a table of the
 --     database schema. This format is valid only for RDS for PostgreSQL
 --     and Aurora PostgreSQL.
 --
 -- 's3Prefix', 'startExportTask_s3Prefix' - The Amazon S3 bucket prefix to use as the file name and path of the
--- exported snapshot.
+-- exported data.
 --
--- 'exportTaskIdentifier', 'startExportTask_exportTaskIdentifier' - A unique identifier for the snapshot export task. This ID isn\'t an
--- identifier for the Amazon S3 bucket where the snapshot is to be exported
+-- 'exportTaskIdentifier', 'startExportTask_exportTaskIdentifier' - A unique identifier for the export task. This ID isn\'t an identifier
+-- for the Amazon S3 bucket where the data is to be exported.
+--
+-- 'sourceArn', 'startExportTask_sourceArn' - The Amazon Resource Name (ARN) of the snapshot or cluster to export to
+-- Amazon S3.
+--
+-- 's3BucketName', 'startExportTask_s3BucketName' - The name of the Amazon S3 bucket to export the snapshot or cluster data
 -- to.
 --
--- 'sourceArn', 'startExportTask_sourceArn' - The Amazon Resource Name (ARN) of the snapshot to export to Amazon S3.
---
--- 's3BucketName', 'startExportTask_s3BucketName' - The name of the Amazon S3 bucket to export the snapshot to.
---
 -- 'iamRoleArn', 'startExportTask_iamRoleArn' - The name of the IAM role to use for writing to the Amazon S3 bucket when
--- exporting a snapshot.
+-- exporting a snapshot or cluster.
 --
--- 'kmsKeyId', 'startExportTask_kmsKeyId' - The ID of the Amazon Web Services KMS key to use to encrypt the snapshot
+-- In the IAM policy attached to your IAM role, include the following
+-- required actions to allow the transfer of files from Amazon RDS or
+-- Amazon Aurora to an S3 bucket:
+--
+-- -   s3:PutObject*
+--
+-- -   s3:GetObject*
+--
+-- -   s3:ListBucket
+--
+-- -   s3:DeleteObject*
+--
+-- -   s3:GetBucketLocation
+--
+-- In the policy, include the resources to identify the S3 bucket and
+-- objects in the bucket. The following list of resources shows the Amazon
+-- Resource Name (ARN) format for accessing S3:
+--
+-- -   @arn:aws:s3:::@/@your-s3-bucket@/@ @
+--
+-- -   @arn:aws:s3:::@/@your-s3-bucket@/@\/*@
+--
+-- 'kmsKeyId', 'startExportTask_kmsKeyId' - The ID of the Amazon Web Services KMS key to use to encrypt the data
 -- exported to Amazon S3. The Amazon Web Services KMS key identifier is the
 -- key ARN, key ID, alias ARN, or alias name for the KMS key. The caller of
 -- this operation must be authorized to run the following operations. These
@@ -222,19 +280,19 @@ newStartExportTask
         kmsKeyId = pKmsKeyId_
       }
 
--- | The data to be exported from the snapshot. If this parameter is not
--- provided, all the snapshot data is exported. Valid values are the
+-- | The data to be exported from the snapshot or cluster. If this parameter
+-- is not provided, all of the data is exported. Valid values are the
 -- following:
 --
 -- -   @database@ - Export all the data from a specified database.
 --
--- -   @database.table@ /table-name/ - Export a table of the snapshot. This
---     format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora
---     MySQL.
+-- -   @database.table@ /table-name/ - Export a table of the snapshot or
+--     cluster. This format is valid only for RDS for MySQL, RDS for
+--     MariaDB, and Aurora MySQL.
 --
 -- -   @database.schema@ /schema-name/ - Export a database schema of the
---     snapshot. This format is valid only for RDS for PostgreSQL and
---     Aurora PostgreSQL.
+--     snapshot or cluster. This format is valid only for RDS for
+--     PostgreSQL and Aurora PostgreSQL.
 --
 -- -   @database.schema.table@ /table-name/ - Export a table of the
 --     database schema. This format is valid only for RDS for PostgreSQL
@@ -243,30 +301,53 @@ startExportTask_exportOnly :: Lens.Lens' StartExportTask (Prelude.Maybe [Prelude
 startExportTask_exportOnly = Lens.lens (\StartExportTask' {exportOnly} -> exportOnly) (\s@StartExportTask' {} a -> s {exportOnly = a} :: StartExportTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon S3 bucket prefix to use as the file name and path of the
--- exported snapshot.
+-- exported data.
 startExportTask_s3Prefix :: Lens.Lens' StartExportTask (Prelude.Maybe Prelude.Text)
 startExportTask_s3Prefix = Lens.lens (\StartExportTask' {s3Prefix} -> s3Prefix) (\s@StartExportTask' {} a -> s {s3Prefix = a} :: StartExportTask)
 
--- | A unique identifier for the snapshot export task. This ID isn\'t an
--- identifier for the Amazon S3 bucket where the snapshot is to be exported
--- to.
+-- | A unique identifier for the export task. This ID isn\'t an identifier
+-- for the Amazon S3 bucket where the data is to be exported.
 startExportTask_exportTaskIdentifier :: Lens.Lens' StartExportTask Prelude.Text
 startExportTask_exportTaskIdentifier = Lens.lens (\StartExportTask' {exportTaskIdentifier} -> exportTaskIdentifier) (\s@StartExportTask' {} a -> s {exportTaskIdentifier = a} :: StartExportTask)
 
--- | The Amazon Resource Name (ARN) of the snapshot to export to Amazon S3.
+-- | The Amazon Resource Name (ARN) of the snapshot or cluster to export to
+-- Amazon S3.
 startExportTask_sourceArn :: Lens.Lens' StartExportTask Prelude.Text
 startExportTask_sourceArn = Lens.lens (\StartExportTask' {sourceArn} -> sourceArn) (\s@StartExportTask' {} a -> s {sourceArn = a} :: StartExportTask)
 
--- | The name of the Amazon S3 bucket to export the snapshot to.
+-- | The name of the Amazon S3 bucket to export the snapshot or cluster data
+-- to.
 startExportTask_s3BucketName :: Lens.Lens' StartExportTask Prelude.Text
 startExportTask_s3BucketName = Lens.lens (\StartExportTask' {s3BucketName} -> s3BucketName) (\s@StartExportTask' {} a -> s {s3BucketName = a} :: StartExportTask)
 
 -- | The name of the IAM role to use for writing to the Amazon S3 bucket when
--- exporting a snapshot.
+-- exporting a snapshot or cluster.
+--
+-- In the IAM policy attached to your IAM role, include the following
+-- required actions to allow the transfer of files from Amazon RDS or
+-- Amazon Aurora to an S3 bucket:
+--
+-- -   s3:PutObject*
+--
+-- -   s3:GetObject*
+--
+-- -   s3:ListBucket
+--
+-- -   s3:DeleteObject*
+--
+-- -   s3:GetBucketLocation
+--
+-- In the policy, include the resources to identify the S3 bucket and
+-- objects in the bucket. The following list of resources shows the Amazon
+-- Resource Name (ARN) format for accessing S3:
+--
+-- -   @arn:aws:s3:::@/@your-s3-bucket@/@ @
+--
+-- -   @arn:aws:s3:::@/@your-s3-bucket@/@\/*@
 startExportTask_iamRoleArn :: Lens.Lens' StartExportTask Prelude.Text
 startExportTask_iamRoleArn = Lens.lens (\StartExportTask' {iamRoleArn} -> iamRoleArn) (\s@StartExportTask' {} a -> s {iamRoleArn = a} :: StartExportTask)
 
--- | The ID of the Amazon Web Services KMS key to use to encrypt the snapshot
+-- | The ID of the Amazon Web Services KMS key to use to encrypt the data
 -- exported to Amazon S3. The Amazon Web Services KMS key identifier is the
 -- key ARN, key ID, alias ARN, or alias name for the KMS key. The caller of
 -- this operation must be authorized to run the following operations. These
@@ -303,7 +384,8 @@ instance Core.AWSRequest StartExportTask where
 
 instance Prelude.Hashable StartExportTask where
   hashWithSalt _salt StartExportTask' {..} =
-    _salt `Prelude.hashWithSalt` exportOnly
+    _salt
+      `Prelude.hashWithSalt` exportOnly
       `Prelude.hashWithSalt` s3Prefix
       `Prelude.hashWithSalt` exportTaskIdentifier
       `Prelude.hashWithSalt` sourceArn

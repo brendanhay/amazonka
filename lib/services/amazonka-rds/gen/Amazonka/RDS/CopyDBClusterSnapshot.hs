@@ -62,7 +62,7 @@
 -- in the /Amazon Aurora User Guide/.
 --
 -- For more information on Multi-AZ DB clusters, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ DB cluster deployments>
 -- in the /Amazon RDS User Guide/.
 module Amazonka.RDS.CopyDBClusterSnapshot
   ( -- * Creating a Request
@@ -518,7 +518,8 @@ instance Core.AWSRequest CopyDBClusterSnapshot where
 
 instance Prelude.Hashable CopyDBClusterSnapshot where
   hashWithSalt _salt CopyDBClusterSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` copyTags
+    _salt
+      `Prelude.hashWithSalt` copyTags
       `Prelude.hashWithSalt` destinationRegion
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` preSignedUrl

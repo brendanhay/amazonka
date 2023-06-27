@@ -77,7 +77,8 @@ data CreateGlobalCluster = CreateGlobalCluster'
     engine :: Prelude.Maybe Prelude.Text,
     -- | The engine version of the Aurora global database.
     engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | The cluster identifier of the new global database cluster.
+    -- | The cluster identifier of the new global database cluster. This
+    -- parameter is stored as a lowercase string.
     globalClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) to use as the primary cluster of the
     -- global database. This parameter is optional.
@@ -106,7 +107,8 @@ data CreateGlobalCluster = CreateGlobalCluster'
 --
 -- 'engineVersion', 'createGlobalCluster_engineVersion' - The engine version of the Aurora global database.
 --
--- 'globalClusterIdentifier', 'createGlobalCluster_globalClusterIdentifier' - The cluster identifier of the new global database cluster.
+-- 'globalClusterIdentifier', 'createGlobalCluster_globalClusterIdentifier' - The cluster identifier of the new global database cluster. This
+-- parameter is stored as a lowercase string.
 --
 -- 'sourceDBClusterIdentifier', 'createGlobalCluster_sourceDBClusterIdentifier' - The Amazon Resource Name (ARN) to use as the primary cluster of the
 -- global database. This parameter is optional.
@@ -145,7 +147,8 @@ createGlobalCluster_engine = Lens.lens (\CreateGlobalCluster' {engine} -> engine
 createGlobalCluster_engineVersion :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
 createGlobalCluster_engineVersion = Lens.lens (\CreateGlobalCluster' {engineVersion} -> engineVersion) (\s@CreateGlobalCluster' {} a -> s {engineVersion = a} :: CreateGlobalCluster)
 
--- | The cluster identifier of the new global database cluster.
+-- | The cluster identifier of the new global database cluster. This
+-- parameter is stored as a lowercase string.
 createGlobalCluster_globalClusterIdentifier :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
 createGlobalCluster_globalClusterIdentifier = Lens.lens (\CreateGlobalCluster' {globalClusterIdentifier} -> globalClusterIdentifier) (\s@CreateGlobalCluster' {} a -> s {globalClusterIdentifier = a} :: CreateGlobalCluster)
 
@@ -175,7 +178,8 @@ instance Core.AWSRequest CreateGlobalCluster where
 
 instance Prelude.Hashable CreateGlobalCluster where
   hashWithSalt _salt CreateGlobalCluster' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion

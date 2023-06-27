@@ -157,22 +157,22 @@ instance Core.AWSPager DescribeDBSecurityGroups where
     | Core.stop
         ( rs
             Lens.^? describeDBSecurityGroupsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBSecurityGroupsResponse_dbSecurityGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDBSecurityGroups_marker
           Lens..~ rs
           Lens.^? describeDBSecurityGroupsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBSecurityGroups where
   type
@@ -185,7 +185,8 @@ instance Core.AWSRequest DescribeDBSecurityGroups where
       "DescribeDBSecurityGroupsResult"
       ( \s h x ->
           DescribeDBSecurityGroupsResponse'
-            Prelude.<$> ( x Data..@? "DBSecurityGroups"
+            Prelude.<$> ( x
+                            Data..@? "DBSecurityGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "DBSecurityGroup")
                         )
@@ -195,7 +196,8 @@ instance Core.AWSRequest DescribeDBSecurityGroups where
 
 instance Prelude.Hashable DescribeDBSecurityGroups where
   hashWithSalt _salt DescribeDBSecurityGroups' {..} =
-    _salt `Prelude.hashWithSalt` dbSecurityGroupName
+    _salt
+      `Prelude.hashWithSalt` dbSecurityGroupName
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords

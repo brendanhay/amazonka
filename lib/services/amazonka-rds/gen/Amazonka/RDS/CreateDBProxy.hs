@@ -253,7 +253,8 @@ instance Core.AWSRequest CreateDBProxy where
 
 instance Prelude.Hashable CreateDBProxy where
   hashWithSalt _salt CreateDBProxy' {..} =
-    _salt `Prelude.hashWithSalt` debugLogging
+    _salt
+      `Prelude.hashWithSalt` debugLogging
       `Prelude.hashWithSalt` idleClientTimeout
       `Prelude.hashWithSalt` requireTLS
       `Prelude.hashWithSalt` tags

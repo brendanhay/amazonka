@@ -41,6 +41,7 @@ module Amazonka.RDS.RestoreDBInstanceToPointInTime
     newRestoreDBInstanceToPointInTime,
 
     -- * Request Lenses
+    restoreDBInstanceToPointInTime_allocatedStorage,
     restoreDBInstanceToPointInTime_autoMinorVersionUpgrade,
     restoreDBInstanceToPointInTime_availabilityZone,
     restoreDBInstanceToPointInTime_backupTarget,
@@ -102,7 +103,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newRestoreDBInstanceToPointInTime' smart constructor.
 data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
-  { -- | A value that indicates whether minor version upgrades are applied
+  { -- | The amount of storage (in gibibytes) to allocate initially for the DB
+    -- instance. Follow the allocation rules specified in @CreateDBInstance@.
+    --
+    -- Be sure to allocate enough storage for your new DB instance so that the
+    -- restore operation can succeed. You can also allocate additional storage
+    -- for future growth.
+    allocatedStorage :: Prelude.Maybe Prelude.Int,
+    -- | A value that indicates whether minor version upgrades are applied
     -- automatically to the DB instance during the maintenance window.
     --
     -- This setting doesn\'t apply to RDS Custom.
@@ -453,6 +461,13 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'allocatedStorage', 'restoreDBInstanceToPointInTime_allocatedStorage' - The amount of storage (in gibibytes) to allocate initially for the DB
+-- instance. Follow the allocation rules specified in @CreateDBInstance@.
+--
+-- Be sure to allocate enough storage for your new DB instance so that the
+-- restore operation can succeed. You can also allocate additional storage
+-- for future growth.
+--
 -- 'autoMinorVersionUpgrade', 'restoreDBInstanceToPointInTime_autoMinorVersionUpgrade' - A value that indicates whether minor version upgrades are applied
 -- automatically to the DB instance during the maintenance window.
 --
@@ -800,8 +815,9 @@ newRestoreDBInstanceToPointInTime ::
 newRestoreDBInstanceToPointInTime
   pTargetDBInstanceIdentifier_ =
     RestoreDBInstanceToPointInTime'
-      { autoMinorVersionUpgrade =
+      { allocatedStorage =
           Prelude.Nothing,
+        autoMinorVersionUpgrade = Prelude.Nothing,
         availabilityZone = Prelude.Nothing,
         backupTarget = Prelude.Nothing,
         copyTagsToSnapshot = Prelude.Nothing,
@@ -846,6 +862,15 @@ newRestoreDBInstanceToPointInTime
         targetDBInstanceIdentifier =
           pTargetDBInstanceIdentifier_
       }
+
+-- | The amount of storage (in gibibytes) to allocate initially for the DB
+-- instance. Follow the allocation rules specified in @CreateDBInstance@.
+--
+-- Be sure to allocate enough storage for your new DB instance so that the
+-- restore operation can succeed. You can also allocate additional storage
+-- for future growth.
+restoreDBInstanceToPointInTime_allocatedStorage :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Int)
+restoreDBInstanceToPointInTime_allocatedStorage = Lens.lens (\RestoreDBInstanceToPointInTime' {allocatedStorage} -> allocatedStorage) (\s@RestoreDBInstanceToPointInTime' {} a -> s {allocatedStorage = a} :: RestoreDBInstanceToPointInTime)
 
 -- | A value that indicates whether minor version upgrades are applied
 -- automatically to the DB instance during the maintenance window.
@@ -1290,6 +1315,7 @@ instance
     _salt
     RestoreDBInstanceToPointInTime' {..} =
       _salt
+        `Prelude.hashWithSalt` allocatedStorage
         `Prelude.hashWithSalt` autoMinorVersionUpgrade
         `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` backupTarget
@@ -1334,7 +1360,8 @@ instance
     RestoreDBInstanceToPointInTime
   where
   rnf RestoreDBInstanceToPointInTime' {..} =
-    Prelude.rnf autoMinorVersionUpgrade
+    Prelude.rnf allocatedStorage
+      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf backupTarget
       `Prelude.seq` Prelude.rnf copyTagsToSnapshot
@@ -1353,7 +1380,8 @@ instance
       `Prelude.seq` Prelude.rnf engine
       `Prelude.seq` Prelude.rnf iops
       `Prelude.seq` Prelude.rnf licenseModel
-      `Prelude.seq` Prelude.rnf maxAllocatedStorage
+      `Prelude.seq` Prelude.rnf
+        maxAllocatedStorage
       `Prelude.seq` Prelude.rnf multiAZ
       `Prelude.seq` Prelude.rnf networkType
       `Prelude.seq` Prelude.rnf
@@ -1408,6 +1436,7 @@ instance Data.ToQuery RestoreDBInstanceToPointInTime where
                   ),
         "Version"
           Data.=: ("2014-10-31" :: Prelude.ByteString),
+        "AllocatedStorage" Data.=: allocatedStorage,
         "AutoMinorVersionUpgrade"
           Data.=: autoMinorVersionUpgrade,
         "AvailabilityZone" Data.=: availabilityZone,

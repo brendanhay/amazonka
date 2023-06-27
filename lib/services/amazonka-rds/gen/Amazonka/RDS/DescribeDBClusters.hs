@@ -20,15 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about Amazon Aurora DB clusters and Multi-AZ DB
--- clusters. This API supports pagination.
+-- Describes existing Amazon Aurora DB clusters and Multi-AZ DB clusters.
+-- This API supports pagination.
 --
 -- For more information on Amazon Aurora DB clusters, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What is Amazon Aurora?>
 -- in the /Amazon Aurora User Guide/.
 --
 -- For more information on Multi-AZ DB clusters, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ DB cluster deployments>
 -- in the /Amazon RDS User Guide/.
 --
 -- This operation can also return information for Amazon Neptune DB
@@ -71,17 +71,17 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newDescribeDBClusters' smart constructor.
 data DescribeDBClusters = DescribeDBClusters'
   { -- | The user-supplied DB cluster identifier or the Amazon Resource Name
-    -- (ARN) of the DB cluster. If this parameter is specified, information
-    -- from only the specific DB cluster is returned. This parameter isn\'t
+    -- (ARN) of the DB cluster. If this parameter is specified, information for
+    -- only the specific DB cluster is returned. This parameter isn\'t
     -- case-sensitive.
     --
     -- Constraints:
     --
-    -- -   If supplied, must match an existing DBClusterIdentifier.
+    -- -   If supplied, must match an existing DB cluster identifier.
     dbClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A filter that specifies one or more DB clusters to describe.
     --
-    -- Supported filters:
+    -- Supported Filters:
     --
     -- -   @clone-group-id@ - Accepts clone group identifiers. The results list
     --     only includes information about the DB clusters associated with
@@ -91,6 +91,10 @@ data DescribeDBClusters = DescribeDBClusters'
     --     Amazon Resource Names (ARNs). The results list only includes
     --     information about the DB clusters identified by these ARNs.
     --
+    -- -   @db-cluster-resource-id@ - Accepts DB cluster resource identifiers.
+    --     The results list will only include information about the DB clusters
+    --     identified by these DB cluster resource identifiers.
+    --
     -- -   @domain@ - Accepts Active Directory directory IDs. The results list
     --     only includes information about the DB clusters associated with
     --     these domains.
@@ -98,9 +102,8 @@ data DescribeDBClusters = DescribeDBClusters'
     -- -   @engine@ - Accepts engine names. The results list only includes
     --     information about the DB clusters for these engines.
     filters :: Prelude.Maybe [Filter],
-    -- | Optional Boolean parameter that specifies whether the output includes
-    -- information about clusters shared from other Amazon Web Services
-    -- accounts.
+    -- | Specifies whether the output includes information about clusters shared
+    -- from other Amazon Web Services accounts.
     includeShared :: Prelude.Maybe Prelude.Bool,
     -- | An optional pagination token provided by a previous @DescribeDBClusters@
     -- request. If this parameter is specified, the response includes only
@@ -127,17 +130,17 @@ data DescribeDBClusters = DescribeDBClusters'
 -- for backwards compatibility:
 --
 -- 'dbClusterIdentifier', 'describeDBClusters_dbClusterIdentifier' - The user-supplied DB cluster identifier or the Amazon Resource Name
--- (ARN) of the DB cluster. If this parameter is specified, information
--- from only the specific DB cluster is returned. This parameter isn\'t
+-- (ARN) of the DB cluster. If this parameter is specified, information for
+-- only the specific DB cluster is returned. This parameter isn\'t
 -- case-sensitive.
 --
 -- Constraints:
 --
--- -   If supplied, must match an existing DBClusterIdentifier.
+-- -   If supplied, must match an existing DB cluster identifier.
 --
 -- 'filters', 'describeDBClusters_filters' - A filter that specifies one or more DB clusters to describe.
 --
--- Supported filters:
+-- Supported Filters:
 --
 -- -   @clone-group-id@ - Accepts clone group identifiers. The results list
 --     only includes information about the DB clusters associated with
@@ -147,6 +150,10 @@ data DescribeDBClusters = DescribeDBClusters'
 --     Amazon Resource Names (ARNs). The results list only includes
 --     information about the DB clusters identified by these ARNs.
 --
+-- -   @db-cluster-resource-id@ - Accepts DB cluster resource identifiers.
+--     The results list will only include information about the DB clusters
+--     identified by these DB cluster resource identifiers.
+--
 -- -   @domain@ - Accepts Active Directory directory IDs. The results list
 --     only includes information about the DB clusters associated with
 --     these domains.
@@ -154,9 +161,8 @@ data DescribeDBClusters = DescribeDBClusters'
 -- -   @engine@ - Accepts engine names. The results list only includes
 --     information about the DB clusters for these engines.
 --
--- 'includeShared', 'describeDBClusters_includeShared' - Optional Boolean parameter that specifies whether the output includes
--- information about clusters shared from other Amazon Web Services
--- accounts.
+-- 'includeShared', 'describeDBClusters_includeShared' - Specifies whether the output includes information about clusters shared
+-- from other Amazon Web Services accounts.
 --
 -- 'marker', 'describeDBClusters_marker' - An optional pagination token provided by a previous @DescribeDBClusters@
 -- request. If this parameter is specified, the response includes only
@@ -183,19 +189,19 @@ newDescribeDBClusters =
     }
 
 -- | The user-supplied DB cluster identifier or the Amazon Resource Name
--- (ARN) of the DB cluster. If this parameter is specified, information
--- from only the specific DB cluster is returned. This parameter isn\'t
+-- (ARN) of the DB cluster. If this parameter is specified, information for
+-- only the specific DB cluster is returned. This parameter isn\'t
 -- case-sensitive.
 --
 -- Constraints:
 --
--- -   If supplied, must match an existing DBClusterIdentifier.
+-- -   If supplied, must match an existing DB cluster identifier.
 describeDBClusters_dbClusterIdentifier :: Lens.Lens' DescribeDBClusters (Prelude.Maybe Prelude.Text)
 describeDBClusters_dbClusterIdentifier = Lens.lens (\DescribeDBClusters' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@DescribeDBClusters' {} a -> s {dbClusterIdentifier = a} :: DescribeDBClusters)
 
 -- | A filter that specifies one or more DB clusters to describe.
 --
--- Supported filters:
+-- Supported Filters:
 --
 -- -   @clone-group-id@ - Accepts clone group identifiers. The results list
 --     only includes information about the DB clusters associated with
@@ -204,6 +210,10 @@ describeDBClusters_dbClusterIdentifier = Lens.lens (\DescribeDBClusters' {dbClus
 -- -   @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster
 --     Amazon Resource Names (ARNs). The results list only includes
 --     information about the DB clusters identified by these ARNs.
+--
+-- -   @db-cluster-resource-id@ - Accepts DB cluster resource identifiers.
+--     The results list will only include information about the DB clusters
+--     identified by these DB cluster resource identifiers.
 --
 -- -   @domain@ - Accepts Active Directory directory IDs. The results list
 --     only includes information about the DB clusters associated with
@@ -214,9 +224,8 @@ describeDBClusters_dbClusterIdentifier = Lens.lens (\DescribeDBClusters' {dbClus
 describeDBClusters_filters :: Lens.Lens' DescribeDBClusters (Prelude.Maybe [Filter])
 describeDBClusters_filters = Lens.lens (\DescribeDBClusters' {filters} -> filters) (\s@DescribeDBClusters' {} a -> s {filters = a} :: DescribeDBClusters) Prelude.. Lens.mapping Lens.coerced
 
--- | Optional Boolean parameter that specifies whether the output includes
--- information about clusters shared from other Amazon Web Services
--- accounts.
+-- | Specifies whether the output includes information about clusters shared
+-- from other Amazon Web Services accounts.
 describeDBClusters_includeShared :: Lens.Lens' DescribeDBClusters (Prelude.Maybe Prelude.Bool)
 describeDBClusters_includeShared = Lens.lens (\DescribeDBClusters' {includeShared} -> includeShared) (\s@DescribeDBClusters' {} a -> s {includeShared = a} :: DescribeDBClusters)
 
@@ -242,22 +251,22 @@ instance Core.AWSPager DescribeDBClusters where
     | Core.stop
         ( rs
             Lens.^? describeDBClustersResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBClustersResponse_dbClusters
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDBClusters_marker
           Lens..~ rs
           Lens.^? describeDBClustersResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBClusters where
   type
@@ -270,7 +279,9 @@ instance Core.AWSRequest DescribeDBClusters where
       "DescribeDBClustersResult"
       ( \s h x ->
           DescribeDBClustersResponse'
-            Prelude.<$> ( x Data..@? "DBClusters" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "DBClusters"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "DBCluster")
                         )
             Prelude.<*> (x Data..@? "Marker")
@@ -279,7 +290,8 @@ instance Core.AWSRequest DescribeDBClusters where
 
 instance Prelude.Hashable DescribeDBClusters where
   hashWithSalt _salt DescribeDBClusters' {..} =
-    _salt `Prelude.hashWithSalt` dbClusterIdentifier
+    _salt
+      `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` includeShared
       `Prelude.hashWithSalt` marker
@@ -322,7 +334,7 @@ instance Data.ToQuery DescribeDBClusters where
 data DescribeDBClustersResponse = DescribeDBClustersResponse'
   { -- | Contains a list of DB clusters for the user.
     dbClusters :: Prelude.Maybe [DBCluster],
-    -- | A pagination token that can be used in a later DescribeDBClusters
+    -- | A pagination token that can be used in a later @DescribeDBClusters@
     -- request.
     marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -340,7 +352,7 @@ data DescribeDBClustersResponse = DescribeDBClustersResponse'
 --
 -- 'dbClusters', 'describeDBClustersResponse_dbClusters' - Contains a list of DB clusters for the user.
 --
--- 'marker', 'describeDBClustersResponse_marker' - A pagination token that can be used in a later DescribeDBClusters
+-- 'marker', 'describeDBClustersResponse_marker' - A pagination token that can be used in a later @DescribeDBClusters@
 -- request.
 --
 -- 'httpStatus', 'describeDBClustersResponse_httpStatus' - The response's http status code.
@@ -360,7 +372,7 @@ newDescribeDBClustersResponse pHttpStatus_ =
 describeDBClustersResponse_dbClusters :: Lens.Lens' DescribeDBClustersResponse (Prelude.Maybe [DBCluster])
 describeDBClustersResponse_dbClusters = Lens.lens (\DescribeDBClustersResponse' {dbClusters} -> dbClusters) (\s@DescribeDBClustersResponse' {} a -> s {dbClusters = a} :: DescribeDBClustersResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A pagination token that can be used in a later DescribeDBClusters
+-- | A pagination token that can be used in a later @DescribeDBClusters@
 -- request.
 describeDBClustersResponse_marker :: Lens.Lens' DescribeDBClustersResponse (Prelude.Maybe Prelude.Text)
 describeDBClustersResponse_marker = Lens.lens (\DescribeDBClustersResponse' {marker} -> marker) (\s@DescribeDBClustersResponse' {} a -> s {marker = a} :: DescribeDBClustersResponse)

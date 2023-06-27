@@ -96,6 +96,10 @@ data DBClusterSnapshot = DBClusterSnapshot'
     status :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the DB cluster snapshot is encrypted.
     storageEncrypted :: Prelude.Maybe Prelude.Bool,
+    -- | The storage type associated with the DB cluster snapshot.
+    --
+    -- This setting is only for Aurora DB clusters.
+    storageType :: Prelude.Maybe Prelude.Text,
     tagList :: Prelude.Maybe [Tag],
     -- | Provides the VPC ID associated with the DB cluster snapshot.
     vpcId :: Prelude.Maybe Prelude.Text
@@ -174,6 +178,10 @@ data DBClusterSnapshot = DBClusterSnapshot'
 --
 -- 'storageEncrypted', 'dbClusterSnapshot_storageEncrypted' - Specifies whether the DB cluster snapshot is encrypted.
 --
+-- 'storageType', 'dbClusterSnapshot_storageType' - The storage type associated with the DB cluster snapshot.
+--
+-- This setting is only for Aurora DB clusters.
+--
 -- 'tagList', 'dbClusterSnapshot_tagList' - Undocumented member.
 --
 -- 'vpcId', 'dbClusterSnapshot_vpcId' - Provides the VPC ID associated with the DB cluster snapshot.
@@ -203,6 +211,7 @@ newDBClusterSnapshot =
       sourceDBClusterSnapshotArn = Prelude.Nothing,
       status = Prelude.Nothing,
       storageEncrypted = Prelude.Nothing,
+      storageType = Prelude.Nothing,
       tagList = Prelude.Nothing,
       vpcId = Prelude.Nothing
     }
@@ -313,6 +322,12 @@ dbClusterSnapshot_status = Lens.lens (\DBClusterSnapshot' {status} -> status) (\
 dbClusterSnapshot_storageEncrypted :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.Bool)
 dbClusterSnapshot_storageEncrypted = Lens.lens (\DBClusterSnapshot' {storageEncrypted} -> storageEncrypted) (\s@DBClusterSnapshot' {} a -> s {storageEncrypted = a} :: DBClusterSnapshot)
 
+-- | The storage type associated with the DB cluster snapshot.
+--
+-- This setting is only for Aurora DB clusters.
+dbClusterSnapshot_storageType :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.Text)
+dbClusterSnapshot_storageType = Lens.lens (\DBClusterSnapshot' {storageType} -> storageType) (\s@DBClusterSnapshot' {} a -> s {storageType = a} :: DBClusterSnapshot)
+
 -- | Undocumented member.
 dbClusterSnapshot_tagList :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe [Tag])
 dbClusterSnapshot_tagList = Lens.lens (\DBClusterSnapshot' {tagList} -> tagList) (\s@DBClusterSnapshot' {} a -> s {tagList = a} :: DBClusterSnapshot) Prelude.. Lens.mapping Lens.coerced
@@ -325,7 +340,8 @@ instance Data.FromXML DBClusterSnapshot where
   parseXML x =
     DBClusterSnapshot'
       Prelude.<$> (x Data..@? "AllocatedStorage")
-      Prelude.<*> ( x Data..@? "AvailabilityZones"
+      Prelude.<*> ( x
+                      Data..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "AvailabilityZone")
                   )
@@ -348,14 +364,18 @@ instance Data.FromXML DBClusterSnapshot where
       Prelude.<*> (x Data..@? "SourceDBClusterSnapshotArn")
       Prelude.<*> (x Data..@? "Status")
       Prelude.<*> (x Data..@? "StorageEncrypted")
-      Prelude.<*> ( x Data..@? "TagList" Core..!@ Prelude.mempty
+      Prelude.<*> (x Data..@? "StorageType")
+      Prelude.<*> ( x
+                      Data..@? "TagList"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
       Prelude.<*> (x Data..@? "VpcId")
 
 instance Prelude.Hashable DBClusterSnapshot where
   hashWithSalt _salt DBClusterSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` clusterCreateTime
       `Prelude.hashWithSalt` dbClusterIdentifier
@@ -376,6 +396,7 @@ instance Prelude.Hashable DBClusterSnapshot where
       `Prelude.hashWithSalt` sourceDBClusterSnapshotArn
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` storageEncrypted
+      `Prelude.hashWithSalt` storageType
       `Prelude.hashWithSalt` tagList
       `Prelude.hashWithSalt` vpcId
 
@@ -403,5 +424,6 @@ instance Prelude.NFData DBClusterSnapshot where
         sourceDBClusterSnapshotArn
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf storageEncrypted
+      `Prelude.seq` Prelude.rnf storageType
       `Prelude.seq` Prelude.rnf tagList
       `Prelude.seq` Prelude.rnf vpcId

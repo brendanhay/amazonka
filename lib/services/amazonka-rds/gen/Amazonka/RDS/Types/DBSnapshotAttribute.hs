@@ -104,13 +104,16 @@ instance Data.FromXML DBSnapshotAttribute where
   parseXML x =
     DBSnapshotAttribute'
       Prelude.<$> (x Data..@? "AttributeName")
-      Prelude.<*> ( x Data..@? "AttributeValues" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "AttributeValues"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "AttributeValue")
                   )
 
 instance Prelude.Hashable DBSnapshotAttribute where
   hashWithSalt _salt DBSnapshotAttribute' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` attributeValues
 
 instance Prelude.NFData DBSnapshotAttribute where

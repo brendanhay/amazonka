@@ -162,7 +162,8 @@ instance Data.FromXML DBProxyTarget where
 
 instance Prelude.Hashable DBProxyTarget where
   hashWithSalt _salt DBProxyTarget' {..} =
-    _salt `Prelude.hashWithSalt` endpoint
+    _salt
+      `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` rdsResourceId
       `Prelude.hashWithSalt` role'

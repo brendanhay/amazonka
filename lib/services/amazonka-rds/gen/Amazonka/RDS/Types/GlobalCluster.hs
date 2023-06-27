@@ -48,8 +48,8 @@ data GlobalCluster = GlobalCluster'
     -- | Contains a user-supplied global database cluster identifier. This
     -- identifier is the unique key that identifies a global database cluster.
     globalClusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The list of cluster IDs for secondary clusters within the global
-    -- database cluster. Currently limited to 1 item.
+    -- | The list of primary and secondary clusters within the global database
+    -- cluster.
     globalClusterMembers :: Prelude.Maybe [GlobalClusterMember],
     -- | The Amazon Web Services Region-unique, immutable identifier for the
     -- global database cluster. This identifier is found in Amazon Web Services
@@ -89,8 +89,8 @@ data GlobalCluster = GlobalCluster'
 -- 'globalClusterIdentifier', 'globalCluster_globalClusterIdentifier' - Contains a user-supplied global database cluster identifier. This
 -- identifier is the unique key that identifies a global database cluster.
 --
--- 'globalClusterMembers', 'globalCluster_globalClusterMembers' - The list of cluster IDs for secondary clusters within the global
--- database cluster. Currently limited to 1 item.
+-- 'globalClusterMembers', 'globalCluster_globalClusterMembers' - The list of primary and secondary clusters within the global database
+-- cluster.
 --
 -- 'globalClusterResourceId', 'globalCluster_globalClusterResourceId' - The Amazon Web Services Region-unique, immutable identifier for the
 -- global database cluster. This identifier is found in Amazon Web Services
@@ -149,8 +149,8 @@ globalCluster_globalClusterArn = Lens.lens (\GlobalCluster' {globalClusterArn} -
 globalCluster_globalClusterIdentifier :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
 globalCluster_globalClusterIdentifier = Lens.lens (\GlobalCluster' {globalClusterIdentifier} -> globalClusterIdentifier) (\s@GlobalCluster' {} a -> s {globalClusterIdentifier = a} :: GlobalCluster)
 
--- | The list of cluster IDs for secondary clusters within the global
--- database cluster. Currently limited to 1 item.
+-- | The list of primary and secondary clusters within the global database
+-- cluster.
 globalCluster_globalClusterMembers :: Lens.Lens' GlobalCluster (Prelude.Maybe [GlobalClusterMember])
 globalCluster_globalClusterMembers = Lens.lens (\GlobalCluster' {globalClusterMembers} -> globalClusterMembers) (\s@GlobalCluster' {} a -> s {globalClusterMembers = a} :: GlobalCluster) Prelude.. Lens.mapping Lens.coerced
 
@@ -179,7 +179,8 @@ instance Data.FromXML GlobalCluster where
       Prelude.<*> (x Data..@? "FailoverState")
       Prelude.<*> (x Data..@? "GlobalClusterArn")
       Prelude.<*> (x Data..@? "GlobalClusterIdentifier")
-      Prelude.<*> ( x Data..@? "GlobalClusterMembers"
+      Prelude.<*> ( x
+                      Data..@? "GlobalClusterMembers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "GlobalClusterMember")
                   )
@@ -189,7 +190,8 @@ instance Data.FromXML GlobalCluster where
 
 instance Prelude.Hashable GlobalCluster where
   hashWithSalt _salt GlobalCluster' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` deletionProtection
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion

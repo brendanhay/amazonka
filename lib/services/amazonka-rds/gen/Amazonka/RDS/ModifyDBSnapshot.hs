@@ -66,6 +66,12 @@ data ModifyDBSnapshot = ModifyDBSnapshot'
     --
     -- __Oracle__
     --
+    -- -   @19.0.0.0.ru-2022-01.rur-2022-01.r1@ (supported for 12.2.0.1 DB
+    --     snapshots)
+    --
+    -- -   @19.0.0.0.ru-2022-07.rur-2022-07.r1@ (supported for 12.1.0.2 DB
+    --     snapshots)
+    --
     -- -   @12.1.0.2.v8@ (supported for 12.1.0.1 DB snapshots)
     --
     -- -   @11.2.0.4.v12@ (supported for 11.2.0.2 DB snapshots)
@@ -110,6 +116,12 @@ data ModifyDBSnapshot = ModifyDBSnapshot'
 --
 -- __Oracle__
 --
+-- -   @19.0.0.0.ru-2022-01.rur-2022-01.r1@ (supported for 12.2.0.1 DB
+--     snapshots)
+--
+-- -   @19.0.0.0.ru-2022-07.rur-2022-07.r1@ (supported for 12.1.0.2 DB
+--     snapshots)
+--
 -- -   @12.1.0.2.v8@ (supported for 12.1.0.1 DB snapshots)
 --
 -- -   @11.2.0.4.v12@ (supported for 11.2.0.2 DB snapshots)
@@ -152,6 +164,12 @@ newModifyDBSnapshot pDBSnapshotIdentifier_ =
 -- -   @5.5.46@ (supported for 5.1 DB snapshots)
 --
 -- __Oracle__
+--
+-- -   @19.0.0.0.ru-2022-01.rur-2022-01.r1@ (supported for 12.2.0.1 DB
+--     snapshots)
+--
+-- -   @19.0.0.0.ru-2022-07.rur-2022-07.r1@ (supported for 12.1.0.2 DB
+--     snapshots)
 --
 -- -   @12.1.0.2.v8@ (supported for 12.1.0.1 DB snapshots)
 --
@@ -198,7 +216,8 @@ instance Core.AWSRequest ModifyDBSnapshot where
 
 instance Prelude.Hashable ModifyDBSnapshot where
   hashWithSalt _salt ModifyDBSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` engineVersion
+    _salt
+      `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` optionGroupName
       `Prelude.hashWithSalt` dbSnapshotIdentifier
 

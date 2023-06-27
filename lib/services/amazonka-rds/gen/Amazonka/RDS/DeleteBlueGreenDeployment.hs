@@ -57,7 +57,10 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeleteBlueGreenDeployment' smart constructor.
 data DeleteBlueGreenDeployment = DeleteBlueGreenDeployment'
   { -- | A value that indicates whether to delete the resources in the green
-    -- environment.
+    -- environment. You can\'t specify this option if the blue\/green
+    -- deployment
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_BlueGreenDeployment.html status>
+    -- is @SWITCHOVER_COMPLETED@.
     deleteTarget :: Prelude.Maybe Prelude.Bool,
     -- | The blue\/green deployment identifier of the deployment to be deleted.
     -- This parameter isn\'t case-sensitive.
@@ -78,7 +81,10 @@ data DeleteBlueGreenDeployment = DeleteBlueGreenDeployment'
 -- for backwards compatibility:
 --
 -- 'deleteTarget', 'deleteBlueGreenDeployment_deleteTarget' - A value that indicates whether to delete the resources in the green
--- environment.
+-- environment. You can\'t specify this option if the blue\/green
+-- deployment
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_BlueGreenDeployment.html status>
+-- is @SWITCHOVER_COMPLETED@.
 --
 -- 'blueGreenDeploymentIdentifier', 'deleteBlueGreenDeployment_blueGreenDeploymentIdentifier' - The blue\/green deployment identifier of the deployment to be deleted.
 -- This parameter isn\'t case-sensitive.
@@ -100,7 +106,10 @@ newDeleteBlueGreenDeployment
       }
 
 -- | A value that indicates whether to delete the resources in the green
--- environment.
+-- environment. You can\'t specify this option if the blue\/green
+-- deployment
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_BlueGreenDeployment.html status>
+-- is @SWITCHOVER_COMPLETED@.
 deleteBlueGreenDeployment_deleteTarget :: Lens.Lens' DeleteBlueGreenDeployment (Prelude.Maybe Prelude.Bool)
 deleteBlueGreenDeployment_deleteTarget = Lens.lens (\DeleteBlueGreenDeployment' {deleteTarget} -> deleteTarget) (\s@DeleteBlueGreenDeployment' {} a -> s {deleteTarget = a} :: DeleteBlueGreenDeployment)
 
@@ -130,7 +139,8 @@ instance Core.AWSRequest DeleteBlueGreenDeployment where
 
 instance Prelude.Hashable DeleteBlueGreenDeployment where
   hashWithSalt _salt DeleteBlueGreenDeployment' {..} =
-    _salt `Prelude.hashWithSalt` deleteTarget
+    _salt
+      `Prelude.hashWithSalt` deleteTarget
       `Prelude.hashWithSalt` blueGreenDeploymentIdentifier
 
 instance Prelude.NFData DeleteBlueGreenDeployment where

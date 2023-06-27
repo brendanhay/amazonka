@@ -154,7 +154,8 @@ instance Data.FromJSON Recommendation where
 
 instance Prelude.Hashable Recommendation where
   hashWithSalt _salt Recommendation' {..} =
-    _salt `Prelude.hashWithSalt` allMatchesCount
+    _salt
+      `Prelude.hashWithSalt` allMatchesCount
       `Prelude.hashWithSalt` allMatchesSum
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` pattern'

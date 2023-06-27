@@ -139,7 +139,8 @@ instance Core.AWSRequest SubmitFeedback where
 
 instance Prelude.Hashable SubmitFeedback where
   hashWithSalt _salt SubmitFeedback' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` anomalyInstanceId
       `Prelude.hashWithSalt` profilingGroupName
       `Prelude.hashWithSalt` type'

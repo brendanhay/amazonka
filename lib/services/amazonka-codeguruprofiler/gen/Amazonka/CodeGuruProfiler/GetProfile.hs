@@ -213,7 +213,8 @@ instance Core.AWSRequest GetProfile where
 
 instance Prelude.Hashable GetProfile where
   hashWithSalt _salt GetProfile' {..} =
-    _salt `Prelude.hashWithSalt` accept
+    _salt
+      `Prelude.hashWithSalt` accept
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` maxDepth
       `Prelude.hashWithSalt` period

@@ -167,7 +167,8 @@ instance
           GetFindingsReportAccountSummaryResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "reportSummaries"
+            Prelude.<*> ( x
+                            Data..?> "reportSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -179,7 +180,8 @@ instance
   hashWithSalt
     _salt
     GetFindingsReportAccountSummary' {..} =
-      _salt `Prelude.hashWithSalt` dailyReportsOnly
+      _salt
+        `Prelude.hashWithSalt` dailyReportsOnly
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
 

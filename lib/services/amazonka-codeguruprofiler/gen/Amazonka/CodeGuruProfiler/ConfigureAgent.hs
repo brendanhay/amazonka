@@ -207,7 +207,8 @@ instance Core.AWSRequest ConfigureAgent where
 
 instance Prelude.Hashable ConfigureAgent where
   hashWithSalt _salt ConfigureAgent' {..} =
-    _salt `Prelude.hashWithSalt` fleetInstanceId
+    _salt
+      `Prelude.hashWithSalt` fleetInstanceId
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` profilingGroupName
 

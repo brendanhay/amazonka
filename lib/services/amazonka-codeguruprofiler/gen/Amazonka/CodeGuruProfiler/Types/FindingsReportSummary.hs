@@ -129,7 +129,8 @@ instance Data.FromJSON FindingsReportSummary where
 
 instance Prelude.Hashable FindingsReportSummary where
   hashWithSalt _salt FindingsReportSummary' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` profileEndTime
       `Prelude.hashWithSalt` profileStartTime
       `Prelude.hashWithSalt` profilingGroupName

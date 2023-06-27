@@ -80,12 +80,12 @@ data CreateTopic = CreateTopic'
     --     hashing algorithm used while creating the signature of the
     --     notifications, subscription confirmations, or unsubscribe
     --     confirmation messages sent by Amazon SNS. By default,
-    --     @SignatureVersion@ is set to 1.
+    --     @SignatureVersion@ is set to @1@.
     --
     -- -   @TracingConfig@ – Tracing mode of an Amazon SNS topic. By default
     --     @TracingConfig@ is set to @PassThrough@, and the topic passes
     --     through the tracing header it receives from an Amazon SNS publisher
-    --     to its subscriptions. If set to Active, Amazon SNS will vend X-Ray
+    --     to its subscriptions. If set to @Active@, Amazon SNS will vend X-Ray
     --     segment data to topic owner account if the sampled flag in the
     --     tracing header is true. This is only supported on standard topics.
     --
@@ -177,12 +177,12 @@ data CreateTopic = CreateTopic'
 --     hashing algorithm used while creating the signature of the
 --     notifications, subscription confirmations, or unsubscribe
 --     confirmation messages sent by Amazon SNS. By default,
---     @SignatureVersion@ is set to 1.
+--     @SignatureVersion@ is set to @1@.
 --
 -- -   @TracingConfig@ – Tracing mode of an Amazon SNS topic. By default
 --     @TracingConfig@ is set to @PassThrough@, and the topic passes
 --     through the tracing header it receives from an Amazon SNS publisher
---     to its subscriptions. If set to Active, Amazon SNS will vend X-Ray
+--     to its subscriptions. If set to @Active@, Amazon SNS will vend X-Ray
 --     segment data to topic owner account if the sampled flag in the
 --     tracing header is true. This is only supported on standard topics.
 --
@@ -274,12 +274,12 @@ newCreateTopic pName_ =
 --     hashing algorithm used while creating the signature of the
 --     notifications, subscription confirmations, or unsubscribe
 --     confirmation messages sent by Amazon SNS. By default,
---     @SignatureVersion@ is set to 1.
+--     @SignatureVersion@ is set to @1@.
 --
 -- -   @TracingConfig@ – Tracing mode of an Amazon SNS topic. By default
 --     @TracingConfig@ is set to @PassThrough@, and the topic passes
 --     through the tracing header it receives from an Amazon SNS publisher
---     to its subscriptions. If set to Active, Amazon SNS will vend X-Ray
+--     to its subscriptions. If set to @Active@, Amazon SNS will vend X-Ray
 --     segment data to topic owner account if the sampled flag in the
 --     tracing header is true. This is only supported on standard topics.
 --
@@ -363,7 +363,8 @@ instance Core.AWSRequest CreateTopic where
 
 instance Prelude.Hashable CreateTopic where
   hashWithSalt _salt CreateTopic' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` dataProtectionPolicy
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

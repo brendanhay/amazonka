@@ -250,7 +250,8 @@ instance Core.AWSRequest SetSubscriptionAttributes where
 
 instance Prelude.Hashable SetSubscriptionAttributes where
   hashWithSalt _salt SetSubscriptionAttributes' {..} =
-    _salt `Prelude.hashWithSalt` attributeValue
+    _salt
+      `Prelude.hashWithSalt` attributeValue
       `Prelude.hashWithSalt` subscriptionArn
       `Prelude.hashWithSalt` attributeName
 

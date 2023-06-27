@@ -498,7 +498,8 @@ instance Core.AWSRequest Publish where
 
 instance Prelude.Hashable Publish where
   hashWithSalt _salt Publish' {..} =
-    _salt `Prelude.hashWithSalt` messageAttributes
+    _salt
+      `Prelude.hashWithSalt` messageAttributes
       `Prelude.hashWithSalt` messageDeduplicationId
       `Prelude.hashWithSalt` messageGroupId
       `Prelude.hashWithSalt` messageStructure

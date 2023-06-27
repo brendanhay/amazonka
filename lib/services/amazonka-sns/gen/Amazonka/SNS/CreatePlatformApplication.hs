@@ -165,7 +165,8 @@ instance Core.AWSRequest CreatePlatformApplication where
 
 instance Prelude.Hashable CreatePlatformApplication where
   hashWithSalt _salt CreatePlatformApplication' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` attributes
 

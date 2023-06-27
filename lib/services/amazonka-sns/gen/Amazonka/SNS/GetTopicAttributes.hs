@@ -88,7 +88,9 @@ instance Core.AWSRequest GetTopicAttributes where
       "GetTopicAttributesResult"
       ( \s h x ->
           GetTopicAttributesResponse'
-            Prelude.<$> ( x Data..@? "Attributes" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Attributes"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLMap "entry" "key" "value")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -138,8 +140,10 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
     -- -   @Policy@ – The JSON serialization of the topic\'s access control
     --     policy.
     --
-    -- -   @SignatureVersion@ – The version of the Amazon SNS signature used
-    --     for the topic.
+    -- -   @SignatureVersion@ – The signature version corresponds to the
+    --     hashing algorithm used while creating the signature of the
+    --     notifications, subscription confirmations, or unsubscribe
+    --     confirmation messages sent by Amazon SNS.
     --
     --     -   By default, @SignatureVersion@ is set to __1__. The signature is
     --         a Base64-encoded __SHA1withRSA__ signature.
@@ -165,7 +169,7 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
     -- -   @TracingConfig@ – Tracing mode of an Amazon SNS topic. By default
     --     @TracingConfig@ is set to @PassThrough@, and the topic passes
     --     through the tracing header it receives from an Amazon SNS publisher
-    --     to its subscriptions. If set to Active, Amazon SNS will vend X-Ray
+    --     to its subscriptions. If set to @Active@, Amazon SNS will vend X-Ray
     --     segment data to topic owner account if the sampled flag in the
     --     tracing header is true. This is only supported on standard topics.
     --
@@ -234,8 +238,10 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
 -- -   @Policy@ – The JSON serialization of the topic\'s access control
 --     policy.
 --
--- -   @SignatureVersion@ – The version of the Amazon SNS signature used
---     for the topic.
+-- -   @SignatureVersion@ – The signature version corresponds to the
+--     hashing algorithm used while creating the signature of the
+--     notifications, subscription confirmations, or unsubscribe
+--     confirmation messages sent by Amazon SNS.
 --
 --     -   By default, @SignatureVersion@ is set to __1__. The signature is
 --         a Base64-encoded __SHA1withRSA__ signature.
@@ -261,7 +267,7 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
 -- -   @TracingConfig@ – Tracing mode of an Amazon SNS topic. By default
 --     @TracingConfig@ is set to @PassThrough@, and the topic passes
 --     through the tracing header it receives from an Amazon SNS publisher
---     to its subscriptions. If set to Active, Amazon SNS will vend X-Ray
+--     to its subscriptions. If set to @Active@, Amazon SNS will vend X-Ray
 --     segment data to topic owner account if the sampled flag in the
 --     tracing header is true. This is only supported on standard topics.
 --
@@ -329,8 +335,10 @@ newGetTopicAttributesResponse pHttpStatus_ =
 -- -   @Policy@ – The JSON serialization of the topic\'s access control
 --     policy.
 --
--- -   @SignatureVersion@ – The version of the Amazon SNS signature used
---     for the topic.
+-- -   @SignatureVersion@ – The signature version corresponds to the
+--     hashing algorithm used while creating the signature of the
+--     notifications, subscription confirmations, or unsubscribe
+--     confirmation messages sent by Amazon SNS.
 --
 --     -   By default, @SignatureVersion@ is set to __1__. The signature is
 --         a Base64-encoded __SHA1withRSA__ signature.
@@ -356,7 +364,7 @@ newGetTopicAttributesResponse pHttpStatus_ =
 -- -   @TracingConfig@ – Tracing mode of an Amazon SNS topic. By default
 --     @TracingConfig@ is set to @PassThrough@, and the topic passes
 --     through the tracing header it receives from an Amazon SNS publisher
---     to its subscriptions. If set to Active, Amazon SNS will vend X-Ray
+--     to its subscriptions. If set to @Active@, Amazon SNS will vend X-Ray
 --     segment data to topic owner account if the sampled flag in the
 --     tracing header is true. This is only supported on standard topics.
 --

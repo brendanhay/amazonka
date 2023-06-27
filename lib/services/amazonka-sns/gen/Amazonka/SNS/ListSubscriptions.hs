@@ -87,22 +87,22 @@ instance Core.AWSPager ListSubscriptions where
     | Core.stop
         ( rs
             Lens.^? listSubscriptionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSubscriptionsResponse_subscriptions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSubscriptions_nextToken
           Lens..~ rs
           Lens.^? listSubscriptionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSubscriptions where
   type
@@ -116,7 +116,9 @@ instance Core.AWSRequest ListSubscriptions where
       ( \s h x ->
           ListSubscriptionsResponse'
             Prelude.<$> (x Data..@? "NextToken")
-            Prelude.<*> ( x Data..@? "Subscriptions" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Subscriptions"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

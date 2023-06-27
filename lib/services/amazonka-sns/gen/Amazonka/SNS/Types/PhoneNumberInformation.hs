@@ -109,7 +109,8 @@ instance Data.FromXML PhoneNumberInformation where
     PhoneNumberInformation'
       Prelude.<$> (x Data..@? "CreatedAt")
       Prelude.<*> (x Data..@? "Iso2CountryCode")
-      Prelude.<*> ( x Data..@? "NumberCapabilities"
+      Prelude.<*> ( x
+                      Data..@? "NumberCapabilities"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -119,7 +120,8 @@ instance Data.FromXML PhoneNumberInformation where
 
 instance Prelude.Hashable PhoneNumberInformation where
   hashWithSalt _salt PhoneNumberInformation' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` iso2CountryCode
       `Prelude.hashWithSalt` numberCapabilities
       `Prelude.hashWithSalt` phoneNumber

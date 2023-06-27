@@ -112,7 +112,8 @@ messageAttributeValue_dataType = Lens.lens (\MessageAttributeValue' {dataType} -
 
 instance Prelude.Hashable MessageAttributeValue where
   hashWithSalt _salt MessageAttributeValue' {..} =
-    _salt `Prelude.hashWithSalt` binaryValue
+    _salt
+      `Prelude.hashWithSalt` binaryValue
       `Prelude.hashWithSalt` stringValue
       `Prelude.hashWithSalt` dataType
 

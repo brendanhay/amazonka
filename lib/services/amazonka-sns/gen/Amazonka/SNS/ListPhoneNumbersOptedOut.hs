@@ -100,22 +100,22 @@ instance Core.AWSPager ListPhoneNumbersOptedOut where
     | Core.stop
         ( rs
             Lens.^? listPhoneNumbersOptedOutResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPhoneNumbersOptedOutResponse_phoneNumbers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPhoneNumbersOptedOut_nextToken
           Lens..~ rs
           Lens.^? listPhoneNumbersOptedOutResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPhoneNumbersOptedOut where
   type
@@ -129,7 +129,9 @@ instance Core.AWSRequest ListPhoneNumbersOptedOut where
       ( \s h x ->
           ListPhoneNumbersOptedOutResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "phoneNumbers" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "phoneNumbers"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

@@ -105,14 +105,16 @@ instance Data.FromJSON ChangeSummary where
             Prelude.<*> (x Data..:? "ChangeType")
             Prelude.<*> (x Data..:? "Details")
             Prelude.<*> (x Data..:? "Entity")
-            Prelude.<*> ( x Data..:? "ErrorDetailList"
+            Prelude.<*> ( x
+                            Data..:? "ErrorDetailList"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ChangeSummary where
   hashWithSalt _salt ChangeSummary' {..} =
-    _salt `Prelude.hashWithSalt` changeName
+    _salt
+      `Prelude.hashWithSalt` changeName
       `Prelude.hashWithSalt` changeType
       `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` entity

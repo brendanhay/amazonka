@@ -21,6 +21,10 @@ module Amazonka.MarketplaceCatalog.Lens
     cancelChangeSetResponse_changeSetId,
     cancelChangeSetResponse_httpStatus,
 
+    -- ** DeleteResourcePolicy
+    deleteResourcePolicy_resourceArn,
+    deleteResourcePolicyResponse_httpStatus,
+
     -- ** DescribeChangeSet
     describeChangeSet_catalog,
     describeChangeSet_changeSetId,
@@ -45,6 +49,11 @@ module Amazonka.MarketplaceCatalog.Lens
     describeEntityResponse_lastModifiedDate,
     describeEntityResponse_httpStatus,
 
+    -- ** GetResourcePolicy
+    getResourcePolicy_resourceArn,
+    getResourcePolicyResponse_policy,
+    getResourcePolicyResponse_httpStatus,
+
     -- ** ListChangeSets
     listChangeSets_filterList,
     listChangeSets_maxResults,
@@ -59,6 +68,7 @@ module Amazonka.MarketplaceCatalog.Lens
     listEntities_filterList,
     listEntities_maxResults,
     listEntities_nextToken,
+    listEntities_ownershipType,
     listEntities_sort,
     listEntities_catalog,
     listEntities_entityType,
@@ -71,6 +81,11 @@ module Amazonka.MarketplaceCatalog.Lens
     listTagsForResourceResponse_resourceArn,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
+
+    -- ** PutResourcePolicy
+    putResourcePolicy_resourceArn,
+    putResourcePolicy_policy,
+    putResourcePolicyResponse_httpStatus,
 
     -- ** StartChangeSet
     startChangeSet_changeSetName,
@@ -149,11 +164,14 @@ module Amazonka.MarketplaceCatalog.Lens
 where
 
 import Amazonka.MarketplaceCatalog.CancelChangeSet
+import Amazonka.MarketplaceCatalog.DeleteResourcePolicy
 import Amazonka.MarketplaceCatalog.DescribeChangeSet
 import Amazonka.MarketplaceCatalog.DescribeEntity
+import Amazonka.MarketplaceCatalog.GetResourcePolicy
 import Amazonka.MarketplaceCatalog.ListChangeSets
 import Amazonka.MarketplaceCatalog.ListEntities
 import Amazonka.MarketplaceCatalog.ListTagsForResource
+import Amazonka.MarketplaceCatalog.PutResourcePolicy
 import Amazonka.MarketplaceCatalog.StartChangeSet
 import Amazonka.MarketplaceCatalog.TagResource
 import Amazonka.MarketplaceCatalog.Types.Change

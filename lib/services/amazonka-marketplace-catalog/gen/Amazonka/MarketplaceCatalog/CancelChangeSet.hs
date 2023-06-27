@@ -115,7 +115,8 @@ instance Core.AWSRequest CancelChangeSet where
 
 instance Prelude.Hashable CancelChangeSet where
   hashWithSalt _salt CancelChangeSet' {..} =
-    _salt `Prelude.hashWithSalt` catalog
+    _salt
+      `Prelude.hashWithSalt` catalog
       `Prelude.hashWithSalt` changeSetId
 
 instance Prelude.NFData CancelChangeSet where

@@ -35,6 +35,11 @@
 --
 -- For more information about working with change sets, see
 -- <https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets Working with change sets>.
+-- For information on change types for single-AMI products, see
+-- <https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products Working with single-AMI products>.
+-- Als, for more information on change types available for container-based
+-- products, see
+-- <https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products Working with container products>.
 module Amazonka.MarketplaceCatalog.StartChangeSet
   ( -- * Creating a Request
     StartChangeSet (..),
@@ -156,7 +161,8 @@ instance Core.AWSRequest StartChangeSet where
 
 instance Prelude.Hashable StartChangeSet where
   hashWithSalt _salt StartChangeSet' {..} =
-    _salt `Prelude.hashWithSalt` changeSetName
+    _salt
+      `Prelude.hashWithSalt` changeSetName
       `Prelude.hashWithSalt` changeSetTags
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` catalog

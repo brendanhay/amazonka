@@ -45,12 +45,15 @@ library
   exposed-modules:
     Amazonka.MarketplaceCatalog
     Amazonka.MarketplaceCatalog.CancelChangeSet
+    Amazonka.MarketplaceCatalog.DeleteResourcePolicy
     Amazonka.MarketplaceCatalog.DescribeChangeSet
     Amazonka.MarketplaceCatalog.DescribeEntity
+    Amazonka.MarketplaceCatalog.GetResourcePolicy
     Amazonka.MarketplaceCatalog.Lens
     Amazonka.MarketplaceCatalog.ListChangeSets
     Amazonka.MarketplaceCatalog.ListEntities
     Amazonka.MarketplaceCatalog.ListTagsForResource
+    Amazonka.MarketplaceCatalog.PutResourcePolicy
     Amazonka.MarketplaceCatalog.StartChangeSet
     Amazonka.MarketplaceCatalog.TagResource
     Amazonka.MarketplaceCatalog.Types
@@ -63,6 +66,7 @@ library
     Amazonka.MarketplaceCatalog.Types.ErrorDetail
     Amazonka.MarketplaceCatalog.Types.FailureCode
     Amazonka.MarketplaceCatalog.Types.Filter
+    Amazonka.MarketplaceCatalog.Types.OwnershipType
     Amazonka.MarketplaceCatalog.Types.Sort
     Amazonka.MarketplaceCatalog.Types.SortOrder
     Amazonka.MarketplaceCatalog.Types.Tag

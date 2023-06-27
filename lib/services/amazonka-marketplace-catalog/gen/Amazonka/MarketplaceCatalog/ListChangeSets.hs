@@ -27,6 +27,8 @@
 --
 -- You can describe a change during the 60-day request history retention
 -- period for API calls.
+--
+-- This operation returns paginated results.
 module Amazonka.MarketplaceCatalog.ListChangeSets
   ( -- * Creating a Request
     ListChangeSets (..),
@@ -132,6 +134,28 @@ listChangeSets_sort = Lens.lens (\ListChangeSets' {sort} -> sort) (\s@ListChange
 listChangeSets_catalog :: Lens.Lens' ListChangeSets Prelude.Text
 listChangeSets_catalog = Lens.lens (\ListChangeSets' {catalog} -> catalog) (\s@ListChangeSets' {} a -> s {catalog = a} :: ListChangeSets)
 
+instance Core.AWSPager ListChangeSets where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listChangeSetsResponse_nextToken
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listChangeSetsResponse_changeSetSummaryList
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.otherwise =
+        Prelude.Just
+          Prelude.$ rq
+          Prelude.& listChangeSets_nextToken
+          Lens..~ rs
+          Lens.^? listChangeSetsResponse_nextToken
+          Prelude.. Lens._Just
+
 instance Core.AWSRequest ListChangeSets where
   type
     AWSResponse ListChangeSets =
@@ -142,7 +166,8 @@ instance Core.AWSRequest ListChangeSets where
     Response.receiveJSON
       ( \s h x ->
           ListChangeSetsResponse'
-            Prelude.<$> ( x Data..?> "ChangeSetSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "ChangeSetSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -151,7 +176,8 @@ instance Core.AWSRequest ListChangeSets where
 
 instance Prelude.Hashable ListChangeSets where
   hashWithSalt _salt ListChangeSets' {..} =
-    _salt `Prelude.hashWithSalt` filterList
+    _salt
+      `Prelude.hashWithSalt` filterList
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sort

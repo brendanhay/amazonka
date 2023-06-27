@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Provides the list of entities of a given type.
+--
+-- This operation returns paginated results.
 module Amazonka.MarketplaceCatalog.ListEntities
   ( -- * Creating a Request
     ListEntities (..),
@@ -30,6 +32,7 @@ module Amazonka.MarketplaceCatalog.ListEntities
     listEntities_filterList,
     listEntities_maxResults,
     listEntities_nextToken,
+    listEntities_ownershipType,
     listEntities_sort,
     listEntities_catalog,
     listEntities_entityType,
@@ -64,6 +67,7 @@ data ListEntities = ListEntities'
     -- | The value of the next token, if it exists. Null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    ownershipType :: Prelude.Maybe OwnershipType,
     -- | An object that contains two attributes, @SortBy@ and @SortOrder@.
     sort :: Prelude.Maybe Sort,
     -- | The catalog related to the request. Fixed value: @AWSMarketplace@
@@ -90,6 +94,8 @@ data ListEntities = ListEntities'
 -- 'nextToken', 'listEntities_nextToken' - The value of the next token, if it exists. Null if there are no more
 -- results.
 --
+-- 'ownershipType', 'listEntities_ownershipType' - Undocumented member.
+--
 -- 'sort', 'listEntities_sort' - An object that contains two attributes, @SortBy@ and @SortOrder@.
 --
 -- 'catalog', 'listEntities_catalog' - The catalog related to the request. Fixed value: @AWSMarketplace@
@@ -106,6 +112,7 @@ newListEntities pCatalog_ pEntityType_ =
     { filterList = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      ownershipType = Prelude.Nothing,
       sort = Prelude.Nothing,
       catalog = pCatalog_,
       entityType = pEntityType_
@@ -126,6 +133,10 @@ listEntities_maxResults = Lens.lens (\ListEntities' {maxResults} -> maxResults) 
 listEntities_nextToken :: Lens.Lens' ListEntities (Prelude.Maybe Prelude.Text)
 listEntities_nextToken = Lens.lens (\ListEntities' {nextToken} -> nextToken) (\s@ListEntities' {} a -> s {nextToken = a} :: ListEntities)
 
+-- | Undocumented member.
+listEntities_ownershipType :: Lens.Lens' ListEntities (Prelude.Maybe OwnershipType)
+listEntities_ownershipType = Lens.lens (\ListEntities' {ownershipType} -> ownershipType) (\s@ListEntities' {} a -> s {ownershipType = a} :: ListEntities)
+
 -- | An object that contains two attributes, @SortBy@ and @SortOrder@.
 listEntities_sort :: Lens.Lens' ListEntities (Prelude.Maybe Sort)
 listEntities_sort = Lens.lens (\ListEntities' {sort} -> sort) (\s@ListEntities' {} a -> s {sort = a} :: ListEntities)
@@ -138,6 +149,28 @@ listEntities_catalog = Lens.lens (\ListEntities' {catalog} -> catalog) (\s@ListE
 listEntities_entityType :: Lens.Lens' ListEntities Prelude.Text
 listEntities_entityType = Lens.lens (\ListEntities' {entityType} -> entityType) (\s@ListEntities' {} a -> s {entityType = a} :: ListEntities)
 
+instance Core.AWSPager ListEntities where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listEntitiesResponse_nextToken
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listEntitiesResponse_entitySummaryList
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.otherwise =
+        Prelude.Just
+          Prelude.$ rq
+          Prelude.& listEntities_nextToken
+          Lens..~ rs
+          Lens.^? listEntitiesResponse_nextToken
+          Prelude.. Lens._Just
+
 instance Core.AWSRequest ListEntities where
   type AWSResponse ListEntities = ListEntitiesResponse
   request overrides =
@@ -146,7 +179,8 @@ instance Core.AWSRequest ListEntities where
     Response.receiveJSON
       ( \s h x ->
           ListEntitiesResponse'
-            Prelude.<$> ( x Data..?> "EntitySummaryList"
+            Prelude.<$> ( x
+                            Data..?> "EntitySummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -155,9 +189,11 @@ instance Core.AWSRequest ListEntities where
 
 instance Prelude.Hashable ListEntities where
   hashWithSalt _salt ListEntities' {..} =
-    _salt `Prelude.hashWithSalt` filterList
+    _salt
+      `Prelude.hashWithSalt` filterList
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` ownershipType
       `Prelude.hashWithSalt` sort
       `Prelude.hashWithSalt` catalog
       `Prelude.hashWithSalt` entityType
@@ -167,6 +203,7 @@ instance Prelude.NFData ListEntities where
     Prelude.rnf filterList
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf ownershipType
       `Prelude.seq` Prelude.rnf sort
       `Prelude.seq` Prelude.rnf catalog
       `Prelude.seq` Prelude.rnf entityType
@@ -189,6 +226,7 @@ instance Data.ToJSON ListEntities where
           [ ("FilterList" Data..=) Prelude.<$> filterList,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("OwnershipType" Data..=) Prelude.<$> ownershipType,
             ("Sort" Data..=) Prelude.<$> sort,
             Prelude.Just ("Catalog" Data..= catalog),
             Prelude.Just ("EntityType" Data..= entityType)

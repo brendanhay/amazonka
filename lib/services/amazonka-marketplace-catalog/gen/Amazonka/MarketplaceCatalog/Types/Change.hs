@@ -36,12 +36,22 @@ data Change = Change'
     entityTags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | Change types are single string values that describe your intention for
     -- the change. Each change type is unique for each @EntityType@ provided in
-    -- the change\'s scope.
+    -- the change\'s scope. For more information on change types available for
+    -- single-AMI products, see
+    -- <https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products Working with single-AMI products>.
+    -- Also, for more information on change types available for container-based
+    -- products, see
+    -- <https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products Working with container products>.
     changeType :: Prelude.Text,
     -- | The entity to be changed.
     entity :: Entity,
     -- | This object contains details specific to the change type of the
-    -- requested change.
+    -- requested change. For more information on change types available for
+    -- single-AMI products, see
+    -- <https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products Working with single-AMI products>.
+    -- Also, for more information on change types available for container-based
+    -- products, see
+    -- <https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products Working with container products>.
     details :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,12 +70,22 @@ data Change = Change'
 --
 -- 'changeType', 'change_changeType' - Change types are single string values that describe your intention for
 -- the change. Each change type is unique for each @EntityType@ provided in
--- the change\'s scope.
+-- the change\'s scope. For more information on change types available for
+-- single-AMI products, see
+-- <https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products Working with single-AMI products>.
+-- Also, for more information on change types available for container-based
+-- products, see
+-- <https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products Working with container products>.
 --
 -- 'entity', 'change_entity' - The entity to be changed.
 --
 -- 'details', 'change_details' - This object contains details specific to the change type of the
--- requested change.
+-- requested change. For more information on change types available for
+-- single-AMI products, see
+-- <https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products Working with single-AMI products>.
+-- Also, for more information on change types available for container-based
+-- products, see
+-- <https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products Working with container products>.
 newChange ::
   -- | 'changeType'
   Prelude.Text ->
@@ -93,7 +113,12 @@ change_entityTags = Lens.lens (\Change' {entityTags} -> entityTags) (\s@Change' 
 
 -- | Change types are single string values that describe your intention for
 -- the change. Each change type is unique for each @EntityType@ provided in
--- the change\'s scope.
+-- the change\'s scope. For more information on change types available for
+-- single-AMI products, see
+-- <https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products Working with single-AMI products>.
+-- Also, for more information on change types available for container-based
+-- products, see
+-- <https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products Working with container products>.
 change_changeType :: Lens.Lens' Change Prelude.Text
 change_changeType = Lens.lens (\Change' {changeType} -> changeType) (\s@Change' {} a -> s {changeType = a} :: Change)
 
@@ -102,13 +127,19 @@ change_entity :: Lens.Lens' Change Entity
 change_entity = Lens.lens (\Change' {entity} -> entity) (\s@Change' {} a -> s {entity = a} :: Change)
 
 -- | This object contains details specific to the change type of the
--- requested change.
+-- requested change. For more information on change types available for
+-- single-AMI products, see
+-- <https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products Working with single-AMI products>.
+-- Also, for more information on change types available for container-based
+-- products, see
+-- <https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products Working with container products>.
 change_details :: Lens.Lens' Change Prelude.Text
 change_details = Lens.lens (\Change' {details} -> details) (\s@Change' {} a -> s {details = a} :: Change)
 
 instance Prelude.Hashable Change where
   hashWithSalt _salt Change' {..} =
-    _salt `Prelude.hashWithSalt` changeName
+    _salt
+      `Prelude.hashWithSalt` changeName
       `Prelude.hashWithSalt` entityTags
       `Prelude.hashWithSalt` changeType
       `Prelude.hashWithSalt` entity

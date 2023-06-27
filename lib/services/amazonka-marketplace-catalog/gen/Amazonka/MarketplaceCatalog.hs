@@ -62,6 +62,12 @@ module Amazonka.MarketplaceCatalog
     CancelChangeSetResponse (CancelChangeSetResponse'),
     newCancelChangeSetResponse,
 
+    -- ** DeleteResourcePolicy
+    DeleteResourcePolicy (DeleteResourcePolicy'),
+    newDeleteResourcePolicy,
+    DeleteResourcePolicyResponse (DeleteResourcePolicyResponse'),
+    newDeleteResourcePolicyResponse,
+
     -- ** DescribeChangeSet
     DescribeChangeSet (DescribeChangeSet'),
     newDescribeChangeSet,
@@ -74,13 +80,19 @@ module Amazonka.MarketplaceCatalog
     DescribeEntityResponse (DescribeEntityResponse'),
     newDescribeEntityResponse,
 
-    -- ** ListChangeSets
+    -- ** GetResourcePolicy
+    GetResourcePolicy (GetResourcePolicy'),
+    newGetResourcePolicy,
+    GetResourcePolicyResponse (GetResourcePolicyResponse'),
+    newGetResourcePolicyResponse,
+
+    -- ** ListChangeSets (Paginated)
     ListChangeSets (ListChangeSets'),
     newListChangeSets,
     ListChangeSetsResponse (ListChangeSetsResponse'),
     newListChangeSetsResponse,
 
-    -- ** ListEntities
+    -- ** ListEntities (Paginated)
     ListEntities (ListEntities'),
     newListEntities,
     ListEntitiesResponse (ListEntitiesResponse'),
@@ -91,6 +103,12 @@ module Amazonka.MarketplaceCatalog
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
+
+    -- ** PutResourcePolicy
+    PutResourcePolicy (PutResourcePolicy'),
+    newPutResourcePolicy,
+    PutResourcePolicyResponse (PutResourcePolicyResponse'),
+    newPutResourcePolicyResponse,
 
     -- ** StartChangeSet
     StartChangeSet (StartChangeSet'),
@@ -117,6 +135,9 @@ module Amazonka.MarketplaceCatalog
 
     -- ** FailureCode
     FailureCode (..),
+
+    -- ** OwnershipType
+    OwnershipType (..),
 
     -- ** SortOrder
     SortOrder (..),
@@ -160,12 +181,15 @@ module Amazonka.MarketplaceCatalog
 where
 
 import Amazonka.MarketplaceCatalog.CancelChangeSet
+import Amazonka.MarketplaceCatalog.DeleteResourcePolicy
 import Amazonka.MarketplaceCatalog.DescribeChangeSet
 import Amazonka.MarketplaceCatalog.DescribeEntity
+import Amazonka.MarketplaceCatalog.GetResourcePolicy
 import Amazonka.MarketplaceCatalog.Lens
 import Amazonka.MarketplaceCatalog.ListChangeSets
 import Amazonka.MarketplaceCatalog.ListEntities
 import Amazonka.MarketplaceCatalog.ListTagsForResource
+import Amazonka.MarketplaceCatalog.PutResourcePolicy
 import Amazonka.MarketplaceCatalog.StartChangeSet
 import Amazonka.MarketplaceCatalog.TagResource
 import Amazonka.MarketplaceCatalog.Types

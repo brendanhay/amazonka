@@ -30,11 +30,17 @@ import Test.Tasty
 --         [ requestCancelChangeSet $
 --             newCancelChangeSet
 --
+--         , requestDeleteResourcePolicy $
+--             newDeleteResourcePolicy
+--
 --         , requestDescribeChangeSet $
 --             newDescribeChangeSet
 --
 --         , requestDescribeEntity $
 --             newDescribeEntity
+--
+--         , requestGetResourcePolicy $
+--             newGetResourcePolicy
 --
 --         , requestListChangeSets $
 --             newListChangeSets
@@ -44,6 +50,9 @@ import Test.Tasty
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
+--
+--         , requestPutResourcePolicy $
+--             newPutResourcePolicy
 --
 --         , requestStartChangeSet $
 --             newStartChangeSet
@@ -60,11 +69,17 @@ import Test.Tasty
 --         [ responseCancelChangeSet $
 --             newCancelChangeSetResponse
 --
+--         , responseDeleteResourcePolicy $
+--             newDeleteResourcePolicyResponse
+--
 --         , responseDescribeChangeSet $
 --             newDescribeChangeSetResponse
 --
 --         , responseDescribeEntity $
 --             newDescribeEntityResponse
+--
+--         , responseGetResourcePolicy $
+--             newGetResourcePolicyResponse
 --
 --         , responseListChangeSets $
 --             newListChangeSetsResponse
@@ -74,6 +89,9 @@ import Test.Tasty
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responsePutResourcePolicy $
+--             newPutResourcePolicyResponse
 --
 --         , responseStartChangeSet $
 --             newStartChangeSetResponse
@@ -95,6 +113,12 @@ requestCancelChangeSet =
     "CancelChangeSet"
     "fixture/CancelChangeSet.yaml"
 
+requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
+requestDeleteResourcePolicy =
+  req
+    "DeleteResourcePolicy"
+    "fixture/DeleteResourcePolicy.yaml"
+
 requestDescribeChangeSet :: DescribeChangeSet -> TestTree
 requestDescribeChangeSet =
   req
@@ -106,6 +130,12 @@ requestDescribeEntity =
   req
     "DescribeEntity"
     "fixture/DescribeEntity.yaml"
+
+requestGetResourcePolicy :: GetResourcePolicy -> TestTree
+requestGetResourcePolicy =
+  req
+    "GetResourcePolicy"
+    "fixture/GetResourcePolicy.yaml"
 
 requestListChangeSets :: ListChangeSets -> TestTree
 requestListChangeSets =
@@ -124,6 +154,12 @@ requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestPutResourcePolicy :: PutResourcePolicy -> TestTree
+requestPutResourcePolicy =
+  req
+    "PutResourcePolicy"
+    "fixture/PutResourcePolicy.yaml"
 
 requestStartChangeSet :: StartChangeSet -> TestTree
 requestStartChangeSet =
@@ -153,6 +189,14 @@ responseCancelChangeSet =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CancelChangeSet)
 
+responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
+responseDeleteResourcePolicy =
+  res
+    "DeleteResourcePolicyResponse"
+    "fixture/DeleteResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourcePolicy)
+
 responseDescribeChangeSet :: DescribeChangeSetResponse -> TestTree
 responseDescribeChangeSet =
   res
@@ -168,6 +212,14 @@ responseDescribeEntity =
     "fixture/DescribeEntityResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeEntity)
+
+responseGetResourcePolicy :: GetResourcePolicyResponse -> TestTree
+responseGetResourcePolicy =
+  res
+    "GetResourcePolicyResponse"
+    "fixture/GetResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetResourcePolicy)
 
 responseListChangeSets :: ListChangeSetsResponse -> TestTree
 responseListChangeSets =
@@ -192,6 +244,14 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
+responsePutResourcePolicy =
+  res
+    "PutResourcePolicyResponse"
+    "fixture/PutResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
 
 responseStartChangeSet :: StartChangeSetResponse -> TestTree
 responseStartChangeSet =

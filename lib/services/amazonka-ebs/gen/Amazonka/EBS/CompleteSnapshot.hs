@@ -161,7 +161,8 @@ instance Core.AWSRequest CompleteSnapshot where
 
 instance Prelude.Hashable CompleteSnapshot where
   hashWithSalt _salt CompleteSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` checksum
+    _salt
+      `Prelude.hashWithSalt` checksum
       `Prelude.hashWithSalt` checksumAggregationMethod
       `Prelude.hashWithSalt` checksumAlgorithm
       `Prelude.hashWithSalt` snapshotId

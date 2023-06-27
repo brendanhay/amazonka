@@ -398,7 +398,8 @@ instance Core.AWSRequest StartSnapshot where
 
 instance Prelude.Hashable StartSnapshot where
   hashWithSalt _salt StartSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` kmsKeyArn

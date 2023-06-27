@@ -94,7 +94,8 @@ instance Data.FromJSON ChangedBlock where
 
 instance Prelude.Hashable ChangedBlock where
   hashWithSalt _salt ChangedBlock' {..} =
-    _salt `Prelude.hashWithSalt` blockIndex
+    _salt
+      `Prelude.hashWithSalt` blockIndex
       `Prelude.hashWithSalt` firstBlockToken
       `Prelude.hashWithSalt` secondBlockToken
 

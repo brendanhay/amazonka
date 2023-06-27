@@ -197,7 +197,8 @@ instance Data.FromJSON Action where
 
 instance Prelude.Hashable Action where
   hashWithSalt _salt Action' {..} =
-    _salt `Prelude.hashWithSalt` actionId
+    _salt
+      `Prelude.hashWithSalt` actionId
       `Prelude.hashWithSalt` budgetName
       `Prelude.hashWithSalt` notificationType
       `Prelude.hashWithSalt` actionType

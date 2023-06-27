@@ -132,22 +132,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeBudgetPerformanceHistoryResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeBudgetPerformanceHistoryResponse_budgetPerformanceHistory
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeBudgetPerformanceHistory_nextToken
           Lens..~ rs
           Lens.^? describeBudgetPerformanceHistoryResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -174,7 +174,8 @@ instance
   hashWithSalt
     _salt
     DescribeBudgetPerformanceHistory' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` timePeriod
         `Prelude.hashWithSalt` accountId

@@ -115,12 +115,14 @@ instance Data.FromJSON TimePeriod where
       "TimePeriod"
       ( \x ->
           TimePeriod'
-            Prelude.<$> (x Data..:? "End") Prelude.<*> (x Data..:? "Start")
+            Prelude.<$> (x Data..:? "End")
+            Prelude.<*> (x Data..:? "Start")
       )
 
 instance Prelude.Hashable TimePeriod where
   hashWithSalt _salt TimePeriod' {..} =
-    _salt `Prelude.hashWithSalt` end
+    _salt
+      `Prelude.hashWithSalt` end
       `Prelude.hashWithSalt` start
 
 instance Prelude.NFData TimePeriod where

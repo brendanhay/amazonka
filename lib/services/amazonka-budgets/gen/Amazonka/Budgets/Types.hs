@@ -306,59 +306,59 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You are not authorized to use this operation with the given parameters.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
 -- | You\'ve exceeded the notification or subscriber limit.
-_CreationLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CreationLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CreationLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -366,14 +366,14 @@ _CreationLimitExceededException =
 
 -- | The budget name already exists. Budget names must be unique within an
 -- account.
-_DuplicateRecordException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DuplicateRecordException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DuplicateRecordException =
   Core._MatchServiceError
     defaultService
     "DuplicateRecordException"
 
 -- | The pagination token expired.
-_ExpiredNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ExpiredNextTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ExpiredNextTokenException =
   Core._MatchServiceError
     defaultService
@@ -381,14 +381,14 @@ _ExpiredNextTokenException =
 
 -- | An error on the server occurred during the processing of your request.
 -- Try again later.
-_InternalErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalErrorException =
   Core._MatchServiceError
     defaultService
     "InternalErrorException"
 
 -- | The pagination token is invalid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNextTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
@@ -396,14 +396,14 @@ _InvalidNextTokenException =
 
 -- | An error on the client occurred. Typically, the cause is an invalid
 -- input value.
-_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
 
 -- | We can’t locate the resource that you specified.
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -411,7 +411,7 @@ _NotFoundException =
 
 -- | The request was received and recognized by the server, but the server
 -- rejected that particular method for the requested resource.
-_ResourceLockedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceLockedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceLockedException =
   Core._MatchServiceError
     defaultService
@@ -419,7 +419,7 @@ _ResourceLockedException =
 
 -- | The number of API requests has exceeded the maximum allowed API request
 -- throttling limit for the account.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService

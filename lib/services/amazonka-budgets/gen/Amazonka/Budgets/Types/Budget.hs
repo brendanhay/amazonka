@@ -411,7 +411,8 @@ instance Data.FromJSON Budget where
             Prelude.<*> (x Data..:? "CostFilters" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "CostTypes")
             Prelude.<*> (x Data..:? "LastUpdatedTime")
-            Prelude.<*> ( x Data..:? "PlannedBudgetLimits"
+            Prelude.<*> ( x
+                            Data..:? "PlannedBudgetLimits"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TimePeriod")
@@ -422,7 +423,8 @@ instance Data.FromJSON Budget where
 
 instance Prelude.Hashable Budget where
   hashWithSalt _salt Budget' {..} =
-    _salt `Prelude.hashWithSalt` autoAdjustData
+    _salt
+      `Prelude.hashWithSalt` autoAdjustData
       `Prelude.hashWithSalt` budgetLimit
       `Prelude.hashWithSalt` calculatedSpend
       `Prelude.hashWithSalt` costFilters

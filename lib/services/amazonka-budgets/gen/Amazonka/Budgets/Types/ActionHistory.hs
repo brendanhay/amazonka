@@ -112,7 +112,8 @@ instance Data.FromJSON ActionHistory where
 
 instance Prelude.Hashable ActionHistory where
   hashWithSalt _salt ActionHistory' {..} =
-    _salt `Prelude.hashWithSalt` timestamp
+    _salt
+      `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` actionHistoryDetails

@@ -138,7 +138,8 @@ instance Core.AWSRequest DeleteSubscriber where
 
 instance Prelude.Hashable DeleteSubscriber where
   hashWithSalt _salt DeleteSubscriber' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` budgetName
       `Prelude.hashWithSalt` notification
       `Prelude.hashWithSalt` subscriber

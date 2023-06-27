@@ -87,7 +87,8 @@ instance Data.FromJSON Definition where
 
 instance Prelude.Hashable Definition where
   hashWithSalt _salt Definition' {..} =
-    _salt `Prelude.hashWithSalt` iamActionDefinition
+    _salt
+      `Prelude.hashWithSalt` iamActionDefinition
       `Prelude.hashWithSalt` scpActionDefinition
       `Prelude.hashWithSalt` ssmActionDefinition
 

@@ -176,7 +176,8 @@ instance Data.FromJSON Notification where
 
 instance Prelude.Hashable Notification where
   hashWithSalt _salt Notification' {..} =
-    _salt `Prelude.hashWithSalt` notificationState
+    _salt
+      `Prelude.hashWithSalt` notificationState
       `Prelude.hashWithSalt` thresholdType
       `Prelude.hashWithSalt` notificationType
       `Prelude.hashWithSalt` comparisonOperator

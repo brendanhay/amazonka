@@ -95,7 +95,8 @@ instance Data.FromJSON SsmActionDefinition where
 
 instance Prelude.Hashable SsmActionDefinition where
   hashWithSalt _salt SsmActionDefinition' {..} =
-    _salt `Prelude.hashWithSalt` actionSubType
+    _salt
+      `Prelude.hashWithSalt` actionSubType
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` instanceIds
 

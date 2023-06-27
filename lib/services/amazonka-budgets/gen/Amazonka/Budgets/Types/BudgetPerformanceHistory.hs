@@ -118,7 +118,8 @@ instance Data.FromJSON BudgetPerformanceHistory where
           BudgetPerformanceHistory'
             Prelude.<$> (x Data..:? "BudgetName")
             Prelude.<*> (x Data..:? "BudgetType")
-            Prelude.<*> ( x Data..:? "BudgetedAndActualAmountsList"
+            Prelude.<*> ( x
+                            Data..:? "BudgetedAndActualAmountsList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CostFilters" Data..!= Prelude.mempty)
@@ -128,7 +129,8 @@ instance Data.FromJSON BudgetPerformanceHistory where
 
 instance Prelude.Hashable BudgetPerformanceHistory where
   hashWithSalt _salt BudgetPerformanceHistory' {..} =
-    _salt `Prelude.hashWithSalt` budgetName
+    _salt
+      `Prelude.hashWithSalt` budgetName
       `Prelude.hashWithSalt` budgetType
       `Prelude.hashWithSalt` budgetedAndActualAmountsList
       `Prelude.hashWithSalt` costFilters

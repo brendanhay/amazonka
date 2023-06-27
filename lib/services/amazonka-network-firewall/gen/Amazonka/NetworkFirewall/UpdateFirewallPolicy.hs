@@ -243,7 +243,8 @@ instance Core.AWSRequest UpdateFirewallPolicy where
 
 instance Prelude.Hashable UpdateFirewallPolicy where
   hashWithSalt _salt UpdateFirewallPolicy' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` firewallPolicyArn

@@ -49,22 +49,26 @@ library
     Amazonka.NetworkFirewall.CreateFirewall
     Amazonka.NetworkFirewall.CreateFirewallPolicy
     Amazonka.NetworkFirewall.CreateRuleGroup
+    Amazonka.NetworkFirewall.CreateTLSInspectionConfiguration
     Amazonka.NetworkFirewall.DeleteFirewall
     Amazonka.NetworkFirewall.DeleteFirewallPolicy
     Amazonka.NetworkFirewall.DeleteResourcePolicy
     Amazonka.NetworkFirewall.DeleteRuleGroup
+    Amazonka.NetworkFirewall.DeleteTLSInspectionConfiguration
     Amazonka.NetworkFirewall.DescribeFirewall
     Amazonka.NetworkFirewall.DescribeFirewallPolicy
     Amazonka.NetworkFirewall.DescribeLoggingConfiguration
     Amazonka.NetworkFirewall.DescribeResourcePolicy
     Amazonka.NetworkFirewall.DescribeRuleGroup
     Amazonka.NetworkFirewall.DescribeRuleGroupMetadata
+    Amazonka.NetworkFirewall.DescribeTLSInspectionConfiguration
     Amazonka.NetworkFirewall.DisassociateSubnets
     Amazonka.NetworkFirewall.Lens
     Amazonka.NetworkFirewall.ListFirewallPolicies
     Amazonka.NetworkFirewall.ListFirewalls
     Amazonka.NetworkFirewall.ListRuleGroups
     Amazonka.NetworkFirewall.ListTagsForResource
+    Amazonka.NetworkFirewall.ListTLSInspectionConfigurations
     Amazonka.NetworkFirewall.PutResourcePolicy
     Amazonka.NetworkFirewall.TagResource
     Amazonka.NetworkFirewall.Types
@@ -88,6 +92,7 @@ library
     Amazonka.NetworkFirewall.Types.FirewallStatusValue
     Amazonka.NetworkFirewall.Types.GeneratedRulesType
     Amazonka.NetworkFirewall.Types.Header
+    Amazonka.NetworkFirewall.Types.IPAddressType
     Amazonka.NetworkFirewall.Types.IPSet
     Amazonka.NetworkFirewall.Types.IPSetMetadata
     Amazonka.NetworkFirewall.Types.IPSetReference
@@ -99,6 +104,7 @@ library
     Amazonka.NetworkFirewall.Types.OverrideAction
     Amazonka.NetworkFirewall.Types.PerObjectStatus
     Amazonka.NetworkFirewall.Types.PerObjectSyncStatus
+    Amazonka.NetworkFirewall.Types.PolicyVariables
     Amazonka.NetworkFirewall.Types.PortRange
     Amazonka.NetworkFirewall.Types.PortSet
     Amazonka.NetworkFirewall.Types.PublishMetricAction
@@ -116,6 +122,9 @@ library
     Amazonka.NetworkFirewall.Types.RulesSource
     Amazonka.NetworkFirewall.Types.RulesSourceList
     Amazonka.NetworkFirewall.Types.RuleVariables
+    Amazonka.NetworkFirewall.Types.ServerCertificate
+    Amazonka.NetworkFirewall.Types.ServerCertificateConfiguration
+    Amazonka.NetworkFirewall.Types.ServerCertificateScope
     Amazonka.NetworkFirewall.Types.SourceMetadata
     Amazonka.NetworkFirewall.Types.StatefulAction
     Amazonka.NetworkFirewall.Types.StatefulEngineOptions
@@ -135,6 +144,10 @@ library
     Amazonka.NetworkFirewall.Types.TargetType
     Amazonka.NetworkFirewall.Types.TCPFlag
     Amazonka.NetworkFirewall.Types.TCPFlagField
+    Amazonka.NetworkFirewall.Types.TlsCertificateData
+    Amazonka.NetworkFirewall.Types.TLSInspectionConfiguration
+    Amazonka.NetworkFirewall.Types.TLSInspectionConfigurationMetadata
+    Amazonka.NetworkFirewall.Types.TLSInspectionConfigurationResponse
     Amazonka.NetworkFirewall.UntagResource
     Amazonka.NetworkFirewall.UpdateFirewallDeleteProtection
     Amazonka.NetworkFirewall.UpdateFirewallDescription
@@ -144,6 +157,7 @@ library
     Amazonka.NetworkFirewall.UpdateLoggingConfiguration
     Amazonka.NetworkFirewall.UpdateRuleGroup
     Amazonka.NetworkFirewall.UpdateSubnetChangeProtection
+    Amazonka.NetworkFirewall.UpdateTLSInspectionConfiguration
     Amazonka.NetworkFirewall.Waiters
 
   build-depends:

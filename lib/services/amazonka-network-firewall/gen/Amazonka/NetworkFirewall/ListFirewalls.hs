@@ -133,20 +133,23 @@ instance Core.AWSPager ListFirewalls where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listFirewallsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listFirewallsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listFirewallsResponse_firewalls Prelude.. Lens._Just
+            Lens.^? listFirewallsResponse_firewalls
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listFirewalls_nextToken
           Lens..~ rs
-          Lens.^? listFirewallsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listFirewallsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFirewalls where
   type
@@ -165,7 +168,8 @@ instance Core.AWSRequest ListFirewalls where
 
 instance Prelude.Hashable ListFirewalls where
   hashWithSalt _salt ListFirewalls' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` vpcIds
 

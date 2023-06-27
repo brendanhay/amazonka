@@ -41,7 +41,7 @@
 -- coming from an internet gateway, NAT gateway, or over VPN or Direct
 -- Connect. Network Firewall uses rules that are compatible with Suricata,
 -- a free, open source network analysis and threat detection engine.
--- Network Firewall supports Suricata version 5.0.2. For information about
+-- Network Firewall supports Suricata version 6.0.9. For information about
 -- Suricata, see the <https://suricata.io/ Suricata website>.
 --
 -- You can use Network Firewall to monitor and protect your VPC traffic in
@@ -166,6 +166,12 @@ module Amazonka.NetworkFirewall
     CreateRuleGroupResponse (CreateRuleGroupResponse'),
     newCreateRuleGroupResponse,
 
+    -- ** CreateTLSInspectionConfiguration
+    CreateTLSInspectionConfiguration (CreateTLSInspectionConfiguration'),
+    newCreateTLSInspectionConfiguration,
+    CreateTLSInspectionConfigurationResponse (CreateTLSInspectionConfigurationResponse'),
+    newCreateTLSInspectionConfigurationResponse,
+
     -- ** DeleteFirewall
     DeleteFirewall (DeleteFirewall'),
     newDeleteFirewall,
@@ -189,6 +195,12 @@ module Amazonka.NetworkFirewall
     newDeleteRuleGroup,
     DeleteRuleGroupResponse (DeleteRuleGroupResponse'),
     newDeleteRuleGroupResponse,
+
+    -- ** DeleteTLSInspectionConfiguration
+    DeleteTLSInspectionConfiguration (DeleteTLSInspectionConfiguration'),
+    newDeleteTLSInspectionConfiguration,
+    DeleteTLSInspectionConfigurationResponse (DeleteTLSInspectionConfigurationResponse'),
+    newDeleteTLSInspectionConfigurationResponse,
 
     -- ** DescribeFirewall
     DescribeFirewall (DescribeFirewall'),
@@ -226,6 +238,12 @@ module Amazonka.NetworkFirewall
     DescribeRuleGroupMetadataResponse (DescribeRuleGroupMetadataResponse'),
     newDescribeRuleGroupMetadataResponse,
 
+    -- ** DescribeTLSInspectionConfiguration
+    DescribeTLSInspectionConfiguration (DescribeTLSInspectionConfiguration'),
+    newDescribeTLSInspectionConfiguration,
+    DescribeTLSInspectionConfigurationResponse (DescribeTLSInspectionConfigurationResponse'),
+    newDescribeTLSInspectionConfigurationResponse,
+
     -- ** DisassociateSubnets
     DisassociateSubnets (DisassociateSubnets'),
     newDisassociateSubnets,
@@ -249,6 +267,12 @@ module Amazonka.NetworkFirewall
     newListRuleGroups,
     ListRuleGroupsResponse (ListRuleGroupsResponse'),
     newListRuleGroupsResponse,
+
+    -- ** ListTLSInspectionConfigurations (Paginated)
+    ListTLSInspectionConfigurations (ListTLSInspectionConfigurations'),
+    newListTLSInspectionConfigurations,
+    ListTLSInspectionConfigurationsResponse (ListTLSInspectionConfigurationsResponse'),
+    newListTLSInspectionConfigurationsResponse,
 
     -- ** ListTagsForResource (Paginated)
     ListTagsForResource (ListTagsForResource'),
@@ -322,6 +346,12 @@ module Amazonka.NetworkFirewall
     UpdateSubnetChangeProtectionResponse (UpdateSubnetChangeProtectionResponse'),
     newUpdateSubnetChangeProtectionResponse,
 
+    -- ** UpdateTLSInspectionConfiguration
+    UpdateTLSInspectionConfiguration (UpdateTLSInspectionConfiguration'),
+    newUpdateTLSInspectionConfiguration,
+    UpdateTLSInspectionConfigurationResponse (UpdateTLSInspectionConfigurationResponse'),
+    newUpdateTLSInspectionConfigurationResponse,
+
     -- * Types
 
     -- ** AttachmentStatus
@@ -338,6 +368,9 @@ module Amazonka.NetworkFirewall
 
     -- ** GeneratedRulesType
     GeneratedRulesType (..),
+
+    -- ** IPAddressType
+    IPAddressType (..),
 
     -- ** LogDestinationType
     LogDestinationType (..),
@@ -472,6 +505,10 @@ module Amazonka.NetworkFirewall
     PerObjectStatus (PerObjectStatus'),
     newPerObjectStatus,
 
+    -- ** PolicyVariables
+    PolicyVariables (PolicyVariables'),
+    newPolicyVariables,
+
     -- ** PortRange
     PortRange (PortRange'),
     newPortRange,
@@ -519,6 +556,18 @@ module Amazonka.NetworkFirewall
     -- ** RulesSourceList
     RulesSourceList (RulesSourceList'),
     newRulesSourceList,
+
+    -- ** ServerCertificate
+    ServerCertificate (ServerCertificate'),
+    newServerCertificate,
+
+    -- ** ServerCertificateConfiguration
+    ServerCertificateConfiguration (ServerCertificateConfiguration'),
+    newServerCertificateConfiguration,
+
+    -- ** ServerCertificateScope
+    ServerCertificateScope (ServerCertificateScope'),
+    newServerCertificateScope,
 
     -- ** SourceMetadata
     SourceMetadata (SourceMetadata'),
@@ -568,9 +617,25 @@ module Amazonka.NetworkFirewall
     TCPFlagField (TCPFlagField'),
     newTCPFlagField,
 
+    -- ** TLSInspectionConfiguration
+    TLSInspectionConfiguration (TLSInspectionConfiguration'),
+    newTLSInspectionConfiguration,
+
+    -- ** TLSInspectionConfigurationMetadata
+    TLSInspectionConfigurationMetadata (TLSInspectionConfigurationMetadata'),
+    newTLSInspectionConfigurationMetadata,
+
+    -- ** TLSInspectionConfigurationResponse
+    TLSInspectionConfigurationResponse (TLSInspectionConfigurationResponse'),
+    newTLSInspectionConfigurationResponse,
+
     -- ** Tag
     Tag (Tag'),
     newTag,
+
+    -- ** TlsCertificateData
+    TlsCertificateData (TlsCertificateData'),
+    newTlsCertificateData,
   )
 where
 
@@ -579,21 +644,25 @@ import Amazonka.NetworkFirewall.AssociateSubnets
 import Amazonka.NetworkFirewall.CreateFirewall
 import Amazonka.NetworkFirewall.CreateFirewallPolicy
 import Amazonka.NetworkFirewall.CreateRuleGroup
+import Amazonka.NetworkFirewall.CreateTLSInspectionConfiguration
 import Amazonka.NetworkFirewall.DeleteFirewall
 import Amazonka.NetworkFirewall.DeleteFirewallPolicy
 import Amazonka.NetworkFirewall.DeleteResourcePolicy
 import Amazonka.NetworkFirewall.DeleteRuleGroup
+import Amazonka.NetworkFirewall.DeleteTLSInspectionConfiguration
 import Amazonka.NetworkFirewall.DescribeFirewall
 import Amazonka.NetworkFirewall.DescribeFirewallPolicy
 import Amazonka.NetworkFirewall.DescribeLoggingConfiguration
 import Amazonka.NetworkFirewall.DescribeResourcePolicy
 import Amazonka.NetworkFirewall.DescribeRuleGroup
 import Amazonka.NetworkFirewall.DescribeRuleGroupMetadata
+import Amazonka.NetworkFirewall.DescribeTLSInspectionConfiguration
 import Amazonka.NetworkFirewall.DisassociateSubnets
 import Amazonka.NetworkFirewall.Lens
 import Amazonka.NetworkFirewall.ListFirewallPolicies
 import Amazonka.NetworkFirewall.ListFirewalls
 import Amazonka.NetworkFirewall.ListRuleGroups
+import Amazonka.NetworkFirewall.ListTLSInspectionConfigurations
 import Amazonka.NetworkFirewall.ListTagsForResource
 import Amazonka.NetworkFirewall.PutResourcePolicy
 import Amazonka.NetworkFirewall.TagResource
@@ -607,6 +676,7 @@ import Amazonka.NetworkFirewall.UpdateFirewallPolicyChangeProtection
 import Amazonka.NetworkFirewall.UpdateLoggingConfiguration
 import Amazonka.NetworkFirewall.UpdateRuleGroup
 import Amazonka.NetworkFirewall.UpdateSubnetChangeProtection
+import Amazonka.NetworkFirewall.UpdateTLSInspectionConfiguration
 import Amazonka.NetworkFirewall.Waiters
 
 -- $errors

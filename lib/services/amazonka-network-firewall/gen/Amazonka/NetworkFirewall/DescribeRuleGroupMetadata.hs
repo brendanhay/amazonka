@@ -159,7 +159,8 @@ instance Core.AWSRequest DescribeRuleGroupMetadata where
 
 instance Prelude.Hashable DescribeRuleGroupMetadata where
   hashWithSalt _salt DescribeRuleGroupMetadata' {..} =
-    _salt `Prelude.hashWithSalt` ruleGroupArn
+    _salt
+      `Prelude.hashWithSalt` ruleGroupArn
       `Prelude.hashWithSalt` ruleGroupName
       `Prelude.hashWithSalt` type'
 

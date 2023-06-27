@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.NetworkFirewall.Types.CustomAction
+import Amazonka.NetworkFirewall.Types.PolicyVariables
 import Amazonka.NetworkFirewall.Types.StatefulEngineOptions
 import Amazonka.NetworkFirewall.Types.StatefulRuleGroupReference
 import Amazonka.NetworkFirewall.Types.StatelessRuleGroupReference
@@ -38,7 +39,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newFirewallPolicy' smart constructor.
 data FirewallPolicy = FirewallPolicy'
-  { -- | The default actions to take on a packet that doesn\'t match any stateful
+  { -- | Contains variables that you can use to override default Suricata
+    -- settings in your firewall policy.
+    policyVariables :: Prelude.Maybe PolicyVariables,
+    -- | The default actions to take on a packet that doesn\'t match any stateful
     -- rules. The stateful default action is optional, and is only valid when
     -- using the strict rule order.
     --
@@ -71,6 +75,8 @@ data FirewallPolicy = FirewallPolicy'
     -- | References to the stateless rule groups that are used in the policy.
     -- These define the matching criteria in stateless rules.
     statelessRuleGroupReferences :: Prelude.Maybe [StatelessRuleGroupReference],
+    -- | The Amazon Resource Name (ARN) of the TLS inspection configuration.
+    tLSInspectionConfigurationArn :: Prelude.Maybe Prelude.Text,
     -- | The actions to take on a packet if it doesn\'t match any of the
     -- stateless rules in the policy. If you want non-matching packets to be
     -- forwarded for stateful inspection, specify @aws:forward_to_sfe@.
@@ -108,6 +114,9 @@ data FirewallPolicy = FirewallPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'policyVariables', 'firewallPolicy_policyVariables' - Contains variables that you can use to override default Suricata
+-- settings in your firewall policy.
+--
 -- 'statefulDefaultActions', 'firewallPolicy_statefulDefaultActions' - The default actions to take on a packet that doesn\'t match any stateful
 -- rules. The stateful default action is optional, and is only valid when
 -- using the strict rule order.
@@ -141,6 +150,8 @@ data FirewallPolicy = FirewallPolicy'
 -- 'statelessRuleGroupReferences', 'firewallPolicy_statelessRuleGroupReferences' - References to the stateless rule groups that are used in the policy.
 -- These define the matching criteria in stateless rules.
 --
+-- 'tLSInspectionConfigurationArn', 'firewallPolicy_tLSInspectionConfigurationArn' - The Amazon Resource Name (ARN) of the TLS inspection configuration.
+--
 -- 'statelessDefaultActions', 'firewallPolicy_statelessDefaultActions' - The actions to take on a packet if it doesn\'t match any of the
 -- stateless rules in the policy. If you want non-matching packets to be
 -- forwarded for stateful inspection, specify @aws:forward_to_sfe@.
@@ -170,15 +181,21 @@ newFirewallPolicy ::
   FirewallPolicy
 newFirewallPolicy =
   FirewallPolicy'
-    { statefulDefaultActions =
-        Prelude.Nothing,
+    { policyVariables = Prelude.Nothing,
+      statefulDefaultActions = Prelude.Nothing,
       statefulEngineOptions = Prelude.Nothing,
       statefulRuleGroupReferences = Prelude.Nothing,
       statelessCustomActions = Prelude.Nothing,
       statelessRuleGroupReferences = Prelude.Nothing,
+      tLSInspectionConfigurationArn = Prelude.Nothing,
       statelessDefaultActions = Prelude.mempty,
       statelessFragmentDefaultActions = Prelude.mempty
     }
+
+-- | Contains variables that you can use to override default Suricata
+-- settings in your firewall policy.
+firewallPolicy_policyVariables :: Lens.Lens' FirewallPolicy (Prelude.Maybe PolicyVariables)
+firewallPolicy_policyVariables = Lens.lens (\FirewallPolicy' {policyVariables} -> policyVariables) (\s@FirewallPolicy' {} a -> s {policyVariables = a} :: FirewallPolicy)
 
 -- | The default actions to take on a packet that doesn\'t match any stateful
 -- rules. The stateful default action is optional, and is only valid when
@@ -223,6 +240,10 @@ firewallPolicy_statelessCustomActions = Lens.lens (\FirewallPolicy' {statelessCu
 firewallPolicy_statelessRuleGroupReferences :: Lens.Lens' FirewallPolicy (Prelude.Maybe [StatelessRuleGroupReference])
 firewallPolicy_statelessRuleGroupReferences = Lens.lens (\FirewallPolicy' {statelessRuleGroupReferences} -> statelessRuleGroupReferences) (\s@FirewallPolicy' {} a -> s {statelessRuleGroupReferences = a} :: FirewallPolicy) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Amazon Resource Name (ARN) of the TLS inspection configuration.
+firewallPolicy_tLSInspectionConfigurationArn :: Lens.Lens' FirewallPolicy (Prelude.Maybe Prelude.Text)
+firewallPolicy_tLSInspectionConfigurationArn = Lens.lens (\FirewallPolicy' {tLSInspectionConfigurationArn} -> tLSInspectionConfigurationArn) (\s@FirewallPolicy' {} a -> s {tLSInspectionConfigurationArn = a} :: FirewallPolicy)
+
 -- | The actions to take on a packet if it doesn\'t match any of the
 -- stateless rules in the policy. If you want non-matching packets to be
 -- forwarded for stateful inspection, specify @aws:forward_to_sfe@.
@@ -259,44 +280,57 @@ instance Data.FromJSON FirewallPolicy where
       "FirewallPolicy"
       ( \x ->
           FirewallPolicy'
-            Prelude.<$> ( x Data..:? "StatefulDefaultActions"
+            Prelude.<$> (x Data..:? "PolicyVariables")
+            Prelude.<*> ( x
+                            Data..:? "StatefulDefaultActions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StatefulEngineOptions")
-            Prelude.<*> ( x Data..:? "StatefulRuleGroupReferences"
+            Prelude.<*> ( x
+                            Data..:? "StatefulRuleGroupReferences"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "StatelessCustomActions"
+            Prelude.<*> ( x
+                            Data..:? "StatelessCustomActions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "StatelessRuleGroupReferences"
+            Prelude.<*> ( x
+                            Data..:? "StatelessRuleGroupReferences"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "StatelessDefaultActions"
+            Prelude.<*> (x Data..:? "TLSInspectionConfigurationArn")
+            Prelude.<*> ( x
+                            Data..:? "StatelessDefaultActions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "StatelessFragmentDefaultActions"
+            Prelude.<*> ( x
+                            Data..:? "StatelessFragmentDefaultActions"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable FirewallPolicy where
   hashWithSalt _salt FirewallPolicy' {..} =
-    _salt `Prelude.hashWithSalt` statefulDefaultActions
+    _salt
+      `Prelude.hashWithSalt` policyVariables
+      `Prelude.hashWithSalt` statefulDefaultActions
       `Prelude.hashWithSalt` statefulEngineOptions
       `Prelude.hashWithSalt` statefulRuleGroupReferences
       `Prelude.hashWithSalt` statelessCustomActions
       `Prelude.hashWithSalt` statelessRuleGroupReferences
+      `Prelude.hashWithSalt` tLSInspectionConfigurationArn
       `Prelude.hashWithSalt` statelessDefaultActions
       `Prelude.hashWithSalt` statelessFragmentDefaultActions
 
 instance Prelude.NFData FirewallPolicy where
   rnf FirewallPolicy' {..} =
-    Prelude.rnf statefulDefaultActions
+    Prelude.rnf policyVariables
+      `Prelude.seq` Prelude.rnf statefulDefaultActions
       `Prelude.seq` Prelude.rnf statefulEngineOptions
       `Prelude.seq` Prelude.rnf statefulRuleGroupReferences
       `Prelude.seq` Prelude.rnf statelessCustomActions
       `Prelude.seq` Prelude.rnf statelessRuleGroupReferences
+      `Prelude.seq` Prelude.rnf tLSInspectionConfigurationArn
       `Prelude.seq` Prelude.rnf statelessDefaultActions
       `Prelude.seq` Prelude.rnf statelessFragmentDefaultActions
 
@@ -304,7 +338,9 @@ instance Data.ToJSON FirewallPolicy where
   toJSON FirewallPolicy' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("StatefulDefaultActions" Data..=)
+          [ ("PolicyVariables" Data..=)
+              Prelude.<$> policyVariables,
+            ("StatefulDefaultActions" Data..=)
               Prelude.<$> statefulDefaultActions,
             ("StatefulEngineOptions" Data..=)
               Prelude.<$> statefulEngineOptions,
@@ -314,6 +350,8 @@ instance Data.ToJSON FirewallPolicy where
               Prelude.<$> statelessCustomActions,
             ("StatelessRuleGroupReferences" Data..=)
               Prelude.<$> statelessRuleGroupReferences,
+            ("TLSInspectionConfigurationArn" Data..=)
+              Prelude.<$> tLSInspectionConfigurationArn,
             Prelude.Just
               ( "StatelessDefaultActions"
                   Data..= statelessDefaultActions

@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data Address = Address'
   { -- | Specify an IP address or a block of IP addresses in Classless
     -- Inter-Domain Routing (CIDR) notation. Network Firewall supports all
-    -- address ranges for IPv4.
+    -- address ranges for IPv4 and IPv6.
     --
     -- Examples:
     --
@@ -40,6 +40,15 @@ data Address = Address'
     --
     -- -   To configure Network Firewall to inspect for IP addresses from
     --     192.0.2.0 to 192.0.2.255, specify @192.0.2.0\/24@.
+    --
+    -- -   To configure Network Firewall to inspect for the IP address
+    --     1111:0000:0000:0000:0000:0000:0000:0111, specify
+    --     @1111:0000:0000:0000:0000:0000:0000:0111\/128@.
+    --
+    -- -   To configure Network Firewall to inspect for IP addresses from
+    --     1111:0000:0000:0000:0000:0000:0000:0000 to
+    --     1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify
+    --     @1111:0000:0000:0000:0000:0000:0000:0000\/64@.
     --
     -- For more information about CIDR notation, see the Wikipedia entry
     -- <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Classless Inter-Domain Routing>.
@@ -57,7 +66,7 @@ data Address = Address'
 --
 -- 'addressDefinition', 'address_addressDefinition' - Specify an IP address or a block of IP addresses in Classless
 -- Inter-Domain Routing (CIDR) notation. Network Firewall supports all
--- address ranges for IPv4.
+-- address ranges for IPv4 and IPv6.
 --
 -- Examples:
 --
@@ -66,6 +75,15 @@ data Address = Address'
 --
 -- -   To configure Network Firewall to inspect for IP addresses from
 --     192.0.2.0 to 192.0.2.255, specify @192.0.2.0\/24@.
+--
+-- -   To configure Network Firewall to inspect for the IP address
+--     1111:0000:0000:0000:0000:0000:0000:0111, specify
+--     @1111:0000:0000:0000:0000:0000:0000:0111\/128@.
+--
+-- -   To configure Network Firewall to inspect for IP addresses from
+--     1111:0000:0000:0000:0000:0000:0000:0000 to
+--     1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify
+--     @1111:0000:0000:0000:0000:0000:0000:0000\/64@.
 --
 -- For more information about CIDR notation, see the Wikipedia entry
 -- <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Classless Inter-Domain Routing>.
@@ -78,7 +96,7 @@ newAddress pAddressDefinition_ =
 
 -- | Specify an IP address or a block of IP addresses in Classless
 -- Inter-Domain Routing (CIDR) notation. Network Firewall supports all
--- address ranges for IPv4.
+-- address ranges for IPv4 and IPv6.
 --
 -- Examples:
 --
@@ -87,6 +105,15 @@ newAddress pAddressDefinition_ =
 --
 -- -   To configure Network Firewall to inspect for IP addresses from
 --     192.0.2.0 to 192.0.2.255, specify @192.0.2.0\/24@.
+--
+-- -   To configure Network Firewall to inspect for the IP address
+--     1111:0000:0000:0000:0000:0000:0000:0111, specify
+--     @1111:0000:0000:0000:0000:0000:0000:0111\/128@.
+--
+-- -   To configure Network Firewall to inspect for IP addresses from
+--     1111:0000:0000:0000:0000:0000:0000:0000 to
+--     1111:0000:0000:0000:ffff:ffff:ffff:ffff, specify
+--     @1111:0000:0000:0000:0000:0000:0000:0000\/64@.
 --
 -- For more information about CIDR notation, see the Wikipedia entry
 -- <https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Classless Inter-Domain Routing>.

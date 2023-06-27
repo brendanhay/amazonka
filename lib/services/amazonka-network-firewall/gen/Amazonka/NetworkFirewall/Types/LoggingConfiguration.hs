@@ -64,7 +64,8 @@ instance Data.FromJSON LoggingConfiguration where
       "LoggingConfiguration"
       ( \x ->
           LoggingConfiguration'
-            Prelude.<$> ( x Data..:? "LogDestinationConfigs"
+            Prelude.<$> ( x
+                            Data..:? "LogDestinationConfigs"
                             Data..!= Prelude.mempty
                         )
       )

@@ -44,10 +44,12 @@ data Attachment = Attachment'
     -- this value will reflect its state, for example @CREATING@ or @DELETING@.
     status :: Prelude.Maybe AttachmentStatus,
     -- | If Network Firewall fails to create or delete the firewall endpoint in
-    -- the subnet, it populates this with the reason for the failure and how to
-    -- resolve it. Depending on the error, it can take as many as 15 minutes to
-    -- populate this field. For more information about the errors and solutions
-    -- available for this field, see
+    -- the subnet, it populates this with the reason for the error or failure
+    -- and how to resolve it. A @FAILED@ status indicates a non-recoverable
+    -- state, and a @ERROR@ status indicates an issue that you can fix.
+    -- Depending on the error, it can take as many as 15 minutes to populate
+    -- this field. For more information about the causes for failiure or errors
+    -- and solutions available for this field, see
     -- <https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-troubleshooting-endpoint-failures.html Troubleshooting firewall endpoint failures>
     -- in the /Network Firewall Developer Guide/.
     statusMessage :: Prelude.Maybe Prelude.Text,
@@ -78,10 +80,12 @@ data Attachment = Attachment'
 -- this value will reflect its state, for example @CREATING@ or @DELETING@.
 --
 -- 'statusMessage', 'attachment_statusMessage' - If Network Firewall fails to create or delete the firewall endpoint in
--- the subnet, it populates this with the reason for the failure and how to
--- resolve it. Depending on the error, it can take as many as 15 minutes to
--- populate this field. For more information about the errors and solutions
--- available for this field, see
+-- the subnet, it populates this with the reason for the error or failure
+-- and how to resolve it. A @FAILED@ status indicates a non-recoverable
+-- state, and a @ERROR@ status indicates an issue that you can fix.
+-- Depending on the error, it can take as many as 15 minutes to populate
+-- this field. For more information about the causes for failiure or errors
+-- and solutions available for this field, see
 -- <https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-troubleshooting-endpoint-failures.html Troubleshooting firewall endpoint failures>
 -- in the /Network Firewall Developer Guide/.
 --
@@ -114,10 +118,12 @@ attachment_status :: Lens.Lens' Attachment (Prelude.Maybe AttachmentStatus)
 attachment_status = Lens.lens (\Attachment' {status} -> status) (\s@Attachment' {} a -> s {status = a} :: Attachment)
 
 -- | If Network Firewall fails to create or delete the firewall endpoint in
--- the subnet, it populates this with the reason for the failure and how to
--- resolve it. Depending on the error, it can take as many as 15 minutes to
--- populate this field. For more information about the errors and solutions
--- available for this field, see
+-- the subnet, it populates this with the reason for the error or failure
+-- and how to resolve it. A @FAILED@ status indicates a non-recoverable
+-- state, and a @ERROR@ status indicates an issue that you can fix.
+-- Depending on the error, it can take as many as 15 minutes to populate
+-- this field. For more information about the causes for failiure or errors
+-- and solutions available for this field, see
 -- <https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-troubleshooting-endpoint-failures.html Troubleshooting firewall endpoint failures>
 -- in the /Network Firewall Developer Guide/.
 attachment_statusMessage :: Lens.Lens' Attachment (Prelude.Maybe Prelude.Text)
@@ -142,7 +148,8 @@ instance Data.FromJSON Attachment where
 
 instance Prelude.Hashable Attachment where
   hashWithSalt _salt Attachment' {..} =
-    _salt `Prelude.hashWithSalt` endpointId
+    _salt
+      `Prelude.hashWithSalt` endpointId
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` subnetId

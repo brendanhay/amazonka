@@ -174,10 +174,10 @@ instance
       ( \s h x ->
           UpdateFirewallEncryptionConfigurationResponse'
             Prelude.<$> (x Data..?> "EncryptionConfiguration")
-              Prelude.<*> (x Data..?> "FirewallArn")
-              Prelude.<*> (x Data..?> "FirewallName")
-              Prelude.<*> (x Data..?> "UpdateToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "FirewallArn")
+            Prelude.<*> (x Data..?> "FirewallName")
+            Prelude.<*> (x Data..?> "UpdateToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

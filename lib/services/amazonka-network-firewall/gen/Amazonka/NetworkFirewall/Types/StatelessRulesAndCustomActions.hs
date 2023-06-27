@@ -85,7 +85,8 @@ instance Data.FromJSON StatelessRulesAndCustomActions where
       ( \x ->
           StatelessRulesAndCustomActions'
             Prelude.<$> (x Data..:? "CustomActions" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "StatelessRules"
+            Prelude.<*> ( x
+                            Data..:? "StatelessRules"
                             Data..!= Prelude.mempty
                         )
       )
@@ -97,7 +98,8 @@ instance
   hashWithSalt
     _salt
     StatelessRulesAndCustomActions' {..} =
-      _salt `Prelude.hashWithSalt` customActions
+      _salt
+        `Prelude.hashWithSalt` customActions
         `Prelude.hashWithSalt` statelessRules
 
 instance

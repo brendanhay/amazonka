@@ -42,6 +42,9 @@ import Test.Tasty
 --         , requestCreateRuleGroup $
 --             newCreateRuleGroup
 --
+--         , requestCreateTLSInspectionConfiguration $
+--             newCreateTLSInspectionConfiguration
+--
 --         , requestDeleteFirewall $
 --             newDeleteFirewall
 --
@@ -53,6 +56,9 @@ import Test.Tasty
 --
 --         , requestDeleteRuleGroup $
 --             newDeleteRuleGroup
+--
+--         , requestDeleteTLSInspectionConfiguration $
+--             newDeleteTLSInspectionConfiguration
 --
 --         , requestDescribeFirewall $
 --             newDescribeFirewall
@@ -72,6 +78,9 @@ import Test.Tasty
 --         , requestDescribeRuleGroupMetadata $
 --             newDescribeRuleGroupMetadata
 --
+--         , requestDescribeTLSInspectionConfiguration $
+--             newDescribeTLSInspectionConfiguration
+--
 --         , requestDisassociateSubnets $
 --             newDisassociateSubnets
 --
@@ -83,6 +92,9 @@ import Test.Tasty
 --
 --         , requestListRuleGroups $
 --             newListRuleGroups
+--
+--         , requestListTLSInspectionConfigurations $
+--             newListTLSInspectionConfigurations
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -120,6 +132,9 @@ import Test.Tasty
 --         , requestUpdateSubnetChangeProtection $
 --             newUpdateSubnetChangeProtection
 --
+--         , requestUpdateTLSInspectionConfiguration $
+--             newUpdateTLSInspectionConfiguration
+--
 --           ]
 
 --     , testGroup "response"
@@ -138,6 +153,9 @@ import Test.Tasty
 --         , responseCreateRuleGroup $
 --             newCreateRuleGroupResponse
 --
+--         , responseCreateTLSInspectionConfiguration $
+--             newCreateTLSInspectionConfigurationResponse
+--
 --         , responseDeleteFirewall $
 --             newDeleteFirewallResponse
 --
@@ -149,6 +167,9 @@ import Test.Tasty
 --
 --         , responseDeleteRuleGroup $
 --             newDeleteRuleGroupResponse
+--
+--         , responseDeleteTLSInspectionConfiguration $
+--             newDeleteTLSInspectionConfigurationResponse
 --
 --         , responseDescribeFirewall $
 --             newDescribeFirewallResponse
@@ -168,6 +189,9 @@ import Test.Tasty
 --         , responseDescribeRuleGroupMetadata $
 --             newDescribeRuleGroupMetadataResponse
 --
+--         , responseDescribeTLSInspectionConfiguration $
+--             newDescribeTLSInspectionConfigurationResponse
+--
 --         , responseDisassociateSubnets $
 --             newDisassociateSubnetsResponse
 --
@@ -179,6 +203,9 @@ import Test.Tasty
 --
 --         , responseListRuleGroups $
 --             newListRuleGroupsResponse
+--
+--         , responseListTLSInspectionConfigurations $
+--             newListTLSInspectionConfigurationsResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -216,6 +243,9 @@ import Test.Tasty
 --         , responseUpdateSubnetChangeProtection $
 --             newUpdateSubnetChangeProtectionResponse
 --
+--         , responseUpdateTLSInspectionConfiguration $
+--             newUpdateTLSInspectionConfigurationResponse
+--
 --           ]
 --     ]
 
@@ -251,6 +281,12 @@ requestCreateRuleGroup =
     "CreateRuleGroup"
     "fixture/CreateRuleGroup.yaml"
 
+requestCreateTLSInspectionConfiguration :: CreateTLSInspectionConfiguration -> TestTree
+requestCreateTLSInspectionConfiguration =
+  req
+    "CreateTLSInspectionConfiguration"
+    "fixture/CreateTLSInspectionConfiguration.yaml"
+
 requestDeleteFirewall :: DeleteFirewall -> TestTree
 requestDeleteFirewall =
   req
@@ -274,6 +310,12 @@ requestDeleteRuleGroup =
   req
     "DeleteRuleGroup"
     "fixture/DeleteRuleGroup.yaml"
+
+requestDeleteTLSInspectionConfiguration :: DeleteTLSInspectionConfiguration -> TestTree
+requestDeleteTLSInspectionConfiguration =
+  req
+    "DeleteTLSInspectionConfiguration"
+    "fixture/DeleteTLSInspectionConfiguration.yaml"
 
 requestDescribeFirewall :: DescribeFirewall -> TestTree
 requestDescribeFirewall =
@@ -311,6 +353,12 @@ requestDescribeRuleGroupMetadata =
     "DescribeRuleGroupMetadata"
     "fixture/DescribeRuleGroupMetadata.yaml"
 
+requestDescribeTLSInspectionConfiguration :: DescribeTLSInspectionConfiguration -> TestTree
+requestDescribeTLSInspectionConfiguration =
+  req
+    "DescribeTLSInspectionConfiguration"
+    "fixture/DescribeTLSInspectionConfiguration.yaml"
+
 requestDisassociateSubnets :: DisassociateSubnets -> TestTree
 requestDisassociateSubnets =
   req
@@ -334,6 +382,12 @@ requestListRuleGroups =
   req
     "ListRuleGroups"
     "fixture/ListRuleGroups.yaml"
+
+requestListTLSInspectionConfigurations :: ListTLSInspectionConfigurations -> TestTree
+requestListTLSInspectionConfigurations =
+  req
+    "ListTLSInspectionConfigurations"
+    "fixture/ListTLSInspectionConfigurations.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -407,6 +461,12 @@ requestUpdateSubnetChangeProtection =
     "UpdateSubnetChangeProtection"
     "fixture/UpdateSubnetChangeProtection.yaml"
 
+requestUpdateTLSInspectionConfiguration :: UpdateTLSInspectionConfiguration -> TestTree
+requestUpdateTLSInspectionConfiguration =
+  req
+    "UpdateTLSInspectionConfiguration"
+    "fixture/UpdateTLSInspectionConfiguration.yaml"
+
 -- Responses
 
 responseAssociateFirewallPolicy :: AssociateFirewallPolicyResponse -> TestTree
@@ -449,6 +509,14 @@ responseCreateRuleGroup =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateRuleGroup)
 
+responseCreateTLSInspectionConfiguration :: CreateTLSInspectionConfigurationResponse -> TestTree
+responseCreateTLSInspectionConfiguration =
+  res
+    "CreateTLSInspectionConfigurationResponse"
+    "fixture/CreateTLSInspectionConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateTLSInspectionConfiguration)
+
 responseDeleteFirewall :: DeleteFirewallResponse -> TestTree
 responseDeleteFirewall =
   res
@@ -480,6 +548,14 @@ responseDeleteRuleGroup =
     "fixture/DeleteRuleGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteRuleGroup)
+
+responseDeleteTLSInspectionConfiguration :: DeleteTLSInspectionConfigurationResponse -> TestTree
+responseDeleteTLSInspectionConfiguration =
+  res
+    "DeleteTLSInspectionConfigurationResponse"
+    "fixture/DeleteTLSInspectionConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteTLSInspectionConfiguration)
 
 responseDescribeFirewall :: DescribeFirewallResponse -> TestTree
 responseDescribeFirewall =
@@ -529,6 +605,14 @@ responseDescribeRuleGroupMetadata =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeRuleGroupMetadata)
 
+responseDescribeTLSInspectionConfiguration :: DescribeTLSInspectionConfigurationResponse -> TestTree
+responseDescribeTLSInspectionConfiguration =
+  res
+    "DescribeTLSInspectionConfigurationResponse"
+    "fixture/DescribeTLSInspectionConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTLSInspectionConfiguration)
+
 responseDisassociateSubnets :: DisassociateSubnetsResponse -> TestTree
 responseDisassociateSubnets =
   res
@@ -560,6 +644,14 @@ responseListRuleGroups =
     "fixture/ListRuleGroupsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListRuleGroups)
+
+responseListTLSInspectionConfigurations :: ListTLSInspectionConfigurationsResponse -> TestTree
+responseListTLSInspectionConfigurations =
+  res
+    "ListTLSInspectionConfigurationsResponse"
+    "fixture/ListTLSInspectionConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTLSInspectionConfigurations)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -656,3 +748,11 @@ responseUpdateSubnetChangeProtection =
     "fixture/UpdateSubnetChangeProtectionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateSubnetChangeProtection)
+
+responseUpdateTLSInspectionConfiguration :: UpdateTLSInspectionConfigurationResponse -> TestTree
+responseUpdateTLSInspectionConfiguration =
+  res
+    "UpdateTLSInspectionConfigurationResponse"
+    "fixture/UpdateTLSInspectionConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateTLSInspectionConfiguration)

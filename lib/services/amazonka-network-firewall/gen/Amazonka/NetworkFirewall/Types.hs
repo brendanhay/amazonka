@@ -46,6 +46,9 @@ module Amazonka.NetworkFirewall.Types
     -- * GeneratedRulesType
     GeneratedRulesType (..),
 
+    -- * IPAddressType
+    IPAddressType (..),
+
     -- * LogDestinationType
     LogDestinationType (..),
 
@@ -163,11 +166,13 @@ module Amazonka.NetworkFirewall.Types
     -- * FirewallPolicy
     FirewallPolicy (..),
     newFirewallPolicy,
+    firewallPolicy_policyVariables,
     firewallPolicy_statefulDefaultActions,
     firewallPolicy_statefulEngineOptions,
     firewallPolicy_statefulRuleGroupReferences,
     firewallPolicy_statelessCustomActions,
     firewallPolicy_statelessRuleGroupReferences,
+    firewallPolicy_tLSInspectionConfigurationArn,
     firewallPolicy_statelessDefaultActions,
     firewallPolicy_statelessFragmentDefaultActions,
 
@@ -252,6 +257,11 @@ module Amazonka.NetworkFirewall.Types
     newPerObjectStatus,
     perObjectStatus_syncStatus,
     perObjectStatus_updateToken,
+
+    -- * PolicyVariables
+    PolicyVariables (..),
+    newPolicyVariables,
+    policyVariables_ruleVariables,
 
     -- * PortRange
     PortRange (..),
@@ -339,6 +349,26 @@ module Amazonka.NetworkFirewall.Types
     rulesSourceList_targetTypes,
     rulesSourceList_generatedRulesType,
 
+    -- * ServerCertificate
+    ServerCertificate (..),
+    newServerCertificate,
+    serverCertificate_resourceArn,
+
+    -- * ServerCertificateConfiguration
+    ServerCertificateConfiguration (..),
+    newServerCertificateConfiguration,
+    serverCertificateConfiguration_scopes,
+    serverCertificateConfiguration_serverCertificates,
+
+    -- * ServerCertificateScope
+    ServerCertificateScope (..),
+    newServerCertificateScope,
+    serverCertificateScope_destinationPorts,
+    serverCertificateScope_destinations,
+    serverCertificateScope_protocols,
+    serverCertificateScope_sourcePorts,
+    serverCertificateScope_sources,
+
     -- * SourceMetadata
     SourceMetadata (..),
     newSourceMetadata,
@@ -396,6 +426,7 @@ module Amazonka.NetworkFirewall.Types
     -- * SubnetMapping
     SubnetMapping (..),
     newSubnetMapping,
+    subnetMapping_iPAddressType,
     subnetMapping_subnetId,
 
     -- * SyncState
@@ -410,11 +441,44 @@ module Amazonka.NetworkFirewall.Types
     tCPFlagField_masks,
     tCPFlagField_flags,
 
+    -- * TLSInspectionConfiguration
+    TLSInspectionConfiguration (..),
+    newTLSInspectionConfiguration,
+    tLSInspectionConfiguration_serverCertificateConfigurations,
+
+    -- * TLSInspectionConfigurationMetadata
+    TLSInspectionConfigurationMetadata (..),
+    newTLSInspectionConfigurationMetadata,
+    tLSInspectionConfigurationMetadata_arn,
+    tLSInspectionConfigurationMetadata_name,
+
+    -- * TLSInspectionConfigurationResponse
+    TLSInspectionConfigurationResponse (..),
+    newTLSInspectionConfigurationResponse,
+    tLSInspectionConfigurationResponse_certificates,
+    tLSInspectionConfigurationResponse_description,
+    tLSInspectionConfigurationResponse_encryptionConfiguration,
+    tLSInspectionConfigurationResponse_lastModifiedTime,
+    tLSInspectionConfigurationResponse_numberOfAssociations,
+    tLSInspectionConfigurationResponse_tLSInspectionConfigurationStatus,
+    tLSInspectionConfigurationResponse_tags,
+    tLSInspectionConfigurationResponse_tLSInspectionConfigurationArn,
+    tLSInspectionConfigurationResponse_tLSInspectionConfigurationName,
+    tLSInspectionConfigurationResponse_tLSInspectionConfigurationId,
+
     -- * Tag
     Tag (..),
     newTag,
     tag_key,
     tag_value,
+
+    -- * TlsCertificateData
+    TlsCertificateData (..),
+    newTlsCertificateData,
+    tlsCertificateData_certificateArn,
+    tlsCertificateData_certificateSerial,
+    tlsCertificateData_status,
+    tlsCertificateData_statusMessage,
   )
 where
 
@@ -440,6 +504,7 @@ import Amazonka.NetworkFirewall.Types.FirewallStatus
 import Amazonka.NetworkFirewall.Types.FirewallStatusValue
 import Amazonka.NetworkFirewall.Types.GeneratedRulesType
 import Amazonka.NetworkFirewall.Types.Header
+import Amazonka.NetworkFirewall.Types.IPAddressType
 import Amazonka.NetworkFirewall.Types.IPSet
 import Amazonka.NetworkFirewall.Types.IPSetMetadata
 import Amazonka.NetworkFirewall.Types.IPSetReference
@@ -451,6 +516,7 @@ import Amazonka.NetworkFirewall.Types.MatchAttributes
 import Amazonka.NetworkFirewall.Types.OverrideAction
 import Amazonka.NetworkFirewall.Types.PerObjectStatus
 import Amazonka.NetworkFirewall.Types.PerObjectSyncStatus
+import Amazonka.NetworkFirewall.Types.PolicyVariables
 import Amazonka.NetworkFirewall.Types.PortRange
 import Amazonka.NetworkFirewall.Types.PortSet
 import Amazonka.NetworkFirewall.Types.PublishMetricAction
@@ -468,6 +534,9 @@ import Amazonka.NetworkFirewall.Types.RuleOrder
 import Amazonka.NetworkFirewall.Types.RuleVariables
 import Amazonka.NetworkFirewall.Types.RulesSource
 import Amazonka.NetworkFirewall.Types.RulesSourceList
+import Amazonka.NetworkFirewall.Types.ServerCertificate
+import Amazonka.NetworkFirewall.Types.ServerCertificateConfiguration
+import Amazonka.NetworkFirewall.Types.ServerCertificateScope
 import Amazonka.NetworkFirewall.Types.SourceMetadata
 import Amazonka.NetworkFirewall.Types.StatefulAction
 import Amazonka.NetworkFirewall.Types.StatefulEngineOptions
@@ -485,8 +554,12 @@ import Amazonka.NetworkFirewall.Types.SubnetMapping
 import Amazonka.NetworkFirewall.Types.SyncState
 import Amazonka.NetworkFirewall.Types.TCPFlag
 import Amazonka.NetworkFirewall.Types.TCPFlagField
+import Amazonka.NetworkFirewall.Types.TLSInspectionConfiguration
+import Amazonka.NetworkFirewall.Types.TLSInspectionConfigurationMetadata
+import Amazonka.NetworkFirewall.Types.TLSInspectionConfigurationResponse
 import Amazonka.NetworkFirewall.Types.Tag
 import Amazonka.NetworkFirewall.Types.TargetType
+import Amazonka.NetworkFirewall.Types.TlsCertificateData
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -516,53 +589,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Amazon Web Services doesn\'t currently have enough available capacity to
 -- fulfill your request. Try your request later.
-_InsufficientCapacityException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InsufficientCapacityException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InsufficientCapacityException =
   Core._MatchServiceError
     defaultService
@@ -570,7 +643,7 @@ _InsufficientCapacityException =
 
 -- | Your request is valid, but Network Firewall couldn’t perform the
 -- operation because of a system problem. Retry your request.
-_InternalServerError :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerError :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService
@@ -578,7 +651,7 @@ _InternalServerError =
 
 -- | The operation failed because it\'s not valid. For example, you might
 -- have tried to delete a rule group or firewall policy that\'s in use.
-_InvalidOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidOperationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidOperationException =
   Core._MatchServiceError
     defaultService
@@ -594,21 +667,21 @@ _InvalidOperationException =
 --
 -- -   Your request references an ARN that is malformed, or corresponds to
 --     a resource that isn\'t valid in the context of the request.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
     "InvalidRequestException"
 
 -- | The policy statement failed validation.
-_InvalidResourcePolicyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidResourcePolicyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidResourcePolicyException =
   Core._MatchServiceError
     defaultService
     "InvalidResourcePolicyException"
 
 -- | The token you provided is stale or isn\'t valid for the operation.
-_InvalidTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidTokenException =
   Core._MatchServiceError
     defaultService
@@ -616,42 +689,42 @@ _InvalidTokenException =
 
 -- | Unable to perform the operation because doing so would violate a limit
 -- setting.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | Unable to send logs to a configured logging destination.
-_LogDestinationPermissionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LogDestinationPermissionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LogDestinationPermissionException =
   Core._MatchServiceError
     defaultService
     "LogDestinationPermissionException"
 
 -- | Unable to locate a resource using the parameters that you provided.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | Unable to change the resource because your account doesn\'t own it.
-_ResourceOwnerCheckException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceOwnerCheckException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceOwnerCheckException =
   Core._MatchServiceError
     defaultService
     "ResourceOwnerCheckException"
 
 -- | Unable to process the request due to throttling limitations.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
     "ThrottlingException"
 
 -- | The operation you requested isn\'t supported by Network Firewall.
-_UnsupportedOperationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedOperationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedOperationException =
   Core._MatchServiceError
     defaultService

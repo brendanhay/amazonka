@@ -58,7 +58,8 @@ instance Data.FromJSON ReferenceSets where
       "ReferenceSets"
       ( \x ->
           ReferenceSets'
-            Prelude.<$> ( x Data..:? "IPSetReferences"
+            Prelude.<$> ( x
+                            Data..:? "IPSetReferences"
                             Data..!= Prelude.mempty
                         )
       )

@@ -114,7 +114,8 @@ instance Data.FromJSON SyncState where
 
 instance Prelude.Hashable SyncState where
   hashWithSalt _salt SyncState' {..} =
-    _salt `Prelude.hashWithSalt` attachment
+    _salt
+      `Prelude.hashWithSalt` attachment
       `Prelude.hashWithSalt` config
 
 instance Prelude.NFData SyncState where

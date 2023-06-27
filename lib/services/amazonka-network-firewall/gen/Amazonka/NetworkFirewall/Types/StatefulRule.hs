@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- Use this option to specify a simple Suricata rule with protocol, source
 -- and destination, ports, direction, and rule options. For information
 -- about the Suricata @Rules@ format, see
--- <https://suricata.readthedocs.io/rules/intro.html# Rules Format>.
+-- <https://suricata.readthedocs.iorules/intro.html# Rules Format>.
 --
 -- /See:/ 'newStatefulRule' smart constructor.
 data StatefulRule = StatefulRule'
@@ -56,6 +56,16 @@ data StatefulRule = StatefulRule'
     --     drop traffic. You can enable the rule with @ALERT@ action, verify in
     --     the logs that the rule is filtering as you want, then change the
     --     action to @DROP@.
+    --
+    -- -   __REJECT__ - Drops TCP traffic that matches the conditions of the
+    --     stateful rule, and sends a TCP reset packet back to sender of the
+    --     packet. A TCP reset packet is a packet with no payload and a @RST@
+    --     bit contained in the TCP header flags. Also sends an alert log
+    --     mesage if alert logging is configured in the Firewall
+    --     LoggingConfiguration.
+    --
+    --     @REJECT@ isn\'t currently available for use with IMAP and FTP
+    --     protocols.
     action :: StatefulAction,
     -- | The stateful inspection criteria for this rule, used to inspect traffic
     -- flows.
@@ -96,6 +106,16 @@ data StatefulRule = StatefulRule'
 --     the logs that the rule is filtering as you want, then change the
 --     action to @DROP@.
 --
+-- -   __REJECT__ - Drops TCP traffic that matches the conditions of the
+--     stateful rule, and sends a TCP reset packet back to sender of the
+--     packet. A TCP reset packet is a packet with no payload and a @RST@
+--     bit contained in the TCP header flags. Also sends an alert log
+--     mesage if alert logging is configured in the Firewall
+--     LoggingConfiguration.
+--
+--     @REJECT@ isn\'t currently available for use with IMAP and FTP
+--     protocols.
+--
 -- 'header', 'statefulRule_header' - The stateful inspection criteria for this rule, used to inspect traffic
 -- flows.
 --
@@ -135,6 +155,16 @@ newStatefulRule pAction_ pHeader_ =
 --     drop traffic. You can enable the rule with @ALERT@ action, verify in
 --     the logs that the rule is filtering as you want, then change the
 --     action to @DROP@.
+--
+-- -   __REJECT__ - Drops TCP traffic that matches the conditions of the
+--     stateful rule, and sends a TCP reset packet back to sender of the
+--     packet. A TCP reset packet is a packet with no payload and a @RST@
+--     bit contained in the TCP header flags. Also sends an alert log
+--     mesage if alert logging is configured in the Firewall
+--     LoggingConfiguration.
+--
+--     @REJECT@ isn\'t currently available for use with IMAP and FTP
+--     protocols.
 statefulRule_action :: Lens.Lens' StatefulRule StatefulAction
 statefulRule_action = Lens.lens (\StatefulRule' {action} -> action) (\s@StatefulRule' {} a -> s {action = a} :: StatefulRule)
 
@@ -161,7 +191,8 @@ instance Data.FromJSON StatefulRule where
 
 instance Prelude.Hashable StatefulRule where
   hashWithSalt _salt StatefulRule' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` header
       `Prelude.hashWithSalt` ruleOptions
 

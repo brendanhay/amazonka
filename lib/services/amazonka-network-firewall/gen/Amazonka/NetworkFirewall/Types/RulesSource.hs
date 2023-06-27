@@ -48,7 +48,7 @@ data RulesSource = RulesSource'
     -- together in a stateful rule group. Use this option to specify simple
     -- Suricata rules with protocol, source and destination, ports, direction,
     -- and rule options. For information about the Suricata @Rules@ format, see
-    -- <https://suricata.readthedocs.io/rules/intro.html# Rules Format>.
+    -- <https://suricata.readthedocs.iorules/intro.html# Rules Format>.
     statefulRules :: Prelude.Maybe [StatefulRule],
     -- | Stateless inspection criteria to be used in a stateless rule group.
     statelessRulesAndCustomActions :: Prelude.Maybe StatelessRulesAndCustomActions
@@ -78,7 +78,7 @@ data RulesSource = RulesSource'
 -- together in a stateful rule group. Use this option to specify simple
 -- Suricata rules with protocol, source and destination, ports, direction,
 -- and rule options. For information about the Suricata @Rules@ format, see
--- <https://suricata.readthedocs.io/rules/intro.html# Rules Format>.
+-- <https://suricata.readthedocs.iorules/intro.html# Rules Format>.
 --
 -- 'statelessRulesAndCustomActions', 'rulesSource_statelessRulesAndCustomActions' - Stateless inspection criteria to be used in a stateless rule group.
 newRulesSource ::
@@ -110,7 +110,7 @@ rulesSource_rulesString = Lens.lens (\RulesSource' {rulesString} -> rulesString)
 -- together in a stateful rule group. Use this option to specify simple
 -- Suricata rules with protocol, source and destination, ports, direction,
 -- and rule options. For information about the Suricata @Rules@ format, see
--- <https://suricata.readthedocs.io/rules/intro.html# Rules Format>.
+-- <https://suricata.readthedocs.iorules/intro.html# Rules Format>.
 rulesSource_statefulRules :: Lens.Lens' RulesSource (Prelude.Maybe [StatefulRule])
 rulesSource_statefulRules = Lens.lens (\RulesSource' {statefulRules} -> statefulRules) (\s@RulesSource' {} a -> s {statefulRules = a} :: RulesSource) Prelude.. Lens.mapping Lens.coerced
 
@@ -132,7 +132,8 @@ instance Data.FromJSON RulesSource where
 
 instance Prelude.Hashable RulesSource where
   hashWithSalt _salt RulesSource' {..} =
-    _salt `Prelude.hashWithSalt` rulesSourceList
+    _salt
+      `Prelude.hashWithSalt` rulesSourceList
       `Prelude.hashWithSalt` rulesString
       `Prelude.hashWithSalt` statefulRules
       `Prelude.hashWithSalt` statelessRulesAndCustomActions

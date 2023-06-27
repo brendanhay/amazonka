@@ -94,7 +94,8 @@ instance Data.FromJSON StatelessRuleGroupReference where
 
 instance Prelude.Hashable StatelessRuleGroupReference where
   hashWithSalt _salt StatelessRuleGroupReference' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` priority
 
 instance Prelude.NFData StatelessRuleGroupReference where

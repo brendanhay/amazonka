@@ -55,6 +55,12 @@ data StatefulEngineOptions = StatefulEngineOptions'
     --     application layer protocol as HTTP. However, this behavior is rule
     --     dependent—a TCP-layer rule using a @flow:stateless@ rule would still
     --     match, as would the @aws:drop_strict@ default action.
+    --
+    -- -   @REJECT@ - Network Firewall fails closed and drops all subsequent
+    --     traffic going to the firewall. Network Firewall also sends a TCP
+    --     reject packet back to your client so that the client can immediately
+    --     establish a new session. Network Firewall will have context about
+    --     the new session and will apply rules to the subsequent traffic.
     streamExceptionPolicy :: Prelude.Maybe StreamExceptionPolicy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -91,6 +97,12 @@ data StatefulEngineOptions = StatefulEngineOptions'
 --     application layer protocol as HTTP. However, this behavior is rule
 --     dependent—a TCP-layer rule using a @flow:stateless@ rule would still
 --     match, as would the @aws:drop_strict@ default action.
+--
+-- -   @REJECT@ - Network Firewall fails closed and drops all subsequent
+--     traffic going to the firewall. Network Firewall also sends a TCP
+--     reject packet back to your client so that the client can immediately
+--     establish a new session. Network Firewall will have context about
+--     the new session and will apply rules to the subsequent traffic.
 newStatefulEngineOptions ::
   StatefulEngineOptions
 newStatefulEngineOptions =
@@ -125,6 +137,12 @@ statefulEngineOptions_ruleOrder = Lens.lens (\StatefulEngineOptions' {ruleOrder}
 --     application layer protocol as HTTP. However, this behavior is rule
 --     dependent—a TCP-layer rule using a @flow:stateless@ rule would still
 --     match, as would the @aws:drop_strict@ default action.
+--
+-- -   @REJECT@ - Network Firewall fails closed and drops all subsequent
+--     traffic going to the firewall. Network Firewall also sends a TCP
+--     reject packet back to your client so that the client can immediately
+--     establish a new session. Network Firewall will have context about
+--     the new session and will apply rules to the subsequent traffic.
 statefulEngineOptions_streamExceptionPolicy :: Lens.Lens' StatefulEngineOptions (Prelude.Maybe StreamExceptionPolicy)
 statefulEngineOptions_streamExceptionPolicy = Lens.lens (\StatefulEngineOptions' {streamExceptionPolicy} -> streamExceptionPolicy) (\s@StatefulEngineOptions' {} a -> s {streamExceptionPolicy = a} :: StatefulEngineOptions)
 
@@ -140,7 +158,8 @@ instance Data.FromJSON StatefulEngineOptions where
 
 instance Prelude.Hashable StatefulEngineOptions where
   hashWithSalt _salt StatefulEngineOptions' {..} =
-    _salt `Prelude.hashWithSalt` ruleOrder
+    _salt
+      `Prelude.hashWithSalt` ruleOrder
       `Prelude.hashWithSalt` streamExceptionPolicy
 
 instance Prelude.NFData StatefulEngineOptions where

@@ -77,6 +77,16 @@ module Amazonka.NetworkFirewall.Lens
     createRuleGroupResponse_updateToken,
     createRuleGroupResponse_ruleGroupResponse,
 
+    -- ** CreateTLSInspectionConfiguration
+    createTLSInspectionConfiguration_description,
+    createTLSInspectionConfiguration_encryptionConfiguration,
+    createTLSInspectionConfiguration_tags,
+    createTLSInspectionConfiguration_tLSInspectionConfigurationName,
+    createTLSInspectionConfiguration_tLSInspectionConfiguration,
+    createTLSInspectionConfigurationResponse_httpStatus,
+    createTLSInspectionConfigurationResponse_updateToken,
+    createTLSInspectionConfigurationResponse_tLSInspectionConfigurationResponse,
+
     -- ** DeleteFirewall
     deleteFirewall_firewallArn,
     deleteFirewall_firewallName,
@@ -100,6 +110,12 @@ module Amazonka.NetworkFirewall.Lens
     deleteRuleGroup_type,
     deleteRuleGroupResponse_httpStatus,
     deleteRuleGroupResponse_ruleGroupResponse,
+
+    -- ** DeleteTLSInspectionConfiguration
+    deleteTLSInspectionConfiguration_tLSInspectionConfigurationArn,
+    deleteTLSInspectionConfiguration_tLSInspectionConfigurationName,
+    deleteTLSInspectionConfigurationResponse_httpStatus,
+    deleteTLSInspectionConfigurationResponse_tLSInspectionConfigurationResponse,
 
     -- ** DescribeFirewall
     describeFirewall_firewallArn,
@@ -151,6 +167,14 @@ module Amazonka.NetworkFirewall.Lens
     describeRuleGroupMetadataResponse_ruleGroupArn,
     describeRuleGroupMetadataResponse_ruleGroupName,
 
+    -- ** DescribeTLSInspectionConfiguration
+    describeTLSInspectionConfiguration_tLSInspectionConfigurationArn,
+    describeTLSInspectionConfiguration_tLSInspectionConfigurationName,
+    describeTLSInspectionConfigurationResponse_tLSInspectionConfiguration,
+    describeTLSInspectionConfigurationResponse_httpStatus,
+    describeTLSInspectionConfigurationResponse_updateToken,
+    describeTLSInspectionConfigurationResponse_tLSInspectionConfigurationResponse,
+
     -- ** DisassociateSubnets
     disassociateSubnets_firewallArn,
     disassociateSubnets_firewallName,
@@ -186,6 +210,13 @@ module Amazonka.NetworkFirewall.Lens
     listRuleGroupsResponse_nextToken,
     listRuleGroupsResponse_ruleGroups,
     listRuleGroupsResponse_httpStatus,
+
+    -- ** ListTLSInspectionConfigurations
+    listTLSInspectionConfigurations_maxResults,
+    listTLSInspectionConfigurations_nextToken,
+    listTLSInspectionConfigurationsResponse_nextToken,
+    listTLSInspectionConfigurationsResponse_tLSInspectionConfigurations,
+    listTLSInspectionConfigurationsResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_maxResults,
@@ -301,6 +332,17 @@ module Amazonka.NetworkFirewall.Lens
     updateSubnetChangeProtectionResponse_updateToken,
     updateSubnetChangeProtectionResponse_httpStatus,
 
+    -- ** UpdateTLSInspectionConfiguration
+    updateTLSInspectionConfiguration_description,
+    updateTLSInspectionConfiguration_encryptionConfiguration,
+    updateTLSInspectionConfiguration_tLSInspectionConfigurationArn,
+    updateTLSInspectionConfiguration_tLSInspectionConfigurationName,
+    updateTLSInspectionConfiguration_tLSInspectionConfiguration,
+    updateTLSInspectionConfiguration_updateToken,
+    updateTLSInspectionConfigurationResponse_httpStatus,
+    updateTLSInspectionConfigurationResponse_updateToken,
+    updateTLSInspectionConfigurationResponse_tLSInspectionConfigurationResponse,
+
     -- * Types
 
     -- ** ActionDefinition
@@ -353,11 +395,13 @@ module Amazonka.NetworkFirewall.Lens
     firewallMetadata_firewallName,
 
     -- ** FirewallPolicy
+    firewallPolicy_policyVariables,
     firewallPolicy_statefulDefaultActions,
     firewallPolicy_statefulEngineOptions,
     firewallPolicy_statefulRuleGroupReferences,
     firewallPolicy_statelessCustomActions,
     firewallPolicy_statelessRuleGroupReferences,
+    firewallPolicy_tLSInspectionConfigurationArn,
     firewallPolicy_statelessDefaultActions,
     firewallPolicy_statelessFragmentDefaultActions,
 
@@ -421,6 +465,9 @@ module Amazonka.NetworkFirewall.Lens
     perObjectStatus_syncStatus,
     perObjectStatus_updateToken,
 
+    -- ** PolicyVariables
+    policyVariables_ruleVariables,
+
     -- ** PortRange
     portRange_fromPort,
     portRange_toPort,
@@ -483,6 +530,20 @@ module Amazonka.NetworkFirewall.Lens
     rulesSourceList_targetTypes,
     rulesSourceList_generatedRulesType,
 
+    -- ** ServerCertificate
+    serverCertificate_resourceArn,
+
+    -- ** ServerCertificateConfiguration
+    serverCertificateConfiguration_scopes,
+    serverCertificateConfiguration_serverCertificates,
+
+    -- ** ServerCertificateScope
+    serverCertificateScope_destinationPorts,
+    serverCertificateScope_destinations,
+    serverCertificateScope_protocols,
+    serverCertificateScope_sourcePorts,
+    serverCertificateScope_sources,
+
     -- ** SourceMetadata
     sourceMetadata_sourceArn,
     sourceMetadata_sourceUpdateToken,
@@ -520,6 +581,7 @@ module Amazonka.NetworkFirewall.Lens
     statelessRulesAndCustomActions_statelessRules,
 
     -- ** SubnetMapping
+    subnetMapping_iPAddressType,
     subnetMapping_subnetId,
 
     -- ** SyncState
@@ -530,9 +592,34 @@ module Amazonka.NetworkFirewall.Lens
     tCPFlagField_masks,
     tCPFlagField_flags,
 
+    -- ** TLSInspectionConfiguration
+    tLSInspectionConfiguration_serverCertificateConfigurations,
+
+    -- ** TLSInspectionConfigurationMetadata
+    tLSInspectionConfigurationMetadata_arn,
+    tLSInspectionConfigurationMetadata_name,
+
+    -- ** TLSInspectionConfigurationResponse
+    tLSInspectionConfigurationResponse_certificates,
+    tLSInspectionConfigurationResponse_description,
+    tLSInspectionConfigurationResponse_encryptionConfiguration,
+    tLSInspectionConfigurationResponse_lastModifiedTime,
+    tLSInspectionConfigurationResponse_numberOfAssociations,
+    tLSInspectionConfigurationResponse_tLSInspectionConfigurationStatus,
+    tLSInspectionConfigurationResponse_tags,
+    tLSInspectionConfigurationResponse_tLSInspectionConfigurationArn,
+    tLSInspectionConfigurationResponse_tLSInspectionConfigurationName,
+    tLSInspectionConfigurationResponse_tLSInspectionConfigurationId,
+
     -- ** Tag
     tag_key,
     tag_value,
+
+    -- ** TlsCertificateData
+    tlsCertificateData_certificateArn,
+    tlsCertificateData_certificateSerial,
+    tlsCertificateData_status,
+    tlsCertificateData_statusMessage,
   )
 where
 
@@ -541,20 +628,24 @@ import Amazonka.NetworkFirewall.AssociateSubnets
 import Amazonka.NetworkFirewall.CreateFirewall
 import Amazonka.NetworkFirewall.CreateFirewallPolicy
 import Amazonka.NetworkFirewall.CreateRuleGroup
+import Amazonka.NetworkFirewall.CreateTLSInspectionConfiguration
 import Amazonka.NetworkFirewall.DeleteFirewall
 import Amazonka.NetworkFirewall.DeleteFirewallPolicy
 import Amazonka.NetworkFirewall.DeleteResourcePolicy
 import Amazonka.NetworkFirewall.DeleteRuleGroup
+import Amazonka.NetworkFirewall.DeleteTLSInspectionConfiguration
 import Amazonka.NetworkFirewall.DescribeFirewall
 import Amazonka.NetworkFirewall.DescribeFirewallPolicy
 import Amazonka.NetworkFirewall.DescribeLoggingConfiguration
 import Amazonka.NetworkFirewall.DescribeResourcePolicy
 import Amazonka.NetworkFirewall.DescribeRuleGroup
 import Amazonka.NetworkFirewall.DescribeRuleGroupMetadata
+import Amazonka.NetworkFirewall.DescribeTLSInspectionConfiguration
 import Amazonka.NetworkFirewall.DisassociateSubnets
 import Amazonka.NetworkFirewall.ListFirewallPolicies
 import Amazonka.NetworkFirewall.ListFirewalls
 import Amazonka.NetworkFirewall.ListRuleGroups
+import Amazonka.NetworkFirewall.ListTLSInspectionConfigurations
 import Amazonka.NetworkFirewall.ListTagsForResource
 import Amazonka.NetworkFirewall.PutResourcePolicy
 import Amazonka.NetworkFirewall.TagResource
@@ -580,6 +671,7 @@ import Amazonka.NetworkFirewall.Types.LogDestinationConfig
 import Amazonka.NetworkFirewall.Types.LoggingConfiguration
 import Amazonka.NetworkFirewall.Types.MatchAttributes
 import Amazonka.NetworkFirewall.Types.PerObjectStatus
+import Amazonka.NetworkFirewall.Types.PolicyVariables
 import Amazonka.NetworkFirewall.Types.PortRange
 import Amazonka.NetworkFirewall.Types.PortSet
 import Amazonka.NetworkFirewall.Types.PublishMetricAction
@@ -592,6 +684,9 @@ import Amazonka.NetworkFirewall.Types.RuleOption
 import Amazonka.NetworkFirewall.Types.RuleVariables
 import Amazonka.NetworkFirewall.Types.RulesSource
 import Amazonka.NetworkFirewall.Types.RulesSourceList
+import Amazonka.NetworkFirewall.Types.ServerCertificate
+import Amazonka.NetworkFirewall.Types.ServerCertificateConfiguration
+import Amazonka.NetworkFirewall.Types.ServerCertificateScope
 import Amazonka.NetworkFirewall.Types.SourceMetadata
 import Amazonka.NetworkFirewall.Types.StatefulEngineOptions
 import Amazonka.NetworkFirewall.Types.StatefulRule
@@ -604,7 +699,11 @@ import Amazonka.NetworkFirewall.Types.StatelessRulesAndCustomActions
 import Amazonka.NetworkFirewall.Types.SubnetMapping
 import Amazonka.NetworkFirewall.Types.SyncState
 import Amazonka.NetworkFirewall.Types.TCPFlagField
+import Amazonka.NetworkFirewall.Types.TLSInspectionConfiguration
+import Amazonka.NetworkFirewall.Types.TLSInspectionConfigurationMetadata
+import Amazonka.NetworkFirewall.Types.TLSInspectionConfigurationResponse
 import Amazonka.NetworkFirewall.Types.Tag
+import Amazonka.NetworkFirewall.Types.TlsCertificateData
 import Amazonka.NetworkFirewall.UntagResource
 import Amazonka.NetworkFirewall.UpdateFirewallDeleteProtection
 import Amazonka.NetworkFirewall.UpdateFirewallDescription
@@ -614,3 +713,4 @@ import Amazonka.NetworkFirewall.UpdateFirewallPolicyChangeProtection
 import Amazonka.NetworkFirewall.UpdateLoggingConfiguration
 import Amazonka.NetworkFirewall.UpdateRuleGroup
 import Amazonka.NetworkFirewall.UpdateSubnetChangeProtection
+import Amazonka.NetworkFirewall.UpdateTLSInspectionConfiguration

@@ -183,7 +183,8 @@ instance Data.FromJSON RuleDefinition where
 
 instance Prelude.Hashable RuleDefinition where
   hashWithSalt _salt RuleDefinition' {..} =
-    _salt `Prelude.hashWithSalt` matchAttributes
+    _salt
+      `Prelude.hashWithSalt` matchAttributes
       `Prelude.hashWithSalt` actions
 
 instance Prelude.NFData RuleDefinition where

@@ -22,6 +22,8 @@ module Amazonka.NetworkFirewall.Types.AttachmentStatus
       ( ..,
         AttachmentStatus_CREATING,
         AttachmentStatus_DELETING,
+        AttachmentStatus_ERROR,
+        AttachmentStatus_FAILED,
         AttachmentStatus_READY,
         AttachmentStatus_SCALING
       ),
@@ -66,6 +68,12 @@ pattern AttachmentStatus_CREATING = AttachmentStatus' "CREATING"
 pattern AttachmentStatus_DELETING :: AttachmentStatus
 pattern AttachmentStatus_DELETING = AttachmentStatus' "DELETING"
 
+pattern AttachmentStatus_ERROR :: AttachmentStatus
+pattern AttachmentStatus_ERROR = AttachmentStatus' "ERROR"
+
+pattern AttachmentStatus_FAILED :: AttachmentStatus
+pattern AttachmentStatus_FAILED = AttachmentStatus' "FAILED"
+
 pattern AttachmentStatus_READY :: AttachmentStatus
 pattern AttachmentStatus_READY = AttachmentStatus' "READY"
 
@@ -75,6 +83,8 @@ pattern AttachmentStatus_SCALING = AttachmentStatus' "SCALING"
 {-# COMPLETE
   AttachmentStatus_CREATING,
   AttachmentStatus_DELETING,
+  AttachmentStatus_ERROR,
+  AttachmentStatus_FAILED,
   AttachmentStatus_READY,
   AttachmentStatus_SCALING,
   AttachmentStatus'

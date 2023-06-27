@@ -21,7 +21,8 @@ module Amazonka.NetworkFirewall.Types.StreamExceptionPolicy
   ( StreamExceptionPolicy
       ( ..,
         StreamExceptionPolicy_CONTINUE,
-        StreamExceptionPolicy_DROP
+        StreamExceptionPolicy_DROP,
+        StreamExceptionPolicy_REJECT
       ),
   )
 where
@@ -64,8 +65,12 @@ pattern StreamExceptionPolicy_CONTINUE = StreamExceptionPolicy' "CONTINUE"
 pattern StreamExceptionPolicy_DROP :: StreamExceptionPolicy
 pattern StreamExceptionPolicy_DROP = StreamExceptionPolicy' "DROP"
 
+pattern StreamExceptionPolicy_REJECT :: StreamExceptionPolicy
+pattern StreamExceptionPolicy_REJECT = StreamExceptionPolicy' "REJECT"
+
 {-# COMPLETE
   StreamExceptionPolicy_CONTINUE,
   StreamExceptionPolicy_DROP,
+  StreamExceptionPolicy_REJECT,
   StreamExceptionPolicy'
   #-}

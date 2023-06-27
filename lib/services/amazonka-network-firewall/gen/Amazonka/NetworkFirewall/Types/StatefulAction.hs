@@ -22,7 +22,8 @@ module Amazonka.NetworkFirewall.Types.StatefulAction
       ( ..,
         StatefulAction_ALERT,
         StatefulAction_DROP,
-        StatefulAction_PASS
+        StatefulAction_PASS,
+        StatefulAction_REJECT
       ),
   )
 where
@@ -68,9 +69,13 @@ pattern StatefulAction_DROP = StatefulAction' "DROP"
 pattern StatefulAction_PASS :: StatefulAction
 pattern StatefulAction_PASS = StatefulAction' "PASS"
 
+pattern StatefulAction_REJECT :: StatefulAction
+pattern StatefulAction_REJECT = StatefulAction' "REJECT"
+
 {-# COMPLETE
   StatefulAction_ALERT,
   StatefulAction_DROP,
   StatefulAction_PASS,
+  StatefulAction_REJECT,
   StatefulAction'
   #-}

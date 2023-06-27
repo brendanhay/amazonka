@@ -91,10 +91,6 @@ data PutResourcePolicy = PutResourcePolicy'
     -- For a firewall policy resource, you can specify the following operations
     -- in the Actions section of the statement:
     --
-    -- -   network-firewall:CreateFirewall
-    --
-    -- -   network-firewall:UpdateFirewall
-    --
     -- -   network-firewall:AssociateFirewallPolicy
     --
     -- -   network-firewall:ListFirewallPolicies
@@ -132,10 +128,6 @@ data PutResourcePolicy = PutResourcePolicy'
 --
 -- For a firewall policy resource, you can specify the following operations
 -- in the Actions section of the statement:
---
--- -   network-firewall:CreateFirewall
---
--- -   network-firewall:UpdateFirewall
 --
 -- -   network-firewall:AssociateFirewallPolicy
 --
@@ -177,10 +169,6 @@ putResourcePolicy_resourceArn = Lens.lens (\PutResourcePolicy' {resourceArn} -> 
 -- For a firewall policy resource, you can specify the following operations
 -- in the Actions section of the statement:
 --
--- -   network-firewall:CreateFirewall
---
--- -   network-firewall:UpdateFirewall
---
 -- -   network-firewall:AssociateFirewallPolicy
 --
 -- -   network-firewall:ListFirewallPolicies
@@ -206,7 +194,8 @@ instance Core.AWSRequest PutResourcePolicy where
 
 instance Prelude.Hashable PutResourcePolicy where
   hashWithSalt _salt PutResourcePolicy' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` policy
 
 instance Prelude.NFData PutResourcePolicy where
